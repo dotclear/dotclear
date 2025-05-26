@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-25 13:29+0200\n"
-"PO-Revision-Date: 2025-05-25 15:59\n"
+"POT-Creation-Date: 2025-05-26 18:37+0200\n"
+"PO-Revision-Date: 2025-05-26 16:40\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -193,10 +193,6 @@ msgstr "관련 환경 설정 삭제됨"
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:73
 msgid "Failed to delete related preferences"
 msgstr "관련 환경설정을 삭제하지 못했습니다."
-
-#: plugins/Uninstaller/src/Cleaner/Settings.php:38
-msgid "Settings"
-msgstr "설정"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:39
 msgid "Namespaces registered in dcSettings"
@@ -1045,11 +1041,11 @@ msgstr "링크의 제목을 지정해야합니다."
 msgid "You must provide a link URL"
 msgstr "링크의 URL을 지정해야합니다."
 
-#: plugins/blogroll/src/Blogroll.php:413
+#: plugins/blogroll/src/Blogroll.php:421
 msgid "You are not allowed to change link status"
 msgstr "링크 상태는 변경할 수 없습니다"
 
-#: plugins/blogroll/src/Blogroll.php:443
+#: plugins/blogroll/src/Blogroll.php:454
 msgid "You are not allowed to delete links"
 msgstr "링크는 삭제할 수 없습니다"
 
@@ -3085,10 +3081,6 @@ msgstr "사용자:환경설정"
 #: plugins/userPref/src/Manage.php:89 plugins/userPref/src/Manage.php:108
 msgid "Preferences successfully updated"
 msgstr "환경 설정이 성공적으로 업데이트되었습니다."
-
-#: plugins/userPref/src/Manage.php:148 plugins/userPref/src/Manage.php:150
-msgid "User preferences"
-msgstr "사용자 기본 설정"
 
 #: plugins/userPref/src/Manage.php:158 plugins/userPref/src/Manage.php:160
 msgid "Global preferences"

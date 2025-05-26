@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-25 13:29+0200\n"
-"PO-Revision-Date: 2025-05-25 16:00\n"
+"POT-Creation-Date: 2025-05-26 18:37+0200\n"
+"PO-Revision-Date: 2025-05-26 16:41\n"
 "Last-Translator: \n"
 "Language-Team: Esperanto\n"
 "Language: eo_UY\n"
@@ -193,10 +193,6 @@ msgstr "rilataj preferoj forigitaj"
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:73
 msgid "Failed to delete related preferences"
 msgstr "Malsukcesis forigi rilatajn preferojn"
-
-#: plugins/Uninstaller/src/Cleaner/Settings.php:38
-msgid "Settings"
-msgstr "Agordoj"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:39
 msgid "Namespaces registered in dcSettings"
@@ -1047,11 +1043,11 @@ msgstr "Vi devas provizi ligan titolon"
 msgid "You must provide a link URL"
 msgstr "Vi devas provizi ligan URL"
 
-#: plugins/blogroll/src/Blogroll.php:413
+#: plugins/blogroll/src/Blogroll.php:421
 msgid "You are not allowed to change link status"
 msgstr "Vi ne rajtas ŝanĝi la staton de la ligo"
 
-#: plugins/blogroll/src/Blogroll.php:443
+#: plugins/blogroll/src/Blogroll.php:454
 msgid "You are not allowed to delete links"
 msgstr "Vi ne rajtas forigi ligilojn"
 
@@ -3091,10 +3087,6 @@ msgstr "uzanto:preferoj"
 #: plugins/userPref/src/Manage.php:89 plugins/userPref/src/Manage.php:108
 msgid "Preferences successfully updated"
 msgstr "Preferoj sukcese ĝisdatigitaj"
-
-#: plugins/userPref/src/Manage.php:148 plugins/userPref/src/Manage.php:150
-msgid "User preferences"
-msgstr "Preferoj de uzantoj"
 
 #: plugins/userPref/src/Manage.php:158 plugins/userPref/src/Manage.php:160
 msgid "Global preferences"

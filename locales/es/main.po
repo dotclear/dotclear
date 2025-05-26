@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-23 19:05+0200\n"
-"PO-Revision-Date: 2025-05-24 16:41\n"
+"POT-Creation-Date: 2025-05-26 18:37+0200\n"
+"PO-Revision-Date: 2025-05-26 17:49\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
 "Language: es_ES\n"
@@ -38,7 +38,7 @@ msgstr "cuadrado"
 #: inc/core/_fake_l10n.php:13 src/Core/Backend/Action/Actions.php:139
 #: src/Core/Backend/Action/ActionsPosts.php:65
 #: src/Core/Backend/Action/ActionsPosts.php:72
-#: src/Core/Backend/Favorites.php:425 src/Core/Backend/Menus.php:167
+#: src/Core/Backend/Favorites.php:425 src/Core/Backend/Menus.php:168
 #: src/Core/Backend/UserPref.php:41 src/Core/Backend/UserPref.php:178
 #: src/Process/Backend/Post.php:544 src/Process/Backend/Post.php:558
 #: src/Process/Backend/Posts.php:93 src/Process/Backend/Posts.php:98
@@ -102,7 +102,7 @@ msgstr "Título"
 #: src/Core/Backend/Action/ActionsBlogs.php:72
 #: src/Core/Backend/Action/ActionsBlogs.php:79
 #: src/Core/Backend/Action/ActionsBlogs.php:117
-#: src/Core/Backend/Favorites.php:502 src/Core/Backend/Menus.php:244
+#: src/Core/Backend/Favorites.php:502 src/Core/Backend/Menus.php:258
 #: src/Core/Backend/UserPref.php:75 src/Core/Backend/UserPref.php:192
 #: src/Process/Backend/Blog.php:100 src/Process/Backend/BlogDel.php:93
 #: src/Process/Backend/BlogPref.php:460
@@ -155,7 +155,7 @@ msgstr "Estado"
 #: src/Core/Backend/Action/ActionsPostsDefault.php:100
 #: src/Core/Backend/Listing/ListingMedia.php:305
 #: src/Core/Backend/Listing/ListingMedia.php:308
-#: src/Core/Backend/ModulesList.php:1329 src/Core/Upgrade/PluginsList.php:123
+#: src/Core/Backend/ModulesList.php:1349 src/Core/Upgrade/PluginsList.php:125
 #: src/Process/Backend/Comment.php:355 src/Process/Backend/Langs.php:231
 #: src/Process/Backend/Post.php:935 src/Process/Backend/Users.php:46
 #: src/Process/Upgrade/Langs.php:299
@@ -172,8 +172,8 @@ msgid "Selected blogs have been successfully updated."
 msgstr "Los blogs seleccionados se han actualizado correctamente."
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:104
-#: src/Core/Backend/ModulesList.php:1667 src/Core/Backend/ThemesList.php:750
-#: src/Core/Upgrade/PluginsList.php:396 src/Process/Backend/BlogDel.php:69
+#: src/Core/Backend/ModulesList.php:1687 src/Core/Backend/ThemesList.php:750
+#: src/Core/Upgrade/PluginsList.php:398 src/Process/Backend/BlogDel.php:69
 #: src/Process/Backend/Langs.php:114 src/Process/Backend/Langs.php:159
 #: src/Process/Backend/User.php:127 src/Process/Backend/UsersActions.php:182
 #: src/Process/Upgrade/Langs.php:164 src/Process/Upgrade/Langs.php:209
@@ -199,7 +199,7 @@ msgstr[1] "%d los blogs se han eliminado correctamente"
 #: src/Core/Backend/Favorites.php:440
 #: src/Core/Backend/Listing/ListingPosts.php:95
 #: src/Core/Backend/Listing/ListingPosts.php:98
-#: src/Core/Backend/Listing/ListingPosts.php:99 src/Core/Backend/Menus.php:154
+#: src/Core/Backend/Listing/ListingPosts.php:99 src/Core/Backend/Menus.php:155
 #: src/Core/Backend/UserPref.php:46 src/Core/Backend/UserPref.php:51
 #: src/Core/Backend/UserPref.php:185 src/Process/Backend/Post.php:1008
 #: src/Process/Backend/Post.php:1035
@@ -402,7 +402,7 @@ msgstr "Padre:"
 #: src/Core/Backend/Action/ActionsPostsDefault.php:393
 #: src/Core/Backend/Action/ActionsPostsDefault.php:498
 #: src/Core/Backend/Action/ActionsPostsDefault.php:582
-#: src/Core/Backend/ModulesList.php:1958 src/Process/Backend/BlogPref.php:1180
+#: src/Core/Backend/ModulesList.php:1978 src/Process/Backend/BlogPref.php:1180
 #: src/Process/Backend/Category.php:298 src/Process/Backend/Category.php:337
 #: src/Process/Backend/Category.php:373 src/Process/Backend/Comment.php:350
 #: src/Process/Backend/Home.php:598 src/Process/Backend/MediaItem.php:1273
@@ -558,13 +558,13 @@ msgstr "Número de entradas"
 msgid "My favorites"
 msgstr "Mis favoritos"
 
-#: src/Core/Backend/Favorites.php:408 src/Core/Backend/Menus.php:194
+#: src/Core/Backend/Favorites.php:408 src/Core/Backend/Menus.php:195
 #: src/Core/Backend/Page.php:382 src/Process/Backend/Media.php:782
 #: src/Process/Backend/UserPreferences.php:71
 msgid "My preferences"
 msgstr "Mis preferencias"
 
-#: src/Core/Backend/Favorites.php:414 src/Core/Backend/Menus.php:180
+#: src/Core/Backend/Favorites.php:414 src/Core/Backend/Menus.php:181
 #: src/Process/Backend/Home.php:532 src/Process/Backend/Post.php:95
 #: src/Process/Backend/Post.php:943 src/Process/Backend/Posts.php:114
 msgid "New post"
@@ -584,14 +584,14 @@ msgid_plural "%d comments"
 msgstr[0] "%d comentario"
 msgstr[1] "%d comentarios"
 
-#: src/Core/Backend/Favorites.php:455 src/Core/Backend/Menus.php:141
+#: src/Core/Backend/Favorites.php:455 src/Core/Backend/Menus.php:142
 #: src/Core/Backend/UserPref.php:212 src/Process/Backend/PostsPopup.php:139
 #: src/Process/Backend/Search.php:158 src/Process/Backend/Search.php:163
 #: src/Process/Backend/Search.php:194
 msgid "Search"
 msgstr "Buscar"
 
-#: src/Core/Backend/Favorites.php:465 src/Core/Backend/Menus.php:129
+#: src/Core/Backend/Favorites.php:465 src/Core/Backend/Menus.php:130
 #: src/Process/Backend/Categories.php:157
 #: src/Process/Backend/Categories.php:162 src/Process/Backend/Category.php:212
 msgid "Categories"
@@ -599,25 +599,25 @@ msgstr "Categorías"
 
 #: src/Core/Backend/Favorites.php:474 src/Core/Backend/MediaPage.php:354
 #: src/Core/Backend/MediaPage.php:356 src/Core/Backend/MediaPage.php:407
-#: src/Core/Backend/Menus.php:116 src/Core/Backend/UserPref.php:200
+#: src/Core/Backend/Menus.php:117 src/Core/Backend/UserPref.php:200
 #: src/Process/Backend/Media.php:688 src/Process/Backend/Media.php:816
 #: src/Process/Backend/MediaItem.php:401 src/Process/Backend/MediaItem.php:407
 msgid "Media manager"
 msgstr "Gestor de medios"
 
-#: src/Core/Backend/Favorites.php:484 src/Core/Backend/Menus.php:104
+#: src/Core/Backend/Favorites.php:484 src/Core/Backend/Menus.php:105
 #: src/Process/Backend/BlogPref.php:453 src/Process/Backend/BlogPref.php:461
 #: src/Process/Backend/BlogPref.php:474
 msgid "Blog settings"
 msgstr "Ajustes del blog"
 
-#: src/Core/Backend/Favorites.php:493 src/Core/Backend/Menus.php:92
+#: src/Core/Backend/Favorites.php:493 src/Core/Backend/Menus.php:93
 #: src/Process/Backend/BlogTheme.php:96 src/Process/Backend/BlogTheme.php:105
 #: src/Process/Backend/BlogTheme.php:177
 msgid "Blog appearance"
 msgstr "Aspecto del blog"
 
-#: src/Core/Backend/Favorites.php:512 src/Core/Backend/Menus.php:234
+#: src/Core/Backend/Favorites.php:512 src/Core/Backend/Menus.php:248
 #: src/Core/Backend/UserPref.php:65 src/Core/Backend/UserPref.php:168
 #: src/Process/Backend/BlogPref.php:1371 src/Process/Backend/User.php:274
 #: src/Process/Backend/Users.php:104 src/Process/Backend/Users.php:109
@@ -627,19 +627,24 @@ msgstr "Aspecto del blog"
 msgid "Users"
 msgstr "Usuarios"
 
-#: src/Core/Backend/Favorites.php:518 src/Core/Backend/Menus.php:224
+#: src/Core/Backend/Favorites.php:518 src/Core/Backend/Menus.php:225
 #: src/Process/Backend/Plugins.php:104 src/Process/Backend/Plugins.php:117
 #: src/Process/Backend/Plugins.php:370 src/Process/Backend/Plugins.php:377
 #: src/Process/Upgrade/Plugins.php:166 src/Process/Upgrade/Plugins.php:176
 msgid "Plugins management"
 msgstr "Gestión de los complementos"
 
-#: src/Core/Backend/Favorites.php:524 src/Core/Backend/Menus.php:214
+#: src/Core/Backend/Favorites.php:524 src/Core/Backend/Menus.php:235
+#: src/Process/Backend/Settings.php:52 src/Process/Backend/Settings.php:59
+msgid "Plugins settings"
+msgstr "Configuración de plugins"
+
+#: src/Core/Backend/Favorites.php:530 src/Core/Backend/Menus.php:215
 #: src/Core/Upgrade/Utility.php:291
 msgid "Languages"
 msgstr "Idiomas"
 
-#: src/Core/Backend/Favorites.php:530 src/Core/Backend/Page.php:458
+#: src/Core/Backend/Favorites.php:536 src/Core/Backend/Page.php:458
 #: src/Core/Backend/Page.php:459 src/Process/Backend/Help.php:108
 #: src/Process/Backend/Help.php:115 src/Process/Backend/Help.php:121
 msgid "Global help"
@@ -823,7 +828,7 @@ msgid "No blog matches the filter"
 msgstr "Ningún blog coincide con el filtro"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:87
-#: src/Core/Backend/ModulesList.php:1779 src/Core/Backend/UserPref.php:78
+#: src/Core/Backend/ModulesList.php:1799 src/Core/Backend/UserPref.php:78
 #: src/Process/Backend/LinkPopup.php:90
 #: src/Process/Backend/UsersActions.php:376
 msgid "URL"
@@ -1116,20 +1121,20 @@ msgid_plural "%s files found"
 msgstr[0] "%s archivo encontrado"
 msgstr[1] "%s archivos encontrados"
 
-#: src/Core/Backend/Menus.php:85
+#: src/Core/Backend/Menus.php:86 src/Process/Backend/Settings.php:144
 msgid "Blog"
 msgstr "Blog"
 
-#: src/Core/Backend/Menus.php:86
+#: src/Core/Backend/Menus.php:87
 msgid "System settings"
 msgstr "Configuración del sistema"
 
-#: src/Core/Backend/Menus.php:87 src/Core/Upgrade/Utility.php:300
+#: src/Core/Backend/Menus.php:88 src/Core/Upgrade/Utility.php:300
 msgid "Plugins"
 msgstr "Complementos"
 
-#: src/Core/Backend/Menus.php:204 src/Core/Backend/ModulesList.php:1358
-#: src/Core/Upgrade/PluginsList.php:142 src/Core/Upgrade/Utility.php:264
+#: src/Core/Backend/Menus.php:205 src/Core/Backend/ModulesList.php:1378
+#: src/Core/Upgrade/PluginsList.php:144 src/Core/Upgrade/Utility.php:264
 #: src/Process/Upgrade/Upgrade.php:59 src/Process/Upgrade/Upgrade.php:84
 #: src/Process/Upgrade/Upgrade.php:313
 msgid "Update"
@@ -1269,140 +1274,140 @@ msgstr "No hay plugins que coincidan con su búsqueda."
 msgid "Plugins list"
 msgstr "Lista de plugins"
 
-#: src/Core/Backend/ModulesList.php:1212
+#: src/Core/Backend/ModulesList.php:1217
 msgid "Configure plugin"
 msgstr "Configurar plugin"
 
-#: src/Core/Backend/ModulesList.php:1225
+#: src/Core/Backend/ModulesList.php:1233
 msgid "Plugin settings (in blog parameters)"
 msgstr "Configuración del plugin (en los parámetros del blog)"
 
-#: src/Core/Backend/ModulesList.php:1238
+#: src/Core/Backend/ModulesList.php:1249
 msgid "Plugin settings (in user preferences)"
 msgstr "Configuración del plugin (en las preferencias del usuario)"
 
-#: src/Core/Backend/ModulesList.php:1249 src/Core/Backend/ModulesList.php:1262
+#: src/Core/Backend/ModulesList.php:1263 src/Core/Backend/ModulesList.php:1279
 msgid "Plugin settings"
 msgstr "Configuración del plugin"
 
-#: src/Core/Backend/ModulesList.php:1274
+#: src/Core/Backend/ModulesList.php:1294
 msgid "Plugin main page"
 msgstr "Página principal del plugin"
 
-#: src/Core/Backend/ModulesList.php:1309 src/Core/Upgrade/PluginsList.php:103
+#: src/Core/Backend/ModulesList.php:1329 src/Core/Upgrade/PluginsList.php:105
 msgid "Activate"
 msgstr "Activar"
 
-#: src/Core/Backend/ModulesList.php:1318 src/Core/Upgrade/PluginsList.php:112
+#: src/Core/Backend/ModulesList.php:1338 src/Core/Upgrade/PluginsList.php:114
 msgid "Deactivate"
 msgstr "Desactivar"
 
-#: src/Core/Backend/ModulesList.php:1339
+#: src/Core/Backend/ModulesList.php:1359
 msgid "Clone"
 msgstr "Clon"
 
-#: src/Core/Backend/ModulesList.php:1349 src/Core/Upgrade/PluginsList.php:133
+#: src/Core/Backend/ModulesList.php:1369 src/Core/Upgrade/PluginsList.php:135
 msgid "Install"
 msgstr "Instale"
 
-#: src/Core/Backend/ModulesList.php:1400 src/Core/Upgrade/PluginsList.php:172
+#: src/Core/Backend/ModulesList.php:1420 src/Core/Upgrade/PluginsList.php:174
 msgid "Activate selected plugins"
 msgstr "Activar los plugins seleccionados"
 
-#: src/Core/Backend/ModulesList.php:1401 src/Core/Upgrade/PluginsList.php:173
+#: src/Core/Backend/ModulesList.php:1421 src/Core/Upgrade/PluginsList.php:175
 msgid "Activate all plugins from this list"
 msgstr "Activar todos los plugins de esta lista"
 
-#: src/Core/Backend/ModulesList.php:1411 src/Core/Upgrade/PluginsList.php:183
+#: src/Core/Backend/ModulesList.php:1431 src/Core/Upgrade/PluginsList.php:185
 msgid "Deactivate selected plugins"
 msgstr "Desactivar los plugins seleccionados"
 
-#: src/Core/Backend/ModulesList.php:1412 src/Core/Upgrade/PluginsList.php:184
+#: src/Core/Backend/ModulesList.php:1432 src/Core/Upgrade/PluginsList.php:186
 msgid "Deactivate all plugins from this list"
 msgstr "Desactivar todos los plugins de esta lista"
 
-#: src/Core/Backend/ModulesList.php:1422 src/Core/Upgrade/PluginsList.php:194
+#: src/Core/Backend/ModulesList.php:1442 src/Core/Upgrade/PluginsList.php:196
 msgid "Update selected plugins"
 msgstr "Actualizar los plugins seleccionados"
 
-#: src/Core/Backend/ModulesList.php:1423 src/Core/Upgrade/PluginsList.php:195
+#: src/Core/Backend/ModulesList.php:1443 src/Core/Upgrade/PluginsList.php:197
 msgid "Update all plugins from this list"
 msgstr "Actualice todos los plugins de esta lista"
 
-#: src/Core/Backend/ModulesList.php:1474 src/Core/Backend/ModulesList.php:1528
-#: src/Core/Backend/ModulesList.php:1559 src/Core/Backend/ModulesList.php:1597
-#: src/Core/Backend/ModulesList.php:1658 src/Core/Upgrade/PluginsList.php:234
-#: src/Core/Upgrade/PluginsList.php:276 src/Core/Upgrade/PluginsList.php:301
-#: src/Core/Upgrade/PluginsList.php:333 src/Core/Upgrade/PluginsList.php:387
+#: src/Core/Backend/ModulesList.php:1494 src/Core/Backend/ModulesList.php:1548
+#: src/Core/Backend/ModulesList.php:1579 src/Core/Backend/ModulesList.php:1617
+#: src/Core/Backend/ModulesList.php:1678 src/Core/Upgrade/PluginsList.php:236
+#: src/Core/Upgrade/PluginsList.php:278 src/Core/Upgrade/PluginsList.php:303
+#: src/Core/Upgrade/PluginsList.php:335 src/Core/Upgrade/PluginsList.php:389
 msgid "No such plugin."
 msgstr "Complemento inexistente."
 
-#: src/Core/Backend/ModulesList.php:1494 src/Core/Upgrade/PluginsList.php:248
+#: src/Core/Backend/ModulesList.php:1514 src/Core/Upgrade/PluginsList.php:250
 msgid "You don't have permissions to delete this plugin."
 msgstr "No tiene permisos para borrar este complemento."
 
-#: src/Core/Backend/ModulesList.php:1496 src/Core/Upgrade/PluginsList.php:250
+#: src/Core/Backend/ModulesList.php:1516 src/Core/Upgrade/PluginsList.php:252
 msgid "Some plugins have not been delete."
 msgstr "Algunos plugins no se han eliminado."
 
-#: src/Core/Backend/ModulesList.php:1499 src/Core/Upgrade/PluginsList.php:253
+#: src/Core/Backend/ModulesList.php:1519 src/Core/Upgrade/PluginsList.php:255
 msgid "Plugin has been successfully deleted."
 msgid_plural "Plugins have been successuflly deleted."
 msgstr[0] "El plugin se ha eliminado correctamente."
 msgstr[1] "Los plugins se han eliminado correctamente."
 
-#: src/Core/Backend/ModulesList.php:1532 src/Core/Upgrade/PluginsList.php:280
+#: src/Core/Backend/ModulesList.php:1552 src/Core/Upgrade/PluginsList.php:282
 msgid "Plugin has been successfully installed."
 msgid_plural "Plugins have been successfully installed."
 msgstr[0] "El plugin se ha instalado correctamente."
 msgstr[1] "Los plugins se han instalado correctamente."
 
-#: src/Core/Backend/ModulesList.php:1563 src/Core/Upgrade/PluginsList.php:305
+#: src/Core/Backend/ModulesList.php:1583 src/Core/Upgrade/PluginsList.php:307
 msgid "Plugin has been successfully activated."
 msgid_plural "Plugins have been successuflly activated."
 msgstr[0] "El plugin se ha activado correctamente."
 msgstr[1] "Los plugins se han activado correctamente."
 
-#: src/Core/Backend/ModulesList.php:1601 src/Core/Upgrade/PluginsList.php:337
+#: src/Core/Backend/ModulesList.php:1621 src/Core/Upgrade/PluginsList.php:339
 msgid "Some plugins have not been deactivated."
 msgstr "Algunos plugins no se han desactivado."
 
-#: src/Core/Backend/ModulesList.php:1604 src/Core/Upgrade/PluginsList.php:340
+#: src/Core/Backend/ModulesList.php:1624 src/Core/Upgrade/PluginsList.php:342
 msgid "Plugin has been successfully deactivated."
 msgid_plural "Plugins have been successuflly deactivated."
 msgstr[0] "El plugin se ha desactivado correctamente."
 msgstr[1] "Los plugins se han desactivado correctamente."
 
-#: src/Core/Backend/ModulesList.php:1651 src/Core/Upgrade/PluginsList.php:380
+#: src/Core/Backend/ModulesList.php:1671 src/Core/Upgrade/PluginsList.php:382
 msgid "Plugin has been successfully updated."
 msgid_plural "Plugins have been successfully updated."
 msgstr[0] "El plugin se ha actualizado correctamente."
 msgstr[1] "Los plugins se han actualizado correctamente."
 
-#: src/Core/Backend/ModulesList.php:1655 src/Core/Upgrade/PluginsList.php:384
+#: src/Core/Backend/ModulesList.php:1675 src/Core/Upgrade/PluginsList.php:386
 #, php-format
 msgid "Following plugins updates are locked: %s"
 msgstr "Las siguientes actualizaciones de plugins están bloqueadas: %s"
 
-#: src/Core/Backend/ModulesList.php:1675 src/Core/Backend/ThemesList.php:758
-#: src/Core/Upgrade/PluginsList.php:404 src/Process/Backend/Langs.php:165
+#: src/Core/Backend/ModulesList.php:1695 src/Core/Backend/ThemesList.php:758
+#: src/Core/Upgrade/PluginsList.php:406 src/Process/Backend/Langs.php:165
 #: src/Process/Upgrade/Langs.php:215
 msgid "Unable to move uploaded file."
 msgstr "No fue posible mover el fichero descargado."
 
-#: src/Core/Backend/ModulesList.php:1693 src/Core/Upgrade/PluginsList.php:416
+#: src/Core/Backend/ModulesList.php:1713 src/Core/Upgrade/PluginsList.php:418
 msgid "The plugin has been successfully updated."
 msgstr "El plugin se ha actualizado correctamente."
 
-#: src/Core/Backend/ModulesList.php:1694 src/Core/Upgrade/PluginsList.php:417
+#: src/Core/Backend/ModulesList.php:1714 src/Core/Upgrade/PluginsList.php:419
 msgid "The plugin has been successfully installed."
 msgstr "El plugin se ha instalado correctamente."
 
-#: src/Core/Backend/ModulesList.php:1720 src/Process/Backend/Langs.php:369
+#: src/Core/Backend/ModulesList.php:1740 src/Process/Backend/Langs.php:369
 msgid "Upload a zip file"
 msgstr "Enviar un fichero zip"
 
-#: src/Core/Backend/ModulesList.php:1724 src/Core/Backend/ModulesList.php:1771
+#: src/Core/Backend/ModulesList.php:1744 src/Core/Backend/ModulesList.php:1791
 #: src/Process/Backend/Blog.php:117 src/Process/Backend/BlogPref.php:545
 #: src/Process/Backend/BlogPref.php:1027 src/Process/Backend/Category.php:248
 #: src/Process/Backend/Comment.php:284 src/Process/Backend/Home.php:535
@@ -1415,11 +1420,11 @@ msgstr "Enviar un fichero zip"
 msgid "Fields preceded by %s are mandatory."
 msgstr "Los campos precedidos por %s son obligatorios."
 
-#: src/Core/Backend/ModulesList.php:1731
+#: src/Core/Backend/ModulesList.php:1751
 msgid "Zip file path:"
 msgstr "Ruta del archivo zip:"
 
-#: src/Core/Backend/ModulesList.php:1742 src/Core/Backend/ModulesList.php:1792
+#: src/Core/Backend/ModulesList.php:1762 src/Core/Backend/ModulesList.php:1812
 #: src/Process/Backend/Langs.php:344 src/Process/Backend/Langs.php:393
 #: src/Process/Backend/Post.php:779 src/Process/Backend/User.php:340
 #: src/Process/Backend/User.php:364 src/Process/Backend/User.php:529
@@ -1428,49 +1433,49 @@ msgstr "Ruta del archivo zip:"
 msgid "Password"
 msgstr "Contraseña"
 
-#: src/Core/Backend/ModulesList.php:1745 src/Core/Backend/ModulesList.php:1795
+#: src/Core/Backend/ModulesList.php:1765 src/Core/Backend/ModulesList.php:1815
 #: src/Process/Backend/BlogDel.php:126 src/Process/Backend/Langs.php:347
 #: src/Process/Backend/Langs.php:397 src/Process/Upgrade/Langs.php:379
 #: src/Process/Upgrade/Langs.php:385 src/Process/Upgrade/Langs.php:434
 msgid "Your password:"
 msgstr "Su contraseña:"
 
-#: src/Core/Backend/ModulesList.php:1753 src/Core/Backend/Page.php:1422
+#: src/Core/Backend/ModulesList.php:1773 src/Core/Backend/Page.php:1422
 #: src/Process/Backend/Media.php:795
 msgid "Upload"
 msgstr "Enviar"
 
-#: src/Core/Backend/ModulesList.php:1767
+#: src/Core/Backend/ModulesList.php:1787
 msgid "Download a zip file"
 msgstr "Descargar un fichero zip"
 
-#: src/Core/Backend/ModulesList.php:1781
+#: src/Core/Backend/ModulesList.php:1801
 msgid "Zip file URL:"
 msgstr "URL del archivo zip:"
 
-#: src/Core/Backend/ModulesList.php:1803
+#: src/Core/Backend/ModulesList.php:1823
 msgid "Download"
 msgstr "Descargar"
 
-#: src/Core/Backend/ModulesList.php:1846
+#: src/Core/Backend/ModulesList.php:1866
 msgid "Unknown plugin ID"
 msgstr "ID de plugin desconocido"
 
-#: src/Core/Backend/ModulesList.php:1857
+#: src/Core/Backend/ModulesList.php:1877
 msgid "This plugin has no configuration file."
 msgstr "Este plugin no tiene archivo de configuración."
 
-#: src/Core/Backend/ModulesList.php:1865 src/Process/Backend/Auth.php:292
+#: src/Core/Backend/ModulesList.php:1885 src/Process/Backend/Auth.php:292
 #: src/Process/Upgrade/Auth.php:136
 msgid "Insufficient permissions"
 msgstr "Permisos insuficientes"
 
-#: src/Core/Backend/ModulesList.php:1939
+#: src/Core/Backend/ModulesList.php:1959
 #, php-format
 msgid "Configure \"%s\""
 msgstr "Configurar \"%s\""
 
-#: src/Core/Backend/ModulesList.php:1945 src/Process/Backend/Blog.php:197
+#: src/Core/Backend/ModulesList.php:1965 src/Process/Backend/Blog.php:197
 #: src/Process/Backend/BlogDel.php:138 src/Process/Backend/BlogPref.php:1182
 #: src/Process/Backend/Category.php:301 src/Process/Backend/Comment.php:352
 #: src/Process/Backend/Media.php:857 src/Process/Backend/MediaItem.php:1359
@@ -2471,8 +2476,8 @@ msgstr "¡LOL!"
 #: src/Process/Backend/BlogDel.php:92 src/Process/Backend/BlogPref.php:459
 #: src/Process/Backend/Blogs.php:101 src/Process/Backend/Langs.php:247
 #: src/Process/Backend/Plugin.php:146 src/Process/Backend/Plugins.php:116
-#: src/Process/Backend/User.php:273 src/Process/Backend/Users.php:108
-#: src/Process/Backend/UsersActions.php:223
+#: src/Process/Backend/Settings.php:58 src/Process/Backend/User.php:273
+#: src/Process/Backend/Users.php:108 src/Process/Backend/UsersActions.php:223
 #: src/Process/Backend/UsersActions.php:231 src/Process/Upgrade/Home.php:162
 msgid "System"
 msgstr "Sistema"
@@ -3262,7 +3267,7 @@ msgstr "P"
 msgid "(none)"
 msgstr "(ninguna)"
 
-#: src/Process/Backend/BlogPref.php:175
+#: src/Process/Backend/BlogPref.php:175 src/Process/Backend/Settings.php:140
 msgid "Description"
 msgstr "Descripción"
 
@@ -3626,6 +3631,7 @@ msgid "Image legend and alternate text:"
 msgstr "Leyenda de la imagen y texto alternativo:"
 
 #: src/Process/Backend/BlogPref.php:974 src/Process/Backend/Media.php:846
+#: src/Process/Backend/Settings.php:73
 msgid "Blog parameters"
 msgstr "Parámetros del blog"
 
@@ -5222,6 +5228,70 @@ msgid "one comment found"
 msgid_plural "%d comments found"
 msgstr[0] "un comentario encontrado"
 msgstr[1] "%d comentarios encontrados"
+
+#: src/Process/Backend/Settings.php:72 src/Process/Backend/Settings.php:142
+msgid "Configuration"
+msgstr "Configuración"
+
+#: src/Process/Backend/Settings.php:74
+msgid "User preferences"
+msgstr "Preferencias del usuario"
+
+#: src/Process/Backend/Settings.php:75 src/Process/Backend/Settings.php:148
+msgid "Settings"
+msgstr "Ajustes"
+
+#: src/Process/Backend/Settings.php:76 src/Process/Backend/Settings.php:150
+msgid "Other settings"
+msgstr "Otros ajustes"
+
+#: src/Process/Backend/Settings.php:77 src/Process/Backend/Settings.php:152
+msgid "Management"
+msgstr "Gestión"
+
+#: src/Process/Backend/Settings.php:78
+msgid "Unknown"
+msgstr "Desconocido"
+
+#: src/Process/Backend/Settings.php:138
+msgid "ID"
+msgstr "ID"
+
+#: src/Process/Backend/Settings.php:146
+msgid "User"
+msgstr "Usuario"
+
+#: src/Process/Backend/Settings.php:160
+msgid "Column description:"
+msgstr "Descripción de la columna:"
+
+#: src/Process/Backend/Settings.php:165
+msgid "“Configuration”: indicates that plugin has a specific configuration page."
+msgstr "\"Configuración\": indica que el plugin tiene una página de configuración específica."
+
+#: src/Process/Backend/Settings.php:167
+msgid "“Blog”: indicates that plugin has a specific settings in blog parameters, usually used to add or modify some comportements or aspects of the public blog."
+msgstr "\"Blog\": indica que el plugin tiene una configuración específica en los parámetros del blog, normalmente utilizada para añadir o modificar algunos comportamientos o aspectos del blog público."
+
+#: src/Process/Backend/Settings.php:169
+msgid "“user”: indicates that the plugin has a specific configuration in the user preferences, generally used to add or modify certain behaviors or aspects of blog administration for the user."
+msgstr "\"usuario\": indica que el plugin tiene una configuración específica en las preferencias del usuario, generalmente utilizada para añadir o modificar ciertos comportamientos o aspectos de la administración del blog para el usuario."
+
+#: src/Process/Backend/Settings.php:171
+msgid "“self”: indicates that when the plugin has specific parameters on its management page."
+msgstr "\"self\": indica que cuando el plugin tiene parámetros específicos en su página de gestión."
+
+#: src/Process/Backend/Settings.php:173
+msgid "“Other”: indicates that plugin has a specific settings in other context."
+msgstr "\"Otro\": indica que el plugin tiene una configuración específica en otro contexto."
+
+#: src/Process/Backend/Settings.php:175
+msgid "“Management”: indicates that the plugin has a specific management page."
+msgstr "\"Gestión\": indica que el plugin tiene una página de gestión específica."
+
+#: src/Process/Backend/Settings.php:177
+msgid "Some of these columns may not be displayed if no plugin has a link in them."
+msgstr "Es posible que algunas de estas columnas no se muestren si ningún plugin tiene un enlace en ellas."
 
 #: src/Process/Backend/User.php:57 src/Process/Backend/Users.php:128
 msgid "New user"

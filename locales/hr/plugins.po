@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-25 13:29+0200\n"
-"PO-Revision-Date: 2025-05-25 15:59\n"
+"POT-Creation-Date: 2025-05-26 18:37+0200\n"
+"PO-Revision-Date: 2025-05-26 16:41\n"
 "Last-Translator: \n"
 "Language-Team: Croatian\n"
 "Language: hr_HR\n"
@@ -193,10 +193,6 @@ msgstr "povezane postavke izbrisane"
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:73
 msgid "Failed to delete related preferences"
 msgstr "Brisanje povezanih postavki nije uspjelo"
-
-#: plugins/Uninstaller/src/Cleaner/Settings.php:38
-msgid "Settings"
-msgstr "postavke"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:39
 msgid "Namespaces registered in dcSettings"
@@ -1049,11 +1045,11 @@ msgstr "Morate navesti naslov veze"
 msgid "You must provide a link URL"
 msgstr "Morate navesti URL veze"
 
-#: plugins/blogroll/src/Blogroll.php:413
+#: plugins/blogroll/src/Blogroll.php:421
 msgid "You are not allowed to change link status"
 msgstr "Nije vam dopušteno mijenjati status veze"
 
-#: plugins/blogroll/src/Blogroll.php:443
+#: plugins/blogroll/src/Blogroll.php:454
 msgid "You are not allowed to delete links"
 msgstr "Nije vam dopušteno brisati poveznice"
 
@@ -3097,10 +3093,6 @@ msgstr "korisnik: postavke"
 #: plugins/userPref/src/Manage.php:89 plugins/userPref/src/Manage.php:108
 msgid "Preferences successfully updated"
 msgstr "Postavke su uspješno ažurirane"
-
-#: plugins/userPref/src/Manage.php:148 plugins/userPref/src/Manage.php:150
-msgid "User preferences"
-msgstr "Korisničke postavke"
 
 #: plugins/userPref/src/Manage.php:158 plugins/userPref/src/Manage.php:160
 msgid "Global preferences"
