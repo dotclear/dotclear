@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-26 18:37+0200\n"
-"PO-Revision-Date: 2025-05-26 16:39\n"
+"PO-Revision-Date: 2025-05-26 17:49\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -626,7 +626,7 @@ msgstr "플러그인 관리"
 #: src/Core/Backend/Favorites.php:524 src/Core/Backend/Menus.php:235
 #: src/Process/Backend/Settings.php:52 src/Process/Backend/Settings.php:59
 msgid "Plugins settings"
-msgstr ""
+msgstr "플러그인 설정"
 
 #: src/Core/Backend/Favorites.php:530 src/Core/Backend/Menus.php:215
 #: src/Core/Upgrade/Utility.php:291
@@ -5196,7 +5196,7 @@ msgstr[0] "%d 댓글이 발견되었습니다."
 
 #: src/Process/Backend/Settings.php:72 src/Process/Backend/Settings.php:142
 msgid "Configuration"
-msgstr ""
+msgstr "설정"
 
 #: src/Process/Backend/Settings.php:74
 msgid "User preferences"
@@ -5208,7 +5208,7 @@ msgstr "설정"
 
 #: src/Process/Backend/Settings.php:76 src/Process/Backend/Settings.php:150
 msgid "Other settings"
-msgstr ""
+msgstr "기타 설정"
 
 #: src/Process/Backend/Settings.php:77 src/Process/Backend/Settings.php:152
 msgid "Management"
@@ -5220,7 +5220,7 @@ msgstr "알려지지 않은"
 
 #: src/Process/Backend/Settings.php:138
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #: src/Process/Backend/Settings.php:146
 msgid "User"
@@ -5228,35 +5228,35 @@ msgstr "사용자"
 
 #: src/Process/Backend/Settings.php:160
 msgid "Column description:"
-msgstr ""
+msgstr "열 설명:"
 
 #: src/Process/Backend/Settings.php:165
 msgid "“Configuration”: indicates that plugin has a specific configuration page."
-msgstr ""
+msgstr "\"구성\": 플러그인에 특정 구성 페이지가 있음을 나타냅니다."
 
 #: src/Process/Backend/Settings.php:167
 msgid "“Blog”: indicates that plugin has a specific settings in blog parameters, usually used to add or modify some comportements or aspects of the public blog."
-msgstr ""
+msgstr "\"블로그\": 플러그인이 블로그 매개변수에 특정 설정을 가지고 있음을 나타내며, 일반적으로 공개 블로그의 일부 기능이나 측면을 추가하거나 수정하는 데 사용됩니다."
 
 #: src/Process/Backend/Settings.php:169
 msgid "“user”: indicates that the plugin has a specific configuration in the user preferences, generally used to add or modify certain behaviors or aspects of blog administration for the user."
-msgstr ""
+msgstr "\"사용자\": 플러그인에 사용자 환경설정에 특정 구성이 있음을 나타내며, 일반적으로 사용자를 위한 특정 동작이나 블로그 관리 측면을 추가하거나 수정하는 데 사용됩니다."
 
 #: src/Process/Backend/Settings.php:171
 msgid "“self”: indicates that when the plugin has specific parameters on its management page."
-msgstr ""
+msgstr "\"self\": 플러그인의 관리 페이지에 특정 매개변수가 있는 경우 이를 나타냅니다."
 
 #: src/Process/Backend/Settings.php:173
 msgid "“Other”: indicates that plugin has a specific settings in other context."
-msgstr ""
+msgstr "\"기타\": 플러그인에 다른 컨텍스트에 대한 특정 설정이 있음을 나타냅니다."
 
 #: src/Process/Backend/Settings.php:175
 msgid "“Management”: indicates that the plugin has a specific management page."
-msgstr ""
+msgstr "\"관리\": 플러그인에 특정 관리 페이지가 있음을 나타냅니다."
 
 #: src/Process/Backend/Settings.php:177
 msgid "Some of these columns may not be displayed if no plugin has a link in them."
-msgstr ""
+msgstr "이러한 열 중 일부는 플러그인에 링크가 없는 경우 표시되지 않을 수 있습니다."
 
 #: src/Process/Backend/User.php:57 src/Process/Backend/Users.php:128
 msgid "New user"
