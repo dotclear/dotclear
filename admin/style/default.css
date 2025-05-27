@@ -3151,6 +3151,14 @@ tr.line img.expand {
   margin-right: 6px;
   margin-bottom: -2px;
 }
+th.sorted-asc:after,
+tr.line.sorted-asc:after {
+  content: " ↑";
+}
+th.sorted-desc:after,
+tr.line.sorted-desc:after {
+  content: " ↓";
+}
 
 tr.line p {
   margin: 0;

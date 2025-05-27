@@ -45,6 +45,13 @@ tr.line {
       margin-bottom: -2px;
     }
   }
+
+  &.sorted-asc:after {
+    content: ' ↑';
+  }
+  &.sorted-desc:after {
+    content: ' ↓';
+  }
 }
 
 tr.line {
