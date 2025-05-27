@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-27 12:02+0200\n"
-"PO-Revision-Date: 2025-05-27 10:09\n"
+"PO-Revision-Date: 2025-05-27 10:55\n"
 "Last-Translator: \n"
 "Language-Team: Japanese\n"
 "Language: ja_JP\n"
@@ -3568,7 +3568,7 @@ msgstr "高さ"
 
 #: src/Process/Backend/BlogPref.php:908
 msgid "A value of 0 means that the corresponding size is not included when inserting a video. A value of -1 restores the default value."
-msgstr ""
+msgstr "値が 0 の場合、動画を挿入するときに対応するサイズが含まれません。値を -1 にすると、デフォルト値に戻ります。"
 
 #: src/Process/Backend/BlogPref.php:916
 msgid "Default image insertion attributes"
@@ -4638,7 +4638,7 @@ msgstr "高さ："
 
 #: src/Process/Backend/MediaItem.php:687
 msgid "A value of 0 means that the corresponding size is not included when inserting a video."
-msgstr ""
+msgstr "0を指定すると、動画の挿入時に対応するサイズが含まれない。"
 
 #: src/Process/Backend/MediaItem.php:692
 msgid "Video disposition"
