@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-27 12:02+0200\n"
-"PO-Revision-Date: 2025-05-27 10:09\n"
+"PO-Revision-Date: 2025-05-27 10:55\n"
 "Last-Translator: \n"
 "Language-Team: Slovenian\n"
 "Language: sl_SI\n"
@@ -3654,7 +3654,7 @@ msgstr "Višina"
 
 #: src/Process/Backend/BlogPref.php:908
 msgid "A value of 0 means that the corresponding size is not included when inserting a video. A value of -1 restores the default value."
-msgstr ""
+msgstr "Vrednost 0 pomeni, da ustrezna velikost pri vstavljanju videoposnetka ni vključena. Vrednost -1 povrne privzeto vrednost."
 
 #: src/Process/Backend/BlogPref.php:916
 msgid "Default image insertion attributes"
@@ -4730,7 +4730,7 @@ msgstr "Višina:"
 
 #: src/Process/Backend/MediaItem.php:687
 msgid "A value of 0 means that the corresponding size is not included when inserting a video."
-msgstr ""
+msgstr "Vrednost 0 pomeni, da ustrezna velikost pri vstavljanju videoposnetka ni vključena."
 
 #: src/Process/Backend/MediaItem.php:692
 msgid "Video disposition"
