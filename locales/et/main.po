@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-26 18:37+0200\n"
-"PO-Revision-Date: 2025-05-26 17:50\n"
+"POT-Creation-Date: 2025-05-27 12:02+0200\n"
+"PO-Revision-Date: 2025-05-27 10:09\n"
 "Last-Translator: \n"
 "Language-Team: Estonian\n"
 "Language: et_EE\n"
@@ -94,7 +94,7 @@ msgstr "Seda võtit ei ole andmebaasis olemas."
 #: src/Core/Backend/Combos.php:271 src/Core/Backend/Listing/ListingPosts.php:76
 #: src/Core/Backend/Listing/ListingPostsMini.php:62
 #: src/Core/Backend/UserPref.php:205 src/Process/Backend/Home.php:543
-#: src/Process/Backend/MediaItem.php:1093 src/Process/Backend/Post.php:811
+#: src/Process/Backend/MediaItem.php:1096 src/Process/Backend/Post.php:811
 msgid "Title"
 msgstr "Pealkiri"
 
@@ -102,7 +102,7 @@ msgstr "Pealkiri"
 #: src/Core/Backend/Action/ActionsBlogs.php:72
 #: src/Core/Backend/Action/ActionsBlogs.php:79
 #: src/Core/Backend/Action/ActionsBlogs.php:117
-#: src/Core/Backend/Favorites.php:502 src/Core/Backend/Menus.php:258
+#: src/Core/Backend/Favorites.php:502 src/Core/Backend/Menus.php:245
 #: src/Core/Backend/UserPref.php:75 src/Core/Backend/UserPref.php:192
 #: src/Process/Backend/Blog.php:100 src/Process/Backend/BlogDel.php:93
 #: src/Process/Backend/BlogPref.php:460
@@ -181,7 +181,7 @@ msgid "Password verification failed"
 msgstr "Salasõna kinnitamine ebaõnnestus"
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:110
-#: src/Process/Backend/BlogPref.php:1205
+#: src/Process/Backend/BlogPref.php:1208
 msgid "The current blog cannot be deleted."
 msgstr "Praegust blogi ei saa kustutada."
 
@@ -388,7 +388,7 @@ msgstr "Loo uus kategooria postitus(t)ele"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:369
 #: src/Process/Backend/Home.php:547 src/Process/Backend/Home.php:581
-#: src/Process/Backend/Media.php:763 src/Process/Backend/MediaItem.php:1233
+#: src/Process/Backend/Media.php:763 src/Process/Backend/MediaItem.php:1236
 #: src/Process/Backend/Post.php:713 src/Process/Backend/Post.php:816
 msgid "Title:"
 msgstr "Pealkiri:"
@@ -402,10 +402,10 @@ msgstr "Vanem:"
 #: src/Core/Backend/Action/ActionsPostsDefault.php:393
 #: src/Core/Backend/Action/ActionsPostsDefault.php:498
 #: src/Core/Backend/Action/ActionsPostsDefault.php:582
-#: src/Core/Backend/ModulesList.php:1978 src/Process/Backend/BlogPref.php:1180
+#: src/Core/Backend/ModulesList.php:1978 src/Process/Backend/BlogPref.php:1183
 #: src/Process/Backend/Category.php:298 src/Process/Backend/Category.php:337
 #: src/Process/Backend/Category.php:373 src/Process/Backend/Comment.php:350
-#: src/Process/Backend/Home.php:598 src/Process/Backend/MediaItem.php:1273
+#: src/Process/Backend/Home.php:598 src/Process/Backend/MediaItem.php:1276
 #: src/Process/Backend/Post.php:900 src/Process/Backend/Post.php:1114
 #: src/Process/Backend/User.php:536 src/Process/Backend/UsersActions.php:521
 #: src/Process/Install/Install.php:479
@@ -524,7 +524,7 @@ msgid "Last update"
 msgstr "Viimane uuendus"
 
 #: src/Core/Backend/Combos.php:328 src/Process/Backend/Blog.php:124
-#: src/Process/Backend/BlogPref.php:1035
+#: src/Process/Backend/BlogPref.php:1038
 #: src/Process/Backend/UsersActions.php:370
 msgid "Blog ID"
 msgstr "Blogi ID"
@@ -617,9 +617,9 @@ msgstr "Blogi seaded"
 msgid "Blog appearance"
 msgstr "Blogi ilmumine"
 
-#: src/Core/Backend/Favorites.php:512 src/Core/Backend/Menus.php:248
+#: src/Core/Backend/Favorites.php:512 src/Core/Backend/Menus.php:235
 #: src/Core/Backend/UserPref.php:65 src/Core/Backend/UserPref.php:168
-#: src/Process/Backend/BlogPref.php:1371 src/Process/Backend/User.php:274
+#: src/Process/Backend/BlogPref.php:1374 src/Process/Backend/User.php:274
 #: src/Process/Backend/Users.php:104 src/Process/Backend/Users.php:109
 #: src/Process/Backend/UsersActions.php:224
 #: src/Process/Backend/UsersActions.php:232
@@ -634,8 +634,8 @@ msgstr "Kasutajad"
 msgid "Plugins management"
 msgstr "Pistikprogrammide haldamine"
 
-#: src/Core/Backend/Favorites.php:524 src/Core/Backend/Menus.php:235
-#: src/Process/Backend/Settings.php:52 src/Process/Backend/Settings.php:59
+#: src/Core/Backend/Favorites.php:524 src/Core/Backend/Menus.php:261
+#: src/Process/Backend/Settings.php:53 src/Process/Backend/Settings.php:60
 msgid "Plugins settings"
 msgstr "Pluginate seaded"
 
@@ -650,22 +650,22 @@ msgstr "Keeled"
 msgid "Global help"
 msgstr "Ülemaailmne abi"
 
-#: src/Core/Backend/Filter/FilterComments.php:35 src/Core/Backend/Page.php:1259
-#: src/Process/Backend/Auth.php:420 src/Process/Backend/BlogPref.php:1351
+#: src/Core/Backend/Filter/FilterComments.php:35 src/Core/Backend/Page.php:1262
+#: src/Process/Backend/Auth.php:420 src/Process/Backend/BlogPref.php:1354
 #: src/Process/Backend/Comment.php:306 src/Process/Backend/Post.php:1083
 #: src/Process/Backend/User.php:432 src/Process/Backend/UserPreferences.php:636
 #: src/Process/Install/Install.php:445
 msgid "Email:"
 msgstr "E-post:"
 
-#: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1258
+#: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1261
 #: src/Process/Backend/Comment.php:322 src/Process/Backend/Post.php:1092
 msgid "Web site:"
 msgstr "Veebileht:"
 
 #: src/Core/Backend/Filter/FilterComments.php:57
 #: src/Core/Backend/Filter/FilterPosts.php:90
-#: src/Core/Backend/ModulesList.php:1046 src/Core/Backend/Page.php:1300
+#: src/Core/Backend/ModulesList.php:1046 src/Core/Backend/Page.php:1303
 #: src/Process/Backend/Comment.php:295
 msgid "Author:"
 msgstr "Autor:"
@@ -684,7 +684,7 @@ msgid "Trackback"
 msgstr "Trackback"
 
 #: src/Core/Backend/Filter/FilterComments.php:106
-#: src/Core/Backend/Page.php:1260 src/Process/Backend/Comment.php:270
+#: src/Core/Backend/Page.php:1263 src/Process/Backend/Comment.php:270
 msgid "IP address:"
 msgstr "IP-aadress:"
 
@@ -797,7 +797,7 @@ msgstr "Salvesta praegused valikud"
 msgid "Display options"
 msgstr "Kuvamisvõimalused"
 
-#: src/Core/Backend/Filter/Filters.php:422 src/Core/Backend/Page.php:1466
+#: src/Core/Backend/Filter/Filters.php:422 src/Core/Backend/Page.php:1469
 msgid "Show filters and display options"
 msgstr "Näita filtreid ja kuvamisvõimalusi"
 
@@ -1121,7 +1121,7 @@ msgid_plural "%s files found"
 msgstr[0] "%s fail leitud"
 msgstr[1] "%s leitud failid"
 
-#: src/Core/Backend/Menus.php:86 src/Process/Backend/Settings.php:144
+#: src/Core/Backend/Menus.php:86 src/Process/Backend/Settings.php:148
 msgid "Blog"
 msgstr "Blogi"
 
@@ -1199,7 +1199,7 @@ msgid "Current version"
 msgstr "Praegune versioon"
 
 #: src/Core/Backend/ModulesList.php:840 src/Core/Backend/ModulesList.php:1064
-#: src/Core/Backend/Page.php:1301 src/Core/Backend/ThemesList.php:231
+#: src/Core/Backend/Page.php:1304 src/Core/Backend/ThemesList.php:231
 #: src/Core/Backend/ThemesList.php:317
 msgid "Details"
 msgstr "Üksikasjad"
@@ -1249,7 +1249,7 @@ msgstr "Plugin arenduses"
 msgid "Release date:"
 msgstr "Avaldamise kuupäev:"
 
-#: src/Core/Backend/ModulesList.php:1071 src/Core/Backend/Page.php:1302
+#: src/Core/Backend/ModulesList.php:1071 src/Core/Backend/Page.php:1305
 #: src/Core/Backend/ThemesList.php:238
 msgid "Support"
 msgstr "Toetus"
@@ -1258,11 +1258,11 @@ msgstr "Toetus"
 msgid "update locked"
 msgstr "update locked"
 
-#: src/Core/Backend/ModulesList.php:1116 src/Core/Backend/Page.php:1304
+#: src/Core/Backend/ModulesList.php:1116 src/Core/Backend/Page.php:1307
 msgid "Section:"
 msgstr "jagu:"
 
-#: src/Core/Backend/ModulesList.php:1122 src/Core/Backend/Page.php:1305
+#: src/Core/Backend/ModulesList.php:1122 src/Core/Backend/Page.php:1308
 msgid "Tags:"
 msgstr "Sildid:"
 
@@ -1409,7 +1409,7 @@ msgstr "Laadige zip-faili üles"
 
 #: src/Core/Backend/ModulesList.php:1744 src/Core/Backend/ModulesList.php:1791
 #: src/Process/Backend/Blog.php:117 src/Process/Backend/BlogPref.php:545
-#: src/Process/Backend/BlogPref.php:1027 src/Process/Backend/Category.php:248
+#: src/Process/Backend/BlogPref.php:1030 src/Process/Backend/Category.php:248
 #: src/Process/Backend/Comment.php:284 src/Process/Backend/Home.php:535
 #: src/Process/Backend/Langs.php:322 src/Process/Backend/Langs.php:372
 #: src/Process/Backend/LinkPopup.php:83 src/Process/Backend/Post.php:968
@@ -1440,7 +1440,7 @@ msgstr "Parool"
 msgid "Your password:"
 msgstr "Teie salasõna:"
 
-#: src/Core/Backend/ModulesList.php:1773 src/Core/Backend/Page.php:1422
+#: src/Core/Backend/ModulesList.php:1773 src/Core/Backend/Page.php:1425
 #: src/Process/Backend/Media.php:795
 msgid "Upload"
 msgstr "Laadige üles"
@@ -1476,9 +1476,9 @@ msgid "Configure \"%s\""
 msgstr "Konfigureerimine \"%s\""
 
 #: src/Core/Backend/ModulesList.php:1965 src/Process/Backend/Blog.php:197
-#: src/Process/Backend/BlogDel.php:138 src/Process/Backend/BlogPref.php:1182
+#: src/Process/Backend/BlogDel.php:138 src/Process/Backend/BlogPref.php:1185
 #: src/Process/Backend/Category.php:301 src/Process/Backend/Comment.php:352
-#: src/Process/Backend/Media.php:857 src/Process/Backend/MediaItem.php:1359
+#: src/Process/Backend/Media.php:857 src/Process/Backend/MediaItem.php:1362
 #: src/Process/Backend/Post.php:925 src/Process/Backend/Search.php:197
 #: src/Process/Backend/User.php:547 src/Process/Backend/UserPreferences.php:697
 #: src/Process/Backend/UserPreferences.php:999
@@ -1486,8 +1486,8 @@ msgstr "Konfigureerimine \"%s\""
 msgid "Back"
 msgstr "Tagasi"
 
-#: src/Core/Backend/Notices.php:85 src/Core/Backend/Page.php:1261
-#: src/Core/Backend/Page.php:1417 src/Core/Upgrade/Notices.php:48
+#: src/Core/Backend/Notices.php:85 src/Core/Backend/Page.php:1264
+#: src/Core/Backend/Page.php:1420 src/Core/Upgrade/Notices.php:48
 #: src/Process/Backend/Home.php:292
 msgid "Error:"
 msgstr "Viga:"
@@ -1579,318 +1579,318 @@ msgstr "Dotcleari logo"
 msgid "Go to dashboard"
 msgstr "Mine armatuurlauale"
 
-#: src/Core/Backend/Page.php:1110 src/Core/Upgrade/Page.php:447
+#: src/Core/Backend/Page.php:1112 src/Core/Upgrade/Page.php:447
 msgid "Help about this page"
 msgstr "Abi selle lehekülje kohta"
 
-#: src/Core/Backend/Page.php:1119 src/Core/Upgrade/Page.php:456
+#: src/Core/Backend/Page.php:1122 src/Core/Upgrade/Page.php:456
 #, php-format
 msgid "See also %s"
 msgstr "Vt ka %s"
 
-#: src/Core/Backend/Page.php:1122 src/Core/Upgrade/Page.php:459
+#: src/Core/Backend/Page.php:1125 src/Core/Upgrade/Page.php:459
 msgid "the global help"
 msgstr "ülemaailmne abi"
 
-#: src/Core/Backend/Page.php:1243
+#: src/Core/Backend/Page.php:1246
 msgid "uncover"
 msgstr "katta"
 
-#: src/Core/Backend/Page.php:1247
+#: src/Core/Backend/Page.php:1250
 msgid "hide"
 msgstr "peida"
 
-#: src/Core/Backend/Page.php:1251
+#: src/Core/Backend/Page.php:1254
 msgid "Need help?"
 msgstr "Kas vajate abi?"
 
-#: src/Core/Backend/Page.php:1252
+#: src/Core/Backend/Page.php:1255
 msgid "new window"
 msgstr "uus aken"
 
-#: src/Core/Backend/Page.php:1253
+#: src/Core/Backend/Page.php:1256
 msgid "Hide"
 msgstr "Peida"
 
-#: src/Core/Backend/Page.php:1254
+#: src/Core/Backend/Page.php:1257
 msgid "Select:"
 msgstr "Valige:"
 
-#: src/Core/Backend/Page.php:1255
+#: src/Core/Backend/Page.php:1258
 msgid "No selection"
 msgstr "Valik puudub"
 
-#: src/Core/Backend/Page.php:1256
+#: src/Core/Backend/Page.php:1259
 msgid "Select all"
 msgstr "Valige kõik"
 
-#: src/Core/Backend/Page.php:1257
+#: src/Core/Backend/Page.php:1260
 msgid "Invert selection"
 msgstr "Valiku inverteerimine"
 
-#: src/Core/Backend/Page.php:1262 src/Process/Backend/Post.php:466
+#: src/Core/Backend/Page.php:1265 src/Process/Backend/Post.php:466
 #: src/Process/Backend/Post.php:570
 msgid "Entry has been successfully created."
 msgstr "Kirje on edukalt loodud."
 
-#: src/Core/Backend/Page.php:1263
+#: src/Core/Backend/Page.php:1266
 msgid "Edit entry"
 msgstr "Kirje muutmine"
 
-#: src/Core/Backend/Page.php:1264
+#: src/Core/Backend/Page.php:1267
 msgid "view entry"
 msgstr "vaata sissekannet"
 
-#: src/Core/Backend/Page.php:1265
+#: src/Core/Backend/Page.php:1268
 #, php-format
 msgid "Are you sure you want to delete selected entries (%s)?"
 msgstr "Kas olete kindel, et soovite valitud kirjed kustutada (%s)?"
 
-#: src/Core/Backend/Page.php:1266
+#: src/Core/Backend/Page.php:1269
 #, php-format
 msgid "Are you sure you want to delete selected medias (%d)?"
 msgstr "Kas olete kindel, et soovite valitud meediat kustutada (%d)?"
 
-#: src/Core/Backend/Page.php:1267
+#: src/Core/Backend/Page.php:1270
 #, php-format
 msgid "Are you sure you want to delete selected categories (%s)?"
 msgstr "Kas olete kindel, et soovite valitud kategooriaid kustutada (%s)?"
 
-#: src/Core/Backend/Page.php:1268
+#: src/Core/Backend/Page.php:1271
 msgid "Are you sure you want to delete this entry?"
 msgstr "Kas olete kindel, et soovite selle kirje kustutada?"
 
-#: src/Core/Backend/Page.php:1269
+#: src/Core/Backend/Page.php:1272
 msgid "Click here to unlock the field"
 msgstr "Välja avamiseks klõpsake siin"
 
-#: src/Core/Backend/Page.php:1270
+#: src/Core/Backend/Page.php:1273
 msgid "Are you sure you want to delete all spams?"
 msgstr "Kas olete kindel, et soovite kustutada kõik rämpspostitused?"
 
-#: src/Core/Backend/Page.php:1271
+#: src/Core/Backend/Page.php:1274
 #, php-format
 msgid "Are you sure you want to delete selected comments (%s)?"
 msgstr "Kas olete kindel, et soovite valitud kommentaare kustutada (%s)?"
 
-#: src/Core/Backend/Page.php:1272
+#: src/Core/Backend/Page.php:1275
 msgid "Are you sure you want to delete this comment?"
 msgstr "Oled sa kindel, et tahad selle kommentaari kustutada?"
 
-#: src/Core/Backend/Page.php:1273
+#: src/Core/Backend/Page.php:1276
 msgid "Users with posts cannot be deleted."
 msgstr "Kasutajad, kellel on postitused, ei saa kustutada."
 
-#: src/Core/Backend/Page.php:1274
+#: src/Core/Backend/Page.php:1277
 #, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
 msgstr "Kas olete kindel, et soovite valitud kasutajaid kustutada (%s)?"
 
-#: src/Core/Backend/Page.php:1275
+#: src/Core/Backend/Page.php:1278
 #, php-format
 msgid "Are you sure you want to delete selected blogs (%s)?"
 msgstr "Kas olete kindel, et soovite valitud blogisid kustutada (%s)?"
 
-#: src/Core/Backend/Page.php:1276
+#: src/Core/Backend/Page.php:1279
 #, php-format
 msgid "Are you sure you want to delete category \"%s\"?"
 msgstr "Kas olete kindel, et soovite kategooria \"%s\" kustutada?"
 
-#: src/Core/Backend/Page.php:1277
+#: src/Core/Backend/Page.php:1280
 msgid "Are you sure you want to reorder all categories?"
 msgstr "Kas olete kindel, et soovite kõiki kategooriaid ümber korraldada?"
 
-#: src/Core/Backend/Page.php:1278
+#: src/Core/Backend/Page.php:1281
 #, php-format
 msgid "Are you sure you want to remove media \"%s\"?"
 msgstr "Kas olete kindel, et soovite eemaldada meedia \"%s\"?"
 
-#: src/Core/Backend/Page.php:1279
+#: src/Core/Backend/Page.php:1282
 #, php-format
 msgid "Are you sure you want to remove directory \"%s\"?"
 msgstr "Kas olete kindel, et soovite eemaldada kataloogi \"%s\"?"
 
-#: src/Core/Backend/Page.php:1280
+#: src/Core/Backend/Page.php:1283
 msgid "Are you sure you want to extract archive in current directory?"
 msgstr "Kas olete kindel, et soovite arhiivi praegusesse kataloogi ekstraheerida?"
 
-#: src/Core/Backend/Page.php:1281
+#: src/Core/Backend/Page.php:1284
 #, php-format
 msgid "Are you sure you want to remove attachment \"%s\"?"
 msgstr "Kas olete kindel, et soovite eemaldada manuse \"%s\"?"
 
-#: src/Core/Backend/Page.php:1282
+#: src/Core/Backend/Page.php:1285
 #, php-format
 msgid "Are you sure you want to delete \"%s\" language?"
 msgstr "Kas olete kindel, et soovite kustutada \"%s\" keele?"
 
-#: src/Core/Backend/Page.php:1283
+#: src/Core/Backend/Page.php:1286
 #, php-format
 msgid "Are you sure you want to delete \"%s\" plugin?"
 msgstr "Kas olete kindel, et soovite kustutada \"%s\" plugin?"
 
-#: src/Core/Backend/Page.php:1284
+#: src/Core/Backend/Page.php:1287
 msgid "Are you sure you want to delete selected plugins?"
 msgstr "Kas olete kindel, et soovite valitud pistikprogramme kustutada?"
 
-#: src/Core/Backend/Page.php:1285
+#: src/Core/Backend/Page.php:1288
 msgid "Use this theme"
 msgstr "Kasutage seda teemat"
 
-#: src/Core/Backend/Page.php:1286
+#: src/Core/Backend/Page.php:1289
 msgid "Remove this theme"
 msgstr "Eemaldage see teema"
 
-#: src/Core/Backend/Page.php:1287
+#: src/Core/Backend/Page.php:1290
 #, php-format
 msgid "Are you sure you want to delete \"%s\" theme?"
 msgstr "Kas olete kindel, et soovite kustutada \"%s\" teema?"
 
-#: src/Core/Backend/Page.php:1288
+#: src/Core/Backend/Page.php:1291
 msgid "Are you sure you want to delete selected themes?"
 msgstr "Kas olete kindel, et soovite valitud teemasid kustutada?"
 
-#: src/Core/Backend/Page.php:1289
+#: src/Core/Backend/Page.php:1292
 msgid "Are you sure you want to delete this backup?"
 msgstr "Kas olete kindel, et soovite selle varukoopia kustutada?"
 
-#: src/Core/Backend/Page.php:1290
+#: src/Core/Backend/Page.php:1293
 msgid "Are you sure you want to revert to this backup?"
 msgstr "Kas olete kindel, et soovite selle varukoopia tagasi võtta?"
 
-#: src/Core/Backend/Page.php:1291
+#: src/Core/Backend/Page.php:1294
 msgid "Zip file content"
 msgstr "Zip-faili sisu"
 
-#: src/Core/Backend/Page.php:1292
+#: src/Core/Backend/Page.php:1295
 msgid "HTML markup validator"
 msgstr "HTML-märgistuse valideerija"
 
-#: src/Core/Backend/Page.php:1293
+#: src/Core/Backend/Page.php:1296
 msgid "HTML content is valid."
 msgstr "HTML-sisu on kehtiv."
 
-#: src/Core/Backend/Page.php:1294
+#: src/Core/Backend/Page.php:1297
 msgid "There are HTML markup errors."
 msgstr "On olemas HTML-märgistusvead."
 
-#: src/Core/Backend/Page.php:1295
+#: src/Core/Backend/Page.php:1298
 msgid "Attention: an audit of a content not yet registered."
 msgstr "Tähelepanu: veel registreerimata sisu audit."
 
-#: src/Core/Backend/Page.php:1296
+#: src/Core/Backend/Page.php:1299
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
 msgstr "Teil on salvestamata muudatused. Postituse formaadi vahetamine kaotab need muudatused. Jätkake ikkagi?"
 
-#: src/Core/Backend/Page.php:1297
+#: src/Core/Backend/Page.php:1300
 msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
 msgstr "Hoiatus: postituse formaadi muutmine ei muuda olemasolevat sisu. Te peate uut formaati ise rakendama. Jätkake ikkagi?"
 
-#: src/Core/Backend/Page.php:1298
+#: src/Core/Backend/Page.php:1301
 msgid "Loading enhanced uploader, please wait."
 msgstr "Laetakse täiustatud üleslaadijat, palun oodake."
 
-#: src/Core/Backend/Page.php:1303
+#: src/Core/Backend/Page.php:1306
 msgid "Help:"
 msgstr "Abi:"
 
-#: src/Core/Backend/Page.php:1307
+#: src/Core/Backend/Page.php:1310
 msgid "Hide this notice"
 msgstr "Peida see teade ära"
 
-#: src/Core/Backend/Page.php:1309
+#: src/Core/Backend/Page.php:1312
 msgid "Show password"
 msgstr "Näita parooli"
 
-#: src/Core/Backend/Page.php:1310
+#: src/Core/Backend/Page.php:1313
 msgid "Hide password"
 msgstr "Peida parool"
 
-#: src/Core/Backend/Page.php:1312
+#: src/Core/Backend/Page.php:1315
 msgid "Reset to now"
 msgstr "Reset nüüdsesse hetke"
 
-#: src/Core/Backend/Page.php:1314
+#: src/Core/Backend/Page.php:1317
 msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences."
 msgstr "Sellel Dotcleari armatuurlaual on tuvastatud reklaamiblokeerija (Ghostery, Adblock plus, uBlock origin, …) ja see võib häirida mõningaid funktsioone. Sellisel juhul peaksite selle välja lülitama. Pange tähele, et see tuvastamine võib olla teie eelistustes välja lülitatud."
 
-#: src/Core/Backend/Page.php:1366
+#: src/Core/Backend/Page.php:1369
 msgid "You have unsaved changes."
 msgstr "Teil on salvestamata muudatused."
 
-#: src/Core/Backend/Page.php:1367
+#: src/Core/Backend/Page.php:1370
 msgid "your battery charge seems low (%d%) and you have unsaved changes, you should save them."
 msgstr "teie aku laetuse tase näib olevat madal (%d%) ja teil on salvestamata muudatusi, siis peaksite need salvestama."
 
-#: src/Core/Backend/Page.php:1408
+#: src/Core/Backend/Page.php:1411
 msgid "Temporarily activate enhanced uploader"
 msgstr "Ajutiselt aktiveerida täiustatud üleslaadimisfunktsioon"
 
-#: src/Core/Backend/Page.php:1409
+#: src/Core/Backend/Page.php:1412
 msgid "Temporarily disable enhanced uploader"
 msgstr "Ajutiselt välja lülitada täiustatud üleslaadimisfunktsioon"
 
-#: src/Core/Backend/Page.php:1413
+#: src/Core/Backend/Page.php:1416
 msgid "Limit exceeded."
 msgstr "Piirnorm ületatud."
 
-#: src/Core/Backend/Page.php:1414
+#: src/Core/Backend/Page.php:1417
 msgid "File size exceeds allowed limit."
 msgstr "Faili suurus ületab lubatud piiri."
 
-#: src/Core/Backend/Page.php:1415
+#: src/Core/Backend/Page.php:1418
 msgid "Canceled."
 msgstr "Tühistatud."
 
-#: src/Core/Backend/Page.php:1416
+#: src/Core/Backend/Page.php:1419
 msgid "HTTP Error:"
 msgstr "HTTP-viga:"
 
-#: src/Core/Backend/Page.php:1418 src/Process/Backend/Media.php:738
+#: src/Core/Backend/Page.php:1421 src/Process/Backend/Media.php:738
 msgid "Choose file"
 msgstr "Vali fail"
 
-#: src/Core/Backend/Page.php:1419 src/Process/Backend/Media.php:744
+#: src/Core/Backend/Page.php:1422 src/Process/Backend/Media.php:744
 msgid "Choose files"
 msgstr "Valige failid"
 
-#: src/Core/Backend/Page.php:1420 src/Process/Backend/LinkPopup.php:113
+#: src/Core/Backend/Page.php:1423 src/Process/Backend/LinkPopup.php:113
 #: src/Process/Backend/Media.php:293 src/Process/Backend/MediaItem.php:509
-#: src/Process/Backend/MediaItem.php:765 src/Process/Backend/Post.php:931
+#: src/Process/Backend/MediaItem.php:768 src/Process/Backend/Post.php:931
 #: src/Process/Backend/PostMedia.php:113
 msgid "Cancel"
 msgstr "Tühista"
 
-#: src/Core/Backend/Page.php:1421
+#: src/Core/Backend/Page.php:1424
 msgid "Clean"
 msgstr "Puhas"
 
-#: src/Core/Backend/Page.php:1423
+#: src/Core/Backend/Page.php:1426
 msgid "Send"
 msgstr "Saada"
 
-#: src/Core/Backend/Page.php:1424
+#: src/Core/Backend/Page.php:1427
 msgid "File successfully uploaded."
 msgstr "Fail edukalt üleslaetud."
 
-#: src/Core/Backend/Page.php:1425
+#: src/Core/Backend/Page.php:1428
 msgid "No file in queue."
 msgstr "Faili järjekorras ei ole."
 
-#: src/Core/Backend/Page.php:1426
+#: src/Core/Backend/Page.php:1429
 msgid "1 file in queue."
 msgstr "1 fail on järjekorras."
 
-#: src/Core/Backend/Page.php:1427
+#: src/Core/Backend/Page.php:1430
 #, php-format
 msgid "%d files in queue."
 msgstr "%d failid järjekorras."
 
-#: src/Core/Backend/Page.php:1428
+#: src/Core/Backend/Page.php:1431
 msgid "Queue error:"
 msgstr "Viga järjekorras:"
 
-#: src/Core/Backend/Page.php:1467
+#: src/Core/Backend/Page.php:1470
 msgid "Cancel filters and display options"
 msgstr "Tühista filtrid ja kuvamisvõimalused"
 
@@ -2476,7 +2476,7 @@ msgstr "LOL!"
 #: src/Process/Backend/BlogDel.php:92 src/Process/Backend/BlogPref.php:459
 #: src/Process/Backend/Blogs.php:101 src/Process/Backend/Langs.php:247
 #: src/Process/Backend/Plugin.php:146 src/Process/Backend/Plugins.php:116
-#: src/Process/Backend/Settings.php:58 src/Process/Backend/User.php:273
+#: src/Process/Backend/Settings.php:59 src/Process/Backend/User.php:273
 #: src/Process/Backend/Users.php:108 src/Process/Backend/UsersActions.php:223
 #: src/Process/Backend/UsersActions.php:231 src/Process/Upgrade/Home.php:162
 msgid "System"
@@ -3159,11 +3159,11 @@ msgstr "Blog \"%s\" edukalt loodud"
 msgid "New blog"
 msgstr "Uus blogi"
 
-#: src/Process/Backend/Blog.php:128 src/Process/Backend/BlogPref.php:1038
+#: src/Process/Backend/Blog.php:128 src/Process/Backend/BlogPref.php:1041
 msgid "Blog ID:"
 msgstr "Blogi ID:"
 
-#: src/Process/Backend/Blog.php:136 src/Process/Backend/BlogPref.php:1043
+#: src/Process/Backend/Blog.php:136 src/Process/Backend/BlogPref.php:1046
 #: src/Process/Backend/User.php:319
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr "Vähemalt 2 tähemärki, kasutades tähti, numbreid või sümboleid."
@@ -3172,11 +3172,11 @@ msgstr "Vähemalt 2 tähemärki, kasutades tähti, numbreid või sümboleid."
 msgid "Blog name:"
 msgstr "Blogi nimi:"
 
-#: src/Process/Backend/Blog.php:162 src/Process/Backend/BlogPref.php:1056
+#: src/Process/Backend/Blog.php:162 src/Process/Backend/BlogPref.php:1059
 msgid "Blog URL"
 msgstr "Blogi URL"
 
-#: src/Process/Backend/Blog.php:166 src/Process/Backend/BlogPref.php:1059
+#: src/Process/Backend/Blog.php:166 src/Process/Backend/BlogPref.php:1062
 msgid "Blog URL:"
 msgstr "Blogi URL:"
 
@@ -3214,7 +3214,7 @@ msgstr "Sa oled umbes kustutada blogi %s. Iga sissekanne, kommentaar ja kategoor
 msgid "Please give your password to confirm the blog deletion."
 msgstr "Palun andke oma parool, et kinnitada blogi kustutamine."
 
-#: src/Process/Backend/BlogDel.php:135 src/Process/Backend/BlogPref.php:1196
+#: src/Process/Backend/BlogDel.php:135 src/Process/Backend/BlogPref.php:1199
 msgid "Delete this blog"
 msgstr "Kustuta see blogi"
 
@@ -3262,12 +3262,12 @@ msgstr "H3"
 msgid "P"
 msgstr "P"
 
-#: src/Process/Backend/BlogPref.php:174 src/Process/Backend/BlogPref.php:1264
+#: src/Process/Backend/BlogPref.php:174 src/Process/Backend/BlogPref.php:1267
 #: src/Process/Backend/MediaItem.php:606 src/Process/Backend/MediaItem.php:611
 msgid "(none)"
 msgstr "(ükski)"
 
-#: src/Process/Backend/BlogPref.php:175 src/Process/Backend/Settings.php:140
+#: src/Process/Backend/BlogPref.php:175 src/Process/Backend/Settings.php:144
 msgid "Description"
 msgstr "Kirjeldus"
 
@@ -3284,7 +3284,7 @@ msgid "Description, City, Country, Date"
 msgstr "Kirjeldus, linn, riik, kuupäev"
 
 #: src/Process/Backend/BlogPref.php:208 src/Process/Backend/MediaItem.php:483
-#: src/Process/Backend/MediaItem.php:580 src/Process/Backend/MediaItem.php:846
+#: src/Process/Backend/MediaItem.php:580 src/Process/Backend/MediaItem.php:849
 msgid "original"
 msgstr "originaal"
 
@@ -3371,7 +3371,7 @@ msgid "Warning: except for special configurations, it is generally advised to ha
 msgstr "Hoiatus: välja arvatud erikonfiguratsioonid, see on üldiselt soovitatav, et on trailing \"?\" oma blogi URL QUERY_STRING režiimis."
 
 #: src/Process/Backend/BlogPref.php:488 src/Process/Backend/BlogPref.php:728
-#: src/Process/Backend/BlogPref.php:747 src/Process/Backend/BlogPref.php:1090
+#: src/Process/Backend/BlogPref.php:747 src/Process/Backend/BlogPref.php:1093
 msgid "Sample:"
 msgstr "Näide:"
 
@@ -3383,16 +3383,16 @@ msgstr "Blogi on edukalt loodud."
 msgid "Blog status:"
 msgstr "Blogi staatus:"
 
-#: src/Process/Backend/BlogPref.php:541 src/Process/Backend/BlogPref.php:1023
+#: src/Process/Backend/BlogPref.php:541 src/Process/Backend/BlogPref.php:1026
 msgid "Blog details"
 msgstr "Blogi üksikasjad"
 
-#: src/Process/Backend/BlogPref.php:554 src/Process/Backend/BlogPref.php:1036
-#: src/Process/Backend/BlogPref.php:1057 src/Process/Backend/Post.php:821
+#: src/Process/Backend/BlogPref.php:554 src/Process/Backend/BlogPref.php:1039
+#: src/Process/Backend/BlogPref.php:1060 src/Process/Backend/Post.php:821
 msgid "Required field"
 msgstr "Kohustuslik väli"
 
-#: src/Process/Backend/BlogPref.php:574 src/Process/Backend/BlogPref.php:1075
+#: src/Process/Backend/BlogPref.php:574 src/Process/Backend/BlogPref.php:1078
 msgid "Blog configuration"
 msgstr "Blogi konfiguratsioon"
 
@@ -3594,169 +3594,173 @@ msgstr "Laius"
 msgid "Height"
 msgstr "Kõrgus"
 
-#: src/Process/Backend/BlogPref.php:913
+#: src/Process/Backend/BlogPref.php:908
+msgid "A value of 0 means that the corresponding size is not included when inserting a video. A value of -1 restores the default value."
+msgstr ""
+
+#: src/Process/Backend/BlogPref.php:916
 msgid "Default image insertion attributes"
 msgstr "Vaikimisi pildi sisestamise atribuudid"
 
-#: src/Process/Backend/BlogPref.php:919
+#: src/Process/Backend/BlogPref.php:922
 msgid "Inserted image legend:"
 msgstr "Sisestatud pildi legend:"
 
-#: src/Process/Backend/BlogPref.php:925
+#: src/Process/Backend/BlogPref.php:928
 msgid "Use original media date if possible"
 msgstr "Võimaluse korral kasutage originaalkandidaati"
 
-#: src/Process/Backend/BlogPref.php:931
+#: src/Process/Backend/BlogPref.php:934
 msgid "Do not display date if alone in title"
 msgstr "Mitte kuvada kuupäeva, kui see on ainult pealkirjas"
 
-#: src/Process/Backend/BlogPref.php:936
+#: src/Process/Backend/BlogPref.php:939
 msgid "It is retrieved from the picture's metadata."
 msgstr "See leitakse pildi metaandmetest."
 
-#: src/Process/Backend/BlogPref.php:944
+#: src/Process/Backend/BlogPref.php:947
 msgid "Size of inserted image:"
 msgstr "Sisestatud pildi suurus:"
 
-#: src/Process/Backend/BlogPref.php:952
+#: src/Process/Backend/BlogPref.php:955
 msgid "Image alignment:"
 msgstr "Pildi joondamine:"
 
-#: src/Process/Backend/BlogPref.php:958
+#: src/Process/Backend/BlogPref.php:961
 msgid "Insert a link to the original image"
 msgstr "Lisage link originaalpildile"
 
-#: src/Process/Backend/BlogPref.php:965
+#: src/Process/Backend/BlogPref.php:968
 msgid "Image legend and alternate text:"
 msgstr "Pildi legend ja alternatiivne tekst:"
 
-#: src/Process/Backend/BlogPref.php:974 src/Process/Backend/Media.php:846
-#: src/Process/Backend/Settings.php:73
+#: src/Process/Backend/BlogPref.php:977 src/Process/Backend/Media.php:846
+#: src/Process/Backend/Settings.php:74
 msgid "Blog parameters"
 msgstr "Blogi parameetrid"
 
-#: src/Process/Backend/BlogPref.php:1005
+#: src/Process/Backend/BlogPref.php:1008
 #, php-format
 msgid "The URL of blog or the URL scan method might not be well set (<code>%1$s</code> return a <strong>%2$s</strong> status)."
 msgstr "Blogi URL või URL-skaneerimismeetod ei pruugi olla hästi seatud (<code>%1$s</code> tagastada <strong>%2$s</strong> staatus)."
 
-#: src/Process/Backend/BlogPref.php:1014
+#: src/Process/Backend/BlogPref.php:1017
 #, php-format
 msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed)."
 msgstr "Blogi URL või URL-skaneerimismeetod ei pruugi olla hästi seatud (<code>%s</code> ei tagasta ATOM-sidet)."
 
-#: src/Process/Backend/BlogPref.php:1047
+#: src/Process/Backend/BlogPref.php:1050
 msgid "Please note that changing your blog ID may require changes in your public index.php file."
 msgstr "Pange tähele, et blogi ID muutmine võib nõuda muudatusi teie avalikus index.php failis."
 
-#: src/Process/Backend/BlogPref.php:1067
+#: src/Process/Backend/BlogPref.php:1070
 msgid "URL scan method:"
 msgstr "URL-skaneerimismeetod:"
 
-#: src/Process/Backend/BlogPref.php:1083
+#: src/Process/Backend/BlogPref.php:1086
 msgid "New post URL format:"
 msgstr "Uus postituse URL-vorming:"
 
-#: src/Process/Backend/BlogPref.php:1090
+#: src/Process/Backend/BlogPref.php:1093
 msgid "Dotclear"
 msgstr "Dotclear"
 
-#: src/Process/Backend/BlogPref.php:1097
+#: src/Process/Backend/BlogPref.php:1100
 msgid "HTML tag for the title of the notes on the blog:"
 msgstr "HTML-silt blogi märkuste pealkirja jaoks:"
 
-#: src/Process/Backend/BlogPref.php:1114
+#: src/Process/Backend/BlogPref.php:1117
 msgid "Search engines robots policy"
 msgstr "Otsingumootorite robotite poliitika"
 
-#: src/Process/Backend/BlogPref.php:1119
+#: src/Process/Backend/BlogPref.php:1122
 msgid "Legacy javascript library"
 msgstr "Legacy javascript raamatukogu"
 
-#: src/Process/Backend/BlogPref.php:1125
+#: src/Process/Backend/BlogPref.php:1128
 msgid "Load the Legacy JS library"
 msgstr "Laadige Legacy JS raamatukogu"
 
-#: src/Process/Backend/BlogPref.php:1131
+#: src/Process/Backend/BlogPref.php:1134
 msgid "jQuery javascript library"
 msgstr "jQuery javascript raamatukogu"
 
-#: src/Process/Backend/BlogPref.php:1137
+#: src/Process/Backend/BlogPref.php:1140
 msgid "Load the jQuery library"
 msgstr "Laadige jQuery raamatukogu"
 
-#: src/Process/Backend/BlogPref.php:1144
+#: src/Process/Backend/BlogPref.php:1147
 msgid "jQuery version to be loaded for this blog:"
 msgstr "jQuery versioon, mis tuleb selle blogi jaoks laadida:"
 
-#: src/Process/Backend/BlogPref.php:1150
+#: src/Process/Backend/BlogPref.php:1153
 msgid "Blog security"
 msgstr "Blogi turvalisus"
 
-#: src/Process/Backend/BlogPref.php:1156
+#: src/Process/Backend/BlogPref.php:1159
 msgid "Protect the blog from Clickjacking (see <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
 msgstr "Kaitske blogi Clickjacking'i eest (vt <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
 
-#: src/Process/Backend/BlogPref.php:1162
+#: src/Process/Backend/BlogPref.php:1165
 msgid "Advanced parameters"
 msgstr "Täiustatud parameetrid"
 
-#: src/Process/Backend/BlogPref.php:1169
+#: src/Process/Backend/BlogPref.php:1172
 msgid "Plugins parameters"
 msgstr "Pluginate parameetrid"
 
-#: src/Process/Backend/BlogPref.php:1209
+#: src/Process/Backend/BlogPref.php:1212
 msgid "Only superadmin can delete a blog."
 msgstr "Ainult superadmin saab blogi kustutada."
 
-#: src/Process/Backend/BlogPref.php:1213
+#: src/Process/Backend/BlogPref.php:1216
 msgid "Parameters"
 msgstr "Parameetrid"
 
-#: src/Process/Backend/BlogPref.php:1232
+#: src/Process/Backend/BlogPref.php:1235
 msgid "No users"
 msgstr "Ei ole kasutajaid"
 
-#: src/Process/Backend/BlogPref.php:1274
+#: src/Process/Backend/BlogPref.php:1277
 #, php-format
 msgid "%1$s: %2$s"
 msgstr "%1$s: %2$s"
 
-#: src/Process/Backend/BlogPref.php:1283 src/Process/Backend/User.php:382
+#: src/Process/Backend/BlogPref.php:1286 src/Process/Backend/User.php:382
 msgid "Super administrator"
 msgstr "Super administraator"
 
-#: src/Process/Backend/BlogPref.php:1285
+#: src/Process/Backend/BlogPref.php:1288
 msgid "All rights on all blogs."
 msgstr "Kõik õigused kõigis blogides."
 
-#: src/Process/Backend/BlogPref.php:1295
+#: src/Process/Backend/BlogPref.php:1298
 msgid "All rights on this blog."
 msgstr "Kõik õigused selles blogis."
 
-#: src/Process/Backend/BlogPref.php:1311
+#: src/Process/Backend/BlogPref.php:1314
 #: src/Process/Backend/UsersActions.php:467
 #, php-format
 msgid "[%s] (unreferenced permission)"
 msgstr "[%s] (viitamata luba)"
 
-#: src/Process/Backend/BlogPref.php:1330 src/Process/Backend/User.php:597
+#: src/Process/Backend/BlogPref.php:1333 src/Process/Backend/User.php:597
 msgid "Change permissions"
 msgstr "Õiguste muutmine"
 
-#: src/Process/Backend/BlogPref.php:1332
+#: src/Process/Backend/BlogPref.php:1335
 msgid "Back to user card"
 msgstr "Tagasi kasutajakaardi juurde"
 
-#: src/Process/Backend/BlogPref.php:1354
+#: src/Process/Backend/BlogPref.php:1357
 msgid "Publications on this blog:"
 msgstr "Väljaanded selles blogis:"
 
-#: src/Process/Backend/BlogPref.php:1357
+#: src/Process/Backend/BlogPref.php:1360
 msgid "Permissions:"
 msgstr "Lubade andmine:"
 
-#: src/Process/Backend/BlogPref.php:1374
+#: src/Process/Backend/BlogPref.php:1377
 msgid "Users on this blog"
 msgstr "Selle blogi kasutajad"
 
@@ -3997,7 +4001,7 @@ msgstr "Nimi:"
 msgid "Warning: If you set the URL manually, it may conflict with another category."
 msgstr "Hoiatus: Kui määrate URL-i käsitsi, võib see sattuda konflikti mõne teise kategooriaga."
 
-#: src/Process/Backend/Category.php:293 src/Process/Backend/MediaItem.php:1251
+#: src/Process/Backend/Category.php:293 src/Process/Backend/MediaItem.php:1254
 msgid "Description:"
 msgstr "Kirjeldus:"
 
@@ -4373,7 +4377,7 @@ msgstr "Lingi pealkiri:"
 msgid "Link language:"
 msgstr "Lingi keel:"
 
-#: src/Process/Backend/LinkPopup.php:115 src/Process/Backend/MediaItem.php:763
+#: src/Process/Backend/LinkPopup.php:115 src/Process/Backend/MediaItem.php:766
 msgid "Insert"
 msgstr "Sisesta"
 
@@ -4546,7 +4550,7 @@ msgstr "Palun olge ettevaatlik, et avaldada meediat, mis on teie omandis ja mis 
 msgid "Maximum file size allowed:"
 msgstr "Maksimaalne lubatud faili suurus:"
 
-#: src/Process/Backend/Media.php:770 src/Process/Backend/MediaItem.php:1264
+#: src/Process/Backend/Media.php:770 src/Process/Backend/MediaItem.php:1267
 msgid "Private"
 msgstr "Eraldi"
 
@@ -4617,8 +4621,8 @@ msgstr "Valige"
 msgid "Image legend and alternate text"
 msgstr "Pildi legend ja alternatiivne tekst"
 
-#: src/Process/Backend/MediaItem.php:603 src/Process/Backend/MediaItem.php:1102
-#: src/Process/Backend/MediaItem.php:1242
+#: src/Process/Backend/MediaItem.php:603 src/Process/Backend/MediaItem.php:1105
+#: src/Process/Backend/MediaItem.php:1245
 msgid "Alternate text:"
 msgstr "Alternatiivne tekst:"
 
@@ -4662,182 +4666,186 @@ msgstr "Laius:"
 msgid "Height:"
 msgstr "Kõrgus:"
 
-#: src/Process/Backend/MediaItem.php:689
+#: src/Process/Backend/MediaItem.php:687
+msgid "A value of 0 means that the corresponding size is not included when inserting a video."
+msgstr ""
+
+#: src/Process/Backend/MediaItem.php:692
 msgid "Video disposition"
 msgstr "Videodispositsioon"
 
-#: src/Process/Backend/MediaItem.php:699
+#: src/Process/Backend/MediaItem.php:702
 msgid "Please note that you cannot insert video files with standard editor in WYSIWYG HTML mode."
 msgstr "Pange tähele, et WYSIWYG HTML-režiimis ei saa standardse redaktoriga videofaile sisestada."
 
-#: src/Process/Backend/MediaItem.php:705
+#: src/Process/Backend/MediaItem.php:708
 msgid "Media item will be inserted as a link."
 msgstr "Meediaelement lisatakse lingina."
 
-#: src/Process/Backend/MediaItem.php:726
+#: src/Process/Backend/MediaItem.php:729
 msgid "Make current settings as default"
 msgstr "Teha praegused seaded vaikimisi"
 
-#: src/Process/Backend/MediaItem.php:727
+#: src/Process/Backend/MediaItem.php:730
 msgid "For the blog"
 msgstr "Blogi jaoks"
 
-#: src/Process/Backend/MediaItem.php:729
+#: src/Process/Backend/MediaItem.php:732
 msgid "For this folder only"
 msgstr "Ainult selle kausta jaoks"
 
-#: src/Process/Backend/MediaItem.php:741
+#: src/Process/Backend/MediaItem.php:744
 msgid "Settings exist for this folder:"
 msgstr "Selle kausta jaoks on olemas seaded:"
 
-#: src/Process/Backend/MediaItem.php:742
+#: src/Process/Backend/MediaItem.php:745
 msgid "Remove them"
 msgstr "Eemaldage need"
 
-#: src/Process/Backend/MediaItem.php:752 src/Process/Backend/MediaItem.php:754
+#: src/Process/Backend/MediaItem.php:755 src/Process/Backend/MediaItem.php:757
 msgid "Insert media item"
 msgstr "Sisesta meediaelement"
 
-#: src/Process/Backend/MediaItem.php:839
+#: src/Process/Backend/MediaItem.php:842
 msgid "Available sizes:"
 msgstr "Saadaolevad suurused:"
 
-#: src/Process/Backend/MediaItem.php:864 src/Process/Backend/MediaItem.php:938
-#: src/Process/Backend/MediaItem.php:946 src/Process/Backend/MediaItem.php:957
+#: src/Process/Backend/MediaItem.php:867 src/Process/Backend/MediaItem.php:941
+#: src/Process/Backend/MediaItem.php:949 src/Process/Backend/MediaItem.php:960
 msgid "Image width:"
 msgstr "Pildi laius:"
 
-#: src/Process/Backend/MediaItem.php:870 src/Process/Backend/MediaItem.php:963
+#: src/Process/Backend/MediaItem.php:873 src/Process/Backend/MediaItem.php:966
 msgid "Image height:"
 msgstr "Pildi kõrgus:"
 
-#: src/Process/Backend/MediaItem.php:878 src/Process/Backend/MediaItem.php:973
+#: src/Process/Backend/MediaItem.php:881 src/Process/Backend/MediaItem.php:976
 msgid "File size:"
 msgstr "Faili suurus:"
 
-#: src/Process/Backend/MediaItem.php:886 src/Process/Backend/MediaItem.php:979
+#: src/Process/Backend/MediaItem.php:889 src/Process/Backend/MediaItem.php:982
 msgid "File URL:"
 msgstr "Faili URL:"
 
-#: src/Process/Backend/MediaItem.php:894
+#: src/Process/Backend/MediaItem.php:897
 msgid "Thumbnail details"
 msgstr "Pisipildi üksikasjad"
 
-#: src/Process/Backend/MediaItem.php:917
+#: src/Process/Backend/MediaItem.php:920
 msgid "File owner:"
 msgstr "Faili omanik:"
 
-#: src/Process/Backend/MediaItem.php:923
+#: src/Process/Backend/MediaItem.php:926
 msgid "File type:"
 msgstr "Faili tüüp:"
 
-#: src/Process/Backend/MediaItem.php:990
+#: src/Process/Backend/MediaItem.php:993
 msgid "Show entries containing this media"
 msgstr "Näita kirjeid, mis sisaldavad seda meediat"
 
-#: src/Process/Backend/MediaItem.php:1038
+#: src/Process/Backend/MediaItem.php:1041
 msgid "No entry seems contain this media."
 msgstr "Ükski kanne ei tundu sisaldavat seda meediat."
 
-#: src/Process/Backend/MediaItem.php:1068
+#: src/Process/Backend/MediaItem.php:1071
 msgid "Inside the entry"
 msgstr "Siseküljel on sissepääs"
 
-#: src/Process/Backend/MediaItem.php:1075
+#: src/Process/Backend/MediaItem.php:1078
 msgid "Linked to entry"
 msgstr "Seotud sisenemisega"
 
-#: src/Process/Backend/MediaItem.php:1083
+#: src/Process/Backend/MediaItem.php:1086
 msgid "Entries containing this media"
 msgstr "Seda meediat sisaldavad kanded"
 
-#: src/Process/Backend/MediaItem.php:1117
+#: src/Process/Backend/MediaItem.php:1120
 msgid ":"
 msgstr ":"
 
-#: src/Process/Backend/MediaItem.php:1127
+#: src/Process/Backend/MediaItem.php:1130
 msgid "Metadata"
 msgstr "Metaandmed"
 
-#: src/Process/Backend/MediaItem.php:1139
-#: src/Process/Backend/MediaItem.php:1341
-#: src/Process/Backend/MediaItem.php:1350
+#: src/Process/Backend/MediaItem.php:1142
+#: src/Process/Backend/MediaItem.php:1344
+#: src/Process/Backend/MediaItem.php:1353
 msgid "Media details"
 msgstr "Meedia üksikasjad"
 
-#: src/Process/Backend/MediaItem.php:1157
-#: src/Process/Backend/MediaItem.php:1164
+#: src/Process/Backend/MediaItem.php:1160
+#: src/Process/Backend/MediaItem.php:1167
 msgid "Update thumbnails"
 msgstr "Väikeste piltide ajakohastamine"
 
-#: src/Process/Backend/MediaItem.php:1159
+#: src/Process/Backend/MediaItem.php:1162
 msgid "This will create or update thumbnails for this image."
 msgstr "Sellega luuakse või ajakohastatakse selle pildi pisipildid."
 
-#: src/Process/Backend/MediaItem.php:1173
-#: src/Process/Backend/MediaItem.php:1188
+#: src/Process/Backend/MediaItem.php:1176
+#: src/Process/Backend/MediaItem.php:1191
 msgid "Extract in a new directory"
 msgstr "Väljavõte uues kataloogis"
 
-#: src/Process/Backend/MediaItem.php:1174
-#: src/Process/Backend/MediaItem.php:1194
+#: src/Process/Backend/MediaItem.php:1177
+#: src/Process/Backend/MediaItem.php:1197
 msgid "Extract in current directory"
 msgstr "Väljavõte praeguses kataloogis"
 
-#: src/Process/Backend/MediaItem.php:1182
+#: src/Process/Backend/MediaItem.php:1185
 msgid "Extract archive"
 msgstr "Väljavõte arhiivist"
 
-#: src/Process/Backend/MediaItem.php:1189
+#: src/Process/Backend/MediaItem.php:1192
 msgid "This will extract archive in a new directory that should not exist yet."
 msgstr "See ekstraheerib arhiivi uude kataloogi, mida ei tohiks veel olemas olla."
 
-#: src/Process/Backend/MediaItem.php:1195
+#: src/Process/Backend/MediaItem.php:1198
 msgid "This will extract archive in current directory and will overwrite existing files or directory."
 msgstr "See ekstraheerib arhiivi praegusesse kataloogi ja kirjutab olemasolevad failid või kataloogi üle."
 
-#: src/Process/Backend/MediaItem.php:1203
+#: src/Process/Backend/MediaItem.php:1206
 msgid "Extract mode:"
 msgstr "Väljavõtterežiim:"
 
-#: src/Process/Backend/MediaItem.php:1204
+#: src/Process/Backend/MediaItem.php:1207
 msgid "Extract"
 msgstr "Väljavõte"
 
-#: src/Process/Backend/MediaItem.php:1216
+#: src/Process/Backend/MediaItem.php:1219
 msgid "Change media properties"
 msgstr "Meedia omaduste muutmine"
 
-#: src/Process/Backend/MediaItem.php:1225
+#: src/Process/Backend/MediaItem.php:1228
 msgid "File name:"
 msgstr "Faili nimi:"
 
-#: src/Process/Backend/MediaItem.php:1258
+#: src/Process/Backend/MediaItem.php:1261
 msgid "File date:"
 msgstr "Faili kuupäev:"
 
-#: src/Process/Backend/MediaItem.php:1271
+#: src/Process/Backend/MediaItem.php:1274
 msgid "New directory:"
 msgstr "Uus kataloog:"
 
-#: src/Process/Backend/MediaItem.php:1286
+#: src/Process/Backend/MediaItem.php:1289
 msgid "Change file"
 msgstr "Muuda faili"
 
-#: src/Process/Backend/MediaItem.php:1295
+#: src/Process/Backend/MediaItem.php:1298
 msgid "Choose a file:"
 msgstr "Valige fail:"
 
-#: src/Process/Backend/MediaItem.php:1295
+#: src/Process/Backend/MediaItem.php:1298
 #, php-format
 msgid "Maximum size %s"
 msgstr "Maksimaalne suurus %s"
 
-#: src/Process/Backend/MediaItem.php:1313
+#: src/Process/Backend/MediaItem.php:1316
 msgid "Delete this media"
 msgstr "Kustuta see meedia"
 
-#: src/Process/Backend/MediaItem.php:1332
+#: src/Process/Backend/MediaItem.php:1335
 msgid "Updates and modifications"
 msgstr "Uuendused ja muudatused"
 
@@ -5229,67 +5237,67 @@ msgid_plural "%d comments found"
 msgstr[0] "üks kommentaar leitud"
 msgstr[1] "%d leitud kommentaarid"
 
-#: src/Process/Backend/Settings.php:72 src/Process/Backend/Settings.php:142
+#: src/Process/Backend/Settings.php:73 src/Process/Backend/Settings.php:146
 msgid "Configuration"
 msgstr "Konfiguratsioon"
 
-#: src/Process/Backend/Settings.php:74
+#: src/Process/Backend/Settings.php:75
 msgid "User preferences"
 msgstr "Kasutaja eelistused"
 
-#: src/Process/Backend/Settings.php:75 src/Process/Backend/Settings.php:148
+#: src/Process/Backend/Settings.php:76 src/Process/Backend/Settings.php:152
 msgid "Settings"
 msgstr "Seaded"
 
-#: src/Process/Backend/Settings.php:76 src/Process/Backend/Settings.php:150
+#: src/Process/Backend/Settings.php:77 src/Process/Backend/Settings.php:154
 msgid "Other settings"
 msgstr "Muud seaded"
 
-#: src/Process/Backend/Settings.php:77 src/Process/Backend/Settings.php:152
+#: src/Process/Backend/Settings.php:78 src/Process/Backend/Settings.php:156
 msgid "Management"
 msgstr "Juhtimine"
 
-#: src/Process/Backend/Settings.php:78
+#: src/Process/Backend/Settings.php:79
 msgid "Unknown"
 msgstr "Tundmatu"
 
-#: src/Process/Backend/Settings.php:138
+#: src/Process/Backend/Settings.php:142
 msgid "ID"
 msgstr "ID"
 
-#: src/Process/Backend/Settings.php:146
+#: src/Process/Backend/Settings.php:150
 msgid "User"
 msgstr "Kasutaja"
 
-#: src/Process/Backend/Settings.php:160
+#: src/Process/Backend/Settings.php:164
 msgid "Column description:"
 msgstr "Veergude kirjeldus:"
 
-#: src/Process/Backend/Settings.php:165
+#: src/Process/Backend/Settings.php:169
 msgid "“Configuration”: indicates that plugin has a specific configuration page."
 msgstr "\"Configuration\": näitab, et pluginil on konkreetne konfiguratsioonileht."
 
-#: src/Process/Backend/Settings.php:167
+#: src/Process/Backend/Settings.php:171
 msgid "“Blog”: indicates that plugin has a specific settings in blog parameters, usually used to add or modify some comportements or aspects of the public blog."
 msgstr "\"Blogi\": näitab, et plugin on konkreetne seaded blogi parameetrid, tavaliselt kasutatakse lisada või muuta mõned comportements või aspekte avaliku blogi."
 
-#: src/Process/Backend/Settings.php:169
+#: src/Process/Backend/Settings.php:173
 msgid "“user”: indicates that the plugin has a specific configuration in the user preferences, generally used to add or modify certain behaviors or aspects of blog administration for the user."
 msgstr "\"kasutaja\": näitab, et pluginil on konkreetne konfiguratsioon kasutaja eelistustes, mida tavaliselt kasutatakse teatud käitumiste või blogi haldamise aspektide lisamiseks või muutmiseks kasutaja jaoks."
 
-#: src/Process/Backend/Settings.php:171
+#: src/Process/Backend/Settings.php:175
 msgid "“self”: indicates that when the plugin has specific parameters on its management page."
 msgstr "\"self\": näitab, et kui pluginil on konkreetsed parameetrid oma halduse lehel."
 
-#: src/Process/Backend/Settings.php:173
+#: src/Process/Backend/Settings.php:177
 msgid "“Other”: indicates that plugin has a specific settings in other context."
 msgstr "\"Muu\": näitab, et pluginil on spetsiifilised seaded muus kontekstis."
 
-#: src/Process/Backend/Settings.php:175
+#: src/Process/Backend/Settings.php:179
 msgid "“Management”: indicates that the plugin has a specific management page."
 msgstr "\"Haldus\": näitab, et pluginal on konkreetne haldusleht."
 
-#: src/Process/Backend/Settings.php:177
+#: src/Process/Backend/Settings.php:181
 msgid "Some of these columns may not be displayed if no plugin has a link in them."
 msgstr "Mõnda neist veergudest ei pruugi kuvada, kui ükski plugin ei ole neis linki."
 
