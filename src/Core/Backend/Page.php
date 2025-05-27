@@ -1064,37 +1064,35 @@ class Page
         # --BEHAVIOR-- adminPageHelpBlock -- ArrayObject
         App::behavior()->callBehavior('adminPageHelpBlock', $args);
 
-        if (count($args) === 0) {
-            return;
-        }
+        $no_content = false;
+        $content    = '';
 
-        if (App::backend()->resources()->entries('help') === []) {
-            return;
-        }
+        if ((count($args) === 0) || (App::backend()->resources()->entries('help') === [])) {
+            $no_content = true;
+        } else {
+            $content = '';
+            foreach ($args as $arg) {
+                if (is_object($arg) && isset($arg->content)) {
+                    $content .= $arg->content;
 
-        $content = '';
-        foreach ($args as $arg) {
-            if (is_object($arg) && isset($arg->content)) {
-                $content .= $arg->content;
+                    continue;
+                }
 
-                continue;
+                $file = App::backend()->resources()->entry('help', $arg);
+                if ($file === '' || !file_exists($file) || !is_readable($file)) {
+                    continue;
+                }
+
+                $file_content = (string) file_get_contents($file);
+                if (preg_match('|<body[^>]*?>(.*?)</body>|ms', $file_content, $matches)) {
+                    $content .= $matches[1];
+                } else {
+                    $content .= $file_content;
+                }
             }
-
-            $file = App::backend()->resources()->entry('help', $arg);
-            if ($file === '' || !file_exists($file) || !is_readable($file)) {
-                continue;
+            if (trim($content) === '') {
+                $no_content = true;
             }
-
-            $file_content = (string) file_get_contents($file);
-            if (preg_match('|<body[^>]*?>(.*?)</body>|ms', $file_content, $matches)) {
-                $content .= $matches[1];
-            } else {
-                $content .= $file_content;
-            }
-        }
-
-        if (trim($content) === '') {
-            return;
         }
 
         // Set contextual help global flag
@@ -1103,25 +1101,30 @@ class Page
         echo (new Div())
             ->id('help')
             ->items([
-                (new Single('hr')),
-                (new Div())
-                    ->class(['help-content', 'clear'])
+                (new Single('hr')), // Will be removed by JS script (see common.js)
+                $no_content ?
+                (new None()) :
+                (new Set())
                     ->items([
-                        (new Text('h3', __('Help about this page'))),
-                        (new Text(null, $content)),
+                        (new Div())
+                            ->class(['help-content', 'clear'])
+                            ->items([
+                                (new Text('h3', __('Help about this page'))),
+                                (new Text(null, $content)),
+                            ]),
+                        (new Single('hr')), // Will be removed by JS script (see common.js)
                     ]),
                 (new Div())
                     ->id('helplink')
                     ->items([
-                        (new Single('hr')),
                         (new Note())
                             ->text(sprintf(
-                                __('See also %s'),
+                                $no_content ? '%s' : __('See also %s'),
                                 sprintf(
                                     (new Link())->href(App::backend()->url()->get('admin.help'))->text('%s')->render(),
                                     __('the global help')
                                 )
-                            ) . '.'),
+                            )),
                     ]),
             ])
         ->render();
