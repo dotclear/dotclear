@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-27 12:02+0200\n"
-"PO-Revision-Date: 2025-05-27 10:09\n"
+"PO-Revision-Date: 2025-05-27 10:55\n"
 "Last-Translator: \n"
 "Language-Team: Hungarian\n"
 "Language: hu_HU\n"
@@ -3596,7 +3596,7 @@ msgstr "Magasság"
 
 #: src/Process/Backend/BlogPref.php:908
 msgid "A value of 0 means that the corresponding size is not included when inserting a video. A value of -1 restores the default value."
-msgstr ""
+msgstr "A 0 érték azt jelenti, hogy a megfelelő méret nem szerepel a videó beillesztésekor. A -1 érték visszaállítja az alapértelmezett értéket."
 
 #: src/Process/Backend/BlogPref.php:916
 msgid "Default image insertion attributes"
@@ -4668,7 +4668,7 @@ msgstr "Magasság:"
 
 #: src/Process/Backend/MediaItem.php:687
 msgid "A value of 0 means that the corresponding size is not included when inserting a video."
-msgstr ""
+msgstr "A 0 érték azt jelenti, hogy a megfelelő méret nem szerepel a videó beillesztésekor."
 
 #: src/Process/Backend/MediaItem.php:692
 msgid "Video disposition"
