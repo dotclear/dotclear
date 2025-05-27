@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-27 12:02+0200\n"
-"PO-Revision-Date: 2025-05-27 10:56\n"
+"POT-Creation-Date: 2025-05-27 18:26+0200\n"
+"PO-Revision-Date: 2025-05-27 16:52\n"
 "Last-Translator: \n"
 "Language-Team: Hindi\n"
 "Language: hi_IN\n"
@@ -5278,8 +5278,8 @@ msgid "“Configuration”: indicates that plugin has a specific configuration p
 msgstr "\"कॉन्फ़िगरेशन\": यह इंगित करता है कि प्लगइन का एक विशिष्ट कॉन्फ़िगरेशन पृष्ठ है।"
 
 #: src/Process/Backend/Settings.php:171
-msgid "“Blog”: indicates that plugin has a specific settings in blog parameters, usually used to add or modify some comportements or aspects of the public blog."
-msgstr "\"ब्लॉग\": यह दर्शाता है कि प्लगइन में ब्लॉग मापदंडों में विशिष्ट सेटिंग्स हैं, जो आमतौर पर सार्वजनिक ब्लॉग के कुछ व्यवहार या पहलुओं को जोड़ने या संशोधित करने के लिए उपयोग की जाती हैं।"
+msgid "“Blog”: indicates that plugin has specific settings in blog parameters, generally used to add or modify some comportements or aspects of the public blog."
+msgstr "\"ब्लॉग\": यह दर्शाता है कि प्लगइन में ब्लॉग मापदंडों में विशिष्ट सेटिंग्स हैं, जिनका उपयोग आम तौर पर सार्वजनिक ब्लॉग के कुछ व्यवहार या पहलुओं को जोड़ने या संशोधित करने के लिए किया जाता है।"
 
 #: src/Process/Backend/Settings.php:173
 msgid "“user”: indicates that the plugin has a specific configuration in the user preferences, generally used to add or modify certain behaviors or aspects of blog administration for the user."
@@ -5290,8 +5290,8 @@ msgid "“self”: indicates that when the plugin has specific parameters on its
 msgstr "\"स्वयं\": यह दर्शाता है कि जब प्लगइन के प्रबंधन पृष्ठ पर विशिष्ट पैरामीटर होते हैं।"
 
 #: src/Process/Backend/Settings.php:177
-msgid "“Other”: indicates that plugin has a specific settings in other context."
-msgstr "\"अन्य\": यह इंगित करता है कि प्लगइन की अन्य संदर्भ में विशिष्ट सेटिंग है।"
+msgid "“Other”: indicates that plugin has specific settings in other context."
+msgstr "“अन्य”: यह इंगित करता है कि प्लगइन में अन्य संदर्भ में विशिष्ट सेटिंग्स हैं।"
 
 #: src/Process/Backend/Settings.php:179
 msgid "“Management”: indicates that the plugin has a specific management page."
