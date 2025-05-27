@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-27 12:02+0200\n"
-"PO-Revision-Date: 2025-05-27 10:55\n"
+"POT-Creation-Date: 2025-05-27 18:26+0200\n"
+"PO-Revision-Date: 2025-05-27 16:51\n"
 "Last-Translator: \n"
 "Language-Team: Greek\n"
 "Language: el_GR\n"
@@ -5278,8 +5278,8 @@ msgid "“Configuration”: indicates that plugin has a specific configuration p
 msgstr "\"Διαμόρφωση\": υποδεικνύει ότι το πρόσθετο έχει μια συγκεκριμένη σελίδα διαμόρφωσης."
 
 #: src/Process/Backend/Settings.php:171
-msgid "“Blog”: indicates that plugin has a specific settings in blog parameters, usually used to add or modify some comportements or aspects of the public blog."
-msgstr "\"Blog\": υποδεικνύει ότι το πρόσθετο έχει συγκεκριμένες ρυθμίσεις στις παραμέτρους του ιστολογίου, που συνήθως χρησιμοποιούνται για την προσθήκη ή την τροποποίηση ορισμένων συμπεριφορών ή πτυχών του δημόσιου ιστολογίου."
+msgid "“Blog”: indicates that plugin has specific settings in blog parameters, generally used to add or modify some comportements or aspects of the public blog."
+msgstr "\"Blog\": υποδεικνύει ότι το πρόσθετο έχει συγκεκριμένες ρυθμίσεις στις παραμέτρους του ιστολογίου, που χρησιμοποιούνται γενικά για την προσθήκη ή τροποποίηση ορισμένων συμπεριφορών ή πτυχών του δημόσιου ιστολογίου."
 
 #: src/Process/Backend/Settings.php:173
 msgid "“user”: indicates that the plugin has a specific configuration in the user preferences, generally used to add or modify certain behaviors or aspects of blog administration for the user."
@@ -5290,7 +5290,7 @@ msgid "“self”: indicates that when the plugin has specific parameters on its
 msgstr "“εαυτός”: δείχνει ότι όταν το plugin έχει συγκεκριμένες παραμέτρους στη σελίδα διαχείρισης."
 
 #: src/Process/Backend/Settings.php:177
-msgid "“Other”: indicates that plugin has a specific settings in other context."
+msgid "“Other”: indicates that plugin has specific settings in other context."
 msgstr "\"Άλλο\": υποδεικνύει ότι το πρόσθετο έχει συγκεκριμένες ρυθμίσεις σε άλλο πλαίσιο."
 
 #: src/Process/Backend/Settings.php:179
