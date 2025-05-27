@@ -232,19 +232,6 @@ class Menus extends ArrayObject
         );
         $this->addItem(
             self::MENU_SYSTEM,
-            __('Plugins settings'),
-            'admin.settings',
-            ['images/menu/settings.svg', 'images/menu/settings-dark.svg'],
-            App::auth()->check(App::auth()->makePermissions([
-                App::auth()::PERMISSION_USAGE,
-                App::auth()::PERMISSION_CONTENT_ADMIN,
-            ]), App::blog()->id()),
-            false,
-            false,
-            'Settings'
-        );
-        $this->addItem(
-            self::MENU_SYSTEM,
             __('Users'),
             'admin.users',
             'images/menu/users.svg',
@@ -268,6 +255,19 @@ class Menus extends ArrayObject
             false,
             false,
             'Blogs'
+        );
+        $this->addItem(
+            self::MENU_PLUGINS,
+            __('Plugins settings'),
+            'admin.settings',
+            ['images/menu/settings.svg', 'images/menu/settings-dark.svg'],
+            App::auth()->check(App::auth()->makePermissions([
+                App::auth()::PERMISSION_USAGE,
+                App::auth()::PERMISSION_CONTENT_ADMIN,
+            ]), App::blog()->id()),
+            true,
+            false,
+            'Settings'
         );
     }
 }
