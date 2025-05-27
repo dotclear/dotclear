@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-27 12:02+0200\n"
-"PO-Revision-Date: 2025-05-27 10:55\n"
+"POT-Creation-Date: 2025-05-27 18:26+0200\n"
+"PO-Revision-Date: 2025-05-27 16:51\n"
 "Last-Translator: \n"
 "Language-Team: Danish\n"
 "Language: da_DK\n"
@@ -5278,8 +5278,8 @@ msgid "“Configuration”: indicates that plugin has a specific configuration p
 msgstr "\"Konfiguration\": angiver, at pluginet har en specifik konfigurationsside."
 
 #: src/Process/Backend/Settings.php:171
-msgid "“Blog”: indicates that plugin has a specific settings in blog parameters, usually used to add or modify some comportements or aspects of the public blog."
-msgstr "\"Blog\": angiver, at plugin'et har specifikke indstillinger i blogparametre, som normalt bruges til at tilføje eller ændre nogle adfærd eller aspekter af den offentlige blog."
+msgid "“Blog”: indicates that plugin has specific settings in blog parameters, generally used to add or modify some comportements or aspects of the public blog."
+msgstr "\"Blog\": angiver, at pluginet har specifikke indstillinger i blogparametre, der generelt bruges til at tilføje eller ændre nogle adfærd eller aspekter af den offentlige blog."
 
 #: src/Process/Backend/Settings.php:173
 msgid "“user”: indicates that the plugin has a specific configuration in the user preferences, generally used to add or modify certain behaviors or aspects of blog administration for the user."
@@ -5290,8 +5290,8 @@ msgid "“self”: indicates that when the plugin has specific parameters on its
 msgstr "\"self\": angiver, at når pluginet har specifikke parametre på sin administrationsside."
 
 #: src/Process/Backend/Settings.php:177
-msgid "“Other”: indicates that plugin has a specific settings in other context."
-msgstr "\"Andet\": angiver, at pluginet har en specifik indstilling i en anden sammenhæng."
+msgid "“Other”: indicates that plugin has specific settings in other context."
+msgstr "\"Andet\": angiver, at pluginet har specifikke indstillinger i andre sammenhænge."
 
 #: src/Process/Backend/Settings.php:179
 msgid "“Management”: indicates that the plugin has a specific management page."
