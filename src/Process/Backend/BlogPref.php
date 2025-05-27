@@ -903,6 +903,9 @@ class BlogPref extends Process
                                                     (new Number('media_video_height', -1, 999, (int) $data->blog_settings->system->media_video_height))
                                                         ->label(new Label(__('Height'), Label::OL_TF)),
                                                 ]),
+                                            (new Note())
+                                                ->class(['form-note', 'info'])
+                                                ->text(__('A value of 0 means that the corresponding size is not included when inserting a video. A value of -1 restores the default value.')),
                                         ]),
                                 ]),
                             (new Div())

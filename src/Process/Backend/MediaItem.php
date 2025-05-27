@@ -682,6 +682,9 @@ class MediaItem extends Process
                                         (new Number('video_h', 0, 9999, (int) App::blog()->settings()->system->media_video_height))
                                             ->label(new Label(__('Height:'), Label::IL_TF)),
                                     ]),
+                                (new Note())
+                                    ->class(['form-note', 'info'])
+                                    ->text(__('A value of 0 means that the corresponding size is not included when inserting a video.')),
                             ]),
                         (new Div())
                             ->class('two-boxes')
