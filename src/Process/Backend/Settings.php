@@ -20,6 +20,7 @@ use Dotclear\Helper\Html\Form\Li;
 use Dotclear\Helper\Html\Form\Link;
 use Dotclear\Helper\Html\Form\None;
 use Dotclear\Helper\Html\Form\Single;
+use Dotclear\Helper\Html\Form\Strong;
 use Dotclear\Helper\Html\Form\Table;
 use Dotclear\Helper\Html\Form\Tbody;
 use Dotclear\Helper\Html\Form\Td;
@@ -90,9 +91,12 @@ class Settings extends Process
             $settings = ModulesList::getSettingsUrls($id, true, keys: true, url_only: true);
             if ($settings !== []) {
                 $rows[] = (new Tr())
+                    ->class('line')
                     ->items([
                         (new Td())
-                            ->text($id),
+                            ->items([
+                                (new Strong($id)),
+                            ]),
                         (new Td())
                             ->text($name !== $id ? $name : ''),
                         (new Td())
