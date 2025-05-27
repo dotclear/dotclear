@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-27 12:02+0200\n"
-"PO-Revision-Date: 2025-05-27 10:55\n"
+"POT-Creation-Date: 2025-05-27 18:26+0200\n"
+"PO-Revision-Date: 2025-05-27 16:52\n"
 "Last-Translator: \n"
 "Language-Team: Slovenian\n"
 "Language: sl_SI\n"
@@ -5348,8 +5348,8 @@ msgid "“Configuration”: indicates that plugin has a specific configuration p
 msgstr "\"Konfiguracija\": označuje, da ima vtičnik posebno konfiguracijsko stran."
 
 #: src/Process/Backend/Settings.php:171
-msgid "“Blog”: indicates that plugin has a specific settings in blog parameters, usually used to add or modify some comportements or aspects of the public blog."
-msgstr "\"Blog\": označuje, da ima vtičnik posebne nastavitve v parametrih bloga, ki se običajno uporabljajo za dodajanje ali spreminjanje nekaterih komplementov ali vidikov javnega bloga."
+msgid "“Blog”: indicates that plugin has specific settings in blog parameters, generally used to add or modify some comportements or aspects of the public blog."
+msgstr "\"Blog\": označuje, da ima vtičnik posebne nastavitve v parametrih bloga, ki se na splošno uporabljajo za dodajanje ali spreminjanje nekaterih komplementov ali vidikov javnega bloga."
 
 #: src/Process/Backend/Settings.php:173
 msgid "“user”: indicates that the plugin has a specific configuration in the user preferences, generally used to add or modify certain behaviors or aspects of blog administration for the user."
@@ -5360,7 +5360,7 @@ msgid "“self”: indicates that when the plugin has specific parameters on its
 msgstr "\"self\": označuje, da ima vtičnik posebne parametre na svoji strani za upravljanje."
 
 #: src/Process/Backend/Settings.php:177
-msgid "“Other”: indicates that plugin has a specific settings in other context."
+msgid "“Other”: indicates that plugin has specific settings in other context."
 msgstr "\"Drugo\": označuje, da ima vtičnik posebne nastavitve v drugem kontekstu."
 
 #: src/Process/Backend/Settings.php:179
