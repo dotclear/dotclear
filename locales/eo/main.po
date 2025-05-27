@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-26 18:37+0200\n"
-"PO-Revision-Date: 2025-05-26 17:50\n"
+"POT-Creation-Date: 2025-05-27 12:02+0200\n"
+"PO-Revision-Date: 2025-05-27 10:09\n"
 "Last-Translator: \n"
 "Language-Team: Esperanto\n"
 "Language: eo_UY\n"
@@ -94,7 +94,7 @@ msgstr "Tiu ŝlosilo ne ekzistas en la datumbazo."
 #: src/Core/Backend/Combos.php:271 src/Core/Backend/Listing/ListingPosts.php:76
 #: src/Core/Backend/Listing/ListingPostsMini.php:62
 #: src/Core/Backend/UserPref.php:205 src/Process/Backend/Home.php:543
-#: src/Process/Backend/MediaItem.php:1093 src/Process/Backend/Post.php:811
+#: src/Process/Backend/MediaItem.php:1096 src/Process/Backend/Post.php:811
 msgid "Title"
 msgstr "Titolo"
 
@@ -102,7 +102,7 @@ msgstr "Titolo"
 #: src/Core/Backend/Action/ActionsBlogs.php:72
 #: src/Core/Backend/Action/ActionsBlogs.php:79
 #: src/Core/Backend/Action/ActionsBlogs.php:117
-#: src/Core/Backend/Favorites.php:502 src/Core/Backend/Menus.php:258
+#: src/Core/Backend/Favorites.php:502 src/Core/Backend/Menus.php:245
 #: src/Core/Backend/UserPref.php:75 src/Core/Backend/UserPref.php:192
 #: src/Process/Backend/Blog.php:100 src/Process/Backend/BlogDel.php:93
 #: src/Process/Backend/BlogPref.php:460
@@ -181,7 +181,7 @@ msgid "Password verification failed"
 msgstr "Pasvortkontrolo malsukcesis"
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:110
-#: src/Process/Backend/BlogPref.php:1205
+#: src/Process/Backend/BlogPref.php:1208
 msgid "The current blog cannot be deleted."
 msgstr "La nuna blogo ne povas esti forigita."
 
@@ -388,7 +388,7 @@ msgstr "Kreu novan kategorion por la afiŝo(j)"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:369
 #: src/Process/Backend/Home.php:547 src/Process/Backend/Home.php:581
-#: src/Process/Backend/Media.php:763 src/Process/Backend/MediaItem.php:1233
+#: src/Process/Backend/Media.php:763 src/Process/Backend/MediaItem.php:1236
 #: src/Process/Backend/Post.php:713 src/Process/Backend/Post.php:816
 msgid "Title:"
 msgstr "Titolo:"
@@ -402,10 +402,10 @@ msgstr "Gepatro:"
 #: src/Core/Backend/Action/ActionsPostsDefault.php:393
 #: src/Core/Backend/Action/ActionsPostsDefault.php:498
 #: src/Core/Backend/Action/ActionsPostsDefault.php:582
-#: src/Core/Backend/ModulesList.php:1978 src/Process/Backend/BlogPref.php:1180
+#: src/Core/Backend/ModulesList.php:1978 src/Process/Backend/BlogPref.php:1183
 #: src/Process/Backend/Category.php:298 src/Process/Backend/Category.php:337
 #: src/Process/Backend/Category.php:373 src/Process/Backend/Comment.php:350
-#: src/Process/Backend/Home.php:598 src/Process/Backend/MediaItem.php:1273
+#: src/Process/Backend/Home.php:598 src/Process/Backend/MediaItem.php:1276
 #: src/Process/Backend/Post.php:900 src/Process/Backend/Post.php:1114
 #: src/Process/Backend/User.php:536 src/Process/Backend/UsersActions.php:521
 #: src/Process/Install/Install.php:479
@@ -524,7 +524,7 @@ msgid "Last update"
 msgstr "Lasta ĝisdatigo"
 
 #: src/Core/Backend/Combos.php:328 src/Process/Backend/Blog.php:124
-#: src/Process/Backend/BlogPref.php:1035
+#: src/Process/Backend/BlogPref.php:1038
 #: src/Process/Backend/UsersActions.php:370
 msgid "Blog ID"
 msgstr "Bloga ID"
@@ -617,9 +617,9 @@ msgstr "Blogaj agordoj"
 msgid "Blog appearance"
 msgstr "Bloga aspekto"
 
-#: src/Core/Backend/Favorites.php:512 src/Core/Backend/Menus.php:248
+#: src/Core/Backend/Favorites.php:512 src/Core/Backend/Menus.php:235
 #: src/Core/Backend/UserPref.php:65 src/Core/Backend/UserPref.php:168
-#: src/Process/Backend/BlogPref.php:1371 src/Process/Backend/User.php:274
+#: src/Process/Backend/BlogPref.php:1374 src/Process/Backend/User.php:274
 #: src/Process/Backend/Users.php:104 src/Process/Backend/Users.php:109
 #: src/Process/Backend/UsersActions.php:224
 #: src/Process/Backend/UsersActions.php:232
@@ -634,8 +634,8 @@ msgstr "Uzantoj"
 msgid "Plugins management"
 msgstr "Administrado de kromprogramoj"
 
-#: src/Core/Backend/Favorites.php:524 src/Core/Backend/Menus.php:235
-#: src/Process/Backend/Settings.php:52 src/Process/Backend/Settings.php:59
+#: src/Core/Backend/Favorites.php:524 src/Core/Backend/Menus.php:261
+#: src/Process/Backend/Settings.php:53 src/Process/Backend/Settings.php:60
 msgid "Plugins settings"
 msgstr "Agordoj de kromaĵoj"
 
@@ -650,22 +650,22 @@ msgstr "Lingvoj"
 msgid "Global help"
 msgstr "Tutmonda helpo"
 
-#: src/Core/Backend/Filter/FilterComments.php:35 src/Core/Backend/Page.php:1259
-#: src/Process/Backend/Auth.php:420 src/Process/Backend/BlogPref.php:1351
+#: src/Core/Backend/Filter/FilterComments.php:35 src/Core/Backend/Page.php:1262
+#: src/Process/Backend/Auth.php:420 src/Process/Backend/BlogPref.php:1354
 #: src/Process/Backend/Comment.php:306 src/Process/Backend/Post.php:1083
 #: src/Process/Backend/User.php:432 src/Process/Backend/UserPreferences.php:636
 #: src/Process/Install/Install.php:445
 msgid "Email:"
 msgstr "Retpoŝto:"
 
-#: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1258
+#: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1261
 #: src/Process/Backend/Comment.php:322 src/Process/Backend/Post.php:1092
 msgid "Web site:"
 msgstr "Retejo:"
 
 #: src/Core/Backend/Filter/FilterComments.php:57
 #: src/Core/Backend/Filter/FilterPosts.php:90
-#: src/Core/Backend/ModulesList.php:1046 src/Core/Backend/Page.php:1300
+#: src/Core/Backend/ModulesList.php:1046 src/Core/Backend/Page.php:1303
 #: src/Process/Backend/Comment.php:295
 msgid "Author:"
 msgstr "Aŭtoro:"
@@ -684,7 +684,7 @@ msgid "Trackback"
 msgstr "Spurback"
 
 #: src/Core/Backend/Filter/FilterComments.php:106
-#: src/Core/Backend/Page.php:1260 src/Process/Backend/Comment.php:270
+#: src/Core/Backend/Page.php:1263 src/Process/Backend/Comment.php:270
 msgid "IP address:"
 msgstr "IP-adreso:"
 
@@ -797,7 +797,7 @@ msgstr "Konservu nunajn eblojn"
 msgid "Display options"
 msgstr "Montraj opcioj"
 
-#: src/Core/Backend/Filter/Filters.php:422 src/Core/Backend/Page.php:1466
+#: src/Core/Backend/Filter/Filters.php:422 src/Core/Backend/Page.php:1469
 msgid "Show filters and display options"
 msgstr "Montru filtrilojn kaj montrajn opciojn"
 
@@ -1121,7 +1121,7 @@ msgid_plural "%s files found"
 msgstr[0] "%s dosiero trovita"
 msgstr[1] "%s dosieroj trovitaj"
 
-#: src/Core/Backend/Menus.php:86 src/Process/Backend/Settings.php:144
+#: src/Core/Backend/Menus.php:86 src/Process/Backend/Settings.php:148
 msgid "Blog"
 msgstr "Blogo"
 
@@ -1199,7 +1199,7 @@ msgid "Current version"
 msgstr "Nuna versio"
 
 #: src/Core/Backend/ModulesList.php:840 src/Core/Backend/ModulesList.php:1064
-#: src/Core/Backend/Page.php:1301 src/Core/Backend/ThemesList.php:231
+#: src/Core/Backend/Page.php:1304 src/Core/Backend/ThemesList.php:231
 #: src/Core/Backend/ThemesList.php:317
 msgid "Details"
 msgstr "Detaloj"
@@ -1249,7 +1249,7 @@ msgstr "Kromaĵo en evoluo"
 msgid "Release date:"
 msgstr "Eldondato:"
 
-#: src/Core/Backend/ModulesList.php:1071 src/Core/Backend/Page.php:1302
+#: src/Core/Backend/ModulesList.php:1071 src/Core/Backend/Page.php:1305
 #: src/Core/Backend/ThemesList.php:238
 msgid "Support"
 msgstr "Subteno"
@@ -1258,11 +1258,11 @@ msgstr "Subteno"
 msgid "update locked"
 msgstr "ĝisdatigo ŝlosita"
 
-#: src/Core/Backend/ModulesList.php:1116 src/Core/Backend/Page.php:1304
+#: src/Core/Backend/ModulesList.php:1116 src/Core/Backend/Page.php:1307
 msgid "Section:"
 msgstr "Sekcio:"
 
-#: src/Core/Backend/ModulesList.php:1122 src/Core/Backend/Page.php:1305
+#: src/Core/Backend/ModulesList.php:1122 src/Core/Backend/Page.php:1308
 msgid "Tags:"
 msgstr "Etikedoj:"
 
@@ -1409,7 +1409,7 @@ msgstr "Alŝutu zip-dosieron"
 
 #: src/Core/Backend/ModulesList.php:1744 src/Core/Backend/ModulesList.php:1791
 #: src/Process/Backend/Blog.php:117 src/Process/Backend/BlogPref.php:545
-#: src/Process/Backend/BlogPref.php:1027 src/Process/Backend/Category.php:248
+#: src/Process/Backend/BlogPref.php:1030 src/Process/Backend/Category.php:248
 #: src/Process/Backend/Comment.php:284 src/Process/Backend/Home.php:535
 #: src/Process/Backend/Langs.php:322 src/Process/Backend/Langs.php:372
 #: src/Process/Backend/LinkPopup.php:83 src/Process/Backend/Post.php:968
@@ -1440,7 +1440,7 @@ msgstr "Pasvorto"
 msgid "Your password:"
 msgstr "Via pasvorto:"
 
-#: src/Core/Backend/ModulesList.php:1773 src/Core/Backend/Page.php:1422
+#: src/Core/Backend/ModulesList.php:1773 src/Core/Backend/Page.php:1425
 #: src/Process/Backend/Media.php:795
 msgid "Upload"
 msgstr "Alŝutu"
@@ -1476,9 +1476,9 @@ msgid "Configure \"%s\""
 msgstr "Agordi \"%s\""
 
 #: src/Core/Backend/ModulesList.php:1965 src/Process/Backend/Blog.php:197
-#: src/Process/Backend/BlogDel.php:138 src/Process/Backend/BlogPref.php:1182
+#: src/Process/Backend/BlogDel.php:138 src/Process/Backend/BlogPref.php:1185
 #: src/Process/Backend/Category.php:301 src/Process/Backend/Comment.php:352
-#: src/Process/Backend/Media.php:857 src/Process/Backend/MediaItem.php:1359
+#: src/Process/Backend/Media.php:857 src/Process/Backend/MediaItem.php:1362
 #: src/Process/Backend/Post.php:925 src/Process/Backend/Search.php:197
 #: src/Process/Backend/User.php:547 src/Process/Backend/UserPreferences.php:697
 #: src/Process/Backend/UserPreferences.php:999
@@ -1486,8 +1486,8 @@ msgstr "Agordi \"%s\""
 msgid "Back"
 msgstr "Reen"
 
-#: src/Core/Backend/Notices.php:85 src/Core/Backend/Page.php:1261
-#: src/Core/Backend/Page.php:1417 src/Core/Upgrade/Notices.php:48
+#: src/Core/Backend/Notices.php:85 src/Core/Backend/Page.php:1264
+#: src/Core/Backend/Page.php:1420 src/Core/Upgrade/Notices.php:48
 #: src/Process/Backend/Home.php:292
 msgid "Error:"
 msgstr "Eraro:"
@@ -1579,318 +1579,318 @@ msgstr "Dotclear-emblemo"
 msgid "Go to dashboard"
 msgstr "Iru al panelo"
 
-#: src/Core/Backend/Page.php:1110 src/Core/Upgrade/Page.php:447
+#: src/Core/Backend/Page.php:1112 src/Core/Upgrade/Page.php:447
 msgid "Help about this page"
 msgstr "Helpo pri ĉi tiu paĝo"
 
-#: src/Core/Backend/Page.php:1119 src/Core/Upgrade/Page.php:456
+#: src/Core/Backend/Page.php:1122 src/Core/Upgrade/Page.php:456
 #, php-format
 msgid "See also %s"
 msgstr "Vidu ankaŭ %s"
 
-#: src/Core/Backend/Page.php:1122 src/Core/Upgrade/Page.php:459
+#: src/Core/Backend/Page.php:1125 src/Core/Upgrade/Page.php:459
 msgid "the global help"
 msgstr "la tutmonda helpo"
 
-#: src/Core/Backend/Page.php:1243
+#: src/Core/Backend/Page.php:1246
 msgid "uncover"
 msgstr "malkovri"
 
-#: src/Core/Backend/Page.php:1247
+#: src/Core/Backend/Page.php:1250
 msgid "hide"
 msgstr "kaŝi"
 
-#: src/Core/Backend/Page.php:1251
+#: src/Core/Backend/Page.php:1254
 msgid "Need help?"
 msgstr "Bezonas helpon?"
 
-#: src/Core/Backend/Page.php:1252
+#: src/Core/Backend/Page.php:1255
 msgid "new window"
 msgstr "nova fenestro"
 
-#: src/Core/Backend/Page.php:1253
+#: src/Core/Backend/Page.php:1256
 msgid "Hide"
 msgstr "Kaŝi"
 
-#: src/Core/Backend/Page.php:1254
+#: src/Core/Backend/Page.php:1257
 msgid "Select:"
 msgstr "Elektu:"
 
-#: src/Core/Backend/Page.php:1255
+#: src/Core/Backend/Page.php:1258
 msgid "No selection"
 msgstr "Neniu elekto"
 
-#: src/Core/Backend/Page.php:1256
+#: src/Core/Backend/Page.php:1259
 msgid "Select all"
 msgstr "Elekti ĉiujn"
 
-#: src/Core/Backend/Page.php:1257
+#: src/Core/Backend/Page.php:1260
 msgid "Invert selection"
 msgstr "Inverti elekton"
 
-#: src/Core/Backend/Page.php:1262 src/Process/Backend/Post.php:466
+#: src/Core/Backend/Page.php:1265 src/Process/Backend/Post.php:466
 #: src/Process/Backend/Post.php:570
 msgid "Entry has been successfully created."
 msgstr "Eniro estas sukcese kreita."
 
-#: src/Core/Backend/Page.php:1263
+#: src/Core/Backend/Page.php:1266
 msgid "Edit entry"
 msgstr "Redakti eniron"
 
-#: src/Core/Backend/Page.php:1264
+#: src/Core/Backend/Page.php:1267
 msgid "view entry"
 msgstr "vidi eniron"
 
-#: src/Core/Backend/Page.php:1265
+#: src/Core/Backend/Page.php:1268
 #, php-format
 msgid "Are you sure you want to delete selected entries (%s)?"
 msgstr "Ĉu vi certas, ke vi volas forigi elektitajn enskribojn (%s)?"
 
-#: src/Core/Backend/Page.php:1266
+#: src/Core/Backend/Page.php:1269
 #, php-format
 msgid "Are you sure you want to delete selected medias (%d)?"
 msgstr "Ĉu vi certas, ke vi volas forigi elektitajn amaskomunikilarojn (%d)?"
 
-#: src/Core/Backend/Page.php:1267
+#: src/Core/Backend/Page.php:1270
 #, php-format
 msgid "Are you sure you want to delete selected categories (%s)?"
 msgstr "Ĉu vi certas, ke vi volas forigi elektitajn kategoriojn (%s)?"
 
-#: src/Core/Backend/Page.php:1268
+#: src/Core/Backend/Page.php:1271
 msgid "Are you sure you want to delete this entry?"
 msgstr "Ĉu vi certas, ke vi volas forigi ĉi tiun eniron?"
 
-#: src/Core/Backend/Page.php:1269
+#: src/Core/Backend/Page.php:1272
 msgid "Click here to unlock the field"
 msgstr "Klaku ĉi tie por malŝlosi la kampon"
 
-#: src/Core/Backend/Page.php:1270
+#: src/Core/Backend/Page.php:1273
 msgid "Are you sure you want to delete all spams?"
 msgstr "Ĉu vi certas, ke vi volas forigi ĉiujn spamojn?"
 
-#: src/Core/Backend/Page.php:1271
+#: src/Core/Backend/Page.php:1274
 #, php-format
 msgid "Are you sure you want to delete selected comments (%s)?"
 msgstr "Ĉu vi certas, ke vi volas forigi elektitajn komentojn (%s)?"
 
-#: src/Core/Backend/Page.php:1272
+#: src/Core/Backend/Page.php:1275
 msgid "Are you sure you want to delete this comment?"
 msgstr "Ĉu vi certas, ke vi volas forigi ĉi tiun komenton?"
 
-#: src/Core/Backend/Page.php:1273
+#: src/Core/Backend/Page.php:1276
 msgid "Users with posts cannot be deleted."
 msgstr "Uzantoj kun afiŝoj ne povas esti forigitaj."
 
-#: src/Core/Backend/Page.php:1274
+#: src/Core/Backend/Page.php:1277
 #, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
 msgstr "Ĉu vi certas, ke vi volas forigi elektitajn uzantojn (%s)?"
 
-#: src/Core/Backend/Page.php:1275
+#: src/Core/Backend/Page.php:1278
 #, php-format
 msgid "Are you sure you want to delete selected blogs (%s)?"
 msgstr "Ĉu vi certas, ke vi volas forigi elektitajn blogojn (%s)?"
 
-#: src/Core/Backend/Page.php:1276
+#: src/Core/Backend/Page.php:1279
 #, php-format
 msgid "Are you sure you want to delete category \"%s\"?"
 msgstr "Ĉu vi certas, ke vi volas forigi kategorion \"%s\"?"
 
-#: src/Core/Backend/Page.php:1277
+#: src/Core/Backend/Page.php:1280
 msgid "Are you sure you want to reorder all categories?"
 msgstr "Ĉu vi certas, ke vi volas reordigi ĉiujn kategoriojn?"
 
-#: src/Core/Backend/Page.php:1278
+#: src/Core/Backend/Page.php:1281
 #, php-format
 msgid "Are you sure you want to remove media \"%s\"?"
 msgstr "Ĉu vi certas, ke vi volas forigi amaskomunikilaron \"%s\"?"
 
-#: src/Core/Backend/Page.php:1279
+#: src/Core/Backend/Page.php:1282
 #, php-format
 msgid "Are you sure you want to remove directory \"%s\"?"
 msgstr "Ĉu vi certas, ke vi volas forigi dosierujon \"%s\"?"
 
-#: src/Core/Backend/Page.php:1280
+#: src/Core/Backend/Page.php:1283
 msgid "Are you sure you want to extract archive in current directory?"
 msgstr "Ĉu vi certas, ke vi volas ĉerpi arkivon en nuna dosierujo?"
 
-#: src/Core/Backend/Page.php:1281
+#: src/Core/Backend/Page.php:1284
 #, php-format
 msgid "Are you sure you want to remove attachment \"%s\"?"
 msgstr "Ĉu vi certas, ke vi volas forigi aldonaĵon \"%s\"?"
 
-#: src/Core/Backend/Page.php:1282
+#: src/Core/Backend/Page.php:1285
 #, php-format
 msgid "Are you sure you want to delete \"%s\" language?"
 msgstr "Ĉu vi certas, ke vi volas forigi \"%s\" lingvon?"
 
-#: src/Core/Backend/Page.php:1283
+#: src/Core/Backend/Page.php:1286
 #, php-format
 msgid "Are you sure you want to delete \"%s\" plugin?"
 msgstr "Ĉu vi certas, ke vi volas forigi \"%s\" kromprogramon?"
 
-#: src/Core/Backend/Page.php:1284
+#: src/Core/Backend/Page.php:1287
 msgid "Are you sure you want to delete selected plugins?"
 msgstr "Ĉu vi certas, ke vi volas forigi elektitajn kromaĵojn?"
 
-#: src/Core/Backend/Page.php:1285
+#: src/Core/Backend/Page.php:1288
 msgid "Use this theme"
 msgstr "Uzu ĉi tiun temon"
 
-#: src/Core/Backend/Page.php:1286
+#: src/Core/Backend/Page.php:1289
 msgid "Remove this theme"
 msgstr "Forigu ĉi tiun temon"
 
-#: src/Core/Backend/Page.php:1287
+#: src/Core/Backend/Page.php:1290
 #, php-format
 msgid "Are you sure you want to delete \"%s\" theme?"
 msgstr "Ĉu vi certas, ke vi volas forigi \"%s\"-temon?"
 
-#: src/Core/Backend/Page.php:1288
+#: src/Core/Backend/Page.php:1291
 msgid "Are you sure you want to delete selected themes?"
 msgstr "Ĉu vi certas, ke vi volas forigi elektitajn temojn?"
 
-#: src/Core/Backend/Page.php:1289
+#: src/Core/Backend/Page.php:1292
 msgid "Are you sure you want to delete this backup?"
 msgstr "Ĉu vi certas, ke vi volas forigi ĉi tiun sekurkopion?"
 
-#: src/Core/Backend/Page.php:1290
+#: src/Core/Backend/Page.php:1293
 msgid "Are you sure you want to revert to this backup?"
 msgstr "Ĉu vi certas, ke vi volas reveni al ĉi tiu sekurkopio?"
 
-#: src/Core/Backend/Page.php:1291
+#: src/Core/Backend/Page.php:1294
 msgid "Zip file content"
 msgstr "Zip dosiero enhavo"
 
-#: src/Core/Backend/Page.php:1292
+#: src/Core/Backend/Page.php:1295
 msgid "HTML markup validator"
 msgstr "validigilo de HTML-markado"
 
-#: src/Core/Backend/Page.php:1293
+#: src/Core/Backend/Page.php:1296
 msgid "HTML content is valid."
 msgstr "HTML-enhavo validas."
 
-#: src/Core/Backend/Page.php:1294
+#: src/Core/Backend/Page.php:1297
 msgid "There are HTML markup errors."
 msgstr "Estas HTML-markadaj eraroj."
 
-#: src/Core/Backend/Page.php:1295
+#: src/Core/Backend/Page.php:1298
 msgid "Attention: an audit of a content not yet registered."
 msgstr "Atentu: revizio de enhavo ankoraŭ ne registrita."
 
-#: src/Core/Backend/Page.php:1296
+#: src/Core/Backend/Page.php:1299
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
 msgstr "Vi havas nekonservitajn ŝanĝojn. Ŝanĝi afiŝoformaton perdos ĉi tiujn ŝanĝojn. Ĉu ĉiuokaze?"
 
-#: src/Core/Backend/Page.php:1297
+#: src/Core/Backend/Page.php:1300
 msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
 msgstr "Averto: afiŝforma ŝanĝo ne konvertos ekzistantan enhavon. Vi devos apliki novan formaton memstare. Ĉu ĉiuokaze?"
 
-#: src/Core/Backend/Page.php:1298
+#: src/Core/Backend/Page.php:1301
 msgid "Loading enhanced uploader, please wait."
 msgstr "Ŝargante plibonigitan alŝutilon, bonvolu atendi."
 
-#: src/Core/Backend/Page.php:1303
+#: src/Core/Backend/Page.php:1306
 msgid "Help:"
 msgstr "Helpo:"
 
-#: src/Core/Backend/Page.php:1307
+#: src/Core/Backend/Page.php:1310
 msgid "Hide this notice"
 msgstr "Kaŝi ĉi tiun avizon"
 
-#: src/Core/Backend/Page.php:1309
+#: src/Core/Backend/Page.php:1312
 msgid "Show password"
 msgstr "Montru pasvorton"
 
-#: src/Core/Backend/Page.php:1310
+#: src/Core/Backend/Page.php:1313
 msgid "Hide password"
 msgstr "Kaŝi pasvorton"
 
-#: src/Core/Backend/Page.php:1312
+#: src/Core/Backend/Page.php:1315
 msgid "Reset to now"
 msgstr "Restarigi al nun"
 
-#: src/Core/Backend/Page.php:1314
+#: src/Core/Backend/Page.php:1317
 msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences."
 msgstr "Reklamblokilo estis detektita sur ĉi tiu Dotclear panelo (Ghostery, Adblock plus, uBlock origino, …) kaj ĝi povas malhelpi iujn funkciojn. En ĉi tiu kazo vi devus malŝalti ĝin. Notu, ke ĉi tiu detekto povas esti malŝaltita en viaj preferoj."
 
-#: src/Core/Backend/Page.php:1366
+#: src/Core/Backend/Page.php:1369
 msgid "You have unsaved changes."
 msgstr "Vi havas nekonservitajn ŝanĝojn."
 
-#: src/Core/Backend/Page.php:1367
+#: src/Core/Backend/Page.php:1370
 msgid "your battery charge seems low (%d%) and you have unsaved changes, you should save them."
 msgstr "via bateria ŝargo ŝajnas malalta (%d%) kaj vi havas nekonservitajn ŝanĝojn, vi devus konservi ilin."
 
-#: src/Core/Backend/Page.php:1408
+#: src/Core/Backend/Page.php:1411
 msgid "Temporarily activate enhanced uploader"
 msgstr "Provizore aktivigi plibonigitan alŝutilon"
 
-#: src/Core/Backend/Page.php:1409
+#: src/Core/Backend/Page.php:1412
 msgid "Temporarily disable enhanced uploader"
 msgstr "Provizore malŝaltu plibonigitan alŝutilon"
 
-#: src/Core/Backend/Page.php:1413
+#: src/Core/Backend/Page.php:1416
 msgid "Limit exceeded."
 msgstr "Limo superita."
 
-#: src/Core/Backend/Page.php:1414
+#: src/Core/Backend/Page.php:1417
 msgid "File size exceeds allowed limit."
 msgstr "Dosiera grandeco superas permesitan limon."
 
-#: src/Core/Backend/Page.php:1415
+#: src/Core/Backend/Page.php:1418
 msgid "Canceled."
 msgstr "Nuligite."
 
-#: src/Core/Backend/Page.php:1416
+#: src/Core/Backend/Page.php:1419
 msgid "HTTP Error:"
 msgstr "HTTP-eraro:"
 
-#: src/Core/Backend/Page.php:1418 src/Process/Backend/Media.php:738
+#: src/Core/Backend/Page.php:1421 src/Process/Backend/Media.php:738
 msgid "Choose file"
 msgstr "Elektu dosieron"
 
-#: src/Core/Backend/Page.php:1419 src/Process/Backend/Media.php:744
+#: src/Core/Backend/Page.php:1422 src/Process/Backend/Media.php:744
 msgid "Choose files"
 msgstr "Elektu dosierojn"
 
-#: src/Core/Backend/Page.php:1420 src/Process/Backend/LinkPopup.php:113
+#: src/Core/Backend/Page.php:1423 src/Process/Backend/LinkPopup.php:113
 #: src/Process/Backend/Media.php:293 src/Process/Backend/MediaItem.php:509
-#: src/Process/Backend/MediaItem.php:765 src/Process/Backend/Post.php:931
+#: src/Process/Backend/MediaItem.php:768 src/Process/Backend/Post.php:931
 #: src/Process/Backend/PostMedia.php:113
 msgid "Cancel"
 msgstr "Nuligi"
 
-#: src/Core/Backend/Page.php:1421
+#: src/Core/Backend/Page.php:1424
 msgid "Clean"
 msgstr "Pura"
 
-#: src/Core/Backend/Page.php:1423
+#: src/Core/Backend/Page.php:1426
 msgid "Send"
 msgstr "Sendu"
 
-#: src/Core/Backend/Page.php:1424
+#: src/Core/Backend/Page.php:1427
 msgid "File successfully uploaded."
 msgstr "Dosiero sukcese alŝutita."
 
-#: src/Core/Backend/Page.php:1425
+#: src/Core/Backend/Page.php:1428
 msgid "No file in queue."
 msgstr "Neniu dosiero en vosto."
 
-#: src/Core/Backend/Page.php:1426
+#: src/Core/Backend/Page.php:1429
 msgid "1 file in queue."
 msgstr "1 dosiero en vico."
 
-#: src/Core/Backend/Page.php:1427
+#: src/Core/Backend/Page.php:1430
 #, php-format
 msgid "%d files in queue."
 msgstr "%d dosieroj en vosto."
 
-#: src/Core/Backend/Page.php:1428
+#: src/Core/Backend/Page.php:1431
 msgid "Queue error:"
 msgstr "Eraro de vostovico:"
 
-#: src/Core/Backend/Page.php:1467
+#: src/Core/Backend/Page.php:1470
 msgid "Cancel filters and display options"
 msgstr "Nuligi filtrilojn kaj montri opciojn"
 
@@ -2476,7 +2476,7 @@ msgstr "LOL!"
 #: src/Process/Backend/BlogDel.php:92 src/Process/Backend/BlogPref.php:459
 #: src/Process/Backend/Blogs.php:101 src/Process/Backend/Langs.php:247
 #: src/Process/Backend/Plugin.php:146 src/Process/Backend/Plugins.php:116
-#: src/Process/Backend/Settings.php:58 src/Process/Backend/User.php:273
+#: src/Process/Backend/Settings.php:59 src/Process/Backend/User.php:273
 #: src/Process/Backend/Users.php:108 src/Process/Backend/UsersActions.php:223
 #: src/Process/Backend/UsersActions.php:231 src/Process/Upgrade/Home.php:162
 msgid "System"
@@ -3159,11 +3159,11 @@ msgstr "Blogo \"%s\" sukcese kreita"
 msgid "New blog"
 msgstr "Nova blogo"
 
-#: src/Process/Backend/Blog.php:128 src/Process/Backend/BlogPref.php:1038
+#: src/Process/Backend/Blog.php:128 src/Process/Backend/BlogPref.php:1041
 msgid "Blog ID:"
 msgstr "ID de blogo:"
 
-#: src/Process/Backend/Blog.php:136 src/Process/Backend/BlogPref.php:1043
+#: src/Process/Backend/Blog.php:136 src/Process/Backend/BlogPref.php:1046
 #: src/Process/Backend/User.php:319
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr "Almenaŭ 2 signoj uzante literojn, ciferojn aŭ simbolojn."
@@ -3172,11 +3172,11 @@ msgstr "Almenaŭ 2 signoj uzante literojn, ciferojn aŭ simbolojn."
 msgid "Blog name:"
 msgstr "Blognomo:"
 
-#: src/Process/Backend/Blog.php:162 src/Process/Backend/BlogPref.php:1056
+#: src/Process/Backend/Blog.php:162 src/Process/Backend/BlogPref.php:1059
 msgid "Blog URL"
 msgstr "Bloga URL"
 
-#: src/Process/Backend/Blog.php:166 src/Process/Backend/BlogPref.php:1059
+#: src/Process/Backend/Blog.php:166 src/Process/Backend/BlogPref.php:1062
 msgid "Blog URL:"
 msgstr "Bloga URL:"
 
@@ -3214,7 +3214,7 @@ msgstr "Vi estas forigonta la blogon %s. Ĉiu eniro, komento kaj kategorio estos
 msgid "Please give your password to confirm the blog deletion."
 msgstr "Bonvolu doni vian pasvorton por konfirmi la forigon de la blogo."
 
-#: src/Process/Backend/BlogDel.php:135 src/Process/Backend/BlogPref.php:1196
+#: src/Process/Backend/BlogDel.php:135 src/Process/Backend/BlogPref.php:1199
 msgid "Delete this blog"
 msgstr "Forigu ĉi tiun blogon"
 
@@ -3262,12 +3262,12 @@ msgstr "H3"
 msgid "P"
 msgstr "P"
 
-#: src/Process/Backend/BlogPref.php:174 src/Process/Backend/BlogPref.php:1264
+#: src/Process/Backend/BlogPref.php:174 src/Process/Backend/BlogPref.php:1267
 #: src/Process/Backend/MediaItem.php:606 src/Process/Backend/MediaItem.php:611
 msgid "(none)"
 msgstr "(neniu)"
 
-#: src/Process/Backend/BlogPref.php:175 src/Process/Backend/Settings.php:140
+#: src/Process/Backend/BlogPref.php:175 src/Process/Backend/Settings.php:144
 msgid "Description"
 msgstr "Priskribo"
 
@@ -3284,7 +3284,7 @@ msgid "Description, City, Country, Date"
 msgstr "Priskribo, Urbo, Lando, Dato"
 
 #: src/Process/Backend/BlogPref.php:208 src/Process/Backend/MediaItem.php:483
-#: src/Process/Backend/MediaItem.php:580 src/Process/Backend/MediaItem.php:846
+#: src/Process/Backend/MediaItem.php:580 src/Process/Backend/MediaItem.php:849
 msgid "original"
 msgstr "originala"
 
@@ -3371,7 +3371,7 @@ msgid "Warning: except for special configurations, it is generally advised to ha
 msgstr "Averto: krom specialaj agordoj, estas ĝenerale konsilite havi postan \"?\" en via bloga URL en QUERY_STRING-reĝimo."
 
 #: src/Process/Backend/BlogPref.php:488 src/Process/Backend/BlogPref.php:728
-#: src/Process/Backend/BlogPref.php:747 src/Process/Backend/BlogPref.php:1090
+#: src/Process/Backend/BlogPref.php:747 src/Process/Backend/BlogPref.php:1093
 msgid "Sample:"
 msgstr "Specimeno:"
 
@@ -3383,16 +3383,16 @@ msgstr "Blogo estis sukcese kreita."
 msgid "Blog status:"
 msgstr "Statuso de la blogo:"
 
-#: src/Process/Backend/BlogPref.php:541 src/Process/Backend/BlogPref.php:1023
+#: src/Process/Backend/BlogPref.php:541 src/Process/Backend/BlogPref.php:1026
 msgid "Blog details"
 msgstr "Blogaj detaloj"
 
-#: src/Process/Backend/BlogPref.php:554 src/Process/Backend/BlogPref.php:1036
-#: src/Process/Backend/BlogPref.php:1057 src/Process/Backend/Post.php:821
+#: src/Process/Backend/BlogPref.php:554 src/Process/Backend/BlogPref.php:1039
+#: src/Process/Backend/BlogPref.php:1060 src/Process/Backend/Post.php:821
 msgid "Required field"
 msgstr "Bezonata kampo"
 
-#: src/Process/Backend/BlogPref.php:574 src/Process/Backend/BlogPref.php:1075
+#: src/Process/Backend/BlogPref.php:574 src/Process/Backend/BlogPref.php:1078
 msgid "Blog configuration"
 msgstr "Bloga agordo"
 
@@ -3594,169 +3594,173 @@ msgstr "Larĝo"
 msgid "Height"
 msgstr "Alteco"
 
-#: src/Process/Backend/BlogPref.php:913
+#: src/Process/Backend/BlogPref.php:908
+msgid "A value of 0 means that the corresponding size is not included when inserting a video. A value of -1 restores the default value."
+msgstr ""
+
+#: src/Process/Backend/BlogPref.php:916
 msgid "Default image insertion attributes"
 msgstr "Defaŭltaj bildaj enmetaj atributoj"
 
-#: src/Process/Backend/BlogPref.php:919
+#: src/Process/Backend/BlogPref.php:922
 msgid "Inserted image legend:"
 msgstr "Enigita bildolegendo:"
 
-#: src/Process/Backend/BlogPref.php:925
+#: src/Process/Backend/BlogPref.php:928
 msgid "Use original media date if possible"
 msgstr "Uzu originalan amaskomunikilaron se eble"
 
-#: src/Process/Backend/BlogPref.php:931
+#: src/Process/Backend/BlogPref.php:934
 msgid "Do not display date if alone in title"
 msgstr "Ne montru daton se sole en titolo"
 
-#: src/Process/Backend/BlogPref.php:936
+#: src/Process/Backend/BlogPref.php:939
 msgid "It is retrieved from the picture's metadata."
 msgstr "Ĝi estas prenita de la metadatenoj de la bildo."
 
-#: src/Process/Backend/BlogPref.php:944
+#: src/Process/Backend/BlogPref.php:947
 msgid "Size of inserted image:"
 msgstr "Grandeco de enigita bildo:"
 
-#: src/Process/Backend/BlogPref.php:952
+#: src/Process/Backend/BlogPref.php:955
 msgid "Image alignment:"
 msgstr "Bilda vicigo:"
 
-#: src/Process/Backend/BlogPref.php:958
+#: src/Process/Backend/BlogPref.php:961
 msgid "Insert a link to the original image"
 msgstr "Enigu ligilon al la originala bildo"
 
-#: src/Process/Backend/BlogPref.php:965
+#: src/Process/Backend/BlogPref.php:968
 msgid "Image legend and alternate text:"
 msgstr "Bilda legendo kaj alterna teksto:"
 
-#: src/Process/Backend/BlogPref.php:974 src/Process/Backend/Media.php:846
-#: src/Process/Backend/Settings.php:73
+#: src/Process/Backend/BlogPref.php:977 src/Process/Backend/Media.php:846
+#: src/Process/Backend/Settings.php:74
 msgid "Blog parameters"
 msgstr "Parametroj de blogo"
 
-#: src/Process/Backend/BlogPref.php:1005
+#: src/Process/Backend/BlogPref.php:1008
 #, php-format
 msgid "The URL of blog or the URL scan method might not be well set (<code>%1$s</code> return a <strong>%2$s</strong> status)."
 msgstr "La URL de blogo aŭ la URL-skanmetodo eble ne estas bone agordita (<code>%1$s</code> redonas <strong>%2$s</strong> staton)."
 
-#: src/Process/Backend/BlogPref.php:1014
+#: src/Process/Backend/BlogPref.php:1017
 #, php-format
 msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed)."
 msgstr "La URL de blogo aŭ la URL-skanmetodo eble ne estas bone agordita (<code>%s</code> ne resendas ATOM-fluon)."
 
-#: src/Process/Backend/BlogPref.php:1047
+#: src/Process/Backend/BlogPref.php:1050
 msgid "Please note that changing your blog ID may require changes in your public index.php file."
 msgstr "Bonvolu noti, ke ŝanĝi vian blogan ID povas postuli ŝanĝojn en via publika index.php-dosiero."
 
-#: src/Process/Backend/BlogPref.php:1067
+#: src/Process/Backend/BlogPref.php:1070
 msgid "URL scan method:"
 msgstr "Metodo de skanado de URL:"
 
-#: src/Process/Backend/BlogPref.php:1083
+#: src/Process/Backend/BlogPref.php:1086
 msgid "New post URL format:"
 msgstr "Nova afiŝo URL-formato:"
 
-#: src/Process/Backend/BlogPref.php:1090
+#: src/Process/Backend/BlogPref.php:1093
 msgid "Dotclear"
 msgstr "Dotclear"
 
-#: src/Process/Backend/BlogPref.php:1097
+#: src/Process/Backend/BlogPref.php:1100
 msgid "HTML tag for the title of the notes on the blog:"
 msgstr "HTML-etikedo por la titolo de la notoj en la blogo:"
 
-#: src/Process/Backend/BlogPref.php:1114
+#: src/Process/Backend/BlogPref.php:1117
 msgid "Search engines robots policy"
 msgstr "Politiko pri serĉiloj pri robotoj"
 
-#: src/Process/Backend/BlogPref.php:1119
+#: src/Process/Backend/BlogPref.php:1122
 msgid "Legacy javascript library"
 msgstr "Heredaĵa Javaskripto-biblioteko"
 
-#: src/Process/Backend/BlogPref.php:1125
+#: src/Process/Backend/BlogPref.php:1128
 msgid "Load the Legacy JS library"
 msgstr "Ŝarĝu la Legacy JS-bibliotekon"
 
-#: src/Process/Backend/BlogPref.php:1131
+#: src/Process/Backend/BlogPref.php:1134
 msgid "jQuery javascript library"
 msgstr "jQuery javascript biblioteko"
 
-#: src/Process/Backend/BlogPref.php:1137
+#: src/Process/Backend/BlogPref.php:1140
 msgid "Load the jQuery library"
 msgstr "Ŝarĝu la bibliotekon jQuery"
 
-#: src/Process/Backend/BlogPref.php:1144
+#: src/Process/Backend/BlogPref.php:1147
 msgid "jQuery version to be loaded for this blog:"
 msgstr "jQuery-versio ŝarĝota por ĉi tiu blogo:"
 
-#: src/Process/Backend/BlogPref.php:1150
+#: src/Process/Backend/BlogPref.php:1153
 msgid "Blog security"
 msgstr "Sekureco de blogo"
 
-#: src/Process/Backend/BlogPref.php:1156
+#: src/Process/Backend/BlogPref.php:1159
 msgid "Protect the blog from Clickjacking (see <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
 msgstr "Protektu la blogon kontraŭ Klakkaptado (vidu <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Vikipedion</a>)"
 
-#: src/Process/Backend/BlogPref.php:1162
+#: src/Process/Backend/BlogPref.php:1165
 msgid "Advanced parameters"
 msgstr "Altnivelaj parametroj"
 
-#: src/Process/Backend/BlogPref.php:1169
+#: src/Process/Backend/BlogPref.php:1172
 msgid "Plugins parameters"
 msgstr "Parametroj de kromprogramoj"
 
-#: src/Process/Backend/BlogPref.php:1209
+#: src/Process/Backend/BlogPref.php:1212
 msgid "Only superadmin can delete a blog."
 msgstr "Nur superadministranto povas forigi blogon."
 
-#: src/Process/Backend/BlogPref.php:1213
+#: src/Process/Backend/BlogPref.php:1216
 msgid "Parameters"
 msgstr "Parametroj"
 
-#: src/Process/Backend/BlogPref.php:1232
+#: src/Process/Backend/BlogPref.php:1235
 msgid "No users"
 msgstr "Neniuj uzantoj"
 
-#: src/Process/Backend/BlogPref.php:1274
+#: src/Process/Backend/BlogPref.php:1277
 #, php-format
 msgid "%1$s: %2$s"
 msgstr "%1$s: %2$s"
 
-#: src/Process/Backend/BlogPref.php:1283 src/Process/Backend/User.php:382
+#: src/Process/Backend/BlogPref.php:1286 src/Process/Backend/User.php:382
 msgid "Super administrator"
 msgstr "Supera administranto"
 
-#: src/Process/Backend/BlogPref.php:1285
+#: src/Process/Backend/BlogPref.php:1288
 msgid "All rights on all blogs."
 msgstr "Ĉiuj rajtoj en ĉiuj blogoj."
 
-#: src/Process/Backend/BlogPref.php:1295
+#: src/Process/Backend/BlogPref.php:1298
 msgid "All rights on this blog."
 msgstr "Ĉiuj rajtoj en ĉi tiu blogo."
 
-#: src/Process/Backend/BlogPref.php:1311
+#: src/Process/Backend/BlogPref.php:1314
 #: src/Process/Backend/UsersActions.php:467
 #, php-format
 msgid "[%s] (unreferenced permission)"
 msgstr "[%s] (nereferencita permeso)"
 
-#: src/Process/Backend/BlogPref.php:1330 src/Process/Backend/User.php:597
+#: src/Process/Backend/BlogPref.php:1333 src/Process/Backend/User.php:597
 msgid "Change permissions"
 msgstr "Ŝanĝi permesojn"
 
-#: src/Process/Backend/BlogPref.php:1332
+#: src/Process/Backend/BlogPref.php:1335
 msgid "Back to user card"
 msgstr "Reen al uzantkarto"
 
-#: src/Process/Backend/BlogPref.php:1354
+#: src/Process/Backend/BlogPref.php:1357
 msgid "Publications on this blog:"
 msgstr "Publikaĵoj en ĉi tiu blogo:"
 
-#: src/Process/Backend/BlogPref.php:1357
+#: src/Process/Backend/BlogPref.php:1360
 msgid "Permissions:"
 msgstr "Permesoj:"
 
-#: src/Process/Backend/BlogPref.php:1374
+#: src/Process/Backend/BlogPref.php:1377
 msgid "Users on this blog"
 msgstr "Uzantoj en ĉi tiu blogo"
 
@@ -3997,7 +4001,7 @@ msgstr "Nomo:"
 msgid "Warning: If you set the URL manually, it may conflict with another category."
 msgstr "Averto: Se vi agordas la URL permane, ĝi povas konflikti kun alia kategorio."
 
-#: src/Process/Backend/Category.php:293 src/Process/Backend/MediaItem.php:1251
+#: src/Process/Backend/Category.php:293 src/Process/Backend/MediaItem.php:1254
 msgid "Description:"
 msgstr "Priskribo:"
 
@@ -4373,7 +4377,7 @@ msgstr "Titolo de ligilo:"
 msgid "Link language:"
 msgstr "Lingvo de ligilo:"
 
-#: src/Process/Backend/LinkPopup.php:115 src/Process/Backend/MediaItem.php:763
+#: src/Process/Backend/LinkPopup.php:115 src/Process/Backend/MediaItem.php:766
 msgid "Insert"
 msgstr "Enmetu"
 
@@ -4546,7 +4550,7 @@ msgstr "Bonvolu zorgi publikigi amaskomunikilaron kiujn vi posedas kaj kiuj ne e
 msgid "Maximum file size allowed:"
 msgstr "Maksimuma dosiergrandeco permesita:"
 
-#: src/Process/Backend/Media.php:770 src/Process/Backend/MediaItem.php:1264
+#: src/Process/Backend/Media.php:770 src/Process/Backend/MediaItem.php:1267
 msgid "Private"
 msgstr "Privata"
 
@@ -4617,8 +4621,8 @@ msgstr "Elektu"
 msgid "Image legend and alternate text"
 msgstr "Bilda legendo kaj alternativa teksto"
 
-#: src/Process/Backend/MediaItem.php:603 src/Process/Backend/MediaItem.php:1102
-#: src/Process/Backend/MediaItem.php:1242
+#: src/Process/Backend/MediaItem.php:603 src/Process/Backend/MediaItem.php:1105
+#: src/Process/Backend/MediaItem.php:1245
 msgid "Alternate text:"
 msgstr "Alterna teksto:"
 
@@ -4662,182 +4666,186 @@ msgstr "Larĝo:"
 msgid "Height:"
 msgstr "Alteco:"
 
-#: src/Process/Backend/MediaItem.php:689
+#: src/Process/Backend/MediaItem.php:687
+msgid "A value of 0 means that the corresponding size is not included when inserting a video."
+msgstr ""
+
+#: src/Process/Backend/MediaItem.php:692
 msgid "Video disposition"
 msgstr "Dispozicio de video"
 
-#: src/Process/Backend/MediaItem.php:699
+#: src/Process/Backend/MediaItem.php:702
 msgid "Please note that you cannot insert video files with standard editor in WYSIWYG HTML mode."
 msgstr "Bonvolu noti, ke vi ne povas enmeti videodosierojn per norma redaktilo en WYSIWYG HTML-reĝimo."
 
-#: src/Process/Backend/MediaItem.php:705
+#: src/Process/Backend/MediaItem.php:708
 msgid "Media item will be inserted as a link."
 msgstr "Media ero estos enmetita kiel ligilo."
 
-#: src/Process/Backend/MediaItem.php:726
+#: src/Process/Backend/MediaItem.php:729
 msgid "Make current settings as default"
 msgstr "Faru nunajn agordojn defaŭlte"
 
-#: src/Process/Backend/MediaItem.php:727
+#: src/Process/Backend/MediaItem.php:730
 msgid "For the blog"
 msgstr "Por la blogo"
 
-#: src/Process/Backend/MediaItem.php:729
+#: src/Process/Backend/MediaItem.php:732
 msgid "For this folder only"
 msgstr "Nur por ĉi tiu dosierujo"
 
-#: src/Process/Backend/MediaItem.php:741
+#: src/Process/Backend/MediaItem.php:744
 msgid "Settings exist for this folder:"
 msgstr "Agordoj ekzistas por ĉi tiu dosierujo:"
 
-#: src/Process/Backend/MediaItem.php:742
+#: src/Process/Backend/MediaItem.php:745
 msgid "Remove them"
 msgstr "Forigu ilin"
 
-#: src/Process/Backend/MediaItem.php:752 src/Process/Backend/MediaItem.php:754
+#: src/Process/Backend/MediaItem.php:755 src/Process/Backend/MediaItem.php:757
 msgid "Insert media item"
 msgstr "Enmetu amaskomunikilaron"
 
-#: src/Process/Backend/MediaItem.php:839
+#: src/Process/Backend/MediaItem.php:842
 msgid "Available sizes:"
 msgstr "Disponeblaj grandecoj:"
 
-#: src/Process/Backend/MediaItem.php:864 src/Process/Backend/MediaItem.php:938
-#: src/Process/Backend/MediaItem.php:946 src/Process/Backend/MediaItem.php:957
+#: src/Process/Backend/MediaItem.php:867 src/Process/Backend/MediaItem.php:941
+#: src/Process/Backend/MediaItem.php:949 src/Process/Backend/MediaItem.php:960
 msgid "Image width:"
 msgstr "Larĝo de bildo:"
 
-#: src/Process/Backend/MediaItem.php:870 src/Process/Backend/MediaItem.php:963
+#: src/Process/Backend/MediaItem.php:873 src/Process/Backend/MediaItem.php:966
 msgid "Image height:"
 msgstr "Alteco de bildo:"
 
-#: src/Process/Backend/MediaItem.php:878 src/Process/Backend/MediaItem.php:973
+#: src/Process/Backend/MediaItem.php:881 src/Process/Backend/MediaItem.php:976
 msgid "File size:"
 msgstr "Dosiera grandeco:"
 
-#: src/Process/Backend/MediaItem.php:886 src/Process/Backend/MediaItem.php:979
+#: src/Process/Backend/MediaItem.php:889 src/Process/Backend/MediaItem.php:982
 msgid "File URL:"
 msgstr "Dosiera URL:"
 
-#: src/Process/Backend/MediaItem.php:894
+#: src/Process/Backend/MediaItem.php:897
 msgid "Thumbnail details"
 msgstr "Detaloj de bildetoj"
 
-#: src/Process/Backend/MediaItem.php:917
+#: src/Process/Backend/MediaItem.php:920
 msgid "File owner:"
 msgstr "Dosierposedanto:"
 
-#: src/Process/Backend/MediaItem.php:923
+#: src/Process/Backend/MediaItem.php:926
 msgid "File type:"
 msgstr "Dosiertipo:"
 
-#: src/Process/Backend/MediaItem.php:990
+#: src/Process/Backend/MediaItem.php:993
 msgid "Show entries containing this media"
 msgstr "Montru enskribojn enhavantajn ĉi tiun amaskomunikilaron"
 
-#: src/Process/Backend/MediaItem.php:1038
+#: src/Process/Backend/MediaItem.php:1041
 msgid "No entry seems contain this media."
 msgstr "Neniu eniro ŝajnas enhavi ĉi tiun amaskomunikilaron."
 
-#: src/Process/Backend/MediaItem.php:1068
+#: src/Process/Backend/MediaItem.php:1071
 msgid "Inside the entry"
 msgstr "Ene de la eniro"
 
-#: src/Process/Backend/MediaItem.php:1075
+#: src/Process/Backend/MediaItem.php:1078
 msgid "Linked to entry"
 msgstr "Ligita al eniro"
 
-#: src/Process/Backend/MediaItem.php:1083
+#: src/Process/Backend/MediaItem.php:1086
 msgid "Entries containing this media"
 msgstr "Enskriboj enhavantaj ĉi tiun amaskomunikilaron"
 
-#: src/Process/Backend/MediaItem.php:1117
+#: src/Process/Backend/MediaItem.php:1120
 msgid ":"
 msgstr ":"
 
-#: src/Process/Backend/MediaItem.php:1127
+#: src/Process/Backend/MediaItem.php:1130
 msgid "Metadata"
 msgstr "Metadatenoj"
 
-#: src/Process/Backend/MediaItem.php:1139
-#: src/Process/Backend/MediaItem.php:1341
-#: src/Process/Backend/MediaItem.php:1350
+#: src/Process/Backend/MediaItem.php:1142
+#: src/Process/Backend/MediaItem.php:1344
+#: src/Process/Backend/MediaItem.php:1353
 msgid "Media details"
 msgstr "Detaloj pri amaskomunikiloj"
 
-#: src/Process/Backend/MediaItem.php:1157
-#: src/Process/Backend/MediaItem.php:1164
+#: src/Process/Backend/MediaItem.php:1160
+#: src/Process/Backend/MediaItem.php:1167
 msgid "Update thumbnails"
 msgstr "Ĝisdatigu bildetojn"
 
-#: src/Process/Backend/MediaItem.php:1159
+#: src/Process/Backend/MediaItem.php:1162
 msgid "This will create or update thumbnails for this image."
 msgstr "Ĉi tio kreos aŭ ĝisdatigos bildetojn por ĉi tiu bildo."
 
-#: src/Process/Backend/MediaItem.php:1173
-#: src/Process/Backend/MediaItem.php:1188
+#: src/Process/Backend/MediaItem.php:1176
+#: src/Process/Backend/MediaItem.php:1191
 msgid "Extract in a new directory"
 msgstr "Ekstraktu en nova dosierujo"
 
-#: src/Process/Backend/MediaItem.php:1174
-#: src/Process/Backend/MediaItem.php:1194
+#: src/Process/Backend/MediaItem.php:1177
+#: src/Process/Backend/MediaItem.php:1197
 msgid "Extract in current directory"
 msgstr "Eltiro en nuna dosierujo"
 
-#: src/Process/Backend/MediaItem.php:1182
+#: src/Process/Backend/MediaItem.php:1185
 msgid "Extract archive"
 msgstr "Ekstrakti arkivon"
 
-#: src/Process/Backend/MediaItem.php:1189
+#: src/Process/Backend/MediaItem.php:1192
 msgid "This will extract archive in a new directory that should not exist yet."
 msgstr "Ĉi tio ĉerpos arkivon en nova dosierujo, kiu ankoraŭ ne devus ekzisti."
 
-#: src/Process/Backend/MediaItem.php:1195
+#: src/Process/Backend/MediaItem.php:1198
 msgid "This will extract archive in current directory and will overwrite existing files or directory."
 msgstr "Ĉi tio ĉerpos arkivon en nuna dosierujo kaj anstataŭigos ekzistantajn dosierojn aŭ dosierujon."
 
-#: src/Process/Backend/MediaItem.php:1203
+#: src/Process/Backend/MediaItem.php:1206
 msgid "Extract mode:"
 msgstr "Ekstrakta reĝimo:"
 
-#: src/Process/Backend/MediaItem.php:1204
+#: src/Process/Backend/MediaItem.php:1207
 msgid "Extract"
 msgstr "Ekstrakto"
 
-#: src/Process/Backend/MediaItem.php:1216
+#: src/Process/Backend/MediaItem.php:1219
 msgid "Change media properties"
 msgstr "Ŝanĝi amaskomunikilajn proprietojn"
 
-#: src/Process/Backend/MediaItem.php:1225
+#: src/Process/Backend/MediaItem.php:1228
 msgid "File name:"
 msgstr "Dosiernomo:"
 
-#: src/Process/Backend/MediaItem.php:1258
+#: src/Process/Backend/MediaItem.php:1261
 msgid "File date:"
 msgstr "Dosierdato:"
 
-#: src/Process/Backend/MediaItem.php:1271
+#: src/Process/Backend/MediaItem.php:1274
 msgid "New directory:"
 msgstr "Nova dosierujo:"
 
-#: src/Process/Backend/MediaItem.php:1286
+#: src/Process/Backend/MediaItem.php:1289
 msgid "Change file"
 msgstr "Ŝanĝi dosieron"
 
-#: src/Process/Backend/MediaItem.php:1295
+#: src/Process/Backend/MediaItem.php:1298
 msgid "Choose a file:"
 msgstr "Elektu dosieron:"
 
-#: src/Process/Backend/MediaItem.php:1295
+#: src/Process/Backend/MediaItem.php:1298
 #, php-format
 msgid "Maximum size %s"
 msgstr "Maksimuma grandeco %s"
 
-#: src/Process/Backend/MediaItem.php:1313
+#: src/Process/Backend/MediaItem.php:1316
 msgid "Delete this media"
 msgstr "Forigu ĉi tiun amaskomunikilaron"
 
-#: src/Process/Backend/MediaItem.php:1332
+#: src/Process/Backend/MediaItem.php:1335
 msgid "Updates and modifications"
 msgstr "Ĝisdatigoj kaj modifoj"
 
@@ -5229,67 +5237,67 @@ msgid_plural "%d comments found"
 msgstr[0] "unu komento trovita"
 msgstr[1] "%d komentoj trovitaj"
 
-#: src/Process/Backend/Settings.php:72 src/Process/Backend/Settings.php:142
+#: src/Process/Backend/Settings.php:73 src/Process/Backend/Settings.php:146
 msgid "Configuration"
 msgstr "Agordo"
 
-#: src/Process/Backend/Settings.php:74
+#: src/Process/Backend/Settings.php:75
 msgid "User preferences"
 msgstr "Preferoj de uzantoj"
 
-#: src/Process/Backend/Settings.php:75 src/Process/Backend/Settings.php:148
+#: src/Process/Backend/Settings.php:76 src/Process/Backend/Settings.php:152
 msgid "Settings"
 msgstr "Agordoj"
 
-#: src/Process/Backend/Settings.php:76 src/Process/Backend/Settings.php:150
+#: src/Process/Backend/Settings.php:77 src/Process/Backend/Settings.php:154
 msgid "Other settings"
 msgstr "Aliaj agordoj"
 
-#: src/Process/Backend/Settings.php:77 src/Process/Backend/Settings.php:152
+#: src/Process/Backend/Settings.php:78 src/Process/Backend/Settings.php:156
 msgid "Management"
 msgstr "Administrado"
 
-#: src/Process/Backend/Settings.php:78
+#: src/Process/Backend/Settings.php:79
 msgid "Unknown"
 msgstr "Nekonata"
 
-#: src/Process/Backend/Settings.php:138
+#: src/Process/Backend/Settings.php:142
 msgid "ID"
 msgstr "Identigilo"
 
-#: src/Process/Backend/Settings.php:146
+#: src/Process/Backend/Settings.php:150
 msgid "User"
 msgstr "Uzanto"
 
-#: src/Process/Backend/Settings.php:160
+#: src/Process/Backend/Settings.php:164
 msgid "Column description:"
 msgstr "Priskribo de kolumno:"
 
-#: src/Process/Backend/Settings.php:165
+#: src/Process/Backend/Settings.php:169
 msgid "“Configuration”: indicates that plugin has a specific configuration page."
 msgstr "“Agordo”: indikas, ke la kromprogramo havas specifan agordopaĝon."
 
-#: src/Process/Backend/Settings.php:167
+#: src/Process/Backend/Settings.php:171
 msgid "“Blog”: indicates that plugin has a specific settings in blog parameters, usually used to add or modify some comportements or aspects of the public blog."
 msgstr "“Blogo”: indikas, ke la kromaĵo havas specifajn agordojn en la blogaj parametroj, kutime uzatajn por aldoni aŭ modifi iujn kondutojn aŭ aspektojn de la publika blogo."
 
-#: src/Process/Backend/Settings.php:169
+#: src/Process/Backend/Settings.php:173
 msgid "“user”: indicates that the plugin has a specific configuration in the user preferences, generally used to add or modify certain behaviors or aspects of blog administration for the user."
 msgstr "“uzanto”: indikas, ke la kromprogramo havas specifan agordon en la uzantopreferoj, ĝenerale uzatan por aldoni aŭ modifi certajn kondutojn aŭ aspektojn de blogadministrado por la uzanto."
 
-#: src/Process/Backend/Settings.php:171
+#: src/Process/Backend/Settings.php:175
 msgid "“self”: indicates that when the plugin has specific parameters on its management page."
 msgstr "“self”: indikas tion kiam la kromprogramo havas specifajn parametrojn sur sia administra paĝo."
 
-#: src/Process/Backend/Settings.php:173
+#: src/Process/Backend/Settings.php:177
 msgid "“Other”: indicates that plugin has a specific settings in other context."
 msgstr "“Alia”: indikas, ke la kromprogramo havas specifajn agordojn en alia kunteksto."
 
-#: src/Process/Backend/Settings.php:175
+#: src/Process/Backend/Settings.php:179
 msgid "“Management”: indicates that the plugin has a specific management page."
 msgstr "“Administrado”: ​​indikas, ke la kromprogramo havas specifan administradan paĝon."
 
-#: src/Process/Backend/Settings.php:177
+#: src/Process/Backend/Settings.php:181
 msgid "Some of these columns may not be displayed if no plugin has a link in them."
 msgstr "Kelkaj el ĉi tiuj kolumnoj eble ne estos montrataj se neniu kromprogramo havas ligilon en ili."
 
