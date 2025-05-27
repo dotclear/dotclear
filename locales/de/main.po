@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-27 12:02+0200\n"
-"PO-Revision-Date: 2025-05-27 10:55\n"
+"POT-Creation-Date: 2025-05-27 18:26+0200\n"
+"PO-Revision-Date: 2025-05-27 16:51\n"
 "Last-Translator: \n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -5278,8 +5278,8 @@ msgid "“Configuration”: indicates that plugin has a specific configuration p
 msgstr "\"Konfiguration\": zeigt an, dass das Plugin eine spezielle Konfigurationsseite hat."
 
 #: src/Process/Backend/Settings.php:171
-msgid "“Blog”: indicates that plugin has a specific settings in blog parameters, usually used to add or modify some comportements or aspects of the public blog."
-msgstr "\"Blog\": zeigt an, dass das Plugin über spezielle Einstellungen für Blog-Parameter verfügt, die in der Regel zum Hinzufügen oder Ändern bestimmter Eigenschaften oder Aspekte des öffentlichen Blogs verwendet werden."
+msgid "“Blog”: indicates that plugin has specific settings in blog parameters, generally used to add or modify some comportements or aspects of the public blog."
+msgstr "\"Blog\": zeigt an, dass das Plugin über spezifische Einstellungen in den Blog-Parametern verfügt, die im Allgemeinen verwendet werden, um einige Eigenschaften oder Aspekte des öffentlichen Blogs hinzuzufügen oder zu ändern."
 
 #: src/Process/Backend/Settings.php:173
 msgid "“user”: indicates that the plugin has a specific configuration in the user preferences, generally used to add or modify certain behaviors or aspects of blog administration for the user."
@@ -5290,8 +5290,8 @@ msgid "“self”: indicates that when the plugin has specific parameters on its
 msgstr "\"self\": zeigt an, dass das Plugin bestimmte Parameter auf seiner Verwaltungsseite hat."
 
 #: src/Process/Backend/Settings.php:177
-msgid "“Other”: indicates that plugin has a specific settings in other context."
-msgstr "\"Andere\": zeigt an, dass das Plugin in einem anderen Kontext eine bestimmte Einstellung hat."
+msgid "“Other”: indicates that plugin has specific settings in other context."
+msgstr "\"Andere\": zeigt an, dass das Plugin spezifische Einstellungen in einem anderen Kontext hat."
 
 #: src/Process/Backend/Settings.php:179
 msgid "“Management”: indicates that the plugin has a specific management page."
