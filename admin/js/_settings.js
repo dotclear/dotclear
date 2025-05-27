@@ -99,4 +99,6 @@ dotclear.ready(() => {
 
   // Add sorting mecanism to some tables
   enableTableSort('settings');
+
+  dotclear.responsiveCellHeaders(document.querySelector('#settings'), '#settings', 1);
 });
