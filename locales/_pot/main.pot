@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-27 12:02+0200\n"
+"POT-Creation-Date: 2025-05-27 18:26+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -5280,7 +5280,7 @@ msgid "“Configuration”: indicates that plugin has a specific configuration p
 msgstr ""
 
 #: src/Process/Backend/Settings.php:171
-msgid "“Blog”: indicates that plugin has a specific settings in blog parameters, usually used to add or modify some comportements or aspects of the public blog."
+msgid "“Blog”: indicates that plugin has specific settings in blog parameters, generally used to add or modify some comportements or aspects of the public blog."
 msgstr ""
 
 #: src/Process/Backend/Settings.php:173
@@ -5292,7 +5292,7 @@ msgid "“self”: indicates that when the plugin has specific parameters on its
 msgstr ""
 
 #: src/Process/Backend/Settings.php:177
-msgid "“Other”: indicates that plugin has a specific settings in other context."
+msgid "“Other”: indicates that plugin has specific settings in other context."
 msgstr ""
 
 #: src/Process/Backend/Settings.php:179

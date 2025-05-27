@@ -62,7 +62,7 @@ dotclear.ready(() => {
           cellA = Number.parseInt(rowA.querySelectorAll('td')[indexData].innerText);
           cellB = Number.parseInt(rowB.querySelectorAll('td')[indexData].innerText);
           switch (true) {
-            case cellA.localeCompare(cellB):
+            case cellA > cellB:
               return 1 * multiplier;
             case cellA < cellB:
               return -1 * multiplier;

@@ -168,13 +168,13 @@ class Settings extends Process
                                 (new Li())
                                     ->text(__('“Configuration”: indicates that plugin has a specific configuration page.')),
                                 (new Li())
-                                    ->text(__('“Blog”: indicates that plugin has a specific settings in blog parameters, usually used to add or modify some comportements or aspects of the public blog.')),
+                                    ->text(__('“Blog”: indicates that plugin has specific settings in blog parameters, generally used to add or modify some comportements or aspects of the public blog.')),
                                 (new Li())
                                     ->text(__('“user”: indicates that the plugin has a specific configuration in the user preferences, generally used to add or modify certain behaviors or aspects of blog administration for the user.')),
                                 (new Li())
                                     ->text(__('“self”: indicates that when the plugin has specific parameters on its management page.')),
                                 (new Li())
-                                    ->text(__('“Other”: indicates that plugin has a specific settings in other context.')),
+                                    ->text(__('“Other”: indicates that plugin has specific settings in other context.')),
                                 (new Li())
                                     ->text(__('“Management”: indicates that the plugin has a specific management page.')),
                             ]),
