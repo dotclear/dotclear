@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-27 12:02+0200\n"
-"PO-Revision-Date: 2025-05-27 10:55\n"
+"POT-Creation-Date: 2025-05-27 18:26+0200\n"
+"PO-Revision-Date: 2025-05-27 16:52\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -5243,8 +5243,8 @@ msgid "“Configuration”: indicates that plugin has a specific configuration p
 msgstr "\"구성\": 플러그인에 특정 구성 페이지가 있음을 나타냅니다."
 
 #: src/Process/Backend/Settings.php:171
-msgid "“Blog”: indicates that plugin has a specific settings in blog parameters, usually used to add or modify some comportements or aspects of the public blog."
-msgstr "\"블로그\": 플러그인이 블로그 매개변수에 특정 설정을 가지고 있음을 나타내며, 일반적으로 공개 블로그의 일부 기능이나 측면을 추가하거나 수정하는 데 사용됩니다."
+msgid "“Blog”: indicates that plugin has specific settings in blog parameters, generally used to add or modify some comportements or aspects of the public blog."
+msgstr "\"블로그\": 일반적으로 공개 블로그의 일부 기능이나 측면을 추가하거나 수정하는 데 사용되는 블로그 매개변수에 특정 설정이 있는 플러그인을 나타냅니다."
 
 #: src/Process/Backend/Settings.php:173
 msgid "“user”: indicates that the plugin has a specific configuration in the user preferences, generally used to add or modify certain behaviors or aspects of blog administration for the user."
@@ -5255,7 +5255,7 @@ msgid "“self”: indicates that when the plugin has specific parameters on its
 msgstr "\"self\": 플러그인의 관리 페이지에 특정 매개변수가 있는 경우 이를 나타냅니다."
 
 #: src/Process/Backend/Settings.php:177
-msgid "“Other”: indicates that plugin has a specific settings in other context."
+msgid "“Other”: indicates that plugin has specific settings in other context."
 msgstr "\"기타\": 플러그인에 다른 컨텍스트에 대한 특정 설정이 있음을 나타냅니다."
 
 #: src/Process/Backend/Settings.php:179
