@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-27 12:02+0200\n"
-"PO-Revision-Date: 2025-05-27 10:56\n"
+"POT-Creation-Date: 2025-05-27 18:26+0200\n"
+"PO-Revision-Date: 2025-05-27 16:52\n"
 "Last-Translator: \n"
 "Language-Team: Croatian\n"
 "Language: hr_HR\n"
@@ -5313,7 +5313,7 @@ msgid "“Configuration”: indicates that plugin has a specific configuration p
 msgstr "„Konfiguracija“: označava da dodatak ima određenu stranicu za konfiguraciju."
 
 #: src/Process/Backend/Settings.php:171
-msgid "“Blog”: indicates that plugin has a specific settings in blog parameters, usually used to add or modify some comportements or aspects of the public blog."
+msgid "“Blog”: indicates that plugin has specific settings in blog parameters, generally used to add or modify some comportements or aspects of the public blog."
 msgstr "„Blog“: označava da dodatak ima specifične postavke u parametrima bloga, koje se obično koriste za dodavanje ili izmjenu nekih elemenata ili aspekata javnog bloga."
 
 #: src/Process/Backend/Settings.php:173
@@ -5325,8 +5325,8 @@ msgid "“self”: indicates that when the plugin has specific parameters on its
 msgstr "„self“: označava da kada dodatak ima određene parametre na svojoj stranici za upravljanje."
 
 #: src/Process/Backend/Settings.php:177
-msgid "“Other”: indicates that plugin has a specific settings in other context."
-msgstr "„Ostalo“: označava da dodatak ima određene postavke u drugom kontekstu."
+msgid "“Other”: indicates that plugin has specific settings in other context."
+msgstr "„Ostalo“: označava da dodatak ima specifične postavke u drugom kontekstu."
 
 #: src/Process/Backend/Settings.php:179
 msgid "“Management”: indicates that the plugin has a specific management page."
