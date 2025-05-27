@@ -183,6 +183,7 @@ class Settings extends Process
             ])
         ->render();
 
+        Page::helpBlock('core_settings');
         Page::close();
     }
 }
