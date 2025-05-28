@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-27 18:57+0200\n"
-"PO-Revision-Date: 2025-05-28 04:52\n"
+"POT-Creation-Date: 2025-05-28 11:06+0200\n"
+"PO-Revision-Date: 2025-05-28 09:12\n"
 "Last-Translator: \n"
 "Language-Team: Hungarian\n"
 "Language: hu_HU\n"
@@ -1121,7 +1121,7 @@ msgid_plural "%s files found"
 msgstr[0] "%s talált fájl"
 msgstr[1] "%s talált fájlok"
 
-#: src/Core/Backend/Menus.php:86 src/Process/Backend/Settings.php:148
+#: src/Core/Backend/Menus.php:86 src/Process/Backend/Settings.php:207
 msgid "Blog"
 msgstr "Blog"
 
@@ -3267,7 +3267,7 @@ msgstr "P"
 msgid "(none)"
 msgstr "(nincs)"
 
-#: src/Process/Backend/BlogPref.php:175 src/Process/Backend/Settings.php:144
+#: src/Process/Backend/BlogPref.php:175 src/Process/Backend/Settings.php:199
 msgid "Description"
 msgstr "Leírás"
 
@@ -3635,7 +3635,7 @@ msgid "Image legend and alternate text:"
 msgstr "Képmagyarázat és alternatív szöveg:"
 
 #: src/Process/Backend/BlogPref.php:977 src/Process/Backend/Media.php:846
-#: src/Process/Backend/Settings.php:74
+#: src/Process/Backend/Settings.php:72
 msgid "Blog parameters"
 msgstr "Blog paraméterek"
 
@@ -5237,69 +5237,65 @@ msgid_plural "%d comments found"
 msgstr[0] "egy megjegyzés található"
 msgstr[1] "%d talált megjegyzések"
 
-#: src/Process/Backend/Settings.php:73 src/Process/Backend/Settings.php:146
+#: src/Process/Backend/Settings.php:71 src/Process/Backend/Settings.php:203
 msgid "Configuration"
 msgstr "Konfiguráció"
 
-#: src/Process/Backend/Settings.php:75
+#: src/Process/Backend/Settings.php:73
 msgid "User preferences"
 msgstr "Felhasználói beállítások"
 
-#: src/Process/Backend/Settings.php:76 src/Process/Backend/Settings.php:152
+#: src/Process/Backend/Settings.php:74 src/Process/Backend/Settings.php:215
 msgid "Settings"
 msgstr "Beállítások"
 
-#: src/Process/Backend/Settings.php:77 src/Process/Backend/Settings.php:154
+#: src/Process/Backend/Settings.php:75 src/Process/Backend/Settings.php:219
 msgid "Other settings"
 msgstr "Egyéb beállítások"
 
-#: src/Process/Backend/Settings.php:78 src/Process/Backend/Settings.php:156
+#: src/Process/Backend/Settings.php:76 src/Process/Backend/Settings.php:223
 msgid "Management"
 msgstr "Menedzsment"
 
-#: src/Process/Backend/Settings.php:79
+#: src/Process/Backend/Settings.php:77
 msgid "Unknown"
 msgstr "Ismeretlen"
 
-#: src/Process/Backend/Settings.php:142
+#: src/Process/Backend/Settings.php:196
 msgid "ID"
 msgstr "ID"
 
-#: src/Process/Backend/Settings.php:150
+#: src/Process/Backend/Settings.php:211
 msgid "User"
 msgstr "Felhasználó"
 
-#: src/Process/Backend/Settings.php:164
-msgid "Column description:"
-msgstr "Oszlop leírása:"
-
-#: src/Process/Backend/Settings.php:169
-msgid "“Configuration”: indicates that plugin has a specific configuration page."
-msgstr "\"Konfiguráció\": azt jelzi, hogy a bővítménynek van egy speciális konfigurációs oldala."
-
-#: src/Process/Backend/Settings.php:171
-msgid "“Blog”: indicates that plugin has specific settings in blog parameters, generally used to add or modify some behaviors or aspects of the public blog."
+#: src/Process/Backend/Settings.php:232
+msgid "Columns description:"
 msgstr ""
 
-#: src/Process/Backend/Settings.php:173
-msgid "“user”: indicates that the plugin has a specific configuration in the user preferences, generally used to add or modify certain behaviors or aspects of blog administration for the user."
-msgstr "\"user\": azt jelzi, hogy a plugin rendelkezik egy speciális konfigurációval a felhasználói beállításokban, általában a blog adminisztráció bizonyos viselkedésmódjainak vagy aspektusainak hozzáadására vagy módosítására használják a felhasználó számára."
+#: src/Process/Backend/Settings.php:238
+msgid "<strong>Configuration</strong> indicates that plugin has a specific configuration page."
+msgstr ""
 
-#: src/Process/Backend/Settings.php:175
-msgid "“self”: indicates that when the plugin has specific parameters on its management page."
-msgstr "\"self\": azt jelzi, hogy ha a bővítménynek speciális paraméterei vannak a kezelőoldalán."
+#: src/Process/Backend/Settings.php:242
+msgid "<strong>Blog</strong> indicates that plugin has specific settings in blog parameters, generally used to add or modify some behaviors or aspects of the public blog."
+msgstr ""
 
-#: src/Process/Backend/Settings.php:177
-msgid "“Other”: indicates that plugin has specific settings in other context."
-msgstr "\"Egyéb\": azt jelzi, hogy a bővítmény más kontextusban speciális beállításokkal rendelkezik."
+#: src/Process/Backend/Settings.php:246
+msgid "<strong>User</strong> indicates that the plugin has a specific configuration in the user preferences, generally used to add or modify certain behaviors or aspects of blog administration for the user."
+msgstr ""
 
-#: src/Process/Backend/Settings.php:179
-msgid "“Management”: indicates that the plugin has a specific management page."
-msgstr "\"Management\": azt jelzi, hogy a bővítménynek van egy speciális kezelőoldala."
+#: src/Process/Backend/Settings.php:250
+msgid "<strong>Settings</strong> indicates that when the plugin has specific parameters on its management page."
+msgstr ""
 
-#: src/Process/Backend/Settings.php:181
-msgid "Some of these columns may not be displayed if no plugin has a link in them."
-msgstr "Előfordulhat, hogy néhány oszlop nem jelenik meg, ha nincs olyan bővítmény, amelyikben link van."
+#: src/Process/Backend/Settings.php:254
+msgid "<strong>Other settings</strong> indicates that plugin has specific settings in other context."
+msgstr ""
+
+#: src/Process/Backend/Settings.php:258
+msgid "<strong>Management</strong> indicates that the plugin has a specific management page."
+msgstr ""
 
 #: src/Process/Backend/User.php:57 src/Process/Backend/Users.php:128
 msgid "New user"
