@@ -5223,6 +5223,11 @@ tr.ui-sortable-handle:hover {
   cursor: move;
 }
 
+/* Sortable (JS), generally table using header */
+.js-sortable th:hover {
+  cursor: pointer;
+}
+
 /* Badges (common.js) */
 .badgeable {
   /* class to set to badge parent's, not mandatory for menu items */

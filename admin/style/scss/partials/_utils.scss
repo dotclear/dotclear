@@ -35,6 +35,13 @@ tr.ui-sortable-handle {
   }
 }
 
+/* Sortable (JS), generally table using header */
+.js-sortable {
+  th:hover {
+    cursor: pointer;
+  }
+}
+
 /* Badges (common.js) */
 
 .badgeable {

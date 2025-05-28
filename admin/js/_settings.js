@@ -10,6 +10,7 @@ dotclear.ready(() => {
     if (!table) {
       return;
     }
+    table.classList.add('js-sortable');
     const headers = table.querySelectorAll('th');
     const tableBody = table.querySelector('tbody');
     const rows = tableBody.querySelectorAll('tr');
