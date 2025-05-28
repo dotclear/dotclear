@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-27 18:26+0200\n"
-"PO-Revision-Date: 2025-05-27 16:51\n"
+"POT-Creation-Date: 2025-05-28 11:06+0200\n"
+"PO-Revision-Date: 2025-05-28 09:43\n"
 "Last-Translator: \n"
 "Language-Team: Finnish\n"
 "Language: fi_FI\n"
@@ -1121,7 +1121,7 @@ msgid_plural "%s files found"
 msgstr[0] "%s löydetty tiedosto"
 msgstr[1] "%s löydettya tiedostoa"
 
-#: src/Core/Backend/Menus.php:86 src/Process/Backend/Settings.php:148
+#: src/Core/Backend/Menus.php:86 src/Process/Backend/Settings.php:207
 msgid "Blog"
 msgstr "Blogi"
 
@@ -3267,7 +3267,7 @@ msgstr "P"
 msgid "(none)"
 msgstr "(ei ole)"
 
-#: src/Process/Backend/BlogPref.php:175 src/Process/Backend/Settings.php:144
+#: src/Process/Backend/BlogPref.php:175 src/Process/Backend/Settings.php:199
 msgid "Description"
 msgstr "Kuvaus"
 
@@ -3635,7 +3635,7 @@ msgid "Image legend and alternate text:"
 msgstr "Kuvan selitys ja vaihtoehtoinen teksti:"
 
 #: src/Process/Backend/BlogPref.php:977 src/Process/Backend/Media.php:846
-#: src/Process/Backend/Settings.php:74
+#: src/Process/Backend/Settings.php:72
 msgid "Blog parameters"
 msgstr "Blogin asetukset"
 
@@ -5237,69 +5237,65 @@ msgid_plural "%d comments found"
 msgstr[0] "yksi kommentti löytyi"
 msgstr[1] "%d löydetyt kommentit"
 
-#: src/Process/Backend/Settings.php:73 src/Process/Backend/Settings.php:146
+#: src/Process/Backend/Settings.php:71 src/Process/Backend/Settings.php:203
 msgid "Configuration"
 msgstr "Konfigurointi"
 
-#: src/Process/Backend/Settings.php:75
+#: src/Process/Backend/Settings.php:73
 msgid "User preferences"
 msgstr "Käyttäjän asetukset"
 
-#: src/Process/Backend/Settings.php:76 src/Process/Backend/Settings.php:152
+#: src/Process/Backend/Settings.php:74 src/Process/Backend/Settings.php:215
 msgid "Settings"
 msgstr "Asetukset"
 
-#: src/Process/Backend/Settings.php:77 src/Process/Backend/Settings.php:154
+#: src/Process/Backend/Settings.php:75 src/Process/Backend/Settings.php:219
 msgid "Other settings"
 msgstr "Muut asetukset"
 
-#: src/Process/Backend/Settings.php:78 src/Process/Backend/Settings.php:156
+#: src/Process/Backend/Settings.php:76 src/Process/Backend/Settings.php:223
 msgid "Management"
 msgstr "Hallinto"
 
-#: src/Process/Backend/Settings.php:79
+#: src/Process/Backend/Settings.php:77
 msgid "Unknown"
 msgstr "Tuntematon"
 
-#: src/Process/Backend/Settings.php:142
+#: src/Process/Backend/Settings.php:196
 msgid "ID"
 msgstr "ID"
 
-#: src/Process/Backend/Settings.php:150
+#: src/Process/Backend/Settings.php:211
 msgid "User"
 msgstr "Käyttäjä"
 
-#: src/Process/Backend/Settings.php:164
-msgid "Column description:"
-msgstr "Sarakkeen kuvaus:"
+#: src/Process/Backend/Settings.php:232
+msgid "Columns description:"
+msgstr "Sarakkeiden kuvaus:"
 
-#: src/Process/Backend/Settings.php:169
-msgid "“Configuration”: indicates that plugin has a specific configuration page."
-msgstr "\"Configuration\": osoittaa, että lisäosalla on oma määrityssivu."
+#: src/Process/Backend/Settings.php:238
+msgid "<strong>Configuration</strong> indicates that plugin has a specific configuration page."
+msgstr "<strong>Configuration</strong> osoittaa, että lisäosalla on tietty määrityssivu."
 
-#: src/Process/Backend/Settings.php:171
-msgid "“Blog”: indicates that plugin has specific settings in blog parameters, generally used to add or modify some comportements or aspects of the public blog."
-msgstr "\"Blogi\": osoittaa, että lisäosalla on erityisiä asetuksia blogiparametreissa, joita käytetään yleensä lisäämään tai muuttamaan joitakin julkisen blogin toimintoja tai näkökohtia."
+#: src/Process/Backend/Settings.php:242
+msgid "<strong>Blog</strong> indicates that plugin has specific settings in blog parameters, generally used to add or modify some behaviors or aspects of the public blog."
+msgstr "<strong>Blogi</strong> osoittaa, että lisäosalla on erityisiä asetuksia blogiparametreissa, joita käytetään yleensä lisäämään tai muuttamaan joitakin julkisen blogin käyttäytymismalleja tai näkökohtia."
 
-#: src/Process/Backend/Settings.php:173
-msgid "“user”: indicates that the plugin has a specific configuration in the user preferences, generally used to add or modify certain behaviors or aspects of blog administration for the user."
-msgstr "\"käyttäjä\": osoittaa, että lisäosalla on erityinen konfiguraatio käyttäjän asetuksissa, joita käytetään yleensä tiettyjen käyttäytymismallien tai blogin hallinnan osa-alueiden lisäämiseen tai muuttamiseen käyttäjälle."
+#: src/Process/Backend/Settings.php:246
+msgid "<strong>User</strong> indicates that the plugin has a specific configuration in the user preferences, generally used to add or modify certain behaviors or aspects of blog administration for the user."
+msgstr "<strong>Käyttäjä</strong> osoittaa, että lisäosalla on erityinen konfiguraatio käyttäjän asetuksissa, jota käytetään yleensä tiettyjen käyttäytymismallien tai blogin hallinnan osa-alueiden lisäämiseen tai muuttamiseen käyttäjälle."
 
-#: src/Process/Backend/Settings.php:175
-msgid "“self”: indicates that when the plugin has specific parameters on its management page."
-msgstr "“Itse”: osoittaa, että kun plugin on erityisiä parametreja sen hallinta sivulla."
+#: src/Process/Backend/Settings.php:250
+msgid "<strong>Settings</strong> indicates that when the plugin has specific parameters on its management page."
+msgstr "<strong>Asetukset</strong> osoittaa, että kun lisäosalla on erityisiä parametreja sen hallintasivulla."
 
-#: src/Process/Backend/Settings.php:177
-msgid "“Other”: indicates that plugin has specific settings in other context."
-msgstr "\"Muu\": osoittaa, että lisäosalla on erityisiä asetuksia muissa yhteyksissä."
+#: src/Process/Backend/Settings.php:254
+msgid "<strong>Other settings</strong> indicates that plugin has specific settings in other context."
+msgstr "<strong>Muut asetukset</strong> osoittaa, että lisäosalla on erityisiä asetuksia muissa yhteyksissä."
 
-#: src/Process/Backend/Settings.php:179
-msgid "“Management”: indicates that the plugin has a specific management page."
-msgstr "\"Hallinta\": osoittaa, että lisäosalla on oma hallintasivu."
-
-#: src/Process/Backend/Settings.php:181
-msgid "Some of these columns may not be displayed if no plugin has a link in them."
-msgstr "Joitakin näistä sarakkeista ei ehkä näytetä, jos niissä ei ole linkkiä minkään laajennuksen sisällä."
+#: src/Process/Backend/Settings.php:258
+msgid "<strong>Management</strong> indicates that the plugin has a specific management page."
+msgstr "<strong>Hallinta</strong> osoittaa, että lisäosalla on oma hallintasivu."
 
 #: src/Process/Backend/User.php:57 src/Process/Backend/Users.php:128
 msgid "New user"

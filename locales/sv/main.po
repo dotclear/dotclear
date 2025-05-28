@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-27 18:26+0200\n"
-"PO-Revision-Date: 2025-05-27 16:52\n"
+"POT-Creation-Date: 2025-05-28 11:06+0200\n"
+"PO-Revision-Date: 2025-05-28 09:43\n"
 "Last-Translator: \n"
 "Language-Team: Swedish\n"
 "Language: sv_SE\n"
@@ -1121,7 +1121,7 @@ msgid_plural "%s files found"
 msgstr[0] "%s fil hittades"
 msgstr[1] "%s filer hittades"
 
-#: src/Core/Backend/Menus.php:86 src/Process/Backend/Settings.php:148
+#: src/Core/Backend/Menus.php:86 src/Process/Backend/Settings.php:207
 msgid "Blog"
 msgstr "Blogg"
 
@@ -3267,7 +3267,7 @@ msgstr "P"
 msgid "(none)"
 msgstr "(ingen)"
 
-#: src/Process/Backend/BlogPref.php:175 src/Process/Backend/Settings.php:144
+#: src/Process/Backend/BlogPref.php:175 src/Process/Backend/Settings.php:199
 msgid "Description"
 msgstr "Beskrivning"
 
@@ -3635,7 +3635,7 @@ msgid "Image legend and alternate text:"
 msgstr "Bildförklaring och alternativ text:"
 
 #: src/Process/Backend/BlogPref.php:977 src/Process/Backend/Media.php:846
-#: src/Process/Backend/Settings.php:74
+#: src/Process/Backend/Settings.php:72
 msgid "Blog parameters"
 msgstr "Blogg parametrar"
 
@@ -5237,69 +5237,65 @@ msgid_plural "%d comments found"
 msgstr[0] "en kommentar hittad"
 msgstr[1] "%d kommentarer hittade"
 
-#: src/Process/Backend/Settings.php:73 src/Process/Backend/Settings.php:146
+#: src/Process/Backend/Settings.php:71 src/Process/Backend/Settings.php:203
 msgid "Configuration"
 msgstr "Konfiguration"
 
-#: src/Process/Backend/Settings.php:75
+#: src/Process/Backend/Settings.php:73
 msgid "User preferences"
 msgstr "Användarens preferenser"
 
-#: src/Process/Backend/Settings.php:76 src/Process/Backend/Settings.php:152
+#: src/Process/Backend/Settings.php:74 src/Process/Backend/Settings.php:215
 msgid "Settings"
 msgstr "Inställningar"
 
-#: src/Process/Backend/Settings.php:77 src/Process/Backend/Settings.php:154
+#: src/Process/Backend/Settings.php:75 src/Process/Backend/Settings.php:219
 msgid "Other settings"
 msgstr "Övriga inställningar"
 
-#: src/Process/Backend/Settings.php:78 src/Process/Backend/Settings.php:156
+#: src/Process/Backend/Settings.php:76 src/Process/Backend/Settings.php:223
 msgid "Management"
 msgstr "Ledning"
 
-#: src/Process/Backend/Settings.php:79
+#: src/Process/Backend/Settings.php:77
 msgid "Unknown"
 msgstr "Okänd"
 
-#: src/Process/Backend/Settings.php:142
+#: src/Process/Backend/Settings.php:196
 msgid "ID"
 msgstr "ID"
 
-#: src/Process/Backend/Settings.php:150
+#: src/Process/Backend/Settings.php:211
 msgid "User"
 msgstr "Användare"
 
-#: src/Process/Backend/Settings.php:164
-msgid "Column description:"
-msgstr "Kolumnbeskrivning:"
+#: src/Process/Backend/Settings.php:232
+msgid "Columns description:"
+msgstr "Beskrivning av kolumner:"
 
-#: src/Process/Backend/Settings.php:169
-msgid "“Configuration”: indicates that plugin has a specific configuration page."
-msgstr "“Konfiguration”: indikerar att plugin har en specifik konfigurationssida."
+#: src/Process/Backend/Settings.php:238
+msgid "<strong>Configuration</strong> indicates that plugin has a specific configuration page."
+msgstr "<strong>Konfiguration</strong> indikerar att plugin har en specifik konfigurationssida."
 
-#: src/Process/Backend/Settings.php:171
-msgid "“Blog”: indicates that plugin has specific settings in blog parameters, generally used to add or modify some comportements or aspects of the public blog."
-msgstr "\"Blogg\": indikerar att insticksprogrammet har specifika inställningar i bloggparametrar, som vanligtvis används för att lägga till eller ändra vissa beteenden eller aspekter av den offentliga bloggen."
+#: src/Process/Backend/Settings.php:242
+msgid "<strong>Blog</strong> indicates that plugin has specific settings in blog parameters, generally used to add or modify some behaviors or aspects of the public blog."
+msgstr "<strong>Blog</strong> indikerar att plugin har specifika inställningar i bloggparametrar, som vanligtvis används för att lägga till eller ändra vissa beteenden eller aspekter av den offentliga bloggen."
 
-#: src/Process/Backend/Settings.php:173
-msgid "“user”: indicates that the plugin has a specific configuration in the user preferences, generally used to add or modify certain behaviors or aspects of blog administration for the user."
-msgstr "“användare”: indikerar att plugin har en specifik konfiguration i användarens inställningar, allmänt används för att lägga till eller ändra vissa beteenden eller aspekter av bloggadministration för användaren."
+#: src/Process/Backend/Settings.php:246
+msgid "<strong>User</strong> indicates that the plugin has a specific configuration in the user preferences, generally used to add or modify certain behaviors or aspects of blog administration for the user."
+msgstr "<strong>Användaren</strong> anger att insticksprogrammet har en specifik konfiguration i användarinställningarna, som vanligtvis används för att lägga till eller ändra vissa beteenden eller aspekter av bloggadministrationen för användaren."
 
-#: src/Process/Backend/Settings.php:175
-msgid "“self”: indicates that when the plugin has specific parameters on its management page."
-msgstr "“”själv””: indikerar att när plugin har specifika parametrar på sin ledningssida."
+#: src/Process/Backend/Settings.php:250
+msgid "<strong>Settings</strong> indicates that when the plugin has specific parameters on its management page."
+msgstr "<strong>Inställningar</strong> anger att när plugin har specifika parametrar på sin hanteringssida."
 
-#: src/Process/Backend/Settings.php:177
-msgid "“Other”: indicates that plugin has specific settings in other context."
-msgstr "“Övrigt”: indikerar att plugin har specifika inställningar i andra sammanhang."
+#: src/Process/Backend/Settings.php:254
+msgid "<strong>Other settings</strong> indicates that plugin has specific settings in other context."
+msgstr "<strong>Andra inställningar</strong> indikerar att plugin har specifika inställningar i andra sammanhang."
 
-#: src/Process/Backend/Settings.php:179
-msgid "“Management”: indicates that the plugin has a specific management page."
-msgstr "“Hantering”: indikerar att insticksprogrammet har en specifik ledningssida."
-
-#: src/Process/Backend/Settings.php:181
-msgid "Some of these columns may not be displayed if no plugin has a link in them."
-msgstr "Vissa av dessa kolumner kanske inte visas om inget insticksprogram har en länk i dem."
+#: src/Process/Backend/Settings.php:258
+msgid "<strong>Management</strong> indicates that the plugin has a specific management page."
+msgstr "<strong>Management</strong> anger att insticksprogrammet har en specifik hanteringssida."
 
 #: src/Process/Backend/User.php:57 src/Process/Backend/Users.php:128
 msgid "New user"
