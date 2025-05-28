@@ -98,7 +98,7 @@ class Settings extends Process
                                 (new Strong($id)),
                             ]),
                         (new Td())
-                            ->text($name !== $id ? $name : ''),
+                            ->text($name !== $id ? __($name) : ''),
                         (new Td())
                             ->items([
                                 isset($settings['config']) ? $makeLink('config', $settings['config']) : (new None()),
