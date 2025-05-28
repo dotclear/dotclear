@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-27 18:57+0200\n"
-"PO-Revision-Date: 2025-05-28 04:52\n"
+"POT-Creation-Date: 2025-05-28 11:06+0200\n"
+"PO-Revision-Date: 2025-05-28 09:13\n"
 "Last-Translator: \n"
 "Language-Team: Slovak\n"
 "Language: sk_SK\n"
@@ -1153,7 +1153,7 @@ msgstr[1] "Nájdených %s súborov"
 msgstr[2] "Nájdených %s súborov"
 msgstr[3] "Nájdených %s súborov"
 
-#: src/Core/Backend/Menus.php:86 src/Process/Backend/Settings.php:148
+#: src/Core/Backend/Menus.php:86 src/Process/Backend/Settings.php:207
 msgid "Blog"
 msgstr "Blog"
 
@@ -3325,7 +3325,7 @@ msgstr "P"
 msgid "(none)"
 msgstr "(žiadne)"
 
-#: src/Process/Backend/BlogPref.php:175 src/Process/Backend/Settings.php:144
+#: src/Process/Backend/BlogPref.php:175 src/Process/Backend/Settings.php:199
 msgid "Description"
 msgstr "Popis"
 
@@ -3693,7 +3693,7 @@ msgid "Image legend and alternate text:"
 msgstr "Legenda obrázka a alternatívny text:"
 
 #: src/Process/Backend/BlogPref.php:977 src/Process/Backend/Media.php:846
-#: src/Process/Backend/Settings.php:74
+#: src/Process/Backend/Settings.php:72
 msgid "Blog parameters"
 msgstr "Parametre blogu"
 
@@ -5307,69 +5307,65 @@ msgstr[1] "Našlo sa %d komentárov"
 msgstr[2] "Našlo sa %d komentárov"
 msgstr[3] "Našlo sa %d komentárov"
 
-#: src/Process/Backend/Settings.php:73 src/Process/Backend/Settings.php:146
+#: src/Process/Backend/Settings.php:71 src/Process/Backend/Settings.php:203
 msgid "Configuration"
 msgstr "Konfigurácia"
 
-#: src/Process/Backend/Settings.php:75
+#: src/Process/Backend/Settings.php:73
 msgid "User preferences"
 msgstr "Užívateľské preferencie"
 
-#: src/Process/Backend/Settings.php:76 src/Process/Backend/Settings.php:152
+#: src/Process/Backend/Settings.php:74 src/Process/Backend/Settings.php:215
 msgid "Settings"
 msgstr "nastavenie"
 
-#: src/Process/Backend/Settings.php:77 src/Process/Backend/Settings.php:154
+#: src/Process/Backend/Settings.php:75 src/Process/Backend/Settings.php:219
 msgid "Other settings"
 msgstr "Iné nastavenia"
 
-#: src/Process/Backend/Settings.php:78 src/Process/Backend/Settings.php:156
+#: src/Process/Backend/Settings.php:76 src/Process/Backend/Settings.php:223
 msgid "Management"
 msgstr "Zvládanie"
 
-#: src/Process/Backend/Settings.php:79
+#: src/Process/Backend/Settings.php:77
 msgid "Unknown"
 msgstr "Neznámy"
 
-#: src/Process/Backend/Settings.php:142
+#: src/Process/Backend/Settings.php:196
 msgid "ID"
 msgstr "ID"
 
-#: src/Process/Backend/Settings.php:150
+#: src/Process/Backend/Settings.php:211
 msgid "User"
 msgstr "Používateľ"
 
-#: src/Process/Backend/Settings.php:164
-msgid "Column description:"
-msgstr "Popis stĺpca:"
-
-#: src/Process/Backend/Settings.php:169
-msgid "“Configuration”: indicates that plugin has a specific configuration page."
-msgstr "\"Konfigurácia\": označuje, že zásuvný modul má špecifickú konfiguračnú stránku."
-
-#: src/Process/Backend/Settings.php:171
-msgid "“Blog”: indicates that plugin has specific settings in blog parameters, generally used to add or modify some behaviors or aspects of the public blog."
+#: src/Process/Backend/Settings.php:232
+msgid "Columns description:"
 msgstr ""
 
-#: src/Process/Backend/Settings.php:173
-msgid "“user”: indicates that the plugin has a specific configuration in the user preferences, generally used to add or modify certain behaviors or aspects of blog administration for the user."
-msgstr "\"používateľ\": označuje, že zásuvný modul má špecifickú konfiguráciu v používateľských nastaveniach, ktorá sa zvyčajne používa na pridanie alebo úpravu určitých správaní alebo aspektov správy blogu pre používateľa."
+#: src/Process/Backend/Settings.php:238
+msgid "<strong>Configuration</strong> indicates that plugin has a specific configuration page."
+msgstr ""
 
-#: src/Process/Backend/Settings.php:175
-msgid "“self”: indicates that when the plugin has specific parameters on its management page."
-msgstr "\"self\": označuje, že ak má zásuvný modul špecifické parametre na svojej stránke správy."
+#: src/Process/Backend/Settings.php:242
+msgid "<strong>Blog</strong> indicates that plugin has specific settings in blog parameters, generally used to add or modify some behaviors or aspects of the public blog."
+msgstr ""
 
-#: src/Process/Backend/Settings.php:177
-msgid "“Other”: indicates that plugin has specific settings in other context."
-msgstr "\"Iné\": označuje, že zásuvný modul má špecifické nastavenia v inom kontexte."
+#: src/Process/Backend/Settings.php:246
+msgid "<strong>User</strong> indicates that the plugin has a specific configuration in the user preferences, generally used to add or modify certain behaviors or aspects of blog administration for the user."
+msgstr ""
 
-#: src/Process/Backend/Settings.php:179
-msgid "“Management”: indicates that the plugin has a specific management page."
-msgstr "\"Správa\": označuje, že zásuvný modul má špecifickú stránku správy."
+#: src/Process/Backend/Settings.php:250
+msgid "<strong>Settings</strong> indicates that when the plugin has specific parameters on its management page."
+msgstr ""
 
-#: src/Process/Backend/Settings.php:181
-msgid "Some of these columns may not be displayed if no plugin has a link in them."
-msgstr "Niektoré z týchto stĺpcov sa nemusia zobraziť, ak v nich nie je odkaz na žiadny zásuvný modul."
+#: src/Process/Backend/Settings.php:254
+msgid "<strong>Other settings</strong> indicates that plugin has specific settings in other context."
+msgstr ""
+
+#: src/Process/Backend/Settings.php:258
+msgid "<strong>Management</strong> indicates that the plugin has a specific management page."
+msgstr ""
 
 #: src/Process/Backend/User.php:57 src/Process/Backend/Users.php:128
 msgid "New user"
