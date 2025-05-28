@@ -83,7 +83,7 @@ class Reader extends HttpClient
      *
      * @return Parser|false
      */
-    public function parse(string $url)
+    public function parse(string $url): Parser|bool
     {
         $this->validators = [];
         if ($this->cache_dir) {
@@ -111,7 +111,7 @@ class Reader extends HttpClient
      *
      * @return Parser|false
      */
-    public static function quickParse(string $url, ?string $cache_dir = null)
+    public static function quickParse(string $url, ?string $cache_dir = null): Parser|bool
     {
         $parser = new self();
         if ($cache_dir) {
@@ -167,10 +167,8 @@ class Reader extends HttpClient
      * Returns feed content for given URL.
      *
      * @param string    $url            Feed URL
-     *
-     * @return string|boolean
      */
-    protected function getFeed(string $url)
+    protected function getFeed(string $url): bool
     {
         $ssl  = false;
         $host = '';
@@ -199,7 +197,7 @@ class Reader extends HttpClient
      *
      * @return Parser|false
      */
-    protected function withCache(string $url)
+    protected function withCache(string $url): Parser|bool
     {
         $url_md5     = md5($url);
         $cached_file = sprintf(
@@ -243,14 +241,12 @@ class Reader extends HttpClient
 
                 try {
                     Files::makeDir(dirname($cached_file), true);
+                    if ($fp = @fopen($cached_file, 'wb')) {
+                        fwrite($fp, serialize($feed));
+                        fclose($fp);
+                        Files::inheritChmod($cached_file);
+                    }
                 } catch (Exception) {
-                    return $feed;
-                }
-
-                if ($fp = @fopen($cached_file, 'wb')) {
-                    fwrite($fp, serialize($feed));
-                    fclose($fp);
-                    Files::inheritChmod($cached_file);
                 }
 
                 return $feed;

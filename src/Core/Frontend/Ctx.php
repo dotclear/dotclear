@@ -716,7 +716,7 @@ class Ctx
             $p_site = (string) preg_replace('#^(.+?//.+?)/(.*)$#', '$1', App::blog()->url());
             $p_root = App::blog()->publicPath();
 
-            if (preg_match('|^http(s?)://|i', $p_url)) {
+            if (preg_match('|^http(s?)://|i', (string) $p_url)) {
                 // External URL for public media but must be on same server (publicPath() must be valid)
                 $pattern = preg_quote((string) $p_url, '/');
             } else {

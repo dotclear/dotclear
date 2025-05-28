@@ -115,10 +115,8 @@ class Settings extends Process
                 if (isset($settings['other'])) {
                     $cols['other'] = true;
                 }
-                if (isset($settings['manage'])) {
-                    if ((!isset($settins['self'])) || ((isset($settings['self']) && $settings['manage'] !== $settings['self']))) {
-                        $cols['manage'] = true;
-                    }
+                if (isset($settings['manage']) && (!isset($settings['self']) || $settings['manage'] !== $settings['self'])) {
+                    $cols['manage'] = true;
                 }
             }
         }
