@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-27 18:57+0200\n"
-"PO-Revision-Date: 2025-05-28 04:52\n"
+"POT-Creation-Date: 2025-05-28 11:06+0200\n"
+"PO-Revision-Date: 2025-05-28 09:13\n"
 "Last-Translator: \n"
 "Language-Team: Polish\n"
 "Language: pl_PL\n"
@@ -1153,7 +1153,7 @@ msgstr[1] "Znaleziono %s plików"
 msgstr[2] "Znaleziono %s plików"
 msgstr[3] "Znaleziono %s plików"
 
-#: src/Core/Backend/Menus.php:86 src/Process/Backend/Settings.php:148
+#: src/Core/Backend/Menus.php:86 src/Process/Backend/Settings.php:207
 msgid "Blog"
 msgstr "Blog"
 
@@ -3325,7 +3325,7 @@ msgstr "P"
 msgid "(none)"
 msgstr "(brak)"
 
-#: src/Process/Backend/BlogPref.php:175 src/Process/Backend/Settings.php:144
+#: src/Process/Backend/BlogPref.php:175 src/Process/Backend/Settings.php:199
 msgid "Description"
 msgstr "Opis"
 
@@ -3693,7 +3693,7 @@ msgid "Image legend and alternate text:"
 msgstr "Legenda obrazu i tekst alternatywny:"
 
 #: src/Process/Backend/BlogPref.php:977 src/Process/Backend/Media.php:846
-#: src/Process/Backend/Settings.php:74
+#: src/Process/Backend/Settings.php:72
 msgid "Blog parameters"
 msgstr "Parametry bloga"
 
@@ -5307,69 +5307,65 @@ msgstr[1] "%d znalezionych komentarzy"
 msgstr[2] "%d znalezionych komentarzy"
 msgstr[3] "%d znalezionych komentarzy"
 
-#: src/Process/Backend/Settings.php:73 src/Process/Backend/Settings.php:146
+#: src/Process/Backend/Settings.php:71 src/Process/Backend/Settings.php:203
 msgid "Configuration"
 msgstr "Konfiguracja"
 
-#: src/Process/Backend/Settings.php:75
+#: src/Process/Backend/Settings.php:73
 msgid "User preferences"
 msgstr "Preferencje użytkownika"
 
-#: src/Process/Backend/Settings.php:76 src/Process/Backend/Settings.php:152
+#: src/Process/Backend/Settings.php:74 src/Process/Backend/Settings.php:215
 msgid "Settings"
 msgstr "Ustawienia"
 
-#: src/Process/Backend/Settings.php:77 src/Process/Backend/Settings.php:154
+#: src/Process/Backend/Settings.php:75 src/Process/Backend/Settings.php:219
 msgid "Other settings"
 msgstr "Inne ustawienia"
 
-#: src/Process/Backend/Settings.php:78 src/Process/Backend/Settings.php:156
+#: src/Process/Backend/Settings.php:76 src/Process/Backend/Settings.php:223
 msgid "Management"
 msgstr "Zarządzanie"
 
-#: src/Process/Backend/Settings.php:79
+#: src/Process/Backend/Settings.php:77
 msgid "Unknown"
 msgstr "Nieznane"
 
-#: src/Process/Backend/Settings.php:142
+#: src/Process/Backend/Settings.php:196
 msgid "ID"
 msgstr "ID"
 
-#: src/Process/Backend/Settings.php:150
+#: src/Process/Backend/Settings.php:211
 msgid "User"
 msgstr "Użytkownik"
 
-#: src/Process/Backend/Settings.php:164
-msgid "Column description:"
-msgstr "Opis kolumny:"
-
-#: src/Process/Backend/Settings.php:169
-msgid "“Configuration”: indicates that plugin has a specific configuration page."
-msgstr "„Konfiguracja”: wskazuje, że wtyczka ma określoną stronę konfiguracyjną."
-
-#: src/Process/Backend/Settings.php:171
-msgid "“Blog”: indicates that plugin has specific settings in blog parameters, generally used to add or modify some behaviors or aspects of the public blog."
+#: src/Process/Backend/Settings.php:232
+msgid "Columns description:"
 msgstr ""
 
-#: src/Process/Backend/Settings.php:173
-msgid "“user”: indicates that the plugin has a specific configuration in the user preferences, generally used to add or modify certain behaviors or aspects of blog administration for the user."
-msgstr "»użytkownik«: wskazuje, że wtyczka ma określoną konfigurację w ustawieniach użytkownika, ogólnie używane do dodawania lub modyfikowania pewnych zachowań lub aspektów administracji bloga dla użytkownika."
+#: src/Process/Backend/Settings.php:238
+msgid "<strong>Configuration</strong> indicates that plugin has a specific configuration page."
+msgstr ""
 
-#: src/Process/Backend/Settings.php:175
-msgid "“self”: indicates that when the plugin has specific parameters on its management page."
-msgstr "„siebie”: wskazuje, że gdy wtyczka ma określone parametry na swojej stronie zarządzania."
+#: src/Process/Backend/Settings.php:242
+msgid "<strong>Blog</strong> indicates that plugin has specific settings in blog parameters, generally used to add or modify some behaviors or aspects of the public blog."
+msgstr ""
 
-#: src/Process/Backend/Settings.php:177
-msgid "“Other”: indicates that plugin has specific settings in other context."
-msgstr "\"Inne\": wskazuje, że wtyczka ma określone ustawienia w innym kontekście."
+#: src/Process/Backend/Settings.php:246
+msgid "<strong>User</strong> indicates that the plugin has a specific configuration in the user preferences, generally used to add or modify certain behaviors or aspects of blog administration for the user."
+msgstr ""
 
-#: src/Process/Backend/Settings.php:179
-msgid "“Management”: indicates that the plugin has a specific management page."
-msgstr "„Zarządzanie”: wskazuje, że wtyczka ma określoną stronę zarządzania."
+#: src/Process/Backend/Settings.php:250
+msgid "<strong>Settings</strong> indicates that when the plugin has specific parameters on its management page."
+msgstr ""
 
-#: src/Process/Backend/Settings.php:181
-msgid "Some of these columns may not be displayed if no plugin has a link in them."
-msgstr "Niektóre z tych kolumn mogą nie być wyświetlane, jeśli żadna wtyczka nie ma w nich linku."
+#: src/Process/Backend/Settings.php:254
+msgid "<strong>Other settings</strong> indicates that plugin has specific settings in other context."
+msgstr ""
+
+#: src/Process/Backend/Settings.php:258
+msgid "<strong>Management</strong> indicates that the plugin has a specific management page."
+msgstr ""
 
 #: src/Process/Backend/User.php:57 src/Process/Backend/Users.php:128
 msgid "New user"
