@@ -29,6 +29,7 @@ class GrowUp_2_35_lt
             ],
             // Folders
             [
+                'cache/cbfeed',
             ]
         );
 
