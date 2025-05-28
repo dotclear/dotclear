@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-28 11:06+0200\n"
-"PO-Revision-Date: 2025-05-28 09:12\n"
+"PO-Revision-Date: 2025-05-28 09:42\n"
 "Last-Translator: \n"
 "Language-Team: Catalan\n"
 "Language: ca_ES\n"
@@ -5271,31 +5271,31 @@ msgstr "Usuari"
 
 #: src/Process/Backend/Settings.php:232
 msgid "Columns description:"
-msgstr ""
+msgstr "Descripció de les columnes:"
 
 #: src/Process/Backend/Settings.php:238
 msgid "<strong>Configuration</strong> indicates that plugin has a specific configuration page."
-msgstr ""
+msgstr "<strong>Configuració</strong> indica que el connector té una pàgina de configuració específica."
 
 #: src/Process/Backend/Settings.php:242
 msgid "<strong>Blog</strong> indicates that plugin has specific settings in blog parameters, generally used to add or modify some behaviors or aspects of the public blog."
-msgstr ""
+msgstr "<strong>Blog</strong> indica que el connector té una configuració específica als paràmetres del blog, generalment utilitzada per afegir o modificar alguns comportaments o aspectes del blog públic."
 
 #: src/Process/Backend/Settings.php:246
 msgid "<strong>User</strong> indicates that the plugin has a specific configuration in the user preferences, generally used to add or modify certain behaviors or aspects of blog administration for the user."
-msgstr ""
+msgstr "<strong>Usuari</strong> indica que el connector té una configuració específica a les preferències de l'usuari, generalment utilitzada per afegir o modificar certs comportaments o aspectes de l'administració del bloc per a l'usuari."
 
 #: src/Process/Backend/Settings.php:250
 msgid "<strong>Settings</strong> indicates that when the plugin has specific parameters on its management page."
-msgstr ""
+msgstr "<strong>Configuració</strong> indica que el connector té paràmetres específics a la seva pàgina de gestió."
 
 #: src/Process/Backend/Settings.php:254
 msgid "<strong>Other settings</strong> indicates that plugin has specific settings in other context."
-msgstr ""
+msgstr "<strong>Altres configuracions</strong> indica que el connector té configuracions específiques en un altre context."
 
 #: src/Process/Backend/Settings.php:258
 msgid "<strong>Management</strong> indicates that the plugin has a specific management page."
-msgstr ""
+msgstr "<strong>Gestió</strong> indica que el connector té una pàgina de gestió específica."
 
 #: src/Process/Backend/User.php:57 src/Process/Backend/Users.php:128
 msgid "New user"
