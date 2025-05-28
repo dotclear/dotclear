@@ -201,7 +201,7 @@ class Reader extends HttpClient
     {
         $url_md5     = md5($url);
         $cached_file = sprintf(
-            '%s/%s/%s/%s/%s.php',
+            '%s/%s/%s/%s/%s.xml',
             $this->cache_dir,
             $this->cache_file_prefix,
             substr($url_md5, 0, 2),
@@ -212,20 +212,27 @@ class Reader extends HttpClient
         $may_use_cached = false;
 
         if (@file_exists($cached_file)) {
-            $may_use_cached = true;
-            $timestamp      = (int) @filemtime($cached_file);
-            if ($timestamp > strtotime($this->cache_ttl)) {
-                # Direct cache
-                return unserialize((string) file_get_contents($cached_file));
-            }
+            // Check file content
+            $xml = (string) file_get_contents($cached_file);
+            if ($xml !== '') {
+                $may_use_cached = true;
+                $timestamp      = (int) @filemtime($cached_file);
+                if ($timestamp > strtotime($this->cache_ttl)) {
+                    // Direct cache
+                    return new Parser((string) file_get_contents($cached_file));
+                }
 
-            $this->validators['IfModifiedSince'] = gmdate('D, d M Y H:i:s', $timestamp) . ' GMT';
+                $this->validators['IfModifiedSince'] = gmdate('D, d M Y H:i:s', $timestamp) . ' GMT';
+            } else {
+                // Cache file is empty, remove it
+                @unlink($cached_file);
+            }
         }
 
         if (!$this->getFeed($url)) {
-            if ($may_use_cached) {
-                # connection failed - fetched from cache
-                return unserialize((string) file_get_contents($cached_file));
+            if ($may_use_cached && @file_exists($cached_file)) {
+                // connection failed - fetched from cache
+                return new Parser((string) file_get_contents($cached_file));
             }
 
             return false;
@@ -235,18 +242,24 @@ class Reader extends HttpClient
             case '304':
                 @Files::touch($cached_file);
 
-                return unserialize((string) file_get_contents($cached_file));
+                return new Parser((string) file_get_contents($cached_file));
             case '200':
                 $feed = new Parser($this->getContent());
-
-                try {
-                    Files::makeDir(dirname($cached_file), true);
-                    if ($fp = @fopen($cached_file, 'wb')) {
-                        fwrite($fp, serialize($feed));
-                        fclose($fp);
-                        Files::inheritChmod($cached_file);
+                if ($feed) {
+                    // Add feed in cache
+                    try {
+                        Files::makeDir(dirname($cached_file), true);
+                        if ($fp = @fopen($cached_file, 'wb')) {
+                            fwrite($fp, $feed->asXML());
+                            fclose($fp);
+                            Files::inheritChmod($cached_file);
+                        }
+                    } catch (Exception) {
+                        if (@file_exists($cached_file)) {
+                            // Remove cache file
+                            @unlink($cached_file);
+                        }
                     }
-                } catch (Exception) {
                 }
 
                 return $feed;

@@ -108,6 +108,20 @@ class Parser
     }
 
     /**
+     * Get XML representation of Parser data
+     *
+     * @return     false|string  false on error
+     */
+    public function asXML(): string|bool
+    {
+        if (!$this->xml) {
+            return false;
+        }
+
+        return $this->xml->asXML();
+    }
+
+    /**
      * RSS 1.0 parser.
      */
     protected function parseRSSRDF(): void

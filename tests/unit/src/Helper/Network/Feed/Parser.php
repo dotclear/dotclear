@@ -34,6 +34,17 @@ class Parser extends atoum
         ;
     }
 
+    public function testAsXML()
+    {
+        $xml = file_get_contents($this->testDirectory . DIRECTORY_SEPARATOR . 'atom-1.0.xml');
+
+        $this
+            ->given($parser = new \Dotclear\Helper\Network\Feed\Parser($xml))
+            ->string($parser->asXML())
+            ->startWith('<?xml version="1.0"')
+        ;
+    }
+
     public function testRss10()
     {
         $xml = file_get_contents($this->testDirectory . DIRECTORY_SEPARATOR . 'rss-1.0.xml');
