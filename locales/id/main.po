@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-27 18:57+0200\n"
-"PO-Revision-Date: 2025-05-28 04:52\n"
+"POT-Creation-Date: 2025-05-28 11:06+0200\n"
+"PO-Revision-Date: 2025-05-28 09:13\n"
 "Last-Translator: \n"
 "Language-Team: Indonesian\n"
 "Language: id_ID\n"
@@ -1105,7 +1105,7 @@ msgid "%s file found"
 msgid_plural "%s files found"
 msgstr[0] "%s file ditemukan"
 
-#: src/Core/Backend/Menus.php:86 src/Process/Backend/Settings.php:148
+#: src/Core/Backend/Menus.php:86 src/Process/Backend/Settings.php:207
 msgid "Blog"
 msgstr "Blog"
 
@@ -3238,7 +3238,7 @@ msgstr "P"
 msgid "(none)"
 msgstr "(tidak ada)"
 
-#: src/Process/Backend/BlogPref.php:175 src/Process/Backend/Settings.php:144
+#: src/Process/Backend/BlogPref.php:175 src/Process/Backend/Settings.php:199
 msgid "Description"
 msgstr "Deskripsi"
 
@@ -3606,7 +3606,7 @@ msgid "Image legend and alternate text:"
 msgstr "Legenda gambar dan teks alternatif:"
 
 #: src/Process/Backend/BlogPref.php:977 src/Process/Backend/Media.php:846
-#: src/Process/Backend/Settings.php:74
+#: src/Process/Backend/Settings.php:72
 msgid "Blog parameters"
 msgstr "Parameter blog"
 
@@ -5202,69 +5202,65 @@ msgid "one comment found"
 msgid_plural "%d comments found"
 msgstr[0] "%d komentar ditemukan"
 
-#: src/Process/Backend/Settings.php:73 src/Process/Backend/Settings.php:146
+#: src/Process/Backend/Settings.php:71 src/Process/Backend/Settings.php:203
 msgid "Configuration"
 msgstr "Konfigurasi"
 
-#: src/Process/Backend/Settings.php:75
+#: src/Process/Backend/Settings.php:73
 msgid "User preferences"
 msgstr "Preferensi pengguna"
 
-#: src/Process/Backend/Settings.php:76 src/Process/Backend/Settings.php:152
+#: src/Process/Backend/Settings.php:74 src/Process/Backend/Settings.php:215
 msgid "Settings"
 msgstr "Pengaturan"
 
-#: src/Process/Backend/Settings.php:77 src/Process/Backend/Settings.php:154
+#: src/Process/Backend/Settings.php:75 src/Process/Backend/Settings.php:219
 msgid "Other settings"
 msgstr "Pengaturan lainnya"
 
-#: src/Process/Backend/Settings.php:78 src/Process/Backend/Settings.php:156
+#: src/Process/Backend/Settings.php:76 src/Process/Backend/Settings.php:223
 msgid "Management"
 msgstr "Manajemen"
 
-#: src/Process/Backend/Settings.php:79
+#: src/Process/Backend/Settings.php:77
 msgid "Unknown"
 msgstr "Tidak dikenal"
 
-#: src/Process/Backend/Settings.php:142
+#: src/Process/Backend/Settings.php:196
 msgid "ID"
 msgstr "ID"
 
-#: src/Process/Backend/Settings.php:150
+#: src/Process/Backend/Settings.php:211
 msgid "User"
 msgstr "Pengguna"
 
-#: src/Process/Backend/Settings.php:164
-msgid "Column description:"
-msgstr "Deskripsi kolom:"
-
-#: src/Process/Backend/Settings.php:169
-msgid "“Configuration”: indicates that plugin has a specific configuration page."
-msgstr "\"Konfigurasi\": menunjukkan bahwa plugin memiliki halaman konfigurasi tertentu."
-
-#: src/Process/Backend/Settings.php:171
-msgid "“Blog”: indicates that plugin has specific settings in blog parameters, generally used to add or modify some behaviors or aspects of the public blog."
+#: src/Process/Backend/Settings.php:232
+msgid "Columns description:"
 msgstr ""
 
-#: src/Process/Backend/Settings.php:173
-msgid "“user”: indicates that the plugin has a specific configuration in the user preferences, generally used to add or modify certain behaviors or aspects of blog administration for the user."
-msgstr "\"user\": menunjukkan bahwa plugin memiliki konfigurasi khusus dalam preferensi pengguna, umumnya digunakan untuk menambah atau memodifikasi perilaku atau aspek tertentu dari administrasi blog untuk pengguna."
+#: src/Process/Backend/Settings.php:238
+msgid "<strong>Configuration</strong> indicates that plugin has a specific configuration page."
+msgstr ""
 
-#: src/Process/Backend/Settings.php:175
-msgid "“self”: indicates that when the plugin has specific parameters on its management page."
-msgstr "\"self\": mengindikasikan bahwa ketika plugin memiliki parameter spesifik pada halaman manajemennya."
+#: src/Process/Backend/Settings.php:242
+msgid "<strong>Blog</strong> indicates that plugin has specific settings in blog parameters, generally used to add or modify some behaviors or aspects of the public blog."
+msgstr ""
 
-#: src/Process/Backend/Settings.php:177
-msgid "“Other”: indicates that plugin has specific settings in other context."
-msgstr "\"Lainnya\": menunjukkan bahwa plugin memiliki pengaturan khusus dalam konteks lain."
+#: src/Process/Backend/Settings.php:246
+msgid "<strong>User</strong> indicates that the plugin has a specific configuration in the user preferences, generally used to add or modify certain behaviors or aspects of blog administration for the user."
+msgstr ""
 
-#: src/Process/Backend/Settings.php:179
-msgid "“Management”: indicates that the plugin has a specific management page."
-msgstr "\"Manajemen\": menunjukkan bahwa plugin memiliki halaman manajemen khusus."
+#: src/Process/Backend/Settings.php:250
+msgid "<strong>Settings</strong> indicates that when the plugin has specific parameters on its management page."
+msgstr ""
 
-#: src/Process/Backend/Settings.php:181
-msgid "Some of these columns may not be displayed if no plugin has a link in them."
-msgstr "Beberapa kolom ini mungkin tidak akan ditampilkan jika tidak ada plugin yang memiliki tautan di dalamnya."
+#: src/Process/Backend/Settings.php:254
+msgid "<strong>Other settings</strong> indicates that plugin has specific settings in other context."
+msgstr ""
+
+#: src/Process/Backend/Settings.php:258
+msgid "<strong>Management</strong> indicates that the plugin has a specific management page."
+msgstr ""
 
 #: src/Process/Backend/User.php:57 src/Process/Backend/Users.php:128
 msgid "New user"
