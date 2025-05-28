@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-28 11:06+0200\n"
-"PO-Revision-Date: 2025-05-28 09:12\n"
+"PO-Revision-Date: 2025-05-28 09:42\n"
 "Last-Translator: \n"
 "Language-Team: Romanian\n"
 "Language: ro_RO\n"
@@ -5306,31 +5306,31 @@ msgstr "Utilizator"
 
 #: src/Process/Backend/Settings.php:232
 msgid "Columns description:"
-msgstr ""
+msgstr "Descrierea coloanelor:"
 
 #: src/Process/Backend/Settings.php:238
 msgid "<strong>Configuration</strong> indicates that plugin has a specific configuration page."
-msgstr ""
+msgstr "<strong>Configurarea</strong> indică faptul că plugin-ul are o anumită pagină de configurare."
 
 #: src/Process/Backend/Settings.php:242
 msgid "<strong>Blog</strong> indicates that plugin has specific settings in blog parameters, generally used to add or modify some behaviors or aspects of the public blog."
-msgstr ""
+msgstr "<strong>Blog</strong> indică faptul că pluginul are setări specifice în parametrii blogului, utilizate în general pentru a adăuga sau modifica anumite comportamente sau aspecte ale blogului public."
 
 #: src/Process/Backend/Settings.php:246
 msgid "<strong>User</strong> indicates that the plugin has a specific configuration in the user preferences, generally used to add or modify certain behaviors or aspects of blog administration for the user."
-msgstr ""
+msgstr "<strong>Utilizator</strong> indică faptul că pluginul are o configurație specifică în preferințele utilizatorului, utilizată în general pentru a adăuga sau modifica anumite comportamente sau aspecte ale administrării blogului pentru utilizator."
 
 #: src/Process/Backend/Settings.php:250
 msgid "<strong>Settings</strong> indicates that when the plugin has specific parameters on its management page."
-msgstr ""
+msgstr "<strong>Setări</strong> indică faptul că atunci când pluginul are parametri specifici pe pagina sa de administrare."
 
 #: src/Process/Backend/Settings.php:254
 msgid "<strong>Other settings</strong> indicates that plugin has specific settings in other context."
-msgstr ""
+msgstr "<strong>Alte setări</strong> indică faptul că pluginul are setări specifice în alt context."
 
 #: src/Process/Backend/Settings.php:258
 msgid "<strong>Management</strong> indicates that the plugin has a specific management page."
-msgstr ""
+msgstr "<strong>Managementul</strong> indică faptul că plugin-ul are o pagină de administrare specifică."
 
 #: src/Process/Backend/User.php:57 src/Process/Backend/Users.php:128
 msgid "New user"
