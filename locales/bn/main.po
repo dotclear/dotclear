@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-27 18:26+0200\n"
-"PO-Revision-Date: 2025-05-27 16:52\n"
+"POT-Creation-Date: 2025-05-27 18:57+0200\n"
+"PO-Revision-Date: 2025-05-28 04:52\n"
 "Last-Translator: \n"
 "Language-Team: Bengali\n"
 "Language: bn_BD\n"
@@ -5278,8 +5278,8 @@ msgid "“Configuration”: indicates that plugin has a specific configuration p
 msgstr "\"কনফিগারেশন\": প্লাগইনের একটি নির্দিষ্ট কনফিগারেশন পৃষ্ঠা রয়েছে তা নির্দেশ করে।"
 
 #: src/Process/Backend/Settings.php:171
-msgid "“Blog”: indicates that plugin has specific settings in blog parameters, generally used to add or modify some comportements or aspects of the public blog."
-msgstr "\"ব্লগ\": ব্লগ প্যারামিটারে প্লাগইনের নির্দিষ্ট সেটিংস নির্দেশ করে, যা সাধারণত পাবলিক ব্লগের কিছু কম্পোর্টমেন্ট বা দিক যোগ বা পরিবর্তন করতে ব্যবহৃত হয়।"
+msgid "“Blog”: indicates that plugin has specific settings in blog parameters, generally used to add or modify some behaviors or aspects of the public blog."
+msgstr ""
 
 #: src/Process/Backend/Settings.php:173
 msgid "“user”: indicates that the plugin has a specific configuration in the user preferences, generally used to add or modify certain behaviors or aspects of blog administration for the user."
