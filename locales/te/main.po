@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-27 18:26+0200\n"
-"PO-Revision-Date: 2025-05-27 16:52\n"
+"POT-Creation-Date: 2025-05-27 18:57+0200\n"
+"PO-Revision-Date: 2025-05-28 04:53\n"
 "Last-Translator: \n"
 "Language-Team: Telugu\n"
 "Language: te_IN\n"
@@ -5278,8 +5278,8 @@ msgid "“Configuration”: indicates that plugin has a specific configuration p
 msgstr "“కాన్ఫిగరేషన్”: ప్లగిన్ నిర్దిష్ట కాన్ఫిగరేషన్ పేజీని కలిగి ఉందని సూచిస్తుంది."
 
 #: src/Process/Backend/Settings.php:171
-msgid "“Blog”: indicates that plugin has specific settings in blog parameters, generally used to add or modify some comportements or aspects of the public blog."
-msgstr "“బ్లాగ్”: ప్లగిన్ బ్లాగ్ పారామితులలో నిర్దిష్ట సెట్టింగులను కలిగి ఉందని సూచిస్తుంది, సాధారణంగా పబ్లిక్ బ్లాగ్ యొక్క కొన్ని నిబంధనలు లేదా అంశాలను జోడించడానికి లేదా సవరించడానికి ఉపయోగిస్తారు."
+msgid "“Blog”: indicates that plugin has specific settings in blog parameters, generally used to add or modify some behaviors or aspects of the public blog."
+msgstr ""
 
 #: src/Process/Backend/Settings.php:173
 msgid "“user”: indicates that the plugin has a specific configuration in the user preferences, generally used to add or modify certain behaviors or aspects of blog administration for the user."
