@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-27 18:57+0200\n"
-"PO-Revision-Date: 2025-05-28 04:53\n"
+"POT-Creation-Date: 2025-05-28 11:06+0200\n"
+"PO-Revision-Date: 2025-05-28 09:13\n"
 "Last-Translator: \n"
 "Language-Team: Serbian\n"
 "Language: srp\n"
@@ -1137,7 +1137,7 @@ msgstr[0] "Пронађено је %s датотека"
 msgstr[1] "Пронађено је %s датотека"
 msgstr[2] "Пронађено је %s датотека"
 
-#: src/Core/Backend/Menus.php:86 src/Process/Backend/Settings.php:148
+#: src/Core/Backend/Menus.php:86 src/Process/Backend/Settings.php:207
 msgid "Blog"
 msgstr "Блог"
 
@@ -3296,7 +3296,7 @@ msgstr "П"
 msgid "(none)"
 msgstr "(aucun)"
 
-#: src/Process/Backend/BlogPref.php:175 src/Process/Backend/Settings.php:144
+#: src/Process/Backend/BlogPref.php:175 src/Process/Backend/Settings.php:199
 msgid "Description"
 msgstr "Опис"
 
@@ -3664,7 +3664,7 @@ msgid "Image legend and alternate text:"
 msgstr "Легенда о слици и алтернативни текст:"
 
 #: src/Process/Backend/BlogPref.php:977 src/Process/Backend/Media.php:846
-#: src/Process/Backend/Settings.php:74
+#: src/Process/Backend/Settings.php:72
 msgid "Blog parameters"
 msgstr "Параметри блога"
 
@@ -5272,69 +5272,65 @@ msgstr[0] "један коментар пронађен"
 msgstr[1] "Пронађено је %d коментара"
 msgstr[2] "Пронађено је %d коментара"
 
-#: src/Process/Backend/Settings.php:73 src/Process/Backend/Settings.php:146
+#: src/Process/Backend/Settings.php:71 src/Process/Backend/Settings.php:203
 msgid "Configuration"
 msgstr "Конфигурација"
 
-#: src/Process/Backend/Settings.php:75
+#: src/Process/Backend/Settings.php:73
 msgid "User preferences"
 msgstr "Лична подешавања корисника"
 
-#: src/Process/Backend/Settings.php:76 src/Process/Backend/Settings.php:152
+#: src/Process/Backend/Settings.php:74 src/Process/Backend/Settings.php:215
 msgid "Settings"
 msgstr "Поставке"
 
-#: src/Process/Backend/Settings.php:77 src/Process/Backend/Settings.php:154
+#: src/Process/Backend/Settings.php:75 src/Process/Backend/Settings.php:219
 msgid "Other settings"
 msgstr "Остала подешавања"
 
-#: src/Process/Backend/Settings.php:78 src/Process/Backend/Settings.php:156
+#: src/Process/Backend/Settings.php:76 src/Process/Backend/Settings.php:223
 msgid "Management"
 msgstr "Управљање"
 
-#: src/Process/Backend/Settings.php:79
+#: src/Process/Backend/Settings.php:77
 msgid "Unknown"
 msgstr "Непознат"
 
-#: src/Process/Backend/Settings.php:142
+#: src/Process/Backend/Settings.php:196
 msgid "ID"
 msgstr "ИД"
 
-#: src/Process/Backend/Settings.php:150
+#: src/Process/Backend/Settings.php:211
 msgid "User"
 msgstr "Корисник"
 
-#: src/Process/Backend/Settings.php:164
-msgid "Column description:"
-msgstr "Опис колоне:"
-
-#: src/Process/Backend/Settings.php:169
-msgid "“Configuration”: indicates that plugin has a specific configuration page."
-msgstr "„Конфигурација“: означава да додатак има одређену страницу за конфигурацију."
-
-#: src/Process/Backend/Settings.php:171
-msgid "“Blog”: indicates that plugin has specific settings in blog parameters, generally used to add or modify some behaviors or aspects of the public blog."
+#: src/Process/Backend/Settings.php:232
+msgid "Columns description:"
 msgstr ""
 
-#: src/Process/Backend/Settings.php:173
-msgid "“user”: indicates that the plugin has a specific configuration in the user preferences, generally used to add or modify certain behaviors or aspects of blog administration for the user."
-msgstr "„корисник“: означава да додатак има специфичну конфигурацију у корисничким подешавањима, која се генерално користи за додавање или измену одређених понашања или аспеката администрације блога за корисника."
+#: src/Process/Backend/Settings.php:238
+msgid "<strong>Configuration</strong> indicates that plugin has a specific configuration page."
+msgstr ""
 
-#: src/Process/Backend/Settings.php:175
-msgid "“self”: indicates that when the plugin has specific parameters on its management page."
-msgstr "„self“: означава да када додатак има одређене параметре на својој страници за управљање."
+#: src/Process/Backend/Settings.php:242
+msgid "<strong>Blog</strong> indicates that plugin has specific settings in blog parameters, generally used to add or modify some behaviors or aspects of the public blog."
+msgstr ""
 
-#: src/Process/Backend/Settings.php:177
-msgid "“Other”: indicates that plugin has specific settings in other context."
-msgstr "„Остало“: означава да додатак има специфична подешавања у другом контексту."
+#: src/Process/Backend/Settings.php:246
+msgid "<strong>User</strong> indicates that the plugin has a specific configuration in the user preferences, generally used to add or modify certain behaviors or aspects of blog administration for the user."
+msgstr ""
 
-#: src/Process/Backend/Settings.php:179
-msgid "“Management”: indicates that the plugin has a specific management page."
-msgstr "„Управљање“: означава да додатак има посебну страницу за управљање."
+#: src/Process/Backend/Settings.php:250
+msgid "<strong>Settings</strong> indicates that when the plugin has specific parameters on its management page."
+msgstr ""
 
-#: src/Process/Backend/Settings.php:181
-msgid "Some of these columns may not be displayed if no plugin has a link in them."
-msgstr "Неке од ових колона можда неће бити приказане ако ниједан додатак нема везу у њима."
+#: src/Process/Backend/Settings.php:254
+msgid "<strong>Other settings</strong> indicates that plugin has specific settings in other context."
+msgstr ""
+
+#: src/Process/Backend/Settings.php:258
+msgid "<strong>Management</strong> indicates that the plugin has a specific management page."
+msgstr ""
 
 #: src/Process/Backend/User.php:57 src/Process/Backend/Users.php:128
 msgid "New user"
