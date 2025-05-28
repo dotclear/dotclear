@@ -66,10 +66,8 @@ class Settings extends Process
         $plugins = App::plugins()->getDefines(['state' => ModuleDefine::STATE_ENABLED]);
         uasort($plugins, static fn ($a, $b): int => strtolower((string) $a->getId()) <=> strtolower((string) $b->getId()));
 
-        $status   = [];
-        $makeLink = function (string $type, string $url) use (&$status): Link {
-            $status[$type] = true;
-            $title         = match ($type) {
+        $makeLink = function (string $type, string $url): Link {
+            $title = match ($type) {
                 'config' => __('Configuration'),
                 'blog'   => __('Blog parameters'),
                 'pref'   => __('User preferences'),
@@ -84,6 +82,48 @@ class Settings extends Process
                 ->text($title);
         };
 
+        // Prepare status (columns presence)
+        $cols = [
+            'description' => false,
+            'config'      => false,
+            'blog'        => false,
+            'pref'        => false,
+            'self'        => false,
+            'other'       => false,
+            'manage'      => false,
+        ];
+        foreach ($plugins as $plugin) {
+            $id       = $plugin->getId();
+            $name     = $plugin->get('name');
+            $settings = ModulesList::getSettingsUrls($id, true, keys: true, url_only: true);
+            if ($settings !== []) {
+                if ($name !== $id) {
+                    $cols['description'] = true;
+                }
+                if (isset($settings['config'])) {
+                    $cols['config'] = true;
+                }
+                if (isset($settings['blog'])) {
+                    $cols['blog'] = true;
+                }
+                if (isset($settings['pref'])) {
+                    $cols['pref'] = true;
+                }
+                if (isset($settings['self'])) {
+                    $cols['self'] = true;
+                }
+                if (isset($settings['other'])) {
+                    $cols['other'] = true;
+                }
+                if (isset($settings['manage'])) {
+                    if ((!isset($settins['self'])) || ((isset($settings['self']) && $settings['manage'] !== $settings['self']))) {
+                        $cols['manage'] = true;
+                    }
+                }
+            }
+        }
+
+        // Compose rows
         $rows = [];
         foreach ($plugins as $plugin) {
             $id       = $plugin->getId();
@@ -97,36 +137,50 @@ class Settings extends Process
                             ->items([
                                 (new Strong($id)),
                             ]),
-                        (new Td())
-                            ->text($name !== $id ? __($name) : ''),
-                        (new Td())
-                            ->items([
-                                isset($settings['config']) ? $makeLink('config', $settings['config']) : (new None()),
-                            ]),
-                        (new Td())
-                            ->items([
-                                isset($settings['blog']) ? $makeLink('blog', $settings['blog']) : (new None()),
-                            ]),
-                        (new Td())
-                            ->items([
-                                isset($settings['pref']) ? $makeLink('pref', $settings['pref']) : (new None()),
-                            ]),
-                        (new Td())
-                            ->items([
-                                isset($settings['self']) ? $makeLink('self', $settings['self']) : (new None()),
-                            ]),
-                        (new Td())
-                            ->items([
-                                isset($settings['other']) ? $makeLink('other', $settings['other']) : (new None()),
-                            ]),
-                        (new Td())
-                            ->items([
-                                isset($settings['manage']) ?
-                                (isset($settings['self']) && $settings['manage'] === $settings['self'] ?
-                                    (new None()) :
-                                    $makeLink('manage', $settings['manage'])) :
-                                (new None()),
-                            ]),
+                        $cols['description'] ?
+                            (new Td())
+                                ->text($name !== $id ? __($name) : '') :
+                            (new None()),
+                        $cols['config'] ?
+                            (new Td())
+                                ->items([
+                                    isset($settings['config']) ? $makeLink('config', $settings['config']) : (new None()),
+                                ]) :
+                            (new None()),
+                        $cols['blog'] ?
+                            (new Td())
+                                ->items([
+                                    isset($settings['blog']) ? $makeLink('blog', $settings['blog']) : (new None()),
+                                ]) :
+                            (new None()),
+                        $cols['pref'] ?
+                            (new Td())
+                                ->items([
+                                    isset($settings['pref']) ? $makeLink('pref', $settings['pref']) : (new None()),
+                                ]) :
+                            (new None()),
+                        $cols['self'] ?
+                            (new Td())
+                                ->items([
+                                    isset($settings['self']) ? $makeLink('self', $settings['self']) : (new None()),
+                                ]) :
+                            (new None()),
+                        $cols['other'] ?
+                            (new Td())
+                                ->items([
+                                    isset($settings['other']) ? $makeLink('other', $settings['other']) : (new None()),
+                                ]) :
+                            (new None()),
+                        $cols['manage'] ?
+                            (new Td())
+                                ->items([
+                                    isset($settings['manage']) ?
+                                    (isset($settings['self']) && $settings['manage'] === $settings['self'] ?
+                                        (new None()) :
+                                        $makeLink('manage', $settings['manage'])) :
+                                    (new None()),
+                                ]) :
+                            (new None()),
                     ]);
             }
         }
@@ -140,20 +194,34 @@ class Settings extends Process
                                 ->items([
                                     (new Th())
                                         ->text(__('ID')),
-                                    (new Th())
-                                        ->text(__('Description')),
-                                    (new Th())
-                                        ->text(isset($status['config']) ? __('Configuration') : ''),
-                                    (new Th())
-                                        ->text(isset($status['blog']) ? __('Blog') : ''),
-                                    (new Th())
-                                        ->text(isset($status['pref']) ? __('User') : ''),
-                                    (new Th())
-                                        ->text(isset($status['self']) ? __('Settings') : ''),
-                                    (new Th())
-                                        ->text(isset($status['other']) ? __('Other settings') : ''),
-                                    (new Th())
-                                        ->text(isset($status['manage']) ? __('Management') : ''),
+                                    $cols['description'] ?
+                                        (new Th())
+                                            ->text(__('Description')) :
+                                        (new None()),
+                                    $cols['config'] ?
+                                        (new Th())
+                                            ->text(__('Configuration')) :
+                                        (new None()),
+                                    $cols['blog'] ?
+                                        (new Th())
+                                            ->text(__('Blog')) :
+                                        (new None()),
+                                    $cols['pref'] ?
+                                        (new Th())
+                                            ->text(__('User')) :
+                                        (new None()),
+                                    $cols['self'] ?
+                                        (new Th())
+                                            ->text(__('Settings')) :
+                                        (new None()),
+                                    $cols['other'] ?
+                                        (new Th())
+                                            ->text(__('Other settings')) :
+                                        (new None()),
+                                    $cols['manage'] ?
+                                        (new Th())
+                                            ->text(__('Management')) :
+                                        (new None()),
                                 ]),
                         ]))
                     ->tbody((new Tbody())
@@ -161,24 +229,35 @@ class Settings extends Process
                 (new Div())
                     ->class(['form-note', 'info'])
                     ->items([
-                        (new Text(null, __('Column description:'))),
+                        (new Text(null, __('Columns description:'))),
                         (new Single('br')),
                         (new Ul())
                             ->items([
-                                (new Li())
-                                    ->text(__('“Configuration”: indicates that plugin has a specific configuration page.')),
-                                (new Li())
-                                    ->text(__('“Blog”: indicates that plugin has specific settings in blog parameters, generally used to add or modify some behaviors or aspects of the public blog.')),
-                                (new Li())
-                                    ->text(__('“user”: indicates that the plugin has a specific configuration in the user preferences, generally used to add or modify certain behaviors or aspects of blog administration for the user.')),
-                                (new Li())
-                                    ->text(__('“self”: indicates that when the plugin has specific parameters on its management page.')),
-                                (new Li())
-                                    ->text(__('“Other”: indicates that plugin has specific settings in other context.')),
-                                (new Li())
-                                    ->text(__('“Management”: indicates that the plugin has a specific management page.')),
+                                $cols['config'] ?
+                                    (new Li())
+                                        ->text(__('<strong>Configuration</strong> indicates that plugin has a specific configuration page.')) :
+                                    (new None()),
+                                $cols['blog'] ?
+                                    (new Li())
+                                        ->text(__('<strong>Blog</strong> indicates that plugin has specific settings in blog parameters, generally used to add or modify some behaviors or aspects of the public blog.')) :
+                                    (new None()),
+                                $cols['pref'] ?
+                                    (new Li())
+                                        ->text(__('<strong>User</strong> indicates that the plugin has a specific configuration in the user preferences, generally used to add or modify certain behaviors or aspects of blog administration for the user.')) :
+                                    (new None()),
+                                $cols['self'] ?
+                                    (new Li())
+                                        ->text(__('<strong>Settings</strong> indicates that when the plugin has specific parameters on its management page.')) :
+                                    (new None()),
+                                $cols['other'] ?
+                                    (new Li())
+                                        ->text(__('<strong>Other settings</strong> indicates that plugin has specific settings in other context.')) :
+                                    (new None()),
+                                $cols['manage'] ?
+                                    (new Li())
+                                        ->text(__('<strong>Management</strong> indicates that the plugin has a specific management page.')) :
+                                    (new None()),
                             ]),
-                        (new Text(null, __('Some of these columns may not be displayed if no plugin has a link in them.'))),
                     ]),
             ])
         ->render();

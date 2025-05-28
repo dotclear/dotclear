@@ -12,6 +12,10 @@ dotclear.ready(() => {
     }
     table.classList.add('js-sortable');
     const headers = table.querySelectorAll('th');
+    // Give keyboard access to header to activate column sort
+    for (const header of headers) {
+      if (header.innerText) header.setAttribute('tabindex', '0');
+    }
     const tableBody = table.querySelector('tbody');
     const rows = tableBody.querySelectorAll('tr');
     // Track sort directions
@@ -95,6 +99,12 @@ dotclear.ready(() => {
     if (headers.length)
       for (let index = headers.length - 1; index >= 0; index--) {
         headers[index].addEventListener('click', () => sortColumn(index + offset, index));
+        headers[index].addEventListener('keypress', (event) => {
+          if (event.key === 'Enter') {
+            event.target.click();
+            event.preventDefault();
+          }
+        });
       }
   };
 
