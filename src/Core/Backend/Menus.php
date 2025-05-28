@@ -257,7 +257,7 @@ class Menus extends ArrayObject
             'Blogs'
         );
         $this->addItem(
-            self::MENU_PLUGINS,
+            self::MENU_SYSTEM,
             __('Plugins settings'),
             'admin.settings',
             ['images/menu/settings.svg', 'images/menu/settings-dark.svg'],
@@ -265,7 +265,7 @@ class Menus extends ArrayObject
                 App::auth()::PERMISSION_USAGE,
                 App::auth()::PERMISSION_CONTENT_ADMIN,
             ]), App::blog()->id()),
-            true,
+            false,
             false,
             'Settings'
         );
