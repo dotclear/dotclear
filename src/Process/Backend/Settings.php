@@ -245,7 +245,7 @@ class Settings extends Process
                                     (new None()),
                                 $cols['self'] ?
                                     (new Li())
-                                        ->text(__('<strong>Settings</strong> indicates that when the plugin has specific parameters on its management page.')) :
+                                        ->text(__('<strong>Settings</strong> indicates that the plugin has specific parameters on its management page.')) :
                                     (new None()),
                                 $cols['other'] ?
                                     (new Li())
