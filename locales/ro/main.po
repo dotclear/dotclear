@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-28 11:06+0200\n"
-"PO-Revision-Date: 2025-05-28 09:42\n"
+"POT-Creation-Date: 2025-05-29 10:12+0200\n"
+"PO-Revision-Date: 2025-05-29 08:44\n"
 "Last-Translator: \n"
 "Language-Team: Romanian\n"
 "Language: ro_RO\n"
@@ -155,7 +155,7 @@ msgstr "Status"
 #: src/Core/Backend/Action/ActionsPostsDefault.php:100
 #: src/Core/Backend/Listing/ListingMedia.php:305
 #: src/Core/Backend/Listing/ListingMedia.php:308
-#: src/Core/Backend/ModulesList.php:1349 src/Core/Upgrade/PluginsList.php:125
+#: src/Core/Backend/ModulesList.php:1350 src/Core/Upgrade/PluginsList.php:125
 #: src/Process/Backend/Comment.php:355 src/Process/Backend/Langs.php:231
 #: src/Process/Backend/Post.php:935 src/Process/Backend/Users.php:46
 #: src/Process/Upgrade/Langs.php:299
@@ -172,7 +172,7 @@ msgid "Selected blogs have been successfully updated."
 msgstr "Blogurile selectate au fost actualizate cu succes."
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:104
-#: src/Core/Backend/ModulesList.php:1687 src/Core/Backend/ThemesList.php:750
+#: src/Core/Backend/ModulesList.php:1688 src/Core/Backend/ThemesList.php:750
 #: src/Core/Upgrade/PluginsList.php:398 src/Process/Backend/BlogDel.php:69
 #: src/Process/Backend/Langs.php:114 src/Process/Backend/Langs.php:159
 #: src/Process/Backend/User.php:127 src/Process/Backend/UsersActions.php:182
@@ -409,7 +409,7 @@ msgstr "Părinte:"
 #: src/Core/Backend/Action/ActionsPostsDefault.php:393
 #: src/Core/Backend/Action/ActionsPostsDefault.php:498
 #: src/Core/Backend/Action/ActionsPostsDefault.php:582
-#: src/Core/Backend/ModulesList.php:1978 src/Process/Backend/BlogPref.php:1183
+#: src/Core/Backend/ModulesList.php:1979 src/Process/Backend/BlogPref.php:1183
 #: src/Process/Backend/Category.php:298 src/Process/Backend/Category.php:337
 #: src/Process/Backend/Category.php:373 src/Process/Backend/Comment.php:350
 #: src/Process/Backend/Home.php:598 src/Process/Backend/MediaItem.php:1276
@@ -839,7 +839,7 @@ msgid "No blog matches the filter"
 msgstr "Niciun blog nu se potrivește cu filtrul"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:87
-#: src/Core/Backend/ModulesList.php:1799 src/Core/Backend/UserPref.php:78
+#: src/Core/Backend/ModulesList.php:1800 src/Core/Backend/UserPref.php:78
 #: src/Process/Backend/LinkPopup.php:90
 #: src/Process/Backend/UsersActions.php:376
 msgid "URL"
@@ -1137,7 +1137,7 @@ msgstr[0] "Fișier %s găsit"
 msgstr[1] "%s fișiere găsite"
 msgstr[2] "%s fișiere găsite"
 
-#: src/Core/Backend/Menus.php:86 src/Process/Backend/Settings.php:207
+#: src/Core/Backend/Menus.php:86 src/Process/Backend/Settings.php:205
 msgid "Blog"
 msgstr "Blog"
 
@@ -1149,7 +1149,7 @@ msgstr "Setări de sistem"
 msgid "Plugins"
 msgstr "Extensii"
 
-#: src/Core/Backend/Menus.php:205 src/Core/Backend/ModulesList.php:1378
+#: src/Core/Backend/Menus.php:205 src/Core/Backend/ModulesList.php:1379
 #: src/Core/Upgrade/PluginsList.php:144 src/Core/Upgrade/Utility.php:264
 #: src/Process/Upgrade/Upgrade.php:59 src/Process/Upgrade/Upgrade.php:84
 #: src/Process/Upgrade/Upgrade.php:313
@@ -1292,145 +1292,145 @@ msgstr "Nici un plugin nu corespunde căutării tale."
 msgid "Plugins list"
 msgstr "Lista de plugin-uri"
 
-#: src/Core/Backend/ModulesList.php:1217
+#: src/Core/Backend/ModulesList.php:1218
 msgid "Configure plugin"
 msgstr "Configurare plugin"
 
-#: src/Core/Backend/ModulesList.php:1233
+#: src/Core/Backend/ModulesList.php:1234
 msgid "Plugin settings (in blog parameters)"
 msgstr "Setări plugin (în parametrii blog)"
 
-#: src/Core/Backend/ModulesList.php:1249
+#: src/Core/Backend/ModulesList.php:1250
 msgid "Plugin settings (in user preferences)"
 msgstr "Setări plugin (în preferințele utilizatorului)"
 
-#: src/Core/Backend/ModulesList.php:1263 src/Core/Backend/ModulesList.php:1279
+#: src/Core/Backend/ModulesList.php:1264 src/Core/Backend/ModulesList.php:1280
 msgid "Plugin settings"
 msgstr "Setări plugin"
 
-#: src/Core/Backend/ModulesList.php:1294
+#: src/Core/Backend/ModulesList.php:1295
 msgid "Plugin main page"
 msgstr "Pagina principală a plugin-ului"
 
-#: src/Core/Backend/ModulesList.php:1329 src/Core/Upgrade/PluginsList.php:105
+#: src/Core/Backend/ModulesList.php:1330 src/Core/Upgrade/PluginsList.php:105
 msgid "Activate"
 msgstr "Activare"
 
-#: src/Core/Backend/ModulesList.php:1338 src/Core/Upgrade/PluginsList.php:114
+#: src/Core/Backend/ModulesList.php:1339 src/Core/Upgrade/PluginsList.php:114
 msgid "Deactivate"
 msgstr "Dezactivați"
 
-#: src/Core/Backend/ModulesList.php:1359
+#: src/Core/Backend/ModulesList.php:1360
 msgid "Clone"
 msgstr "Clonează"
 
-#: src/Core/Backend/ModulesList.php:1369 src/Core/Upgrade/PluginsList.php:135
+#: src/Core/Backend/ModulesList.php:1370 src/Core/Upgrade/PluginsList.php:135
 msgid "Install"
 msgstr "Instalează"
 
-#: src/Core/Backend/ModulesList.php:1420 src/Core/Upgrade/PluginsList.php:174
+#: src/Core/Backend/ModulesList.php:1421 src/Core/Upgrade/PluginsList.php:174
 msgid "Activate selected plugins"
 msgstr "Activare plugin-uri selectate"
 
-#: src/Core/Backend/ModulesList.php:1421 src/Core/Upgrade/PluginsList.php:175
+#: src/Core/Backend/ModulesList.php:1422 src/Core/Upgrade/PluginsList.php:175
 msgid "Activate all plugins from this list"
 msgstr "Activați toate plugin-urile din această listă"
 
-#: src/Core/Backend/ModulesList.php:1431 src/Core/Upgrade/PluginsList.php:185
+#: src/Core/Backend/ModulesList.php:1432 src/Core/Upgrade/PluginsList.php:185
 msgid "Deactivate selected plugins"
 msgstr "Dezactivați plugin-urile selectate"
 
-#: src/Core/Backend/ModulesList.php:1432 src/Core/Upgrade/PluginsList.php:186
+#: src/Core/Backend/ModulesList.php:1433 src/Core/Upgrade/PluginsList.php:186
 msgid "Deactivate all plugins from this list"
 msgstr "Dezactivați toate plugin-urile din această listă"
 
-#: src/Core/Backend/ModulesList.php:1442 src/Core/Upgrade/PluginsList.php:196
+#: src/Core/Backend/ModulesList.php:1443 src/Core/Upgrade/PluginsList.php:196
 msgid "Update selected plugins"
 msgstr "Actualizați plugin-urile selectate"
 
-#: src/Core/Backend/ModulesList.php:1443 src/Core/Upgrade/PluginsList.php:197
+#: src/Core/Backend/ModulesList.php:1444 src/Core/Upgrade/PluginsList.php:197
 msgid "Update all plugins from this list"
 msgstr "Actualizează toate plugin-urile din această listă"
 
-#: src/Core/Backend/ModulesList.php:1494 src/Core/Backend/ModulesList.php:1548
-#: src/Core/Backend/ModulesList.php:1579 src/Core/Backend/ModulesList.php:1617
-#: src/Core/Backend/ModulesList.php:1678 src/Core/Upgrade/PluginsList.php:236
+#: src/Core/Backend/ModulesList.php:1495 src/Core/Backend/ModulesList.php:1549
+#: src/Core/Backend/ModulesList.php:1580 src/Core/Backend/ModulesList.php:1618
+#: src/Core/Backend/ModulesList.php:1679 src/Core/Upgrade/PluginsList.php:236
 #: src/Core/Upgrade/PluginsList.php:278 src/Core/Upgrade/PluginsList.php:303
 #: src/Core/Upgrade/PluginsList.php:335 src/Core/Upgrade/PluginsList.php:389
 msgid "No such plugin."
 msgstr "Niciun astfel de plugin."
 
-#: src/Core/Backend/ModulesList.php:1514 src/Core/Upgrade/PluginsList.php:250
+#: src/Core/Backend/ModulesList.php:1515 src/Core/Upgrade/PluginsList.php:250
 msgid "You don't have permissions to delete this plugin."
 msgstr "Nu aveţi permisiunea de a şterge acest plugin."
 
-#: src/Core/Backend/ModulesList.php:1516 src/Core/Upgrade/PluginsList.php:252
+#: src/Core/Backend/ModulesList.php:1517 src/Core/Upgrade/PluginsList.php:252
 msgid "Some plugins have not been delete."
 msgstr "Unele plugin-uri nu au fost şterse."
 
-#: src/Core/Backend/ModulesList.php:1519 src/Core/Upgrade/PluginsList.php:255
+#: src/Core/Backend/ModulesList.php:1520 src/Core/Upgrade/PluginsList.php:255
 msgid "Plugin has been successfully deleted."
 msgid_plural "Plugins have been successuflly deleted."
 msgstr[0] "Plugin-ul a fost șters cu succes."
 msgstr[1] "Plugin-urile au fost șterse cu succes."
 msgstr[2] "Plugin-urile au fost șterse cu succes."
 
-#: src/Core/Backend/ModulesList.php:1552 src/Core/Upgrade/PluginsList.php:282
+#: src/Core/Backend/ModulesList.php:1553 src/Core/Upgrade/PluginsList.php:282
 msgid "Plugin has been successfully installed."
 msgid_plural "Plugins have been successfully installed."
 msgstr[0] "Plugin-ul a fost instalat cu succes."
 msgstr[1] "Plugin-urile au fost instalate cu succes."
 msgstr[2] "Plugin-urile au fost instalate cu succes."
 
-#: src/Core/Backend/ModulesList.php:1583 src/Core/Upgrade/PluginsList.php:307
+#: src/Core/Backend/ModulesList.php:1584 src/Core/Upgrade/PluginsList.php:307
 msgid "Plugin has been successfully activated."
 msgid_plural "Plugins have been successuflly activated."
 msgstr[0] "Plugin-ul a fost activat cu succes."
 msgstr[1] "Plugin-urile au fost activate cu succes."
 msgstr[2] "Plugin-urile au fost activate cu succes."
 
-#: src/Core/Backend/ModulesList.php:1621 src/Core/Upgrade/PluginsList.php:339
+#: src/Core/Backend/ModulesList.php:1622 src/Core/Upgrade/PluginsList.php:339
 msgid "Some plugins have not been deactivated."
 msgstr "Unele plugin-uri nu au fost dezactivate."
 
-#: src/Core/Backend/ModulesList.php:1624 src/Core/Upgrade/PluginsList.php:342
+#: src/Core/Backend/ModulesList.php:1625 src/Core/Upgrade/PluginsList.php:342
 msgid "Plugin has been successfully deactivated."
 msgid_plural "Plugins have been successuflly deactivated."
 msgstr[0] "Plugin-ul a fost dezactivat cu succes."
 msgstr[1] "Plugin-urile au fost dezactivate cu succes."
 msgstr[2] "Plugin-urile au fost dezactivate cu succes."
 
-#: src/Core/Backend/ModulesList.php:1671 src/Core/Upgrade/PluginsList.php:382
+#: src/Core/Backend/ModulesList.php:1672 src/Core/Upgrade/PluginsList.php:382
 msgid "Plugin has been successfully updated."
 msgid_plural "Plugins have been successfully updated."
 msgstr[0] "Plugin-ul a fost actualizat cu succes."
 msgstr[1] "Plugin-urile au fost actualizate cu succes."
 msgstr[2] "Plugin-urile au fost actualizate cu succes."
 
-#: src/Core/Backend/ModulesList.php:1675 src/Core/Upgrade/PluginsList.php:386
+#: src/Core/Backend/ModulesList.php:1676 src/Core/Upgrade/PluginsList.php:386
 #, php-format
 msgid "Following plugins updates are locked: %s"
 msgstr "Următoarele plugin-uri sunt blocate: %s"
 
-#: src/Core/Backend/ModulesList.php:1695 src/Core/Backend/ThemesList.php:758
+#: src/Core/Backend/ModulesList.php:1696 src/Core/Backend/ThemesList.php:758
 #: src/Core/Upgrade/PluginsList.php:406 src/Process/Backend/Langs.php:165
 #: src/Process/Upgrade/Langs.php:215
 msgid "Unable to move uploaded file."
 msgstr "Imposibil de mutat fișierul încărcat."
 
-#: src/Core/Backend/ModulesList.php:1713 src/Core/Upgrade/PluginsList.php:418
+#: src/Core/Backend/ModulesList.php:1714 src/Core/Upgrade/PluginsList.php:418
 msgid "The plugin has been successfully updated."
 msgstr "Plugin-ul a fost actualizat cu succes."
 
-#: src/Core/Backend/ModulesList.php:1714 src/Core/Upgrade/PluginsList.php:419
+#: src/Core/Backend/ModulesList.php:1715 src/Core/Upgrade/PluginsList.php:419
 msgid "The plugin has been successfully installed."
 msgstr "Plugin-ul a fost instalat cu succes."
 
-#: src/Core/Backend/ModulesList.php:1740 src/Process/Backend/Langs.php:369
+#: src/Core/Backend/ModulesList.php:1741 src/Process/Backend/Langs.php:369
 msgid "Upload a zip file"
 msgstr "Incarca un fisier zip"
 
-#: src/Core/Backend/ModulesList.php:1744 src/Core/Backend/ModulesList.php:1791
+#: src/Core/Backend/ModulesList.php:1745 src/Core/Backend/ModulesList.php:1792
 #: src/Process/Backend/Blog.php:117 src/Process/Backend/BlogPref.php:545
 #: src/Process/Backend/BlogPref.php:1030 src/Process/Backend/Category.php:248
 #: src/Process/Backend/Comment.php:284 src/Process/Backend/Home.php:535
@@ -1443,11 +1443,11 @@ msgstr "Incarca un fisier zip"
 msgid "Fields preceded by %s are mandatory."
 msgstr "Câmpurile precedate de %s sunt obligatorii."
 
-#: src/Core/Backend/ModulesList.php:1751
+#: src/Core/Backend/ModulesList.php:1752
 msgid "Zip file path:"
 msgstr "Calea fişierului zip:"
 
-#: src/Core/Backend/ModulesList.php:1762 src/Core/Backend/ModulesList.php:1812
+#: src/Core/Backend/ModulesList.php:1763 src/Core/Backend/ModulesList.php:1813
 #: src/Process/Backend/Langs.php:344 src/Process/Backend/Langs.php:393
 #: src/Process/Backend/Post.php:779 src/Process/Backend/User.php:340
 #: src/Process/Backend/User.php:364 src/Process/Backend/User.php:529
@@ -1456,49 +1456,49 @@ msgstr "Calea fişierului zip:"
 msgid "Password"
 msgstr "Parolă"
 
-#: src/Core/Backend/ModulesList.php:1765 src/Core/Backend/ModulesList.php:1815
+#: src/Core/Backend/ModulesList.php:1766 src/Core/Backend/ModulesList.php:1816
 #: src/Process/Backend/BlogDel.php:126 src/Process/Backend/Langs.php:347
 #: src/Process/Backend/Langs.php:397 src/Process/Upgrade/Langs.php:379
 #: src/Process/Upgrade/Langs.php:385 src/Process/Upgrade/Langs.php:434
 msgid "Your password:"
 msgstr "Parola dumneavoastră:"
 
-#: src/Core/Backend/ModulesList.php:1773 src/Core/Backend/Page.php:1425
+#: src/Core/Backend/ModulesList.php:1774 src/Core/Backend/Page.php:1425
 #: src/Process/Backend/Media.php:795
 msgid "Upload"
 msgstr "Incarca"
 
-#: src/Core/Backend/ModulesList.php:1787
+#: src/Core/Backend/ModulesList.php:1788
 msgid "Download a zip file"
 msgstr "Descarcă un fişier zip"
 
-#: src/Core/Backend/ModulesList.php:1801
+#: src/Core/Backend/ModulesList.php:1802
 msgid "Zip file URL:"
 msgstr "URL-ul fișierului poștal:"
 
-#: src/Core/Backend/ModulesList.php:1823
+#: src/Core/Backend/ModulesList.php:1824
 msgid "Download"
 msgstr "Descărcare"
 
-#: src/Core/Backend/ModulesList.php:1866
+#: src/Core/Backend/ModulesList.php:1867
 msgid "Unknown plugin ID"
 msgstr "ID plugin necunoscut"
 
-#: src/Core/Backend/ModulesList.php:1877
+#: src/Core/Backend/ModulesList.php:1878
 msgid "This plugin has no configuration file."
 msgstr "Acest plugin nu are niciun fișier de configurare."
 
-#: src/Core/Backend/ModulesList.php:1885 src/Process/Backend/Auth.php:292
+#: src/Core/Backend/ModulesList.php:1886 src/Process/Backend/Auth.php:292
 #: src/Process/Upgrade/Auth.php:136
 msgid "Insufficient permissions"
 msgstr "Permisiuni insuficiente"
 
-#: src/Core/Backend/ModulesList.php:1959
+#: src/Core/Backend/ModulesList.php:1960
 #, php-format
 msgid "Configure \"%s\""
 msgstr "Configurare \"%s\""
 
-#: src/Core/Backend/ModulesList.php:1965 src/Process/Backend/Blog.php:197
+#: src/Core/Backend/ModulesList.php:1966 src/Process/Backend/Blog.php:197
 #: src/Process/Backend/BlogDel.php:138 src/Process/Backend/BlogPref.php:1185
 #: src/Process/Backend/Category.php:301 src/Process/Backend/Comment.php:352
 #: src/Process/Backend/Media.php:857 src/Process/Backend/MediaItem.php:1362
@@ -3296,7 +3296,7 @@ msgstr "P"
 msgid "(none)"
 msgstr "(niciunul)"
 
-#: src/Process/Backend/BlogPref.php:175 src/Process/Backend/Settings.php:199
+#: src/Process/Backend/BlogPref.php:175 src/Process/Backend/Settings.php:197
 msgid "Description"
 msgstr "Descriere"
 
@@ -5272,7 +5272,7 @@ msgstr[0] "un comentariu găsit"
 msgstr[1] "%d comentarii găsite"
 msgstr[2] "%d comentarii găsite"
 
-#: src/Process/Backend/Settings.php:71 src/Process/Backend/Settings.php:203
+#: src/Process/Backend/Settings.php:71 src/Process/Backend/Settings.php:201
 msgid "Configuration"
 msgstr "Configurație"
 
@@ -5280,15 +5280,15 @@ msgstr "Configurație"
 msgid "User preferences"
 msgstr "Preferințele utilizatorului"
 
-#: src/Process/Backend/Settings.php:74 src/Process/Backend/Settings.php:215
+#: src/Process/Backend/Settings.php:74 src/Process/Backend/Settings.php:213
 msgid "Settings"
 msgstr "Setări"
 
-#: src/Process/Backend/Settings.php:75 src/Process/Backend/Settings.php:219
+#: src/Process/Backend/Settings.php:75 src/Process/Backend/Settings.php:217
 msgid "Other settings"
 msgstr "Alte setări"
 
-#: src/Process/Backend/Settings.php:76 src/Process/Backend/Settings.php:223
+#: src/Process/Backend/Settings.php:76 src/Process/Backend/Settings.php:221
 msgid "Management"
 msgstr "Management"
 
@@ -5296,39 +5296,39 @@ msgstr "Management"
 msgid "Unknown"
 msgstr "Necunoscut"
 
-#: src/Process/Backend/Settings.php:196
+#: src/Process/Backend/Settings.php:194
 msgid "ID"
 msgstr "ID"
 
-#: src/Process/Backend/Settings.php:211
+#: src/Process/Backend/Settings.php:209
 msgid "User"
 msgstr "Utilizator"
 
-#: src/Process/Backend/Settings.php:232
+#: src/Process/Backend/Settings.php:230
 msgid "Columns description:"
 msgstr "Descrierea coloanelor:"
 
-#: src/Process/Backend/Settings.php:238
+#: src/Process/Backend/Settings.php:236
 msgid "<strong>Configuration</strong> indicates that plugin has a specific configuration page."
 msgstr "<strong>Configurarea</strong> indică faptul că plugin-ul are o anumită pagină de configurare."
 
-#: src/Process/Backend/Settings.php:242
+#: src/Process/Backend/Settings.php:240
 msgid "<strong>Blog</strong> indicates that plugin has specific settings in blog parameters, generally used to add or modify some behaviors or aspects of the public blog."
 msgstr "<strong>Blog</strong> indică faptul că pluginul are setări specifice în parametrii blogului, utilizate în general pentru a adăuga sau modifica anumite comportamente sau aspecte ale blogului public."
 
-#: src/Process/Backend/Settings.php:246
+#: src/Process/Backend/Settings.php:244
 msgid "<strong>User</strong> indicates that the plugin has a specific configuration in the user preferences, generally used to add or modify certain behaviors or aspects of blog administration for the user."
 msgstr "<strong>Utilizator</strong> indică faptul că pluginul are o configurație specifică în preferințele utilizatorului, utilizată în general pentru a adăuga sau modifica anumite comportamente sau aspecte ale administrării blogului pentru utilizator."
 
-#: src/Process/Backend/Settings.php:250
-msgid "<strong>Settings</strong> indicates that when the plugin has specific parameters on its management page."
-msgstr "<strong>Setări</strong> indică faptul că atunci când pluginul are parametri specifici pe pagina sa de administrare."
+#: src/Process/Backend/Settings.php:248
+msgid "<strong>Settings</strong> indicates that the plugin has specific parameters on its management page."
+msgstr "<strong>Setări</strong> indică faptul că pluginul are parametri specifici pe pagina sa de administrare."
 
-#: src/Process/Backend/Settings.php:254
+#: src/Process/Backend/Settings.php:252
 msgid "<strong>Other settings</strong> indicates that plugin has specific settings in other context."
 msgstr "<strong>Alte setări</strong> indică faptul că pluginul are setări specifice în alt context."
 
-#: src/Process/Backend/Settings.php:258
+#: src/Process/Backend/Settings.php:256
 msgid "<strong>Management</strong> indicates that the plugin has a specific management page."
 msgstr "<strong>Managementul</strong> indică faptul că plugin-ul are o pagină de administrare specifică."
 
