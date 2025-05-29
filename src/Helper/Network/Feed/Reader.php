@@ -244,13 +244,14 @@ class Reader extends HttpClient
 
                 return new Parser((string) file_get_contents($cached_file));
             case '200':
-                $feed = new Parser($this->getContent());
-                if ($feed) {
-                    // Add feed in cache
+                $feed    = new Parser($this->getContent());
+                $content = $feed->asXML();
+                if ($content) {
                     try {
+                        // Add feed in cache
                         Files::makeDir(dirname($cached_file), true);
                         if ($fp = @fopen($cached_file, 'wb')) {
-                            fwrite($fp, $feed->asXML());
+                            fwrite($fp, $content);
                             fclose($fp);
                             Files::inheritChmod($cached_file);
                         }
