@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-29 10:12+0200\n"
-"PO-Revision-Date: 2025-05-29 08:15\n"
+"PO-Revision-Date: 2025-05-29 08:44\n"
 "Last-Translator: \n"
 "Language-Team: Indonesian\n"
 "Language: id_ID\n"
@@ -5252,7 +5252,7 @@ msgstr "<strong>Pengguna</strong> menunjukkan bahwa plugin memiliki konfigurasi 
 
 #: src/Process/Backend/Settings.php:248
 msgid "<strong>Settings</strong> indicates that the plugin has specific parameters on its management page."
-msgstr ""
+msgstr "<strong>Pengaturan</strong> menunjukkan bahwa plugin memiliki parameter spesifik pada halaman manajemennya."
 
 #: src/Process/Backend/Settings.php:252
 msgid "<strong>Other settings</strong> indicates that plugin has specific settings in other context."
