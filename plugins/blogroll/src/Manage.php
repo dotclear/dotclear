@@ -60,13 +60,6 @@ class Manage extends Process
             App::backend()->blogroll = new Blogroll(App::blog());
             App::backend()->statuses = new StatusLink();
 
-            // Actions
-            // -------
-            App::backend()->links_actions_page = new ActionsLinks(App::backend()->url()->get('admin.plugin'), ['p' => My::id()]);
-            if (App::backend()->links_actions_page->process()) {
-                return self::status(false);
-            }
-
             if (!empty($_REQUEST['edit']) && !empty($_REQUEST['id'])) {
                 self::$edit = ManageEdit::init();
             } else {
@@ -216,6 +209,13 @@ class Manage extends Process
                 Notices::addSuccessNotice(__('Items order has been successfully updated'));
                 My::redirect();
             }
+        }
+
+        // Actions
+        // -------
+        App::backend()->links_actions_page = new ActionsLinks(App::backend()->url()->get('admin.plugin'), ['p' => My::id()]);
+        if (App::backend()->links_actions_page->process()) {
+            return self::status(false);
         }
 
         return true;
