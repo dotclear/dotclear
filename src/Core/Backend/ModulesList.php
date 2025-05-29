@@ -1196,13 +1196,14 @@ class ModulesList
         $settings_urls = [];
 
         $config = static::hasFileOrClass($id, App::plugins()::MODULE_CLASS_CONFIG, App::plugins()::MODULE_FILE_CONFIG);
-        $index  = static::hasFileOrClass($id, App::plugins()::MODULE_CLASS_MANAGE, App::plugins()::MODULE_FILE_MANAGE);
+        $manage = static::hasFileOrClass($id, App::plugins()::MODULE_CLASS_MANAGE, App::plugins()::MODULE_FILE_MANAGE);
 
         $settings = App::plugins()->moduleInfo($id, 'settings');
         if ($self && (isset($settings['self']) && $settings['self'] === false)) {
             $self = false;
         }
-        if ($config || $index || !empty($settings)) {
+
+        if ($config || $manage || !empty($settings)) {
             if ($config && (!$check || App::auth()->isSuperAdmin() || App::auth()->check(App::plugins()->moduleInfo($id, 'permissions'), App::blog()->id()))) {
                 $params = ['module' => $id, 'conf' => '1'];
                 if (!App::plugins()->moduleInfo($id, 'standalone_config') && !$self) {
@@ -1284,7 +1285,7 @@ class ModulesList
                     }
                 }
             }
-            if ($index && $self && (!$check || App::auth()->isSuperAdmin() || App::auth()->check(App::plugins()->moduleInfo($id, 'permissions'), App::blog()->id()))) {
+            if ($manage && $self && (!$check || App::auth()->isSuperAdmin() || App::auth()->check(App::plugins()->moduleInfo($id, 'permissions'), App::blog()->id()))) {
                 $index                 = $keys ? 'manage' : count($settings_urls);
                 $settings_urls[$index] = $url_only ?
                     App::backend()->url()->get('admin.plugin.' . $id) :
