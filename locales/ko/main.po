@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-29 10:12+0200\n"
-"PO-Revision-Date: 2025-05-29 08:44\n"
+"POT-Creation-Date: 2025-05-31 09:15+0200\n"
+"PO-Revision-Date: 2025-05-31 07:21\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -93,7 +93,7 @@ msgstr "이 키는 데이터베이스에 없습니다."
 #: src/Core/Backend/Action/ActionsComments.php:158
 #: src/Core/Backend/Combos.php:271 src/Core/Backend/Listing/ListingPosts.php:76
 #: src/Core/Backend/Listing/ListingPostsMini.php:62
-#: src/Core/Backend/UserPref.php:205 src/Process/Backend/Home.php:543
+#: src/Core/Backend/UserPref.php:205 src/Process/Backend/Home.php:557
 #: src/Process/Backend/MediaItem.php:1096 src/Process/Backend/Post.php:811
 msgid "Title"
 msgstr "제목"
@@ -370,7 +370,7 @@ msgid "Change category for this selection"
 msgstr "글꼭지들의 분류 변경"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:351
-#: src/Core/Backend/Filter/FilterPosts.php:131 src/Process/Backend/Home.php:569
+#: src/Core/Backend/Filter/FilterPosts.php:131 src/Process/Backend/Home.php:583
 #: src/Process/Backend/Post.php:700
 msgid "Category:"
 msgstr "분류 :"
@@ -380,7 +380,7 @@ msgid "Create a new category for the post(s)"
 msgstr "글에 대한 새 카테고리 만들기"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:369
-#: src/Process/Backend/Home.php:547 src/Process/Backend/Home.php:581
+#: src/Process/Backend/Home.php:561 src/Process/Backend/Home.php:595
 #: src/Process/Backend/Media.php:763 src/Process/Backend/MediaItem.php:1236
 #: src/Process/Backend/Post.php:713 src/Process/Backend/Post.php:816
 msgid "Title:"
@@ -388,7 +388,7 @@ msgstr "제목 :"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:378
 #: src/Process/Backend/Category.php:268 src/Process/Backend/Category.php:326
-#: src/Process/Backend/Home.php:588 src/Process/Backend/Post.php:720
+#: src/Process/Backend/Home.php:602 src/Process/Backend/Post.php:720
 msgid "Parent:"
 msgstr "상위분류 :"
 
@@ -398,10 +398,10 @@ msgstr "상위분류 :"
 #: src/Core/Backend/ModulesList.php:1979 src/Process/Backend/BlogPref.php:1183
 #: src/Process/Backend/Category.php:298 src/Process/Backend/Category.php:337
 #: src/Process/Backend/Category.php:373 src/Process/Backend/Comment.php:350
-#: src/Process/Backend/Home.php:598 src/Process/Backend/MediaItem.php:1276
-#: src/Process/Backend/Post.php:900 src/Process/Backend/Post.php:1114
-#: src/Process/Backend/User.php:536 src/Process/Backend/UsersActions.php:521
-#: src/Process/Install/Install.php:479
+#: src/Process/Backend/Home.php:612 src/Process/Backend/Home.php:663
+#: src/Process/Backend/MediaItem.php:1276 src/Process/Backend/Post.php:900
+#: src/Process/Backend/Post.php:1114 src/Process/Backend/User.php:536
+#: src/Process/Backend/UsersActions.php:521 src/Process/Install/Install.php:479
 msgid "Save"
 msgstr "저장"
 
@@ -556,7 +556,7 @@ msgid "My preferences"
 msgstr "내 기본 설정"
 
 #: src/Core/Backend/Favorites.php:414 src/Core/Backend/Menus.php:181
-#: src/Process/Backend/Home.php:532 src/Process/Backend/Post.php:95
+#: src/Process/Backend/Home.php:546 src/Process/Backend/Post.php:95
 #: src/Process/Backend/Post.php:943 src/Process/Backend/Posts.php:114
 msgid "New post"
 msgstr "새 글꼭지"
@@ -1387,7 +1387,7 @@ msgstr "테마 zip 파일 올리기"
 #: src/Core/Backend/ModulesList.php:1745 src/Core/Backend/ModulesList.php:1792
 #: src/Process/Backend/Blog.php:117 src/Process/Backend/BlogPref.php:545
 #: src/Process/Backend/BlogPref.php:1030 src/Process/Backend/Category.php:248
-#: src/Process/Backend/Comment.php:284 src/Process/Backend/Home.php:535
+#: src/Process/Backend/Comment.php:284 src/Process/Backend/Home.php:549
 #: src/Process/Backend/Langs.php:322 src/Process/Backend/Langs.php:372
 #: src/Process/Backend/LinkPopup.php:83 src/Process/Backend/Post.php:968
 #: src/Process/Backend/Post.php:1059 src/Process/Backend/User.php:303
@@ -1465,7 +1465,7 @@ msgstr "뒤로"
 
 #: src/Core/Backend/Notices.php:85 src/Core/Backend/Page.php:1264
 #: src/Core/Backend/Page.php:1420 src/Core/Upgrade/Notices.php:48
-#: src/Process/Backend/Home.php:292
+#: src/Process/Backend/Home.php:306
 msgid "Error:"
 msgstr "오류 :"
 
@@ -4091,133 +4091,141 @@ msgstr "모든 스팸 삭제"
 msgid "Selected comments action:"
 msgstr "선택된 댓글에 대한 작업 :"
 
-#: src/Process/Backend/Home.php:73 src/Process/Backend/Plugins.php:58
+#: src/Process/Backend/Home.php:75 src/Process/Backend/Plugins.php:58
 msgid "The following plugins have been disabled :"
 msgstr "다음 플러그인이 비활성화되었습니다 :"
 
-#: src/Process/Backend/Home.php:200
+#: src/Process/Backend/Home.php:135
+msgid "Your last donation date has been saved."
+msgstr ""
+
+#: src/Process/Backend/Home.php:214
 msgid "Dashboard area's drag and drop is disabled"
 msgstr "대시보드 영역의 끌어서 놓기가 비활성화됩니다."
 
-#: src/Process/Backend/Home.php:201
+#: src/Process/Backend/Home.php:215
 msgid "Dashboard area's drag and drop is enabled"
 msgstr "대시보드 영역의 끌어서 놓기가 활성화됩니다."
 
-#: src/Process/Backend/Home.php:217 src/Process/Backend/Home.php:230
+#: src/Process/Backend/Home.php:231 src/Process/Backend/Home.php:244
 #: src/Process/Upgrade/Home.php:135
 msgid "Dashboard"
 msgstr "관리마당"
 
-#: src/Process/Backend/Home.php:242
+#: src/Process/Backend/Home.php:256
 msgid "Make this blog my default blog"
 msgstr "이 블로그를 기본 블로그로 설정"
 
-#: src/Process/Backend/Home.php:248
+#: src/Process/Backend/Home.php:262
 msgid "This blog is offline"
 msgstr "이 블로그는 비공개 상태입니다."
 
-#: src/Process/Backend/Home.php:250
+#: src/Process/Backend/Home.php:264
 msgid "This blog is removed"
 msgstr "이 블로그는 삭제되었습니다."
 
-#: src/Process/Backend/Home.php:255 src/Process/Backend/Home.php:263
+#: src/Process/Backend/Home.php:269 src/Process/Backend/Home.php:277
 #: src/Process/Upgrade/Home.php:60 src/Process/Upgrade/Home.php:65
 #, php-format
 msgid "%s is not defined, you should edit your configuration file."
 msgstr "%s 가 정의되어 있지 않으면 구성 파일을 편집해야 합니다."
 
-#: src/Process/Backend/Home.php:256 src/Process/Backend/Home.php:264
+#: src/Process/Backend/Home.php:270 src/Process/Backend/Home.php:278
 #: src/Process/Upgrade/Home.php:61 src/Process/Upgrade/Home.php:66
 msgid "See <a href=\"https://dotclear.org/documentation/2.0/admin/config\">documentation</a> for more information."
 msgstr "자세한 내용은 <a href=\"https://dotclear.org/documentation/2.0/admin/config\">문서</a> 를 참조하세요."
 
-#: src/Process/Backend/Home.php:274 src/Process/Upgrade/Home.php:70
+#: src/Process/Backend/Home.php:288 src/Process/Upgrade/Home.php:70
 msgid "The cache directory does not exist or is not writable. You must create this directory with sufficient rights and affect this location to \"DC_TPL_CACHE\" in inc/config.php file."
 msgstr "캐시 디렉터리가 존재하지 않거나 쓰기 불가능한 경우. 충분한 권한으로 이 디렉터리를 생성하고 inc/config.php 파일에서 이 위치를 \"DC_TPL_CACHE\"에 영향을 주어야 합니다."
 
-#: src/Process/Backend/Home.php:277
+#: src/Process/Backend/Home.php:291
 msgid "The cache directory does not exist or is not writable. You should contact your administrator."
 msgstr "캐시 디렉터리가 존재하지 않거나 쓸 수 없습니다. 관리자에게 문의해야 합니다."
 
-#: src/Process/Backend/Home.php:283
+#: src/Process/Backend/Home.php:297
 msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
 msgstr "about:config \"public_path\"에 설정된 위치에 쓰기 가능한 디렉터리 /public/이 없습니다. 충분한 권한으로 이 디렉터리를 만들거나 이 설정을 변경해야 합니다."
 
-#: src/Process/Backend/Home.php:286
+#: src/Process/Backend/Home.php:300
 msgid "There is no writable root directory for the media manager. You should contact your administrator."
 msgstr "미디어 관리자를 위한 쓰기 가능한 루트 디렉터리가 없습니다. 관리자에게 문의해야 합니다."
 
-#: src/Process/Backend/Home.php:313 src/Process/Backend/Plugins.php:130
+#: src/Process/Backend/Home.php:327 src/Process/Backend/Plugins.php:130
 #: src/Process/Install/Install.php:485 src/Process/Upgrade/Plugins.php:123
 msgid "Following plugins have been installed:"
 msgstr "다음 플러그인들이 설치되어있습니다 :"
 
-#: src/Process/Backend/Home.php:331 src/Process/Backend/Plugins.php:146
+#: src/Process/Backend/Home.php:345 src/Process/Backend/Plugins.php:146
 #: src/Process/Install/Install.php:492 src/Process/Upgrade/Plugins.php:139
 msgid "Following plugins have not been installed:"
 msgstr "다음 플러그인들은 설치되지 않았습니다 :"
 
-#: src/Process/Backend/Home.php:348
+#: src/Process/Backend/Home.php:362
 msgid "Errors have occured with following plugins:"
 msgstr "다음 플러그인에서 오류가 발생했습니다:"
 
-#: src/Process/Backend/Home.php:526
+#: src/Process/Backend/Home.php:540
 msgid "Quick post"
 msgstr "글꼭지 바로 만들기"
 
-#: src/Process/Backend/Home.php:556 src/Process/Backend/Post.php:853
+#: src/Process/Backend/Home.php:570 src/Process/Backend/Post.php:853
 msgid "Content:"
 msgstr "내용 :"
 
-#: src/Process/Backend/Home.php:562 src/Process/Backend/Post.php:850
+#: src/Process/Backend/Home.php:576 src/Process/Backend/Post.php:850
 msgid "Content"
 msgstr "콘텐츠"
 
-#: src/Process/Backend/Home.php:573 src/Process/Backend/Post.php:705
+#: src/Process/Backend/Home.php:587 src/Process/Backend/Post.php:705
 msgid "Add a new category"
 msgstr "새 분류 만들기"
 
-#: src/Process/Backend/Home.php:592
+#: src/Process/Backend/Home.php:606
 msgid "This category will be created when you will save your post."
 msgstr "이 카테고리는 글을 저장할 때 생성됩니다."
 
-#: src/Process/Backend/Home.php:600
+#: src/Process/Backend/Home.php:614
 msgid "Save and publish"
 msgstr "저장 및 게시"
 
-#: src/Process/Backend/Home.php:622
+#: src/Process/Backend/Home.php:636
 msgid "Donate to Dotclear"
 msgstr "닷클리어에 기부하기"
 
-#: src/Process/Backend/Home.php:624
+#: src/Process/Backend/Home.php:638
 msgid "Dotclear is not a commercial project — using Dotclear is <strong>free</strong> and <strong>always</strong> will be. If you wish to, you may contribute to Dotclear to help us cover project-related expenses."
 msgstr "닷클리어는 상업적 프로젝트가 아닙니다. 닷클리어 사용은 <strong>무료이며</strong> <strong>앞으로도</strong> 그럴 것입니다. 원하시는 경우, 프로젝트 관련 비용을 충당하기 위해 Dotclear에 기부하실 수 있습니다."
 
-#: src/Process/Backend/Home.php:626
+#: src/Process/Backend/Home.php:640
 msgid "The collected funds will be spent as follows:"
 msgstr "모금된 기금은 다음과 같이 사용됩니다:"
 
-#: src/Process/Backend/Home.php:630
+#: src/Process/Backend/Home.php:644
 msgid "Paying for the website hosting and translations"
 msgstr "웹사이트 호스팅 및 번역 비용 지불하기"
 
-#: src/Process/Backend/Home.php:632
+#: src/Process/Backend/Home.php:646
 msgid "Paying for the domain names"
 msgstr "도메인 네임에 대한 비용 지불"
 
-#: src/Process/Backend/Home.php:634
+#: src/Process/Backend/Home.php:648
 msgid "Supporting related projects such as Dotaddict.org"
 msgstr "Dotaddict.org와 같은 관련 프로젝트 지원"
 
-#: src/Process/Backend/Home.php:636
+#: src/Process/Backend/Home.php:650
 msgid "Cover the costs of events set up by Dotclear"
 msgstr "닷클리어에서 설정한 이벤트 비용 지원"
 
-#: src/Process/Backend/Home.php:639
+#: src/Process/Backend/Home.php:653
 msgid "See <a href=\"https://dotclear.org/donate\">this page</a> for more information and donation"
 msgstr "자세한 정보 및 기부는 <a href=\"https://dotclear.org/donate\">이 페이지를</a> 참조하세요."
 
-#: src/Process/Backend/Home.php:654
+#: src/Process/Backend/Home.php:662
+msgid "As a personal reminder, my last donation was made on:"
+msgstr ""
+
+#: src/Process/Backend/Home.php:681
 msgid "Documentation and support"
 msgstr "문서 및 지원"
 
