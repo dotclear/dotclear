@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-31 09:18+0200\n"
-"PO-Revision-Date: 2025-05-31 07:22\n"
+"POT-Creation-Date: 2025-05-31 13:01+0200\n"
+"PO-Revision-Date: 2025-05-31 11:10\n"
 "Last-Translator: \n"
 "Language-Team: Estonian\n"
 "Language: et_EE\n"
@@ -920,7 +920,7 @@ msgstr "Avaldatud kommentaarid:"
 msgid "Filter configuration"
 msgstr "Filtri konfiguratsioon"
 
-#: plugins/antispam/src/Manage.php:302 plugins/blogroll/src/Manage.php:299
+#: plugins/antispam/src/Manage.php:302 plugins/blogroll/src/Manage.php:306
 msgid "position"
 msgstr "positsioon"
 
@@ -1051,7 +1051,7 @@ msgstr "Teil ei ole lubatud muuta lingi staatust"
 msgid "You are not allowed to delete links"
 msgstr "Teil ei ole lubatud linke kustutada"
 
-#: plugins/blogroll/src/Manage.php:114 plugins/blogroll/src/Manage.php:610
+#: plugins/blogroll/src/Manage.php:114 plugins/blogroll/src/Manage.php:617
 msgid "Nothing to import"
 msgstr "Midagi importida ei ole vaja"
 
@@ -1075,50 +1075,50 @@ msgstr "kategooria on edukalt loodud."
 msgid "Items order has been successfully updated"
 msgstr "Artiklite tellimus on edukalt uuendatud"
 
-#: plugins/blogroll/src/Manage.php:268
+#: plugins/blogroll/src/Manage.php:275
 msgid "Are you sure you want to delete selected links?"
 msgstr "Kas olete kindel, et soovite valitud lingid kustutada?"
 
-#: plugins/blogroll/src/Manage.php:306
+#: plugins/blogroll/src/Manage.php:313
 msgid "select this link"
 msgstr "valige see link"
 
-#: plugins/blogroll/src/Manage.php:366
+#: plugins/blogroll/src/Manage.php:373
 msgid "Lang"
 msgstr "Lang"
 
-#: plugins/blogroll/src/Manage.php:414
+#: plugins/blogroll/src/Manage.php:421
 msgid "Selected links action:"
 msgstr "Valitud lingid tegevus:"
 
-#: plugins/blogroll/src/Manage.php:434
+#: plugins/blogroll/src/Manage.php:441
 msgid "The link list is empty"
 msgstr "Linkide nimekiri on tühi"
 
-#: plugins/blogroll/src/Manage.php:457
+#: plugins/blogroll/src/Manage.php:464
 msgid "Add a new link"
 msgstr "Lisa uus link"
 
-#: plugins/blogroll/src/Manage.php:508 plugins/blogroll/src/Manage.php:558
+#: plugins/blogroll/src/Manage.php:515 plugins/blogroll/src/Manage.php:565
 #: plugins/blogroll/src/ManageEdit.php:224
 #: plugins/blogroll/src/ManageEdit.php:296
 msgid "Link status"
 msgstr "Lingi staatus"
 
-#: plugins/blogroll/src/Manage.php:527
+#: plugins/blogroll/src/Manage.php:534
 msgid "Add a category"
 msgstr "Lisage kategooria"
 
-#: plugins/blogroll/src/Manage.php:581 plugins/blogroll/src/Manage.php:673
-#: plugins/blogroll/src/Manage.php:680
+#: plugins/blogroll/src/Manage.php:588 plugins/blogroll/src/Manage.php:680
+#: plugins/blogroll/src/Manage.php:687
 msgid "Import links"
 msgstr "Impordi lingid"
 
-#: plugins/blogroll/src/Manage.php:590
+#: plugins/blogroll/src/Manage.php:597
 msgid "OPML or XBEL File:"
 msgstr "OPML- või XBEL-faili:"
 
-#: plugins/blogroll/src/Manage.php:600 plugins/blogroll/src/Manage.php:665
+#: plugins/blogroll/src/Manage.php:607 plugins/blogroll/src/Manage.php:672
 #: plugins/importExport/src/Manage.php:130
 #: plugins/importExport/src/ModuleImportFeed.php:239
 #: plugins/importExport/src/ModuleImportFlat.php:245
