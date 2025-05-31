@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-31 09:15+0200\n"
-"PO-Revision-Date: 2025-05-31 07:21\n"
+"PO-Revision-Date: 2025-05-31 07:46\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -4097,7 +4097,7 @@ msgstr "다음 플러그인이 비활성화되었습니다 :"
 
 #: src/Process/Backend/Home.php:135
 msgid "Your last donation date has been saved."
-msgstr ""
+msgstr "마지막 기부 날짜가 저장되었습니다."
 
 #: src/Process/Backend/Home.php:214
 msgid "Dashboard area's drag and drop is disabled"
@@ -4223,7 +4223,7 @@ msgstr "자세한 정보 및 기부는 <a href=\"https://dotclear.org/donate\">�
 
 #: src/Process/Backend/Home.php:662
 msgid "As a personal reminder, my last donation was made on:"
-msgstr ""
+msgstr "개인적으로 지난번 기부한 날을 기억해 주세요:"
 
 #: src/Process/Backend/Home.php:681
 msgid "Documentation and support"
