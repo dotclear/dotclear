@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-26 18:37+0200\n"
-"PO-Revision-Date: 2025-05-26 16:41\n"
+"POT-Creation-Date: 2025-05-31 09:18+0200\n"
+"PO-Revision-Date: 2025-05-31 07:22\n"
 "Last-Translator: \n"
 "Language-Team: Telugu\n"
 "Language: te_IN\n"
@@ -1051,27 +1051,27 @@ msgstr "లింక్ స్థితిని మార్చడానిక�
 msgid "You are not allowed to delete links"
 msgstr "మీరు లింక్‌లను తొలగించడానికి అనుమతి లేదు"
 
-#: plugins/blogroll/src/Manage.php:121 plugins/blogroll/src/Manage.php:610
+#: plugins/blogroll/src/Manage.php:114 plugins/blogroll/src/Manage.php:610
 msgid "Nothing to import"
 msgstr "దిగుమతి చేయలేదు"
 
-#: plugins/blogroll/src/Manage.php:144
+#: plugins/blogroll/src/Manage.php:137
 msgid "links have been successfully imported."
 msgstr "లింకులు సమర్ధవంతంగా దిగుమతి చేయబడింది."
 
-#: plugins/blogroll/src/Manage.php:151
+#: plugins/blogroll/src/Manage.php:144
 msgid "Import operation cancelled."
 msgstr "దిగుమతి ఆపరేషన్ రద్దు."
 
-#: plugins/blogroll/src/Manage.php:167
+#: plugins/blogroll/src/Manage.php:160
 msgid "Link has been successfully created."
 msgstr "లింకు సమర్ధవంతంగా సృష్టించబడింది."
 
-#: plugins/blogroll/src/Manage.php:183
+#: plugins/blogroll/src/Manage.php:176
 msgid "category has been successfully created."
 msgstr "వర్గం విజయవంతంగా సృష్టించబడింది."
 
-#: plugins/blogroll/src/Manage.php:216
+#: plugins/blogroll/src/Manage.php:209
 msgid "Items order has been successfully updated"
 msgstr "అంశం క్రమం సమర్ధవంతంగా నవీకరిస్తోంది"
 
