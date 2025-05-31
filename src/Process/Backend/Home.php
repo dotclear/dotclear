@@ -659,7 +659,7 @@ class Home extends Process
                             ->class('form-buttons')
                             ->items([
                                 (new Date('donation-date', App::auth()->prefs()->dashboard->donation_date))
-                                    ->label((new Label(__('As a personal reminder, my last donation was made on:'), Label::IL_TF))->class('classic')),
+                                    ->label((new Label(__('For the record, here is the date of my last donation to Dotclear:'), Label::IL_TF))->class('classic')),
                                 (new Submit('donation-save', __('Save'))),
                                 App::nonce()->formNonce(),
                             ]),
