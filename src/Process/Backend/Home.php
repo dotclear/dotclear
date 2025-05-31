@@ -20,6 +20,7 @@ use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Checkbox;
+use Dotclear\Helper\Html\Form\Date;
 use Dotclear\Helper\Html\Form\Details;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
@@ -40,6 +41,7 @@ use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Textarea;
 use Dotclear\Helper\Html\Form\Ul;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Interface\Core\UserWorkspaceInterface;
 use Exception;
 
 /**
@@ -123,6 +125,18 @@ class Home extends Process
             // Logout
             App::backend()->url()->redirect('admin.auth');
             exit;
+        }
+
+        if (!empty($_POST['donation-save'])) {
+            // Save last donation date
+            try {
+                App::auth()->prefs()->dashboard->put('donation_date', $_POST['donation-date'], UserWorkspaceInterface::WS_STRING, 'last donation date');
+
+                Notices::addSuccessNotice(__('Your last donation date has been saved.'));
+                App::backend()->url()->redirect('admin.home');
+            } catch (Exception $e) {
+                App::error()->add($e->getMessage());
+            }
         }
 
         // Plugin install
@@ -637,6 +651,19 @@ class Home extends Process
                     ]),
                 (new Note())
                     ->text(__('See <a href="https://dotclear.org/donate">this page</a> for more information and donation')),
+                (new Form('donation-form'))
+                    ->method('post')
+                    ->action(App::backend()->url()->get('admin.home'))
+                    ->items([
+                        (new Para())
+                            ->class('form-buttons')
+                            ->items([
+                                (new Date('donation-date', App::auth()->prefs()->dashboard->donation_date))
+                                    ->label((new Label(__('As a personal reminder, my last donation was made on:'), Label::IL_TF))->class('classic')),
+                                (new Submit('donation-save', __('Save'))),
+                                App::nonce()->formNonce(),
+                            ]),
+                    ]),
             ])
         ->render();
     }
