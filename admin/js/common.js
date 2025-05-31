@@ -503,13 +503,6 @@ dotclear.helpViewer = (selector) => {
   if (!helpButtonElement) {
     return;
   }
-  const threshold = helpButtonElement.clientHeight / 2;
-
-  if (window.scrollY >= threshold) {
-    helpButtonElement.classList.add('floatable');
-  } else {
-    helpButtonElement.classList.remove('floatable');
-  }
 
   const positionButton = () => {
     if (helpButtonElement.classList.contains('floatable')) {
@@ -522,17 +515,25 @@ dotclear.helpViewer = (selector) => {
     helpButtonElement.style.top = `${offset}px`;
   };
 
-  // Add scroll event listener
-  window.addEventListener('scroll', () => {
-    // Check if the scroll position is greater than or equal to the target position
-    if (window.scrollY >= threshold) {
-      helpButtonElement.classList.add('floatable');
-    } else {
-      helpButtonElement.classList.remove('floatable');
-    }
-    // Position button
-    positionButton();
-  });
+  const headerObserver = new IntersectionObserver(
+    (changes) => {
+      for (const change of changes) {
+        if (change.isIntersecting) {
+          helpButtonElement.classList.remove('floatable');
+          positionButton();
+        } else {
+          helpButtonElement.classList.add('floatable');
+          positionButton();
+        }
+      }
+    },
+    {
+      threshold: [1.0],
+      trackVisibility: true,
+      delay: 100, // Set a minimum delay between notifications
+    },
+  );
+  headerObserver.observe(document.querySelector('#header'));
 };
 
 /**
@@ -1375,12 +1376,25 @@ dotclear.ready(() => {
   }
 
   // Scroll to top management
-  document.addEventListener('scroll', () => {
-    const gototopButton = document.getElementById('gototop');
-    if (gototopButton) {
-      gototopButton.style.display = document.querySelector('html').scrollTop === 0 ? 'none' : 'block';
-    }
-  });
+  const gototopButton = document.getElementById('gototop');
+  const headerObserver = new IntersectionObserver(
+    (changes) => {
+      for (const change of changes) {
+        if (change.isIntersecting) {
+          gototopButton.style.display = 'none';
+        } else {
+          gototopButton.style.display = 'block';
+        }
+      }
+    },
+    {
+      threshold: [1.0],
+      trackVisibility: true,
+      delay: 100, // Set a minimum delay between notifications
+    },
+  );
+  headerObserver.observe(document.querySelector('#header'));
+
   document.getElementById('gototop')?.addEventListener('click', (event) => {
     if (dotclear.animationisReduced) {
       // Scroll to top instantly
