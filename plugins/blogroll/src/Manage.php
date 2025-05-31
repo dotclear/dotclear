@@ -213,9 +213,10 @@ class Manage extends Process
 
         // Actions
         // -------
-        App::backend()->links_actions_page = new ActionsLinks(App::backend()->url()->get('admin.plugin'), ['p' => My::id()]);
+        App::backend()->links_actions_page          = new ActionsLinks(App::backend()->url()->get('admin.plugin'), ['p' => My::id()]);
+        App::backend()->links_actions_page_rendered = null;
         if (App::backend()->links_actions_page->process()) {
-            return self::status(false);
+            App::backend()->links_actions_page_rendered = true;
         }
 
         return true;
@@ -229,6 +230,12 @@ class Manage extends Process
 
         if (self::$edit) {
             ManageEdit::render();
+
+            return;
+        }
+
+        if (App::backend()->links_actions_page_rendered) {
+            App::backend()->links_actions_page->render();
 
             return;
         }
