@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-31 09:15+0200\n"
-"PO-Revision-Date: 2025-05-31 07:21\n"
+"PO-Revision-Date: 2025-05-31 07:46\n"
 "Last-Translator: \n"
 "Language-Team: Indonesian\n"
 "Language: id_ID\n"
@@ -4097,7 +4097,7 @@ msgstr "Plugin berikut ini telah dinonaktifkan:"
 
 #: src/Process/Backend/Home.php:135
 msgid "Your last donation date has been saved."
-msgstr ""
+msgstr "Tanggal donasi terakhir Anda telah disimpan."
 
 #: src/Process/Backend/Home.php:214
 msgid "Dashboard area's drag and drop is disabled"
@@ -4223,7 +4223,7 @@ msgstr "Lihat <a href=\"https://dotclear.org/donate\">halaman ini</a> untuk info
 
 #: src/Process/Backend/Home.php:662
 msgid "As a personal reminder, my last donation was made on:"
-msgstr ""
+msgstr "Sebagai pengingat pribadi, donasi terakhir saya dilakukan pada tanggal:"
 
 #: src/Process/Backend/Home.php:681
 msgid "Documentation and support"
