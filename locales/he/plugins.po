@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-26 18:37+0200\n"
-"PO-Revision-Date: 2025-05-26 16:40\n"
+"POT-Creation-Date: 2025-05-31 09:18+0200\n"
+"PO-Revision-Date: 2025-05-31 07:21\n"
 "Last-Translator: \n"
 "Language-Team: Hebrew\n"
 "Language: he_IL\n"
@@ -1055,27 +1055,27 @@ msgstr "אין לך הרשאה לשנות את סטטוס הקישור"
 msgid "You are not allowed to delete links"
 msgstr "אסור לך למחוק קישורים"
 
-#: plugins/blogroll/src/Manage.php:121 plugins/blogroll/src/Manage.php:610
+#: plugins/blogroll/src/Manage.php:114 plugins/blogroll/src/Manage.php:610
 msgid "Nothing to import"
 msgstr "אין דבר לייבוא"
 
-#: plugins/blogroll/src/Manage.php:144
+#: plugins/blogroll/src/Manage.php:137
 msgid "links have been successfully imported."
 msgstr "קישורים יובאו בהצלחה."
 
-#: plugins/blogroll/src/Manage.php:151
+#: plugins/blogroll/src/Manage.php:144
 msgid "Import operation cancelled."
 msgstr "פעולת יבוא בוטלה."
 
-#: plugins/blogroll/src/Manage.php:167
+#: plugins/blogroll/src/Manage.php:160
 msgid "Link has been successfully created."
 msgstr "הקישור נוצר בהצלחה."
 
-#: plugins/blogroll/src/Manage.php:183
+#: plugins/blogroll/src/Manage.php:176
 msgid "category has been successfully created."
 msgstr "הסיווג נוצר בהצלחה."
 
-#: plugins/blogroll/src/Manage.php:216
+#: plugins/blogroll/src/Manage.php:209
 msgid "Items order has been successfully updated"
 msgstr "סדר הפריטים עודכן בהצלחה"
 

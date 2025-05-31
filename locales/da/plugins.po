@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-26 18:37+0200\n"
-"PO-Revision-Date: 2025-05-26 16:40\n"
+"POT-Creation-Date: 2025-05-31 09:18+0200\n"
+"PO-Revision-Date: 2025-05-31 07:21\n"
 "Last-Translator: \n"
 "Language-Team: Danish\n"
 "Language: da_DK\n"
@@ -1051,27 +1051,27 @@ msgstr "Du har ikke lov til at ændre linkstatus"
 msgid "You are not allowed to delete links"
 msgstr "Du må ikke slette links"
 
-#: plugins/blogroll/src/Manage.php:121 plugins/blogroll/src/Manage.php:610
+#: plugins/blogroll/src/Manage.php:114 plugins/blogroll/src/Manage.php:610
 msgid "Nothing to import"
 msgstr "Intet at importere"
 
-#: plugins/blogroll/src/Manage.php:144
+#: plugins/blogroll/src/Manage.php:137
 msgid "links have been successfully imported."
 msgstr "links er blevet importeret."
 
-#: plugins/blogroll/src/Manage.php:151
+#: plugins/blogroll/src/Manage.php:144
 msgid "Import operation cancelled."
 msgstr "Importoperation annulleret."
 
-#: plugins/blogroll/src/Manage.php:167
+#: plugins/blogroll/src/Manage.php:160
 msgid "Link has been successfully created."
 msgstr "Link er blevet oprettet."
 
-#: plugins/blogroll/src/Manage.php:183
+#: plugins/blogroll/src/Manage.php:176
 msgid "category has been successfully created."
 msgstr "kategori er blevet oprettet."
 
-#: plugins/blogroll/src/Manage.php:216
+#: plugins/blogroll/src/Manage.php:209
 msgid "Items order has been successfully updated"
 msgstr "Elementer ordre er blevet opdateret"
 

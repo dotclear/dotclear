@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-26 18:37+0200\n"
-"PO-Revision-Date: 2025-05-26 16:41\n"
+"POT-Creation-Date: 2025-05-31 09:18+0200\n"
+"PO-Revision-Date: 2025-05-31 07:22\n"
 "Last-Translator: \n"
 "Language-Team: Hindi\n"
 "Language: hi_IN\n"
@@ -1051,27 +1051,27 @@ msgstr "आपको लिंक की स्थिति बदलने क�
 msgid "You are not allowed to delete links"
 msgstr "आपको लिंक हटाने की अनुमति नहीं है"
 
-#: plugins/blogroll/src/Manage.php:121 plugins/blogroll/src/Manage.php:610
+#: plugins/blogroll/src/Manage.php:114 plugins/blogroll/src/Manage.php:610
 msgid "Nothing to import"
 msgstr "आयात के लिए कुछ नहीं"
 
-#: plugins/blogroll/src/Manage.php:144
+#: plugins/blogroll/src/Manage.php:137
 msgid "links have been successfully imported."
 msgstr "लिंक सफलतापूर्वक आयात किया गया है."
 
-#: plugins/blogroll/src/Manage.php:151
+#: plugins/blogroll/src/Manage.php:144
 msgid "Import operation cancelled."
 msgstr "आयात ऑपरेशन रद्द."
 
-#: plugins/blogroll/src/Manage.php:167
+#: plugins/blogroll/src/Manage.php:160
 msgid "Link has been successfully created."
 msgstr "लिंक सफलतापूर्वक बनाया गया है."
 
-#: plugins/blogroll/src/Manage.php:183
+#: plugins/blogroll/src/Manage.php:176
 msgid "category has been successfully created."
 msgstr "श्रेणी सफलतापूर्वक बनाया गया है."
 
-#: plugins/blogroll/src/Manage.php:216
+#: plugins/blogroll/src/Manage.php:209
 msgid "Items order has been successfully updated"
 msgstr "मद क्रम सफलतापूर्वक अद्यतन किया गया है"
 

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-26 18:37+0200\n"
-"PO-Revision-Date: 2025-05-26 16:41\n"
+"POT-Creation-Date: 2025-05-31 09:18+0200\n"
+"PO-Revision-Date: 2025-05-31 07:22\n"
 "Last-Translator: \n"
 "Language-Team: Indonesian\n"
 "Language: id_ID\n"
@@ -1049,27 +1049,27 @@ msgstr "Anda tidak diizinkan untuk mengubah status tautan"
 msgid "You are not allowed to delete links"
 msgstr "Anda tidak diizinkan untuk menghapus tautan"
 
-#: plugins/blogroll/src/Manage.php:121 plugins/blogroll/src/Manage.php:610
+#: plugins/blogroll/src/Manage.php:114 plugins/blogroll/src/Manage.php:610
 msgid "Nothing to import"
 msgstr "Tidak ada yang perlu diimpor"
 
-#: plugins/blogroll/src/Manage.php:144
+#: plugins/blogroll/src/Manage.php:137
 msgid "links have been successfully imported."
 msgstr "telah berhasil diimpor."
 
-#: plugins/blogroll/src/Manage.php:151
+#: plugins/blogroll/src/Manage.php:144
 msgid "Import operation cancelled."
 msgstr "Operasi impor dibatalkan."
 
-#: plugins/blogroll/src/Manage.php:167
+#: plugins/blogroll/src/Manage.php:160
 msgid "Link has been successfully created."
 msgstr "Tautan telah berhasil dibuat."
 
-#: plugins/blogroll/src/Manage.php:183
+#: plugins/blogroll/src/Manage.php:176
 msgid "category has been successfully created."
 msgstr "kategori telah berhasil dibuat."
 
-#: plugins/blogroll/src/Manage.php:216
+#: plugins/blogroll/src/Manage.php:209
 msgid "Items order has been successfully updated"
 msgstr "Pesanan barang telah berhasil diperbarui"
 

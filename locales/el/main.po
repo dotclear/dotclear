@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-29 10:12+0200\n"
-"PO-Revision-Date: 2025-05-29 08:44\n"
+"POT-Creation-Date: 2025-05-31 09:15+0200\n"
+"PO-Revision-Date: 2025-05-31 07:46\n"
 "Last-Translator: \n"
 "Language-Team: Greek\n"
 "Language: el_GR\n"
@@ -93,7 +93,7 @@ msgstr "Αυτό το κλειδί δεν υπάρχει στη βάση δεδ�
 #: src/Core/Backend/Action/ActionsComments.php:158
 #: src/Core/Backend/Combos.php:271 src/Core/Backend/Listing/ListingPosts.php:76
 #: src/Core/Backend/Listing/ListingPostsMini.php:62
-#: src/Core/Backend/UserPref.php:205 src/Process/Backend/Home.php:543
+#: src/Core/Backend/UserPref.php:205 src/Process/Backend/Home.php:557
 #: src/Process/Backend/MediaItem.php:1096 src/Process/Backend/Post.php:811
 msgid "Title"
 msgstr "Τίτλος"
@@ -377,7 +377,7 @@ msgid "Change category for this selection"
 msgstr "Αλλαγή κατηγορίας για αυτήν την επιλογή"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:351
-#: src/Core/Backend/Filter/FilterPosts.php:131 src/Process/Backend/Home.php:569
+#: src/Core/Backend/Filter/FilterPosts.php:131 src/Process/Backend/Home.php:583
 #: src/Process/Backend/Post.php:700
 msgid "Category:"
 msgstr "Κατηγορία:"
@@ -387,7 +387,7 @@ msgid "Create a new category for the post(s)"
 msgstr "Δημιουργία νέας κατηγορίας για την(τις) ανάρτηση(εις)"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:369
-#: src/Process/Backend/Home.php:547 src/Process/Backend/Home.php:581
+#: src/Process/Backend/Home.php:561 src/Process/Backend/Home.php:595
 #: src/Process/Backend/Media.php:763 src/Process/Backend/MediaItem.php:1236
 #: src/Process/Backend/Post.php:713 src/Process/Backend/Post.php:816
 msgid "Title:"
@@ -395,7 +395,7 @@ msgstr "Τίτλος:"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:378
 #: src/Process/Backend/Category.php:268 src/Process/Backend/Category.php:326
-#: src/Process/Backend/Home.php:588 src/Process/Backend/Post.php:720
+#: src/Process/Backend/Home.php:602 src/Process/Backend/Post.php:720
 msgid "Parent:"
 msgstr "Γονικός:"
 
@@ -405,10 +405,10 @@ msgstr "Γονικός:"
 #: src/Core/Backend/ModulesList.php:1979 src/Process/Backend/BlogPref.php:1183
 #: src/Process/Backend/Category.php:298 src/Process/Backend/Category.php:337
 #: src/Process/Backend/Category.php:373 src/Process/Backend/Comment.php:350
-#: src/Process/Backend/Home.php:598 src/Process/Backend/MediaItem.php:1276
-#: src/Process/Backend/Post.php:900 src/Process/Backend/Post.php:1114
-#: src/Process/Backend/User.php:536 src/Process/Backend/UsersActions.php:521
-#: src/Process/Install/Install.php:479
+#: src/Process/Backend/Home.php:612 src/Process/Backend/Home.php:663
+#: src/Process/Backend/MediaItem.php:1276 src/Process/Backend/Post.php:900
+#: src/Process/Backend/Post.php:1114 src/Process/Backend/User.php:536
+#: src/Process/Backend/UsersActions.php:521 src/Process/Install/Install.php:479
 msgid "Save"
 msgstr "Αποθήκευση"
 
@@ -565,7 +565,7 @@ msgid "My preferences"
 msgstr "Οι προτιμήσεις μου"
 
 #: src/Core/Backend/Favorites.php:414 src/Core/Backend/Menus.php:181
-#: src/Process/Backend/Home.php:532 src/Process/Backend/Post.php:95
+#: src/Process/Backend/Home.php:546 src/Process/Backend/Post.php:95
 #: src/Process/Backend/Post.php:943 src/Process/Backend/Posts.php:114
 msgid "New post"
 msgstr "Νέα δημοσίευση"
@@ -1410,7 +1410,7 @@ msgstr "Ανεβάστε ένα αρχείο zip"
 #: src/Core/Backend/ModulesList.php:1745 src/Core/Backend/ModulesList.php:1792
 #: src/Process/Backend/Blog.php:117 src/Process/Backend/BlogPref.php:545
 #: src/Process/Backend/BlogPref.php:1030 src/Process/Backend/Category.php:248
-#: src/Process/Backend/Comment.php:284 src/Process/Backend/Home.php:535
+#: src/Process/Backend/Comment.php:284 src/Process/Backend/Home.php:549
 #: src/Process/Backend/Langs.php:322 src/Process/Backend/Langs.php:372
 #: src/Process/Backend/LinkPopup.php:83 src/Process/Backend/Post.php:968
 #: src/Process/Backend/Post.php:1059 src/Process/Backend/User.php:303
@@ -1488,7 +1488,7 @@ msgstr "Πίσω"
 
 #: src/Core/Backend/Notices.php:85 src/Core/Backend/Page.php:1264
 #: src/Core/Backend/Page.php:1420 src/Core/Upgrade/Notices.php:48
-#: src/Process/Backend/Home.php:292
+#: src/Process/Backend/Home.php:306
 msgid "Error:"
 msgstr "Σφάλμα:"
 
@@ -4121,133 +4121,141 @@ msgstr "Διαγραφή όλων των ανεπιθύμητων μηνυμάτ
 msgid "Selected comments action:"
 msgstr "Επιλεγμένη ενέργεια σχολίων:"
 
-#: src/Process/Backend/Home.php:73 src/Process/Backend/Plugins.php:58
+#: src/Process/Backend/Home.php:75 src/Process/Backend/Plugins.php:58
 msgid "The following plugins have been disabled :"
 msgstr "Τα ακόλουθα πρόσθετα έχουν απενεργοποιηθεί :"
 
-#: src/Process/Backend/Home.php:200
+#: src/Process/Backend/Home.php:135
+msgid "Your last donation date has been saved."
+msgstr "Η ημερομηνία της τελευταίας σας δωρεάς έχει αποθηκευτεί."
+
+#: src/Process/Backend/Home.php:214
 msgid "Dashboard area's drag and drop is disabled"
 msgstr "Η μεταφορά και η απόθεση στην περιοχή του ταμπλό είναι απενεργοποιημένη"
 
-#: src/Process/Backend/Home.php:201
+#: src/Process/Backend/Home.php:215
 msgid "Dashboard area's drag and drop is enabled"
 msgstr "Η μεταφορά και η απόθεση στην περιοχή του ταμπλό είναι ενεργοποιημένη"
 
-#: src/Process/Backend/Home.php:217 src/Process/Backend/Home.php:230
+#: src/Process/Backend/Home.php:231 src/Process/Backend/Home.php:244
 #: src/Process/Upgrade/Home.php:135
 msgid "Dashboard"
 msgstr "Ταμπλό"
 
-#: src/Process/Backend/Home.php:242
+#: src/Process/Backend/Home.php:256
 msgid "Make this blog my default blog"
 msgstr "Κάντε αυτό το ιστολόγιο μου προεπιλεγμένο ιστολόγιο"
 
-#: src/Process/Backend/Home.php:248
+#: src/Process/Backend/Home.php:262
 msgid "This blog is offline"
 msgstr "Αυτό το ιστολόγιο είναι εκτός σύνδεσης"
 
-#: src/Process/Backend/Home.php:250
+#: src/Process/Backend/Home.php:264
 msgid "This blog is removed"
 msgstr "Αυτό το ιστολόγιο έχει αφαιρεθεί"
 
-#: src/Process/Backend/Home.php:255 src/Process/Backend/Home.php:263
+#: src/Process/Backend/Home.php:269 src/Process/Backend/Home.php:277
 #: src/Process/Upgrade/Home.php:60 src/Process/Upgrade/Home.php:65
 #, php-format
 msgid "%s is not defined, you should edit your configuration file."
 msgstr "%s δεν έχει οριστεί, θα πρέπει να επεξεργαστείτε το αρχείο ρυθμίσεων σας."
 
-#: src/Process/Backend/Home.php:256 src/Process/Backend/Home.php:264
+#: src/Process/Backend/Home.php:270 src/Process/Backend/Home.php:278
 #: src/Process/Upgrade/Home.php:61 src/Process/Upgrade/Home.php:66
 msgid "See <a href=\"https://dotclear.org/documentation/2.0/admin/config\">documentation</a> for more information."
 msgstr "Βλέπε <a href=\"https://dotclear.org/documentation/2.0/admin/config\">τεκμηρίωση</a> για περισσότερες πληροφορίες."
 
-#: src/Process/Backend/Home.php:274 src/Process/Upgrade/Home.php:70
+#: src/Process/Backend/Home.php:288 src/Process/Upgrade/Home.php:70
 msgid "The cache directory does not exist or is not writable. You must create this directory with sufficient rights and affect this location to \"DC_TPL_CACHE\" in inc/config.php file."
 msgstr "Ο κατάλογος προσωρινής αποθήκευσης δεν υπάρχει ή δεν είναι εγγράψιμος. Πρέπει να δημιουργήσετε αυτόν τον κατάλογο με επαρκή δικαιώματα και να επηρεάσει αυτή τη θέση για να \"DC_TPL_CACHE\" στο αρχείο inc/config.php."
 
-#: src/Process/Backend/Home.php:277
+#: src/Process/Backend/Home.php:291
 msgid "The cache directory does not exist or is not writable. You should contact your administrator."
 msgstr "Ο κατάλογος προσωρινής αποθήκευσης δεν υπάρχει ή δεν είναι εγγράψιμος. Θα πρέπει να επικοινωνήσετε με το διαχειριστή."
 
-#: src/Process/Backend/Home.php:283
+#: src/Process/Backend/Home.php:297
 msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
 msgstr "Δεν υπάρχει εγγράψιμος κατάλογος /public/ στην τοποθεσία που έχει οριστεί σε about:config \"public_path\". Πρέπει να δημιουργήσετε αυτόν τον κατάλογο με επαρκή δικαιώματα (ή να αλλάξετε αυτήν τη ρύθμιση)."
 
-#: src/Process/Backend/Home.php:286
+#: src/Process/Backend/Home.php:300
 msgid "There is no writable root directory for the media manager. You should contact your administrator."
 msgstr "Δεν υπάρχει εγγράψιμος ριζικός κατάλογος για τον διαχειριστή πολυμέσων. Θα πρέπει να επικοινωνήσετε με το διαχειριστή."
 
-#: src/Process/Backend/Home.php:313 src/Process/Backend/Plugins.php:130
+#: src/Process/Backend/Home.php:327 src/Process/Backend/Plugins.php:130
 #: src/Process/Install/Install.php:485 src/Process/Upgrade/Plugins.php:123
 msgid "Following plugins have been installed:"
 msgstr "Τα ακόλουθα πρόσθετα έχουν εγκατασταθεί:"
 
-#: src/Process/Backend/Home.php:331 src/Process/Backend/Plugins.php:146
+#: src/Process/Backend/Home.php:345 src/Process/Backend/Plugins.php:146
 #: src/Process/Install/Install.php:492 src/Process/Upgrade/Plugins.php:139
 msgid "Following plugins have not been installed:"
 msgstr "Τα ακόλουθα πρόσθετα δεν έχουν εγκατασταθεί:"
 
-#: src/Process/Backend/Home.php:348
+#: src/Process/Backend/Home.php:362
 msgid "Errors have occured with following plugins:"
 msgstr "Σφάλματα έχουν παρουσιαστεί με τα ακόλουθα plugins:"
 
-#: src/Process/Backend/Home.php:526
+#: src/Process/Backend/Home.php:540
 msgid "Quick post"
 msgstr "Γρήγορη δημοσίευση"
 
-#: src/Process/Backend/Home.php:556 src/Process/Backend/Post.php:853
+#: src/Process/Backend/Home.php:570 src/Process/Backend/Post.php:853
 msgid "Content:"
 msgstr "Περιεχόμενα:"
 
-#: src/Process/Backend/Home.php:562 src/Process/Backend/Post.php:850
+#: src/Process/Backend/Home.php:576 src/Process/Backend/Post.php:850
 msgid "Content"
 msgstr "Περιεχόμενο"
 
-#: src/Process/Backend/Home.php:573 src/Process/Backend/Post.php:705
+#: src/Process/Backend/Home.php:587 src/Process/Backend/Post.php:705
 msgid "Add a new category"
 msgstr "Προσθέστε μια νέα κατηγορία"
 
-#: src/Process/Backend/Home.php:592
+#: src/Process/Backend/Home.php:606
 msgid "This category will be created when you will save your post."
 msgstr "Αυτή η κατηγορία θα δημιουργηθεί όταν θα αποθηκεύσετε την ανάρτησή σας."
 
-#: src/Process/Backend/Home.php:600
+#: src/Process/Backend/Home.php:614
 msgid "Save and publish"
 msgstr "Αποθήκευση και δημοσίευση"
 
-#: src/Process/Backend/Home.php:622
+#: src/Process/Backend/Home.php:636
 msgid "Donate to Dotclear"
 msgstr "Δωρεά στο Dotclear"
 
-#: src/Process/Backend/Home.php:624
+#: src/Process/Backend/Home.php:638
 msgid "Dotclear is not a commercial project — using Dotclear is <strong>free</strong> and <strong>always</strong> will be. If you wish to, you may contribute to Dotclear to help us cover project-related expenses."
 msgstr "Το Dotclear δεν είναι ένα εμπορικό έργο - η χρήση του Dotclear είναι <strong>δωρεάν</strong> και θα είναι <strong>πάντα</strong> δωρεάν. Αν το επιθυμείτε, μπορείτε να συνεισφέρετε στο Dotclear για να μας βοηθήσετε να καλύψουμε τα έξοδα που σχετίζονται με το έργο."
 
-#: src/Process/Backend/Home.php:626
+#: src/Process/Backend/Home.php:640
 msgid "The collected funds will be spent as follows:"
 msgstr "Τα συγκεντρωθέντα κεφάλαια θα δαπανηθούν ως εξής:"
 
-#: src/Process/Backend/Home.php:630
+#: src/Process/Backend/Home.php:644
 msgid "Paying for the website hosting and translations"
 msgstr "Πληρωμή για τη φιλοξενία του δικτυακού τόπου και τις μεταφράσεις"
 
-#: src/Process/Backend/Home.php:632
+#: src/Process/Backend/Home.php:646
 msgid "Paying for the domain names"
 msgstr "Πληρωμή για τα ονόματα τομέα"
 
-#: src/Process/Backend/Home.php:634
+#: src/Process/Backend/Home.php:648
 msgid "Supporting related projects such as Dotaddict.org"
 msgstr "Υποστήριξη σχετικών έργων όπως το Dotaddict.org"
 
-#: src/Process/Backend/Home.php:636
+#: src/Process/Backend/Home.php:650
 msgid "Cover the costs of events set up by Dotclear"
 msgstr "Κάλυψη του κόστους των εκδηλώσεων που διοργανώνει η Dotclear"
 
-#: src/Process/Backend/Home.php:639
+#: src/Process/Backend/Home.php:653
 msgid "See <a href=\"https://dotclear.org/donate\">this page</a> for more information and donation"
 msgstr "Δείτε <a href=\"https://dotclear.org/donate\">αυτή τη σελίδα</a> για περισσότερες πληροφορίες και δωρεές"
 
-#: src/Process/Backend/Home.php:654
+#: src/Process/Backend/Home.php:662
+msgid "As a personal reminder, my last donation was made on:"
+msgstr "Ως προσωπική υπενθύμιση, η τελευταία μου δωρεά έγινε στις:"
+
+#: src/Process/Backend/Home.php:681
 msgid "Documentation and support"
 msgstr "Τεκμηρίωση και υποστήριξη"
 
