@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-31 09:15+0200\n"
-"PO-Revision-Date: 2025-05-31 07:21\n"
+"PO-Revision-Date: 2025-05-31 07:46\n"
 "Last-Translator: \n"
 "Language-Team: Croatian\n"
 "Language: hr_HR\n"
@@ -4157,7 +4157,7 @@ msgstr "Sljedeći dodaci su onemogućeni:"
 
 #: src/Process/Backend/Home.php:135
 msgid "Your last donation date has been saved."
-msgstr ""
+msgstr "Datum vaše posljednje donacije je spremljen."
 
 #: src/Process/Backend/Home.php:214
 msgid "Dashboard area's drag and drop is disabled"
@@ -4283,7 +4283,7 @@ msgstr "Pogledajte <a href=\"https://dotclear.org/donate\">ovu stranicu</a> za v
 
 #: src/Process/Backend/Home.php:662
 msgid "As a personal reminder, my last donation was made on:"
-msgstr ""
+msgstr "Kao osobni podsjetnik, moja posljednja donacija je izvršena:"
 
 #: src/Process/Backend/Home.php:681
 msgid "Documentation and support"
