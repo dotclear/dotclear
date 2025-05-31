@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-31 09:15+0200\n"
-"PO-Revision-Date: 2025-05-31 07:46\n"
+"POT-Creation-Date: 2025-05-31 13:00+0200\n"
+"PO-Revision-Date: 2025-05-31 11:09\n"
 "Last-Translator: \n"
 "Language-Team: Dutch\n"
 "Language: nl_NL\n"
@@ -4252,8 +4252,8 @@ msgid "See <a href=\"https://dotclear.org/donate\">this page</a> for more inform
 msgstr "Zie <a href=\"https://dotclear.org/donate\">deze pagina</a> voor meer informatie en donatie"
 
 #: src/Process/Backend/Home.php:662
-msgid "As a personal reminder, my last donation was made on:"
-msgstr "Ter herinnering, mijn laatste donatie was op:"
+msgid "For the record, here is the date of my last donation to Dotclear:"
+msgstr "Voor de goede orde, hier is de datum van mijn laatste donatie aan Dotclear:"
 
 #: src/Process/Backend/Home.php:681
 msgid "Documentation and support"
