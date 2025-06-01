@@ -520,11 +520,10 @@ dotclear.helpViewer = (selector) => {
       for (const change of changes) {
         if (change.isIntersecting) {
           helpButtonElement.classList.remove('floatable');
-          positionButton();
         } else {
           helpButtonElement.classList.add('floatable');
-          positionButton();
         }
+        positionButton();
       }
     },
     {
@@ -904,9 +903,8 @@ dotclear.badge = (elt, options = null) => {
   if (!target.length) return;
 
   // Cope with options
-  const opt = Object.assign(
-    {
-      sibling: false,
+  const opt = {
+    sibling: false,
       id: 'default',
       remove: false,
       value: null,
@@ -917,9 +915,8 @@ dotclear.badge = (elt, options = null) => {
       noborder: false,
       small: false,
       classes: '',
-    },
-    options,
-  );
+    ...options,
+  };
 
   // Set some constants
   const classid = `span.badge.badge-${opt.id}`; // Pseudo unique class
@@ -946,7 +943,7 @@ dotclear.badge = (elt, options = null) => {
   if (opt.left) classes.push('badge-left');
   if (opt.noborder) classes.push('badge-noborder');
   if (opt.small) classes.push('badge-small');
-  if (opt.classes) classes.push(`${opt.classes}`);
+  if (opt.classes) classes.push(opt.classes);
 
   // Compose badge
   const template = dotclear.htmlToNode(`<span class="${classes.join(' ')}" aria-hidden="true">${opt.value}</span>`);
@@ -1380,11 +1377,7 @@ dotclear.ready(() => {
   const headerObserver = new IntersectionObserver(
     (changes) => {
       for (const change of changes) {
-        if (change.isIntersecting) {
-          gototopButton.style.display = 'none';
-        } else {
-          gototopButton.style.display = 'block';
-        }
+        gototopButton.style.display = change.isIntersecting ? 'none' : 'block';
       }
     },
     {
