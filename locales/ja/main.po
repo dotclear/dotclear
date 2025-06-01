@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-01 08:06+0200\n"
-"PO-Revision-Date: 2025-06-01 06:11\n"
+"PO-Revision-Date: 2025-06-01 06:37\n"
 "Last-Translator: \n"
 "Language-Team: Japanese\n"
 "Language: ja_JP\n"
@@ -5277,7 +5277,7 @@ msgstr "<strong>管理</strong> は、プラグインに特定の管理ページ
 
 #: src/Process/Backend/Settings.php:291
 msgid "<strong>Widgets</strong> indicates that the plugin provide one or more widgets."
-msgstr ""
+msgstr "<strong>ウィジェットは</strong>、プラグインが1つ以上のウィジェットを提供することを示します。"
 
 #: src/Process/Backend/User.php:57 src/Process/Backend/Users.php:128
 msgid "New user"
