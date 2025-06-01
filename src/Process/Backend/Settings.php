@@ -30,6 +30,7 @@ use Dotclear\Helper\Html\Form\Thead;
 use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Html\Form\Ul;
 use Dotclear\Module\ModuleDefine;
+use Dotclear\Plugin\widgets\Widgets;
 
 /**
  * @since 2.35
@@ -62,19 +63,33 @@ class Settings extends Process
             )
         );
 
+        $widgets = [];
+        if (App::plugins()->moduleExists('widgets')) {
+            // Init default widgets
+            Widgets::init();
+            // Get list of registered plugins for existing widgets
+            foreach (Widgets::$widgets->elements() as $w) {
+                $id = $w->pluginID();
+                if ($id && !in_array($id, $widgets)) {
+                    $widgets[] = $id;
+                }
+            }
+        }
+
         // -- Display modules lists --
         $plugins = App::plugins()->getDefines(['state' => ModuleDefine::STATE_ENABLED]);
         uasort($plugins, static fn ($a, $b): int => strtolower((string) $a->getId()) <=> strtolower((string) $b->getId()));
 
         $makeLink = function (string $type, string $url): Link {
             $title = match ($type) {
-                'config' => __('Configuration'),
-                'blog'   => __('Blog parameters'),
-                'pref'   => __('User preferences'),
-                'self'   => __('Settings'),
-                'other'  => __('Other settings'),
-                'manage' => __('Management'),
-                default  => __('Unknown'),
+                'config'  => __('Configuration'),
+                'blog'    => __('Blog parameters'),
+                'pref'    => __('User preferences'),
+                'self'    => __('Settings'),
+                'other'   => __('Other settings'),
+                'manage'  => __('Management'),
+                'widgets' => __('Widgets'),
+                default   => __('Unknown'),
             };
 
             return (new Link())
@@ -91,6 +106,7 @@ class Settings extends Process
             'self'        => false,
             'other'       => false,
             'manage'      => false,
+            'widgets'     => false,
         ];
         foreach ($plugins as $plugin) {
             $id       = $plugin->getId();
@@ -119,6 +135,9 @@ class Settings extends Process
                     $cols['manage'] = true;
                 }
             }
+            if (in_array($id, $widgets)) {
+                $cols['widgets'] = true;
+            }
         }
 
         // Compose rows
@@ -127,7 +146,7 @@ class Settings extends Process
             $id       = $plugin->getId();
             $name     = $plugin->get('name');
             $settings = ModulesList::getSettingsUrls($id, true, keys: true, url_only: true);
-            if ($settings !== []) {
+            if ($settings !== [] || in_array($id, $widgets)) {
                 $rows[] = (new Tr())
                     ->class('line')
                     ->items([
@@ -179,6 +198,14 @@ class Settings extends Process
                                     (new None()),
                                 ]) :
                             (new None()),
+                        $cols['widgets'] ?
+                            (new Td())
+                                ->items([
+                                    in_array($id, $widgets) ?
+                                    $makeLink('widgets', App::backend()->url()->get('admin.plugin.widgets')) :
+                                    (new None()),
+                                ]) :
+                            (new None()),
                     ]);
             }
         }
@@ -220,6 +247,10 @@ class Settings extends Process
                                         (new Th())
                                             ->text(__('Management')) :
                                         (new None()),
+                                    $cols['widgets'] ?
+                                        (new Th())
+                                            ->text(__('Widgets')) :
+                                        (new None()),
                                 ]),
                         ]))
                     ->tbody((new Tbody())
@@ -254,6 +285,10 @@ class Settings extends Process
                                 $cols['manage'] ?
                                     (new Li())
                                         ->text(__('<strong>Management</strong> indicates that the plugin has a specific management page.')) :
+                                    (new None()),
+                                $cols['widgets'] ?
+                                    (new Li())
+                                        ->text(__('<strong>Widgets</strong> indicates that the plugin provide one or more widgets.')) :
                                     (new None()),
                             ]),
                     ]),

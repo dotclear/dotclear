@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -28,7 +29,7 @@ class Widgets
     public static function initWidgets(WidgetsStack $widgets): void
     {
         $widgets
-            ->create(self::WIDGET_ID, My::name(), FrontendTemplate::pagesWidget(...), null, 'List of published pages')
+            ->create(self::WIDGET_ID, My::name(), FrontendTemplate::pagesWidget(...), null, 'List of published pages', My::id())
             ->addTitle(My::name())
             ->setting(
                 'sortby',

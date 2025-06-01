@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -28,7 +29,7 @@ class Widgets
     public static function initWidgets(WidgetsStack $widgets): void
     {
         $widgets
-            ->create(self::WIDGET_ID, My::name(), FrontendTemplate::tagsWidget(...), null, 'Tags cloud')
+            ->create(self::WIDGET_ID, My::name(), FrontendTemplate::tagsWidget(...), null, 'Tags cloud', My::id())
             ->addTitle(__('Tags'))
             ->setting('limit', __('Limit (empty means no limit):'), '20')
             ->setting(

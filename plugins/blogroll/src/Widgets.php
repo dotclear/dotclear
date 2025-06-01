@@ -44,7 +44,7 @@ class Widgets
         }
 
         $widgets
-            ->create(self::WIDGET_ID, My::name(), FrontendTemplate::linksWidget(...), null, 'Blogroll list')
+            ->create(self::WIDGET_ID, My::name(), FrontendTemplate::linksWidget(...), null, 'Blogroll list', My::id())
             ->addTitle(__('Links'))
             ->setting('category', __('Category'), '', 'combo', $categories_combo)
             ->addHomeOnly()

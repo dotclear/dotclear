@@ -69,10 +69,11 @@ class WidgetsStack
      * @param   mixed   $callback           The callback
      * @param   mixed   $append_callback    The append callback
      * @param   string  $desc               The description
+     * @param   string  $plugin_id          The module ID providing this widget
      */
-    public function create(string $id, string $name, $callback, $append_callback = null, string $desc = ''): WidgetsElement
+    public function create(string $id, string $name, $callback, $append_callback = null, string $desc = '', string $plugin_id = ''): WidgetsElement
     {
-        $this->widgets[$id]                  = new WidgetsElement($id, $name, $callback, $desc);
+        $this->widgets[$id]                  = new WidgetsElement($id, $name, $callback, $desc, $plugin_id);
         $this->widgets[$id]->append_callback = $append_callback;
 
         return $this->widgets[$id];

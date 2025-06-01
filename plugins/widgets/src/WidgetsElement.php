@@ -93,12 +93,14 @@ class WidgetsElement
      * @param   string          $name       The widget name
      * @param   callable        $callback   The widget callback
      * @param   string          $desc       The widget description
+     * @param   string          $plugin_id  The module ID providing this widget
      */
     public function __construct(
         private readonly string $id,
         private readonly string $name,
         $callback,
-        private readonly string $desc = ''
+        private readonly string $desc = '',
+        private readonly string $plugin_id = '',
     ) {
         if (!is_callable($callback)) {  // @phpstan-ignore-line
             $widget = new ArrayObject(['id' => $id, 'callback' => $callback]);
@@ -152,6 +154,14 @@ class WidgetsElement
     public function desc(): string
     {
         return $this->desc;
+    }
+
+    /**
+     * Get widget plugin ID creator.
+     */
+    public function pluginID(): string
+    {
+        return $this->plugin_id;
     }
 
     /**
