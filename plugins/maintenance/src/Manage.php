@@ -173,11 +173,18 @@ class Manage extends Process
 
         $combo_ts = [
             __('Never')            => (string) 0,
-            __('Every week')       => (string) 604800,
+            __('Every week')       => (string) 604_800,
             __('Every two weeks')  => (string) 1_209_600,
             __('Every month')      => (string) 2_592_000,
             __('Every two months') => (string) 5_184_000,
         ];
+
+        if (App::config()->debugMode() && App::config()->devMode()) {
+            $combo_ts = array_merge($combo_ts, [
+                '5 minutes' => (string) 300,
+                '1 minute'  => (string) 60,
+            ]);
+        }
 
         // Display page
 
