@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-31 13:01+0200\n"
-"PO-Revision-Date: 2025-05-31 11:10\n"
+"POT-Creation-Date: 2025-06-01 08:06+0200\n"
+"PO-Revision-Date: 2025-06-01 06:13\n"
 "Last-Translator: \n"
 "Language-Team: Telugu\n"
 "Language: te_IN\n"
@@ -1330,7 +1330,7 @@ msgstr "ఆర్కైవ్"
 #: plugins/breadcrumb/src/FrontendTemplate.php:174
 #: plugins/breadcrumb/src/FrontendTemplate.php:181
 #: plugins/simpleMenu/src/Manage.php:131 plugins/simpleMenu/src/Manage.php:305
-#: plugins/tags/src/Widgets.php:56
+#: plugins/tags/src/Widgets.php:57
 msgid "All tags"
 msgstr "అన్ని ట్యాగులూ"
 
@@ -2496,7 +2496,7 @@ msgstr "పేజీ స్థితి:"
 msgid "Page language"
 msgstr "పుట భాష"
 
-#: plugins/pages/src/ManagePage.php:609 plugins/pages/src/Widgets.php:40
+#: plugins/pages/src/ManagePage.php:609 plugins/pages/src/Widgets.php:41
 msgid "Page position"
 msgstr "పేజీ స్థానం"
 
@@ -2516,11 +2516,11 @@ msgstr "పేజీకి ప్రవేశం."
 msgid "Select this comment"
 msgstr "ఈ వ్యాఖ్యను యెంపికచేయుము"
 
-#: plugins/pages/src/Widgets.php:39
+#: plugins/pages/src/Widgets.php:40
 msgid "Page title"
 msgstr "పేజీ శీర్షిక"
 
-#: plugins/pages/src/Widgets.php:41
+#: plugins/pages/src/Widgets.php:42
 msgid "Publication date"
 msgstr "ప్రచురణ తేదీ"
 
@@ -2561,7 +2561,7 @@ msgid "Test ping services"
 msgstr "పరీక్ష సేవలు"
 
 #: plugins/simpleMenu/src/Backend.php:26 plugins/simpleMenu/src/Manage.php:72
-#: plugins/simpleMenu/src/Widgets.php:28
+#: plugins/simpleMenu/src/Widgets.php:29
 msgid "Simple menu"
 msgstr "సామాన్య మెనూ"
 
@@ -2586,7 +2586,7 @@ msgid "Page"
 msgstr "పుట"
 
 #: plugins/simpleMenu/src/Manage.php:166 plugins/tags/src/Backend.php:25
-#: plugins/tags/src/Widgets.php:32
+#: plugins/tags/src/Widgets.php:33
 msgid "Tags"
 msgstr "ట్యాగులు"
 
@@ -2755,23 +2755,23 @@ msgstr "మెనూను నవీకరణ చేయి"
 msgid "No menu items so far."
 msgstr "ఇప్పటివరకు ఏ మెనూ అంశాలు లేవు."
 
-#: plugins/simpleMenu/src/Widgets.php:32
+#: plugins/simpleMenu/src/Widgets.php:33
 msgid "Item description"
 msgstr "అంశం వివరణ"
 
-#: plugins/simpleMenu/src/Widgets.php:36
+#: plugins/simpleMenu/src/Widgets.php:37
 msgid "Displayed in link"
 msgstr "లింకులో ప్రదర్శించబడినది"
 
-#: plugins/simpleMenu/src/Widgets.php:37
+#: plugins/simpleMenu/src/Widgets.php:38
 msgid "Used as link title"
 msgstr "లింకు శీర్షిక వలె వుపయోగించబడింది"
 
-#: plugins/simpleMenu/src/Widgets.php:38
+#: plugins/simpleMenu/src/Widgets.php:39
 msgid "Displayed in link and used as title"
 msgstr "లింకులో వుపయోగించి టైటిల్ గా వుపయోగించాడు."
 
-#: plugins/simpleMenu/src/Widgets.php:39
+#: plugins/simpleMenu/src/Widgets.php:40
 msgid "Not displayed nor used"
 msgstr "ప్రదర్శించలేదు మరియు ఉపయోగించబడలేదు"
 
@@ -2911,27 +2911,27 @@ msgstr "పేరు మార్చు:"
 msgid "List of entries with this tag"
 msgstr "ఈ ట్యాగ్తో ఎంట్రీల జాబితా"
 
-#: plugins/tags/src/Widgets.php:33
+#: plugins/tags/src/Widgets.php:34
 msgid "Limit (empty means no limit):"
 msgstr "పరిమితి (ఖాళీ అంటే పరిమిత లేదు):"
 
-#: plugins/tags/src/Widgets.php:40
+#: plugins/tags/src/Widgets.php:41
 msgid "Tag name"
 msgstr "ట్యాగు పేరు"
 
-#: plugins/tags/src/Widgets.php:41
+#: plugins/tags/src/Widgets.php:42
 msgid "Entries count"
 msgstr "టపాల సంఖ్య"
 
-#: plugins/tags/src/Widgets.php:42
+#: plugins/tags/src/Widgets.php:43
 msgid "Newest entry"
 msgstr "నివేదిక ప్రవేశము"
 
-#: plugins/tags/src/Widgets.php:43
+#: plugins/tags/src/Widgets.php:44
 msgid "Oldest entry"
 msgstr "ఓల్డెస్ట్ ప్రవేశం"
 
-#: plugins/tags/src/Widgets.php:56
+#: plugins/tags/src/Widgets.php:57
 msgid "Link to all tags:"
 msgstr "అన్ని టాగ్కు లింకు:"
 
@@ -3091,10 +3091,6 @@ msgstr "అభీష్టాలు విజయవంతమయ్యాయి"
 #: plugins/userPref/src/Manage.php:158 plugins/userPref/src/Manage.php:160
 msgid "Global preferences"
 msgstr "గ్లోబల్ ప్రాధాన్యం"
-
-#: plugins/widgets/src/Backend.php:27
-msgid "Widgets"
-msgstr "విడ్జెట్లు"
 
 #: plugins/widgets/src/Backend.php:51
 msgid "Widget's textareas"
@@ -3330,31 +3326,31 @@ msgstr "టపాల ఫీడు"
 msgid "Comments feed"
 msgstr "వ్యాఖ్యల ఫీడు"
 
-#: plugins/widgets/src/WidgetsElement.php:537
+#: plugins/widgets/src/WidgetsElement.php:547
 msgid "Title (optional)"
 msgstr "శీర్షిక (ఐచ్చికం)"
 
-#: plugins/widgets/src/WidgetsElement.php:548
+#: plugins/widgets/src/WidgetsElement.php:558
 msgid "All pages"
 msgstr "అన్ని పేజీలు"
 
-#: plugins/widgets/src/WidgetsElement.php:549
+#: plugins/widgets/src/WidgetsElement.php:559
 msgid "Home page only"
 msgstr "హోమ్ పేజీ మాత్రమే"
 
-#: plugins/widgets/src/WidgetsElement.php:550
+#: plugins/widgets/src/WidgetsElement.php:560
 msgid "Except on home page"
 msgstr "ఇంటి పేజీలో తప్ప"
 
-#: plugins/widgets/src/WidgetsElement.php:558
+#: plugins/widgets/src/WidgetsElement.php:568
 msgid "Display on:"
 msgstr "ప్రదర్శన:"
 
-#: plugins/widgets/src/WidgetsElement.php:584
+#: plugins/widgets/src/WidgetsElement.php:594
 msgid "Content only"
 msgstr "కంటెంట్ మాత్రమే"
 
-#: plugins/widgets/src/WidgetsElement.php:594
+#: plugins/widgets/src/WidgetsElement.php:604
 msgid "CSS class:"
 msgstr "CSS తరగతి:"
 
