@@ -112,7 +112,10 @@ class BlogTheme extends Process
             // Display previously gathered content
             App::backend()->list->displayConfiguration();
 
-            Page::helpBlock('core_blog_theme_conf');
+            if (!App::backend()->resources()->context()) {
+                // Help sidebar has not been loaded by theme configuration
+                Page::helpBlock('core_blog_theme_conf');
+            }
             Page::close();
 
             // Stop reading code here
