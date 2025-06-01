@@ -28,7 +28,7 @@ dotclear.passwordStrength = (opts) => {
         length: 26,
       },
       {
-        re: /[0-9]/, // 1234567890
+        re: /\d/, // 1234567890
         length: 10,
       },
       {

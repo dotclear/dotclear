@@ -172,12 +172,7 @@ dotclear.confirm = (message, event = null) => {
  */
 dotclear.expandContent = (opts) => {
   const toggleArrow = (button, actionRequested = '') => {
-    const actionDone =
-      actionRequested === ''
-        ? button.getAttribute('aria-label') === dotclear.img_plus_alt
-          ? 'open'
-          : 'close'
-        : actionRequested;
+    const actionDone = actionRequested || (button.getAttribute('aria-label') === dotclear.img_plus_alt ? 'open' : 'close');
     if (actionDone === 'open' && button.getAttribute('aria-expanded') === 'false') {
       button.firstChild.data = dotclear.img_minus_txt;
       button.setAttribute('value', dotclear.img_minus_txt);
@@ -905,16 +900,16 @@ dotclear.badge = (elt, options = null) => {
   // Cope with options
   const opt = {
     sibling: false,
-      id: 'default',
-      remove: false,
-      value: null,
-      inline: false,
-      icon: false,
-      type: '',
-      left: false,
-      noborder: false,
-      small: false,
-      classes: '',
+    id: 'default',
+    remove: false,
+    value: null,
+    inline: false,
+    icon: false,
+    type: '',
+    left: false,
+    noborder: false,
+    small: false,
+    classes: '',
     ...options,
   };
 
@@ -1231,13 +1226,13 @@ dotclear.ready(() => {
   }
 
   // Accssibility flags
-  dotclear.animationisReduced =
-    window.matchMedia('(prefers-reduced-motion: reduce)') === true ||
-    window.matchMedia('(prefers-reduced-motion: reduce)').matches === true;
   const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-  mediaQuery.onchange = (event) => {
-    dotclear.animationisReduced = event.matches;
-  };
+  if (mediaQuery) {
+    dotclear.animationisReduced = mediaQuery.matches === true;
+    mediaQuery.onchange = (event) => {
+      dotclear.animationisReduced = event.matches;
+    };
+  }
 
   // Watch data-theme attribute modification
   const observer = new MutationObserver((mutations) => {

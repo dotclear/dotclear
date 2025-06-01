@@ -12,10 +12,11 @@ dotclear.ready(() => {
   const msg = dotclear.getData('blogroll');
   document.querySelector('#links-form #do-action')?.addEventListener('click', (event) => {
     const action = document.querySelector('#links-form #action');
-    if (action.value === 'delete') {
-      if (window.confirm(msg.confirm_links_delete)) return true;
-      event.preventDefault();
-      return false;
+    if (action.value !== 'delete') {
+      return;
     }
+    if (window.confirm(msg.confirm_links_delete)) return true;
+    event.preventDefault();
+    return false;
   });
 });

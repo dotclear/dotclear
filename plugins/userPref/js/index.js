@@ -48,7 +48,6 @@ dotclear.ready(() => {
         }
         const details_id = item.id;
         select.value = `#${details_id}`;
-        return;
       });
     }
   };

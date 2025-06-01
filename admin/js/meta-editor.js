@@ -215,7 +215,7 @@ class metaEditor {
 
     dotclear.jsonServicesPost(
       'setPostMeta',
-      (data) => {
+      (_data) => {
         this.meta_dialog.val('');
         this.displayMetaList();
       },
@@ -241,7 +241,7 @@ class metaEditor {
     const text_confirm_msg = this.text_confirm_remove.replace(/%s/, this.meta_type);
 
     if (window.confirm(text_confirm_msg)) {
-      dotclear.jsonServicesPost('delMeta', (data) => this.displayMetaList(), {
+      dotclear.jsonServicesPost('delMeta', (_data) => this.displayMetaList(), {
         postId: this.post_id,
         metaId: meta_id,
         metaType: this.meta_type,

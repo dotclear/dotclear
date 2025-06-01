@@ -70,7 +70,7 @@ dotclear.getData = (id, clear = true, remove = true) => {
         // Clear the element's contents
         element.innerHTML = '';
       }
-    } catch (e) {}
+    } catch {}
   }
   return data;
 };
@@ -189,11 +189,11 @@ dotclear.trimHtml = (html, options = {}) => {
     } else if (!preserveTags) {
       row = '';
     } else if (sum >= limit) {
-      tagMatch = row.match(/[a-zA-Z]+/);
+      tagMatch = RegExp(/[a-zA-Z]+/).exec(row);
       tagName = tagMatch ? tagMatch[0] : '';
 
       if (tagName) {
-        if (row.substring(0, 2) === '</') {
+        if (row.startsWith('</')) {
           while (tagStack[tagStack.length - 1] !== tagName && tagStack.length) {
             tagStack.pop();
           }

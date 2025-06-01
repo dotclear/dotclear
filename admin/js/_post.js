@@ -89,15 +89,13 @@ dotclear.ready(() => {
           },
         },
       });
-    } else {
+    } else if (has_modal) {
       // If has not modal class, the preview is cope by direct link with target="blank" in HTML
-      if (has_modal) {
-        // Open preview on antother window
-        $('#post-preview').on('click', function (e) {
-          e.preventDefault();
-          window.open($(this).attr('href'));
-        });
-      }
+      // Open preview on antother window
+      $('#post-preview').on('click', function (e) {
+        e.preventDefault();
+        window.open($(this).attr('href'));
+      });
     }
   }
   // Prevent history back if currently previewing Post (with magnificPopup

@@ -144,15 +144,13 @@ dotclear.ready(() => {
             },
           },
         });
-      } else {
+      } else if (modal) {
         // If has not modal class, the preview is cope by direct link with target="blank" in HTML
-        if (modal) {
-          // Open preview on antother window
-          preview.addEventListener('click', (event) => {
-            event.preventDefault();
-            window.open(event.currentTarget.href);
-          });
-        }
+        // Open preview on antother window
+        preview.addEventListener('click', (event) => {
+          event.preventDefault();
+          window.open(event.currentTarget.href);
+        });
       }
     }
   }

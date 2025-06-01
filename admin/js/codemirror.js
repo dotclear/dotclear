@@ -26,15 +26,13 @@ for (const i of dotclear.getData('codemirror')) {
           if (cm.getOption('fullScreen')) {
             // Exit from fullscreen mode
             cm.setOption('fullScreen', false);
-          } else {
+          } else if (!cm.state.keyMaps.some((x) => x.name === 'tabAccessibility')) {
             // the user pressed the escape key, now tab will tab to the next element for accessibility
-            if (!cm.state.keyMaps.some((x) => x.name === 'tabAccessibility')) {
-              cm.addKeyMap({
-                name: 'tabAccessibility',
-                Tab: false,
-                'Shift-Tab': false,
-              });
-            }
+            cm.addKeyMap({
+              name: 'tabAccessibility',
+              Tab: false,
+              'Shift-Tab': false,
+            });
           }
         },
       },

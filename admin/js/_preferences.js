@@ -15,8 +15,7 @@ dotclear.ready(() => {
   // Helper to check if current password is required
   const needPassword = () => {
     if (emailField?.value !== userEmail) return true;
-    if (newPasswordField?.value) return true;
-    return false;
+    return !!(newPasswordField?.value);
   };
 
   const userprefsData = dotclear.getData('userprefs');

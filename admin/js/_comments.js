@@ -14,7 +14,7 @@ dotclear.viewCommentContent = (line, _action = 'toggle', e = null) => {
 
   if (tr) {
     tr.style.display = tr.style.display === 'none' ? '' : 'none';
-    target.classList.toggleClass('expand');
+    target.classList.toggle('expand');
   } else {
     // Get comment content if possible
     dotclear.getCommentContent(
