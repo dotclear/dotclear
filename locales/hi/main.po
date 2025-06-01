@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-01 08:06+0200\n"
-"PO-Revision-Date: 2025-06-01 06:12\n"
+"PO-Revision-Date: 2025-06-01 06:38\n"
 "Last-Translator: \n"
 "Language-Team: Hindi\n"
 "Language: hi_IN\n"
@@ -5311,7 +5311,7 @@ msgstr "<strong>प्रबंधन</strong> इंगित करता ह�
 
 #: src/Process/Backend/Settings.php:291
 msgid "<strong>Widgets</strong> indicates that the plugin provide one or more widgets."
-msgstr ""
+msgstr "<strong>विजेट्स</strong> इंगित करता है कि प्लगइन एक या अधिक विजेट प्रदान करता है।"
 
 #: src/Process/Backend/User.php:57 src/Process/Backend/Users.php:128
 msgid "New user"
