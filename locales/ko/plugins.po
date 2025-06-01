@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-31 13:01+0200\n"
-"PO-Revision-Date: 2025-05-31 11:10\n"
+"POT-Creation-Date: 2025-06-01 08:06+0200\n"
+"PO-Revision-Date: 2025-06-01 06:12\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -1328,7 +1328,7 @@ msgstr "글모둠"
 #: plugins/breadcrumb/src/FrontendTemplate.php:174
 #: plugins/breadcrumb/src/FrontendTemplate.php:181
 #: plugins/simpleMenu/src/Manage.php:131 plugins/simpleMenu/src/Manage.php:305
-#: plugins/tags/src/Widgets.php:56
+#: plugins/tags/src/Widgets.php:57
 msgid "All tags"
 msgstr "모든 분류딱지"
 
@@ -2492,7 +2492,7 @@ msgstr "페이지 공개상태 :"
 msgid "Page language"
 msgstr "페이지 언어"
 
-#: plugins/pages/src/ManagePage.php:609 plugins/pages/src/Widgets.php:40
+#: plugins/pages/src/ManagePage.php:609 plugins/pages/src/Widgets.php:41
 msgid "Page position"
 msgstr "페이지 위치"
 
@@ -2512,11 +2512,11 @@ msgstr "페이지 소개."
 msgid "Select this comment"
 msgstr "이 댓글 선택"
 
-#: plugins/pages/src/Widgets.php:39
+#: plugins/pages/src/Widgets.php:40
 msgid "Page title"
 msgstr "페이지 제목"
 
-#: plugins/pages/src/Widgets.php:41
+#: plugins/pages/src/Widgets.php:42
 msgid "Publication date"
 msgstr "공개 일시"
 
@@ -2557,7 +2557,7 @@ msgid "Test ping services"
 msgstr "ping 서비스 테스트"
 
 #: plugins/simpleMenu/src/Backend.php:26 plugins/simpleMenu/src/Manage.php:72
-#: plugins/simpleMenu/src/Widgets.php:28
+#: plugins/simpleMenu/src/Widgets.php:29
 msgid "Simple menu"
 msgstr "간단한 메뉴"
 
@@ -2582,7 +2582,7 @@ msgid "Page"
 msgstr "페이지"
 
 #: plugins/simpleMenu/src/Manage.php:166 plugins/tags/src/Backend.php:25
-#: plugins/tags/src/Widgets.php:32
+#: plugins/tags/src/Widgets.php:33
 msgid "Tags"
 msgstr "분류딱지"
 
@@ -2751,23 +2751,23 @@ msgstr "업데이트 메뉴"
 msgid "No menu items so far."
 msgstr "아직 메뉴 항목이 없습니다."
 
-#: plugins/simpleMenu/src/Widgets.php:32
+#: plugins/simpleMenu/src/Widgets.php:33
 msgid "Item description"
 msgstr "아이템 설명"
 
-#: plugins/simpleMenu/src/Widgets.php:36
+#: plugins/simpleMenu/src/Widgets.php:37
 msgid "Displayed in link"
 msgstr "링크에 표시"
 
-#: plugins/simpleMenu/src/Widgets.php:37
+#: plugins/simpleMenu/src/Widgets.php:38
 msgid "Used as link title"
 msgstr "링크 제목으로 사용"
 
-#: plugins/simpleMenu/src/Widgets.php:38
+#: plugins/simpleMenu/src/Widgets.php:39
 msgid "Displayed in link and used as title"
 msgstr "링크에 표시되고 제목으로 사용됨"
 
-#: plugins/simpleMenu/src/Widgets.php:39
+#: plugins/simpleMenu/src/Widgets.php:40
 msgid "Not displayed nor used"
 msgstr "표시되지 않거나 사용되지 않음"
 
@@ -2905,27 +2905,27 @@ msgstr "이름 바꾸기:"
 msgid "List of entries with this tag"
 msgstr "이 태그가 있는 항목 목록"
 
-#: plugins/tags/src/Widgets.php:33
+#: plugins/tags/src/Widgets.php:34
 msgid "Limit (empty means no limit):"
 msgstr "최대 분류딱지 수 (빈칸은 무한정을 의미)"
 
-#: plugins/tags/src/Widgets.php:40
+#: plugins/tags/src/Widgets.php:41
 msgid "Tag name"
 msgstr "분류딱지 이름"
 
-#: plugins/tags/src/Widgets.php:41
+#: plugins/tags/src/Widgets.php:42
 msgid "Entries count"
 msgstr "글꼭지 수"
 
-#: plugins/tags/src/Widgets.php:42
+#: plugins/tags/src/Widgets.php:43
 msgid "Newest entry"
 msgstr "최신 항목"
 
-#: plugins/tags/src/Widgets.php:43
+#: plugins/tags/src/Widgets.php:44
 msgid "Oldest entry"
 msgstr "가장 오래된 항목"
 
-#: plugins/tags/src/Widgets.php:56
+#: plugins/tags/src/Widgets.php:57
 msgid "Link to all tags:"
 msgstr "모든 태그에 링크합니다:"
 
@@ -3085,10 +3085,6 @@ msgstr "환경 설정이 성공적으로 업데이트되었습니다."
 #: plugins/userPref/src/Manage.php:158 plugins/userPref/src/Manage.php:160
 msgid "Global preferences"
 msgstr "글로벌 환경 설정"
-
-#: plugins/widgets/src/Backend.php:27
-msgid "Widgets"
-msgstr "위젯 목록"
 
 #: plugins/widgets/src/Backend.php:51
 msgid "Widget's textareas"
@@ -3324,31 +3320,31 @@ msgstr "글꼭지 타래소식"
 msgid "Comments feed"
 msgstr "댓글 타래소식"
 
-#: plugins/widgets/src/WidgetsElement.php:537
+#: plugins/widgets/src/WidgetsElement.php:547
 msgid "Title (optional)"
 msgstr "제목(선택 사항)"
 
-#: plugins/widgets/src/WidgetsElement.php:548
+#: plugins/widgets/src/WidgetsElement.php:558
 msgid "All pages"
 msgstr "모든 페이지"
 
-#: plugins/widgets/src/WidgetsElement.php:549
+#: plugins/widgets/src/WidgetsElement.php:559
 msgid "Home page only"
 msgstr "시작화면에만 보이기"
 
-#: plugins/widgets/src/WidgetsElement.php:550
+#: plugins/widgets/src/WidgetsElement.php:560
 msgid "Except on home page"
 msgstr "홈페이지 제외"
 
-#: plugins/widgets/src/WidgetsElement.php:558
+#: plugins/widgets/src/WidgetsElement.php:568
 msgid "Display on:"
 msgstr "디스플레이를 켭니다:"
 
-#: plugins/widgets/src/WidgetsElement.php:584
+#: plugins/widgets/src/WidgetsElement.php:594
 msgid "Content only"
 msgstr "콘텐츠 전용"
 
-#: plugins/widgets/src/WidgetsElement.php:594
+#: plugins/widgets/src/WidgetsElement.php:604
 msgid "CSS class:"
 msgstr "CSS 클래스:"
 

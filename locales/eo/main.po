@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-31 13:00+0200\n"
-"PO-Revision-Date: 2025-05-31 11:09\n"
+"POT-Creation-Date: 2025-06-01 08:06+0200\n"
+"PO-Revision-Date: 2025-06-01 06:38\n"
 "Last-Translator: \n"
 "Language-Team: Esperanto\n"
 "Language: eo_UY\n"
@@ -635,7 +635,7 @@ msgid "Plugins management"
 msgstr "Administrado de kromprogramoj"
 
 #: src/Core/Backend/Favorites.php:524 src/Core/Backend/Menus.php:261
-#: src/Process/Backend/Settings.php:53 src/Process/Backend/Settings.php:60
+#: src/Process/Backend/Settings.php:54 src/Process/Backend/Settings.php:61
 msgid "Plugins settings"
 msgstr "Agordoj de kromaĵoj"
 
@@ -1121,7 +1121,7 @@ msgid_plural "%s files found"
 msgstr[0] "%s dosiero trovita"
 msgstr[1] "%s dosieroj trovitaj"
 
-#: src/Core/Backend/Menus.php:86 src/Process/Backend/Settings.php:205
+#: src/Core/Backend/Menus.php:86 src/Process/Backend/Settings.php:232
 msgid "Blog"
 msgstr "Blogo"
 
@@ -2476,7 +2476,7 @@ msgstr "LOL!"
 #: src/Process/Backend/BlogDel.php:92 src/Process/Backend/BlogPref.php:459
 #: src/Process/Backend/Blogs.php:101 src/Process/Backend/Langs.php:247
 #: src/Process/Backend/Plugin.php:146 src/Process/Backend/Plugins.php:116
-#: src/Process/Backend/Settings.php:59 src/Process/Backend/User.php:273
+#: src/Process/Backend/Settings.php:60 src/Process/Backend/User.php:273
 #: src/Process/Backend/Users.php:108 src/Process/Backend/UsersActions.php:223
 #: src/Process/Backend/UsersActions.php:231 src/Process/Upgrade/Home.php:162
 msgid "System"
@@ -3267,7 +3267,7 @@ msgstr "P"
 msgid "(none)"
 msgstr "(neniu)"
 
-#: src/Process/Backend/BlogPref.php:175 src/Process/Backend/Settings.php:197
+#: src/Process/Backend/BlogPref.php:175 src/Process/Backend/Settings.php:224
 msgid "Description"
 msgstr "Priskribo"
 
@@ -3635,7 +3635,7 @@ msgid "Image legend and alternate text:"
 msgstr "Bilda legendo kaj alterna teksto:"
 
 #: src/Process/Backend/BlogPref.php:977 src/Process/Backend/Media.php:846
-#: src/Process/Backend/Settings.php:72
+#: src/Process/Backend/Settings.php:86
 msgid "Blog parameters"
 msgstr "Parametroj de blogo"
 
@@ -5245,65 +5245,73 @@ msgid_plural "%d comments found"
 msgstr[0] "unu komento trovita"
 msgstr[1] "%d komentoj trovitaj"
 
-#: src/Process/Backend/Settings.php:71 src/Process/Backend/Settings.php:201
+#: src/Process/Backend/Settings.php:85 src/Process/Backend/Settings.php:228
 msgid "Configuration"
 msgstr "Agordo"
 
-#: src/Process/Backend/Settings.php:73
+#: src/Process/Backend/Settings.php:87
 msgid "User preferences"
 msgstr "Preferoj de uzantoj"
 
-#: src/Process/Backend/Settings.php:74 src/Process/Backend/Settings.php:213
+#: src/Process/Backend/Settings.php:88 src/Process/Backend/Settings.php:240
 msgid "Settings"
 msgstr "Agordoj"
 
-#: src/Process/Backend/Settings.php:75 src/Process/Backend/Settings.php:217
+#: src/Process/Backend/Settings.php:89 src/Process/Backend/Settings.php:244
 msgid "Other settings"
 msgstr "Aliaj agordoj"
 
-#: src/Process/Backend/Settings.php:76 src/Process/Backend/Settings.php:221
+#: src/Process/Backend/Settings.php:90 src/Process/Backend/Settings.php:248
 msgid "Management"
 msgstr "Administrado"
 
-#: src/Process/Backend/Settings.php:77
+#: src/Process/Backend/Settings.php:91 src/Process/Backend/Settings.php:252
+msgid "Widgets"
+msgstr "Fenestraĵoj"
+
+#: src/Process/Backend/Settings.php:92
 msgid "Unknown"
 msgstr "Nekonata"
 
-#: src/Process/Backend/Settings.php:194
+#: src/Process/Backend/Settings.php:221
 msgid "ID"
 msgstr "Identigilo"
 
-#: src/Process/Backend/Settings.php:209
+#: src/Process/Backend/Settings.php:236
 msgid "User"
 msgstr "Uzanto"
 
-#: src/Process/Backend/Settings.php:230
+#: src/Process/Backend/Settings.php:261
 msgid "Columns description:"
 msgstr "Priskribo de kolumnoj:"
 
-#: src/Process/Backend/Settings.php:236
+#: src/Process/Backend/Settings.php:267
 msgid "<strong>Configuration</strong> indicates that plugin has a specific configuration page."
 msgstr "<strong>Agordo</strong> indikas, ke la kromprogramo havas specifan agordopaĝon."
 
-#: src/Process/Backend/Settings.php:240
+#: src/Process/Backend/Settings.php:271
 msgid "<strong>Blog</strong> indicates that plugin has specific settings in blog parameters, generally used to add or modify some behaviors or aspects of the public blog."
 msgstr "<strong>Blogo</strong> indikas, ke kromprogramo havas specifajn agordojn en blogaj parametroj, ĝenerale uzataj por aldoni aŭ modifi iujn kondutojn aŭ aspektojn de la publika blogo."
 
-#: src/Process/Backend/Settings.php:244
+#: src/Process/Backend/Settings.php:275
 msgid "<strong>User</strong> indicates that the plugin has a specific configuration in the user preferences, generally used to add or modify certain behaviors or aspects of blog administration for the user."
 msgstr "<strong>Uzanto</strong> indikas, ke la kromprogramo havas specifan agordon en la uzantopreferoj, ĝenerale uzatan por aldoni aŭ modifi certajn kondutojn aŭ aspektojn de blogadministrado por la uzanto."
 
-#: src/Process/Backend/Settings.php:248
+#: src/Process/Backend/Settings.php:279
 msgid "<strong>Settings</strong> indicates that the plugin has specific parameters on its management page."
 msgstr "<strong>Agordoj</strong> indikas, ke la kromprogramo havas specifajn parametrojn sur sia administra paĝo."
 
-#: src/Process/Backend/Settings.php:252
+#: src/Process/Backend/Settings.php:283
 msgid "<strong>Other settings</strong> indicates that plugin has specific settings in other context."
 msgstr "<strong>Aliaj agordoj</strong> indikas, ke la kromprogramo havas specifajn agordojn en alia kunteksto."
 
-#: src/Process/Backend/Settings.php:256
+#: src/Process/Backend/Settings.php:287
 msgid "<strong>Management</strong> indicates that the plugin has a specific management page."
 msgstr "<strong>Administrado</strong> indikas, ke la kromprogramo havas specifan administran paĝon."
+
+#: src/Process/Backend/Settings.php:291
+msgid "<strong>Widgets</strong> indicates that the plugin provide one or more widgets."
+msgstr "<strong>Widgets</strong> indikas, ke la kromprogramo provizas unu aŭ plurajn fenestraĵojn."
 
 #: src/Process/Backend/User.php:57 src/Process/Backend/Users.php:128
 msgid "New user"

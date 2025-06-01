@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-31 13:01+0200\n"
-"PO-Revision-Date: 2025-05-31 11:10\n"
+"POT-Creation-Date: 2025-06-01 08:06+0200\n"
+"PO-Revision-Date: 2025-06-01 06:13\n"
 "Last-Translator: \n"
 "Language-Team: Bengali\n"
 "Language: bn_BD\n"
@@ -1330,7 +1330,7 @@ msgstr "আর্কাইভ"
 #: plugins/breadcrumb/src/FrontendTemplate.php:174
 #: plugins/breadcrumb/src/FrontendTemplate.php:181
 #: plugins/simpleMenu/src/Manage.php:131 plugins/simpleMenu/src/Manage.php:305
-#: plugins/tags/src/Widgets.php:56
+#: plugins/tags/src/Widgets.php:57
 msgid "All tags"
 msgstr "সব ট্যাগ"
 
@@ -2496,7 +2496,7 @@ msgstr "পৃষ্ঠার অবস্থা"
 msgid "Page language"
 msgstr "পৃষ্ঠা ভাষা"
 
-#: plugins/pages/src/ManagePage.php:609 plugins/pages/src/Widgets.php:40
+#: plugins/pages/src/ManagePage.php:609 plugins/pages/src/Widgets.php:41
 msgid "Page position"
 msgstr "পৃষ্ঠার অবস্থান"
 
@@ -2516,11 +2516,11 @@ msgstr "পৃষ্ঠার ভূমিকা."
 msgid "Select this comment"
 msgstr "এই মন্তব্যটি বেছে নিন"
 
-#: plugins/pages/src/Widgets.php:39
+#: plugins/pages/src/Widgets.php:40
 msgid "Page title"
 msgstr "পৃষ্ঠার শিরোনাম"
 
-#: plugins/pages/src/Widgets.php:41
+#: plugins/pages/src/Widgets.php:42
 msgid "Publication date"
 msgstr "প্রকাশনা তারিখ"
 
@@ -2561,7 +2561,7 @@ msgid "Test ping services"
 msgstr "টেস্ট পিং সার্ভিস"
 
 #: plugins/simpleMenu/src/Backend.php:26 plugins/simpleMenu/src/Manage.php:72
-#: plugins/simpleMenu/src/Widgets.php:28
+#: plugins/simpleMenu/src/Widgets.php:29
 msgid "Simple menu"
 msgstr "সহজ মেনু"
 
@@ -2586,7 +2586,7 @@ msgid "Page"
 msgstr "পৃষ্ঠা"
 
 #: plugins/simpleMenu/src/Manage.php:166 plugins/tags/src/Backend.php:25
-#: plugins/tags/src/Widgets.php:32
+#: plugins/tags/src/Widgets.php:33
 msgid "Tags"
 msgstr "ট্যাগ"
 
@@ -2755,23 +2755,23 @@ msgstr "মেনু আপডেট করো"
 msgid "No menu items so far."
 msgstr "এখন পর্যন্ত কোনো মেনু আইটেম নেই."
 
-#: plugins/simpleMenu/src/Widgets.php:32
+#: plugins/simpleMenu/src/Widgets.php:33
 msgid "Item description"
 msgstr "আইটেম বর্ণনা"
 
-#: plugins/simpleMenu/src/Widgets.php:36
+#: plugins/simpleMenu/src/Widgets.php:37
 msgid "Displayed in link"
 msgstr "লিংকটিতে ডিসবাজ করা হয়েছে"
 
-#: plugins/simpleMenu/src/Widgets.php:37
+#: plugins/simpleMenu/src/Widgets.php:38
 msgid "Used as link title"
 msgstr "লিংক শিরোনাম হিসেবে ব্যবহৃত"
 
-#: plugins/simpleMenu/src/Widgets.php:38
+#: plugins/simpleMenu/src/Widgets.php:39
 msgid "Displayed in link and used as title"
 msgstr "লিংকে ডিসবাজ করা হয়েছে এবং শিরোনাম হিসেবে ব্যবহার করা হয়েছে"
 
-#: plugins/simpleMenu/src/Widgets.php:39
+#: plugins/simpleMenu/src/Widgets.php:40
 msgid "Not displayed nor used"
 msgstr "প্রদর্শিত বা ব্যবহার করা হয়নি"
 
@@ -2911,27 +2911,27 @@ msgstr "পুনঃনামকরণ:"
 msgid "List of entries with this tag"
 msgstr "এই ট্যাগের সাথে এন্ট্রির তালিকা"
 
-#: plugins/tags/src/Widgets.php:33
+#: plugins/tags/src/Widgets.php:34
 msgid "Limit (empty means no limit):"
 msgstr "সীমা (ফাঁকা মানে কোন সীমা নেই):"
 
-#: plugins/tags/src/Widgets.php:40
+#: plugins/tags/src/Widgets.php:41
 msgid "Tag name"
 msgstr "ট্যাগ নাম"
 
-#: plugins/tags/src/Widgets.php:41
+#: plugins/tags/src/Widgets.php:42
 msgid "Entries count"
 msgstr "প্রচেষ্টা গণনা"
 
-#: plugins/tags/src/Widgets.php:42
+#: plugins/tags/src/Widgets.php:43
 msgid "Newest entry"
 msgstr "ওয়েস্ট এন্ট্রি"
 
-#: plugins/tags/src/Widgets.php:43
+#: plugins/tags/src/Widgets.php:44
 msgid "Oldest entry"
 msgstr "এন্ট্রি এন্ট্রি"
 
-#: plugins/tags/src/Widgets.php:56
+#: plugins/tags/src/Widgets.php:57
 msgid "Link to all tags:"
 msgstr "সব ট্যাগের লিঙ্ক:"
 
@@ -3091,10 +3091,6 @@ msgstr "পছন্দসমূহ সফলভাবে হালনাগা�
 #: plugins/userPref/src/Manage.php:158 plugins/userPref/src/Manage.php:160
 msgid "Global preferences"
 msgstr "গ্লোবাল পছন্দ"
-
-#: plugins/widgets/src/Backend.php:27
-msgid "Widgets"
-msgstr "উইজেটComment"
 
 #: plugins/widgets/src/Backend.php:51
 msgid "Widget's textareas"
@@ -3330,31 +3326,31 @@ msgstr "এন্ট্রি ফিড"
 msgid "Comments feed"
 msgstr "Comments ফিড"
 
-#: plugins/widgets/src/WidgetsElement.php:537
+#: plugins/widgets/src/WidgetsElement.php:547
 msgid "Title (optional)"
 msgstr "নাম (ঐচ্ছিক)"
 
-#: plugins/widgets/src/WidgetsElement.php:548
+#: plugins/widgets/src/WidgetsElement.php:558
 msgid "All pages"
 msgstr "সকল পৃষ্ঠা"
 
-#: plugins/widgets/src/WidgetsElement.php:549
+#: plugins/widgets/src/WidgetsElement.php:559
 msgid "Home page only"
 msgstr "শুধু হোমপেজ"
 
-#: plugins/widgets/src/WidgetsElement.php:550
+#: plugins/widgets/src/WidgetsElement.php:560
 msgid "Except on home page"
 msgstr "বাড়ির পাতায় ছাড়া"
 
-#: plugins/widgets/src/WidgetsElement.php:558
+#: plugins/widgets/src/WidgetsElement.php:568
 msgid "Display on:"
 msgstr "ডিসপ্লে:"
 
-#: plugins/widgets/src/WidgetsElement.php:584
+#: plugins/widgets/src/WidgetsElement.php:594
 msgid "Content only"
 msgstr "শুধুমাত্র বিষয়বস্তু"
 
-#: plugins/widgets/src/WidgetsElement.php:594
+#: plugins/widgets/src/WidgetsElement.php:604
 msgid "CSS class:"
 msgstr "সি এস এস ক্লাস:"
 

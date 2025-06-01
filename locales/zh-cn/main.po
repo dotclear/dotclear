@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-31 13:00+0200\n"
-"PO-Revision-Date: 2025-05-31 11:09\n"
+"POT-Creation-Date: 2025-06-01 08:06+0200\n"
+"PO-Revision-Date: 2025-06-01 06:37\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -624,7 +624,7 @@ msgid "Plugins management"
 msgstr "插件管理"
 
 #: src/Core/Backend/Favorites.php:524 src/Core/Backend/Menus.php:261
-#: src/Process/Backend/Settings.php:53 src/Process/Backend/Settings.php:60
+#: src/Process/Backend/Settings.php:54 src/Process/Backend/Settings.php:61
 msgid "Plugins settings"
 msgstr "插件设置"
 
@@ -1105,7 +1105,7 @@ msgid "%s file found"
 msgid_plural "%s files found"
 msgstr[0] "%s 找到的文件"
 
-#: src/Core/Backend/Menus.php:86 src/Process/Backend/Settings.php:205
+#: src/Core/Backend/Menus.php:86 src/Process/Backend/Settings.php:232
 msgid "Blog"
 msgstr "博客"
 
@@ -2447,7 +2447,7 @@ msgstr "LOL!"
 #: src/Process/Backend/BlogDel.php:92 src/Process/Backend/BlogPref.php:459
 #: src/Process/Backend/Blogs.php:101 src/Process/Backend/Langs.php:247
 #: src/Process/Backend/Plugin.php:146 src/Process/Backend/Plugins.php:116
-#: src/Process/Backend/Settings.php:59 src/Process/Backend/User.php:273
+#: src/Process/Backend/Settings.php:60 src/Process/Backend/User.php:273
 #: src/Process/Backend/Users.php:108 src/Process/Backend/UsersActions.php:223
 #: src/Process/Backend/UsersActions.php:231 src/Process/Upgrade/Home.php:162
 msgid "System"
@@ -3238,7 +3238,7 @@ msgstr "P"
 msgid "(none)"
 msgstr "(无)"
 
-#: src/Process/Backend/BlogPref.php:175 src/Process/Backend/Settings.php:197
+#: src/Process/Backend/BlogPref.php:175 src/Process/Backend/Settings.php:224
 msgid "Description"
 msgstr "描述"
 
@@ -3606,7 +3606,7 @@ msgid "Image legend and alternate text:"
 msgstr "图像图例和备用文本："
 
 #: src/Process/Backend/BlogPref.php:977 src/Process/Backend/Media.php:846
-#: src/Process/Backend/Settings.php:72
+#: src/Process/Backend/Settings.php:86
 msgid "Blog parameters"
 msgstr "博客参数"
 
@@ -5210,65 +5210,73 @@ msgid "one comment found"
 msgid_plural "%d comments found"
 msgstr[0] "%d 发现的评论"
 
-#: src/Process/Backend/Settings.php:71 src/Process/Backend/Settings.php:201
+#: src/Process/Backend/Settings.php:85 src/Process/Backend/Settings.php:228
 msgid "Configuration"
 msgstr "配置"
 
-#: src/Process/Backend/Settings.php:73
+#: src/Process/Backend/Settings.php:87
 msgid "User preferences"
 msgstr "用户偏好"
 
-#: src/Process/Backend/Settings.php:74 src/Process/Backend/Settings.php:213
+#: src/Process/Backend/Settings.php:88 src/Process/Backend/Settings.php:240
 msgid "Settings"
 msgstr "设置"
 
-#: src/Process/Backend/Settings.php:75 src/Process/Backend/Settings.php:217
+#: src/Process/Backend/Settings.php:89 src/Process/Backend/Settings.php:244
 msgid "Other settings"
 msgstr "其他设置"
 
-#: src/Process/Backend/Settings.php:76 src/Process/Backend/Settings.php:221
+#: src/Process/Backend/Settings.php:90 src/Process/Backend/Settings.php:248
 msgid "Management"
 msgstr "管理层"
 
-#: src/Process/Backend/Settings.php:77
+#: src/Process/Backend/Settings.php:91 src/Process/Backend/Settings.php:252
+msgid "Widgets"
+msgstr "小工具"
+
+#: src/Process/Backend/Settings.php:92
 msgid "Unknown"
 msgstr "未知的"
 
-#: src/Process/Backend/Settings.php:194
+#: src/Process/Backend/Settings.php:221
 msgid "ID"
 msgstr "身份证"
 
-#: src/Process/Backend/Settings.php:209
+#: src/Process/Backend/Settings.php:236
 msgid "User"
 msgstr "用户"
 
-#: src/Process/Backend/Settings.php:230
+#: src/Process/Backend/Settings.php:261
 msgid "Columns description:"
 msgstr "栏目说明："
 
-#: src/Process/Backend/Settings.php:236
+#: src/Process/Backend/Settings.php:267
 msgid "<strong>Configuration</strong> indicates that plugin has a specific configuration page."
 msgstr "<strong>配置</strong>表示插件有特定的配置页面。"
 
-#: src/Process/Backend/Settings.php:240
+#: src/Process/Backend/Settings.php:271
 msgid "<strong>Blog</strong> indicates that plugin has specific settings in blog parameters, generally used to add or modify some behaviors or aspects of the public blog."
 msgstr "<strong>博客</strong>表示插件在博客参数中有特定设置，一般用于添加或修改公共博客的某些行为或方面。"
 
-#: src/Process/Backend/Settings.php:244
+#: src/Process/Backend/Settings.php:275
 msgid "<strong>User</strong> indicates that the plugin has a specific configuration in the user preferences, generally used to add or modify certain behaviors or aspects of blog administration for the user."
 msgstr "<strong>用户</strong>表示该插件在用户偏好中具有特定配置，通常用于为用户添加或修改某些行为或博客管理的某些方面。"
 
-#: src/Process/Backend/Settings.php:248
+#: src/Process/Backend/Settings.php:279
 msgid "<strong>Settings</strong> indicates that the plugin has specific parameters on its management page."
 msgstr "<strong>设置</strong>表示插件在其管理页面上有特定参数。"
 
-#: src/Process/Backend/Settings.php:252
+#: src/Process/Backend/Settings.php:283
 msgid "<strong>Other settings</strong> indicates that plugin has specific settings in other context."
 msgstr "<strong>其他设置</strong>表示插件在其他上下文中有特定设置。"
 
-#: src/Process/Backend/Settings.php:256
+#: src/Process/Backend/Settings.php:287
 msgid "<strong>Management</strong> indicates that the plugin has a specific management page."
 msgstr "<strong>管理</strong>表示插件有特定的管理页面。"
+
+#: src/Process/Backend/Settings.php:291
+msgid "<strong>Widgets</strong> indicates that the plugin provide one or more widgets."
+msgstr "<strong>部件</strong>表示插件提供一个或多个部件。"
 
 #: src/Process/Backend/User.php:57 src/Process/Backend/Users.php:128
 msgid "New user"

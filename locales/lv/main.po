@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-31 13:00+0200\n"
-"PO-Revision-Date: 2025-05-31 11:09\n"
+"POT-Creation-Date: 2025-06-01 08:06+0200\n"
+"PO-Revision-Date: 2025-06-01 06:38\n"
 "Last-Translator: \n"
 "Language-Team: Latvian\n"
 "Language: lv_LV\n"
@@ -646,7 +646,7 @@ msgid "Plugins management"
 msgstr "Spraudņu pārvaldība"
 
 #: src/Core/Backend/Favorites.php:524 src/Core/Backend/Menus.php:261
-#: src/Process/Backend/Settings.php:53 src/Process/Backend/Settings.php:60
+#: src/Process/Backend/Settings.php:54 src/Process/Backend/Settings.php:61
 msgid "Plugins settings"
 msgstr "Spraudņu iestatījumi"
 
@@ -1137,7 +1137,7 @@ msgstr[0] "Atrasti %s faili"
 msgstr[1] "%s fails atrasts"
 msgstr[2] "Atrasti %s faili"
 
-#: src/Core/Backend/Menus.php:86 src/Process/Backend/Settings.php:205
+#: src/Core/Backend/Menus.php:86 src/Process/Backend/Settings.php:232
 msgid "Blog"
 msgstr "Emuārs"
 
@@ -2505,7 +2505,7 @@ msgstr "LOL!"
 #: src/Process/Backend/BlogDel.php:92 src/Process/Backend/BlogPref.php:459
 #: src/Process/Backend/Blogs.php:101 src/Process/Backend/Langs.php:247
 #: src/Process/Backend/Plugin.php:146 src/Process/Backend/Plugins.php:116
-#: src/Process/Backend/Settings.php:59 src/Process/Backend/User.php:273
+#: src/Process/Backend/Settings.php:60 src/Process/Backend/User.php:273
 #: src/Process/Backend/Users.php:108 src/Process/Backend/UsersActions.php:223
 #: src/Process/Backend/UsersActions.php:231 src/Process/Upgrade/Home.php:162
 msgid "System"
@@ -3296,7 +3296,7 @@ msgstr "P"
 msgid "(none)"
 msgstr "(nav)"
 
-#: src/Process/Backend/BlogPref.php:175 src/Process/Backend/Settings.php:197
+#: src/Process/Backend/BlogPref.php:175 src/Process/Backend/Settings.php:224
 msgid "Description"
 msgstr "Apraksts"
 
@@ -3664,7 +3664,7 @@ msgid "Image legend and alternate text:"
 msgstr "Attēla leģenda un alternatīvais teksts:"
 
 #: src/Process/Backend/BlogPref.php:977 src/Process/Backend/Media.php:846
-#: src/Process/Backend/Settings.php:72
+#: src/Process/Backend/Settings.php:86
 msgid "Blog parameters"
 msgstr "Emuāra parametri"
 
@@ -5280,65 +5280,73 @@ msgstr[0] "Atrasti %d komentāri"
 msgstr[1] "atrasts viens komentārs"
 msgstr[2] "Atrasti %d komentāri"
 
-#: src/Process/Backend/Settings.php:71 src/Process/Backend/Settings.php:201
+#: src/Process/Backend/Settings.php:85 src/Process/Backend/Settings.php:228
 msgid "Configuration"
 msgstr "Konfigurācija"
 
-#: src/Process/Backend/Settings.php:73
+#: src/Process/Backend/Settings.php:87
 msgid "User preferences"
 msgstr "Lietotāja preferences"
 
-#: src/Process/Backend/Settings.php:74 src/Process/Backend/Settings.php:213
+#: src/Process/Backend/Settings.php:88 src/Process/Backend/Settings.php:240
 msgid "Settings"
 msgstr "Iestatījumi"
 
-#: src/Process/Backend/Settings.php:75 src/Process/Backend/Settings.php:217
+#: src/Process/Backend/Settings.php:89 src/Process/Backend/Settings.php:244
 msgid "Other settings"
 msgstr "Citi iestatījumi"
 
-#: src/Process/Backend/Settings.php:76 src/Process/Backend/Settings.php:221
+#: src/Process/Backend/Settings.php:90 src/Process/Backend/Settings.php:248
 msgid "Management"
 msgstr "Vadība"
 
-#: src/Process/Backend/Settings.php:77
+#: src/Process/Backend/Settings.php:91 src/Process/Backend/Settings.php:252
+msgid "Widgets"
+msgstr "Logrīki"
+
+#: src/Process/Backend/Settings.php:92
 msgid "Unknown"
 msgstr "Nezināms"
 
-#: src/Process/Backend/Settings.php:194
+#: src/Process/Backend/Settings.php:221
 msgid "ID"
 msgstr "ID"
 
-#: src/Process/Backend/Settings.php:209
+#: src/Process/Backend/Settings.php:236
 msgid "User"
 msgstr "Lietotājs"
 
-#: src/Process/Backend/Settings.php:230
+#: src/Process/Backend/Settings.php:261
 msgid "Columns description:"
 msgstr "Kolonnu apraksts:"
 
-#: src/Process/Backend/Settings.php:236
+#: src/Process/Backend/Settings.php:267
 msgid "<strong>Configuration</strong> indicates that plugin has a specific configuration page."
 msgstr "<strong>Konfigurācija</strong> norāda, ka spraudnim ir īpaša konfigurācijas lapa."
 
-#: src/Process/Backend/Settings.php:240
+#: src/Process/Backend/Settings.php:271
 msgid "<strong>Blog</strong> indicates that plugin has specific settings in blog parameters, generally used to add or modify some behaviors or aspects of the public blog."
 msgstr "<strong>Blogs</strong> norāda, ka spraudnim ir īpaši iestatījumi bloga parametros, ko parasti izmanto, lai pievienotu vai mainītu dažus publiskā bloga uzvedības vai aspektus."
 
-#: src/Process/Backend/Settings.php:244
+#: src/Process/Backend/Settings.php:275
 msgid "<strong>User</strong> indicates that the plugin has a specific configuration in the user preferences, generally used to add or modify certain behaviors or aspects of blog administration for the user."
 msgstr "<strong>Lietotājs</strong> norāda, ka spraudnim ir īpaša konfigurācija lietotāja preferencēs, ko parasti izmanto, lai pievienotu vai mainītu noteiktu uzvedību vai bloga administrēšanas aspektus lietotājam."
 
-#: src/Process/Backend/Settings.php:248
+#: src/Process/Backend/Settings.php:279
 msgid "<strong>Settings</strong> indicates that the plugin has specific parameters on its management page."
 msgstr "<strong>Iestatījumi</strong> norāda, ka spraudnim ir īpaši parametri tā pārvaldības lapā."
 
-#: src/Process/Backend/Settings.php:252
+#: src/Process/Backend/Settings.php:283
 msgid "<strong>Other settings</strong> indicates that plugin has specific settings in other context."
 msgstr "<strong>Citi iestatījumi</strong> norāda, ka spraudnim ir īpaši iestatījumi citā kontekstā."
 
-#: src/Process/Backend/Settings.php:256
+#: src/Process/Backend/Settings.php:287
 msgid "<strong>Management</strong> indicates that the plugin has a specific management page."
 msgstr "<strong>Pārvaldība</strong> norāda, ka spraudnim ir īpaša pārvaldības lapa."
+
+#: src/Process/Backend/Settings.php:291
+msgid "<strong>Widgets</strong> indicates that the plugin provide one or more widgets."
+msgstr "<strong>Logrīki</strong> norāda, ka spraudnis nodrošina vienu vai vairākus logrīkus."
 
 #: src/Process/Backend/User.php:57 src/Process/Backend/Users.php:128
 msgid "New user"

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-31 13:01+0200\n"
-"PO-Revision-Date: 2025-05-31 11:10\n"
+"POT-Creation-Date: 2025-06-01 08:06+0200\n"
+"PO-Revision-Date: 2025-06-01 06:13\n"
 "Last-Translator: \n"
 "Language-Team: Hindi\n"
 "Language: hi_IN\n"
@@ -1330,7 +1330,7 @@ msgstr "अभिलेखागार"
 #: plugins/breadcrumb/src/FrontendTemplate.php:174
 #: plugins/breadcrumb/src/FrontendTemplate.php:181
 #: plugins/simpleMenu/src/Manage.php:131 plugins/simpleMenu/src/Manage.php:305
-#: plugins/tags/src/Widgets.php:56
+#: plugins/tags/src/Widgets.php:57
 msgid "All tags"
 msgstr "सभी टैग"
 
@@ -2496,7 +2496,7 @@ msgstr "पृष्ठ स्थिति"
 msgid "Page language"
 msgstr "पृष्ठ भाषा"
 
-#: plugins/pages/src/ManagePage.php:609 plugins/pages/src/Widgets.php:40
+#: plugins/pages/src/ManagePage.php:609 plugins/pages/src/Widgets.php:41
 msgid "Page position"
 msgstr "पृष्ठ स्थिति"
 
@@ -2516,11 +2516,11 @@ msgstr "पृष्ठ के लिए परिचय."
 msgid "Select this comment"
 msgstr "इस टिप्पणी को चुनें"
 
-#: plugins/pages/src/Widgets.php:39
+#: plugins/pages/src/Widgets.php:40
 msgid "Page title"
 msgstr "पृष्ठ शीर्षक"
 
-#: plugins/pages/src/Widgets.php:41
+#: plugins/pages/src/Widgets.php:42
 msgid "Publication date"
 msgstr "प्रकाशन तिथि"
 
@@ -2561,7 +2561,7 @@ msgid "Test ping services"
 msgstr "पिंग सेवाओं का परीक्षण"
 
 #: plugins/simpleMenu/src/Backend.php:26 plugins/simpleMenu/src/Manage.php:72
-#: plugins/simpleMenu/src/Widgets.php:28
+#: plugins/simpleMenu/src/Widgets.php:29
 msgid "Simple menu"
 msgstr "सरल मेनू"
 
@@ -2586,7 +2586,7 @@ msgid "Page"
 msgstr "पृष्ठ"
 
 #: plugins/simpleMenu/src/Manage.php:166 plugins/tags/src/Backend.php:25
-#: plugins/tags/src/Widgets.php:32
+#: plugins/tags/src/Widgets.php:33
 msgid "Tags"
 msgstr "टैग"
 
@@ -2755,23 +2755,23 @@ msgstr "अद्यतन मेनू"
 msgid "No menu items so far."
 msgstr "अभी तक कोई मेन्यू आइटम नहीं है."
 
-#: plugins/simpleMenu/src/Widgets.php:32
+#: plugins/simpleMenu/src/Widgets.php:33
 msgid "Item description"
 msgstr "मद विवरण"
 
-#: plugins/simpleMenu/src/Widgets.php:36
+#: plugins/simpleMenu/src/Widgets.php:37
 msgid "Displayed in link"
 msgstr "प्रदर्शित किया गया लिंक में"
 
-#: plugins/simpleMenu/src/Widgets.php:37
+#: plugins/simpleMenu/src/Widgets.php:38
 msgid "Used as link title"
 msgstr "लिंक शीर्षक के रूप में प्रयुक्त"
 
-#: plugins/simpleMenu/src/Widgets.php:38
+#: plugins/simpleMenu/src/Widgets.php:39
 msgid "Displayed in link and used as title"
 msgstr "लिंक में प्रदर्शित और शीर्षक के रूप में प्रयुक्त"
 
-#: plugins/simpleMenu/src/Widgets.php:39
+#: plugins/simpleMenu/src/Widgets.php:40
 msgid "Not displayed nor used"
 msgstr "न दिखाया गया और न ही"
 
@@ -2911,27 +2911,27 @@ msgstr "पुनर्नामित:"
 msgid "List of entries with this tag"
 msgstr "इस टैग के साथ प्रविष्टियों की सूची"
 
-#: plugins/tags/src/Widgets.php:33
+#: plugins/tags/src/Widgets.php:34
 msgid "Limit (empty means no limit):"
 msgstr "सीमा (खाली का अर्थ कोई सीमा नहीं है):"
 
-#: plugins/tags/src/Widgets.php:40
+#: plugins/tags/src/Widgets.php:41
 msgid "Tag name"
 msgstr "टैग नाम"
 
-#: plugins/tags/src/Widgets.php:41
+#: plugins/tags/src/Widgets.php:42
 msgid "Entries count"
 msgstr "प्रविष्टियां गिनती"
 
-#: plugins/tags/src/Widgets.php:42
+#: plugins/tags/src/Widgets.php:43
 msgid "Newest entry"
 msgstr "नवीनतम प्रविष्टि"
 
-#: plugins/tags/src/Widgets.php:43
+#: plugins/tags/src/Widgets.php:44
 msgid "Oldest entry"
 msgstr "सबसे पुरानी प्रविष्टि"
 
-#: plugins/tags/src/Widgets.php:56
+#: plugins/tags/src/Widgets.php:57
 msgid "Link to all tags:"
 msgstr "सभी टैग के लिए लिंक:"
 
@@ -3091,10 +3091,6 @@ msgstr "वरीयताएँ सफलतापूर्वक अद्य�
 #: plugins/userPref/src/Manage.php:158 plugins/userPref/src/Manage.php:160
 msgid "Global preferences"
 msgstr "वैश्विक वरीयताएँ"
-
-#: plugins/widgets/src/Backend.php:27
-msgid "Widgets"
-msgstr "विजेट्स"
 
 #: plugins/widgets/src/Backend.php:51
 msgid "Widget's textareas"
@@ -3330,31 +3326,31 @@ msgstr "प्रविष्टियाँ फीड"
 msgid "Comments feed"
 msgstr "टिप्पणियाँ फीड"
 
-#: plugins/widgets/src/WidgetsElement.php:537
+#: plugins/widgets/src/WidgetsElement.php:547
 msgid "Title (optional)"
 msgstr "शीर्षक (वैकल्पिक)"
 
-#: plugins/widgets/src/WidgetsElement.php:548
+#: plugins/widgets/src/WidgetsElement.php:558
 msgid "All pages"
 msgstr "सभी पृष्ठ"
 
-#: plugins/widgets/src/WidgetsElement.php:549
+#: plugins/widgets/src/WidgetsElement.php:559
 msgid "Home page only"
 msgstr "सिर्फ घर पृष्ठ"
 
-#: plugins/widgets/src/WidgetsElement.php:550
+#: plugins/widgets/src/WidgetsElement.php:560
 msgid "Except on home page"
 msgstr "घर के पृष्ठ को छोड़कर"
 
-#: plugins/widgets/src/WidgetsElement.php:558
+#: plugins/widgets/src/WidgetsElement.php:568
 msgid "Display on:"
 msgstr "पर प्रदर्शन:"
 
-#: plugins/widgets/src/WidgetsElement.php:584
+#: plugins/widgets/src/WidgetsElement.php:594
 msgid "Content only"
 msgstr "केवल सामग्री"
 
-#: plugins/widgets/src/WidgetsElement.php:594
+#: plugins/widgets/src/WidgetsElement.php:604
 msgid "CSS class:"
 msgstr "सीएसएस वर्गः"
 

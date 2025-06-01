@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-31 13:01+0200\n"
-"PO-Revision-Date: 2025-05-31 11:10\n"
+"POT-Creation-Date: 2025-06-01 08:06+0200\n"
+"PO-Revision-Date: 2025-06-01 06:12\n"
 "Last-Translator: \n"
 "Language-Team: Polish\n"
 "Language: pl_PL\n"
@@ -1334,7 +1334,7 @@ msgstr "Archiwum"
 #: plugins/breadcrumb/src/FrontendTemplate.php:174
 #: plugins/breadcrumb/src/FrontendTemplate.php:181
 #: plugins/simpleMenu/src/Manage.php:131 plugins/simpleMenu/src/Manage.php:305
-#: plugins/tags/src/Widgets.php:56
+#: plugins/tags/src/Widgets.php:57
 msgid "All tags"
 msgstr "Wszystkie tagi"
 
@@ -2504,7 +2504,7 @@ msgstr "Stan strony:"
 msgid "Page language"
 msgstr "Język strony"
 
-#: plugins/pages/src/ManagePage.php:609 plugins/pages/src/Widgets.php:40
+#: plugins/pages/src/ManagePage.php:609 plugins/pages/src/Widgets.php:41
 msgid "Page position"
 msgstr "Pozycja strony"
 
@@ -2524,11 +2524,11 @@ msgstr "Wprowadzenie do strony."
 msgid "Select this comment"
 msgstr "Wybierz ten komentarz"
 
-#: plugins/pages/src/Widgets.php:39
+#: plugins/pages/src/Widgets.php:40
 msgid "Page title"
 msgstr "Tytuł strony"
 
-#: plugins/pages/src/Widgets.php:41
+#: plugins/pages/src/Widgets.php:42
 msgid "Publication date"
 msgstr "Data publikacji"
 
@@ -2569,7 +2569,7 @@ msgid "Test ping services"
 msgstr "Testuj usługi pingów"
 
 #: plugins/simpleMenu/src/Backend.php:26 plugins/simpleMenu/src/Manage.php:72
-#: plugins/simpleMenu/src/Widgets.php:28
+#: plugins/simpleMenu/src/Widgets.php:29
 msgid "Simple menu"
 msgstr "Proste menu"
 
@@ -2594,7 +2594,7 @@ msgid "Page"
 msgstr "Strona"
 
 #: plugins/simpleMenu/src/Manage.php:166 plugins/tags/src/Backend.php:25
-#: plugins/tags/src/Widgets.php:32
+#: plugins/tags/src/Widgets.php:33
 msgid "Tags"
 msgstr "Tagi"
 
@@ -2763,23 +2763,23 @@ msgstr "Aktualizuj menu"
 msgid "No menu items so far."
 msgstr "Brak elementów menu."
 
-#: plugins/simpleMenu/src/Widgets.php:32
+#: plugins/simpleMenu/src/Widgets.php:33
 msgid "Item description"
 msgstr "Opis produktu"
 
-#: plugins/simpleMenu/src/Widgets.php:36
+#: plugins/simpleMenu/src/Widgets.php:37
 msgid "Displayed in link"
 msgstr "Wyświetlane w linku"
 
-#: plugins/simpleMenu/src/Widgets.php:37
+#: plugins/simpleMenu/src/Widgets.php:38
 msgid "Used as link title"
 msgstr "Używane jako tytuł linku"
 
-#: plugins/simpleMenu/src/Widgets.php:38
+#: plugins/simpleMenu/src/Widgets.php:39
 msgid "Displayed in link and used as title"
 msgstr "Wyświetlane w linku i używane jako tytuł"
 
-#: plugins/simpleMenu/src/Widgets.php:39
+#: plugins/simpleMenu/src/Widgets.php:40
 msgid "Not displayed nor used"
 msgstr "Nie wyświetlane ani używane"
 
@@ -2923,27 +2923,27 @@ msgstr "Zmień nazwę:"
 msgid "List of entries with this tag"
 msgstr "Lista wpisów z tym tagiem"
 
-#: plugins/tags/src/Widgets.php:33
+#: plugins/tags/src/Widgets.php:34
 msgid "Limit (empty means no limit):"
 msgstr "Limit (puste oznacza brak limitu):"
 
-#: plugins/tags/src/Widgets.php:40
+#: plugins/tags/src/Widgets.php:41
 msgid "Tag name"
 msgstr "Nazwa tagu"
 
-#: plugins/tags/src/Widgets.php:41
+#: plugins/tags/src/Widgets.php:42
 msgid "Entries count"
 msgstr "Liczba wpisów"
 
-#: plugins/tags/src/Widgets.php:42
+#: plugins/tags/src/Widgets.php:43
 msgid "Newest entry"
 msgstr "Najnowszy wpis"
 
-#: plugins/tags/src/Widgets.php:43
+#: plugins/tags/src/Widgets.php:44
 msgid "Oldest entry"
 msgstr "Najstarszy wpis"
 
-#: plugins/tags/src/Widgets.php:56
+#: plugins/tags/src/Widgets.php:57
 msgid "Link to all tags:"
 msgstr "Odnośnik do wszystkich tagów:"
 
@@ -3103,10 +3103,6 @@ msgstr "Ustawienia zostały zaktualizowane"
 #: plugins/userPref/src/Manage.php:158 plugins/userPref/src/Manage.php:160
 msgid "Global preferences"
 msgstr "Ustawienia globalne"
-
-#: plugins/widgets/src/Backend.php:27
-msgid "Widgets"
-msgstr "Widgety"
 
 #: plugins/widgets/src/Backend.php:51
 msgid "Widget's textareas"
@@ -3342,31 +3338,31 @@ msgstr "Kanał wpisów"
 msgid "Comments feed"
 msgstr "Kanał komentarzy"
 
-#: plugins/widgets/src/WidgetsElement.php:537
+#: plugins/widgets/src/WidgetsElement.php:547
 msgid "Title (optional)"
 msgstr "Tytuł (opcjonalnie)"
 
-#: plugins/widgets/src/WidgetsElement.php:548
+#: plugins/widgets/src/WidgetsElement.php:558
 msgid "All pages"
 msgstr "Wszystkie strony"
 
-#: plugins/widgets/src/WidgetsElement.php:549
+#: plugins/widgets/src/WidgetsElement.php:559
 msgid "Home page only"
 msgstr "Tylko strona główna"
 
-#: plugins/widgets/src/WidgetsElement.php:550
+#: plugins/widgets/src/WidgetsElement.php:560
 msgid "Except on home page"
 msgstr "Z wyjątkiem na stronie głównej"
 
-#: plugins/widgets/src/WidgetsElement.php:558
+#: plugins/widgets/src/WidgetsElement.php:568
 msgid "Display on:"
 msgstr "Wyświetl na:"
 
-#: plugins/widgets/src/WidgetsElement.php:584
+#: plugins/widgets/src/WidgetsElement.php:594
 msgid "Content only"
 msgstr "Tylko zawartość"
 
-#: plugins/widgets/src/WidgetsElement.php:594
+#: plugins/widgets/src/WidgetsElement.php:604
 msgid "CSS class:"
 msgstr "Klasa CSS:"
 

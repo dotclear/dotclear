@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-31 13:01+0200\n"
-"PO-Revision-Date: 2025-05-31 11:10\n"
+"POT-Creation-Date: 2025-06-01 08:06+0200\n"
+"PO-Revision-Date: 2025-06-01 06:12\n"
 "Last-Translator: \n"
 "Language-Team: Hungarian\n"
 "Language: hu_HU\n"
@@ -1330,7 +1330,7 @@ msgstr "Archívum"
 #: plugins/breadcrumb/src/FrontendTemplate.php:174
 #: plugins/breadcrumb/src/FrontendTemplate.php:181
 #: plugins/simpleMenu/src/Manage.php:131 plugins/simpleMenu/src/Manage.php:305
-#: plugins/tags/src/Widgets.php:56
+#: plugins/tags/src/Widgets.php:57
 msgid "All tags"
 msgstr "Mindegyik címke"
 
@@ -2496,7 +2496,7 @@ msgstr "Oldal állapota:"
 msgid "Page language"
 msgstr "Oldal nyelve"
 
-#: plugins/pages/src/ManagePage.php:609 plugins/pages/src/Widgets.php:40
+#: plugins/pages/src/ManagePage.php:609 plugins/pages/src/Widgets.php:41
 msgid "Page position"
 msgstr "Oldal elhelyzekdése"
 
@@ -2516,11 +2516,11 @@ msgstr "Bevezetés az oldalhoz."
 msgid "Select this comment"
 msgstr "Válassza ki ezt a megjegyzést"
 
-#: plugins/pages/src/Widgets.php:39
+#: plugins/pages/src/Widgets.php:40
 msgid "Page title"
 msgstr "Oldal címe"
 
-#: plugins/pages/src/Widgets.php:41
+#: plugins/pages/src/Widgets.php:42
 msgid "Publication date"
 msgstr "Punlikáció ideje"
 
@@ -2561,7 +2561,7 @@ msgid "Test ping services"
 msgstr "Pingszolgáltatások ellenőrzése"
 
 #: plugins/simpleMenu/src/Backend.php:26 plugins/simpleMenu/src/Manage.php:72
-#: plugins/simpleMenu/src/Widgets.php:28
+#: plugins/simpleMenu/src/Widgets.php:29
 msgid "Simple menu"
 msgstr "Egyszerű menü"
 
@@ -2586,7 +2586,7 @@ msgid "Page"
 msgstr "Oldal"
 
 #: plugins/simpleMenu/src/Manage.php:166 plugins/tags/src/Backend.php:25
-#: plugins/tags/src/Widgets.php:32
+#: plugins/tags/src/Widgets.php:33
 msgid "Tags"
 msgstr "címkék"
 
@@ -2755,23 +2755,23 @@ msgstr "Frissítés menü"
 msgid "No menu items so far."
 msgstr "Eddig nincs menüpont."
 
-#: plugins/simpleMenu/src/Widgets.php:32
+#: plugins/simpleMenu/src/Widgets.php:33
 msgid "Item description"
 msgstr "Tétel leírása"
 
-#: plugins/simpleMenu/src/Widgets.php:36
+#: plugins/simpleMenu/src/Widgets.php:37
 msgid "Displayed in link"
 msgstr "Megjelenítve a linkben"
 
-#: plugins/simpleMenu/src/Widgets.php:37
+#: plugins/simpleMenu/src/Widgets.php:38
 msgid "Used as link title"
 msgstr "Link címként használatos"
 
-#: plugins/simpleMenu/src/Widgets.php:38
+#: plugins/simpleMenu/src/Widgets.php:39
 msgid "Displayed in link and used as title"
 msgstr "Megjelenik a hivatkozásban és címként használatos"
 
-#: plugins/simpleMenu/src/Widgets.php:39
+#: plugins/simpleMenu/src/Widgets.php:40
 msgid "Not displayed nor used"
 msgstr "Nem jelenik meg és nem is használják"
 
@@ -2911,27 +2911,27 @@ msgstr "Átnevezni:"
 msgid "List of entries with this tag"
 msgstr "Az ezzel a címkével rendelkező bejegyzések listája"
 
-#: plugins/tags/src/Widgets.php:33
+#: plugins/tags/src/Widgets.php:34
 msgid "Limit (empty means no limit):"
 msgstr "Korlát (ha üresen hagyod, akkor nincs határ)"
 
-#: plugins/tags/src/Widgets.php:40
+#: plugins/tags/src/Widgets.php:41
 msgid "Tag name"
 msgstr "Címke neve"
 
-#: plugins/tags/src/Widgets.php:41
+#: plugins/tags/src/Widgets.php:42
 msgid "Entries count"
 msgstr "Bejegyzések száma"
 
-#: plugins/tags/src/Widgets.php:42
+#: plugins/tags/src/Widgets.php:43
 msgid "Newest entry"
 msgstr "Legújabb bejegyzés"
 
-#: plugins/tags/src/Widgets.php:43
+#: plugins/tags/src/Widgets.php:44
 msgid "Oldest entry"
 msgstr "Legrégebbi bejegyzés"
 
-#: plugins/tags/src/Widgets.php:56
+#: plugins/tags/src/Widgets.php:57
 msgid "Link to all tags:"
 msgstr "Link az összes címkéhez:"
 
@@ -3091,10 +3091,6 @@ msgstr "A beállítások sikeresen frissültek"
 #: plugins/userPref/src/Manage.php:158 plugins/userPref/src/Manage.php:160
 msgid "Global preferences"
 msgstr "Globális preferenciák"
-
-#: plugins/widgets/src/Backend.php:27
-msgid "Widgets"
-msgstr "Kütyük"
 
 #: plugins/widgets/src/Backend.php:51
 msgid "Widget's textareas"
@@ -3330,31 +3326,31 @@ msgstr "Bejegyzések feedje"
 msgid "Comments feed"
 msgstr "Hozzászólások feedje"
 
-#: plugins/widgets/src/WidgetsElement.php:537
+#: plugins/widgets/src/WidgetsElement.php:547
 msgid "Title (optional)"
 msgstr "Cím (nem kötelező)"
 
-#: plugins/widgets/src/WidgetsElement.php:548
+#: plugins/widgets/src/WidgetsElement.php:558
 msgid "All pages"
 msgstr "Minden oldal"
 
-#: plugins/widgets/src/WidgetsElement.php:549
+#: plugins/widgets/src/WidgetsElement.php:559
 msgid "Home page only"
 msgstr "Csak a honlapot"
 
-#: plugins/widgets/src/WidgetsElement.php:550
+#: plugins/widgets/src/WidgetsElement.php:560
 msgid "Except on home page"
 msgstr "Kivéve a kezdőlapon"
 
-#: plugins/widgets/src/WidgetsElement.php:558
+#: plugins/widgets/src/WidgetsElement.php:568
 msgid "Display on:"
 msgstr "Megjelenítés:"
 
-#: plugins/widgets/src/WidgetsElement.php:584
+#: plugins/widgets/src/WidgetsElement.php:594
 msgid "Content only"
 msgstr "Csak tartalom"
 
-#: plugins/widgets/src/WidgetsElement.php:594
+#: plugins/widgets/src/WidgetsElement.php:604
 msgid "CSS class:"
 msgstr "CSS osztály:"
 
