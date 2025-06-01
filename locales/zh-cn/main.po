@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-01 08:06+0200\n"
-"PO-Revision-Date: 2025-06-01 06:12\n"
+"PO-Revision-Date: 2025-06-01 06:37\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -5276,7 +5276,7 @@ msgstr "<strong>管理</strong>表示插件有特定的管理页面。"
 
 #: src/Process/Backend/Settings.php:291
 msgid "<strong>Widgets</strong> indicates that the plugin provide one or more widgets."
-msgstr ""
+msgstr "<strong>部件</strong>表示插件提供一个或多个部件。"
 
 #: src/Process/Backend/User.php:57 src/Process/Backend/Users.php:128
 msgid "New user"
