@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-01 08:06+0200\n"
-"PO-Revision-Date: 2025-06-01 06:37\n"
+"PO-Revision-Date: 2025-06-02 08:55\n"
 "Last-Translator: \n"
 "Language-Team: Arabic\n"
 "Language: ar_SA\n"
@@ -4283,7 +4283,7 @@ msgstr "%s غير معرف، يجب عليك تعديل ملف الإعدادا�
 #: src/Process/Backend/Home.php:270 src/Process/Backend/Home.php:278
 #: src/Process/Upgrade/Home.php:61 src/Process/Upgrade/Home.php:66
 msgid "See <a href=\"https://dotclear.org/documentation/2.0/admin/config\">documentation</a> for more information."
-msgstr "راجع <a href=\"https://dotclear.org/documentation/2.0/admin/config\">التوثيق</a> لمزيد من المعلومات."
+msgstr "راجع <a href=\"https://dotclear.org/documentation/2.0/admin/config\">الوثائق</a> لمزيد من المعلومات."
 
 #: src/Process/Backend/Home.php:288 src/Process/Upgrade/Home.php:70
 msgid "The cache directory does not exist or is not writable. You must create this directory with sufficient rights and affect this location to \"DC_TPL_CACHE\" in inc/config.php file."
@@ -4424,7 +4424,7 @@ msgstr "إدارة اللغات"
 #: src/Process/Backend/Langs.php:261
 #, php-format
 msgid "You can change your user language in your <a href=\"%1$s\">preferences</a> or change your blog's main language in your <a href=\"%2$s\">blog settings</a>."
-msgstr "يمكنك تغيير لغة المستخدم الخاص بك في <a href=\"%1$s\">تفضيلاتك</a> أو تغيير لغة مدونتك الرئيسية في <a href=\"%2$s\">إعدادات المدونة</a> الخاصة بك."
+msgstr "يمكنك تغيير لغة المستخدم في <a href=\"%1$s\">تفضيلاتك</a> أو تغيير اللغة الرئيسية لمدونتك في <a href=\"%2$s\">إعدادات مدونتك</a>."
 
 #: src/Process/Backend/Langs.php:265 src/Process/Upgrade/Langs.php:325
 msgid "Installed languages"
