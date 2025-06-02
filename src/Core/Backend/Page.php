@@ -454,7 +454,6 @@ class Page
                 ->items([
                     (new Link())
                         ->href(App::backend()->url()->get('admin.help'))
-                        ->class('outgoing')
                         ->title(__('Global help'))
                         ->text(__('Global help')),
                 ])
