@@ -275,9 +275,9 @@ class Filter implements FilterInterface
         return $res;
     }
 
-    public function HTMLfilter(string $str): string
+    public function HTMLfilter(string $str, bool $forced = false): string
     {
-        if (!$this->blog?->isDefined() || !$this->blog->settings()->system->enable_html_filter) {
+        if (!$this->blog?->isDefined() || (!$this->blog->settings()->system->enable_html_filter && !$forced)) {
             return $str;
         }
 

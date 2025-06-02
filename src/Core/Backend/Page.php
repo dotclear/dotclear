@@ -1089,6 +1089,10 @@ class Page
                     $content .= $file_content;
                 }
             }
+
+            // Filter remaining HTML
+            $content = App::filter()->HTMLfilter($content, true);
+
             if (trim($content) === '') {
                 $no_content = true;
             }

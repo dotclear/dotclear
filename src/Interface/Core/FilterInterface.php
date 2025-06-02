@@ -75,8 +75,9 @@ interface FilterInterface
      * tidy extension is present). If <b>enable_html_filter</b> blog setting is
      * false, returns not filtered string.
      *
-     * @param   string  $str    The string
+     * @param   string  $str     The string
+     * @param   bool    $forced  True to force filter
      */
-    public function HTMLfilter(string $str): string;
+    public function HTMLfilter(string $str, bool $forced = false): string;
     //@}
 }
