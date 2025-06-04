@@ -1,14 +1,15 @@
 .jstEditor {
+  color: var(--body-color);
+  background: var(--body-background);
   border-width: 0 1px 1px 1px;
   border-style: solid;
   border-color: var(--body-color);
-  background: #f7f7f7;
 }
 .jstEditor textarea,
 .jstEditor iframe {
   box-sizing: border-box;
   margin: 0;
-  border: 1px solid #fbfbfb;
+  border: none;
   width: 100%;
   padding: 0.5em calc(0.5em + 1em) 0.5em 0.5em;
   min-height: 100px;
@@ -17,20 +18,19 @@ body.rtl .jstEditor textarea,
 body.rtl .jstEditor iframe {
   padding: 0.5em 0.5em 0.5em calc(0.5em + 1em);
 }
+.toolbar_bottom .jstEditor {
+  border-top-width: 1px;
+  border-bottom-width: 0;
+}
 
 .jstEditor textarea:focus,
 .jstEditor iframe:focus {
   border-color: #bee74b;
 }
-.toolbar_bottom .jstEditor {
-  border-top-width: 1px;
-  border-bottom-width: 0;
-}
 .jstElements {
   box-sizing: border-box;
   padding: 0.25em;
   border: 1px solid;
-  background: var(--entry-sb-background);
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -80,7 +80,6 @@ body.rtl .jstEditor iframe {
   list-style: none;
   margin: 0;
   padding: inherit;
-  background: #dfdfdf;
   border-top: 1px solid #999;
 }
 .jstSwitcher li {
@@ -89,14 +88,12 @@ body.rtl .jstEditor iframe {
   padding: 0.125em 1em;
 }
 .jstSwitcher li.jstSwitcherCurrent {
-  color: #fff;
-  background: #677374;
+  color: var(--pager-active);
+  background: var(--pager-background);
   border-radius: 0 0 2px 2px;
 }
 .jstSwitcher a {
-  color: #333;
-  font-weight: normal;
-  border-bottom: none !important;
+  color: var(--pager-link);
 }
 /* Buttons
 -------------------------------------------------------- */

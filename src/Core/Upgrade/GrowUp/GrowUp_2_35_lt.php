@@ -24,6 +24,9 @@ class GrowUp_2_35_lt
             // Files
             [
                 'admin/images/trash.png',
+                'admin/style/scss/themes/_dark.scss',
+                'admin/style/scss/themes/_default.scss',
+                'admin/style/scss/themes/_themes.scss',
                 'src/Exception/UnautorizedException.php',   // Already in 2.33 but with a typo :-p
                 'themes/ductile/ductile.js',
             ],
