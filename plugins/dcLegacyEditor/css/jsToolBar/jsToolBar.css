@@ -88,12 +88,12 @@ body.rtl .jstEditor iframe {
   padding: 0.125em 1em;
 }
 .jstSwitcher li.jstSwitcherCurrent {
-  color: var(--pager-active);
-  background: var(--pager-background);
+  color: var(--switch-active-color);
+  background: var(--switch-background);
   border-radius: 0 0 2px 2px;
 }
 .jstSwitcher a {
-  color: var(--pager-link);
+  color: var(--switch-color);
 }
 /* Buttons
 -------------------------------------------------------- */

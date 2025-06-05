@@ -50,16 +50,16 @@ class Pager extends HelperPager
     /**
      * Gets the link.
      *
-     * @param   string  $li_class           The li class
-     * @param   string  $href               The href
-     * @param   string  $img_src            The image source
-     * @param   string  $img_src_nolink     The image source nolink
-     * @param   string  $img_alt            The image alternate
-     * @param   bool    $enable_link        The enable link
+     * @param   string                  $li_class           The li class
+     * @param   string                  $href               The href
+     * @param   array<int, string>      $img_src            The images source (light, dark)
+     * @param   array<int, string>      $img_src_nolink     The image source nolink (light, dark)
+     * @param   string                  $img_alt            The image alternate
+     * @param   bool                    $enable_link        The enable link
      *
      * @return  Li  The link.
      */
-    protected function getLink(string $li_class, string $href, string $img_src, string $img_src_nolink, string $img_alt, bool $enable_link): Li
+    protected function getLink(string $li_class, string $href, array $img_src, array $img_src_nolink, string $img_alt, bool $enable_link): Li
     {
         if ($enable_link) {
             return (new Li())
@@ -68,7 +68,11 @@ class Pager extends HelperPager
                     (new Link())
                         ->href($href)
                         ->items([
-                            (new Img($img_src))
+                            (new Img($img_src[0]))
+                                ->class('light-only')
+                                ->alt($img_alt),
+                            (new Img($img_src[1]))
+                                ->class('dark-only')
                                 ->alt($img_alt),
                         ]),
                     (new Span($img_alt))
@@ -79,7 +83,11 @@ class Pager extends HelperPager
         return (new Li())
             ->class(array_filter(['btn', 'no-link', $li_class]))
             ->items([
-                (new Img($img_src_nolink))
+                (new Img($img_src_nolink[0]))
+                    ->class('light-only')
+                    ->alt($img_alt),
+                (new Img($img_src_nolink[1]))
+                    ->class('dark-only')
                     ->alt($img_alt),
             ]);
     }
@@ -139,32 +147,32 @@ class Pager extends HelperPager
         $htmlFirst = $this->getLink(
             'first',
             sprintf((string) $this->page_url, 1),
-            'images/pagination/first.svg',
-            'images/pagination/no-first.svg',
+            ['images/pagination/first.svg', 'images/pagination/first-dark.svg'],
+            ['images/pagination/no-first.svg', 'images/pagination/no-first-dark.svg'],
             __('First page'),
             ($this->env > 1)
         );
         $htmlPrev = $this->getLink(
             'prev',
             sprintf((string) $this->page_url, $this->env - 1),
-            'images/pagination/previous.svg',
-            'images/pagination/no-previous.svg',
+            ['images/pagination/previous.svg', 'images/pagination/previous-dark.svg'],
+            ['images/pagination/no-previous.svg', 'images/pagination/no-previous-dark.svg'],
             __('Previous page'),
             ($this->env > 1)
         );
         $htmlNext = $this->getLink(
             'next',
             sprintf((string) $this->page_url, $this->env + 1),
-            'images/pagination/next.svg',
-            'images/pagination/no-next.svg',
+            ['images/pagination/next.svg', 'images/pagination/next-dark.svg'],
+            ['images/pagination/no-next.svg', 'images/pagination/no-next-dark.svg'],
             __('Next page'),
             ($this->env < $this->nb_pages)
         );
         $htmlLast = $this->getLink(
             'last',
             sprintf((string) $this->page_url, $this->nb_pages),
-            'images/pagination/last.svg',
-            'images/pagination/no-last.svg',
+            ['images/pagination/last.svg', 'images/pagination/last-dark.svg'],
+            ['images/pagination/no-last.svg', 'images/pagination/no-last-dark.svg'],
             __('Last page'),
             ($this->env < $this->nb_pages)
         );
