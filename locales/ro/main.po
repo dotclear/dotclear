@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-05 17:27+0200\n"
-"PO-Revision-Date: 2025-06-05 15:31\n"
+"PO-Revision-Date: 2025-06-05 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Romanian\n"
 "Language: ro_RO\n"
@@ -5312,7 +5312,7 @@ msgstr "Necunoscut"
 #: src/Process/Backend/Settings.php:219
 #, php-format
 msgid "This page does not allow you to manage plugins (update, install, uninstall, activate, deactivate, etc.). If you need to, go to <a href=\"%s\">this page</a>."
-msgstr ""
+msgstr "Această pagină nu vă permite să gestionați pluginuri (actualizare, instalare, dezinstalare, activare, dezactivare etc.). Dacă aveți nevoie, mergeți la <a href=\"%s\">această pagină</a>."
 
 #: src/Process/Backend/Settings.php:227
 msgid "ID"
