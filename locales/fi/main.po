@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-05 17:27+0200\n"
-"PO-Revision-Date: 2025-06-05 15:31\n"
+"PO-Revision-Date: 2025-06-05 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Finnish\n"
 "Language: fi_FI\n"
@@ -5277,7 +5277,7 @@ msgstr "Tuntematon"
 #: src/Process/Backend/Settings.php:219
 #, php-format
 msgid "This page does not allow you to manage plugins (update, install, uninstall, activate, deactivate, etc.). If you need to, go to <a href=\"%s\">this page</a>."
-msgstr ""
+msgstr "Tällä sivulla et voi hallita liitännäisiä (päivittää, asentaa, poistaa, aktivoida, deaktivoida jne.). Jos haluat, siirry <a href=\"%s\">tälle sivulle</a>."
 
 #: src/Process/Backend/Settings.php:227
 msgid "ID"
