@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-05 17:27+0200\n"
-"PO-Revision-Date: 2025-06-05 15:32\n"
+"PO-Revision-Date: 2025-06-05 16:00\n"
 "Last-Translator: \n"
 "Language-Team: Telugu\n"
 "Language: te_IN\n"
@@ -5277,7 +5277,7 @@ msgstr "తెలియదు"
 #: src/Process/Backend/Settings.php:219
 #, php-format
 msgid "This page does not allow you to manage plugins (update, install, uninstall, activate, deactivate, etc.). If you need to, go to <a href=\"%s\">this page</a>."
-msgstr ""
+msgstr "ఈ పేజీ ప్లగిన్‌లను నిర్వహించడానికి మిమ్మల్ని అనుమతించదు (నవీకరణ, ఇన్‌స్టాల్, అన్‌ఇన్‌స్టాల్, యాక్టివేట్, డియాక్టివేట్, మొదలైనవి). మీకు అవసరమైతే, <a href=\"%s\">ఈ పేజీ</a>కి వెళ్లండి."
 
 #: src/Process/Backend/Settings.php:227
 msgid "ID"
