@@ -119,21 +119,71 @@ class BackendBehaviors
                         'h6'      => __('Level 6 header'),
                     ], ],
 
-                'strong'     => ['title' => __('Strong emphasis')],
-                'em'         => ['title' => __('Emphasis')],
-                'ins'        => ['title' => __('Inserted')],
-                'del'        => ['title' => __('Deleted')],
-                'quote'      => ['title' => __('Inline quote')],
-                'code'       => ['title' => __('Code')],
-                'mark'       => ['title' => __('Mark')],
-                'br'         => ['title' => __('Line break')],
-                'blockquote' => ['title' => __('Blockquote')],
-                'pre'        => ['title' => __('Preformated text')],
-                'ul'         => ['title' => __('Unordered list')],
-                'ol'         => ['title' => __('Ordered list')],
+                'strong' => [
+                    'title'     => __('Strong emphasis'),
+                    'icon'      => My::fileURL('/css/jsToolBar/bt_strong.svg'),
+                    'icon_dark' => My::fileURL('/css/jsToolBar/bt_strong-dark.svg'),
+                ],
+                'em' => [
+                    'title'     => __('Emphasis'),
+                    'icon'      => My::fileURL('/css/jsToolBar/bt_em.svg'),
+                    'icon_dark' => My::fileURL('/css/jsToolBar/bt_em-dark.svg'),
+                ],
+                'ins' => [
+                    'title'     => __('Inserted'),
+                    'icon'      => My::fileURL('/css/jsToolBar/bt_ins.svg'),
+                    'icon_dark' => My::fileURL('/css/jsToolBar/bt_ins-dark.svg'),
+                ],
+                'del' => [
+                    'title'     => __('Deleted'),
+                    'icon'      => My::fileURL('/css/jsToolBar/bt_del.svg'),
+                    'icon_dark' => My::fileURL('/css/jsToolBar/bt_del-dark.svg'),
+                ],
+                'quote' => [
+                    'title'     => __('Inline quote'),
+                    'icon'      => My::fileURL('/css/jsToolBar/bt_quote.svg'),
+                    'icon_dark' => My::fileURL('/css/jsToolBar/bt_quote-dark.svg'),
+                ],
+                'code' => [
+                    'title'     => __('Code'),
+                    'icon'      => My::fileURL('/css/jsToolBar/bt_code.svg'),
+                    'icon_dark' => My::fileURL('/css/jsToolBar/bt_code-dark.svg'),
+                ],
+                'mark' => [
+                    'title'     => __('Mark'),
+                    'icon'      => My::fileURL('/css/jsToolBar/bt_mark.svg'),
+                    'icon_dark' => My::fileURL('/css/jsToolBar/bt_mark-dark.svg'),
+                ],
+                'br' => [
+                    'title'     => __('Line break'),
+                    'icon'      => My::fileURL('/css/jsToolBar/bt_br.svg'),
+                    'icon_dark' => My::fileURL('/css/jsToolBar/bt_br-dark.svg'),
+                ],
+                'blockquote' => [
+                    'title'     => __('Blockquote'),
+                    'icon'      => My::fileURL('/css/jsToolBar/bt_bquote.svg'),
+                    'icon_dark' => My::fileURL('/css/jsToolBar/bt_bquote-dark.svg'),
+                ],
+                'pre' => [
+                    'title'     => __('Preformated text'),
+                    'icon'      => My::fileURL('/css/jsToolBar/bt_pre.svg'),
+                    'icon_dark' => My::fileURL('/css/jsToolBar/bt_pre-dark.svg'),
+                ],
+                'ul' => [
+                    'title'     => __('Unordered list'),
+                    'icon'      => My::fileURL('/css/jsToolBar/bt_ul.svg'),
+                    'icon_dark' => My::fileURL('/css/jsToolBar/bt_ul-dark.svg'),
+                ],
+                'ol' => [
+                    'title'     => __('Ordered list'),
+                    'icon'      => My::fileURL('/css/jsToolBar/bt_ol.svg'),
+                    'icon_dark' => My::fileURL('/css/jsToolBar/bt_ol-dark.svg'),
+                ],
 
                 'link' => [
                     'title'           => __('Link'),
+                    'icon'            => My::fileURL('/css/jsToolBar/bt_link.svg'),
+                    'icon_dark'       => My::fileURL('/css/jsToolBar/bt_link-dark.svg'),
                     'accesskey'       => __('l'),
                     'href_prompt'     => __('URL?'),
                     'hreflang_prompt' => __('Language?'),
@@ -141,17 +191,33 @@ class BackendBehaviors
 
                 'img' => [
                     'title'      => __('External image'),
+                    'icon'       => My::fileURL('/css/jsToolBar/bt_img.svg'),
+                    'icon_dark'  => My::fileURL('/css/jsToolBar/bt_img-dark.svg'),
                     'src_prompt' => __('URL?'),
                 ],
 
                 'img_select' => [
                     'title'     => __('Media chooser'),
+                    'icon'      => My::fileURL('/css/jsToolBar/bt_img_select.svg'),
+                    'icon_dark' => My::fileURL('/css/jsToolBar/bt_img_select-dark.svg'),
                     'accesskey' => __('m'),
                 ],
 
-                'post_link'    => ['title' => __('Link to an entry')],
-                'removeFormat' => ['title' => __('Remove text formating')],
-                'preview'      => ['title' => __('Preview')],
+                'post_link' => [
+                    'title'     => __('Link to an entry'),
+                    'icon'      => My::fileURL('/css/jsToolBar/bt_post.svg'),
+                    'icon_dark' => My::fileURL('/css/jsToolBar/bt_post-dark.svg'),
+                ],
+                'removeFormat' => [
+                    'title'     => __('Remove text formating'),
+                    'icon'      => My::fileURL('/css/jsToolBar/bt_clean.svg'),
+                    'icon_dark' => My::fileURL('/css/jsToolBar/bt_clean-dark.svg'),
+                ],
+                'preview' => [
+                    'title'     => __('Preview'),
+                    'icon'      => My::fileURL('/css/jsToolBar/bt_preview.svg'),
+                    'icon_dark' => My::fileURL('/css/jsToolBar/bt_preview-dark.svg'),
+                ],
             ],
             'toolbar_bottom' => (App::task()->checkContext('BACKEND') && App::auth()->getOption('toolbar_bottom')),
             'dynamic_height' => (App::task()->checkContext('BACKEND') && My::settings()->dynamic),

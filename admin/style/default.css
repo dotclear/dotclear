@@ -319,6 +319,7 @@ html {
   --mark-selected-filter: hue-rotate(300deg) saturate(0.64);
   --mark-pending-filter: none;
   --mark-locked-filter: none;
+  --toolbar-btn-filter: none;
   /* Cope with automatic scheme */
   color-scheme: light dark;
 }
@@ -343,6 +344,7 @@ html body.dark-mode {
   --mark-selected-filter: hue-rotate(260deg) saturate(100) saturate(0.2) brightness(220%);
   --mark-pending-filter: brightness(2);
   --mark-locked-filter: brightness(2);
+  --toolbar-btn-filter: contrast(130%) brightness(1.5);
 }
 html.dark .light-only, html[data-theme=dark] .light-only,
 html body.dark-mode .light-only {
@@ -587,7 +589,11 @@ html body.dark-mode .light-only {
   --rch-table-td-link: light-dark(#2373a8, #bee74b);
   --switch-color: light-dark(#2373a8, #76c2f1);
   --switch-background: light-dark(#f3f3f3, #303236);
-  --switch-active-color: light-dark(#c9c9c9, #c9cbcf);
+  --switch-active-color: light-dark(#323232, #fff);
+  --toolbar-btn-background: light-dark(#fff, #3b3b3b);
+  --toolbar-btn-background-hover: light-dark(#fff, #000);
+  --toolbar-btn-border: light-dark(#fff, #fff);
+  --toolbar-btn-border-hover: light-dark(#3a539b, #fff);
   --badge-color: light-dark(#fff, #fff);
   --badge-border: light-dark(transparent, #dcdee0);
   --badge-std-background: light-dark(#d54e21, #d54e21);

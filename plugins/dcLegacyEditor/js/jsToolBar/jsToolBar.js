@@ -50,7 +50,7 @@ class jsToolBar {
       };
       this.adjustHeight = (el, min, max) => {
         // Compute the height difference which is caused by border and outline
-        const outerHeight = parseInt(window.getComputedStyle(el).height, 10);
+        const outerHeight = Number.parseInt(window.getComputedStyle(el).height, 10);
         const diff = outerHeight - el.clientHeight;
 
         // Set the height to 0 in case of it has to be shrinked
@@ -97,8 +97,11 @@ class jsToolBar {
       tool.shortkey,
       tool.shortkey_name,
     );
-    if (tool.icon != undefined) {
+    if (tool.icon !== undefined) {
       b.icon = tool.icon;
+      if (tool.icon_dark !== undefined) {
+        b.icon_dark = tool.icon_dark;
+      }
     }
     return b;
   }
@@ -280,14 +283,30 @@ class jsButton {
         return false;
       });
     }
+    // Icons (light or light/dark)
+    if (this.icon !== undefined) {
+      const img_light = document.createElement('img');
+      img_light.setAttribute('src', this.icon);
+      img_light.setAttribute('alt', this.title);
+      if (this.icon_dark === undefined) {
+        // Add contrast
+        button.appendChild(img_light);
+      } else {
+        img_light.classList.add('light-only');
+        button.appendChild(img_light);
+        const img_dark = document.createElement('img');
+        img_dark.setAttribute('src', this.icon_dark);
+        img_dark.setAttribute('alt', this.title);
+        img_dark.classList.add('dark-only');
+        button.appendChild(img_dark);
+      }
+    }
+    // Title
     const span = document.createElement('span');
     span.appendChild(document.createTextNode(this.title));
     button.appendChild(span);
 
-    if (this.icon != undefined) {
-      button.style.backgroundImage = `url(${this.icon})`;
-    }
-    if (typeof this.fn == 'function') {
+    if (typeof this.fn === 'function') {
       const This = this;
       button.onclick = function () {
         try {

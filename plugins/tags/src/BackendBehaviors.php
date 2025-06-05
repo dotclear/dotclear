@@ -60,9 +60,10 @@ class BackendBehaviors
             return
             Page::jsJson('legacy_editor_tags', [
                 'tag' => [
-                    'title' => __('Tag'),
-                    'icon'  => My::fileURL('/img/tag-add.svg'),
-                    'url'   => $tag_url,
+                    'title'     => __('Tag'),
+                    'icon'      => My::fileURL('/img/tag-add.svg'),
+                    'icon_dark' => My::fileURL('/img/tag-add-dark.svg'),
+                    'url'       => $tag_url,
                 ],
             ]) .
             My::jsLoad('legacy-post');

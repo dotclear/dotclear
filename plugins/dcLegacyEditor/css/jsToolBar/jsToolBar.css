@@ -46,19 +46,30 @@ body.rtl .jstEditor iframe {
 .jstElements button {
   width: 2.8rem;
   height: 2.8rem;
+  padding: 1px;
   border-style: solid;
   border-width: 1px;
-  border-color: #fff;
-  background-color: #fff;
+  border-color: var(--toolbar-btn-border);
+  background-color: var(--toolbar-btn-background);
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: 2rem;
   box-shadow: none;
+  img {
+    width: 80%;
+    height: auto;
+    vertical-align: middle;
+
+    body.dark-mode &:not(.light-only):not(.dark-only) {
+      /* Add some contrast and brightness to light icon only on dark mode */
+      filter: var(--toolbar-btn-filter);
+    }
+  }
 }
 .jstElements button:hover,
 .jstElements button:focus {
-  border-color: #3a539b;
-  background-color: #fff;
+  border-color: var(--toolbar-btn-border-hover);
+  background-color: var(--toolbar-btn-background-hover);
 }
 .jstElements button span {
   display: none;
@@ -94,63 +105,6 @@ body.rtl .jstEditor iframe {
 }
 .jstSwitcher a {
   color: var(--switch-color);
-}
-/* Buttons
--------------------------------------------------------- */
-
-button.jstb_strong {
-  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_strong.svg);
-}
-button.jstb_em {
-  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_em.svg);
-}
-button.jstb_ins {
-  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_ins.svg);
-}
-button.jstb_del {
-  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_del.svg);
-}
-button.jstb_quote {
-  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_quote.svg);
-}
-button.jstb_code {
-  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_code.svg);
-}
-button.jstb_mark {
-  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_mark.svg);
-}
-button.jstb_br {
-  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_br.svg);
-}
-button.jstb_blockquote {
-  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_bquote.svg);
-}
-button.jstb_pre {
-  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_pre.svg);
-}
-button.jstb_ul {
-  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_ul.svg);
-}
-button.jstb_ol {
-  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_ol.svg);
-}
-button.jstb_link {
-  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_link.svg);
-}
-button.jstb_img {
-  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_img.svg);
-}
-button.jstb_img_select {
-  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_img_select.svg);
-}
-button.jstb_post_link {
-  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_post.svg);
-}
-button.jstb_preview {
-  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_preview.svg);
-}
-button.jstb_removeFormat {
-  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_clean.svg);
 }
 
 /* WYSIWYG Iframe */
