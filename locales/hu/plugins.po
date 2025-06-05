@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-01 08:06+0200\n"
-"PO-Revision-Date: 2025-06-01 06:12\n"
+"POT-Creation-Date: 2025-06-05 17:29+0200\n"
+"PO-Revision-Date: 2025-06-05 15:33\n"
 "Last-Translator: \n"
 "Language-Team: Hungarian\n"
 "Language: hu_HU\n"
@@ -1140,7 +1140,7 @@ msgstr "A kategóriát sikeresen frissítettem"
 
 #: plugins/blogroll/src/ManageEdit.php:181
 #: plugins/dcCKEditor/src/BackendBehaviors.php:62
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:136
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:184
 msgid "Link"
 msgstr "Link"
 
@@ -1364,27 +1364,27 @@ msgid "HTML"
 msgstr "HTML"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:59
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:148
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:200
 msgid "Media chooser"
 msgstr "Média választó"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:60
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:149
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:203
 msgid "m"
 msgstr "m"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:61
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:152
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:207
 msgid "Link to an entry"
 msgstr "Link egy bejegyzéshez"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:63
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:137
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:187
 msgid "l"
 msgstr "l"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:64
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:143
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:193
 msgid "External image"
 msgstr "Külső kép"
 
@@ -1393,7 +1393,7 @@ msgid "URL field cannot be empty."
 msgstr "Az URL mező nem lehet üres."
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:89
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:163
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:229
 msgid "Open the media"
 msgstr "Nyissa meg a médiát"
 
@@ -1558,60 +1558,60 @@ msgstr "5. szintű fejléc"
 msgid "Level 6 header"
 msgstr "6. szintű fejléc"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:122
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:123
 msgid "Strong emphasis"
 msgstr "Erős hangsúly"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:123
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:128
 msgid "Emphasis"
 msgstr "Kiemelés"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:124
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:133
 msgid "Inserted"
 msgstr "Beillesztett"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:125
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:138
 msgid "Deleted"
 msgstr "Törölt"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:126
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:143
 msgid "Inline quote"
 msgstr "Inline idézet"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:127
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:148
 msgid "Code"
 msgstr "Kód:"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:129
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:158
 msgid "Line break"
 msgstr "Zárójelváltás"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:130
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:163
 msgid "Blockquote"
 msgstr "Blockquote"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:131
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:168
 msgid "Preformated text"
 msgstr "Előformázott szöveg"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:132
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:173
 msgid "Unordered list"
 msgstr "Rendezetlen lista"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:133
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:178
 msgid "Ordered list"
 msgstr "Rendezett lista"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:138
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:144
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:188
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:196
 msgid "URL?"
 msgstr "URL?"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:139
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:189
 msgid "Language?"
 msgstr "Nyelv?"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:153
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:212
 msgid "Remove text formating"
 msgstr "Szövegformázás eltávolítása"
 
@@ -1689,7 +1689,7 @@ msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup f
 msgstr "A \"%3$s\" azonosítója nem egyezik a \"%1$s\" rekorddal a biztonsági mentési fájl %2$s sorában."
 
 #: plugins/importExport/src/Manage.php:90
-#: plugins/maintenance/src/Manage.php:188
+#: plugins/maintenance/src/Manage.php:195
 msgid "Please wait..."
 msgstr "Kérlek, várj..."
 
@@ -2055,12 +2055,12 @@ msgstr[0] "Egy végrehajtandó feladat"
 msgstr[1] "%s végrehajtandó feladatok"
 
 #: plugins/maintenance/src/BackendBehaviors.php:170
-#: plugins/maintenance/src/Manage.php:293
+#: plugins/maintenance/src/Manage.php:300
 msgid "This task has never been executed."
 msgstr "Ezt a feladatot még soha nem hajtották végre."
 
 #: plugins/maintenance/src/BackendBehaviors.php:173
-#: plugins/maintenance/src/Manage.php:296
+#: plugins/maintenance/src/Manage.php:303
 #, php-format
 msgid "Last execution of this task was on %s."
 msgstr "A feladat utolsó végrehajtása a %soldalon történt."
@@ -2120,79 +2120,79 @@ msgstr "Minden hónapban"
 msgid "Every two months"
 msgstr "Kéthavonta"
 
-#: plugins/maintenance/src/Manage.php:205
+#: plugins/maintenance/src/Manage.php:212
 msgid "You have not sufficient permissions to view this page."
 msgstr "Nincs elegendő jogosultsága az oldal megtekintéséhez."
 
-#: plugins/maintenance/src/Manage.php:293
-#: plugins/maintenance/src/Manage.php:299
+#: plugins/maintenance/src/Manage.php:300
+#: plugins/maintenance/src/Manage.php:306
 msgid "You should execute it now."
 msgstr "Most kell végrehajtania."
 
-#: plugins/maintenance/src/Manage.php:335
-#: plugins/maintenance/src/Manage.php:369
+#: plugins/maintenance/src/Manage.php:342
+#: plugins/maintenance/src/Manage.php:376
 msgid "Execute task"
 msgstr "Feladat végrehajtása"
 
-#: plugins/maintenance/src/Manage.php:340
+#: plugins/maintenance/src/Manage.php:347
 msgid "This may take a very long time."
 msgstr "Ez nagyon sokáig tarthat."
 
-#: plugins/maintenance/src/Manage.php:400
-#: plugins/maintenance/src/Manage.php:402
+#: plugins/maintenance/src/Manage.php:407
+#: plugins/maintenance/src/Manage.php:409
 msgid "Alert settings"
 msgstr "Riasztási beállítások"
 
-#: plugins/maintenance/src/Manage.php:408
+#: plugins/maintenance/src/Manage.php:415
 msgid "Activation"
 msgstr "Aktiválás"
 
-#: plugins/maintenance/src/Manage.php:414
+#: plugins/maintenance/src/Manage.php:421
 msgid "Display alert messages on late tasks"
 msgstr "Figyelmeztető üzenetek megjelenítése a késedelmes feladatokról"
 
-#: plugins/maintenance/src/Manage.php:419
+#: plugins/maintenance/src/Manage.php:426
 #, php-format
 msgid "You can place list of late tasks on your %s."
 msgstr "A késedelmes feladatok listáját elhelyezheti a %soldalon."
 
-#: plugins/maintenance/src/Manage.php:424
+#: plugins/maintenance/src/Manage.php:431
 msgid "Frequency"
 msgstr "Frekvencia"
 
-#: plugins/maintenance/src/Manage.php:432
+#: plugins/maintenance/src/Manage.php:439
 msgid "Use one recall time for all tasks"
 msgstr "Használjon egy visszahívási időt minden feladathoz"
 
-#: plugins/maintenance/src/Manage.php:442
+#: plugins/maintenance/src/Manage.php:449
 msgid "Recall time for all tasks:"
 msgstr "Visszahívási idő minden feladatra:"
 
-#: plugins/maintenance/src/Manage.php:451
+#: plugins/maintenance/src/Manage.php:458
 msgid "Use one recall time per task"
 msgstr "Feladatonként egy felidézési időt használjon"
 
-#: plugins/maintenance/src/Manage.php:482
+#: plugins/maintenance/src/Manage.php:489
 msgid "Content-Security-Policy"
 msgstr "Tartalom-biztonsági politika"
 
-#: plugins/maintenance/src/Manage.php:494
+#: plugins/maintenance/src/Manage.php:501
 msgid "Enable Content-Security-Policy system"
 msgstr "Tartalom-biztonsági házirend rendszer engedélyezése"
 
-#: plugins/maintenance/src/Manage.php:500
+#: plugins/maintenance/src/Manage.php:507
 msgid "Enable Content-Security-Policy report only"
 msgstr "Csak a tartalom-biztonsági házirend jelentés engedélyezése"
 
-#: plugins/maintenance/src/Manage.php:510
+#: plugins/maintenance/src/Manage.php:517
 msgid "Enable Content-Security-Policy system by default"
 msgstr "A tartalom-biztonsági házirend rendszer alapértelmezés szerinti engedélyezése"
 
-#: plugins/maintenance/src/Manage.php:516
+#: plugins/maintenance/src/Manage.php:523
 msgid "Enable Content-Security-Policy report only by default"
 msgstr "Csak alapértelmezés szerint engedélyezze a tartalom-biztonsági házirend jelentést"
 
-#: plugins/maintenance/src/Manage.php:522
+#: plugins/maintenance/src/Manage.php:529
 msgid "Also apply these settings to all blogs"
 msgstr "Alkalmazza ezeket a beállításokat az összes blogra is"
 
@@ -2776,89 +2776,89 @@ msgid "Not displayed nor used"
 msgstr "Nem jelenik meg és nem is használják"
 
 #: plugins/tags/src/BackendBehaviors.php:63
-#: plugins/tags/src/BackendBehaviors.php:74
+#: plugins/tags/src/BackendBehaviors.php:75
 #: plugins/tags/src/FrontendUrl.php:105 plugins/tags/src/ManagePosts.php:155
 msgid "Tag"
 msgstr "Címke:"
 
-#: plugins/tags/src/BackendBehaviors.php:237
+#: plugins/tags/src/BackendBehaviors.php:238
 msgid "Add tags"
 msgstr "Címkék hozzáadása"
 
-#: plugins/tags/src/BackendBehaviors.php:246
+#: plugins/tags/src/BackendBehaviors.php:247
 msgid "Remove tags"
 msgstr "Címkék eltávolítása"
 
-#: plugins/tags/src/BackendBehaviors.php:281
+#: plugins/tags/src/BackendBehaviors.php:282
 msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
 msgstr[0] "A címke sikeresen hozzá lett adva a kiválasztott bejegyzésekhez"
 msgstr[1] "A címkék sikeresen hozzá lettek adva a kiválasztott bejegyzésekhez"
 
-#: plugins/tags/src/BackendBehaviors.php:294
-#: plugins/tags/src/BackendBehaviors.php:449
+#: plugins/tags/src/BackendBehaviors.php:295
+#: plugins/tags/src/BackendBehaviors.php:450
 msgid "Are you sure you want to remove this tag?"
 msgstr "Biztos, hogy el akarja távolítani ezt a címkét?"
 
-#: plugins/tags/src/BackendBehaviors.php:295
-#: plugins/tags/src/BackendBehaviors.php:450
+#: plugins/tags/src/BackendBehaviors.php:296
+#: plugins/tags/src/BackendBehaviors.php:451
 msgid "Add a tag to this entry"
 msgstr "Címke hozzáadása ehhez a bejegyzéshez"
 
-#: plugins/tags/src/BackendBehaviors.php:296
-#: plugins/tags/src/BackendBehaviors.php:451
+#: plugins/tags/src/BackendBehaviors.php:297
+#: plugins/tags/src/BackendBehaviors.php:452
 msgid "Choose from list"
 msgstr "Kiválasztom a listáról"
 
-#: plugins/tags/src/BackendBehaviors.php:297
-#: plugins/tags/src/BackendBehaviors.php:452
+#: plugins/tags/src/BackendBehaviors.php:298
+#: plugins/tags/src/BackendBehaviors.php:453
 msgid "all"
 msgstr "mind"
 
-#: plugins/tags/src/BackendBehaviors.php:298
-#: plugins/tags/src/BackendBehaviors.php:453
+#: plugins/tags/src/BackendBehaviors.php:299
+#: plugins/tags/src/BackendBehaviors.php:454
 msgid "Enter tags separated by comma"
 msgstr "Adja meg a címkéket vesszővel elválasztva"
 
-#: plugins/tags/src/BackendBehaviors.php:306
+#: plugins/tags/src/BackendBehaviors.php:307
 msgid "Add tags to this selection"
 msgstr "Címkék hozzáadása ehhez a kiválasztáshoz"
 
-#: plugins/tags/src/BackendBehaviors.php:324
+#: plugins/tags/src/BackendBehaviors.php:325
 msgid "Tags to add:"
 msgstr "Hozzáadandó címkék:"
 
-#: plugins/tags/src/BackendBehaviors.php:363
+#: plugins/tags/src/BackendBehaviors.php:364
 msgid "Tag has been successfully removed from selected entries"
 msgid_plural "Tags have been successfully removed from selected entries"
 msgstr[0] "A címke sikeresen eltávolításra került a kiválasztott bejegyzésekből"
 msgstr[1] "A címkék sikeresen eltávolításra kerültek a kiválasztott bejegyzésekből"
 
-#: plugins/tags/src/BackendBehaviors.php:386
+#: plugins/tags/src/BackendBehaviors.php:387
 msgid "No tags for selected entries"
 msgstr "Nincs címke a kiválasztott bejegyzéshez"
 
-#: plugins/tags/src/BackendBehaviors.php:393
+#: plugins/tags/src/BackendBehaviors.php:394
 msgid "Remove selected tags from this selection"
 msgstr "A kijelölt címkék eltávolítása ebből a kiválasztásból"
 
-#: plugins/tags/src/BackendBehaviors.php:420
+#: plugins/tags/src/BackendBehaviors.php:421
 msgid "Following tags have been found in selected entries:"
 msgstr "A következp címkéket találtam a kiválastott bejegyzésekhez:"
 
-#: plugins/tags/src/BackendBehaviors.php:429
+#: plugins/tags/src/BackendBehaviors.php:430
 msgid "Remove"
 msgstr "Távolítsa el a"
 
-#: plugins/tags/src/BackendBehaviors.php:492
+#: plugins/tags/src/BackendBehaviors.php:493
 msgid "Tags list format:"
 msgstr "Címkék lista formátumban:"
 
-#: plugins/tags/src/BackendBehaviors.php:495
+#: plugins/tags/src/BackendBehaviors.php:496
 msgid "Short"
 msgstr "Rövid"
 
-#: plugins/tags/src/BackendBehaviors.php:496
+#: plugins/tags/src/BackendBehaviors.php:497
 msgid "Extended"
 msgstr "Bővített"
 
