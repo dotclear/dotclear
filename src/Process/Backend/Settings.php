@@ -19,6 +19,7 @@ use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Li;
 use Dotclear\Helper\Html\Form\Link;
 use Dotclear\Helper\Html\Form\None;
+use Dotclear\Helper\Html\Form\Note;
 use Dotclear\Helper\Html\Form\Single;
 use Dotclear\Helper\Html\Form\Strong;
 use Dotclear\Helper\Html\Form\Table;
@@ -212,6 +213,11 @@ class Settings extends Process
 
         echo (new Div())
             ->items([
+                App::auth()->isSuperAdmin() ?
+                    (new Note())
+                        ->class(['form-note', 'warn'])
+                        ->text(sprintf(__('This page does not allow you to manage plugins (update, install, uninstall, activate, deactivate, etc.). If you need to, go to <a href="%s">this page</a>.'), App::backend()->url()->get('admin.plugins'))) :
+                    (new None()),
                 (new Table('settings'))
                     ->thead((new Thead())
                         ->items([
