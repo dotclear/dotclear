@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-01 08:06+0200\n"
-"PO-Revision-Date: 2025-06-01 06:12\n"
+"POT-Creation-Date: 2025-06-05 17:29+0200\n"
+"PO-Revision-Date: 2025-06-05 15:33\n"
 "Last-Translator: \n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -1144,7 +1144,7 @@ msgstr "Категория была успешно удалена"
 
 #: plugins/blogroll/src/ManageEdit.php:181
 #: plugins/dcCKEditor/src/BackendBehaviors.php:62
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:136
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:184
 msgid "Link"
 msgstr "Ссылка"
 
@@ -1368,27 +1368,27 @@ msgid "HTML"
 msgstr "HTML"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:59
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:148
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:200
 msgid "Media chooser"
 msgstr "Выбор медиа"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:60
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:149
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:203
 msgid "m"
 msgstr "м"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:61
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:152
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:207
 msgid "Link to an entry"
 msgstr "Ссылка на запись"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:63
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:137
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:187
 msgid "l"
 msgstr "т"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:64
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:143
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:193
 msgid "External image"
 msgstr "Внешнее изображение"
 
@@ -1397,7 +1397,7 @@ msgid "URL field cannot be empty."
 msgstr "Поле URL не может быть пустым."
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:89
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:163
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:229
 msgid "Open the media"
 msgstr "Откройте носитель"
 
@@ -1562,60 +1562,60 @@ msgstr "Заголовок уровня 5"
 msgid "Level 6 header"
 msgstr "Заголовок уровня 6"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:122
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:123
 msgid "Strong emphasis"
 msgstr "Особое внимание"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:123
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:128
 msgid "Emphasis"
 msgstr "Акцент"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:124
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:133
 msgid "Inserted"
 msgstr "Вставлено"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:125
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:138
 msgid "Deleted"
 msgstr "Удалено"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:126
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:143
 msgid "Inline quote"
 msgstr "Встроенная кавычка"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:127
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:148
 msgid "Code"
 msgstr "Код"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:129
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:158
 msgid "Line break"
 msgstr "Разрыв строк"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:130
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:163
 msgid "Blockquote"
 msgstr "Цитата"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:131
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:168
 msgid "Preformated text"
 msgstr "Преобразованный текст"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:132
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:173
 msgid "Unordered list"
 msgstr "Неупорядоченный список"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:133
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:178
 msgid "Ordered list"
 msgstr "Упорядоченный список"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:138
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:144
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:188
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:196
 msgid "URL?"
 msgstr "URL?"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:139
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:189
 msgid "Language?"
 msgstr "Язык?"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:153
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:212
 msgid "Remove text formating"
 msgstr "Удалить формацию текста"
 
@@ -1693,7 +1693,7 @@ msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup f
 msgstr "ID \"%3$s\" не соответствует записи \"%1$s\" в строке %2$s файла резервной копии."
 
 #: plugins/importExport/src/Manage.php:90
-#: plugins/maintenance/src/Manage.php:188
+#: plugins/maintenance/src/Manage.php:195
 msgid "Please wait..."
 msgstr "Пожалуйста подождите..."
 
@@ -2061,12 +2061,12 @@ msgstr[2] "%s задач для выполнения"
 msgstr[3] "%s задач для выполнения"
 
 #: plugins/maintenance/src/BackendBehaviors.php:170
-#: plugins/maintenance/src/Manage.php:293
+#: plugins/maintenance/src/Manage.php:300
 msgid "This task has never been executed."
 msgstr "Эта задача никогда не выполнялась."
 
 #: plugins/maintenance/src/BackendBehaviors.php:173
-#: plugins/maintenance/src/Manage.php:296
+#: plugins/maintenance/src/Manage.php:303
 #, php-format
 msgid "Last execution of this task was on %s."
 msgstr "Последнее выполнение этой задачи было %s."
@@ -2128,79 +2128,79 @@ msgstr "Каждый месяц"
 msgid "Every two months"
 msgstr "Каждые два месяца"
 
-#: plugins/maintenance/src/Manage.php:205
+#: plugins/maintenance/src/Manage.php:212
 msgid "You have not sufficient permissions to view this page."
 msgstr "У вас недостаточно прав для просмотра этой страницы."
 
-#: plugins/maintenance/src/Manage.php:293
-#: plugins/maintenance/src/Manage.php:299
+#: plugins/maintenance/src/Manage.php:300
+#: plugins/maintenance/src/Manage.php:306
 msgid "You should execute it now."
 msgstr "Вы должны выполнить это сейчас."
 
-#: plugins/maintenance/src/Manage.php:335
-#: plugins/maintenance/src/Manage.php:369
+#: plugins/maintenance/src/Manage.php:342
+#: plugins/maintenance/src/Manage.php:376
 msgid "Execute task"
 msgstr "Выполнить задачу"
 
-#: plugins/maintenance/src/Manage.php:340
+#: plugins/maintenance/src/Manage.php:347
 msgid "This may take a very long time."
 msgstr "Это может занять очень много времени."
 
-#: plugins/maintenance/src/Manage.php:400
-#: plugins/maintenance/src/Manage.php:402
+#: plugins/maintenance/src/Manage.php:407
+#: plugins/maintenance/src/Manage.php:409
 msgid "Alert settings"
 msgstr "Настройки оповещений"
 
-#: plugins/maintenance/src/Manage.php:408
+#: plugins/maintenance/src/Manage.php:415
 msgid "Activation"
 msgstr "Активация"
 
-#: plugins/maintenance/src/Manage.php:414
+#: plugins/maintenance/src/Manage.php:421
 msgid "Display alert messages on late tasks"
 msgstr "Отображение предупреждений о поздних задачах"
 
-#: plugins/maintenance/src/Manage.php:419
+#: plugins/maintenance/src/Manage.php:426
 #, php-format
 msgid "You can place list of late tasks on your %s."
 msgstr "Вы можете поместить список поздних задач на ваш %s."
 
-#: plugins/maintenance/src/Manage.php:424
+#: plugins/maintenance/src/Manage.php:431
 msgid "Frequency"
 msgstr "Частота"
 
-#: plugins/maintenance/src/Manage.php:432
+#: plugins/maintenance/src/Manage.php:439
 msgid "Use one recall time for all tasks"
 msgstr "Использовать одно время для всех задач"
 
-#: plugins/maintenance/src/Manage.php:442
+#: plugins/maintenance/src/Manage.php:449
 msgid "Recall time for all tasks:"
 msgstr "Время отзыва для всех задач:"
 
-#: plugins/maintenance/src/Manage.php:451
+#: plugins/maintenance/src/Manage.php:458
 msgid "Use one recall time per task"
 msgstr "Использовать одно время напоминания за задачу"
 
-#: plugins/maintenance/src/Manage.php:482
+#: plugins/maintenance/src/Manage.php:489
 msgid "Content-Security-Policy"
 msgstr "Содержание - Политика безопасности"
 
-#: plugins/maintenance/src/Manage.php:494
+#: plugins/maintenance/src/Manage.php:501
 msgid "Enable Content-Security-Policy system"
 msgstr "Включить систему контент-безопасности"
 
-#: plugins/maintenance/src/Manage.php:500
+#: plugins/maintenance/src/Manage.php:507
 msgid "Enable Content-Security-Policy report only"
 msgstr "Включить только отчёт по вопросам безопасности"
 
-#: plugins/maintenance/src/Manage.php:510
+#: plugins/maintenance/src/Manage.php:517
 msgid "Enable Content-Security-Policy system by default"
 msgstr "Включить систему Content-Security-Policy по умолчанию"
 
-#: plugins/maintenance/src/Manage.php:516
+#: plugins/maintenance/src/Manage.php:523
 msgid "Enable Content-Security-Policy report only by default"
 msgstr "Включить отчёт Content-Security-Policy только по умолчанию"
 
-#: plugins/maintenance/src/Manage.php:522
+#: plugins/maintenance/src/Manage.php:529
 msgid "Also apply these settings to all blogs"
 msgstr "Также применить эти настройки ко всем блогам"
 
@@ -2784,20 +2784,20 @@ msgid "Not displayed nor used"
 msgstr "Не отображается и не используется"
 
 #: plugins/tags/src/BackendBehaviors.php:63
-#: plugins/tags/src/BackendBehaviors.php:74
+#: plugins/tags/src/BackendBehaviors.php:75
 #: plugins/tags/src/FrontendUrl.php:105 plugins/tags/src/ManagePosts.php:155
 msgid "Tag"
 msgstr "Тег"
 
-#: plugins/tags/src/BackendBehaviors.php:237
+#: plugins/tags/src/BackendBehaviors.php:238
 msgid "Add tags"
 msgstr "добавить теги"
 
-#: plugins/tags/src/BackendBehaviors.php:246
+#: plugins/tags/src/BackendBehaviors.php:247
 msgid "Remove tags"
 msgstr "удалить теги"
 
-#: plugins/tags/src/BackendBehaviors.php:281
+#: plugins/tags/src/BackendBehaviors.php:282
 msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
 msgstr[0] "Тег был успешно добавлен к выбранным записям"
@@ -2805,40 +2805,40 @@ msgstr[1] "Теги были успешно добавлены в выбранн
 msgstr[2] "Теги были успешно добавлены в выбранные записи"
 msgstr[3] "Теги были успешно добавлены в выбранные записи"
 
-#: plugins/tags/src/BackendBehaviors.php:294
-#: plugins/tags/src/BackendBehaviors.php:449
+#: plugins/tags/src/BackendBehaviors.php:295
+#: plugins/tags/src/BackendBehaviors.php:450
 msgid "Are you sure you want to remove this tag?"
 msgstr "Вы уверены, что хотите удалить этот тег?"
 
-#: plugins/tags/src/BackendBehaviors.php:295
-#: plugins/tags/src/BackendBehaviors.php:450
+#: plugins/tags/src/BackendBehaviors.php:296
+#: plugins/tags/src/BackendBehaviors.php:451
 msgid "Add a tag to this entry"
 msgstr "Добавить тег к этой записи"
 
-#: plugins/tags/src/BackendBehaviors.php:296
-#: plugins/tags/src/BackendBehaviors.php:451
+#: plugins/tags/src/BackendBehaviors.php:297
+#: plugins/tags/src/BackendBehaviors.php:452
 msgid "Choose from list"
 msgstr "Выбрать из списка"
 
-#: plugins/tags/src/BackendBehaviors.php:297
-#: plugins/tags/src/BackendBehaviors.php:452
+#: plugins/tags/src/BackendBehaviors.php:298
+#: plugins/tags/src/BackendBehaviors.php:453
 msgid "all"
 msgstr "все"
 
-#: plugins/tags/src/BackendBehaviors.php:298
-#: plugins/tags/src/BackendBehaviors.php:453
+#: plugins/tags/src/BackendBehaviors.php:299
+#: plugins/tags/src/BackendBehaviors.php:454
 msgid "Enter tags separated by comma"
 msgstr "Введите теги, разделяя запятыми"
 
-#: plugins/tags/src/BackendBehaviors.php:306
+#: plugins/tags/src/BackendBehaviors.php:307
 msgid "Add tags to this selection"
 msgstr "Добавить теги к этому выделению"
 
-#: plugins/tags/src/BackendBehaviors.php:324
+#: plugins/tags/src/BackendBehaviors.php:325
 msgid "Tags to add:"
 msgstr "Теги для добавления:"
 
-#: plugins/tags/src/BackendBehaviors.php:363
+#: plugins/tags/src/BackendBehaviors.php:364
 msgid "Tag has been successfully removed from selected entries"
 msgid_plural "Tags have been successfully removed from selected entries"
 msgstr[0] "Тег был успешно удален из выбранных записей"
@@ -2846,31 +2846,31 @@ msgstr[1] "Теги были успешно удалены из выбранны
 msgstr[2] "Теги были успешно удалены из выбранных записей"
 msgstr[3] "Теги были успешно удалены из выбранных записей"
 
-#: plugins/tags/src/BackendBehaviors.php:386
+#: plugins/tags/src/BackendBehaviors.php:387
 msgid "No tags for selected entries"
 msgstr "Нет тегов для выбранных записей"
 
-#: plugins/tags/src/BackendBehaviors.php:393
+#: plugins/tags/src/BackendBehaviors.php:394
 msgid "Remove selected tags from this selection"
 msgstr "Удалить выбранные теги из этого выделения"
 
-#: plugins/tags/src/BackendBehaviors.php:420
+#: plugins/tags/src/BackendBehaviors.php:421
 msgid "Following tags have been found in selected entries:"
 msgstr "Следующие теги  были найдены в выбранных записях:"
 
-#: plugins/tags/src/BackendBehaviors.php:429
+#: plugins/tags/src/BackendBehaviors.php:430
 msgid "Remove"
 msgstr "Удалить"
 
-#: plugins/tags/src/BackendBehaviors.php:492
+#: plugins/tags/src/BackendBehaviors.php:493
 msgid "Tags list format:"
 msgstr "Формат списка тегов:"
 
-#: plugins/tags/src/BackendBehaviors.php:495
+#: plugins/tags/src/BackendBehaviors.php:496
 msgid "Short"
 msgstr "Короткий"
 
-#: plugins/tags/src/BackendBehaviors.php:496
+#: plugins/tags/src/BackendBehaviors.php:497
 msgid "Extended"
 msgstr "Расширенный"
 
