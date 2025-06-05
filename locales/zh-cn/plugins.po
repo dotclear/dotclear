@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-01 08:06+0200\n"
-"PO-Revision-Date: 2025-06-01 06:13\n"
+"POT-Creation-Date: 2025-06-05 17:29+0200\n"
+"PO-Revision-Date: 2025-06-05 15:33\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -1138,7 +1138,7 @@ msgstr "成功更新分类目录"
 
 #: plugins/blogroll/src/ManageEdit.php:181
 #: plugins/dcCKEditor/src/BackendBehaviors.php:62
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:136
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:184
 msgid "Link"
 msgstr "链接"
 
@@ -1362,27 +1362,27 @@ msgid "HTML"
 msgstr "HTML"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:59
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:148
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:200
 msgid "Media chooser"
 msgstr "媒体选择器"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:60
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:149
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:203
 msgid "m"
 msgstr "m"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:61
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:152
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:207
 msgid "Link to an entry"
 msgstr "链接到一个条目"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:63
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:137
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:187
 msgid "l"
 msgstr "l"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:64
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:143
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:193
 msgid "External image"
 msgstr "外部图像"
 
@@ -1391,7 +1391,7 @@ msgid "URL field cannot be empty."
 msgstr "URL字段不能为空。"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:89
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:163
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:229
 msgid "Open the media"
 msgstr "打开媒体"
 
@@ -1556,60 +1556,60 @@ msgstr "5级头"
 msgid "Level 6 header"
 msgstr "6级头"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:122
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:123
 msgid "Strong emphasis"
 msgstr "高度重视"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:123
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:128
 msgid "Emphasis"
 msgstr "强调"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:124
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:133
 msgid "Inserted"
 msgstr "已插入"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:125
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:138
 msgid "Deleted"
 msgstr "已删除"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:126
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:143
 msgid "Inline quote"
 msgstr "内联报价"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:127
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:148
 msgid "Code"
 msgstr "编码"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:129
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:158
 msgid "Line break"
 msgstr "换行"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:130
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:163
 msgid "Blockquote"
 msgstr "块状引文"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:131
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:168
 msgid "Preformated text"
 msgstr "预先形成的文本"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:132
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:173
 msgid "Unordered list"
 msgstr "无序列表"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:133
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:178
 msgid "Ordered list"
 msgstr "有序列表"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:138
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:144
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:188
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:196
 msgid "URL?"
 msgstr "URL?"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:139
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:189
 msgid "Language?"
 msgstr "语言?"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:153
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:212
 msgid "Remove text formating"
 msgstr "移除文本格式化"
 
@@ -1687,7 +1687,7 @@ msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup f
 msgstr "%3$s\"的ID与备份文件中 %2$s 行的记录 \"%1$s\"不匹配。"
 
 #: plugins/importExport/src/Manage.php:90
-#: plugins/maintenance/src/Manage.php:188
+#: plugins/maintenance/src/Manage.php:195
 msgid "Please wait..."
 msgstr "请稍等..."
 
@@ -2052,12 +2052,12 @@ msgid_plural "%s tasks to execute"
 msgstr[0] "%s 要执行的任务"
 
 #: plugins/maintenance/src/BackendBehaviors.php:170
-#: plugins/maintenance/src/Manage.php:293
+#: plugins/maintenance/src/Manage.php:300
 msgid "This task has never been executed."
 msgstr "这项任务从未被执行过。"
 
 #: plugins/maintenance/src/BackendBehaviors.php:173
-#: plugins/maintenance/src/Manage.php:296
+#: plugins/maintenance/src/Manage.php:303
 #, php-format
 msgid "Last execution of this task was on %s."
 msgstr "这项任务的最后一次执行是在 %s。"
@@ -2116,79 +2116,79 @@ msgstr "每个月"
 msgid "Every two months"
 msgstr "每两个月一次"
 
-#: plugins/maintenance/src/Manage.php:205
+#: plugins/maintenance/src/Manage.php:212
 msgid "You have not sufficient permissions to view this page."
 msgstr "你没有足够的权限查看这个页面。"
 
-#: plugins/maintenance/src/Manage.php:293
-#: plugins/maintenance/src/Manage.php:299
+#: plugins/maintenance/src/Manage.php:300
+#: plugins/maintenance/src/Manage.php:306
 msgid "You should execute it now."
 msgstr "你现在应该执行它。"
 
-#: plugins/maintenance/src/Manage.php:335
-#: plugins/maintenance/src/Manage.php:369
+#: plugins/maintenance/src/Manage.php:342
+#: plugins/maintenance/src/Manage.php:376
 msgid "Execute task"
 msgstr "执行任务"
 
-#: plugins/maintenance/src/Manage.php:340
+#: plugins/maintenance/src/Manage.php:347
 msgid "This may take a very long time."
 msgstr "这可能需要很长的时间。"
 
-#: plugins/maintenance/src/Manage.php:400
-#: plugins/maintenance/src/Manage.php:402
+#: plugins/maintenance/src/Manage.php:407
+#: plugins/maintenance/src/Manage.php:409
 msgid "Alert settings"
 msgstr "警报设置"
 
-#: plugins/maintenance/src/Manage.php:408
+#: plugins/maintenance/src/Manage.php:415
 msgid "Activation"
 msgstr "激活"
 
-#: plugins/maintenance/src/Manage.php:414
+#: plugins/maintenance/src/Manage.php:421
 msgid "Display alert messages on late tasks"
 msgstr "显示迟到任务的提醒信息"
 
-#: plugins/maintenance/src/Manage.php:419
+#: plugins/maintenance/src/Manage.php:426
 #, php-format
 msgid "You can place list of late tasks on your %s."
 msgstr "你可以将迟到的任务清单放在你的 %s。"
 
-#: plugins/maintenance/src/Manage.php:424
+#: plugins/maintenance/src/Manage.php:431
 msgid "Frequency"
 msgstr "頻率"
 
-#: plugins/maintenance/src/Manage.php:432
+#: plugins/maintenance/src/Manage.php:439
 msgid "Use one recall time for all tasks"
 msgstr "对所有任务使用一个召回时间"
 
-#: plugins/maintenance/src/Manage.php:442
+#: plugins/maintenance/src/Manage.php:449
 msgid "Recall time for all tasks:"
 msgstr "所有任务的回忆时间："
 
-#: plugins/maintenance/src/Manage.php:451
+#: plugins/maintenance/src/Manage.php:458
 msgid "Use one recall time per task"
 msgstr "每项任务使用一次召回时间"
 
-#: plugins/maintenance/src/Manage.php:482
+#: plugins/maintenance/src/Manage.php:489
 msgid "Content-Security-Policy"
 msgstr "内容-安全-政策"
 
-#: plugins/maintenance/src/Manage.php:494
+#: plugins/maintenance/src/Manage.php:501
 msgid "Enable Content-Security-Policy system"
 msgstr "启用内容-安全-政策系统"
 
-#: plugins/maintenance/src/Manage.php:500
+#: plugins/maintenance/src/Manage.php:507
 msgid "Enable Content-Security-Policy report only"
 msgstr "仅启用内容-安全-政策报告"
 
-#: plugins/maintenance/src/Manage.php:510
+#: plugins/maintenance/src/Manage.php:517
 msgid "Enable Content-Security-Policy system by default"
 msgstr "默认启用内容安全政策系统"
 
-#: plugins/maintenance/src/Manage.php:516
+#: plugins/maintenance/src/Manage.php:523
 msgid "Enable Content-Security-Policy report only by default"
 msgstr "默认情况下，只启用内容安全政策报告"
 
-#: plugins/maintenance/src/Manage.php:522
+#: plugins/maintenance/src/Manage.php:529
 msgid "Also apply these settings to all blogs"
 msgstr "同时将这些设置应用于所有博客"
 
@@ -2772,87 +2772,87 @@ msgid "Not displayed nor used"
 msgstr "不显示也不使用"
 
 #: plugins/tags/src/BackendBehaviors.php:63
-#: plugins/tags/src/BackendBehaviors.php:74
+#: plugins/tags/src/BackendBehaviors.php:75
 #: plugins/tags/src/FrontendUrl.php:105 plugins/tags/src/ManagePosts.php:155
 msgid "Tag"
 msgstr "标签"
 
-#: plugins/tags/src/BackendBehaviors.php:237
+#: plugins/tags/src/BackendBehaviors.php:238
 msgid "Add tags"
 msgstr "添加标签"
 
-#: plugins/tags/src/BackendBehaviors.php:246
+#: plugins/tags/src/BackendBehaviors.php:247
 msgid "Remove tags"
 msgstr "移除标签"
 
-#: plugins/tags/src/BackendBehaviors.php:281
+#: plugins/tags/src/BackendBehaviors.php:282
 msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
 msgstr[0] "标签已被成功添加到选定的条目中"
 
-#: plugins/tags/src/BackendBehaviors.php:294
-#: plugins/tags/src/BackendBehaviors.php:449
+#: plugins/tags/src/BackendBehaviors.php:295
+#: plugins/tags/src/BackendBehaviors.php:450
 msgid "Are you sure you want to remove this tag?"
 msgstr "你确定要删除这个标签吗？"
 
-#: plugins/tags/src/BackendBehaviors.php:295
-#: plugins/tags/src/BackendBehaviors.php:450
+#: plugins/tags/src/BackendBehaviors.php:296
+#: plugins/tags/src/BackendBehaviors.php:451
 msgid "Add a tag to this entry"
 msgstr "为该条目添加标签"
 
-#: plugins/tags/src/BackendBehaviors.php:296
-#: plugins/tags/src/BackendBehaviors.php:451
+#: plugins/tags/src/BackendBehaviors.php:297
+#: plugins/tags/src/BackendBehaviors.php:452
 msgid "Choose from list"
 msgstr "从列表中选择"
 
-#: plugins/tags/src/BackendBehaviors.php:297
-#: plugins/tags/src/BackendBehaviors.php:452
+#: plugins/tags/src/BackendBehaviors.php:298
+#: plugins/tags/src/BackendBehaviors.php:453
 msgid "all"
 msgstr "所有"
 
-#: plugins/tags/src/BackendBehaviors.php:298
-#: plugins/tags/src/BackendBehaviors.php:453
+#: plugins/tags/src/BackendBehaviors.php:299
+#: plugins/tags/src/BackendBehaviors.php:454
 msgid "Enter tags separated by comma"
 msgstr "输入由逗号分隔的标签"
 
-#: plugins/tags/src/BackendBehaviors.php:306
+#: plugins/tags/src/BackendBehaviors.php:307
 msgid "Add tags to this selection"
 msgstr "为这个选择添加标签"
 
-#: plugins/tags/src/BackendBehaviors.php:324
+#: plugins/tags/src/BackendBehaviors.php:325
 msgid "Tags to add:"
 msgstr "要添加的标签："
 
-#: plugins/tags/src/BackendBehaviors.php:363
+#: plugins/tags/src/BackendBehaviors.php:364
 msgid "Tag has been successfully removed from selected entries"
 msgid_plural "Tags have been successfully removed from selected entries"
 msgstr[0] "标签已成功从选定的条目中删除"
 
-#: plugins/tags/src/BackendBehaviors.php:386
+#: plugins/tags/src/BackendBehaviors.php:387
 msgid "No tags for selected entries"
 msgstr "所选文章没有标签"
 
-#: plugins/tags/src/BackendBehaviors.php:393
+#: plugins/tags/src/BackendBehaviors.php:394
 msgid "Remove selected tags from this selection"
 msgstr "从这个选择中删除选定的标签"
 
-#: plugins/tags/src/BackendBehaviors.php:420
+#: plugins/tags/src/BackendBehaviors.php:421
 msgid "Following tags have been found in selected entries:"
 msgstr "所选文章中发现下列标签："
 
-#: plugins/tags/src/BackendBehaviors.php:429
+#: plugins/tags/src/BackendBehaviors.php:430
 msgid "Remove"
 msgstr "移除"
 
-#: plugins/tags/src/BackendBehaviors.php:492
+#: plugins/tags/src/BackendBehaviors.php:493
 msgid "Tags list format:"
 msgstr "标签列表格式："
 
-#: plugins/tags/src/BackendBehaviors.php:495
+#: plugins/tags/src/BackendBehaviors.php:496
 msgid "Short"
 msgstr "短篇"
 
-#: plugins/tags/src/BackendBehaviors.php:496
+#: plugins/tags/src/BackendBehaviors.php:497
 msgid "Extended"
 msgstr "延长"
 

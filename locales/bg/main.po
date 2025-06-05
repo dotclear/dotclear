@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-01 08:06+0200\n"
-"PO-Revision-Date: 2025-06-02 08:55\n"
+"POT-Creation-Date: 2025-06-05 17:27+0200\n"
+"PO-Revision-Date: 2025-06-05 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Bulgarian\n"
 "Language: bg_BG\n"
@@ -613,7 +613,7 @@ msgstr "Настройки на блога"
 
 #: src/Core/Backend/Favorites.php:493 src/Core/Backend/Menus.php:93
 #: src/Process/Backend/BlogTheme.php:96 src/Process/Backend/BlogTheme.php:105
-#: src/Process/Backend/BlogTheme.php:177
+#: src/Process/Backend/BlogTheme.php:180
 msgid "Blog appearance"
 msgstr "Появяване в блога"
 
@@ -635,7 +635,7 @@ msgid "Plugins management"
 msgstr "Управление на плъгини"
 
 #: src/Core/Backend/Favorites.php:524 src/Core/Backend/Menus.php:261
-#: src/Process/Backend/Settings.php:54 src/Process/Backend/Settings.php:61
+#: src/Process/Backend/Settings.php:55 src/Process/Backend/Settings.php:62
 msgid "Plugins settings"
 msgstr "Настройки на плъгините"
 
@@ -644,13 +644,13 @@ msgstr "Настройки на плъгините"
 msgid "Languages"
 msgstr "Езици"
 
-#: src/Core/Backend/Favorites.php:536 src/Core/Backend/Page.php:458
-#: src/Core/Backend/Page.php:459 src/Process/Backend/Help.php:108
+#: src/Core/Backend/Favorites.php:536 src/Core/Backend/Page.php:457
+#: src/Core/Backend/Page.php:458 src/Process/Backend/Help.php:108
 #: src/Process/Backend/Help.php:115 src/Process/Backend/Help.php:121
 msgid "Global help"
 msgstr "Глобална помощ"
 
-#: src/Core/Backend/Filter/FilterComments.php:35 src/Core/Backend/Page.php:1262
+#: src/Core/Backend/Filter/FilterComments.php:35 src/Core/Backend/Page.php:1270
 #: src/Process/Backend/Auth.php:420 src/Process/Backend/BlogPref.php:1354
 #: src/Process/Backend/Comment.php:306 src/Process/Backend/Post.php:1083
 #: src/Process/Backend/User.php:432 src/Process/Backend/UserPreferences.php:636
@@ -658,14 +658,14 @@ msgstr "Глобална помощ"
 msgid "Email:"
 msgstr "Имейл:"
 
-#: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1261
+#: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1269
 #: src/Process/Backend/Comment.php:322 src/Process/Backend/Post.php:1092
 msgid "Web site:"
 msgstr "Уебсайт:"
 
 #: src/Core/Backend/Filter/FilterComments.php:57
 #: src/Core/Backend/Filter/FilterPosts.php:90
-#: src/Core/Backend/ModulesList.php:1046 src/Core/Backend/Page.php:1303
+#: src/Core/Backend/ModulesList.php:1046 src/Core/Backend/Page.php:1311
 #: src/Process/Backend/Comment.php:295
 msgid "Author:"
 msgstr "Автор:"
@@ -684,7 +684,7 @@ msgid "Trackback"
 msgstr "Trackback"
 
 #: src/Core/Backend/Filter/FilterComments.php:106
-#: src/Core/Backend/Page.php:1263 src/Process/Backend/Comment.php:270
+#: src/Core/Backend/Page.php:1271 src/Process/Backend/Comment.php:270
 msgid "IP address:"
 msgstr "IP адрес:"
 
@@ -797,7 +797,7 @@ msgstr "Запазване на текущите опции"
 msgid "Display options"
 msgstr "Опции за показване"
 
-#: src/Core/Backend/Filter/Filters.php:422 src/Core/Backend/Page.php:1469
+#: src/Core/Backend/Filter/Filters.php:422 src/Core/Backend/Page.php:1477
 msgid "Show filters and display options"
 msgstr "Показване на филтри и опции за показване"
 
@@ -806,7 +806,7 @@ msgid "Apply filters and display options"
 msgstr "Прилагане на филтри и опции за показване"
 
 #: src/Core/Backend/Filter/FiltersLibrary.php:86
-#: src/Core/Backend/MediaPage.php:393 src/Core/Backend/Page.php:486
+#: src/Core/Backend/MediaPage.php:393 src/Core/Backend/Page.php:485
 msgid "Search:"
 msgstr "Търсене:"
 
@@ -1082,32 +1082,32 @@ msgstr "суперадминистратор"
 msgid "The “No. of entries” column includes all entry types (articles, pages, …) for all blogs in the installation. The link may not be relevant in some contexts"
 msgstr "Колоната \"Брой записи\" включва всички видове записи (статии, страници, …) за всички блогове в инсталацията. Връзката може да не е подходяща в някои контексти"
 
-#: src/Core/Backend/Listing/Pager.php:144
+#: src/Core/Backend/Listing/Pager.php:152
 msgid "First page"
 msgstr "Първа страница"
 
-#: src/Core/Backend/Listing/Pager.php:152
+#: src/Core/Backend/Listing/Pager.php:160
 msgid "Previous page"
 msgstr "Предишна страница"
 
-#: src/Core/Backend/Listing/Pager.php:160
+#: src/Core/Backend/Listing/Pager.php:168
 msgid "Next page"
 msgstr "Следваща страница"
 
-#: src/Core/Backend/Listing/Pager.php:168
+#: src/Core/Backend/Listing/Pager.php:176
 msgid "Last page"
 msgstr "Последна страница"
 
-#: src/Core/Backend/Listing/Pager.php:175
+#: src/Core/Backend/Listing/Pager.php:183
 #, php-format
 msgid "Page %1$s / %2$s"
 msgstr "Страница %1$s / %2$s"
 
-#: src/Core/Backend/Listing/Pager.php:183
+#: src/Core/Backend/Listing/Pager.php:191
 msgid "Direct access page:"
 msgstr "Страница за директен достъп:"
 
-#: src/Core/Backend/Listing/Pager.php:184 src/Core/Backend/Page.php:170
+#: src/Core/Backend/Listing/Pager.php:192 src/Core/Backend/Page.php:170
 #: src/Process/Backend/Blogs.php:150 src/Process/Backend/Comments.php:218
 #: src/Process/Backend/Posts.php:139 src/Process/Backend/Search.php:315
 #: src/Process/Backend/Search.php:411 src/Process/Backend/Users.php:161
@@ -1121,7 +1121,7 @@ msgid_plural "%s files found"
 msgstr[0] "%s намерен файл"
 msgstr[1] "%s намерени файлове"
 
-#: src/Core/Backend/Menus.php:86 src/Process/Backend/Settings.php:232
+#: src/Core/Backend/Menus.php:86 src/Process/Backend/Settings.php:238
 msgid "Blog"
 msgstr "Блог"
 
@@ -1148,7 +1148,7 @@ msgstr "други"
 msgid "Search in repository:"
 msgstr "Търсене в хранилището:"
 
-#: src/Core/Backend/ModulesList.php:414 src/Core/Backend/Page.php:488
+#: src/Core/Backend/ModulesList.php:414 src/Core/Backend/Page.php:487
 msgid "OK"
 msgstr "ОК"
 
@@ -1199,7 +1199,7 @@ msgid "Current version"
 msgstr "Текуща версия"
 
 #: src/Core/Backend/ModulesList.php:840 src/Core/Backend/ModulesList.php:1064
-#: src/Core/Backend/Page.php:1304 src/Core/Backend/ThemesList.php:231
+#: src/Core/Backend/Page.php:1312 src/Core/Backend/ThemesList.php:231
 #: src/Core/Backend/ThemesList.php:317
 msgid "Details"
 msgstr "Подробности"
@@ -1249,7 +1249,7 @@ msgstr "Плъгин в процес на разработка"
 msgid "Release date:"
 msgstr "Дата на издаване:"
 
-#: src/Core/Backend/ModulesList.php:1071 src/Core/Backend/Page.php:1305
+#: src/Core/Backend/ModulesList.php:1071 src/Core/Backend/Page.php:1313
 #: src/Core/Backend/ThemesList.php:238
 msgid "Support"
 msgstr "Подкрепа"
@@ -1258,11 +1258,11 @@ msgstr "Подкрепа"
 msgid "update locked"
 msgstr "актуализация заключена"
 
-#: src/Core/Backend/ModulesList.php:1116 src/Core/Backend/Page.php:1307
+#: src/Core/Backend/ModulesList.php:1116 src/Core/Backend/Page.php:1315
 msgid "Section:"
 msgstr "Раздел:"
 
-#: src/Core/Backend/ModulesList.php:1122 src/Core/Backend/Page.php:1308
+#: src/Core/Backend/ModulesList.php:1122 src/Core/Backend/Page.php:1316
 msgid "Tags:"
 msgstr "Тагове:"
 
@@ -1440,7 +1440,7 @@ msgstr "Парола"
 msgid "Your password:"
 msgstr "Вашата парола:"
 
-#: src/Core/Backend/ModulesList.php:1774 src/Core/Backend/Page.php:1425
+#: src/Core/Backend/ModulesList.php:1774 src/Core/Backend/Page.php:1433
 #: src/Process/Backend/Media.php:795
 msgid "Upload"
 msgstr "Качване на"
@@ -1486,8 +1486,8 @@ msgstr "Конфигуриране \"%s\""
 msgid "Back"
 msgstr "Обратно"
 
-#: src/Core/Backend/Notices.php:85 src/Core/Backend/Page.php:1264
-#: src/Core/Backend/Page.php:1420 src/Core/Upgrade/Notices.php:48
+#: src/Core/Backend/Notices.php:85 src/Core/Backend/Page.php:1272
+#: src/Core/Backend/Page.php:1428 src/Core/Upgrade/Notices.php:48
 #: src/Process/Backend/Home.php:306
 msgid "Error:"
 msgstr "Грешка:"
@@ -1558,339 +1558,340 @@ msgstr "Безопасен режим"
 msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities"
 msgstr "Намираш се в безопасен режим. Всички плъгини са временно деактивирани. Напомняме ви, че трябва да излезете от системата и да влезете отново в нея, за да възстановите всички функционалности."
 
-#: src/Core/Backend/Page.php:506 src/Core/Upgrade/Page.php:261
+#: src/Core/Backend/Page.php:505 src/Core/Upgrade/Page.php:261
 #, php-format
 msgid "Thank you for using %s."
 msgstr "Благодарим ви, че използвате %s."
 
-#: src/Core/Backend/Page.php:522 src/Core/Backend/Page.php:524
-#: src/Core/Backend/Page.php:666 src/Core/Backend/Page.php:668
-#: src/Core/Upgrade/Page.php:271 src/Core/Upgrade/Page.php:273
+#: src/Core/Backend/Page.php:522 src/Core/Backend/Page.php:526
+#: src/Core/Backend/Page.php:528 src/Core/Backend/Page.php:670
+#: src/Core/Backend/Page.php:672 src/Core/Upgrade/Page.php:272
+#: src/Core/Upgrade/Page.php:276 src/Core/Upgrade/Page.php:278
 msgid "Page top"
 msgstr "Начало на страницата"
 
-#: src/Core/Backend/Page.php:544 src/Core/Backend/Page.php:547
-#: src/Core/Upgrade/Page.php:293 src/Core/Upgrade/Page.php:296
+#: src/Core/Backend/Page.php:548 src/Core/Backend/Page.php:551
+#: src/Core/Upgrade/Page.php:298 src/Core/Upgrade/Page.php:301
 msgid "Dotclear logo"
 msgstr "Лого на Dotclear"
 
-#: src/Core/Backend/Page.php:873 src/Core/Backend/Page.php:876
-#: src/Core/Upgrade/Page.php:335 src/Core/Upgrade/Page.php:338
+#: src/Core/Backend/Page.php:877 src/Core/Backend/Page.php:880
+#: src/Core/Upgrade/Page.php:340 src/Core/Upgrade/Page.php:343
 msgid "Go to dashboard"
 msgstr "Отидете на таблото за управление"
 
-#: src/Core/Backend/Page.php:1112 src/Core/Upgrade/Page.php:447
+#: src/Core/Backend/Page.php:1120 src/Core/Upgrade/Page.php:452
 msgid "Help about this page"
 msgstr "Помощ за тази страница"
 
-#: src/Core/Backend/Page.php:1122 src/Core/Upgrade/Page.php:456
+#: src/Core/Backend/Page.php:1130 src/Core/Upgrade/Page.php:461
 #, php-format
 msgid "See also %s"
 msgstr "Вижте също %s"
 
-#: src/Core/Backend/Page.php:1125 src/Core/Upgrade/Page.php:459
+#: src/Core/Backend/Page.php:1133 src/Core/Upgrade/Page.php:464
 msgid "the global help"
 msgstr "глобалната помощ"
 
-#: src/Core/Backend/Page.php:1246
+#: src/Core/Backend/Page.php:1254
 msgid "uncover"
 msgstr "Открийте"
 
-#: src/Core/Backend/Page.php:1250
+#: src/Core/Backend/Page.php:1258
 msgid "hide"
 msgstr "скрий"
 
-#: src/Core/Backend/Page.php:1254
+#: src/Core/Backend/Page.php:1262
 msgid "Need help?"
 msgstr "Имате нужда от помощ?"
 
-#: src/Core/Backend/Page.php:1255
+#: src/Core/Backend/Page.php:1263
 msgid "new window"
 msgstr "нов прозорец"
 
-#: src/Core/Backend/Page.php:1256
+#: src/Core/Backend/Page.php:1264
 msgid "Hide"
 msgstr "Скрий"
 
-#: src/Core/Backend/Page.php:1257
+#: src/Core/Backend/Page.php:1265
 msgid "Select:"
 msgstr "Изберете:"
 
-#: src/Core/Backend/Page.php:1258
+#: src/Core/Backend/Page.php:1266
 msgid "No selection"
 msgstr "Няма избор"
 
-#: src/Core/Backend/Page.php:1259
+#: src/Core/Backend/Page.php:1267
 msgid "Select all"
 msgstr "Изберете всички"
 
-#: src/Core/Backend/Page.php:1260
+#: src/Core/Backend/Page.php:1268
 msgid "Invert selection"
 msgstr "Инвертиране на избора"
 
-#: src/Core/Backend/Page.php:1265 src/Process/Backend/Post.php:466
+#: src/Core/Backend/Page.php:1273 src/Process/Backend/Post.php:466
 #: src/Process/Backend/Post.php:570
 msgid "Entry has been successfully created."
 msgstr "Записът е създаден успешно."
 
-#: src/Core/Backend/Page.php:1266
+#: src/Core/Backend/Page.php:1274
 msgid "Edit entry"
 msgstr "Редактиране на записа"
 
-#: src/Core/Backend/Page.php:1267
+#: src/Core/Backend/Page.php:1275
 msgid "view entry"
 msgstr "преглед на записа"
 
-#: src/Core/Backend/Page.php:1268
+#: src/Core/Backend/Page.php:1276
 #, php-format
 msgid "Are you sure you want to delete selected entries (%s)?"
 msgstr "Сигурни ли сте, че искате да изтриете избраните записи (%s)?"
 
-#: src/Core/Backend/Page.php:1269
+#: src/Core/Backend/Page.php:1277
 #, php-format
 msgid "Are you sure you want to delete selected medias (%d)?"
 msgstr "Сигурни ли сте, че искате да изтриете избрани носители (%d)?"
 
-#: src/Core/Backend/Page.php:1270
+#: src/Core/Backend/Page.php:1278
 #, php-format
 msgid "Are you sure you want to delete selected categories (%s)?"
 msgstr "Сигурни ли сте, че искате да изтриете избраните категории (%s)?"
 
-#: src/Core/Backend/Page.php:1271
+#: src/Core/Backend/Page.php:1279
 msgid "Are you sure you want to delete this entry?"
 msgstr "Сигурни ли сте, че искате да изтриете този запис?"
 
-#: src/Core/Backend/Page.php:1272
+#: src/Core/Backend/Page.php:1280
 msgid "Click here to unlock the field"
 msgstr "Щракнете тук, за да отключите полето"
 
-#: src/Core/Backend/Page.php:1273
+#: src/Core/Backend/Page.php:1281
 msgid "Are you sure you want to delete all spams?"
 msgstr "Сигурни ли сте, че искате да изтриете всички спамове?"
 
-#: src/Core/Backend/Page.php:1274
+#: src/Core/Backend/Page.php:1282
 #, php-format
 msgid "Are you sure you want to delete selected comments (%s)?"
 msgstr "Сигурни ли сте, че искате да изтриете избраните коментари (%s)?"
 
-#: src/Core/Backend/Page.php:1275
+#: src/Core/Backend/Page.php:1283
 msgid "Are you sure you want to delete this comment?"
 msgstr "Сигурни ли сте, че искате да изтриете този коментар?"
 
-#: src/Core/Backend/Page.php:1276
+#: src/Core/Backend/Page.php:1284
 msgid "Users with posts cannot be deleted."
 msgstr "Потребители с публикации не могат да бъдат изтривани."
 
-#: src/Core/Backend/Page.php:1277
+#: src/Core/Backend/Page.php:1285
 #, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
 msgstr "Сигурни ли сте, че искате да изтриете избрани потребители (%s)?"
 
-#: src/Core/Backend/Page.php:1278
+#: src/Core/Backend/Page.php:1286
 #, php-format
 msgid "Are you sure you want to delete selected blogs (%s)?"
 msgstr "Сигурни ли сте, че искате да изтриете избрани блогове (%s)?"
 
-#: src/Core/Backend/Page.php:1279
+#: src/Core/Backend/Page.php:1287
 #, php-format
 msgid "Are you sure you want to delete category \"%s\"?"
 msgstr "Сигурни ли сте, че искате да изтриете категорията \"%s\"?"
 
-#: src/Core/Backend/Page.php:1280
+#: src/Core/Backend/Page.php:1288
 msgid "Are you sure you want to reorder all categories?"
 msgstr "Сигурни ли сте, че искате да пренаредите всички категории?"
 
-#: src/Core/Backend/Page.php:1281
+#: src/Core/Backend/Page.php:1289
 #, php-format
 msgid "Are you sure you want to remove media \"%s\"?"
 msgstr "Сигурни ли сте, че искате да премахнете медията \"%s\"?"
 
-#: src/Core/Backend/Page.php:1282
+#: src/Core/Backend/Page.php:1290
 #, php-format
 msgid "Are you sure you want to remove directory \"%s\"?"
 msgstr "Сигурни ли сте, че искате да премахнете директорията \"%s\"?"
 
-#: src/Core/Backend/Page.php:1283
+#: src/Core/Backend/Page.php:1291
 msgid "Are you sure you want to extract archive in current directory?"
 msgstr "Сигурни ли сте, че искате да извлечете архива в текущата директория?"
 
-#: src/Core/Backend/Page.php:1284
+#: src/Core/Backend/Page.php:1292
 #, php-format
 msgid "Are you sure you want to remove attachment \"%s\"?"
 msgstr "Сигурни ли сте, че искате да премахнете прикачения файл \"%s\"?"
 
-#: src/Core/Backend/Page.php:1285
+#: src/Core/Backend/Page.php:1293
 #, php-format
 msgid "Are you sure you want to delete \"%s\" language?"
 msgstr "Сигурни ли сте, че искате да изтриете езика \"%s\"?"
 
-#: src/Core/Backend/Page.php:1286
+#: src/Core/Backend/Page.php:1294
 #, php-format
 msgid "Are you sure you want to delete \"%s\" plugin?"
 msgstr "Сигурни ли сте, че искате да изтриете плъгина \"%s\"?"
 
-#: src/Core/Backend/Page.php:1287
+#: src/Core/Backend/Page.php:1295
 msgid "Are you sure you want to delete selected plugins?"
 msgstr "Сигурни ли сте, че искате да изтриете избраните плъгини?"
 
-#: src/Core/Backend/Page.php:1288
+#: src/Core/Backend/Page.php:1296
 msgid "Use this theme"
 msgstr "Използвайте тази тема"
 
-#: src/Core/Backend/Page.php:1289
+#: src/Core/Backend/Page.php:1297
 msgid "Remove this theme"
 msgstr "Премахване на тази тема"
 
-#: src/Core/Backend/Page.php:1290
+#: src/Core/Backend/Page.php:1298
 #, php-format
 msgid "Are you sure you want to delete \"%s\" theme?"
 msgstr "Сигурни ли сте, че искате да изтриете темата \"%s\"?"
 
-#: src/Core/Backend/Page.php:1291
+#: src/Core/Backend/Page.php:1299
 msgid "Are you sure you want to delete selected themes?"
 msgstr "Сигурни ли сте, че искате да изтриете избраните теми?"
 
-#: src/Core/Backend/Page.php:1292
+#: src/Core/Backend/Page.php:1300
 msgid "Are you sure you want to delete this backup?"
 msgstr "Сигурни ли сте, че искате да изтриете това резервно копие?"
 
-#: src/Core/Backend/Page.php:1293
+#: src/Core/Backend/Page.php:1301
 msgid "Are you sure you want to revert to this backup?"
 msgstr "Сигурни ли сте, че искате да се върнете към това резервно копие?"
 
-#: src/Core/Backend/Page.php:1294
+#: src/Core/Backend/Page.php:1302
 msgid "Zip file content"
 msgstr "Съдържание на Zip файла"
 
-#: src/Core/Backend/Page.php:1295
+#: src/Core/Backend/Page.php:1303
 msgid "HTML markup validator"
 msgstr "Валидатор на HTML маркировки"
 
-#: src/Core/Backend/Page.php:1296
+#: src/Core/Backend/Page.php:1304
 msgid "HTML content is valid."
 msgstr "HTML съдържанието е валидно."
 
-#: src/Core/Backend/Page.php:1297
+#: src/Core/Backend/Page.php:1305
 msgid "There are HTML markup errors."
 msgstr "Има грешки в HTML маркировката."
 
-#: src/Core/Backend/Page.php:1298
+#: src/Core/Backend/Page.php:1306
 msgid "Attention: an audit of a content not yet registered."
 msgstr "Внимание: одит на съдържание, което все още не е регистрирано."
 
-#: src/Core/Backend/Page.php:1299
+#: src/Core/Backend/Page.php:1307
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
 msgstr "Имате незаписани промени. Смяната на формата на публикацията ще доведе до загуба на тези промени. Продължете все пак?"
 
-#: src/Core/Backend/Page.php:1300
+#: src/Core/Backend/Page.php:1308
 msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
 msgstr "Предупреждение: промяната на формата на публикацията няма да преобразува съществуващото съдържание. Ще трябва сами да приложите новия формат. Продължете все пак?"
 
-#: src/Core/Backend/Page.php:1301
+#: src/Core/Backend/Page.php:1309
 msgid "Loading enhanced uploader, please wait."
 msgstr "Зареждане на подобрен инструмент за качване, моля, изчакайте."
 
-#: src/Core/Backend/Page.php:1306
+#: src/Core/Backend/Page.php:1314
 msgid "Help:"
 msgstr "Помощ:"
 
-#: src/Core/Backend/Page.php:1310
+#: src/Core/Backend/Page.php:1318
 msgid "Hide this notice"
 msgstr "Скриване на това известие"
 
-#: src/Core/Backend/Page.php:1312
+#: src/Core/Backend/Page.php:1320
 msgid "Show password"
 msgstr "Показване на паролата"
 
-#: src/Core/Backend/Page.php:1313
+#: src/Core/Backend/Page.php:1321
 msgid "Hide password"
 msgstr "Скриване на паролата"
 
-#: src/Core/Backend/Page.php:1315
+#: src/Core/Backend/Page.php:1323
 msgid "Reset to now"
 msgstr "Нулиране до сега"
 
-#: src/Core/Backend/Page.php:1317
+#: src/Core/Backend/Page.php:1325
 msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences."
 msgstr "В този панел на Dotclear е открит блокер за реклами (Ghostery, Adblock plus, uBlock origin, …) и той може да попречи на някои функции. В този случай трябва да го деактивирате. Обърнете внимание, че това откриване може да бъде деактивирано във вашите предпочитания."
 
-#: src/Core/Backend/Page.php:1369
+#: src/Core/Backend/Page.php:1377
 msgid "You have unsaved changes."
 msgstr "Имате незаписани промени."
 
-#: src/Core/Backend/Page.php:1370
+#: src/Core/Backend/Page.php:1378
 msgid "your battery charge seems low (%d%) and you have unsaved changes, you should save them."
 msgstr "зарядът на батерията ви изглежда нисък (%d%) и имате незаписани промени, трябва да ги запазите."
 
-#: src/Core/Backend/Page.php:1411
+#: src/Core/Backend/Page.php:1419
 msgid "Temporarily activate enhanced uploader"
 msgstr "Временно активиране на подобрен инструмент за качване"
 
-#: src/Core/Backend/Page.php:1412
+#: src/Core/Backend/Page.php:1420
 msgid "Temporarily disable enhanced uploader"
 msgstr "Временно деактивиране на подобрения инструмент за качване"
 
-#: src/Core/Backend/Page.php:1416
+#: src/Core/Backend/Page.php:1424
 msgid "Limit exceeded."
 msgstr "Превишаване на лимита."
 
-#: src/Core/Backend/Page.php:1417
+#: src/Core/Backend/Page.php:1425
 msgid "File size exceeds allowed limit."
 msgstr "Размерът на файла надвишава разрешеното ограничение."
 
-#: src/Core/Backend/Page.php:1418
+#: src/Core/Backend/Page.php:1426
 msgid "Canceled."
 msgstr "Отменен."
 
-#: src/Core/Backend/Page.php:1419
+#: src/Core/Backend/Page.php:1427
 msgid "HTTP Error:"
 msgstr "HTTP грешка:"
 
-#: src/Core/Backend/Page.php:1421 src/Process/Backend/Media.php:738
+#: src/Core/Backend/Page.php:1429 src/Process/Backend/Media.php:738
 msgid "Choose file"
 msgstr "Изберете файл"
 
-#: src/Core/Backend/Page.php:1422 src/Process/Backend/Media.php:744
+#: src/Core/Backend/Page.php:1430 src/Process/Backend/Media.php:744
 msgid "Choose files"
 msgstr "Изберете файлове"
 
-#: src/Core/Backend/Page.php:1423 src/Process/Backend/LinkPopup.php:113
+#: src/Core/Backend/Page.php:1431 src/Process/Backend/LinkPopup.php:113
 #: src/Process/Backend/Media.php:293 src/Process/Backend/MediaItem.php:509
 #: src/Process/Backend/MediaItem.php:768 src/Process/Backend/Post.php:931
 #: src/Process/Backend/PostMedia.php:113
 msgid "Cancel"
 msgstr "Отмяна на"
 
-#: src/Core/Backend/Page.php:1424
+#: src/Core/Backend/Page.php:1432
 msgid "Clean"
 msgstr "Clean"
 
-#: src/Core/Backend/Page.php:1426
+#: src/Core/Backend/Page.php:1434
 msgid "Send"
 msgstr "Изпрати"
 
-#: src/Core/Backend/Page.php:1427
+#: src/Core/Backend/Page.php:1435
 msgid "File successfully uploaded."
 msgstr "Файлът е успешно качен."
 
-#: src/Core/Backend/Page.php:1428
+#: src/Core/Backend/Page.php:1436
 msgid "No file in queue."
 msgstr "Няма файл в опашката."
 
-#: src/Core/Backend/Page.php:1429
+#: src/Core/Backend/Page.php:1437
 msgid "1 file in queue."
 msgstr "1 файл в опашката."
 
-#: src/Core/Backend/Page.php:1430
+#: src/Core/Backend/Page.php:1438
 #, php-format
 msgid "%d files in queue."
 msgstr "%d файлове в опашката."
 
-#: src/Core/Backend/Page.php:1431
+#: src/Core/Backend/Page.php:1439
 msgid "Queue error:"
 msgstr "Грешка в опашката:"
 
-#: src/Core/Backend/Page.php:1470
+#: src/Core/Backend/Page.php:1478
 msgid "Cancel filters and display options"
 msgstr "Отмяна на филтри и опции за показване"
 
@@ -2476,7 +2477,7 @@ msgstr "LOL!"
 #: src/Process/Backend/BlogDel.php:92 src/Process/Backend/BlogPref.php:459
 #: src/Process/Backend/Blogs.php:101 src/Process/Backend/Langs.php:247
 #: src/Process/Backend/Plugin.php:146 src/Process/Backend/Plugins.php:116
-#: src/Process/Backend/Settings.php:60 src/Process/Backend/User.php:273
+#: src/Process/Backend/Settings.php:61 src/Process/Backend/User.php:273
 #: src/Process/Backend/Users.php:108 src/Process/Backend/UsersActions.php:223
 #: src/Process/Backend/UsersActions.php:231 src/Process/Upgrade/Home.php:162
 msgid "System"
@@ -3267,7 +3268,7 @@ msgstr "P"
 msgid "(none)"
 msgstr "(няма)"
 
-#: src/Process/Backend/BlogPref.php:175 src/Process/Backend/Settings.php:224
+#: src/Process/Backend/BlogPref.php:175 src/Process/Backend/Settings.php:230
 msgid "Description"
 msgstr "Описание"
 
@@ -3635,7 +3636,7 @@ msgid "Image legend and alternate text:"
 msgstr "Легенда на изображението и алтернативен текст:"
 
 #: src/Process/Backend/BlogPref.php:977 src/Process/Backend/Media.php:846
-#: src/Process/Backend/Settings.php:86
+#: src/Process/Backend/Settings.php:87
 msgid "Blog parameters"
 msgstr "Параметри на блога"
 
@@ -3772,91 +3773,91 @@ msgstr "Следните теми са деактивирани:"
 msgid "Theme configuration"
 msgstr "Конфигурация на темата"
 
-#: src/Process/Backend/BlogTheme.php:163
+#: src/Process/Backend/BlogTheme.php:166
 msgid "Themes management"
 msgstr "Управление на темите"
 
-#: src/Process/Backend/BlogTheme.php:203 src/Process/Backend/BlogTheme.php:205
+#: src/Process/Backend/BlogTheme.php:206 src/Process/Backend/BlogTheme.php:208
 msgid "Installed themes"
 msgstr "Инсталирани теми"
 
-#: src/Process/Backend/BlogTheme.php:205 src/Process/Backend/Plugins.php:172
+#: src/Process/Backend/BlogTheme.php:208 src/Process/Backend/Plugins.php:172
 #: src/Process/Upgrade/Plugins.php:196
 msgid "(in normal mode)"
 msgstr "(в нормален режим)"
 
-#: src/Process/Backend/BlogTheme.php:205
+#: src/Process/Backend/BlogTheme.php:208
 msgid "Activated themes"
 msgstr "Активирани теми"
 
-#: src/Process/Backend/BlogTheme.php:208
+#: src/Process/Backend/BlogTheme.php:211
 msgid "You can configure and manage installed themes from this list."
 msgstr "Можете да конфигурирате и управлявате инсталираните теми от този списък."
 
-#: src/Process/Backend/BlogTheme.php:229 src/Process/Backend/BlogTheme.php:231
+#: src/Process/Backend/BlogTheme.php:232 src/Process/Backend/BlogTheme.php:234
 msgid "Deactivated themes"
 msgstr "Деактивирани теми"
 
-#: src/Process/Backend/BlogTheme.php:234
+#: src/Process/Backend/BlogTheme.php:237
 msgid "Deactivated themes are installed but not usable. You can activate them from here."
 msgstr "Деактивираните теми са инсталирани, но не могат да се използват. Можете да ги активирате от тук."
 
-#: src/Process/Backend/BlogTheme.php:244 src/Process/Backend/Plugins.php:225
+#: src/Process/Backend/BlogTheme.php:247 src/Process/Backend/Plugins.php:225
 msgid "Official repository could not be updated as there is no URL set in configuration."
 msgstr "Официалното хранилище не може да бъде актуализирано, тъй като в конфигурацията не е зададен URL адрес."
 
-#: src/Process/Backend/BlogTheme.php:251
+#: src/Process/Backend/BlogTheme.php:254
 msgid "Manual checking of themes update done successfully."
 msgstr "Ръчната проверка на актуализацията на темите е извършена успешно."
 
-#: src/Process/Backend/BlogTheme.php:278
+#: src/Process/Backend/BlogTheme.php:281
 msgid "Update themes"
 msgstr "Актуализиране на темите"
 
-#: src/Process/Backend/BlogTheme.php:291
+#: src/Process/Backend/BlogTheme.php:294
 msgid "Force checking update of themes"
 msgstr "Принудителна проверка на актуализациите на темите"
 
-#: src/Process/Backend/BlogTheme.php:296
+#: src/Process/Backend/BlogTheme.php:299
 msgid "No updates available for themes."
 msgstr "Няма налични актуализации за темите."
 
-#: src/Process/Backend/BlogTheme.php:302
+#: src/Process/Backend/BlogTheme.php:305
 #, php-format
 msgid "There is one theme update available:"
 msgid_plural "There are %s theme updates available:"
 msgstr[0] "Налична е една актуализация на темата:"
 msgstr[1] "Налични са актуализации на тема %s :"
 
-#: src/Process/Backend/BlogTheme.php:312 src/Process/Backend/BlogTheme.php:349
+#: src/Process/Backend/BlogTheme.php:315 src/Process/Backend/BlogTheme.php:352
 #: src/Process/Backend/Plugins.php:264 src/Process/Backend/Plugins.php:318
 #: src/Process/Upgrade/Plugins.php:269 src/Process/Upgrade/Plugins.php:325
 #, php-format
 msgid "Visit %s repository, the resources center for Dotclear."
 msgstr "Посетете хранилището %s , център за ресурси на Dotclear."
 
-#: src/Process/Backend/BlogTheme.php:341
+#: src/Process/Backend/BlogTheme.php:344
 msgid "Add themes"
 msgstr "Добавяне на теми"
 
-#: src/Process/Backend/BlogTheme.php:344
+#: src/Process/Backend/BlogTheme.php:347
 msgid "Add themes from repository"
 msgstr "Добавяне на теми от хранилището"
 
-#: src/Process/Backend/BlogTheme.php:359 src/Process/Backend/Plugins.php:324
+#: src/Process/Backend/BlogTheme.php:362 src/Process/Backend/Plugins.php:324
 #: src/Process/Upgrade/Plugins.php:331
 msgid "Install or upgrade manually"
 msgstr "Ръчно инсталиране или надграждане"
 
-#: src/Process/Backend/BlogTheme.php:362
+#: src/Process/Backend/BlogTheme.php:365
 msgid "Add themes from a package"
 msgstr "Добавяне на теми от пакет"
 
-#: src/Process/Backend/BlogTheme.php:365
+#: src/Process/Backend/BlogTheme.php:368
 msgid "You can install themes by uploading or downloading zip files."
 msgstr "Можете да инсталирате темите, като качвате или изтегляте zip файлове."
 
-#: src/Process/Backend/BlogTheme.php:381
+#: src/Process/Backend/BlogTheme.php:384
 msgid "Some functions are disabled, please give write access to your themes directory to enable them."
 msgstr "Някои функции са деактивирани, моля, дайте достъп за писане до директорията с теми, за да ги активирате."
 
@@ -5245,71 +5246,76 @@ msgid_plural "%d comments found"
 msgstr[0] "един коментар намери"
 msgstr[1] "%d намерени коментари"
 
-#: src/Process/Backend/Settings.php:85 src/Process/Backend/Settings.php:228
+#: src/Process/Backend/Settings.php:86 src/Process/Backend/Settings.php:234
 msgid "Configuration"
 msgstr "Конфигурация"
 
-#: src/Process/Backend/Settings.php:87
+#: src/Process/Backend/Settings.php:88
 msgid "User preferences"
 msgstr "Потребителски предпочитания"
 
-#: src/Process/Backend/Settings.php:88 src/Process/Backend/Settings.php:240
+#: src/Process/Backend/Settings.php:89 src/Process/Backend/Settings.php:246
 msgid "Settings"
 msgstr "Настройки"
 
-#: src/Process/Backend/Settings.php:89 src/Process/Backend/Settings.php:244
+#: src/Process/Backend/Settings.php:90 src/Process/Backend/Settings.php:250
 msgid "Other settings"
 msgstr "Други настройки"
 
-#: src/Process/Backend/Settings.php:90 src/Process/Backend/Settings.php:248
+#: src/Process/Backend/Settings.php:91 src/Process/Backend/Settings.php:254
 msgid "Management"
 msgstr "Управление"
 
-#: src/Process/Backend/Settings.php:91 src/Process/Backend/Settings.php:252
+#: src/Process/Backend/Settings.php:92 src/Process/Backend/Settings.php:258
 msgid "Widgets"
 msgstr "Уиджети"
 
-#: src/Process/Backend/Settings.php:92
+#: src/Process/Backend/Settings.php:93
 msgid "Unknown"
 msgstr "Неизвестен"
 
-#: src/Process/Backend/Settings.php:221
+#: src/Process/Backend/Settings.php:219
+#, php-format
+msgid "This page does not allow you to manage plugins (update, install, uninstall, activate, deactivate, etc.). If you need to, go to <a href=\"%s\">this page</a>."
+msgstr "Тази страница не ви позволява да управлявате плъгини (актуализиране, инсталиране, деинсталиране, активиране, деактивиране и т. н.). Ако имате нужда от това, отидете на <a href=\"%s\">тази страница</a>."
+
+#: src/Process/Backend/Settings.php:227
 msgid "ID"
 msgstr "ID"
 
-#: src/Process/Backend/Settings.php:236
+#: src/Process/Backend/Settings.php:242
 msgid "User"
 msgstr "Потребител"
 
-#: src/Process/Backend/Settings.php:261
+#: src/Process/Backend/Settings.php:267
 msgid "Columns description:"
 msgstr "Описание на колоните:"
 
-#: src/Process/Backend/Settings.php:267
+#: src/Process/Backend/Settings.php:273
 msgid "<strong>Configuration</strong> indicates that plugin has a specific configuration page."
 msgstr "<strong>Конфигурация</strong> показва, че плъгинът има конкретна страница за конфигурация."
 
-#: src/Process/Backend/Settings.php:271
+#: src/Process/Backend/Settings.php:277
 msgid "<strong>Blog</strong> indicates that plugin has specific settings in blog parameters, generally used to add or modify some behaviors or aspects of the public blog."
 msgstr "<strong>Блогът</strong> показва, че плъгинът има специфични настройки в параметрите на блога, които обикновено се използват за добавяне или промяна на някои поведения или аспекти на публичния блог."
 
-#: src/Process/Backend/Settings.php:275
+#: src/Process/Backend/Settings.php:281
 msgid "<strong>User</strong> indicates that the plugin has a specific configuration in the user preferences, generally used to add or modify certain behaviors or aspects of blog administration for the user."
 msgstr "<strong>Потребителят</strong> показва, че плъгинът има специфична конфигурация в предпочитанията на потребителя, обикновено използвана за добавяне или промяна на определени поведения или аспекти на администрирането на блога за потребителя."
 
-#: src/Process/Backend/Settings.php:279
+#: src/Process/Backend/Settings.php:285
 msgid "<strong>Settings</strong> indicates that the plugin has specific parameters on its management page."
 msgstr "<strong>Настройките</strong> показват, че плъгинът има специфични параметри на страницата за управление."
 
-#: src/Process/Backend/Settings.php:283
+#: src/Process/Backend/Settings.php:289
 msgid "<strong>Other settings</strong> indicates that plugin has specific settings in other context."
 msgstr "<strong>Други настройки</strong> показва, че приставката има специфични настройки в друг контекст."
 
-#: src/Process/Backend/Settings.php:287
+#: src/Process/Backend/Settings.php:293
 msgid "<strong>Management</strong> indicates that the plugin has a specific management page."
 msgstr "<strong>Управление</strong> показва, че плъгинът има конкретна страница за управление."
 
-#: src/Process/Backend/Settings.php:291
+#: src/Process/Backend/Settings.php:297
 msgid "<strong>Widgets</strong> indicates that the plugin provide one or more widgets."
 msgstr "<strong>Widgets</strong> показва, че плъгинът предоставя една или повече джаджи."
 

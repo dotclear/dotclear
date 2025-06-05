@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-01 08:06+0200\n"
-"PO-Revision-Date: 2025-06-01 06:13\n"
+"POT-Creation-Date: 2025-06-05 17:29+0200\n"
+"PO-Revision-Date: 2025-06-05 15:33\n"
 "Last-Translator: \n"
 "Language-Team: Telugu\n"
 "Language: te_IN\n"
@@ -1140,7 +1140,7 @@ msgstr "వర్గము సమర్ధవంతంగా నవీకరి�
 
 #: plugins/blogroll/src/ManageEdit.php:181
 #: plugins/dcCKEditor/src/BackendBehaviors.php:62
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:136
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:184
 msgid "Link"
 msgstr "లింకు"
 
@@ -1364,27 +1364,27 @@ msgid "HTML"
 msgstr "HTML"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:59
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:148
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:200
 msgid "Media chooser"
 msgstr "మీడియా ఎంచుకున్న"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:60
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:149
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:203
 msgid "m"
 msgstr "M"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:61
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:152
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:207
 msgid "Link to an entry"
 msgstr "ఒక ప్రవేశమునకు లింకు"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:63
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:137
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:187
 msgid "l"
 msgstr "ఎల్"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:64
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:143
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:193
 msgid "External image"
 msgstr "బయటి చిత్రం"
 
@@ -1393,7 +1393,7 @@ msgid "URL field cannot be empty."
 msgstr "URL క్షేత్రం ఖాళీగా ఉండలేము."
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:89
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:163
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:229
 msgid "Open the media"
 msgstr "మీడియా తెరువుము"
 
@@ -1558,60 +1558,60 @@ msgstr "స్థాయి 5 హెడర్"
 msgid "Level 6 header"
 msgstr "స్థాయి 6 హెడర్"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:122
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:123
 msgid "Strong emphasis"
 msgstr "బలమైన ధరలు"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:123
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:128
 msgid "Emphasis"
 msgstr "ఖాళీ"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:124
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:133
 msgid "Inserted"
 msgstr "ప్రశంసించబడినది"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:125
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:138
 msgid "Deleted"
 msgstr "తిరస్కరిస్తోంది"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:126
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:143
 msgid "Inline quote"
 msgstr "ఇన్లైన్ వ్యాఖ్యానము"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:127
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:148
 msgid "Code"
 msgstr "కోడ్"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:129
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:158
 msgid "Line break"
 msgstr "లైన్ విరామం"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:130
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:163
 msgid "Blockquote"
 msgstr "Blockquote"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:131
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:168
 msgid "Preformated text"
 msgstr "ప్రాతినిధ్య వచనము"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:132
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:173
 msgid "Unordered list"
 msgstr "ఆదేశించిన జాబితా"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:133
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:178
 msgid "Ordered list"
 msgstr "ఆర్డర్ జాబితా"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:138
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:144
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:188
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:196
 msgid "URL?"
 msgstr "ఉర్ల్?"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:139
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:189
 msgid "Language?"
 msgstr "భాష?"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:153
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:212
 msgid "Remove text formating"
 msgstr "టెక్స్ట్ ఫార్మిటింగ్ తొలగించుము"
 
@@ -1689,7 +1689,7 @@ msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup f
 msgstr "యొక్క ID \"%3$s\" రికార్డ్లో సరిపోలేదు \"%1$s\" రేఖ %2$s బ్యాకప్ ఫైల్."
 
 #: plugins/importExport/src/Manage.php:90
-#: plugins/maintenance/src/Manage.php:188
+#: plugins/maintenance/src/Manage.php:195
 msgid "Please wait..."
 msgstr "దయచేసి వేచివుండండి..."
 
@@ -2055,12 +2055,12 @@ msgstr[0] "నిర్వర్తించుటకు ఒక పని"
 msgstr[1] "%s పనులను నిర్వర్తించుటకు"
 
 #: plugins/maintenance/src/BackendBehaviors.php:170
-#: plugins/maintenance/src/Manage.php:293
+#: plugins/maintenance/src/Manage.php:300
 msgid "This task has never been executed."
 msgstr "ఈ పని ఎప్పుడూ నిర్వచించబడలేదు."
 
 #: plugins/maintenance/src/BackendBehaviors.php:173
-#: plugins/maintenance/src/Manage.php:296
+#: plugins/maintenance/src/Manage.php:303
 #, php-format
 msgid "Last execution of this task was on %s."
 msgstr "ఈ పని చివరి నిర్వచనం %s న జరిగింది."
@@ -2120,79 +2120,79 @@ msgstr "ప్రతి నెల"
 msgid "Every two months"
 msgstr "ప్రతి రెండు నెలలు"
 
-#: plugins/maintenance/src/Manage.php:205
+#: plugins/maintenance/src/Manage.php:212
 msgid "You have not sufficient permissions to view this page."
 msgstr "మీరు ఈ పేజీ వీక్షించడానికి తగిన అనుమతి లేదు."
 
-#: plugins/maintenance/src/Manage.php:293
-#: plugins/maintenance/src/Manage.php:299
+#: plugins/maintenance/src/Manage.php:300
+#: plugins/maintenance/src/Manage.php:306
 msgid "You should execute it now."
 msgstr "మీరు ఇప్పుడు అది నిర్వర్తించాలి."
 
-#: plugins/maintenance/src/Manage.php:335
-#: plugins/maintenance/src/Manage.php:369
+#: plugins/maintenance/src/Manage.php:342
+#: plugins/maintenance/src/Manage.php:376
 msgid "Execute task"
 msgstr "పని ప్రశంసించుము"
 
-#: plugins/maintenance/src/Manage.php:340
+#: plugins/maintenance/src/Manage.php:347
 msgid "This may take a very long time."
 msgstr "ఇది చాలా కాలం పడుతుంది."
 
-#: plugins/maintenance/src/Manage.php:400
-#: plugins/maintenance/src/Manage.php:402
+#: plugins/maintenance/src/Manage.php:407
+#: plugins/maintenance/src/Manage.php:409
 msgid "Alert settings"
 msgstr "అలెర్ట్ అమరికComment"
 
-#: plugins/maintenance/src/Manage.php:408
+#: plugins/maintenance/src/Manage.php:415
 msgid "Activation"
 msgstr "క్రియాశీలము"
 
-#: plugins/maintenance/src/Manage.php:414
+#: plugins/maintenance/src/Manage.php:421
 msgid "Display alert messages on late tasks"
 msgstr "ఆలస్య సందేశాలను ఆలస్యం సందేశాలను ప్రదర్శించుము"
 
-#: plugins/maintenance/src/Manage.php:419
+#: plugins/maintenance/src/Manage.php:426
 #, php-format
 msgid "You can place list of late tasks on your %s."
 msgstr "మీరు మీ %s న ఆలయ పనుల జాబితాను స్థానం చేయవచ్చు."
 
-#: plugins/maintenance/src/Manage.php:424
+#: plugins/maintenance/src/Manage.php:431
 msgid "Frequency"
 msgstr "Frequency"
 
-#: plugins/maintenance/src/Manage.php:432
+#: plugins/maintenance/src/Manage.php:439
 msgid "Use one recall time for all tasks"
 msgstr "అన్ని పనులకు ఒక గుర్తు సమయం వుపయోగించుము"
 
-#: plugins/maintenance/src/Manage.php:442
+#: plugins/maintenance/src/Manage.php:449
 msgid "Recall time for all tasks:"
 msgstr "అన్ని పనులకు రికార్డు సమయం:"
 
-#: plugins/maintenance/src/Manage.php:451
+#: plugins/maintenance/src/Manage.php:458
 msgid "Use one recall time per task"
 msgstr "@ info: whats"
 
-#: plugins/maintenance/src/Manage.php:482
+#: plugins/maintenance/src/Manage.php:489
 msgid "Content-Security-Policy"
 msgstr "కంటెంట్-సెక్యూరిటీ-విధానం"
 
-#: plugins/maintenance/src/Manage.php:494
+#: plugins/maintenance/src/Manage.php:501
 msgid "Enable Content-Security-Policy system"
 msgstr "కంటెంట్-సెక్యూరిటీ-విధాన వ్యవస్థను చేర్చు"
 
-#: plugins/maintenance/src/Manage.php:500
+#: plugins/maintenance/src/Manage.php:507
 msgid "Enable Content-Security-Policy report only"
 msgstr "కంటెంట్-సెక్యూరిటీ-విధాన నివేదిక"
 
-#: plugins/maintenance/src/Manage.php:510
+#: plugins/maintenance/src/Manage.php:517
 msgid "Enable Content-Security-Policy system by default"
 msgstr "అప్రమేయ ద్వారా కంటెంట్-సెక్యూరిటీ-విధాన వ్యవస్థను చేర్చు"
 
-#: plugins/maintenance/src/Manage.php:516
+#: plugins/maintenance/src/Manage.php:523
 msgid "Enable Content-Security-Policy report only by default"
 msgstr "సారూప్యత-సెక్యూరిటీ-విధాన నివేదిక మాత్రమే అప్రమేయంగా చేస్తోంది"
 
-#: plugins/maintenance/src/Manage.php:522
+#: plugins/maintenance/src/Manage.php:529
 msgid "Also apply these settings to all blogs"
 msgstr "అన్ని బ్లాగులకు కూడా ఈ అమరికలను ఆపాదించుము."
 
@@ -2776,89 +2776,89 @@ msgid "Not displayed nor used"
 msgstr "ప్రదర్శించలేదు మరియు ఉపయోగించబడలేదు"
 
 #: plugins/tags/src/BackendBehaviors.php:63
-#: plugins/tags/src/BackendBehaviors.php:74
+#: plugins/tags/src/BackendBehaviors.php:75
 #: plugins/tags/src/FrontendUrl.php:105 plugins/tags/src/ManagePosts.php:155
 msgid "Tag"
 msgstr "ట్యాగు"
 
-#: plugins/tags/src/BackendBehaviors.php:237
+#: plugins/tags/src/BackendBehaviors.php:238
 msgid "Add tags"
 msgstr "ట్యాగ్లను జతచేయుము"
 
-#: plugins/tags/src/BackendBehaviors.php:246
+#: plugins/tags/src/BackendBehaviors.php:247
 msgid "Remove tags"
 msgstr "ట్యాగ్లను తీసివేయుము"
 
-#: plugins/tags/src/BackendBehaviors.php:281
+#: plugins/tags/src/BackendBehaviors.php:282
 msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
 msgstr[0] "ఎంపికచేసిన ఎంటర్లలో టాగ్ సమర్ధవంతంగా చేర్చబడింది"
 msgstr[1] "ఎంపికచేసిన ఎంట్రీలను టాగ్లు సమర్ధవంతంగా చేర్చారు"
 
-#: plugins/tags/src/BackendBehaviors.php:294
-#: plugins/tags/src/BackendBehaviors.php:449
+#: plugins/tags/src/BackendBehaviors.php:295
+#: plugins/tags/src/BackendBehaviors.php:450
 msgid "Are you sure you want to remove this tag?"
 msgstr "మీరు ఈ ట్యాగ్ను తీసివేయాలని అనుకొనుచున్నారా?"
 
-#: plugins/tags/src/BackendBehaviors.php:295
-#: plugins/tags/src/BackendBehaviors.php:450
+#: plugins/tags/src/BackendBehaviors.php:296
+#: plugins/tags/src/BackendBehaviors.php:451
 msgid "Add a tag to this entry"
 msgstr "ఈ ప్రవేశమునకు ట్యాగ్ను జతచేయుము"
 
-#: plugins/tags/src/BackendBehaviors.php:296
-#: plugins/tags/src/BackendBehaviors.php:451
+#: plugins/tags/src/BackendBehaviors.php:297
+#: plugins/tags/src/BackendBehaviors.php:452
 msgid "Choose from list"
 msgstr "జాబితా నుండి యెంచుకొనుము"
 
-#: plugins/tags/src/BackendBehaviors.php:297
-#: plugins/tags/src/BackendBehaviors.php:452
+#: plugins/tags/src/BackendBehaviors.php:298
+#: plugins/tags/src/BackendBehaviors.php:453
 msgid "all"
 msgstr "అన్నీ"
 
-#: plugins/tags/src/BackendBehaviors.php:298
-#: plugins/tags/src/BackendBehaviors.php:453
+#: plugins/tags/src/BackendBehaviors.php:299
+#: plugins/tags/src/BackendBehaviors.php:454
 msgid "Enter tags separated by comma"
 msgstr "కామన్ ద్వారా వేరుచేయబడిన టాగ్లను ప్రవేశపెట్టుము"
 
-#: plugins/tags/src/BackendBehaviors.php:306
+#: plugins/tags/src/BackendBehaviors.php:307
 msgid "Add tags to this selection"
 msgstr "ఈ ఎంపికకు టాగ్లను జతచేయుము"
 
-#: plugins/tags/src/BackendBehaviors.php:324
+#: plugins/tags/src/BackendBehaviors.php:325
 msgid "Tags to add:"
 msgstr "చేర్చాల్సిన ట్యాగులు:"
 
-#: plugins/tags/src/BackendBehaviors.php:363
+#: plugins/tags/src/BackendBehaviors.php:364
 msgid "Tag has been successfully removed from selected entries"
 msgid_plural "Tags have been successfully removed from selected entries"
 msgstr[0] "ఎంపికచేసిన ఎంటర్ల నుండి టాగ్ సమర్ధవంతంగా తొలగించబడింది"
 msgstr[1] "@ info: status"
 
-#: plugins/tags/src/BackendBehaviors.php:386
+#: plugins/tags/src/BackendBehaviors.php:387
 msgid "No tags for selected entries"
 msgstr "ఎంపికచేసిన ఎంట్రీలకు టాగ్స్ లేదు"
 
-#: plugins/tags/src/BackendBehaviors.php:393
+#: plugins/tags/src/BackendBehaviors.php:394
 msgid "Remove selected tags from this selection"
 msgstr "ఈ ఎంపిక నుండి ఎంపికచేసిన టాగ్లను తీసివేయుము"
 
-#: plugins/tags/src/BackendBehaviors.php:420
+#: plugins/tags/src/BackendBehaviors.php:421
 msgid "Following tags have been found in selected entries:"
 msgstr "@ info: status"
 
-#: plugins/tags/src/BackendBehaviors.php:429
+#: plugins/tags/src/BackendBehaviors.php:430
 msgid "Remove"
 msgstr "తొలగించు"
 
-#: plugins/tags/src/BackendBehaviors.php:492
+#: plugins/tags/src/BackendBehaviors.php:493
 msgid "Tags list format:"
 msgstr "టాగ్స్ జాబితా ఫార్మాట్:"
 
-#: plugins/tags/src/BackendBehaviors.php:495
+#: plugins/tags/src/BackendBehaviors.php:496
 msgid "Short"
 msgstr "శీఘ్రము"
 
-#: plugins/tags/src/BackendBehaviors.php:496
+#: plugins/tags/src/BackendBehaviors.php:497
 msgid "Extended"
 msgstr "విస్తృత"
 
