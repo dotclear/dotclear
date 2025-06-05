@@ -383,7 +383,9 @@ class Plugins extends Process
         // Display previously gathered content
         App::backend()->list->displayConfiguration();
 
-        Page::helpBlock('core_plugins_conf');
+        if (!App::backend()->resources()->context()) {
+            Page::helpBlock('core_plugins_conf');
+        }
         Page::close();
     }
 }
