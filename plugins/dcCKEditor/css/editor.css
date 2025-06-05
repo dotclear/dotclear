@@ -1,0 +1,18 @@
+/* Colors */
+html {
+  color-scheme: light dark;
+
+  &.light {
+    /* forces light color-scheme */
+    color-scheme: light;
+  }
+  &.dark {
+    /* forces dark color-scheme */
+    color-scheme: dark;
+  }
+}
+
+.cke_editable {
+  color: light-dark(#333, #fff);
+  background-color: light-dark(#fff, #333);
+}

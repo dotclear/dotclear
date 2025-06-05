@@ -43,7 +43,12 @@ other files.
   position: static;
   transition: none;
   border-collapse: collapse;
-  font: normal normal normal 1em Arial, Helvetica, Tahoma, Verdana, sans-serif;
+  font:
+    normal normal normal 1em Arial,
+    Helvetica,
+    Tahoma,
+    Verdana,
+    sans-serif;
   color: #000;
   text-align: left;
   white-space: nowrap;
@@ -256,6 +261,7 @@ other files.
 
 .cke_panel_listItem.cke_selected a {
   border: 1px solid #dedede;
+  color: #474747 !important;
   background-color: #f2f2f2;
 }
 
@@ -263,6 +269,7 @@ other files.
 .cke_panel_listItem a:focus,
 .cke_panel_listItem a:active {
   border-color: #dedede;
+  color: #474747 !important;
   background-color: #f2f2f2;
 }
 
@@ -908,7 +915,8 @@ a.cke_path_item:active {
 textarea.cke_source {
   font-family: var(--monospace);
   font-size: small;
-  background-color: #fff;
+  color: light-dark(#333, #fff);
+  background-color: light-dark(#fff, #333);
   white-space: pre-wrap;
   border: none;
   padding: 0;
@@ -918,7 +926,8 @@ textarea.cke_source {
 
 .cke_wysiwyg_frame,
 .cke_wysiwyg_div {
-  background-color: #fff;
+  color: light-dark(#333, #fff);
+  background-color: light-dark(#fff, #333);
 }
 
 /* Styles for notifications. */

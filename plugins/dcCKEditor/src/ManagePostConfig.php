@@ -293,6 +293,9 @@ class ManagePostConfig
                   e.editor.document.\$.querySelector('body').style.setProperty('font-size', 'calc(var(--html-font-size) * 1.4)');
                 }
 
+                e.editor.document.\$.querySelector('body').classList.add(dotclear.data.darkMode ? 'dark-mode' : 'light-mode');
+
+                e.editor.document.appendStyleSheet(`\${dotclear.dcckeditor_plugin_url}/css/editor.css`);
                 e.editor.document.appendStyleSheet(`\${dotclear.dcckeditor_plugin_url}/css/media.css`);
 
                 if (\$('label[for="post_excerpt"] button').attr('aria-label') == dotclear.img_minus_alt) {
