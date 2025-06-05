@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-01 08:06+0200\n"
-"PO-Revision-Date: 2025-06-01 06:13\n"
+"POT-Creation-Date: 2025-06-05 17:29+0200\n"
+"PO-Revision-Date: 2025-06-05 15:33\n"
 "Last-Translator: \n"
 "Language-Team: Bengali\n"
 "Language: bn_BD\n"
@@ -1140,7 +1140,7 @@ msgstr "শ্রেণীবিভাগ সফলভাবে হালনা�
 
 #: plugins/blogroll/src/ManageEdit.php:181
 #: plugins/dcCKEditor/src/BackendBehaviors.php:62
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:136
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:184
 msgid "Link"
 msgstr "লিঙ্ক"
 
@@ -1364,27 +1364,27 @@ msgid "HTML"
 msgstr "HTML"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:59
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:148
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:200
 msgid "Media chooser"
 msgstr "মিডিয়া নির্বাচক"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:60
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:149
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:203
 msgid "m"
 msgstr "Unit-name"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:61
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:152
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:207
 msgid "Link to an entry"
 msgstr "একটি এন্ট্রিতে লিঙ্ক"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:63
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:137
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:187
 msgid "l"
 msgstr "আমি"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:64
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:143
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:193
 msgid "External image"
 msgstr "বহিঃস্থ ছবি"
 
@@ -1393,7 +1393,7 @@ msgid "URL field cannot be empty."
 msgstr "URL ক্ষেত্র ফাঁকা হতে পারে না."
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:89
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:163
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:229
 msgid "Open the media"
 msgstr "মিডিয়া খুলুন"
 
@@ -1558,60 +1558,60 @@ msgstr "স্তর 5 শীর্ষচরণ"
 msgid "Level 6 header"
 msgstr "স্তর 6 শীর্ষচরণ"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:122
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:123
 msgid "Strong emphasis"
 msgstr "শক্তিশালী জোর"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:123
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:128
 msgid "Emphasis"
 msgstr "ফাঁকা"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:124
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:133
 msgid "Inserted"
 msgstr "প্রবণতা"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:125
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:138
 msgid "Deleted"
 msgstr "মুছে ফেলা হয়েছে"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:126
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:143
 msgid "Inline quote"
 msgstr "ইনলাইন উদ্ধৃতিটি"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:127
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:148
 msgid "Code"
 msgstr "কোড"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:129
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:158
 msgid "Line break"
 msgstr "লাইন বিরতি"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:130
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:163
 msgid "Blockquote"
 msgstr "Blockquote"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:131
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:168
 msgid "Preformated text"
 msgstr "পূর্ববর্তী লেখাটি"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:132
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:173
 msgid "Unordered list"
 msgstr "অনির্দেশ তালিকা"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:133
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:178
 msgid "Ordered list"
 msgstr "সাধারণ তালিকা"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:138
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:144
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:188
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:196
 msgid "URL?"
 msgstr "URL?"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:139
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:189
 msgid "Language?"
 msgstr "ভাষা?"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:153
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:212
 msgid "Remove text formating"
 msgstr "টেক্সট ফর্ম্যাটিং অপসারণ করো"
 
@@ -1689,7 +1689,7 @@ msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup f
 msgstr "ব্যাকআপ ফাইলের %2$s লাইনে \"%1$s\" রেকর্ডে \"%3$s\"-এর ID মিলছে না।"
 
 #: plugins/importExport/src/Manage.php:90
-#: plugins/maintenance/src/Manage.php:188
+#: plugins/maintenance/src/Manage.php:195
 msgid "Please wait..."
 msgstr "অনুগ্রহ করে অপেক্ষা করুন ..."
 
@@ -2055,12 +2055,12 @@ msgstr[0] "চালানোর জন্য একটি কাজ"
 msgstr[1] "কার্যকর করার জন্য %sটি কাজ"
 
 #: plugins/maintenance/src/BackendBehaviors.php:170
-#: plugins/maintenance/src/Manage.php:293
+#: plugins/maintenance/src/Manage.php:300
 msgid "This task has never been executed."
 msgstr "এই কাজটি কখনোই কার্যকর করা হয়নি."
 
 #: plugins/maintenance/src/BackendBehaviors.php:173
-#: plugins/maintenance/src/Manage.php:296
+#: plugins/maintenance/src/Manage.php:303
 #, php-format
 msgid "Last execution of this task was on %s."
 msgstr "এই কাজটির শেষ সম্পাদনা %s-এ হয়েছিল।"
@@ -2120,79 +2120,79 @@ msgstr "প্রতি মাসে"
 msgid "Every two months"
 msgstr "প্রতি দুই মাস"
 
-#: plugins/maintenance/src/Manage.php:205
+#: plugins/maintenance/src/Manage.php:212
 msgid "You have not sufficient permissions to view this page."
 msgstr "এই পাতাটি দেখার জন্য আপনার পর্যাপ্ত অনুমতি নেই."
 
-#: plugins/maintenance/src/Manage.php:293
-#: plugins/maintenance/src/Manage.php:299
+#: plugins/maintenance/src/Manage.php:300
+#: plugins/maintenance/src/Manage.php:306
 msgid "You should execute it now."
 msgstr "আপনি এটা এখনই চালাতে হবে."
 
-#: plugins/maintenance/src/Manage.php:335
-#: plugins/maintenance/src/Manage.php:369
+#: plugins/maintenance/src/Manage.php:342
+#: plugins/maintenance/src/Manage.php:376
 msgid "Execute task"
 msgstr "কর্ম সনাক্ত করা হবে"
 
-#: plugins/maintenance/src/Manage.php:340
+#: plugins/maintenance/src/Manage.php:347
 msgid "This may take a very long time."
 msgstr "এটি অনেক সময় লেগেই নিতে পারে."
 
-#: plugins/maintenance/src/Manage.php:400
-#: plugins/maintenance/src/Manage.php:402
+#: plugins/maintenance/src/Manage.php:407
+#: plugins/maintenance/src/Manage.php:409
 msgid "Alert settings"
 msgstr "অ্যালার্ট সেটিংস"
 
-#: plugins/maintenance/src/Manage.php:408
+#: plugins/maintenance/src/Manage.php:415
 msgid "Activation"
 msgstr "সক্রিয়"
 
-#: plugins/maintenance/src/Manage.php:414
+#: plugins/maintenance/src/Manage.php:421
 msgid "Display alert messages on late tasks"
 msgstr "শেষের কাজগুলো সম্পর্কে সতর্ক বার্তা প্রদর্শন করা হবে"
 
-#: plugins/maintenance/src/Manage.php:419
+#: plugins/maintenance/src/Manage.php:426
 #, php-format
 msgid "You can place list of late tasks on your %s."
 msgstr "আপনি আপনার %s-এ দেরী কাজগুলির তালিকা রাখতে পারেন।"
 
-#: plugins/maintenance/src/Manage.php:424
+#: plugins/maintenance/src/Manage.php:431
 msgid "Frequency"
 msgstr "Frequency"
 
-#: plugins/maintenance/src/Manage.php:432
+#: plugins/maintenance/src/Manage.php:439
 msgid "Use one recall time for all tasks"
 msgstr "সমস্ত কাজের জন্য একটি স্মরণ করার সময় ব্যবহার করুন"
 
-#: plugins/maintenance/src/Manage.php:442
+#: plugins/maintenance/src/Manage.php:449
 msgid "Recall time for all tasks:"
 msgstr "সকল কাজের জন্য সময় গ্রহণ করা হবে:"
 
-#: plugins/maintenance/src/Manage.php:451
+#: plugins/maintenance/src/Manage.php:458
 msgid "Use one recall time per task"
 msgstr "প্রতি কাজের সময় একটি স্মরণ করার সময় ব্যবহার করা হবে"
 
-#: plugins/maintenance/src/Manage.php:482
+#: plugins/maintenance/src/Manage.php:489
 msgid "Content-Security-Policy"
 msgstr "বিষয়বস্তু-নিরাপত্তা-নীতি"
 
-#: plugins/maintenance/src/Manage.php:494
+#: plugins/maintenance/src/Manage.php:501
 msgid "Enable Content-Security-Policy system"
 msgstr "বিষয়বস্তু-নিরাপত্তা-পলিসি ব্যবস্থা সক্রিয় করুন"
 
-#: plugins/maintenance/src/Manage.php:500
+#: plugins/maintenance/src/Manage.php:507
 msgid "Enable Content-Security-Policy report only"
 msgstr "বিষয়বস্তু-নিরাপত্তা-পলিসি প্রতিবেদন সক্রিয় করো"
 
-#: plugins/maintenance/src/Manage.php:510
+#: plugins/maintenance/src/Manage.php:517
 msgid "Enable Content-Security-Policy system by default"
 msgstr "ডিফল্ট দ্বারা বিষয়বস্তু-নিরাপত্তা-পলিসি ব্যবস্থা সক্রিয় করা হবে"
 
-#: plugins/maintenance/src/Manage.php:516
+#: plugins/maintenance/src/Manage.php:523
 msgid "Enable Content-Security-Policy report only by default"
 msgstr "কনটেন্ট-সিকিউরিটি-পলিসি রিপোর্ট শুধুমাত্র ডিফল্ট দ্বারা সক্রিয় করা হবে"
 
-#: plugins/maintenance/src/Manage.php:522
+#: plugins/maintenance/src/Manage.php:529
 msgid "Also apply these settings to all blogs"
 msgstr "সব ব্লগের জন্য এই সেটিংস প্রয়োগ করা হবে"
 
@@ -2776,89 +2776,89 @@ msgid "Not displayed nor used"
 msgstr "প্রদর্শিত বা ব্যবহার করা হয়নি"
 
 #: plugins/tags/src/BackendBehaviors.php:63
-#: plugins/tags/src/BackendBehaviors.php:74
+#: plugins/tags/src/BackendBehaviors.php:75
 #: plugins/tags/src/FrontendUrl.php:105 plugins/tags/src/ManagePosts.php:155
 msgid "Tag"
 msgstr "ট্যাগ"
 
-#: plugins/tags/src/BackendBehaviors.php:237
+#: plugins/tags/src/BackendBehaviors.php:238
 msgid "Add tags"
 msgstr "ট্যাগ যোগ করো"
 
-#: plugins/tags/src/BackendBehaviors.php:246
+#: plugins/tags/src/BackendBehaviors.php:247
 msgid "Remove tags"
 msgstr "ট্যাগ অপসারণ করো"
 
-#: plugins/tags/src/BackendBehaviors.php:281
+#: plugins/tags/src/BackendBehaviors.php:282
 msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
 msgstr[0] "নির্বাচিত এন্ট্রিতে ট্যাগ সফলভাবে যোগ করা হয়েছে"
 msgstr[1] "নির্বাচিত এন্ট্রিতে ট্যাগ সফলভাবে যোগ করা হয়েছে"
 
-#: plugins/tags/src/BackendBehaviors.php:294
-#: plugins/tags/src/BackendBehaviors.php:449
+#: plugins/tags/src/BackendBehaviors.php:295
+#: plugins/tags/src/BackendBehaviors.php:450
 msgid "Are you sure you want to remove this tag?"
 msgstr "আপনি কি এই ট্যাগ অপসারণ করতে চান?"
 
-#: plugins/tags/src/BackendBehaviors.php:295
-#: plugins/tags/src/BackendBehaviors.php:450
+#: plugins/tags/src/BackendBehaviors.php:296
+#: plugins/tags/src/BackendBehaviors.php:451
 msgid "Add a tag to this entry"
 msgstr "এই এন্ট্রিতে একটি ট্যাগ যোগ করুন"
 
-#: plugins/tags/src/BackendBehaviors.php:296
-#: plugins/tags/src/BackendBehaviors.php:451
+#: plugins/tags/src/BackendBehaviors.php:297
+#: plugins/tags/src/BackendBehaviors.php:452
 msgid "Choose from list"
 msgstr "তালিকা থেকে বেছে নিন"
 
-#: plugins/tags/src/BackendBehaviors.php:297
-#: plugins/tags/src/BackendBehaviors.php:452
+#: plugins/tags/src/BackendBehaviors.php:298
+#: plugins/tags/src/BackendBehaviors.php:453
 msgid "all"
 msgstr "সব"
 
-#: plugins/tags/src/BackendBehaviors.php:298
-#: plugins/tags/src/BackendBehaviors.php:453
+#: plugins/tags/src/BackendBehaviors.php:299
+#: plugins/tags/src/BackendBehaviors.php:454
 msgid "Enter tags separated by comma"
 msgstr "কমা দ্বারা পৃথক ট্যাগ লিখুন"
 
-#: plugins/tags/src/BackendBehaviors.php:306
+#: plugins/tags/src/BackendBehaviors.php:307
 msgid "Add tags to this selection"
 msgstr "এই নির্বাচন থেকে ট্যাগ যোগ করো"
 
-#: plugins/tags/src/BackendBehaviors.php:324
+#: plugins/tags/src/BackendBehaviors.php:325
 msgid "Tags to add:"
 msgstr "যোগ করার জন্য ট্যাগ:"
 
-#: plugins/tags/src/BackendBehaviors.php:363
+#: plugins/tags/src/BackendBehaviors.php:364
 msgid "Tag has been successfully removed from selected entries"
 msgid_plural "Tags have been successfully removed from selected entries"
 msgstr[0] "নির্বাচিত এন্ট্রি থেকে ট্যাগ সফলভাবে মুছে ফেলা হয়েছে"
 msgstr[1] "নির্বাচিত এন্ট্রি থেকে ট্যাগ সফলভাবে মুছে ফেলা হয়েছে"
 
-#: plugins/tags/src/BackendBehaviors.php:386
+#: plugins/tags/src/BackendBehaviors.php:387
 msgid "No tags for selected entries"
 msgstr "নির্বাচিত এন্ট্রির জন্য কোনো ট্যাগ নেই"
 
-#: plugins/tags/src/BackendBehaviors.php:393
+#: plugins/tags/src/BackendBehaviors.php:394
 msgid "Remove selected tags from this selection"
 msgstr "এই নির্বাচন থেকে নির্বাচিত ট্যাগ মুছে ফেলো"
 
-#: plugins/tags/src/BackendBehaviors.php:420
+#: plugins/tags/src/BackendBehaviors.php:421
 msgid "Following tags have been found in selected entries:"
 msgstr "নির্বাচিত এন্ট্রির মধ্যে ট্যাগ অনুসরণ করা হয়েছে:"
 
-#: plugins/tags/src/BackendBehaviors.php:429
+#: plugins/tags/src/BackendBehaviors.php:430
 msgid "Remove"
 msgstr "অপসারণ"
 
-#: plugins/tags/src/BackendBehaviors.php:492
+#: plugins/tags/src/BackendBehaviors.php:493
 msgid "Tags list format:"
 msgstr "ট্যাগ তালিকার বিন্যাস:"
 
-#: plugins/tags/src/BackendBehaviors.php:495
+#: plugins/tags/src/BackendBehaviors.php:496
 msgid "Short"
 msgstr "সংক্ষিপ্ত"
 
-#: plugins/tags/src/BackendBehaviors.php:496
+#: plugins/tags/src/BackendBehaviors.php:497
 msgid "Extended"
 msgstr "এক্সটেন্ডেড"
 
