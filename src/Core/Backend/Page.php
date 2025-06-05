@@ -518,6 +518,11 @@ class Page
                     ->href('#wrapper')
                     ->items([
                         (new Img('images/up.svg'))
+                            ->class('light-only')
+                            ->alt(__('Page top'))
+                            ->extra('aria-hidden="true"'),
+                        (new Img('images/up-dark.svg'))
+                            ->class('dark-only')
                             ->alt(__('Page top'))
                             ->extra('aria-hidden="true"'),
                         (new Span(__('Page top')))
