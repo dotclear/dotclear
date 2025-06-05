@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-05 17:27+0200\n"
-"PO-Revision-Date: 2025-06-05 15:32\n"
+"PO-Revision-Date: 2025-06-05 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Japanese\n"
 "Language: ja_JP\n"
@@ -5243,7 +5243,7 @@ msgstr "不明"
 #: src/Process/Backend/Settings.php:219
 #, php-format
 msgid "This page does not allow you to manage plugins (update, install, uninstall, activate, deactivate, etc.). If you need to, go to <a href=\"%s\">this page</a>."
-msgstr ""
+msgstr "このページではプラグインの管理（更新、インストール、アンインストール、有効化、無効化など）はできません。必要な場合は、<a href=\"%s\">このページを</a>ご覧ください。"
 
 #: src/Process/Backend/Settings.php:227
 msgid "ID"
