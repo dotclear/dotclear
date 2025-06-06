@@ -93,6 +93,13 @@ other files.
   table-layout: auto;
 }
 
+body.dark-mode {
+  .cke_toolbox {
+    filter: invert(1);
+    mix-blend-mode: color-dodge;
+  }
+}
+
 /* Styles the main interface structure (holding box). */
 .cke_chrome {
   display: block;
