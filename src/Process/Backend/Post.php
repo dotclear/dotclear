@@ -710,6 +710,7 @@ class Post extends Process
                                                 ->size(30)
                                                 ->maxlength(255)
                                                 ->class('maximal')
+                                                ->autocomplete('off')
                                                 ->label(new Label(__('Title:'), Label::OL_TF)),
                                         ]),
                                     (new Para())
