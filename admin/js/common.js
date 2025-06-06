@@ -510,24 +510,27 @@ dotclear.helpViewer = (selector) => {
     helpButtonElement.style.top = `${offset}px`;
   };
 
-  const headerObserver = new IntersectionObserver(
-    (changes) => {
-      for (const change of changes) {
-        if (change.isIntersecting) {
-          helpButtonElement.classList.remove('floatable');
-        } else {
-          helpButtonElement.classList.add('floatable');
+  const headerTarget = document.querySelector('#header');
+  if (headerTarget) {
+    const headerObserver = new IntersectionObserver(
+      (changes) => {
+        for (const change of changes) {
+          if (change.isIntersecting) {
+            helpButtonElement.classList.remove('floatable');
+          } else {
+            helpButtonElement.classList.add('floatable');
+          }
+          positionButton();
         }
-        positionButton();
-      }
-    },
-    {
-      threshold: [1.0],
-      trackVisibility: true,
-      delay: 100, // Set a minimum delay between notifications
-    },
-  );
-  headerObserver.observe(document.querySelector('#header'));
+      },
+      {
+        threshold: [1.0],
+        trackVisibility: true,
+        delay: 100, // Set a minimum delay between notifications
+      },
+    );
+    headerObserver.observe(headerTarget);
+  }
 };
 
 /**
@@ -1368,20 +1371,23 @@ dotclear.ready(() => {
   }
 
   // Scroll to top management
-  const gototopButton = document.getElementById('gototop');
-  const headerObserver = new IntersectionObserver(
-    (changes) => {
-      for (const change of changes) {
-        gototopButton.style.display = change.isIntersecting ? 'none' : 'block';
-      }
-    },
-    {
-      threshold: [1.0],
-      trackVisibility: true,
-      delay: 100, // Set a minimum delay between notifications
-    },
-  );
-  headerObserver.observe(document.querySelector('#header'));
+  const headerTarget = document.querySelector('#header');
+  if (headerTarget) {
+    const gototopButton = document.getElementById('gototop');
+    const headerObserver = new IntersectionObserver(
+      (changes) => {
+        for (const change of changes) {
+          gototopButton.style.display = change.isIntersecting ? 'none' : 'block';
+        }
+      },
+      {
+        threshold: [1.0],
+        trackVisibility: true,
+        delay: 100, // Set a minimum delay between notifications
+      },
+    );
+    headerObserver.observe(headerTarget);
+  }
 
   document.getElementById('gototop')?.addEventListener('click', (event) => {
     if (dotclear.animationisReduced) {
