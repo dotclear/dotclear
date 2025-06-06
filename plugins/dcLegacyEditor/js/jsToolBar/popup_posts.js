@@ -1,21 +1,23 @@
-/*global $, dotclear */
+/*global dotclear */
 'use strict';
 
 dotclear.ready(() => {
   // DOM ready and content loaded
 
-  $('#link-insert-cancel').on('click', () => {
+  document.getElementById('link-insert-cancel')?.addEventListener('click', () => {
     window.close();
   });
 
-  $('#form-entries tr>td.maximal>a').on('click', function () {
-    // Get post_id
-    const tb = window.opener.the_toolbar;
-    const { data } = tb.elements.link;
+  for (const line of document.querySelectorAll('#form-entries tr>td.maximal>a')) {
+    line.addEventListener('click', (event) => {
+      // Get post_id
+      const tb = window.opener.the_toolbar;
+      const { data } = tb.elements.link;
 
-    data.href = tb.stripBaseURL($(this).attr('title'));
+      data.href = tb.stripBaseURL(event.target.getAttribute('title'));
 
-    tb.elements.link.fncall[tb.mode].call(tb);
-    window.close();
-  });
+      tb.elements.link.fncall[tb.mode].call(tb);
+      window.close();
+    });
+  }
 });

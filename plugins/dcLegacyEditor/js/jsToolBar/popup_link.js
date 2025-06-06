@@ -1,30 +1,30 @@
-/*global $, dotclear */
+/*global dotclear */
 'use strict';
 
 dotclear.ready(() => {
   // DOM ready and content loaded
 
-  $('#link-insert-cancel').on('click', () => {
+  document.getElementById('link-insert-cancel')?.addEventListener('click', () => {
     window.close();
   });
 
-  $('#link-insert-ok').on('click', () => {
+  document.getElementById('link-insert-ok')?.addEventListener('click', () => {
     sendClose();
     window.close();
   });
 
   function sendClose() {
-    const insert_form = $('#link-insert-form').get(0);
-    if (insert_form == undefined) {
+    const form = document.getElementById('link-insert-form');
+    if (!form) {
       return;
     }
 
     const tb = window.opener.the_toolbar;
     const { data } = tb.elements.link;
 
-    data.href = tb.stripBaseURL(insert_form.elements.href.value);
-    data.title = insert_form.elements.title.value;
-    data.hreflang = insert_form.elements.hreflang.value;
+    data.href = tb.stripBaseURL(form.elements.href.value);
+    data.title = form.elements.title.value;
+    data.hreflang = form.elements.hreflang.value;
     tb.elements.link.fncall[tb.mode].call(tb);
   }
 });

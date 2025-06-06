@@ -1,28 +1,28 @@
-/*global $, dotclear */
+/*global dotclear */
 'use strict';
 
 dotclear.ready(() => {
   // DOM ready and content loaded
 
   document.getElementById('media-insert')?.addEventListener('onetabload', () => {
-    $('#media-insert-cancel').on('click', () => {
+    document.getElementById('media-insert-cancel')?.addEventListener('click', () => {
       window.close();
     });
 
-    $('#media-insert-ok').on('click', () => {
+    document.getElementById('media-insert-ok')?.addEventListener('click', () => {
       sendClose();
       window.close();
     });
   });
 
   function sendClose() {
-    const insert_form = $('#media-insert-form').get(0);
-    if (insert_form === undefined) {
+    const form = document.getElementById('media-insert-form');
+    if (!form) {
       return;
     }
 
     const tb = window.opener.the_toolbar;
-    const type = insert_form.elements.type.value;
+    const type = form.elements.type.value;
     const media_align_grid = {
       left: tb.style.left,
       right: tb.style.rigth,
@@ -30,15 +30,15 @@ dotclear.ready(() => {
     };
 
     if (type === 'image') {
-      tb.elements.img_select.data.src = tb.stripBaseURL($('input[name="src"]:checked', insert_form).val());
-      tb.elements.img_select.data.alignment = $('input[name="alignment"]:checked', insert_form).val();
-      tb.elements.img_select.data.link = $('input[name="insertion"]:checked', insert_form).val() === 'link';
+      tb.elements.img_select.data.src = tb.stripBaseURL(form.querySelector('input[name="src"]:checked').value);
+      tb.elements.img_select.data.alignment = form.querySelector('input[name="alignment"]:checked').value;
+      tb.elements.img_select.data.link = form.querySelector('input[name="insertion"]:checked').value === 'link';
 
-      tb.elements.img_select.data.title = insert_form.elements.title.value;
-      tb.elements.img_select.data.description = $('input[name="description"]', insert_form).val();
-      tb.elements.img_select.data.url = tb.stripBaseURL(insert_form.elements.url.value);
+      tb.elements.img_select.data.title = form.elements.title.value;
+      tb.elements.img_select.data.description = form.querySelector('input[name="description"]').value;
+      tb.elements.img_select.data.url = tb.stripBaseURL(form.elements.url.value);
 
-      let media_legend = $('input[name="legend"]:checked', insert_form).val();
+      let media_legend = form.querySelector('input[name="legend"]:checked').value;
       if (media_legend !== '' && media_legend !== 'title' && media_legend !== 'none') {
         media_legend = 'legend';
       }
@@ -53,12 +53,13 @@ dotclear.ready(() => {
       return;
     }
     if (type === 'mp3') {
-      let player = $('#public_player').val();
+      const mplayer = document.querySelector('#public_player').value;
+      let player = mplayer;
 
-      const align = $('input[name="alignment"]:checked', insert_form).val();
+      const align = form.querySelector('input[name="alignment"]:checked').value;
       const alignment = align !== undefined && align !== 'none' ? ` class="${media_align_grid[align]}"` : '';
 
-      const title = insert_form.elements.real_title.value;
+      const title = form.elements.real_title.value;
       if (title) {
         player = `<figure${alignment}><figcaption>${title}</figcaption>${player}</figure>`;
       }
@@ -73,32 +74,32 @@ dotclear.ready(() => {
     }
     if (type === 'flv') {
       // may be all video media, not only flv
-      const oplayer = $(`<div>${$('#public_player').val()}</div>`);
+      const vplayer = document.createElement('div');
+      vplayer.innerHTML = document.querySelector('#public_player').value;
 
-      const align = $('input[name="alignment"]:checked', insert_form).val();
+      const align = form.querySelector('input[name="alignment"]:checked').value;
       const alignment = align !== undefined && align !== 'none' ? ` class="${media_align_grid[align]}"` : '';
 
-      const vw = $('#video_w').val();
-      const vh = $('#video_h').val();
+      const vw = document.querySelector('#video_w').value;
+      const vh = document.querySelector('#video_h').value;
 
       if (vw > 0) {
-        $('video', oplayer).attr('width', vw);
-        $('object', oplayer).attr('width', vw);
+        vplayer.querySelector('video')?.setAttribute('width', vw);
+        vplayer.querySelector('object')?.setAttribute('width', vw);
       } else {
-        $('video', oplayer).removeAttr('width');
-        $('object', oplayer).removeAttr('width');
+        vplayer.querySelector('video')?.removeAttribute('width');
+        vplayer.querySelector('object')?.removeAttribute('width');
       }
       if (vh > 0) {
-        $('video', oplayer).attr('height', vh);
-        $('object', oplayer).attr('height', vh);
+        vplayer.querySelector('video')?.setAttribute('height', vh);
+        vplayer.querySelector('object')?.setAttribute('height', vh);
       } else {
-        $('video', oplayer).removeAttr('height');
-        $('object', oplayer).removeAttr('height');
+        vplayer.querySelector('video')?.removeAttribute('height');
+        vplayer.querySelector('object')?.removeAttribute('height');
       }
+      let player = vplayer.innerHTML;
 
-      let player = oplayer.html();
-
-      const title = insert_form.elements.real_title.value;
+      const title = form.elements.real_title.value;
       if (title) {
         player = `<figure${alignment}><figcaption>${title}</figcaption>${player}</figure>`;
       }
@@ -112,8 +113,8 @@ dotclear.ready(() => {
       return;
     }
 
-    tb.elements.link.data.href = tb.stripBaseURL(insert_form.elements.url.value);
-    tb.elements.link.data.content = insert_form.elements.title.value;
+    tb.elements.link.data.href = tb.stripBaseURL(form.elements.url.value);
+    tb.elements.link.data.content = form.elements.title.value;
     tb.elements.link.fncall[tb.mode].call(tb);
   }
 });
