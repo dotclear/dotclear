@@ -16,3 +16,8 @@ html {
   color: light-dark(#333, #fff);
   background-color: light-dark(#fff, #333);
 }
+
+.footnotes {
+  color: light-dark(#333, #fff) !important;
+  background-color: light-dark(#eee, #444) !important;
+}
