@@ -34,6 +34,10 @@
 /* header global h1, form#top-info-blog, ul#top-info-user */
 
 #header {
+  p {
+    text-wrap: initial;
+  }
+
   a {
     color: var(--header-color);
   }

@@ -2248,6 +2248,9 @@ span:is(.warn, .warning, .info) {
 }
 
 /* header global h1, form#top-info-blog, ul#top-info-user */
+#header p {
+  text-wrap: initial;
+}
 #header a {
   color: var(--header-color);
 }
