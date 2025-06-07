@@ -357,7 +357,7 @@ class HelpCharte extends Process
         <div class="dc-update">
           <h3>Dotclear 42 est disponible</h3>
           <p><a class="button submit" href="#">Mettre à jour maintenant</a>
-            <a class="button" href="u#">Me le rappeler plus tard</a></p>
+            <a class="button reset" href="u#">Me le rappeler plus tard</a></p>
           <p class="updt-info"><a href="#">Informations sur cette version</a></p>
         </div>
         <h4 class="smart-title">Messages contextuels</h4>

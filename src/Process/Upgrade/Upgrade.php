@@ -250,7 +250,7 @@ class Upgrade extends Process
                 }
             } else {
                 $items[] = (new Para())
-                    ->class('static-msg dc-update updt-info')
+                    ->class(['static-msg', 'dc-update', 'updt-info'])
                     ->separator(' ')
                     ->items([
                         (new Text(null, sprintf(__('Dotclear %s is available.'), self::$new_ver))),

@@ -227,7 +227,7 @@ class Rest extends Process
                                         ->href(App::backend()->url()->get('upgrade.upgrade'))
                                         ->text(__('Upgrade now')),
                                     (new Link())
-                                        ->class('button')
+                                        ->class(['button', 'reset'])
                                         ->href(App::backend()->url()->get('upgrade.upgrade', ['hide_msg' => 1]))
                                         ->text(__('Remind me later')),
                                 ]),
