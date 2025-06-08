@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-08 10:49+0200\n"
-"PO-Revision-Date: 2025-06-08 08:53\n"
+"PO-Revision-Date: 2025-06-08 09:22\n"
 "Last-Translator: \n"
 "Language-Team: Bengali\n"
 "Language: bn_BD\n"
@@ -2255,11 +2255,11 @@ msgstr "পরবর্তী"
 #: plugins/maintenance/src/Task/IndexComments.php:63
 #, php-format
 msgid "Indexing comments %1$d to %2$d of %3$d."
-msgstr ""
+msgstr "%3$d এর %1$d থেকে %2$d পর্যন্ত মন্তব্যের সূচীকরণ।"
 
 #: plugins/maintenance/src/Task/IndexComments.php:64
 msgid "Comments indexing done."
-msgstr ""
+msgstr "মন্তব্য সূচী সম্পন্ন হয়েছে।"
 
 #: plugins/maintenance/src/Task/IndexComments.php:65
 msgid "Failed to index comments."
@@ -2276,11 +2276,11 @@ msgstr "সার্চ ইঞ্জিনের জন্য সকল এন�
 #: plugins/maintenance/src/Task/IndexPosts.php:63
 #, php-format
 msgid "Indexing entries %1$d to %2$d of %3$d."
-msgstr ""
+msgstr "%3$d এর %1$d থেকে %2$d পর্যন্ত এন্ট্রি সূচী করা হচ্ছে।"
 
 #: plugins/maintenance/src/Task/IndexPosts.php:64
 msgid "Entries indexing done."
-msgstr ""
+msgstr "এন্ট্রি সূচীকরণ সম্পন্ন হয়েছে।"
 
 #: plugins/maintenance/src/Task/IndexPosts.php:65
 msgid "Failed to index entries."
@@ -2317,7 +2317,7 @@ msgstr "এন্ট্রি মেটাডাটা"
 #: plugins/maintenance/src/Task/SynchPostMeta.php:63
 #, php-format
 msgid "Synchronizing metadata of entries %1$d to %2$d of %3$d."
-msgstr ""
+msgstr "%3$d এর %2$d থেকে %1$d এন্ট্রির মেটাডেটা সিঙ্ক্রোনাইজ করা হচ্ছে।"
 
 #: plugins/maintenance/src/Task/SynchPostMeta.php:64
 msgid "Entries metadata synchronize done."
