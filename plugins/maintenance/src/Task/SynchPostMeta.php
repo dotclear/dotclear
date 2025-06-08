@@ -20,7 +20,7 @@ use Dotclear\Plugin\maintenance\MaintenanceTask;
  * @brief   The post meta synch maintenance task.
  * @ingroup maintenance
  */
-class SynchPostsMeta extends MaintenanceTask
+class SynchPostMeta extends MaintenanceTask
 {
     /**
      * Task ID (class name).
@@ -48,6 +48,11 @@ class SynchPostsMeta extends MaintenanceTask
     protected string $step_task;
 
     /**
+     * Total number of posts to process.
+     */
+    protected int $count;
+
+    /**
      * Initialize task object.
      */
     protected function init(): void
@@ -55,7 +60,7 @@ class SynchPostsMeta extends MaintenanceTask
         $this->name      = __('Entries metadata');
         $this->task      = __('Synchronize entries metadata');
         $this->step_task = __('Next');
-        $this->step      = __('Synchronize entry %d to %d.');
+        $this->step      = __('Synchronizing metadata of entries %1$d to %2$d of %3$d.');
         $this->success   = __('Entries metadata synchronize done.');
         $this->error     = __('Failed to synchronize entries metadata.');
 
@@ -76,12 +81,12 @@ class SynchPostsMeta extends MaintenanceTask
 
     public function step(): ?string
     {
-        return $this->code ? sprintf($this->step ?? '', $this->code - $this->limit, $this->code) : null;
+        return $this->code ? sprintf($this->step ?? '', $this->code - $this->limit, $this->code, $this->count) : null;
     }
 
     public function success(): string
     {
-        return $this->code ? sprintf($this->step ?? '', $this->code - $this->limit, $this->code) : $this->success;
+        return $this->code ? sprintf($this->step ?? '', $this->code - $this->limit, $this->code, $this->count) : $this->success;
     }
 
     /**
@@ -95,12 +100,14 @@ class SynchPostsMeta extends MaintenanceTask
     protected function synchronizeAllPostsmeta(?int $start = null, ?int $limit = null): ?int
     {
         // Get number of posts
-        $sql = new SelectStatement();
-        $run = $sql
-            ->column($sql->count('post_id'))
-            ->from(App::con()->prefix() . App::blog()::POST_TABLE_NAME)
-            ->select();
-        $count = $run instanceof MetaRecord ? $run->f(0) : 0;
+        if (!isset($this->count)) {
+            $sql = new SelectStatement();
+            $run = $sql
+                ->column($sql->count('post_id'))
+                ->from(App::con()->prefix() . App::blog()::POST_TABLE_NAME)
+                ->select();
+            $this->count = $run instanceof MetaRecord ? (int) $run->f(0) : 0;
+        }
 
         // Get posts ids to update
         $sql = new SelectStatement();
@@ -144,6 +151,6 @@ class SynchPostsMeta extends MaintenanceTask
         App::blog()->triggerBlog();
 
         // Return next step
-        return $start + $limit > $count ? null : $start + $limit;
+        return $start + $limit > $this->count ? null : $start + $limit;
     }
 }

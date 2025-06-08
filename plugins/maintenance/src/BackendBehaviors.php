@@ -64,7 +64,7 @@ class BackendBehaviors
             ->addTask(Task\IndexPosts::class)
             ->addTask(Task\IndexComments::class)
             ->addTask(Task\CountComments::class)
-            ->addTask(Task\SynchPostsMeta::class)
+            ->addTask(Task\SynchPostMeta::class)
             ->addTask(Task\Logs::class)
             ->addTask(Task\Vacuum::class)
             ->addTask(Task\ZipMedia::class)

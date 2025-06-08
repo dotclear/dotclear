@@ -1,3 +1,6 @@
 .step-submit {
   margin-block-start: 1.5em;
 }
+.step-box:not(:has(> *)) {
+  display: none;
+}

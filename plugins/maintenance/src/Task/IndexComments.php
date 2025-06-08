@@ -48,6 +48,11 @@ class IndexComments extends MaintenanceTask
     protected string $step_task;
 
     /**
+     * Total number of comments to process.
+     */
+    protected int $count;
+
+    /**
      * Initialize task object.
      */
     protected function init(): void
@@ -55,8 +60,8 @@ class IndexComments extends MaintenanceTask
         $this->name      = __('Search engine index');
         $this->task      = __('Index all comments for search engine');
         $this->step_task = __('Next');
-        $this->step      = __('Indexing comment %d to %d.');
-        $this->success   = __('Comments index done.');
+        $this->step      = __('Indexing comments %1$d to %2$d of %3$d.');
+        $this->success   = __('Comments indexing done.');
         $this->error     = __('Failed to index comments.');
 
         $this->description = __('Index all comments and trackbacks in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages.');
@@ -76,12 +81,12 @@ class IndexComments extends MaintenanceTask
 
     public function step(): ?string
     {
-        return $this->code ? sprintf((string) $this->step, $this->code - $this->limit, $this->code) : null;
+        return $this->code ? sprintf((string) $this->step, $this->code - $this->limit, $this->code, $this->count) : null;
     }
 
     public function success(): string
     {
-        return $this->code ? sprintf((string) $this->step, $this->code - $this->limit, $this->code) : $this->success;
+        return $this->code ? sprintf((string) $this->step, $this->code - $this->limit, $this->code, $this->count) : $this->success;
     }
 
     /**
@@ -94,12 +99,14 @@ class IndexComments extends MaintenanceTask
      */
     public function indexAllComments(?int $start = null, ?int $limit = null): ?int
     {
-        $sql = new SelectStatement();
-        $run = $sql
-            ->column($sql->count('comment_id'))
-            ->from(App::con()->prefix() . App::blog()::COMMENT_TABLE_NAME)
-            ->select();
-        $count = $run instanceof MetaRecord ? $run->f(0) : 0;
+        if (!isset($this->count)) {
+            $sql = new SelectStatement();
+            $run = $sql
+                ->column($sql->count('comment_id'))
+                ->from(App::con()->prefix() . App::blog()::COMMENT_TABLE_NAME)
+                ->select();
+            $this->count = $run instanceof MetaRecord ? (int) $run->f(0) : 0;
+        }
 
         $sql = new SelectStatement();
         $sql
@@ -127,7 +134,7 @@ class IndexComments extends MaintenanceTask
         $start = (int) $start;
         $limit = (int) $limit;
 
-        if ($start + $limit > $count) {
+        if ($start + $limit > $this->count) {
             return null;
         }
 
