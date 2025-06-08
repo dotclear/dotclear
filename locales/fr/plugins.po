@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-05 17:29+0200\n"
-"PO-Revision-Date: 2025-06-05 15:32\n"
+"POT-Creation-Date: 2025-06-08 10:49+0200\n"
+"PO-Revision-Date: 2025-06-08 08:52\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -2237,56 +2237,56 @@ msgstr "Impossible de recompter les commentaires et rétroliens."
 msgid "Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating from dotclear 1 to dotclear 2)."
 msgstr "Recompter les commentaires et les rétroliens a pour effet de donner le nombre exact de ceux-ci pour chaque billet. Cette opération peut se révéler utile lors de l'import d'un blog d'une autre plateforme (ou d'une migration de Dotclear 1 vers Dotclear 2)."
 
-#: plugins/maintenance/src/Task/IndexComments.php:55
-#: plugins/maintenance/src/Task/IndexPosts.php:55
+#: plugins/maintenance/src/Task/IndexComments.php:60
+#: plugins/maintenance/src/Task/IndexPosts.php:60
 msgid "Search engine index"
 msgstr "Index du moteur de recherche"
 
-#: plugins/maintenance/src/Task/IndexComments.php:56
+#: plugins/maintenance/src/Task/IndexComments.php:61
 msgid "Index all comments for search engine"
 msgstr "Indexer tous les commentaires pour le moteur de recherche"
 
-#: plugins/maintenance/src/Task/IndexComments.php:57
-#: plugins/maintenance/src/Task/IndexPosts.php:57
-#: plugins/maintenance/src/Task/SynchPostMeta.php:57
+#: plugins/maintenance/src/Task/IndexComments.php:62
+#: plugins/maintenance/src/Task/IndexPosts.php:62
+#: plugins/maintenance/src/Task/SynchPostMeta.php:62
 msgid "Next"
 msgstr "Suivant"
 
-#: plugins/maintenance/src/Task/IndexComments.php:58
+#: plugins/maintenance/src/Task/IndexComments.php:63
 #, php-format
-msgid "Indexing comment %d to %d."
-msgstr "Indexation des commentaires %d à %d."
+msgid "Indexing comments %1$d to %2$d of %3$d."
+msgstr ""
 
-#: plugins/maintenance/src/Task/IndexComments.php:59
-msgid "Comments index done."
-msgstr "L'indexation des commentaires a été effectuée."
+#: plugins/maintenance/src/Task/IndexComments.php:64
+msgid "Comments indexing done."
+msgstr ""
 
-#: plugins/maintenance/src/Task/IndexComments.php:60
+#: plugins/maintenance/src/Task/IndexComments.php:65
 msgid "Failed to index comments."
 msgstr "Impossible d'indexer les commentaires."
 
-#: plugins/maintenance/src/Task/IndexComments.php:62
+#: plugins/maintenance/src/Task/IndexComments.php:67
 msgid "Index all comments and trackbacks in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
 msgstr "Indexer tous les commentaires et rétroliens dans le moteur de recherche. Cette opération s'effectue généralement suite à un import afin d'obtenir des résultats lors des recherches, aussi bien depuis l'administration du blog qu'en partie publique."
 
-#: plugins/maintenance/src/Task/IndexPosts.php:56
+#: plugins/maintenance/src/Task/IndexPosts.php:61
 msgid "Index all entries for search engine"
 msgstr "Indexer toutes les entrées pour le moteur de recherche"
 
-#: plugins/maintenance/src/Task/IndexPosts.php:58
+#: plugins/maintenance/src/Task/IndexPosts.php:63
 #, php-format
-msgid "Indexing entry %d to %d."
-msgstr "Indexation des entrées %d à %d."
+msgid "Indexing entries %1$d to %2$d of %3$d."
+msgstr ""
 
-#: plugins/maintenance/src/Task/IndexPosts.php:59
-msgid "Entries index done."
-msgstr "L'indexation des entrées a été effectuée."
+#: plugins/maintenance/src/Task/IndexPosts.php:64
+msgid "Entries indexing done."
+msgstr ""
 
-#: plugins/maintenance/src/Task/IndexPosts.php:60
+#: plugins/maintenance/src/Task/IndexPosts.php:65
 msgid "Failed to index entries."
 msgstr "Impossible d'indexer les entrées."
 
-#: plugins/maintenance/src/Task/IndexPosts.php:62
+#: plugins/maintenance/src/Task/IndexPosts.php:67
 msgid "Index all entries in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
 msgstr "Indexer toutes les entrées dans le moteur de recherche. Cette opération s'effectue généralement suite à un import afin d'obtenir des résultats lors des recherches, aussi bien depuis l'administration du blog qu'en partie publique."
 
@@ -2306,28 +2306,28 @@ msgstr "Impossible de supprimer les journaux."
 msgid "Logs record all activity and connection to your blog history. Unless you need to keep this history, consider deleting these logs from time to time."
 msgstr "Sauf si vous avez un besoin précis de conservation des activités de connexion sur votre blog, pensez à vider régulièrement la table des journaux : elle contient l'enregistrement de chaque connexion à l'administration et des opérations qui s'y sont déroulées."
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:55
+#: plugins/maintenance/src/Task/SynchPostMeta.php:60
 msgid "Entries metadata"
 msgstr "Métadonnées des entrées"
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:56
+#: plugins/maintenance/src/Task/SynchPostMeta.php:61
 msgid "Synchronize entries metadata"
 msgstr "Synchroniser les métadonnées des entrées"
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:58
+#: plugins/maintenance/src/Task/SynchPostMeta.php:63
 #, php-format
-msgid "Synchronize entry %d to %d."
-msgstr "Synchronisation des entrées %d à %d."
+msgid "Synchronizing metadata of entries %1$d to %2$d of %3$d."
+msgstr ""
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:59
+#: plugins/maintenance/src/Task/SynchPostMeta.php:64
 msgid "Entries metadata synchronize done."
 msgstr "La synchronisation des métadonnées des entrées a été effectuée."
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:60
+#: plugins/maintenance/src/Task/SynchPostMeta.php:65
 msgid "Failed to synchronize entries metadata."
 msgstr "Impossible de synchroniser les métadonnées des entrées."
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:62
+#: plugins/maintenance/src/Task/SynchPostMeta.php:67
 msgid "Synchronize all entries metadata could be useful after importing content in your blog or do bad operation on database tables."
 msgstr "La synchronisation des métadonnées des entrées peut être utile après l'import de contenu dans votre blog ou après une mauvaise opération sur la base de données."
 
