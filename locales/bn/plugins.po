@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-05 17:29+0200\n"
-"PO-Revision-Date: 2025-06-05 15:33\n"
+"POT-Creation-Date: 2025-06-08 10:49+0200\n"
+"PO-Revision-Date: 2025-06-08 08:53\n"
 "Last-Translator: \n"
 "Language-Team: Bengali\n"
 "Language: bn_BD\n"
@@ -2237,56 +2237,56 @@ msgstr "মন্তব্য এবং ট্রাকব্যাক গণন
 msgid "Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating from dotclear 1 to dotclear 2)."
 msgstr "কাউন্ট আবার মন্তব্য এবং ট্র্যাকব্যাক তাদের সঠিক সংখ্যা পরীক্ষা করতে অনুমতি দেয়. আরেকটি ব্লগ প্লাটফর্ম থেকে ইম্পোর্ট করা হলে এই অপারেশন উপযোগী হতে পারে (অথবা ডটক্লিষ্ট ১ থেকে ডটক্লিষ্ট ২)."
 
-#: plugins/maintenance/src/Task/IndexComments.php:55
-#: plugins/maintenance/src/Task/IndexPosts.php:55
+#: plugins/maintenance/src/Task/IndexComments.php:60
+#: plugins/maintenance/src/Task/IndexPosts.php:60
 msgid "Search engine index"
 msgstr "সার্চ ইঞ্জিন ইনডেক্স"
 
-#: plugins/maintenance/src/Task/IndexComments.php:56
+#: plugins/maintenance/src/Task/IndexComments.php:61
 msgid "Index all comments for search engine"
 msgstr "সার্চ ইঞ্জিনের জন্য সকল মন্তব্য সূচী"
 
-#: plugins/maintenance/src/Task/IndexComments.php:57
-#: plugins/maintenance/src/Task/IndexPosts.php:57
-#: plugins/maintenance/src/Task/SynchPostMeta.php:57
+#: plugins/maintenance/src/Task/IndexComments.php:62
+#: plugins/maintenance/src/Task/IndexPosts.php:62
+#: plugins/maintenance/src/Task/SynchPostMeta.php:62
 msgid "Next"
 msgstr "পরবর্তী"
 
-#: plugins/maintenance/src/Task/IndexComments.php:58
+#: plugins/maintenance/src/Task/IndexComments.php:63
 #, php-format
-msgid "Indexing comment %d to %d."
-msgstr "Indexing comment %d to %d."
+msgid "Indexing comments %1$d to %2$d of %3$d."
+msgstr ""
 
-#: plugins/maintenance/src/Task/IndexComments.php:59
-msgid "Comments index done."
-msgstr "মন্তব্য সূচক করা হয়েছে."
+#: plugins/maintenance/src/Task/IndexComments.php:64
+msgid "Comments indexing done."
+msgstr ""
 
-#: plugins/maintenance/src/Task/IndexComments.php:60
+#: plugins/maintenance/src/Task/IndexComments.php:65
 msgid "Failed to index comments."
 msgstr "সূচী মন্তব্য করতে ব্যর্থ."
 
-#: plugins/maintenance/src/Task/IndexComments.php:62
+#: plugins/maintenance/src/Task/IndexComments.php:67
 msgid "Index all comments and trackbacks in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
 msgstr "সার্চ ইঞ্জিন ইনডেক্স-এ সকল মন্তব্য এবং ট্রাকব্যাক সূচী. এই অপারেশন আপনার ব্লগে কন্টেন্ট ইম্পোর্ট করার পরে, অভ্যন্তরীণ সার্চ ইঞ্জিন ব্যবহার করার জন্য, পাবলিক এবং প্রাইভেট পাতায়."
 
-#: plugins/maintenance/src/Task/IndexPosts.php:56
+#: plugins/maintenance/src/Task/IndexPosts.php:61
 msgid "Index all entries for search engine"
 msgstr "সার্চ ইঞ্জিনের জন্য সকল এন্ট্রি ইনডেক্স"
 
-#: plugins/maintenance/src/Task/IndexPosts.php:58
+#: plugins/maintenance/src/Task/IndexPosts.php:63
 #, php-format
-msgid "Indexing entry %d to %d."
-msgstr "Indexing entry %d to %d."
+msgid "Indexing entries %1$d to %2$d of %3$d."
+msgstr ""
 
-#: plugins/maintenance/src/Task/IndexPosts.php:59
-msgid "Entries index done."
-msgstr "এন্ট্রি ইনডেক্স."
+#: plugins/maintenance/src/Task/IndexPosts.php:64
+msgid "Entries indexing done."
+msgstr ""
 
-#: plugins/maintenance/src/Task/IndexPosts.php:60
+#: plugins/maintenance/src/Task/IndexPosts.php:65
 msgid "Failed to index entries."
 msgstr "ইনডেক্স এন্ট্রি করতে ব্যর্থ."
 
-#: plugins/maintenance/src/Task/IndexPosts.php:62
+#: plugins/maintenance/src/Task/IndexPosts.php:67
 msgid "Index all entries in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
 msgstr "সার্চ ইঞ্জিন ইনডেক্সের সকল এন্ট্রি ইনডেক্স. এই অপারেশন আপনার ব্লগে কন্টেন্ট ইম্পোর্ট করার পরে, অভ্যন্তরীণ সার্চ ইঞ্জিন ব্যবহার করার জন্য, পাবলিক এবং প্রাইভেট পাতায়."
 
@@ -2306,28 +2306,28 @@ msgstr "লগ মুছে ফেলতে ব্যর্থ."
 msgid "Logs record all activity and connection to your blog history. Unless you need to keep this history, consider deleting these logs from time to time."
 msgstr "লোগো আপনার ব্লগ ইতিহাসের সকল কার্যকলাপ এবং সংযোগ রেকর্ড করে. এই ইতিহাস বজায় রাখার প্রয়োজনীয়তা না থাকায়, সময় থেকে এই লগগুলো মুছে ফেলা."
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:55
+#: plugins/maintenance/src/Task/SynchPostMeta.php:60
 msgid "Entries metadata"
 msgstr "এন্ট্রি মেটাডাটা"
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:56
+#: plugins/maintenance/src/Task/SynchPostMeta.php:61
 msgid "Synchronize entries metadata"
 msgstr "এন্ট্রি মেটাডাটা"
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:58
+#: plugins/maintenance/src/Task/SynchPostMeta.php:63
 #, php-format
-msgid "Synchronize entry %d to %d."
-msgstr "Synchronize entry %d to %d."
+msgid "Synchronizing metadata of entries %1$d to %2$d of %3$d."
+msgstr ""
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:59
+#: plugins/maintenance/src/Task/SynchPostMeta.php:64
 msgid "Entries metadata synchronize done."
 msgstr "এন্ট্রি মেটাডাটা সমার্থক করা হয়েছে."
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:60
+#: plugins/maintenance/src/Task/SynchPostMeta.php:65
 msgid "Failed to synchronize entries metadata."
 msgstr "এন্ট্রি মেটাডাটা সমার্থক করতে ব্যর্থ."
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:62
+#: plugins/maintenance/src/Task/SynchPostMeta.php:67
 msgid "Synchronize all entries metadata could be useful after importing content in your blog or do bad operation on database tables."
 msgstr "সমস্ত এন্ট্রি মেটাডাটা আপনার ব্লগে ইম্পোর্ট করার পরে অথবা ডাটাবেস টেবিলের উপর খারাপ অপারেশন করার পরে উপযোগী হতে পারে."
 
