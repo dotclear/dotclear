@@ -52,6 +52,7 @@ class Manage extends Process
         App::backend()->maintenance = new Maintenance();
         App::backend()->tasks       = App::backend()->maintenance->getTasks();
         App::backend()->code        = empty($_POST['code']) ? null : (int) $_POST['code'];
+        App::backend()->count       = empty($_POST['count']) ? 0 : (int) $_POST['count'];
         App::backend()->tab         = empty($_REQUEST['tab']) ? '' : $_REQUEST['tab'];
 
         // Get task object
@@ -65,6 +66,9 @@ class Manage extends Process
             }
 
             App::backend()->task?->code(App::backend()->code);
+            if (App::backend()->count > 0) {
+                App::backend()->task?->count(App::backend()->count);
+            }
         }
 
         return self::status(true);
@@ -263,6 +267,7 @@ class Manage extends Process
                                 ...My::hiddenFields(),
                                 (new Hidden(['task'], App::backend()->task->id())),
                                 (new Hidden(['code'], (string) App::backend()->code)),
+                                (new Hidden(['count'], (string) App::backend()->task->getCount())),
                                 (new Submit(['step-submit-button'], App::backend()->task->task())),
                             ]),
                         ]),

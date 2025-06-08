@@ -44,6 +44,12 @@ class Rest
         }
 
         $task->code((int) $post['code']);
+
+        $count = isset($post['count']) ? (int) $post['count'] : 0;
+        if ($count > 0) {
+            $task->count($count);
+        }
+
         if (($code = $task->execute()) === true) {
             $maintenance->setLog($task->id());
             $code = 0;
@@ -51,6 +57,7 @@ class Rest
 
         return [
             'code'  => $code,
+            'count' => $task->getCount(),
             'title' => Html::escapeHTML($task->success()),
         ];
     }

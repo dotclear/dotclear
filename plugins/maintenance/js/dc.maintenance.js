@@ -8,20 +8,21 @@ dotclear.ready(() => {
 
   $('.step-box').each(function () {
     const code = $('input[name=code]', this).val();
+    const count = $('input[name=count]', this).val();
     $('.step-submit', this).remove();
     $('.step-back', this).hide();
     $('.step-msg', this).after($('<p>').addClass('step-wait').text(dotclear.msg.wait));
 
-    dcMaintenanceStep(this, code);
+    dcMaintenanceStep(this, code, count);
 
-    function dcMaintenanceStep(box, code) {
+    function dcMaintenanceStep(box, code, count) {
       dotclear.jsonServicesPost(
         'dcMaintenanceStep',
         (data) => {
           $('.step-msg', box).text(data.title);
           const next = data.code;
           if (next > 0) {
-            dcMaintenanceStep(box, next);
+            dcMaintenanceStep(box, next, data.count);
             return;
           }
           $('#content h2').after($('<div>').addClass('success').append($('.step-msg', box)));
@@ -31,6 +32,7 @@ dotclear.ready(() => {
         {
           task: $(box).attr('id'),
           code,
+          count,
         },
         (error) => {
           $('.step-msg', box).text(error);

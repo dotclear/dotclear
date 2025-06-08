@@ -48,11 +48,6 @@ class IndexComments extends MaintenanceTask
     protected string $step_task;
 
     /**
-     * Total number of comments to process.
-     */
-    protected int $count;
-
-    /**
      * Initialize task object.
      */
     protected function init(): void
@@ -99,13 +94,19 @@ class IndexComments extends MaintenanceTask
      */
     public function indexAllComments(?int $start = null, ?int $limit = null): ?int
     {
-        if (!isset($this->count)) {
+        if ($this->count === 0) {
+            // Get number of comments to index
             $sql = new SelectStatement();
             $run = $sql
                 ->column($sql->count('comment_id'))
                 ->from(App::con()->prefix() . App::blog()::COMMENT_TABLE_NAME)
                 ->select();
             $this->count = $run instanceof MetaRecord ? (int) $run->f(0) : 0;
+
+            if ($this->count === 0) {
+                // No comments to index
+                return null;
+            }
         }
 
         $sql = new SelectStatement();

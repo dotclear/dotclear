@@ -48,11 +48,6 @@ class IndexPosts extends MaintenanceTask
     protected string $step_task;
 
     /**
-     * Total number of posts to process.
-     */
-    protected int $count;
-
-    /**
      * Initialize task object.
      */
     protected function init(): void
@@ -99,13 +94,19 @@ class IndexPosts extends MaintenanceTask
      */
     public function indexAllPosts(?int $start = null, ?int $limit = null): ?int
     {
-        if (!isset($this->count)) {
+        if ($this->count === 0) {
+            // Get number of entries to index
             $sql = new SelectStatement();
             $run = $sql
                 ->column($sql->count('post_id'))
                 ->from(App::con()->prefix() . App::blog()::POST_TABLE_NAME)
                 ->select();
             $this->count = $run instanceof MetaRecord ? (int) $run->f(0) : 0;
+
+            if ($this->count === 0) {
+                // No entries to index
+                return null;
+            }
         }
 
         $sql = new SelectStatement();

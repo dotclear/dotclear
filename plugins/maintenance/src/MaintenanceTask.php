@@ -26,6 +26,11 @@ class MaintenanceTask
     protected ?int $code = null;
 
     /**
+     * Task count.
+     */
+    protected int $count = 0;
+
+    /**
      * Task timestamp.
      *
      * @var     bool|int    $ts
@@ -179,6 +184,26 @@ class MaintenanceTask
     public function code(?int $code): void
     {
         $this->code = $code;
+    }
+
+    /**
+     * Set $count for task having multiple steps.
+     *
+     * @param   int       $count  Count used for task execution
+     */
+    public function count(int $count): void
+    {
+        $this->count = $count;
+    }
+
+    /**
+     * Get $count for task having multiple steps.
+     *
+     * @return   int  Count used for task execution
+     */
+    public function getCount(): int
+    {
+        return $this->count;
     }
 
     /**
