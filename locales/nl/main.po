@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-05 17:27+0200\n"
-"PO-Revision-Date: 2025-06-05 15:59\n"
+"POT-Creation-Date: 2025-06-07 08:32+0200\n"
+"PO-Revision-Date: 2025-06-08 08:52\n"
 "Last-Translator: \n"
 "Language-Team: Dutch\n"
 "Language: nl_NL\n"
@@ -94,7 +94,7 @@ msgstr "Die sleutel bestaat niet in de database."
 #: src/Core/Backend/Combos.php:271 src/Core/Backend/Listing/ListingPosts.php:76
 #: src/Core/Backend/Listing/ListingPostsMini.php:62
 #: src/Core/Backend/UserPref.php:205 src/Process/Backend/Home.php:557
-#: src/Process/Backend/MediaItem.php:1096 src/Process/Backend/Post.php:811
+#: src/Process/Backend/MediaItem.php:1096 src/Process/Backend/Post.php:812
 msgid "Title"
 msgstr "Titel"
 
@@ -142,7 +142,7 @@ msgstr "Blog naam"
 #: src/Core/Backend/Listing/ListingUsers.php:91
 #: src/Core/Backend/UserPref.php:55 src/Core/Backend/UserPref.php:71
 #: src/Core/Backend/UserPref.php:81 src/Process/Backend/Post.php:635
-#: src/Process/Backend/Post.php:1360 src/Process/Backend/Users.php:45
+#: src/Process/Backend/Post.php:1361 src/Process/Backend/Users.php:45
 #: src/Process/Backend/UsersActions.php:382
 msgid "Status"
 msgstr "Status"
@@ -157,7 +157,7 @@ msgstr "Status"
 #: src/Core/Backend/Listing/ListingMedia.php:308
 #: src/Core/Backend/ModulesList.php:1350 src/Core/Upgrade/PluginsList.php:125
 #: src/Process/Backend/Comment.php:355 src/Process/Backend/Langs.php:231
-#: src/Process/Backend/Post.php:935 src/Process/Backend/Users.php:46
+#: src/Process/Backend/Post.php:936 src/Process/Backend/Users.php:46
 #: src/Process/Upgrade/Langs.php:299
 msgid "Delete"
 msgstr "Verwijder"
@@ -201,8 +201,8 @@ msgstr[1] "%d blogs zijn succesvol verwijderd"
 #: src/Core/Backend/Listing/ListingPosts.php:98
 #: src/Core/Backend/Listing/ListingPosts.php:99 src/Core/Backend/Menus.php:155
 #: src/Core/Backend/UserPref.php:46 src/Core/Backend/UserPref.php:51
-#: src/Core/Backend/UserPref.php:185 src/Process/Backend/Post.php:1008
-#: src/Process/Backend/Post.php:1035
+#: src/Core/Backend/UserPref.php:185 src/Process/Backend/Post.php:1009
+#: src/Process/Backend/Post.php:1036
 msgid "Comments"
 msgstr "Reacties"
 
@@ -220,8 +220,8 @@ msgstr "Opmerkingen acties"
 #: src/Core/Backend/Listing/ListingPosts.php:88
 #: src/Core/Backend/Listing/ListingPostsMini.php:70
 #: src/Core/Backend/UserPref.php:45 src/Core/Backend/UserPref.php:54
-#: src/Process/Backend/Comment.php:292 src/Process/Backend/Post.php:1070
-#: src/Process/Backend/Post.php:1351
+#: src/Process/Backend/Comment.php:292 src/Process/Backend/Post.php:1071
+#: src/Process/Backend/Post.php:1352
 msgid "Author"
 msgstr "Auteur"
 
@@ -234,7 +234,7 @@ msgid "Blocklist IP (global)"
 msgstr "Blokkeerlijst IP (globaal)"
 
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:68
-#: src/Process/Backend/Post.php:1357
+#: src/Process/Backend/Post.php:1358
 msgid "IP address"
 msgstr "IP-adres"
 
@@ -389,13 +389,13 @@ msgstr "Maak een nieuwe categorie voor de post(s)"
 #: src/Core/Backend/Action/ActionsPostsDefault.php:369
 #: src/Process/Backend/Home.php:561 src/Process/Backend/Home.php:595
 #: src/Process/Backend/Media.php:763 src/Process/Backend/MediaItem.php:1236
-#: src/Process/Backend/Post.php:713 src/Process/Backend/Post.php:816
+#: src/Process/Backend/Post.php:714 src/Process/Backend/Post.php:817
 msgid "Title:"
 msgstr "Titel:"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:378
 #: src/Process/Backend/Category.php:268 src/Process/Backend/Category.php:326
-#: src/Process/Backend/Home.php:602 src/Process/Backend/Post.php:720
+#: src/Process/Backend/Home.php:602 src/Process/Backend/Post.php:721
 msgid "Parent:"
 msgstr "Ouder:"
 
@@ -406,8 +406,8 @@ msgstr "Ouder:"
 #: src/Process/Backend/Category.php:298 src/Process/Backend/Category.php:337
 #: src/Process/Backend/Category.php:373 src/Process/Backend/Comment.php:350
 #: src/Process/Backend/Home.php:612 src/Process/Backend/Home.php:663
-#: src/Process/Backend/MediaItem.php:1276 src/Process/Backend/Post.php:900
-#: src/Process/Backend/Post.php:1114 src/Process/Backend/User.php:536
+#: src/Process/Backend/MediaItem.php:1276 src/Process/Backend/Post.php:901
+#: src/Process/Backend/Post.php:1115 src/Process/Backend/User.php:536
 #: src/Process/Backend/UsersActions.php:521 src/Process/Install/Install.php:479
 msgid "Save"
 msgstr "Sla"
@@ -474,7 +474,7 @@ msgstr "Oplopend"
 #: src/Core/Backend/Listing/ListingPosts.php:80
 #: src/Core/Backend/Listing/ListingPostsMini.php:66
 #: src/Core/Backend/UserPref.php:43 src/Core/Backend/UserPref.php:53
-#: src/Core/Backend/UserPref.php:203 src/Process/Backend/Post.php:1353
+#: src/Core/Backend/UserPref.php:203 src/Process/Backend/Post.php:1354
 msgid "Date"
 msgstr "Datum"
 
@@ -566,7 +566,7 @@ msgstr "Mijn voorkeuren"
 
 #: src/Core/Backend/Favorites.php:414 src/Core/Backend/Menus.php:181
 #: src/Process/Backend/Home.php:546 src/Process/Backend/Post.php:95
-#: src/Process/Backend/Post.php:943 src/Process/Backend/Posts.php:114
+#: src/Process/Backend/Post.php:944 src/Process/Backend/Posts.php:114
 msgid "New post"
 msgstr "Nieuw bericht"
 
@@ -652,14 +652,14 @@ msgstr "Wereldwijde hulp"
 
 #: src/Core/Backend/Filter/FilterComments.php:35 src/Core/Backend/Page.php:1270
 #: src/Process/Backend/Auth.php:420 src/Process/Backend/BlogPref.php:1354
-#: src/Process/Backend/Comment.php:306 src/Process/Backend/Post.php:1083
+#: src/Process/Backend/Comment.php:306 src/Process/Backend/Post.php:1084
 #: src/Process/Backend/User.php:432 src/Process/Backend/UserPreferences.php:636
 #: src/Process/Install/Install.php:445
 msgid "Email:"
 msgstr "E-mail:"
 
 #: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1269
-#: src/Process/Backend/Comment.php:322 src/Process/Backend/Post.php:1092
+#: src/Process/Backend/Comment.php:322 src/Process/Backend/Post.php:1093
 msgid "Web site:"
 msgstr "Website:"
 
@@ -675,7 +675,7 @@ msgid "Type:"
 msgstr "Type:"
 
 #: src/Core/Backend/Filter/FilterComments.php:72
-#: src/Process/Backend/Post.php:1102 src/Process/Backend/Post.php:1105
+#: src/Process/Backend/Post.php:1103 src/Process/Backend/Post.php:1106
 msgid "Comment"
 msgstr "Opmerking"
 
@@ -873,7 +873,7 @@ msgid "Switch to blog %s"
 msgstr "Overschakelen naar blog %s"
 
 #: src/Core/Backend/Listing/ListingComments.php:55
-#: src/Process/Backend/Comment.php:152 src/Process/Backend/Post.php:1012
+#: src/Process/Backend/Comment.php:152 src/Process/Backend/Post.php:1013
 msgid "No comments"
 msgstr "Geen opmerkingen"
 
@@ -920,7 +920,7 @@ msgstr "trackback"
 
 #: src/Core/Backend/Listing/ListingComments.php:239
 #: src/Core/Backend/Listing/ListingComments.php:242
-#: src/Process/Backend/Post.php:1337 src/Process/Backend/Post.php:1362
+#: src/Process/Backend/Post.php:1338 src/Process/Backend/Post.php:1363
 msgid "Edit"
 msgstr "Bewerk"
 
@@ -1000,8 +1000,8 @@ msgstr "Geen item komt overeen met het filter"
 #: src/Core/Backend/Listing/ListingPosts.php:108
 #: src/Core/Backend/Listing/ListingPosts.php:111
 #: src/Core/Backend/Listing/ListingPosts.php:112
-#: src/Core/Backend/UserPref.php:47 src/Process/Backend/Post.php:1140
-#: src/Process/Backend/Post.php:1188
+#: src/Core/Backend/UserPref.php:47 src/Process/Backend/Post.php:1141
+#: src/Process/Backend/Post.php:1189
 msgid "Trackbacks"
 msgstr "Trackbacks"
 
@@ -1412,8 +1412,8 @@ msgstr "Een zip-bestand uploaden"
 #: src/Process/Backend/BlogPref.php:1030 src/Process/Backend/Category.php:248
 #: src/Process/Backend/Comment.php:284 src/Process/Backend/Home.php:549
 #: src/Process/Backend/Langs.php:322 src/Process/Backend/Langs.php:372
-#: src/Process/Backend/LinkPopup.php:83 src/Process/Backend/Post.php:968
-#: src/Process/Backend/Post.php:1059 src/Process/Backend/User.php:303
+#: src/Process/Backend/LinkPopup.php:83 src/Process/Backend/Post.php:969
+#: src/Process/Backend/Post.php:1060 src/Process/Backend/User.php:303
 #: src/Process/Backend/UsersActions.php:500 src/Process/Install/Install.php:455
 #: src/Process/Install/Wizard.php:266 src/Process/Upgrade/Langs.php:406
 #, php-format
@@ -1426,7 +1426,7 @@ msgstr "Pad naar zip-bestand:"
 
 #: src/Core/Backend/ModulesList.php:1763 src/Core/Backend/ModulesList.php:1813
 #: src/Process/Backend/Langs.php:344 src/Process/Backend/Langs.php:393
-#: src/Process/Backend/Post.php:779 src/Process/Backend/User.php:340
+#: src/Process/Backend/Post.php:780 src/Process/Backend/User.php:340
 #: src/Process/Backend/User.php:364 src/Process/Backend/User.php:529
 #: src/Process/Backend/UsersActions.php:507 src/Process/Install/Install.php:467
 #: src/Process/Install/Install.php:473 src/Process/Upgrade/Langs.php:430
@@ -1479,7 +1479,7 @@ msgstr "Configureren \"%s\""
 #: src/Process/Backend/BlogDel.php:138 src/Process/Backend/BlogPref.php:1185
 #: src/Process/Backend/Category.php:301 src/Process/Backend/Comment.php:352
 #: src/Process/Backend/Media.php:857 src/Process/Backend/MediaItem.php:1362
-#: src/Process/Backend/Post.php:925 src/Process/Backend/Search.php:197
+#: src/Process/Backend/Post.php:926 src/Process/Backend/Search.php:197
 #: src/Process/Backend/User.php:547 src/Process/Backend/UserPreferences.php:697
 #: src/Process/Backend/UserPreferences.php:999
 #: src/Process/Backend/UserPreferences.php:1225
@@ -1857,7 +1857,7 @@ msgstr "Bestanden kiezen"
 
 #: src/Core/Backend/Page.php:1431 src/Process/Backend/LinkPopup.php:113
 #: src/Process/Backend/Media.php:293 src/Process/Backend/MediaItem.php:509
-#: src/Process/Backend/MediaItem.php:768 src/Process/Backend/Post.php:931
+#: src/Process/Backend/MediaItem.php:768 src/Process/Backend/Post.php:932
 #: src/Process/Backend/PostMedia.php:113
 msgid "Cancel"
 msgstr "Annuleren"
@@ -2003,7 +2003,7 @@ msgstr "Er kwamen geen thema's overeen met je zoekopdracht."
 msgid "Use this one"
 msgstr "Gebruik deze"
 
-#: src/Core/Backend/ThemesList.php:412 src/Process/Backend/Post.php:924
+#: src/Core/Backend/ThemesList.php:412 src/Process/Backend/Post.php:925
 msgid "Preview"
 msgstr "Voorbeeld"
 
@@ -3389,7 +3389,7 @@ msgid "Blog details"
 msgstr "Blog details"
 
 #: src/Process/Backend/BlogPref.php:554 src/Process/Backend/BlogPref.php:1039
-#: src/Process/Backend/BlogPref.php:1060 src/Process/Backend/Post.php:821
+#: src/Process/Backend/BlogPref.php:1060 src/Process/Backend/Post.php:822
 msgid "Required field"
 msgstr "Verplicht veld"
 
@@ -3418,7 +3418,7 @@ msgstr "Copyright:"
 msgid "Comments and trackbacks"
 msgstr "Commentaar en trackbacks"
 
-#: src/Process/Backend/BlogPref.php:625 src/Process/Backend/Post.php:737
+#: src/Process/Backend/BlogPref.php:625 src/Process/Backend/Post.php:738
 msgid "Accept comments"
 msgstr "Opmerkingen accepteren"
 
@@ -3446,7 +3446,7 @@ msgstr "Wiki-syntax voor opmerkingen"
 msgid "Preview of comment before submit is not mandatory"
 msgstr "Voorbeeld van commentaar voor indienen is niet verplicht"
 
-#: src/Process/Backend/BlogPref.php:664 src/Process/Backend/Post.php:754
+#: src/Process/Backend/BlogPref.php:664 src/Process/Backend/Post.php:755
 msgid "Accept trackbacks"
 msgstr "Trackbacks accepteren"
 
@@ -3960,8 +3960,8 @@ msgstr "URL:"
 msgid "Move entries to"
 msgstr "Verplaats items naar"
 
-#: src/Process/Backend/Categories.php:341 src/Process/Backend/Post.php:1027
-#: src/Process/Backend/Post.php:1159 src/Process/Backend/PostsPopup.php:121
+#: src/Process/Backend/Categories.php:341 src/Process/Backend/Post.php:1028
+#: src/Process/Backend/Post.php:1160 src/Process/Backend/PostsPopup.php:121
 msgid "Ok"
 msgstr "Ok"
 
@@ -3994,7 +3994,7 @@ msgstr "Categorie is succesvol bijgewerkt."
 msgid "Category information"
 msgstr "Categorie informatie"
 
-#: src/Process/Backend/Category.php:259 src/Process/Backend/Post.php:1072
+#: src/Process/Backend/Category.php:259 src/Process/Backend/Post.php:1073
 msgid "Name:"
 msgstr "Naam:"
 
@@ -4117,7 +4117,7 @@ msgstr "Laat het ze zien."
 msgid "Delete all spams"
 msgstr "Alle spams verwijderen"
 
-#: src/Process/Backend/Comments.php:216 src/Process/Backend/Post.php:1023
+#: src/Process/Backend/Comments.php:216 src/Process/Backend/Post.php:1024
 #: src/Process/Backend/Search.php:410
 msgid "Selected comments action:"
 msgstr "Geselecteerde opmerkingen actie:"
@@ -4200,11 +4200,11 @@ msgstr "Er zijn fouten opgetreden met de volgende plugins:"
 msgid "Quick post"
 msgstr "Snelle post"
 
-#: src/Process/Backend/Home.php:570 src/Process/Backend/Post.php:853
+#: src/Process/Backend/Home.php:570 src/Process/Backend/Post.php:854
 msgid "Content:"
 msgstr "Inhoud:"
 
-#: src/Process/Backend/Home.php:576 src/Process/Backend/Post.php:850
+#: src/Process/Backend/Home.php:576 src/Process/Backend/Post.php:851
 msgid "Content"
 msgstr "Inhoud"
 
@@ -4939,8 +4939,8 @@ msgstr "Sommige functies zijn uitgeschakeld, geef schrijftoegang tot je plugins-
 msgid "Plugin configuration"
 msgstr "Plugin-configuratie"
 
-#: src/Process/Backend/Post.php:159 src/Process/Backend/Post.php:943
-#: src/Process/Backend/Post.php:964
+#: src/Process/Backend/Post.php:159 src/Process/Backend/Post.php:944
+#: src/Process/Backend/Post.php:965
 msgid "Edit post"
 msgstr "Bewerk bericht"
 
@@ -5013,99 +5013,99 @@ msgstr "indienen"
 msgid "Selected entry"
 msgstr "Geselecteerde invoer"
 
-#: src/Process/Backend/Post.php:730 src/Process/Backend/User.php:475
+#: src/Process/Backend/Post.php:731 src/Process/Backend/User.php:475
 msgid "Options"
 msgstr "Opties"
 
-#: src/Process/Backend/Post.php:733
+#: src/Process/Backend/Post.php:734
 msgid "Comments and trackbacks list"
 msgstr "Lijst met reacties en trackbacks"
 
-#: src/Process/Backend/Post.php:746
+#: src/Process/Backend/Post.php:747
 msgid "Warning: Comments are no longer accepted for this entry."
 msgstr "Waarschuwing: Commentaar wordt niet langer geaccepteerd voor dit bericht."
 
-#: src/Process/Backend/Post.php:750
+#: src/Process/Backend/Post.php:751
 msgid "Comments are not accepted on this blog so far."
 msgstr "Commentaar wordt tot nu toe niet geaccepteerd op deze blog."
 
-#: src/Process/Backend/Post.php:763
+#: src/Process/Backend/Post.php:764
 msgid "Warning: Trackbacks are no longer accepted for this entry."
 msgstr "Waarschuwing: Trackbacks worden niet langer geaccepteerd voor dit bericht."
 
-#: src/Process/Backend/Post.php:767
+#: src/Process/Backend/Post.php:768
 msgid "Trackbacks are not accepted on this blog so far."
 msgstr "Trackbacks worden tot nu toe niet geaccepteerd op deze blog."
 
-#: src/Process/Backend/Post.php:791
+#: src/Process/Backend/Post.php:792
 msgid "Edit basename"
 msgstr "Basisnaam bewerken"
 
-#: src/Process/Backend/Post.php:795
+#: src/Process/Backend/Post.php:796
 msgid "Warning: If you set the URL manually, it may conflict with another entry."
 msgstr "Waarschuwing: Als je de URL handmatig instelt, kan deze conflicteren met een ander item."
 
-#: src/Process/Backend/Post.php:834
+#: src/Process/Backend/Post.php:835
 msgid "Excerpt:"
 msgstr "Uittreksel:"
 
-#: src/Process/Backend/Post.php:834
+#: src/Process/Backend/Post.php:835
 msgid "Introduction to the post."
 msgstr "Inleiding tot de functie."
 
-#: src/Process/Backend/Post.php:870
+#: src/Process/Backend/Post.php:871
 msgid "Personal notes:"
 msgstr "Persoonlijke aantekeningen:"
 
-#: src/Process/Backend/Post.php:870
+#: src/Process/Backend/Post.php:871
 msgid "Unpublished notes."
 msgstr "Ongepubliceerde aantekeningen."
 
-#: src/Process/Backend/Post.php:1040 src/Process/Backend/Post.php:1055
+#: src/Process/Backend/Post.php:1041 src/Process/Backend/Post.php:1056
 msgid "Add a comment"
 msgstr "Een commentaar toevoegen"
 
-#: src/Process/Backend/Post.php:1144
+#: src/Process/Backend/Post.php:1145
 msgid "No trackback"
 msgstr "Geen trackback"
 
-#: src/Process/Backend/Post.php:1155
+#: src/Process/Backend/Post.php:1156
 msgid "Selected trackbacks action:"
 msgstr "Geselecteerde trackbacks actie:"
 
-#: src/Process/Backend/Post.php:1178
+#: src/Process/Backend/Post.php:1179
 msgid "Previously sent pings"
 msgstr "Eerder verzonden pings"
 
-#: src/Process/Backend/Post.php:1204 src/Process/Backend/Post.php:1226
+#: src/Process/Backend/Post.php:1205 src/Process/Backend/Post.php:1227
 msgid "Ping blogs"
 msgstr "Ping blogs"
 
-#: src/Process/Backend/Post.php:1212
+#: src/Process/Backend/Post.php:1213
 msgid "URLs to ping:"
 msgstr "URL's om te pingen:"
 
-#: src/Process/Backend/Post.php:1220
+#: src/Process/Backend/Post.php:1221
 msgid "Excerpt to send:"
 msgstr "Te versturen uittreksel:"
 
-#: src/Process/Backend/Post.php:1233
+#: src/Process/Backend/Post.php:1234
 msgid "Auto discover ping URLs"
 msgstr "Automatisch ontdekken van ping URL's"
 
-#: src/Process/Backend/Post.php:1302
+#: src/Process/Backend/Post.php:1303
 msgid "select this comment"
 msgstr "selecteer deze opmerking"
 
-#: src/Process/Backend/Post.php:1302
+#: src/Process/Backend/Post.php:1303
 msgid "select this trackback"
 msgstr "selecteer deze trackback"
 
-#: src/Process/Backend/Post.php:1333
+#: src/Process/Backend/Post.php:1334
 msgid "Edit this comment"
 msgstr "Bewerk deze opmerking"
 
-#: src/Process/Backend/Post.php:1333
+#: src/Process/Backend/Post.php:1334
 msgid "Edit this trackback"
 msgstr "Bewerk deze trackback"
 
