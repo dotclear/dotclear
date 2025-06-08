@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-05 17:29+0200\n"
-"PO-Revision-Date: 2025-06-05 15:32\n"
+"POT-Creation-Date: 2025-06-08 10:49+0200\n"
+"PO-Revision-Date: 2025-06-08 09:22\n"
 "Last-Translator: \n"
 "Language-Team: Basque\n"
 "Language: eu_ES\n"
@@ -2237,56 +2237,56 @@ msgstr "Ezin izan dira zenbatu iruzkinak eta trackback-ak."
 msgid "Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating from dotclear 1 to dotclear 2)."
 msgstr "Berriro zenbatu iruzkinak eta trackback-ek haien zenbaki zehatzak egiaztatzeko aukera ematen du. Eragiketa hau erabilgarria izan daiteke beste blog plataforma batetik inportatzean (edo dotclear 1etik dotclear 2ra migratzean)."
 
-#: plugins/maintenance/src/Task/IndexComments.php:55
-#: plugins/maintenance/src/Task/IndexPosts.php:55
+#: plugins/maintenance/src/Task/IndexComments.php:60
+#: plugins/maintenance/src/Task/IndexPosts.php:60
 msgid "Search engine index"
 msgstr "Bilatzaileen indizea"
 
-#: plugins/maintenance/src/Task/IndexComments.php:56
+#: plugins/maintenance/src/Task/IndexComments.php:61
 msgid "Index all comments for search engine"
 msgstr "Bilatzailerako iruzkin guztiak indexatu"
 
-#: plugins/maintenance/src/Task/IndexComments.php:57
-#: plugins/maintenance/src/Task/IndexPosts.php:57
-#: plugins/maintenance/src/Task/SynchPostMeta.php:57
+#: plugins/maintenance/src/Task/IndexComments.php:62
+#: plugins/maintenance/src/Task/IndexPosts.php:62
+#: plugins/maintenance/src/Task/SynchPostMeta.php:62
 msgid "Next"
 msgstr "Hurrengoa"
 
-#: plugins/maintenance/src/Task/IndexComments.php:58
+#: plugins/maintenance/src/Task/IndexComments.php:63
 #, php-format
-msgid "Indexing comment %d to %d."
-msgstr "%d %d-ra iruzkina indexatzen."
+msgid "Indexing comments %1$d to %2$d of %3$d."
+msgstr "%3$d-tik %1$d-ra %2$d-ra bitarteko iruzkinak indexatzen."
 
-#: plugins/maintenance/src/Task/IndexComments.php:59
-msgid "Comments index done."
-msgstr "Iruzkinen indizea eginda."
+#: plugins/maintenance/src/Task/IndexComments.php:64
+msgid "Comments indexing done."
+msgstr "Iruzkinen indexazioa eginda."
 
-#: plugins/maintenance/src/Task/IndexComments.php:60
+#: plugins/maintenance/src/Task/IndexComments.php:65
 msgid "Failed to index comments."
 msgstr "Ezin izan dira iruzkinak indexatu."
 
-#: plugins/maintenance/src/Task/IndexComments.php:62
+#: plugins/maintenance/src/Task/IndexComments.php:67
 msgid "Index all comments and trackbacks in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
 msgstr "Indexatu iruzkin eta trackback guztiak bilatzaileen indizean. Eragiketa hau beharrezkoa da, zure blogean edukia inportatu ondoren, barne bilatzailea erabiltzeko, orrialde publiko eta pribatuetan."
 
-#: plugins/maintenance/src/Task/IndexPosts.php:56
+#: plugins/maintenance/src/Task/IndexPosts.php:61
 msgid "Index all entries for search engine"
 msgstr "Bilatzailerako sarrera guztiak indexatu"
 
-#: plugins/maintenance/src/Task/IndexPosts.php:58
+#: plugins/maintenance/src/Task/IndexPosts.php:63
 #, php-format
-msgid "Indexing entry %d to %d."
-msgstr "%d %dsarrera indexatzen."
+msgid "Indexing entries %1$d to %2$d of %3$d."
+msgstr "%3$d-tik %1$d-ra %2$d-ra bitarteko sarrerak indexatzen."
 
-#: plugins/maintenance/src/Task/IndexPosts.php:59
-msgid "Entries index done."
-msgstr "Sarreren indizea eginda."
+#: plugins/maintenance/src/Task/IndexPosts.php:64
+msgid "Entries indexing done."
+msgstr "Sarreren indexazioa eginda."
 
-#: plugins/maintenance/src/Task/IndexPosts.php:60
+#: plugins/maintenance/src/Task/IndexPosts.php:65
 msgid "Failed to index entries."
 msgstr "Ezin izan dira sarrerak indexatu."
 
-#: plugins/maintenance/src/Task/IndexPosts.php:62
+#: plugins/maintenance/src/Task/IndexPosts.php:67
 msgid "Index all entries in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
 msgstr "Bilatzaileen indizeko sarrera guztiak indexatu. Eragiketa hau beharrezkoa da, zure blogean edukia inportatu ondoren, barne bilatzailea erabiltzeko, orrialde publiko eta pribatuetan."
 
@@ -2306,28 +2306,28 @@ msgstr "Ezin izan dira erregistroak ezabatu."
 msgid "Logs record all activity and connection to your blog history. Unless you need to keep this history, consider deleting these logs from time to time."
 msgstr "Erregistroek zure blogaren historiarako jarduera eta konexio guztiak erregistratzen dituzte. Historia hau gorde behar ez baduzu behintzat, kontuan hartu erregistro hauek noizean behin ezabatzea."
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:55
+#: plugins/maintenance/src/Task/SynchPostMeta.php:60
 msgid "Entries metadata"
 msgstr "Sarreren metadatuak"
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:56
+#: plugins/maintenance/src/Task/SynchPostMeta.php:61
 msgid "Synchronize entries metadata"
 msgstr "Sinkronizatu sarreren metadatuak"
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:58
+#: plugins/maintenance/src/Task/SynchPostMeta.php:63
 #, php-format
-msgid "Synchronize entry %d to %d."
-msgstr "Sinkronizatu %d sarrera %d."
+msgid "Synchronizing metadata of entries %1$d to %2$d of %3$d."
+msgstr "%1$d sarreren %2$d-tik %3$d-ra metadatuak sinkronizatzen."
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:59
+#: plugins/maintenance/src/Task/SynchPostMeta.php:64
 msgid "Entries metadata synchronize done."
 msgstr "Sarrerak metadatuak sinkronizatzen dira."
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:60
+#: plugins/maintenance/src/Task/SynchPostMeta.php:65
 msgid "Failed to synchronize entries metadata."
 msgstr "Ezin izan dira sarreren metadatuak sinkronizatu."
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:62
+#: plugins/maintenance/src/Task/SynchPostMeta.php:67
 msgid "Synchronize all entries metadata could be useful after importing content in your blog or do bad operation on database tables."
 msgstr "Sarreren metadatuak sinkronizatzea erabilgarria izan daiteke zure blogeko edukia inportatu ondoren edo datu-baseen tauletan eragiketa txarra egin ondoren."
 

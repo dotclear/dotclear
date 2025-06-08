@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-05 17:29+0200\n"
-"PO-Revision-Date: 2025-06-05 15:33\n"
+"POT-Creation-Date: 2025-06-08 10:49+0200\n"
+"PO-Revision-Date: 2025-06-08 09:22\n"
 "Last-Translator: \n"
 "Language-Team: Italian\n"
 "Language: it_IT\n"
@@ -2237,56 +2237,56 @@ msgstr "Impossibile contare commenti e tracce."
 msgid "Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating from dotclear 1 to dotclear 2)."
 msgstr "Contare di nuovo commenti e trackback permette di controllare i loro numeri esatti. Questa operazione può essere utile quando si importa da un'altra piattaforma blog (o quando si migra da dotclear 1 a dotclear 2)."
 
-#: plugins/maintenance/src/Task/IndexComments.php:55
-#: plugins/maintenance/src/Task/IndexPosts.php:55
+#: plugins/maintenance/src/Task/IndexComments.php:60
+#: plugins/maintenance/src/Task/IndexPosts.php:60
 msgid "Search engine index"
 msgstr "Indice dei motori di ricerca"
 
-#: plugins/maintenance/src/Task/IndexComments.php:56
+#: plugins/maintenance/src/Task/IndexComments.php:61
 msgid "Index all comments for search engine"
 msgstr "Indice tutti i commenti per il motore di ricerca"
 
-#: plugins/maintenance/src/Task/IndexComments.php:57
-#: plugins/maintenance/src/Task/IndexPosts.php:57
-#: plugins/maintenance/src/Task/SynchPostMeta.php:57
+#: plugins/maintenance/src/Task/IndexComments.php:62
+#: plugins/maintenance/src/Task/IndexPosts.php:62
+#: plugins/maintenance/src/Task/SynchPostMeta.php:62
 msgid "Next"
 msgstr "Successivo"
 
-#: plugins/maintenance/src/Task/IndexComments.php:58
+#: plugins/maintenance/src/Task/IndexComments.php:63
 #, php-format
-msgid "Indexing comment %d to %d."
-msgstr "Indicizzazione commento %d a %d."
+msgid "Indexing comments %1$d to %2$d of %3$d."
+msgstr "Indicizzazione dei commenti da %1$d a %2$d di %3$d."
 
-#: plugins/maintenance/src/Task/IndexComments.php:59
-msgid "Comments index done."
-msgstr "Indice commenti fatto."
+#: plugins/maintenance/src/Task/IndexComments.php:64
+msgid "Comments indexing done."
+msgstr "Indicizzazione dei commenti effettuata."
 
-#: plugins/maintenance/src/Task/IndexComments.php:60
+#: plugins/maintenance/src/Task/IndexComments.php:65
 msgid "Failed to index comments."
 msgstr "Impossibile indicizzare i commenti."
 
-#: plugins/maintenance/src/Task/IndexComments.php:62
+#: plugins/maintenance/src/Task/IndexComments.php:67
 msgid "Index all comments and trackbacks in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
 msgstr "Indice tutti i commenti e trackback nell'indice dei motori di ricerca. Questa operazione è necessaria, dopo aver importato contenuti nel tuo blog, per utilizzare il motore di ricerca interno, su pagine pubbliche e private."
 
-#: plugins/maintenance/src/Task/IndexPosts.php:56
+#: plugins/maintenance/src/Task/IndexPosts.php:61
 msgid "Index all entries for search engine"
 msgstr "Indice tutte le voci per il motore di ricerca"
 
-#: plugins/maintenance/src/Task/IndexPosts.php:58
+#: plugins/maintenance/src/Task/IndexPosts.php:63
 #, php-format
-msgid "Indexing entry %d to %d."
-msgstr "Indicizzazione voce %d a %d."
+msgid "Indexing entries %1$d to %2$d of %3$d."
+msgstr "Voci di indicizzazione da %1$d a %2$d di %3$d."
 
-#: plugins/maintenance/src/Task/IndexPosts.php:59
-msgid "Entries index done."
-msgstr "Indice voci completato."
+#: plugins/maintenance/src/Task/IndexPosts.php:64
+msgid "Entries indexing done."
+msgstr "Indicizzazione delle voci eseguita."
 
-#: plugins/maintenance/src/Task/IndexPosts.php:60
+#: plugins/maintenance/src/Task/IndexPosts.php:65
 msgid "Failed to index entries."
 msgstr "Indice voci non riuscito."
 
-#: plugins/maintenance/src/Task/IndexPosts.php:62
+#: plugins/maintenance/src/Task/IndexPosts.php:67
 msgid "Index all entries in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
 msgstr "Indice tutte le voci nell'indice del motore di ricerca. Questa operazione è necessaria, dopo aver importato contenuti nel tuo blog, per utilizzare il motore di ricerca interno, su pagine pubbliche e private."
 
@@ -2306,28 +2306,28 @@ msgstr "Impossibile eliminare i registri."
 msgid "Logs record all activity and connection to your blog history. Unless you need to keep this history, consider deleting these logs from time to time."
 msgstr "I registri registrano tutte le attività e la connessione alla cronologia del tuo blog. A meno che non sia necessario mantenere questa cronologia, considera l'eliminazione di questi registri di tanto in tanto."
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:55
+#: plugins/maintenance/src/Task/SynchPostMeta.php:60
 msgid "Entries metadata"
 msgstr "Metadati delle voci"
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:56
+#: plugins/maintenance/src/Task/SynchPostMeta.php:61
 msgid "Synchronize entries metadata"
 msgstr "Sincronizza le voci metadati"
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:58
+#: plugins/maintenance/src/Task/SynchPostMeta.php:63
 #, php-format
-msgid "Synchronize entry %d to %d."
-msgstr "Sincronizza la voce %d a %d."
+msgid "Synchronizing metadata of entries %1$d to %2$d of %3$d."
+msgstr "Sincronizzazione dei metadati delle voci %1$d con %2$d di %3$d."
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:59
+#: plugins/maintenance/src/Task/SynchPostMeta.php:64
 msgid "Entries metadata synchronize done."
 msgstr "Voci metadati sincronizzati completati."
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:60
+#: plugins/maintenance/src/Task/SynchPostMeta.php:65
 msgid "Failed to synchronize entries metadata."
 msgstr "Sincronizzazione dei metadati delle voci non riuscita."
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:62
+#: plugins/maintenance/src/Task/SynchPostMeta.php:67
 msgid "Synchronize all entries metadata could be useful after importing content in your blog or do bad operation on database tables."
 msgstr "Sincronizzare tutti i metadati delle voci potrebbe essere utile dopo aver importato contenuti nel tuo blog o fare operazioni errate sulle tabelle del database."
 

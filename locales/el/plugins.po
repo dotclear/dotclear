@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-05 17:29+0200\n"
-"PO-Revision-Date: 2025-06-05 15:32\n"
+"POT-Creation-Date: 2025-06-08 10:49+0200\n"
+"PO-Revision-Date: 2025-06-08 09:22\n"
 "Last-Translator: \n"
 "Language-Team: Greek\n"
 "Language: el_GR\n"
@@ -2237,56 +2237,56 @@ msgstr "Αποτυχία μέτρησης σχολίων και ιχνηλασι
 msgid "Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating from dotclear 1 to dotclear 2)."
 msgstr "Μετρήστε και πάλι σχόλια και trackbacks σας επιτρέπει να ελέγξετε τους ακριβείς αριθμούς τους. Αυτή η λειτουργία μπορεί να είναι χρήσιμη κατά την εισαγωγή από μια άλλη πλατφόρμα blog (ή κατά τη μετάβαση από dotclear 1 σε dotclear 2)."
 
-#: plugins/maintenance/src/Task/IndexComments.php:55
-#: plugins/maintenance/src/Task/IndexPosts.php:55
+#: plugins/maintenance/src/Task/IndexComments.php:60
+#: plugins/maintenance/src/Task/IndexPosts.php:60
 msgid "Search engine index"
 msgstr "Δείκτης μηχανών αναζήτησης"
 
-#: plugins/maintenance/src/Task/IndexComments.php:56
+#: plugins/maintenance/src/Task/IndexComments.php:61
 msgid "Index all comments for search engine"
 msgstr "Ευρετήριο όλων των σχολίων για μηχανή αναζήτησης"
 
-#: plugins/maintenance/src/Task/IndexComments.php:57
-#: plugins/maintenance/src/Task/IndexPosts.php:57
-#: plugins/maintenance/src/Task/SynchPostMeta.php:57
+#: plugins/maintenance/src/Task/IndexComments.php:62
+#: plugins/maintenance/src/Task/IndexPosts.php:62
+#: plugins/maintenance/src/Task/SynchPostMeta.php:62
 msgid "Next"
 msgstr "Επόμενο"
 
-#: plugins/maintenance/src/Task/IndexComments.php:58
+#: plugins/maintenance/src/Task/IndexComments.php:63
 #, php-format
-msgid "Indexing comment %d to %d."
-msgstr "Ευρετήριο σχολίου %d προς %d."
+msgid "Indexing comments %1$d to %2$d of %3$d."
+msgstr "Σχόλια ευρετηρίασης %1$d έως %2$d του %3$d."
 
-#: plugins/maintenance/src/Task/IndexComments.php:59
-msgid "Comments index done."
-msgstr "Σχόλια ευρετηρίου έγινε."
+#: plugins/maintenance/src/Task/IndexComments.php:64
+msgid "Comments indexing done."
+msgstr "Η ευρετηρίαση των σχολίων έγινε."
 
-#: plugins/maintenance/src/Task/IndexComments.php:60
+#: plugins/maintenance/src/Task/IndexComments.php:65
 msgid "Failed to index comments."
 msgstr "Αποτυχία σχολιασμού ευρετηρίου."
 
-#: plugins/maintenance/src/Task/IndexComments.php:62
+#: plugins/maintenance/src/Task/IndexComments.php:67
 msgid "Index all comments and trackbacks in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
 msgstr "Ευρετήριο όλων των σχολίων και των ιχνών στο ευρετήριο μηχανών αναζήτησης. Αυτή η λειτουργία είναι απαραίτητη, μετά την εισαγωγή περιεχομένου στο ιστολόγιό σας, για χρήση εσωτερικής μηχανής αναζήτησης, σε δημόσιες και ιδιωτικές σελίδες."
 
-#: plugins/maintenance/src/Task/IndexPosts.php:56
+#: plugins/maintenance/src/Task/IndexPosts.php:61
 msgid "Index all entries for search engine"
 msgstr "Ευρετήριο όλων των καταχωρήσεων για μηχανή αναζήτησης"
 
-#: plugins/maintenance/src/Task/IndexPosts.php:58
+#: plugins/maintenance/src/Task/IndexPosts.php:63
 #, php-format
-msgid "Indexing entry %d to %d."
-msgstr "Ευρετήριο καταχώρησης %d προς %d."
+msgid "Indexing entries %1$d to %2$d of %3$d."
+msgstr "Ενδείξεις ευρετηρίου %1$d έως %2$d του %3$d."
 
-#: plugins/maintenance/src/Task/IndexPosts.php:59
-msgid "Entries index done."
-msgstr "Έγινε ολοκλήρωση του ευρετηρίου καταχωρήσεων."
+#: plugins/maintenance/src/Task/IndexPosts.php:64
+msgid "Entries indexing done."
+msgstr "Η ευρετηρίαση των καταχωρήσεων ολοκληρώθηκε."
 
-#: plugins/maintenance/src/Task/IndexPosts.php:60
+#: plugins/maintenance/src/Task/IndexPosts.php:65
 msgid "Failed to index entries."
 msgstr "Αποτυχία καταχώρησης ευρετηρίου."
 
-#: plugins/maintenance/src/Task/IndexPosts.php:62
+#: plugins/maintenance/src/Task/IndexPosts.php:67
 msgid "Index all entries in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
 msgstr "Ευρετήριο όλων των καταχωρήσεων στο δείκτη μηχανών αναζήτησης. Αυτή η λειτουργία είναι απαραίτητη, μετά την εισαγωγή περιεχομένου στο ιστολόγιό σας, για χρήση εσωτερικής μηχανής αναζήτησης, σε δημόσιες και ιδιωτικές σελίδες."
 
@@ -2306,28 +2306,28 @@ msgstr "Αποτυχία διαγραφής αρχείων καταγραφής.
 msgid "Logs record all activity and connection to your blog history. Unless you need to keep this history, consider deleting these logs from time to time."
 msgstr "Καταγράφει όλη τη δραστηριότητα και τη σύνδεση με το ιστορικό του ιστολογίου σας. Εκτός αν χρειάζεστε να διατηρήσετε αυτό το ιστορικό, σκεφτείτε να διαγράψετε αυτά τα αρχεία καταγραφής από καιρό σε καιρό."
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:55
+#: plugins/maintenance/src/Task/SynchPostMeta.php:60
 msgid "Entries metadata"
 msgstr "Μεταδεδομένα καταχωρήσεων"
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:56
+#: plugins/maintenance/src/Task/SynchPostMeta.php:61
 msgid "Synchronize entries metadata"
 msgstr "Συγχρονισμός μεταδεδομένων καταχωρήσεων"
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:58
+#: plugins/maintenance/src/Task/SynchPostMeta.php:63
 #, php-format
-msgid "Synchronize entry %d to %d."
-msgstr "Συγχρονισμός καταχώρησης %d σε %d."
+msgid "Synchronizing metadata of entries %1$d to %2$d of %3$d."
+msgstr "Συγχρονισμός των μεταδεδομένων των καταχωρίσεων %1$d στο %2$d του %3$d."
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:59
+#: plugins/maintenance/src/Task/SynchPostMeta.php:64
 msgid "Entries metadata synchronize done."
 msgstr "Ο συγχρονισμός μεταδεδομένων καταχωρήσεων ολοκληρώθηκε."
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:60
+#: plugins/maintenance/src/Task/SynchPostMeta.php:65
 msgid "Failed to synchronize entries metadata."
 msgstr "Αποτυχία συγχρονισμού μεταδεδομένων καταχωρήσεων."
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:62
+#: plugins/maintenance/src/Task/SynchPostMeta.php:67
 msgid "Synchronize all entries metadata could be useful after importing content in your blog or do bad operation on database tables."
 msgstr "Συγχρονισμός όλων των μεταδεδομένων καταχωρήσεων θα μπορούσε να είναι χρήσιμη μετά την εισαγωγή περιεχομένου στο blog σας ή να κάνει κακή λειτουργία στους πίνακες της βάσης δεδομένων."
 
