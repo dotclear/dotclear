@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-05 17:29+0200\n"
-"PO-Revision-Date: 2025-06-05 15:33\n"
+"POT-Creation-Date: 2025-06-08 10:49+0200\n"
+"PO-Revision-Date: 2025-06-08 08:53\n"
 "Last-Translator: \n"
 "Language-Team: Telugu\n"
 "Language: te_IN\n"
@@ -2237,56 +2237,56 @@ msgstr "వ్యాఖ్యలు మరియు trackbacks లెక్క�
 msgid "Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating from dotclear 1 to dotclear 2)."
 msgstr "మళ్ళీ వ్యాఖ్యలు మరియు ట్రాక్వెస్ట్లను వాటి నిర్దిత సంఖ్యలను పరిశీలించటానికి అనుమతిస్తుంది. ఈ ఆపరేషన్ మరొక బ్లాగు ప్లాట్ఫారం నుండి దిగుమతి చేయనప్పుడు (లేదా dotclear 1 నుండి dotclear 2 నుండి వలస వెళ్ళినప్పుడు) ఉపయోగకరంగా ఉండవచ్చు."
 
-#: plugins/maintenance/src/Task/IndexComments.php:55
-#: plugins/maintenance/src/Task/IndexPosts.php:55
+#: plugins/maintenance/src/Task/IndexComments.php:60
+#: plugins/maintenance/src/Task/IndexPosts.php:60
 msgid "Search engine index"
 msgstr "శోధన ఇంజిన్ సూచిక"
 
-#: plugins/maintenance/src/Task/IndexComments.php:56
+#: plugins/maintenance/src/Task/IndexComments.php:61
 msgid "Index all comments for search engine"
 msgstr "శోధన ఇంజిన్ కొరకు అన్ని వ్యాఖ్యలను సూచిస్తుంది"
 
-#: plugins/maintenance/src/Task/IndexComments.php:57
-#: plugins/maintenance/src/Task/IndexPosts.php:57
-#: plugins/maintenance/src/Task/SynchPostMeta.php:57
+#: plugins/maintenance/src/Task/IndexComments.php:62
+#: plugins/maintenance/src/Task/IndexPosts.php:62
+#: plugins/maintenance/src/Task/SynchPostMeta.php:62
 msgid "Next"
 msgstr "తదుపరి"
 
-#: plugins/maintenance/src/Task/IndexComments.php:58
+#: plugins/maintenance/src/Task/IndexComments.php:63
 #, php-format
-msgid "Indexing comment %d to %d."
-msgstr "Indexing comment %d to %d."
+msgid "Indexing comments %1$d to %2$d of %3$d."
+msgstr ""
 
-#: plugins/maintenance/src/Task/IndexComments.php:59
-msgid "Comments index done."
-msgstr "వ్యాఖ్య సూచిక"
+#: plugins/maintenance/src/Task/IndexComments.php:64
+msgid "Comments indexing done."
+msgstr ""
 
-#: plugins/maintenance/src/Task/IndexComments.php:60
+#: plugins/maintenance/src/Task/IndexComments.php:65
 msgid "Failed to index comments."
 msgstr "వ్యాఖ్యలను సూచికలో విఫలమైంది."
 
-#: plugins/maintenance/src/Task/IndexComments.php:62
+#: plugins/maintenance/src/Task/IndexComments.php:67
 msgid "Index all comments and trackbacks in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
 msgstr "శోధన ఇంజిన్ సూచికలో అన్ని వ్యాఖ్యలు మరియు trackbacks సూచిస్తుంది. ఈ ఆపరేషన్ అవసరమవుతుంది, మీ బ్లాగు, అంతర్గత శోధన ఇంజను ఉపయోగించడానికి, ప్రజా మరియు ప్రైవేట్ పేజీల మీద, అంతర్గత శోధన ఇంజను ఉపయోగించుకోవాలి."
 
-#: plugins/maintenance/src/Task/IndexPosts.php:56
+#: plugins/maintenance/src/Task/IndexPosts.php:61
 msgid "Index all entries for search engine"
 msgstr "శోధన ఇంజన్ కొరకు అన్ని ఎంట్రీలను సూచిస్తుంది"
 
-#: plugins/maintenance/src/Task/IndexPosts.php:58
+#: plugins/maintenance/src/Task/IndexPosts.php:63
 #, php-format
-msgid "Indexing entry %d to %d."
-msgstr "Indexing entry %d to %d."
+msgid "Indexing entries %1$d to %2$d of %3$d."
+msgstr ""
 
-#: plugins/maintenance/src/Task/IndexPosts.php:59
-msgid "Entries index done."
-msgstr "ఇండెక్స్ చేసిన సూచిక."
+#: plugins/maintenance/src/Task/IndexPosts.php:64
+msgid "Entries indexing done."
+msgstr ""
 
-#: plugins/maintenance/src/Task/IndexPosts.php:60
+#: plugins/maintenance/src/Task/IndexPosts.php:65
 msgid "Failed to index entries."
 msgstr "ఎంట్రీలను సూచికపొయాను."
 
-#: plugins/maintenance/src/Task/IndexPosts.php:62
+#: plugins/maintenance/src/Task/IndexPosts.php:67
 msgid "Index all entries in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
 msgstr "శోధన ఇంజిన్ సూచికలో అన్ని ఎంట్రీలను సూచిస్తుంది. ఈ ఆపరేషన్ అవసరమవుతుంది, మీ బ్లాగు, అంతర్గత శోధన ఇంజను ఉపయోగించడానికి, ప్రజా మరియు ప్రైవేట్ పేజీల మీద, అంతర్గత శోధన ఇంజను ఉపయోగించుకోవాలి."
 
@@ -2306,28 +2306,28 @@ msgstr "లోగ్లను తొలగించుటలో విఫలమ�
 msgid "Logs record all activity and connection to your blog history. Unless you need to keep this history, consider deleting these logs from time to time."
 msgstr "లాగ్ మీ బ్లాగు చరిత్రకు అన్ని కార్యకలాపాలు మరియు అనుసంధానమును రికార్డు చేయుచున్నది. మీరు ఈ చరిత్రను కాపాడవలసిన అవసరం లేని, సమయం నుండి ఈ లోపాలను మెలింగ్ ఆలోచన."
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:55
+#: plugins/maintenance/src/Task/SynchPostMeta.php:60
 msgid "Entries metadata"
 msgstr "ఎంటెన్ మెటాడేటా"
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:56
+#: plugins/maintenance/src/Task/SynchPostMeta.php:61
 msgid "Synchronize entries metadata"
 msgstr "ఎంట్రీలను మెటాడేటాను సింక్రోజ్ చేయుము"
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:58
+#: plugins/maintenance/src/Task/SynchPostMeta.php:63
 #, php-format
-msgid "Synchronize entry %d to %d."
-msgstr "Synchronize entry %d to %d."
+msgid "Synchronizing metadata of entries %1$d to %2$d of %3$d."
+msgstr ""
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:59
+#: plugins/maintenance/src/Task/SynchPostMeta.php:64
 msgid "Entries metadata synchronize done."
 msgstr "Entries metadata synchronize done."
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:60
+#: plugins/maintenance/src/Task/SynchPostMeta.php:65
 msgid "Failed to synchronize entries metadata."
 msgstr "ఎంట్రీ మెటాడేటాను సింక్రోజ్ చేయటంలో విఫలమైంది."
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:62
+#: plugins/maintenance/src/Task/SynchPostMeta.php:67
 msgid "Synchronize all entries metadata could be useful after importing content in your blog or do bad operation on database tables."
 msgstr "అన్ని ఎంట్రీ మెటాడతా అనుసంధానించండి మీ బ్లాగులో సారూప్యత, డేటాబేస్ టేబుల్పై చెడు ఆపరేషన్ తర్వాత ఉపయోగకరంగా ఉండవచ్చు."
 
