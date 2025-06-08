@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-08 10:49+0200\n"
-"PO-Revision-Date: 2025-06-08 08:53\n"
+"PO-Revision-Date: 2025-06-08 09:23\n"
 "Last-Translator: \n"
 "Language-Team: Hindi\n"
 "Language: hi_IN\n"
@@ -2255,11 +2255,11 @@ msgstr "अगला"
 #: plugins/maintenance/src/Task/IndexComments.php:63
 #, php-format
 msgid "Indexing comments %1$d to %2$d of %3$d."
-msgstr ""
+msgstr "%1$d से %2$d तक की %3$d टिप्पणियों को अनुक्रमित किया जा रहा है।"
 
 #: plugins/maintenance/src/Task/IndexComments.php:64
 msgid "Comments indexing done."
-msgstr ""
+msgstr "टिप्पणियाँ अनुक्रमणित की गईं।"
 
 #: plugins/maintenance/src/Task/IndexComments.php:65
 msgid "Failed to index comments."
@@ -2276,11 +2276,11 @@ msgstr "खोज इंजन के लिए सभी प्रविष्�
 #: plugins/maintenance/src/Task/IndexPosts.php:63
 #, php-format
 msgid "Indexing entries %1$d to %2$d of %3$d."
-msgstr ""
+msgstr "%1$d से %2$d तक की प्रविष्टियों को %3$d में अनुक्रमित किया जा रहा है।"
 
 #: plugins/maintenance/src/Task/IndexPosts.php:64
 msgid "Entries indexing done."
-msgstr ""
+msgstr "प्रविष्टियों का अनुक्रमण पूरा हो गया।"
 
 #: plugins/maintenance/src/Task/IndexPosts.php:65
 msgid "Failed to index entries."
@@ -2317,7 +2317,7 @@ msgstr "प्रविष्टियों को तुल्यकालि�
 #: plugins/maintenance/src/Task/SynchPostMeta.php:63
 #, php-format
 msgid "Synchronizing metadata of entries %1$d to %2$d of %3$d."
-msgstr ""
+msgstr "%1$d से %2$d या %3$d प्रविष्टियों का मेटाडेटा सिंक्रनाइज़ किया जा रहा है।"
 
 #: plugins/maintenance/src/Task/SynchPostMeta.php:64
 msgid "Entries metadata synchronize done."
