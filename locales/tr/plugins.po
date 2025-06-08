@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-08 10:49+0200\n"
-"PO-Revision-Date: 2025-06-08 08:53\n"
+"PO-Revision-Date: 2025-06-08 09:22\n"
 "Last-Translator: \n"
 "Language-Team: Turkish\n"
 "Language: tr_TR\n"
@@ -2255,11 +2255,11 @@ msgstr "Sonraki"
 #: plugins/maintenance/src/Task/IndexComments.php:63
 #, php-format
 msgid "Indexing comments %1$d to %2$d of %3$d."
-msgstr ""
+msgstr "%1$d ile %2$d arasındaki %3$dyorumlarını indeksleme."
 
 #: plugins/maintenance/src/Task/IndexComments.php:64
 msgid "Comments indexing done."
-msgstr ""
+msgstr "Yorum indeksleme işlemi tamamlandı."
 
 #: plugins/maintenance/src/Task/IndexComments.php:65
 msgid "Failed to index comments."
@@ -2276,11 +2276,11 @@ msgstr "Arama motoru için tüm girişleri dizine ekle"
 #: plugins/maintenance/src/Task/IndexPosts.php:63
 #, php-format
 msgid "Indexing entries %1$d to %2$d of %3$d."
-msgstr ""
+msgstr "%1$d ile %2$d arasındaki %3$dgirişlerini dizinleme."
 
 #: plugins/maintenance/src/Task/IndexPosts.php:64
 msgid "Entries indexing done."
-msgstr ""
+msgstr "Giriş indeksleme tamamlandı."
 
 #: plugins/maintenance/src/Task/IndexPosts.php:65
 msgid "Failed to index entries."
@@ -2317,7 +2317,7 @@ msgstr "Giriş meta verilerini senkronize edin"
 #: plugins/maintenance/src/Task/SynchPostMeta.php:63
 #, php-format
 msgid "Synchronizing metadata of entries %1$d to %2$d of %3$d."
-msgstr ""
+msgstr "%1$d girişlerinin meta verilerini %3$dadresindeki %2$d ile senkronize etme."
 
 #: plugins/maintenance/src/Task/SynchPostMeta.php:64
 msgid "Entries metadata synchronize done."
