@@ -242,8 +242,6 @@ class HtmlFilter
      */
     public function apply(string $str, bool $use_tidy = true): string
     {
-        $use_tidy = false;  // DEBUG
-
         if ($use_tidy && extension_loaded('tidy') && class_exists('tidy')) {
             $config = [
                 'doctype'                     => 'strict',
