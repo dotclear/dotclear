@@ -236,13 +236,15 @@ class HtmlFilter
      * try to use tidy extension if exists and then apply the filter.
      *
      * @param string    $str        String to filter
-     * @param boolean   $tidy       Use tidy extension if present
+     * @param boolean   $use_tidy   Use tidy extension if present
      *
      * @return string               Filtered string
      */
-    public function apply(string $str, bool $tidy = true): string
+    public function apply(string $str, bool $use_tidy = true): string
     {
-        if ($tidy && extension_loaded('tidy') && class_exists('tidy')) {
+        $use_tidy = false;  // DEBUG
+
+        if ($use_tidy && extension_loaded('tidy') && class_exists('tidy')) {
             $config = [
                 'doctype'                     => 'strict',
                 'drop-proprietary-attributes' => true,
@@ -295,7 +297,14 @@ class HtmlFilter
      */
     private function miniTidy(string $str): string
     {
-        return (string) preg_replace_callback('%(<(?!(\s*?/|!)).*?>)%msu', $this->miniTidyFixTag(...), $str);
+        $str = (string) preg_replace_callback('%(<(?!(\s*?/|!)).*?>)%msu', $this->miniTidyFixTag(...), $str);
+
+        foreach ($this->single_tags as $tag) {
+            // Revert HTML5 closing tag '>' to XHTML one ' />' for single tags as parser will use XHTML format
+            $str = (string) preg_replace('%(<(?!(\s*?/|!))' . $tag . '(.*?)>)%msu', '<' . $tag . '$3 />', $str);
+        }
+
+        return $str;
     }
 
     /**
