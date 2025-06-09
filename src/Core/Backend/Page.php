@@ -17,10 +17,7 @@ use Dotclear\App;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Form\Btn;
-use Dotclear\Helper\Html\Form\Dd;
 use Dotclear\Helper\Html\Form\Div;
-use Dotclear\Helper\Html\Form\Dl;
-use Dotclear\Helper\Html\Form\Dt;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Hidden;
 use Dotclear\Helper\Html\Form\Img;
@@ -1074,10 +1071,6 @@ class Page
         $no_content = false;
         $content    = '';
 
-        // TRACE
-        $trace = [];
-        // END TRACE
-
         if ((count($args) === 0) || (App::backend()->resources()->entries('help') === [])) {
             $no_content = true;
         } else {
@@ -1085,12 +1078,6 @@ class Page
             foreach ($args as $arg) {
                 if (is_object($arg) && isset($arg->content)) {
                     $content .= $arg->content;
-
-                    // TRACE
-                    $trace[] = (new Li())
-                        ->text('strlen($arg->content) = ' . strlen($arg->content));
-                    $arg->content = '<!-- done -->';    // Avoid big trace (see below)
-                    // END TRACE
 
                     continue;
                 }
@@ -1102,63 +1089,18 @@ class Page
 
                 $file_content = (string) file_get_contents($file);
 
-                // TRACE
-                $trace[] = (new Li())
-                    ->text('$file = ' . $file);
-                // END TRACE
                 if (preg_match('|<body[^>]*?>(.*?)</body>|ms', $file_content, $matches)) {
                     $content .= $matches[1];
-
-                    // TRACE
-                    $trace[] = (new Li())
-                        ->text('strlen($matches[1]) = ' . strlen($matches[1]));
-                    // END TRACE
                 } else {
                     $content .= $file_content;
-
-                    // TRACE
-                    $trace[] = (new Li())
-                        ->text('strlen($file_content) = ' . strlen($file_content));
-                    // END TRACE
                 }
             }
-
-            // TRACE
-            $trace[] = (new Li())
-                ->text('strlen($content) = ' . var_export(strlen($content), true) . ' (before HTMLFilter())');
-            // END TRACE
 
             // Filter remaining HTML
             $content = App::filter()->HTMLfilter($content, true);
 
             if (trim($content) === '') {
                 $no_content = true;
-            } else {
-                // TRACE
-                array_unshift($trace, (new Li())
-                    ->text('$args = ' . var_export($args, true)));
-                array_unshift($trace, (new Li())
-                    ->text('$params = ' . var_export($params, true)));
-
-                $trace[] = (new Li())
-                    ->text('strlen($content) = ' . var_export(strlen($content), true) . ' (after HTMLFilter())');
-
-                $content .= (new Set())
-                    ->items([
-                        (new Text('h4', 'DEBUG')),
-                        (new Dl())
-                            ->items([
-                                (new Dt())
-                                    ->text('Values'),
-                                (new Dd())
-                                    ->items([
-                                        (new Ul())
-                                            ->items($trace),
-                                    ]),
-                            ]),
-                    ])
-                ->render();
-                // END TRACE
             }
         }
 
