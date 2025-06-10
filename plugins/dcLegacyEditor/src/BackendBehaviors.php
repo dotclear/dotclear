@@ -22,6 +22,11 @@ use Dotclear\Helper\L10n;
 class BackendBehaviors
 {
     /**
+     * Loading flag to prevent more than one load of resources (JS, CSS, …)
+     */
+    protected static bool $loaded = false;
+
+    /**
      * adminPostEditor add javascript to the DOM to load legacy editor depending on context.
      *
      * @param   string          $editor     The wanted editor
@@ -94,10 +99,15 @@ class BackendBehaviors
     }
 
     /**
-     * Add JS toolbar
+     * Add JS toolbar resources (JS, CSS, …)
      */
     protected static function jsToolBar(): string
     {
+        if (self::$loaded) {
+            return '';
+        }
+        self::$loaded = true;
+
         $js = [
             'dialog_url'            => 'popup.php',
             'base_url'              => App::blog()->host(),
