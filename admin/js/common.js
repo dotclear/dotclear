@@ -987,6 +987,18 @@ dotclear.passwordHelpers = () => {
   }
 };
 
+// Close notice button helper
+dotclear.closeNoticeHelper = () => {
+  for (const btn of document.querySelectorAll('.close-notice:not(.close-notice-listen)')) {
+    btn.classList.add('close-notice-listen');
+    btn.addEventListener('click', (e) => {
+      const parent = e.target.parentNode;
+      if (parent) parent.remove();
+      e.preventDefault();
+    });
+  }
+};
+
 // REST services helper
 dotclear.servicesOff = dotclear.data.servicesOff || false;
 dotclear.servicesUri = dotclear.data.servicesUri || 'index.php?process=Rest';
@@ -1041,6 +1053,7 @@ dotclear.services = (
       return promise.text();
     })
     .then((response) => onSuccess(response))
+    .then(() => dotclear.closeNoticeHelper())
     .catch((error) => onError(error));
 };
 
@@ -1488,4 +1501,7 @@ dotclear.ready(() => {
       gonext.click();
     });
   }
+
+  // Close notice buttons
+  dotclear.closeNoticeHelper();
 });

@@ -102,7 +102,11 @@ dotclear.ready(() => {
           new_cat_parent: formQuickEntry.querySelector('#new_cat_parent').value,
         },
         (error) => {
-          formQuickEntry.append(dotclear.htmlToNode(`<p class="error"><strong>${dotclear.msg.error}</strong> ${error}</p>`));
+          formQuickEntry.append(
+            dotclear.htmlToNode(
+              `<p class="error"><strong>${dotclear.msg.error}</strong> ${error}<button class="close-notice">${dotclear.msg.close_notice}</button></p>`,
+            ),
+          );
         },
       );
     }

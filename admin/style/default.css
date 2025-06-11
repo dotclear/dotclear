@@ -2169,6 +2169,23 @@ span:is(.warn, .warning, .info) {
   margin-top: 0.25em;
 }
 
+:is(p, div):is(.error, .message, .static-msg, .success, .warning-msg):has(button.close-notice) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5em;
+}
+.with-js :is(p, div):is(.error, .message, .static-msg, .success, .warning-msg):has(button.close-notice) {
+  padding-bottom: 1em;
+}
+:is(p, div):is(.error, .message, .static-msg, .success, .warning-msg):has(button.close-notice) button.close-notice {
+  margin-inline-start: auto;
+  margin-inline-end: 0.5em;
+}
+.no-js :is(p, div):is(.error, .message, .static-msg, .success, .warning-msg):has(button.close-notice) button.close-notice {
+  display: none;
+}
+
 @keyframes kf-error {
   0% {
     background-color: var(--msg-error-background-alt);

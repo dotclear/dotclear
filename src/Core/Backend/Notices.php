@@ -14,6 +14,7 @@ namespace Dotclear\Core\Backend;
 use dcCore;
 use Dotclear\App;
 use Dotclear\Helper\Date;
+use Dotclear\Helper\Html\Form\Btn;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\None;
 use Dotclear\Helper\Html\Form\Para;
@@ -254,6 +255,8 @@ class Notices
             ->items([
                 $timestamp,
                 (new Text(null, $notice['text'])),
+                (new Btn(null, __('Ok')))
+                    ->class('close-notice'),
             ])
         ->render();
     }
@@ -292,6 +295,8 @@ class Notices
                                 $ts,
                                 (new Text(null, $msg)),
                             ]),
+                        (new Btn(null, __('Ok')))
+                            ->class('close-notice'),
                     ]) :
                 (new Set())
                     ->items([
@@ -300,6 +305,8 @@ class Notices
                             ->items([
                                 $ts,
                                 (new Text(null, $msg)),
+                                (new Btn(null, __('Ok')))
+                                    ->class('close-notice'),
                             ]),
                     ]);
 
