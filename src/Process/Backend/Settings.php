@@ -66,13 +66,18 @@ class Settings extends Process
 
         $widgets = [];
         if (App::plugins()->moduleExists('widgets')) {
-            // Init default widgets
-            Widgets::init();
-            // Get list of registered plugins for existing widgets
-            foreach (Widgets::$widgets->elements() as $w) {
-                $id = $w->pluginID();
-                if ($id && !in_array($id, $widgets)) {
-                    $widgets[] = $id;
+            // Check widget permission
+            if (App::blog()->isDefined() && App::auth()->check(App::auth()->makePermissions([
+                App::auth()::PERMISSION_ADMIN,
+            ]), App::blog()->id())) {
+                // Init default widgets
+                Widgets::init();
+                // Get list of registered plugins for existing widgets
+                foreach (Widgets::$widgets->elements() as $w) {
+                    $id = $w->pluginID();
+                    if ($id && !in_array($id, $widgets)) {
+                        $widgets[] = $id;
+                    }
                 }
             }
         }
