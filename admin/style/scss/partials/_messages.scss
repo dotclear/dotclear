@@ -175,7 +175,7 @@ span:is(.warn, .warning, .info) {
   button.close-notice {
     margin-inline-start: auto;
     margin-inline-end: 0.5em;
-    align-self: flex-end;
+    align-self: end;
     .no-js & {
       display: none;
     }
