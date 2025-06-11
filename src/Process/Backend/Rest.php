@@ -497,18 +497,20 @@ class Rest extends Process
             # --BEHAVIOR-- adminAfterCategoryCreate -- Cursor, int
             App::behavior()->callBehavior('adminAfterCategoryCreate', $cur_cat, $post['cat_id']);
         }
-
         $cur = App::blog()->openPostCursor();
 
         $cur->post_title        = $post['post_title'] ?? '';
         $cur->user_id           = App::auth()->userID();
         $cur->post_content      = $post['post_content'] ?? '';
-        $cur->cat_id            = $post['cat_id']       ?? null;
         $cur->post_format       = $post['post_format']  ?? 'xhtml';
         $cur->post_lang         = $post['post_lang']    ?? '';
         $cur->post_status       = $post['post_status']  ?? App::status()->post()::UNPUBLISHED;
         $cur->post_open_comment = (int) App::blog()->settings()->system->allow_comments;
         $cur->post_open_tb      = (int) App::blog()->settings()->system->allow_trackbacks;
+
+        if (isset($post['cat_id']) && $post['cat_id'] !== '') {
+            $cur->cat_id = (int) $post['cat_id'];
+        }
 
         # --BEHAVIOR-- adminBeforePostCreate -- Cursor
         App::behavior()->callBehavior('adminBeforePostCreate', $cur);
