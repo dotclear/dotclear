@@ -166,7 +166,7 @@ span:is(.warn, .warning, .info) {
 :is(p, div):is(.error, .message, .static-msg, .success, .warning-msg):has(button.close-notice) {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
   gap: 0.5em;
   .with-js & {
     padding-bottom: 1em;
@@ -175,6 +175,7 @@ span:is(.warn, .warning, .info) {
   button.close-notice {
     margin-inline-start: auto;
     margin-inline-end: 0.5em;
+    align-self: flex-end;
     .no-js & {
       display: none;
     }
