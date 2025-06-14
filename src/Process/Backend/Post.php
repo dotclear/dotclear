@@ -494,6 +494,26 @@ class Post extends Process
             App::backend()->default_tab = 'trackbacks';
         }
 
+        // 3rd party conversion
+        if (!empty($_GET['convert']) && !empty($_GET['convert-format'])) {
+            $params = new ArrayObject([
+                'excerpt' => App::backend()->post_excerpt,
+                'content' => App::backend()->post_content,
+                'format'  => App::backend()->post_format,
+            ]);
+            $convert = Html::escapeHTML($_GET['convert-format']);
+
+            # --BEHAVIOR-- adminConvertBeforePostEdit -- ArrayObject
+            $msg = App::behavior()->callBehavior('adminConvertBeforePostEdit', $convert, $params);
+            if ($msg !== '') {
+                App::backend()->post_excerpt = $params['excerpt'];
+                App::backend()->post_content = $params['content'];
+                App::backend()->post_format  = $params['format'];
+
+                Notices::addMessageNotice($msg);
+            }
+        }
+
         $admin_post_behavior = '';
         if (App::backend()->post_editor) {
             $p_edit = $c_edit = '';
@@ -665,11 +685,11 @@ class Post extends Process
                                 ->items(App::backend()->available_formats)
                                 ->default(App::backend()->post_format)
                                 ->label((new Label(__('Text formatting'), Label::OUTSIDE_LABEL_BEFORE))->id('label_format')),
-                            (new Div())
+                            (new Span())
                                 ->class(['format_control', 'control_no_xhtml'])
                                 ->items([
                                     (new Link('convert-xhtml'))
-                                        ->class(['button', App::backend()->post_id && App::backend()->post_format != 'wiki' ? ' hide' : ''])
+                                        ->class(['button', App::backend()->post_id && App::backend()->post_format === 'xhtml' ? 'hide' : ''])
                                         ->href(App::backend()->url()->get('admin.post', ['id' => App::backend()->post_id, 'xconv' => '1']))
                                         ->text(__('Convert to HTML')),
                                 ]),
