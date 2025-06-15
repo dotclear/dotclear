@@ -16,7 +16,7 @@ if (typeof dotclear.data.systemFont !== 'undefined') {
 }
 // set theme mode (dark/light/…)
 dotclear.data.theme = 'light';
-if (document.documentElement.getAttribute('data-theme') !== '') {
+if (document.documentElement.getAttribute('data-theme') && document.documentElement.getAttribute('data-theme') !== '') {
   dotclear.data.theme = document.documentElement.getAttribute('data-theme');
 } else if (window?.matchMedia('(prefers-color-scheme: dark)').matches) {
   dotclear.data.theme = 'dark';
