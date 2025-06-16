@@ -411,7 +411,7 @@ class Manage extends Process
                             ]),
                     ]);
             }
-            $ts_global = count($ts_list) > 1;
+            $ts_global = count($ts_list) <= 1;
 
             echo (new Div('settings'))
                 ->class('multi-part')
