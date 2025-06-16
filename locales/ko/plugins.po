@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-08 10:49+0200\n"
-"PO-Revision-Date: 2025-06-08 09:22\n"
+"POT-Creation-Date: 2025-06-16 09:22+0200\n"
+"PO-Revision-Date: 2025-06-16 07:27\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -1138,7 +1138,7 @@ msgstr "링크분류가 성공적으로 갱신되었습니다"
 
 #: plugins/blogroll/src/ManageEdit.php:181
 #: plugins/dcCKEditor/src/BackendBehaviors.php:62
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:184
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:194
 msgid "Link"
 msgstr "링크"
 
@@ -1362,27 +1362,27 @@ msgid "HTML"
 msgstr "HTML"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:59
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:200
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:210
 msgid "Media chooser"
 msgstr "미디어 선택기"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:60
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:203
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:213
 msgid "m"
 msgstr "m"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:61
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:207
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:217
 msgid "Link to an entry"
 msgstr "항목 링크"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:63
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:187
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:197
 msgid "l"
 msgstr "l"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:64
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:193
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:203
 msgid "External image"
 msgstr "외부 이미지"
 
@@ -1391,7 +1391,7 @@ msgid "URL field cannot be empty."
 msgstr "URL 필드는 비워 둘 수 없습니다."
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:89
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:229
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:239
 msgid "Open the media"
 msgstr "미디어 열기"
 
@@ -1504,112 +1504,112 @@ msgstr "dcLegacyEditor"
 msgid "Dotclear wiki"
 msgstr "닷클리어 위키"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:104
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:114
 msgid "visual"
 msgstr "비주얼"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:105
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:115
 msgid "source"
 msgstr "출처"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:106
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:116
 msgid "You can use the following shortcuts to format your text."
 msgstr "다음 단축키를 사용하여 텍스트 서식을 지정할 수 있습니다."
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:109
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:119
 msgid "Block format"
 msgstr "블록 형식"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:111
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:121
 msgid "-- none --"
 msgstr "-- 없음"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:112
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:122
 msgid "-- block format --"
 msgstr "-- 블록 형식 --"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:113
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:123
 msgid "Paragraph"
 msgstr "단락"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:114
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:124
 msgid "Level 1 header"
 msgstr "레벨 1 헤더"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:115
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:125
 msgid "Level 2 header"
 msgstr "레벨 2 헤더"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:116
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:126
 msgid "Level 3 header"
 msgstr "레벨 3 헤더"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:117
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:127
 msgid "Level 4 header"
 msgstr "레벨 4 헤더"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:118
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:128
 msgid "Level 5 header"
 msgstr "레벨 5 헤더"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:119
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:129
 msgid "Level 6 header"
 msgstr "레벨 6 헤더"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:123
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:133
 msgid "Strong emphasis"
 msgstr "강력한 강조"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:128
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:138
 msgid "Emphasis"
 msgstr "강조"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:133
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:143
 msgid "Inserted"
 msgstr "삽입됨"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:138
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:148
 msgid "Deleted"
 msgstr "삭제됨"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:143
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:153
 msgid "Inline quote"
 msgstr "인라인 견적"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:148
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:158
 msgid "Code"
 msgstr "코드"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:158
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:168
 msgid "Line break"
 msgstr "줄 바꿈"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:163
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:173
 msgid "Blockquote"
 msgstr "블록쿼트"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:168
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:178
 msgid "Preformated text"
 msgstr "미리 작성된 텍스트"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:173
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:183
 msgid "Unordered list"
 msgstr "정렬되지 않은 목록"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:178
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:188
 msgid "Ordered list"
 msgstr "주문 목록"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:188
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:196
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:198
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:206
 msgid "URL?"
 msgstr "URL?"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:189
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:199
 msgid "Language?"
 msgstr "언어?"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:212
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:222
 msgid "Remove text formating"
 msgstr "텍스트 서식 제거"
 
@@ -1687,7 +1687,7 @@ msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup f
 msgstr "백업 파일의 %2$s 줄에 있는 \"%1$s\" 레코드에서 \"%3$s\" ID가 일치하지 않습니다."
 
 #: plugins/importExport/src/Manage.php:90
-#: plugins/maintenance/src/Manage.php:195
+#: plugins/maintenance/src/Manage.php:199
 msgid "Please wait..."
 msgstr "잠깐만 기다려주세요..."
 
@@ -1702,7 +1702,7 @@ msgstr "내보내기 기능은 %s페이지에 있습니다."
 
 #: plugins/importExport/src/Manage.php:144
 #: plugins/maintenance/src/Backend.php:25
-#: plugins/maintenance/src/BackendBehaviors.php:188
+#: plugins/maintenance/src/BackendBehaviors.php:218
 msgid "Maintenance"
 msgstr "블로그 정비"
 
@@ -1992,203 +1992,209 @@ msgstr "댓글 콘텐츠 서식:"
 msgid "WordPress tables not found"
 msgstr "워드프레스 테이블을 찾을 수 없습니다."
 
-#: plugins/maintenance/src/BackendBehaviors.php:49
+#: plugins/maintenance/src/BackendBehaviors.php:50
 msgid "Servicing"
 msgstr "서비스"
 
-#: plugins/maintenance/src/BackendBehaviors.php:49
+#: plugins/maintenance/src/BackendBehaviors.php:50
 msgid "Tools to maintain the performance of your blogs."
 msgstr "블로그의 성능을 유지하기 위한 도구."
 
-#: plugins/maintenance/src/BackendBehaviors.php:50
+#: plugins/maintenance/src/BackendBehaviors.php:51
 msgid "Backup"
 msgstr "백업"
 
-#: plugins/maintenance/src/BackendBehaviors.php:50
+#: plugins/maintenance/src/BackendBehaviors.php:51
 msgid "Tools to back up your content."
 msgstr "콘텐츠 백업을 위한 도구."
 
-#: plugins/maintenance/src/BackendBehaviors.php:51
+#: plugins/maintenance/src/BackendBehaviors.php:52
 msgid "Development"
 msgstr "개발"
 
-#: plugins/maintenance/src/BackendBehaviors.php:51
+#: plugins/maintenance/src/BackendBehaviors.php:52
 msgid "Tools to assist in development of plugins, themes and core."
 msgstr "플러그인, 테마 및 코어 개발을 지원하는 도구."
 
-#: plugins/maintenance/src/BackendBehaviors.php:53
+#: plugins/maintenance/src/BackendBehaviors.php:54
 msgid "Optimize"
 msgstr "최적화"
 
-#: plugins/maintenance/src/BackendBehaviors.php:54
+#: plugins/maintenance/src/BackendBehaviors.php:55
 msgid "Count and index"
 msgstr "카운트 및 색인"
 
-#: plugins/maintenance/src/BackendBehaviors.php:55
+#: plugins/maintenance/src/BackendBehaviors.php:56
 msgid "Purge"
 msgstr "퍼지"
 
-#: plugins/maintenance/src/BackendBehaviors.php:57
+#: plugins/maintenance/src/BackendBehaviors.php:58
 msgid "Current blog"
 msgstr "현재 블로그"
 
-#: plugins/maintenance/src/BackendBehaviors.php:58
+#: plugins/maintenance/src/BackendBehaviors.php:59
 msgid "All blogs"
 msgstr "모든 블로그"
 
-#: plugins/maintenance/src/BackendBehaviors.php:60
+#: plugins/maintenance/src/BackendBehaviors.php:61
 msgid "Maintain translations"
 msgstr "번역 유지 관리"
 
-#: plugins/maintenance/src/BackendBehaviors.php:60
+#: plugins/maintenance/src/BackendBehaviors.php:61
 msgid "Translations"
 msgstr "번역"
 
-#: plugins/maintenance/src/BackendBehaviors.php:136
-#: plugins/maintenance/src/Rest.php:76
+#: plugins/maintenance/src/BackendBehaviors.php:93
+#, php-format
+msgid "One <a href=\"%2$s\">maintenance task</a> to execute."
+msgid_plural "%1$s <a href=\"%2$s\">maintenance tasks</a> to execute."
+msgstr[0] ""
+
+#: plugins/maintenance/src/BackendBehaviors.php:166
+#: plugins/maintenance/src/Rest.php:83
 #, php-format
 msgid "One task to execute"
 msgid_plural "%s tasks to execute"
 msgstr[0] "%s 실행할 작업"
 
-#: plugins/maintenance/src/BackendBehaviors.php:170
-#: plugins/maintenance/src/Manage.php:300
+#: plugins/maintenance/src/BackendBehaviors.php:200
+#: plugins/maintenance/src/Manage.php:305
 msgid "This task has never been executed."
 msgstr "이 작업은 실행된 적이 없습니다."
 
-#: plugins/maintenance/src/BackendBehaviors.php:173
-#: plugins/maintenance/src/Manage.php:303
+#: plugins/maintenance/src/BackendBehaviors.php:203
+#: plugins/maintenance/src/Manage.php:308
 #, php-format
 msgid "Last execution of this task was on %s."
 msgstr "이 작업의 마지막 실행은 %s에서 이루어졌습니다."
 
-#: plugins/maintenance/src/BackendBehaviors.php:191
+#: plugins/maintenance/src/BackendBehaviors.php:221
 #, php-format
 msgid "There is a task to execute."
 msgid_plural "There are %s tasks to execute."
 msgstr[0] "실행할 %s 작업이 있습니다."
 
-#: plugins/maintenance/src/BackendBehaviors.php:198
+#: plugins/maintenance/src/BackendBehaviors.php:228
 msgid "Manage tasks"
 msgstr "작업 관리"
 
-#: plugins/maintenance/src/BackendBehaviors.php:220
+#: plugins/maintenance/src/BackendBehaviors.php:250
 msgid "Display overdue tasks counter on maintenance dashboard icon"
 msgstr "유지 관리 대시보드 아이콘에 기한이 지난 작업 카운터 표시"
 
-#: plugins/maintenance/src/BackendBehaviors.php:226
+#: plugins/maintenance/src/BackendBehaviors.php:256
 msgid "Display overdue tasks list on dashboard items"
 msgstr "대시보드 항목에 기한이 지난 작업 목록 표시"
 
-#: plugins/maintenance/src/MaintenanceTask.php:130
+#: plugins/maintenance/src/MaintenanceTask.php:135
 msgid "Failed to execute task."
 msgstr "작업을 실행하지 못했습니다."
 
-#: plugins/maintenance/src/MaintenanceTask.php:133
+#: plugins/maintenance/src/MaintenanceTask.php:138
 msgid "Task successfully executed."
 msgstr "작업이 성공적으로 실행되었습니다."
 
-#: plugins/maintenance/src/Manage.php:131
+#: plugins/maintenance/src/Manage.php:135
 msgid "Maintenance plugin has been successfully configured."
 msgstr "유지 관리 플러그인이 성공적으로 구성되었습니다."
 
-#: plugins/maintenance/src/Manage.php:149
+#: plugins/maintenance/src/Manage.php:153
 msgid "System settings have been saved."
 msgstr "시스템 설정이 저장되었습니다."
 
-#: plugins/maintenance/src/Manage.php:154
+#: plugins/maintenance/src/Manage.php:158
 msgid "All blog's Content-Security-Policy settings have been reset to default."
 msgstr "모든 블로그의 콘텐츠 보안 정책 설정이 기본값으로 재설정되었습니다."
 
-#: plugins/maintenance/src/Manage.php:176
+#: plugins/maintenance/src/Manage.php:180
 msgid "Every week"
 msgstr "매주"
 
-#: plugins/maintenance/src/Manage.php:177
+#: plugins/maintenance/src/Manage.php:181
 msgid "Every two weeks"
 msgstr "2주마다"
 
-#: plugins/maintenance/src/Manage.php:178
+#: plugins/maintenance/src/Manage.php:182
 msgid "Every month"
 msgstr "매월"
 
-#: plugins/maintenance/src/Manage.php:179
+#: plugins/maintenance/src/Manage.php:183
 msgid "Every two months"
 msgstr "2개월마다"
 
-#: plugins/maintenance/src/Manage.php:212
+#: plugins/maintenance/src/Manage.php:216
 msgid "You have not sufficient permissions to view this page."
 msgstr "이 페이지를 볼 수 있는 충분한 권한이 없습니다."
 
-#: plugins/maintenance/src/Manage.php:300
-#: plugins/maintenance/src/Manage.php:306
+#: plugins/maintenance/src/Manage.php:305
+#: plugins/maintenance/src/Manage.php:311
 msgid "You should execute it now."
 msgstr "지금 실행해야 합니다."
 
-#: plugins/maintenance/src/Manage.php:342
-#: plugins/maintenance/src/Manage.php:376
+#: plugins/maintenance/src/Manage.php:347
+#: plugins/maintenance/src/Manage.php:381
 msgid "Execute task"
 msgstr "작업 실행"
 
-#: plugins/maintenance/src/Manage.php:347
+#: plugins/maintenance/src/Manage.php:352
 msgid "This may take a very long time."
 msgstr "시간이 오래 걸릴 수 있습니다."
 
-#: plugins/maintenance/src/Manage.php:407
-#: plugins/maintenance/src/Manage.php:409
+#: plugins/maintenance/src/Manage.php:418
+#: plugins/maintenance/src/Manage.php:420
 msgid "Alert settings"
 msgstr "알림 설정"
 
-#: plugins/maintenance/src/Manage.php:415
+#: plugins/maintenance/src/Manage.php:426
 msgid "Activation"
 msgstr "활성화"
 
-#: plugins/maintenance/src/Manage.php:421
+#: plugins/maintenance/src/Manage.php:432
 msgid "Display alert messages on late tasks"
 msgstr "늦은 작업에 대한 경고 메시지 표시"
 
-#: plugins/maintenance/src/Manage.php:426
+#: plugins/maintenance/src/Manage.php:437
 #, php-format
 msgid "You can place list of late tasks on your %s."
 msgstr "%s에 늦은 작업 목록을 배치할 수 있습니다."
 
-#: plugins/maintenance/src/Manage.php:431
+#: plugins/maintenance/src/Manage.php:442
 msgid "Frequency"
 msgstr "빈도"
 
-#: plugins/maintenance/src/Manage.php:439
+#: plugins/maintenance/src/Manage.php:450
 msgid "Use one recall time for all tasks"
 msgstr "모든 작업에 한 번의 리콜 시간 사용"
 
-#: plugins/maintenance/src/Manage.php:449
+#: plugins/maintenance/src/Manage.php:460
 msgid "Recall time for all tasks:"
 msgstr "모든 작업에 대한 리콜 시간:"
 
-#: plugins/maintenance/src/Manage.php:458
+#: plugins/maintenance/src/Manage.php:469
 msgid "Use one recall time per task"
 msgstr "작업당 한 번의 리콜 시간 사용"
 
-#: plugins/maintenance/src/Manage.php:489
+#: plugins/maintenance/src/Manage.php:500
 msgid "Content-Security-Policy"
 msgstr "콘텐츠 보안 정책"
 
-#: plugins/maintenance/src/Manage.php:501
+#: plugins/maintenance/src/Manage.php:512
 msgid "Enable Content-Security-Policy system"
 msgstr "콘텐츠 보안 정책 시스템 활성화"
 
-#: plugins/maintenance/src/Manage.php:507
+#: plugins/maintenance/src/Manage.php:518
 msgid "Enable Content-Security-Policy report only"
 msgstr "콘텐츠 보안 정책 보고서만 활성화"
 
-#: plugins/maintenance/src/Manage.php:517
+#: plugins/maintenance/src/Manage.php:528
 msgid "Enable Content-Security-Policy system by default"
 msgstr "기본적으로 콘텐츠 보안 정책 시스템 활성화"
 
-#: plugins/maintenance/src/Manage.php:523
+#: plugins/maintenance/src/Manage.php:534
 msgid "Enable Content-Security-Policy report only by default"
 msgstr "기본적으로 콘텐츠 보안 정책 보고서만 사용 설정"
 
-#: plugins/maintenance/src/Manage.php:529
+#: plugins/maintenance/src/Manage.php:540
 msgid "Also apply these settings to all blogs"
 msgstr "또한 모든 블로그에 다음 설정을 적용합니다."
 
@@ -2233,56 +2239,56 @@ msgstr "댓글 및 트랙백을 계산하지 못했습니다."
 msgid "Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating from dotclear 1 to dotclear 2)."
 msgstr "댓글과 트랙백을 다시 계산하면 정확한 숫자를 확인할 수 있습니다. 이 작업은 다른 블로그 플랫폼에서 가져올 때(또는 닷클리어 1에서 닷클리어 2로 마이그레이션할 때) 유용할 수 있습니다."
 
-#: plugins/maintenance/src/Task/IndexComments.php:60
-#: plugins/maintenance/src/Task/IndexPosts.php:60
+#: plugins/maintenance/src/Task/IndexComments.php:55
+#: plugins/maintenance/src/Task/IndexPosts.php:55
 msgid "Search engine index"
 msgstr "찾기 엔진 인덱스"
 
-#: plugins/maintenance/src/Task/IndexComments.php:61
+#: plugins/maintenance/src/Task/IndexComments.php:56
 msgid "Index all comments for search engine"
 msgstr "검색 엔진의 모든 댓글 색인 생성"
 
-#: plugins/maintenance/src/Task/IndexComments.php:62
-#: plugins/maintenance/src/Task/IndexPosts.php:62
-#: plugins/maintenance/src/Task/SynchPostMeta.php:62
+#: plugins/maintenance/src/Task/IndexComments.php:57
+#: plugins/maintenance/src/Task/IndexPosts.php:57
+#: plugins/maintenance/src/Task/SynchPostMeta.php:57
 msgid "Next"
 msgstr "다음"
 
-#: plugins/maintenance/src/Task/IndexComments.php:63
+#: plugins/maintenance/src/Task/IndexComments.php:58
 #, php-format
 msgid "Indexing comments %1$d to %2$d of %3$d."
 msgstr "%3$d의 댓글 %1$d 을 %2$d 로 색인화합니다."
 
-#: plugins/maintenance/src/Task/IndexComments.php:64
+#: plugins/maintenance/src/Task/IndexComments.php:59
 msgid "Comments indexing done."
 msgstr "댓글 인덱싱이 완료되었습니다."
 
-#: plugins/maintenance/src/Task/IndexComments.php:65
+#: plugins/maintenance/src/Task/IndexComments.php:60
 msgid "Failed to index comments."
 msgstr "댓글 색인 생성에 실패했습니다."
 
-#: plugins/maintenance/src/Task/IndexComments.php:67
+#: plugins/maintenance/src/Task/IndexComments.php:62
 msgid "Index all comments and trackbacks in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
 msgstr "검색 엔진 색인에서 모든 댓글과 트랙백을 색인화합니다. 이 작업은 블로그에서 콘텐츠를 가져온 후 공개 및 비공개 페이지에서 내부 검색 엔진을 사용하려면 필요합니다."
 
-#: plugins/maintenance/src/Task/IndexPosts.php:61
+#: plugins/maintenance/src/Task/IndexPosts.php:56
 msgid "Index all entries for search engine"
 msgstr "검색 엔진의 모든 항목 색인 생성"
 
-#: plugins/maintenance/src/Task/IndexPosts.php:63
+#: plugins/maintenance/src/Task/IndexPosts.php:58
 #, php-format
 msgid "Indexing entries %1$d to %2$d of %3$d."
 msgstr "%3$d의 %1$d ~ %2$d 항목을 색인화합니다."
 
-#: plugins/maintenance/src/Task/IndexPosts.php:64
+#: plugins/maintenance/src/Task/IndexPosts.php:59
 msgid "Entries indexing done."
 msgstr "항목 인덱싱이 완료되었습니다."
 
-#: plugins/maintenance/src/Task/IndexPosts.php:65
+#: plugins/maintenance/src/Task/IndexPosts.php:60
 msgid "Failed to index entries."
 msgstr "항목을 색인화하지 못했습니다."
 
-#: plugins/maintenance/src/Task/IndexPosts.php:67
+#: plugins/maintenance/src/Task/IndexPosts.php:62
 msgid "Index all entries in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
 msgstr "검색 엔진 색인에서 모든 항목을 색인화합니다. 이 작업은 블로그에서 콘텐츠를 가져온 후 공개 및 비공개 페이지에서 내부 검색 엔진을 사용하려면 필요합니다."
 
@@ -2302,28 +2308,28 @@ msgstr "로그를 삭제하지 못했습니다."
 msgid "Logs record all activity and connection to your blog history. Unless you need to keep this history, consider deleting these logs from time to time."
 msgstr "로그에는 블로그 기록에 대한 모든 활동과 연결이 기록됩니다. 이 기록을 보관할 필요가 없다면 이 로그를 가끔씩 삭제하는 것이 좋습니다."
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:60
+#: plugins/maintenance/src/Task/SynchPostMeta.php:55
 msgid "Entries metadata"
 msgstr "항목 메타데이터"
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:61
+#: plugins/maintenance/src/Task/SynchPostMeta.php:56
 msgid "Synchronize entries metadata"
 msgstr "항목 메타데이터 동기화"
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:63
+#: plugins/maintenance/src/Task/SynchPostMeta.php:58
 #, php-format
 msgid "Synchronizing metadata of entries %1$d to %2$d of %3$d."
 msgstr "항목의 메타데이터를 %1$d 의 %2$d 에 동기화 %3$d."
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:64
+#: plugins/maintenance/src/Task/SynchPostMeta.php:59
 msgid "Entries metadata synchronize done."
 msgstr "항목 메타데이터 동기화가 완료되었습니다."
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:65
+#: plugins/maintenance/src/Task/SynchPostMeta.php:60
 msgid "Failed to synchronize entries metadata."
 msgstr "항목 메타데이터를 동기화하지 못했습니다."
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:67
+#: plugins/maintenance/src/Task/SynchPostMeta.php:62
 msgid "Synchronize all entries metadata could be useful after importing content in your blog or do bad operation on database tables."
 msgstr "모든 항목 메타데이터 동기화는 블로그에서 콘텐츠를 가져오거나 데이터베이스 테이블에서 잘못된 작업을 수행한 후에 유용할 수 있습니다."
 
@@ -2382,7 +2388,7 @@ msgid "%d pages"
 msgstr "%d 페이지"
 
 #: plugins/pages/src/Backend.php:108 plugins/pages/src/Manage.php:148
-#: plugins/pages/src/ManagePage.php:107 plugins/pages/src/ManagePage.php:834
+#: plugins/pages/src/ManagePage.php:107 plugins/pages/src/ManagePage.php:854
 msgid "New page"
 msgstr "새 페이지"
 
@@ -2459,56 +2465,56 @@ msgstr "페이지 순서 저장"
 msgid "This page does not exist."
 msgstr "이 페이지는 존재하지 않습니다."
 
-#: plugins/pages/src/ManagePage.php:188 plugins/pages/src/ManagePage.php:834
-#: plugins/pages/src/ManagePage.php:855
+#: plugins/pages/src/ManagePage.php:188 plugins/pages/src/ManagePage.php:854
+#: plugins/pages/src/ManagePage.php:875
 msgid "Edit page"
 msgstr "페이지 편집"
 
-#: plugins/pages/src/ManagePage.php:468
+#: plugins/pages/src/ManagePage.php:488
 msgid "Are you sure you want to delete this page?"
 msgstr "페이지를 삭제하시려는 게 확실합니까 ?"
 
-#: plugins/pages/src/ManagePage.php:496
+#: plugins/pages/src/ManagePage.php:516
 msgid "Page has been successfully updated."
 msgstr "페이지가 성공적으로 갱신되었습니다."
 
-#: plugins/pages/src/ManagePage.php:498
+#: plugins/pages/src/ManagePage.php:518
 msgid "Page has been successfully created."
 msgstr "페이지가 성공적으로 생성되었습니다."
 
-#: plugins/pages/src/ManagePage.php:511
+#: plugins/pages/src/ManagePage.php:531
 msgid "Don't forget to validate your HTML conversion by saving your post."
 msgstr "글을 저장하여 HTML 변환의 유효성을 검사하는 것을 잊지 마세요."
 
-#: plugins/pages/src/ManagePage.php:521
+#: plugins/pages/src/ManagePage.php:541
 msgid "Go to this page on the site"
 msgstr "사이트의 이 페이지로 이동"
 
-#: plugins/pages/src/ManagePage.php:563
+#: plugins/pages/src/ManagePage.php:583
 msgid "Page status"
 msgstr "페이지 공개상태 :"
 
-#: plugins/pages/src/ManagePage.php:580
+#: plugins/pages/src/ManagePage.php:600
 msgid "Page language"
 msgstr "페이지 언어"
 
-#: plugins/pages/src/ManagePage.php:609 plugins/pages/src/Widgets.php:41
+#: plugins/pages/src/ManagePage.php:629 plugins/pages/src/Widgets.php:41
 msgid "Page position"
 msgstr "페이지 위치"
 
-#: plugins/pages/src/ManagePage.php:660
+#: plugins/pages/src/ManagePage.php:680
 msgid "Hide in widget Pages"
 msgstr "위젯 페이지에 숨기기"
 
-#: plugins/pages/src/ManagePage.php:686
+#: plugins/pages/src/ManagePage.php:706
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "주의 : URL을 수작업으로 지정할 경우, 다른 페이지와 충돌이 생길 수도 있습니다."
 
-#: plugins/pages/src/ManagePage.php:725
+#: plugins/pages/src/ManagePage.php:745
 msgid "Introduction to the page."
 msgstr "페이지 소개."
 
-#: plugins/pages/src/ManagePage.php:1104
+#: plugins/pages/src/ManagePage.php:1124
 msgid "Select this comment"
 msgstr "이 댓글 선택"
 
