@@ -14,6 +14,7 @@ use ArrayObject;
 use Dotclear\App;
 use Dotclear\Core\Backend\Favorites;
 use Dotclear\Core\Backend\Helper;
+use Dotclear\Core\Backend\Notices;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Form\Dd;
@@ -70,6 +71,35 @@ class BackendBehaviors
             ->addTask(Task\ZipMedia::class)
             ->addTask(Task\ZipTheme::class)
         ;
+    }
+
+    /**
+     * Dashboard message.
+     */
+    public static function adminDashboardMessage(): string
+    {
+        // Check expired tasks
+        $maintenance = new Maintenance();
+        $count       = 0;
+        foreach ($maintenance->getTasks() as $t) {
+            if ($t->expired() !== false) {
+                $count++;
+            }
+        }
+
+        if ($count > 0) {
+            Notices::warning(sprintf(
+                __(
+                    'One <a href="%2$s">maintenance task</a> to execute.',
+                    '%1$s <a href="%2$s">maintenance tasks</a> to execute.',
+                    $count
+                ),
+                $count,
+                My::manageUrl()
+            ));
+        }
+
+        return '';
     }
 
     /**

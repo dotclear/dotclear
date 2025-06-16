@@ -516,6 +516,9 @@ class Home extends Process
 
         $dashboardMain = $composeItems($main_order, $__dashboard_main, true);
 
+        # --BEHAVIOR-- adminDashboardItemsV2 -- ArrayObject
+        App::behavior()->callBehavior('adminDashboardMessage');
+
         echo $dragndrop . '<div id="dashboard-main">' . $dashboardMain . '</div>';
 
         Page::helpBlock('core_dashboard');

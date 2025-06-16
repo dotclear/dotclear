@@ -46,6 +46,7 @@ class Backend extends Process
             'adminDashboardOptionsFormV2'      => BackendBehaviors::adminDashboardOptionsForm(...),
             'adminAfterDashboardOptionsUpdate' => BackendBehaviors::adminAfterDashboardOptionsUpdate(...),
             'adminPageHelpBlock'               => BackendBehaviors::adminPageHelpBlock(...),
+            'adminDashboardMessage'            => BackendBehaviors::adminDashboardMessage(...),
         ]);
 
         // Rest method
