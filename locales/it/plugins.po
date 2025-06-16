@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-16 09:22+0200\n"
-"PO-Revision-Date: 2025-06-16 07:27\n"
+"PO-Revision-Date: 2025-06-16 07:52\n"
 "Last-Translator: \n"
 "Language-Team: Italian\n"
 "Language: it_IT\n"
@@ -2050,8 +2050,8 @@ msgstr "Traduzioni"
 #, php-format
 msgid "One <a href=\"%2$s\">maintenance task</a> to execute."
 msgid_plural "%1$s <a href=\"%2$s\">maintenance tasks</a> to execute."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Un'<a href=\"%2$s\">attività di manutenzione</a> da eseguire."
+msgstr[1] "%1$s <a href=\"%2$s\">attività di manutenzione</a> da eseguire."
 
 #: plugins/maintenance/src/BackendBehaviors.php:166
 #: plugins/maintenance/src/Rest.php:83
