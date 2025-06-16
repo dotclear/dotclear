@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-08 10:49+0200\n"
-"PO-Revision-Date: 2025-06-08 09:23\n"
+"POT-Creation-Date: 2025-06-16 09:22+0200\n"
+"PO-Revision-Date: 2025-06-16 07:27\n"
 "Last-Translator: \n"
 "Language-Team: Hindi\n"
 "Language: hi_IN\n"
@@ -1140,7 +1140,7 @@ msgstr "श्रेणी सफलतापूर्वक अद्यतन 
 
 #: plugins/blogroll/src/ManageEdit.php:181
 #: plugins/dcCKEditor/src/BackendBehaviors.php:62
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:184
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:194
 msgid "Link"
 msgstr "लिंक"
 
@@ -1364,27 +1364,27 @@ msgid "HTML"
 msgstr "एचटीएमएल"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:59
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:200
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:210
 msgid "Media chooser"
 msgstr "मीडिया चयनक"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:60
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:203
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:213
 msgid "m"
 msgstr "एम"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:61
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:207
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:217
 msgid "Link to an entry"
 msgstr "एक प्रविष्टि के लिए लिंक"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:63
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:187
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:197
 msgid "l"
 msgstr "एल"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:64
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:193
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:203
 msgid "External image"
 msgstr "बाहरी छवि"
 
@@ -1393,7 +1393,7 @@ msgid "URL field cannot be empty."
 msgstr "यूआरएल क्षेत्र रिक्त नहीं हो सकता."
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:89
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:229
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:239
 msgid "Open the media"
 msgstr "मीडिया खोलें"
 
@@ -1506,112 +1506,112 @@ msgstr "DclegacyEds"
 msgid "Dotclear wiki"
 msgstr "साफ-साफ विकि"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:104
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:114
 msgid "visual"
 msgstr "दृश्य"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:105
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:115
 msgid "source"
 msgstr "उद्गम स्थल"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:106
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:116
 msgid "You can use the following shortcuts to format your text."
 msgstr "आप अपने पाठ को फ़ॉर्मेट करने के लिए निम्नलिखित शॉर्टकट का उपयोग कर सकते हैं."
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:109
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:119
 msgid "Block format"
 msgstr "ब्लॉक फॉर्मेट"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:111
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:121
 msgid "-- none --"
 msgstr "-कोई नहीं-"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:112
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:122
 msgid "-- block format --"
 msgstr "-ब्लॉक प्रारूप-"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:113
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:123
 msgid "Paragraph"
 msgstr "पैराग्राफ"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:114
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:124
 msgid "Level 1 header"
 msgstr "स्तर 1 हैडर"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:115
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:125
 msgid "Level 2 header"
 msgstr "स्तर 2 हैडर"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:116
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:126
 msgid "Level 3 header"
 msgstr "स्तर 3 हैडर"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:117
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:127
 msgid "Level 4 header"
 msgstr "स्तर 4 हैडर"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:118
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:128
 msgid "Level 5 header"
 msgstr "स्तर 5 हैडर"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:119
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:129
 msgid "Level 6 header"
 msgstr "स्तर 6 हैडर"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:123
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:133
 msgid "Strong emphasis"
 msgstr "मजबूत जोर"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:128
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:138
 msgid "Emphasis"
 msgstr "जोर देना"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:133
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:143
 msgid "Inserted"
 msgstr "प्रविष्ट किया"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:138
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:148
 msgid "Deleted"
 msgstr "मिटाया"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:143
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:153
 msgid "Inline quote"
 msgstr "इनलाइल उद्धरण"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:148
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:158
 msgid "Code"
 msgstr "कोड"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:158
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:168
 msgid "Line break"
 msgstr "लाइन ब्रेक"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:163
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:173
 msgid "Blockquote"
 msgstr "ब्लॉककोट"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:168
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:178
 msgid "Preformated text"
 msgstr "पूर्वकृत पाठ (T)"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:173
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:183
 msgid "Unordered list"
 msgstr "अआदेश सूची"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:178
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:188
 msgid "Ordered list"
 msgstr "आदेश सूची"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:188
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:196
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:198
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:206
 msgid "URL?"
 msgstr "यूआरएल?"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:189
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:199
 msgid "Language?"
 msgstr "भाषा?"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:212
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:222
 msgid "Remove text formating"
 msgstr "पाठ फॉर्मेटिंग हटाएँ"
 
@@ -1689,7 +1689,7 @@ msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup f
 msgstr "\"%3$s\" की आईडी बैकअप फ़ाइल की पंक्ति %2$s पर रिकॉर्ड \"%1$s\" से मेल नहीं खाती।"
 
 #: plugins/importExport/src/Manage.php:90
-#: plugins/maintenance/src/Manage.php:195
+#: plugins/maintenance/src/Manage.php:199
 msgid "Please wait..."
 msgstr "कृपया प्रतीक्षा करें ..."
 
@@ -1704,7 +1704,7 @@ msgstr "निर्यात फ़ंक्शंस पृष्ठ %s मे
 
 #: plugins/importExport/src/Manage.php:144
 #: plugins/maintenance/src/Backend.php:25
-#: plugins/maintenance/src/BackendBehaviors.php:188
+#: plugins/maintenance/src/BackendBehaviors.php:218
 msgid "Maintenance"
 msgstr "अनुरक्षण"
 
@@ -1994,205 +1994,212 @@ msgstr "टिप्पणी सामग्री फार्मेटर:"
 msgid "WordPress tables not found"
 msgstr "वर्डप्रेस टेबल नहीं मिला"
 
-#: plugins/maintenance/src/BackendBehaviors.php:49
+#: plugins/maintenance/src/BackendBehaviors.php:50
 msgid "Servicing"
 msgstr "सर्विसिंग"
 
-#: plugins/maintenance/src/BackendBehaviors.php:49
+#: plugins/maintenance/src/BackendBehaviors.php:50
 msgid "Tools to maintain the performance of your blogs."
 msgstr "अपने ब्लॉग के प्रदर्शन को बनाए रखने के लिए उपकरण."
 
-#: plugins/maintenance/src/BackendBehaviors.php:50
+#: plugins/maintenance/src/BackendBehaviors.php:51
 msgid "Backup"
 msgstr "बैकअप"
 
-#: plugins/maintenance/src/BackendBehaviors.php:50
+#: plugins/maintenance/src/BackendBehaviors.php:51
 msgid "Tools to back up your content."
 msgstr "अपनी सामग्री को वापस करने के लिए उपकरण."
 
-#: plugins/maintenance/src/BackendBehaviors.php:51
+#: plugins/maintenance/src/BackendBehaviors.php:52
 msgid "Development"
 msgstr "विकास"
 
-#: plugins/maintenance/src/BackendBehaviors.php:51
+#: plugins/maintenance/src/BackendBehaviors.php:52
 msgid "Tools to assist in development of plugins, themes and core."
 msgstr "प्लगइन, थीम और कोर के विकास में सहायता करने के लिए उपकरण."
 
-#: plugins/maintenance/src/BackendBehaviors.php:53
+#: plugins/maintenance/src/BackendBehaviors.php:54
 msgid "Optimize"
 msgstr "अनुकूलित करें"
 
-#: plugins/maintenance/src/BackendBehaviors.php:54
+#: plugins/maintenance/src/BackendBehaviors.php:55
 msgid "Count and index"
 msgstr "गिनती और सूचकांक"
 
-#: plugins/maintenance/src/BackendBehaviors.php:55
+#: plugins/maintenance/src/BackendBehaviors.php:56
 msgid "Purge"
 msgstr "शुद्धिकरण"
 
-#: plugins/maintenance/src/BackendBehaviors.php:57
+#: plugins/maintenance/src/BackendBehaviors.php:58
 msgid "Current blog"
 msgstr "वर्तमान ब्लॉग"
 
-#: plugins/maintenance/src/BackendBehaviors.php:58
+#: plugins/maintenance/src/BackendBehaviors.php:59
 msgid "All blogs"
 msgstr "सभी ब्लॉग"
 
-#: plugins/maintenance/src/BackendBehaviors.php:60
+#: plugins/maintenance/src/BackendBehaviors.php:61
 msgid "Maintain translations"
 msgstr "अनुवाद बनाए रखें"
 
-#: plugins/maintenance/src/BackendBehaviors.php:60
+#: plugins/maintenance/src/BackendBehaviors.php:61
 msgid "Translations"
 msgstr "अनुवाद"
 
-#: plugins/maintenance/src/BackendBehaviors.php:136
-#: plugins/maintenance/src/Rest.php:76
+#: plugins/maintenance/src/BackendBehaviors.php:93
+#, php-format
+msgid "One <a href=\"%2$s\">maintenance task</a> to execute."
+msgid_plural "%1$s <a href=\"%2$s\">maintenance tasks</a> to execute."
+msgstr[0] ""
+msgstr[1] ""
+
+#: plugins/maintenance/src/BackendBehaviors.php:166
+#: plugins/maintenance/src/Rest.php:83
 #, php-format
 msgid "One task to execute"
 msgid_plural "%s tasks to execute"
 msgstr[0] "निष्पादित करने के लिए एक कार्य"
 msgstr[1] "निष्पादित करने के लिए %s कार्य"
 
-#: plugins/maintenance/src/BackendBehaviors.php:170
-#: plugins/maintenance/src/Manage.php:300
+#: plugins/maintenance/src/BackendBehaviors.php:200
+#: plugins/maintenance/src/Manage.php:305
 msgid "This task has never been executed."
 msgstr "यह कार्य कभी निष्पादित नहीं किया गया है."
 
-#: plugins/maintenance/src/BackendBehaviors.php:173
-#: plugins/maintenance/src/Manage.php:303
+#: plugins/maintenance/src/BackendBehaviors.php:203
+#: plugins/maintenance/src/Manage.php:308
 #, php-format
 msgid "Last execution of this task was on %s."
 msgstr "इस कार्य का अंतिम निष्पादन %s पर था."
 
-#: plugins/maintenance/src/BackendBehaviors.php:191
+#: plugins/maintenance/src/BackendBehaviors.php:221
 #, php-format
 msgid "There is a task to execute."
 msgid_plural "There are %s tasks to execute."
 msgstr[0] "निष्पादित करने के लिए एक कार्य है."
 msgstr[1] "निष्पादित करने के लिए %s कार्य हैं."
 
-#: plugins/maintenance/src/BackendBehaviors.php:198
+#: plugins/maintenance/src/BackendBehaviors.php:228
 msgid "Manage tasks"
 msgstr "कार्य प्रबंधित करें"
 
-#: plugins/maintenance/src/BackendBehaviors.php:220
+#: plugins/maintenance/src/BackendBehaviors.php:250
 msgid "Display overdue tasks counter on maintenance dashboard icon"
 msgstr "रखरखाव डैशबोर्ड प्रतीक पर अतिदेय कार्य काउंटर दिखाएँ"
 
-#: plugins/maintenance/src/BackendBehaviors.php:226
+#: plugins/maintenance/src/BackendBehaviors.php:256
 msgid "Display overdue tasks list on dashboard items"
 msgstr "डैशबोर्ड मद पर अतिदेय कार्य सूची को प्रदर्शित करें"
 
-#: plugins/maintenance/src/MaintenanceTask.php:130
+#: plugins/maintenance/src/MaintenanceTask.php:135
 msgid "Failed to execute task."
 msgstr "कार्य निष्पादित करने में विफल."
 
-#: plugins/maintenance/src/MaintenanceTask.php:133
+#: plugins/maintenance/src/MaintenanceTask.php:138
 msgid "Task successfully executed."
 msgstr "कार्य सफलतापूर्वक निष्पादित किया."
 
-#: plugins/maintenance/src/Manage.php:131
+#: plugins/maintenance/src/Manage.php:135
 msgid "Maintenance plugin has been successfully configured."
 msgstr "रखरखाव प्लगिन सफलतापूर्वक विन्यस्त किया गया है."
 
-#: plugins/maintenance/src/Manage.php:149
+#: plugins/maintenance/src/Manage.php:153
 msgid "System settings have been saved."
 msgstr "सिस्टम सेटिंग सहेजा गया है."
 
-#: plugins/maintenance/src/Manage.php:154
+#: plugins/maintenance/src/Manage.php:158
 msgid "All blog's Content-Security-Policy settings have been reset to default."
 msgstr "सभी ब्लॉग की सामग्री-सुरक्षा-नीति सेटिंग्स डिफ़ॉल्ट रूप से रीसेट कर दिया गया है."
 
-#: plugins/maintenance/src/Manage.php:176
+#: plugins/maintenance/src/Manage.php:180
 msgid "Every week"
 msgstr "हर सप्ताह"
 
-#: plugins/maintenance/src/Manage.php:177
+#: plugins/maintenance/src/Manage.php:181
 msgid "Every two weeks"
 msgstr "हर दो सप्ताह"
 
-#: plugins/maintenance/src/Manage.php:178
+#: plugins/maintenance/src/Manage.php:182
 msgid "Every month"
 msgstr "हर महीने"
 
-#: plugins/maintenance/src/Manage.php:179
+#: plugins/maintenance/src/Manage.php:183
 msgid "Every two months"
 msgstr "हर दो महीने"
 
-#: plugins/maintenance/src/Manage.php:212
+#: plugins/maintenance/src/Manage.php:216
 msgid "You have not sufficient permissions to view this page."
 msgstr "इस पृष्ठ को देखने के लिए आपके पास पर्याप्त अनुमतियाँ नहीं हैं."
 
-#: plugins/maintenance/src/Manage.php:300
-#: plugins/maintenance/src/Manage.php:306
+#: plugins/maintenance/src/Manage.php:305
+#: plugins/maintenance/src/Manage.php:311
 msgid "You should execute it now."
 msgstr "आप इसे अब चलाना चाहिए."
 
-#: plugins/maintenance/src/Manage.php:342
-#: plugins/maintenance/src/Manage.php:376
+#: plugins/maintenance/src/Manage.php:347
+#: plugins/maintenance/src/Manage.php:381
 msgid "Execute task"
 msgstr "कार्य निष्पादित करें"
 
-#: plugins/maintenance/src/Manage.php:347
+#: plugins/maintenance/src/Manage.php:352
 msgid "This may take a very long time."
 msgstr "यह बहुत लंबा समय ले सकता है."
 
-#: plugins/maintenance/src/Manage.php:407
-#: plugins/maintenance/src/Manage.php:409
+#: plugins/maintenance/src/Manage.php:418
+#: plugins/maintenance/src/Manage.php:420
 msgid "Alert settings"
 msgstr "चेतावनी सेटिंग्स"
 
-#: plugins/maintenance/src/Manage.php:415
+#: plugins/maintenance/src/Manage.php:426
 msgid "Activation"
 msgstr "सक्रियकरण"
 
-#: plugins/maintenance/src/Manage.php:421
+#: plugins/maintenance/src/Manage.php:432
 msgid "Display alert messages on late tasks"
 msgstr "देर के कार्यों पर चेतावनी संदेश प्रदर्शित करें"
 
-#: plugins/maintenance/src/Manage.php:426
+#: plugins/maintenance/src/Manage.php:437
 #, php-format
 msgid "You can place list of late tasks on your %s."
 msgstr "आप अपने %s पर देर से कार्यों की सूची रख सकते हैं."
 
-#: plugins/maintenance/src/Manage.php:431
+#: plugins/maintenance/src/Manage.php:442
 msgid "Frequency"
 msgstr "आवृत्ति"
 
-#: plugins/maintenance/src/Manage.php:439
+#: plugins/maintenance/src/Manage.php:450
 msgid "Use one recall time for all tasks"
 msgstr "सभी कार्यों के लिए एक याद करने का समय उपयोग करें"
 
-#: plugins/maintenance/src/Manage.php:449
+#: plugins/maintenance/src/Manage.php:460
 msgid "Recall time for all tasks:"
 msgstr "सभी कार्यों के लिए समय याद करें:"
 
-#: plugins/maintenance/src/Manage.php:458
+#: plugins/maintenance/src/Manage.php:469
 msgid "Use one recall time per task"
 msgstr "एक याद करें समय प्रति कार्य का उपयोग करें"
 
-#: plugins/maintenance/src/Manage.php:489
+#: plugins/maintenance/src/Manage.php:500
 msgid "Content-Security-Policy"
 msgstr "सामग्री-सुरक्षा-नीति"
 
-#: plugins/maintenance/src/Manage.php:501
+#: plugins/maintenance/src/Manage.php:512
 msgid "Enable Content-Security-Policy system"
 msgstr "सामग्री सुरक्षा-नीति प्रणाली सक्षम करें"
 
-#: plugins/maintenance/src/Manage.php:507
+#: plugins/maintenance/src/Manage.php:518
 msgid "Enable Content-Security-Policy report only"
 msgstr "सामग्री-सुरक्षा-नीति की रिपोर्ट सक्षम करें"
 
-#: plugins/maintenance/src/Manage.php:517
+#: plugins/maintenance/src/Manage.php:528
 msgid "Enable Content-Security-Policy system by default"
 msgstr "डिफ़ॉल्ट रूप से सामग्री-सुरक्षा-नीति प्रणाली सक्षम करें"
 
-#: plugins/maintenance/src/Manage.php:523
+#: plugins/maintenance/src/Manage.php:534
 msgid "Enable Content-Security-Policy report only by default"
 msgstr "सामग्री-सुरक्षा-नीति की रिपोर्ट केवल तयशुदा से सक्रिय करें"
 
-#: plugins/maintenance/src/Manage.php:529
+#: plugins/maintenance/src/Manage.php:540
 msgid "Also apply these settings to all blogs"
 msgstr "इन सेटिंग्स को सभी ब्लॉगों में भी लागू करें"
 
@@ -2237,56 +2244,56 @@ msgstr "टिप्पणियाँ और ट्रैकबैक गिन
 msgid "Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating from dotclear 1 to dotclear 2)."
 msgstr "फिर से टिप्पणी करें और ट्रैकबैक अपनी सटीक संख्या की जाँच करने की अनुमति देता है. यह संक्रिया एक अन्य ब्लॉग मंच से आयात करने के दौरान उपयोगी हो सकती है (या जब डॉटसाइट से स्पष्ट 2 से बाहर हो जाने पर 2)."
 
-#: plugins/maintenance/src/Task/IndexComments.php:60
-#: plugins/maintenance/src/Task/IndexPosts.php:60
+#: plugins/maintenance/src/Task/IndexComments.php:55
+#: plugins/maintenance/src/Task/IndexPosts.php:55
 msgid "Search engine index"
 msgstr "खोज इंजन सूचकांक"
 
-#: plugins/maintenance/src/Task/IndexComments.php:61
+#: plugins/maintenance/src/Task/IndexComments.php:56
 msgid "Index all comments for search engine"
 msgstr "खोज इंजन के लिए सभी टिप्पणियों का सूचकांक"
 
-#: plugins/maintenance/src/Task/IndexComments.php:62
-#: plugins/maintenance/src/Task/IndexPosts.php:62
-#: plugins/maintenance/src/Task/SynchPostMeta.php:62
+#: plugins/maintenance/src/Task/IndexComments.php:57
+#: plugins/maintenance/src/Task/IndexPosts.php:57
+#: plugins/maintenance/src/Task/SynchPostMeta.php:57
 msgid "Next"
 msgstr "अगला"
 
-#: plugins/maintenance/src/Task/IndexComments.php:63
+#: plugins/maintenance/src/Task/IndexComments.php:58
 #, php-format
 msgid "Indexing comments %1$d to %2$d of %3$d."
 msgstr "%1$d से %2$d तक की %3$d टिप्पणियों को अनुक्रमित किया जा रहा है।"
 
-#: plugins/maintenance/src/Task/IndexComments.php:64
+#: plugins/maintenance/src/Task/IndexComments.php:59
 msgid "Comments indexing done."
 msgstr "टिप्पणियाँ अनुक्रमणित की गईं।"
 
-#: plugins/maintenance/src/Task/IndexComments.php:65
+#: plugins/maintenance/src/Task/IndexComments.php:60
 msgid "Failed to index comments."
 msgstr "टिप्पणी सूची में विफल."
 
-#: plugins/maintenance/src/Task/IndexComments.php:67
+#: plugins/maintenance/src/Task/IndexComments.php:62
 msgid "Index all comments and trackbacks in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
 msgstr "खोज इंजन सूचकांक में सभी टिप्पणी और ट्रेकबैक इंडेक्स. यह ऑपरेशन आवश्यक है, अपने ब्लॉग में सामग्री का आयात करने के बाद, आंतरिक खोज इंजन का उपयोग करने के लिए सार्वजनिक और निजी पृष्ठों पर."
 
-#: plugins/maintenance/src/Task/IndexPosts.php:61
+#: plugins/maintenance/src/Task/IndexPosts.php:56
 msgid "Index all entries for search engine"
 msgstr "खोज इंजन के लिए सभी प्रविष्टियों का सूचकांक"
 
-#: plugins/maintenance/src/Task/IndexPosts.php:63
+#: plugins/maintenance/src/Task/IndexPosts.php:58
 #, php-format
 msgid "Indexing entries %1$d to %2$d of %3$d."
 msgstr "%1$d से %2$d तक की प्रविष्टियों को %3$d में अनुक्रमित किया जा रहा है।"
 
-#: plugins/maintenance/src/Task/IndexPosts.php:64
+#: plugins/maintenance/src/Task/IndexPosts.php:59
 msgid "Entries indexing done."
 msgstr "प्रविष्टियों का अनुक्रमण पूरा हो गया।"
 
-#: plugins/maintenance/src/Task/IndexPosts.php:65
+#: plugins/maintenance/src/Task/IndexPosts.php:60
 msgid "Failed to index entries."
 msgstr "प्रविष्टियों को सूची में डालने में असफल."
 
-#: plugins/maintenance/src/Task/IndexPosts.php:67
+#: plugins/maintenance/src/Task/IndexPosts.php:62
 msgid "Index all entries in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
 msgstr "खोज इंजन सूचकांक में सभी प्रविष्टियों का सूचकांक. यह ऑपरेशन आवश्यक है, अपने ब्लॉग में सामग्री का आयात करने के बाद, आंतरिक खोज इंजन का उपयोग करने के लिए सार्वजनिक और निजी पृष्ठों पर."
 
@@ -2306,28 +2313,28 @@ msgstr "लॉग को मिटाने में असफल."
 msgid "Logs record all activity and connection to your blog history. Unless you need to keep this history, consider deleting these logs from time to time."
 msgstr "अपने ब्लॉग इतिहास के लिए सभी गतिविधि और कनेक्शन का रिकॉर्ड लॉग इन करें. जब तक आप इस इतिहास को बनाए रखने की जरूरत है, इन लॉग को समय समय पर हटाने पर विचार करें."
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:60
+#: plugins/maintenance/src/Task/SynchPostMeta.php:55
 msgid "Entries metadata"
 msgstr "प्रविष्टियों का मेटाडाटा"
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:61
+#: plugins/maintenance/src/Task/SynchPostMeta.php:56
 msgid "Synchronize entries metadata"
 msgstr "प्रविष्टियों को तुल्यकालित करें"
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:63
+#: plugins/maintenance/src/Task/SynchPostMeta.php:58
 #, php-format
 msgid "Synchronizing metadata of entries %1$d to %2$d of %3$d."
 msgstr "%1$d से %2$d या %3$d प्रविष्टियों का मेटाडेटा सिंक्रनाइज़ किया जा रहा है।"
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:64
+#: plugins/maintenance/src/Task/SynchPostMeta.php:59
 msgid "Entries metadata synchronize done."
 msgstr "प्रविष्टि मेटाडाटा सिंक्रोनाइज़ करें."
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:65
+#: plugins/maintenance/src/Task/SynchPostMeta.php:60
 msgid "Failed to synchronize entries metadata."
 msgstr "प्रविष्टियों के मेटाडाटा को तुल्यकालित करने में विफल."
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:67
+#: plugins/maintenance/src/Task/SynchPostMeta.php:62
 msgid "Synchronize all entries metadata could be useful after importing content in your blog or do bad operation on database tables."
 msgstr "सभी प्रविष्टियों मेटाडाटा को तुल्यकालित करता है अपने ब्लॉग में सामग्री का आयात करने के बाद या डेटाबेस टेबल पर बुरा ऑपरेशन करने के बाद उपयोगी हो सकता है."
 
@@ -2386,7 +2393,7 @@ msgid "%d pages"
 msgstr "%d पृष्ठ"
 
 #: plugins/pages/src/Backend.php:108 plugins/pages/src/Manage.php:148
-#: plugins/pages/src/ManagePage.php:107 plugins/pages/src/ManagePage.php:834
+#: plugins/pages/src/ManagePage.php:107 plugins/pages/src/ManagePage.php:854
 msgid "New page"
 msgstr "नया पृष्ठ"
 
@@ -2463,56 +2470,56 @@ msgstr "पृष्ठ क्रम सहेजें"
 msgid "This page does not exist."
 msgstr "यह पृष्ठ मौजूद नहीं है."
 
-#: plugins/pages/src/ManagePage.php:188 plugins/pages/src/ManagePage.php:834
-#: plugins/pages/src/ManagePage.php:855
+#: plugins/pages/src/ManagePage.php:188 plugins/pages/src/ManagePage.php:854
+#: plugins/pages/src/ManagePage.php:875
 msgid "Edit page"
 msgstr "पृष्ठ संपादित करें"
 
-#: plugins/pages/src/ManagePage.php:468
+#: plugins/pages/src/ManagePage.php:488
 msgid "Are you sure you want to delete this page?"
 msgstr "क्या आप निश्चित हैं कि आप इस पृष्ठ को मिटाना चाहते हैं?"
 
-#: plugins/pages/src/ManagePage.php:496
+#: plugins/pages/src/ManagePage.php:516
 msgid "Page has been successfully updated."
 msgstr "पृष्ठ सफलतापूर्वक अद्यतन किया गया है."
 
-#: plugins/pages/src/ManagePage.php:498
+#: plugins/pages/src/ManagePage.php:518
 msgid "Page has been successfully created."
 msgstr "पृष्ठ सफलतापूर्वक बनाया गया है."
 
-#: plugins/pages/src/ManagePage.php:511
+#: plugins/pages/src/ManagePage.php:531
 msgid "Don't forget to validate your HTML conversion by saving your post."
 msgstr "अपने पोस्ट को बचाने के द्वारा अपने HTML रूपांतरण को वैध बनाने के लिए मत भूलना."
 
-#: plugins/pages/src/ManagePage.php:521
+#: plugins/pages/src/ManagePage.php:541
 msgid "Go to this page on the site"
 msgstr "साइट पर इस पृष्ठ पर जाएँ"
 
-#: plugins/pages/src/ManagePage.php:563
+#: plugins/pages/src/ManagePage.php:583
 msgid "Page status"
 msgstr "पृष्ठ स्थिति"
 
-#: plugins/pages/src/ManagePage.php:580
+#: plugins/pages/src/ManagePage.php:600
 msgid "Page language"
 msgstr "पृष्ठ भाषा"
 
-#: plugins/pages/src/ManagePage.php:609 plugins/pages/src/Widgets.php:41
+#: plugins/pages/src/ManagePage.php:629 plugins/pages/src/Widgets.php:41
 msgid "Page position"
 msgstr "पृष्ठ स्थिति"
 
-#: plugins/pages/src/ManagePage.php:660
+#: plugins/pages/src/ManagePage.php:680
 msgid "Hide in widget Pages"
 msgstr "विज़ेट पृष्ठों में छुपाएं"
 
-#: plugins/pages/src/ManagePage.php:686
+#: plugins/pages/src/ManagePage.php:706
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "चेतावनी: यदि आप URL को दस्ती रूप से सेट करते हैं, यह किसी अन्य पृष्ठ के साथ संघर्ष कर सकता है."
 
-#: plugins/pages/src/ManagePage.php:725
+#: plugins/pages/src/ManagePage.php:745
 msgid "Introduction to the page."
 msgstr "पृष्ठ के लिए परिचय."
 
-#: plugins/pages/src/ManagePage.php:1104
+#: plugins/pages/src/ManagePage.php:1124
 msgid "Select this comment"
 msgstr "इस टिप्पणी को चुनें"
 
