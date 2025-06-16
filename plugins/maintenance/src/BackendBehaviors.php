@@ -78,25 +78,28 @@ class BackendBehaviors
      */
     public static function adminDashboardMessage(): string
     {
-        // Check expired tasks
-        $maintenance = new Maintenance();
-        $count       = 0;
-        foreach ($maintenance->getTasks() as $t) {
-            if ($t->expired() !== false) {
-                $count++;
+        // Check if message is requested
+        if (My::settings()->plugin_message) {
+            // Check expired tasks
+            $maintenance = new Maintenance();
+            $count       = 0;
+            foreach ($maintenance->getTasks() as $t) {
+                if ($t->expired() !== false) {
+                    $count++;
+                }
             }
-        }
 
-        if ($count > 0) {
-            Notices::warning(sprintf(
-                __(
-                    'One <a href="%2$s">maintenance task</a> to execute.',
-                    '%1$s <a href="%2$s">maintenance tasks</a> to execute.',
-                    $count
-                ),
-                $count,
-                My::manageUrl()
-            ));
+            if ($count > 0) {
+                Notices::warning(sprintf(
+                    __(
+                        'One <a href="%2$s">maintenance task</a> to execute.',
+                        '%1$s <a href="%2$s">maintenance tasks</a> to execute.',
+                        $count
+                    ),
+                    $count,
+                    My::manageUrl()
+                ));
+            }
         }
 
         return '';
