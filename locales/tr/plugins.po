@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-08 10:49+0200\n"
-"PO-Revision-Date: 2025-06-08 09:22\n"
+"POT-Creation-Date: 2025-06-16 09:22+0200\n"
+"PO-Revision-Date: 2025-06-16 07:27\n"
 "Last-Translator: \n"
 "Language-Team: Turkish\n"
 "Language: tr_TR\n"
@@ -1140,7 +1140,7 @@ msgstr "Kategori başarıyla güncellendi"
 
 #: plugins/blogroll/src/ManageEdit.php:181
 #: plugins/dcCKEditor/src/BackendBehaviors.php:62
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:184
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:194
 msgid "Link"
 msgstr "Bağlantı"
 
@@ -1364,27 +1364,27 @@ msgid "HTML"
 msgstr "HTML"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:59
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:200
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:210
 msgid "Media chooser"
 msgstr "Medya seçici"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:60
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:203
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:213
 msgid "m"
 msgstr "m"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:61
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:207
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:217
 msgid "Link to an entry"
 msgstr "Bir girişe bağlantı"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:63
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:187
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:197
 msgid "l"
 msgstr "l"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:64
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:193
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:203
 msgid "External image"
 msgstr "Harici görüntü"
 
@@ -1393,7 +1393,7 @@ msgid "URL field cannot be empty."
 msgstr "URL alanı boş olamaz."
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:89
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:229
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:239
 msgid "Open the media"
 msgstr "Medyayı açın"
 
@@ -1506,112 +1506,112 @@ msgstr "dcLegacyEditor"
 msgid "Dotclear wiki"
 msgstr "Dotclear wiki"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:104
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:114
 msgid "visual"
 msgstr "görsel"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:105
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:115
 msgid "source"
 msgstr "kaynak"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:106
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:116
 msgid "You can use the following shortcuts to format your text."
 msgstr "Metninizi biçimlendirmek için aşağıdaki kısayolları kullanabilirsiniz."
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:109
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:119
 msgid "Block format"
 msgstr "Blok biçimi"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:111
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:121
 msgid "-- none --"
 msgstr "-- yok --"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:112
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:122
 msgid "-- block format --"
 msgstr "-- blok formatı --"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:113
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:123
 msgid "Paragraph"
 msgstr "Paragraf"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:114
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:124
 msgid "Level 1 header"
 msgstr "Seviye 1 başlığı"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:115
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:125
 msgid "Level 2 header"
 msgstr "Seviye 2 başlığı"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:116
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:126
 msgid "Level 3 header"
 msgstr "Seviye 3 başlığı"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:117
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:127
 msgid "Level 4 header"
 msgstr "Seviye 4 başlık"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:118
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:128
 msgid "Level 5 header"
 msgstr "Seviye 5 başlığı"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:119
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:129
 msgid "Level 6 header"
 msgstr "Seviye 6 başlığı"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:123
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:133
 msgid "Strong emphasis"
 msgstr "Güçlü vurgu"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:128
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:138
 msgid "Emphasis"
 msgstr "Vurgu"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:133
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:143
 msgid "Inserted"
 msgstr "Yerleştirildi"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:138
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:148
 msgid "Deleted"
 msgstr "Silinmiş"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:143
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:153
 msgid "Inline quote"
 msgstr "Satır içi alıntı"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:148
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:158
 msgid "Code"
 msgstr "Kod"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:158
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:168
 msgid "Line break"
 msgstr "Satır sonu"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:163
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:173
 msgid "Blockquote"
 msgstr "Blok Alıntı"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:168
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:178
 msgid "Preformated text"
 msgstr "Önceden biçimlendirilmiş metin"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:173
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:183
 msgid "Unordered list"
 msgstr "Sırasız liste"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:178
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:188
 msgid "Ordered list"
 msgstr "Sıralı liste"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:188
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:196
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:198
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:206
 msgid "URL?"
 msgstr "URL?"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:189
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:199
 msgid "Language?"
 msgstr "Dil mi?"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:212
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:222
 msgid "Remove text formating"
 msgstr "Metin biçimlendirmesini kaldırın"
 
@@ -1689,7 +1689,7 @@ msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup f
 msgstr "\"%3$s\" kimliği, yedekleme dosyasının %2$s satırındaki \"%1$s\" kaydıyla eşleşmiyor."
 
 #: plugins/importExport/src/Manage.php:90
-#: plugins/maintenance/src/Manage.php:195
+#: plugins/maintenance/src/Manage.php:199
 msgid "Please wait..."
 msgstr "Lütfen bekleyin..."
 
@@ -1704,7 +1704,7 @@ msgstr "Dışa aktarma işlevleri %ssayfasındadır."
 
 #: plugins/importExport/src/Manage.php:144
 #: plugins/maintenance/src/Backend.php:25
-#: plugins/maintenance/src/BackendBehaviors.php:188
+#: plugins/maintenance/src/BackendBehaviors.php:218
 msgid "Maintenance"
 msgstr "Bakım"
 
@@ -1994,205 +1994,212 @@ msgstr "Yorum içeriği biçimlendiricisi:"
 msgid "WordPress tables not found"
 msgstr "WordPress tabloları bulunamadı"
 
-#: plugins/maintenance/src/BackendBehaviors.php:49
+#: plugins/maintenance/src/BackendBehaviors.php:50
 msgid "Servicing"
 msgstr "Servis Hizmetleri"
 
-#: plugins/maintenance/src/BackendBehaviors.php:49
+#: plugins/maintenance/src/BackendBehaviors.php:50
 msgid "Tools to maintain the performance of your blogs."
 msgstr "Bloglarınızın performansını korumak için araçlar."
 
-#: plugins/maintenance/src/BackendBehaviors.php:50
+#: plugins/maintenance/src/BackendBehaviors.php:51
 msgid "Backup"
 msgstr "Yedekleme"
 
-#: plugins/maintenance/src/BackendBehaviors.php:50
+#: plugins/maintenance/src/BackendBehaviors.php:51
 msgid "Tools to back up your content."
 msgstr "İçeriğinizi yedeklemek için araçlar."
 
-#: plugins/maintenance/src/BackendBehaviors.php:51
+#: plugins/maintenance/src/BackendBehaviors.php:52
 msgid "Development"
 msgstr "Geliştirme"
 
-#: plugins/maintenance/src/BackendBehaviors.php:51
+#: plugins/maintenance/src/BackendBehaviors.php:52
 msgid "Tools to assist in development of plugins, themes and core."
 msgstr "Eklentilerin, temaların ve çekirdeğin geliştirilmesine yardımcı olacak araçlar."
 
-#: plugins/maintenance/src/BackendBehaviors.php:53
+#: plugins/maintenance/src/BackendBehaviors.php:54
 msgid "Optimize"
 msgstr "Optimize edin"
 
-#: plugins/maintenance/src/BackendBehaviors.php:54
+#: plugins/maintenance/src/BackendBehaviors.php:55
 msgid "Count and index"
 msgstr "Sayım ve indeks"
 
-#: plugins/maintenance/src/BackendBehaviors.php:55
+#: plugins/maintenance/src/BackendBehaviors.php:56
 msgid "Purge"
 msgstr "Arındırma"
 
-#: plugins/maintenance/src/BackendBehaviors.php:57
+#: plugins/maintenance/src/BackendBehaviors.php:58
 msgid "Current blog"
 msgstr "Güncel blog"
 
-#: plugins/maintenance/src/BackendBehaviors.php:58
+#: plugins/maintenance/src/BackendBehaviors.php:59
 msgid "All blogs"
 msgstr "Tüm bloglar"
 
-#: plugins/maintenance/src/BackendBehaviors.php:60
+#: plugins/maintenance/src/BackendBehaviors.php:61
 msgid "Maintain translations"
 msgstr "Çevirileri koruyun"
 
-#: plugins/maintenance/src/BackendBehaviors.php:60
+#: plugins/maintenance/src/BackendBehaviors.php:61
 msgid "Translations"
 msgstr "Çeviriler"
 
-#: plugins/maintenance/src/BackendBehaviors.php:136
-#: plugins/maintenance/src/Rest.php:76
+#: plugins/maintenance/src/BackendBehaviors.php:93
+#, php-format
+msgid "One <a href=\"%2$s\">maintenance task</a> to execute."
+msgid_plural "%1$s <a href=\"%2$s\">maintenance tasks</a> to execute."
+msgstr[0] ""
+msgstr[1] ""
+
+#: plugins/maintenance/src/BackendBehaviors.php:166
+#: plugins/maintenance/src/Rest.php:83
 #, php-format
 msgid "One task to execute"
 msgid_plural "%s tasks to execute"
 msgstr[0] "Yürütülecek bir görev"
 msgstr[1] "%s yürütülecek görevler"
 
-#: plugins/maintenance/src/BackendBehaviors.php:170
-#: plugins/maintenance/src/Manage.php:300
+#: plugins/maintenance/src/BackendBehaviors.php:200
+#: plugins/maintenance/src/Manage.php:305
 msgid "This task has never been executed."
 msgstr "Bu görev hiç yürütülmedi."
 
-#: plugins/maintenance/src/BackendBehaviors.php:173
-#: plugins/maintenance/src/Manage.php:303
+#: plugins/maintenance/src/BackendBehaviors.php:203
+#: plugins/maintenance/src/Manage.php:308
 #, php-format
 msgid "Last execution of this task was on %s."
 msgstr "Bu görev en son %sadresinde gerçekleştirilmiştir."
 
-#: plugins/maintenance/src/BackendBehaviors.php:191
+#: plugins/maintenance/src/BackendBehaviors.php:221
 #, php-format
 msgid "There is a task to execute."
 msgid_plural "There are %s tasks to execute."
 msgstr[0] "Yürütülmesi gereken bir görev var."
 msgstr[1] "Yürütülmesi gereken %s görevleri vardır."
 
-#: plugins/maintenance/src/BackendBehaviors.php:198
+#: plugins/maintenance/src/BackendBehaviors.php:228
 msgid "Manage tasks"
 msgstr "Görevleri yönetin"
 
-#: plugins/maintenance/src/BackendBehaviors.php:220
+#: plugins/maintenance/src/BackendBehaviors.php:250
 msgid "Display overdue tasks counter on maintenance dashboard icon"
 msgstr "Bakım kontrol paneli simgesinde gecikmiş görev sayacını görüntüleme"
 
-#: plugins/maintenance/src/BackendBehaviors.php:226
+#: plugins/maintenance/src/BackendBehaviors.php:256
 msgid "Display overdue tasks list on dashboard items"
 msgstr "Gecikmiş görevler listesini gösterge tablosu öğelerinde görüntüleme"
 
-#: plugins/maintenance/src/MaintenanceTask.php:130
+#: plugins/maintenance/src/MaintenanceTask.php:135
 msgid "Failed to execute task."
 msgstr "Görev yürütülemedi."
 
-#: plugins/maintenance/src/MaintenanceTask.php:133
+#: plugins/maintenance/src/MaintenanceTask.php:138
 msgid "Task successfully executed."
 msgstr "Görev başarıyla yürütüldü."
 
-#: plugins/maintenance/src/Manage.php:131
+#: plugins/maintenance/src/Manage.php:135
 msgid "Maintenance plugin has been successfully configured."
 msgstr "Bakım eklentisi başarıyla yapılandırıldı."
 
-#: plugins/maintenance/src/Manage.php:149
+#: plugins/maintenance/src/Manage.php:153
 msgid "System settings have been saved."
 msgstr "Sistem ayarları kaydedildi."
 
-#: plugins/maintenance/src/Manage.php:154
+#: plugins/maintenance/src/Manage.php:158
 msgid "All blog's Content-Security-Policy settings have been reset to default."
 msgstr "Tüm blogların İçerik-Güvenlik Politikası ayarları varsayılana sıfırlandı."
 
-#: plugins/maintenance/src/Manage.php:176
+#: plugins/maintenance/src/Manage.php:180
 msgid "Every week"
 msgstr "Her hafta"
 
-#: plugins/maintenance/src/Manage.php:177
+#: plugins/maintenance/src/Manage.php:181
 msgid "Every two weeks"
 msgstr "Her iki haftada bir"
 
-#: plugins/maintenance/src/Manage.php:178
+#: plugins/maintenance/src/Manage.php:182
 msgid "Every month"
 msgstr "Her ay"
 
-#: plugins/maintenance/src/Manage.php:179
+#: plugins/maintenance/src/Manage.php:183
 msgid "Every two months"
 msgstr "Her iki ayda bir"
 
-#: plugins/maintenance/src/Manage.php:212
+#: plugins/maintenance/src/Manage.php:216
 msgid "You have not sufficient permissions to view this page."
 msgstr "Bu sayfayı görüntülemek için yeterli izniniz yok."
 
-#: plugins/maintenance/src/Manage.php:300
-#: plugins/maintenance/src/Manage.php:306
+#: plugins/maintenance/src/Manage.php:305
+#: plugins/maintenance/src/Manage.php:311
 msgid "You should execute it now."
 msgstr "Şimdi çalıştırmalısınız."
 
-#: plugins/maintenance/src/Manage.php:342
-#: plugins/maintenance/src/Manage.php:376
+#: plugins/maintenance/src/Manage.php:347
+#: plugins/maintenance/src/Manage.php:381
 msgid "Execute task"
 msgstr "Görevi yürüt"
 
-#: plugins/maintenance/src/Manage.php:347
+#: plugins/maintenance/src/Manage.php:352
 msgid "This may take a very long time."
 msgstr "Bu çok uzun zaman alabilir."
 
-#: plugins/maintenance/src/Manage.php:407
-#: plugins/maintenance/src/Manage.php:409
+#: plugins/maintenance/src/Manage.php:418
+#: plugins/maintenance/src/Manage.php:420
 msgid "Alert settings"
 msgstr "Uyarı ayarları"
 
-#: plugins/maintenance/src/Manage.php:415
+#: plugins/maintenance/src/Manage.php:426
 msgid "Activation"
 msgstr "Aktivasyon"
 
-#: plugins/maintenance/src/Manage.php:421
+#: plugins/maintenance/src/Manage.php:432
 msgid "Display alert messages on late tasks"
 msgstr "Geç kalan görevler için uyarı mesajları görüntüleme"
 
-#: plugins/maintenance/src/Manage.php:426
+#: plugins/maintenance/src/Manage.php:437
 #, php-format
 msgid "You can place list of late tasks on your %s."
 msgstr "Geç kalan görevlerin listesini %sadresinize yerleştirebilirsiniz."
 
-#: plugins/maintenance/src/Manage.php:431
+#: plugins/maintenance/src/Manage.php:442
 msgid "Frequency"
 msgstr "Frekans"
 
-#: plugins/maintenance/src/Manage.php:439
+#: plugins/maintenance/src/Manage.php:450
 msgid "Use one recall time for all tasks"
 msgstr "Tüm görevler için tek bir hatırlama zamanı kullanın"
 
-#: plugins/maintenance/src/Manage.php:449
+#: plugins/maintenance/src/Manage.php:460
 msgid "Recall time for all tasks:"
 msgstr "Tüm görevler için hatırlama süresi:"
 
-#: plugins/maintenance/src/Manage.php:458
+#: plugins/maintenance/src/Manage.php:469
 msgid "Use one recall time per task"
 msgstr "Görev başına bir hatırlama süresi kullanın"
 
-#: plugins/maintenance/src/Manage.php:489
+#: plugins/maintenance/src/Manage.php:500
 msgid "Content-Security-Policy"
 msgstr "İçerik-Güvenlik Politikası"
 
-#: plugins/maintenance/src/Manage.php:501
+#: plugins/maintenance/src/Manage.php:512
 msgid "Enable Content-Security-Policy system"
 msgstr "Content-Security-Policy sistemini etkinleştirin"
 
-#: plugins/maintenance/src/Manage.php:507
+#: plugins/maintenance/src/Manage.php:518
 msgid "Enable Content-Security-Policy report only"
 msgstr "Yalnızca Content-Security-Policy raporunu etkinleştirin"
 
-#: plugins/maintenance/src/Manage.php:517
+#: plugins/maintenance/src/Manage.php:528
 msgid "Enable Content-Security-Policy system by default"
 msgstr "Content-Security-Policy sistemini varsayılan olarak etkinleştirin"
 
-#: plugins/maintenance/src/Manage.php:523
+#: plugins/maintenance/src/Manage.php:534
 msgid "Enable Content-Security-Policy report only by default"
 msgstr "Content-Security-Policy raporunu yalnızca varsayılan olarak etkinleştirin"
 
-#: plugins/maintenance/src/Manage.php:529
+#: plugins/maintenance/src/Manage.php:540
 msgid "Also apply these settings to all blogs"
 msgstr "Ayrıca bu ayarları tüm bloglara uygulayın"
 
@@ -2237,56 +2244,56 @@ msgstr "Yorumlar ve geri izlemeler sayılamadı."
 msgid "Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating from dotclear 1 to dotclear 2)."
 msgstr "Yorumları ve geri izlemeleri tekrar saymak, tam sayılarını kontrol etmenizi sağlar. Bu işlem başka bir blog platformundan içe aktarma yaparken (veya dotclear 1'den dotclear 2'ye geçiş yaparken) faydalı olabilir."
 
-#: plugins/maintenance/src/Task/IndexComments.php:60
-#: plugins/maintenance/src/Task/IndexPosts.php:60
+#: plugins/maintenance/src/Task/IndexComments.php:55
+#: plugins/maintenance/src/Task/IndexPosts.php:55
 msgid "Search engine index"
 msgstr "Arama motoru indeksi"
 
-#: plugins/maintenance/src/Task/IndexComments.php:61
+#: plugins/maintenance/src/Task/IndexComments.php:56
 msgid "Index all comments for search engine"
 msgstr "Arama motoru için tüm yorumları dizine ekle"
 
-#: plugins/maintenance/src/Task/IndexComments.php:62
-#: plugins/maintenance/src/Task/IndexPosts.php:62
-#: plugins/maintenance/src/Task/SynchPostMeta.php:62
+#: plugins/maintenance/src/Task/IndexComments.php:57
+#: plugins/maintenance/src/Task/IndexPosts.php:57
+#: plugins/maintenance/src/Task/SynchPostMeta.php:57
 msgid "Next"
 msgstr "Sonraki"
 
-#: plugins/maintenance/src/Task/IndexComments.php:63
+#: plugins/maintenance/src/Task/IndexComments.php:58
 #, php-format
 msgid "Indexing comments %1$d to %2$d of %3$d."
 msgstr "%1$d ile %2$d arasındaki %3$dyorumlarını indeksleme."
 
-#: plugins/maintenance/src/Task/IndexComments.php:64
+#: plugins/maintenance/src/Task/IndexComments.php:59
 msgid "Comments indexing done."
 msgstr "Yorum indeksleme işlemi tamamlandı."
 
-#: plugins/maintenance/src/Task/IndexComments.php:65
+#: plugins/maintenance/src/Task/IndexComments.php:60
 msgid "Failed to index comments."
 msgstr "Yorumlar dizine eklenemedi."
 
-#: plugins/maintenance/src/Task/IndexComments.php:67
+#: plugins/maintenance/src/Task/IndexComments.php:62
 msgid "Index all comments and trackbacks in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
 msgstr "Tüm yorumları ve geri izlemeleri arama motoru dizininde indeksleyin. Bu işlem, blogunuza içerik aktardıktan sonra, genel ve özel sayfalarda dahili arama motorunu kullanmak için gereklidir."
 
-#: plugins/maintenance/src/Task/IndexPosts.php:61
+#: plugins/maintenance/src/Task/IndexPosts.php:56
 msgid "Index all entries for search engine"
 msgstr "Arama motoru için tüm girişleri dizine ekle"
 
-#: plugins/maintenance/src/Task/IndexPosts.php:63
+#: plugins/maintenance/src/Task/IndexPosts.php:58
 #, php-format
 msgid "Indexing entries %1$d to %2$d of %3$d."
 msgstr "%1$d ile %2$d arasındaki %3$dgirişlerini dizinleme."
 
-#: plugins/maintenance/src/Task/IndexPosts.php:64
+#: plugins/maintenance/src/Task/IndexPosts.php:59
 msgid "Entries indexing done."
 msgstr "Giriş indeksleme tamamlandı."
 
-#: plugins/maintenance/src/Task/IndexPosts.php:65
+#: plugins/maintenance/src/Task/IndexPosts.php:60
 msgid "Failed to index entries."
 msgstr "Girişler dizine eklenemedi."
 
-#: plugins/maintenance/src/Task/IndexPosts.php:67
+#: plugins/maintenance/src/Task/IndexPosts.php:62
 msgid "Index all entries in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
 msgstr "Tüm girdileri arama motoru dizininde dizine ekleyin. Bu işlem, blogunuza içerik aktardıktan sonra, genel ve özel sayfalarda dahili arama motorunu kullanmak için gereklidir."
 
@@ -2306,28 +2313,28 @@ msgstr "Günlükler silinemedi."
 msgid "Logs record all activity and connection to your blog history. Unless you need to keep this history, consider deleting these logs from time to time."
 msgstr "Günlükler, blog geçmişinizdeki tüm etkinlikleri ve bağlantıları kaydeder. Bu geçmişi saklamanız gerekmediği sürece, zaman zaman bu günlükleri silmeyi düşünün."
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:60
+#: plugins/maintenance/src/Task/SynchPostMeta.php:55
 msgid "Entries metadata"
 msgstr "Girişler meta verileri"
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:61
+#: plugins/maintenance/src/Task/SynchPostMeta.php:56
 msgid "Synchronize entries metadata"
 msgstr "Giriş meta verilerini senkronize edin"
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:63
+#: plugins/maintenance/src/Task/SynchPostMeta.php:58
 #, php-format
 msgid "Synchronizing metadata of entries %1$d to %2$d of %3$d."
 msgstr "%1$d girişlerinin meta verilerini %3$dadresindeki %2$d ile senkronize etme."
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:64
+#: plugins/maintenance/src/Task/SynchPostMeta.php:59
 msgid "Entries metadata synchronize done."
 msgstr "Girişler meta veri senkronizasyonu tamamlandı."
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:65
+#: plugins/maintenance/src/Task/SynchPostMeta.php:60
 msgid "Failed to synchronize entries metadata."
 msgstr "Giriş meta verileri senkronize edilemedi."
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:67
+#: plugins/maintenance/src/Task/SynchPostMeta.php:62
 msgid "Synchronize all entries metadata could be useful after importing content in your blog or do bad operation on database tables."
 msgstr "Tüm girişlerin meta verilerini senkronize etmek, blogunuza içerik aktardıktan veya veritabanı tablolarında kötü işlem yaptıktan sonra yararlı olabilir."
 
@@ -2386,7 +2393,7 @@ msgid "%d pages"
 msgstr "%d sayfalar"
 
 #: plugins/pages/src/Backend.php:108 plugins/pages/src/Manage.php:148
-#: plugins/pages/src/ManagePage.php:107 plugins/pages/src/ManagePage.php:834
+#: plugins/pages/src/ManagePage.php:107 plugins/pages/src/ManagePage.php:854
 msgid "New page"
 msgstr "Yeni sayfa"
 
@@ -2463,56 +2470,56 @@ msgstr "Sayfa sırasını kaydet"
 msgid "This page does not exist."
 msgstr "Bu sayfa mevcut değil."
 
-#: plugins/pages/src/ManagePage.php:188 plugins/pages/src/ManagePage.php:834
-#: plugins/pages/src/ManagePage.php:855
+#: plugins/pages/src/ManagePage.php:188 plugins/pages/src/ManagePage.php:854
+#: plugins/pages/src/ManagePage.php:875
 msgid "Edit page"
 msgstr "Sayfayı düzenle"
 
-#: plugins/pages/src/ManagePage.php:468
+#: plugins/pages/src/ManagePage.php:488
 msgid "Are you sure you want to delete this page?"
 msgstr "Bu sayfayı silmek istediğinizden emin misiniz?"
 
-#: plugins/pages/src/ManagePage.php:496
+#: plugins/pages/src/ManagePage.php:516
 msgid "Page has been successfully updated."
 msgstr "Sayfa başarıyla güncellendi."
 
-#: plugins/pages/src/ManagePage.php:498
+#: plugins/pages/src/ManagePage.php:518
 msgid "Page has been successfully created."
 msgstr "Sayfa başarıyla oluşturuldu."
 
-#: plugins/pages/src/ManagePage.php:511
+#: plugins/pages/src/ManagePage.php:531
 msgid "Don't forget to validate your HTML conversion by saving your post."
 msgstr "Gönderinizi kaydederek HTML dönüşümünüzü doğrulamayı unutmayın."
 
-#: plugins/pages/src/ManagePage.php:521
+#: plugins/pages/src/ManagePage.php:541
 msgid "Go to this page on the site"
 msgstr "Sitedeki bu sayfaya gidin"
 
-#: plugins/pages/src/ManagePage.php:563
+#: plugins/pages/src/ManagePage.php:583
 msgid "Page status"
 msgstr "Sayfa durumu"
 
-#: plugins/pages/src/ManagePage.php:580
+#: plugins/pages/src/ManagePage.php:600
 msgid "Page language"
 msgstr "Sayfa dili"
 
-#: plugins/pages/src/ManagePage.php:609 plugins/pages/src/Widgets.php:41
+#: plugins/pages/src/ManagePage.php:629 plugins/pages/src/Widgets.php:41
 msgid "Page position"
 msgstr "Sayfa konumu"
 
-#: plugins/pages/src/ManagePage.php:660
+#: plugins/pages/src/ManagePage.php:680
 msgid "Hide in widget Pages"
 msgstr "Widget Sayfalarında Gizle"
 
-#: plugins/pages/src/ManagePage.php:686
+#: plugins/pages/src/ManagePage.php:706
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "Uyarı: URL'yi manuel olarak ayarlarsanız, başka bir sayfayla çakışabilir."
 
-#: plugins/pages/src/ManagePage.php:725
+#: plugins/pages/src/ManagePage.php:745
 msgid "Introduction to the page."
 msgstr "Sayfaya giriş."
 
-#: plugins/pages/src/ManagePage.php:1104
+#: plugins/pages/src/ManagePage.php:1124
 msgid "Select this comment"
 msgstr "Bu yorumu seçin"
 
