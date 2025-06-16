@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-08 10:49+0200\n"
-"PO-Revision-Date: 2025-06-08 09:22\n"
+"POT-Creation-Date: 2025-06-16 09:22+0200\n"
+"PO-Revision-Date: 2025-06-16 07:27\n"
 "Last-Translator: \n"
 "Language-Team: Lithuanian\n"
 "Language: lt_LT\n"
@@ -1144,7 +1144,7 @@ msgstr "Kategorija sėkmingai atnaujinta"
 
 #: plugins/blogroll/src/ManageEdit.php:181
 #: plugins/dcCKEditor/src/BackendBehaviors.php:62
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:184
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:194
 msgid "Link"
 msgstr "Nuoroda"
 
@@ -1368,27 +1368,27 @@ msgid "HTML"
 msgstr "HTML"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:59
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:200
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:210
 msgid "Media chooser"
 msgstr "Žiniasklaidos pasirinkimas"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:60
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:203
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:213
 msgid "m"
 msgstr "m"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:61
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:207
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:217
 msgid "Link to an entry"
 msgstr "Nuoroda į įrašą"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:63
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:187
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:197
 msgid "l"
 msgstr "l"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:64
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:193
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:203
 msgid "External image"
 msgstr "Išorinis vaizdas"
 
@@ -1397,7 +1397,7 @@ msgid "URL field cannot be empty."
 msgstr "URL laukas negali būti tuščias."
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:89
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:229
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:239
 msgid "Open the media"
 msgstr "Atidarykite mediją"
 
@@ -1510,112 +1510,112 @@ msgstr "dcLegacyEditor"
 msgid "Dotclear wiki"
 msgstr "Dotclear wiki"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:104
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:114
 msgid "visual"
 msgstr "vaizdas"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:105
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:115
 msgid "source"
 msgstr "šaltinis"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:106
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:116
 msgid "You can use the following shortcuts to format your text."
 msgstr "Tekstui formatuoti galite naudoti šiuos sparčiuosius klavišus."
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:109
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:119
 msgid "Block format"
 msgstr "Bloko formatas"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:111
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:121
 msgid "-- none --"
 msgstr "-- nėra --"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:112
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:122
 msgid "-- block format --"
 msgstr "-- bloko formatas --"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:113
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:123
 msgid "Paragraph"
 msgstr "Pastraipa"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:114
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:124
 msgid "Level 1 header"
 msgstr "1 lygio antraštė"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:115
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:125
 msgid "Level 2 header"
 msgstr "2 lygio antraštė"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:116
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:126
 msgid "Level 3 header"
 msgstr "3 lygio antraštė"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:117
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:127
 msgid "Level 4 header"
 msgstr "4 lygio antraštė"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:118
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:128
 msgid "Level 5 header"
 msgstr "5 lygio antraštė"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:119
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:129
 msgid "Level 6 header"
 msgstr "6 lygio antraštė"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:123
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:133
 msgid "Strong emphasis"
 msgstr "Didelis dėmesys"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:128
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:138
 msgid "Emphasis"
 msgstr "Akcentas"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:133
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:143
 msgid "Inserted"
 msgstr "Įdėta"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:138
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:148
 msgid "Deleted"
 msgstr "Ištrintas"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:143
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:153
 msgid "Inline quote"
 msgstr "Inline citata"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:148
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:158
 msgid "Code"
 msgstr "Kodas"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:158
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:168
 msgid "Line break"
 msgstr "Linijos pertraukimas"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:163
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:173
 msgid "Blockquote"
 msgstr "Blokinė citata"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:168
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:178
 msgid "Preformated text"
 msgstr "Iš anksto parengtas tekstas"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:173
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:183
 msgid "Unordered list"
 msgstr "Nerūšiuotas sąrašas"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:178
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:188
 msgid "Ordered list"
 msgstr "Užsakytas sąrašas"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:188
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:196
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:198
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:206
 msgid "URL?"
 msgstr "URL?"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:189
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:199
 msgid "Language?"
 msgstr "Kalba?"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:212
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:222
 msgid "Remove text formating"
 msgstr "Pašalinti teksto formavimą"
 
@@ -1693,7 +1693,7 @@ msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup f
 msgstr "Atsarginės kopijos failo eilutėje %2$s esančio įrašo \"%3$s\" ID nesutampa su įrašo \"%1$s\" ID."
 
 #: plugins/importExport/src/Manage.php:90
-#: plugins/maintenance/src/Manage.php:195
+#: plugins/maintenance/src/Manage.php:199
 msgid "Please wait..."
 msgstr "Prašome palaukti…"
 
@@ -1708,7 +1708,7 @@ msgstr "Eksportavimo funkcijos pateikiamos puslapyje %s."
 
 #: plugins/importExport/src/Manage.php:144
 #: plugins/maintenance/src/Backend.php:25
-#: plugins/maintenance/src/BackendBehaviors.php:188
+#: plugins/maintenance/src/BackendBehaviors.php:218
 msgid "Maintenance"
 msgstr "Priežiūra"
 
@@ -1998,60 +1998,69 @@ msgstr "Komentarų turinio formatavimas:"
 msgid "WordPress tables not found"
 msgstr "Nerastos Wordpress lentelės"
 
-#: plugins/maintenance/src/BackendBehaviors.php:49
+#: plugins/maintenance/src/BackendBehaviors.php:50
 msgid "Servicing"
 msgstr "Aptarnavimas"
 
-#: plugins/maintenance/src/BackendBehaviors.php:49
+#: plugins/maintenance/src/BackendBehaviors.php:50
 msgid "Tools to maintain the performance of your blogs."
 msgstr "Įrankiai tinklaraščių veikimui palaikyti."
 
-#: plugins/maintenance/src/BackendBehaviors.php:50
+#: plugins/maintenance/src/BackendBehaviors.php:51
 msgid "Backup"
 msgstr "Atsarginė kopija"
 
-#: plugins/maintenance/src/BackendBehaviors.php:50
+#: plugins/maintenance/src/BackendBehaviors.php:51
 msgid "Tools to back up your content."
 msgstr "Įrankiai, skirti turinio atsarginiam kopijavimui."
 
-#: plugins/maintenance/src/BackendBehaviors.php:51
+#: plugins/maintenance/src/BackendBehaviors.php:52
 msgid "Development"
 msgstr "Plėtra"
 
-#: plugins/maintenance/src/BackendBehaviors.php:51
+#: plugins/maintenance/src/BackendBehaviors.php:52
 msgid "Tools to assist in development of plugins, themes and core."
 msgstr "Įrankiai, padedantys kurti įskiepius, temas ir šerdį."
 
-#: plugins/maintenance/src/BackendBehaviors.php:53
+#: plugins/maintenance/src/BackendBehaviors.php:54
 msgid "Optimize"
 msgstr "Optimizuokite"
 
-#: plugins/maintenance/src/BackendBehaviors.php:54
+#: plugins/maintenance/src/BackendBehaviors.php:55
 msgid "Count and index"
 msgstr "Skaičius ir indeksas"
 
-#: plugins/maintenance/src/BackendBehaviors.php:55
+#: plugins/maintenance/src/BackendBehaviors.php:56
 msgid "Purge"
 msgstr "Išvalyti"
 
-#: plugins/maintenance/src/BackendBehaviors.php:57
+#: plugins/maintenance/src/BackendBehaviors.php:58
 msgid "Current blog"
 msgstr "Dabartinis tinklaraštis"
 
-#: plugins/maintenance/src/BackendBehaviors.php:58
+#: plugins/maintenance/src/BackendBehaviors.php:59
 msgid "All blogs"
 msgstr "Visi tinklaraščiai"
 
-#: plugins/maintenance/src/BackendBehaviors.php:60
+#: plugins/maintenance/src/BackendBehaviors.php:61
 msgid "Maintain translations"
 msgstr "Išlaikyti vertimus"
 
-#: plugins/maintenance/src/BackendBehaviors.php:60
+#: plugins/maintenance/src/BackendBehaviors.php:61
 msgid "Translations"
 msgstr "Vertimai"
 
-#: plugins/maintenance/src/BackendBehaviors.php:136
-#: plugins/maintenance/src/Rest.php:76
+#: plugins/maintenance/src/BackendBehaviors.php:93
+#, php-format
+msgid "One <a href=\"%2$s\">maintenance task</a> to execute."
+msgid_plural "%1$s <a href=\"%2$s\">maintenance tasks</a> to execute."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: plugins/maintenance/src/BackendBehaviors.php:166
+#: plugins/maintenance/src/Rest.php:83
 #, php-format
 msgid "One task to execute"
 msgid_plural "%s tasks to execute"
@@ -2060,18 +2069,18 @@ msgstr[1] "%s vykdomos užduotys"
 msgstr[2] "%s vykdomos užduotys"
 msgstr[3] "%s vykdomos užduotys"
 
-#: plugins/maintenance/src/BackendBehaviors.php:170
-#: plugins/maintenance/src/Manage.php:300
+#: plugins/maintenance/src/BackendBehaviors.php:200
+#: plugins/maintenance/src/Manage.php:305
 msgid "This task has never been executed."
 msgstr "Ši užduotis niekada nebuvo įvykdyta."
 
-#: plugins/maintenance/src/BackendBehaviors.php:173
-#: plugins/maintenance/src/Manage.php:303
+#: plugins/maintenance/src/BackendBehaviors.php:203
+#: plugins/maintenance/src/Manage.php:308
 #, php-format
 msgid "Last execution of this task was on %s."
 msgstr "Paskutinį kartą ši užduotis buvo atlikta %s."
 
-#: plugins/maintenance/src/BackendBehaviors.php:191
+#: plugins/maintenance/src/BackendBehaviors.php:221
 #, php-format
 msgid "There is a task to execute."
 msgid_plural "There are %s tasks to execute."
@@ -2080,127 +2089,127 @@ msgstr[1] "Yra %s užduočių, kurias reikia atlikti."
 msgstr[2] "Yra %s užduočių, kurias reikia atlikti."
 msgstr[3] "Yra %s užduočių, kurias reikia atlikti."
 
-#: plugins/maintenance/src/BackendBehaviors.php:198
+#: plugins/maintenance/src/BackendBehaviors.php:228
 msgid "Manage tasks"
 msgstr "Tvarkyti užduotis"
 
-#: plugins/maintenance/src/BackendBehaviors.php:220
+#: plugins/maintenance/src/BackendBehaviors.php:250
 msgid "Display overdue tasks counter on maintenance dashboard icon"
 msgstr "Rodyti vėluojančių užduočių skaitiklį techninės priežiūros prietaisų skydelio piktogramoje"
 
-#: plugins/maintenance/src/BackendBehaviors.php:226
+#: plugins/maintenance/src/BackendBehaviors.php:256
 msgid "Display overdue tasks list on dashboard items"
 msgstr "Pavėluotų užduočių sąrašo rodymas prietaisų skydelio elementuose"
 
-#: plugins/maintenance/src/MaintenanceTask.php:130
+#: plugins/maintenance/src/MaintenanceTask.php:135
 msgid "Failed to execute task."
 msgstr "Nepavyko įvykdyti užduoties."
 
-#: plugins/maintenance/src/MaintenanceTask.php:133
+#: plugins/maintenance/src/MaintenanceTask.php:138
 msgid "Task successfully executed."
 msgstr "Užduotis sėkmingai įvykdyta."
 
-#: plugins/maintenance/src/Manage.php:131
+#: plugins/maintenance/src/Manage.php:135
 msgid "Maintenance plugin has been successfully configured."
 msgstr "Priežiūros įskiepis sėkmingai sukonfigūruotas."
 
-#: plugins/maintenance/src/Manage.php:149
+#: plugins/maintenance/src/Manage.php:153
 msgid "System settings have been saved."
 msgstr "Sistemos nustatymai buvo išsaugoti."
 
-#: plugins/maintenance/src/Manage.php:154
+#: plugins/maintenance/src/Manage.php:158
 msgid "All blog's Content-Security-Policy settings have been reset to default."
 msgstr "Visi tinklaraščio turinio saugumo politikos nustatymai buvo atstatyti į numatytuosius."
 
-#: plugins/maintenance/src/Manage.php:176
+#: plugins/maintenance/src/Manage.php:180
 msgid "Every week"
 msgstr "Kiekvieną savaitę"
 
-#: plugins/maintenance/src/Manage.php:177
+#: plugins/maintenance/src/Manage.php:181
 msgid "Every two weeks"
 msgstr "Kas dvi savaites"
 
-#: plugins/maintenance/src/Manage.php:178
+#: plugins/maintenance/src/Manage.php:182
 msgid "Every month"
 msgstr "Kiekvieną mėnesį"
 
-#: plugins/maintenance/src/Manage.php:179
+#: plugins/maintenance/src/Manage.php:183
 msgid "Every two months"
 msgstr "Kas du mėnesius"
 
-#: plugins/maintenance/src/Manage.php:212
+#: plugins/maintenance/src/Manage.php:216
 msgid "You have not sufficient permissions to view this page."
 msgstr "Neturite pakankamai teisių peržiūrėti šį puslapį."
 
-#: plugins/maintenance/src/Manage.php:300
-#: plugins/maintenance/src/Manage.php:306
+#: plugins/maintenance/src/Manage.php:305
+#: plugins/maintenance/src/Manage.php:311
 msgid "You should execute it now."
 msgstr "Dabar turėtumėte jį įvykdyti."
 
-#: plugins/maintenance/src/Manage.php:342
-#: plugins/maintenance/src/Manage.php:376
+#: plugins/maintenance/src/Manage.php:347
+#: plugins/maintenance/src/Manage.php:381
 msgid "Execute task"
 msgstr "Vykdyti užduotį"
 
-#: plugins/maintenance/src/Manage.php:347
+#: plugins/maintenance/src/Manage.php:352
 msgid "This may take a very long time."
 msgstr "Tai gali užtrukti labai ilgai."
 
-#: plugins/maintenance/src/Manage.php:407
-#: plugins/maintenance/src/Manage.php:409
+#: plugins/maintenance/src/Manage.php:418
+#: plugins/maintenance/src/Manage.php:420
 msgid "Alert settings"
 msgstr "Įspėjimo nustatymai"
 
-#: plugins/maintenance/src/Manage.php:415
+#: plugins/maintenance/src/Manage.php:426
 msgid "Activation"
 msgstr "Aktyvavimas"
 
-#: plugins/maintenance/src/Manage.php:421
+#: plugins/maintenance/src/Manage.php:432
 msgid "Display alert messages on late tasks"
 msgstr "Rodyti įspėjamuosius pranešimus apie vėluojančias užduotis"
 
-#: plugins/maintenance/src/Manage.php:426
+#: plugins/maintenance/src/Manage.php:437
 #, php-format
 msgid "You can place list of late tasks on your %s."
 msgstr "Pavėluotai atliktų užduočių sąrašą galite patalpinti %s."
 
-#: plugins/maintenance/src/Manage.php:431
+#: plugins/maintenance/src/Manage.php:442
 msgid "Frequency"
 msgstr "Dažnis"
 
-#: plugins/maintenance/src/Manage.php:439
+#: plugins/maintenance/src/Manage.php:450
 msgid "Use one recall time for all tasks"
 msgstr "Naudokite vieną atšaukimo laiką visoms užduotims"
 
-#: plugins/maintenance/src/Manage.php:449
+#: plugins/maintenance/src/Manage.php:460
 msgid "Recall time for all tasks:"
 msgstr "Visų užduočių prisiminimo laikas:"
 
-#: plugins/maintenance/src/Manage.php:458
+#: plugins/maintenance/src/Manage.php:469
 msgid "Use one recall time per task"
 msgstr "Vienai užduočiai atlikti naudokite vieną atšaukimo laiką"
 
-#: plugins/maintenance/src/Manage.php:489
+#: plugins/maintenance/src/Manage.php:500
 msgid "Content-Security-Policy"
 msgstr "Turinio saugumo politika"
 
-#: plugins/maintenance/src/Manage.php:501
+#: plugins/maintenance/src/Manage.php:512
 msgid "Enable Content-Security-Policy system"
 msgstr "Turinio saugumo politikos sistemos įjungimas"
 
-#: plugins/maintenance/src/Manage.php:507
+#: plugins/maintenance/src/Manage.php:518
 msgid "Enable Content-Security-Policy report only"
 msgstr "Įjungti tik \"Content-Security-Policy\" ataskaitą"
 
-#: plugins/maintenance/src/Manage.php:517
+#: plugins/maintenance/src/Manage.php:528
 msgid "Enable Content-Security-Policy system by default"
 msgstr "Pagal numatytuosius nustatymus įjungti \"Content-Security-Policy\" sistemą"
 
-#: plugins/maintenance/src/Manage.php:523
+#: plugins/maintenance/src/Manage.php:534
 msgid "Enable Content-Security-Policy report only by default"
 msgstr "Pagal numatytuosius nustatymus įjungti tik \"Content-Security-Policy\" ataskaitą"
 
-#: plugins/maintenance/src/Manage.php:529
+#: plugins/maintenance/src/Manage.php:540
 msgid "Also apply these settings to all blogs"
 msgstr "Šiuos nustatymus taip pat taikykite visiems tinklaraščiams"
 
@@ -2245,56 +2254,56 @@ msgstr "Nepavyko suskaičiuoti komentarų ir atgalinių nuorodų."
 msgid "Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating from dotclear 1 to dotclear 2)."
 msgstr "Dar kartą suskaičiuokite komentarus ir Trackbacks leidžia patikrinti jų tikslų skaičių. Ši operacija gali būti naudinga importuojant iš kitos tinklaraščio platformos (arba migruojant iš \"dotclear 1\" į \"dotclear 2\")."
 
-#: plugins/maintenance/src/Task/IndexComments.php:60
-#: plugins/maintenance/src/Task/IndexPosts.php:60
+#: plugins/maintenance/src/Task/IndexComments.php:55
+#: plugins/maintenance/src/Task/IndexPosts.php:55
 msgid "Search engine index"
 msgstr "Paieškos variklio indeksas"
 
-#: plugins/maintenance/src/Task/IndexComments.php:61
+#: plugins/maintenance/src/Task/IndexComments.php:56
 msgid "Index all comments for search engine"
 msgstr "Indeksuoti visus komentarus paieškos sistemai"
 
-#: plugins/maintenance/src/Task/IndexComments.php:62
-#: plugins/maintenance/src/Task/IndexPosts.php:62
-#: plugins/maintenance/src/Task/SynchPostMeta.php:62
+#: plugins/maintenance/src/Task/IndexComments.php:57
+#: plugins/maintenance/src/Task/IndexPosts.php:57
+#: plugins/maintenance/src/Task/SynchPostMeta.php:57
 msgid "Next"
 msgstr "Kitas"
 
-#: plugins/maintenance/src/Task/IndexComments.php:63
+#: plugins/maintenance/src/Task/IndexComments.php:58
 #, php-format
 msgid "Indexing comments %1$d to %2$d of %3$d."
 msgstr "Komentarų indeksavimas nuo %1$d iki %2$d iš %3$d."
 
-#: plugins/maintenance/src/Task/IndexComments.php:64
+#: plugins/maintenance/src/Task/IndexComments.php:59
 msgid "Comments indexing done."
 msgstr "Komentarų indeksavimas atliktas."
 
-#: plugins/maintenance/src/Task/IndexComments.php:65
+#: plugins/maintenance/src/Task/IndexComments.php:60
 msgid "Failed to index comments."
 msgstr "Nepavyko indeksuoti komentarų."
 
-#: plugins/maintenance/src/Task/IndexComments.php:67
+#: plugins/maintenance/src/Task/IndexComments.php:62
 msgid "Index all comments and trackbacks in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
 msgstr "Indeksuokite visus komentarus ir grįžtamąsias nuorodas paieškos sistemos indekse. Ši operacija būtina, kai importuojate turinį į savo tinklaraštį, kad galėtumėte naudoti vidinę paieškos sistemą viešuosiuose ir privačiuose puslapiuose."
 
-#: plugins/maintenance/src/Task/IndexPosts.php:61
+#: plugins/maintenance/src/Task/IndexPosts.php:56
 msgid "Index all entries for search engine"
 msgstr "Indeksuoti visus paieškos sistemos įrašus"
 
-#: plugins/maintenance/src/Task/IndexPosts.php:63
+#: plugins/maintenance/src/Task/IndexPosts.php:58
 #, php-format
 msgid "Indexing entries %1$d to %2$d of %3$d."
 msgstr "Indeksavimo įrašai nuo %1$d iki %2$d iš %3$d."
 
-#: plugins/maintenance/src/Task/IndexPosts.php:64
+#: plugins/maintenance/src/Task/IndexPosts.php:59
 msgid "Entries indexing done."
 msgstr "Įrašų indeksavimas atliktas."
 
-#: plugins/maintenance/src/Task/IndexPosts.php:65
+#: plugins/maintenance/src/Task/IndexPosts.php:60
 msgid "Failed to index entries."
 msgstr "Nepavyko indeksuoti įrašų."
 
-#: plugins/maintenance/src/Task/IndexPosts.php:67
+#: plugins/maintenance/src/Task/IndexPosts.php:62
 msgid "Index all entries in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
 msgstr "Indeksuokite visus įrašus paieškos sistemos rodyklėje. Ši operacija reikalinga, kai importuojate turinį į savo tinklaraštį, kad galėtumėte naudoti vidinę paieškos sistemą viešuosiuose ir privačiuose puslapiuose."
 
@@ -2314,28 +2323,28 @@ msgstr "Nepavyko ištrinti žurnalų."
 msgid "Logs record all activity and connection to your blog history. Unless you need to keep this history, consider deleting these logs from time to time."
 msgstr "Žurnaluose įrašoma visa veikla ir ryšys su tinklaraščio istorija. Jei jums nereikia išsaugoti šios istorijos, apsvarstykite galimybę retkarčiais ištrinti šiuos žurnalus."
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:60
+#: plugins/maintenance/src/Task/SynchPostMeta.php:55
 msgid "Entries metadata"
 msgstr "Įrašų metaduomenys"
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:61
+#: plugins/maintenance/src/Task/SynchPostMeta.php:56
 msgid "Synchronize entries metadata"
 msgstr "Sinchronizuoti įrašų metaduomenis"
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:63
+#: plugins/maintenance/src/Task/SynchPostMeta.php:58
 #, php-format
 msgid "Synchronizing metadata of entries %1$d to %2$d of %3$d."
 msgstr "Įrašų %1$d metaduomenų sinchronizavimas su %2$d %3$d."
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:64
+#: plugins/maintenance/src/Task/SynchPostMeta.php:59
 msgid "Entries metadata synchronize done."
 msgstr "Įrašų metaduomenų sinchronizavimas atliktas."
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:65
+#: plugins/maintenance/src/Task/SynchPostMeta.php:60
 msgid "Failed to synchronize entries metadata."
 msgstr "Nepavyko sinchronizuoti įrašų metaduomenų."
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:67
+#: plugins/maintenance/src/Task/SynchPostMeta.php:62
 msgid "Synchronize all entries metadata could be useful after importing content in your blog or do bad operation on database tables."
 msgstr "Sinchronizuoti visus įrašus metaduomenys gali būti naudinga importuoti turinį į savo tinklaraštį arba padaryti blogą operaciją duomenų bazės lentelėse."
 
@@ -2394,7 +2403,7 @@ msgid "%d pages"
 msgstr "%d puslapiai"
 
 #: plugins/pages/src/Backend.php:108 plugins/pages/src/Manage.php:148
-#: plugins/pages/src/ManagePage.php:107 plugins/pages/src/ManagePage.php:834
+#: plugins/pages/src/ManagePage.php:107 plugins/pages/src/ManagePage.php:854
 msgid "New page"
 msgstr "Naujas puslapis"
 
@@ -2471,56 +2480,56 @@ msgstr "Išsaugoti puslapių užsakymą"
 msgid "This page does not exist."
 msgstr "Šis puslapis neegzistuoja."
 
-#: plugins/pages/src/ManagePage.php:188 plugins/pages/src/ManagePage.php:834
-#: plugins/pages/src/ManagePage.php:855
+#: plugins/pages/src/ManagePage.php:188 plugins/pages/src/ManagePage.php:854
+#: plugins/pages/src/ManagePage.php:875
 msgid "Edit page"
 msgstr "Redaguoti puslapį"
 
-#: plugins/pages/src/ManagePage.php:468
+#: plugins/pages/src/ManagePage.php:488
 msgid "Are you sure you want to delete this page?"
 msgstr "Ar tikrai norite ištrinti šį puslapį?"
 
-#: plugins/pages/src/ManagePage.php:496
+#: plugins/pages/src/ManagePage.php:516
 msgid "Page has been successfully updated."
 msgstr "Puslapis sėkmingai atnaujintas."
 
-#: plugins/pages/src/ManagePage.php:498
+#: plugins/pages/src/ManagePage.php:518
 msgid "Page has been successfully created."
 msgstr "Puslapis sėkmingai sukurtas"
 
-#: plugins/pages/src/ManagePage.php:511
+#: plugins/pages/src/ManagePage.php:531
 msgid "Don't forget to validate your HTML conversion by saving your post."
 msgstr "Nepamirškite patvirtinti savo HTML konvertavimo išsaugodami įrašą."
 
-#: plugins/pages/src/ManagePage.php:521
+#: plugins/pages/src/ManagePage.php:541
 msgid "Go to this page on the site"
 msgstr "Eikite į šį svetainės puslapį"
 
-#: plugins/pages/src/ManagePage.php:563
+#: plugins/pages/src/ManagePage.php:583
 msgid "Page status"
 msgstr "Puslapio statusas:"
 
-#: plugins/pages/src/ManagePage.php:580
+#: plugins/pages/src/ManagePage.php:600
 msgid "Page language"
 msgstr "Puslapio kalba"
 
-#: plugins/pages/src/ManagePage.php:609 plugins/pages/src/Widgets.php:41
+#: plugins/pages/src/ManagePage.php:629 plugins/pages/src/Widgets.php:41
 msgid "Page position"
 msgstr "Puslapio pozicija"
 
-#: plugins/pages/src/ManagePage.php:660
+#: plugins/pages/src/ManagePage.php:680
 msgid "Hide in widget Pages"
 msgstr "Paslėpti valdiklyje Puslapiai"
 
-#: plugins/pages/src/ManagePage.php:686
+#: plugins/pages/src/ManagePage.php:706
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "Dėmesio: gali atsirasti konfliktas su kitu puslapiu, jei URL nustatysite rankiniu būdu."
 
-#: plugins/pages/src/ManagePage.php:725
+#: plugins/pages/src/ManagePage.php:745
 msgid "Introduction to the page."
 msgstr "Įvadas į puslapį."
 
-#: plugins/pages/src/ManagePage.php:1104
+#: plugins/pages/src/ManagePage.php:1124
 msgid "Select this comment"
 msgstr "Pasirinkite šį komentarą"
 
