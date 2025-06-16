@@ -387,10 +387,15 @@ class Manage extends Process
             }
 
             // Settings
-            $tasks = [];
+            $tasks     = [];
+            $ts_global = true;
+            $ts_list   = [];
             foreach (App::backend()->tasks as $t) {
                 if (!$t->id()) {
                     continue;
+                }
+                if (!in_array($t->ts(), $ts_list)) {
+                    $ts_list[] = $t->ts();
                 }
                 $tasks[] = (new Div())
                     ->class('two-boxes')
@@ -406,6 +411,7 @@ class Manage extends Process
                             ]),
                     ]);
             }
+            $ts_global = count($ts_list) > 1;
 
             echo (new Div('settings'))
                 ->class('multi-part')
@@ -438,7 +444,7 @@ class Manage extends Process
                                     // All
                                     (new Para())
                                         ->items([
-                                            (new Radio(['settings_recall_type', 'settings_recall_all']))
+                                            (new Radio(['settings_recall_type', 'settings_recall_all'], $ts_global))
                                                 ->value('all')
                                                 ->label((new Label(
                                                     (new Strong(__('Use one recall time for all tasks')))->render(),
@@ -457,7 +463,7 @@ class Manage extends Process
                                     (new Para())
                                         ->class('vertical-separator')
                                         ->items([
-                                            (new Radio(['settings_recall_type', 'settings_recall_separate']))
+                                            (new Radio(['settings_recall_type', 'settings_recall_separate'], !$ts_global))
                                                 ->value('separate')
                                                 ->label((new Label(
                                                     (new Strong(__('Use one recall time per task')))->render(),
