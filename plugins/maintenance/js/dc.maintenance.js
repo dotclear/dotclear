@@ -61,27 +61,29 @@ dotclear.ready(() => {
   }
 
   const box = document.querySelector('.step-box');
-  if (box) {
-    const code = box.querySelector('input[name=code]')?.value;
-    const count = box.querySelector('input[name=count]')?.value;
-
-    // Remove submit button and hidden fields
-    const submit = document.querySelector('.step-submit');
-    if (submit) submit.remove();
-
-    // Hide go back button
-    const back = document.querySelector('.step-back');
-    if (back) back.style.display = 'none';
-
-    // Add waiting message
-    const msg = document.querySelector('.step-msg');
-    if (msg) {
-      const para = document.createElement('p');
-      para.classList.add('step-wait');
-      para.textContent = dotclear.msg.wait;
-      msg.after(para);
-    }
-
-    doStep(box, code, count);
+  if (!box) {
+    return;
   }
+
+  const code = box.querySelector('input[name=code]')?.value;
+  const count = box.querySelector('input[name=count]')?.value;
+
+  // Remove submit button and hidden fields
+  const submit = document.querySelector('.step-submit');
+  if (submit) submit.remove();
+
+  // Hide go back button
+  const back = document.querySelector('.step-back');
+  if (back) back.style.display = 'none';
+
+  // Add waiting message
+  const msg = document.querySelector('.step-msg');
+  if (msg) {
+    const para = document.createElement('p');
+    para.classList.add('step-wait');
+    para.textContent = dotclear.msg.wait;
+    msg.after(para);
+  }
+
+  doStep(box, code, count);
 });
