@@ -1,45 +1,87 @@
-/*global $, dotclear */
+/*global dotclear */
 'use strict';
-
-Object.assign(dotclear.msg, dotclear.getData('maintenance'));
 
 dotclear.ready(() => {
   // DOM ready and content loaded
 
-  $('.step-box').each(function () {
-    const code = $('input[name=code]', this).val();
-    const count = $('input[name=count]', this).val();
-    $('.step-submit', this).remove();
-    $('.step-back', this).hide();
-    $('.step-msg', this).after($('<p>').addClass('step-wait').text(dotclear.msg.wait));
+  Object.assign(dotclear.msg, dotclear.getData('maintenance'));
 
-    dcMaintenanceStep(this, code, count);
+  function doStep(box, code, count) {
+    dotclear.jsonServicesPost(
+      'dcMaintenanceStep',
+      (data) => {
+        // Display step message
+        const msg = document.querySelector('.step-msg');
+        if (msg) {
+          msg.textContent = data.title;
+        }
 
-    function dcMaintenanceStep(box, code, count) {
-      dotclear.jsonServicesPost(
-        'dcMaintenanceStep',
-        (data) => {
-          $('.step-msg', box).text(data.title);
-          const next = data.code;
-          if (next > 0) {
-            dcMaintenanceStep(box, next, data.count);
-            return;
-          }
-          $('#content h2').after($('<div>').addClass('success').append($('.step-msg', box)));
-          $('.step-wait', box).remove();
-          $('.step-back', box).show();
-        },
-        {
-          task: $(box).attr('id'),
-          code,
-          count,
-        },
-        (error) => {
-          $('.step-msg', box).text(error);
-          $('.step-wait', box).remove();
-          $('.step-back', box).show();
-        },
-      );
+        const next = data.code;
+        if (next > 0) {
+          doStep(box, next, data.count);
+          return;
+        }
+
+        // Display success message
+        const title = document.querySelector('#content h2');
+        if (title && msg) {
+          const div = document.createElement('div');
+          div.classList.add('success');
+          div.appendChild(msg);
+          title.after(msg);
+        }
+
+        // Remove waiting message
+        const wait = document.querySelector('.step-wait');
+        if (wait) wait.remove();
+
+        // Show go back button
+        const back = document.querySelector('.step-back');
+        if (back) back.style.display = '';
+      },
+      {
+        task: box.getAttribute('id'),
+        code,
+        count,
+      },
+      (error) => {
+        // Display error message
+        const msg = document.querySelector('.step-msg');
+        if (msg) msg.textContent = error;
+
+        // Remove waiting message
+        const wait = document.querySelector('.step-wait');
+        if (wait) wait.remove();
+
+        // Show go back button
+        const back = document.querySelector('.step-back');
+        if (back) back.style.display = '';
+      },
+    );
+  }
+
+  const box = document.querySelector('.step-box');
+  if (box) {
+    const code = box.querySelector('input[name=code]')?.value;
+    const count = box.querySelector('input[name=count]')?.value;
+
+    // Remove submit button and hidden fields
+    const submit = document.querySelector('.step-submit');
+    if (submit) submit.remove();
+
+    // Hide go back button
+    const back = document.querySelector('.step-back');
+    if (back) back.style.display = 'none';
+
+    // Add waiting message
+    const msg = document.querySelector('.step-msg');
+    if (msg) {
+      const para = document.createElement('p');
+      para.classList.add('step-wait');
+      para.textContent = dotclear.msg.wait;
+      msg.after(para);
     }
-  });
+
+    doStep(box, code, count);
+  }
 });
