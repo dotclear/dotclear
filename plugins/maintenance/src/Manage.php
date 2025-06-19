@@ -397,6 +397,7 @@ class Manage extends Process
                 if (!in_array($t->ts(), $ts_list)) {
                     $ts_list[] = $t->ts();
                 }
+                $label   = $t->ts() ? (new Strong($t->task()))->render() : $t->task();
                 $tasks[] = (new Div())
                     ->class('two-boxes')
                     ->items([
@@ -407,7 +408,7 @@ class Manage extends Process
                                     ->class('recall-per-task')
                                     ->items($combo_ts)
                                     ->default((string) $t->ts())
-                                    ->label((new Label($t->task(), Label::OUTSIDE_TEXT_BEFORE))),
+                                    ->label((new Label($label, Label::OUTSIDE_TEXT_BEFORE))),
                             ]),
                     ]);
             }

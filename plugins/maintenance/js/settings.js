@@ -21,11 +21,11 @@ dotclear.ready(() => {
   setStatus(globalRadio.getAttribute('checked') !== null);
 
   // Listen change on radio choice
-  globalRadio.addEventListener('click', (event) => {
-    setStatus(event.target.getAttribute('checked') !== null);
+  globalRadio.addEventListener('click', () => {
+    setStatus(true);
   });
-  separateRadio.addEventListener('click', (event) => {
-    setStatus(event.target.getAttribute('checked') !== null);
+  separateRadio.addEventListener('click', () => {
+    setStatus(false);
   });
 
   dotclear.condSubmit('#part-maintenance input[type="radio"]', '#part-maintenance input[type="submit"]');
