@@ -355,7 +355,7 @@ final class dcCore
      */
     public static function app(): dcCore
     {
-        return self::$instance;
+        return self::$instance ?? new self();
     }
 
     /**
