@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * @brief       The theme blowup definition
@@ -17,7 +18,7 @@ $this->registerModule(
     'Blowup',                                     // Name
     'Default Dotclear theme, fully customizable', // Description
     'Marco & Olivier',                            // Author
-    '2.0',                                        // Version
+    '3.0',                                        // Version
     [
         'standalone_config' => true,
         'type'              => 'theme',

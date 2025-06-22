@@ -136,7 +136,7 @@ class Task implements TaskInterface
             'dcUtils' => implode(DIRECTORY_SEPARATOR, [$this->config->dotclearRoot(),  'inc', 'core', 'class.dc.utils.php']),
         ]);
 
-        // Check and serve plugins and var files. (from ?pf= and ?vf= URI)
+        // Check and serve plugins and var files. (from ?pf=, ?tf= and ?vf= URI)
         FileServer::check($this->config);
 
         // Config file exists

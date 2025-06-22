@@ -24,9 +24,12 @@
 #file-chooser li {
   list-style: none;
 }
-#file-chooser li.default-file {
+#file-chooser li.custom-file {
   color: var(--link-color);
   font-weight: bold;
+}
+#file-chooser li.default-file {
+  color: var(--link-color);
 }
 #file-chooser li.parent-file {
   color: var(--breadcrumb-current);

@@ -1003,7 +1003,7 @@ class Tpl extends Template
      */
     public function BlogThemeURL(ArrayObject $attr): string
     {
-        return '<?= ' . sprintf($this->getFilters($attr), 'App::blog()->settings()->system->themes_url."/".App::blog()->settings()->system->theme') . ' ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::blog()->getTF(\'\', false)') . ' ?>';
     }
 
     /**
@@ -1017,9 +1017,7 @@ class Tpl extends Template
      */
     public function BlogParentThemeURL(ArrayObject $attr): string
     {
-        $parent = 'App::themes()->moduleInfo(App::blog()->settings()->system->theme,\'parent\')';
-
-        return '<?= ' . sprintf($this->getFilters($attr), 'App::blog()->settings()->system->themes_url."/".(' . "$parent" . ' ? ' . "$parent" . ' : App::blog()->settings()->system->theme)') . ' ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::blog()->getTF(\'\', false)') . ' ?>';
     }
 
     /**

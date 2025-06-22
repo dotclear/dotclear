@@ -10,8 +10,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Module;
 
+use Autoloader;
 use Dotclear\App;
 use Dotclear\Helper\File\Files;
+use Dotclear\Helper\L10n;
 use Dotclear\Interface\Core\ThemesInterface;
 use Exception;
 
@@ -192,7 +194,7 @@ class Themes extends Modules implements ThemesInterface
     /**
      * Loads namespace <var>$ns</var> specific file for module with ID <var>$id</var>.
      *
-     * Note: currently, only 'public' namespace is supported with themes.
+     * Note: currently, only 'public' and 'admin' namespace is supported with themes.
      *
      * @param      string  $id     Module ID
      * @param      string  $ns     Namespace name
@@ -203,8 +205,6 @@ class Themes extends Modules implements ThemesInterface
         if (!$define->isDefined() || !in_array($ns, ['admin', 'public'])) {
             return;
         }
-
-        $parent = $this->getDefine((string) $define->get('parent'), ['state' => ModuleDefine::STATE_ENABLED]);
 
         switch ($ns) {
             case 'admin':
@@ -221,14 +221,60 @@ class Themes extends Modules implements ThemesInterface
                 return;
         }
 
+        $parent = $this->getDefine((string) $define->get('parent'), ['state' => ModuleDefine::STATE_ENABLED]);
         if ($parent->isDefined() && $this->loadNsClass($parent->getId(), $class) === '') {
             // by file name rather than by class name
             $this->loadModuleFile($parent->get('root') . DIRECTORY_SEPARATOR . $file, true);
         }
 
+        // Check if there is a customized version of requested class
+        $root = App::config()->varRoot() . DIRECTORY_SEPARATOR . 'themes' . DIRECTORY_SEPARATOR . App::blog()->id() . DIRECTORY_SEPARATOR . App::blog()->settings()->system->theme;
+        ;
+        if (file_exists($root . DIRECTORY_SEPARATOR . self::MODULE_CLASS_DIR . DIRECTORY_SEPARATOR . $class . '.php')) {
+            // Add supplemental source for this class
+            Autoloader::me()->addNamespace($define->get('namespace'), $root . DIRECTORY_SEPARATOR . self::MODULE_CLASS_DIR, true);
+            if ($this->loadNsClass($id, $class) !== '') {
+                return;
+            }
+        }
+
         if ($this->loadNsClass($id, $class) === '') {
             // by file name rather than by class name
-            $this->loadModuleFile($define->get('root') . DIRECTORY_SEPARATOR . $file, true);
+            $customized = App::config()->varRoot() . DIRECTORY_SEPARATOR . 'themes' . DIRECTORY_SEPARATOR . App::blog()->id() . DIRECTORY_SEPARATOR . App::blog()->settings()->system->theme . DIRECTORY_SEPARATOR . $file;
+            // Check if there is customized version of requested file
+            if (file_exists($customized)) {
+                $this->loadModuleFile($customized, true, false);
+            } else {
+                $this->loadModuleFile($define->get('root') . DIRECTORY_SEPARATOR . $file, true);
+            }
+        }
+    }
+
+    /**
+     * Loads a theme locales.
+     *
+     * @param      string       $id     The identifier
+     * @param      null|string  $lang   The language
+     * @param      string       $file   The file
+     */
+    public function loadModuleL10N(string $id, ?string $lang, string $file): void
+    {
+        if ($this->safe_mode) {
+            return;
+        }
+
+        $module = $this->getDefine($id);//, ['state' => ModuleDefine::STATE_ENABLED]);
+        if ($lang && $module->isDefined()) {
+            $template = '%s' . DIRECTORY_SEPARATOR . 'locales' . DIRECTORY_SEPARATOR . '%s' . DIRECTORY_SEPARATOR . '%s';
+            $root     = $module->get('root');
+            if (L10n::set(sprintf($template, $root, $lang, $file)) === false && $lang !== 'en') {
+                L10n::set(sprintf($template, $root, 'en', $file));
+            }
+            // Load also custom locales if any
+            $root = App::config()->varRoot() . DIRECTORY_SEPARATOR . 'themes' . DIRECTORY_SEPARATOR . $id . DIRECTORY_SEPARATOR . App::blog()->settings()->system->theme;
+            if (L10n::set(sprintf($template, $root, $lang, $file)) === false && $lang !== 'en') {
+                L10n::set(sprintf($template, $root, 'en', $file));
+            }
         }
     }
 }

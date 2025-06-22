@@ -378,6 +378,16 @@ class Blog implements BlogInterface
         return $ret;
     }
 
+    public function getTF(string $tf, bool $strip_host = true): string
+    {
+        $ret = $this->getQmarkURL() . 'tf=' . $tf;
+        if ($strip_host) {
+            $ret = Html::stripHostURL($ret);
+        }
+
+        return $ret;
+    }
+
     public function getVF(string $vf, bool $strip_host = true): string
     {
         $ret = $this->getQmarkURL() . 'vf=' . $vf;

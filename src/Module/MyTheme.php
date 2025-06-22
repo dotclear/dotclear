@@ -11,7 +11,6 @@ declare(strict_types=1);
 namespace Dotclear\Module;
 
 use Dotclear\App;
-use Dotclear\Helper\Network\Http;
 
 /**
  * @brief   Theme My module class.
@@ -49,25 +48,18 @@ abstract class MyTheme extends MyModule
     /**
      * Returns URL of a theme file.
      *
-     * Always returns frontend (public) URL
-     *
      * @param   string  $resource   The resource file
-     * @param   bool    $frontend   (not used for themes)
      */
     public static function fileURL(string $resource, bool $frontend = false): string
     {
-        if ($resource !== '' && !str_starts_with($resource, '/')) {
-            $resource = '/' . $resource;
+        if ($resource !== '' && str_starts_with($resource, '/')) {
+            $resource = ltrim($resource, '/');
         }
 
-        if (!App::blog()->isDefined()) {
-            return '';
+        if (App::task()->checkContext('BACKEND') && !$frontend) {
+            return urldecode(App::backend()->url()->get('load.theme.file', ['tf' => $resource], '&'));
         }
 
-        $base = preg_match('#^http(s)?://#', (string) App::blog()->settings()->system->themes_url) ?
-            Http::concatURL(App::blog()->settings()->system->themes_url, self::id()) :
-            Http::concatURL(App::blog()->url(), App::blog()->settings()->system->themes_url . '/' . self::id());
-
-        return  $base . $resource;
+        return App::blog()->isDefined() ? urldecode(App::blog()->getQmarkURL() . 'tf=' . $resource) : '';
     }
 }

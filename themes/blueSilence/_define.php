@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * @brief       The theme blueSilence definition
@@ -17,7 +18,7 @@ $this->registerModule(
     'Blue Silence',         // Name
     'Dotclear Theme',       // Description
     'Marco / marcarea.com', // Author
-    '1.0',                  // Version
+    '2.0',                  // Version
     [
         'type' => 'theme',
     ]

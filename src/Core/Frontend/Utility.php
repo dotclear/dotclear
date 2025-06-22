@@ -266,6 +266,7 @@ class Utility extends Process
         $GLOBALS['mod_ts'] = App::cache()->getTimes();
 
         $tpl_path = [
+            App::config()->varRoot() . '/themes/' . App::config()->blogId() . '/' . App::frontend()->theme . '/tpl',
             App::blog()->themesPath() . '/' . App::frontend()->theme . '/tpl',
         ];
         if (App::frontend()->parent_theme) {

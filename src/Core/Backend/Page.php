@@ -1617,6 +1617,18 @@ class Page
     }
 
     /**
+     * Gets theme file.
+     *
+     * @param      string  $file   The filename
+     *
+     * @return     string  The URL.
+     */
+    public static function getTF(string $file): string
+    {
+        return App::backend()->url()->get('load.theme.file', ['tf' => $file], '&');
+    }
+
+    /**
      * Gets var file.
      *
      * @param      string  $file   The filename

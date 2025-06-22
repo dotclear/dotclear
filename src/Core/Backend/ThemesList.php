@@ -818,8 +818,10 @@ class ThemesList extends ModulesList
     {
         $theme = App::blog()->settings()->system->theme;
         $paths = [
+            App::config()->varRoot() . '/themes/' . App::blog()->id() . '/' . $theme . '/tpl',
             App::blog()->themesPath() . '/' . $theme . '/tpl',
         ];
+
         $parent_theme = App::themes()->moduleInfo($theme, 'parent');
         if ($parent_theme) {
             $paths[] = App::blog()->themesPath() . '/' . $parent_theme . '/tpl';

@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  background: #e0e0e0 url(img/body-bg.png) repeat-x top;
+  background: #e0e0e0 url(index.php?tf=img/body-bg.png) repeat-x top;
   color: #6b6b6b;
   font:
     62.5% 'Lucida Grande',
@@ -71,7 +71,7 @@ sub {
   width: 800px;
   padding: 0;
   margin: 50px auto 0 auto;
-  background: transparent url(img/page-t.png) no-repeat bottom left;
+  background: transparent url(index.php?tf=img/page-t.png) no-repeat bottom left;
 }
 #top h1 {
   position: absolute;
@@ -109,7 +109,7 @@ sub {
   overflow: hidden;
   margin: 0 auto 0 auto;
   padding: 20px 0;
-  background: #fff url(img/page-bg.png) repeat-y top left;
+  background: #fff url(index.php?tf=img/page-bg.png) repeat-y top left;
 }
 
 #main {
@@ -134,7 +134,7 @@ sub {
 #footer {
   clear: both;
   padding: 30px 0 0 0;
-  background: transparent url(img/page-b.png) no-repeat top center;
+  background: transparent url(index.php?tf=img/page-b.png) no-repeat top center;
 }
 #footer p {
   margin: 0 auto;
@@ -375,7 +375,7 @@ h4 {
   display: inline;
   margin-right: 8px;
   padding: 5px 0 5px 22px;
-  background: transparent url(img/tag.png) no-repeat 0 70%;
+  background: transparent url(index.php?tf=img/tag.png) no-repeat 0 70%;
 }
 .post-tags li a {
   color: #6b6b6b;
@@ -395,13 +395,13 @@ h4 {
 }
 
 .comment_count {
-  background: transparent url(img/comment.png) no-repeat 0 50%;
+  background: transparent url(index.php?tf=img/comment.png) no-repeat 0 50%;
 }
 .ping_count {
-  background: transparent url(img/trackback.png) no-repeat 0 50%;
+  background: transparent url(index.php?tf=img/trackback.png) no-repeat 0 50%;
 }
 .attach_count {
-  background: transparent url(img/attach.png) no-repeat 0 50%;
+  background: transparent url(index.php?tf=img/attach.png) no-repeat 0 50%;
 }
 
 .read-it {
@@ -410,7 +410,7 @@ h4 {
 }
 
 a.feed {
-  background: transparent url(img/feed.png) no-repeat 0 0.25em;
+  background: transparent url(index.php?tf=img/feed.png) no-repeat 0 0.25em;
   padding: 5px 0 5px 22px;
 }
 
@@ -472,7 +472,7 @@ dd.comment-preview {
 #attachments li {
   margin: 0 0 0.6em;
   padding: 2px 10px 2px 18px;
-  background: transparent url(img/attach.png) no-repeat 0 50%;
+  background: transparent url(index.php?tf=img/attach.png) no-repeat 0 50%;
 }
 
 #attachments li object {
@@ -502,10 +502,10 @@ dd.comment-preview {
 #comments dt {
   margin: 1.5em 0 0 0;
   padding: 5px 0 16px 0;
-  background: transparent url(img/comment-t.png) no-repeat bottom left;
+  background: transparent url(index.php?tf=img/comment-t.png) no-repeat bottom left;
 }
 #comments dt.me {
-  background-image: url(img/commentmy-t.png);
+  background-image: url(index.php?tf=img/commentmy-t.png);
 }
 #comments a.comment-number {
   display: block;
@@ -517,13 +517,13 @@ dd.comment-preview {
 #comments dd {
   margin: 0;
   padding: 1px 1em 0.5em 1em;
-  background: #fffad1 url(img/comment-b.png) no-repeat bottom left;
+  background: #fffad1 url(index.php?tf=img/comment-b.png) no-repeat bottom left;
   color: #6b6b6b;
 }
 #comments dd.me {
   background-color: #f5f9d9;
   color: #6b6b6b;
-  background-image: url(img/commentmy-b.png);
+  background-image: url(index.php?tf=img/commentmy-b.png);
 }
 #comments dd p {
   margin: 0.5em 0;

@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace Dotclear;
 
+use Dotclear\Core\Frontend\Utility;
 use Dotclear\Interface\ConfigInterface;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
@@ -136,6 +137,8 @@ class FileServer
             new self($config, 'plugin', $_GET['pf']);
         } elseif (!empty($_GET['vf']) && is_string($_GET['vf'])) {
             new self($config, 'var', $_GET['vf']);
+        } elseif (!empty($_GET['tf']) && is_string($_GET['tf'])) {
+            new self($config, 'theme', $_GET['tf']);
         }
     }
 
@@ -159,6 +162,7 @@ class FileServer
 
         match ($this->type) {
             'plugin' => $this->findPluginFile(),
+            'theme'  => $this->findThemeFile(),
             'core'   => $this->findCoreFile(),
             'var'    => $this->findVarFile(),
             default  => '',
@@ -201,7 +205,7 @@ class FileServer
             self::p403();
         }
 
-        unset($_GET['pf'], $_GET['vf']);
+        unset($_GET['pf'], $_GET['vf'], $_GET['tf']);
 
         if (!$this->config->dotclearRoot() || !$this->config->pluginsRoot() || !$this->config->varRoot()) {
             self::p404();
@@ -228,6 +232,80 @@ class FileServer
         }
 
         // not in modules, try in core
+        $this->findCorefile();
+    }
+
+    /**
+     * Find file in theme.
+     */
+    protected function findThemeFile(): void
+    {
+        $paths = [];
+
+        // Emulate public prepend
+        App::task()->addContext('FRONTEND');
+        new Utility();
+
+        // Get blog ID defined in index.php of blog (Frontend context)
+        $blogId = App::config()->blogId();
+        if (!$blogId) {
+            // Get blog ID currently defined if any (whatever is the context)
+            $blogId = App::blog()->id();
+            if (!$blogId) {
+                // Try to get currently selected blog from session (Backend context)
+                if (App::auth()->sessionExists()) {
+                    if (App::auth()->checkSession()) {
+                        if (isset($_SESSION['sess_blog_id'])) {
+                            if (App::auth()->getPermissions($_SESSION['sess_blog_id']) !== false) {
+                                $blogId = $_SESSION['sess_blog_id'];
+                            }
+                        } elseif (($b = App::auth()->findUserBlog(App::auth()->getInfo('user_default_blog'), false)) !== false) {
+                            // Finally get default blog for currently authenticated user
+                            $blogId = $b;
+                        }
+                    }
+                }
+            }
+        }
+
+        if ($blogId) {
+            // Load blog
+            App::blog()->loadFromBlog($blogId);
+            $theme = App::blog()->settings()->system->theme;
+            if ($theme) {
+                // Get current theme path
+                $dir_theme = Path::real(App::blog()->themesPath() . '/' . $theme);
+                if ($dir_theme) {
+                    $paths[] = $dir_theme;
+
+                    // Get current parent theme path if any
+                    $parent_theme = App::themes()->moduleInfo($theme, 'parent');
+                    if ($parent_theme) {
+                        $dir_parent_theme = Path::real(App::blog()->themesPath() . '/' . $parent_theme);
+                        if ($dir_parent_theme) {
+                            $paths[] = $dir_parent_theme;
+                        }
+                    }
+
+                    // Check if there is a overloaded path for current theme
+                    $custom_theme = Path::real($this->config->varRoot() . '/themes/' . $blogId . '/' . $theme);
+
+                    if ($custom_theme) {
+                        // Set custom path at first (custom > theme > parent > core)
+                        array_unshift($paths, $custom_theme);
+                    }
+                }
+            }
+        }
+
+        foreach ($paths as $path) {
+            $file = Path::real($path . '/' . $this->resource);
+            if ($file !== false && $this->setFile($file)) {
+                return;
+            }
+        }
+
+        // not in theme, try in core
         $this->findCorefile();
     }
 

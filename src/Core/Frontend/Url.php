@@ -713,7 +713,9 @@ class Url extends UrlHandler implements UrlInterface
                 // Prepare the HTTP cache thing
                 App::cache()->resetFiles();
                 App::cache()->addFiles(get_included_files());
+                // Get template paths (custom > theme > parent theme > template set)
                 $tpl_path = [
+                    App::config()->varRoot() . '/themes/' . App::blog()->id() . '/' . App::frontend()->theme . '/tpl',
                     App::blog()->themesPath() . '/' . App::frontend()->theme . '/tpl',
                 ];
                 if (App::frontend()->parent_theme) {

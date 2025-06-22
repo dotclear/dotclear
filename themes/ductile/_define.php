@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * @brief       The theme ductile definition
@@ -17,7 +18,7 @@ $this->registerModule(
     'Ductile',                              // Name
     'Mediaqueries compliant elegant theme', // Description
     'Dotclear Team',                        // Author
-    '2.0',                                  // Version
+    '3.0',                                  // Version
     [                                  // Properties
         'standalone_config' => true,
         'type'              => 'theme',
