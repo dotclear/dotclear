@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-16 09:22+0200\n"
-"PO-Revision-Date: 2025-06-16 07:53\n"
+"POT-Creation-Date: 2025-06-23 19:10+0200\n"
+"PO-Revision-Date: 2025-06-23 17:14\n"
 "Last-Translator: \n"
 "Language-Team: Telugu\n"
 "Language: te_IN\n"
@@ -1704,7 +1704,7 @@ msgstr "ఎగుమతి కార్యకలాపాలు పేజీల�
 
 #: plugins/importExport/src/Manage.php:144
 #: plugins/maintenance/src/Backend.php:25
-#: plugins/maintenance/src/BackendBehaviors.php:218
+#: plugins/maintenance/src/BackendBehaviors.php:221
 msgid "Maintenance"
 msgstr "నిర్వహణ"
 
@@ -2046,14 +2046,14 @@ msgstr "(t) అనువాదాలు"
 msgid "Translations"
 msgstr "అనువాదములు"
 
-#: plugins/maintenance/src/BackendBehaviors.php:93
+#: plugins/maintenance/src/BackendBehaviors.php:95
 #, php-format
 msgid "One <a href=\"%2$s\">maintenance task</a> to execute."
 msgid_plural "%1$s <a href=\"%2$s\">maintenance tasks</a> to execute."
 msgstr[0] "అమలు చేయడానికి ఒక <a href=\"%2$s\">నిర్వహణ పని</a> ఉంది."
 msgstr[1] "%1$s <a href=\"%2$s\">నిర్వహణ పనులు</a> అమలు చేయడానికి."
 
-#: plugins/maintenance/src/BackendBehaviors.php:166
+#: plugins/maintenance/src/BackendBehaviors.php:169
 #: plugins/maintenance/src/Rest.php:83
 #, php-format
 msgid "One task to execute"
@@ -2061,33 +2061,33 @@ msgid_plural "%s tasks to execute"
 msgstr[0] "నిర్వర్తించుటకు ఒక పని"
 msgstr[1] "%s పనులను నిర్వర్తించుటకు"
 
-#: plugins/maintenance/src/BackendBehaviors.php:200
+#: plugins/maintenance/src/BackendBehaviors.php:203
 #: plugins/maintenance/src/Manage.php:305
 msgid "This task has never been executed."
 msgstr "ఈ పని ఎప్పుడూ నిర్వచించబడలేదు."
 
-#: plugins/maintenance/src/BackendBehaviors.php:203
+#: plugins/maintenance/src/BackendBehaviors.php:206
 #: plugins/maintenance/src/Manage.php:308
 #, php-format
 msgid "Last execution of this task was on %s."
 msgstr "ఈ పని చివరి నిర్వచనం %s న జరిగింది."
 
-#: plugins/maintenance/src/BackendBehaviors.php:221
+#: plugins/maintenance/src/BackendBehaviors.php:224
 #, php-format
 msgid "There is a task to execute."
 msgid_plural "There are %s tasks to execute."
 msgstr[0] "నిర్వచించడానికి ఒక పని ఉంది."
 msgstr[1] "నిర్వచించడానికి %s పనులను ఉన్నాయి."
 
-#: plugins/maintenance/src/BackendBehaviors.php:228
+#: plugins/maintenance/src/BackendBehaviors.php:231
 msgid "Manage tasks"
 msgstr "పనులను మానేజ్ చేయి"
 
-#: plugins/maintenance/src/BackendBehaviors.php:250
+#: plugins/maintenance/src/BackendBehaviors.php:253
 msgid "Display overdue tasks counter on maintenance dashboard icon"
 msgstr "నిర్వహణ డాష్బోర్డ్ ప్రతిబింబనపై పొడవైన పనుల కౌంటర్ ప్రదర్శించుము"
 
-#: plugins/maintenance/src/BackendBehaviors.php:256
+#: plugins/maintenance/src/BackendBehaviors.php:259
 msgid "Display overdue tasks list on dashboard items"
 msgstr "డాష్బోర్డ్ అంశంపై పొడవైన పనుల జాబితాను ప్రదర్శించుము"
 
@@ -2145,61 +2145,61 @@ msgstr "పని ప్రశంసించుము"
 msgid "This may take a very long time."
 msgstr "ఇది చాలా కాలం పడుతుంది."
 
-#: plugins/maintenance/src/Manage.php:418
-#: plugins/maintenance/src/Manage.php:420
+#: plugins/maintenance/src/Manage.php:419
+#: plugins/maintenance/src/Manage.php:421
 msgid "Alert settings"
 msgstr "అలెర్ట్ అమరికComment"
 
-#: plugins/maintenance/src/Manage.php:426
+#: plugins/maintenance/src/Manage.php:427
 msgid "Activation"
 msgstr "క్రియాశీలము"
 
-#: plugins/maintenance/src/Manage.php:432
+#: plugins/maintenance/src/Manage.php:433
 msgid "Display alert messages on late tasks"
 msgstr "ఆలస్య సందేశాలను ఆలస్యం సందేశాలను ప్రదర్శించుము"
 
-#: plugins/maintenance/src/Manage.php:437
+#: plugins/maintenance/src/Manage.php:438
 #, php-format
 msgid "You can place list of late tasks on your %s."
 msgstr "మీరు మీ %s న ఆలయ పనుల జాబితాను స్థానం చేయవచ్చు."
 
-#: plugins/maintenance/src/Manage.php:442
+#: plugins/maintenance/src/Manage.php:443
 msgid "Frequency"
 msgstr "Frequency"
 
-#: plugins/maintenance/src/Manage.php:450
+#: plugins/maintenance/src/Manage.php:451
 msgid "Use one recall time for all tasks"
 msgstr "అన్ని పనులకు ఒక గుర్తు సమయం వుపయోగించుము"
 
-#: plugins/maintenance/src/Manage.php:460
+#: plugins/maintenance/src/Manage.php:461
 msgid "Recall time for all tasks:"
 msgstr "అన్ని పనులకు రికార్డు సమయం:"
 
-#: plugins/maintenance/src/Manage.php:469
+#: plugins/maintenance/src/Manage.php:470
 msgid "Use one recall time per task"
 msgstr "@ info: whats"
 
-#: plugins/maintenance/src/Manage.php:500
+#: plugins/maintenance/src/Manage.php:501
 msgid "Content-Security-Policy"
 msgstr "కంటెంట్-సెక్యూరిటీ-విధానం"
 
-#: plugins/maintenance/src/Manage.php:512
+#: plugins/maintenance/src/Manage.php:513
 msgid "Enable Content-Security-Policy system"
 msgstr "కంటెంట్-సెక్యూరిటీ-విధాన వ్యవస్థను చేర్చు"
 
-#: plugins/maintenance/src/Manage.php:518
+#: plugins/maintenance/src/Manage.php:519
 msgid "Enable Content-Security-Policy report only"
 msgstr "కంటెంట్-సెక్యూరిటీ-విధాన నివేదిక"
 
-#: plugins/maintenance/src/Manage.php:528
+#: plugins/maintenance/src/Manage.php:529
 msgid "Enable Content-Security-Policy system by default"
 msgstr "అప్రమేయ ద్వారా కంటెంట్-సెక్యూరిటీ-విధాన వ్యవస్థను చేర్చు"
 
-#: plugins/maintenance/src/Manage.php:534
+#: plugins/maintenance/src/Manage.php:535
 msgid "Enable Content-Security-Policy report only by default"
 msgstr "సారూప్యత-సెక్యూరిటీ-విధాన నివేదిక మాత్రమే అప్రమేయంగా చేస్తోంది"
 
-#: plugins/maintenance/src/Manage.php:540
+#: plugins/maintenance/src/Manage.php:541
 msgid "Also apply these settings to all blogs"
 msgstr "అన్ని బ్లాగులకు కూడా ఈ అమరికలను ఆపాదించుము."
 
@@ -3050,39 +3050,44 @@ msgstr "PHP ఫైల్స్"
 msgid "You can't edit a distributed theme."
 msgstr "మీరు పంపిణీ థీమ్ ఎडिट చేయలేరు."
 
-#: plugins/themeEditor/src/ThemeEditor.php:144
+#: plugins/themeEditor/src/ThemeEditor.php:148
 msgid "No file"
 msgstr "ఫైళ్ళు లేవు"
 
-#: plugins/themeEditor/src/ThemeEditor.php:169
+#: plugins/themeEditor/src/ThemeEditor.php:178
+msgid "Customized:"
+msgstr ""
+
+#: plugins/themeEditor/src/ThemeEditor.php:186
+#: plugins/themeEditor/src/ThemeEditor.php:192
 msgid "From theme:"
 msgstr "థీమ్ నుండి:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:177
+#: plugins/themeEditor/src/ThemeEditor.php:203
 msgid "From parent:"
 msgstr "తల్లిదారు నుండి:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:187
+#: plugins/themeEditor/src/ThemeEditor.php:213
 msgid "From template set:"
 msgstr "ట్యాప్లెట్ సెట్ నుండి:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:215
-#: plugins/themeEditor/src/ThemeEditor.php:245
-#: plugins/themeEditor/src/ThemeEditor.php:328
+#: plugins/themeEditor/src/ThemeEditor.php:241
+#: plugins/themeEditor/src/ThemeEditor.php:271
+#: plugins/themeEditor/src/ThemeEditor.php:340
 msgid "File does not exist."
 msgstr "ఫైలు లేనే లేదు."
 
-#: plugins/themeEditor/src/ThemeEditor.php:220
+#: plugins/themeEditor/src/ThemeEditor.php:246
 #, php-format
 msgid "File %s is not readable"
 msgstr "దస్త్రం %s చదువుకోలేదు"
 
-#: plugins/themeEditor/src/ThemeEditor.php:282
+#: plugins/themeEditor/src/ThemeEditor.php:305
 #, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr "దస్త్రం %sవ్రాయలేకపొయాను. దయచేసి మీ థీమ్ ఫైళ్ళు మరియు ఫోల్డర్ల అనుమతులను పరిశీలించుము."
 
-#: plugins/themeEditor/src/ThemeEditor.php:341
+#: plugins/themeEditor/src/ThemeEditor.php:361
 #, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "దస్త్రం %sతొలగించలేకపోయింది. దయచేసి మీ థీమ్ ఫైళ్ళు మరియు ఫోల్డర్ల అనుమతులను పరిశీలించుము."
