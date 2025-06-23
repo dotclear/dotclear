@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-16 09:07+0200\n"
-"PO-Revision-Date: 2025-06-16 07:27\n"
+"POT-Creation-Date: 2025-06-23 12:32+0200\n"
+"PO-Revision-Date: 2025-06-23 17:13\n"
 "Last-Translator: \n"
 "Language-Team: Esperanto\n"
 "Language: eo_UY\n"
@@ -2119,120 +2119,120 @@ msgstr "rezultoj po paĝo"
 msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
 msgstr "Ŝajnas ke ne ekzistas Sesiotabelo en via datumbazo. Ĉu Dotclear estas tute instalita?"
 
-#: src/Core/Blog.php:708
+#: src/Core/Blog.php:718
 msgid "You are not allowed to add categories"
 msgstr "Vi ne rajtas aldoni kategoriojn"
 
-#: src/Core/Blog.php:752
+#: src/Core/Blog.php:762
 msgid "You are not allowed to update categories"
 msgstr "Vi ne rajtas ĝisdatigi kategoriojn"
 
-#: src/Core/Blog.php:809
+#: src/Core/Blog.php:819
 msgid "You are not allowed to delete categories"
 msgstr "Vi ne rajtas forigi kategoriojn"
 
-#: src/Core/Blog.php:822
+#: src/Core/Blog.php:832
 msgid "This category is not empty."
 msgstr "Ĉi tiu kategorio ne estas malplena."
 
-#: src/Core/Blog.php:835
+#: src/Core/Blog.php:845
 msgid "You are not allowed to reset categories order"
 msgstr "Vi ne rajtas restarigi la ordon de kategorioj"
 
-#: src/Core/Blog.php:904
+#: src/Core/Blog.php:914
 msgid "Empty category URL"
 msgstr "Malplena URL de kategorio"
 
-#: src/Core/Blog.php:921
+#: src/Core/Blog.php:931
 msgid "You must provide a category title"
 msgstr "Vi devas provizi kategoriotitolon"
 
-#: src/Core/Blog.php:931
+#: src/Core/Blog.php:941
 msgid "You must provide a category URL"
 msgstr "Vi devas provizi kategorion URL"
 
-#: src/Core/Blog.php:1382
+#: src/Core/Blog.php:1392
 msgid "You are not allowed to create an entry"
 msgstr "Vi ne rajtas krei enskribon"
 
-#: src/Core/Blog.php:1442
+#: src/Core/Blog.php:1452
 msgid "You are not allowed to update entries"
 msgstr "Vi ne rajtas ĝisdatigi enskribojn"
 
-#: src/Core/Blog.php:1448 src/Core/Blog.php:1703
+#: src/Core/Blog.php:1458 src/Core/Blog.php:1713
 msgid "No such entry ID"
 msgstr "Ne tia eniridentigilo"
 
-#: src/Core/Blog.php:1482
+#: src/Core/Blog.php:1492
 msgid "You are not allowed to edit this entry"
 msgstr "Vi ne rajtas redakti ĉi tiun eniron"
 
-#: src/Core/Blog.php:1510 src/Core/Blog.php:1545 src/Core/Meta.php:144
+#: src/Core/Blog.php:1520 src/Core/Blog.php:1555 src/Core/Meta.php:144
 #: src/Core/Meta.php:161
 msgid "You are not allowed to change this entry status"
 msgstr "Vi ne rajtas ŝanĝi ĉi tiun enirstatuson"
 
-#: src/Core/Blog.php:1590 src/Core/Blog.php:1628
+#: src/Core/Blog.php:1600 src/Core/Blog.php:1638
 msgid "You are not allowed to change this entry category"
 msgstr "Vi ne rajtas ŝanĝi ĉi tiun enigan kategorion"
 
-#: src/Core/Blog.php:1661
+#: src/Core/Blog.php:1671
 msgid "You are not allowed to change entries category"
 msgstr "Vi ne rajtas ŝanĝi kategorion de enskriboj"
 
-#: src/Core/Blog.php:1697
+#: src/Core/Blog.php:1707
 msgid "You are not allowed to delete entries"
 msgstr "Vi ne rajtas forigi enskribojn"
 
-#: src/Core/Blog.php:1934
+#: src/Core/Blog.php:1944
 msgid "No entry title"
 msgstr "Neniu enira titolo"
 
-#: src/Core/Blog.php:1938 src/Core/Blog.php:1952
+#: src/Core/Blog.php:1948 src/Core/Blog.php:1962
 msgid "No entry content"
 msgstr "Neniu enira enhavo"
 
-#: src/Core/Blog.php:2018
+#: src/Core/Blog.php:2028
 msgid "Notes"
 msgstr "Notoj"
 
-#: src/Core/Blog.php:2020
+#: src/Core/Blog.php:2030
 msgid "Note"
 msgstr "Notu"
 
-#: src/Core/Blog.php:2131
+#: src/Core/Blog.php:2141
 msgid "Empty entry URL"
 msgstr "Malplena enira URL"
 
-#: src/Core/Blog.php:2441
+#: src/Core/Blog.php:2451
 msgid "You are not allowed to update comments"
 msgstr "Vi ne rajtas ĝisdatigi komentojn"
 
-#: src/Core/Blog.php:2447 src/Core/Blog.php:2453 src/Core/Blog.php:2558
+#: src/Core/Blog.php:2457 src/Core/Blog.php:2463 src/Core/Blog.php:2568
 msgid "No such comment ID"
 msgstr "Ne tia komenta ID"
 
-#: src/Core/Blog.php:2460
+#: src/Core/Blog.php:2470
 msgid "You are not allowed to update this comment"
 msgstr "Vi ne rajtas ĝisdatigi ĉi tiun komenton"
 
-#: src/Core/Blog.php:2511
+#: src/Core/Blog.php:2521
 msgid "You are not allowed to change this comment's status"
 msgstr "Vi ne rajtas ŝanĝi la staton de ĉi tiu komento"
 
-#: src/Core/Blog.php:2552 src/Core/Blog.php:2606
+#: src/Core/Blog.php:2562 src/Core/Blog.php:2616
 msgid "You are not allowed to delete comments"
 msgstr "Vi ne rajtas forigi komentojn"
 
-#: src/Core/Blog.php:2641
+#: src/Core/Blog.php:2651
 msgid "You must provide a comment"
 msgstr "Vi devas doni komenton"
 
-#: src/Core/Blog.php:2645
+#: src/Core/Blog.php:2655
 msgid "You must provide an author name"
 msgstr "Vi devas doni nomon de aŭtoro"
 
-#: src/Core/Blog.php:2649
+#: src/Core/Blog.php:2659
 msgid "Email address is not valid."
 msgstr "Retpoŝtadreso ne validas."
 
@@ -2306,11 +2306,11 @@ msgstr "Ĉi tio aŭ signifas, ke vi forigis vian defaŭltan temon aŭ fiksis mal
 msgid "Default theme not found."
 msgstr "Defaŭlta temo ne trovita."
 
-#: src/Core/Frontend/Utility.php:299
+#: src/Core/Frontend/Utility.php:300
 msgid "Something went wrong while loading template file for your blog."
 msgstr "Io misfunkciis dum ŝarĝo de ŝablondosiero por via blogo."
 
-#: src/Core/Frontend/Utility.php:341
+#: src/Core/Frontend/Utility.php:342
 msgid "Can't create template files."
 msgstr "Ne povas krei ŝablonajn dosierojn."
 
@@ -2963,28 +2963,28 @@ msgstr "Eraro okazis dum elŝuto de la dosiero."
 msgid "Wrong data feed"
 msgstr "Erara datumfluo"
 
-#: src/Module/Themes.php:105
+#: src/Module/Themes.php:107
 msgid "Themes folder unreachable"
 msgstr "Temoj dosierujo neatingebla"
 
-#: src/Module/Themes.php:109
+#: src/Module/Themes.php:111
 msgid "Themes folder unreadable"
 msgstr "Temoj dosierujo nelegebla"
 
-#: src/Module/Themes.php:117
+#: src/Module/Themes.php:119
 #, php-format
 msgid " (copy #%s)"
 msgstr " (kopio #%s)"
 
-#: src/Module/Themes.php:117
+#: src/Module/Themes.php:119
 msgid " (copy)"
 msgstr " (kopio)"
 
-#: src/Module/Themes.php:155
+#: src/Module/Themes.php:157
 msgid "Unable to modify _define.php"
 msgstr "Ne eblas modifi _define.php"
 
-#: src/Module/Themes.php:188
+#: src/Module/Themes.php:190
 msgid "Destination folder already exist"
 msgstr "Cela dosierujo jam ekzistas"
 
