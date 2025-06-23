@@ -1014,10 +1014,12 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
+     *
+     * @deprecated since 2.35 Use BlogThemeURL() instead as it will now look for custom > theme > parent theme > template set
      */
     public function BlogParentThemeURL(ArrayObject $attr): string
     {
-        return '<?= ' . sprintf($this->getFilters($attr), 'App::blog()->getTF(\'\', false)') . ' ?>';
+        return $this->BlogThemeURL($attr);
     }
 
     /**
