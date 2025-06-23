@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-16 09:07+0200\n"
-"PO-Revision-Date: 2025-06-16 07:26\n"
+"POT-Creation-Date: 2025-06-23 12:32+0200\n"
+"PO-Revision-Date: 2025-06-23 17:12\n"
 "Last-Translator: \n"
 "Language-Team: Arabic\n"
 "Language: ar_SA\n"
@@ -2235,120 +2235,120 @@ msgstr "النتائج لكل صفحة"
 msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
 msgstr "يبدو أنه لا يوجد جدول جلسة في قاعدة البيانات الخاصة بك. هل تم تثبيت Dotclear تمامًا؟"
 
-#: src/Core/Blog.php:708
+#: src/Core/Blog.php:718
 msgid "You are not allowed to add categories"
 msgstr "غير مسموح لك بإضافة فئات"
 
-#: src/Core/Blog.php:752
+#: src/Core/Blog.php:762
 msgid "You are not allowed to update categories"
 msgstr "غير مسموح لك بتحديث الفئات"
 
-#: src/Core/Blog.php:809
+#: src/Core/Blog.php:819
 msgid "You are not allowed to delete categories"
 msgstr "غير مسموح لك بحذف الفئات"
 
-#: src/Core/Blog.php:822
+#: src/Core/Blog.php:832
 msgid "This category is not empty."
 msgstr "هذه الفئة ليست فارغة."
 
-#: src/Core/Blog.php:835
+#: src/Core/Blog.php:845
 msgid "You are not allowed to reset categories order"
 msgstr "غير مسموح لك بإعادة تعيين ترتيب الفئات"
 
-#: src/Core/Blog.php:904
+#: src/Core/Blog.php:914
 msgid "Empty category URL"
 msgstr "رابط التصنيف فارغ"
 
-#: src/Core/Blog.php:921
+#: src/Core/Blog.php:931
 msgid "You must provide a category title"
 msgstr "يجب عليك تقديم عنوان الفئة"
 
-#: src/Core/Blog.php:931
+#: src/Core/Blog.php:941
 msgid "You must provide a category URL"
 msgstr "يجب عليك تقديم عنوان URL للفئة"
 
-#: src/Core/Blog.php:1382
+#: src/Core/Blog.php:1392
 msgid "You are not allowed to create an entry"
 msgstr "غير مسموح لك بإنشاء إدخال"
 
-#: src/Core/Blog.php:1442
+#: src/Core/Blog.php:1452
 msgid "You are not allowed to update entries"
 msgstr "غير مسموح لك بتحديث المواد"
 
-#: src/Core/Blog.php:1448 src/Core/Blog.php:1703
+#: src/Core/Blog.php:1458 src/Core/Blog.php:1713
 msgid "No such entry ID"
 msgstr "لا يوجد معرف من هذا القبيل"
 
-#: src/Core/Blog.php:1482
+#: src/Core/Blog.php:1492
 msgid "You are not allowed to edit this entry"
 msgstr "غير مسموح لك بتعديل هذا الإدخال"
 
-#: src/Core/Blog.php:1510 src/Core/Blog.php:1545 src/Core/Meta.php:144
+#: src/Core/Blog.php:1520 src/Core/Blog.php:1555 src/Core/Meta.php:144
 #: src/Core/Meta.php:161
 msgid "You are not allowed to change this entry status"
 msgstr "غير مسموح لك بتغيير حالة الإدخال هذه"
 
-#: src/Core/Blog.php:1590 src/Core/Blog.php:1628
+#: src/Core/Blog.php:1600 src/Core/Blog.php:1638
 msgid "You are not allowed to change this entry category"
 msgstr "غير مسموح لك بتغيير فئة الإدخال هذه"
 
-#: src/Core/Blog.php:1661
+#: src/Core/Blog.php:1671
 msgid "You are not allowed to change entries category"
 msgstr "غير مسموح لك بتغيير فئة المواد"
 
-#: src/Core/Blog.php:1697
+#: src/Core/Blog.php:1707
 msgid "You are not allowed to delete entries"
 msgstr "غير مسموح لك بحذف المواد"
 
-#: src/Core/Blog.php:1934
+#: src/Core/Blog.php:1944
 msgid "No entry title"
 msgstr "لا يوجد عنوان إدخال"
 
-#: src/Core/Blog.php:1938 src/Core/Blog.php:1952
+#: src/Core/Blog.php:1948 src/Core/Blog.php:1962
 msgid "No entry content"
 msgstr "لا يوجد محتوى للدخول"
 
-#: src/Core/Blog.php:2018
+#: src/Core/Blog.php:2028
 msgid "Notes"
 msgstr "الحواشي"
 
-#: src/Core/Blog.php:2020
+#: src/Core/Blog.php:2030
 msgid "Note"
 msgstr "ملاحظة"
 
-#: src/Core/Blog.php:2131
+#: src/Core/Blog.php:2141
 msgid "Empty entry URL"
 msgstr "رابط إدخال فارغ"
 
-#: src/Core/Blog.php:2441
+#: src/Core/Blog.php:2451
 msgid "You are not allowed to update comments"
 msgstr "غير مسموح لك بتحديث التعليقات"
 
-#: src/Core/Blog.php:2447 src/Core/Blog.php:2453 src/Core/Blog.php:2558
+#: src/Core/Blog.php:2457 src/Core/Blog.php:2463 src/Core/Blog.php:2568
 msgid "No such comment ID"
 msgstr "لا يوجد معرف مثل هذا التعليق"
 
-#: src/Core/Blog.php:2460
+#: src/Core/Blog.php:2470
 msgid "You are not allowed to update this comment"
 msgstr "غير مسموح لك بتحديث هذا التعليق"
 
-#: src/Core/Blog.php:2511
+#: src/Core/Blog.php:2521
 msgid "You are not allowed to change this comment's status"
 msgstr "غير مسموح لك بتغيير حالة هذا التعليق"
 
-#: src/Core/Blog.php:2552 src/Core/Blog.php:2606
+#: src/Core/Blog.php:2562 src/Core/Blog.php:2616
 msgid "You are not allowed to delete comments"
 msgstr "غير مسموح لك بحذف التعليقات"
 
-#: src/Core/Blog.php:2641
+#: src/Core/Blog.php:2651
 msgid "You must provide a comment"
 msgstr "يجب عليك تقديم تعليق"
 
-#: src/Core/Blog.php:2645
+#: src/Core/Blog.php:2655
 msgid "You must provide an author name"
 msgstr "يجب عليك تقديم اسم المؤلف"
 
-#: src/Core/Blog.php:2649
+#: src/Core/Blog.php:2659
 msgid "Email address is not valid."
 msgstr "عنوان البريد الإلكتروني غير صالح."
 
@@ -2422,11 +2422,11 @@ msgstr "هذا يعني إما أنك قمت بإزالة السمة الافت�
 msgid "Default theme not found."
 msgstr "السمة الافتراضية غير موجودة."
 
-#: src/Core/Frontend/Utility.php:299
+#: src/Core/Frontend/Utility.php:300
 msgid "Something went wrong while loading template file for your blog."
 msgstr "حدث خطأ أثناء تحميل ملف قالب للمدونة الخاصة بك."
 
-#: src/Core/Frontend/Utility.php:341
+#: src/Core/Frontend/Utility.php:342
 msgid "Can't create template files."
 msgstr "لا يمكن إنشاء ملفات قالب."
 
@@ -3079,28 +3079,28 @@ msgstr "حدث خطأ أثناء تحميل الملف."
 msgid "Wrong data feed"
 msgstr "تغذية البيانات خاطئة"
 
-#: src/Module/Themes.php:105
+#: src/Module/Themes.php:107
 msgid "Themes folder unreachable"
 msgstr "مجلد السمات غير قابل للوصول"
 
-#: src/Module/Themes.php:109
+#: src/Module/Themes.php:111
 msgid "Themes folder unreadable"
 msgstr "مجلد السمات غير قابل للقراءة"
 
-#: src/Module/Themes.php:117
+#: src/Module/Themes.php:119
 #, php-format
 msgid " (copy #%s)"
 msgstr " (نسخة #%s)"
 
-#: src/Module/Themes.php:117
+#: src/Module/Themes.php:119
 msgid " (copy)"
 msgstr " (نسخة)"
 
-#: src/Module/Themes.php:155
+#: src/Module/Themes.php:157
 msgid "Unable to modify _define.php"
 msgstr "غير قادر على تعديل _define.php"
 
-#: src/Module/Themes.php:188
+#: src/Module/Themes.php:190
 msgid "Destination folder already exist"
 msgstr "مجلد الوجهة موجود بالفعل"
 
