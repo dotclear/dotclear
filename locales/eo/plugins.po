@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-16 09:22+0200\n"
-"PO-Revision-Date: 2025-06-16 07:53\n"
+"POT-Creation-Date: 2025-06-23 19:10+0200\n"
+"PO-Revision-Date: 2025-06-23 17:14\n"
 "Last-Translator: \n"
 "Language-Team: Esperanto\n"
 "Language: eo_UY\n"
@@ -1704,7 +1704,7 @@ msgstr "Eksportfunkcioj estas en la paĝo %s."
 
 #: plugins/importExport/src/Manage.php:144
 #: plugins/maintenance/src/Backend.php:25
-#: plugins/maintenance/src/BackendBehaviors.php:218
+#: plugins/maintenance/src/BackendBehaviors.php:221
 msgid "Maintenance"
 msgstr "Prizorgado"
 
@@ -2046,14 +2046,14 @@ msgstr "Konservu tradukojn"
 msgid "Translations"
 msgstr "Tradukoj"
 
-#: plugins/maintenance/src/BackendBehaviors.php:93
+#: plugins/maintenance/src/BackendBehaviors.php:95
 #, php-format
 msgid "One <a href=\"%2$s\">maintenance task</a> to execute."
 msgid_plural "%1$s <a href=\"%2$s\">maintenance tasks</a> to execute."
 msgstr[0] "Unu <a href=\"%2$s\">prizorgada tasko</a> plenumenda."
 msgstr[1] "%1$s <a href=\"%2$s\">prizorgadaj taskoj</a> plenumendaj."
 
-#: plugins/maintenance/src/BackendBehaviors.php:166
+#: plugins/maintenance/src/BackendBehaviors.php:169
 #: plugins/maintenance/src/Rest.php:83
 #, php-format
 msgid "One task to execute"
@@ -2061,33 +2061,33 @@ msgid_plural "%s tasks to execute"
 msgstr[0] "Unu tasko por plenumi"
 msgstr[1] "%s taskoj por plenumi"
 
-#: plugins/maintenance/src/BackendBehaviors.php:200
+#: plugins/maintenance/src/BackendBehaviors.php:203
 #: plugins/maintenance/src/Manage.php:305
 msgid "This task has never been executed."
 msgstr "Ĉi tiu tasko neniam estis plenumita."
 
-#: plugins/maintenance/src/BackendBehaviors.php:203
+#: plugins/maintenance/src/BackendBehaviors.php:206
 #: plugins/maintenance/src/Manage.php:308
 #, php-format
 msgid "Last execution of this task was on %s."
 msgstr "La lasta plenumo de ĉi tiu tasko estis je %s."
 
-#: plugins/maintenance/src/BackendBehaviors.php:221
+#: plugins/maintenance/src/BackendBehaviors.php:224
 #, php-format
 msgid "There is a task to execute."
 msgid_plural "There are %s tasks to execute."
 msgstr[0] "Estas tasko por plenumi."
 msgstr[1] "Estas %s taskoj por plenumi."
 
-#: plugins/maintenance/src/BackendBehaviors.php:228
+#: plugins/maintenance/src/BackendBehaviors.php:231
 msgid "Manage tasks"
 msgstr "Administri taskojn"
 
-#: plugins/maintenance/src/BackendBehaviors.php:250
+#: plugins/maintenance/src/BackendBehaviors.php:253
 msgid "Display overdue tasks counter on maintenance dashboard icon"
 msgstr "Montru nombrilon de posttempaj taskoj sur prizorga instrumentpanelo-ikono"
 
-#: plugins/maintenance/src/BackendBehaviors.php:256
+#: plugins/maintenance/src/BackendBehaviors.php:259
 msgid "Display overdue tasks list on dashboard items"
 msgstr "Montru liston de posttempaj taskoj sur instrumenttabulo-eroj"
 
@@ -2145,61 +2145,61 @@ msgstr "Efektivigu taskon"
 msgid "This may take a very long time."
 msgstr "Ĉi tio povas preni tre longan tempon."
 
-#: plugins/maintenance/src/Manage.php:418
-#: plugins/maintenance/src/Manage.php:420
+#: plugins/maintenance/src/Manage.php:419
+#: plugins/maintenance/src/Manage.php:421
 msgid "Alert settings"
 msgstr "Atentigaj agordoj"
 
-#: plugins/maintenance/src/Manage.php:426
+#: plugins/maintenance/src/Manage.php:427
 msgid "Activation"
 msgstr "Aktivigo"
 
-#: plugins/maintenance/src/Manage.php:432
+#: plugins/maintenance/src/Manage.php:433
 msgid "Display alert messages on late tasks"
 msgstr "Montru atentajn mesaĝojn pri malfruaj taskoj"
 
-#: plugins/maintenance/src/Manage.php:437
+#: plugins/maintenance/src/Manage.php:438
 #, php-format
 msgid "You can place list of late tasks on your %s."
 msgstr "Vi povas meti liston de malfruaj taskoj sur via %s."
 
-#: plugins/maintenance/src/Manage.php:442
+#: plugins/maintenance/src/Manage.php:443
 msgid "Frequency"
 msgstr "Ofteco"
 
-#: plugins/maintenance/src/Manage.php:450
+#: plugins/maintenance/src/Manage.php:451
 msgid "Use one recall time for all tasks"
 msgstr "Uzu unu revoktempon por ĉiuj taskoj"
 
-#: plugins/maintenance/src/Manage.php:460
+#: plugins/maintenance/src/Manage.php:461
 msgid "Recall time for all tasks:"
 msgstr "Memoru tempon por ĉiuj taskoj:"
 
-#: plugins/maintenance/src/Manage.php:469
+#: plugins/maintenance/src/Manage.php:470
 msgid "Use one recall time per task"
 msgstr "Uzu unu revoktempon por tasko"
 
-#: plugins/maintenance/src/Manage.php:500
+#: plugins/maintenance/src/Manage.php:501
 msgid "Content-Security-Policy"
 msgstr "Enhavo-Sekureco-Politiko"
 
-#: plugins/maintenance/src/Manage.php:512
+#: plugins/maintenance/src/Manage.php:513
 msgid "Enable Content-Security-Policy system"
 msgstr "Ebligu Enhavo-Sekureco-Politiko-sistemon"
 
-#: plugins/maintenance/src/Manage.php:518
+#: plugins/maintenance/src/Manage.php:519
 msgid "Enable Content-Security-Policy report only"
 msgstr "Ebligu nur raporton pri Enhavo-Sekureco-Politiko"
 
-#: plugins/maintenance/src/Manage.php:528
+#: plugins/maintenance/src/Manage.php:529
 msgid "Enable Content-Security-Policy system by default"
 msgstr "Ebligu la sistemon Enhavo-Sekureco-Politiko defaŭlte"
 
-#: plugins/maintenance/src/Manage.php:534
+#: plugins/maintenance/src/Manage.php:535
 msgid "Enable Content-Security-Policy report only by default"
 msgstr "Ebligu la raporton pri Enhavo-Sekureco-Politiko nur defaŭlte"
 
-#: plugins/maintenance/src/Manage.php:540
+#: plugins/maintenance/src/Manage.php:541
 msgid "Also apply these settings to all blogs"
 msgstr "Ankaŭ apliku ĉi tiujn agordojn al ĉiuj blogoj"
 
@@ -3050,39 +3050,44 @@ msgstr "PHP-dosieroj"
 msgid "You can't edit a distributed theme."
 msgstr "Vi ne povas redakti distribuitan temon."
 
-#: plugins/themeEditor/src/ThemeEditor.php:144
+#: plugins/themeEditor/src/ThemeEditor.php:148
 msgid "No file"
 msgstr "Neniu dosiero"
 
-#: plugins/themeEditor/src/ThemeEditor.php:169
+#: plugins/themeEditor/src/ThemeEditor.php:178
+msgid "Customized:"
+msgstr ""
+
+#: plugins/themeEditor/src/ThemeEditor.php:186
+#: plugins/themeEditor/src/ThemeEditor.php:192
 msgid "From theme:"
 msgstr "El temo:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:177
+#: plugins/themeEditor/src/ThemeEditor.php:203
 msgid "From parent:"
 msgstr "De gepatro:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:187
+#: plugins/themeEditor/src/ThemeEditor.php:213
 msgid "From template set:"
 msgstr "El ŝablono aro:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:215
-#: plugins/themeEditor/src/ThemeEditor.php:245
-#: plugins/themeEditor/src/ThemeEditor.php:328
+#: plugins/themeEditor/src/ThemeEditor.php:241
+#: plugins/themeEditor/src/ThemeEditor.php:271
+#: plugins/themeEditor/src/ThemeEditor.php:340
 msgid "File does not exist."
 msgstr "Dosiero ne ekzistas."
 
-#: plugins/themeEditor/src/ThemeEditor.php:220
+#: plugins/themeEditor/src/ThemeEditor.php:246
 #, php-format
 msgid "File %s is not readable"
 msgstr "Dosiero %s ne estas legebla"
 
-#: plugins/themeEditor/src/ThemeEditor.php:282
+#: plugins/themeEditor/src/ThemeEditor.php:305
 #, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr "Ne eblas skribi dosieron %s. Bonvolu kontroli viajn temdosierojn kaj permesojn de dosierujoj."
 
-#: plugins/themeEditor/src/ThemeEditor.php:341
+#: plugins/themeEditor/src/ThemeEditor.php:361
 #, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "Ne eblas forigi dosieron %s. Bonvolu kontroli viajn temdosierojn kaj permesojn de dosierujoj."
