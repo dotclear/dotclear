@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-16 09:07+0200\n"
-"PO-Revision-Date: 2025-06-16 07:26\n"
+"POT-Creation-Date: 2025-06-23 12:32+0200\n"
+"PO-Revision-Date: 2025-06-23 17:13\n"
 "Last-Translator: \n"
 "Language-Team: Bengali\n"
 "Language: bn_BD\n"
@@ -2119,120 +2119,120 @@ msgstr "পৃষ্ঠার ফলাফল"
 msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
 msgstr "আপনার ডাটাবেসে সেশন টেবিল নেই বলে মনে হচ্ছে. ডটস্পট কি সম্পূর্ণ ইনস্টল করা হয়েছে?"
 
-#: src/Core/Blog.php:708
+#: src/Core/Blog.php:718
 msgid "You are not allowed to add categories"
 msgstr "আপনাকে শ্রেণীবিভাগ যোগ করার অনুমতি নেই"
 
-#: src/Core/Blog.php:752
+#: src/Core/Blog.php:762
 msgid "You are not allowed to update categories"
 msgstr "শ্রেণীবিভাগ আপডেট করার অনুমতি নেই"
 
-#: src/Core/Blog.php:809
+#: src/Core/Blog.php:819
 msgid "You are not allowed to delete categories"
 msgstr "শ্রেণীবিভাগ মুছে ফেলার অনুমতি নেই"
 
-#: src/Core/Blog.php:822
+#: src/Core/Blog.php:832
 msgid "This category is not empty."
 msgstr "এই শ্রেণীবিভাগ ফাঁকা নয়."
 
-#: src/Core/Blog.php:835
+#: src/Core/Blog.php:845
 msgid "You are not allowed to reset categories order"
 msgstr "শ্রেণীবিভাগ পুনরায় রিসেট করার অনুমতি নেই"
 
-#: src/Core/Blog.php:904
+#: src/Core/Blog.php:914
 msgid "Empty category URL"
 msgstr "ফাঁকা শ্রেণী ইউ-আর-এল"
 
-#: src/Core/Blog.php:921
+#: src/Core/Blog.php:931
 msgid "You must provide a category title"
 msgstr "আপনি একটি ক্যাটাগরি শিরোনাম প্রদান করতে হবে"
 
-#: src/Core/Blog.php:931
+#: src/Core/Blog.php:941
 msgid "You must provide a category URL"
 msgstr "আপনাকে একটি ক্যাটাগরী ইউ-আর-এল প্রদান করতে হবে"
 
-#: src/Core/Blog.php:1382
+#: src/Core/Blog.php:1392
 msgid "You are not allowed to create an entry"
 msgstr "আপনি একটি এন্ট্রি তৈরি করার অনুমতি নেই"
 
-#: src/Core/Blog.php:1442
+#: src/Core/Blog.php:1452
 msgid "You are not allowed to update entries"
 msgstr "এন্ট্রি আপডেট করার অনুমতি নেই"
 
-#: src/Core/Blog.php:1448 src/Core/Blog.php:1703
+#: src/Core/Blog.php:1458 src/Core/Blog.php:1713
 msgid "No such entry ID"
 msgstr "কোনো এন্ট্রি আইডি নেই"
 
-#: src/Core/Blog.php:1482
+#: src/Core/Blog.php:1492
 msgid "You are not allowed to edit this entry"
 msgstr "এই এন্ট্রি সম্পাদনা করার অনুমতি নেই"
 
-#: src/Core/Blog.php:1510 src/Core/Blog.php:1545 src/Core/Meta.php:144
+#: src/Core/Blog.php:1520 src/Core/Blog.php:1555 src/Core/Meta.php:144
 #: src/Core/Meta.php:161
 msgid "You are not allowed to change this entry status"
 msgstr "এই এন্ট্রি স্ট্যাটাস পরিবর্তন করার অনুমতি নেই"
 
-#: src/Core/Blog.php:1590 src/Core/Blog.php:1628
+#: src/Core/Blog.php:1600 src/Core/Blog.php:1638
 msgid "You are not allowed to change this entry category"
 msgstr "এই এন্ট্রি বিভাগটি পরিবর্তন করার অনুমতি নেই"
 
-#: src/Core/Blog.php:1661
+#: src/Core/Blog.php:1671
 msgid "You are not allowed to change entries category"
 msgstr "এন্ট্রি শ্রেণীতে পরিবর্তন করার অনুমতি নেই"
 
-#: src/Core/Blog.php:1697
+#: src/Core/Blog.php:1707
 msgid "You are not allowed to delete entries"
 msgstr "এন্ট্রি মুছে ফেলার অনুমতি নেই"
 
-#: src/Core/Blog.php:1934
+#: src/Core/Blog.php:1944
 msgid "No entry title"
 msgstr "এন্ট্রির কোনো টাইটেল নেই"
 
-#: src/Core/Blog.php:1938 src/Core/Blog.php:1952
+#: src/Core/Blog.php:1948 src/Core/Blog.php:1962
 msgid "No entry content"
 msgstr "এন্ট্রির কোনো কন্টেন্ট নেই"
 
-#: src/Core/Blog.php:2018
+#: src/Core/Blog.php:2028
 msgid "Notes"
 msgstr "নোট"
 
-#: src/Core/Blog.php:2020
+#: src/Core/Blog.php:2030
 msgid "Note"
 msgstr "নোট"
 
-#: src/Core/Blog.php:2131
+#: src/Core/Blog.php:2141
 msgid "Empty entry URL"
 msgstr "ফাঁকা এন্ট্রি ইউ-আর-এল"
 
-#: src/Core/Blog.php:2441
+#: src/Core/Blog.php:2451
 msgid "You are not allowed to update comments"
 msgstr "আপনি কোন মন্তব্য আপডেট করতে পারবেন না"
 
-#: src/Core/Blog.php:2447 src/Core/Blog.php:2453 src/Core/Blog.php:2558
+#: src/Core/Blog.php:2457 src/Core/Blog.php:2463 src/Core/Blog.php:2568
 msgid "No such comment ID"
 msgstr "এই ধরনের কোন মন্তব্য নেই"
 
-#: src/Core/Blog.php:2460
+#: src/Core/Blog.php:2470
 msgid "You are not allowed to update this comment"
 msgstr "এই মন্তব্যের আপডেট করার অনুমতি নেই"
 
-#: src/Core/Blog.php:2511
+#: src/Core/Blog.php:2521
 msgid "You are not allowed to change this comment's status"
 msgstr "এই মন্তব্যের অবস্থা পরিবর্তন করার অনুমতি নেই"
 
-#: src/Core/Blog.php:2552 src/Core/Blog.php:2606
+#: src/Core/Blog.php:2562 src/Core/Blog.php:2616
 msgid "You are not allowed to delete comments"
 msgstr "আপনি মন্তব্য মুছে ফেলার অনুমতি নেই"
 
-#: src/Core/Blog.php:2641
+#: src/Core/Blog.php:2651
 msgid "You must provide a comment"
 msgstr "আপনি একটি মন্তব্য প্রদান করতে হবে"
 
-#: src/Core/Blog.php:2645
+#: src/Core/Blog.php:2655
 msgid "You must provide an author name"
 msgstr "আপনি একটি লেখকের নাম প্রদান করতে হবে"
 
-#: src/Core/Blog.php:2649
+#: src/Core/Blog.php:2659
 msgid "Email address is not valid."
 msgstr "ই-মেইল ঠিকানা বৈধ নয়."
 
@@ -2306,11 +2306,11 @@ msgstr "এর মানে হচ্ছে আপনি আপনার ডি�
 msgid "Default theme not found."
 msgstr "ডিফল্ট থিম পাওয়া যায়না."
 
-#: src/Core/Frontend/Utility.php:299
+#: src/Core/Frontend/Utility.php:300
 msgid "Something went wrong while loading template file for your blog."
 msgstr "আপনার ব্লগের জন্য টেম্পলেট ফাইল লোড করার সময় কিছু সমস্যা হয়েছে."
 
-#: src/Core/Frontend/Utility.php:341
+#: src/Core/Frontend/Utility.php:342
 msgid "Can't create template files."
 msgstr "টেমপ্লেট ফাইল তৈরি করা যাচ্ছে না."
 
@@ -2963,28 +2963,28 @@ msgstr "ফাইল ডাউনলোড করার সময় ত্রু�
 msgid "Wrong data feed"
 msgstr "Wrong ডাটা ফিড"
 
-#: src/Module/Themes.php:105
+#: src/Module/Themes.php:107
 msgid "Themes folder unreachable"
 msgstr "থিম ফোল্ডার অবাঞ্ছিত"
 
-#: src/Module/Themes.php:109
+#: src/Module/Themes.php:111
 msgid "Themes folder unreadable"
 msgstr "থিম ফোল্ডার অযোগ্য"
 
-#: src/Module/Themes.php:117
+#: src/Module/Themes.php:119
 #, php-format
 msgid " (copy #%s)"
 msgstr " (অনুলিপি #%s)"
 
-#: src/Module/Themes.php:117
+#: src/Module/Themes.php:119
 msgid " (copy)"
 msgstr " (কপি)"
 
-#: src/Module/Themes.php:155
+#: src/Module/Themes.php:157
 msgid "Unable to modify _define.php"
 msgstr "সংজ্ঞায়িত পরিবর্তন করতে ব্যর্থ"
 
-#: src/Module/Themes.php:188
+#: src/Module/Themes.php:190
 msgid "Destination folder already exist"
 msgstr "গন্তব্য ফোল্ডারটি ইতিমধ্যেই বিদ্যমান"
 
