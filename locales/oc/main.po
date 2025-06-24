@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-16 09:07+0200\n"
-"PO-Revision-Date: 2025-06-16 07:27\n"
+"POT-Creation-Date: 2025-06-23 12:32+0200\n"
+"PO-Revision-Date: 2025-06-23 17:13\n"
 "Last-Translator: \n"
 "Language-Team: Occitan\n"
 "Language: oc_FR\n"
@@ -2119,120 +2119,120 @@ msgstr "resultats per pagina"
 msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
 msgstr "Sembla que i aja pas de taula de sesilha dins vòstra basa de donadas. Dotclear es completament installat?"
 
-#: src/Core/Blog.php:708
+#: src/Core/Blog.php:718
 msgid "You are not allowed to add categories"
 msgstr "Sètz pas autorizat a apondre de categorias"
 
-#: src/Core/Blog.php:752
+#: src/Core/Blog.php:762
 msgid "You are not allowed to update categories"
 msgstr "Sètz pas autorizat a metre a jorn las categorias"
 
-#: src/Core/Blog.php:809
+#: src/Core/Blog.php:819
 msgid "You are not allowed to delete categories"
 msgstr "Sètz pas autorizat a suprimir de categorias"
 
-#: src/Core/Blog.php:822
+#: src/Core/Blog.php:832
 msgid "This category is not empty."
 msgstr "Aquesta categoria es pas voida."
 
-#: src/Core/Blog.php:835
+#: src/Core/Blog.php:845
 msgid "You are not allowed to reset categories order"
 msgstr "Sètz pas autorizat a reïnicializar l'òrdre de las categorias"
 
-#: src/Core/Blog.php:904
+#: src/Core/Blog.php:914
 msgid "Empty category URL"
 msgstr "URL de categoria voida"
 
-#: src/Core/Blog.php:921
+#: src/Core/Blog.php:931
 msgid "You must provide a category title"
 msgstr "Vos cal provesir un títol de categoria"
 
-#: src/Core/Blog.php:931
+#: src/Core/Blog.php:941
 msgid "You must provide a category URL"
 msgstr "Vos cal provesir una URL de categoria"
 
-#: src/Core/Blog.php:1382
+#: src/Core/Blog.php:1392
 msgid "You are not allowed to create an entry"
 msgstr "Sètz pas autorizat a crear una dintrada"
 
-#: src/Core/Blog.php:1442
+#: src/Core/Blog.php:1452
 msgid "You are not allowed to update entries"
 msgstr "Sètz pas autorizat a metre a jorn las dintradas"
 
-#: src/Core/Blog.php:1448 src/Core/Blog.php:1703
+#: src/Core/Blog.php:1458 src/Core/Blog.php:1713
 msgid "No such entry ID"
 msgstr "Pas d'identificant d'entrada aital"
 
-#: src/Core/Blog.php:1482
+#: src/Core/Blog.php:1492
 msgid "You are not allowed to edit this entry"
 msgstr "Sètz pas autorizat a modificar aquesta entrada"
 
-#: src/Core/Blog.php:1510 src/Core/Blog.php:1545 src/Core/Meta.php:144
+#: src/Core/Blog.php:1520 src/Core/Blog.php:1555 src/Core/Meta.php:144
 #: src/Core/Meta.php:161
 msgid "You are not allowed to change this entry status"
 msgstr "Sètz pas autorizat a cambiar l'estat d'aqueste dintrada"
 
-#: src/Core/Blog.php:1590 src/Core/Blog.php:1628
+#: src/Core/Blog.php:1600 src/Core/Blog.php:1638
 msgid "You are not allowed to change this entry category"
 msgstr "Sètz pas autorizat a cambiar aquesta categoria d'entrada"
 
-#: src/Core/Blog.php:1661
+#: src/Core/Blog.php:1671
 msgid "You are not allowed to change entries category"
 msgstr "Sètz pas autorizat a cambiar la categoria d'entradas"
 
-#: src/Core/Blog.php:1697
+#: src/Core/Blog.php:1707
 msgid "You are not allowed to delete entries"
 msgstr "Sètz pas autorizat a suprimir d'entradas"
 
-#: src/Core/Blog.php:1934
+#: src/Core/Blog.php:1944
 msgid "No entry title"
 msgstr "Pas de títol d'entrada"
 
-#: src/Core/Blog.php:1938 src/Core/Blog.php:1952
+#: src/Core/Blog.php:1948 src/Core/Blog.php:1962
 msgid "No entry content"
 msgstr "Pas de contengut d'entrada"
 
-#: src/Core/Blog.php:2018
+#: src/Core/Blog.php:2028
 msgid "Notes"
 msgstr "Nòtas"
 
-#: src/Core/Blog.php:2020
+#: src/Core/Blog.php:2030
 msgid "Note"
 msgstr "Nòta"
 
-#: src/Core/Blog.php:2131
+#: src/Core/Blog.php:2141
 msgid "Empty entry URL"
 msgstr "URL d'entrada voida"
 
-#: src/Core/Blog.php:2441
+#: src/Core/Blog.php:2451
 msgid "You are not allowed to update comments"
 msgstr "Sètz pas autorizat a metre a jorn los comentaris"
 
-#: src/Core/Blog.php:2447 src/Core/Blog.php:2453 src/Core/Blog.php:2558
+#: src/Core/Blog.php:2457 src/Core/Blog.php:2463 src/Core/Blog.php:2568
 msgid "No such comment ID"
 msgstr "Pas d'identificacion de comentari aital"
 
-#: src/Core/Blog.php:2460
+#: src/Core/Blog.php:2470
 msgid "You are not allowed to update this comment"
 msgstr "Sètz pas autorizat a metre a jorn aqueste comentari"
 
-#: src/Core/Blog.php:2511
+#: src/Core/Blog.php:2521
 msgid "You are not allowed to change this comment's status"
 msgstr "Sètz pas autorizat a cambiar l'estat d'aqueste comentari"
 
-#: src/Core/Blog.php:2552 src/Core/Blog.php:2606
+#: src/Core/Blog.php:2562 src/Core/Blog.php:2616
 msgid "You are not allowed to delete comments"
 msgstr "Sètz pas autorizat a suprimir los comentaris"
 
-#: src/Core/Blog.php:2641
+#: src/Core/Blog.php:2651
 msgid "You must provide a comment"
 msgstr "Vos cal fornir un comentari"
 
-#: src/Core/Blog.php:2645
+#: src/Core/Blog.php:2655
 msgid "You must provide an author name"
 msgstr "Vos cal provesir un nom d'autor"
 
-#: src/Core/Blog.php:2649
+#: src/Core/Blog.php:2659
 msgid "Email address is not valid."
 msgstr "L'adreça de corrièl es pas valida."
 
@@ -2306,11 +2306,11 @@ msgstr "Aquò vòl dire qu'avètz suprimit vòstre tèma per defaut o qu'avètz 
 msgid "Default theme not found."
 msgstr "Lo tèma per defaut pas trobat."
 
-#: src/Core/Frontend/Utility.php:299
+#: src/Core/Frontend/Utility.php:300
 msgid "Something went wrong while loading template file for your blog."
 msgstr "Quicòm s'es marrit al moment del cargament del fichièr de modèl per vòstre blòg."
 
-#: src/Core/Frontend/Utility.php:341
+#: src/Core/Frontend/Utility.php:342
 msgid "Can't create template files."
 msgstr "Impossible de crear de fichièrs de modèl."
 
@@ -2963,28 +2963,28 @@ msgstr "Una error s'es producha al moment del telecargament del fichièr."
 msgid "Wrong data feed"
 msgstr "Flux de donadas incorrècte"
 
-#: src/Module/Themes.php:105
+#: src/Module/Themes.php:107
 msgid "Themes folder unreachable"
 msgstr "Lo dorsièr de tèmas inaccessible"
 
-#: src/Module/Themes.php:109
+#: src/Module/Themes.php:111
 msgid "Themes folder unreadable"
 msgstr "Lo dorsièr de tèmas illegible"
 
-#: src/Module/Themes.php:117
+#: src/Module/Themes.php:119
 #, php-format
 msgid " (copy #%s)"
 msgstr " (còpia #%s)"
 
-#: src/Module/Themes.php:117
+#: src/Module/Themes.php:119
 msgid " (copy)"
 msgstr " (còpia)"
 
-#: src/Module/Themes.php:155
+#: src/Module/Themes.php:157
 msgid "Unable to modify _define.php"
 msgstr "Impossible de modificar _define.php"
 
-#: src/Module/Themes.php:188
+#: src/Module/Themes.php:190
 msgid "Destination folder already exist"
 msgstr "Lo dorsièr de destinacion existís ja"
 

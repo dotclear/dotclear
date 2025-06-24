@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-16 09:22+0200\n"
-"PO-Revision-Date: 2025-06-16 07:52\n"
+"POT-Creation-Date: 2025-06-23 19:10+0200\n"
+"PO-Revision-Date: 2025-06-24 05:12\n"
 "Last-Translator: \n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -1704,7 +1704,7 @@ msgstr "Export-Funktionen sind auf der Seite %s."
 
 #: plugins/importExport/src/Manage.php:144
 #: plugins/maintenance/src/Backend.php:25
-#: plugins/maintenance/src/BackendBehaviors.php:218
+#: plugins/maintenance/src/BackendBehaviors.php:221
 msgid "Maintenance"
 msgstr "Wartung"
 
@@ -2046,14 +2046,14 @@ msgstr "Übersetzungen bearbeiten"
 msgid "Translations"
 msgstr "Übersetzungen"
 
-#: plugins/maintenance/src/BackendBehaviors.php:93
+#: plugins/maintenance/src/BackendBehaviors.php:95
 #, php-format
 msgid "One <a href=\"%2$s\">maintenance task</a> to execute."
 msgid_plural "%1$s <a href=\"%2$s\">maintenance tasks</a> to execute."
 msgstr[0] "Eine auszuführende <a href=\"%2$s\">Wartungsmaßnahme</a>."
 msgstr[1] "%1$s auszuführende <a href=\"%2$s\">Wartungsarbeiten</a>."
 
-#: plugins/maintenance/src/BackendBehaviors.php:166
+#: plugins/maintenance/src/BackendBehaviors.php:169
 #: plugins/maintenance/src/Rest.php:83
 #, php-format
 msgid "One task to execute"
@@ -2061,33 +2061,33 @@ msgid_plural "%s tasks to execute"
 msgstr[0] "Ein Auftrag ausführen"
 msgstr[1] "%s Aufträge ausführen"
 
-#: plugins/maintenance/src/BackendBehaviors.php:200
+#: plugins/maintenance/src/BackendBehaviors.php:203
 #: plugins/maintenance/src/Manage.php:305
 msgid "This task has never been executed."
 msgstr "Diesr Auftrag wurde nie ausgeführt."
 
-#: plugins/maintenance/src/BackendBehaviors.php:203
+#: plugins/maintenance/src/BackendBehaviors.php:206
 #: plugins/maintenance/src/Manage.php:308
 #, php-format
 msgid "Last execution of this task was on %s."
 msgstr "Letzte Ausführung dieses Auftrags war am %s."
 
-#: plugins/maintenance/src/BackendBehaviors.php:221
+#: plugins/maintenance/src/BackendBehaviors.php:224
 #, php-format
 msgid "There is a task to execute."
 msgid_plural "There are %s tasks to execute."
 msgstr[0] "Es ist ein Auftrag auszuführen."
 msgstr[1] "Es sind %s Aufträge auszuführen."
 
-#: plugins/maintenance/src/BackendBehaviors.php:228
+#: plugins/maintenance/src/BackendBehaviors.php:231
 msgid "Manage tasks"
 msgstr "Aufträge verwalten"
 
-#: plugins/maintenance/src/BackendBehaviors.php:250
+#: plugins/maintenance/src/BackendBehaviors.php:253
 msgid "Display overdue tasks counter on maintenance dashboard icon"
 msgstr "Anzahl der fälligen Aufgrage im Dashboard-Icon anzeigen"
 
-#: plugins/maintenance/src/BackendBehaviors.php:256
+#: plugins/maintenance/src/BackendBehaviors.php:259
 msgid "Display overdue tasks list on dashboard items"
 msgstr "Liste der fälligen Aufträge im Dashboard anzeigen"
 
@@ -2145,61 +2145,61 @@ msgstr "Auftrag ausführen"
 msgid "This may take a very long time."
 msgstr "Dies kann einige Zeit dauern."
 
-#: plugins/maintenance/src/Manage.php:418
-#: plugins/maintenance/src/Manage.php:420
+#: plugins/maintenance/src/Manage.php:419
+#: plugins/maintenance/src/Manage.php:421
 msgid "Alert settings"
 msgstr "Alarm Einstellungen"
 
-#: plugins/maintenance/src/Manage.php:426
+#: plugins/maintenance/src/Manage.php:427
 msgid "Activation"
 msgstr "Aktivierung"
 
-#: plugins/maintenance/src/Manage.php:432
+#: plugins/maintenance/src/Manage.php:433
 msgid "Display alert messages on late tasks"
 msgstr "Warnmeldungen bei verspäteten Aufträgen anzeigen"
 
-#: plugins/maintenance/src/Manage.php:437
+#: plugins/maintenance/src/Manage.php:438
 #, php-format
 msgid "You can place list of late tasks on your %s."
 msgstr "Verspätete Auftrage auf %s anzeigen."
 
-#: plugins/maintenance/src/Manage.php:442
+#: plugins/maintenance/src/Manage.php:443
 msgid "Frequency"
 msgstr "Frequenz"
 
-#: plugins/maintenance/src/Manage.php:450
+#: plugins/maintenance/src/Manage.php:451
 msgid "Use one recall time for all tasks"
 msgstr "Zeitintervall für alle Aufträge festlegen."
 
-#: plugins/maintenance/src/Manage.php:460
+#: plugins/maintenance/src/Manage.php:461
 msgid "Recall time for all tasks:"
 msgstr "Zeitintervall für alle Aufträge:"
 
-#: plugins/maintenance/src/Manage.php:469
+#: plugins/maintenance/src/Manage.php:470
 msgid "Use one recall time per task"
 msgstr "Zeitintervall für jeden Auftrag festlegen"
 
-#: plugins/maintenance/src/Manage.php:500
+#: plugins/maintenance/src/Manage.php:501
 msgid "Content-Security-Policy"
 msgstr "Content-Security-Policy"
 
-#: plugins/maintenance/src/Manage.php:512
+#: plugins/maintenance/src/Manage.php:513
 msgid "Enable Content-Security-Policy system"
 msgstr "Content-Security-Policy-System aktivieren"
 
-#: plugins/maintenance/src/Manage.php:518
+#: plugins/maintenance/src/Manage.php:519
 msgid "Enable Content-Security-Policy report only"
 msgstr "Nur den Bericht zur Content-Security-Policy aktivieren"
 
-#: plugins/maintenance/src/Manage.php:528
+#: plugins/maintenance/src/Manage.php:529
 msgid "Enable Content-Security-Policy system by default"
 msgstr "Content-Security-Policy-System standardmäßig einschalten"
 
-#: plugins/maintenance/src/Manage.php:534
+#: plugins/maintenance/src/Manage.php:535
 msgid "Enable Content-Security-Policy report only by default"
 msgstr "Standardmäßig nur den Bericht zur Content-Security-Policy aktivieren"
 
-#: plugins/maintenance/src/Manage.php:540
+#: plugins/maintenance/src/Manage.php:541
 msgid "Also apply these settings to all blogs"
 msgstr "Diese Einstellungen gelten auch für alle Blogs"
 
@@ -3050,39 +3050,44 @@ msgstr "PHP-Dateien"
 msgid "You can't edit a distributed theme."
 msgstr "Sie können ein verteiltes Thema nicht bearbeiten."
 
-#: plugins/themeEditor/src/ThemeEditor.php:144
+#: plugins/themeEditor/src/ThemeEditor.php:148
 msgid "No file"
 msgstr "Keine Datei"
 
-#: plugins/themeEditor/src/ThemeEditor.php:169
+#: plugins/themeEditor/src/ThemeEditor.php:178
+msgid "Customized:"
+msgstr "Maßgeschneidert:"
+
+#: plugins/themeEditor/src/ThemeEditor.php:186
+#: plugins/themeEditor/src/ThemeEditor.php:192
 msgid "From theme:"
 msgstr "Vom Theme:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:177
+#: plugins/themeEditor/src/ThemeEditor.php:203
 msgid "From parent:"
 msgstr "Vom übergeordneten Element"
 
-#: plugins/themeEditor/src/ThemeEditor.php:187
+#: plugins/themeEditor/src/ThemeEditor.php:213
 msgid "From template set:"
 msgstr "Aus Vorlage:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:215
-#: plugins/themeEditor/src/ThemeEditor.php:245
-#: plugins/themeEditor/src/ThemeEditor.php:328
+#: plugins/themeEditor/src/ThemeEditor.php:241
+#: plugins/themeEditor/src/ThemeEditor.php:271
+#: plugins/themeEditor/src/ThemeEditor.php:340
 msgid "File does not exist."
 msgstr "Datei existiert nicht"
 
-#: plugins/themeEditor/src/ThemeEditor.php:220
+#: plugins/themeEditor/src/ThemeEditor.php:246
 #, php-format
 msgid "File %s is not readable"
 msgstr "Datei %s ist nicht lesbar"
 
-#: plugins/themeEditor/src/ThemeEditor.php:282
+#: plugins/themeEditor/src/ThemeEditor.php:305
 #, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr "Datei %s kann nicht geschrieben werden. Bitte Themen Dateien und Ordner Rechte überprüfen."
 
-#: plugins/themeEditor/src/ThemeEditor.php:341
+#: plugins/themeEditor/src/ThemeEditor.php:361
 #, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "Datei %s kann nicht gelöscht werden. Bitte Themen Dateien und Ordner Rechte überprüfen."

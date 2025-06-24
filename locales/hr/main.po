@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-16 09:07+0200\n"
-"PO-Revision-Date: 2025-06-16 07:26\n"
+"POT-Creation-Date: 2025-06-23 12:32+0200\n"
+"PO-Revision-Date: 2025-06-23 17:13\n"
 "Last-Translator: \n"
 "Language-Team: Croatian\n"
 "Language: hr_HR\n"
@@ -2148,120 +2148,120 @@ msgstr "rezultata po stranici"
 msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
 msgstr "Čini se da u vašoj bazi podataka nema tablice sesija. Je li Dotclear potpuno instaliran?"
 
-#: src/Core/Blog.php:708
+#: src/Core/Blog.php:718
 msgid "You are not allowed to add categories"
 msgstr "Nije vam dopušteno dodavanje kategorija"
 
-#: src/Core/Blog.php:752
+#: src/Core/Blog.php:762
 msgid "You are not allowed to update categories"
 msgstr "Nije vam dopušteno ažurirati kategorije"
 
-#: src/Core/Blog.php:809
+#: src/Core/Blog.php:819
 msgid "You are not allowed to delete categories"
 msgstr "Nije vam dopušteno brisanje kategorija"
 
-#: src/Core/Blog.php:822
+#: src/Core/Blog.php:832
 msgid "This category is not empty."
 msgstr "Ova kategorija nije prazna."
 
-#: src/Core/Blog.php:835
+#: src/Core/Blog.php:845
 msgid "You are not allowed to reset categories order"
 msgstr "Nije vam dopušteno poništiti redoslijed kategorija"
 
-#: src/Core/Blog.php:904
+#: src/Core/Blog.php:914
 msgid "Empty category URL"
 msgstr "URL prazne kategorije"
 
-#: src/Core/Blog.php:921
+#: src/Core/Blog.php:931
 msgid "You must provide a category title"
 msgstr "Morate unijeti naslov kategorije"
 
-#: src/Core/Blog.php:931
+#: src/Core/Blog.php:941
 msgid "You must provide a category URL"
 msgstr "Morate navesti URL kategorije"
 
-#: src/Core/Blog.php:1382
+#: src/Core/Blog.php:1392
 msgid "You are not allowed to create an entry"
 msgstr "Nije vam dopušteno kreirati unos"
 
-#: src/Core/Blog.php:1442
+#: src/Core/Blog.php:1452
 msgid "You are not allowed to update entries"
 msgstr "Nije vam dopušteno ažurirati unose"
 
-#: src/Core/Blog.php:1448 src/Core/Blog.php:1703
+#: src/Core/Blog.php:1458 src/Core/Blog.php:1713
 msgid "No such entry ID"
 msgstr "Nema takvog ID-a unosa"
 
-#: src/Core/Blog.php:1482
+#: src/Core/Blog.php:1492
 msgid "You are not allowed to edit this entry"
 msgstr "Nemate dopuštenje za uređivanje ovog unosa"
 
-#: src/Core/Blog.php:1510 src/Core/Blog.php:1545 src/Core/Meta.php:144
+#: src/Core/Blog.php:1520 src/Core/Blog.php:1555 src/Core/Meta.php:144
 #: src/Core/Meta.php:161
 msgid "You are not allowed to change this entry status"
 msgstr "Nije vam dopušteno mijenjati ovaj status unosa"
 
-#: src/Core/Blog.php:1590 src/Core/Blog.php:1628
+#: src/Core/Blog.php:1600 src/Core/Blog.php:1638
 msgid "You are not allowed to change this entry category"
 msgstr "Nije vam dopušteno mijenjati ovu kategoriju unosa"
 
-#: src/Core/Blog.php:1661
+#: src/Core/Blog.php:1671
 msgid "You are not allowed to change entries category"
 msgstr "Nije vam dopušteno mijenjati kategoriju unosa"
 
-#: src/Core/Blog.php:1697
+#: src/Core/Blog.php:1707
 msgid "You are not allowed to delete entries"
 msgstr "Nije vam dopušteno brisanje unosa"
 
-#: src/Core/Blog.php:1934
+#: src/Core/Blog.php:1944
 msgid "No entry title"
 msgstr "Nema naslova unosa"
 
-#: src/Core/Blog.php:1938 src/Core/Blog.php:1952
+#: src/Core/Blog.php:1948 src/Core/Blog.php:1962
 msgid "No entry content"
 msgstr "Nema ulaznog sadržaja"
 
-#: src/Core/Blog.php:2018
+#: src/Core/Blog.php:2028
 msgid "Notes"
 msgstr "Bilješke"
 
-#: src/Core/Blog.php:2020
+#: src/Core/Blog.php:2030
 msgid "Note"
 msgstr "Bilješka"
 
-#: src/Core/Blog.php:2131
+#: src/Core/Blog.php:2141
 msgid "Empty entry URL"
 msgstr "URL prazan unos"
 
-#: src/Core/Blog.php:2441
+#: src/Core/Blog.php:2451
 msgid "You are not allowed to update comments"
 msgstr "Nije vam dopušteno ažurirati komentare"
 
-#: src/Core/Blog.php:2447 src/Core/Blog.php:2453 src/Core/Blog.php:2558
+#: src/Core/Blog.php:2457 src/Core/Blog.php:2463 src/Core/Blog.php:2568
 msgid "No such comment ID"
 msgstr "Nema takvog ID-a komentara"
 
-#: src/Core/Blog.php:2460
+#: src/Core/Blog.php:2470
 msgid "You are not allowed to update this comment"
 msgstr "Nije vam dopušteno ažurirati ovaj komentar"
 
-#: src/Core/Blog.php:2511
+#: src/Core/Blog.php:2521
 msgid "You are not allowed to change this comment's status"
 msgstr "Nije vam dopušteno mijenjati status ovog komentara"
 
-#: src/Core/Blog.php:2552 src/Core/Blog.php:2606
+#: src/Core/Blog.php:2562 src/Core/Blog.php:2616
 msgid "You are not allowed to delete comments"
 msgstr "Nemate dopuštenje za brisanje komentara"
 
-#: src/Core/Blog.php:2641
+#: src/Core/Blog.php:2651
 msgid "You must provide a comment"
 msgstr "Morate dati komentar"
 
-#: src/Core/Blog.php:2645
+#: src/Core/Blog.php:2655
 msgid "You must provide an author name"
 msgstr "Morate navesti ime autora"
 
-#: src/Core/Blog.php:2649
+#: src/Core/Blog.php:2659
 msgid "Email address is not valid."
 msgstr "Adresa e-pošte nije važeća."
 
@@ -2335,11 +2335,11 @@ msgstr "To ili znači da ste uklonili zadanu temu ili postavili krivi put teme u
 msgid "Default theme not found."
 msgstr "Zadana tema nije pronađena."
 
-#: src/Core/Frontend/Utility.php:299
+#: src/Core/Frontend/Utility.php:300
 msgid "Something went wrong while loading template file for your blog."
 msgstr "Nešto nije u redu prilikom učitavanja datoteke predloška za vaš blog."
 
-#: src/Core/Frontend/Utility.php:341
+#: src/Core/Frontend/Utility.php:342
 msgid "Can't create template files."
 msgstr "Nije moguće stvoriti datoteke predložaka."
 
@@ -2992,28 +2992,28 @@ msgstr "Došlo je do pogreške prilikom preuzimanja datoteke."
 msgid "Wrong data feed"
 msgstr "Pogrešan feed podataka"
 
-#: src/Module/Themes.php:105
+#: src/Module/Themes.php:107
 msgid "Themes folder unreachable"
 msgstr "Mapa Tema nedostupna"
 
-#: src/Module/Themes.php:109
+#: src/Module/Themes.php:111
 msgid "Themes folder unreadable"
 msgstr "Mapa Teme nije čitljiva"
 
-#: src/Module/Themes.php:117
+#: src/Module/Themes.php:119
 #, php-format
 msgid " (copy #%s)"
 msgstr " (kopija #%s)"
 
-#: src/Module/Themes.php:117
+#: src/Module/Themes.php:119
 msgid " (copy)"
 msgstr " (kopirati)"
 
-#: src/Module/Themes.php:155
+#: src/Module/Themes.php:157
 msgid "Unable to modify _define.php"
 msgstr "Nije moguće promijeniti _define.php"
 
-#: src/Module/Themes.php:188
+#: src/Module/Themes.php:190
 msgid "Destination folder already exist"
 msgstr "Odredišna mapa već postoji"
 

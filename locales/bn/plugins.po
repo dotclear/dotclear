@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-16 09:22+0200\n"
-"PO-Revision-Date: 2025-06-16 07:53\n"
+"POT-Creation-Date: 2025-06-23 19:10+0200\n"
+"PO-Revision-Date: 2025-06-23 17:14\n"
 "Last-Translator: \n"
 "Language-Team: Bengali\n"
 "Language: bn_BD\n"
@@ -1704,7 +1704,7 @@ msgstr "রপ্তানীর কার্যকারিতাগুলি %
 
 #: plugins/importExport/src/Manage.php:144
 #: plugins/maintenance/src/Backend.php:25
-#: plugins/maintenance/src/BackendBehaviors.php:218
+#: plugins/maintenance/src/BackendBehaviors.php:221
 msgid "Maintenance"
 msgstr "রক্ষণাবেক্ষণ"
 
@@ -2046,14 +2046,14 @@ msgstr "অনুবাদগুলো মুছে নিন"
 msgid "Translations"
 msgstr "অনুবাদ"
 
-#: plugins/maintenance/src/BackendBehaviors.php:93
+#: plugins/maintenance/src/BackendBehaviors.php:95
 #, php-format
 msgid "One <a href=\"%2$s\">maintenance task</a> to execute."
 msgid_plural "%1$s <a href=\"%2$s\">maintenance tasks</a> to execute."
 msgstr[0] "একটি <a href=\"%2$s\">রক্ষণাবেক্ষণের কাজ</a> সম্পাদন করতে হবে।"
 msgstr[1] "%1$s <a href=\"%2$s\">রক্ষণাবেক্ষণের কাজগুলি</a> সম্পাদন করতে হবে।"
 
-#: plugins/maintenance/src/BackendBehaviors.php:166
+#: plugins/maintenance/src/BackendBehaviors.php:169
 #: plugins/maintenance/src/Rest.php:83
 #, php-format
 msgid "One task to execute"
@@ -2061,33 +2061,33 @@ msgid_plural "%s tasks to execute"
 msgstr[0] "চালানোর জন্য একটি কাজ"
 msgstr[1] "কার্যকর করার জন্য %sটি কাজ"
 
-#: plugins/maintenance/src/BackendBehaviors.php:200
+#: plugins/maintenance/src/BackendBehaviors.php:203
 #: plugins/maintenance/src/Manage.php:305
 msgid "This task has never been executed."
 msgstr "এই কাজটি কখনোই কার্যকর করা হয়নি."
 
-#: plugins/maintenance/src/BackendBehaviors.php:203
+#: plugins/maintenance/src/BackendBehaviors.php:206
 #: plugins/maintenance/src/Manage.php:308
 #, php-format
 msgid "Last execution of this task was on %s."
 msgstr "এই কাজটির শেষ সম্পাদনা %s-এ হয়েছিল।"
 
-#: plugins/maintenance/src/BackendBehaviors.php:221
+#: plugins/maintenance/src/BackendBehaviors.php:224
 #, php-format
 msgid "There is a task to execute."
 msgid_plural "There are %s tasks to execute."
 msgstr[0] "কার্যকরী করার একটি কাজ আছে."
 msgstr[1] "সম্পাদনা করার জন্য %sটি কাজ আছে।"
 
-#: plugins/maintenance/src/BackendBehaviors.php:228
+#: plugins/maintenance/src/BackendBehaviors.php:231
 msgid "Manage tasks"
 msgstr "কাজ পরিচালনা করুন"
 
-#: plugins/maintenance/src/BackendBehaviors.php:250
+#: plugins/maintenance/src/BackendBehaviors.php:253
 msgid "Display overdue tasks counter on maintenance dashboard icon"
 msgstr "রক্ষণাবেক্ষণ ড্যাশবোর্ড আইকনের উপর অগ্রাহ্য কাজ প্রদর্শন করা হবে"
 
-#: plugins/maintenance/src/BackendBehaviors.php:256
+#: plugins/maintenance/src/BackendBehaviors.php:259
 msgid "Display overdue tasks list on dashboard items"
 msgstr "ড্যাশবোর্ড আইটেমের ওপর অগ্রাহ্য কর্ম তালিকা প্রদর্শন করা হবে"
 
@@ -2145,61 +2145,61 @@ msgstr "কর্ম সনাক্ত করা হবে"
 msgid "This may take a very long time."
 msgstr "এটি অনেক সময় লেগেই নিতে পারে."
 
-#: plugins/maintenance/src/Manage.php:418
-#: plugins/maintenance/src/Manage.php:420
+#: plugins/maintenance/src/Manage.php:419
+#: plugins/maintenance/src/Manage.php:421
 msgid "Alert settings"
 msgstr "অ্যালার্ট সেটিংস"
 
-#: plugins/maintenance/src/Manage.php:426
+#: plugins/maintenance/src/Manage.php:427
 msgid "Activation"
 msgstr "সক্রিয়"
 
-#: plugins/maintenance/src/Manage.php:432
+#: plugins/maintenance/src/Manage.php:433
 msgid "Display alert messages on late tasks"
 msgstr "শেষের কাজগুলো সম্পর্কে সতর্ক বার্তা প্রদর্শন করা হবে"
 
-#: plugins/maintenance/src/Manage.php:437
+#: plugins/maintenance/src/Manage.php:438
 #, php-format
 msgid "You can place list of late tasks on your %s."
 msgstr "আপনি আপনার %s-এ দেরী কাজগুলির তালিকা রাখতে পারেন।"
 
-#: plugins/maintenance/src/Manage.php:442
+#: plugins/maintenance/src/Manage.php:443
 msgid "Frequency"
 msgstr "Frequency"
 
-#: plugins/maintenance/src/Manage.php:450
+#: plugins/maintenance/src/Manage.php:451
 msgid "Use one recall time for all tasks"
 msgstr "সমস্ত কাজের জন্য একটি স্মরণ করার সময় ব্যবহার করুন"
 
-#: plugins/maintenance/src/Manage.php:460
+#: plugins/maintenance/src/Manage.php:461
 msgid "Recall time for all tasks:"
 msgstr "সকল কাজের জন্য সময় গ্রহণ করা হবে:"
 
-#: plugins/maintenance/src/Manage.php:469
+#: plugins/maintenance/src/Manage.php:470
 msgid "Use one recall time per task"
 msgstr "প্রতি কাজের সময় একটি স্মরণ করার সময় ব্যবহার করা হবে"
 
-#: plugins/maintenance/src/Manage.php:500
+#: plugins/maintenance/src/Manage.php:501
 msgid "Content-Security-Policy"
 msgstr "বিষয়বস্তু-নিরাপত্তা-নীতি"
 
-#: plugins/maintenance/src/Manage.php:512
+#: plugins/maintenance/src/Manage.php:513
 msgid "Enable Content-Security-Policy system"
 msgstr "বিষয়বস্তু-নিরাপত্তা-পলিসি ব্যবস্থা সক্রিয় করুন"
 
-#: plugins/maintenance/src/Manage.php:518
+#: plugins/maintenance/src/Manage.php:519
 msgid "Enable Content-Security-Policy report only"
 msgstr "বিষয়বস্তু-নিরাপত্তা-পলিসি প্রতিবেদন সক্রিয় করো"
 
-#: plugins/maintenance/src/Manage.php:528
+#: plugins/maintenance/src/Manage.php:529
 msgid "Enable Content-Security-Policy system by default"
 msgstr "ডিফল্ট দ্বারা বিষয়বস্তু-নিরাপত্তা-পলিসি ব্যবস্থা সক্রিয় করা হবে"
 
-#: plugins/maintenance/src/Manage.php:534
+#: plugins/maintenance/src/Manage.php:535
 msgid "Enable Content-Security-Policy report only by default"
 msgstr "কনটেন্ট-সিকিউরিটি-পলিসি রিপোর্ট শুধুমাত্র ডিফল্ট দ্বারা সক্রিয় করা হবে"
 
-#: plugins/maintenance/src/Manage.php:540
+#: plugins/maintenance/src/Manage.php:541
 msgid "Also apply these settings to all blogs"
 msgstr "সব ব্লগের জন্য এই সেটিংস প্রয়োগ করা হবে"
 
@@ -3050,39 +3050,44 @@ msgstr "PHP ফাইল"
 msgid "You can't edit a distributed theme."
 msgstr "আপনি একটি বিতরণ থিম সম্পাদন করতে পারবেন না."
 
-#: plugins/themeEditor/src/ThemeEditor.php:144
+#: plugins/themeEditor/src/ThemeEditor.php:148
 msgid "No file"
 msgstr "কোনো ফাইল নেই"
 
-#: plugins/themeEditor/src/ThemeEditor.php:169
+#: plugins/themeEditor/src/ThemeEditor.php:178
+msgid "Customized:"
+msgstr "কাস্টমাইজড:"
+
+#: plugins/themeEditor/src/ThemeEditor.php:186
+#: plugins/themeEditor/src/ThemeEditor.php:192
 msgid "From theme:"
 msgstr "থিম থেকে:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:177
+#: plugins/themeEditor/src/ThemeEditor.php:203
 msgid "From parent:"
 msgstr "প্যারেন্ট থেকে:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:187
+#: plugins/themeEditor/src/ThemeEditor.php:213
 msgid "From template set:"
 msgstr "টেমপ্লেট:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:215
-#: plugins/themeEditor/src/ThemeEditor.php:245
-#: plugins/themeEditor/src/ThemeEditor.php:328
+#: plugins/themeEditor/src/ThemeEditor.php:241
+#: plugins/themeEditor/src/ThemeEditor.php:271
+#: plugins/themeEditor/src/ThemeEditor.php:340
 msgid "File does not exist."
 msgstr "ফাইল নেই."
 
-#: plugins/themeEditor/src/ThemeEditor.php:220
+#: plugins/themeEditor/src/ThemeEditor.php:246
 #, php-format
 msgid "File %s is not readable"
 msgstr "%s ফাইলটি পঠনযোগ্য নয়"
 
-#: plugins/themeEditor/src/ThemeEditor.php:282
+#: plugins/themeEditor/src/ThemeEditor.php:305
 #, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr "%s ফাইলটি লিখতে অক্ষম। দয়া করে আপনার থিম ফাইল এবং ফোল্ডারের অনুমতিগুলি পরীক্ষা করুন।"
 
-#: plugins/themeEditor/src/ThemeEditor.php:341
+#: plugins/themeEditor/src/ThemeEditor.php:361
 #, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "%s ফাইলটি মুছতে অক্ষম। দয়া করে আপনার থিম ফাইল এবং ফোল্ডারের অনুমতিগুলি পরীক্ষা করুন।"

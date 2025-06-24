@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-16 09:07+0200\n"
-"PO-Revision-Date: 2025-06-16 07:26\n"
+"POT-Creation-Date: 2025-06-23 12:32+0200\n"
+"PO-Revision-Date: 2025-06-23 17:12\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -2119,120 +2119,120 @@ msgstr "résultats par page"
 msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
 msgstr "Il semble de la table Session n'existe pas dans votre base de données. Dotclear est-il bien installé correctement ?"
 
-#: src/Core/Blog.php:708
+#: src/Core/Blog.php:718
 msgid "You are not allowed to add categories"
 msgstr "Vous n'êtes pas autorisé·e à créer des catégories"
 
-#: src/Core/Blog.php:752
+#: src/Core/Blog.php:762
 msgid "You are not allowed to update categories"
 msgstr "Vous n'êtes pas autorisé·e à modifier des catégories"
 
-#: src/Core/Blog.php:809
+#: src/Core/Blog.php:819
 msgid "You are not allowed to delete categories"
 msgstr "Vous n'êtes pas autorisé·e à supprimer des catégories"
 
-#: src/Core/Blog.php:822
+#: src/Core/Blog.php:832
 msgid "This category is not empty."
 msgstr "Cette catégorie n'est pas vide."
 
-#: src/Core/Blog.php:835
+#: src/Core/Blog.php:845
 msgid "You are not allowed to reset categories order"
 msgstr "Vous n'êtes pas autorisé·e à réinitialiser l'ordre des catégories"
 
-#: src/Core/Blog.php:904
+#: src/Core/Blog.php:914
 msgid "Empty category URL"
 msgstr "URL de la catégorie vide"
 
-#: src/Core/Blog.php:921
+#: src/Core/Blog.php:931
 msgid "You must provide a category title"
 msgstr "Vous devez indiquer un titre de catégorie"
 
-#: src/Core/Blog.php:931
+#: src/Core/Blog.php:941
 msgid "You must provide a category URL"
 msgstr "Vous devez indiquer une URL de catégorie"
 
-#: src/Core/Blog.php:1382
+#: src/Core/Blog.php:1392
 msgid "You are not allowed to create an entry"
 msgstr "Vous n'êtes pas autorisé·e à créer des entrées"
 
-#: src/Core/Blog.php:1442
+#: src/Core/Blog.php:1452
 msgid "You are not allowed to update entries"
 msgstr "Vous n'êtes pas autorisé·e à modifier les entrées"
 
-#: src/Core/Blog.php:1448 src/Core/Blog.php:1703
+#: src/Core/Blog.php:1458 src/Core/Blog.php:1713
 msgid "No such entry ID"
 msgstr "Identifiant d'entrée inconnu"
 
-#: src/Core/Blog.php:1482
+#: src/Core/Blog.php:1492
 msgid "You are not allowed to edit this entry"
 msgstr "Vous n'êtes pas autorisé·e à modifier cette entrée"
 
-#: src/Core/Blog.php:1510 src/Core/Blog.php:1545 src/Core/Meta.php:144
+#: src/Core/Blog.php:1520 src/Core/Blog.php:1555 src/Core/Meta.php:144
 #: src/Core/Meta.php:161
 msgid "You are not allowed to change this entry status"
 msgstr "Vous n'êtes pas autorisé·e à modifier l'état de cette entrée"
 
-#: src/Core/Blog.php:1590 src/Core/Blog.php:1628
+#: src/Core/Blog.php:1600 src/Core/Blog.php:1638
 msgid "You are not allowed to change this entry category"
 msgstr "Vous n'êtes pas autorisé·e à modifier la catégorie de cette entrée"
 
-#: src/Core/Blog.php:1661
+#: src/Core/Blog.php:1671
 msgid "You are not allowed to change entries category"
 msgstr "Vous n'êtes pas autorisé·e à modifier la catégorie des entrées"
 
-#: src/Core/Blog.php:1697
+#: src/Core/Blog.php:1707
 msgid "You are not allowed to delete entries"
 msgstr "Vous n'êtes pas autorisé·e à supprimer des entrées"
 
-#: src/Core/Blog.php:1934
+#: src/Core/Blog.php:1944
 msgid "No entry title"
 msgstr "Pas de titre d'entrée"
 
-#: src/Core/Blog.php:1938 src/Core/Blog.php:1952
+#: src/Core/Blog.php:1948 src/Core/Blog.php:1962
 msgid "No entry content"
 msgstr "Pas de contenu d'entrée"
 
-#: src/Core/Blog.php:2018
+#: src/Core/Blog.php:2028
 msgid "Notes"
 msgstr "Notes"
 
-#: src/Core/Blog.php:2020
+#: src/Core/Blog.php:2030
 msgid "Note"
 msgstr "Note"
 
-#: src/Core/Blog.php:2131
+#: src/Core/Blog.php:2141
 msgid "Empty entry URL"
 msgstr "URL de l'entrée vide"
 
-#: src/Core/Blog.php:2441
+#: src/Core/Blog.php:2451
 msgid "You are not allowed to update comments"
 msgstr "Vous n'êtes pas autorisé·e à modifier des commentaires"
 
-#: src/Core/Blog.php:2447 src/Core/Blog.php:2453 src/Core/Blog.php:2558
+#: src/Core/Blog.php:2457 src/Core/Blog.php:2463 src/Core/Blog.php:2568
 msgid "No such comment ID"
 msgstr "Identifiant de commentaire inconnu"
 
-#: src/Core/Blog.php:2460
+#: src/Core/Blog.php:2470
 msgid "You are not allowed to update this comment"
 msgstr "Vous n'êtes pas autorisé·e à modifier ce commentaire"
 
-#: src/Core/Blog.php:2511
+#: src/Core/Blog.php:2521
 msgid "You are not allowed to change this comment's status"
 msgstr "Vous n'êtes pas autorisé·e à changer l'état de ce commentaire"
 
-#: src/Core/Blog.php:2552 src/Core/Blog.php:2606
+#: src/Core/Blog.php:2562 src/Core/Blog.php:2616
 msgid "You are not allowed to delete comments"
 msgstr "Vous n'êtes pas autorisé·e à supprimer des commentaires"
 
-#: src/Core/Blog.php:2641
+#: src/Core/Blog.php:2651
 msgid "You must provide a comment"
 msgstr "Vous devez écrire un commentaire"
 
-#: src/Core/Blog.php:2645
+#: src/Core/Blog.php:2655
 msgid "You must provide an author name"
 msgstr "Vous devez indiquer un nom"
 
-#: src/Core/Blog.php:2649
+#: src/Core/Blog.php:2659
 msgid "Email address is not valid."
 msgstr "Adresse email invalide."
 
@@ -2306,11 +2306,11 @@ msgstr "Cela signifie que vous avez supprimé votre thème par défaut ou que vo
 msgid "Default theme not found."
 msgstr "Thème par défaut introuvable."
 
-#: src/Core/Frontend/Utility.php:299
+#: src/Core/Frontend/Utility.php:300
 msgid "Something went wrong while loading template file for your blog."
 msgstr "Un problème s'est produit lors du chargement du fichier modèle de votre blog."
 
-#: src/Core/Frontend/Utility.php:341
+#: src/Core/Frontend/Utility.php:342
 msgid "Can't create template files."
 msgstr "Impossible de créer des fichiers modèles."
 
@@ -2963,28 +2963,28 @@ msgstr "Une erreur est survenue pendant le téléchargement du fichier."
 msgid "Wrong data feed"
 msgstr "Données du flux incorrectes"
 
-#: src/Module/Themes.php:105
+#: src/Module/Themes.php:107
 msgid "Themes folder unreachable"
 msgstr "Le répertoire des thèmes n'est pas accessible"
 
-#: src/Module/Themes.php:109
+#: src/Module/Themes.php:111
 msgid "Themes folder unreadable"
 msgstr "Le répertoire des thèmes n'est pas lisible"
 
-#: src/Module/Themes.php:117
+#: src/Module/Themes.php:119
 #, php-format
 msgid " (copy #%s)"
 msgstr " (copie %s)"
 
-#: src/Module/Themes.php:117
+#: src/Module/Themes.php:119
 msgid " (copy)"
 msgstr " (copie)"
 
-#: src/Module/Themes.php:155
+#: src/Module/Themes.php:157
 msgid "Unable to modify _define.php"
 msgstr "Impossible de modifier le fichier _define.php"
 
-#: src/Module/Themes.php:188
+#: src/Module/Themes.php:190
 msgid "Destination folder already exist"
 msgstr "Le répertoire de destination existe déjà"
 

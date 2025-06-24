@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-16 09:22+0200\n"
-"PO-Revision-Date: 2025-06-16 07:52\n"
+"POT-Creation-Date: 2025-06-23 19:10+0200\n"
+"PO-Revision-Date: 2025-06-24 05:12\n"
 "Last-Translator: \n"
 "Language-Team: Romanian\n"
 "Language: ro_RO\n"
@@ -1706,7 +1706,7 @@ msgstr "Funcţiile de export sunt în pagina %s."
 
 #: plugins/importExport/src/Manage.php:144
 #: plugins/maintenance/src/Backend.php:25
-#: plugins/maintenance/src/BackendBehaviors.php:218
+#: plugins/maintenance/src/BackendBehaviors.php:221
 msgid "Maintenance"
 msgstr "Mentenanţă"
 
@@ -2048,7 +2048,7 @@ msgstr "Menține traducerile"
 msgid "Translations"
 msgstr "Traduceri"
 
-#: plugins/maintenance/src/BackendBehaviors.php:93
+#: plugins/maintenance/src/BackendBehaviors.php:95
 #, php-format
 msgid "One <a href=\"%2$s\">maintenance task</a> to execute."
 msgid_plural "%1$s <a href=\"%2$s\">maintenance tasks</a> to execute."
@@ -2056,7 +2056,7 @@ msgstr[0] "O <a href=\"%2$s\">sarcină de întreținere</a> de executat."
 msgstr[1] "O <a href=\"%2$s\">sarcină de întreținere</a> de executat."
 msgstr[2] "%1$s <a href=\"%2$s\">sarcini de întreținere</a> de executat."
 
-#: plugins/maintenance/src/BackendBehaviors.php:166
+#: plugins/maintenance/src/BackendBehaviors.php:169
 #: plugins/maintenance/src/Rest.php:83
 #, php-format
 msgid "One task to execute"
@@ -2065,18 +2065,18 @@ msgstr[0] "O sarcină de executat"
 msgstr[1] "%s sarcini de executat"
 msgstr[2] "%s sarcini de executat"
 
-#: plugins/maintenance/src/BackendBehaviors.php:200
+#: plugins/maintenance/src/BackendBehaviors.php:203
 #: plugins/maintenance/src/Manage.php:305
 msgid "This task has never been executed."
 msgstr "Această sarcină nu a fost niciodată executată."
 
-#: plugins/maintenance/src/BackendBehaviors.php:203
+#: plugins/maintenance/src/BackendBehaviors.php:206
 #: plugins/maintenance/src/Manage.php:308
 #, php-format
 msgid "Last execution of this task was on %s."
 msgstr "Ultima execuție a acestei sarcini a fost pe %s."
 
-#: plugins/maintenance/src/BackendBehaviors.php:221
+#: plugins/maintenance/src/BackendBehaviors.php:224
 #, php-format
 msgid "There is a task to execute."
 msgid_plural "There are %s tasks to execute."
@@ -2084,15 +2084,15 @@ msgstr[0] "Există o sarcină de executat."
 msgstr[1] "Există %s sarcini de executat."
 msgstr[2] "Există %s sarcini de executat."
 
-#: plugins/maintenance/src/BackendBehaviors.php:228
+#: plugins/maintenance/src/BackendBehaviors.php:231
 msgid "Manage tasks"
 msgstr "Gestionare sarcini"
 
-#: plugins/maintenance/src/BackendBehaviors.php:250
+#: plugins/maintenance/src/BackendBehaviors.php:253
 msgid "Display overdue tasks counter on maintenance dashboard icon"
 msgstr "Afişare contor sarcini restante pe pictograma tabloului de bord de întreţinere"
 
-#: plugins/maintenance/src/BackendBehaviors.php:256
+#: plugins/maintenance/src/BackendBehaviors.php:259
 msgid "Display overdue tasks list on dashboard items"
 msgstr "Afișează lista de sarcini restante pe elementele tabloului de bord"
 
@@ -2150,61 +2150,61 @@ msgstr "Execută sarcina"
 msgid "This may take a very long time."
 msgstr "Acest lucru poate dura foarte mult timp."
 
-#: plugins/maintenance/src/Manage.php:418
-#: plugins/maintenance/src/Manage.php:420
+#: plugins/maintenance/src/Manage.php:419
+#: plugins/maintenance/src/Manage.php:421
 msgid "Alert settings"
 msgstr "Setări alertă"
 
-#: plugins/maintenance/src/Manage.php:426
+#: plugins/maintenance/src/Manage.php:427
 msgid "Activation"
 msgstr "Activare"
 
-#: plugins/maintenance/src/Manage.php:432
+#: plugins/maintenance/src/Manage.php:433
 msgid "Display alert messages on late tasks"
 msgstr "Afişează mesajele de alertă la sarcinile tardive"
 
-#: plugins/maintenance/src/Manage.php:437
+#: plugins/maintenance/src/Manage.php:438
 #, php-format
 msgid "You can place list of late tasks on your %s."
 msgstr "Poți plasa o listă de sarcini întârziate pe %s tău."
 
-#: plugins/maintenance/src/Manage.php:442
+#: plugins/maintenance/src/Manage.php:443
 msgid "Frequency"
 msgstr "Frecvenţă"
 
-#: plugins/maintenance/src/Manage.php:450
+#: plugins/maintenance/src/Manage.php:451
 msgid "Use one recall time for all tasks"
 msgstr "Folosește o rechemare de timp pentru toate sarcinile"
 
-#: plugins/maintenance/src/Manage.php:460
+#: plugins/maintenance/src/Manage.php:461
 msgid "Recall time for all tasks:"
 msgstr "Timp de rechemare pentru toate sarcinile:"
 
-#: plugins/maintenance/src/Manage.php:469
+#: plugins/maintenance/src/Manage.php:470
 msgid "Use one recall time per task"
 msgstr "Utilizați o oră de rechemare pe sarcină"
 
-#: plugins/maintenance/src/Manage.php:500
+#: plugins/maintenance/src/Manage.php:501
 msgid "Content-Security-Policy"
 msgstr "Politică de securitate-conținut"
 
-#: plugins/maintenance/src/Manage.php:512
+#: plugins/maintenance/src/Manage.php:513
 msgid "Enable Content-Security-Policy system"
 msgstr "Activare sistem Content-Securitate-Policy"
 
-#: plugins/maintenance/src/Manage.php:518
+#: plugins/maintenance/src/Manage.php:519
 msgid "Enable Content-Security-Policy report only"
 msgstr "Activează doar raportul Content-Securitate-Politică"
 
-#: plugins/maintenance/src/Manage.php:528
+#: plugins/maintenance/src/Manage.php:529
 msgid "Enable Content-Security-Policy system by default"
 msgstr "Activează implicit sistemul Content-Securitate-Policy"
 
-#: plugins/maintenance/src/Manage.php:534
+#: plugins/maintenance/src/Manage.php:535
 msgid "Enable Content-Security-Policy report only by default"
 msgstr "Activează raportul Content-Securitate-Politică doar în mod implicit"
 
-#: plugins/maintenance/src/Manage.php:540
+#: plugins/maintenance/src/Manage.php:541
 msgid "Also apply these settings to all blogs"
 msgstr "Aplică aceste setări la toate blogurile"
 
@@ -3057,39 +3057,44 @@ msgstr "Fișiere PHP"
 msgid "You can't edit a distributed theme."
 msgstr "Nu poti edita o tema distribuita."
 
-#: plugins/themeEditor/src/ThemeEditor.php:144
+#: plugins/themeEditor/src/ThemeEditor.php:148
 msgid "No file"
 msgstr "Nici un fişier"
 
-#: plugins/themeEditor/src/ThemeEditor.php:169
+#: plugins/themeEditor/src/ThemeEditor.php:178
+msgid "Customized:"
+msgstr "Personalizat:"
+
+#: plugins/themeEditor/src/ThemeEditor.php:186
+#: plugins/themeEditor/src/ThemeEditor.php:192
 msgid "From theme:"
 msgstr "Din temă:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:177
+#: plugins/themeEditor/src/ThemeEditor.php:203
 msgid "From parent:"
 msgstr "De la părinte:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:187
+#: plugins/themeEditor/src/ThemeEditor.php:213
 msgid "From template set:"
 msgstr "Din setul de șablon:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:215
-#: plugins/themeEditor/src/ThemeEditor.php:245
-#: plugins/themeEditor/src/ThemeEditor.php:328
+#: plugins/themeEditor/src/ThemeEditor.php:241
+#: plugins/themeEditor/src/ThemeEditor.php:271
+#: plugins/themeEditor/src/ThemeEditor.php:340
 msgid "File does not exist."
 msgstr "Fișierul nu există."
 
-#: plugins/themeEditor/src/ThemeEditor.php:220
+#: plugins/themeEditor/src/ThemeEditor.php:246
 #, php-format
 msgid "File %s is not readable"
 msgstr "Fișierul %s nu poate fi citit"
 
-#: plugins/themeEditor/src/ThemeEditor.php:282
+#: plugins/themeEditor/src/ThemeEditor.php:305
 #, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr "Nu se poate scrie fișierul %s. Vă rugăm să verificați permisiunile fișierelor și folderelor temei."
 
-#: plugins/themeEditor/src/ThemeEditor.php:341
+#: plugins/themeEditor/src/ThemeEditor.php:361
 #, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "Nu se poate șterge fișierul %s. Vă rugăm să verificați permisiunile fișierelor și folderelor temei."
