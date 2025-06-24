@@ -107,6 +107,11 @@ class ThemeEditor
     {
         $this->custom_theme = App::config()->varRoot() . '/themes/' . App::blog()->id() . '/' . App::blog()->settings()->system->theme;
 
+        // Create var hierarchy if necessary
+        if (!is_dir(dirname($this->custom_theme))) {
+            Files::makeDir($this->custom_theme, true);
+        }
+
         $user_theme_path  = Path::real(App::blog()->themesPath() . '/' . App::blog()->settings()->system->theme);
         $this->user_theme = $user_theme_path !== false ? $user_theme_path : '';
 
@@ -352,6 +357,11 @@ class ThemeEditor
                     if (file_exists($compiled)) {
                         unlink($compiled);
                     }
+                }
+
+                // Cleanup empty folder
+                if (Files::isDeletable(dirname($dest))) {
+                    rmdir(dirname($dest));
                 }
 
                 // Updating template files list
