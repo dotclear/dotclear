@@ -359,10 +359,17 @@ class ThemeEditor
                     }
                 }
 
-                // Cleanup empty folder
-                if (Files::isDeletable(dirname($dest))) {
-                    rmdir(dirname($dest));
-                }
+                // Cleanup empty hierarchy (keeping main blog-id/theme-id structure)
+                $dest = substr(dirname($dest), strlen($this->custom_theme) + 1);
+                while (strlen($dest) > 1) {
+                    $path = $this->custom_theme . DIRECTORY_SEPARATOR . $dest;
+                    if (Files::isDeletable($path)) {
+                        rmdir($path);
+                        $dest = substr(dirname($path), strlen($this->custom_theme) + 1);
+                    } else {
+                        break;
+                    }
+                };
 
                 // Updating template files list
                 $this->findTemplates();
