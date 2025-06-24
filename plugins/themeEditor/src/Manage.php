@@ -208,106 +208,95 @@ class Manage extends Process
             ])
         ->render();
 
-        if (App::blog()->settings()->system->themes_path !== App::blog()->settings()->system->getGlobal('themes_path')
-            || !App::themes()->getDefine(App::blog()->settings()->system->theme)->get('distributed')
-        ) {
-            $editorMode = App::backend()->user_ui_colorsyntax ? self::getEditorMode() : '';
+        $editorMode = App::backend()->user_ui_colorsyntax ? self::getEditorMode() : '';
 
-            if (App::backend()->file['c'] === null) {
-                $items = [
-                    (new Note())->text(__('Please select a file to edit.')),
-                    $lock_form,
-                ];
-            } else {
-                $items = [
-                    (new Form())
-                        ->method('post')
-                        ->action(App::backend()->getPageURL())
-                        ->id('file-form')
-                        ->fields([
-                            (new Text('h3', __('File editor'))),
-                            (new Para())
-                                ->items([
-                                    (new Textarea('file_content', Html::escapeHTML(App::backend()->file['c'])))
-                                        ->cols(72)
-                                        ->rows(25)
-                                        ->class('maximal')
-                                        ->disabled(!App::backend()->file['w'])
-                                        ->label((new Label(sprintf(
-                                            __('Editing file %s'),
-                                            (new Strong(App::backend()->file['f']))->render()
-                                        ), Label::OL_TF))),
-                                ]),
-                            (new Para())
-                                ->class(App::backend()->file['w'] ? 'form-buttons' : '')
-                                ->items(App::backend()->file['w'] ? [
-                                    ...My::hiddenFields(),
-                                    (new Submit(['write'], __('Save') . ' (s)'))->accesskey('s'),
-                                    App::backend()->editor->deletableFile(App::backend()->file['type'], App::backend()->file['f']) ?
-                                        (new Submit(['delete'], __('Reset')))->class('delete') :
-                                        (new None()),
-                                    App::backend()->file['type'] ?
-                                        (new Hidden([App::backend()->file['type']], App::backend()->file['f'])) :
-                                        (new None()),
-                                ] : [
-                                    (new Note())
-                                        ->text(__('This file is not writable. Please check your theme files permissions.')),
-                                ]),
-                        ]),
-                    $lock_form,
-                    App::backend()->user_ui_colorsyntax ?
-                        (new Text(null, Page::jsJson('theme_editor_mode', ['mode' => $editorMode]) . My::jsLoad('mode') . Page::jsRunCodeMirror('editor', 'file_content', 'dotclear', App::backend()->user_ui_colorsyntax_theme))) :
-                        (new None()),
-                ];
-            }
-
-            echo (new Div())
-                ->id('file-box')
-                ->items([
-                    (new Div())
-                        ->id('file-editor')
-                        ->items($items),
-                    (new Div())
-                        ->id('file-chooser')
-                        ->items([
-                            (new Text('h3', __('Templates files'))),
-                            (new Text(null, App::backend()->editor->filesList(
-                                'tpl',
-                                (new Link())->href(App::backend()->getPageURL() . '&tpl=%2$s')->text('%1$s')->class('tpl-link')->render()
-                            ))),
-                            (new Text('h3', __('CSS files'))),
-                            (new Text(null, App::backend()->editor->filesList(
-                                'css',
-                                (new Link())->href(App::backend()->getPageURL() . '&css=%2$s')->text('%1$s')->class('css-link')->render()
-                            ))),
-                            (new Text('h3', __('JavaScript files'))),
-                            (new Text(null, App::backend()->editor->filesList(
-                                'js',
-                                (new Link())->href(App::backend()->getPageURL() . '&js=%2$s')->text('%1$s')->class('js-link')->render()
-                            ))),
-                            (new Text('h3', __('Locales files'))),
-                            (new Text(null, App::backend()->editor->filesList(
-                                'po',
-                                (new Link())->href(App::backend()->getPageURL() . '&po=%2$s')->text('%1$s')->class('po-link')->render()
-                            ))),
-                            (new Text('h3', __('PHP files'))),
-                            (new Text(null, App::backend()->editor->filesList(
-                                'php',
-                                (new Link())->href(App::backend()->getPageURL() . '&php=%2$s')->text('%1$s')->class('php-link')->render()
-                            ))),
-                        ]),
-                ])
-            ->render();
-
-            Page::helpBlock(My::id());
+        if (App::backend()->file['c'] === null) {
+            $items = [
+                (new Note())->text(__('Please select a file to edit.')),
+                $lock_form,
+            ];
         } else {
-            echo (new Div())
-                ->class('error')
-                ->items([
-                    (new Note())->text(__("You can't edit a distributed theme.")),
-                ])
-            ->render();
+            $items = [
+                (new Form())
+                    ->method('post')
+                    ->action(App::backend()->getPageURL())
+                    ->id('file-form')
+                    ->fields([
+                        (new Text('h3', __('File editor'))),
+                        (new Para())
+                            ->items([
+                                (new Textarea('file_content', Html::escapeHTML(App::backend()->file['c'])))
+                                    ->cols(72)
+                                    ->rows(25)
+                                    ->class('maximal')
+                                    ->disabled(!App::backend()->file['w'])
+                                    ->label((new Label(sprintf(
+                                        __('Editing file %s'),
+                                        (new Strong(App::backend()->file['f']))->render()
+                                    ), Label::OL_TF))),
+                            ]),
+                        (new Para())
+                            ->class(App::backend()->file['w'] ? 'form-buttons' : '')
+                            ->items(App::backend()->file['w'] ? [
+                                ...My::hiddenFields(),
+                                (new Submit(['write'], __('Save') . ' (s)'))->accesskey('s'),
+                                App::backend()->editor->deletableFile(App::backend()->file['type'], App::backend()->file['f']) ?
+                                (new Submit(['delete'], __('Reset')))->class('delete') :
+                                (new None()),
+                                App::backend()->file['type'] ?
+                                (new Hidden([App::backend()->file['type']], App::backend()->file['f'])) :
+                                (new None()),
+                            ] : [
+                                (new Note())
+                                ->text(__('This file is not writable. Please check your theme files permissions.')),
+                            ]),
+                    ]),
+                $lock_form,
+                App::backend()->user_ui_colorsyntax ?
+                    (new Text(null, Page::jsJson('theme_editor_mode', ['mode' => $editorMode]) . My::jsLoad('mode') . Page::jsRunCodeMirror('editor', 'file_content', 'dotclear', App::backend()->user_ui_colorsyntax_theme))) :
+                    (new None()),
+            ];
         }
+
+        echo (new Div())
+            ->id('file-box')
+            ->items([
+                (new Div())
+                    ->id('file-editor')
+                    ->items($items),
+                (new Div())
+                    ->id('file-chooser')
+                    ->items([
+                        (new Text('h3', __('Templates files'))),
+                        (new Text(null, App::backend()->editor->filesList(
+                            'tpl',
+                            (new Link())->href(App::backend()->getPageURL() . '&tpl=%2$s')->text('%1$s')->class('tpl-link')->render()
+                        ))),
+                        (new Text('h3', __('CSS files'))),
+                        (new Text(null, App::backend()->editor->filesList(
+                            'css',
+                            (new Link())->href(App::backend()->getPageURL() . '&css=%2$s')->text('%1$s')->class('css-link')->render()
+                        ))),
+                        (new Text('h3', __('JavaScript files'))),
+                        (new Text(null, App::backend()->editor->filesList(
+                            'js',
+                            (new Link())->href(App::backend()->getPageURL() . '&js=%2$s')->text('%1$s')->class('js-link')->render()
+                        ))),
+                        (new Text('h3', __('Locales files'))),
+                        (new Text(null, App::backend()->editor->filesList(
+                            'po',
+                            (new Link())->href(App::backend()->getPageURL() . '&po=%2$s')->text('%1$s')->class('po-link')->render()
+                        ))),
+                        (new Text('h3', __('PHP files'))),
+                        (new Text(null, App::backend()->editor->filesList(
+                            'php',
+                            (new Link())->href(App::backend()->getPageURL() . '&php=%2$s')->text('%1$s')->class('php-link')->render()
+                        ))),
+                    ]),
+            ])
+        ->render();
+
+        Page::helpBlock(My::id());
 
         Page::closeModule();
     }

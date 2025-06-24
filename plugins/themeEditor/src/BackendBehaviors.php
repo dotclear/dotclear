@@ -32,13 +32,11 @@ class BackendBehaviors
 {
     /**
      * Add an editor button (if possible).
-     *
-     * @param   string  $id     The identifier
      */
-    public static function adminCurrentThemeDetails(string $id): string
+    public static function adminCurrentThemeDetails(): string
     {
-        // Check if it's not an officially distributed theme
-        if (App::auth()->isSuperAdmin() && (App::blog()->settings()->system->themes_path !== App::blog()->settings()->system->getGlobal('themes_path') || !App::themes()->getDefine($id)->get('distributed'))) {
+        // Check permission before allowing modification
+        if (App::auth()->isSuperAdmin()) {
             return (new Para())
                 ->items([
                     (new Link())
