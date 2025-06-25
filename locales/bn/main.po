@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-23 12:32+0200\n"
-"PO-Revision-Date: 2025-06-23 17:13\n"
+"POT-Creation-Date: 2025-06-25 21:15+0200\n"
+"PO-Revision-Date: 2025-06-25 19:21\n"
 "Last-Translator: \n"
 "Language-Team: Bengali\n"
 "Language: bn_BD\n"
@@ -93,7 +93,7 @@ msgstr "এই চাবি ডাটাবেসে নেই."
 #: src/Core/Backend/Action/ActionsComments.php:158
 #: src/Core/Backend/Combos.php:271 src/Core/Backend/Listing/ListingPosts.php:76
 #: src/Core/Backend/Listing/ListingPostsMini.php:62
-#: src/Core/Backend/UserPref.php:205 src/Process/Backend/Home.php:560
+#: src/Core/Backend/UserPref.php:205 src/Process/Backend/Home.php:580
 #: src/Process/Backend/MediaItem.php:1096 src/Process/Backend/Post.php:832
 msgid "Title"
 msgstr "টাইটেল"
@@ -377,7 +377,7 @@ msgid "Change category for this selection"
 msgstr "এই নির্বাচনের জন্য শ্রেণীবিভাগ পরিবর্তন করুন"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:351
-#: src/Core/Backend/Filter/FilterPosts.php:131 src/Process/Backend/Home.php:586
+#: src/Core/Backend/Filter/FilterPosts.php:131 src/Process/Backend/Home.php:606
 #: src/Process/Backend/Post.php:720
 msgid "Category:"
 msgstr "ক্যাটাগরি:"
@@ -387,7 +387,7 @@ msgid "Create a new category for the post(s)"
 msgstr "পোস্টের জন্য একটি নতুন বিভাগ তৈরি করুন (_s)"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:369
-#: src/Process/Backend/Home.php:564 src/Process/Backend/Home.php:598
+#: src/Process/Backend/Home.php:584 src/Process/Backend/Home.php:618
 #: src/Process/Backend/Media.php:763 src/Process/Backend/MediaItem.php:1236
 #: src/Process/Backend/Post.php:734 src/Process/Backend/Post.php:837
 msgid "Title:"
@@ -395,7 +395,7 @@ msgstr "টাইটেল:"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:378
 #: src/Process/Backend/Category.php:268 src/Process/Backend/Category.php:326
-#: src/Process/Backend/Home.php:605 src/Process/Backend/Post.php:741
+#: src/Process/Backend/Home.php:625 src/Process/Backend/Post.php:741
 msgid "Parent:"
 msgstr "প্যারেন্ট:"
 
@@ -405,7 +405,7 @@ msgstr "প্যারেন্ট:"
 #: src/Core/Backend/ModulesList.php:1979 src/Process/Backend/BlogPref.php:1183
 #: src/Process/Backend/Category.php:298 src/Process/Backend/Category.php:337
 #: src/Process/Backend/Category.php:373 src/Process/Backend/Comment.php:350
-#: src/Process/Backend/Home.php:615 src/Process/Backend/Home.php:666
+#: src/Process/Backend/Home.php:635 src/Process/Backend/Home.php:686
 #: src/Process/Backend/MediaItem.php:1276 src/Process/Backend/Post.php:921
 #: src/Process/Backend/Post.php:1135 src/Process/Backend/User.php:536
 #: src/Process/Backend/UsersActions.php:521 src/Process/Install/Install.php:479
@@ -565,7 +565,7 @@ msgid "My preferences"
 msgstr "আমার পছন্দসমূহ"
 
 #: src/Core/Backend/Favorites.php:414 src/Core/Backend/Menus.php:181
-#: src/Process/Backend/Home.php:549 src/Process/Backend/Post.php:95
+#: src/Process/Backend/Home.php:569 src/Process/Backend/Post.php:95
 #: src/Process/Backend/Post.php:964 src/Process/Backend/Posts.php:114
 msgid "New post"
 msgstr "নতুন এন্ট্রি"
@@ -628,9 +628,9 @@ msgid "Users"
 msgstr "ইজারসমূহ"
 
 #: src/Core/Backend/Favorites.php:518 src/Core/Backend/Menus.php:225
-#: src/Process/Backend/Plugins.php:104 src/Process/Backend/Plugins.php:117
-#: src/Process/Backend/Plugins.php:370 src/Process/Backend/Plugins.php:377
-#: src/Process/Upgrade/Plugins.php:166 src/Process/Upgrade/Plugins.php:176
+#: src/Process/Backend/Plugins.php:110 src/Process/Backend/Plugins.php:123
+#: src/Process/Backend/Plugins.php:388 src/Process/Backend/Plugins.php:395
+#: src/Process/Upgrade/Plugins.php:178 src/Process/Upgrade/Plugins.php:188
 msgid "Plugins management"
 msgstr "প্লাগইন দেখাশোনা"
 
@@ -951,7 +951,7 @@ msgstr "আইটেমগুলির Nb: %dটি"
 
 #: src/Core/Backend/Listing/ListingMedia.php:124
 #: src/Core/Backend/ModulesList.php:810 src/Core/Backend/UserPref.php:202
-#: src/Process/Backend/Category.php:256 src/Process/Upgrade/Plugins.php:481
+#: src/Process/Backend/Category.php:256 src/Process/Upgrade/Plugins.php:493
 msgid "Name"
 msgstr "নাম"
 
@@ -1194,7 +1194,7 @@ msgstr "স্কোর"
 msgid "Version"
 msgstr "ভার্সন"
 
-#: src/Core/Backend/ModulesList.php:833 src/Process/Upgrade/Plugins.php:485
+#: src/Core/Backend/ModulesList.php:833 src/Process/Upgrade/Plugins.php:497
 msgid "Current version"
 msgstr "বর্তমান সংস্করণ"
 
@@ -1204,7 +1204,7 @@ msgstr "বর্তমান সংস্করণ"
 msgid "Details"
 msgstr "বিবরণ"
 
-#: src/Core/Backend/ModulesList.php:847 src/Process/Upgrade/Plugins.php:497
+#: src/Core/Backend/ModulesList.php:847 src/Process/Upgrade/Plugins.php:509
 msgid "Repository"
 msgstr "রিপোজিটরি"
 
@@ -1213,7 +1213,7 @@ msgstr "রিপোজিটরি"
 msgid "Action"
 msgstr "কাজ"
 
-#: src/Core/Backend/ModulesList.php:927 src/Process/Upgrade/Plugins.php:435
+#: src/Core/Backend/ModulesList.php:927 src/Process/Upgrade/Plugins.php:447
 #, php-format
 msgid " (%s)"
 msgstr " (%s)"
@@ -1228,12 +1228,12 @@ msgid "This module cannot be enabled, because of the following reasons :"
 msgstr "এই মডিউলটি সক্রিয় করা সম্ভব নয়, কারণ নিম্নলিখিত কারণ:"
 
 #: src/Core/Backend/ModulesList.php:1006 src/Core/Backend/ThemesList.php:215
-#: src/Process/Upgrade/Plugins.php:451
+#: src/Process/Upgrade/Plugins.php:463
 msgid "Official repository"
 msgstr "অফিসিয়াল রিপোজিটরি"
 
 #: src/Core/Backend/ModulesList.php:1006 src/Core/Backend/ModulesList.php:1109
-#: src/Core/Backend/ThemesList.php:215 src/Process/Upgrade/Plugins.php:451
+#: src/Core/Backend/ThemesList.php:215 src/Process/Upgrade/Plugins.php:463
 msgid "Third-party repository"
 msgstr "তৃতীয়-পার্টির রিপোজিটরী"
 
@@ -1410,7 +1410,7 @@ msgstr "Zip ফাইল আপলোড করুন"
 #: src/Core/Backend/ModulesList.php:1745 src/Core/Backend/ModulesList.php:1792
 #: src/Process/Backend/Blog.php:117 src/Process/Backend/BlogPref.php:545
 #: src/Process/Backend/BlogPref.php:1030 src/Process/Backend/Category.php:248
-#: src/Process/Backend/Comment.php:284 src/Process/Backend/Home.php:552
+#: src/Process/Backend/Comment.php:284 src/Process/Backend/Home.php:572
 #: src/Process/Backend/Langs.php:322 src/Process/Backend/Langs.php:372
 #: src/Process/Backend/LinkPopup.php:83 src/Process/Backend/Post.php:989
 #: src/Process/Backend/Post.php:1080 src/Process/Backend/User.php:303
@@ -1488,7 +1488,7 @@ msgstr "ব্যাক"
 
 #: src/Core/Backend/Notices.php:86 src/Core/Backend/Page.php:1273
 #: src/Core/Backend/Page.php:1429 src/Core/Upgrade/Notices.php:48
-#: src/Process/Backend/Home.php:306
+#: src/Process/Backend/Home.php:313
 msgid "Error:"
 msgstr "ত্রুটি:"
 
@@ -2479,7 +2479,7 @@ msgstr "লোল!"
 #: src/Core/Upgrade/Menus.php:89 src/Process/Backend/Blog.php:99
 #: src/Process/Backend/BlogDel.php:92 src/Process/Backend/BlogPref.php:459
 #: src/Process/Backend/Blogs.php:101 src/Process/Backend/Langs.php:247
-#: src/Process/Backend/Plugin.php:146 src/Process/Backend/Plugins.php:116
+#: src/Process/Backend/Plugin.php:146 src/Process/Backend/Plugins.php:122
 #: src/Process/Backend/Settings.php:61 src/Process/Backend/User.php:273
 #: src/Process/Backend/Users.php:108 src/Process/Backend/UsersActions.php:223
 #: src/Process/Backend/UsersActions.php:231 src/Process/Upgrade/Home.php:162
@@ -3784,8 +3784,8 @@ msgstr "থিম ম্যানেজমেন্ট"
 msgid "Installed themes"
 msgstr "ইনস্টল করা থীম"
 
-#: src/Process/Backend/BlogTheme.php:208 src/Process/Backend/Plugins.php:172
-#: src/Process/Upgrade/Plugins.php:196
+#: src/Process/Backend/BlogTheme.php:208 src/Process/Backend/Plugins.php:190
+#: src/Process/Upgrade/Plugins.php:208
 msgid "(in normal mode)"
 msgstr "(স্বাভাবিক মোডে)"
 
@@ -3805,7 +3805,7 @@ msgstr "নিষ্ক্রিয় থিম"
 msgid "Deactivated themes are installed but not usable. You can activate them from here."
 msgstr "নিষ্ক্রিয় থিম ইনস্টল করা হয়েছে কিন্তু ব্যবহারযোগ্য নয়. আপনি তাদেরকে এখান থেকে সচল করতে পারেন."
 
-#: src/Process/Backend/BlogTheme.php:247 src/Process/Backend/Plugins.php:225
+#: src/Process/Backend/BlogTheme.php:247 src/Process/Backend/Plugins.php:243
 msgid "Official repository could not be updated as there is no URL set in configuration."
 msgstr "অফিসিয়াল রিপোজিটরী হালনাগাদ করা যায়নি কারণ কনফিগারেশনে কোন ইউআরএল সেট নেই."
 
@@ -3833,8 +3833,8 @@ msgstr[0] "একটি থিম আপডেট উপলব্ধ:"
 msgstr[1] "%sটি থিম আপডেট সুলভ আছে:"
 
 #: src/Process/Backend/BlogTheme.php:315 src/Process/Backend/BlogTheme.php:352
-#: src/Process/Backend/Plugins.php:264 src/Process/Backend/Plugins.php:318
-#: src/Process/Upgrade/Plugins.php:269 src/Process/Upgrade/Plugins.php:325
+#: src/Process/Backend/Plugins.php:282 src/Process/Backend/Plugins.php:336
+#: src/Process/Upgrade/Plugins.php:281 src/Process/Upgrade/Plugins.php:337
 #, php-format
 msgid "Visit %s repository, the resources center for Dotclear."
 msgstr "ডটক্লিয়ারের সংস্থান কেন্দ্র %s সংগ্রহস্থলে যান।"
@@ -3847,8 +3847,8 @@ msgstr "থিম যোগ করো"
 msgid "Add themes from repository"
 msgstr "রিপোজিটরী থেকে থিম যোগ করো"
 
-#: src/Process/Backend/BlogTheme.php:362 src/Process/Backend/Plugins.php:324
-#: src/Process/Upgrade/Plugins.php:331
+#: src/Process/Backend/BlogTheme.php:362 src/Process/Backend/Plugins.php:342
+#: src/Process/Upgrade/Plugins.php:343
 msgid "Install or upgrade manually"
 msgstr "ম্যানুয়ালে ইনস্টল অথবা আপগ্রেড করো"
 
@@ -4120,141 +4120,141 @@ msgstr "সব স্প্যাম মুছে ফেলুন"
 msgid "Selected comments action:"
 msgstr "নির্বাচিত মন্তব্য:"
 
-#: src/Process/Backend/Home.php:75 src/Process/Backend/Plugins.php:58
-msgid "The following plugins have been disabled :"
-msgstr "নিম্নলিখিত প্লাগ-ইন নিষ্ক্রিয় করা হয়েছে:"
+#: src/Process/Backend/Home.php:78
+msgid "The following plugins have been disabled:"
+msgstr "নিম্নলিখিত প্লাগইনগুলি অক্ষম করা হয়েছে:"
 
-#: src/Process/Backend/Home.php:135
+#: src/Process/Backend/Home.php:139
 msgid "Your last donation date has been saved."
 msgstr "আপনার শেষ দানের তারিখ সংরক্ষিত হয়েছে।"
 
-#: src/Process/Backend/Home.php:214
+#: src/Process/Backend/Home.php:218
 msgid "Dashboard area's drag and drop is disabled"
 msgstr "ড্যাশবোর্ড এলাকার ড্রাগ এবং ড্রপ নিষ্ক্রিয় করা হচ্ছে"
 
-#: src/Process/Backend/Home.php:215
+#: src/Process/Backend/Home.php:219
 msgid "Dashboard area's drag and drop is enabled"
 msgstr "ড্যাশবোর্ড এলাকার ড্রাগ এবং ড্রপ সক্রিয় করা হচ্ছে"
 
-#: src/Process/Backend/Home.php:231 src/Process/Backend/Home.php:244
+#: src/Process/Backend/Home.php:235 src/Process/Backend/Home.php:248
 #: src/Process/Upgrade/Home.php:135
 msgid "Dashboard"
 msgstr "ড্যাশবোর্ড"
 
-#: src/Process/Backend/Home.php:256
+#: src/Process/Backend/Home.php:260
 msgid "Make this blog my default blog"
 msgstr "এই ব্লগটিকে আমার ডিফল্ট ব্লগ বানাও"
 
-#: src/Process/Backend/Home.php:262
+#: src/Process/Backend/Home.php:266
 msgid "This blog is offline"
 msgstr "এই ব্লগটি অফলাইনে আছে"
 
-#: src/Process/Backend/Home.php:264
+#: src/Process/Backend/Home.php:268
 msgid "This blog is removed"
 msgstr "এই ব্লগটি মুছে ফেলা হয়েছে"
 
-#: src/Process/Backend/Home.php:269 src/Process/Backend/Home.php:277
+#: src/Process/Backend/Home.php:273 src/Process/Backend/Home.php:281
 #: src/Process/Upgrade/Home.php:60 src/Process/Upgrade/Home.php:65
 #, php-format
 msgid "%s is not defined, you should edit your configuration file."
 msgstr "%s সংজ্ঞায়িত করা হয়নি, আপনার কনফিগারেশন ফাইলটি সম্পাদনা করা উচিত।"
 
-#: src/Process/Backend/Home.php:270 src/Process/Backend/Home.php:278
+#: src/Process/Backend/Home.php:274 src/Process/Backend/Home.php:282
 #: src/Process/Upgrade/Home.php:61 src/Process/Upgrade/Home.php:66
 msgid "See <a href=\"https://dotclear.org/documentation/2.0/admin/config\">documentation</a> for more information."
 msgstr "আরও তথ্যের জন্য <a href=\"https://dotclear.org/documentation/2.0/admin/config\">ডকুমেন্টেশন</a> দেখুন।"
 
-#: src/Process/Backend/Home.php:288 src/Process/Upgrade/Home.php:70
+#: src/Process/Backend/Home.php:292 src/Process/Upgrade/Home.php:70
 msgid "The cache directory does not exist or is not writable. You must create this directory with sufficient rights and affect this location to \"DC_TPL_CACHE\" in inc/config.php file."
 msgstr "ক্যাশ ডিরেক্টরি নেই অথবা লিখনযোগ্য নয়. আপনি এই ডিরেক্টরি যথেষ্ট অধিকারের সাথে তৈরি করতে হবে এবং ইনক/config.php ফাইলে \"DC_TPL_CACHE\" এ অবস্থানটি প্রভাবিত করতে হবে."
 
-#: src/Process/Backend/Home.php:291
+#: src/Process/Backend/Home.php:295
 msgid "The cache directory does not exist or is not writable. You should contact your administrator."
 msgstr "ক্যাশ ডিরেক্টরি নেই অথবা লিখনযোগ্য নয়. আপনার প্রশাসকের সাথে যোগাযোগ করা উচিত."
 
-#: src/Process/Backend/Home.php:297
+#: src/Process/Backend/Home.php:301
 msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
 msgstr "কোন লিখনযোগ্য ডিরেক্টরি/পাবলিক/-এ অবস্থান নির্ধারিত স্থানে নেই: কনফিগ \"পাবলিক পাথ\". আপনি এই ডিরেক্টরি তৈরি করতে হবে পর্যাপ্ত অধিকার (অথবা এই সেটিং পরিবর্তন)."
 
-#: src/Process/Backend/Home.php:300
+#: src/Process/Backend/Home.php:304
 msgid "There is no writable root directory for the media manager. You should contact your administrator."
 msgstr "মিডিয়া ম্যানেজারের জন্য কোন লিখনযোগ্য মূল ডিরেক্টরি নেই. আপনার প্রশাসকের সাথে যোগাযোগ করা উচিত."
 
-#: src/Process/Backend/Home.php:327 src/Process/Backend/Plugins.php:130
-#: src/Process/Install/Install.php:485 src/Process/Upgrade/Plugins.php:123
+#: src/Process/Backend/Home.php:338 src/Process/Backend/Plugins.php:139
+#: src/Process/Install/Install.php:485 src/Process/Upgrade/Plugins.php:126
 msgid "Following plugins have been installed:"
 msgstr "নিচের প্লাগইনগুলো ইন্সটল করা হয়েছে:"
 
-#: src/Process/Backend/Home.php:345 src/Process/Backend/Plugins.php:146
-#: src/Process/Install/Install.php:492 src/Process/Upgrade/Plugins.php:139
+#: src/Process/Backend/Home.php:360 src/Process/Backend/Plugins.php:161
+#: src/Process/Install/Install.php:492 src/Process/Upgrade/Plugins.php:148
 msgid "Following plugins have not been installed:"
 msgstr "নিচের প্লাগইনগুলো ইন্সটল করা হয় নি:"
 
-#: src/Process/Backend/Home.php:362
+#: src/Process/Backend/Home.php:381
 msgid "Errors have occured with following plugins:"
 msgstr "নিম্নোক্ত প্লাগ-ইন দ্বারা ত্রুটি ঘটেছে:"
 
-#: src/Process/Backend/Home.php:543
+#: src/Process/Backend/Home.php:563
 msgid "Quick post"
 msgstr "দ্রুত এন্ট্রি"
 
-#: src/Process/Backend/Home.php:573 src/Process/Backend/Post.php:874
+#: src/Process/Backend/Home.php:593 src/Process/Backend/Post.php:874
 msgid "Content:"
 msgstr "কন্টেন্ট:"
 
-#: src/Process/Backend/Home.php:579 src/Process/Backend/Post.php:871
+#: src/Process/Backend/Home.php:599 src/Process/Backend/Post.php:871
 msgid "Content"
 msgstr "বিষয়বস্তু"
 
-#: src/Process/Backend/Home.php:590 src/Process/Backend/Post.php:725
+#: src/Process/Backend/Home.php:610 src/Process/Backend/Post.php:725
 msgid "Add a new category"
 msgstr "নতুন ক্যাটাগরি তৈরি করুন"
 
-#: src/Process/Backend/Home.php:609
+#: src/Process/Backend/Home.php:629
 msgid "This category will be created when you will save your post."
 msgstr "এই বিভাগটি তৈরি হবে যখন আপনি আপনার পোস্ট সংরক্ষণ করবেন."
 
-#: src/Process/Backend/Home.php:617
+#: src/Process/Backend/Home.php:637
 msgid "Save and publish"
 msgstr "সংরক্ষণ ও প্রকাশ করুন"
 
-#: src/Process/Backend/Home.php:639
+#: src/Process/Backend/Home.php:659
 msgid "Donate to Dotclear"
 msgstr "ডটক্লিয়ারে দান করুন"
 
-#: src/Process/Backend/Home.php:641
+#: src/Process/Backend/Home.php:661
 msgid "Dotclear is not a commercial project — using Dotclear is <strong>free</strong> and <strong>always</strong> will be. If you wish to, you may contribute to Dotclear to help us cover project-related expenses."
 msgstr "ডটক্লিয়ার একটি বাণিজ্যিক প্রকল্প নয় — ডটক্লিয়ার ব্যবহার করা <strong>বিনামূল্যে</strong> এবং <strong>সর্বদা</strong> হবে৷ আপনি যদি চান, আপনি আমাদের প্রকল্প-সম্পর্কিত খরচ কভার করতে সাহায্য করতে ডটক্লিয়ারে অবদান রাখতে পারেন।."
 
-#: src/Process/Backend/Home.php:643
+#: src/Process/Backend/Home.php:663
 msgid "The collected funds will be spent as follows:"
 msgstr "সংগৃহীত তহবিল নিম্নরূপ ব্যয় করা হবে:"
 
-#: src/Process/Backend/Home.php:647
+#: src/Process/Backend/Home.php:667
 msgid "Paying for the website hosting and translations"
 msgstr "ওয়েবসাইট হোস্টিং এবং অনুবাদের জন্য অর্থ প্রদান"
 
-#: src/Process/Backend/Home.php:649
+#: src/Process/Backend/Home.php:669
 msgid "Paying for the domain names"
 msgstr "ডোমেইন নামের জন্য অর্থপ্রদান"
 
-#: src/Process/Backend/Home.php:651
+#: src/Process/Backend/Home.php:671
 msgid "Supporting related projects such as Dotaddict.org"
 msgstr "সহায়তা সম্পর্কিত প্রকল্প যেমন Dotaddict.org"
 
-#: src/Process/Backend/Home.php:653
+#: src/Process/Backend/Home.php:673
 msgid "Cover the costs of events set up by Dotclear"
 msgstr "Dotclear দ্বারা সেট আপ ইভেন্ট খরচ কভার"
 
-#: src/Process/Backend/Home.php:656
+#: src/Process/Backend/Home.php:676
 msgid "See <a href=\"https://dotclear.org/donate\">this page</a> for more information and donation"
 msgstr "আরও তথ্য এবং অনুদানের জন্য <a href=\"https://dotclear.org/donate\">এই পৃষ্ঠা</a> দেখুন"
 
-#: src/Process/Backend/Home.php:665
+#: src/Process/Backend/Home.php:685
 msgid "For the record, here is the date of my last donation to Dotclear:"
 msgstr "রেকর্ডের জন্য, ডটক্লিয়ারে আমার শেষ অনুদানের তারিখটি এখানে:"
 
-#: src/Process/Backend/Home.php:684
+#: src/Process/Backend/Home.php:704
 msgid "Documentation and support"
 msgstr "ডকুমেন্টেশন এবং সমর্থন"
 
@@ -4868,72 +4868,76 @@ msgstr "প্লাগইন পাওয়া যায় নি"
 msgid "The plugin you reached does not exist or does not have an admin page."
 msgstr "যে প্লাগইন আপনি পৌঁছেছেন তার কোন অস্তিত্ব নেই অথবা কোন অ্যাডমিন পেজ নেই."
 
-#: src/Process/Backend/Plugins.php:171 src/Process/Upgrade/Plugins.php:196
+#: src/Process/Backend/Plugins.php:61
+msgid "The following plugins have been disabled :"
+msgstr "নিম্নলিখিত প্লাগ-ইন নিষ্ক্রিয় করা হয়েছে:"
+
+#: src/Process/Backend/Plugins.php:189 src/Process/Upgrade/Plugins.php:208
 msgid "Activated plugins"
 msgstr "সক্রিয় প্লাগইনসমূহ"
 
-#: src/Process/Backend/Plugins.php:171 src/Process/Backend/Plugins.php:218
-#: src/Process/Upgrade/Plugins.php:240
+#: src/Process/Backend/Plugins.php:189 src/Process/Backend/Plugins.php:236
+#: src/Process/Upgrade/Plugins.php:252
 msgid "Installed plugins"
 msgstr "ইনস্টল করা প্লাগ-ইন"
 
-#: src/Process/Backend/Plugins.php:176 src/Process/Upgrade/Plugins.php:200
+#: src/Process/Backend/Plugins.php:194 src/Process/Upgrade/Plugins.php:212
 msgid "You can configure and manage installed plugins from this list."
 msgstr "এই তালিকা থেকে আপনি ইনস্টল করা প্লাগ-ইন কনফিগার করতে পারেন এবং পরিচালনা করতে পারেন."
 
-#: src/Process/Backend/Plugins.php:198 src/Process/Upgrade/Plugins.php:221
+#: src/Process/Backend/Plugins.php:216 src/Process/Upgrade/Plugins.php:233
 msgid "Deactivated plugins"
 msgstr "নিস্ক্রিয় প্লাগইনসমূহ"
 
-#: src/Process/Backend/Plugins.php:202 src/Process/Upgrade/Plugins.php:225
+#: src/Process/Backend/Plugins.php:220 src/Process/Upgrade/Plugins.php:237
 msgid "Deactivated plugins are installed but not usable. You can activate them from here."
 msgstr "নিষ্ক্রিয় প্লাগ-ইন ইনস্টল করা হলেও ব্যবহারযোগ্য নয়. আপনি তাদেরকে এখান থেকে সচল করতে পারেন."
 
-#: src/Process/Backend/Plugins.php:229 src/Process/Upgrade/Plugins.php:156
+#: src/Process/Backend/Plugins.php:247 src/Process/Upgrade/Plugins.php:168
 msgid "Manual checking of plugins update done successfully."
 msgstr "প্লাগ-ইন আপডেটের ম্যানুয়াল চেক সফলভাবে সম্পন্ন হয়েছে."
 
-#: src/Process/Backend/Plugins.php:246 src/Process/Upgrade/Plugins.php:251
+#: src/Process/Backend/Plugins.php:264 src/Process/Upgrade/Plugins.php:263
 msgid "No updates available for plugins."
 msgstr "প্লাগইনগুলির জন্য কোনও আপডেট উপলব্ধ নেই।"
 
-#: src/Process/Backend/Plugins.php:249 src/Process/Upgrade/Plugins.php:254
+#: src/Process/Backend/Plugins.php:267 src/Process/Upgrade/Plugins.php:266
 #, php-format
 msgid "There is one plugin update available:"
 msgid_plural "There are %s plugin updates available:"
 msgstr[0] "একটি প্লাগইন আপডেট উপলব্ধ:"
 msgstr[1] "%sটি প্লাগইন আপডেট সুলভ আছে:"
 
-#: src/Process/Backend/Plugins.php:268 src/Process/Backend/Plugins.php:271
-#: src/Process/Upgrade/Plugins.php:273 src/Process/Upgrade/Plugins.php:276
+#: src/Process/Backend/Plugins.php:286 src/Process/Backend/Plugins.php:289
+#: src/Process/Upgrade/Plugins.php:285 src/Process/Upgrade/Plugins.php:288
 msgid "Update plugins"
 msgstr "প্লাগ-ইন আপডেট করুন"
 
-#: src/Process/Backend/Plugins.php:280 src/Process/Upgrade/Plugins.php:285
+#: src/Process/Backend/Plugins.php:298 src/Process/Upgrade/Plugins.php:297
 msgid "Force checking update of plugins"
 msgstr "প্লাগ-ইনের আপডেট পরীক্ষা করতে বাধ্য করা হচ্ছে"
 
-#: src/Process/Backend/Plugins.php:299 src/Process/Upgrade/Plugins.php:306
+#: src/Process/Backend/Plugins.php:317 src/Process/Upgrade/Plugins.php:318
 msgid "Add plugins"
 msgstr "প্লাগ-ইন যোগ করো"
 
-#: src/Process/Backend/Plugins.php:302 src/Process/Upgrade/Plugins.php:309
+#: src/Process/Backend/Plugins.php:320 src/Process/Upgrade/Plugins.php:321
 msgid "Add plugins from repository"
 msgstr "রিপোজিটরী থেকে প্লাগইন যোগ করো"
 
-#: src/Process/Backend/Plugins.php:327 src/Process/Upgrade/Plugins.php:334
+#: src/Process/Backend/Plugins.php:345 src/Process/Upgrade/Plugins.php:346
 msgid "Add plugins from a package"
 msgstr "একটি প্যাকেজ থেকে প্লাগইন যোগ করুন"
 
-#: src/Process/Backend/Plugins.php:330 src/Process/Upgrade/Plugins.php:337
+#: src/Process/Backend/Plugins.php:348 src/Process/Upgrade/Plugins.php:349
 msgid "You can install plugins by uploading or downloading zip files."
 msgstr "জিপ ফাইল আপলোড বা ডাউনলোড করে আপনি প্লাগ-ইন ইনস্টল করতে পারেন."
 
-#: src/Process/Backend/Plugins.php:346 src/Process/Upgrade/Plugins.php:350
+#: src/Process/Backend/Plugins.php:364 src/Process/Upgrade/Plugins.php:362
 msgid "Some functions are disabled, please give write access to your plugins directory to enable them."
 msgstr "কিছু ফাংশন নিষ্ক্রিয় করা হয়েছে, অনুগ্রহ করে আপনার প্লাগ-ইন ডিরেক্টরিতে লিখুন তাদেরকে সক্রিয় করার জন্য."
 
-#: src/Process/Backend/Plugins.php:378
+#: src/Process/Backend/Plugins.php:396
 msgid "Plugin configuration"
 msgstr "প্লাগইন কনফিগারেশন"
 
@@ -6102,7 +6106,7 @@ msgstr "@ title: group"
 #: src/Process/Upgrade/Backup.php:58 src/Process/Upgrade/Backup.php:62
 #: src/Process/Upgrade/Backup.php:215 src/Process/Upgrade/Cache.php:73
 #: src/Process/Upgrade/Digests.php:142 src/Process/Upgrade/Home.php:140
-#: src/Process/Upgrade/Langs.php:265 src/Process/Upgrade/Plugins.php:175
+#: src/Process/Upgrade/Langs.php:265 src/Process/Upgrade/Plugins.php:187
 #: src/Process/Upgrade/Replay.php:80 src/Process/Upgrade/Upgrade.php:54
 #: src/Process/Upgrade/Upgrade.php:58 src/Process/Upgrade/Upgrade.php:79
 #: src/Process/Upgrade/Upgrade.php:83 src/Process/Upgrade/Upgrade.php:308
@@ -6356,7 +6360,7 @@ msgstr "তুমি বিকাশ রিলিজ ব্যবহার ক�
 msgid "Dotclear digests file \"%s\" is not readable."
 msgstr "ডটক্লিয়ার ডাইজেস্ট ফাইল \"%s\" পঠনযোগ্য নয়."
 
-#: src/Process/Upgrade/Home.php:89 src/Process/Upgrade/Plugins.php:152
+#: src/Process/Upgrade/Home.php:89 src/Process/Upgrade/Plugins.php:164
 msgid "Official plugins repository could not be updated as there is no URL set in configuration."
 msgstr "কনফিগারেশনে কোন ইউআরএল সেট না থাকায় অফিসিয়াল প্লাগইন সংগ্রহস্থল হালনাগাদ করা যায়নি।"
 
@@ -6396,48 +6400,48 @@ msgstr "একটি জিপ ফাইল আপলোড করুন থে�
 msgid "Some plugins could not be loaded."
 msgstr "কিছু প্লাগইন লোড করা যায়নি."
 
-#: src/Process/Upgrade/Plugins.php:374
+#: src/Process/Upgrade/Plugins.php:386
 msgid "There is no module to check"
 msgstr "চেক করার জন্য কোনও মডিউল নেই"
 
-#: src/Process/Upgrade/Plugins.php:382
+#: src/Process/Upgrade/Plugins.php:394
 msgid "Store version"
 msgstr "স্টোর সংস্করণ"
 
-#: src/Process/Upgrade/Plugins.php:384
+#: src/Process/Upgrade/Plugins.php:396
 msgid "Check stores versions"
 msgstr "স্টোর সংস্করণগুলি পরীক্ষা করুন"
 
-#: src/Process/Upgrade/Plugins.php:392
+#: src/Process/Upgrade/Plugins.php:404
 msgid "Check lastest stores versions"
 msgstr "সর্বশেষতম স্টোর সংস্করণগুলি পরীক্ষা করুন"
 
-#: src/Process/Upgrade/Plugins.php:396
+#: src/Process/Upgrade/Plugins.php:408
 #, php-format
 msgid "You can check repositories for modules written explicitly for Dotclear release greater than %s."
 msgstr "আপনি %s-এর চেয়ে বড় ডটক্লিয়ার রিলিজের জন্য স্পষ্টভাবে লেখা মডিউলগুলির সংগ্রহস্থলগুলি পরীক্ষা করতে পারেন।"
 
-#: src/Process/Upgrade/Plugins.php:417 src/Process/Upgrade/Plugins.php:460
+#: src/Process/Upgrade/Plugins.php:429 src/Process/Upgrade/Plugins.php:472
 msgid "No version available"
 msgstr "কোনও সংস্করণ উপলব্ধ নেই"
 
-#: src/Process/Upgrade/Plugins.php:419
+#: src/Process/Upgrade/Plugins.php:431
 msgid "No update available"
 msgstr "কোনও আপডেট উপলব্ধ নেই"
 
-#: src/Process/Upgrade/Plugins.php:421
+#: src/Process/Upgrade/Plugins.php:433
 msgid "Newer version available"
 msgstr "নতুন সংস্করণ সুলভ"
 
-#: src/Process/Upgrade/Plugins.php:474
+#: src/Process/Upgrade/Plugins.php:486
 msgid "Modules list"
 msgstr "মডিউল তালিকা"
 
-#: src/Process/Upgrade/Plugins.php:489
+#: src/Process/Upgrade/Plugins.php:501
 msgid "Latest version"
 msgstr "সর্বশেষ সংস্করণ"
 
-#: src/Process/Upgrade/Plugins.php:493
+#: src/Process/Upgrade/Plugins.php:505
 msgid "Written for Dotclear"
 msgstr "ডটক্লিয়ারের জন্য লেখা"
 
