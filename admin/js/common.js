@@ -1459,7 +1459,7 @@ dotclear.ready(() => {
     });
     // Add direct submit on menu choice
     const menuList = document.querySelectorAll('#menulist option');
-    if (menulist) {
+    if (menuList) {
       searchinput.addEventListener('change', (event) => {
         const found = [...menuList].find((opt) => opt.value === searchinput.value);
         if (found) {
