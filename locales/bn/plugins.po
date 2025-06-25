@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-23 19:10+0200\n"
-"PO-Revision-Date: 2025-06-23 17:14\n"
+"POT-Creation-Date: 2025-06-25 21:18+0200\n"
+"PO-Revision-Date: 2025-06-25 19:22\n"
 "Last-Translator: \n"
 "Language-Team: Bengali\n"
 "Language: bn_BD\n"
@@ -2946,17 +2946,17 @@ msgstr "সব ট্যাগের লিঙ্ক:"
 msgid "themeEditor"
 msgstr "ThemeEditor"
 
-#: plugins/themeEditor/src/BackendBehaviors.php:47
+#: plugins/themeEditor/src/BackendBehaviors.php:45
 #: plugins/themeEditor/src/Manage.php:190
 #: plugins/themeEditor/src/Manage.php:197
 msgid "Edit theme files"
 msgstr "থিম ফাইল সম্পাদনা করুন"
 
-#: plugins/themeEditor/src/BackendBehaviors.php:107
+#: plugins/themeEditor/src/BackendBehaviors.php:105
 msgid "Syntax highlighting"
 msgstr "সিনট্যাক্স হাইলাইট"
 
-#: plugins/themeEditor/src/BackendBehaviors.php:119
+#: plugins/themeEditor/src/BackendBehaviors.php:117
 msgid "Syntax highlighting in theme editor"
 msgstr "থিম সম্পাদকের মধ্যে সিনট্যাক্স হাইলাইট করা হচ্ছে"
 
@@ -3005,89 +3005,85 @@ msgstr "আপনি কি নিশ্চিত আপনি এই ফাই�
 msgid "Your current theme on this blog is \"%s\"."
 msgstr "এই ব্লগে আপনার বর্তমান থিম হল \"%s\"।"
 
-#: plugins/themeEditor/src/Manage.php:218
+#: plugins/themeEditor/src/Manage.php:215
 msgid "Please select a file to edit."
 msgstr "অনুগ্রহ করে সম্পাদনার জন্য একটি ফাইল নির্বাচন করুন."
 
-#: plugins/themeEditor/src/Manage.php:228
+#: plugins/themeEditor/src/Manage.php:226
 msgid "File editor"
 msgstr "ফাইল সম্পাদক"
 
-#: plugins/themeEditor/src/Manage.php:237
+#: plugins/themeEditor/src/Manage.php:235
 #, php-format
 msgid "Editing file %s"
 msgstr "Editing file %s"
 
-#: plugins/themeEditor/src/Manage.php:247
+#: plugins/themeEditor/src/Manage.php:245
 msgid "Reset"
 msgstr "রিসেট"
 
-#: plugins/themeEditor/src/Manage.php:254
+#: plugins/themeEditor/src/Manage.php:252
 msgid "This file is not writable. Please check your theme files permissions."
 msgstr "ফাইলটি লিখনযোগ্য নয়. অনুগ্রহ করে আপনার থিম ফাইল অনুমতি পরীক্ষা করুন."
 
-#: plugins/themeEditor/src/Manage.php:273
+#: plugins/themeEditor/src/Manage.php:271
 msgid "Templates files"
 msgstr "টেমপ্লেট ফাইল"
 
-#: plugins/themeEditor/src/Manage.php:278
+#: plugins/themeEditor/src/Manage.php:276
 msgid "CSS files"
 msgstr "CSS ফাইল"
 
-#: plugins/themeEditor/src/Manage.php:283
+#: plugins/themeEditor/src/Manage.php:281
 msgid "JavaScript files"
 msgstr "জাভাস্ক্রিপ্ট ফাইল"
 
-#: plugins/themeEditor/src/Manage.php:288
+#: plugins/themeEditor/src/Manage.php:286
 msgid "Locales files"
 msgstr "স্থানীয় ফাইল"
 
-#: plugins/themeEditor/src/Manage.php:293
+#: plugins/themeEditor/src/Manage.php:291
 msgid "PHP files"
 msgstr "PHP ফাইল"
 
-#: plugins/themeEditor/src/Manage.php:307
-msgid "You can't edit a distributed theme."
-msgstr "আপনি একটি বিতরণ থিম সম্পাদন করতে পারবেন না."
-
-#: plugins/themeEditor/src/ThemeEditor.php:148
+#: plugins/themeEditor/src/ThemeEditor.php:153
 msgid "No file"
 msgstr "কোনো ফাইল নেই"
 
-#: plugins/themeEditor/src/ThemeEditor.php:178
+#: plugins/themeEditor/src/ThemeEditor.php:183
 msgid "Customized:"
 msgstr "কাস্টমাইজড:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:186
-#: plugins/themeEditor/src/ThemeEditor.php:192
+#: plugins/themeEditor/src/ThemeEditor.php:191
+#: plugins/themeEditor/src/ThemeEditor.php:197
 msgid "From theme:"
 msgstr "থিম থেকে:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:203
+#: plugins/themeEditor/src/ThemeEditor.php:208
 msgid "From parent:"
 msgstr "প্যারেন্ট থেকে:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:213
+#: plugins/themeEditor/src/ThemeEditor.php:218
 msgid "From template set:"
 msgstr "টেমপ্লেট:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:241
-#: plugins/themeEditor/src/ThemeEditor.php:271
-#: plugins/themeEditor/src/ThemeEditor.php:340
+#: plugins/themeEditor/src/ThemeEditor.php:246
+#: plugins/themeEditor/src/ThemeEditor.php:276
+#: plugins/themeEditor/src/ThemeEditor.php:345
 msgid "File does not exist."
 msgstr "ফাইল নেই."
 
-#: plugins/themeEditor/src/ThemeEditor.php:246
+#: plugins/themeEditor/src/ThemeEditor.php:251
 #, php-format
 msgid "File %s is not readable"
 msgstr "%s ফাইলটি পঠনযোগ্য নয়"
 
-#: plugins/themeEditor/src/ThemeEditor.php:305
+#: plugins/themeEditor/src/ThemeEditor.php:310
 #, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr "%s ফাইলটি লিখতে অক্ষম। দয়া করে আপনার থিম ফাইল এবং ফোল্ডারের অনুমতিগুলি পরীক্ষা করুন।"
 
-#: plugins/themeEditor/src/ThemeEditor.php:361
+#: plugins/themeEditor/src/ThemeEditor.php:378
 #, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "%s ফাইলটি মুছতে অক্ষম। দয়া করে আপনার থিম ফাইল এবং ফোল্ডারের অনুমতিগুলি পরীক্ষা করুন।"
