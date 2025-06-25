@@ -55,9 +55,15 @@ class Plugins extends Process
         $disabled = App::plugins()->disableDepModules();
         if ($disabled !== []) {
             Notices::addWarningNotice(
-                __('The following plugins have been disabled :') .
-                (new Ul())
-                  ->items(array_map(fn ($elt) => ((new Li())->text($elt)), $disabled))
+                (new Div())
+                    ->items([
+                        (new Note())
+                            ->text(__('The following plugins have been disabled :')),
+                        (new Ul())
+                            ->items(
+                                array_map(fn ($item) => (new Li())->text($item), $disabled)
+                            ),
+                    ])
                 ->render(),
                 ['divtag' => true, 'with_ts' => false]
             );
@@ -127,9 +133,15 @@ class Plugins extends Process
                 $success[] = $k . ($info !== '' ? ' → ' . $info : '');
             }
             Notices::success(
-                __('Following plugins have been installed:') .
-                (new Ul())
-                  ->items(array_map(fn ($elt) => ((new Li())->text($elt)), $success))
+                (new Div())
+                    ->items([
+                        (new Note())
+                            ->text(__('Following plugins have been installed:')),
+                        (new Ul())
+                            ->items(
+                                array_map(fn ($item) => (new Li())->text($item), $success)
+                            ),
+                    ])
                 ->render(),
                 false,
                 true
@@ -143,9 +155,15 @@ class Plugins extends Process
             }
 
             Notices::error(
-                __('Following plugins have not been installed:') .
-                (new Ul())
-                  ->items(array_map(fn ($elt) => ((new Li())->text($elt)), $failure))
+                (new Div())
+                    ->items([
+                        (new Note())
+                            ->text(__('Following plugins have not been installed:')),
+                        (new Ul())
+                            ->items(
+                                array_map(fn ($item) => (new Li())->text($item), $failure)
+                            ),
+                    ])
                 ->render(),
                 false,
                 true

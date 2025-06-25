@@ -72,11 +72,15 @@ class Home extends Process
         $disabled = App::plugins()->disableDepModules();
         if ($disabled !== []) {
             Notices::addWarningNotice(
-                __('The following plugins have been disabled :') .
-                (new Ul())
-                    ->items(
-                        array_map(fn ($item) => (new Li())->text($item), $disabled)
-                    )
+                (new Div())
+                    ->items([
+                        (new Note())
+                            ->text(__('The following plugins have been disabled:')),
+                        (new Ul())
+                            ->items(
+                                array_map(fn ($item) => (new Li())->text($item), $disabled)
+                            ),
+                    ])
                 ->render(),
                 ['divtag' => true, 'with_ts' => false]
             );
@@ -303,11 +307,15 @@ class Home extends Process
         // Error list
         if ($err !== []) {
             Notices::error(
-                __('Error:') .
-                (new Ul())
-                    ->items(
-                        array_map(fn ($item) => (new Li())->text($item), $err)
-                    )
+                (new Div())
+                    ->items([
+                        (new Note())
+                            ->text(__('Error:')),
+                        (new Ul())
+                            ->items(
+                                array_map(fn ($item) => (new Li())->text($item), $err)
+                            ),
+                    ])
                 ->render(),
                 false,
                 true
@@ -324,11 +332,15 @@ class Home extends Process
             }
 
             Notices::success(
-                __('Following plugins have been installed:') .
-                (new Ul())
-                    ->items(
-                        array_map(fn ($item) => (new Li())->text($item), $success)
-                    )
+                (new Div())
+                    ->items([
+                        (new Note())
+                            ->text(__('Following plugins have been installed:')),
+                        (new Ul())
+                            ->items(
+                                array_map(fn ($item) => (new Li())->text($item), $success)
+                            ),
+                    ])
                 ->render(),
                 false,
                 true
@@ -342,11 +354,15 @@ class Home extends Process
             }
 
             Notices::error(
-                __('Following plugins have not been installed:') .
-                (new Ul())
-                    ->items(
-                        array_map(fn ($item) => (new Li())->text($item), $failure)
-                    )
+                (new Div())
+                    ->items([
+                        (new Note())
+                            ->text(__('Following plugins have not been installed:')),
+                        (new Ul())
+                            ->items(
+                                array_map(fn ($item) => (new Li())->text($item), $failure)
+                            ),
+                    ])
                 ->render(),
                 false,
                 true
@@ -359,11 +375,15 @@ class Home extends Process
             $list = App::plugins()->getErrors();
             if ($list !== []) {
                 Notices::error(
-                    __('Errors have occured with following plugins:') .
-                    (new Ul())
-                        ->items(
-                            array_map(fn ($item) => (new Li())->text($item), $list)
-                        )
+                    (new Div())
+                        ->items([
+                            (new Note())
+                                ->text(__('Errors have occured with following plugins:')),
+                            (new Ul())
+                                ->items(
+                                    array_map(fn ($item) => (new Li())->text($item), $list)
+                                ),
+                        ])
                     ->render(),
                     false,
                     true
