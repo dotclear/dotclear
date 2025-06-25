@@ -38,6 +38,7 @@ dotclear.ready(() => {
       msg.text(dotclear.msg.document_saved);
       $('#file-chooser').empty();
       $(res).find('#file-chooser').children().appendTo('#file-chooser');
+      $('input[name="delete"]').removeClass('hide');
       if (typeof dotclear.confirmClosePage.getCurrentForms === 'function') {
         dotclear.confirmClosePage.forms = [];
         dotclear.confirmClosePage.getCurrentForms();

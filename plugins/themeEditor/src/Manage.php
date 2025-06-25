@@ -216,7 +216,8 @@ class Manage extends Process
                 $lock_form,
             ];
         } else {
-            $items = [
+            $deletable = App::backend()->editor->deletableFile(App::backend()->file['type'], App::backend()->file['f']);
+            $items     = [
                 (new Form())
                     ->method('post')
                     ->action(App::backend()->getPageURL())
@@ -239,13 +240,13 @@ class Manage extends Process
                             ->class(App::backend()->file['w'] ? 'form-buttons' : '')
                             ->items(App::backend()->file['w'] ? [
                                 ...My::hiddenFields(),
-                                (new Submit(['write'], __('Save') . ' (s)'))->accesskey('s'),
-                                App::backend()->editor->deletableFile(App::backend()->file['type'], App::backend()->file['f']) ?
-                                (new Submit(['delete'], __('Reset')))->class('delete') :
-                                (new None()),
+                                (new Submit(['write'], __('Save') . ' (s)'))
+                                    ->accesskey('s'),
+                                (new Submit(['delete'], __('Reset')))
+                                    ->class(['delete', $deletable ? '' : 'hide']),
                                 App::backend()->file['type'] ?
-                                (new Hidden([App::backend()->file['type']], App::backend()->file['f'])) :
-                                (new None()),
+                                    (new Hidden([App::backend()->file['type']], App::backend()->file['f'])) :
+                                    (new None()),
                             ] : [
                                 (new Note())
                                 ->text(__('This file is not writable. Please check your theme files permissions.')),
