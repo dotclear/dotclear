@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-23 19:10+0200\n"
-"PO-Revision-Date: 2025-06-24 05:13\n"
+"POT-Creation-Date: 2025-06-25 21:18+0200\n"
+"PO-Revision-Date: 2025-06-25 19:22\n"
 "Last-Translator: \n"
 "Language-Team: Spanish, Argentina\n"
 "Language: es_AR\n"
@@ -2946,17 +2946,17 @@ msgstr "Enlace a todas las etiquetas:"
 msgid "themeEditor"
 msgstr "temaEditor"
 
-#: plugins/themeEditor/src/BackendBehaviors.php:47
+#: plugins/themeEditor/src/BackendBehaviors.php:45
 #: plugins/themeEditor/src/Manage.php:190
 #: plugins/themeEditor/src/Manage.php:197
 msgid "Edit theme files"
 msgstr "Editar los archivos del tema"
 
-#: plugins/themeEditor/src/BackendBehaviors.php:107
+#: plugins/themeEditor/src/BackendBehaviors.php:105
 msgid "Syntax highlighting"
 msgstr "Resaltado sintáctico"
 
-#: plugins/themeEditor/src/BackendBehaviors.php:119
+#: plugins/themeEditor/src/BackendBehaviors.php:117
 msgid "Syntax highlighting in theme editor"
 msgstr "Resaltado de sintaxis en el editor de temas"
 
@@ -3005,89 +3005,85 @@ msgstr "¿Está seguro de que desea restablecer este archivo?"
 msgid "Your current theme on this blog is \"%s\"."
 msgstr "Su actual tema en este blog es \"%s\"."
 
-#: plugins/themeEditor/src/Manage.php:218
+#: plugins/themeEditor/src/Manage.php:215
 msgid "Please select a file to edit."
 msgstr "Por favor seleccione un archivo para editar."
 
-#: plugins/themeEditor/src/Manage.php:228
+#: plugins/themeEditor/src/Manage.php:226
 msgid "File editor"
 msgstr "Editor de archivos"
 
-#: plugins/themeEditor/src/Manage.php:237
+#: plugins/themeEditor/src/Manage.php:235
 #, php-format
 msgid "Editing file %s"
 msgstr "Editando el archivo %s"
 
-#: plugins/themeEditor/src/Manage.php:247
+#: plugins/themeEditor/src/Manage.php:245
 msgid "Reset"
 msgstr "Restablecer"
 
-#: plugins/themeEditor/src/Manage.php:254
+#: plugins/themeEditor/src/Manage.php:252
 msgid "This file is not writable. Please check your theme files permissions."
 msgstr "Este archivo no puede ser escrito. Por favor corrobore los permisos de archivo del tema."
 
-#: plugins/themeEditor/src/Manage.php:273
+#: plugins/themeEditor/src/Manage.php:271
 msgid "Templates files"
 msgstr "Archivos de plantillas"
 
-#: plugins/themeEditor/src/Manage.php:278
+#: plugins/themeEditor/src/Manage.php:276
 msgid "CSS files"
 msgstr "Archivos CSS"
 
-#: plugins/themeEditor/src/Manage.php:283
+#: plugins/themeEditor/src/Manage.php:281
 msgid "JavaScript files"
 msgstr "Archivos JavaScript"
 
-#: plugins/themeEditor/src/Manage.php:288
+#: plugins/themeEditor/src/Manage.php:286
 msgid "Locales files"
 msgstr "Ficheros de localizaciones"
 
-#: plugins/themeEditor/src/Manage.php:293
+#: plugins/themeEditor/src/Manage.php:291
 msgid "PHP files"
 msgstr "Archivos PHP"
 
-#: plugins/themeEditor/src/Manage.php:307
-msgid "You can't edit a distributed theme."
-msgstr "No se puede editar un tema distribuido."
-
-#: plugins/themeEditor/src/ThemeEditor.php:148
+#: plugins/themeEditor/src/ThemeEditor.php:153
 msgid "No file"
 msgstr "Sin archivo"
 
-#: plugins/themeEditor/src/ThemeEditor.php:178
+#: plugins/themeEditor/src/ThemeEditor.php:183
 msgid "Customized:"
 msgstr "Personalizado:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:186
-#: plugins/themeEditor/src/ThemeEditor.php:192
+#: plugins/themeEditor/src/ThemeEditor.php:191
+#: plugins/themeEditor/src/ThemeEditor.php:197
 msgid "From theme:"
 msgstr "Del tema:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:203
+#: plugins/themeEditor/src/ThemeEditor.php:208
 msgid "From parent:"
 msgstr "De los padres:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:213
+#: plugins/themeEditor/src/ThemeEditor.php:218
 msgid "From template set:"
 msgstr "Del juego de plantillas:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:241
-#: plugins/themeEditor/src/ThemeEditor.php:271
-#: plugins/themeEditor/src/ThemeEditor.php:340
+#: plugins/themeEditor/src/ThemeEditor.php:246
+#: plugins/themeEditor/src/ThemeEditor.php:276
+#: plugins/themeEditor/src/ThemeEditor.php:345
 msgid "File does not exist."
 msgstr "El archivo no existe."
 
-#: plugins/themeEditor/src/ThemeEditor.php:246
+#: plugins/themeEditor/src/ThemeEditor.php:251
 #, php-format
 msgid "File %s is not readable"
 msgstr "El archivo %s no puede ser leído"
 
-#: plugins/themeEditor/src/ThemeEditor.php:305
+#: plugins/themeEditor/src/ThemeEditor.php:310
 #, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr "No se puede escribir el archivo %s. Por favor corrobore los permisos de sus archivos y directorios de tema."
 
-#: plugins/themeEditor/src/ThemeEditor.php:361
+#: plugins/themeEditor/src/ThemeEditor.php:378
 #, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "No se puede eliminar el archivo %s. Por favor, compruebe los permisos de los archivos y carpetas de su tema."

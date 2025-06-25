@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-23 19:10+0200\n"
-"PO-Revision-Date: 2025-06-24 05:12\n"
+"POT-Creation-Date: 2025-06-25 21:18+0200\n"
+"PO-Revision-Date: 2025-06-25 19:22\n"
 "Last-Translator: \n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -2960,17 +2960,17 @@ msgstr "Ссылка на все теги"
 msgid "themeEditor"
 msgstr "редактор тем"
 
-#: plugins/themeEditor/src/BackendBehaviors.php:47
+#: plugins/themeEditor/src/BackendBehaviors.php:45
 #: plugins/themeEditor/src/Manage.php:190
 #: plugins/themeEditor/src/Manage.php:197
 msgid "Edit theme files"
 msgstr "Редактировать файлы темы"
 
-#: plugins/themeEditor/src/BackendBehaviors.php:107
+#: plugins/themeEditor/src/BackendBehaviors.php:105
 msgid "Syntax highlighting"
 msgstr "Подсветка синтаксиса"
 
-#: plugins/themeEditor/src/BackendBehaviors.php:119
+#: plugins/themeEditor/src/BackendBehaviors.php:117
 msgid "Syntax highlighting in theme editor"
 msgstr "Подсветка синтаксиса в редакторе тем"
 
@@ -3019,89 +3019,85 @@ msgstr "Вы уверены, что хотите сбросить этот фа�
 msgid "Your current theme on this blog is \"%s\"."
 msgstr "Текущая тема блога \"%s\"."
 
-#: plugins/themeEditor/src/Manage.php:218
+#: plugins/themeEditor/src/Manage.php:215
 msgid "Please select a file to edit."
 msgstr "Выберите файл для редактирования."
 
-#: plugins/themeEditor/src/Manage.php:228
+#: plugins/themeEditor/src/Manage.php:226
 msgid "File editor"
 msgstr "Редактор файлов"
 
-#: plugins/themeEditor/src/Manage.php:237
+#: plugins/themeEditor/src/Manage.php:235
 #, php-format
 msgid "Editing file %s"
 msgstr "Редактирования файла %s"
 
-#: plugins/themeEditor/src/Manage.php:247
+#: plugins/themeEditor/src/Manage.php:245
 msgid "Reset"
 msgstr "Reset"
 
-#: plugins/themeEditor/src/Manage.php:254
+#: plugins/themeEditor/src/Manage.php:252
 msgid "This file is not writable. Please check your theme files permissions."
 msgstr "Невозможно выполнить запись в файл. Пожалуйста проверьте права доступа к файлам темы."
 
-#: plugins/themeEditor/src/Manage.php:273
+#: plugins/themeEditor/src/Manage.php:271
 msgid "Templates files"
 msgstr "Файлы шаблонов"
 
-#: plugins/themeEditor/src/Manage.php:278
+#: plugins/themeEditor/src/Manage.php:276
 msgid "CSS files"
 msgstr "CSS файлы"
 
-#: plugins/themeEditor/src/Manage.php:283
+#: plugins/themeEditor/src/Manage.php:281
 msgid "JavaScript files"
 msgstr "JavaScript файлы"
 
-#: plugins/themeEditor/src/Manage.php:288
+#: plugins/themeEditor/src/Manage.php:286
 msgid "Locales files"
 msgstr "Файлы локалей"
 
-#: plugins/themeEditor/src/Manage.php:293
+#: plugins/themeEditor/src/Manage.php:291
 msgid "PHP files"
 msgstr "PHP-файлы"
 
-#: plugins/themeEditor/src/Manage.php:307
-msgid "You can't edit a distributed theme."
-msgstr "Вы не можете редактировать распределенную тему."
-
-#: plugins/themeEditor/src/ThemeEditor.php:148
+#: plugins/themeEditor/src/ThemeEditor.php:153
 msgid "No file"
 msgstr "Нет файла"
 
-#: plugins/themeEditor/src/ThemeEditor.php:178
+#: plugins/themeEditor/src/ThemeEditor.php:183
 msgid "Customized:"
 msgstr "Подгонянный:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:186
-#: plugins/themeEditor/src/ThemeEditor.php:192
+#: plugins/themeEditor/src/ThemeEditor.php:191
+#: plugins/themeEditor/src/ThemeEditor.php:197
 msgid "From theme:"
 msgstr "Из темы:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:203
+#: plugins/themeEditor/src/ThemeEditor.php:208
 msgid "From parent:"
 msgstr "От родителя:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:213
+#: plugins/themeEditor/src/ThemeEditor.php:218
 msgid "From template set:"
 msgstr "Из набора шаблонов:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:241
-#: plugins/themeEditor/src/ThemeEditor.php:271
-#: plugins/themeEditor/src/ThemeEditor.php:340
+#: plugins/themeEditor/src/ThemeEditor.php:246
+#: plugins/themeEditor/src/ThemeEditor.php:276
+#: plugins/themeEditor/src/ThemeEditor.php:345
 msgid "File does not exist."
 msgstr "Файл не существует."
 
-#: plugins/themeEditor/src/ThemeEditor.php:246
+#: plugins/themeEditor/src/ThemeEditor.php:251
 #, php-format
 msgid "File %s is not readable"
 msgstr "Файл %s не читабельный"
 
-#: plugins/themeEditor/src/ThemeEditor.php:305
+#: plugins/themeEditor/src/ThemeEditor.php:310
 #, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr "Невозможно выполнить запись в файл %s. Пожалуйста, проверьте файлы темы и права доступа к папкам."
 
-#: plugins/themeEditor/src/ThemeEditor.php:361
+#: plugins/themeEditor/src/ThemeEditor.php:378
 #, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "Невозможно удалить файл %s. Проверьте, пожалуйста, права доступа к файлам и папкам темы."
