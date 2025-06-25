@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-25 21:15+0200\n"
-"PO-Revision-Date: 2025-06-25 19:20\n"
+"PO-Revision-Date: 2025-06-25 19:47\n"
 "Last-Translator: \n"
 "Language-Team: Czech\n"
 "Language: cs_CZ\n"
@@ -4182,7 +4182,7 @@ msgstr "Vybrané komentáře:"
 
 #: src/Process/Backend/Home.php:78
 msgid "The following plugins have been disabled:"
-msgstr ""
+msgstr "Následující zásuvné moduly byly zakázány:"
 
 #: src/Process/Backend/Home.php:139
 msgid "Your last donation date has been saved."
