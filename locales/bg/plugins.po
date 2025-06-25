@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-23 19:10+0200\n"
-"PO-Revision-Date: 2025-06-24 05:12\n"
+"POT-Creation-Date: 2025-06-25 21:18+0200\n"
+"PO-Revision-Date: 2025-06-25 19:21\n"
 "Last-Translator: \n"
 "Language-Team: Bulgarian\n"
 "Language: bg_BG\n"
@@ -2946,17 +2946,17 @@ msgstr "Връзка към всички етикети:"
 msgid "themeEditor"
 msgstr "ТемаЕдитор"
 
-#: plugins/themeEditor/src/BackendBehaviors.php:47
+#: plugins/themeEditor/src/BackendBehaviors.php:45
 #: plugins/themeEditor/src/Manage.php:190
 #: plugins/themeEditor/src/Manage.php:197
 msgid "Edit theme files"
 msgstr "Редактиране на файловете на темата"
 
-#: plugins/themeEditor/src/BackendBehaviors.php:107
+#: plugins/themeEditor/src/BackendBehaviors.php:105
 msgid "Syntax highlighting"
 msgstr "Подчертаване на синтаксиса"
 
-#: plugins/themeEditor/src/BackendBehaviors.php:119
+#: plugins/themeEditor/src/BackendBehaviors.php:117
 msgid "Syntax highlighting in theme editor"
 msgstr "Подчертаване на синтаксиса в редактора на теми"
 
@@ -3005,89 +3005,85 @@ msgstr "Сигурни ли сте, че искате да нулирате то
 msgid "Your current theme on this blog is \"%s\"."
 msgstr "Вашата текуща тема в този блог е \"%s\"."
 
-#: plugins/themeEditor/src/Manage.php:218
+#: plugins/themeEditor/src/Manage.php:215
 msgid "Please select a file to edit."
 msgstr "Моля, изберете файл за редактиране."
 
-#: plugins/themeEditor/src/Manage.php:228
+#: plugins/themeEditor/src/Manage.php:226
 msgid "File editor"
 msgstr "Редактор на файлове"
 
-#: plugins/themeEditor/src/Manage.php:237
+#: plugins/themeEditor/src/Manage.php:235
 #, php-format
 msgid "Editing file %s"
 msgstr "Редактиране на файл %s"
 
-#: plugins/themeEditor/src/Manage.php:247
+#: plugins/themeEditor/src/Manage.php:245
 msgid "Reset"
 msgstr "Нулиране на"
 
-#: plugins/themeEditor/src/Manage.php:254
+#: plugins/themeEditor/src/Manage.php:252
 msgid "This file is not writable. Please check your theme files permissions."
 msgstr "Този файл не може да се записва. Моля, проверете разрешенията на файловете на темата."
 
-#: plugins/themeEditor/src/Manage.php:273
+#: plugins/themeEditor/src/Manage.php:271
 msgid "Templates files"
 msgstr "Файлове с шаблони"
 
-#: plugins/themeEditor/src/Manage.php:278
+#: plugins/themeEditor/src/Manage.php:276
 msgid "CSS files"
 msgstr "CSS файлове"
 
-#: plugins/themeEditor/src/Manage.php:283
+#: plugins/themeEditor/src/Manage.php:281
 msgid "JavaScript files"
 msgstr "Файлове на JavaScript"
 
-#: plugins/themeEditor/src/Manage.php:288
+#: plugins/themeEditor/src/Manage.php:286
 msgid "Locales files"
 msgstr "Файлове с локали"
 
-#: plugins/themeEditor/src/Manage.php:293
+#: plugins/themeEditor/src/Manage.php:291
 msgid "PHP files"
 msgstr "Файлове на PHP"
 
-#: plugins/themeEditor/src/Manage.php:307
-msgid "You can't edit a distributed theme."
-msgstr "Не можете да редактирате разпределена тема."
-
-#: plugins/themeEditor/src/ThemeEditor.php:148
+#: plugins/themeEditor/src/ThemeEditor.php:153
 msgid "No file"
 msgstr "Няма файл"
 
-#: plugins/themeEditor/src/ThemeEditor.php:178
+#: plugins/themeEditor/src/ThemeEditor.php:183
 msgid "Customized:"
 msgstr "Персонализирани:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:186
-#: plugins/themeEditor/src/ThemeEditor.php:192
+#: plugins/themeEditor/src/ThemeEditor.php:191
+#: plugins/themeEditor/src/ThemeEditor.php:197
 msgid "From theme:"
 msgstr "От темата:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:203
+#: plugins/themeEditor/src/ThemeEditor.php:208
 msgid "From parent:"
 msgstr "От родителя:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:213
+#: plugins/themeEditor/src/ThemeEditor.php:218
 msgid "From template set:"
 msgstr "От комплекта шаблони:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:241
-#: plugins/themeEditor/src/ThemeEditor.php:271
-#: plugins/themeEditor/src/ThemeEditor.php:340
+#: plugins/themeEditor/src/ThemeEditor.php:246
+#: plugins/themeEditor/src/ThemeEditor.php:276
+#: plugins/themeEditor/src/ThemeEditor.php:345
 msgid "File does not exist."
 msgstr "Файлът не съществува."
 
-#: plugins/themeEditor/src/ThemeEditor.php:246
+#: plugins/themeEditor/src/ThemeEditor.php:251
 #, php-format
 msgid "File %s is not readable"
 msgstr "Файлът %s не може да се чете"
 
-#: plugins/themeEditor/src/ThemeEditor.php:305
+#: plugins/themeEditor/src/ThemeEditor.php:310
 #, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr "Невъзможно е да се запише файл %s. Моля, проверете разрешенията на файловете и папките на вашата тема."
 
-#: plugins/themeEditor/src/ThemeEditor.php:361
+#: plugins/themeEditor/src/ThemeEditor.php:378
 #, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "Невъзможност за изтриване на файл %s. Моля, проверете разрешенията на файловете и папките на вашата тема."
