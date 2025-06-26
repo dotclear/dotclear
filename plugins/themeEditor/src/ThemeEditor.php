@@ -231,31 +231,38 @@ class ThemeEditor
     /**
      * Gets the file content.
      *
-     * @param   string  $type   The type
-     * @param   string  $f      The file ID
+     * @param   string  $type       The type
+     * @param   string  $filename   The file ID
      *
      * @throws  Exception
      *
      * @return  array<string, mixed>   The file content.
      */
-    public function getFileContent(string $type, string $f): array
+    public function getFileContent(string $type, string $filename): array
     {
         $files = $this->getFilesFromType($type);
 
-        if (!isset($files[$f])) {
+        if (!isset($files[$filename])) {
             throw new Exception(__('File does not exist.'));
         }
 
-        $F = $files[$f];
-        if (!is_readable($F)) {
-            throw new Exception(sprintf(__('File %s is not readable'), $f));
+        $pathname = $files[$filename];
+        if (!is_readable($pathname)) {
+            throw new Exception(sprintf(__('File %s is not readable'), $filename));
+        }
+
+        $content = file_get_contents($pathname);
+        if ($content && mb_strlen(Html::escapeHTML($content)) === 0) {
+            // Try to cope with non UTF-8 encoding files
+            $from    = mb_detect_encoding($content);
+            $content = mb_convert_encoding($content, 'UTF-8', $from === false ? 'auto' : $from);
         }
 
         return [
-            'c'    => file_get_contents($F),
-            'w'    => $this->getDestinationFile($type, $f) !== false,
+            'c'    => $content,
+            'w'    => $this->getDestinationFile($type, $filename) !== false,
             'type' => $type,
-            'f'    => $f,
+            'f'    => $filename,
         ];
     }
 
@@ -263,21 +270,21 @@ class ThemeEditor
      * Writes a file.
      *
      * @param   string  $type       The type
-     * @param   string  $f          The file ID
+     * @param   string  $filename   The file ID
      * @param   string  $content    The content
      *
      * @throws  Exception
      */
-    public function writeFile(string $type, string $f, string $content): void
+    public function writeFile(string $type, string $filename, string $content): void
     {
         $files = $this->getFilesFromType($type);
 
-        if (!isset($files[$f])) {
+        if (!isset($files[$filename])) {
             throw new Exception(__('File does not exist.'));
         }
 
         try {
-            $dest = $this->getDestinationFile($type, $f);
+            $dest = $this->getDestinationFile($type, $filename);
 
             if ($dest == false) {
                 throw new Exception();
@@ -305,23 +312,23 @@ class ThemeEditor
             }
 
             // Updating inner files list
-            $this->updateFileInList($type, $f, $dest);
+            $this->updateFileInList($type, $filename, $dest);
         } catch (Exception) {
-            throw new Exception(sprintf(__('Unable to write file %s. Please check your theme files and folders permissions.'), $f));
+            throw new Exception(sprintf(__('Unable to write file %s. Please check your theme files and folders permissions.'), $filename));
         }
     }
 
     /**
      * Check if a file is deletable (in var only).
      *
-     * @param   string  $type   The type
-     * @param   string  $f      The file ID
+     * @param   string  $type       The type
+     * @param   string  $filename   The file ID
      */
-    public function deletableFile(string $type, string $f): bool
+    public function deletableFile(string $type, string $filename): bool
     {
         $files = $this->getFilesFromType($type);
-        if (isset($files[$f])) {
-            $dest = $this->getDestinationFile($type, $f);
+        if (isset($files[$filename])) {
+            $dest = $this->getDestinationFile($type, $filename);
             if ($dest && (file_exists($dest) && is_writable($dest)) && str_starts_with($dest, App::config()->varRoot())) {
                 return true;
             }
@@ -333,20 +340,20 @@ class ThemeEditor
     /**
      * Delete a file (in var only).
      *
-     * @param   string  $type   The type
-     * @param   string  $f      The file ID
+     * @param   string  $type       The type
+     * @param   string  $filename   The file ID
      *
      * @throws  Exception
      */
-    public function deleteFile(string $type, string $f): void
+    public function deleteFile(string $type, string $filename): void
     {
         $files = $this->getFilesFromType($type);
-        if (!isset($files[$f])) {
+        if (!isset($files[$filename])) {
             throw new Exception(__('File does not exist.'));
         }
 
         try {
-            $dest = $this->getDestinationFile($type, $f);
+            $dest = $this->getDestinationFile($type, $filename);
             if ($dest !== false) {
                 // File exists and may be deleted
                 unlink($dest);
@@ -375,24 +382,24 @@ class ThemeEditor
                 $this->findTemplates();
             }
         } catch (Exception) {
-            throw new Exception(sprintf(__('Unable to delete file %s. Please check your theme files and folders permissions.'), $f));
+            throw new Exception(sprintf(__('Unable to delete file %s. Please check your theme files and folders permissions.'), $filename));
         }
     }
 
     /**
      * Gets the destination file.
      *
-     * @param   string  $type   The type
-     * @param   string  $f      The file ID
+     * @param   string  $type       The type
+     * @param   string  $filename   The file ID
      */
-    protected function getDestinationFile(string $type, string $f): false|string
+    protected function getDestinationFile(string $type, string $filename): false|string
     {
         if ($type === 'tpl') {
-            $dest = $this->custom_theme . '/tpl/' . $f;
+            $dest = $this->custom_theme . '/tpl/' . $filename;
         } elseif ($type === 'po') {
-            $dest = $this->custom_theme . '/locales/' . $f;
+            $dest = $this->custom_theme . '/locales/' . $filename;
         } else {
-            $dest = $this->custom_theme . '/' . $f;
+            $dest = $this->custom_theme . '/' . $filename;
         }
 
         if (file_exists($dest) && is_writable($dest)) {
@@ -429,11 +436,11 @@ class ThemeEditor
     /**
      * Update a file in a list.
      *
-     * @param   string  $type   The type
-     * @param   string  $f      The file ID
-     * @param   string  $file   The file
+     * @param   string  $type       The type
+     * @param   string  $filename   The file ID
+     * @param   string  $pathname   The file
      */
-    protected function updateFileInList(string $type, string $f, string $file): void
+    protected function updateFileInList(string $type, string $filename, string $pathname): void
     {
         switch ($type) {
             case 'tpl':
@@ -460,7 +467,7 @@ class ThemeEditor
                 return;
         }
 
-        $list[$f] = $file;
+        $list[$filename] = $pathname;
     }
 
     /**
