@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-25 21:18+0200\n"
-"PO-Revision-Date: 2025-06-25 19:22\n"
+"POT-Creation-Date: 2025-06-26 15:18+0200\n"
+"PO-Revision-Date: 2025-06-26 13:23\n"
 "Last-Translator: \n"
 "Language-Team: Swedish\n"
 "Language: sv_SE\n"
@@ -3023,26 +3023,30 @@ msgid "Reset"
 msgstr "Reset"
 
 #: plugins/themeEditor/src/Manage.php:252
+msgid "If you use <code>url(...)</code> in your CSS files, be sure to use <code>url(index.php?tf=...)</code> to correctly load theme resources (imported CSS, images, etc.), except for URL types in the form <code>data:image</code>.<br>Example: do <code>@import url(index.php?tf=css/layout.css);</code> instead of <code>@import url(css/layout.css);</code>."
+msgstr ""
+
+#: plugins/themeEditor/src/Manage.php:255
 msgid "This file is not writable. Please check your theme files permissions."
 msgstr "Den här filen är inte skrivbar. Kontrollera dina temafiler rättigheter."
 
-#: plugins/themeEditor/src/Manage.php:271
+#: plugins/themeEditor/src/Manage.php:274
 msgid "Templates files"
 msgstr "Mallar filer"
 
-#: plugins/themeEditor/src/Manage.php:276
+#: plugins/themeEditor/src/Manage.php:279
 msgid "CSS files"
 msgstr "CSS files"
 
-#: plugins/themeEditor/src/Manage.php:281
+#: plugins/themeEditor/src/Manage.php:284
 msgid "JavaScript files"
 msgstr "JavaScript-filer"
 
-#: plugins/themeEditor/src/Manage.php:286
+#: plugins/themeEditor/src/Manage.php:289
 msgid "Locales files"
 msgstr "Språkfiler filer"
 
-#: plugins/themeEditor/src/Manage.php:291
+#: plugins/themeEditor/src/Manage.php:294
 msgid "PHP files"
 msgstr "PHP-filer"
 
@@ -3068,8 +3072,8 @@ msgid "From template set:"
 msgstr "Från mall set:"
 
 #: plugins/themeEditor/src/ThemeEditor.php:246
-#: plugins/themeEditor/src/ThemeEditor.php:276
-#: plugins/themeEditor/src/ThemeEditor.php:345
+#: plugins/themeEditor/src/ThemeEditor.php:283
+#: plugins/themeEditor/src/ThemeEditor.php:352
 msgid "File does not exist."
 msgstr "Filen finns inte."
 
@@ -3078,12 +3082,12 @@ msgstr "Filen finns inte."
 msgid "File %s is not readable"
 msgstr "Filen %s är inte läsbar"
 
-#: plugins/themeEditor/src/ThemeEditor.php:310
+#: plugins/themeEditor/src/ThemeEditor.php:317
 #, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr "Det gick inte att skriva filen %s. Kontrollera behörigheterna för dina temafiler och mappar."
 
-#: plugins/themeEditor/src/ThemeEditor.php:378
+#: plugins/themeEditor/src/ThemeEditor.php:385
 #, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "Det gick inte att ta bort filen %s. Kontrollera behörigheterna för dina temafiler och mappar."
