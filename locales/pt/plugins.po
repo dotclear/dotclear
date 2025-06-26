@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-26 15:18+0200\n"
-"PO-Revision-Date: 2025-06-26 13:23\n"
+"PO-Revision-Date: 2025-06-26 14:33\n"
 "Last-Translator: \n"
 "Language-Team: Portuguese\n"
 "Language: pt_PT\n"
@@ -3024,7 +3024,7 @@ msgstr "Reset"
 
 #: plugins/themeEditor/src/Manage.php:252
 msgid "If you use <code>url(...)</code> in your CSS files, be sure to use <code>url(index.php?tf=...)</code> to correctly load theme resources (imported CSS, images, etc.), except for URL types in the form <code>data:image</code>.<br>Example: do <code>@import url(index.php?tf=css/layout.css);</code> instead of <code>@import url(css/layout.css);</code>."
-msgstr ""
+msgstr "Se utilizar <code>url(...)</code> nos seus ficheiros CSS, certifique-se de que utiliza <code>url(index.php?tf=...)</code> para carregar corretamente os recursos do tema (CSS importado, imagens, etc.), exceto para tipos de URL no formato <code>data:image</code>.<br>Exemplo: faça <code>@import url(index.php?tf=css/layout.css);</code> em vez de <code>@import url(css/layout.css);</code>."
 
 #: plugins/themeEditor/src/Manage.php:255
 msgid "This file is not writable. Please check your theme files permissions."
