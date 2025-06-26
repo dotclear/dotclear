@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-25 21:18+0200\n"
-"PO-Revision-Date: 2025-06-25 19:22\n"
+"POT-Creation-Date: 2025-06-26 15:18+0200\n"
+"PO-Revision-Date: 2025-06-26 13:23\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -3016,26 +3016,30 @@ msgid "Reset"
 msgstr "复位"
 
 #: plugins/themeEditor/src/Manage.php:252
+msgid "If you use <code>url(...)</code> in your CSS files, be sure to use <code>url(index.php?tf=...)</code> to correctly load theme resources (imported CSS, images, etc.), except for URL types in the form <code>data:image</code>.<br>Example: do <code>@import url(index.php?tf=css/layout.css);</code> instead of <code>@import url(css/layout.css);</code>."
+msgstr ""
+
+#: plugins/themeEditor/src/Manage.php:255
 msgid "This file is not writable. Please check your theme files permissions."
 msgstr "文件不可写。请检查您的主题文件的权限。"
 
-#: plugins/themeEditor/src/Manage.php:271
+#: plugins/themeEditor/src/Manage.php:274
 msgid "Templates files"
 msgstr "模板文件"
 
-#: plugins/themeEditor/src/Manage.php:276
+#: plugins/themeEditor/src/Manage.php:279
 msgid "CSS files"
 msgstr "CSS 文件"
 
-#: plugins/themeEditor/src/Manage.php:281
+#: plugins/themeEditor/src/Manage.php:284
 msgid "JavaScript files"
 msgstr "JavaScript 文件"
 
-#: plugins/themeEditor/src/Manage.php:286
+#: plugins/themeEditor/src/Manage.php:289
 msgid "Locales files"
 msgstr "地域文件"
 
-#: plugins/themeEditor/src/Manage.php:291
+#: plugins/themeEditor/src/Manage.php:294
 msgid "PHP files"
 msgstr "PHP文件"
 
@@ -3061,8 +3065,8 @@ msgid "From template set:"
 msgstr "从模板集："
 
 #: plugins/themeEditor/src/ThemeEditor.php:246
-#: plugins/themeEditor/src/ThemeEditor.php:276
-#: plugins/themeEditor/src/ThemeEditor.php:345
+#: plugins/themeEditor/src/ThemeEditor.php:283
+#: plugins/themeEditor/src/ThemeEditor.php:352
 msgid "File does not exist."
 msgstr "文件不存在。"
 
@@ -3071,12 +3075,12 @@ msgstr "文件不存在。"
 msgid "File %s is not readable"
 msgstr "文件 %s 无法读取"
 
-#: plugins/themeEditor/src/ThemeEditor.php:310
+#: plugins/themeEditor/src/ThemeEditor.php:317
 #, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr "无法写入文件 %s。请检查您的主题文件和文件夹的权限。"
 
-#: plugins/themeEditor/src/ThemeEditor.php:378
+#: plugins/themeEditor/src/ThemeEditor.php:385
 #, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "无法删除文件 %s。请检查主题文件和文件夹的权限。"
