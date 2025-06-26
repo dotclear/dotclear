@@ -255,15 +255,19 @@ class ThemesList extends ModulesList
             if ($current) {
                 // _GET actions
                 if (file_exists(Path::real(App::blog()->themesPath() . DIRECTORY_SEPARATOR . $id) . DIRECTORY_SEPARATOR . 'style.css')) {
-                    $theme_url = preg_match('#^http(s)?://#', (string) App::blog()->settings()->system->themes_url) ?
-                    Http::concatURL(App::blog()->settings()->system->themes_url, $id) :
-                    Http::concatURL(App::blog()->url(), App::blog()->settings()->system->themes_url . '/' . $id);
+                    $theme_url = Page::getTF('style.css');
 
                     $module_actions[] = (new Para())
                         ->items([
                             (new Link())
-                                ->href($theme_url . '/style.css')
-                                ->text(__('View stylesheet')),
+                                ->href($theme_url)
+                                ->class('outgoing')
+                                ->separator(' ')
+                                ->items([
+                                    (new Text(null, __('View stylesheet'))),
+                                    (new Img('images/outgoing-link.svg'))
+                                        ->alt(''),
+                                ]),
                         ]);
                 }
 
