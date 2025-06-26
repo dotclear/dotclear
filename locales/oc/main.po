@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-25 21:15+0200\n"
-"PO-Revision-Date: 2025-06-25 19:48\n"
+"POT-Creation-Date: 2025-06-26 15:15+0200\n"
+"PO-Revision-Date: 2025-06-26 13:23\n"
 "Last-Translator: \n"
 "Language-Team: Occitan\n"
 "Language: oc_FR\n"
@@ -2306,11 +2306,11 @@ msgstr "Aquò vòl dire qu'avètz suprimit vòstre tèma per defaut o qu'avètz 
 msgid "Default theme not found."
 msgstr "Lo tèma per defaut pas trobat."
 
-#: src/Core/Frontend/Utility.php:300
+#: src/Core/Frontend/Utility.php:312
 msgid "Something went wrong while loading template file for your blog."
 msgstr "Quicòm s'es marrit al moment del cargament del fichièr de modèl per vòstre blòg."
 
-#: src/Core/Frontend/Utility.php:342
+#: src/Core/Frontend/Utility.php:354
 msgid "Can't create template files."
 msgstr "Impossible de crear de fichièrs de modèl."
 

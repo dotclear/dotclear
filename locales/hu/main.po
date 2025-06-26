@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-25 21:15+0200\n"
-"PO-Revision-Date: 2025-06-25 19:47\n"
+"POT-Creation-Date: 2025-06-26 15:15+0200\n"
+"PO-Revision-Date: 2025-06-26 13:22\n"
 "Last-Translator: \n"
 "Language-Team: Hungarian\n"
 "Language: hu_HU\n"
@@ -2306,11 +2306,11 @@ msgstr "Ez vagy azt jelenti, hogy eltávolította az alapértelmezett témát, v
 msgid "Default theme not found."
 msgstr "Alapértelmezett téma nem található."
 
-#: src/Core/Frontend/Utility.php:300
+#: src/Core/Frontend/Utility.php:312
 msgid "Something went wrong while loading template file for your blog."
 msgstr "Valami baj történt a blog sablonfájljának betöltése közben."
 
-#: src/Core/Frontend/Utility.php:342
+#: src/Core/Frontend/Utility.php:354
 msgid "Can't create template files."
 msgstr "Nem tud sablonfájlokat létrehozni."
 

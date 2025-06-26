@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-25 21:18+0200\n"
-"PO-Revision-Date: 2025-06-25 19:21\n"
+"POT-Creation-Date: 2025-06-26 15:18+0200\n"
+"PO-Revision-Date: 2025-06-26 14:32\n"
 "Last-Translator: \n"
 "Language-Team: Romanian\n"
 "Language: ro_RO\n"
@@ -3030,26 +3030,30 @@ msgid "Reset"
 msgstr "Reset"
 
 #: plugins/themeEditor/src/Manage.php:252
+msgid "If you use <code>url(...)</code> in your CSS files, be sure to use <code>url(index.php?tf=...)</code> to correctly load theme resources (imported CSS, images, etc.), except for URL types in the form <code>data:image</code>.<br>Example: do <code>@import url(index.php?tf=css/layout.css);</code> instead of <code>@import url(css/layout.css);</code>."
+msgstr "Dacă utilizați <code>url(...)</code> în fișierele CSS, asigurați-vă că utilizați <code>url(index.php?tf=...)</code> pentru a încărca corect resursele temei (CSS importate, imagini etc.), cu excepția tipurilor de URL sub forma <code>data:image</code>.<br>Exemplu: faceți <code>@import url(index.php?tf=css/layout.css);</code> în loc de <code>@import url(css/layout.css);</code>."
+
+#: plugins/themeEditor/src/Manage.php:255
 msgid "This file is not writable. Please check your theme files permissions."
 msgstr "Acest fișier nu poate fi scris. Te rugăm să verifici permisiunile fișierelor temei tale."
 
-#: plugins/themeEditor/src/Manage.php:271
+#: plugins/themeEditor/src/Manage.php:274
 msgid "Templates files"
 msgstr "Fișiere șabloane"
 
-#: plugins/themeEditor/src/Manage.php:276
+#: plugins/themeEditor/src/Manage.php:279
 msgid "CSS files"
 msgstr "CSS files"
 
-#: plugins/themeEditor/src/Manage.php:281
+#: plugins/themeEditor/src/Manage.php:284
 msgid "JavaScript files"
 msgstr "Fișiere JavaScript"
 
-#: plugins/themeEditor/src/Manage.php:286
+#: plugins/themeEditor/src/Manage.php:289
 msgid "Locales files"
 msgstr "Fișiere locale"
 
-#: plugins/themeEditor/src/Manage.php:291
+#: plugins/themeEditor/src/Manage.php:294
 msgid "PHP files"
 msgstr "Fișiere PHP"
 
@@ -3075,8 +3079,8 @@ msgid "From template set:"
 msgstr "Din setul de șablon:"
 
 #: plugins/themeEditor/src/ThemeEditor.php:246
-#: plugins/themeEditor/src/ThemeEditor.php:276
-#: plugins/themeEditor/src/ThemeEditor.php:345
+#: plugins/themeEditor/src/ThemeEditor.php:283
+#: plugins/themeEditor/src/ThemeEditor.php:352
 msgid "File does not exist."
 msgstr "Fișierul nu există."
 
@@ -3085,12 +3089,12 @@ msgstr "Fișierul nu există."
 msgid "File %s is not readable"
 msgstr "Fișierul %s nu poate fi citit"
 
-#: plugins/themeEditor/src/ThemeEditor.php:310
+#: plugins/themeEditor/src/ThemeEditor.php:317
 #, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr "Nu se poate scrie fișierul %s. Vă rugăm să verificați permisiunile fișierelor și folderelor temei."
 
-#: plugins/themeEditor/src/ThemeEditor.php:378
+#: plugins/themeEditor/src/ThemeEditor.php:385
 #, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "Nu se poate șterge fișierul %s. Vă rugăm să verificați permisiunile fișierelor și folderelor temei."

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-25 21:15+0200\n"
-"PO-Revision-Date: 2025-06-25 19:48\n"
+"POT-Creation-Date: 2025-06-26 15:15+0200\n"
+"PO-Revision-Date: 2025-06-26 13:23\n"
 "Last-Translator: \n"
 "Language-Team: Telugu\n"
 "Language: te_IN\n"
@@ -2306,11 +2306,11 @@ msgstr "ఇది మీరు మీ అప్రమేయ థీమ్ తొ�
 msgid "Default theme not found."
 msgstr "అప్రమేయ థీమ్ కనపడలేదు."
 
-#: src/Core/Frontend/Utility.php:300
+#: src/Core/Frontend/Utility.php:312
 msgid "Something went wrong while loading template file for your blog."
 msgstr "మీ బ్లాగు కోసం టెంట్మెంట్ను లోడ్ చేయుటలో ఏదో తప్పు పోయింది."
 
-#: src/Core/Frontend/Utility.php:342
+#: src/Core/Frontend/Utility.php:354
 msgid "Can't create template files."
 msgstr "టెముకల్ ఫైళ్ళను సృష్టించలేము."
 

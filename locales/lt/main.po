@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-25 21:15+0200\n"
-"PO-Revision-Date: 2025-06-25 19:47\n"
+"POT-Creation-Date: 2025-06-26 15:15+0200\n"
+"PO-Revision-Date: 2025-06-26 13:22\n"
 "Last-Translator: \n"
 "Language-Team: Lithuanian\n"
 "Language: lt_LT\n"
@@ -2364,11 +2364,11 @@ msgstr "Tai reiškia, kad pašalinote numatytąją temą arba tinklaraščio kon
 msgid "Default theme not found."
 msgstr "Numatytoji tema nerasta."
 
-#: src/Core/Frontend/Utility.php:300
+#: src/Core/Frontend/Utility.php:312
 msgid "Something went wrong while loading template file for your blog."
 msgstr "Įkeliant jūsų tinklaraščio šablono failą kažkas nutiko ne taip."
 
-#: src/Core/Frontend/Utility.php:342
+#: src/Core/Frontend/Utility.php:354
 msgid "Can't create template files."
 msgstr "Negalima sukurti šablonų failų."
 

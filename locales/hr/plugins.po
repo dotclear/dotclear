@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-25 21:18+0200\n"
-"PO-Revision-Date: 2025-06-25 19:22\n"
+"POT-Creation-Date: 2025-06-26 15:18+0200\n"
+"PO-Revision-Date: 2025-06-26 14:33\n"
 "Last-Translator: \n"
 "Language-Team: Croatian\n"
 "Language: hr_HR\n"
@@ -3030,26 +3030,30 @@ msgid "Reset"
 msgstr "Resetiraj"
 
 #: plugins/themeEditor/src/Manage.php:252
+msgid "If you use <code>url(...)</code> in your CSS files, be sure to use <code>url(index.php?tf=...)</code> to correctly load theme resources (imported CSS, images, etc.), except for URL types in the form <code>data:image</code>.<br>Example: do <code>@import url(index.php?tf=css/layout.css);</code> instead of <code>@import url(css/layout.css);</code>."
+msgstr "Ako koristite <code>url(...)</code> u svojim CSS datotekama, obavezno koristite <code>url(index.php?tf=...)</code> za ispravno učitavanje resursa teme (uvezeni CSS, slike itd.), osim za URL tipove u obliku <code>data:image</code>.<br>Primjer: napravite <code>@import url(index.php?tf=css/layout.css);</code> umjesto <code>@import url(css/layout.css);</code>."
+
+#: plugins/themeEditor/src/Manage.php:255
 msgid "This file is not writable. Please check your theme files permissions."
 msgstr "U ovu datoteku nije moguće pisati. Molimo provjerite dopuštenja datoteka teme."
 
-#: plugins/themeEditor/src/Manage.php:271
+#: plugins/themeEditor/src/Manage.php:274
 msgid "Templates files"
 msgstr "Datoteke s predlošcima"
 
-#: plugins/themeEditor/src/Manage.php:276
+#: plugins/themeEditor/src/Manage.php:279
 msgid "CSS files"
 msgstr "CSS datoteke"
 
-#: plugins/themeEditor/src/Manage.php:281
+#: plugins/themeEditor/src/Manage.php:284
 msgid "JavaScript files"
 msgstr "JavaScript datoteke"
 
-#: plugins/themeEditor/src/Manage.php:286
+#: plugins/themeEditor/src/Manage.php:289
 msgid "Locales files"
 msgstr "Lokalne datoteke"
 
-#: plugins/themeEditor/src/Manage.php:291
+#: plugins/themeEditor/src/Manage.php:294
 msgid "PHP files"
 msgstr "PHP datoteke"
 
@@ -3075,8 +3079,8 @@ msgid "From template set:"
 msgstr "Iz skupa predložaka:"
 
 #: plugins/themeEditor/src/ThemeEditor.php:246
-#: plugins/themeEditor/src/ThemeEditor.php:276
-#: plugins/themeEditor/src/ThemeEditor.php:345
+#: plugins/themeEditor/src/ThemeEditor.php:283
+#: plugins/themeEditor/src/ThemeEditor.php:352
 msgid "File does not exist."
 msgstr "Mapa ne postoji."
 
@@ -3085,12 +3089,12 @@ msgstr "Mapa ne postoji."
 msgid "File %s is not readable"
 msgstr "Datoteka %s nije čitljiva"
 
-#: plugins/themeEditor/src/ThemeEditor.php:310
+#: plugins/themeEditor/src/ThemeEditor.php:317
 #, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr "Nije moguće napisati datoteku %s. Provjerite dopuštenja za svoje datoteke i mape teme."
 
-#: plugins/themeEditor/src/ThemeEditor.php:378
+#: plugins/themeEditor/src/ThemeEditor.php:385
 #, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "Nije moguće izbrisati datoteku %s. Provjerite dopuštenja za svoje datoteke i mape teme."

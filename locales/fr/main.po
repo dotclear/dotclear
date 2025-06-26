@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-25 21:15+0200\n"
-"PO-Revision-Date: 2025-06-25 19:47\n"
+"POT-Creation-Date: 2025-06-26 15:15+0200\n"
+"PO-Revision-Date: 2025-06-26 13:22\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -2306,11 +2306,11 @@ msgstr "Cela signifie que vous avez supprimé votre thème par défaut ou que vo
 msgid "Default theme not found."
 msgstr "Thème par défaut introuvable."
 
-#: src/Core/Frontend/Utility.php:300
+#: src/Core/Frontend/Utility.php:312
 msgid "Something went wrong while loading template file for your blog."
 msgstr "Un problème s'est produit lors du chargement du fichier modèle de votre blog."
 
-#: src/Core/Frontend/Utility.php:342
+#: src/Core/Frontend/Utility.php:354
 msgid "Can't create template files."
 msgstr "Impossible de créer des fichiers modèles."
 
