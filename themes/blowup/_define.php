@@ -22,5 +22,6 @@ $this->registerModule(
     [
         'standalone_config' => true,
         'type'              => 'theme',
+        'overload'          => true,
     ]
 );

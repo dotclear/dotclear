@@ -20,6 +20,7 @@ $this->registerModule(
     'Marco / marcarea.com', // Author
     '2.0',                  // Version
     [
-        'type' => 'theme',
+        'type'     => 'theme',
+        'overload' => true,
     ]
 );

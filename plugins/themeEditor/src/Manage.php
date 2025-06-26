@@ -247,9 +247,12 @@ class Manage extends Process
                                 App::backend()->file['type'] ?
                                     (new Hidden([App::backend()->file['type']], App::backend()->file['f'])) :
                                     (new None()),
+                                (new Note())
+                                    ->class('info')
+                                    ->text(__('If you use <code>url(...)</code> in your CSS files, be sure to use <code>url(index.php?tf=...)</code> to correctly load theme resources (imported CSS, images, etc.), except for URL types in the form <code>data:image</code>.<br>Example: do <code>@import url(index.php?tf=css/layout.css);</code> instead of <code>@import url(css/layout.css);</code>.')),
                             ] : [
                                 (new Note())
-                                ->text(__('This file is not writable. Please check your theme files permissions.')),
+                                    ->text(__('This file is not writable. Please check your theme files permissions.')),
                             ]),
                     ]),
                 $lock_form,

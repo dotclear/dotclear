@@ -133,8 +133,9 @@ class ModuleDefine
         'repository' => '',
 
         // theme specifics
-        'parent' => null,
-        'tplset' => null,
+        'parent'   => null,
+        'tplset'   => null,
+        'overload' => false,
 
         // store specifics
         'file'            => '',

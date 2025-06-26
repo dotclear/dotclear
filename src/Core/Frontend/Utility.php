@@ -288,6 +288,18 @@ class Utility extends Process
         }
         App::url()->setMode(App::blog()->settings()->system->url_scan);
 
+        // Check if the current theme may be overload (using theme file handler, index.php?tf=...)
+        App::frontend()->theme_overload = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'overload') === true;
+        if (App::frontend()->theme_overload === false) {
+            // Check theme dc_min and assume that if the theme requires DC 2.35+ then it is overloadable
+            $theme_dc_min = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'dc_min');
+            if ($theme_dc_min) {
+                if (version_compare($theme_dc_min, '2.35', '>=')) {
+                    App::frontend()->theme_overload = true;
+                }
+            }
+        }
+
         try {
             # --BEHAVIOR-- publicBeforeDocument --
             App::behavior()->callBehavior('publicBeforeDocumentV2');

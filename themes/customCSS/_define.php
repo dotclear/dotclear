@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * @brief       The theme customCSS definition
@@ -19,6 +20,7 @@ $this->registerModule(
     'Olivier',                  // Author
     '2.1',                      // Version
     [
-        'type' => 'theme',
+        'type'     => 'theme',
+        'overload' => true,
     ]
 );

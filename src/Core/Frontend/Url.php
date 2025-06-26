@@ -735,6 +735,8 @@ class Url extends UrlHandler implements UrlInterface
                         App::frontend()->template()->getPath()
                     );
                 }
+                // Do not use overloading capability
+                App::frontend()->theme_overload = false;
                 // ------------------------------------------------------
 
                 // Don't use template cache
