@@ -238,7 +238,7 @@ class Manage extends Process
                             ]),
                         (new Para())
                             ->class(App::backend()->file['w'] ? 'form-buttons' : '')
-                            ->items(App::backend()->file['w'] ? [
+                            ->items(App::backend()->file['w'] && App::backend()->theme->get('overload') ? [
                                 ...My::hiddenFields(),
                                 (new Submit(['write'], __('Save') . ' (s)'))
                                     ->accesskey('s'),
@@ -251,8 +251,13 @@ class Manage extends Process
                                     ->class('info')
                                     ->text(__('If you use <code>url(...)</code> in your CSS files, be sure to use <code>url(index.php?tf=...)</code> to correctly load theme resources (imported CSS, images, etc.), except for URL types in the form <code>data:image</code>.<br>Example: do <code>@import url(index.php?tf=css/layout.css);</code> instead of <code>@import url(css/layout.css);</code>.')),
                             ] : [
+                                (App::themes()->isOverloadable(App::blog()->settings()->system->theme)) ?
                                 (new Note())
-                                    ->text(__('This file is not writable. Please check your theme files permissions.')),
+                                    ->class('warning')
+                                    ->text(__('This file is not overloadable. Please check your var folder permissions.')) :
+                                (new Note())
+                                    ->class('warning')
+                                    ->text(__('This theme is too old to be modified. Please check if an update is available.')),
                             ]),
                     ]),
                 $lock_form,

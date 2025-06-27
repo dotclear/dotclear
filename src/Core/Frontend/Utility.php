@@ -272,7 +272,7 @@ class Utility extends Process
         if (App::frontend()->parent_theme) {
             $tpl_path[] = App::blog()->themesPath() . '/' . App::frontend()->parent_theme . '/tpl';
         }
-        $tplset = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'tplset');
+        $tplset = App::themes()->moduleInfo(App::frontend()->theme, 'tplset');
         $dir    = implode(DIRECTORY_SEPARATOR, [App::config()->dotclearRoot(), 'inc', 'public', self::TPL_ROOT, $tplset]);
         if (!empty($tplset) && is_dir($dir)) {
             App::frontend()->template()->setPath(
@@ -286,19 +286,12 @@ class Utility extends Process
                 App::frontend()->template()->getPath()
             );
         }
-        App::url()->setMode(App::blog()->settings()->system->url_scan);
 
         // Check if the current theme may be overload (using theme file handler, index.php?tf=...)
-        App::frontend()->theme_overload = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'overload') === true;
-        if (App::frontend()->theme_overload === false) {
-            // Check theme dc_min and assume that if the theme requires DC 2.35+ then it is overloadable
-            $theme_dc_min = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'dc_min');
-            if ($theme_dc_min) {
-                if (version_compare($theme_dc_min, '2.35', '>=')) {
-                    App::frontend()->theme_overload = true;
-                }
-            }
-        }
+        App::frontend()->theme_overload = App::themes()->isOverloadable(App::frontend()->theme);
+
+        // Set URL scan mode
+        App::url()->setMode(App::blog()->settings()->system->url_scan);
 
         try {
             # --BEHAVIOR-- publicBeforeDocument --

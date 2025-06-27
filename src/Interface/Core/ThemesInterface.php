@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -18,4 +19,10 @@ use Dotclear\Interface\Module\ModulesInterface;
  */
 interface ThemesInterface extends ModulesInterface
 {
+    /**
+     * Determines whether the specified theme is overloadable.
+     *
+     * @param      string  $id     The theme identifier
+     */
+    public function isOverloadable(string $id): bool;
 }

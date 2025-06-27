@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-26 15:18+0200\n"
+"POT-Creation-Date: 2025-06-27 14:26+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3026,27 +3026,31 @@ msgstr ""
 msgid "If you use <code>url(...)</code> in your CSS files, be sure to use <code>url(index.php?tf=...)</code> to correctly load theme resources (imported CSS, images, etc.), except for URL types in the form <code>data:image</code>.<br>Example: do <code>@import url(index.php?tf=css/layout.css);</code> instead of <code>@import url(css/layout.css);</code>."
 msgstr ""
 
-#: plugins/themeEditor/src/Manage.php:255
-msgid "This file is not writable. Please check your theme files permissions."
+#: plugins/themeEditor/src/Manage.php:257
+msgid "This file is not overloadable. Please check your var folder permissions."
 msgstr ""
 
-#: plugins/themeEditor/src/Manage.php:274
-msgid "Templates files"
+#: plugins/themeEditor/src/Manage.php:260
+msgid "This theme is too old to be modified. Please check if an update is available."
 msgstr ""
 
 #: plugins/themeEditor/src/Manage.php:279
-msgid "CSS files"
+msgid "Templates files"
 msgstr ""
 
 #: plugins/themeEditor/src/Manage.php:284
-msgid "JavaScript files"
+msgid "CSS files"
 msgstr ""
 
 #: plugins/themeEditor/src/Manage.php:289
-msgid "Locales files"
+msgid "JavaScript files"
 msgstr ""
 
 #: plugins/themeEditor/src/Manage.php:294
+msgid "Locales files"
+msgstr ""
+
+#: plugins/themeEditor/src/Manage.php:299
 msgid "PHP files"
 msgstr ""
 
