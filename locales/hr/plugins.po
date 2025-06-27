@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-27 14:26+0200\n"
-"PO-Revision-Date: 2025-06-27 12:29\n"
+"PO-Revision-Date: 2025-06-27 12:57\n"
 "Last-Translator: \n"
 "Language-Team: Croatian\n"
 "Language: hr_HR\n"
@@ -3035,11 +3035,11 @@ msgstr "Ako koristite <code>url(...)</code> u svojim CSS datotekama, obavezno ko
 
 #: plugins/themeEditor/src/Manage.php:257
 msgid "This file is not overloadable. Please check your var folder permissions."
-msgstr ""
+msgstr "Ova datoteka se ne može preopteretiti. Molimo provjerite dozvole mape var."
 
 #: plugins/themeEditor/src/Manage.php:260
 msgid "This theme is too old to be modified. Please check if an update is available."
-msgstr ""
+msgstr "Ova je tema previše stara za izmjenu. Provjerite je li dostupno ažuriranje."
 
 #: plugins/themeEditor/src/Manage.php:279
 msgid "Templates files"
