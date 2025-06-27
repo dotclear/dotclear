@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-26 15:15+0200\n"
-"PO-Revision-Date: 2025-06-26 13:22\n"
+"POT-Creation-Date: 2025-06-27 14:15+0200\n"
+"PO-Revision-Date: 2025-06-27 12:28\n"
 "Last-Translator: \n"
 "Language-Team: Indonesian\n"
 "Language: id_ID\n"
@@ -172,7 +172,7 @@ msgid "Selected blogs have been successfully updated."
 msgstr "Blog yang dipilih telah berhasil diperbarui."
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:104
-#: src/Core/Backend/ModulesList.php:1688 src/Core/Backend/ThemesList.php:750
+#: src/Core/Backend/ModulesList.php:1688 src/Core/Backend/ThemesList.php:754
 #: src/Core/Upgrade/PluginsList.php:398 src/Process/Backend/BlogDel.php:69
 #: src/Process/Backend/Langs.php:114 src/Process/Backend/Langs.php:159
 #: src/Process/Backend/User.php:127 src/Process/Backend/UsersActions.php:182
@@ -1182,7 +1182,7 @@ msgstr "Versi saat ini"
 
 #: src/Core/Backend/ModulesList.php:840 src/Core/Backend/ModulesList.php:1064
 #: src/Core/Backend/Page.php:1313 src/Core/Backend/ThemesList.php:231
-#: src/Core/Backend/ThemesList.php:317
+#: src/Core/Backend/ThemesList.php:321
 msgid "Details"
 msgstr "Detail"
 
@@ -1366,7 +1366,7 @@ msgstr[0] "Plugin telah berhasil diperbarui."
 msgid "Following plugins updates are locked: %s"
 msgstr "Pembaruan plugin berikut ini dikunci: %s"
 
-#: src/Core/Backend/ModulesList.php:1696 src/Core/Backend/ThemesList.php:758
+#: src/Core/Backend/ModulesList.php:1696 src/Core/Backend/ThemesList.php:762
 #: src/Core/Upgrade/PluginsList.php:406 src/Process/Backend/Langs.php:165
 #: src/Process/Upgrade/Langs.php:215
 msgid "Unable to move uploaded file."
@@ -1967,98 +1967,98 @@ msgstr "(dibangun di atas \"%s\")"
 msgid "(requires \"%s\")"
 msgstr "(membutuhkan \"%s\")"
 
-#: src/Core/Backend/ThemesList.php:266
+#: src/Core/Backend/ThemesList.php:267
 msgid "View stylesheet"
 msgstr "Lihat lembar gaya"
 
-#: src/Core/Backend/ThemesList.php:291
+#: src/Core/Backend/ThemesList.php:295
 msgid "Configure theme"
 msgstr "Mengonfigurasi tema"
 
-#: src/Core/Backend/ThemesList.php:345
+#: src/Core/Backend/ThemesList.php:349
 msgid "No themes matched your search."
 msgstr "Tidak ada tema yang cocok dengan pencarian Anda."
 
-#: src/Core/Backend/ThemesList.php:395
+#: src/Core/Backend/ThemesList.php:399
 msgid "Use this one"
 msgstr "Gunakan yang ini"
 
-#: src/Core/Backend/ThemesList.php:412 src/Process/Backend/Post.php:945
+#: src/Core/Backend/ThemesList.php:416 src/Process/Backend/Post.php:945
 msgid "Preview"
 msgstr "Pratinjau"
 
-#: src/Core/Backend/ThemesList.php:458
+#: src/Core/Backend/ThemesList.php:462
 msgid "Update selected themes"
 msgstr "Memperbarui tema yang dipilih"
 
-#: src/Core/Backend/ThemesList.php:459
+#: src/Core/Backend/ThemesList.php:463
 msgid "Update all themes from this list"
 msgstr "Perbarui semua tema dari daftar ini"
 
-#: src/Core/Backend/ThemesList.php:503 src/Core/Backend/ThemesList.php:544
-#: src/Core/Backend/ThemesList.php:582 src/Core/Backend/ThemesList.php:617
-#: src/Core/Backend/ThemesList.php:657 src/Core/Backend/ThemesList.php:691
-#: src/Core/Backend/ThemesList.php:741
+#: src/Core/Backend/ThemesList.php:507 src/Core/Backend/ThemesList.php:548
+#: src/Core/Backend/ThemesList.php:586 src/Core/Backend/ThemesList.php:621
+#: src/Core/Backend/ThemesList.php:661 src/Core/Backend/ThemesList.php:695
+#: src/Core/Backend/ThemesList.php:745
 msgid "No such theme."
 msgstr "Tidak ada tema seperti itu."
 
-#: src/Core/Backend/ThemesList.php:512
+#: src/Core/Backend/ThemesList.php:516
 #, php-format
 msgid "Theme %s has been successfully selected."
 msgstr "Tema %s telah berhasil dipilih."
 
-#: src/Core/Backend/ThemesList.php:548
+#: src/Core/Backend/ThemesList.php:552
 msgid "Theme has been successfully activated."
 msgid_plural "Themes have been successuflly activated."
 msgstr[0] "Tema telah berhasil diaktifkan."
 
-#: src/Core/Backend/ThemesList.php:586
+#: src/Core/Backend/ThemesList.php:590
 msgid "Some themes have not been deactivated."
 msgstr "Beberapa tema belum dinonaktifkan."
 
-#: src/Core/Backend/ThemesList.php:589
+#: src/Core/Backend/ThemesList.php:593
 msgid "Theme has been successfully deactivated."
 msgid_plural "Themes have been successuflly deactivated."
 msgstr[0] "Tema telah berhasil dinonaktifkan."
 
-#: src/Core/Backend/ThemesList.php:621
+#: src/Core/Backend/ThemesList.php:625
 msgid "Theme has been successfully cloned."
 msgid_plural "Themes have been successuflly cloned."
 msgstr[0] "Tema-tema telah berhasil dikloning."
 
-#: src/Core/Backend/ThemesList.php:655
+#: src/Core/Backend/ThemesList.php:659
 msgid "You don't have permissions to delete this theme."
 msgstr "Anda tidak memiliki izin untuk menghapus tema ini."
 
-#: src/Core/Backend/ThemesList.php:659
+#: src/Core/Backend/ThemesList.php:663
 msgid "Some themes have not been delete."
 msgstr "Beberapa tema belum dihapus."
 
-#: src/Core/Backend/ThemesList.php:662
+#: src/Core/Backend/ThemesList.php:666
 msgid "Theme has been successfully deleted."
 msgid_plural "Themes have been successuflly deleted."
 msgstr[0] "Tema telah berhasil dihapus."
 
-#: src/Core/Backend/ThemesList.php:695
+#: src/Core/Backend/ThemesList.php:699
 msgid "Theme has been successfully installed."
 msgid_plural "Themes have been successfully installed."
 msgstr[0] "Tema telah berhasil diinstal."
 
-#: src/Core/Backend/ThemesList.php:734
+#: src/Core/Backend/ThemesList.php:738
 msgid "Theme has been successfully updated."
 msgid_plural "Themes have been successfully updated."
 msgstr[0] "Tema telah berhasil diperbarui."
 
-#: src/Core/Backend/ThemesList.php:738
+#: src/Core/Backend/ThemesList.php:742
 #, php-format
 msgid "Following themes updates are locked: %s"
 msgstr "Pembaruan tema berikut ini dikunci: %s"
 
-#: src/Core/Backend/ThemesList.php:776
+#: src/Core/Backend/ThemesList.php:780
 msgid "The theme has been successfully updated."
 msgstr "Tema telah berhasil diperbarui."
 
-#: src/Core/Backend/ThemesList.php:777
+#: src/Core/Backend/ThemesList.php:781
 msgid "The theme has been successfully installed."
 msgstr "Tema telah berhasil diinstal."
 
@@ -2277,11 +2277,11 @@ msgstr "Ini berarti Anda telah menghapus tema default atau mengatur jalur tema y
 msgid "Default theme not found."
 msgstr "Tema default tidak ditemukan."
 
-#: src/Core/Frontend/Utility.php:312
+#: src/Core/Frontend/Utility.php:305
 msgid "Something went wrong while loading template file for your blog."
 msgstr "Terjadi kesalahan saat memuat file template untuk blog Anda."
 
-#: src/Core/Frontend/Utility.php:354
+#: src/Core/Frontend/Utility.php:347
 msgid "Can't create template files."
 msgstr "Tidak dapat membuat file template."
 
