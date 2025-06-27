@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-26 15:15+0200\n"
-"PO-Revision-Date: 2025-06-26 13:22\n"
+"POT-Creation-Date: 2025-06-27 14:15+0200\n"
+"PO-Revision-Date: 2025-06-27 12:28\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -172,7 +172,7 @@ msgid "Selected blogs have been successfully updated."
 msgstr "部分博客已成功更新。"
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:104
-#: src/Core/Backend/ModulesList.php:1688 src/Core/Backend/ThemesList.php:750
+#: src/Core/Backend/ModulesList.php:1688 src/Core/Backend/ThemesList.php:754
 #: src/Core/Upgrade/PluginsList.php:398 src/Process/Backend/BlogDel.php:69
 #: src/Process/Backend/Langs.php:114 src/Process/Backend/Langs.php:159
 #: src/Process/Backend/User.php:127 src/Process/Backend/UsersActions.php:182
@@ -1182,7 +1182,7 @@ msgstr "当前版本"
 
 #: src/Core/Backend/ModulesList.php:840 src/Core/Backend/ModulesList.php:1064
 #: src/Core/Backend/Page.php:1313 src/Core/Backend/ThemesList.php:231
-#: src/Core/Backend/ThemesList.php:317
+#: src/Core/Backend/ThemesList.php:321
 msgid "Details"
 msgstr "详情"
 
@@ -1366,7 +1366,7 @@ msgstr[0] "插件已成功更新。"
 msgid "Following plugins updates are locked: %s"
 msgstr "以下插件的更新被锁定: %s"
 
-#: src/Core/Backend/ModulesList.php:1696 src/Core/Backend/ThemesList.php:758
+#: src/Core/Backend/ModulesList.php:1696 src/Core/Backend/ThemesList.php:762
 #: src/Core/Upgrade/PluginsList.php:406 src/Process/Backend/Langs.php:165
 #: src/Process/Upgrade/Langs.php:215
 msgid "Unable to move uploaded file."
@@ -1967,98 +1967,98 @@ msgstr "(在“%s”生成)"
 msgid "(requires \"%s\")"
 msgstr "(需要“%s”)"
 
-#: src/Core/Backend/ThemesList.php:266
+#: src/Core/Backend/ThemesList.php:267
 msgid "View stylesheet"
 msgstr "查看样式表"
 
-#: src/Core/Backend/ThemesList.php:291
+#: src/Core/Backend/ThemesList.php:295
 msgid "Configure theme"
 msgstr "配置主题"
 
-#: src/Core/Backend/ThemesList.php:345
+#: src/Core/Backend/ThemesList.php:349
 msgid "No themes matched your search."
 msgstr "没有符合您搜索的主题。"
 
-#: src/Core/Backend/ThemesList.php:395
+#: src/Core/Backend/ThemesList.php:399
 msgid "Use this one"
 msgstr "使用这个"
 
-#: src/Core/Backend/ThemesList.php:412 src/Process/Backend/Post.php:945
+#: src/Core/Backend/ThemesList.php:416 src/Process/Backend/Post.php:945
 msgid "Preview"
 msgstr "预览"
 
-#: src/Core/Backend/ThemesList.php:458
+#: src/Core/Backend/ThemesList.php:462
 msgid "Update selected themes"
 msgstr "更新选定的主题"
 
-#: src/Core/Backend/ThemesList.php:459
+#: src/Core/Backend/ThemesList.php:463
 msgid "Update all themes from this list"
 msgstr "更新此列表中的所有主题"
 
-#: src/Core/Backend/ThemesList.php:503 src/Core/Backend/ThemesList.php:544
-#: src/Core/Backend/ThemesList.php:582 src/Core/Backend/ThemesList.php:617
-#: src/Core/Backend/ThemesList.php:657 src/Core/Backend/ThemesList.php:691
-#: src/Core/Backend/ThemesList.php:741
+#: src/Core/Backend/ThemesList.php:507 src/Core/Backend/ThemesList.php:548
+#: src/Core/Backend/ThemesList.php:586 src/Core/Backend/ThemesList.php:621
+#: src/Core/Backend/ThemesList.php:661 src/Core/Backend/ThemesList.php:695
+#: src/Core/Backend/ThemesList.php:745
 msgid "No such theme."
 msgstr "没有这样的主题。"
 
-#: src/Core/Backend/ThemesList.php:512
+#: src/Core/Backend/ThemesList.php:516
 #, php-format
 msgid "Theme %s has been successfully selected."
 msgstr "主题 %s ，已成功选择。"
 
-#: src/Core/Backend/ThemesList.php:548
+#: src/Core/Backend/ThemesList.php:552
 msgid "Theme has been successfully activated."
 msgid_plural "Themes have been successuflly activated."
 msgstr[0] "主题已被成功激活。"
 
-#: src/Core/Backend/ThemesList.php:586
+#: src/Core/Backend/ThemesList.php:590
 msgid "Some themes have not been deactivated."
 msgstr "有些主题还没有被停用。"
 
-#: src/Core/Backend/ThemesList.php:589
+#: src/Core/Backend/ThemesList.php:593
 msgid "Theme has been successfully deactivated."
 msgid_plural "Themes have been successuflly deactivated."
 msgstr[0] "主题已被成功地停用。"
 
-#: src/Core/Backend/ThemesList.php:621
+#: src/Core/Backend/ThemesList.php:625
 msgid "Theme has been successfully cloned."
 msgid_plural "Themes have been successuflly cloned."
 msgstr[0] "主题已经被成功地克隆了。"
 
-#: src/Core/Backend/ThemesList.php:655
+#: src/Core/Backend/ThemesList.php:659
 msgid "You don't have permissions to delete this theme."
 msgstr "你没有权限删除这个主题。"
 
-#: src/Core/Backend/ThemesList.php:659
+#: src/Core/Backend/ThemesList.php:663
 msgid "Some themes have not been delete."
 msgstr "有些主题还没有被删除。"
 
-#: src/Core/Backend/ThemesList.php:662
+#: src/Core/Backend/ThemesList.php:666
 msgid "Theme has been successfully deleted."
 msgid_plural "Themes have been successuflly deleted."
 msgstr[0] "主题已被成功删除。"
 
-#: src/Core/Backend/ThemesList.php:695
+#: src/Core/Backend/ThemesList.php:699
 msgid "Theme has been successfully installed."
 msgid_plural "Themes have been successfully installed."
 msgstr[0] "主题已经成功安装。"
 
-#: src/Core/Backend/ThemesList.php:734
+#: src/Core/Backend/ThemesList.php:738
 msgid "Theme has been successfully updated."
 msgid_plural "Themes have been successfully updated."
 msgstr[0] "主题已被成功更新。"
 
-#: src/Core/Backend/ThemesList.php:738
+#: src/Core/Backend/ThemesList.php:742
 #, php-format
 msgid "Following themes updates are locked: %s"
 msgstr "以下主题更新被锁定: %s"
 
-#: src/Core/Backend/ThemesList.php:776
+#: src/Core/Backend/ThemesList.php:780
 msgid "The theme has been successfully updated."
 msgstr "该主题已成功更新。"
 
-#: src/Core/Backend/ThemesList.php:777
+#: src/Core/Backend/ThemesList.php:781
 msgid "The theme has been successfully installed."
 msgstr "该主题已成功安装。"
 
@@ -2277,11 +2277,11 @@ msgstr "这要么意味着你删除了默认主题，要么就是在博客配置
 msgid "Default theme not found."
 msgstr "没有找到默认主题。"
 
-#: src/Core/Frontend/Utility.php:312
+#: src/Core/Frontend/Utility.php:305
 msgid "Something went wrong while loading template file for your blog."
 msgstr "在为你的博客加载模板文件时出了问题。"
 
-#: src/Core/Frontend/Utility.php:354
+#: src/Core/Frontend/Utility.php:347
 msgid "Can't create template files."
 msgstr "不能创建模板文件。"
 
