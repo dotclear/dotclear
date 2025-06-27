@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-27 14:26+0200\n"
-"PO-Revision-Date: 2025-06-27 12:29\n"
+"PO-Revision-Date: 2025-06-27 12:57\n"
 "Last-Translator: \n"
 "Language-Team: Telugu\n"
 "Language: te_IN\n"
@@ -3028,11 +3028,11 @@ msgstr "మీరు మీ CSS ఫైల్‌లలో <code>url(...)</code>�
 
 #: plugins/themeEditor/src/Manage.php:257
 msgid "This file is not overloadable. Please check your var folder permissions."
-msgstr ""
+msgstr "ఈ ఫైల్ ఓవర్‌లోడ్ చేయబడదు. దయచేసి మీ var ఫోల్డర్ అనుమతులను తనిఖీ చేయండి."
 
 #: plugins/themeEditor/src/Manage.php:260
 msgid "This theme is too old to be modified. Please check if an update is available."
-msgstr ""
+msgstr "ఈ థీమ్ చాలా పాతది కాబట్టి దీన్ని సవరించలేం. దయచేసి అప్‌డేట్ అందుబాటులో ఉందో లేదో తనిఖీ చేయండి."
 
 #: plugins/themeEditor/src/Manage.php:279
 msgid "Templates files"
