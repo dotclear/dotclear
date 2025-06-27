@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-26 15:18+0200\n"
-"PO-Revision-Date: 2025-06-26 14:33\n"
+"POT-Creation-Date: 2025-06-27 14:26+0200\n"
+"PO-Revision-Date: 2025-06-27 12:29\n"
 "Last-Translator: \n"
 "Language-Team: Hindi\n"
 "Language: hi_IN\n"
@@ -3026,27 +3026,31 @@ msgstr "रीसेट करें"
 msgid "If you use <code>url(...)</code> in your CSS files, be sure to use <code>url(index.php?tf=...)</code> to correctly load theme resources (imported CSS, images, etc.), except for URL types in the form <code>data:image</code>.<br>Example: do <code>@import url(index.php?tf=css/layout.css);</code> instead of <code>@import url(css/layout.css);</code>."
 msgstr "यदि आप अपनी CSS फ़ाइलों में <code>url(...)</code> का उपयोग करते हैं, तो <code>data:image</code> के रूप में URL प्रकारों को छोड़कर, थीम संसाधनों (आयातित CSS, चित्र, आदि) को सही ढंग से लोड करने के लिए <code>url(index.php?tf=...)</code> का उपयोग करना सुनिश्चित करें।<br>उदाहरण: <code>@import url(css/layout.css);</code> के बजाय <code>@import url(index.php?tf=css/layout.css);</code> करें।"
 
-#: plugins/themeEditor/src/Manage.php:255
-msgid "This file is not writable. Please check your theme files permissions."
-msgstr "यह फ़ाइल लिखने योग्य नहीं है. कृपया अपनी प्रसंग फ़ाइलें अनुमतियाँ जाँचें."
+#: plugins/themeEditor/src/Manage.php:257
+msgid "This file is not overloadable. Please check your var folder permissions."
+msgstr ""
 
-#: plugins/themeEditor/src/Manage.php:274
+#: plugins/themeEditor/src/Manage.php:260
+msgid "This theme is too old to be modified. Please check if an update is available."
+msgstr ""
+
+#: plugins/themeEditor/src/Manage.php:279
 msgid "Templates files"
 msgstr "टैम्प्लेट्स"
 
-#: plugins/themeEditor/src/Manage.php:279
+#: plugins/themeEditor/src/Manage.php:284
 msgid "CSS files"
 msgstr "CSS फ़ाइलें"
 
-#: plugins/themeEditor/src/Manage.php:284
+#: plugins/themeEditor/src/Manage.php:289
 msgid "JavaScript files"
 msgstr "JavaScript फ़ाइलें"
 
-#: plugins/themeEditor/src/Manage.php:289
+#: plugins/themeEditor/src/Manage.php:294
 msgid "Locales files"
 msgstr "स्थानीय फ़ाइलें"
 
-#: plugins/themeEditor/src/Manage.php:294
+#: plugins/themeEditor/src/Manage.php:299
 msgid "PHP files"
 msgstr "पीएचपी फ़ाइलें"
 
