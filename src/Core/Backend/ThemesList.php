@@ -255,7 +255,7 @@ class ThemesList extends ModulesList
             if ($current) {
                 // _GET actions
                 if (file_exists(Path::real(App::blog()->themesPath() . DIRECTORY_SEPARATOR . $id) . DIRECTORY_SEPARATOR . 'style.css')) {
-                    $theme_url = Page::getTF('style.css');
+                    $theme_url = Page::getTF('style.css') . '&theme=' . App::blog()->settings()->system->theme;
 
                     $module_actions[] = (new Para())
                         ->items([

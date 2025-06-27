@@ -200,6 +200,11 @@ class FileServer
             unset($_GET['t']);
         }
 
+        // $_GET['theme'] : theme in url to bypass cache parameter given by theme's resources loading
+        if (isset($_GET['theme'])) {
+            unset($_GET['theme']);
+        }
+
         // Only $_GET['pf'] is allowed in URL
         if (count($_GET) > 1) {
             self::p403();
