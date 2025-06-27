@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-26 15:18+0200\n"
-"PO-Revision-Date: 2025-06-26 14:33\n"
+"POT-Creation-Date: 2025-06-27 14:26+0200\n"
+"PO-Revision-Date: 2025-06-27 12:57\n"
 "Last-Translator: \n"
 "Language-Team: Indonesian\n"
 "Language: id_ID\n"
@@ -3019,27 +3019,31 @@ msgstr "Atur ulang"
 msgid "If you use <code>url(...)</code> in your CSS files, be sure to use <code>url(index.php?tf=...)</code> to correctly load theme resources (imported CSS, images, etc.), except for URL types in the form <code>data:image</code>.<br>Example: do <code>@import url(index.php?tf=css/layout.css);</code> instead of <code>@import url(css/layout.css);</code>."
 msgstr "Jika Anda menggunakan <code>url(...)</code> dalam berkas CSS Anda, pastikan untuk menggunakan <code>url(index.php?tf=...)</code> untuk memuat sumber daya tema dengan benar (CSS yang diimpor, gambar, dan lain-lain), kecuali untuk tipe URL dalam bentuk <code>data:image</code>.<br>Contoh: lakukan <code>@impor url(index.php?tf=css/layout.css);</code> alih-alih <code>@impor url(css/layout.css);</code>."
 
-#: plugins/themeEditor/src/Manage.php:255
-msgid "This file is not writable. Please check your theme files permissions."
-msgstr "File ini tidak dapat ditulis. Silakan periksa izin file tema Anda."
+#: plugins/themeEditor/src/Manage.php:257
+msgid "This file is not overloadable. Please check your var folder permissions."
+msgstr "Berkas ini tidak dapat dimuat secara berlebihan. Silakan periksa izin folder var Anda."
 
-#: plugins/themeEditor/src/Manage.php:274
+#: plugins/themeEditor/src/Manage.php:260
+msgid "This theme is too old to be modified. Please check if an update is available."
+msgstr "Tema ini sudah terlalu tua untuk dimodifikasi. Silakan periksa apakah pembaruan tersedia."
+
+#: plugins/themeEditor/src/Manage.php:279
 msgid "Templates files"
 msgstr "File templat"
 
-#: plugins/themeEditor/src/Manage.php:279
+#: plugins/themeEditor/src/Manage.php:284
 msgid "CSS files"
 msgstr "File CSS"
 
-#: plugins/themeEditor/src/Manage.php:284
+#: plugins/themeEditor/src/Manage.php:289
 msgid "JavaScript files"
 msgstr "File JavaScript"
 
-#: plugins/themeEditor/src/Manage.php:289
+#: plugins/themeEditor/src/Manage.php:294
 msgid "Locales files"
 msgstr "File lokal"
 
-#: plugins/themeEditor/src/Manage.php:294
+#: plugins/themeEditor/src/Manage.php:299
 msgid "PHP files"
 msgstr "File PHP"
 
