@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-26 15:18+0200\n"
-"PO-Revision-Date: 2025-06-26 14:33\n"
+"POT-Creation-Date: 2025-06-27 14:26+0200\n"
+"PO-Revision-Date: 2025-06-27 12:28\n"
 "Last-Translator: \n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -3026,27 +3026,31 @@ msgstr "Zurücksetzen"
 msgid "If you use <code>url(...)</code> in your CSS files, be sure to use <code>url(index.php?tf=...)</code> to correctly load theme resources (imported CSS, images, etc.), except for URL types in the form <code>data:image</code>.<br>Example: do <code>@import url(index.php?tf=css/layout.css);</code> instead of <code>@import url(css/layout.css);</code>."
 msgstr "Wenn Sie <code>url(...)</code> in Ihren CSS-Dateien verwenden, stellen Sie sicher, dass Sie <code>url(index.php?tf=...)</code> verwenden, um Theme-Ressourcen (importierte CSS, Bilder usw.) korrekt zu laden, außer für URL-Typen in der Form <code>data:image</code>.<br>Beispiel: verwenden Sie <code>@import url(index.php?tf=css/layout.css);</code> anstelle von <code>@import url(css/layout.css);</code>."
 
-#: plugins/themeEditor/src/Manage.php:255
-msgid "This file is not writable. Please check your theme files permissions."
-msgstr "Diese Datei ist nicht beschreibbar. Bitte überprüfe die Rechte der Theme-Datei."
+#: plugins/themeEditor/src/Manage.php:257
+msgid "This file is not overloadable. Please check your var folder permissions."
+msgstr ""
 
-#: plugins/themeEditor/src/Manage.php:274
+#: plugins/themeEditor/src/Manage.php:260
+msgid "This theme is too old to be modified. Please check if an update is available."
+msgstr ""
+
+#: plugins/themeEditor/src/Manage.php:279
 msgid "Templates files"
 msgstr "Template-Dateien"
 
-#: plugins/themeEditor/src/Manage.php:279
+#: plugins/themeEditor/src/Manage.php:284
 msgid "CSS files"
 msgstr "CSS-Dateien"
 
-#: plugins/themeEditor/src/Manage.php:284
+#: plugins/themeEditor/src/Manage.php:289
 msgid "JavaScript files"
 msgstr "JavaScript-Dateien"
 
-#: plugins/themeEditor/src/Manage.php:289
+#: plugins/themeEditor/src/Manage.php:294
 msgid "Locales files"
 msgstr "Lokale Dateien"
 
-#: plugins/themeEditor/src/Manage.php:294
+#: plugins/themeEditor/src/Manage.php:299
 msgid "PHP files"
 msgstr "PHP-Dateien"
 
