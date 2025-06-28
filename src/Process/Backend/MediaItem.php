@@ -384,7 +384,10 @@ class MediaItem extends Process
 
         // Display page
 
-        $starting_scripts = Page::jsModal() . Page::jsLoad('js/_media_item.js');
+        $starting_scripts = Page::jsModal() .
+            Page::jsLoad('js/_media_item.js') .
+            Page::jsConfirmClose('change-properties-form');
+
         if (App::backend()->popup && App::backend()->plugin_id !== '') {
             # --BEHAVIOR-- adminPopupMedia -- string
             $starting_scripts .= App::behavior()->callBehavior('adminPopupMedia', App::backend()->plugin_id);
