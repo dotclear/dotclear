@@ -154,7 +154,7 @@ dd {
   padding-left: 1em;
   color: #555;
 }
-aside:not(#sidebar) {
+aside:not(#sidebar):not([class]) {
   background-color: rgb(250, 250, 250);
   color: rgb(99, 99, 99);
   width: 20em;
