@@ -254,22 +254,6 @@ class ThemesList extends ModulesList
             $module_actions = [];
             if ($current) {
                 // _GET actions
-                if (file_exists(Path::real(App::blog()->themesPath() . DIRECTORY_SEPARATOR . $id) . DIRECTORY_SEPARATOR . 'style.css')) {
-                    $theme_url = Page::getTF('style.css') . '&theme=' . App::blog()->settings()->system->theme;
-
-                    $module_actions[] = (new Para())
-                        ->items([
-                            (new Link())
-                                ->href($theme_url)
-                                ->class('outgoing')
-                                ->separator(' ')
-                                ->items([
-                                    (new Text(null, __('View stylesheet'))),
-                                    (new Img('images/outgoing-link.svg'))
-                                        ->alt(''),
-                                ]),
-                        ]);
-                }
 
                 // by class name
                 $class = $define->get('namespace') . Autoloader::NS_SEP . $this->modules::MODULE_CLASS_CONFIG;
