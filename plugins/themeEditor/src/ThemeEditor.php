@@ -427,6 +427,7 @@ class ThemeEditor
             'tpl'   => $this->tpl,
             'css'   => $this->css,
             'js'    => $this->js,
+            'mjs'   => $this->js,
             'po'    => $this->po,
             'php'   => $this->php,
             default => [],
@@ -538,17 +539,23 @@ class ThemeEditor
                 ...$this->js,
                 // Parent theme
                 ...$this->getFilesInDir($this->parent_theme, 'js'),
+                ...$this->getFilesInDir($this->parent_theme, 'mjs'),
                 ...$this->getFilesInDir($this->parent_theme . '/js', 'js', 'js/'),
+                ...$this->getFilesInDir($this->parent_theme . '/js', 'mjs', 'js/'),
             ];
         }
         $this->js = [
             ...$this->js,
             // Current theme
             ...$this->getFilesInDir($this->user_theme, 'js'),
+            ...$this->getFilesInDir($this->user_theme, 'mjs'),
             ...$this->getFilesInDir($this->user_theme . '/js', 'js', 'js/'),
+            ...$this->getFilesInDir($this->user_theme . '/js', 'mjs', 'js/'),
             // Custom theme
             ...$this->getFilesInDir($this->custom_theme, 'js'),
+            ...$this->getFilesInDir($this->custom_theme, 'mjs'),
             ...$this->getFilesInDir($this->custom_theme . '/js', 'js', 'js/'),
+            ...$this->getFilesInDir($this->custom_theme . '/js', 'mjs', 'js/'),
         ];
 
         uksort($this->js, $this->sortFilesHelper(...));
