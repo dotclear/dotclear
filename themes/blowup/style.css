@@ -208,7 +208,6 @@ sub {
 #q {
   border: 1px solid #bfbfbf;
   width: 150px;
-  color: #6b6b6b;
 }
 #search .submit {
   padding: 0;
@@ -579,7 +578,6 @@ dd.comment-preview {
     1em 'Lucida Grande',
     Arial,
     sans-serif;
-  color: #279ac4;
   border: 1px solid #cdcdcd;
   padding: 1px 2px;
   width: 68%;
