@@ -78,6 +78,11 @@ class Utility extends Process
     public $parent_theme;
 
     /**
+     * Is current theme overloadable?
+     */
+    public bool $theme_overload;
+
+    /**
      * Smilies definitions
      *
      * @var array<string, string>|null|false

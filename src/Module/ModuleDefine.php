@@ -135,7 +135,7 @@ class ModuleDefine
         // theme specifics
         'parent'   => null,
         'tplset'   => null,
-        'overload' => false,
+        'overload' => null,
 
         // store specifics
         'file'            => '',

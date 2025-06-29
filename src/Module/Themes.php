@@ -287,16 +287,15 @@ class Themes extends Modules implements ThemesInterface
     {
         $module = $this->getDefine($id);
         if ($module->isDefined()) {
-            if ($module->get('overload') === true) {
-                return true;
+            if ($module->get('overload') !== null) {
+                // overload property defined, return it
+                return $module->get('overload');
             }
 
             // Check theme dc_min and assume that if the theme requires DC 2.35+ then it is overloadable
             $theme_dc_min = $module->get('dc_min');
-            if ($theme_dc_min) {
-                if (version_compare($theme_dc_min, '2.35', '>=')) {
-                    return true;
-                }
+            if ($theme_dc_min && version_compare($theme_dc_min, '2.35', '>=')) {
+                return true;
             }
         }
 
