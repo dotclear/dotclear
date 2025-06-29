@@ -241,7 +241,7 @@ h1 a {
   font-size: 0.875em;
   color: #000;
   background: rgb(244, 244, 245);
-  background: linear-gradient(top, rgba(244, 244, 245, 1) 0%, rgba(215, 215, 220, 1) 100%);
+  background: linear-gradient(to top, rgba(244, 244, 245, 1) 0%, rgba(215, 215, 220, 1) 100%);
   border-radius: 4px;
   border-right: 1px solid #aaa;
   border-bottom: 1px solid #ccc;
@@ -522,16 +522,11 @@ img.smiley {
   font-size: 100%;
   border: 1px solid #ccc;
   padding: 4px;
-  background: #fff;
   border-radius: 3px;
   font-family: 'Franklin gothic medium', 'arial narrow', 'DejaVu Sans Condensed', 'helvetica neue', helvetica, sans-serif;
 }
 .field textarea {
   padding: 0.5em 1em;
-}
-.field input:focus,
-.field textarea:focus {
-  background: #fff;
 }
 #comment-form input[type='submit'],
 #comment-form input[type='reset'] {
@@ -547,14 +542,14 @@ img.smiley {
   border: solid 1px #686867;
   border-radius: 5px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-  background: linear-gradient(top, rgba(119, 119, 119, 1) 0%, rgba(85, 85, 85, 1) 100%);
+  background: linear-gradient(to top, rgba(119, 119, 119, 1) 0%, rgba(85, 85, 85, 1) 100%);
 }
 #comment-form input[type='submit']:hover,
 #comment-form input[type='submit']:focus,
 #comment-form input[type='reset']:hover,
 #comment-form input[type='reset']:focus {
   background: rgb(85, 85, 85);
-  background: linear-gradient(top, rgba(85, 85, 85, 1) 0%, rgba(119, 119, 119, 1) 100%);
+  background: linear-gradient(to top, rgba(85, 85, 85, 1) 0%, rgba(119, 119, 119, 1) 100%);
   text-decoration: none;
 }
 #c_content {
@@ -651,7 +646,6 @@ img.smiley {
 #search input {
   margin: 0;
   border: none;
-  background: transparent;
   height: auto;
   line-height: 2em;
 }
@@ -660,9 +654,6 @@ img.smiley {
   width: 78%;
   font-size: 100%;
   padding-left: 2px;
-}
-#q:focus {
-  background: #fcfcf9;
 }
 #search .submit {
   background: #706f6f;
