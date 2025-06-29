@@ -311,6 +311,9 @@ class ThemeEditor
                 L10n::generatePhpFileFromPo(dirname($dest) . DIRECTORY_SEPARATOR . basename($dest, '.po'), $this->license_block());
             }
 
+            # --BEHAVIOR-- themeEditorWriteFile -- string, string
+            App::behavior()->callBehavior('themeEditorWriteFile', $dest, $type);
+
             // Updating inner files list
             $this->updateFileInList($type, $filename, $dest);
         } catch (Exception) {
@@ -357,6 +360,9 @@ class ThemeEditor
             if ($dest !== false) {
                 // File exists and may be deleted
                 unlink($dest);
+
+                # --BEHAVIOR-- themeEditorDeleteFile -- string, string
+                App::behavior()->callBehavior('themeEditorDeleteFile', $dest, $type);
 
                 if ($type === 'po') {
                     // Remove also PHP file
