@@ -662,10 +662,15 @@ class ThemeEditor
 
         $d = dir($dir);
         if ($d !== false) {
-            while (($f = $d->read()) !== false) {
+            while (($file = $d->read()) !== false) {
                 /* @phpstan-ignore-next-line */
-                if (is_file($dir . '/' . $f) && !preg_match('/^\./', $f) && (!$ext || preg_match('/\.' . preg_quote($ext) . '$/i', $f)) && (!$model || preg_match('/^' . preg_quote($model) . '$/i', $f))) {
-                    $res[$prefix . $f] = $dir . '/' . $f;
+                if (is_file($dir . '/' . $file) && !preg_match('/^\./', $file) && (!$ext || preg_match('/\.' . preg_quote($ext) . '$/i', $file)) && (!$model || preg_match('/^' . preg_quote($model) . '$/i', $file))) {
+                    $extension     = Files::getExtension($file);
+                    $minified_base = substr($file, 0, strlen($file) - strlen($extension) - 1);
+                    // Check if it is not a minified one (which will be ignored)
+                    if (Files::getExtension($minified_base) !== 'min') {
+                        $res[$prefix . $file] = $dir . '/' . $file;
+                    }
                 }
             }
         }
