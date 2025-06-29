@@ -8,6 +8,7 @@
   border: 0;
 }
 body {
+  color: #000;
   background: #cdcdcd;
   font:
     0.7em Arial,
@@ -165,7 +166,6 @@ sub {
   width: 180px;
   padding: 1px 2px;
   border: 1px solid #cdcdcd;
-  color: #005d99;
   font-size: 1em;
 }
 #search .submit {
@@ -779,7 +779,6 @@ dd.comment-preview * {
   font:
     1em Arial,
     sans-serif;
-  color: #005d99;
 }
 #comment-form input#c_remember {
   width: auto;
