@@ -969,12 +969,13 @@ dotclear.passwordHelpers = () => {
 
     button.previousElementSibling.setAttribute('type', isPasswordShown ? 'password' : 'text');
     button.setAttribute('title', buttonContent);
+    button.setAttribute('aria-label', buttonContent);
     button.querySelector('span').textContent = buttonContent;
   };
 
   // Compose button
   const buttonTemplate = dotclear.htmlToNode(
-    `<button type="button" class="pw-show" title="${dotclear.msg.show_password}"><span class="sr-only">${dotclear.msg.show_password}</span></button>`,
+    `<button type="button" class="pw-show" title="${dotclear.msg.show_password}" aria-label="${dotclear.msg.show_password}"><span class="sr-only">${dotclear.msg.show_password}</span></button>`,
   );
 
   const passwordFields = document.querySelectorAll('input[type=password]');
