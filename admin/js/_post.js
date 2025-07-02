@@ -57,7 +57,7 @@ dotclear.ready(() => {
     field.value = now.toISOString().slice(0, 16);
   };
   const dtTodayButtonTemplate = new DOMParser().parseFromString(
-    `<button type="button" class="dt-today" title="${dotclear.msg.set_today}"><span class="sr-only">${dotclear.msg.set_today}</span></button>`,
+    `<button type="button" class="dt-today" title="${dotclear.msg.set_today}" aria-label="${dotclear.msg.set_today}"><span class="sr-only">${dotclear.msg.set_today}</span></button>`,
     'text/html',
   ).body.firstChild;
   const dtField = document.querySelector('#post_dt');
