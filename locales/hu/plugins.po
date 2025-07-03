@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-27 14:26+0200\n"
-"PO-Revision-Date: 2025-06-27 12:57\n"
+"POT-Creation-Date: 2025-07-03 19:49+0200\n"
+"PO-Revision-Date: 2025-07-03 17:55\n"
 "Last-Translator: \n"
 "Language-Team: Hungarian\n"
 "Language: hu_HU\n"
@@ -1140,7 +1140,7 @@ msgstr "A kategóriát sikeresen frissítettem"
 
 #: plugins/blogroll/src/ManageEdit.php:181
 #: plugins/dcCKEditor/src/BackendBehaviors.php:62
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:194
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:221
 msgid "Link"
 msgstr "Link"
 
@@ -1364,27 +1364,27 @@ msgid "HTML"
 msgstr "HTML"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:59
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:210
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:237
 msgid "Media chooser"
 msgstr "Média választó"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:60
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:213
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:240
 msgid "m"
 msgstr "m"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:61
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:217
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:244
 msgid "Link to an entry"
 msgstr "Link egy bejegyzéshez"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:63
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:197
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:224
 msgid "l"
 msgstr "l"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:64
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:203
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:230
 msgid "External image"
 msgstr "Külső kép"
 
@@ -1393,7 +1393,7 @@ msgid "URL field cannot be empty."
 msgstr "Az URL mező nem lehet üres."
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:89
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:239
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:266
 msgid "Open the media"
 msgstr "Nyissa meg a médiát"
 
@@ -1506,112 +1506,113 @@ msgstr "dcLegacyEditor"
 msgid "Dotclear wiki"
 msgstr "Dotclear wiki"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:114
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:141
 msgid "visual"
 msgstr "vizuális"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:115
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:142
 msgid "source"
 msgstr "forrás"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:116
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:143
 msgid "You can use the following shortcuts to format your text."
 msgstr "A következő gyorsbillentyűkkel formázhatja a szöveget."
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:119
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:146
 msgid "Block format"
 msgstr "Blokk formátum"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:121
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:148
 msgid "-- none --"
 msgstr "-- nincs --"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:122
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:149
 msgid "-- block format --"
 msgstr "-- blokk formátum --"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:123
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:150
 msgid "Paragraph"
 msgstr "bekezdés"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:124
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:151
 msgid "Level 1 header"
 msgstr "1. szintű fejléc"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:125
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:152
 msgid "Level 2 header"
 msgstr "2. szintű fejléc"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:126
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:153
 msgid "Level 3 header"
 msgstr "3. szintű fejléc"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:127
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:154
 msgid "Level 4 header"
 msgstr "4. szintű fejléc"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:128
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:155
 msgid "Level 5 header"
 msgstr "5. szintű fejléc"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:129
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:156
 msgid "Level 6 header"
 msgstr "6. szintű fejléc"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:133
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:160
 msgid "Strong emphasis"
 msgstr "Erős hangsúly"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:138
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:165
 msgid "Emphasis"
 msgstr "Kiemelés"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:143
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:170
 msgid "Inserted"
 msgstr "Beillesztett"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:148
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:175
 msgid "Deleted"
 msgstr "Törölt"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:153
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:180
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:268
 msgid "Inline quote"
 msgstr "Inline idézet"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:158
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:185
 msgid "Code"
 msgstr "Kód:"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:168
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:195
 msgid "Line break"
 msgstr "Zárójelváltás"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:173
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:200
 msgid "Blockquote"
 msgstr "Blockquote"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:178
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:205
 msgid "Preformated text"
 msgstr "Előformázott szöveg"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:183
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:210
 msgid "Unordered list"
 msgstr "Rendezetlen lista"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:188
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:215
 msgid "Ordered list"
 msgstr "Rendezett lista"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:198
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:206
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:225
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:233
 msgid "URL?"
 msgstr "URL?"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:199
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:226
 msgid "Language?"
 msgstr "Nyelv?"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:222
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:249
 msgid "Remove text formating"
 msgstr "Szövegformázás eltávolítása"
 
@@ -3077,7 +3078,7 @@ msgstr "Sablonkészletből:"
 
 #: plugins/themeEditor/src/ThemeEditor.php:246
 #: plugins/themeEditor/src/ThemeEditor.php:283
-#: plugins/themeEditor/src/ThemeEditor.php:352
+#: plugins/themeEditor/src/ThemeEditor.php:355
 msgid "File does not exist."
 msgstr "A fájl nem létezik."
 
@@ -3086,12 +3087,12 @@ msgstr "A fájl nem létezik."
 msgid "File %s is not readable"
 msgstr "A %s fájl nem olvasható"
 
-#: plugins/themeEditor/src/ThemeEditor.php:317
+#: plugins/themeEditor/src/ThemeEditor.php:320
 #, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr "Nem lehet írni a %sfájlt. Kérjük, ellenőrizze a témafájlok és mappák jogosultságait."
 
-#: plugins/themeEditor/src/ThemeEditor.php:385
+#: plugins/themeEditor/src/ThemeEditor.php:391
 #, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "Nem lehet törölni a %sfájlt. Kérjük, ellenőrizze a témafájlok és mappák jogosultságait."

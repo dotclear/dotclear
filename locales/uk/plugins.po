@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-27 14:26+0200\n"
-"PO-Revision-Date: 2025-06-27 12:57\n"
+"POT-Creation-Date: 2025-07-03 19:49+0200\n"
+"PO-Revision-Date: 2025-07-03 17:55\n"
 "Last-Translator: \n"
 "Language-Team: Ukrainian\n"
 "Language: uk_UA\n"
@@ -1144,7 +1144,7 @@ msgstr "Категорію успішно оновлено"
 
 #: plugins/blogroll/src/ManageEdit.php:181
 #: plugins/dcCKEditor/src/BackendBehaviors.php:62
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:194
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:221
 msgid "Link"
 msgstr "Посилання"
 
@@ -1368,27 +1368,27 @@ msgid "HTML"
 msgstr "HTML"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:59
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:210
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:237
 msgid "Media chooser"
 msgstr "Вибір медіа"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:60
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:213
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:240
 msgid "m"
 msgstr "m"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:61
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:217
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:244
 msgid "Link to an entry"
 msgstr "Посилання на запис"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:63
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:197
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:224
 msgid "l"
 msgstr "l"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:64
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:203
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:230
 msgid "External image"
 msgstr "Зовнішній імідж"
 
@@ -1397,7 +1397,7 @@ msgid "URL field cannot be empty."
 msgstr "Поле URL не може бути порожнім."
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:89
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:239
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:266
 msgid "Open the media"
 msgstr "Відкрийте Змі"
 
@@ -1510,112 +1510,113 @@ msgstr "dcLegacyEditor"
 msgid "Dotclear wiki"
 msgstr "Dotclear wiki"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:114
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:141
 msgid "visual"
 msgstr "візуальний"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:115
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:142
 msgid "source"
 msgstr "джерело"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:116
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:143
 msgid "You can use the following shortcuts to format your text."
 msgstr "Для форматування тексту ви можете скористатися наступними комбінаціями клавіш."
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:119
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:146
 msgid "Block format"
 msgstr "Формат блоку"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:121
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:148
 msgid "-- none --"
 msgstr "-- ні."
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:122
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:149
 msgid "-- block format --"
 msgstr "-- формат блоку --"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:123
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:150
 msgid "Paragraph"
 msgstr "Абзац"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:124
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:151
 msgid "Level 1 header"
 msgstr "Заголовок рівня 1"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:125
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:152
 msgid "Level 2 header"
 msgstr "Заголовок рівня 2"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:126
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:153
 msgid "Level 3 header"
 msgstr "Заголовок 3-го рівня"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:127
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:154
 msgid "Level 4 header"
 msgstr "Заголовок 4-го рівня"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:128
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:155
 msgid "Level 5 header"
 msgstr "Заголовок 5-го рівня"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:129
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:156
 msgid "Level 6 header"
 msgstr "Заголовок рівня 6"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:133
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:160
 msgid "Strong emphasis"
 msgstr "Сильний акцент"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:138
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:165
 msgid "Emphasis"
 msgstr "Наголос"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:143
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:170
 msgid "Inserted"
 msgstr "Вставлено"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:148
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:175
 msgid "Deleted"
 msgstr "Видалено"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:153
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:180
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:268
 msgid "Inline quote"
 msgstr "Вбудована цитата"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:158
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:185
 msgid "Code"
 msgstr "Код"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:168
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:195
 msgid "Line break"
 msgstr "Розрив рядка"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:173
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:200
 msgid "Blockquote"
 msgstr "Blockquote"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:178
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:205
 msgid "Preformated text"
 msgstr "Заздалегідь підготовлений текст"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:183
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:210
 msgid "Unordered list"
 msgstr "Невпорядкований список"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:188
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:215
 msgid "Ordered list"
 msgstr "Впорядкований список"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:198
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:206
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:225
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:233
 msgid "URL?"
 msgstr "URL?"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:199
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:226
 msgid "Language?"
 msgstr "Мова?"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:222
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:249
 msgid "Remove text formating"
 msgstr "Видалити форматування тексту"
 
@@ -3091,7 +3092,7 @@ msgstr "З набору шаблонів:"
 
 #: plugins/themeEditor/src/ThemeEditor.php:246
 #: plugins/themeEditor/src/ThemeEditor.php:283
-#: plugins/themeEditor/src/ThemeEditor.php:352
+#: plugins/themeEditor/src/ThemeEditor.php:355
 msgid "File does not exist."
 msgstr "Файл не існує."
 
@@ -3100,12 +3101,12 @@ msgstr "Файл не існує."
 msgid "File %s is not readable"
 msgstr "Файл %s не читається"
 
-#: plugins/themeEditor/src/ThemeEditor.php:317
+#: plugins/themeEditor/src/ThemeEditor.php:320
 #, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr "Неможливо записати файл %s. Будь ласка, перевірте права доступу до файлів і папок теми."
 
-#: plugins/themeEditor/src/ThemeEditor.php:385
+#: plugins/themeEditor/src/ThemeEditor.php:391
 #, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "Не вдається видалити файл %s. Будь ласка, перевірте права доступу до файлів і папок теми."
