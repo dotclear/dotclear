@@ -1,7 +1,7 @@
 /*global jsToolBar, dotclear */
 'use strict';
 
-jsToolBar.prototype.can_wwg = document.designMode != undefined;
+jsToolBar.prototype.can_wwg = document.designMode !== undefined;
 jsToolBar.prototype.iframe = null;
 jsToolBar.prototype.iwin = null;
 jsToolBar.prototype.ibody = null;
@@ -21,7 +21,7 @@ jsToolBar.prototype.draw = function (mode = 'xhtml') {
 };
 
 jsToolBar.prototype.switchMode = function (mode = 'xhtml') {
-  if (mode == 'xhtml') {
+  if (mode === 'xhtml') {
     this.wwg_mode = true;
     this.draw(mode);
     return;
@@ -37,12 +37,12 @@ jsToolBar.prototype.switchMode = function (mode = 'xhtml') {
 
 jsToolBar.prototype.syncContents = function (from = 'textarea') {
   const This = this;
-  if (from == 'textarea') {
+  if (from === 'textarea') {
     initContent();
   } else {
     // this.validBlockquote();  // Franck disable this validation as it's not robust solid
     let html = this.applyHtmlFilters(this.ibody.innerHTML);
-    if (html === '<br />' || html === '<br>' || html === '<p></p>' || html === '<p><br></p>') {
+    if (['<br />', '<br>', '<p></p>', '<p><br></p>'].includes(html)) {
       html = '';
     }
     this.textarea.value = html;
@@ -55,7 +55,7 @@ jsToolBar.prototype.syncContents = function (from = 'textarea') {
     }
     This.ibody = This.iframe.contentWindow.document.body;
 
-    if (This.textarea.value != '' && This.textarea.value != '<p></p>') {
+    if (This.textarea.value && This.textarea.value !== '<p></p>') {
       This.ibody.innerHTML = This.applyWysiwygFilters(This.textarea.value);
       if (This.ibody.createTextRange) {
         //cursor at the begin for IE
@@ -81,17 +81,19 @@ jsToolBar.prototype.htmlFilters = {
   },
 };
 jsToolBar.prototype.applyHtmlFilters = function (str) {
+  let ret = str;
   for (const fn in this.htmlFilters) {
-    str = this.htmlFilters[fn].call(this, str);
+    ret = this.htmlFilters[fn].call(this, ret);
   }
-  return str;
+  return ret;
 };
 jsToolBar.prototype.wysiwygFilters = {};
 jsToolBar.prototype.applyWysiwygFilters = function (str) {
+  let ret = str;
   for (const fn in this.wysiwygFilters) {
-    str = this.wysiwygFilters[fn].call(this, str);
+    ret = this.wysiwygFilters[fn].call(this, ret);
   }
-  return str;
+  return ret;
 };
 
 jsToolBar.prototype.switchEdit = function () {
@@ -127,7 +129,7 @@ jsToolBar.prototype.initWindow = function () {
   this.iframe.height = this.textarea.offsetHeight + 0;
   this.iframe.width = this.textarea.offsetWidth + 0;
 
-  if (this.textarea.tabIndex != undefined) {
+  if (this.textarea.tabIndex !== undefined) {
     this.iframe.tabIndex = this.textarea.tabIndex;
   }
 
@@ -143,7 +145,7 @@ jsToolBar.prototype.initWindow = function () {
   <head>
     <link rel="stylesheet" href="style/default.css" type="text/css" media="screen">
     <style type="text/css">${This.iframe_css}</style>
-    ${This.base_url == '' ? '' : `<base href="${This.base_url}">`}
+    ${This.base_url === '' ? '' : `<base href="${This.base_url}">`}
   </head>
   <body id="${This.textarea.id}-jstEditorIframe"></body>
 </html>`;
@@ -172,7 +174,7 @@ jsToolBar.prototype.initWindow = function () {
 
     This.syncContents('textarea');
 
-    if (This.wwg_mode == undefined) {
+    if (This.wwg_mode === undefined) {
       This.wwg_mode = true;
     }
 
@@ -279,7 +281,7 @@ jsToolBar.prototype.removeEditor = function () {
     this.iframe = null;
   }
 
-  if (this.switcher != undefined && this.switcher.parentNode != undefined) {
+  if (this.switcher !== undefined && this.switcher.parentNode !== undefined) {
     this.switcher.parentNode.removeChild(this.switcher);
   }
 };
@@ -302,7 +304,7 @@ jsToolBar.prototype.focusEditor = function () {
 /** Resizer
  */
 jsToolBar.prototype.resizeSetStartH = function () {
-  if (this.wwg_mode && this.iframe != undefined) {
+  if (this.wwg_mode && this.iframe !== undefined) {
     this.dragStartH = this.iframe.offsetHeight;
     return;
   }
@@ -310,7 +312,7 @@ jsToolBar.prototype.resizeSetStartH = function () {
 };
 jsToolBar.prototype.resizeDragMove = function (event) {
   const new_height = `${this.dragStartH + event.clientY - this.dragStartY}px`;
-  if (this.iframe != undefined) {
+  if (this.iframe !== undefined) {
     this.iframe.style.height = new_height;
   }
   this.textarea.style.height = new_height;
@@ -339,7 +341,7 @@ jsToolBar.prototype.insertNode = function (node) {
 
     range.selectNodeContents(node);
     range.setEndAfter(node);
-    if (range.endContainer.childNodes.length > range.endOffset && range.endContainer.nodeType != Node.TEXT_NODE) {
+    if (range.endContainer.childNodes.length > range.endOffset && range.endContainer.nodeType !== Node.TEXT_NODE) {
       range.setEnd(range.endContainer.childNodes[range.endOffset], 0);
     } else {
       range.setEnd(range.endContainer.childNodes[0]);
@@ -414,7 +416,7 @@ jsToolBar.prototype.getBlockLevel = function () {
     const selection = this.iwin.getSelection();
     range = selection.getRangeAt(0);
     commonAncestorContainer = range.commonAncestorContainer;
-    while (commonAncestorContainer.nodeType != 1) {
+    while (commonAncestorContainer.nodeType !== 1) {
       commonAncestorContainer = commonAncestorContainer.parentNode;
     }
   } else {
@@ -424,17 +426,17 @@ jsToolBar.prototype.getBlockLevel = function () {
   }
 
   let ancestorTagName = commonAncestorContainer.tagName.toLowerCase();
-  while (!blockElts.includes(ancestorTagName) && ancestorTagName != 'body') {
+  while (!blockElts.includes(ancestorTagName) && ancestorTagName !== 'body') {
     commonAncestorContainer = commonAncestorContainer.parentNode;
     ancestorTagName = commonAncestorContainer.tagName.toLowerCase();
   }
-  return ancestorTagName == 'body' ? null : commonAncestorContainer;
+  return ancestorTagName === 'body' ? null : commonAncestorContainer;
 };
 jsToolBar.prototype.adjustBlockLevelCombo = function () {
   const blockLevel = this.getBlockLevel();
   if (blockLevel === null) {
-    if (this.mode == 'wysiwyg') this.toolNodes.blocks.value = 'none';
-    if (this.mode == 'xhtml') this.toolNodes.blocks.value = 'nonebis';
+    if (this.mode === 'wysiwyg') this.toolNodes.blocks.value = 'none';
+    if (this.mode === 'xhtml') this.toolNodes.blocks.value = 'nonebis';
   } else this.toolNodes.blocks.value = blockLevel.tagName.toLowerCase();
 };
 
@@ -533,13 +535,14 @@ jsToolBar.prototype.simpleCleanRegex = new Array(
   [/<(hr|HR)>/g, '<hr>'],
   /* br intempestifs de fin de block */
   [/<br\s*\/?>\s*<\/(h1|h2|h3|h4|h5|h6|ul|ol|li|p|blockquote|div)/gi, '</$1'],
-  [/<\/(h1|h2|h3|h4|h5|h6|ul|ol|li|p|blockquote)>([^\n\u000B\r\f])/gi, '</$1>\n$2'],
+  [/<\/(h1|h2|h3|h4|h5|h6|ul|ol|li|p|blockquote)>([^\n\v\r\f])/gi, '</$1>\n$2'],
   [/<hr style="width: 100%; height: 2px;" \/>/g, '<hr>'],
 );
 
 /** Cleanup HTML code
  */
-jsToolBar.prototype.tagsoup2xhtml = function (html) {
+jsToolBar.prototype.tagsoup2xhtml = function (code) {
+  let html = code;
   for (const reg in this.simpleCleanRegex) {
     html = html.replace(this.simpleCleanRegex[reg][0], this.simpleCleanRegex[reg][1]);
   }
@@ -605,7 +608,7 @@ jsToolBar.prototype.validBlockquote = function () {
     let frag = this.iwin.document.createDocumentFragment();
     for (let i = bqChilds.length - 1; i >= 0; i--) {
       if (
-        bqChilds[i].nodeType == 1 && // Node.ELEMENT_NODE
+        bqChilds[i].nodeType === 1 && // Node.ELEMENT_NODE
         blockElts.includes(bqChilds[i].tagName.toLowerCase())
       ) {
         if (frag.childNodes.length > 0) {
@@ -651,7 +654,8 @@ jsToolBar.prototype.removeFormatRegexp = new Array(
   [/(<[a-z][^>]*)color\s*:[^;]*;/gm, '$1'],
 );
 
-jsToolBar.prototype.removeTextFormating = function (html) {
+jsToolBar.prototype.removeTextFormating = function (code) {
+  let html = code;
   for (const reg in this.removeFormatRegexp) {
     html = html.replace(this.removeFormatRegexp[reg][0], this.removeFormatRegexp[reg][1]);
   }
@@ -665,7 +669,7 @@ jsToolBar.prototype.removeTextFormating = function (html) {
 jsToolBar.prototype.elements.blocks.wysiwyg = {
   list: ['none', 'p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
   fn(opt) {
-    if (opt == 'none') {
+    if (opt === 'none') {
       const blockLevel = this.getBlockLevel();
       if (blockLevel !== null) {
         this.replaceNodeByContent(blockLevel);
@@ -757,7 +761,7 @@ jsToolBar.prototype.elements.link.fn.wysiwyg = function () {
     const selection = this.iwin.getSelection();
     range = selection.getRangeAt(0);
     commonAncestorContainer = range.commonAncestorContainer;
-    while (commonAncestorContainer.nodeType != 1) {
+    while (commonAncestorContainer.nodeType !== 1) {
       commonAncestorContainer = commonAncestorContainer.parentNode;
     }
   } else {
@@ -767,13 +771,13 @@ jsToolBar.prototype.elements.link.fn.wysiwyg = function () {
   }
 
   let ancestorTagName = commonAncestorContainer.tagName.toLowerCase();
-  while (ancestorTagName != 'a' && ancestorTagName != 'body') {
+  while (ancestorTagName !== 'a' && ancestorTagName !== 'body') {
     commonAncestorContainer = commonAncestorContainer.parentNode;
     ancestorTagName = commonAncestorContainer.tagName.toLowerCase();
   }
 
   // Update or remove link?
-  if (ancestorTagName == 'a') {
+  if (ancestorTagName === 'a') {
     href = commonAncestorContainer.href || '';
     hreflang = commonAncestorContainer.hreflang || '';
   }
@@ -781,7 +785,7 @@ jsToolBar.prototype.elements.link.fn.wysiwyg = function () {
   href = window.prompt(this.elements.link.href_prompt, href);
 
   // Remove link
-  if (ancestorTagName == 'a' && href == '') {
+  if (ancestorTagName === 'a' && href === '') {
     this.replaceNodeByContent(commonAncestorContainer);
   }
   if (!href) return; // user cancel
@@ -789,7 +793,7 @@ jsToolBar.prototype.elements.link.fn.wysiwyg = function () {
   hreflang = window.prompt(this.elements.link.hreflang_prompt, hreflang);
 
   // Update link
-  if (ancestorTagName == 'a' && href) {
+  if (ancestorTagName === 'a' && href) {
     commonAncestorContainer.setAttribute('href', href);
     if (hreflang) {
       commonAncestorContainer.setAttribute('hreflang', hreflang);

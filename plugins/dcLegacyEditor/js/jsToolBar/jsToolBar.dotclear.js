@@ -26,7 +26,7 @@ jsToolBar.prototype.elements.link.fn.wiki = function () {
 jsToolBar.prototype.elements.link.fncall.wiki = function () {
   const { data } = this.elements.link;
 
-  if (data.href == '') {
+  if (!data.href) {
     return;
   }
 
@@ -55,7 +55,7 @@ jsToolBar.prototype.elements.link.fn.xhtml = function () {
 jsToolBar.prototype.elements.link.fncall.xhtml = function () {
   const { data } = this.elements.link;
 
-  if (data.href == '') {
+  if (!data.href) {
     return;
   }
 
@@ -86,7 +86,7 @@ jsToolBar.prototype.elements.link.fn.wysiwyg = function () {
 
   const a = this.getAncestor();
 
-  if (a.tagName == 'a') {
+  if (a.tagName === 'a') {
     href = a.tag.href || '';
     title = a.tag.title || '';
     hreflang = a.tag.hreflang || '';
@@ -99,8 +99,8 @@ jsToolBar.prototype.elements.link.fncall.wysiwyg = function () {
 
   let a = this.getAncestor();
 
-  if (a.tagName == 'a') {
-    if (data.href == '') {
+  if (a.tagName === 'a') {
+    if (!data.href) {
       // Remove link
       this.replaceNodeByContent(a.tag);
       this.iwin.focus();
@@ -140,7 +140,7 @@ jsToolBar.prototype.getAncestor = function () {
     const selection = this.iwin.getSelection();
     range = selection.getRangeAt(0);
     commonAncestorContainer = range.commonAncestorContainer;
-    while (commonAncestorContainer.nodeType != 1) {
+    while (commonAncestorContainer.nodeType !== 1) {
       commonAncestorContainer = commonAncestorContainer.parentNode;
     }
   } else {
@@ -150,7 +150,7 @@ jsToolBar.prototype.getAncestor = function () {
   }
 
   let ancestorTagName = commonAncestorContainer.tagName.toLowerCase();
-  while (ancestorTagName != 'a' && ancestorTagName != 'body') {
+  while (ancestorTagName !== 'a' && ancestorTagName !== 'body') {
     commonAncestorContainer = commonAncestorContainer.parentNode;
     ancestorTagName = commonAncestorContainer.tagName.toLowerCase();
   }
@@ -189,13 +189,11 @@ jsToolBar.prototype.elements.img_select.fn.wiki = function () {
 };
 jsToolBar.prototype.elements.img_select.fncall.wiki = function () {
   const d = this.elements.img_select.data;
-  if (d.src == undefined) {
+  if (d.src === undefined) {
     return;
   }
-
-  const that = this;
   this.encloseSelection('', '', (str) => {
-    const alt = (str ? str : d.title).replace('&', '&amp;').replace('>', '&gt;').replace('<', '&lt;').replace('"', '&quot;');
+    const alt = (str || d.title).replace('&', '&amp;').replace('>', '&gt;').replace('<', '&lt;').replace('"', '&quot;');
     let legend =
       d.description !== '' && alt.length // No legend if no alt
         ? d.description.replace('&', '&amp;').replace('>', '&gt;').replace('<', '&lt;').replace('"', '&quot;')
@@ -203,24 +201,24 @@ jsToolBar.prototype.elements.img_select.fncall.wiki = function () {
     if (alt === legend) legend = false;
 
     let res = `((${d.src}|${alt}`;
-    if (d.alignment == 'left') {
+    if (d.alignment === 'left') {
       res += '|L';
-    } else if (d.alignment == 'right') {
+    } else if (d.alignment === 'right') {
       res += '|R';
-    } else if (d.alignment == 'center') {
+    } else if (d.alignment === 'center') {
       res += '|C';
     } else if (legend) {
       res += '|';
     }
     if (legend) {
-      res += `|`; // no title in img
+      res += '|'; // no title in img
       res += `|${legend}`;
     }
     res += '))';
 
     if (d.link && alt.length) {
       // Link only if alt not empty
-      return `[${res}|${d.url}${that.img_link_title ? `||${that.img_link_title}` : ''}]`;
+      return `[${res}|${d.url}${this.img_link_title ? `||${this.img_link_title}` : ''}]`;
     }
 
     return res;
@@ -231,18 +229,16 @@ jsToolBar.prototype.elements.img_select.fn.xhtml = function () {
 };
 jsToolBar.prototype.elements.img_select.fncall.xhtml = function () {
   const d = this.elements.img_select.data;
-  if (d.src == undefined) {
+  if (d.src === undefined) {
     return;
   }
-
-  const that = this;
   this.encloseSelection('', '', (str) => {
     const alignments = {
-      left: that.style.left,
-      right: that.style.right,
-      center: that.style.center,
+      left: this.style.left,
+      right: this.style.right,
+      center: this.style.center,
     };
-    const alt = (str ? str : d.title).replace('&', '&amp;').replace('>', '&gt;').replace('<', '&lt;').replace('"', '&quot;');
+    const alt = (str || d.title).replace('&', '&amp;').replace('>', '&gt;').replace('<', '&lt;').replace('"', '&quot;');
     let legend =
       d.description !== '' && alt.length // No legend if no alt
         ? d.description.replace('&', '&amp;').replace('>', '&gt;').replace('<', '&lt;').replace('"', '&quot;')
@@ -268,7 +264,7 @@ jsToolBar.prototype.elements.img_select.fncall.xhtml = function () {
     if (d.link && alt.length) {
       // Enclose image with link (only if non empty alt)
       const ltitle = alt
-        ? ` title="${that.img_link_title
+        ? ` title="${this.img_link_title
             .replace('&', '&amp;')
             .replace('>', '&gt;')
             .replace('<', '&lt;')
@@ -299,7 +295,7 @@ jsToolBar.prototype.elements.img_select.fn.wysiwyg = function () {
 };
 jsToolBar.prototype.elements.img_select.fncall.wysiwyg = function () {
   const d = this.elements.img_select.data;
-  if (d.src == undefined) {
+  if (d.src === undefined) {
     return;
   }
 
@@ -361,7 +357,7 @@ jsToolBar.prototype.elements.mp3_insert = {
 };
 jsToolBar.prototype.elements.mp3_insert.fncall.wiki = function () {
   const d = this.elements.mp3_insert.data;
-  if (d.player == undefined) {
+  if (d.player === undefined) {
     return;
   }
 
@@ -369,7 +365,7 @@ jsToolBar.prototype.elements.mp3_insert.fncall.wiki = function () {
 };
 jsToolBar.prototype.elements.mp3_insert.fncall.xhtml = function () {
   const d = this.elements.mp3_insert.data;
-  if (d.player == undefined) {
+  if (d.player === undefined) {
     return;
   }
 
@@ -386,7 +382,7 @@ jsToolBar.prototype.elements.flv_insert = {
 };
 jsToolBar.prototype.elements.flv_insert.fncall.wiki = function () {
   const d = this.elements.flv_insert.data;
-  if (d.player == undefined) {
+  if (d.player === undefined) {
     return;
   }
 
@@ -394,7 +390,7 @@ jsToolBar.prototype.elements.flv_insert.fncall.wiki = function () {
 };
 jsToolBar.prototype.elements.flv_insert.fncall.xhtml = function () {
   const d = this.elements.flv_insert.data;
-  if (d.player == undefined) {
+  if (d.player === undefined) {
     return;
   }
 

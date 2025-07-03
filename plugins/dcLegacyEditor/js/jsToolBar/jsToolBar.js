@@ -212,7 +212,7 @@ class jsToolBar {
     if (typeof fn === 'function') {
       res = sel ? fn.call(this, sel) : fn('');
     } else {
-      res = sel ? sel : '';
+      res = sel || '';
     }
 
     subst = prefix + res + clean_suffix;
@@ -824,7 +824,7 @@ jsToolBar.prototype.elements.link = {
 
     return {
       href: this.stripBaseURL(url),
-      hreflang,
+      hreflang: language,
     };
   },
 };
