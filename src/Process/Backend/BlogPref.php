@@ -410,6 +410,7 @@ class BlogPref extends Process
                 if (isset($_POST['robots_policy'])) {
                     $data->blog_settings->system->put('robots_policy', $_POST['robots_policy']);
                 }
+                $data->blog_settings->system->put('allow_ai_tdm', !empty($_POST['allow_ai_tdm']));
                 $data->blog_settings->system->put('legacy_needed', !empty($_POST['legacy_needed']));
                 $data->blog_settings->system->put('jquery_needed', !empty($_POST['jquery_needed']));
                 $data->blog_settings->system->put('jquery_version', $_POST['jquery_version']);
@@ -1116,6 +1117,18 @@ class BlogPref extends Process
             $advanced[] = (new Fieldset())
                 ->legend(new Legend(__('Search engines robots policy')))
                 ->fields($policies());
+
+            // AI text and data mining
+            $advanced[] = (new Fieldset())
+                ->legend(new Legend(__('AI text and data mining')))
+                ->fields([
+                    (new Para())
+                        ->items([
+                            (new Checkbox('allow_ai_tdm', (bool) $data->blog_settings->system->allow_ai_tdm))
+                                ->value(1)
+                                ->label(new Label(__('Allow text and data analysis by AIs’ crawlers'), Label::IL_FT)),
+                        ]),
+                ]);
 
             // Legacy JS library
             $advanced[] = (new Fieldset())

@@ -157,6 +157,9 @@ class Utility extends Process
                 if (App::blog()->settings()->system->use_smilies) {
                     echo App::plugins()->cssLoad(App::blog()->getQmarkURL() . 'pf=smilies.css');
                 }
+                if (!App::blog()->settings()->system->allow_ai_tdm) {
+                    echo '<meta name="tdm-reservation" content="1">' . "\n";
+                }
 
                 return '';
             },
