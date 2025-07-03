@@ -13,6 +13,10 @@ namespace Dotclear\Plugin\dcLegacyEditor;
 use ArrayObject;
 use Dotclear\App;
 use Dotclear\Core\Backend\Page;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Option;
+use Dotclear\Helper\Html\Form\Select;
+use Dotclear\Helper\Html\Form\Url;
 use Dotclear\Helper\L10n;
 
 /**
@@ -107,6 +111,29 @@ class BackendBehaviors
             return '';
         }
         self::$loaded = true;
+
+        $language_options = [];
+        $language_codes   = L10n::getISOcodes(true, true);
+        foreach ($language_codes as $language_name => $language_code) {
+            $language_options[] = (new Option($language_name, $language_code))->lang($language_code);
+        }
+
+        // Add an empty choice
+        array_unshift($language_options, (new Option('', '')));
+
+        $citeurl_input = (new Url('cite_url'))
+            ->size(35)
+            ->maxlength(512)
+            ->autocomplete('url')
+            ->translate(false)
+            ->label((new Label(__('URL:'), Label::OL_TF)))
+        ->render();
+
+        $citelang_select = (new Select('cite_language'))
+            ->items($language_options)
+            ->translate(false)
+            ->label(new Label(__('Language:'), Label::OL_TF))
+        ->render();
 
         $js = [
             'dialog_url'            => 'popup.php',
@@ -237,6 +264,17 @@ class BackendBehaviors
                 'right'  => 'media-right',
             ],
             'img_link_title' => __('Open the media'),
+            'cite_dialog'    => [
+                'title'  => __('Inline quote'),
+                'ok'     => __('Ok'),
+                'cancel' => __('Cancel'),
+                'fields' => [
+                    'url'          => $citeurl_input,
+                    'default_url'  => '',
+                    'language'     => $citelang_select,
+                    'default_lang' => '',
+                ],
+            ],
         ];
 
         $rtl              = L10n::getLanguageTextDirection(App::lang()->getLang()) === 'rtl' ? 'direction: rtl;' : '';
