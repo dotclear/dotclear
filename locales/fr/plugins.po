@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-27 14:26+0200\n"
-"PO-Revision-Date: 2025-06-27 12:57\n"
+"POT-Creation-Date: 2025-07-03 19:49+0200\n"
+"PO-Revision-Date: 2025-07-03 17:55\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -1140,7 +1140,7 @@ msgstr "La catégorie a été mise à jour."
 
 #: plugins/blogroll/src/ManageEdit.php:181
 #: plugins/dcCKEditor/src/BackendBehaviors.php:62
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:194
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:221
 msgid "Link"
 msgstr "Lien"
 
@@ -1364,27 +1364,27 @@ msgid "HTML"
 msgstr "HTML"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:59
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:210
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:237
 msgid "Media chooser"
 msgstr "Sélecteur de média"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:60
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:213
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:240
 msgid "m"
 msgstr "m"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:61
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:217
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:244
 msgid "Link to an entry"
 msgstr "Lien vers une entrée"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:63
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:197
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:224
 msgid "l"
 msgstr "l"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:64
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:203
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:230
 msgid "External image"
 msgstr "Image externe"
 
@@ -1393,7 +1393,7 @@ msgid "URL field cannot be empty."
 msgstr "Le champ URL ne peut être vide."
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:89
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:239
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:266
 msgid "Open the media"
 msgstr "Ouvrir le média"
 
@@ -1506,112 +1506,113 @@ msgstr "éditeur standard de Dotclear"
 msgid "Dotclear wiki"
 msgstr "Wiki Dotclear"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:114
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:141
 msgid "visual"
 msgstr "visuel"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:115
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:142
 msgid "source"
 msgstr "source"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:116
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:143
 msgid "You can use the following shortcuts to format your text."
 msgstr "Vous pouvez utiliser les raccourcis suivants pour formater votre texte."
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:119
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:146
 msgid "Block format"
 msgstr "Format de bloc"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:121
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:148
 msgid "-- none --"
 msgstr "-- aucun --"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:122
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:149
 msgid "-- block format --"
 msgstr "-- format de bloc --"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:123
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:150
 msgid "Paragraph"
 msgstr "Paragraphe"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:124
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:151
 msgid "Level 1 header"
 msgstr "Entête de niveau 1"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:125
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:152
 msgid "Level 2 header"
 msgstr "Entête de niveau 2"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:126
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:153
 msgid "Level 3 header"
 msgstr "Entête de niveau 3"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:127
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:154
 msgid "Level 4 header"
 msgstr "Entête de niveau 4"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:128
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:155
 msgid "Level 5 header"
 msgstr "Entête de niveau 5"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:129
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:156
 msgid "Level 6 header"
 msgstr "Entête de niveau 6"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:133
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:160
 msgid "Strong emphasis"
 msgstr "Emphase forte"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:138
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:165
 msgid "Emphasis"
 msgstr "Emphase"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:143
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:170
 msgid "Inserted"
 msgstr "Inséré"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:148
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:175
 msgid "Deleted"
 msgstr "Supprimé"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:153
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:180
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:268
 msgid "Inline quote"
 msgstr "Citation en ligne"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:158
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:185
 msgid "Code"
 msgstr "Code"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:168
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:195
 msgid "Line break"
 msgstr "Retour à la ligne"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:173
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:200
 msgid "Blockquote"
 msgstr "Bloc de citation"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:178
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:205
 msgid "Preformated text"
 msgstr "Texte préformaté"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:183
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:210
 msgid "Unordered list"
 msgstr "Liste non ordonnée"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:188
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:215
 msgid "Ordered list"
 msgstr "Liste ordonnée"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:198
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:206
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:225
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:233
 msgid "URL?"
 msgstr "URL ?"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:199
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:226
 msgid "Language?"
 msgstr "Langue ?"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:222
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:249
 msgid "Remove text formating"
 msgstr "Retirer le formatage du texte"
 
@@ -3077,7 +3078,7 @@ msgstr "Du jeu de template :"
 
 #: plugins/themeEditor/src/ThemeEditor.php:246
 #: plugins/themeEditor/src/ThemeEditor.php:283
-#: plugins/themeEditor/src/ThemeEditor.php:352
+#: plugins/themeEditor/src/ThemeEditor.php:355
 msgid "File does not exist."
 msgstr "Ce fichier n'existe pas."
 
@@ -3086,12 +3087,12 @@ msgstr "Ce fichier n'existe pas."
 msgid "File %s is not readable"
 msgstr "Le fichier %s n'est pas lisible"
 
-#: plugins/themeEditor/src/ThemeEditor.php:317
+#: plugins/themeEditor/src/ThemeEditor.php:320
 #, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr "Impossible d'écrire le fichier %s. Contrôlez les permissions des fichiers et des répertoires de votre thème."
 
-#: plugins/themeEditor/src/ThemeEditor.php:385
+#: plugins/themeEditor/src/ThemeEditor.php:391
 #, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "Impossible de supprimer le fichier %s. Contrôlez les permissions des fichiers et des répertoires de votre thème."
