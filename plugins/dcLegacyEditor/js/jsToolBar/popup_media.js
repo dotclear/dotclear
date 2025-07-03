@@ -113,8 +113,10 @@ dotclear.ready(() => {
       return;
     }
 
+    // Unknown media type, insert it as a link
     tb.elements.link.data.href = tb.stripBaseURL(form.elements.url.value);
-    tb.elements.link.data.content = form.elements.title.value;
+    tb.elements.link.data.content =
+      form.elements.title.value || (!window?.opener?.window?.getSelection()?.toString() ? tb.elements.link.data.href : '');
     tb.elements.link.fncall[tb.mode].call(tb);
   }
 });
