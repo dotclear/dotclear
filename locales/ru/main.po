@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-03 19:49+0200\n"
-"PO-Revision-Date: 2025-07-03 17:54\n"
+"PO-Revision-Date: 2025-07-03 19:07\n"
 "Last-Translator: \n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -3733,11 +3733,11 @@ msgstr "Параметры индексации поисковыми машин�
 
 #: src/Process/Backend/BlogPref.php:1123
 msgid "AI text and data mining"
-msgstr ""
+msgstr "ИИ для анализа текстов и данных"
 
 #: src/Process/Backend/BlogPref.php:1129
 msgid "Allow text and data analysis by AIs’ crawlers"
-msgstr ""
+msgstr "Позволяет анализировать текст и данные с помощью краулеров ИИ"
 
 #: src/Process/Backend/BlogPref.php:1135
 msgid "Legacy javascript library"
