@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-27 14:15+0200\n"
-"PO-Revision-Date: 2025-06-27 12:27\n"
+"PO-Revision-Date: 2025-07-03 15:20\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -6340,7 +6340,7 @@ msgstr "La version installée de Dotclear est %s"
 #: src/Process/Upgrade/Home.php:57
 #, php-format
 msgid "Installed PHP version is %s, next Dotclear release required %s or earlier."
-msgstr "La version de PHP installée est %s, la prochaine version de Dotclear doit être %s ou antérieure."
+msgstr "La version de PHP installée est %s, la prochaine version de Dotclear doit être %s ou postérieure."
 
 #: src/Process/Upgrade/Home.php:74
 #, php-format
