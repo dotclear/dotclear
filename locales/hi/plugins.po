@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-27 14:26+0200\n"
-"PO-Revision-Date: 2025-06-27 12:57\n"
+"POT-Creation-Date: 2025-07-03 19:49+0200\n"
+"PO-Revision-Date: 2025-07-03 17:55\n"
 "Last-Translator: \n"
 "Language-Team: Hindi\n"
 "Language: hi_IN\n"
@@ -1140,7 +1140,7 @@ msgstr "श्रेणी सफलतापूर्वक अद्यतन 
 
 #: plugins/blogroll/src/ManageEdit.php:181
 #: plugins/dcCKEditor/src/BackendBehaviors.php:62
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:194
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:221
 msgid "Link"
 msgstr "लिंक"
 
@@ -1364,27 +1364,27 @@ msgid "HTML"
 msgstr "एचटीएमएल"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:59
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:210
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:237
 msgid "Media chooser"
 msgstr "मीडिया चयनक"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:60
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:213
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:240
 msgid "m"
 msgstr "एम"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:61
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:217
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:244
 msgid "Link to an entry"
 msgstr "एक प्रविष्टि के लिए लिंक"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:63
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:197
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:224
 msgid "l"
 msgstr "एल"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:64
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:203
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:230
 msgid "External image"
 msgstr "बाहरी छवि"
 
@@ -1393,7 +1393,7 @@ msgid "URL field cannot be empty."
 msgstr "यूआरएल क्षेत्र रिक्त नहीं हो सकता."
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:89
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:239
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:266
 msgid "Open the media"
 msgstr "मीडिया खोलें"
 
@@ -1506,112 +1506,113 @@ msgstr "DclegacyEds"
 msgid "Dotclear wiki"
 msgstr "साफ-साफ विकि"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:114
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:141
 msgid "visual"
 msgstr "दृश्य"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:115
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:142
 msgid "source"
 msgstr "उद्गम स्थल"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:116
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:143
 msgid "You can use the following shortcuts to format your text."
 msgstr "आप अपने पाठ को फ़ॉर्मेट करने के लिए निम्नलिखित शॉर्टकट का उपयोग कर सकते हैं."
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:119
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:146
 msgid "Block format"
 msgstr "ब्लॉक फॉर्मेट"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:121
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:148
 msgid "-- none --"
 msgstr "-कोई नहीं-"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:122
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:149
 msgid "-- block format --"
 msgstr "-ब्लॉक प्रारूप-"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:123
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:150
 msgid "Paragraph"
 msgstr "पैराग्राफ"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:124
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:151
 msgid "Level 1 header"
 msgstr "स्तर 1 हैडर"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:125
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:152
 msgid "Level 2 header"
 msgstr "स्तर 2 हैडर"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:126
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:153
 msgid "Level 3 header"
 msgstr "स्तर 3 हैडर"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:127
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:154
 msgid "Level 4 header"
 msgstr "स्तर 4 हैडर"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:128
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:155
 msgid "Level 5 header"
 msgstr "स्तर 5 हैडर"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:129
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:156
 msgid "Level 6 header"
 msgstr "स्तर 6 हैडर"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:133
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:160
 msgid "Strong emphasis"
 msgstr "मजबूत जोर"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:138
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:165
 msgid "Emphasis"
 msgstr "जोर देना"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:143
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:170
 msgid "Inserted"
 msgstr "प्रविष्ट किया"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:148
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:175
 msgid "Deleted"
 msgstr "मिटाया"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:153
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:180
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:268
 msgid "Inline quote"
 msgstr "इनलाइल उद्धरण"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:158
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:185
 msgid "Code"
 msgstr "कोड"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:168
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:195
 msgid "Line break"
 msgstr "लाइन ब्रेक"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:173
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:200
 msgid "Blockquote"
 msgstr "ब्लॉककोट"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:178
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:205
 msgid "Preformated text"
 msgstr "पूर्वकृत पाठ (T)"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:183
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:210
 msgid "Unordered list"
 msgstr "अआदेश सूची"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:188
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:215
 msgid "Ordered list"
 msgstr "आदेश सूची"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:198
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:206
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:225
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:233
 msgid "URL?"
 msgstr "यूआरएल?"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:199
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:226
 msgid "Language?"
 msgstr "भाषा?"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:222
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:249
 msgid "Remove text formating"
 msgstr "पाठ फॉर्मेटिंग हटाएँ"
 
@@ -3077,7 +3078,7 @@ msgstr "टेम्पलेट सेट से:"
 
 #: plugins/themeEditor/src/ThemeEditor.php:246
 #: plugins/themeEditor/src/ThemeEditor.php:283
-#: plugins/themeEditor/src/ThemeEditor.php:352
+#: plugins/themeEditor/src/ThemeEditor.php:355
 msgid "File does not exist."
 msgstr "फ़ाइल मौज़ूद नहीं है."
 
@@ -3086,12 +3087,12 @@ msgstr "फ़ाइल मौज़ूद नहीं है."
 msgid "File %s is not readable"
 msgstr "फ़ाइल %s पढ़ने योग्य नहीं है"
 
-#: plugins/themeEditor/src/ThemeEditor.php:317
+#: plugins/themeEditor/src/ThemeEditor.php:320
 #, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr "फ़ाइल %s लिखने में असमर्थ. कृपया अपनी थीम फ़ाइलों और फ़ोल्डरों की अनुमतियों की जाँच करें।"
 
-#: plugins/themeEditor/src/ThemeEditor.php:385
+#: plugins/themeEditor/src/ThemeEditor.php:391
 #, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "फ़ाइल %s को हटाने में असमर्थ. कृपया अपनी थीम फ़ाइलों और फ़ोल्डरों की अनुमतियों की जाँच करें।"
