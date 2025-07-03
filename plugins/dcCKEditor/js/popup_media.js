@@ -171,7 +171,9 @@ dotclear.ready(() => {
     } else {
       // Unknown media type
       const url = window.opener.$.stripBaseURL($('input[name="url"]', insert_form).val());
-      const text = window.opener.CKEDITOR.tools.htmlEncodeAttr(insert_form.elements.title.value);
+      const text = window.opener.CKEDITOR.tools.htmlEncodeAttr(
+        insert_form.elements.title.value || editor?.getSelection()?.getSelectedText() || url,
+      );
       const element = window.opener.CKEDITOR.dom.element.createFromHtml(`<a href="${url}">${text}</a>`);
 
       editor.insertElement(element);
