@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-27 14:26+0200\n"
-"PO-Revision-Date: 2025-06-27 12:57\n"
+"POT-Creation-Date: 2025-07-03 19:49+0200\n"
+"PO-Revision-Date: 2025-07-03 17:55\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -1138,7 +1138,7 @@ msgstr "링크분류가 성공적으로 갱신되었습니다"
 
 #: plugins/blogroll/src/ManageEdit.php:181
 #: plugins/dcCKEditor/src/BackendBehaviors.php:62
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:194
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:221
 msgid "Link"
 msgstr "링크"
 
@@ -1362,27 +1362,27 @@ msgid "HTML"
 msgstr "HTML"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:59
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:210
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:237
 msgid "Media chooser"
 msgstr "미디어 선택기"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:60
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:213
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:240
 msgid "m"
 msgstr "m"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:61
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:217
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:244
 msgid "Link to an entry"
 msgstr "항목 링크"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:63
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:197
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:224
 msgid "l"
 msgstr "l"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:64
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:203
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:230
 msgid "External image"
 msgstr "외부 이미지"
 
@@ -1391,7 +1391,7 @@ msgid "URL field cannot be empty."
 msgstr "URL 필드는 비워 둘 수 없습니다."
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:89
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:239
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:266
 msgid "Open the media"
 msgstr "미디어 열기"
 
@@ -1504,112 +1504,113 @@ msgstr "dcLegacyEditor"
 msgid "Dotclear wiki"
 msgstr "닷클리어 위키"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:114
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:141
 msgid "visual"
 msgstr "비주얼"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:115
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:142
 msgid "source"
 msgstr "출처"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:116
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:143
 msgid "You can use the following shortcuts to format your text."
 msgstr "다음 단축키를 사용하여 텍스트 서식을 지정할 수 있습니다."
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:119
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:146
 msgid "Block format"
 msgstr "블록 형식"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:121
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:148
 msgid "-- none --"
 msgstr "-- 없음"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:122
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:149
 msgid "-- block format --"
 msgstr "-- 블록 형식 --"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:123
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:150
 msgid "Paragraph"
 msgstr "단락"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:124
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:151
 msgid "Level 1 header"
 msgstr "레벨 1 헤더"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:125
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:152
 msgid "Level 2 header"
 msgstr "레벨 2 헤더"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:126
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:153
 msgid "Level 3 header"
 msgstr "레벨 3 헤더"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:127
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:154
 msgid "Level 4 header"
 msgstr "레벨 4 헤더"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:128
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:155
 msgid "Level 5 header"
 msgstr "레벨 5 헤더"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:129
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:156
 msgid "Level 6 header"
 msgstr "레벨 6 헤더"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:133
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:160
 msgid "Strong emphasis"
 msgstr "강력한 강조"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:138
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:165
 msgid "Emphasis"
 msgstr "강조"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:143
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:170
 msgid "Inserted"
 msgstr "삽입됨"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:148
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:175
 msgid "Deleted"
 msgstr "삭제됨"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:153
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:180
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:268
 msgid "Inline quote"
 msgstr "인라인 견적"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:158
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:185
 msgid "Code"
 msgstr "코드"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:168
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:195
 msgid "Line break"
 msgstr "줄 바꿈"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:173
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:200
 msgid "Blockquote"
 msgstr "블록쿼트"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:178
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:205
 msgid "Preformated text"
 msgstr "미리 작성된 텍스트"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:183
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:210
 msgid "Unordered list"
 msgstr "정렬되지 않은 목록"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:188
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:215
 msgid "Ordered list"
 msgstr "주문 목록"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:198
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:206
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:225
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:233
 msgid "URL?"
 msgstr "URL?"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:199
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:226
 msgid "Language?"
 msgstr "언어?"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:222
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:249
 msgid "Remove text formating"
 msgstr "텍스트 서식 제거"
 
@@ -3070,7 +3071,7 @@ msgstr "템플릿 세트에서:"
 
 #: plugins/themeEditor/src/ThemeEditor.php:246
 #: plugins/themeEditor/src/ThemeEditor.php:283
-#: plugins/themeEditor/src/ThemeEditor.php:352
+#: plugins/themeEditor/src/ThemeEditor.php:355
 msgid "File does not exist."
 msgstr "파일이 존재하지 않습니다."
 
@@ -3079,12 +3080,12 @@ msgstr "파일이 존재하지 않습니다."
 msgid "File %s is not readable"
 msgstr "%s 파일을 읽을 수 없습니다."
 
-#: plugins/themeEditor/src/ThemeEditor.php:317
+#: plugins/themeEditor/src/ThemeEditor.php:320
 #, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr "%s 파일을 쓸 수 없습니다. 해당 파일 및 해당 테마 폴더에 대한 당신의 권한을 확인해주세요."
 
-#: plugins/themeEditor/src/ThemeEditor.php:385
+#: plugins/themeEditor/src/ThemeEditor.php:391
 #, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "파일을 삭제할 수 없습니다 %s. 테마 파일 및 폴더 권한을 확인하세요."
