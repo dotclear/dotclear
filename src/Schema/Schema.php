@@ -274,6 +274,7 @@ class Schema
         $struct->post->index('idx_blog_post_post_dt_post_id', 'btree', 'blog_id', 'post_dt', 'post_id');
         $struct->post->index('idx_blog_post_post_status', 'btree', 'blog_id', 'post_status');
         $struct->blog->index('idx_blog_blog_upddt', 'btree', 'blog_upddt');
+        $struct->media->index('idx_media_media_path', 'btree', 'media_path', 'media_dir');
         $struct->user->index('idx_user_user_super', 'btree', 'user_super');
 
         /* Foreign keys
@@ -300,7 +301,6 @@ class Schema
         -------------------------------------------------------- */
         if ($struct->driver() === 'pgsql') {
             $struct->setting->index('idx_setting_blog_id_null', 'btree', '(blog_id IS NULL)');
-            $struct->media->index('idx_media_media_path', 'btree', 'media_path', 'media_dir');
             $struct->pref->index('idx_pref_user_id_null', 'btree', '(user_id IS NULL)');
         }
     }
