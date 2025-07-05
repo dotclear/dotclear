@@ -7,6 +7,19 @@ if (window.dotclear === undefined) window.dotclear = {};
 if (!dotclear?.util_loaded) {
   Object.assign(dotclear, {
     /**
+     * Wait for DOM content loaded and then fire callback
+     *
+     * Comes before dotclear.ready()
+     *
+     * @param      {Function}  fn      The callback
+     */
+    DOMready(fn) {
+      document.addEventListener('DOMContentLoaded', () => {
+        fn();
+      });
+    },
+
+    /**
      * Wait for page fully loaded and then fire callback
      *
      * Instead of:
