@@ -1,33 +1,33 @@
 /*global dotclear */
 'use strict';
 
-const dotclear_berlin = dotclear.getData('dotclear_berlin');
+dotclear.DOMready(() => {
+  dotclear.berlin = dotclear.getData('dotclear_berlin');
 
-// Button templates
-dotclear_berlin.template = {
-  hamburger: `<button id="hamburger" type="button" aria-label="${dotclear_berlin.navigation}" aria-expanded="false"></button>`,
-  offcanvas: {
-    on: `<button id="offcanvas-on" type="button"><span class="visually-hidden">${dotclear_berlin.show_menu}</span></button>`,
-    off: `<button id="offcanvas-off" type="button"><span class="visually-hidden">${dotclear_berlin.hide_menu}</span></button>`,
-  },
-};
+  // Button templates
+  dotclear.berlin.template = {
+    hamburger: `<button id="hamburger" type="button" aria-label="${dotclear.berlin.navigation}" aria-expanded="false"></button>`,
+    offcanvas: {
+      on: `<button id="offcanvas-on" type="button"><span class="visually-hidden">${dotclear.berlin.show_menu}</span></button>`,
+      off: `<button id="offcanvas-off" type="button"><span class="visually-hidden">${dotclear.berlin.hide_menu}</span></button>`,
+    },
+  };
 
-document.querySelector('html').classList.add('js');
+  document.querySelector('html').classList.add('js');
 
-{
   // Show/Hide main menu
   const header_nav = document.querySelector('.header__nav');
-  const hamburger = new DOMParser().parseFromString(dotclear_berlin.template.hamburger, 'text/html').body.firstElementChild;
+  const hamburger = new DOMParser().parseFromString(dotclear.berlin.template.hamburger, 'text/html').body.firstElementChild;
   header_nav.insertAdjacentElement('beforebegin', hamburger);
   header_nav.classList.add('hide');
 
   // Show/Hide sidebar on small screens
   const main = document.getElementById('main');
-  const offcanvas = new DOMParser().parseFromString(dotclear_berlin.template.offcanvas.on, 'text/html').body.firstElementChild;
+  const offcanvas = new DOMParser().parseFromString(dotclear.berlin.template.offcanvas.on, 'text/html').body.firstElementChild;
   main.insertBefore(offcanvas, main.firstChild);
-}
+});
 
-document.addEventListener('DOMContentLoaded', () => {
+dotclear.ready(() => {
   // Show/Hide main menu
   const header_nav = document.querySelector('.header__nav');
   const hamburger = document.getElementById('hamburger');
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const sidebar = document.getElementById('sidebar');
     const wrapper = document.getElementById('wrapper');
     const footer = document.getElementById('footer');
-    const button = new DOMParser().parseFromString(dotclear_berlin.template.offcanvas.off, 'text/html').body.firstElementChild;
+    const button = new DOMParser().parseFromString(dotclear.berlin.template.offcanvas.off, 'text/html').body.firstElementChild;
     wrapper.classList.add('off-canvas');
     footer.classList.add('off-canvas');
     sidebar.insertBefore(button, sidebar.firstChild);
@@ -88,13 +88,14 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   gotop.addEventListener('click', (e) => {
     const isReduced =
-      window.matchMedia(`(prefers-reduced-motion: reduce)`) === true ||
-      window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true;
+      window.matchMedia('(prefers-reduced-motion: reduce)') === true ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches === true;
     if (isReduced) {
       document.querySelector('html').scrollTop = 0;
     } else {
       const scrollTo = (element, to, duration) => {
-        const easeInOutQuad = (time, ease_start, ease_change, ease_duration) => {
+        const easeInOutQuad = (time_init, ease_start, ease_change, ease_duration) => {
+          let time = time_init;
           time /= ease_duration / 2;
           if (time < 1) return (ease_change / 2) * time * time + ease_start;
           time--;
