@@ -11,6 +11,19 @@ const dotclear = {
 };
 
 /**
+ * Wait for DOM content loaded and then fire callback
+ *
+ * Comes before dotclear.ready()
+ *
+ * @param      {Function}  fn      The callback
+ */
+dotclear.DOMready = (fn) => {
+  document.addEventListener('DOMContentLoaded', () => {
+    fn();
+  });
+};
+
+/**
  * Wait for page fully loaded and then fire callback
  *
  * Instead of:

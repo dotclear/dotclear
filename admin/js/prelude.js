@@ -1,9 +1,7 @@
 /*global dotclear */
 'use strict';
 
-dotclear.ready(() => {
-  // DOM ready and content loaded
-
+dotclear.DOMready(() => {
   const prelude = document.querySelector('#prelude');
   if (!prelude) {
     return;
