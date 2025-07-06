@@ -412,7 +412,7 @@ jsToolBar.prototype.elements.post_link = {
   data: {},
   popup() {
     window.the_toolbar = this;
-    this.elements.img_select.data = {};
+    this.elements.post_link.data = {};
 
     window.open(
       this.elements.post_link.open_url,
