@@ -57,13 +57,6 @@ jsToolBar.prototype.syncContents = function (from = 'textarea') {
 
     if (This.textarea.value && This.textarea.value !== '<p></p>') {
       This.ibody.innerHTML = This.applyWysiwygFilters(This.textarea.value);
-      if (This.ibody.createTextRange) {
-        //cursor at the begin for IE
-        const IErange = This.ibody.createTextRange();
-        IErange.execCommand('SelectAll');
-        IErange.collapse();
-        IErange.select();
-      }
       return;
     }
     const idoc = This.iwin.document;
@@ -211,13 +204,12 @@ jsToolBar.prototype.addIwinEvent = (target, type, fn, scope) => {
   const myFn = (e) => {
     fn.call(scope, e);
   };
-  addEvent(target, type, myFn, true);
+  target.addEventListener(type, myFn, true);
   // fix memory leak
-  addEvent(
-    scope.iwin,
+  scope.iwin.addEventListener(
     'unload',
     () => {
-      removeEvent(target, type, myFn, true);
+      target.removeEventListener(type, myFn, true);
     },
     true,
   );
@@ -325,77 +317,44 @@ jsToolBar.prototype.resizeDragMove = function (event) {
 jsToolBar.prototype.insertNode = function (node) {
   let range;
 
-  if (this.iwin.getSelection) {
-    // Gecko
-    const sel = this.iwin.getSelection();
-    range = sel.getRangeAt(0);
+  const sel = this.iwin.getSelection();
+  range = sel.getRangeAt(0);
 
-    // deselect all ranges
-    sel.removeAllRanges();
+  // deselect all ranges
+  sel.removeAllRanges();
 
-    // empty range
-    range.deleteContents();
+  // empty range
+  range.deleteContents();
 
-    // Insert node
-    range.insertNode(node);
+  // Insert node
+  range.insertNode(node);
 
-    range.selectNodeContents(node);
-    range.setEndAfter(node);
-    if (range.endContainer.childNodes.length > range.endOffset && range.endContainer.nodeType !== Node.TEXT_NODE) {
-      range.setEnd(range.endContainer.childNodes[range.endOffset], 0);
-    } else {
-      range.setEnd(range.endContainer.childNodes[0]);
-    }
-    sel.addRange(range);
-
-    sel.collapseToEnd();
+  range.selectNodeContents(node);
+  range.setEndAfter(node);
+  if (range.endContainer.childNodes.length > range.endOffset && range.endContainer.nodeType !== Node.TEXT_NODE) {
+    range.setEnd(range.endContainer.childNodes[range.endOffset], 0);
   } else {
-    // IE
-    // lambda element
-    const p = this.iwin.document.createElement('div');
-    p.appendChild(node);
-    range = this.iwin.document.selection.createRange();
-    range.execCommand('delete');
-    // insert innerHTML from element
-    range.pasteHTML(p.innerHTML);
-    range.collapse(false);
-    range.select();
+    range.setEnd(range.endContainer.childNodes[0]);
   }
+  sel.addRange(range);
+
+  sel.collapseToEnd();
+
   this.iwin.focus();
 };
 
 /** Returns a document fragment with selected nodes
  */
 jsToolBar.prototype.getSelectedNode = function () {
-  let sel;
-  let content;
-  if (this.iwin.getSelection) {
-    // Gecko
-    sel = this.iwin.getSelection();
-    const range = sel.getRangeAt(0);
-    return range.cloneContents();
-  }
-  // IE
-  sel = this.iwin.document.selection;
-  const d = this.iwin.document.createElement('div');
-  d.innerHTML = sel.createRange().htmlText;
-  content = this.iwin.document.createDocumentFragment();
-  for (const child of d.childNodes) {
-    content.appendChild(child.cloneNode(true));
-  }
-  return content;
+  const sel = this.iwin.getSelection();
+  const range = sel.getRangeAt(0);
+  return range.cloneContents();
 };
 
 /** Returns string representation for selected node
  */
 jsToolBar.prototype.getSelectedText = function () {
-  if (this.iwin.getSelection) {
-    // Gecko
-    return this.iwin.getSelection().toString();
-  }
-  // IE
-  const range = this.iwin.document.selection.createRange();
-  return range.text;
+  return this.iwin.getSelection().toString();
 };
 
 jsToolBar.prototype.replaceNodeByContent = function (node) {
@@ -409,20 +368,13 @@ jsToolBar.prototype.replaceNodeByContent = function (node) {
 jsToolBar.prototype.getBlockLevel = function () {
   const blockElts = ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
 
-  let range;
   let commonAncestorContainer;
-  if (this.iwin.getSelection) {
-    //gecko
-    const selection = this.iwin.getSelection();
-    range = selection.getRangeAt(0);
-    commonAncestorContainer = range.commonAncestorContainer;
-    while (commonAncestorContainer.nodeType !== 1) {
-      commonAncestorContainer = commonAncestorContainer.parentNode;
-    }
-  } else {
-    //ie
-    range = this.iwin.document.selection.createRange();
-    commonAncestorContainer = range.parentElement();
+
+  const selection = this.iwin.getSelection();
+  const range = selection.getRangeAt(0);
+  commonAncestorContainer = range.commonAncestorContainer;
+  while (commonAncestorContainer.nodeType !== 1) {
+    commonAncestorContainer = commonAncestorContainer.parentNode;
   }
 
   let ancestorTagName = commonAncestorContainer.tagName.toLowerCase();
@@ -553,6 +505,7 @@ jsToolBar.prototype.tagsoup2xhtml = function (code) {
   /* IE laisse souvent des attributs sans guillemets */
   const myRegexp = /<[^>]+((\s+\w+\s*=\s*)([^"'][\w~@+$,%/:.#?=&;!*()-]*))[^>]*?>/;
   const myQuoteFn = (str, val1, val2, val3) => {
+    const regexpEscape = (s) => s.replace(/([\\\^$*+[\]?{}.=!:(|)])/g, '\\$1');
     const tamponRegex = new RegExp(regexpEscape(val1));
     return str.replace(tamponRegex, `${val2}"${val3}"`);
   };
@@ -754,20 +707,13 @@ jsToolBar.prototype.elements.ol.fn.wysiwyg = function () {
 jsToolBar.prototype.elements.link.fn.wysiwyg = function () {
   let href;
   let hreflang;
-  let range;
   let commonAncestorContainer;
-  if (this.iwin.getSelection) {
-    //gecko
-    const selection = this.iwin.getSelection();
-    range = selection.getRangeAt(0);
-    commonAncestorContainer = range.commonAncestorContainer;
-    while (commonAncestorContainer.nodeType !== 1) {
-      commonAncestorContainer = commonAncestorContainer.parentNode;
-    }
-  } else {
-    //ie
-    range = this.iwin.document.selection.createRange();
-    commonAncestorContainer = range.parentElement();
+
+  const selection = this.iwin.getSelection();
+  const range = selection.getRangeAt(0);
+  commonAncestorContainer = range.commonAncestorContainer;
+  while (commonAncestorContainer.nodeType !== 1) {
+    commonAncestorContainer = commonAncestorContainer.parentNode;
   }
 
   let ancestorTagName = commonAncestorContainer.tagName.toLowerCase();
@@ -829,30 +775,3 @@ jsToolBar.prototype.elements.removeFormat.fn.wysiwyg = function () {
   html = this.removeTextFormating(html);
   this.iwin.document.body.innerHTML = html;
 };
-/** Utilities
--------------------------------------------------------- */
-function addEvent(obj, evType, fn, useCapture) {
-  if (obj.addEventListener) {
-    obj.addEventListener(evType, fn, useCapture);
-    return true;
-  }
-  if (obj.attachEvent) {
-    return obj.attachEvent(`on${evType}`, fn);
-  }
-  return false;
-}
-
-function removeEvent(obj, evType, fn, useCapture) {
-  if (obj.removeEventListener) {
-    obj.removeEventListener(evType, fn, useCapture);
-    return true;
-  }
-  if (obj.detachEvent) {
-    return obj.detachEvent(`on${evType}`, fn);
-  }
-  return false;
-}
-
-function regexpEscape(s) {
-  return s.replace(/([\\\^$*+[\]?{}.=!:(|)])/g, '\\$1');
-}
