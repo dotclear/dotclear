@@ -38,8 +38,8 @@ dotclear.ready(() => {
       tb.elements.img_select.data.description = form.querySelector('input[name="description"]').value;
       tb.elements.img_select.data.url = tb.stripBaseURL(form.elements.url.value);
 
-      let media_legend = form.querySelector('input[name="legend"]:checked').value;
-      if (media_legend !== '' && media_legend !== 'title' && media_legend !== 'none') {
+      let media_legend = form.querySelector('input[name="legend"]:checked')?.value;
+      if (!['', 'title', 'none'].includes(media_legend)) {
         media_legend = 'legend';
       }
       if (media_legend !== 'legend') {

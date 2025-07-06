@@ -49,7 +49,7 @@ jsToolBar.prototype.syncContents = function (from = 'textarea') {
   }
 
   function initContent() {
-    if (!This.iframe.contentWindow.document || !This.iframe.contentWindow.document.body) {
+    if (!This.iframe.contentWindow?.document?.body) {
       setTimeout(initContent, 1);
       return;
     }
