@@ -208,10 +208,16 @@ class StoreReader extends HttpClient
 
             return false;
         }
+
         if ($this->use_host_cache && array_key_exists($host, static::$hosts)) {
             // Fetch succes, remove the domain from the list
             unset(static::$hosts[$host]);
             $this->log(sprintf('Remove %s host from list', $host));
+        }
+
+        if ($this->cache_dir) {
+            // Content extract from cache, return it
+            return $result;
         }
 
         self::$read_code = static::READ_FROM_SOURCE;
