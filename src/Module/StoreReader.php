@@ -111,12 +111,34 @@ class StoreReader extends HttpClient
     private static int $read_code = self::READ_FROM_NONE;
 
     /**
+     * Host cache
+     *
+     * Key = host (without protocol)
+     * Values = [next timeout to use, time of last failed]
+     *
+     * If a fetch fails, store the host with the current timeout and the current time
+     * Next try on this host, if it is in this list, use stored timeout / 2 or if 6 hours delay has expired, retry with original timeout
+     * Successful fetch will remove the host from list.
+     *
+     * @var     array<string, array{0:int, 1:int}>  $hosts
+     */
+    protected static array $hosts = [];
+
+    /**
+     * Grace period for a domain in seconds
+     *
+     * @var        int
+     */
+    protected const GRACE_PERIOD = 2 * 60 * 60;   // 2 hours
+
+    /**
      * Constructor.
      *
      * Bypass first argument of clearbricks HttpClient constructor.
      */
-    public function __construct()
-    {
+    public function __construct(
+        protected bool $use_host_cache = true
+    ) {
         parent::__construct('');
         $this->setUserAgent(sprintf('Dotclear/%s', App::config()->dotclearVersion()));
         $this->setTimeout(App::config()->queryTimeout());
@@ -136,17 +158,77 @@ class StoreReader extends HttpClient
     {
         $this->validators = [];
 
+        // Extract domain from url
+        $host = (string) parse_url($url, PHP_URL_HOST);
+
+        if ($this->use_host_cache && array_key_exists($host, static::$hosts)) {
+            // This host has already failed at least once, check grace period
+            $grace = static::$hosts[$host][1];
+            if (($grace + static::GRACE_PERIOD) < time()) {
+                // Remove this host from cache and continue
+                unset(static::$hosts[$host]);
+                $this->log(sprintf('Remove %s host from list (grace period expired)', $host));
+            } else {
+                // Use recorded timeout for this host
+                $timeout = static::$hosts[$host][0];
+                if ($timeout === 0) {
+                    $this->log(sprintf('Ignore %s host request (timeout is 0, wait for end of grace period)', $host));
+
+                    // Unecessary to try again, wait for end of grace period
+                    return false;
+                }
+                $this->setTimeout($timeout);
+            }
+        }
+
+        $result = true;
         if ($this->cache_dir) {
-            return $this->withCache($url);
+            $result = $this->withCache($url);
         } elseif ($this->force === null) {
-            return false;
+            $result = false;
         } elseif (!$this->getModulesXML($url) || $this->getStatus() != '200') {
+            $result = false;
+        }
+
+        if ($result === false) {
+            if ($this->use_host_cache) {
+                // Fetch fails
+                if (array_key_exists($host, static::$hosts)) {
+                    // Store next TTL
+                    $timeout                 = static::$hosts[$host][0];
+                    static::$hosts[$host][0] = $timeout > 1 ? (int) floor($timeout / 2) : 0;
+                    $this->log(sprintf('Set next timeout of %s host to %d seconds', $host, $timeout));
+                } else {
+                    // Store new host with the next TTL
+                    $timeout              = $this->timeout > 1 ? (int) floor($this->timeout / 2) : 0;
+                    static::$hosts[$host] = [$timeout, time()];
+                    $this->log(sprintf('Add the host %s with next timeout to %d seconds', $host, $timeout));
+                }
+            }
+
             return false;
+        }
+        if ($this->use_host_cache && array_key_exists($host, static::$hosts)) {
+            // Fetch succes, remove the domain from the list
+            unset(static::$hosts[$host]);
+            $this->log(sprintf('Remove %s host from list', $host));
         }
 
         self::$read_code = static::READ_FROM_SOURCE;
 
         return new StoreParser($this->getContent());
+    }
+
+    protected function log(string $message): void
+    {
+        // Add new log
+        $cur = App::log()->openLogCursor();
+
+        $cur->log_msg   = $message;
+        $cur->log_table = 'store';
+        $cur->user_id   = App::auth()->userID();
+
+        App::log()->addLog($cur);
     }
 
     /**
@@ -158,9 +240,9 @@ class StoreReader extends HttpClient
      *
      * @return  false|StoreParser   StoreParser instance or false
      */
-    public static function quickParse(string $url, ?string $cache_dir = null, ?bool $force = false): bool|StoreParser
+    public static function quickParse(string $url, ?string $cache_dir = null, ?bool $force = false, bool $use_host_cache = true): bool|StoreParser
     {
-        $parser = new self();
+        $parser = new self($use_host_cache);
         if ($cache_dir) {
             $parser->setCacheDir($cache_dir);
         }
@@ -168,6 +250,14 @@ class StoreReader extends HttpClient
         $parser->setForce($force);
 
         return $parser->parse($url);
+    }
+
+    /**
+     * Reset the host cache list
+     */
+    public static function resetHostsList(): void
+    {
+        static::$hosts = [];
     }
 
     /**

@@ -327,7 +327,7 @@ class Rest extends Process
             }
         }
 
-        $repo = new Store($mod, $url);     // @phpstan-ignore-line
+        $repo = new Store($mod, $url, false, false);     // @phpstan-ignore-line
         $upd  = $repo->getDefines(true);
 
         $tmp = new ArrayObject($upd);

@@ -78,28 +78,35 @@ class Store
     public function __construct(
         public ModulesInterface $modules,
         protected ?string $xml_url,
-        ?bool $force = false
+        ?bool $force = false,
+        bool $use_host_cache = true,
     ) {
         $this->user_agent = sprintf('Dotclear/%s)', App::config()->dotclearVersion());
 
-        $this->check($force);
+        $this->check($force, $use_host_cache);
     }
 
     /**
      * Check repository.
      *
-     * @param   bool    $force  Force query repository
+     * @param   bool    $force              Force query repository
+     * @param   bool    $use_host_cache     Use host cache in StoreReader
      *
      * @return  bool    True if get feed or cache
      */
-    public function check(?bool $force = false): bool
+    public function check(?bool $force = false, bool $use_host_cache = true): bool
     {
         if (!$this->xml_url) {
             return false;
         }
 
+        if ($force === true) {
+            // Reset hosts cache
+            StoreReader::resetHostsList();
+        }
+
         try {
-            $str_parser = App::config()->storeNotUpdate() ? false : StoreReader::quickParse($this->xml_url, App::config()->cacheRoot(), $force);
+            $str_parser = App::config()->storeNotUpdate() ? false : StoreReader::quickParse($this->xml_url, App::config()->cacheRoot(), $force, $use_host_cache);
         } catch (Exception) {
             return false;
         }
@@ -142,7 +149,7 @@ class Store
             if ($cur_define->get('repository') != '' && App::config()->allowRepositories()) {
                 try {
                     $str_url    = str_ends_with((string) $cur_define->get('repository'), '/dcstore.xml') ? $cur_define->get('repository') : Http::concatURL($cur_define->get('repository'), 'dcstore.xml');
-                    $str_parser = StoreReader::quickParse($str_url, App::config()->cacheRoot(), $force);
+                    $str_parser = StoreReader::quickParse($str_url, App::config()->cacheRoot(), $force, $use_host_cache);
                     if ($str_parser === false) {
                         continue;
                     }

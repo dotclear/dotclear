@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  * @subpackage  Upgrade
@@ -42,9 +43,9 @@ class NextStoreReader extends StoreReader
      *
      * {@inheritdoc}
      */
-    public static function quickParse(string $url, ?string $cache_dir = null, ?bool $force = false): bool|NextStoreParser
+    public static function quickParse(string $url, ?string $cache_dir = null, ?bool $force = false, bool $use_host_cache = true): bool|NextStoreParser
     {
-        $parser = new self();
+        $parser = new self($use_host_cache);
 
         return $parser->parse($url);
     }
