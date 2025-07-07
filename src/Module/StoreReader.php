@@ -232,7 +232,6 @@ class StoreReader extends HttpClient
 
         $cur->log_msg   = $message;
         $cur->log_table = 'store';
-        $cur->user_id   = App::auth()->userID();
 
         App::log()->addLog($cur);
     }
