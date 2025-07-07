@@ -32,6 +32,11 @@ class NextStore extends Store
             return false;
         }
 
+        if ($force === true) {
+            // Reset hosts cache
+            NextStoreReader::resetHostsList();
+        }
+
         try {
             $str_parser = App::config()->storeNotUpdate() ? false : NextStoreReader::quickParse($this->xml_url, App::config()->cacheRoot(), $force, $use_host_cache);
         } catch (Exception) {
