@@ -210,7 +210,7 @@ a:focus img {
   text-decoration: none;
 }
 
-a.outgoing img,
+a.outgoing img[src*='outgoing-link'],
 .outgoing-js {
   width: 1em;
   vertical-align: top;

@@ -1432,13 +1432,13 @@ a:focus img {
   text-decoration: none;
 }
 
-a.outgoing img,
+a.outgoing img[src*=outgoing-link],
 .outgoing-js {
   width: 1em;
   vertical-align: top;
   filter: contrast(var(--outgoing-link-filter));
 }
-#header a.outgoing img,
+#header a.outgoing img[src*=outgoing-link],
 #header .outgoing-js {
   width: 1.5em;
   padding: 0 0 0 0.5em;
