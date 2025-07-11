@@ -59,7 +59,8 @@ class Install extends Process
             (new Filters\Words())->defaultWordsList();
         }
 
-        My::settings()->put('antispam_moderation_ttl', 7, 'integer', 'Antispam Moderation TTL (days)', false);
+        My::settings()->put('moderate_only_spam', false, App::blogWorkspace()::NS_BOOL, 'Moderate only spams', false, true);
+        My::settings()->put('antispam_moderation_ttl', 7, App::blogWorkspace()::NS_INT, 'Antispam Moderation TTL (days)', false, true);
 
         return true;
     }

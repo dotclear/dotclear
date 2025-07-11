@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * @brief       The plugin antispam definition
@@ -17,7 +18,7 @@ $this->registerModule(
     'Antispam',                             // Name
     'Generic antispam plugin for Dotclear', // Description
     'Alain Vagner',                         // Author
-    '2.0',                                // Version
+    '2.1',                                // Version
     [
         'type'        => 'plugin',
         'permissions' => 'My',

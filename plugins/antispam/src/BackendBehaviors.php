@@ -12,6 +12,7 @@ namespace Dotclear\Plugin\antispam;
 
 use ArrayObject;
 use Dotclear\App;
+use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Form\Fieldset;
 use Dotclear\Helper\Html\Form\Label;
 use Dotclear\Helper\Html\Form\Legend;
@@ -79,6 +80,15 @@ class BackendBehaviors
         echo (new Fieldset('antispam_params'))
             ->legend((new Legend('Antispam')))
             ->items([
+                (new Para())
+                    ->items([
+                        (new Checkbox('moderate_only_spam', (bool) $settings->antispam->moderate_only_spam))
+                            ->value(1)
+                            ->label(new Label(__('Moderate only spam comments/trackbacks'), Label::IL_FT)),
+                    ]),
+                (new Note())
+                    ->class('form-note')
+                    ->text(__('If comments and/or trackbacks are moderated (see blog settings above), messages recognized  by one of the active spam filters as not being spam will be published immediately.')),
                 (new Para())->items([
                     (new Number('antispam_moderation_ttl', -1, 999, (int) $settings->antispam->antispam_moderation_ttl))
                         ->default(-1)
@@ -103,6 +113,7 @@ class BackendBehaviors
      */
     public static function adminBeforeBlogSettingsUpdate(BlogSettingsInterface $settings): void
     {
-        $settings->antispam->put('antispam_moderation_ttl', (int) $_POST['antispam_moderation_ttl']);
+        $settings->antispam->put('moderate_only_spam', !empty($_POST['moderate_only_spam']), App::blogWorkspace()::NS_BOOL);
+        $settings->antispam->put('antispam_moderation_ttl', (int) $_POST['antispam_moderation_ttl'], App::blogWorkspace()::NS_INT);
     }
 }

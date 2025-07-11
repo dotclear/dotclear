@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-03 19:49+0200\n"
+"POT-Creation-Date: 2025-07-07 18:43+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2951,7 +2951,7 @@ msgstr ""
 msgid "Cannot activate plugin."
 msgstr ""
 
-#: src/Module/Store.php:355 src/Module/Store.php:358
+#: src/Module/Store.php:362 src/Module/Store.php:365
 msgid "An error occurred while downloading the file."
 msgstr ""
 
