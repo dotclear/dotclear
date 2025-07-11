@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-03 19:49+0200\n"
-"PO-Revision-Date: 2025-07-03 17:55\n"
+"POT-Creation-Date: 2025-07-11 19:25+0200\n"
+"PO-Revision-Date: 2025-07-11 21:23\n"
 "Last-Translator: \n"
 "Language-Team: Greek\n"
 "Language: el_GR\n"
@@ -683,26 +683,34 @@ msgstr "(συμπεριλαμβανομένων %d spam σχολίων)"
 msgid "Antispam"
 msgstr "Antispam"
 
-#: plugins/antispam/src/BackendBehaviors.php:55
+#: plugins/antispam/src/BackendBehaviors.php:56
 #: plugins/antispam/src/Manage.php:224
 #, php-format
 msgid "All spam comments older than %s day(s) will be automatically deleted."
 msgstr "Όλα τα σχόλια spam παλαιότερα από %s ημέρες θα διαγραφούν αυτόματα."
 
-#: plugins/antispam/src/BackendBehaviors.php:58
+#: plugins/antispam/src/BackendBehaviors.php:59
 #, php-format
 msgid "You can modify this duration in the %s."
 msgstr "Μπορείτε να τροποποιήσετε αυτή τη διάρκεια στο %s."
 
-#: plugins/antispam/src/BackendBehaviors.php:85
+#: plugins/antispam/src/BackendBehaviors.php:87
+msgid "Moderate only spam comments/trackbacks"
+msgstr "Μετριοποίηση μόνο των spam comments/trackbacks"
+
+#: plugins/antispam/src/BackendBehaviors.php:91
+msgid "If comments and/or trackbacks are moderated (see blog settings above), messages recognized  by one of the active spam filters as not being spam will be published immediately."
+msgstr "Εάν τα σχόλια ή/και τα trackbacks είναι μετριοπαθή (βλ. ρυθμίσεις ιστολογίου παραπάνω), τα μηνύματα που αναγνωρίζονται από ένα από τα ενεργά φίλτρα spam ως μη spam θα δημοσιεύονται αμέσως."
+
+#: plugins/antispam/src/BackendBehaviors.php:95
 msgid "Delete junk comments older than"
 msgstr "Διαγραφή σχολίων ανεπιθύμητης αλληλογραφίας παλαιότερων από"
 
-#: plugins/antispam/src/BackendBehaviors.php:89
+#: plugins/antispam/src/BackendBehaviors.php:99
 msgid "Set -1 to disabled this feature ; recommended delay is 7 days."
 msgstr "Ορίστε -1 για να απενεργοποιήσετε αυτή τη λειτουργία- η συνιστώμενη καθυστέρηση είναι 7 ημέρες."
 
-#: plugins/antispam/src/BackendBehaviors.php:93
+#: plugins/antispam/src/BackendBehaviors.php:103
 msgid "Set spam filters."
 msgstr "Ορισμός φίλτρων ανεπιθύμητης αλληλογραφίας."
 
@@ -966,7 +974,7 @@ msgstr "Χωρίς περιγραφή"
 msgid "Filtered by %1$s (%2$s)"
 msgstr "Φιλτραρισμένο από %1$s (%2$s)"
 
-#: plugins/antispam/src/SpamFilters.php:153
+#: plugins/antispam/src/SpamFilters.php:158
 msgid "Unknown filter."
 msgstr "Άγνωστο φίλτρο."
 

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-03 19:49+0200\n"
-"PO-Revision-Date: 2025-07-03 17:55\n"
+"POT-Creation-Date: 2025-07-11 19:25+0200\n"
+"PO-Revision-Date: 2025-07-11 21:23\n"
 "Last-Translator: \n"
 "Language-Team: Croatian\n"
 "Language: hr_HR\n"
@@ -683,26 +683,34 @@ msgstr "(uključujući %d spam komentare)"
 msgid "Antispam"
 msgstr "Protiv neželjene pošte"
 
-#: plugins/antispam/src/BackendBehaviors.php:55
+#: plugins/antispam/src/BackendBehaviors.php:56
 #: plugins/antispam/src/Manage.php:224
 #, php-format
 msgid "All spam comments older than %s day(s) will be automatically deleted."
 msgstr "Svi neželjeni komentari stariji od %s dana bit će automatski izbrisani."
 
-#: plugins/antispam/src/BackendBehaviors.php:58
+#: plugins/antispam/src/BackendBehaviors.php:59
 #, php-format
 msgid "You can modify this duration in the %s."
 msgstr "Ovo trajanje možete promijeniti u %s."
 
-#: plugins/antispam/src/BackendBehaviors.php:85
+#: plugins/antispam/src/BackendBehaviors.php:87
+msgid "Moderate only spam comments/trackbacks"
+msgstr "Moderiraj samo neželjene komentare/trackbackove"
+
+#: plugins/antispam/src/BackendBehaviors.php:91
+msgid "If comments and/or trackbacks are moderated (see blog settings above), messages recognized  by one of the active spam filters as not being spam will be published immediately."
+msgstr "Ako se komentari i/ili trackbackovi moderiraju (vidi postavke bloga iznad), poruke koje jedan od aktivnih filtera neželjene pošte prepozna kao neželjenu poštu bit će odmah objavljene."
+
+#: plugins/antispam/src/BackendBehaviors.php:95
 msgid "Delete junk comments older than"
 msgstr "Izbriši bezvrijedne komentare starije od"
 
-#: plugins/antispam/src/BackendBehaviors.php:89
+#: plugins/antispam/src/BackendBehaviors.php:99
 msgid "Set -1 to disabled this feature ; recommended delay is 7 days."
 msgstr "Postavite -1 da onemogućite ovu značajku; preporučena odgoda je 7 dana."
 
-#: plugins/antispam/src/BackendBehaviors.php:93
+#: plugins/antispam/src/BackendBehaviors.php:103
 msgid "Set spam filters."
 msgstr "Postavite filtre neželjene pošte."
 
@@ -966,7 +974,7 @@ msgstr "bez opisa"
 msgid "Filtered by %1$s (%2$s)"
 msgstr "Filtrirano prema %1$s (%2$s)"
 
-#: plugins/antispam/src/SpamFilters.php:153
+#: plugins/antispam/src/SpamFilters.php:158
 msgid "Unknown filter."
 msgstr "Nepoznati filter."
 

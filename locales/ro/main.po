@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-03 19:49+0200\n"
-"PO-Revision-Date: 2025-07-03 19:06\n"
+"POT-Creation-Date: 2025-07-07 18:43+0200\n"
+"PO-Revision-Date: 2025-07-11 21:21\n"
 "Last-Translator: \n"
 "Language-Team: Romanian\n"
 "Language: ro_RO\n"
@@ -2980,7 +2980,7 @@ msgstr "Nu se pot sterge fisierele modulului"
 msgid "Cannot activate plugin."
 msgstr "Nu se poate activa pluginul."
 
-#: src/Module/Store.php:355 src/Module/Store.php:358
+#: src/Module/Store.php:362 src/Module/Store.php:365
 msgid "An error occurred while downloading the file."
 msgstr "A apărut o eroare la descărcarea fișierului."
 

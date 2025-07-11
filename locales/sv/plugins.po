@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-03 19:49+0200\n"
-"PO-Revision-Date: 2025-07-03 17:55\n"
+"POT-Creation-Date: 2025-07-11 19:25+0200\n"
+"PO-Revision-Date: 2025-07-11 21:23\n"
 "Last-Translator: \n"
 "Language-Team: Swedish\n"
 "Language: sv_SE\n"
@@ -683,26 +683,34 @@ msgstr "(inklusive %d spamkommentarer)"
 msgid "Antispam"
 msgstr "Stimulera"
 
-#: plugins/antispam/src/BackendBehaviors.php:55
+#: plugins/antispam/src/BackendBehaviors.php:56
 #: plugins/antispam/src/Manage.php:224
 #, php-format
 msgid "All spam comments older than %s day(s) will be automatically deleted."
 msgstr "Alla spamkommentarer äldre än %s dag(ar) kommer att raderas automatiskt."
 
-#: plugins/antispam/src/BackendBehaviors.php:58
+#: plugins/antispam/src/BackendBehaviors.php:59
 #, php-format
 msgid "You can modify this duration in the %s."
 msgstr "Du kan ändra denna varaktighet i %s."
 
-#: plugins/antispam/src/BackendBehaviors.php:85
+#: plugins/antispam/src/BackendBehaviors.php:87
+msgid "Moderate only spam comments/trackbacks"
+msgstr "Moderera endast spamkommentarer/trackbacks"
+
+#: plugins/antispam/src/BackendBehaviors.php:91
+msgid "If comments and/or trackbacks are moderated (see blog settings above), messages recognized  by one of the active spam filters as not being spam will be published immediately."
+msgstr "Om kommentarer och/eller trackbacks modereras (se blogginställningarna ovan), kommer meddelanden som identifieras av ett av de aktiva spamfiltren som inte är spam att publiceras omedelbart."
+
+#: plugins/antispam/src/BackendBehaviors.php:95
 msgid "Delete junk comments older than"
 msgstr "Ta bort skräpkommentarer äldre än"
 
-#: plugins/antispam/src/BackendBehaviors.php:89
+#: plugins/antispam/src/BackendBehaviors.php:99
 msgid "Set -1 to disabled this feature ; recommended delay is 7 days."
 msgstr "Ställ in -1 för att inaktivera denna funktion; rekommenderad fördröjning är 7 dagar."
 
-#: plugins/antispam/src/BackendBehaviors.php:93
+#: plugins/antispam/src/BackendBehaviors.php:103
 msgid "Set spam filters."
 msgstr "Ange skräppostfilter."
 
@@ -966,7 +974,7 @@ msgstr "Ingen beskrivning"
 msgid "Filtered by %1$s (%2$s)"
 msgstr "Filtrerad av %1$s (%2$s)"
 
-#: plugins/antispam/src/SpamFilters.php:153
+#: plugins/antispam/src/SpamFilters.php:158
 msgid "Unknown filter."
 msgstr "Okänt filter."
 
