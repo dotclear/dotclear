@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-03 19:49+0200\n"
-"PO-Revision-Date: 2025-07-03 17:55\n"
+"POT-Creation-Date: 2025-07-11 19:25+0200\n"
+"PO-Revision-Date: 2025-07-11 21:22\n"
 "Last-Translator: \n"
 "Language-Team: Arabic\n"
 "Language: ar_SA\n"
@@ -683,26 +683,34 @@ msgstr "(بما في ذلك %d تعليق غير مرغوب فيه)"
 msgid "Antispam"
 msgstr "مكافحة البريد المزعج"
 
-#: plugins/antispam/src/BackendBehaviors.php:55
+#: plugins/antispam/src/BackendBehaviors.php:56
 #: plugins/antispam/src/Manage.php:224
 #, php-format
 msgid "All spam comments older than %s day(s) will be automatically deleted."
 msgstr "سيتم حذف جميع تعليقات البريد المزعج الأقدم من %s يوم تلقائيًا."
 
-#: plugins/antispam/src/BackendBehaviors.php:58
+#: plugins/antispam/src/BackendBehaviors.php:59
 #, php-format
 msgid "You can modify this duration in the %s."
 msgstr "يمكنك تعديل هذه المدة في %s."
 
-#: plugins/antispam/src/BackendBehaviors.php:85
+#: plugins/antispam/src/BackendBehaviors.php:87
+msgid "Moderate only spam comments/trackbacks"
+msgstr "الإشراف على التعليقات/التعليقات/التعقيبات غير المرغوب فيها فقط"
+
+#: plugins/antispam/src/BackendBehaviors.php:91
+msgid "If comments and/or trackbacks are moderated (see blog settings above), messages recognized  by one of the active spam filters as not being spam will be published immediately."
+msgstr "إذا كانت التعليقات و/أو التعقيبات خاضعة للإشراف (انظر إعدادات المدونة أعلاه)، فسيتم نشر الرسائل التي يتعرف عليها أحد مرشحات الرسائل غير المرغوب فيها النشطة على أنها ليست رسائل غير مرغوب فيها على الفور."
+
+#: plugins/antispam/src/BackendBehaviors.php:95
 msgid "Delete junk comments older than"
 msgstr "حذف التعليقات غير المرغوب فيها الأقدم من"
 
-#: plugins/antispam/src/BackendBehaviors.php:89
+#: plugins/antispam/src/BackendBehaviors.php:99
 msgid "Set -1 to disabled this feature ; recommended delay is 7 days."
 msgstr "اضبط -1 لتعطيل هذه الميزة؛ التأخير الموصى به هو 7 أيام."
 
-#: plugins/antispam/src/BackendBehaviors.php:93
+#: plugins/antispam/src/BackendBehaviors.php:103
 msgid "Set spam filters."
 msgstr "تعيين فلاتر البريد المزعج."
 
@@ -966,7 +974,7 @@ msgstr "لا يوجد وصف"
 msgid "Filtered by %1$s (%2$s)"
 msgstr "تصفية بواسطة %1$s (%2$s)"
 
-#: plugins/antispam/src/SpamFilters.php:153
+#: plugins/antispam/src/SpamFilters.php:158
 msgid "Unknown filter."
 msgstr "فلتر غير معروف."
 
