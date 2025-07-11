@@ -842,10 +842,11 @@ dotclear.responsiveCellHeaders = (table, selector, offset = 0, thead = false) =>
       document.head.appendChild(styleElm);
       styleSheet = styleElm.sheet;
       for (let i = offset; i < THarray.length; i++) {
-        styleSheet.insertRule(
-          `${selector} td:nth-child(${i + 1})::before {content:"${THarray[i]} ";}`,
-          styleSheet.cssRules.length,
-        );
+        if (THarray[i].trim().length)
+          styleSheet.insertRule(
+            `${selector} td:nth-child(${i + 1})::before {content:"${THarray[i]} ";}`,
+            styleSheet.cssRules.length,
+          );
       }
       table.className += `${table.className === '' ? '' : ' '}rch${thead ? ' rch-thead' : ''}`;
     } catch (e) {
