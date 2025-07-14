@@ -100,6 +100,10 @@ class Session implements SessionInterface
      */
     public function start(): void
     {
+        if (!empty($this->handler)) {
+            return;
+        }
+
         $this->handler = (new SessionHandler($this->con, $this->table, $this->ttl));
         session_set_save_handler($this->handler);
 
