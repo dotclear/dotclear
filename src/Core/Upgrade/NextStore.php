@@ -85,7 +85,7 @@ class NextStore extends Store
                             if (!isset($upd_versions[$str_define->getId()])) {
                                 $upd_defines[] = $str_define;
                                 // if update from third party repo is more recent than main repo, replace this last one
-                            } elseif ($this->modules->versionsCompare($str_define->get('version'), $upd_versions[$str_define->getID()][1], '>')) {
+                            } elseif ($this->modules->versionsCompare($str_define->get('version'), $upd_versions[$str_define->getId()][1], '>')) {
                                 $upd_defines[$upd_versions[$str_define->getId()][0]] = $str_define;
                             }
                         }

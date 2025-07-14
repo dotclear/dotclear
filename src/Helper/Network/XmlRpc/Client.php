@@ -54,7 +54,7 @@ class Client extends HttpClient
         $user = '';
         $pass = '';
 
-        if (!static::readUrl($url, $ssl, $host, $port, $path, $user, $pass)) {
+        if (!static::readURL($url, $ssl, $host, $port, $path, $user, $pass)) {
             return;
         }
 
@@ -125,7 +125,7 @@ class Client extends HttpClient
             'User-Agent: ' . $this->user_agent,
             'Content-Length: ' . $this->request->getLength(),
             '',
-            $this->request->getXML(),
+            $this->request->getXml(),
         ];
     }
 }

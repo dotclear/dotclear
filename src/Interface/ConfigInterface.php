@@ -287,11 +287,10 @@ interface ConfigInterface
      * Session TTl (time to live).
      *
      * From config file.
-     * Returns null if not set.
      *
-     * @return  null|string     Session TTL
+     * @return  string     Session TTL
      */
-    public function sessionTtl(): ?string;
+    public function sessionTtl(): string;
 
     /**
      * Session name.

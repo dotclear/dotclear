@@ -60,7 +60,8 @@ class Posts extends Process
             // key in sorty_combo (see above) => field in SQL request
             'post_title' => 'post_title',
             'cat_title'  => 'cat_title',
-            'user_id'    => 'P.user_id', ];
+            'user_id'    => 'P.user_id',
+        ];
 
         # --BEHAVIOR-- adminPostsSortbyLexCombo -- array<int,array<string,string>>
         App::behavior()->callBehavior('adminPostsSortbyLexCombo', [&$sortby_lex]);

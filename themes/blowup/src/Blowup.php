@@ -188,7 +188,7 @@ class Blowup
      */
     private static function writeCss(string $theme, string $css): void
     {
-        ThemeConfig::writeCSS(self::$css_folder, $theme, $css);
+        ThemeConfig::writeCss(self::$css_folder, $theme, $css);
     }
 
     /**

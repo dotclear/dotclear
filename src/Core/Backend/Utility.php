@@ -220,7 +220,7 @@ class Utility extends Process
         }
 
         // Set default backend URLs
-        App::backend()->url()->setDefaultURLs();
+        App::backend()->url()->setDefaultUrls();
 
         // (re)set post type with real backend URL (as admin URL handler is known yet)
         App::postTypes()->set(new PostType(

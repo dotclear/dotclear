@@ -130,7 +130,7 @@ class Upgrade
 
         // Scan GrowUp folder to find available upgrades
         $upgrades = [];
-        foreach (Files::scanDir($dir) as $file) {
+        foreach (Files::scandir($dir) as $file) {
             // Need only growup files
             if (!str_contains($file, $path . '_') || !str_contains($file, '.php')) {
                 continue;

@@ -78,7 +78,7 @@ class Backup extends Process
         }
 
         $archives = [];
-        foreach (Files::scanDir(App::config()->backupRoot()) as $v) {
+        foreach (Files::scandir(App::config()->backupRoot()) as $v) {
             if (preg_match('/backup-([0-9A-Za-z\.-]+).zip/', $v)) {
                 $archives[] = $v;
             }

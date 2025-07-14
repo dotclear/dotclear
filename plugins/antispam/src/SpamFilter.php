@@ -115,6 +115,7 @@ class SpamFilter
      */
     public function isSpam(string $type, ?string $author, ?string $email, ?string $site, ?string $ip, ?string $content, ?int $post_id, string &$status)
     {
+        return null;
     }
 
     /**
@@ -129,10 +130,8 @@ class SpamFilter
      * @param   string      $ip         The comment author IP
      * @param   string      $content    The comment content
      * @param   MetaRecord  $rs         The comment record
-     *
-     * @return  mixed
      */
-    public function trainFilter(string $status, string $filter, string $type, ?string $author, ?string $email, ?string $site, ?string $ip, ?string $content, MetaRecord $rs)
+    public function trainFilter(string $status, string $filter, string $type, ?string $author, ?string $email, ?string $site, ?string $ip, ?string $content, MetaRecord $rs): void
     {
     }
 
@@ -187,7 +186,7 @@ class SpamFilter
      */
     public function guiURL(): false|string
     {
-        if (!$this->hasGui()) {
+        if (!$this->hasGUI()) {
             return false;
         }
 

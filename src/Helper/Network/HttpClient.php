@@ -572,7 +572,7 @@ class HttpClient extends Socket
             $redir_path = '';
             $redir_user = '';
             $redir_pass = '';
-            if (($location || $uri) && self::readUrl($location . $uri, $redir_ssl, $redir_host, $redir_port, $redir_path, $redir_user, $redir_pass)) {
+            if (($location || $uri) && self::readURL($location . $uri, $redir_ssl, $redir_host, $redir_port, $redir_path, $redir_user, $redir_pass)) {
                 // If we try to move on another host, remove cookies, user and pass
                 if ($redir_host !== $this->host || $redir_port !== $this->port) {
                     $this->cookies = [];
@@ -1090,7 +1090,7 @@ class HttpClient extends Socket
         $user = '';
         $pass = '';
 
-        if (!self::readUrl($url, $ssl, $host, $port, $path, $user, $pass)) {
+        if (!self::readURL($url, $ssl, $host, $port, $path, $user, $pass)) {
             return false;
         }
 

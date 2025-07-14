@@ -213,7 +213,7 @@ class Upgrade extends Process
             // to kill the admin session before
             App::upgrade()->killAdminSession();
             // Redirect to authentication
-            App::Upgrade()->url()->redirect('upgrade.auth');
+            App::upgrade()->url()->redirect('upgrade.auth');
         }
 
         $items = [];

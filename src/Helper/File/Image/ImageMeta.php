@@ -151,7 +151,7 @@ class ImageMeta
         } else {
             $this->readXMP($filename);
             $this->readIPTC($filename);
-            $this->readExif($filename);
+            $this->readEXIF($filename);
         }
     }
 

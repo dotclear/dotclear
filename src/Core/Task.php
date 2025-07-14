@@ -128,7 +128,7 @@ class Task implements TaskInterface
         $this->addContext($utility);
 
         // Initialize Utility
-        $utility_response = $utility === '' ? false : $this->LoadUtility('Dotclear\\Core\\' . $utility . '\\Utility', false);
+        $utility_response = $utility === '' ? false : $this->loadUtility('Dotclear\\Core\\' . $utility . '\\Utility', false);
 
         // deprecated since 2.28, loads core classes (old way)
         Clearbricks::lib()->autoload([

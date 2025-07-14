@@ -214,7 +214,7 @@ class Core extends Container
      *
      * @see     Dotclear.Core.Upgrade.Utility
      */
-    public static function Upgrade(): Upgrade
+    public static function upgrade(): Upgrade
     {
         return self::$instance->get(Upgrade::class);
     }

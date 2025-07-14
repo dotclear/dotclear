@@ -149,10 +149,8 @@ class SessionHandler implements SessionHandlerInterface
 
     /**
      * Session handler callback called on session garbage collect
-     *
-     * @return     int|false
      */
-    public function gc(int $max_lifetime): int|false
+    public function gc(int $max_lifetime): int
     {
         $ses_life = strtotime($this->ttl);
 

@@ -642,7 +642,7 @@ class Config implements ConfigInterface
         return $this->vendor_name;
     }
 
-    public function sessionTtl(): ?string
+    public function sessionTtl(): string
     {
         return $this->session_ttl;
     }

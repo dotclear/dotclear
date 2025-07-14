@@ -38,10 +38,8 @@ class Mail
     {
         /**
          * User defined mail function
-         *
-         * @var callable|null  $user_defined_mail
          */
-        $user_defined_mail = function_exists('_mail') ? '_mail' : null;
+        $user_defined_mail = function_exists('_mail') ? _mail(...) : null;
 
         $eol = trim((string) ini_get('sendmail_path')) !== '' ? "\n" : "\r\n";
 

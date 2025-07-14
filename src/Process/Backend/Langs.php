@@ -59,7 +59,7 @@ class Langs extends Process
         Page::checkSuper();
 
         App::backend()->is_writable = is_dir(App::config()->l10nRoot()) && is_writable(App::config()->l10nRoot());
-        App::backend()->iso_codes   = L10n::getISOCodes();
+        App::backend()->iso_codes   = L10n::getISOcodes();
 
         # Get languages list on Dotclear.net
         App::backend()->dc_langs = false;

@@ -161,11 +161,11 @@ class Plugins extends Process
         }
 
         if (null == App::blog()->settings()->system->store_plugin_url) {
-            Notices::AddMessageNotice(__('Official plugins repository could not be updated as there is no URL set in configuration.'));
+            Notices::addMessageNotice(__('Official plugins repository could not be updated as there is no URL set in configuration.'));
         }
 
         if (!App::error()->flag() && !empty($_GET['nocache'])) {
-            Notices::AddSuccessNotice(__('Manual checking of plugins update done successfully.'));
+            Notices::addSuccessNotice(__('Manual checking of plugins update done successfully.'));
         }
 
         return true;

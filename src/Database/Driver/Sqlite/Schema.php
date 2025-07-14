@@ -286,7 +286,7 @@ class Schema extends AbstractSchema
         $bir = $this->con->select(sprintf($sql, $this->con->escapeStr($table), 'bir'));
         $bur = $this->con->select(sprintf($sql, $this->con->escapeStr($table), 'bur'));
 
-        if ($bir->isEmpty() || $bur->isempty()) {
+        if ($bir->isEmpty() || $bur->isEmpty()) {
             return $res;
         }
 

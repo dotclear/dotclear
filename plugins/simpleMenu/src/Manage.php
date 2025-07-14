@@ -85,7 +85,7 @@ class Manage extends Process
         App::backend()->categories_label = $categories_label;
 
         # Liste des langues utilisées
-        App::backend()->langs_combo = Combos::getLangscombo(
+        App::backend()->langs_combo = Combos::getLangsCombo(
             App::blog()->getLangs([
                 'order' => 'asc',
             ])

@@ -35,7 +35,7 @@ class GrowUp_2_34_lt
         if (App::config()->backupRoot() !== App::config()->dotclearRoot()) {
             // Check if there is some backup archives in root folder
             $archives = [];
-            foreach (Files::scanDir(App::config()->dotclearRoot()) as $v) {
+            foreach (Files::scandir(App::config()->dotclearRoot()) as $v) {
                 if (preg_match('/backup-([0-9A-Za-z\.-]+).zip/', $v)) {
                     $archives[] = $v;
                 }

@@ -132,7 +132,7 @@ class Wizard extends Process
 
                 # Checks system capabilites
                 $_e = [];
-                if (!Utils::Check($con, $_e)) {
+                if (!Utils::check($con, $_e)) {
                     throw new Exception('<p>' . __('Dotclear cannot be installed.') . '</p><ul><li>' . implode('</li><li>', $_e) . '</li></ul>');
                 }
 

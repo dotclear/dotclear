@@ -63,7 +63,7 @@ class PostMedia extends Process
                 $pm->addPostMedia(App::backend()->post_id, App::backend()->media_id, App::backend()->link_type);
                 if (!empty($_SERVER['HTTP_X_REQUESTED_WITH'])) {
                     header('Content-type: application/json');
-                    echo json_encode(['url' => App::postTypes()->get($rs->post_type)->adminurl(App::backend()->post_id, false)], JSON_THROW_ON_ERROR);
+                    echo json_encode(['url' => App::postTypes()->get($rs->post_type)->adminUrl(App::backend()->post_id, false)], JSON_THROW_ON_ERROR);
                     exit();
                 }
                 Http::redirect(App::postTypes()->get($rs->post_type)->adminUrl(App::backend()->post_id, false));

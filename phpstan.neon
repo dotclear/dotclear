@@ -14,9 +14,26 @@ parameters:
   level: 8
 
 # Go over level 9 (uncomment one/many of next lines to activate them):
-#  checkUninitializedProperties: true
-#  checkImplicitMixed: true
   checkBenevolentUnionTypes: true
+  checkDynamicProperties: true
+  checkExplicitMixedMissingReturn: true
+  checkFunctionNameCase: true
+#  checkImplicitMixed: true
+  checkInternalClassCaseSensitivity: true
+#  checkMissingOverrideMethodAttribute: true
+#  checkUninitializedProperties: true
+  checkTooWideReturnTypesInProtectedAndPublicMethods: true
+  polluteScopeWithAlwaysIterableForeach: false
+  polluteScopeWithBlock: false
+#  polluteScopeWithLoopInitialAssignments: false
+#  reportAlwaysTrueInLastCondition: true
+  reportAnyTypeWideningInVarTag: true
+#  reportMaybesInMethodSignatures: true
+  reportMaybesInPropertyPhpDocTypes: true
+#  reportPossiblyNonexistentConstantArrayOffset: true
+#  reportPossiblyNonexistentGeneralArrayOffset: true
+  reportStaticMethodSignatures: true
+  reportWrongPhpDocTypeInVarTag: true
 
   editorUrl: 'file://%%file%%'
 
@@ -45,8 +62,6 @@ parameters:
     - inc/config.php
 
   dynamicConstantNames:
-    - DC_ANTISPAM_CONF_SUPER
-    - DC_FAIRTRACKBACKS_FORCE
 
   reportUnmatchedIgnoredErrors: false
 

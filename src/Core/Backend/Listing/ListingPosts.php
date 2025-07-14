@@ -161,7 +161,7 @@ class ListingPosts extends Listing
                         ->separator(' ')
                         ->items([
                             (new Link())
-                                ->href(App::PostTypes()->get($types[0])->listAdminUrl(true, ['status' => $status->level()]))
+                                ->href(App::postTypes()->get($types[0])->listAdminUrl(true, ['status' => $status->level()]))
                                 ->text(__($status->name(), $status->pluralName(), $nb)),
                             (new Text(null, sprintf('(%d)', $nb))),
                         ]);

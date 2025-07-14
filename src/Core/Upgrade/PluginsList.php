@@ -53,7 +53,7 @@ class PluginsList extends ModulesList
         $this->modules = $modules;
         $this->store   = new Store($modules, $xml_url, $force);
 
-        $this->setUrl(App::upgrade()->url()->get('upgrade.plugins'));
+        $this->setURL(App::upgrade()->url()->get('upgrade.plugins'));
 
         $this->setPath($modules_root);
         $this->setIndex(__('other'));

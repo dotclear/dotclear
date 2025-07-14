@@ -237,7 +237,7 @@ class FileServer
         }
 
         // not in modules, try in core
-        $this->findCorefile();
+        $this->findCoreFile();
     }
 
     /**
@@ -307,7 +307,7 @@ class FileServer
         }
 
         // not in theme, try in core
-        $this->findCorefile();
+        $this->findCoreFile();
     }
 
     /**

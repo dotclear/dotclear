@@ -113,7 +113,7 @@ class Categories extends Process
             // Update order
             $categories = json_decode((string) $_POST['categories_order'], null, 512, JSON_THROW_ON_ERROR);
             foreach ($categories as $category) {
-                if (!empty($category->item_id) && !empty($category->left) && !empty($category->right)) {
+                if ($category instanceof \stdClass && !empty($category->item_id) && !empty($category->left) && !empty($category->right)) {
                     App::blog()->updCategoryPosition((int) $category->item_id, (int) $category->left, (int) $category->right);
                 }
             }

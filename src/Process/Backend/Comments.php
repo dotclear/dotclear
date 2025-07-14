@@ -67,7 +67,8 @@ class Comments extends Process
             // key in sorty_combo (see above) => field in SQL request
             'post_title'          => 'post_title',
             'comment_author'      => 'comment_author',
-            'comment_spam_filter' => 'comment_spam_filter', ];
+            'comment_spam_filter' => 'comment_spam_filter',
+        ];
 
         # --BEHAVIOR-- adminCommentsSortbyLexCombo -- array<int,array<string,string>>
         App::behavior()->callBehavior('adminCommentsSortbyLexCombo', [&$sortby_lex]);

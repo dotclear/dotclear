@@ -63,7 +63,8 @@ class Users extends Process
             'user_id'          => 'U.user_id',
             'user_name'        => 'user_name',
             'user_firstname'   => 'user_firstname',
-            'user_displayname' => 'user_displayname', ];
+            'user_displayname' => 'user_displayname',
+        ];
 
         # --BEHAVIOR-- adminUsersSortbyLexCombo -- array<int,array<string,string>>
         App::behavior()->callBehavior('adminUsersSortbyLexCombo', [& $sortby_lex]);

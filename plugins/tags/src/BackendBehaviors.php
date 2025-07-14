@@ -371,7 +371,7 @@ class BackendBehaviors
             $meta = App::meta();
             $tags = [];
 
-            foreach ($ap->getIDS() as $id) {
+            foreach ($ap->getIDs() as $id) {
                 $post_tags = $meta->getMetadata([
                     'meta_type' => 'tag',
                     'post_id'   => (int) $id, ])->toStatic()->rows();

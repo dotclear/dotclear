@@ -86,7 +86,7 @@ class FrontendTemplate
                         // Home (first page only)
                         $breadcrumb = '<span id="bc-home">' . __('Home') . '</span>';
                         if (App::frontend()->context()->cur_lang) {
-                            $langs = L10n::getISOCodes();
+                            $langs = L10n::getISOcodes();
                             $breadcrumb .= $separator . ($langs[App::frontend()->context()->cur_lang] ?? App::frontend()->context()->cur_lang);
                         }
                     }
@@ -99,7 +99,7 @@ class FrontendTemplate
                     if (App::blog()->settings()->system->static_home) {
                         $breadcrumb .= $separator . '<a href="' . $blogUrl . App::url()->getURLFor('posts') . '">' . __('Blog') . '</a>';
                     } elseif (App::frontend()->context()->cur_lang) {
-                        $langs = L10n::getISOCodes();
+                        $langs = L10n::getISOcodes();
                         $breadcrumb .= $separator . ($langs[App::frontend()->context()->cur_lang] ?? App::frontend()->context()->cur_lang);
                     }
                     $breadcrumb .= $separator . sprintf(__('page %d'), $page);
@@ -142,7 +142,7 @@ class FrontendTemplate
                 case 'lang':
                     // Lang
                     $breadcrumb = '<a id="bc-home" href="' . $blogUrl . '">' . __('Home') . '</a>';
-                    $langs      = L10n::getISOCodes();
+                    $langs      = L10n::getISOcodes();
                     $breadcrumb .= $separator . ($langs[App::frontend()->context()->cur_lang] ?? App::frontend()->context()->cur_lang);
 
                     break;

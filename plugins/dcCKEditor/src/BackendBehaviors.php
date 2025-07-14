@@ -67,7 +67,7 @@ class BackendBehaviors
         My::jsLoad('_post_editor') .
         My::jsLoad('ckeditor/ckeditor') .
         My::jsLoad('ckeditor/adapters/jquery') .
-        Page::jsLoad(My::manageURL($config_js, '&'));
+        Page::jsLoad(My::manageUrl($config_js, '&'));
     }
 
     /**

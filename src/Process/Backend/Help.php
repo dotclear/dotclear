@@ -15,6 +15,7 @@ use Dotclear\App;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
+use stdClass;
 
 /**
  * @since 2.27 Before as admin/help.php
@@ -60,7 +61,7 @@ class Help extends Process
             $content = '';
             $title   = '';
             foreach ($args as $v) {
-                if (is_object($v) && isset($v->content)) {
+                if ($v instanceof stdClass && isset($v->content)) {
                     $content .= $v->content;
 
                     continue;

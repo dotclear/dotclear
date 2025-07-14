@@ -39,6 +39,7 @@ use Dotclear\Helper\Html\Form\Ul;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
+use stdClass;
 
 class Page
 {
@@ -227,7 +228,7 @@ class Page
             # Cope with media display in media manager (via public URL)
             if (App::media()->getRootUrl() !== '') {
                 $csp['img-src'] .= ' ' . parse_url(App::media()->getRootUrl(), PHP_URL_HOST);
-            } elseif (!is_null(App::blog()->host())) {
+            } elseif (App::blog()->host() !== '') {
                 // Let's try with the blog URL
                 $csp['img-src'] .= ' ' . parse_url(App::blog()->host(), PHP_URL_HOST);
             }
@@ -1076,7 +1077,7 @@ class Page
         } else {
             $content = '';
             foreach ($args as $arg) {
-                if (is_object($arg) && isset($arg->content)) {
+                if ($arg instanceof stdClass && isset($arg->content)) {
                     $content .= $arg->content;
 
                     continue;

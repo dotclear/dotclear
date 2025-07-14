@@ -71,7 +71,7 @@ class Langs extends Process
         Page::checkSuper();
 
         self::$is_writable = is_dir(App::config()->l10nRoot()) && is_writable(App::config()->l10nRoot());
-        self::$iso_codes   = L10n::getISOCodes();
+        self::$iso_codes   = L10n::getISOcodes();
 
         # Get languages list on Dotclear.net
         self::$dc_langs = false;
@@ -236,11 +236,11 @@ class Langs extends Process
         }
 
         if (!empty($_GET['removed'])) {
-            Notices::AddSuccessNotice(__('Language has been successfully deleted.'));
+            Notices::addSuccessNotice(__('Language has been successfully deleted.'));
         }
 
         if (!empty($_GET['added'])) {
-            Notices::AddSuccessNotice(($_GET['added'] == 2 ? __('Language has been successfully upgraded') : __('Language has been successfully installed.')));
+            Notices::addSuccessNotice(($_GET['added'] == 2 ? __('Language has been successfully upgraded') : __('Language has been successfully installed.')));
         }
 
         if (!self::$is_writable) {
