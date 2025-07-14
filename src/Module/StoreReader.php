@@ -216,8 +216,8 @@ class StoreReader extends HttpClient
         }
 
         if ($this->cache_dir) {
-            // Content extract from cache, return it
-            return $result;
+            // Content extracted from cache, return it
+            return $result; // @phpstan-ignore-line: in this case $result can't be true (see above)
         }
 
         self::$read_code = static::READ_FROM_SOURCE;

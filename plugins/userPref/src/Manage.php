@@ -349,7 +349,7 @@ class Manage extends Process
         return (new Tr())
             ->class('line')
             ->items([
-                (new Td())->scope('row')->items([$label]),
+                (new Td())->items([$label]),
                 (new Td())->items([$field]),
                 (new Td())->text($s['type'])->items([$type]),
                 (new Td())->text(Html::escapeHTML($s['label'])),
