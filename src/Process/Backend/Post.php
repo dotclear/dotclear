@@ -617,7 +617,7 @@ class Post extends Process
                         ->class(['onblog_link', 'outgoing'])
                         ->href(App::backend()->post->getURL())
                         ->title(Html::escapeHTML(trim(Html::clean(App::backend()->post_title))))
-                        ->text(__('Go to this entry on the site') . ' ' . (new Img('images/outgoing-link.svg'))->render()),
+                        ->text(__('Go to this entry on the site') . ' ' . (new Img('images/outgoing-link.svg'))->alt('')->render()),
                 ])
             ->render();
         }
