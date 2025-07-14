@@ -40,13 +40,13 @@ class Blog extends Statuses
 
         parent::__construct(
             column: 'blog_status',
-            threshold: self::OFFLINE,
             statuses: [
                 (new Status(self::ONLINE, 'online', 'Online', 'Online (>1)', 'images/published.svg')),
                 (new Status(self::OFFLINE, 'offline', 'Offline', 'Offline (>1)', 'images/unpublished.svg')),
                 (new Status(self::REMOVED, 'removed', 'Removed', 'Removed (>1)', 'images/pending.svg')),
                 (new Status(self::UNDEFINED, 'undefined', 'Undefined', 'Undefined (>1)', 'images/check-off.svg', hidden: true)),
-            ]
+            ],
+            threshold: self::OFFLINE,
         );
     }
 }

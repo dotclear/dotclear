@@ -459,7 +459,7 @@ class Handler extends AbstractHandler
             }
         }
 
-        return $res === [] ? '' : implode(',', $res);
+        return implode(',', $res);
     }
 
     # Internal SQLite function that adds NOW() SQL function.

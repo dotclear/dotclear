@@ -40,10 +40,10 @@ class Vars extends CleanerParent
                 // delete a $ns folder and their files
                 new ActionDescriptor(
                     id:      'delete',
-                    select:  __('delete selected var directories'),
                     query:   __('delete "%s" var directory'),
                     success: __('"%s" var directory deleted'),
                     error:   __('Failed to delete "%s" var directory'),
+                    select:  __('delete selected var directories'),
                     default: true
                 ),
             ]

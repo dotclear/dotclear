@@ -74,7 +74,7 @@ class XmlRpc extends IntrospectionServer
      */
     public function serve($data = false): void
     {
-        parent::serve(false);
+        parent::serve();
     }
 
     /**

@@ -66,7 +66,7 @@ class MediaPage extends FilterMedia
      */
     public function __construct()
     {
-        parent::__construct('media');
+        parent::__construct();
 
         $this->media_uploader = App::auth()->prefs()->interface->enhanceduploader;
 

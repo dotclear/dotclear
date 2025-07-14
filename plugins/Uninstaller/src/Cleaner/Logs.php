@@ -41,10 +41,10 @@ class Logs extends CleanerParent
                 // delete all $ns log_table entries
                 new ActionDescriptor(
                     id:      'delete_all',
-                    select:  __('delete selected logs tables'),
                     query:   __('delete "%s" logs table'),
                     success: __('"%s" logs table deleted'),
                     error:   __('Failed to delete "%s" logs table'),
+                    select:  __('delete selected logs tables'),
                     default: true
                 ),
             ]

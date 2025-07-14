@@ -40,19 +40,19 @@ class Caches extends CleanerParent
                 // delete a $ns folder and thier files.
                 new ActionDescriptor(
                     id:      'delete',
-                    select:  __('delete selected cache directories'),
                     query:   __('delete "%s" cache directory'),
                     success: __('"%s" cache directory deleted'),
                     error:   __('Failed to delete "%s" cache directory'),
+                    select:  __('delete selected cache directories'),
                     default: true
                 ),
                 // delete $ns folder files but keep folder
                 new ActionDescriptor(
                     id:      'empty',
-                    select:  __('empty selected cache directories'),
                     query:   __('empty "%s" cache directory'),
                     success: __('"%s" cache directory emptied'),
                     error:   __('Failed to empty "%s" cache directory'),
+                    select:  __('empty selected cache directories'),
                     default: true
                 ),
             ]

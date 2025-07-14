@@ -31,11 +31,11 @@ class User extends Statuses
 
         parent::__construct(
             column: 'user_status',
-            threshold: self::DISABLED,
             statuses: [
                 (new Status(self::ENABLED, 'enabled', 'Enabled', 'Enabled (>1)', 'images/published.svg')),
                 (new Status(self::DISABLED, 'disabled', 'Disabled', 'Disabled (>1)', 'images/unpublished.svg')),
-            ]
+            ],
+            threshold: self::DISABLED,
         );
     }
 }

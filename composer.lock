@@ -1473,12 +1473,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "8d3e66f15a8926648ee88581ead5c169d2ec6aaa"
+                "reference": "8a5e76f8954339476fd3a5117a80632946067542"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/8d3e66f15a8926648ee88581ead5c169d2ec6aaa",
-                "reference": "8d3e66f15a8926648ee88581ead5c169d2ec6aaa",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/8a5e76f8954339476fd3a5117a80632946067542",
+                "reference": "8a5e76f8954339476fd3a5117a80632946067542",
                 "shasum": ""
             },
             "require": {
@@ -1524,7 +1524,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-05-20T14:57:01+00:00"
+            "time": "2025-07-14T14:26:03+00:00"
         },
         {
             "name": "psr/container",
@@ -1637,17 +1637,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "2e75b3b3538294c30f42e1fb857fabb58ef67cb6"
+                "reference": "a1799b56bd94d1af0b6ea2fa87c5fbfc69ba08d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/2e75b3b3538294c30f42e1fb857fabb58ef67cb6",
-                "reference": "2e75b3b3538294c30f42e1fb857fabb58ef67cb6",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/a1799b56bd94d1af0b6ea2fa87c5fbfc69ba08d6",
+                "reference": "a1799b56bd94d1af0b6ea2fa87c5fbfc69ba08d6",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.4|^8.0",
-                "phpstan/phpstan": "^2.1.15"
+                "phpstan/phpstan": "^2.1.17"
             },
             "conflict": {
                 "rector/rector-doctrine": "*",
@@ -1673,6 +1673,7 @@
                 "MIT"
             ],
             "description": "Instant Upgrade and Automated Refactoring of any PHP code",
+            "homepage": "https://getrector.com/",
             "keywords": [
                 "automation",
                 "dev",
@@ -1689,7 +1690,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-05-20T15:41:57+00:00"
+            "time": "2025-07-14T10:18:57+00:00"
         },
         {
             "name": "revolt/event-loop",

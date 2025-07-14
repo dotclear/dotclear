@@ -41,28 +41,28 @@ class Preferences extends CleanerParent
                 // delete global $ns preferences workspace
                 new ActionDescriptor(
                     id:      'delete_global',
-                    select:  __('delete selected global preferences workspaces'),
                     query:   __('delete "%s" global preferences workspace'),
                     success: __('"%s" global preferences workspace deleted'),
                     error:   __('Failed to delete "%s" global preferences workspace'),
+                    select:  __('delete selected global preferences workspaces'),
                     default: false
                 ),
                 // delete users $ns preferences workspace
                 new ActionDescriptor(
                     id:      'delete_local',
-                    select:  __('delete selected users preferences workspaces'),
                     query:   __('delete "%s" users preferences workspace'),
                     success: __('"%s" users preferences workspace deleted'),
                     error:   __('Failed to delete "%s" users preferences workspace'),
+                    select:  __('delete selected users preferences workspaces'),
                     default: false
                 ),
                 // delete user and global $ns preferences workspace
                 new ActionDescriptor(
                     id:      'delete_all',
-                    select:  __('delete selected preferences workspaces'),
                     query:   __('delete "%s" preferences workspace'),
                     success: __('"%s" preferences workspace deleted'),
                     error:   __('Failed to delete "%s" preferences workspace'),
+                    select:  __('delete selected preferences workspaces'),
                     default: false
                 ),
                 // delete users and globals specific $ws:$id settings using 'pref_ws:pref_id;pref_ws:pref_id;' as $ns

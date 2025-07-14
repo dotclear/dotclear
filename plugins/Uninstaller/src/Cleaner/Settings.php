@@ -41,28 +41,28 @@ class Settings extends CleanerParent
                 // delete global $ns settings namespace
                 new ActionDescriptor(
                     id:      'delete_global',
-                    select:  __('delete selected global settings namespaces'),
                     query:   __('delete "%s" global settings namespace'),
                     success: __('"%s" global settings namespace deleted'),
                     error:   __('Failed to delete "%s" global settings namespace'),
+                    select:  __('delete selected global settings namespaces'),
                     default: false
                 ),
                 // delete blogs $ns settings namespace
                 new ActionDescriptor(
                     id:      'delete_local',
-                    select:  __('delete selected blog settings namespaces'),
                     query:   __('delete "%s" blog settings namespace'),
                     success: __('"%s" blog settings namespace deleted'),
                     error:   __('Failed to delete "%s" blog settings namespace'),
+                    select:  __('delete selected blog settings namespaces'),
                     default: false
                 ),
                 // delete blogs and global settings namespace
                 new ActionDescriptor(
                     id:      'delete_all',
-                    select:  __('delete selected settings namespaces'),
                     query:   __('delete "%s" settings namespace'),
                     success: __('"%s" settings namespace deleted'),
                     error:   __('Failed to delete "%s" settings namespace'),
+                    select:  __('delete selected settings namespaces'),
                     default: false
                 ),
                 // delete blogs and globals specific $ns:$id settings using 'setting_ns:setting_id;setting_ns:setting_id;' as $ns

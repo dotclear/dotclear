@@ -299,11 +299,11 @@ class Uninstaller
         // fill action properties
         return new ActionDescriptor(
             id: $action,
-            ns: $ns,
-            select: $this->cleaners->get($cleaner)->actions[$action]->select,
             query: sprintf($this->cleaners->get($cleaner)->actions[$action]->query, $ns),
             success: sprintf($this->cleaners->get($cleaner)->actions[$action]->success, $ns),
             error: sprintf($this->cleaners->get($cleaner)->actions[$action]->error, $ns),
+            ns: $ns,
+            select: $this->cleaners->get($cleaner)->actions[$action]->select,
             default: is_null($default) ? $this->cleaners->get($cleaner)->actions[$action]->default : $default
         );
     }

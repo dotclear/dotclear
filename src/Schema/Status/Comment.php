@@ -35,13 +35,13 @@ class Comment extends Statuses
 
         parent::__construct(
             column: 'comment_status',
-            threshold: self::UNPUBLISHED,
             statuses: [
                 (new Status(self::PUBLISHED, 'published', 'Published', 'Published (>1)', 'images/published.svg')),
                 (new Status(self::UNPUBLISHED, 'unpublished', 'Unpublished', 'Unpublished (>1)', 'images/unpublished.svg')),
                 (new Status(self::PENDING, 'pending', 'Pending', 'Pending (>1)', 'images/pending.svg')),
                 (new Status(self::JUNK, 'junk', 'Junk', 'Junk (>1)', 'images/junk.svg', 'images/junk-dark.svg')),
-            ]
+            ],
+            threshold: self::UNPUBLISHED,
         );
     }
 }

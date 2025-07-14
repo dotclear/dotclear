@@ -39,10 +39,10 @@ class Themes extends CleanerParent
                 // delete $ns theme folder
                 new ActionDescriptor(
                     id:      'delete',
-                    select:  __('delete selected themes files and directories'),
                     query:   __('delete "%s" theme files and directories'),
                     success: __('"%s" theme files and directories deleted'),
                     error:   __('Failed to delete "%s" theme files and directories'),
+                    select:  __('delete selected themes files and directories'),
                     default: true
                 ),
             ]

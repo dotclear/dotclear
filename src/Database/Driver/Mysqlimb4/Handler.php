@@ -150,6 +150,6 @@ class Handler extends MysqliHandler
             }
         }
 
-        return $res === [] ? '' : implode(',', $res);
+        return implode(',', $res);
     }
 }

@@ -416,7 +416,7 @@ class Handler extends AbstractHandler
             }
         }
 
-        return $res === [] ? '' : implode(',', $res);
+        return implode(',', $res);
     }
 
     /**

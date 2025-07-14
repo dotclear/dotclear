@@ -424,7 +424,7 @@ abstract class AbstractHandler extends Connection
             }
         }
 
-        return $res === [] ? '' : implode(',', $res);
+        return implode(',', $res);
     }
 
     /**

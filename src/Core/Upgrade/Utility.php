@@ -261,75 +261,75 @@ class Utility extends Process
     {
         return [
             new Icon(
+                id: 'Upgrade',
                 name: __('Update'),
                 url: 'upgrade.upgrade',
                 icon: 'images/menu/update.svg',
                 dark: 'images/menu/update-dark.svg',
                 perm: App::auth()->isSuperAdmin() && is_readable(App::config()->digestsRoot()),
-                id: 'Upgrade',
                 descr: __('On this page you can update dotclear to the latest release.')
             ),
             new Icon(
+                id: 'Attic',
                 name: __('Attic'),
                 url: 'upgrade.attic',
                 icon: 'images/menu/attic.svg',
                 dark: 'images/menu/attic-dark.svg',
                 perm: App::auth()->isSuperAdmin() && is_readable(App::config()->digestsRoot()),
-                id: 'Attic',
                 descr: __('On this page you can update dotclear to a release between yours and latest.')
             ),
             new Icon(
+                id: 'Backup',
                 name: __('Backups'),
                 url: 'upgrade.backup',
                 icon: 'images/menu/backup.svg',
                 dark: 'images/menu/backup-dark.svg',
                 perm: App::auth()->isSuperAdmin(),
-                id: 'Backup',
                 descr: __('On this page you can revert your previous installation or delete theses files.')
             ),
             new Icon(
+                id: 'Langs',
                 name: __('Languages'),
                 url: 'upgrade.langs',
                 icon: 'images/menu/langs.svg',
                 dark: 'images/menu/langs-dark.svg',
                 perm: App::auth()->isSuperAdmin(),
-                id: 'Langs',
                 descr: __('Here you can install, upgrade or remove languages for your Dotclear installation.')
             ),
             new Icon(
+                id: 'Plugins',
                 name: __('Plugins'),
                 url: 'upgrade.plugins',
                 icon: 'images/menu/plugins.svg',
                 dark: 'images/menu/plugins-dark.svg',
                 perm: App::auth()->isSuperAdmin(),
-                id: 'Plugins',
                 descr: __('On this page you will manage plugins.')
             ),
             new Icon(
+                id: 'Cache',
                 name: __('Cache'),
                 url: 'upgrade.cache',
                 icon: 'images/menu/clear-cache.svg',
                 dark: 'images/menu/clear-cache-dark.svg',
                 perm: App::auth()->isSuperAdmin(),
-                id: 'Cache',
                 descr: __('On this page, you can clear templates and repositories cache.')
             ),
             new Icon(
+                id: 'Digests',
                 name: __('Digests'),
                 url: 'upgrade.digests',
                 icon: 'images/menu/digests.svg',
                 dark: 'images/menu/digests-dark.svg',
                 perm: App::auth()->isSuperAdmin() && is_readable(App::config()->digestsRoot()),
-                id: 'Digests',
                 descr: __('On this page, you can bypass corrupted files or modified files in order to perform update.')
             ),
             new Icon(
+                id: 'Replay',
                 name: __('Replay'),
                 url: 'upgrade.replay',
                 icon: 'images/menu/replay.svg',
                 dark: 'images/menu/replay-dark.svg',
                 perm: App::auth()->isSuperAdmin(),
-                id: 'Replay',
                 descr: __('On this page, you can try to replay update action from a given version if some files remain from last update.')
             ),
         ];

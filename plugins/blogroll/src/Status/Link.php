@@ -31,11 +31,11 @@ class Link extends Statuses
 
         parent::__construct(
             column: 'link_status',
-            threshold: self::OFFLINE,
             statuses: [
                 (new Status(self::ONLINE, 'online', 'Online', 'Online (>1)', 'images/published.svg')),
                 (new Status(self::OFFLINE, 'offline', 'Offline', 'Offline (>1)', 'images/unpublished.svg')),
-            ]
+            ],
+            threshold: self::OFFLINE,
         );
     }
 }
