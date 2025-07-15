@@ -73,7 +73,7 @@ class Manager
      *
      * @var        array<string, array<File>>
      */
-    public $dir = [
+    protected $dir = [
         'dirs'  => [],
         'files' => [],
     ];

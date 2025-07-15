@@ -100,7 +100,7 @@ class Session implements SessionInterface
      */
     public function start(): void
     {
-        if (!empty($this->handler)) {
+        if (isset($this->handler)) {
             return;
         }
 

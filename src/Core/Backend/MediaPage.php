@@ -92,7 +92,10 @@ class MediaPage extends FilterMedia
                 App::media()->chdir('');
             }
             $this->media_writable = App::media()->writable();
-            $this->media_dir      = &App::media()->dir;
+            $this->media_dir      = [
+                'dirs'  => App::media()->getDirs(),
+                'files' => App::media()->getFiles(),
+            ];
 
             if (App::themes()->isEmpty()) {
                 # -- Loading themes, may be useful for some configurable theme --

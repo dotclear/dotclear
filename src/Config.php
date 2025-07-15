@@ -411,7 +411,7 @@ class Config implements ConfigInterface
         $this->master_key            = DC_MASTER_KEY;
         $this->next_required_php     = (string) DC_NEXT_REQUIRED_PHP;
         $this->vendor_name           = DC_VENDOR_NAME;
-        $this->session_ttl           = (string) (DC_SESSION_TTL ?? '-120 minutes');
+        $this->session_ttl           = (string) (is_null(DC_SESSION_TTL) ? '-120 minutes' : DC_SESSION_TTL);
         $this->session_name          = DC_SESSION_NAME;
         $this->admin_ssl             = DC_ADMIN_SSL;
         $this->admin_url             = DC_ADMIN_URL;
@@ -433,7 +433,7 @@ class Config implements ConfigInterface
         $this->allow_rest_services   = DC_REST_SERVICES;
         $this->allow_repositories    = DC_ALLOW_REPOSITORIES;
         $this->query_timeout         = DC_QUERY_TIMEOUT;
-        $this->query_stream_timeout  = DC_QUERY_STREAM_TIMEOUT ?? null;
+        $this->query_stream_timeout  = DC_QUERY_STREAM_TIMEOUT;
         $this->show_hidden_dirs      = DC_SHOW_HIDDEN_DIRS;
         $this->crypt_algo            = DC_CRYPT_ALGO;
         $this->cache_root            = DC_TPL_CACHE;

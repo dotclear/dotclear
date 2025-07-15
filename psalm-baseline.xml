@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <files psalm-version="dev-master@986ef8dcd78884e7625f07eef32a9db1c739b961">
-  <file src="plugins/antispam/src/Backend.php">
-    <TypeDoesNotContainType/>
-  </file>
   <file src="plugins/antispam/src/Manage.php">
     <InvalidArgument>
       <code><![CDATA[$filters_opt]]></code>
@@ -18,12 +15,6 @@
       <code><![CDATA[$_POST['professional']]]></code>
       <code><![CDATA[$_POST['romantic']]]></code>
     </InvalidArgument>
-  </file>
-  <file src="plugins/fairTrackbacks/src/Frontend.php">
-    <RedundantCondition/>
-  </file>
-  <file src="plugins/fairTrackbacks/src/Prepend.php">
-    <TypeDoesNotContainType/>
   </file>
   <file src="plugins/importExport/src/FlatImportV2.php">
     <InvalidPropertyFetch/>
@@ -164,9 +155,6 @@
     <TypeDoesNotContainType>
       <code><![CDATA[!is_array($imageinfo)]]></code>
     </TypeDoesNotContainType>
-  </file>
-  <file src="src/Helper/File/Zip/Zip.php">
-    <RedundantCondition/>
   </file>
   <file src="src/Helper/Html/HtmlFilter.php">
     <InvalidCast>

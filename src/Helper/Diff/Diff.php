@@ -314,14 +314,14 @@ class Diff
         foreach ($diff as $line) {
             # New chunk
             if (preg_match(self::UP_RANGE, $line, $m)) {
-                if ($cur_line > $m[1]) {
+                if ($cur_line > (int) $m[1]) {
                     throw new Exception(__('Invalid range'));
                 }
-                while ($cur_line < $m[1]) {
+                while ($cur_line < (int) $m[1]) {
                     $ins_lines++;
                     $cur_line++;
                 }
-                if ($ins_lines + 1 != $m[3]) {
+                if ($ins_lines + 1 !== (int) $m[3]) {
                     throw new Exception(__('Invalid line number'));
                 }
 
@@ -329,8 +329,8 @@ class Diff
                     throw new Exception(__('Chunk is out of range'));
                 }
 
-                $old_length = $m[2];
-                $new_length = $m[4];
+                $old_length = (int) $m[2];
+                $new_length = (int) $m[4];
             }
             # Context
             elseif (preg_match(self::UP_CTX, $line, $m)) {

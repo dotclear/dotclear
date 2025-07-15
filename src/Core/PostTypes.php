@@ -137,9 +137,9 @@ class PostTypes implements PostTypesInterface
         string $label = '',
         string $list_admin_url = '',
         string $icon = '',
-        string $dark_icon = '',
+        string $icon_dark = '',
     ): void {
-        $this->set(new PostType($type, $admin_url, $public_url, $label, $list_admin_url, $icon, $dark_icon));
+        $this->set(new PostType($type, $admin_url, $public_url, $label, $list_admin_url, $icon, $icon_dark));
     }
 
     public function getPostTypes(): array

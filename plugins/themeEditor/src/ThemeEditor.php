@@ -451,30 +451,28 @@ class ThemeEditor
     {
         switch ($type) {
             case 'tpl':
-                $list = &$this->tpl;
+                $this->tpl[$filename] = $pathname;
 
                 break;
             case 'css':
-                $list = &$this->css;
+                $this->css[$filename] = $pathname;
 
                 break;
             case 'js':
-                $list = &$this->js;
+                $this->js[$filename] = $pathname;
 
                 break;
             case 'po':
-                $list = &$this->po;
+                $this->po[$filename] = $pathname;
 
                 break;
             case 'php':
-                $list = &$this->php;
+                $this->php[$filename] = $pathname;
 
                 break;
             default:
                 return;
         }
-
-        $list[$filename] = $pathname;
     }
 
     /**

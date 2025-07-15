@@ -145,7 +145,7 @@ class Zip
     public function addDirectory($dir, ?string $name = null, bool $recursive = false): void
     {
         $dir = (string) preg_replace('#[\\\/]+#', '/', (string) $dir);
-        if (substr($dir, -1 - 1) !== '/') {
+        if (!str_ends_with($dir, '/')) {
             $dir .= '/';
         }
 

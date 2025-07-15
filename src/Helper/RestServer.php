@@ -111,81 +111,81 @@ class RestServer implements RestInterface
         $get  = $_GET ?: [];
         $post = $_POST ?: [];
 
-        switch ($format) {
-            case self::XML_RESPONSE:
-                if (!isset($_REQUEST['f'])) {
-                    $this->rsp->status = 'failed';
-                    $this->rsp->message('No function given');
-                    $this->getXML($encoding);
-
-                    return false;
-                }
-
-                if (!isset($this->functions[$_REQUEST['f']])) {
-                    $this->rsp->status = 'failed';
-                    $this->rsp->message('Function does not exist');
-                    $this->getXML($encoding);
-
-                    return false;
-                }
-
-                try {
-                    $res = $this->callFunction($_REQUEST['f'], $get, $post, $param);
-                } catch (Exception $e) {
-                    $this->rsp->status = 'failed';
-                    $this->rsp->message($e->getMessage());
-                    $this->getXML($encoding);
-
-                    return false;
-                }
-
-                $this->rsp->status = 'ok';
-                $this->rsp->insertNode($res);
+        if ($format === self::XML_RESPONSE) {
+            if (!isset($_REQUEST['f'])) {
+                $this->rsp->status = 'failed';
+                $this->rsp->message('No function given');
                 $this->getXML($encoding);
 
-                return true;
+                return false;
+            }
 
-            case self::JSON_RESPONSE:
-                if (!isset($_REQUEST['f'])) {
-                    $this->json = [
-                        'success' => false,
-                        'message' => 'No function given',
-                    ];
-                    $this->getJSON($encoding);
+            if (!isset($this->functions[$_REQUEST['f']])) {
+                $this->rsp->status = 'failed';
+                $this->rsp->message('Function does not exist');
+                $this->getXML($encoding);
 
-                    return false;
-                }
+                return false;
+            }
 
-                if (!isset($this->functions[$_REQUEST['f']])) {
-                    $this->json = [
-                        'success' => false,
-                        'message' => 'Function does not exist',
-                    ];
-                    $this->getJSON($encoding);
+            try {
+                $res = $this->callFunction($_REQUEST['f'], $get, $post, $param);
+            } catch (Exception $e) {
+                $this->rsp->status = 'failed';
+                $this->rsp->message($e->getMessage());
+                $this->getXML($encoding);
 
-                    return false;
-                }
+                return false;
+            }
 
-                try {
-                    $res = $this->callFunction($_REQUEST['f'], $get, $post, $param);
-                } catch (Exception $e) {
-                    $this->json = [
-                        'success' => false,
-                        'message' => $e->getMessage(),
-                    ];
-                    $this->getJSON($encoding);
+            $this->rsp->status = 'ok';
+            $this->rsp->insertNode($res);
+            $this->getXML($encoding);
 
-                    return false;
-                }
-
-                $this->json = [
-                    'success' => true,
-                    'payload' => $res,
-                ];
-                $this->getJSON($encoding);
-
-                return true;
+            return true;
         }
+
+        // JSON_RESPONSE :
+
+        if (!isset($_REQUEST['f'])) {
+            $this->json = [
+                'success' => false,
+                'message' => 'No function given',
+            ];
+            $this->getJSON($encoding);
+
+            return false;
+        }
+
+        if (!isset($this->functions[$_REQUEST['f']])) {
+            $this->json = [
+                'success' => false,
+                'message' => 'Function does not exist',
+            ];
+            $this->getJSON($encoding);
+
+            return false;
+        }
+
+        try {
+            $res = $this->callFunction($_REQUEST['f'], $get, $post, $param);
+        } catch (Exception $e) {
+            $this->json = [
+                'success' => false,
+                'message' => $e->getMessage(),
+            ];
+            $this->getJSON($encoding);
+
+            return false;
+        }
+
+        $this->json = [
+            'success' => true,
+            'payload' => $res,
+        ];
+        $this->getJSON($encoding);
+
+        return true;
     }
 
     /**
