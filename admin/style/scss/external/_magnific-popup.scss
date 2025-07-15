@@ -259,10 +259,6 @@ button {
     box-shadow: none;
     touch-action: manipulation;
   }
-  &::-moz-focus-inner {
-    padding: 0;
-    border: 0;
-  }
 }
 
 // Close icon

@@ -5144,10 +5144,6 @@ button.mfp-close, button.mfp-arrow {
   box-shadow: none;
   touch-action: manipulation;
 }
-button::-moz-focus-inner {
-  padding: 0;
-  border: 0;
-}
 
 .mfp-close {
   width: 44px;

@@ -382,10 +382,6 @@ $scut-em-base: 16 !default;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    &::-moz-focus-inner {
-      padding: 0;
-      border: 0;
-    }
   }
 }
 
