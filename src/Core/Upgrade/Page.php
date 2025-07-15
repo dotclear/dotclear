@@ -29,7 +29,6 @@ use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Ul;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
-use stdClass;
 
 /**
  * @brief   Upgrade page helper.
@@ -417,7 +416,7 @@ class Page extends BackendPage
 
         $content = '';
         foreach ($args as $arg) {
-            if ($arg instanceof stdClass && isset($arg->content)) {
+            if (is_object($arg) && isset($arg->content)) {  // @phpstan-ignore-line: ->content may be present
                 $content .= $arg->content;
 
                 continue;

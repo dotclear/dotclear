@@ -144,7 +144,7 @@ class ThemeEditor
      * @param   string  $type   The type of file
      * @param   string  $item   The item pattern
      */
-    public function filesList(string $type, string  $item = '%1$s'): string
+    public function filesList(string $type, string $item = '%1$s'): string
     {
         $files = $this->getFilesFromType($type);
 

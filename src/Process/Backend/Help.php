@@ -15,7 +15,6 @@ use Dotclear\App;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
-use stdClass;
 
 /**
  * @since 2.27 Before as admin/help.php
@@ -61,7 +60,7 @@ class Help extends Process
             $content = '';
             $title   = '';
             foreach ($args as $v) {
-                if ($v instanceof stdClass && isset($v->content)) {
+                if (is_object($v) && isset($v->content)) {  // @phpstan-ignore-line: ->content may be present
                     $content .= $v->content;
 
                     continue;

@@ -39,7 +39,6 @@ use Dotclear\Helper\Html\Form\Ul;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
-use stdClass;
 
 class Page
 {
@@ -1077,7 +1076,7 @@ class Page
         } else {
             $content = '';
             foreach ($args as $arg) {
-                if ($arg instanceof stdClass && isset($arg->content)) {
+                if (is_object($arg) && isset($arg->content)) {  // @phpstan-ignore-line: ->content may be present
                     $content .= $arg->content;
 
                     continue;
