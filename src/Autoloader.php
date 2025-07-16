@@ -48,7 +48,7 @@ class Autoloader
     /**
      * Array of registered namespace [prefix=[base dir]].
      *
-     * @var     array<string,array<int,string>>     $prefixes
+     * @var     array<string, string[]>     $prefixes
      */
     private array $prefixes = [];
 
@@ -202,7 +202,7 @@ class Autoloader
     /**
      * Get list of registered namespace.
      *
-     * @return  array<string,array<int,string>>     List of namesapce prefix / base dir
+     * @return  array<string, string[]>     List of namesapce prefix / base dir
      */
     public function getNamespaces(): array
     {
