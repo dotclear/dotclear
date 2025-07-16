@@ -380,7 +380,7 @@ abstract class AbstractHandler extends Connection
      *
      * string param field name (Binary ascending order)
      *
-     * @param   array<string, mixed>|string     $args
+     * @param   array<string, mixed>|string     ...$args
      */
     public function orderBy(...$args): string
     {
@@ -410,7 +410,7 @@ abstract class AbstractHandler extends Connection
      * array param: list of field names
      * string param: field name
      *
-     * @param   array<string>|string     $args
+     * @param   array<string>|string     ...$args
      */
     public function lexFields(...$args): string
     {
@@ -433,7 +433,7 @@ abstract class AbstractHandler extends Connection
      * Returns SQL concatenation of methods arguments. Theses arguments
      * should be properly escaped when needed.
      *
-     * @param   mixed     $args
+     * @param   mixed     ...$args
      */
     public function concat(...$args): string
     {

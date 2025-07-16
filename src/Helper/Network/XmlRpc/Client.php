@@ -81,7 +81,7 @@ class Client extends HttpClient
      * $r = $o->query('method1','hello','world');
      * ```
      *
-     * @param array<string, mixed>      $args
+     * @param array<string, mixed>      ...$args
      *
      * @return mixed
      */

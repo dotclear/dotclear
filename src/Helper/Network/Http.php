@@ -333,7 +333,7 @@ class Http
      *
      * Sends HTTP cache headers (304) according to a list of etags in client request.
      *
-     * @param   array<string, mixed>   $args
+     * @param   array<string, mixed>   ...$args
      */
     public static function etag(...$args): void
     {

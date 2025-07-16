@@ -44,7 +44,7 @@ class ClientMulticall extends Client
      * $r = $o->query();
      * ```
      *
-     * @param mixed     $args
+     * @param mixed     ...$args
      */
     public function addCall(string $method, ...$args): void
     {
@@ -61,7 +61,7 @@ class ClientMulticall extends Client
      * See {@link BasicServer::multiCall()} for details and links about it.
      *
      * @param string    $method (not used, use ::addCall() before invoking ::query())
-     * @param mixed     $args
+     * @param mixed     ...$args
      *
      * @return mixed
      */

@@ -213,7 +213,7 @@ interface ConnectionInterface extends InterfaceHandler
      *
      * string param field name (Binary ascending order)
      *
-     * @param   array<string, mixed>|string     $args
+     * @param   array<string, mixed>|string     ...$args
      */
     public function orderBy(...$args): string;
 
@@ -225,7 +225,7 @@ interface ConnectionInterface extends InterfaceHandler
      * array param: list of field names
      * string param: field name
      *
-     * @param   array<string>|string     $args
+     * @param   array<string>|string     ...$args
      */
     public function lexFields(...$args): string;
 
@@ -235,7 +235,7 @@ interface ConnectionInterface extends InterfaceHandler
      * Returns SQL concatenation of methods arguments. Theses arguments
      * should be properly escaped when needed.
      *
-     * @param   array<mixed>     $args
+     * @param   array<mixed>     ...$args
      */
     public function concat(...$args): string;
 

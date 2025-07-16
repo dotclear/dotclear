@@ -201,8 +201,8 @@ interface AuthInterface
      *
      * @throws  ProcessException
      *
-     * @param   callable    $fn     Callback function
-     * @param   mixed       $args   Callback arguments
+     * @param   callable    $fn         Callback function
+     * @param   mixed       ...$args    Callback arguments
      *
      * @return  mixed   The function result
      */
