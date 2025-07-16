@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -32,7 +33,7 @@ interface BehaviorInterface
      * Adds new behaviors to behaviors stack. Each row must
      * contains the behavior and a valid callable callback.
      *
-     * @param   array<string|string,callable>   $behaviors  The behaviors
+     * @param   array<string, callable>   $behaviors  The behaviors
      */
     public function addBehaviors(array $behaviors): void;
 
