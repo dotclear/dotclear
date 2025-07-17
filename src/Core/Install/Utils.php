@@ -1,7 +1,8 @@
 <?php
 
 /**
- * @package     Dotclear
+ * @package         Dotclear
+ * @subpackage      Install
  *
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0

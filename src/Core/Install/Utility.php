@@ -1,6 +1,10 @@
 <?php
+
 /**
- * @package     Dotclear
+ * @package         Dotclear
+ * @subpackage      Install
+ *
+ * @defsubpackage   Install        Application install services
  *
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0

@@ -1,7 +1,10 @@
 <?php
 
 /**
- * @package     Dotclear
+ * @package         Dotclear
+ * @subpackage      Core
+ *
+ * @defsubpackage   Core        Application core services
  *
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0

@@ -1,8 +1,7 @@
 <?php
 
 /**
- * @package Clearbricks
- * @subpackage Zip
+ * @package         Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright AGPL-3.0

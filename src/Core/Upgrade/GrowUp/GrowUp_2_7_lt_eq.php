@@ -1,6 +1,8 @@
 <?php
+
 /**
  * @package     Dotclear
+ * @subpackage  Upgrade
  *
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0

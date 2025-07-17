@@ -1,8 +1,10 @@
 <?php
 
 /**
- * @package     Dotclear
- * @subpackage  Upgrade
+ * @package         Dotclear
+ * @subpackage      Upgrade
+ *
+ * @defsubpackage   Upgrade        Application upgrade services
  *
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0

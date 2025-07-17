@@ -1,8 +1,10 @@
 <?php
 
 /**
- * @package Dotclear
- * @subpackage Backend
+ * @package         Dotclear
+ * @subpackage      Backend
+ *
+ * @defsubpackage   Backend        Application backend services
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright AGPL-3.0

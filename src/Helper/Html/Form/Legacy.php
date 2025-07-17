@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @package Dotclear
+ * @package         Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright AGPL-3.0
@@ -990,9 +990,6 @@ class form
 /**
  * @class formSelectOption
  * @brief HTML Forms creation helpers
- *
- * @package Clearbricks
- * @subpackage Common
  *
  * @deprecated Since 2.26, use Dotclear/Helper/Html/Form/Option instead
  */

@@ -1,8 +1,10 @@
 <?php
 
 /**
- * @package Dotclear
- * @subpackage Frontend
+ * @package         Dotclear
+ * @subpackage      Frontend
+ *
+ * @defsubpackage   Frontend        Application frontend services
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright AGPL-3.0

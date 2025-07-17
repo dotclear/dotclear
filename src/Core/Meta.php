@@ -2,6 +2,7 @@
 
 /**
  * @package Dotclear
+ * @subpackage Core
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright AGPL-3.0
@@ -277,7 +278,7 @@ class Meta implements MetaInterface
     public function getMetadata(array $params = [], bool $count_only = false, ?SelectStatement $ext_sql = null): MetaRecord
     {
         $params = new ArrayObject($params);
-        $sql = $ext_sql instanceof SelectStatement ? clone $ext_sql : new SelectStatement();
+        $sql    = $ext_sql instanceof SelectStatement ? clone $ext_sql : new SelectStatement();
 
         if ($count_only) {
             $sql->column($sql->count($sql->unique('M.meta_id')));
