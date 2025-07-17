@@ -79,7 +79,7 @@ class ModulesList
      *
      * @deprecated  since 2.26, use Modules::getDefine($id)->distributed instead
      *
-     * @var        array<string>
+     * @var        string[]    $distributed_modules
      */
     public static array $distributed_modules = [];
 
@@ -91,7 +91,7 @@ class ModulesList
     /**
      * Current modules defines
      *
-     * @var        array<ModuleDefine>
+     * @var        ModuleDefine[]  $defines
      */
     protected array $defines = [];
 
@@ -146,7 +146,7 @@ class ModulesList
     /**
      * Index list with special index
      *
-     * @var        array<string>
+     * @var        string[]     $nav_list
      */
     protected array $nav_list = [];
     /**

@@ -39,7 +39,7 @@ class Notices
     /**
      * List of supported types
      *
-     * @var array<string, string>
+     * @var array<string, string>   $notice_types
      */
     protected static array $notice_types = [
         // id → CSS class

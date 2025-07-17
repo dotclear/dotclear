@@ -23,7 +23,7 @@ class Favorites
     /**
      * List of favorite definitions
      *
-     * @var ArrayObject<string, mixed>
+     * @var ArrayObject<string, mixed>  $favorites
      */
     protected ArrayObject $favorites;
 
@@ -35,21 +35,21 @@ class Favorites
     /**
      * List of user-defined favorite ids
      *
-     * @var array<string>
+     * @var array<string>   $local_favorites_ids
      */
     protected array $local_favorites_ids;
 
     /**
      * List of globally-defined favorite ids
      *
-     * @var array<string>
+     * @var array<string>   $global_favorites_ids
      */
     protected array $global_favorites_ids;
 
     /**
      * List of user preferences (made from either one of the 2 above, or not!)
      *
-     * @var array<string, mixed>
+     * @var array<string, mixed>    $user_favorites
      */
     protected $user_favorites = [];
 

@@ -19,21 +19,29 @@ use Exception;
 
 /**
  * URL Handler for admin urls
+ *
+ * @phpstan-type AdminURLInfo array{url:string, qs:array<string, mixed>}
  */
 class Url
 {
     /**
-     * @var    ArrayObject<string, array<string, mixed>>     List of registered admin URLs
+     * List of registered admin URLs
+     *
+     * @var    ArrayObject<string, AdminURLInfo>     $urls
      */
     protected ArrayObject $urls;
 
     /**
-     * @var    string  Default backend index page
+     * Default backend index page
+     *
+     * @var    string  INDEX
      */
     public const INDEX = 'index.php';
 
     /**
-     * @var    string  Default pugrade index page
+     * Default upgrade index page
+     *
+     * @var    string  UPGRADE
      */
     public const UPGRADE = 'upgrade.php';
 
@@ -129,7 +137,7 @@ class Url
         }
         if ($parametric) {
             // Dirty hack to get back %[n$]s instead of %25[{0..9}%24]s in URLs used with (s)printf(), as http_build_query urlencode() its result.
-            $url = preg_replace('/\%25((\d)+?\%24)*?s/', '%$2s', (string) $url);
+            $url = (string) preg_replace('/\%25((\d)+?\%24)*?s/', '%$2s', (string) $url);
         }
 
         return $url;

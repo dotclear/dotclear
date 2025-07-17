@@ -37,10 +37,18 @@ class FilterMedia extends Filters
      */
     protected $post_title = '';
 
-    /** @var    string  media grid display mode */
+    /**
+     * @var    string  MODE_GRID
+     *
+     * Media grid display mode
+     */
     public const MODE_GRID = 'grid';
 
-    /** @var    string  media list display mode */
+    /**
+     * @var    string  MODE_LIST
+     *
+     * Media list display mode
+     */
     public const MODE_LIST = 'list';
 
     public function __construct(string $type = 'media')

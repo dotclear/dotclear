@@ -45,21 +45,21 @@ class Page
     /**
      * Stack of loaded JS
      *
-     * @var array<string, bool>
+     * @var array<string, bool>     $loaded_js
      */
     private static array $loaded_js = [];
 
     /**
      * Stack of loaded CSS
      *
-     * @var array<string, bool>
+     * @var array<string, bool>     $loaded_css
      */
     private static array $loaded_css = [];
 
     /**
      * Stack of preloaded resources (Js, CSS)
      *
-     * @var array<string, bool>
+     * @var array<string, bool>     $preloaded
      */
     private static array $preloaded = [];
 
@@ -177,16 +177,10 @@ class Page
 
         # Display
 
-        /**
-         * @var        ArrayObject<string, string>
-         */
-        $headers = new ArrayObject();
-
-        # Content-Type
-        $headers['content-type'] = 'Content-Type: text/html; charset=UTF-8';
-
-        # Referrer Policy for admin pages
-        $headers['referrer'] = 'Referrer-Policy: strict-origin';
+        $headers = new ArrayObject([
+            'content-type' => 'Content-Type: text/html; charset=UTF-8', // Content-type
+            'referrer'     => 'Referrer-Policy: strict-origin',         // Referrer Policy for admin pages
+        ]);
 
         # Prevents Clickjacking as far as possible
         if (isset($options['x-frame-allow'])) {
@@ -199,24 +193,17 @@ class Page
         if (!$safe_mode && App::blog()->settings()->system->csp_admin_on) {
             // Get directives from settings if exist, else set defaults
 
-            /**
-             * @var        ArrayObject<string, string>
-             */
-            $csp = new ArrayObject([]);
-
             // SQlite Clearbricks driver does not allow using single quote at beginning or end of a field value
             // so we have to use neutral values (localhost and 127.0.0.1) for some CSP directives
             $csp_prefix = App::con()->syntax() === 'sqlite' ? 'localhost ' : ''; // Hack for SQlite Clearbricks syntax
             $csp_suffix = App::con()->syntax() === 'sqlite' ? ' 127.0.0.1' : ''; // Hack for SQlite Clearbricks syntax
 
-            $csp['default-src'] = App::blog()->settings()->system->csp_admin_default ?:
-            $csp_prefix . "'self'" . $csp_suffix;
-            $csp['script-src'] = App::blog()->settings()->system->csp_admin_script ?:
-            $csp_prefix . "'self' 'unsafe-eval'" . $csp_suffix;
-            $csp['style-src'] = App::blog()->settings()->system->csp_admin_style ?:
-            $csp_prefix . "'self' 'unsafe-inline'" . $csp_suffix;
-            $csp['img-src'] = App::blog()->settings()->system->csp_admin_img ?:
-            $csp_prefix . "'self' data: https://media.dotaddict.org blob:";
+            $csp = [
+                'default-src' => App::blog()->settings()->system->csp_admin_default ?: $csp_prefix . "'self'" . $csp_suffix,
+                'script-src'  => App::blog()->settings()->system->csp_admin_script ?: $csp_prefix . "'self' 'unsafe-eval'" . $csp_suffix,
+                'style-src'   => App::blog()->settings()->system->csp_admin_style ?: $csp_prefix . "'self' 'unsafe-inline'" . $csp_suffix,
+                'img-src'     => App::blog()->settings()->system->csp_admin_img ?: $csp_prefix . "'self' data: https://media.dotaddict.org blob:",
+            ];
 
             # Cope with blog post preview (via public URL in iframe)
             if (App::blog()->host() !== '') {
@@ -234,7 +221,10 @@ class Page
             # Allow everything in iframe (used by editors to preview public content)
             $csp['frame-src'] = '*';
 
-            # --BEHAVIOR-- adminPageHTTPHeaderCSP -- ArrayObject
+            // Prepare ArrayObject for behavior
+            $csp = new ArrayObject($csp);
+
+            # --BEHAVIOR-- adminPageHTTPHeaderCSP -- ArrayObject<string, string>
             App::behavior()->callBehavior('adminPageHTTPHeaderCSP', $csp);
 
             // Construct CSP header
@@ -251,7 +241,7 @@ class Page
             }
         }
 
-        # --BEHAVIOR-- adminPageHTTPHeaders -- ArrayObject
+        # --BEHAVIOR-- adminPageHTTPHeaders -- ArrayObject<string, string>
         App::behavior()->callBehavior('adminPageHTTPHeaders', $headers);
         foreach ($headers as $value) {
             header($value);

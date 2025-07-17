@@ -15,16 +15,20 @@ use dcCore;
 
 /**
  * Backend help resources.
+ *
+ * @phpstan-type HelpEntries array<string, string>
  */
 class Resources
 {
     /**
-     * @var    bool    Non global help context
+     * Non global help context
      */
     private bool $context = false;
 
     /**
-     * @var    array<string,array<string,string>>   The help stack
+     * The help stack
+     *
+     * @var    array<string, HelpEntries>   $stack
      */
     private array $stack = [];
 
@@ -51,7 +55,7 @@ class Resources
      *
      * @param   string  $group  The group
      *
-     * @return  array<string,string>
+     * @return  array<string, string>
      */
     public function __get(string $group): array
     {
@@ -63,7 +67,7 @@ class Resources
      *
      * @param   string  $group  The group
      *
-     * @return  array<string,string>
+     * @return  array<string, string>
      */
     public function entries(string $group): array
     {

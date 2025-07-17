@@ -24,21 +24,21 @@ class Menu
     /**
      * List of items pinned at top of menu
      *
-     * @var array<int,string>
+     * @var array<int,string>   $pinned
      */
     protected $pinned = [];
 
     /**
      * List of unpinned items
      *
-     * @var array<string,string>
+     * @var array<string,string>    $items
      */
     protected $items = [];
 
     /**
      * List of indexed links
      *
-     * @var array<string,string>
+     * @var array<string,string>    $links
      */
     protected $links = [];
 

@@ -222,7 +222,6 @@ class ThemesList extends ModulesList
             $has_details = in_array('details', $cols) && !empty($define->get('details'));
             $has_support = in_array('support', $cols) && !empty($define->get('support'));
             if ($has_details || $has_support) {
-                /** @var array<int, Link|Div> */
                 $links = [];
                 if ($has_details) {
                     $links[] = (new Link())
@@ -230,20 +229,16 @@ class ThemesList extends ModulesList
                         ->href($define->get('details'))
                         ->text(__('Details'));
                 }
-
                 if ($has_support) {
                     $links[] = (new Link())
                         ->class('module-support')
                         ->href($define->get('support'))
                         ->text(__('Support'));
                 }
-
-                if (count($links)) {
-                    $infos[] = (new Span())
-                        ->class('mod-more')
-                        ->separator(' - ')
-                        ->items($links);
-                }
+                $infos[] = (new Span())
+                    ->class('mod-more')
+                    ->separator(' - ')
+                    ->items($links);
             }
 
             $module_infos[] = (new Para())

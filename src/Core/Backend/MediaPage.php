@@ -27,37 +27,43 @@ use Exception;
 class MediaPage extends FilterMedia
 {
     /**
-     * @var bool Page has a valid query
+     * Page has a valid query
      */
     protected bool $media_has_query = false;
 
     /**
-     * @var bool Media dir is writable
+     * Media dir is writable
      */
     protected bool $media_writable = false;
 
     /**
-     * @var bool Media dir is archivable
+     * Media dir is archivable
      */
     protected ?bool $media_archivable = null;
 
     /**
-     * @var array<string, mixed> Dirs and files File objects
+     * Dirs and files File objects
+     *
+     * @var array<string, mixed> $media_dir
      */
     protected ?array $media_dir = null;
 
     /**
-     * @var array<string> User media recents
+     * User media recents
+     *
+     * @var array<string> $media_last
      */
     protected ?array $media_last = null;
 
     /**
-     * @var array<string> User media favorites
+     * User media favorites
+     *
+     * @var array<string> $media_fav
      */
     protected ?array $media_fav = null;
 
     /**
-     * @var bool Uses enhance uploader
+     * Uses enhance uploader
      */
     protected ?bool $media_uploader = null;
 

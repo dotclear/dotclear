@@ -25,7 +25,7 @@ class UserPref
     /**
      * Sorts filters preferences
      *
-     * @var ArrayObject<string, mixed>
+     * @var ArrayObject<string, mixed>  $sorts
      */
     protected static ?ArrayObject $sorts = null;
 
