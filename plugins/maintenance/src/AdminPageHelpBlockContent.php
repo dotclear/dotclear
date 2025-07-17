@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -18,7 +19,7 @@ namespace Dotclear\Plugin\maintenance;
 class AdminPageHelpBlockContent
 {
     /**
-     * @var mixed
+     * @var mixed   $content
      */
     public $content;
 }

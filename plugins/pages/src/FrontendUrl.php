@@ -48,17 +48,15 @@ class FrontendUrl extends Url
 
             App::frontend()->context()->posts = App::blog()->getPosts($params);
 
-            /**
-             * @var        ArrayObject<string, mixed>
-             */
-            $cp               = new ArrayObject();
-            $cp['content']    = '';
-            $cp['rawcontent'] = '';
-            $cp['name']       = '';
-            $cp['mail']       = '';
-            $cp['site']       = '';
-            $cp['preview']    = false;
-            $cp['remember']   = false;
+            $cp = new ArrayObject([
+                'content'    => '',
+                'rawcontent' => '',
+                'name'       => '',
+                'mail'       => '',
+                'site'       => '',
+                'preview'    => false,
+                'remember'   => false,
+            ]);
 
             App::frontend()->context()->comment_preview = $cp;
 
@@ -130,7 +128,7 @@ class FrontendUrl extends Url
                         $content = App::filter()->HTMLfilter($content);
                     }
 
-                    App::frontend()->context()->comment_preview['content']    = $content;
+                    App::frontend()->context()->comment_preview['content']    = (string) $content;
                     App::frontend()->context()->comment_preview['rawcontent'] = $_POST['c_content'];
                     App::frontend()->context()->comment_preview['name']       = $name;
                     App::frontend()->context()->comment_preview['mail']       = $mail;

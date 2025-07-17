@@ -25,9 +25,6 @@ class ManagePostConfig
     {
         $context = $_GET['context'] ?? '';
 
-        /**
-         * @var        ArrayObject<int, array{name:string, url:string, button:string}>
-         */
         $__extraPlugins = new ArrayObject();
 
         # --BEHAVIOR-- ckeditorExtraPlugins, ArrayObject<int, array{name:string, url:string, button:string}>, string

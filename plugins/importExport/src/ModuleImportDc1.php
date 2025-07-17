@@ -55,17 +55,17 @@ class ModuleImportDc1 extends Module
     protected int $post_count  = 0;
 
     /**
-     * @var array<string, bool>
+     * @var array<string, bool>     $has_table
      */
     protected array $has_table = [];
 
     /**
-     * @var array<string, mixed>
+     * @var array<string, mixed>    $vars
      */
     protected $vars;
 
     /**
-     * @var array<string, mixed>
+     * @var array<string, mixed>    $base_vars
      */
     protected $base_vars = [
         'db_driver'  => 'mysqli',

@@ -36,7 +36,6 @@ use Dotclear\Helper\Html\Form\Th;
 use Dotclear\Helper\Html\Form\Thead;
 use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Html\Html;
-use Dotclear\Interface\Core\BlogWorkspaceInterface;
 use Exception;
 
 /**
@@ -170,15 +169,14 @@ class Manage extends Process
     }
 
     /**
-     * Return local or global settings forms (menu + settings)
+     * Get local or global settings forms (menu + settings)
      *
-     * @param      bool  $global  The global
+     * @param      bool  $global  True if global settings
      *
      * @return     array<int, Set|Form>
      */
     protected static function settingsTable(bool $global = false): array
     {
-        /** @var array<string, BlogWorkspaceInterface> */
         $namespaces = App::blog()->settings()->dumpWorkspaces();
         $settings   = [];
         if ($global) {

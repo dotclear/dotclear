@@ -32,14 +32,14 @@ class Blogroll
     /**
      * Blogroll permission
      *
-     * @var        string
+     * @var        string   PERMISSION_BLOGROLL
      */
     public const PERMISSION_BLOGROLL = 'blogroll';
 
     /**
      * Links table name
      *
-     * @var        string
+     * @var        string   LINK_TABLE_NAME
      */
     public const LINK_TABLE_NAME = 'link';
 

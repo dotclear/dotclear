@@ -23,28 +23,28 @@ class Maintenance
     /**
      * Stack of task.
      *
-     * @var     array<string, MaintenanceTask>   $tasks
+     * @var array<string, MaintenanceTask>   $tasks
      */
     private array $tasks = [];
 
     /**
      * Stack of tabs.
      *
-     * @var     array<string, MaintenanceDescriptor>   $tabs
+     * @var array<string, MaintenanceDescriptor>   $tabs
      */
     private array $tabs = [];
 
     /**
      * Stack of groups.
      *
-     * @var     array<string, MaintenanceDescriptor>   $groups
+     * @var array<string, MaintenanceDescriptor>   $groups
      */
     private array $groups = [];
 
     /**
      * Logs.
      *
-     * @var     null|array<string, array<string, mixed>>  $logs
+     * @var array<string, array{ts:int|false, blog:bool}>  $logs
      */
     private ?array $logs = null;
 
@@ -275,12 +275,12 @@ class Maintenance
      *
      * Return [
      *        task id => [
-     *            timestamp of last execution,
-     *            logged on current blog or not
+     *            'ts'   => timestamp of last execution,
+     *            'blog' => logged on current blog or not
      *        ]
      * ]
      *
-     * @return  array<string, array<string, mixed>>   List of logged tasks
+     * @return  array<string, array{ts:int|false, blog:bool}>   List of logged tasks
      */
     public function getLogs(): array
     {

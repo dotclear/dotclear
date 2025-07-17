@@ -40,6 +40,7 @@ use Dotclear\Helper\Html\Html;
  * @property    bool   $offline
  * @property    string $title
  */
+#[\AllowDynamicProperties]
 class WidgetsElement
 {
     // Constants

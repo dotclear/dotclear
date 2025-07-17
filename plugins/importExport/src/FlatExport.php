@@ -28,12 +28,12 @@ class FlatExport
     private string $prefix;
 
     /**
-     * @var array<string>
+     * @var string[]    $line_reg
      */
     private array $line_reg = ['/\\\\/u', '/\n/u', '/\r/u', '/"/u'];
 
     /**
-     * @var array<string>
+     * @var string[]    $line_rep
      */
     private array $line_rep = ['\\\\\\\\', '\n', '\r', '\"'];
 

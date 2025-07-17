@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -16,7 +17,7 @@ class initBlogroll
      *
      * @deprecated  since 2.28, use \Dotclear\Plugin\blogroll\Blogroll instead
      *
-     * @var        string
+     * @var        string   PERMISSION_BLOGROLL
      */
     public const PERMISSION_BLOGROLL = 'blogroll';
 
@@ -25,7 +26,7 @@ class initBlogroll
      *
      * @deprecated  since 2.28, use \Dotclear\Plugin\blogroll\Blogroll instead
      *
-     * @var        string
+     * @var        string   LINK_TABLE_NAME
      */
     public const LINK_TABLE_NAME = 'link';
 }

@@ -24,7 +24,7 @@ class FlatBackup
     protected mixed $fp;
 
     /**
-     * @var array<string>
+     * @var string[]   $line_cols
      */
     private array $line_cols = [];
 
@@ -32,7 +32,7 @@ class FlatBackup
     private ?int $line_num     = null;
 
     /**
-     * @var array<string>
+     * @var string[]   $replacement
      */
     private array $replacement = [
         '/(?<!\\\\)(?>(\\\\\\\\)*+)(\\\\n)/u' => "\$1\n",

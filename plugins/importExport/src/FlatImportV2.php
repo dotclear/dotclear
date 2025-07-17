@@ -52,12 +52,12 @@ class FlatImportV2 extends FlatBackup
     private readonly Cursor $cur_spamrule;
 
     /**
-     * @var array<string, Cursor>
+     * @var array<string, Cursor>   $cur_extra
      */
     protected array $cur_extra;
 
     /**
-     * @var        array<string, mixed>
+     * @var array<string, mixed>    $old_ids
      */
     public $old_ids = [
         'category' => [],
@@ -66,7 +66,7 @@ class FlatImportV2 extends FlatBackup
     ];
 
     /**
-     * @var        array<string, mixed>
+     * @var array<string, mixed>    $stack
      */
     public $stack = [
         'categories' => null,

@@ -25,8 +25,8 @@ use Dotclear\Helper\Html\Form\Time;
 use Dotclear\Helper\Html\Form\Url;
 
 /**
- * @class form and formSelectOption
- * @brief HTML Form helpers
+ * @class form
+ * @brief HTML Form legacy helpers
  *
  * @deprecated  Since 2.26, use Dotclear\Helper\Html\Form\* instead
  */
@@ -989,9 +989,9 @@ class form
 
 /**
  * @class formSelectOption
- * @brief HTML Forms creation helpers
+ * @brief HTML Forms legacy helpers
  *
- * @deprecated Since 2.26, use Dotclear/Helper/Html/Form/Option instead
+ * @deprecated Since 2.26, use Dotclear\Helper\Html\Form\Option instead
  */
 class formSelectOption extends Option
 {

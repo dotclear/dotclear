@@ -12,9 +12,9 @@ namespace Dotclear\Helper\File;
 
 #[\AllowDynamicProperties]
 /**
- * @class File item class
+ * @class File
  *
- * File item class used by {@link Manager}. In this class {@link $file} could
+ * @brief File item class used by {@link Manager}. In this class {@link $file} could
  * be either a file or a directory.
  */
 class File

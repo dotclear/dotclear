@@ -55,17 +55,17 @@ class ModuleImportWp extends Module
     protected int $post_count  = 0;
 
     /**
-     * @var array<string, bool>
+     * @var array<string, bool>     $has_table
      */
     protected array $has_table = [];
 
     /**
-     * @var array<string, mixed>
+     * @var array<string, mixed>    $vars
      */
     protected array $vars;
 
     /**
-     * @var array<string, mixed>
+     * @var array<string, mixed>    $base_vars
      */
     protected array $base_vars = [
         'db_host'            => '',
@@ -98,7 +98,7 @@ class ModuleImportWp extends Module
     ];
 
     /**
-     * @var array<string, mixed>
+     * @var array<string, mixed>    $formaters
      */
     protected array $formaters;
 

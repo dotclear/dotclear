@@ -36,7 +36,6 @@ use Dotclear\Helper\Html\Form\Th;
 use Dotclear\Helper\Html\Form\Thead;
 use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Html\Html;
-use Dotclear\Interface\Core\UserWorkspaceInterface;
 use Exception;
 
 /**
@@ -176,7 +175,6 @@ class Manage extends Process
      */
     protected static function prefsTable(bool $global = false): array
     {
-        /** @var array<string, UserWorkspaceInterface> */
         $workspaces = App::auth()->prefs()->dumpWorkspaces();
         $prefs      = [];
         if ($global) {

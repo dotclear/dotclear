@@ -53,7 +53,7 @@ final class dcCore
      *
      * @deprecated since 2.28, use App::session()::SESSION_TABLE_NAME
      *
-     * @var string
+     * @var string SESSION_TABLE_NAME
      */
     public const SESSION_TABLE_NAME = Session::SESSION_TABLE_NAME;
 
@@ -62,7 +62,7 @@ final class dcCore
      *
      * @deprecated since 2.28, use App::version()::VERSION_TABLE_NAME
      *
-     * @var string
+     * @var string VERSION_TABLE_NAME
      */
     public const VERSION_TABLE_NAME = Version::VERSION_TABLE_NAME;
 
@@ -127,7 +127,7 @@ final class dcCore
      *
      * @deprecated since 2.27, use App::filter()->wiki() instead
      *
-     * @var WikiToHtml
+     * @var WikiToHtml  $wiki
      */
     public $wiki;
 
@@ -136,7 +136,7 @@ final class dcCore
      *
      * @deprecated since 2.27, use App::filter()->wiki() instead
      *
-     * @var WikiToHtml
+     * @var WikiToHtml  $wiki2xhtml
      */
     public $wiki2xhtml;
 
@@ -152,7 +152,7 @@ final class dcCore
      *
      * @deprecated since 2.28, use App::themes() instead
      *
-     * @var ModulesInterface
+     * @var ModulesInterface    $themes
      */
     public $themes;
 
@@ -161,7 +161,7 @@ final class dcCore
      *
      * @deprecated since 2.28, use App::media() instead
      *
-     * @var MediaInterface
+     * @var MediaInterface  $media
      */
     public $media;
 
@@ -170,7 +170,7 @@ final class dcCore
      *
      * @deprecated since 2.28, use App::postMedia() instead
      *
-     * @var PostMediaInterface
+     * @var PostMediaInterface  $postmedia
      */
     public $postmedia;
 
@@ -207,14 +207,14 @@ final class dcCore
      *
      * @deprecated since 2.28, use App::lang()->getLang() and App::lang()->setLang() instead
      *
-     * @var string
+     * @var string  $lang
      */
     public $lang;
 
     /**
      * Php namespace autoloader
      *
-     * @var Autoloader
+     * @var Autoloader  $autoload
      *
      * @deprecated since 2.27, use Autoloader::me() instead
      */
@@ -255,7 +255,7 @@ final class dcCore
      *
      * @deprecated since 2.28, use App::backend()->resources() instance
      *
-     * @var array<string, mixed>
+     * @var array<string, mixed>    $resources
      */
     public $resources = [];
 
@@ -287,7 +287,7 @@ final class dcCore
      *
      * @deprecated since 2.28, permanently moved to App::cache()
      *
-     * @var array<string, mixed>
+     * @var array<string, mixed>    $cache
      */
     public $cache = [
         'mod_files' => [],
@@ -299,7 +299,7 @@ final class dcCore
      *
      * @deprecated since 2.28, use AntispamInitFilters behavior instead
      *
-     * @var array<string, mixed>|null
+     * @var array<string, mixed>|null   $spamfilters
      */
     public $spamfilters = [];
 
@@ -308,7 +308,7 @@ final class dcCore
      *
      * @deprecated since 2.28, use Widgets::$widgets instead
      *
-     * @var mixed
+     * @var mixed   $widgets
      */
     public $widgets;
 
