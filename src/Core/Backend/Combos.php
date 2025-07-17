@@ -117,41 +117,26 @@ class Combos
      * Gets the langs combo.
      *
      * @param      MetaRecord  $langs           The langs
-     * @param      bool        $with_available  If false, only list items from record if true, also list available languages
+     * @param      bool        $with_available  If false, only list items from record - if true, also list available languages
      *
-     * @return     array<int|string, mixed>   The langs combo.
+     * @return     array<string, mixed>   The langs combo.
      */
     public static function getLangsCombo(MetaRecord $langs, bool $with_available = false): array
     {
         $all_langs = L10n::getISOcodes(false, true);
+        $rec_langs = [];
+        while ($langs->fetch()) {
+            $rec_langs[$langs->post_lang] = $all_langs[$langs->post_lang] ?? $langs->post_lang;
+        }
         if ($with_available) {
-            /**
-             * @var        array<string, mixed>
-             */
             $langs_combo = [
                 ''              => '',
-                __('Most used') => [],
-                __('Available') => L10n::getISOcodes(true, true),
+                __('Most used') => array_flip($rec_langs),
+                __('Available') => array_flip(array_diff_key($all_langs, $rec_langs)),
             ];
-            while ($langs->fetch()) {
-                if (isset($all_langs[$langs->post_lang])) {
-                    $langs_combo[__('Most used')][$all_langs[$langs->post_lang]] = $langs->post_lang;
-                    unset($langs_combo[__('Available')][$all_langs[$langs->post_lang]]);
-                } else {
-                    $langs_combo[__('Most used')][$langs->post_lang] = $langs->post_lang;
-                }
-            }
         } else {
-            /**
-             * @var        array<string, mixed>
-             */
-            $langs_combo = [];
-            while ($langs->fetch()) {
-                $lang_name               = $all_langs[$langs->post_lang] ?? $langs->post_lang;
-                $langs_combo[$lang_name] = $langs->post_lang;
-            }
+            $langs_combo = array_flip($rec_langs);
         }
-        unset($all_langs);
 
         return $langs_combo;
     }
