@@ -23,9 +23,14 @@ class ManagePostConfig
      */
     public static function load(): void
     {
-        $context        = $_GET['context'] ?? '';
+        $context = $_GET['context'] ?? '';
+
+        /**
+         * @var        ArrayObject<int, array{name:string, url:string, button:string}>
+         */
         $__extraPlugins = new ArrayObject();
-        # --BEHAVIOR-- ckeditorExtraPlugins, ArrayObject, string
+
+        # --BEHAVIOR-- ckeditorExtraPlugins, ArrayObject<int, array{name:string, url:string, button:string}>, string
         App::behavior()->callBehavior('ckeditorExtraPlugins', $__extraPlugins, $context);
         $extraPlugins = $__extraPlugins->getArrayCopy();
 
@@ -41,63 +46,9 @@ class ManagePostConfig
     }
 
     /**
-     * Return direct JS part
-     */
-    protected static function jsDirect(): string
-    {
-        return <<<JS
-            (() => {
-              \$.toolbarPopup = function toolbarPopup(url) {
-                if (dotclear.admin_base_url != '') {
-                  const pos = url.indexOf(dotclear.admin_base_url);
-                  if (pos === -1) {
-                    url = dotclear.admin_base_url + url;
-                  }
-                }
-
-                const args = Array.prototype.slice.call(arguments);
-                let width = 520;
-                let height = 420;
-                if (args[1] !== undefined) {
-                  width = args[1].width || width;
-                  height = args[1].height || height;
-                }
-
-                const popup_params = `alwaysRaised=yes,dependent=yes,toolbar=yes,height=\${height},width=\${width},menubar=no,resizable=yes,scrollbars=yes,status=no`;
-                window.open(url, 'dc_popup', popup_params);
-              };
-
-              \$.stripBaseURL = function stripBaseURL(url) {
-                if (dotclear.base_url != '') {
-                  const pos = url.indexOf(dotclear.base_url);
-                  if (pos === 0) {
-                    return url.substr(dotclear.base_url.length);
-                  }
-                }
-                return url;
-              };
-
-              /* Retrieve editor from popup */
-              \$.active_editor = null;
-              \$.getEditorName = function getEditorName() {
-                return \$.active_editor;
-              };
-              window.addEventListener('beforeunload', (e) => {
-                const editor = CKEDITOR.instances[$.getEditorName()];
-                if (editor !== undefined && !dotclear.confirmClosePage.form_submit && editor.checkDirty()) {
-                  e.preventDefault(); // HTML5 specification
-                  e.returnValue = ''; // Google Chrome requires returnValue to be set.
-                }
-                return false;
-              });
-            })();
-            JS;
-    }
-
-    /**
      * Return jQuery ready part
      *
-     * @param      array<int, mixed>   $extraPlugins  The extra plugins
+     * @param      array<int, array{name:string, url:string, button:string}>   $extraPlugins  The extra plugins
      */
     protected static function jsReady(array $extraPlugins): string
     {
@@ -321,6 +272,60 @@ class ManagePostConfig
                 });
               }
             });
+            JS;
+    }
+
+    /**
+     * Return direct JS part
+     */
+    protected static function jsDirect(): string
+    {
+        return <<<JS
+            (() => {
+              \$.toolbarPopup = function toolbarPopup(url) {
+                if (dotclear.admin_base_url != '') {
+                  const pos = url.indexOf(dotclear.admin_base_url);
+                  if (pos === -1) {
+                    url = dotclear.admin_base_url + url;
+                  }
+                }
+
+                const args = Array.prototype.slice.call(arguments);
+                let width = 520;
+                let height = 420;
+                if (args[1] !== undefined) {
+                  width = args[1].width || width;
+                  height = args[1].height || height;
+                }
+
+                const popup_params = `alwaysRaised=yes,dependent=yes,toolbar=yes,height=\${height},width=\${width},menubar=no,resizable=yes,scrollbars=yes,status=no`;
+                window.open(url, 'dc_popup', popup_params);
+              };
+
+              \$.stripBaseURL = function stripBaseURL(url) {
+                if (dotclear.base_url != '') {
+                  const pos = url.indexOf(dotclear.base_url);
+                  if (pos === 0) {
+                    return url.substr(dotclear.base_url.length);
+                  }
+                }
+                return url;
+              };
+
+              /* Retrieve editor from popup */
+              \$.active_editor = null;
+              \$.getEditorName = function getEditorName() {
+                return \$.active_editor;
+              };
+              window.addEventListener('beforeunload', (e) => {
+                const editor = CKEDITOR.instances[$.getEditorName()];
+                if (editor !== undefined && !dotclear.confirmClosePage.form_submit && editor.checkDirty()) {
+                  e.preventDefault(); // HTML5 specification
+                  e.returnValue = ''; // Google Chrome requires returnValue to be set.
+                }
+                return false;
+              });
+            })();
             JS;
     }
 }

@@ -80,8 +80,8 @@ class BackendBehaviors
     /**
      * Add tags CKEditor plugin.
      *
-     * @param   ArrayObject<int, array<string, mixed>>      $extraPlugins   The extra plugins
-     * @param   string                                      $context        The context
+     * @param   ArrayObject<int, array{name:string, url:string, button:string}>     $extraPlugins   The extra plugins
+     * @param   string                                                              $context        The context
      */
     public static function ckeditorExtraPlugins(ArrayObject $extraPlugins, string $context): string
     {
