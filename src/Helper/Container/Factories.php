@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -13,11 +14,11 @@ namespace Dotclear\Helper\Container;
  * @brief   The helper to serve factories.
  *
  * To add a third party service :
- * @code{php}
+ * ```php
  * require_once path_to_this_file/Factories.php;
  * Factories::addService('core', VersionInterface::class, MyCoreVersionService::class);
  * Factories::addService('core', AuthInterface::class, fn ($container) => new \My\Core\Auth(ConnectionInterface $con));
- * @endcode
+ * ```
  *
  * * Third party service MUST be accessible from an Autoloader.
  * * This MUST be done before any call to App.

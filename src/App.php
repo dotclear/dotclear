@@ -48,12 +48,12 @@ final class App extends Core
      * Load application with their utility and process, if any.
      *
      * Usage:
-     * @code{php}
+     * ```php
      * require_once path/to/App.php
      * new Dotclear\App(Utility, Process);
-     * @endcode
+     * ```
      *
-     * utility and process MUST extend Dotclear\Core\Process.
+     * utility and process MUST extend Dotclear::Core::Process.
      *
      * Supported utilities are Backend, Frontend, Install, Upgrade (CLI)
      *

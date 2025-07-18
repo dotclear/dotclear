@@ -22,7 +22,7 @@ use Dotclear\Helper\L10n;
  * * All 5xx exception MUST extends InternalServerException
  *
  * Usage:
- * @code{php}
+ * ```php
  * // Retreive an exception information
  * echo \Dotclear\Exception\DatabaseException::code();
  * echo \Dotclear\Exception\DatabaseException::label();
@@ -32,7 +32,7 @@ use Dotclear\Helper\L10n;
  * foreach(\Dotclear\Exception\ExceptionEnum::cases() as $enum) {
  *   echo $enum->name . ' : ' . $enum->value . ' : ' . $enum->code() . ' : ' . $enum->label() . '<br>';
  * }
- * @endcode
+ * ```
  *
  * @return  string  The exception class name
  */
