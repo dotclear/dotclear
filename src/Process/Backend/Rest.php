@@ -313,21 +313,20 @@ class Rest extends Process
             $mod = App::plugins();
             $url = App::blog()->settings()->system->store_plugin_url;
         } else {
-            $mod = [];
-            $url = '';
-            # --BEHAVIOR-- restCheckStoreUpdate -- string, array<int,Modules>, array<int,string>
-            App::behavior()->callBehavior('restCheckStoreUpdateV2', $post['store'], [&$mod], [&$url]);
+            $param = new ArrayObject([
+                'mod' => [],
+                'url' => '',
+            ]);
+            # --BEHAVIOR-- restCheckStoreUpdate -- string, ArrayObject{mod:ModulesInterface[], url:string}
+            App::behavior()->callBehavior('restCheckStoreUpdateV2', $post['store'], $param);
 
-            /**
-             * @var array<\Dotclear\Process\Backend\ModulesInterface>    $mod
-             * @var string                                               $url
-             */
-            if ($mod === [] || $url === '') {        // @phpstan-ignore-line
+            [$mod, $url] = $param;
+            if ($mod === [] || $url === '') {
                 throw new Exception('Unknown store type');
             }
         }
 
-        $repo = new Store($mod, $url, false, false);     // @phpstan-ignore-line
+        $repo = new Store($mod, $url, false, false);
         $upd  = $repo->getDefines(true);
 
         $tmp = new ArrayObject($upd);
