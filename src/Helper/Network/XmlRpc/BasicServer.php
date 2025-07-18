@@ -30,35 +30,35 @@ class BasicServer
     /**
      * Server methods
      *
-     * @var array<string, mixed>
+     * @var array<string, mixed>    $callbacks
      */
     protected $callbacks = [];
 
     /**
      * Received data
      *
-     * @var string
+     * @var string  $data
      */
     protected $data;
 
     /**
      * Returned message
      *
-     * @var Message
+     * @var Message     $message
      */
     protected $message;
 
     /**
      * Server capabilities
      *
-     * @var array<string, array<string, mixed>>
+     * @var array<string, array<string, mixed> >    $capabilities
      */
     protected $capabilities;
 
     /**
      * Strict XML-RPC checks
      *
-     * @var bool
+     * @var bool    $strict_check
      */
     public $strict_check = false;
 

@@ -16,14 +16,12 @@ use Exception;
 /**
  * @class Schema
  *
- * @phpstan-type TDatabaseSqliteSchemaFields array<string, array{type: string, len: int|null, null: bool, default: string}>
- *
  * SQLite Database schema Handler
  */
 class Schema extends AbstractSchema
 {
     /**
-     * @var array<string, TDatabaseSqliteSchemaFields>     $table_hist
+     * @var array<string, array<string, array{type: string, len: int|null, null: bool, default: string}> >     $table_hist
      */
     private array $table_hist = [];
 
@@ -157,7 +155,7 @@ class Schema extends AbstractSchema
      *
      * @param   string  $table  The table name
      *
-     * @return     TDatabaseSqliteSchemaFields
+     * @return     array<string, array{type: string, len: int|null, null: bool, default: string}>
      */
     public function db_get_columns(string $table): array
     {

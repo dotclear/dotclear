@@ -20,28 +20,28 @@ class UrlHandler
     /**
      * Stack of URL types (name)
      *
-     * @var array<string, array<string, mixed>>
+     * @var array<string, array<string, mixed> >    $types
      */
     protected $types = [];
 
     /**
      * Default handler, used if requested type handler not registered
      *
-     * @var callable|null
+     * @var callable|null   $default_handler
      */
     protected $default_handler;
 
     /**
      * Stack of error handlers
      *
-     * @var        array<string, callable>    Array of callable
+     * @var        array<string, callable>    $error_handlers
      */
     protected $error_handlers = [];
 
     /**
      * Current handler
      *
-     * @var        string
+     * @var        string   $type
      */
     public $type = 'default';
 

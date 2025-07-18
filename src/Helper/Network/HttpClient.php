@@ -51,63 +51,63 @@ class HttpClient extends Socket
     /**
      * Server host
      *
-     * @var string
+     * @var string  $host
      */
     protected $host;
 
     /**
      * Server port
      *
-     * @var int
+     * @var int     $port
      */
     protected $port;
 
     /**
      * Query path
      *
-     * @var string
+     * @var string  $path
      */
     protected $path;
 
     /**
      * HTTP method
      *
-     * @var string
+     * @var string  $method
      */
     protected $method;
 
     /**
      * HTTP POST data
      *
-     * @var string
+     * @var string  $postdata
      */
     protected $postdata = '';
 
     /**
      * HTTP POST charset
      *
-     * @var string
+     * @var string  $post_charset
      */
     protected $post_charset;
 
     /**
      * Stack of cookies sent
      *
-     * @var array<string, string>
+     * @var array<string, string>   $cookies
      */
     protected $cookies = [];
 
     /**
      * HTTP referer
      *
-     * @var string
+     * @var string  $referer
      */
     protected $referer;
 
     /**
      * HTTP accept mime-types
      *
-     * @var array<string>
+     * @var string[]    $mime_types
      */
     protected $mime_types = [
         'text/xml',
@@ -133,112 +133,112 @@ class HttpClient extends Socket
     /**
      * HTTP accept encoding
      *
-     * @var string
+     * @var string  $accept_encoding
      */
     protected $accept_encoding = 'gzip';
 
     /**
      * HTTP accept language
      *
-     * @var string
+     * @var string  $accept_language
      */
     protected $accept_language = 'en-us';
 
     /**
      * HTTP User Agent
      *
-     * @var string
+     * @var string  $user_agent
      */
     protected $user_agent = 'Dotclear HTTP Client';
 
     /**
      * HTTP optional headers
      *
-     * @var array<string>
+     * @var string[]    $more_headers
      */
     protected $more_headers = [];
 
     /**
      * Connection timeout (in seconds)
      *
-     * @var int
+     * @var int     $timeout
      */
     protected $timeout = 10;
 
     /**
      * Stream timeout (in seconds)
      *
-     * @var int
+     * @var int     $stream_timeout
      */
     protected $stream_timeout;
 
     /**
      * Use SSL connection
      *
-     * @var bool
+     * @var bool    $use_ssl
      */
     protected $use_ssl = false;
 
     /**
      * Use gzip transfert
      *
-     * @var bool
+     * @var bool    $use_gzip
      */
     protected $use_gzip = false;
 
     /**
      * Allow persistant cookies
      *
-     * @var bool
+     * @var bool    $persist_cookies
      */
     protected $persist_cookies = true;
 
     /**
      * Allow persistant referers
      *
-     * @var bool
+     * @var bool    $persist_referers
      */
     protected $persist_referers = true;
 
     /**
      * Use debug mode
      *
-     * @var bool
+     * @var bool    $debug
      */
     protected $debug = false;
 
     /**
      * Follow redirects
      *
-     * @var bool
+     * @var bool    $handle_redirects
      */
     protected $handle_redirects = true;
 
     /**
      * Maximum redirects to follow
      *
-     * @var int
+     * @var int     $max_redirects
      */
     protected $max_redirects = 5;
 
     /**
      * Retrieve only headers
      *
-     * @var bool
+     * @var bool    $headers_only
      */
     protected $headers_only = false;
 
     /**
      * Authentication user name
      *
-     * @var string
+     * @var string  $username
      */
     protected $username;
 
     /**
      * Authentication password
      *
-     * @var string
+     * @var string  $password
      */
     protected $password;
 
@@ -257,28 +257,28 @@ class HttpClient extends Socket
     /**
      * HTTP Status code
      *
-     * @var int
+     * @var int     $status
      */
     protected $status;
 
     /**
      * HTTP Status string
      *
-     * @var string
+     * @var string  $status_string
      */
     protected $status_string;
 
     /**
      * Response headers
      *
-     * @var array<string, string|array<int, string>>
+     * @var array<string, string|string[]>  $headers
      */
     protected $headers = [];
 
     /**
      * Response body
      *
-     * @var string
+     * @var string  $content
      */
     protected $content = '';
 
@@ -287,14 +287,14 @@ class HttpClient extends Socket
     /**
      * Internal redirects count
      *
-     * @var int
+     * @var int     $redirect_count
      */
     protected $redirect_count = 0;
 
     /**
      * Internal cookie host
      *
-     * @var string
+     * @var string  $cookie_host
      */
     protected $cookie_host = '';
 
@@ -303,21 +303,21 @@ class HttpClient extends Socket
     /**
      * Output stream name
      *
-     * @var string|null
+     * @var string|null     $output
      */
     protected $output;
 
     /**
      * Output resource
      *
-     * @var resource|null|false
+     * @var resource|null|false     $output_h
      */
     protected $output_h;
 
     /**
      * Verify peer flag
      *
-     * @var bool
+     * @var bool    $verify_peer
      */
     protected $verify_peer = true;
 

@@ -24,35 +24,35 @@ class Files
     /**
      * Default directories mode
      *
-     * @var        int|null
+     * @var        int|null     $dir_mode
      */
     public static $dir_mode;
 
     /**
      * Locked files resource stack.
      *
-     * @var    array<string, resource>
+     * @var    array<string, resource>  $lock_stack
      */
     protected static $lock_stack = [];
 
     /**
      * Locked files status stack.
      *
-     * @var    array<string, bool>
+     * @var    array<string, bool>      $lock_disposable
      */
     protected static $lock_disposable = [];
 
     /**
      * Last lock attempt error
      *
-     * @var    string
+     * @var    string       $lock_error
      */
     protected static $lock_error = '';
 
     /**
      * MIME types
      *
-     * @var        array<string, string>
+     * @var        array<string, string>    $mime_types
      */
     public static $mime_types = [
 

@@ -69,7 +69,7 @@ class Modules implements ModulesInterface
     /**
      * Stack of modules paths (used as internal cache).
      *
-     * @var     array<string, array<int, string>>     $modules_paths
+     * @var     array<string, array<int, string> >     $modules_paths
      */
     protected array $modules_paths = [];
 

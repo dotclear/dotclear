@@ -29,14 +29,14 @@ class IntrospectionServer extends BasicServer
     /**
      * Methods signature
      *
-     * @var array<string, mixed>
+     * @var array<string, mixed>    $signatures
      */
     protected $signatures;
 
     /**
      * Methods help
      *
-     * @var array<string, string>
+     * @var array<string, string>   $help
      */
     protected $help;
 

@@ -295,7 +295,7 @@ class Text
     }
 
     /**
-     * @var        array<array<string, string>>
+     * @var        array<array<string, string> >    $defaultDiacriticsRemovalMap
      */
     protected static $defaultDiacriticsRemovalMap = [
         [

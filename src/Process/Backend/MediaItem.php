@@ -996,10 +996,7 @@ class MediaItem extends Process
                         ->text(__('Show entries containing this media')),
                 ]);
         } else {
-            /**
-             * @var        string
-             */
-            $relname = App::con()->escape(App::backend()->file->relname);
+            $relname = App::con()->escapeStr(App::backend()->file->relname);
 
             // 1st, look inside entries content
             $params = [
@@ -1017,9 +1014,6 @@ class MediaItem extends Process
                     $media_root = App::blog()->host() . Path::clean(App::blog()->settings()->system->public_url) . '/';
                 }
                 foreach (App::backend()->file->media_thumb as $value) {
-                    /**
-                     * @var        string
-                     */
                     $value = App::con()->escapeStr((string) preg_replace('/^' . preg_quote((string) $media_root, '/') . '/', '', (string) $value));
                     $params['sql'] .= "OR post_content_xhtml LIKE '%" . $value . "%' ";
                     $params['sql'] .= "OR post_excerpt_xhtml LIKE '%" . $value . "%' ";

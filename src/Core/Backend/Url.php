@@ -19,20 +19,13 @@ use Exception;
 
 /**
  * URL Handler for admin urls
- *
- * @phpstan-type TCoreBackendUrlQSParams array<string, mixed>
- *
- * @phpstan-type TCoreBackendUrlProperties array{
- *      url:string,
- *      qs:TCoreBackendUrlQSParams
- *  }
  */
 class Url
 {
     /**
      * List of registered admin URLs
      *
-     * @var    ArrayObject<string, TCoreBackendUrlProperties>     $urls
+     * @var    ArrayObject<string, array{url:string, qs:array<string, mixed>} >     $urls
      */
     protected ArrayObject $urls;
 
@@ -75,7 +68,7 @@ class Url
      *
      * @param   string                      $name       The url name
      * @param   string                      $class      Class name (without namespace) or url value
-     * @param   TCoreBackendUrlQSParams     $params     Query string params (optional)
+     * @param   array<string, mixed>        $params     Query string params (optional)
      */
     public function register(string $name, string $class, array $params = []): void
     {
@@ -99,7 +92,7 @@ class Url
      *
      * @param   string                      $name   The URL name
      * @param   string                      $orig   URL handler to copy information from
-     * @param   TCoreBackendUrlQSParams     $params Extra parameters to add
+     * @param   array<string, mixed>        $params Extra parameters to add
      * @param   string                      $newurl New URL if different from the original
      */
     public function registercopy(string $name, string $orig, array $params = [], string $newurl = ''): void
@@ -120,7 +113,7 @@ class Url
      * Retrieve an URL given its name, and optional parameters
      *
      * @param   string                      $name           The URL name
-     * @param   TCoreBackendUrlQSParams     $params         The query string parameters (associative array)
+     * @param   array<string, mixed>        $params         The query string parameters (associative array)
      * @param   string                      $separator      The separator (used between query string parameters)
      * @param   bool                        $parametric     Set to true if url will be used as (s)printf() format
      *
@@ -152,7 +145,7 @@ class Url
      * Redirect to an URL given its name, and optional parameters
      *
      * @param   string                      $name       The name
-     * @param   TCoreBackendUrlQSParams     $params     The parameters
+     * @param   array<string, mixed>        $params     The parameters
      * @param   string                      $suffix     The suffix
      */
     public function redirect(string $name, array $params = [], string $suffix = ''): void
@@ -188,7 +181,7 @@ class Url
      *
      * @throws  Exception   If unknown URL
      *
-     * @return  TCoreBackendUrlQSParams  The URL params.
+     * @return  array<string, mixed>   The URL params.
      */
     public function getParams(string $name): array
     {
@@ -206,7 +199,7 @@ class Url
      * form action retrieved from getBase()
      *
      * @param   string                      $name    The name
-     * @param   TCoreBackendUrlQSParams     $params  The parameters
+     * @param   array<string, mixed>        $params  The parameters
      *
      * @throws  Exception   If unknown URL
      *
@@ -235,7 +228,7 @@ class Url
      * form action retrieved from getBase()
      *
      * @param   string                      $name    The name
-     * @param   TCoreBackendUrlQSParams     $params  The parameters
+     * @param   array<string, mixed>        $params  The parameters
      *
      * @throws  Exception   If unknown URL
      *
@@ -263,7 +256,7 @@ class Url
      * @deprecated  should be used carefully, parameters are no more escaped
      *
      * @param   string                      $name       The URL Name
-     * @param   TCoreBackendUrlQSParams     $params     Query string parameters, given as an associative array
+     * @param   array<string, mixed>        $params     Query string parameters, given as an associative array
      * @param   string                      $separator  Separator to use between QS parameters
      *
      * @return  string  The forged decoded url
@@ -276,7 +269,7 @@ class Url
     /**
      * Return a copy of self::$urls property content.
      *
-     * @return  ArrayObject<string, TCoreBackendUrlProperties>
+     * @return  ArrayObject<string, array{url:string, qs:array<string, mixed>}>
      */
     public function dumpUrls(): ArrayObject
     {

@@ -24,56 +24,56 @@ class Parser
     /**
      * Feed type
      *
-     * @var string
+     * @var string  $feed_type
      */
     public $feed_type;
 
     /**
      * Feed title
      *
-     * @var string
+     * @var string  $title
      */
     public $title;
 
     /**
      * Feed link
      *
-     * @var string
+     * @var string  $link
      */
     public $link;
 
     /**
      * Feed description
      *
-     * @var string
+     * @var string  $description
      */
     public $description;
 
     /**
      * Feed publication date
      *
-     * @var string
+     * @var string  $pubdate
      */
     public $pubdate;
 
     /**
      * Feed generator
      *
-     * @var string
+     * @var string  $generator
      */
     public $generator;
 
     /**
      * Feed items
      *
-     * @var array<stdClass>
+     * @var stdClass[]  $items
      */
     public $items = [];
 
     /**
      * Feed XML content
      *
-     * @var SimpleXMLElement|false
+     * @var SimpleXMLElement|false  $xml
      */
     protected $xml;
 

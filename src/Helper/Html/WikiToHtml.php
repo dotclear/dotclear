@@ -169,49 +169,50 @@ class WikiToHtml
     /**
      * Stack of options
      *
-     * @var array<string, mixed>
+     * @var array<string, mixed>    $opt
      */
     public array $opt;
 
     /**
      * Stack of accronyms
      *
-     * @var array<string, string>
+     * @var array<string, string>   $macro_table
      */
-    public array $acro_table;
+    public array $macro_table;
 
     /**
      * Stack of footnotes
      *
-     * @var array<string, string>
+     * @var array<string, string>   $foot_notes
      */
     public array $foot_notes = [];
 
     /**
      * Stack of macros
      *
-     * @var array<int, string>
+     * @var array<int, string>      $macros
      */
     public array $macros = [];
 
     /**
      * Stack of registered functions
      *
-     * @var array<string, callable>
+     * @var array<string, callable> $functions
      */
     public array $functions = [];
 
     /**
      * Stack of Wiki content lines
      *
-     * @var array<string>
+     * @var string[]    $wiki_lines
      */
     public array $wiki_lines;
 
     /**
      * Inline tags
+     * name => [ opening string, closing string ]
      *
-     * @var array<string, array<string>> of name => [ opening string, closing string ]
+     * @var array<string, string[]> $tags
      */
     public array $tags;
 
@@ -220,23 +221,25 @@ class WikiToHtml
      *
      * Will be merged with self::$tags
      *
-     * @var        array<string, array<string>>
+     * @var array<string, string[]>  $custom_tags
      */
     public array $custom_tags = [];
 
     /**
      * Inline tags, opening strings
+     * name => opening string
      *
-     * @var array<string, string> of name => opening string
+     * @var array<string, string>   $open_tags
      */
     public array $open_tags;
 
     /**
      * Inline tags, closing strings
+     * name => closing string
      *
      * Populate from self::$tags
      *
-     * @var array<string, string> of name => closing string
+     * @var array<string, string>   $close_tags
      */
     public array $close_tags;
 
@@ -245,14 +248,14 @@ class WikiToHtml
      *
      * Populate from self::$tags
      *
-     * @var array<string>
+     * @var string[]    $all_tags
      */
     public array $all_tags;
 
     /**
      * Copy of self::$all_tags with escaped strings (\\string)
      *
-     * @var array<string>
+     * @var string[]    $escape_table
      */
     public array $escape_table;
 
@@ -265,10 +268,11 @@ class WikiToHtml
 
     /**
      * Full line tags
+     * name => opening string (at begining of line)
      *
      * Populate from self::$tags
      *
-     * @var array<string, string> of name => opening string (at begining of line)
+     * @var array<string, string>   $linetags
      */
     public array $linetags;
 
@@ -338,7 +342,7 @@ class WikiToHtml
         $this->setOpt('img_style_center', 'style="display:block; margin:0 auto;"');
         $this->setOpt('img_style_right', 'style="float:right; margin: 0 0 1em 1em;"');
 
-        $this->acro_table = $this->__getAcronyms();
+        $this->macro_table = $this->__getAcronyms();
 
         /*
          * Macro syntax:
@@ -362,7 +366,7 @@ class WikiToHtml
 
         if ($option === 'acronyms_file' && isset($this->opt[$option]) && file_exists($this->opt[$option])) {
             // Parse and merge new acronyms
-            $this->acro_table = [...$this->acro_table, ...$this->__getAcronyms()];
+            $this->macro_table = [...$this->macro_table, ...$this->__getAcronyms()];
         }
     }
 
@@ -1499,8 +1503,8 @@ class WikiToHtml
             $lang  = (empty($data[2])) ? '' : $this->protectAttr($data[2], true);
         }
 
-        if ($title == '' && !empty($this->acro_table[$acronym])) {
-            $title = $this->acro_table[$acronym];
+        if ($title == '' && !empty($this->macro_table[$acronym])) {
+            $title = $this->macro_table[$acronym];
         }
 
         $attr .= ($title) ? ' title="' . $this->protectAttr($title) . '"' : '';

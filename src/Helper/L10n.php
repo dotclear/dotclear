@@ -19,14 +19,14 @@ namespace Dotclear\Helper {
         /**
          * Translations files loaded
          *
-         * @var        array<string>
+         * @var        string[]     $files
          */
         public static array $files = [];
 
         /**
          * Locales loaded
          *
-         * @var        array<string, string|array<string>>
+         * @var        array<string, string|string[]>   $locales
          */
         public static array $locales = [];
 
@@ -34,27 +34,27 @@ namespace Dotclear\Helper {
         //@{
 
         /**
-         * @var        array<array<mixed>>
+         * @var        array<mixed[]>   $languages_definitions
          */
         protected static array $languages_definitions = [];
 
         /**
-         * @var        array<string, string>
+         * @var        array<string, string>    $languages_name
          */
         protected static array $languages_name = [];
 
         /**
-         * @var        array<string, string>
+         * @var        array<string, string>    $languages_textdirection
          */
         protected static array $languages_textdirection = [];
 
         /**
-         * @var        array<string, null|int>
+         * @var        array<string, null|int>  $languages_pluralsnumber
          */
         protected static array $languages_pluralsnumber = [];
 
         /**
-         * @var        array<string, null|string>
+         * @var        array<string, null|string>   $languages_pluralexpression
          */
         protected static array $languages_pluralexpression = [];
         //@}
@@ -90,7 +90,7 @@ namespace Dotclear\Helper {
         /**
          * Find plural msgstr index from gettext expression
          *
-         * @var        callable
+         * @var        callable     $language_pluralfunction
          */
         protected static $language_pluralfunction;
         //@}
@@ -395,7 +395,7 @@ namespace Dotclear\Helper {
             $i                = 0;
 
             /**
-             * @var array<string, mixed>
+             * array<string, mixed>    $desc
              */
             $desc = [];
 
@@ -448,7 +448,8 @@ namespace Dotclear\Helper {
                         // headers found so stop search and clean previous comments
                         if ($headers_found) {
                             $headers_searched = true;
-                            $entry            = $desc = [];
+                            $entry            = [];
+                            $desc             = [];
                             $i                = $l - 1;
 
                             continue;
@@ -522,7 +523,7 @@ namespace Dotclear\Helper {
                         $entry     = [];
 
                         // add comments to new translation
-                        if (!empty($desc)) {
+                        if ($desc !== []) {
                             $entry = array_merge($entry, $desc);
                             $desc  = [];
                         }
@@ -549,6 +550,9 @@ namespace Dotclear\Helper {
                     if (!empty($def[1])) {
                         if (!isset($entry['msgstr'])) {
                             $entry['msgstr'] = [];
+                        } elseif (!is_array($entry['msgstr'])) {
+                            // Make an array from current string content
+                            $entry['msgstr'] = [$entry['msgstr']];
                         }
                         $entry['msgstr'][] = $str;
                     } else {
@@ -585,7 +589,7 @@ namespace Dotclear\Helper {
 
             // Add last translation
             if ($entry !== []) {
-                if (!empty($desc)) {
+                if ($desc !== []) {
                     $entry = array_merge($entry, $desc);
                 }
                 $entries[] = $entry;
@@ -1119,9 +1123,6 @@ namespace Dotclear\Helper {
                 ];
             }
 
-            /**
-             * @var        array<string, mixed>
-             */
             $r = [];
             foreach (self::$languages_definitions as $_) {
                 $r[$_[0]] = empty($_[$type]) ? $default : $_[$type];

@@ -17,7 +17,7 @@ class Clearbricks
     /**
      * Old way autoload classes stack
      *
-     * @var        array<string, string>
+     * @var        array<string, string>    $stack
      */
     public $stack = [];
 

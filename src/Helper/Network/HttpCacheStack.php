@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -14,10 +15,18 @@ namespace Dotclear\Helper\Network;
  */
 class HttpCacheStack
 {
-    /** @var    array<int,string>   The files path stack */
+    /**
+     * The files path stack
+     *
+     * @var    string[]     $files
+     */
     private array $files = [];
 
-    /** @var    array<int,int>  The timestamps stack */
+    /**
+     * The timestamps stack
+     *
+     * @var    int[]        $times
+     */
     private array $times = [];
 
     /**

@@ -28,35 +28,35 @@ class Message
     /**
      * Type of message - methodCall / methodResponse / fault
      *
-     * @var string
+     * @var string  $messageType
      */
     public $messageType;
 
     /**
      * Fault code
      *
-     * @var int
+     * @var int     $faultCode
      */
     public $faultCode;
 
     /**
      * Fault string
      *
-     * @var string
+     * @var string  $faultString
      */
     public $faultString;
 
     /**
      * Method name
      *
-     * @var string
+     * @var string  $methodName
      */
     public $methodName;
 
     /**
      * Method parameters
      *
-     * @var array<int, mixed>
+     * @var mixed[] $params
      */
     public $params = [];
 
@@ -65,42 +65,42 @@ class Message
     /**
      * The stack used to keep track of the current array/struct
      *
-     * @var array<int, mixed>
+     * @var mixed[]     $_arraystructs
      */
     protected $_arraystructs = [];
 
     /**
      * Stack keeping track of if things are structs or array
      *
-     * @var array<int, mixed>
+     * @var mixed[]     $_arraystructstypes
      */
     protected $_arraystructstypes = [];
 
     /**
      * A stack as well
      *
-     * @var array<int, mixed>
+     * @var mixed[]     $_currentStructName
      */
     protected $_currentStructName = [];
 
     /**
      * Current XML tag
      *
-     * @var string
+     * @var string  $_currentTag
      */
     protected $_currentTag;
 
     /**
      * Current XML tag content
      *
-     * @var string
+     * @var string  $_currentTagContents
      */
     protected $_currentTagContents;
 
     /**
      * The XML parser
      *
-     * @var mixed   resource|XMLParser
+     * @var mixed   resource|XMLParser  $_parser
      */
     protected $_parser;
 

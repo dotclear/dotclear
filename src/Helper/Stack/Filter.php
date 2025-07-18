@@ -31,7 +31,7 @@ class Filter
     /**
      * The filter properties.
      *
-     * @var     array{'id': string, 'value': mixed, 'form': string, 'prime': bool, 'title': string, 'options': array<string, string>, 'html': string, 'params': array<array<int|string, mixed>>}     $properties
+     * @var     array{'id': string, 'value': mixed, 'form': string, 'prime': bool, 'title': string, 'options': array<string, string>, 'html': string, 'params': array<array<int|string, mixed> >}     $properties
      */
     protected $properties = [
         'id'      => '',

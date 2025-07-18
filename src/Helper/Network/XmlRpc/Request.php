@@ -20,7 +20,7 @@ class Request
     /**
      * Request XML string
      *
-     * @var string
+     * @var string  $xml
      */
     public $xml;
 

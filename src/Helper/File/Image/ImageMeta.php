@@ -27,35 +27,35 @@ class ImageMeta
     /**
      * Internal XMP array
      *
-     * @var     array<string, mixed>
+     * @var     array<string, mixed>    $xmp
      */
     protected $xmp = [];
 
     /**
      * Internal IPTC array
      *
-     * @var     array<string, mixed>
+     * @var     array<string, mixed>    $iptc
      */
     protected $iptc = [];
 
     /**
      * Internal EXIF array
      *
-     * @var     array<string, mixed>
+     * @var     array<string, mixed>    $exif
      */
     protected $exif = [];
 
     /**
      * Internal XML array
      *
-     * @var     array<string, mixed>
+     * @var     array<string, mixed>    $xml
      */
     protected $xml = [];
 
     /**
      * array $properties Final properties array
      *
-     * @var     array<string, mixed>
+     * @var     array<string, mixed>    $properties
      */
     protected $properties = [
         'Title'             => null,
@@ -353,7 +353,7 @@ class ImageMeta
     /**
      * XML references to properties
      *
-     * @var        array<string, string>
+     * @var        array<string, string>    $xml_to_property
      */
     protected $xml_to_property = [
         'title' => 'Title',
@@ -363,7 +363,7 @@ class ImageMeta
     /**
      * XMP properties
      *
-     * @var        array<string, array<string>>
+     * @var        array<string, string[]>  $xmp_reg
      */
     protected $xmp_reg = [
         'Title' => [
@@ -449,7 +449,7 @@ class ImageMeta
     /**
      * IPTC references
      *
-     * @var        array<string, string>
+     * @var        array<string, string>    $iptc_ref
      */
     protected $iptc_ref = [
         '1#090' => 'Iptc.Envelope.CharacterSet', // Character Set used (32 chars max)
@@ -481,7 +481,7 @@ class ImageMeta
     /**
      * IPTC references to properties
      *
-     * @var        array<string, string>
+     * @var        array<string, string>    $iptc_to_property
      */
     protected $iptc_to_property = [
         'Iptc.ObjectName'    => 'Title',
@@ -498,7 +498,7 @@ class ImageMeta
     /**
      * EXIF properties
      *
-     * @var        array<string, string>
+     * @var        array<string, string>    $exif_to_property
      */
     protected $exif_to_property = [
         //'' => 'Title',

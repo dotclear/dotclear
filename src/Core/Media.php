@@ -47,8 +47,6 @@ use Throwable;
 /**
  * @brief   Media items handler.
  *
- * @phpstan-type TCoreMediaFileHandlerProperties array<string, callable[]>
- *
  * @since   2.28, container services have been added to constructor
  */
 class Media extends Manager implements MediaInterface
@@ -81,7 +79,7 @@ class Media extends Manager implements MediaInterface
     /**
      * Stack of callbacks
      *
-     * @var array<string, TCoreMediaFileHandlerProperties>   $file_handler
+     * @var array<string, array<string, callable[]> >   $file_handler
      */
     protected array $file_handler = [];
 

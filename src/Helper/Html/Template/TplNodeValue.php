@@ -20,7 +20,7 @@ class TplNodeValue extends TplNode
     /**
      * Node content
      *
-     * @var string
+     * @var string  $content
      */
     protected $content = '';
 

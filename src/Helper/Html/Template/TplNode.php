@@ -23,14 +23,14 @@ class TplNode
     /**
      * Basic tree structure : links to parent, children forrest
      *
-     * @var null|TplNode|TplNodeBlock|TplNodeBlockDefinition|TplNodeText|TplNodeValue|TplNodeValueParent
+     * @var null|TplNode|TplNodeBlock|TplNodeBlockDefinition|TplNodeText|TplNodeValue|TplNodeValueParent    $parentNode
      */
     protected $parentNode;
 
     /**
      * Node children
      *
-     * @var ArrayObject<int, TplNode|TplNodeBlock|TplNodeBlockDefinition|TplNodeText|TplNodeValue|TplNodeValueParent>
+     * @var ArrayObject<int, TplNode|TplNodeBlock|TplNodeBlockDefinition|TplNodeText|TplNodeValue|TplNodeValueParent>   $children
      */
     protected ArrayObject $children;
 

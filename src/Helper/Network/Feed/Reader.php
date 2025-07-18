@@ -28,21 +28,21 @@ class Reader extends HttpClient
     /**
      * User agent
      *
-     * @var        string
+     * @var        string   $user_agent
      */
     protected $user_agent = 'Dotclear Feed Reader/0.2';
 
     /**
      * Connection timeout (in seconds)
      *
-     * @var        int
+     * @var        int      $timeout
      */
     protected $timeout = 5;
 
     /**
      * HTTP Cache validators
      *
-     * @var        array<string, string>|null
+     * @var        array<string, string>|null   $validators
      */
     protected $validators;
 

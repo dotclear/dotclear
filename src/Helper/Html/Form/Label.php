@@ -210,8 +210,6 @@ class Label extends Component
          * %2$s = text of label
          * %3$s = linked component
          * %4$s = label closing block
-         *
-         * @var        array<string>
          */
         $formats = [
             '<%1$s>%2$s %3$s</%4$s>', // Component inside label with label text before it

@@ -28,7 +28,7 @@ class TidyDiff
     /**
      * Chunks array
      *
-     * @var        array<TidyDiffChunk>
+     * @var        array<TidyDiffChunk>     $__data
      */
     protected $__data = [];
 

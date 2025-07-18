@@ -22,56 +22,56 @@ class File
     /**
      * Complete path to file
      *
-     * @var string
+     * @var string  $file
      */
     public $file;
 
     /**
      * File basename
      *
-     * @var string
+     * @var string  $basename
      */
     public $basename;
 
     /**
      * File directory name
      *
-     * @var string
+     * @var string  $dir
      */
     public $dir;
 
     /**
      * File URL
      *
-     * @var string
+     * @var string  $file_url
      */
     public $file_url;
 
     /**
      * File directory URL
      *
-     * @var string
+     * @var string  $dir_url
      */
     public $dir_url;
 
     /**
      * File extension
      *
-     * @var string
+     * @var string  $extension
      */
     public $extension;
 
     /**
      * File path relative to <var>$root</var> given in constructor
      *
-     * @var string
+     * @var string  $relname
      */
     public $relname;
 
     /**
      * Parent directory (ie. "..")
      *
-     * @var        bool
+     * @var bool     $parent
      */
     public $parent = false;
 
@@ -80,84 +80,84 @@ class File
      *
      * @see {@link Files::getMimeType()}
      *
-     * @var string|null
+     * @var string|null     $type
      */
     public $type;
 
     /**
      * File MimeType prefix
      *
-     * @var string
+     * @var string      $type_prefix
      */
     public $type_prefix;
 
     /**
      * File modification timestamp
      *
-     * @var int
+     * @var int     $mtime
      */
     public $mtime;
 
     /**
      * File size
      *
-     * @var int
+     * @var int     $size
      */
     public $size;
 
     /**
      * File permissions mode
      *
-     * @var int
+     * @var int     $mode
      */
     public $mode;
 
     /**
      * File owner ID
      *
-     * @var int
+     * @var int     $uid
      */
     public $uid;
 
     /**
      * File group ID
      *
-     * @var int
+     * @var int     $gid
      */
     public $gid;
 
     /**
      * True if file or directory is writable
      *
-     * @var bool
+     * @var bool    $w
      */
     public $w;
 
     /**
      * True if file is a directory
      *
-     * @var bool
+     * @var bool    $d
      */
     public $d;
 
     /**
      * True if file file is executable or directory is traversable
      *
-     * @var bool
+     * @var bool    $x
      */
     public $x;
 
     /**
      * True if file is a file
      *
-     * @var bool
+     * @var bool    $f
      */
     public $f;
 
     /**
      * True if file or directory is deletable
      *
-     * @var bool
+     * @var bool    $del
      */
     public $del;
 

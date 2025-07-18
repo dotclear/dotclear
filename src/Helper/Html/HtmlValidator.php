@@ -25,42 +25,42 @@ class HtmlValidator extends HttpClient
     /**
      * Validator host
      *
-     * @var        string
+     * @var        string   $host
      */
     protected $host = 'validator.w3.org';
 
     /**
      * Validator path
      *
-     * @var        string
+     * @var        string   $path
      */
     protected $path = '/nu/';
 
     /**
      * Use SSL
      *
-     * @var        bool
+     * @var        bool     $use_ssl
      */
     protected $use_ssl = true;
 
     /**
      * User agent
      *
-     * @var        string
+     * @var        string   $user_agent
      */
     protected $user_agent = 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.3a) Gecko/20021207';
 
     /**
      * Timeout (in seconds)
      *
-     * @var        int
+     * @var        int      $timeout
      */
     protected $timeout = 2;
 
     /**
      * Validation errors list (HTML)
      *
-     * @var        string
+     * @var        string   $html_errors
      */
     protected $html_errors = '';
 

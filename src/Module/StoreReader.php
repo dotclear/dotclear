@@ -127,7 +127,7 @@ class StoreReader extends HttpClient
     /**
      * Grace period for a domain in seconds
      *
-     * @var        int
+     * @var        int      GRACE_PERIOD
      */
     protected const GRACE_PERIOD = 2 * 60 * 60;   // 2 hours
 
@@ -383,7 +383,7 @@ class StoreReader extends HttpClient
                 self::$read_code = static::READ_FROM_CACHE;
 
                 /**
-                 * @var StoreParser
+                 * StoreParser
                  */
                 $ret = unserialize((string) file_get_contents($cached_file));
 
@@ -403,7 +403,7 @@ class StoreReader extends HttpClient
                 self::$read_code = static::READ_FROM_CACHE;
 
                 /**
-                 * @var StoreParser
+                 * StoreParser
                  */
                 $ret = unserialize((string) file_get_contents($cached_file));
 
@@ -422,7 +422,7 @@ class StoreReader extends HttpClient
                 self::$read_code = static::READ_FROM_CACHE;
 
                 /**
-                 * @var StoreParser
+                 * StoreParser
                  */
                 $ret = unserialize((string) file_get_contents($cached_file));
 

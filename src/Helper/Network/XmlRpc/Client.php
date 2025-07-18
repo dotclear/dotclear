@@ -27,14 +27,14 @@ class Client extends HttpClient
     /**
      * XML-RPC Request object
      *
-     * @var Request
+     * @var Request     $request
      */
     protected $request;
 
     /**
      * XML-RPC Message object
      *
-     * @var Message
+     * @var Message     $message
      */
     protected $message;
 

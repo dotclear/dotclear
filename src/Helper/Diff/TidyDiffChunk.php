@@ -21,7 +21,7 @@ class TidyDiffChunk
     /**
      * Chunk information array
      *
-     * @var array<string, mixed>
+     * @var array<string, mixed>    $__info
      */
     protected $__info = [
         'context' => 0,
@@ -36,7 +36,7 @@ class TidyDiffChunk
     /**
      * Chunk data array
      *
-     * @var array<TidyDiffLine>
+     * @var array<TidyDiffLine>     $__data
      */
     protected $__data = [];
 
@@ -140,48 +140,43 @@ class TidyDiffChunk
     /**
      * Gets the groups.
      *
-     * @return     array<array<TidyDiffLine>>  The groups.
+     * @return     array<TidyDiffLine[]>  The groups.
      */
     private function getGroups(): array
     {
         /**
-         * @var        array<array<TidyDiffLine>>
+         * array<TidyDiffLine[]>
          */
         $res = [];
 
         /**
-         * @var        array<TidyDiffLine>
+         * TidyDiffLine[]
          */
         $group = [];
 
         /**
-         * @var        array<string>
+         * string[]
          */
         $allowed_types = ['delete', 'insert'];
 
-        /**
-         * @var        int
-         */
-        $delete = 0;
-
-        /**
-         * @var        int
-         */
-        $insert = 0;
+        $counters = [
+            'delete' => 0,
+            'insert' => 0,
+        ];
 
         foreach ($this->__data as $line) {
             if (in_array($line->type, $allowed_types)) {
                 $group[] = $line;
-                ${$line->type}++;
+                $counters[$line->type]++;
             } else {
-                if ($delete === $insert && count($group) > 0) {
+                if ($counters['delete'] === $counters['insert'] && count($group) > 0) {
                     $res[] = $group;
                 }
-                $delete = $insert = 0;
-                $group  = [];
+                $counters['delete'] = $counters['insert'] = 0;
+                $group              = [];
             }
         }
-        if ($delete === $insert && count($group) > 0) {
+        if ($counters['delete'] === $counters['insert'] && count($group) > 0) {
             $res[] = $group;
         }
 

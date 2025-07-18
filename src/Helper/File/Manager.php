@@ -25,7 +25,7 @@ class Manager
      *
      * @deprecated since 2.28, use self::getRoot() instead
      *
-     * @var string
+     * @var string  $root
      */
     public $root;
 
@@ -34,35 +34,35 @@ class Manager
      *
      * @deprecated since 2.28, use self::getRootUrl() instead
      *
-     * @var string
+     * @var string  $root_url
      */
     public $root_url;
 
     /**
      * Working (current) directory
      *
-     * @var string
+     * @var string  $pwd
      */
     protected $pwd;
 
     /**
      * Array of excluded items (path beginning with)
      *
-     * @var        array<string>
+     * @var string[]    $exclude_list
      */
     protected $exclude_list = [];
 
     /**
      * Files exclusion regexp pattern
      *
-     * @var        string
+     * @var string      $exclude_pattern
      */
     protected $exclude_pattern = '';
 
     /**
      * Files exclusion regexp pattern list
      *
-     * @var        array<string>
+     * @var string[]    $exclude_pattern_list
      */
     protected $exclude_pattern_list = [];
 
@@ -71,7 +71,7 @@ class Manager
      *
      * @deprecated since 2.28, use self::getDirs() or self::getFiles();
      *
-     * @var        array<string, array<File>>
+     * @var        array<string, File[]>    $dir
      */
     protected $dir = [
         'dirs'  => [],

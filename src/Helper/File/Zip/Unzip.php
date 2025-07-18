@@ -18,12 +18,12 @@ use Exception;
 class Unzip
 {
     /**
-     * @var        array<string, array<string, mixed>>
+     * @var array<string, array<string, mixed> > $compressed_list
      */
     protected array $compressed_list = [];
 
     /**
-     * @var        array<string, mixed>
+     * @var array<string, mixed>     $eo_central
      */
     protected array $eo_central = [];
 
@@ -43,12 +43,12 @@ class Unzip
     protected string $dir_sig_e = "\x50\x4b\x05\x06";
 
     /**
-     * @var        mixed
+     * @var mixed    $fp
      */
     protected $fp;
 
     /**
-     * @var        mixed
+     * @var mixed    $memory_limit
      */
     protected $memory_limit;
 

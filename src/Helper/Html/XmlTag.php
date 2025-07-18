@@ -19,14 +19,14 @@ class XmlTag
     /**
      * XML tag attributes
      *
-     * @var   array<string, mixed>
+     * @var   array<string, mixed>  $_attr
      */
     private array $_attr = [];
 
     /**
      * XML tag nodes (childs)
      *
-     * @var        array<string|XmlTag>
+     * @var        array<string|XmlTag>     $_nodes
      */
     private array $_nodes = [];
 

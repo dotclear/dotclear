@@ -24,7 +24,7 @@ class Iterator implements \Iterator
     /**
      * Socket resource handler
      *
-     * @var resource
+     * @var resource    $_handle
      */
     protected $_handle;
 

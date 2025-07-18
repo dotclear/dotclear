@@ -24,7 +24,7 @@ class ClientMulticall extends Client
     /**
      * Stack of methods to be called
      *
-     * @var        array<int, array<string, mixed>>
+     * @var        array<int, array<string, mixed> >    $calls
      */
     protected $calls = [];
 

@@ -20,14 +20,14 @@ class TplNodeBlock extends TplNode
     /**
      * Closed node block flag
      *
-     * @var bool
+     * @var bool    $closed
      */
     protected $closed = false;
 
     /**
      * Node block content
      *
-     * @var string
+     * @var string      $content
      */
     protected $content = '';
 

@@ -23,21 +23,21 @@ class Http
     /**
      * Force HTTPS scheme on server port 443 in {@link getHost()}
      *
-     * @var        bool
+     * @var        bool     $https_scheme_on_443
      */
     public static $https_scheme_on_443 = false;
 
     /**
      * Cache max age for {@link cache()}
      *
-     * @var        int
+     * @var        int      $cache_max_age
      */
     public static $cache_max_age = 0;
 
     /**
      * use X-FORWARD headers on getHost()
      *
-     * @var        bool
+     * @var        bool     $reverse_proxy
      */
     public static $reverse_proxy = false;
 

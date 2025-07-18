@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -20,21 +21,21 @@ class TidyDiffLine
     /**
      * Line type
      *
-     * @var string
+     * @var string  $type
      */
     public $type;
 
     /**
      * Line number for old and new context
      *
-     * @var array<int>
+     * @var int[]   $lines
      */
     public $lines;
 
     /**
      * Line content
      *
-     * @var string
+     * @var string  $content
      */
     public $content;
 
@@ -44,7 +45,7 @@ class TidyDiffLine
      * Creates a line representation for a tidy chunk.
      *
      * @param string        $type        Tine type
-     * @param array<int>    $lines       Line number for old and new context
+     * @param int[]         $lines       Line number for old and new context
      * @param string        $content     Line content
      */
     public function __construct(string $type, ?array $lines, ?string $content)

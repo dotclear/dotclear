@@ -15,8 +15,6 @@ use Exception;
 /**
  * @class Table
  *
- * @phpstan-type TDatabaseTableItemProperties   array<string, mixed>
- *
  * Database Table structure Handler
  */
 class Table
@@ -27,22 +25,22 @@ class Table
     protected $has_primary = false;
 
     /**
-     * @var        array<string, TDatabaseTableItemProperties>  $fields
+     * @var        array<string, array<string, mixed> >  $fields
      */
     protected $fields = [];
 
     /**
-     * @var        array<string, TDatabaseTableItemProperties>  $keys
+     * @var        array<string, array<string, mixed> >  $keys
      */
     protected $keys = [];
 
     /**
-     * @var        array<string, TDatabaseTableItemProperties>  $indexes
+     * @var        array<string, array<string, mixed> >  $indexes
      */
     protected $indexes = [];
 
     /**
-     * @var        array<string, TDatabaseTableItemProperties>  $references
+     * @var        array<string, array<string, mixed> >  $references
      */
     protected $references = [];
 
@@ -85,7 +83,7 @@ class Table
     /**
      * Gets the fields.
      *
-     * @return     array<string, TDatabaseTableItemProperties>  The fields.
+     * @return     array<string, array<string, mixed> >  The fields.
      */
     public function getFields(): array
     {
@@ -95,7 +93,7 @@ class Table
     /**
      * Gets the keys.
      *
-     * @return     array<string, TDatabaseTableItemProperties>  The keys.
+     * @return     array<string, array<string, mixed> >  The keys.
      */
     public function getKeys(): array
     {
@@ -105,7 +103,7 @@ class Table
     /**
      * Gets the indexes.
      *
-     * @return     array<string, TDatabaseTableItemProperties>  The indexes.
+     * @return     array<string, array<string, mixed> >  The indexes.
      */
     public function getIndexes(): array
     {
@@ -115,7 +113,7 @@ class Table
     /**
      * Gets the references.
      *
-     * @return     array<string, TDatabaseTableItemProperties>  The references.
+     * @return     array<string, array<string, mixed> >  The references.
      */
     public function getReferences(): array
     {

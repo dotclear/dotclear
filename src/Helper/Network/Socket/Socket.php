@@ -22,42 +22,42 @@ class Socket
     /**
      * Server port
      *
-     * @var int
+     * @var int     $_port
      */
     protected $_port;
 
     /**
      * Server transport
      *
-     * @var string
+     * @var string  $_transport
      */
     protected $_transport = '';
 
     /**
      * Connection timeout
      *
-     * @var int
+     * @var int     $_timeout
      */
     protected $_timeout;
 
     /**
      * Resource handler
      *
-     * @var resource|null
+     * @var resource|null   $_handle
      */
     protected $_handle;
 
     /**
      * Stream timeout
      *
-     * @var int|null
+     * @var int|null    $_stream_timeout
      */
     protected $_stream_timeout;
 
     /**
      * Verify peer
      *
-     * @var bool|null
+     * @var bool|null   $_verify_peer
      */
     protected $_verify_peer;
 

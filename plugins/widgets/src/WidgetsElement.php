@@ -83,7 +83,7 @@ class WidgetsElement
     /**
      * Widget settings.
      *
-     * @var     array<string, array<'title'|'type'|'value'|'options'|'opts', mixed>>   $settings
+     * @var     array<string, array<'title'|'type'|'value'|'options'|'opts', mixed> >   $settings
      */
     protected array $settings;
 

@@ -18,34 +18,34 @@ use Exception;
 class Zip
 {
     /**
-     * @var        array<string, mixed>
+     * @var        array<string, mixed>     $entries
      */
     protected array $entries = [];
 
     /**
-     * @var        array<string>
+     * @var        string[]     $ctrl_dir
      */
     protected array $ctrl_dir = [];
 
     protected string $eof_ctrl_dir = "\x50\x4b\x05\x06\x00\x00\x00\x00";
 
     /**
-     * @var        int
+     * @var        int      $old_offset
      */
     protected $old_offset = 0;
 
     /**
-     * @var        mixed
+     * @var        mixed    $fp
      */
     protected $fp;
 
     /**
-     * @var        mixed
+     * @var        mixed    $memory_limit
      */
     protected $memory_limit;
 
     /**
-     * @var        array<string>
+     * @var        string[]     $exclusions
      */
     protected $exclusions = [];
 

@@ -23,7 +23,7 @@ class MailSocket
     /**
      * Socket handle
      *
-     * @var        resource|null|false
+     * @var        resource|null|false  $fp
      */
     public static $fp;
 

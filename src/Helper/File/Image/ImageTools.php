@@ -23,14 +23,14 @@ class ImageTools
     /**
      * Image resource
      *
-     * @var mixed   resource|GdImage|null|false
+     * @var mixed   resource|GdImage|null|false     $res
      */
     public $res;
 
     /**
      * Memory limit
      *
-     * @var mixed   float|null|false
+     * @var mixed   float|null|false    $memory_limit
      */
     public $memory_limit;
 

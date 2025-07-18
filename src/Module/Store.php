@@ -46,7 +46,7 @@ class Store
     /**
      * Array of new/update modules from repository.
      *
-     * @var     array<string, array<string, array<string, mixed>>>   $data
+     * @var     array<string, array<string, array<string, mixed> > >   $data
      */
     protected array $data = [
         'new'    => [],
@@ -56,7 +56,7 @@ class Store
     /**
      * Array of new/update modules Define from repository.
      *
-     * @var     array<string, array<int, ModuleDefine>>   $defines
+     * @var     array<string, array<int, ModuleDefine> >   $defines
      */
     protected array $defines = [
         'new'    => [],

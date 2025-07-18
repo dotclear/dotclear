@@ -33,7 +33,7 @@ class StoreParser
     /**
      * Array of feed contents.
      *
-     * @var     array<string, array<string, mixed>>   $items
+     * @var     array<string, array<string, mixed> >   $items
      */
     protected $items = [];
 

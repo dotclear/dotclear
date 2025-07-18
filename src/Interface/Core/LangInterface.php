@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -19,7 +20,7 @@ interface LangInterface
     /**
      * The default lang (code).
      *
-     * @var     string  VERSION_TABLE_NAME
+     * @var     string  DEFAULT_LANG
      */
     public const DEFAULT_LANG = 'en';
 

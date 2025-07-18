@@ -26,7 +26,7 @@ use InvalidArgumentException;
 class Date
 {
     /**
-     * @var array<string, string>
+     * @var array<string, string>   $timezones
      */
     private static array $timezones = [];
 

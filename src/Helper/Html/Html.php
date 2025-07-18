@@ -20,7 +20,7 @@ class Html
     /**
      * Array of regular expression for {@link absoluteURLs()}
      *
-     * @var        array<string>
+     * @var        string[]     $absolute_regs
      */
     public static $absolute_regs = [
         '/((?:action|cite|data|download|formaction|href|imagesrcset|itemid|itemprop|itemtype|ping|poster|src|srcset)=")(.*?)(")/msu',

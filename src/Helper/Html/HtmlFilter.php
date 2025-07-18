@@ -31,7 +31,7 @@ class HtmlFilter
     /**
      * HTML content
      *
-     * @var string
+     * @var string  $content
      */
     public $content;
 
@@ -523,42 +523,42 @@ class HtmlFilter
     /**
      * Stack of removed tags
      *
-     * @var array<string>
+     * @var string[]    $removed_tags
      */
     private array $removed_tags = [];
 
     /**
      * Stack of removed attributes
      *
-     * @var array<string>
+     * @var string[]    $removed_attrs
      */
     private array $removed_attrs = [];
 
     /**
      * Stack of removed attibutes (via pattern)
      *
-     * @var array<string>
+     * @var string[]    $removed_pattern_attrs
      */
     private array $removed_pattern_attrs = [];
 
     /**
      * Stack of removed tags' attributes
      *
-     * @var array<string, array<string>>
+     * @var array<string, string[]>     $removed_tag_attrs
      */
     private array $removed_tag_attrs = [];
 
     /**
      * Stack of removed hosts
      *
-     * @var array<string>
+     * @var string[]    $removed_hosts
      */
     private array $removed_hosts = [];
 
     /**
      * List of allowed schemes (URI)
      *
-     * @var array<string>
+     * @var string[]    $allowed_schemes
      */
     private array $allowed_schemes = [
         'data',
@@ -572,7 +572,7 @@ class HtmlFilter
     /**
      * List of attributes which allow URI value
      *
-     * @var array<string>
+     * @var string[]    $uri_attrs
      */
     private array $uri_attrs = [
         'action',
@@ -594,7 +594,7 @@ class HtmlFilter
     /**
      * List of generic attributes
      *
-     * @var array<string>
+     * @var string[]    $gen_attrs
      */
     private array $gen_attrs = [
         'accesskey',
@@ -625,7 +625,7 @@ class HtmlFilter
     /**
      * List of events attributes
      *
-     * @var array<string>
+     * @var string[]    $event_attrs
      */
     private array $event_attrs = [
         'onabort',
@@ -709,7 +709,7 @@ class HtmlFilter
     /**
      * List of pattern'ed attributes
      *
-     * @var array<string>
+     * @var string[]    $grep_attrs
      */
     private array $grep_attrs = [
         '^aria-[\-\w]+$',
@@ -719,7 +719,7 @@ class HtmlFilter
     /**
      * List of single tags
      *
-     * @var array<string>
+     * @var string[]    $single_tags
      */
     private array $single_tags = [
         'area',
@@ -745,7 +745,7 @@ class HtmlFilter
     /**
      * List of tags and their attributes
      *
-     * @var array<string, array<string>>
+     * @var array<string, string[]>     $tags
      */
     private array $tags = [
         // A
