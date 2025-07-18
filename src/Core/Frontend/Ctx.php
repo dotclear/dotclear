@@ -26,7 +26,7 @@ class Ctx
     /**
      * Stack of context variables
      *
-     * @var        array<string, array<int, mixed>>
+     * @var        array<string, mixed[]>    $stack
      */
     public $stack = [];
 

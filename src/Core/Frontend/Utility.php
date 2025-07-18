@@ -38,7 +38,11 @@ class Utility extends Process
 {
     use TraitDynamicProperties;
 
-    /** @var    string  The default templates folder name */
+    /**
+     * The default templates folder name
+     *
+     * @var    string  TPL_ROOT
+     */
     public const TPL_ROOT = 'default-templates';
 
     /**
@@ -54,28 +58,28 @@ class Utility extends Process
     /**
      * Searched term
      *
-     * @var string|null
+     * @var string|null     $search
      */
     public $search;
 
     /**
      * Searched count
      *
-     * @var string
+     * @var string      $search_count
      */
     public $search_count;
 
     /**
      * Current theme
      *
-     * @var mixed
+     * @var mixed   $theme
      */
     public $theme;
 
     /**
      * Current theme's parent, if any
      *
-     * @var mixed
+     * @var mixed   $parent_theme
      */
     public $parent_theme;
 
@@ -94,7 +98,7 @@ class Utility extends Process
     /**
      * Current page number
      *
-     * @var int
+     * @var int     $page_number
      */
     protected $page_number;
 

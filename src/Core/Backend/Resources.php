@@ -57,7 +57,7 @@ class Resources
      *
      * @param   string  $group  The group
      *
-     * @return  array<string, string>
+     * @return  TCoreBackendResourcesHelpEntries
      */
     public function __get(string $group): array
     {
@@ -69,7 +69,7 @@ class Resources
      *
      * @param   string  $group  The group
      *
-     * @return  array<string, string>
+     * @return  TCoreBackendResourcesHelpEntries
      */
     public function entries(string $group): array
     {

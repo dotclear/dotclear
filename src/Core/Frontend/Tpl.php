@@ -1368,9 +1368,6 @@ class Tpl extends Template
      */
     public function CategoryIf(ArrayObject $attr, string $content): string
     {
-        /**
-         * @var        ArrayObject<int, string>
-         */
         $if       = new ArrayObject();
         $operator = isset($attr['operator']) ? static::getOperator($attr['operator']) : '&&';
 
@@ -1801,9 +1798,6 @@ class Tpl extends Template
      */
     public function EntryIf(ArrayObject $attr, string $content): string
     {
-        /**
-         * @var        ArrayObject<int, string>
-         */
         $if = new ArrayObject();
 
         $operator = isset($attr['operator']) ? static::getOperator($attr['operator']) : '&&';
@@ -2876,9 +2870,6 @@ class Tpl extends Template
      */
     public function PaginationIf(ArrayObject $attr, string $content): string
     {
-        /**
-         * @var        ArrayObject<int, string>
-         */
         $if = new ArrayObject();
 
         if (isset($attr['start'])) {
@@ -3222,9 +3213,6 @@ class Tpl extends Template
      */
     public function CommentIf(ArrayObject $attr, string $content): string
     {
-        /**
-         * @var        ArrayObject<int, string>
-         */
         $if = new ArrayObject();
 
         if (isset($attr['is_ping'])) {
@@ -3919,9 +3907,6 @@ class Tpl extends Template
      */
     public function SysIf(ArrayObject $attr, string $content): string
     {
-        /**
-         * @var        ArrayObject<int, string>
-         */
         $if = new ArrayObject();
 
         $operator = isset($attr['operator']) ? static::getOperator($attr['operator']) : '&&';

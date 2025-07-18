@@ -28,6 +28,14 @@ use Throwable;
  *
  * Handle id,version pairs through database.
  *
+ * @phpstan-type TCoreBlogWorkspaceSettings array{
+ *      ns:?string,
+ *      value:mixed,
+ *      type:string,
+ *      label:string,
+ *      global:bool
+ * }
+ *
  * @since   2.28, container services have been added to constructor
  */
 class BlogWorkspace implements BlogWorkspaceInterface
@@ -40,21 +48,21 @@ class BlogWorkspace implements BlogWorkspaceInterface
     /**
      * Global settings.
      *
-     * @var     array<string, array<string, mixed>>   $global_settings
+     * @var     array<string, TCoreBlogWorkspaceSettings>   $global_settings
      */
     protected array $global_settings = [];
 
     /**
      * Local settings.
      *
-     * @var     array<string, array<string, mixed>>   $local_settings
+     * @var     array<string, TCoreBlogWorkspaceSettings>   $local_settings
      */
     protected array $local_settings = [];
 
     /**
      * Blog settings.
      *
-     * @var     array<string, array<string, mixed>>   $settings
+     * @var     array<string, TCoreBlogWorkspaceSettings>   $settings
      */
     protected array $settings = [];
 
@@ -425,7 +433,7 @@ class BlogWorkspace implements BlogWorkspaceInterface
     /**
      * Dumps settings.
      *
-     * @return     array<string, array<string, mixed>>
+     * @return     array<string, TCoreBlogWorkspaceSettings>
      */
     public function dumpSettings(): array
     {
@@ -435,7 +443,7 @@ class BlogWorkspace implements BlogWorkspaceInterface
     /**
      * Dumps local settings.
      *
-     * @return     array<string, array<string, mixed>>
+     * @return     array<string, TCoreBlogWorkspaceSettings>
      */
     public function dumpLocalSettings(): array
     {
@@ -445,7 +453,7 @@ class BlogWorkspace implements BlogWorkspaceInterface
     /**
      * Dumps global settings.
      *
-     * @return     array<string, array<string, mixed>>
+     * @return     array<string, TCoreBlogWorkspaceSettings>
      */
     public function dumpGlobalSettings(): array
     {

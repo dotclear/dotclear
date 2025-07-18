@@ -17,6 +17,8 @@ use Dotclear\Interface\Core\PluginsInterface;
 /**
  * @brief   Text formater handler.
  *
+ * @phpstan-type TCoreFormaterProperties array<string, callable>
+ *
  * @since   2.28, Text formater features have been grouped in this class
  */
 class Formater implements FormaterInterface
@@ -24,14 +26,14 @@ class Formater implements FormaterInterface
     /**
      * Stack of registered content formaters.
      *
-     * @var     array<string,array<string,callable>>    $stack
+     * @var     array<string, TCoreFormaterProperties>    $stack
      */
     private array $stack = [];
 
     /**
      * Stack of registered content formaters' name.
      *
-     * @var     array<string,string>    $names
+     * @var     array<string, string>    $names
      */
     private array $names = [];
 
@@ -83,7 +85,7 @@ class Formater implements FormaterInterface
      *
      * @param      string  $editor_id  The editor identifier
      *
-     * @return  array<string>   The formaters.
+     * @return  string[]   The formaters.
      */
     public function getFormater(string $editor_id): array
     {
@@ -99,7 +101,7 @@ class Formater implements FormaterInterface
     /**
      * Gets the formaters.
      *
-     * @return     array<string, array<string>>  The formaters.
+     * @return     array<string, string[]>  The formaters.
      */
     public function getFormaters(): array
     {

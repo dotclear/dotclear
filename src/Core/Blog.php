@@ -1751,9 +1751,6 @@ class Blog implements BlogInterface
 
         $now = Date::toUTC(time());
 
-        /**
-         * @var        ArrayObject<int, int>
-         */
         $to_change = new ArrayObject();
 
         while ($rs->fetch()) {
@@ -1769,7 +1766,7 @@ class Blog implements BlogInterface
             }
         }
         if (count($to_change) > 0) {
-            # --BEHAVIOR-- coreBeforeScheduledEntriesPublish -- BlogInterface, ArrayObject
+            # --BEHAVIOR-- coreBeforeScheduledEntriesPublish -- BlogInterface, ArrayObject<int, int>
             $this->behavior->callBehavior('coreBeforeScheduledEntriesPublish', $this, $to_change);
 
             $sql = new UpdateStatement();
@@ -1782,7 +1779,7 @@ class Blog implements BlogInterface
             $sql->update();
             $this->triggerBlog();
 
-            # --BEHAVIOR-- coreAfterScheduledEntriesPublish -- BlogInterface, ArrayObject
+            # --BEHAVIOR-- coreAfterScheduledEntriesPublish -- BlogInterface, ArrayObject<int, int>
             $this->behavior->callBehavior('coreAfterScheduledEntriesPublish', $this, $to_change);
 
             $this->firstPublicationEntries($to_change);

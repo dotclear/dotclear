@@ -25,6 +25,13 @@ use Throwable;
 /**
  * @brief   User workspace for preferences handler.
  *
+ * @phpstan-type TCoreUserWorkspaceSettings array{
+ *      ws:?string,
+ *      value:mixed,
+ *      type:string,
+ *      label:string,
+ *      global:bool
+ * }
  * @since   2.28, container services have been added to constructor
  */
 class UserWorkspace implements UserWorkspaceInterface
@@ -37,21 +44,21 @@ class UserWorkspace implements UserWorkspaceInterface
     /**
      * Global preferences.
      *
-     * @var     array<string, mixed>   Global preferences
+     * @var     array<string, TCoreUserWorkspaceSettings>   Global preferences
      */
     protected array $global_prefs = [];
 
     /**
      * Local preferences.
      *
-     * @var     array<string, mixed>   $local_prefs
+     * @var     array<string, TCoreUserWorkspaceSettings>   $local_prefs
      */
     protected array $local_prefs = [];
 
     /**
      * User preferences.
      *
-     * @var     array<string, mixed>   $prefs
+     * @var     array<string, TCoreUserWorkspaceSettings>   $prefs
      */
     protected array $prefs = [];
 
@@ -436,7 +443,7 @@ class UserWorkspace implements UserWorkspaceInterface
     /**
      * Dumps preferences.
      *
-     * @return     array<string, array<string, mixed>>
+     * @return     array<string, TCoreUserWorkspaceSettings>
      */
     public function dumpPrefs(): array
     {
@@ -446,7 +453,7 @@ class UserWorkspace implements UserWorkspaceInterface
     /**
      * Dumps local preferences.
      *
-     * @return     array<string, array<string, mixed>>
+     * @return     array<string, TCoreUserWorkspaceSettings>
      */
     public function dumpLocalPrefs(): array
     {
@@ -456,7 +463,7 @@ class UserWorkspace implements UserWorkspaceInterface
     /**
      * Dumps global preferences.
      *
-     * @return     array<string, array<string, mixed>>
+     * @return     array<string, TCoreUserWorkspaceSettings>
      */
     public function dumpGlobalPrefs(): array
     {
