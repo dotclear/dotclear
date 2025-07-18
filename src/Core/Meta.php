@@ -361,7 +361,7 @@ class Meta implements MetaInterface
         /**
          * Maximum usage of metadata for each type (tag, …)
          *
-         * @var        array<string, int>
+         * array<string, int>
          */
         $max = [];
         while ($rs_static->fetch()) {

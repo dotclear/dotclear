@@ -47,6 +47,8 @@ use Throwable;
 /**
  * @brief   Media items handler.
  *
+ * @phpstan-type TCoreMediaFileHandlerProperties array<string, callable[]>
+ *
  * @since   2.28, container services have been added to constructor
  */
 class Media extends Manager implements MediaInterface
@@ -79,7 +81,7 @@ class Media extends Manager implements MediaInterface
     /**
      * Stack of callbacks
      *
-     * @var array<string, array<string, array<callable>>>
+     * @var array<string, TCoreMediaFileHandlerProperties>   $file_handler
      */
     protected array $file_handler = [];
 
@@ -133,7 +135,7 @@ class Media extends Manager implements MediaInterface
      *
      * @deprecated since 2.28, use self::getThumbnailCombo()
      *
-     * @var array<string, array{0:int, 1:string, 2:string, 3?:string}>
+     * @var array<string, array{0:int, 1:string, 2:string, 3?:string}>  $thumb_sizes
      */
     public array $thumb_sizes = [
         'm'  => [448, 'ratio', 'medium'],

@@ -97,8 +97,6 @@ class Upgrade
 
         /**
          * Update it in a step that needed sessions to be removed
-         *
-         * @var     bool
          */
         $cleanup_sessions = false;
 

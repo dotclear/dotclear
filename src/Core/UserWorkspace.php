@@ -44,7 +44,7 @@ class UserWorkspace implements UserWorkspaceInterface
     /**
      * Global preferences.
      *
-     * @var     array<string, TCoreUserWorkspaceSettings>   Global preferences
+     * @var     array<string, TCoreUserWorkspaceSettings>   $global_prefs
      */
     protected array $global_prefs = [];
 

@@ -42,12 +42,12 @@ class Task implements TaskInterface
     private static bool $watchdog = false;
 
     /**
-     * The context(s).
+     * The contexts in use
      *
      * Multiple contexts can be set at same time like:
      * INSTALL / BACKEND, or BACKEND / MODULE
      *
-     * @var     array<string,bool>  The contexts in use
+     * @var     array<string, bool>     $context
      */
     private array $context = [
         'BACKEND'  => false,

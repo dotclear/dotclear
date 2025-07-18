@@ -33,7 +33,7 @@ class UpdateAttic extends Update
     /**
      * The releases stack.
      *
-     * @var     array<string, array<string, string>>    $releases
+     * @var     array<string, array{version:string, href:string, checksum:string, info:string, php:string, warning:string}>    $releases
      */
     private array $releases = [];
 

@@ -46,7 +46,7 @@ class Update
     /**
      * Version information
      *
-     * @var        array<string, mixed>
+     * @var        array<string, mixed> $version_info
      */
     protected array $version_info = [
         'version'  => null,
@@ -66,14 +66,14 @@ class Update
     /**
      * Stack of files to check (digest)
      *
-     * @var        array<string>
+     * @var        string[]    $forced_files
      */
     protected array $forced_files = [];
 
     /**
      * Stack of bad files checked (digest)
      *
-     * @var        array<string>
+     * @var        string[]    $bad_files
      */
     protected array $bad_files = [];
 
