@@ -530,7 +530,7 @@ final class dcCore
      *
      * @param      string  $editor_id  The editor identifier (dcLegacyEditor, dcCKEditor, ...)
      *
-     * @return     array<string, array<string>>|array<string>
+     * @return     array<string, string[]>|string[]
      */
     public function getFormaters(string $editor_id = ''): array
     {
@@ -594,11 +594,11 @@ final class dcCore
     }
 
     /**
-     * Adds new behaviors to behaviors stack.
+     * Adds behaviors to behaviors stack.
      *
      * @deprecated since 2.28, use App::behavior()->addBehaviors() instead
      *
-     * @param      array<string|string,callable>    $behaviors  The behaviors
+     * @param   array<string, callable>     $behaviors
      */
     public function addBehaviors(array $behaviors): void
     {
@@ -610,7 +610,7 @@ final class dcCore
      *
      * @deprecated since 2.28, use App::behavior()->addBehaviors() instead
      *
-     * @param      array<string|string,callable>    $behaviours  The behaviours
+     * @param   array<string, callable>     $behaviours
      */
     public function addBehaviours(array $behaviours): void
     {
@@ -671,8 +671,8 @@ final class dcCore
      *
      * @deprecated since 2.28, use App::behavior()->callBehavior() instead
      *
-     * @param      string  $behavior  The behavior
-     * @param      mixed   ...$args   The arguments
+     * @param      string  $behavior    The behavior
+     * @param      mixed[] $args        The arguments
      */
     public function callBehavior(string $behavior, ...$args): string
     {
@@ -684,8 +684,8 @@ final class dcCore
      *
      * @deprecated since 2.28, use App::behavior()->callBehavior() instead
      *
-     * @param      string  $behaviour  The behaviour
-     * @param      mixed   ...$args    The arguments
+     * @param      string  $behaviour   The behaviour
+     * @param      mixed[] $args        The arguments
      */
     public function callBehaviour(string $behaviour, ...$args): string
     {

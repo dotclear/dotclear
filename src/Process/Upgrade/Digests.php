@@ -53,7 +53,7 @@ class Digests extends Process
     /**
      * List of changes.
      *
-     * @var     array<string, array<string, mixed>>    $changes
+     * @var     array<string, array<string, mixed> >    $changes
      */
     private static array $changes = [
         'same'    => [],

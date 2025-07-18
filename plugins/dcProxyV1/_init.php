@@ -8,14 +8,14 @@
  */
 
 /**
- * @deprecated  since 2.28, use \Dotclear\Plugin\blogroll\Blogroll instead
+ * @deprecated  since 2.28, use Dotclear::Plugin::blogroll::Blogroll instead
  */
 class initBlogroll
 {
     /**
      * Blogroll permission.
      *
-     * @deprecated  since 2.28, use \Dotclear\Plugin\blogroll\Blogroll instead
+     * @deprecated  since 2.28, use Dotclear::Plugin::blogroll::Blogroll instead
      *
      * @var        string   PERMISSION_BLOGROLL
      */
@@ -24,7 +24,7 @@ class initBlogroll
     /**
      * Links (blogroll) table name.
      *
-     * @deprecated  since 2.28, use \Dotclear\Plugin\blogroll\Blogroll instead
+     * @deprecated  since 2.28, use Dotclear::Plugin::blogroll::Blogroll instead
      *
      * @var        string   LINK_TABLE_NAME
      */
@@ -32,21 +32,21 @@ class initBlogroll
 }
 
 /**
- * @deprecated since 2.25, use \Dotclear\Plugin\blogroll\Blogroll instead
+ * @deprecated since 2.25, use Dotclear::Plugin::blogroll::Blogroll instead
  */
 class dcLinks extends initBlogroll
 {
 }
 
 /**
- * @deprecated  since 2.28, use \Dotclear\Plugin\antispam\Antispam instead
+ * @deprecated  since 2.28, use Dotclear::Plugin::antispam::Antispam instead
  */
 class initAntispam
 {
     /**
      * Spam rules table name.
      *
-     * @deprecated  since 2.28, use \Dotclear\Plugin\antispam\Antispam instead
+     * @deprecated  since 2.28, use Dotclear::Plugin::antispam::Antispam instead
      *
      * @var     string  SPAMRULE_TABLE_NAME
      */
@@ -54,14 +54,14 @@ class initAntispam
 }
 
 /**
- * @deprecated  since 2.28, use \Dotclear\Plugin\pages\Pages instead
+ * @deprecated  since 2.28, use Dotclear::Plugin::pages::Pages instead
  */
 class initPages
 {
     /**
      * Pages permission.
      *
-     * @deprecated  since 2.28, use \Dotclear\Plugin\pages\Pages instead
+     * @deprecated  since 2.28, use Dotclear::Plugin::pages::Pages instead
      *
      * @var     string  PERMISSION_PAGES
      */
@@ -69,7 +69,7 @@ class initPages
 }
 
 /**
- * @deprecated since 2.25, use \Dotclear\Plugin\pages\Pages instead
+ * @deprecated since 2.25, use Dotclear::Plugin::pages::Pages instead
  */
 class dcPages extends initPages
 {

@@ -184,11 +184,6 @@ class UsersActions extends Process
 
                     foreach (App::backend()->users as $u) {
                         foreach (App::backend()->blogs as $b) {
-                            /**
-                             * User permissions
-                             *
-                             * @var        array<string, bool>
-                             */
                             $set_perms = [];
 
                             if (!empty($_POST['perm'][$b])) {
@@ -402,7 +397,7 @@ class UsersActions extends Process
         } elseif (!empty(App::backend()->blogs) && !empty(App::backend()->users) && App::backend()->action === 'perms') {
             // Permissions list for each selected blogs
 
-            /**
+            /*
              * @var        array<string, array{name: mixed, url: mixed, p: array<string, bool>}>
              */
             $user_perm = [];
@@ -411,9 +406,6 @@ class UsersActions extends Process
                 $user_perm = App::users()->getUserPermissions(App::backend()->users[0]);
             }
 
-            /**
-             * @var        array<string,mixed>
-             */
             $unknown_perms = [];
 
             $users = [];

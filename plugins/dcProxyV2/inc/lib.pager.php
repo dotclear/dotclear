@@ -19,6 +19,7 @@ class adminGenericList extends Listing
     /**
      * Constructs a new instance.
      *
+     * @param   dcCore                          $core       The deprecated core instance
      * @param   Dotclear\Database\MetaRecord    $rs         The record
      * @param   mixed                           $rs_count   The rs count
      */

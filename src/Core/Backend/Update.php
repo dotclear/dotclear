@@ -14,7 +14,7 @@ namespace Dotclear\Core\Backend;
 use Dotclear\Core\Upgrade\Update as UpgradeUpdate;
 
 /**
- * @deprecated  since 2.29, use Dotclear\Core\Upgrade\Update instead.
+ * @deprecated  since 2.29, use Dotclear::Core::Upgrade::Update instead.
  */
 class Update extends UpgradeUpdate
 {

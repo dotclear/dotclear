@@ -1,11 +1,12 @@
 <?php
+
 /**
  * @file
  * @brief 		Deprecated public prepend.
  *
  * Keep this file for backward compatibility with existing blogs index.php
  *
- * @deprecated 	since 2.27, use Dotclear\App::boostrap('Frontend'); instead
+ * @deprecated 	since 2.27, use Dotclear::App::boostrap('Frontend'); instead
  *
  * @package 	Dotclear
  *

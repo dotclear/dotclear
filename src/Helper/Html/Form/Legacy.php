@@ -28,7 +28,7 @@ use Dotclear\Helper\Html\Form\Url;
  * @class form
  * @brief HTML Form legacy helpers
  *
- * @deprecated  Since 2.26, use Dotclear\Helper\Html\Form\* instead
+ * @deprecated  Since 2.26, use Dotclear::Helper::Html::Form::* instead
  */
 class form
 {
@@ -68,7 +68,7 @@ class form
      * form::combo(['name', 'id'], $data, ['class' => 'maximal', 'extra_html' => 'data-language="php"']);
      * ```
      *
-     * @param string|array{0: string, 1?: string}|null     $nid       The identifier
+     * @param string|array{0:string, 1?:string}|null     $nid       The identifier
      * @param mixed                 $data        Select box data
      * @param mixed                 $default     Default value in select box | associative array of optional parameters
      * @param string                $class       Element class name
@@ -76,7 +76,7 @@ class form
      * @param boolean               $disabled    True if disabled
      * @param string                $extra_html  Extra HTML attributes
      *
-     * @deprecated Since 2.26, use Dotclear/Helper/Html/Form/Select instead
+     * @deprecated Since 2.26, use Dotclear::Helper::Html::Form::Select instead
      */
     public static function combo(
         $nid,
@@ -119,7 +119,7 @@ class form
      * $nid could be a string or an array of name and ID.
      * $checked could be a boolean or an associative array of any of optional parameters
      *
-     * @param string|array{0: string, 1?: string}|null     $nid       The identifier
+     * @param string|array{0:string, 1?:string}|null     $nid       The identifier
      * @param mixed                 $value       Element value
      * @param mixed                 $checked     True if checked | associative array of optional parameters
      * @param string                $class       Element class name
@@ -127,7 +127,7 @@ class form
      * @param boolean               $disabled    True if disabled
      * @param string                $extra_html  Extra HTML attributes
      *
-     * @deprecated Since 2.26, use Dotclear/Helper/Html/Form/Radio instead
+     * @deprecated Since 2.26, use Dotclear::Helper::Html::Form::Radio instead
      */
     public static function radio(
         $nid,
@@ -170,7 +170,7 @@ class form
      * $nid could be a string or an array of name and ID.
      * $checked could be a boolean or an associative array of any of optional parameters
      *
-     * @param string|array{0: string, 1?: string}|null     $nid       The identifier
+     * @param string|array{0:string, 1?:string}|null     $nid       The identifier
      * @param mixed                 $value       Element value
      * @param mixed                 $checked     True if checked | associative array of optional parameters
      * @param string                $class       Element class name
@@ -178,7 +178,7 @@ class form
      * @param boolean               $disabled    True if disabled
      * @param string                $extra_html  Extra HTML attributes
      *
-     * @deprecated Since 2.26, use Dotclear/Helper/Html/Form/Checkbox instead
+     * @deprecated Since 2.26, use Dotclear::Helper::Html::Form::Checkbox instead
      */
     public static function checkbox(
         $nid,
@@ -221,7 +221,7 @@ class form
      * $nid could be a string or an array of name and ID.
      * $default could be a string or an associative array of any of optional parameters
      *
-     * @param string|array{0: string, 1?: string}|null     $nid       The identifier
+     * @param string|array{0:string, 1?:string}|null     $nid       The identifier
      * @param integer               $size         Element size
      * @param integer               $max          Element maxlength
      * @param mixed                 $default      Element value | associative array of optional parameters
@@ -233,7 +233,7 @@ class form
      * @param string                $type         Input type
      * @param string                $autocomplete Autocomplete attributes if relevant
      *
-     * @deprecated Since 2.26, use Dotclear/Helper/Html/Form/Input instead
+     * @deprecated Since 2.26, use Dotclear::Helper::Html::Form::Input instead
      */
     public static function field(
         $nid,
@@ -294,7 +294,7 @@ class form
      * $nid could be a string or an array of name and ID.
      * $default could be a string or an associative array of any of optional parameters
      *
-     * @param string|array{0: string, 1?: string}|null     $nid       The identifier
+     * @param string|array{0:string, 1?:string}|null     $nid       The identifier
      * @param integer               $size        Element size
      * @param integer               $max         Element maxlength
      * @param mixed                 $default     Element value | associative array of optional parameters
@@ -305,7 +305,7 @@ class form
      * @param boolean               $required    Element is required
      * @param string                $autocomplete Autocomplete attributes if relevant (new-password/current-password)
      *
-     * @deprecated Since 2.26, use Dotclear/Helper/Html/Form/Password instead
+     * @deprecated Since 2.26, use Dotclear::Helper::Html::Form::Password instead
      */
     public static function password(
         $nid,
@@ -365,7 +365,7 @@ class form
      * $nid could be a string or an array of name and ID.
      * $size could be a integer or an associative array of any of optional parameters
      *
-     * @param string|array{0: string, 1?: string}|null     $nid       The identifier
+     * @param string|array{0:string, 1?:string}|null     $nid       The identifier
      * @param mixed                 $size        Element size | associative array of optional parameters
      * @param integer               $max         Element maxlength
      * @param string                $default     Element value
@@ -376,7 +376,7 @@ class form
      * @param boolean               $required    Element is required
      * @param string                $autocomplete Autocomplete attributes if relevant
      *
-     * @deprecated Since 2.26, use Dotclear/Helper/Html/Form/Color instead
+     * @deprecated Since 2.26, use Dotclear::Helper::Html::Form::Color instead
      */
     public static function color(
         $nid,
@@ -436,7 +436,7 @@ class form
      * $nid could be a string or an array of name and ID.
      * $size could be a integer or an associative array of any of optional parameters
      *
-     * @param string|array{0: string, 1?: string}|null     $nid       The identifier
+     * @param string|array{0:string, 1?:string}|null     $nid       The identifier
      * @param mixed                 $size         Element size | associative array of optional parameters
      * @param integer               $max          Element maxlength
      * @param string                $default      Element value
@@ -447,7 +447,7 @@ class form
      * @param boolean               $required     Element is required
      * @param string                $autocomplete Autocomplete attributes if relevant
      *
-     * @deprecated Since 2.26, use Dotclear/Helper/Html/Form/Email instead
+     * @deprecated Since 2.26, use Dotclear::Helper::Html::Form::Email instead
      */
     public static function email(
         $nid,
@@ -518,7 +518,7 @@ class form
      * @param boolean               $required     Element is required
      * @param string                $autocomplete Autocomplete attributes if relevant
      *
-     * @deprecated Since 2.26, use Dotclear/Helper/Html/Form/Url instead
+     * @deprecated Since 2.26, use Dotclear::Helper::Html::Form::Url instead
      */
     public static function url(
         $nid,
@@ -589,7 +589,7 @@ class form
      * @param boolean               $required     Element is required
      * @param string                $autocomplete Autocomplete attributes if relevant
      *
-     * @deprecated Since 2.26, use Dotclear/Helper/Html/Form/Datetime instead
+     * @deprecated Since 2.26, use Dotclear::Helper::Html::Form::Datetime instead
      */
     public static function datetime(
         $nid,
@@ -660,7 +660,7 @@ class form
      * @param boolean               $required     Element is required
      * @param string                $autocomplete Autocomplete attributes if relevant
      *
-     * @deprecated Since 2.26, use Dotclear/Helper/Html/Form/Date instead
+     * @deprecated Since 2.26, use Dotclear::Helper::Html::Form::Date instead
      */
     public static function date(
         $nid,
@@ -731,7 +731,7 @@ class form
      * @param boolean               $required     Element is required
      * @param string                $autocomplete Autocomplete attributes if relevant
      *
-     * @deprecated Since 2.26, use Dotclear/Helper/Html/Form/Time instead
+     * @deprecated Since 2.26, use Dotclear::Helper::Html::Form::Time instead
      */
     public static function time(
         $nid,
@@ -799,7 +799,7 @@ class form
      * @param string                $extra_html  Extra HTML attributes
      * @param boolean               $required    Element is required
      *
-     * @deprecated Since 2.26, use Dotclear/Helper/Html/Form/File instead
+     * @deprecated Since 2.26, use Dotclear::Helper::Html::Form::File instead
      */
     public static function file(
         $nid,
@@ -858,7 +858,7 @@ class form
      * @param boolean               $required     Element is required
      * @param string                $autocomplete Autocomplete attributes if relevant
      *
-     * @deprecated Since 2.26, use Dotclear/Helper/Html/Form/Number instead
+     * @deprecated Since 2.26, use Dotclear::Helper::Html::Form::Number instead
      */
     public static function number(
         $nid,
@@ -923,7 +923,7 @@ class form
      * @param boolean               $required     Element is required
      * @param string                $autocomplete Autocomplete attributes if relevant
      *
-     * @deprecated Since 2.26, use Dotclear/Helper/Html/Form/Textarea instead
+     * @deprecated Since 2.26, use Dotclear::Helper::Html::Form::Textarea instead
      */
     public static function textArea(
         $nid,
@@ -979,7 +979,7 @@ class form
      * @param string|array{0: string, 1?: string}|null      $nid        The identifier
      * @param mixed                                         $value      Element value
      *
-     * @deprecated Since 2.26, use Dotclear/Helper/Html/Form/Hidden instead
+     * @deprecated Since 2.26, use Dotclear::Helper::Html::Form::Hidden instead
      */
     public static function hidden($nid, $value): string
     {
@@ -991,7 +991,7 @@ class form
  * @class formSelectOption
  * @brief HTML Forms legacy helpers
  *
- * @deprecated Since 2.26, use Dotclear\Helper\Html\Form\Option instead
+ * @deprecated Since 2.26, use Dotclear::Helper::Html::Form::Option instead
  */
 class formSelectOption extends Option
 {

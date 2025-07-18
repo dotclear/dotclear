@@ -63,7 +63,7 @@ class Install extends Process
     /**
      * Plugin installation results
      *
-     * @var        array<string, array<string, bool|string>>
+     * @var        array<string, array<string, bool|string> >   $plugins_install
      */
     private static array $plugins_install = [
         'success' => [],

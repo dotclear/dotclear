@@ -54,7 +54,7 @@ class Attic extends Process
     /**
      * The releases stack.
      *
-     * @var     array<string, array<string, string>>
+     * @var     array<string, array<string, string> >   $releases
      */
     private static array $releases = [];
 

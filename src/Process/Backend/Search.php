@@ -50,14 +50,14 @@ class Search extends Process
     /**
      * List of related entries
      *
-     * @var null|ListingPosts|ListingComments
+     * @var null|ListingPosts|ListingComments   $list
      */
     protected static $list;
 
     /**
      * Available actions on entries
      *
-     * @var null|ActionsPosts|ActionsComments
+     * @var null|ActionsPosts|ActionsComments   $actions
      */
     protected static $actions;
 

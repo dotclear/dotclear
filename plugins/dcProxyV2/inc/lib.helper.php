@@ -19,7 +19,7 @@ use Dotclear\Fault;
 /**
  * Load locales.
  *
- * @deprecated  since 2.21, use \Dotclear\Core\Backend\Helper::loadLocales() instead
+ * @deprecated  since 2.21, use Dotclear::Core::Backend::Helper::loadLocales() instead
  */
 function dc_load_locales(): void
 {
@@ -41,12 +41,13 @@ function dc_admin_icon_url(string $img): string
 /**
  * Compose HTML icon markup for favorites, menu, … depending on theme (light, dark).
  *
- * @deprecated  since 2.21, use \Dotclear\Core\Backend\Helper::adminIcon() instead
+ * @deprecated  since 2.21, use Dotclear::Core::Backend::Helper::adminIcon() instead
  *
  * @param   mixed   $img        string (default) or array (0 : light, 1 : dark)
  * @param   bool    $fallback   use fallback image if none given
  * @param   string  $alt        alt attribute
  * @param   string  $title      title attribute
+ * @param   string  $class      class attribute
  */
 function dc_admin_icon_theme($img, bool $fallback = true, string $alt = '', string $title = '', string $class = ''): string
 {
@@ -74,7 +75,7 @@ function addMenuItem(string $section, string $desc, string $adminurl, $icon, $pe
 /**
  * @brief   Error handling function.
  *
- * @deprecated  since 2.27, use class Dotclear\Fault instead
+ * @deprecated  since 2.27, use class Dotclear::Fault instead
  *
  * @param   string  $summary    The summary
  * @param   string  $message    The message

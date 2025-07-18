@@ -14,7 +14,7 @@ namespace Dotclear\Helper\File;
 /**
  * @class File
  *
- * @brief File item class used by {@link Manager}. In this class {@link $file} could
+ * @brief File item class used by {@link Dotclear::Helper::File::Manager}. In this class {@link Dotclear::Helper::File::File::$file} could
  * be either a file or a directory.
  */
 class File

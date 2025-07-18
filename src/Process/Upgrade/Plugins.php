@@ -59,7 +59,7 @@ class Plugins extends Process
     private static array $next_store;
 
     /**
-     * @var     null|array<string, array<string, bool|string>> $plugins_install
+     * @var     null|array<string, array<string, bool|string> > $plugins_install
      */
     private static ?array $plugins_install = null;
 

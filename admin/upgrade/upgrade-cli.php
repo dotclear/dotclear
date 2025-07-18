@@ -1,11 +1,12 @@
 #!/usr/bin/env php
 <?php
+
 /**
  * @file
  * @brief 		The upgrade procedure (CLI).
  * @ingroup     Endpoint
  *
- * @deprecated 	Removed, use php admin/upgrade.php instead
+ * @deprecated 	Removed, use php admin::upgrade.php instead
  *
  * @package 	Dotclear
  *

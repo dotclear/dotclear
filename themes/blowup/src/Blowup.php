@@ -33,7 +33,7 @@ class Blowup
     /**
      * List of availables font families
      *
-     * @var        array<string, array<string, string>>
+     * @var        array<string, array<string, string> >    $fonts
      */
     protected static $fonts = [
         'sans-serif' => [
@@ -59,21 +59,21 @@ class Blowup
     /**
      * Combo for font families selector
      *
-     * @var        array<string, string|array<string, string>>
+     * @var        array<string, string|array<string, string> >     $fonts_combo
      */
     protected static $fonts_combo = [];
 
     /**
      * Flat list of font families
      *
-     * @var        array<string, string>
+     * @var        array<string, string>    $fonts_list
      */
     protected static $fonts_list = [];
 
     /**
      * Images list
      *
-     * @var        array<string, string>
+     * @var        array<string, string>    $top_images
      */
     public static $top_images = [
         'default'        => 'Default',
