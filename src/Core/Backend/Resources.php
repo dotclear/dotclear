@@ -16,7 +16,9 @@ use dcCore;
 /**
  * Backend help resources.
  *
- * @phpstan-type HelpEntries array<string, string>
+ * @phpstan-type TCoreBackendResourcesHelpEntries array<string, string>
+ * Key: entry key
+ * Value: entry help content
  */
 class Resources
 {
@@ -28,7 +30,7 @@ class Resources
     /**
      * The help stack
      *
-     * @var    array<string, HelpEntries>   $stack
+     * @var    array<string, TCoreBackendResourcesHelpEntries>   $stack
      */
     private array $stack = [];
 
