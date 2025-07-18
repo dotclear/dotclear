@@ -25,7 +25,9 @@ use Exception;
  */
 class Url extends UrlHandler implements UrlInterface
 {
-    /** @var string URI arguments (depends on URL representation) */
+    /**
+     * URI arguments (depends on URL representation)
+     */
     public ?string $args = null;
 
     /**
@@ -186,9 +188,6 @@ class Url extends UrlHandler implements UrlInterface
             header($header);
         }
 
-        /**
-         * @var        ArrayObject<string, mixed>
-         */
         $result = new ArrayObject([
             'content'      => App::frontend()->template()->getData(App::frontend()->context()->current_tpl),
             'content_type' => App::frontend()->context()->content_type,
@@ -203,7 +202,9 @@ class Url extends UrlHandler implements UrlInterface
         if (App::frontend()->context()->http_cache && App::frontend()->context()->http_etag) {
             Http::etag($result['content'], Http::getSelfURI());
         }
-        echo $result['content'];
+        if (is_string($result['content'])) {
+            echo $result['content'];
+        }
     }
 
     /**
