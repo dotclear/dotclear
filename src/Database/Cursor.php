@@ -22,12 +22,14 @@ use Exception;
 class Cursor
 {
     /**
-     * @var        AbstractHandler
+     * AbstractHandler
+     *
+     * @var mixed   $__con
      */
     private $__con;
 
     /**
-     * @var        array<string, mixed>
+     * @var        array<string, mixed>     $__data
      */
     private array $__data = [];
 

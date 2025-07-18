@@ -21,37 +21,37 @@ use Dotclear\Database\MetaRecord;
 class SelectStatement extends SqlStatement
 {
     /**
-     * @var array<string>
+     * @var string[]    $join
      */
     protected array $join = [];
 
     /**
-     * @var array<string>
+     * @var string[]    $union
      */
     protected array $union = [];
 
     /**
-     * @var array<string>
+     * @var string[]    $having
      */
     protected array $having = [];
 
     /**
-     * @var array<string>
+     * @var string[]    $order
      */
     protected array $order = [];
 
     /**
-     * @var array<string>
+     * @var string[]    $group
      */
     protected array $group = [];
 
     /**
-     * @var null|int|string
+     * @var null|int|string     $limit
      */
     protected $limit;
 
     /**
-     * @var null|int|string
+     * @var null|int|string     $offset
      */
     protected $offset;
 

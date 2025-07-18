@@ -27,7 +27,7 @@ class SqlStatement
      *
      * @see self::alias(), self::as(), self::count(), self::avg(), self::min(), self::max(), self::sum() methods
      *
-     * @var        bool
+     * @var        bool     VERBOSE_SQL_ALIAS
      */
     protected const VERBOSE_SQL_ALIAS = false;
 
@@ -36,7 +36,7 @@ class SqlStatement
     /**
      * DB handle
      *
-     * @var     null|\Dotclear\Interface\Core\ConnectionInterface
+     * @var     null|\Dotclear\Interface\Core\ConnectionInterface   $con
      */
     protected $con;
 
@@ -55,35 +55,35 @@ class SqlStatement
     /**
      * Stack of fields
      *
-     * @var        array<string>
+     * @var        string[]     $columns
      */
     protected array $columns = [];
 
     /**
      * Stack of from clauses
      *
-     * @var        array<string>
+     * @var        string[]     $from
      */
     protected array $from = [];
 
     /**
      * Stack of where clauses
      *
-     * @var        array<string>
+     * @var        string[]     $where
      */
     protected array $where = [];
 
     /**
      * Additionnal stack of where clauses
      *
-     * @var        array<string>
+     * @var        string[]     $cond
      */
     protected array $cond = [];
 
     /**
      * Stack of generic SQL clauses
      *
-     * @var        array<string>
+     * @var        string[]     $sql
      */
     protected array $sql = [];
 

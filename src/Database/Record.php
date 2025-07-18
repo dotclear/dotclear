@@ -30,28 +30,28 @@ class Record implements Iterator, Countable
     /**
      * Database resource link
      *
-     * @var mixed
+     * @var mixed   $__link
      */
     protected $__link;
 
     /**
      * List of static functions that extend Record
      *
-     * @var        array<string, callable>
+     * @var        array<string, callable>  $__extend
      */
     protected $__extend = [];
 
     /**
      * Current result position
      *
-     * @var        int
+     * @var        int  $__index
      */
     protected $__index = 0;
 
     /**
      * Current result row content
      *
-     * @var        array<mixed>
+     * @var        mixed[]  $__row
      */
     protected $__row = [];
 

@@ -37,7 +37,7 @@ abstract class AbstractHandler extends Connection
     /**
      * Database driver handle (resource)
      *
-     * @var mixed
+     * @var mixed   $__link
      */
     protected $__link;
 
@@ -49,7 +49,7 @@ abstract class AbstractHandler extends Connection
     /**
      * Last result resource link
      *
-     * @var mixed
+     * @var mixed   $__last_result
      */
     protected $__last_result;
 

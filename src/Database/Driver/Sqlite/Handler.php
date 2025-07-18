@@ -29,9 +29,9 @@ class Handler extends AbstractHandler
     protected string $__syntax = 'sqlite';
 
     /**
-     * UTF-8 Collator
+     * UTF-8 Collator (if class exists)
      *
-     * @var        mixed (Collator if class exists)
+     * @var        mixed    $utf8_unicode_ci
      */
     protected $utf8_unicode_ci;
 

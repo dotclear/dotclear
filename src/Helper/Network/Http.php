@@ -284,6 +284,7 @@ class Http
      */
     public static function cache(array $mod_files, array $mod_timestamps = []): void
     {
+        $mod_files = array_filter($mod_files);
         if ($mod_files === []) {
             return;
         }

@@ -20,7 +20,7 @@ use Dotclear\Database\AbstractSchema;
 class Schema extends AbstractSchema
 {
     /**
-     * @var        array<string, string>
+     * @var        array<string, string>    $ref_actions_map
      */
     protected $ref_actions_map = [
         'a' => 'no action',
@@ -33,7 +33,7 @@ class Schema extends AbstractSchema
     /**
      * Get DB tables
      *
-     * @return     array<string>
+     * @return     string[]
      */
     public function db_get_tables(): array
     {
@@ -100,7 +100,7 @@ class Schema extends AbstractSchema
      *
      * @param      string  $table  The table
      *
-     * @return     array<array{name: string, primary: bool, unique: bool, cols: array<string>}>
+     * @return     array<array{name: string, primary: bool, unique: bool, cols: string[]}>
      */
     public function db_get_keys(string $table): array
     {
@@ -147,7 +147,7 @@ class Schema extends AbstractSchema
      *
      * @param      string  $table  The table
      *
-     * @return     array<array{name: string, type: string, cols: array<string>}>
+     * @return     array<array{name: string, type: string, cols: string[]}>
      */
     public function db_get_indexes(string $table): array
     {
@@ -193,7 +193,7 @@ class Schema extends AbstractSchema
      *
      * @param      string  $table  The table
      *
-     * @return     array<array{name: string, c_cols: array<string>, p_table: string, p_cols: array<string>, update: string, delete: string}>
+     * @return     array<array{name: string, c_cols: string[], p_table: string, p_cols: string[], update: string, delete: string}>
      */
     public function db_get_references(string $table): array
     {
@@ -312,7 +312,7 @@ class Schema extends AbstractSchema
      *
      * @param      string           $table    The table
      * @param      string           $name     The name
-     * @param      array<string>    $fields   The cols
+     * @param      string[]         $fields   The cols
      */
     public function db_create_primary(string $table, string $name, array $fields): void
     {
@@ -327,7 +327,7 @@ class Schema extends AbstractSchema
      *
      * @param      string           $table   The table
      * @param      string           $name    The name
-     * @param      array<string>    $fields  The fields
+     * @param      string[]         $fields  The fields
      */
     public function db_create_unique(string $table, string $name, array $fields): void
     {
@@ -343,7 +343,7 @@ class Schema extends AbstractSchema
      * @param      string           $table   The table
      * @param      string           $name    The name
      * @param      string           $type    The type
-     * @param      array<string>    $fields  The fields
+     * @param      string[]         $fields  The fields
      */
     public function db_create_index(string $table, string $name, string $type, array $fields): void
     {
@@ -358,9 +358,9 @@ class Schema extends AbstractSchema
      *
      * @param      string           $name            The name
      * @param      string           $table           The table
-     * @param      array<string>    $fields          The fields
+     * @param      string[]         $fields          The fields
      * @param      string           $foreign_table   The foreign table
-     * @param      array<string>    $foreign_fields  The foreign fields
+     * @param      string[]         $foreign_fields  The foreign fields
      * @param      string|bool      $update          The update
      * @param      string|bool      $delete          The delete
      */
@@ -421,7 +421,7 @@ class Schema extends AbstractSchema
      * @param      string           $table    The table
      * @param      string           $name     The name
      * @param      string           $newname  The newname
-     * @param      array<string>    $fields   The fields
+     * @param      string[]         $fields   The fields
      */
     public function db_alter_primary(string $table, string $name, string $newname, array $fields): void
     {
@@ -437,7 +437,7 @@ class Schema extends AbstractSchema
      * @param      string           $table    The table
      * @param      string           $name     The name
      * @param      string           $newname  The newname
-     * @param      array<string>    $fields   The fields
+     * @param      string[]         $fields   The fields
      */
     public function db_alter_unique(string $table, string $name, string $newname, array $fields): void
     {
@@ -454,7 +454,7 @@ class Schema extends AbstractSchema
      * @param      string           $name     The name
      * @param      string           $newname  The newname
      * @param      string           $type     The type
-     * @param      array<string>    $fields   The fields
+     * @param      string[]         $fields   The fields
      */
     public function db_alter_index(string $table, string $name, string $newname, string $type, array $fields): void
     {
@@ -470,9 +470,9 @@ class Schema extends AbstractSchema
      * @param      string           $name            The name
      * @param      string           $newname         The newname
      * @param      string           $table           The table
-     * @param      array<string>    $fields          The fields
+     * @param      string[]         $fields          The fields
      * @param      string           $foreign_table   The foreign table
-     * @param      array<string>    $foreign_fields  The foreign fields
+     * @param      string[]         $foreign_fields  The foreign fields
      * @param      false|string     $update          The update
      * @param      false|string     $delete          The delete
      */

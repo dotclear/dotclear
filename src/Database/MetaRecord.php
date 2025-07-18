@@ -25,14 +25,14 @@ class MetaRecord implements Iterator, Countable
     /**
      * Record object
      *
-     * @var null|Record
+     * @var null|Record     $dynamic
      */
     protected $dynamic;
 
     /**
      * Static record object
      *
-     * @var null|StaticRecord
+     * @var null|StaticRecord   $static
      */
     protected $static;
 

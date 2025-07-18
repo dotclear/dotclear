@@ -16,26 +16,28 @@ use Exception;
 /**
  * @class Schema
  *
+ * @phpstan-type TDatabaseSqliteSchemaFields array<string, array{type: string, len: int|null, null: bool, default: string}>
+ *
  * SQLite Database schema Handler
  */
 class Schema extends AbstractSchema
 {
     /**
-     * @var array<string, array<string, mixed>>
+     * @var array<string, TDatabaseSqliteSchemaFields>     $table_hist
      */
     private array $table_hist = [];
 
     /**
      * Stack for tables creation
      *
-     * @var array<string, array<string>>
+     * @var array<string, string[]>    $table_stack
      */
     private array $table_stack = [];
 
     /**
      * Execution stack
      *
-     * @var array<string>
+     * @var string[]    $x_stack
      */
     private array $x_stack = [];
 
@@ -155,7 +157,7 @@ class Schema extends AbstractSchema
      *
      * @param   string  $table  The table name
      *
-     * @return     array<string, array{type: string, len: int|null, null: bool, default: string}>
+     * @return     TDatabaseSqliteSchemaFields
      */
     public function db_get_columns(string $table): array
     {

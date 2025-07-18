@@ -24,14 +24,14 @@ class StaticRecord extends Record
     /**
      * Data arrat
      *
-     * @var        array<array<mixed>>
+     * @var        array<mixed[]>   $__data
      */
     public $__data = [];
 
     /**
      * Sort field name
      *
-     * @var string|int|null
+     * @var string|int|null     $__sortfield
      */
     private $__sortfield;
 

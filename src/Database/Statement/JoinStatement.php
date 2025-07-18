@@ -20,7 +20,7 @@ use Dotclear\App;
 class JoinStatement extends SqlStatement
 {
     /**
-     * @var ?string
+     * @var ?string     $type
      */
     protected $type;
 

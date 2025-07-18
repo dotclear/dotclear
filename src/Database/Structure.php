@@ -22,7 +22,7 @@ class Structure
     /**
      * Stack of DB tables
      *
-     * @var        array<string, Table>
+     * @var        array<string, Table>     $tables
      */
     protected $tables = [];
 
@@ -382,9 +382,9 @@ class Structure
      * Check if two keys are the same
      *
      * @param      string           $dst_name    The destination name
-     * @param      array<string>    $dst_fields  The destination fields
+     * @param      string[]         $dst_fields  The destination fields
      * @param      string           $src_name    The source name
-     * @param      array<string>    $src_fields  The source fields
+     * @param      string[]         $src_fields  The source fields
      */
     private function keysDiffer(string $dst_name, array $dst_fields, string $src_name, array $src_fields): bool
     {

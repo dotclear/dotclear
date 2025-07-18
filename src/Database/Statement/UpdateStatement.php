@@ -23,14 +23,14 @@ class UpdateStatement extends SqlStatement
     /**
      * List of fields
      *
-     * @var        array<string>
+     * @var        string[]     $sets
      */
     protected array $sets = [];
 
     /**
      * List of values
      *
-     * @var        array<mixed>
+     * @var        mixed[]      $values
      */
     protected array $values = [];
 

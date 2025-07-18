@@ -20,7 +20,7 @@ use Dotclear\App;
 class InsertStatement extends SqlStatement
 {
     /**
-     * @var array<mixed>
+     * @var mixed[]     $lines
      */
     protected array $lines = [];
 

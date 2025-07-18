@@ -15,32 +15,34 @@ use Exception;
 /**
  * @class Table
  *
+ * @phpstan-type TDatabaseTableItemProperties   array<string, mixed>
+ *
  * Database Table structure Handler
  */
 class Table
 {
     /**
-     * @var        bool
+     * @var        bool     $has_primary
      */
     protected $has_primary = false;
 
     /**
-     * @var        array<string, array<string, mixed>>
+     * @var        array<string, TDatabaseTableItemProperties>  $fields
      */
     protected $fields = [];
 
     /**
-     * @var        array<string, array<string, mixed>>
+     * @var        array<string, TDatabaseTableItemProperties>  $keys
      */
     protected $keys = [];
 
     /**
-     * @var        array<string, array<string, mixed>>
+     * @var        array<string, TDatabaseTableItemProperties>  $indexes
      */
     protected $indexes = [];
 
     /**
-     * @var        array<string, array<string, mixed>>
+     * @var        array<string, TDatabaseTableItemProperties>  $references
      */
     protected $references = [];
 
@@ -62,7 +64,7 @@ class Table
      * VARCHAR   : variable length character string
      * TEXT      : variable length of text
      *
-     * @var        array<string>
+     * @var        string[]     $allowed_types
      */
     protected $allowed_types = [
         'smallint', 'integer', 'bigint', 'real', 'float', 'numeric',
@@ -83,7 +85,7 @@ class Table
     /**
      * Gets the fields.
      *
-     * @return     array<string, array<string, mixed>>  The fields.
+     * @return     array<string, TDatabaseTableItemProperties>  The fields.
      */
     public function getFields(): array
     {
@@ -93,7 +95,7 @@ class Table
     /**
      * Gets the keys.
      *
-     * @return     array<string, array<string, mixed>>  The keys.
+     * @return     array<string, TDatabaseTableItemProperties>  The keys.
      */
     public function getKeys(): array
     {
@@ -103,7 +105,7 @@ class Table
     /**
      * Gets the indexes.
      *
-     * @return     array<string, array<string, mixed>>  The indexes.
+     * @return     array<string, TDatabaseTableItemProperties>  The indexes.
      */
     public function getIndexes(): array
     {
@@ -113,7 +115,7 @@ class Table
     /**
      * Gets the references.
      *
-     * @return     array<string, array<string, mixed>>  The references.
+     * @return     array<string, TDatabaseTableItemProperties>  The references.
      */
     public function getReferences(): array
     {
@@ -137,7 +139,7 @@ class Table
      *
      * @param      string           $name      The name
      * @param      string           $type      The type
-     * @param      array<string>    $fields    The fields
+     * @param      string[]         $fields    The fields
      *
      * @return     false|string
      */
@@ -164,7 +166,7 @@ class Table
      *
      * @param      string           $name      The name
      * @param      string           $type      The type
-     * @param      array<string>    $fields    The fields
+     * @param      string[]         $fields    The fields
      *
      * @return     false|string
      */
@@ -190,9 +192,9 @@ class Table
      * Determines if reference exists.
      *
      * @param      string            $name              The reference name
-     * @param      array<string>     $local_fields      The local fields
+     * @param      string[]          $local_fields      The local fields
      * @param      string            $foreign_table     The foreign table
-     * @param      array<string>     $foreign_fields    The foreign fields
+     * @param      string[]          $foreign_fields    The foreign fields
      *
      * @return     false|string
      */
@@ -249,6 +251,13 @@ class Table
 
     /**
      * Set field
+     *
+     * properties:
+     * - type:string    field type
+     * - len:?int       length
+     * - null:bool      null value is valid?
+     * - default:mixed  default value
+     * - to_null:bool   null type is valid?
      *
      * @param      string                                                   $name           The name
      * @param      array{0: string, 1: ?int, 2: bool, 3: mixed, 4: bool}    $properties     The arguments
@@ -309,9 +318,9 @@ class Table
      * Set a reference
      *
      * @param      string                   $name            The reference name
-     * @param      array<string>|string     $local_fields    The local fields
+     * @param      string[]|string          $local_fields    The local fields
      * @param      string                   $foreign_table   The foreign table
-     * @param      array<string>|string     $foreign_fields  The foreign fields
+     * @param      string[]|string          $foreign_fields  The foreign fields
      * @param      bool|string              $update          The update
      * @param      bool|string              $delete          The delete
      */
@@ -340,7 +349,7 @@ class Table
      *
      * @param      string           $type    The type
      * @param      string           $name    The name
-     * @param      array<string>    $fields  The fields
+     * @param      string[]         $fields  The fields
      */
     protected function newKey(string $type, string $name, array $fields): Table
     {
@@ -361,7 +370,7 @@ class Table
     /**
      * Check if field(s) exists
      *
-     * @param      array<string>      $fields   The fields
+     * @param      string[]        $fields   The fields
      *
      * @throws     Exception
      */
