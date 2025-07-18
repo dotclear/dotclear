@@ -614,7 +614,7 @@ class Ctx
      */
     public static function addSmilies(string $str): string
     {
-        if (App::frontend()->smilies === null) {
+        if (!isset(App::frontend()->smilies)) {
             return $str;
         }
 

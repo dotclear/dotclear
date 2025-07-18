@@ -91,9 +91,9 @@ class Utility extends Process
     /**
      * Smilies definitions
      *
-     * @var array<string, string>|null|false
+     * @var array<string, string>    $smilies
      */
-    public $smilies;
+    public array $smilies;
 
     /**
      * Current page number

@@ -82,8 +82,11 @@ class PostPublic extends Post
      */
     protected static function smilies(string $content, BlogInterface $blog): string
     {
-        if (App::frontend()->smilies === null) {
-            App::frontend()->smilies = Ctx::getSmilies($blog);
+        if (!isset(App::frontend()->smilies)) {
+            $smilies = Ctx::getSmilies($blog);
+            if ($smilies !== false) {
+                App::frontend()->smilies = $smilies;
+            }
         }
 
         return Ctx::addSmilies($content);

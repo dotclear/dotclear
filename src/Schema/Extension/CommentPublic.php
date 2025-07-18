@@ -41,8 +41,11 @@ class CommentPublic extends Comment
         if (App::blog()->settings()->system->use_smilies) {
             $content = parent::getContent($rs, $absolute_urls);
 
-            if (App::frontend()->smilies === null) {
-                App::frontend()->smilies = Ctx::getSmilies(App::blog());
+            if (!isset(App::frontend()->smilies)) {
+                $smilies = Ctx::getSmilies(App::blog());
+                if ($smilies !== false) {
+                    App::frontend()->smilies = $smilies;
+                }
             }
 
             return Ctx::addSmilies($content);
