@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpdocumentor configVersion="3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://www.phpdoc.org">
+  <title>Dotclear</title>
+  <paths>
+    <output>doc/api</output>
+    <cache>doc/cache</cache>
+  </paths>
+  <version number="2.35">
+    <api>
+      <source dsn=".">
+        <path>index.php</path>
+        <path>admin</path>
+        <path>inc</path>
+        <path>src</path>
+        <path>plugins</path>
+        <path>themes/berlin</path>
+        <path>themes/blowup</path>
+        <path>themes/blueSilence</path>
+        <path>themes/customCSS</path>
+        <path>themes/ductile</path>
+      </source>
+      <ignore hidden="true" symlinks="true">
+        <path>inc/config.php</path>
+      </ignore>
+     </api>
+  </version>
+</phpdocumentor>

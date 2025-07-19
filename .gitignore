@@ -10,3 +10,9 @@
 /composer.phar
 /doxygen
 /coverage
+
+# phpDocumentor stuff
+/doc
+/bin/phpDocumentor.phar
+/bin/phpdoc
+
