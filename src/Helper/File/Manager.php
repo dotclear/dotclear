@@ -173,7 +173,7 @@ class Manager
      *
      * Appends an exclusion to exclusions list.
      *
-     * @see $exclude_list
+     * @see \Dotclear\Helper\File\Manager::$exclude_list
      *
      * @param array<string>|string    $list            Exclusion regexp
      */
@@ -196,7 +196,7 @@ class Manager
      * Returns true if path (file or directory) $path is excluded. $path is
      * relative to {@link $root} path.
      *
-     * @see $exclude_list
+     * @see \Dotclear\Helper\File\Manager::$exclude_list
      *
      * @param string    $path            Path to match
      */
@@ -239,7 +239,7 @@ class Manager
      * Returns true if file $file is excluded. $file is relative to {@link $root}
      * path.
      *
-     * @see $exclude_pattern
+     * @see \Dotclear\Helper\File\Manager::$exclude_pattern
      *
      * @param string    $file            File to match
      */
@@ -323,7 +323,8 @@ class Manager
      *
      * Creates list of items in working directory and append it to {@link $dir}
      *
-     * @uses sortHandler(), File
+     * @uses Dotclear\Helper\File\Manager::sortHandler()
+     * @uses Dotclear\Helper\Helper\File
      */
     public function getDir(bool $sort_dirs = true, bool $sort_files = true): void
     {

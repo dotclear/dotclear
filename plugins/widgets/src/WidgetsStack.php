@@ -21,7 +21,7 @@ class WidgetsStack
     /**
      * Stack of known widgets.
      *
-     * @var     array<mixed, WidgetsElement>   $widgets
+     * @var     array<string|int, WidgetsElement>   $widgets
      */
     private array $widgets = [];
 
@@ -107,7 +107,7 @@ class WidgetsStack
      *
      * @param   bool    $sorted     Sort the list
      *
-     * @return  array<mixed, WidgetsElement>
+     * @return  array<string|int, WidgetsElement>
      */
     public function elements(bool $sorted = false): array
     {

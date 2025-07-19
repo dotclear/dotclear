@@ -141,7 +141,7 @@ interface MediaInterface
      *
      * Appends an exclusion to exclusions list.
      *
-     * @see     $exclude_list
+     * @see \Dotclear\Helper\File\Manager::$exclude_list
      *
      * @param   string|array<int,string>    $list   Exclusion regexp
      */

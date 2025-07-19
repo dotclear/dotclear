@@ -12,7 +12,7 @@
 declare(strict_types=1);
 
 /**
- * @namespace   Dotclear.Core
+ * @namespace   Dotclear\Core
  * @brief       Dotclear core services
  */
 
@@ -75,7 +75,7 @@ use Dotclear\Interface\Core\VersionInterface;
  * all services are explicitly represented by methods on this class
  * to keep track of returned types, and are accessible from App::service_alias().
  *
- * @see     Dotclear.Helper.Container.Factories to override core class
+ * @see     Dotclear\Helper\Container\Factories to override core class
  *
  * @since   2.28
  */
@@ -194,8 +194,8 @@ class Core extends Container
     /**
      * Authentication handler.
      *
-     * @see     Calls core container service Dotclear.Interface.Core.AuthInterface
-     * @see     Uses default core service Dotclear.Core.Auth
+     * @see     Calls core container service Dotclear\Interface\Core\AuthInterface
+     * @see     Uses default core service Dotclear\Core\Auth
      */
     public static function auth(): AuthInterface
     {
@@ -205,7 +205,7 @@ class Core extends Container
     /**
      * Backend Utility.
      *
-     * @see     Dotclear.Core.Backend.Utility
+     * @see     Dotclear\Core\Backend\Utility
      */
     public static function backend(): Backend
     {
@@ -215,7 +215,7 @@ class Core extends Container
     /**
      * Upgrade Utility.
      *
-     * @see     Dotclear.Core.Upgrade.Utility
+     * @see     Dotclear\Core\Upgrade\Utility
      */
     public static function upgrade(): Upgrade
     {
@@ -225,8 +225,8 @@ class Core extends Container
     /**
      * Behavior handler.
      *
-     * @see     Calls core container service Dotclear.Interface.Core.BehaviorInterface
-     * @see     Uses default core service Dotclear.Core.Behavior
+     * @see     Calls core container service Dotclear\Interface\Core\BehaviorInterface
+     * @see     Uses default core service Dotclear\Core\Behavior
      */
     public static function behavior(): BehaviorInterface
     {
@@ -236,8 +236,8 @@ class Core extends Container
     /**
      * Blog handler.
      *
-     * @see     Calls core container service Dotclear.Interface.Core.BlogInterface
-     * @see     Uses default core service Dotclear.Core.Blog
+     * @see     Calls core container service Dotclear\Interface\Core\BlogInterface
+     * @see     Uses default core service Dotclear\Core\Blog
      */
     public static function blog(): BlogInterface
     {
@@ -247,8 +247,8 @@ class Core extends Container
     /**
      * Blog settings.
      *
-     * @see     Calls core container service Dotclear.Interface.Core.BlogSettingsInterface
-     * @see     Uses default core service Dotclear.Core.BlogSettings
+     * @see     Calls core container service Dotclear\Interface\Core\BlogSettingsInterface
+     * @see     Uses default core service Dotclear\Core\BlogSettings
      */
     public static function blogSettings(): BlogSettingsInterface
     {
@@ -258,8 +258,8 @@ class Core extends Container
     /**
      * Blogs handler.
      *
-     * @see     Calls core container service Dotclear.Interface.Core.BlogsInterface
-     * @see     Uses default core service Dotclear.Core.Blogs
+     * @see     Calls core container service Dotclear\Interface\Core\BlogsInterface
+     * @see     Uses default core service Dotclear\Core\Blogs
      */
     public static function blogs(): BlogsInterface
     {
@@ -269,8 +269,8 @@ class Core extends Container
     /**
      * Blog settings workspace.
      *
-     * @see     Calls core container service Dotclear.Interface.Core.BlogWorkspaceInterface
-     * @see     Uses default core service Dotclear.Core.BlogWorkspace
+     * @see     Calls core container service Dotclear\Interface\Core\BlogWorkspaceInterface
+     * @see     Uses default core service Dotclear\Core\BlogWorkspace
      */
     public static function blogWorkspace(): BlogWorkspaceInterface
     {
@@ -280,8 +280,8 @@ class Core extends Container
     /**
      * Cache handler.
      *
-     * @see     Uses default core service Dotclear.Core.BlogWorkspace
-     * @see     Calls core container service Dotclear.Interface.Core.CacheInterface
+     * @see     Uses default core service Dotclear\Core\BlogWorkspace
+     * @see     Calls core container service Dotclear\Interface\Core\CacheInterface
      */
     public static function cache(): CacheInterface
     {
@@ -291,8 +291,8 @@ class Core extends Container
     /**
      * Categories handler.
      *
-     * @see     Calls core container service Dotclear.Interface.Core.CategoriesInterface
-     * @see     Uses default core service Dotclear.Core.Categories
+     * @see     Calls core container service Dotclear\Interface\Core\CategoriesInterface
+     * @see     Uses default core service Dotclear\Core\Categories
      */
     public static function categories(): CategoriesInterface
     {
@@ -304,9 +304,9 @@ class Core extends Container
      *
      * Note this overwrite current application connection.
      *
-     * @see     Calls core container service Dotclear.Interface.Core.ConnectionInterface
-     * @see     Uses default core service Dotclear.Core.Connection
-     * @see     Dotclear.Database.InterfaceHandler  Dotclear.Database.AbstractHandler
+     * @see     Calls core container service Dotclear\Interface\Core\ConnectionInterface
+     * @see     Uses default core service Dotclear\Core\Connection
+     * @see     Dotclear\Database\InterfaceHandler  Dotclear\Database\AbstractHandler
      *
      * @param   string  $driver         Driver name
      * @param   string  $host           Database hostname
@@ -324,9 +324,9 @@ class Core extends Container
     /**
      * Connection handler.
      *
-     * @see     Calls core container service Dotclear.Interface.Core.ConnectionInterface
-     * @see     Uses default core service Dotclear.Core.Connection
-     * @see     Dotclear.Database.InterfaceHandler  Dotclear.Database.AbstractHandler
+     * @see     Calls core container service Dotclear\Interface\Core\ConnectionInterface
+     * @see     Uses default core service Dotclear\Core\Connection
+     * @see     Dotclear\Database\InterfaceHandler  Dotclear\Database\AbstractHandler
      */
     public static function con(): ConnectionInterface
     {
@@ -336,7 +336,7 @@ class Core extends Container
     /**
      * Application configuration handler.
      *
-     * @see     Dotclear.Config     Dotclear.Interface.ConfigInterface
+     * @see     Dotclear\Config     Dotclear\Interface\ConfigInterface
      */
     public static function config(): ConfigInterface
     {
@@ -346,8 +346,8 @@ class Core extends Container
     /**
      * Deprecated methods handler.
      *
-     * @see     Calls core container service Dotclear.Interface.Core.DeprecatedInterface
-     * @see     Uses default core service Dotclear.Core.Deprecated
+     * @see     Calls core container service Dotclear\Interface\Core\DeprecatedInterface
+     * @see     Uses default core service Dotclear\Core\Deprecated
      */
     public static function deprecated(): DeprecatedInterface
     {
@@ -357,8 +357,8 @@ class Core extends Container
     /**
      * Error handler.
      *
-     * @see     Calls core container service Dotclear.Interface.Core.ErrorInterface
-     * @see     Uses default core service Dotclear.Core.Error
+     * @see     Calls core container service Dotclear\Interface\Core\ErrorInterface
+     * @see     Uses default core service Dotclear\Core\Error
      */
     public static function error(): ErrorInterface
     {
@@ -368,8 +368,8 @@ class Core extends Container
     /**
      * Wiki and HTML filters handler.
      *
-     * @see     Calls core container service Dotclear.Interface.Core.FilterInterface
-     * @see     Uses default core service Dotclear.Core.Filter
+     * @see     Calls core container service Dotclear\Interface\Core\FilterInterface
+     * @see     Uses default core service Dotclear\Core\Filter
      */
     public static function filter(): FilterInterface
     {
@@ -379,8 +379,8 @@ class Core extends Container
     /**
      * Text formaters handler.
      *
-     * @see     Calls core container service Dotclear.Interface.Core.FormaterInterface
-     * @see     Uses default core service Dotclear.Core.Formater
+     * @see     Calls core container service Dotclear\Interface\Core\FormaterInterface
+     * @see     Uses default core service Dotclear\Core\Formater
      */
     public static function formater(): FormaterInterface
     {
@@ -390,7 +390,7 @@ class Core extends Container
     /**
      * Frontend Utility.
      *
-     * @see     Dotclear.Core.Frontend.Utility
+     * @see     Dotclear\Core\Frontend\Utility
      */
     public static function frontend(): Frontend
     {
@@ -400,8 +400,8 @@ class Core extends Container
     /**
      * Lang setter.
      *
-     * @see     Calls core container service Dotclear.Interface.Core.LangInterface
-     * @see     Uses default core service Dotclear.Core.Lang
+     * @see     Calls core container service Dotclear\Interface\Core\LangInterface
+     * @see     Uses default core service Dotclear\Core\Lang
      */
     public static function lang(): LangInterface
     {
@@ -411,8 +411,8 @@ class Core extends Container
     /**
      * Lexical helper.
      *
-     * @see     Calls core container service Dotclear.Interface.Core.LexicalInterface
-     * @see     Uses default core service Dotclear.Core.Lexical
+     * @see     Calls core container service Dotclear\Interface\Core\LexicalInterface
+     * @see     Uses default core service Dotclear\Core\Lexical
      */
     public static function lexical(): LexicalInterface
     {
@@ -422,8 +422,8 @@ class Core extends Container
     /**
      * Logs handler.
      *
-     * @see     Calls core container service Dotclear.Interface.Core.LogInterface
-     * @see     Uses default core service Dotclear.Core.Log
+     * @see     Calls core container service Dotclear\Interface\Core\LogInterface
+     * @see     Uses default core service Dotclear\Core\Log
      */
     public static function log(): LogInterface
     {
@@ -433,8 +433,8 @@ class Core extends Container
     /**
      * Media handler.
      *
-     * @see     Calls core container service Dotclear.Interface.Core.MediaInterface
-     * @see     Uses default core service Dotclear.Core.Media
+     * @see     Calls core container service Dotclear\Interface\Core\MediaInterface
+     * @see     Uses default core service Dotclear\Core\Media
      */
     public static function media(): MediaInterface
     {
@@ -444,8 +444,8 @@ class Core extends Container
     /**
      * Meta handler.
      *
-     * @see     Calls core container service Dotclear.Interface.Core.MetaInterface
-     * @see     Uses default core service Dotclear.Core.Meta
+     * @see     Calls core container service Dotclear\Interface\Core\MetaInterface
+     * @see     Uses default core service Dotclear\Core\Meta
      */
     public static function meta(): MetaInterface
     {
@@ -455,8 +455,8 @@ class Core extends Container
     /**
      * Form nonce handler.
      *
-     * @see     Calls core container service Dotclear.Interface.Core.NonceInterface
-     * @see     Uses default core service Dotclear.Core.Nonce
+     * @see     Calls core container service Dotclear\Interface\Core\NonceInterface
+     * @see     Uses default core service Dotclear\Core\Nonce
      */
     public static function nonce(): NonceInterface
     {
@@ -466,8 +466,8 @@ class Core extends Container
     /**
      * Notices handler.
      *
-     * @see     Calls core container service Dotclear.Interface.Core.NoticeInterface
-     * @see     Uses default core service Dotclear.Core.Notice
+     * @see     Calls core container service Dotclear\Interface\Core\NoticeInterface
+     * @see     Uses default core service Dotclear\Core\Notice
      */
     public static function notice(): NoticeInterface
     {
@@ -477,8 +477,8 @@ class Core extends Container
     /**
      * Plugins handler.
      *
-     * @see     Calls core container service Dotclear.Interface.Module.PluginsInterface
-     * @see     Uses default core service Dotclear.Module.Plugins
+     * @see     Calls core container service Dotclear\Interface\Module\PluginsInterface
+     * @see     Uses default core service Dotclear\Module\Plugins
      */
     public static function plugins(): PluginsInterface
     {
@@ -488,8 +488,8 @@ class Core extends Container
     /**
      * Post media handler.
      *
-     * @see     Calls core container service Dotclear.Interface.Core.PostMediaInterface
-     * @see     Uses default core service Dotclear.Core.PostMedia
+     * @see     Calls core container service Dotclear\Interface\Core\PostMediaInterface
+     * @see     Uses default core service Dotclear\Core\PostMedia
      */
     public static function postMedia(): PostMediaInterface
     {
@@ -499,8 +499,8 @@ class Core extends Container
     /**
      * Post types handler.
      *
-     * @see     Calls core container service Dotclear.Interface.Core.PostTypesInterface
-     * @see     Uses default core service Dotclear.Core.PostTypes
+     * @see     Calls core container service Dotclear\Interface\Core\PostTypesInterface
+     * @see     Uses default core service Dotclear\Core\PostTypes
      */
     public static function postTypes(): PostTypesInterface
     {
@@ -510,8 +510,8 @@ class Core extends Container
     /**
      * REST servcie handler.
      *
-     * @see     Calls core container service Dotclear.Interface.Core.RestInterface
-     * @see     Uses default core service Dotclear.Core.Rest
+     * @see     Calls core container service Dotclear\Interface\Core\RestInterface
+     * @see     Uses default core service Dotclear\Core\Rest
      */
     public static function rest(): RestInterface
     {
@@ -521,9 +521,9 @@ class Core extends Container
     /**
      * Session handler.
      *
-     * @see     Calls core container service Dotclear.Interface.Core.SessionInterface
-     * @see     Uses default core service Dotclear.Core.Session
-     * @see     Dotclear.Database.Session
+     * @see     Calls core container service Dotclear\Interface\Core\SessionInterface
+     * @see     Uses default core service Dotclear\Core\Session
+     * @see     Dotclear\Database\Session
      */
     public static function session(): SessionInterface
     {
@@ -533,8 +533,8 @@ class Core extends Container
     /**
      * List status interface.
      *
-     * @see     Calls core container service Dotclear.Interface.Core.StatusInterface
-     * @see     Uses default core service Dotclear.Core.Status
+     * @see     Calls core container service Dotclear\Interface\Core\StatusInterface
+     * @see     Uses default core service Dotclear\Core\Status
      */
     public static function status(): StatusInterface
     {
@@ -544,8 +544,8 @@ class Core extends Container
     /**
      * Application task handler.
      *
-     * @see     Calls core container service Dotclear.Interface.Core.TaskInterface
-     * @see     Uses default core service Dotclear.Core.Task
+     * @see     Calls core container service Dotclear\Interface\Core\TaskInterface
+     * @see     Uses default core service Dotclear\Core\Task
      */
     public static function task(): TaskInterface
     {
@@ -555,8 +555,8 @@ class Core extends Container
     /**
      * Themes handler.
      *
-     * @see     Calls core container service Dotclear.Interface.Module.ThemesInterface
-     * @see     Uses default core service Dotclear.Module.Themes
+     * @see     Calls core container service Dotclear\Interface\Module\ThemesInterface
+     * @see     Uses default core service Dotclear\Module\Themes
      */
     public static function themes(): ThemesInterface
     {
@@ -566,8 +566,8 @@ class Core extends Container
     /**
      * Trackbacks handler.
      *
-     * @see     Calls core container service Dotclear.Interface.Core.TrackbacksInterface
-     * @see     Uses default core service Dotclear.Core.Trackbacks
+     * @see     Calls core container service Dotclear\Interface\Core\TrackbacksInterface
+     * @see     Uses default core service Dotclear\Core\Trackbacks
      */
     public static function trackback(): TrackbackInterface
     {
@@ -577,8 +577,8 @@ class Core extends Container
     /**
      * Blog URL handler.
      *
-     * @see     Calls core container service Dotclear.Interface.Frontend.UrlInterface
-     * @see     Uses default core service Dotclear.Frontend.Url
+     * @see     Calls core container service Dotclear\Interface\Frontend\UrlInterface
+     * @see     Uses default core service Dotclear\Frontend\Url
      */
     public static function url(): UrlInterface
     {
@@ -588,8 +588,8 @@ class Core extends Container
     /**
      * Users handler.
      *
-     * @see     Calls core container service Dotclear.Interface.Core.UsersInterface
-     * @see     Uses default core service Dotclear.Core.Users
+     * @see     Calls core container service Dotclear\Interface\Core\UsersInterface
+     * @see     Uses default core service Dotclear\Core\Users
      */
     public static function users(): UsersInterface
     {
@@ -599,8 +599,8 @@ class Core extends Container
     /**
      * User preferences handler.
      *
-     * @see     Calls core container service Dotclear.Interface.Core.PreferencesInterface
-     * @see     Uses default core service Dotclear.Core.Preferences
+     * @see     Calls core container service Dotclear\Interface\Core\PreferencesInterface
+     * @see     Uses default core service Dotclear\Core\Preferences
      */
     public static function userPreferences(): UserPreferencesInterface
     {
@@ -610,8 +610,8 @@ class Core extends Container
     /**
      * User preferences workspace handler.
      *
-     * @see     Calls core container service Dotclear.Interface.Core.UserPreferencesInterface
-     * @see     Uses default core service Dotclear.Core.UserPreferences
+     * @see     Calls core container service Dotclear\Interface\Core\UserPreferencesInterface
+     * @see     Uses default core service Dotclear\Core\UserPreferences
      */
     public static function userWorkspace(): UserWorkspaceInterface
     {
@@ -621,8 +621,8 @@ class Core extends Container
     /**
      * Modules version handler.
      *
-     * @see     Calls core container service Dotclear.Interface.Core.VersionInterface
-     * @see     Uses default core service Dotclear.Core.Version
+     * @see     Calls core container service Dotclear\Interface\Core\VersionInterface
+     * @see     Uses default core service Dotclear\Core\Version
      */
     public static function version(): VersionInterface
     {

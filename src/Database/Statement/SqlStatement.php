@@ -25,7 +25,13 @@ class SqlStatement
     /**
      * Use AS for aliases anywhere (if true) else only for SQLite syntax (if false)
      *
-     * @see self::alias(), self::as(), self::count(), self::avg(), self::min(), self::max(), self::sum() methods
+     * @see SqlStatement::alias()
+     * @see SqlStatement::as()
+     * @see SqlStatement::count()
+     * @see SqlStatement::avg()
+     * @see SqlStatement::min()
+     * @see SqlStatement::max()
+     * @see SqlStatement::sum()
      *
      * @var        bool     VERBOSE_SQL_ALIAS
      */

@@ -109,6 +109,7 @@ class Auth implements AuthInterface
      *
      * @param   BlogInterface               $blog           The blog instance
      * @param   BlogsInterface              $blogs          The blogs handler
+     * @param   ConfigInterface             $config         The configuration instance
      * @param   ConnectionInterface         $con            The database connection instance
      * @param   SessionInterface            $session        The session handler
      * @param   UserPreferencesInterface    $user_prefs     The user preferences instance
@@ -377,6 +378,16 @@ class Auth implements AuthInterface
     /// @name Sudo
     //@{
 
+    /**
+     * Sudo command helper
+     *
+     * @param      callable     $fn     The function
+     * @param      mixed[]      $args   The arguments
+     *
+     * @throws     ProcessException
+     *
+     * @return     mixed
+     */
     public function sudo($fn, ...$args)
     {
         if (!is_callable($fn)) {    // @phpstan-ignore-line
@@ -551,6 +562,11 @@ class Auth implements AuthInterface
         return $res;
     }
 
+    /**
+     * Makes permissions.
+     *
+     * @param      string[]   $list   The list
+     */
     public function makePermissions(array $list): string
     {
         return implode(',', $list);

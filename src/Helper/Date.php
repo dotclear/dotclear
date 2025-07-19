@@ -50,7 +50,8 @@ class Date
      * @param  string                   $format         Date format
      * @param  integer|string|DateTime  $timestamp      Timestamp
      *
-     * @author BohwaZ <https://bohwaz.net/>
+     * @author BohwaZ
+     * @link <https://bohwaz.net/>
      */
     public static function strftime(string $format, $timestamp = null, ?string $locale = null): string
     {

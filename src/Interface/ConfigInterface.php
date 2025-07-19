@@ -327,7 +327,7 @@ interface ConfigInterface
      *
      * Used for password recovery and such.
      * From config file.
-     * Returns 'dotclear@local' string if not set.
+     * Returns ```dotclear@local``` string if not set.
      *
      * @return  string  Mailfrom address
      */

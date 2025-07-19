@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -39,7 +40,7 @@ class AppException extends Exception implements AppExceptionInterface
     /**
      * Find exception enumeration.
      *
-     * @see     Dotclear.Exception.ExceptionEnum
+     * @see     Dotclear\Exception\ExceptionEnum
      *
      * @return  ExceptionEnum   The exception enumeration
      */

@@ -14,7 +14,7 @@ namespace Dotclear\Helper\File;
 /**
  * @class File
  *
- * @brief File item class used by {@link Dotclear::Helper::File::Manager}. In this class {@link Dotclear::Helper::File::File::$file} could
+ * @brief File item class used by Dotclear\Helper\File\Manager. In this class Dotclear\Helper\File\File::$file could
  * be either a file or a directory.
  */
 class File
@@ -78,7 +78,7 @@ class File
     /**
      * File MimeType
      *
-     * @see {@link Files::getMimeType()}
+     * @see Dotclear\Helper\File\Files::getMimeType()
      *
      * @var string|null     $type
      */

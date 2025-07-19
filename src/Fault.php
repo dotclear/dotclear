@@ -80,7 +80,7 @@ class Fault
      * https://www.php.net/manual/fr/exception.gettraceasstring.php#114980
      *
      * @param   Throwable           $exception  The exception
-     * @param   array<int,string>   $seen       Internal loop
+     * @param   string[]            $seen       Internal loop
      *
      * @return  string  The formated trace
      */

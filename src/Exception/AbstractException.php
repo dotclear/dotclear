@@ -23,7 +23,7 @@ use Throwable;
  * Abstract exceptpion class will provide a default label and description if none given
  * Useful when used by Dotclear.Fault parser.
  *
- * @see     Dotclear.Fault
+ * @see     Dotclear\Fault
  *
  * @since   2.28
  */

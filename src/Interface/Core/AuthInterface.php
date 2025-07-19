@@ -215,8 +215,6 @@ interface AuthInterface
 
     /**
      * Get user preferences handler.
-     *
-     * @throws  \Error   if no user is set
      */
     public function prefs(): UserPreferencesInterface;
 
@@ -300,7 +298,7 @@ interface AuthInterface
     /**
      * Makes permissions string from an array.
      *
-     * @param   array<string>   $list   The list
+     * @param   string[]   $list   The list
      */
     public function makePermissions(array $list): string;
 
