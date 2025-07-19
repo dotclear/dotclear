@@ -13,8 +13,6 @@ use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Text;
 
 /**
- * Helpers handler.
- *
  * @deprecated dcUtils is deprecated since 2.28, use appropriate class and methods instead...
  */
 class dcUtils

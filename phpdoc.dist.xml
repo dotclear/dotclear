@@ -23,6 +23,10 @@
       <ignore hidden="true" symlinks="true">
         <path>inc/config.php</path>
       </ignore>
-     </api>
+    </api>
   </version>
+  <setting name="markdown.enabled" value="true" />
+  <setting name="graphs.enabled" value="true" />
+  <setting name="guides.enabled" value="true" />
+  <setting name="template.color" value="blue" />
 </phpdocumentor>
