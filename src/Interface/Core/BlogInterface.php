@@ -401,7 +401,7 @@ interface BlogInterface
      * - start: start with a given category
      * - level: categories level to retrieve
      *
-     * @param   array<string, mixed>|ArrayObject<string, mixed>   $params     The parameters
+     * @param   array<string,mixed>|ArrayObject<string,mixed>   $params     The parameters
      *
      * @return  MetaRecord  The categories.
      */

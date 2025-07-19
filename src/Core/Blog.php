@@ -166,7 +166,8 @@ class Blog implements BlogInterface
      * @param   ConnectionInterface     $con            The database connection instance
      * @param   FilterInterface         $filter         The wiki filter handler
      * @param   FormaterInterface       $formater       The text formater handler
-     * @param   PostMediaInterface      $postmedia      The psot media handler
+     * @param   PostMediaInterface      $postmedia      The post media handler
+     * @param   DeprecatedInterface     $deprecated     The deprecated handler
      * @param   string                  $blog_id        The blog identifier
      */
     public function __construct(

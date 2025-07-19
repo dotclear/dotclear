@@ -33,7 +33,7 @@ interface BehaviorInterface
      * Adds new behaviors to behaviors stack. Each row must
      * contains the behavior and a valid callable callback.
      *
-     * @param   array<string, callable>   $behaviors  The behaviors
+     * @param   array<string,callable>   $behaviors  The behaviors
      */
     public function addBehaviors(array $behaviors): void;
 
@@ -70,7 +70,7 @@ interface BehaviorInterface
      * behavior calls.
      *
      * @param   string  $behavior   The behavior
-     * @param   mixed   ...$args    The arguments
+     * @param   mixed[] $args       The arguments
      *
      * @return  string  Behavior concatened result
      */

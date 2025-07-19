@@ -20,7 +20,7 @@ class dcProxyV1
     /**
      * Declare class alisases
      *
-     * @param      array<string, string>  $aliases  The aliases
+     * @param      array<string,string>  $aliases  The aliases
      */
     public static function classAliases(array $aliases): void
     {

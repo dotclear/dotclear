@@ -1,6 +1,10 @@
 <?php
 
 /**
+ * @file
+ * @brief       The plugin dcProxyV1 classes constants
+ * @ingroup     dcProxyV1
+ *
  * @package     Dotclear
  *
  * @copyright   Olivier Meunier & Association Dotclear

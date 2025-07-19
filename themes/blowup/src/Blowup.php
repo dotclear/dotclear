@@ -543,8 +543,6 @@ class Blowup
              * Return a valid color element value
              *
              * @param      int   $value  The value
-             * @param      int   $min    The minimum
-             * @param      int   $max    The maximum
              *
              * @return     int<0, 255>
              */
