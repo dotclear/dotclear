@@ -109,7 +109,9 @@ namespace Dotclear\Helper\Html\Form;
 abstract class Component
 {
     /**
-     * @var array<array-key, mixed> Custom component properties (see __get() and __set())
+     * Custom component properties (see __get() and __set())
+     *
+     * @var array<array-key, mixed>     $properties
      */
     protected array $properties = [];
 

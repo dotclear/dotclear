@@ -55,7 +55,7 @@ class Frontend extends Process
     /**
      * Tpl:ductileNbEntryPerPage template element
      *
-     * @param      ArrayObject<string, string>  $attr   The attribute
+     * @param      ArrayObject<string,string>  $attr   The attribute
      *
      * @return     string       the rendered element
      */

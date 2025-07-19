@@ -368,8 +368,6 @@ final class dcCore
         App::backend()->killAdminSession();
     }
 
-    /// @name Blog init methods
-    //@{
     /**
      * Sets the blog to use.
      *
@@ -391,10 +389,7 @@ final class dcCore
     {
         App::blog()->loadFromBlog('');
     }
-    //@}
 
-    /// @name Blog status methods
-    //@{
     /**
      * Gets all blog status.
      *
@@ -418,10 +413,7 @@ final class dcCore
     {
         return App::status()->blog()->name($s);
     }
-    //@}
 
-    /// @name Admin nonce secret methods
-    //@{
     /**
      * Gets the nonce.
      *
@@ -455,10 +447,7 @@ final class dcCore
     {
         return $render ? App::nonce()->getFormNonce() : App::nonce()->formNonce();
     }
-    //@}
 
-    /// @name Text Formatters methods
-    //@{
     /**
      * Adds a new text formater.
      *
@@ -563,10 +552,7 @@ final class dcCore
     {
         return App::formater()->callEditorFormater('dcLegacyEditor', $name, $str);
     }
-    //@}
 
-    /// @name Behaviors methods
-    //@{
     /**
      * Adds a new behavior to behaviors stack.
      *
@@ -598,7 +584,7 @@ final class dcCore
      *
      * @deprecated since 2.28, use App::behavior()->addBehaviors() instead
      *
-     * @param   array<string,callable>     $behaviors   The behaviours
+     * @param array<string,callable> $behaviors The behaviours
      */
     public function addBehaviors(array $behaviors): void
     {
@@ -691,10 +677,6 @@ final class dcCore
     {
         return App::behavior()->callBehavior($behaviour, ...$args);
     }
-    //@}
-
-    /// @name Post types URLs management
-    //@{
 
     /**
      * Gets the post admin url.
@@ -751,10 +733,7 @@ final class dcCore
     {
         return App::postTypes()->getPostTypes();
     }
-    //@}
 
-    /// @name Versions management methods
-    //@{
     /**
      * Gets the version of a module.
      *
@@ -832,10 +811,7 @@ final class dcCore
     {
         App::version()->unsetVersion($module);
     }
-    //@}
 
-    /// @name Users management methods
-    //@{
     /**
      * Gets the user by its ID.
      *
@@ -999,10 +975,7 @@ final class dcCore
     {
         return App::users()->userDefaults();
     }
-    //@}
 
-    /// @name Blog management methods
-    //@{
     /**
      * Returns all blog permissions (users) as an array.
      *
@@ -1108,10 +1081,7 @@ final class dcCore
     {
         return App::blogs()->countBlogPosts($id, $type);
     }
-    //@}
 
-    /// @name HTML Filter methods
-    //@{
     /**
      * Calls HTML filter to drop bad tags and produce valid HTML output.
      *
@@ -1123,10 +1093,7 @@ final class dcCore
     {
         return App::filter()->HTMLfilter($str);
     }
-    //@}
 
-    /// @name WikiToHtml methods
-    //@{
     /**
      * Returns a transformed string with WikiToHtml.
      *
@@ -1183,10 +1150,7 @@ final class dcCore
     {
         return App::filter()->wikiPostLink($url, $content);
     }
-    //@}
 
-    /// @name Maintenance methods
-    //@{
     /**
      * Creates default settings for active blog.
      *
@@ -1259,5 +1223,4 @@ final class dcCore
     {
         return App::rest()->serveRestRequests();
     }
-    //@}
 }

@@ -259,7 +259,7 @@ class Blog implements BlogInterface
     }
 
     /// @name Class public methods
-    //@{
+    ///@{
 
     public function openBlogCursor(): Cursor
     {
@@ -281,10 +281,10 @@ class Blog implements BlogInterface
         return $this->status !== App::status()->blog()::UNDEFINED;
     }
 
-    //@}
+    ///@}
 
     /// @name Properties public methods
-    //@{
+    ///@{
 
     public function id(): string
     {
@@ -346,10 +346,10 @@ class Blog implements BlogInterface
         return $this->public_path;
     }
 
-    //@}
+    ///@}
 
     /// @name Common public methods
-    //@{
+    ///@{
 
     public function getQmarkURL(): string
     {
@@ -426,10 +426,10 @@ class Blog implements BlogInterface
         return is_bool($value) ? $this->without_password = $value : $this->without_password;
     }
 
-    //@}
+    ///@}
 
     /// @name Triggers methods
-    //@{
+    ///@{
 
     public function triggerBlog(): void
     {
@@ -527,10 +527,10 @@ class Blog implements BlogInterface
         # --BEHAVIOR-- coreBlogAfterTriggerComments -- Array, Array
         $this->behavior->callBehavior('coreBlogAfterTriggerComments', $comments_ids, $affected_posts);
     }
-    //@}
+    ///@}
 
     /// @name Categories management methods
-    //@{
+    ///@{
 
     public function categories(): CategoriesInterface
     {
@@ -964,10 +964,10 @@ class Blog implements BlogInterface
         }
     }
 
-    //@}
+    ///@}
 
     /// @name Entries management methods
-    //@{
+    ///@{
 
     public function getPosts($params = [], bool $count_only = false, ?SelectStatement $ext_sql = null): MetaRecord
     {
@@ -2200,10 +2200,10 @@ class Blog implements BlogInterface
             $sql->and('post_status ' . $sql->in($params['post_status']));
         }
     }
-    //@}
+    ///@}
 
     /// @name Comments management methods
-    //@{
+    ///@{
 
     public function getComments($params = [], bool $count_only = false, ?SelectStatement $ext_sql = null): MetaRecord
     {
@@ -2704,7 +2704,7 @@ class Blog implements BlogInterface
 
         return true;
     }
-    //@}
+    ///@}
 
     public function cleanIds($ids): array
     {

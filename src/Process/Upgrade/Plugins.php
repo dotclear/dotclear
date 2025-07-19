@@ -412,8 +412,12 @@ class Plugins extends Process
     }
 
     /**
-     * @param   array<string, ModuleDefine>     $modules
-     * @param   array<int, ModuleDefine>        $repos
+     * Display next store list
+     *
+     * @todo    Documentation about the purpose of this method should be refine, in particular what is next store?
+     *
+     * @param   array<string,ModuleDefine>     $modules     The known modules
+     * @param   array<int,ModuleDefine>        $repos       The repository modules
      */
     protected static function displayNextStoreList(array $modules, array $repos): Div
     {

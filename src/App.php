@@ -109,7 +109,7 @@ final class App extends Core
     }
 
     /// @name Deprecated methods
-    //@{
+    ///@{
     /**
      * Application boostrap.
      *
@@ -148,5 +148,5 @@ final class App extends Core
     {
         return Autoloader::me();
     }
-    //@}
+    ///@}
 }

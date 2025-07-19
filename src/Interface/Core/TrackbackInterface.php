@@ -39,7 +39,7 @@ interface TrackbackInterface
     public function openTrackbackCursor(): Cursor;
 
     /// @name Send
-    //@{
+    ///@{
     /**
      * Get all pings sent for a given post.
      *
@@ -63,10 +63,10 @@ interface TrackbackInterface
      * @return  bool    false if error
      */
     public function ping(string $url, int $post_id, string $post_title, string $post_excerpt, string $post_url): bool;
-    //@}
+    ///@}
 
     /// @name Receive
-    //@{
+    ///@{
     /**
      * Receives a trackback and insert it as a comment of given post.
      *
@@ -93,10 +93,10 @@ interface TrackbackInterface
      */
     public function receiveWebmention(): void;
 
-    //@}
+    ///@}
 
     /// @name Discover
-    //@{
+    ///@{
     /**
      * DIscover trackbacks.
      *
@@ -108,7 +108,7 @@ interface TrackbackInterface
      */
     public function discover(string $text): array;
 
-    //@}
+    ///@}
 
     /**
      * URL helper.

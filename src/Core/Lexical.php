@@ -39,7 +39,7 @@ class Lexical implements LexicalInterface
     /**
      * Locale specific array sorting function.
      *
-     * @param   array<string>   $arr        single array of strings
+     * @param   string[]        $arr        single array of strings
      * @param   string          $namespace  admin/public/lang
      * @param   string          $lang       language to be used if $ns = 'lang'
      */

@@ -82,7 +82,7 @@ class Manager
      * Constructor
      *
      * New filemanage istance. Note that filemanage is a jail in given root
-     * path. You won't be able to access files outside {@link $root} path with
+     * path. You won't be able to access files outside Manager::$root path with
      * the object's methods.
      *
      * @param string    $root           Root path

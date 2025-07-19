@@ -113,7 +113,7 @@ interface AuthInterface
     public function openPermCursor(): Cursor;
 
     /// @name Credentials and user permissions
-    //@{
+    ///@{
 
     /**
      * Checks if user exists and can log in.
@@ -191,10 +191,10 @@ interface AuthInterface
      */
     public function allowPassChange(): bool;
 
-    //@}
+    ///@}
 
     /// @name Sudo
-    //@{
+    ///@{
 
     /**
      * Calls <var>$fn</var> function with super admin rights.
@@ -208,10 +208,10 @@ interface AuthInterface
      */
     public function sudo($fn, ...$args);
 
-    //@}
+    ///@}
 
     /// @name User information and options
-    //@{
+    ///@{
 
     /**
      * Get user preferences handler.
@@ -281,10 +281,10 @@ interface AuthInterface
      * @return  array<string, mixed>
      */
     public function getOptions(): array;
-    //@}
+    ///@}
 
     /// @name Permissions
-    //@{
+    ///@{
 
     /**
      * Returns an array with permissions parsed from the string <var>$level</var>
@@ -317,10 +317,10 @@ interface AuthInterface
      */
     public function setPermissionType(string $name, string $title): void;
 
-    //@}
+    ///@}
 
     /// @name Password recovery
-    //@{
+    ///@{
 
     /**
      * Add a recover key to a specific user.
@@ -350,5 +350,5 @@ interface AuthInterface
      */
     public function recoverUserPassword(string $recover_key): array;
 
-    //@}
+    ///@}
 }

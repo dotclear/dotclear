@@ -152,7 +152,7 @@ class Auth implements AuthInterface
     }
 
     /// @name Credentials and user permissions
-    //@{
+    ///@{
 
     public function checkUser(string $user_id, ?string $pwd = null, ?string $user_key = null, bool $check_blog = true): bool
     {
@@ -373,10 +373,10 @@ class Auth implements AuthInterface
         return $this->allow_pass_change;
     }
 
-    //@}
+    ///@}
 
     /// @name Sudo
-    //@{
+    ///@{
 
     /**
      * Sudo command helper
@@ -413,10 +413,10 @@ class Auth implements AuthInterface
         return $res;
     }
 
-    //@}
+    ///@}
 
     /// @name User information and options
-    //@{
+    ///@{
 
     public function prefs(): UserPreferencesInterface
     {
@@ -537,10 +537,10 @@ class Auth implements AuthInterface
     {
         return $this->user_options;
     }
-    //@}
+    ///@}
 
     /// @name Permissions
-    //@{
+    ///@{
 
     /**
      * Parse user permissions
@@ -582,10 +582,10 @@ class Auth implements AuthInterface
         $this->perm_types[$name] = $title;
     }
 
-    //@}
+    ///@}
 
     /// @name Password recovery
-    //@{
+    ///@{
 
     public function setRecoverKey(string $user_id, string $user_email): string
     {
@@ -648,5 +648,5 @@ class Auth implements AuthInterface
         ];
     }
 
-    //@}
+    ///@}
 }

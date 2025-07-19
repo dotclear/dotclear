@@ -170,7 +170,7 @@ class dcUtils
      *
      * @param   array<string, mixed>   $vars   The variables
      *
-     * @return  string  javascript code (inside <script… ></script>)
+     * @return  string  javascript code (encapsulated in an script HTML element)
      */
     public static function jsVars(array $vars): string
     {
@@ -251,7 +251,7 @@ class dcUtils
      *
      * @deprecated  since 2.28, use App:lexical()->lexicalKeySort() instead
      *
-     * @param   array<string>   $arr        single array of strings
+     * @param   string[]        $arr        single array of strings
      * @param   string          $namespace  admin/public/lang
      * @param   string          $lang       language to be used if $ns = 'lang'
      *

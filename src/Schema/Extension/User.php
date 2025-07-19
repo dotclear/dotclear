@@ -79,7 +79,7 @@ class User
     }
 
     /**
-     * Converts this Record to a {@link StaticRecord} instance.
+     * Converts this Record to a Dotclear\Database\StaticRecord instance.
      *
      * @param      MetaRecord   $rs       Invisible parameter
      */

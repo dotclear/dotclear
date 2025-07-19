@@ -41,7 +41,7 @@ class Label extends Component
      * Put field inside label with label text before field (ex: Number: [ ])
      * Useful for input field, select, …
      *
-     * @var        int
+     * @var        int  IL_TF
      */
     public const IL_TF = 0;
 
@@ -51,7 +51,7 @@ class Label extends Component
      * Put field inside label with label text after field (ex: [] Active)
      * Useful for radio, checkbox, …
      *
-     * @var        int
+     * @var        int  IL_FT
      */
     public const IL_FT = 1;
 
@@ -60,7 +60,7 @@ class Label extends Component
      *
      * Put field after label (for=field_id will be set automatically)
      *
-     * @var        int
+     * @var        int  OL_TF
      */
     public const OL_TF = 2;
 
@@ -69,7 +69,7 @@ class Label extends Component
      *
      * Put field before label (for=field_id will be set automatically)
      *
-     * @var        int
+     * @var        int  OL_FT
      */
     public const OL_FT = 3;
 
@@ -86,7 +86,7 @@ class Label extends Component
     /**
      * List of available positions
      *
-     * @var array<int>
+     * @var int[]   $_positions
      */
     private array $_positions = [
         self::IL_TF,
@@ -103,7 +103,7 @@ class Label extends Component
      * Put field inside label with label text before field (ex: Number: [ ])
      * Useful for input field, select, …
      *
-     * @var        int
+     * @var        int  INSIDE_TEXT_BEFORE
      */
     public const INSIDE_TEXT_BEFORE = self::IL_TF;
 
@@ -113,7 +113,7 @@ class Label extends Component
      * Put field inside label with label text after field (ex: [] Active)
      * Useful for radio, checkbox, …
      *
-     * @var        int
+     * @var        int  INSIDE_TEXT_AFTER
      */
     public const INSIDE_TEXT_AFTER = self::IL_FT;
 
@@ -122,7 +122,7 @@ class Label extends Component
      *
      * Put field after label (for=field_id will be set automatically)
      *
-     * @var        int
+     * @var        int  OUTSIDE_TEXT_BEFORE
      */
     public const OUTSIDE_TEXT_BEFORE = self::OL_TF;
 
@@ -131,7 +131,7 @@ class Label extends Component
      *
      * Put field before label (for=field_id will be set automatically)
      *
-     * @var        int
+     * @var        int  OUTSIDE_TEXT_AFTER
      */
     public const OUTSIDE_TEXT_AFTER = self::OL_FT;
 
@@ -143,7 +143,7 @@ class Label extends Component
      * Put field inside label with label text before field (ex: Number: [ ])
      * Useful for input field, select, …
      *
-     * @var        int
+     * @var        int  INSIDE_LABEL_BEFORE
      */
     public const INSIDE_LABEL_BEFORE = self::IL_TF;
 
@@ -153,7 +153,7 @@ class Label extends Component
      * Put field inside label with label text after field (ex: [] Active)
      * Useful for radio, checkbox, …
      *
-     * @var        int
+     * @var        int  INSIDE_LABEL_AFTER
      */
     public const INSIDE_LABEL_AFTER = self::IL_FT;
 
@@ -162,7 +162,7 @@ class Label extends Component
      *
      * Put field after label (for=field_id will be set automatically)
      *
-     * @var        int
+     * @var        int  OUTSIDE_LABEL_BEFORE
      */
     public const OUTSIDE_LABEL_BEFORE = self::OL_TF;
 
@@ -171,7 +171,7 @@ class Label extends Component
      *
      * Put field before label (for=field_id will be set automatically)
      *
-     * @var        int
+     * @var        int  OUTSIDE_LABEL_AFTER
      */
     public const OUTSIDE_LABEL_AFTER = self::OL_FT;
 

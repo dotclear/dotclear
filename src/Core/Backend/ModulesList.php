@@ -215,7 +215,7 @@ class ModulesList
     }
 
     /// @name Modules root directory methods
-    //@{
+    ///@{
 
     /**
      * Set path info.
@@ -273,10 +273,10 @@ class ModulesList
         && App::auth()->isSuperAdmin();
     }
 
-    //@}
+    ///@}
 
     /// @name Page methods
-    //@{
+    ///@{
 
     /**
      * Set page base URL.
@@ -368,10 +368,10 @@ class ModulesList
         return $this->page_redir === '' ? $this->getURL() : $this->page_redir;
     }
 
-    //@}
+    ///@}
 
     /// @name Search methods
-    //@{
+    ///@{
 
     /**
      * Get search query.
@@ -434,10 +434,10 @@ class ModulesList
         return $this;
     }
 
-    //@}
+    ///@}
 
     /// @name Navigation menu methods
-    //@{
+    ///@{
 
     /**
      * Set navigation special index.
@@ -538,10 +538,10 @@ class ModulesList
 
         return $this;
     }
-    //@}
+    ///@}
 
     /// @name Sort methods
-    //@{
+    ///@{
 
     /**
      * Set default sort field.
@@ -581,10 +581,10 @@ class ModulesList
         return $this;
     }
 
-    //@}
+    ///@}
 
     /// @name Modules methods
-    //@{
+    ///@{
 
     /**
      * Set modules defines and sanitize them.
@@ -1830,10 +1830,10 @@ class ModulesList
         return $this;
     }
 
-    //@}
+    ///@}
 
     /// @name Module configuration methods
-    //@{
+    ///@{
 
     /**
      * Prepare module configuration.
@@ -2002,7 +2002,7 @@ class ModulesList
         return $this;
     }
 
-    //@}
+    ///@}
 
     /**
      * Helper to sanitize a string.

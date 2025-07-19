@@ -77,7 +77,7 @@ class Trackback implements TrackbackInterface
     }
 
     /// @name Send
-    //@{
+    ///@{
     public function getPostPings(int $post_id): MetaRecord
     {
         $sql = new SelectStatement();
@@ -208,10 +208,10 @@ class Trackback implements TrackbackInterface
 
         return true;
     }
-    //@}
+    ///@}
 
     /// @name Receive
-    //@{
+    ///@{
     public function receiveTrackback(int $post_id): void
     {
         header('Content-Type: text/xml; charset=UTF-8');
@@ -682,10 +682,10 @@ class Trackback implements TrackbackInterface
 
         return $remote_content;
     }
-    //@}
+    ///@}
 
     /// @name Discover
-    //@{
+    ///@{
 
     /**
      * Find ping URLs from links inside text
@@ -891,7 +891,7 @@ class Trackback implements TrackbackInterface
 
         return false;
     }
-    //@}
+    ///@}
 
     /**
      * HTTP helper.

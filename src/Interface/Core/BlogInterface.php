@@ -154,7 +154,7 @@ interface BlogInterface
     public const COMMENT_PUBLISHED = 1;
 
     /// @name Class public methods
-    //@{
+    ///@{
 
     /**
      * Load a blog definition.
@@ -210,10 +210,10 @@ interface BlogInterface
      */
     public function isDefined(): bool;
 
-    //@}
+    ///@}
 
     /// @name properties access methods
-    //@{
+    ///@{
 
     /**
      * Get blog ID.
@@ -275,10 +275,10 @@ interface BlogInterface
      */
     public function publicPath(): string;
 
-    //@}
+    ///@}
 
     /// @name Common public methods
-    //@{
+    ///@{
 
     /**
      * Returns blog URL ending with a question mark.
@@ -344,10 +344,10 @@ interface BlogInterface
      */
     public function withoutPassword(?bool $value = null): bool;
 
-    //@}
+    ///@}
 
     /// @name Triggers methods
-    //@{
+    ///@{
 
     /**
      * Updates blog last update date.
@@ -379,10 +379,10 @@ interface BlogInterface
      * @param   mixed   $affected_posts     The affected posts IDs
      */
     public function triggerComments($ids, bool $del = false, $affected_posts = null): void;
-    //@}
+    ///@}
 
     /// @name Categories management methods
-    //@{
+    ///@{
 
     /**
      * Get Categories instance.
@@ -517,10 +517,10 @@ interface BlogInterface
      */
     public function resetCategoriesOrder(): void;
 
-    //@}
+    ///@}
 
     /// @name Entries management methods
-    //@{
+    ///@{
 
     /**
      * Retrieves entries.
@@ -769,7 +769,7 @@ interface BlogInterface
      *
      * It will try to guess URL and append some figures if needed.
      *
-     * @thrhow  BadRequestException
+     * @throw  BadRequestException
      *
      * @param   string  $url            The url
      * @param   string  $post_dt        The post dt
@@ -791,10 +791,10 @@ interface BlogInterface
      * @param   bool                        $with_comment   Limit also comment status
      */
     public function getPostsAddingParameters(ArrayObject $params, SelectStatement $sql, bool $with_comment = false): void;
-    //@}
+    ///@}
 
     /// @name Comments management methods
-    //@{
+    ///@{
     /**
      * Retrieves comments. <b>$params</b> is an array taking the following
      * optionnal parameters:
@@ -892,7 +892,7 @@ interface BlogInterface
      * @return  bool    True = period elapsed, False = no need to switch into sleep mode
      */
     public function checkSleepmodeTimeout(bool $apply = true): bool;
-    //@}
+    ///@}
 
     /**
      * Cleanup a list of IDs.

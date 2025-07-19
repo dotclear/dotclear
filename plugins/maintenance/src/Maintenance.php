@@ -71,7 +71,7 @@ class Maintenance
     }
 
     /// @name Tab methods
-    //@{
+    ///@{
     /**
      * Adds a tab.
      *
@@ -107,10 +107,10 @@ class Maintenance
     {
         return $this->tabs;
     }
-    //@}
+    ///@}
 
     /// @name Group methods
-    //@{
+    ///@{
     /**
      * Adds a group.
      *
@@ -146,10 +146,10 @@ class Maintenance
     {
         return $this->groups;
     }
-    //@}
+    ///@}
 
     /// @name Task methods
-    //@{
+    ///@{
     /**
      * Adds a task.
      *
@@ -201,10 +201,10 @@ class Maintenance
 
         return $res;
     }
-    //@}
+    ///@}
 
     /// @name Log methods
-    //@{
+    ///@{
     /**
      * Sets the log for a task.
      *
@@ -301,5 +301,5 @@ class Maintenance
 
         return $this->logs; // @phpstan-ignore-line
     }
-    //@}
+    ///@}
 }

@@ -32,7 +32,7 @@ class L10n
     public static array $locales = [];
 
     /// @name Languages properties
-    //@{
+    ///@{
 
     /**
      * @var        array<mixed[]>   $languages_definitions
@@ -58,10 +58,10 @@ class L10n
      * @var        array<string, null|string>   $languages_pluralexpression
      */
     protected static array $languages_pluralexpression = [];
-    //@}
+    ///@}
 
     /// @name Current language properties
-    //@{
+    ///@{
 
     /**
      * Language code
@@ -94,7 +94,7 @@ class L10n
      * @var        callable     $language_pluralfunction
      */
     protected static $language_pluralfunction;
-    //@}
+    ///@}
 
     public static function bootstrap(): void
     {
@@ -274,7 +274,7 @@ class L10n
     }
 
     /// @name Gettext PO methods
-    //@{
+    ///@{
     /**
      * Load gettext file
      *
@@ -702,10 +702,10 @@ class L10n
 
         return rtrim($r, ';');
     }
-    //@}
+    ///@}
 
     /// @name Languages definitions methods
-    //@{
+    ///@{
     /**
      * Check if a language code exists
      *
@@ -1135,5 +1135,5 @@ class L10n
 
         return $r;  // @phpstan-ignore-line
     }
-    //@}
+    ///@}
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Core
@@ -22,11 +23,11 @@ use Dotclear\Database\MetaRecord;
 class Blog
 {
     /**
-     * Converts this Record to a {@link StaticRecord} instance.
+     * Converts this Record to a Dotclear\Database\StaticRecord instance.
      *
      * @param      MetaRecord  $rs       Invisible parameter
      *
-     * @return     MetaRecord  The extent static record.
+     * @return     MetaRecord  The resulting static record.
      */
     public static function toExtStatic(MetaRecord $rs): MetaRecord
     {

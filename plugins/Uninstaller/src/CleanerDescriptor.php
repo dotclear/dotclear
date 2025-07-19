@@ -29,7 +29,7 @@ class CleanerDescriptor
      * @param   string                          $id         The cleaner ID
      * @param   string                          $name       The cleaner name
      * @param   string                          $desc       The cleaner description
-     * @param   array<int,ActionDescriptor>     $actions    The actions descriptions
+     * @param   ActionDescriptor[]              $actions    The actions descriptions
      */
     public function __construct(
         public readonly string $id,

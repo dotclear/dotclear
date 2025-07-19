@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -75,7 +76,7 @@ interface CategoriesInterface
     public function getParent(int $id, array $fields = []): MetaRecord;
 
     /// @name Tree manipulations methods
-    //@{
+    ///@{
     /**
      * Add a node.
      *
@@ -133,5 +134,5 @@ interface CategoriesInterface
      */
     public function setNodePosition(int $nodeA, int $nodeB, string $position = 'after'): void;
 
-    //@}
+    ///@}
 }

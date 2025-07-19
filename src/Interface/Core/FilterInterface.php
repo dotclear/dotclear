@@ -27,7 +27,7 @@ interface FilterInterface
     public function loadFromBlog(BlogInterface $blog): FilterInterface;
 
     /// @name WikiToHtml methods
-    //@{
+    ///@{
     /**
      * Get wiki instance
      *
@@ -66,10 +66,10 @@ interface FilterInterface
      * @return  array<string,string>
      */
     public function wikiPostLink(string $url, string $content): array;
-    //@}
+    ///@}
 
     /// @name HTML Filter methods
-    //@{
+    ///@{
     /**
      * Calls HTML filter to drop bad tags and produce valid HTML output (if
      * tidy extension is present). If <b>enable_html_filter</b> blog setting is
@@ -79,5 +79,5 @@ interface FilterInterface
      * @param   bool    $forced  True to force filter
      */
     public function HTMLfilter(string $str, bool $forced = false): string;
-    //@}
+    ///@}
 }
