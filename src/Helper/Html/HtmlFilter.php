@@ -285,7 +285,7 @@ class HtmlFilter
         $this->content = '';
         xml_parse($this->parser, '<all>' . $str . '</all>');
 
-        return $this->content;
+        return trim($this->content);
     }
 
     /**
