@@ -16,9 +16,9 @@ if (!function_exists('__')) {
      *
      * @see Dotclear\Helper\L10n::trans()
      *
-     * @param      string   $singular Singular form of the string
-     * @param      string   $plural Plural form of the string (optionnal)
-     * @param      integer  $count Context number for plural form (optionnal)
+     * @param      string       $singular Singular form of the string
+     * @param      string|null  $plural Plural form of the string (optionnal)
+     * @param      int|null     $count Context number for plural form (optionnal)
      *
      * @return     string   translated string
      */

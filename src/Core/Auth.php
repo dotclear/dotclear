@@ -426,7 +426,7 @@ class Auth implements AuthInterface
     /**
      * Gets the permissions.
      *
-     * @param      null|string  $blog_id  The blog identifier
+     * @param   string|null  $blog_id  The blog identifier
      *
      * @return  false|array<string, bool>
      */

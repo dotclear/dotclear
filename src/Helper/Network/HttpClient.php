@@ -328,8 +328,8 @@ class HttpClient extends Socket
      *
      * @param string    $host            Server host
      * @param int       $port            Server port
-     * @param int       $timeout         Connection timeout (in seconds)
-     * @param int       $stream_timeout  Stream timeout (in seconds)
+     * @param int|null  $timeout         Connection timeout (in seconds)
+     * @param int|null  $stream_timeout  Stream timeout (in seconds)
      */
     public function __construct($host, int $port = 80, ?int $timeout = null, ?int $stream_timeout = null)
     {
@@ -389,7 +389,7 @@ class HttpClient extends Socket
      *
      * @param string                        $path            Request path
      * @param array<string, mixed>|string   $data            Request parameters
-     * @param string                        $charset         Request charset
+     * @param string|null                   $charset         Request charset
      */
     public function post(string $path, $data, ?string $charset = null): bool
     {
