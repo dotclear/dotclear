@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Unit tests
  *
@@ -26,7 +27,7 @@ class HtmlFilter extends atoum
 
         if (extension_loaded('tidy') && class_exists('tidy')) {
             $this->string($filter->apply('<p>test</I>'))
-                ->isIdenticalTo('<p>test</p>' . "\n");
+                ->isIdenticalTo('<p>test</p>');
         } else {
             $this->string($filter->apply('<p>test</I>'))
             ->isIdenticalTo('<p>test');
@@ -80,7 +81,7 @@ class HtmlFilter extends atoum
             EODTIDYVMT;
         if (extension_loaded('tidy') && class_exists('tidy')) {
             $this->string($filter->apply($str))
-                ->isIdenticalTo($validStr . "\n");
+                ->isIdenticalTo($validStr);
         } else {
             $this->string($filter->apply($str), false)
                 ->isIdenticalTo($validStrMiniTidy);
@@ -93,7 +94,7 @@ class HtmlFilter extends atoum
 
         if (extension_loaded('tidy') && class_exists('tidy')) {
             $this->string($filter->apply('<p onerror="alert(document.domain)">test</I>'))
-                ->isIdenticalTo('<p>test</p>' . "\n");
+                ->isIdenticalTo('<p>test</p>');
         } else {
             $this->string($filter->apply('<p onerror="alert(document.domain)">test</I>'))
                 ->isIdenticalTo('<p>test');
@@ -131,7 +132,7 @@ class HtmlFilter extends atoum
         $filter = new \Dotclear\Helper\Html\HtmlFilter();
 
         $this->string($filter->apply('<img src="ssh://localhost/sample.jpg" />', false))
-            ->isIdenticalTo('<img src="#" />');
+            ->isIdenticalTo('');
     }
 
     public function testSimpleOwnTags()
@@ -161,68 +162,41 @@ class HtmlFilter extends atoum
             ->isIdenticalTo('<a title="test">test</a>');
     }
 
-    public function testComplex()
+    public function testKeepAria()
     {
-        $filter = new \Dotclear\Helper\Html\HtmlFilter();
+        $filter = new \Dotclear\Helper\Html\HtmlFilter(keep_aria: true);
         $str    = <<<EOD
-            <p>Hello</p>
-            <div aria-role="navigation">
-             <p data-customattribute="will be an error">bla</p>
-             <img src="/public/sample.jpg" />
-             <p>bla</p>
-            </div>
-            <div>
-             <p>Hi there!</p>
-             <div>
-              <p>Opps, a mistake</px>
-             </div>
-            </div>
+            <p aria-role="navigation" data-test="test" onclick="window.message('test')">text</p>
             EOD;
         $validStr = <<<EODV
-            <p>Hello</p>
-            <div>
-             <p>bla</p>
-             <img src="/public/sample.jpg" />
-             <p>bla</p>
-            </div>
-            <div>
-             <p>Hi there!</p>
-             <div>
-              <p>Opps, a mistake
+            <p aria-role="navigation">text</p>
             EODV;
         $this->string($filter->apply($str, false))
             ->isIdenticalTo($validStr);
     }
 
-    public function testComplexWithAria()
+    public function testKeepData()
     {
-        $filter = new \Dotclear\Helper\Html\HtmlFilter(true);
-        $str    = <<<EODA
-            <p>Hello</p>
-            <div aria-role="navigation">
-             <p data-customattribute="will be an error">bla</p>
-             <img src="/public/sample.jpg" />
-             <p>bla</p>
-            </div>
-            <div>
-             <p>Hi there!</p>
-             <div>
-              <p>Opps, a mistake</px>
-             </div>
-            </div>
-            EODA;
-        $validStr = <<<EODVA
-            <p>Hello</p>
-            <div aria-role="navigation">
-             <p>bla</p>
-             <img src="/public/sample.jpg" />
-             <p>bla</p>
-            </div>
-            <div>
-             <p>Hi there!</p>
-             <div>
-              <p>Opps, a mistake
-            EODVA;
+        $filter = new \Dotclear\Helper\Html\HtmlFilter(keep_data: true);
+        $str    = <<<EOD
+            <p aria-role="navigation" data-test="test" onclick="window.message('test')">text</p>
+            EOD;
+        $validStr = <<<EODV
+            <p data-test="test">text</p>
+            EODV;
+        $this->string($filter->apply($str, false))
+            ->isIdenticalTo($validStr);
+    }
+
+    public function testKeepJs()
+    {
+        $filter = new \Dotclear\Helper\Html\HtmlFilter(keep_js: true);
+        $str    = <<<EOD
+            <p aria-role="navigation" data-test="test" onclick="window.message('test')">text</p>
+            EOD;
+        $validStr = <<<EODV
+            <p onclick="window.message('test')">text</p>
+            EODV;
         $this->string($filter->apply($str, false))
             ->isIdenticalTo($validStr);
     }

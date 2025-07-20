@@ -253,6 +253,7 @@ $dataTest = [
         'payload'  => "<form action=\"javasc\nript:alert(1)\"><button>XXX</button></form>",
         'expected' => '<form action="#"><button>XXX</button></form>',
     ],
+    // 50
     [
         'title'    => '',
         'payload'  => "<div id=\"1\"><form id=\"foobar\"></form><button form=\"foobar\" formaction=\"javascript:alert(1)\">X</button>//[\"'`-->]]>]</div>",
@@ -441,7 +442,7 @@ $dataTest = [
     [
         'title'    => '',
         'payload'  => "<!-- IE9+, FF4+, Opera 11.60+, Safari 4.0.4+, GC7+  -->\n<svg><![CDATA[><image xlink:href=\"]]><img src=x onerror=alert(2)//\"></svg>//[\"'`-->]]>]</div>",
-        'expected' => "\n",
+        'expected' => '',
     ],
     [
         'title'    => '',
@@ -461,7 +462,7 @@ $dataTest = [
     [
         'title'    => '',
         'payload'  => "<div id=\"42\"><head><base href=\"javascript://\"/></head><body><a href=\"/. /,alert(42)//#\">XXX</a></body>//[\"'`-->]]>]</div>",
-        'expected' => '<div id="42"><a href="/./,alert(42)//#">XXX</a>',
+        'expected' => '<div id="42">',
     ],
     [
         'title'    => '',
@@ -471,7 +472,7 @@ $dataTest = [
     [
         'title'    => '',
         'payload'  => "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n<head>\n<style type=\"text/css\">\n@font-face {font-family: y; src: url(\"font.svg#x\") format(\"svg\");} body {font: 100px \"y\";}\n</style>\n</head>\n<body>Hello</body>\n</html>//[\"'`-->]]>]</div>",
-        'expected' => "\n\n\n@font-face {font-family: y; src: url(&quot;font.svg#x&quot;) format(&quot;svg&quot;);} body {font: 100px &quot;y&quot;;}\n\n\nHello\n",
+        'expected' => "@font-face {font-family: y; src: url(&quot;font.svg#x&quot;) format(&quot;svg&quot;);} body {font: 100px &quot;y&quot;;}\n\n\nHello",
     ],
     [
         'title'    => '',
@@ -503,6 +504,7 @@ $dataTest = [
         'payload'  => "<div id=\"49\"><OBJECT CLASSID=\"clsid:333C7BC4-460F-11D0-BC04-0080C7055A83\"><PARAM NAME=\"DataURL\" VALUE=\"javascript:alert(49)\"></OBJECT>//[\"'`-->]]>]</div>",
         'expected' => '<div id="49"><OBJECT><PARAM />',
     ],
+    // 100
     [
         'title'    => '',
         'payload'  => "<div id=\"50\"><object data=\"data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg==\"></object>//[\"'`-->]]>]</div>",
@@ -536,7 +538,7 @@ $dataTest = [
     [
         'title'    => '',
         'payload'  => "<div id=\"56\"><video onerror=\"alert(56)\"><source></source></video>//[\"'`-->]]>]</div>",
-        'expected' => '<div id="56"><video><source /></video>',
+        'expected' => '<div id="56"><video><source />',
     ],
     [
         'title'    => '',
@@ -551,7 +553,7 @@ $dataTest = [
     [
         'title'    => '',
         'payload'  => "<div id=\"59\"><div id=\"div1\"><input value=\"``onmouseover=alert(59)\"></div> <div id=\"div2\"></div><script>document.getElementById(\"div2\").innerHTML = document.getElementById(\"div1\").innerHTML;</script>//[\"'`-->]]>]</div>",
-        'expected' => '<div id="59"><div id="div1"><input value="``onmouseover=alert(59)" />',
+        'expected' => '<div id="59"><div id="div1"><input value="``onmouseover=alert(59)" /></div> <div id="div2"></div>document.getElementById(&quot;div2&quot;).innerHTML = document.getElementById(&quot;div1&quot;).innerHTML;',
     ],
     [
         'title'    => '',
@@ -561,12 +563,12 @@ $dataTest = [
     [
         'title'    => '',
         'payload'  => "<div id=\"62\"><!-- IE 6-8 -->\n<x '=\"foo\"><x foo='><img src=x onerror=alert(62)//'>\n<!-- IE 6-9 -->\n<! '=\"foo\"><x foo='><img src=x onerror=alert(2)//'>\n<? '=\"foo\"><x foo='><img src=x onerror=alert(3)//'>//[\"'`-->]]>]</div>",
-        'expected' => "<div id=\"62\">\n",
+        'expected' => '<div id="62">',
     ],
     [
         'title'    => '',
         'payload'  => "<div id=\"63\"><embed src=\"javascript:alert(63)\"></embed> // O10.10\u2193, OM10.0\u2193, GC6\u2193, FF\n<img src=\"javascript:alert(2)\">\n<image src=\"javascript:alert(2)\"> // IE6, O10.10\u2193, OM10.0\u2193\n<script src=\"javascript:alert(3)\"></script> // IE6, O11.01\u2193, OM10.1\u2193//[\"'`-->]]>]</div>",
-        'expected' => "<div id=\"63\"><embed src=\"#\" /> // O10.10\u2193, OM10.0\u2193, GC6\u2193, FF\n<img src=\"#\" />\n // IE6, O10.10\u2193, OM10.0\u2193\n",
+        'expected' => '<div id="63"><embed src="#" />',
     ],
     [
         'title'    => '',
@@ -581,12 +583,12 @@ $dataTest = [
     [
         'title'    => '',
         'payload'  => "<?xml-stylesheet type=\"text/xsl\" href=\"data:,%3Cxsl:transform version='1.0' xmlns:xsl='http://www.w3.org/1999/XSL/Transform' id='xss'%3E%3Cxsl:output method='html'/%3E%3Cxsl:template match='/'%3E%3Cscript%3Ealert(66)%3C/script%3E%3C/xsl:template%3E%3C/xsl:transform%3E\"?>\n<root/>//[\"'`-->]]>]</div>\n<div id=\"67\"><!DOCTYPE x [\n    <!ATTLIST img xmlns CDATA \"http://www.w3.org/1999/xhtml\" src CDATA \"xx\"\n onerror CDATA \"alert(67)\"\n onload CDATA \"alert(2)\">\n]><img />//[\"'`-->]]>]</div>",
-        'expected' => "&gt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;data:,%3Cxsl:transform version='1.0' xmlns:xsl='http://www.w3.org/1999/XSL/Transform' id='xss'%3E%3Cxsl:output method='html'/%3E%3Cxsl:template match='/'%3E%3Cscript%3Ealert(66)%3C/script%3E%3C/xsl:template%3E%3C/xsl:transform%3E&quot;?&lt;\n",
+        'expected' => "&gt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;data:,%3Cxsl:transform version='1.0' xmlns:xsl='http://www.w3.org/1999/XSL/Transform' id='xss'%3E%3Cxsl:output method='html'/%3E%3Cxsl:template match='/'%3E%3Cscript%3Ealert(66)%3C/script%3E%3C/xsl:template%3E%3C/xsl:transform%3E&quot;?&lt;",
     ],
     [
         'title'    => '',
         'payload'  => "<div id=\"68\"><doc xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:html=\"http://www.w3.org/1999/xhtml\">\n    <html:style /><x xlink:href=\"javascript:alert(68)\" xlink:type=\"simple\">XXX</x>\n</doc>//[\"'`-->]]>]</div>",
-        'expected' => "<div id=\"68\">\n    XXX\n",
+        'expected' => "<div id=\"68\">\n    XXX",
     ],
     [
         'title'    => '',
@@ -636,7 +638,7 @@ $dataTest = [
     [
         'title'    => '',
         'payload'  => "<div id=\"78\"><?xml-stylesheet type=\"text/xsl\" href=\"#\"?><img xmlns=\"x-schema:test.xdr\"/>//[\"'`-->]]>]</div>",
-        'expected' => '<div id="78">&gt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;#&quot;?&lt;<img />',
+        'expected' => '<div id="78">&gt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;#&quot;?&lt;',
     ],
     [
         'title'    => '',
@@ -676,17 +678,17 @@ $dataTest = [
     [
         'title'    => '',
         'payload'  => "<div id=\"89\"><svg xmlns=\"http://www.w3.org/2000/svg\">\n<set attributeName=\"onmouseover\" to=\"alert(89)\"/>\n<animate attributeName=\"onunload\" to=\"alert(89)\"/>\n</svg>//[\"'`-->]]>]</div>",
-        'expected' => "<div id=\"89\">\n\n\n",
+        'expected' => '<div id="89">',
     ],
     [
         'title'    => '',
         'payload'  => "<div id=\"90\"><!-- Up to Opera 10.63 -->\n<div style=content:url(test2.svg)></div>\n\n<!-- Up to Opera 11.64 - see link below -->\n\n<!-- Up to Opera 12.x -->\n<div style=\"background:url(test5.svg)\">PRESS ENTER</div>//[\"'`-->]]>]</div>",
-        'expected' => "<div id=\"90\">\n",
+        'expected' => '<div id="90">',
     ],
     [
         'title'    => '',
         'payload'  => "<div id=\"91\">[A]\n<? foo=\"><script>alert(91)</script>\">\n<! foo=\"><script>alert(91)</script>\">\n</ foo=\"><script>alert(91)</script>\">\n[B]\n<? foo=\"><x foo='?><script>alert(91)</script>'>\">\n[C]\n<! foo=\"[[[x]]\"><x foo=\"]foo><script>alert(91)</script>\">\n[D]\n<% foo><x foo=\"%><script>alert(91)</script>\">//[\"'`-->]]>]</div>",
-        'expected' => "<div id=\"91\">[A]\n&gt;? foo=&quot;&gt;alert(91)&quot;&gt;\n",
+        'expected' => "<div id=\"91\">[A]\n&gt;? foo=&quot;&gt;alert(91)&quot;&gt;",
     ],
     [
         'title'    => '',
@@ -701,12 +703,12 @@ $dataTest = [
     [
         'title'    => '',
         'payload'  => "<div id=\"94\"><svg xmlns=\"http://www.w3.org/2000/svg\">\n<handler xmlns:ev=\"http://www.w3.org/2001/xml-events\" ev:event=\"load\">alert(94)</handler>\n</svg>//[\"'`-->]]>]</div>",
-        'expected' => "<div id=\"94\">\nalert(94)\n",
+        'expected' => "<div id=\"94\">\nalert(94)",
     ],
     [
         'title'    => '',
         'payload'  => "<div id=\"95\"><svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n<feImage>\n<set attributeName=\"xlink:href\" to=\"data:image/svg+xml;charset=utf-8;base64,\nPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxzY3JpcHQ%2BYWxlcnQoMSk8L3NjcmlwdD48L3N2Zz4NCg%3D%3D\"/>\n</feImage>\n</svg>//[\"'`-->]]>]</div>",
-        'expected' => "<div id=\"95\">\n\n\n\n",
+        'expected' => '<div id="95">',
     ],
     [
         'title'    => '',
@@ -716,7 +718,7 @@ $dataTest = [
     [
         'title'    => '',
         'payload'  => "<div id=\"97\"><!-- IE 5-9 -->\n<div id=d><x xmlns=\"><iframe onload=alert(97)\"></div>\n<script>d.innerHTML+='';</script>\n<!-- IE 10 in IE5-9 Standards mode -->\n<div id=d><x xmlns='\"><iframe onload=alert(2)//'></div>\n<script>d.innerHTML+='';</script>//[\"'`-->]]>]</div>",
-        'expected' => "<div id=\"97\">\n",
+        'expected' => '<div id="97">',
     ],
     [
         'title'    => '',
@@ -766,17 +768,17 @@ $dataTest = [
     [
         'title'    => '',
         'payload'  => "<div id=\"108\"><!-- IE 5-8 standards mode -->\n<a href=http://foo.bar/#x=`y></a><img alt=\"`><img src=xx onerror=alert(108)></a>\">\n<!-- IE 5-9 standards mode -->\n<!a foo=x=`y><img alt=\"`><img src=xx onerror=alert(2)//\">\n<?a foo=x=`y><img alt=\"`><img src=xx onerror=alert(3)//\">//[\"'`-->]]>]</div>",
-        'expected' => "<div id=\"108\">\n",
+        'expected' => '<div id="108">',
     ],
     [
         'title'    => '',
         'payload'  => "<div id=\"109\"><svg xmlns=\"http://www.w3.org/2000/svg\">\n<a id=\"x\"><rect fill=\"white\" width=\"1000\" height=\"1000\"/></a>\n<rect  fill=\"white\" style=\"clip-path:url(test3.svg#a);fill:url(#b);filter:url(#c);marker:url(#d);mask:url(#e);stroke:url(#f);\"/>\n</svg>//[\"'`-->]]>]</div>",
-        'expected' => "<div id=\"109\">\n<a id=\"x\"></a>\n\n",
+        'expected' => "<div id=\"109\">\n<a id=\"x\"></a>",
     ],
     [
         'title'    => '',
         'payload'  => "<div id=\"110\"><svg xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M0,0\" style=\"marker-start:url(test4.svg#a)\"/>\n</svg>//[\"'`-->]]>]</div>",
-        'expected' => "<div id=\"110\">\n\n",
+        'expected' => '<div id="110">',
     ],
     [
         'title'    => '',
@@ -796,7 +798,7 @@ $dataTest = [
     [
         'title'    => 'XML',
         'payload'  => "<div id=\"116\"><div id=\"x\">x</div>\n<xml:namespace prefix=\"t\">\n<import namespace=\"t\" implementation=\"#default#time2\">\n<t:set attributeName=\"innerHTML\" targetElement=\"x\" to=\"<img\u000Bsrc=x\u000Bonerror\u000B=alert(116)>\">//[\"'`-->]]>]</div>",
-        'expected' => "<div id=\"116\"><div id=\"x\">x</div>\n\n\n",
+        'expected' => '<div id="116"><div id="x">x</div>',
     ],
     [
         'title'    => 'iframe',
@@ -826,7 +828,7 @@ $dataTest = [
     [
         'title'    => '',
         'payload'  => "<div id=\"121\"><html xmlns=\"http://www.w3.org/1999/xhtml\"\nxmlns:svg=\"http://www.w3.org/2000/svg\">\n<body style=\"background:gray\">\n<iframe src=\"http://example.com/\" style=\"width:800px; height:350px; border:none; mask: url(#maskForClickjacking);\"/>\n<svg:svg>\n<svg:mask id=\"maskForClickjacking\" maskUnits=\"objectBoundingBox\" maskContentUnits=\"objectBoundingBox\">\n    <svg:rect x=\"0.0\" y=\"0.0\" width=\"0.373\" height=\"0.3\" fill=\"white\"/>\n    <svg:circle cx=\"0.45\" cy=\"0.7\" r=\"0.075\" fill=\"white\"/>\n</svg:mask>\n</svg:svg>\n</body>\n</html>//[\"'`-->]]>]</div>",
-        'expected' => "<div id=\"121\">\n\n<iframe src=\"http://example.com/\" style=\"width:800px; height:350px; border:none; mask: url(#maskForClickjacking);\"></iframe>\n\n\n    \n    \n\n\n\n",
+        'expected' => "<div id=\"121\">\n\n<iframe src=\"http://example.com/\" style=\"width:800px; height:350px; border:none; mask: url(#maskForClickjacking);\"></iframe>",
     ],
     [
         'title'    => 'iframe (sandboxed)',
@@ -856,7 +858,7 @@ $dataTest = [
     [
         'title'    => '',
         'payload'  => "<div id=\"127\"><svg xmlns=\"http://www.w3.org/2000/svg\" id=\"x\">\n<listener event=\"load\" handler=\"#y\" xmlns=\"http://www.w3.org/2001/xml-events\" observer=\"x\"/>\n<handler id=\"y\">alert(127)</handler>\n</svg>//[\"'`-->]]>]</div>",
-        'expected' => "<div id=\"127\">\n\nalert(127)\n",
+        'expected' => "<div id=\"127\">\n\nalert(127)",
     ],
     [
         'title'    => '',
@@ -871,7 +873,7 @@ $dataTest = [
     [
         'title'    => 'MathML',
         'payload'  => "<div id=\"130\"><math href=\"javascript:alert(130)\">CLICKME</math>\n<math>\n<!-- up to FF 13 -->\n<maction actiontype=\"statusline#http://google.com\" xlink:href=\"javascript:alert(2)\">CLICKME</maction>\n\n<!-- FF 14+ -->\n<maction actiontype=\"statusline\" xlink:href=\"javascript:alert(3)\">CLICKME<mtext>http://http://google.com</mtext></maction>\n</math>//[\"'`-->]]>]</div>",
-        'expected' => "<div id=\"130\">CLICKME\n\n\nCLICKME\n\n\nCLICKMEhttp://http://google.com\n",
+        'expected' => "<div id=\"130\">CLICKME\n\n\nCLICKME\n\n\nCLICKMEhttp://http://google.com",
     ],
     [
         'title'    => '',
@@ -886,17 +888,17 @@ $dataTest = [
     [
         'title'    => 'XMP',
         'payload'  => "<div id=\"134\"><xmp>\n<%\n</xmp>\n<img alt='%></xmp><img src=xx onerror=alert(134)//'>\n\n<script>\nx='<%'\n</script> %>/\nalert(2)\n</script>\n\nXXX\n<style>\n*['<!--']{}\n</style>\n-->{}\n*{color:red}</style>//[\"'`-->]]>]</div>",
-        'expected' => "<div id=\"134\">\n",
+        'expected' => '<div id="134">',
     ],
     [
         'title'    => 'SVG',
         'payload'  => "<div id=\"135\"><?xml-stylesheet type=\"text/xsl\" href=\"#\" ?>\n<stylesheet xmlns=\"http://www.w3.org/TR/WD-xsl\">\n<template match=\"/\">\n<eval>new ActiveXObject('htmlfile').parentWindow.alert(135)</eval>\n<if expr=\"new ActiveXObject('htmlfile').parentWindow.alert(2)\"></if>\n</template>\n</stylesheet>//[\"'`-->]]>]</div>",
-        'expected' => "<div id=\"135\">&gt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;#&quot; ?&lt;\n\n<template>\nnew ActiveXObject('htmlfile').parentWindow.alert(135)\n\n</template>\n",
+        'expected' => "<div id=\"135\">&gt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;#&quot; ?&lt;\n\n<template>\nnew ActiveXObject('htmlfile').parentWindow.alert(135)\n\n</template>",
     ],
     [
         'title'    => '',
         'payload'  => "<div id=\"136\"><form action=\"x\" method=\"post\">\n<input name=\"username\" value=\"admin\" />\n<input name=\"password\" type=\"password\" value=\"secret\" />\n<input name=\"injected\" value=\"injected\" dirname=\"password\" />\n<input type=\"submit\">\n</form>//[\"'`-->]]>]</div>",
-        'expected' => "<div id=\"136\"><form action=\"x\" method=\"post\">\n<input name=\"username\" value=\"admin\" />\n<input name=\"password\" type=\"password\" value=\"secret\" />\n<input name=\"injected\" value=\"injected\" />\n<input type=\"submit\" />\n",
+        'expected' => '<div id="136"><form action="x" method="post">',
     ],
     [
         'title'    => 'SVG',

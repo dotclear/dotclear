@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Unit tests
  *
@@ -56,13 +57,17 @@ class Manager extends atoum
     public function testStdProperties()
     {
         $manager = new \Dotclear\Helper\File\Manager($this->root, $this->url);
+        $dir     = [
+            'dirs'  => $manager->getDirs(),
+            'files' => $manager->getFiles(),
+        ];
 
         $this
             ->string($manager->root)
             ->isEqualTo($this->root)
             ->string($manager->root_url)
             ->isEqualTo($this->url)
-            ->array($manager->dir)
+            ->array($dir)
             ->isEqualTo([
                 'dirs'  => [],
                 'files' => [],
@@ -121,7 +126,7 @@ class Manager extends atoum
             ->isTrue()
         ;
 
-        chmod($manager->getPwd(), 0400);
+        chmod($manager->getPwd(), 0o400);
 
         $this
             ->boolean($manager->writable())
@@ -158,18 +163,18 @@ class Manager extends atoum
             ->given($manager->getDir())
             ->string($manager->getPwd())
             ->isEqualTo($this->root)
-            ->integer(count($manager->dir['dirs']))
+            ->integer(count($manager->getDirs()))
             ->isEqualTo(1)
-            ->integer(count($manager->dir['files']))
+            ->integer(count($manager->getFiles()))
             ->isEqualTo(3)
         ;
 
         // Extract basenames
         $dirs = $files = [];
-        foreach ($manager->dir['dirs'] as $dir) {
+        foreach ($manager->getDirs() as $dir) {
             $dirs[] = $dir->relname;
         }
-        foreach ($manager->dir['files'] as $file) {
+        foreach ($manager->getFiles() as $file) {
             $files[] = $file->relname;
         }
 
@@ -203,18 +208,18 @@ class Manager extends atoum
             ->given($manager->getDir())
             ->string($manager->getPwd())
             ->isEqualTo($this->root . DIRECTORY_SEPARATOR . 'sub')
-            ->integer(count($manager->dir['dirs']))
+            ->integer(count($manager->getDirs()))
             ->isEqualTo(1)
-            ->integer(count($manager->dir['files']))
+            ->integer(count($manager->getFiles()))
             ->isEqualTo(1)
         ;
 
         // Extract basenames
         $dirs = $files = [];
-        foreach ($manager->dir['dirs'] as $dir) {
+        foreach ($manager->getDirs() as $dir) {
             $dirs[] = $dir->basename;
         }
-        foreach ($manager->dir['files'] as $file) {
+        foreach ($manager->getFiles() as $file) {
             $files[] = $file->basename;
         }
 
@@ -247,18 +252,18 @@ class Manager extends atoum
             ->given($manager->getDir())
             ->string($manager->getPwd())
             ->isEqualTo($this->root)
-            ->integer(count($manager->dir['dirs']))
+            ->integer(count($manager->getDirs()))
             ->isEqualTo(1)
-            ->integer(count($manager->dir['files']))
+            ->integer(count($manager->getFiles()))
             ->isEqualTo(2)
         ;
 
         // Extract basenames
         $dirs = $files = [];
-        foreach ($manager->dir['dirs'] as $dir) {
+        foreach ($manager->getDirs() as $dir) {
             $dirs[] = $dir->relname;
         }
-        foreach ($manager->dir['files'] as $file) {
+        foreach ($manager->getFiles() as $file) {
             $files[] = $file->relname;
         }
 
@@ -368,7 +373,7 @@ class Manager extends atoum
 
         $manager->chdir('sub');
         $current = fileperms($manager->getPwd());
-        chmod($manager->getPwd(), 0400);
+        chmod($manager->getPwd(), 0o400);
 
         $this
             // Mock move_uploaded_file()
@@ -428,7 +433,7 @@ class Manager extends atoum
 
         $manager->chdir('sub');
         $current = fileperms($manager->getPwd());
-        chmod($manager->getPwd(), 0400);
+        chmod($manager->getPwd(), 0o400);
 
         $this
             ->exception(function () use ($manager) {
@@ -445,7 +450,7 @@ class Manager extends atoum
 
         $manager->chdir('');
         $manager->uploadBits('valid-bits.md', 'I\'m validl!');
-        chmod($manager->getPwd() . DIRECTORY_SEPARATOR . 'valid-bits.md', 0400);
+        chmod($manager->getPwd() . DIRECTORY_SEPARATOR . 'valid-bits.md', 0o400);
 
         $this
             ->exception(function () use ($manager) {
@@ -454,7 +459,7 @@ class Manager extends atoum
             ->hasMessage('An error occurred while writing the file.')
         ;
 
-        chmod($manager->getPwd() . DIRECTORY_SEPARATOR . 'valid-bits.md', 0755);
+        chmod($manager->getPwd() . DIRECTORY_SEPARATOR . 'valid-bits.md', 0o755);
         if (file_exists($manager->getPwd() . DIRECTORY_SEPARATOR . 'valid-bits.md')) {
             unlink($manager->getPwd() . DIRECTORY_SEPARATOR . 'valid-bits.md');
         }
@@ -509,7 +514,7 @@ class Manager extends atoum
 
         $manager->chdir('sub');
         $current = fileperms($manager->getPwd());
-        chmod($manager->getPwd(), 0500);
+        chmod($manager->getPwd(), 0o500);
 
         $this
             ->exception(function () use ($manager) {
@@ -598,7 +603,7 @@ class Manager extends atoum
 
         $manager->uploadBits('valid-perm.md', 'I\'m validl!');
         $current = fileperms($manager->getPwd());
-        chmod($manager->getPwd(), 0500);
+        chmod($manager->getPwd(), 0o500);
 
         $this
             ->exception(function () use ($manager) {
