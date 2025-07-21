@@ -23,6 +23,7 @@
       <ignore hidden="true" symlinks="true">
         <path>inc/config.php</path>
       </ignore>
+      <include-source>true</include-source>
     </api>
   </version>
   <setting name="markdown.enabled" value="true" />

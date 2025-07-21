@@ -83,7 +83,11 @@ class TplNodeBlockDefinition extends TplNodeBlock
                 // Compile each and every children
 
                 /**
+                 * \internal
+                 *
                  * @var ArrayObject<int,TplNode|TplNodeBlock|TplNodeBlockDefinition|TplNodeText|TplNodeValue|TplNodeValueParent> $children
+                 *
+                 * \endinternal
                  */
                 $children = $stack['blocks'][$pos];
                 foreach ($children as $child) {

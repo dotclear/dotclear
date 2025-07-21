@@ -21,7 +21,6 @@ use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Form\Hidden;
 use Dotclear\Helper\Html\WikiToHtml;
-use Dotclear\Helper\TraitDynamicProperties;
 use Dotclear\Interface\Core\AuthInterface;
 use Dotclear\Interface\Core\BlogInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
@@ -44,7 +43,7 @@ use Dotclear\Interface\Module\ModulesInterface;
 final class dcCore
 {
     // deprecated as App class does not allow dynamic properties
-    use TraitDynamicProperties;
+    use Dotclear\Helper\TraitDynamicProperties;
 
     // Constants
 
