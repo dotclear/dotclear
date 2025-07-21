@@ -10,6 +10,9 @@
       <default-package-name>Dotclear</default-package-name>
       <source dsn=".">
         <path>index.php</path>
+        <path>README.md</path>
+        <path>CONTRIBUTING.md</path>
+        <path>SECURITY.md</path>
         <path>admin</path>
         <path>inc</path>
         <path>src</path>

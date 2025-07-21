@@ -4299,8 +4299,12 @@ input.perm-third-level {
 }
 
 .ac_loading {
-  background: url("loader.gif") right center no-repeat;
+  background: url("loader.svg") right center no-repeat;
   background-color: transparent;
+}
+
+body.dark-mode .ac_loading {
+  background-image: url(loader-dark.svg);
 }
 
 .ac_odd {
