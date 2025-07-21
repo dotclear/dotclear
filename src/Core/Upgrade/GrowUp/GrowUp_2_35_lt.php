@@ -25,6 +25,7 @@ class GrowUp_2_35_lt
             // Files
             [
                 'admin/images/trash.png',
+                'admin/style/loader.gif',
                 'admin/style/scss/themes/_dark.scss',
                 'admin/style/scss/themes/_default.scss',
                 'admin/style/scss/themes/_themes.scss',
