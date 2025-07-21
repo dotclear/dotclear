@@ -33,7 +33,7 @@ class Date
     /**
      * strftime() replacement when PHP version ≥ PHP 8.1
      *
-     * Adapted from: <https://github.com/alphp/strftime>
+     * Adapted from: <https://github.com/alphp/strftime> (originally from BohwaZ <https://bohwaz.net/>)
      *
      * Locale-formatted strftime using IntlDateFormatter (PHP 8.1 compatible)
      * This provides a cross-platform alternative to strftime() for when it will be removed from PHP.
@@ -49,9 +49,6 @@ class Date
      *
      * @param  string                   $format         Date format
      * @param  integer|string|DateTime  $timestamp      Timestamp
-     *
-     * @author BohwaZ
-     * @link <https://bohwaz.net/>
      */
     public static function strftime(string $format, $timestamp = null, ?string $locale = null): string
     {

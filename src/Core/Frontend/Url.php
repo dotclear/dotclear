@@ -237,6 +237,7 @@ class Url extends UrlHandler implements UrlInterface
                         unset($_GET[$parameter], $_REQUEST[$parameter]);
                     }
 
+                    // Cope only with 1st pair (key => value) of $query_string
                     break;
                 }
             }
