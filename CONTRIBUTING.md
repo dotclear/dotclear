@@ -4,7 +4,7 @@ Dotclear is an open source project. If you'd like to contribute, you can send a 
 
 There are many way to contribute :
 
-* Report bugs (<https://git.dotclear.org/dev/dotclear> and <https://git.dotclear.org/dev/dotclear/issues/new>)
+* Report bugs (<https://codeberg.org/Dotclear/dotclear> and <https://codeberg.org/Dotclear/dotclear/issues/new>)
 * Add documentation:
   * <https://dotclear.org/documentation/2.0> in English
   * <https://fr.dotclear.org/documentation/2.0> in French
@@ -12,7 +12,7 @@ There are many way to contribute :
 
 ## Repositories
 
-<https://git.dotclear.org/dotclear/> (official)
+<https://codeberg.org/Dotclear/dotclear> (Codeberg)
 <https://github.com/dotclear/dotclear> (Github mirror)
 
 ## CODE FORMATTING
