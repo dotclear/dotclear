@@ -97,6 +97,7 @@ You can submit a pull request, or feel free to use any other way you'd prefer.
 ### Repositories
 
 <https://git.dotclear.org/dotclear/> (official)
+<https://codeberg.org/Dotclear/dotclear> (Codeberg)
 <https://github.com/dotclear/dotclear> (Github mirror)
 
 <https://dotclear.crowdin.com/dotclear> (online translations)
