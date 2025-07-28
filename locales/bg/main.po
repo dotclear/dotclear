@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-28 13:16+0200\n"
-"PO-Revision-Date: 2025-07-28 11:26\n"
+"POT-Creation-Date: 2025-07-28 16:17+0200\n"
+"PO-Revision-Date: 2025-07-28 14:30\n"
 "Last-Translator: \n"
 "Language-Team: Bulgarian\n"
 "Language: bg_BG\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Crowdin-File-ID: 262\n"
 
 #: inc/core/_fake_l10n.php:6 src/Process/Backend/Auth.php:353
-#: src/Process/Backend/User.php:264 src/Process/Backend/UserPreferences.php:526
+#: src/Process/Backend/User.php:264 src/Process/Backend/UserPreferences.php:529
 #: src/Process/Install/Install.php:397 src/Process/Upgrade/Auth.php:185
 msgid "medium"
 msgstr "среден"
@@ -458,11 +458,11 @@ msgstr "Наличен"
 msgid "Other"
 msgstr "Други"
 
-#: src/Core/Backend/Combos.php:242 src/Process/Backend/UserPreferences.php:189
+#: src/Core/Backend/Combos.php:242 src/Process/Backend/UserPreferences.php:192
 msgid "Descending"
 msgstr "Спускане"
 
-#: src/Core/Backend/Combos.php:243 src/Process/Backend/UserPreferences.php:190
+#: src/Core/Backend/Combos.php:243 src/Process/Backend/UserPreferences.php:193
 msgid "Ascending"
 msgstr "Възходящ"
 
@@ -553,7 +553,7 @@ msgid "Number of entries"
 msgstr "Брой вписвания"
 
 #: src/Core/Backend/Favorites.php:299
-#: src/Process/Backend/UserPreferences.php:1145
+#: src/Process/Backend/UserPreferences.php:1148
 msgid "My favorites"
 msgstr "Моите любими"
 
@@ -652,7 +652,7 @@ msgstr "Глобална помощ"
 #: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1261
 #: src/Process/Backend/Auth.php:420 src/Process/Backend/BlogPref.php:1346
 #: src/Process/Backend/Comment.php:306 src/Process/Backend/Post.php:1104
-#: src/Process/Backend/User.php:432 src/Process/Backend/UserPreferences.php:637
+#: src/Process/Backend/User.php:432 src/Process/Backend/UserPreferences.php:640
 #: src/Process/Install/Install.php:445
 msgid "Email:"
 msgstr "Имейл:"
@@ -784,7 +784,7 @@ msgid "Sort:"
 msgstr "Сортиране:"
 
 #: src/Core/Backend/Filter/Filters.php:391
-#: src/Process/Backend/UserPreferences.php:770
+#: src/Process/Backend/UserPreferences.php:773
 msgid "Show"
 msgstr "Покажи"
 
@@ -1479,9 +1479,9 @@ msgstr "Конфигуриране \"%s\""
 #: src/Process/Backend/Category.php:301 src/Process/Backend/Comment.php:352
 #: src/Process/Backend/Media.php:857 src/Process/Backend/MediaItem.php:1359
 #: src/Process/Backend/Post.php:946 src/Process/Backend/Search.php:197
-#: src/Process/Backend/User.php:547 src/Process/Backend/UserPreferences.php:698
-#: src/Process/Backend/UserPreferences.php:1000
-#: src/Process/Backend/UserPreferences.php:1226
+#: src/Process/Backend/User.php:547 src/Process/Backend/UserPreferences.php:701
+#: src/Process/Backend/UserPreferences.php:1003
+#: src/Process/Backend/UserPreferences.php:1229
 msgid "Back"
 msgstr "Обратно"
 
@@ -1534,8 +1534,8 @@ msgid "Go to help"
 msgstr "Отидете на помощ"
 
 #: src/Core/Backend/Page.php:339 src/Core/Upgrade/Page.php:175
-#: src/Process/Backend/UserPreferences.php:1135
-#: src/Process/Backend/UserPreferences.php:1137
+#: src/Process/Backend/UserPreferences.php:1138
+#: src/Process/Backend/UserPreferences.php:1140
 msgid "My dashboard"
 msgstr "Моето табло за управление"
 
@@ -3020,7 +3020,7 @@ msgid "Your new password is in your mailbox."
 msgstr "Новата ви парола е в пощенската ви кутия."
 
 #: src/Process/Backend/Auth.php:203 src/Process/Backend/User.php:158
-#: src/Process/Backend/UserPreferences.php:231
+#: src/Process/Backend/UserPreferences.php:234
 #: src/Process/Install/Install.php:170
 msgid "Passwords don't match"
 msgstr "Паролите не съвпадат"
@@ -3052,9 +3052,9 @@ msgstr "Грешно потребителско име или парола"
 #: src/Process/Backend/Auth.php:352 src/Process/Backend/Auth.php:353
 #: src/Process/Backend/Auth.php:354 src/Process/Backend/User.php:263
 #: src/Process/Backend/User.php:264 src/Process/Backend/User.php:265
-#: src/Process/Backend/UserPreferences.php:525
-#: src/Process/Backend/UserPreferences.php:526
-#: src/Process/Backend/UserPreferences.php:527
+#: src/Process/Backend/UserPreferences.php:528
+#: src/Process/Backend/UserPreferences.php:529
+#: src/Process/Backend/UserPreferences.php:530
 #: src/Process/Install/Install.php:396 src/Process/Install/Install.php:397
 #: src/Process/Install/Install.php:398 src/Process/Upgrade/Auth.php:184
 #: src/Process/Upgrade/Auth.php:185 src/Process/Upgrade/Auth.php:186
@@ -3063,13 +3063,13 @@ msgid "Password strength: %s"
 msgstr "Сила на паролата: %s"
 
 #: src/Process/Backend/Auth.php:352 src/Process/Backend/User.php:263
-#: src/Process/Backend/UserPreferences.php:525
+#: src/Process/Backend/UserPreferences.php:528
 #: src/Process/Install/Install.php:396 src/Process/Upgrade/Auth.php:184
 msgid "weak"
 msgstr "слаб"
 
 #: src/Process/Backend/Auth.php:354 src/Process/Backend/User.php:265
-#: src/Process/Backend/UserPreferences.php:527
+#: src/Process/Backend/UserPreferences.php:530
 #: src/Process/Install/Install.php:398 src/Process/Upgrade/Auth.php:186
 msgid "strong"
 msgstr "силен"
@@ -3095,7 +3095,7 @@ msgid "Change your password"
 msgstr "Променете паролата си"
 
 #: src/Process/Backend/Auth.php:453 src/Process/Backend/User.php:334
-#: src/Process/Backend/UserPreferences.php:563
+#: src/Process/Backend/UserPreferences.php:566
 #: src/Process/Install/Install.php:464
 msgid "New password:"
 msgstr "Нова парола:"
@@ -3325,7 +3325,7 @@ msgid "I would like to prevent search engines and archivers from indexing or arc
 msgstr "Бих искал да попреча на търсачките и архиваторите да индексират или архивират съдържанието на моя блог."
 
 #: src/Process/Backend/BlogPref.php:234
-#: src/Process/Backend/UserPreferences.php:151
+#: src/Process/Backend/UserPreferences.php:154
 msgid "Default"
 msgstr "По подразбиране"
 
@@ -3958,7 +3958,7 @@ msgid "total:"
 msgstr "общо:"
 
 #: src/Process/Backend/Categories.php:326 src/Process/Backend/Category.php:279
-#: src/Process/Backend/User.php:457 src/Process/Backend/UserPreferences.php:659
+#: src/Process/Backend/User.php:457 src/Process/Backend/UserPreferences.php:662
 msgid "URL:"
 msgstr "URL:"
 
@@ -5374,17 +5374,17 @@ msgstr "Предупреждение:"
 msgid "Password change required to connect"
 msgstr "Необходима е промяна на паролата за свързване"
 
-#: src/Process/Backend/User.php:401 src/Process/Backend/UserPreferences.php:607
+#: src/Process/Backend/User.php:401 src/Process/Backend/UserPreferences.php:610
 #: src/Process/Install/Install.php:439
 msgid "Last Name:"
 msgstr "Фамилия:"
 
-#: src/Process/Backend/User.php:411 src/Process/Backend/UserPreferences.php:617
+#: src/Process/Backend/User.php:411 src/Process/Backend/UserPreferences.php:620
 #: src/Process/Install/Install.php:433
 msgid "First Name:"
 msgstr "Първо име:"
 
-#: src/Process/Backend/User.php:421 src/Process/Backend/UserPreferences.php:627
+#: src/Process/Backend/User.php:421 src/Process/Backend/UserPreferences.php:630
 msgid "Display name:"
 msgstr "Име на дисплея:"
 
@@ -5392,23 +5392,23 @@ msgstr "Име на дисплея:"
 msgid "Mandatory for password recovering procedure."
 msgstr "Задължително за процедурата за възстановяване на парола."
 
-#: src/Process/Backend/User.php:444 src/Process/Backend/UserPreferences.php:646
+#: src/Process/Backend/User.php:444 src/Process/Backend/UserPreferences.php:649
 msgid "Alternate emails (comma separated list):"
 msgstr "Алтернативни имейли (списък, разделен със запетая):"
 
-#: src/Process/Backend/User.php:448 src/Process/Backend/UserPreferences.php:650
+#: src/Process/Backend/User.php:448 src/Process/Backend/UserPreferences.php:653
 msgid "Invalid emails will be automatically removed from list."
 msgstr "Невалидните имейли ще бъдат автоматично премахнати от списъка."
 
-#: src/Process/Backend/User.php:466 src/Process/Backend/UserPreferences.php:668
+#: src/Process/Backend/User.php:466 src/Process/Backend/UserPreferences.php:671
 msgid "Alternate URLs (comma separated list):"
 msgstr "Алтернативни URL адреси (списък, разделен със запетая):"
 
-#: src/Process/Backend/User.php:470 src/Process/Backend/UserPreferences.php:672
+#: src/Process/Backend/User.php:470 src/Process/Backend/UserPreferences.php:675
 msgid "Invalid URLs will be automatically removed from list."
 msgstr "Невалидните URL адреси ще бъдат автоматично премахнати от списъка."
 
-#: src/Process/Backend/User.php:476 src/Process/Backend/UserPreferences.php:815
+#: src/Process/Backend/User.php:476 src/Process/Backend/UserPreferences.php:818
 msgid "Interface"
 msgstr "Интерфейс"
 
@@ -5416,19 +5416,19 @@ msgstr "Интерфейс"
 msgid "Timezone:"
 msgstr "Часовник:"
 
-#: src/Process/Backend/User.php:492 src/Process/Backend/UserPreferences.php:939
+#: src/Process/Backend/User.php:492 src/Process/Backend/UserPreferences.php:942
 msgid "Edition"
 msgstr "Издание"
 
-#: src/Process/Backend/User.php:498 src/Process/Backend/UserPreferences.php:951
+#: src/Process/Backend/User.php:498 src/Process/Backend/UserPreferences.php:954
 msgid "Preferred format:"
 msgstr "Предпочитан формат:"
 
-#: src/Process/Backend/User.php:505 src/Process/Backend/UserPreferences.php:959
+#: src/Process/Backend/User.php:505 src/Process/Backend/UserPreferences.php:962
 msgid "Default entry status:"
 msgstr "Статус на вписване по подразбиране:"
 
-#: src/Process/Backend/User.php:510 src/Process/Backend/UserPreferences.php:965
+#: src/Process/Backend/User.php:510 src/Process/Backend/UserPreferences.php:968
 msgid "Entry edit field height:"
 msgstr "Височина на полето за редактиране на вписването:"
 
@@ -5478,341 +5478,341 @@ msgstr "Списък с публикации"
 msgid "List of comments"
 msgstr "Списък с коментари"
 
-#: src/Process/Backend/UserPreferences.php:142
+#: src/Process/Backend/UserPreferences.php:145
 msgid "Light"
 msgstr "Светлина"
 
-#: src/Process/Backend/UserPreferences.php:143
+#: src/Process/Backend/UserPreferences.php:146
 msgid "Dark"
 msgstr "Dark"
 
-#: src/Process/Backend/UserPreferences.php:144
+#: src/Process/Backend/UserPreferences.php:147
 msgid "Automatic"
 msgstr "Автоматичен"
 
-#: src/Process/Backend/UserPreferences.php:149
+#: src/Process/Backend/UserPreferences.php:152
 msgid "Smallest"
 msgstr "Най-малкият"
 
-#: src/Process/Backend/UserPreferences.php:150
+#: src/Process/Backend/UserPreferences.php:153
 msgid "Smaller"
 msgstr "По-малко"
 
-#: src/Process/Backend/UserPreferences.php:152
+#: src/Process/Backend/UserPreferences.php:155
 msgid "Larger"
 msgstr "По-голям"
 
-#: src/Process/Backend/UserPreferences.php:153
+#: src/Process/Backend/UserPreferences.php:156
 msgid "Largest"
 msgstr "Най-големият"
 
-#: src/Process/Backend/UserPreferences.php:165
+#: src/Process/Backend/UserPreferences.php:168
 msgid "Blog description (in blog parameters)"
 msgstr "Описание на блога (в параметрите на блога)"
 
-#: src/Process/Backend/UserPreferences.php:166
+#: src/Process/Backend/UserPreferences.php:169
 msgid "Category description"
 msgstr "Описание на категорията"
 
-#: src/Process/Backend/UserPreferences.php:210
-#: src/Process/Backend/UserPreferences.php:227
+#: src/Process/Backend/UserPreferences.php:213
+#: src/Process/Backend/UserPreferences.php:230
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "Ако искате да промените своя имейл или парола, трябва да предоставите текущата си парола."
 
-#: src/Process/Backend/UserPreferences.php:258
+#: src/Process/Backend/UserPreferences.php:261
 msgid "Personal information has been successfully updated."
 msgstr "Личната информация е актуализирана успешно."
 
-#: src/Process/Backend/UserPreferences.php:376
+#: src/Process/Backend/UserPreferences.php:379
 msgid "Personal options has been successfully updated."
 msgstr "Личните опции бяха успешно актуализирани."
 
-#: src/Process/Backend/UserPreferences.php:404
+#: src/Process/Backend/UserPreferences.php:407
 msgid "Dashboard options has been successfully updated."
 msgstr "Опциите на таблото за управление бяха успешно актуализирани."
 
-#: src/Process/Backend/UserPreferences.php:416
-#: src/Process/Backend/UserPreferences.php:440
+#: src/Process/Backend/UserPreferences.php:419
+#: src/Process/Backend/UserPreferences.php:443
 msgid "No favorite selected"
 msgstr "Не е избран фаворит"
 
-#: src/Process/Backend/UserPreferences.php:427
+#: src/Process/Backend/UserPreferences.php:430
 msgid "Favorites have been successfully added."
 msgstr "Фаворитите са добавени успешно."
 
-#: src/Process/Backend/UserPreferences.php:453
+#: src/Process/Backend/UserPreferences.php:456
 msgid "Favorites have been successfully removed."
 msgstr "Любимите са успешно премахнати."
 
-#: src/Process/Backend/UserPreferences.php:483
+#: src/Process/Backend/UserPreferences.php:486
 msgid "Favorites have been successfully updated."
 msgstr "Фаворитите бяха успешно актуализирани."
 
-#: src/Process/Backend/UserPreferences.php:495
+#: src/Process/Backend/UserPreferences.php:498
 msgid "Default favorites have been successfully updated."
 msgstr "Фаворитите по подразбиране бяха успешно актуализирани."
 
-#: src/Process/Backend/UserPreferences.php:509
+#: src/Process/Backend/UserPreferences.php:512
 msgid "Dashboard items order have been successfully reset."
 msgstr "Редът на елементите на таблото за управление е успешно нулиран."
 
-#: src/Process/Backend/UserPreferences.php:531
+#: src/Process/Backend/UserPreferences.php:534
 msgid "Are you sure you want to remove selected favorites?"
 msgstr "Сигурни ли сте, че искате да премахнете избраните предпочитания?"
 
-#: src/Process/Backend/UserPreferences.php:553
+#: src/Process/Backend/UserPreferences.php:556
 msgid "Change my password"
 msgstr "Промяна на паролата ми"
 
-#: src/Process/Backend/UserPreferences.php:572
+#: src/Process/Backend/UserPreferences.php:575
 msgid "Confirm new password:"
 msgstr "Потвърдете новата парола:"
 
-#: src/Process/Backend/UserPreferences.php:582
+#: src/Process/Backend/UserPreferences.php:585
 msgid "Your current password:"
 msgstr "Вашата текуща парола:"
 
-#: src/Process/Backend/UserPreferences.php:586
+#: src/Process/Backend/UserPreferences.php:589
 msgid "If you have changed your email or password you must provide your current password to save these modifications."
 msgstr "Ако сте променили своя имейл или парола, трябва да предоставите текущата си парола, за да запазите тези промени."
 
-#: src/Process/Backend/UserPreferences.php:592
-#: src/Process/Backend/UserPreferences.php:594
+#: src/Process/Backend/UserPreferences.php:595
+#: src/Process/Backend/UserPreferences.php:597
 msgid "My profile"
 msgstr "Моят профил"
 
-#: src/Process/Backend/UserPreferences.php:679
+#: src/Process/Backend/UserPreferences.php:682
 msgid "Language for my interface:"
 msgstr "Език за моя интерфейс:"
 
-#: src/Process/Backend/UserPreferences.php:687
+#: src/Process/Backend/UserPreferences.php:690
 msgid "My timezone:"
 msgstr "Моят часови пояс:"
 
-#: src/Process/Backend/UserPreferences.php:696
+#: src/Process/Backend/UserPreferences.php:699
 msgid "Update my profile"
 msgstr "Актуализиране на моя профил"
 
-#: src/Process/Backend/UserPreferences.php:764
+#: src/Process/Backend/UserPreferences.php:767
 msgid "List"
 msgstr "Списък"
 
-#: src/Process/Backend/UserPreferences.php:766
+#: src/Process/Backend/UserPreferences.php:769
 msgid "Order by"
 msgstr "Поръчай от"
 
-#: src/Process/Backend/UserPreferences.php:768
+#: src/Process/Backend/UserPreferences.php:771
 msgid "Sort"
 msgstr "Сортиране"
 
-#: src/Process/Backend/UserPreferences.php:781
+#: src/Process/Backend/UserPreferences.php:784
 #, php-format
 msgid "Preferred editor for %s:"
 msgstr "Предпочитан редактор за %s:"
 
-#: src/Process/Backend/UserPreferences.php:786
+#: src/Process/Backend/UserPreferences.php:789
 msgid "Choose an editor"
 msgstr "Изберете редактор"
 
-#: src/Process/Backend/UserPreferences.php:807
-#: src/Process/Backend/UserPreferences.php:813
+#: src/Process/Backend/UserPreferences.php:810
+#: src/Process/Backend/UserPreferences.php:816
 msgid "My options"
 msgstr "Моите възможности"
 
-#: src/Process/Backend/UserPreferences.php:822
+#: src/Process/Backend/UserPreferences.php:825
 msgid "Theme:"
 msgstr "Тема:"
 
-#: src/Process/Backend/UserPreferences.php:828
+#: src/Process/Backend/UserPreferences.php:831
 msgid "Activate enhanced uploader in media manager"
 msgstr "Активиране на подобрен качващ модул в медийния мениджър"
 
-#: src/Process/Backend/UserPreferences.php:834
+#: src/Process/Backend/UserPreferences.php:837
 msgid "Preview the entry being edited in a blank window or tab (depending on your browser settings)."
 msgstr "Прегледайте редактирания запис в празен прозорец или таб (в зависимост от настройките на браузъра)."
 
-#: src/Process/Backend/UserPreferences.php:841
+#: src/Process/Backend/UserPreferences.php:844
 msgid "Disable javascript powered drag and drop for ordering items"
 msgstr "Деактивиране на плъзгането и пускането с помощта на javascript за поръчване на елементи"
 
-#: src/Process/Backend/UserPreferences.php:845
+#: src/Process/Backend/UserPreferences.php:848
 msgid "If checked, numeric fields will allow to type the elements' ordering number."
 msgstr "Ако е поставена отметка, цифровите полета ще позволяват въвеждане на поредния номер на елементите."
 
-#: src/Process/Backend/UserPreferences.php:850
+#: src/Process/Backend/UserPreferences.php:853
 msgid "Hide all secondary information and notes"
 msgstr "Скриване на цялата вторична информация и бележки"
 
-#: src/Process/Backend/UserPreferences.php:856
+#: src/Process/Backend/UserPreferences.php:859
 msgid "Hide help button"
 msgstr "Скриване на бутона за помощ"
 
-#: src/Process/Backend/UserPreferences.php:863
+#: src/Process/Backend/UserPreferences.php:866
 msgid "Font size:"
 msgstr "Размер на шрифта:"
 
-#: src/Process/Backend/UserPreferences.php:869
+#: src/Process/Backend/UserPreferences.php:872
 msgid "Use operating system font"
 msgstr "Използване на шрифт на операционната система"
 
-#: src/Process/Backend/UserPreferences.php:875
+#: src/Process/Backend/UserPreferences.php:878
 msgid "Number of recent folders proposed in media manager:"
 msgstr "Брой на последните папки, предложени в медийния мениджър:"
 
-#: src/Process/Backend/UserPreferences.php:879
+#: src/Process/Backend/UserPreferences.php:882
 msgid "Set to 0 (zero) to ignore, displayed only if Javascript is enabled in your browser."
 msgstr "Задайте 0 (нула), за да игнорирате, показва се само ако Javascript е разрешен в браузъра ви."
 
-#: src/Process/Backend/UserPreferences.php:886
+#: src/Process/Backend/UserPreferences.php:889
 msgid "Do not use standard favicon"
 msgstr "Не използвайте стандартен favicon"
 
-#: src/Process/Backend/UserPreferences.php:887
+#: src/Process/Backend/UserPreferences.php:890
 msgid "This will be applied for all users"
 msgstr "Това ще се прилага за всички потребители"
 
-#: src/Process/Backend/UserPreferences.php:897
+#: src/Process/Backend/UserPreferences.php:900
 msgid "Disable Ad-blocker check"
 msgstr "Деактивиране на проверката на Ad-blocker"
 
-#: src/Process/Backend/UserPreferences.php:901
+#: src/Process/Backend/UserPreferences.php:904
 msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
 msgstr "Някои блокери на реклами (Ghostery, Adblock plus, uBloc origin, …) могат да попречат на някои функции като вмъкване на връзка или медия в записи с CKEditor; в този случай трябва да ги деактивирате за тази инсталация на Dotclear (само backend). Имайте предвид, че Dotclear не добавят реклами ot тракери в бекенда."
 
-#: src/Process/Backend/UserPreferences.php:904
+#: src/Process/Backend/UserPreferences.php:907
 msgid "Note also that deactivating this detection of ad blockers will not deactivate the installed ad blockers. Dotclear cannot interfere with the operation of browser extensions!"
 msgstr "Имайте предвид също, че деактивирането на това откриване на рекламни блокери няма да деактивира инсталираните рекламни блокери. Dotclear не може да се намесва в работата на разширенията на браузъра!"
 
-#: src/Process/Backend/UserPreferences.php:912
+#: src/Process/Backend/UserPreferences.php:915
 msgid "Quick menu character:"
 msgstr "Символ на бързото меню:"
 
-#: src/Process/Backend/UserPreferences.php:916
+#: src/Process/Backend/UserPreferences.php:919
 msgid "Leave empty to use the default character <kbd>:</kbd>"
 msgstr "Оставете празно, за да използвате символа по подразбиране <kbd>:</kbd>"
 
-#: src/Process/Backend/UserPreferences.php:921
+#: src/Process/Backend/UserPreferences.php:924
 msgid "Keep the main menu at the top of the page as much as possible"
 msgstr "Запазете главното меню в горната част на страницата, доколкото е възможно"
 
-#: src/Process/Backend/UserPreferences.php:925
+#: src/Process/Backend/UserPreferences.php:928
 msgid "Optional columns displayed in lists"
 msgstr "Незадължителни колони, показвани в списъците"
 
-#: src/Process/Backend/UserPreferences.php:928
+#: src/Process/Backend/UserPreferences.php:931
 msgid "Options for lists"
 msgstr "Опции за списъци"
 
-#: src/Process/Backend/UserPreferences.php:934
+#: src/Process/Backend/UserPreferences.php:937
 msgid "Apply filters on the fly"
 msgstr "Прилагане на филтри в движение"
 
-#: src/Process/Backend/UserPreferences.php:971
+#: src/Process/Backend/UserPreferences.php:974
 msgid "Enable WYSIWYG mode"
 msgstr "Активиране на режима WYSIWYG"
 
-#: src/Process/Backend/UserPreferences.php:977
+#: src/Process/Backend/UserPreferences.php:980
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr "Показване на лентата с инструменти на редактора в долната част на текстовото поле (ако е възможно)"
 
-#: src/Process/Backend/UserPreferences.php:983
+#: src/Process/Backend/UserPreferences.php:986
 msgid "Use HTML editor for:"
 msgstr "Използвайте HTML редактора за:"
 
-#: src/Process/Backend/UserPreferences.php:987
+#: src/Process/Backend/UserPreferences.php:990
 msgid "Other options"
 msgstr "Други опции"
 
-#: src/Process/Backend/UserPreferences.php:998
+#: src/Process/Backend/UserPreferences.php:1001
 msgid "Save my options"
 msgstr "Запазване на моите опции"
 
-#: src/Process/Backend/UserPreferences.php:1029
+#: src/Process/Backend/UserPreferences.php:1032
 #, php-format
 msgid "position of %s"
 msgstr "позиция на %s"
 
-#: src/Process/Backend/UserPreferences.php:1052
+#: src/Process/Backend/UserPreferences.php:1055
 msgid "Save order"
 msgstr "Запазване на поръчка"
 
-#: src/Process/Backend/UserPreferences.php:1053
+#: src/Process/Backend/UserPreferences.php:1056
 msgid "Delete selected favorites"
 msgstr "Изтриване на избрани предпочитани"
 
-#: src/Process/Backend/UserPreferences.php:1060
+#: src/Process/Backend/UserPreferences.php:1063
 msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
 msgstr "Ако сте супер администратор, можете да определите този набор от предпочитани да се използва по подразбиране във всички блогове на тази инсталация."
 
-#: src/Process/Backend/UserPreferences.php:1063
+#: src/Process/Backend/UserPreferences.php:1066
 msgid "Define as default favorites"
 msgstr "Дефиниране на любими по подразбиране"
 
-#: src/Process/Backend/UserPreferences.php:1072
+#: src/Process/Backend/UserPreferences.php:1075
 msgid "Currently no personal favorites."
 msgstr "Понастоящем няма лични фаворити."
 
-#: src/Process/Backend/UserPreferences.php:1111
+#: src/Process/Backend/UserPreferences.php:1114
 msgid "(default favorite)"
 msgstr "(любима по подразбиране)"
 
-#: src/Process/Backend/UserPreferences.php:1126
+#: src/Process/Backend/UserPreferences.php:1129
 msgid "Add to my favorites"
 msgstr "Добавяне към любимите ми"
 
-#: src/Process/Backend/UserPreferences.php:1150
+#: src/Process/Backend/UserPreferences.php:1153
 msgid "Other available favorites"
 msgstr "Други налични предпочитани продукти"
 
-#: src/Process/Backend/UserPreferences.php:1162
+#: src/Process/Backend/UserPreferences.php:1165
 msgid "Menu"
 msgstr "Меню"
 
-#: src/Process/Backend/UserPreferences.php:1168
+#: src/Process/Backend/UserPreferences.php:1171
 msgid "Display favorites at the top of the menu"
 msgstr "Показване на любими в горната част на менюто"
 
-#: src/Process/Backend/UserPreferences.php:1172
+#: src/Process/Backend/UserPreferences.php:1175
 msgid "Dashboard icons"
 msgstr "Икони на таблото за управление"
 
-#: src/Process/Backend/UserPreferences.php:1178
+#: src/Process/Backend/UserPreferences.php:1181
 msgid "Display dashboard icons"
 msgstr "Показване на икони на таблото за управление"
 
-#: src/Process/Backend/UserPreferences.php:1182
+#: src/Process/Backend/UserPreferences.php:1185
 msgid "Dashboard modules"
 msgstr "Модули на информационното табло"
 
-#: src/Process/Backend/UserPreferences.php:1188
+#: src/Process/Backend/UserPreferences.php:1191
 msgid "Display documentation links"
 msgstr "Показване на връзки към документацията"
 
-#: src/Process/Backend/UserPreferences.php:1194
+#: src/Process/Backend/UserPreferences.php:1197
 msgid "Display donate links"
 msgstr "Показване на връзки за дарения"
 
-#: src/Process/Backend/UserPreferences.php:1200
+#: src/Process/Backend/UserPreferences.php:1203
 msgid "Display Dotclear news"
 msgstr "Показване на новините на Dotclear"
 
-#: src/Process/Backend/UserPreferences.php:1206
+#: src/Process/Backend/UserPreferences.php:1209
 msgid "Display quick entry form"
 msgstr "Показване на формуляр за бързо въвеждане"
 
-#: src/Process/Backend/UserPreferences.php:1211
+#: src/Process/Backend/UserPreferences.php:1214
 msgid "Do not display Dotclear updates"
 msgstr "Да не се показват актуализациите на Dotclear"
 
-#: src/Process/Backend/UserPreferences.php:1224
+#: src/Process/Backend/UserPreferences.php:1227
 msgid "Save my dashboard options"
 msgstr "Запазване на опциите на таблото за управление"
 
-#: src/Process/Backend/UserPreferences.php:1237
+#: src/Process/Backend/UserPreferences.php:1240
 msgid "Dashboard items order"
 msgstr "Ред на елементите на таблото за управление"
 
-#: src/Process/Backend/UserPreferences.php:1240
+#: src/Process/Backend/UserPreferences.php:1243
 msgid "Reset dashboard items order"
 msgstr "Нулиране на реда на елементите на таблото за управление"
 
