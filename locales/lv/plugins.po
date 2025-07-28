@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-28 13:19+0200\n"
-"PO-Revision-Date: 2025-07-28 13:43\n"
+"POT-Creation-Date: 2025-07-28 16:23+0200\n"
+"PO-Revision-Date: 2025-07-28 14:31\n"
 "Last-Translator: \n"
 "Language-Team: Latvian\n"
 "Language: lv_LV\n"
@@ -1363,11 +1363,11 @@ msgstr "Neizdevās ģenerēt viltotu l10n failu."
 msgid "Generate a php file that contents strings to translate that are not be done with core tools."
 msgstr "Ģenerējiet php failu, kurā ir ietvertas tulkojamas virknes, kas netiek veiktas, izmantojot galvenos rīkus."
 
-#: plugins/dcCKEditor/src/Backend.php:25 plugins/dcCKEditor/src/Manage.php:170
+#: plugins/dcCKEditor/src/Backend.php:25
 msgid "dcCKEditor"
 msgstr "CKEditor"
 
-#: plugins/dcCKEditor/src/Backend.php:26
+#: plugins/dcCKEditor/src/Backend.php:26 plugins/dcCKEditor/src/Manage.php:170
 msgid "CKEditor"
 msgstr "CKEditor"
 
@@ -1421,8 +1421,8 @@ msgid "Plugin activation"
 msgstr "Spraudņa aktivizēšana"
 
 #: plugins/dcCKEditor/src/Manage.php:185
-msgid "Enable dcCKEditor plugin"
-msgstr "Iespējot CKEditor spraudni"
+msgid "Enable CKEditor plugin"
+msgstr ""
 
 #: plugins/dcCKEditor/src/Manage.php:198
 msgid "Add alignment buttons"
