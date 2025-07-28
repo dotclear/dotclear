@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -38,7 +39,7 @@ class Install extends Process
         }
 
         $s = My::settings();
-        $s->put('active', true, 'boolean', 'dcCKEditor plugin activated?', false, true);
+        $s->put('active', true, 'boolean', 'CKEditor plugin activated?', false, true);
         $s->put('alignment_buttons', true, 'boolean', 'Add alignment buttons?', false, true);
         $s->put('list_buttons', true, 'boolean', 'Add list buttons?', false, true);
         $s->put('textcolor_button', false, 'boolean', 'Add text color button?', false, true);

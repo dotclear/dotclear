@@ -166,8 +166,8 @@ class Manage extends Process
 
         echo
         Page::breadcrumb([
-            __('Plugins')    => '',
-            __('dcCKEditor') => '',
+            __('Plugins')  => '',
+            __('CKEditor') => '',
         ]) .
         Notices::getNotices();
 
@@ -182,7 +182,7 @@ class Manage extends Process
                         ->items([
                             (new Checkbox('dcckeditor_active', App::backend()->editor_cke_active))
                                 ->value(1)
-                                ->label((new Label(__('Enable dcCKEditor plugin'), Label::INSIDE_TEXT_AFTER))),
+                                ->label((new Label(__('Enable CKEditor plugin'), Label::INSIDE_TEXT_AFTER))),
                         ]),
                 ]);
 

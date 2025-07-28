@@ -69,8 +69,8 @@ class Manage extends Process
 
         echo
         Page::breadcrumb([
-            __('Plugins')        => '',
-            __('dcLegacyEditor') => '',
+            __('Plugins')         => '',
+            __('Dotclear editor') => '',
         ]) .
         Notices::getNotices();
 

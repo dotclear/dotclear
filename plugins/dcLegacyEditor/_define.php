@@ -15,7 +15,7 @@
  * @copyright   AGPL-3.0
  */
 $this->registerModule(
-    'dcLegacyEditor',
+    'Dotclear editor',
     'Dotclear editor',
     'dotclear Team',
     '1.1',

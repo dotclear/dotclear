@@ -15,7 +15,7 @@
  * @copyright   AGPL-3.0
  */
 $this->registerModule(
-    'dcCKEditor',
+    'CKEditor',
     'CKEditor',
     'dotclear Team',
     '2.1',

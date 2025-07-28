@@ -120,9 +120,9 @@ class UserPreferences extends Process
         $formaters         = App::formater()->getFormaters();
         $format_by_editors = [];
         foreach ($formaters as $editor => $formats) {
-            $label = App::plugins()->moduleInfo($editor, 'desc');
+            $label = __(App::plugins()->moduleInfo($editor, 'desc'));
             if (!$label) {
-                $label = $editor;
+                $label = __($editor);
             }
             foreach ($formats as $format) {
                 $format_by_editors[$format][$label] = $editor;
