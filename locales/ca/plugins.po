@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-11 19:25+0200\n"
-"PO-Revision-Date: 2025-07-11 21:22\n"
+"POT-Creation-Date: 2025-07-28 13:19+0200\n"
+"PO-Revision-Date: 2025-07-28 13:42\n"
 "Last-Translator: \n"
 "Language-Team: Catalan\n"
 "Language: ca_ES\n"
@@ -30,42 +30,42 @@ msgid "Folders from cache directory"
 msgstr "Carpetes del directori de la memòria cau"
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:43
-msgid "delete selected cache directories"
-msgstr "suprimiu els directoris de memòria cau seleccionats"
-
-#: plugins/Uninstaller/src/Cleaner/Caches.php:44
 #, php-format
 msgid "delete \"%s\" cache directory"
 msgstr "suprimiu el directori de memòria cau \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:45
+#: plugins/Uninstaller/src/Cleaner/Caches.php:44
 #, php-format
 msgid "\"%s\" cache directory deleted"
 msgstr "S'ha suprimit el directori de la memòria cau \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:46
+#: plugins/Uninstaller/src/Cleaner/Caches.php:45
 #, php-format
 msgid "Failed to delete \"%s\" cache directory"
 msgstr "No s'ha pogut suprimir el directori de memòria cau \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:52
-msgid "empty selected cache directories"
-msgstr "buida els directoris de memòria cau seleccionats"
+#: plugins/Uninstaller/src/Cleaner/Caches.php:46
+msgid "delete selected cache directories"
+msgstr "suprimiu els directoris de memòria cau seleccionats"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:53
+#: plugins/Uninstaller/src/Cleaner/Caches.php:52
 #, php-format
 msgid "empty \"%s\" cache directory"
 msgstr "directori de memòria cau \"%s\" buit"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:54
+#: plugins/Uninstaller/src/Cleaner/Caches.php:53
 #, php-format
 msgid "\"%s\" cache directory emptied"
 msgstr "El directori de memòria cau \"%s\" s'ha buidat"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:55
+#: plugins/Uninstaller/src/Cleaner/Caches.php:54
 #, php-format
 msgid "Failed to empty \"%s\" cache directory"
 msgstr "No s'ha pogut buidar el directori de memòria cau \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:55
+msgid "empty selected cache directories"
+msgstr "buida els directoris de memòria cau seleccionats"
 
 #: plugins/Uninstaller/src/Cleaner/Logs.php:38
 msgid "Logs"
@@ -76,46 +76,46 @@ msgid "Logs in Dotclear logs table"
 msgstr "Registres a la taula de registres de Dotclear"
 
 #: plugins/Uninstaller/src/Cleaner/Logs.php:44
-msgid "delete selected logs tables"
-msgstr "suprimir les taules de registre seleccionades"
-
-#: plugins/Uninstaller/src/Cleaner/Logs.php:45
 #, php-format
 msgid "delete \"%s\" logs table"
 msgstr "suprimiu la taula de registres \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Logs.php:46
+#: plugins/Uninstaller/src/Cleaner/Logs.php:45
 #, php-format
 msgid "\"%s\" logs table deleted"
 msgstr "\"%s\" s'ha suprimit la taula de registres"
 
-#: plugins/Uninstaller/src/Cleaner/Logs.php:47
+#: plugins/Uninstaller/src/Cleaner/Logs.php:46
 #, php-format
 msgid "Failed to delete \"%s\" logs table"
 msgstr "No s'ha pogut suprimir la taula de registres \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Logs.php:47
+msgid "delete selected logs tables"
+msgstr "suprimir les taules de registre seleccionades"
 
 #: plugins/Uninstaller/src/Cleaner/Plugins.php:37
 msgid "Folders from plugins directories"
 msgstr "Carpetes dels directoris de connectors"
 
 #: plugins/Uninstaller/src/Cleaner/Plugins.php:42
-msgid "delete selected plugins files and directories"
-msgstr "suprimiu els fitxers i directoris dels connectors seleccionats"
-
-#: plugins/Uninstaller/src/Cleaner/Plugins.php:43
 #, php-format
 msgid "delete \"%s\" plugin files and directories"
 msgstr "suprimiu els fitxers i directoris del connector \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Plugins.php:44
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:43
 #, php-format
 msgid "\"%s\" plugin files and directories deleted"
 msgstr "\"%s\" s'han suprimit fitxers i directoris de connectors"
 
-#: plugins/Uninstaller/src/Cleaner/Plugins.php:45
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:44
 #, php-format
 msgid "Failed to delete \"%s\" plugin files and directories"
 msgstr "No s'han pogut suprimir els fitxers i directoris del connector \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:45
+msgid "delete selected plugins files and directories"
+msgstr "suprimiu els fitxers i directoris dels connectors seleccionats"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:38
 msgid "Preferences"
@@ -126,61 +126,61 @@ msgid "Users preferences workspaces"
 msgstr "Espais de treball de preferències dels usuaris"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:44
-msgid "delete selected global preferences workspaces"
-msgstr "suprimiu els espais de treball de preferències globals seleccionats"
-
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:45
 #, php-format
 msgid "delete \"%s\" global preferences workspace"
 msgstr "suprimiu l'espai de treball de preferències globals \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:46
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:45
 #, php-format
 msgid "\"%s\" global preferences workspace deleted"
 msgstr "\"%s\" s'ha suprimit l'espai de treball de preferències globals"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:47
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:46
 #, php-format
 msgid "Failed to delete \"%s\" global preferences workspace"
 msgstr "No s'ha pogut suprimir l'espai de treball de preferències globals \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:53
-msgid "delete selected users preferences workspaces"
-msgstr "suprimiu els espais de treball de les preferències dels usuaris seleccionats"
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:47
+msgid "delete selected global preferences workspaces"
+msgstr "suprimiu els espais de treball de preferències globals seleccionats"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:54
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:53
 #, php-format
 msgid "delete \"%s\" users preferences workspace"
 msgstr "suprimiu l'espai de treball de les preferències dels usuaris \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:55
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:54
 #, php-format
 msgid "\"%s\" users preferences workspace deleted"
 msgstr "\"%s\" s'ha suprimit l'espai de treball de les preferències dels usuaris"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:56
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:55
 #, php-format
 msgid "Failed to delete \"%s\" users preferences workspace"
 msgstr "No s'ha pogut suprimir l'espai de treball de les preferències dels usuaris \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:62
-msgid "delete selected preferences workspaces"
-msgstr "suprimiu els espais de treball de preferències seleccionats"
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:56
+msgid "delete selected users preferences workspaces"
+msgstr "suprimiu els espais de treball de les preferències dels usuaris seleccionats"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:63
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:62
 #, php-format
 msgid "delete \"%s\" preferences workspace"
 msgstr "suprimiu l'espai de treball de preferències \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:64
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:63
 #, php-format
 msgid "\"%s\" preferences workspace deleted"
 msgstr "\"%s\" s'ha suprimit l'espai de treball de preferències"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:65
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:64
 #, php-format
 msgid "Failed to delete \"%s\" preferences workspace"
 msgstr "No s'ha pogut suprimir l'espai de treball de preferències \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:65
+msgid "delete selected preferences workspaces"
+msgstr "suprimiu els espais de treball de preferències seleccionats"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:71
 msgid "delete related preferences"
@@ -199,61 +199,61 @@ msgid "Namespaces registered in dcSettings"
 msgstr "Espais de noms registrats a dcSettings"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:44
-msgid "delete selected global settings namespaces"
-msgstr "suprimiu els espais de noms de la configuració global seleccionats"
-
-#: plugins/Uninstaller/src/Cleaner/Settings.php:45
 #, php-format
 msgid "delete \"%s\" global settings namespace"
 msgstr "suprimiu l'espai de noms de la configuració global \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:46
+#: plugins/Uninstaller/src/Cleaner/Settings.php:45
 #, php-format
 msgid "\"%s\" global settings namespace deleted"
 msgstr "\"%s\" s'ha suprimit l'espai de noms de la configuració global"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:47
+#: plugins/Uninstaller/src/Cleaner/Settings.php:46
 #, php-format
 msgid "Failed to delete \"%s\" global settings namespace"
 msgstr "No s'ha pogut suprimir l'espai de noms de la configuració global \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:53
-msgid "delete selected blog settings namespaces"
-msgstr "suprimiu els espais de noms de la configuració del bloc seleccionats"
+#: plugins/Uninstaller/src/Cleaner/Settings.php:47
+msgid "delete selected global settings namespaces"
+msgstr "suprimiu els espais de noms de la configuració global seleccionats"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:54
+#: plugins/Uninstaller/src/Cleaner/Settings.php:53
 #, php-format
 msgid "delete \"%s\" blog settings namespace"
 msgstr "suprimiu l'espai de noms de la configuració del bloc \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:55
+#: plugins/Uninstaller/src/Cleaner/Settings.php:54
 #, php-format
 msgid "\"%s\" blog settings namespace deleted"
 msgstr "\"%s\" s'ha suprimit l'espai de noms de la configuració del bloc"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:56
+#: plugins/Uninstaller/src/Cleaner/Settings.php:55
 #, php-format
 msgid "Failed to delete \"%s\" blog settings namespace"
 msgstr "No s'ha pogut suprimir l'espai de noms de la configuració del bloc \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:62
-msgid "delete selected settings namespaces"
-msgstr "suprimiu els espais de noms de configuració seleccionats"
+#: plugins/Uninstaller/src/Cleaner/Settings.php:56
+msgid "delete selected blog settings namespaces"
+msgstr "suprimiu els espais de noms de la configuració del bloc seleccionats"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:63
+#: plugins/Uninstaller/src/Cleaner/Settings.php:62
 #, php-format
 msgid "delete \"%s\" settings namespace"
 msgstr "suprimiu l'espai de noms de configuració \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:64
+#: plugins/Uninstaller/src/Cleaner/Settings.php:63
 #, php-format
 msgid "\"%s\" settings namespace deleted"
 msgstr "\"%s\" s'ha suprimit l'espai de noms de configuració"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:65
+#: plugins/Uninstaller/src/Cleaner/Settings.php:64
 #, php-format
 msgid "Failed to delete \"%s\" settings namespace"
 msgstr "No s'ha pogut suprimir l'espai de noms de configuració \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:65
+msgid "delete selected settings namespaces"
+msgstr "suprimiu els espais de noms de configuració seleccionats"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:71
 msgid "delete related settings"
@@ -276,42 +276,42 @@ msgid "All database tables of Dotclear"
 msgstr "Totes les taules de bases de dades de Dotclear"
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:45
-msgid "delete selected tables"
-msgstr "suprimir les taules seleccionades"
-
-#: plugins/Uninstaller/src/Cleaner/Tables.php:46
 #, php-format
 msgid "delete \"%s\" table"
 msgstr "suprimiu la taula \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:47
+#: plugins/Uninstaller/src/Cleaner/Tables.php:46
 #, php-format
 msgid "\"%s\" table deleted"
 msgstr "S'ha suprimit la taula \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:48
+#: plugins/Uninstaller/src/Cleaner/Tables.php:47
 #, php-format
 msgid "Failed to delete \"%s\" table"
 msgstr "No s'ha pogut suprimir la taula \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:54
-msgid "empty selected tables"
-msgstr "buida les taules seleccionades"
+#: plugins/Uninstaller/src/Cleaner/Tables.php:48
+msgid "delete selected tables"
+msgstr "suprimir les taules seleccionades"
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:55
+#: plugins/Uninstaller/src/Cleaner/Tables.php:54
 #, php-format
 msgid "empty \"%s\" table"
 msgstr "taula buida \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:56
+#: plugins/Uninstaller/src/Cleaner/Tables.php:55
 #, php-format
 msgid "\"%s\" table emptied"
 msgstr "La taula \"%s\" s'ha buidat"
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:57
+#: plugins/Uninstaller/src/Cleaner/Tables.php:56
 #, php-format
 msgid "Failed to empty \"%s\" table"
 msgstr "No s'ha pogut buidar la taula \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:57
+msgid "empty selected tables"
+msgstr "buida les taules seleccionades"
 
 #: plugins/Uninstaller/src/Cleaner/Themes.php:36
 msgid "Themes"
@@ -322,23 +322,23 @@ msgid "Folders from blog themes directory"
 msgstr "Carpetes del directori de temes del bloc"
 
 #: plugins/Uninstaller/src/Cleaner/Themes.php:42
-msgid "delete selected themes files and directories"
-msgstr "suprimiu els fitxers i directoris dels temes seleccionats"
-
-#: plugins/Uninstaller/src/Cleaner/Themes.php:43
 #, php-format
 msgid "delete \"%s\" theme files and directories"
 msgstr "suprimiu els fitxers i directoris del tema \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Themes.php:44
+#: plugins/Uninstaller/src/Cleaner/Themes.php:43
 #, php-format
 msgid "\"%s\" theme files and directories deleted"
 msgstr "\"%s\" s'han suprimit els fitxers i directoris del tema"
 
-#: plugins/Uninstaller/src/Cleaner/Themes.php:45
+#: plugins/Uninstaller/src/Cleaner/Themes.php:44
 #, php-format
 msgid "Failed to delete \"%s\" theme files and directories"
 msgstr "No s'han pogut suprimir els fitxers i directoris del tema \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Themes.php:45
+msgid "delete selected themes files and directories"
+msgstr "suprimiu els fitxers i directoris dels temes seleccionats"
 
 #: plugins/Uninstaller/src/Cleaner/Vars.php:37
 msgid "Var"
@@ -349,23 +349,23 @@ msgid "Folders from Dotclear VAR directory"
 msgstr "Carpetes del directori VAR de Dotclear"
 
 #: plugins/Uninstaller/src/Cleaner/Vars.php:43
-msgid "delete selected var directories"
-msgstr "suprimiu els directoris var seleccionats"
-
-#: plugins/Uninstaller/src/Cleaner/Vars.php:44
 #, php-format
 msgid "delete \"%s\" var directory"
 msgstr "suprimiu el directori var \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Vars.php:45
+#: plugins/Uninstaller/src/Cleaner/Vars.php:44
 #, php-format
 msgid "\"%s\" var directory deleted"
 msgstr "\"%s\" s'ha suprimit el directori var"
 
-#: plugins/Uninstaller/src/Cleaner/Vars.php:46
+#: plugins/Uninstaller/src/Cleaner/Vars.php:45
 #, php-format
 msgid "Failed to delete \"%s\" var directory"
 msgstr "No s'ha pogut suprimir el directori var \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Vars.php:46
+msgid "delete selected var directories"
+msgstr "suprimiu els directoris var seleccionats"
 
 #: plugins/Uninstaller/src/Cleaner/Versions.php:36
 msgid "Versions"
@@ -376,23 +376,23 @@ msgid "Versions registered in table \"version\" of Dotclear"
 msgstr "Versions registrades a la taula \"versió\" de Dotclear"
 
 #: plugins/Uninstaller/src/Cleaner/Versions.php:42
-msgid "delete selected versions numbers"
-msgstr "suprimiu els números de versions seleccionats"
-
-#: plugins/Uninstaller/src/Cleaner/Versions.php:43
 #, php-format
 msgid "delete \"%s\" version number"
 msgstr "suprimiu el número de versió \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Versions.php:44
+#: plugins/Uninstaller/src/Cleaner/Versions.php:43
 #, php-format
 msgid "\"%s\" version number deleted"
 msgstr "S'ha suprimit el número de versió \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Versions.php:45
+#: plugins/Uninstaller/src/Cleaner/Versions.php:44
 #, php-format
 msgid "Failed to delete \"%s\" version number"
 msgstr "No s'ha pogut suprimir el número de versió \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Versions.php:45
+msgid "delete selected versions numbers"
+msgstr "suprimiu els números de versions seleccionats"
 
 #: plugins/Uninstaller/src/CleanersStack.php:112
 #, php-format
@@ -478,9 +478,8 @@ msgid "Uninstall cleanly plugins and themes"
 msgstr "Desinstal·leu els connectors i els temes de manera neta"
 
 #: plugins/_fake_plugin/_fake_l10n.php:14
-#: plugins/dcLegacyEditor/src/Backend.php:27
 msgid "dotclear legacy editor"
-msgstr "editor heretat dotclear"
+msgstr "Editor de Dotclear"
 
 #: plugins/_fake_plugin/_fake_l10n.php:15
 #: plugins/themeEditor/src/Backend.php:26
@@ -500,9 +499,9 @@ msgstr "Importa i exporta el teu bloc"
 msgid "Manage every user preference directive"
 msgstr "Gestioneu cada directiva de preferències d'usuari"
 
-#: plugins/_fake_plugin/_fake_l10n.php:19 plugins/dcCKEditor/src/Backend.php:26
+#: plugins/_fake_plugin/_fake_l10n.php:19
 msgid "dotclear CKEditor integration"
-msgstr "integració de dotclear CKEditor"
+msgstr "CKEditor"
 
 #: plugins/_fake_plugin/_fake_l10n.php:20
 #: plugins/maintenance/src/Backend.php:26
@@ -593,38 +592,38 @@ msgstr "Núvol d'etiquetes"
 msgid "about:config"
 msgstr "about:config"
 
-#: plugins/aboutConfig/src/Manage.php:90 plugins/aboutConfig/src/Manage.php:110
+#: plugins/aboutConfig/src/Manage.php:89 plugins/aboutConfig/src/Manage.php:109
 msgid "Configuration successfully updated"
 msgstr "La configuració s'ha actualitzat correctament"
 
-#: plugins/aboutConfig/src/Manage.php:150
-#: plugins/aboutConfig/src/Manage.php:152
+#: plugins/aboutConfig/src/Manage.php:149
+#: plugins/aboutConfig/src/Manage.php:151
 #, php-format
 msgid "Settings for %s"
 msgstr "Configuració per a %s"
 
-#: plugins/aboutConfig/src/Manage.php:160
-#: plugins/aboutConfig/src/Manage.php:162
+#: plugins/aboutConfig/src/Manage.php:159
+#: plugins/aboutConfig/src/Manage.php:161
 msgid "Global settings"
 msgstr "Configuració global"
 
-#: plugins/aboutConfig/src/Manage.php:228 plugins/userPref/src/Manage.php:226
+#: plugins/aboutConfig/src/Manage.php:226 plugins/userPref/src/Manage.php:224
 msgid "Goto:"
 msgstr "Anar a:"
 
-#: plugins/aboutConfig/src/Manage.php:255 plugins/userPref/src/Manage.php:253
+#: plugins/aboutConfig/src/Manage.php:253 plugins/userPref/src/Manage.php:251
 msgid "Setting ID"
 msgstr "ID de configuració"
 
-#: plugins/aboutConfig/src/Manage.php:256 plugins/userPref/src/Manage.php:254
+#: plugins/aboutConfig/src/Manage.php:254 plugins/userPref/src/Manage.php:252
 msgid "Value"
 msgstr "Valor"
 
-#: plugins/aboutConfig/src/Manage.php:316 plugins/userPref/src/Manage.php:314
+#: plugins/aboutConfig/src/Manage.php:314 plugins/userPref/src/Manage.php:312
 msgid "no"
 msgstr "no"
 
-#: plugins/aboutConfig/src/Manage.php:316 plugins/userPref/src/Manage.php:314
+#: plugins/aboutConfig/src/Manage.php:314 plugins/userPref/src/Manage.php:312
 msgid "yes"
 msgstr "sí"
 
@@ -969,7 +968,7 @@ msgstr "Feed RSS de comentaris publicats"
 msgid "No description"
 msgstr "Sense descripció"
 
-#: plugins/antispam/src/SpamFilter.php:152
+#: plugins/antispam/src/SpamFilter.php:151
 #, php-format
 msgid "Filtered by %1$s (%2$s)"
 msgstr "Filtrat per %1$s (%2$s)"
@@ -1364,7 +1363,11 @@ msgstr "Genereu un fitxer php que contingui cadenes per traduir que no es facin 
 
 #: plugins/dcCKEditor/src/Backend.php:25 plugins/dcCKEditor/src/Manage.php:170
 msgid "dcCKEditor"
-msgstr "dcCKEditor"
+msgstr "CKEditor"
+
+#: plugins/dcCKEditor/src/Backend.php:26
+msgid "CKEditor"
+msgstr "CKEditor"
 
 #: plugins/dcCKEditor/src/Backend.php:41
 #: plugins/dcLegacyEditor/src/Backend.php:46
@@ -1417,7 +1420,7 @@ msgstr "Activació del connector"
 
 #: plugins/dcCKEditor/src/Manage.php:185
 msgid "Enable dcCKEditor plugin"
-msgstr "Activa el connector dcCKEditor"
+msgstr "Activa CKEditor"
 
 #: plugins/dcCKEditor/src/Manage.php:198
 msgid "Add alignment buttons"
@@ -1501,14 +1504,18 @@ msgstr "Desactiva el corrector ortogràfic integrat si el navegador en proporcio
 msgid "Save configuration"
 msgstr "Desa la configuració"
 
-#: plugins/dcCKEditor/src/ManagePostConfig.php:188
+#: plugins/dcCKEditor/src/ManagePostConfig.php:136
 msgid "Note(s)"
 msgstr "Notes"
 
 #: plugins/dcLegacyEditor/src/Backend.php:26
 #: plugins/dcLegacyEditor/src/Manage.php:73
 msgid "dcLegacyEditor"
-msgstr "dcLegacyEditor"
+msgstr "Editor de Dotclear"
+
+#: plugins/dcLegacyEditor/src/Backend.php:27
+msgid "Dotclear editor"
+msgstr "Editor de Dotclear"
 
 #: plugins/dcLegacyEditor/src/Backend.php:50
 msgid "Dotclear wiki"
@@ -3109,11 +3116,11 @@ msgstr "No es pot suprimir el fitxer %s. Si us plau, comproveu els permisos dels
 msgid "user:preferences"
 msgstr "usuari:preferències"
 
-#: plugins/userPref/src/Manage.php:89 plugins/userPref/src/Manage.php:108
+#: plugins/userPref/src/Manage.php:88 plugins/userPref/src/Manage.php:107
 msgid "Preferences successfully updated"
 msgstr "Les preferències s'han actualitzat correctament"
 
-#: plugins/userPref/src/Manage.php:158 plugins/userPref/src/Manage.php:160
+#: plugins/userPref/src/Manage.php:157 plugins/userPref/src/Manage.php:159
 msgid "Global preferences"
 msgstr "Preferències globals"
 
@@ -3351,31 +3358,31 @@ msgstr "Font d'entrades"
 msgid "Comments feed"
 msgstr "Font de comentaris"
 
-#: plugins/widgets/src/WidgetsElement.php:547
+#: plugins/widgets/src/WidgetsElement.php:548
 msgid "Title (optional)"
 msgstr "Títol (opcional)"
 
-#: plugins/widgets/src/WidgetsElement.php:558
+#: plugins/widgets/src/WidgetsElement.php:559
 msgid "All pages"
 msgstr "Totes les pàgines"
 
-#: plugins/widgets/src/WidgetsElement.php:559
+#: plugins/widgets/src/WidgetsElement.php:560
 msgid "Home page only"
 msgstr "Només la pàgina d'inici"
 
-#: plugins/widgets/src/WidgetsElement.php:560
+#: plugins/widgets/src/WidgetsElement.php:561
 msgid "Except on home page"
 msgstr "Excepte a la pàgina d'inici"
 
-#: plugins/widgets/src/WidgetsElement.php:568
+#: plugins/widgets/src/WidgetsElement.php:569
 msgid "Display on:"
 msgstr "Mostra a:"
 
-#: plugins/widgets/src/WidgetsElement.php:594
+#: plugins/widgets/src/WidgetsElement.php:595
 msgid "Content only"
 msgstr "Només contingut"
 
-#: plugins/widgets/src/WidgetsElement.php:604
+#: plugins/widgets/src/WidgetsElement.php:605
 msgid "CSS class:"
 msgstr "Classe CSS:"
 

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-11 19:25+0200\n"
-"PO-Revision-Date: 2025-07-11 21:23\n"
+"POT-Creation-Date: 2025-07-28 13:19+0200\n"
+"PO-Revision-Date: 2025-07-28 13:43\n"
 "Last-Translator: \n"
 "Language-Team: Ukrainian\n"
 "Language: uk_UA\n"
@@ -30,42 +30,42 @@ msgid "Folders from cache directory"
 msgstr "Теки з каталогу кешу"
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:43
-msgid "delete selected cache directories"
-msgstr "видалити вибрані каталоги кешу"
-
-#: plugins/Uninstaller/src/Cleaner/Caches.php:44
 #, php-format
 msgid "delete \"%s\" cache directory"
 msgstr "видалити \"%s\" каталог кешу"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:45
+#: plugins/Uninstaller/src/Cleaner/Caches.php:44
 #, php-format
 msgid "\"%s\" cache directory deleted"
 msgstr "\"%s\" видалено каталог кешу"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:46
+#: plugins/Uninstaller/src/Cleaner/Caches.php:45
 #, php-format
 msgid "Failed to delete \"%s\" cache directory"
 msgstr "Не вдалося видалити каталог кешу \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:52
-msgid "empty selected cache directories"
-msgstr "очистити вибрані каталоги кешу"
+#: plugins/Uninstaller/src/Cleaner/Caches.php:46
+msgid "delete selected cache directories"
+msgstr "видалити вибрані каталоги кешу"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:53
+#: plugins/Uninstaller/src/Cleaner/Caches.php:52
 #, php-format
 msgid "empty \"%s\" cache directory"
 msgstr "порожній \"%s\" каталог кешу"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:54
+#: plugins/Uninstaller/src/Cleaner/Caches.php:53
 #, php-format
 msgid "\"%s\" cache directory emptied"
 msgstr "\"%s\" каталог кешу очищено"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:55
+#: plugins/Uninstaller/src/Cleaner/Caches.php:54
 #, php-format
 msgid "Failed to empty \"%s\" cache directory"
 msgstr "Не вдалося очистити каталог кешу \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:55
+msgid "empty selected cache directories"
+msgstr "очистити вибрані каталоги кешу"
 
 #: plugins/Uninstaller/src/Cleaner/Logs.php:38
 msgid "Logs"
@@ -76,46 +76,46 @@ msgid "Logs in Dotclear logs table"
 msgstr "Журнали в таблиці журналів Dotclear"
 
 #: plugins/Uninstaller/src/Cleaner/Logs.php:44
-msgid "delete selected logs tables"
-msgstr "видалити вибрані таблиці журналів"
-
-#: plugins/Uninstaller/src/Cleaner/Logs.php:45
 #, php-format
 msgid "delete \"%s\" logs table"
 msgstr "видалити \"%s\" таблицю журналів"
 
-#: plugins/Uninstaller/src/Cleaner/Logs.php:46
+#: plugins/Uninstaller/src/Cleaner/Logs.php:45
 #, php-format
 msgid "\"%s\" logs table deleted"
 msgstr "\"%s\" таблицю журналів видалено"
 
-#: plugins/Uninstaller/src/Cleaner/Logs.php:47
+#: plugins/Uninstaller/src/Cleaner/Logs.php:46
 #, php-format
 msgid "Failed to delete \"%s\" logs table"
 msgstr "Не вдалося видалити таблицю журналів \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Logs.php:47
+msgid "delete selected logs tables"
+msgstr "видалити вибрані таблиці журналів"
 
 #: plugins/Uninstaller/src/Cleaner/Plugins.php:37
 msgid "Folders from plugins directories"
 msgstr "Теки з каталогів плагінів"
 
 #: plugins/Uninstaller/src/Cleaner/Plugins.php:42
-msgid "delete selected plugins files and directories"
-msgstr "видалити вибрані файли та каталоги плагінів"
-
-#: plugins/Uninstaller/src/Cleaner/Plugins.php:43
 #, php-format
 msgid "delete \"%s\" plugin files and directories"
 msgstr "видалити \"%s\" файли плагінів і каталоги"
 
-#: plugins/Uninstaller/src/Cleaner/Plugins.php:44
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:43
 #, php-format
 msgid "\"%s\" plugin files and directories deleted"
 msgstr "\"%s\" видалено файли та каталоги плагінів"
 
-#: plugins/Uninstaller/src/Cleaner/Plugins.php:45
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:44
 #, php-format
 msgid "Failed to delete \"%s\" plugin files and directories"
 msgstr "Не вдалося видалити файли та каталоги плагінів \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:45
+msgid "delete selected plugins files and directories"
+msgstr "видалити вибрані файли та каталоги плагінів"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:38
 msgid "Preferences"
@@ -126,61 +126,61 @@ msgid "Users preferences workspaces"
 msgstr "Уподобання користувачів робочі простори"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:44
-msgid "delete selected global preferences workspaces"
-msgstr "видалити вибрані робочі області глобальних налаштувань"
-
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:45
 #, php-format
 msgid "delete \"%s\" global preferences workspace"
 msgstr "видалити \"%s\" робочу область глобальних налаштувань"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:46
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:45
 #, php-format
 msgid "\"%s\" global preferences workspace deleted"
 msgstr "\"%s\" видалено робочу область глобальних налаштувань"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:47
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:46
 #, php-format
 msgid "Failed to delete \"%s\" global preferences workspace"
 msgstr "Не вдалося видалити робочу область глобальних налаштувань \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:53
-msgid "delete selected users preferences workspaces"
-msgstr "видалити вибрані робочі області налаштувань користувачів"
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:47
+msgid "delete selected global preferences workspaces"
+msgstr "видалити вибрані робочі області глобальних налаштувань"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:54
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:53
 #, php-format
 msgid "delete \"%s\" users preferences workspace"
 msgstr "видалити \"%s\" робочу область налаштувань користувачів"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:55
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:54
 #, php-format
 msgid "\"%s\" users preferences workspace deleted"
 msgstr "\"%s\" видалено робочу область налаштувань користувачів"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:56
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:55
 #, php-format
 msgid "Failed to delete \"%s\" users preferences workspace"
 msgstr "Не вдалося видалити робочу область налаштувань користувачів \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:62
-msgid "delete selected preferences workspaces"
-msgstr "видалити вибрані робочі області налаштувань"
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:56
+msgid "delete selected users preferences workspaces"
+msgstr "видалити вибрані робочі області налаштувань користувачів"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:63
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:62
 #, php-format
 msgid "delete \"%s\" preferences workspace"
 msgstr "видалити \"%s\" робочу область налаштувань"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:64
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:63
 #, php-format
 msgid "\"%s\" preferences workspace deleted"
 msgstr "\"%s\" видалено робочу область налаштувань"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:65
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:64
 #, php-format
 msgid "Failed to delete \"%s\" preferences workspace"
 msgstr "Не вдалося видалити робочу область налаштувань \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:65
+msgid "delete selected preferences workspaces"
+msgstr "видалити вибрані робочі області налаштувань"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:71
 msgid "delete related preferences"
@@ -199,61 +199,61 @@ msgid "Namespaces registered in dcSettings"
 msgstr "Простори імен, зареєстровані в dcSettings"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:44
-msgid "delete selected global settings namespaces"
-msgstr "видалити вибрані простори імен глобальних налаштувань"
-
-#: plugins/Uninstaller/src/Cleaner/Settings.php:45
 #, php-format
 msgid "delete \"%s\" global settings namespace"
 msgstr "видалити \"%s\" простір імен глобальних налаштувань"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:46
+#: plugins/Uninstaller/src/Cleaner/Settings.php:45
 #, php-format
 msgid "\"%s\" global settings namespace deleted"
 msgstr "\"%s\" простір імен глобальних налаштувань видалено"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:47
+#: plugins/Uninstaller/src/Cleaner/Settings.php:46
 #, php-format
 msgid "Failed to delete \"%s\" global settings namespace"
 msgstr "Не вдалося видалити простір імен \"%s\" глобальних налаштувань"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:53
-msgid "delete selected blog settings namespaces"
-msgstr "видалити вибрані простори імен налаштувань блогу"
+#: plugins/Uninstaller/src/Cleaner/Settings.php:47
+msgid "delete selected global settings namespaces"
+msgstr "видалити вибрані простори імен глобальних налаштувань"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:54
+#: plugins/Uninstaller/src/Cleaner/Settings.php:53
 #, php-format
 msgid "delete \"%s\" blog settings namespace"
 msgstr "видалити \"%s\" простір імен налаштувань блогу"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:55
+#: plugins/Uninstaller/src/Cleaner/Settings.php:54
 #, php-format
 msgid "\"%s\" blog settings namespace deleted"
 msgstr "\"%s\" простір імен налаштувань блогу видалено"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:56
+#: plugins/Uninstaller/src/Cleaner/Settings.php:55
 #, php-format
 msgid "Failed to delete \"%s\" blog settings namespace"
 msgstr "Не вдалося видалити простір імен налаштувань блогу \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:62
-msgid "delete selected settings namespaces"
-msgstr "видалити вибрані простори імен налаштувань"
+#: plugins/Uninstaller/src/Cleaner/Settings.php:56
+msgid "delete selected blog settings namespaces"
+msgstr "видалити вибрані простори імен налаштувань блогу"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:63
+#: plugins/Uninstaller/src/Cleaner/Settings.php:62
 #, php-format
 msgid "delete \"%s\" settings namespace"
 msgstr "видалити \"%s\" простір імен налаштувань"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:64
+#: plugins/Uninstaller/src/Cleaner/Settings.php:63
 #, php-format
 msgid "\"%s\" settings namespace deleted"
 msgstr "\"%s\" простір імен налаштувань видалено"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:65
+#: plugins/Uninstaller/src/Cleaner/Settings.php:64
 #, php-format
 msgid "Failed to delete \"%s\" settings namespace"
 msgstr "Не вдалося видалити простір імен налаштувань \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:65
+msgid "delete selected settings namespaces"
+msgstr "видалити вибрані простори імен налаштувань"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:71
 msgid "delete related settings"
@@ -276,42 +276,42 @@ msgid "All database tables of Dotclear"
 msgstr "Всі таблиці бази даних Dotclear"
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:45
-msgid "delete selected tables"
-msgstr "видалити вибрані таблиці"
-
-#: plugins/Uninstaller/src/Cleaner/Tables.php:46
 #, php-format
 msgid "delete \"%s\" table"
 msgstr "видалити таблицю \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:47
+#: plugins/Uninstaller/src/Cleaner/Tables.php:46
 #, php-format
 msgid "\"%s\" table deleted"
 msgstr "\"%s\" таблицю видалено"
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:48
+#: plugins/Uninstaller/src/Cleaner/Tables.php:47
 #, php-format
 msgid "Failed to delete \"%s\" table"
 msgstr "Не вдалося видалити таблицю \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:54
-msgid "empty selected tables"
-msgstr "очистити вибрані таблиці"
+#: plugins/Uninstaller/src/Cleaner/Tables.php:48
+msgid "delete selected tables"
+msgstr "видалити вибрані таблиці"
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:55
+#: plugins/Uninstaller/src/Cleaner/Tables.php:54
 #, php-format
 msgid "empty \"%s\" table"
 msgstr "порожня \"%s\" таблиця"
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:56
+#: plugins/Uninstaller/src/Cleaner/Tables.php:55
 #, php-format
 msgid "\"%s\" table emptied"
 msgstr "\"%s\"Стіл порожній"
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:57
+#: plugins/Uninstaller/src/Cleaner/Tables.php:56
 #, php-format
 msgid "Failed to empty \"%s\" table"
 msgstr "Не вдалося очистити таблицю \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:57
+msgid "empty selected tables"
+msgstr "очистити вибрані таблиці"
 
 #: plugins/Uninstaller/src/Cleaner/Themes.php:36
 msgid "Themes"
@@ -322,23 +322,23 @@ msgid "Folders from blog themes directory"
 msgstr "Теки з каталогу тем блогу"
 
 #: plugins/Uninstaller/src/Cleaner/Themes.php:42
-msgid "delete selected themes files and directories"
-msgstr "видалити вибрані файли тем і каталоги"
-
-#: plugins/Uninstaller/src/Cleaner/Themes.php:43
 #, php-format
 msgid "delete \"%s\" theme files and directories"
 msgstr "видалити \"%s\" файли і каталоги тем"
 
-#: plugins/Uninstaller/src/Cleaner/Themes.php:44
+#: plugins/Uninstaller/src/Cleaner/Themes.php:43
 #, php-format
 msgid "\"%s\" theme files and directories deleted"
 msgstr "\"%s\" видалено файли і каталоги тем"
 
-#: plugins/Uninstaller/src/Cleaner/Themes.php:45
+#: plugins/Uninstaller/src/Cleaner/Themes.php:44
 #, php-format
 msgid "Failed to delete \"%s\" theme files and directories"
 msgstr "Не вдалося видалити файли і каталоги теми \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Themes.php:45
+msgid "delete selected themes files and directories"
+msgstr "видалити вибрані файли тем і каталоги"
 
 #: plugins/Uninstaller/src/Cleaner/Vars.php:37
 msgid "Var"
@@ -349,23 +349,23 @@ msgid "Folders from Dotclear VAR directory"
 msgstr "Теки з каталогу Dotclear VAR"
 
 #: plugins/Uninstaller/src/Cleaner/Vars.php:43
-msgid "delete selected var directories"
-msgstr "видалити вибрані каталоги var"
-
-#: plugins/Uninstaller/src/Cleaner/Vars.php:44
 #, php-format
 msgid "delete \"%s\" var directory"
 msgstr "видалити \"%s\" каталог var"
 
-#: plugins/Uninstaller/src/Cleaner/Vars.php:45
+#: plugins/Uninstaller/src/Cleaner/Vars.php:44
 #, php-format
 msgid "\"%s\" var directory deleted"
 msgstr "\"%s\" каталог var видалено"
 
-#: plugins/Uninstaller/src/Cleaner/Vars.php:46
+#: plugins/Uninstaller/src/Cleaner/Vars.php:45
 #, php-format
 msgid "Failed to delete \"%s\" var directory"
 msgstr "Не вдалося видалити каталог \"%s\" var"
+
+#: plugins/Uninstaller/src/Cleaner/Vars.php:46
+msgid "delete selected var directories"
+msgstr "видалити вибрані каталоги var"
 
 #: plugins/Uninstaller/src/Cleaner/Versions.php:36
 msgid "Versions"
@@ -376,23 +376,23 @@ msgid "Versions registered in table \"version\" of Dotclear"
 msgstr "Версії, зареєстровані в таблиці \"версія\" Dotclear"
 
 #: plugins/Uninstaller/src/Cleaner/Versions.php:42
-msgid "delete selected versions numbers"
-msgstr "видалити вибрані номери версій"
-
-#: plugins/Uninstaller/src/Cleaner/Versions.php:43
 #, php-format
 msgid "delete \"%s\" version number"
 msgstr "видалити \"%s\" номер версії"
 
-#: plugins/Uninstaller/src/Cleaner/Versions.php:44
+#: plugins/Uninstaller/src/Cleaner/Versions.php:43
 #, php-format
 msgid "\"%s\" version number deleted"
 msgstr "\"%s\" номер версії видалено"
 
-#: plugins/Uninstaller/src/Cleaner/Versions.php:45
+#: plugins/Uninstaller/src/Cleaner/Versions.php:44
 #, php-format
 msgid "Failed to delete \"%s\" version number"
 msgstr "Не вдалося видалити \"%s\" номер версії"
+
+#: plugins/Uninstaller/src/Cleaner/Versions.php:45
+msgid "delete selected versions numbers"
+msgstr "видалити вибрані номери версій"
 
 #: plugins/Uninstaller/src/CleanersStack.php:112
 #, php-format
@@ -478,9 +478,8 @@ msgid "Uninstall cleanly plugins and themes"
 msgstr "Видалення плагінів і тем в чистому вигляді"
 
 #: plugins/_fake_plugin/_fake_l10n.php:14
-#: plugins/dcLegacyEditor/src/Backend.php:27
 msgid "dotclear legacy editor"
-msgstr "dotclear legacy editor"
+msgstr "Редактор Dotclear"
 
 #: plugins/_fake_plugin/_fake_l10n.php:15
 #: plugins/themeEditor/src/Backend.php:26
@@ -500,9 +499,9 @@ msgstr "Імпорт та експорт вашого блогу"
 msgid "Manage every user preference directive"
 msgstr "Керуйте кожною директивою користувацьких налаштувань"
 
-#: plugins/_fake_plugin/_fake_l10n.php:19 plugins/dcCKEditor/src/Backend.php:26
+#: plugins/_fake_plugin/_fake_l10n.php:19
 msgid "dotclear CKEditor integration"
-msgstr "інтеграція з CKEditor"
+msgstr "CKEditor"
 
 #: plugins/_fake_plugin/_fake_l10n.php:20
 #: plugins/maintenance/src/Backend.php:26
@@ -593,38 +592,38 @@ msgstr "Хмара тегів"
 msgid "about:config"
 msgstr "about:config"
 
-#: plugins/aboutConfig/src/Manage.php:90 plugins/aboutConfig/src/Manage.php:110
+#: plugins/aboutConfig/src/Manage.php:89 plugins/aboutConfig/src/Manage.php:109
 msgid "Configuration successfully updated"
 msgstr "Конфігурацію успішно оновлено"
 
-#: plugins/aboutConfig/src/Manage.php:150
-#: plugins/aboutConfig/src/Manage.php:152
+#: plugins/aboutConfig/src/Manage.php:149
+#: plugins/aboutConfig/src/Manage.php:151
 #, php-format
 msgid "Settings for %s"
 msgstr "Налаштування для %s"
 
-#: plugins/aboutConfig/src/Manage.php:160
-#: plugins/aboutConfig/src/Manage.php:162
+#: plugins/aboutConfig/src/Manage.php:159
+#: plugins/aboutConfig/src/Manage.php:161
 msgid "Global settings"
 msgstr "Глобальні налаштування"
 
-#: plugins/aboutConfig/src/Manage.php:228 plugins/userPref/src/Manage.php:226
+#: plugins/aboutConfig/src/Manage.php:226 plugins/userPref/src/Manage.php:224
 msgid "Goto:"
 msgstr "Готово:"
 
-#: plugins/aboutConfig/src/Manage.php:255 plugins/userPref/src/Manage.php:253
+#: plugins/aboutConfig/src/Manage.php:253 plugins/userPref/src/Manage.php:251
 msgid "Setting ID"
 msgstr "Ідентифікатор налаштування"
 
-#: plugins/aboutConfig/src/Manage.php:256 plugins/userPref/src/Manage.php:254
+#: plugins/aboutConfig/src/Manage.php:254 plugins/userPref/src/Manage.php:252
 msgid "Value"
 msgstr "Значення"
 
-#: plugins/aboutConfig/src/Manage.php:316 plugins/userPref/src/Manage.php:314
+#: plugins/aboutConfig/src/Manage.php:314 plugins/userPref/src/Manage.php:312
 msgid "no"
 msgstr "Ні."
 
-#: plugins/aboutConfig/src/Manage.php:316 plugins/userPref/src/Manage.php:314
+#: plugins/aboutConfig/src/Manage.php:314 plugins/userPref/src/Manage.php:312
 msgid "yes"
 msgstr "Так."
 
@@ -969,7 +968,7 @@ msgstr "Опубліковані коментарі RSS-стрічка"
 msgid "No description"
 msgstr "Без опису"
 
-#: plugins/antispam/src/SpamFilter.php:152
+#: plugins/antispam/src/SpamFilter.php:151
 #, php-format
 msgid "Filtered by %1$s (%2$s)"
 msgstr "Відфільтровано за %1$s (%2$s)"
@@ -1368,7 +1367,11 @@ msgstr "Створіть php-файл, що містить рядки для п�
 
 #: plugins/dcCKEditor/src/Backend.php:25 plugins/dcCKEditor/src/Manage.php:170
 msgid "dcCKEditor"
-msgstr "dcCKEditor"
+msgstr "CKEditor"
+
+#: plugins/dcCKEditor/src/Backend.php:26
+msgid "CKEditor"
+msgstr "CKEditor"
 
 #: plugins/dcCKEditor/src/Backend.php:41
 #: plugins/dcLegacyEditor/src/Backend.php:46
@@ -1421,7 +1424,7 @@ msgstr "Активація плагіна"
 
 #: plugins/dcCKEditor/src/Manage.php:185
 msgid "Enable dcCKEditor plugin"
-msgstr "Увімкнути плагін dcCKEditor"
+msgstr "Увімкнути плагін CKEditor"
 
 #: plugins/dcCKEditor/src/Manage.php:198
 msgid "Add alignment buttons"
@@ -1505,14 +1508,18 @@ msgstr "Вимикає вбудовану перевірку орфографі�
 msgid "Save configuration"
 msgstr "Зберегти конфігурацію"
 
-#: plugins/dcCKEditor/src/ManagePostConfig.php:188
+#: plugins/dcCKEditor/src/ManagePostConfig.php:136
 msgid "Note(s)"
 msgstr "Примітка(и)"
 
 #: plugins/dcLegacyEditor/src/Backend.php:26
 #: plugins/dcLegacyEditor/src/Manage.php:73
 msgid "dcLegacyEditor"
-msgstr "dcLegacyEditor"
+msgstr "Редактор Dotclear"
+
+#: plugins/dcLegacyEditor/src/Backend.php:27
+msgid "Dotclear editor"
+msgstr "Редактор Dotclear"
 
 #: plugins/dcLegacyEditor/src/Backend.php:50
 msgid "Dotclear wiki"
@@ -3123,11 +3130,11 @@ msgstr "Не вдається видалити файл %s. Будь ласка,
 msgid "user:preferences"
 msgstr "user:preferences"
 
-#: plugins/userPref/src/Manage.php:89 plugins/userPref/src/Manage.php:108
+#: plugins/userPref/src/Manage.php:88 plugins/userPref/src/Manage.php:107
 msgid "Preferences successfully updated"
 msgstr "Налаштування успішно оновлено"
 
-#: plugins/userPref/src/Manage.php:158 plugins/userPref/src/Manage.php:160
+#: plugins/userPref/src/Manage.php:157 plugins/userPref/src/Manage.php:159
 msgid "Global preferences"
 msgstr "Глобальні вподобання"
 
@@ -3365,31 +3372,31 @@ msgstr "Стрічка заявок"
 msgid "Comments feed"
 msgstr "Стрічка коментарів"
 
-#: plugins/widgets/src/WidgetsElement.php:547
+#: plugins/widgets/src/WidgetsElement.php:548
 msgid "Title (optional)"
 msgstr "Назва (необов'язково)"
 
-#: plugins/widgets/src/WidgetsElement.php:558
+#: plugins/widgets/src/WidgetsElement.php:559
 msgid "All pages"
 msgstr "Всі сторінки"
 
-#: plugins/widgets/src/WidgetsElement.php:559
+#: plugins/widgets/src/WidgetsElement.php:560
 msgid "Home page only"
 msgstr "Тільки головна сторінка"
 
-#: plugins/widgets/src/WidgetsElement.php:560
+#: plugins/widgets/src/WidgetsElement.php:561
 msgid "Except on home page"
 msgstr "За винятком головної сторінки"
 
-#: plugins/widgets/src/WidgetsElement.php:568
+#: plugins/widgets/src/WidgetsElement.php:569
 msgid "Display on:"
 msgstr "Дисплей увімкнено:"
 
-#: plugins/widgets/src/WidgetsElement.php:594
+#: plugins/widgets/src/WidgetsElement.php:595
 msgid "Content only"
 msgstr "Тільки вміст"
 
-#: plugins/widgets/src/WidgetsElement.php:604
+#: plugins/widgets/src/WidgetsElement.php:605
 msgid "CSS class:"
 msgstr "Клас CSS:"
 
