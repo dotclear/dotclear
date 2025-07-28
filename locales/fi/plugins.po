@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-28 13:19+0200\n"
-"PO-Revision-Date: 2025-07-28 11:27\n"
+"PO-Revision-Date: 2025-07-28 13:42\n"
 "Last-Translator: \n"
 "Language-Team: Finnish\n"
 "Language: fi_FI\n"
@@ -1367,7 +1367,7 @@ msgstr "dcCKEditor"
 
 #: plugins/dcCKEditor/src/Backend.php:26
 msgid "CKEditor"
-msgstr ""
+msgstr "CKEditor"
 
 #: plugins/dcCKEditor/src/Backend.php:41
 #: plugins/dcLegacyEditor/src/Backend.php:46
@@ -1515,7 +1515,7 @@ msgstr "Perinteinen Dotclear-editori"
 
 #: plugins/dcLegacyEditor/src/Backend.php:27
 msgid "Dotclear editor"
-msgstr ""
+msgstr "Dotclear-editori"
 
 #: plugins/dcLegacyEditor/src/Backend.php:50
 msgid "Dotclear wiki"
