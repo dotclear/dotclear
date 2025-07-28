@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-28 13:19+0200\n"
-"PO-Revision-Date: 2025-07-28 13:43\n"
+"POT-Creation-Date: 2025-07-28 16:23+0200\n"
+"PO-Revision-Date: 2025-07-28 14:32\n"
 "Last-Translator: \n"
 "Language-Team: Telugu\n"
 "Language: te_IN\n"
@@ -1361,11 +1361,11 @@ msgstr "నకిల్ l10n దస్త్రం తయారు చేయల�
 msgid "Generate a php file that contents strings to translate that are not be done with core tools."
 msgstr "ఒక php దస్త్రమును జెనరేట్ చేయుము, ఆ విషయము కోర్ పనిముట్లతో చేయబడవు అని అనువదించండి."
 
-#: plugins/dcCKEditor/src/Backend.php:25 plugins/dcCKEditor/src/Manage.php:170
+#: plugins/dcCKEditor/src/Backend.php:25
 msgid "dcCKEditor"
 msgstr "CKEditor"
 
-#: plugins/dcCKEditor/src/Backend.php:26
+#: plugins/dcCKEditor/src/Backend.php:26 plugins/dcCKEditor/src/Manage.php:170
 msgid "CKEditor"
 msgstr "CKEditor"
 
@@ -1419,8 +1419,8 @@ msgid "Plugin activation"
 msgstr "ప్లగిన్ క్రియాశీలము"
 
 #: plugins/dcCKEditor/src/Manage.php:185
-msgid "Enable dcCKEditor plugin"
-msgstr "CKEditor ప్లగిన్ చేర్చు"
+msgid "Enable CKEditor plugin"
+msgstr ""
 
 #: plugins/dcCKEditor/src/Manage.php:198
 msgid "Add alignment buttons"
