@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-28 13:16+0200\n"
-"PO-Revision-Date: 2025-07-28 11:26\n"
+"POT-Creation-Date: 2025-07-28 16:17+0200\n"
+"PO-Revision-Date: 2025-07-28 14:30\n"
 "Last-Translator: \n"
 "Language-Team: Catalan\n"
 "Language: ca_ES\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Crowdin-File-ID: 262\n"
 
 #: inc/core/_fake_l10n.php:6 src/Process/Backend/Auth.php:353
-#: src/Process/Backend/User.php:264 src/Process/Backend/UserPreferences.php:526
+#: src/Process/Backend/User.php:264 src/Process/Backend/UserPreferences.php:529
 #: src/Process/Install/Install.php:397 src/Process/Upgrade/Auth.php:185
 msgid "medium"
 msgstr "mitjà"
@@ -458,11 +458,11 @@ msgstr "Disponible"
 msgid "Other"
 msgstr "Altres"
 
-#: src/Core/Backend/Combos.php:242 src/Process/Backend/UserPreferences.php:189
+#: src/Core/Backend/Combos.php:242 src/Process/Backend/UserPreferences.php:192
 msgid "Descending"
 msgstr "Descendent"
 
-#: src/Core/Backend/Combos.php:243 src/Process/Backend/UserPreferences.php:190
+#: src/Core/Backend/Combos.php:243 src/Process/Backend/UserPreferences.php:193
 msgid "Ascending"
 msgstr "Ascendent"
 
@@ -553,7 +553,7 @@ msgid "Number of entries"
 msgstr "Nombre d'entrades"
 
 #: src/Core/Backend/Favorites.php:299
-#: src/Process/Backend/UserPreferences.php:1145
+#: src/Process/Backend/UserPreferences.php:1148
 msgid "My favorites"
 msgstr "Els meus favorits"
 
@@ -652,7 +652,7 @@ msgstr "Ajuda global"
 #: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1261
 #: src/Process/Backend/Auth.php:420 src/Process/Backend/BlogPref.php:1346
 #: src/Process/Backend/Comment.php:306 src/Process/Backend/Post.php:1104
-#: src/Process/Backend/User.php:432 src/Process/Backend/UserPreferences.php:637
+#: src/Process/Backend/User.php:432 src/Process/Backend/UserPreferences.php:640
 #: src/Process/Install/Install.php:445
 msgid "Email:"
 msgstr "Correu electrònic:"
@@ -784,7 +784,7 @@ msgid "Sort:"
 msgstr "Classe:"
 
 #: src/Core/Backend/Filter/Filters.php:391
-#: src/Process/Backend/UserPreferences.php:770
+#: src/Process/Backend/UserPreferences.php:773
 msgid "Show"
 msgstr "Espectacle"
 
@@ -1479,9 +1479,9 @@ msgstr "Configura \"%s\""
 #: src/Process/Backend/Category.php:301 src/Process/Backend/Comment.php:352
 #: src/Process/Backend/Media.php:857 src/Process/Backend/MediaItem.php:1359
 #: src/Process/Backend/Post.php:946 src/Process/Backend/Search.php:197
-#: src/Process/Backend/User.php:547 src/Process/Backend/UserPreferences.php:698
-#: src/Process/Backend/UserPreferences.php:1000
-#: src/Process/Backend/UserPreferences.php:1226
+#: src/Process/Backend/User.php:547 src/Process/Backend/UserPreferences.php:701
+#: src/Process/Backend/UserPreferences.php:1003
+#: src/Process/Backend/UserPreferences.php:1229
 msgid "Back"
 msgstr "esquena"
 
@@ -1534,8 +1534,8 @@ msgid "Go to help"
 msgstr "Aneu a ajudar"
 
 #: src/Core/Backend/Page.php:339 src/Core/Upgrade/Page.php:175
-#: src/Process/Backend/UserPreferences.php:1135
-#: src/Process/Backend/UserPreferences.php:1137
+#: src/Process/Backend/UserPreferences.php:1138
+#: src/Process/Backend/UserPreferences.php:1140
 msgid "My dashboard"
 msgstr "El meu tauler"
 
@@ -3020,7 +3020,7 @@ msgid "Your new password is in your mailbox."
 msgstr "La seva nova contrasenya és en el seu correu electrònic."
 
 #: src/Process/Backend/Auth.php:203 src/Process/Backend/User.php:158
-#: src/Process/Backend/UserPreferences.php:231
+#: src/Process/Backend/UserPreferences.php:234
 #: src/Process/Install/Install.php:170
 msgid "Passwords don't match"
 msgstr "La contrasenya no es correspon"
@@ -3052,9 +3052,9 @@ msgstr "Identificador o contrasenya incorrectes"
 #: src/Process/Backend/Auth.php:352 src/Process/Backend/Auth.php:353
 #: src/Process/Backend/Auth.php:354 src/Process/Backend/User.php:263
 #: src/Process/Backend/User.php:264 src/Process/Backend/User.php:265
-#: src/Process/Backend/UserPreferences.php:525
-#: src/Process/Backend/UserPreferences.php:526
-#: src/Process/Backend/UserPreferences.php:527
+#: src/Process/Backend/UserPreferences.php:528
+#: src/Process/Backend/UserPreferences.php:529
+#: src/Process/Backend/UserPreferences.php:530
 #: src/Process/Install/Install.php:396 src/Process/Install/Install.php:397
 #: src/Process/Install/Install.php:398 src/Process/Upgrade/Auth.php:184
 #: src/Process/Upgrade/Auth.php:185 src/Process/Upgrade/Auth.php:186
@@ -3063,13 +3063,13 @@ msgid "Password strength: %s"
 msgstr "Força de la contrasenya: %s"
 
 #: src/Process/Backend/Auth.php:352 src/Process/Backend/User.php:263
-#: src/Process/Backend/UserPreferences.php:525
+#: src/Process/Backend/UserPreferences.php:528
 #: src/Process/Install/Install.php:396 src/Process/Upgrade/Auth.php:184
 msgid "weak"
 msgstr "feble"
 
 #: src/Process/Backend/Auth.php:354 src/Process/Backend/User.php:265
-#: src/Process/Backend/UserPreferences.php:527
+#: src/Process/Backend/UserPreferences.php:530
 #: src/Process/Install/Install.php:398 src/Process/Upgrade/Auth.php:186
 msgid "strong"
 msgstr "fort"
@@ -3095,7 +3095,7 @@ msgid "Change your password"
 msgstr "Canviar la seva contrasenya"
 
 #: src/Process/Backend/Auth.php:453 src/Process/Backend/User.php:334
-#: src/Process/Backend/UserPreferences.php:563
+#: src/Process/Backend/UserPreferences.php:566
 #: src/Process/Install/Install.php:464
 msgid "New password:"
 msgstr "Nova contrasenya:"
@@ -3325,7 +3325,7 @@ msgid "I would like to prevent search engines and archivers from indexing or arc
 msgstr "M'agradaria evitar que els motors de cerca i els arxivadors indexin o arxivin el contingut del meu bloc."
 
 #: src/Process/Backend/BlogPref.php:234
-#: src/Process/Backend/UserPreferences.php:151
+#: src/Process/Backend/UserPreferences.php:154
 msgid "Default"
 msgstr "Per defecte"
 
@@ -3958,7 +3958,7 @@ msgid "total:"
 msgstr "total:"
 
 #: src/Process/Backend/Categories.php:326 src/Process/Backend/Category.php:279
-#: src/Process/Backend/User.php:457 src/Process/Backend/UserPreferences.php:659
+#: src/Process/Backend/User.php:457 src/Process/Backend/UserPreferences.php:662
 msgid "URL:"
 msgstr "URL:"
 
@@ -5374,17 +5374,17 @@ msgstr "Atenció:"
 msgid "Password change required to connect"
 msgstr "Cal canviar la contrasenya per connectar-se"
 
-#: src/Process/Backend/User.php:401 src/Process/Backend/UserPreferences.php:607
+#: src/Process/Backend/User.php:401 src/Process/Backend/UserPreferences.php:610
 #: src/Process/Install/Install.php:439
 msgid "Last Name:"
 msgstr "Cognom:"
 
-#: src/Process/Backend/User.php:411 src/Process/Backend/UserPreferences.php:617
+#: src/Process/Backend/User.php:411 src/Process/Backend/UserPreferences.php:620
 #: src/Process/Install/Install.php:433
 msgid "First Name:"
 msgstr "Nom:"
 
-#: src/Process/Backend/User.php:421 src/Process/Backend/UserPreferences.php:627
+#: src/Process/Backend/User.php:421 src/Process/Backend/UserPreferences.php:630
 msgid "Display name:"
 msgstr "Pseudònim:"
 
@@ -5392,23 +5392,23 @@ msgstr "Pseudònim:"
 msgid "Mandatory for password recovering procedure."
 msgstr "Obligatori per al procediment de recuperació de la contrasenya."
 
-#: src/Process/Backend/User.php:444 src/Process/Backend/UserPreferences.php:646
+#: src/Process/Backend/User.php:444 src/Process/Backend/UserPreferences.php:649
 msgid "Alternate emails (comma separated list):"
 msgstr "Correus electrònics alternatius (llista separada per comes):"
 
-#: src/Process/Backend/User.php:448 src/Process/Backend/UserPreferences.php:650
+#: src/Process/Backend/User.php:448 src/Process/Backend/UserPreferences.php:653
 msgid "Invalid emails will be automatically removed from list."
 msgstr "Els correus electrònics no vàlids s'eliminaran automàticament de la llista."
 
-#: src/Process/Backend/User.php:466 src/Process/Backend/UserPreferences.php:668
+#: src/Process/Backend/User.php:466 src/Process/Backend/UserPreferences.php:671
 msgid "Alternate URLs (comma separated list):"
 msgstr "URL alternatius (llista separada per comes):"
 
-#: src/Process/Backend/User.php:470 src/Process/Backend/UserPreferences.php:672
+#: src/Process/Backend/User.php:470 src/Process/Backend/UserPreferences.php:675
 msgid "Invalid URLs will be automatically removed from list."
 msgstr "Els URL no vàlids s'eliminaran automàticament de la llista."
 
-#: src/Process/Backend/User.php:476 src/Process/Backend/UserPreferences.php:815
+#: src/Process/Backend/User.php:476 src/Process/Backend/UserPreferences.php:818
 msgid "Interface"
 msgstr "Interfície"
 
@@ -5416,19 +5416,19 @@ msgstr "Interfície"
 msgid "Timezone:"
 msgstr "Fus horari:"
 
-#: src/Process/Backend/User.php:492 src/Process/Backend/UserPreferences.php:939
+#: src/Process/Backend/User.php:492 src/Process/Backend/UserPreferences.php:942
 msgid "Edition"
 msgstr "Edició"
 
-#: src/Process/Backend/User.php:498 src/Process/Backend/UserPreferences.php:951
+#: src/Process/Backend/User.php:498 src/Process/Backend/UserPreferences.php:954
 msgid "Preferred format:"
 msgstr "Format d'edició preferit:"
 
-#: src/Process/Backend/User.php:505 src/Process/Backend/UserPreferences.php:959
+#: src/Process/Backend/User.php:505 src/Process/Backend/UserPreferences.php:962
 msgid "Default entry status:"
 msgstr "Estatus de l'entrada per defecte:"
 
-#: src/Process/Backend/User.php:510 src/Process/Backend/UserPreferences.php:965
+#: src/Process/Backend/User.php:510 src/Process/Backend/UserPreferences.php:968
 msgid "Entry edit field height:"
 msgstr "Mida del camp d'edició d'entrades:"
 
@@ -5478,341 +5478,341 @@ msgstr "Llista de publicacions"
 msgid "List of comments"
 msgstr "Llista de comentaris"
 
-#: src/Process/Backend/UserPreferences.php:142
+#: src/Process/Backend/UserPreferences.php:145
 msgid "Light"
 msgstr "Llum"
 
-#: src/Process/Backend/UserPreferences.php:143
+#: src/Process/Backend/UserPreferences.php:146
 msgid "Dark"
 msgstr "Fosc"
 
-#: src/Process/Backend/UserPreferences.php:144
+#: src/Process/Backend/UserPreferences.php:147
 msgid "Automatic"
 msgstr "Automàtic"
 
-#: src/Process/Backend/UserPreferences.php:149
+#: src/Process/Backend/UserPreferences.php:152
 msgid "Smallest"
 msgstr "El més petit"
 
-#: src/Process/Backend/UserPreferences.php:150
+#: src/Process/Backend/UserPreferences.php:153
 msgid "Smaller"
 msgstr "Més petit"
 
-#: src/Process/Backend/UserPreferences.php:152
+#: src/Process/Backend/UserPreferences.php:155
 msgid "Larger"
 msgstr "Més gran"
 
-#: src/Process/Backend/UserPreferences.php:153
+#: src/Process/Backend/UserPreferences.php:156
 msgid "Largest"
 msgstr "El més gran"
 
-#: src/Process/Backend/UserPreferences.php:165
+#: src/Process/Backend/UserPreferences.php:168
 msgid "Blog description (in blog parameters)"
 msgstr "Descripció del bloc (en els paràmetres del bloc)"
 
-#: src/Process/Backend/UserPreferences.php:166
+#: src/Process/Backend/UserPreferences.php:169
 msgid "Category description"
 msgstr "Descripció de la categoria"
 
-#: src/Process/Backend/UserPreferences.php:210
-#: src/Process/Backend/UserPreferences.php:227
+#: src/Process/Backend/UserPreferences.php:213
+#: src/Process/Backend/UserPreferences.php:230
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "Si voleu canviar el vostre correu electrònic o contrasenya, heu de proporcionar la vostra contrasenya actual."
 
-#: src/Process/Backend/UserPreferences.php:258
+#: src/Process/Backend/UserPreferences.php:261
 msgid "Personal information has been successfully updated."
 msgstr "La informació personal s'ha actualitzat amb èxit."
 
-#: src/Process/Backend/UserPreferences.php:376
+#: src/Process/Backend/UserPreferences.php:379
 msgid "Personal options has been successfully updated."
 msgstr "Les opcions personals s'han actualitzat correctament."
 
-#: src/Process/Backend/UserPreferences.php:404
+#: src/Process/Backend/UserPreferences.php:407
 msgid "Dashboard options has been successfully updated."
 msgstr "Les opcions del tauler de control s'han actualitzat correctament."
 
-#: src/Process/Backend/UserPreferences.php:416
-#: src/Process/Backend/UserPreferences.php:440
+#: src/Process/Backend/UserPreferences.php:419
+#: src/Process/Backend/UserPreferences.php:443
 msgid "No favorite selected"
 msgstr "No s'ha seleccionat cap favorit"
 
-#: src/Process/Backend/UserPreferences.php:427
+#: src/Process/Backend/UserPreferences.php:430
 msgid "Favorites have been successfully added."
 msgstr "Els preferits s'han afegit correctament."
 
-#: src/Process/Backend/UserPreferences.php:453
+#: src/Process/Backend/UserPreferences.php:456
 msgid "Favorites have been successfully removed."
 msgstr "Els preferits s'han eliminat correctament."
 
-#: src/Process/Backend/UserPreferences.php:483
+#: src/Process/Backend/UserPreferences.php:486
 msgid "Favorites have been successfully updated."
 msgstr "Els preferits s'han actualitzat correctament."
 
-#: src/Process/Backend/UserPreferences.php:495
+#: src/Process/Backend/UserPreferences.php:498
 msgid "Default favorites have been successfully updated."
 msgstr "Els preferits per defecte s'han actualitzat correctament."
 
-#: src/Process/Backend/UserPreferences.php:509
+#: src/Process/Backend/UserPreferences.php:512
 msgid "Dashboard items order have been successfully reset."
 msgstr "L'ordre dels elements del tauler s'ha restablert correctament."
 
-#: src/Process/Backend/UserPreferences.php:531
+#: src/Process/Backend/UserPreferences.php:534
 msgid "Are you sure you want to remove selected favorites?"
 msgstr "Esteu segur que voleu eliminar els preferits seleccionats?"
 
-#: src/Process/Backend/UserPreferences.php:553
+#: src/Process/Backend/UserPreferences.php:556
 msgid "Change my password"
 msgstr "Canvia la meva contrasenya"
 
-#: src/Process/Backend/UserPreferences.php:572
+#: src/Process/Backend/UserPreferences.php:575
 msgid "Confirm new password:"
 msgstr "Confirmar nova contrasenya:"
 
-#: src/Process/Backend/UserPreferences.php:582
+#: src/Process/Backend/UserPreferences.php:585
 msgid "Your current password:"
 msgstr "La teva contrasenya actual:"
 
-#: src/Process/Backend/UserPreferences.php:586
+#: src/Process/Backend/UserPreferences.php:589
 msgid "If you have changed your email or password you must provide your current password to save these modifications."
 msgstr "Si has canviat el teu correu electrònic o contrasenya, has de proporcionar la teva contrasenya actual per desar aquestes modificacions."
 
-#: src/Process/Backend/UserPreferences.php:592
-#: src/Process/Backend/UserPreferences.php:594
+#: src/Process/Backend/UserPreferences.php:595
+#: src/Process/Backend/UserPreferences.php:597
 msgid "My profile"
 msgstr "El meu perfil"
 
-#: src/Process/Backend/UserPreferences.php:679
+#: src/Process/Backend/UserPreferences.php:682
 msgid "Language for my interface:"
 msgstr "Idioma per a la meva interfície:"
 
-#: src/Process/Backend/UserPreferences.php:687
+#: src/Process/Backend/UserPreferences.php:690
 msgid "My timezone:"
 msgstr "La meva zona horària:"
 
-#: src/Process/Backend/UserPreferences.php:696
+#: src/Process/Backend/UserPreferences.php:699
 msgid "Update my profile"
 msgstr "Actualitza el meu perfil"
 
-#: src/Process/Backend/UserPreferences.php:764
+#: src/Process/Backend/UserPreferences.php:767
 msgid "List"
 msgstr "Llista"
 
-#: src/Process/Backend/UserPreferences.php:766
+#: src/Process/Backend/UserPreferences.php:769
 msgid "Order by"
 msgstr "Demanat per"
 
-#: src/Process/Backend/UserPreferences.php:768
+#: src/Process/Backend/UserPreferences.php:771
 msgid "Sort"
 msgstr "Ordena"
 
-#: src/Process/Backend/UserPreferences.php:781
+#: src/Process/Backend/UserPreferences.php:784
 #, php-format
 msgid "Preferred editor for %s:"
 msgstr "Editor preferit per a %s:"
 
-#: src/Process/Backend/UserPreferences.php:786
+#: src/Process/Backend/UserPreferences.php:789
 msgid "Choose an editor"
 msgstr "Trieu un editor"
 
-#: src/Process/Backend/UserPreferences.php:807
-#: src/Process/Backend/UserPreferences.php:813
+#: src/Process/Backend/UserPreferences.php:810
+#: src/Process/Backend/UserPreferences.php:816
 msgid "My options"
 msgstr "Les meves opcions"
 
-#: src/Process/Backend/UserPreferences.php:822
+#: src/Process/Backend/UserPreferences.php:825
 msgid "Theme:"
 msgstr "Tema:"
 
-#: src/Process/Backend/UserPreferences.php:828
+#: src/Process/Backend/UserPreferences.php:831
 msgid "Activate enhanced uploader in media manager"
 msgstr "Activa el carregador millorat al gestor de mitjans"
 
-#: src/Process/Backend/UserPreferences.php:834
+#: src/Process/Backend/UserPreferences.php:837
 msgid "Preview the entry being edited in a blank window or tab (depending on your browser settings)."
 msgstr "Previsualitza l'entrada que s'està editant en una finestra o pestanya en blanc (segons la configuració del teu navegador)."
 
-#: src/Process/Backend/UserPreferences.php:841
+#: src/Process/Backend/UserPreferences.php:844
 msgid "Disable javascript powered drag and drop for ordering items"
 msgstr "Desactiveu l'arrossegar i deixar anar amb Javascript per demanar articles"
 
-#: src/Process/Backend/UserPreferences.php:845
+#: src/Process/Backend/UserPreferences.php:848
 msgid "If checked, numeric fields will allow to type the elements' ordering number."
 msgstr "Si està marcat, els camps numèrics permetran escriure el número d'ordre dels elements."
 
-#: src/Process/Backend/UserPreferences.php:850
+#: src/Process/Backend/UserPreferences.php:853
 msgid "Hide all secondary information and notes"
 msgstr "Amaga tota la informació i les notes secundàries"
 
-#: src/Process/Backend/UserPreferences.php:856
+#: src/Process/Backend/UserPreferences.php:859
 msgid "Hide help button"
 msgstr "Amaga el botó d'ajuda"
 
-#: src/Process/Backend/UserPreferences.php:863
+#: src/Process/Backend/UserPreferences.php:866
 msgid "Font size:"
 msgstr "Mida de la font:"
 
-#: src/Process/Backend/UserPreferences.php:869
+#: src/Process/Backend/UserPreferences.php:872
 msgid "Use operating system font"
 msgstr "Utilitzeu el tipus de lletra del sistema operatiu"
 
-#: src/Process/Backend/UserPreferences.php:875
+#: src/Process/Backend/UserPreferences.php:878
 msgid "Number of recent folders proposed in media manager:"
 msgstr "Nombre de carpetes recents proposades al gestor de mitjans:"
 
-#: src/Process/Backend/UserPreferences.php:879
+#: src/Process/Backend/UserPreferences.php:882
 msgid "Set to 0 (zero) to ignore, displayed only if Javascript is enabled in your browser."
 msgstr "Estableix-ho a 0 (zero) per ignorar-ho, només es mostra si Javascript està habilitat al navegador."
 
-#: src/Process/Backend/UserPreferences.php:886
+#: src/Process/Backend/UserPreferences.php:889
 msgid "Do not use standard favicon"
 msgstr "No utilitzeu favicon estàndard"
 
-#: src/Process/Backend/UserPreferences.php:887
+#: src/Process/Backend/UserPreferences.php:890
 msgid "This will be applied for all users"
 msgstr "Això s'aplicarà a tots els usuaris"
 
-#: src/Process/Backend/UserPreferences.php:897
+#: src/Process/Backend/UserPreferences.php:900
 msgid "Disable Ad-blocker check"
 msgstr "Desactiva la comprovació del bloqueig d'anuncis"
 
-#: src/Process/Backend/UserPreferences.php:901
+#: src/Process/Backend/UserPreferences.php:904
 msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
 msgstr "Alguns bloquejadors d'anuncis (Ghostery, Adblock plus, origen uBloc, …) poden interferir amb alguna característica com la inserció d'enllaços o mitjans a les entrades amb CKEditor; en aquest cas, hauríeu de desactivar-lo per a aquesta instal·lació de Dotclear (només backend). Tingueu en compte que Dotclear no afegeix anuncis ni rastrejadors al backend."
 
-#: src/Process/Backend/UserPreferences.php:904
+#: src/Process/Backend/UserPreferences.php:907
 msgid "Note also that deactivating this detection of ad blockers will not deactivate the installed ad blockers. Dotclear cannot interfere with the operation of browser extensions!"
 msgstr "Tingueu en compte també que la desactivació d'aquesta detecció de bloquejadors d'anuncis no desactivarà els bloquejadors d'anuncis instal·lats. Dotclear no pot interferir amb el funcionament de les extensions del navegador!"
 
-#: src/Process/Backend/UserPreferences.php:912
+#: src/Process/Backend/UserPreferences.php:915
 msgid "Quick menu character:"
 msgstr "Caràcter del menú ràpid:"
 
-#: src/Process/Backend/UserPreferences.php:916
+#: src/Process/Backend/UserPreferences.php:919
 msgid "Leave empty to use the default character <kbd>:</kbd>"
 msgstr "Deixa en blanc per utilitzar el caràcter predeterminat <kbd>:</kbd>"
 
-#: src/Process/Backend/UserPreferences.php:921
+#: src/Process/Backend/UserPreferences.php:924
 msgid "Keep the main menu at the top of the page as much as possible"
 msgstr "Mantingueu el menú principal a la part superior de la pàgina tant com sigui possible"
 
-#: src/Process/Backend/UserPreferences.php:925
+#: src/Process/Backend/UserPreferences.php:928
 msgid "Optional columns displayed in lists"
 msgstr "Les columnes opcionals es mostren a les llistes"
 
-#: src/Process/Backend/UserPreferences.php:928
+#: src/Process/Backend/UserPreferences.php:931
 msgid "Options for lists"
 msgstr "Opcions per a llistes"
 
-#: src/Process/Backend/UserPreferences.php:934
+#: src/Process/Backend/UserPreferences.php:937
 msgid "Apply filters on the fly"
 msgstr "Aplicar filtres sobre la marxa"
 
-#: src/Process/Backend/UserPreferences.php:971
+#: src/Process/Backend/UserPreferences.php:974
 msgid "Enable WYSIWYG mode"
 msgstr "Activar la modalitat WYSIWYG"
 
-#: src/Process/Backend/UserPreferences.php:977
+#: src/Process/Backend/UserPreferences.php:980
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr "Mostra la barra d'eines de l'editor a la part inferior de l'àrea de text (si és possible)"
 
-#: src/Process/Backend/UserPreferences.php:983
+#: src/Process/Backend/UserPreferences.php:986
 msgid "Use HTML editor for:"
 msgstr "Utilitzeu l'editor HTML per a:"
 
-#: src/Process/Backend/UserPreferences.php:987
+#: src/Process/Backend/UserPreferences.php:990
 msgid "Other options"
 msgstr "Altres opcions"
 
-#: src/Process/Backend/UserPreferences.php:998
+#: src/Process/Backend/UserPreferences.php:1001
 msgid "Save my options"
 msgstr "Guarda les meves opcions"
 
-#: src/Process/Backend/UserPreferences.php:1029
+#: src/Process/Backend/UserPreferences.php:1032
 #, php-format
 msgid "position of %s"
 msgstr "posició de %s"
 
-#: src/Process/Backend/UserPreferences.php:1052
+#: src/Process/Backend/UserPreferences.php:1055
 msgid "Save order"
 msgstr "Guarda la comanda"
 
-#: src/Process/Backend/UserPreferences.php:1053
+#: src/Process/Backend/UserPreferences.php:1056
 msgid "Delete selected favorites"
 msgstr "Suprimeix els preferits seleccionats"
 
-#: src/Process/Backend/UserPreferences.php:1060
+#: src/Process/Backend/UserPreferences.php:1063
 msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
 msgstr "Si sou un superadministrador, podeu definir aquest conjunt de preferits que s'utilitzaran per defecte a tots els blocs d'aquesta instal·lació."
 
-#: src/Process/Backend/UserPreferences.php:1063
+#: src/Process/Backend/UserPreferences.php:1066
 msgid "Define as default favorites"
 msgstr "Definiu com a preferits predeterminats"
 
-#: src/Process/Backend/UserPreferences.php:1072
+#: src/Process/Backend/UserPreferences.php:1075
 msgid "Currently no personal favorites."
 msgstr "Actualment no hi ha cap favorit personal."
 
-#: src/Process/Backend/UserPreferences.php:1111
+#: src/Process/Backend/UserPreferences.php:1114
 msgid "(default favorite)"
 msgstr "(preferit per defecte)"
 
-#: src/Process/Backend/UserPreferences.php:1126
+#: src/Process/Backend/UserPreferences.php:1129
 msgid "Add to my favorites"
 msgstr "Afegeix als meus preferits"
 
-#: src/Process/Backend/UserPreferences.php:1150
+#: src/Process/Backend/UserPreferences.php:1153
 msgid "Other available favorites"
 msgstr "Altres preferits disponibles"
 
-#: src/Process/Backend/UserPreferences.php:1162
+#: src/Process/Backend/UserPreferences.php:1165
 msgid "Menu"
 msgstr "Menú"
 
-#: src/Process/Backend/UserPreferences.php:1168
+#: src/Process/Backend/UserPreferences.php:1171
 msgid "Display favorites at the top of the menu"
 msgstr "Mostra els preferits a la part superior del menú"
 
-#: src/Process/Backend/UserPreferences.php:1172
+#: src/Process/Backend/UserPreferences.php:1175
 msgid "Dashboard icons"
 msgstr "Icones del tauler de control"
 
-#: src/Process/Backend/UserPreferences.php:1178
+#: src/Process/Backend/UserPreferences.php:1181
 msgid "Display dashboard icons"
 msgstr "Mostra les icones del tauler"
 
-#: src/Process/Backend/UserPreferences.php:1182
+#: src/Process/Backend/UserPreferences.php:1185
 msgid "Dashboard modules"
 msgstr "Mòduls del quadre de comandament"
 
-#: src/Process/Backend/UserPreferences.php:1188
+#: src/Process/Backend/UserPreferences.php:1191
 msgid "Display documentation links"
 msgstr "Mostra enllaços de documentació"
 
-#: src/Process/Backend/UserPreferences.php:1194
+#: src/Process/Backend/UserPreferences.php:1197
 msgid "Display donate links"
 msgstr "Mostra els enllaços de donació"
 
-#: src/Process/Backend/UserPreferences.php:1200
+#: src/Process/Backend/UserPreferences.php:1203
 msgid "Display Dotclear news"
 msgstr "Mostra les notícies de Dotclear"
 
-#: src/Process/Backend/UserPreferences.php:1206
+#: src/Process/Backend/UserPreferences.php:1209
 msgid "Display quick entry form"
 msgstr "Mostra el formulari d'entrada ràpida"
 
-#: src/Process/Backend/UserPreferences.php:1211
+#: src/Process/Backend/UserPreferences.php:1214
 msgid "Do not display Dotclear updates"
 msgstr "No mostris actualitzacions de Dotclear"
 
-#: src/Process/Backend/UserPreferences.php:1224
+#: src/Process/Backend/UserPreferences.php:1227
 msgid "Save my dashboard options"
 msgstr "Desa les opcions del meu tauler de control"
 
-#: src/Process/Backend/UserPreferences.php:1237
+#: src/Process/Backend/UserPreferences.php:1240
 msgid "Dashboard items order"
 msgstr "Comanda d'elements del tauler"
 
-#: src/Process/Backend/UserPreferences.php:1240
+#: src/Process/Backend/UserPreferences.php:1243
 msgid "Reset dashboard items order"
 msgstr "Restableix l'ordre dels elements del tauler"
 

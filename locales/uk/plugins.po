@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-28 13:19+0200\n"
-"PO-Revision-Date: 2025-07-28 13:43\n"
+"POT-Creation-Date: 2025-07-28 16:23+0200\n"
+"PO-Revision-Date: 2025-07-28 14:54\n"
 "Last-Translator: \n"
 "Language-Team: Ukrainian\n"
 "Language: uk_UA\n"
@@ -1365,11 +1365,11 @@ msgstr "Не вдалося згенерувати фальшивий файл l
 msgid "Generate a php file that contents strings to translate that are not be done with core tools."
 msgstr "Створіть php-файл, що містить рядки для перекладу, які не можна перекласти основними інструментами."
 
-#: plugins/dcCKEditor/src/Backend.php:25 plugins/dcCKEditor/src/Manage.php:170
+#: plugins/dcCKEditor/src/Backend.php:25
 msgid "dcCKEditor"
 msgstr "CKEditor"
 
-#: plugins/dcCKEditor/src/Backend.php:26
+#: plugins/dcCKEditor/src/Backend.php:26 plugins/dcCKEditor/src/Manage.php:170
 msgid "CKEditor"
 msgstr "CKEditor"
 
@@ -1423,7 +1423,7 @@ msgid "Plugin activation"
 msgstr "Активація плагіна"
 
 #: plugins/dcCKEditor/src/Manage.php:185
-msgid "Enable dcCKEditor plugin"
+msgid "Enable CKEditor plugin"
 msgstr "Увімкнути плагін CKEditor"
 
 #: plugins/dcCKEditor/src/Manage.php:198

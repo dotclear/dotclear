@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-28 13:16+0200\n"
-"PO-Revision-Date: 2025-07-28 11:26\n"
+"POT-Creation-Date: 2025-07-28 16:17+0200\n"
+"PO-Revision-Date: 2025-07-28 14:30\n"
 "Last-Translator: \n"
 "Language-Team: Japanese\n"
 "Language: ja_JP\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Crowdin-File-ID: 262\n"
 
 #: inc/core/_fake_l10n.php:6 src/Process/Backend/Auth.php:353
-#: src/Process/Backend/User.php:264 src/Process/Backend/UserPreferences.php:526
+#: src/Process/Backend/User.php:264 src/Process/Backend/UserPreferences.php:529
 #: src/Process/Install/Install.php:397 src/Process/Upgrade/Auth.php:185
 msgid "medium"
 msgstr "medium"
@@ -449,11 +449,11 @@ msgstr "利用可能"
 msgid "Other"
 msgstr "その他"
 
-#: src/Core/Backend/Combos.php:242 src/Process/Backend/UserPreferences.php:189
+#: src/Core/Backend/Combos.php:242 src/Process/Backend/UserPreferences.php:192
 msgid "Descending"
 msgstr "降順"
 
-#: src/Core/Backend/Combos.php:243 src/Process/Backend/UserPreferences.php:190
+#: src/Core/Backend/Combos.php:243 src/Process/Backend/UserPreferences.php:193
 msgid "Ascending"
 msgstr "昇順"
 
@@ -544,7 +544,7 @@ msgid "Number of entries"
 msgstr "エントリ数"
 
 #: src/Core/Backend/Favorites.php:299
-#: src/Process/Backend/UserPreferences.php:1145
+#: src/Process/Backend/UserPreferences.php:1148
 msgid "My favorites"
 msgstr "お気に入り"
 
@@ -641,7 +641,7 @@ msgstr "グローバルヘルプ"
 #: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1261
 #: src/Process/Backend/Auth.php:420 src/Process/Backend/BlogPref.php:1346
 #: src/Process/Backend/Comment.php:306 src/Process/Backend/Post.php:1104
-#: src/Process/Backend/User.php:432 src/Process/Backend/UserPreferences.php:637
+#: src/Process/Backend/User.php:432 src/Process/Backend/UserPreferences.php:640
 #: src/Process/Install/Install.php:445
 msgid "Email:"
 msgstr "メール："
@@ -773,7 +773,7 @@ msgid "Sort:"
 msgstr "並び替え："
 
 #: src/Core/Backend/Filter/Filters.php:391
-#: src/Process/Backend/UserPreferences.php:770
+#: src/Process/Backend/UserPreferences.php:773
 msgid "Show"
 msgstr "表示"
 
@@ -1456,9 +1456,9 @@ msgstr "設定 \"%s\""
 #: src/Process/Backend/Category.php:301 src/Process/Backend/Comment.php:352
 #: src/Process/Backend/Media.php:857 src/Process/Backend/MediaItem.php:1359
 #: src/Process/Backend/Post.php:946 src/Process/Backend/Search.php:197
-#: src/Process/Backend/User.php:547 src/Process/Backend/UserPreferences.php:698
-#: src/Process/Backend/UserPreferences.php:1000
-#: src/Process/Backend/UserPreferences.php:1226
+#: src/Process/Backend/User.php:547 src/Process/Backend/UserPreferences.php:701
+#: src/Process/Backend/UserPreferences.php:1003
+#: src/Process/Backend/UserPreferences.php:1229
 msgid "Back"
 msgstr "戻る"
 
@@ -1511,8 +1511,8 @@ msgid "Go to help"
 msgstr "ヘルプに移動"
 
 #: src/Core/Backend/Page.php:339 src/Core/Upgrade/Page.php:175
-#: src/Process/Backend/UserPreferences.php:1135
-#: src/Process/Backend/UserPreferences.php:1137
+#: src/Process/Backend/UserPreferences.php:1138
+#: src/Process/Backend/UserPreferences.php:1140
 msgid "My dashboard"
 msgstr "自分のダッシュボード"
 
@@ -2992,7 +2992,7 @@ msgid "Your new password is in your mailbox."
 msgstr "新しいパスワードは、あなたのメールボックスに届けられました。"
 
 #: src/Process/Backend/Auth.php:203 src/Process/Backend/User.php:158
-#: src/Process/Backend/UserPreferences.php:231
+#: src/Process/Backend/UserPreferences.php:234
 #: src/Process/Install/Install.php:170
 msgid "Passwords don't match"
 msgstr "パスワードが一致しません"
@@ -3024,9 +3024,9 @@ msgstr "ユーザ名またはパスワードが間違っています"
 #: src/Process/Backend/Auth.php:352 src/Process/Backend/Auth.php:353
 #: src/Process/Backend/Auth.php:354 src/Process/Backend/User.php:263
 #: src/Process/Backend/User.php:264 src/Process/Backend/User.php:265
-#: src/Process/Backend/UserPreferences.php:525
-#: src/Process/Backend/UserPreferences.php:526
-#: src/Process/Backend/UserPreferences.php:527
+#: src/Process/Backend/UserPreferences.php:528
+#: src/Process/Backend/UserPreferences.php:529
+#: src/Process/Backend/UserPreferences.php:530
 #: src/Process/Install/Install.php:396 src/Process/Install/Install.php:397
 #: src/Process/Install/Install.php:398 src/Process/Upgrade/Auth.php:184
 #: src/Process/Upgrade/Auth.php:185 src/Process/Upgrade/Auth.php:186
@@ -3035,13 +3035,13 @@ msgid "Password strength: %s"
 msgstr "パスワード強度: %s"
 
 #: src/Process/Backend/Auth.php:352 src/Process/Backend/User.php:263
-#: src/Process/Backend/UserPreferences.php:525
+#: src/Process/Backend/UserPreferences.php:528
 #: src/Process/Install/Install.php:396 src/Process/Upgrade/Auth.php:184
 msgid "weak"
 msgstr "弱い"
 
 #: src/Process/Backend/Auth.php:354 src/Process/Backend/User.php:265
-#: src/Process/Backend/UserPreferences.php:527
+#: src/Process/Backend/UserPreferences.php:530
 #: src/Process/Install/Install.php:398 src/Process/Upgrade/Auth.php:186
 msgid "strong"
 msgstr "強い"
@@ -3067,7 +3067,7 @@ msgid "Change your password"
 msgstr "パスワードの変更"
 
 #: src/Process/Backend/Auth.php:453 src/Process/Backend/User.php:334
-#: src/Process/Backend/UserPreferences.php:563
+#: src/Process/Backend/UserPreferences.php:566
 #: src/Process/Install/Install.php:464
 msgid "New password:"
 msgstr "新しいパスワード："
@@ -3297,7 +3297,7 @@ msgid "I would like to prevent search engines and archivers from indexing or arc
 msgstr "検索エンジンやarchiverが自分のブログのコンテンツをインデックス化したりアーカイブしたりするのを防ぎたいと思います。"
 
 #: src/Process/Backend/BlogPref.php:234
-#: src/Process/Backend/UserPreferences.php:151
+#: src/Process/Backend/UserPreferences.php:154
 msgid "Default"
 msgstr "デフォルト"
 
@@ -3929,7 +3929,7 @@ msgid "total:"
 msgstr "合計："
 
 #: src/Process/Backend/Categories.php:326 src/Process/Backend/Category.php:279
-#: src/Process/Backend/User.php:457 src/Process/Backend/UserPreferences.php:659
+#: src/Process/Backend/User.php:457 src/Process/Backend/UserPreferences.php:662
 msgid "URL:"
 msgstr "URL："
 
@@ -5340,17 +5340,17 @@ msgstr "警告："
 msgid "Password change required to connect"
 msgstr "接続にはパスワードの変更が必要です"
 
-#: src/Process/Backend/User.php:401 src/Process/Backend/UserPreferences.php:607
+#: src/Process/Backend/User.php:401 src/Process/Backend/UserPreferences.php:610
 #: src/Process/Install/Install.php:439
 msgid "Last Name:"
 msgstr "姓:"
 
-#: src/Process/Backend/User.php:411 src/Process/Backend/UserPreferences.php:617
+#: src/Process/Backend/User.php:411 src/Process/Backend/UserPreferences.php:620
 #: src/Process/Install/Install.php:433
 msgid "First Name:"
 msgstr "氏名:"
 
-#: src/Process/Backend/User.php:421 src/Process/Backend/UserPreferences.php:627
+#: src/Process/Backend/User.php:421 src/Process/Backend/UserPreferences.php:630
 msgid "Display name:"
 msgstr "表示名："
 
@@ -5358,23 +5358,23 @@ msgstr "表示名："
 msgid "Mandatory for password recovering procedure."
 msgstr "パスワードを復元するために必須です。"
 
-#: src/Process/Backend/User.php:444 src/Process/Backend/UserPreferences.php:646
+#: src/Process/Backend/User.php:444 src/Process/Backend/UserPreferences.php:649
 msgid "Alternate emails (comma separated list):"
 msgstr "代替のメール (カンマ区切りリスト):"
 
-#: src/Process/Backend/User.php:448 src/Process/Backend/UserPreferences.php:650
+#: src/Process/Backend/User.php:448 src/Process/Backend/UserPreferences.php:653
 msgid "Invalid emails will be automatically removed from list."
 msgstr "無効なメールは自動的にリストから削除されます。"
 
-#: src/Process/Backend/User.php:466 src/Process/Backend/UserPreferences.php:668
+#: src/Process/Backend/User.php:466 src/Process/Backend/UserPreferences.php:671
 msgid "Alternate URLs (comma separated list):"
 msgstr "代替URL(カンマ区切りリスト):"
 
-#: src/Process/Backend/User.php:470 src/Process/Backend/UserPreferences.php:672
+#: src/Process/Backend/User.php:470 src/Process/Backend/UserPreferences.php:675
 msgid "Invalid URLs will be automatically removed from list."
 msgstr "無効な URL は自動的にリストから削除されます。"
 
-#: src/Process/Backend/User.php:476 src/Process/Backend/UserPreferences.php:815
+#: src/Process/Backend/User.php:476 src/Process/Backend/UserPreferences.php:818
 msgid "Interface"
 msgstr "インターフェイス"
 
@@ -5382,19 +5382,19 @@ msgstr "インターフェイス"
 msgid "Timezone:"
 msgstr "Timezone:"
 
-#: src/Process/Backend/User.php:492 src/Process/Backend/UserPreferences.php:939
+#: src/Process/Backend/User.php:492 src/Process/Backend/UserPreferences.php:942
 msgid "Edition"
 msgstr "版"
 
-#: src/Process/Backend/User.php:498 src/Process/Backend/UserPreferences.php:951
+#: src/Process/Backend/User.php:498 src/Process/Backend/UserPreferences.php:954
 msgid "Preferred format:"
 msgstr "優先書式"
 
-#: src/Process/Backend/User.php:505 src/Process/Backend/UserPreferences.php:959
+#: src/Process/Backend/User.php:505 src/Process/Backend/UserPreferences.php:962
 msgid "Default entry status:"
 msgstr "デフォルトのエントリ状態："
 
-#: src/Process/Backend/User.php:510 src/Process/Backend/UserPreferences.php:965
+#: src/Process/Backend/User.php:510 src/Process/Backend/UserPreferences.php:968
 msgid "Entry edit field height:"
 msgstr "エントリ編集フィールドの高さ"
 
@@ -5444,341 +5444,341 @@ msgstr "投稿一覧"
 msgid "List of comments"
 msgstr "コメント一覧"
 
-#: src/Process/Backend/UserPreferences.php:142
+#: src/Process/Backend/UserPreferences.php:145
 msgid "Light"
 msgstr "ライト"
 
-#: src/Process/Backend/UserPreferences.php:143
+#: src/Process/Backend/UserPreferences.php:146
 msgid "Dark"
 msgstr "ダーク"
 
-#: src/Process/Backend/UserPreferences.php:144
+#: src/Process/Backend/UserPreferences.php:147
 msgid "Automatic"
 msgstr "自動"
 
-#: src/Process/Backend/UserPreferences.php:149
+#: src/Process/Backend/UserPreferences.php:152
 msgid "Smallest"
 msgstr "小"
 
-#: src/Process/Backend/UserPreferences.php:150
+#: src/Process/Backend/UserPreferences.php:153
 msgid "Smaller"
 msgstr "小さく"
 
-#: src/Process/Backend/UserPreferences.php:152
+#: src/Process/Backend/UserPreferences.php:155
 msgid "Larger"
 msgstr "もっと大きい"
 
-#: src/Process/Backend/UserPreferences.php:153
+#: src/Process/Backend/UserPreferences.php:156
 msgid "Largest"
 msgstr "最大"
 
-#: src/Process/Backend/UserPreferences.php:165
+#: src/Process/Backend/UserPreferences.php:168
 msgid "Blog description (in blog parameters)"
 msgstr "ブログの説明（ブログパラメータ内）"
 
-#: src/Process/Backend/UserPreferences.php:166
+#: src/Process/Backend/UserPreferences.php:169
 msgid "Category description"
 msgstr "カテゴリの説明"
 
-#: src/Process/Backend/UserPreferences.php:210
-#: src/Process/Backend/UserPreferences.php:227
+#: src/Process/Backend/UserPreferences.php:213
+#: src/Process/Backend/UserPreferences.php:230
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "メールアドレスやパスワードを変更したい場合は、現在のパスワードを入力する必要があります。"
 
-#: src/Process/Backend/UserPreferences.php:258
+#: src/Process/Backend/UserPreferences.php:261
 msgid "Personal information has been successfully updated."
 msgstr "個人情報は正常に更新されました。"
 
-#: src/Process/Backend/UserPreferences.php:376
+#: src/Process/Backend/UserPreferences.php:379
 msgid "Personal options has been successfully updated."
 msgstr "個人設定が正常に更新されました。"
 
-#: src/Process/Backend/UserPreferences.php:404
+#: src/Process/Backend/UserPreferences.php:407
 msgid "Dashboard options has been successfully updated."
 msgstr "ダッシュボードのオプションが正常に更新されました。"
 
-#: src/Process/Backend/UserPreferences.php:416
-#: src/Process/Backend/UserPreferences.php:440
+#: src/Process/Backend/UserPreferences.php:419
+#: src/Process/Backend/UserPreferences.php:443
 msgid "No favorite selected"
 msgstr "お気に入りが選択されていません"
 
-#: src/Process/Backend/UserPreferences.php:427
+#: src/Process/Backend/UserPreferences.php:430
 msgid "Favorites have been successfully added."
 msgstr "お気に入りを追加しました。"
 
-#: src/Process/Backend/UserPreferences.php:453
+#: src/Process/Backend/UserPreferences.php:456
 msgid "Favorites have been successfully removed."
 msgstr "お気に入りを削除しました。"
 
-#: src/Process/Backend/UserPreferences.php:483
+#: src/Process/Backend/UserPreferences.php:486
 msgid "Favorites have been successfully updated."
 msgstr "お気に入りが正常に更新されました。"
 
-#: src/Process/Backend/UserPreferences.php:495
+#: src/Process/Backend/UserPreferences.php:498
 msgid "Default favorites have been successfully updated."
 msgstr "デフォルトのお気に入りは正常に更新されました。"
 
-#: src/Process/Backend/UserPreferences.php:509
+#: src/Process/Backend/UserPreferences.php:512
 msgid "Dashboard items order have been successfully reset."
 msgstr "ダッシュボードの注文が正常にリセットされました。"
 
-#: src/Process/Backend/UserPreferences.php:531
+#: src/Process/Backend/UserPreferences.php:534
 msgid "Are you sure you want to remove selected favorites?"
 msgstr "お気に入りを削除してもよろしいですか？"
 
-#: src/Process/Backend/UserPreferences.php:553
+#: src/Process/Backend/UserPreferences.php:556
 msgid "Change my password"
 msgstr "パスワードを変更する"
 
-#: src/Process/Backend/UserPreferences.php:572
+#: src/Process/Backend/UserPreferences.php:575
 msgid "Confirm new password:"
 msgstr "新しいパスワードを確認:"
 
-#: src/Process/Backend/UserPreferences.php:582
+#: src/Process/Backend/UserPreferences.php:585
 msgid "Your current password:"
 msgstr "現在のパスワード:"
 
-#: src/Process/Backend/UserPreferences.php:586
+#: src/Process/Backend/UserPreferences.php:589
 msgid "If you have changed your email or password you must provide your current password to save these modifications."
 msgstr "メールアドレスまたはパスワードを変更した場合は、現在のパスワードを入力する必要があります。"
 
-#: src/Process/Backend/UserPreferences.php:592
-#: src/Process/Backend/UserPreferences.php:594
+#: src/Process/Backend/UserPreferences.php:595
+#: src/Process/Backend/UserPreferences.php:597
 msgid "My profile"
 msgstr "マイプロフィール"
 
-#: src/Process/Backend/UserPreferences.php:679
+#: src/Process/Backend/UserPreferences.php:682
 msgid "Language for my interface:"
 msgstr "自分のインターフェイスの言語:"
 
-#: src/Process/Backend/UserPreferences.php:687
+#: src/Process/Backend/UserPreferences.php:690
 msgid "My timezone:"
 msgstr "私のタイムゾーン:"
 
-#: src/Process/Backend/UserPreferences.php:696
+#: src/Process/Backend/UserPreferences.php:699
 msgid "Update my profile"
 msgstr "プロフィールを更新"
 
-#: src/Process/Backend/UserPreferences.php:764
+#: src/Process/Backend/UserPreferences.php:767
 msgid "List"
 msgstr "リスト"
 
-#: src/Process/Backend/UserPreferences.php:766
+#: src/Process/Backend/UserPreferences.php:769
 msgid "Order by"
 msgstr "並び順"
 
-#: src/Process/Backend/UserPreferences.php:768
+#: src/Process/Backend/UserPreferences.php:771
 msgid "Sort"
 msgstr "並べ替え"
 
-#: src/Process/Backend/UserPreferences.php:781
+#: src/Process/Backend/UserPreferences.php:784
 #, php-format
 msgid "Preferred editor for %s:"
 msgstr "%s の優先エディタ"
 
-#: src/Process/Backend/UserPreferences.php:786
+#: src/Process/Backend/UserPreferences.php:789
 msgid "Choose an editor"
 msgstr "エディタを選択"
 
-#: src/Process/Backend/UserPreferences.php:807
-#: src/Process/Backend/UserPreferences.php:813
+#: src/Process/Backend/UserPreferences.php:810
+#: src/Process/Backend/UserPreferences.php:816
 msgid "My options"
 msgstr "自分のオプション"
 
-#: src/Process/Backend/UserPreferences.php:822
+#: src/Process/Backend/UserPreferences.php:825
 msgid "Theme:"
 msgstr "テーマ:"
 
-#: src/Process/Backend/UserPreferences.php:828
+#: src/Process/Backend/UserPreferences.php:831
 msgid "Activate enhanced uploader in media manager"
 msgstr "メディアマネージャーで強化されたアップローダーを有効にする"
 
-#: src/Process/Backend/UserPreferences.php:834
+#: src/Process/Backend/UserPreferences.php:837
 msgid "Preview the entry being edited in a blank window or tab (depending on your browser settings)."
 msgstr "(ブラウザの設定に応じて) 空白のウィンドウまたはタブで編集されているエントリをプレビューします。"
 
-#: src/Process/Backend/UserPreferences.php:841
+#: src/Process/Backend/UserPreferences.php:844
 msgid "Disable javascript powered drag and drop for ordering items"
 msgstr "javascriptによるドラッグ&ドロップを無効にしてアイテムを注文する"
 
-#: src/Process/Backend/UserPreferences.php:845
+#: src/Process/Backend/UserPreferences.php:848
 msgid "If checked, numeric fields will allow to type the elements' ordering number."
 msgstr "チェックされている場合、数値フィールドは要素の順序番号を入力することができます。"
 
-#: src/Process/Backend/UserPreferences.php:850
+#: src/Process/Backend/UserPreferences.php:853
 msgid "Hide all secondary information and notes"
 msgstr "すべての二次情報とメモを非表示にする"
 
-#: src/Process/Backend/UserPreferences.php:856
+#: src/Process/Backend/UserPreferences.php:859
 msgid "Hide help button"
 msgstr "ヘルプボタンを隠す"
 
-#: src/Process/Backend/UserPreferences.php:863
+#: src/Process/Backend/UserPreferences.php:866
 msgid "Font size:"
 msgstr "フォントサイズ:"
 
-#: src/Process/Backend/UserPreferences.php:869
+#: src/Process/Backend/UserPreferences.php:872
 msgid "Use operating system font"
 msgstr "オペレーティングシステムのフォントを使用"
 
-#: src/Process/Backend/UserPreferences.php:875
+#: src/Process/Backend/UserPreferences.php:878
 msgid "Number of recent folders proposed in media manager:"
 msgstr "メディア・マネージャーで提案された最近のフォルダ数:"
 
-#: src/Process/Backend/UserPreferences.php:879
+#: src/Process/Backend/UserPreferences.php:882
 msgid "Set to 0 (zero) to ignore, displayed only if Javascript is enabled in your browser."
 msgstr "ブラウザのJavascriptが有効な場合にのみ表示されます。"
 
-#: src/Process/Backend/UserPreferences.php:886
+#: src/Process/Backend/UserPreferences.php:889
 msgid "Do not use standard favicon"
 msgstr "標準のファビコンを使用しない"
 
-#: src/Process/Backend/UserPreferences.php:887
+#: src/Process/Backend/UserPreferences.php:890
 msgid "This will be applied for all users"
 msgstr "これはすべてのユーザーに適用されます"
 
-#: src/Process/Backend/UserPreferences.php:897
+#: src/Process/Backend/UserPreferences.php:900
 msgid "Disable Ad-blocker check"
 msgstr "広告ブロッカーチェックを無効にする"
 
-#: src/Process/Backend/UserPreferences.php:901
+#: src/Process/Backend/UserPreferences.php:904
 msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
 msgstr "一部の広告ブロッカー（Ghostery、Adblock Plus、uBloc origin、 …）は、CKEditorのエントリにリンクやメディアを挿入する際にいくつかの機能を妨げる可能性があります。 この場合、Dotclear のインストールで無効にする必要があります (バックエンドのみ)。 Dotclear は、バックエンドに広告を追加しないことに注意してください。"
 
-#: src/Process/Backend/UserPreferences.php:904
+#: src/Process/Backend/UserPreferences.php:907
 msgid "Note also that deactivating this detection of ad blockers will not deactivate the installed ad blockers. Dotclear cannot interfere with the operation of browser extensions!"
 msgstr "また、広告ブロッカーの検出を無効にしても、インストールされている広告ブロッカーは無効化されませんのでご注意ください。ドットクリアは、ブラウザの拡張機能の動作を妨げることはできません！"
 
-#: src/Process/Backend/UserPreferences.php:912
+#: src/Process/Backend/UserPreferences.php:915
 msgid "Quick menu character:"
 msgstr "クイックメニューの文字："
 
-#: src/Process/Backend/UserPreferences.php:916
+#: src/Process/Backend/UserPreferences.php:919
 msgid "Leave empty to use the default character <kbd>:</kbd>"
 msgstr "デフォルトの文字を使用する場合は空のままにします<kbd>：</kbd>"
 
-#: src/Process/Backend/UserPreferences.php:921
+#: src/Process/Backend/UserPreferences.php:924
 msgid "Keep the main menu at the top of the page as much as possible"
 msgstr "メインメニューはできるだけページの上部に置く"
 
-#: src/Process/Backend/UserPreferences.php:925
+#: src/Process/Backend/UserPreferences.php:928
 msgid "Optional columns displayed in lists"
 msgstr "リストに表示される任意の列"
 
-#: src/Process/Backend/UserPreferences.php:928
+#: src/Process/Backend/UserPreferences.php:931
 msgid "Options for lists"
 msgstr "リストのオプション"
 
-#: src/Process/Backend/UserPreferences.php:934
+#: src/Process/Backend/UserPreferences.php:937
 msgid "Apply filters on the fly"
 msgstr "その場でフィルターを適用する"
 
-#: src/Process/Backend/UserPreferences.php:971
+#: src/Process/Backend/UserPreferences.php:974
 msgid "Enable WYSIWYG mode"
 msgstr "WYSIWYG モードの有効化"
 
-#: src/Process/Backend/UserPreferences.php:977
+#: src/Process/Backend/UserPreferences.php:980
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr "テキストエリアの下部にエディタのツールバーを表示します (可能な場合)"
 
-#: src/Process/Backend/UserPreferences.php:983
+#: src/Process/Backend/UserPreferences.php:986
 msgid "Use HTML editor for:"
 msgstr "次のHTMLエディタを使用:"
 
-#: src/Process/Backend/UserPreferences.php:987
+#: src/Process/Backend/UserPreferences.php:990
 msgid "Other options"
 msgstr "その他のオプション"
 
-#: src/Process/Backend/UserPreferences.php:998
+#: src/Process/Backend/UserPreferences.php:1001
 msgid "Save my options"
 msgstr "オプションを保存"
 
-#: src/Process/Backend/UserPreferences.php:1029
+#: src/Process/Backend/UserPreferences.php:1032
 #, php-format
 msgid "position of %s"
 msgstr "%s の位置"
 
-#: src/Process/Backend/UserPreferences.php:1052
+#: src/Process/Backend/UserPreferences.php:1055
 msgid "Save order"
 msgstr "順序を保存"
 
-#: src/Process/Backend/UserPreferences.php:1053
+#: src/Process/Backend/UserPreferences.php:1056
 msgid "Delete selected favorites"
 msgstr "選択したお気に入りを削除"
 
-#: src/Process/Backend/UserPreferences.php:1060
+#: src/Process/Backend/UserPreferences.php:1063
 msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
 msgstr "スーパー管理者であれば、このインストールのすべてのブログでデフォルトで使用されるお気に入りのセットを定義することができます。"
 
-#: src/Process/Backend/UserPreferences.php:1063
+#: src/Process/Backend/UserPreferences.php:1066
 msgid "Define as default favorites"
 msgstr "既定のお気に入りとして定義"
 
-#: src/Process/Backend/UserPreferences.php:1072
+#: src/Process/Backend/UserPreferences.php:1075
 msgid "Currently no personal favorites."
 msgstr "現在個人のお気に入りはありません。"
 
-#: src/Process/Backend/UserPreferences.php:1111
+#: src/Process/Backend/UserPreferences.php:1114
 msgid "(default favorite)"
 msgstr "(既定のお気に入り)"
 
-#: src/Process/Backend/UserPreferences.php:1126
+#: src/Process/Backend/UserPreferences.php:1129
 msgid "Add to my favorites"
 msgstr "お気に入りに追加"
 
-#: src/Process/Backend/UserPreferences.php:1150
+#: src/Process/Backend/UserPreferences.php:1153
 msgid "Other available favorites"
 msgstr "他の利用可能なお気に入り"
 
-#: src/Process/Backend/UserPreferences.php:1162
+#: src/Process/Backend/UserPreferences.php:1165
 msgid "Menu"
 msgstr "メニュー"
 
-#: src/Process/Backend/UserPreferences.php:1168
+#: src/Process/Backend/UserPreferences.php:1171
 msgid "Display favorites at the top of the menu"
 msgstr "メニューの上部にお気に入りを表示する"
 
-#: src/Process/Backend/UserPreferences.php:1172
+#: src/Process/Backend/UserPreferences.php:1175
 msgid "Dashboard icons"
 msgstr "ダッシュボードのアイコン"
 
-#: src/Process/Backend/UserPreferences.php:1178
+#: src/Process/Backend/UserPreferences.php:1181
 msgid "Display dashboard icons"
 msgstr "ダッシュボードアイコンを表示"
 
-#: src/Process/Backend/UserPreferences.php:1182
+#: src/Process/Backend/UserPreferences.php:1185
 msgid "Dashboard modules"
 msgstr "ダッシュボードモジュール"
 
-#: src/Process/Backend/UserPreferences.php:1188
+#: src/Process/Backend/UserPreferences.php:1191
 msgid "Display documentation links"
 msgstr "ドキュメントのリンクを表示"
 
-#: src/Process/Backend/UserPreferences.php:1194
+#: src/Process/Backend/UserPreferences.php:1197
 msgid "Display donate links"
 msgstr "寄付リンクを表示する"
 
-#: src/Process/Backend/UserPreferences.php:1200
+#: src/Process/Backend/UserPreferences.php:1203
 msgid "Display Dotclear news"
 msgstr "Dotclear ニュースを表示"
 
-#: src/Process/Backend/UserPreferences.php:1206
+#: src/Process/Backend/UserPreferences.php:1209
 msgid "Display quick entry form"
 msgstr "クイック入力フォームを表示"
 
-#: src/Process/Backend/UserPreferences.php:1211
+#: src/Process/Backend/UserPreferences.php:1214
 msgid "Do not display Dotclear updates"
 msgstr "Dotclear の更新を表示しない"
 
-#: src/Process/Backend/UserPreferences.php:1224
+#: src/Process/Backend/UserPreferences.php:1227
 msgid "Save my dashboard options"
 msgstr "ダッシュボードのオプションを保存"
 
-#: src/Process/Backend/UserPreferences.php:1237
+#: src/Process/Backend/UserPreferences.php:1240
 msgid "Dashboard items order"
 msgstr "ダッシュボードのアイテムの順序"
 
-#: src/Process/Backend/UserPreferences.php:1240
+#: src/Process/Backend/UserPreferences.php:1243
 msgid "Reset dashboard items order"
 msgstr "ダッシュボードアイテムの順序をリセット"
 
