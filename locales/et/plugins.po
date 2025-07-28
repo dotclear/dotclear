@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-28 13:19+0200\n"
-"PO-Revision-Date: 2025-07-28 11:27\n"
+"PO-Revision-Date: 2025-07-28 13:43\n"
 "Last-Translator: \n"
 "Language-Team: Estonian\n"
 "Language: et_EE\n"
@@ -479,7 +479,7 @@ msgstr "Uninstallige puhtalt pluginad ja teemad"
 
 #: plugins/_fake_plugin/_fake_l10n.php:14
 msgid "dotclear legacy editor"
-msgstr "dotclear legacy editor"
+msgstr "Dotcleari redaktor"
 
 #: plugins/_fake_plugin/_fake_l10n.php:15
 #: plugins/themeEditor/src/Backend.php:26
@@ -501,7 +501,7 @@ msgstr "Halda iga kasutaja eelistuste direktiivi"
 
 #: plugins/_fake_plugin/_fake_l10n.php:19
 msgid "dotclear CKEditor integration"
-msgstr "dotclear CKEditor integratsioon"
+msgstr "CKEditor"
 
 #: plugins/_fake_plugin/_fake_l10n.php:20
 #: plugins/maintenance/src/Backend.php:26
@@ -1363,11 +1363,11 @@ msgstr "Loo php faili, mis sisaldab stringid tõlkida, et ei ole teha core töö
 
 #: plugins/dcCKEditor/src/Backend.php:25 plugins/dcCKEditor/src/Manage.php:170
 msgid "dcCKEditor"
-msgstr "dcCKEditor"
+msgstr "CKEditor"
 
 #: plugins/dcCKEditor/src/Backend.php:26
 msgid "CKEditor"
-msgstr ""
+msgstr "CKEditor"
 
 #: plugins/dcCKEditor/src/Backend.php:41
 #: plugins/dcLegacyEditor/src/Backend.php:46
@@ -1420,7 +1420,7 @@ msgstr "Plugini aktiveerimine"
 
 #: plugins/dcCKEditor/src/Manage.php:185
 msgid "Enable dcCKEditor plugin"
-msgstr "Lubage dcCKEditor plugin"
+msgstr "Lubage CKEditor plugin"
 
 #: plugins/dcCKEditor/src/Manage.php:198
 msgid "Add alignment buttons"
@@ -1511,11 +1511,11 @@ msgstr "Märkus(ed)"
 #: plugins/dcLegacyEditor/src/Backend.php:26
 #: plugins/dcLegacyEditor/src/Manage.php:73
 msgid "dcLegacyEditor"
-msgstr "dcLegacyEditor"
+msgstr "Dotcleari redaktor"
 
 #: plugins/dcLegacyEditor/src/Backend.php:27
 msgid "Dotclear editor"
-msgstr ""
+msgstr "Dotcleari redaktor"
 
 #: plugins/dcLegacyEditor/src/Backend.php:50
 msgid "Dotclear wiki"
