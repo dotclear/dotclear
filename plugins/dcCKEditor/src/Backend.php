@@ -23,7 +23,7 @@ class Backend extends Process
     {
         // Dead but useful code (for l10n)
         __('dcCKEditor');
-        __('dotclear CKEditor integration');
+        __('CKEditor');
 
         return self::status(My::checkContext(My::BACKEND));
     }

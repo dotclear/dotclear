@@ -24,7 +24,7 @@ class Backend extends Process
     {
         // Dead but useful code (for l10n)
         __('dcLegacyEditor');
-        __('dotclear legacy editor');
+        __('Dotclear editor');
 
         return self::status(My::checkContext(My::BACKEND));
     }

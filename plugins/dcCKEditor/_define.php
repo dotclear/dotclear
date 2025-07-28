@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * @brief       The plugin dcCKEditor definition
@@ -14,10 +15,10 @@
  * @copyright   AGPL-3.0
  */
 $this->registerModule(
-    'dcCKEditor',                    // Name
-    'dotclear CKEditor integration', // Description
-    'dotclear Team',                 // Author
-    '2.1',                           // Version
+    'dcCKEditor',
+    'CKEditor',
+    'dotclear Team',
+    '2.1',
     [
         'permissions' => 'My',
         'type'        => 'plugin',

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * @brief       The plugin dcLegacyEditor definition
@@ -6,7 +7,7 @@
  *
  * @defgroup    dcLegacyEditor Plugin dcLegacyEditor.
  *
- * dcLegacyEditor, dotclear legacy editor.
+ * dcLegacyEditor, dotclear editor.
  *
  * @package     Dotclear
  *
@@ -14,10 +15,10 @@
  * @copyright   AGPL-3.0
  */
 $this->registerModule(
-    'dcLegacyEditor',         // Name
-    'dotclear legacy editor', // Description
-    'dotclear Team',          // Author
-    '1.1',                  // Version
+    'dcLegacyEditor',
+    'Dotclear editor',
+    'dotclear Team',
+    '1.1',
     [
         'permissions' => 'My',
         'type'        => 'plugin',
