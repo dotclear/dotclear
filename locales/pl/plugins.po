@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-28 13:19+0200\n"
-"PO-Revision-Date: 2025-07-28 13:43\n"
+"POT-Creation-Date: 2025-07-28 16:23+0200\n"
+"PO-Revision-Date: 2025-07-28 14:31\n"
 "Last-Translator: \n"
 "Language-Team: Polish\n"
 "Language: pl_PL\n"
@@ -1365,11 +1365,11 @@ msgstr "Nie udało się wygenerować fałszywego pliku l10n."
 msgid "Generate a php file that contents strings to translate that are not be done with core tools."
 msgstr "Wygeneruj plik php, który ma tłumaczyć ciągi treści, które nie są wykonywane przy użyciu podstawowych narzędzi."
 
-#: plugins/dcCKEditor/src/Backend.php:25 plugins/dcCKEditor/src/Manage.php:170
+#: plugins/dcCKEditor/src/Backend.php:25
 msgid "dcCKEditor"
 msgstr "CKEditor"
 
-#: plugins/dcCKEditor/src/Backend.php:26
+#: plugins/dcCKEditor/src/Backend.php:26 plugins/dcCKEditor/src/Manage.php:170
 msgid "CKEditor"
 msgstr "CKEditor"
 
@@ -1423,8 +1423,8 @@ msgid "Plugin activation"
 msgstr "Aktywacja wtyczki"
 
 #: plugins/dcCKEditor/src/Manage.php:185
-msgid "Enable dcCKEditor plugin"
-msgstr "Włącz wtyczkę CKEditor"
+msgid "Enable CKEditor plugin"
+msgstr ""
 
 #: plugins/dcCKEditor/src/Manage.php:198
 msgid "Add alignment buttons"
