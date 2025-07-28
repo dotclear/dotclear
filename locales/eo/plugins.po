@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-28 13:19+0200\n"
-"PO-Revision-Date: 2025-07-28 11:27\n"
+"PO-Revision-Date: 2025-07-28 13:43\n"
 "Last-Translator: \n"
 "Language-Team: Esperanto\n"
 "Language: eo_UY\n"
@@ -479,7 +479,7 @@ msgstr "Malinstalu pure kromaĵojn kaj temojn"
 
 #: plugins/_fake_plugin/_fake_l10n.php:14
 msgid "dotclear legacy editor"
-msgstr "dotclear hereda redaktilo"
+msgstr "Dotclear-redaktisto"
 
 #: plugins/_fake_plugin/_fake_l10n.php:15
 #: plugins/themeEditor/src/Backend.php:26
@@ -501,7 +501,7 @@ msgstr "Administri ĉiun uzantpreferdirektivon"
 
 #: plugins/_fake_plugin/_fake_l10n.php:19
 msgid "dotclear CKEditor integration"
-msgstr "dotclear CKEditor integriĝo"
+msgstr "CKEditor"
 
 #: plugins/_fake_plugin/_fake_l10n.php:20
 #: plugins/maintenance/src/Backend.php:26
@@ -1363,11 +1363,11 @@ msgstr "Generu php-dosieron, kiu enhavas ĉenojn por traduki, kiuj ne estas fari
 
 #: plugins/dcCKEditor/src/Backend.php:25 plugins/dcCKEditor/src/Manage.php:170
 msgid "dcCKEditor"
-msgstr "dcCKEditoro"
+msgstr "CKEditor"
 
 #: plugins/dcCKEditor/src/Backend.php:26
 msgid "CKEditor"
-msgstr ""
+msgstr "CKEditor"
 
 #: plugins/dcCKEditor/src/Backend.php:41
 #: plugins/dcLegacyEditor/src/Backend.php:46
@@ -1420,7 +1420,7 @@ msgstr "Aktivigo de kromprogramoj"
 
 #: plugins/dcCKEditor/src/Manage.php:185
 msgid "Enable dcCKEditor plugin"
-msgstr "Ebligu dcCKEditor kromaĵon"
+msgstr "Ebligu CKEditor kromaĵon"
 
 #: plugins/dcCKEditor/src/Manage.php:198
 msgid "Add alignment buttons"
@@ -1511,11 +1511,11 @@ msgstr "Noto(j)"
 #: plugins/dcLegacyEditor/src/Backend.php:26
 #: plugins/dcLegacyEditor/src/Manage.php:73
 msgid "dcLegacyEditor"
-msgstr "dcLegacy Editor"
+msgstr "Dotclear-redaktisto"
 
 #: plugins/dcLegacyEditor/src/Backend.php:27
 msgid "Dotclear editor"
-msgstr ""
+msgstr "Dotclear-redaktisto"
 
 #: plugins/dcLegacyEditor/src/Backend.php:50
 msgid "Dotclear wiki"
