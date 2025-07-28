@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-11 19:25+0200\n"
-"PO-Revision-Date: 2025-07-11 21:23\n"
+"POT-Creation-Date: 2025-07-28 13:19+0200\n"
+"PO-Revision-Date: 2025-07-28 11:27\n"
 "Last-Translator: \n"
 "Language-Team: Indonesian\n"
 "Language: id_ID\n"
@@ -30,42 +30,42 @@ msgid "Folders from cache directory"
 msgstr "Folder dari direktori cache"
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:43
-msgid "delete selected cache directories"
-msgstr "menghapus direktori cache yang dipilih"
-
-#: plugins/Uninstaller/src/Cleaner/Caches.php:44
 #, php-format
 msgid "delete \"%s\" cache directory"
 msgstr "hapus \"%s\" direktori cache"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:45
+#: plugins/Uninstaller/src/Cleaner/Caches.php:44
 #, php-format
 msgid "\"%s\" cache directory deleted"
 msgstr "\"%s\" direktori cache dihapus"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:46
+#: plugins/Uninstaller/src/Cleaner/Caches.php:45
 #, php-format
 msgid "Failed to delete \"%s\" cache directory"
 msgstr "Gagal menghapus direktori cache \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:52
-msgid "empty selected cache directories"
-msgstr "mengosongkan direktori cache yang dipilih"
+#: plugins/Uninstaller/src/Cleaner/Caches.php:46
+msgid "delete selected cache directories"
+msgstr "menghapus direktori cache yang dipilih"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:53
+#: plugins/Uninstaller/src/Cleaner/Caches.php:52
 #, php-format
 msgid "empty \"%s\" cache directory"
 msgstr "kosong \"%s\" direktori cache"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:54
+#: plugins/Uninstaller/src/Cleaner/Caches.php:53
 #, php-format
 msgid "\"%s\" cache directory emptied"
 msgstr "\"%s\" direktori cache dikosongkan"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:55
+#: plugins/Uninstaller/src/Cleaner/Caches.php:54
 #, php-format
 msgid "Failed to empty \"%s\" cache directory"
 msgstr "Gagal mengosongkan direktori cache \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:55
+msgid "empty selected cache directories"
+msgstr "mengosongkan direktori cache yang dipilih"
 
 #: plugins/Uninstaller/src/Cleaner/Logs.php:38
 msgid "Logs"
@@ -76,46 +76,46 @@ msgid "Logs in Dotclear logs table"
 msgstr "Masuk ke tabel log Dotclear"
 
 #: plugins/Uninstaller/src/Cleaner/Logs.php:44
-msgid "delete selected logs tables"
-msgstr "menghapus tabel log yang dipilih"
-
-#: plugins/Uninstaller/src/Cleaner/Logs.php:45
 #, php-format
 msgid "delete \"%s\" logs table"
 msgstr "hapus \"%s\" tabel log"
 
-#: plugins/Uninstaller/src/Cleaner/Logs.php:46
+#: plugins/Uninstaller/src/Cleaner/Logs.php:45
 #, php-format
 msgid "\"%s\" logs table deleted"
 msgstr "\"%s\" tabel log dihapus"
 
-#: plugins/Uninstaller/src/Cleaner/Logs.php:47
+#: plugins/Uninstaller/src/Cleaner/Logs.php:46
 #, php-format
 msgid "Failed to delete \"%s\" logs table"
 msgstr "Gagal menghapus tabel log \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Logs.php:47
+msgid "delete selected logs tables"
+msgstr "menghapus tabel log yang dipilih"
 
 #: plugins/Uninstaller/src/Cleaner/Plugins.php:37
 msgid "Folders from plugins directories"
 msgstr "Folder dari direktori plugin"
 
 #: plugins/Uninstaller/src/Cleaner/Plugins.php:42
-msgid "delete selected plugins files and directories"
-msgstr "menghapus file dan direktori plugin yang dipilih"
-
-#: plugins/Uninstaller/src/Cleaner/Plugins.php:43
 #, php-format
 msgid "delete \"%s\" plugin files and directories"
 msgstr "hapus file dan direktori plugin \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Plugins.php:44
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:43
 #, php-format
 msgid "\"%s\" plugin files and directories deleted"
 msgstr "\"%s\" file dan direktori plugin dihapus"
 
-#: plugins/Uninstaller/src/Cleaner/Plugins.php:45
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:44
 #, php-format
 msgid "Failed to delete \"%s\" plugin files and directories"
 msgstr "Gagal menghapus file dan direktori plugin \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:45
+msgid "delete selected plugins files and directories"
+msgstr "menghapus file dan direktori plugin yang dipilih"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:38
 msgid "Preferences"
@@ -126,61 +126,61 @@ msgid "Users preferences workspaces"
 msgstr "Ruang kerja preferensi pengguna"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:44
-msgid "delete selected global preferences workspaces"
-msgstr "menghapus ruang kerja preferensi global yang dipilih"
-
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:45
 #, php-format
 msgid "delete \"%s\" global preferences workspace"
 msgstr "hapus \"%s\" ruang kerja preferensi global"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:46
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:45
 #, php-format
 msgid "\"%s\" global preferences workspace deleted"
 msgstr "\"%s\" ruang kerja preferensi global dihapus"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:47
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:46
 #, php-format
 msgid "Failed to delete \"%s\" global preferences workspace"
 msgstr "Gagal menghapus ruang kerja preferensi global \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:53
-msgid "delete selected users preferences workspaces"
-msgstr "menghapus ruang kerja preferensi pengguna yang dipilih"
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:47
+msgid "delete selected global preferences workspaces"
+msgstr "menghapus ruang kerja preferensi global yang dipilih"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:54
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:53
 #, php-format
 msgid "delete \"%s\" users preferences workspace"
 msgstr "hapus \"%s\" ruang kerja preferensi pengguna"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:55
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:54
 #, php-format
 msgid "\"%s\" users preferences workspace deleted"
 msgstr "\"%s\"ruang kerja preferensi pengguna dihapus"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:56
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:55
 #, php-format
 msgid "Failed to delete \"%s\" users preferences workspace"
 msgstr "Gagal menghapus ruang kerja preferensi pengguna \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:62
-msgid "delete selected preferences workspaces"
-msgstr "menghapus ruang kerja preferensi yang dipilih"
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:56
+msgid "delete selected users preferences workspaces"
+msgstr "menghapus ruang kerja preferensi pengguna yang dipilih"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:63
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:62
 #, php-format
 msgid "delete \"%s\" preferences workspace"
 msgstr "hapus \"%s\" ruang kerja preferensi"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:64
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:63
 #, php-format
 msgid "\"%s\" preferences workspace deleted"
 msgstr "\"%s\" preferensi ruang kerja dihapus"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:65
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:64
 #, php-format
 msgid "Failed to delete \"%s\" preferences workspace"
 msgstr "Gagal menghapus ruang kerja preferensi \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:65
+msgid "delete selected preferences workspaces"
+msgstr "menghapus ruang kerja preferensi yang dipilih"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:71
 msgid "delete related preferences"
@@ -199,61 +199,61 @@ msgid "Namespaces registered in dcSettings"
 msgstr "Ruang nama yang terdaftar di dcSettings"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:44
-msgid "delete selected global settings namespaces"
-msgstr "menghapus ruang nama pengaturan global yang dipilih"
-
-#: plugins/Uninstaller/src/Cleaner/Settings.php:45
 #, php-format
 msgid "delete \"%s\" global settings namespace"
 msgstr "hapus \"%s\" ruang nama pengaturan global"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:46
+#: plugins/Uninstaller/src/Cleaner/Settings.php:45
 #, php-format
 msgid "\"%s\" global settings namespace deleted"
 msgstr "\"%s\" ruang nama pengaturan global dihapus"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:47
+#: plugins/Uninstaller/src/Cleaner/Settings.php:46
 #, php-format
 msgid "Failed to delete \"%s\" global settings namespace"
 msgstr "Gagal menghapus ruang nama pengaturan global \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:53
-msgid "delete selected blog settings namespaces"
-msgstr "menghapus ruang nama pengaturan blog yang dipilih"
+#: plugins/Uninstaller/src/Cleaner/Settings.php:47
+msgid "delete selected global settings namespaces"
+msgstr "menghapus ruang nama pengaturan global yang dipilih"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:54
+#: plugins/Uninstaller/src/Cleaner/Settings.php:53
 #, php-format
 msgid "delete \"%s\" blog settings namespace"
 msgstr "hapus \"%s\" ruang nama pengaturan blog"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:55
+#: plugins/Uninstaller/src/Cleaner/Settings.php:54
 #, php-format
 msgid "\"%s\" blog settings namespace deleted"
 msgstr "\"%s\"Pengaturan blog ruang nama dihapus"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:56
+#: plugins/Uninstaller/src/Cleaner/Settings.php:55
 #, php-format
 msgid "Failed to delete \"%s\" blog settings namespace"
 msgstr "Gagal menghapus ruang nama pengaturan blog \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:62
-msgid "delete selected settings namespaces"
-msgstr "menghapus ruang nama pengaturan yang dipilih"
+#: plugins/Uninstaller/src/Cleaner/Settings.php:56
+msgid "delete selected blog settings namespaces"
+msgstr "menghapus ruang nama pengaturan blog yang dipilih"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:63
+#: plugins/Uninstaller/src/Cleaner/Settings.php:62
 #, php-format
 msgid "delete \"%s\" settings namespace"
 msgstr "hapus \"%s\" pengaturan ruang nama"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:64
+#: plugins/Uninstaller/src/Cleaner/Settings.php:63
 #, php-format
 msgid "\"%s\" settings namespace deleted"
 msgstr "\"%s\" pengaturan ruang nama dihapus"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:65
+#: plugins/Uninstaller/src/Cleaner/Settings.php:64
 #, php-format
 msgid "Failed to delete \"%s\" settings namespace"
 msgstr "Gagal menghapus ruang nama pengaturan \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:65
+msgid "delete selected settings namespaces"
+msgstr "menghapus ruang nama pengaturan yang dipilih"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:71
 msgid "delete related settings"
@@ -276,42 +276,42 @@ msgid "All database tables of Dotclear"
 msgstr "Semua tabel basis data dari Dotclear"
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:45
-msgid "delete selected tables"
-msgstr "menghapus tabel yang dipilih"
-
-#: plugins/Uninstaller/src/Cleaner/Tables.php:46
 #, php-format
 msgid "delete \"%s\" table"
 msgstr "hapus \"%s\" tabel"
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:47
+#: plugins/Uninstaller/src/Cleaner/Tables.php:46
 #, php-format
 msgid "\"%s\" table deleted"
 msgstr "\"%s\" tabel dihapus"
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:48
+#: plugins/Uninstaller/src/Cleaner/Tables.php:47
 #, php-format
 msgid "Failed to delete \"%s\" table"
 msgstr "Gagal menghapus tabel \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:54
-msgid "empty selected tables"
-msgstr "mengosongkan tabel yang dipilih"
+#: plugins/Uninstaller/src/Cleaner/Tables.php:48
+msgid "delete selected tables"
+msgstr "menghapus tabel yang dipilih"
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:55
+#: plugins/Uninstaller/src/Cleaner/Tables.php:54
 #, php-format
 msgid "empty \"%s\" table"
 msgstr "kosong \"%s\" tabel"
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:56
+#: plugins/Uninstaller/src/Cleaner/Tables.php:55
 #, php-format
 msgid "\"%s\" table emptied"
 msgstr "\"%s\" tabel dikosongkan"
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:57
+#: plugins/Uninstaller/src/Cleaner/Tables.php:56
 #, php-format
 msgid "Failed to empty \"%s\" table"
 msgstr "Gagal mengosongkan tabel \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:57
+msgid "empty selected tables"
+msgstr "mengosongkan tabel yang dipilih"
 
 #: plugins/Uninstaller/src/Cleaner/Themes.php:36
 msgid "Themes"
@@ -322,23 +322,23 @@ msgid "Folders from blog themes directory"
 msgstr "Folder dari direktori tema blog"
 
 #: plugins/Uninstaller/src/Cleaner/Themes.php:42
-msgid "delete selected themes files and directories"
-msgstr "menghapus file dan direktori tema yang dipilih"
-
-#: plugins/Uninstaller/src/Cleaner/Themes.php:43
 #, php-format
 msgid "delete \"%s\" theme files and directories"
 msgstr "hapus file dan direktori tema \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Themes.php:44
+#: plugins/Uninstaller/src/Cleaner/Themes.php:43
 #, php-format
 msgid "\"%s\" theme files and directories deleted"
 msgstr "\"%s\" file tema dan direktori dihapus"
 
-#: plugins/Uninstaller/src/Cleaner/Themes.php:45
+#: plugins/Uninstaller/src/Cleaner/Themes.php:44
 #, php-format
 msgid "Failed to delete \"%s\" theme files and directories"
 msgstr "Gagal menghapus file dan direktori tema \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Themes.php:45
+msgid "delete selected themes files and directories"
+msgstr "menghapus file dan direktori tema yang dipilih"
 
 #: plugins/Uninstaller/src/Cleaner/Vars.php:37
 msgid "Var"
@@ -349,23 +349,23 @@ msgid "Folders from Dotclear VAR directory"
 msgstr "Folder dari direktori Dotclear VAR"
 
 #: plugins/Uninstaller/src/Cleaner/Vars.php:43
-msgid "delete selected var directories"
-msgstr "menghapus direktori var yang dipilih"
-
-#: plugins/Uninstaller/src/Cleaner/Vars.php:44
 #, php-format
 msgid "delete \"%s\" var directory"
 msgstr "hapus \"%s\" direktori var"
 
-#: plugins/Uninstaller/src/Cleaner/Vars.php:45
+#: plugins/Uninstaller/src/Cleaner/Vars.php:44
 #, php-format
 msgid "\"%s\" var directory deleted"
 msgstr "\"%s\" direktori var dihapus"
 
-#: plugins/Uninstaller/src/Cleaner/Vars.php:46
+#: plugins/Uninstaller/src/Cleaner/Vars.php:45
 #, php-format
 msgid "Failed to delete \"%s\" var directory"
 msgstr "Gagal menghapus direktori var \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Vars.php:46
+msgid "delete selected var directories"
+msgstr "menghapus direktori var yang dipilih"
 
 #: plugins/Uninstaller/src/Cleaner/Versions.php:36
 msgid "Versions"
@@ -376,23 +376,23 @@ msgid "Versions registered in table \"version\" of Dotclear"
 msgstr "Versi yang terdaftar di tabel \"versi\" dari Dotclear"
 
 #: plugins/Uninstaller/src/Cleaner/Versions.php:42
-msgid "delete selected versions numbers"
-msgstr "menghapus nomor versi yang dipilih"
-
-#: plugins/Uninstaller/src/Cleaner/Versions.php:43
 #, php-format
 msgid "delete \"%s\" version number"
 msgstr "hapus \"%s\" nomor versi"
 
-#: plugins/Uninstaller/src/Cleaner/Versions.php:44
+#: plugins/Uninstaller/src/Cleaner/Versions.php:43
 #, php-format
 msgid "\"%s\" version number deleted"
 msgstr "\"%s\" nomor versi dihapus"
 
-#: plugins/Uninstaller/src/Cleaner/Versions.php:45
+#: plugins/Uninstaller/src/Cleaner/Versions.php:44
 #, php-format
 msgid "Failed to delete \"%s\" version number"
 msgstr "Gagal menghapus nomor versi \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Versions.php:45
+msgid "delete selected versions numbers"
+msgstr "menghapus nomor versi yang dipilih"
 
 #: plugins/Uninstaller/src/CleanersStack.php:112
 #, php-format
@@ -478,7 +478,6 @@ msgid "Uninstall cleanly plugins and themes"
 msgstr "Copot pemasangan plugin dan tema dengan bersih"
 
 #: plugins/_fake_plugin/_fake_l10n.php:14
-#: plugins/dcLegacyEditor/src/Backend.php:27
 msgid "dotclear legacy editor"
 msgstr "editor warisan dotclear"
 
@@ -500,7 +499,7 @@ msgstr "Impor dan Ekspor blog Anda"
 msgid "Manage every user preference directive"
 msgstr "Mengelola setiap arahan preferensi pengguna"
 
-#: plugins/_fake_plugin/_fake_l10n.php:19 plugins/dcCKEditor/src/Backend.php:26
+#: plugins/_fake_plugin/_fake_l10n.php:19
 msgid "dotclear CKEditor integration"
 msgstr "Integrasi dotclear CKEditor"
 
@@ -593,38 +592,38 @@ msgstr "Tag awan"
 msgid "about:config"
 msgstr "about:config"
 
-#: plugins/aboutConfig/src/Manage.php:90 plugins/aboutConfig/src/Manage.php:110
+#: plugins/aboutConfig/src/Manage.php:89 plugins/aboutConfig/src/Manage.php:109
 msgid "Configuration successfully updated"
 msgstr "Konfigurasi berhasil diperbarui"
 
-#: plugins/aboutConfig/src/Manage.php:150
-#: plugins/aboutConfig/src/Manage.php:152
+#: plugins/aboutConfig/src/Manage.php:149
+#: plugins/aboutConfig/src/Manage.php:151
 #, php-format
 msgid "Settings for %s"
 msgstr "Pengaturan untuk %s"
 
-#: plugins/aboutConfig/src/Manage.php:160
-#: plugins/aboutConfig/src/Manage.php:162
+#: plugins/aboutConfig/src/Manage.php:159
+#: plugins/aboutConfig/src/Manage.php:161
 msgid "Global settings"
 msgstr "Pengaturan global"
 
-#: plugins/aboutConfig/src/Manage.php:228 plugins/userPref/src/Manage.php:226
+#: plugins/aboutConfig/src/Manage.php:226 plugins/userPref/src/Manage.php:224
 msgid "Goto:"
 msgstr "Goto:"
 
-#: plugins/aboutConfig/src/Manage.php:255 plugins/userPref/src/Manage.php:253
+#: plugins/aboutConfig/src/Manage.php:253 plugins/userPref/src/Manage.php:251
 msgid "Setting ID"
 msgstr "Mengatur ID"
 
-#: plugins/aboutConfig/src/Manage.php:256 plugins/userPref/src/Manage.php:254
+#: plugins/aboutConfig/src/Manage.php:254 plugins/userPref/src/Manage.php:252
 msgid "Value"
 msgstr "Nilai"
 
-#: plugins/aboutConfig/src/Manage.php:316 plugins/userPref/src/Manage.php:314
+#: plugins/aboutConfig/src/Manage.php:314 plugins/userPref/src/Manage.php:312
 msgid "no"
 msgstr "tidak"
 
-#: plugins/aboutConfig/src/Manage.php:316 plugins/userPref/src/Manage.php:314
+#: plugins/aboutConfig/src/Manage.php:314 plugins/userPref/src/Manage.php:312
 msgid "yes"
 msgstr "Ya."
 
@@ -969,7 +968,7 @@ msgstr "Umpan RSS komentar yang dipublikasikan"
 msgid "No description"
 msgstr "Tidak ada deskripsi"
 
-#: plugins/antispam/src/SpamFilter.php:152
+#: plugins/antispam/src/SpamFilter.php:151
 #, php-format
 msgid "Filtered by %1$s (%2$s)"
 msgstr "Disaring oleh %1$s (%2$s)"
@@ -1364,6 +1363,10 @@ msgstr "Buat file php yang berisi string untuk diterjemahkan yang tidak dapat di
 msgid "dcCKEditor"
 msgstr "dcCKEditor"
 
+#: plugins/dcCKEditor/src/Backend.php:26
+msgid "CKEditor"
+msgstr ""
+
 #: plugins/dcCKEditor/src/Backend.php:41
 #: plugins/dcLegacyEditor/src/Backend.php:46
 msgid "HTML"
@@ -1499,7 +1502,7 @@ msgstr "Menonaktifkan pemeriksa ejaan bawaan jika browser menyediakannya"
 msgid "Save configuration"
 msgstr "Menyimpan konfigurasi"
 
-#: plugins/dcCKEditor/src/ManagePostConfig.php:188
+#: plugins/dcCKEditor/src/ManagePostConfig.php:136
 msgid "Note(s)"
 msgstr "Catatan"
 
@@ -1507,6 +1510,10 @@ msgstr "Catatan"
 #: plugins/dcLegacyEditor/src/Manage.php:73
 msgid "dcLegacyEditor"
 msgstr "dcLegacyEditor"
+
+#: plugins/dcLegacyEditor/src/Backend.php:27
+msgid "Dotclear editor"
+msgstr ""
 
 #: plugins/dcLegacyEditor/src/Backend.php:50
 msgid "Dotclear wiki"
@@ -3102,11 +3109,11 @@ msgstr "Tidak dapat menghapus file %s. Periksa izin file dan folder tema Anda."
 msgid "user:preferences"
 msgstr "user:preferensi"
 
-#: plugins/userPref/src/Manage.php:89 plugins/userPref/src/Manage.php:108
+#: plugins/userPref/src/Manage.php:88 plugins/userPref/src/Manage.php:107
 msgid "Preferences successfully updated"
 msgstr "Preferensi berhasil diperbarui"
 
-#: plugins/userPref/src/Manage.php:158 plugins/userPref/src/Manage.php:160
+#: plugins/userPref/src/Manage.php:157 plugins/userPref/src/Manage.php:159
 msgid "Global preferences"
 msgstr "Preferensi global"
 
@@ -3344,31 +3351,31 @@ msgstr "Memasukkan umpan"
 msgid "Comments feed"
 msgstr "Umpan komentar"
 
-#: plugins/widgets/src/WidgetsElement.php:547
+#: plugins/widgets/src/WidgetsElement.php:548
 msgid "Title (optional)"
 msgstr "Judul (opsional)"
 
-#: plugins/widgets/src/WidgetsElement.php:558
+#: plugins/widgets/src/WidgetsElement.php:559
 msgid "All pages"
 msgstr "Semua halaman"
 
-#: plugins/widgets/src/WidgetsElement.php:559
+#: plugins/widgets/src/WidgetsElement.php:560
 msgid "Home page only"
 msgstr "Halaman beranda saja"
 
-#: plugins/widgets/src/WidgetsElement.php:560
+#: plugins/widgets/src/WidgetsElement.php:561
 msgid "Except on home page"
 msgstr "Kecuali di halaman beranda"
 
-#: plugins/widgets/src/WidgetsElement.php:568
+#: plugins/widgets/src/WidgetsElement.php:569
 msgid "Display on:"
 msgstr "Layar menyala:"
 
-#: plugins/widgets/src/WidgetsElement.php:594
+#: plugins/widgets/src/WidgetsElement.php:595
 msgid "Content only"
 msgstr "Hanya konten"
 
-#: plugins/widgets/src/WidgetsElement.php:604
+#: plugins/widgets/src/WidgetsElement.php:605
 msgid "CSS class:"
 msgstr "Kelas CSS:"
 
