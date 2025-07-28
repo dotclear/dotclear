@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-28 13:19+0200\n"
-"PO-Revision-Date: 2025-07-28 11:27\n"
+"PO-Revision-Date: 2025-07-28 13:43\n"
 "Last-Translator: \n"
 "Language-Team: Hindi\n"
 "Language: hi_IN\n"
@@ -479,7 +479,7 @@ msgstr "सफाई प्लगइन्स और थीम को अनइ�
 
 #: plugins/_fake_plugin/_fake_l10n.php:14
 msgid "dotclear legacy editor"
-msgstr "डॉटकॉम स्पष्ट विरासत संपादक"
+msgstr "डॉटक्लियर संपादक"
 
 #: plugins/_fake_plugin/_fake_l10n.php:15
 #: plugins/themeEditor/src/Backend.php:26
@@ -1363,11 +1363,11 @@ msgstr "एक php फ़ाइल उत्पन्न करें जो अ
 
 #: plugins/dcCKEditor/src/Backend.php:25 plugins/dcCKEditor/src/Manage.php:170
 msgid "dcCKEditor"
-msgstr "डीसीकेएडीटर"
+msgstr "CKEditor"
 
 #: plugins/dcCKEditor/src/Backend.php:26
 msgid "CKEditor"
-msgstr ""
+msgstr "CKEditor"
 
 #: plugins/dcCKEditor/src/Backend.php:41
 #: plugins/dcLegacyEditor/src/Backend.php:46
@@ -1420,7 +1420,7 @@ msgstr "प्लगिन सक्रियकरण"
 
 #: plugins/dcCKEditor/src/Manage.php:185
 msgid "Enable dcCKEditor plugin"
-msgstr "DcckEdd प्लगिन सक्रिय करें"
+msgstr "CKEditor प्लगिन सक्रिय करें"
 
 #: plugins/dcCKEditor/src/Manage.php:198
 msgid "Add alignment buttons"
@@ -1511,11 +1511,11 @@ msgstr "नोट (ओं)"
 #: plugins/dcLegacyEditor/src/Backend.php:26
 #: plugins/dcLegacyEditor/src/Manage.php:73
 msgid "dcLegacyEditor"
-msgstr "DclegacyEds"
+msgstr "डॉटक्लियर संपादक"
 
 #: plugins/dcLegacyEditor/src/Backend.php:27
 msgid "Dotclear editor"
-msgstr ""
+msgstr "डॉटक्लियर संपादक"
 
 #: plugins/dcLegacyEditor/src/Backend.php:50
 msgid "Dotclear wiki"
