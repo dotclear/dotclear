@@ -155,8 +155,10 @@ class Attic extends Process
                                 'href="' . App::upgrade()->url()->get('upgrade.attic', ['step' => 'download', 'version' => (string) self::$updater->getVersion()]) . '"'
                             ) .
                             ' ' .
-                            __('If this problem persists try to ' .
-                                '<a href="https://dotclear.org/download">update manually</a>.')
+                            sprintf(
+                                __('If this problem persists try to <a href="%s">update manually</a>.'),
+                                'https://dotclear.org/download'
+                            )
                         );
                     }
 
@@ -193,15 +195,25 @@ class Attic extends Process
             $msg = $e->getMessage();
 
             if ($e->getCode() == self::$updater::ERR_FILES_CHANGED) {
-                $msg = __('The following files of your Dotclear installation have been modified so we won\'t try to update your installation. Please try to <a href="https://dotclear.org/download">update manually</a>.');
-                $msg .= ' (<a href="' . App::upgrade()->url()->get('upgrade.digests') . '">' . __('You can bypass this warning by updating installation disgets file.') . '</a>)';
+                $msg = sprintf(
+                    __('The following files of your Dotclear installation have been modified so we won\'t try to update your installation. Please try to <a href="%s">update manually</a>.'),
+                    'https://dotclear.org/download'
+                ) .
+                ' ' .
+                sprintf(
+                    __('(<a href="%s">You can bypass this warning by updating installation disgets file</a>).'),
+                    App::upgrade()->url()->get('upgrade.digests')
+                );
             } elseif ($e->getCode() == self::$updater::ERR_FILES_UNREADABLE) {
                 $msg = sprintf(
                     __('The following files of your Dotclear installation are not readable. Please fix this or try to make a backup file named %s manually.'),
                     '<strong>backup-' . App::config()->dotclearVersion() . '.zip</strong>'
                 );
             } elseif ($e->getCode() == self::$updater::ERR_FILES_UNWRITALBE) {
-                $msg = __('The following files of your Dotclear installation cannot be written. Please fix this or try to <a href="https://dotclear.org/download">update manually</a>.');
+                $msg = sprintf(
+                    __('The following files of your Dotclear installation cannot be written. Please fix this or try to <a href="%s">update manually</a>.'),
+                    'https://dotclear.org/download'
+                );
             }
 
             if (($bad_files = self::$updater->getBadFiles()) !== []) {

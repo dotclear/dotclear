@@ -1148,7 +1148,12 @@ class BlogPref extends Process
                         ->items([
                             (new Checkbox('prevents_clickjacking', (bool) App::backend()->blog_settings->system->prevents_clickjacking))
                                 ->value(1)
-                                ->label(new Label(__('Protect the blog from Clickjacking (see <a href="https://en.wikipedia.org/wiki/Clickjacking">Wikipedia</a>)'), Label::IL_FT)),
+                                ->label(
+                                    new Label(sprintf(
+                                        __('Protect the blog from Clickjacking (see <a href="%s">Wikipedia</a>)'),
+                                        'https://en.wikipedia.org/wiki/Clickjacking'
+                                    ), Label::IL_FT)
+                                ),
                         ]),
                 ]);
 

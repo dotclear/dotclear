@@ -270,16 +270,30 @@ class Home extends Process
 
         if (App::config()->adminUrl() === '') {
             Notices::message(
-                sprintf(__('%s is not defined, you should edit your configuration file.'), 'DC_ADMIN_URL') . ' ' .
-                __('See <a href="https://dotclear.org/documentation/2.0/admin/config">documentation</a> for more information.'),
+                sprintf(
+                    __('%s is not defined, you should edit your configuration file.'),
+                    'DC_ADMIN_URL'
+                ) .
+                ' ' .
+                sprintf(
+                    __('See <a href="%s">documentation</a> for more information.'),
+                    'https://dotclear.org/documentation/2.0/admin/config'
+                ),
                 false
             );
         }
 
         if (App::config()->adminMailfrom() === 'dotclear@local') {
             Notices::message(
-                sprintf(__('%s is not defined, you should edit your configuration file.'), 'DC_ADMIN_MAILFROM') . ' ' .
-                __('See <a href="https://dotclear.org/documentation/2.0/admin/config">documentation</a> for more information.'),
+                sprintf(
+                    __('%s is not defined, you should edit your configuration file.'),
+                    'DC_ADMIN_MAILFROM'
+                ) .
+                ' ' .
+                sprintf(
+                    __('See <a href="%s">documentation</a> for more information.'),
+                    'https://dotclear.org/documentation/2.0/admin/config'
+                ),
                 false
             );
         }
@@ -673,7 +687,10 @@ class Home extends Process
                             ->text(__('Cover the costs of events set up by Dotclear')),
                     ]),
                 (new Note())
-                    ->text(__('See <a href="https://dotclear.org/donate">this page</a> for more information and donation')),
+                    ->text(sprintf(
+                        __('See <a href="%s">this page</a> for more information and donation'),
+                        'https://dotclear.org/donate'
+                    )),
                 (new Form('donation-form'))
                     ->method('post')
                     ->action(App::backend()->url()->get('admin.home'))

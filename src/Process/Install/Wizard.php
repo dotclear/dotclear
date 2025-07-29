@@ -82,11 +82,10 @@ class Wizard extends Process
 
         if (!is_writable(dirname(App::config()->configPath()))) {
             self::$err = '<p>' . sprintf(__('Path <strong>%s</strong> is not writable.'), Path::real(dirname(App::config()->configPath()))) . '</p>' .
-            '<p>' . __('Dotclear installation wizard could not create configuration file for you. ' .
-                'You must change folder right or create the <strong>config.php</strong> ' .
-                'file manually, please refer to ' .
-                '<a href="https://dotclear.org/documentation/2.0/admin/install">' .
-                'the documentation</a> to learn how to do this.') . '</p>';
+            '<p>' . sprintf(
+                __('Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href="%s">the documentation</a> to learn how to do this.'),
+                'https://dotclear.org/documentation/2.0/admin/install'
+            ) . '</p>';
         }
 
         return self::status();
@@ -247,14 +246,12 @@ class Wizard extends Process
             echo '<div class="error" role="alert"><p><strong>' . __('Errors:') . '</strong></p>' . self::$err . '</div>';
         } else {
             echo '<h2>' . __('Welcome') . '</h2>' .
-            '<p>' . __('To complete your Dotclear installation and start writing on your blog, ' .
-                'we just need to know how to access your database and who you are. ' .
-                'Just fill this two steps wizard with this information and we will be done.') . '</p>' .
+            '<p>' . __('To complete your Dotclear installation and start writing on your blog, we just need to know how to access your database and who you are. Just fill this two steps wizard with this information and we will be done.') . '</p>' .
             '<p class="message"><strong>' . __('Attention:') . '</strong> ' .
-            __('this wizard may not function on every host. If it does not work for you, ' .
-                'please refer to <a href="https://dotclear.org/documentation/2.0/admin/install">' .
-                'the documentation</a> to learn how to create the <strong>config.php</strong> ' .
-                'file manually.') . '</p>';
+            sprintf(
+                __('this wizard may not function on every host. If it does not work for you, please refer to <a href="%s">the documentation</a> to learn how to create the <strong>config.php</strong> file manually.'),
+                'https://dotclear.org/documentation/2.0/admin/install'
+            ) . '</p>';
         }
 
         echo

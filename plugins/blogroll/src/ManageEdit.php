@@ -302,7 +302,10 @@ class ManageEdit extends Process
                                 (new Text('h4', __('XFN information'))),
                                 (new Note())
                                     ->class('form-note')
-                                    ->text(__('More information on <a href="https://en.wikipedia.org/wiki/XHTML_Friends_Network">Wikipedia</a> website')),
+                                    ->text(sprintf(
+                                        __('More information on <a href="%s">Wikipedia</a> website'),
+                                        'https://en.wikipedia.org/wiki/XHTML_Friends_Network'
+                                    )),
                                 (new Div())->class('table-outer')->items([
                                     (new Table())->class('noborder')->items([
                                         (new Tr())->class('line')->items([

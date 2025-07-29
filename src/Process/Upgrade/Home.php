@@ -58,12 +58,18 @@ class Home extends Process
 
         if (App::config()->adminUrl() === '') {
             $infos[] = (new li())->text(sprintf(__('%s is not defined, you should edit your configuration file.'), 'DC_ADMIN_URL') . ' ' .
-                __('See <a href="https://dotclear.org/documentation/2.0/admin/config">documentation</a> for more information.'));
+                sprintf(
+                    __('See <a href="%s">documentation</a> for more information.'),
+                    'https://dotclear.org/documentation/2.0/admin/config'
+                ));
         }
 
         if (App::config()->adminMailfrom() === 'dotclear@local') {
             $infos[] = (new li())->text(sprintf(__('%s is not defined, you should edit your configuration file.'), 'DC_ADMIN_MAILFROM') . ' ' .
-                __('See <a href="https://dotclear.org/documentation/2.0/admin/config">documentation</a> for more information.'));
+                sprintf(
+                    __('See <a href="%s">documentation</a> for more information.'),
+                    'https://dotclear.org/documentation/2.0/admin/config'
+                ));
         }
 
         if (!is_dir(App::config()->cacheRoot()) || !is_writable(App::config()->cacheRoot())) {

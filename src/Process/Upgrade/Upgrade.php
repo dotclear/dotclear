@@ -142,7 +142,10 @@ class Upgrade extends Process
                                     'href="' . App::upgrade()->url()->get('upgrade.upgrade', ['step' => 'download']) . '"'
                                 ) .
                                 ' ' .
-                                __('If this problem persists try to <a href="https://dotclear.org/download">update manually</a>.')
+                                sprintf(
+                                    __('If this problem persists try to <a href="%s">update manually</a>.'),
+                                    'https://dotclear.org/download'
+                                )
                             );
                         }
                         App::upgrade()->url()->redirect('upgrade.upgrade', ['step' => 'backup']);
@@ -177,14 +180,20 @@ class Upgrade extends Process
                 $msg = $e->getMessage();
 
                 if ($e->getCode() == Update::ERR_FILES_CHANGED) {
-                    $msg = __('The following files of your Dotclear installation have been modified so we won\'t try to update your installation. Please try to <a href="https://dotclear.org/download">update manually</a>.');
+                    $msg = sprintf(
+                        __('The following files of your Dotclear installation have been modified so we won\'t try to update your installation. Please try to <a href="%s">update manually</a>.'),
+                        'https://dotclear.org/download'
+                    );
                 } elseif ($e->getCode() == Update::ERR_FILES_UNREADABLE) {
                     $msg = sprintf(
                         __('The following files of your Dotclear installation are not readable. Please fix this or try to make a backup file named %s manually.'),
                         (new Strong('backup-' . App::config()->dotclearVersion() . '.zip'))->render()
                     );
                 } elseif ($e->getCode() == Update::ERR_FILES_UNWRITALBE) {
-                    $msg = __('The following files of your Dotclear installation cannot be written. Please fix this or try to <a href="https://dotclear.org/download">update manually</a>.');
+                    $msg = sprintf(
+                        __('The following files of your Dotclear installation cannot be written. Please fix this or try to <a href="%s">update manually</a>.'),
+                        'https://dotclear.org/download'
+                    );
                 }
 
                 if (($bad_files = self::$updater->getBadFiles()) !== []) {

@@ -525,9 +525,10 @@ class Install extends Process
         } elseif (!self::$can_install) {
             echo '<h2>' . __('Installation can not be completed') . '</h2>' .
             '<div class="error" role="alert"><p><strong>' . __('Errors:') . '</strong></p>' . self::$err . '</div>' .
-            '<p>' . __('For the said reasons, Dotclear can not be installed. ' .
-                'Please refer to <a href="https://dotclear.org/documentation/2.0/admin/install">' .
-                'the documentation</a> to learn how to correct the problem.') . '</p>';
+            '<p>' . sprintf(
+                __('For the said reasons, Dotclear can not be installed. Please refer to <a href="%s">the documentation</a> to learn how to correct the problem.'),
+                'https://dotclear.org/documentation/2.0/admin/install'
+            ) . '</p>';
         }
         ?>
 </div>
