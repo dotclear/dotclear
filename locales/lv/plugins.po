@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-28 16:23+0200\n"
-"PO-Revision-Date: 2025-07-28 14:54\n"
+"POT-Creation-Date: 2025-07-29 06:42+0200\n"
+"PO-Revision-Date: 2025-07-29 04:46\n"
 "Last-Translator: \n"
 "Language-Team: Latvian\n"
 "Language: lv_LV\n"
@@ -1169,107 +1169,108 @@ msgstr "Rediģēt saiti"
 msgid "XFN information"
 msgstr "XFN informācija"
 
-#: plugins/blogroll/src/ManageEdit.php:305
-msgid "More information on <a href=\"https://en.wikipedia.org/wiki/XHTML_Friends_Network\">Wikipedia</a> website"
-msgstr "Vairāk informācijas <a href=\"https://en.wikipedia.org/wiki/XHTML_Friends_Network\">Wikipedia</a> vietnē"
+#: plugins/blogroll/src/ManageEdit.php:306
+#, php-format
+msgid "More information on <a href=\"%s\">Wikipedia</a> website"
+msgstr ""
 
-#: plugins/blogroll/src/ManageEdit.php:309
+#: plugins/blogroll/src/ManageEdit.php:312
 msgid "_xfn_Me"
 msgstr "_xfn_Me"
 
-#: plugins/blogroll/src/ManageEdit.php:313
+#: plugins/blogroll/src/ManageEdit.php:316
 msgid "_xfn_Another link for myself"
 msgstr "_xfn_Vēl viena saite man"
 
-#: plugins/blogroll/src/ManageEdit.php:317
+#: plugins/blogroll/src/ManageEdit.php:320
 msgid "_xfn_Friendship"
 msgstr "_xfn_Draudzība"
 
-#: plugins/blogroll/src/ManageEdit.php:321
+#: plugins/blogroll/src/ManageEdit.php:324
 msgid "_xfn_Contact"
 msgstr "_xfn_Sazināties"
 
-#: plugins/blogroll/src/ManageEdit.php:324
+#: plugins/blogroll/src/ManageEdit.php:327
 msgid "_xfn_Acquaintance"
 msgstr "_xfn_Ieziņa"
 
-#: plugins/blogroll/src/ManageEdit.php:327
+#: plugins/blogroll/src/ManageEdit.php:330
 msgid "_xfn_Friend"
 msgstr "_xfn_Draugs"
 
-#: plugins/blogroll/src/ManageEdit.php:337
+#: plugins/blogroll/src/ManageEdit.php:340
 msgid "_xfn_Physical"
 msgstr "_xfn_Fiziskā"
 
-#: plugins/blogroll/src/ManageEdit.php:341
+#: plugins/blogroll/src/ManageEdit.php:344
 msgid "_xfn_Met"
 msgstr "_xfn_Met"
 
-#: plugins/blogroll/src/ManageEdit.php:345
+#: plugins/blogroll/src/ManageEdit.php:348
 msgid "_xfn_Professional"
 msgstr "_xfn_Profesionāls"
 
-#: plugins/blogroll/src/ManageEdit.php:349
+#: plugins/blogroll/src/ManageEdit.php:352
 msgid "_xfn_Co-worker"
 msgstr "_xfn_Darbabiedrs"
 
-#: plugins/blogroll/src/ManageEdit.php:352
+#: plugins/blogroll/src/ManageEdit.php:355
 msgid "_xfn_Colleague"
 msgstr "_xfn_kolēģe"
 
-#: plugins/blogroll/src/ManageEdit.php:356
+#: plugins/blogroll/src/ManageEdit.php:359
 msgid "_xfn_Geographical"
 msgstr "_xfn_Ģeogrāfisks"
 
-#: plugins/blogroll/src/ManageEdit.php:360
+#: plugins/blogroll/src/ManageEdit.php:363
 msgid "_xfn_Co-resident"
 msgstr "_xfn_Līdzdzīvotājs"
 
-#: plugins/blogroll/src/ManageEdit.php:363
+#: plugins/blogroll/src/ManageEdit.php:366
 msgid "_xfn_Neighbor"
 msgstr "_xfn_Kaimiņš"
 
-#: plugins/blogroll/src/ManageEdit.php:373
+#: plugins/blogroll/src/ManageEdit.php:376
 msgid "_xfn_Family"
 msgstr "_xfn_Ģimene"
 
-#: plugins/blogroll/src/ManageEdit.php:377
+#: plugins/blogroll/src/ManageEdit.php:380
 msgid "_xfn_Child"
 msgstr "_xfn_Bērns"
 
-#: plugins/blogroll/src/ManageEdit.php:380
+#: plugins/blogroll/src/ManageEdit.php:383
 msgid "_xfn_Parent"
 msgstr "_xfn_Parent"
 
-#: plugins/blogroll/src/ManageEdit.php:383
+#: plugins/blogroll/src/ManageEdit.php:386
 msgid "_xfn_Sibling"
 msgstr "_xfn_Brālis un māsa"
 
-#: plugins/blogroll/src/ManageEdit.php:386
+#: plugins/blogroll/src/ManageEdit.php:389
 msgid "_xfn_Spouse"
 msgstr "_xfn_Laulātais"
 
-#: plugins/blogroll/src/ManageEdit.php:389
+#: plugins/blogroll/src/ManageEdit.php:392
 msgid "_xfn_Kin"
 msgstr "_xfn_Kin"
 
-#: plugins/blogroll/src/ManageEdit.php:399
+#: plugins/blogroll/src/ManageEdit.php:402
 msgid "_xfn_Romantic"
 msgstr "_xfn_romantisks"
 
-#: plugins/blogroll/src/ManageEdit.php:403
+#: plugins/blogroll/src/ManageEdit.php:406
 msgid "_xfn_Muse"
 msgstr "_xfn_Muse"
 
-#: plugins/blogroll/src/ManageEdit.php:406
+#: plugins/blogroll/src/ManageEdit.php:409
 msgid "_xfn_Crush"
 msgstr "_xfn_Crush"
 
-#: plugins/blogroll/src/ManageEdit.php:409
+#: plugins/blogroll/src/ManageEdit.php:412
 msgid "_xfn_Date"
 msgstr "_xfn_Datums"
 
-#: plugins/blogroll/src/ManageEdit.php:412
+#: plugins/blogroll/src/ManageEdit.php:415
 msgid "_xfn_Sweetheart"
 msgstr "_xfn_Mīļā"
 
@@ -1511,11 +1512,11 @@ msgid "Note(s)"
 msgstr "Piezīme(-es)"
 
 #: plugins/dcLegacyEditor/src/Backend.php:26
-#: plugins/dcLegacyEditor/src/Manage.php:73
 msgid "dcLegacyEditor"
 msgstr "Dotclear redaktors"
 
 #: plugins/dcLegacyEditor/src/Backend.php:27
+#: plugins/dcLegacyEditor/src/Manage.php:73
 msgid "Dotclear editor"
 msgstr "Dotclear redaktors"
 
