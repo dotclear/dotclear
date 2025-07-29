@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-29 06:42+0200\n"
-"PO-Revision-Date: 2025-07-29 04:45\n"
+"PO-Revision-Date: 2025-07-29 05:52\n"
 "Last-Translator: \n"
 "Language-Team: Bengali\n"
 "Language: bn_BD\n"
@@ -3707,7 +3707,7 @@ msgstr "ব্লগ নিরাপত্তা"
 #: src/Process/Backend/BlogPref.php:1153
 #, php-format
 msgid "Protect the blog from Clickjacking (see <a href=\"%s\">Wikipedia</a>)"
-msgstr ""
+msgstr "ক্লিকজ্যাকিং থেকে ব্লগটি রক্ষা করুন (<a href=\"%s\">উইকিপিডিয়া</a> দেখুন)"
 
 #: src/Process/Backend/BlogPref.php:1162
 msgid "Advanced parameters"
@@ -4167,7 +4167,7 @@ msgstr "%s সংজ্ঞায়িত করা হয়নি, আপন�
 #: src/Process/Upgrade/Home.php:62 src/Process/Upgrade/Home.php:70
 #, php-format
 msgid "See <a href=\"%s\">documentation</a> for more information."
-msgstr ""
+msgstr "আরও তথ্যের জন্য <a href=\"%s\">ডকুমেন্টেশন</a> দেখুন।"
 
 #: src/Process/Backend/Home.php:306 src/Process/Upgrade/Home.php:76
 msgid "The cache directory does not exist or is not writable. You must create this directory with sufficient rights and affect this location to \"DC_TPL_CACHE\" in inc/config.php file."
@@ -4254,7 +4254,7 @@ msgstr "Dotclear দ্বারা সেট আপ ইভেন্ট খর�
 #: src/Process/Backend/Home.php:691
 #, php-format
 msgid "See <a href=\"%s\">this page</a> for more information and donation"
-msgstr ""
+msgstr "আরও তথ্য এবং অনুদানের জন্য <a href=\"%s\">এই পৃষ্ঠাটি</a> দেখুন।"
 
 #: src/Process/Backend/Home.php:702
 msgid "For the record, here is the date of my last donation to Dotclear:"
@@ -5992,7 +5992,7 @@ msgstr "ইনস্টলেশন সম্পন্ন করা যাবে
 #: src/Process/Install/Install.php:529
 #, php-format
 msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"%s\">the documentation</a> to learn how to correct the problem."
-msgstr ""
+msgstr "উল্লিখিত কারণে, ডটক্লিয়ার ইনস্টল করা যাচ্ছে না। সমস্যাটি কীভাবে সমাধান করবেন তা জানতে দয়া করে <a href=\"%s\">ডকুমেন্টেশন</a> দেখুন।"
 
 #: src/Process/Install/Wizard.php:84
 #, php-format
@@ -6002,7 +6002,7 @@ msgstr "<strong>%s</strong> পথটি লিখনযোগ্য নয়�
 #: src/Process/Install/Wizard.php:86
 #, php-format
 msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"%s\">the documentation</a> to learn how to do this."
-msgstr ""
+msgstr "ডটক্লিয়ার ইনস্টলেশন উইজার্ড আপনার জন্য কনফিগারেশন ফাইল তৈরি করতে পারেনি। আপনাকে সরাসরি ফোল্ডার পরিবর্তন করতে হবে অথবা <strong>config.php</strong> ফাইলটি ম্যানুয়ালি তৈরি করতে হবে, এটি কীভাবে করবেন তা জানতে দয়া করে <a href=\"%s\">ডকুমেন্টেশন</a> দেখুন।"
 
 #: src/Process/Install/Wizard.php:117
 #, php-format
@@ -6042,7 +6042,7 @@ msgstr "দৃষ্টি আকর্ষন:"
 #: src/Process/Install/Wizard.php:252
 #, php-format
 msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"%s\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
-msgstr ""
+msgstr "এই উইজার্ডটি প্রতিটি হোস্টে কাজ নাও করতে পারে। যদি এটি আপনার জন্য কাজ না করে, তাহলে <a href=\"%s\">ডকুমেন্টেশন</a> দেখুন এবং <strong>config.php</strong> ফাইলটি ম্যানুয়ালি কীভাবে তৈরি করবেন তা শিখুন।"
 
 #: src/Process/Install/Wizard.php:258
 msgid "System information"
@@ -6146,17 +6146,17 @@ msgstr "ডাউনলোড করা ডটক্লিয়ার আর্
 #: src/Process/Upgrade/Attic.php:159 src/Process/Upgrade/Upgrade.php:146
 #, php-format
 msgid "If this problem persists try to <a href=\"%s\">update manually</a>."
-msgstr ""
+msgstr "যদি এই সমস্যাটি থেকে যায়, তাহলে <a href=\"%s\">ম্যানুয়ালি আপডেট করার</a> চেষ্টা করুন।"
 
 #: src/Process/Upgrade/Attic.php:199 src/Process/Upgrade/Upgrade.php:184
 #, php-format
 msgid "The following files of your Dotclear installation have been modified so we won't try to update your installation. Please try to <a href=\"%s\">update manually</a>."
-msgstr ""
+msgstr "আপনার ডটক্লিয়ার ইনস্টলেশনের নিম্নলিখিত ফাইলগুলি পরিবর্তন করা হয়েছে তাই আমরা আপনার ইনস্টলেশন আপডেট করার চেষ্টা করব না। অনুগ্রহ করে <a href=\"%s\">ম্যানুয়ালি আপডেট করার</a> চেষ্টা করুন।"
 
 #: src/Process/Upgrade/Attic.php:204
 #, php-format
 msgid "(<a href=\"%s\">You can bypass this warning by updating installation disgets file</a>)."
-msgstr ""
+msgstr "(<a href=\"%s\">আপনি ইনস্টলেশন ডিজেট ফাইল আপডেট করে এই সতর্কতাটি এড়াতে পারেন</a>)।"
 
 #: src/Process/Upgrade/Attic.php:209 src/Process/Upgrade/Upgrade.php:189
 #, php-format
@@ -6166,7 +6166,7 @@ msgstr "আপনার ডটক্লিয়ার ইনস্টলেশ�
 #: src/Process/Upgrade/Attic.php:214 src/Process/Upgrade/Upgrade.php:194
 #, php-format
 msgid "The following files of your Dotclear installation cannot be written. Please fix this or try to <a href=\"%s\">update manually</a>."
-msgstr ""
+msgstr "আপনার ডটক্লিয়ার ইনস্টলেশনের নিম্নলিখিত ফাইলগুলি লেখা যাচ্ছে না। দয়া করে এটি ঠিক করুন অথবা <a href=\"%s\">ম্যানুয়ালি আপডেট করার</a> চেষ্টা করুন।"
 
 #: src/Process/Upgrade/Attic.php:244 src/Process/Upgrade/Upgrade.php:244
 msgid "No newer Dotclear version available."
