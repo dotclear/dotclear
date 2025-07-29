@@ -73,7 +73,7 @@ class Langs extends Process
         self::$is_writable = is_dir(App::config()->l10nRoot()) && is_writable(App::config()->l10nRoot());
         self::$iso_codes   = L10n::getISOcodes();
 
-        # Get languages list on Dotclear.net
+        # Get languages list from Dotclear server
         self::$dc_langs = false;
 
         $feed_reader = new Reader();
@@ -360,7 +360,7 @@ class Langs extends Process
                     (new Text('h4', __('Install or upgrade languages from available languages'))),
                     (new Note())
                         ->text(sprintf(
-                            __('You can download and install a additional language directly from Dotclear.net. Proposed languages are based on your version: %s.'),
+                            __('You can download and install a additional language directly from Dotclear server. Proposed languages are based on your version: %s.'),
                             (new Strong(App::config()->dotclearVersion()))->render()
                         )),
                     (new Para())

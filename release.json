@@ -8,7 +8,7 @@
   "release_update_canal": "stable",
   "release_previous_versions": "https://download.dotclear.org/releases.xml",
 
-  "l10n_update_url": "https://services.dotclear.net/dc2.l10n/?version=%s",
+  "l10n_update_url": "https://services.dotclear.org/dc2.l10n/?version=%s",
 
   "php_min": "8.1",
   "mysql_min": "4.1",

@@ -326,7 +326,7 @@ class Install extends Process
                 $cur->post_id         = $post_id;
                 $cur->comment_tz      = $default_tz;
                 $cur->comment_author  = __('Dotclear Team');
-                $cur->comment_email   = 'contact@dotclear.net';
+                $cur->comment_email   = 'contact@dotclear.org';
                 $cur->comment_site    = 'https://dotclear.org/';
                 $cur->comment_content = __("<p>This is a comment.</p>\n<p>To delete it, log in and " .
                     "view your blog's comments. Then you might remove or edit it.</p>");

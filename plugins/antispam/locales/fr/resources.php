@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * @brief       The module backend helper resource
