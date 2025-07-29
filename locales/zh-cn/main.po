@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-29 06:42+0200\n"
-"PO-Revision-Date: 2025-07-29 04:45\n"
+"PO-Revision-Date: 2025-07-29 05:52\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -3678,7 +3678,7 @@ msgstr "博客安全"
 #: src/Process/Backend/BlogPref.php:1153
 #, php-format
 msgid "Protect the blog from Clickjacking (see <a href=\"%s\">Wikipedia</a>)"
-msgstr ""
+msgstr "保护博客免受Clickjacking影响(见 <a href=\"%s\">Wikipedia</a>)"
 
 #: src/Process/Backend/BlogPref.php:1162
 msgid "Advanced parameters"
@@ -4137,7 +4137,7 @@ msgstr "%s 没有定义，你应该编辑你的配置文件。"
 #: src/Process/Upgrade/Home.php:62 src/Process/Upgrade/Home.php:70
 #, php-format
 msgid "See <a href=\"%s\">documentation</a> for more information."
-msgstr ""
+msgstr "更多信息请参见<a href=\"%s\">文档</a>。"
 
 #: src/Process/Backend/Home.php:306 src/Process/Upgrade/Home.php:76
 msgid "The cache directory does not exist or is not writable. You must create this directory with sufficient rights and affect this location to \"DC_TPL_CACHE\" in inc/config.php file."
@@ -4224,7 +4224,7 @@ msgstr "支付 Dotclear 举办活动的费用"
 #: src/Process/Backend/Home.php:691
 #, php-format
 msgid "See <a href=\"%s\">this page</a> for more information and donation"
-msgstr ""
+msgstr "更多信息和捐赠请参见<a href=\"%s\">本页</a>"
 
 #: src/Process/Backend/Home.php:702
 msgid "For the record, here is the date of my last donation to Dotclear:"
@@ -5957,7 +5957,7 @@ msgstr "无法完成安装"
 #: src/Process/Install/Install.php:529
 #, php-format
 msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"%s\">the documentation</a> to learn how to correct the problem."
-msgstr ""
+msgstr "由于上述原因，Dotclear 无法安装。请参阅<a href=\"%s\">文档</a>，了解如何纠正该问题。"
 
 #: src/Process/Install/Wizard.php:84
 #, php-format
@@ -5967,7 +5967,7 @@ msgstr "路径 <strong>%s</strong> 是不可写的。"
 #: src/Process/Install/Wizard.php:86
 #, php-format
 msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"%s\">the documentation</a> to learn how to do this."
-msgstr ""
+msgstr "Dotclear 安装向导无法为您创建配置文件。您必须更改文件夹权限或手动创建<strong>config.php</strong>文件，请参阅<a href=\"%s\">文档</a>了解如何操作。"
 
 #: src/Process/Install/Wizard.php:117
 #, php-format
@@ -6007,7 +6007,7 @@ msgstr "请注意："
 #: src/Process/Install/Wizard.php:252
 #, php-format
 msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"%s\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
-msgstr ""
+msgstr "此向导可能无法在每台主机上运行。如果无法运行，请参阅<a href=\"%s\">文档</a>了解如何手动创建<strong>config.php</strong>文件。"
 
 #: src/Process/Install/Wizard.php:258
 msgid "System information"
@@ -6111,17 +6111,17 @@ msgstr "下载的 Dotclear 压缩包似乎损坏了。尝试再次<a %s>下载�
 #: src/Process/Upgrade/Attic.php:159 src/Process/Upgrade/Upgrade.php:146
 #, php-format
 msgid "If this problem persists try to <a href=\"%s\">update manually</a>."
-msgstr ""
+msgstr "如果问题仍然存在，请尝试<a href=\"%s\">手动更新</a>。"
 
 #: src/Process/Upgrade/Attic.php:199 src/Process/Upgrade/Upgrade.php:184
 #, php-format
 msgid "The following files of your Dotclear installation have been modified so we won't try to update your installation. Please try to <a href=\"%s\">update manually</a>."
-msgstr ""
+msgstr "您的 Dotclear 中下列文件已被修改，所以我们将不会尝试更新您的安装。请尝试<a href=\"%s\">手动更新</a>。"
 
 #: src/Process/Upgrade/Attic.php:204
 #, php-format
 msgid "(<a href=\"%s\">You can bypass this warning by updating installation disgets file</a>)."
-msgstr ""
+msgstr "(<a href=\"%s\">您可以通过更新安装丢弃文件</a> 来绕过此警告)。"
 
 #: src/Process/Upgrade/Attic.php:209 src/Process/Upgrade/Upgrade.php:189
 #, php-format
@@ -6131,7 +6131,7 @@ msgstr "您的 Dotclear 中下列文件不可读取。请修正或者尝试手�
 #: src/Process/Upgrade/Attic.php:214 src/Process/Upgrade/Upgrade.php:194
 #, php-format
 msgid "The following files of your Dotclear installation cannot be written. Please fix this or try to <a href=\"%s\">update manually</a>."
-msgstr ""
+msgstr "您的 Dotclear 安装中的以下文件无法写入。请修复或尝试<a href=\"%s\">手动更新</a>。"
 
 #: src/Process/Upgrade/Attic.php:244 src/Process/Upgrade/Upgrade.php:244
 msgid "No newer Dotclear version available."
