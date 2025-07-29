@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-29 06:42+0200\n"
-"PO-Revision-Date: 2025-07-29 04:45\n"
+"PO-Revision-Date: 2025-07-29 05:52\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -3678,7 +3678,7 @@ msgstr "블로그 보안"
 #: src/Process/Backend/BlogPref.php:1153
 #, php-format
 msgid "Protect the blog from Clickjacking (see <a href=\"%s\">Wikipedia</a>)"
-msgstr ""
+msgstr "클릭재킹으로부터 블로그 보호( <a href=\"%s\">위키백과</a> 참조)"
 
 #: src/Process/Backend/BlogPref.php:1162
 msgid "Advanced parameters"
@@ -4137,7 +4137,7 @@ msgstr "%s 가 정의되어 있지 않으면 구성 파일을 편집해야 합�
 #: src/Process/Upgrade/Home.php:62 src/Process/Upgrade/Home.php:70
 #, php-format
 msgid "See <a href=\"%s\">documentation</a> for more information."
-msgstr ""
+msgstr "자세한 내용은 <a href=\"%s\">문서를</a> 참조하세요."
 
 #: src/Process/Backend/Home.php:306 src/Process/Upgrade/Home.php:76
 msgid "The cache directory does not exist or is not writable. You must create this directory with sufficient rights and affect this location to \"DC_TPL_CACHE\" in inc/config.php file."
@@ -4224,7 +4224,7 @@ msgstr "닷클리어에서 설정한 이벤트 비용 지원"
 #: src/Process/Backend/Home.php:691
 #, php-format
 msgid "See <a href=\"%s\">this page</a> for more information and donation"
-msgstr ""
+msgstr "자세한 정보 및 기부는 <a href=\"%s\">이 페이지를</a> 참조하세요"
 
 #: src/Process/Backend/Home.php:702
 msgid "For the record, here is the date of my last donation to Dotclear:"
@@ -5957,7 +5957,7 @@ msgstr "설치를 완료할 수 없습니다."
 #: src/Process/Install/Install.php:529
 #, php-format
 msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"%s\">the documentation</a> to learn how to correct the problem."
-msgstr ""
+msgstr "위와 같은 이유로 닷클리어를 설치할 수 없습니다. 문제를 해결하는 방법을 알아보려면 <a href=\"%s\">문서를</a> 참조하세요."
 
 #: src/Process/Install/Wizard.php:84
 #, php-format
@@ -5967,7 +5967,7 @@ msgstr "<strong>%s</strong> 경로는 쓸 수 없습니다."
 #: src/Process/Install/Wizard.php:86
 #, php-format
 msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"%s\">the documentation</a> to learn how to do this."
-msgstr ""
+msgstr "도트클리어 설치 마법사가 구성 파일을 만들지 못했습니다. 폴더를 직접 변경하거나 <strong>config.php</strong> 파일을 수동으로 생성해야 하며, 이 방법은 <a href=\"%s\">설명서를</a> 참조하세요."
 
 #: src/Process/Install/Wizard.php:117
 #, php-format
@@ -6007,7 +6007,7 @@ msgstr "주의:"
 #: src/Process/Install/Wizard.php:252
 #, php-format
 msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"%s\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
-msgstr ""
+msgstr "이 마법사는 모든 호스트에서 작동하지 않을 수 있습니다. 마법사가 작동하지 않는 경우 <a href=\"%s\">문서를</a> 참조하여 <strong>config.php</strong> 파일을 수동으로 생성하는 방법을 알아보세요."
 
 #: src/Process/Install/Wizard.php:258
 msgid "System information"
@@ -6111,17 +6111,17 @@ msgstr "내려받은 Dotclear 압축파일에 오류가 있어보입니다. 다�
 #: src/Process/Upgrade/Attic.php:159 src/Process/Upgrade/Upgrade.php:146
 #, php-format
 msgid "If this problem persists try to <a href=\"%s\">update manually</a>."
-msgstr ""
+msgstr "이 문제가 지속되면 <a href=\"%s\">수동으로 업데이트해</a> 보세요."
 
 #: src/Process/Upgrade/Attic.php:199 src/Process/Upgrade/Upgrade.php:184
 #, php-format
 msgid "The following files of your Dotclear installation have been modified so we won't try to update your installation. Please try to <a href=\"%s\">update manually</a>."
-msgstr ""
+msgstr "닷클리어 설치의 다음 파일이 수정되었으므로 설치를 업데이트할 수 없습니다. <a href=\"%s\">수동으로 업데이트를</a> 시도하세요."
 
 #: src/Process/Upgrade/Attic.php:204
 #, php-format
 msgid "(<a href=\"%s\">You can bypass this warning by updating installation disgets file</a>)."
-msgstr ""
+msgstr "(<a href=\"%s\">설치 disgets 파일을 업데이트하여 이 경고를 우회할 수 있습니다</a>)."
 
 #: src/Process/Upgrade/Attic.php:209 src/Process/Upgrade/Upgrade.php:189
 #, php-format
@@ -6131,7 +6131,7 @@ msgstr "당신의 Dotclear에 있는 다음 파일들을 읽을 수 없습니다
 #: src/Process/Upgrade/Attic.php:214 src/Process/Upgrade/Upgrade.php:194
 #, php-format
 msgid "The following files of your Dotclear installation cannot be written. Please fix this or try to <a href=\"%s\">update manually</a>."
-msgstr ""
+msgstr "닷클리어 설치의 다음 파일을 쓸 수 없습니다. 이 문제를 해결하거나 <a href=\"%s\">수동으로 업데이트해</a> 보세요."
 
 #: src/Process/Upgrade/Attic.php:244 src/Process/Upgrade/Upgrade.php:244
 msgid "No newer Dotclear version available."
