@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-29 06:42+0200\n"
-"PO-Revision-Date: 2025-07-29 04:46\n"
+"PO-Revision-Date: 2025-07-29 05:52\n"
 "Last-Translator: \n"
 "Language-Team: Latvian\n"
 "Language: lv_LV\n"
@@ -3736,7 +3736,7 @@ msgstr "Emuāra drošība"
 #: src/Process/Backend/BlogPref.php:1153
 #, php-format
 msgid "Protect the blog from Clickjacking (see <a href=\"%s\">Wikipedia</a>)"
-msgstr ""
+msgstr "Aizsargājiet emuāru no Clickjacking (skatiet <a href=\"%s\">Wikipedia</a>)"
 
 #: src/Process/Backend/BlogPref.php:1162
 msgid "Advanced parameters"
@@ -4197,7 +4197,7 @@ msgstr "%s nav definēts, jums vajadzētu rediģēt konfigurācijas failu."
 #: src/Process/Upgrade/Home.php:62 src/Process/Upgrade/Home.php:70
 #, php-format
 msgid "See <a href=\"%s\">documentation</a> for more information."
-msgstr ""
+msgstr "Lai iegūtu vairāk informācijas, skatiet <a href=\"%s\">dokumentāciju</a>."
 
 #: src/Process/Backend/Home.php:306 src/Process/Upgrade/Home.php:76
 msgid "The cache directory does not exist or is not writable. You must create this directory with sufficient rights and affect this location to \"DC_TPL_CACHE\" in inc/config.php file."
@@ -4284,7 +4284,7 @@ msgstr "Dotclear organizēto pasākumu izmaksu segšana"
 #: src/Process/Backend/Home.php:691
 #, php-format
 msgid "See <a href=\"%s\">this page</a> for more information and donation"
-msgstr ""
+msgstr "Lai iegūtu vairāk informācijas un ziedojumu, skatiet <a href=\"%s\">šo lapu</a>"
 
 #: src/Process/Backend/Home.php:702
 msgid "For the record, here is the date of my last donation to Dotclear:"
@@ -6027,7 +6027,7 @@ msgstr "Instalēšanu nevar pabeigt"
 #: src/Process/Install/Install.php:529
 #, php-format
 msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"%s\">the documentation</a> to learn how to correct the problem."
-msgstr ""
+msgstr "Minēto iemeslu dēļ Dotclear nevar instalēt. Lūdzu, skatiet <a href=\"%s\">dokumentāciju</a>, lai uzzinātu, kā novērst problēmu."
 
 #: src/Process/Install/Wizard.php:84
 #, php-format
@@ -6037,7 +6037,7 @@ msgstr "Ceļš <strong>%s</strong> nav ierakstāms."
 #: src/Process/Install/Wizard.php:86
 #, php-format
 msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"%s\">the documentation</a> to learn how to do this."
-msgstr ""
+msgstr "Dotclear instalēšanas vednis nevarēja jums izveidot konfigurācijas failu. Jums ir jāmaina mapes tiesības vai jārada <strong>config.php</strong> fails manuāli, lūdzu, skatiet <a href=\"%s\">dokumentāciju</a>, lai uzzinātu, kā to izdarīt."
 
 #: src/Process/Install/Wizard.php:117
 #, php-format
@@ -6077,7 +6077,7 @@ msgstr "Uzmanību:"
 #: src/Process/Install/Wizard.php:252
 #, php-format
 msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"%s\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
-msgstr ""
+msgstr "šis vednis var nedarboties katrā uzņēmējā. Ja tas nedarbojas, lūdzu, skatiet <a href=\"%s\">dokumentāciju</a>, lai uzzinātu, kā manuāli izveidot <strong>config.php</strong> failu."
 
 #: src/Process/Install/Wizard.php:258
 msgid "System information"
@@ -6181,17 +6181,17 @@ msgstr "Šķiet, ka lejupielādētais Dotclear arhīvs ir bojāts. Mēģiniet <a
 #: src/Process/Upgrade/Attic.php:159 src/Process/Upgrade/Upgrade.php:146
 #, php-format
 msgid "If this problem persists try to <a href=\"%s\">update manually</a>."
-msgstr ""
+msgstr "Ja šī problēma saglabājas, mēģiniet <a href=\"%s\">atjaunināt manuāli</a>."
 
 #: src/Process/Upgrade/Attic.php:199 src/Process/Upgrade/Upgrade.php:184
 #, php-format
 msgid "The following files of your Dotclear installation have been modified so we won't try to update your installation. Please try to <a href=\"%s\">update manually</a>."
-msgstr ""
+msgstr "Jūsu Dotclear instalācijā ir mainīti šādi faili, tāpēc mēs nemēģināsim atjaunināt jūsu instalāciju. Lūdzu, mēģiniet <a href=\"%s\">atjaunināt manuāli</a>."
 
 #: src/Process/Upgrade/Attic.php:204
 #, php-format
 msgid "(<a href=\"%s\">You can bypass this warning by updating installation disgets file</a>)."
-msgstr ""
+msgstr "(<a href=\"%s\">Šo brīdinājumu var apiet, atjauninot instalācijas disgets failu</a>)."
 
 #: src/Process/Upgrade/Attic.php:209 src/Process/Upgrade/Upgrade.php:189
 #, php-format
@@ -6201,7 +6201,7 @@ msgstr "Tālāk norādītie jūsu Dotclear instalācijas faili nav lasāmi. Lūd
 #: src/Process/Upgrade/Attic.php:214 src/Process/Upgrade/Upgrade.php:194
 #, php-format
 msgid "The following files of your Dotclear installation cannot be written. Please fix this or try to <a href=\"%s\">update manually</a>."
-msgstr ""
+msgstr "Dotclear instalācijas šādus failus nevar ierakstīt. Lūdzu, salabojiet to vai mēģiniet <a href=\"%s\">atjaunināt manuāli</a>."
 
 #: src/Process/Upgrade/Attic.php:244 src/Process/Upgrade/Upgrade.php:244
 msgid "No newer Dotclear version available."
