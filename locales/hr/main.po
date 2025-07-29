@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-28 16:17+0200\n"
-"PO-Revision-Date: 2025-07-28 14:30\n"
+"POT-Creation-Date: 2025-07-29 06:42+0200\n"
+"PO-Revision-Date: 2025-07-29 05:52\n"
 "Last-Translator: \n"
 "Language-Team: Croatian\n"
 "Language: hr_HR\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Crowdin-File-ID: 262\n"
 
 #: inc/core/_fake_l10n.php:6 src/Process/Backend/Auth.php:353
-#: src/Process/Backend/User.php:264 src/Process/Backend/UserPreferences.php:529
+#: src/Process/Backend/User.php:264 src/Process/Backend/UserPreferences.php:526
 #: src/Process/Install/Install.php:397 src/Process/Upgrade/Auth.php:185
 msgid "medium"
 msgstr "srednje jako"
@@ -93,7 +93,7 @@ msgstr "Taj ključ ne postoji u bazi podataka."
 #: src/Core/Backend/Action/ActionsComments.php:159
 #: src/Core/Backend/Combos.php:256 src/Core/Backend/Listing/ListingPosts.php:77
 #: src/Core/Backend/Listing/ListingPostsMini.php:63
-#: src/Core/Backend/UserPref.php:205 src/Process/Backend/Home.php:580
+#: src/Core/Backend/UserPref.php:205 src/Process/Backend/Home.php:594
 #: src/Process/Backend/MediaItem.php:1093 src/Process/Backend/Post.php:832
 msgid "Title"
 msgstr "Naslov"
@@ -181,7 +181,7 @@ msgid "Password verification failed"
 msgstr "Provjera lozinke nije uspjela"
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:111
-#: src/Process/Backend/BlogPref.php:1200
+#: src/Process/Backend/BlogPref.php:1205
 msgid "The current blog cannot be deleted."
 msgstr "Trenutni blog nije moguće izbrisati."
 
@@ -384,7 +384,7 @@ msgid "Change category for this selection"
 msgstr "Promijeni kategoriju za ovaj odabir"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:352
-#: src/Core/Backend/Filter/FilterPosts.php:132 src/Process/Backend/Home.php:606
+#: src/Core/Backend/Filter/FilterPosts.php:132 src/Process/Backend/Home.php:620
 #: src/Process/Backend/Post.php:720
 msgid "Category:"
 msgstr "Kategorija:"
@@ -394,7 +394,7 @@ msgid "Create a new category for the post(s)"
 msgstr "Stvaranje nove kategorije za objave"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:370
-#: src/Process/Backend/Home.php:584 src/Process/Backend/Home.php:618
+#: src/Process/Backend/Home.php:598 src/Process/Backend/Home.php:632
 #: src/Process/Backend/Media.php:763 src/Process/Backend/MediaItem.php:1233
 #: src/Process/Backend/Post.php:734 src/Process/Backend/Post.php:837
 msgid "Title:"
@@ -402,17 +402,17 @@ msgstr "Naslov:"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:379
 #: src/Process/Backend/Category.php:268 src/Process/Backend/Category.php:326
-#: src/Process/Backend/Home.php:625 src/Process/Backend/Post.php:741
+#: src/Process/Backend/Home.php:639 src/Process/Backend/Post.php:741
 msgid "Parent:"
 msgstr "Roditelj:"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:394
 #: src/Core/Backend/Action/ActionsPostsDefault.php:499
 #: src/Core/Backend/Action/ActionsPostsDefault.php:583
-#: src/Core/Backend/ModulesList.php:1979 src/Process/Backend/BlogPref.php:1175
+#: src/Core/Backend/ModulesList.php:1979 src/Process/Backend/BlogPref.php:1180
 #: src/Process/Backend/Category.php:298 src/Process/Backend/Category.php:337
 #: src/Process/Backend/Category.php:373 src/Process/Backend/Comment.php:350
-#: src/Process/Backend/Home.php:635 src/Process/Backend/Home.php:686
+#: src/Process/Backend/Home.php:649 src/Process/Backend/Home.php:703
 #: src/Process/Backend/MediaItem.php:1273 src/Process/Backend/Post.php:921
 #: src/Process/Backend/Post.php:1135 src/Process/Backend/User.php:536
 #: src/Process/Backend/UsersActions.php:513 src/Process/Install/Install.php:479
@@ -467,11 +467,11 @@ msgstr "Dostupno"
 msgid "Other"
 msgstr "ostalo"
 
-#: src/Core/Backend/Combos.php:242 src/Process/Backend/UserPreferences.php:192
+#: src/Core/Backend/Combos.php:242 src/Process/Backend/UserPreferences.php:189
 msgid "Descending"
 msgstr "Silazni"
 
-#: src/Core/Backend/Combos.php:243 src/Process/Backend/UserPreferences.php:193
+#: src/Core/Backend/Combos.php:243 src/Process/Backend/UserPreferences.php:190
 msgid "Ascending"
 msgstr "Uzlazni"
 
@@ -562,7 +562,7 @@ msgid "Number of entries"
 msgstr "Broj unosa"
 
 #: src/Core/Backend/Favorites.php:299
-#: src/Process/Backend/UserPreferences.php:1148
+#: src/Process/Backend/UserPreferences.php:1145
 msgid "My favorites"
 msgstr "Moji omiljeni"
 
@@ -573,7 +573,7 @@ msgid "My preferences"
 msgstr "Moje preferencije"
 
 #: src/Core/Backend/Favorites.php:414 src/Core/Backend/Menus.php:181
-#: src/Process/Backend/Home.php:569 src/Process/Backend/Post.php:95
+#: src/Process/Backend/Home.php:583 src/Process/Backend/Post.php:95
 #: src/Process/Backend/Post.php:964 src/Process/Backend/Posts.php:115
 msgid "New post"
 msgstr "Nova objava"
@@ -629,7 +629,7 @@ msgstr "Izgled bloga"
 
 #: src/Core/Backend/Favorites.php:512 src/Core/Backend/Menus.php:235
 #: src/Core/Backend/UserPref.php:65 src/Core/Backend/UserPref.php:168
-#: src/Process/Backend/BlogPref.php:1366 src/Process/Backend/User.php:274
+#: src/Process/Backend/BlogPref.php:1371 src/Process/Backend/User.php:274
 #: src/Process/Backend/Users.php:105 src/Process/Backend/Users.php:110
 #: src/Process/Backend/UsersActions.php:219
 #: src/Process/Backend/UsersActions.php:227
@@ -661,9 +661,9 @@ msgid "Global help"
 msgstr "Globalna pomoć"
 
 #: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1261
-#: src/Process/Backend/Auth.php:420 src/Process/Backend/BlogPref.php:1346
+#: src/Process/Backend/Auth.php:420 src/Process/Backend/BlogPref.php:1351
 #: src/Process/Backend/Comment.php:306 src/Process/Backend/Post.php:1104
-#: src/Process/Backend/User.php:432 src/Process/Backend/UserPreferences.php:640
+#: src/Process/Backend/User.php:432 src/Process/Backend/UserPreferences.php:637
 #: src/Process/Install/Install.php:445
 msgid "Email:"
 msgstr "Email:"
@@ -795,7 +795,7 @@ msgid "Sort:"
 msgstr "Vrsta:"
 
 #: src/Core/Backend/Filter/Filters.php:391
-#: src/Process/Backend/UserPreferences.php:773
+#: src/Process/Backend/UserPreferences.php:770
 msgid "Show"
 msgstr "Pokazati"
 
@@ -1151,7 +1151,7 @@ msgstr "Dodaci"
 #: src/Core/Backend/Menus.php:205 src/Core/Backend/ModulesList.php:1379
 #: src/Core/Upgrade/PluginsList.php:144 src/Core/Upgrade/Utility.php:267
 #: src/Process/Upgrade/Upgrade.php:59 src/Process/Upgrade/Upgrade.php:84
-#: src/Process/Upgrade/Upgrade.php:313
+#: src/Process/Upgrade/Upgrade.php:322
 msgid "Update"
 msgstr "Ažuriraj"
 
@@ -1432,12 +1432,12 @@ msgstr "Učitajte zip datoteku"
 #: src/Core/Backend/ModulesList.php:1745 src/Core/Backend/ModulesList.php:1792
 #: src/Process/Backend/Blog.php:117 src/Process/Backend/BlogPref.php:525
 #: src/Process/Backend/BlogPref.php:1010 src/Process/Backend/Category.php:248
-#: src/Process/Backend/Comment.php:284 src/Process/Backend/Home.php:572
+#: src/Process/Backend/Comment.php:284 src/Process/Backend/Home.php:586
 #: src/Process/Backend/Langs.php:322 src/Process/Backend/Langs.php:372
 #: src/Process/Backend/LinkPopup.php:83 src/Process/Backend/Post.php:989
 #: src/Process/Backend/Post.php:1080 src/Process/Backend/User.php:303
 #: src/Process/Backend/UsersActions.php:492 src/Process/Install/Install.php:455
-#: src/Process/Install/Wizard.php:266 src/Process/Upgrade/Langs.php:406
+#: src/Process/Install/Wizard.php:263 src/Process/Upgrade/Langs.php:406
 #, php-format
 msgid "Fields preceded by %s are mandatory."
 msgstr "Polja ispred %s su obavezna."
@@ -1498,25 +1498,25 @@ msgid "Configure \"%s\""
 msgstr "Konfiguriraj \"%s\""
 
 #: src/Core/Backend/ModulesList.php:1966 src/Process/Backend/Blog.php:197
-#: src/Process/Backend/BlogDel.php:138 src/Process/Backend/BlogPref.php:1177
+#: src/Process/Backend/BlogDel.php:138 src/Process/Backend/BlogPref.php:1182
 #: src/Process/Backend/Category.php:301 src/Process/Backend/Comment.php:352
 #: src/Process/Backend/Media.php:857 src/Process/Backend/MediaItem.php:1359
 #: src/Process/Backend/Post.php:946 src/Process/Backend/Search.php:197
-#: src/Process/Backend/User.php:547 src/Process/Backend/UserPreferences.php:701
-#: src/Process/Backend/UserPreferences.php:1003
-#: src/Process/Backend/UserPreferences.php:1229
+#: src/Process/Backend/User.php:547 src/Process/Backend/UserPreferences.php:698
+#: src/Process/Backend/UserPreferences.php:1000
+#: src/Process/Backend/UserPreferences.php:1226
 msgid "Back"
 msgstr "leđa"
 
 #: src/Core/Backend/Notices.php:86 src/Core/Backend/Page.php:1263
 #: src/Core/Backend/Page.php:1419 src/Core/Upgrade/Notices.php:48
-#: src/Process/Backend/Home.php:313
+#: src/Process/Backend/Home.php:327
 msgid "Error:"
 msgstr "Greška:"
 
 #: src/Core/Backend/Notices.php:86 src/Core/Upgrade/Notices.php:48
 #: src/Process/Install/Install.php:418 src/Process/Install/Install.php:527
-#: src/Process/Install/Wizard.php:247
+#: src/Process/Install/Wizard.php:246
 msgid "Errors:"
 msgstr "greške:"
 
@@ -1557,8 +1557,8 @@ msgid "Go to help"
 msgstr "Idi pomoći"
 
 #: src/Core/Backend/Page.php:339 src/Core/Upgrade/Page.php:175
-#: src/Process/Backend/UserPreferences.php:1138
-#: src/Process/Backend/UserPreferences.php:1140
+#: src/Process/Backend/UserPreferences.php:1135
+#: src/Process/Backend/UserPreferences.php:1137
 msgid "My dashboard"
 msgstr "Moja Nadzorna ploča"
 
@@ -2506,7 +2506,7 @@ msgstr "LOL!"
 #: src/Process/Backend/Plugin.php:146 src/Process/Backend/Plugins.php:122
 #: src/Process/Backend/Settings.php:61 src/Process/Backend/User.php:273
 #: src/Process/Backend/Users.php:109 src/Process/Backend/UsersActions.php:218
-#: src/Process/Backend/UsersActions.php:226 src/Process/Upgrade/Home.php:162
+#: src/Process/Backend/UsersActions.php:226 src/Process/Upgrade/Home.php:168
 msgid "System"
 msgstr "Sustav"
 
@@ -2562,16 +2562,16 @@ msgstr "Nevažeća datoteka sažetaka."
 msgid "Something went wrong with auto upgrade:"
 msgstr "Nešto nije u redu s automatskom nadogradnjom:"
 
-#: src/Core/Upgrade/Utility.php:272 src/Process/Upgrade/Upgrade.php:323
+#: src/Core/Upgrade/Utility.php:272 src/Process/Upgrade/Upgrade.php:332
 msgid "On this page you can update dotclear to the latest release."
 msgstr "Na ovoj stranici možete ažurirati dotclear na najnovije izdanje."
 
 #: src/Core/Upgrade/Utility.php:276 src/Process/Upgrade/Attic.php:78
-#: src/Process/Upgrade/Attic.php:103 src/Process/Upgrade/Attic.php:345
+#: src/Process/Upgrade/Attic.php:103 src/Process/Upgrade/Attic.php:357
 msgid "Attic"
 msgstr "Potkrovlje"
 
-#: src/Core/Upgrade/Utility.php:281 src/Process/Upgrade/Attic.php:355
+#: src/Core/Upgrade/Utility.php:281 src/Process/Upgrade/Attic.php:367
 msgid "On this page you can update dotclear to a release between yours and latest."
 msgstr "Na ovoj stranici možete ažurirati dotclear na izdanje između vašeg i najnovijeg."
 
@@ -3049,7 +3049,7 @@ msgid "Your new password is in your mailbox."
 msgstr "Vaša nova lozinka je u vašem poštanskom sandučiću."
 
 #: src/Process/Backend/Auth.php:203 src/Process/Backend/User.php:158
-#: src/Process/Backend/UserPreferences.php:234
+#: src/Process/Backend/UserPreferences.php:231
 #: src/Process/Install/Install.php:170
 msgid "Passwords don't match"
 msgstr "Lozinke se ne podudaraju"
@@ -3081,9 +3081,9 @@ msgstr "Pogrešno korisničko ime ili lozinka"
 #: src/Process/Backend/Auth.php:352 src/Process/Backend/Auth.php:353
 #: src/Process/Backend/Auth.php:354 src/Process/Backend/User.php:263
 #: src/Process/Backend/User.php:264 src/Process/Backend/User.php:265
-#: src/Process/Backend/UserPreferences.php:528
-#: src/Process/Backend/UserPreferences.php:529
-#: src/Process/Backend/UserPreferences.php:530
+#: src/Process/Backend/UserPreferences.php:525
+#: src/Process/Backend/UserPreferences.php:526
+#: src/Process/Backend/UserPreferences.php:527
 #: src/Process/Install/Install.php:396 src/Process/Install/Install.php:397
 #: src/Process/Install/Install.php:398 src/Process/Upgrade/Auth.php:184
 #: src/Process/Upgrade/Auth.php:185 src/Process/Upgrade/Auth.php:186
@@ -3092,13 +3092,13 @@ msgid "Password strength: %s"
 msgstr "Snaga lozinke: %s"
 
 #: src/Process/Backend/Auth.php:352 src/Process/Backend/User.php:263
-#: src/Process/Backend/UserPreferences.php:528
+#: src/Process/Backend/UserPreferences.php:525
 #: src/Process/Install/Install.php:396 src/Process/Upgrade/Auth.php:184
 msgid "weak"
 msgstr "slab"
 
 #: src/Process/Backend/Auth.php:354 src/Process/Backend/User.php:265
-#: src/Process/Backend/UserPreferences.php:530
+#: src/Process/Backend/UserPreferences.php:527
 #: src/Process/Install/Install.php:398 src/Process/Upgrade/Auth.php:186
 msgid "strong"
 msgstr "snažna"
@@ -3124,7 +3124,7 @@ msgid "Change your password"
 msgstr "promjeni lozinku"
 
 #: src/Process/Backend/Auth.php:453 src/Process/Backend/User.php:334
-#: src/Process/Backend/UserPreferences.php:566
+#: src/Process/Backend/UserPreferences.php:563
 #: src/Process/Install/Install.php:464
 msgid "New password:"
 msgstr "Nova lozinka:"
@@ -3229,7 +3229,7 @@ msgstr "Blog \"%s\" uspješno je izbrisan"
 msgid "Delete a blog"
 msgstr "Brisanje bloga"
 
-#: src/Process/Backend/BlogDel.php:100 src/Process/Upgrade/Home.php:157
+#: src/Process/Backend/BlogDel.php:100 src/Process/Upgrade/Home.php:163
 msgid "Warning"
 msgstr "Upozorenje"
 
@@ -3242,7 +3242,7 @@ msgstr "Upravo ćete izbrisati blog %s. Svaki unos, komentar i kategorija bit ć
 msgid "Please give your password to confirm the blog deletion."
 msgstr "Unesite svoju lozinku kako biste potvrdili brisanje bloga."
 
-#: src/Process/Backend/BlogDel.php:135 src/Process/Backend/BlogPref.php:1191
+#: src/Process/Backend/BlogDel.php:135 src/Process/Backend/BlogPref.php:1196
 msgid "Delete this blog"
 msgstr "Izbriši ovaj blog"
 
@@ -3290,7 +3290,7 @@ msgstr "H3"
 msgid "P"
 msgstr "P"
 
-#: src/Process/Backend/BlogPref.php:167 src/Process/Backend/BlogPref.php:1259
+#: src/Process/Backend/BlogPref.php:167 src/Process/Backend/BlogPref.php:1264
 #: src/Process/Backend/MediaItem.php:609 src/Process/Backend/MediaItem.php:614
 msgid "(none)"
 msgstr "(ništa)"
@@ -3354,7 +3354,7 @@ msgid "I would like to prevent search engines and archivers from indexing or arc
 msgstr "Želio bih spriječiti tražilice i programe za arhiviranje da indeksiraju ili arhiviraju sadržaj mog bloga."
 
 #: src/Process/Backend/BlogPref.php:234
-#: src/Process/Backend/UserPreferences.php:154
+#: src/Process/Backend/UserPreferences.php:151
 msgid "Default"
 msgstr "Zadano"
 
@@ -3733,70 +3733,71 @@ msgstr "jQuery verzija koja će se učitati za ovaj blog:"
 msgid "Blog security"
 msgstr "Sigurnost bloga"
 
-#: src/Process/Backend/BlogPref.php:1151
-msgid "Protect the blog from Clickjacking (see <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
-msgstr "Zaštitite blog od Clickjackinga (pogledajte <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
+#: src/Process/Backend/BlogPref.php:1153
+#, php-format
+msgid "Protect the blog from Clickjacking (see <a href=\"%s\">Wikipedia</a>)"
+msgstr "Zaštitite blog od Clickjackinga (vidi <a href=\"%s\">Wikipedia</a>)"
 
-#: src/Process/Backend/BlogPref.php:1157
+#: src/Process/Backend/BlogPref.php:1162
 msgid "Advanced parameters"
 msgstr "Napredni parametri"
 
-#: src/Process/Backend/BlogPref.php:1164
+#: src/Process/Backend/BlogPref.php:1169
 msgid "Plugins parameters"
 msgstr "Parametri dodataka"
 
-#: src/Process/Backend/BlogPref.php:1204
+#: src/Process/Backend/BlogPref.php:1209
 msgid "Only superadmin can delete a blog."
 msgstr "Samo superadmin može izbrisati blog."
 
-#: src/Process/Backend/BlogPref.php:1208
+#: src/Process/Backend/BlogPref.php:1213
 msgid "Parameters"
 msgstr "Parametri"
 
-#: src/Process/Backend/BlogPref.php:1227
+#: src/Process/Backend/BlogPref.php:1232
 msgid "No users"
 msgstr "Nema korisnika"
 
-#: src/Process/Backend/BlogPref.php:1269
+#: src/Process/Backend/BlogPref.php:1274
 #, php-format
 msgid "%1$s: %2$s"
 msgstr "%1$s: %2$s"
 
-#: src/Process/Backend/BlogPref.php:1278 src/Process/Backend/User.php:382
+#: src/Process/Backend/BlogPref.php:1283 src/Process/Backend/User.php:382
 msgid "Super administrator"
 msgstr "Super administrator"
 
-#: src/Process/Backend/BlogPref.php:1280
+#: src/Process/Backend/BlogPref.php:1285
 msgid "All rights on all blogs."
 msgstr "Sva prava na sve blogove."
 
-#: src/Process/Backend/BlogPref.php:1290
+#: src/Process/Backend/BlogPref.php:1295
 msgid "All rights on this blog."
 msgstr "Sva prava na ovom blogu."
 
-#: src/Process/Backend/BlogPref.php:1306
+#: src/Process/Backend/BlogPref.php:1311
 #: src/Process/Backend/UsersActions.php:459
 #, php-format
 msgid "[%s] (unreferenced permission)"
 msgstr "[%s] (nereferencirana dozvola)"
 
-#: src/Process/Backend/BlogPref.php:1325 src/Process/Backend/User.php:597
+#: src/Process/Backend/BlogPref.php:1330 src/Process/Backend/User.php:597
 msgid "Change permissions"
 msgstr "Promjena dopuštenja"
 
-#: src/Process/Backend/BlogPref.php:1327
+#: src/Process/Backend/BlogPref.php:1332
 msgid "Back to user card"
 msgstr "Natrag na korisničku karticu"
 
-#: src/Process/Backend/BlogPref.php:1349
+#: src/Process/Backend/BlogPref.php:1354
 msgid "Publications on this blog:"
 msgstr "Publikacije na ovom blogu:"
 
-#: src/Process/Backend/BlogPref.php:1352
+#: src/Process/Backend/BlogPref.php:1357
 msgid "Permissions:"
 msgstr "Dozvole:"
 
-#: src/Process/Backend/BlogPref.php:1369
+#: src/Process/Backend/BlogPref.php:1374
 msgid "Users on this blog"
 msgstr "Korisnici na ovom blogu"
 
@@ -3988,7 +3989,7 @@ msgid "total:"
 msgstr "ukupno:"
 
 #: src/Process/Backend/Categories.php:326 src/Process/Backend/Category.php:279
-#: src/Process/Backend/User.php:457 src/Process/Backend/UserPreferences.php:662
+#: src/Process/Backend/User.php:457 src/Process/Backend/UserPreferences.php:659
 msgid "URL:"
 msgstr "URL:"
 
@@ -4170,7 +4171,7 @@ msgid "Dashboard area's drag and drop is enabled"
 msgstr "Omogućeno je povlačenje i ispuštanje područja nadzorne ploče"
 
 #: src/Process/Backend/Home.php:235 src/Process/Backend/Home.php:248
-#: src/Process/Upgrade/Home.php:135
+#: src/Process/Upgrade/Home.php:141
 msgid "Dashboard"
 msgstr "Nadzorna ploča"
 
@@ -4186,108 +4187,110 @@ msgstr "Ovaj blog je izvan mreže"
 msgid "This blog is removed"
 msgstr "Ovaj blog je uklonjen"
 
-#: src/Process/Backend/Home.php:273 src/Process/Backend/Home.php:281
-#: src/Process/Upgrade/Home.php:60 src/Process/Upgrade/Home.php:65
+#: src/Process/Backend/Home.php:274 src/Process/Backend/Home.php:289
+#: src/Process/Upgrade/Home.php:60 src/Process/Upgrade/Home.php:68
 #, php-format
 msgid "%s is not defined, you should edit your configuration file."
 msgstr "%s nije definirano, trebali biste urediti konfiguracijsku datoteku."
 
-#: src/Process/Backend/Home.php:274 src/Process/Backend/Home.php:282
-#: src/Process/Upgrade/Home.php:61 src/Process/Upgrade/Home.php:66
-msgid "See <a href=\"https://dotclear.org/documentation/2.0/admin/config\">documentation</a> for more information."
-msgstr "Za više informacija pogledajte <a href=\"https://dotclear.org/documentation/2.0/admin/config\">dokumentaciju</a>."
+#: src/Process/Backend/Home.php:279 src/Process/Backend/Home.php:294
+#: src/Process/Upgrade/Home.php:62 src/Process/Upgrade/Home.php:70
+#, php-format
+msgid "See <a href=\"%s\">documentation</a> for more information."
+msgstr "Za više informacija pogledajte <a href=\"%s\">dokumentaciju</a>."
 
-#: src/Process/Backend/Home.php:292 src/Process/Upgrade/Home.php:70
+#: src/Process/Backend/Home.php:306 src/Process/Upgrade/Home.php:76
 msgid "The cache directory does not exist or is not writable. You must create this directory with sufficient rights and affect this location to \"DC_TPL_CACHE\" in inc/config.php file."
 msgstr "Direktorij predmemorije ne postoji ili se u njega ne može pisati. Morate stvoriti ovaj direktorij s dovoljnim pravima i utjecati na ovu lokaciju na \"DC_TPL_CACHE\" u datoteci inc/config.php."
 
-#: src/Process/Backend/Home.php:295
+#: src/Process/Backend/Home.php:309
 msgid "The cache directory does not exist or is not writable. You should contact your administrator."
 msgstr "Direktorij predmemorije ne postoji ili se u njega ne može pisati. Trebali biste kontaktirati svog administratora."
 
-#: src/Process/Backend/Home.php:301
+#: src/Process/Backend/Home.php:315
 msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
 msgstr "Ne postoji direktorij za pisanje /public/ na lokaciji postavljenoj u about:config \"public_path\". Morate stvoriti ovaj direktorij s odgovarajućim pravima (ili promijeniti ovu postavku)."
 
-#: src/Process/Backend/Home.php:304
+#: src/Process/Backend/Home.php:318
 msgid "There is no writable root directory for the media manager. You should contact your administrator."
 msgstr "Za upravitelja medija ne postoji korijenski direktorij u koji se može pisati. Trebali biste kontaktirati svog administratora."
 
-#: src/Process/Backend/Home.php:338 src/Process/Backend/Plugins.php:139
+#: src/Process/Backend/Home.php:352 src/Process/Backend/Plugins.php:139
 #: src/Process/Install/Install.php:485 src/Process/Upgrade/Plugins.php:126
 msgid "Following plugins have been installed:"
 msgstr "Instalirani su sljedeći dodaci:"
 
-#: src/Process/Backend/Home.php:360 src/Process/Backend/Plugins.php:161
+#: src/Process/Backend/Home.php:374 src/Process/Backend/Plugins.php:161
 #: src/Process/Install/Install.php:492 src/Process/Upgrade/Plugins.php:148
 msgid "Following plugins have not been installed:"
 msgstr "Sljedeći dodaci nisu instalirani:"
 
-#: src/Process/Backend/Home.php:381
+#: src/Process/Backend/Home.php:395
 msgid "Errors have occured with following plugins:"
 msgstr "Došlo je do pogrešaka sa sljedećim dodacima:"
 
-#: src/Process/Backend/Home.php:563
+#: src/Process/Backend/Home.php:577
 msgid "Quick post"
 msgstr "Brzi post"
 
-#: src/Process/Backend/Home.php:593 src/Process/Backend/Post.php:874
+#: src/Process/Backend/Home.php:607 src/Process/Backend/Post.php:874
 msgid "Content:"
 msgstr "Sadržaj:"
 
-#: src/Process/Backend/Home.php:599 src/Process/Backend/Post.php:871
+#: src/Process/Backend/Home.php:613 src/Process/Backend/Post.php:871
 msgid "Content"
 msgstr "Sadržaj"
 
-#: src/Process/Backend/Home.php:610 src/Process/Backend/Post.php:725
+#: src/Process/Backend/Home.php:624 src/Process/Backend/Post.php:725
 msgid "Add a new category"
 msgstr "Dodajte novu kategoriju"
 
-#: src/Process/Backend/Home.php:629
+#: src/Process/Backend/Home.php:643
 msgid "This category will be created when you will save your post."
 msgstr "Ova kategorija će se stvoriti kada spremite svoju objavu."
 
-#: src/Process/Backend/Home.php:637
+#: src/Process/Backend/Home.php:651
 msgid "Save and publish"
 msgstr "Spremi i objavi"
 
-#: src/Process/Backend/Home.php:659
+#: src/Process/Backend/Home.php:673
 msgid "Donate to Dotclear"
 msgstr "Donirajte Dotclearu"
 
-#: src/Process/Backend/Home.php:661
+#: src/Process/Backend/Home.php:675
 msgid "Dotclear is not a commercial project — using Dotclear is <strong>free</strong> and <strong>always</strong> will be. If you wish to, you may contribute to Dotclear to help us cover project-related expenses."
 msgstr "Dotclear nije komercijalni projekt — korištenje Dotcleara je <strong>besplatno</strong> i <strong>uvijek</strong> će biti. Ako želite, možete doprinijeti Dotclearu kako biste nam pomogli pokriti troškove vezane uz projekt."
 
-#: src/Process/Backend/Home.php:663
+#: src/Process/Backend/Home.php:677
 msgid "The collected funds will be spent as follows:"
 msgstr "Prikupljena sredstva će se utrošiti na sljedeći način:"
 
-#: src/Process/Backend/Home.php:667
+#: src/Process/Backend/Home.php:681
 msgid "Paying for the website hosting and translations"
 msgstr "Plaćanje hostinga i prijevoda web stranice"
 
-#: src/Process/Backend/Home.php:669
+#: src/Process/Backend/Home.php:683
 msgid "Paying for the domain names"
 msgstr "Plaćanje imena domena"
 
-#: src/Process/Backend/Home.php:671
+#: src/Process/Backend/Home.php:685
 msgid "Supporting related projects such as Dotaddict.org"
 msgstr "Podrška srodnim projektima kao što je Dotaddict.org"
 
-#: src/Process/Backend/Home.php:673
+#: src/Process/Backend/Home.php:687
 msgid "Cover the costs of events set up by Dotclear"
 msgstr "Pokrijte troškove događaja koje je organizirao Dotclear"
 
-#: src/Process/Backend/Home.php:676
-msgid "See <a href=\"https://dotclear.org/donate\">this page</a> for more information and donation"
-msgstr "Pogledajte <a href=\"https://dotclear.org/donate\">ovu stranicu</a> za više informacija i donacije"
+#: src/Process/Backend/Home.php:691
+#, php-format
+msgid "See <a href=\"%s\">this page</a> for more information and donation"
+msgstr "Za više informacija i donacija pogledajte <a href=\"%s\">ovu stranicu</a>"
 
-#: src/Process/Backend/Home.php:685
+#: src/Process/Backend/Home.php:702
 msgid "For the record, here is the date of my last donation to Dotclear:"
 msgstr "Za zapisnik, evo datuma moje posljednje donacije Dotclearu:"
 
-#: src/Process/Backend/Home.php:704
+#: src/Process/Backend/Home.php:721
 msgid "Documentation and support"
 msgstr "Dokumentacija i podrška"
 
@@ -4654,7 +4657,7 @@ msgstr "Veličina slike:"
 msgid "Select media item"
 msgstr "Odaberite medijsku stavku"
 
-#: src/Process/Backend/MediaItem.php:510 src/Process/Upgrade/Attic.php:301
+#: src/Process/Backend/MediaItem.php:510 src/Process/Upgrade/Attic.php:313
 msgid "Select"
 msgstr "Izaberi"
 
@@ -5215,8 +5218,8 @@ msgstr "Nadograditi sada"
 msgid "Remind me later"
 msgstr "Podsjeti me kasnije"
 
-#: src/Process/Backend/Rest.php:240 src/Process/Upgrade/Upgrade.php:260
-#: src/Process/Upgrade/Upgrade.php:261
+#: src/Process/Backend/Rest.php:240 src/Process/Upgrade/Upgrade.php:269
+#: src/Process/Upgrade/Upgrade.php:270
 msgid "Information about this version"
 msgstr "Informacije o ovoj verziji"
 
@@ -5225,7 +5228,7 @@ msgstr "Informacije o ovoj verziji"
 msgid "A new version of Dotclear is available but needs PHP version ≥ %1$s, your's is currently %2$s"
 msgstr "Dostupna je nova verzija Dotcleara, ali treba PHP verziju ≥ %1$s, vaša je trenutno %2$s"
 
-#: src/Process/Backend/Rest.php:264 src/Process/Upgrade/Upgrade.php:226
+#: src/Process/Backend/Rest.php:264 src/Process/Upgrade/Upgrade.php:235
 #, php-format
 msgid "The next versions of Dotclear will not support PHP version < %1$s, your's is currently %2$s"
 msgstr "Sljedeće verzije Dotcleara neće podržavati PHP verziju < %1$s, vaša je trenutno %2$s"
@@ -5409,17 +5412,17 @@ msgstr "Upozorenje:"
 msgid "Password change required to connect"
 msgstr "Za povezivanje je potrebna promjena lozinke"
 
-#: src/Process/Backend/User.php:401 src/Process/Backend/UserPreferences.php:610
+#: src/Process/Backend/User.php:401 src/Process/Backend/UserPreferences.php:607
 #: src/Process/Install/Install.php:439
 msgid "Last Name:"
 msgstr "Prezime:"
 
-#: src/Process/Backend/User.php:411 src/Process/Backend/UserPreferences.php:620
+#: src/Process/Backend/User.php:411 src/Process/Backend/UserPreferences.php:617
 #: src/Process/Install/Install.php:433
 msgid "First Name:"
 msgstr "Ime:"
 
-#: src/Process/Backend/User.php:421 src/Process/Backend/UserPreferences.php:630
+#: src/Process/Backend/User.php:421 src/Process/Backend/UserPreferences.php:627
 msgid "Display name:"
 msgstr "Ime za prikaz:"
 
@@ -5427,23 +5430,23 @@ msgstr "Ime za prikaz:"
 msgid "Mandatory for password recovering procedure."
 msgstr "Obavezno za postupak vraćanja lozinke."
 
-#: src/Process/Backend/User.php:444 src/Process/Backend/UserPreferences.php:649
+#: src/Process/Backend/User.php:444 src/Process/Backend/UserPreferences.php:646
 msgid "Alternate emails (comma separated list):"
 msgstr "Alternativne adrese e-pošte (popis odvojen zarezom):"
 
-#: src/Process/Backend/User.php:448 src/Process/Backend/UserPreferences.php:653
+#: src/Process/Backend/User.php:448 src/Process/Backend/UserPreferences.php:650
 msgid "Invalid emails will be automatically removed from list."
 msgstr "Nevažeće adrese e-pošte bit će automatski uklonjene s popisa."
 
-#: src/Process/Backend/User.php:466 src/Process/Backend/UserPreferences.php:671
+#: src/Process/Backend/User.php:466 src/Process/Backend/UserPreferences.php:668
 msgid "Alternate URLs (comma separated list):"
 msgstr "Alternativni URL-ovi (popis odvojen zarezima):"
 
-#: src/Process/Backend/User.php:470 src/Process/Backend/UserPreferences.php:675
+#: src/Process/Backend/User.php:470 src/Process/Backend/UserPreferences.php:672
 msgid "Invalid URLs will be automatically removed from list."
 msgstr "Nevažeći URL-ovi bit će automatski uklonjeni s popisa."
 
-#: src/Process/Backend/User.php:476 src/Process/Backend/UserPreferences.php:818
+#: src/Process/Backend/User.php:476 src/Process/Backend/UserPreferences.php:815
 msgid "Interface"
 msgstr "Sučelje"
 
@@ -5451,19 +5454,19 @@ msgstr "Sučelje"
 msgid "Timezone:"
 msgstr "Vremenska zona:"
 
-#: src/Process/Backend/User.php:492 src/Process/Backend/UserPreferences.php:942
+#: src/Process/Backend/User.php:492 src/Process/Backend/UserPreferences.php:939
 msgid "Edition"
 msgstr "Izdanje"
 
-#: src/Process/Backend/User.php:498 src/Process/Backend/UserPreferences.php:954
+#: src/Process/Backend/User.php:498 src/Process/Backend/UserPreferences.php:951
 msgid "Preferred format:"
 msgstr "Preferirani format:"
 
-#: src/Process/Backend/User.php:505 src/Process/Backend/UserPreferences.php:962
+#: src/Process/Backend/User.php:505 src/Process/Backend/UserPreferences.php:959
 msgid "Default entry status:"
 msgstr "Zadani status unosa:"
 
-#: src/Process/Backend/User.php:510 src/Process/Backend/UserPreferences.php:968
+#: src/Process/Backend/User.php:510 src/Process/Backend/UserPreferences.php:965
 msgid "Entry edit field height:"
 msgstr "Visina polja za uređivanje unosa:"
 
@@ -5513,341 +5516,341 @@ msgstr "Popis postova"
 msgid "List of comments"
 msgstr "Popis komentara"
 
-#: src/Process/Backend/UserPreferences.php:145
+#: src/Process/Backend/UserPreferences.php:142
 msgid "Light"
 msgstr "Svjetlo"
 
-#: src/Process/Backend/UserPreferences.php:146
+#: src/Process/Backend/UserPreferences.php:143
 msgid "Dark"
 msgstr "tamno"
 
-#: src/Process/Backend/UserPreferences.php:147
+#: src/Process/Backend/UserPreferences.php:144
 msgid "Automatic"
 msgstr "Automatski"
 
-#: src/Process/Backend/UserPreferences.php:152
+#: src/Process/Backend/UserPreferences.php:149
 msgid "Smallest"
 msgstr "Najmanji"
 
-#: src/Process/Backend/UserPreferences.php:153
+#: src/Process/Backend/UserPreferences.php:150
 msgid "Smaller"
 msgstr "Manji"
 
-#: src/Process/Backend/UserPreferences.php:155
+#: src/Process/Backend/UserPreferences.php:152
 msgid "Larger"
 msgstr "Veći"
 
-#: src/Process/Backend/UserPreferences.php:156
+#: src/Process/Backend/UserPreferences.php:153
 msgid "Largest"
 msgstr "Najveći"
 
-#: src/Process/Backend/UserPreferences.php:168
+#: src/Process/Backend/UserPreferences.php:165
 msgid "Blog description (in blog parameters)"
 msgstr "Opis bloga (u parametrima bloga)"
 
-#: src/Process/Backend/UserPreferences.php:169
+#: src/Process/Backend/UserPreferences.php:166
 msgid "Category description"
 msgstr "Opis kategorije"
 
-#: src/Process/Backend/UserPreferences.php:213
-#: src/Process/Backend/UserPreferences.php:230
+#: src/Process/Backend/UserPreferences.php:210
+#: src/Process/Backend/UserPreferences.php:227
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "Ako želite promijeniti svoju e-poštu ili lozinku, morate dati svoju trenutnu lozinku."
 
-#: src/Process/Backend/UserPreferences.php:261
+#: src/Process/Backend/UserPreferences.php:258
 msgid "Personal information has been successfully updated."
 msgstr "Osobni podaci su uspješno ažurirani."
 
-#: src/Process/Backend/UserPreferences.php:379
+#: src/Process/Backend/UserPreferences.php:376
 msgid "Personal options has been successfully updated."
 msgstr "Osobne opcije su uspješno ažurirane."
 
-#: src/Process/Backend/UserPreferences.php:407
+#: src/Process/Backend/UserPreferences.php:404
 msgid "Dashboard options has been successfully updated."
 msgstr "Opcije nadzorne ploče uspješno su ažurirane."
 
-#: src/Process/Backend/UserPreferences.php:419
-#: src/Process/Backend/UserPreferences.php:443
+#: src/Process/Backend/UserPreferences.php:416
+#: src/Process/Backend/UserPreferences.php:440
 msgid "No favorite selected"
 msgstr "Nema odabranih favorita"
 
-#: src/Process/Backend/UserPreferences.php:430
+#: src/Process/Backend/UserPreferences.php:427
 msgid "Favorites have been successfully added."
 msgstr "Favoriti su uspješno dodani."
 
-#: src/Process/Backend/UserPreferences.php:456
+#: src/Process/Backend/UserPreferences.php:453
 msgid "Favorites have been successfully removed."
 msgstr "Favoriti su uspješno uklonjeni."
 
-#: src/Process/Backend/UserPreferences.php:486
+#: src/Process/Backend/UserPreferences.php:483
 msgid "Favorites have been successfully updated."
 msgstr "Favoriti su uspješno ažurirani."
 
-#: src/Process/Backend/UserPreferences.php:498
+#: src/Process/Backend/UserPreferences.php:495
 msgid "Default favorites have been successfully updated."
 msgstr "Zadani favoriti uspješno su ažurirani."
 
-#: src/Process/Backend/UserPreferences.php:512
+#: src/Process/Backend/UserPreferences.php:509
 msgid "Dashboard items order have been successfully reset."
 msgstr "Redoslijed stavki nadzorne ploče uspješno je poništen."
 
-#: src/Process/Backend/UserPreferences.php:534
+#: src/Process/Backend/UserPreferences.php:531
 msgid "Are you sure you want to remove selected favorites?"
 msgstr "Jeste li sigurni da želite ukloniti odabrane favorite?"
 
-#: src/Process/Backend/UserPreferences.php:556
+#: src/Process/Backend/UserPreferences.php:553
 msgid "Change my password"
 msgstr "Promijeni moju lozinku"
 
-#: src/Process/Backend/UserPreferences.php:575
+#: src/Process/Backend/UserPreferences.php:572
 msgid "Confirm new password:"
 msgstr "Potvrdi novu lozinku:"
 
-#: src/Process/Backend/UserPreferences.php:585
+#: src/Process/Backend/UserPreferences.php:582
 msgid "Your current password:"
 msgstr "Vaša trenutna lozinka:"
 
-#: src/Process/Backend/UserPreferences.php:589
+#: src/Process/Backend/UserPreferences.php:586
 msgid "If you have changed your email or password you must provide your current password to save these modifications."
 msgstr "Ako ste promijenili svoju e-poštu ili lozinku, morate dati svoju trenutnu lozinku da biste spremili ove izmjene."
 
-#: src/Process/Backend/UserPreferences.php:595
-#: src/Process/Backend/UserPreferences.php:597
+#: src/Process/Backend/UserPreferences.php:592
+#: src/Process/Backend/UserPreferences.php:594
 msgid "My profile"
 msgstr "Moj profil"
 
-#: src/Process/Backend/UserPreferences.php:682
+#: src/Process/Backend/UserPreferences.php:679
 msgid "Language for my interface:"
 msgstr "Jezik za moje sučelje:"
 
-#: src/Process/Backend/UserPreferences.php:690
+#: src/Process/Backend/UserPreferences.php:687
 msgid "My timezone:"
 msgstr "Moja vremenska zona:"
 
-#: src/Process/Backend/UserPreferences.php:699
+#: src/Process/Backend/UserPreferences.php:696
 msgid "Update my profile"
 msgstr "Ažurirajte moj profil"
 
-#: src/Process/Backend/UserPreferences.php:767
+#: src/Process/Backend/UserPreferences.php:764
 msgid "List"
 msgstr "Popis"
 
-#: src/Process/Backend/UserPreferences.php:769
+#: src/Process/Backend/UserPreferences.php:766
 msgid "Order by"
 msgstr "Naručite po"
 
-#: src/Process/Backend/UserPreferences.php:771
+#: src/Process/Backend/UserPreferences.php:768
 msgid "Sort"
 msgstr "Vrsta"
 
-#: src/Process/Backend/UserPreferences.php:784
+#: src/Process/Backend/UserPreferences.php:781
 #, php-format
 msgid "Preferred editor for %s:"
 msgstr "Preferirani uređivač za %s:"
 
-#: src/Process/Backend/UserPreferences.php:789
+#: src/Process/Backend/UserPreferences.php:786
 msgid "Choose an editor"
 msgstr "Odaberite urednika"
 
-#: src/Process/Backend/UserPreferences.php:810
-#: src/Process/Backend/UserPreferences.php:816
+#: src/Process/Backend/UserPreferences.php:807
+#: src/Process/Backend/UserPreferences.php:813
 msgid "My options"
 msgstr "Moje mogućnosti"
 
-#: src/Process/Backend/UserPreferences.php:825
+#: src/Process/Backend/UserPreferences.php:822
 msgid "Theme:"
 msgstr "Tema:"
 
-#: src/Process/Backend/UserPreferences.php:831
+#: src/Process/Backend/UserPreferences.php:828
 msgid "Activate enhanced uploader in media manager"
 msgstr "Aktivirajte poboljšani učitavač u upravitelju medija"
 
-#: src/Process/Backend/UserPreferences.php:837
+#: src/Process/Backend/UserPreferences.php:834
 msgid "Preview the entry being edited in a blank window or tab (depending on your browser settings)."
 msgstr "Pregledajte unos koji se uređuje u praznom prozoru ili kartici (ovisno o postavkama preglednika)."
 
-#: src/Process/Backend/UserPreferences.php:844
+#: src/Process/Backend/UserPreferences.php:841
 msgid "Disable javascript powered drag and drop for ordering items"
 msgstr "Onemogućite povlačenje i ispuštanje koje pokreće javascript za naručivanje artikala"
 
-#: src/Process/Backend/UserPreferences.php:848
+#: src/Process/Backend/UserPreferences.php:845
 msgid "If checked, numeric fields will allow to type the elements' ordering number."
 msgstr "Ako je označeno, numerička polja će omogućiti upisivanje rednog broja elemenata."
 
-#: src/Process/Backend/UserPreferences.php:853
+#: src/Process/Backend/UserPreferences.php:850
 msgid "Hide all secondary information and notes"
 msgstr "Sakrij sve sekundarne informacije i bilješke"
 
-#: src/Process/Backend/UserPreferences.php:859
+#: src/Process/Backend/UserPreferences.php:856
 msgid "Hide help button"
 msgstr "Sakrij gumb za pomoć"
 
-#: src/Process/Backend/UserPreferences.php:866
+#: src/Process/Backend/UserPreferences.php:863
 msgid "Font size:"
 msgstr "Veličina fonta:"
 
-#: src/Process/Backend/UserPreferences.php:872
+#: src/Process/Backend/UserPreferences.php:869
 msgid "Use operating system font"
 msgstr "Koristite font operativnog sustava"
 
-#: src/Process/Backend/UserPreferences.php:878
+#: src/Process/Backend/UserPreferences.php:875
 msgid "Number of recent folders proposed in media manager:"
 msgstr "Broj nedavno predloženih mapa u upravitelju medija:"
 
-#: src/Process/Backend/UserPreferences.php:882
+#: src/Process/Backend/UserPreferences.php:879
 msgid "Set to 0 (zero) to ignore, displayed only if Javascript is enabled in your browser."
 msgstr "Postavite na 0 (nula) za ignoriranje, prikazuje se samo ako je Javascript omogućen u vašem pregledniku."
 
-#: src/Process/Backend/UserPreferences.php:889
+#: src/Process/Backend/UserPreferences.php:886
 msgid "Do not use standard favicon"
 msgstr "Nemojte koristiti standardni favicon"
 
-#: src/Process/Backend/UserPreferences.php:890
+#: src/Process/Backend/UserPreferences.php:887
 msgid "This will be applied for all users"
 msgstr "Ovo će se primjenjivati na sve korisnike"
 
-#: src/Process/Backend/UserPreferences.php:900
+#: src/Process/Backend/UserPreferences.php:897
 msgid "Disable Ad-blocker check"
 msgstr "Onemogući provjeru blokatora oglasa"
 
-#: src/Process/Backend/UserPreferences.php:904
+#: src/Process/Backend/UserPreferences.php:901
 msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
 msgstr "Neki programi za blokiranje oglasa (Ghostery, Adblock plus, uBloc origin, …) mogu ometati neke značajke kao što je umetanje veze ili medija u unose s CKEditorom; u ovom slučaju trebali biste ga onemogućiti za ovu instalaciju Dotcleara (samo backend). Imajte na umu da Dotclear ne dodaje oglase za praćenje u pozadini."
 
-#: src/Process/Backend/UserPreferences.php:907
+#: src/Process/Backend/UserPreferences.php:904
 msgid "Note also that deactivating this detection of ad blockers will not deactivate the installed ad blockers. Dotclear cannot interfere with the operation of browser extensions!"
 msgstr "Također imajte na umu da deaktiviranje ove detekcije blokatora oglasa neće deaktivirati instalirane blokatore oglasa. Dotclear ne može ometati rad ekstenzija preglednika!"
 
-#: src/Process/Backend/UserPreferences.php:915
+#: src/Process/Backend/UserPreferences.php:912
 msgid "Quick menu character:"
 msgstr "Karakter brzog izbornika:"
 
-#: src/Process/Backend/UserPreferences.php:919
+#: src/Process/Backend/UserPreferences.php:916
 msgid "Leave empty to use the default character <kbd>:</kbd>"
 msgstr "Ostavite prazno za korištenje zadanog znaka <kbd>:</kbd>"
 
-#: src/Process/Backend/UserPreferences.php:924
+#: src/Process/Backend/UserPreferences.php:921
 msgid "Keep the main menu at the top of the page as much as possible"
 msgstr "Glavni izbornik držite na vrhu stranice koliko god je to moguće"
 
-#: src/Process/Backend/UserPreferences.php:928
+#: src/Process/Backend/UserPreferences.php:925
 msgid "Optional columns displayed in lists"
 msgstr "Neobavezni stupci prikazani na popisima"
 
-#: src/Process/Backend/UserPreferences.php:931
+#: src/Process/Backend/UserPreferences.php:928
 msgid "Options for lists"
 msgstr "Opcije za popise"
 
-#: src/Process/Backend/UserPreferences.php:937
+#: src/Process/Backend/UserPreferences.php:934
 msgid "Apply filters on the fly"
 msgstr "Primijenite filtre u hodu"
 
-#: src/Process/Backend/UserPreferences.php:974
+#: src/Process/Backend/UserPreferences.php:971
 msgid "Enable WYSIWYG mode"
 msgstr "Omogući WYSIWYG način rada"
 
-#: src/Process/Backend/UserPreferences.php:980
+#: src/Process/Backend/UserPreferences.php:977
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr "Prikaži alatnu traku urednika na dnu tekstnog područja (ako je moguće)"
 
-#: src/Process/Backend/UserPreferences.php:986
+#: src/Process/Backend/UserPreferences.php:983
 msgid "Use HTML editor for:"
 msgstr "Koristite HTML editor za:"
 
-#: src/Process/Backend/UserPreferences.php:990
+#: src/Process/Backend/UserPreferences.php:987
 msgid "Other options"
 msgstr "Druge opcije"
 
-#: src/Process/Backend/UserPreferences.php:1001
+#: src/Process/Backend/UserPreferences.php:998
 msgid "Save my options"
 msgstr "Spremi moje mogućnosti"
 
-#: src/Process/Backend/UserPreferences.php:1032
+#: src/Process/Backend/UserPreferences.php:1029
 #, php-format
 msgid "position of %s"
 msgstr "položaj %s"
 
-#: src/Process/Backend/UserPreferences.php:1055
+#: src/Process/Backend/UserPreferences.php:1052
 msgid "Save order"
 msgstr "Spremi narudžbu"
 
-#: src/Process/Backend/UserPreferences.php:1056
+#: src/Process/Backend/UserPreferences.php:1053
 msgid "Delete selected favorites"
 msgstr "Izbriši odabrane favorite"
 
-#: src/Process/Backend/UserPreferences.php:1063
+#: src/Process/Backend/UserPreferences.php:1060
 msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
 msgstr "Ako ste super administrator, možete definirati ovaj skup favorita koji će se koristiti prema zadanim postavkama na svim blogovima ove instalacije."
 
-#: src/Process/Backend/UserPreferences.php:1066
+#: src/Process/Backend/UserPreferences.php:1063
 msgid "Define as default favorites"
 msgstr "Definiraj kao zadane favorite"
 
-#: src/Process/Backend/UserPreferences.php:1075
+#: src/Process/Backend/UserPreferences.php:1072
 msgid "Currently no personal favorites."
 msgstr "Trenutno nema osobnih favorita."
 
-#: src/Process/Backend/UserPreferences.php:1114
+#: src/Process/Backend/UserPreferences.php:1111
 msgid "(default favorite)"
 msgstr "(zadano omiljeno)"
 
-#: src/Process/Backend/UserPreferences.php:1129
+#: src/Process/Backend/UserPreferences.php:1126
 msgid "Add to my favorites"
 msgstr "Dodaj u moje favorite"
 
-#: src/Process/Backend/UserPreferences.php:1153
+#: src/Process/Backend/UserPreferences.php:1150
 msgid "Other available favorites"
 msgstr "Ostali dostupni favoriti"
 
-#: src/Process/Backend/UserPreferences.php:1165
+#: src/Process/Backend/UserPreferences.php:1162
 msgid "Menu"
 msgstr "Jelovnik"
 
-#: src/Process/Backend/UserPreferences.php:1171
+#: src/Process/Backend/UserPreferences.php:1168
 msgid "Display favorites at the top of the menu"
 msgstr "Prikaži favorite na vrhu izbornika"
 
-#: src/Process/Backend/UserPreferences.php:1175
+#: src/Process/Backend/UserPreferences.php:1172
 msgid "Dashboard icons"
 msgstr "Ikone nadzorne ploče"
 
-#: src/Process/Backend/UserPreferences.php:1181
+#: src/Process/Backend/UserPreferences.php:1178
 msgid "Display dashboard icons"
 msgstr "Prikaz ikona nadzorne ploče"
 
-#: src/Process/Backend/UserPreferences.php:1185
+#: src/Process/Backend/UserPreferences.php:1182
 msgid "Dashboard modules"
 msgstr "Moduli nadzorne ploče"
 
-#: src/Process/Backend/UserPreferences.php:1191
+#: src/Process/Backend/UserPreferences.php:1188
 msgid "Display documentation links"
 msgstr "Prikaz poveznica za dokumentaciju"
 
-#: src/Process/Backend/UserPreferences.php:1197
+#: src/Process/Backend/UserPreferences.php:1194
 msgid "Display donate links"
 msgstr "Prikaz poveznica za doniranje"
 
-#: src/Process/Backend/UserPreferences.php:1203
+#: src/Process/Backend/UserPreferences.php:1200
 msgid "Display Dotclear news"
 msgstr "Prikaz Dotclear vijesti"
 
-#: src/Process/Backend/UserPreferences.php:1209
+#: src/Process/Backend/UserPreferences.php:1206
 msgid "Display quick entry form"
 msgstr "Prikaz obrasca za brzi unos"
 
-#: src/Process/Backend/UserPreferences.php:1214
+#: src/Process/Backend/UserPreferences.php:1211
 msgid "Do not display Dotclear updates"
 msgstr "Ne prikazuj Dotclear ažuriranja"
 
-#: src/Process/Backend/UserPreferences.php:1227
+#: src/Process/Backend/UserPreferences.php:1224
 msgid "Save my dashboard options"
 msgstr "Spremi moje opcije nadzorne ploče"
 
-#: src/Process/Backend/UserPreferences.php:1240
+#: src/Process/Backend/UserPreferences.php:1237
 msgid "Dashboard items order"
 msgstr "Redoslijed stavki nadzorne ploče"
 
-#: src/Process/Backend/UserPreferences.php:1243
+#: src/Process/Backend/UserPreferences.php:1240
 msgid "Reset dashboard items order"
 msgstr "Poništi redoslijed stavki nadzorne ploče"
 
@@ -5918,11 +5921,11 @@ msgstr "Potvrdite dopuštenja"
 msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
 msgstr "Postavite glavni ključ (DC_MASTER_KEY) u konfiguracijskoj datoteci."
 
-#: src/Process/Install/Install.php:127 src/Process/Install/Wizard.php:142
+#: src/Process/Install/Install.php:127 src/Process/Install/Wizard.php:141
 msgid "Dotclear is already installed."
 msgstr "Dotclear je već instaliran."
 
-#: src/Process/Install/Install.php:134 src/Process/Install/Wizard.php:136
+#: src/Process/Install/Install.php:134 src/Process/Install/Wizard.php:135
 msgid "Dotclear cannot be installed."
 msgstr "Dotclear se ne može instalirati."
 
@@ -6021,134 +6024,137 @@ msgstr "Upravljajte svojim blogom sada"
 msgid "Installation can not be completed"
 msgstr "Instalacija se ne može dovršiti"
 
-#: src/Process/Install/Install.php:528
-msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
-msgstr "Iz navedenih razloga, Dotclear se ne može instalirati. Pogledajte <a href=\"https://dotclear.org/documentation/2.0/admin/install\">dokumentaciju</a> da biste saznali kako riješiti problem."
+#: src/Process/Install/Install.php:529
+#, php-format
+msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"%s\">the documentation</a> to learn how to correct the problem."
+msgstr "Iz navedenih razloga, Dotclear se ne može instalirati. Molimo pogledajte <a href=\"%s\">dokumentaciju</a> kako biste saznali kako ispraviti problem."
 
 #: src/Process/Install/Wizard.php:84
 #, php-format
 msgid "Path <strong>%s</strong> is not writable."
 msgstr "Put <strong>%s</strong> nije pisan."
 
-#: src/Process/Install/Wizard.php:85
-msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
-msgstr "Dotclear instalacijski čarobnjak nije mogao stvoriti konfiguracijsku datoteku za vas. Morate promijeniti mapu ili ručno stvoriti datoteku <strong>config.php</strong> , pogledajte <a href=\"https://dotclear.org/documentation/2.0/admin/install\">dokumentaciju</a> da biste saznali kako to učiniti."
+#: src/Process/Install/Wizard.php:86
+#, php-format
+msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"%s\">the documentation</a> to learn how to do this."
+msgstr "Čarobnjak za instalaciju Dotcleara nije mogao stvoriti konfiguracijsku datoteku. Morate promijeniti mapu desno ili ručno stvoriti datoteku <strong>config.php</strong>. Molimo pogledajte <a href=\"%s\">dokumentaciju</a> kako biste saznali kako to učiniti."
 
-#: src/Process/Install/Wizard.php:118
+#: src/Process/Install/Wizard.php:117
 #, php-format
 msgid "Cannot write \"%s\" directory."
 msgstr "Nije moguće napisati direktorij \"%s\"."
 
-#: src/Process/Install/Wizard.php:146
+#: src/Process/Install/Wizard.php:145
 msgid "Master email is not valid."
 msgstr "Glavna adresa e-pošte nije važeća."
 
-#: src/Process/Install/Wizard.php:152
+#: src/Process/Install/Wizard.php:151
 #, php-format
 msgid "File %s does not exist."
 msgstr "Datoteka %s ne postoji."
 
-#: src/Process/Install/Wizard.php:157 src/Process/Install/Wizard.php:192
+#: src/Process/Install/Wizard.php:156 src/Process/Install/Wizard.php:191
 #, php-format
 msgid "Cannot write %s file."
 msgstr "Nije moguće napisati %s datoteku."
 
-#: src/Process/Install/Wizard.php:235 src/Process/Install/Wizard.php:243
+#: src/Process/Install/Wizard.php:234 src/Process/Install/Wizard.php:242
 msgid "Dotclear installation wizard"
 msgstr "Dotclear čarobnjak za instalaciju"
 
-#: src/Process/Install/Wizard.php:249
+#: src/Process/Install/Wizard.php:248
 msgid "Welcome"
 msgstr "Dobrodošli"
 
-#: src/Process/Install/Wizard.php:250
+#: src/Process/Install/Wizard.php:249
 msgid "To complete your Dotclear installation and start writing on your blog, we just need to know how to access your database and who you are. Just fill this two steps wizard with this information and we will be done."
 msgstr "Da bismo dovršili vašu instalaciju Dotcleara i počeli pisati na vašem blogu, samo trebamo znati kako pristupiti vašoj bazi podataka i tko ste vi. Samo ispunite ovaj čarobnjak za dva koraka ovim informacijama i bit ćemo gotovi."
 
-#: src/Process/Install/Wizard.php:253
+#: src/Process/Install/Wizard.php:250
 msgid "Attention:"
 msgstr "Pažnja:"
 
-#: src/Process/Install/Wizard.php:254
-msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
-msgstr "ovaj čarobnjak možda neće raditi na svakom hostu. Ako vam ne uspije, pogledajte <a href=\"https://dotclear.org/documentation/2.0/admin/install\">dokumentaciju</a> da biste saznali kako ručno izraditi <strong>config.php</strong> datoteku."
+#: src/Process/Install/Wizard.php:252
+#, php-format
+msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"%s\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
+msgstr "ovaj čarobnjak možda neće raditi na svakom hostu. Ako ne radi za vas, pogledajte <a href=\"%s\">dokumentaciju</a> kako biste saznali kako ručno stvoriti datoteku <strong>config.php</strong>."
 
-#: src/Process/Install/Wizard.php:261
+#: src/Process/Install/Wizard.php:258
 msgid "System information"
 msgstr "Informacije o sustavu"
 
-#: src/Process/Install/Wizard.php:263
+#: src/Process/Install/Wizard.php:260
 msgid "Please provide the following information needed to create your configuration file."
 msgstr "Navedite sljedeće podatke potrebne za izradu konfiguracijske datoteke."
 
-#: src/Process/Install/Wizard.php:267
+#: src/Process/Install/Wizard.php:264
 msgid "Database type:"
 msgstr "Vrsta baze podataka:"
 
-#: src/Process/Install/Wizard.php:271
+#: src/Process/Install/Wizard.php:268
 msgid "MySQLi"
 msgstr "MySQLi"
 
-#: src/Process/Install/Wizard.php:272
+#: src/Process/Install/Wizard.php:269
 msgid "MySQLi (full UTF-8)"
 msgstr "MySQLi (puni UTF-8)"
 
-#: src/Process/Install/Wizard.php:273
+#: src/Process/Install/Wizard.php:270
 msgid "PostgreSQL"
 msgstr "PostgreSQL"
 
-#: src/Process/Install/Wizard.php:274
+#: src/Process/Install/Wizard.php:271
 msgid "SQLite"
 msgstr "SQLite"
 
-#: src/Process/Install/Wizard.php:275
+#: src/Process/Install/Wizard.php:272
 msgid "Driver"
 msgstr "Vozač"
 
-#: src/Process/Install/Wizard.php:277
+#: src/Process/Install/Wizard.php:274
 msgid "Database Host Name:"
 msgstr "Naziv hosta baze podataka:"
 
-#: src/Process/Install/Wizard.php:279
+#: src/Process/Install/Wizard.php:276
 msgid "Database Name:"
 msgstr "Naziv baze podataka:"
 
-#: src/Process/Install/Wizard.php:281
+#: src/Process/Install/Wizard.php:278
 msgid "Database User Name:"
 msgstr "Korisničko ime baze podataka:"
 
-#: src/Process/Install/Wizard.php:283
+#: src/Process/Install/Wizard.php:280
 msgid "Database Password:"
 msgstr "Lozinka baze podataka:"
 
-#: src/Process/Install/Wizard.php:285
+#: src/Process/Install/Wizard.php:282
 msgid "Database Tables Prefix:"
 msgstr "Prefiks tablica baze podataka:"
 
-#: src/Process/Install/Wizard.php:288
+#: src/Process/Install/Wizard.php:285
 msgid "Prefix"
 msgstr "Prefiks"
 
-#: src/Process/Install/Wizard.php:291
+#: src/Process/Install/Wizard.php:288
 msgid "Master Email: (used as sender for password recovery)"
 msgstr "Glavna e-pošta: (koristi se kao pošiljatelj za oporavak lozinke)"
 
-#: src/Process/Install/Wizard.php:299 src/Process/Upgrade/Digests.php:258
+#: src/Process/Install/Wizard.php:296 src/Process/Upgrade/Digests.php:258
 #: src/Process/Upgrade/Digests.php:279
 msgid "Continue"
 msgstr "Nastaviti"
 
 #: src/Process/Upgrade/Attic.php:73 src/Process/Upgrade/Attic.php:77
 #: src/Process/Upgrade/Attic.php:98 src/Process/Upgrade/Attic.php:102
-#: src/Process/Upgrade/Attic.php:340 src/Process/Upgrade/Attic.php:344
+#: src/Process/Upgrade/Attic.php:352 src/Process/Upgrade/Attic.php:356
 #: src/Process/Upgrade/Backup.php:58 src/Process/Upgrade/Backup.php:62
 #: src/Process/Upgrade/Backup.php:215 src/Process/Upgrade/Cache.php:73
-#: src/Process/Upgrade/Digests.php:142 src/Process/Upgrade/Home.php:140
+#: src/Process/Upgrade/Digests.php:142 src/Process/Upgrade/Home.php:146
 #: src/Process/Upgrade/Langs.php:265 src/Process/Upgrade/Plugins.php:187
 #: src/Process/Upgrade/Replay.php:80 src/Process/Upgrade/Upgrade.php:54
 #: src/Process/Upgrade/Upgrade.php:58 src/Process/Upgrade/Upgrade.php:79
-#: src/Process/Upgrade/Upgrade.php:83 src/Process/Upgrade/Upgrade.php:308
-#: src/Process/Upgrade/Upgrade.php:312
+#: src/Process/Upgrade/Upgrade.php:83 src/Process/Upgrade/Upgrade.php:317
+#: src/Process/Upgrade/Upgrade.php:321
 msgid "Dotclear update"
 msgstr "Dotclear ažuriranje"
 
@@ -6172,67 +6178,71 @@ msgstr "Čini se da na vašem sustavu nema datoteke \"digests\", nadogradnja se 
 msgid "Downloaded Dotclear archive seems to be corrupted. Try <a %s>download it</a> again."
 msgstr "Čini se da je preuzeta Dotclear arhiva oštećena. Pokušajte ponovno <a %s>preuzeti</a> ."
 
-#: src/Process/Upgrade/Attic.php:158 src/Process/Upgrade/Upgrade.php:145
-msgid "If this problem persists try to <a href=\"https://dotclear.org/download\">update manually</a>."
-msgstr "Ako se ovaj problem nastavi, pokušajte <a href=\"https://dotclear.org/download\">ažurirati ručno</a>."
+#: src/Process/Upgrade/Attic.php:159 src/Process/Upgrade/Upgrade.php:146
+#, php-format
+msgid "If this problem persists try to <a href=\"%s\">update manually</a>."
+msgstr "Ako se problem nastavi, pokušajte <a href=\"%s\">ručno ažurirati</a>."
 
-#: src/Process/Upgrade/Attic.php:196 src/Process/Upgrade/Upgrade.php:180
-msgid "The following files of your Dotclear installation have been modified so we won't try to update your installation. Please try to <a href=\"https://dotclear.org/download\">update manually</a>."
-msgstr "Sljedeće datoteke vaše instalacije Dotclear su izmijenjene tako da nećemo pokušati ažurirati vašu instalaciju. Molimo pokušajte <a href=\"https://dotclear.org/download\">ažurirati ručno</a>."
+#: src/Process/Upgrade/Attic.php:199 src/Process/Upgrade/Upgrade.php:184
+#, php-format
+msgid "The following files of your Dotclear installation have been modified so we won't try to update your installation. Please try to <a href=\"%s\">update manually</a>."
+msgstr "Sljedeće datoteke vaše Dotclear instalacije su izmijenjene pa nećemo pokušati ažurirati vašu instalaciju. Pokušajte <a href=\"%s\">ručno ažurirati</a>."
 
-#: src/Process/Upgrade/Attic.php:197
-msgid "You can bypass this warning by updating installation disgets file."
-msgstr "Ovo upozorenje možete zaobići ažuriranjem instalacijske disgets datoteke."
+#: src/Process/Upgrade/Attic.php:204
+#, php-format
+msgid "(<a href=\"%s\">You can bypass this warning by updating installation disgets file</a>)."
+msgstr "(<a href=\"%s\">Ovo upozorenje možete zaobići ažuriranjem instalacijske disgets datoteke</a>)."
 
-#: src/Process/Upgrade/Attic.php:200 src/Process/Upgrade/Upgrade.php:183
+#: src/Process/Upgrade/Attic.php:209 src/Process/Upgrade/Upgrade.php:189
 #, php-format
 msgid "The following files of your Dotclear installation are not readable. Please fix this or try to make a backup file named %s manually."
 msgstr "Sljedeće datoteke vaše Dotclear instalacije nisu čitljive. Popravite ovo ili pokušajte ručno napraviti sigurnosnu kopiju datoteke pod nazivom %s ."
 
-#: src/Process/Upgrade/Attic.php:204 src/Process/Upgrade/Upgrade.php:187
-msgid "The following files of your Dotclear installation cannot be written. Please fix this or try to <a href=\"https://dotclear.org/download\">update manually</a>."
-msgstr "Sljedeće datoteke vaše instalacije Dotclear ne mogu se pisati. Molimo popravite ovo ili pokušajte <a href=\"https://dotclear.org/download\">ažurirati ručno</a>."
+#: src/Process/Upgrade/Attic.php:214 src/Process/Upgrade/Upgrade.php:194
+#, php-format
+msgid "The following files of your Dotclear installation cannot be written. Please fix this or try to <a href=\"%s\">update manually</a>."
+msgstr "Sljedeće datoteke vaše Dotclear instalacije ne mogu se zapisivati. Molimo vas da to popravite ili pokušate <a href=\"%s\">ručno ažurirati</a>."
 
-#: src/Process/Upgrade/Attic.php:232 src/Process/Upgrade/Upgrade.php:235
+#: src/Process/Upgrade/Attic.php:244 src/Process/Upgrade/Upgrade.php:244
 msgid "No newer Dotclear version available."
 msgstr "Nije dostupna novija verzija Dotcleara."
 
-#: src/Process/Upgrade/Attic.php:244 src/Process/Upgrade/Upgrade.php:247
+#: src/Process/Upgrade/Attic.php:256 src/Process/Upgrade/Upgrade.php:256
 msgid "Force checking update Dotclear"
 msgstr "Prisilna provjera ažuriranja Dotclear"
 
-#: src/Process/Upgrade/Attic.php:271
+#: src/Process/Upgrade/Attic.php:283
 #, php-format
 msgid "Required PHP version %s or higher"
 msgstr "Potrebna PHP verzija %s ili novija"
 
-#: src/Process/Upgrade/Attic.php:278 src/Process/Upgrade/Attic.php:279
+#: src/Process/Upgrade/Attic.php:290 src/Process/Upgrade/Attic.php:291
 msgid "Release note"
 msgstr "Napomena o izdanju"
 
-#: src/Process/Upgrade/Attic.php:290
+#: src/Process/Upgrade/Attic.php:302
 msgid "Select intermediate stable release to update to:"
 msgstr "Odaberite srednje stabilno izdanje za ažuriranje na:"
 
-#: src/Process/Upgrade/Attic.php:304
+#: src/Process/Upgrade/Attic.php:316
 msgid "There are no additionnal informations about releases listed here, you should carefully read the information post associated with selected release on Dotclear's blog."
 msgstr "Ovdje nema dodatnih informacija o izdanjima, trebali biste pažljivo pročitati informativni post povezan s odabranim izdanjem na blogu Dotcleara."
 
-#: src/Process/Upgrade/Attic.php:314
+#: src/Process/Upgrade/Attic.php:326
 #, php-format
 msgid "Are you sure to update to version %s?"
 msgstr "Jeste li sigurni da želite ažurirati na verziju %s?"
 
-#: src/Process/Upgrade/Attic.php:320 src/Process/Upgrade/Digests.php:178
-#: src/Process/Upgrade/Digests.php:192 src/Process/Upgrade/Upgrade.php:281
+#: src/Process/Upgrade/Attic.php:332 src/Process/Upgrade/Digests.php:178
+#: src/Process/Upgrade/Digests.php:192 src/Process/Upgrade/Upgrade.php:290
 msgid "Update Dotclear"
 msgstr "Ažurirajte Dotclear"
 
-#: src/Process/Upgrade/Attic.php:328 src/Process/Upgrade/Upgrade.php:296
+#: src/Process/Upgrade/Attic.php:340 src/Process/Upgrade/Upgrade.php:305
 msgid "Congratulations, you're one click away from the end of the update."
 msgstr "Čestitamo, jedan ste klik do kraja ažuriranja."
 
-#: src/Process/Upgrade/Attic.php:334 src/Process/Upgrade/Upgrade.php:302
+#: src/Process/Upgrade/Attic.php:346 src/Process/Upgrade/Upgrade.php:311
 msgid "Finish the update."
 msgstr "Završite ažuriranje."
 
@@ -6380,49 +6390,49 @@ msgstr "Instalirana verzija Dotcleara je %s"
 msgid "Installed PHP version is %s, next Dotclear release required %s or earlier."
 msgstr "Instalirana PHP verzija je %s, potrebno je sljedeće izdanje Dotcleara %s ili ranije."
 
-#: src/Process/Upgrade/Home.php:74
+#: src/Process/Upgrade/Home.php:80
 #, php-format
 msgid "Backup directory \"%s\" does not exist or is not writable."
 msgstr "Sigurnosni direktorij \"%s\" ne postoji ili se u njega ne može pisati."
 
-#: src/Process/Upgrade/Home.php:78
+#: src/Process/Upgrade/Home.php:84
 msgid "Your are using Sqlite database driver, Database structure upgrade will NOT be performed."
 msgstr "Koristite Sqlite upravljački program baze podataka, nadogradnja strukture baze podataka NEĆE biti izvršena."
 
-#: src/Process/Upgrade/Home.php:82
+#: src/Process/Upgrade/Home.php:88
 msgid "Your are using developement release, some features are not available."
 msgstr "Koristite razvojno izdanje, neke značajke nisu dostupne."
 
-#: src/Process/Upgrade/Home.php:85
+#: src/Process/Upgrade/Home.php:91
 #, php-format
 msgid "Dotclear digests file \"%s\" is not readable."
 msgstr "Dotclear sažetak datoteke \"%s\" nije čitljiv."
 
-#: src/Process/Upgrade/Home.php:89 src/Process/Upgrade/Plugins.php:164
+#: src/Process/Upgrade/Home.php:95 src/Process/Upgrade/Plugins.php:164
 msgid "Official plugins repository could not be updated as there is no URL set in configuration."
 msgstr "Službeno skladište dodataka nije se moglo ažurirati jer u konfiguraciji nije postavljen URL."
 
-#: src/Process/Upgrade/Home.php:94
+#: src/Process/Upgrade/Home.php:100
 msgid "Do you read the official post about this release on Dotclear's blog?"
 msgstr "Čitate li službeni post o ovom izdanju na Dotclearovom blogu?"
 
-#: src/Process/Upgrade/Home.php:95
+#: src/Process/Upgrade/Home.php:101
 msgid "Does your system support this release requirements like PHP version?"
 msgstr "Podržava li vaš sustav zahtjeve za ovo izdanje kao PHP verziju?"
 
-#: src/Process/Upgrade/Home.php:96
+#: src/Process/Upgrade/Home.php:102
 msgid "Does your plugins and themes are up to date?"
 msgstr "Jesu li vaši dodaci i teme ažurni?"
 
-#: src/Process/Upgrade/Home.php:97
+#: src/Process/Upgrade/Home.php:103
 msgid "Note if some plugins crash your installation, go back here to disable or to remove or to update them."
 msgstr "Imajte na umu ako vam neki dodaci ruše instalaciju, vratite se ovdje da biste ih onemogućili, uklonili ili ažurirali."
 
-#: src/Process/Upgrade/Home.php:98
+#: src/Process/Upgrade/Home.php:104
 msgid "Once update done, do not forget to check and update blogs themes."
 msgstr "Nakon što je ažuriranje gotovo, ne zaboravite provjeriti i ažurirati teme blogova."
 
-#: src/Process/Upgrade/Home.php:159
+#: src/Process/Upgrade/Home.php:165
 msgid "Before performing update you should take into account some informations listed bellow:"
 msgstr "Prije izvođenja ažuriranja trebali biste uzeti u obzir neke podatke navedene u nastavku:"
 
@@ -6500,21 +6510,21 @@ msgstr "Ponovno reproduciraj akciju odrastanja iz verzije:"
 msgid "Replay version lower than the last one can break your installation, do it at your own risk."
 msgstr "Replay verzija niža od prethodne može pokvariti vašu instalaciju, učinite to na vlastitu odgovornost."
 
-#: src/Process/Upgrade/Upgrade.php:256
+#: src/Process/Upgrade/Upgrade.php:265
 #, php-format
 msgid "Dotclear %s is available."
 msgstr "Dotclear %s je dostupan."
 
-#: src/Process/Upgrade/Upgrade.php:267
+#: src/Process/Upgrade/Upgrade.php:276
 #, php-format
 msgid "PHP version is %1$s (%2$s or earlier needed)."
 msgstr "PHP verzija je %1$s (%2$s ili potrebna starija)."
 
-#: src/Process/Upgrade/Upgrade.php:276
+#: src/Process/Upgrade/Upgrade.php:285
 msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."
 msgstr "Za nadogradnju Dotclear instalacije jednostavno kliknite sljedeći gumb. Sigurnosna kopija vaše trenutne instalacije bit će stvorena u vašem korijenskom direktoriju."
 
-#: src/Process/Upgrade/Upgrade.php:285
+#: src/Process/Upgrade/Upgrade.php:294
 msgid "This update may potentially require some precautions, you should carefully read the information post associated with this release (see above)."
 msgstr "Ovo ažuriranje potencijalno može zahtijevati neke mjere opreza, trebali biste pažljivo pročitati informativni post povezan s ovim izdanjem (vidi gore)."
 

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-28 16:17+0200\n"
-"PO-Revision-Date: 2025-07-28 14:30\n"
+"POT-Creation-Date: 2025-07-29 06:42+0200\n"
+"PO-Revision-Date: 2025-07-29 05:52\n"
 "Last-Translator: \n"
 "Language-Team: Bengali\n"
 "Language: bn_BD\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Crowdin-File-ID: 262\n"
 
 #: inc/core/_fake_l10n.php:6 src/Process/Backend/Auth.php:353
-#: src/Process/Backend/User.php:264 src/Process/Backend/UserPreferences.php:529
+#: src/Process/Backend/User.php:264 src/Process/Backend/UserPreferences.php:526
 #: src/Process/Install/Install.php:397 src/Process/Upgrade/Auth.php:185
 msgid "medium"
 msgstr "মাঝারি"
@@ -93,7 +93,7 @@ msgstr "এই চাবি ডাটাবেসে নেই."
 #: src/Core/Backend/Action/ActionsComments.php:159
 #: src/Core/Backend/Combos.php:256 src/Core/Backend/Listing/ListingPosts.php:77
 #: src/Core/Backend/Listing/ListingPostsMini.php:63
-#: src/Core/Backend/UserPref.php:205 src/Process/Backend/Home.php:580
+#: src/Core/Backend/UserPref.php:205 src/Process/Backend/Home.php:594
 #: src/Process/Backend/MediaItem.php:1093 src/Process/Backend/Post.php:832
 msgid "Title"
 msgstr "টাইটেল"
@@ -181,7 +181,7 @@ msgid "Password verification failed"
 msgstr "পাসওয়ার্ড নিশ্চিতকরণ সম্ভব হয় নি"
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:111
-#: src/Process/Backend/BlogPref.php:1200
+#: src/Process/Backend/BlogPref.php:1205
 msgid "The current blog cannot be deleted."
 msgstr "বর্তমান ব্লগ মুছে ফেলা যাবে না."
 
@@ -377,7 +377,7 @@ msgid "Change category for this selection"
 msgstr "এই নির্বাচনের জন্য শ্রেণীবিভাগ পরিবর্তন করুন"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:352
-#: src/Core/Backend/Filter/FilterPosts.php:132 src/Process/Backend/Home.php:606
+#: src/Core/Backend/Filter/FilterPosts.php:132 src/Process/Backend/Home.php:620
 #: src/Process/Backend/Post.php:720
 msgid "Category:"
 msgstr "ক্যাটাগরি:"
@@ -387,7 +387,7 @@ msgid "Create a new category for the post(s)"
 msgstr "পোস্টের জন্য একটি নতুন বিভাগ তৈরি করুন (_s)"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:370
-#: src/Process/Backend/Home.php:584 src/Process/Backend/Home.php:618
+#: src/Process/Backend/Home.php:598 src/Process/Backend/Home.php:632
 #: src/Process/Backend/Media.php:763 src/Process/Backend/MediaItem.php:1233
 #: src/Process/Backend/Post.php:734 src/Process/Backend/Post.php:837
 msgid "Title:"
@@ -395,17 +395,17 @@ msgstr "টাইটেল:"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:379
 #: src/Process/Backend/Category.php:268 src/Process/Backend/Category.php:326
-#: src/Process/Backend/Home.php:625 src/Process/Backend/Post.php:741
+#: src/Process/Backend/Home.php:639 src/Process/Backend/Post.php:741
 msgid "Parent:"
 msgstr "প্যারেন্ট:"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:394
 #: src/Core/Backend/Action/ActionsPostsDefault.php:499
 #: src/Core/Backend/Action/ActionsPostsDefault.php:583
-#: src/Core/Backend/ModulesList.php:1979 src/Process/Backend/BlogPref.php:1175
+#: src/Core/Backend/ModulesList.php:1979 src/Process/Backend/BlogPref.php:1180
 #: src/Process/Backend/Category.php:298 src/Process/Backend/Category.php:337
 #: src/Process/Backend/Category.php:373 src/Process/Backend/Comment.php:350
-#: src/Process/Backend/Home.php:635 src/Process/Backend/Home.php:686
+#: src/Process/Backend/Home.php:649 src/Process/Backend/Home.php:703
 #: src/Process/Backend/MediaItem.php:1273 src/Process/Backend/Post.php:921
 #: src/Process/Backend/Post.php:1135 src/Process/Backend/User.php:536
 #: src/Process/Backend/UsersActions.php:513 src/Process/Install/Install.php:479
@@ -458,11 +458,11 @@ msgstr "উপস্থিত"
 msgid "Other"
 msgstr "অন্যান্য"
 
-#: src/Core/Backend/Combos.php:242 src/Process/Backend/UserPreferences.php:192
+#: src/Core/Backend/Combos.php:242 src/Process/Backend/UserPreferences.php:189
 msgid "Descending"
 msgstr "বড় থেকে ছোট"
 
-#: src/Core/Backend/Combos.php:243 src/Process/Backend/UserPreferences.php:193
+#: src/Core/Backend/Combos.php:243 src/Process/Backend/UserPreferences.php:190
 msgid "Ascending"
 msgstr "ছোট থেকে বড়"
 
@@ -553,7 +553,7 @@ msgid "Number of entries"
 msgstr "এন্ট্রির সংখ্যা"
 
 #: src/Core/Backend/Favorites.php:299
-#: src/Process/Backend/UserPreferences.php:1148
+#: src/Process/Backend/UserPreferences.php:1145
 msgid "My favorites"
 msgstr "আমার পছন্দের"
 
@@ -564,7 +564,7 @@ msgid "My preferences"
 msgstr "আমার পছন্দসমূহ"
 
 #: src/Core/Backend/Favorites.php:414 src/Core/Backend/Menus.php:181
-#: src/Process/Backend/Home.php:569 src/Process/Backend/Post.php:95
+#: src/Process/Backend/Home.php:583 src/Process/Backend/Post.php:95
 #: src/Process/Backend/Post.php:964 src/Process/Backend/Posts.php:115
 msgid "New post"
 msgstr "নতুন এন্ট্রি"
@@ -618,7 +618,7 @@ msgstr "ব্লগ চেহারা"
 
 #: src/Core/Backend/Favorites.php:512 src/Core/Backend/Menus.php:235
 #: src/Core/Backend/UserPref.php:65 src/Core/Backend/UserPref.php:168
-#: src/Process/Backend/BlogPref.php:1366 src/Process/Backend/User.php:274
+#: src/Process/Backend/BlogPref.php:1371 src/Process/Backend/User.php:274
 #: src/Process/Backend/Users.php:105 src/Process/Backend/Users.php:110
 #: src/Process/Backend/UsersActions.php:219
 #: src/Process/Backend/UsersActions.php:227
@@ -650,9 +650,9 @@ msgid "Global help"
 msgstr "গ্লোবাল সহায়তা"
 
 #: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1261
-#: src/Process/Backend/Auth.php:420 src/Process/Backend/BlogPref.php:1346
+#: src/Process/Backend/Auth.php:420 src/Process/Backend/BlogPref.php:1351
 #: src/Process/Backend/Comment.php:306 src/Process/Backend/Post.php:1104
-#: src/Process/Backend/User.php:432 src/Process/Backend/UserPreferences.php:640
+#: src/Process/Backend/User.php:432 src/Process/Backend/UserPreferences.php:637
 #: src/Process/Install/Install.php:445
 msgid "Email:"
 msgstr "ইমেইল:"
@@ -784,7 +784,7 @@ msgid "Sort:"
 msgstr "সড়ক:"
 
 #: src/Core/Backend/Filter/Filters.php:391
-#: src/Process/Backend/UserPreferences.php:773
+#: src/Process/Backend/UserPreferences.php:770
 msgid "Show"
 msgstr "দেখাও"
 
@@ -1135,7 +1135,7 @@ msgstr "প্লাগইনসমূহ"
 #: src/Core/Backend/Menus.php:205 src/Core/Backend/ModulesList.php:1379
 #: src/Core/Upgrade/PluginsList.php:144 src/Core/Upgrade/Utility.php:267
 #: src/Process/Upgrade/Upgrade.php:59 src/Process/Upgrade/Upgrade.php:84
-#: src/Process/Upgrade/Upgrade.php:313
+#: src/Process/Upgrade/Upgrade.php:322
 msgid "Update"
 msgstr "আপডেট"
 
@@ -1409,12 +1409,12 @@ msgstr "Zip ফাইল আপলোড করুন"
 #: src/Core/Backend/ModulesList.php:1745 src/Core/Backend/ModulesList.php:1792
 #: src/Process/Backend/Blog.php:117 src/Process/Backend/BlogPref.php:525
 #: src/Process/Backend/BlogPref.php:1010 src/Process/Backend/Category.php:248
-#: src/Process/Backend/Comment.php:284 src/Process/Backend/Home.php:572
+#: src/Process/Backend/Comment.php:284 src/Process/Backend/Home.php:586
 #: src/Process/Backend/Langs.php:322 src/Process/Backend/Langs.php:372
 #: src/Process/Backend/LinkPopup.php:83 src/Process/Backend/Post.php:989
 #: src/Process/Backend/Post.php:1080 src/Process/Backend/User.php:303
 #: src/Process/Backend/UsersActions.php:492 src/Process/Install/Install.php:455
-#: src/Process/Install/Wizard.php:266 src/Process/Upgrade/Langs.php:406
+#: src/Process/Install/Wizard.php:263 src/Process/Upgrade/Langs.php:406
 #, php-format
 msgid "Fields preceded by %s are mandatory."
 msgstr "%s-এর আগের ক্ষেত্রগুলি বাধ্যতামূলক।"
@@ -1475,25 +1475,25 @@ msgid "Configure \"%s\""
 msgstr "\"%s\" কনফিগার করুন"
 
 #: src/Core/Backend/ModulesList.php:1966 src/Process/Backend/Blog.php:197
-#: src/Process/Backend/BlogDel.php:138 src/Process/Backend/BlogPref.php:1177
+#: src/Process/Backend/BlogDel.php:138 src/Process/Backend/BlogPref.php:1182
 #: src/Process/Backend/Category.php:301 src/Process/Backend/Comment.php:352
 #: src/Process/Backend/Media.php:857 src/Process/Backend/MediaItem.php:1359
 #: src/Process/Backend/Post.php:946 src/Process/Backend/Search.php:197
-#: src/Process/Backend/User.php:547 src/Process/Backend/UserPreferences.php:701
-#: src/Process/Backend/UserPreferences.php:1003
-#: src/Process/Backend/UserPreferences.php:1229
+#: src/Process/Backend/User.php:547 src/Process/Backend/UserPreferences.php:698
+#: src/Process/Backend/UserPreferences.php:1000
+#: src/Process/Backend/UserPreferences.php:1226
 msgid "Back"
 msgstr "ব্যাক"
 
 #: src/Core/Backend/Notices.php:86 src/Core/Backend/Page.php:1263
 #: src/Core/Backend/Page.php:1419 src/Core/Upgrade/Notices.php:48
-#: src/Process/Backend/Home.php:313
+#: src/Process/Backend/Home.php:327
 msgid "Error:"
 msgstr "ত্রুটি:"
 
 #: src/Core/Backend/Notices.php:86 src/Core/Upgrade/Notices.php:48
 #: src/Process/Install/Install.php:418 src/Process/Install/Install.php:527
-#: src/Process/Install/Wizard.php:247
+#: src/Process/Install/Wizard.php:246
 msgid "Errors:"
 msgstr "ত্রুটি:"
 
@@ -1534,8 +1534,8 @@ msgid "Go to help"
 msgstr "সহায়তা করো"
 
 #: src/Core/Backend/Page.php:339 src/Core/Upgrade/Page.php:175
-#: src/Process/Backend/UserPreferences.php:1138
-#: src/Process/Backend/UserPreferences.php:1140
+#: src/Process/Backend/UserPreferences.php:1135
+#: src/Process/Backend/UserPreferences.php:1137
 msgid "My dashboard"
 msgstr "আমার ড্যাশবোর্ড"
 
@@ -2477,7 +2477,7 @@ msgstr "লোল!"
 #: src/Process/Backend/Plugin.php:146 src/Process/Backend/Plugins.php:122
 #: src/Process/Backend/Settings.php:61 src/Process/Backend/User.php:273
 #: src/Process/Backend/Users.php:109 src/Process/Backend/UsersActions.php:218
-#: src/Process/Backend/UsersActions.php:226 src/Process/Upgrade/Home.php:162
+#: src/Process/Backend/UsersActions.php:226 src/Process/Upgrade/Home.php:168
 msgid "System"
 msgstr "সিস্টেম"
 
@@ -2533,16 +2533,16 @@ msgstr "অকার্যকর ডাইজেস্ট ফাইল."
 msgid "Something went wrong with auto upgrade:"
 msgstr "অটো আপগ্রেড নিয়ে কিছু সমস্যা হয়েছে:"
 
-#: src/Core/Upgrade/Utility.php:272 src/Process/Upgrade/Upgrade.php:323
+#: src/Core/Upgrade/Utility.php:272 src/Process/Upgrade/Upgrade.php:332
 msgid "On this page you can update dotclear to the latest release."
 msgstr "এই পৃষ্ঠায় আপনি সর্বশেষ রিলিজে ডটক্লিয়ার আপডেট করতে পারেন।"
 
 #: src/Core/Upgrade/Utility.php:276 src/Process/Upgrade/Attic.php:78
-#: src/Process/Upgrade/Attic.php:103 src/Process/Upgrade/Attic.php:345
+#: src/Process/Upgrade/Attic.php:103 src/Process/Upgrade/Attic.php:357
 msgid "Attic"
 msgstr "চিলেকোঠা"
 
-#: src/Core/Upgrade/Utility.php:281 src/Process/Upgrade/Attic.php:355
+#: src/Core/Upgrade/Utility.php:281 src/Process/Upgrade/Attic.php:367
 msgid "On this page you can update dotclear to a release between yours and latest."
 msgstr "এই পৃষ্ঠায় আপনি আপনার এবং সর্বশেষতম মধ্যে একটি রিলিজে ডটক্লিয়ার আপডেট করতে পারেন।"
 
@@ -3020,7 +3020,7 @@ msgid "Your new password is in your mailbox."
 msgstr "আপনার নতুন পাসওয়ার্ড আপনার মেইলবক্সে পাঠিয়ে দেয়া হয়েছে।"
 
 #: src/Process/Backend/Auth.php:203 src/Process/Backend/User.php:158
-#: src/Process/Backend/UserPreferences.php:234
+#: src/Process/Backend/UserPreferences.php:231
 #: src/Process/Install/Install.php:170
 msgid "Passwords don't match"
 msgstr "দুটো পাসওয়ার্ডে অমিল রয়েছে"
@@ -3052,9 +3052,9 @@ msgstr "ভুল ইউজারনেম বা পাসওয়ার্ড
 #: src/Process/Backend/Auth.php:352 src/Process/Backend/Auth.php:353
 #: src/Process/Backend/Auth.php:354 src/Process/Backend/User.php:263
 #: src/Process/Backend/User.php:264 src/Process/Backend/User.php:265
-#: src/Process/Backend/UserPreferences.php:528
-#: src/Process/Backend/UserPreferences.php:529
-#: src/Process/Backend/UserPreferences.php:530
+#: src/Process/Backend/UserPreferences.php:525
+#: src/Process/Backend/UserPreferences.php:526
+#: src/Process/Backend/UserPreferences.php:527
 #: src/Process/Install/Install.php:396 src/Process/Install/Install.php:397
 #: src/Process/Install/Install.php:398 src/Process/Upgrade/Auth.php:184
 #: src/Process/Upgrade/Auth.php:185 src/Process/Upgrade/Auth.php:186
@@ -3063,13 +3063,13 @@ msgid "Password strength: %s"
 msgstr "পাসওয়ার্ডের শক্তি: %s"
 
 #: src/Process/Backend/Auth.php:352 src/Process/Backend/User.php:263
-#: src/Process/Backend/UserPreferences.php:528
+#: src/Process/Backend/UserPreferences.php:525
 #: src/Process/Install/Install.php:396 src/Process/Upgrade/Auth.php:184
 msgid "weak"
 msgstr "দুর্বল"
 
 #: src/Process/Backend/Auth.php:354 src/Process/Backend/User.php:265
-#: src/Process/Backend/UserPreferences.php:530
+#: src/Process/Backend/UserPreferences.php:527
 #: src/Process/Install/Install.php:398 src/Process/Upgrade/Auth.php:186
 msgid "strong"
 msgstr "শক্তিশালী"
@@ -3095,7 +3095,7 @@ msgid "Change your password"
 msgstr "আপনার পাসওয়ার্ড পরিবর্তন"
 
 #: src/Process/Backend/Auth.php:453 src/Process/Backend/User.php:334
-#: src/Process/Backend/UserPreferences.php:566
+#: src/Process/Backend/UserPreferences.php:563
 #: src/Process/Install/Install.php:464
 msgid "New password:"
 msgstr "নতুন পাসওয়ার্ড:"
@@ -3200,7 +3200,7 @@ msgstr "ব্লগ \"%s\" সফলভাবে মুছে ফেলা হ�
 msgid "Delete a blog"
 msgstr "ব্লগ মুছে ফেলো"
 
-#: src/Process/Backend/BlogDel.php:100 src/Process/Upgrade/Home.php:157
+#: src/Process/Backend/BlogDel.php:100 src/Process/Upgrade/Home.php:163
 msgid "Warning"
 msgstr "সতর্কবাণী"
 
@@ -3213,7 +3213,7 @@ msgstr "আপনি %s ব্লগটি মুছে ফেলতে যা�
 msgid "Please give your password to confirm the blog deletion."
 msgstr "অনুগ্রহ করে আপনার পাসওয়ার্ড প্রদান করুন ব্লগ বিলম্ব নিশ্চিত করার জন্য."
 
-#: src/Process/Backend/BlogDel.php:135 src/Process/Backend/BlogPref.php:1191
+#: src/Process/Backend/BlogDel.php:135 src/Process/Backend/BlogPref.php:1196
 msgid "Delete this blog"
 msgstr "এই ব্লগ মুছে ফেলো"
 
@@ -3261,7 +3261,7 @@ msgstr "H3"
 msgid "P"
 msgstr "পি."
 
-#: src/Process/Backend/BlogPref.php:167 src/Process/Backend/BlogPref.php:1259
+#: src/Process/Backend/BlogPref.php:167 src/Process/Backend/BlogPref.php:1264
 #: src/Process/Backend/MediaItem.php:609 src/Process/Backend/MediaItem.php:614
 msgid "(none)"
 msgstr "(কোনটাই)"
@@ -3325,7 +3325,7 @@ msgid "I would like to prevent search engines and archivers from indexing or arc
 msgstr "আমি অনুসন্ধান ইঞ্জিন এবং আর্কাইভার্স থেকে অনুসন্ধান বন্ধ করতে চাই অথবা আমার ব্লগের বিষয়বস্তু সংরক্ষণ করতে চাই."
 
 #: src/Process/Backend/BlogPref.php:234
-#: src/Process/Backend/UserPreferences.php:154
+#: src/Process/Backend/UserPreferences.php:151
 msgid "Default"
 msgstr "ডিফল্ট"
 
@@ -3704,70 +3704,71 @@ msgstr "JQuery সংস্করণ এই ব্লগের জন্য ল�
 msgid "Blog security"
 msgstr "ব্লগ নিরাপত্তা"
 
-#: src/Process/Backend/BlogPref.php:1151
-msgid "Protect the blog from Clickjacking (see <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
-msgstr "Clickjacking থেকে ব্লগটি রক্ষা করুন (দেখুন <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">উইকিপিডিয়া</a>)"
+#: src/Process/Backend/BlogPref.php:1153
+#, php-format
+msgid "Protect the blog from Clickjacking (see <a href=\"%s\">Wikipedia</a>)"
+msgstr "ক্লিকজ্যাকিং থেকে ব্লগটি রক্ষা করুন (<a href=\"%s\">উইকিপিডিয়া</a> দেখুন)"
 
-#: src/Process/Backend/BlogPref.php:1157
+#: src/Process/Backend/BlogPref.php:1162
 msgid "Advanced parameters"
 msgstr "অগ্রসর প্যারামিটার"
 
-#: src/Process/Backend/BlogPref.php:1164
+#: src/Process/Backend/BlogPref.php:1169
 msgid "Plugins parameters"
 msgstr "প্লাগ-ইন পরামিতি"
 
-#: src/Process/Backend/BlogPref.php:1204
+#: src/Process/Backend/BlogPref.php:1209
 msgid "Only superadmin can delete a blog."
 msgstr "শুধুমাত্র সুপারডমিন একটি ব্লগ মুছে ফেলতে পারে."
 
-#: src/Process/Backend/BlogPref.php:1208
+#: src/Process/Backend/BlogPref.php:1213
 msgid "Parameters"
 msgstr "পরামিতি"
 
-#: src/Process/Backend/BlogPref.php:1227
+#: src/Process/Backend/BlogPref.php:1232
 msgid "No users"
 msgstr "শূণ্য ইউজার"
 
-#: src/Process/Backend/BlogPref.php:1269
+#: src/Process/Backend/BlogPref.php:1274
 #, php-format
 msgid "%1$s: %2$s"
 msgstr "%1$s: %2$s"
 
-#: src/Process/Backend/BlogPref.php:1278 src/Process/Backend/User.php:382
+#: src/Process/Backend/BlogPref.php:1283 src/Process/Backend/User.php:382
 msgid "Super administrator"
 msgstr "সুপার অ্যাডমিনিস্ট্রেটর"
 
-#: src/Process/Backend/BlogPref.php:1280
+#: src/Process/Backend/BlogPref.php:1285
 msgid "All rights on all blogs."
 msgstr "সব ব্লগের সব অধিকার."
 
-#: src/Process/Backend/BlogPref.php:1290
+#: src/Process/Backend/BlogPref.php:1295
 msgid "All rights on this blog."
 msgstr "এই ব্লগের সব অধিকার."
 
-#: src/Process/Backend/BlogPref.php:1306
+#: src/Process/Backend/BlogPref.php:1311
 #: src/Process/Backend/UsersActions.php:459
 #, php-format
 msgid "[%s] (unreferenced permission)"
 msgstr "[%s] (তথ্যসূত্রহীন অনুমতি)"
 
-#: src/Process/Backend/BlogPref.php:1325 src/Process/Backend/User.php:597
+#: src/Process/Backend/BlogPref.php:1330 src/Process/Backend/User.php:597
 msgid "Change permissions"
 msgstr "অনুমতি পরিবর্তন করুন"
 
-#: src/Process/Backend/BlogPref.php:1327
+#: src/Process/Backend/BlogPref.php:1332
 msgid "Back to user card"
 msgstr "ব্যবহারকারী কার্ডে ফিরে যান"
 
-#: src/Process/Backend/BlogPref.php:1349
+#: src/Process/Backend/BlogPref.php:1354
 msgid "Publications on this blog:"
 msgstr "এই ব্লগে প্রকাশনা:"
 
-#: src/Process/Backend/BlogPref.php:1352
+#: src/Process/Backend/BlogPref.php:1357
 msgid "Permissions:"
 msgstr "অনুমতি:"
 
-#: src/Process/Backend/BlogPref.php:1369
+#: src/Process/Backend/BlogPref.php:1374
 msgid "Users on this blog"
 msgstr "এই ব্লগের ইউজারসমূহ"
 
@@ -3958,7 +3959,7 @@ msgid "total:"
 msgstr "মোট:"
 
 #: src/Process/Backend/Categories.php:326 src/Process/Backend/Category.php:279
-#: src/Process/Backend/User.php:457 src/Process/Backend/UserPreferences.php:662
+#: src/Process/Backend/User.php:457 src/Process/Backend/UserPreferences.php:659
 msgid "URL:"
 msgstr "URL:"
 
@@ -4140,7 +4141,7 @@ msgid "Dashboard area's drag and drop is enabled"
 msgstr "ড্যাশবোর্ড এলাকার ড্রাগ এবং ড্রপ সক্রিয় করা হচ্ছে"
 
 #: src/Process/Backend/Home.php:235 src/Process/Backend/Home.php:248
-#: src/Process/Upgrade/Home.php:135
+#: src/Process/Upgrade/Home.php:141
 msgid "Dashboard"
 msgstr "ড্যাশবোর্ড"
 
@@ -4156,108 +4157,110 @@ msgstr "এই ব্লগটি অফলাইনে আছে"
 msgid "This blog is removed"
 msgstr "এই ব্লগটি মুছে ফেলা হয়েছে"
 
-#: src/Process/Backend/Home.php:273 src/Process/Backend/Home.php:281
-#: src/Process/Upgrade/Home.php:60 src/Process/Upgrade/Home.php:65
+#: src/Process/Backend/Home.php:274 src/Process/Backend/Home.php:289
+#: src/Process/Upgrade/Home.php:60 src/Process/Upgrade/Home.php:68
 #, php-format
 msgid "%s is not defined, you should edit your configuration file."
 msgstr "%s সংজ্ঞায়িত করা হয়নি, আপনার কনফিগারেশন ফাইলটি সম্পাদনা করা উচিত।"
 
-#: src/Process/Backend/Home.php:274 src/Process/Backend/Home.php:282
-#: src/Process/Upgrade/Home.php:61 src/Process/Upgrade/Home.php:66
-msgid "See <a href=\"https://dotclear.org/documentation/2.0/admin/config\">documentation</a> for more information."
-msgstr "আরও তথ্যের জন্য <a href=\"https://dotclear.org/documentation/2.0/admin/config\">ডকুমেন্টেশন</a> দেখুন।"
+#: src/Process/Backend/Home.php:279 src/Process/Backend/Home.php:294
+#: src/Process/Upgrade/Home.php:62 src/Process/Upgrade/Home.php:70
+#, php-format
+msgid "See <a href=\"%s\">documentation</a> for more information."
+msgstr "আরও তথ্যের জন্য <a href=\"%s\">ডকুমেন্টেশন</a> দেখুন।"
 
-#: src/Process/Backend/Home.php:292 src/Process/Upgrade/Home.php:70
+#: src/Process/Backend/Home.php:306 src/Process/Upgrade/Home.php:76
 msgid "The cache directory does not exist or is not writable. You must create this directory with sufficient rights and affect this location to \"DC_TPL_CACHE\" in inc/config.php file."
 msgstr "ক্যাশ ডিরেক্টরি নেই অথবা লিখনযোগ্য নয়. আপনি এই ডিরেক্টরি যথেষ্ট অধিকারের সাথে তৈরি করতে হবে এবং ইনক/config.php ফাইলে \"DC_TPL_CACHE\" এ অবস্থানটি প্রভাবিত করতে হবে."
 
-#: src/Process/Backend/Home.php:295
+#: src/Process/Backend/Home.php:309
 msgid "The cache directory does not exist or is not writable. You should contact your administrator."
 msgstr "ক্যাশ ডিরেক্টরি নেই অথবা লিখনযোগ্য নয়. আপনার প্রশাসকের সাথে যোগাযোগ করা উচিত."
 
-#: src/Process/Backend/Home.php:301
+#: src/Process/Backend/Home.php:315
 msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
 msgstr "কোন লিখনযোগ্য ডিরেক্টরি/পাবলিক/-এ অবস্থান নির্ধারিত স্থানে নেই: কনফিগ \"পাবলিক পাথ\". আপনি এই ডিরেক্টরি তৈরি করতে হবে পর্যাপ্ত অধিকার (অথবা এই সেটিং পরিবর্তন)."
 
-#: src/Process/Backend/Home.php:304
+#: src/Process/Backend/Home.php:318
 msgid "There is no writable root directory for the media manager. You should contact your administrator."
 msgstr "মিডিয়া ম্যানেজারের জন্য কোন লিখনযোগ্য মূল ডিরেক্টরি নেই. আপনার প্রশাসকের সাথে যোগাযোগ করা উচিত."
 
-#: src/Process/Backend/Home.php:338 src/Process/Backend/Plugins.php:139
+#: src/Process/Backend/Home.php:352 src/Process/Backend/Plugins.php:139
 #: src/Process/Install/Install.php:485 src/Process/Upgrade/Plugins.php:126
 msgid "Following plugins have been installed:"
 msgstr "নিচের প্লাগইনগুলো ইন্সটল করা হয়েছে:"
 
-#: src/Process/Backend/Home.php:360 src/Process/Backend/Plugins.php:161
+#: src/Process/Backend/Home.php:374 src/Process/Backend/Plugins.php:161
 #: src/Process/Install/Install.php:492 src/Process/Upgrade/Plugins.php:148
 msgid "Following plugins have not been installed:"
 msgstr "নিচের প্লাগইনগুলো ইন্সটল করা হয় নি:"
 
-#: src/Process/Backend/Home.php:381
+#: src/Process/Backend/Home.php:395
 msgid "Errors have occured with following plugins:"
 msgstr "নিম্নোক্ত প্লাগ-ইন দ্বারা ত্রুটি ঘটেছে:"
 
-#: src/Process/Backend/Home.php:563
+#: src/Process/Backend/Home.php:577
 msgid "Quick post"
 msgstr "দ্রুত এন্ট্রি"
 
-#: src/Process/Backend/Home.php:593 src/Process/Backend/Post.php:874
+#: src/Process/Backend/Home.php:607 src/Process/Backend/Post.php:874
 msgid "Content:"
 msgstr "কন্টেন্ট:"
 
-#: src/Process/Backend/Home.php:599 src/Process/Backend/Post.php:871
+#: src/Process/Backend/Home.php:613 src/Process/Backend/Post.php:871
 msgid "Content"
 msgstr "বিষয়বস্তু"
 
-#: src/Process/Backend/Home.php:610 src/Process/Backend/Post.php:725
+#: src/Process/Backend/Home.php:624 src/Process/Backend/Post.php:725
 msgid "Add a new category"
 msgstr "নতুন ক্যাটাগরি তৈরি করুন"
 
-#: src/Process/Backend/Home.php:629
+#: src/Process/Backend/Home.php:643
 msgid "This category will be created when you will save your post."
 msgstr "এই বিভাগটি তৈরি হবে যখন আপনি আপনার পোস্ট সংরক্ষণ করবেন."
 
-#: src/Process/Backend/Home.php:637
+#: src/Process/Backend/Home.php:651
 msgid "Save and publish"
 msgstr "সংরক্ষণ ও প্রকাশ করুন"
 
-#: src/Process/Backend/Home.php:659
+#: src/Process/Backend/Home.php:673
 msgid "Donate to Dotclear"
 msgstr "ডটক্লিয়ারে দান করুন"
 
-#: src/Process/Backend/Home.php:661
+#: src/Process/Backend/Home.php:675
 msgid "Dotclear is not a commercial project — using Dotclear is <strong>free</strong> and <strong>always</strong> will be. If you wish to, you may contribute to Dotclear to help us cover project-related expenses."
 msgstr "ডটক্লিয়ার একটি বাণিজ্যিক প্রকল্প নয় — ডটক্লিয়ার ব্যবহার করা <strong>বিনামূল্যে</strong> এবং <strong>সর্বদা</strong> হবে৷ আপনি যদি চান, আপনি আমাদের প্রকল্প-সম্পর্কিত খরচ কভার করতে সাহায্য করতে ডটক্লিয়ারে অবদান রাখতে পারেন।."
 
-#: src/Process/Backend/Home.php:663
+#: src/Process/Backend/Home.php:677
 msgid "The collected funds will be spent as follows:"
 msgstr "সংগৃহীত তহবিল নিম্নরূপ ব্যয় করা হবে:"
 
-#: src/Process/Backend/Home.php:667
+#: src/Process/Backend/Home.php:681
 msgid "Paying for the website hosting and translations"
 msgstr "ওয়েবসাইট হোস্টিং এবং অনুবাদের জন্য অর্থ প্রদান"
 
-#: src/Process/Backend/Home.php:669
+#: src/Process/Backend/Home.php:683
 msgid "Paying for the domain names"
 msgstr "ডোমেইন নামের জন্য অর্থপ্রদান"
 
-#: src/Process/Backend/Home.php:671
+#: src/Process/Backend/Home.php:685
 msgid "Supporting related projects such as Dotaddict.org"
 msgstr "সহায়তা সম্পর্কিত প্রকল্প যেমন Dotaddict.org"
 
-#: src/Process/Backend/Home.php:673
+#: src/Process/Backend/Home.php:687
 msgid "Cover the costs of events set up by Dotclear"
 msgstr "Dotclear দ্বারা সেট আপ ইভেন্ট খরচ কভার"
 
-#: src/Process/Backend/Home.php:676
-msgid "See <a href=\"https://dotclear.org/donate\">this page</a> for more information and donation"
-msgstr "আরও তথ্য এবং অনুদানের জন্য <a href=\"https://dotclear.org/donate\">এই পৃষ্ঠা</a> দেখুন"
+#: src/Process/Backend/Home.php:691
+#, php-format
+msgid "See <a href=\"%s\">this page</a> for more information and donation"
+msgstr "আরও তথ্য এবং অনুদানের জন্য <a href=\"%s\">এই পৃষ্ঠাটি</a> দেখুন।"
 
-#: src/Process/Backend/Home.php:685
+#: src/Process/Backend/Home.php:702
 msgid "For the record, here is the date of my last donation to Dotclear:"
 msgstr "রেকর্ডের জন্য, ডটক্লিয়ারে আমার শেষ অনুদানের তারিখটি এখানে:"
 
-#: src/Process/Backend/Home.php:704
+#: src/Process/Backend/Home.php:721
 msgid "Documentation and support"
 msgstr "ডকুমেন্টেশন এবং সমর্থন"
 
@@ -4623,7 +4626,7 @@ msgstr "ইমেজ সাইজ:"
 msgid "Select media item"
 msgstr "মিডিয়া আইটেম নির্বাচন করুন"
 
-#: src/Process/Backend/MediaItem.php:510 src/Process/Upgrade/Attic.php:301
+#: src/Process/Backend/MediaItem.php:510 src/Process/Upgrade/Attic.php:313
 msgid "Select"
 msgstr "নির্বাচন করুন"
 
@@ -5183,8 +5186,8 @@ msgstr "আপগ্রেড করুন"
 msgid "Remind me later"
 msgstr "পড়ে মনে করিয়ে দিও"
 
-#: src/Process/Backend/Rest.php:240 src/Process/Upgrade/Upgrade.php:260
-#: src/Process/Upgrade/Upgrade.php:261
+#: src/Process/Backend/Rest.php:240 src/Process/Upgrade/Upgrade.php:269
+#: src/Process/Upgrade/Upgrade.php:270
 msgid "Information about this version"
 msgstr "এই সংস্করণের তথ্য"
 
@@ -5193,7 +5196,7 @@ msgstr "এই সংস্করণের তথ্য"
 msgid "A new version of Dotclear is available but needs PHP version ≥ %1$s, your's is currently %2$s"
 msgstr "Dotclear এর একটি নতুন সংস্করণ পাওয়া যায় কিন্তু প্রয়োজন PHP সংস্করণ ≥ %1$s, your's is currently %2$s"
 
-#: src/Process/Backend/Rest.php:264 src/Process/Upgrade/Upgrade.php:226
+#: src/Process/Backend/Rest.php:264 src/Process/Upgrade/Upgrade.php:235
 #, php-format
 msgid "The next versions of Dotclear will not support PHP version < %1$s, your's is currently %2$s"
 msgstr "ডটক্লিয়ারের পরবর্তী সংস্করণগুলি %1$s < PHP সংস্করণ সমর্থন করবে না, আপনার বর্তমানে %2$s"
@@ -5374,17 +5377,17 @@ msgstr "সতর্কীকরণ:"
 msgid "Password change required to connect"
 msgstr "সংযোগ স্থাপনের জন্য পাসওয়ার্ড পরিবর্তন"
 
-#: src/Process/Backend/User.php:401 src/Process/Backend/UserPreferences.php:610
+#: src/Process/Backend/User.php:401 src/Process/Backend/UserPreferences.php:607
 #: src/Process/Install/Install.php:439
 msgid "Last Name:"
 msgstr "শেষ নাম:"
 
-#: src/Process/Backend/User.php:411 src/Process/Backend/UserPreferences.php:620
+#: src/Process/Backend/User.php:411 src/Process/Backend/UserPreferences.php:617
 #: src/Process/Install/Install.php:433
 msgid "First Name:"
 msgstr "প্রথম নাম:"
 
-#: src/Process/Backend/User.php:421 src/Process/Backend/UserPreferences.php:630
+#: src/Process/Backend/User.php:421 src/Process/Backend/UserPreferences.php:627
 msgid "Display name:"
 msgstr "ডিসপ্লে নাম:"
 
@@ -5392,23 +5395,23 @@ msgstr "ডিসপ্লে নাম:"
 msgid "Mandatory for password recovering procedure."
 msgstr "পাসওয়ার্ড পুনরুদ্ধারের জন্য ম্যান্ডেটরি."
 
-#: src/Process/Backend/User.php:444 src/Process/Backend/UserPreferences.php:649
+#: src/Process/Backend/User.php:444 src/Process/Backend/UserPreferences.php:646
 msgid "Alternate emails (comma separated list):"
 msgstr "বিকল্প ইমেইল (comma separated list):"
 
-#: src/Process/Backend/User.php:448 src/Process/Backend/UserPreferences.php:653
+#: src/Process/Backend/User.php:448 src/Process/Backend/UserPreferences.php:650
 msgid "Invalid emails will be automatically removed from list."
 msgstr "অবৈধ ইমেইল তালিকা থেকে স্বয়ংক্রিয়ভাবে অপসারণ করা হবে."
 
-#: src/Process/Backend/User.php:466 src/Process/Backend/UserPreferences.php:671
+#: src/Process/Backend/User.php:466 src/Process/Backend/UserPreferences.php:668
 msgid "Alternate URLs (comma separated list):"
 msgstr "বিকল্প URLs (comma separated list):"
 
-#: src/Process/Backend/User.php:470 src/Process/Backend/UserPreferences.php:675
+#: src/Process/Backend/User.php:470 src/Process/Backend/UserPreferences.php:672
 msgid "Invalid URLs will be automatically removed from list."
 msgstr "অকার্যকর ইউ. আর. এল. স্বয়ংক্রিয়ভাবে তালিকা থেকে অপসারণ করা হবে."
 
-#: src/Process/Backend/User.php:476 src/Process/Backend/UserPreferences.php:818
+#: src/Process/Backend/User.php:476 src/Process/Backend/UserPreferences.php:815
 msgid "Interface"
 msgstr "ইন্টারফেস"
 
@@ -5416,19 +5419,19 @@ msgstr "ইন্টারফেস"
 msgid "Timezone:"
 msgstr "টাইমজোন:"
 
-#: src/Process/Backend/User.php:492 src/Process/Backend/UserPreferences.php:942
+#: src/Process/Backend/User.php:492 src/Process/Backend/UserPreferences.php:939
 msgid "Edition"
 msgstr "Edition"
 
-#: src/Process/Backend/User.php:498 src/Process/Backend/UserPreferences.php:954
+#: src/Process/Backend/User.php:498 src/Process/Backend/UserPreferences.php:951
 msgid "Preferred format:"
 msgstr "পছন্দের বিন্যাস:"
 
-#: src/Process/Backend/User.php:505 src/Process/Backend/UserPreferences.php:962
+#: src/Process/Backend/User.php:505 src/Process/Backend/UserPreferences.php:959
 msgid "Default entry status:"
 msgstr "ডিফল্ট এন্ট্রি স্ট্যাটাস:"
 
-#: src/Process/Backend/User.php:510 src/Process/Backend/UserPreferences.php:968
+#: src/Process/Backend/User.php:510 src/Process/Backend/UserPreferences.php:965
 msgid "Entry edit field height:"
 msgstr "সম্পাদন ক্ষেত্র উচ্চতা:"
 
@@ -5478,341 +5481,341 @@ msgstr "পোস্টের তালিকা"
 msgid "List of comments"
 msgstr "মন্তব্যের তালিকা"
 
-#: src/Process/Backend/UserPreferences.php:145
+#: src/Process/Backend/UserPreferences.php:142
 msgid "Light"
 msgstr "আলো"
 
-#: src/Process/Backend/UserPreferences.php:146
+#: src/Process/Backend/UserPreferences.php:143
 msgid "Dark"
 msgstr "অন্ধকার"
 
-#: src/Process/Backend/UserPreferences.php:147
+#: src/Process/Backend/UserPreferences.php:144
 msgid "Automatic"
 msgstr "স্বয়ংক্রিয়"
 
-#: src/Process/Backend/UserPreferences.php:152
+#: src/Process/Backend/UserPreferences.php:149
 msgid "Smallest"
 msgstr "Smallest"
 
-#: src/Process/Backend/UserPreferences.php:153
+#: src/Process/Backend/UserPreferences.php:150
 msgid "Smaller"
 msgstr "ছোট"
 
-#: src/Process/Backend/UserPreferences.php:155
+#: src/Process/Backend/UserPreferences.php:152
 msgid "Larger"
 msgstr "লার্গার"
 
-#: src/Process/Backend/UserPreferences.php:156
+#: src/Process/Backend/UserPreferences.php:153
 msgid "Largest"
 msgstr "Largest"
 
-#: src/Process/Backend/UserPreferences.php:168
+#: src/Process/Backend/UserPreferences.php:165
 msgid "Blog description (in blog parameters)"
 msgstr "ব্লগ বর্ণনা (ব্লগ প্যারামিটার ব্যবহার করেছে)"
 
-#: src/Process/Backend/UserPreferences.php:169
+#: src/Process/Backend/UserPreferences.php:166
 msgid "Category description"
 msgstr "শ্রেণীবিভাগ"
 
-#: src/Process/Backend/UserPreferences.php:213
-#: src/Process/Backend/UserPreferences.php:230
+#: src/Process/Backend/UserPreferences.php:210
+#: src/Process/Backend/UserPreferences.php:227
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "আপনার ইমেইল অথবা পাসওয়ার্ড পরিবর্তন করতে চাইলে আপনার বর্তমান পাসওয়ার্ড প্রদান করতে হবে."
 
-#: src/Process/Backend/UserPreferences.php:261
+#: src/Process/Backend/UserPreferences.php:258
 msgid "Personal information has been successfully updated."
 msgstr "ব্যক্তিগত তথ্য সফলভাবে হালনাগাদ করা হয়েছে."
 
-#: src/Process/Backend/UserPreferences.php:379
+#: src/Process/Backend/UserPreferences.php:376
 msgid "Personal options has been successfully updated."
 msgstr "ব্যক্তিগত অপশন সফলভাবে হালনাগাদ করা হয়েছে."
 
-#: src/Process/Backend/UserPreferences.php:407
+#: src/Process/Backend/UserPreferences.php:404
 msgid "Dashboard options has been successfully updated."
 msgstr "ড্যাশবোর্ড অপশন সফলভাবে হালনাগাদ করা হয়েছে."
 
-#: src/Process/Backend/UserPreferences.php:419
-#: src/Process/Backend/UserPreferences.php:443
+#: src/Process/Backend/UserPreferences.php:416
+#: src/Process/Backend/UserPreferences.php:440
 msgid "No favorite selected"
 msgstr "কোন প্রিয় নির্বাচিত হয়নি"
 
-#: src/Process/Backend/UserPreferences.php:430
+#: src/Process/Backend/UserPreferences.php:427
 msgid "Favorites have been successfully added."
 msgstr "Favorites সফলভাবে যোগ করা হয়েছে."
 
-#: src/Process/Backend/UserPreferences.php:456
+#: src/Process/Backend/UserPreferences.php:453
 msgid "Favorites have been successfully removed."
 msgstr "Favorites সফলভাবে সরিয়ে ফেলা হয়েছে."
 
-#: src/Process/Backend/UserPreferences.php:486
+#: src/Process/Backend/UserPreferences.php:483
 msgid "Favorites have been successfully updated."
 msgstr "Favorites সফলভাবে হালনাগাদ করা হয়েছে."
 
-#: src/Process/Backend/UserPreferences.php:498
+#: src/Process/Backend/UserPreferences.php:495
 msgid "Default favorites have been successfully updated."
 msgstr "ডিফল্ট অনুকূল সফলভাবে হালনাগাদ করা হয়েছে."
 
-#: src/Process/Backend/UserPreferences.php:512
+#: src/Process/Backend/UserPreferences.php:509
 msgid "Dashboard items order have been successfully reset."
 msgstr "ড্যাশবোর্ড আইটেম আদেশটি সফলভাবে রিসেট করা হয়েছে."
 
-#: src/Process/Backend/UserPreferences.php:534
+#: src/Process/Backend/UserPreferences.php:531
 msgid "Are you sure you want to remove selected favorites?"
 msgstr "আপনি কি নিশ্চিতভাবে নির্বাচিত পছন্দসই অপসারণ করতে চান?"
 
-#: src/Process/Backend/UserPreferences.php:556
+#: src/Process/Backend/UserPreferences.php:553
 msgid "Change my password"
 msgstr "পাসওয়ার্ড পরিবর্তন করুন"
 
-#: src/Process/Backend/UserPreferences.php:575
+#: src/Process/Backend/UserPreferences.php:572
 msgid "Confirm new password:"
 msgstr "নতুন পাসওয়ার্ড কনফার্ম করুন:"
 
-#: src/Process/Backend/UserPreferences.php:585
+#: src/Process/Backend/UserPreferences.php:582
 msgid "Your current password:"
 msgstr "আপনার বর্তমান পাসওয়ার্ড:"
 
-#: src/Process/Backend/UserPreferences.php:589
+#: src/Process/Backend/UserPreferences.php:586
 msgid "If you have changed your email or password you must provide your current password to save these modifications."
 msgstr "যদি আপনি আপনার ইমেইল অথবা পাসওয়ার্ড পরিবর্তন করেছেন, তবে এই পরিবর্তনগুলি সংরক্ষণ করার জন্য আপনার বর্তমান পাসওয়ার্ড প্রদান করতে হবে."
 
-#: src/Process/Backend/UserPreferences.php:595
-#: src/Process/Backend/UserPreferences.php:597
+#: src/Process/Backend/UserPreferences.php:592
+#: src/Process/Backend/UserPreferences.php:594
 msgid "My profile"
 msgstr "আমার প্রোফাইল"
 
-#: src/Process/Backend/UserPreferences.php:682
+#: src/Process/Backend/UserPreferences.php:679
 msgid "Language for my interface:"
 msgstr "আমার ইন্টারফেসের ভাষা:"
 
-#: src/Process/Backend/UserPreferences.php:690
+#: src/Process/Backend/UserPreferences.php:687
 msgid "My timezone:"
 msgstr "আমার সময়সীমা:"
 
-#: src/Process/Backend/UserPreferences.php:699
+#: src/Process/Backend/UserPreferences.php:696
 msgid "Update my profile"
 msgstr "আমার প্রোফাইল আপডেট করুন"
 
-#: src/Process/Backend/UserPreferences.php:767
+#: src/Process/Backend/UserPreferences.php:764
 msgid "List"
 msgstr "তালিকা"
 
-#: src/Process/Backend/UserPreferences.php:769
+#: src/Process/Backend/UserPreferences.php:766
 msgid "Order by"
 msgstr "অর্ডার"
 
-#: src/Process/Backend/UserPreferences.php:771
+#: src/Process/Backend/UserPreferences.php:768
 msgid "Sort"
 msgstr "সড়ক"
 
-#: src/Process/Backend/UserPreferences.php:784
+#: src/Process/Backend/UserPreferences.php:781
 #, php-format
 msgid "Preferred editor for %s:"
 msgstr "%s-এর জন্য পছন্দসই সম্পাদক:"
 
-#: src/Process/Backend/UserPreferences.php:789
+#: src/Process/Backend/UserPreferences.php:786
 msgid "Choose an editor"
 msgstr "একটি সম্পাদক নির্বাচন করুন"
 
-#: src/Process/Backend/UserPreferences.php:810
-#: src/Process/Backend/UserPreferences.php:816
+#: src/Process/Backend/UserPreferences.php:807
+#: src/Process/Backend/UserPreferences.php:813
 msgid "My options"
 msgstr "আমার অপশন"
 
-#: src/Process/Backend/UserPreferences.php:825
+#: src/Process/Backend/UserPreferences.php:822
 msgid "Theme:"
 msgstr "থিম:"
 
-#: src/Process/Backend/UserPreferences.php:831
+#: src/Process/Backend/UserPreferences.php:828
 msgid "Activate enhanced uploader in media manager"
 msgstr "মিডিয়া ব্যবস্থাপকের মধ্যে বর্ধিত আপলোডার সক্রিয় করুন"
 
-#: src/Process/Backend/UserPreferences.php:837
+#: src/Process/Backend/UserPreferences.php:834
 msgid "Preview the entry being edited in a blank window or tab (depending on your browser settings)."
 msgstr "একটি ফাঁকা উইণ্ডো অথবা ট্যাবে (আপনার ব্রাউজার বৈশিষ্ট্যের উপর নির্ভর করে) এন্ট্রি সম্পাদন করা হচ্ছে."
 
-#: src/Process/Backend/UserPreferences.php:844
+#: src/Process/Backend/UserPreferences.php:841
 msgid "Disable javascript powered drag and drop for ordering items"
 msgstr "অর্ডারিং আইটেমের জন্য জাভাস্ক্রিপ্ট চালিত ড্র্যাগ এবং ড্রপ নিষ্ক্রিয় করুন"
 
-#: src/Process/Backend/UserPreferences.php:848
+#: src/Process/Backend/UserPreferences.php:845
 msgid "If checked, numeric fields will allow to type the elements' ordering number."
 msgstr "এটিতে টিক দিলে, সাংখ্যিক ক্ষেত্রগুলি উপাত্তের অর্ডারিং নম্বর টাইপ করতে দেবে."
 
-#: src/Process/Backend/UserPreferences.php:853
+#: src/Process/Backend/UserPreferences.php:850
 msgid "Hide all secondary information and notes"
 msgstr "সকল মাধ্যমিক তথ্য ও নোট আড়াল করো"
 
-#: src/Process/Backend/UserPreferences.php:859
+#: src/Process/Backend/UserPreferences.php:856
 msgid "Hide help button"
 msgstr "সহায়ক বাটন আড়াল করো"
 
-#: src/Process/Backend/UserPreferences.php:866
+#: src/Process/Backend/UserPreferences.php:863
 msgid "Font size:"
 msgstr "ফন্ট মাপ:"
 
-#: src/Process/Backend/UserPreferences.php:872
+#: src/Process/Backend/UserPreferences.php:869
 msgid "Use operating system font"
 msgstr "অপারেটিং সিস্টেম ফন্ট ব্যবহার করো"
 
-#: src/Process/Backend/UserPreferences.php:878
+#: src/Process/Backend/UserPreferences.php:875
 msgid "Number of recent folders proposed in media manager:"
 msgstr "মিডিয়া ব্যবস্থাপকের মধ্যে প্রস্তাবিত সাম্প্রতিক ফোল্ডারের সংখ্যা:"
 
-#: src/Process/Backend/UserPreferences.php:882
+#: src/Process/Backend/UserPreferences.php:879
 msgid "Set to 0 (zero) to ignore, displayed only if Javascript is enabled in your browser."
 msgstr "উপেক্ষা করার জন্য 0 (শূন্য) তে সেট করুন, শুধুমাত্র আপনার ব্রাউজারে জাভাস্ক্রিপ্ট সক্রিয় থাকলেই প্রদর্শিত হবে।"
 
-#: src/Process/Backend/UserPreferences.php:889
+#: src/Process/Backend/UserPreferences.php:886
 msgid "Do not use standard favicon"
 msgstr "স্ট্যান্ডার্ড পছন্দের ব্যবহার করবেন না"
 
-#: src/Process/Backend/UserPreferences.php:890
+#: src/Process/Backend/UserPreferences.php:887
 msgid "This will be applied for all users"
 msgstr "এটি সকল ব্যবহারকারীর জন্য প্রয়োগ করা হবে"
 
-#: src/Process/Backend/UserPreferences.php:900
+#: src/Process/Backend/UserPreferences.php:897
 msgid "Disable Ad-blocker check"
 msgstr "Ad-ব্লকার পরীক্ষা নিষ্ক্রিয় করুন"
 
-#: src/Process/Backend/UserPreferences.php:904
+#: src/Process/Backend/UserPreferences.php:901
 msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
 msgstr "কিছু বিজ্ঞাপন-অবরোধ (Ghostery, Adblock plus, uBloc origin, …) CKEditorএর সাথে এন্ট্রির মধ্যে লিংক অথবা মিডিয়া ইনসার্টিংকারী হিসাবে কিছু বৈশিষ্ট্যের মধ্যে হস্তক্ষেপ করতে পারে; এই ক্ষেত্রে আপনি এই Dotclear ইনস্টলেশনের (শুধুমাত্র ব্যাকএন্ড) জন্য এটি নিষ্ক্রিয় করা উচিত. উল্লেখ্য যে, ডটস্পট ব্যাকএন্ড-এ বিজ্ঞাপন ট্র্যাকার্স যোগ করে না."
 
-#: src/Process/Backend/UserPreferences.php:907
+#: src/Process/Backend/UserPreferences.php:904
 msgid "Note also that deactivating this detection of ad blockers will not deactivate the installed ad blockers. Dotclear cannot interfere with the operation of browser extensions!"
 msgstr "এছাড়াও নোট করুন যে বিজ্ঞাপন ব্লকারগুলির এই সনাক্তকরণটি নিষ্ক্রিয় করা ইনস্টল করা বিজ্ঞাপন ব্লকারগুলিকে নিষ্ক্রিয় করবে না। ডটক্লিয়ার ব্রাউজার এক্সটেনশনগুলির ক্রিয়াকলাপে হস্তক্ষেপ করতে পারে না!"
 
-#: src/Process/Backend/UserPreferences.php:915
+#: src/Process/Backend/UserPreferences.php:912
 msgid "Quick menu character:"
 msgstr "দ্রুত মেনু অক্ষর:"
 
-#: src/Process/Backend/UserPreferences.php:919
+#: src/Process/Backend/UserPreferences.php:916
 msgid "Leave empty to use the default character <kbd>:</kbd>"
 msgstr "ডিফল্ট অক্ষরটি ব্যবহার করতে খালি ছেড়ে দিন<kbd>:</kbd>"
 
-#: src/Process/Backend/UserPreferences.php:924
+#: src/Process/Backend/UserPreferences.php:921
 msgid "Keep the main menu at the top of the page as much as possible"
 msgstr "যতটা সম্ভব মূল মেনুটি পৃষ্ঠার উপরে রাখুন।"
 
-#: src/Process/Backend/UserPreferences.php:928
+#: src/Process/Backend/UserPreferences.php:925
 msgid "Optional columns displayed in lists"
 msgstr "তালিকায় প্রদর্শিত অপশনাল কলাম"
 
-#: src/Process/Backend/UserPreferences.php:931
+#: src/Process/Backend/UserPreferences.php:928
 msgid "Options for lists"
 msgstr "তালিকার জন্য অপশন"
 
-#: src/Process/Backend/UserPreferences.php:937
+#: src/Process/Backend/UserPreferences.php:934
 msgid "Apply filters on the fly"
 msgstr "উড়ার উপর ফিল্টার প্রয়োগ করো"
 
-#: src/Process/Backend/UserPreferences.php:974
+#: src/Process/Backend/UserPreferences.php:971
 msgid "Enable WYSIWYG mode"
 msgstr "WYSIWYG মোড সক্রিয় করুন"
 
-#: src/Process/Backend/UserPreferences.php:980
+#: src/Process/Backend/UserPreferences.php:977
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr "টেক্সট-এলাকার নীচে সম্পাদকের টুলবার প্রদর্শন করা হবে (যদি সম্ভব হয়)"
 
-#: src/Process/Backend/UserPreferences.php:986
+#: src/Process/Backend/UserPreferences.php:983
 msgid "Use HTML editor for:"
 msgstr "HTML সম্পাদক ব্যবহার করো:"
 
-#: src/Process/Backend/UserPreferences.php:990
+#: src/Process/Backend/UserPreferences.php:987
 msgid "Other options"
 msgstr "অন্যান্য অপশন"
 
-#: src/Process/Backend/UserPreferences.php:1001
+#: src/Process/Backend/UserPreferences.php:998
 msgid "Save my options"
 msgstr "আমার অপশন সংরক্ষণ করুন"
 
-#: src/Process/Backend/UserPreferences.php:1032
+#: src/Process/Backend/UserPreferences.php:1029
 #, php-format
 msgid "position of %s"
 msgstr "%s-এর অবস্থান"
 
-#: src/Process/Backend/UserPreferences.php:1055
+#: src/Process/Backend/UserPreferences.php:1052
 msgid "Save order"
 msgstr "অর্ডার সংরক্ষণ করো"
 
-#: src/Process/Backend/UserPreferences.php:1056
+#: src/Process/Backend/UserPreferences.php:1053
 msgid "Delete selected favorites"
 msgstr "নির্বাচিত পছন্দগুলি মুছে ফেলুন"
 
-#: src/Process/Backend/UserPreferences.php:1063
+#: src/Process/Backend/UserPreferences.php:1060
 msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
 msgstr "আপনি যদি একজন সুপার অ্যাডমিনিস্ট্রেটর, আপনি এই ইনস্টলেশনের সমস্ত ব্লগগুলোতে ডিফল্ট দ্বারা ব্যবহার করা পছন্দসই নির্ধারণ করতে পারেন."
 
-#: src/Process/Backend/UserPreferences.php:1066
+#: src/Process/Backend/UserPreferences.php:1063
 msgid "Define as default favorites"
 msgstr "ডিফল্ট অনুকূল হিসেবে নির্ধারণ করা হবে"
 
-#: src/Process/Backend/UserPreferences.php:1075
+#: src/Process/Backend/UserPreferences.php:1072
 msgid "Currently no personal favorites."
 msgstr "বর্তমানে ব্যক্তিগত পছন্দসই নেই."
 
-#: src/Process/Backend/UserPreferences.php:1114
+#: src/Process/Backend/UserPreferences.php:1111
 msgid "(default favorite)"
 msgstr "(ডিফল্ট প্রিয়)"
 
-#: src/Process/Backend/UserPreferences.php:1129
+#: src/Process/Backend/UserPreferences.php:1126
 msgid "Add to my favorites"
 msgstr "আমার পছন্দের সাথে যোগ করো"
 
-#: src/Process/Backend/UserPreferences.php:1153
+#: src/Process/Backend/UserPreferences.php:1150
 msgid "Other available favorites"
 msgstr "অন্যান্য সহজলভ্য পছন্দের"
 
-#: src/Process/Backend/UserPreferences.php:1165
+#: src/Process/Backend/UserPreferences.php:1162
 msgid "Menu"
 msgstr "মেনু"
 
-#: src/Process/Backend/UserPreferences.php:1171
+#: src/Process/Backend/UserPreferences.php:1168
 msgid "Display favorites at the top of the menu"
 msgstr "মেনুর শীর্ষে অনুকূল প্রদর্শন করা হবে"
 
-#: src/Process/Backend/UserPreferences.php:1175
+#: src/Process/Backend/UserPreferences.php:1172
 msgid "Dashboard icons"
 msgstr "ড্যাশবোর্ড আইকন"
 
-#: src/Process/Backend/UserPreferences.php:1181
+#: src/Process/Backend/UserPreferences.php:1178
 msgid "Display dashboard icons"
 msgstr "ড্যাশবোর্ড আইকন প্রদর্শন করো"
 
-#: src/Process/Backend/UserPreferences.php:1185
+#: src/Process/Backend/UserPreferences.php:1182
 msgid "Dashboard modules"
 msgstr "ড্যাশবোর্ড মডিউল"
 
-#: src/Process/Backend/UserPreferences.php:1191
+#: src/Process/Backend/UserPreferences.php:1188
 msgid "Display documentation links"
 msgstr "ডকুমেন্টেশন লিঙ্ক প্রদর্শন"
 
-#: src/Process/Backend/UserPreferences.php:1197
+#: src/Process/Backend/UserPreferences.php:1194
 msgid "Display donate links"
 msgstr "দান লিঙ্ক প্রদর্শন করুন"
 
-#: src/Process/Backend/UserPreferences.php:1203
+#: src/Process/Backend/UserPreferences.php:1200
 msgid "Display Dotclear news"
 msgstr "Dotclear সংবাদ প্রদর্শন করা হবে"
 
-#: src/Process/Backend/UserPreferences.php:1209
+#: src/Process/Backend/UserPreferences.php:1206
 msgid "Display quick entry form"
 msgstr "দ্রুত এন্ট্রি ফর্ম প্রদর্শন করুন"
 
-#: src/Process/Backend/UserPreferences.php:1214
+#: src/Process/Backend/UserPreferences.php:1211
 msgid "Do not display Dotclear updates"
 msgstr "Dotclear আপডেট প্রদর্শন করা হবে না"
 
-#: src/Process/Backend/UserPreferences.php:1227
+#: src/Process/Backend/UserPreferences.php:1224
 msgid "Save my dashboard options"
 msgstr "আমার ড্যাশবোর্ড অপশন সংরক্ষণ করুন"
 
-#: src/Process/Backend/UserPreferences.php:1240
+#: src/Process/Backend/UserPreferences.php:1237
 msgid "Dashboard items order"
 msgstr "ড্যাশবোর্ড আইটেম অর্ডার"
 
-#: src/Process/Backend/UserPreferences.php:1243
+#: src/Process/Backend/UserPreferences.php:1240
 msgid "Reset dashboard items order"
 msgstr "ড্যাশবোর্ড আইটেম রিসেট করো"
 
@@ -5883,11 +5886,11 @@ msgstr "বৈধ অনুমতি"
 msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
 msgstr "অনুগ্রহ করে একটি মাস্টার কী (DC_MASTER_KEY) কনফিগারেশন ফাইলে নির্ধারণ করুন."
 
-#: src/Process/Install/Install.php:127 src/Process/Install/Wizard.php:142
+#: src/Process/Install/Install.php:127 src/Process/Install/Wizard.php:141
 msgid "Dotclear is already installed."
 msgstr "Dotclear ইতিমধ্যেই ইন্সটল করা আছে।"
 
-#: src/Process/Install/Install.php:134 src/Process/Install/Wizard.php:136
+#: src/Process/Install/Install.php:134 src/Process/Install/Wizard.php:135
 msgid "Dotclear cannot be installed."
 msgstr "Dotclear ইন্সটল করা সম্ভব নয়।"
 
@@ -5986,134 +5989,137 @@ msgstr "এখন আপনার ব্লগ পরিচালনা কর�
 msgid "Installation can not be completed"
 msgstr "ইনস্টলেশন সম্পন্ন করা যাবে না"
 
-#: src/Process/Install/Install.php:528
-msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
-msgstr "উল্লিখিত কারণে, ডটক্লিয়ার ইনস্টল করা যাবে না। সমস্যাটি কীভাবে সংশোধন করতে হয় তা শিখতে দয়া করে <a href = \"https://dotclear.org/documentation/2.0/admin/install\"> ডকুমেন্টেশন দেখুন</a>।"
+#: src/Process/Install/Install.php:529
+#, php-format
+msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"%s\">the documentation</a> to learn how to correct the problem."
+msgstr "উল্লিখিত কারণে, ডটক্লিয়ার ইনস্টল করা যাচ্ছে না। সমস্যাটি কীভাবে সমাধান করবেন তা জানতে দয়া করে <a href=\"%s\">ডকুমেন্টেশন</a> দেখুন।"
 
 #: src/Process/Install/Wizard.php:84
 #, php-format
 msgid "Path <strong>%s</strong> is not writable."
 msgstr "<strong>%s</strong> পথটি লিখনযোগ্য নয়।"
 
-#: src/Process/Install/Wizard.php:85
-msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
-msgstr "ডটক্লিয়ার ইনস্টলেশন উইজার্ড আপনার জন্য কনফিগারেশন ফাইল তৈরি করতে পারেনি। আপনাকে অবশ্যই ফোল্ডার পরিবর্তন করতে হবে বা ম্যানুয়ালি <strong>config.php</strong> ফাইল তৈরি করতে হবে, অনুগ্রহ করে <a href=\"https://dotclear.org/documentation/2.0/admin/install\">ডকুমেন্টেশন</strong> দেখুন a> এটি কিভাবে করতে হয় তা শিখতে।"
+#: src/Process/Install/Wizard.php:86
+#, php-format
+msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"%s\">the documentation</a> to learn how to do this."
+msgstr "ডটক্লিয়ার ইনস্টলেশন উইজার্ড আপনার জন্য কনফিগারেশন ফাইল তৈরি করতে পারেনি। আপনাকে সরাসরি ফোল্ডার পরিবর্তন করতে হবে অথবা <strong>config.php</strong> ফাইলটি ম্যানুয়ালি তৈরি করতে হবে, এটি কীভাবে করবেন তা জানতে দয়া করে <a href=\"%s\">ডকুমেন্টেশন</a> দেখুন।"
 
-#: src/Process/Install/Wizard.php:118
+#: src/Process/Install/Wizard.php:117
 #, php-format
 msgid "Cannot write \"%s\" directory."
 msgstr "\"%s\" নির্দেশিকা লেখা সম্ভব নয়।"
 
-#: src/Process/Install/Wizard.php:146
+#: src/Process/Install/Wizard.php:145
 msgid "Master email is not valid."
 msgstr "মাস্টার ইমেইল বৈধ নয়."
 
-#: src/Process/Install/Wizard.php:152
+#: src/Process/Install/Wizard.php:151
 #, php-format
 msgid "File %s does not exist."
 msgstr "%s ফাইলটি নেই।"
 
-#: src/Process/Install/Wizard.php:157 src/Process/Install/Wizard.php:192
+#: src/Process/Install/Wizard.php:156 src/Process/Install/Wizard.php:191
 #, php-format
 msgid "Cannot write %s file."
 msgstr "%s ফাইল লেখা যাচ্ছে না।"
 
-#: src/Process/Install/Wizard.php:235 src/Process/Install/Wizard.php:243
+#: src/Process/Install/Wizard.php:234 src/Process/Install/Wizard.php:242
 msgid "Dotclear installation wizard"
 msgstr "ডটক্লিয়ার ইন্সটলেশন উইজার্ড"
 
-#: src/Process/Install/Wizard.php:249
+#: src/Process/Install/Wizard.php:248
 msgid "Welcome"
 msgstr "স্বাগতম"
 
-#: src/Process/Install/Wizard.php:250
+#: src/Process/Install/Wizard.php:249
 msgid "To complete your Dotclear installation and start writing on your blog, we just need to know how to access your database and who you are. Just fill this two steps wizard with this information and we will be done."
 msgstr "আপনার ডটস্পট ইনস্টলেশন সম্পন্ন করতে এবং আপনার ব্লগে লেখা আরম্ভ করার জন্য, আমরা শুধু জানতে চাই আপনার ডাটাবেজ কিভাবে ব্যবহার করা হবে এবং আপনি কে. এই তথ্য দিয়ে যাদুকর এই দুই ধাপ পূরণ করুন এবং আমরা করা হবে."
 
-#: src/Process/Install/Wizard.php:253
+#: src/Process/Install/Wizard.php:250
 msgid "Attention:"
 msgstr "দৃষ্টি আকর্ষন:"
 
-#: src/Process/Install/Wizard.php:254
-msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
-msgstr "এই উইজার্ড প্রতিটি হোস্টে কাজ নাও করতে পারে। যদি এটি আপনার জন্য কাজ না করে, অনুগ্রহ করে <a href=\"https://dotclear.org/documentation/2.0/admin/install\">ডকুমেন্টেশন</a> দেখুন কিভাবে <strong>কনফিগ তৈরি করবেন তা শিখতে হবে। php</strong> ফাইল ম্যানুয়ালি।"
+#: src/Process/Install/Wizard.php:252
+#, php-format
+msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"%s\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
+msgstr "এই উইজার্ডটি প্রতিটি হোস্টে কাজ নাও করতে পারে। যদি এটি আপনার জন্য কাজ না করে, তাহলে <a href=\"%s\">ডকুমেন্টেশন</a> দেখুন এবং <strong>config.php</strong> ফাইলটি ম্যানুয়ালি কীভাবে তৈরি করবেন তা শিখুন।"
 
-#: src/Process/Install/Wizard.php:261
+#: src/Process/Install/Wizard.php:258
 msgid "System information"
 msgstr "সিস্টেমের তথ্য"
 
-#: src/Process/Install/Wizard.php:263
+#: src/Process/Install/Wizard.php:260
 msgid "Please provide the following information needed to create your configuration file."
 msgstr "অনুগ্রহ করে নিচের তথ্যগুলো দিন যাতে কনফিগারেশন ফাইল প্রস্তুত করা যায়।"
 
-#: src/Process/Install/Wizard.php:267
+#: src/Process/Install/Wizard.php:264
 msgid "Database type:"
 msgstr "ডাটাবেজের ধরণ:"
 
-#: src/Process/Install/Wizard.php:271
+#: src/Process/Install/Wizard.php:268
 msgid "MySQLi"
 msgstr "মাইএসকিউলিGenericName"
 
-#: src/Process/Install/Wizard.php:272
+#: src/Process/Install/Wizard.php:269
 msgid "MySQLi (full UTF-8)"
 msgstr "মাইএসকিউলি (সম্পূর্ণ ইউটিএফ-৮)"
 
-#: src/Process/Install/Wizard.php:273
+#: src/Process/Install/Wizard.php:270
 msgid "PostgreSQL"
 msgstr "PostgreSQL"
 
-#: src/Process/Install/Wizard.php:274
+#: src/Process/Install/Wizard.php:271
 msgid "SQLite"
 msgstr "SQLite"
 
-#: src/Process/Install/Wizard.php:275
+#: src/Process/Install/Wizard.php:272
 msgid "Driver"
 msgstr "ড্রাইভার"
 
-#: src/Process/Install/Wizard.php:277
+#: src/Process/Install/Wizard.php:274
 msgid "Database Host Name:"
 msgstr "ডাটাবেজের হোস্টের নাম:"
 
-#: src/Process/Install/Wizard.php:279
+#: src/Process/Install/Wizard.php:276
 msgid "Database Name:"
 msgstr "ডাটাবেজের নাম:"
 
-#: src/Process/Install/Wizard.php:281
+#: src/Process/Install/Wizard.php:278
 msgid "Database User Name:"
 msgstr "ডাটাবেজের ইউজারনেম:"
 
-#: src/Process/Install/Wizard.php:283
+#: src/Process/Install/Wizard.php:280
 msgid "Database Password:"
 msgstr "ডাটাবেজ পাসওয়ার্ড:"
 
-#: src/Process/Install/Wizard.php:285
+#: src/Process/Install/Wizard.php:282
 msgid "Database Tables Prefix:"
 msgstr "ডাটাবেজের টেবিল প্রেফিক্স:"
 
-#: src/Process/Install/Wizard.php:288
+#: src/Process/Install/Wizard.php:285
 msgid "Prefix"
 msgstr "প্রিফিক্স"
 
-#: src/Process/Install/Wizard.php:291
+#: src/Process/Install/Wizard.php:288
 msgid "Master Email: (used as sender for password recovery)"
 msgstr "মাস্টার ইমেইল: (পাসওয়ার্ড পুনরুদ্ধারের জন্য প্রেরক হিসেবে ব্যবহৃত)"
 
-#: src/Process/Install/Wizard.php:299 src/Process/Upgrade/Digests.php:258
+#: src/Process/Install/Wizard.php:296 src/Process/Upgrade/Digests.php:258
 #: src/Process/Upgrade/Digests.php:279
 msgid "Continue"
 msgstr "@ title: group"
 
 #: src/Process/Upgrade/Attic.php:73 src/Process/Upgrade/Attic.php:77
 #: src/Process/Upgrade/Attic.php:98 src/Process/Upgrade/Attic.php:102
-#: src/Process/Upgrade/Attic.php:340 src/Process/Upgrade/Attic.php:344
+#: src/Process/Upgrade/Attic.php:352 src/Process/Upgrade/Attic.php:356
 #: src/Process/Upgrade/Backup.php:58 src/Process/Upgrade/Backup.php:62
 #: src/Process/Upgrade/Backup.php:215 src/Process/Upgrade/Cache.php:73
-#: src/Process/Upgrade/Digests.php:142 src/Process/Upgrade/Home.php:140
+#: src/Process/Upgrade/Digests.php:142 src/Process/Upgrade/Home.php:146
 #: src/Process/Upgrade/Langs.php:265 src/Process/Upgrade/Plugins.php:187
 #: src/Process/Upgrade/Replay.php:80 src/Process/Upgrade/Upgrade.php:54
 #: src/Process/Upgrade/Upgrade.php:58 src/Process/Upgrade/Upgrade.php:79
-#: src/Process/Upgrade/Upgrade.php:83 src/Process/Upgrade/Upgrade.php:308
-#: src/Process/Upgrade/Upgrade.php:312
+#: src/Process/Upgrade/Upgrade.php:83 src/Process/Upgrade/Upgrade.php:317
+#: src/Process/Upgrade/Upgrade.php:321
 msgid "Dotclear update"
 msgstr "Dotclear আপডেট"
 
@@ -6137,67 +6143,71 @@ msgstr "মনে হচ্ছে আপনার সিস্টেমে ক�
 msgid "Downloaded Dotclear archive seems to be corrupted. Try <a %s>download it</a> again."
 msgstr "ডাউনলোড করা ডটক্লিয়ার আর্কাইভ দূষিত বলে মনে হচ্ছে। <একটি %s>এটি আবার ডাউনলোড করার চেষ্টা করুন</a>।"
 
-#: src/Process/Upgrade/Attic.php:158 src/Process/Upgrade/Upgrade.php:145
-msgid "If this problem persists try to <a href=\"https://dotclear.org/download\">update manually</a>."
-msgstr "যদি এই সমস্যাটি অব্যাহত থাকে তবে <a href=\"https://dotclear.org/download\">ম্যানুয়ালি আপডেট করার চেষ্টা করুন</a>।"
+#: src/Process/Upgrade/Attic.php:159 src/Process/Upgrade/Upgrade.php:146
+#, php-format
+msgid "If this problem persists try to <a href=\"%s\">update manually</a>."
+msgstr "যদি এই সমস্যাটি থেকে যায়, তাহলে <a href=\"%s\">ম্যানুয়ালি আপডেট করার</a> চেষ্টা করুন।"
 
-#: src/Process/Upgrade/Attic.php:196 src/Process/Upgrade/Upgrade.php:180
-msgid "The following files of your Dotclear installation have been modified so we won't try to update your installation. Please try to <a href=\"https://dotclear.org/download\">update manually</a>."
-msgstr "আপনার ডটক্লিয়ার ইনস্টলেশনের নিম্নলিখিত ফাইলগুলি সংশোধন করা হয়েছে তাই আমরা আপনার ইনস্টলেশন আপডেট করার চেষ্টা করব না। দয়া করে <a href=\"https://dotclear.org/download\">ম্যানুয়ালি আপডেট করার চেষ্টা</a> করুন।"
+#: src/Process/Upgrade/Attic.php:199 src/Process/Upgrade/Upgrade.php:184
+#, php-format
+msgid "The following files of your Dotclear installation have been modified so we won't try to update your installation. Please try to <a href=\"%s\">update manually</a>."
+msgstr "আপনার ডটক্লিয়ার ইনস্টলেশনের নিম্নলিখিত ফাইলগুলি পরিবর্তন করা হয়েছে তাই আমরা আপনার ইনস্টলেশন আপডেট করার চেষ্টা করব না। অনুগ্রহ করে <a href=\"%s\">ম্যানুয়ালি আপডেট করার</a> চেষ্টা করুন।"
 
-#: src/Process/Upgrade/Attic.php:197
-msgid "You can bypass this warning by updating installation disgets file."
-msgstr "আপনি ইনস্টলেশন ডিসগ ফাইল আপডেট করে এই সতর্কতাটি বাইপাস করতে পারেন।"
+#: src/Process/Upgrade/Attic.php:204
+#, php-format
+msgid "(<a href=\"%s\">You can bypass this warning by updating installation disgets file</a>)."
+msgstr "(<a href=\"%s\">আপনি ইনস্টলেশন ডিজেট ফাইল আপডেট করে এই সতর্কতাটি এড়াতে পারেন</a>)।"
 
-#: src/Process/Upgrade/Attic.php:200 src/Process/Upgrade/Upgrade.php:183
+#: src/Process/Upgrade/Attic.php:209 src/Process/Upgrade/Upgrade.php:189
 #, php-format
 msgid "The following files of your Dotclear installation are not readable. Please fix this or try to make a backup file named %s manually."
 msgstr "আপনার ডটক্লিয়ার ইনস্টলেশনের নিম্নলিখিত ফাইলগুলি পঠনযোগ্য নয়। অনুগ্রহ করে এটি ঠিক করুন অথবা ম্যানুয়ালি %s নামের একটি ব্যাকআপ ফাইল বানানোর চেষ্টা করুন।"
 
-#: src/Process/Upgrade/Attic.php:204 src/Process/Upgrade/Upgrade.php:187
-msgid "The following files of your Dotclear installation cannot be written. Please fix this or try to <a href=\"https://dotclear.org/download\">update manually</a>."
-msgstr "আপনার ডটক্লিয়ার ইনস্টলেশনের নিম্নলিখিত ফাইলগুলি লেখা যাবে না। দয়া করে এটি ঠিক করুন বা <a href=\"https://dotclear.org/download\">ম্যানুয়ালি আপডেট করার চেষ্টা করুন</a>।"
+#: src/Process/Upgrade/Attic.php:214 src/Process/Upgrade/Upgrade.php:194
+#, php-format
+msgid "The following files of your Dotclear installation cannot be written. Please fix this or try to <a href=\"%s\">update manually</a>."
+msgstr "আপনার ডটক্লিয়ার ইনস্টলেশনের নিম্নলিখিত ফাইলগুলি লেখা যাচ্ছে না। দয়া করে এটি ঠিক করুন অথবা <a href=\"%s\">ম্যানুয়ালি আপডেট করার</a> চেষ্টা করুন।"
 
-#: src/Process/Upgrade/Attic.php:232 src/Process/Upgrade/Upgrade.php:235
+#: src/Process/Upgrade/Attic.php:244 src/Process/Upgrade/Upgrade.php:244
 msgid "No newer Dotclear version available."
 msgstr "ডটক্লিয়ারের কোনো নতুন ভার্সন বের হয় নি।"
 
-#: src/Process/Upgrade/Attic.php:244 src/Process/Upgrade/Upgrade.php:247
+#: src/Process/Upgrade/Attic.php:256 src/Process/Upgrade/Upgrade.php:256
 msgid "Force checking update Dotclear"
 msgstr "Dotclear হালনাগাদ পরীক্ষা করতে বাধ্য করা হবে"
 
-#: src/Process/Upgrade/Attic.php:271
+#: src/Process/Upgrade/Attic.php:283
 #, php-format
 msgid "Required PHP version %s or higher"
 msgstr "আবশ্যক PHP সংস্করণ %s বা উচ্চতর"
 
-#: src/Process/Upgrade/Attic.php:278 src/Process/Upgrade/Attic.php:279
+#: src/Process/Upgrade/Attic.php:290 src/Process/Upgrade/Attic.php:291
 msgid "Release note"
 msgstr "রিলিজ নোট"
 
-#: src/Process/Upgrade/Attic.php:290
+#: src/Process/Upgrade/Attic.php:302
 msgid "Select intermediate stable release to update to:"
 msgstr "আপডেট করতে মধ্যবর্তী স্থিতিশীল রিলিজ নির্বাচন করুন:"
 
-#: src/Process/Upgrade/Attic.php:304
+#: src/Process/Upgrade/Attic.php:316
 msgid "There are no additionnal informations about releases listed here, you should carefully read the information post associated with selected release on Dotclear's blog."
 msgstr "এখানে তালিকাভুক্ত রিলিজ সম্পর্কে কোনও অতিরিক্ত তথ্য নেই, আপনার ডটক্লিয়ারের ব্লগে নির্বাচিত রিলিজের সাথে সম্পর্কিত তথ্য পোস্টটি সাবধানে পড়তে হবে।"
 
-#: src/Process/Upgrade/Attic.php:314
+#: src/Process/Upgrade/Attic.php:326
 #, php-format
 msgid "Are you sure to update to version %s?"
 msgstr "আপনি কি %s সংস্করণে আপডেট করার বিষয়ে নিশ্চিত?"
 
-#: src/Process/Upgrade/Attic.php:320 src/Process/Upgrade/Digests.php:178
-#: src/Process/Upgrade/Digests.php:192 src/Process/Upgrade/Upgrade.php:281
+#: src/Process/Upgrade/Attic.php:332 src/Process/Upgrade/Digests.php:178
+#: src/Process/Upgrade/Digests.php:192 src/Process/Upgrade/Upgrade.php:290
 msgid "Update Dotclear"
 msgstr "আপডেট Dotclear"
 
-#: src/Process/Upgrade/Attic.php:328 src/Process/Upgrade/Upgrade.php:296
+#: src/Process/Upgrade/Attic.php:340 src/Process/Upgrade/Upgrade.php:305
 msgid "Congratulations, you're one click away from the end of the update."
 msgstr "অভিনন্দন, আপডেটের শেষ থেকে আপনি একটি ক্লিক করুন."
 
-#: src/Process/Upgrade/Attic.php:334 src/Process/Upgrade/Upgrade.php:302
+#: src/Process/Upgrade/Attic.php:346 src/Process/Upgrade/Upgrade.php:311
 msgid "Finish the update."
 msgstr "আপডেট শেষ করো."
 
@@ -6345,49 +6355,49 @@ msgstr "ইনস্টল করা হয়েছে ডটক্লিয়
 msgid "Installed PHP version is %s, next Dotclear release required %s or earlier."
 msgstr "ইনস্টল করা পিএইচপি সংস্করণটি %s, পরবর্তী ডটক্লিয়ার রিলিজের প্রয়োজন %s বা তার আগের।"
 
-#: src/Process/Upgrade/Home.php:74
+#: src/Process/Upgrade/Home.php:80
 #, php-format
 msgid "Backup directory \"%s\" does not exist or is not writable."
 msgstr "অনুরক্ষণ নির্দেশিকা \"%s\" বিদ্যমান নয় বা লিখনযোগ্য নয়."
 
-#: src/Process/Upgrade/Home.php:78
+#: src/Process/Upgrade/Home.php:84
 msgid "Your are using Sqlite database driver, Database structure upgrade will NOT be performed."
 msgstr "তুমি Sqlite ডাটাবেস ড্রাইভার ব্যবহার করছেন, ডাটাবেস কাঠামো আপগ্রেড সম্পাদন করা হবে না।"
 
-#: src/Process/Upgrade/Home.php:82
+#: src/Process/Upgrade/Home.php:88
 msgid "Your are using developement release, some features are not available."
 msgstr "তুমি বিকাশ রিলিজ ব্যবহার করছেন, কিছু বৈশিষ্ট্য উপলভ্য নয়।"
 
-#: src/Process/Upgrade/Home.php:85
+#: src/Process/Upgrade/Home.php:91
 #, php-format
 msgid "Dotclear digests file \"%s\" is not readable."
 msgstr "ডটক্লিয়ার ডাইজেস্ট ফাইল \"%s\" পঠনযোগ্য নয়."
 
-#: src/Process/Upgrade/Home.php:89 src/Process/Upgrade/Plugins.php:164
+#: src/Process/Upgrade/Home.php:95 src/Process/Upgrade/Plugins.php:164
 msgid "Official plugins repository could not be updated as there is no URL set in configuration."
 msgstr "কনফিগারেশনে কোন ইউআরএল সেট না থাকায় অফিসিয়াল প্লাগইন সংগ্রহস্থল হালনাগাদ করা যায়নি।"
 
-#: src/Process/Upgrade/Home.php:94
+#: src/Process/Upgrade/Home.php:100
 msgid "Do you read the official post about this release on Dotclear's blog?"
 msgstr "আপনি কি ডটক্লিয়ারের ব্লগে এই রিলিজ সম্পর্কে অফিসিয়াল পোস্টটি পড়েছেন?"
 
-#: src/Process/Upgrade/Home.php:95
+#: src/Process/Upgrade/Home.php:101
 msgid "Does your system support this release requirements like PHP version?"
 msgstr "আপনার সিস্টেম পিএইচপি সংস্করণ মত এই রিলিজ প্রয়োজনীয়তা সমর্থন করে?"
 
-#: src/Process/Upgrade/Home.php:96
+#: src/Process/Upgrade/Home.php:102
 msgid "Does your plugins and themes are up to date?"
 msgstr "আপনার প্লাগইন এবং থিমগুলি কি আপ টু ডেট?"
 
-#: src/Process/Upgrade/Home.php:97
+#: src/Process/Upgrade/Home.php:103
 msgid "Note if some plugins crash your installation, go back here to disable or to remove or to update them."
 msgstr "নোট করুন যদি কিছু প্লাগইন আপনার ইনস্টলেশন ক্র্যাশ করে তবে অক্ষম করতে বা সরাতে বা আপডেট করতে এখানে ফিরে যান।"
 
-#: src/Process/Upgrade/Home.php:98
+#: src/Process/Upgrade/Home.php:104
 msgid "Once update done, do not forget to check and update blogs themes."
 msgstr "একবার আপডেট হয়ে গেলে, ব্লগের থিমগুলি চেক এবং আপডেট করতে ভুলবেন না।"
 
-#: src/Process/Upgrade/Home.php:159
+#: src/Process/Upgrade/Home.php:165
 msgid "Before performing update you should take into account some informations listed bellow:"
 msgstr "আপডেট সম্পাদন করার আগে আপনাকে নীচে তালিকাভুক্ত কিছু তথ্য বিবেচনা করা উচিত:"
 
@@ -6465,21 +6475,21 @@ msgstr "সংস্করণ থেকে রিপ্লে গ্রো আ�
 msgid "Replay version lower than the last one can break your installation, do it at your own risk."
 msgstr "শেষের চেয়ে কম রিপ্লে সংস্করণটি আপনার ইনস্টলেশনটি ভেঙে ফেলতে পারে, এটি আপনার নিজের ঝুঁকিতে করুন।"
 
-#: src/Process/Upgrade/Upgrade.php:256
+#: src/Process/Upgrade/Upgrade.php:265
 #, php-format
 msgid "Dotclear %s is available."
 msgstr "Dotclear %s বের হয়েছে।"
 
-#: src/Process/Upgrade/Upgrade.php:267
+#: src/Process/Upgrade/Upgrade.php:276
 #, php-format
 msgid "PHP version is %1$s (%2$s or earlier needed)."
 msgstr "PHP সংস্করণ হল %1$s (%2$s বা পূর্বের প্রয়োজন)।"
 
-#: src/Process/Upgrade/Upgrade.php:276
+#: src/Process/Upgrade/Upgrade.php:285
 msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."
 msgstr "আপনার Dotclear ইনস্টলেশন আপগ্রেড করার জন্য নিচের বাটনে ক্লিক করুন. আপনার বর্তমান ইনস্টলেশনের একটি ব্যাকআপ ফাইল আপনার মূল ডিরেক্টরিতে তৈরি করা হবে."
 
-#: src/Process/Upgrade/Upgrade.php:285
+#: src/Process/Upgrade/Upgrade.php:294
 msgid "This update may potentially require some precautions, you should carefully read the information post associated with this release (see above)."
 msgstr "এই আপডেটটি সম্ভাব্য কিছু সতর্কতার প্রয়োজন হতে পারে, আপনি সতর্কতার সাথে এই মুক্তির সাথে সংশ্লিষ্ট তথ্য পোস্ট পড়তে হবে (উপরে দেখুন)."
 

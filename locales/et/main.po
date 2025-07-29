@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-28 16:17+0200\n"
-"PO-Revision-Date: 2025-07-28 14:30\n"
+"POT-Creation-Date: 2025-07-29 06:42+0200\n"
+"PO-Revision-Date: 2025-07-29 05:52\n"
 "Last-Translator: \n"
 "Language-Team: Estonian\n"
 "Language: et_EE\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Crowdin-File-ID: 262\n"
 
 #: inc/core/_fake_l10n.php:6 src/Process/Backend/Auth.php:353
-#: src/Process/Backend/User.php:264 src/Process/Backend/UserPreferences.php:529
+#: src/Process/Backend/User.php:264 src/Process/Backend/UserPreferences.php:526
 #: src/Process/Install/Install.php:397 src/Process/Upgrade/Auth.php:185
 msgid "medium"
 msgstr "keskmine"
@@ -93,7 +93,7 @@ msgstr "Seda võtit ei ole andmebaasis olemas."
 #: src/Core/Backend/Action/ActionsComments.php:159
 #: src/Core/Backend/Combos.php:256 src/Core/Backend/Listing/ListingPosts.php:77
 #: src/Core/Backend/Listing/ListingPostsMini.php:63
-#: src/Core/Backend/UserPref.php:205 src/Process/Backend/Home.php:580
+#: src/Core/Backend/UserPref.php:205 src/Process/Backend/Home.php:594
 #: src/Process/Backend/MediaItem.php:1093 src/Process/Backend/Post.php:832
 msgid "Title"
 msgstr "Pealkiri"
@@ -181,7 +181,7 @@ msgid "Password verification failed"
 msgstr "Salasõna kinnitamine ebaõnnestus"
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:111
-#: src/Process/Backend/BlogPref.php:1200
+#: src/Process/Backend/BlogPref.php:1205
 msgid "The current blog cannot be deleted."
 msgstr "Praegust blogi ei saa kustutada."
 
@@ -377,7 +377,7 @@ msgid "Change category for this selection"
 msgstr "Selle valiku kategooria muutmine"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:352
-#: src/Core/Backend/Filter/FilterPosts.php:132 src/Process/Backend/Home.php:606
+#: src/Core/Backend/Filter/FilterPosts.php:132 src/Process/Backend/Home.php:620
 #: src/Process/Backend/Post.php:720
 msgid "Category:"
 msgstr "Kategooria:"
@@ -387,7 +387,7 @@ msgid "Create a new category for the post(s)"
 msgstr "Loo uus kategooria postitus(t)ele"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:370
-#: src/Process/Backend/Home.php:584 src/Process/Backend/Home.php:618
+#: src/Process/Backend/Home.php:598 src/Process/Backend/Home.php:632
 #: src/Process/Backend/Media.php:763 src/Process/Backend/MediaItem.php:1233
 #: src/Process/Backend/Post.php:734 src/Process/Backend/Post.php:837
 msgid "Title:"
@@ -395,17 +395,17 @@ msgstr "Pealkiri:"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:379
 #: src/Process/Backend/Category.php:268 src/Process/Backend/Category.php:326
-#: src/Process/Backend/Home.php:625 src/Process/Backend/Post.php:741
+#: src/Process/Backend/Home.php:639 src/Process/Backend/Post.php:741
 msgid "Parent:"
 msgstr "Vanem:"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:394
 #: src/Core/Backend/Action/ActionsPostsDefault.php:499
 #: src/Core/Backend/Action/ActionsPostsDefault.php:583
-#: src/Core/Backend/ModulesList.php:1979 src/Process/Backend/BlogPref.php:1175
+#: src/Core/Backend/ModulesList.php:1979 src/Process/Backend/BlogPref.php:1180
 #: src/Process/Backend/Category.php:298 src/Process/Backend/Category.php:337
 #: src/Process/Backend/Category.php:373 src/Process/Backend/Comment.php:350
-#: src/Process/Backend/Home.php:635 src/Process/Backend/Home.php:686
+#: src/Process/Backend/Home.php:649 src/Process/Backend/Home.php:703
 #: src/Process/Backend/MediaItem.php:1273 src/Process/Backend/Post.php:921
 #: src/Process/Backend/Post.php:1135 src/Process/Backend/User.php:536
 #: src/Process/Backend/UsersActions.php:513 src/Process/Install/Install.php:479
@@ -458,11 +458,11 @@ msgstr "Saadaval"
 msgid "Other"
 msgstr "Muud"
 
-#: src/Core/Backend/Combos.php:242 src/Process/Backend/UserPreferences.php:192
+#: src/Core/Backend/Combos.php:242 src/Process/Backend/UserPreferences.php:189
 msgid "Descending"
 msgstr "Laskuv"
 
-#: src/Core/Backend/Combos.php:243 src/Process/Backend/UserPreferences.php:193
+#: src/Core/Backend/Combos.php:243 src/Process/Backend/UserPreferences.php:190
 msgid "Ascending"
 msgstr "Tõusev"
 
@@ -553,7 +553,7 @@ msgid "Number of entries"
 msgstr "Kirjete arv"
 
 #: src/Core/Backend/Favorites.php:299
-#: src/Process/Backend/UserPreferences.php:1148
+#: src/Process/Backend/UserPreferences.php:1145
 msgid "My favorites"
 msgstr "Minu lemmikud"
 
@@ -564,7 +564,7 @@ msgid "My preferences"
 msgstr "Minu eelistused"
 
 #: src/Core/Backend/Favorites.php:414 src/Core/Backend/Menus.php:181
-#: src/Process/Backend/Home.php:569 src/Process/Backend/Post.php:95
+#: src/Process/Backend/Home.php:583 src/Process/Backend/Post.php:95
 #: src/Process/Backend/Post.php:964 src/Process/Backend/Posts.php:115
 msgid "New post"
 msgstr "Uus ametikoht"
@@ -618,7 +618,7 @@ msgstr "Blogi ilmumine"
 
 #: src/Core/Backend/Favorites.php:512 src/Core/Backend/Menus.php:235
 #: src/Core/Backend/UserPref.php:65 src/Core/Backend/UserPref.php:168
-#: src/Process/Backend/BlogPref.php:1366 src/Process/Backend/User.php:274
+#: src/Process/Backend/BlogPref.php:1371 src/Process/Backend/User.php:274
 #: src/Process/Backend/Users.php:105 src/Process/Backend/Users.php:110
 #: src/Process/Backend/UsersActions.php:219
 #: src/Process/Backend/UsersActions.php:227
@@ -650,9 +650,9 @@ msgid "Global help"
 msgstr "Ülemaailmne abi"
 
 #: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1261
-#: src/Process/Backend/Auth.php:420 src/Process/Backend/BlogPref.php:1346
+#: src/Process/Backend/Auth.php:420 src/Process/Backend/BlogPref.php:1351
 #: src/Process/Backend/Comment.php:306 src/Process/Backend/Post.php:1104
-#: src/Process/Backend/User.php:432 src/Process/Backend/UserPreferences.php:640
+#: src/Process/Backend/User.php:432 src/Process/Backend/UserPreferences.php:637
 #: src/Process/Install/Install.php:445
 msgid "Email:"
 msgstr "E-post:"
@@ -784,7 +784,7 @@ msgid "Sort:"
 msgstr "Sorteerimine:"
 
 #: src/Core/Backend/Filter/Filters.php:391
-#: src/Process/Backend/UserPreferences.php:773
+#: src/Process/Backend/UserPreferences.php:770
 msgid "Show"
 msgstr "Näita"
 
@@ -1135,7 +1135,7 @@ msgstr "Plugins"
 #: src/Core/Backend/Menus.php:205 src/Core/Backend/ModulesList.php:1379
 #: src/Core/Upgrade/PluginsList.php:144 src/Core/Upgrade/Utility.php:267
 #: src/Process/Upgrade/Upgrade.php:59 src/Process/Upgrade/Upgrade.php:84
-#: src/Process/Upgrade/Upgrade.php:313
+#: src/Process/Upgrade/Upgrade.php:322
 msgid "Update"
 msgstr "Ajakohastamine"
 
@@ -1409,12 +1409,12 @@ msgstr "Laadige zip-faili üles"
 #: src/Core/Backend/ModulesList.php:1745 src/Core/Backend/ModulesList.php:1792
 #: src/Process/Backend/Blog.php:117 src/Process/Backend/BlogPref.php:525
 #: src/Process/Backend/BlogPref.php:1010 src/Process/Backend/Category.php:248
-#: src/Process/Backend/Comment.php:284 src/Process/Backend/Home.php:572
+#: src/Process/Backend/Comment.php:284 src/Process/Backend/Home.php:586
 #: src/Process/Backend/Langs.php:322 src/Process/Backend/Langs.php:372
 #: src/Process/Backend/LinkPopup.php:83 src/Process/Backend/Post.php:989
 #: src/Process/Backend/Post.php:1080 src/Process/Backend/User.php:303
 #: src/Process/Backend/UsersActions.php:492 src/Process/Install/Install.php:455
-#: src/Process/Install/Wizard.php:266 src/Process/Upgrade/Langs.php:406
+#: src/Process/Install/Wizard.php:263 src/Process/Upgrade/Langs.php:406
 #, php-format
 msgid "Fields preceded by %s are mandatory."
 msgstr "Väljad, mille ees on %s , on kohustuslikud."
@@ -1475,25 +1475,25 @@ msgid "Configure \"%s\""
 msgstr "Konfigureerimine \"%s\""
 
 #: src/Core/Backend/ModulesList.php:1966 src/Process/Backend/Blog.php:197
-#: src/Process/Backend/BlogDel.php:138 src/Process/Backend/BlogPref.php:1177
+#: src/Process/Backend/BlogDel.php:138 src/Process/Backend/BlogPref.php:1182
 #: src/Process/Backend/Category.php:301 src/Process/Backend/Comment.php:352
 #: src/Process/Backend/Media.php:857 src/Process/Backend/MediaItem.php:1359
 #: src/Process/Backend/Post.php:946 src/Process/Backend/Search.php:197
-#: src/Process/Backend/User.php:547 src/Process/Backend/UserPreferences.php:701
-#: src/Process/Backend/UserPreferences.php:1003
-#: src/Process/Backend/UserPreferences.php:1229
+#: src/Process/Backend/User.php:547 src/Process/Backend/UserPreferences.php:698
+#: src/Process/Backend/UserPreferences.php:1000
+#: src/Process/Backend/UserPreferences.php:1226
 msgid "Back"
 msgstr "Tagasi"
 
 #: src/Core/Backend/Notices.php:86 src/Core/Backend/Page.php:1263
 #: src/Core/Backend/Page.php:1419 src/Core/Upgrade/Notices.php:48
-#: src/Process/Backend/Home.php:313
+#: src/Process/Backend/Home.php:327
 msgid "Error:"
 msgstr "Viga:"
 
 #: src/Core/Backend/Notices.php:86 src/Core/Upgrade/Notices.php:48
 #: src/Process/Install/Install.php:418 src/Process/Install/Install.php:527
-#: src/Process/Install/Wizard.php:247
+#: src/Process/Install/Wizard.php:246
 msgid "Errors:"
 msgstr "Vead:"
 
@@ -1534,8 +1534,8 @@ msgid "Go to help"
 msgstr "Mine appi"
 
 #: src/Core/Backend/Page.php:339 src/Core/Upgrade/Page.php:175
-#: src/Process/Backend/UserPreferences.php:1138
-#: src/Process/Backend/UserPreferences.php:1140
+#: src/Process/Backend/UserPreferences.php:1135
+#: src/Process/Backend/UserPreferences.php:1137
 msgid "My dashboard"
 msgstr "Minu armatuurlaud"
 
@@ -2477,7 +2477,7 @@ msgstr "LOL!"
 #: src/Process/Backend/Plugin.php:146 src/Process/Backend/Plugins.php:122
 #: src/Process/Backend/Settings.php:61 src/Process/Backend/User.php:273
 #: src/Process/Backend/Users.php:109 src/Process/Backend/UsersActions.php:218
-#: src/Process/Backend/UsersActions.php:226 src/Process/Upgrade/Home.php:162
+#: src/Process/Backend/UsersActions.php:226 src/Process/Upgrade/Home.php:168
 msgid "System"
 msgstr "Süsteem"
 
@@ -2533,16 +2533,16 @@ msgstr "Vigane digestiidifail."
 msgid "Something went wrong with auto upgrade:"
 msgstr "Automaatse uuendusega läks midagi valesti:"
 
-#: src/Core/Upgrade/Utility.php:272 src/Process/Upgrade/Upgrade.php:323
+#: src/Core/Upgrade/Utility.php:272 src/Process/Upgrade/Upgrade.php:332
 msgid "On this page you can update dotclear to the latest release."
 msgstr "Sellel lehel saate uuendada dotcleari viimasele versioonile."
 
 #: src/Core/Upgrade/Utility.php:276 src/Process/Upgrade/Attic.php:78
-#: src/Process/Upgrade/Attic.php:103 src/Process/Upgrade/Attic.php:345
+#: src/Process/Upgrade/Attic.php:103 src/Process/Upgrade/Attic.php:357
 msgid "Attic"
 msgstr "Hoone"
 
-#: src/Core/Upgrade/Utility.php:281 src/Process/Upgrade/Attic.php:355
+#: src/Core/Upgrade/Utility.php:281 src/Process/Upgrade/Attic.php:367
 msgid "On this page you can update dotclear to a release between yours and latest."
 msgstr "Sellel lehel saate uuendada dotcleari versioonile, mis jääb teie ja viimase versiooni vahele."
 
@@ -3020,7 +3020,7 @@ msgid "Your new password is in your mailbox."
 msgstr "Teie uus salasõna on teie postkastis."
 
 #: src/Process/Backend/Auth.php:203 src/Process/Backend/User.php:158
-#: src/Process/Backend/UserPreferences.php:234
+#: src/Process/Backend/UserPreferences.php:231
 #: src/Process/Install/Install.php:170
 msgid "Passwords don't match"
 msgstr "Paroolid ei sobi"
@@ -3052,9 +3052,9 @@ msgstr "Vale kasutajanimi või parool"
 #: src/Process/Backend/Auth.php:352 src/Process/Backend/Auth.php:353
 #: src/Process/Backend/Auth.php:354 src/Process/Backend/User.php:263
 #: src/Process/Backend/User.php:264 src/Process/Backend/User.php:265
-#: src/Process/Backend/UserPreferences.php:528
-#: src/Process/Backend/UserPreferences.php:529
-#: src/Process/Backend/UserPreferences.php:530
+#: src/Process/Backend/UserPreferences.php:525
+#: src/Process/Backend/UserPreferences.php:526
+#: src/Process/Backend/UserPreferences.php:527
 #: src/Process/Install/Install.php:396 src/Process/Install/Install.php:397
 #: src/Process/Install/Install.php:398 src/Process/Upgrade/Auth.php:184
 #: src/Process/Upgrade/Auth.php:185 src/Process/Upgrade/Auth.php:186
@@ -3063,13 +3063,13 @@ msgid "Password strength: %s"
 msgstr "Salasõna tugevus: %s"
 
 #: src/Process/Backend/Auth.php:352 src/Process/Backend/User.php:263
-#: src/Process/Backend/UserPreferences.php:528
+#: src/Process/Backend/UserPreferences.php:525
 #: src/Process/Install/Install.php:396 src/Process/Upgrade/Auth.php:184
 msgid "weak"
 msgstr "nõrk"
 
 #: src/Process/Backend/Auth.php:354 src/Process/Backend/User.php:265
-#: src/Process/Backend/UserPreferences.php:530
+#: src/Process/Backend/UserPreferences.php:527
 #: src/Process/Install/Install.php:398 src/Process/Upgrade/Auth.php:186
 msgid "strong"
 msgstr "tugev"
@@ -3095,7 +3095,7 @@ msgid "Change your password"
 msgstr "Muuda oma salasõna"
 
 #: src/Process/Backend/Auth.php:453 src/Process/Backend/User.php:334
-#: src/Process/Backend/UserPreferences.php:566
+#: src/Process/Backend/UserPreferences.php:563
 #: src/Process/Install/Install.php:464
 msgid "New password:"
 msgstr "Uus parool:"
@@ -3200,7 +3200,7 @@ msgstr "Blog \"%s\" edukalt kustutatud"
 msgid "Delete a blog"
 msgstr "Blogi kustutamine"
 
-#: src/Process/Backend/BlogDel.php:100 src/Process/Upgrade/Home.php:157
+#: src/Process/Backend/BlogDel.php:100 src/Process/Upgrade/Home.php:163
 msgid "Warning"
 msgstr "Hoiatus"
 
@@ -3213,7 +3213,7 @@ msgstr "Sa oled umbes kustutada blogi %s. Iga sissekanne, kommentaar ja kategoor
 msgid "Please give your password to confirm the blog deletion."
 msgstr "Palun andke oma parool, et kinnitada blogi kustutamine."
 
-#: src/Process/Backend/BlogDel.php:135 src/Process/Backend/BlogPref.php:1191
+#: src/Process/Backend/BlogDel.php:135 src/Process/Backend/BlogPref.php:1196
 msgid "Delete this blog"
 msgstr "Kustuta see blogi"
 
@@ -3261,7 +3261,7 @@ msgstr "H3"
 msgid "P"
 msgstr "P"
 
-#: src/Process/Backend/BlogPref.php:167 src/Process/Backend/BlogPref.php:1259
+#: src/Process/Backend/BlogPref.php:167 src/Process/Backend/BlogPref.php:1264
 #: src/Process/Backend/MediaItem.php:609 src/Process/Backend/MediaItem.php:614
 msgid "(none)"
 msgstr "(ükski)"
@@ -3325,7 +3325,7 @@ msgid "I would like to prevent search engines and archivers from indexing or arc
 msgstr "Soovin vältida otsingumootorite ja arhiveerijate indekseerimist või arhiveerimist minu blogi sisu."
 
 #: src/Process/Backend/BlogPref.php:234
-#: src/Process/Backend/UserPreferences.php:154
+#: src/Process/Backend/UserPreferences.php:151
 msgid "Default"
 msgstr "Vaikimisi"
 
@@ -3704,70 +3704,71 @@ msgstr "jQuery versioon, mis tuleb selle blogi jaoks laadida:"
 msgid "Blog security"
 msgstr "Blogi turvalisus"
 
-#: src/Process/Backend/BlogPref.php:1151
-msgid "Protect the blog from Clickjacking (see <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
-msgstr "Kaitske blogi Clickjacking'i eest (vt <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
+#: src/Process/Backend/BlogPref.php:1153
+#, php-format
+msgid "Protect the blog from Clickjacking (see <a href=\"%s\">Wikipedia</a>)"
+msgstr "Kaitske blogi Clickjacking'i eest (vt <a href=\"%s\">Wikipedia</a>)"
 
-#: src/Process/Backend/BlogPref.php:1157
+#: src/Process/Backend/BlogPref.php:1162
 msgid "Advanced parameters"
 msgstr "Täiustatud parameetrid"
 
-#: src/Process/Backend/BlogPref.php:1164
+#: src/Process/Backend/BlogPref.php:1169
 msgid "Plugins parameters"
 msgstr "Pluginate parameetrid"
 
-#: src/Process/Backend/BlogPref.php:1204
+#: src/Process/Backend/BlogPref.php:1209
 msgid "Only superadmin can delete a blog."
 msgstr "Ainult superadmin saab blogi kustutada."
 
-#: src/Process/Backend/BlogPref.php:1208
+#: src/Process/Backend/BlogPref.php:1213
 msgid "Parameters"
 msgstr "Parameetrid"
 
-#: src/Process/Backend/BlogPref.php:1227
+#: src/Process/Backend/BlogPref.php:1232
 msgid "No users"
 msgstr "Ei ole kasutajaid"
 
-#: src/Process/Backend/BlogPref.php:1269
+#: src/Process/Backend/BlogPref.php:1274
 #, php-format
 msgid "%1$s: %2$s"
 msgstr "%1$s: %2$s"
 
-#: src/Process/Backend/BlogPref.php:1278 src/Process/Backend/User.php:382
+#: src/Process/Backend/BlogPref.php:1283 src/Process/Backend/User.php:382
 msgid "Super administrator"
 msgstr "Super administraator"
 
-#: src/Process/Backend/BlogPref.php:1280
+#: src/Process/Backend/BlogPref.php:1285
 msgid "All rights on all blogs."
 msgstr "Kõik õigused kõigis blogides."
 
-#: src/Process/Backend/BlogPref.php:1290
+#: src/Process/Backend/BlogPref.php:1295
 msgid "All rights on this blog."
 msgstr "Kõik õigused selles blogis."
 
-#: src/Process/Backend/BlogPref.php:1306
+#: src/Process/Backend/BlogPref.php:1311
 #: src/Process/Backend/UsersActions.php:459
 #, php-format
 msgid "[%s] (unreferenced permission)"
 msgstr "[%s] (viitamata luba)"
 
-#: src/Process/Backend/BlogPref.php:1325 src/Process/Backend/User.php:597
+#: src/Process/Backend/BlogPref.php:1330 src/Process/Backend/User.php:597
 msgid "Change permissions"
 msgstr "Õiguste muutmine"
 
-#: src/Process/Backend/BlogPref.php:1327
+#: src/Process/Backend/BlogPref.php:1332
 msgid "Back to user card"
 msgstr "Tagasi kasutajakaardi juurde"
 
-#: src/Process/Backend/BlogPref.php:1349
+#: src/Process/Backend/BlogPref.php:1354
 msgid "Publications on this blog:"
 msgstr "Väljaanded selles blogis:"
 
-#: src/Process/Backend/BlogPref.php:1352
+#: src/Process/Backend/BlogPref.php:1357
 msgid "Permissions:"
 msgstr "Lubade andmine:"
 
-#: src/Process/Backend/BlogPref.php:1369
+#: src/Process/Backend/BlogPref.php:1374
 msgid "Users on this blog"
 msgstr "Selle blogi kasutajad"
 
@@ -3958,7 +3959,7 @@ msgid "total:"
 msgstr "kokku:"
 
 #: src/Process/Backend/Categories.php:326 src/Process/Backend/Category.php:279
-#: src/Process/Backend/User.php:457 src/Process/Backend/UserPreferences.php:662
+#: src/Process/Backend/User.php:457 src/Process/Backend/UserPreferences.php:659
 msgid "URL:"
 msgstr "URL:"
 
@@ -4140,7 +4141,7 @@ msgid "Dashboard area's drag and drop is enabled"
 msgstr "Armatuurlaua ala lohistamine on lubatud"
 
 #: src/Process/Backend/Home.php:235 src/Process/Backend/Home.php:248
-#: src/Process/Upgrade/Home.php:135
+#: src/Process/Upgrade/Home.php:141
 msgid "Dashboard"
 msgstr "Armatuurlaud"
 
@@ -4156,108 +4157,110 @@ msgstr "See blogi on võrguühenduseta"
 msgid "This blog is removed"
 msgstr "See blogi on eemaldatud"
 
-#: src/Process/Backend/Home.php:273 src/Process/Backend/Home.php:281
-#: src/Process/Upgrade/Home.php:60 src/Process/Upgrade/Home.php:65
+#: src/Process/Backend/Home.php:274 src/Process/Backend/Home.php:289
+#: src/Process/Upgrade/Home.php:60 src/Process/Upgrade/Home.php:68
 #, php-format
 msgid "%s is not defined, you should edit your configuration file."
 msgstr "%s ei ole määratletud, siis peaksite oma konfiguratsioonifaili muutma."
 
-#: src/Process/Backend/Home.php:274 src/Process/Backend/Home.php:282
-#: src/Process/Upgrade/Home.php:61 src/Process/Upgrade/Home.php:66
-msgid "See <a href=\"https://dotclear.org/documentation/2.0/admin/config\">documentation</a> for more information."
-msgstr "Lisateavet leiate <a href=\"https://dotclear.org/documentation/2.0/admin/config\">dokumentatsioonist</a>."
+#: src/Process/Backend/Home.php:279 src/Process/Backend/Home.php:294
+#: src/Process/Upgrade/Home.php:62 src/Process/Upgrade/Home.php:70
+#, php-format
+msgid "See <a href=\"%s\">documentation</a> for more information."
+msgstr "Lisateavet leiate <a href=\"%s\">dokumentatsioonist</a>."
 
-#: src/Process/Backend/Home.php:292 src/Process/Upgrade/Home.php:70
+#: src/Process/Backend/Home.php:306 src/Process/Upgrade/Home.php:76
 msgid "The cache directory does not exist or is not writable. You must create this directory with sufficient rights and affect this location to \"DC_TPL_CACHE\" in inc/config.php file."
 msgstr "Vahekataloogi ei ole olemas või seda ei saa kirjutada. Te peate looma selle kataloogi piisavate õigustega ja mõjutama selle asukohta \"DC_TPL_CACHE\" failis inc/config.php."
 
-#: src/Process/Backend/Home.php:295
+#: src/Process/Backend/Home.php:309
 msgid "The cache directory does not exist or is not writable. You should contact your administrator."
 msgstr "Vahekataloogi ei ole olemas või seda ei saa kirjutada. Võtke ühendust oma administraatoriga."
 
-#: src/Process/Backend/Home.php:301
+#: src/Process/Backend/Home.php:315
 msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
 msgstr "Kirjutatav kataloog /public/ puudub aadressil about:config \"public_path\". Te peate looma selle kataloogi piisavate õigustega (või muutma seda seadistust)."
 
-#: src/Process/Backend/Home.php:304
+#: src/Process/Backend/Home.php:318
 msgid "There is no writable root directory for the media manager. You should contact your administrator."
 msgstr "Meediahalduri jaoks ei ole kirjutatavat juurkataloogi. Peaksite võtma ühendust oma administraatoriga."
 
-#: src/Process/Backend/Home.php:338 src/Process/Backend/Plugins.php:139
+#: src/Process/Backend/Home.php:352 src/Process/Backend/Plugins.php:139
 #: src/Process/Install/Install.php:485 src/Process/Upgrade/Plugins.php:126
 msgid "Following plugins have been installed:"
 msgstr "Paigaldatud on järgmised pluginad:"
 
-#: src/Process/Backend/Home.php:360 src/Process/Backend/Plugins.php:161
+#: src/Process/Backend/Home.php:374 src/Process/Backend/Plugins.php:161
 #: src/Process/Install/Install.php:492 src/Process/Upgrade/Plugins.php:148
 msgid "Following plugins have not been installed:"
 msgstr "Järgmised pluginad ei ole paigaldatud:"
 
-#: src/Process/Backend/Home.php:381
+#: src/Process/Backend/Home.php:395
 msgid "Errors have occured with following plugins:"
 msgstr "Vead on ilmnenud järgmiste pistikprogrammidega:"
 
-#: src/Process/Backend/Home.php:563
+#: src/Process/Backend/Home.php:577
 msgid "Quick post"
 msgstr "Kiire postitus"
 
-#: src/Process/Backend/Home.php:593 src/Process/Backend/Post.php:874
+#: src/Process/Backend/Home.php:607 src/Process/Backend/Post.php:874
 msgid "Content:"
 msgstr "Sisu:"
 
-#: src/Process/Backend/Home.php:599 src/Process/Backend/Post.php:871
+#: src/Process/Backend/Home.php:613 src/Process/Backend/Post.php:871
 msgid "Content"
 msgstr "Sisu"
 
-#: src/Process/Backend/Home.php:610 src/Process/Backend/Post.php:725
+#: src/Process/Backend/Home.php:624 src/Process/Backend/Post.php:725
 msgid "Add a new category"
 msgstr "Lisa uus kategooria"
 
-#: src/Process/Backend/Home.php:629
+#: src/Process/Backend/Home.php:643
 msgid "This category will be created when you will save your post."
 msgstr "See kategooria luuakse, kui salvestate oma postituse."
 
-#: src/Process/Backend/Home.php:637
+#: src/Process/Backend/Home.php:651
 msgid "Save and publish"
 msgstr "Salvesta ja avalda"
 
-#: src/Process/Backend/Home.php:659
+#: src/Process/Backend/Home.php:673
 msgid "Donate to Dotclear"
 msgstr "Dotclearile annetada"
 
-#: src/Process/Backend/Home.php:661
+#: src/Process/Backend/Home.php:675
 msgid "Dotclear is not a commercial project — using Dotclear is <strong>free</strong> and <strong>always</strong> will be. If you wish to, you may contribute to Dotclear to help us cover project-related expenses."
 msgstr "Dotclear ei ole kommertsprojekt - Dotcleari kasutamine on ja jääb <strong>alati</strong> <strong>tasuta</strong>. Kui soovite, võite Dotcleari toetada, et aidata meil katta projektiga seotud kulusid."
 
-#: src/Process/Backend/Home.php:663
+#: src/Process/Backend/Home.php:677
 msgid "The collected funds will be spent as follows:"
 msgstr "Kogutud vahendeid kasutatakse järgmiselt:"
 
-#: src/Process/Backend/Home.php:667
+#: src/Process/Backend/Home.php:681
 msgid "Paying for the website hosting and translations"
 msgstr "Veebisaidi majutuse ja tõlgete eest tasumine"
 
-#: src/Process/Backend/Home.php:669
+#: src/Process/Backend/Home.php:683
 msgid "Paying for the domain names"
 msgstr "Domeeninimede eest maksmine"
 
-#: src/Process/Backend/Home.php:671
+#: src/Process/Backend/Home.php:685
 msgid "Supporting related projects such as Dotaddict.org"
 msgstr "Toetades selliseid seotud projekte nagu Dotaddict.org"
 
-#: src/Process/Backend/Home.php:673
+#: src/Process/Backend/Home.php:687
 msgid "Cover the costs of events set up by Dotclear"
 msgstr "Dotcleari korraldatud ürituste kulude katmine"
 
-#: src/Process/Backend/Home.php:676
-msgid "See <a href=\"https://dotclear.org/donate\">this page</a> for more information and donation"
-msgstr "Lisateavet ja annetusi leiate <a href=\"https://dotclear.org/donate\">sellelt leheküljelt</a>"
+#: src/Process/Backend/Home.php:691
+#, php-format
+msgid "See <a href=\"%s\">this page</a> for more information and donation"
+msgstr "Lisateavet ja annetusi leiate <a href=\"%s\">sellelt leheküljelt</a>"
 
-#: src/Process/Backend/Home.php:685
+#: src/Process/Backend/Home.php:702
 msgid "For the record, here is the date of my last donation to Dotclear:"
 msgstr "Teadmiseks, siin on minu viimase Dotcleari annetuse kuupäev:"
 
-#: src/Process/Backend/Home.php:704
+#: src/Process/Backend/Home.php:721
 msgid "Documentation and support"
 msgstr "Dokumentatsioon ja tugi"
 
@@ -4623,7 +4626,7 @@ msgstr "Pildi suurus:"
 msgid "Select media item"
 msgstr "Valige meediaelement"
 
-#: src/Process/Backend/MediaItem.php:510 src/Process/Upgrade/Attic.php:301
+#: src/Process/Backend/MediaItem.php:510 src/Process/Upgrade/Attic.php:313
 msgid "Select"
 msgstr "Valige"
 
@@ -5183,8 +5186,8 @@ msgstr "Uuenda nüüd"
 msgid "Remind me later"
 msgstr "Meenuta mulle hiljem"
 
-#: src/Process/Backend/Rest.php:240 src/Process/Upgrade/Upgrade.php:260
-#: src/Process/Upgrade/Upgrade.php:261
+#: src/Process/Backend/Rest.php:240 src/Process/Upgrade/Upgrade.php:269
+#: src/Process/Upgrade/Upgrade.php:270
 msgid "Information about this version"
 msgstr "Teave selle versiooni kohta"
 
@@ -5193,7 +5196,7 @@ msgstr "Teave selle versiooni kohta"
 msgid "A new version of Dotclear is available but needs PHP version ≥ %1$s, your's is currently %2$s"
 msgstr "Dotcleari uus versioon on saadaval, kuid vajab PHP versiooni ≥ %1$s, teie versioon on praegu %2$s."
 
-#: src/Process/Backend/Rest.php:264 src/Process/Upgrade/Upgrade.php:226
+#: src/Process/Backend/Rest.php:264 src/Process/Upgrade/Upgrade.php:235
 #, php-format
 msgid "The next versions of Dotclear will not support PHP version < %1$s, your's is currently %2$s"
 msgstr "Dotcleari järgmised versioonid ei toeta PHP versiooni < %1$s, teie versioon on praegu %2$s."
@@ -5374,17 +5377,17 @@ msgstr "Hoiatus:"
 msgid "Password change required to connect"
 msgstr "Ühinemiseks on vaja muuta parooli"
 
-#: src/Process/Backend/User.php:401 src/Process/Backend/UserPreferences.php:610
+#: src/Process/Backend/User.php:401 src/Process/Backend/UserPreferences.php:607
 #: src/Process/Install/Install.php:439
 msgid "Last Name:"
 msgstr "Perekonnanimi:"
 
-#: src/Process/Backend/User.php:411 src/Process/Backend/UserPreferences.php:620
+#: src/Process/Backend/User.php:411 src/Process/Backend/UserPreferences.php:617
 #: src/Process/Install/Install.php:433
 msgid "First Name:"
 msgstr "Eesnimi:"
 
-#: src/Process/Backend/User.php:421 src/Process/Backend/UserPreferences.php:630
+#: src/Process/Backend/User.php:421 src/Process/Backend/UserPreferences.php:627
 msgid "Display name:"
 msgstr "Kuva nimi:"
 
@@ -5392,23 +5395,23 @@ msgstr "Kuva nimi:"
 msgid "Mandatory for password recovering procedure."
 msgstr "Kohustuslik parooli taastamise protseduuriks."
 
-#: src/Process/Backend/User.php:444 src/Process/Backend/UserPreferences.php:649
+#: src/Process/Backend/User.php:444 src/Process/Backend/UserPreferences.php:646
 msgid "Alternate emails (comma separated list):"
 msgstr "Alternatiivsed e-kirjad (komadega eraldatud loetelu):"
 
-#: src/Process/Backend/User.php:448 src/Process/Backend/UserPreferences.php:653
+#: src/Process/Backend/User.php:448 src/Process/Backend/UserPreferences.php:650
 msgid "Invalid emails will be automatically removed from list."
 msgstr "Kehtimatud e-kirjad eemaldatakse automaatselt nimekirjast."
 
-#: src/Process/Backend/User.php:466 src/Process/Backend/UserPreferences.php:671
+#: src/Process/Backend/User.php:466 src/Process/Backend/UserPreferences.php:668
 msgid "Alternate URLs (comma separated list):"
 msgstr "Alternatiivsed URL-d (komadega eraldatud loetelu):"
 
-#: src/Process/Backend/User.php:470 src/Process/Backend/UserPreferences.php:675
+#: src/Process/Backend/User.php:470 src/Process/Backend/UserPreferences.php:672
 msgid "Invalid URLs will be automatically removed from list."
 msgstr "Kehtimatud URL-id eemaldatakse automaatselt nimekirjast."
 
-#: src/Process/Backend/User.php:476 src/Process/Backend/UserPreferences.php:818
+#: src/Process/Backend/User.php:476 src/Process/Backend/UserPreferences.php:815
 msgid "Interface"
 msgstr "Kasutajaliides"
 
@@ -5416,19 +5419,19 @@ msgstr "Kasutajaliides"
 msgid "Timezone:"
 msgstr "Ajavöönd:"
 
-#: src/Process/Backend/User.php:492 src/Process/Backend/UserPreferences.php:942
+#: src/Process/Backend/User.php:492 src/Process/Backend/UserPreferences.php:939
 msgid "Edition"
 msgstr "Väljaanne"
 
-#: src/Process/Backend/User.php:498 src/Process/Backend/UserPreferences.php:954
+#: src/Process/Backend/User.php:498 src/Process/Backend/UserPreferences.php:951
 msgid "Preferred format:"
 msgstr "Eelistatud vorming:"
 
-#: src/Process/Backend/User.php:505 src/Process/Backend/UserPreferences.php:962
+#: src/Process/Backend/User.php:505 src/Process/Backend/UserPreferences.php:959
 msgid "Default entry status:"
 msgstr "Vaikimisi sissekande staatus:"
 
-#: src/Process/Backend/User.php:510 src/Process/Backend/UserPreferences.php:968
+#: src/Process/Backend/User.php:510 src/Process/Backend/UserPreferences.php:965
 msgid "Entry edit field height:"
 msgstr "Sissekande redigeerimisvälja kõrgus:"
 
@@ -5478,341 +5481,341 @@ msgstr "Ametikohtade loetelu"
 msgid "List of comments"
 msgstr "Kommentaaride loetelu"
 
-#: src/Process/Backend/UserPreferences.php:145
+#: src/Process/Backend/UserPreferences.php:142
 msgid "Light"
 msgstr "Valgus"
 
-#: src/Process/Backend/UserPreferences.php:146
+#: src/Process/Backend/UserPreferences.php:143
 msgid "Dark"
 msgstr "Tume"
 
-#: src/Process/Backend/UserPreferences.php:147
+#: src/Process/Backend/UserPreferences.php:144
 msgid "Automatic"
 msgstr "Automaatne"
 
-#: src/Process/Backend/UserPreferences.php:152
+#: src/Process/Backend/UserPreferences.php:149
 msgid "Smallest"
 msgstr "Väikseim"
 
-#: src/Process/Backend/UserPreferences.php:153
+#: src/Process/Backend/UserPreferences.php:150
 msgid "Smaller"
 msgstr "Väiksemad"
 
-#: src/Process/Backend/UserPreferences.php:155
+#: src/Process/Backend/UserPreferences.php:152
 msgid "Larger"
 msgstr "Suurem"
 
-#: src/Process/Backend/UserPreferences.php:156
+#: src/Process/Backend/UserPreferences.php:153
 msgid "Largest"
 msgstr "Suurim"
 
-#: src/Process/Backend/UserPreferences.php:168
+#: src/Process/Backend/UserPreferences.php:165
 msgid "Blog description (in blog parameters)"
 msgstr "Blogi kirjeldus (blogi parameetrites)"
 
-#: src/Process/Backend/UserPreferences.php:169
+#: src/Process/Backend/UserPreferences.php:166
 msgid "Category description"
 msgstr "Kategooria kirjeldus"
 
-#: src/Process/Backend/UserPreferences.php:213
-#: src/Process/Backend/UserPreferences.php:230
+#: src/Process/Backend/UserPreferences.php:210
+#: src/Process/Backend/UserPreferences.php:227
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "Kui soovite muuta oma e-posti aadressi või salasõna, peate esitama oma praeguse salasõna."
 
-#: src/Process/Backend/UserPreferences.php:261
+#: src/Process/Backend/UserPreferences.php:258
 msgid "Personal information has been successfully updated."
 msgstr "Isikuandmed on edukalt uuendatud."
 
-#: src/Process/Backend/UserPreferences.php:379
+#: src/Process/Backend/UserPreferences.php:376
 msgid "Personal options has been successfully updated."
 msgstr "Isiklikud valikud on edukalt uuendatud."
 
-#: src/Process/Backend/UserPreferences.php:407
+#: src/Process/Backend/UserPreferences.php:404
 msgid "Dashboard options has been successfully updated."
 msgstr "Armatuurlaua valikud on edukalt uuendatud."
 
-#: src/Process/Backend/UserPreferences.php:419
-#: src/Process/Backend/UserPreferences.php:443
+#: src/Process/Backend/UserPreferences.php:416
+#: src/Process/Backend/UserPreferences.php:440
 msgid "No favorite selected"
 msgstr "Ei ole valitud lemmikut"
 
-#: src/Process/Backend/UserPreferences.php:430
+#: src/Process/Backend/UserPreferences.php:427
 msgid "Favorites have been successfully added."
 msgstr "Lemmikud on edukalt lisatud."
 
-#: src/Process/Backend/UserPreferences.php:456
+#: src/Process/Backend/UserPreferences.php:453
 msgid "Favorites have been successfully removed."
 msgstr "Lemmikud on edukalt eemaldatud."
 
-#: src/Process/Backend/UserPreferences.php:486
+#: src/Process/Backend/UserPreferences.php:483
 msgid "Favorites have been successfully updated."
 msgstr "Lemmikud on edukalt uuendatud."
 
-#: src/Process/Backend/UserPreferences.php:498
+#: src/Process/Backend/UserPreferences.php:495
 msgid "Default favorites have been successfully updated."
 msgstr "Vaikimisi lemmikuid on edukalt uuendatud."
 
-#: src/Process/Backend/UserPreferences.php:512
+#: src/Process/Backend/UserPreferences.php:509
 msgid "Dashboard items order have been successfully reset."
 msgstr "Armatuurlaua elementide järjekord on edukalt lähtestatud."
 
-#: src/Process/Backend/UserPreferences.php:534
+#: src/Process/Backend/UserPreferences.php:531
 msgid "Are you sure you want to remove selected favorites?"
 msgstr "Kas olete kindel, et soovite valitud lemmikuid eemaldada?"
 
-#: src/Process/Backend/UserPreferences.php:556
+#: src/Process/Backend/UserPreferences.php:553
 msgid "Change my password"
 msgstr "Muuda oma salasõna"
 
-#: src/Process/Backend/UserPreferences.php:575
+#: src/Process/Backend/UserPreferences.php:572
 msgid "Confirm new password:"
 msgstr "Kinnitage uus parool:"
 
-#: src/Process/Backend/UserPreferences.php:585
+#: src/Process/Backend/UserPreferences.php:582
 msgid "Your current password:"
 msgstr "Teie praegune parool:"
 
-#: src/Process/Backend/UserPreferences.php:589
+#: src/Process/Backend/UserPreferences.php:586
 msgid "If you have changed your email or password you must provide your current password to save these modifications."
 msgstr "Kui olete muutnud oma e-posti aadressi või salasõna, peate nende muudatuste salvestamiseks esitama oma praeguse salasõna."
 
-#: src/Process/Backend/UserPreferences.php:595
-#: src/Process/Backend/UserPreferences.php:597
+#: src/Process/Backend/UserPreferences.php:592
+#: src/Process/Backend/UserPreferences.php:594
 msgid "My profile"
 msgstr "Minu profiil"
 
-#: src/Process/Backend/UserPreferences.php:682
+#: src/Process/Backend/UserPreferences.php:679
 msgid "Language for my interface:"
 msgstr "Minu kasutajaliidese keel:"
 
-#: src/Process/Backend/UserPreferences.php:690
+#: src/Process/Backend/UserPreferences.php:687
 msgid "My timezone:"
 msgstr "Minu ajavöönd:"
 
-#: src/Process/Backend/UserPreferences.php:699
+#: src/Process/Backend/UserPreferences.php:696
 msgid "Update my profile"
 msgstr "Minu profiili uuendamine"
 
-#: src/Process/Backend/UserPreferences.php:767
+#: src/Process/Backend/UserPreferences.php:764
 msgid "List"
 msgstr "Loetelu"
 
-#: src/Process/Backend/UserPreferences.php:769
+#: src/Process/Backend/UserPreferences.php:766
 msgid "Order by"
 msgstr "Tellimine"
 
-#: src/Process/Backend/UserPreferences.php:771
+#: src/Process/Backend/UserPreferences.php:768
 msgid "Sort"
 msgstr "Sorteeri"
 
-#: src/Process/Backend/UserPreferences.php:784
+#: src/Process/Backend/UserPreferences.php:781
 #, php-format
 msgid "Preferred editor for %s:"
 msgstr "Eelistatud toimetaja %s:"
 
-#: src/Process/Backend/UserPreferences.php:789
+#: src/Process/Backend/UserPreferences.php:786
 msgid "Choose an editor"
 msgstr "Valige toimetaja"
 
-#: src/Process/Backend/UserPreferences.php:810
-#: src/Process/Backend/UserPreferences.php:816
+#: src/Process/Backend/UserPreferences.php:807
+#: src/Process/Backend/UserPreferences.php:813
 msgid "My options"
 msgstr "Minu võimalused"
 
-#: src/Process/Backend/UserPreferences.php:825
+#: src/Process/Backend/UserPreferences.php:822
 msgid "Theme:"
 msgstr "Teema:"
 
-#: src/Process/Backend/UserPreferences.php:831
+#: src/Process/Backend/UserPreferences.php:828
 msgid "Activate enhanced uploader in media manager"
 msgstr "Aktiveerige täiustatud üleslaadimisfunktsioon meediahalduris"
 
-#: src/Process/Backend/UserPreferences.php:837
+#: src/Process/Backend/UserPreferences.php:834
 msgid "Preview the entry being edited in a blank window or tab (depending on your browser settings)."
 msgstr "Vaadake redigeeritavat kirjet tühjas aknas või vahekaardil (sõltuvalt brauseri seadetest)."
 
-#: src/Process/Backend/UserPreferences.php:844
+#: src/Process/Backend/UserPreferences.php:841
 msgid "Disable javascript powered drag and drop for ordering items"
 msgstr "Lülita javascriptiga toetuv lohistamine ja loovutamine objektide tellimiseks välja"
 
-#: src/Process/Backend/UserPreferences.php:848
+#: src/Process/Backend/UserPreferences.php:845
 msgid "If checked, numeric fields will allow to type the elements' ordering number."
 msgstr "Kui see on märgitud, võimaldavad numbrilised väljad sisestada elementide järjekorranumbri."
 
-#: src/Process/Backend/UserPreferences.php:853
+#: src/Process/Backend/UserPreferences.php:850
 msgid "Hide all secondary information and notes"
 msgstr "Peida kogu sekundaarne teave ja märkused"
 
-#: src/Process/Backend/UserPreferences.php:859
+#: src/Process/Backend/UserPreferences.php:856
 msgid "Hide help button"
 msgstr "Abi nupu peitmine"
 
-#: src/Process/Backend/UserPreferences.php:866
+#: src/Process/Backend/UserPreferences.php:863
 msgid "Font size:"
 msgstr "Kirjasuurus:"
 
-#: src/Process/Backend/UserPreferences.php:872
+#: src/Process/Backend/UserPreferences.php:869
 msgid "Use operating system font"
 msgstr "Kasutage operatsioonisüsteemi fondi"
 
-#: src/Process/Backend/UserPreferences.php:878
+#: src/Process/Backend/UserPreferences.php:875
 msgid "Number of recent folders proposed in media manager:"
 msgstr "Meediahalduris pakutud hiljutiste kaustade arv:"
 
-#: src/Process/Backend/UserPreferences.php:882
+#: src/Process/Backend/UserPreferences.php:879
 msgid "Set to 0 (zero) to ignore, displayed only if Javascript is enabled in your browser."
 msgstr "Määra 0 (null), et ignoreerida, kuvatakse ainult siis, kui Javascript on teie brauseris lubatud."
 
-#: src/Process/Backend/UserPreferences.php:889
+#: src/Process/Backend/UserPreferences.php:886
 msgid "Do not use standard favicon"
 msgstr "Ärge kasutage standardset favicon'i"
 
-#: src/Process/Backend/UserPreferences.php:890
+#: src/Process/Backend/UserPreferences.php:887
 msgid "This will be applied for all users"
 msgstr "Seda kohaldatakse kõigi kasutajate suhtes"
 
-#: src/Process/Backend/UserPreferences.php:900
+#: src/Process/Backend/UserPreferences.php:897
 msgid "Disable Ad-blocker check"
 msgstr "Lülita reklaamblokeerija kontroll välja"
 
-#: src/Process/Backend/UserPreferences.php:904
+#: src/Process/Backend/UserPreferences.php:901
 msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
 msgstr "Mõned reklaamblokeerijad (Ghostery, Adblock plus, uBloc origin, …) võivad häirida mõnda funktsiooni, nagu lingi või meedia sisestamine CKEditoriga tehtud kannetes; sellisel juhul peaksite selle Dotcleari paigaldamisel (ainult backend) selle välja lülitama. Pange tähele, et Dotclear ei lisa reklaame ot trackers backend."
 
-#: src/Process/Backend/UserPreferences.php:907
+#: src/Process/Backend/UserPreferences.php:904
 msgid "Note also that deactivating this detection of ad blockers will not deactivate the installed ad blockers. Dotclear cannot interfere with the operation of browser extensions!"
 msgstr "Pange tähele ka seda, et selle reklaamiblokeerijate tuvastamise deaktiveerimine ei deaktiveeri paigaldatud reklaamiblokeerijaid. Dotclear ei saa sekkuda veebilehitseja laienduste töösse!"
 
-#: src/Process/Backend/UserPreferences.php:915
+#: src/Process/Backend/UserPreferences.php:912
 msgid "Quick menu character:"
 msgstr "Kiirmenüü tegelane:"
 
-#: src/Process/Backend/UserPreferences.php:919
+#: src/Process/Backend/UserPreferences.php:916
 msgid "Leave empty to use the default character <kbd>:</kbd>"
 msgstr "Jäta tühjaks, et kasutada vaikimisi märki <kbd>:</kbd>"
 
-#: src/Process/Backend/UserPreferences.php:924
+#: src/Process/Backend/UserPreferences.php:921
 msgid "Keep the main menu at the top of the page as much as possible"
 msgstr "Hoidke peamenüü võimalikult palju lehekülje ülaosas"
 
-#: src/Process/Backend/UserPreferences.php:928
+#: src/Process/Backend/UserPreferences.php:925
 msgid "Optional columns displayed in lists"
 msgstr "Loeteludes kuvatavad vabatahtlikud veerud"
 
-#: src/Process/Backend/UserPreferences.php:931
+#: src/Process/Backend/UserPreferences.php:928
 msgid "Options for lists"
 msgstr "Valikud nimekirjade jaoks"
 
-#: src/Process/Backend/UserPreferences.php:937
+#: src/Process/Backend/UserPreferences.php:934
 msgid "Apply filters on the fly"
 msgstr "Kohaldage filtreid jooksvalt"
 
-#: src/Process/Backend/UserPreferences.php:974
+#: src/Process/Backend/UserPreferences.php:971
 msgid "Enable WYSIWYG mode"
 msgstr "WYSIWYG-režiimi sisselülitamine"
 
-#: src/Process/Backend/UserPreferences.php:980
+#: src/Process/Backend/UserPreferences.php:977
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr "Kuvada redaktori tööriistariba tekstivälja allosas (kui võimalik)"
 
-#: src/Process/Backend/UserPreferences.php:986
+#: src/Process/Backend/UserPreferences.php:983
 msgid "Use HTML editor for:"
 msgstr "Kasutage HTML redaktorit:"
 
-#: src/Process/Backend/UserPreferences.php:990
+#: src/Process/Backend/UserPreferences.php:987
 msgid "Other options"
 msgstr "Muud võimalused"
 
-#: src/Process/Backend/UserPreferences.php:1001
+#: src/Process/Backend/UserPreferences.php:998
 msgid "Save my options"
 msgstr "Salvesta minu valikud"
 
-#: src/Process/Backend/UserPreferences.php:1032
+#: src/Process/Backend/UserPreferences.php:1029
 #, php-format
 msgid "position of %s"
 msgstr "aadressi %spositsioon"
 
-#: src/Process/Backend/UserPreferences.php:1055
+#: src/Process/Backend/UserPreferences.php:1052
 msgid "Save order"
 msgstr "Salvesta tellimus"
 
-#: src/Process/Backend/UserPreferences.php:1056
+#: src/Process/Backend/UserPreferences.php:1053
 msgid "Delete selected favorites"
 msgstr "Valitud lemmikute kustutamine"
 
-#: src/Process/Backend/UserPreferences.php:1063
+#: src/Process/Backend/UserPreferences.php:1060
 msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
 msgstr "Kui olete superadministraator, võite määrata selle lemmikute kogumi, mida kasutatakse vaikimisi kõigis selle paigalduse blogides."
 
-#: src/Process/Backend/UserPreferences.php:1066
+#: src/Process/Backend/UserPreferences.php:1063
 msgid "Define as default favorites"
 msgstr "Määrata vaikimisi lemmikuteks"
 
-#: src/Process/Backend/UserPreferences.php:1075
+#: src/Process/Backend/UserPreferences.php:1072
 msgid "Currently no personal favorites."
 msgstr "Praegu ei ole isiklikke lemmikuid."
 
-#: src/Process/Backend/UserPreferences.php:1114
+#: src/Process/Backend/UserPreferences.php:1111
 msgid "(default favorite)"
 msgstr "(vaikimisi lemmik)"
 
-#: src/Process/Backend/UserPreferences.php:1129
+#: src/Process/Backend/UserPreferences.php:1126
 msgid "Add to my favorites"
 msgstr "Lisa minu lemmikute hulka"
 
-#: src/Process/Backend/UserPreferences.php:1153
+#: src/Process/Backend/UserPreferences.php:1150
 msgid "Other available favorites"
 msgstr "Muud saadaval olevad lemmikud"
 
-#: src/Process/Backend/UserPreferences.php:1165
+#: src/Process/Backend/UserPreferences.php:1162
 msgid "Menu"
 msgstr "Menüü"
 
-#: src/Process/Backend/UserPreferences.php:1171
+#: src/Process/Backend/UserPreferences.php:1168
 msgid "Display favorites at the top of the menu"
 msgstr "Näita lemmikuid menüü ülaosas"
 
-#: src/Process/Backend/UserPreferences.php:1175
+#: src/Process/Backend/UserPreferences.php:1172
 msgid "Dashboard icons"
 msgstr "Armatuurlaua ikoonid"
 
-#: src/Process/Backend/UserPreferences.php:1181
+#: src/Process/Backend/UserPreferences.php:1178
 msgid "Display dashboard icons"
 msgstr "Näita armatuurlaua ikoonid"
 
-#: src/Process/Backend/UserPreferences.php:1185
+#: src/Process/Backend/UserPreferences.php:1182
 msgid "Dashboard modules"
 msgstr "Armatuurlaua moodulid"
 
-#: src/Process/Backend/UserPreferences.php:1191
+#: src/Process/Backend/UserPreferences.php:1188
 msgid "Display documentation links"
 msgstr "Dokumentatsiooni linkide kuvamine"
 
-#: src/Process/Backend/UserPreferences.php:1197
+#: src/Process/Backend/UserPreferences.php:1194
 msgid "Display donate links"
 msgstr "Kuva annetada linke"
 
-#: src/Process/Backend/UserPreferences.php:1203
+#: src/Process/Backend/UserPreferences.php:1200
 msgid "Display Dotclear news"
 msgstr "Näita Dotcleari uudiseid"
 
-#: src/Process/Backend/UserPreferences.php:1209
+#: src/Process/Backend/UserPreferences.php:1206
 msgid "Display quick entry form"
 msgstr "Kuva kiire sisestamise vorm"
 
-#: src/Process/Backend/UserPreferences.php:1214
+#: src/Process/Backend/UserPreferences.php:1211
 msgid "Do not display Dotclear updates"
 msgstr "Ära näita Dotcleari värskendusi"
 
-#: src/Process/Backend/UserPreferences.php:1227
+#: src/Process/Backend/UserPreferences.php:1224
 msgid "Save my dashboard options"
 msgstr "Salvesta oma armatuurlaua valikud"
 
-#: src/Process/Backend/UserPreferences.php:1240
+#: src/Process/Backend/UserPreferences.php:1237
 msgid "Dashboard items order"
 msgstr "Armatuurlaua elementide järjekord"
 
-#: src/Process/Backend/UserPreferences.php:1243
+#: src/Process/Backend/UserPreferences.php:1240
 msgid "Reset dashboard items order"
 msgstr "Armatuurlaua elementide järjestuse lähtestamine"
 
@@ -5883,11 +5886,11 @@ msgstr "Õiguste kinnitamine"
 msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
 msgstr "Palun määrake konfiguratsioonifailis üldvõti (DC_MASTER_KEY)."
 
-#: src/Process/Install/Install.php:127 src/Process/Install/Wizard.php:142
+#: src/Process/Install/Install.php:127 src/Process/Install/Wizard.php:141
 msgid "Dotclear is already installed."
 msgstr "Dotclear on juba paigaldatud."
 
-#: src/Process/Install/Install.php:134 src/Process/Install/Wizard.php:136
+#: src/Process/Install/Install.php:134 src/Process/Install/Wizard.php:135
 msgid "Dotclear cannot be installed."
 msgstr "Dotcleari ei saa paigaldada."
 
@@ -5986,134 +5989,137 @@ msgstr "Halda oma blogi nüüd"
 msgid "Installation can not be completed"
 msgstr "Paigaldamist ei saa lõpule viia"
 
-#: src/Process/Install/Install.php:528
-msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
-msgstr "Nimetatud põhjustel ei saa Dotcleari paigaldada. Palun vaadake <a href=\"https://dotclear.org/documentation/2.0/admin/install\">dokumentatsiooni</a>, et teada saada, kuidas probleemi parandada."
+#: src/Process/Install/Install.php:529
+#, php-format
+msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"%s\">the documentation</a> to learn how to correct the problem."
+msgstr "Nimetatud põhjustel ei saa Dotcleari paigaldada. Palun vaadake <a href=\"%s\">dokumentatsiooni</a>, et teada saada, kuidas probleemi parandada."
 
 #: src/Process/Install/Wizard.php:84
 #, php-format
 msgid "Path <strong>%s</strong> is not writable."
 msgstr "Tee <strong>%s</strong> ei ole kirjutatav."
 
-#: src/Process/Install/Wizard.php:85
-msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
-msgstr "Dotcleari paigaldusviisard ei suutnud teie jaoks konfiguratsioonifaili luua. Te peate muutma kausta õigust või looma <strong>config.php</strong> faili käsitsi, palun lugege <a href=\"https://dotclear.org/documentation/2.0/admin/install\">dokumentatsiooni</a>, et teada saada, kuidas seda teha."
+#: src/Process/Install/Wizard.php:86
+#, php-format
+msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"%s\">the documentation</a> to learn how to do this."
+msgstr "Dotcleari paigaldusviisard ei suutnud teie jaoks konfiguratsioonifaili luua. Te peate muutma kausta õigust või looma <strong>config.php</strong> faili käsitsi, palun lugege <a href=\"%s\">dokumentatsiooni</a>, et teada saada, kuidas seda teha."
 
-#: src/Process/Install/Wizard.php:118
+#: src/Process/Install/Wizard.php:117
 #, php-format
 msgid "Cannot write \"%s\" directory."
 msgstr "Ei saa kirjutada \"%s\" kataloogi."
 
-#: src/Process/Install/Wizard.php:146
+#: src/Process/Install/Wizard.php:145
 msgid "Master email is not valid."
 msgstr "Master email ei ole kehtiv."
 
-#: src/Process/Install/Wizard.php:152
+#: src/Process/Install/Wizard.php:151
 #, php-format
 msgid "File %s does not exist."
 msgstr "Faili %s ei ole olemas."
 
-#: src/Process/Install/Wizard.php:157 src/Process/Install/Wizard.php:192
+#: src/Process/Install/Wizard.php:156 src/Process/Install/Wizard.php:191
 #, php-format
 msgid "Cannot write %s file."
 msgstr "Ei saa kirjutada %s faili."
 
-#: src/Process/Install/Wizard.php:235 src/Process/Install/Wizard.php:243
+#: src/Process/Install/Wizard.php:234 src/Process/Install/Wizard.php:242
 msgid "Dotclear installation wizard"
 msgstr "Dotcleari paigaldusviisard"
 
-#: src/Process/Install/Wizard.php:249
+#: src/Process/Install/Wizard.php:248
 msgid "Welcome"
 msgstr "Tere tulemast"
 
-#: src/Process/Install/Wizard.php:250
+#: src/Process/Install/Wizard.php:249
 msgid "To complete your Dotclear installation and start writing on your blog, we just need to know how to access your database and who you are. Just fill this two steps wizard with this information and we will be done."
 msgstr "Selleks, et lõpetada Dotcleari paigaldamine ja alustada oma blogi kirjutamist, peame me lihtsalt teadma, kuidas pääseda ligi teie andmebaasile ja kes te olete. Lihtsalt täitke see kaheastmeline nõustaja selle teabega ja me oleme valmis."
 
-#: src/Process/Install/Wizard.php:253
+#: src/Process/Install/Wizard.php:250
 msgid "Attention:"
 msgstr "Tähelepanu:"
 
-#: src/Process/Install/Wizard.php:254
-msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
-msgstr "see nõustaja ei pruugi toimida igal hostil. Kui see ei tööta teie puhul, vaadake <a href=\"https://dotclear.org/documentation/2.0/admin/install\">dokumentatsiooni</a>, et teada saada, kuidas luua <strong>config.php</strong> fail käsitsi."
+#: src/Process/Install/Wizard.php:252
+#, php-format
+msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"%s\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
+msgstr "see nõustaja ei pruugi toimida igal hostil. Kui see ei tööta teie puhul, vaadake <a href=\"%s\">dokumentatsiooni</a>, et teada saada, kuidas luua <strong>config.php</strong> fail käsitsi."
 
-#: src/Process/Install/Wizard.php:261
+#: src/Process/Install/Wizard.php:258
 msgid "System information"
 msgstr "Süsteemi teave"
 
-#: src/Process/Install/Wizard.php:263
+#: src/Process/Install/Wizard.php:260
 msgid "Please provide the following information needed to create your configuration file."
 msgstr "Palun esitage järgmine teave, mis on vajalik teie konfiguratsioonifaili loomiseks."
 
-#: src/Process/Install/Wizard.php:267
+#: src/Process/Install/Wizard.php:264
 msgid "Database type:"
 msgstr "Andmebaasi tüüp:"
 
-#: src/Process/Install/Wizard.php:271
+#: src/Process/Install/Wizard.php:268
 msgid "MySQLi"
 msgstr "MySQLi"
 
-#: src/Process/Install/Wizard.php:272
+#: src/Process/Install/Wizard.php:269
 msgid "MySQLi (full UTF-8)"
 msgstr "MySQLi (täielik UTF-8)"
 
-#: src/Process/Install/Wizard.php:273
+#: src/Process/Install/Wizard.php:270
 msgid "PostgreSQL"
 msgstr "PostgreSQL"
 
-#: src/Process/Install/Wizard.php:274
+#: src/Process/Install/Wizard.php:271
 msgid "SQLite"
 msgstr "SQLite"
 
-#: src/Process/Install/Wizard.php:275
+#: src/Process/Install/Wizard.php:272
 msgid "Driver"
 msgstr "Juht"
 
-#: src/Process/Install/Wizard.php:277
+#: src/Process/Install/Wizard.php:274
 msgid "Database Host Name:"
 msgstr "Andmebaasi vastuvõtja nimi:"
 
-#: src/Process/Install/Wizard.php:279
+#: src/Process/Install/Wizard.php:276
 msgid "Database Name:"
 msgstr "Andmebaasi nimi:"
 
-#: src/Process/Install/Wizard.php:281
+#: src/Process/Install/Wizard.php:278
 msgid "Database User Name:"
 msgstr "Andmebaasi kasutajanimi:"
 
-#: src/Process/Install/Wizard.php:283
+#: src/Process/Install/Wizard.php:280
 msgid "Database Password:"
 msgstr "Andmebaasi parool:"
 
-#: src/Process/Install/Wizard.php:285
+#: src/Process/Install/Wizard.php:282
 msgid "Database Tables Prefix:"
 msgstr "Andmebaasi tabelite eesliide:"
 
-#: src/Process/Install/Wizard.php:288
+#: src/Process/Install/Wizard.php:285
 msgid "Prefix"
 msgstr "Eesliide"
 
-#: src/Process/Install/Wizard.php:291
+#: src/Process/Install/Wizard.php:288
 msgid "Master Email: (used as sender for password recovery)"
 msgstr "Master Email: (kasutatakse saatjana parooli taastamiseks)"
 
-#: src/Process/Install/Wizard.php:299 src/Process/Upgrade/Digests.php:258
+#: src/Process/Install/Wizard.php:296 src/Process/Upgrade/Digests.php:258
 #: src/Process/Upgrade/Digests.php:279
 msgid "Continue"
 msgstr "Jätka"
 
 #: src/Process/Upgrade/Attic.php:73 src/Process/Upgrade/Attic.php:77
 #: src/Process/Upgrade/Attic.php:98 src/Process/Upgrade/Attic.php:102
-#: src/Process/Upgrade/Attic.php:340 src/Process/Upgrade/Attic.php:344
+#: src/Process/Upgrade/Attic.php:352 src/Process/Upgrade/Attic.php:356
 #: src/Process/Upgrade/Backup.php:58 src/Process/Upgrade/Backup.php:62
 #: src/Process/Upgrade/Backup.php:215 src/Process/Upgrade/Cache.php:73
-#: src/Process/Upgrade/Digests.php:142 src/Process/Upgrade/Home.php:140
+#: src/Process/Upgrade/Digests.php:142 src/Process/Upgrade/Home.php:146
 #: src/Process/Upgrade/Langs.php:265 src/Process/Upgrade/Plugins.php:187
 #: src/Process/Upgrade/Replay.php:80 src/Process/Upgrade/Upgrade.php:54
 #: src/Process/Upgrade/Upgrade.php:58 src/Process/Upgrade/Upgrade.php:79
-#: src/Process/Upgrade/Upgrade.php:83 src/Process/Upgrade/Upgrade.php:308
-#: src/Process/Upgrade/Upgrade.php:312
+#: src/Process/Upgrade/Upgrade.php:83 src/Process/Upgrade/Upgrade.php:317
+#: src/Process/Upgrade/Upgrade.php:321
 msgid "Dotclear update"
 msgstr "Dotcleari värskendus"
 
@@ -6137,67 +6143,71 @@ msgstr "Tundub, et teie süsteemis ei ole \"digests\" faili, uuendust ei saa teo
 msgid "Downloaded Dotclear archive seems to be corrupted. Try <a %s>download it</a> again."
 msgstr "Allalaaditud Dotcleari arhiiv näib olevat rikutud. Proovige <a %s>laadige see uuesti alla</a>."
 
-#: src/Process/Upgrade/Attic.php:158 src/Process/Upgrade/Upgrade.php:145
-msgid "If this problem persists try to <a href=\"https://dotclear.org/download\">update manually</a>."
-msgstr "Kui see probleem püsib, proovige <a href=\"https://dotclear.org/download\">käsitsi uuendada</a>."
+#: src/Process/Upgrade/Attic.php:159 src/Process/Upgrade/Upgrade.php:146
+#, php-format
+msgid "If this problem persists try to <a href=\"%s\">update manually</a>."
+msgstr "Kui see probleem püsib, proovige <a href=\"%s\">käsitsi uuendada</a>."
 
-#: src/Process/Upgrade/Attic.php:196 src/Process/Upgrade/Upgrade.php:180
-msgid "The following files of your Dotclear installation have been modified so we won't try to update your installation. Please try to <a href=\"https://dotclear.org/download\">update manually</a>."
-msgstr "Teie Dotcleari paigalduse järgmisi faile on muudetud, nii et me ei püüa teie paigaldust uuendada. Palun proovige <a href=\"https://dotclear.org/download\">uuendamist käsitsi</a>."
+#: src/Process/Upgrade/Attic.php:199 src/Process/Upgrade/Upgrade.php:184
+#, php-format
+msgid "The following files of your Dotclear installation have been modified so we won't try to update your installation. Please try to <a href=\"%s\">update manually</a>."
+msgstr "Teie Dotcleari paigalduse järgmisi faile on muudetud, nii et me ei püüa teie paigaldust uuendada. Palun proovige <a href=\"%s\">uuendamist käsitsi</a>."
 
-#: src/Process/Upgrade/Attic.php:197
-msgid "You can bypass this warning by updating installation disgets file."
-msgstr "Seda hoiatust saab vältida, uuendades paigaldusfaili disgets."
+#: src/Process/Upgrade/Attic.php:204
+#, php-format
+msgid "(<a href=\"%s\">You can bypass this warning by updating installation disgets file</a>)."
+msgstr "(<a href=\"%s\">Seda hoiatust saab vältida, uuendades paigaldusfaili disgets</a>)."
 
-#: src/Process/Upgrade/Attic.php:200 src/Process/Upgrade/Upgrade.php:183
+#: src/Process/Upgrade/Attic.php:209 src/Process/Upgrade/Upgrade.php:189
 #, php-format
 msgid "The following files of your Dotclear installation are not readable. Please fix this or try to make a backup file named %s manually."
 msgstr "Teie Dotcleari paigalduse järgmised failid ei ole loetavad. Palun parandage see või proovige teha varukoopia nimega %s käsitsi."
 
-#: src/Process/Upgrade/Attic.php:204 src/Process/Upgrade/Upgrade.php:187
-msgid "The following files of your Dotclear installation cannot be written. Please fix this or try to <a href=\"https://dotclear.org/download\">update manually</a>."
-msgstr "Järgmisi Dotcleari paigaldatud faile ei saa kirjutada. Palun parandage see või proovige <a href=\"https://dotclear.org/download\">käsitsi uuendada</a>."
+#: src/Process/Upgrade/Attic.php:214 src/Process/Upgrade/Upgrade.php:194
+#, php-format
+msgid "The following files of your Dotclear installation cannot be written. Please fix this or try to <a href=\"%s\">update manually</a>."
+msgstr "Järgmisi Dotcleari paigaldatud faile ei saa kirjutada. Palun parandage see või proovige <a href=\"%s\">käsitsi uuendada</a>."
 
-#: src/Process/Upgrade/Attic.php:232 src/Process/Upgrade/Upgrade.php:235
+#: src/Process/Upgrade/Attic.php:244 src/Process/Upgrade/Upgrade.php:244
 msgid "No newer Dotclear version available."
 msgstr "Uuemat Dotcleari versiooni ei ole saadaval."
 
-#: src/Process/Upgrade/Attic.php:244 src/Process/Upgrade/Upgrade.php:247
+#: src/Process/Upgrade/Attic.php:256 src/Process/Upgrade/Upgrade.php:256
 msgid "Force checking update Dotclear"
 msgstr "Sundkontroll uuendamine Dotclear"
 
-#: src/Process/Upgrade/Attic.php:271
+#: src/Process/Upgrade/Attic.php:283
 #, php-format
 msgid "Required PHP version %s or higher"
 msgstr "Vajalik PHP versioon %s või uuem"
 
-#: src/Process/Upgrade/Attic.php:278 src/Process/Upgrade/Attic.php:279
+#: src/Process/Upgrade/Attic.php:290 src/Process/Upgrade/Attic.php:291
 msgid "Release note"
 msgstr "Vabastamismärkus"
 
-#: src/Process/Upgrade/Attic.php:290
+#: src/Process/Upgrade/Attic.php:302
 msgid "Select intermediate stable release to update to:"
 msgstr "Valige vahepealne stabiilne versioon, millele soovite uuendada:"
 
-#: src/Process/Upgrade/Attic.php:304
+#: src/Process/Upgrade/Attic.php:316
 msgid "There are no additionnal informations about releases listed here, you should carefully read the information post associated with selected release on Dotclear's blog."
 msgstr "Siin ei ole lisainfot väljaannete kohta, lugege hoolikalt Dotcleari blogis valitud väljaannetega seotud teabepostitust."
 
-#: src/Process/Upgrade/Attic.php:314
+#: src/Process/Upgrade/Attic.php:326
 #, php-format
 msgid "Are you sure to update to version %s?"
 msgstr "Kas sa oled kindel, et uuendad versiooni %s?"
 
-#: src/Process/Upgrade/Attic.php:320 src/Process/Upgrade/Digests.php:178
-#: src/Process/Upgrade/Digests.php:192 src/Process/Upgrade/Upgrade.php:281
+#: src/Process/Upgrade/Attic.php:332 src/Process/Upgrade/Digests.php:178
+#: src/Process/Upgrade/Digests.php:192 src/Process/Upgrade/Upgrade.php:290
 msgid "Update Dotclear"
 msgstr "Dotcleari ajakohastamine"
 
-#: src/Process/Upgrade/Attic.php:328 src/Process/Upgrade/Upgrade.php:296
+#: src/Process/Upgrade/Attic.php:340 src/Process/Upgrade/Upgrade.php:305
 msgid "Congratulations, you're one click away from the end of the update."
 msgstr "Palju õnne, olete ühe klõpsu kaugusel uuenduse lõpust."
 
-#: src/Process/Upgrade/Attic.php:334 src/Process/Upgrade/Upgrade.php:302
+#: src/Process/Upgrade/Attic.php:346 src/Process/Upgrade/Upgrade.php:311
 msgid "Finish the update."
 msgstr "Lõpetage ajakohastamine."
 
@@ -6345,49 +6355,49 @@ msgstr "Installeeritud Dotcleari versioon on %s"
 msgid "Installed PHP version is %s, next Dotclear release required %s or earlier."
 msgstr "Installeeritud PHP versioon on %s, järgmine Dotcleari versioon on %s või varasem."
 
-#: src/Process/Upgrade/Home.php:74
+#: src/Process/Upgrade/Home.php:80
 #, php-format
 msgid "Backup directory \"%s\" does not exist or is not writable."
 msgstr "Varukoopia kataloogi \"%s\" ei ole olemas või ei ole kirjutatav."
 
-#: src/Process/Upgrade/Home.php:78
+#: src/Process/Upgrade/Home.php:84
 msgid "Your are using Sqlite database driver, Database structure upgrade will NOT be performed."
 msgstr "Teie kasutate Sqlite'i andmebaasi draiverit, andmebaasi struktuuri uuendamine EI toimu."
 
-#: src/Process/Upgrade/Home.php:82
+#: src/Process/Upgrade/Home.php:88
 msgid "Your are using developement release, some features are not available."
 msgstr "Teie kasutate arendusversiooni, mõned funktsioonid ei ole saadaval."
 
-#: src/Process/Upgrade/Home.php:85
+#: src/Process/Upgrade/Home.php:91
 #, php-format
 msgid "Dotclear digests file \"%s\" is not readable."
 msgstr "Dotclear digests faili \"%s\" ei saa lugeda."
 
-#: src/Process/Upgrade/Home.php:89 src/Process/Upgrade/Plugins.php:164
+#: src/Process/Upgrade/Home.php:95 src/Process/Upgrade/Plugins.php:164
 msgid "Official plugins repository could not be updated as there is no URL set in configuration."
 msgstr "Ametlikku pistikute repositooriumi ei saanud uuendada, kuna konfiguratsioonis ei ole määratud URL-i."
 
-#: src/Process/Upgrade/Home.php:94
+#: src/Process/Upgrade/Home.php:100
 msgid "Do you read the official post about this release on Dotclear's blog?"
 msgstr "Kas loed Dotcleari blogis olevat ametlikku postitust selle väljalaskmise kohta?"
 
-#: src/Process/Upgrade/Home.php:95
+#: src/Process/Upgrade/Home.php:101
 msgid "Does your system support this release requirements like PHP version?"
 msgstr "Kas teie süsteem toetab selle versiooni nõudeid nagu PHP versioon?"
 
-#: src/Process/Upgrade/Home.php:96
+#: src/Process/Upgrade/Home.php:102
 msgid "Does your plugins and themes are up to date?"
 msgstr "Kas teie pluginad ja teemad on ajakohased?"
 
-#: src/Process/Upgrade/Home.php:97
+#: src/Process/Upgrade/Home.php:103
 msgid "Note if some plugins crash your installation, go back here to disable or to remove or to update them."
 msgstr "Pange tähele, kui mõned pluginad kukutavad teie paigalduse, minge tagasi siia, et neid keelata, eemaldada või uuendada."
 
-#: src/Process/Upgrade/Home.php:98
+#: src/Process/Upgrade/Home.php:104
 msgid "Once update done, do not forget to check and update blogs themes."
 msgstr "Kui värskendus on tehtud, ärge unustage kontrollida ja uuendada blogide teemasid."
 
-#: src/Process/Upgrade/Home.php:159
+#: src/Process/Upgrade/Home.php:165
 msgid "Before performing update you should take into account some informations listed bellow:"
 msgstr "Enne uuenduse tegemist peaksite arvestama mõningaid allpool loetletud andmeid:"
 
@@ -6465,21 +6475,21 @@ msgstr "Kordus kasvada tegevus versioonist:"
 msgid "Replay version lower than the last one can break your installation, do it at your own risk."
 msgstr "Viimasest madalam versioon võib teie paigalduse rikkuda, tehke seda omal vastutusel."
 
-#: src/Process/Upgrade/Upgrade.php:256
+#: src/Process/Upgrade/Upgrade.php:265
 #, php-format
 msgid "Dotclear %s is available."
 msgstr "Dotclear %s on saadaval."
 
-#: src/Process/Upgrade/Upgrade.php:267
+#: src/Process/Upgrade/Upgrade.php:276
 #, php-format
 msgid "PHP version is %1$s (%2$s or earlier needed)."
 msgstr "PHP versioon on %1$s (%2$s või varasem)."
 
-#: src/Process/Upgrade/Upgrade.php:276
+#: src/Process/Upgrade/Upgrade.php:285
 msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."
 msgstr "Oma Dotcleari paigalduse uuendamiseks klõpsake lihtsalt järgmisel nupul. Teie praeguse paigalduse varukoopia luuakse teie juurkataloogi."
 
-#: src/Process/Upgrade/Upgrade.php:285
+#: src/Process/Upgrade/Upgrade.php:294
 msgid "This update may potentially require some precautions, you should carefully read the information post associated with this release (see above)."
 msgstr "See värskendus võib nõuda mõningaid ettevaatusabinõusid, lugege hoolikalt selle versiooniga seotud teabepostitust (vt eespool)."
 
