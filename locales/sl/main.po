@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-29 06:42+0200\n"
-"PO-Revision-Date: 2025-07-29 04:45\n"
+"PO-Revision-Date: 2025-07-29 05:52\n"
 "Last-Translator: \n"
 "Language-Team: Slovenian\n"
 "Language: sl_SI\n"
@@ -3765,7 +3765,7 @@ msgstr "Varnost spletnega dnevnika"
 #: src/Process/Backend/BlogPref.php:1153
 #, php-format
 msgid "Protect the blog from Clickjacking (see <a href=\"%s\">Wikipedia</a>)"
-msgstr ""
+msgstr "Zaščitite blog pred Clickjackingom (glejte <a href=\"%s\">Wikipedia</a>)"
 
 #: src/Process/Backend/BlogPref.php:1162
 msgid "Advanced parameters"
@@ -4227,7 +4227,7 @@ msgstr "%s ni definiran, uredite svojo konfiguracijsko datoteko."
 #: src/Process/Upgrade/Home.php:62 src/Process/Upgrade/Home.php:70
 #, php-format
 msgid "See <a href=\"%s\">documentation</a> for more information."
-msgstr ""
+msgstr "Za več informacij glejte <a href=\"%s\">dokumentacijo</a>."
 
 #: src/Process/Backend/Home.php:306 src/Process/Upgrade/Home.php:76
 msgid "The cache directory does not exist or is not writable. You must create this directory with sufficient rights and affect this location to \"DC_TPL_CACHE\" in inc/config.php file."
@@ -4314,7 +4314,7 @@ msgstr "Kritje stroškov dogodkov, ki jih organizira družba Dotclear"
 #: src/Process/Backend/Home.php:691
 #, php-format
 msgid "See <a href=\"%s\">this page</a> for more information and donation"
-msgstr ""
+msgstr "Za več informacij in donacije glejte <a href=\"%s\">to stran</a>"
 
 #: src/Process/Backend/Home.php:702
 msgid "For the record, here is the date of my last donation to Dotclear:"
@@ -6062,7 +6062,7 @@ msgstr "Namestitve ni mogoče dokončati"
 #: src/Process/Install/Install.php:529
 #, php-format
 msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"%s\">the documentation</a> to learn how to correct the problem."
-msgstr ""
+msgstr "Zaradi navedenih razlogov programa Dotclear ni mogoče namestiti. V <a href=\"%s\">dokumentaciji</a> si oglejte, kako odpraviti težavo."
 
 #: src/Process/Install/Wizard.php:84
 #, php-format
@@ -6072,7 +6072,7 @@ msgstr "Pot <strong>%s</strong> ni zapisljiva."
 #: src/Process/Install/Wizard.php:86
 #, php-format
 msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"%s\">the documentation</a> to learn how to do this."
-msgstr ""
+msgstr "Čarovnik za namestitev Dotclear za vas ni mogel ustvariti konfiguracijske datoteke. Spremeniti morate desno mapo ali ročno ustvariti datoteko <strong>config.php</strong>, če želite izvedeti, kako to storiti, glejte <a href=\"%s\">dokumentacijo</a>."
 
 #: src/Process/Install/Wizard.php:117
 #, php-format
@@ -6112,7 +6112,7 @@ msgstr "Pozor:"
 #: src/Process/Install/Wizard.php:252
 #, php-format
 msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"%s\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
-msgstr ""
+msgstr "ta čarovnik morda ne bo deloval v vsakem gostitelju. Če ne deluje, si v <a href=\"%s\">dokumentaciji</a> preberite, kako ročno ustvariti datoteko <strong>config.php</strong>."
 
 #: src/Process/Install/Wizard.php:258
 msgid "System information"
@@ -6216,17 +6216,17 @@ msgstr "Zdi se, da je preneseni arhiv Dotclear poškodovan. Poskusite <a %s>znov
 #: src/Process/Upgrade/Attic.php:159 src/Process/Upgrade/Upgrade.php:146
 #, php-format
 msgid "If this problem persists try to <a href=\"%s\">update manually</a>."
-msgstr ""
+msgstr "Če se ta težava nadaljuje, poskusite <a href=\"%s\">posodobitev izvesti ročno</a>."
 
 #: src/Process/Upgrade/Attic.php:199 src/Process/Upgrade/Upgrade.php:184
 #, php-format
 msgid "The following files of your Dotclear installation have been modified so we won't try to update your installation. Please try to <a href=\"%s\">update manually</a>."
-msgstr ""
+msgstr "Naslednje datoteke vaše namestitve Dotclear so bile spremenjene, zato ne bomo poskušali posodobiti vaše namestitve. Poskusite <a href=\"%s\">jo posodobiti ročno</a>."
 
 #: src/Process/Upgrade/Attic.php:204
 #, php-format
 msgid "(<a href=\"%s\">You can bypass this warning by updating installation disgets file</a>)."
-msgstr ""
+msgstr "(<a href=\"%s\">To opozorilo lahko zaobidete s posodobitvijo datoteke disgets za namestitev</a>)."
 
 #: src/Process/Upgrade/Attic.php:209 src/Process/Upgrade/Upgrade.php:189
 #, php-format
@@ -6236,7 +6236,7 @@ msgstr "Naslednje datoteke vaše namestitve Dotclear niso berljive. Popravite to
 #: src/Process/Upgrade/Attic.php:214 src/Process/Upgrade/Upgrade.php:194
 #, php-format
 msgid "The following files of your Dotclear installation cannot be written. Please fix this or try to <a href=\"%s\">update manually</a>."
-msgstr ""
+msgstr "Naslednjih datotek vaše namestitve Dotclear ni mogoče zapisati. To popravite ali poskusite <a href=\"%s\">posodobiti ročno</a>."
 
 #: src/Process/Upgrade/Attic.php:244 src/Process/Upgrade/Upgrade.php:244
 msgid "No newer Dotclear version available."
