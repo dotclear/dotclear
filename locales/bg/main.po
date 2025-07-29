@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-29 06:42+0200\n"
-"PO-Revision-Date: 2025-07-29 04:45\n"
+"PO-Revision-Date: 2025-07-29 05:51\n"
 "Last-Translator: \n"
 "Language-Team: Bulgarian\n"
 "Language: bg_BG\n"
@@ -3707,7 +3707,7 @@ msgstr "Сигурност на блога"
 #: src/Process/Backend/BlogPref.php:1153
 #, php-format
 msgid "Protect the blog from Clickjacking (see <a href=\"%s\">Wikipedia</a>)"
-msgstr ""
+msgstr "Защита на блога от Clickjacking (вж. <a href=\"%s\">Уикипедия</a>)"
 
 #: src/Process/Backend/BlogPref.php:1162
 msgid "Advanced parameters"
@@ -4167,7 +4167,7 @@ msgstr "%s не е дефинирана, трябва да редактират�
 #: src/Process/Upgrade/Home.php:62 src/Process/Upgrade/Home.php:70
 #, php-format
 msgid "See <a href=\"%s\">documentation</a> for more information."
-msgstr ""
+msgstr "Вижте <a href=\"%s\">документацията</a> за повече информация."
 
 #: src/Process/Backend/Home.php:306 src/Process/Upgrade/Home.php:76
 msgid "The cache directory does not exist or is not writable. You must create this directory with sufficient rights and affect this location to \"DC_TPL_CACHE\" in inc/config.php file."
@@ -4254,7 +4254,7 @@ msgstr "Покриване на разходите за събития, орга
 #: src/Process/Backend/Home.php:691
 #, php-format
 msgid "See <a href=\"%s\">this page</a> for more information and donation"
-msgstr ""
+msgstr "Вижте <a href=\"%s\">тази страница</a> за повече информация и дарения"
 
 #: src/Process/Backend/Home.php:702
 msgid "For the record, here is the date of my last donation to Dotclear:"
@@ -5992,7 +5992,7 @@ msgstr "Инсталацията не може да бъде завършена"
 #: src/Process/Install/Install.php:529
 #, php-format
 msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"%s\">the documentation</a> to learn how to correct the problem."
-msgstr ""
+msgstr "Поради посочените причини Dotclear не може да бъде инсталиран. Моля, вижте <a href=\"%s\">документацията</a>, за да научите как да отстраните проблема."
 
 #: src/Process/Install/Wizard.php:84
 #, php-format
@@ -6002,7 +6002,7 @@ msgstr "Път <strong>%s</strong> не може да се записва."
 #: src/Process/Install/Wizard.php:86
 #, php-format
 msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"%s\">the documentation</a> to learn how to do this."
-msgstr ""
+msgstr "Съветникът за инсталиране на Dotclear не можа да създаде конфигурационен файл за вас. Трябва да смените дясната папка или да създадете файла <strong>config.php</strong> ръчно, моля, вижте <a href=\"%s\">документацията</a>, за да научите как да направите това."
 
 #: src/Process/Install/Wizard.php:117
 #, php-format
@@ -6042,7 +6042,7 @@ msgstr "Внимание:"
 #: src/Process/Install/Wizard.php:252
 #, php-format
 msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"%s\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
-msgstr ""
+msgstr "този съветник може да не функционира на всеки хост. Ако не работи при вас, моля, вижте <a href=\"%s\">документацията</a>, за да научите как да създадете файла <strong>config.php</strong> ръчно."
 
 #: src/Process/Install/Wizard.php:258
 msgid "System information"
@@ -6146,17 +6146,17 @@ msgstr "Изтегленият архив на Dotclear изглежда е по
 #: src/Process/Upgrade/Attic.php:159 src/Process/Upgrade/Upgrade.php:146
 #, php-format
 msgid "If this problem persists try to <a href=\"%s\">update manually</a>."
-msgstr ""
+msgstr "Ако този проблем продължава, опитайте да <a href=\"%s\">актуализирате ръчно</a>."
 
 #: src/Process/Upgrade/Attic.php:199 src/Process/Upgrade/Upgrade.php:184
 #, php-format
 msgid "The following files of your Dotclear installation have been modified so we won't try to update your installation. Please try to <a href=\"%s\">update manually</a>."
-msgstr ""
+msgstr "Следните файлове от инсталацията на Dotclear са променени, така че няма да се опитаме да актуализираме инсталацията ви. Моля, опитайте да <a href=\"%s\">актуализирате ръчно</a>."
 
 #: src/Process/Upgrade/Attic.php:204
 #, php-format
 msgid "(<a href=\"%s\">You can bypass this warning by updating installation disgets file</a>)."
-msgstr ""
+msgstr "(<a href=\"%s\">Можете да заобиколите това предупреждение, като актуализирате инсталационния файл disgets</a>)."
 
 #: src/Process/Upgrade/Attic.php:209 src/Process/Upgrade/Upgrade.php:189
 #, php-format
@@ -6166,7 +6166,7 @@ msgstr "Следните файлове от инсталацията на Dotcl
 #: src/Process/Upgrade/Attic.php:214 src/Process/Upgrade/Upgrade.php:194
 #, php-format
 msgid "The following files of your Dotclear installation cannot be written. Please fix this or try to <a href=\"%s\">update manually</a>."
-msgstr ""
+msgstr "Следните файлове от инсталацията на Dotclear не могат да бъдат записани. Моля, поправете това или опитайте да <a href=\"%s\">актуализирате ръчно</a>."
 
 #: src/Process/Upgrade/Attic.php:244 src/Process/Upgrade/Upgrade.php:244
 msgid "No newer Dotclear version available."
