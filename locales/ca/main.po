@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-29 06:42+0200\n"
-"PO-Revision-Date: 2025-07-29 04:45\n"
+"PO-Revision-Date: 2025-07-29 05:51\n"
 "Last-Translator: \n"
 "Language-Team: Catalan\n"
 "Language: ca_ES\n"
@@ -3707,7 +3707,7 @@ msgstr "Seguretat del bloc"
 #: src/Process/Backend/BlogPref.php:1153
 #, php-format
 msgid "Protect the blog from Clickjacking (see <a href=\"%s\">Wikipedia</a>)"
-msgstr ""
+msgstr "Protegiu el bloc del segrest de clics (vegeu la <a href=\"%s\"> Wikipedia </a>)"
 
 #: src/Process/Backend/BlogPref.php:1162
 msgid "Advanced parameters"
@@ -4167,7 +4167,7 @@ msgstr "%s no està definit, hauríeu d'editar el fitxer de configuració."
 #: src/Process/Upgrade/Home.php:62 src/Process/Upgrade/Home.php:70
 #, php-format
 msgid "See <a href=\"%s\">documentation</a> for more information."
-msgstr ""
+msgstr "Vegeu la <a href=\"%s\">documentació</a> per obtenir més informació."
 
 #: src/Process/Backend/Home.php:306 src/Process/Upgrade/Home.php:76
 msgid "The cache directory does not exist or is not writable. You must create this directory with sufficient rights and affect this location to \"DC_TPL_CACHE\" in inc/config.php file."
@@ -4254,7 +4254,7 @@ msgstr "Cobrir els costos dels esdeveniments organitzats per Dotclear"
 #: src/Process/Backend/Home.php:691
 #, php-format
 msgid "See <a href=\"%s\">this page</a> for more information and donation"
-msgstr ""
+msgstr "Vegeu <a href=\"%s\">aquesta pàgina</a> per a més informació i donacions"
 
 #: src/Process/Backend/Home.php:702
 msgid "For the record, here is the date of my last donation to Dotclear:"
@@ -5992,7 +5992,7 @@ msgstr "La instal·lació no es pot completar"
 #: src/Process/Install/Install.php:529
 #, php-format
 msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"%s\">the documentation</a> to learn how to correct the problem."
-msgstr ""
+msgstr "Per aquests motius, no es pot instal·lar Dotclear. Consulteu la <a href=\"%s\">documentació</a> per saber com corregir el problema."
 
 #: src/Process/Install/Wizard.php:84
 #, php-format
@@ -6002,7 +6002,7 @@ msgstr "El camí <strong>%s</strong> no es pot escriure."
 #: src/Process/Install/Wizard.php:86
 #, php-format
 msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"%s\">the documentation</a> to learn how to do this."
-msgstr ""
+msgstr "L'assistent d'instal·lació de Dotclear no ha pogut crear el fitxer de configuració. Heu de canviar els drets de carpeta o crear el fitxer <strong>config.php</strong> manualment. Consulteu la <a href=\"%s\">documentació</a> per saber com fer-ho."
 
 #: src/Process/Install/Wizard.php:117
 #, php-format
@@ -6042,7 +6042,7 @@ msgstr "Atenció:"
 #: src/Process/Install/Wizard.php:252
 #, php-format
 msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"%s\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
-msgstr ""
+msgstr "és possible que aquest assistent no funcioni en tots els hosts. Si no us funciona, consulteu la <a href=\"%s\">documentació</a> per saber com crear el fitxer <strong>config.php</strong> manualment."
 
 #: src/Process/Install/Wizard.php:258
 msgid "System information"
@@ -6146,17 +6146,17 @@ msgstr "Sembla que l'arxiu Dotclear descarregat està malmès. Prova <a %s>baixa
 #: src/Process/Upgrade/Attic.php:159 src/Process/Upgrade/Upgrade.php:146
 #, php-format
 msgid "If this problem persists try to <a href=\"%s\">update manually</a>."
-msgstr ""
+msgstr "Si aquest problema persisteix, intenta <a href=\"%s\">actualitzar manualment</a>."
 
 #: src/Process/Upgrade/Attic.php:199 src/Process/Upgrade/Upgrade.php:184
 #, php-format
 msgid "The following files of your Dotclear installation have been modified so we won't try to update your installation. Please try to <a href=\"%s\">update manually</a>."
-msgstr ""
+msgstr "Els fitxers següents de la vostra instal·lació de Dotclear s'han modificat, de manera que no intentarem actualitzar la vostra instal·lació. Si us plau, intenteu <a href=\"%s\">actualitzar manualment</a>."
 
 #: src/Process/Upgrade/Attic.php:204
 #, php-format
 msgid "(<a href=\"%s\">You can bypass this warning by updating installation disgets file</a>)."
-msgstr ""
+msgstr "(<a href=\"%s\">Podeu evitar aquest avís actualitzant el fitxer d'instal·lació disgets</a>)."
 
 #: src/Process/Upgrade/Attic.php:209 src/Process/Upgrade/Upgrade.php:189
 #, php-format
@@ -6166,7 +6166,7 @@ msgstr "Els fitxers següents de la vostra instal·lació de Dotclear no són ll
 #: src/Process/Upgrade/Attic.php:214 src/Process/Upgrade/Upgrade.php:194
 #, php-format
 msgid "The following files of your Dotclear installation cannot be written. Please fix this or try to <a href=\"%s\">update manually</a>."
-msgstr ""
+msgstr "No es poden escriure els fitxers següents de la instal·lació de Dotclear. Si us plau, corregiu-ho o intenteu <a href=\"%s\">actualitzar manualment</a>."
 
 #: src/Process/Upgrade/Attic.php:244 src/Process/Upgrade/Upgrade.php:244
 msgid "No newer Dotclear version available."
