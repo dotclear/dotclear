@@ -246,15 +246,25 @@ class Upgrade
 
         // Files removing
         if (is_array($files)) {
-            foreach ($files as $f) {
-                self::houseCleaningHelper(App::config()->dotclearRoot() . '/' . $f, false);
+            foreach ($files as $pattern) {
+                $list = glob(App::config()->dotclearRoot() . '/' . $pattern);
+                if ($list !== false) {
+                    foreach ($list as $item) {
+                        self::houseCleaningHelper($item, false);
+                    }
+                }
             }
         }
 
         // Folders removing
         if (is_array($folders)) {
-            foreach ($folders as $f) {
-                self::houseCleaningHelper(App::config()->dotclearRoot() . '/' . $f, true);
+            foreach ($folders as $pattern) {
+                $list = glob(App::config()->dotclearRoot() . '/' . $pattern, GLOB_ONLYDIR);
+                if ($list !== false) {
+                    foreach ($list as $item) {
+                        self::houseCleaningHelper($item, true);
+                    }
+                }
             }
         }
     }
