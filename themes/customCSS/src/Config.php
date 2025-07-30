@@ -14,15 +14,15 @@ use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Path;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Textarea;
 use Dotclear\Helper\Html\Html;
 use Exception;
-use form;
 
 /**
  * @brief   The module configuration.
  * @ingroup customCSS
- *
- * @todo switch Helper/Html/Form/...
  */
 class Config extends Process
 {
@@ -73,12 +73,18 @@ class Config extends Process
         }
 
         if (isset($_POST['css'])) {
-            if ($fp = fopen(App::backend()->css_file, 'wb')) {
-                fwrite($fp, (string) $_POST['css']);
-                fclose($fp);
-            }
+            // Save configuration
+            try {
+                if ($fp = fopen(App::backend()->css_file, 'wb')) {
+                    fwrite($fp, (string) $_POST['css']);
+                    fclose($fp);
+                }
 
-            Notices::message(__('Style sheet upgraded.'), true, true);
+                Notices::addSuccessNotice(__('Style sheet upgraded.'));
+                App::backend()->url()->redirect('admin.blog.theme', ['conf' => '1']);
+            } catch (Exception $e) {
+                App::error()->add($e->getMessage());
+            }
         }
 
         return true;
@@ -95,9 +101,16 @@ class Config extends Process
 
         $css_content = is_file(App::backend()->css_file) ? file_get_contents(App::backend()->css_file) : '';
 
-        echo
-        '<p class="area"><label>' . __('Style sheet:') . '</label> ' .
-        form::textArea('css', 72, 25, Html::escapeHTML((string) $css_content)) . '</p>';
+        echo (new Para())
+            ->class('area')
+            ->items([
+                (new Textarea('css'))
+                    ->value(Html::escapeHTML((string) $css_content))
+                    ->rows(25)
+                    ->cols(72)
+                    ->label((new Label(__('Style sheet:'), Label::OL_TF))),
+            ])
+        ->render();
 
         if (App::auth()->prefs()->interface->colorsyntax) {
             echo

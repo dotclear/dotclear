@@ -40,10 +40,8 @@ class Backend extends Process
                 return '';
             }
 
-            echo "\n" . '<!-- Header directives for customCSS configuration -->' . "\n";
             if (App::auth()->prefs()->interface->colorsyntax) {
-                echo
-                Page::jsLoadCodeMirror(App::auth()->prefs()->interface->colorsyntax_theme);
+                echo Page::jsLoadCodeMirror(App::auth()->prefs()->interface->colorsyntax_theme);
             }
 
             return '';
