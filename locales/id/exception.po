@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-07 16:28+0200\n"
-"PO-Revision-Date: 2023-12-11 16:25\n"
+"PO-Revision-Date: 2025-07-31 18:16\n"
 "Last-Translator: \n"
 "Language-Team: Indonesian\n"
 "MIME-Version: 1.0\n"
@@ -75,8 +75,8 @@ msgstr "Kesalahan Server Internal"
 
 # in Dotclear\App
 #, php-format
-msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
-msgstr "<p>Ini berarti informasi nama pengguna dan kata sandi dalam file <strong>config.php</strong> Anda salah atau kami tidak dapat menghubungi server basis data di \"<em>%s</em>\". Ini bisa berarti server basis data host Anda sedang down.</p> <ul><li>Apakah Anda yakin nama pengguna dan kata sandi yang Anda masukkan sudah benar?</li><li>Apakah Anda yakin telah mengetikkan nama host yang benar?</li><li>Apakah Anda yakin bahwa server basis data sedang berjalan?</li></ul><p>Jika Anda tidak yakin dengan arti istilah-istilah ini, Anda sebaiknya menghubungi host Anda. Jika Anda masih membutuhkan bantuan, Anda dapat mengunjungi <a href=\"https://forum.dotclear.net/\">Forum Dukungan Dotclear</a>.</p>"
+msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%1$s</em>\". This could mean your host's database server is down.</p><ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"%2$s\">Dotclear Support Forums</a>.</p>"
+msgstr "<p>Ini berarti informasi nama pengguna dan kata sandi dalam file <strong>config.php</strong> Anda salah atau kami tidak dapat menghubungi server basis data di \"<em>%1$s</em>\". Ini bisa berarti server basis data host Anda sedang down.</p><ul><li>Apakah Anda yakin nama pengguna dan kata sandi yang Anda masukkan sudah benar?</li><li>Apakah Anda yakin telah mengetikkan nama host yang benar?</li><li>Apakah Anda yakin bahwa server basis data sedang berjalan?</li></ul><p>Jika Anda tidak yakin dengan arti istilah-istilah ini, Anda sebaiknya menghubungi host Anda. Jika Anda masih membutuhkan bantuan, Anda selalu dapat mengunjungi <a href=\"%2$s\">Forum Dukungan Dotclear</a>.</p>"
 
 # in Dotclear\Config
 msgid "Dotclear release file is not readable"

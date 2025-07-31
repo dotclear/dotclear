@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-07 16:28+0200\n"
-"PO-Revision-Date: 2023-12-02 08:58\n"
+"PO-Revision-Date: 2025-07-31 18:15\n"
 "Last-Translator: \n"
 "Language-Team: Finnish\n"
 "MIME-Version: 1.0\n"
@@ -75,8 +75,8 @@ msgstr "Sisäinen palvelinvirhe"
 
 # in Dotclear\App
 #, php-format
-msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
-msgstr "<p>Tämä tarkoittaa joko sitä, että käyttäjänimi- ja salasanatietonne <strong>config.php-tiedostossanne</strong> ovat virheellisiä, tai että tietokantapalvelimeen ei saada yhteyttä osoitteessa \"<em>%s</em>\". Tämä voi merkitä sitä, että palvelun isäntäkoneen tietokantapalvelin on kaatunut.</p> <ul><li>Oletko varma, että käyttäjänimesi ja salasanasi ovat oikein?</li> <li>Oletko varma, että olet syöttänyt oikean isäntäkoneen nimen?</li> <li>Oletko varma, että tietokantapalvelin on toiminnassa?</li></ul> <p>Jos olet epävarma näistä seikoista, kannattaa ottaa yhteys isäntäkoneen ylläpitäjään tai palveluntarjoajaasi. Apua on myös tarjolla <a href=\"https://forum.dotclear.net/\">Dotclearin tukipalstoilta</a>.</p>"
+msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%1$s</em>\". This could mean your host's database server is down.</p><ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"%2$s\">Dotclear Support Forums</a>.</p>"
+msgstr "<p>Tämä tarkoittaa joko sitä, että <strong>config.php-tiedoston</strong> käyttäjätunnus ja salasana ovat virheellisiä tai emme saa yhteyttä tietokantapalvelimeen osoitteessa \"<em>%1$s</em>\". Tämä voi tarkoittaa, että isäntäväen tietokantapalvelin ei toimi.</p><ul><li>Oletko varma, että sinulla on oikea käyttäjätunnus ja salasana?</li><li>Oletko varma, että olet kirjoittanut oikean isäntänimen?</li><li>Oletko varma, että tietokantapalvelin on käynnissä?</li></ul><p>Jos olet epävarma siitä, mitä nämä termit tarkoittavat, sinun pitäisi luultavasti ottaa yhteyttä isäntään. Jos tarvitset edelleen apua, voit aina käydä <a href=\"%2$s\">Dotclearin tukifoorumeilla</a>.</p>"
 
 # in Dotclear\Config
 msgid "Dotclear release file is not readable"

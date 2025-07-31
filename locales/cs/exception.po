@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-07 16:28+0200\n"
-"PO-Revision-Date: 2023-12-02 08:54\n"
+"PO-Revision-Date: 2025-07-31 18:15\n"
 "Last-Translator: \n"
 "Language-Team: Czech\n"
 "MIME-Version: 1.0\n"
@@ -75,8 +75,8 @@ msgstr "Chyba vnitřního serveru"
 
 # in Dotclear\App
 #, php-format
-msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
-msgstr "<p>Tato situace může znamenat, že uživatelské jméno a heslo uložené ve vašem konfiguračním souboru <strong>config.php</strong> jsou nesprávné nebo se nelze připojit k databázi běžící na serveru \"<em>%s</em>\" - server s databází může být vypnutý.</p> <ul><li>Jste si jisti, že jste zadali správné uživatelské jméno a heslo k databázi?</li><li>Jste si jisti, že jste zadali správné jméno serveru databáze?</li><li>Jste si jisti, že server databáze běží?</li></ul><p>Pokud si nejste jisti, co některé termíny znamenají, měli byste zřejmě kontaktovat svého webhostéra. Pokud stále potřebujete pomoci, můžete navštívit <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
+msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%1$s</em>\". This could mean your host's database server is down.</p><ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"%2$s\">Dotclear Support Forums</a>.</p>"
+msgstr "<p>To znamená, že buď jsou údaje o uživatelském jménu a hesle v souboru <strong>config.php</strong> nesprávné, nebo se nemůžeme spojit s databázovým serverem na adrese \"<em>%1$s</em>\". To může znamenat, že databázový server vašeho hostitele je mimo provoz.</p><ul><li>Jste si jisti, že máte správné uživatelské jméno a heslo?</li><li>Jste si jisti, že jste zadali správné jméno hostitele?</li><li>Jste si jisti, že databázový server běží?</li></ul><p>Pokud si nejste jisti, co tyto pojmy znamenají, měli byste se pravděpodobně obrátit na svého hostitele. Pokud stále potřebujete pomoc, můžete vždy navštívit <a href=\"%2$s\">fórum podpory Dotclear</a>.</p>"
 
 # in Dotclear\Config
 msgid "Dotclear release file is not readable"

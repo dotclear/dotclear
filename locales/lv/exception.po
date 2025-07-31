@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-07 16:28+0200\n"
-"PO-Revision-Date: 2024-07-08 13:05\n"
+"PO-Revision-Date: 2025-07-31 18:16\n"
 "Last-Translator: \n"
 "Language-Team: Latvian\n"
 "MIME-Version: 1.0\n"
@@ -75,8 +75,8 @@ msgstr "Iekšējā servera kļūda"
 
 # in Dotclear\App
 #, php-format
-msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
-msgstr "<p>Tas vai nu nozīmē, ka lietotājvārda un paroles informācija jūsu failā <strong>config.php</strong> ir nepareiza, vai arī mēs nevaram sazināties ar datu bāzes serveri vietnē <em>%s</em>. Tas varētu nozīmēt, ka jūsu resursdatora datu bāzes serveris nedarbojas.</p> <ul><li>Vai esat pārliecināts, ka jums ir pareizs lietotājvārds un parole?</li><li>Vai esat pārliecināts, ka esat ievadījis pareizo saimniekdatora nosaukumu?</li><li>Vai esat pārliecināts, ka datu bāzes serveris darbojas?</li></ul><p>Ja neesat pārliecināts, ko šie termini nozīmē, iespējams, sazinieties ar savu saimniekdatoru. Ja jums joprojām ir nepieciešama palīdzība, vienmēr varat apmeklēt <a href=\"https://forum.dotclear.net/\">Dotclear atbalsta forumus</a>.</p>"
+msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%1$s</em>\". This could mean your host's database server is down.</p><ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"%2$s\">Dotclear Support Forums</a>.</p>"
+msgstr "<p>Tas nozīmē, ka vai nu jūsu <strong>config.php</strong> faila lietotājvārda un paroles informācija ir nepareiza, vai arī mēs nevaram sazināties ar datubāzes serveri \"<em>%1$s</em>\". Tas varētu nozīmēt, ka jūsu mitinātāja datubāzes serveris nedarbojas.</p><ul><li>Vai esat pārliecināts, ka jūsu lietotājvārds un parole ir pareizi?</li><li>Vai esat pārliecināts, ka esat ievadījis pareizo resursvietas nosaukumu?</li><li>Vai esat pārliecināts, ka datu bāzes serveris darbojas?</li></ul><p>Ja neesat pārliecināts, ko šie termini nozīmē, iespējams, jums jāsazinās ar savu mitinātāju. Ja jums joprojām ir nepieciešama palīdzība, vienmēr varat apmeklēt <a href=\"%2$s\">Dotclear atbalsta forumu</a>.</p>"
 
 # in Dotclear\Config
 msgid "Dotclear release file is not readable"

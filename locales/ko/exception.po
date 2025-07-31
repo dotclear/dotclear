@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-07 16:28+0200\n"
-"PO-Revision-Date: 2023-12-02 09:01\n"
+"PO-Revision-Date: 2025-07-31 18:15\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "MIME-Version: 1.0\n"
@@ -75,8 +75,8 @@ msgstr "내부 서버 오류"
 
 # in Dotclear\App
 #, php-format
-msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
-msgstr "<p>이는 <strong>config.php</strong> 파일의 사용자 이름 및 비밀번호 정보가 잘못되었거나 \"<em>%s</em>\"에서 데이터베이스 서버에 연결할 수 없음을 의미합니다. 호스트의 데이터베이스 서버가 다운되었음을 의미할 수도 있습니다.</p> <ul><li>사용자 아이디와 비밀번호가 올바른가요?</li><li>호스트 이름을 올바르게 입력했나요?</li><li>데이터베이스 서버가 실행되고 있나요?</li></ul><p>이러한 용어가 무엇을 의미하는지 잘 모르겠다면 호스트에게 문의하세요. 그래도 도움이 필요하면 언제든지 <a href=\"https://forum.dotclear.net/\">닷클리어 지원 포럼</a>을 방문하세요.</p>"
+msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%1$s</em>\". This could mean your host's database server is down.</p><ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"%2$s\">Dotclear Support Forums</a>.</p>"
+msgstr "<p>이는 <strong>config.php</strong> 파일의 사용자 이름 및 비밀번호 정보가 올바르지 않거나 데이터베이스 서버의 \"<em>%1$s</em>\". 이는 호스트의 데이터베이스 서버가 다운되었음을 의미할 수 있습니다.</p><ul><li>올바른 사용자 아이디와 비밀번호를 입력했나요?</li><li>호스트 이름을 올바르게 입력했는지 확인하셨나요?</li><li>데이터베이스 서버가 실행 중인가요?</li></ul><p>이러한 용어가 무엇을 의미하는지 잘 모르겠다면 호스트에게 문의하세요. 그래도 도움이 필요하면 언제든지 <a href=\"%2$s\">닷클리어 지원 포럼을</a> 방문하세요.</p>"
 
 # in Dotclear\Config
 msgid "Dotclear release file is not readable"

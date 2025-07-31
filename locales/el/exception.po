@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-07 16:28+0200\n"
-"PO-Revision-Date: 2023-12-02 08:56\n"
+"PO-Revision-Date: 2025-07-31 18:15\n"
 "Last-Translator: \n"
 "Language-Team: Greek\n"
 "MIME-Version: 1.0\n"
@@ -75,8 +75,8 @@ msgstr "Εσωτερικό σφάλμα διακομιστή"
 
 # in Dotclear\App
 #, php-format
-msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
-msgstr "<p>Αυτό σημαίνει ότι το όνομα χρήστη και οι πληροφορίες κωδικού πρόσβασης στο config <strong>σας. hp</strong> το αρχείο είναι λανθασμένο ή δεν μπορούμε να επικοινωνήσουμε με το διακομιστή της βάσης δεδομένων στο \"<em>%s</em>\". Αυτό μπορεί να σημαίνει ότι ο διακομιστής βάσης δεδομένων του υπολογιστή σας είναι κάτω.</p> <ul><li>Είστε σίγουροι ότι έχετε το σωστό όνομα χρήστη και κωδικό πρόσβασης?</li><li>Είστε βέβαιοι ότι έχετε πληκτρολογήσει το σωστό όνομα υπολογιστή?</li><li>Είστε βέβαιοι ότι ο διακομιστής βάσης δεδομένων εκτελείται?</li></ul><p>Αν δεν είστε σίγουροι τι σημαίνουν αυτοί οι όροι θα πρέπει πιθανώς να επικοινωνήσετε με τον πάροχο φιλοξενίας σας. Αν εξακολουθείτε να χρειάζεστε βοήθεια, μπορείτε πάντα να επισκεφθείτε τα <a href=\"https://forum.dotclear.net/\">Dotclear Φόρουμ Υποστήριξης</a>.</p>"
+msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%1$s</em>\". This could mean your host's database server is down.</p><ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"%2$s\">Dotclear Support Forums</a>.</p>"
+msgstr "<p>Αυτό σημαίνει είτε ότι οι πληροφορίες για το όνομα χρήστη και τον κωδικό πρόσβασης στο αρχείο <strong>config.php</strong> είναι λανθασμένες είτε ότι δεν μπορούμε να επικοινωνήσουμε με τον διακομιστή βάσης δεδομένων στη διεύθυνση \"<em>%1$s</em>\". Αυτό μπορεί να σημαίνει ότι ο διακομιστής βάσης δεδομένων του κεντρικού σας υπολογιστή είναι εκτός λειτουργίας.</p><ul><li>Είστε σίγουροι ότι έχετε το σωστό όνομα χρήστη και κωδικό πρόσβασης;</li><li>Είστε σίγουροι ότι έχετε πληκτρολογήσει το σωστό όνομα κεντρικού υπολογιστή;</li><li>Είστε σίγουροι ότι ο διακομιστής βάσης δεδομένων λειτουργεί;</li></ul><p>Αν δεν είστε σίγουροι για το τι σημαίνουν αυτοί οι όροι, θα πρέπει μάλλον να επικοινωνήσετε με τον οικοδεσπότη σας. Εάν εξακολουθείτε να χρειάζεστε βοήθεια, μπορείτε πάντα να επισκεφθείτε το <a href=\"%2$s\">φόρουμ υποστήριξης της Dotclear</a>.</p>"
 
 # in Dotclear\Config
 msgid "Dotclear release file is not readable"

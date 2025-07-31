@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-07 16:28+0200\n"
-"PO-Revision-Date: 2024-07-08 12:58\n"
+"PO-Revision-Date: 2025-07-31 18:15\n"
 "Last-Translator: \n"
 "Language-Team: Catalan\n"
 "MIME-Version: 1.0\n"
@@ -75,8 +75,8 @@ msgstr "error del servidor intern"
 
 # in Dotclear\App
 #, php-format
-msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
-msgstr "<p>Això vol dir que la informació del nom d'usuari i la contrasenya del vostre fitxer <strong>config.php</strong> és incorrecta o que no podem contactar amb el servidor de bases de dades a \"<em>%s</em>\". Això podria significar que el servidor de la base de dades del vostre amfitrió està inactiu.</p> <ul><li>Esteu segur que teniu el nom d'usuari i la contrasenya correctes?</li><li>Esteu segur que heu escrit el nom d'amfitrió correcte?</li><li>Esteu segur que el servidor de bases de dades s'està executant?</li></ul><p>Si no esteu segur de què signifiquen aquests termes, probablement hauríeu de contactar amb el vostre amfitrió. Si encara necessiteu ajuda, sempre podeu visitar els <a href=\"https://forum.dotclear.net/\">Fòrums d'assistència de Dotclear</a>.</p>"
+msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%1$s</em>\". This could mean your host's database server is down.</p><ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"%2$s\">Dotclear Support Forums</a>.</p>"
+msgstr "<p>Això significa que la informació del nom d'usuari i la contrasenya del vostre fitxer <strong>config.php</strong> és incorrecta o que no podem contactar amb el servidor de bases de dades a \"<em>%1$s</em>\". Això podria significar que el servidor de bases de dades del vostre amfitrió no funciona.</p><ul><li>Esteu segur que teniu el nom d'usuari i la contrasenya correctes?</li><li>Esteu segur que heu escrit el nom d'amfitrió correcte?</li><li>Esteu segur que el servidor de bases de dades està en funcionament?</li></ul><p>Si no esteu segurs del que signifiquen aquests termes, probablement hauríeu de contactar amb el vostre amfitrió. Si encara necessiteu ajuda, sempre podeu visitar els <a href=\"%2$s\">Fòrums d'assistència de Dotclear</a>.</p>"
 
 # in Dotclear\Config
 msgid "Dotclear release file is not readable"
