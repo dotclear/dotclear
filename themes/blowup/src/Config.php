@@ -255,6 +255,8 @@ class Config extends Process
             return;
         }
 
+        $fonts = Blowup::fontsList();
+
         // Preview top image
         $preview_image = '';
         if (App::backend()->can_write_images) {
@@ -309,7 +311,7 @@ class Config extends Process
                     ->class('field')
                     ->items([
                         (new Select('body_txt_f'))
-                            ->items(Blowup::fontsList())
+                            ->items($fonts)
                             ->default(App::backend()->blowup_user['body_txt_f'])
                             ->label((new Label(__('Main text font:'), Label::OL_TF))),
                     ]),
@@ -380,7 +382,7 @@ class Config extends Process
                     ->class('field')
                     ->items([
                         (new Select('blog_title_f'))
-                            ->items(Blowup::fontsList())
+                            ->items($fonts)
                             ->default(App::backend()->blowup_user['blog_title_f'])
                             ->label((new Label(__('Main title font:'), Label::OL_TF))),
                     ]),
@@ -462,7 +464,7 @@ class Config extends Process
                     ->class('field')
                     ->items([
                         (new Select('sidebar_text_f'))
-                            ->items(Blowup::fontsList())
+                            ->items($fonts)
                             ->default(App::backend()->blowup_user['sidebar_text_f'])
                             ->label((new Label(__('Sidebar text font:'), Label::OL_TF))),
                     ]),
@@ -485,7 +487,7 @@ class Config extends Process
                     ->class('field')
                     ->items([
                         (new Select('sidebar_title_f'))
-                            ->items(Blowup::fontsList())
+                            ->items($fonts)
                             ->default(App::backend()->blowup_user['sidebar_title_f'])
                             ->label((new Label(__('Sidebar titles font:'), Label::OL_TF))),
                     ]),
@@ -508,7 +510,7 @@ class Config extends Process
                     ->class('field')
                     ->items([
                         (new Select('sidebar_title2_f'))
-                            ->items(Blowup::fontsList())
+                            ->items($fonts)
                             ->default(App::backend()->blowup_user['sidebar_title2_f'])
                             ->label((new Label(__('Sidebar 2nd level titles font:'), Label::OL_TF))),
                     ]),
@@ -557,7 +559,7 @@ class Config extends Process
                     ->class('field')
                     ->items([
                         (new Select('date_title_f'))
-                            ->items(Blowup::fontsList())
+                            ->items($fonts)
                             ->default(App::backend()->blowup_user['date_title_f'])
                             ->label((new Label(__('Date title font:'), Label::OL_TF))),
                     ]),
@@ -580,7 +582,7 @@ class Config extends Process
                     ->class('field')
                     ->items([
                         (new Select('post_title_f'))
-                            ->items(Blowup::fontsList())
+                            ->items($fonts)
                             ->default(App::backend()->blowup_user['post_title_f'])
                             ->label((new Label(__('Entry title font:'), Label::OL_TF))),
                     ]),
@@ -639,7 +641,7 @@ class Config extends Process
                     ->class('field')
                     ->items([
                         (new Select('footer_f'))
-                            ->items(Blowup::fontsList())
+                            ->items($fonts)
                             ->default(App::backend()->blowup_user['footer_f'])
                             ->label((new Label(__('Footer font:'), Label::OL_TF))),
                     ]),
