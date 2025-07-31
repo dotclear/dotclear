@@ -44,6 +44,10 @@
   color: var(--fieldset-smart-title-color);
 }
 
+.fieldset :is(h3, h4).border-top {
+  padding-top: 1em;
+}
+
 #entry-sidebar h5 {
   font-weight: normal;
   color: var(--entry-sidebar-title-color);
