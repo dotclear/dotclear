@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-31 18:58+0200\n"
-"PO-Revision-Date: 2025-07-31 17:02\n"
+"PO-Revision-Date: 2025-07-31 17:58\n"
 "Last-Translator: \n"
 "Language-Team: Turkish\n"
 "Language: tr_TR\n"
@@ -4339,7 +4339,7 @@ msgstr "Mevcut diller"
 #: src/Process/Backend/Langs.php:324 src/Process/Upgrade/Langs.php:363
 #, php-format
 msgid "You can download and install a additional language directly from Dotclear server. Proposed languages are based on your version: %s."
-msgstr ""
+msgstr "Ek bir dili doğrudan Dotclear sunucusundan indirebilir ve yükleyebilirsiniz. Önerilen diller sürümünüze bağlıdır: %s."
 
 #: src/Process/Backend/Langs.php:332 src/Process/Backend/User.php:483
 #: src/Process/Upgrade/Langs.php:369
