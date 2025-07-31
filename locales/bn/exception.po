@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-07 16:28+0200\n"
-"PO-Revision-Date: 2025-07-31 17:28\n"
+"PO-Revision-Date: 2025-07-31 18:16\n"
 "Last-Translator: \n"
 "Language-Team: Bengali\n"
 "MIME-Version: 1.0\n"
@@ -76,7 +76,7 @@ msgstr "অভ্যন্তরীণ সার্ভার ত্রুটি"
 # in Dotclear\App
 #, php-format
 msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%1$s</em>\". This could mean your host's database server is down.</p><ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"%2$s\">Dotclear Support Forums</a>.</p>"
-msgstr ""
+msgstr "<p>এর অর্থ হল আপনার <strong>config.php</strong> ফাইলে ব্যবহারকারীর নাম এবং পাসওয়ার্ডের তথ্য ভুল, অথবা আমরা \"<em>%1$s</em>\" এ ডাটাবেস সার্ভারের সাথে যোগাযোগ করতে পারছি না। এর অর্থ হতে পারে আপনার হোস্টের ডাটাবেস সার্ভারটি ডাউন।</p><ul><li>আপনি কি নিশ্চিত যে আপনার কাছে সঠিক ব্যবহারকারীর নাম এবং পাসওয়ার্ড আছে?</li><li>আপনি কি নিশ্চিত যে আপনি সঠিক হোস্টনাম টাইপ করেছেন?</li><li>আপনি কি নিশ্চিত যে ডাটাবেস সার্ভারটি চলছে?</li></ul><p>যদি আপনি নিশ্চিত না হন যে এই শব্দগুলির অর্থ কী, তাহলে আপনার হোস্টের সাথে যোগাযোগ করা উচিত। যদি আপনার এখনও সাহায্যের প্রয়োজন হয়, তাহলে আপনি সর্বদা <a href=\"%2$s\">ডটক্লিয়ার সাপোর্ট ফোরাম</a> পরিদর্শন করতে পারেন।</p>"
 
 # in Dotclear\Config
 msgid "Dotclear release file is not readable"
