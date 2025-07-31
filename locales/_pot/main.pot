@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-29 06:42+0200\n"
+"POT-Creation-Date: 2025-07-31 12:30+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -47,6 +47,11 @@ msgstr ""
 
 #: inc/core/_fake_l10n.php:14
 msgid "Pages"
+msgstr ""
+
+#: src/App.php:82
+#, php-format
+msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%1$s</em>\". This could mean your host's database server is down.</p><ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"%2$s\">Dotclear Support Forums</a>.</p>"
 msgstr ""
 
 #: src/Core/Auth.php:131
@@ -4340,7 +4345,7 @@ msgstr ""
 
 #: src/Process/Backend/Langs.php:324 src/Process/Upgrade/Langs.php:363
 #, php-format
-msgid "You can download and install a additional language directly from Dotclear.net. Proposed languages are based on your version: %s."
+msgid "You can download and install a additional language directly from Dotclear server. Proposed languages are based on your version: %s."
 msgstr ""
 
 #: src/Process/Backend/Langs.php:332 src/Process/Backend/User.php:483
