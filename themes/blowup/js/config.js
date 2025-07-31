@@ -72,14 +72,14 @@ dotclear.ready(() => {
   });
 
   // Upload form
-  if ($('#top_image').val() == 'custom') {
+  if ($('#top_image').val() === 'custom') {
     $('#uploader').show();
   } else {
     $('#uploader').hide();
   }
 
   $('#top_image').on('change', function () {
-    if (this.value == 'custom') {
+    if (this.value === 'custom') {
       $('#uploader').show();
       $('#image-preview').attr('src', `${dotclear.blowup_public_url}/page-t.png`);
       return;
@@ -91,6 +91,7 @@ dotclear.ready(() => {
 
   // Predefined styles
   const styles_combo = document.createElement('select');
+  styles_combo.id = 'style';
   $(styles_combo).append('<option value="">&nbsp;</option>');
   $(styles_combo).append('<option value="none">none</option>');
   $(styles_combo).attr('title', dotclear.msg.predefined_style_title);
@@ -102,8 +103,8 @@ dotclear.ready(() => {
     $(styles_combo).append(styles_option);
   }
 
-  $('#theme_config').prepend(styles_combo);
-  $(styles_combo).wrap('<div class="fieldset"></div>').before(`<h3>${dotclear.msg.predefined_styles}</h3>`).wrap('<p></p>');
+  $('#theme_config').after(styles_combo);
+  $(styles_combo).before(`<h4>${dotclear.msg.predefined_styles}</h4>`).wrap('<p></p>');
 
   $(styles_combo).on('change', function () {
     $(this.form).find('input[type=text]').val('').css({
@@ -116,28 +117,26 @@ dotclear.ready(() => {
     if (this.value != 'none') {
       applyBlowupValues(this.value);
     }
+    $('#image-preview').attr('src', `${dotclear.blowup_theme_url}/alpha-img/page-t/${$('#top_image').val()}.png`);
   });
 
   // Code import
-  const e = $('#bu_export_content');
-
-  $('#bu_export').toggleWithLegend($(e), {
+  const export_content = $('#bu_export_content');
+  $('#bu_export').toggleWithLegend($(export_content), {
     legend_click: true,
   });
 
-  const a = document.createElement('a');
-  a.href = '#';
-  $(a).text(dotclear.msg.apply_code);
-
-  e.append(a);
-
-  $(a).on('click', () => {
-    const code = e.find('#export_code');
+  const apply_content = document.createElement('button');
+  $(apply_content).text(dotclear.msg.apply_code);
+  $(apply_content).on('click', () => {
+    const code = export_content.find('#export_code');
     if (code.size() != 0) {
       applyBlowupValues(code.val());
+      $('#image-preview').attr('src', `${dotclear.blowup_theme_url}/alpha-img/page-t/${$('#top_image').val()}.png`);
     }
     return false;
   });
+  $('#bu_export_content').append(apply_content);
 });
 
 dotclear.blowup_styles = {

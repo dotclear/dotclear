@@ -20,8 +20,7 @@ $this->registerModule(
     'Marco & Olivier',                            // Author
     '3.0',                                        // Version
     [
-        'standalone_config' => true,
-        'type'              => 'theme',
-        'overload'          => true,
+        'type'     => 'theme',
+        'overload' => true,
     ]
 );

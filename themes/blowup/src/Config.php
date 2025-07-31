@@ -15,16 +15,27 @@ use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Backend\ThemeConfig;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
+use Dotclear\Helper\Html\Form\Checkbox;
+use Dotclear\Helper\Html\Form\Color;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\File;
+use Dotclear\Helper\Html\Form\Img;
+use Dotclear\Helper\Html\Form\Input;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\None;
+use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Select;
+use Dotclear\Helper\Html\Form\Set;
+use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\Textarea;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Exception;
-use form;
 
 /**
  * @brief   The module configuration process.
  * @ingroup blowup
- *
- * @todo switch Helper/Html/Form/...
  */
 class Config extends Process
 {
@@ -44,8 +55,6 @@ class Config extends Process
 
         // Load contextual help
         App::themes()->loadModuleL10Nresources(My::id(), App::lang()->getLang());
-
-        App::backend()->standalone_config = (bool) App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'standalone_config');
 
         App::backend()->can_write_images = Blowup::canWriteImages();
         App::backend()->can_write_css    = Blowup::canWriteCss();
@@ -246,245 +255,458 @@ class Config extends Process
             return;
         }
 
-        // Legacy mode
-        if (!App::backend()->standalone_config) {
-            echo '</form>';
-        }
-
-        echo
-        '<p><a class="back" href="' . App::backend()->url()->get('admin.blog.theme') . '">' . __('Back to Blog appearance') . '</a></p>' .
-
-        '<form id="theme_config" action="' . App::backend()->url()->get('admin.blog.theme', ['conf' => '1']) . '" method="post" enctype="multipart/form-data">' .
-
-        '<div class="fieldset"><h3>' . __('Customization') . '</h3>' .
-        '<h4>' . __('General') . '</h4>';
-
+        // Preview top image
+        $preview_image = '';
         if (App::backend()->can_write_images) {
-            echo
-            '<p class="field"><label for="body_bg_c">' . __('Background color:') . '</label> ' .
-            form::color('body_bg_c', ['default' => App::backend()->blowup_user['body_bg_c']]) . '</p>' .
-
-            '<p class="field"><label for="body_bg_g">' . __('Background color fill:') . '</label> ' .
-            form::combo('body_bg_g', App::backend()->gradient_types, App::backend()->blowup_user['body_bg_g']) . '</p>';
-        }
-
-        echo
-        '<p class="field"><label for="body_txt_f">' . __('Main text font:') . '</label> ' .
-        form::combo('body_txt_f', Blowup::fontsList(), App::backend()->blowup_user['body_txt_f']) . '</p>' .
-
-        '<p class="field"><label for="body_txt_s">' . __('Main text font size:') . '</label> ' .
-        form::field('body_txt_s', 7, 7, App::backend()->blowup_user['body_txt_s']) . '</p>' .
-
-        '<p class="field"><label for="body_txt_c">' . __('Main text color:') . '</label> ' .
-        form::color('body_txt_c', ['default' => App::backend()->blowup_user['body_txt_c']]) . '</p>' .
-
-        '<p class="field"><label for="body_line_height">' . __('Text line height:') . '</label> ' .
-        form::field('body_line_height', 7, 7, App::backend()->blowup_user['body_line_height']) . '</p>' .
-
-        '<h4 class="border-top">' . __('Links') . '</h4>' .
-        '<p class="field"><label for="body_link_c">' . __('Links color:') . '</label> ' .
-        form::color('body_link_c', ['default' => App::backend()->blowup_user['body_link_c']]) . '</p>' .
-
-        '<p class="field"><label for="body_link_v_c">' . __('Visited links color:') . '</label> ' .
-        form::color('body_link_v_c', ['default' => App::backend()->blowup_user['body_link_v_c']]) . '</p>' .
-
-        '<p class="field"><label for="body_link_f_c">' . __('Focus links color:') . '</label> ' .
-        form::color('body_link_f_c', ['default' => App::backend()->blowup_user['body_link_f_c']]) . '</p>' .
-
-        '<h4 class="border-top">' . __('Page top') . '</h4>';
-
-        if (App::backend()->can_write_images) {
-            echo
-            '<p class="field"><label for="prelude_c">' . __('Prelude color:') . '</label> ' .
-            form::color('prelude_c', ['default' => App::backend()->blowup_user['prelude_c']]) . '</p>';
-        }
-
-        echo
-        '<p class="field"><label for="blog_title_hide">' . __('Hide main title') . '</label> ' .
-        form::checkbox('blog_title_hide', 1, App::backend()->blowup_user['blog_title_hide']) . '</p>' .
-
-        '<p class="field"><label for="blog_title_f">' . __('Main title font:') . '</label> ' .
-        form::combo('blog_title_f', Blowup::fontsList(), App::backend()->blowup_user['blog_title_f']) . '</p>' .
-
-        '<p class="field"><label for="blog_title_s">' . __('Main title font size:') . '</label> ' .
-        form::field('blog_title_s', 7, 7, App::backend()->blowup_user['blog_title_s']) . '</p>' .
-
-        '<p class="field"><label for="blog_title_c">' . __('Main title color:') . '</label> ' .
-        form::color('blog_title_c', ['default' => App::backend()->blowup_user['blog_title_c']]) . '</p>' .
-
-        '<p class="field"><label for="blog_title_a">' . __('Main title alignment:') . '</label> ' .
-        form::combo('blog_title_a', [__('center') => 'center', __('left') => 'left', __('right') => 'right'], App::backend()->blowup_user['blog_title_a']) . '</p>' .
-
-        '<p class="field"><label for="blog_title_p">' . __('Main title position (x:y)') . '</label> ' .
-        form::field('blog_title_p', 7, 7, App::backend()->blowup_user['blog_title_p']) . '</p>';
-
-        if (App::backend()->can_write_images) {
-            if (App::backend()->blowup_user['top_image'] == 'custom' && App::backend()->blowup_user['uploaded']) {
+            if (App::backend()->blowup_user['top_image'] === 'custom' && App::backend()->blowup_user['uploaded']) {
                 $preview_image = Http::concatURL(App::blog()->url(), Blowup::imagesURL() . '/page-t.png');
             } else {
                 $preview_image = Blowup::themeURL() . '/alpha-img/page-t/' . App::backend()->blowup_user['top_image'] . '.png';
             }
-
-            echo
-            '<h5 class="pretty-title">' . __('Top image') . '</h5>' .
-            '<p class="field"><label for="top_image">' . __('Top image') . '</label> ' .
-            form::combo('top_image', App::backend()->top_images, (App::backend()->blowup_user['top_image'] ?: 'default')) . '</p>' .
-            '<p>' . __('Choose "Custom..." to upload your own image.') . '</p>' .
-
-            '<p id="uploader"><label for="upfile">' . __('Add your image:') . '</label> ' .
-            ' (' . sprintf(__('JPEG or PNG file, 800 pixels wide, maximum size %s'), Files::size(App::config()->maxUploadSize())) . ')' .
-            '<input type="file" name="upfile" id="upfile" size="35">' .
-            '</p>' .
-
-            '<h5>' . __('Preview') . '</h5>' .
-            '<div class="grid" style="width:800px;border:1px solid #ccc;">' .
-            '<img style="display:block;" src="' . $preview_image . '" alt="" id="image-preview">' .
-            '</div>';
         }
-
-        echo
-        '<h4 class="border-top">' . __('Sidebar') . '</h4>' .
-        '<p class="field"><label for="sidebar_position">' . __('Sidebar position:') . '</label> ' .
-        form::combo('sidebar_position', [__('right') => 'right', __('left') => 'left'], App::backend()->blowup_user['sidebar_position']) . '</p>' .
-
-        '<p class="field"><label for="sidebar_text_f">' . __('Sidebar text font:') . '</label> ' .
-        form::combo('sidebar_text_f', Blowup::fontsList(), App::backend()->blowup_user['sidebar_text_f']) . '</p>' .
-
-        '<p class="field"><label for="sidebar_text_s">' . __('Sidebar text font size:') . '</label> ' .
-        form::field('sidebar_text_s', 7, 7, App::backend()->blowup_user['sidebar_text_s']) . '</p>' .
-
-        '<p class="field"><label for="sidebar_text_c">' . __('Sidebar text color:') . '</label> ' .
-        form::color('sidebar_text_c', ['default' => App::backend()->blowup_user['sidebar_text_c']]) . '</p>' .
-
-        '<p class="field"><label for="sidebar_title_f">' . __('Sidebar titles font:') . '</label> ' .
-        form::combo('sidebar_title_f', Blowup::fontsList(), App::backend()->blowup_user['sidebar_title_f']) . '</p>' .
-
-        '<p class="field"><label for="sidebar_title_s">' . __('Sidebar titles font size:') . '</label> ' .
-        form::field('sidebar_title_s', 7, 7, App::backend()->blowup_user['sidebar_title_s']) . '</p>' .
-
-        '<p class="field"><label for="sidebar_title_c">' . __('Sidebar titles color:') . '</label> ' .
-        form::color('sidebar_title_c', ['default' => App::backend()->blowup_user['sidebar_title_c']]) . '</p>' .
-
-        '<p class="field"><label for="sidebar_title2_f">' . __('Sidebar 2nd level titles font:') . '</label> ' .
-        form::combo('sidebar_title2_f', Blowup::fontsList(), App::backend()->blowup_user['sidebar_title2_f']) . '</p>' .
-
-        '<p class="field"><label for="sidebar_title2_s">' . __('Sidebar 2nd level titles font size:') . '</label> ' .
-        form::field('sidebar_title2_s', 7, 7, App::backend()->blowup_user['sidebar_title2_s']) . '</p>' .
-
-        '<p class="field"><label for="sidebar_title2_c">' . __('Sidebar 2nd level titles color:') . '</label> ' .
-        form::color('sidebar_title2_c', ['default' => App::backend()->blowup_user['sidebar_title2_c']]) . '</p>' .
-
-        '<p class="field"><label for="sidebar_line_c">' . __('Sidebar lines color:') . '</label> ' .
-        form::color('sidebar_line_c', ['default' => App::backend()->blowup_user['sidebar_line_c']]) . '</p>' .
-
-        '<p class="field"><label for="sidebar_link_c">' . __('Sidebar links color:') . '</label> ' .
-        form::color('sidebar_link_c', ['default' => App::backend()->blowup_user['sidebar_link_c']]) . '</p>' .
-
-        '<p class="field"><label for="sidebar_link_v_c">' . __('Sidebar visited links color:') . '</label> ' .
-        form::color('sidebar_link_v_c', ['default' => App::backend()->blowup_user['sidebar_link_v_c']]) . '</p>' .
-
-        '<p class="field"><label for="sidebar_link_f_c">' . __('Sidebar focus links color:') . '</label> ' .
-        form::color('sidebar_link_f_c', ['default' => App::backend()->blowup_user['sidebar_link_f_c']]) . '</p>' .
-
-        '<h4 class="border-top">' . __('Entries') . '</h4>' .
-        '<p class="field"><label for="date_title_f">' . __('Date title font:') . '</label> ' .
-        form::combo('date_title_f', Blowup::fontsList(), App::backend()->blowup_user['date_title_f']) . '</p>' .
-
-        '<p class="field"><label for="date_title_s">' . __('Date title font size:') . '</label> ' .
-        form::field('date_title_s', 7, 7, App::backend()->blowup_user['date_title_s']) . '</p>' .
-
-        '<p class="field"><label for="date_title_c">' . __('Date title color:') . '</label> ' .
-        form::color('date_title_c', ['default' => App::backend()->blowup_user['date_title_c']]) . '</p>' .
-
-        '<p class="field"><label for="post_title_f">' . __('Entry title font:') . '</label> ' .
-        form::combo('post_title_f', Blowup::fontsList(), App::backend()->blowup_user['post_title_f']) . '</p>' .
-
-        '<p class="field"><label for="post_title_s">' . __('Entry title font size:') . '</label> ' .
-        form::field('post_title_s', 7, 7, App::backend()->blowup_user['post_title_s']) . '</p>' .
-
-        '<p class="field"><label for="post_title_c">' . __('Entry title color:') . '</label> ' .
-        form::color('post_title_c', ['default' => App::backend()->blowup_user['post_title_c']]) . '</p>';
-
-        if (App::backend()->can_write_images) {
-            echo
-            '<p class="field"><label for="post_comment_bg_c">' . __('Comment background color:') . '</label> ' .
-            form::color('post_comment_bg_c', ['default' => App::backend()->blowup_user['post_comment_bg_c']]) . '</p>';
-        }
-
-        echo
-        '<p class="field"><label for="post_comment_c">' . __('Comment text color:') . '</label> ' .
-        form::color('post_comment_c', ['default' => App::backend()->blowup_user['post_comment_c']]) . '</p>';
-
-        if (App::backend()->can_write_images) {
-            echo
-            '<p class="field"><label for="post_commentmy_bg_c">' . __('My comment background color:') . '</label> ' .
-            form::color('post_commentmy_bg_c', ['default' => App::backend()->blowup_user['post_commentmy_bg_c']]) . '</p>';
-        }
-
-        echo
-        '<p class="field"><label for="post_commentmy_c">' . __('My comment text color:') . '</label> ' .
-        form::color('post_commentmy_c', ['default' => App::backend()->blowup_user['post_commentmy_c']]) . '</p>' .
-
-        '<h4 class="border-top">' . __('Footer') . '</h4>' .
-        '<p class="field"><label for="footer_f">' . __('Footer font:') . '</label> ' .
-        form::combo('footer_f', Blowup::fontsList(), App::backend()->blowup_user['footer_f']) . '</p>' .
-
-        '<p class="field"><label for="footer_s">' . __('Footer font size:') . '</label> ' .
-        form::field('footer_s', 7, 7, App::backend()->blowup_user['footer_s']) . '</p>' .
-
-        '<p class="field"><label for="footer_c">' . __('Footer color:') . '</label> ' .
-        form::color('footer_c', ['default' => App::backend()->blowup_user['footer_c']]) . '</p>' .
-
-        '<p class="field"><label for="footer_l_c">' . __('Footer links color:') . '</label> ' .
-        form::color('footer_l_c', ['default' => App::backend()->blowup_user['footer_l_c']]) . '</p>' .
-
-        '<p class="field"><label for="footer_bg_c">' . __('Footer background color:') . '</label> ' .
-        form::color('footer_bg_c', ['default' => App::backend()->blowup_user['footer_bg_c']]) . '</p>' .
-
-        '<h4 class="border-top">' . __('Additional CSS') . '</h4>' .
-        '<p><label for="extra_css">' . __('Any additional CSS styles (must be written using the CSS syntax):') . '</label> ' .
-        form::textArea('extra_css', 72, 5, [
-            'default'    => Html::escapeHTML(App::backend()->blowup_user['extra_css']),
-            'class'      => 'maximal',
-            'extra_html' => 'title="' . __('Additional CSS') . '"',
-        ]) .
-        '</p>' .
-        '</div>';
 
         // Import / Export configuration
-        $tmp_array   = [];
-        $tmp_exclude = ['uploaded', 'top_height'];
-        if (App::backend()->blowup_user['top_image'] == 'custom') {
+        $choices  = [];
+        $excludes = ['uploaded', 'top_height'];
+        if (App::backend()->blowup_user['top_image'] === 'custom') {
             $tmp_exclude[] = 'top_image';
         }
-        foreach (App::backend()->blowup_user as $k => $v) {
-            if (!in_array($k, $tmp_exclude)) {
-                $tmp_array[] = $k . ':' . '"' . $v . '"';
+        foreach (App::backend()->blowup_user as $key => $value) {
+            if (!in_array($key, $excludes)) {
+                $choices[] = $key . ':' . '"' . $value . '"';
             }
         }
-        echo
-        '<div class="fieldset">' .
-        '<h3 id="bu_export">' . __('Configuration import / export') . '</h3>' .
-        '<div id="bu_export_content">' .
-        '<p>' . __('You can share your configuration using the following code. To apply a configuration, paste the code, click on "Apply code" and save.') . '</p>' .
-        '<p>' . form::textArea('export_code', 72, 5, [
-            'default'    => implode('; ', $tmp_array),
-            'class'      => 'maximal',
-            'extra_html' => 'title="' . __('Copy this code:') . '"',
-        ]) . '</p>' .
-        '</div>' .
-        '</div>' .
+        $export_code = implode('; ', $choices);
 
-        '<p class="clear"><input type="submit" value="' . __('Save') . '">' .
-        App::nonce()->getFormNonce() .
-        '</p>' .
-        '</form>';
+        echo (new Div())
+            ->class('fieldset')
+            ->items([
+                (new Text('h3', __('Customization')))
+                    ->id('theme_config'),
+                // Here will come style selector (is JS is enabled), see config.js
+                // h4 + p + select
+                (new Text('h4', __('General'))),
+                App::backend()->can_write_images ?
+                    (new Set())
+                        ->items([
+                            (new Para())
+                                ->class('field')
+                                ->items([
+                                    (new Color('body_bg_c', App::backend()->blowup_user['body_bg_c']))
+                                        ->label((new Label(__('Background color:'), Label::OL_TF))),
+                                ]),
+                            (new Para())
+                                ->class('field')
+                                ->items([
+                                    (new Select('body_bg_g'))
+                                        ->items(App::backend()->gradient_types)
+                                        ->default(App::backend()->blowup_user['body_bg_g'])
+                                        ->label((new Label(__('Background color fill:'), Label::OL_TF))),
+                                ]),
+                        ]) :
+                    (new None()),
+                (new Para())
+                    ->class('field')
+                    ->items([
+                        (new Select('body_txt_f'))
+                            ->items(Blowup::fontsList())
+                            ->default(App::backend()->blowup_user['body_txt_f'])
+                            ->label((new Label(__('Main text font:'), Label::OL_TF))),
+                    ]),
+                (new Para())
+                    ->class('field')
+                    ->items([
+                        (new Input('body_txt_s'))
+                            ->size(7)
+                            ->maxlength(7)
+                            ->default(App::backend()->blowup_user['body_txt_s'])
+                            ->label((new Label(__('Main text font size:'), Label::OL_TF))),
+                    ]),
+                (new Para())
+                    ->class('field')
+                    ->items([
+                        (new Color('body_txt_c', App::backend()->blowup_user['body_txt_c']))
+                            ->label((new Label(__('Main text color:'), Label::OL_TF))),
+                    ]),
+                (new Para())
+                    ->class('field')
+                    ->items([
+                        (new Input('body_line_height'))
+                            ->size(7)
+                            ->maxlength(7)
+                            ->default(App::backend()->blowup_user['body_line_height'])
+                            ->label((new Label(__('Text line height:'), Label::OL_TF))),
+                    ]),
+                (new Text('h4', __('Links')))
+                    ->class('border-top'),
+                (new Para())
+                    ->class('field')
+                    ->items([
+                        (new Color('body_link_c', App::backend()->blowup_user['body_link_c']))
+                            ->label((new Label(__('Links color:'), Label::OL_TF))),
+                    ]),
+                (new Para())
+                    ->class('field')
+                    ->items([
+                        (new Color('body_link_v_c', App::backend()->blowup_user['body_link_v_c']))
+                            ->label((new Label(__('Visited links color:'), Label::OL_TF))),
+                    ]),
+                (new Para())
+                    ->class('field')
+                    ->items([
+                        (new Color('body_link_f_c', App::backend()->blowup_user['body_link_f_c']))
+                            ->label((new Label(__('Focus links color:'), Label::OL_TF))),
+                    ]),
+                (new Text('h4', __('Page top')))
+                    ->class('border-top'),
+                App::backend()->can_write_images ?
+                    (new Set())
+                        ->items([
+                            (new Para())
+                                ->class('field')
+                                ->items([
+                                    (new Color('prelude_c', App::backend()->blowup_user['prelude_c']))
+                                        ->label((new Label(__('Prelude color:'), Label::OL_TF))),
+                                ]),
+                        ]) :
+                    (new None()),
+                (new Para())
+                    ->class('field')
+                    ->items([
+                        (new Checkbox('blog_title_hide', App::backend()->blowup_user['blog_title_hide']))
+                            ->label((new Label(__('Hide main title'), Label::OL_TF))),
+                    ]),
+                (new Para())
+                    ->class('field')
+                    ->items([
+                        (new Select('blog_title_f'))
+                            ->items(Blowup::fontsList())
+                            ->default(App::backend()->blowup_user['blog_title_f'])
+                            ->label((new Label(__('Main title font:'), Label::OL_TF))),
+                    ]),
+                (new Para())
+                    ->class('field')
+                    ->items([
+                        (new Input('blog_title_s'))
+                            ->size(7)
+                            ->maxlength(7)
+                            ->default(App::backend()->blowup_user['blog_title_s'])
+                            ->label((new Label(__('Main title font size:'), Label::OL_TF))),
+                    ]),
+                (new Para())
+                    ->class('field')
+                    ->items([
+                        (new Color('blog_title_c', App::backend()->blowup_user['blog_title_c']))
+                            ->label((new Label(__('Main title color:'), Label::OL_TF))),
+                    ]),
+                (new Para())
+                    ->class('field')
+                    ->items([
+                        (new Select('blog_title_a'))
+                            ->items([__('center') => 'center', __('left') => 'left', __('right') => 'right'])
+                            ->default(App::backend()->blowup_user['blog_title_a'])
+                            ->label((new Label(__('Main title alignment:'), Label::OL_TF))),
+                    ]),
+                (new Para())
+                    ->class('field')
+                    ->items([
+                        (new Input('blog_title_p'))
+                            ->size(7)
+                            ->maxlength(7)
+                            ->default(App::backend()->blowup_user['blog_title_p'])
+                            ->label((new Label(__('Main title position (x:y)'), Label::OL_TF))),
+                    ]),
+                App::backend()->can_write_images ?
+                    (new Set())
+                        ->items([
+                            (new Text('h5', __('Top image')))
+                                ->class('pretty-title'),
+                            (new Para())
+                                ->class('field')
+                                ->items([
+                                    (new Select('top_image'))
+                                        ->items(App::backend()->top_images)
+                                        ->default(App::backend()->blowup_user['top_image'] ?: 'default')
+                                        ->label((new Label(__('Top image'), Label::OL_TF))),
+                                ]),
+                            (new Note())
+                                ->class(['form-note', 'info'])
+                                ->text(__('Choose "Custom..." to upload your own image.')),
+                            (new Para('uploader'))
+                                ->items([
+                                    (new File('upfile'))
+                                        ->size(35)
+                                        ->label((new Label(sprintf(__('JPEG or PNG file, 800 pixels wide, maximum size %s'), Files::size(App::config()->maxUploadSize())), Label::OL_TF))),
+                                ]),
+                            (new Text('h5', __('Preview'))),
+                            (new Div())
+                                ->class('grid')
+                                ->extra('style="width:800px;border:1px solid #ccc;"')
+                                ->items([
+                                    (new Img($preview_image, 'image-preview'))
+                                        ->extra('style="display:block;"'),
+                                ]),
+                        ]) :
+                    (new None()),
+                (new Text('h4', __('Sidebar')))
+                    ->class('border-top'),
+                (new Para())
+                    ->class('field')
+                    ->items([
+                        (new Select('sidebar_position'))
+                            ->items([__('right') => 'right', __('left') => 'left'])
+                            ->default(App::backend()->blowup_user['sidebar_position'])
+                            ->label((new Label(__('Sidebar position:'), Label::OL_TF))),
+                    ]),
+                (new Para())
+                    ->class('field')
+                    ->items([
+                        (new Select('sidebar_text_f'))
+                            ->items(Blowup::fontsList())
+                            ->default(App::backend()->blowup_user['sidebar_text_f'])
+                            ->label((new Label(__('Sidebar text font:'), Label::OL_TF))),
+                    ]),
+                (new Para())
+                    ->class('field')
+                    ->items([
+                        (new Input('sidebar_text_s'))
+                            ->size(7)
+                            ->maxlength(7)
+                            ->default(App::backend()->blowup_user['sidebar_text_s'])
+                            ->label((new Label(__('Sidebar text font size:'), Label::OL_TF))),
+                    ]),
+                (new Para())
+                    ->class('field')
+                    ->items([
+                        (new Color('sidebar_text_c', App::backend()->blowup_user['sidebar_text_c']))
+                            ->label((new Label(__('Sidebar text color:'), Label::OL_TF))),
+                    ]),
+                (new Para())
+                    ->class('field')
+                    ->items([
+                        (new Select('sidebar_title_f'))
+                            ->items(Blowup::fontsList())
+                            ->default(App::backend()->blowup_user['sidebar_title_f'])
+                            ->label((new Label(__('Sidebar titles font:'), Label::OL_TF))),
+                    ]),
+                (new Para())
+                    ->class('field')
+                    ->items([
+                        (new Input('sidebar_title_s'))
+                            ->size(7)
+                            ->maxlength(7)
+                            ->default(App::backend()->blowup_user['sidebar_title_s'])
+                            ->label((new Label(__('Sidebar titles font size:'), Label::OL_TF))),
+                    ]),
+                (new Para())
+                    ->class('field')
+                    ->items([
+                        (new Color('sidebar_title_c', App::backend()->blowup_user['sidebar_title_c']))
+                            ->label((new Label(__('Sidebar titles color:'), Label::OL_TF))),
+                    ]),
+                (new Para())
+                    ->class('field')
+                    ->items([
+                        (new Select('sidebar_title2_f'))
+                            ->items(Blowup::fontsList())
+                            ->default(App::backend()->blowup_user['sidebar_title2_f'])
+                            ->label((new Label(__('Sidebar 2nd level titles font:'), Label::OL_TF))),
+                    ]),
+                (new Para())
+                    ->class('field')
+                    ->items([
+                        (new Input('sidebar_title2_s'))
+                            ->size(7)
+                            ->maxlength(7)
+                            ->default(App::backend()->blowup_user['sidebar_title2_s'])
+                            ->label((new Label(__('Sidebar 2nd level titles font size:'), Label::OL_TF))),
+                    ]),
+                (new Para())
+                    ->class('field')
+                    ->items([
+                        (new Color('sidebar_title2_c', App::backend()->blowup_user['sidebar_title2_c']))
+                            ->label((new Label(__('Sidebar 2nd level titles color:'), Label::OL_TF))),
+                    ]),
+                (new Para())
+                    ->class('field')
+                    ->items([
+                        (new Color('sidebar_line_c', App::backend()->blowup_user['sidebar_line_c']))
+                            ->label((new Label(__('Sidebar lines color:'), Label::OL_TF))),
+                    ]),
+                (new Para())
+                    ->class('field')
+                    ->items([
+                        (new Color('sidebar_link_c', App::backend()->blowup_user['sidebar_link_c']))
+                            ->label((new Label(__('Sidebar links color:'), Label::OL_TF))),
+                    ]),
+                (new Para())
+                    ->class('field')
+                    ->items([
+                        (new Color('sidebar_link_v_c', App::backend()->blowup_user['sidebar_link_v_c']))
+                            ->label((new Label(__('Sidebar visited links color:'), Label::OL_TF))),
+                    ]),
+                (new Para())
+                    ->class('field')
+                    ->items([
+                        (new Color('sidebar_link_f_c', App::backend()->blowup_user['sidebar_link_f_c']))
+                            ->label((new Label(__('Sidebar focus links color:'), Label::OL_TF))),
+                    ]),
+                (new Text('h4', __('Entries')))
+                    ->class('border-top'),
+                (new Para())
+                    ->class('field')
+                    ->items([
+                        (new Select('date_title_f'))
+                            ->items(Blowup::fontsList())
+                            ->default(App::backend()->blowup_user['date_title_f'])
+                            ->label((new Label(__('Date title font:'), Label::OL_TF))),
+                    ]),
+                (new Para())
+                    ->class('field')
+                    ->items([
+                        (new Input('date_title_s'))
+                            ->size(7)
+                            ->maxlength(7)
+                            ->default(App::backend()->blowup_user['date_title_s'])
+                            ->label((new Label(__('Date title font size:'), Label::OL_TF))),
+                    ]),
+                (new Para())
+                    ->class('field')
+                    ->items([
+                        (new Color('date_title_c', App::backend()->blowup_user['date_title_c']))
+                            ->label((new Label(__('Date title color:'), Label::OL_TF))),
+                    ]),
+                (new Para())
+                    ->class('field')
+                    ->items([
+                        (new Select('post_title_f'))
+                            ->items(Blowup::fontsList())
+                            ->default(App::backend()->blowup_user['post_title_f'])
+                            ->label((new Label(__('Entry title font:'), Label::OL_TF))),
+                    ]),
+                (new Para())
+                    ->class('field')
+                    ->items([
+                        (new Input('post_title_s'))
+                            ->size(7)
+                            ->maxlength(7)
+                            ->default(App::backend()->blowup_user['post_title_s'])
+                            ->label((new Label(__('Entry title font size:'), Label::OL_TF))),
+                    ]),
+                (new Para())
+                    ->class('field')
+                    ->items([
+                        (new Color('post_title_c', App::backend()->blowup_user['post_title_c']))
+                            ->label((new Label(__('Entry title color:'), Label::OL_TF))),
+                    ]),
+                App::backend()->can_write_images ?
+                    (new Set())
+                        ->items([
+                            (new Para())
+                                ->class('field')
+                                ->items([
+                                    (new Color('post_comment_bg_c', App::backend()->blowup_user['post_comment_bg_c']))
+                                        ->label((new Label(__('Comment background color:'), Label::OL_TF))),
+                                ]),
+                        ]) :
+                    (new None()),
+                (new Para())
+                    ->class('field')
+                    ->items([
+                        (new Color('post_comment_c', App::backend()->blowup_user['post_comment_c']))
+                            ->label((new Label(__('Comment text color:'), Label::OL_TF))),
+                    ]),
+                App::backend()->can_write_images ?
+                    (new Set())
+                        ->items([
+                            (new Para())
+                                ->class('field')
+                                ->items([
+                                    (new Color('post_commentmy_bg_c', App::backend()->blowup_user['post_commentmy_bg_c']))
+                                        ->label((new Label(__('My comment background color:'), Label::OL_TF))),
+                                ]),
+                        ]) :
+                    (new None()),
+                (new Para())
+                    ->class('field')
+                    ->items([
+                        (new Color('post_commentmy_c', App::backend()->blowup_user['post_commentmy_c']))
+                            ->label((new Label(__('My comment text color:'), Label::OL_TF))),
+                    ]),
+                (new Text('h4', __('Footer')))
+                    ->class('border-top'),
+                (new Para())
+                    ->class('field')
+                    ->items([
+                        (new Select('footer_f'))
+                            ->items(Blowup::fontsList())
+                            ->default(App::backend()->blowup_user['footer_f'])
+                            ->label((new Label(__('Footer font:'), Label::OL_TF))),
+                    ]),
+                (new Para())
+                    ->class('field')
+                    ->items([
+                        (new Input('footer_s'))
+                            ->size(7)
+                            ->maxlength(7)
+                            ->default(App::backend()->blowup_user['footer_s'])
+                            ->label((new Label(__('Footer font size:'), Label::OL_TF))),
+                    ]),
+                (new Para())
+                    ->class('field')
+                    ->items([
+                        (new Color('footer_c', App::backend()->blowup_user['footer_c']))
+                            ->label((new Label(__('Footer color:'), Label::OL_TF))),
+                    ]),
+                (new Para())
+                    ->class('field')
+                    ->items([
+                        (new Color('footer_l_c', App::backend()->blowup_user['footer_l_c']))
+                            ->label((new Label(__('Footer links color:'), Label::OL_TF))),
+                    ]),
+                (new Para())
+                    ->class('field')
+                    ->items([
+                        (new Color('footer_bg_c', App::backend()->blowup_user['footer_bg_c']))
+                            ->label((new Label(__('Footer background color:'), Label::OL_TF))),
+                    ]),
+                (new Text('h4', __('Additional CSS')))
+                    ->class('border-top'),
+                (new Para())
+                    ->items([
+                        (new Textarea('extra_css', Html::escapeHTML(App::backend()->blowup_user['extra_css'])))
+                            ->title(__('Additional CSS'))
+                            ->class('maximal')
+                            ->cols(72)
+                            ->rows(5)
+                            ->label((new Label(__('Any additional CSS styles (must be written using the CSS syntax):'), Label::OL_TF))),
+                    ]),
+            ])
+        ->render();
+
+        echo (new Div())
+            ->class('fieldset')
+            ->items([
+                (new Text('h3', __('Configuration import / export')))
+                    ->id('bu_export'),
+                (new Div('bu_export_content'))
+                    ->items([
+                        (new Note())
+                            ->class(['form-note', 'info'])
+                            ->text(__('You can share your configuration using the following code. To apply a configuration, paste the code, click on "Apply code" and save.')),
+                        (new Para())
+                            ->items([
+                                (new Textarea('export_code', $export_code))
+                                    ->title(__('Copy this code:'))
+                                    ->class('maximal')
+                                    ->cols(72)
+                                    ->rows(5)
+                                    ->label((new Label(__('Copy this code:'), Label::OL_TF))),
+                            ]),
+                    ]),
+            ])
+        ->render();
 
         Page::helpBlock('blowupConfig');
-
-        // Legacy mode
-        if (!App::backend()->standalone_config) {
-            echo '<form style="display:none">';
-        }
     }
 }
