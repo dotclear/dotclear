@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-07 16:28+0200\n"
-"PO-Revision-Date: 2023-12-02 09:06\n"
+"PO-Revision-Date: 2025-07-31 17:28\n"
 "Last-Translator: \n"
 "Language-Team: Ukrainian\n"
 "MIME-Version: 1.0\n"
@@ -75,8 +75,8 @@ msgstr "Внутрішня помилка сервера"
 
 # in Dotclear\App
 #, php-format
-msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
-msgstr "<p>Це означає, що інформація про ім'я користувача та пароль у вашому файлі <strong>config.php</strong> невірна, або ми не можемо зв'язатися з сервером бази даних за адресою \"<em>%s</em>\". Це може означати, що сервер бази даних вашого хостера не працює.</p> <ul><li>Ви впевнені, що у вас правильні ім'я користувача та пароль?</li><li>Ви впевнені, що ввели правильне ім'я хоста?</li><li>Ви впевнені, що сервер бази даних працює?</li></ul><p>Якщо ви не знаєте, що означають ці терміни, вам слід звернутися до вашого хостера. Якщо вам все ще потрібна допомога, ви завжди можете відвідати форуми підтримки Dotclear <a href=\"https://forum.dotclear.net/\">та</a>.</p>"
+msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%1$s</em>\". This could mean your host's database server is down.</p><ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"%2$s\">Dotclear Support Forums</a>.</p>"
+msgstr ""
 
 # in Dotclear\Config
 msgid "Dotclear release file is not readable"
