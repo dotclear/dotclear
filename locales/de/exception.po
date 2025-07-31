@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-07 16:28+0200\n"
-"PO-Revision-Date: 2025-07-31 17:27\n"
+"PO-Revision-Date: 2025-07-31 18:15\n"
 "Last-Translator: \n"
 "Language-Team: German\n"
 "MIME-Version: 1.0\n"
@@ -76,7 +76,7 @@ msgstr "Interner Serverfehler"
 # in Dotclear\App
 #, php-format
 msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%1$s</em>\". This could mean your host's database server is down.</p><ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"%2$s\">Dotclear Support Forums</a>.</p>"
-msgstr ""
+msgstr "<p>Das bedeutet entweder, dass die Angaben zu Benutzername und Passwort in Ihrer <strong>config.php-Datei</strong> nicht korrekt sind, oder wir können den Datenbankserver unter \"<em>%1$s</em>\". Dies könnte bedeuten, dass der Datenbankserver Ihres Hosts ausgefallen ist.</p><ul><li>Sind Sie sicher, dass Sie den richtigen Benutzernamen und das richtige Passwort haben?</li><li>Sind Sie sicher, dass Sie den richtigen Hostnamen eingegeben haben?</li><li>Sind Sie sicher, dass der Datenbankserver läuft?</li></ul><p>Wenn Sie sich nicht sicher sind, was diese Begriffe bedeuten, sollten Sie sich wahrscheinlich an Ihren Host wenden. Wenn Sie dennoch Hilfe benötigen, können Sie jederzeit die <a href=\"%2$s\">Dotclear Support Foren</a> besuchen.</p>"
 
 # in Dotclear\Config
 msgid "Dotclear release file is not readable"
