@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-07 16:28+0200\n"
-"PO-Revision-Date: 2025-07-31 17:28\n"
+"PO-Revision-Date: 2025-07-31 18:15\n"
 "Last-Translator: \n"
 "Language-Team: Swedish\n"
 "MIME-Version: 1.0\n"
@@ -76,7 +76,7 @@ msgstr "Internt serverfel"
 # in Dotclear\App
 #, php-format
 msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%1$s</em>\". This could mean your host's database server is down.</p><ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"%2$s\">Dotclear Support Forums</a>.</p>"
-msgstr ""
+msgstr "<p>Detta betyder antingen att användarnamnet och lösenordet i filen <strong>config.php</strong> är felaktiga eller att vi inte kan kontakta databasservern på \"<em>%1$s</em>\". Detta kan betyda att din värds databasserver är nere.</p><ul><li>Är du säker på att du har rätt användarnamn och lösenord?</li><li>Är du säker på att du har skrivit in rätt värdnamn?</li><li>Är du säker på att databasservern körs?</li></ul><p>Om du är osäker på vad dessa termer betyder bör du förmodligen kontakta din värd. Om du fortfarande behöver hjälp kan du alltid besöka <a href=\"%2$s\">Dotclears supportforum</a>.</p>"
 
 # in Dotclear\Config
 msgid "Dotclear release file is not readable"
