@@ -191,9 +191,8 @@ else
     mkdir -p $PO_MODULE/locales/_pot
   fi
 
-  # _config.php goes to admin.pot, should be loaded explicitely in _config.php:
-  # use Dotclear\Helper\L10n;
-  # L10n::set(__DIR__ . '/locales/' . dcCore::app()->lang . '/admin');
+  # src/Config.php goes to admin.pot, should be loaded explicitely in src/Config.php:
+  # My::l10n('admin');
 
   if [ -f $PO_MODULE/_config.php ]; then
     echo "- Building admin PO template..."
