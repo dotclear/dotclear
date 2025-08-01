@@ -517,13 +517,13 @@ class Config extends Process
                         ->items([
                             (new Tr())
                                 ->items([
-                                    (new Td())
+                                    (new Th())
                                         ->scope('col')
                                         ->text(__('Context')),
-                                    (new Td())
+                                    (new Th())
                                         ->scope('col')
                                         ->text(__('Entries list type')),
-                                    (new Td())
+                                    (new Th())
                                         ->scope('col')
                                         ->text(__('Number of entries')),
                                 ]),
