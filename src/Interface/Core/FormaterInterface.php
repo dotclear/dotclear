@@ -24,9 +24,9 @@ interface FormaterInterface
      * transform text. The function must be a valid callback and takes one
      * argument: the string to transform. It returns the transformed string.
      *
-     * @param   string           $editor_id  The editor identifier (dcLegacyEditor, dcCKEditor, ...)
-     * @param   string           $name       The formater name
-     * @param   callable|null    $func       The function to use, must be a valid and callable callback
+     * @param   string                          $editor_id  The editor identifier (dcLegacyEditor, dcCKEditor, ...)
+     * @param   string                          $name       The formater name
+     * @param   callable(string):string|null    $func       The function to use, must be a valid and callable callback
      */
     public function addEditorFormater(string $editor_id, string $name, ?callable $func): void;
 

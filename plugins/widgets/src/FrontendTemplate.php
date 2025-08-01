@@ -72,7 +72,7 @@ class FrontendTemplate
                 if (isset($disable[$w->id()])) {
                     continue;
                 }
-                echo $w->call($k);
+                echo $w->call((int) $k);
             }
         }
     }

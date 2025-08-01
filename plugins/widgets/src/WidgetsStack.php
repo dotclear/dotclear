@@ -21,7 +21,7 @@ class WidgetsStack
     /**
      * Stack of known widgets.
      *
-     * @var     array<string|int, WidgetsElement>   $widgets
+     * @var     WidgetsElement[]   $widgets
      */
     private array $widgets = [];
 
@@ -64,14 +64,14 @@ class WidgetsStack
     /**
      * Create a new widget.
      *
-     * @param   string  $id                 The identifier
-     * @param   string  $name               The name
-     * @param   mixed   $callback           The callback
-     * @param   mixed   $append_callback    The append callback
-     * @param   string  $desc               The description
-     * @param   string  $plugin_id          The module ID providing this widget
+     * @param   string                                      $id                 The identifier
+     * @param   string                                      $name               The name
+     * @param   null|callable(WidgetsElement,int=):string   $callback           The callback
+     * @param   null|callable(WidgetsElement):void          $append_callback    The append callback
+     * @param   string                                      $desc               The description
+     * @param   string                                      $plugin_id          The module ID providing this widget
      */
-    public function create(string $id, string $name, $callback, $append_callback = null, string $desc = '', string $plugin_id = ''): WidgetsElement
+    public function create(string $id, string $name, ?callable $callback, ?callable $append_callback = null, string $desc = '', string $plugin_id = ''): WidgetsElement
     {
         $this->widgets[$id]                  = new WidgetsElement($id, $name, $callback, $desc, $plugin_id);
         $this->widgets[$id]->append_callback = $append_callback;
@@ -107,7 +107,7 @@ class WidgetsStack
      *
      * @param   bool    $sorted     Sort the list
      *
-     * @return  array<string|int, WidgetsElement>
+     * @return  WidgetsElement[]
      */
     public function elements(bool $sorted = false): array
     {

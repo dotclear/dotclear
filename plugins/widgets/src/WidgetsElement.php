@@ -69,14 +69,14 @@ class WidgetsElement
     /**
      * Widget callback.
      *
-     * @var     null|callable   $public_callback
+     * @var     null|callable(WidgetsElement,int=):string   $public_callback
      */
     private $public_callback;
 
     /**
      * Widget append callback.
      *
-     * @var     null|callable   $append_callback
+     * @var     null|callable(WidgetsElement):void   $append_callback
      */
     public $append_callback;
 
@@ -90,20 +90,20 @@ class WidgetsElement
     /**
      * Constructs a new instance.
      *
-     * @param   string          $id         The widget ID
-     * @param   string          $name       The widget name
-     * @param   callable        $callback   The widget callback
-     * @param   string          $desc       The widget description
-     * @param   string          $plugin_id  The module ID providing this widget
+     * @param   string                                      $id         The widget ID
+     * @param   string                                      $name       The widget name
+     * @param   null|callable(WidgetsElement,int=):string   $callback   The widget callback
+     * @param   string                                      $desc       The widget description
+     * @param   string                                      $plugin_id  The module ID providing this widget
      */
     public function __construct(
         private readonly string $id,
         private readonly string $name,
-        $callback,
+        ?callable $callback,
         private readonly string $desc = '',
         private readonly string $plugin_id = '',
     ) {
-        if (!is_callable($callback)) {  // @phpstan-ignore-line
+        if (!is_callable($callback)) {
             $widget = new ArrayObject(['id' => $id, 'callback' => $callback]);
             # --BEHAVIOR-- widgetGetCallback -- ArrayObject
             App::behavior()->callBehavior('widgetGetCallback', $widget);
@@ -176,14 +176,14 @@ class WidgetsElement
     /**
      * Call a widget callback.
      *
-     * @param   mixed   $i
+     * @param   ?int   $index   Widget index in stack
      *
      * @return  string
      */
-    public function call($i = 0)
+    public function call(?int $index = 0)
     {
         if (!is_null($this->public_callback)) {
-            return call_user_func($this->public_callback, $this, $i);
+            return call_user_func($this->public_callback, $this, (int) $index);
         }
 
         return (new Note())->text('Callback not found for widget ' . $this->id)->render();

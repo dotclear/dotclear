@@ -24,7 +24,7 @@ class Formater implements FormaterInterface
     /**
      * Stack of registered content formaters.
      *
-     * @var     array<string, array<string, callable> >    $stack
+     * @var     array<string, array<string, callable(string):string> >    $stack
      */
     private array $stack = [];
 
