@@ -15,13 +15,12 @@
  * @copyright   AGPL-3.0
  */
 $this->registerModule(
-    'Ductile',                              // Name
-    'Mediaqueries compliant elegant theme', // Description
-    'Dotclear Team',                        // Author
-    '3.0',                                  // Version
-    [                                  // Properties
-        'standalone_config' => true,
-        'type'              => 'theme',
-        'overload'          => true,
+    'Ductile',
+    'Mediaqueries compliant elegant theme',
+    'Dotclear Team',
+    '3.0',
+    [
+        'type'     => 'theme',
+        'overload' => true,
     ]
 );
