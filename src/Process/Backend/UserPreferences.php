@@ -1016,12 +1016,12 @@ class UserPreferences extends Process
                 // User favorites only
                 $count++;
 
-                $icon = isset($fav['small-icon']) ? Helper::adminIcon($fav['small-icon']) : $id;
-                $zoom = isset($fav['large-icon']) ? Helper::adminIcon($fav['large-icon'], false) : '';
+                $icon = $fav->smallIcon() ? Helper::adminIcon($fav->smallIcon()) : $id;
+                $zoom = $fav->largeIcon() ? Helper::adminIcon($fav->largeIcon(), false) : '';
                 if ($zoom !== '') {
                     $icon .= ' ' . (new Span($zoom))->class('zoom')->render();
                 }
-                $title                  = $fav['title'] ?? $id;
+                $title                  = $fav->title() ?? $id;
                 $user_favorites_items[] = (new Li('fu-' . $id))
                     ->items([
                         (new Number(['order[' . $id . ']'], 1, count($user_fav), $count))
@@ -1081,8 +1081,8 @@ class UserPreferences extends Process
         }
         $count = 0;
         uasort($avail_fav, fn ($a, $b): int => strcoll(
-            strtolower(Txt::removeDiacritics((string) $a['title'])),
-            strtolower(Txt::removeDiacritics((string) $b['title']))
+            strtolower(Txt::removeDiacritics((string) $a->title())),
+            strtolower(Txt::removeDiacritics((string) $b->title()))
         ));
         foreach (array_keys($avail_fav) as $k) {
             if (in_array($k, $user_fav)) {
@@ -1092,8 +1092,8 @@ class UserPreferences extends Process
         $other_favorites_items = [];
         foreach ($avail_fav as $k => $fav) {
             $count++;
-            $icon = Helper::adminIcon($fav['small-icon']);
-            $zoom = Helper::adminIcon($fav['large-icon'], false);
+            $icon = Helper::adminIcon($fav->smallIcon());
+            $zoom = Helper::adminIcon($fav->largeIcon(), false);
             if ($zoom !== '') {
                 $icon .= ' ' . (new Span($zoom))->class('zoom')->render();
             }
@@ -1101,7 +1101,7 @@ class UserPreferences extends Process
                 ->items([
                     (new Checkbox(['append[]', 'fak-' . $k]))
                         ->value($k)
-                        ->label((new Label($fav['title'] ?? $k, Label::IL_FT))->prefix($icon)),
+                        ->label((new Label($fav->title() ?? $k, Label::IL_FT))->prefix($icon)),
                     isset($default_fav_ids[$k]) ?
                         (new Span())
                             ->class('default-fav')

@@ -17,35 +17,15 @@ use Dotclear\Interface\Core\UserWorkspaceInterface;
 
 /**
  * Favorites handling facilities
- *
- * @phpstan-type FavoriteProperties array{
- *     title: ?string,
- *     url: ?string,
- *     small-icon: null|string|string[],
- *     large-icon: null|string|string[],
- *     permissions?: null|string|bool,
- *     dashboard_cb?: ?callable,
- *     active_cb?: ?callable,
- *     active?: bool,
- * }
- *
- *    'title' => favorite title (localized)
- *    'url' => favorite URL,
- *    'small-icon' => favorite small icon(s) (for menu)
- *    'large-icon' => favorite large icon(s) (for dashboard)
- *    'permissions' => (optional) comma-separated list of permissions for thie fav, if not set : no restriction
- *    'dashboard_cb' => (optional) callback to modify title if dynamic, if not set : title is taken as is
- *    'active_cb' => (optional) callback to tell whether current page matches favorite or not, for complex pages
- *    'active' => (optional) is favorite currently active
  */
 class Favorites
 {
     /**
      * List of favorite definitions
      *
-     * @var ArrayObject<string, FavoriteProperties>  $favorites
+     * @var array<string, Favorite>  $favorites
      */
-    protected ArrayObject $favorites;
+    protected array $favorites = [];
 
     /**
      * Current favorite landing workspace
@@ -69,7 +49,7 @@ class Favorites
     /**
      * List of user preferences (made from either one of the 2 above, or not!)
      *
-     * @var array<string, mixed>    $user_favorites
+     * @var array<string, Favorite>    $user_favorites
      */
     protected $user_favorites = [];
 
@@ -78,7 +58,6 @@ class Favorites
      */
     public function __construct()
     {
-        $this->favorites = new ArrayObject();
         $this->workspace = App::auth()->prefs()->dashboard;
 
         if ($this->workspace->prefExists('favorites')) {
@@ -112,20 +91,20 @@ class Favorites
      *
      * @param string  $id   the favorite id
      *
-     * @return FavoriteProperties|false   The favorite properties, false if not found (or not permitted)
+     * @return Favorite|false   Some of the favorite properties, false if not found (or not permitted)
      */
-    public function getFavorite($id): false|array
+    public function getFavorite($id): false|Favorite
     {
         if (!isset($this->favorites[$id])) {
             return false;
         }
         $favorite = $this->favorites[$id];
-        if (isset($favorite['permissions'])) {
-            if (is_bool($favorite['permissions'])) {
-                if (!$favorite['permissions']) {
+        if (!is_null($favorite->permissions())) {
+            if (is_bool($favorite->permissions())) {
+                if (!$favorite->permissions()) {
                     return false;
                 }
-            } elseif (!App::auth()->check($favorite['permissions'], App::blog()->id())) {
+            } elseif (!App::auth()->check($favorite->permissions(), App::blog()->id())) {
                 return false;
             }
         } elseif (!App::auth()->isSuperAdmin()) {
@@ -140,7 +119,7 @@ class Favorites
      *
      * @param  array<string>  $ids   an array of ids, as defined in getFavorite.
      *
-     * @return array<string, FavoriteProperties> array of favorites, can be empty if ids are not found (or not permitted)
+     * @return array<string, Favorite> array of favorites, can be empty if ids are not found (or not permitted)
      */
     public function getFavorites(array $ids): array
     {
@@ -180,25 +159,25 @@ class Favorites
         $uri[0] = preg_replace('#(.*?)([^/]+)$#', '$2', $uri[0]);
 
         // Loop over prefs to enable active favorites
-        foreach ($this->user_favorites as &$favorite) {
+        foreach ($this->user_favorites as $favorite) {
             // duplicate request URI on each loop as it takes previous pref value ?!
             $url = $uri;
-            if (isset($favorite['active_cb']) && is_callable($favorite['active_cb'])) { // @phpstan-ignore-line 'active_cb' may be anything
+            if ($favorite->activedCallback()) {
                 // Use callback if defined to match whether favorite is active or not
-                $favorite['active'] = call_user_func($favorite['active_cb'], $url[0], $_REQUEST);
+                $favorite->setActive($favorite->isActive((string) $url[0], $_REQUEST));
             } else {
                 // Failback active detection. We test against URI name & parameters
-                $favorite['active'] = true; // true until something proves it is false
-                $url                = explode('?', (string) $favorite['url'], 2);
+                $favorite->setActive(true); // true until something proves it is false
+                $url = explode('?', (string) $favorite->url(), 2);
                 if (!preg_match('/' . preg_quote($url[0], '/') . '/', (string) $_SERVER['REQUEST_URI'])) {
-                    $favorite['active'] = false; // no URI match
+                    $favorite->setActive(false); // no URI match
                 }
                 if (count($url) === 2) {
                     parse_str(html_entity_decode($url[1]), $result);
                     // test against each request parameter.
                     foreach ($result as $key => $value) {
                         if (!isset($_REQUEST[$key]) || $_REQUEST[$key] !== $value) {
-                            $favorite['active'] = false;
+                            $favorite->setActive(false);
                         }
                     }
                 }
@@ -255,7 +234,7 @@ class Favorites
      * Returns favorites that correspond to current user
      * (may be local, global, or failback favorites)
      *
-     * @return array<string, FavoriteProperties> array of favorites (enriched)
+     * @return array<string, Favorite> array of favorites
      */
     public function getUserFavorites(): array
     {
@@ -294,7 +273,7 @@ class Favorites
      */
     public function getAvailableFavoritesIDs(): array
     {
-        return array_keys($this->favorites->getArrayCopy());
+        return array_keys($this->favorites);
     }
 
     /**
@@ -316,12 +295,12 @@ class Favorites
      */
     public function appendMenu(Menus $menu): void
     {
-        foreach ($this->user_favorites as $favorite_id => $favorite_menu) {
+        foreach ($this->user_favorites as $favorite_id => $favorite) {
             $menu[Menus::MENU_FAVORITES]?->addItem(
-                $favorite_menu['title'],
-                $favorite_menu['url'],
-                $favorite_menu['small-icon'],
-                $favorite_menu['active'],
+                $favorite->title() ?? '',
+                $favorite->url()   ?? '',
+                $favorite->smallIcon(),
+                $favorite->active(),
                 true,
                 $favorite_id . '-fav',
                 null,
@@ -338,11 +317,8 @@ class Favorites
      */
     public function appendDashboardIcons(array|ArrayObject $icons): void
     {
-        foreach ($this->user_favorites as $icon_id => $icon_data) {
-            if (isset($icon_data['dashboard_cb']) && is_callable($icon_data['dashboard_cb'])) {
-                $icon_data = $icon_data instanceof ArrayObject ? $icon_data : new ArrayObject($icon_data);
-                call_user_func($icon_data['dashboard_cb'], $icon_data);
-            }
+        foreach ($this->user_favorites as $favorite_id => $favorite) {
+            $favorite->setDashboardTitle();
             /*
              * $icons items structure:
              * [0] = title
@@ -350,23 +326,37 @@ class Favorites
              * [2] = icons (usually array (light/dark))
              * [3] = additional informations (usually set by 3rd party plugins)
              */
-            $icons[$icon_id] = new ArrayObject([$icon_data['title'], $icon_data['url'], $icon_data['large-icon']]);
+            $icons[$favorite_id] = new ArrayObject([
+                $favorite->title() ?? '',
+                $favorite->url()   ?? '',
+                $favorite->largeIcon(),
+            ]);
             # --BEHAVIOR-- adminDashboardFavsIconV2 -- string, ArrayObject
-            App::behavior()->callBehavior('adminDashboardFavsIconV2', $icon_id, $icons[$icon_id]);
+            App::behavior()->callBehavior('adminDashboardFavsIconV2', $favorite_id, $icons[$favorite_id]);
         }
     }
 
     /**
      * Registers a new favorite definition
      *
-     * @param string              $favorite_id   favorite id
-     * @param FavoriteProperties  $favorite_data favorite information
+     * @param string                $favorite_id   favorite id
+     * @param array<string, mixed>  $favorite_data favorite information
      *
      * @return Favorites instance
      */
     public function register(string $favorite_id, array $favorite_data): Favorites
     {
-        $this->favorites[$favorite_id] = $favorite_data;
+        $this->favorites[$favorite_id] = new Favorite(
+            $favorite_id,
+            $favorite_data['title']        ?? null,
+            $favorite_data['url']          ?? null,
+            $favorite_data['small-icon']   ?? null,
+            $favorite_data['large-icon']   ?? null,
+            $favorite_data['permissions']  ?? null,
+            $favorite_data['dashboard_cb'] ?? null,
+            $favorite_data['active_cb']    ?? null,
+            $favorite_data['active']       ?? false,
+        );
 
         return $this;
     }
@@ -374,7 +364,7 @@ class Favorites
     /**
      * Registers a list of favorites definition
      *
-     * @param array<string, FavoriteProperties> $data Array of favorites to register.
+     * @param array<string, array<string, mixed>> $data Array of favorites to register.
      *
      * @return Favorites instance
      */
