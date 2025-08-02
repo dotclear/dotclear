@@ -4445,7 +4445,8 @@ a.back:is(:hover, :focus) {
 }
 
 a.back::before {
-  content: "« ";
+  content: "< ";
+  content: "← "/"< ";
 }
 
 a.onblog_link {

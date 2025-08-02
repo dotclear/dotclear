@@ -197,7 +197,8 @@ a.back {
 }
 
 a.back::before {
-  content: '\ab\a0';
+  content: '< ';
+  content: '← ' / '< ';
 }
 
 a.onblog_link {
