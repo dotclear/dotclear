@@ -301,7 +301,7 @@ class Blowup
                 $css['#top h1']['width']            = 'auto';
             }
 
-            if (is_string($s['blog_title_p'])) {
+            if (is_string($s['blog_title_p']) && $s['blog_title_p'] !== '') {
                 $_p                    = explode(':', $s['blog_title_p']);
                 $css['#top h1']['top'] = $_p[1] . 'px';
                 if ($s['blog_title_a'] != 'center') {
