@@ -1081,8 +1081,8 @@ class UserPreferences extends Process
         }
         $count = 0;
         uasort($avail_fav, fn ($a, $b): int => strcoll(
-            strtolower(Txt::removeDiacritics($a['title'])),
-            strtolower(Txt::removeDiacritics($b['title']))
+            strtolower(Txt::removeDiacritics((string) $a['title'])),
+            strtolower(Txt::removeDiacritics((string) $b['title']))
         ));
         foreach (array_keys($avail_fav) as $k) {
             if (in_array($k, $user_fav)) {
@@ -1101,7 +1101,7 @@ class UserPreferences extends Process
                 ->items([
                     (new Checkbox(['append[]', 'fak-' . $k]))
                         ->value($k)
-                        ->label((new Label($fav['title'], Label::IL_FT))->prefix($icon)),
+                        ->label((new Label($fav['title'] ?? $k, Label::IL_FT))->prefix($icon)),
                     isset($default_fav_ids[$k]) ?
                         (new Span())
                             ->class('default-fav')

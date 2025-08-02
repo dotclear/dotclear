@@ -17,13 +17,33 @@ use Dotclear\Interface\Core\UserWorkspaceInterface;
 
 /**
  * Favorites handling facilities
+ *
+ * @phpstan-type FavoriteProperties array{
+ *     title: ?string,
+ *     url: ?string,
+ *     small-icon: null|string|string[],
+ *     large-icon: null|string|string[],
+ *     permissions?: null|string|bool,
+ *     dashboard_cb?: ?callable,
+ *     active_cb?: ?callable,
+ *     active?: bool,
+ * }
+ *
+ *    'title' => favorite title (localized)
+ *    'url' => favorite URL,
+ *    'small-icon' => favorite small icon(s) (for menu)
+ *    'large-icon' => favorite large icon(s) (for dashboard)
+ *    'permissions' => (optional) comma-separated list of permissions for thie fav, if not set : no restriction
+ *    'dashboard_cb' => (optional) callback to modify title if dynamic, if not set : title is taken as is
+ *    'active_cb' => (optional) callback to tell whether current page matches favorite or not, for complex pages
+ *    'active' => (optional) is favorite currently active
  */
 class Favorites
 {
     /**
      * List of favorite definitions
      *
-     * @var ArrayObject<string, mixed>  $favorites
+     * @var ArrayObject<string, FavoriteProperties>  $favorites
      */
     protected ArrayObject $favorites;
 
@@ -35,14 +55,14 @@ class Favorites
     /**
      * List of user-defined favorite ids
      *
-     * @var array<string>   $local_favorites_ids
+     * @var string[]   $local_favorites_ids
      */
     protected array $local_favorites_ids;
 
     /**
      * List of globally-defined favorite ids
      *
-     * @var array<string>   $global_favorites_ids
+     * @var string[]   $global_favorites_ids
      */
     protected array $global_favorites_ids;
 
@@ -90,27 +110,16 @@ class Favorites
     /**
      * Retrieves a favorite (complete description) from its id.
      *
-     * @param string|array<string, mixed>  $id   the favorite id, or an array having 1 key 'name' set to id, their keys are merged to favorite.
+     * @param string  $id   the favorite id
      *
-     * @return array<string, mixed>|false   array the favorite, false if not found (or not permitted)
+     * @return FavoriteProperties|false   The favorite properties, false if not found (or not permitted)
      */
     public function getFavorite($id): false|array
     {
-        if (is_array($id)) {
-            $fname = $id['name'];
-            if (!isset($this->favorites[$fname])) {
-                return false;
-            }
-            $favorite = $id;
-            unset($favorite['name']);
-            $favorite = array_merge($this->favorites[$fname], $favorite);
-        } else {
-            if (!isset($this->favorites[$id])) {
-                return false;
-            }
-            $favorite = $this->favorites[$id];
+        if (!isset($this->favorites[$id])) {
+            return false;
         }
-        $favorite = array_merge(['id' => null, 'class' => null], $favorite);
+        $favorite = $this->favorites[$id];
         if (isset($favorite['permissions'])) {
             if (is_bool($favorite['permissions'])) {
                 if (!$favorite['permissions']) {
@@ -131,7 +140,7 @@ class Favorites
      *
      * @param  array<string>  $ids   an array of ids, as defined in getFavorite.
      *
-     * @return array<string, array<string, mixed>> array of favorites, can be empty if ids are not found (or not permitted)
+     * @return array<string, FavoriteProperties> array of favorites, can be empty if ids are not found (or not permitted)
      */
     public function getFavorites(array $ids): array
     {
@@ -174,7 +183,7 @@ class Favorites
         foreach ($this->user_favorites as &$favorite) {
             // duplicate request URI on each loop as it takes previous pref value ?!
             $url = $uri;
-            if (isset($favorite['active_cb']) && is_callable($favorite['active_cb'])) {
+            if (isset($favorite['active_cb']) && is_callable($favorite['active_cb'])) { // @phpstan-ignore-line 'active_cb' may be anything
                 // Use callback if defined to match whether favorite is active or not
                 $favorite['active'] = call_user_func($favorite['active_cb'], $url[0], $_REQUEST);
             } else {
@@ -229,16 +238,16 @@ class Favorites
         # --BEHAVIOR-- adminDashboardFavsV2 -- ArrayObject
         App::behavior()->callBehavior('adminDashboardFavsV2', $favorites);
         foreach ($favorites as $favorite) {
-            $favorite_data = [
-                'title'       => __($favorite[1]),
-                'url'         => $favorite[2],
-                'small-icon'  => $favorite[3],
-                'large-icon'  => $favorite[4],
-                'permissions' => $favorite[5],
-                'id'          => $favorite[6],
-                'class'       => $favorite[7],
-            ];
-            $this->register($favorite[0], $favorite_data);
+            $this->register($favorite[0], [
+                'title'        => __($favorite[1]),
+                'url'          => $favorite[2],
+                'small-icon'   => $favorite[3],
+                'large-icon'   => $favorite[4],
+                'permissions'  => $favorite[5],
+                'dashboard_cb' => null,
+                'active_cb'    => null,
+                'active'       => false,
+            ]);
         }
     }
 
@@ -246,7 +255,7 @@ class Favorites
      * Returns favorites that correspond to current user
      * (may be local, global, or failback favorites)
      *
-     * @return array<string, mixed> array of favorites (enriched)
+     * @return array<string, FavoriteProperties> array of favorites (enriched)
      */
     public function getUserFavorites(): array
     {
@@ -259,7 +268,7 @@ class Favorites
      *
      * @param boolean  $global   if true, retrieve global favs, user favs otherwise
      *
-     * @return array<string> array of favorites ids (only ids, not enriched)
+     * @return string[] array of favorites ids (only ids, not enriched)
      */
     public function getFavoriteIDs(bool $global = false): array
     {
@@ -270,7 +279,7 @@ class Favorites
      * Stores user-defined or global favorites ids list
      * shall not be called outside preferences.php...
      *
-     * @param array<string>     $ids     list of fav ids
+     * @param string[]          $ids     list of fav ids
      * @param boolean           $global  if true, retrieve global favs, user favs otherwise
      */
     public function setFavoriteIDs(array $ids, bool $global = false): void
@@ -281,7 +290,7 @@ class Favorites
     /**
      * Returns all available fav ids
      *
-     * @return array<string> array of favorites ids (only ids, not enriched)
+     * @return string[] array of favorites ids (only ids, not enriched)
      */
     public function getAvailableFavoritesIDs(): array
     {
@@ -315,7 +324,7 @@ class Favorites
                 $favorite_menu['active'],
                 true,
                 $favorite_id . '-fav',
-                $favorite_menu['class'],
+                null,
                 true
             );
         }
@@ -350,15 +359,8 @@ class Favorites
     /**
      * Registers a new favorite definition
      *
-     * @param string                $favorite_id   favorite id
-     * @param array<string, mixed>  $favorite_data favorite information. Array keys are :
-     *    'title' => favorite title (localized)
-     *    'url' => favorite URL,
-     *    'small-icon' => favorite small icon(s) (for menu)
-     *    'large-icon' => favorite large icon(s) (for dashboard)
-     *    'permissions' => (optional) comma-separated list of permissions for thie fav, if not set : no restriction
-     *    'dashboard_cb' => (optional) callback to modify title if dynamic, if not set : title is taken as is
-     *    'active_cb' => (optional) callback to tell whether current page matches favorite or not, for complex pages
+     * @param string              $favorite_id   favorite id
+     * @param FavoriteProperties  $favorite_data favorite information
      *
      * @return Favorites instance
      */
@@ -372,8 +374,7 @@ class Favorites
     /**
      * Registers a list of favorites definition
      *
-     * @param array<string, mixed> $data an array defining all favorites key is the id, value is the data.
-     *  see register method for data format
+     * @param array<string, FavoriteProperties> $data Array of favorites to register.
      *
      * @return Favorites instance
      */
