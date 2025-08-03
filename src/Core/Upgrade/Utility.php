@@ -104,7 +104,7 @@ class Utility extends Process
                     // Avoid loop caused by old cookie
                     $p    = App::session()->getCookieParameters(false, -600);
                     $p[3] = '/';
-                    setcookie(...$p);   // @phpstan-ignore-line
+                    setcookie(...$p);
 
                     App::upgrade()->url()->redirect('upgrade.auth');
                 }

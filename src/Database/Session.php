@@ -152,6 +152,8 @@ class Session implements SessionInterface
      *
      * @param mixed         $value        Cookie value
      * @param int           $expire       Cookie expiration timestamp
+     *
+     * @return  array{0:string,1:string,2:int,3:string,4:string,5:bool}
      */
     public function getCookieParameters($value = null, int $expire = 0): array
     {

@@ -55,19 +55,20 @@ interface SessionInterface
     /**
      * Session Cookie
      *
-     * This method returns an array of all session cookie parameters,
-     * like :
-     * * (string) session name
-     * * (string) session value,
-     * * (int) session expire,
-     * * (string) cookie path,
-     * * (string) cookie domain,
-     * * (bool) cookie secure,
+     * This method returns an array of all session cookie parameters:
+     * <ul>
+     * <li>(string) session name,</li>
+     * <li>(string) session value,</li>
+     * <li>(int) session expire,</li>
+     * <li>(string) cookie path,</li>
+     * <li>(string) cookie domain,</li>
+     * <li>(bool) cookie secure,</li>
+     * </ul>
      *
      * @param   mixed   $value      Cookie value
      * @param   int     $expire     Cookie expiration timestamp
      *
-     * @return  array<int,int|string|bool>
+     * @return  array{0:string,1:string,2:int,3:string,4:string,5:bool}
      */
     public function getCookieParameters($value = null, int $expire = 0): array;
 }
