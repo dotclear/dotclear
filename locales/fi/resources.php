@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Backend
@@ -7,9 +8,7 @@
  * @copyright AGPL-3.0
  */
 \Dotclear\App::backend()->resources()
-    ->reset('rss_news') // remove previously set "en" rss news
-    ->set('rss_news', 'Dotclear', 'https://fr.dotclear.org/blog/feed/category/News/atom')
-    ->reset('doc') // remove previously set "en" doc
+    ->set('rss_news', 'Dotclear', 'https://dotclear.org/blog/feed/category/News/atom')
     ->set('doc', 'Dotclear-dokumentaatio', 'https://dotclear.org/documentation/2.0')
     ->set('doc', 'Käyttäjän opas', 'https://dotclear.org/documentation/2.0/overview/tour')
     ->set('doc', 'Käyttäjän opas', 'https://dotclear.org/documentation/2.0/usage')
