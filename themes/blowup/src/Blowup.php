@@ -318,7 +318,7 @@ class Blowup
                 'width'   => '800px',
             ];
         }
-        ThemeConfig::prop($css, '#top', 'height', $s['top_height']);    // @phpstan-ignore-line
+        ThemeConfig::prop($css, '#top', 'height', $s['top_height']);
 
         ThemeConfig::prop($css, '.day-date', 'color', $s['date_title_c']);
         ThemeConfig::prop($css, '.day-date', 'font-family', self::fontDef($s['date_title_f']));

@@ -274,7 +274,7 @@ class ThemeConfig
     /**
      * Store CSS property value in associated array
      *
-     * @param  array<string, array<string, string>>     $css      CSS associated array
+     * @param  array<string, array<string, mixed>>      $css      CSS associated array
      * @param  string                                   $selector selector
      * @param  string                                   $prop     property
      * @param  mixed                                    $value    value
@@ -282,7 +282,7 @@ class ThemeConfig
     public static function prop(array &$css, string $selector, string $prop, $value): void
     {
         if ($value) {
-            $css[$selector][$prop] = $value;    // @phpstan-ignore-line
+            $css[$selector][$prop] = $value;
         }
     }
 
