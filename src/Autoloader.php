@@ -89,7 +89,6 @@ class Autoloader
             $this->root_base_dir = $this->normalizeBaseDir($root_base_dir);
         }
 
-        // @phpstan-ignore-next-line (PHPStan failed to see 1st parameter as a closure as callable but works great)
         spl_autoload_register($this->loadClass(...), true, $prepend);
     }
 
@@ -213,10 +212,8 @@ class Autoloader
      * Loads the class file for a given class name.
      *
      * @param   string  $class  The fully-qualified class name
-     *
-     * @return  null|string     The mapped file name on success, or null on failure
      */
-    public function loadClass(string $class): ?string
+    public function loadClass(string $class): void
     {
         ++$this->request_count;
         $prefix = $class;
@@ -225,15 +222,12 @@ class Autoloader
             $prefix         = substr($class, 0, $pos + 1);
             $relative_class = substr($class, $pos + 1);
 
-            $mapped_file = $this->loadMappedFile($prefix, $relative_class);
-            if ($mapped_file) {
-                return $mapped_file;
+            if ($this->loadMappedFile($prefix, $relative_class)) {
+                return;
             }
 
             $prefix = rtrim($prefix, self::NS_SEP);
         }
-
-        return null;
     }
 
     /**
