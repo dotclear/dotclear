@@ -30,8 +30,8 @@ class Favorite
         protected readonly string $id,
         protected ?string $title,
         protected readonly ?string $url,
-        protected readonly null|string|array $small_icon,
-        protected readonly null|string|array $large_icon,
+        protected null|string|array $small_icon,
+        protected null|string|array $large_icon,
         protected readonly null|string|bool $permissions = null,
         protected readonly mixed $dashboard_cb = null,
         protected readonly mixed $active_cb = null,
@@ -102,19 +102,35 @@ class Favorite
     /**
      * Set dashboard title if possible using defined callback
      */
-    public function setDashboardTitle(): void
+    public function callDashboardCallback(): void
     {
         if (is_callable($this->dashboard_cb)) {
-            $data = new ArrayObject(['title' => $this->title]);
+            // Prepare modifiable favorite properties
+            $data = new ArrayObject([
+                'title'      => $this->title,
+                'small-icon' => $this->small_icon,
+                'large-icon' => $this->large_icon,
+            ]);
+
             call_user_func($this->dashboard_cb, $data);
-            $this->title = $data['title'];
+
+            // Store new values if provided
+            if ($data->offsetExists('title') && is_string($data['title'])) {
+                $this->title = $data['title'];
+            }
+            if ($data->offsetExists('small-icon') && (is_array($data['small-icon']) || is_string($data['small-icon']))) {
+                $this->small_icon = $data['small-icon'];
+            }
+            if ($data->offsetExists('large-icon') && (is_array($data['large-icon']) || is_string($data['large-icon']))) {
+                $this->large_icon = $data['large-icon'];
+            }
         }
     }
 
     /**
      * Return favorite active callback
      */
-    public function activedCallback(): ?callable
+    public function activeCallback(): ?callable
     {
         return $this->active_cb;
     }
@@ -125,7 +141,7 @@ class Favorite
      * @param   string                  $url        URL part before query string
      * @param   array<string, mixed>    $request    Usually $_REQUEST array
      */
-    public function isActive(string $url, array $request): bool
+    public function callActiveCallback(string $url, array $request): bool
     {
         return is_callable($this->active_cb) ? call_user_func($this->active_cb, $url, $request) : false;
     }

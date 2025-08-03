@@ -162,9 +162,9 @@ class Favorites
         foreach ($this->user_favorites as $favorite) {
             // duplicate request URI on each loop as it takes previous pref value ?!
             $url = $uri;
-            if ($favorite->activedCallback()) {
+            if ($favorite->activeCallback()) {
                 // Use callback if defined to match whether favorite is active or not
-                $favorite->setActive($favorite->isActive((string) $url[0], $_REQUEST));
+                $favorite->setActive($favorite->callActiveCallback((string) $url[0], $_REQUEST));
             } else {
                 // Failback active detection. We test against URI name & parameters
                 $favorite->setActive(true); // true until something proves it is false
@@ -318,7 +318,7 @@ class Favorites
     public function appendDashboardIcons(array|ArrayObject $icons): void
     {
         foreach ($this->user_favorites as $favorite_id => $favorite) {
-            $favorite->setDashboardTitle();
+            $favorite->callDashboardCallback();
             /*
              * $icons items structure:
              * [0] = title
