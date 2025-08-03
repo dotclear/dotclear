@@ -140,37 +140,37 @@ class Manage extends Process
         /**
          * Liste des types d'item de menu
          *
-         * @var        ArrayObject<string, ArrayObject<string, bool>>
+         * @var        ArrayObject<string, ArrayObject<int, mixed>>
          */
         $items = new ArrayObject();
 
-        $items['home'] = new ArrayObject([__('Home'), false]);  // @phpstan-ignore-line
+        $items['home'] = new ArrayObject([__('Home'), false]);
 
         if (App::blog()->settings()->system->static_home) {
-            $items['posts'] = new ArrayObject([__('Posts'), false]);    // @phpstan-ignore-line
+            $items['posts'] = new ArrayObject([__('Posts'), false]);
         }
 
         if (count(App::backend()->langs_combo) > 1) {
-            $items['lang'] = new ArrayObject([__('Language'), true]);   // @phpstan-ignore-line
+            $items['lang'] = new ArrayObject([__('Language'), true]);
         }
         if (App::backend()->categories_combo !== []) {
-            $items['category'] = new ArrayObject([__('Category'), true]);   // @phpstan-ignore-line
+            $items['category'] = new ArrayObject([__('Category'), true]);
         }
         if (count(App::backend()->months_combo) > 1) {
-            $items['archive'] = new ArrayObject([__('Archive'), true]); // @phpstan-ignore-line
+            $items['archive'] = new ArrayObject([__('Archive'), true]);
         }
         if (App::plugins()->moduleExists('pages') && count(App::backend()->pages_combo)) {
-            $items['pages'] = new ArrayObject([__('Page'), true]);  // @phpstan-ignore-line
+            $items['pages'] = new ArrayObject([__('Page'), true]);
         }
         if (App::plugins()->moduleExists('tags') && count(App::backend()->tags_combo) > 1) {
-            $items['tags'] = new ArrayObject([__('Tags'), true]);   // @phpstan-ignore-line
+            $items['tags'] = new ArrayObject([__('Tags'), true]);
         }
 
         # --BEHAVIOR-- adminSimpleMenuAddType -- ArrayObject
         # Should add an item to $items[<id>] as an [<label>,<optional step (true or false)>]
         App::behavior()->callBehavior('adminSimpleMenuAddType', $items);
 
-        $items['special'] = new ArrayObject([__('User defined'), false]);   // @phpstan-ignore-line
+        $items['special'] = new ArrayObject([__('User defined'), false]);
 
         $items_combo = [];
         foreach ($items as $k => $v) {
@@ -241,12 +241,14 @@ class Manage extends Process
 
                         break;
                     case self::STEP_SUBTYPE:
-                        if (App::backend()->items[App::backend()->item_type][1]) {  // @phpstan-ignore-line
+                        $item_info = App::backend()->items[App::backend()->item_type];
+                        if ($item_info instanceof ArrayObject && count($item_info) > 1 && $item_info[1]) {
                             // Second step (optional), menu item sub-type to be selected
                             App::backend()->item_select = '';
 
                             break;
                         }
+                        // Continue to attributes step (there is no sub-type step)
                     case self::STEP_ATTRIBUTES:
                         // Third step, menu item attributes to be changed or completed if necessary
                         App::backend()->item_select_label = '';
