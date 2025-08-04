@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-31 18:58+0200\n"
-"PO-Revision-Date: 2025-07-31 17:57\n"
+"POT-Creation-Date: 2025-08-04 13:24+0200\n"
+"PO-Revision-Date: 2025-08-04 12:15\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
 "Language: es_ES\n"
@@ -38,9 +38,9 @@ msgstr "cuadrado"
 #: inc/core/_fake_l10n.php:13 src/Core/Backend/Action/Actions.php:140
 #: src/Core/Backend/Action/ActionsPosts.php:66
 #: src/Core/Backend/Action/ActionsPosts.php:73
-#: src/Core/Backend/Favorites.php:425 src/Core/Backend/Menus.php:168
+#: src/Core/Backend/Favorites.php:416 src/Core/Backend/Menus.php:168
 #: src/Core/Backend/UserPref.php:41 src/Core/Backend/UserPref.php:178
-#: src/Process/Backend/Post.php:564 src/Process/Backend/Post.php:578
+#: src/Process/Backend/Post.php:567 src/Process/Backend/Post.php:582
 #: src/Process/Backend/Posts.php:94 src/Process/Backend/Posts.php:99
 msgid "Posts"
 msgstr "Puestos"
@@ -94,7 +94,7 @@ msgstr "Esa clave no existe en la base de datos."
 #: src/Core/Backend/Combos.php:256 src/Core/Backend/Listing/ListingPosts.php:77
 #: src/Core/Backend/Listing/ListingPostsMini.php:63
 #: src/Core/Backend/UserPref.php:205 src/Process/Backend/Home.php:594
-#: src/Process/Backend/MediaItem.php:1093 src/Process/Backend/Post.php:832
+#: src/Process/Backend/MediaItem.php:1093 src/Process/Backend/Post.php:836
 msgid "Title"
 msgstr "Título"
 
@@ -102,7 +102,7 @@ msgstr "Título"
 #: src/Core/Backend/Action/ActionsBlogs.php:73
 #: src/Core/Backend/Action/ActionsBlogs.php:80
 #: src/Core/Backend/Action/ActionsBlogs.php:118
-#: src/Core/Backend/Favorites.php:502 src/Core/Backend/Menus.php:245
+#: src/Core/Backend/Favorites.php:493 src/Core/Backend/Menus.php:245
 #: src/Core/Backend/UserPref.php:75 src/Core/Backend/UserPref.php:192
 #: src/Process/Backend/Blog.php:100 src/Process/Backend/BlogDel.php:93
 #: src/Process/Backend/BlogPref.php:440
@@ -141,8 +141,8 @@ msgstr "Nombre del blog"
 #: src/Core/Backend/Listing/ListingPostsMini.php:75
 #: src/Core/Backend/Listing/ListingUsers.php:92
 #: src/Core/Backend/UserPref.php:55 src/Core/Backend/UserPref.php:71
-#: src/Core/Backend/UserPref.php:81 src/Process/Backend/Post.php:655
-#: src/Process/Backend/Post.php:1381 src/Process/Backend/Users.php:45
+#: src/Core/Backend/UserPref.php:81 src/Process/Backend/Post.php:659
+#: src/Process/Backend/Post.php:1385 src/Process/Backend/Users.php:45
 #: src/Process/Backend/UsersActions.php:377
 msgid "Status"
 msgstr "Estado"
@@ -157,7 +157,7 @@ msgstr "Estado"
 #: src/Core/Backend/Listing/ListingMedia.php:309
 #: src/Core/Backend/ModulesList.php:1350 src/Core/Upgrade/PluginsList.php:125
 #: src/Process/Backend/Comment.php:355 src/Process/Backend/Langs.php:231
-#: src/Process/Backend/Post.php:956 src/Process/Backend/Users.php:46
+#: src/Process/Backend/Post.php:960 src/Process/Backend/Users.php:46
 #: src/Process/Upgrade/Langs.php:299
 msgid "Delete"
 msgstr "Borrar"
@@ -196,13 +196,13 @@ msgstr[1] "%d los blogs se han eliminado correctamente"
 #: src/Core/Backend/Action/ActionsComments.php:73
 #: src/Core/Backend/Action/ActionsComments.php:80
 #: src/Core/Backend/Action/ActionsComments.php:118
-#: src/Core/Backend/Favorites.php:440
+#: src/Core/Backend/Favorites.php:431
 #: src/Core/Backend/Listing/ListingPosts.php:96
 #: src/Core/Backend/Listing/ListingPosts.php:99
 #: src/Core/Backend/Listing/ListingPosts.php:100 src/Core/Backend/Menus.php:155
 #: src/Core/Backend/UserPref.php:46 src/Core/Backend/UserPref.php:51
-#: src/Core/Backend/UserPref.php:185 src/Process/Backend/Post.php:1029
-#: src/Process/Backend/Post.php:1056
+#: src/Core/Backend/UserPref.php:185 src/Process/Backend/Post.php:1033
+#: src/Process/Backend/Post.php:1060
 msgid "Comments"
 msgstr "Comentarios"
 
@@ -220,8 +220,8 @@ msgstr "Comentarios"
 #: src/Core/Backend/Listing/ListingPosts.php:89
 #: src/Core/Backend/Listing/ListingPostsMini.php:71
 #: src/Core/Backend/UserPref.php:45 src/Core/Backend/UserPref.php:54
-#: src/Process/Backend/Comment.php:292 src/Process/Backend/Post.php:1091
-#: src/Process/Backend/Post.php:1372
+#: src/Process/Backend/Comment.php:292 src/Process/Backend/Post.php:1095
+#: src/Process/Backend/Post.php:1376
 msgid "Author"
 msgstr "Autor"
 
@@ -234,7 +234,7 @@ msgid "Blocklist IP (global)"
 msgstr "Lista de bloqueo IP (global)"
 
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:69
-#: src/Process/Backend/Post.php:1378
+#: src/Process/Backend/Post.php:1382
 msgid "IP address"
 msgstr "Dirección IP"
 
@@ -378,7 +378,7 @@ msgstr "Cambiar la categoría de las entradas"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:352
 #: src/Core/Backend/Filter/FilterPosts.php:132 src/Process/Backend/Home.php:620
-#: src/Process/Backend/Post.php:720
+#: src/Process/Backend/Post.php:724
 msgid "Category:"
 msgstr "Categoría:"
 
@@ -389,13 +389,13 @@ msgstr "Crear una nueva categoría para la(s) entrada(s)"
 #: src/Core/Backend/Action/ActionsPostsDefault.php:370
 #: src/Process/Backend/Home.php:598 src/Process/Backend/Home.php:632
 #: src/Process/Backend/Media.php:763 src/Process/Backend/MediaItem.php:1233
-#: src/Process/Backend/Post.php:734 src/Process/Backend/Post.php:837
+#: src/Process/Backend/Post.php:738 src/Process/Backend/Post.php:841
 msgid "Title:"
 msgstr "Título:"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:379
 #: src/Process/Backend/Category.php:268 src/Process/Backend/Category.php:326
-#: src/Process/Backend/Home.php:639 src/Process/Backend/Post.php:741
+#: src/Process/Backend/Home.php:639 src/Process/Backend/Post.php:745
 msgid "Parent:"
 msgstr "Padre:"
 
@@ -406,8 +406,8 @@ msgstr "Padre:"
 #: src/Process/Backend/Category.php:298 src/Process/Backend/Category.php:337
 #: src/Process/Backend/Category.php:373 src/Process/Backend/Comment.php:350
 #: src/Process/Backend/Home.php:649 src/Process/Backend/Home.php:703
-#: src/Process/Backend/MediaItem.php:1273 src/Process/Backend/Post.php:921
-#: src/Process/Backend/Post.php:1135 src/Process/Backend/User.php:536
+#: src/Process/Backend/MediaItem.php:1273 src/Process/Backend/Post.php:925
+#: src/Process/Backend/Post.php:1139 src/Process/Backend/User.php:536
 #: src/Process/Backend/UsersActions.php:513 src/Process/Install/Install.php:479
 msgid "Save"
 msgstr "Guardar"
@@ -472,12 +472,12 @@ msgstr "Ascendente"
 #: src/Core/Backend/Listing/ListingPosts.php:81
 #: src/Core/Backend/Listing/ListingPostsMini.php:67
 #: src/Core/Backend/UserPref.php:43 src/Core/Backend/UserPref.php:53
-#: src/Core/Backend/UserPref.php:203 src/Process/Backend/Post.php:1374
+#: src/Core/Backend/UserPref.php:203 src/Process/Backend/Post.php:1378
 msgid "Date"
 msgstr "Fecha"
 
 #: src/Core/Backend/Combos.php:257 src/Core/Backend/Listing/ListingPosts.php:85
-#: src/Core/Backend/UserPref.php:44 src/Process/Backend/Post.php:712
+#: src/Core/Backend/UserPref.php:44 src/Process/Backend/Post.php:716
 msgid "Category"
 msgstr "Categoría"
 
@@ -552,51 +552,51 @@ msgstr "Seudónimo"
 msgid "Number of entries"
 msgstr "Número de entradas"
 
-#: src/Core/Backend/Favorites.php:299
+#: src/Core/Backend/Favorites.php:287
 #: src/Process/Backend/UserPreferences.php:1145
 msgid "My favorites"
 msgstr "Mis favoritos"
 
-#: src/Core/Backend/Favorites.php:408 src/Core/Backend/Menus.php:195
+#: src/Core/Backend/Favorites.php:399 src/Core/Backend/Menus.php:195
 #: src/Core/Backend/Page.php:372 src/Process/Backend/Media.php:782
 #: src/Process/Backend/UserPreferences.php:71
 msgid "My preferences"
 msgstr "Mis preferencias"
 
-#: src/Core/Backend/Favorites.php:414 src/Core/Backend/Menus.php:181
+#: src/Core/Backend/Favorites.php:405 src/Core/Backend/Menus.php:181
 #: src/Process/Backend/Home.php:583 src/Process/Backend/Post.php:95
-#: src/Process/Backend/Post.php:964 src/Process/Backend/Posts.php:115
+#: src/Process/Backend/Post.php:968 src/Process/Backend/Posts.php:115
 msgid "New post"
 msgstr "Nueva entrada"
 
-#: src/Core/Backend/Favorites.php:435 src/Process/Backend/Rest.php:91
+#: src/Core/Backend/Favorites.php:426 src/Process/Backend/Rest.php:91
 #, php-format
 msgid "%d post"
 msgid_plural "%d posts"
 msgstr[0] "%d Correo electrónico:"
 msgstr[1] "%d puestos"
 
-#: src/Core/Backend/Favorites.php:450 src/Process/Backend/Rest.php:105
+#: src/Core/Backend/Favorites.php:441 src/Process/Backend/Rest.php:105
 #, php-format
 msgid "%d comment"
 msgid_plural "%d comments"
 msgstr[0] "%d comentario"
 msgstr[1] "%d comentarios"
 
-#: src/Core/Backend/Favorites.php:455 src/Core/Backend/Menus.php:142
+#: src/Core/Backend/Favorites.php:446 src/Core/Backend/Menus.php:142
 #: src/Core/Backend/UserPref.php:212 src/Process/Backend/PostsPopup.php:139
 #: src/Process/Backend/Search.php:158 src/Process/Backend/Search.php:163
 #: src/Process/Backend/Search.php:194
 msgid "Search"
 msgstr "Buscar"
 
-#: src/Core/Backend/Favorites.php:465 src/Core/Backend/Menus.php:130
+#: src/Core/Backend/Favorites.php:456 src/Core/Backend/Menus.php:130
 #: src/Process/Backend/Categories.php:157
 #: src/Process/Backend/Categories.php:162 src/Process/Backend/Category.php:212
 msgid "Categories"
 msgstr "Categorías"
 
-#: src/Core/Backend/Favorites.php:474 src/Core/Backend/MediaPage.php:363
+#: src/Core/Backend/Favorites.php:465 src/Core/Backend/MediaPage.php:363
 #: src/Core/Backend/MediaPage.php:365 src/Core/Backend/MediaPage.php:416
 #: src/Core/Backend/Menus.php:117 src/Core/Backend/UserPref.php:200
 #: src/Process/Backend/Media.php:688 src/Process/Backend/Media.php:816
@@ -604,19 +604,19 @@ msgstr "Categorías"
 msgid "Media manager"
 msgstr "Gestor de medios"
 
-#: src/Core/Backend/Favorites.php:484 src/Core/Backend/Menus.php:105
+#: src/Core/Backend/Favorites.php:475 src/Core/Backend/Menus.php:105
 #: src/Process/Backend/BlogPref.php:433 src/Process/Backend/BlogPref.php:441
 #: src/Process/Backend/BlogPref.php:454
 msgid "Blog settings"
 msgstr "Ajustes del blog"
 
-#: src/Core/Backend/Favorites.php:493 src/Core/Backend/Menus.php:93
+#: src/Core/Backend/Favorites.php:484 src/Core/Backend/Menus.php:93
 #: src/Process/Backend/BlogTheme.php:96 src/Process/Backend/BlogTheme.php:105
 #: src/Process/Backend/BlogTheme.php:180
 msgid "Blog appearance"
 msgstr "Aspecto del blog"
 
-#: src/Core/Backend/Favorites.php:512 src/Core/Backend/Menus.php:235
+#: src/Core/Backend/Favorites.php:503 src/Core/Backend/Menus.php:235
 #: src/Core/Backend/UserPref.php:65 src/Core/Backend/UserPref.php:168
 #: src/Process/Backend/BlogPref.php:1371 src/Process/Backend/User.php:274
 #: src/Process/Backend/Users.php:105 src/Process/Backend/Users.php:110
@@ -626,24 +626,24 @@ msgstr "Aspecto del blog"
 msgid "Users"
 msgstr "Usuarios"
 
-#: src/Core/Backend/Favorites.php:518 src/Core/Backend/Menus.php:225
+#: src/Core/Backend/Favorites.php:509 src/Core/Backend/Menus.php:225
 #: src/Process/Backend/Plugins.php:110 src/Process/Backend/Plugins.php:123
 #: src/Process/Backend/Plugins.php:388 src/Process/Backend/Plugins.php:395
 #: src/Process/Upgrade/Plugins.php:178 src/Process/Upgrade/Plugins.php:188
 msgid "Plugins management"
 msgstr "Gestión de los complementos"
 
-#: src/Core/Backend/Favorites.php:524 src/Core/Backend/Menus.php:261
+#: src/Core/Backend/Favorites.php:515 src/Core/Backend/Menus.php:261
 #: src/Process/Backend/Settings.php:55 src/Process/Backend/Settings.php:62
 msgid "Plugins settings"
 msgstr "Configuración de plugins"
 
-#: src/Core/Backend/Favorites.php:530 src/Core/Backend/Menus.php:215
+#: src/Core/Backend/Favorites.php:521 src/Core/Backend/Menus.php:215
 #: src/Core/Upgrade/Utility.php:294
 msgid "Languages"
 msgstr "Idiomas"
 
-#: src/Core/Backend/Favorites.php:536 src/Core/Backend/Page.php:447
+#: src/Core/Backend/Favorites.php:527 src/Core/Backend/Page.php:447
 #: src/Core/Backend/Page.php:448 src/Process/Backend/Help.php:108
 #: src/Process/Backend/Help.php:115 src/Process/Backend/Help.php:121
 msgid "Global help"
@@ -651,14 +651,14 @@ msgstr "Ayuda global"
 
 #: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1261
 #: src/Process/Backend/Auth.php:420 src/Process/Backend/BlogPref.php:1351
-#: src/Process/Backend/Comment.php:306 src/Process/Backend/Post.php:1104
+#: src/Process/Backend/Comment.php:306 src/Process/Backend/Post.php:1108
 #: src/Process/Backend/User.php:432 src/Process/Backend/UserPreferences.php:637
 #: src/Process/Install/Install.php:445
 msgid "Email:"
 msgstr "Correo electrónico:"
 
 #: src/Core/Backend/Filter/FilterComments.php:37 src/Core/Backend/Page.php:1260
-#: src/Process/Backend/Comment.php:322 src/Process/Backend/Post.php:1113
+#: src/Process/Backend/Comment.php:322 src/Process/Backend/Post.php:1117
 msgid "Web site:"
 msgstr "Sitio web:"
 
@@ -674,7 +674,7 @@ msgid "Type:"
 msgstr "Tipo:"
 
 #: src/Core/Backend/Filter/FilterComments.php:73
-#: src/Process/Backend/Post.php:1123 src/Process/Backend/Post.php:1126
+#: src/Process/Backend/Post.php:1127 src/Process/Backend/Post.php:1130
 msgid "Comment"
 msgstr "Comentario"
 
@@ -796,7 +796,7 @@ msgstr "Guardar opciones actuales"
 msgid "Display options"
 msgstr "Opciones de visualización"
 
-#: src/Core/Backend/Filter/Filters.php:423 src/Core/Backend/Page.php:1468
+#: src/Core/Backend/Filter/Filters.php:423 src/Core/Backend/Page.php:1469
 msgid "Show filters and display options"
 msgstr "Mostrar filtros y opciones de visualización"
 
@@ -872,7 +872,7 @@ msgid "Switch to blog %s"
 msgstr "Pasar al blog %s"
 
 #: src/Core/Backend/Listing/ListingComments.php:56
-#: src/Process/Backend/Comment.php:152 src/Process/Backend/Post.php:1033
+#: src/Process/Backend/Comment.php:152 src/Process/Backend/Post.php:1037
 msgid "No comments"
 msgstr "Ningún comentario"
 
@@ -919,7 +919,7 @@ msgstr "retroenlace"
 
 #: src/Core/Backend/Listing/ListingComments.php:240
 #: src/Core/Backend/Listing/ListingComments.php:243
-#: src/Process/Backend/Post.php:1358 src/Process/Backend/Post.php:1383
+#: src/Process/Backend/Post.php:1362 src/Process/Backend/Post.php:1387
 msgid "Edit"
 msgstr "Editar"
 
@@ -999,8 +999,8 @@ msgstr "Ninguna entrada coincide con el filtro"
 #: src/Core/Backend/Listing/ListingPosts.php:109
 #: src/Core/Backend/Listing/ListingPosts.php:112
 #: src/Core/Backend/Listing/ListingPosts.php:113
-#: src/Core/Backend/UserPref.php:47 src/Process/Backend/Post.php:1161
-#: src/Process/Backend/Post.php:1209
+#: src/Core/Backend/UserPref.php:47 src/Process/Backend/Post.php:1165
+#: src/Process/Backend/Post.php:1213
 msgid "Trackbacks"
 msgstr "Retroenlaces"
 
@@ -1411,8 +1411,8 @@ msgstr "Enviar un fichero zip"
 #: src/Process/Backend/BlogPref.php:1010 src/Process/Backend/Category.php:248
 #: src/Process/Backend/Comment.php:284 src/Process/Backend/Home.php:586
 #: src/Process/Backend/Langs.php:322 src/Process/Backend/Langs.php:372
-#: src/Process/Backend/LinkPopup.php:83 src/Process/Backend/Post.php:989
-#: src/Process/Backend/Post.php:1080 src/Process/Backend/User.php:303
+#: src/Process/Backend/LinkPopup.php:83 src/Process/Backend/Post.php:993
+#: src/Process/Backend/Post.php:1084 src/Process/Backend/User.php:303
 #: src/Process/Backend/UsersActions.php:492 src/Process/Install/Install.php:455
 #: src/Process/Install/Wizard.php:263 src/Process/Upgrade/Langs.php:406
 #, php-format
@@ -1425,7 +1425,7 @@ msgstr "Ruta del archivo zip:"
 
 #: src/Core/Backend/ModulesList.php:1763 src/Core/Backend/ModulesList.php:1813
 #: src/Process/Backend/Langs.php:344 src/Process/Backend/Langs.php:393
-#: src/Process/Backend/Post.php:800 src/Process/Backend/User.php:340
+#: src/Process/Backend/Post.php:804 src/Process/Backend/User.php:340
 #: src/Process/Backend/User.php:364 src/Process/Backend/User.php:529
 #: src/Process/Backend/UsersActions.php:499 src/Process/Install/Install.php:467
 #: src/Process/Install/Install.php:473 src/Process/Upgrade/Langs.php:430
@@ -1439,7 +1439,7 @@ msgstr "Contraseña"
 msgid "Your password:"
 msgstr "Su contraseña:"
 
-#: src/Core/Backend/ModulesList.php:1774 src/Core/Backend/Page.php:1424
+#: src/Core/Backend/ModulesList.php:1774 src/Core/Backend/Page.php:1425
 #: src/Process/Backend/Media.php:795
 msgid "Upload"
 msgstr "Enviar"
@@ -1478,7 +1478,7 @@ msgstr "Configurar \"%s\""
 #: src/Process/Backend/BlogDel.php:138 src/Process/Backend/BlogPref.php:1182
 #: src/Process/Backend/Category.php:301 src/Process/Backend/Comment.php:352
 #: src/Process/Backend/Media.php:857 src/Process/Backend/MediaItem.php:1359
-#: src/Process/Backend/Post.php:946 src/Process/Backend/Search.php:197
+#: src/Process/Backend/Post.php:950 src/Process/Backend/Search.php:197
 #: src/Process/Backend/User.php:547 src/Process/Backend/UserPreferences.php:698
 #: src/Process/Backend/UserPreferences.php:1000
 #: src/Process/Backend/UserPreferences.php:1226
@@ -1486,7 +1486,7 @@ msgid "Back"
 msgstr "Volver"
 
 #: src/Core/Backend/Notices.php:86 src/Core/Backend/Page.php:1263
-#: src/Core/Backend/Page.php:1419 src/Core/Upgrade/Notices.php:48
+#: src/Core/Backend/Page.php:1420 src/Core/Upgrade/Notices.php:48
 #: src/Process/Backend/Home.php:327
 msgid "Error:"
 msgstr "Error:"
@@ -1503,8 +1503,8 @@ msgstr "%H:%M:%S"
 
 #: src/Core/Backend/Notices.php:258 src/Core/Backend/Notices.php:298
 #: src/Core/Backend/Notices.php:308 src/Core/Backend/Page.php:1309
-#: src/Process/Backend/Categories.php:341 src/Process/Backend/Post.php:1048
-#: src/Process/Backend/Post.php:1180 src/Process/Backend/PostsPopup.php:121
+#: src/Process/Backend/Categories.php:341 src/Process/Backend/Post.php:1052
+#: src/Process/Backend/Post.php:1184 src/Process/Backend/PostsPopup.php:121
 msgid "Ok"
 msgstr "Ok"
 
@@ -1636,7 +1636,7 @@ msgid "Invert selection"
 msgstr "Invertir la selección"
 
 #: src/Core/Backend/Page.php:1264 src/Process/Backend/Post.php:466
-#: src/Process/Backend/Post.php:590
+#: src/Process/Backend/Post.php:594
 msgid "Entry has been successfully created."
 msgstr "Entrada creada con éxito."
 
@@ -1813,87 +1813,91 @@ msgstr "Ocultar contraseña"
 msgid "Reset to now"
 msgstr "Restablecer a ahora"
 
-#: src/Core/Backend/Page.php:1316
+#: src/Core/Backend/Page.php:1315
+msgid "The publication date has changed. Reset the base name of the entry URL?"
+msgstr ""
+
+#: src/Core/Backend/Page.php:1317
 msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences."
 msgstr "Se ha detectado un bloqueador de anuncios en este panel de Dotclear (Ghostery, Adblock plus, uBlock origin, …) y puede interferir con algunas funciones. En este caso deberías desactivarlo. Tenga en cuenta que esta detección puede desactivarse en sus preferencias."
 
-#: src/Core/Backend/Page.php:1368
+#: src/Core/Backend/Page.php:1369
 msgid "You have unsaved changes."
 msgstr "No ha guardado sus modificaciones."
 
-#: src/Core/Backend/Page.php:1369
+#: src/Core/Backend/Page.php:1370
 msgid "your battery charge seems low (%d%) and you have unsaved changes, you should save them."
 msgstr "la carga de tu batería parece baja (%d%) y tienes cambios sin guardar, deberías guardarlos."
 
-#: src/Core/Backend/Page.php:1410
+#: src/Core/Backend/Page.php:1411
 msgid "Temporarily activate enhanced uploader"
 msgstr "Activar la interfaz avanzada"
 
-#: src/Core/Backend/Page.php:1411
+#: src/Core/Backend/Page.php:1412
 msgid "Temporarily disable enhanced uploader"
 msgstr "Inhabilitar la interfaz avanzada"
 
-#: src/Core/Backend/Page.php:1415
+#: src/Core/Backend/Page.php:1416
 msgid "Limit exceeded."
 msgstr "Límite sobrepasado."
 
-#: src/Core/Backend/Page.php:1416
+#: src/Core/Backend/Page.php:1417
 msgid "File size exceeds allowed limit."
 msgstr "El tamaño del fichero excede el límite permitido."
 
-#: src/Core/Backend/Page.php:1417
+#: src/Core/Backend/Page.php:1418
 msgid "Canceled."
 msgstr "Cancelado."
 
-#: src/Core/Backend/Page.php:1418
+#: src/Core/Backend/Page.php:1419
 msgid "HTTP Error:"
 msgstr "Error HTTP:"
 
-#: src/Core/Backend/Page.php:1420 src/Process/Backend/Media.php:738
+#: src/Core/Backend/Page.php:1421 src/Process/Backend/Media.php:738
 msgid "Choose file"
 msgstr "Elegir el fichero"
 
-#: src/Core/Backend/Page.php:1421 src/Process/Backend/Media.php:744
+#: src/Core/Backend/Page.php:1422 src/Process/Backend/Media.php:744
 msgid "Choose files"
 msgstr "Elegir los ficheros"
 
-#: src/Core/Backend/Page.php:1422 src/Process/Backend/LinkPopup.php:113
+#: src/Core/Backend/Page.php:1423 src/Process/Backend/LinkPopup.php:113
 #: src/Process/Backend/Media.php:293 src/Process/Backend/MediaItem.php:512
-#: src/Process/Backend/MediaItem.php:771 src/Process/Backend/Post.php:952
+#: src/Process/Backend/MediaItem.php:771 src/Process/Backend/Post.php:956
 #: src/Process/Backend/PostMedia.php:113
 msgid "Cancel"
 msgstr "cancelar"
 
-#: src/Core/Backend/Page.php:1423
+#: src/Core/Backend/Page.php:1424
 msgid "Clean"
 msgstr "Limpiar"
 
-#: src/Core/Backend/Page.php:1425
+#: src/Core/Backend/Page.php:1426
 msgid "Send"
 msgstr "Enviar"
 
-#: src/Core/Backend/Page.php:1426
+#: src/Core/Backend/Page.php:1427
 msgid "File successfully uploaded."
 msgstr "Fichero enviado con éxito."
 
-#: src/Core/Backend/Page.php:1427
+#: src/Core/Backend/Page.php:1428
 msgid "No file in queue."
 msgstr "No hay ningún fichero en la cola de espera."
 
-#: src/Core/Backend/Page.php:1428
+#: src/Core/Backend/Page.php:1429
 msgid "1 file in queue."
 msgstr "1 fichero en la cola."
 
-#: src/Core/Backend/Page.php:1429
+#: src/Core/Backend/Page.php:1430
 #, php-format
 msgid "%d files in queue."
 msgstr "%d ficheros en la cola."
 
-#: src/Core/Backend/Page.php:1430
+#: src/Core/Backend/Page.php:1431
 msgid "Queue error:"
 msgstr "Error de la cola de espera:"
 
-#: src/Core/Backend/Page.php:1469
+#: src/Core/Backend/Page.php:1470
 msgid "Cancel filters and display options"
 msgstr "Anular filtros y opciones de visualización"
 
@@ -2001,7 +2005,7 @@ msgstr "No hay temas que coincidan con su búsqueda."
 msgid "Use this one"
 msgstr "Usa este"
 
-#: src/Core/Backend/ThemesList.php:395 src/Process/Backend/Post.php:945
+#: src/Core/Backend/ThemesList.php:395 src/Process/Backend/Post.php:949
 msgid "Preview"
 msgstr "Vista previa"
 
@@ -3387,7 +3391,7 @@ msgid "Blog details"
 msgstr "Detalles del blog"
 
 #: src/Process/Backend/BlogPref.php:534 src/Process/Backend/BlogPref.php:1019
-#: src/Process/Backend/BlogPref.php:1040 src/Process/Backend/Post.php:842
+#: src/Process/Backend/BlogPref.php:1040 src/Process/Backend/Post.php:846
 msgid "Required field"
 msgstr "Campo obligatorio"
 
@@ -3416,7 +3420,7 @@ msgstr "Aviso de copyright:"
 msgid "Comments and trackbacks"
 msgstr "Comentarios y retroenlaces"
 
-#: src/Process/Backend/BlogPref.php:605 src/Process/Backend/Post.php:758
+#: src/Process/Backend/BlogPref.php:605 src/Process/Backend/Post.php:762
 msgid "Accept comments"
 msgstr "Aceptar los comentarios"
 
@@ -3444,7 +3448,7 @@ msgstr "Sintaxis wiki para los comentarios"
 msgid "Preview of comment before submit is not mandatory"
 msgstr "No es obligatorio previsualizar el comentario antes de enviarlo"
 
-#: src/Process/Backend/BlogPref.php:644 src/Process/Backend/Post.php:775
+#: src/Process/Backend/BlogPref.php:644 src/Process/Backend/Post.php:779
 msgid "Accept trackbacks"
 msgstr "Aceptar retroenlaces"
 
@@ -3996,7 +4000,7 @@ msgstr "Categoría actualizada con éxito."
 msgid "Category information"
 msgstr "Información de la categoría"
 
-#: src/Process/Backend/Category.php:259 src/Process/Backend/Post.php:1093
+#: src/Process/Backend/Category.php:259 src/Process/Backend/Post.php:1097
 msgid "Name:"
 msgstr "Apellido:"
 
@@ -4040,7 +4044,7 @@ msgstr "Mover esta categoría"
 msgid "Entry does not exist."
 msgstr "La entrada no existe."
 
-#: src/Process/Backend/Comment.php:109 src/Process/Backend/Post.php:598
+#: src/Process/Backend/Comment.php:109 src/Process/Backend/Post.php:602
 msgid "Comment has been successfully created."
 msgstr "El comentario se ha creado con éxito."
 
@@ -4119,7 +4123,7 @@ msgstr "Mostrarlos."
 msgid "Delete all spams"
 msgstr "Eliminar todos los spams"
 
-#: src/Process/Backend/Comments.php:217 src/Process/Backend/Post.php:1044
+#: src/Process/Backend/Comments.php:217 src/Process/Backend/Post.php:1048
 #: src/Process/Backend/Search.php:410
 msgid "Selected comments action:"
 msgstr "Acción sobre los comentarios seleccionados:"
@@ -4203,15 +4207,15 @@ msgstr "Se han producido errores con los siguientes plugins:"
 msgid "Quick post"
 msgstr "Entrada rápida"
 
-#: src/Process/Backend/Home.php:607 src/Process/Backend/Post.php:874
+#: src/Process/Backend/Home.php:607 src/Process/Backend/Post.php:878
 msgid "Content:"
 msgstr "Contenido:"
 
-#: src/Process/Backend/Home.php:613 src/Process/Backend/Post.php:871
+#: src/Process/Backend/Home.php:613 src/Process/Backend/Post.php:875
 msgid "Content"
 msgstr "Contenido"
 
-#: src/Process/Backend/Home.php:624 src/Process/Backend/Post.php:725
+#: src/Process/Backend/Home.php:624 src/Process/Backend/Post.php:729
 msgid "Add a new category"
 msgstr "Añadir una nueva categoría"
 
@@ -4947,8 +4951,8 @@ msgstr "Algunas funciones están deshabilitadas, por favor dé acceso de escritu
 msgid "Plugin configuration"
 msgstr "Configuración del plugin"
 
-#: src/Process/Backend/Post.php:159 src/Process/Backend/Post.php:964
-#: src/Process/Backend/Post.php:985
+#: src/Process/Backend/Post.php:159 src/Process/Backend/Post.php:968
+#: src/Process/Backend/Post.php:989
 msgid "Edit post"
 msgstr "Editar entrada"
 
@@ -4960,7 +4964,7 @@ msgstr "Siguiente publicación"
 msgid "Previous post"
 msgstr "Publicación anterior"
 
-#: src/Process/Backend/Post.php:292 src/Process/Backend/Post.php:601
+#: src/Process/Backend/Post.php:292 src/Process/Backend/Post.php:605
 msgid "All pings sent."
 msgstr "Todos los pings han sido enviados."
 
@@ -4973,147 +4977,147 @@ msgstr "Fecha de publicación no válida"
 msgid "The post \"%s\" has been successfully updated"
 msgstr "El post \"%s\" ha sido actualizado correctamente"
 
-#: src/Process/Backend/Post.php:588
+#: src/Process/Backend/Post.php:592
 msgid "Entry has been successfully updated."
 msgstr "Entrada actualizada con éxito."
 
-#: src/Process/Backend/Post.php:592
+#: src/Process/Backend/Post.php:596
 msgid "File has been successfully attached."
 msgstr "Fichero adjuntado con éxito."
 
-#: src/Process/Backend/Post.php:594 src/Process/Backend/PostMedia.php:89
+#: src/Process/Backend/Post.php:598 src/Process/Backend/PostMedia.php:89
 msgid "Attachment has been successfully removed."
 msgstr "Fichero adjunto eliminado con éxito."
 
-#: src/Process/Backend/Post.php:610
+#: src/Process/Backend/Post.php:614
 msgid "Don't forget to validate your XHTML conversion by saving your post."
 msgstr "No olvide validar su conversión XHTML guardando su entrada."
 
-#: src/Process/Backend/Post.php:620
+#: src/Process/Backend/Post.php:624
 msgid "Go to this entry on the site"
 msgstr "Ir a esta entrada del sitio"
 
-#: src/Process/Backend/Post.php:662
+#: src/Process/Backend/Post.php:666
 msgid "Entry status"
 msgstr "Estado de entrada"
 
-#: src/Process/Backend/Post.php:670
+#: src/Process/Backend/Post.php:674
 msgid "Publication date and hour"
 msgstr "Fecha y hora de publicación"
 
-#: src/Process/Backend/Post.php:679
+#: src/Process/Backend/Post.php:683
 msgid "Entry language"
 msgstr "Idioma de entrada"
 
-#: src/Process/Backend/Post.php:687
+#: src/Process/Backend/Post.php:691
 msgid "Text formatting"
 msgstr "Formato de texto"
 
-#: src/Process/Backend/Post.php:694
+#: src/Process/Backend/Post.php:698
 msgid "Convert to HTML"
 msgstr "Convertir a HTML"
 
-#: src/Process/Backend/Post.php:702
+#: src/Process/Backend/Post.php:706
 msgid "Filing"
 msgstr "Archivo"
 
-#: src/Process/Backend/Post.php:707
+#: src/Process/Backend/Post.php:711
 msgid "Selected entry"
 msgstr "Entrada seleccionada"
 
-#: src/Process/Backend/Post.php:751 src/Process/Backend/User.php:475
+#: src/Process/Backend/Post.php:755 src/Process/Backend/User.php:475
 msgid "Options"
 msgstr "Opciones"
 
-#: src/Process/Backend/Post.php:754
+#: src/Process/Backend/Post.php:758
 msgid "Comments and trackbacks list"
 msgstr "Lista de comentarios y trackbacks"
 
-#: src/Process/Backend/Post.php:767
+#: src/Process/Backend/Post.php:771
 msgid "Warning: Comments are no longer accepted for this entry."
 msgstr "Advertencia: Ya no se aceptan comentarios para esta entrada."
 
-#: src/Process/Backend/Post.php:771
+#: src/Process/Backend/Post.php:775
 msgid "Comments are not accepted on this blog so far."
 msgstr "Hasta ahora no se aceptan comentarios en este blog."
 
-#: src/Process/Backend/Post.php:784
+#: src/Process/Backend/Post.php:788
 msgid "Warning: Trackbacks are no longer accepted for this entry."
 msgstr "Advertencia: Ya no se aceptan trackbacks para esta entrada."
 
-#: src/Process/Backend/Post.php:788
+#: src/Process/Backend/Post.php:792
 msgid "Trackbacks are not accepted on this blog so far."
 msgstr "Hasta ahora no se aceptan trackbacks en este blog."
 
-#: src/Process/Backend/Post.php:812
+#: src/Process/Backend/Post.php:816
 msgid "Edit basename"
 msgstr "Editar nombre base"
 
-#: src/Process/Backend/Post.php:816
+#: src/Process/Backend/Post.php:820
 msgid "Warning: If you set the URL manually, it may conflict with another entry."
 msgstr "Atención: si indica manualmente el URL, éste podría entrar en conflicto con otra entrada."
 
-#: src/Process/Backend/Post.php:855
+#: src/Process/Backend/Post.php:859
 msgid "Excerpt:"
 msgstr "Extracto:"
 
-#: src/Process/Backend/Post.php:855
+#: src/Process/Backend/Post.php:859
 msgid "Introduction to the post."
 msgstr "Introducción al puesto."
 
-#: src/Process/Backend/Post.php:891
+#: src/Process/Backend/Post.php:895
 msgid "Personal notes:"
 msgstr "Notas personales:"
 
-#: src/Process/Backend/Post.php:891
+#: src/Process/Backend/Post.php:895
 msgid "Unpublished notes."
 msgstr "Notas inéditas."
 
-#: src/Process/Backend/Post.php:1061 src/Process/Backend/Post.php:1076
+#: src/Process/Backend/Post.php:1065 src/Process/Backend/Post.php:1080
 msgid "Add a comment"
 msgstr "Añadir un comentario"
 
-#: src/Process/Backend/Post.php:1165
+#: src/Process/Backend/Post.php:1169
 msgid "No trackback"
 msgstr "Ningún retroenlace"
 
-#: src/Process/Backend/Post.php:1176
+#: src/Process/Backend/Post.php:1180
 msgid "Selected trackbacks action:"
 msgstr "Acción de trackbacks seleccionados:"
 
-#: src/Process/Backend/Post.php:1199
+#: src/Process/Backend/Post.php:1203
 msgid "Previously sent pings"
 msgstr "Pings ya enviados"
 
-#: src/Process/Backend/Post.php:1225 src/Process/Backend/Post.php:1247
+#: src/Process/Backend/Post.php:1229 src/Process/Backend/Post.php:1251
 msgid "Ping blogs"
 msgstr "Hacer ping a blogs"
 
-#: src/Process/Backend/Post.php:1233
+#: src/Process/Backend/Post.php:1237
 msgid "URLs to ping:"
 msgstr "URL a las que enviar un ping:"
 
-#: src/Process/Backend/Post.php:1241
+#: src/Process/Backend/Post.php:1245
 msgid "Excerpt to send:"
 msgstr "Extracto para enviar:"
 
-#: src/Process/Backend/Post.php:1254
+#: src/Process/Backend/Post.php:1258
 msgid "Auto discover ping URLs"
 msgstr "Descubrimiento automático de las URL ping"
 
-#: src/Process/Backend/Post.php:1323
+#: src/Process/Backend/Post.php:1327
 msgid "select this comment"
 msgstr "seleccione este comentario"
 
-#: src/Process/Backend/Post.php:1323
+#: src/Process/Backend/Post.php:1327
 msgid "select this trackback"
 msgstr "seleccione este trackback"
 
-#: src/Process/Backend/Post.php:1354
+#: src/Process/Backend/Post.php:1358
 msgid "Edit this comment"
 msgstr "Modificar este comentario"
 
-#: src/Process/Backend/Post.php:1354
+#: src/Process/Backend/Post.php:1358
 msgid "Edit this trackback"
 msgstr "Editar esta pista"
 
