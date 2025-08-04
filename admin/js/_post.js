@@ -66,6 +66,24 @@ dotclear.ready(() => {
   dtField.classList.add('today_helper');
   button.addEventListener('click', dtTodayHelper);
 
+  // Check if entry date change
+  const post_options = dotclear.getData('post_options');
+  if (post_options?.entryurl_dt) {
+    const urlEntry = document.querySelector('#post_url');
+    const urlStatus = document.querySelector('#post_status');
+    if (urlEntry && urlStatus?.value !== '1') {
+      // Only not already published entry
+      const dtValue = dtField.value.slice(0, 10); // Keep only date (ignoring time)
+      const askReset = (event) => {
+        if (event.target.value.slice(0, 10) !== dtValue && urlEntry.value !== '') {
+          // Date has changed and entry URL is not empty, ask for reset
+          if (window.confirm(dotclear.msg.dtchange_reseturl)) urlEntry.value = '';
+        }
+      };
+      dtField.addEventListener('blur', (event) => askReset(event));
+    }
+  }
+
   // Post preview
   let preview_url = $('#post-preview').attr('href');
   if (preview_url) {

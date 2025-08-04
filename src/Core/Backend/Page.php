@@ -1311,7 +1311,8 @@ class Page
             'show_password' => __('Show password'),
             'hide_password' => __('Hide password'),
 
-            'set_today' => __('Reset to now'),
+            'set_today'         => __('Reset to now'),
+            'dtchange_reseturl' => __('The publication date has changed. Reset the base name of the entry URL?'),
 
             'adblocker' => __('An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences.'),
         ];
