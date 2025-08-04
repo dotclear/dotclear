@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-31 18:58+0200\n"
-"PO-Revision-Date: 2025-07-31 17:57\n"
+"POT-Creation-Date: 2025-08-04 13:24+0200\n"
+"PO-Revision-Date: 2025-08-04 12:15\n"
 "Last-Translator: \n"
 "Language-Team: Arabic\n"
 "Language: ar_SA\n"
@@ -38,9 +38,9 @@ msgstr "مربع"
 #: inc/core/_fake_l10n.php:13 src/Core/Backend/Action/Actions.php:140
 #: src/Core/Backend/Action/ActionsPosts.php:66
 #: src/Core/Backend/Action/ActionsPosts.php:73
-#: src/Core/Backend/Favorites.php:425 src/Core/Backend/Menus.php:168
+#: src/Core/Backend/Favorites.php:416 src/Core/Backend/Menus.php:168
 #: src/Core/Backend/UserPref.php:41 src/Core/Backend/UserPref.php:178
-#: src/Process/Backend/Post.php:564 src/Process/Backend/Post.php:578
+#: src/Process/Backend/Post.php:567 src/Process/Backend/Post.php:582
 #: src/Process/Backend/Posts.php:94 src/Process/Backend/Posts.php:99
 msgid "Posts"
 msgstr "المشاركات"
@@ -94,7 +94,7 @@ msgstr "وهذا المفتاح غير موجود في قاعدة البيانا
 #: src/Core/Backend/Combos.php:256 src/Core/Backend/Listing/ListingPosts.php:77
 #: src/Core/Backend/Listing/ListingPostsMini.php:63
 #: src/Core/Backend/UserPref.php:205 src/Process/Backend/Home.php:594
-#: src/Process/Backend/MediaItem.php:1093 src/Process/Backend/Post.php:832
+#: src/Process/Backend/MediaItem.php:1093 src/Process/Backend/Post.php:836
 msgid "Title"
 msgstr "العنوان"
 
@@ -102,7 +102,7 @@ msgstr "العنوان"
 #: src/Core/Backend/Action/ActionsBlogs.php:73
 #: src/Core/Backend/Action/ActionsBlogs.php:80
 #: src/Core/Backend/Action/ActionsBlogs.php:118
-#: src/Core/Backend/Favorites.php:502 src/Core/Backend/Menus.php:245
+#: src/Core/Backend/Favorites.php:493 src/Core/Backend/Menus.php:245
 #: src/Core/Backend/UserPref.php:75 src/Core/Backend/UserPref.php:192
 #: src/Process/Backend/Blog.php:100 src/Process/Backend/BlogDel.php:93
 #: src/Process/Backend/BlogPref.php:440
@@ -141,8 +141,8 @@ msgstr "اسم المدونة"
 #: src/Core/Backend/Listing/ListingPostsMini.php:75
 #: src/Core/Backend/Listing/ListingUsers.php:92
 #: src/Core/Backend/UserPref.php:55 src/Core/Backend/UserPref.php:71
-#: src/Core/Backend/UserPref.php:81 src/Process/Backend/Post.php:655
-#: src/Process/Backend/Post.php:1381 src/Process/Backend/Users.php:45
+#: src/Core/Backend/UserPref.php:81 src/Process/Backend/Post.php:659
+#: src/Process/Backend/Post.php:1385 src/Process/Backend/Users.php:45
 #: src/Process/Backend/UsersActions.php:377
 msgid "Status"
 msgstr "الحالة"
@@ -157,7 +157,7 @@ msgstr "الحالة"
 #: src/Core/Backend/Listing/ListingMedia.php:309
 #: src/Core/Backend/ModulesList.php:1350 src/Core/Upgrade/PluginsList.php:125
 #: src/Process/Backend/Comment.php:355 src/Process/Backend/Langs.php:231
-#: src/Process/Backend/Post.php:956 src/Process/Backend/Users.php:46
+#: src/Process/Backend/Post.php:960 src/Process/Backend/Users.php:46
 #: src/Process/Upgrade/Langs.php:299
 msgid "Delete"
 msgstr "حذف"
@@ -200,13 +200,13 @@ msgstr[5] "%d مدونة تم حذفها بنجاح"
 #: src/Core/Backend/Action/ActionsComments.php:73
 #: src/Core/Backend/Action/ActionsComments.php:80
 #: src/Core/Backend/Action/ActionsComments.php:118
-#: src/Core/Backend/Favorites.php:440
+#: src/Core/Backend/Favorites.php:431
 #: src/Core/Backend/Listing/ListingPosts.php:96
 #: src/Core/Backend/Listing/ListingPosts.php:99
 #: src/Core/Backend/Listing/ListingPosts.php:100 src/Core/Backend/Menus.php:155
 #: src/Core/Backend/UserPref.php:46 src/Core/Backend/UserPref.php:51
-#: src/Core/Backend/UserPref.php:185 src/Process/Backend/Post.php:1029
-#: src/Process/Backend/Post.php:1056
+#: src/Core/Backend/UserPref.php:185 src/Process/Backend/Post.php:1033
+#: src/Process/Backend/Post.php:1060
 msgid "Comments"
 msgstr "تعليقات"
 
@@ -224,8 +224,8 @@ msgstr "إجراءات التعليقات"
 #: src/Core/Backend/Listing/ListingPosts.php:89
 #: src/Core/Backend/Listing/ListingPostsMini.php:71
 #: src/Core/Backend/UserPref.php:45 src/Core/Backend/UserPref.php:54
-#: src/Process/Backend/Comment.php:292 src/Process/Backend/Post.php:1091
-#: src/Process/Backend/Post.php:1372
+#: src/Process/Backend/Comment.php:292 src/Process/Backend/Post.php:1095
+#: src/Process/Backend/Post.php:1376
 msgid "Author"
 msgstr "المؤلف"
 
@@ -238,7 +238,7 @@ msgid "Blocklist IP (global)"
 msgstr "قائمة حظر IP (عالمي)"
 
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:69
-#: src/Process/Backend/Post.php:1378
+#: src/Process/Backend/Post.php:1382
 msgid "IP address"
 msgstr "عنوان IP"
 
@@ -406,7 +406,7 @@ msgstr "تغيير الفئة لهذا التحديد"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:352
 #: src/Core/Backend/Filter/FilterPosts.php:132 src/Process/Backend/Home.php:620
-#: src/Process/Backend/Post.php:720
+#: src/Process/Backend/Post.php:724
 msgid "Category:"
 msgstr "الفئة:"
 
@@ -417,13 +417,13 @@ msgstr "إنشاء فئة جديدة للمنشور (المشاركات)"
 #: src/Core/Backend/Action/ActionsPostsDefault.php:370
 #: src/Process/Backend/Home.php:598 src/Process/Backend/Home.php:632
 #: src/Process/Backend/Media.php:763 src/Process/Backend/MediaItem.php:1233
-#: src/Process/Backend/Post.php:734 src/Process/Backend/Post.php:837
+#: src/Process/Backend/Post.php:738 src/Process/Backend/Post.php:841
 msgid "Title:"
 msgstr "العنوان:"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:379
 #: src/Process/Backend/Category.php:268 src/Process/Backend/Category.php:326
-#: src/Process/Backend/Home.php:639 src/Process/Backend/Post.php:741
+#: src/Process/Backend/Home.php:639 src/Process/Backend/Post.php:745
 msgid "Parent:"
 msgstr "الأصل:"
 
@@ -434,8 +434,8 @@ msgstr "الأصل:"
 #: src/Process/Backend/Category.php:298 src/Process/Backend/Category.php:337
 #: src/Process/Backend/Category.php:373 src/Process/Backend/Comment.php:350
 #: src/Process/Backend/Home.php:649 src/Process/Backend/Home.php:703
-#: src/Process/Backend/MediaItem.php:1273 src/Process/Backend/Post.php:921
-#: src/Process/Backend/Post.php:1135 src/Process/Backend/User.php:536
+#: src/Process/Backend/MediaItem.php:1273 src/Process/Backend/Post.php:925
+#: src/Process/Backend/Post.php:1139 src/Process/Backend/User.php:536
 #: src/Process/Backend/UsersActions.php:513 src/Process/Install/Install.php:479
 msgid "Save"
 msgstr "حفظ"
@@ -508,12 +508,12 @@ msgstr "تصاعدي"
 #: src/Core/Backend/Listing/ListingPosts.php:81
 #: src/Core/Backend/Listing/ListingPostsMini.php:67
 #: src/Core/Backend/UserPref.php:43 src/Core/Backend/UserPref.php:53
-#: src/Core/Backend/UserPref.php:203 src/Process/Backend/Post.php:1374
+#: src/Core/Backend/UserPref.php:203 src/Process/Backend/Post.php:1378
 msgid "Date"
 msgstr "التاريخ"
 
 #: src/Core/Backend/Combos.php:257 src/Core/Backend/Listing/ListingPosts.php:85
-#: src/Core/Backend/UserPref.php:44 src/Process/Backend/Post.php:712
+#: src/Core/Backend/UserPref.php:44 src/Process/Backend/Post.php:716
 msgid "Category"
 msgstr "الفئة"
 
@@ -588,24 +588,24 @@ msgstr "اسم العرض"
 msgid "Number of entries"
 msgstr "عدد المواد"
 
-#: src/Core/Backend/Favorites.php:299
+#: src/Core/Backend/Favorites.php:287
 #: src/Process/Backend/UserPreferences.php:1145
 msgid "My favorites"
 msgstr "مفضلاتي"
 
-#: src/Core/Backend/Favorites.php:408 src/Core/Backend/Menus.php:195
+#: src/Core/Backend/Favorites.php:399 src/Core/Backend/Menus.php:195
 #: src/Core/Backend/Page.php:372 src/Process/Backend/Media.php:782
 #: src/Process/Backend/UserPreferences.php:71
 msgid "My preferences"
 msgstr "تفضيلاتي"
 
-#: src/Core/Backend/Favorites.php:414 src/Core/Backend/Menus.php:181
+#: src/Core/Backend/Favorites.php:405 src/Core/Backend/Menus.php:181
 #: src/Process/Backend/Home.php:583 src/Process/Backend/Post.php:95
-#: src/Process/Backend/Post.php:964 src/Process/Backend/Posts.php:115
+#: src/Process/Backend/Post.php:968 src/Process/Backend/Posts.php:115
 msgid "New post"
 msgstr "مشاركة جديدة"
 
-#: src/Core/Backend/Favorites.php:435 src/Process/Backend/Rest.php:91
+#: src/Core/Backend/Favorites.php:426 src/Process/Backend/Rest.php:91
 #, php-format
 msgid "%d post"
 msgid_plural "%d posts"
@@ -616,7 +616,7 @@ msgstr[3] "%d مشاركات"
 msgstr[4] "%d مشاركات"
 msgstr[5] "%d مشاركات"
 
-#: src/Core/Backend/Favorites.php:450 src/Process/Backend/Rest.php:105
+#: src/Core/Backend/Favorites.php:441 src/Process/Backend/Rest.php:105
 #, php-format
 msgid "%d comment"
 msgid_plural "%d comments"
@@ -627,20 +627,20 @@ msgstr[3] "%d تعليق"
 msgstr[4] "%d تعليق"
 msgstr[5] "%d تعليق"
 
-#: src/Core/Backend/Favorites.php:455 src/Core/Backend/Menus.php:142
+#: src/Core/Backend/Favorites.php:446 src/Core/Backend/Menus.php:142
 #: src/Core/Backend/UserPref.php:212 src/Process/Backend/PostsPopup.php:139
 #: src/Process/Backend/Search.php:158 src/Process/Backend/Search.php:163
 #: src/Process/Backend/Search.php:194
 msgid "Search"
 msgstr "البحث"
 
-#: src/Core/Backend/Favorites.php:465 src/Core/Backend/Menus.php:130
+#: src/Core/Backend/Favorites.php:456 src/Core/Backend/Menus.php:130
 #: src/Process/Backend/Categories.php:157
 #: src/Process/Backend/Categories.php:162 src/Process/Backend/Category.php:212
 msgid "Categories"
 msgstr "الفئات"
 
-#: src/Core/Backend/Favorites.php:474 src/Core/Backend/MediaPage.php:363
+#: src/Core/Backend/Favorites.php:465 src/Core/Backend/MediaPage.php:363
 #: src/Core/Backend/MediaPage.php:365 src/Core/Backend/MediaPage.php:416
 #: src/Core/Backend/Menus.php:117 src/Core/Backend/UserPref.php:200
 #: src/Process/Backend/Media.php:688 src/Process/Backend/Media.php:816
@@ -648,19 +648,19 @@ msgstr "الفئات"
 msgid "Media manager"
 msgstr "مدير الوسائط"
 
-#: src/Core/Backend/Favorites.php:484 src/Core/Backend/Menus.php:105
+#: src/Core/Backend/Favorites.php:475 src/Core/Backend/Menus.php:105
 #: src/Process/Backend/BlogPref.php:433 src/Process/Backend/BlogPref.php:441
 #: src/Process/Backend/BlogPref.php:454
 msgid "Blog settings"
 msgstr "إعدادات المدونة"
 
-#: src/Core/Backend/Favorites.php:493 src/Core/Backend/Menus.php:93
+#: src/Core/Backend/Favorites.php:484 src/Core/Backend/Menus.php:93
 #: src/Process/Backend/BlogTheme.php:96 src/Process/Backend/BlogTheme.php:105
 #: src/Process/Backend/BlogTheme.php:180
 msgid "Blog appearance"
 msgstr "مظهر المدونة"
 
-#: src/Core/Backend/Favorites.php:512 src/Core/Backend/Menus.php:235
+#: src/Core/Backend/Favorites.php:503 src/Core/Backend/Menus.php:235
 #: src/Core/Backend/UserPref.php:65 src/Core/Backend/UserPref.php:168
 #: src/Process/Backend/BlogPref.php:1371 src/Process/Backend/User.php:274
 #: src/Process/Backend/Users.php:105 src/Process/Backend/Users.php:110
@@ -670,24 +670,24 @@ msgstr "مظهر المدونة"
 msgid "Users"
 msgstr "المستخدمون"
 
-#: src/Core/Backend/Favorites.php:518 src/Core/Backend/Menus.php:225
+#: src/Core/Backend/Favorites.php:509 src/Core/Backend/Menus.php:225
 #: src/Process/Backend/Plugins.php:110 src/Process/Backend/Plugins.php:123
 #: src/Process/Backend/Plugins.php:388 src/Process/Backend/Plugins.php:395
 #: src/Process/Upgrade/Plugins.php:178 src/Process/Upgrade/Plugins.php:188
 msgid "Plugins management"
 msgstr "إدارة الإضافات"
 
-#: src/Core/Backend/Favorites.php:524 src/Core/Backend/Menus.php:261
+#: src/Core/Backend/Favorites.php:515 src/Core/Backend/Menus.php:261
 #: src/Process/Backend/Settings.php:55 src/Process/Backend/Settings.php:62
 msgid "Plugins settings"
 msgstr "إعدادات المكونات الإضافية"
 
-#: src/Core/Backend/Favorites.php:530 src/Core/Backend/Menus.php:215
+#: src/Core/Backend/Favorites.php:521 src/Core/Backend/Menus.php:215
 #: src/Core/Upgrade/Utility.php:294
 msgid "Languages"
 msgstr "اللغات"
 
-#: src/Core/Backend/Favorites.php:536 src/Core/Backend/Page.php:447
+#: src/Core/Backend/Favorites.php:527 src/Core/Backend/Page.php:447
 #: src/Core/Backend/Page.php:448 src/Process/Backend/Help.php:108
 #: src/Process/Backend/Help.php:115 src/Process/Backend/Help.php:121
 msgid "Global help"
@@ -695,14 +695,14 @@ msgstr "المساعدة العالمية"
 
 #: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1261
 #: src/Process/Backend/Auth.php:420 src/Process/Backend/BlogPref.php:1351
-#: src/Process/Backend/Comment.php:306 src/Process/Backend/Post.php:1104
+#: src/Process/Backend/Comment.php:306 src/Process/Backend/Post.php:1108
 #: src/Process/Backend/User.php:432 src/Process/Backend/UserPreferences.php:637
 #: src/Process/Install/Install.php:445
 msgid "Email:"
 msgstr "Email:"
 
 #: src/Core/Backend/Filter/FilterComments.php:37 src/Core/Backend/Page.php:1260
-#: src/Process/Backend/Comment.php:322 src/Process/Backend/Post.php:1113
+#: src/Process/Backend/Comment.php:322 src/Process/Backend/Post.php:1117
 msgid "Web site:"
 msgstr "Web site:"
 
@@ -718,7 +718,7 @@ msgid "Type:"
 msgstr "النوع:"
 
 #: src/Core/Backend/Filter/FilterComments.php:73
-#: src/Process/Backend/Post.php:1123 src/Process/Backend/Post.php:1126
+#: src/Process/Backend/Post.php:1127 src/Process/Backend/Post.php:1130
 msgid "Comment"
 msgstr "تعليق"
 
@@ -840,7 +840,7 @@ msgstr "حفظ الخيارات الحالية"
 msgid "Display options"
 msgstr "عرض الخيارات"
 
-#: src/Core/Backend/Filter/Filters.php:423 src/Core/Backend/Page.php:1468
+#: src/Core/Backend/Filter/Filters.php:423 src/Core/Backend/Page.php:1469
 msgid "Show filters and display options"
 msgstr "إظهار الفلاتر وخيارات العرض"
 
@@ -920,7 +920,7 @@ msgid "Switch to blog %s"
 msgstr "التبديل إلى المدونة %s"
 
 #: src/Core/Backend/Listing/ListingComments.php:56
-#: src/Process/Backend/Comment.php:152 src/Process/Backend/Post.php:1033
+#: src/Process/Backend/Comment.php:152 src/Process/Backend/Post.php:1037
 msgid "No comments"
 msgstr "لا توجد تعليقات"
 
@@ -971,7 +971,7 @@ msgstr "تعقب"
 
 #: src/Core/Backend/Listing/ListingComments.php:240
 #: src/Core/Backend/Listing/ListingComments.php:243
-#: src/Process/Backend/Post.php:1358 src/Process/Backend/Post.php:1383
+#: src/Process/Backend/Post.php:1362 src/Process/Backend/Post.php:1387
 msgid "Edit"
 msgstr "تحرير"
 
@@ -1055,8 +1055,8 @@ msgstr "لا يوجد إدخال يطابق عامل التصفية"
 #: src/Core/Backend/Listing/ListingPosts.php:109
 #: src/Core/Backend/Listing/ListingPosts.php:112
 #: src/Core/Backend/Listing/ListingPosts.php:113
-#: src/Core/Backend/UserPref.php:47 src/Process/Backend/Post.php:1161
-#: src/Process/Backend/Post.php:1209
+#: src/Core/Backend/UserPref.php:47 src/Process/Backend/Post.php:1165
+#: src/Process/Backend/Post.php:1213
 msgid "Trackbacks"
 msgstr "التتبع"
 
@@ -1503,8 +1503,8 @@ msgstr "تحميل ملف مضغوط"
 #: src/Process/Backend/BlogPref.php:1010 src/Process/Backend/Category.php:248
 #: src/Process/Backend/Comment.php:284 src/Process/Backend/Home.php:586
 #: src/Process/Backend/Langs.php:322 src/Process/Backend/Langs.php:372
-#: src/Process/Backend/LinkPopup.php:83 src/Process/Backend/Post.php:989
-#: src/Process/Backend/Post.php:1080 src/Process/Backend/User.php:303
+#: src/Process/Backend/LinkPopup.php:83 src/Process/Backend/Post.php:993
+#: src/Process/Backend/Post.php:1084 src/Process/Backend/User.php:303
 #: src/Process/Backend/UsersActions.php:492 src/Process/Install/Install.php:455
 #: src/Process/Install/Wizard.php:263 src/Process/Upgrade/Langs.php:406
 #, php-format
@@ -1517,7 +1517,7 @@ msgstr "مسار الملف المضغوط:"
 
 #: src/Core/Backend/ModulesList.php:1763 src/Core/Backend/ModulesList.php:1813
 #: src/Process/Backend/Langs.php:344 src/Process/Backend/Langs.php:393
-#: src/Process/Backend/Post.php:800 src/Process/Backend/User.php:340
+#: src/Process/Backend/Post.php:804 src/Process/Backend/User.php:340
 #: src/Process/Backend/User.php:364 src/Process/Backend/User.php:529
 #: src/Process/Backend/UsersActions.php:499 src/Process/Install/Install.php:467
 #: src/Process/Install/Install.php:473 src/Process/Upgrade/Langs.php:430
@@ -1531,7 +1531,7 @@ msgstr "كلمة المرور"
 msgid "Your password:"
 msgstr "كلمة المرور الخاصة بك:"
 
-#: src/Core/Backend/ModulesList.php:1774 src/Core/Backend/Page.php:1424
+#: src/Core/Backend/ModulesList.php:1774 src/Core/Backend/Page.php:1425
 #: src/Process/Backend/Media.php:795
 msgid "Upload"
 msgstr "تحميل"
@@ -1570,7 +1570,7 @@ msgstr "تكوين \"%s\""
 #: src/Process/Backend/BlogDel.php:138 src/Process/Backend/BlogPref.php:1182
 #: src/Process/Backend/Category.php:301 src/Process/Backend/Comment.php:352
 #: src/Process/Backend/Media.php:857 src/Process/Backend/MediaItem.php:1359
-#: src/Process/Backend/Post.php:946 src/Process/Backend/Search.php:197
+#: src/Process/Backend/Post.php:950 src/Process/Backend/Search.php:197
 #: src/Process/Backend/User.php:547 src/Process/Backend/UserPreferences.php:698
 #: src/Process/Backend/UserPreferences.php:1000
 #: src/Process/Backend/UserPreferences.php:1226
@@ -1578,7 +1578,7 @@ msgid "Back"
 msgstr "الرجوع"
 
 #: src/Core/Backend/Notices.php:86 src/Core/Backend/Page.php:1263
-#: src/Core/Backend/Page.php:1419 src/Core/Upgrade/Notices.php:48
+#: src/Core/Backend/Page.php:1420 src/Core/Upgrade/Notices.php:48
 #: src/Process/Backend/Home.php:327
 msgid "Error:"
 msgstr "خطأ:"
@@ -1595,8 +1595,8 @@ msgstr "%H:%M:%S"
 
 #: src/Core/Backend/Notices.php:258 src/Core/Backend/Notices.php:298
 #: src/Core/Backend/Notices.php:308 src/Core/Backend/Page.php:1309
-#: src/Process/Backend/Categories.php:341 src/Process/Backend/Post.php:1048
-#: src/Process/Backend/Post.php:1180 src/Process/Backend/PostsPopup.php:121
+#: src/Process/Backend/Categories.php:341 src/Process/Backend/Post.php:1052
+#: src/Process/Backend/Post.php:1184 src/Process/Backend/PostsPopup.php:121
 msgid "Ok"
 msgstr "حسناً"
 
@@ -1728,7 +1728,7 @@ msgid "Invert selection"
 msgstr "عكس التحديد"
 
 #: src/Core/Backend/Page.php:1264 src/Process/Backend/Post.php:466
-#: src/Process/Backend/Post.php:590
+#: src/Process/Backend/Post.php:594
 msgid "Entry has been successfully created."
 msgstr "تم إنشاء الإدخال بنجاح."
 
@@ -1905,87 +1905,91 @@ msgstr "إخفاء كلمة المرور"
 msgid "Reset to now"
 msgstr "إعادة تعيين الآن"
 
-#: src/Core/Backend/Page.php:1316
+#: src/Core/Backend/Page.php:1315
+msgid "The publication date has changed. Reset the base name of the entry URL?"
+msgstr "تم تغيير تاريخ النشر. هل تمت إعادة تعيين الاسم الأساسي لعنوان URL الخاص بالإدخال؟"
+
+#: src/Core/Backend/Page.php:1317
 msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences."
 msgstr "تم اكتشاف مانع إعلانات على لوحة التحكم هذه (المستشفى، آدبلوك بلس، أصل uBlock …) وقد يتداخل مع بعض الميزات. في هذه الحالة يجب عليك تعطيلها. لاحظ أن هذا الكشف قد يكون معطلا في تفضيلاتك."
 
-#: src/Core/Backend/Page.php:1368
+#: src/Core/Backend/Page.php:1369
 msgid "You have unsaved changes."
 msgstr "لديك تغييرات غير محفوظة."
 
-#: src/Core/Backend/Page.php:1369
+#: src/Core/Backend/Page.php:1370
 msgid "your battery charge seems low (%d%) and you have unsaved changes, you should save them."
 msgstr "شحن البطارية الخاص بك يبدو منخفضاً (%d%) ولديك تغييرات غير محفوظة، يجب عليك حفظها."
 
-#: src/Core/Backend/Page.php:1410
+#: src/Core/Backend/Page.php:1411
 msgid "Temporarily activate enhanced uploader"
 msgstr "تفعيل التحميل المحسن مؤقتاً"
 
-#: src/Core/Backend/Page.php:1411
+#: src/Core/Backend/Page.php:1412
 msgid "Temporarily disable enhanced uploader"
 msgstr "تعطيل التحميل المحسن مؤقتاً"
 
-#: src/Core/Backend/Page.php:1415
+#: src/Core/Backend/Page.php:1416
 msgid "Limit exceeded."
 msgstr "تجاوز الحد."
 
-#: src/Core/Backend/Page.php:1416
+#: src/Core/Backend/Page.php:1417
 msgid "File size exceeds allowed limit."
 msgstr "حجم الملف يتجاوز الحد المسموح به."
 
-#: src/Core/Backend/Page.php:1417
+#: src/Core/Backend/Page.php:1418
 msgid "Canceled."
 msgstr "ملغاة."
 
-#: src/Core/Backend/Page.php:1418
+#: src/Core/Backend/Page.php:1419
 msgid "HTTP Error:"
 msgstr "خطأ HTTP:"
 
-#: src/Core/Backend/Page.php:1420 src/Process/Backend/Media.php:738
+#: src/Core/Backend/Page.php:1421 src/Process/Backend/Media.php:738
 msgid "Choose file"
 msgstr "اختر ملف"
 
-#: src/Core/Backend/Page.php:1421 src/Process/Backend/Media.php:744
+#: src/Core/Backend/Page.php:1422 src/Process/Backend/Media.php:744
 msgid "Choose files"
 msgstr "اختر الملفات"
 
-#: src/Core/Backend/Page.php:1422 src/Process/Backend/LinkPopup.php:113
+#: src/Core/Backend/Page.php:1423 src/Process/Backend/LinkPopup.php:113
 #: src/Process/Backend/Media.php:293 src/Process/Backend/MediaItem.php:512
-#: src/Process/Backend/MediaItem.php:771 src/Process/Backend/Post.php:952
+#: src/Process/Backend/MediaItem.php:771 src/Process/Backend/Post.php:956
 #: src/Process/Backend/PostMedia.php:113
 msgid "Cancel"
 msgstr "إلغاء"
 
-#: src/Core/Backend/Page.php:1423
+#: src/Core/Backend/Page.php:1424
 msgid "Clean"
 msgstr "تنظيف"
 
-#: src/Core/Backend/Page.php:1425
+#: src/Core/Backend/Page.php:1426
 msgid "Send"
 msgstr "إرسال"
 
-#: src/Core/Backend/Page.php:1426
+#: src/Core/Backend/Page.php:1427
 msgid "File successfully uploaded."
 msgstr "تم تحميل الملف بنجاح."
 
-#: src/Core/Backend/Page.php:1427
+#: src/Core/Backend/Page.php:1428
 msgid "No file in queue."
 msgstr "لا يوجد ملف في قائمة الانتظار."
 
-#: src/Core/Backend/Page.php:1428
+#: src/Core/Backend/Page.php:1429
 msgid "1 file in queue."
 msgstr "ملف واحد في قائمة الانتظار."
 
-#: src/Core/Backend/Page.php:1429
+#: src/Core/Backend/Page.php:1430
 #, php-format
 msgid "%d files in queue."
 msgstr "%d ملفات في قائمة الانتظار."
 
-#: src/Core/Backend/Page.php:1430
+#: src/Core/Backend/Page.php:1431
 msgid "Queue error:"
 msgstr "خطأ في قائمة الانتظار:"
 
-#: src/Core/Backend/Page.php:1469
+#: src/Core/Backend/Page.php:1470
 msgid "Cancel filters and display options"
 msgstr "إلغاء الفلاتر وخيارات العرض"
 
@@ -2093,7 +2097,7 @@ msgstr "لا توجد سمات تطابق بحثك."
 msgid "Use this one"
 msgstr "استخدم هذا"
 
-#: src/Core/Backend/ThemesList.php:395 src/Process/Backend/Post.php:945
+#: src/Core/Backend/ThemesList.php:395 src/Process/Backend/Post.php:949
 msgid "Preview"
 msgstr "معاينة"
 
@@ -3503,7 +3507,7 @@ msgid "Blog details"
 msgstr "تفاصيل المدونة"
 
 #: src/Process/Backend/BlogPref.php:534 src/Process/Backend/BlogPref.php:1019
-#: src/Process/Backend/BlogPref.php:1040 src/Process/Backend/Post.php:842
+#: src/Process/Backend/BlogPref.php:1040 src/Process/Backend/Post.php:846
 msgid "Required field"
 msgstr "الحقل المطلوب"
 
@@ -3532,7 +3536,7 @@ msgstr "إشعار حقوق التأليف والنشر:"
 msgid "Comments and trackbacks"
 msgstr "التعليقات والمتابعات"
 
-#: src/Process/Backend/BlogPref.php:605 src/Process/Backend/Post.php:758
+#: src/Process/Backend/BlogPref.php:605 src/Process/Backend/Post.php:762
 msgid "Accept comments"
 msgstr "قبول التعليقات"
 
@@ -3560,7 +3564,7 @@ msgstr "صياغة الويكي للتعليقات"
 msgid "Preview of comment before submit is not mandatory"
 msgstr "معاينة التعليق قبل التقديم غير إلزامي"
 
-#: src/Process/Backend/BlogPref.php:644 src/Process/Backend/Post.php:775
+#: src/Process/Backend/BlogPref.php:644 src/Process/Backend/Post.php:779
 msgid "Accept trackbacks"
 msgstr "قبول التراجع"
 
@@ -4116,7 +4120,7 @@ msgstr "تم تحديث الفئة بنجاح."
 msgid "Category information"
 msgstr "معلومات الفئة"
 
-#: src/Process/Backend/Category.php:259 src/Process/Backend/Post.php:1093
+#: src/Process/Backend/Category.php:259 src/Process/Backend/Post.php:1097
 msgid "Name:"
 msgstr "الاسم:"
 
@@ -4160,7 +4164,7 @@ msgstr "نقل هذه الفئة"
 msgid "Entry does not exist."
 msgstr "الإدخال غير موجود."
 
-#: src/Process/Backend/Comment.php:109 src/Process/Backend/Post.php:598
+#: src/Process/Backend/Comment.php:109 src/Process/Backend/Post.php:602
 msgid "Comment has been successfully created."
 msgstr "تم إنشاء التعليق بنجاح."
 
@@ -4239,7 +4243,7 @@ msgstr "إظهارهم."
 msgid "Delete all spams"
 msgstr "حذف جميع الرسائل غير المرغوب فيها"
 
-#: src/Process/Backend/Comments.php:217 src/Process/Backend/Post.php:1044
+#: src/Process/Backend/Comments.php:217 src/Process/Backend/Post.php:1048
 #: src/Process/Backend/Search.php:410
 msgid "Selected comments action:"
 msgstr "إجراءات التعليقات المختارة:"
@@ -4323,15 +4327,15 @@ msgstr "حدثت أخطاء مع الإضافات التالية:"
 msgid "Quick post"
 msgstr "مشاركة سريعة"
 
-#: src/Process/Backend/Home.php:607 src/Process/Backend/Post.php:874
+#: src/Process/Backend/Home.php:607 src/Process/Backend/Post.php:878
 msgid "Content:"
 msgstr "المحتوى:"
 
-#: src/Process/Backend/Home.php:613 src/Process/Backend/Post.php:871
+#: src/Process/Backend/Home.php:613 src/Process/Backend/Post.php:875
 msgid "Content"
 msgstr "محتوى"
 
-#: src/Process/Backend/Home.php:624 src/Process/Backend/Post.php:725
+#: src/Process/Backend/Home.php:624 src/Process/Backend/Post.php:729
 msgid "Add a new category"
 msgstr "إضافة فئة جديدة"
 
@@ -5075,8 +5079,8 @@ msgstr "بعض الوظائف معطلة، يرجى إعطاء صلاحية ال
 msgid "Plugin configuration"
 msgstr "اعدادات الاضافة"
 
-#: src/Process/Backend/Post.php:159 src/Process/Backend/Post.php:964
-#: src/Process/Backend/Post.php:985
+#: src/Process/Backend/Post.php:159 src/Process/Backend/Post.php:968
+#: src/Process/Backend/Post.php:989
 msgid "Edit post"
 msgstr "تحرير المنشور"
 
@@ -5088,7 +5092,7 @@ msgstr "المنشور التالي"
 msgid "Previous post"
 msgstr "المنشور السابق"
 
-#: src/Process/Backend/Post.php:292 src/Process/Backend/Post.php:601
+#: src/Process/Backend/Post.php:292 src/Process/Backend/Post.php:605
 msgid "All pings sent."
 msgstr "تم إرسال جميع الحقائق."
 
@@ -5101,147 +5105,147 @@ msgstr "تاريخ النشر غير صالح"
 msgid "The post \"%s\" has been successfully updated"
 msgstr "تم تحديث المنشور \"%s\" بنجاح"
 
-#: src/Process/Backend/Post.php:588
+#: src/Process/Backend/Post.php:592
 msgid "Entry has been successfully updated."
 msgstr "تم تحديث الإدخال بنجاح."
 
-#: src/Process/Backend/Post.php:592
+#: src/Process/Backend/Post.php:596
 msgid "File has been successfully attached."
 msgstr "تم إرفاق الملف بنجاح."
 
-#: src/Process/Backend/Post.php:594 src/Process/Backend/PostMedia.php:89
+#: src/Process/Backend/Post.php:598 src/Process/Backend/PostMedia.php:89
 msgid "Attachment has been successfully removed."
 msgstr "تمت إزالة المرفق بنجاح."
 
-#: src/Process/Backend/Post.php:610
+#: src/Process/Backend/Post.php:614
 msgid "Don't forget to validate your XHTML conversion by saving your post."
 msgstr "لا تنسى التحقق من تحويل XHTML عن طريق حفظ مشاركتك."
 
-#: src/Process/Backend/Post.php:620
+#: src/Process/Backend/Post.php:624
 msgid "Go to this entry on the site"
 msgstr "الذهاب إلى هذا الإدخال في الموقع"
 
-#: src/Process/Backend/Post.php:662
+#: src/Process/Backend/Post.php:666
 msgid "Entry status"
 msgstr "حالة الإدخال"
 
-#: src/Process/Backend/Post.php:670
+#: src/Process/Backend/Post.php:674
 msgid "Publication date and hour"
 msgstr "تاريخ وساعة النشر"
 
-#: src/Process/Backend/Post.php:679
+#: src/Process/Backend/Post.php:683
 msgid "Entry language"
 msgstr "لغة الإدخال"
 
-#: src/Process/Backend/Post.php:687
+#: src/Process/Backend/Post.php:691
 msgid "Text formatting"
 msgstr "تنسيق النص"
 
-#: src/Process/Backend/Post.php:694
+#: src/Process/Backend/Post.php:698
 msgid "Convert to HTML"
 msgstr "تحويل إلى HTML"
 
-#: src/Process/Backend/Post.php:702
+#: src/Process/Backend/Post.php:706
 msgid "Filing"
 msgstr "تقديم"
 
-#: src/Process/Backend/Post.php:707
+#: src/Process/Backend/Post.php:711
 msgid "Selected entry"
 msgstr "إدخال محدد"
 
-#: src/Process/Backend/Post.php:751 src/Process/Backend/User.php:475
+#: src/Process/Backend/Post.php:755 src/Process/Backend/User.php:475
 msgid "Options"
 msgstr "خيارات"
 
-#: src/Process/Backend/Post.php:754
+#: src/Process/Backend/Post.php:758
 msgid "Comments and trackbacks list"
 msgstr "قائمة التعليقات والمتابعات"
 
-#: src/Process/Backend/Post.php:767
+#: src/Process/Backend/Post.php:771
 msgid "Warning: Comments are no longer accepted for this entry."
 msgstr "تحذير: لم يعد يتم قبول التعليقات على هذا الإدخال."
 
-#: src/Process/Backend/Post.php:771
+#: src/Process/Backend/Post.php:775
 msgid "Comments are not accepted on this blog so far."
 msgstr "التعليقات غير مقبولة على هذه المدونة حتى الآن."
 
-#: src/Process/Backend/Post.php:784
+#: src/Process/Backend/Post.php:788
 msgid "Warning: Trackbacks are no longer accepted for this entry."
 msgstr "تحذير: لم تعد عمليات التعقب مقبولة لهذا الإدخال."
 
-#: src/Process/Backend/Post.php:788
+#: src/Process/Backend/Post.php:792
 msgid "Trackbacks are not accepted on this blog so far."
 msgstr "لم يتم قبول التتبع على هذه المدونة حتى الآن."
 
-#: src/Process/Backend/Post.php:812
+#: src/Process/Backend/Post.php:816
 msgid "Edit basename"
 msgstr "تعديل اسم البينت"
 
-#: src/Process/Backend/Post.php:816
+#: src/Process/Backend/Post.php:820
 msgid "Warning: If you set the URL manually, it may conflict with another entry."
 msgstr "تحذير: إذا قمت بتعيين عنوان URL يدوياً، قد يتعارض مع إدخال آخر."
 
-#: src/Process/Backend/Post.php:855
+#: src/Process/Backend/Post.php:859
 msgid "Excerpt:"
 msgstr "مقتطف:"
 
-#: src/Process/Backend/Post.php:855
+#: src/Process/Backend/Post.php:859
 msgid "Introduction to the post."
 msgstr "مقدمة للوظيفة."
 
-#: src/Process/Backend/Post.php:891
+#: src/Process/Backend/Post.php:895
 msgid "Personal notes:"
 msgstr "ملاحظات شخصية:"
 
-#: src/Process/Backend/Post.php:891
+#: src/Process/Backend/Post.php:895
 msgid "Unpublished notes."
 msgstr "ملاحظات غير منشورة."
 
-#: src/Process/Backend/Post.php:1061 src/Process/Backend/Post.php:1076
+#: src/Process/Backend/Post.php:1065 src/Process/Backend/Post.php:1080
 msgid "Add a comment"
 msgstr "إضافة تعليق"
 
-#: src/Process/Backend/Post.php:1165
+#: src/Process/Backend/Post.php:1169
 msgid "No trackback"
 msgstr "لا يوجد مسار"
 
-#: src/Process/Backend/Post.php:1176
+#: src/Process/Backend/Post.php:1180
 msgid "Selected trackbacks action:"
 msgstr "إجراءات التراجع المختارة:"
 
-#: src/Process/Backend/Post.php:1199
+#: src/Process/Backend/Post.php:1203
 msgid "Previously sent pings"
 msgstr "الصفحات المرسلة سابقاً"
 
-#: src/Process/Backend/Post.php:1225 src/Process/Backend/Post.php:1247
+#: src/Process/Backend/Post.php:1229 src/Process/Backend/Post.php:1251
 msgid "Ping blogs"
 msgstr "مدونات بينغ"
 
-#: src/Process/Backend/Post.php:1233
+#: src/Process/Backend/Post.php:1237
 msgid "URLs to ping:"
 msgstr "عناوين URL إلى p:"
 
-#: src/Process/Backend/Post.php:1241
+#: src/Process/Backend/Post.php:1245
 msgid "Excerpt to send:"
 msgstr "مقتطف للإرسال:"
 
-#: src/Process/Backend/Post.php:1254
+#: src/Process/Backend/Post.php:1258
 msgid "Auto discover ping URLs"
 msgstr "اكتشاف عناوين URL تلقائي"
 
-#: src/Process/Backend/Post.php:1323
+#: src/Process/Backend/Post.php:1327
 msgid "select this comment"
 msgstr "حدد هذا التعليق"
 
-#: src/Process/Backend/Post.php:1323
+#: src/Process/Backend/Post.php:1327
 msgid "select this trackback"
 msgstr "حدد هذا المسار"
 
-#: src/Process/Backend/Post.php:1354
+#: src/Process/Backend/Post.php:1358
 msgid "Edit this comment"
 msgstr "تحرير هذا التعليق"
 
-#: src/Process/Backend/Post.php:1354
+#: src/Process/Backend/Post.php:1358
 msgid "Edit this trackback"
 msgstr "تحرير هذا التعقيب"
 

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-29 06:42+0200\n"
-"PO-Revision-Date: 2025-07-29 05:53\n"
+"POT-Creation-Date: 2025-08-04 14:08+0200\n"
+"PO-Revision-Date: 2025-08-04 12:36\n"
 "Last-Translator: \n"
 "Language-Team: Croatian\n"
 "Language: hr_HR\n"
@@ -1318,7 +1318,7 @@ msgstr "Ne stavljajte mrvice u oznaku &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; .
 #: plugins/breadcrumb/src/FrontendTemplate.php:193
 #: plugins/breadcrumb/src/FrontendTemplate.php:205
 #: plugins/breadcrumb/src/FrontendTemplate.php:211
-#: plugins/simpleMenu/src/Manage.php:147 plugins/simpleMenu/src/Manage.php:258
+#: plugins/simpleMenu/src/Manage.php:147 plugins/simpleMenu/src/Manage.php:260
 #: plugins/widgets/src/Widgets.php:296
 msgid "Home"
 msgstr "Dom"
@@ -1333,13 +1333,13 @@ msgstr "stranica %d"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:155
 #: plugins/breadcrumb/src/FrontendTemplate.php:158
-#: plugins/simpleMenu/src/Manage.php:285 plugins/widgets/src/Widgets.php:324
+#: plugins/simpleMenu/src/Manage.php:287 plugins/widgets/src/Widgets.php:324
 msgid "Archives"
 msgstr "Arhiva"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:174
 #: plugins/breadcrumb/src/FrontendTemplate.php:181
-#: plugins/simpleMenu/src/Manage.php:131 plugins/simpleMenu/src/Manage.php:305
+#: plugins/simpleMenu/src/Manage.php:131 plugins/simpleMenu/src/Manage.php:307
 #: plugins/tags/src/Widgets.php:57
 msgid "All tags"
 msgstr "Sve oznake"
@@ -1503,7 +1503,7 @@ msgstr "Onemogućuje ugrađenu provjeru pravopisa ako je preglednik nudi"
 
 #: plugins/dcCKEditor/src/Manage.php:321
 #: plugins/dcLegacyEditor/src/Manage.php:111
-#: plugins/simpleMenu/src/Manage.php:759
+#: plugins/simpleMenu/src/Manage.php:761
 msgid "Save configuration"
 msgstr "Spremi konfiguraciju"
 
@@ -2627,160 +2627,160 @@ msgstr "Korisnik definiran"
 msgid "Configuration successfully updated."
 msgstr "Konfiguracija je uspješno ažurirana."
 
-#: plugins/simpleMenu/src/Manage.php:253 plugins/simpleMenu/src/Manage.php:675
-#: plugins/simpleMenu/src/Manage.php:795
+#: plugins/simpleMenu/src/Manage.php:255 plugins/simpleMenu/src/Manage.php:677
+#: plugins/simpleMenu/src/Manage.php:797
 msgid "Label"
 msgstr "Označiti"
 
-#: plugins/simpleMenu/src/Manage.php:259
+#: plugins/simpleMenu/src/Manage.php:261
 msgid "Home page"
 msgstr "Početna stranica"
 
-#: plugins/simpleMenu/src/Manage.php:259 plugins/simpleMenu/src/Manage.php:264
+#: plugins/simpleMenu/src/Manage.php:261 plugins/simpleMenu/src/Manage.php:266
 #: plugins/widgets/src/Widgets.php:305 plugins/widgets/src/Widgets.php:315
 msgid "Recent posts"
 msgstr "Najnoviji postovi"
 
-#: plugins/simpleMenu/src/Manage.php:271
+#: plugins/simpleMenu/src/Manage.php:273
 #, php-format
 msgid "Switch to %s language"
 msgstr "Prebaci na %s jezik"
 
-#: plugins/simpleMenu/src/Manage.php:278
+#: plugins/simpleMenu/src/Manage.php:280
 msgid "Recent Posts from this category"
 msgstr "Nedavni postovi iz ove kategorije"
 
-#: plugins/simpleMenu/src/Manage.php:290
+#: plugins/simpleMenu/src/Manage.php:292
 #, php-format
 msgid "Posts from %s"
 msgstr "Objave od %s"
 
-#: plugins/simpleMenu/src/Manage.php:310
+#: plugins/simpleMenu/src/Manage.php:312
 #, php-format
 msgid "Recent posts for %s tag"
 msgstr "Najnovije objave za oznaku %s"
 
-#: plugins/simpleMenu/src/Manage.php:370
+#: plugins/simpleMenu/src/Manage.php:372
 msgid "Menu item has been successfully added."
 msgstr "Stavka izbornika je uspješno dodana."
 
-#: plugins/simpleMenu/src/Manage.php:375
+#: plugins/simpleMenu/src/Manage.php:377
 msgid "Label and URL of menu item are mandatory."
 msgstr "Oznaka i URL stavke izbornika su obavezni."
 
-#: plugins/simpleMenu/src/Manage.php:408
+#: plugins/simpleMenu/src/Manage.php:410
 msgid "Menu items have been successfully removed."
 msgstr "Stavke izbornika su uspješno uklonjene."
 
-#: plugins/simpleMenu/src/Manage.php:411
+#: plugins/simpleMenu/src/Manage.php:413
 msgid "No menu items selected."
 msgstr "Nema odabranih stavki izbornika."
 
-#: plugins/simpleMenu/src/Manage.php:423
+#: plugins/simpleMenu/src/Manage.php:425
 msgid "Label is mandatory."
 msgstr "Oznaka je obavezna."
 
-#: plugins/simpleMenu/src/Manage.php:428
+#: plugins/simpleMenu/src/Manage.php:430
 msgid "URL is mandatory."
 msgstr "URL je obavezan."
 
-#: plugins/simpleMenu/src/Manage.php:473
+#: plugins/simpleMenu/src/Manage.php:475
 msgid "Menu items have been successfully updated."
 msgstr "Stavke izbornika su uspješno ažurirane."
 
-#: plugins/simpleMenu/src/Manage.php:500
+#: plugins/simpleMenu/src/Manage.php:502
 msgid "Are you sure you want to remove selected menu items?"
 msgstr "Jeste li sigurni da želite ukloniti odabrane stavke izbornika?"
 
-#: plugins/simpleMenu/src/Manage.php:509
+#: plugins/simpleMenu/src/Manage.php:511
 msgid "Step #1"
 msgstr "Korak 1"
 
-#: plugins/simpleMenu/src/Manage.php:514 plugins/simpleMenu/src/Manage.php:519
+#: plugins/simpleMenu/src/Manage.php:516 plugins/simpleMenu/src/Manage.php:521
 msgid "Step #2"
 msgstr "Korak 2"
 
-#: plugins/simpleMenu/src/Manage.php:519
+#: plugins/simpleMenu/src/Manage.php:521
 msgid "Step #3"
 msgstr "Korak #3"
 
-#: plugins/simpleMenu/src/Manage.php:528
+#: plugins/simpleMenu/src/Manage.php:530
 msgid "Add item"
 msgstr "Dodaj Predmet"
 
-#: plugins/simpleMenu/src/Manage.php:559
+#: plugins/simpleMenu/src/Manage.php:561
 msgid "Select type"
 msgstr "Odaberite vrstu"
 
-#: plugins/simpleMenu/src/Manage.php:566
+#: plugins/simpleMenu/src/Manage.php:568
 msgid "Type of item menu:"
 msgstr "Vrsta izbornika stavke:"
 
-#: plugins/simpleMenu/src/Manage.php:572 plugins/simpleMenu/src/Manage.php:639
+#: plugins/simpleMenu/src/Manage.php:574 plugins/simpleMenu/src/Manage.php:641
 msgid "Continue..."
 msgstr "Nastaviti..."
 
-#: plugins/simpleMenu/src/Manage.php:595
+#: plugins/simpleMenu/src/Manage.php:597
 msgid "Select language:"
 msgstr "Izaberi jezik:"
 
-#: plugins/simpleMenu/src/Manage.php:601
+#: plugins/simpleMenu/src/Manage.php:603
 msgid "Select category:"
 msgstr "Odaberi kategoriju:"
 
-#: plugins/simpleMenu/src/Manage.php:607
+#: plugins/simpleMenu/src/Manage.php:609
 msgid "Select month (if necessary):"
 msgstr "Odaberite mjesec (ako je potrebno):"
 
-#: plugins/simpleMenu/src/Manage.php:613
+#: plugins/simpleMenu/src/Manage.php:615
 msgid "Select page:"
 msgstr "Odaberite stranicu:"
 
-#: plugins/simpleMenu/src/Manage.php:619
+#: plugins/simpleMenu/src/Manage.php:621
 msgid "Select tag (if necessary):"
 msgstr "Odaberite oznaku (ako je potrebno):"
 
-#: plugins/simpleMenu/src/Manage.php:680
+#: plugins/simpleMenu/src/Manage.php:682
 msgid "Label of item menu:"
 msgstr "Oznaka izbornika stavke:"
 
-#: plugins/simpleMenu/src/Manage.php:694
+#: plugins/simpleMenu/src/Manage.php:696
 msgid "Description of item menu:"
 msgstr "Opis menija stavki:"
 
-#: plugins/simpleMenu/src/Manage.php:709
+#: plugins/simpleMenu/src/Manage.php:711
 msgid "URL of item menu:"
 msgstr "URL izbornika stavke:"
 
-#: plugins/simpleMenu/src/Manage.php:719 plugins/simpleMenu/src/Manage.php:798
+#: plugins/simpleMenu/src/Manage.php:721 plugins/simpleMenu/src/Manage.php:800
 msgid "Open URL on a new tab"
 msgstr "Otvori URL na novoj kartici"
 
-#: plugins/simpleMenu/src/Manage.php:727
+#: plugins/simpleMenu/src/Manage.php:729
 msgid "Add this item"
 msgstr "Dodajte ovu stavku"
 
-#: plugins/simpleMenu/src/Manage.php:753
+#: plugins/simpleMenu/src/Manage.php:755
 msgid "Enable simple menu for this blog"
 msgstr "Omogući jednostavan izbornik za ovaj blog"
 
-#: plugins/simpleMenu/src/Manage.php:776
+#: plugins/simpleMenu/src/Manage.php:778
 msgid "Add an item"
 msgstr "Dodajte stavku"
 
-#: plugins/simpleMenu/src/Manage.php:894
+#: plugins/simpleMenu/src/Manage.php:896
 msgid "Menu items list"
 msgstr "Popis stavki izbornika"
 
-#: plugins/simpleMenu/src/Manage.php:921
+#: plugins/simpleMenu/src/Manage.php:923
 msgid "Delete selected menu items"
 msgstr "Brisanje odabranih stavki izbornika"
 
-#: plugins/simpleMenu/src/Manage.php:930
+#: plugins/simpleMenu/src/Manage.php:932
 msgid "Update menu"
 msgstr "Ažuriraj izbornik"
 
-#: plugins/simpleMenu/src/Manage.php:940
+#: plugins/simpleMenu/src/Manage.php:942
 msgid "No menu items so far."
 msgstr "Za sada nema stavki jelovnika."
 
