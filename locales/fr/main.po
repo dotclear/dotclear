@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-04 13:24+0200\n"
-"PO-Revision-Date: 2025-08-04 12:14\n"
+"PO-Revision-Date: 2025-08-04 12:45\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -1815,7 +1815,7 @@ msgstr "Réinitialiser à maintenant"
 
 #: src/Core/Backend/Page.php:1315
 msgid "The publication date has changed. Reset the base name of the entry URL?"
-msgstr ""
+msgstr "La date de publication a été modifiée. Réinitialiser l'URL spécifique de l'entrée ?"
 
 #: src/Core/Backend/Page.php:1317
 msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences."
