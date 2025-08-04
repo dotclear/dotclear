@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-31 18:58+0200\n"
-"PO-Revision-Date: 2025-07-31 17:58\n"
+"POT-Creation-Date: 2025-08-04 13:24+0200\n"
+"PO-Revision-Date: 2025-08-04 12:38\n"
 "Last-Translator: \n"
 "Language-Team: Telugu\n"
 "Language: te_IN\n"
@@ -38,9 +38,9 @@ msgstr "చదరపు"
 #: inc/core/_fake_l10n.php:13 src/Core/Backend/Action/Actions.php:140
 #: src/Core/Backend/Action/ActionsPosts.php:66
 #: src/Core/Backend/Action/ActionsPosts.php:73
-#: src/Core/Backend/Favorites.php:425 src/Core/Backend/Menus.php:168
+#: src/Core/Backend/Favorites.php:416 src/Core/Backend/Menus.php:168
 #: src/Core/Backend/UserPref.php:41 src/Core/Backend/UserPref.php:178
-#: src/Process/Backend/Post.php:564 src/Process/Backend/Post.php:578
+#: src/Process/Backend/Post.php:567 src/Process/Backend/Post.php:582
 #: src/Process/Backend/Posts.php:94 src/Process/Backend/Posts.php:99
 msgid "Posts"
 msgstr "పోస్టులు"
@@ -94,7 +94,7 @@ msgstr "ఆ కీ డేటాబేస్ లో లేదు."
 #: src/Core/Backend/Combos.php:256 src/Core/Backend/Listing/ListingPosts.php:77
 #: src/Core/Backend/Listing/ListingPostsMini.php:63
 #: src/Core/Backend/UserPref.php:205 src/Process/Backend/Home.php:594
-#: src/Process/Backend/MediaItem.php:1093 src/Process/Backend/Post.php:832
+#: src/Process/Backend/MediaItem.php:1093 src/Process/Backend/Post.php:836
 msgid "Title"
 msgstr "శీర్షిక"
 
@@ -102,7 +102,7 @@ msgstr "శీర్షిక"
 #: src/Core/Backend/Action/ActionsBlogs.php:73
 #: src/Core/Backend/Action/ActionsBlogs.php:80
 #: src/Core/Backend/Action/ActionsBlogs.php:118
-#: src/Core/Backend/Favorites.php:502 src/Core/Backend/Menus.php:245
+#: src/Core/Backend/Favorites.php:493 src/Core/Backend/Menus.php:245
 #: src/Core/Backend/UserPref.php:75 src/Core/Backend/UserPref.php:192
 #: src/Process/Backend/Blog.php:100 src/Process/Backend/BlogDel.php:93
 #: src/Process/Backend/BlogPref.php:440
@@ -141,8 +141,8 @@ msgstr "బ్లాగు పేరు"
 #: src/Core/Backend/Listing/ListingPostsMini.php:75
 #: src/Core/Backend/Listing/ListingUsers.php:92
 #: src/Core/Backend/UserPref.php:55 src/Core/Backend/UserPref.php:71
-#: src/Core/Backend/UserPref.php:81 src/Process/Backend/Post.php:655
-#: src/Process/Backend/Post.php:1381 src/Process/Backend/Users.php:45
+#: src/Core/Backend/UserPref.php:81 src/Process/Backend/Post.php:659
+#: src/Process/Backend/Post.php:1385 src/Process/Backend/Users.php:45
 #: src/Process/Backend/UsersActions.php:377
 msgid "Status"
 msgstr "స్థితి"
@@ -157,7 +157,7 @@ msgstr "స్థితి"
 #: src/Core/Backend/Listing/ListingMedia.php:309
 #: src/Core/Backend/ModulesList.php:1350 src/Core/Upgrade/PluginsList.php:125
 #: src/Process/Backend/Comment.php:355 src/Process/Backend/Langs.php:231
-#: src/Process/Backend/Post.php:956 src/Process/Backend/Users.php:46
+#: src/Process/Backend/Post.php:960 src/Process/Backend/Users.php:46
 #: src/Process/Upgrade/Langs.php:299
 msgid "Delete"
 msgstr "తొలగించు"
@@ -196,13 +196,13 @@ msgstr[1] "%d బ్లాగులు విజయవంతంగా తొల�
 #: src/Core/Backend/Action/ActionsComments.php:73
 #: src/Core/Backend/Action/ActionsComments.php:80
 #: src/Core/Backend/Action/ActionsComments.php:118
-#: src/Core/Backend/Favorites.php:440
+#: src/Core/Backend/Favorites.php:431
 #: src/Core/Backend/Listing/ListingPosts.php:96
 #: src/Core/Backend/Listing/ListingPosts.php:99
 #: src/Core/Backend/Listing/ListingPosts.php:100 src/Core/Backend/Menus.php:155
 #: src/Core/Backend/UserPref.php:46 src/Core/Backend/UserPref.php:51
-#: src/Core/Backend/UserPref.php:185 src/Process/Backend/Post.php:1029
-#: src/Process/Backend/Post.php:1056
+#: src/Core/Backend/UserPref.php:185 src/Process/Backend/Post.php:1033
+#: src/Process/Backend/Post.php:1060
 msgid "Comments"
 msgstr "వ్యాఖ్యలు"
 
@@ -220,8 +220,8 @@ msgstr "వ్యాఖ్య చర్యలు"
 #: src/Core/Backend/Listing/ListingPosts.php:89
 #: src/Core/Backend/Listing/ListingPostsMini.php:71
 #: src/Core/Backend/UserPref.php:45 src/Core/Backend/UserPref.php:54
-#: src/Process/Backend/Comment.php:292 src/Process/Backend/Post.php:1091
-#: src/Process/Backend/Post.php:1372
+#: src/Process/Backend/Comment.php:292 src/Process/Backend/Post.php:1095
+#: src/Process/Backend/Post.php:1376
 msgid "Author"
 msgstr "రచయిత"
 
@@ -234,7 +234,7 @@ msgid "Blocklist IP (global)"
 msgstr "Blocklist IP (global)"
 
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:69
-#: src/Process/Backend/Post.php:1378
+#: src/Process/Backend/Post.php:1382
 msgid "IP address"
 msgstr "IP చిరునామా"
 
@@ -378,7 +378,7 @@ msgstr "ఈ ఎంపికకు వర్గము మార్చు"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:352
 #: src/Core/Backend/Filter/FilterPosts.php:132 src/Process/Backend/Home.php:620
-#: src/Process/Backend/Post.php:720
+#: src/Process/Backend/Post.php:724
 msgid "Category:"
 msgstr "వర్గం:"
 
@@ -389,13 +389,13 @@ msgstr "(s) కు కొత్త వర్గము సృష్టించ�
 #: src/Core/Backend/Action/ActionsPostsDefault.php:370
 #: src/Process/Backend/Home.php:598 src/Process/Backend/Home.php:632
 #: src/Process/Backend/Media.php:763 src/Process/Backend/MediaItem.php:1233
-#: src/Process/Backend/Post.php:734 src/Process/Backend/Post.php:837
+#: src/Process/Backend/Post.php:738 src/Process/Backend/Post.php:841
 msgid "Title:"
 msgstr "శీర్షిక:"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:379
 #: src/Process/Backend/Category.php:268 src/Process/Backend/Category.php:326
-#: src/Process/Backend/Home.php:639 src/Process/Backend/Post.php:741
+#: src/Process/Backend/Home.php:639 src/Process/Backend/Post.php:745
 msgid "Parent:"
 msgstr "పాయింట్:"
 
@@ -406,8 +406,8 @@ msgstr "పాయింట్:"
 #: src/Process/Backend/Category.php:298 src/Process/Backend/Category.php:337
 #: src/Process/Backend/Category.php:373 src/Process/Backend/Comment.php:350
 #: src/Process/Backend/Home.php:649 src/Process/Backend/Home.php:703
-#: src/Process/Backend/MediaItem.php:1273 src/Process/Backend/Post.php:921
-#: src/Process/Backend/Post.php:1135 src/Process/Backend/User.php:536
+#: src/Process/Backend/MediaItem.php:1273 src/Process/Backend/Post.php:925
+#: src/Process/Backend/Post.php:1139 src/Process/Backend/User.php:536
 #: src/Process/Backend/UsersActions.php:513 src/Process/Install/Install.php:479
 msgid "Save"
 msgstr "భద్రపరచు"
@@ -472,12 +472,12 @@ msgstr "ఆరోహణ"
 #: src/Core/Backend/Listing/ListingPosts.php:81
 #: src/Core/Backend/Listing/ListingPostsMini.php:67
 #: src/Core/Backend/UserPref.php:43 src/Core/Backend/UserPref.php:53
-#: src/Core/Backend/UserPref.php:203 src/Process/Backend/Post.php:1374
+#: src/Core/Backend/UserPref.php:203 src/Process/Backend/Post.php:1378
 msgid "Date"
 msgstr "తేదీ"
 
 #: src/Core/Backend/Combos.php:257 src/Core/Backend/Listing/ListingPosts.php:85
-#: src/Core/Backend/UserPref.php:44 src/Process/Backend/Post.php:712
+#: src/Core/Backend/UserPref.php:44 src/Process/Backend/Post.php:716
 msgid "Category"
 msgstr "వర్గం"
 
@@ -552,51 +552,51 @@ msgstr "చూపించే పేరు"
 msgid "Number of entries"
 msgstr "టపాల సంఖ్య"
 
-#: src/Core/Backend/Favorites.php:299
+#: src/Core/Backend/Favorites.php:287
 #: src/Process/Backend/UserPreferences.php:1145
 msgid "My favorites"
 msgstr "నా అభిప్రాయాలు"
 
-#: src/Core/Backend/Favorites.php:408 src/Core/Backend/Menus.php:195
+#: src/Core/Backend/Favorites.php:399 src/Core/Backend/Menus.php:195
 #: src/Core/Backend/Page.php:372 src/Process/Backend/Media.php:782
 #: src/Process/Backend/UserPreferences.php:71
 msgid "My preferences"
 msgstr "నా ప్రాధాన్యం"
 
-#: src/Core/Backend/Favorites.php:414 src/Core/Backend/Menus.php:181
+#: src/Core/Backend/Favorites.php:405 src/Core/Backend/Menus.php:181
 #: src/Process/Backend/Home.php:583 src/Process/Backend/Post.php:95
-#: src/Process/Backend/Post.php:964 src/Process/Backend/Posts.php:115
+#: src/Process/Backend/Post.php:968 src/Process/Backend/Posts.php:115
 msgid "New post"
 msgstr "కొత్త టపా"
 
-#: src/Core/Backend/Favorites.php:435 src/Process/Backend/Rest.php:91
+#: src/Core/Backend/Favorites.php:426 src/Process/Backend/Rest.php:91
 #, php-format
 msgid "%d post"
 msgid_plural "%d posts"
 msgstr[0] "%d పోస్ట్"
 msgstr[1] "%d పోస్టులు"
 
-#: src/Core/Backend/Favorites.php:450 src/Process/Backend/Rest.php:105
+#: src/Core/Backend/Favorites.php:441 src/Process/Backend/Rest.php:105
 #, php-format
 msgid "%d comment"
 msgid_plural "%d comments"
 msgstr[0] "%d వ్యాఖ్యానము"
 msgstr[1] "%d వ్యాఖ్యలు"
 
-#: src/Core/Backend/Favorites.php:455 src/Core/Backend/Menus.php:142
+#: src/Core/Backend/Favorites.php:446 src/Core/Backend/Menus.php:142
 #: src/Core/Backend/UserPref.php:212 src/Process/Backend/PostsPopup.php:139
 #: src/Process/Backend/Search.php:158 src/Process/Backend/Search.php:163
 #: src/Process/Backend/Search.php:194
 msgid "Search"
 msgstr "వెతుకు"
 
-#: src/Core/Backend/Favorites.php:465 src/Core/Backend/Menus.php:130
+#: src/Core/Backend/Favorites.php:456 src/Core/Backend/Menus.php:130
 #: src/Process/Backend/Categories.php:157
 #: src/Process/Backend/Categories.php:162 src/Process/Backend/Category.php:212
 msgid "Categories"
 msgstr "వర్గాలు"
 
-#: src/Core/Backend/Favorites.php:474 src/Core/Backend/MediaPage.php:363
+#: src/Core/Backend/Favorites.php:465 src/Core/Backend/MediaPage.php:363
 #: src/Core/Backend/MediaPage.php:365 src/Core/Backend/MediaPage.php:416
 #: src/Core/Backend/Menus.php:117 src/Core/Backend/UserPref.php:200
 #: src/Process/Backend/Media.php:688 src/Process/Backend/Media.php:816
@@ -604,19 +604,19 @@ msgstr "వర్గాలు"
 msgid "Media manager"
 msgstr "మాధ్యమాల నిర్వహణ"
 
-#: src/Core/Backend/Favorites.php:484 src/Core/Backend/Menus.php:105
+#: src/Core/Backend/Favorites.php:475 src/Core/Backend/Menus.php:105
 #: src/Process/Backend/BlogPref.php:433 src/Process/Backend/BlogPref.php:441
 #: src/Process/Backend/BlogPref.php:454
 msgid "Blog settings"
 msgstr "బ్లాగు అమరికలు"
 
-#: src/Core/Backend/Favorites.php:493 src/Core/Backend/Menus.php:93
+#: src/Core/Backend/Favorites.php:484 src/Core/Backend/Menus.php:93
 #: src/Process/Backend/BlogTheme.php:96 src/Process/Backend/BlogTheme.php:105
 #: src/Process/Backend/BlogTheme.php:180
 msgid "Blog appearance"
 msgstr "బ్లాగు రూపం"
 
-#: src/Core/Backend/Favorites.php:512 src/Core/Backend/Menus.php:235
+#: src/Core/Backend/Favorites.php:503 src/Core/Backend/Menus.php:235
 #: src/Core/Backend/UserPref.php:65 src/Core/Backend/UserPref.php:168
 #: src/Process/Backend/BlogPref.php:1371 src/Process/Backend/User.php:274
 #: src/Process/Backend/Users.php:105 src/Process/Backend/Users.php:110
@@ -626,24 +626,24 @@ msgstr "బ్లాగు రూపం"
 msgid "Users"
 msgstr "వాడుకరులు"
 
-#: src/Core/Backend/Favorites.php:518 src/Core/Backend/Menus.php:225
+#: src/Core/Backend/Favorites.php:509 src/Core/Backend/Menus.php:225
 #: src/Process/Backend/Plugins.php:110 src/Process/Backend/Plugins.php:123
 #: src/Process/Backend/Plugins.php:388 src/Process/Backend/Plugins.php:395
 #: src/Process/Upgrade/Plugins.php:178 src/Process/Upgrade/Plugins.php:188
 msgid "Plugins management"
 msgstr "ప్లగిన్ల నిర్వహణ"
 
-#: src/Core/Backend/Favorites.php:524 src/Core/Backend/Menus.php:261
+#: src/Core/Backend/Favorites.php:515 src/Core/Backend/Menus.php:261
 #: src/Process/Backend/Settings.php:55 src/Process/Backend/Settings.php:62
 msgid "Plugins settings"
 msgstr "ప్లగిన్‌ల సెట్టింగ్‌లు"
 
-#: src/Core/Backend/Favorites.php:530 src/Core/Backend/Menus.php:215
+#: src/Core/Backend/Favorites.php:521 src/Core/Backend/Menus.php:215
 #: src/Core/Upgrade/Utility.php:294
 msgid "Languages"
 msgstr "భాషలు"
 
-#: src/Core/Backend/Favorites.php:536 src/Core/Backend/Page.php:447
+#: src/Core/Backend/Favorites.php:527 src/Core/Backend/Page.php:447
 #: src/Core/Backend/Page.php:448 src/Process/Backend/Help.php:108
 #: src/Process/Backend/Help.php:115 src/Process/Backend/Help.php:121
 msgid "Global help"
@@ -651,14 +651,14 @@ msgstr "గ్లోబల్ సహాయము"
 
 #: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1261
 #: src/Process/Backend/Auth.php:420 src/Process/Backend/BlogPref.php:1351
-#: src/Process/Backend/Comment.php:306 src/Process/Backend/Post.php:1104
+#: src/Process/Backend/Comment.php:306 src/Process/Backend/Post.php:1108
 #: src/Process/Backend/User.php:432 src/Process/Backend/UserPreferences.php:637
 #: src/Process/Install/Install.php:445
 msgid "Email:"
 msgstr "ఈమెయిల్:"
 
 #: src/Core/Backend/Filter/FilterComments.php:37 src/Core/Backend/Page.php:1260
-#: src/Process/Backend/Comment.php:322 src/Process/Backend/Post.php:1113
+#: src/Process/Backend/Comment.php:322 src/Process/Backend/Post.php:1117
 msgid "Web site:"
 msgstr "వెబ్ సైటు:"
 
@@ -674,7 +674,7 @@ msgid "Type:"
 msgstr "రకం:"
 
 #: src/Core/Backend/Filter/FilterComments.php:73
-#: src/Process/Backend/Post.php:1123 src/Process/Backend/Post.php:1126
+#: src/Process/Backend/Post.php:1127 src/Process/Backend/Post.php:1130
 msgid "Comment"
 msgstr "వ్యాఖ్య"
 
@@ -796,7 +796,7 @@ msgstr "ప్రస్తుత ఐచ్ఛికములు దాయుమ�
 msgid "Display options"
 msgstr "ప్రదర్శన ఐచ్ఛికములు"
 
-#: src/Core/Backend/Filter/Filters.php:423 src/Core/Backend/Page.php:1468
+#: src/Core/Backend/Filter/Filters.php:423 src/Core/Backend/Page.php:1469
 msgid "Show filters and display options"
 msgstr "ఫిల్టర్లు మరియు ప్రదర్శన ఐచ్ఛికములు చూపుము"
 
@@ -872,7 +872,7 @@ msgid "Switch to blog %s"
 msgstr "%s బ్లాగుకి మారండి"
 
 #: src/Core/Backend/Listing/ListingComments.php:56
-#: src/Process/Backend/Comment.php:152 src/Process/Backend/Post.php:1033
+#: src/Process/Backend/Comment.php:152 src/Process/Backend/Post.php:1037
 msgid "No comments"
 msgstr "వ్యాఖ్యలు లేవు"
 
@@ -919,7 +919,7 @@ msgstr "ట్రాకుబ్యాకు"
 
 #: src/Core/Backend/Listing/ListingComments.php:240
 #: src/Core/Backend/Listing/ListingComments.php:243
-#: src/Process/Backend/Post.php:1358 src/Process/Backend/Post.php:1383
+#: src/Process/Backend/Post.php:1362 src/Process/Backend/Post.php:1387
 msgid "Edit"
 msgstr "సరికూర్చు"
 
@@ -999,8 +999,8 @@ msgstr "ఎంట్రీ ఫిల్టర్ సరిపోలేదు"
 #: src/Core/Backend/Listing/ListingPosts.php:109
 #: src/Core/Backend/Listing/ListingPosts.php:112
 #: src/Core/Backend/Listing/ListingPosts.php:113
-#: src/Core/Backend/UserPref.php:47 src/Process/Backend/Post.php:1161
-#: src/Process/Backend/Post.php:1209
+#: src/Core/Backend/UserPref.php:47 src/Process/Backend/Post.php:1165
+#: src/Process/Backend/Post.php:1213
 msgid "Trackbacks"
 msgstr "ట్రాకుబ్యాకులు"
 
@@ -1411,8 +1411,8 @@ msgstr "జిప్ ఫైలును అప్లోడ్ చేయుము
 #: src/Process/Backend/BlogPref.php:1010 src/Process/Backend/Category.php:248
 #: src/Process/Backend/Comment.php:284 src/Process/Backend/Home.php:586
 #: src/Process/Backend/Langs.php:322 src/Process/Backend/Langs.php:372
-#: src/Process/Backend/LinkPopup.php:83 src/Process/Backend/Post.php:989
-#: src/Process/Backend/Post.php:1080 src/Process/Backend/User.php:303
+#: src/Process/Backend/LinkPopup.php:83 src/Process/Backend/Post.php:993
+#: src/Process/Backend/Post.php:1084 src/Process/Backend/User.php:303
 #: src/Process/Backend/UsersActions.php:492 src/Process/Install/Install.php:455
 #: src/Process/Install/Wizard.php:263 src/Process/Upgrade/Langs.php:406
 #, php-format
@@ -1425,7 +1425,7 @@ msgstr "జిప్ ఫైల్ దారి:"
 
 #: src/Core/Backend/ModulesList.php:1763 src/Core/Backend/ModulesList.php:1813
 #: src/Process/Backend/Langs.php:344 src/Process/Backend/Langs.php:393
-#: src/Process/Backend/Post.php:800 src/Process/Backend/User.php:340
+#: src/Process/Backend/Post.php:804 src/Process/Backend/User.php:340
 #: src/Process/Backend/User.php:364 src/Process/Backend/User.php:529
 #: src/Process/Backend/UsersActions.php:499 src/Process/Install/Install.php:467
 #: src/Process/Install/Install.php:473 src/Process/Upgrade/Langs.php:430
@@ -1439,7 +1439,7 @@ msgstr "సంకేతపదము"
 msgid "Your password:"
 msgstr "మీ సంకేతపదం:"
 
-#: src/Core/Backend/ModulesList.php:1774 src/Core/Backend/Page.php:1424
+#: src/Core/Backend/ModulesList.php:1774 src/Core/Backend/Page.php:1425
 #: src/Process/Backend/Media.php:795
 msgid "Upload"
 msgstr "ఎగుమతి చెయ్యండి"
@@ -1478,7 +1478,7 @@ msgstr "ఆకృతీకరించు \"%s\""
 #: src/Process/Backend/BlogDel.php:138 src/Process/Backend/BlogPref.php:1182
 #: src/Process/Backend/Category.php:301 src/Process/Backend/Comment.php:352
 #: src/Process/Backend/Media.php:857 src/Process/Backend/MediaItem.php:1359
-#: src/Process/Backend/Post.php:946 src/Process/Backend/Search.php:197
+#: src/Process/Backend/Post.php:950 src/Process/Backend/Search.php:197
 #: src/Process/Backend/User.php:547 src/Process/Backend/UserPreferences.php:698
 #: src/Process/Backend/UserPreferences.php:1000
 #: src/Process/Backend/UserPreferences.php:1226
@@ -1486,7 +1486,7 @@ msgid "Back"
 msgstr "వెనుకకు"
 
 #: src/Core/Backend/Notices.php:86 src/Core/Backend/Page.php:1263
-#: src/Core/Backend/Page.php:1419 src/Core/Upgrade/Notices.php:48
+#: src/Core/Backend/Page.php:1420 src/Core/Upgrade/Notices.php:48
 #: src/Process/Backend/Home.php:327
 msgid "Error:"
 msgstr "పొరపాటు:"
@@ -1503,8 +1503,8 @@ msgstr "%H:%M:%S"
 
 #: src/Core/Backend/Notices.php:258 src/Core/Backend/Notices.php:298
 #: src/Core/Backend/Notices.php:308 src/Core/Backend/Page.php:1309
-#: src/Process/Backend/Categories.php:341 src/Process/Backend/Post.php:1048
-#: src/Process/Backend/Post.php:1180 src/Process/Backend/PostsPopup.php:121
+#: src/Process/Backend/Categories.php:341 src/Process/Backend/Post.php:1052
+#: src/Process/Backend/Post.php:1184 src/Process/Backend/PostsPopup.php:121
 msgid "Ok"
 msgstr "Ok"
 
@@ -1636,7 +1636,7 @@ msgid "Invert selection"
 msgstr "ఎంపిక చేయుము"
 
 #: src/Core/Backend/Page.php:1264 src/Process/Backend/Post.php:466
-#: src/Process/Backend/Post.php:590
+#: src/Process/Backend/Post.php:594
 msgid "Entry has been successfully created."
 msgstr "విజయవంతంగా టపాని సృష్టించాం."
 
@@ -1813,87 +1813,91 @@ msgstr "సంకేతపదమును దాచుము"
 msgid "Reset to now"
 msgstr "ఇప్పటికి రెసిట్"
 
-#: src/Core/Backend/Page.php:1316
+#: src/Core/Backend/Page.php:1315
+msgid "The publication date has changed. Reset the base name of the entry URL?"
+msgstr "ప్రచురణ తేదీ మారింది. ఎంట్రీ URL యొక్క బేస్ పేరును రీసెట్ చేయాలా?"
+
+#: src/Core/Backend/Page.php:1317
 msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences."
 msgstr "ఈ Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) పై ఒక అడ్ బ్లాకర్ను గుర్తించారు. మరియు ఇది కొన్ని లక్షణాలు జోడించి ఉండవచ్చు. ఈ సందర్భంలో మీరు అసలు చేయాలి. ఈ గుర్తింపు మీ ప్రాధాన్యం లో అచేతనం చేయవచ్చు అని గమనించండి."
 
-#: src/Core/Backend/Page.php:1368
+#: src/Core/Backend/Page.php:1369
 msgid "You have unsaved changes."
 msgstr "భద్రపరచని మార్పులున్నాయి."
 
-#: src/Core/Backend/Page.php:1369
+#: src/Core/Backend/Page.php:1370
 msgid "your battery charge seems low (%d%) and you have unsaved changes, you should save them."
 msgstr "మీ బ్యాటరీ ఛార్జ్ తక్కువ (%d%) కనిపిస్తుంది మరియు మీరు తప్పనిసరి మార్పులు కలిగి ఉంటాయి, మీరు వాటిని రక్షించాలి."
 
-#: src/Core/Backend/Page.php:1410
+#: src/Core/Backend/Page.php:1411
 msgid "Temporarily activate enhanced uploader"
 msgstr "(T) వేగవంతమైన అప్లోడర్ ను క్రియాశీలకంగా క్రియాశీలము చేయుము"
 
-#: src/Core/Backend/Page.php:1411
+#: src/Core/Backend/Page.php:1412
 msgid "Temporarily disable enhanced uploader"
 msgstr "@ info: कुशादा: color"
 
-#: src/Core/Backend/Page.php:1415
+#: src/Core/Backend/Page.php:1416
 msgid "Limit exceeded."
 msgstr "పరిమితి దాటింది."
 
-#: src/Core/Backend/Page.php:1416
+#: src/Core/Backend/Page.php:1417
 msgid "File size exceeds allowed limit."
 msgstr "ఫైలు పరిమాణం అనుమతించిన పరిమితిని దాటింది."
 
-#: src/Core/Backend/Page.php:1417
+#: src/Core/Backend/Page.php:1418
 msgid "Canceled."
 msgstr "రద్దుచేసాం."
 
-#: src/Core/Backend/Page.php:1418
+#: src/Core/Backend/Page.php:1419
 msgid "HTTP Error:"
 msgstr "HTTP పొరపాటు:"
 
-#: src/Core/Backend/Page.php:1420 src/Process/Backend/Media.php:738
+#: src/Core/Backend/Page.php:1421 src/Process/Backend/Media.php:738
 msgid "Choose file"
 msgstr "దస్త్రం యెంచుకొనుము"
 
-#: src/Core/Backend/Page.php:1421 src/Process/Backend/Media.php:744
+#: src/Core/Backend/Page.php:1422 src/Process/Backend/Media.php:744
 msgid "Choose files"
 msgstr "ఫైళ్ళను యెంచుకొనుము"
 
-#: src/Core/Backend/Page.php:1422 src/Process/Backend/LinkPopup.php:113
+#: src/Core/Backend/Page.php:1423 src/Process/Backend/LinkPopup.php:113
 #: src/Process/Backend/Media.php:293 src/Process/Backend/MediaItem.php:512
-#: src/Process/Backend/MediaItem.php:771 src/Process/Backend/Post.php:952
+#: src/Process/Backend/MediaItem.php:771 src/Process/Backend/Post.php:956
 #: src/Process/Backend/PostMedia.php:113
 msgid "Cancel"
 msgstr "రద్దుచేయి"
 
-#: src/Core/Backend/Page.php:1423
+#: src/Core/Backend/Page.php:1424
 msgid "Clean"
 msgstr "శుభ్రం"
 
-#: src/Core/Backend/Page.php:1425
+#: src/Core/Backend/Page.php:1426
 msgid "Send"
 msgstr "పంపు"
 
-#: src/Core/Backend/Page.php:1426
+#: src/Core/Backend/Page.php:1427
 msgid "File successfully uploaded."
 msgstr "ఫైలు విజయవంతంగా ఎగుమతయ్యింది."
 
-#: src/Core/Backend/Page.php:1427
+#: src/Core/Backend/Page.php:1428
 msgid "No file in queue."
 msgstr "వరుసలో ఏ ఫైల్ లేదు."
 
-#: src/Core/Backend/Page.php:1428
+#: src/Core/Backend/Page.php:1429
 msgid "1 file in queue."
 msgstr "వరుసలో 1 ఫైలు"
 
-#: src/Core/Backend/Page.php:1429
+#: src/Core/Backend/Page.php:1430
 #, php-format
 msgid "%d files in queue."
 msgstr "వరుసలో %d దస్త్రములు."
 
-#: src/Core/Backend/Page.php:1430
+#: src/Core/Backend/Page.php:1431
 msgid "Queue error:"
 msgstr "వరుసగా దోషము:"
 
-#: src/Core/Backend/Page.php:1469
+#: src/Core/Backend/Page.php:1470
 msgid "Cancel filters and display options"
 msgstr "ఫిల్టర్లు మరియు ప్రదర్శన ఎంపికలను రద్దుచేయుము"
 
@@ -2001,7 +2005,7 @@ msgstr "ఏ థీమ్స్ మీ సెర్చ్ సరిపోలే�
 msgid "Use this one"
 msgstr "దీనిని వుపయోగించుము"
 
-#: src/Core/Backend/ThemesList.php:395 src/Process/Backend/Post.php:945
+#: src/Core/Backend/ThemesList.php:395 src/Process/Backend/Post.php:949
 msgid "Preview"
 msgstr "వీక్షణం"
 
@@ -3387,7 +3391,7 @@ msgid "Blog details"
 msgstr "బ్లాగు వివరాలు"
 
 #: src/Process/Backend/BlogPref.php:534 src/Process/Backend/BlogPref.php:1019
-#: src/Process/Backend/BlogPref.php:1040 src/Process/Backend/Post.php:842
+#: src/Process/Backend/BlogPref.php:1040 src/Process/Backend/Post.php:846
 msgid "Required field"
 msgstr "అభ్యర్ధన రంగము"
 
@@ -3416,7 +3420,7 @@ msgstr "కాపీహక్కుల గమనిక"
 msgid "Comments and trackbacks"
 msgstr "వ్యాఖ్యలు మరియు ట్రాకుబ్యాకులు"
 
-#: src/Process/Backend/BlogPref.php:605 src/Process/Backend/Post.php:758
+#: src/Process/Backend/BlogPref.php:605 src/Process/Backend/Post.php:762
 msgid "Accept comments"
 msgstr "వ్యాఖ్యలను అనుమతించు"
 
@@ -3444,7 +3448,7 @@ msgstr "వ్యాఖ్యల కోసం వికీ సింపర్"
 msgid "Preview of comment before submit is not mandatory"
 msgstr "జరుపుకోవడానికి ముందు వ్యాఖ్యల యొక్క ముందస్తు వీక్షణం లేదు."
 
-#: src/Process/Backend/BlogPref.php:644 src/Process/Backend/Post.php:775
+#: src/Process/Backend/BlogPref.php:644 src/Process/Backend/Post.php:779
 msgid "Accept trackbacks"
 msgstr "ట్రాకుబ్యాకులను అంగీకరించండి"
 
@@ -3996,7 +4000,7 @@ msgstr "వర్గాన్ని విజయవంతంగా తాజా�
 msgid "Category information"
 msgstr "వర్గపు సమాచారం"
 
-#: src/Process/Backend/Category.php:259 src/Process/Backend/Post.php:1093
+#: src/Process/Backend/Category.php:259 src/Process/Backend/Post.php:1097
 msgid "Name:"
 msgstr "పేరు:"
 
@@ -4040,7 +4044,7 @@ msgstr "ఈ వర్గమును కదుపుము"
 msgid "Entry does not exist."
 msgstr "టపా లేనే లేదు."
 
-#: src/Process/Backend/Comment.php:109 src/Process/Backend/Post.php:598
+#: src/Process/Backend/Comment.php:109 src/Process/Backend/Post.php:602
 msgid "Comment has been successfully created."
 msgstr "వ్యాఖ్య సమర్ధవంతంగా సృష్టించబడింది."
 
@@ -4119,7 +4123,7 @@ msgstr "వాటిని చూపించు."
 msgid "Delete all spams"
 msgstr "అన్ని స్పాములను తొలగించుము"
 
-#: src/Process/Backend/Comments.php:217 src/Process/Backend/Post.php:1044
+#: src/Process/Backend/Comments.php:217 src/Process/Backend/Post.php:1048
 #: src/Process/Backend/Search.php:410
 msgid "Selected comments action:"
 msgstr "ఎంచుకున్న వ్యాఖ్యలపై చర్య:"
@@ -4203,15 +4207,15 @@ msgstr "క్రింది ప్లగ్యిన్లతో సంభవ�
 msgid "Quick post"
 msgstr "త్వరిత టపా"
 
-#: src/Process/Backend/Home.php:607 src/Process/Backend/Post.php:874
+#: src/Process/Backend/Home.php:607 src/Process/Backend/Post.php:878
 msgid "Content:"
 msgstr "విషయం:"
 
-#: src/Process/Backend/Home.php:613 src/Process/Backend/Post.php:871
+#: src/Process/Backend/Home.php:613 src/Process/Backend/Post.php:875
 msgid "Content"
 msgstr "విషయం"
 
-#: src/Process/Backend/Home.php:624 src/Process/Backend/Post.php:725
+#: src/Process/Backend/Home.php:624 src/Process/Backend/Post.php:729
 msgid "Add a new category"
 msgstr "కొత్త వర్గమును జతచేయుము"
 
@@ -4947,8 +4951,8 @@ msgstr "కొన్ని కార్యాలు అచేతనము చే
 msgid "Plugin configuration"
 msgstr "ప్లగిన్ ఆకృతి"
 
-#: src/Process/Backend/Post.php:159 src/Process/Backend/Post.php:964
-#: src/Process/Backend/Post.php:985
+#: src/Process/Backend/Post.php:159 src/Process/Backend/Post.php:968
+#: src/Process/Backend/Post.php:989
 msgid "Edit post"
 msgstr "పదవి సరికూర్చు"
 
@@ -4960,7 +4964,7 @@ msgstr "తదుపరి పోస్ట్"
 msgid "Previous post"
 msgstr "మునుపటి పోస్ట్"
 
-#: src/Process/Backend/Post.php:292 src/Process/Backend/Post.php:601
+#: src/Process/Backend/Post.php:292 src/Process/Backend/Post.php:605
 msgid "All pings sent."
 msgstr "అన్ని పిండాలు పంపాయి."
 
@@ -4973,147 +4977,147 @@ msgstr "చెల్లని ప్రచురణ తేదీ"
 msgid "The post \"%s\" has been successfully updated"
 msgstr "The post \"%s\" సమర్ధవంతంగా నవీకరిస్తోంది"
 
-#: src/Process/Backend/Post.php:588
+#: src/Process/Backend/Post.php:592
 msgid "Entry has been successfully updated."
 msgstr "విజయవంతంగా టపాని తాజాకరించాం."
 
-#: src/Process/Backend/Post.php:592
+#: src/Process/Backend/Post.php:596
 msgid "File has been successfully attached."
 msgstr "ఫైలుని విజయవంతంగా జోడించాం."
 
-#: src/Process/Backend/Post.php:594 src/Process/Backend/PostMedia.php:89
+#: src/Process/Backend/Post.php:598 src/Process/Backend/PostMedia.php:89
 msgid "Attachment has been successfully removed."
 msgstr "అటవీ సమర్ధవంతంగా తొలగించబడింది."
 
-#: src/Process/Backend/Post.php:610
+#: src/Process/Backend/Post.php:614
 msgid "Don't forget to validate your XHTML conversion by saving your post."
 msgstr "మీ పదవిని సేవించడం ద్వారా మీ XHTML మార్పును వదలించుటకు మర్చిపోవద్దు."
 
-#: src/Process/Backend/Post.php:620
+#: src/Process/Backend/Post.php:624
 msgid "Go to this entry on the site"
 msgstr "ఈ సైట్ లో ఈ ప్రవేశం వెళ్ళండి"
 
-#: src/Process/Backend/Post.php:662
+#: src/Process/Backend/Post.php:666
 msgid "Entry status"
 msgstr "ప్రవేశం స్థితి"
 
-#: src/Process/Backend/Post.php:670
+#: src/Process/Backend/Post.php:674
 msgid "Publication date and hour"
 msgstr "ప్రచురణ తేదీ మరియు గంట"
 
-#: src/Process/Backend/Post.php:679
+#: src/Process/Backend/Post.php:683
 msgid "Entry language"
 msgstr "ప్రవేశం చేయి"
 
-#: src/Process/Backend/Post.php:687
+#: src/Process/Backend/Post.php:691
 msgid "Text formatting"
 msgstr "టెక్స్ట్ ఫార్మాట్టింగ్"
 
-#: src/Process/Backend/Post.php:694
+#: src/Process/Backend/Post.php:698
 msgid "Convert to HTML"
 msgstr "HTMLకి మార్చు"
 
-#: src/Process/Backend/Post.php:702
+#: src/Process/Backend/Post.php:706
 msgid "Filing"
 msgstr "ఫైలు"
 
-#: src/Process/Backend/Post.php:707
+#: src/Process/Backend/Post.php:711
 msgid "Selected entry"
 msgstr "ఎంపికచేసిన ప్రవేశము"
 
-#: src/Process/Backend/Post.php:751 src/Process/Backend/User.php:475
+#: src/Process/Backend/Post.php:755 src/Process/Backend/User.php:475
 msgid "Options"
 msgstr "ఐచ్చికములు"
 
-#: src/Process/Backend/Post.php:754
+#: src/Process/Backend/Post.php:758
 msgid "Comments and trackbacks list"
 msgstr "వ్యాఖ్యలు మరియు ట్రాక్బాక్ జాబితా"
 
-#: src/Process/Backend/Post.php:767
+#: src/Process/Backend/Post.php:771
 msgid "Warning: Comments are no longer accepted for this entry."
 msgstr "హెచ్చరిక: ఈ ఎంట్రీకి వ్యాఖ్యలు ఇకపై అంగీకరించబడవు."
 
-#: src/Process/Backend/Post.php:771
+#: src/Process/Backend/Post.php:775
 msgid "Comments are not accepted on this blog so far."
 msgstr "ఈ బ్లాగులో ఇప్పటివరకు వ్యాఖ్యలు అంగీకరించలేదు."
 
-#: src/Process/Backend/Post.php:784
+#: src/Process/Backend/Post.php:788
 msgid "Warning: Trackbacks are no longer accepted for this entry."
 msgstr "హెచ్చరిక: ఈ ఎంట్రీకి ట్రాక్‌బ్యాక్‌లు ఇకపై అంగీకరించబడవు."
 
-#: src/Process/Backend/Post.php:788
+#: src/Process/Backend/Post.php:792
 msgid "Trackbacks are not accepted on this blog so far."
 msgstr "ఈ బ్లాగులో ట్రాక్బాక్లు ఇప్పటివరకు అంగీకరించలేదు."
 
-#: src/Process/Backend/Post.php:812
+#: src/Process/Backend/Post.php:816
 msgid "Edit basename"
 msgstr "బేస్పేరు సరికూర్చు"
 
-#: src/Process/Backend/Post.php:816
+#: src/Process/Backend/Post.php:820
 msgid "Warning: If you set the URL manually, it may conflict with another entry."
 msgstr "హెచ్చరిక: మీరు URL స్నేహం చేయబడితే, అది మరొక ప్రవేశంతో కలపవచ్చు."
 
-#: src/Process/Backend/Post.php:855
+#: src/Process/Backend/Post.php:859
 msgid "Excerpt:"
 msgstr "సంగ్రహం:"
 
-#: src/Process/Backend/Post.php:855
+#: src/Process/Backend/Post.php:859
 msgid "Introduction to the post."
 msgstr "పదవికి పరిచయం."
 
-#: src/Process/Backend/Post.php:891
+#: src/Process/Backend/Post.php:895
 msgid "Personal notes:"
 msgstr "వ్యక్తిగత నోట్స్:"
 
-#: src/Process/Backend/Post.php:891
+#: src/Process/Backend/Post.php:895
 msgid "Unpublished notes."
 msgstr "ప్రచురించిన నోట్స్."
 
-#: src/Process/Backend/Post.php:1061 src/Process/Backend/Post.php:1076
+#: src/Process/Backend/Post.php:1065 src/Process/Backend/Post.php:1080
 msgid "Add a comment"
 msgstr "ఓ వ్యాఖ్యని చేర్చండి"
 
-#: src/Process/Backend/Post.php:1165
+#: src/Process/Backend/Post.php:1169
 msgid "No trackback"
 msgstr "ట్రాకుబ్యాకులు లేవు"
 
-#: src/Process/Backend/Post.php:1176
+#: src/Process/Backend/Post.php:1180
 msgid "Selected trackbacks action:"
 msgstr "ఎంపికచేసిన ట్రాక్బాక్ చర్య:"
 
-#: src/Process/Backend/Post.php:1199
+#: src/Process/Backend/Post.php:1203
 msgid "Previously sent pings"
 msgstr "ముందుగా పంపిణీ పంపిన"
 
-#: src/Process/Backend/Post.php:1225 src/Process/Backend/Post.php:1247
+#: src/Process/Backend/Post.php:1229 src/Process/Backend/Post.php:1251
 msgid "Ping blogs"
 msgstr "పిండం బ్లాగులు"
 
-#: src/Process/Backend/Post.php:1233
+#: src/Process/Backend/Post.php:1237
 msgid "URLs to ping:"
 msgstr "To ping: URLs:"
 
-#: src/Process/Backend/Post.php:1241
+#: src/Process/Backend/Post.php:1245
 msgid "Excerpt to send:"
 msgstr "పంపడానికి Excerpt:"
 
-#: src/Process/Backend/Post.php:1254
+#: src/Process/Backend/Post.php:1258
 msgid "Auto discover ping URLs"
 msgstr "URLలను స్వయంగా కనుగొనాలి"
 
-#: src/Process/Backend/Post.php:1323
+#: src/Process/Backend/Post.php:1327
 msgid "select this comment"
 msgstr "ఈ వ్యాఖ్యను యెంపికచేయుము"
 
-#: src/Process/Backend/Post.php:1323
+#: src/Process/Backend/Post.php:1327
 msgid "select this trackback"
 msgstr "ఈ ట్రాక్బ్యాక్ను యెంపికచేయుము"
 
-#: src/Process/Backend/Post.php:1354
+#: src/Process/Backend/Post.php:1358
 msgid "Edit this comment"
 msgstr "ఈ వ్యాఖ్యని మార్చండి"
 
-#: src/Process/Backend/Post.php:1354
+#: src/Process/Backend/Post.php:1358
 msgid "Edit this trackback"
 msgstr "ఈ ట్రాక్‌బ్యాక్‌ను సవరించండి"
 
