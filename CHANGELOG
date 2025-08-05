@@ -1,3 +1,98 @@
+Dotclear 2.35 - 2025-08-13
+===========================================================
+* 🐘 PHP 8.1+ is required, PHP 8.2, 8.3 and 8.4 compliance
+* Breaking change: App::auth()->blog_count is no longer public, use App::auth()->getBlogCount() instead
+* Breaking change: App::frontend()->smilies is an array (may not be initialized) and no longer accept false value
+* Breaking change: restCheckStoreUpdateV2 behavior use now an single associative ArrayObject rather than two arrays
+* Breaking change: Put the global __() function in a separate file, L10n::bootstrap() should be call in order to have this function defined
+* Breaking change: HtmlFilter now trim returning string
+* Breaking change: User favorites, remove unused case (using array) in getFavorite($id) method
+* Core: Propose to reset entry URL when publication date is changed (if not already published)
+* Core: Allow using patterns for house cleaning during upgrade
+* Core: Add an option to Antispam to publish immediately moderated comments/trackbacks if they are recognized as not being a spam
+* Core: Reset host cache list if force refresh is required (upgrade dashboard)
+* Core: Add a host cache in StoreReader (with log)
+* Core: Remove old IE code from standard Editor Wysiwyg mode
+* Core: Add a JS helper, dotclear.DOMready to use when DOM content is loaded (backend/frontend)
+* Core: Add also media_private to idx_media_media_path SQL index as this field is often used in queries with media_path and media_dir
+* Core: Make idx_media_media_path SQL index generic, not only for PostgreSQL
+* Core: Adds a meta tag that can be disabled to prevent indexing by AI engines in Blog parameters (advanced section)
+* Core: Add two behaviors in themeEditor themeEditorWriteFile, themeEditorDeleteFile to let 3rd party plugins play with it
+* Core: Cope with mjs (javascript module) in themeEditor
+* Core: Remove link to current selected theme stylesheet which is not useful on themes' list page
+* Core: Display a warning message if theme is too old to be overloaded with themeEditor
+* Core: Add a specific define value for theme supporting overloading (DC 2.35+)
+* Core: Allow modification of distributed themes as the new system will not modify original files
+* Core: Cope with index.php?tf=resource.ext and with custom theme template path (var)
+* Core: Add a behavior (adminDashboardMessage) to provide 3rd party modules message on dashboard
+* Core: Add a behavior (adminConvertBeforePostEdit) to allow 3rd party conversion before editing entry content (post/page)
+* Core: Set default antispam moderation TTL to 7 days rather than 0 (immediate)
+* Core: Rewriting the method for building category lists without using recursion
+* Core: Call coreContentFilter behavior for preview button (wiki mode)
+* Core: Add a status information for blogroll links and categories
+* Core: Cope with full URL for public media when looking for 1st image in entry
+* Core: Use XML format rather than serialized PHP Object to cache feeds
+* Core: Use IntersectionObserver rather than an EventListener for Goto Top button (show/hide) and Help button (position and aspect)
+* Core: Optimize getLangsCombo method
+* UX/UI: Review prefix of back button text (::before)
+* UX/UI: Review editors' name, use description rather than name in user pref if available
+* UX/UI: Use an animated SVG rather than GIF for autocomplete loading indicator
+* UX/UI: Review responsive table header management on small devices (WIP)
+* UX/UI: Use a dialog for inline quote insertion in legacyEditor rather than two consecutive prompts
+* UX/UI: Add aria-label to set to today button
+* UX/UI: Add aria-label to show/hide password button
+* UX/UI: Add an Ok button to notices in order to close them
+* UX/UI: Review maintenance tasks messages using Ajax
+* UX/UI: Slight review of toolbar buttons background on standard Editor
+* UX/UI: Review theme editor help
+* UX/UI: Add a global help sidebar only if has not already been loaded
+* UX/UI: Add a last donation date personal reminder in donation fieldset on dashboard
+* UX/UI: Add some note about video insertion sizes
+* UX/UI: Slight review CSS of responsive tables
+* UX/UI: Add a plugins settings page with all available links to different kinds of plugins settings
+* UX/UI: Review Theme Editor plugin icon (light/dark)
+* UX/UI: Review look and position of title on auth page
+* UX/UI: Force sub-categories to be displayed under the category
+* UX/UI: After update done, go directly to authentication (Upgrade) instead of requiring a another click from user
+* UX/UI: If secondary notes should be hidden (in user pref), also hide informative notes
+* UX/UI: Switch to light-dark() and cope with color scheme for backend CSS
+* Fix: No need for spl_autoload_register callback to return anything
+* Fix: Do not use french feed for Finnish language
+* Fix: Do not request multiple times the list of fonts during blowup config rendering
+* Fix: Fix form children selector in dotclear.enterKeyInForm() helper
+* Fix: Fix CSS for outgoing-link image
+* Fix: Set media link (not image nor video nor audio) content to current selected text (or url if none) in standard Editor
+* Fix: Set media link (not image nor video nor audio) content to current selected text (or url if none) in CKEditor
+* Fix: Avoid loading more than once util.js (Frontend)
+* Fix: Fix fields' color (to cope with light/dark mode) for Blue Silence theme
+* Fix: Fix fields' color (to cope with light/dark mode) for Blowup theme
+* Fix: Do not list minified versions of files in themeEditor
+* Fix: No need to change field backgrounds in order to cope with light/dark modes in Ductile
+* Fix: Prevent unsaved media properties if necessary
+* Fix: Berlin theme: style only aside without any classes
+* Fix: Try to cope with non UTF-8 encoded theme's files in themeEditor if necessary
+* Fix: Review composition of list of plugins in notice/success/warning/error
+* Fix: Display delete button as soon as file saved (even with JS) in themeEditor
+* Fix: Review dynamic activation/deactivation of delays in maintenance settings tab
+* Fix: Maintenance plugin: display expired task(s) message only if requested in plugin settings
+* Fix: Select the correct radio button for maintenance alert depending on current settings
+* Fix: Quick entry creation without category
+* Fix: No need to load more than once legacyEditor resources (JS, CSS, …)
+* Fix: Fix miniTidy by reverting HTML5 closing single tags to XHTML form as xml_parser will use XHTML format.
+* Fix: Cope with footnotes CKEditor plugin which force background color
+* Fix: Do not display generic help on plugin config if help is already set
+* Fix: Filter contextual help content to avoid malformed HTML
+* Fix: default smilies definition path
+* Fix: Put ul of sub-categories inside the li, not after
+* Fix: Fix: Its better to have a form to save stuff in maintenance!
+* Fix: Target = _blank is for opening in another tab/window
+* Fix: Fix comment preview content, the publicBeforeCommentPreview behavior effect was ignored
+* Fix: Fix helper message for comments and trackbacks TTL
+* Fix: Use new-stuff class rather than top-add as this one might be hidden by ads-blockers
+* Fix: Keep some space between username and logout icon
+* 🐛 → Various bugs, a11y concerns and typos fixed
+* 🌼 → Some locales and cosmetic adjustments
+
 Dotclear 2.34 - 2025-05-13
 ===========================================================
 * 🐘 PHP 8.1+ is required, PHP 8.2, 8.3 and 8.4 compliance
