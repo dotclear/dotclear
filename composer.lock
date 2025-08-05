@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a26a011c65a1c84349358bc7f1a83ab0",
+    "content-hash": "8609bc15ae202aa0b2030cfea4afa2a1",
     "packages": [],
     "packages-dev": [
         {
@@ -1473,12 +1473,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "8a5e76f8954339476fd3a5117a80632946067542"
+                "reference": "682acb4e4d4659a25c93fc29716d25272330168e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/8a5e76f8954339476fd3a5117a80632946067542",
-                "reference": "8a5e76f8954339476fd3a5117a80632946067542",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/682acb4e4d4659a25c93fc29716d25272330168e",
+                "reference": "682acb4e4d4659a25c93fc29716d25272330168e",
                 "shasum": ""
             },
             "require": {
@@ -1524,7 +1524,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-07-14T14:26:03+00:00"
+            "time": "2025-08-05T14:01:25+00:00"
         },
         {
             "name": "psr/container",
@@ -1637,17 +1637,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "a1799b56bd94d1af0b6ea2fa87c5fbfc69ba08d6"
+                "reference": "4ec245a8aa0d29497034e47301893496efb07f7d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/a1799b56bd94d1af0b6ea2fa87c5fbfc69ba08d6",
-                "reference": "a1799b56bd94d1af0b6ea2fa87c5fbfc69ba08d6",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/4ec245a8aa0d29497034e47301893496efb07f7d",
+                "reference": "4ec245a8aa0d29497034e47301893496efb07f7d",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.4|^8.0",
-                "phpstan/phpstan": "^2.1.17"
+                "phpstan/phpstan": "^2.1.18"
             },
             "conflict": {
                 "rector/rector-doctrine": "*",
@@ -1690,7 +1690,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-07-14T10:18:57+00:00"
+            "time": "2025-08-05T14:35:36+00:00"
         },
         {
             "name": "revolt/event-loop",
@@ -2864,16 +2864,16 @@
         },
         {
             "name": "vimeo/psalm",
-            "version": "dev-master",
+            "version": "6.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vimeo/psalm.git",
-                "reference": "986ef8dcd78884e7625f07eef32a9db1c739b961"
+                "reference": "b8e96bb617bf59382113b1b56cef751f648a7dc9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vimeo/psalm/zipball/986ef8dcd78884e7625f07eef32a9db1c739b961",
-                "reference": "986ef8dcd78884e7625f07eef32a9db1c739b961",
+                "url": "https://api.github.com/repos/vimeo/psalm/zipball/b8e96bb617bf59382113b1b56cef751f648a7dc9",
+                "reference": "b8e96bb617bf59382113b1b56cef751f648a7dc9",
                 "shasum": ""
             },
             "require": {
@@ -2891,7 +2891,7 @@
                 "ext-simplexml": "*",
                 "ext-tokenizer": "*",
                 "felixfbecker/advanced-json-rpc": "^3.1",
-                "felixfbecker/language-server-protocol": "^1.5.2",
+                "felixfbecker/language-server-protocol": "^1.5.3",
                 "fidry/cpu-core-counter": "^0.4.1 || ^0.5.1 || ^1.0.0",
                 "netresearch/jsonmapper": "^1.0 || ^2.0 || ^3.0 || ^4.0",
                 "nikic/php-parser": "^5.0.0",
@@ -2916,7 +2916,7 @@
                 "phpstan/phpdoc-parser": "^1.6",
                 "phpunit/phpunit": "^9.6",
                 "psalm/plugin-mockery": "^1.1",
-                "psalm/plugin-phpunit": "^0.18",
+                "psalm/plugin-phpunit": "^0.19",
                 "slevomat/coding-standard": "^8.4",
                 "squizlabs/php_codesniffer": "^3.6",
                 "symfony/process": "^4.4 || ^5.0 || ^6.0 || ^7.0"
@@ -2935,12 +2935,13 @@
             "type": "project",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "6.x-dev",
-                    "dev-5.x": "5.x-dev",
-                    "dev-4.x": "4.x-dev",
-                    "dev-3.x": "3.x-dev",
+                    "dev-1.x": "1.x-dev",
                     "dev-2.x": "2.x-dev",
-                    "dev-1.x": "1.x-dev"
+                    "dev-3.x": "3.x-dev",
+                    "dev-4.x": "4.x-dev",
+                    "dev-5.x": "5.x-dev",
+                    "dev-6.x": "6.x-dev",
+                    "dev-master": "7.x-dev"
                 }
             },
             "autoload": {
@@ -2969,7 +2970,7 @@
                 "issues": "https://github.com/vimeo/psalm/issues",
                 "source": "https://github.com/vimeo/psalm"
             },
-            "time": "2024-11-24T11:02:28+00:00"
+            "time": "2025-01-26T12:03:19+00:00"
         },
         {
             "name": "webmozart/assert",
@@ -3035,8 +3036,7 @@
     "stability-flags": {
         "fakerphp/faker": 20,
         "phpstan/phpstan": 20,
-        "rector/rector": 20,
-        "vimeo/psalm": 20
+        "rector/rector": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

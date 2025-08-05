@@ -16,7 +16,7 @@
     "phpstan/phpstan": "2.1.x-dev",
     "atoum/atoum": "4.3.0",
     "atoum/reports-extension": "4.0.0",
-    "vimeo/psalm": "6.x-dev",
+    "vimeo/psalm": "^6.0",
     "rector/rector": "dev-main",
     "fakerphp/faker": "2.0.x-dev"
   },
