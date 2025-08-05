@@ -561,7 +561,7 @@ class Post extends Process
         }
 
         // Check if entry URL basename use year, month or date
-        $check_dt = preg_match('/{[y|m|d]}/', (string) App::blog()->settings()->system?->post_url_format);
+        $check_dt = preg_match('/{[y|m|d]}/', (string) App::blog()->settings()->system->post_url_format);
 
         Page::open(
             App::backend()->page_title . ' - ' . __('Posts'),
