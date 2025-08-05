@@ -37,7 +37,7 @@ class Backend extends Process
         My::addBackendMenuItem();
 
         if (My::settings()->active) {
-            App::formater()->addEditorFormater(My::id(), 'xhtml', fn ($s) => $s);
+            App::formater()->addEditorFormater(My::id(), 'xhtml', fn ($s): string => $s);
             App::formater()->addFormaterName('xhtml', __('HTML'));
 
             App::behavior()->addBehaviors([

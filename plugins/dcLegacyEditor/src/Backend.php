@@ -42,7 +42,7 @@ class Backend extends Process
                 App::filter()->initWikiPost();
             }
 
-            App::formater()->addEditorFormater(My::id(), 'xhtml', fn ($s) => $s);
+            App::formater()->addEditorFormater(My::id(), 'xhtml', fn ($s): string => $s);
             App::formater()->addFormaterName('xhtml', __('HTML'));
 
             if (App::filter()->wiki() instanceof WikiToHtml) {
