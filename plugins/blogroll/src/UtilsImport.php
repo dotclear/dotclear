@@ -58,26 +58,28 @@ class UtilsImport
         $outlines = $xml->xpath('//outline');
 
         $list = [];
-        foreach ($outlines as $outline) {
-            if (isset($outline['htmlUrl'])) {
-                $link = $outline['htmlUrl'];
-            } elseif (isset($outline['url'])) {
-                $link = $outline['url'];
-            } else {
-                continue;
+        if ($outlines) {
+            foreach ($outlines as $outline) {
+                if (isset($outline['htmlUrl'])) {
+                    $link = $outline['htmlUrl'];
+                } elseif (isset($outline['url'])) {
+                    $link = $outline['url'];
+                } else {
+                    continue;
+                }
+
+                $entry = new stdClass();
+
+                $entry->link  = $link;
+                $entry->title = empty($outline['title']) ? '' : $outline['title'];
+                $entry->desc  = empty($outline['description']) ? '' : $outline['description'];
+
+                if (empty($entry->title)) {
+                    $entry->title = empty($outline['text']) ? $entry->link : $outline['text'];
+                }
+
+                $list[] = $entry;
             }
-
-            $entry = new stdClass();
-
-            $entry->link  = $link;
-            $entry->title = empty($outline['title']) ? '' : $outline['title'];
-            $entry->desc  = empty($outline['description']) ? '' : $outline['description'];
-
-            if (empty($entry->title)) {
-                $entry->title = empty($outline['text']) ? $entry->link : $outline['text'];
-            }
-
-            $list[] = $entry;
         }
 
         return $list;
@@ -100,22 +102,24 @@ class UtilsImport
         $outlines = $xml->xpath('//bookmark');
 
         $list = [];
-        foreach ($outlines as $outline) {
-            if (!isset($outline['href'])) {
-                continue;
+        if ($outlines) {
+            foreach ($outlines as $outline) {
+                if (!isset($outline['href'])) {
+                    continue;
+                }
+
+                $entry = new stdClass();
+
+                $entry->link  = $outline['href'];
+                $entry->title = empty($outline->title) ? '' : $outline->title;
+                $entry->desc  = empty($outline->desc) ? '' : $outline->desc;
+
+                if (empty($entry->title)) {
+                    $entry->title = $entry->link;
+                }
+
+                $list[] = $entry;
             }
-
-            $entry = new stdClass();
-
-            $entry->link  = $outline['href'];
-            $entry->title = empty($outline->title) ? '' : $outline->title;
-            $entry->desc  = empty($outline->desc) ? '' : $outline->desc;
-
-            if (empty($entry->title)) {
-                $entry->title = $entry->link;
-            }
-
-            $list[] = $entry;
         }
 
         return $list;

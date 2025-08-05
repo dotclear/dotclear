@@ -34,6 +34,7 @@ use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Html\XmlTag;
 use Dotclear\Helper\Network\Feed\Reader;
 use Dotclear\Helper\Text as TextHelper;
+use Dotclear\Interface\Module\ModulesInterface;
 use Dotclear\Module\Store;
 use Dotclear\Plugin\antispam\Antispam;
 use Exception;
@@ -324,6 +325,10 @@ class Rest extends Process
             if ($mod === [] || $url === '') {
                 throw new Exception('Unknown store type');
             }
+        }
+
+        if (!($mod instanceof ModulesInterface)) {
+            throw new Exception('Unknown store type');
         }
 
         $repo = new Store($mod, $url, false, false);

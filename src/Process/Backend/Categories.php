@@ -332,7 +332,7 @@ class Categories extends Process
         $move = (new None());
         if ($rs->nb_total > 0) {
             $options = array_filter(App::backend()->categories_combo, fn ($cat): bool => $cat->value !== ((string) $rs->cat_id));
-            if (!is_null($options) && count($options)) {
+            if (count($options)) {
                 $move = (new Set())
                     ->items([
                         (new Select(['mov_cat[' . $rs->cat_id . ']', 'mov_cat_' . $rs->cat_id]))

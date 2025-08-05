@@ -341,7 +341,7 @@ class Handler extends AbstractHandler
      */
     public function db_escape_string($str, $handle = null): string
     {
-        return $handle instanceof PDO ? trim($handle->quote($str), "'") : addslashes((string) $str);
+        return $handle instanceof PDO ? trim((string) $handle->quote($str), "'") : addslashes((string) $str);
     }
 
     public function escapeSystem(string $str): string
