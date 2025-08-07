@@ -420,7 +420,7 @@ abstract class AbstractHandler extends Connection
             if (is_string($v)) {
                 $res[] = sprintf($fmt, $v);
             } elseif (is_array($v)) {   // @phpstan-ignore-line: PHPDoc is not certain — to be refined
-                $res = array_map(fn ($i): string => sprintf($fmt, $i), $v);
+                $res = array_map(fn (string $i): string => sprintf($fmt, $i), $v);
             }
         }
 

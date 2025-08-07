@@ -29,6 +29,7 @@ use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Th;
 use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Stack\Status;
 
 /**
  * @brief   Users list pager form helper.
@@ -135,7 +136,7 @@ class ListingUsers extends Listing
                             ->items([
                                 self::getRowImage(__('admin'), 'images/admin.svg', 'admin', true),
                                 self::getRowImage(__('superadmin'), 'images/superadmin.svg', 'admin', true),
-                                ... array_map(fn ($k): Img|Set|Text => App::status()->user()->image($k->id(), true), App::status()->user()->dump(false)),
+                                ... array_map(fn (Status $k): Img|Set|Text => App::status()->user()->image($k->id(), true), App::status()->user()->dump(false)),
                             ])
                             ->render(),
                         )),

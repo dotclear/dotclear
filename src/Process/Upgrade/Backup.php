@@ -84,7 +84,7 @@ class Backup extends Process
             }
         }
         if ($archives !== []) {
-            usort($archives, fn ($a, $b): int => $a <=> $b);
+            usort($archives, fn (string $a, string $b): int => $a <=> $b);
         }
 
         self::$archives = $archives;

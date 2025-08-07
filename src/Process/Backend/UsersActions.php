@@ -295,7 +295,7 @@ class UsersActions extends Process
             echo (new Note())
                 ->text(sprintf(
                     __('Choose one or more blogs to which you want to give permissions to users %s.'),
-                    implode(', ', array_map(fn ($user): string => $user->render(), $users))
+                    implode(', ', array_map(fn (Link $user): string => $user->render(), $users))
                 ))
             ->render();
 
@@ -418,7 +418,7 @@ class UsersActions extends Process
             echo (new Note())
                 ->text(sprintf(
                     __('You are about to change permissions on the following blogs for users %s.'),
-                    implode(', ', array_map(fn ($user): string => $user->render(), $users))
+                    implode(', ', array_map(fn (Link $user): string => $user->render(), $users))
                 ))
             ->render();
 

@@ -61,7 +61,7 @@ class Plugins extends Process
                             ->text(__('The following plugins have been disabled :')),
                         (new Ul())
                             ->items(
-                                array_map(fn ($item) => (new Li())->text($item), $disabled)
+                                array_map(fn (string $item) => (new Li())->text($item), $disabled)
                             ),
                     ])
                 ->render(),
@@ -139,7 +139,7 @@ class Plugins extends Process
                             ->text(__('Following plugins have been installed:')),
                         (new Ul())
                             ->items(
-                                array_map(fn ($item) => (new Li())->text($item), $success)
+                                array_map(fn (string $item) => (new Li())->text($item), $success)
                             ),
                     ])
                 ->render(),

@@ -115,7 +115,7 @@ class IpLookup extends SpamFilter
             return null;
         }
 
-        $bls = array_map(fn ($v): string => trim($v), explode(',', $this->getServers()));
+        $bls = array_map(fn (string $v): string => trim($v), explode(',', $this->getServers()));
 
         foreach ($bls as $bl) {
             if ($this->dnsblLookup($ip, $bl)) {

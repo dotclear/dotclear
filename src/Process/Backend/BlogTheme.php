@@ -67,7 +67,7 @@ class BlogTheme extends Process
 
         if ($disabled !== []) {
             $list = (new Ul())
-                ->items(array_map(fn ($item) => (new Li())->text($item), $disabled))
+                ->items(array_map(fn (string $item) => (new Li())->text($item), $disabled))
             ->render();
 
             Notices::addWarningNotice(

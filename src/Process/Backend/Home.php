@@ -78,7 +78,7 @@ class Home extends Process
                             ->text(__('The following plugins have been disabled:')),
                         (new Ul())
                             ->items(
-                                array_map(fn ($item) => (new Li())->text($item), $disabled)
+                                array_map(fn (string $item) => (new Li())->text($item), $disabled)
                             ),
                     ])
                 ->render(),
@@ -327,7 +327,7 @@ class Home extends Process
                             ->text(__('Error:')),
                         (new Ul())
                             ->items(
-                                array_map(fn ($item) => (new Li())->text($item), $err)
+                                array_map(fn (string $item) => (new Li())->text($item), $err)
                             ),
                     ])
                 ->render(),
@@ -352,7 +352,7 @@ class Home extends Process
                             ->text(__('Following plugins have been installed:')),
                         (new Ul())
                             ->items(
-                                array_map(fn ($item) => (new Li())->text($item), $success)
+                                array_map(fn (string $item) => (new Li())->text($item), $success)
                             ),
                     ])
                 ->render(),
@@ -395,7 +395,7 @@ class Home extends Process
                                 ->text(__('Errors have occured with following plugins:')),
                             (new Ul())
                                 ->items(
-                                    array_map(fn ($item) => (new Li())->text($item), $list)
+                                    array_map(fn (string $item) => (new Li())->text($item), $list)
                                 ),
                         ])
                     ->render(),

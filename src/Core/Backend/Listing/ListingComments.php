@@ -29,6 +29,7 @@ use Dotclear\Helper\Html\Form\Th;
 use Dotclear\Helper\Html\Form\Timestamp;
 use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Stack\Status;
 use Dotclear\Plugin\antispam\Antispam;
 
 /**
@@ -182,7 +183,7 @@ class ListingComments extends Listing
                             __('Legend: ') . (new Set())
                             ->separator(' - ')
                             ->items([
-                                ... array_map(fn ($k): Img|Set|Text => App::status()->comment()->image($k->id(), true), App::status()->comment()->dump(false)),
+                                ... array_map(fn (Status $k): Img|Set|Text => App::status()->comment()->image($k->id(), true), App::status()->comment()->dump(false)),
                             ])
                             ->render(),
                         )),

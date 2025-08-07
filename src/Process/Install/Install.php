@@ -244,7 +244,7 @@ class Install extends Process
                 if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
                     $formatDate   = preg_replace('#(?<!%)((?:%%)*)%e#', '\1%#d', $formatDate);
                     $date_formats = array_map(
-                        fn ($f): string => str_replace('%e', '%#d', $f),
+                        fn (string $f): string => str_replace('%e', '%#d', $f),
                         $date_formats
                     );
                 }

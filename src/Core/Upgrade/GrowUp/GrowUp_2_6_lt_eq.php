@@ -66,7 +66,7 @@ class GrowUp_2_6_lt_eq
             '%A, %B %e, %Y', '%A, %e %B, %Y', '%A, %Y, %B %e', '%A, %Y, %B %e', '%A, %e. %B %Y', ];
         $time_formats = ['%H:%M', '%I:%M', '%l:%M', '%Hh%M', '%Ih%M', '%lh%M'];
         if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
-            $date_formats = array_map(fn ($f): string => str_replace('%e', '%#d', $f), $date_formats);
+            $date_formats = array_map(fn (string $f): string => str_replace('%e', '%#d', $f), $date_formats);
         }
 
         $rs = App::con()->select(sprintf($strReqSelect, 'date_formats'));

@@ -293,7 +293,7 @@ class Store
             }
         }
         # Sort response by matches count
-        usort($defines, fn ($a, $b): int => (int) $b->get('score') <=> (int) $a->get('score'));
+        usort($defines, fn (ModuleDefine $a, ModuleDefine $b): int => (int) $b->get('score') <=> (int) $a->get('score'));
 
         return $defines;
     }

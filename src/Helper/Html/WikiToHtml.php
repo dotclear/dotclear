@@ -679,7 +679,7 @@ class WikiToHtml
 
         $this->escape_table = $this->all_tags;
 
-        array_walk($this->escape_table, function (&$a): void {$a = '\\' . $a;});
+        array_walk($this->escape_table, function (string &$a): void {$a = '\\' . $a;});
     }
 
     /**
@@ -724,7 +724,7 @@ class WikiToHtml
     {
         $res = $this->all_tags;
 
-        array_walk($res, function (&$a): void {$a = preg_quote($a, '/');});
+        array_walk($res, function (string &$a): void {$a = preg_quote($a, '/');});
 
         return '/(?<!\\\)(' . implode('|', $res) . ')/';
     }

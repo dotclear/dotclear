@@ -32,6 +32,7 @@ use Dotclear\Helper\Html\Form\Thead;
 use Dotclear\Helper\Html\Form\Timestamp;
 use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Stack\Status;
 
 /**
  * @brief   Posts list pager form helper.
@@ -203,7 +204,7 @@ class ListingPosts extends Listing
                             __('Legend: ') . (new Set())
                             ->separator(' - ')
                             ->items([
-                                ... array_map(fn ($k): Img|Set|Text => App::status()->post()->image($k->id(), true), App::status()->post()->dump(false)),
+                                ... array_map(fn (Status $k): Img|Set|Text => App::status()->post()->image($k->id(), true), App::status()->post()->dump(false)),
                                 self::getRowImage(__('Protected'), 'images/locker.svg', 'locked', true),
                                 self::getRowImage(__('Selected'), 'images/selected.svg', 'selected', true),
                                 self::getRowImage(__('Attachments'), 'images/attach.svg', 'attach', true),

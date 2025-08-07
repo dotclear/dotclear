@@ -29,6 +29,7 @@ use Dotclear\Helper\Html\Form\Th;
 use Dotclear\Helper\Html\Form\Timestamp;
 use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Stack\Status;
 
 /**
  * @brief   Blogs list pager form helper.
@@ -141,7 +142,7 @@ class ListingBlogs extends Listing
                             null,
                             __('Legend: ') . (new Set())
                             ->separator(' - ')
-                            ->items(array_map(fn ($k): Img|Set|Text => App::status()->blog()->image($k->id(), true), App::status()->blog()->dump()))
+                            ->items(array_map(fn (Status $k): Img|Set|Text => App::status()->blog()->image($k->id(), true), App::status()->blog()->dump()))
                             ->render(),
                         )),
                     ]),

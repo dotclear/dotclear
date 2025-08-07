@@ -161,7 +161,7 @@ class Upgrade
         }
 
         // Sort growup versions
-        usort($upgrades, fn ($a, $b): int => version_compare($a['version'], $b['version'], '>') ? 1 : -1);
+        usort($upgrades, fn (array $a, array $b): int => version_compare($a['version'], $b['version'], '>') ? 1 : -1);
 
         return $upgrades;
     }
