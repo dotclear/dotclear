@@ -23,13 +23,13 @@ class ClientMulticall extends atoum
 {
     public function test()
     {
-        $client = new \Dotclear\Helper\Network\XmlRpc\ClientMulticall('http://example.com/xmlrpc');
+        $client = new \Dotclear\Helper\Network\XmlRpc\ClientMulticall('https://dotclear.org/xmlrpc');
 
         $this
             ->given($client->addCall('method1', 'hello', 'world'))
             ->and($client->addCall('method2', 'foo', 'bar'))
             ->exception(fn () => $client->query())
-            ->hasMessage('HTTP Error. 403 Forbidden')
+            ->hasMessage('HTTP Error. 404 Not Found')
         ;
     }
 }

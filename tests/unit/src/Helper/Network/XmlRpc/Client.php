@@ -23,11 +23,11 @@ class Client extends atoum
 {
     public function test()
     {
-        $client = new \Dotclear\Helper\Network\XmlRpc\Client('http://example.com/xmlrpc');
+        $client = new \Dotclear\Helper\Network\XmlRpc\Client('https://dotclear.org/xmlrpc');
 
         $this
             ->exception(fn () => $client->query('method1', 'hello', 'world'))
-            ->hasMessage('HTTP Error. 403 Forbidden')
+            ->hasMessage('HTTP Error. 404 Not Found')
         ;
     }
 }

@@ -75,7 +75,7 @@ class HttpClient extends atoum
     public function testQuickGet()
     {
         $this
-            ->string(\Dotclear\Helper\Network\HttpClient::quickGet('http://example.com'))
+            ->string(\Dotclear\Helper\Network\HttpClient::quickGet('https://example.com'))
             ->isNotEmpty()
             ->boolean(\Dotclear\Helper\Network\HttpClient::quickGet('example.com'))
             ->isFalse()
@@ -102,7 +102,7 @@ class HttpClient extends atoum
 
     public function testVariousData()
     {
-        $client = new \Dotclear\Helper\Network\HttpClient('example.com', 80, 5);
+        $client = new \Dotclear\Helper\Network\HttpClient('example.com', 443, 5);
 
         $this
             ->boolean($client->get('/', ['my' => 42, 'tab' => ['a', 'b', 18]]))
@@ -276,9 +276,9 @@ class HttpClient extends atoum
             ->boolean(in_array('content-type', array_keys($client->getHeaders())))
             ->isTrue()
             ->integer($client->getStatus())
-            ->isEqualTo(301)
+            ->isEqualTo(302)
             ->string($client->getContent())
-            ->contains('301 Moved Permanently')
+            ->contains('The document has moved')
         ;
     }
 
@@ -310,7 +310,7 @@ class HttpClient extends atoum
 
     public function testDebug()
     {
-        $client = new \Dotclear\Helper\Network\HttpClient('example.com', 80, 5);
+        $client = new \Dotclear\Helper\Network\HttpClient('example.com', 443, 5);
 
         ob_start();
         $this
