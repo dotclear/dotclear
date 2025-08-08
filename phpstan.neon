@@ -103,5 +103,8 @@ parameters:
 
 # Notes:
 #
-# Use /* @phpstan-ignore-next-line */ or // @phpstan-ignore-line
+# Use
+# /* @phpstan-ignore-next-line */ or
+# // @phpstan-ignore-line or
+# // @phpstan-ignore error.identifier (see <https://phpstan.org/error-identifiers>)
 # to ignore some specific lines in code

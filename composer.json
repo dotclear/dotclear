@@ -15,10 +15,10 @@
   "require-dev": {
     "phpstan/phpstan": "2.1.x-dev",
     "atoum/atoum": "4.3.0",
-    "atoum/reports-extension": "4.0.0",
-    "vimeo/psalm": "^6.0",
+    "vimeo/psalm": "dev-master",
     "rector/rector": "dev-main",
-    "fakerphp/faker": "2.0.x-dev"
+    "fakerphp/faker": "2.0.x-dev",
+    "phpunit/phpunit": "^12"
   },
   "config": {
     "bin-dir": "bin/"
