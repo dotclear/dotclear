@@ -18,7 +18,8 @@
     "vimeo/psalm": "dev-master",
     "rector/rector": "dev-main",
     "fakerphp/faker": "2.0.x-dev",
-    "phpunit/phpunit": "^12"
+    "phpunit/phpunit": "^12",
+    "phpunit/php-code-coverage": "^12.3@dev"
   },
   "config": {
     "bin-dir": "bin/"

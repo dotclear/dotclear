@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e57309f49ecd00c4e7021f35603406e1",
+    "content-hash": "a36e61fecb15f7c90141adaf8094c3b5",
     "packages": [],
     "packages-dev": [
         {
@@ -5337,6 +5337,7 @@
     "stability-flags": {
         "fakerphp/faker": 20,
         "phpstan/phpstan": 20,
+        "phpunit/php-code-coverage": 20,
         "rector/rector": 20,
         "vimeo/psalm": 20
     },

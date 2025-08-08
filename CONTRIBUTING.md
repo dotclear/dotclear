@@ -143,13 +143,10 @@ bin/psalm
 bin/atoum
 ```
 
-To run unit tests
-
-Or:
+And:
 
 ```sh
-bin/atoum -c .atoum.coverage.php
+bin/phpunit -d memory_limit=-1
 ```
 
-To generate a [code coverage report](/coverage/html/index.html)
-
+Note: PHPUnit will replace Atoum in future.

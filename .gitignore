@@ -16,3 +16,5 @@
 /bin/phpDocumentor.phar
 /bin/phpdoc
 
+# phpUnit stuff
+.phpunit.result.cache

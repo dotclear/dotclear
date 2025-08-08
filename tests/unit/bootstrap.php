@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Unit tests bootstrap
  *
@@ -14,18 +15,14 @@ use Dotclear\Core\Core;
 use Dotclear\Helper\Container\Factories;
 
 // Composer Autoloader
-
 require_once __DIR__ . '/../../vendor/autoload.php';
 
 // Dotclear Autoloader
-
 require_once __DIR__ . '/../../src/Autoloader.php';
-
 $autoloader = new Autoloader('', '', true);
 $autoloader->addNamespace('Dotclear', implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'src']));
 
 // Clearbricks Autoloader (deprecated)
-
 $__autoload = [
     'form'             => implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'src', 'Helper', 'Html', 'Form', 'Legacy.php']),
     'formSelectOption' => implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'src', 'Helper', 'Html', 'Form', 'Legacy.php']),

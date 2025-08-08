@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+  bootstrap="tests/unit/bootstrap.php"
+  cacheDirectory="/tmp/.phpunit.cache"
+  executionOrder="depends,defects"
+  beStrictAboutOutputDuringTests="true"
+  displayDetailsOnPhpunitDeprecations="true"
+  failOnPhpunitDeprecation="true"
+  failOnRisky="true"
+  failOnWarning="true"
+  colors="true">
+
+  <testsuites>
+    <testsuite name="unit">
+      <directory>tests/unit</directory>
+    </testsuite>
+  </testsuites>
+
+  <source ignoreIndirectDeprecations="true" restrictNotices="true" restrictWarnings="true">
+    <include>
+      <file>index.php</file>
+      <directory suffix=".php">admin</directory>
+      <directory suffix=".php">inc</directory>
+      <file>inc/config.php.in</file>
+      <directory suffix=".php">src</directory>
+      <directory suffix=".php">locales</directory>
+      <directory suffix=".php">plugins</directory>
+      <directory suffix=".php">themes/berlin</directory>
+      <directory suffix=".php">themes/blowup</directory>
+      <directory suffix=".php">themes/blueSilence</directory>
+      <directory suffix=".php">themes/customCSS</directory>
+      <directory suffix=".php">themes/ductile</directory>
+    </include>
+  </source>
+
+  <coverage includeUncoveredFiles="false"
+    pathCoverage="false"
+    ignoreDeprecatedCodeUnits="true"
+    disableCodeCoverageIgnore="true">
+    <report>
+      <html outputDirectory="coverage" lowUpperBound="50" highLowerBound="90"/>
+    </report>
+  </coverage>
+
+</phpunit>
