@@ -230,7 +230,7 @@ class WikiToHtmlTest extends TestCase
         );
     }
 
-    public static function testTagTransformProvider(): array
+    public static function testTagTransformDataProvider(): array
     {
         return [
             ['em', ["''", "''"]],
@@ -248,7 +248,7 @@ class WikiToHtmlTest extends TestCase
         ];
     }
 
-    #[DataProvider('testTagTransformProvider')]
+    #[DataProvider('testTagTransformDataProvider')]
     public function testTagTransform(string $tag, array $delimiters): void
     {
         $wiki = new \Dotclear\Helper\Html\WikiToHtml();
@@ -426,7 +426,7 @@ class WikiToHtmlTest extends TestCase
         );
     }
 
-    public static function testBlocksProvider(): array
+    public static function testBlocksDataProvider(): array
     {
         return [
             ['\[not a link | not a title label\]',
@@ -584,7 +584,7 @@ class WikiToHtmlTest extends TestCase
         ];
     }
 
-    #[DataProvider('testBlocksProvider')]
+    #[DataProvider('testBlocksDataProvider')]
     public function testBlocks($in, $out, $count)
     {
         $wiki = new \Dotclear\Helper\Html\WikiToHtml();
@@ -612,6 +612,166 @@ class WikiToHtmlTest extends TestCase
         $this->assertSame(
             $out,
             $this->removeSpace($wiki->transform($in))
+        );
+    }
+
+    public function testAutoBR()
+    {
+        $wiki  = new \Dotclear\Helper\Html\WikiToHtml();
+        $faker = Factory::create();
+
+        $text = $faker->paragraphs(3);
+
+        $this->assertSame(
+            '<p>' . implode("\n", $text) . '</p>',
+            $wiki->transform(implode("\n", $text))
+        );
+
+        $wiki->setOpt('active_auto_br', 1);
+
+        $this->assertSame(
+            '<p>' . nl2br(implode("\n", $text), false) . '</p>',
+            $wiki->transform(implode("\n", $text))
+        );
+    }
+
+    public function testMacro()
+    {
+        $wiki = new \Dotclear\Helper\Html\WikiToHtml();
+
+        $in_html  = "///html\n<p>some text</p>\n<p><strong>un</strong> autre</p>\n///";
+        $out_html = "<p>some text</p>\n<p><strong>un</strong> autre</p>\n";
+
+        $in                = "///dummy-macro\n<?php\necho \"Hello World!\";\n?>\n///";
+        $out_without_macro = "<pre>dummy-macro\n&lt;?php\necho &quot;Hello World!&quot;;\n?&gt;\n</pre>";
+        $out               = "[[<?php\necho \"Hello World!\";\n?>\n]]";
+
+        $this->assertSame(
+            $out_html,
+            $wiki->transform($in_html)
+        );
+
+        $this->assertSame(
+            $out_without_macro,
+            $wiki->transform($in)
+        );
+
+        $wiki->registerFunction('macro:dummy-macro', fn ($s) => "[[$s]]");
+        $this->assertIsCallable($wiki->functions['macro:dummy-macro']);
+
+        $this->assertSame(
+            $out,
+            $wiki->transform($in)
+        );
+    }
+
+    public function testAcronyms()
+    {
+        $wiki = new \Dotclear\Helper\Html\WikiToHtml();
+
+        $in_html           = "Some __strong__ and ''em'' ??dc?? texts with {{citation}} and @@code@@ plus an ??cb?? ??ACME|american company manufacturing everything?? where we can ++insert++ and --delete-- texts, and with some ``<span class=\"focus\">focus</span>`` on specific part";
+        $out_html          = '<p>Some <strong>strong</strong> and <em>em</em> <abbr>dc</abbr> texts with <q>citation</q> and <code>code</code> plus an <abbr>cb</abbr> <abbr title="american company manufacturing everything">ACME</abbr> where we can <ins>insert</ins> and <del>delete</del> texts, and with some <span class="focus">focus</span> on specific part</p>';
+        $out_html_acronyms = '<p>Some <strong>strong</strong> and <em>em</em> <abbr title="dotclear">dc</abbr> texts with <q>citation</q> and <code>code</code> plus an <abbr title="clearbicks">cb</abbr> <abbr title="american company manufacturing everything">ACME</abbr> where we can <ins>insert</ins> and <del>delete</del> texts, and with some <span class="focus">focus</span> on specific part</p>';
+
+        $this->assertSame(
+            $out_html,
+            $wiki->transform($in_html)
+        );
+
+        $acronyms = implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', 'fixtures', 'src', 'Helper', 'Html', 'acronyms.txt']);
+        $wiki->setOpt('acronyms_file', $acronyms);
+
+        $this->assertSame(
+            $out_html_acronyms,
+            $wiki->transform($in_html)
+        );
+    }
+
+    public function testWikiWords()
+    {
+        $wiki = new \Dotclear\Helper\Html\WikiToHtml();
+
+        $in_html           = "Some __strong__ and ''em'' texts with {{citation}} and @@code@@ plus an ??ACME|american company manufacturing everything?? where we can ++insert++ and --delete-- texts, and with some ``<span class=\"focus\">focus</span>`` on specific WikiWord part";
+        $out_html          = '<p>Some <strong>strong</strong> and <em>em</em> texts with <q>citation</q> and <code>code</code> plus an <abbr title="american company manufacturing everything">ACME</abbr> where we can <ins>insert</ins> and <del>delete</del> texts, and with some <span class="focus">focus</span> on specific WikiWord part</p>';
+        $out_html_acronyms = '<p>Some <strong>strong</strong> and <em>em</em> texts with <q>citation</q> and <code>code</code> plus an <abbr title="american company manufacturing everything">ACME</abbr> where we can <ins>insert</ins> and <del>delete</del> texts, and with some <span class="focus">focus</span> on specific wikiword part</p>';
+
+        $this->assertSame(
+            $out_html,
+            $wiki->transform($in_html)
+        );
+
+        $wiki->setOpt('active_wikiwords', 1);
+        $this->assertSame(
+            $out_html,
+            $wiki->transform($in_html)
+        );
+
+        $wiki->registerFunction('wikiword', fn ($str) => strtolower($str));
+        $this->assertSame(
+            $out_html_acronyms,
+            $wiki->transform($in_html)
+        );
+    }
+
+    public function testSpecialURLs()
+    {
+        $wiki = new \Dotclear\Helper\Html\WikiToHtml();
+
+        $in_html          = 'Test with an [Wiki first link|wiki:first_link] !';
+        $out_html         = '<p>Test with an <a href="wiki:first_link">Wiki first link</a>&nbsp;!</p>';
+        $out_html_special = '<p>Test with an <a href="https://example.org/wiki/first_link" title="Wiki">Wiki first link</a>&nbsp;!</p>';
+
+        $this->assertSame(
+            $out_html,
+            $wiki->transform($in_html)
+        );
+
+        $wiki->registerFunction('url:wiki', fn ($url, $content) => ['url' => 'https://example.org/wiki/' . substr($url, 5), 'content' => $content, 'title' => 'Wiki']);
+        $this->assertSame(
+            $out_html_special,
+            $wiki->transform($in_html)
+        );
+    }
+
+    public function testAttributes()
+    {
+        $wiki = new \Dotclear\Helper\Html\WikiToHtml();
+
+        $in_html = <<<EOW
+            ) lorem ipsum 1
+
+            ) lorem ipsum 2§§class="title"§§
+
+            ) lorem ipsum 3 §§class="title"§§
+
+            ) lorem ipsum 4§§class="title"§§
+            ) lorem ipsum 5
+
+            ) lorem ipsum 6
+            ) lorem ipsum 7§§class="title"§§
+            EOW;
+
+        $out_html = <<<EOH
+            <aside><p>lorem ipsum 1</p></aside>
+
+
+            <aside class="title"><p>lorem ipsum 2</p></aside>
+
+
+            <aside class="title"><p>lorem ipsum 3</p></aside>
+
+
+            <aside class="title"><p>lorem ipsum 4
+            lorem ipsum 5</p></aside>
+
+
+            <aside><p>lorem ipsum 6
+            lorem ipsum 7</p></aside>
+            EOH;
+
+        $this->assertSame(
+            $out_html,
+            $wiki->transform($in_html)
         );
     }
 
