@@ -242,7 +242,7 @@ class HtmlFilterTest extends TestCase
         );
     }
 
-    public static function testAllDataProvider()
+    public static function dataProviderTestAll()
     {
         require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', 'fixtures', 'src', 'Helper', 'Html', 'HtmlFilter.php']);
 
@@ -251,7 +251,7 @@ class HtmlFilterTest extends TestCase
         }
     }
 
-    #[DataProvider('testAllDataProvider')]
+    #[DataProvider('dataProviderTestAll')]
     public function testAll($title, $payload, $expected)
     {
         $filter = new \Dotclear\Helper\Html\HtmlFilter(true, true);

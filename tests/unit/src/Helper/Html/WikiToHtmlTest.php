@@ -230,7 +230,7 @@ class WikiToHtmlTest extends TestCase
         );
     }
 
-    public static function testTagTransformDataProvider(): array
+    public static function dataProviderTestTagTransform(): array
     {
         return [
             ['em', ["''", "''"]],
@@ -248,7 +248,7 @@ class WikiToHtmlTest extends TestCase
         ];
     }
 
-    #[DataProvider('testTagTransformDataProvider')]
+    #[DataProvider('dataProviderTestTagTransform')]
     public function testTagTransform(string $tag, array $delimiters): void
     {
         $wiki = new \Dotclear\Helper\Html\WikiToHtml();
@@ -426,7 +426,7 @@ class WikiToHtmlTest extends TestCase
         );
     }
 
-    public static function testBlocksDataProvider(): array
+    public static function dataProviderTestBlocks(): array
     {
         return [
             ['\[not a link | not a title label\]',
@@ -584,7 +584,7 @@ class WikiToHtmlTest extends TestCase
         ];
     }
 
-    #[DataProvider('testBlocksDataProvider')]
+    #[DataProvider('dataProviderTestBlocks')]
     public function testBlocks($in, $out, $count)
     {
         $wiki = new \Dotclear\Helper\Html\WikiToHtml();
