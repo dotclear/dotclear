@@ -33,6 +33,9 @@
       <directory suffix=".php">themes/customCSS</directory>
       <directory suffix=".php">themes/ductile</directory>
     </include>
+    <exclude>
+      <file>inc/config.php</file>
+    </exclude>
   </source>
 
   <coverage includeUncoveredFiles="false"
