@@ -2,14 +2,15 @@
 
 declare(strict_types=1);
 
-use Dotclear\Helper\Html\WikiToHtml;
+use Faker\Factory;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class WikiToHtmlTest extends TestCase
 {
     public function testHelp()
     {
-        $wiki = new WikiToHtml();
+        $wiki = new \Dotclear\Helper\Html\WikiToHtml();
 
         $help = $wiki->help();
         $this->assertNotEmpty($help);
@@ -17,7 +18,7 @@ class WikiToHtmlTest extends TestCase
 
     public function testAntispam()
     {
-        $wiki = new WikiToHtml();
+        $wiki = new \Dotclear\Helper\Html\WikiToHtml();
 
         $email = 'contact@dotclear.org';
 
@@ -206,5 +207,416 @@ class WikiToHtmlTest extends TestCase
             $html,
             $wiki->transform($text)
         );
+    }
+
+    public function testOpts()
+    {
+        $wiki = new \Dotclear\Helper\Html\WikiToHtml();
+
+        $wiki->setOpts([
+            'active_hr' => 0,
+            'active_br' => 0, ]);
+        $this->assertSame(
+            '<p><del></del>' . "\n" . 'Line%%%</p>',
+            $wiki->transform('----' . "\n" . 'Line%%%')
+        );
+
+        $wiki->setOpts([
+            'active_hr' => 1,
+            'active_br' => 1, ]);
+        $this->assertSame(
+            '<hr>' . "\n\n" . '<p>Line<br></p>',
+            $wiki->transform('----' . "\n" . 'Line%%%')
+        );
+    }
+
+    public static function testTagTransformProvider(): array
+    {
+        return [
+            ['em', ["''", "''"]],
+            ['strong', ['__', '__']],
+            ['abbr', ['??', '??']],
+            ['q', ['{{', '}}']],
+            ['code', ['@@', '@@']],
+            ['del', ['--', '--']],
+            ['ins', ['++', '++']],
+            ['mark', ['""', '""']],
+            ['sup', ['^', '^']],
+            ['sub', [',,', ',,']],
+            ['i', ['££', '££']],
+            ['span', [';;', ';;']],
+        ];
+    }
+
+    #[DataProvider('testTagTransformProvider')]
+    public function testTagTransform(string $tag, array $delimiters): void
+    {
+        $wiki = new \Dotclear\Helper\Html\WikiToHtml();
+
+        $faker  = Factory::create();
+        $phrase = $faker->text(20);
+
+        $this->assertSame(
+            sprintf('<p>Before <%1$s>%2$s</%1$s> After</p>', $tag, $phrase),
+            $wiki->transform(sprintf('Before %s%s%s After', $delimiters[0], $phrase, $delimiters[1]))
+        );
+
+        $this->assertSame(
+            sprintf('<p><%1$s>%2$s</%1$s></p>', $tag, $phrase),
+            $wiki->transform(sprintf('%s%s%s', $delimiters[0], $phrase, $delimiters[1]))
+        );
+    }
+
+    public function testLinks()
+    {
+        $wiki = new \Dotclear\Helper\Html\WikiToHtml();
+
+        $faker = Factory::create();
+
+        $lang  = $faker->languageCode();
+        $title = $faker->text(10);
+        $label = $faker->text(20);
+        $url   = $faker->url();
+
+        $this->assertSame(
+            sprintf('<p><a href="%1$s">%2$s</a></p>', $url, $label),
+            $wiki->transform(sprintf('[%s|%s]', $label, $url))
+        );
+
+        $this->assertSame(
+            sprintf('<p><a href="%s" hreflang="%s">%s</a></p>', $url, $lang, $label),
+            $wiki->transform(sprintf('[%s|%s|%s]', $label, $url, $lang))
+        );
+
+        $this->assertSame(
+            sprintf('<p><a href="%s" hreflang="%s" title="%s">%s</a></p>', $url, $lang, $title, $label),
+            $wiki->transform(sprintf('[%s|%s|%s|%s]', $label, $url, $lang, $title))
+        );
+
+        $this->assertSame(
+            sprintf('<p><a href="%1$s"><em>%2$s</em></a></p>', $url, $label),
+            $wiki->transform(sprintf('[\'\'%s\'\'|%s]', $label, $url))
+        );
+
+        $this->assertSame(
+            sprintf('<p><a href="%1$s"><em>%2$s</em> (em first)</a></p>', $url, $label),
+            $wiki->transform(sprintf('[\'\'%s\'\' (em first)|%s]', $label, $url))
+        );
+
+        $this->assertSame(
+            sprintf('<p><a href="%1$s">(em last) <em>%2$s</em></a></p>', $url, $label),
+            $wiki->transform(sprintf('[(em last) \'\'%s\'\'|%s]', $label, $url))
+        );
+
+        $this->assertSame(
+            sprintf('<p><a href="%1$s">(not first) <em>%2$s</em> (not last)</a></p>', $url, $label),
+            $wiki->transform(sprintf('[(not first) \'\'%s\'\' (not last)|%s]', $label, $url))
+        );
+
+        $this->assertSame(
+            sprintf('<p><a href="%1$s"><strong>%2$s</strong></a></p>', $url, $label),
+            $wiki->transform(sprintf('[__%s__|%s]', $label, $url))
+        );
+
+        $this->assertSame(
+            sprintf('<p><a href="%1$s">em: <em>%2$s</em> and strong: <strong>%2$s</strong></a></p>', $url, $label),
+            $wiki->transform(sprintf('[em: \'\'%s\'\' and strong: __%s__|%s]', $label, $label, $url))
+        );
+
+        $this->assertSame(
+            sprintf('<p><a href="#">%s</a></p>', $label),
+            $wiki->transform(sprintf('[%s|%s]', $label, 'javascript:alert(1);'))
+        );
+
+        $this->assertSame(
+            sprintf('<p><a href="%s">%s</a></p>', $url, $label),
+            $wiki->transform(sprintf('[%s|%s|9%s]', $label, $url, $lang))
+        );
+    }
+
+    public function testImages()
+    {
+        $wiki = new \Dotclear\Helper\Html\WikiToHtml();
+
+        $faker = Factory::create();
+
+        $title  = $faker->text(10);
+        $alt    = $faker->text(20);
+        $url    = $faker->url();
+        $legend = $faker->text(30);
+
+        $this->assertSame(
+            sprintf('<p><img src="%s" alt="%s"></p>', $url, $alt),
+            $wiki->transform(sprintf('((%s|%s))', $url, $alt))
+        );
+
+        $this->assertSame(
+            sprintf('<p><img src="%s" alt="%s" title="%s"></p>', $url, $alt, $title),
+            $wiki->transform(sprintf('((%s|%s||%s))', $url, $alt, $title))
+        );
+
+        $this->assertSame(
+            sprintf('<p><img src="%s" alt=""></p>', $url),
+            $wiki->transform(sprintf('((%s|))', $url))
+        );
+
+        $this->assertSame(
+            sprintf('<p><img src="%s" alt="%s" style="float:left; margin: 0 1em 1em 0;"></p>', $url, $alt),
+            $wiki->transform(sprintf('((%s|%s|L))', $url, $alt))
+        );
+
+        $this->assertSame(
+            sprintf('<p><img src="%s" alt="%s" style="float:left; margin: 0 1em 1em 0;" title="%s"></p>', $url, $alt, $title),
+            $wiki->transform(sprintf('((%s|%s|L|%s))', $url, $alt, $title))
+        );
+
+        $this->assertSame(
+            sprintf('<p><img src="%s" alt="%s" style="float:left; margin: 0 1em 1em 0;"></p>', $url, $alt),
+            $wiki->transform(sprintf('((%s|%s|G))', $url, $alt))
+        );
+
+        $this->assertSame(
+            sprintf('<p><img src="%s" alt="%s" style="float:left; margin: 0 1em 1em 0;" title="%s"></p>', $url, $alt, $title),
+            $wiki->transform(sprintf('((%s|%s|G|%s))', $url, $alt, $title))
+        );
+
+        $this->assertSame(
+            sprintf('<p><img src="%s" alt="%s" style="float:right; margin: 0 0 1em 1em;"></p>', $url, $alt),
+            $wiki->transform(sprintf('((%s|%s|D))', $url, $alt))
+        );
+
+        $this->assertSame(
+            sprintf('<p><img src="%s" alt="%s" style="float:right; margin: 0 0 1em 1em;" title="%s"></p>', $url, $alt, $title),
+            $wiki->transform(sprintf('((%s|%s|D|%s))', $url, $alt, $title))
+        );
+
+        $this->assertSame(
+            sprintf('<p><img src="%s" alt="%s" style="float:right; margin: 0 0 1em 1em;"></p>', $url, $alt),
+            $wiki->transform(sprintf('((%s|%s|R))', $url, $alt))
+        );
+
+        $this->assertSame(
+            sprintf('<p><img src="%s" alt="%s" style="float:right; margin: 0 0 1em 1em;" title="%s"></p>', $url, $alt, $title),
+            $wiki->transform(sprintf('((%s|%s|R|%s))', $url, $alt, $title))
+        );
+
+        $this->assertSame(
+            sprintf('<p><img src="%s" alt="%s" style="display:block; margin:0 auto;"></p>', $url, $alt),
+            $wiki->transform(sprintf('((%s|%s|C))', $url, $alt))
+        );
+
+        $this->assertSame(
+            sprintf('<p><img src="%s" alt="%s" style="display:block; margin:0 auto;" title="%s"></p>', $url, $alt, $title),
+            $wiki->transform(sprintf('((%s|%s|C|%s))', $url, $alt, $title))
+        );
+
+        $this->assertSame(
+            sprintf('<figure style="float:right; margin: 0 0 1em 1em;"><img src="%s" alt="%s" title="%s"><figcaption>%s</figcaption></figure>', $url, $alt, $title, $legend),
+            $wiki->transform(sprintf('((%s|%s|R|%s|%s))', $url, $alt, $title, $legend))
+        );
+
+        $this->assertSame(
+            sprintf('<figure style="float:left; margin: 0 1em 1em 0;"><img src="%s" alt="%s" title="%s"><figcaption>%s</figcaption></figure>', $url, $alt, $title, $legend),
+            $wiki->transform(sprintf('((%s|%s|G|%s|%s))', $url, $alt, $title, $legend))
+        );
+
+        $this->assertSame(
+            sprintf('<figure style="display:block; margin:0 auto;"><img src="%s" alt="%s" title="%s"><figcaption>%s</figcaption></figure>', $url, $alt, $title, $legend),
+            $wiki->transform(sprintf('((%s|%s|C|%s|%s))', $url, $alt, $title, $legend))
+        );
+    }
+
+    public static function testBlocksProvider(): array
+    {
+        return [
+            ['\[not a link | not a title label\]',
+                '<p>[not a link | not a title label]</p>', 0, ],
+            ['``<strong>%s</strong>%s</p><ul><li>%s</li><li>%s</li></ul>``',
+                '<p><strong>%s</strong>%s</p><ul><li>%s</li><li>%s</li></ul></p>', 4, ],
+            ["* item 1\n** item 1.1\n** item 1.2\n* item 2\n* item 3\n*# item 3.1",
+                '<ul><li>item 1<ul><li>item 1.1</li><li>item 1.2</li></ul></li>' .
+                '<li>item 2</li><li>item 3<ol><li>item 3.1</li></ol></li></ul>', 1, ],
+            ["# item 1\n#* item 1.1\n#* item 1.2\n# item 2\n# item 3\n## item 3.1\n# item 4",
+                '<ol><li>item 1<ul><li>item 1.1</li><li>item 1.2</li></ul></li>' .
+                '<li>item 2</li><li>item 3<ol><li>item 3.1</li></ol></li><li>item 4</li></ol>', 1, ],
+
+            ['{{%s}}', '<p><q>%s</q></p>', 1],
+            ['{{%s|%lang%}}', '<p><q lang="%lang%">%s</q></p>', 1],
+            ['{{%s|%lang%|%url%}}', '<p><q lang="%lang%" cite="%url%">%s</q></p>', 1],
+
+            ['££%s££', '<p><i>%s</i></p>', 1],
+            ['££%s|%lang%££', '<p><i lang="%lang%">%s</i></p>', 1],
+
+            [" %s\n %s\n %s", '<pre>%s%s%s</pre>', 3],
+            ['??%1$s|%2$s??', '<p><abbr title="%2$s">%1$s</abbr></p>', 2],
+            [">%s\n>%s", '<blockquote><p>%s%s</p></blockquote>', 2],
+
+            ['----', '<hr>', 0],
+            [' %s', '<pre>%s</pre>', 1],
+            [') %s', '<aside><p>%s</p></aside>', 1],
+            [") %s\n)\n) %s", '<aside><p>%s</p><p>%s</p></aside>', 2],
+            ['!!!!%s', '<h2>%s</h2>', 1],
+            ['!!!%s', '<h3>%s</h3>', 1],
+            ['!!%s', '<h4>%s</h4>', 1],
+            ['!%s', '<h5>%s</h5>', 1],
+            ['~%word%~', '<p><a id="%word%"></a></p>', 1],
+
+            ['@@%s@@', '<p><code>%s</code></p>', 1],
+
+            ['%s$$%s$$', '<p>%s<sup>[<a href="#wiki-footnote-1" id="rev-wiki-footnote-1">1</a>]</sup></p>' .
+                '<div class="footnotes"><h4>Note</h4><p>[<a href="#rev-wiki-footnote-1" id="wiki-footnote-1">1</a>] ' .
+                '%s</p></div>', 2, ],
+            ['%s$$%s$$', '<p>%s<sup>[<a href="#wiki-footnote-1" id="rev-wiki-footnote-1">1</a>]</sup></p>' .
+                '<div class="footnotes"><h4>Note</h4><p>[<a href="#rev-wiki-footnote-1" id="wiki-footnote-1">1</a>] ' .
+                '%s</p></div>', 2, ],
+
+            ["* %s\n///\n%s\n///\n", '<ul><li>%s</li></ul><pre>%s</pre>', 2],
+            ["# %s\n///\n%s\n///\n", '<ol><li>%s</li></ol><pre>%s</pre>', 2],
+
+            ['= term', '<dl><dt>term</dt></dl>', 0],
+            [': definition', '<dl><dd>definition</dd></dl>', 0],
+            ['= %s', '<dl><dt>%s</dt></dl>', 1],
+            [': %s', '<dl><dd>%s</dd></dl>', 1],
+            ["= %s\n: %s", '<dl><dt>%s</dt><dd>%s</dd></dl>', 2],
+            ["= %s\n= %s\n: %s\n: %s", '<dl><dt>%s</dt><dt>%s</dt><dd>%s</dd><dd>%s</dd></dl>', 4],
+
+            ["|summary\n%s\n|", '<details><summary>summary</summary><p>%s</p></details>', 1],
+
+            // With attributes
+
+            ["* item 1§§class=\"title\"§§\n** item 1.1\n** item 1.2\n* item 2\n* item 3\n*# item 3.1",
+                '<ul><li class="title">item 1<ul><li>item 1.1</li><li>item 1.2</li></ul></li>' .
+                '<li>item 2</li><li>item 3<ol><li>item 3.1</li></ol></li></ul>', 1, ],
+            ["# item 1§§class=\"title\"§§\n#* item 1.1\n#* item 1.2\n# item 2\n# item 3\n## item 3.1\n# item 4",
+                '<ol><li class="title">item 1<ul><li>item 1.1</li><li>item 1.2</li></ul></li>' .
+                '<li>item 2</li><li>item 3<ol><li>item 3.1</li></ol></li><li>item 4</li></ol>', 1, ],
+
+            ["* item 1§§class=\"title\"|class=\"parent\"§§\n** item 1.1\n** item 1.2\n* item 2\n* item 3\n*# item 3.1",
+                '<ul class="parent"><li class="title">item 1<ul><li>item 1.1</li><li>item 1.2</li></ul></li>' .
+                '<li>item 2</li><li>item 3<ol><li>item 3.1</li></ol></li></ul>', 1, ],
+            ["# item 1§§class=\"title\"|class=\"parent\"§§\n#* item 1.1\n#* item 1.2\n# item 2\n# item 3\n## item 3.1\n# item 4",
+                '<ol class="parent"><li class="title">item 1<ul><li>item 1.1</li><li>item 1.2</li></ul></li>' .
+                '<li>item 2</li><li>item 3<ol><li>item 3.1</li></ol></li><li>item 4</li></ol>', 1, ],
+
+            ["* item 1§§|class=\"parent\"§§\n** item 1.1\n** item 1.2\n* item 2\n* item 3\n*# item 3.1",
+                '<ul class="parent"><li>item 1<ul><li>item 1.1</li><li>item 1.2</li></ul></li>' .
+                '<li>item 2</li><li>item 3<ol><li>item 3.1</li></ol></li></ul>', 1, ],
+            ["# item 1§§|class=\"parent\"§§\n#* item 1.1\n#* item 1.2\n# item 2\n# item 3\n## item 3.1\n# item 4",
+                '<ol class="parent"><li>item 1<ul><li>item 1.1</li><li>item 1.2</li></ul></li>' .
+                '<li>item 2</li><li>item 3<ol><li>item 3.1</li></ol></li><li>item 4</li></ol>', 1, ],
+
+            ["* item 1§§class=\"title-1\"§§\n** item 1.1\n** item 1.2§§class=\"title-1-2\"§§\n* item 2\n* item 3\n*# item 3.1",
+                '<ul><li class="title-1">item 1<ul><li>item 1.1</li><li class="title-1-2">item 1.2</li></ul></li>' .
+                '<li>item 2</li><li>item 3<ol><li>item 3.1</li></ol></li></ul>', 1, ],
+            ["# item 1§§class=\"title-1\"§§\n#* item 1.1\n#* item 1.2§§class=\"title-1-2\"§§\n# item 2\n# item 3\n## item 3.1\n# item 4",
+                '<ol><li class="title-1">item 1<ul><li>item 1.1</li><li class="title-1-2">item 1.2</li></ul></li>' .
+                '<li>item 2</li><li>item 3<ol><li>item 3.1</li></ol></li><li>item 4</li></ol>', 1, ],
+
+            ['----§§class="title"§§', '<hr class="title">', 0],
+            [' %s§§class="title"§§', '<pre class="title">%s</pre>', 1],
+            [') %s§§class="title"§§', '<aside class="title"><p>%s</p></aside>', 1],
+            [") %s§§class=\"title\"§§\n)\n) %s", '<aside class="title"><p>%s</p><p>%s</p></aside>', 2],
+            ['!!!!%s§§class="title"§§', '<h2 class="title">%s</h2>', 1],
+            ['!!!%s§§class="title"§§', '<h3 class="title">%s</h3>', 1],
+            ['!!%s§§class="title"§§', '<h4 class="title">%s</h4>', 1],
+            ['!%s§§class="title"§§', '<h5 class="title">%s</h5>', 1],
+
+            ['= term§§class="title"§§', '<dl><dt class="title">term</dt></dl>', 0],
+            [': definition§§class="title"§§', '<dl><dd class="title">definition</dd></dl>', 0],
+
+            ['= term§§class="title"|class="parent"§§', '<dl class="parent"><dt class="title">term</dt></dl>', 0],
+            [': definition§§class="title"|class="parent"§§', '<dl class="parent"><dd class="title">definition</dd></dl>', 0],
+
+            ['= term§§|class="parent"§§', '<dl class="parent"><dt>term</dt></dl>', 0],
+            [': definition§§|class="parent"§§', '<dl class="parent"><dd>definition</dd></dl>', 0],
+
+            ["|summary§§open§§\n%s\n|", '<details open><summary>summary</summary><p>%s</p></details>', 1],
+
+            [">%s§§class=\"title\"§§\n>%s", '<blockquote class="title"><p>%s%s</p></blockquote>', 2],
+
+            ['%s§§class="title"§§', '<p class="title">%s</p>', 1],
+
+            ['%s __bold§class="bold"§__ lorem \'\'ipsum§class="italic"§\'\'§§class="title"§§', '<p class="title">%s <strong class="bold">bold</strong> lorem <em class="italic">ipsum</em></p>', 1],
+
+            ['%s \'\'%s§class="inline"§\'\' %s', '<p>%s <em class="inline">%s</em> %s</p>', 3],
+            ['%s __%s§class="inline"§__ %s', '<p>%s <strong class="inline">%s</strong> %s</p>', 3],
+
+            ['%s {{%s§class="inline"§}} %s', '<p>%s <q class="inline">%s</q> %s</p>', 3],
+            ['%s {{%s|fr§class="inline"§}} %s', '<p>%s <q class="inline" lang="fr">%s</q> %s</p>', 3],
+            ['%s {{%s|fr|https//dotclear.net/§class="inline"§}} %s', '<p>%s <q class="inline" lang="fr" cite="https//dotclear.net/">%s</q> %s</p>', 3],
+
+            ['%s @@%s§class="inline"§@@ %s', '<p>%s <code class="inline">%s</code> %s</p>', 3],
+
+            ['%s --%s§class="inline"§-- %s', '<p>%s <del class="inline">%s</del> %s</p>', 3],
+            ['%s ++%s§class="inline"§++ %s', '<p>%s <ins class="inline">%s</ins> %s</p>', 3],
+
+            ['%s ""%s§class="inline"§"" %s', '<p>%s <mark class="inline">%s</mark> %s</p>', 3],
+
+            ['%s ^%s§class="inline"§^ %s', '<p>%s <sup class="inline">%s</sup> %s</p>', 3],
+            ['%s ,,%s§class="inline"§,, %s', '<p>%s <sub class="inline">%s</sub> %s</p>', 3],
+
+            ['%s ££%s§class="inline"§££ %s', '<p>%s <i class="inline">%s</i> %s</p>', 3],
+            ['%s ££%s|fr§class="inline"§££ %s', '<p>%s <i class="inline" lang="fr">%s</i> %s</p>', 3],
+
+            ['%s ??%s§class="inline"§?? %s', '<p>%s <abbr class="inline">%s</abbr> %s</p>', 3],
+            ['%s ??%s|Title§class="inline"§?? %s', '<p>%s <abbr class="inline" title="Title">%s</abbr> %s</p>', 3],
+
+            ['%s ;;%s§class="inline"§;; %s', '<p>%s <span class="inline">%s</span> %s</p>', 3],
+
+            ['~%word%§class="anchor"§~', '<p><a class="anchor" id="%word%"></a></p>', 1],
+
+            ['[%1$s§class="link"§]', '<p><a class="link" href="%1$s" title="%1$s">%1$s</a></p>', 1],
+            ['[%1$s|%2$s§class="link"§]', '<p><a class="link" href="%2$s">%1$s</a></p>', 2],
+            ['[%1$s|%2$s|fr§class="link"§]', '<p><a class="link" href="%2$s" hreflang="fr">%1$s</a></p>', 2],
+            ['[%1$s|%2$s|fr|%3$s§class="link"§]', '<p><a class="link" href="%2$s" hreflang="fr" title="%3$s">%1$s</a></p>', 2],
+
+            ['((%s|%s§class="img"§))', '<p><img class="img" src="%s" alt="%s"></p>', 2],
+            ['((%s|§class="img"§))', '<p><img class="img" src="%s" alt=""></p>', 1],
+            ['((%s|%s|C§class="img"§))', '<p><img class="img" src="%s" alt="%s" style="display:block; margin:0 auto;"></p>', 2],
+            ['((%s|%s|C|%s§class="img"§))', '<p><img class="img" src="%s" alt="%s" style="display:block; margin:0 auto;" title="%s"></p>', 3],
+            ['((%s|%s|C|%s|legend§class="img"§))', '<figure class="img" style="display:block; margin:0 auto;"><img class="img" src="%s" alt="%s" title="%s"><figcaption>legend</figcaption></figure>', 3],
+
+            ['[((%s|%s))|https://dotclear.net/]', '<p><a href="https://dotclear.net/"><img src="%s" alt="%s"></a></p>', 2],
+            ['[((%s|%s))|https://dotclear.net/§class="link"§]', '<p><a class="link" href="https://dotclear.net/"><img src="%s" alt="%s"></a></p>', 2],
+
+            ['[text __bold§class="bold"§__|https://dotclear.net/§class="link"§]', '<p><a class="bold" class="link" href="https://dotclear.net/">text <strong>bold</strong></a></p>', 2],
+            ['[((%s|%s§class="img"§))|https://dotclear.net/§class="link"§]', '<p><a class="img" class="link" href="https://dotclear.net/"><img src="%s" alt="%s"></a></p>', 2],
+        ];
+    }
+
+    #[DataProvider('testBlocksProvider')]
+    public function testBlocks($in, $out, $count)
+    {
+        $wiki = new \Dotclear\Helper\Html\WikiToHtml();
+
+        $faker = Factory::create();
+
+        $url  = $faker->url();
+        $word = $faker->word();
+        $lang = $faker->languageCode();
+
+        $search  = ['%url%', '%lang%', '%word%'];
+        $replace = [$url, $lang, $word];
+
+        $in  = str_replace($search, $replace, $in);
+        $out = str_replace($search, $replace, $out);
+
+        if (str_contains($in, '%s')) {
+            for ($n = 1; $n <= $count; $n++) {
+                $phrase[$n] = $faker->text(20);
+            }
+
+            $in  = vsprintf($in, $phrase);
+            $out = vsprintf($out, $phrase);
+        }
+        $this->assertSame(
+            $out,
+            $this->removeSpace($wiki->transform($in))
+        );
+    }
+
+    private function removeSpace($s)
+    {
+        return str_replace(["\r\n", "\n"], ['', ''], $s);
     }
 }

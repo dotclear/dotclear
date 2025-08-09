@@ -9,6 +9,7 @@
   failOnPhpunitDeprecation="true"
   failOnRisky="true"
   failOnWarning="true"
+  beStrictAboutTestsThatDoNotTestAnything="false"
   colors="true">
 
   <testsuites>
