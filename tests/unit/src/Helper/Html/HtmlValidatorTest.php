@@ -8,21 +8,19 @@ class HtmlValidatorTest extends TestCase
 {
     public function testNetworkError()
     {
-        // Create a test stub for HtmlValidator
-        $mockValidator = $this->createStub(\Dotclear\Helper\Html\HtmlValidator::class);
-
-        // Configure the test stub
-        $mockValidator->method('getStatus')
-            ->willReturn(500);
-        $mockValidator->method('perform')
-            ->willThrowException(new Exception());
+        /*
+         * Create partial mock for getStatus() and post()
+         * getStatus() will return 500 (http error)
+         * post() will be void (no need to cope with it here)
+         */
+        $validator = $this->createPartialMock(\Dotclear\Helper\Html\HtmlValidator::class, ['getStatus', 'post']);
+        $validator->method('getStatus')->willReturn(500);
 
         $this->expectException(Exception::class);
-
-        $doc = $mockValidator->getDocument('<p>Hello</p>');
-        $mockValidator->perform($doc);
-
         $this->expectExceptionMessage('Status code line invalid.');
+
+        $doc = $validator->getDocument('<p>Hello</p>');
+        $validator->perform($doc);
     }
 
     public function testGetDocument()
