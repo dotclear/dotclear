@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace Dotclear\Tests\Helper\Html\Form;
+
 use Dotclear\Helper\Html\Form\Label;
 use PHPUnit\Framework\TestCase;
 
@@ -155,7 +157,7 @@ class DivTest extends TestCase
             $component->getType()
         );
         $this->assertEquals(
-            Dotclear\Helper\Html\Form\Div::class,
+            \Dotclear\Helper\Html\Form\Div::class,
             $component->getType()
         );
     }
@@ -170,7 +172,7 @@ class DivTest extends TestCase
             $component->getType()
         );
         $this->assertEquals(
-            Dotclear\Helper\Html\Form\Text::class,
+            \Dotclear\Helper\Html\Form\Text::class,
             $component->getType()
         );
     }

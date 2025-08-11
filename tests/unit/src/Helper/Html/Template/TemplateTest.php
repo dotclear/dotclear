@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace Dotclear\Tests\Helper\Html\Template;
+
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
@@ -12,9 +14,9 @@ class TemplateTest extends TestCase
         $fixtures = implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', '..', 'fixtures', 'src', 'Helper', 'Html', 'Template']);
 
         $list = [];
-        foreach (new RecursiveIteratorIterator(
-            new RecursiveDirectoryIterator($fixtures),
-            RecursiveIteratorIterator::LEAVES_ONLY
+        foreach (new \RecursiveIteratorIterator(
+            new \RecursiveDirectoryIterator($fixtures),
+            \RecursiveIteratorIterator::LEAVES_ONLY
         ) as $file) {
             if (preg_match('/\.test$/', $file->getFilename())) {
                 //yield $file->getRealpath();
@@ -73,7 +75,7 @@ class TemplateTest extends TestCase
                 mockTemplates::trimHereDoc($result)
             );
         } else {
-            $this->expectException(Exception::class);
+            $this->expectException(\Exception::class);
             $GLOBALS['tpl']->getData($basetpl);
             $this->expectExceptionMessage(trim($t['exception']));
         }
@@ -105,7 +107,7 @@ class TemplateTest extends TestCase
             $exception = false;
             preg_match_all('/--EXPECT--\s*(.*?)$/s', $test, $outputs, PREG_SET_ORDER);
         } else {
-            throw new Exception(sprintf('Test "%s" is not valid.', str_replace($fixtures . '/', '', $file)));
+            throw new \Exception(sprintf('Test "%s" is not valid.', str_replace($fixtures . '/', '', $file)));
         }
 
         $ret = [

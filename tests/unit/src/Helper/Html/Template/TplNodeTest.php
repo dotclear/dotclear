@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace Dotclear\Tests\Helper\Html\Template;
+
 use PHPUnit\Framework\TestCase;
 
 class TtplNodeTest extends TestCase
@@ -11,7 +13,7 @@ class TtplNodeTest extends TestCase
         $instance = new \Dotclear\Helper\Html\Template\TplNode();
         $child    = new \Dotclear\Helper\Html\Template\TplNodeText('content');
 
-        $instance->setChildren(new ArrayObject([$child]));
+        $instance->setChildren(new \ArrayObject([$child]));
 
         $this->assertEquals(
             $child->getParent(),

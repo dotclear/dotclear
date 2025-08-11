@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace Dotclear\Tests\Helper\Html;
+
 use PHPUnit\Framework\TestCase;
 
 class XmlTagTest extends TestCase
@@ -88,7 +90,7 @@ class XmlTagTest extends TestCase
 
     public function testWithBadArrayValue()
     {
-        $this->expectException(TypeError::class);
+        $this->expectException(\TypeError::class);
 
         new \Dotclear\Helper\Html\XmlTag(null, ['mystring' => 13, 'myvalue' => 42, -1]);
 

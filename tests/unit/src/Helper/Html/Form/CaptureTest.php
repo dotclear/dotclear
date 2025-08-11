@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace Dotclear\Tests\Helper\Html\Form;
+
 use PHPUnit\Framework\TestCase;
 
 class CaptureTest extends TestCase
@@ -13,7 +15,7 @@ class CaptureTest extends TestCase
 
     private function error()
     {
-        throw new Exception('Error Processing Request');
+        throw new \Exception('Error Processing Request');
     }
 
     public function test()
@@ -57,7 +59,7 @@ class CaptureTest extends TestCase
             $component->getType()
         );
         $this->assertEquals(
-            Dotclear\Helper\Html\Form\Capture::class,
+            \Dotclear\Helper\Html\Form\Capture::class,
             $component->getType()
         );
     }

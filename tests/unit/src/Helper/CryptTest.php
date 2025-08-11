@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace Dotclear\Tests\Helper;
+
 use Faker\Factory;
 use PHPUnit\Framework\TestCase;
 

@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace Dotclear\Tests\Helper\Html\Form;
+
 use PHPUnit\Framework\TestCase;
 
 class FieldsetTest extends TestCase
@@ -63,7 +65,7 @@ class FieldsetTest extends TestCase
             $component->getType()
         );
         $this->assertEquals(
-            Dotclear\Helper\Html\Form\Fieldset::class,
+            \Dotclear\Helper\Html\Form\Fieldset::class,
             $component->getType()
         );
     }

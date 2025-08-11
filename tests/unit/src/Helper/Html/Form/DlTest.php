@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace Dotclear\Tests\Helper\Html\Form;
+
 use PHPUnit\Framework\TestCase;
 
 class DlTest extends TestCase
@@ -55,7 +57,7 @@ class DlTest extends TestCase
             $component->getType()
         );
         $this->assertEquals(
-            Dotclear\Helper\Html\Form\Dl::class,
+            \Dotclear\Helper\Html\Form\Dl::class,
             $component->getType()
         );
     }

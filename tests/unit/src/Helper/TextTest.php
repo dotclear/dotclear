@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
+namespace Dotclear\Tests\Helper;
+
 use Faker\Factory;
-use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
-#[CoversClass(\Dotclear\Helper\Text::class)]
-class HelperTextTest extends TestCase
+class TextTest extends TestCase
 {
     public function testIsEmail()
     {

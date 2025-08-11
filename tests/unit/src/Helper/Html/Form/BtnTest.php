@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace Dotclear\Tests\Helper\Html\Form;
+
 use PHPUnit\Framework\TestCase;
 
 class BtnTest extends TestCase
@@ -118,7 +120,7 @@ class BtnTest extends TestCase
             $component->getType()
         );
         $this->assertEquals(
-            Dotclear\Helper\Html\Form\Btn::class,
+            \Dotclear\Helper\Html\Form\Btn::class,
             $component->getType()
         );
     }

@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace Dotclear\Tests\Helper\Html;
+
 use PHPUnit\Framework\TestCase;
 
 class HtmlValidatorTest extends TestCase
@@ -16,7 +18,7 @@ class HtmlValidatorTest extends TestCase
         $validator = $this->createPartialMock(\Dotclear\Helper\Html\HtmlValidator::class, ['getStatus', 'post']);
         $validator->method('getStatus')->willReturn(500);
 
-        $this->expectException(Exception::class);
+        $this->expectException(\Exception::class);
         $this->expectExceptionMessage('Status code line invalid.');
 
         $doc = $validator->getDocument('<p>Hello</p>');

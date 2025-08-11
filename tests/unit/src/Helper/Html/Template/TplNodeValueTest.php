@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace Dotclear\Tests\Helper\Html\Template;
+
 use PHPUnit\Framework\TestCase;
 
 class TtplNodeValueTest extends TestCase
