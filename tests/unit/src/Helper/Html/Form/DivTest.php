@@ -2127,4 +2127,13 @@ class DivTest extends TestCase
             $rendered
         );
     }
+
+    public function testIsVerbose()
+    {
+        $component = new \Dotclear\Helper\Html\Form\Div('my');
+
+        $this->assertFalse(
+            $component->isVerbose()
+        );
+    }
 }

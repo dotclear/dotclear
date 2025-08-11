@@ -125,4 +125,42 @@ class FormTest extends TestCase
             $rendered
         );
     }
+
+    public function testNoIdVerbose()
+    {
+        $component = $this->getMockBuilder(\Dotclear\Helper\Html\Form\Form::class)
+            ->onlyMethods(['checkMandatoryAttributes', 'isVerbose'])
+            ->enableOriginalConstructor()
+            ->getMock();
+
+        $component->method('checkMandatoryAttributes')->willReturn(false);
+        $component->method('isVerbose')->willReturn(true);
+
+        $rendered = $component->render();
+
+        $this->assertStringContainsString(
+            'Form without id and name (provide at least one of them)',
+            $rendered
+        );
+    }
+
+    public function testNoMethodVerbose()
+    {
+        $component = $this->getMockBuilder(\Dotclear\Helper\Html\Form\Form::class)
+            ->onlyMethods(['checkMandatoryAttributes', 'isVerbose'])
+            ->enableOriginalConstructor()
+            ->getMock();
+
+        $component->method('checkMandatoryAttributes')->willReturn(true);
+        $component->method('isVerbose')->willReturn(true);
+
+        $component->action(null);
+
+        $rendered = $component->render();
+
+        $this->assertStringContainsString(
+            'Form without action or method, is this deliberate?',
+            $rendered
+        );
+    }
 }

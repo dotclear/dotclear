@@ -10,6 +10,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\Html\Form;
 
+use Dotclear\App;
+
 /**
  * @class Component
  * @brief HTML Forms creation helpers
@@ -116,6 +118,11 @@ abstract class Component
     protected array $properties = [];
 
     /**
+     * May be use to display development and debug information (disabled in CLI mode)
+     */
+    protected bool $renderVerbose = false;
+
+    /**
      * Constructs a new instance.
      *
      * @param      null|class-string    $componentClass     The component class
@@ -126,6 +133,16 @@ abstract class Component
         private ?string $htmlElement = null
     ) {
         $this->componentClass ??= self::class;
+
+        $this->renderVerbose = !App::config()->cliMode() && App::config()->devMode() && App::config()->debugMode();
+    }
+
+    /**
+     * Get current value of renderVerbose property
+     */
+    public function isVerbose(): bool
+    {
+        return $this->renderVerbose;
     }
 
     /**

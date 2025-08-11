@@ -10,8 +10,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\Html\Form;
 
-use Dotclear\App;
-
 /**
  * @class Form
  * @brief HTML Forms form creation helpers
@@ -56,7 +54,7 @@ class Form extends Component
     public function render(?string $format = null): string
     {
         if (!$this->checkMandatoryAttributes()) {
-            if (!App::config()->cliMode() && App::config()->devMode() && App::config()->debugMode()) {
+            if ($this->isVerbose()) {
                 return '<!-- ' . static::class . ': ' . 'Form without id and name (provide at least one of them)' . ' -->' . "\n";
             }
 
@@ -77,7 +75,7 @@ class Form extends Component
 
         $buffer .= '</' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . '>' . "\n";
 
-        if (($this->action === null || $this->method === null) && (!App::config()->cliMode() && App::config()->devMode() && App::config()->debugMode())) {
+        if (($this->action === null || $this->method === null) && $this->isVerbose()) {
             $buffer .= '<!-- ' . static::class . ': ' . 'Form without action or method, is this deliberate?' . ' -->' . "\n";
         }
 

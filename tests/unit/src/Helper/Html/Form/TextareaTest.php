@@ -140,4 +140,22 @@ class TextareaTest extends TestCase
             $rendered
         );
     }
+
+    public function testNoIdVerbose()
+    {
+        $component = $this->getMockBuilder(\Dotclear\Helper\Html\Form\Textarea::class)
+            ->onlyMethods(['checkMandatoryAttributes', 'isVerbose'])
+            ->enableOriginalConstructor()
+            ->getMock();
+
+        $component->method('checkMandatoryAttributes')->willReturn(false);
+        $component->method('isVerbose')->willReturn(true);
+
+        $rendered = $component->render();
+
+        $this->assertStringContainsString(
+            'Textarea without id and name (provide at least one of them)',
+            $rendered
+        );
+    }
 }
