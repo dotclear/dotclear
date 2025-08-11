@@ -2727,12 +2727,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "24a17a6667f0d45f5a3a62a4a7a51a9c5192c184"
+                "reference": "cfa08bf028892a7914341683a8495f2f56cfd386"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/24a17a6667f0d45f5a3a62a4a7a51a9c5192c184",
-                "reference": "24a17a6667f0d45f5a3a62a4a7a51a9c5192c184",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/cfa08bf028892a7914341683a8495f2f56cfd386",
+                "reference": "cfa08bf028892a7914341683a8495f2f56cfd386",
                 "shasum": ""
             },
             "require": {
@@ -2752,13 +2752,13 @@
                 "phpunit/php-text-template": "^5.0.0",
                 "phpunit/php-timer": "^8.0.0",
                 "sebastian/cli-parser": "^4.0.0",
-                "sebastian/comparator": "^7.1.0",
+                "sebastian/comparator": "^7.1.2",
                 "sebastian/diff": "^7.0.0",
                 "sebastian/environment": "^8.0.2",
                 "sebastian/exporter": "^7.0.0",
                 "sebastian/global-state": "^8.0.0",
                 "sebastian/object-enumerator": "^7.0.0",
-                "sebastian/type": "^6.0.2",
+                "sebastian/type": "^6.0.3",
                 "sebastian/version": "^6.0.0",
                 "staabm/side-effects-detector": "^1.0.5"
             },
@@ -2825,7 +2825,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-08-08T09:51:18+00:00"
+            "time": "2025-08-11T05:53:14+00:00"
         },
         {
             "name": "psr/container",
