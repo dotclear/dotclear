@@ -14,6 +14,7 @@ namespace Dotclear\Process\Backend;
 use Dotclear\App;
 use Dotclear\Core\Backend\Auth\OAuth2Client;
 use Dotclear\Core\Backend\Auth\OAuth2Store;
+use Dotclear\Core\Backend\Auth\WebAuthn;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Core\Upgrade\Upgrade;
@@ -21,6 +22,7 @@ use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Network\Mail\Mail;
+use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Form\Details;
 use Dotclear\Helper\Html\Form\Div;
@@ -130,6 +132,14 @@ class Auth extends Process
             App::backend()->err = $e->getMessage();
             App::backend()->oauth2 = null;
         }
+        // Create webauthn instance
+        try {
+            App::backend()->webauthn = App::backend()->safe_mode ? null : new WebAuthn();
+        } catch (Exception $e) {
+            App::backend()->err = $e->getMessage();
+            App::backend()->oauth2 = null;
+        }
+
         return self::status(true);
     }
 
@@ -139,6 +149,7 @@ class Auth extends Process
         if (App::backend()->oauth2 !== null) {
             App::backend()->oauth2->requestAction((string) App::auth()->userID());
         }
+
         $headers = [];
         if (App::backend()->recover && !empty($_POST['user_id']) && !empty($_POST['user_email'])) {
             App::backend()->user_id    = $_POST['user_id'];
@@ -543,6 +554,11 @@ class Auth extends Process
                                 (new Submit('login', __('log in')))
                                     ->class('login'),
                             ]),
+                        App::backend()->webauthn === null ? new None() : (new Para('webauthn_action'))
+                            ->class('hidden-if-no-js')
+                            ->items([
+                                (new Button(['webauthn_button'],__('Sign in with a passkey'))),
+                            ])
                     ]);
 
                 if (!empty($_REQUEST['blog'])) {
@@ -587,6 +603,7 @@ class Auth extends Process
                             ->separator("\n");
                     }
                 }
+
                 // Cookie warning
                 $parts[] = (new Para('cookie_help'))
                     ->class('error')

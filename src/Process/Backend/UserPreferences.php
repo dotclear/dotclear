@@ -15,6 +15,7 @@ use ArrayObject;
 use Dotclear\App;
 use Dotclear\Core\Backend\Auth\OAuth2Client;
 use Dotclear\Core\Backend\Auth\OAuth2Store;
+use Dotclear\Core\Backend\Auth\WebAuthn;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Helper;
 use Dotclear\Core\Backend\Notices;
@@ -51,6 +52,7 @@ use Dotclear\Helper\Html\Form\Td;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Th;
 use Dotclear\Helper\Html\Form\Thead;
+use Dotclear\Helper\Html\Form\Timestamp;
 use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Html\Form\Ul;
 use Dotclear\Helper\Html\Form\Url;
@@ -80,6 +82,13 @@ class UserPreferences extends Process
         } catch (Exception $e) {
             App::error()->add($e->getMessage());
         }
+        // Create webauthn instance
+        try {
+            App::backend()->webauthn = new WebAuthn();
+        } catch (Exception $e) {
+            App::error()->add($e->getMessage());
+        }
+
         App::backend()->user_name        = App::auth()->getInfo('user_name');
         App::backend()->user_firstname   = App::auth()->getInfo('user_firstname');
         App::backend()->user_displayname = App::auth()->getInfo('user_displayname');
@@ -1083,6 +1092,19 @@ class UserPreferences extends Process
                             ->legend(new Legend(__('Authentication applications')))
                             ->separator('')
                             ->items($oauth2_items),
+                            // wenauthn
+                        (new Fieldset('user_options_webauthn'))
+                            ->legend(new Legend(__('Auhtentication keys')))
+                            ->separator('')
+                            ->items([
+                                (new Ul())
+                                    ->items($webauthn_items),
+                                (new Para('webauthn_action'))
+                                    ->items([
+                                        (new Button(['webauthn_button'], 'Register a new key')),
+                                    ])
+                                    ->class(['hidden-if-no-js']),
+                            ]),
                         (new Text('h4', __('Other options')))
                             ->class('pretty-title'),
                         (new Capture(
