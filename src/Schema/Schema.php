@@ -246,6 +246,15 @@ class Schema
             ->primary('pk_notice', 'notice_id')
         ;
 
+        $struct->credential
+            ->field('user_id', 'varchar', 32, false)
+            ->field('credential_type', 'varchar', 64, false)
+            ->field('credential_id', 'varchar', 255, false)
+            ->field('credential_data', 'text', 0, true)
+
+            ->primary('pk_credential', 'credential_type', 'credential_id')
+        ;
+
         /* References indexes
         -------------------------------------------------------- */
         $struct->category->index('idx_category_blog_id', 'btree', 'blog_id');
@@ -265,6 +274,7 @@ class Schema
         $struct->meta->index('idx_meta_post_id', 'btree', 'post_id');
         $struct->meta->index('idx_meta_meta_type', 'btree', 'meta_type');
         $struct->pref->index('idx_pref_user_id', 'btree', 'user_id');
+        $struct->credential->index('idx_credential_user_id', 'btree', 'user_id');
 
         /* Performance indexes
         -------------------------------------------------------- */
@@ -296,6 +306,7 @@ class Schema
         $struct->meta->reference('fk_meta_post', 'post_id', 'post', 'post_id', 'cascade', 'cascade');
         $struct->pref->reference('fk_pref_user', 'user_id', 'user', 'user_id', 'cascade', 'cascade');
         $struct->notice->reference('fk_notice_session', 'ses_id', 'session', 'ses_id', 'cascade', 'cascade');
+        $struct->credential->reference('fk_credential_user', 'user_id', 'user', 'user_id', 'cascade', 'cascade');
 
         /* PostgreSQL specific indexes
         -------------------------------------------------------- */

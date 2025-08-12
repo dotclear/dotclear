@@ -42,6 +42,7 @@ use Dotclear\Interface\Core\BlogWorkspaceInterface;
 use Dotclear\Interface\Core\CacheInterface;
 use Dotclear\Interface\Core\CategoriesInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
+use Dotclear\Interface\Core\CredentialInterface;
 use Dotclear\Interface\Core\DeprecatedInterface;
 use Dotclear\Interface\Core\ErrorInterface;
 use Dotclear\Interface\Core\FilterInterface;
@@ -161,6 +162,7 @@ class Core extends Container
             BlogWorkspaceInterface::class   => BlogWorkspace::class,
             CacheInterface::class           => Cache::class,
             CategoriesInterface::class      => Categories::class,
+            CredentialInterface::class      => Credential::class,
             ErrorInterface::class           => Error::class,
             DeprecatedInterface::class      => Deprecated::class,
             FilterInterface::class          => Filter::class,
@@ -341,6 +343,17 @@ class Core extends Container
     public static function config(): ConfigInterface
     {
         return self::$instance->getConfig();
+    }
+
+    /**
+     * Credential methods handler.
+     *
+     * @see     Calls core container service Dotclear\Interface\Core\CredentialInterface
+     * @see     Uses default core service Dotclear\Core\Credential
+     */
+    public static function credential(): CredentialInterface
+    {
+        return self::$instance->get(CredentialInterface::class);
     }
 
     /**
