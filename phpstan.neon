@@ -12,6 +12,7 @@ includes:
 
 parameters:
   level: 8
+  tmpDir: /tmp/dotclear/core
 
 # Go over level 9 (uncomment one/many of next lines to activate them):
   checkBenevolentUnionTypes: true
