@@ -212,7 +212,6 @@ class Auth extends Process
                 $cur->user_pwd        = $_POST['new_pwd'];
                 App::users()->updUser((string) App::auth()->userID(), $cur);
 
-                App::session()->start();
                 $_SESSION['sess_user_id']     = App::backend()->user_id;
                 $_SESSION['sess_browser_uid'] = Http::browserUID(App::config()->masterKey());
 
@@ -262,7 +261,6 @@ class Auth extends Process
             } elseif ($check_perms) {
                 // User may log-in
 
-                App::session()->start();
                 $_SESSION['sess_user_id']     = App::backend()->user_id;
                 $_SESSION['sess_browser_uid'] = Http::browserUID(App::config()->masterKey());
 

@@ -122,23 +122,11 @@ class Utility extends Process
         // deprecated since 2.28, need to load dcCore::app()->adminurl
         App::backend()->url();
 
-        if (App::auth()->sessionExists()) {
-            // If we have a session we launch it now
-            try {
-                if (!App::auth()->checkSession()) {
-                    // Avoid loop caused by old cookie
-                    $p    = App::session()->getCookieParameters(false, -600);
-                    $p[3] = '/';
-                    setcookie(...$p);
+        // Always start a session, since 2.36
+        App::session()->start();
 
-                    // Preserve safe_mode if necessary
-                    $params = empty($_REQUEST['safe_mode']) ? [] : ['safe_mode' => 1];
-                    App::backend()->url()->redirect('admin.auth', $params);
-                }
-            } catch (Throwable) {
-                throw new SessionException(__('There seems to be no Session table in your database. Is Dotclear completly installed?'));
-            }
-
+        // If we have a session we launch it now
+        if (App::auth()->checkSession()) {
             // Fake process to logout (kill session) and return to auth page.
             if (!empty($_REQUEST['process'])    && $_REQUEST['process'] == 'Logout'
                 || !App::auth()->isSuperAdmin() && App::status()->user()->isRestricted((int) App::auth()->getInfo('user_status'))

@@ -103,6 +103,11 @@ class Utility extends Process
     protected $page_number;
 
     /**
+     * Session instance
+     */
+    private Session $session;
+
+    /**
      * Constructs a new instance.
      *
      * @throws     ContextException  (if not public context)
@@ -115,6 +120,11 @@ class Utility extends Process
 
         // deprecated since 2.28, use App::frontend() instead
         dcCore::app()->public = $this;
+
+        // Set frontend session handler if plugins need one. since 2.36
+        if (App::blog()->isDefined()) {
+            $this->session = new Session();
+        }
     }
 
     /**
@@ -132,9 +142,6 @@ class Utility extends Process
      */
     public static function process(): bool
     {
-        // Instanciate Frontend instance
-        App::frontend();
-
         // Loading blog
         if (App::config()->blogId() !== '') {
             try {
@@ -153,6 +160,9 @@ class Utility extends Process
 
             throw new BlogException(__('This blog is offline. Please try again later.'), 404);
         }
+
+        // Instanciate Frontend instance
+        App::frontend();
 
         // Load some class extents and set some public behaviors (was in public prepend before)
         App::behavior()->addBehaviors([
@@ -321,6 +331,20 @@ class Utility extends Process
 
         // Do not try to execute a process added to the URL.
         return false;
+    }
+
+    /**
+     * Get frontend session instance.
+     *
+     * Plugins dealing with frontend session MUST use this handler.
+     *
+     * @since   2.36
+     *
+     * @return  Session The session
+     */
+    public function session(): Session
+    {
+        return $this->session;
     }
 
     /**

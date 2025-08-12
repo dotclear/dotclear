@@ -305,7 +305,6 @@ class Auth implements AuthInterface
     public function checkSession(?string $uid = null): bool
     {
         $welcome = true;
-        $this->session->start();
 
         if (!isset($_SESSION['sess_user_id'])) {
             // If session does not exist, logout.
@@ -318,10 +317,6 @@ class Auth implements AuthInterface
             if (!$this->userID() || ($uid !== $_SESSION['sess_browser_uid'])) {
                 $welcome = false;
             }
-        }
-
-        if (!$welcome) {
-            $this->session->destroy();
         }
 
         return $welcome;

@@ -114,7 +114,6 @@ class Auth extends Process
             if ($check_perms) {
                 // User may log-in
 
-                App::session()->start();
                 $_SESSION['sess_user_id']     = self::$user_id;
                 $_SESSION['sess_browser_uid'] = Http::browserUID(App::config()->masterKey());
 
