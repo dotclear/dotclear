@@ -629,7 +629,7 @@ class UserPreferences extends Process
                         (new Para())
                             ->items([
                                 (new Email('user_email'))
-                                    ->size(30)
+                                    ->size(40)
                                     ->maxlength(255)
                                     ->value(Html::escapeHTML(App::backend()->user_email))
                                     ->autocomplete('email')
@@ -639,7 +639,7 @@ class UserPreferences extends Process
                         (new Para())
                             ->items([
                                 (new Input('user_profile_mails'))
-                                    ->size(50)
+                                    ->size(80)
                                     ->maxlength(255)
                                     ->value(Html::escapeHTML(App::backend()->user_profile_mails))
                                     ->translate(false)
@@ -651,7 +651,7 @@ class UserPreferences extends Process
                         (new Para())
                             ->items([
                                 (new Url('user_url'))
-                                    ->size(30)
+                                    ->size(40)
                                     ->maxlength(255)
                                     ->value(Html::escapeHTML(App::backend()->user_url))
                                     ->autocomplete('url')
@@ -661,7 +661,7 @@ class UserPreferences extends Process
                         (new Para())
                             ->items([
                                 (new Input('user_profile_urls'))
-                                    ->size(50)
+                                    ->size(80)
                                     ->maxlength(255)
                                     ->value(Html::escapeHTML(App::backend()->user_profile_urls))
                                     ->translate(false)
