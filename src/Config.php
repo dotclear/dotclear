@@ -51,7 +51,7 @@ class Config implements ConfigInterface
     /**
      * Dotclear default release config file name.
      *
-     * @var    string   RELEASE_FILE
+     * @var    string   CONFIG_FILE
      */
     public const CONFIG_FILE = 'config.php';
     /**
@@ -63,9 +63,15 @@ class Config implements ConfigInterface
     /**
      * Dotclear default release config file name.
      *
-     * @var    string   RELEASE_FILE
+     * @var    string   CSP_REPORT_FILE
      */
     public const CSP_REPORT_FILE = 'csp_report.json';
+    /**
+     * Dotclear default oauth2 providers (consumers) config file name.
+     *
+     * @var    string   OAUTH2_FILE
+     */
+    public const OAUTH2_FILE = 'oauth2.php';
 
     /**
      * Dotclear default release config.
@@ -189,6 +195,10 @@ class Config implements ConfigInterface
 
         $this->has_config = is_file($this->configPath());
 
+        // OAuth2 providers (consumers) configuration file. MUST be in same directory as config file.
+        $this->oauth2_path = dirname($this->configPath()) . DIRECTORY_SEPARATOR . self::OAUTH2_FILE;
+        $this->has_oauth2  = $this->hasConfig() && is_file($this->oauth2Path());
+
         // Store upload_max_filesize in bytes
         $u_max_size = Files::str2bytes((string) ini_get('upload_max_filesize'));
         $p_max_size = Files::str2bytes((string) ini_get('post_max_size'));
@@ -234,6 +244,11 @@ class Config implements ConfigInterface
             }
 
             require $this->configPath();
+        }
+
+        // Load oauth file if exists
+        if ($this->hasOauth2()) {
+            require $this->oauth2Path();
         }
 
         // Constants that can be set in config.php file
@@ -575,6 +590,16 @@ class Config implements ConfigInterface
     public function configPath(): string
     {
         return $this->config_path;
+    }
+
+    public function hasOauth2(): bool
+    {
+        return $this->has_oauth2;
+    }
+
+    public function oauth2Path(): string
+    {
+        return $this->oauth2_path;
     }
 
     public function digestsRoot(): string
