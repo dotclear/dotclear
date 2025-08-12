@@ -15,6 +15,7 @@
 
 declare(strict_types=1);
 
+use Rector\Caching\ValueObject\Storage\FileCacheStorage;
 use Rector\Config\RectorConfig;
 use Rector\Set\ValueObject\LevelSetList;
 
@@ -48,4 +49,11 @@ return RectorConfig::configure()
         8,      // Max number of processes (default = 16)
         5       // Job size (default = 10)
     )
+    ->withCache(
+        // ensure file system caching is used instead of in-memory
+        cacheClass: FileCacheStorage::class,
+
+        // specify a path that works locally as well as on CI job runners
+        cacheDirectory: '/tmp/dotclear/core/rector'
+    );
 ;
