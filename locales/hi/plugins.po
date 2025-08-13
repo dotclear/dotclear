@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-04 14:08+0200\n"
-"PO-Revision-Date: 2025-08-04 12:38\n"
+"POT-Creation-Date: 2025-08-13 15:06+0200\n"
+"PO-Revision-Date: 2025-08-13 13:39\n"
 "Last-Translator: \n"
 "Language-Team: Hindi\n"
 "Language: hi_IN\n"
@@ -1277,7 +1277,7 @@ msgid "You need to provide a XBEL or OPML file."
 msgstr "आप एक XBEL या OPML फ़ाइल प्रदान करने की जरूरत है."
 
 #: plugins/blogroll/src/UtilsImport.php:55
-#: plugins/blogroll/src/UtilsImport.php:97
+#: plugins/blogroll/src/UtilsImport.php:99
 msgid "File is not in XML format."
 msgstr "फ़ाइल एक्सएमएल फॉर्मेट में नहीं है."
 
@@ -3071,44 +3071,44 @@ msgstr "स्थानीय फ़ाइलें"
 msgid "PHP files"
 msgstr "पीएचपी फ़ाइलें"
 
-#: plugins/themeEditor/src/ThemeEditor.php:153
+#: plugins/themeEditor/src/ThemeEditor.php:159
 msgid "No file"
 msgstr "कोई फ़ाइल नहीं"
 
-#: plugins/themeEditor/src/ThemeEditor.php:183
+#: plugins/themeEditor/src/ThemeEditor.php:189
 msgid "Customized:"
 msgstr "अनुकूलित:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:191
 #: plugins/themeEditor/src/ThemeEditor.php:197
+#: plugins/themeEditor/src/ThemeEditor.php:203
 msgid "From theme:"
 msgstr "प्रसंग से:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:208
+#: plugins/themeEditor/src/ThemeEditor.php:214
 msgid "From parent:"
 msgstr "माता-पिता से:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:218
+#: plugins/themeEditor/src/ThemeEditor.php:224
 msgid "From template set:"
 msgstr "टेम्पलेट सेट से:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:246
-#: plugins/themeEditor/src/ThemeEditor.php:283
-#: plugins/themeEditor/src/ThemeEditor.php:355
+#: plugins/themeEditor/src/ThemeEditor.php:252
+#: plugins/themeEditor/src/ThemeEditor.php:289
+#: plugins/themeEditor/src/ThemeEditor.php:361
 msgid "File does not exist."
 msgstr "फ़ाइल मौज़ूद नहीं है."
 
-#: plugins/themeEditor/src/ThemeEditor.php:251
+#: plugins/themeEditor/src/ThemeEditor.php:257
 #, php-format
 msgid "File %s is not readable"
 msgstr "फ़ाइल %s पढ़ने योग्य नहीं है"
 
-#: plugins/themeEditor/src/ThemeEditor.php:320
+#: plugins/themeEditor/src/ThemeEditor.php:326
 #, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr "फ़ाइल %s लिखने में असमर्थ. कृपया अपनी थीम फ़ाइलों और फ़ोल्डरों की अनुमतियों की जाँच करें।"
 
-#: plugins/themeEditor/src/ThemeEditor.php:391
+#: plugins/themeEditor/src/ThemeEditor.php:397
 #, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "फ़ाइल %s को हटाने में असमर्थ. कृपया अपनी थीम फ़ाइलों और फ़ोल्डरों की अनुमतियों की जाँच करें।"
