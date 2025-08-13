@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-04 14:08+0200\n"
-"PO-Revision-Date: 2025-08-04 12:17\n"
+"POT-Creation-Date: 2025-08-13 15:06+0200\n"
+"PO-Revision-Date: 2025-08-13 13:12\n"
 "Last-Translator: \n"
 "Language-Team: Catalan\n"
 "Language: ca_ES\n"
@@ -1277,7 +1277,7 @@ msgid "You need to provide a XBEL or OPML file."
 msgstr "Heu de proporcionar un fitxer XBEL o OPML."
 
 #: plugins/blogroll/src/UtilsImport.php:55
-#: plugins/blogroll/src/UtilsImport.php:97
+#: plugins/blogroll/src/UtilsImport.php:99
 msgid "File is not in XML format."
 msgstr "El fitxer no està en format XML."
 
@@ -3071,44 +3071,44 @@ msgstr "Fitxers locals"
 msgid "PHP files"
 msgstr "Fitxers PHP"
 
-#: plugins/themeEditor/src/ThemeEditor.php:153
+#: plugins/themeEditor/src/ThemeEditor.php:159
 msgid "No file"
 msgstr "Cap fitxer"
 
-#: plugins/themeEditor/src/ThemeEditor.php:183
+#: plugins/themeEditor/src/ThemeEditor.php:189
 msgid "Customized:"
 msgstr "Personalitzat:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:191
 #: plugins/themeEditor/src/ThemeEditor.php:197
+#: plugins/themeEditor/src/ThemeEditor.php:203
 msgid "From theme:"
 msgstr "Del tema:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:208
+#: plugins/themeEditor/src/ThemeEditor.php:214
 msgid "From parent:"
 msgstr "Dels pares:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:218
+#: plugins/themeEditor/src/ThemeEditor.php:224
 msgid "From template set:"
 msgstr "Del conjunt de plantilles:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:246
-#: plugins/themeEditor/src/ThemeEditor.php:283
-#: plugins/themeEditor/src/ThemeEditor.php:355
+#: plugins/themeEditor/src/ThemeEditor.php:252
+#: plugins/themeEditor/src/ThemeEditor.php:289
+#: plugins/themeEditor/src/ThemeEditor.php:361
 msgid "File does not exist."
 msgstr "L'arxiu no existeix."
 
-#: plugins/themeEditor/src/ThemeEditor.php:251
+#: plugins/themeEditor/src/ThemeEditor.php:257
 #, php-format
 msgid "File %s is not readable"
 msgstr "El fitxer %s no es pot llegir"
 
-#: plugins/themeEditor/src/ThemeEditor.php:320
+#: plugins/themeEditor/src/ThemeEditor.php:326
 #, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr "No es pot escriure el fitxer %s. Si us plau, comproveu els permisos dels fitxers i carpetes del vostre tema."
 
-#: plugins/themeEditor/src/ThemeEditor.php:391
+#: plugins/themeEditor/src/ThemeEditor.php:397
 #, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "No es pot suprimir el fitxer %s. Si us plau, comproveu els permisos dels fitxers i carpetes del vostre tema."
