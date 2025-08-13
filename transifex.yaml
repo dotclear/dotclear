@@ -1,0 +1,36 @@
+filters:
+  # locales (main)
+  - filter_type: dynamic
+    file_format: PO
+    source_language: en
+    source_files_expression: locales/en/<file>.po
+    translation_files_expression: locales/<lang>/<file>.po
+  # help (main)
+  - filter_type: dynamic
+    file_format: HTML
+    source_language: en
+    source_files_expression: locales/en/help/<file>.html
+    translation_files_expression: locales/<lang>/help/<file>.html
+  # help (plugins)
+  - filter_type: dynamic
+    file_format: HTML
+    source_language: en
+    source_files_expression: /plugins/<dir>/locales/en/help/<file>.html
+    translation_files_expression: /plugins/<dir>/locales/<lang>/help/<file>.html
+  # locales (themes)
+  - filter_type: dynamic
+    file_format: PO
+    source_language: en
+    source_files_expression: /themes/<dir>/locales/en/<file>.po
+    translation_files_expression: /themes/<dir>/locales/<lang>/<file>.po
+  # help (themes)
+  - filter_type: dynamic
+    file_format: HTML
+    source_language: en
+    source_files_expression: /themes/<dir>/locales/en/help/<file>.html
+    translation_files_expression: /themes/<dir>/locales/<lang>/help/<file>.html
+settings:
+    language_mapping:
+        es-ar: es_AR
+        pt-br: pt_BR
+        zh-cn: zh_CN
