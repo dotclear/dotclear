@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-04 13:24+0200\n"
-"PO-Revision-Date: 2025-08-04 12:17\n"
+"POT-Creation-Date: 2025-08-13 14:53+0200\n"
+"PO-Revision-Date: 2025-08-13 13:12\n"
 "Last-Translator: \n"
 "Language-Team: Catalan\n"
 "Language: ca_ES\n"
@@ -91,7 +91,7 @@ msgstr "Aquesta clau no existeix en la base de dades."
 
 #: src/Core/Backend/Action/Actions.php:139
 #: src/Core/Backend/Action/ActionsComments.php:159
-#: src/Core/Backend/Combos.php:256 src/Core/Backend/Listing/ListingPosts.php:77
+#: src/Core/Backend/Combos.php:256 src/Core/Backend/Listing/ListingPosts.php:78
 #: src/Core/Backend/Listing/ListingPostsMini.php:63
 #: src/Core/Backend/UserPref.php:205 src/Process/Backend/Home.php:594
 #: src/Process/Backend/MediaItem.php:1093 src/Process/Backend/Post.php:836
@@ -118,12 +118,12 @@ msgid "Blogs actions"
 msgstr "Accions de blocs"
 
 #: src/Core/Backend/Action/ActionsBlogs.php:157
-#: src/Core/Backend/Listing/ListingBlogs.php:76
+#: src/Core/Backend/Listing/ListingBlogs.php:77
 msgid "Blog id"
 msgstr "ID del bloc"
 
 #: src/Core/Backend/Action/ActionsBlogs.php:159 src/Core/Backend/Combos.php:312
-#: src/Core/Backend/Listing/ListingBlogs.php:82
+#: src/Core/Backend/Listing/ListingBlogs.php:83
 #: src/Core/Backend/UserPref.php:77 src/Process/Backend/Blog.php:144
 #: src/Process/Backend/BlogPref.php:533
 #: src/Process/Backend/UsersActions.php:368
@@ -135,11 +135,11 @@ msgstr "Nom del blog"
 #: src/Core/Backend/Action/ActionsPostsDefault.php:51
 #: src/Core/Backend/Combos.php:259 src/Core/Backend/Combos.php:282
 #: src/Core/Backend/Combos.php:314
-#: src/Core/Backend/Listing/ListingBlogs.php:105
-#: src/Core/Backend/Listing/ListingComments.php:133
-#: src/Core/Backend/Listing/ListingPosts.php:119
+#: src/Core/Backend/Listing/ListingBlogs.php:106
+#: src/Core/Backend/Listing/ListingComments.php:134
+#: src/Core/Backend/Listing/ListingPosts.php:120
 #: src/Core/Backend/Listing/ListingPostsMini.php:75
-#: src/Core/Backend/Listing/ListingUsers.php:92
+#: src/Core/Backend/Listing/ListingUsers.php:93
 #: src/Core/Backend/UserPref.php:55 src/Core/Backend/UserPref.php:71
 #: src/Core/Backend/UserPref.php:81 src/Process/Backend/Post.php:659
 #: src/Process/Backend/Post.php:1385 src/Process/Backend/Users.php:45
@@ -197,9 +197,9 @@ msgstr[1] "%d blocs s'han suprimit correctament"
 #: src/Core/Backend/Action/ActionsComments.php:80
 #: src/Core/Backend/Action/ActionsComments.php:118
 #: src/Core/Backend/Favorites.php:431
-#: src/Core/Backend/Listing/ListingPosts.php:96
-#: src/Core/Backend/Listing/ListingPosts.php:99
-#: src/Core/Backend/Listing/ListingPosts.php:100 src/Core/Backend/Menus.php:155
+#: src/Core/Backend/Listing/ListingPosts.php:97
+#: src/Core/Backend/Listing/ListingPosts.php:100
+#: src/Core/Backend/Listing/ListingPosts.php:101 src/Core/Backend/Menus.php:155
 #: src/Core/Backend/UserPref.php:46 src/Core/Backend/UserPref.php:51
 #: src/Core/Backend/UserPref.php:185 src/Process/Backend/Post.php:1033
 #: src/Process/Backend/Post.php:1060
@@ -216,8 +216,8 @@ msgstr "Comenta accions"
 
 #: src/Core/Backend/Action/ActionsComments.php:157
 #: src/Core/Backend/Combos.php:258 src/Core/Backend/Combos.php:281
-#: src/Core/Backend/Listing/ListingComments.php:123
-#: src/Core/Backend/Listing/ListingPosts.php:89
+#: src/Core/Backend/Listing/ListingComments.php:124
+#: src/Core/Backend/Listing/ListingPosts.php:90
 #: src/Core/Backend/Listing/ListingPostsMini.php:71
 #: src/Core/Backend/UserPref.php:45 src/Core/Backend/UserPref.php:54
 #: src/Process/Backend/Comment.php:292 src/Process/Backend/Post.php:1095
@@ -361,7 +361,7 @@ msgstr[1] "%d entrades s'han suprimit correctament"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:315
 #: src/Core/Backend/Combos.php:42 src/Core/Backend/Filter/FilterPosts.php:121
-#: src/Core/Backend/Listing/ListingPosts.php:260
+#: src/Core/Backend/Listing/ListingPosts.php:261
 msgid "(No cat)"
 msgstr "(Sense gat)"
 
@@ -467,23 +467,23 @@ msgid "Ascending"
 msgstr "Ascendent"
 
 #: src/Core/Backend/Combos.php:255 src/Core/Backend/Combos.php:278
-#: src/Core/Backend/Listing/ListingComments.php:128
+#: src/Core/Backend/Listing/ListingComments.php:129
 #: src/Core/Backend/Listing/ListingMedia.php:128
-#: src/Core/Backend/Listing/ListingPosts.php:81
+#: src/Core/Backend/Listing/ListingPosts.php:82
 #: src/Core/Backend/Listing/ListingPostsMini.php:67
 #: src/Core/Backend/UserPref.php:43 src/Core/Backend/UserPref.php:53
 #: src/Core/Backend/UserPref.php:203 src/Process/Backend/Post.php:1378
 msgid "Date"
 msgstr "Data"
 
-#: src/Core/Backend/Combos.php:257 src/Core/Backend/Listing/ListingPosts.php:85
+#: src/Core/Backend/Combos.php:257 src/Core/Backend/Listing/ListingPosts.php:86
 #: src/Core/Backend/UserPref.php:44 src/Process/Backend/Post.php:716
 msgid "Category"
 msgstr "Categoria"
 
 #: src/Core/Backend/Combos.php:260 src/Core/Backend/Filter/FilterPosts.php:201
-#: src/Core/Backend/Listing/ListingPosts.php:208
-#: src/Core/Backend/Listing/ListingPosts.php:242
+#: src/Core/Backend/Listing/ListingPosts.php:209
+#: src/Core/Backend/Listing/ListingPosts.php:243
 #: src/Core/Backend/Listing/ListingPostsMini.php:136
 msgid "Selected"
 msgstr "Seleccionat"
@@ -505,19 +505,19 @@ msgid "Entry date"
 msgstr "Data d'entrada"
 
 #: src/Core/Backend/Combos.php:283
-#: src/Core/Backend/Listing/ListingComments.php:145
+#: src/Core/Backend/Listing/ListingComments.php:146
 #: src/Core/Backend/UserPref.php:57
 msgid "Spam filter"
 msgstr "Filtre de correu brossa"
 
 #: src/Core/Backend/Combos.php:294
-#: src/Core/Backend/Listing/ListingComments.php:139
+#: src/Core/Backend/Listing/ListingComments.php:140
 #: src/Core/Backend/UserPref.php:56
 msgid "IP"
 msgstr "IP"
 
 #: src/Core/Backend/Combos.php:311
-#: src/Core/Backend/Listing/ListingBlogs.php:100
+#: src/Core/Backend/Listing/ListingBlogs.php:101
 #: src/Core/Backend/UserPref.php:80
 msgid "Last update"
 msgstr "Última actualització"
@@ -528,22 +528,22 @@ msgstr "Última actualització"
 msgid "Blog ID"
 msgstr "Identificador del blog"
 
-#: src/Core/Backend/Combos.php:332 src/Core/Backend/Listing/ListingUsers.php:67
+#: src/Core/Backend/Combos.php:332 src/Core/Backend/Listing/ListingUsers.php:68
 #: src/Process/Install/Install.php:459
 msgid "Username"
 msgstr "Nom d'usuari"
 
-#: src/Core/Backend/Combos.php:333 src/Core/Backend/Listing/ListingUsers.php:77
+#: src/Core/Backend/Combos.php:333 src/Core/Backend/Listing/ListingUsers.php:78
 #: src/Core/Backend/UserPref.php:68
 msgid "Last Name"
 msgstr "Cognom"
 
-#: src/Core/Backend/Combos.php:334 src/Core/Backend/Listing/ListingUsers.php:72
+#: src/Core/Backend/Combos.php:334 src/Core/Backend/Listing/ListingUsers.php:73
 #: src/Core/Backend/UserPref.php:67
 msgid "First Name"
 msgstr "Nom"
 
-#: src/Core/Backend/Combos.php:335 src/Core/Backend/Listing/ListingUsers.php:82
+#: src/Core/Backend/Combos.php:335 src/Core/Backend/Listing/ListingUsers.php:83
 #: src/Core/Backend/UserPref.php:69
 msgid "Display name"
 msgstr "Pseudònim"
@@ -569,14 +569,14 @@ msgstr "Les meves preferències"
 msgid "New post"
 msgstr "Nova entrada"
 
-#: src/Core/Backend/Favorites.php:426 src/Process/Backend/Rest.php:91
+#: src/Core/Backend/Favorites.php:426 src/Process/Backend/Rest.php:92
 #, php-format
 msgid "%d post"
 msgid_plural "%d posts"
 msgstr[0] "%d publicació"
 msgstr[1] "%d publicacions"
 
-#: src/Core/Backend/Favorites.php:441 src/Process/Backend/Rest.php:105
+#: src/Core/Backend/Favorites.php:441 src/Process/Backend/Rest.php:106
 #, php-format
 msgid "%d comment"
 msgid_plural "%d comments"
@@ -817,108 +817,108 @@ msgstr "&#171; anterior."
 msgid "next &#187;"
 msgstr "següent &#187;"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:53
+#: src/Core/Backend/Listing/ListingBlogs.php:54
 #: src/Process/Backend/UsersActions.php:305
 msgid "No blog"
 msgstr "Cap Blog"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:53
+#: src/Core/Backend/Listing/ListingBlogs.php:54
 msgid "No blog matches the filter"
 msgstr "Cap bloc coincideix amb el filtre"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:88
+#: src/Core/Backend/Listing/ListingBlogs.php:89
 #: src/Core/Backend/ModulesList.php:1800 src/Core/Backend/UserPref.php:78
 #: src/Process/Backend/LinkPopup.php:90
 #: src/Process/Backend/UsersActions.php:371
 msgid "URL"
 msgstr "URL"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:94
+#: src/Core/Backend/Listing/ListingBlogs.php:95
 #: src/Core/Backend/UserPref.php:70 src/Core/Backend/UserPref.php:79
 msgid "Entries (all types)"
 msgstr "Entrades (tots els tipus)"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:133
+#: src/Core/Backend/Listing/ListingBlogs.php:134
 #, php-format
 msgid "%d blog matches the filter."
 msgid_plural "%d blogs match the filter."
 msgstr[0] "%d bloc coincideix amb el filtre."
 msgstr[1] "%d blocs coincideixen amb el filtre."
 
-#: src/Core/Backend/Listing/ListingBlogs.php:134
+#: src/Core/Backend/Listing/ListingBlogs.php:135
 msgid "Blogs list"
 msgstr "Llista de blocs"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:142
-#: src/Core/Backend/Listing/ListingComments.php:182
-#: src/Core/Backend/Listing/ListingPosts.php:203
-#: src/Core/Backend/Listing/ListingUsers.php:133
+#: src/Core/Backend/Listing/ListingBlogs.php:143
+#: src/Core/Backend/Listing/ListingComments.php:183
+#: src/Core/Backend/Listing/ListingPosts.php:204
+#: src/Core/Backend/Listing/ListingUsers.php:134
 msgid "Legend: "
 msgstr "Llegenda: "
 
-#: src/Core/Backend/Listing/ListingBlogs.php:183
+#: src/Core/Backend/Listing/ListingBlogs.php:184
 #, php-format
 msgid "Edit blog settings for %s"
 msgstr "Editeu la configuració del bloc per a %s"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:187
-#: src/Core/Backend/Listing/ListingBlogs.php:190
+#: src/Core/Backend/Listing/ListingBlogs.php:188
+#: src/Core/Backend/Listing/ListingBlogs.php:191
 msgid "Edit blog settings"
 msgstr "Edita la configuració del bloc"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:202
+#: src/Core/Backend/Listing/ListingBlogs.php:203
 #, php-format
 msgid "Switch to blog %s"
 msgstr "Passar al blog %s"
 
-#: src/Core/Backend/Listing/ListingComments.php:56
+#: src/Core/Backend/Listing/ListingComments.php:57
 #: src/Process/Backend/Comment.php:152 src/Process/Backend/Post.php:1037
 msgid "No comments"
 msgstr "Sense comentaris"
 
-#: src/Core/Backend/Listing/ListingComments.php:56
+#: src/Core/Backend/Listing/ListingComments.php:57
 msgid "No comments or trackbacks matches the filter"
 msgstr "No hi ha cap comentari ni trackback que coincideixi amb el filtre"
 
-#: src/Core/Backend/Listing/ListingComments.php:86
+#: src/Core/Backend/Listing/ListingComments.php:87
 #, php-format
 msgid "Comment or trackback matching the filter."
 msgid_plural "List of %s comments or trackbacks matching the filter."
 msgstr[0] "Comentari o trackback que coincideix amb el filtre."
 msgstr[1] "Llista de %s comentaris o trackbacks que coincideixen amb el filtre."
 
-#: src/Core/Backend/Listing/ListingComments.php:92
+#: src/Core/Backend/Listing/ListingComments.php:93
 #, php-format
 msgid "List of comments and trackbacks (%s)"
 msgstr "Llista de comentaris i trackbacks (%s)"
 
-#: src/Core/Backend/Listing/ListingComments.php:118
-#: src/Core/Backend/Listing/ListingPosts.php:127
+#: src/Core/Backend/Listing/ListingComments.php:119
+#: src/Core/Backend/Listing/ListingPosts.php:128
 msgid "Type"
 msgstr "Tipus"
 
-#: src/Core/Backend/Listing/ListingComments.php:150
+#: src/Core/Backend/Listing/ListingComments.php:151
 #: src/Core/Backend/UserPref.php:58
 msgid "Entry"
 msgstr "Entrada"
 
-#: src/Core/Backend/Listing/ListingComments.php:217
+#: src/Core/Backend/Listing/ListingComments.php:218
 #, php-format
 msgid "Edit the %1$s from %2$s"
 msgstr "Editeu el %1$s de %2$s"
 
-#: src/Core/Backend/Listing/ListingComments.php:218
-#: src/Core/Backend/Listing/ListingComments.php:244
+#: src/Core/Backend/Listing/ListingComments.php:219
+#: src/Core/Backend/Listing/ListingComments.php:245
 msgid "comment"
 msgstr "comentari"
 
-#: src/Core/Backend/Listing/ListingComments.php:218
-#: src/Core/Backend/Listing/ListingComments.php:244
+#: src/Core/Backend/Listing/ListingComments.php:219
+#: src/Core/Backend/Listing/ListingComments.php:245
 msgid "trackback"
 msgstr "resposta"
 
-#: src/Core/Backend/Listing/ListingComments.php:240
-#: src/Core/Backend/Listing/ListingComments.php:243
+#: src/Core/Backend/Listing/ListingComments.php:241
+#: src/Core/Backend/Listing/ListingComments.php:244
 #: src/Process/Backend/Post.php:1362 src/Process/Backend/Post.php:1387
 msgid "Edit"
 msgstr "Edita"
@@ -987,58 +987,58 @@ msgstr "mitjans privats"
 msgid "open"
 msgstr "Obrir"
 
-#: src/Core/Backend/Listing/ListingPosts.php:57
+#: src/Core/Backend/Listing/ListingPosts.php:58
 #: src/Core/Backend/Listing/ListingPostsMini.php:51
 msgid "No entry"
 msgstr "Cap entrada"
 
-#: src/Core/Backend/Listing/ListingPosts.php:57
+#: src/Core/Backend/Listing/ListingPosts.php:58
 msgid "No entry matches the filter"
 msgstr "Cap entrada coincideix amb el filtre"
 
-#: src/Core/Backend/Listing/ListingPosts.php:109
-#: src/Core/Backend/Listing/ListingPosts.php:112
+#: src/Core/Backend/Listing/ListingPosts.php:110
 #: src/Core/Backend/Listing/ListingPosts.php:113
+#: src/Core/Backend/Listing/ListingPosts.php:114
 #: src/Core/Backend/UserPref.php:47 src/Process/Backend/Post.php:1165
 #: src/Process/Backend/Post.php:1213
 msgid "Trackbacks"
 msgstr "Respostes"
 
-#: src/Core/Backend/Listing/ListingPosts.php:151
+#: src/Core/Backend/Listing/ListingPosts.php:152
 #, php-format
 msgid "List of %s entry matching the filter."
 msgid_plural "List of %s entries matching the filter."
 msgstr[0] "Llista de %s entrada que coincideix amb el filtre."
 msgstr[1] "Llista de %s entrades que coincideixen amb el filtre."
 
-#: src/Core/Backend/Listing/ListingPosts.php:177
+#: src/Core/Backend/Listing/ListingPosts.php:178
 #, php-format
 msgid "List of entries (%s)"
 msgstr "Llista d'entrades (%s)"
 
-#: src/Core/Backend/Listing/ListingPosts.php:207
-#: src/Core/Backend/Listing/ListingPosts.php:239
+#: src/Core/Backend/Listing/ListingPosts.php:208
+#: src/Core/Backend/Listing/ListingPosts.php:240
 #: src/Core/Backend/Listing/ListingPostsMini.php:133
 msgid "Protected"
 msgstr "Protegit"
 
-#: src/Core/Backend/Listing/ListingPosts.php:209
+#: src/Core/Backend/Listing/ListingPosts.php:210
 msgid "Attachments"
 msgstr "Adjunts"
 
-#: src/Core/Backend/Listing/ListingPosts.php:246
+#: src/Core/Backend/Listing/ListingPosts.php:247
 #: src/Core/Backend/Listing/ListingPostsMini.php:140
 #, php-format
 msgid "%d attachment"
 msgstr "%d annex"
 
-#: src/Core/Backend/Listing/ListingPosts.php:246
+#: src/Core/Backend/Listing/ListingPosts.php:247
 #: src/Core/Backend/Listing/ListingPostsMini.php:140
 #, php-format
 msgid "%d attachments"
 msgstr "%d annexos"
 
-#: src/Core/Backend/Listing/ListingPosts.php:270
+#: src/Core/Backend/Listing/ListingPosts.php:271
 msgid "Select this post"
 msgstr "Selecciona aquesta publicació"
 
@@ -1046,38 +1046,38 @@ msgstr "Selecciona aquesta publicació"
 msgid "Entries list"
 msgstr "Llista d'entrades"
 
-#: src/Core/Backend/Listing/ListingUsers.php:53
+#: src/Core/Backend/Listing/ListingUsers.php:54
 msgid "No user"
 msgstr "Cap usuari"
 
-#: src/Core/Backend/Listing/ListingUsers.php:53
+#: src/Core/Backend/Listing/ListingUsers.php:54
 msgid "No user matches the filter"
 msgstr "Cap usuari coincideix amb el filtre"
 
-#: src/Core/Backend/Listing/ListingUsers.php:88
+#: src/Core/Backend/Listing/ListingUsers.php:89
 msgid "No. of entries"
 msgstr "No. d'entrades"
 
-#: src/Core/Backend/Listing/ListingUsers.php:116
+#: src/Core/Backend/Listing/ListingUsers.php:117
 #, php-format
 msgid "List of %s users match the filter."
 msgstr "La llista de %s usuaris coincideixen amb el filtre."
 
-#: src/Core/Backend/Listing/ListingUsers.php:118
+#: src/Core/Backend/Listing/ListingUsers.php:119
 msgid "Users list"
 msgstr "Llista d'usuaris"
 
-#: src/Core/Backend/Listing/ListingUsers.php:136
-#: src/Core/Backend/Listing/ListingUsers.php:162
+#: src/Core/Backend/Listing/ListingUsers.php:137
+#: src/Core/Backend/Listing/ListingUsers.php:163
 msgid "admin"
 msgstr "admin"
 
-#: src/Core/Backend/Listing/ListingUsers.php:137
-#: src/Core/Backend/Listing/ListingUsers.php:161
+#: src/Core/Backend/Listing/ListingUsers.php:138
+#: src/Core/Backend/Listing/ListingUsers.php:162
 msgid "superadmin"
 msgstr "superadministrador"
 
-#: src/Core/Backend/Listing/ListingUsers.php:145
+#: src/Core/Backend/Listing/ListingUsers.php:146
 msgid "The “No. of entries” column includes all entry types (articles, pages, …) for all blogs in the installation. The link may not be relevant in some contexts"
 msgstr "El \"No. d'entrades” inclou tots els tipus d'entrada (articles, pàgines, …) per a tots els blocs de la instal·lació. És possible que l'enllaç no sigui rellevant en alguns contextos"
 
@@ -5161,62 +5161,62 @@ msgstr "Entrada de cerca:"
 msgid "cancel"
 msgstr "cancel · lar"
 
-#: src/Process/Backend/Rest.php:122
+#: src/Process/Backend/Rest.php:123
 msgid "Dotclear news not available"
 msgstr "Notícies de Dotclear no disponibles"
 
-#: src/Process/Backend/Rest.php:161
+#: src/Process/Backend/Rest.php:162
 msgid "%d %B %Y:"
 msgstr "%d %B %Y:"
 
-#: src/Process/Backend/Rest.php:175
+#: src/Process/Backend/Rest.php:176
 msgid "Dotclear news"
 msgstr "Notícies de Dotclear"
 
-#: src/Process/Backend/Rest.php:207
+#: src/Process/Backend/Rest.php:208
 msgid "Dotclear update not available"
 msgstr "Actualització de Dotclear no disponible"
 
-#: src/Process/Backend/Rest.php:221
+#: src/Process/Backend/Rest.php:222
 #, php-format
 msgid "Dotclear %s is available!"
 msgstr "Dotclear %s està disponible!"
 
-#: src/Process/Backend/Rest.php:228
+#: src/Process/Backend/Rest.php:229
 msgid "Upgrade now"
 msgstr "Actualitza ara"
 
-#: src/Process/Backend/Rest.php:232
+#: src/Process/Backend/Rest.php:233
 msgid "Remind me later"
 msgstr "Recorda-m'ho més tard"
 
-#: src/Process/Backend/Rest.php:240 src/Process/Upgrade/Upgrade.php:269
+#: src/Process/Backend/Rest.php:241 src/Process/Upgrade/Upgrade.php:269
 #: src/Process/Upgrade/Upgrade.php:270
 msgid "Information about this version"
 msgstr "Informació sobre aquesta versió"
 
-#: src/Process/Backend/Rest.php:249
+#: src/Process/Backend/Rest.php:250
 #, php-format
 msgid "A new version of Dotclear is available but needs PHP version ≥ %1$s, your's is currently %2$s"
 msgstr "Hi ha disponible una versió nova de Dotclear, però necessita la versió PHP ≥ %1$s, la vostra és actualment %2$s"
 
-#: src/Process/Backend/Rest.php:264 src/Process/Upgrade/Upgrade.php:235
+#: src/Process/Backend/Rest.php:265 src/Process/Upgrade/Upgrade.php:235
 #, php-format
 msgid "The next versions of Dotclear will not support PHP version < %1$s, your's is currently %2$s"
 msgstr "Les properes versions de Dotclear no admetran la versió PHP < %1$s, la vostra és actualment %2$s"
 
-#: src/Process/Backend/Rest.php:295
+#: src/Process/Backend/Rest.php:296
 msgid "No updates are available"
 msgstr "No hi ha actualitzacions disponibles"
 
-#: src/Process/Backend/Rest.php:341
+#: src/Process/Backend/Rest.php:346
 #, php-format
 msgid "An update is available"
 msgid_plural "%s updates are available."
 msgstr[0] "Hi ha una actualització disponible"
 msgstr[1] "%s actualitzacions disponibles."
 
-#: src/Process/Backend/Rest.php:939
+#: src/Process/Backend/Rest.php:944
 msgid "List options saved"
 msgstr "Opcions de llista desades"
 
@@ -6356,8 +6356,8 @@ msgstr "La versió de Dotclear instal·lada és %s"
 
 #: src/Process/Upgrade/Home.php:57
 #, php-format
-msgid "Installed PHP version is %s, next Dotclear release required %s or earlier."
-msgstr "La versió de PHP instal·lada és %s, la propera versió de Dotclear requereix %s o anterior."
+msgid "The installed PHP version is %s, the next version of Dotclear requires %s or higher."
+msgstr ""
 
 #: src/Process/Upgrade/Home.php:80
 #, php-format
