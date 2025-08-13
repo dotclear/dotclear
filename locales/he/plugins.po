@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-04 14:08+0200\n"
-"PO-Revision-Date: 2025-08-04 12:22\n"
+"POT-Creation-Date: 2025-08-13 15:06+0200\n"
+"PO-Revision-Date: 2025-08-13 13:19\n"
 "Last-Translator: \n"
 "Language-Team: Hebrew\n"
 "Language: he_IL\n"
@@ -1281,7 +1281,7 @@ msgid "You need to provide a XBEL or OPML file."
 msgstr "אתה צריך לספק XBEL או קובץ OPML."
 
 #: plugins/blogroll/src/UtilsImport.php:55
-#: plugins/blogroll/src/UtilsImport.php:97
+#: plugins/blogroll/src/UtilsImport.php:99
 msgid "File is not in XML format."
 msgstr "הקובץ אינו במבנה XML."
 
@@ -3085,44 +3085,44 @@ msgstr "קובצי Locales"
 msgid "PHP files"
 msgstr "קבצי PHP"
 
-#: plugins/themeEditor/src/ThemeEditor.php:153
+#: plugins/themeEditor/src/ThemeEditor.php:159
 msgid "No file"
 msgstr "אין קובץ"
 
-#: plugins/themeEditor/src/ThemeEditor.php:183
+#: plugins/themeEditor/src/ThemeEditor.php:189
 msgid "Customized:"
 msgstr "מותאם אישית:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:191
 #: plugins/themeEditor/src/ThemeEditor.php:197
+#: plugins/themeEditor/src/ThemeEditor.php:203
 msgid "From theme:"
 msgstr "מהערכה:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:208
+#: plugins/themeEditor/src/ThemeEditor.php:214
 msgid "From parent:"
 msgstr "מהורה:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:218
+#: plugins/themeEditor/src/ThemeEditor.php:224
 msgid "From template set:"
 msgstr "מערך תבנית:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:246
-#: plugins/themeEditor/src/ThemeEditor.php:283
-#: plugins/themeEditor/src/ThemeEditor.php:355
+#: plugins/themeEditor/src/ThemeEditor.php:252
+#: plugins/themeEditor/src/ThemeEditor.php:289
+#: plugins/themeEditor/src/ThemeEditor.php:361
 msgid "File does not exist."
 msgstr "הקובץ אינו קיים."
 
-#: plugins/themeEditor/src/ThemeEditor.php:251
+#: plugins/themeEditor/src/ThemeEditor.php:257
 #, php-format
 msgid "File %s is not readable"
 msgstr "קובץ %s אינו קריא"
 
-#: plugins/themeEditor/src/ThemeEditor.php:320
+#: plugins/themeEditor/src/ThemeEditor.php:326
 #, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr "לא ניתן לכתוב את הקובץ %s. בדקו את קובצי הערכה והרשאות התיקיות שלכם."
 
-#: plugins/themeEditor/src/ThemeEditor.php:391
+#: plugins/themeEditor/src/ThemeEditor.php:397
 #, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "לא ניתן למחוק את הקובץ %s. בדקו את קובצי הערכה והרשאות התיקיות שלכם."

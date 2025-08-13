@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-04 13:24+0200\n"
-"PO-Revision-Date: 2025-08-04 12:36\n"
+"POT-Creation-Date: 2025-08-13 14:53+0200\n"
+"PO-Revision-Date: 2025-08-13 13:37\n"
 "Last-Translator: \n"
 "Language-Team: Croatian\n"
 "Language: hr_HR\n"
@@ -91,7 +91,7 @@ msgstr "Taj ključ ne postoji u bazi podataka."
 
 #: src/Core/Backend/Action/Actions.php:139
 #: src/Core/Backend/Action/ActionsComments.php:159
-#: src/Core/Backend/Combos.php:256 src/Core/Backend/Listing/ListingPosts.php:77
+#: src/Core/Backend/Combos.php:256 src/Core/Backend/Listing/ListingPosts.php:78
 #: src/Core/Backend/Listing/ListingPostsMini.php:63
 #: src/Core/Backend/UserPref.php:205 src/Process/Backend/Home.php:594
 #: src/Process/Backend/MediaItem.php:1093 src/Process/Backend/Post.php:836
@@ -118,12 +118,12 @@ msgid "Blogs actions"
 msgstr "Akcije blogova"
 
 #: src/Core/Backend/Action/ActionsBlogs.php:157
-#: src/Core/Backend/Listing/ListingBlogs.php:76
+#: src/Core/Backend/Listing/ListingBlogs.php:77
 msgid "Blog id"
 msgstr "ID bloga"
 
 #: src/Core/Backend/Action/ActionsBlogs.php:159 src/Core/Backend/Combos.php:312
-#: src/Core/Backend/Listing/ListingBlogs.php:82
+#: src/Core/Backend/Listing/ListingBlogs.php:83
 #: src/Core/Backend/UserPref.php:77 src/Process/Backend/Blog.php:144
 #: src/Process/Backend/BlogPref.php:533
 #: src/Process/Backend/UsersActions.php:368
@@ -135,11 +135,11 @@ msgstr "Naziv bloga"
 #: src/Core/Backend/Action/ActionsPostsDefault.php:51
 #: src/Core/Backend/Combos.php:259 src/Core/Backend/Combos.php:282
 #: src/Core/Backend/Combos.php:314
-#: src/Core/Backend/Listing/ListingBlogs.php:105
-#: src/Core/Backend/Listing/ListingComments.php:133
-#: src/Core/Backend/Listing/ListingPosts.php:119
+#: src/Core/Backend/Listing/ListingBlogs.php:106
+#: src/Core/Backend/Listing/ListingComments.php:134
+#: src/Core/Backend/Listing/ListingPosts.php:120
 #: src/Core/Backend/Listing/ListingPostsMini.php:75
-#: src/Core/Backend/Listing/ListingUsers.php:92
+#: src/Core/Backend/Listing/ListingUsers.php:93
 #: src/Core/Backend/UserPref.php:55 src/Core/Backend/UserPref.php:71
 #: src/Core/Backend/UserPref.php:81 src/Process/Backend/Post.php:659
 #: src/Process/Backend/Post.php:1385 src/Process/Backend/Users.php:45
@@ -198,9 +198,9 @@ msgstr[2] "%d blogova uspješno je izbrisano"
 #: src/Core/Backend/Action/ActionsComments.php:80
 #: src/Core/Backend/Action/ActionsComments.php:118
 #: src/Core/Backend/Favorites.php:431
-#: src/Core/Backend/Listing/ListingPosts.php:96
-#: src/Core/Backend/Listing/ListingPosts.php:99
-#: src/Core/Backend/Listing/ListingPosts.php:100 src/Core/Backend/Menus.php:155
+#: src/Core/Backend/Listing/ListingPosts.php:97
+#: src/Core/Backend/Listing/ListingPosts.php:100
+#: src/Core/Backend/Listing/ListingPosts.php:101 src/Core/Backend/Menus.php:155
 #: src/Core/Backend/UserPref.php:46 src/Core/Backend/UserPref.php:51
 #: src/Core/Backend/UserPref.php:185 src/Process/Backend/Post.php:1033
 #: src/Process/Backend/Post.php:1060
@@ -217,8 +217,8 @@ msgstr "Akcije komentara"
 
 #: src/Core/Backend/Action/ActionsComments.php:157
 #: src/Core/Backend/Combos.php:258 src/Core/Backend/Combos.php:281
-#: src/Core/Backend/Listing/ListingComments.php:123
-#: src/Core/Backend/Listing/ListingPosts.php:89
+#: src/Core/Backend/Listing/ListingComments.php:124
+#: src/Core/Backend/Listing/ListingPosts.php:90
 #: src/Core/Backend/Listing/ListingPostsMini.php:71
 #: src/Core/Backend/UserPref.php:45 src/Core/Backend/UserPref.php:54
 #: src/Process/Backend/Comment.php:292 src/Process/Backend/Post.php:1095
@@ -367,7 +367,7 @@ msgstr[2] "%d stavki uspješno je izbrisano"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:315
 #: src/Core/Backend/Combos.php:42 src/Core/Backend/Filter/FilterPosts.php:121
-#: src/Core/Backend/Listing/ListingPosts.php:260
+#: src/Core/Backend/Listing/ListingPosts.php:261
 msgid "(No cat)"
 msgstr "(Bez mačke)"
 
@@ -476,23 +476,23 @@ msgid "Ascending"
 msgstr "Uzlazni"
 
 #: src/Core/Backend/Combos.php:255 src/Core/Backend/Combos.php:278
-#: src/Core/Backend/Listing/ListingComments.php:128
+#: src/Core/Backend/Listing/ListingComments.php:129
 #: src/Core/Backend/Listing/ListingMedia.php:128
-#: src/Core/Backend/Listing/ListingPosts.php:81
+#: src/Core/Backend/Listing/ListingPosts.php:82
 #: src/Core/Backend/Listing/ListingPostsMini.php:67
 #: src/Core/Backend/UserPref.php:43 src/Core/Backend/UserPref.php:53
 #: src/Core/Backend/UserPref.php:203 src/Process/Backend/Post.php:1378
 msgid "Date"
 msgstr "Datum"
 
-#: src/Core/Backend/Combos.php:257 src/Core/Backend/Listing/ListingPosts.php:85
+#: src/Core/Backend/Combos.php:257 src/Core/Backend/Listing/ListingPosts.php:86
 #: src/Core/Backend/UserPref.php:44 src/Process/Backend/Post.php:716
 msgid "Category"
 msgstr "Kategorija"
 
 #: src/Core/Backend/Combos.php:260 src/Core/Backend/Filter/FilterPosts.php:201
-#: src/Core/Backend/Listing/ListingPosts.php:208
-#: src/Core/Backend/Listing/ListingPosts.php:242
+#: src/Core/Backend/Listing/ListingPosts.php:209
+#: src/Core/Backend/Listing/ListingPosts.php:243
 #: src/Core/Backend/Listing/ListingPostsMini.php:136
 msgid "Selected"
 msgstr "Odabran"
@@ -514,19 +514,19 @@ msgid "Entry date"
 msgstr "Datum unosa"
 
 #: src/Core/Backend/Combos.php:283
-#: src/Core/Backend/Listing/ListingComments.php:145
+#: src/Core/Backend/Listing/ListingComments.php:146
 #: src/Core/Backend/UserPref.php:57
 msgid "Spam filter"
 msgstr "Spam filter"
 
 #: src/Core/Backend/Combos.php:294
-#: src/Core/Backend/Listing/ListingComments.php:139
+#: src/Core/Backend/Listing/ListingComments.php:140
 #: src/Core/Backend/UserPref.php:56
 msgid "IP"
 msgstr "IP"
 
 #: src/Core/Backend/Combos.php:311
-#: src/Core/Backend/Listing/ListingBlogs.php:100
+#: src/Core/Backend/Listing/ListingBlogs.php:101
 #: src/Core/Backend/UserPref.php:80
 msgid "Last update"
 msgstr "Zadnje ažuriranje"
@@ -537,22 +537,22 @@ msgstr "Zadnje ažuriranje"
 msgid "Blog ID"
 msgstr "ID bloga"
 
-#: src/Core/Backend/Combos.php:332 src/Core/Backend/Listing/ListingUsers.php:67
+#: src/Core/Backend/Combos.php:332 src/Core/Backend/Listing/ListingUsers.php:68
 #: src/Process/Install/Install.php:459
 msgid "Username"
 msgstr "Korisničko ime"
 
-#: src/Core/Backend/Combos.php:333 src/Core/Backend/Listing/ListingUsers.php:77
+#: src/Core/Backend/Combos.php:333 src/Core/Backend/Listing/ListingUsers.php:78
 #: src/Core/Backend/UserPref.php:68
 msgid "Last Name"
 msgstr "Prezime"
 
-#: src/Core/Backend/Combos.php:334 src/Core/Backend/Listing/ListingUsers.php:72
+#: src/Core/Backend/Combos.php:334 src/Core/Backend/Listing/ListingUsers.php:73
 #: src/Core/Backend/UserPref.php:67
 msgid "First Name"
 msgstr "Ime"
 
-#: src/Core/Backend/Combos.php:335 src/Core/Backend/Listing/ListingUsers.php:82
+#: src/Core/Backend/Combos.php:335 src/Core/Backend/Listing/ListingUsers.php:83
 #: src/Core/Backend/UserPref.php:69
 msgid "Display name"
 msgstr "Ime za prikaz"
@@ -578,7 +578,7 @@ msgstr "Moje preferencije"
 msgid "New post"
 msgstr "Nova objava"
 
-#: src/Core/Backend/Favorites.php:426 src/Process/Backend/Rest.php:91
+#: src/Core/Backend/Favorites.php:426 src/Process/Backend/Rest.php:92
 #, php-format
 msgid "%d post"
 msgid_plural "%d posts"
@@ -586,7 +586,7 @@ msgstr[0] "%d objaviti"
 msgstr[1] "%d postova"
 msgstr[2] "%d postova"
 
-#: src/Core/Backend/Favorites.php:441 src/Process/Backend/Rest.php:105
+#: src/Core/Backend/Favorites.php:441 src/Process/Backend/Rest.php:106
 #, php-format
 msgid "%d comment"
 msgid_plural "%d comments"
@@ -828,28 +828,28 @@ msgstr "&#171; prev."
 msgid "next &#187;"
 msgstr "sljedeći &#187;"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:53
+#: src/Core/Backend/Listing/ListingBlogs.php:54
 #: src/Process/Backend/UsersActions.php:305
 msgid "No blog"
 msgstr "Nema bloga"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:53
+#: src/Core/Backend/Listing/ListingBlogs.php:54
 msgid "No blog matches the filter"
 msgstr "Nijedan blog ne odgovara filtru"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:88
+#: src/Core/Backend/Listing/ListingBlogs.php:89
 #: src/Core/Backend/ModulesList.php:1800 src/Core/Backend/UserPref.php:78
 #: src/Process/Backend/LinkPopup.php:90
 #: src/Process/Backend/UsersActions.php:371
 msgid "URL"
 msgstr "URL"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:94
+#: src/Core/Backend/Listing/ListingBlogs.php:95
 #: src/Core/Backend/UserPref.php:70 src/Core/Backend/UserPref.php:79
 msgid "Entries (all types)"
 msgstr "Unosi (sve vrste)"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:133
+#: src/Core/Backend/Listing/ListingBlogs.php:134
 #, php-format
 msgid "%d blog matches the filter."
 msgid_plural "%d blogs match the filter."
@@ -857,42 +857,42 @@ msgstr[0] "%d blog odgovara filtru."
 msgstr[1] "%d blogovi odgovaraju filtru."
 msgstr[2] "%d blogovi odgovaraju filtru."
 
-#: src/Core/Backend/Listing/ListingBlogs.php:134
+#: src/Core/Backend/Listing/ListingBlogs.php:135
 msgid "Blogs list"
 msgstr "Popis blogova"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:142
-#: src/Core/Backend/Listing/ListingComments.php:182
-#: src/Core/Backend/Listing/ListingPosts.php:203
-#: src/Core/Backend/Listing/ListingUsers.php:133
+#: src/Core/Backend/Listing/ListingBlogs.php:143
+#: src/Core/Backend/Listing/ListingComments.php:183
+#: src/Core/Backend/Listing/ListingPosts.php:204
+#: src/Core/Backend/Listing/ListingUsers.php:134
 msgid "Legend: "
 msgstr "Legenda: "
 
-#: src/Core/Backend/Listing/ListingBlogs.php:183
+#: src/Core/Backend/Listing/ListingBlogs.php:184
 #, php-format
 msgid "Edit blog settings for %s"
 msgstr "Uredite postavke bloga za %s"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:187
-#: src/Core/Backend/Listing/ListingBlogs.php:190
+#: src/Core/Backend/Listing/ListingBlogs.php:188
+#: src/Core/Backend/Listing/ListingBlogs.php:191
 msgid "Edit blog settings"
 msgstr "Uredite postavke bloga"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:202
+#: src/Core/Backend/Listing/ListingBlogs.php:203
 #, php-format
 msgid "Switch to blog %s"
 msgstr "Prebaci se na blog %s"
 
-#: src/Core/Backend/Listing/ListingComments.php:56
+#: src/Core/Backend/Listing/ListingComments.php:57
 #: src/Process/Backend/Comment.php:152 src/Process/Backend/Post.php:1037
 msgid "No comments"
 msgstr "Bez komentara"
 
-#: src/Core/Backend/Listing/ListingComments.php:56
+#: src/Core/Backend/Listing/ListingComments.php:57
 msgid "No comments or trackbacks matches the filter"
 msgstr "Nijedan komentar ili povratne informacije ne odgovaraju filtru"
 
-#: src/Core/Backend/Listing/ListingComments.php:86
+#: src/Core/Backend/Listing/ListingComments.php:87
 #, php-format
 msgid "Comment or trackback matching the filter."
 msgid_plural "List of %s comments or trackbacks matching the filter."
@@ -900,38 +900,38 @@ msgstr[0] "Komentar ili trackback koji odgovara filtru."
 msgstr[1] "Popis %s komentara ili povratnih informacija koje odgovaraju filtru."
 msgstr[2] "Popis %s komentara ili povratnih informacija koje odgovaraju filtru."
 
-#: src/Core/Backend/Listing/ListingComments.php:92
+#: src/Core/Backend/Listing/ListingComments.php:93
 #, php-format
 msgid "List of comments and trackbacks (%s)"
 msgstr "Popis komentara i povratnih informacija (%s)"
 
-#: src/Core/Backend/Listing/ListingComments.php:118
-#: src/Core/Backend/Listing/ListingPosts.php:127
+#: src/Core/Backend/Listing/ListingComments.php:119
+#: src/Core/Backend/Listing/ListingPosts.php:128
 msgid "Type"
 msgstr "Tip"
 
-#: src/Core/Backend/Listing/ListingComments.php:150
+#: src/Core/Backend/Listing/ListingComments.php:151
 #: src/Core/Backend/UserPref.php:58
 msgid "Entry"
 msgstr "Ulazak"
 
-#: src/Core/Backend/Listing/ListingComments.php:217
+#: src/Core/Backend/Listing/ListingComments.php:218
 #, php-format
 msgid "Edit the %1$s from %2$s"
 msgstr "Uredite %1$s iz %2$s"
 
-#: src/Core/Backend/Listing/ListingComments.php:218
-#: src/Core/Backend/Listing/ListingComments.php:244
+#: src/Core/Backend/Listing/ListingComments.php:219
+#: src/Core/Backend/Listing/ListingComments.php:245
 msgid "comment"
 msgstr "komentar"
 
-#: src/Core/Backend/Listing/ListingComments.php:218
-#: src/Core/Backend/Listing/ListingComments.php:244
+#: src/Core/Backend/Listing/ListingComments.php:219
+#: src/Core/Backend/Listing/ListingComments.php:245
 msgid "trackback"
 msgstr "povratni trag"
 
-#: src/Core/Backend/Listing/ListingComments.php:240
-#: src/Core/Backend/Listing/ListingComments.php:243
+#: src/Core/Backend/Listing/ListingComments.php:241
+#: src/Core/Backend/Listing/ListingComments.php:244
 #: src/Process/Backend/Post.php:1362 src/Process/Backend/Post.php:1387
 msgid "Edit"
 msgstr "Uredi"
@@ -1001,24 +1001,24 @@ msgstr "privatni mediji"
 msgid "open"
 msgstr "otvoren"
 
-#: src/Core/Backend/Listing/ListingPosts.php:57
+#: src/Core/Backend/Listing/ListingPosts.php:58
 #: src/Core/Backend/Listing/ListingPostsMini.php:51
 msgid "No entry"
 msgstr "Zabranjen ulaz"
 
-#: src/Core/Backend/Listing/ListingPosts.php:57
+#: src/Core/Backend/Listing/ListingPosts.php:58
 msgid "No entry matches the filter"
 msgstr "Nijedan unos ne odgovara filtru"
 
-#: src/Core/Backend/Listing/ListingPosts.php:109
-#: src/Core/Backend/Listing/ListingPosts.php:112
+#: src/Core/Backend/Listing/ListingPosts.php:110
 #: src/Core/Backend/Listing/ListingPosts.php:113
+#: src/Core/Backend/Listing/ListingPosts.php:114
 #: src/Core/Backend/UserPref.php:47 src/Process/Backend/Post.php:1165
 #: src/Process/Backend/Post.php:1213
 msgid "Trackbacks"
 msgstr "Trackbackovi"
 
-#: src/Core/Backend/Listing/ListingPosts.php:151
+#: src/Core/Backend/Listing/ListingPosts.php:152
 #, php-format
 msgid "List of %s entry matching the filter."
 msgid_plural "List of %s entries matching the filter."
@@ -1026,34 +1026,34 @@ msgstr[0] "Popis %s unosa koji odgovaraju filtru."
 msgstr[1] "Popis %s unosa koji odgovaraju filtru."
 msgstr[2] "Popis %s unosa koji odgovaraju filtru."
 
-#: src/Core/Backend/Listing/ListingPosts.php:177
+#: src/Core/Backend/Listing/ListingPosts.php:178
 #, php-format
 msgid "List of entries (%s)"
 msgstr "Popis unosa (%s)"
 
-#: src/Core/Backend/Listing/ListingPosts.php:207
-#: src/Core/Backend/Listing/ListingPosts.php:239
+#: src/Core/Backend/Listing/ListingPosts.php:208
+#: src/Core/Backend/Listing/ListingPosts.php:240
 #: src/Core/Backend/Listing/ListingPostsMini.php:133
 msgid "Protected"
 msgstr "Zaštićen"
 
-#: src/Core/Backend/Listing/ListingPosts.php:209
+#: src/Core/Backend/Listing/ListingPosts.php:210
 msgid "Attachments"
 msgstr "Prilozi"
 
-#: src/Core/Backend/Listing/ListingPosts.php:246
+#: src/Core/Backend/Listing/ListingPosts.php:247
 #: src/Core/Backend/Listing/ListingPostsMini.php:140
 #, php-format
 msgid "%d attachment"
 msgstr "%d prilog"
 
-#: src/Core/Backend/Listing/ListingPosts.php:246
+#: src/Core/Backend/Listing/ListingPosts.php:247
 #: src/Core/Backend/Listing/ListingPostsMini.php:140
 #, php-format
 msgid "%d attachments"
 msgstr "%d privici"
 
-#: src/Core/Backend/Listing/ListingPosts.php:270
+#: src/Core/Backend/Listing/ListingPosts.php:271
 msgid "Select this post"
 msgstr "Odaberite ovu objavu"
 
@@ -1061,38 +1061,38 @@ msgstr "Odaberite ovu objavu"
 msgid "Entries list"
 msgstr "Popis unosa"
 
-#: src/Core/Backend/Listing/ListingUsers.php:53
+#: src/Core/Backend/Listing/ListingUsers.php:54
 msgid "No user"
 msgstr "Nema korisnika"
 
-#: src/Core/Backend/Listing/ListingUsers.php:53
+#: src/Core/Backend/Listing/ListingUsers.php:54
 msgid "No user matches the filter"
 msgstr "Nijedan korisnik ne odgovara filtru"
 
-#: src/Core/Backend/Listing/ListingUsers.php:88
+#: src/Core/Backend/Listing/ListingUsers.php:89
 msgid "No. of entries"
 msgstr "Br. unosa"
 
-#: src/Core/Backend/Listing/ListingUsers.php:116
+#: src/Core/Backend/Listing/ListingUsers.php:117
 #, php-format
 msgid "List of %s users match the filter."
 msgstr "Popis %s korisnika odgovara filtru."
 
-#: src/Core/Backend/Listing/ListingUsers.php:118
+#: src/Core/Backend/Listing/ListingUsers.php:119
 msgid "Users list"
 msgstr "Popis korisnika"
 
-#: src/Core/Backend/Listing/ListingUsers.php:136
-#: src/Core/Backend/Listing/ListingUsers.php:162
+#: src/Core/Backend/Listing/ListingUsers.php:137
+#: src/Core/Backend/Listing/ListingUsers.php:163
 msgid "admin"
 msgstr "admin"
 
-#: src/Core/Backend/Listing/ListingUsers.php:137
-#: src/Core/Backend/Listing/ListingUsers.php:161
+#: src/Core/Backend/Listing/ListingUsers.php:138
+#: src/Core/Backend/Listing/ListingUsers.php:162
 msgid "superadmin"
 msgstr "superadmin"
 
-#: src/Core/Backend/Listing/ListingUsers.php:145
+#: src/Core/Backend/Listing/ListingUsers.php:146
 msgid "The “No. of entries” column includes all entry types (articles, pages, …) for all blogs in the installation. The link may not be relevant in some contexts"
 msgstr "Oznaka “Br. unosa” uključuje sve vrste unosa (članke, stranice, …) za sve blogove u instalaciji. Veza možda nije relevantna u nekim kontekstima"
 
@@ -5193,55 +5193,55 @@ msgstr "Unos pretraživanja:"
 msgid "cancel"
 msgstr "otkazati"
 
-#: src/Process/Backend/Rest.php:122
+#: src/Process/Backend/Rest.php:123
 msgid "Dotclear news not available"
 msgstr "Dotclear vijesti nisu dostupne"
 
-#: src/Process/Backend/Rest.php:161
+#: src/Process/Backend/Rest.php:162
 msgid "%d %B %Y:"
 msgstr "%d %B %Y:"
 
-#: src/Process/Backend/Rest.php:175
+#: src/Process/Backend/Rest.php:176
 msgid "Dotclear news"
 msgstr "Dotclear vijesti"
 
-#: src/Process/Backend/Rest.php:207
+#: src/Process/Backend/Rest.php:208
 msgid "Dotclear update not available"
 msgstr "Dotclear ažuriranje nije dostupno"
 
-#: src/Process/Backend/Rest.php:221
+#: src/Process/Backend/Rest.php:222
 #, php-format
 msgid "Dotclear %s is available!"
 msgstr "Dotclear %s je dostupan!"
 
-#: src/Process/Backend/Rest.php:228
+#: src/Process/Backend/Rest.php:229
 msgid "Upgrade now"
 msgstr "Nadograditi sada"
 
-#: src/Process/Backend/Rest.php:232
+#: src/Process/Backend/Rest.php:233
 msgid "Remind me later"
 msgstr "Podsjeti me kasnije"
 
-#: src/Process/Backend/Rest.php:240 src/Process/Upgrade/Upgrade.php:269
+#: src/Process/Backend/Rest.php:241 src/Process/Upgrade/Upgrade.php:269
 #: src/Process/Upgrade/Upgrade.php:270
 msgid "Information about this version"
 msgstr "Informacije o ovoj verziji"
 
-#: src/Process/Backend/Rest.php:249
+#: src/Process/Backend/Rest.php:250
 #, php-format
 msgid "A new version of Dotclear is available but needs PHP version ≥ %1$s, your's is currently %2$s"
 msgstr "Dostupna je nova verzija Dotcleara, ali treba PHP verziju ≥ %1$s, vaša je trenutno %2$s"
 
-#: src/Process/Backend/Rest.php:264 src/Process/Upgrade/Upgrade.php:235
+#: src/Process/Backend/Rest.php:265 src/Process/Upgrade/Upgrade.php:235
 #, php-format
 msgid "The next versions of Dotclear will not support PHP version < %1$s, your's is currently %2$s"
 msgstr "Sljedeće verzije Dotcleara neće podržavati PHP verziju < %1$s, vaša je trenutno %2$s"
 
-#: src/Process/Backend/Rest.php:295
+#: src/Process/Backend/Rest.php:296
 msgid "No updates are available"
 msgstr "Nema dostupnih ažuriranja"
 
-#: src/Process/Backend/Rest.php:341
+#: src/Process/Backend/Rest.php:346
 #, php-format
 msgid "An update is available"
 msgid_plural "%s updates are available."
@@ -5249,7 +5249,7 @@ msgstr[0] "Ažuriranje je dostupno"
 msgstr[1] "%s ažuriranja su dostupna."
 msgstr[2] "%s ažuriranja su dostupna."
 
-#: src/Process/Backend/Rest.php:939
+#: src/Process/Backend/Rest.php:944
 msgid "List options saved"
 msgstr "Opcije popisa su spremljene"
 
@@ -6391,8 +6391,8 @@ msgstr "Instalirana verzija Dotcleara je %s"
 
 #: src/Process/Upgrade/Home.php:57
 #, php-format
-msgid "Installed PHP version is %s, next Dotclear release required %s or earlier."
-msgstr "Instalirana PHP verzija je %s, potrebno je sljedeće izdanje Dotcleara %s ili ranije."
+msgid "The installed PHP version is %s, the next version of Dotclear requires %s or higher."
+msgstr "Instalirana verzija PHP-a je %s, sljedeća verzija Dotcleara zahtijeva %s ili noviju."
 
 #: src/Process/Upgrade/Home.php:80
 #, php-format
