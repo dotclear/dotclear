@@ -1,4 +1,4 @@
-preserve_hierarchy: 1
+preserve_hierarchy: true
 files:
   - source: /locales/_pot/
     ignore:

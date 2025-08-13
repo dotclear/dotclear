@@ -54,7 +54,7 @@ class Home extends Process
         // System
         $infos   = [];
         $infos[] = (new li())->text(sprintf(__('Installed Dotclear version is %s'), App::config()->dotclearVersion()));
-        $infos[] = (new li())->text(sprintf(__('Installed PHP version is %s, next Dotclear release required %s or earlier.'), phpversion(), App::config()->nextRequiredPhp()));
+        $infos[] = (new li())->text(sprintf(__('The installed PHP version is %s, the next version of Dotclear requires %s or higher.'), phpversion(), App::config()->nextRequiredPhp()));
 
         if (App::config()->adminUrl() === '') {
             $infos[] = (new li())->text(sprintf(__('%s is not defined, you should edit your configuration file.'), 'DC_ADMIN_URL') . ' ' .
