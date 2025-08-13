@@ -110,7 +110,7 @@ class ThemeEditor
      */
     public function __construct()
     {
-        $this->var_root     = Path::real(App::config()->varRoot(), false);
+        $this->var_root     = (string) Path::real(App::config()->varRoot(), false);
         $this->custom_theme = $this->var_root . '/themes/' . App::blog()->id() . '/' . App::blog()->settings()->system->theme;
 
         // Create var hierarchy if necessary
