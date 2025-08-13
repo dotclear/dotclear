@@ -66,6 +66,11 @@ class ThemeEditor
     protected string $tplset_name;
 
     /**
+     * Var root directory (real path)
+     */
+    protected string $var_root;
+
+    /**
      * List of theme template files.
      *
      * @var     array<string,string>    $tpl
@@ -105,7 +110,8 @@ class ThemeEditor
      */
     public function __construct()
     {
-        $this->custom_theme = App::config()->varRoot() . '/themes/' . App::blog()->id() . '/' . App::blog()->settings()->system->theme;
+        $this->var_root     = Path::real(App::config()->varRoot(), false);
+        $this->custom_theme = $this->var_root . '/themes/' . App::blog()->id() . '/' . App::blog()->settings()->system->theme;
 
         // Create var hierarchy if necessary
         if (!is_dir(dirname($this->custom_theme))) {
@@ -159,7 +165,7 @@ class ThemeEditor
         $tpl_parent   = []; // Files from parent of current theme
         $tpl_template = []; // Files from template set used by current theme
         foreach ($files as $k => $v) {
-            if (str_starts_with($v, App::config()->varRoot())) {
+            if (str_starts_with($v, $this->var_root)) {
                 $tpl_custom[] = (new Li())
                     ->class('custom-file')
                     ->text(sprintf($item, $k, Html::escapeHTML($k)));
@@ -332,7 +338,7 @@ class ThemeEditor
         $files = $this->getFilesFromType($type);
         if (isset($files[$filename])) {
             $dest = $this->getDestinationFile($type, $filename);
-            if ($dest && (file_exists($dest) && is_writable($dest)) && str_starts_with($dest, App::config()->varRoot())) {
+            if ($dest && (file_exists($dest) && is_writable($dest)) && str_starts_with($dest, $this->var_root)) {
                 return true;
             }
         }
