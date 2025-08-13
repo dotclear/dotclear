@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-04 14:08+0200\n"
-"PO-Revision-Date: 2025-08-04 12:30\n"
+"POT-Creation-Date: 2025-08-13 15:06+0200\n"
+"PO-Revision-Date: 2025-08-13 13:29\n"
 "Last-Translator: \n"
 "Language-Team: Swedish\n"
 "Language: sv_SE\n"
@@ -1277,7 +1277,7 @@ msgid "You need to provide a XBEL or OPML file."
 msgstr "Du måste ange en XBEL eller OPML fil."
 
 #: plugins/blogroll/src/UtilsImport.php:55
-#: plugins/blogroll/src/UtilsImport.php:97
+#: plugins/blogroll/src/UtilsImport.php:99
 msgid "File is not in XML format."
 msgstr "Filen är inte i XML-format."
 
@@ -3071,44 +3071,44 @@ msgstr "Språkfiler filer"
 msgid "PHP files"
 msgstr "PHP-filer"
 
-#: plugins/themeEditor/src/ThemeEditor.php:153
+#: plugins/themeEditor/src/ThemeEditor.php:159
 msgid "No file"
 msgstr "Ingen fil"
 
-#: plugins/themeEditor/src/ThemeEditor.php:183
+#: plugins/themeEditor/src/ThemeEditor.php:189
 msgid "Customized:"
 msgstr "Anpassad:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:191
 #: plugins/themeEditor/src/ThemeEditor.php:197
+#: plugins/themeEditor/src/ThemeEditor.php:203
 msgid "From theme:"
 msgstr "Från tema:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:208
+#: plugins/themeEditor/src/ThemeEditor.php:214
 msgid "From parent:"
 msgstr "Från föräldrar:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:218
+#: plugins/themeEditor/src/ThemeEditor.php:224
 msgid "From template set:"
 msgstr "Från mall set:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:246
-#: plugins/themeEditor/src/ThemeEditor.php:283
-#: plugins/themeEditor/src/ThemeEditor.php:355
+#: plugins/themeEditor/src/ThemeEditor.php:252
+#: plugins/themeEditor/src/ThemeEditor.php:289
+#: plugins/themeEditor/src/ThemeEditor.php:361
 msgid "File does not exist."
 msgstr "Filen finns inte."
 
-#: plugins/themeEditor/src/ThemeEditor.php:251
+#: plugins/themeEditor/src/ThemeEditor.php:257
 #, php-format
 msgid "File %s is not readable"
 msgstr "Filen %s är inte läsbar"
 
-#: plugins/themeEditor/src/ThemeEditor.php:320
+#: plugins/themeEditor/src/ThemeEditor.php:326
 #, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr "Det gick inte att skriva filen %s. Kontrollera behörigheterna för dina temafiler och mappar."
 
-#: plugins/themeEditor/src/ThemeEditor.php:391
+#: plugins/themeEditor/src/ThemeEditor.php:397
 #, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "Det gick inte att ta bort filen %s. Kontrollera behörigheterna för dina temafiler och mappar."
