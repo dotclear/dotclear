@@ -13,6 +13,9 @@ namespace Dotclear\Process\Backend;
 
 use ArrayObject;
 use Dotclear\App;
+use Dotclear\Core\Backend\Auth\OAuth2Client;
+use Dotclear\Core\Backend\Auth\OAuth2Store;
+use Dotclear\Core\Backend\Auth\WebAuthn;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Helper;
 use Dotclear\Core\Backend\Notices;
@@ -49,6 +52,7 @@ use Dotclear\Helper\Html\Form\Td;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Th;
 use Dotclear\Helper\Html\Form\Thead;
+use Dotclear\Helper\Html\Form\Timestamp;
 use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Html\Form\Ul;
 use Dotclear\Helper\Html\Form\Url;
@@ -69,6 +73,21 @@ class UserPreferences extends Process
         ]));
 
         App::backend()->page_title = __('My preferences');
+
+        // Create oAuth2 client instance
+        try {
+            App::backend()->oauth2 = new OAuth2Client(
+                new OAuth2Store(App::config()->adminUrl() . App::backend()->url()->get('admin.user.preferences'))
+            );
+        } catch (Exception $e) {
+            App::error()->add($e->getMessage());
+        }
+        // Create webauthn instance
+        try {
+            App::backend()->webauthn = new WebAuthn();
+        } catch (Exception $e) {
+            App::error()->add($e->getMessage());
+        }
 
         App::backend()->user_name        = App::auth()->getInfo('user_name');
         App::backend()->user_firstname   = App::auth()->getInfo('user_firstname');
@@ -200,6 +219,19 @@ class UserPreferences extends Process
 
     public static function process(): bool
     {
+        if (App::backend()->oauth2 !== null) {
+            // process oAuth2 client action
+            App::backend()->oauth2->requestAction((string) App::auth()->userID());
+        }
+
+        if (App::backend()->webauthn !== null && !empty($_POST['webauthn'])) {
+            // process webauhtn key deletion
+            App::backend()->webauthn->store()->delCredential(base64_decode((string) key($_POST['webauthn'])));
+
+            Notices::addSuccessNotice(__('Passkey successfully deleted.'));
+            App::backend()->url()->redirect('admin.user.preferences', [], '#user-options');
+        }
+
         if (isset($_POST['user_name'])) {
             // Update user
 
@@ -802,6 +834,78 @@ class UserPreferences extends Process
             }
         };
 
+        // Oauth2 client configuration
+        $oauth2_items = [];
+        if (App::backend()->oauth2 !== null) {
+            foreach (App::backend()->oauth2->services()->getProviders() as $oauth2_service) {
+                // Check service
+                if (App::backend()->oauth2->services()->hasDisabledProvider($oauth2_service::getId())
+                    || !App::backend()->oauth2->store()->hasConsumer($oauth2_service::getId())
+                ) {
+                    continue;
+                }
+
+                // Get auth button
+                $oauth_link = App::backend()->oauth2->getActionButton(
+                    (string) App::auth()->userID(), $oauth2_service::getId(), 
+                    App::backend()->url()->get('admin.user.preferences') . '#user-options.user_options_oauth2', 
+                    true
+                );
+
+                if ($oauth_link !== null) {
+                    $oauth2_div  = [];
+                    $oauth2_user = App::backend()->oauth2->store()->getLocalUser($oauth2_service::getId());
+                    if ($oauth2_user->isConfigured()) {
+                        $oauth2_div[] = (new Div())
+                            ->items([
+                                // user avatar
+                                (new Div())
+                                    ->class('box')
+                                    ->items([
+                                        (new Img($oauth2_user->get('avatar') ?: $oauth2_service::getIcon()))
+                                            ->width(64)
+                                            ->height(64),
+                                    ]),
+                                // user name
+                                (new Div())
+                                    ->class('box')
+                                    ->items([
+                                        (new Text('h5', __('Linked to account:'))),
+                                        (new Text('p', $oauth2_user->get('displayname') ?: $oauth2_user->get('uid'))),
+                                    ]),
+                            ]);
+                    }
+
+                    $oauth2_items[] = (new Div())
+                        ->class(['three-boxes'])
+                        ->items([...$oauth2_div, $oauth_link]);
+                }
+            }
+        }
+
+        $webauthn_items = [];
+        if (App::backend()->webauthn !== null) {
+            $webauthn_creds = App::backend()->webauthn->store()->getCredentials(null, (string) App::auth()->userID());
+
+            foreach($webauthn_creds as $dt => $webauthn_cred) {
+                $webauthn_items[] = (new Li())
+                    ->separator (', ')
+                    ->items([
+                        (new Text('', Html::escapeHTML(App::backend()->webauthn->provider()->getProvider($webauthn_cred->UUID()))))
+                            ->title(Html::escapeHTML($webauthn_cred->certificateIssuer() ?: __('Unknown certificat issuer'))),
+                        (new Timestamp(Date::dt2str(__('%Y-%m-%d %H:%M'), $webauthn_cred->createDate())))
+                            ->datetime(Date::iso8601((int) strtotime($webauthn_cred->createDate()), App::auth()->getInfo('user_tz'))),
+                        (new Submit(['webauthn[' . base64_encode($webauthn_cred->credentialId()) . ']'], __('Delete')))
+                            ->class('delete'),
+                    ]);
+            }
+
+            if ($webauthn_items === []) {
+                $webauthn_items[] = (new Li())
+                    ->text(__('You have no registered key yet.'));
+            }
+        }
+
         echo (new Div('user-options'))
             ->class('multi-part')
             ->title(__('My options'))
@@ -983,6 +1087,23 @@ class UserPreferences extends Process
                                         (new Text('h5', __('Use HTML editor for:'))),
                                         ... $editInHtml(App::backend()->rte),
                                     ]),
+                            ]),
+                        $oauth2_items === [] ? new None() : (new Fieldset('user_options_oauth2'))
+                            ->legend(new Legend(__('Authentication applications')))
+                            ->separator('')
+                            ->items($oauth2_items),
+                            // wenauthn
+                        (new Fieldset('user_options_webauthn'))
+                            ->legend(new Legend(__('Auhtentication keys')))
+                            ->separator('')
+                            ->items([
+                                (new Ul())
+                                    ->items($webauthn_items),
+                                (new Para('webauthn_action'))
+                                    ->items([
+                                        (new Button(['webauthn_button'], 'Register a new key')),
+                                    ])
+                                    ->class(['hidden-if-no-js']),
                             ]),
                         (new Text('h4', __('Other options')))
                             ->class('pretty-title'),

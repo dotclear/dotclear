@@ -12,6 +12,9 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
+use Dotclear\Core\Backend\Auth\OAuth2Client;
+use Dotclear\Core\Backend\Auth\OAuth2Store;
+use Dotclear\Core\Backend\Auth\WebAuthn;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Core\Upgrade\Upgrade;
@@ -19,6 +22,7 @@ use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Network\Mail\Mail;
+use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Form\Details;
 use Dotclear\Helper\Html\Form\Div;
@@ -119,11 +123,33 @@ class Auth extends Process
             App::rest()->enableRestServer(true);
         }
 
+        // Create oAuth2 client instance
+        try {
+            App::backend()->oauth2 = App::backend()->safe_mode ? null : new OAuth2Client(
+                new OAuth2Store(App::config()->adminUrl() . App::backend()->url()->get('admin.auth'))
+            );
+        } catch (Exception $e) {
+            App::backend()->err = $e->getMessage();
+            App::backend()->oauth2 = null;
+        }
+        // Create webauthn instance
+        try {
+            App::backend()->webauthn = App::backend()->safe_mode ? null : new WebAuthn();
+        } catch (Exception $e) {
+            App::backend()->err = $e->getMessage();
+            App::backend()->oauth2 = null;
+        }
+
         return self::status(true);
     }
 
     public static function process(): bool
     {
+        // process oAuth2 client action
+        if (App::backend()->oauth2 !== null) {
+            App::backend()->oauth2->requestAction((string) App::auth()->userID());
+        }
+
         $headers = [];
         if (App::backend()->recover && !empty($_POST['user_id']) && !empty($_POST['user_email'])) {
             App::backend()->user_id    = $_POST['user_id'];
@@ -212,7 +238,6 @@ class Auth extends Process
                 $cur->user_pwd        = $_POST['new_pwd'];
                 App::users()->updUser((string) App::auth()->userID(), $cur);
 
-                App::session()->start();
                 $_SESSION['sess_user_id']     = App::backend()->user_id;
                 $_SESSION['sess_browser_uid'] = Http::browserUID(App::config()->masterKey());
 
@@ -262,7 +287,6 @@ class Auth extends Process
             } elseif ($check_perms) {
                 // User may log-in
 
-                App::session()->start();
                 $_SESSION['sess_user_id']     = App::backend()->user_id;
                 $_SESSION['sess_browser_uid'] = Http::browserUID(App::config()->masterKey());
 
@@ -530,6 +554,11 @@ class Auth extends Process
                                 (new Submit('login', __('log in')))
                                     ->class('login'),
                             ]),
+                        App::backend()->webauthn === null ? new None() : (new Para('webauthn_action'))
+                            ->class('hidden-if-no-js')
+                            ->items([
+                                (new Button(['webauthn_button'],__('Sign in with a passkey'))),
+                            ])
                     ]);
 
                 if (!empty($_REQUEST['blog'])) {
@@ -547,6 +576,33 @@ class Auth extends Process
                 }
 
                 $parts[] = $fieldset;
+
+                // Oauth2 client buttons
+                if (App::backend()->oauth2 !== null) {
+                    $oauth2_items = [];
+                    foreach (App::backend()->oauth2->services()->getProviders() as $oauth2_service) {
+                        if (App::backend()->oauth2->services()->hasDisabledProvider($oauth2_service::getId())
+                            || !App::backend()->oauth2->store()->hasConsumer($oauth2_service::getId())
+                        ) {
+                            continue;
+                        }
+                        $link = App::backend()->oauth2->getActionButton(
+                            (string) App::auth()->userID(), 
+                            $oauth2_service::getId(), 
+                            App::config()->adminUrl() . App::backend()->url()->get('admin.auth')
+                        );
+                        if ($link !== null) {
+                            $oauth2_items[] = (new Para()
+                                ->items([$link]));
+                        }
+                    }
+                    if (!empty($oauth2_items)) {
+                        $parts[] = (new Fieldset())
+                            ->legend(new Legend(__('Third party applications connections')))
+                            ->items($oauth2_items)
+                            ->separator("\n");
+                    }
+                }
 
                 // Cookie warning
                 $parts[] = (new Para('cookie_help'))

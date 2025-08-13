@@ -100,7 +100,8 @@ class Session implements SessionInterface
      */
     public function start(): void
     {
-        if (isset($this->handler)) {
+        // We can't set session stuff (handler, id, name) if session already exists
+        if (session_status() === PHP_SESSION_ACTIVE) {
             return;
         }
 

@@ -1,0 +1,78 @@
+<?php
+
+/**
+ * @package     Dotclear
+ *
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   AGPL-3.0
+ */
+declare(strict_types=1);
+
+use Dotclear\Helper\OAuth2\Client\{ Consumer, Store };
+use Dotclear\Helper\Container\Factories;
+
+/**
+ * oAuth2 consumers configuration for backend.
+ *
+ * Rules to use oAuth2:
+ * - You must create your own client consumer application for your multiblogs.
+ * - Blogs admin URL MUST use ssl (https)
+ * - Blogs admin pages MUST be accessible from the internet
+ * - Third party application MUST have these two callback URLs :
+ * - - https://my_admin_root_url/index.php?Process=Auth
+ * - - https://my_admin_root_url/index.php?Process=UserPreferences
+ */
+
+/*
+// Google oAuth2 client consumer configuration. See https://console.cloud.google.com/apis/dashboard
+Factories::addService(Store::CONTAINER_ID, 'googleconnect', fn () => new Consumer([
+	'provider' => 'googleconnect',
+	'key'	   => '',
+	'secret'   => '',
+	'domain'   => '', // Leave it empty
+]));
+// Github oAuth2 client consumer configuration. See https://github.com/settings/applications/
+Factories::addService(Store::CONTAINER_ID, 'githubconnect', fn () => new Consumer([
+	'provider' => 'githubconnect',
+	'key'	   => '',
+	'secret'   => '',
+	'domain'   => '', // Leave it empty
+]));
+
+// Slack oAuth2 client consumer configuration. See https://api.slack.com/apps
+Factories::addService(Store::CONTAINER_ID, 'slackconnect', fn () => new Consumer([
+	'provider' => 'slackconnect',
+	'key' 	   => '',
+	'secret'   => '',
+	'domain'   => '', // Leave it empty
+]));
+// Auth0 oAuth2 client consumer configuration. See https://manage.auth0.com/dashboard/
+Factories::addService(Store::CONTAINER_ID, 'auth0connect', fn () => new Consumer([
+	'provider' => 'auth0connect',
+	'key'	   => '',
+	'secret'   => '',
+	'domain'   => '',
+]));
+// Lwa (Login With Amazon) oAuth2 client consumer configuration. See https://developer.amazon.com/apps-and-games/login-with-amazon
+Factories::addService(Store::CONTAINER_ID, 'lwa', fn () => new Consumer([
+	'provider' => 'lwa',
+	'key'	   => '',
+	'secret'   => '',
+	'domain'   => '', // Leave it empty
+]));
+//*/
+
+/*
+// To add a provider:
+// The provider class MUST extends Dotclear\Helper\OAuth2\Client\Provider
+// See exemples in Dotclear\Schema\OAuth2
+Factories::addService(Dotclear\Core\Backend\Auth\OAuth2Client::CONTAINER_ID, 'provider_id', provider::CLASS);
+
+// Then add provider consumer configuration:
+Factories::addService(Dotclear\Core\Backend\Auth\OAuth2Store::CONTAINER_ID, 'provider_id', fn () => new Consumer([
+	'provider' => 'provider_id',
+	'key'      => 'provider_app_key',
+	'secret'   => 'provider_app_secret',
+	'domain'   => 'provider_app_domain_if_any',
+]));
+//*/

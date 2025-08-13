@@ -97,21 +97,11 @@ class Utility extends Process
             return true;
         }
 
-        if (App::auth()->sessionExists()) {
-            // If we have a session we launch it now
-            try {
-                if (!App::auth()->checkSession()) {
-                    // Avoid loop caused by old cookie
-                    $p    = App::session()->getCookieParameters(false, -600);
-                    $p[3] = '/';
-                    setcookie(...$p);
+        // Always start a session
+        App::session()->start();
 
-                    App::upgrade()->url()->redirect('upgrade.auth');
-                }
-            } catch (Throwable) {
-                throw new SessionException(__('There seems to be no Session table in your database. Is Dotclear completly installed?'));
-            }
-
+        // If we have a session we launch it now
+        if (App::auth()->checkSession()) {
             // Fake process to logout (kill session) and return to auth page.
             if (!empty($_REQUEST['process']) && $_REQUEST['process'] == 'Logout'
                 || !App::auth()->isSuperAdmin()

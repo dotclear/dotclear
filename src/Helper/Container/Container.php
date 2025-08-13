@@ -135,16 +135,20 @@ class Container implements ContainerInterface
                 // Get first level class of extended class
                 $type = $type->getTypes()[0];
             }
-            if ($type instanceof \ReflectionNamedType && !$type->isBuiltin() && $this->factory->has($type->getName())) {
+            if ($type instanceof \ReflectionNamedType 
+                && !$type->isBuiltin() 
+                && ($this->factory->has($type->getName()) || is_subclass_of($type->getName(), self::class))
+            ) {
                 // Get class name
                 $class = $type->getName();
             }
 
-            if (null !== $class) {
+            if (is_subclass_of($type->getName(), self::class)) {
+                // Get self class
+                $args[$parameter->name] = $this;
+            } elseif (null !== $class) {
                 // Get container class
-                $args[$parameter->name] = $this->get(
-                    $class
-                );
+                $args[$parameter->name] = $this->get($class);
             } elseif (isset($args[$parameter->name])) {
                 // Keep given argument as is
             } elseif ($parameter->isDefaultValueAvailable()) {

@@ -13,6 +13,7 @@ namespace Dotclear\Process\Backend;
 
 use ArrayObject;
 use Dotclear\App;
+use Dotclear\Core\Backend\Auth\WebAuthn;
 use Dotclear\Core\Backend\UserPref;
 use Dotclear\Core\Process;
 use Dotclear\Core\Upgrade\Update;
@@ -33,11 +34,13 @@ use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Html\XmlTag;
 use Dotclear\Helper\Network\Feed\Reader;
+use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Text as TextHelper;
 use Dotclear\Interface\Module\ModulesInterface;
 use Dotclear\Module\Store;
 use Dotclear\Plugin\antispam\Antispam;
 use Exception;
+use stdClass;
 
 /**
  * @since 2.27 Before as admin/services.php
@@ -63,6 +66,9 @@ class Rest extends Process
         App::rest()->addFunction('setSectionFold', self::setSectionFold(...));
         App::rest()->addFunction('setDashboardPositions', self::setDashboardPositions(...));
         App::rest()->addFunction('setListsOptions', self::setListsOptions(...));
+
+        App::rest()->addFunction('webAuthnRegistration', self::webAuthnRegistration(...));
+        App::rest()->addFunction('webAuthnAuthentication', self::webAuthnAuthentication(...));
 
         return self::status(true);
     }
@@ -943,5 +949,99 @@ class Rest extends Process
         return [
             'msg' => __('List options saved'),
         ];
+    }
+
+    /**
+     * REST method to register passkey using webauthn. 
+     *
+     * @param      array<string, string>     $get    The get
+     * @param      array<string, string>     $post   The post
+     *
+     * @return     array<string, string|stdClass>
+     */
+    public static function webAuthnRegistration(array $get, array $post): array
+    {
+        if (App::auth()->userID() == '') {
+            throw new Exception('unknown user id');
+        }
+
+        $webauthn = new WebAuthn();
+
+        switch ($post['step'] ?? '') {
+            case 'prepare':
+                return [
+                    'message'   => 'ok',
+                    'arguments' => $webauthn->prepareCreate(),
+                ];
+
+            case 'process':
+                $webauthn->processCreate(
+                    $webauthn->store()->decodeValue($post['client'] ?? ''),
+                    $webauthn->store()->decodeValue($post['attestation'] ?? ''),
+                    $webauthn->store()->decodeValue($post['transports'] ?? '')
+                );
+
+                return [
+                    'message' => __('Auhtentication key successfully registered'),
+                ];
+
+            default:
+                throw new Exception('unknown step');
+        }
+    }
+
+    /**
+     * REST method to authenticate user using webauthn. 
+     *
+     * @param      array<string, string>     $get    The get
+     * @param      array<string, string>     $post   The post
+     *
+     * @return     array<string, string|stdClass|bool>
+     */
+    public static function webAuthnAuthentication(array $get, array $post): array
+    {
+        if (App::auth()->userID() != '') {
+            throw new Exception('user allready logged in');
+        }
+
+        $webauthn = new WebAuthn();
+
+        switch ($post['step'] ?? '') {
+            case 'prepare':
+                return [
+                    'message'   => 'ok',
+                    'arguments' => $webauthn->prepareGet(),
+                ];
+
+            case 'process':
+                $data = $webauthn->processGet(
+                    $webauthn->store()->decodeValue($post['id'] ?? ''),
+                    $webauthn->store()->decodeValue($post['client'] ?? ''),
+                    $webauthn->store()->decodeValue($post['authenticator']?? ''),
+                    $webauthn->store()->decodeValue($post['signature'] ?? ''),
+                    $webauthn->store()->decodeValue($post['user'] ?? '')
+                );
+
+                if ($data != ''
+                    && App::auth()->checkUser($data, null, null, false)
+                    && App::auth()->findUserBlog() !== false
+                ) {
+                    // if ok, sign in user in session then page MUST be reloaded (see auth.js)
+                    $_SESSION['sess_user_id']     = $data;
+                    $_SESSION['sess_browser_uid'] = Http::browserUID(App::config()->masterKey());
+
+                    return [
+                        'message' => 'user found',
+                    ];
+                } else {
+                    return [
+                        'success' => false,
+                        'message' => __('This key is not registered'),
+                    ];
+                }
+
+            default:
+                throw new Exception('unknown step');
+        }
     }
 }

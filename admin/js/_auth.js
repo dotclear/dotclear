@@ -37,4 +37,106 @@ dotclear.ready(() => {
       event.preventDefault();
     }
   });
+
+  // webauthn passkey authentication
+  dotclear.webAuthnAuthentication = () => {
+
+    // (A) HELPER FUNCTIONS
+    var wanHelper = {
+      // (A1) ARRAY BUFFER TO BASE 64
+      atb : b => {
+        let u = new Uint8Array(b), s = "";
+        for (let i=0; i<u.byteLength; i++) { s += String.fromCharCode(u[i]); }
+        return btoa(s);
+      },
+     
+      // (A2) BASE 64 TO ARRAY BUFFER
+      bta : o => {
+        let pre = "=?BINARY?B?", suf = "?=";
+        for (let k in o) { if (typeof o[k] == "string") {
+          let s = o[k];
+          if (s.substring(0, pre.length)==pre && s.substring(s.length - suf.length)==suf) {
+            let b = window.atob(s.substring(pre.length, s.length - suf.length)),
+            u = new Uint8Array(b.length);
+            for (let i=0; i<b.length; i++) { u[i] = b.charCodeAt(i); }
+            o[k] = u.buffer;
+          }
+        } else { wanHelper.bta(o[k]); }}
+      }
+    };
+
+    try {
+      // browser does not support passkey
+      if (!("credentials" in navigator)) {
+        throw new Error('Browser not supported.');
+      }
+      // authenticate flow step 1: get arguments
+      dotclear.jsonServicesPost(
+        'webAuthnAuthentication',
+        (prepareValidate) => {
+          // error handling
+          if (prepareValidate.success === false) {
+            throw new Error(prepareValidate.message || 'webauthn: prepareValidate failed');
+          }
+
+          wanHelper.bta(prepareValidate.arguments);
+
+          // authenticate flow step 2: query passkey
+          navigator.credentials
+            .get(prepareValidate.arguments)
+            .then((publicKeyCredential) => {
+              // authenticate flow step 3: check passkey vs user
+              dotclear.jsonServicesPost(
+                'webAuthnAuthentication',
+                (processValidate) => {
+                  // error handling
+                  if (processValidate.success === false) {
+                    window.alert(processValidate.message || 'failed to authenticate with passkey');
+                    //throw new Error(processValidate.message || 'webauthn: processValidate failed');
+                  } else {
+                    // on success, reload page to get user session from rest service
+                    window.location.reload();
+                  }
+                },
+                {
+                  json: 1,
+                  step: 'process',
+                  id : publicKeyCredential.rawId ? wanHelper.atb(publicKeyCredential.rawId) : null,
+                  client : publicKeyCredential.response.clientDataJSON ? wanHelper.atb(publicKeyCredential.response.clientDataJSON) : null,
+                  authenticator : publicKeyCredential.response.authenticatorData ? wanHelper.atb(publicKeyCredential.response.authenticatorData) : null,
+                  signature : publicKeyCredential.response.signature ? wanHelper.atb(publicKeyCredential.response.signature) : null,
+                  user : publicKeyCredential.response.userHandle ? wanHelper.atb(publicKeyCredential.response.userHandle) : null
+                },
+                (error) => {
+                  console.log(error || 'unknown error occured');
+                },
+              );
+            })
+            .catch((error) => {
+              console.log(error || 'unknown error occured');
+            });
+
+        },
+        {
+          json: 1,
+          step: 'prepare',
+        },
+        (error) => {
+          console.log(error || 'unknown error occured');
+        },
+      );
+
+    } catch (error) {
+      console.log(error.message || 'unknown error occured');
+    }
+  };
+
+  if ("credentials" in navigator) {
+    $('#webauthn_action input').on('click', function (e) {
+      dotclear.webAuthnAuthentication();
+      e.preventDefault();
+    });
+  } else {
+    $('#webauthn_action').hide();
+  }
 });
