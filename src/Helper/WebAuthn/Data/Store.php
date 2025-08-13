@@ -2,7 +2,7 @@
 
 /**
  * @package     Dotclear
- *    
+ *
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
@@ -39,7 +39,6 @@ abstract class Store implements StoreInterface
         protected RpOptionInterface $rp,
         protected UserOptionInterface $user
     ) {
-
     }
 
     public static function encodeValue(?string $data): string
@@ -53,18 +52,18 @@ abstract class Store implements StoreInterface
             throw new StoreException(__('Arguments are missing'));
         }
 
-        return (string) base64_decode((string) $data, false);
+        return base64_decode($data, false);
     }
 
     public function setChallenge(ByteBufferInterface $challenge): void
     {
         // note: encode binary string for database session store.
-        $_SESSION['webauthn_challenge'] = $this->encodeValue($challenge->getBinaryString());
+        $_SESSION['webauthn_challenge'] = static::encodeValue($challenge->getBinaryString());
     }
 
     public function getChallenge(): ByteBufferInterface
     {
-        return isset($_SESSION['webauthn_challenge']) ? $this->buffer->fromBinary($this->decodeValue($_SESSION['webauthn_challenge'])) : $this->buffer->randomBuffer(32);
+        return isset($_SESSION['webauthn_challenge']) ? $this->buffer->fromBinary(static::decodeValue($_SESSION['webauthn_challenge'])) : $this->buffer->randomBuffer(32);
     }
 
     public function getRelyingParty(): RpOptionInterface
@@ -79,7 +78,6 @@ abstract class Store implements StoreInterface
 
     public function setCredential(CredentialInterface $data): void
     {
-
     }
 
     public function getCredentials(?string $credential_id = null, ?string $user_id = null): array
@@ -89,12 +87,10 @@ abstract class Store implements StoreInterface
 
     public function delCredential(string $credential_id): void
     {
-
     }
 
     public function setProviders(array $data): void
     {
-
     }
 
     public function getProviders(): array

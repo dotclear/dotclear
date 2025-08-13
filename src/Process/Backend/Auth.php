@@ -129,14 +129,15 @@ class Auth extends Process
                 new OAuth2Store(App::config()->adminUrl() . App::backend()->url()->get('admin.auth'))
             );
         } catch (Exception $e) {
-            App::backend()->err = $e->getMessage();
+            App::backend()->err    = $e->getMessage();
             App::backend()->oauth2 = null;
         }
+
         // Create webauthn instance
         try {
             App::backend()->webauthn = App::backend()->safe_mode ? null : new WebAuthn();
         } catch (Exception $e) {
-            App::backend()->err = $e->getMessage();
+            App::backend()->err    = $e->getMessage();
             App::backend()->oauth2 = null;
         }
 
@@ -557,8 +558,8 @@ class Auth extends Process
                         App::backend()->webauthn === null ? new None() : (new Para('webauthn_action'))
                             ->class('hidden-if-no-js')
                             ->items([
-                                (new Button(['webauthn_button'],__('Sign in with a passkey'))),
-                            ])
+                                (new Button(['webauthn_button'], __('Sign in with a passkey'))),
+                            ]),
                     ]);
 
                 if (!empty($_REQUEST['blog'])) {
@@ -587,16 +588,16 @@ class Auth extends Process
                             continue;
                         }
                         $link = App::backend()->oauth2->getActionButton(
-                            (string) App::auth()->userID(), 
-                            $oauth2_service::getId(), 
+                            (string) App::auth()->userID(),
+                            $oauth2_service::getId(),
                             App::config()->adminUrl() . App::backend()->url()->get('admin.auth')
                         );
                         if ($link !== null) {
-                            $oauth2_items[] = (new Para()
-                                ->items([$link]));
+                            $oauth2_items[] = (new Para())
+                                ->items([$link]);
                         }
                     }
-                    if (!empty($oauth2_items)) {
+                    if ($oauth2_items !== []) {
                         $parts[] = (new Fieldset())
                             ->legend(new Legend(__('Third party applications connections')))
                             ->items($oauth2_items)

@@ -10,7 +10,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\OAuth2\Client;
 
-use ArrayObject, Exception, Throwable;
+use Exception;
+use Throwable;
 use Dotclear\Helper\Container\{ Container, Factories };
 use Dotclear\Helper\Html\Form\Link;
 use Dotclear\Helper\Html\Html;
@@ -29,8 +30,6 @@ abstract class Client extends Container
 
     /**
      * Client services instance.
-     *
-     * @var     Services    $services
      */
     protected Services $service;
 
@@ -94,7 +93,7 @@ abstract class Client extends Container
     protected function checkSession(): void
     {
         // We need session to store flow state
-        if(session_status() === PHP_SESSION_NONE) {
+        if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
     }
@@ -108,7 +107,8 @@ abstract class Client extends Container
      */
     public function checkProvider(?string $provider): bool
     {
-        return !empty($provider)
+        return $provider !== null
+            && $provider !== ''
             && $this->service->hasProvider($provider)
             && !$this->service->hasDisabledProvider($provider);
     }
@@ -132,7 +132,6 @@ abstract class Client extends Container
      */
     public function setDisabledProviders(array $providers): void
     {
-
     }
 
     /**
@@ -166,7 +165,7 @@ abstract class Client extends Container
      */
     public function checkRedirectUrl(bool $add_error = false): bool
     {
-        $https = false !== strpos($this->getRedirectUrl(), 'https://');
+        $https = str_contains($this->getRedirectUrl(), 'https://');
         if (!$https && $add_error) {
             throw new InvalidService(__('Services does not work on unsecured protocol.'));
         }
@@ -176,7 +175,7 @@ abstract class Client extends Container
             throw new InvalidService(__('Services does not work on IP address.'));
         }
 
-        $no_local = false === strpos($this->getRedirectUrl(), 'localhost');
+        $no_local = !str_contains($this->getRedirectUrl(), 'localhost');
         if (!$no_local && $add_error) {
             throw new InvalidService(__('Services does not work on local network.'));
         }
@@ -199,18 +198,18 @@ abstract class Client extends Container
         if (!$this->checkProvider($service)) {
             return null;
         }
+
         try {
             $url      = $this->getRedirectUrl();
-            $sign     = str_ends_with($url, '?') ? '' : (strpos($url, '?') !== false ? '&' : '?');
+            $sign     = str_ends_with($url, '?') ? '' : (str_contains($url, '?') ? '&' : '?');
             $provider = $this->service->getProvider($this->store->getConsumer($service), ['redirect_uri' => $url]);
             $token    = $this->store->getToken($service, $user_id);
             $icon     = $this->getProviderLogo($provider);
-            $url      .= $sign . (empty($token->get('access_token')) ? 'authorize=' : 'revoke=') . $service . '&redir=' . urlencode($redir);
+            $url .= $sign . (empty($token->get('access_token')) ? 'authorize=' : 'revoke=') . $service . '&redir=' . urlencode($redir);
             if (empty($token->get('access_token'))) {
                 $text = $register ? __('Authorize %s connection') : __('Connect with %s');
             } else {
                 $text = $register ? __('Revoke %s connection') : __('Disconnect from %s');
-
             }
         } catch (Throwable) {
             // silently bypass error and hide button
@@ -242,10 +241,9 @@ abstract class Client extends Container
                 $this->revokeAccessToken($user_id);
             }
         } catch (Exception $e) {
-            if (empty($_REQUEST['oauth2_error'])) { //prevent loop on php error
-                if (!$this->requestActionError($e)) {
-                    Http::redirect($this->store->getRedir() . (strpos($this->store->getRedir(), '?') ? '&' : '?') . 'oauth2_error=1');
-                }
+            if (empty($_REQUEST['oauth2_error']) && !$this->requestActionError($e)) {
+                //prevent loop on php error
+                Http::redirect($this->store->getRedir() . (strpos($this->store->getRedir(), '?') ? '&' : '?') . 'oauth2_error=1');
             }
         }
     }
@@ -268,7 +266,7 @@ abstract class Client extends Container
     protected function requestAuthorizationCode(): void
     {
         $this->checkSession();
-        
+
         $service = $_REQUEST['authorize'] ?? '';
         if (!$this->checkProvider($service)) {
             return;
@@ -308,17 +306,16 @@ abstract class Client extends Container
         $user = $provider->getUser($token);
         if ($user->get('uid') == '') {
             throw new InvalidUser(__('Failed to retrieve user ID from this provider'));
-        } elseif ($user_id == '') {
+        } elseif ($user_id === '') {
             $user_id = $this->store->getUser($provider->getId(), $user->get('uid'))->get('user_id');
             if (empty($user_id)) {
                 throw new InvalidUser(__('No user ID linked to this provider'));
-            } else {
-                if ($this->checkUser($user_id)) {
-                    $this->store->setToken($service, $user_id, $token);
-                    $this->store->delStates();
+            }
+            if ($this->checkUser($user_id)) {
+                $this->store->setToken($service, $user_id, $token);
+                $this->store->delStates();
 
-                    Http::redirect($this->getRedirectUrl());
-                }
+                Http::redirect($this->getRedirectUrl());
             }
         } else {
             $this->store->setUser($provider->getId(), $user, $user_id);
@@ -338,7 +335,7 @@ abstract class Client extends Container
      */
     protected function checkUser(string $user_id): bool
     {
-        if (!empty($user_id)) {
+        if ($user_id !== '') {
             $_SESSION['user_id'] = $user_id;
 
             return true;

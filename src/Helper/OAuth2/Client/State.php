@@ -2,7 +2,7 @@
 
 /**
  * @package     Dotclear
- *    
+ *
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
@@ -20,8 +20,6 @@ class State
 {
     /**
      * The state.
-     *
-     * @var     string  $state
      */
     public readonly string $state;
 
@@ -34,7 +32,7 @@ class State
      */
     public function __construct(string $state = '')
     {
-        $this->state = empty($state) ? bin2hex(random_bytes(16)) : $state;
+        $this->state = $state === '' ? bin2hex(random_bytes(16)) : $state;
     }
 
     /**

@@ -2,7 +2,7 @@
 
 /**
  * @package     Dotclear
- *    
+ *
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
@@ -103,22 +103,16 @@ abstract class Provider
 
     /**
      * List of scopes.
-     *
-     * @var     Scope   $scope
      */
     public readonly Scope $scope;
 
     /**
      * Key state.
-     *
-     * @var     State  $state
      */
     public readonly State $state;
 
     /**
      * Redirect url.
-     *
-     * @var     string  $redirect_uri
      */
     protected readonly string $redirect_uri;
 
@@ -238,6 +232,7 @@ abstract class Provider
     public static function getPKCEChallenge(string $code_verifier): string
     {
         $hash = hash('sha256', $code_verifier, true);
+
         return rtrim(strtr(base64_encode($hash), '+/', '-_'), '=');
     }
 
@@ -248,7 +243,7 @@ abstract class Provider
      */
     public function getRedirectUrl(): string
     {
-        return str_replace('PROVIDER', $this->getId(), $this->redirect_uri);
+        return str_replace('PROVIDER', static::getId(), $this->redirect_uri);
     }
 
     /**
@@ -265,13 +260,13 @@ abstract class Provider
         }
 
         if (static::REQUIRE_CHALLENGE) {
-            $_SESSION['code_verifier'] = $this->getPKCEVerifier();
+            $_SESSION['code_verifier'] = static::getPKCEVerifier();
 
-            $parameters['code_challenge']        = $this->getPKCEChallenge($_SESSION['code_verifier']);
+            $parameters['code_challenge']        = static::getPKCEChallenge($_SESSION['code_verifier']);
             $parameters['code_challenge_method'] = 'S256';
         }
 
-        return $this->getAuthorizeUrl() . (strpos($this->getAuthorizeUrl(), '?') === false ? '?' : '&') . http_build_query($parameters);
+        return $this->getAuthorizeUrl() . (str_contains($this->getAuthorizeUrl(), '?') ? '&' : '?') . http_build_query($parameters);
     }
 
     /**
@@ -339,7 +334,6 @@ abstract class Provider
             'grant_type'    => GrantTypes::AUTHORIZATION_CODE->value,
             'code'          => $code,
         ];
-
 
         if (static::REQUIRE_CHALLENGE) {
             $code = $_SESSION['code_verifier'] ?? '';
@@ -566,9 +560,9 @@ abstract class Provider
     {
         $message = '';
         if (!empty($response['error'])) {
-            if (!empty($response['error_description'])) {
+            if (isset($response['error_description']) && $response['error_description'] !== '') {
                 $message = $response['error_description'];
-            } elseif (!empty($response['error_reason'])) {
+            } elseif (isset($response['error_reason']) && $response['error_reason'] !== '') {
                 $message = $response['error_reason'];
             } else {
                 $message = $response['error'];
@@ -645,7 +639,7 @@ abstract class Provider
         //*/
 
         // transmit token through headers
-        return !empty($token->get('access_token')) ? ['Authorization' => 'Bearer ' . $token->get('access_token')] : [];
+        return empty($token->get('access_token')) ? [] : ['Authorization' => 'Bearer ' . $token->get('access_token')];
     }
 
     /**

@@ -2,7 +2,7 @@
 
 /**
  * @package     Dotclear
- *    
+ *
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
@@ -27,22 +27,16 @@ class AuthenticatorSelectionOption implements AuthenticatorSelectionOptionInterf
 {
     /**
      * The resident key type.
-     *
-     * @var     ResidentKeyEnum   $resident_key
      */
     protected ResidentKeyEnum $resident_key;
 
     /**
      * The user verification type.
-     *
-     * @var     UserVerificationEnum  $user_verification
      */
     protected UserVerificationEnum $user_verification;
 
     /**
      * The authenticator attachment type.
-     *
-     * @var     AuthenticatorAttachmentEnum   $authenticator_attachment
      */
     protected AuthenticatorAttachmentEnum $authenticator_attachment;
 
@@ -66,11 +60,11 @@ class AuthenticatorSelectionOption implements AuthenticatorSelectionOptionInterf
 
     public function configure(array $config = []): self
     {
-        $this->resident_key             = isset($config['resident_key']) && is_a($config['resident_key'], ResidentKeyEnum::class) ? 
+        $this->resident_key = isset($config['resident_key']) && is_a($config['resident_key'], ResidentKeyEnum::class) ?
             $config['resident_key'] : ResidentKeyEnum::DEFAULT;
-        $this->user_verification        = isset($config['user_verification']) && is_a($config['user_verification'], UserVerificationEnum::class) ? 
+        $this->user_verification = isset($config['user_verification']) && is_a($config['user_verification'], UserVerificationEnum::class) ?
             $config['user_verification'] : UserVerificationEnum::DEFAULT;
-        $this->authenticator_attachment = isset($config['authenticator_attachment']) && is_a($config['authenticator_attachment'], AuthenticatorAttachmentEnum::class) ? 
+        $this->authenticator_attachment = isset($config['authenticator_attachment']) && is_a($config['authenticator_attachment'], AuthenticatorAttachmentEnum::class) ?
             $config['authenticator_attachment'] : AuthenticatorAttachmentEnum::DEFAULT;
 
         return $this;
@@ -85,9 +79,9 @@ class AuthenticatorSelectionOption implements AuthenticatorSelectionOptionInterf
     {
         switch ($method) {
             case CredentialMethodEnum::CREATE:
-                $arguments->authenticatorSelection                     = new stdClass();
-                $arguments->authenticatorSelection->userVerification   = $this->user_verification->value;
-                $arguments->authenticatorSelection->residentKey        = $this->resident_key->value;
+                $arguments->authenticatorSelection                   = new stdClass();
+                $arguments->authenticatorSelection->userVerification = $this->user_verification->value;
+                $arguments->authenticatorSelection->residentKey      = $this->resident_key->value;
                 // deprecated: https://developer.mozilla.org/en-US/docs/Web/API/PublicKeyCredentialCreationOptions#requireresidentkey
                 $arguments->authenticatorSelection->requireResidentKey = $this->resident_key->required();
 
@@ -95,12 +89,14 @@ class AuthenticatorSelectionOption implements AuthenticatorSelectionOptionInterf
                 if ($this->authenticator_attachment !== AuthenticatorAttachmentEnum::ANY) {
                     $arguments->authenticatorSelection->authenticatorAttachment = $this->authenticator_attachment->value;
                 }
+
                 break;
-            
+
             case CredentialMethodEnum::GET:
-                $arguments->userVerification   = $this->user_verification->value;
+                $arguments->userVerification = $this->user_verification->value;
+
                 break;
-            
+
             default:
                 break;
         }

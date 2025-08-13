@@ -28,17 +28,17 @@ class OAuth2Client extends Client
     protected function getDefaultServices(): array
     {
         return [    // @phpstan-ignore-line
-            GoogleConnect::PROVIDER_ID => GoogleConnect::CLASS,
-            GithubConnect::PROVIDER_ID => GithubConnect::CLASS,
-            SlackConnect::PROVIDER_ID  => SlackConnect::CLASS,
-            Auth0Connect::PROVIDER_ID  => Auth0Connect::CLASS,
-            Lwa::PROVIDER_ID           => Lwa::CLASS,
+            GoogleConnect::PROVIDER_ID => GoogleConnect::class,
+            GithubConnect::PROVIDER_ID => GithubConnect::class,
+            SlackConnect::PROVIDER_ID  => SlackConnect::class,
+            Auth0Connect::PROVIDER_ID  => Auth0Connect::class,
+            Lwa::PROVIDER_ID           => Lwa::class,
         ];
     }
 
     protected function checkSession(): void
     {
-        if(session_status() === PHP_SESSION_NONE) {
+        if (session_status() === PHP_SESSION_NONE) {
             App::session()->start();
         }
     }
@@ -46,7 +46,7 @@ class OAuth2Client extends Client
     protected function requestActionError(Exception $e): bool
     {
         if ($_REQUEST['process'] == 'Auth') {
-                App::backend()->err = $e->getMessage();
+            App::backend()->err = $e->getMessage();
         } else {
             App::error()->add($e->getMessage());
         }
@@ -69,7 +69,7 @@ class OAuth2Client extends Client
     public function getDisabledProviders(): array
     {
         $disabled = json_decode((string) App::blog()->settings()->get(self::CONTAINER_ID)->get('disabled_providers'));
-        
+
         return is_array($disabled) ? array_values($disabled) : [];
     }
 

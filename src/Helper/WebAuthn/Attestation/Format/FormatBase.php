@@ -40,7 +40,6 @@ abstract class FormatBase implements FormatBaseInterface
     public function __construct(
         protected AuthenticatorInterface $authenticator
     ) {
-
     }
 
     public function initFormat(array $attestation): void
@@ -71,7 +70,7 @@ abstract class FormatBase implements FormatBaseInterface
         return '';
     }
 
-    public function validateAttestation(string $clientDataHash):bool
+    public function validateAttestation(string $clientDataHash): bool
     {
         // need to be overwritten
         return false;
@@ -85,57 +84,49 @@ abstract class FormatBase implements FormatBaseInterface
 
     /**
      * Create a PEM encoded certificate with X.509 binary data.
-     *
-     * @param   string  $x5c
-     *
-     * @return  string
      */
     protected function _createCertificatePem(string $x5c): string
     {
-        $pem = '-----BEGIN CERTIFICATE-----' . "\n";
-        $pem .= chunk_split(base64_encode($x5c), 64, "\n");
-        $pem .= '-----END CERTIFICATE-----' . "\n";
-        return $pem;
+        return
+            '-----BEGIN CERTIFICATE-----' . "\n" .
+            chunk_split(base64_encode($x5c), 64, "\n") .
+            '-----END CERTIFICATE-----' . "\n";
     }
 
     /**
      * Creates a PEM encoded chain file.
-     *
-     * @return  string|null
      */
     protected function _createX5cChainFile(): null|string
     {
         $content = '';
-        if (count($this->_x5c_chain) > 0) {
-            foreach ($this->_x5c_chain as $x5c) {
-                $certInfo = openssl_x509_parse($this->_createCertificatePem($x5c));
+        foreach ($this->_x5c_chain as $x5c) {
+            $certInfo = openssl_x509_parse($this->_createCertificatePem($x5c));
 
-                // check if certificate is self signed
-                if (is_array($certInfo) && is_array($certInfo['issuer']) && is_array($certInfo['subject'])) {
-                    $selfSigned = false;
+            // check if certificate is self signed
+            if (is_array($certInfo) && is_array($certInfo['issuer']) && is_array($certInfo['subject'])) {
+                $selfSigned = false;
 
-                    $subjectKeyIdentifier = $certInfo['extensions']['subjectKeyIdentifier'] ?? null;
-                    $authorityKeyIdentifier = $certInfo['extensions']['authorityKeyIdentifier'] ?? null;
+                $subjectKeyIdentifier   = $certInfo['extensions']['subjectKeyIdentifier']   ?? null;
+                $authorityKeyIdentifier = $certInfo['extensions']['authorityKeyIdentifier'] ?? null;
 
-                    if ($authorityKeyIdentifier && substr($authorityKeyIdentifier, 0, 6) === 'keyid:') {
-                        $authorityKeyIdentifier = substr($authorityKeyIdentifier, 6);
-                    }
-                    if ($subjectKeyIdentifier && substr($subjectKeyIdentifier, 0, 6) === 'keyid:') {
-                        $subjectKeyIdentifier = substr($subjectKeyIdentifier, 6);
-                    }
+                if ($authorityKeyIdentifier && str_starts_with((string) $authorityKeyIdentifier, 'keyid:')) {
+                    $authorityKeyIdentifier = substr((string) $authorityKeyIdentifier, 6);
+                }
+                if ($subjectKeyIdentifier && str_starts_with((string) $subjectKeyIdentifier, 'keyid:')) {
+                    $subjectKeyIdentifier = substr((string) $subjectKeyIdentifier, 6);
+                }
 
-                    if (($subjectKeyIdentifier && !$authorityKeyIdentifier) || ($authorityKeyIdentifier && $authorityKeyIdentifier === $subjectKeyIdentifier)) {
-                        $selfSigned = true;
-                    }
+                if (($subjectKeyIdentifier && !$authorityKeyIdentifier) || ($authorityKeyIdentifier && $authorityKeyIdentifier === $subjectKeyIdentifier)) {
+                    $selfSigned = true;
+                }
 
-                    if (!$selfSigned) {
-                        $content .= "\n" . $this->_createCertificatePem($x5c) . "\n";
-                    }
+                if (!$selfSigned) {
+                    $content .= "\n" . $this->_createCertificatePem($x5c) . "\n";
                 }
             }
         }
 
-        if ($content) {
+        if ($content !== '') {
             $this->_x5c_tempFile = (string) tempnam(sys_get_temp_dir(), 'x5c_');
             if (file_put_contents($this->_x5c_tempFile, $content) !== false) {
                 return $this->_x5c_tempFile;
@@ -145,61 +136,57 @@ abstract class FormatBase implements FormatBaseInterface
         return null;
     }
 
-
     /**
      * Returns the name and openssl key for provided cose number.
-     *
-     * @param   int     $coseNumber
-     *
-     * @return  stdClass|null
      */
     protected function _getCoseAlgorithm(int $coseNumber): null|stdClass
     {
         // https://www.iana.org/assignments/cose/cose.xhtml#algorithms
         $coseAlgorithms = [
             [
-                'hash' => 'SHA1',
+                'hash'    => 'SHA1',
                 'openssl' => OPENSSL_ALGO_SHA1,
-                'cose' => [
-                    -65535  // RS1
+                'cose'    => [
+                    -65535,  // RS1
                 ]],
 
             [
-                'hash' => 'SHA256',
+                'hash'    => 'SHA256',
                 'openssl' => OPENSSL_ALGO_SHA256,
-                'cose' => [
+                'cose'    => [
                     -257, // RS256
                     -37,  // PS256
                     -7,   // ES256
-                    5     // HMAC256
+                    5,     // HMAC256
                 ]],
 
             [
-                'hash' => 'SHA384',
+                'hash'    => 'SHA384',
                 'openssl' => OPENSSL_ALGO_SHA384,
-                'cose' => [
+                'cose'    => [
                     -258, // RS384
                     -38,  // PS384
                     -35,  // ES384
-                    6     // HMAC384
+                    6,     // HMAC384
                 ]],
 
             [
-                'hash' => 'SHA512',
+                'hash'    => 'SHA512',
                 'openssl' => OPENSSL_ALGO_SHA512,
-                'cose' => [
+                'cose'    => [
                     -259, // RS512
                     -39,  // PS512
                     -36,  // ES512
-                    7     // HMAC512
-                ]]
+                    7,     // HMAC512
+                ]],
         ];
 
         foreach ($coseAlgorithms as $coseAlgorithm) {
             if (in_array($coseNumber, $coseAlgorithm['cose'], true)) {
-                $return = new stdClass();
-                $return->hash = $coseAlgorithm['hash'];
+                $return          = new stdClass();
+                $return->hash    = $coseAlgorithm['hash'];
                 $return->openssl = $coseAlgorithm['openssl'];
+
                 return $return;
             }
         }

@@ -2,7 +2,7 @@
 
 /**
  * @package     Dotclear
- *    
+ *
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
@@ -24,8 +24,6 @@ class TimeoutOption implements TimeoutOptionInterface
 {
     /**
      * The query timeout.
-     *
-     * @var     int     $timeout
      */
     protected int $timeout;
 
@@ -43,7 +41,7 @@ class TimeoutOption implements TimeoutOptionInterface
 
     public function parseCredentialTypeOptions(CredentialMethodEnum $method, stdClass $arguments): void
     {
-        if ($method === CredentialMethodEnum::CREATE 
+        if ($method    === CredentialMethodEnum::CREATE
             || $method === CredentialMethodEnum::GET
         ) {
             $arguments->timeout = $this->timeout * 1000;

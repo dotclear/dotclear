@@ -2,7 +2,7 @@
 
 /**
  * @package     Dotclear
- *    
+ *
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
@@ -10,7 +10,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\WebAuthn\Exception;
 
-use Exception, Throwable;
+use Exception;
+use Throwable;
 
 /**
  * @brief 	WebAuthn store exception class.
@@ -20,8 +21,8 @@ use Exception, Throwable;
  */
 class StoreException extends Exception
 {
-	public function __construct(string $message = 'Invalid store query', int $code = 0, ?Throwable $previous = null)
-	{
+    public function __construct(string $message = 'Invalid store query', int $code = 0, ?Throwable $previous = null)
+    {
         parent::__construct($message, $code, $previous);
-	}
+    }
 }

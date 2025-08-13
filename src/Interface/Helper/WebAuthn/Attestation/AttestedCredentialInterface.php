@@ -16,7 +16,7 @@ namespace Dotclear\Interface\Helper\WebAuthn\Attestation;
  * attested credential data from authenticator data.
  *
  * @see     https://www.w3.org/TR/webauthn/#sctn-authenticator-data
- * 
+ *
  * @author  Jean-Christian Paul Denis
  * @since   2.36
  */
@@ -46,7 +46,7 @@ interface AttestedCredentialInterface
     /**
      * Get credential ID.
      *
-     * @param   string  The credential ID
+     * @return  string  The credential ID
      */
     public function getCredentialID(): string;
 

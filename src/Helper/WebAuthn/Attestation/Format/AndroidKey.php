@@ -33,7 +33,7 @@ class AndroidKey extends FormatBase implements FormatAndroidKeyInterface
         // check u2f data
         $attStmt = $this->attestation['attStmt'];
 
-        if (!array_key_exists('alg', $attStmt) || $this->_getCoseAlgorithm($attStmt['alg']) === null) {
+        if (!array_key_exists('alg', $attStmt) || is_null($this->_getCoseAlgorithm($attStmt['alg']))) {
             throw new AttestationException(sprintf('unsupported alg: %s', $attStmt['alg']));
         }
 
@@ -53,11 +53,12 @@ class AndroidKey extends FormatBase implements FormatAndroidKeyInterface
         $this->_signature = $attStmt['sig']->getBinaryString();
         $this->_x5c       = $attStmt['x5c'][0]->getBinaryString();
 
-        if (count($attStmt['x5c']) > 1) {
-            for ($i=1; $i<count($attStmt['x5c']); $i++) {
+        $counter = count($attStmt['x5c']);
+        if ($counter > 1) {
+            for ($i = 1; $i < $counter; $i++) {
                 $this->_x5c_chain[] = $attStmt['x5c'][$i]->getBinaryString();
             }
-            unset ($i);
+            unset($i);
         }
     }
 

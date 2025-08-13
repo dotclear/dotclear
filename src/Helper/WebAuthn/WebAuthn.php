@@ -2,7 +2,7 @@
 
 /**
  * @package     Dotclear
- *    
+ *
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
@@ -15,6 +15,7 @@ use Dotclear\Helper\WebAuthn\Exception\AttestationException;
 use Dotclear\Helper\WebAuthn\Exception\AuthenticatorException;
 use Dotclear\Helper\WebAuthn\Exception\ClientException;
 use Dotclear\Helper\WebAuthn\Exception\RequirementException;
+use Dotclear\Helper\WebAuthn\Type\AttestationFormatsEnum;
 use Dotclear\Interface\Helper\WebAuthn\Credentials\Option\OptionInterface;
 use Dotclear\Helper\WebAuthn\Type\CredentialMethodEnum;
 use stdClass;
@@ -22,7 +23,7 @@ use stdClass;
 /**
  * @brief   WebAuthn main class.
  *
- * This group of webauthn class is inspired from work by 
+ * This group of webauthn class is inspired from work by
  * Lukas Buchs https://github.com/lbuchs/WebAuthn under MIT license
  *
  * @author  Jean-Christian Paul Denis
@@ -33,16 +34,15 @@ class WebAuthn extends WebAuthnContainer
     /**
      * Required check for Compatibility Testing Suite (CTS) for Android-SafetyNet.
      *
-     * (google approuved key)
-     *
-     * @var     bool    $require_cts_profile_match
+     * (google approved key)
      */
     public bool $require_cts_profile_match = true;
 
     /**
      * Initialize a new WebAuthn server.
      */
-    public function __construct() {
+    public function __construct()
+    {
         // Load container
         parent::__construct();
 
@@ -96,7 +96,7 @@ class WebAuthn extends WebAuthnContainer
         $arguments = new stdClass();
 
         // Load all services that inherit OptionInterface
-        foreach($this->factory->dump() as $interface => $service) {
+        foreach ($this->factory->dump() as $interface => $service) {
             if (is_subclass_of($service, OptionInterface::class)) { // @phpstan-ignore-line
                 $this->publicKey()->addOption($this->get($interface));
             }
@@ -140,7 +140,7 @@ class WebAuthn extends WebAuthnContainer
             throw new ClientException('invalid origin');
         }
 
-        $this->attestation()->fromResponse($attestation, array_map(fn ($case): string => $case->value, $this->attestationFormatsOption()->formats()));
+        $this->attestation()->fromResponse($attestation, array_map(fn (AttestationFormatsEnum $case): string => $case->value, $this->attestationFormatsOption()->formats()));
 
         if (!$this->attestation()->validateRpIdHash($this->rpOption()->hash())) {
             throw new AttestationException('invalid rpId hash');
@@ -151,17 +151,13 @@ class WebAuthn extends WebAuthnContainer
         }
 
         // Android-SafetyNet: if required, check for Compatibility Testing Suite (CTS).
-        if ($this->require_cts_profile_match && $this->attestation()->getAttestationFormat() instanceof AndroidSafetyNet) {
-            if (!$this->attestation()->getAttestationFormat()->ctsProfileMatch()) {
-                 throw new AttestationException('invalid ctsProfileMatch: device is not approved as a Google-certified Android device.');
-            }
+        if ($this->require_cts_profile_match && $this->attestation()->getAttestationFormat() instanceof AndroidSafetyNet && !$this->attestation()->getAttestationFormat()->ctsProfileMatch()) {
+            throw new AttestationException('invalid ctsProfileMatch: device is not approved as a Google-certified Android device.');
         }
 
         // If validation is successful, obtain a list of acceptable trust anchors
-        if ($this->certificates()->checkRequested()) {
-            if ($this->attestation()->validateRootCertificate($this->certificates()->getCertificates()) === false) {
-                throw new AttestationException('invalid root certificate');
-            }
+        if ($this->certificates()->checkRequested() && $this->attestation()->validateRootCertificate($this->certificates()->getCertificates()) === false) {
+            throw new AttestationException('invalid root certificate');
         }
 
         // 14. Verify that the User Present bit of the flags in authData is set.
@@ -247,10 +243,8 @@ class WebAuthn extends WebAuthnContainer
             }
 
             // 17. If either of the signature counter value authData.signCount or previous signature count is nonzero, and if authData.signCount less than or equal to previous signature count, it's a signal that the authenticator may be cloned
-            if ($credential->signatureCounter() !== 0 || $this->authenticator()->getSignCount() !== 0) {
-                if ($credential->signatureCounter() >= $this->authenticator()->getSignCount()) {
-                    throw new AuthenticatorException('invalid signature counter');
-                }
+            if (($credential->signatureCounter() !== 0 || $this->authenticator()->getSignCount() !== 0) && $credential->signatureCounter() >= $this->authenticator()->getSignCount()) {
+                throw new AuthenticatorException('invalid signature counter');
             }
 
             $user_id = $user;
@@ -265,7 +259,7 @@ class WebAuthn extends WebAuthnContainer
      * @param   string  $authenticator  The authenticatorData binary from browser
      * @param   string  $hash           The hash of clientDataJSON binary from browser
      * @param   string  $signature      The signature binary from browser
-     * @param   string  $public_key     The (PEM format) credential public key 
+     * @param   string  $public_key     The (PEM format) credential public key
      *
      * @return  bool    True on success
      */
@@ -292,7 +286,7 @@ class WebAuthn extends WebAuthnContainer
                 // [...]     = 32 byte x-curve
                 $prefix = "\x30\x2a\x30\x05\x06\x03\x2b\x65\x70\x03\x21\x00";
 
-                if ($raw && strlen($raw) === 44 && substr($raw, 0, strlen($prefix)) === $prefix) {
+                if ($raw && strlen($raw) === 44 && str_starts_with($raw, $prefix)) {
                     $xcurve = substr($raw, strlen($prefix));
 
                     return sodium_crypto_sign_verify_detached($signature ?: '_', $data, $xcurve ?: '_');

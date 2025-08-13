@@ -2,7 +2,7 @@
 
 /**
  * @package     Dotclear
- *    
+ *
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
@@ -25,14 +25,12 @@ class AttestationOption implements AttestationOptionInterface
 {
     /**
      * The attestation type.
-     *
-     * @var     AttestationEnum   $attestation
      */
     protected AttestationEnum $attestation;
 
     public function configure(array $config = []): self //array $formats = [], ?array $certificats = null): self
     {
-        $this->attestation = isset($config['attestation']) && is_a($config['attestation'], AttestationEnum::class) ? 
+        $this->attestation = isset($config['attestation']) && is_a($config['attestation'], AttestationEnum::class) ?
             $config['attestation'] : AttestationEnum::NONE;
 
         return $this;

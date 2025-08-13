@@ -2,7 +2,7 @@
 
 /**
  * @package     Dotclear
- *    
+ *
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
@@ -25,19 +25,17 @@ use Dotclear\Interface\Helper\WebAuthn\Data\StoreInterface;
  */
 class Provider implements ProviderInterface
 {
-	/**
-	 * The passkey providers source list URL.
-	 *
-	 * @var 	string 	$url
-	 */
-	protected string $url = 'https://raw.githubusercontent.com/passkeydeveloper/passkey-authenticator-aaguids/refs/heads/main/combined_aaguid.json';
+    /**
+     * The passkey providers source list URL.
+     */
+    protected string $url = 'https://raw.githubusercontent.com/passkeydeveloper/passkey-authenticator-aaguids/refs/heads/main/combined_aaguid.json';
 
-	/**
-	 * The passkey providers stack.
-	 *
-	 * @var 	array<string,string> 	stack
-	 */
-	protected array $stack = [];
+    /**
+     * The passkey providers stack.
+     *
+     * @var 	array<string,string> 	stack
+     */
+    protected array $stack = [];
 
     /**
      * Load services from container.
@@ -47,12 +45,12 @@ class Provider implements ProviderInterface
     public function __construct(
         protected StoreInterface $store,
     ) {
-    	$this->stack = $this->store->getProviders();
+        $this->stack = $this->store->getProviders();
     }
 
     public function setURL(string $url): void
     {
-    	$this->url = $url;
+        $this->url = $url;
     }
 
     public function getProvider(string $uuid): string
@@ -66,17 +64,17 @@ class Provider implements ProviderInterface
 
     public function updateProviders(): void
     {
-    	$this->stack = [];
+        $this->stack = [];
 
         $content = (string) HttpClient::quickGet($this->url);
-    	$data    = json_decode($content, true);
+        $data    = json_decode($content, true);
         if (empty($data) || !is_array($data)) {
             throw new StoreException('Failed to get passkey providers list');
         }
-        foreach($data as $uuid => $entry) {
+        foreach ($data as $uuid => $entry) {
             $this->stack[$uuid] = $entry['name'];
         }
 
-    	$this->store->setProviders($this->stack);
+        $this->store->setProviders($this->stack);
     }
 }

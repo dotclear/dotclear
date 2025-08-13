@@ -2,7 +2,7 @@
 
 /**
  * @package     Dotclear
- *    
+ *
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
@@ -14,6 +14,7 @@ use Dotclear\Helper\WebAuthn\Exception\ByteBufferException;
 use Dotclear\Interface\Helper\WebAuthn\Util\ByteBufferInterface;
 use JsonSerializable;
 use Serializable;
+use Stringable;
 
 /**
  * @brief   WebAuthn byte buffer handler.
@@ -26,21 +27,17 @@ use Serializable;
  * @author  Jean-Christian Paul Denis
  * @since   2.36
  */
-class ByteBuffer implements JsonSerializable, Serializable, ByteBufferInterface
+class ByteBuffer implements JsonSerializable, Serializable, ByteBufferInterface, Stringable
 {
     /**
      * Use base 64 URL encoding.
-     *
-     * @var     bool    $useBase64UrlEncoding
      */
     public static bool $useBase64UrlEncoding = false;
 
     /**
      * The binary string length.
-     *
-     * @var     int     $length
      */
-    private $length;
+    private int $length;
 
     /**
      * Create a new byte buffer instance.
@@ -73,13 +70,11 @@ class ByteBuffer implements JsonSerializable, Serializable, ByteBufferInterface
     /**
      * Create a ByteBuffer from a base64 url encoded string.
      *
-     * @param   string  $base64url
-     *
      * @return  ByteBuffer
      */
     public static function fromBase64Url(string $base64url): ByteBufferInterface
     {
-        $bin = (string) base64_decode(strtr($base64url, '-_', '+/') . str_repeat('=', 3 - (3 + strlen($base64url)) % 4));
+        $bin = base64_decode(strtr($base64url, '-_', '+/') . str_repeat('=', 3 - (3 + strlen($base64url)) % 4));
         if ($bin === '') {
             throw new ByteBufferException('Invalid base64 url string');
         }
@@ -90,8 +85,6 @@ class ByteBuffer implements JsonSerializable, Serializable, ByteBufferInterface
     /**
      * Create a ByteBuffer from a base64 url encoded string.
      *
-     * @param   string  $hex
-     *
      * @return  ByteBuffer
      */
     public static function fromHex(string $hex): ByteBufferInterface
@@ -100,23 +93,20 @@ class ByteBuffer implements JsonSerializable, Serializable, ByteBufferInterface
         if ($bin === false) {
             throw new ByteBufferException('Invalid hex string');
         }
+
         return new ByteBuffer($bin);
     }
 
     /**
      * Create a random ByteBuffer.
      *
-     * @param   int     $length
-     *
      * @return  ByteBuffer
      */
     public static function randomBuffer(int $length): ByteBufferInterface
     {
         if (function_exists('random_bytes')) {
-
             return new ByteBuffer(random_bytes($length < 1 ? 32 : $length));
-        } else if (function_exists('openssl_random_pseudo_bytes')) {
-
+        } elseif (function_exists('openssl_random_pseudo_bytes')) {
             return new ByteBuffer(openssl_random_pseudo_bytes($length));
         }
 
@@ -137,6 +127,7 @@ class ByteBuffer implements JsonSerializable, Serializable, ByteBufferInterface
         if ($offset < 0 || $offset >= $this->length) {
             throw new ByteBufferException('Invalid offset');
         }
+
         return ord(substr($this->data, $offset, 1));
     }
 
@@ -208,8 +199,8 @@ class ByteBuffer implements JsonSerializable, Serializable, ByteBufferInterface
         //FROM spec pseudo decode_half(unsigned char *halfp)
         $half = $this->getUint16Val($offset);
 
-        $exp = ($half >> 10) & 0x1f;
-        $mant = $half & 0x3ff;
+        $exp  = ($half >> 10) & 0x1f;
+        $mant = $half         & 0x3ff;
 
         if ($exp === 0) {
             $val = $mant * (2 ** -24);
@@ -219,7 +210,7 @@ class ByteBuffer implements JsonSerializable, Serializable, ByteBufferInterface
             $val = ($mant === 0) ? INF : NAN;
         }
 
-        return ($half & 0x8000) ? -$val : $val;
+        return (($half & 0x8000) !== 0) ? -$val : $val;
     }
 
     public function getFloatVal(int $offset): float
@@ -227,7 +218,7 @@ class ByteBuffer implements JsonSerializable, Serializable, ByteBufferInterface
         if ($offset < 0 || ($offset + 4) > $this->length) {
             throw new ByteBufferException('Invalid offset');
         }
-        
+
         $val = unpack('G', $this->data, $offset);
         if (!isset($val[1])) {
             throw new ByteBufferException('Invalid offset');
@@ -271,7 +262,7 @@ class ByteBuffer implements JsonSerializable, Serializable, ByteBufferInterface
     {
         $s = str_split(bin2hex($this->data), 4);
 
-        return vsprintf('%s-%s-%s-%s-%s', [$s[0].$s[1], $s[2], $s[3], $s[4], $s[5].$s[6].$s[7]]);
+        return vsprintf('%s-%s-%s-%s-%s', [$s[0] . $s[1], $s[2], $s[3], $s[4], $s[5] . $s[6] . $s[7]]);
     }
 
     public function isEmpty(): bool
@@ -283,10 +274,9 @@ class ByteBuffer implements JsonSerializable, Serializable, ByteBufferInterface
     {
         if (ByteBuffer::$useBase64UrlEncoding) {
             return rtrim(strtr(base64_encode($this->data), '+/', '-_'), '=');
-
-        } else {
-            return '=?BINARY?B?' . base64_encode($this->data) . '?=';
         }
+
+        return '=?BINARY?B?' . base64_encode($this->data) . '?=';
     }
 
     public function serialize(): string
@@ -308,14 +298,12 @@ class ByteBuffer implements JsonSerializable, Serializable, ByteBufferInterface
     public function __serialize(): array
     {
         return [
-            'data' => serialize($this->data)
+            'data' => serialize($this->data),
         ];
     }
 
     /**
      * object to string
-     *
-     * @return string
      */
     public function __toString(): string
     {
@@ -326,7 +314,6 @@ class ByteBuffer implements JsonSerializable, Serializable, ByteBufferInterface
      * (PHP 8 deprecates Serializable-Interface)
      *
      * @param array<string,string>  $data
-     * @return void
      */
     public function __unserialize(array $data): void
     {

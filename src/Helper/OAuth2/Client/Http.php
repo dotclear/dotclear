@@ -2,7 +2,7 @@
 
 /**
  * @package     Dotclear
- *    
+ *
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
@@ -84,7 +84,7 @@ class Http
 
         $this->headers = [];
         $options       = array_replace($this->curl_opt, [
-            CURLOPT_URL            => $url . (strpos($url, '?') === false ? '?' : '&') . (is_string($parameters) ? $parameters : http_build_query($parameters, '', '&')),
+            CURLOPT_URL            => $url . (str_contains($url, '?') ? '&' : '?') . (is_string($parameters) ? $parameters : http_build_query($parameters, '', '&')),
             CURLOPT_CUSTOMREQUEST  => $method->name,
             CURLOPT_HTTPHEADER     => $this->linearizeHeaders($headers),
             CURLOPT_HEADERFUNCTION => $this->parseHeaders(...),

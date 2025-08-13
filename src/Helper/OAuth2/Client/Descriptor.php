@@ -2,7 +2,7 @@
 
 /**
  * @package     Dotclear
- *    
+ *
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
@@ -57,7 +57,7 @@ abstract class Descriptor
         foreach ($properties as $key => $value) {
             if (isset($config[$key]) && gettype($config[$key]) === gettype($value)) {
                 $properties[$key] = $config[$key];
-            } elseif(in_array($key, static::REQUIREMENTS)) {
+            } elseif (in_array($key, static::REQUIREMENTS)) {
                 throw new Exception\InvalidClient($key);
             }
         }
@@ -82,7 +82,7 @@ abstract class Descriptor
      */
     public function isConfigured(): bool
     {
-        foreach(static::MUSTFILLED as $key) {
+        foreach (static::MUSTFILLED as $key) {
             if (empty($this->get($key))) {
                 return false;
             }

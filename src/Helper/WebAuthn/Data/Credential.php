@@ -2,7 +2,7 @@
 
 /**
  * @package     Dotclear
- *    
+ *
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
@@ -52,20 +52,20 @@ class Credential implements CredentialInterface
     public function fromArray(array $res): void
     {
         $this->data = [
-            'createDate'          => $res['createDate'] ?? date('Y-m-d H:i:s'),
-            'attestationFormat'   => $res['attestationFormat'] ?? '',
-            'credentialId'        => $res['credentialId'] ?? '',
+            'createDate'          => $res['createDate']          ?? date('Y-m-d H:i:s'),
+            'attestationFormat'   => $res['attestationFormat']   ?? '',
+            'credentialId'        => $res['credentialId']        ?? '',
             'credentialPublicKey' => $res['credentialPublicKey'] ?? '',
-            'certificateChain'    => $res['certificateChain'] ?? '',
-            'certificate'         => $res['certificate'] ?? '',
-            'certificateIssuer'   => $res['certificateIssuer'] ?? '',
-            'certificateSubject'  => $res['certificateSubject'] ?? '',
-            'signatureCounter'    => $res['signatureCounter'] ?? '',
-            'AAGUID'              => $res['AAGUID'] ?? '',
-            'userPresent'         => $res['userPresent'] ?? '',
-            'userVerified'        => $res['userVerified'] ?? '',
-            'isBackupEligible'    => $res['isBackupEligible'] ?? '',
-            'isBackedUp'          => $res['isBackedUp'] ?? '',
+            'certificateChain'    => $res['certificateChain']    ?? '',
+            'certificate'         => $res['certificate']         ?? '',
+            'certificateIssuer'   => $res['certificateIssuer']   ?? '',
+            'certificateSubject'  => $res['certificateSubject']  ?? '',
+            'signatureCounter'    => $res['signatureCounter']    ?? '',
+            'AAGUID'              => $res['AAGUID']              ?? '',
+            'userPresent'         => $res['userPresent']         ?? '',
+            'userVerified'        => $res['userVerified']        ?? '',
+            'isBackupEligible'    => $res['isBackupEligible']    ?? '',
+            'isBackedUp'          => $res['isBackedUp']          ?? '',
         ];
     }
 
@@ -78,7 +78,7 @@ class Credential implements CredentialInterface
     {
         // Need to clone instance to get uniq data for records, see Store::getCredentials()
         $clone = clone $this;
-        $data = json_decode($data, true);
+        $data  = json_decode($data, true);
         $clone->fromArray(array_map(fn ($v): string => base64_decode((string) $v), is_array($data) ? $data : []));
 
         return $clone;
@@ -138,7 +138,7 @@ class Credential implements CredentialInterface
     {
         $s = str_split(bin2hex($this->AAGUID()), 4);
 
-        return vsprintf('%s-%s-%s-%s-%s', [$s[0].$s[1], $s[2], $s[3], $s[4], $s[5].$s[6].$s[7]]);
+        return vsprintf('%s-%s-%s-%s-%s', [$s[0] . $s[1], $s[2], $s[3], $s[4], $s[5] . $s[6] . $s[7]]);
     }
 
     public function userPresent(): bool

@@ -141,6 +141,8 @@ class Config implements ConfigInterface
     private readonly bool $has_config;
     private readonly bool $dotclear_migrate;
     private readonly int $media_update_db_limit;
+    private readonly string $oauth2_path;
+    private readonly bool $has_oauth2;
 
     /**
      * Constructor.

@@ -32,33 +32,23 @@ interface FormatBaseInterface
 
     /**
      * Returns the certificate chain in PEM format.
-     *
-     * @return  string
      */
     public function getCertificateChain(): string;
 
     /**
      * Returns the key X.509 certificate in PEM format.
-     *
-     * @return  string
      */
     public function getCertificatePem(): string;
 
     /**
      * Checks validity of the signature.
-     *
-     * @param   string  $clientDataHash
-     *
-     * @return  bool
      */
-    public function validateAttestation(string $clientDataHash):bool;
+    public function validateAttestation(string $clientDataHash): bool;
 
     /**
      * Validates the certificate against root certificates.
      *
      * @param   string[]    $rootCas
-     *
-     * @return  bool
      */
     public function validateRootCertificate(array $rootCas): bool;
 }

@@ -28,7 +28,6 @@ use Dotclear\Helper\TraitDynamicProperties;
 use Dotclear\Exception\ContextException;
 use Dotclear\Exception\PreconditionException;
 use Dotclear\Exception\SessionException;
-use Throwable;
 
 /**
  * Utility class for admin context.

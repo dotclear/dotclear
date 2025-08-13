@@ -2,7 +2,7 @@
 
 /**
  * @package     Dotclear
- *    
+ *
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
@@ -52,7 +52,7 @@ class Scope
             $scope = $this->toArray($scope, $this->scope);
         }
 
-        foreach($scope as $check) {
+        foreach ($scope as $check) {
             if (!in_array($check, $this->scope)) {
                 return false;
             }
@@ -74,7 +74,7 @@ class Scope
             $scope = $this->toArray($scope, $this->scope);
         }
 
-        foreach($this->scope as $check) {
+        foreach ($this->scope as $check) {
             if (!in_array($check, $scope)) {
                 return false;
             }

@@ -22,7 +22,7 @@ use Dotclear\Interface\Helper\WebAuthn\Util\ByteBufferInterface;
  */
 class Tpm extends FormatBase implements FormatTpmInterface
 {
-    private string $_TPM_GENERATED_VALUE = "\xFF\x54\x43\x47";
+    private string $_TPM_GENERATED_VALUE   = "\xFF\x54\x43\x47";
     private string $_TPM_ST_ATTEST_CERTIFY = "\x80\x17";
     private int $_alg;
     private string $_signature;
@@ -32,7 +32,6 @@ class Tpm extends FormatBase implements FormatTpmInterface
     public function __construct(
         protected ByteBufferInterface $buffer
     ) {
-
     }
 
     public function initFormat(array $attestation): void
@@ -46,7 +45,7 @@ class Tpm extends FormatBase implements FormatTpmInterface
             throw new AttestationException(sprintf('invalid tpm version: %s', $attStmt['ver']));
         }
 
-        if (!array_key_exists('alg', $attStmt) || $this->_getCoseAlgorithm($attStmt['alg']) === null) {
+        if (!array_key_exists('alg', $attStmt) || is_null($this->_getCoseAlgorithm($attStmt['alg']))) {
             throw new AttestationException(sprintf('unsupported alg: %s', $attStmt['alg']));
         }
 
@@ -68,7 +67,6 @@ class Tpm extends FormatBase implements FormatTpmInterface
 
         // certificate for validation
         if (array_key_exists('x5c', $attStmt) && is_array($attStmt['x5c']) && count($attStmt['x5c']) > 0) {
-
             // The attestation certificate attestnCert MUST be the first element in the array
             $attestnCert = array_shift($attStmt['x5c']);
 
@@ -84,7 +82,6 @@ class Tpm extends FormatBase implements FormatTpmInterface
                     $this->_x5c_chain[] = $chain->getBinaryString();
                 }
             }
-
         } else {
             throw new AttestationException('no x5c certificate found');
         }
@@ -92,7 +89,7 @@ class Tpm extends FormatBase implements FormatTpmInterface
 
     public function getCertificatePem(): string
     {
-        if (!$this->_x5c) {
+        if ($this->_x5c === '') {
             return '';
         }
 
@@ -106,7 +103,7 @@ class Tpm extends FormatBase implements FormatTpmInterface
 
     public function validateRootCertificate(array $rootCas): bool
     {
-        if (!$this->_x5c) {
+        if ($this->_x5c === '') {
             return false;
         }
 
@@ -125,10 +122,6 @@ class Tpm extends FormatBase implements FormatTpmInterface
 
     /**
      * Validate if x5c is present.
-     *
-     * @param   string  $clientDataHash
-     *
-     * @return  bool
      */
     protected function _validateOverX5c(string $clientDataHash): bool
     {
@@ -155,9 +148,9 @@ class Tpm extends FormatBase implements FormatTpmInterface
         }
 
         $offset = 6;
-        $qualifiedSigner = $this->_tpmReadLengthPrefixed($this->_certInfo, $offset);
+        $this->_tpmReadLengthPrefixed($this->_certInfo, $offset);
         $extraData = $this->_tpmReadLengthPrefixed($this->_certInfo, $offset);
-        $coseAlg = $this->_getCoseAlgorithm($this->_alg);
+        $coseAlg   = $this->_getCoseAlgorithm($this->_alg);
 
         // Verify that extraData is set to the hash of attToBeSigned using the hash algorithm employed in "alg".
         if ($extraData->getBinaryString() !== hash($coseAlg->hash ?? '', $attToBeSigned, true)) {
@@ -169,22 +162,15 @@ class Tpm extends FormatBase implements FormatTpmInterface
         return openssl_verify($this->_certInfo->getBinaryString(), $this->_signature, $publicKey, $coseAlg->openssl ?? 0) === 1;
     }
 
-
     /**
      * Returns next part of ByteBuffer.
-     *
-     * @param   ByteBufferInterface  $buffer
-     * @param   int         $offset
-     *
-     * @return  ByteBufferInterface
      */
     protected function _tpmReadLengthPrefixed(ByteBufferInterface $buffer, int &$offset): ByteBufferInterface
     {
-        $len    = (int) $buffer->getUint16Val($offset);
-        $data   = $buffer->getBytes($offset + 2, $len);
+        $len  = $buffer->getUint16Val($offset);
+        $data = $buffer->getBytes($offset + 2, $len);
         $offset += (2 + $len);
 
         return $this->buffer->fromBinary($data);
     }
-
 }

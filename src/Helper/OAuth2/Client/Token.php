@@ -2,7 +2,7 @@
 
 /**
  * @package     Dotclear
- *    
+ *
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
@@ -48,6 +48,6 @@ class Token extends Descriptor
      */
     public static function convertToTime(int $expires_in = 0): int
     {
-        return $expires_in ? $expires_in + time() : 0;
+        return $expires_in !== 0 ? $expires_in + time() : 0;
     }
 }

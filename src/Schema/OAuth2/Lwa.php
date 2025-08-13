@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Schema\OAuth2;
 
-use Dotclear\Helper\OAuth2\Client\{ GrantTypes, Methods, Provider, Token, User };
+use Dotclear\Helper\OAuth2\Client\{Methods, Provider, Token, User };
 
 /**
  * @brief   Lwa (Login With Amazon) oAuth2 client provider class.
@@ -34,10 +34,11 @@ class Lwa extends Provider
     public const DEFAULT_SCOPE        = ['profile'];
     public const REQUIRE_CHALLENGE    = true;
 
-
-    protected function getAccessTokenParameters(string $code): string|array
+    protected function getAccessTokenParameters(string $code): string
     {
-        return (string) http_build_query(parent::getAccessTokenParameters($code));
+        $parameters = parent::getAccessTokenParameters($code);
+
+        return http_build_query(is_array($parameters) ? $parameters : [$parameters]);
     }
 
     protected function getAccessTokenHeaders(string $code): array

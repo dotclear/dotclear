@@ -2,7 +2,7 @@
 
 /**
  * @package     Dotclear
- *    
+ *
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
@@ -42,7 +42,7 @@ class AttestationFormatsOption implements AttestationFormatsOptionInterface
     public function configure(array $config = []): self
     {
         if (isset($config['formats']) && is_array($config['formats'])) {
-            foreach($config['formats'] as $format) {
+            foreach ($config['formats'] as $format) {
                 if (is_a($format, AttestationFormatsEnum::class)) {
                     $this->formats[] = $format;
                 }
@@ -64,7 +64,7 @@ class AttestationFormatsOption implements AttestationFormatsOptionInterface
     public function parseCredentialTypeOptions(CredentialMethodEnum $method, stdClass $arguments): void
     {
         if ($method === CredentialMethodEnum::CREATE) {
-            $arguments->attestationFormats = array_map(fn ($v): string => $v->value, $this->formats);
+            $arguments->attestationFormats = array_map(fn (AttestationFormatsEnum $v): string => $v->value, $this->formats);
         }
     }
 }

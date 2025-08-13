@@ -2,7 +2,7 @@
 
 /**
  * @package     Dotclear
- *    
+ *
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
@@ -15,7 +15,7 @@ namespace Dotclear\Interface\Helper\WebAuthn\Data;
  *
  * Methods are used to follow some rules from
  * https://www.w3.org/TR/webauthn/#sctn-registering-a-new-credential
- * 
+ *
  * @author  Jean-Christian Paul Denis
  * @since   2.36
  */
@@ -43,8 +43,6 @@ interface ClientInterface
      * Add key hash for android verification.
      *
      * Required for 19. Verify that attStmt is a correct attestation statement, conveying a valid attestation signature
-     *
-     * @param   string    $hash
      */
     public function addAndroidKeyHash(string $hash): void;
 

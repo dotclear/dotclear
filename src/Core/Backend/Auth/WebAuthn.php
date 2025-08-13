@@ -2,7 +2,7 @@
 
 /**
  * @package     Dotclear
- *    
+ *
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
@@ -34,7 +34,7 @@ class WebAuthn extends Wan
     /**
      * Create backend WebAuthn instance.
      */
-	public function __construct()
+    public function __construct()
     {
         // Replace WebAuthn Store interface
         Factories::addService('webauthn', StoreInterface::class, WebAuthnStore::class);
@@ -47,7 +47,7 @@ class WebAuthn extends Wan
         // Prepare backend values
         $this->store()->getRelyingParty();
         $this->store()->getUser();
-	}
+    }
 
     /**
      * Prepare passkey registration, step 1 of registration flow.
@@ -59,7 +59,7 @@ class WebAuthn extends Wan
         // We use webauthn to login user, so we need the following parameters
         $this->authenticatorSelectionOption()->configure([
             'resident_key'             => ResidentKeyEnum::REQUIRED, // required resident key as it is used to auth user
-            'user_verification'        => UserVerificationEnum::PREFERRED, // preferred user verification 
+            'user_verification'        => UserVerificationEnum::PREFERRED, // preferred user verification
             'authenticator_attachment' => AuthenticatorAttachmentEnum::CROSSPLATFORM, // allow usb key
         ]);
 
@@ -67,13 +67,13 @@ class WebAuthn extends Wan
         $this->attestationOption()->configure([
             'attestation' => AttestationEnum::INDIRECT,
         ]);
-        
+
         return $this->prepareCredentialsOptions(CredentialMethodEnum::CREATE);
     }
 
     /**
      * Process passkey registration, step 2 of registration flow.
-     */  
+     */
     public function processCreate(string $client, string $attestation, string $transports): bool
     {
         // same as above

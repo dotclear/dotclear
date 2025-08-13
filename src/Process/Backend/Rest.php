@@ -952,7 +952,7 @@ class Rest extends Process
     }
 
     /**
-     * REST method to register passkey using webauthn. 
+     * REST method to register passkey using webauthn.
      *
      * @param      array<string, string>     $get    The get
      * @param      array<string, string>     $post   The post
@@ -991,7 +991,7 @@ class Rest extends Process
     }
 
     /**
-     * REST method to authenticate user using webauthn. 
+     * REST method to authenticate user using webauthn.
      *
      * @param      array<string, string>     $get    The get
      * @param      array<string, string>     $post   The post
@@ -1017,12 +1017,12 @@ class Rest extends Process
                 $data = $webauthn->processGet(
                     $webauthn->store()->decodeValue($post['id'] ?? ''),
                     $webauthn->store()->decodeValue($post['client'] ?? ''),
-                    $webauthn->store()->decodeValue($post['authenticator']?? ''),
+                    $webauthn->store()->decodeValue($post['authenticator'] ?? ''),
                     $webauthn->store()->decodeValue($post['signature'] ?? ''),
                     $webauthn->store()->decodeValue($post['user'] ?? '')
                 );
 
-                if ($data != ''
+                if ($data !== ''
                     && App::auth()->checkUser($data, null, null, false)
                     && App::auth()->findUserBlog() !== false
                 ) {
@@ -1033,12 +1033,12 @@ class Rest extends Process
                     return [
                         'message' => 'user found',
                     ];
-                } else {
-                    return [
-                        'success' => false,
-                        'message' => __('This key is not registered'),
-                    ];
                 }
+
+                return [
+                    'success' => false,
+                    'message' => __('This key is not registered'),
+                ];
 
             default:
                 throw new Exception('unknown step');

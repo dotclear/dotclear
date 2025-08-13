@@ -42,7 +42,7 @@ class Auth0Connect extends Provider
         ];
     }
 
-    protected function getAccessTokenParameters(string $code): string|array
+    protected function getAccessTokenParameters(string $code): string
     {
         return (string) json_encode(parent::getAccessTokenParameters($code));
     }
@@ -54,7 +54,7 @@ class Auth0Connect extends Provider
         ];
     }
 
-    protected function getRevokeTokenParameters(Token $token): string|array
+    protected function getRevokeTokenParameters(Token $token): string
     {
         return (string) json_encode([
             'client_id'     => $this->consumer->get('key'),
@@ -69,7 +69,7 @@ class Auth0Connect extends Provider
             'uid'         => 'sub',
             'displayname' => 'nickname',
             'email'       => 'email',
-            'avatar'      => 'picture'
+            'avatar'      => 'picture',
         ]);
     }
 }

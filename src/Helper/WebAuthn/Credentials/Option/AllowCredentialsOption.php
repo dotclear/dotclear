@@ -2,7 +2,7 @@
 
 /**
  * @package     Dotclear
- *    
+ *
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
@@ -64,10 +64,10 @@ class AllowCredentialsOption implements AllowCredentialsOptionInterface
             $arguments->allowCredentials = [];
 
             foreach ($this->credentials as $id) {
-                $tmp = new stdClass();
-                $tmp->id = $this->buffer->fromBinary($id);
-                $tmp->type = TypeEnum::PUBLICKEY->value; // only public-key is supported
-                $tmp->transports = TransportsEnum::values();
+                $tmp                             = new stdClass();
+                $tmp->id                         = $this->buffer->fromBinary($id);
+                $tmp->type                       = TypeEnum::PUBLICKEY->value; // only public-key is supported
+                $tmp->transports                 = TransportsEnum::values();
                 $arguments->excludeCredentials[] = $tmp;
             }
         }

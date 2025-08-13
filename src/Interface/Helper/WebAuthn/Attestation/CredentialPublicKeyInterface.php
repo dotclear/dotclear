@@ -16,7 +16,7 @@ namespace Dotclear\Interface\Helper\WebAuthn\Attestation;
  * from attested credential data from authenticator data.
  *
  * @see     https://www.w3.org/TR/webauthn/#sctn-authenticator-data
- * 
+ *
  * @author  Jean-Christian Paul Denis
  * @since   2.36
  */
@@ -33,15 +33,11 @@ interface CredentialPublicKeyInterface
 
     /**
      * Get public key in PEM format.
-     *
-     * @return  string
      */
     public function getPem(): string;
 
     /**
      * Get public key in U2F format.
-     *
-     * @return  string
      */
     public function getU2F(): string;
 }

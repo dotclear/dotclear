@@ -2,7 +2,7 @@
 
 /**
  * @package     Dotclear
- *    
+ *
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
@@ -57,7 +57,7 @@ class PubKeyCredParamsOption implements PubKeyCredParamsOptionInterface
     {
         if ($method === CredentialMethodEnum::CREATE) {
             $params = [];
-            foreach($this->params as $algo) {
+            foreach ($this->params as $algo) {
                 $tmp       = new stdClass();
                 $tmp->type = TypeEnum::PUBLICKEY->value;
                 $tmp->alg  = $algo->value;

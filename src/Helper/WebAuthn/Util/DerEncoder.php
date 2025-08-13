@@ -2,7 +2,7 @@
 
 /**
  * @package     Dotclear
- *    
+ *
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
@@ -65,7 +65,7 @@ class DerEncoder implements DerEncoderInterface
         $lenBytes = '';
         while ($len > 0) {
             $lenBytes = chr($len % 256) . $lenBytes;
-            $len = intdiv($len, 256);
+            $len      = intdiv($len, 256);
         }
 
         return chr(0x80 | strlen($lenBytes)) . $lenBytes;

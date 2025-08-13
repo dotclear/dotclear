@@ -48,7 +48,7 @@ class AndroidSafetyNet extends FormatBase implements FormatAndroidSafetyNetInter
         // Response is a JWS [RFC7515] object in Compact Serialization.
         // JWSs have three segments separated by two period ('.') characters
         $parts = explode('.', $response);
-        unset ($response);
+        unset($response);
         if (count($parts) !== 3) {
             throw new AttestationException('invalid JWS data');
         }
@@ -57,9 +57,9 @@ class AndroidSafetyNet extends FormatBase implements FormatAndroidSafetyNetInter
         $payload            = $this->_base64url_decode($parts[1]);
         $this->_signature   = $this->_base64url_decode($parts[2]);
         $this->_signedValue = $parts[0] . '.' . $parts[1];
-        unset ($parts);
+        unset($parts);
 
-        $header = json_decode($header);
+        $header  = json_decode($header);
         $payload = json_decode($payload);
 
         if (!($header instanceof stdClass)) {
@@ -74,18 +74,19 @@ class AndroidSafetyNet extends FormatBase implements FormatAndroidSafetyNetInter
         }
 
         // algorithm
-        if (!in_array($header->alg, array('RS256', 'ES256'))) {
+        if (!in_array($header->alg, ['RS256', 'ES256'])) {
             throw new AttestationException(sprintf('invalid JWS algorithm %s', $header->alg));
         }
 
-        $this->_x5c     = base64_decode($header->x5c[0]);
+        $this->_x5c     = base64_decode((string) $header->x5c[0]);
         $this->_payload = $payload;
 
-        if (count($header->x5c) > 1) {
-            for ($i=1; $i<count($header->x5c); $i++) {
-                $this->_x5c_chain[] = base64_decode($header->x5c[$i]);
+        $counter = count($header->x5c);
+        if ($counter > 1) {
+            for ($i = 1; $i < $counter; $i++) {
+                $this->_x5c_chain[] = base64_decode((string) $header->x5c[$i]);
             }
-            unset ($i);
+            unset($i);
         }
     }
 
@@ -95,12 +96,10 @@ class AndroidSafetyNet extends FormatBase implements FormatAndroidSafetyNetInter
      * If the value of ctsProfileMatch is true, then the profile of the device running your app matches
      * the profile of a device that has passed Android compatibility testing and
      * has been approved as a Google-certified Android device.
-     *
-     * @return bool
      */
     public function ctsProfileMatch(): bool
     {
-        return isset($this->_payload->ctsProfileMatch) ? !!$this->_payload->ctsProfileMatch : false;
+        return isset($this->_payload->ctsProfileMatch) && (bool) $this->_payload->ctsProfileMatch;
     }
 
     public function getCertificatePem(): string
@@ -148,15 +147,10 @@ class AndroidSafetyNet extends FormatBase implements FormatAndroidSafetyNetInter
         return (bool) $v;
     }
 
-
     /**
      * Decode base64 url.
-     *
-     * @param   string $data
-     *
-     * @return  string
      */
-    private function _base64url_decode(string $data):string 
+    private function _base64url_decode(string $data): string
     {
         return base64_decode(strtr($data, '-_', '+/') . str_repeat('=', 3 - (3 + strlen($data)) % 4));
     }

@@ -2,7 +2,7 @@
 
 /**
  * @package     Dotclear
- *    
+ *
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
@@ -22,11 +22,11 @@ enum AttestationFormatsEnum: string
 {
     use EnumTrait;
 
-    case KEY        = 'key';
-    case SAFETYNET  = 'android-safetynet';
-    case APPLE      = 'apple';
-    case FIDO       = 'fido-u2f';
-    case PACKED     = 'packed';
-    case TPM        = 'tpm';
-    case NONE       = 'none';
+    case KEY       = 'key';
+    case SAFETYNET = 'android-safetynet';
+    case APPLE     = 'apple';
+    case FIDO      = 'fido-u2f';
+    case PACKED    = 'packed';
+    case TPM       = 'tpm';
+    case NONE      = 'none';
 }

@@ -33,7 +33,6 @@ class Apple extends FormatBase implements FormatAppleInterface
 
         // certificate for validation
         if (array_key_exists('x5c', $attStmt) && is_array($attStmt['x5c']) && count($attStmt['x5c']) > 0) {
-
             // The attestation certificate attestnCert MUST be the first element in the array
             $attestnCert = array_shift($attStmt['x5c']);
 
@@ -81,10 +80,6 @@ class Apple extends FormatBase implements FormatAppleInterface
 
     /**
      * Validate if x5c is present.
-     *
-     * @param   string  $clientDataHash
-     *
-     * @return  bool
      */
     protected function _validateOverX5c(string $clientDataHash): bool
     {
@@ -110,7 +105,6 @@ class Apple extends FormatBase implements FormatAppleInterface
         $keyData = $pubKey === false ? null : openssl_pkey_get_details($pubKey);
         $key     = is_array($keyData) && array_key_exists('key', $keyData) ? $keyData['key'] : null;
 
-
         // Verify that nonce equals the value of the extension with OID ( 1.2.840.113635.100.8.2 ) in credCert.
         $parsedCredCert = openssl_x509_parse($credCert);
         $nonceExtension = $parsedCredCert['extensions']['1.2.840.113635.100.8.2'] ?? '';
@@ -124,7 +118,7 @@ class Apple extends FormatBase implements FormatAppleInterface
         //     20 — 32 byte following
 
         $asn1Padding = "\x30\x24\xA1\x22\x04\x20";
-        if (substr($nonceExtension, 0, strlen($asn1Padding)) === $asn1Padding) {
+        if (str_starts_with($nonceExtension, $asn1Padding)) {
             $nonceExtension = substr($nonceExtension, strlen($asn1Padding));
         }
 
@@ -133,9 +127,9 @@ class Apple extends FormatBase implements FormatAppleInterface
         }
 
         // Verify that the credential public key equals the Subject Public Key of credCert.
-        $pubKey = openssl_pkey_get_public($this->authenticator->getPublicKeyPem());
+        $pubKey      = openssl_pkey_get_public($this->authenticator->getPublicKeyPem());
         $authKeyData = $pubKey === false ? null : openssl_pkey_get_details($pubKey);
-        $authKey = is_array($authKeyData) && array_key_exists('key', $authKeyData) ? $authKeyData['key'] : null;
+        $authKey     = is_array($authKeyData) && array_key_exists('key', $authKeyData) ? $authKeyData['key'] : null;
 
         if ($key === null || $key !== $authKey) {
             throw new AttestationException('credential public key doesn\'t equal the Subject Public Key of credCert');

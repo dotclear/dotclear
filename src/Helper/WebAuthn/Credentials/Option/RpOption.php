@@ -2,7 +2,7 @@
 
 /**
  * @package     Dotclear
- *    
+ *
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
@@ -24,15 +24,11 @@ class RpOption implements RpOptionInterface
 {
     /**
      * The relying party ID.
-     *
-     * @var     string  $id
      */
     protected string $id;
 
     /**
      * The relying party name (domain).
-     *
-     * @var     string  $name
      */
     protected string $name;
 
@@ -65,7 +61,7 @@ class RpOption implements RpOptionInterface
 
     public function configure(array $config = []): self
     {
-        $this->id   = isset($config['id']) && is_string($config['id']) ? trim($config['id']) : '';
+        $this->id   = isset($config['id'])   && is_string($config['id']) ? trim($config['id']) : '';
         $this->name = isset($config['name']) && is_string($config['name']) ? trim($config['name']) : '';
 
         return $this;

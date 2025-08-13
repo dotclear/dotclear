@@ -11,7 +11,6 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend\Auth;
 
 use Dotclear\App;
-use Dotclear\Database\Statement\{ DeleteStatement, SelectStatement };
 use Dotclear\Helper\Container\{ Factories, Factory };
 use Dotclear\Helper\OAuth2\Client\{ Consumer, Store, Token, User };
 
@@ -25,8 +24,6 @@ class OAuth2Store extends Store
 {
     /**
      * Consumers factory.
-     *
-     * @var     Factory     $consumers
      */
     protected Factory $consumers;
 
@@ -51,7 +48,7 @@ class OAuth2Store extends Store
     public function getToken(string $provider, string $user_id): Token
     {
         $res = [];
-        if ($user_id != '') {
+        if ($user_id !== '') {
             $rs = App::credential()->getCredentials([
                 'credential_type' => $this->getType($provider, true),
                 'credential_id'   => $user_id,
@@ -74,7 +71,7 @@ class OAuth2Store extends Store
         return new Token($res);
     }
 
-    public function setToken(string $provider, string $user_id, ?Token $token= null): void
+    public function setToken(string $provider, string $user_id, ?Token $token = null): void
     {
         $this->delToken($provider, $user_id);
 
@@ -84,7 +81,7 @@ class OAuth2Store extends Store
         $cur->setField('user_id', $user_id);
         $cur->setField('credential_data', json_encode($token?->getConfiguration() ?? []));
 
-        App::credential()->setCredential((string) $user_id, $cur);
+        App::credential()->setCredential($user_id, $cur);
     }
 
     public function delToken(string $provider, string $user_id): void
@@ -126,7 +123,7 @@ class OAuth2Store extends Store
         $cur->setField('user_id', $user_id);
         $cur->setField('credential_data', json_encode(array_merge($user->getConfiguration(), ['user_id' => $user_id])));
 
-        App::credential()->setCredential((string) $user_id, $cur);
+        App::credential()->setCredential($user_id, $cur);
     }
 
     public function delUser(string $provider, string $user_id): void
@@ -136,8 +133,8 @@ class OAuth2Store extends Store
             'user_id'         => $user_id,
         ]);
 
-        while($rs->fetch()) {
-            $res = json_decode($rs->f('credential_data'), true);
+        while ($rs->fetch()) {
+            $res = json_decode((string) $rs->f('credential_data'), true);
             App::credential()->delCredential(
                 $this->getType($provider, false),
                 $res['uid'] ?? ''

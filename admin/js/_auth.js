@@ -40,34 +40,43 @@ dotclear.ready(() => {
 
   // webauthn passkey authentication
   dotclear.webAuthnAuthentication = () => {
-
     // (A) HELPER FUNCTIONS
-    var wanHelper = {
+    const wanHelper = {
       // (A1) ARRAY BUFFER TO BASE 64
-      atb : b => {
-        let u = new Uint8Array(b), s = "";
-        for (let i=0; i<u.byteLength; i++) { s += String.fromCharCode(u[i]); }
+      atb: (b) => {
+        const u = new Uint8Array(b);
+        let s = '';
+        for (let i = 0; i < u.byteLength; i++) {
+          s += String.fromCharCode(u[i]);
+        }
         return btoa(s);
       },
-     
+
       // (A2) BASE 64 TO ARRAY BUFFER
-      bta : o => {
-        let pre = "=?BINARY?B?", suf = "?=";
-        for (let k in o) { if (typeof o[k] == "string") {
-          let s = o[k];
-          if (s.substring(0, pre.length)==pre && s.substring(s.length - suf.length)==suf) {
-            let b = window.atob(s.substring(pre.length, s.length - suf.length)),
-            u = new Uint8Array(b.length);
-            for (let i=0; i<b.length; i++) { u[i] = b.charCodeAt(i); }
-            o[k] = u.buffer;
+      bta: (o) => {
+        const pre = '=?BINARY?B?';
+        const suf = '?=';
+        for (const k in o) {
+          if (typeof o[k] === 'string') {
+            const s = o[k];
+            if (s.startsWith(pre) && s.endsWith(suf)) {
+              const b = window.atob(s.substring(pre.length, s.length - suf.length));
+              const u = new Uint8Array(b.length);
+              for (let i = 0; i < b.length; i++) {
+                u[i] = b.charCodeAt(i);
+              }
+              o[k] = u.buffer;
+            }
+          } else {
+            wanHelper.bta(o[k]);
           }
-        } else { wanHelper.bta(o[k]); }}
-      }
+        }
+      },
     };
 
     try {
       // browser does not support passkey
-      if (!("credentials" in navigator)) {
+      if (!('credentials' in navigator)) {
         throw new Error('Browser not supported.');
       }
       // authenticate flow step 1: get arguments
@@ -101,11 +110,17 @@ dotclear.ready(() => {
                 {
                   json: 1,
                   step: 'process',
-                  id : publicKeyCredential.rawId ? wanHelper.atb(publicKeyCredential.rawId) : null,
-                  client : publicKeyCredential.response.clientDataJSON ? wanHelper.atb(publicKeyCredential.response.clientDataJSON) : null,
-                  authenticator : publicKeyCredential.response.authenticatorData ? wanHelper.atb(publicKeyCredential.response.authenticatorData) : null,
-                  signature : publicKeyCredential.response.signature ? wanHelper.atb(publicKeyCredential.response.signature) : null,
-                  user : publicKeyCredential.response.userHandle ? wanHelper.atb(publicKeyCredential.response.userHandle) : null
+                  id: publicKeyCredential.rawId ? wanHelper.atb(publicKeyCredential.rawId) : null,
+                  client: publicKeyCredential.response.clientDataJSON
+                    ? wanHelper.atb(publicKeyCredential.response.clientDataJSON)
+                    : null,
+                  authenticator: publicKeyCredential.response.authenticatorData
+                    ? wanHelper.atb(publicKeyCredential.response.authenticatorData)
+                    : null,
+                  signature: publicKeyCredential.response.signature
+                    ? wanHelper.atb(publicKeyCredential.response.signature)
+                    : null,
+                  user: publicKeyCredential.response.userHandle ? wanHelper.atb(publicKeyCredential.response.userHandle) : null,
                 },
                 (error) => {
                   console.log(error || 'unknown error occured');
@@ -115,7 +130,6 @@ dotclear.ready(() => {
             .catch((error) => {
               console.log(error || 'unknown error occured');
             });
-
         },
         {
           json: 1,
@@ -125,14 +139,13 @@ dotclear.ready(() => {
           console.log(error || 'unknown error occured');
         },
       );
-
     } catch (error) {
       console.log(error.message || 'unknown error occured');
     }
   };
 
-  if ("credentials" in navigator) {
-    $('#webauthn_action input').on('click', function (e) {
+  if ('credentials' in navigator) {
+    $('#webauthn_action input').on('click', (e) => {
       dotclear.webAuthnAuthentication();
       e.preventDefault();
     });

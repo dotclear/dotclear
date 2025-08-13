@@ -2,7 +2,7 @@
 
 /**
  * @package     Dotclear
- *    
+ *
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
@@ -14,6 +14,7 @@ use Dotclear\Helper\WebAuthn\Type\CredentialMethodEnum;
 use Dotclear\Helper\WebAuthn\Type\TransportsEnum;
 use Dotclear\Helper\WebAuthn\Type\TypeEnum;
 use Dotclear\Interface\Helper\WebAuthn\Credentials\Option\ExcludeCredentialsOptionInterface;
+use Dotclear\Interface\Helper\WebAuthn\Data\CredentialInterface;
 use Dotclear\Interface\Helper\WebAuthn\Data\StoreInterface;
 use Dotclear\Interface\Helper\WebAuthn\Util\ByteBufferInterface;
 use stdClass;
@@ -48,7 +49,7 @@ class ExcludeCredentialsOption implements ExcludeCredentialsOptionInterface
     public function configure(array $config = []): self
     {
         // Get user existing credentials
-        $this->credentials = array_map(fn ($v) => $v->credentialId(), $this->store->getCredentials(null, $this->store->getUser()->id()));
+        $this->credentials = array_map(fn (CredentialInterface $v): string => $v->credentialId(), $this->store->getCredentials(null, $this->store->getUser()->id()));
 
         return $this;
     }
@@ -64,10 +65,10 @@ class ExcludeCredentialsOption implements ExcludeCredentialsOptionInterface
             $arguments->excludeCredentials = [];
 
             foreach ($this->credentials as $id) {
-                $tmp = new stdClass();
-                $tmp->id = $this->buffer->fromBinary($id);
-                $tmp->type = TypeEnum::PUBLICKEY->value; // only public-key is supported
-                $tmp->transports = TransportsEnum::values();
+                $tmp                             = new stdClass();
+                $tmp->id                         = $this->buffer->fromBinary($id);
+                $tmp->type                       = TypeEnum::PUBLICKEY->value; // only public-key is supported
+                $tmp->transports                 = TransportsEnum::values();
                 $arguments->excludeCredentials[] = $tmp;
             }
         }

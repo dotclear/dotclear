@@ -2,7 +2,7 @@
 
 /**
  * @package     Dotclear
- *    
+ *
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
@@ -23,6 +23,7 @@ trait EnumTrait
      */
     public static function values(): array
     {
-        return array_column(self::cases(), 'value');;
+        return array_column(self::cases(), 'value');
+        ;
     }
 }

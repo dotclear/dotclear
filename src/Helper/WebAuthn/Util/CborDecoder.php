@@ -2,7 +2,7 @@
 
 /**
  * @package     Dotclear
- *    
+ *
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
@@ -44,7 +44,6 @@ class CborDecoder implements CborDecoderInterface
     public function __construct(
         protected ByteBufferInterface $buffer
     ) {
-
     }
 
     public function decode(ByteBufferInterface|string $data): mixed
@@ -62,7 +61,7 @@ class CborDecoder implements CborDecoderInterface
 
     public function decodeInPlace(ByteBufferInterface|string $data, int $start, int &$end = 0): mixed
     {
-        $buffer = $data instanceof ByteBufferInterface ? $data : $this->buffer->frombinary($data);
+        $buffer = $data instanceof ByteBufferInterface ? $data : $this->buffer->fromBinary($data);
 
         $offset = $start;
         $data   = $this->_parseItem($buffer, $offset);
@@ -71,12 +70,6 @@ class CborDecoder implements CborDecoderInterface
         return $data;
     }
 
-    /**
-     * @param   ByteBufferInterface     $buf
-     * @param   int                     $offset
-     *
-     * @return  mixed
-     */
     protected function _parseItem(ByteBufferInterface $buf, int &$offset): mixed
     {
         $first = $buf->getByteVal($offset++);
@@ -93,12 +86,6 @@ class CborDecoder implements CborDecoderInterface
     }
 
     /**
-     * @param   int                     $val
-     * @param   ByteBufferInterface     $buf
-     * @param   int                     $offset
-     *
-     * @return  mixed
-     *
      * @throws  CborException
      */
     protected function _parseFloatSimple(int $val, ByteBufferInterface $buf, int &$offset): mixed
@@ -107,21 +94,25 @@ class CborDecoder implements CborDecoderInterface
             case 24:
                 $val = $buf->getByteVal($offset);
                 $offset++;
+
                 return $this->_parseSimple($val);
 
             case 25:
                 $floatValue = $buf->getHalfFloatVal($offset);
                 $offset += 2;
+
                 return $floatValue;
 
             case 26:
                 $floatValue = $buf->getFloatVal($offset);
                 $offset += 4;
+
                 return $floatValue;
 
             case 27:
                 $floatValue = $buf->getDoubleVal($offset);
                 $offset += 8;
+
                 return $floatValue;
 
             case 28:
@@ -137,10 +128,6 @@ class CborDecoder implements CborDecoderInterface
     }
 
     /**
-     * @param   int     $val
-     *
-     * @return  mixed
-     *
      * @throws  CborException
      */
     protected function _parseSimple(int $val): mixed
@@ -154,16 +141,11 @@ class CborDecoder implements CborDecoderInterface
         if ($val === 22) {
             return null;
         }
+
         throw new CborException(sprintf('Unsupported simple value %d.', $val));
     }
 
     /**
-     * @param   int                     $val
-     * @param   ByteBufferInterface     $buf
-     * @param   int                     $offset
-     *
-     * @return  mixed
-     *
      * @throws  CborException
      */
     protected function _parseExtraLength(int $val, ByteBufferInterface $buf, int &$offset): mixed
@@ -172,21 +154,25 @@ class CborDecoder implements CborDecoderInterface
             case 24:
                 $val = $buf->getByteVal($offset);
                 $offset++;
+
                 break;
 
             case 25:
                 $val = $buf->getUint16Val($offset);
                 $offset += 2;
+
                 break;
 
             case 26:
                 $val = $buf->getUint32Val($offset);
                 $offset += 4;
+
                 break;
 
             case 27:
                 $val = $buf->getUint64Val($offset);
                 $offset += 8;
+
                 break;
 
             case 28:
@@ -202,13 +188,6 @@ class CborDecoder implements CborDecoderInterface
     }
 
     /**
-     * @param   int                     $type
-     * @param   int                     $val
-     * @param   ByteBufferInterface     $buf
-     * @param   int                     $offset
-     *
-     * @return  mixed
-     *
      * @throws  CborException
      */
     protected function _parseItemData(int $type, int $val, ByteBufferInterface $buf, int &$offset): mixed
@@ -223,11 +202,13 @@ class CborDecoder implements CborDecoderInterface
             case static::MAJOR_BYTE_STRING:
                 $data = $buf->getBytes($offset, $val);
                 $offset += $val;
+
                 return $this->buffer->fromBinary($data); // bytes
 
             case static::MAJOR_TEXT_STRING:
                 $data = $buf->getBytes($offset, $val);
                 $offset += $val;
+
                 return $data; // UTF-8
 
             case static::MAJOR_ARRAY:
@@ -245,17 +226,11 @@ class CborDecoder implements CborDecoderInterface
     }
 
     /**
-     * @param   ByteBufferInterface     $buf
-     * @param   int                     $offset
-     * @param   int                     $count
-     *
-     * @return  mixed
-     *
      * @throws  CborException
      */
     protected function _parseMap(ByteBufferInterface $buf, int &$offset, int $count): mixed
     {
-        $map = array();
+        $map = [];
 
         for ($i = 0; $i < $count; $i++) {
             $mapKey = $this->_parseItem($buf, $offset);
@@ -271,16 +246,9 @@ class CborDecoder implements CborDecoderInterface
         return $map;
     }
 
-    /**
-     * @param   ByteBufferInterface     $buf
-     * @param   int                     $offset
-     * @param   int                     $count
-     *
-     * @return  mixed
-     */
     protected function _parseArray(ByteBufferInterface $buf, int &$offset, int $count): mixed
     {
-        $arr = array();
+        $arr = [];
         for ($i = 0; $i < $count; $i++) {
             $arr[] = $this->_parseItem($buf, $offset);
         }

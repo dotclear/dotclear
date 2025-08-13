@@ -2,7 +2,7 @@
 
 /**
  * @package     Dotclear
- *    
+ *
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
@@ -15,7 +15,7 @@ namespace Dotclear\Helper\WebAuthn\Type;
  *
  * https://developer.mozilla.org/en-US/docs/Web/API/PublicKeyCredentialCreationOptions#transports
  * https://developer.mozilla.org/en-US/docs/Web/API/AuthenticatorAttestationResponse/getTransports
- * 
+ *
  * @author  Jean-Christian Paul Denis
  * @since   2.36
  */

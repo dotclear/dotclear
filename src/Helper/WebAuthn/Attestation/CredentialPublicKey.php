@@ -76,7 +76,6 @@ class CredentialPublicKey implements CredentialPublicKeyInterface
         protected CborDecoderInterface $cbor,
         protected DerEncoderInterface $der,
     ) {
-
     }
 
     public function fromCbor(array $enc): void
@@ -86,19 +85,25 @@ class CredentialPublicKey implements CredentialPublicKeyInterface
         $this->alg = $this->enc[self::COSE_ALG];
 
         switch ($this->alg) {
-            case self::EC2_ES256: $this->_readES256(); break;
-            case self::RSA_RS256: $this->_readRS256(); break;
-            case self::OKP_EDDSA: $this->_readEDDSA(); break;
+            case self::EC2_ES256: $this->_readES256();
+
+                break;
+            case self::RSA_RS256: $this->_readRS256();
+
+                break;
+            case self::OKP_EDDSA: $this->_readEDDSA();
+
+                break;
         }
     }
 
     public function getPem(): string
     {
-        $der = match($this->kty) {
+        $der = match ($this->kty) {
             self::EC2_TYPE => $this->der->encodeEC2($this->getU2F()),
             self::OKP_TYPE => $this->der->encodeOKP($this->x),
             self::RSA_TYPE => $this->der->encodeRSA($this->n, $this->e),
-            default => throw new AuthenticatorException('invalid key type')
+            default        => throw new AuthenticatorException('invalid key type')
         };
 
         return sprintf(
@@ -138,7 +143,7 @@ class CredentialPublicKey implements CredentialPublicKeyInterface
             throw new AuthenticatorException('curve not Ed25519');
         }
 
-        if (strlen((string) $this->x) !== 32) {
+        if (strlen($this->x) !== 32) {
             throw new AuthenticatorException('Invalid X-coordinate');
         }
     }
@@ -166,11 +171,11 @@ class CredentialPublicKey implements CredentialPublicKeyInterface
             throw new AuthenticatorException('curve not P-256');
         }
 
-        if (strlen((string) $this->x) !== 32) {
+        if (strlen($this->x) !== 32) {
             throw new AuthenticatorException('Invalid X-coordinate');
         }
 
-        if (strlen((string) $this->y) !== 32) {
+        if (strlen($this->y) !== 32) {
             throw new AuthenticatorException('Invalid Y-coordinate');
         }
     }
@@ -193,11 +198,11 @@ class CredentialPublicKey implements CredentialPublicKeyInterface
             throw new AuthenticatorException('signature algorithm not ES256');
         }
 
-        if (strlen((string) $this->n) !== 256) {
+        if (strlen($this->n) !== 256) {
             throw new AuthenticatorException('Invalid RSA modulus');
         }
 
-        if (strlen((string) $this->e) !== 3) {
+        if (strlen($this->e) !== 3) {
             throw new AuthenticatorException('Invalid RSA public exponent');
         }
     }

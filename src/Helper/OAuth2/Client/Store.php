@@ -2,7 +2,7 @@
 
 /**
  * @package     Dotclear
- *    
+ *
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
@@ -27,7 +27,6 @@ abstract class Store
      */
     public function __construct(protected string $redirect_url)
     {
-
     }
 
     /**
@@ -66,7 +65,7 @@ abstract class Store
     /**
      * Set (save) a consumer.
      *
-     * Write a configured consumer to a database. 
+     * Write a configured consumer to a database.
      *
      * @param   string  $provider   The provider ID
      * @param   string  $key        The consumer key
@@ -96,7 +95,7 @@ abstract class Store
      * @param   string      $user_id    The user ID
      * @param   null|Token  $token      The token instance
      */
-    abstract public function setToken(string $provider, string $user_id, ?Token $token= null): void;
+    abstract public function setToken(string $provider, string $user_id, ?Token $token = null): void;
 
     /**
      * Unset (drop) a token (user).
@@ -132,7 +131,6 @@ abstract class Store
      * @param   string      $user_id    The user ID
      */
     abstract public function delUser(string $provider, string $user_id): void;
-
 
     /**
      * Get provider user info from local user.
@@ -245,7 +243,7 @@ abstract class Store
 
     /**
      * Create specific credential type.
-     * 
+     *
      * Used for token and user stored in credential db.
      *
      * @param   string  $provider   The provider

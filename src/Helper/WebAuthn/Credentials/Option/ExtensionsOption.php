@@ -2,7 +2,7 @@
 
 /**
  * @package     Dotclear
- *    
+ *
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
@@ -37,7 +37,7 @@ class ExtensionsOption implements ExtensionsOptionInterface
     public function parseCredentialTypeOptions(CredentialMethodEnum $method, stdClass $arguments): void
     {
         if ($method === CredentialMethodEnum::CREATE) {
-            $arguments->extensions = new stdClass();
+            $arguments->extensions       = new stdClass();
             $arguments->extensions->exts = true;
         }
     }

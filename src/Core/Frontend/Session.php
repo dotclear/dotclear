@@ -27,7 +27,8 @@ class Session extends DatabaseSession
     /**
      * Constructor.
      */
-    public function __construct() {
+    public function __construct()
+    {
         // Take care of blog URL for frontend session
         $url = parse_url(App::blog()->url());
         if (!is_array($url)) {
@@ -38,8 +39,8 @@ class Session extends DatabaseSession
             con: App::con(),
             table : App::con()->prefix() . Session::SESSION_TABLE_NAME,
             cookie_name: App::config()->sessionName() . '_' . App::blog()->id(),
+            cookie_path: isset($url['path']) ? dirname($url['path']) : '',
             cookie_secure: empty($url['scheme']) || !preg_match('%^http[s]?$%', $url['scheme']) ? false : $url['scheme'] === 'https',
-            cookie_path: dirname($url['path']),
             ttl: App::config()->sessionTtl()
         );
 

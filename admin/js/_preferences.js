@@ -15,7 +15,7 @@ dotclear.ready(() => {
   // Helper to check if current password is required
   const needPassword = () => {
     if (emailField?.value !== userEmail) return true;
-    return !!(newPasswordField?.value);
+    return !!newPasswordField?.value;
   };
 
   const userprefsData = dotclear.getData('userprefs');
@@ -47,34 +47,43 @@ dotclear.ready(() => {
 
   // webauthn passkey registration
   dotclear.webAuthnRegistration = () => {
-
     // (A) HELPER FUNCTIONS
     var wanHelper = {
       // (A1) ARRAY BUFFER TO BASE 64
-      atb : b => {
-        let u = new Uint8Array(b), s = "";
-        for (let i=0; i<u.byteLength; i++) { s += String.fromCharCode(u[i]); }
+      atb: (b) => {
+        const u = new Uint8Array(b);
+        let s = '';
+        for (let i = 0; i < u.byteLength; i++) {
+          s += String.fromCharCode(u[i]);
+        }
         return btoa(s);
       },
-     
+
       // (A2) BASE 64 TO ARRAY BUFFER
-      bta : o => {
-        let pre = "=?BINARY?B?", suf = "?=";
-        for (let k in o) { if (typeof o[k] == "string") {
-          let s = o[k];
-          if (s.substring(0, pre.length)==pre && s.substring(s.length - suf.length)==suf) {
-            let b = window.atob(s.substring(pre.length, s.length - suf.length)),
-            u = new Uint8Array(b.length);
-            for (let i=0; i<b.length; i++) { u[i] = b.charCodeAt(i); }
-            o[k] = u.buffer;
+      bta: (o) => {
+        const pre = '=?BINARY?B?';
+        const suf = '?=';
+        for (const k in o) {
+          if (typeof o[k] === 'string') {
+            const s = o[k];
+            if (s.startsWith(pre) && s.endsWith(suf)) {
+              const b = window.atob(s.substring(pre.length, s.length - suf.length));
+              const u = new Uint8Array(b.length);
+              for (let i = 0; i < b.length; i++) {
+                u[i] = b.charCodeAt(i);
+              }
+              o[k] = u.buffer;
+            }
+          } else {
+            wanHelper.bta(o[k]);
           }
-        } else { wanHelper.bta(o[k]); }}
-      }
+        }
+      },
     };
-    
+
     try {
       // browser does not support passkey
-      if (!("credentials" in navigator)) {
+      if (!('credentials' in navigator)) {
         throw new Error('Browser not supported.');
       }
 
@@ -107,9 +116,15 @@ dotclear.ready(() => {
                 {
                   json: 1,
                   step: 'process',
-                  client : publicKeyCredential.response.clientDataJSON ? wanHelper.atb(publicKeyCredential.response.clientDataJSON) : null,
-                  attestation : publicKeyCredential.response.attestationObject ? wanHelper.atb(publicKeyCredential.response.attestationObject) : null,
-                  transports : publicKeyCredential.response.getTransports ? wanHelper.atb(publicKeyCredential.response.getTransports()) : null,
+                  client: publicKeyCredential.response.clientDataJSON
+                    ? wanHelper.atb(publicKeyCredential.response.clientDataJSON)
+                    : null,
+                  attestation: publicKeyCredential.response.attestationObject
+                    ? wanHelper.atb(publicKeyCredential.response.attestationObject)
+                    : null,
+                  transports: publicKeyCredential.response.getTransports
+                    ? wanHelper.atb(publicKeyCredential.response.getTransports())
+                    : null,
                 },
                 (error) => {
                   console.log(error || 'unknown error occured');
@@ -133,8 +148,8 @@ dotclear.ready(() => {
     }
   };
 
-  if ("credentials" in navigator) {
-    $('#webauthn_action input').on('click', function (e) {
+  if ('credentials' in navigator) {
+    $('#webauthn_action input').on('click', (e) => {
       dotclear.webAuthnRegistration();
       e.preventDefault();
     });

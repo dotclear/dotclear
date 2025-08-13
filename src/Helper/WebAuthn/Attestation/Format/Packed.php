@@ -33,7 +33,7 @@ class Packed extends FormatBase implements FormatPackedInterface
         // check packed data
         $attStmt = $this->attestation['attStmt'];
 
-        if (!array_key_exists('alg', $attStmt) || $this->_getCoseAlgorithm($attStmt['alg']) === null) {
+        if (!array_key_exists('alg', $attStmt) || is_null($this->_getCoseAlgorithm($attStmt['alg']))) {
             throw new AttestationException(sprintf('unsupported alg: %s', $attStmt['alg']));
         }
 
@@ -41,12 +41,11 @@ class Packed extends FormatBase implements FormatPackedInterface
             throw new AttestationException('no signature found');
         }
 
-        $this->_alg = $attStmt['alg'];
+        $this->_alg       = $attStmt['alg'];
         $this->_signature = $attStmt['sig']->getBinaryString();
 
         // certificate for validation
         if (array_key_exists('x5c', $attStmt) && is_array($attStmt['x5c']) && count($attStmt['x5c']) > 0) {
-
             // The attestation certificate attestnCert MUST be the first element in the array
             $attestnCert = array_shift($attStmt['x5c']);
 
@@ -67,25 +66,25 @@ class Packed extends FormatBase implements FormatPackedInterface
 
     public function getCertificatePem(): string
     {
-        if (!$this->_x5c) {
+        if ($this->_x5c === '') {
             return '';
         }
 
         return $this->_createCertificatePem($this->_x5c);
     }
 
-    public function validateAttestation(string $clientDataHash):bool
+    public function validateAttestation(string $clientDataHash): bool
     {
-        if ($this->_x5c) {
+        if ($this->_x5c !== '') {
             return $this->_validateOverX5c($clientDataHash);
-        } else {
-            return $this->_validateSelfAttestation($clientDataHash);
         }
+
+        return $this->_validateSelfAttestation($clientDataHash);
     }
 
-    public function validateRootCertificate(array $rootCas):bool
+    public function validateRootCertificate(array $rootCas): bool
     {
-        if (!$this->_x5c) {
+        if ($this->_x5c === '') {
             return false;
         }
 
@@ -104,10 +103,6 @@ class Packed extends FormatBase implements FormatPackedInterface
 
     /**
      * Validate if x5c is present.
-     *
-     * @param   string  $clientDataHash
-     *
-     * @return  bool
      */
     protected function _validateOverX5c(string $clientDataHash): bool
     {
@@ -130,12 +125,8 @@ class Packed extends FormatBase implements FormatPackedInterface
 
     /**
      * Validate if self attestation is in use.
-     *
-     * @param   string  $clientDataHash
-     *
-     * @return bool
      */
-    protected function _validateSelfAttestation(string $clientDataHash):bool
+    protected function _validateSelfAttestation(string $clientDataHash): bool
     {
         // Verify that sig is a valid signature over the concatenation of authenticatorData and clientDataHash
         // using the credential public key with alg.

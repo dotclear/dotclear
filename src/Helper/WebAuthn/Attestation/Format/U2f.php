@@ -55,11 +55,10 @@ class U2f extends FormatBase implements FormatU2fInterface
 
     public function getCertificatePem(): string
     {
-        $pem = '-----BEGIN CERTIFICATE-----' . "\n";
-        $pem .= \chunk_split(\base64_encode($this->_x5c), 64, "\n");
-        $pem .= '-----END CERTIFICATE-----' . "\n";
-
-        return $pem;
+        return
+            '-----BEGIN CERTIFICATE-----' . "\n" .
+            \chunk_split(\base64_encode($this->_x5c), 64, "\n") .
+            '-----END CERTIFICATE-----' . "\n";
     }
 
     public function validateAttestation(string $clientDataHash): bool

@@ -2,7 +2,7 @@
 
 /**
  * @package     Dotclear
- *    
+ *
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
@@ -25,15 +25,11 @@ class Client implements ClientInterface
 {
     /**
      * Client data from response.
-     *
-     * @var     false|stdClass  $data
      */
     private false|stdClass $data = false;
 
     /**
      * Client data hash.
-     *
-     * @var     string  $hash
      */
     private string $hash = '';
 
@@ -80,22 +76,22 @@ class Client implements ClientInterface
 
     public function checkCreate(): bool
     {
-        return $this->data !== false 
-            && property_exists($this->data, 'type') 
+        return $this->data !== false
+            && property_exists($this->data, 'type')
             && $this->data->type === 'webauthn.create';
     }
 
     public function checkGet(): bool
     {
-        return $this->data !== false 
-            && property_exists($this->data, 'type') 
+        return $this->data !== false
+            && property_exists($this->data, 'type')
             && $this->data->type === 'webauthn.get';
     }
 
     public function checkChallenge(): bool
     {
-        return $this->data !== false 
-            && property_exists($this->data, 'challenge') 
+        return $this->data !== false
+            && property_exists($this->data, 'challenge')
             && $this->buffer->fromBase64Url($this->data->challenge)->equals($this->store->getChallenge());
     }
 
@@ -109,8 +105,8 @@ class Client implements ClientInterface
         $rpid   = $this->store->getRelyingParty()->id();
 
         // Checks if the origin value contains a known android key hash
-        if (str_starts_with($origin, 'android:apk-key-hash:')) {
-            $parts = explode('android:apk-key-hash:', $origin);
+        if (str_starts_with((string) $origin, 'android:apk-key-hash:')) {
+            $parts = explode('android:apk-key-hash:', (string) $origin);
             if (count($parts) !== 2) {
                 return false;
             }
@@ -119,12 +115,12 @@ class Client implements ClientInterface
         }
 
         // Check if the origin scheme is https
-        if ($rpid !== 'localhost' && parse_url($origin, PHP_URL_SCHEME) !== 'https') {
+        if ($rpid !== 'localhost' && parse_url((string) $origin, PHP_URL_SCHEME) !== 'https') {
             return false;
         }
 
         // extract host from origin
-        $host = (string) parse_url($origin, PHP_URL_HOST);
+        $host = (string) parse_url((string) $origin, PHP_URL_HOST);
         $host = trim($host, '.');
 
         // The RP ID must be equal to the origin's effective domain, or a registrable domain suffix of the origin's effective domain.

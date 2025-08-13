@@ -2,7 +2,7 @@
 
 /**
  * @package     Dotclear
- *    
+ *
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
@@ -14,7 +14,7 @@ namespace Dotclear\Helper\WebAuthn\Type;
  * @brief   WebAuthn cryptographic algorithm enumeration.
  *
  * https://developer.mozilla.org/en-US/docs/Web/API/PublicKeyCredentialCreationOptions#alg
- * 
+ *
  * @author  Jean-Christian Paul Denis
  * @since   2.36
  */

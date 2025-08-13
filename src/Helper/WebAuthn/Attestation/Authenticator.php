@@ -25,22 +25,16 @@ class Authenticator implements AuthenticatorInterface
 {
     /**
      * The authenticatorData binary.
-     *
-     * @var     string  $binary
      */
     protected string $binary;
 
     /**
      * The authenticator data flags.
-     *
-     * @var     int     $flags
      */
     protected int $flags;
 
     /**
      * The authenticator data current reading offset.
-     *
-     * @var     int     $offet
      */
     protected int $offset = 37;
 
@@ -66,7 +60,6 @@ class Authenticator implements AuthenticatorInterface
         protected AttestedCredentialInterface $attested_credential_data,
         protected CborDecoderInterface $cbor
     ) {
-
     }
 
     public function fromBinary(string $binary): void
@@ -80,8 +73,8 @@ class Authenticator implements AuthenticatorInterface
         }
 
         // flags, start after RpIdHash of 32 bytes length and last 1 byte
-        $flags = unpack('Cflags', substr($this->binary, 32, 1));
-        $this->flags = isset($flags['flags'] ) && is_numeric($flags['flags'] ) ? (int) $flags['flags']  : 0;
+        $flags       = unpack('Cflags', substr($this->binary, 32, 1));
+        $this->flags = isset($flags['flags']) && is_numeric($flags['flags']) ? (int) $flags['flags'] : 0;
 
         // AttestedCredentialData, after previous data of length of 37 bytes
         if ($this->isAttestedCredentialDataIncluded()) {
@@ -110,9 +103,9 @@ class Authenticator implements AuthenticatorInterface
         return $this->binary;
     }
 
-    public function getCredentialId():string
+    public function getCredentialId(): string
     {
-        return $this->getAttestedCredentialData()->getCredentialId();
+        return $this->getAttestedCredentialData()->getCredentialID();
     }
 
     public function getPublicKeyPem(): string
@@ -147,32 +140,32 @@ class Authenticator implements AuthenticatorInterface
 
     public function isUserPresent(): bool
     {
-        return !!($this->flags & 1); // bit 0 userPresent
+        return (bool) ($this->flags & 1); // bit 0 userPresent
     }
 
     public function isUserVerified(): bool
     {
-        return !!($this->flags & 4); // bit 1 userVerified
+        return (bool) ($this->flags & 4); // bit 1 userVerified
     }
 
     public function isBackupEligible(): bool
     {
-        return !!($this->flags & 8); // bit 2 isBackupEligible
+        return (bool) ($this->flags & 8); // bit 2 isBackupEligible
     }
 
     public function isBackup(): bool
     {
-        return !!($this->flags & 16); // bit 4 isBackup
+        return (bool) ($this->flags & 16); // bit 4 isBackup
     }
 
     public function isAttestedCredentialDataIncluded(): bool
     {
-        return !!($this->flags & 64); // bit 6 attestedDataIncluded
+        return (bool) ($this->flags & 64); // bit 6 attestedDataIncluded
     }
 
     public function isExtensionDataIncluded(): bool
     {
-        return !!($this->flags & 128); // bit 7 extensionDataIncluded
+        return (bool) ($this->flags & 128); // bit 7 extensionDataIncluded
     }
 
     public function getAttestedCredentialData(): AttestedCredentialInterface

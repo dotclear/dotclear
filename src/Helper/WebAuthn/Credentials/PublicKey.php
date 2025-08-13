@@ -2,7 +2,7 @@
 
 /**
  * @package     Dotclear
- *    
+ *
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
@@ -30,14 +30,14 @@ class PublicKey implements PublicKeyInterface
      *
      * @var     OptionInterface[]  $options
      */
-    private $options = [];
+    private array $options = [];
 
     public function addOption(OptionInterface $option): void
     {
         if (!$option->isConfigured()) {
             try {
                 $option->configure();
-            } catch (Exception $e) {
+            } catch (Exception) {
                 throw new CredentialsException('missconfigured public key option');
             }
         }
@@ -49,7 +49,7 @@ class PublicKey implements PublicKeyInterface
     {
         $arguments->publicKey = new stdClass();
 
-        foreach($this->options as $option) {
+        foreach ($this->options as $option) {
             $option->parseCredentialTypeOptions($method, $arguments->publicKey);
         }
     }

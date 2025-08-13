@@ -30,7 +30,7 @@ use Exception;
  */
 class Credential implements CredentialInterface
 {
-    private string $credential_table;
+    private readonly string $credential_table;
 
     /**
      * Load services from Core container.
@@ -68,7 +68,7 @@ class Credential implements CredentialInterface
                     //'credential_dt',
                     'credential_id',
                     'credential_type',
-                    'credential_data'
+                    'credential_data',
                 ])
                 ->from($sql->as($this->credential_table, 'K'));
 

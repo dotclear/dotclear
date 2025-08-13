@@ -2,7 +2,7 @@
 
 /**
  * @package     Dotclear
- *    
+ *
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
@@ -22,10 +22,8 @@ class Services
 {
     /**
      * Http request instance.
-     *
-     * @var     Http    $http
      */
-    protected $http;
+    protected Http $http;
 
     /**
      * Providers id/classname.
@@ -86,10 +84,10 @@ class Services
      */
     public function addProvider(string $class): void
     {
-        if (is_subclass_of($class, Provider::CLASS) 
-            && preg_match('/^[a-zA-Z][\w]{2,}$/',(string) $class::PROVIDER_ID)
+        if (is_subclass_of($class, Provider::class)
+            && preg_match('/^[a-zA-Z][\w]{2,}$/', $class::PROVIDER_ID)
         ) {
-            $this->providers[(string) $class::PROVIDER_ID] = $class;
+            $this->providers[$class::PROVIDER_ID] = $class;
         }
     }
 

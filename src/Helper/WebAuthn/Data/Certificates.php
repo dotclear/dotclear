@@ -2,7 +2,7 @@
 
 /**
  * @package     Dotclear
- *    
+ *
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
@@ -33,8 +33,6 @@ class Certificates implements CertificatesInterface
      * Check if some certificates have been added.
      *
      * Even if no certificates found !
-     *
-     * @var     bool    $check_requested
      */
     protected bool  $check_requested = false;
 
@@ -45,8 +43,7 @@ class Certificates implements CertificatesInterface
      */
     public function __construct(
         protected ByteBufferInterface $buffer
-    ){
-
+    ) {
     }
 
     public function checkRequested(): bool
@@ -92,7 +89,7 @@ class Certificates implements CertificatesInterface
         }
 
         $path = rtrim((string) realpath($path), '\\/');
-        if ($path != '' && !is_dir($path)) {
+        if ($path !== '' && !is_dir($path)) {
             throw new CertificatesException('Invalid folder path for query FIDO Alliance Metadata Service');
         }
 
@@ -107,26 +104,23 @@ class Certificates implements CertificatesInterface
 
         if ($delete && ($dirs = scandir($path)) !== false) {
             foreach ($dirs as $ca) {
-                if (substr($ca, -4) === '.pem') {
-                    if (unlink($path . DIRECTORY_SEPARATOR . $ca) === false) {
-                        throw new CertificatesException('Cannot delete certs in folder for FIDO Alliance Metadata Service');
-                    }
+                if (str_ends_with($ca, '.pem') && unlink($path . DIRECTORY_SEPARATOR . $ca) === false) {
+                    throw new CertificatesException('Cannot delete certs in folder for FIDO Alliance Metadata Service');
                 }
             }
         }
 
-        list($header, $payload, $hash) = $jwt;
-        $payload = $this->buffer->fromBase64Url($payload)->getJson();
+        [$header, $payload, $hash] = $jwt;
+        $payload                   = $this->buffer->fromBase64Url($payload)->getJson();
 
         $count = 0;
         if (is_object($payload) && property_exists($payload, 'entries') && is_array($payload->entries)) {
             foreach ($payload->entries as $entry) {
                 if (is_object($entry) && property_exists($entry, 'metadataStatement') && is_object($entry->metadataStatement)) {
-                    $description = $entry->metadataStatement->description ?? null;
-                    $attestationRootCertificates = $entry->metadataStatement->attestationRootCertificates ?? null;
+                    $description                 = $entry->metadataStatement->description                 ?? null;  // @phpstan-ignore-line
+                    $attestationRootCertificates = $entry->metadataStatement->attestationRootCertificates ?? null;  // @phpstan-ignore-line
 
                     if ($description && $attestationRootCertificates) {
-
                         // create filename
                         $certFilename = preg_replace('/[^a-z0-9]/i', '_', (string) $description);
                         $certFilename = trim((string) preg_replace('/\_{2,}/i', '_', (string) $certFilename), '_') . '.pem';
@@ -134,10 +128,10 @@ class Certificates implements CertificatesInterface
 
                         // add certificate
                         $certContent = $description . "\n";
-                        $certContent .= str_repeat('-', mb_strlen($description)) . "\n";
+                        $certContent .= str_repeat('-', mb_strlen((string) $description)) . "\n";
 
                         foreach ($attestationRootCertificates as $attestationRootCertificate) {
-                            $attestationRootCertificate = str_replace(["\n", "\r", ' '], '', trim($attestationRootCertificate));
+                            $attestationRootCertificate = str_replace(["\n", "\r", ' '], '', trim((string) $attestationRootCertificate));
                             $count++;
                             $certContent .= "\n-----BEGIN CERTIFICATE-----\n";
                             $certContent .= chunk_split($attestationRootCertificate, 64, "\n");

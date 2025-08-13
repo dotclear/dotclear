@@ -2,7 +2,7 @@
 
 /**
  * @package     Dotclear
- *    
+ *
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
@@ -25,22 +25,16 @@ class UserOption implements UserOptionInterface
 {
     /**
      * The user ID.
-     *
-     * @var     string  $id
      */
     protected string $id;
 
     /**
-     * The suer name.
-     *
-     * @var     string  $name
+     * The user name.
      */
     protected string $name;
 
     /**
      * The user displayname.
-     *
-     * @var     string  $displayname
      */
     protected string $displayname;
 
@@ -83,8 +77,8 @@ class UserOption implements UserOptionInterface
 
     public function configure(array $config = []): self
     {
-        $this->id          = isset($config['id']) && is_string($config['id']) ? trim($config['id']) : '';
-        $this->name        = isset($config['name']) && is_string($config['name']) ? trim($config['name']) : '';
+        $this->id          = isset($config['id'])          && is_string($config['id']) ? trim($config['id']) : '';
+        $this->name        = isset($config['name'])        && is_string($config['name']) ? trim($config['name']) : '';
         $this->displayname = isset($config['displayname']) && is_string($config['displayname']) ? trim($config['displayname']) : '';
 
         return $this;

@@ -32,7 +32,10 @@ class SlackConnect extends Provider
     public const REQUEST_URL          = 'https://slack.com/api/';
     public const DEFAULT_SCOPE        = ['openid', 'profile'];
 
-    protected function getRevokeTokenParameters(Token $token): string|array
+    /**
+     * @return array<array-key, mixed>
+     */
+    protected function getRevokeTokenParameters(Token $token): array
     {
         return [];
     }

@@ -17,7 +17,7 @@ use Dotclear\Database\MetaRecord;
 /**
  * @brief   User credentials handler interface.
  *
- * Use this class to store user credential 
+ * Use this class to store user credential
  * for third party applications.
  *
  * @author  Jean-Christian Paul Denis
@@ -43,7 +43,6 @@ interface CredentialInterface
      * Get credentials.
      *
      * @param      array<string, mixed>|ArrayObject<string, mixed>  $params      The parameters
-     * @param      bool                                             $count_only  Count only results
      *
      * @return     MetaRecord  The users.
      */

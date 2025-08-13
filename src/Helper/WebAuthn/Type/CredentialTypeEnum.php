@@ -2,7 +2,7 @@
 
 /**
  * @package     Dotclear
- *    
+ *
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
@@ -23,11 +23,11 @@ enum CredentialTypeEnum: string
 {
     use EnumTrait;
 
-    case PASSWORD   = 'password';
-    case IDENTITY   = 'identity';
+    case PASSWORD = 'password';
+    case IDENTITY = 'identity';
     //case FEDERATED  = 'federated'; // deprecated
-    case OTP        = 'otp';
-    case PUBLICKEY  = 'publicKey';
+    case OTP       = 'otp';
+    case PUBLICKEY = 'publicKey';
 
     public const DEFAULT = self::PUBLICKEY;
 }

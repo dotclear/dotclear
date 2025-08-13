@@ -23,20 +23,15 @@ use Dotclear\Interface\Helper\WebAuthn\Util\CborDecoderInterface;
  */
 class AttestedCredential implements AttestedCredentialInterface
 {
-
     protected string $binary;
 
     /**
      * The Authenticator Attestation Globally Unique Identifier.
-     *
-     * @var  string     $aaguid
      */
     protected string $aaguid = '';
 
     /**
      * The credential Id.
-     *
-     * @var  string     $credential_id
      */
     protected string $credential_id = '';
 
@@ -49,22 +44,19 @@ class AttestedCredential implements AttestedCredentialInterface
 
     /**
      * The current binary offset.
-     *
-     * @var     int     $offset
      */
     protected int $offset = 55;
 
     /**
      * Load services from container.
      *
-     * @param   CredentialPublicKeyInterface    $authenticator  The credntial public key instance
-     * @param   CborDecoderInterface            $cbor           The Cbor interface
+     * @param   CredentialPublicKeyInterface    $credential_public_key      The credential public key instance
+     * @param   CborDecoderInterface            $cbor                       The Cbor interface
      */
     public function __construct(
         protected CredentialPublicKeyInterface $credential_public_key,
         protected CborDecoderInterface $cbor
     ) {
-
     }
 
     /**
@@ -83,8 +75,8 @@ class AttestedCredential implements AttestedCredentialInterface
         $this->aaguid = substr($this->binary, 37, 16);
 
         // Byte length L of Credential ID, 16-bit unsigned big-endian integer.
-        $length = unpack('nlength', substr($this->binary, 53, 2));
-        $length = $length['length'] ?? 0;
+        $length              = unpack('nlength', substr($this->binary, 53, 2));
+        $length              = $length['length'] ?? 0;
         $this->credential_id = substr($this->binary, 55, $length);
 
         // set end offset

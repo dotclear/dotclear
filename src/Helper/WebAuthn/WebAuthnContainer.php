@@ -151,23 +151,23 @@ class WebAuthnContainer extends Container
             RpOptionInterface::class                     => RpOption::class,
             TimeoutOptionInterface::class                => TimeoutOption::class,
             //TransportsOptionInterface::class             => TransportsOption::class,
-            UserOptionInterface::class                   => UserOption::class,
-            AllowCredentialsOptionInterface::class       => AllowCredentialsOption::class,
-            ProviderInterface::class                     => Provider::class,
+            UserOptionInterface::class             => UserOption::class,
+            AllowCredentialsOptionInterface::class => AllowCredentialsOption::class,
+            ProviderInterface::class               => Provider::class,
 
             // Utils, only available from self::get()
-            ByteBufferInterface::class                   => ByteBuffer::class,
-            CborDecoderInterface::class                  => CborDecoder::class,
-            DerEncoderInterface::class                   => DerEncoder::class,
+            ByteBufferInterface::class  => ByteBuffer::class,
+            CborDecoderInterface::class => CborDecoder::class,
+            DerEncoderInterface::class  => DerEncoder::class,
 
             // Attestion formats, only available from self::get()
-            FormatAndroidKeyInterface::class             => AndroidKey::class,
-            FormatAndroidSafetyNetInterface::class       => AndroidSafetyNet::class,
-            FormatAppleInterface::class                  => Apple::class,
-            FormatNoneInterface::class                   => None::class,
-            FormatPackedInterface::class                 => Packed::class,
-            FormatTpmInterface::class                    => Tpm::class,
-            FormatU2fInterface::class                    => U2f::class,
+            FormatAndroidKeyInterface::class       => AndroidKey::class,
+            FormatAndroidSafetyNetInterface::class => AndroidSafetyNet::class,
+            FormatAppleInterface::class            => Apple::class,
+            FormatNoneInterface::class             => None::class,
+            FormatPackedInterface::class           => Packed::class,
+            FormatTpmInterface::class              => Tpm::class,
+            FormatU2fInterface::class              => U2f::class,
         ];
     }
 
@@ -397,12 +397,12 @@ class WebAuthnContainer extends Container
      * @see     Calls webauthn container service Dotclear\Interface\Helper\WebAuthn\Attestation\Option\TransportsOptionInterface
      * @see     Uses default webauthn service Dotclear\Helper\WebAuthn\Attestation\Option\TransportsOption
      */
-/*
-    public function transportsOption(): TransportsOptionInterface
-    {
-        return $this->get(TransportsOptionInterface::class);
-    }
-//*/
+    /*
+        public function transportsOption(): TransportsOptionInterface
+        {
+            return $this->get(TransportsOptionInterface::class);
+        }
+    //*/
 
     /**
      * User credential option instance.

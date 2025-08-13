@@ -2,7 +2,7 @@
 
 /**
  * @package     Dotclear
- *    
+ *
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
@@ -35,7 +35,7 @@ class WebAuthnStore extends Store
      *
      * @var     string  DEFAULT_TYPE
      */
-    public const DEFAULT_TYPE  = 'webauthn';
+    public const DEFAULT_TYPE = 'webauthn';
 
     /**
      * The passkey providers file name.
@@ -58,7 +58,6 @@ class WebAuthnStore extends Store
         protected UserOptionInterface $user,
         protected CredentialInterface $credential
     ) {
-
     }
 
     public function getRelyingParty(): RpOptionInterface
@@ -76,14 +75,14 @@ class WebAuthnStore extends Store
         $this->user->configure([
             'id'          => (string) App::auth()->userID(),
             'name'        => (string) App::auth()->userID(),
-            'displayname' => (string) App::auth()->getInfo('user_cn')
+            'displayname' => (string) App::auth()->getInfo('user_cn'),
         ]);
 
         return $this->user;
     }
 
-	public function setCredential(CredentialInterface $credential): void
-	{
+    public function setCredential(CredentialInterface $credential): void
+    {
         $this->delCredential($credential->credentialId());
 
         $cur = App::credential()->openCredentialCursor();
@@ -92,7 +91,7 @@ class WebAuthnStore extends Store
         $cur->setField('credential_data', $credential->encodeData());
 
         App::credential()->setCredential((string) App::auth()->userID(), $cur);
-	}
+    }
 
     public function getCredentials(?string $credential_id = null, ?string $user_id = null): array
     {
@@ -109,7 +108,7 @@ class WebAuthnStore extends Store
 
         $rs = App::credential()->getCredentials($params);
         if (!$rs->isEmpty()) {
-            while($rs->fetch()) {
+            while ($rs->fetch()) {
                 $data[] = $this->credential->decodeData((string) $rs->f('credential_data'));
             }
         }
@@ -138,7 +137,6 @@ class WebAuthnStore extends Store
         $data = [];
         $path = App::config()->varRoot() . DIRECTORY_SEPARATOR . static::PASSKEY_PROVIDERS_FILE;
         if (!file_exists($path)) {
-
             // no file, update list
             return [];
         }
@@ -148,12 +146,11 @@ class WebAuthnStore extends Store
         }
 
         if ((filemtime($path) + strtotime('1 month')) < time()) {
-
             // cache file is too old, update list.
             return [];
         }
 
-        $data = json_decode(file_get_contents($path), true);
+        $data = json_decode((string) file_get_contents($path), true);
 
         return is_array($data) ? $data : [];
     }

@@ -23,10 +23,8 @@ use Dotclear\Core\Backend\Resources;
 use Dotclear\Core\Process;
 use Dotclear\Exception\ContextException;
 use Dotclear\Exception\PreconditionException;
-use Dotclear\Exception\SessionException;
 use Dotclear\Helper\L10n;
 use Dotclear\Process\Upgrade\Cli;
-use Throwable;
 
 /**
  * @brief   Utility class for upgrade context.

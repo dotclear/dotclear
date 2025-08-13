@@ -2,7 +2,7 @@
 
 /**
  * @package     Dotclear
- *    
+ *
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
@@ -42,7 +42,7 @@ class User extends Descriptor
     {
         $config = self::CONFIGURATION;
         if (is_array($response)) {
-            foreach ($config as $key => $_) {
+            foreach (array_keys($config) as $key) {
                 if ($key == 'user_id') {
                     continue;
                 }

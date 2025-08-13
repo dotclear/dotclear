@@ -82,6 +82,7 @@ class UserPreferences extends Process
         } catch (Exception $e) {
             App::error()->add($e->getMessage());
         }
+
         // Create webauthn instance
         try {
             App::backend()->webauthn = new WebAuthn();
@@ -847,8 +848,9 @@ class UserPreferences extends Process
 
                 // Get auth button
                 $oauth_link = App::backend()->oauth2->getActionButton(
-                    (string) App::auth()->userID(), $oauth2_service::getId(), 
-                    App::backend()->url()->get('admin.user.preferences') . '#user-options.user_options_oauth2', 
+                    (string) App::auth()->userID(),
+                    $oauth2_service::getId(),
+                    App::backend()->url()->get('admin.user.preferences') . '#user-options.user_options_oauth2',
                     true
                 );
 
@@ -887,15 +889,15 @@ class UserPreferences extends Process
         if (App::backend()->webauthn !== null) {
             $webauthn_creds = App::backend()->webauthn->store()->getCredentials(null, (string) App::auth()->userID());
 
-            foreach($webauthn_creds as $dt => $webauthn_cred) {
+            foreach ($webauthn_creds as $webauthn_cred) {
                 $webauthn_items[] = (new Li())
-                    ->separator (', ')
+                    ->separator(', ')
                     ->items([
                         (new Text('', Html::escapeHTML(App::backend()->webauthn->provider()->getProvider($webauthn_cred->UUID()))))
                             ->title(Html::escapeHTML($webauthn_cred->certificateIssuer() ?: __('Unknown certificat issuer'))),
                         (new Timestamp(Date::dt2str(__('%Y-%m-%d %H:%M'), $webauthn_cred->createDate())))
-                            ->datetime(Date::iso8601((int) strtotime($webauthn_cred->createDate()), App::auth()->getInfo('user_tz'))),
-                        (new Submit(['webauthn[' . base64_encode($webauthn_cred->credentialId()) . ']'], __('Delete')))
+                            ->datetime(Date::iso8601((int) strtotime((string) $webauthn_cred->createDate()), App::auth()->getInfo('user_tz'))),
+                        (new Submit(['webauthn[' . base64_encode((string) $webauthn_cred->credentialId()) . ']'], __('Delete')))
                             ->class('delete'),
                     ]);
             }
@@ -1092,7 +1094,7 @@ class UserPreferences extends Process
                             ->legend(new Legend(__('Authentication applications')))
                             ->separator('')
                             ->items($oauth2_items),
-                            // wenauthn
+                        // wenauthn
                         (new Fieldset('user_options_webauthn'))
                             ->legend(new Legend(__('Auhtentication keys')))
                             ->separator('')

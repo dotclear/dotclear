@@ -2,7 +2,7 @@
 
 /**
  * @package     Dotclear
- *    
+ *
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
@@ -26,8 +26,6 @@ class ChallengeOption implements ChallengeOptionInterface
 {
     /**
      * The challenge.
-     *
-     * @var     ByteBufferInterface     $challenge
      */
     protected ByteBufferInterface $challenge;
 
@@ -41,7 +39,6 @@ class ChallengeOption implements ChallengeOptionInterface
         protected StoreInterface $store,
         protected ByteBufferInterface $buffer
     ) {
-
     }
 
     public function configure(array $config = []): self

@@ -32,7 +32,7 @@ class GithubConnect extends Provider
     public const REQUEST_URL          = 'https://api.github.com/';
     public const DEFAULT_SCOPE        = ['read:user', 'user:email'];
 
-    protected function getRevokeTokenParameters(Token $token): string|array
+    protected function getRevokeTokenParameters(Token $token): string
     {
         return (string) json_encode([
             'credentials' => [$token->get('access_token')],
@@ -42,8 +42,8 @@ class GithubConnect extends Provider
     protected function getRevokeTokenHeaders(Token $token): array
     {
         return [
-            'accept'        => 'application/vnd.github+json',
-            'content-type'  => 'application/json',
+            'accept'       => 'application/vnd.github+json',
+            'content-type' => 'application/json',
         ];
     }
 
