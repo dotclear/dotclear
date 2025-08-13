@@ -35,6 +35,22 @@ class LinkTest extends TestCase
         );
     }
 
+    public function testWithDownload()
+    {
+        $component = new \Dotclear\Helper\Html\Form\Link();
+        $component->download(true);
+        $rendered = $component->render();
+
+        $this->assertMatchesRegularExpression(
+            '/<a.*?>(?:.*?\n*)?<\/a>/',
+            $rendered
+        );
+        $this->assertStringContainsString(
+            'download',
+            $rendered
+        );
+    }
+
     public function testWithText()
     {
         $component = new \Dotclear\Helper\Html\Form\Link();

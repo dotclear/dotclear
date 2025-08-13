@@ -18,12 +18,14 @@ namespace Dotclear\Helper\Html\Form;
  * @method      $this text(string $text)
  * @method      $this format(string $format)
  * @method      $this separator(string $separator)
+ * @method      $this download(bool $download)
  * @method      $this items(Iterable<int|string, Component> $items)
  *
  * @property    string $href
  * @property    string $text
  * @property    string $format
  * @property    string $separator
+ * @property    bool   $download
  * @property    Iterable<int|string, Component> $items
  */
 class Link extends Component
@@ -53,6 +55,7 @@ class Link extends Component
     {
         $buffer = '<' . ($this->getElement() ?? self::DEFAULT_ELEMENT) .
             ($this->href !== null ? ' href="' . $this->href . '"' : '') .
+            ($this->download !== null && $this->download ? ' download' : '') .
             $this->renderCommonAttributes() . '>';
 
         // Cope with items
