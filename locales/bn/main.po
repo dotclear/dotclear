@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-14 10:14+0200\n"
-"PO-Revision-Date: 2025-08-14 08:28\n"
+"PO-Revision-Date: 2025-08-14 10:34\n"
 "Last-Translator: \n"
 "Language-Team: Bengali\n"
 "Language: bn_BD\n"
@@ -2279,7 +2279,7 @@ msgstr "কোনো ব্লগ ইউ-আর-এল নেই"
 
 #: src/Core/Frontend/Session.php:35
 msgid "Something went wrong while trying to read blog URL."
-msgstr ""
+msgstr "ব্লগের URL পড়ার চেষ্টা করার সময় কিছু সমস্যা হয়েছে।"
 
 #: src/Core/Frontend/Url.php:612
 msgid "You must provide a valid email address."
@@ -2876,86 +2876,86 @@ msgstr "সতর্কীকরণ: টেম্পলেট ফাইল প�
 
 #: src/Helper/OAuth2/Client/Client.php:170
 msgid "Services does not work on unsecured protocol."
-msgstr ""
+msgstr "পরিষেবাগুলি অসুরক্ষিত প্রোটোকলে কাজ করে না।"
 
 #: src/Helper/OAuth2/Client/Client.php:175
 msgid "Services does not work on IP address."
-msgstr ""
+msgstr "পরিষেবাগুলি IP ঠিকানায় কাজ করে না।"
 
 #: src/Helper/OAuth2/Client/Client.php:180
 msgid "Services does not work on local network."
-msgstr ""
+msgstr "পরিষেবাগুলি স্থানীয় নেটওয়ার্কে কাজ করে না।"
 
 #: src/Helper/OAuth2/Client/Client.php:210
 #, php-format
 msgid "Authorize %s connection"
-msgstr ""
+msgstr "%s সংযোগ অনুমোদন করুন"
 
 #: src/Helper/OAuth2/Client/Client.php:210
 #, php-format
 msgid "Connect with %s"
-msgstr ""
+msgstr "%s এর সাথে সংযোগ করুন"
 
 #: src/Helper/OAuth2/Client/Client.php:212
 #, php-format
 msgid "Disconnect from %s"
-msgstr ""
+msgstr "%s থেকে সংযোগ বিচ্ছিন্ন করুন"
 
 #: src/Helper/OAuth2/Client/Client.php:212
 #, php-format
 msgid "Revoke %s connection"
-msgstr ""
+msgstr "%s সংযোগ প্রত্যাহার করুন"
 
 #: src/Helper/OAuth2/Client/Client.php:308
 msgid "Failed to retrieve user ID from this provider"
-msgstr ""
+msgstr "এই প্রদানকারীর থেকে ব্যবহারকারী আইডি পুনরুদ্ধার করা যায়নি"
 
 #: src/Helper/OAuth2/Client/Client.php:312
 msgid "No user ID linked to this provider"
-msgstr ""
+msgstr "এই প্রদানকারীর সাথে কোনও ব্যবহারকারী আইডি লিঙ্ক করা নেই।"
 
 #: src/Helper/OAuth2/Client/Exception/InvalidClient.php:26
 msgid "Invalid client configuration"
-msgstr ""
+msgstr "অবৈধ ক্লায়েন্ট কনফিগারেশন"
 
 #: src/Helper/OAuth2/Client/Exception/InvalidClient.php:26
 #, php-format
 msgid "Missing client configuration key \"%s\""
-msgstr ""
+msgstr "ক্লায়েন্ট কনফিগারেশন কী \"%s\" অনুপস্থিত"
 
 #: src/Helper/OAuth2/Client/Exception/Unauthorized.php:26
 #, php-format
 msgid "Unauthorized: %s"
-msgstr ""
+msgstr "অননুমোদিত: %s"
 
 #: src/Helper/OAuth2/Client/Provider.php:132
 #, php-format
 msgid "Allow user connection using %s application."
-msgstr ""
+msgstr "%s অ্যাপ্লিকেশন ব্যবহার করে ব্যবহারকারীর সংযোগের অনুমতি দিন।"
 
 #: src/Helper/OAuth2/Client/Provider.php:309
 msgid "Invalid response state"
-msgstr ""
+msgstr "অবৈধ প্রতিক্রিয়া অবস্থা"
 
 #: src/Helper/OAuth2/Client/Provider.php:312
 msgid "Invalid response code"
-msgstr ""
+msgstr "অবৈধ প্রতিক্রিয়া কোড"
 
 #: src/Helper/OAuth2/Client/Provider.php:378
 #: src/Helper/OAuth2/Client/Provider.php:451
 #: src/Helper/OAuth2/Client/Provider.php:661
 msgid "Invalid response content"
-msgstr ""
+msgstr "অবৈধ প্রতিক্রিয়া সামগ্রী"
 
 #: src/Helper/OAuth2/Client/Provider.php:542
 msgid "Invalid response format"
-msgstr ""
+msgstr "ভুল প্রতিক্রিয়া ফর্ম্যাট"
 
 #: src/Helper/OAuth2/Client/Services.php:118
 #: src/Helper/OAuth2/Client/Services.php:127
 #, php-format
 msgid "Failed to load provider \"%s\""
-msgstr ""
+msgstr "\"%s\" সরবরাহকারী লোড করতে ব্যর্থ হয়েছে।"
 
 #: src/Helper/Stack/Statuses.php:315 src/Process/Backend/Comment.php:331
 #: src/Process/Backend/User.php:390
@@ -2964,11 +2964,11 @@ msgstr "অবস্থা:"
 
 #: src/Helper/WebAuthn/Data/Provider.php:62
 msgid "Unknown passkey"
-msgstr ""
+msgstr "অজানা পাসকি"
 
 #: src/Helper/WebAuthn/Data/Store.php:52
 msgid "Arguments are missing"
-msgstr ""
+msgstr "যুক্তি অনুপস্থিত।"
 
 #: src/Module/Modules.php:247
 #, php-format
@@ -3226,11 +3226,11 @@ msgstr "লগ ইন"
 
 #: src/Process/Backend/Auth.php:561
 msgid "Sign in with a passkey"
-msgstr ""
+msgstr "একটি পাসকি দিয়ে সাইন ইন করুন"
 
 #: src/Process/Backend/Auth.php:604
 msgid "Third party applications connections"
-msgstr ""
+msgstr "তৃতীয় পক্ষের অ্যাপ্লিকেশন সংযোগ"
 
 #: src/Process/Backend/Auth.php:613 src/Process/Upgrade/Auth.php:240
 msgid "You must accept cookies in order to use the private area."
@@ -5320,12 +5320,12 @@ msgid "List options saved"
 msgstr "তালিকা অপশন সংরক্ষণ করা হয়েছে"
 
 #: src/Process/Backend/Rest.php:985
-msgid "Auhtentication key successfully registered"
-msgstr ""
+msgid "Authentication key successfully registered"
+msgstr "প্রমাণীকরণ কী সফলভাবে নিবন্ধিত হয়েছে"
 
 #: src/Process/Backend/Rest.php:1040
 msgid "This key is not registered"
-msgstr ""
+msgstr "এই কীটি নিবন্ধিত নয়।"
 
 #: src/Process/Backend/Search.php:174
 msgid "Search options"
@@ -5634,7 +5634,7 @@ msgstr "শ্রেণীবিভাগ"
 
 #: src/Process/Backend/UserPreferences.php:232
 msgid "Passkey successfully deleted."
-msgstr ""
+msgstr "পাসকি সফলভাবে মুছে ফেলা হয়েছে।"
 
 #: src/Process/Backend/UserPreferences.php:243
 #: src/Process/Backend/UserPreferences.php:260
@@ -5738,15 +5738,15 @@ msgstr "একটি সম্পাদক নির্বাচন করুন
 
 #: src/Process/Backend/UserPreferences.php:874
 msgid "Linked to account:"
-msgstr ""
+msgstr "অ্যাকাউন্টের সাথে লিঙ্ক করা হয়েছে:"
 
 #: src/Process/Backend/UserPreferences.php:896
 msgid "Unknown certificat issuer"
-msgstr ""
+msgstr "অজানা সার্টিফিকেট ইস্যুকারী"
 
 #: src/Process/Backend/UserPreferences.php:906
 msgid "You have no registered key yet."
-msgstr ""
+msgstr "তোমার কাছে এখনও কোন নিবন্ধিত চাবি নেই।"
 
 #: src/Process/Backend/UserPreferences.php:912
 #: src/Process/Backend/UserPreferences.php:918
@@ -5855,11 +5855,11 @@ msgstr "HTML সম্পাদক ব্যবহার করো:"
 
 #: src/Process/Backend/UserPreferences.php:1093
 msgid "Authentication applications"
-msgstr ""
+msgstr "প্রমাণীকরণ অ্যাপ্লিকেশন"
 
 #: src/Process/Backend/UserPreferences.php:1098
-msgid "Auhtentication keys"
-msgstr ""
+msgid "Authentication keys"
+msgstr "প্রমাণীকরণ কী"
 
 #: src/Process/Backend/UserPreferences.php:1109
 msgid "Other options"
