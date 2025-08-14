@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-14 10:14+0200\n"
-"PO-Revision-Date: 2025-08-14 08:28\n"
+"PO-Revision-Date: 2025-08-14 10:34\n"
 "Last-Translator: \n"
 "Language-Team: Bulgarian\n"
 "Language: bg_BG\n"
@@ -2279,7 +2279,7 @@ msgstr "Няма URL адрес на блога"
 
 #: src/Core/Frontend/Session.php:35
 msgid "Something went wrong while trying to read blog URL."
-msgstr ""
+msgstr "Нещо се обърка, докато се опитвах да прочета URL адреса на блога."
 
 #: src/Core/Frontend/Url.php:612
 msgid "You must provide a valid email address."
@@ -2876,86 +2876,86 @@ msgstr "ПРЕДУПРЕЖДЕНИЕ: при обработката на фай�
 
 #: src/Helper/OAuth2/Client/Client.php:170
 msgid "Services does not work on unsecured protocol."
-msgstr ""
+msgstr "Услугите не работят при незащитен протокол."
 
 #: src/Helper/OAuth2/Client/Client.php:175
 msgid "Services does not work on IP address."
-msgstr ""
+msgstr "Услугите не работят с IP адрес."
 
 #: src/Helper/OAuth2/Client/Client.php:180
 msgid "Services does not work on local network."
-msgstr ""
+msgstr "Услугите не работят в локалната мрежа."
 
 #: src/Helper/OAuth2/Client/Client.php:210
 #, php-format
 msgid "Authorize %s connection"
-msgstr ""
+msgstr "Оторизиране на връзката %s"
 
 #: src/Helper/OAuth2/Client/Client.php:210
 #, php-format
 msgid "Connect with %s"
-msgstr ""
+msgstr "Свържете се с %s"
 
 #: src/Helper/OAuth2/Client/Client.php:212
 #, php-format
 msgid "Disconnect from %s"
-msgstr ""
+msgstr "Прекъсване на връзката с %s"
 
 #: src/Helper/OAuth2/Client/Client.php:212
 #, php-format
 msgid "Revoke %s connection"
-msgstr ""
+msgstr "Отмяна на връзката с %s"
 
 #: src/Helper/OAuth2/Client/Client.php:308
 msgid "Failed to retrieve user ID from this provider"
-msgstr ""
+msgstr "Неуспешно извличане на идентификатор на потребител от този доставчик"
 
 #: src/Helper/OAuth2/Client/Client.php:312
 msgid "No user ID linked to this provider"
-msgstr ""
+msgstr "Няма потребителски идентификатор, свързан с този доставчик"
 
 #: src/Helper/OAuth2/Client/Exception/InvalidClient.php:26
 msgid "Invalid client configuration"
-msgstr ""
+msgstr "Невалидна клиентска конфигурация"
 
 #: src/Helper/OAuth2/Client/Exception/InvalidClient.php:26
 #, php-format
 msgid "Missing client configuration key \"%s\""
-msgstr ""
+msgstr "Липсва ключ за конфигурация на клиента \"%s\""
 
 #: src/Helper/OAuth2/Client/Exception/Unauthorized.php:26
 #, php-format
 msgid "Unauthorized: %s"
-msgstr ""
+msgstr "Неоторизиран: %s"
 
 #: src/Helper/OAuth2/Client/Provider.php:132
 #, php-format
 msgid "Allow user connection using %s application."
-msgstr ""
+msgstr "Разрешаване на връзката с потребителя чрез приложението %s."
 
 #: src/Helper/OAuth2/Client/Provider.php:309
 msgid "Invalid response state"
-msgstr ""
+msgstr "Невалидно състояние на отговора"
 
 #: src/Helper/OAuth2/Client/Provider.php:312
 msgid "Invalid response code"
-msgstr ""
+msgstr "Невалиден код за отговор"
 
 #: src/Helper/OAuth2/Client/Provider.php:378
 #: src/Helper/OAuth2/Client/Provider.php:451
 #: src/Helper/OAuth2/Client/Provider.php:661
 msgid "Invalid response content"
-msgstr ""
+msgstr "Невалидно съдържание на отговора"
 
 #: src/Helper/OAuth2/Client/Provider.php:542
 msgid "Invalid response format"
-msgstr ""
+msgstr "Невалиден формат на отговора"
 
 #: src/Helper/OAuth2/Client/Services.php:118
 #: src/Helper/OAuth2/Client/Services.php:127
 #, php-format
 msgid "Failed to load provider \"%s\""
-msgstr ""
+msgstr "Неуспешно зареждане на доставчик \"%s\""
 
 #: src/Helper/Stack/Statuses.php:315 src/Process/Backend/Comment.php:331
 #: src/Process/Backend/User.php:390
@@ -2964,11 +2964,11 @@ msgstr "Статус:"
 
 #: src/Helper/WebAuthn/Data/Provider.php:62
 msgid "Unknown passkey"
-msgstr ""
+msgstr "Неизвестен ключ за достъп"
 
 #: src/Helper/WebAuthn/Data/Store.php:52
 msgid "Arguments are missing"
-msgstr ""
+msgstr "Липсват аргументи"
 
 #: src/Module/Modules.php:247
 #, php-format
@@ -3226,11 +3226,11 @@ msgstr "влизане в системата"
 
 #: src/Process/Backend/Auth.php:561
 msgid "Sign in with a passkey"
-msgstr ""
+msgstr "Влизане с ключ за достъп"
 
 #: src/Process/Backend/Auth.php:604
 msgid "Third party applications connections"
-msgstr ""
+msgstr "Връзки с приложения на трети страни"
 
 #: src/Process/Backend/Auth.php:613 src/Process/Upgrade/Auth.php:240
 msgid "You must accept cookies in order to use the private area."
@@ -5320,12 +5320,12 @@ msgid "List options saved"
 msgstr "Списък със запазени опции"
 
 #: src/Process/Backend/Rest.php:985
-msgid "Auhtentication key successfully registered"
-msgstr ""
+msgid "Authentication key successfully registered"
+msgstr "Ключът за аутентикация е регистриран успешно"
 
 #: src/Process/Backend/Rest.php:1040
 msgid "This key is not registered"
-msgstr ""
+msgstr "Този ключ не е регистриран"
 
 #: src/Process/Backend/Search.php:174
 msgid "Search options"
@@ -5634,7 +5634,7 @@ msgstr "Описание на категорията"
 
 #: src/Process/Backend/UserPreferences.php:232
 msgid "Passkey successfully deleted."
-msgstr ""
+msgstr "Passkey е успешно изтрит."
 
 #: src/Process/Backend/UserPreferences.php:243
 #: src/Process/Backend/UserPreferences.php:260
@@ -5738,15 +5738,15 @@ msgstr "Изберете редактор"
 
 #: src/Process/Backend/UserPreferences.php:874
 msgid "Linked to account:"
-msgstr ""
+msgstr "Свързан с акаунт:"
 
 #: src/Process/Backend/UserPreferences.php:896
 msgid "Unknown certificat issuer"
-msgstr ""
+msgstr "Неизвестен издател на сертификат"
 
 #: src/Process/Backend/UserPreferences.php:906
 msgid "You have no registered key yet."
-msgstr ""
+msgstr "Все още нямате регистриран ключ."
 
 #: src/Process/Backend/UserPreferences.php:912
 #: src/Process/Backend/UserPreferences.php:918
@@ -5855,11 +5855,11 @@ msgstr "Използвайте HTML редактора за:"
 
 #: src/Process/Backend/UserPreferences.php:1093
 msgid "Authentication applications"
-msgstr ""
+msgstr "Приложения за удостоверяване на автентичност"
 
 #: src/Process/Backend/UserPreferences.php:1098
-msgid "Auhtentication keys"
-msgstr ""
+msgid "Authentication keys"
+msgstr "Ключове за аутентикация"
 
 #: src/Process/Backend/UserPreferences.php:1109
 msgid "Other options"
