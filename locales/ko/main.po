@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-13 14:53+0200\n"
-"PO-Revision-Date: 2025-08-13 13:22\n"
+"POT-Creation-Date: 2025-08-14 10:14+0200\n"
+"PO-Revision-Date: 2025-08-14 10:34\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -17,9 +17,9 @@ msgstr ""
 "X-Crowdin-File: /master/locales/_pot/main.pot\n"
 "X-Crowdin-File-ID: 262\n"
 
-#: inc/core/_fake_l10n.php:6 src/Process/Backend/Auth.php:353
-#: src/Process/Backend/User.php:264 src/Process/Backend/UserPreferences.php:526
-#: src/Process/Install/Install.php:397 src/Process/Upgrade/Auth.php:185
+#: inc/core/_fake_l10n.php:6 src/Process/Backend/Auth.php:378
+#: src/Process/Backend/User.php:264 src/Process/Backend/UserPreferences.php:559
+#: src/Process/Install/Install.php:397 src/Process/Upgrade/Auth.php:184
 msgid "medium"
 msgstr "medium"
 
@@ -81,11 +81,11 @@ msgstr "모든 미디어를 관리할 수 있음"
 msgid "manage their own media items"
 msgstr "자신들의 미디어를 관리할 수 있음"
 
-#: src/Core/Auth.php:602
+#: src/Core/Auth.php:597
 msgid "That user does not exist in the database."
 msgstr "이 사용자는 데이터베이스에 없습니다."
 
-#: src/Core/Auth.php:629
+#: src/Core/Auth.php:624
 msgid "That key does not exist in the database."
 msgstr "이 키는 데이터베이스에 없습니다."
 
@@ -157,8 +157,8 @@ msgstr "공개상태"
 #: src/Core/Backend/Listing/ListingMedia.php:309
 #: src/Core/Backend/ModulesList.php:1350 src/Core/Upgrade/PluginsList.php:125
 #: src/Process/Backend/Comment.php:355 src/Process/Backend/Langs.php:231
-#: src/Process/Backend/Post.php:960 src/Process/Backend/Users.php:46
-#: src/Process/Upgrade/Langs.php:299
+#: src/Process/Backend/Post.php:960 src/Process/Backend/UserPreferences.php:899
+#: src/Process/Backend/Users.php:46 src/Process/Upgrade/Langs.php:299
 msgid "Delete"
 msgstr "삭제"
 
@@ -449,11 +449,11 @@ msgstr "사용가능"
 msgid "Other"
 msgstr "기타"
 
-#: src/Core/Backend/Combos.php:242 src/Process/Backend/UserPreferences.php:189
+#: src/Core/Backend/Combos.php:242 src/Process/Backend/UserPreferences.php:209
 msgid "Descending"
 msgstr "내림순"
 
-#: src/Core/Backend/Combos.php:243 src/Process/Backend/UserPreferences.php:190
+#: src/Core/Backend/Combos.php:243 src/Process/Backend/UserPreferences.php:210
 msgid "Ascending"
 msgstr "오름순"
 
@@ -544,13 +544,13 @@ msgid "Number of entries"
 msgstr "글꼭지수"
 
 #: src/Core/Backend/Favorites.php:287
-#: src/Process/Backend/UserPreferences.php:1145
+#: src/Process/Backend/UserPreferences.php:1267
 msgid "My favorites"
 msgstr "내 즐겨 찾기"
 
 #: src/Core/Backend/Favorites.php:399 src/Core/Backend/Menus.php:195
 #: src/Core/Backend/Page.php:372 src/Process/Backend/Media.php:782
-#: src/Process/Backend/UserPreferences.php:71
+#: src/Process/Backend/UserPreferences.php:75
 msgid "My preferences"
 msgstr "내 기본 설정"
 
@@ -560,13 +560,13 @@ msgstr "내 기본 설정"
 msgid "New post"
 msgstr "새 글꼭지"
 
-#: src/Core/Backend/Favorites.php:426 src/Process/Backend/Rest.php:92
+#: src/Core/Backend/Favorites.php:426 src/Process/Backend/Rest.php:98
 #, php-format
 msgid "%d post"
 msgid_plural "%d posts"
 msgstr[0] "%d 게시물"
 
-#: src/Core/Backend/Favorites.php:441 src/Process/Backend/Rest.php:106
+#: src/Core/Backend/Favorites.php:441 src/Process/Backend/Rest.php:112
 #, php-format
 msgid "%d comment"
 msgid_plural "%d comments"
@@ -628,7 +628,7 @@ msgid "Plugins settings"
 msgstr "플러그인 설정"
 
 #: src/Core/Backend/Favorites.php:521 src/Core/Backend/Menus.php:215
-#: src/Core/Upgrade/Utility.php:294
+#: src/Core/Upgrade/Utility.php:282
 msgid "Languages"
 msgstr "언어"
 
@@ -639,9 +639,9 @@ msgid "Global help"
 msgstr "글로벌 도움말"
 
 #: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1261
-#: src/Process/Backend/Auth.php:420 src/Process/Backend/BlogPref.php:1351
+#: src/Process/Backend/Auth.php:445 src/Process/Backend/BlogPref.php:1351
 #: src/Process/Backend/Comment.php:306 src/Process/Backend/Post.php:1108
-#: src/Process/Backend/User.php:432 src/Process/Backend/UserPreferences.php:637
+#: src/Process/Backend/User.php:432 src/Process/Backend/UserPreferences.php:670
 #: src/Process/Install/Install.php:445
 msgid "Email:"
 msgstr "이메일:"
@@ -700,9 +700,9 @@ msgstr "비디오"
 msgid "Format:"
 msgstr "형식:"
 
-#: src/Core/Backend/Filter/FilterPosts.php:180 src/Process/Backend/Auth.php:155
-#: src/Process/Backend/Auth.php:516 src/Process/Backend/User.php:344
-#: src/Process/Install/Install.php:509 src/Process/Upgrade/Auth.php:228
+#: src/Core/Backend/Filter/FilterPosts.php:180 src/Process/Backend/Auth.php:182
+#: src/Process/Backend/Auth.php:541 src/Process/Backend/User.php:344
+#: src/Process/Install/Install.php:509 src/Process/Upgrade/Auth.php:227
 msgid "Password:"
 msgstr "비밀번호:"
 
@@ -773,7 +773,7 @@ msgid "Sort:"
 msgstr "정렬방식 :"
 
 #: src/Core/Backend/Filter/Filters.php:391
-#: src/Process/Backend/UserPreferences.php:770
+#: src/Process/Backend/UserPreferences.php:803
 msgid "Show"
 msgstr "표시"
 
@@ -1112,12 +1112,12 @@ msgstr "블로그"
 msgid "System settings"
 msgstr "시스템 설정"
 
-#: src/Core/Backend/Menus.php:88 src/Core/Upgrade/Utility.php:303
+#: src/Core/Backend/Menus.php:88 src/Core/Upgrade/Utility.php:291
 msgid "Plugins"
 msgstr "플러그인"
 
 #: src/Core/Backend/Menus.php:205 src/Core/Backend/ModulesList.php:1379
-#: src/Core/Upgrade/PluginsList.php:144 src/Core/Upgrade/Utility.php:267
+#: src/Core/Upgrade/PluginsList.php:144 src/Core/Upgrade/Utility.php:255
 #: src/Process/Upgrade/Upgrade.php:59 src/Process/Upgrade/Upgrade.php:84
 #: src/Process/Upgrade/Upgrade.php:322
 msgid "Update"
@@ -1441,8 +1441,8 @@ msgstr "알 수 없는 플러그인 ID"
 msgid "This plugin has no configuration file."
 msgstr "이 플러그인에는 구성 파일이 없습니다."
 
-#: src/Core/Backend/ModulesList.php:1886 src/Process/Backend/Auth.php:292
-#: src/Process/Upgrade/Auth.php:136
+#: src/Core/Backend/ModulesList.php:1886 src/Process/Backend/Auth.php:317
+#: src/Process/Upgrade/Auth.php:135
 msgid "Insufficient permissions"
 msgstr "권한 부족"
 
@@ -1456,9 +1456,9 @@ msgstr "구성 \"%s\""
 #: src/Process/Backend/Category.php:301 src/Process/Backend/Comment.php:352
 #: src/Process/Backend/Media.php:857 src/Process/Backend/MediaItem.php:1359
 #: src/Process/Backend/Post.php:950 src/Process/Backend/Search.php:197
-#: src/Process/Backend/User.php:547 src/Process/Backend/UserPreferences.php:698
-#: src/Process/Backend/UserPreferences.php:1000
-#: src/Process/Backend/UserPreferences.php:1226
+#: src/Process/Backend/User.php:547 src/Process/Backend/UserPreferences.php:731
+#: src/Process/Backend/UserPreferences.php:1122
+#: src/Process/Backend/UserPreferences.php:1348
 msgid "Back"
 msgstr "뒤로"
 
@@ -1511,8 +1511,8 @@ msgid "Go to help"
 msgstr "도움말로 이동"
 
 #: src/Core/Backend/Page.php:339 src/Core/Upgrade/Page.php:175
-#: src/Process/Backend/UserPreferences.php:1135
-#: src/Process/Backend/UserPreferences.php:1137
+#: src/Process/Backend/UserPreferences.php:1257
+#: src/Process/Backend/UserPreferences.php:1259
 msgid "My dashboard"
 msgstr "내 대시보드"
 
@@ -2085,10 +2085,6 @@ msgstr "페이지당 미디어"
 msgid "results per page"
 msgstr "페이지당 결과"
 
-#: src/Core/Backend/Utility.php:139 src/Core/Upgrade/Utility.php:112
-msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
-msgstr "데이터베이스에 세션 테이블이 없는 것 같습니다. Dotclear가 완전히 설치되었나요?"
-
 #: src/Core/Blog.php:720
 msgid "You are not allowed to add categories"
 msgstr "분류 만들기 권한이 없습니다."
@@ -2252,35 +2248,39 @@ msgstr "블로그 이름이 없습니다."
 msgid "No blog URL"
 msgstr "블로그 URL이 없습니다."
 
+#: src/Core/Frontend/Session.php:35
+msgid "Something went wrong while trying to read blog URL."
+msgstr "블로그 URL을 읽는 동안 문제가 발생했습니다."
+
 #: src/Core/Frontend/Url.php:612
 msgid "You must provide a valid email address."
 msgstr "올바른 이메일 주소를 쓰셔야합니다."
 
-#: src/Core/Frontend/Utility.php:143
+#: src/Core/Frontend/Utility.php:150
 msgid "Something went wrong while trying to read the database."
 msgstr "데이터베이스를 읽는 동안 문제가 발생했습니다."
 
-#: src/Core/Frontend/Utility.php:148
+#: src/Core/Frontend/Utility.php:155
 msgid "Blog is not defined."
 msgstr "블로그가 정의되지 않았습니다."
 
-#: src/Core/Frontend/Utility.php:154
+#: src/Core/Frontend/Utility.php:161
 msgid "This blog is offline. Please try again later."
 msgstr "이 블로그는 오프라인 상태입니다. 나중에 다시 시도해 주세요."
 
-#: src/Core/Frontend/Utility.php:254
+#: src/Core/Frontend/Utility.php:264
 msgid "This either means you removed your default theme or set a wrong theme path in your blog configuration. Please check theme_path value in about:config module or reinstall default theme. ("
 msgstr "기본 테마를 제거했거나 블로그 구성에서 테마 경로를 잘못 설정했음을 의미합니다. about:config 모듈에서 theme_path 값을 확인하거나 기본 테마를 다시 설치하세요. ("
 
-#: src/Core/Frontend/Utility.php:257
+#: src/Core/Frontend/Utility.php:267
 msgid "Default theme not found."
 msgstr "기본 테마를 찾을 수 없습니다."
 
-#: src/Core/Frontend/Utility.php:319
+#: src/Core/Frontend/Utility.php:329
 msgid "Something went wrong while loading template file for your blog."
 msgstr "블로그용 템플릿 파일을 로드하는 동안 문제가 발생했습니다."
 
-#: src/Core/Frontend/Utility.php:361
+#: src/Core/Frontend/Utility.php:385
 msgid "Can't create template files."
 msgstr "템플릿 파일을 만들 수 없습니다."
 
@@ -2508,58 +2508,58 @@ msgstr "컨트롤파일(digests)이 비정상적입니다."
 msgid "Something went wrong with auto upgrade:"
 msgstr "자동 갱신 중 오류가 발생했습니다 :"
 
-#: src/Core/Upgrade/Utility.php:272 src/Process/Upgrade/Upgrade.php:332
+#: src/Core/Upgrade/Utility.php:260 src/Process/Upgrade/Upgrade.php:332
 msgid "On this page you can update dotclear to the latest release."
 msgstr "이 페이지에서 닷클리어를 최신 릴리스로 업데이트할 수 있습니다."
 
-#: src/Core/Upgrade/Utility.php:276 src/Process/Upgrade/Attic.php:78
+#: src/Core/Upgrade/Utility.php:264 src/Process/Upgrade/Attic.php:78
 #: src/Process/Upgrade/Attic.php:103 src/Process/Upgrade/Attic.php:357
 msgid "Attic"
 msgstr "다락방"
 
-#: src/Core/Upgrade/Utility.php:281 src/Process/Upgrade/Attic.php:367
+#: src/Core/Upgrade/Utility.php:269 src/Process/Upgrade/Attic.php:367
 msgid "On this page you can update dotclear to a release between yours and latest."
 msgstr "이 페이지에서 현재 릴리스와 최신 릴리스 사이의 릴리스로 닷클리어를 업데이트할 수 있습니다."
 
-#: src/Core/Upgrade/Utility.php:285 src/Process/Upgrade/Backup.php:211
+#: src/Core/Upgrade/Utility.php:273 src/Process/Upgrade/Backup.php:211
 msgid "Backups"
 msgstr "백업"
 
-#: src/Core/Upgrade/Utility.php:290 src/Process/Upgrade/Backup.php:225
+#: src/Core/Upgrade/Utility.php:278 src/Process/Upgrade/Backup.php:225
 msgid "On this page you can revert your previous installation or delete theses files."
 msgstr "이 페이지에서 이전 설치를 되돌리거나 논문 파일을 삭제할 수 있습니다."
 
-#: src/Core/Upgrade/Utility.php:299 src/Process/Backend/Langs.php:258
+#: src/Core/Upgrade/Utility.php:287 src/Process/Backend/Langs.php:258
 #: src/Process/Upgrade/Langs.php:453
 msgid "Here you can install, upgrade or remove languages for your Dotclear installation."
 msgstr "이곳에서 Dotclear에 언어를 설치, 갱신 또는 삭제할 수 있습니다."
 
-#: src/Core/Upgrade/Utility.php:308
+#: src/Core/Upgrade/Utility.php:296
 msgid "On this page you will manage plugins."
 msgstr "이 페이지에서는 플러그인을 관리합니다."
 
-#: src/Core/Upgrade/Utility.php:312 src/Process/Upgrade/Cache.php:69
+#: src/Core/Upgrade/Utility.php:300 src/Process/Upgrade/Cache.php:69
 msgid "Cache"
 msgstr "캐시"
 
-#: src/Core/Upgrade/Utility.php:317 src/Process/Upgrade/Cache.php:85
+#: src/Core/Upgrade/Utility.php:305 src/Process/Upgrade/Cache.php:85
 msgid "On this page, you can clear templates and repositories cache."
 msgstr "이 페이지에서는 템플릿 및 리포지토리 캐시를 지울 수 있습니다."
 
-#: src/Core/Upgrade/Utility.php:321
+#: src/Core/Upgrade/Utility.php:309
 msgid "Digests"
 msgstr "다이제스트"
 
-#: src/Core/Upgrade/Utility.php:326 src/Process/Upgrade/Digests.php:158
+#: src/Core/Upgrade/Utility.php:314 src/Process/Upgrade/Digests.php:158
 msgid "On this page, you can bypass corrupted files or modified files in order to perform update."
 msgstr "이 페이지에서는 업데이트를 수행하기 위해 손상된 파일이나 수정된 파일을 우회할 수 있습니다."
 
-#: src/Core/Upgrade/Utility.php:330 src/Process/Upgrade/Replay.php:76
+#: src/Core/Upgrade/Utility.php:318 src/Process/Upgrade/Replay.php:76
 #: src/Process/Upgrade/Replay.php:104
 msgid "Replay"
 msgstr "재생"
 
-#: src/Core/Upgrade/Utility.php:335 src/Process/Upgrade/Replay.php:90
+#: src/Core/Upgrade/Utility.php:323 src/Process/Upgrade/Replay.php:90
 msgid "On this page, you can try to replay update action from a given version if some files remain from last update."
 msgstr "이 페이지에서는 마지막 업데이트에서 일부 파일이 남아 있는 경우 지정된 버전에서 업데이트 작업을 재생해 볼 수 있습니다."
 
@@ -2845,10 +2845,101 @@ msgstr "예기치 않은 종료 태그 </tpl:%s> 가 발견되었습니다."
 msgid "WARNING: the following errors have been found while parsing template file :"
 msgstr "경고: 템플릿 파일을 구문 분석하는 동안 다음 오류가 발견되었습니다:"
 
+#: src/Helper/OAuth2/Client/Client.php:170
+msgid "Services does not work on unsecured protocol."
+msgstr "보안되지 않은 프로토콜에서는 서비스가 작동하지 않습니다."
+
+#: src/Helper/OAuth2/Client/Client.php:175
+msgid "Services does not work on IP address."
+msgstr "IP 주소에서는 서비스가 작동하지 않습니다."
+
+#: src/Helper/OAuth2/Client/Client.php:180
+msgid "Services does not work on local network."
+msgstr "로컬 네트워크에서 서비스가 작동하지 않습니다."
+
+#: src/Helper/OAuth2/Client/Client.php:210
+#, php-format
+msgid "Authorize %s connection"
+msgstr "%s 연결 승인"
+
+#: src/Helper/OAuth2/Client/Client.php:210
+#, php-format
+msgid "Connect with %s"
+msgstr "%s으로 연결"
+
+#: src/Helper/OAuth2/Client/Client.php:212
+#, php-format
+msgid "Disconnect from %s"
+msgstr "%s에서 연결 해제"
+
+#: src/Helper/OAuth2/Client/Client.php:212
+#, php-format
+msgid "Revoke %s connection"
+msgstr "%s 연결 해지"
+
+#: src/Helper/OAuth2/Client/Client.php:308
+msgid "Failed to retrieve user ID from this provider"
+msgstr "이 공급자로부터 사용자 ID를 검색하지 못했습니다"
+
+#: src/Helper/OAuth2/Client/Client.php:312
+msgid "No user ID linked to this provider"
+msgstr "이 공급자에 연결된 사용자 ID가 없습니다"
+
+#: src/Helper/OAuth2/Client/Exception/InvalidClient.php:26
+msgid "Invalid client configuration"
+msgstr "잘못된 클라이언트 구성"
+
+#: src/Helper/OAuth2/Client/Exception/InvalidClient.php:26
+#, php-format
+msgid "Missing client configuration key \"%s\""
+msgstr "누락된 클라이언트 구성 키 \"%s\""
+
+#: src/Helper/OAuth2/Client/Exception/Unauthorized.php:26
+#, php-format
+msgid "Unauthorized: %s"
+msgstr "승인되지 않음: %s"
+
+#: src/Helper/OAuth2/Client/Provider.php:132
+#, php-format
+msgid "Allow user connection using %s application."
+msgstr "%s 애플리케이션을 사용하여 사용자 연결을 허용합니다."
+
+#: src/Helper/OAuth2/Client/Provider.php:309
+msgid "Invalid response state"
+msgstr "잘못된 응답 상태"
+
+#: src/Helper/OAuth2/Client/Provider.php:312
+msgid "Invalid response code"
+msgstr "잘못된 응답 코드"
+
+#: src/Helper/OAuth2/Client/Provider.php:378
+#: src/Helper/OAuth2/Client/Provider.php:451
+#: src/Helper/OAuth2/Client/Provider.php:661
+msgid "Invalid response content"
+msgstr "잘못된 응답 콘텐츠"
+
+#: src/Helper/OAuth2/Client/Provider.php:542
+msgid "Invalid response format"
+msgstr "잘못된 응답 형식"
+
+#: src/Helper/OAuth2/Client/Services.php:118
+#: src/Helper/OAuth2/Client/Services.php:127
+#, php-format
+msgid "Failed to load provider \"%s\""
+msgstr "공급자를 로드하지 못했습니다.\"%s\""
+
 #: src/Helper/Stack/Statuses.php:315 src/Process/Backend/Comment.php:331
 #: src/Process/Backend/User.php:390
 msgid "Status:"
 msgstr "공개상태 :"
+
+#: src/Helper/WebAuthn/Data/Provider.php:62
+msgid "Unknown passkey"
+msgstr "알 수 없는 암호 키"
+
+#: src/Helper/WebAuthn/Data/Store.php:52
+msgid "Arguments are missing"
+msgstr "인수가 누락되었습니다"
 
 #: src/Module/Modules.php:247
 #, php-format
@@ -2958,169 +3049,177 @@ msgstr "수정할 수 없는 _define.php"
 msgid "Destination folder already exist"
 msgstr "대상 폴더가 이미 존재함"
 
-#: src/Process/Backend/Auth.php:90 src/Process/Upgrade/Auth.php:81
+#: src/Process/Backend/Auth.php:94 src/Process/Upgrade/Auth.php:81
 msgid "Dotclear has been upgraded."
 msgstr "Dotclear가 갱신되었습니다."
 
-#: src/Process/Backend/Auth.php:137
+#: src/Process/Backend/Auth.php:164
 msgid "Password reset"
 msgstr "비밀번호 수정"
 
-#: src/Process/Backend/Auth.php:138
+#: src/Process/Backend/Auth.php:165
 msgid "Someone has requested to reset the password for the following site and username."
 msgstr "다음 사이트에 대한 사용자이름과 비밀번호를 바꾸어달라는 요청이 들어왔습니다."
 
-#: src/Process/Backend/Auth.php:138
+#: src/Process/Backend/Auth.php:165
 msgid "To reset your password visit the following address, otherwise just ignore this email and nothing will happen."
 msgstr "비밀번호를 바꾸시려면 다음 주소를 방문하십시요. 원하지 않으시면 그냥 이 이메일을 무시하시면 됩니다."
 
-#: src/Process/Backend/Auth.php:138 src/Process/Backend/Auth.php:155
-#: src/Process/Backend/Auth.php:410 src/Process/Backend/Auth.php:506
+#: src/Process/Backend/Auth.php:165 src/Process/Backend/Auth.php:182
+#: src/Process/Backend/Auth.php:435 src/Process/Backend/Auth.php:531
 #: src/Process/Install/Install.php:456 src/Process/Install/Install.php:508
-#: src/Process/Upgrade/Auth.php:217
+#: src/Process/Upgrade/Auth.php:216
 msgid "Username:"
 msgstr "사용자이름:"
 
-#: src/Process/Backend/Auth.php:144
+#: src/Process/Backend/Auth.php:171
 #, php-format
 msgid "The e-mail was sent successfully to %s."
 msgstr "%s로 이메일이 성공적으로 발송되었습니다."
 
-#: src/Process/Backend/Auth.php:154
+#: src/Process/Backend/Auth.php:181
 msgid "Your new password"
 msgstr "당신의 새 비밀번호"
 
-#: src/Process/Backend/Auth.php:160
+#: src/Process/Backend/Auth.php:187
 msgid "Your new password is in your mailbox."
 msgstr "새 비밀번호가 메일수신함에 도착했습니다."
 
-#: src/Process/Backend/Auth.php:203 src/Process/Backend/User.php:158
-#: src/Process/Backend/UserPreferences.php:231
+#: src/Process/Backend/Auth.php:230 src/Process/Backend/User.php:158
+#: src/Process/Backend/UserPreferences.php:264
 #: src/Process/Install/Install.php:170
 msgid "Passwords don't match"
 msgstr "비밀번호가 일치하지 않습니다."
 
-#: src/Process/Backend/Auth.php:207
+#: src/Process/Backend/Auth.php:234
 msgid "You didn't change your password."
 msgstr "비밀번호를 변경하지 않았습니다."
 
-#: src/Process/Backend/Auth.php:253
+#: src/Process/Backend/Auth.php:279
 msgid "You have to change your password before you can login."
 msgstr "로그인하려면 비밀번호를 변경해야 합니다."
 
-#: src/Process/Backend/Auth.php:255
+#: src/Process/Backend/Auth.php:281
 msgid "In order to login, you have to change your password now."
 msgstr "로그인하려면 지금 비밀번호를 변경해야 합니다."
 
-#: src/Process/Backend/Auth.php:261
+#: src/Process/Backend/Auth.php:287
 msgid "Safe Mode can only be used for super administrators."
 msgstr "안전 모드는 슈퍼 관리자만 사용할 수 있습니다."
 
-#: src/Process/Backend/Auth.php:296 src/Process/Upgrade/Auth.php:140
+#: src/Process/Backend/Auth.php:321 src/Process/Upgrade/Auth.php:139
 msgid "Administration session expired"
 msgstr "관리 세션이 만료되었습니다."
 
-#: src/Process/Backend/Auth.php:296 src/Process/Upgrade/Auth.php:140
+#: src/Process/Backend/Auth.php:321 src/Process/Upgrade/Auth.php:139
 msgid "Wrong username or password"
 msgstr "잘못된 사용자이름 또는 비밀번호"
 
-#: src/Process/Backend/Auth.php:352 src/Process/Backend/Auth.php:353
-#: src/Process/Backend/Auth.php:354 src/Process/Backend/User.php:263
+#: src/Process/Backend/Auth.php:377 src/Process/Backend/Auth.php:378
+#: src/Process/Backend/Auth.php:379 src/Process/Backend/User.php:263
 #: src/Process/Backend/User.php:264 src/Process/Backend/User.php:265
-#: src/Process/Backend/UserPreferences.php:525
-#: src/Process/Backend/UserPreferences.php:526
-#: src/Process/Backend/UserPreferences.php:527
+#: src/Process/Backend/UserPreferences.php:558
+#: src/Process/Backend/UserPreferences.php:559
+#: src/Process/Backend/UserPreferences.php:560
 #: src/Process/Install/Install.php:396 src/Process/Install/Install.php:397
-#: src/Process/Install/Install.php:398 src/Process/Upgrade/Auth.php:184
-#: src/Process/Upgrade/Auth.php:185 src/Process/Upgrade/Auth.php:186
+#: src/Process/Install/Install.php:398 src/Process/Upgrade/Auth.php:183
+#: src/Process/Upgrade/Auth.php:184 src/Process/Upgrade/Auth.php:185
 #, php-format
 msgid "Password strength: %s"
 msgstr "비밀번호 강도: %s"
 
-#: src/Process/Backend/Auth.php:352 src/Process/Backend/User.php:263
-#: src/Process/Backend/UserPreferences.php:525
-#: src/Process/Install/Install.php:396 src/Process/Upgrade/Auth.php:184
+#: src/Process/Backend/Auth.php:377 src/Process/Backend/User.php:263
+#: src/Process/Backend/UserPreferences.php:558
+#: src/Process/Install/Install.php:396 src/Process/Upgrade/Auth.php:183
 msgid "weak"
 msgstr "약한"
 
-#: src/Process/Backend/Auth.php:354 src/Process/Backend/User.php:265
-#: src/Process/Backend/UserPreferences.php:527
-#: src/Process/Install/Install.php:398 src/Process/Upgrade/Auth.php:186
+#: src/Process/Backend/Auth.php:379 src/Process/Backend/User.php:265
+#: src/Process/Backend/UserPreferences.php:560
+#: src/Process/Install/Install.php:398 src/Process/Upgrade/Auth.php:185
 msgid "strong"
 msgstr "강한"
 
-#: src/Process/Backend/Auth.php:397 src/Process/Backend/Auth.php:441
+#: src/Process/Backend/Auth.php:422 src/Process/Backend/Auth.php:466
 msgid "Back to login screen"
 msgstr "로그인 화면으로 돌아가기"
 
-#: src/Process/Backend/Auth.php:405
+#: src/Process/Backend/Auth.php:430
 msgid "Request a new password"
 msgstr "새 비밀번호 요청"
 
-#: src/Process/Backend/Auth.php:429
+#: src/Process/Backend/Auth.php:454
 msgid "recover"
 msgstr "되살리기"
 
-#: src/Process/Backend/Auth.php:435 src/Process/Backend/Auth.php:561
+#: src/Process/Backend/Auth.php:460 src/Process/Backend/Auth.php:619
 msgid "Other option"
 msgstr "기타 옵션"
 
-#: src/Process/Backend/Auth.php:448
+#: src/Process/Backend/Auth.php:473
 msgid "Change your password"
 msgstr "비밀번호 변경"
 
-#: src/Process/Backend/Auth.php:453 src/Process/Backend/User.php:334
-#: src/Process/Backend/UserPreferences.php:563
+#: src/Process/Backend/Auth.php:478 src/Process/Backend/User.php:334
+#: src/Process/Backend/UserPreferences.php:596
 #: src/Process/Install/Install.php:464
 msgid "New password:"
 msgstr "새 비밀번호 :"
 
-#: src/Process/Backend/Auth.php:463 src/Process/Backend/User.php:358
+#: src/Process/Backend/Auth.php:488 src/Process/Backend/User.php:358
 #: src/Process/Backend/User.php:367 src/Process/Install/Install.php:471
 msgid "Confirm password:"
 msgstr "비밀번호 확인 :"
 
-#: src/Process/Backend/Auth.php:471
+#: src/Process/Backend/Auth.php:496
 msgid "change"
 msgstr "변경"
 
-#: src/Process/Backend/Auth.php:491
+#: src/Process/Backend/Auth.php:516
 msgid "Safe mode login"
 msgstr "안전 모드 로그인"
 
-#: src/Process/Backend/Auth.php:494
+#: src/Process/Backend/Auth.php:519
 msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
 msgstr "이 모드에서는 플러그인을 활성화하지 않고도 로그인할 수 있습니다. 호환성 문제를 해결하는 데 유용할 수 있습니다."
 
-#: src/Process/Backend/Auth.php:495
+#: src/Process/Backend/Auth.php:520
 msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
 msgstr "문제를 일으키는 것으로 의심되는 플러그인을 업데이트, 비활성화 또는 삭제한 다음 로그아웃했다가 정상적으로 다시 로그인하세요."
 
-#: src/Process/Backend/Auth.php:526 src/Process/Upgrade/Auth.php:238
+#: src/Process/Backend/Auth.php:551 src/Process/Upgrade/Auth.php:237
 msgid "Remember my ID on this device"
 msgstr "이 컴퓨터가 내 아이디를 기억하도록하기"
 
-#: src/Process/Backend/Auth.php:530 src/Process/Upgrade/Auth.php:239
+#: src/Process/Backend/Auth.php:555 src/Process/Upgrade/Auth.php:238
 msgid "log in"
 msgstr "로그인"
 
-#: src/Process/Backend/Auth.php:555 src/Process/Upgrade/Auth.php:241
+#: src/Process/Backend/Auth.php:561
+msgid "Sign in with a passkey"
+msgstr "암호 키로 로그인"
+
+#: src/Process/Backend/Auth.php:604
+msgid "Third party applications connections"
+msgstr "타사 애플리케이션 연결"
+
+#: src/Process/Backend/Auth.php:613 src/Process/Upgrade/Auth.php:240
 msgid "You must accept cookies in order to use the private area."
 msgstr "사생활보호 영역을 접속하시려면, 브라우저가 쿠키를 받을 수 있게 설정하셔야합니다."
 
-#: src/Process/Backend/Auth.php:567
+#: src/Process/Backend/Auth.php:625
 msgid "Get back to normal authentication"
 msgstr "일반 인증으로 돌아가기"
 
-#: src/Process/Backend/Auth.php:572
+#: src/Process/Backend/Auth.php:630
 msgid "Connection issue?"
 msgstr "연결 문제가 있나요?"
 
-#: src/Process/Backend/Auth.php:579
+#: src/Process/Backend/Auth.php:637
 msgid "I forgot my password"
 msgstr "비밀번호를 잊었어요."
 
-#: src/Process/Backend/Auth.php:586
+#: src/Process/Backend/Auth.php:644
 msgid "I want to log in in safe mode"
 msgstr "안전 모드로 로그인하고 싶습니다."
 
@@ -3300,7 +3399,7 @@ msgid "I would like to prevent search engines and archivers from indexing or arc
 msgstr "검색 엔진과 아카이버가 내 블로그 콘텐츠를 색인화하거나 보관하지 못하도록 하고 싶습니다."
 
 #: src/Process/Backend/BlogPref.php:234
-#: src/Process/Backend/UserPreferences.php:151
+#: src/Process/Backend/UserPreferences.php:171
 msgid "Default"
 msgstr "기본값"
 
@@ -3933,7 +4032,7 @@ msgid "total:"
 msgstr "합계 :"
 
 #: src/Process/Backend/Categories.php:326 src/Process/Backend/Category.php:279
-#: src/Process/Backend/User.php:457 src/Process/Backend/UserPreferences.php:659
+#: src/Process/Backend/User.php:457 src/Process/Backend/UserPreferences.php:692
 msgid "URL:"
 msgstr "URL :"
 
@@ -5129,63 +5228,71 @@ msgstr "글꼭지 찾기 :"
 msgid "cancel"
 msgstr "취소"
 
-#: src/Process/Backend/Rest.php:123
+#: src/Process/Backend/Rest.php:129
 msgid "Dotclear news not available"
 msgstr "도트클리어 뉴스를 사용할 수 없습니다."
 
-#: src/Process/Backend/Rest.php:162
+#: src/Process/Backend/Rest.php:168
 msgid "%d %B %Y:"
 msgstr "%d %B %Y:"
 
-#: src/Process/Backend/Rest.php:176
+#: src/Process/Backend/Rest.php:182
 msgid "Dotclear news"
 msgstr "닷클리어 뉴스"
 
-#: src/Process/Backend/Rest.php:208
+#: src/Process/Backend/Rest.php:214
 msgid "Dotclear update not available"
 msgstr "도트클리어 업데이트를 사용할 수 없습니다."
 
-#: src/Process/Backend/Rest.php:222
+#: src/Process/Backend/Rest.php:228
 #, php-format
 msgid "Dotclear %s is available!"
 msgstr "Dotclear %s가 배포되었습니다 !"
 
-#: src/Process/Backend/Rest.php:229
+#: src/Process/Backend/Rest.php:235
 msgid "Upgrade now"
 msgstr "지금 바로 갱신"
 
-#: src/Process/Backend/Rest.php:233
+#: src/Process/Backend/Rest.php:239
 msgid "Remind me later"
 msgstr "나중에 다시 알려줌"
 
-#: src/Process/Backend/Rest.php:241 src/Process/Upgrade/Upgrade.php:269
+#: src/Process/Backend/Rest.php:247 src/Process/Upgrade/Upgrade.php:269
 #: src/Process/Upgrade/Upgrade.php:270
 msgid "Information about this version"
 msgstr "이 버전에 대한 정보"
 
-#: src/Process/Backend/Rest.php:250
+#: src/Process/Backend/Rest.php:256
 #, php-format
 msgid "A new version of Dotclear is available but needs PHP version ≥ %1$s, your's is currently %2$s"
 msgstr "새 버전의 닷클리어를 사용할 수 있지만 PHP 버전이 %1$s이상이어야 하며, 현재 사용 중인 버전은 %2$s입니다."
 
-#: src/Process/Backend/Rest.php:265 src/Process/Upgrade/Upgrade.php:235
+#: src/Process/Backend/Rest.php:271 src/Process/Upgrade/Upgrade.php:235
 #, php-format
 msgid "The next versions of Dotclear will not support PHP version < %1$s, your's is currently %2$s"
 msgstr "다음 버전의 닷클리어는 PHP 버전< %1$s, 현재 사용 중인 버전은 %2$s>을 지원하지 않습니다."
 
-#: src/Process/Backend/Rest.php:296
+#: src/Process/Backend/Rest.php:302
 msgid "No updates are available"
 msgstr "사용 가능한 업데이트가 없습니다."
 
-#: src/Process/Backend/Rest.php:346
+#: src/Process/Backend/Rest.php:352
 #, php-format
 msgid "An update is available"
 msgid_plural "%s updates are available."
 msgstr[0] "%s 업데이트를 사용할 수 있습니다."
 
-#: src/Process/Backend/Rest.php:944
+#: src/Process/Backend/Rest.php:950
 msgid "List options saved"
 msgstr "목록 옵션 저장"
+
+#: src/Process/Backend/Rest.php:985
+msgid "Authentication key successfully registered"
+msgstr "인증 키가 성공적으로 등록되었습니다"
+
+#: src/Process/Backend/Rest.php:1040
+msgid "This key is not registered"
+msgstr "이 키는 등록되지 않았습니다"
 
 #: src/Process/Backend/Search.php:174
 msgid "Search options"
@@ -5346,17 +5453,17 @@ msgstr "경고 :"
 msgid "Password change required to connect"
 msgstr "연결하려면 비밀번호 변경 필요"
 
-#: src/Process/Backend/User.php:401 src/Process/Backend/UserPreferences.php:607
+#: src/Process/Backend/User.php:401 src/Process/Backend/UserPreferences.php:640
 #: src/Process/Install/Install.php:439
 msgid "Last Name:"
 msgstr "성:"
 
-#: src/Process/Backend/User.php:411 src/Process/Backend/UserPreferences.php:617
+#: src/Process/Backend/User.php:411 src/Process/Backend/UserPreferences.php:650
 #: src/Process/Install/Install.php:433
 msgid "First Name:"
 msgstr "이름:"
 
-#: src/Process/Backend/User.php:421 src/Process/Backend/UserPreferences.php:627
+#: src/Process/Backend/User.php:421 src/Process/Backend/UserPreferences.php:660
 msgid "Display name:"
 msgstr "필명 :"
 
@@ -5364,23 +5471,23 @@ msgstr "필명 :"
 msgid "Mandatory for password recovering procedure."
 msgstr "비밀번호 복구 절차에 필수입니다."
 
-#: src/Process/Backend/User.php:444 src/Process/Backend/UserPreferences.php:646
+#: src/Process/Backend/User.php:444 src/Process/Backend/UserPreferences.php:679
 msgid "Alternate emails (comma separated list):"
 msgstr "대체 이메일(쉼표로 구분된 목록):"
 
-#: src/Process/Backend/User.php:448 src/Process/Backend/UserPreferences.php:650
+#: src/Process/Backend/User.php:448 src/Process/Backend/UserPreferences.php:683
 msgid "Invalid emails will be automatically removed from list."
 msgstr "유효하지 않은 이메일은 목록에서 자동으로 삭제됩니다."
 
-#: src/Process/Backend/User.php:466 src/Process/Backend/UserPreferences.php:668
+#: src/Process/Backend/User.php:466 src/Process/Backend/UserPreferences.php:701
 msgid "Alternate URLs (comma separated list):"
 msgstr "대체 URL(쉼표로 구분된 목록):"
 
-#: src/Process/Backend/User.php:470 src/Process/Backend/UserPreferences.php:672
+#: src/Process/Backend/User.php:470 src/Process/Backend/UserPreferences.php:705
 msgid "Invalid URLs will be automatically removed from list."
 msgstr "유효하지 않은 URL은 목록에서 자동으로 삭제됩니다."
 
-#: src/Process/Backend/User.php:476 src/Process/Backend/UserPreferences.php:815
+#: src/Process/Backend/User.php:476 src/Process/Backend/UserPreferences.php:920
 msgid "Interface"
 msgstr "인터페이스"
 
@@ -5388,19 +5495,23 @@ msgstr "인터페이스"
 msgid "Timezone:"
 msgstr "표준 시간대:"
 
-#: src/Process/Backend/User.php:492 src/Process/Backend/UserPreferences.php:939
+#: src/Process/Backend/User.php:492
+#: src/Process/Backend/UserPreferences.php:1044
 msgid "Edition"
 msgstr "에디션"
 
-#: src/Process/Backend/User.php:498 src/Process/Backend/UserPreferences.php:951
+#: src/Process/Backend/User.php:498
+#: src/Process/Backend/UserPreferences.php:1056
 msgid "Preferred format:"
 msgstr "선호하는 편집방식 :"
 
-#: src/Process/Backend/User.php:505 src/Process/Backend/UserPreferences.php:959
+#: src/Process/Backend/User.php:505
+#: src/Process/Backend/UserPreferences.php:1064
 msgid "Default entry status:"
 msgstr "글꼭지 공개상태 기본값 :"
 
-#: src/Process/Backend/User.php:510 src/Process/Backend/UserPreferences.php:965
+#: src/Process/Backend/User.php:510
+#: src/Process/Backend/UserPreferences.php:1070
 msgid "Entry edit field height:"
 msgstr "글꼭지 편집칸 높이 :"
 
@@ -5450,341 +5561,365 @@ msgstr "게시물 목록"
 msgid "List of comments"
 msgstr "댓글 목록"
 
-#: src/Process/Backend/UserPreferences.php:142
+#: src/Process/Backend/UserPreferences.php:162
 msgid "Light"
 msgstr "빛"
 
-#: src/Process/Backend/UserPreferences.php:143
+#: src/Process/Backend/UserPreferences.php:163
 msgid "Dark"
 msgstr "Dark"
 
-#: src/Process/Backend/UserPreferences.php:144
+#: src/Process/Backend/UserPreferences.php:164
 msgid "Automatic"
 msgstr "자동"
 
-#: src/Process/Backend/UserPreferences.php:149
+#: src/Process/Backend/UserPreferences.php:169
 msgid "Smallest"
 msgstr "가장 작은"
 
-#: src/Process/Backend/UserPreferences.php:150
+#: src/Process/Backend/UserPreferences.php:170
 msgid "Smaller"
 msgstr "더 작은"
 
-#: src/Process/Backend/UserPreferences.php:152
+#: src/Process/Backend/UserPreferences.php:172
 msgid "Larger"
 msgstr "더 크게"
 
-#: src/Process/Backend/UserPreferences.php:153
+#: src/Process/Backend/UserPreferences.php:173
 msgid "Largest"
 msgstr "가장 큰"
 
-#: src/Process/Backend/UserPreferences.php:165
+#: src/Process/Backend/UserPreferences.php:185
 msgid "Blog description (in blog parameters)"
 msgstr "블로그 설명(블로그 매개변수 내)"
 
-#: src/Process/Backend/UserPreferences.php:166
+#: src/Process/Backend/UserPreferences.php:186
 msgid "Category description"
 msgstr "카테고리 설명"
 
-#: src/Process/Backend/UserPreferences.php:210
-#: src/Process/Backend/UserPreferences.php:227
+#: src/Process/Backend/UserPreferences.php:232
+msgid "Passkey successfully deleted."
+msgstr "패스키가 성공적으로 삭제되었습니다."
+
+#: src/Process/Backend/UserPreferences.php:243
+#: src/Process/Backend/UserPreferences.php:260
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "이메일주소나 비밀번호를 바꾸려면, 본인의 비밀번호 확인이 필요합니다."
 
-#: src/Process/Backend/UserPreferences.php:258
+#: src/Process/Backend/UserPreferences.php:291
 msgid "Personal information has been successfully updated."
 msgstr "개인 정보가 성공적으로 갱신되었습니다."
 
-#: src/Process/Backend/UserPreferences.php:376
+#: src/Process/Backend/UserPreferences.php:409
 msgid "Personal options has been successfully updated."
 msgstr "개인 옵션이 성공적으로 업데이트되었습니다."
 
-#: src/Process/Backend/UserPreferences.php:404
+#: src/Process/Backend/UserPreferences.php:437
 msgid "Dashboard options has been successfully updated."
 msgstr "대시보드 옵션이 성공적으로 업데이트되었습니다."
 
-#: src/Process/Backend/UserPreferences.php:416
-#: src/Process/Backend/UserPreferences.php:440
+#: src/Process/Backend/UserPreferences.php:449
+#: src/Process/Backend/UserPreferences.php:473
 msgid "No favorite selected"
 msgstr "즐겨찾기를 선택하지 않음"
 
-#: src/Process/Backend/UserPreferences.php:427
+#: src/Process/Backend/UserPreferences.php:460
 msgid "Favorites have been successfully added."
 msgstr "즐겨찾기가 성공적으로 추가되었습니다."
 
-#: src/Process/Backend/UserPreferences.php:453
+#: src/Process/Backend/UserPreferences.php:486
 msgid "Favorites have been successfully removed."
 msgstr "즐겨찾기가 성공적으로 제거되었습니다."
 
-#: src/Process/Backend/UserPreferences.php:483
+#: src/Process/Backend/UserPreferences.php:516
 msgid "Favorites have been successfully updated."
 msgstr "즐겨찾기가 성공적으로 업데이트되었습니다."
 
-#: src/Process/Backend/UserPreferences.php:495
+#: src/Process/Backend/UserPreferences.php:528
 msgid "Default favorites have been successfully updated."
 msgstr "기본 즐겨찾기가 성공적으로 업데이트되었습니다."
 
-#: src/Process/Backend/UserPreferences.php:509
+#: src/Process/Backend/UserPreferences.php:542
 msgid "Dashboard items order have been successfully reset."
 msgstr "대시보드 항목 순서가 성공적으로 재설정되었습니다."
 
-#: src/Process/Backend/UserPreferences.php:531
+#: src/Process/Backend/UserPreferences.php:564
 msgid "Are you sure you want to remove selected favorites?"
 msgstr "선택한 즐겨찾기를 삭제하시겠습니까?"
 
-#: src/Process/Backend/UserPreferences.php:553
+#: src/Process/Backend/UserPreferences.php:586
 msgid "Change my password"
 msgstr "비밀번호 변경"
 
-#: src/Process/Backend/UserPreferences.php:572
+#: src/Process/Backend/UserPreferences.php:605
 msgid "Confirm new password:"
 msgstr "새 비밀번호를 확인합니다:"
 
-#: src/Process/Backend/UserPreferences.php:582
+#: src/Process/Backend/UserPreferences.php:615
 msgid "Your current password:"
 msgstr "현재 비밀번호입니다:"
 
-#: src/Process/Backend/UserPreferences.php:586
+#: src/Process/Backend/UserPreferences.php:619
 msgid "If you have changed your email or password you must provide your current password to save these modifications."
 msgstr "이메일 또는 비밀번호를 변경한 경우 변경 사항을 저장하려면 현재 비밀번호를 제공해야 합니다."
 
-#: src/Process/Backend/UserPreferences.php:592
-#: src/Process/Backend/UserPreferences.php:594
+#: src/Process/Backend/UserPreferences.php:625
+#: src/Process/Backend/UserPreferences.php:627
 msgid "My profile"
 msgstr "내 프로필"
 
-#: src/Process/Backend/UserPreferences.php:679
+#: src/Process/Backend/UserPreferences.php:712
 msgid "Language for my interface:"
 msgstr "내 인터페이스의 언어:"
 
-#: src/Process/Backend/UserPreferences.php:687
+#: src/Process/Backend/UserPreferences.php:720
 msgid "My timezone:"
 msgstr "내 표준 시간대:"
 
-#: src/Process/Backend/UserPreferences.php:696
+#: src/Process/Backend/UserPreferences.php:729
 msgid "Update my profile"
 msgstr "내 프로필 업데이트"
 
-#: src/Process/Backend/UserPreferences.php:764
+#: src/Process/Backend/UserPreferences.php:797
 msgid "List"
 msgstr "목록"
 
-#: src/Process/Backend/UserPreferences.php:766
+#: src/Process/Backend/UserPreferences.php:799
 msgid "Order by"
 msgstr "주문 기준"
 
-#: src/Process/Backend/UserPreferences.php:768
+#: src/Process/Backend/UserPreferences.php:801
 msgid "Sort"
 msgstr "정렬"
 
-#: src/Process/Backend/UserPreferences.php:781
+#: src/Process/Backend/UserPreferences.php:814
 #, php-format
 msgid "Preferred editor for %s:"
 msgstr "기본 설정 편집기 %s:"
 
-#: src/Process/Backend/UserPreferences.php:786
+#: src/Process/Backend/UserPreferences.php:819
 msgid "Choose an editor"
 msgstr "편집기 선택"
 
-#: src/Process/Backend/UserPreferences.php:807
-#: src/Process/Backend/UserPreferences.php:813
+#: src/Process/Backend/UserPreferences.php:874
+msgid "Linked to account:"
+msgstr "계정에 연결됩니다:"
+
+#: src/Process/Backend/UserPreferences.php:896
+msgid "Unknown certificat issuer"
+msgstr "알 수 없는 인증서 발급자"
+
+#: src/Process/Backend/UserPreferences.php:906
+msgid "You have no registered key yet."
+msgstr "아직 등록된 키가 없습니다."
+
+#: src/Process/Backend/UserPreferences.php:912
+#: src/Process/Backend/UserPreferences.php:918
 msgid "My options"
 msgstr "내 옵션"
 
-#: src/Process/Backend/UserPreferences.php:822
+#: src/Process/Backend/UserPreferences.php:927
 msgid "Theme:"
 msgstr "테마:"
 
-#: src/Process/Backend/UserPreferences.php:828
+#: src/Process/Backend/UserPreferences.php:933
 msgid "Activate enhanced uploader in media manager"
 msgstr "미디어 관리자에서 향상된 업로더 활성화"
 
-#: src/Process/Backend/UserPreferences.php:834
+#: src/Process/Backend/UserPreferences.php:939
 msgid "Preview the entry being edited in a blank window or tab (depending on your browser settings)."
 msgstr "브라우저 설정에 따라 빈 창 또는 탭에서 편집 중인 항목을 미리 봅니다."
 
-#: src/Process/Backend/UserPreferences.php:841
+#: src/Process/Backend/UserPreferences.php:946
 msgid "Disable javascript powered drag and drop for ordering items"
 msgstr "품목 주문 시 자바스크립트 기반 드래그 앤 드롭 사용 안 함"
 
-#: src/Process/Backend/UserPreferences.php:845
+#: src/Process/Backend/UserPreferences.php:950
 msgid "If checked, numeric fields will allow to type the elements' ordering number."
 msgstr "이 옵션을 선택하면 숫자 필드에 요소의 주문 번호를 입력할 수 있습니다."
 
-#: src/Process/Backend/UserPreferences.php:850
+#: src/Process/Backend/UserPreferences.php:955
 msgid "Hide all secondary information and notes"
 msgstr "모든 보조 정보 및 메모 숨기기"
 
-#: src/Process/Backend/UserPreferences.php:856
+#: src/Process/Backend/UserPreferences.php:961
 msgid "Hide help button"
 msgstr "도움말 버튼 숨기기"
 
-#: src/Process/Backend/UserPreferences.php:863
+#: src/Process/Backend/UserPreferences.php:968
 msgid "Font size:"
 msgstr "글꼴 크기:"
 
-#: src/Process/Backend/UserPreferences.php:869
+#: src/Process/Backend/UserPreferences.php:974
 msgid "Use operating system font"
 msgstr "운영 체제 글꼴 사용"
 
-#: src/Process/Backend/UserPreferences.php:875
+#: src/Process/Backend/UserPreferences.php:980
 msgid "Number of recent folders proposed in media manager:"
 msgstr "미디어 관리자에서 제안된 최근 폴더의 수입니다:"
 
-#: src/Process/Backend/UserPreferences.php:879
+#: src/Process/Backend/UserPreferences.php:984
 msgid "Set to 0 (zero) to ignore, displayed only if Javascript is enabled in your browser."
 msgstr "0(영)으로 설정하면 무시되고, 브라우저에서 Javascript가 활성화된 경우에만 표시됩니다."
 
-#: src/Process/Backend/UserPreferences.php:886
+#: src/Process/Backend/UserPreferences.php:991
 msgid "Do not use standard favicon"
 msgstr "표준 파비콘을 사용하지 마세요."
 
-#: src/Process/Backend/UserPreferences.php:887
+#: src/Process/Backend/UserPreferences.php:992
 msgid "This will be applied for all users"
 msgstr "모든 사용자에게 적용됩니다."
 
-#: src/Process/Backend/UserPreferences.php:897
+#: src/Process/Backend/UserPreferences.php:1002
 msgid "Disable Ad-blocker check"
 msgstr "광고 차단기 확인 비활성화"
 
-#: src/Process/Backend/UserPreferences.php:901
+#: src/Process/Backend/UserPreferences.php:1006
 msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
 msgstr "일부 광고 차단기(고스터리, 애드블록 플러스, 유블록 오리진, …)는 CKEditor로 항목에 링크나 미디어를 삽입하는 일부 기능을 방해할 수 있으며, 이 경우 이 닷클리어 설치(백엔드 전용)에 대해 비활성화해야 합니다. 닷클리어는 백엔드에 광고나 트래커를 추가하지 않습니다."
 
-#: src/Process/Backend/UserPreferences.php:904
+#: src/Process/Backend/UserPreferences.php:1009
 msgid "Note also that deactivating this detection of ad blockers will not deactivate the installed ad blockers. Dotclear cannot interfere with the operation of browser extensions!"
 msgstr "이 광고 차단기 감지를 비활성화해도 설치된 광고 차단기는 비활성화되지 않는다는 점에 유의하세요. 닷클리어는 브라우저 확장 프로그램의 작동을 방해할 수 없습니다!"
 
-#: src/Process/Backend/UserPreferences.php:912
+#: src/Process/Backend/UserPreferences.php:1017
 msgid "Quick menu character:"
 msgstr "빠른 메뉴 문자:"
 
-#: src/Process/Backend/UserPreferences.php:916
+#: src/Process/Backend/UserPreferences.php:1021
 msgid "Leave empty to use the default character <kbd>:</kbd>"
 msgstr "기본 문자 <kbd> 를</kbd> 사용하려면 비워 두십시오:"
 
-#: src/Process/Backend/UserPreferences.php:921
+#: src/Process/Backend/UserPreferences.php:1026
 msgid "Keep the main menu at the top of the page as much as possible"
 msgstr "메인 메뉴는 가능한 한 페이지 상단에 배치합니다"
 
-#: src/Process/Backend/UserPreferences.php:925
+#: src/Process/Backend/UserPreferences.php:1030
 msgid "Optional columns displayed in lists"
 msgstr "목록에 표시되는 선택적 열"
 
-#: src/Process/Backend/UserPreferences.php:928
+#: src/Process/Backend/UserPreferences.php:1033
 msgid "Options for lists"
 msgstr "목록 옵션"
 
-#: src/Process/Backend/UserPreferences.php:934
+#: src/Process/Backend/UserPreferences.php:1039
 msgid "Apply filters on the fly"
 msgstr "즉석에서 필터 적용"
 
-#: src/Process/Backend/UserPreferences.php:971
+#: src/Process/Backend/UserPreferences.php:1076
 msgid "Enable WYSIWYG mode"
 msgstr "위지윅모드 사용가능"
 
-#: src/Process/Backend/UserPreferences.php:977
+#: src/Process/Backend/UserPreferences.php:1082
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr "텍스트 영역 하단에 편집기 도구 모음 표시(가능한 경우)"
 
-#: src/Process/Backend/UserPreferences.php:983
+#: src/Process/Backend/UserPreferences.php:1088
 msgid "Use HTML editor for:"
 msgstr "HTML 편집기를 사용합니다:"
 
-#: src/Process/Backend/UserPreferences.php:987
+#: src/Process/Backend/UserPreferences.php:1093
+msgid "Authentication applications"
+msgstr "인증 애플리케이션"
+
+#: src/Process/Backend/UserPreferences.php:1098
+msgid "Authentication keys"
+msgstr "인증 키"
+
+#: src/Process/Backend/UserPreferences.php:1109
 msgid "Other options"
 msgstr "기타 옵션"
 
-#: src/Process/Backend/UserPreferences.php:998
+#: src/Process/Backend/UserPreferences.php:1120
 msgid "Save my options"
 msgstr "내 옵션 저장"
 
-#: src/Process/Backend/UserPreferences.php:1029
+#: src/Process/Backend/UserPreferences.php:1151
 #, php-format
 msgid "position of %s"
 msgstr "위치 %s"
 
-#: src/Process/Backend/UserPreferences.php:1052
+#: src/Process/Backend/UserPreferences.php:1174
 msgid "Save order"
 msgstr "주문 저장"
 
-#: src/Process/Backend/UserPreferences.php:1053
+#: src/Process/Backend/UserPreferences.php:1175
 msgid "Delete selected favorites"
 msgstr "선택한 즐겨찾기 삭제"
 
-#: src/Process/Backend/UserPreferences.php:1060
+#: src/Process/Backend/UserPreferences.php:1182
 msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
 msgstr "최고 관리자인 경우 이 즐겨찾기 집합이 이 설치의 모든 블로그에서 기본적으로 사용되도록 정의할 수 있습니다."
 
-#: src/Process/Backend/UserPreferences.php:1063
+#: src/Process/Backend/UserPreferences.php:1185
 msgid "Define as default favorites"
 msgstr "기본 즐겨찾기로 정의"
 
-#: src/Process/Backend/UserPreferences.php:1072
+#: src/Process/Backend/UserPreferences.php:1194
 msgid "Currently no personal favorites."
 msgstr "현재 개인적으로 즐겨찾는 항목이 없습니다."
 
-#: src/Process/Backend/UserPreferences.php:1111
+#: src/Process/Backend/UserPreferences.php:1233
 msgid "(default favorite)"
 msgstr "(기본 즐겨찾기)"
 
-#: src/Process/Backend/UserPreferences.php:1126
+#: src/Process/Backend/UserPreferences.php:1248
 msgid "Add to my favorites"
 msgstr "즐겨찾기에 추가"
 
-#: src/Process/Backend/UserPreferences.php:1150
+#: src/Process/Backend/UserPreferences.php:1272
 msgid "Other available favorites"
 msgstr "기타 사용 가능한 즐겨찾기"
 
-#: src/Process/Backend/UserPreferences.php:1162
+#: src/Process/Backend/UserPreferences.php:1284
 msgid "Menu"
 msgstr "메뉴"
 
-#: src/Process/Backend/UserPreferences.php:1168
+#: src/Process/Backend/UserPreferences.php:1290
 msgid "Display favorites at the top of the menu"
 msgstr "메뉴 상단에 즐겨찾기를 표시합니다."
 
-#: src/Process/Backend/UserPreferences.php:1172
+#: src/Process/Backend/UserPreferences.php:1294
 msgid "Dashboard icons"
 msgstr "대시보드 아이콘"
 
-#: src/Process/Backend/UserPreferences.php:1178
+#: src/Process/Backend/UserPreferences.php:1300
 msgid "Display dashboard icons"
 msgstr "대시보드 아이콘 표시"
 
-#: src/Process/Backend/UserPreferences.php:1182
+#: src/Process/Backend/UserPreferences.php:1304
 msgid "Dashboard modules"
 msgstr "대시보드 모듈"
 
-#: src/Process/Backend/UserPreferences.php:1188
+#: src/Process/Backend/UserPreferences.php:1310
 msgid "Display documentation links"
 msgstr "문서 링크 표시"
 
-#: src/Process/Backend/UserPreferences.php:1194
+#: src/Process/Backend/UserPreferences.php:1316
 msgid "Display donate links"
 msgstr "기부 링크 표시"
 
-#: src/Process/Backend/UserPreferences.php:1200
+#: src/Process/Backend/UserPreferences.php:1322
 msgid "Display Dotclear news"
 msgstr "닷클리어 뉴스 표시"
 
-#: src/Process/Backend/UserPreferences.php:1206
+#: src/Process/Backend/UserPreferences.php:1328
 msgid "Display quick entry form"
 msgstr "빠른 입력 양식 표시"
 
-#: src/Process/Backend/UserPreferences.php:1211
+#: src/Process/Backend/UserPreferences.php:1333
 msgid "Do not display Dotclear updates"
 msgstr "도트클리어 업데이트 표시 안 함"
 
-#: src/Process/Backend/UserPreferences.php:1224
+#: src/Process/Backend/UserPreferences.php:1346
 msgid "Save my dashboard options"
 msgstr "내 대시보드 옵션 저장"
 
-#: src/Process/Backend/UserPreferences.php:1237
+#: src/Process/Backend/UserPreferences.php:1359
 msgid "Dashboard items order"
 msgstr "대시보드 항목 주문"
 
-#: src/Process/Backend/UserPreferences.php:1240
+#: src/Process/Backend/UserPreferences.php:1362
 msgid "Reset dashboard items order"
 msgstr "대시보드 항목 순서 재설정"
 
@@ -6180,11 +6315,11 @@ msgstr "축하합니다. DotClear 갱신과정 마무리 한 클릭만 남았습
 msgid "Finish the update."
 msgstr "갱신 마무리."
 
-#: src/Process/Upgrade/Auth.php:177 src/Process/Upgrade/Auth.php:195
+#: src/Process/Upgrade/Auth.php:176 src/Process/Upgrade/Auth.php:194
 msgid "Upgrade"
 msgstr "업그레이드"
 
-#: src/Process/Upgrade/Auth.php:242
+#: src/Process/Upgrade/Auth.php:241
 msgid "Back to normal dashboard"
 msgstr "일반 대시보드로 돌아가기"
 

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-13 14:53+0200\n"
-"PO-Revision-Date: 2025-08-13 14:49\n"
+"POT-Creation-Date: 2025-08-14 10:14+0200\n"
+"PO-Revision-Date: 2025-08-14 10:34\n"
 "Last-Translator: \n"
 "Language-Team: Finnish\n"
 "Language: fi_FI\n"
@@ -17,9 +17,9 @@ msgstr ""
 "X-Crowdin-File: /master/locales/_pot/main.pot\n"
 "X-Crowdin-File-ID: 262\n"
 
-#: inc/core/_fake_l10n.php:6 src/Process/Backend/Auth.php:353
-#: src/Process/Backend/User.php:264 src/Process/Backend/UserPreferences.php:526
-#: src/Process/Install/Install.php:397 src/Process/Upgrade/Auth.php:185
+#: inc/core/_fake_l10n.php:6 src/Process/Backend/Auth.php:378
+#: src/Process/Backend/User.php:264 src/Process/Backend/UserPreferences.php:559
+#: src/Process/Install/Install.php:397 src/Process/Upgrade/Auth.php:184
 msgid "medium"
 msgstr "keskikoko"
 
@@ -81,11 +81,11 @@ msgstr "hallita kaikkia media-aineistoja"
 msgid "manage their own media items"
 msgstr "hallita omia media-aineistojaan"
 
-#: src/Core/Auth.php:602
+#: src/Core/Auth.php:597
 msgid "That user does not exist in the database."
 msgstr "Käyttäjää ei ole tietokannassa."
 
-#: src/Core/Auth.php:629
+#: src/Core/Auth.php:624
 msgid "That key does not exist in the database."
 msgstr "Avainta ei ole tietokannassa."
 
@@ -157,8 +157,8 @@ msgstr "Tila"
 #: src/Core/Backend/Listing/ListingMedia.php:309
 #: src/Core/Backend/ModulesList.php:1350 src/Core/Upgrade/PluginsList.php:125
 #: src/Process/Backend/Comment.php:355 src/Process/Backend/Langs.php:231
-#: src/Process/Backend/Post.php:960 src/Process/Backend/Users.php:46
-#: src/Process/Upgrade/Langs.php:299
+#: src/Process/Backend/Post.php:960 src/Process/Backend/UserPreferences.php:899
+#: src/Process/Backend/Users.php:46 src/Process/Upgrade/Langs.php:299
 msgid "Delete"
 msgstr "Poista"
 
@@ -458,11 +458,11 @@ msgstr "Käytettävissä"
 msgid "Other"
 msgstr "Muuta"
 
-#: src/Core/Backend/Combos.php:242 src/Process/Backend/UserPreferences.php:189
+#: src/Core/Backend/Combos.php:242 src/Process/Backend/UserPreferences.php:209
 msgid "Descending"
 msgstr "Laskeva"
 
-#: src/Core/Backend/Combos.php:243 src/Process/Backend/UserPreferences.php:190
+#: src/Core/Backend/Combos.php:243 src/Process/Backend/UserPreferences.php:210
 msgid "Ascending"
 msgstr "Nouseva"
 
@@ -553,13 +553,13 @@ msgid "Number of entries"
 msgstr "Blogimerkintöjen määrä"
 
 #: src/Core/Backend/Favorites.php:287
-#: src/Process/Backend/UserPreferences.php:1145
+#: src/Process/Backend/UserPreferences.php:1267
 msgid "My favorites"
 msgstr "Suosikit"
 
 #: src/Core/Backend/Favorites.php:399 src/Core/Backend/Menus.php:195
 #: src/Core/Backend/Page.php:372 src/Process/Backend/Media.php:782
-#: src/Process/Backend/UserPreferences.php:71
+#: src/Process/Backend/UserPreferences.php:75
 msgid "My preferences"
 msgstr "Asetukset"
 
@@ -569,14 +569,14 @@ msgstr "Asetukset"
 msgid "New post"
 msgstr "Uusi merkintä"
 
-#: src/Core/Backend/Favorites.php:426 src/Process/Backend/Rest.php:92
+#: src/Core/Backend/Favorites.php:426 src/Process/Backend/Rest.php:98
 #, php-format
 msgid "%d post"
 msgid_plural "%d posts"
 msgstr[0] "%d merkintä"
 msgstr[1] "%d merkintää"
 
-#: src/Core/Backend/Favorites.php:441 src/Process/Backend/Rest.php:106
+#: src/Core/Backend/Favorites.php:441 src/Process/Backend/Rest.php:112
 #, php-format
 msgid "%d comment"
 msgid_plural "%d comments"
@@ -639,7 +639,7 @@ msgid "Plugins settings"
 msgstr "Liitännäisten asetukset"
 
 #: src/Core/Backend/Favorites.php:521 src/Core/Backend/Menus.php:215
-#: src/Core/Upgrade/Utility.php:294
+#: src/Core/Upgrade/Utility.php:282
 msgid "Languages"
 msgstr "Kielet"
 
@@ -650,9 +650,9 @@ msgid "Global help"
 msgstr "Yleisohje"
 
 #: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1261
-#: src/Process/Backend/Auth.php:420 src/Process/Backend/BlogPref.php:1351
+#: src/Process/Backend/Auth.php:445 src/Process/Backend/BlogPref.php:1351
 #: src/Process/Backend/Comment.php:306 src/Process/Backend/Post.php:1108
-#: src/Process/Backend/User.php:432 src/Process/Backend/UserPreferences.php:637
+#: src/Process/Backend/User.php:432 src/Process/Backend/UserPreferences.php:670
 #: src/Process/Install/Install.php:445
 msgid "Email:"
 msgstr "Sähköposti:"
@@ -711,9 +711,9 @@ msgstr "video"
 msgid "Format:"
 msgstr "Muoto:"
 
-#: src/Core/Backend/Filter/FilterPosts.php:180 src/Process/Backend/Auth.php:155
-#: src/Process/Backend/Auth.php:516 src/Process/Backend/User.php:344
-#: src/Process/Install/Install.php:509 src/Process/Upgrade/Auth.php:228
+#: src/Core/Backend/Filter/FilterPosts.php:180 src/Process/Backend/Auth.php:182
+#: src/Process/Backend/Auth.php:541 src/Process/Backend/User.php:344
+#: src/Process/Install/Install.php:509 src/Process/Upgrade/Auth.php:227
 msgid "Password:"
 msgstr "Salasana:"
 
@@ -784,7 +784,7 @@ msgid "Sort:"
 msgstr "Lajittelu:"
 
 #: src/Core/Backend/Filter/Filters.php:391
-#: src/Process/Backend/UserPreferences.php:770
+#: src/Process/Backend/UserPreferences.php:803
 msgid "Show"
 msgstr "Näytä"
 
@@ -1128,12 +1128,12 @@ msgstr "Blogi"
 msgid "System settings"
 msgstr "Järjestelmän asetukset"
 
-#: src/Core/Backend/Menus.php:88 src/Core/Upgrade/Utility.php:303
+#: src/Core/Backend/Menus.php:88 src/Core/Upgrade/Utility.php:291
 msgid "Plugins"
 msgstr "Liitännäiset"
 
 #: src/Core/Backend/Menus.php:205 src/Core/Backend/ModulesList.php:1379
-#: src/Core/Upgrade/PluginsList.php:144 src/Core/Upgrade/Utility.php:267
+#: src/Core/Upgrade/PluginsList.php:144 src/Core/Upgrade/Utility.php:255
 #: src/Process/Upgrade/Upgrade.php:59 src/Process/Upgrade/Upgrade.php:84
 #: src/Process/Upgrade/Upgrade.php:322
 msgid "Update"
@@ -1464,8 +1464,8 @@ msgstr "Tuntematon liitännäisen tunniste"
 msgid "This plugin has no configuration file."
 msgstr "Tällä liitännäisellä ei ole asetustiedostoa."
 
-#: src/Core/Backend/ModulesList.php:1886 src/Process/Backend/Auth.php:292
-#: src/Process/Upgrade/Auth.php:136
+#: src/Core/Backend/ModulesList.php:1886 src/Process/Backend/Auth.php:317
+#: src/Process/Upgrade/Auth.php:135
 msgid "Insufficient permissions"
 msgstr "Oikeudet eivät riitä"
 
@@ -1479,9 +1479,9 @@ msgstr "Määritä \"%s\""
 #: src/Process/Backend/Category.php:301 src/Process/Backend/Comment.php:352
 #: src/Process/Backend/Media.php:857 src/Process/Backend/MediaItem.php:1359
 #: src/Process/Backend/Post.php:950 src/Process/Backend/Search.php:197
-#: src/Process/Backend/User.php:547 src/Process/Backend/UserPreferences.php:698
-#: src/Process/Backend/UserPreferences.php:1000
-#: src/Process/Backend/UserPreferences.php:1226
+#: src/Process/Backend/User.php:547 src/Process/Backend/UserPreferences.php:731
+#: src/Process/Backend/UserPreferences.php:1122
+#: src/Process/Backend/UserPreferences.php:1348
 msgid "Back"
 msgstr "Takaisin"
 
@@ -1534,8 +1534,8 @@ msgid "Go to help"
 msgstr "Ohjeeseen"
 
 #: src/Core/Backend/Page.php:339 src/Core/Upgrade/Page.php:175
-#: src/Process/Backend/UserPreferences.php:1135
-#: src/Process/Backend/UserPreferences.php:1137
+#: src/Process/Backend/UserPreferences.php:1257
+#: src/Process/Backend/UserPreferences.php:1259
 msgid "My dashboard"
 msgstr "Ohjaustaulu"
 
@@ -2114,10 +2114,6 @@ msgstr "mediaa per sivu"
 msgid "results per page"
 msgstr "tulokset per sivu"
 
-#: src/Core/Backend/Utility.php:139 src/Core/Upgrade/Utility.php:112
-msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
-msgstr "Tietokannassasi ei ole taulua nimeltä \"Session\". Onko Dotclearin asennus saatu loppuun suoritetuksi?"
-
 #: src/Core/Blog.php:720
 msgid "You are not allowed to add categories"
 msgstr "Sinulla ei ole oikeutta lisätä luokkia"
@@ -2281,35 +2277,39 @@ msgstr "Blogilla ei nimeä"
 msgid "No blog URL"
 msgstr "Blogilla ei verkko-osoitetta"
 
+#: src/Core/Frontend/Session.php:35
+msgid "Something went wrong while trying to read blog URL."
+msgstr "Jokin meni pieleen, kun yritin lukea blogin URL-osoitetta."
+
 #: src/Core/Frontend/Url.php:612
 msgid "You must provide a valid email address."
 msgstr "Anna kelvollinen sähköpostiosoite."
 
-#: src/Core/Frontend/Utility.php:143
+#: src/Core/Frontend/Utility.php:150
 msgid "Something went wrong while trying to read the database."
 msgstr "Jokin meni pieleen, kun yritettiin lukea tietokantaa."
 
-#: src/Core/Frontend/Utility.php:148
+#: src/Core/Frontend/Utility.php:155
 msgid "Blog is not defined."
 msgstr "Blogia ei ole määritelty."
 
-#: src/Core/Frontend/Utility.php:154
+#: src/Core/Frontend/Utility.php:161
 msgid "This blog is offline. Please try again later."
 msgstr "Tämä blogi on offline-tilassa. Yritä myöhemmin uudelleen."
 
-#: src/Core/Frontend/Utility.php:254
+#: src/Core/Frontend/Utility.php:264
 msgid "This either means you removed your default theme or set a wrong theme path in your blog configuration. Please check theme_path value in about:config module or reinstall default theme. ("
 msgstr "Tämä tarkoittaa joko sitä, että olet poistanut oletusteemasi tai asettanut väärän teemapolun blogisi asetuksissa. Tarkista theme_path-arvo about:config-moduulissa tai asenna oletusteema uudelleen. ("
 
-#: src/Core/Frontend/Utility.php:257
+#: src/Core/Frontend/Utility.php:267
 msgid "Default theme not found."
 msgstr "Oletusteemaa ei löydy."
 
-#: src/Core/Frontend/Utility.php:319
+#: src/Core/Frontend/Utility.php:329
 msgid "Something went wrong while loading template file for your blog."
 msgstr "Jotain meni pieleen blogisi mallitiedoston lataamisen aikana."
 
-#: src/Core/Frontend/Utility.php:361
+#: src/Core/Frontend/Utility.php:385
 msgid "Can't create template files."
 msgstr "Ei voi luoda mallitiedostoja."
 
@@ -2537,58 +2537,58 @@ msgstr "Tiivistelmätiedosto ei kelpaa."
 msgid "Something went wrong with auto upgrade:"
 msgstr "Automaattinen päivitys ei onnistunut:"
 
-#: src/Core/Upgrade/Utility.php:272 src/Process/Upgrade/Upgrade.php:332
+#: src/Core/Upgrade/Utility.php:260 src/Process/Upgrade/Upgrade.php:332
 msgid "On this page you can update dotclear to the latest release."
 msgstr "Tällä sivulla voit päivittää dotclearin uusimpaan versioon."
 
-#: src/Core/Upgrade/Utility.php:276 src/Process/Upgrade/Attic.php:78
+#: src/Core/Upgrade/Utility.php:264 src/Process/Upgrade/Attic.php:78
 #: src/Process/Upgrade/Attic.php:103 src/Process/Upgrade/Attic.php:357
 msgid "Attic"
 msgstr "Ullakko"
 
-#: src/Core/Upgrade/Utility.php:281 src/Process/Upgrade/Attic.php:367
+#: src/Core/Upgrade/Utility.php:269 src/Process/Upgrade/Attic.php:367
 msgid "On this page you can update dotclear to a release between yours and latest."
 msgstr "Tällä sivulla voit päivittää dotclearin julkaisun omasi ja viimeisimmän julkaisun välille."
 
-#: src/Core/Upgrade/Utility.php:285 src/Process/Upgrade/Backup.php:211
+#: src/Core/Upgrade/Utility.php:273 src/Process/Upgrade/Backup.php:211
 msgid "Backups"
 msgstr "Varmuuskopiot"
 
-#: src/Core/Upgrade/Utility.php:290 src/Process/Upgrade/Backup.php:225
+#: src/Core/Upgrade/Utility.php:278 src/Process/Upgrade/Backup.php:225
 msgid "On this page you can revert your previous installation or delete theses files."
 msgstr "Tällä sivulla voit palauttaa edellisen asennuksen tai poistaa nämä tiedostot."
 
-#: src/Core/Upgrade/Utility.php:299 src/Process/Backend/Langs.php:258
+#: src/Core/Upgrade/Utility.php:287 src/Process/Backend/Langs.php:258
 #: src/Process/Upgrade/Langs.php:453
 msgid "Here you can install, upgrade or remove languages for your Dotclear installation."
 msgstr "Voit tästä asentaa, päivittää tai poistaa Dotcleariin asentamiasi kieliä."
 
-#: src/Core/Upgrade/Utility.php:308
+#: src/Core/Upgrade/Utility.php:296
 msgid "On this page you will manage plugins."
 msgstr "Tällä sivulla voit hallita liitännäisiä."
 
-#: src/Core/Upgrade/Utility.php:312 src/Process/Upgrade/Cache.php:69
+#: src/Core/Upgrade/Utility.php:300 src/Process/Upgrade/Cache.php:69
 msgid "Cache"
 msgstr "Välimuisti"
 
-#: src/Core/Upgrade/Utility.php:317 src/Process/Upgrade/Cache.php:85
+#: src/Core/Upgrade/Utility.php:305 src/Process/Upgrade/Cache.php:85
 msgid "On this page, you can clear templates and repositories cache."
 msgstr "Tällä sivulla voit tyhjentää mallien ja arkistojen välimuistin."
 
-#: src/Core/Upgrade/Utility.php:321
+#: src/Core/Upgrade/Utility.php:309
 msgid "Digests"
 msgstr "Digestit"
 
-#: src/Core/Upgrade/Utility.php:326 src/Process/Upgrade/Digests.php:158
+#: src/Core/Upgrade/Utility.php:314 src/Process/Upgrade/Digests.php:158
 msgid "On this page, you can bypass corrupted files or modified files in order to perform update."
 msgstr "Tällä sivulla voit ohittaa vioittuneet tai muutetut tiedostot, jotta voit suorittaa päivityksen."
 
-#: src/Core/Upgrade/Utility.php:330 src/Process/Upgrade/Replay.php:76
+#: src/Core/Upgrade/Utility.php:318 src/Process/Upgrade/Replay.php:76
 #: src/Process/Upgrade/Replay.php:104
 msgid "Replay"
 msgstr "Toista"
 
-#: src/Core/Upgrade/Utility.php:335 src/Process/Upgrade/Replay.php:90
+#: src/Core/Upgrade/Utility.php:323 src/Process/Upgrade/Replay.php:90
 msgid "On this page, you can try to replay update action from a given version if some files remain from last update."
 msgstr "Tällä sivulla voit yrittää toistaa tietyn version päivitystoiminnon, jos joitakin tiedostoja on jäljellä viimeisimmästä päivityksestä."
 
@@ -2874,10 +2874,101 @@ msgstr "Odottamaton sulkutunniste </tpl:%s> löytyi."
 msgid "WARNING: the following errors have been found while parsing template file :"
 msgstr "VAROITUS: seuraavat virheet on havaittu mallitiedoston jäsentämisen aikana :"
 
+#: src/Helper/OAuth2/Client/Client.php:170
+msgid "Services does not work on unsecured protocol."
+msgstr "Palvelut eivät toimi suojaamattomalla protokollalla."
+
+#: src/Helper/OAuth2/Client/Client.php:175
+msgid "Services does not work on IP address."
+msgstr "Palvelut eivät toimi IP-osoitteella."
+
+#: src/Helper/OAuth2/Client/Client.php:180
+msgid "Services does not work on local network."
+msgstr "Palvelut eivät toimi paikallisverkossa."
+
+#: src/Helper/OAuth2/Client/Client.php:210
+#, php-format
+msgid "Authorize %s connection"
+msgstr "Hyväksy %s -yhteys"
+
+#: src/Helper/OAuth2/Client/Client.php:210
+#, php-format
+msgid "Connect with %s"
+msgstr "Yhteys %s"
+
+#: src/Helper/OAuth2/Client/Client.php:212
+#, php-format
+msgid "Disconnect from %s"
+msgstr "Irrota yhteys osoitteesta %s"
+
+#: src/Helper/OAuth2/Client/Client.php:212
+#, php-format
+msgid "Revoke %s connection"
+msgstr "Peruuta %s -yhteys"
+
+#: src/Helper/OAuth2/Client/Client.php:308
+msgid "Failed to retrieve user ID from this provider"
+msgstr "Käyttäjätunnuksen hakeminen tältä palveluntarjoajalta epäonnistui"
+
+#: src/Helper/OAuth2/Client/Client.php:312
+msgid "No user ID linked to this provider"
+msgstr "Tähän palveluntarjoajaan ei ole liitetty käyttäjätunnusta"
+
+#: src/Helper/OAuth2/Client/Exception/InvalidClient.php:26
+msgid "Invalid client configuration"
+msgstr "Virheellinen asiakaskonfiguraatio"
+
+#: src/Helper/OAuth2/Client/Exception/InvalidClient.php:26
+#, php-format
+msgid "Missing client configuration key \"%s\""
+msgstr "Puuttuva asiakkaan konfigurointiavain \"%s\""
+
+#: src/Helper/OAuth2/Client/Exception/Unauthorized.php:26
+#, php-format
+msgid "Unauthorized: %s"
+msgstr "Luvaton: %s"
+
+#: src/Helper/OAuth2/Client/Provider.php:132
+#, php-format
+msgid "Allow user connection using %s application."
+msgstr "Salli käyttäjän yhteys %s -sovelluksen avulla."
+
+#: src/Helper/OAuth2/Client/Provider.php:309
+msgid "Invalid response state"
+msgstr "Virheellinen vastaustila"
+
+#: src/Helper/OAuth2/Client/Provider.php:312
+msgid "Invalid response code"
+msgstr "Virheellinen vastauskoodi"
+
+#: src/Helper/OAuth2/Client/Provider.php:378
+#: src/Helper/OAuth2/Client/Provider.php:451
+#: src/Helper/OAuth2/Client/Provider.php:661
+msgid "Invalid response content"
+msgstr "Virheellinen vastauksen sisältö"
+
+#: src/Helper/OAuth2/Client/Provider.php:542
+msgid "Invalid response format"
+msgstr "Virheellinen vastausmuoto"
+
+#: src/Helper/OAuth2/Client/Services.php:118
+#: src/Helper/OAuth2/Client/Services.php:127
+#, php-format
+msgid "Failed to load provider \"%s\""
+msgstr "Palveluntarjoajaa ei onnistuttu lataamaan \"%s\""
+
 #: src/Helper/Stack/Statuses.php:315 src/Process/Backend/Comment.php:331
 #: src/Process/Backend/User.php:390
 msgid "Status:"
 msgstr "Tila:"
+
+#: src/Helper/WebAuthn/Data/Provider.php:62
+msgid "Unknown passkey"
+msgstr "Tuntematon salasana"
+
+#: src/Helper/WebAuthn/Data/Store.php:52
+msgid "Arguments are missing"
+msgstr "Argumentit puuttuvat"
 
 #: src/Module/Modules.php:247
 #, php-format
@@ -2987,169 +3078,177 @@ msgstr "_define.php-tiedostoa ei voi muokata."
 msgid "Destination folder already exist"
 msgstr "Kohdehakemisto on jo olemassa"
 
-#: src/Process/Backend/Auth.php:90 src/Process/Upgrade/Auth.php:81
+#: src/Process/Backend/Auth.php:94 src/Process/Upgrade/Auth.php:81
 msgid "Dotclear has been upgraded."
 msgstr "Dotclear on päivitetty."
 
-#: src/Process/Backend/Auth.php:137
+#: src/Process/Backend/Auth.php:164
 msgid "Password reset"
 msgstr "Salasana nollattu"
 
-#: src/Process/Backend/Auth.php:138
+#: src/Process/Backend/Auth.php:165
 msgid "Someone has requested to reset the password for the following site and username."
 msgstr "On pyydetty, että salasana nollattaisiin seuraavan sivuston ja käyttäjätunnuksen osalta:"
 
-#: src/Process/Backend/Auth.php:138
+#: src/Process/Backend/Auth.php:165
 msgid "To reset your password visit the following address, otherwise just ignore this email and nothing will happen."
 msgstr "Jos haluat vaihtaa salasanasi käy seuraavassa osoitteessa, muutoin jättämällä tämän sähköpostiviestin huomioitta mitään ei tapahdu."
 
-#: src/Process/Backend/Auth.php:138 src/Process/Backend/Auth.php:155
-#: src/Process/Backend/Auth.php:410 src/Process/Backend/Auth.php:506
+#: src/Process/Backend/Auth.php:165 src/Process/Backend/Auth.php:182
+#: src/Process/Backend/Auth.php:435 src/Process/Backend/Auth.php:531
 #: src/Process/Install/Install.php:456 src/Process/Install/Install.php:508
-#: src/Process/Upgrade/Auth.php:217
+#: src/Process/Upgrade/Auth.php:216
 msgid "Username:"
 msgstr "Käyttäjä:"
 
-#: src/Process/Backend/Auth.php:144
+#: src/Process/Backend/Auth.php:171
 #, php-format
 msgid "The e-mail was sent successfully to %s."
 msgstr "Sähköpostin lähettäminen osoitteeseen %s onnistui."
 
-#: src/Process/Backend/Auth.php:154
+#: src/Process/Backend/Auth.php:181
 msgid "Your new password"
 msgstr "Uusi salasanasi"
 
-#: src/Process/Backend/Auth.php:160
+#: src/Process/Backend/Auth.php:187
 msgid "Your new password is in your mailbox."
 msgstr "Uusi salasanasi on lähetetty sähköpostitse."
 
-#: src/Process/Backend/Auth.php:203 src/Process/Backend/User.php:158
-#: src/Process/Backend/UserPreferences.php:231
+#: src/Process/Backend/Auth.php:230 src/Process/Backend/User.php:158
+#: src/Process/Backend/UserPreferences.php:264
 #: src/Process/Install/Install.php:170
 msgid "Passwords don't match"
 msgstr "Salasanat eivät täsmää"
 
-#: src/Process/Backend/Auth.php:207
+#: src/Process/Backend/Auth.php:234
 msgid "You didn't change your password."
 msgstr "Et vaihtanut salasanaasi."
 
-#: src/Process/Backend/Auth.php:253
+#: src/Process/Backend/Auth.php:279
 msgid "You have to change your password before you can login."
 msgstr "Salasana on vaihdettava ennen kuin voit kirjautua sisään."
 
-#: src/Process/Backend/Auth.php:255
+#: src/Process/Backend/Auth.php:281
 msgid "In order to login, you have to change your password now."
 msgstr "Kirjautumiseen vaaditaan, että vaihdat salasanasi nyt."
 
-#: src/Process/Backend/Auth.php:261
+#: src/Process/Backend/Auth.php:287
 msgid "Safe Mode can only be used for super administrators."
 msgstr "Vikasietotila on vain superjärjestelmänvalvojien käytössä."
 
-#: src/Process/Backend/Auth.php:296 src/Process/Upgrade/Auth.php:140
+#: src/Process/Backend/Auth.php:321 src/Process/Upgrade/Auth.php:139
 msgid "Administration session expired"
 msgstr "Käyttöliittymä:"
 
-#: src/Process/Backend/Auth.php:296 src/Process/Upgrade/Auth.php:140
+#: src/Process/Backend/Auth.php:321 src/Process/Upgrade/Auth.php:139
 msgid "Wrong username or password"
 msgstr "Väärä käyttäjänimi tai salasana"
 
-#: src/Process/Backend/Auth.php:352 src/Process/Backend/Auth.php:353
-#: src/Process/Backend/Auth.php:354 src/Process/Backend/User.php:263
+#: src/Process/Backend/Auth.php:377 src/Process/Backend/Auth.php:378
+#: src/Process/Backend/Auth.php:379 src/Process/Backend/User.php:263
 #: src/Process/Backend/User.php:264 src/Process/Backend/User.php:265
-#: src/Process/Backend/UserPreferences.php:525
-#: src/Process/Backend/UserPreferences.php:526
-#: src/Process/Backend/UserPreferences.php:527
+#: src/Process/Backend/UserPreferences.php:558
+#: src/Process/Backend/UserPreferences.php:559
+#: src/Process/Backend/UserPreferences.php:560
 #: src/Process/Install/Install.php:396 src/Process/Install/Install.php:397
-#: src/Process/Install/Install.php:398 src/Process/Upgrade/Auth.php:184
-#: src/Process/Upgrade/Auth.php:185 src/Process/Upgrade/Auth.php:186
+#: src/Process/Install/Install.php:398 src/Process/Upgrade/Auth.php:183
+#: src/Process/Upgrade/Auth.php:184 src/Process/Upgrade/Auth.php:185
 #, php-format
 msgid "Password strength: %s"
 msgstr "Salasanan vahvuus: %s"
 
-#: src/Process/Backend/Auth.php:352 src/Process/Backend/User.php:263
-#: src/Process/Backend/UserPreferences.php:525
-#: src/Process/Install/Install.php:396 src/Process/Upgrade/Auth.php:184
+#: src/Process/Backend/Auth.php:377 src/Process/Backend/User.php:263
+#: src/Process/Backend/UserPreferences.php:558
+#: src/Process/Install/Install.php:396 src/Process/Upgrade/Auth.php:183
 msgid "weak"
 msgstr "heikko"
 
-#: src/Process/Backend/Auth.php:354 src/Process/Backend/User.php:265
-#: src/Process/Backend/UserPreferences.php:527
-#: src/Process/Install/Install.php:398 src/Process/Upgrade/Auth.php:186
+#: src/Process/Backend/Auth.php:379 src/Process/Backend/User.php:265
+#: src/Process/Backend/UserPreferences.php:560
+#: src/Process/Install/Install.php:398 src/Process/Upgrade/Auth.php:185
 msgid "strong"
 msgstr "vahva"
 
-#: src/Process/Backend/Auth.php:397 src/Process/Backend/Auth.php:441
+#: src/Process/Backend/Auth.php:422 src/Process/Backend/Auth.php:466
 msgid "Back to login screen"
 msgstr "Takaisin kirjautumisruutuun"
 
-#: src/Process/Backend/Auth.php:405
+#: src/Process/Backend/Auth.php:430
 msgid "Request a new password"
 msgstr "Hanki uusi salasana"
 
-#: src/Process/Backend/Auth.php:429
+#: src/Process/Backend/Auth.php:454
 msgid "recover"
 msgstr "palauta"
 
-#: src/Process/Backend/Auth.php:435 src/Process/Backend/Auth.php:561
+#: src/Process/Backend/Auth.php:460 src/Process/Backend/Auth.php:619
 msgid "Other option"
 msgstr "Muu vaihtoehto"
 
-#: src/Process/Backend/Auth.php:448
+#: src/Process/Backend/Auth.php:473
 msgid "Change your password"
 msgstr "Vaihda salasanasi"
 
-#: src/Process/Backend/Auth.php:453 src/Process/Backend/User.php:334
-#: src/Process/Backend/UserPreferences.php:563
+#: src/Process/Backend/Auth.php:478 src/Process/Backend/User.php:334
+#: src/Process/Backend/UserPreferences.php:596
 #: src/Process/Install/Install.php:464
 msgid "New password:"
 msgstr "Uusi salasana:"
 
-#: src/Process/Backend/Auth.php:463 src/Process/Backend/User.php:358
+#: src/Process/Backend/Auth.php:488 src/Process/Backend/User.php:358
 #: src/Process/Backend/User.php:367 src/Process/Install/Install.php:471
 msgid "Confirm password:"
 msgstr "Vahvista salasana:"
 
-#: src/Process/Backend/Auth.php:471
+#: src/Process/Backend/Auth.php:496
 msgid "change"
 msgstr "muuta"
 
-#: src/Process/Backend/Auth.php:491
+#: src/Process/Backend/Auth.php:516
 msgid "Safe mode login"
 msgstr "Vikasietotila"
 
-#: src/Process/Backend/Auth.php:494
+#: src/Process/Backend/Auth.php:519
 msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
 msgstr "Tässä tilassa voit kirjautua ilman liitännäisten käynnistämistä. Näin voit yrittää ratkaista yhteensopivuusongelmia."
 
-#: src/Process/Backend/Auth.php:495
+#: src/Process/Backend/Auth.php:520
 msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
 msgstr "Ota pois käytöstä tai poista liittännäinen, jota epäilet ongelman aiheuttajaksi, kirjaudu ulos ja kirjaudu sitten uudelleen sisään normaalisti."
 
-#: src/Process/Backend/Auth.php:526 src/Process/Upgrade/Auth.php:238
+#: src/Process/Backend/Auth.php:551 src/Process/Upgrade/Auth.php:237
 msgid "Remember my ID on this device"
 msgstr "Muista minut tällä tietokoneella"
 
-#: src/Process/Backend/Auth.php:530 src/Process/Upgrade/Auth.php:239
+#: src/Process/Backend/Auth.php:555 src/Process/Upgrade/Auth.php:238
 msgid "log in"
 msgstr "kirjaudu"
 
-#: src/Process/Backend/Auth.php:555 src/Process/Upgrade/Auth.php:241
+#: src/Process/Backend/Auth.php:561
+msgid "Sign in with a passkey"
+msgstr "Kirjaudu sisään tunnusluvulla"
+
+#: src/Process/Backend/Auth.php:604
+msgid "Third party applications connections"
+msgstr "Kolmannen osapuolen sovellusten yhteydet"
+
+#: src/Process/Backend/Auth.php:613 src/Process/Upgrade/Auth.php:240
 msgid "You must accept cookies in order to use the private area."
 msgstr "Evästeiden käyttö on sallittava, jotta voit käyttää yksityisaluetta."
 
-#: src/Process/Backend/Auth.php:567
+#: src/Process/Backend/Auth.php:625
 msgid "Get back to normal authentication"
 msgstr "Paluu normaaliin todentamisruutuun"
 
-#: src/Process/Backend/Auth.php:572
+#: src/Process/Backend/Auth.php:630
 msgid "Connection issue?"
 msgstr "Yhteysongelmako?"
 
-#: src/Process/Backend/Auth.php:579
+#: src/Process/Backend/Auth.php:637
 msgid "I forgot my password"
 msgstr "Unohdin salasanani"
 
-#: src/Process/Backend/Auth.php:586
+#: src/Process/Backend/Auth.php:644
 msgid "I want to log in in safe mode"
 msgstr "Vikasietotilaan kirjautuminen"
 
@@ -3329,7 +3428,7 @@ msgid "I would like to prevent search engines and archivers from indexing or arc
 msgstr "Haluan, että hakukoneet ja arkistointiohjelmat eivät indeksoisi tai tallettaisi blogini sisältöä."
 
 #: src/Process/Backend/BlogPref.php:234
-#: src/Process/Backend/UserPreferences.php:151
+#: src/Process/Backend/UserPreferences.php:171
 msgid "Default"
 msgstr "Oletus"
 
@@ -3963,7 +4062,7 @@ msgid "total:"
 msgstr "yhteensä:"
 
 #: src/Process/Backend/Categories.php:326 src/Process/Backend/Category.php:279
-#: src/Process/Backend/User.php:457 src/Process/Backend/UserPreferences.php:659
+#: src/Process/Backend/User.php:457 src/Process/Backend/UserPreferences.php:692
 msgid "URL:"
 msgstr "URL:"
 
@@ -5161,64 +5260,72 @@ msgstr "Etsi merkintää:"
 msgid "cancel"
 msgstr "peruuta"
 
-#: src/Process/Backend/Rest.php:123
+#: src/Process/Backend/Rest.php:129
 msgid "Dotclear news not available"
 msgstr "Dotclear news ei ole saatavana"
 
-#: src/Process/Backend/Rest.php:162
+#: src/Process/Backend/Rest.php:168
 msgid "%d %B %Y:"
 msgstr "%d.%m.%Y:"
 
-#: src/Process/Backend/Rest.php:176
+#: src/Process/Backend/Rest.php:182
 msgid "Dotclear news"
 msgstr "Dotclear news"
 
-#: src/Process/Backend/Rest.php:208
+#: src/Process/Backend/Rest.php:214
 msgid "Dotclear update not available"
 msgstr "Dotclear-päivitystä ei ole tarjolla"
 
-#: src/Process/Backend/Rest.php:222
+#: src/Process/Backend/Rest.php:228
 #, php-format
 msgid "Dotclear %s is available!"
 msgstr "Dotclearin versio %s on saatavana!"
 
-#: src/Process/Backend/Rest.php:229
+#: src/Process/Backend/Rest.php:235
 msgid "Upgrade now"
 msgstr "Päivitä nyt"
 
-#: src/Process/Backend/Rest.php:233
+#: src/Process/Backend/Rest.php:239
 msgid "Remind me later"
 msgstr "Muistuta myöhemmin"
 
-#: src/Process/Backend/Rest.php:241 src/Process/Upgrade/Upgrade.php:269
+#: src/Process/Backend/Rest.php:247 src/Process/Upgrade/Upgrade.php:269
 #: src/Process/Upgrade/Upgrade.php:270
 msgid "Information about this version"
 msgstr "Tietoja tästä versiosta"
 
-#: src/Process/Backend/Rest.php:250
+#: src/Process/Backend/Rest.php:256
 #, php-format
 msgid "A new version of Dotclear is available but needs PHP version ≥ %1$s, your's is currently %2$s"
 msgstr "Dotclearin uusi versio on saatavilla, mutta se tarvitsee PHP-version ≥ %1$s, sinun versiosi on tällä hetkellä %2$s."
 
-#: src/Process/Backend/Rest.php:265 src/Process/Upgrade/Upgrade.php:235
+#: src/Process/Backend/Rest.php:271 src/Process/Upgrade/Upgrade.php:235
 #, php-format
 msgid "The next versions of Dotclear will not support PHP version < %1$s, your's is currently %2$s"
 msgstr "Seuraavat Dotclearin versiot eivät tue PHP-versiota < %1$s, sinun versiosi on tällä hetkellä %2$s."
 
-#: src/Process/Backend/Rest.php:296
+#: src/Process/Backend/Rest.php:302
 msgid "No updates are available"
 msgstr "Päivityksiä ei ole saatavilla"
 
-#: src/Process/Backend/Rest.php:346
+#: src/Process/Backend/Rest.php:352
 #, php-format
 msgid "An update is available"
 msgid_plural "%s updates are available."
 msgstr[0] "Päivitys on saatavana."
 msgstr[1] "%s päivitystä on saatavana."
 
-#: src/Process/Backend/Rest.php:944
+#: src/Process/Backend/Rest.php:950
 msgid "List options saved"
 msgstr "Luetteloasetukset tallennettu"
+
+#: src/Process/Backend/Rest.php:985
+msgid "Authentication key successfully registered"
+msgstr "Tunnistusavain onnistuneesti rekisteröity"
+
+#: src/Process/Backend/Rest.php:1040
+msgid "This key is not registered"
+msgstr "Tätä avainta ei ole rekisteröity"
 
 #: src/Process/Backend/Search.php:174
 msgid "Search options"
@@ -5381,17 +5488,17 @@ msgstr "Varoitus:"
 msgid "Password change required to connect"
 msgstr "Salasana on vaihdettava ensi kertaa kirjauduttaessa"
 
-#: src/Process/Backend/User.php:401 src/Process/Backend/UserPreferences.php:607
+#: src/Process/Backend/User.php:401 src/Process/Backend/UserPreferences.php:640
 #: src/Process/Install/Install.php:439
 msgid "Last Name:"
 msgstr "Sukunimi:"
 
-#: src/Process/Backend/User.php:411 src/Process/Backend/UserPreferences.php:617
+#: src/Process/Backend/User.php:411 src/Process/Backend/UserPreferences.php:650
 #: src/Process/Install/Install.php:433
 msgid "First Name:"
 msgstr "Etunimi:"
 
-#: src/Process/Backend/User.php:421 src/Process/Backend/UserPreferences.php:627
+#: src/Process/Backend/User.php:421 src/Process/Backend/UserPreferences.php:660
 msgid "Display name:"
 msgstr "Näytettävä nimi:"
 
@@ -5399,23 +5506,23 @@ msgstr "Näytettävä nimi:"
 msgid "Mandatory for password recovering procedure."
 msgstr "Pakollinen unohtunutta salasanaa palautettaessa."
 
-#: src/Process/Backend/User.php:444 src/Process/Backend/UserPreferences.php:646
+#: src/Process/Backend/User.php:444 src/Process/Backend/UserPreferences.php:679
 msgid "Alternate emails (comma separated list):"
 msgstr "Vaihtoehtoiset sähköpostit (pilkulla erotettu luettelo):"
 
-#: src/Process/Backend/User.php:448 src/Process/Backend/UserPreferences.php:650
+#: src/Process/Backend/User.php:448 src/Process/Backend/UserPreferences.php:683
 msgid "Invalid emails will be automatically removed from list."
 msgstr "Virheelliset sähköpostit poistetaan automaattisesti listalta."
 
-#: src/Process/Backend/User.php:466 src/Process/Backend/UserPreferences.php:668
+#: src/Process/Backend/User.php:466 src/Process/Backend/UserPreferences.php:701
 msgid "Alternate URLs (comma separated list):"
 msgstr "Vaihtoehtoiset URL-osoitteet (pilkulla erotettu luettelo):"
 
-#: src/Process/Backend/User.php:470 src/Process/Backend/UserPreferences.php:672
+#: src/Process/Backend/User.php:470 src/Process/Backend/UserPreferences.php:705
 msgid "Invalid URLs will be automatically removed from list."
 msgstr "Virheelliset URL-osoitteet poistetaan automaattisesti luettelosta."
 
-#: src/Process/Backend/User.php:476 src/Process/Backend/UserPreferences.php:815
+#: src/Process/Backend/User.php:476 src/Process/Backend/UserPreferences.php:920
 msgid "Interface"
 msgstr "Käyttöliittymä"
 
@@ -5423,19 +5530,23 @@ msgstr "Käyttöliittymä"
 msgid "Timezone:"
 msgstr "Aikavyöhyke:"
 
-#: src/Process/Backend/User.php:492 src/Process/Backend/UserPreferences.php:939
+#: src/Process/Backend/User.php:492
+#: src/Process/Backend/UserPreferences.php:1044
 msgid "Edition"
 msgstr "Sisällönmuokkaus"
 
-#: src/Process/Backend/User.php:498 src/Process/Backend/UserPreferences.php:951
+#: src/Process/Backend/User.php:498
+#: src/Process/Backend/UserPreferences.php:1056
 msgid "Preferred format:"
 msgstr "Ensisijainen muokkausmuoto:"
 
-#: src/Process/Backend/User.php:505 src/Process/Backend/UserPreferences.php:959
+#: src/Process/Backend/User.php:505
+#: src/Process/Backend/UserPreferences.php:1064
 msgid "Default entry status:"
 msgstr "Merkintöjen oletustila:"
 
-#: src/Process/Backend/User.php:510 src/Process/Backend/UserPreferences.php:965
+#: src/Process/Backend/User.php:510
+#: src/Process/Backend/UserPreferences.php:1070
 msgid "Entry edit field height:"
 msgstr "Merkinnän muokkauskentän korkeus:"
 
@@ -5485,341 +5596,365 @@ msgstr "Blogimerkintöjen luettelo"
 msgid "List of comments"
 msgstr "Kommenttien luettelo"
 
-#: src/Process/Backend/UserPreferences.php:142
+#: src/Process/Backend/UserPreferences.php:162
 msgid "Light"
 msgstr "Vaalea"
 
-#: src/Process/Backend/UserPreferences.php:143
+#: src/Process/Backend/UserPreferences.php:163
 msgid "Dark"
 msgstr "Tumma"
 
-#: src/Process/Backend/UserPreferences.php:144
+#: src/Process/Backend/UserPreferences.php:164
 msgid "Automatic"
 msgstr "Auto"
 
-#: src/Process/Backend/UserPreferences.php:149
+#: src/Process/Backend/UserPreferences.php:169
 msgid "Smallest"
 msgstr "Pienin"
 
-#: src/Process/Backend/UserPreferences.php:150
+#: src/Process/Backend/UserPreferences.php:170
 msgid "Smaller"
 msgstr "Pienempi"
 
-#: src/Process/Backend/UserPreferences.php:152
+#: src/Process/Backend/UserPreferences.php:172
 msgid "Larger"
 msgstr "Suurempi"
 
-#: src/Process/Backend/UserPreferences.php:153
+#: src/Process/Backend/UserPreferences.php:173
 msgid "Largest"
 msgstr "Suurin"
 
-#: src/Process/Backend/UserPreferences.php:165
+#: src/Process/Backend/UserPreferences.php:185
 msgid "Blog description (in blog parameters)"
 msgstr "Blogin kuvaus (blogin parametrit)"
 
-#: src/Process/Backend/UserPreferences.php:166
+#: src/Process/Backend/UserPreferences.php:186
 msgid "Category description"
 msgstr "Luokkien kuvaus"
 
-#: src/Process/Backend/UserPreferences.php:210
-#: src/Process/Backend/UserPreferences.php:227
+#: src/Process/Backend/UserPreferences.php:232
+msgid "Passkey successfully deleted."
+msgstr "Tunnusluku poistettu onnistuneesti."
+
+#: src/Process/Backend/UserPreferences.php:243
+#: src/Process/Backend/UserPreferences.php:260
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "Sähköpostiosoitteesi tai salasanasi vaihtamiseen vaaditaan nykyinen salasana."
 
-#: src/Process/Backend/UserPreferences.php:258
+#: src/Process/Backend/UserPreferences.php:291
 msgid "Personal information has been successfully updated."
 msgstr "Henkilökohtaiset tietosi on päivitetty."
 
-#: src/Process/Backend/UserPreferences.php:376
+#: src/Process/Backend/UserPreferences.php:409
 msgid "Personal options has been successfully updated."
 msgstr "Henkilökohtaiset asetukset on päivitetty."
 
-#: src/Process/Backend/UserPreferences.php:404
+#: src/Process/Backend/UserPreferences.php:437
 msgid "Dashboard options has been successfully updated."
 msgstr "Ohjaustaulun asetukset on päivitetty."
 
-#: src/Process/Backend/UserPreferences.php:416
-#: src/Process/Backend/UserPreferences.php:440
+#: src/Process/Backend/UserPreferences.php:449
+#: src/Process/Backend/UserPreferences.php:473
 msgid "No favorite selected"
 msgstr "Ei valittua suosikkia"
 
-#: src/Process/Backend/UserPreferences.php:427
+#: src/Process/Backend/UserPreferences.php:460
 msgid "Favorites have been successfully added."
 msgstr "Suosikit on lisätty."
 
-#: src/Process/Backend/UserPreferences.php:453
+#: src/Process/Backend/UserPreferences.php:486
 msgid "Favorites have been successfully removed."
 msgstr "Suosikit on poistettu."
 
-#: src/Process/Backend/UserPreferences.php:483
+#: src/Process/Backend/UserPreferences.php:516
 msgid "Favorites have been successfully updated."
 msgstr "Suosikit on päivitetty."
 
-#: src/Process/Backend/UserPreferences.php:495
+#: src/Process/Backend/UserPreferences.php:528
 msgid "Default favorites have been successfully updated."
 msgstr "Oletussuosikit on päivitetty."
 
-#: src/Process/Backend/UserPreferences.php:509
+#: src/Process/Backend/UserPreferences.php:542
 msgid "Dashboard items order have been successfully reset."
 msgstr "Luokkien järjestys on nyt oletusarvoinen."
 
-#: src/Process/Backend/UserPreferences.php:531
+#: src/Process/Backend/UserPreferences.php:564
 msgid "Are you sure you want to remove selected favorites?"
 msgstr "Oletko varma, että haluat poistaa valitut suosikit?"
 
-#: src/Process/Backend/UserPreferences.php:553
+#: src/Process/Backend/UserPreferences.php:586
 msgid "Change my password"
 msgstr "Vaihda salasanani"
 
-#: src/Process/Backend/UserPreferences.php:572
+#: src/Process/Backend/UserPreferences.php:605
 msgid "Confirm new password:"
 msgstr "Vahvista uusi salasana"
 
-#: src/Process/Backend/UserPreferences.php:582
+#: src/Process/Backend/UserPreferences.php:615
 msgid "Your current password:"
 msgstr "Nykyinen salasanasi:"
 
-#: src/Process/Backend/UserPreferences.php:586
+#: src/Process/Backend/UserPreferences.php:619
 msgid "If you have changed your email or password you must provide your current password to save these modifications."
 msgstr "Joudut antamaan nykyisen salasanasi, jotta voisit tallentaa muutetun sähköpostiosoitteesi tai salasanasi."
 
-#: src/Process/Backend/UserPreferences.php:592
-#: src/Process/Backend/UserPreferences.php:594
+#: src/Process/Backend/UserPreferences.php:625
+#: src/Process/Backend/UserPreferences.php:627
 msgid "My profile"
 msgstr "Oma käyttäjäprofiili"
 
-#: src/Process/Backend/UserPreferences.php:679
+#: src/Process/Backend/UserPreferences.php:712
 msgid "Language for my interface:"
 msgstr "Käyttöliittymäni kieli:"
 
-#: src/Process/Backend/UserPreferences.php:687
+#: src/Process/Backend/UserPreferences.php:720
 msgid "My timezone:"
 msgstr "Aikavyöhykkeeni:"
 
-#: src/Process/Backend/UserPreferences.php:696
+#: src/Process/Backend/UserPreferences.php:729
 msgid "Update my profile"
 msgstr "Päivitä profiilini"
 
-#: src/Process/Backend/UserPreferences.php:764
+#: src/Process/Backend/UserPreferences.php:797
 msgid "List"
 msgstr "Luettelo"
 
-#: src/Process/Backend/UserPreferences.php:766
+#: src/Process/Backend/UserPreferences.php:799
 msgid "Order by"
 msgstr "Tilaa mennessä"
 
-#: src/Process/Backend/UserPreferences.php:768
+#: src/Process/Backend/UserPreferences.php:801
 msgid "Sort"
 msgstr "Lajittele"
 
-#: src/Process/Backend/UserPreferences.php:781
+#: src/Process/Backend/UserPreferences.php:814
 #, php-format
 msgid "Preferred editor for %s:"
 msgstr "Muotoa %s varten valittu ensisijainen muokkain:"
 
-#: src/Process/Backend/UserPreferences.php:786
+#: src/Process/Backend/UserPreferences.php:819
 msgid "Choose an editor"
 msgstr "Valitse muokkain"
 
-#: src/Process/Backend/UserPreferences.php:807
-#: src/Process/Backend/UserPreferences.php:813
+#: src/Process/Backend/UserPreferences.php:874
+msgid "Linked to account:"
+msgstr "Yhdistetty tiliin:"
+
+#: src/Process/Backend/UserPreferences.php:896
+msgid "Unknown certificat issuer"
+msgstr "Tuntematon todistuksen myöntäjä"
+
+#: src/Process/Backend/UserPreferences.php:906
+msgid "You have no registered key yet."
+msgstr "Sinulla ei ole vielä rekisteröityä avainta."
+
+#: src/Process/Backend/UserPreferences.php:912
+#: src/Process/Backend/UserPreferences.php:918
 msgid "My options"
 msgstr "Omat asetukseni"
 
-#: src/Process/Backend/UserPreferences.php:822
+#: src/Process/Backend/UserPreferences.php:927
 msgid "Theme:"
 msgstr "Teema:"
 
-#: src/Process/Backend/UserPreferences.php:828
+#: src/Process/Backend/UserPreferences.php:933
 msgid "Activate enhanced uploader in media manager"
 msgstr "Ota käyttöön parannettu tiedostonlataus medianhallinnassa"
 
-#: src/Process/Backend/UserPreferences.php:834
+#: src/Process/Backend/UserPreferences.php:939
 msgid "Preview the entry being edited in a blank window or tab (depending on your browser settings)."
 msgstr "Esikatsele muokattavaa merkintää tyhjässä ikkunassa tai välilehdessä (selaimen asetuksista riippuen)."
 
-#: src/Process/Backend/UserPreferences.php:841
+#: src/Process/Backend/UserPreferences.php:946
 msgid "Disable javascript powered drag and drop for ordering items"
 msgstr "Poista javascriptilla toteutettu vedä-ja-pudota -toiminto käytöstä hallintaliittymässä"
 
-#: src/Process/Backend/UserPreferences.php:845
+#: src/Process/Backend/UserPreferences.php:950
 msgid "If checked, numeric fields will allow to type the elements' ordering number."
 msgstr "Tämän valitsemalla voi kirjoittaa elementin järjestysnumeron numeerisiin kenttiin."
 
-#: src/Process/Backend/UserPreferences.php:850
+#: src/Process/Backend/UserPreferences.php:955
 msgid "Hide all secondary information and notes"
 msgstr "Piilota kaikki lisätiedot ja huomautukset"
 
-#: src/Process/Backend/UserPreferences.php:856
+#: src/Process/Backend/UserPreferences.php:961
 msgid "Hide help button"
 msgstr "Piilota ohje-nappi"
 
-#: src/Process/Backend/UserPreferences.php:863
+#: src/Process/Backend/UserPreferences.php:968
 msgid "Font size:"
 msgstr "Tiedoston koko:"
 
-#: src/Process/Backend/UserPreferences.php:869
+#: src/Process/Backend/UserPreferences.php:974
 msgid "Use operating system font"
 msgstr "Käytä käyttöjärjestelmän fonttia"
 
-#: src/Process/Backend/UserPreferences.php:875
+#: src/Process/Backend/UserPreferences.php:980
 msgid "Number of recent folders proposed in media manager:"
 msgstr "Ehdotettavien aiempien kansioiden määrä medianhallinnassa:"
 
-#: src/Process/Backend/UserPreferences.php:879
+#: src/Process/Backend/UserPreferences.php:984
 msgid "Set to 0 (zero) to ignore, displayed only if Javascript is enabled in your browser."
 msgstr "Aseta arvoksi 0 (nolla), jos haluat jättää huomiotta, näytetään vain, jos Javascript on käytössä selaimessa."
 
-#: src/Process/Backend/UserPreferences.php:886
+#: src/Process/Backend/UserPreferences.php:991
 msgid "Do not use standard favicon"
 msgstr "Älä käytä Dotclear-vakiokuvaketta"
 
-#: src/Process/Backend/UserPreferences.php:887
+#: src/Process/Backend/UserPreferences.php:992
 msgid "This will be applied for all users"
 msgstr "Tämä valinta koskee kaikkia käyttäjiä"
 
-#: src/Process/Backend/UserPreferences.php:897
+#: src/Process/Backend/UserPreferences.php:1002
 msgid "Disable Ad-blocker check"
 msgstr "Poista mainosten eston tarkistus käytöstä"
 
-#: src/Process/Backend/UserPreferences.php:901
+#: src/Process/Backend/UserPreferences.php:1006
 msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
 msgstr "Jotkin mainosblokkerit (Ghostery, Adblock plus, uBloc origin, …) saattavat häiritä joitakin ominaisuuksia, kuten linkin tai median lisäämistä CKEditorin merkintöihin; tässä tapauksessa sinun tulisi poistaa se käytöstä tässä Dotclearin asennuksessa (vain backend). Huomaa, että Dotclear ei lisää mainoksia tai seurantalaitteita backendiin."
 
-#: src/Process/Backend/UserPreferences.php:904
+#: src/Process/Backend/UserPreferences.php:1009
 msgid "Note also that deactivating this detection of ad blockers will not deactivate the installed ad blockers. Dotclear cannot interfere with the operation of browser extensions!"
 msgstr "Huomaa myös, että tämän mainostenestolaitteiden tunnistuksen poistaminen käytöstä ei poista asennettuja mainostenestolaitteita. Dotclear ei voi puuttua selainlaajennusten toimintaan!"
 
-#: src/Process/Backend/UserPreferences.php:912
+#: src/Process/Backend/UserPreferences.php:1017
 msgid "Quick menu character:"
 msgstr "Pikavalikon merkki:"
 
-#: src/Process/Backend/UserPreferences.php:916
+#: src/Process/Backend/UserPreferences.php:1021
 msgid "Leave empty to use the default character <kbd>:</kbd>"
 msgstr "Jätä tyhjäksi, jos haluat käyttää oletusmerkkiä <kbd>:</kbd>"
 
-#: src/Process/Backend/UserPreferences.php:921
+#: src/Process/Backend/UserPreferences.php:1026
 msgid "Keep the main menu at the top of the page as much as possible"
 msgstr "Pidä päävalikko mahdollisimman paljon sivun yläreunassa"
 
-#: src/Process/Backend/UserPreferences.php:925
+#: src/Process/Backend/UserPreferences.php:1030
 msgid "Optional columns displayed in lists"
 msgstr "Valinnaiset luetteloissa näytetyt sarakkeet"
 
-#: src/Process/Backend/UserPreferences.php:928
+#: src/Process/Backend/UserPreferences.php:1033
 msgid "Options for lists"
 msgstr "Luetteloiden asetukset"
 
-#: src/Process/Backend/UserPreferences.php:934
+#: src/Process/Backend/UserPreferences.php:1039
 msgid "Apply filters on the fly"
 msgstr "Ryhdy käyttämään suodattimia saman tien"
 
-#: src/Process/Backend/UserPreferences.php:971
+#: src/Process/Backend/UserPreferences.php:1076
 msgid "Enable WYSIWYG mode"
 msgstr "Käytä WYSIWYG-muokkausta"
 
-#: src/Process/Backend/UserPreferences.php:977
+#: src/Process/Backend/UserPreferences.php:1082
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr "Näytä muokkaimen työkalupalkki tekstialueen alapuolella (jos mahdollista)"
 
-#: src/Process/Backend/UserPreferences.php:983
+#: src/Process/Backend/UserPreferences.php:1088
 msgid "Use HTML editor for:"
 msgstr "Käytä HTML-muokkainta muokattaessa:"
 
-#: src/Process/Backend/UserPreferences.php:987
+#: src/Process/Backend/UserPreferences.php:1093
+msgid "Authentication applications"
+msgstr "Tunnistamissovellukset"
+
+#: src/Process/Backend/UserPreferences.php:1098
+msgid "Authentication keys"
+msgstr "Auhtentication-avaimet"
+
+#: src/Process/Backend/UserPreferences.php:1109
 msgid "Other options"
 msgstr "Muut asetukset"
 
-#: src/Process/Backend/UserPreferences.php:998
+#: src/Process/Backend/UserPreferences.php:1120
 msgid "Save my options"
 msgstr "Tallenna asetukseni"
 
-#: src/Process/Backend/UserPreferences.php:1029
+#: src/Process/Backend/UserPreferences.php:1151
 #, php-format
 msgid "position of %s"
 msgstr "%s:n sijainti"
 
-#: src/Process/Backend/UserPreferences.php:1052
+#: src/Process/Backend/UserPreferences.php:1174
 msgid "Save order"
 msgstr "Tallenna järjestys"
 
-#: src/Process/Backend/UserPreferences.php:1053
+#: src/Process/Backend/UserPreferences.php:1175
 msgid "Delete selected favorites"
 msgstr "Poista valitut suosikit"
 
-#: src/Process/Backend/UserPreferences.php:1060
+#: src/Process/Backend/UserPreferences.php:1182
 msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
 msgstr "Jos olet superjärjestelmänvalvoja, voit määrittää tämän suosikkikokoelman oletuksena käytettäväksi kaikissa tähän asennukseen kuuluvissa blogeissa."
 
-#: src/Process/Backend/UserPreferences.php:1063
+#: src/Process/Backend/UserPreferences.php:1185
 msgid "Define as default favorites"
 msgstr "Määritä oletussuosikeiksi"
 
-#: src/Process/Backend/UserPreferences.php:1072
+#: src/Process/Backend/UserPreferences.php:1194
 msgid "Currently no personal favorites."
 msgstr "Ei omia suosikkeja tällä hetkellä"
 
-#: src/Process/Backend/UserPreferences.php:1111
+#: src/Process/Backend/UserPreferences.php:1233
 msgid "(default favorite)"
 msgstr "(oletussuosikki)"
 
-#: src/Process/Backend/UserPreferences.php:1126
+#: src/Process/Backend/UserPreferences.php:1248
 msgid "Add to my favorites"
 msgstr "Lisää suosikkeihin"
 
-#: src/Process/Backend/UserPreferences.php:1150
+#: src/Process/Backend/UserPreferences.php:1272
 msgid "Other available favorites"
 msgstr "Muut valittavissa olevat suosikit"
 
-#: src/Process/Backend/UserPreferences.php:1162
+#: src/Process/Backend/UserPreferences.php:1284
 msgid "Menu"
 msgstr "Valikko"
 
-#: src/Process/Backend/UserPreferences.php:1168
+#: src/Process/Backend/UserPreferences.php:1290
 msgid "Display favorites at the top of the menu"
 msgstr "Näytä suosikit valikon yläosassa"
 
-#: src/Process/Backend/UserPreferences.php:1172
+#: src/Process/Backend/UserPreferences.php:1294
 msgid "Dashboard icons"
 msgstr "Ohjaustaulun kuvakkeet"
 
-#: src/Process/Backend/UserPreferences.php:1178
+#: src/Process/Backend/UserPreferences.php:1300
 msgid "Display dashboard icons"
 msgstr "Ohjaustaulun kuvakkeet"
 
-#: src/Process/Backend/UserPreferences.php:1182
+#: src/Process/Backend/UserPreferences.php:1304
 msgid "Dashboard modules"
 msgstr "Ohjaustaulun moduulit"
 
-#: src/Process/Backend/UserPreferences.php:1188
+#: src/Process/Backend/UserPreferences.php:1310
 msgid "Display documentation links"
 msgstr "Näytä linkit dokumentaatioon"
 
-#: src/Process/Backend/UserPreferences.php:1194
+#: src/Process/Backend/UserPreferences.php:1316
 msgid "Display donate links"
 msgstr "Näytä lahjoituslinkit"
 
-#: src/Process/Backend/UserPreferences.php:1200
+#: src/Process/Backend/UserPreferences.php:1322
 msgid "Display Dotclear news"
 msgstr "Näytä Dotclear news"
 
-#: src/Process/Backend/UserPreferences.php:1206
+#: src/Process/Backend/UserPreferences.php:1328
 msgid "Display quick entry form"
 msgstr "Näytä pikasyöttölomake"
 
-#: src/Process/Backend/UserPreferences.php:1211
+#: src/Process/Backend/UserPreferences.php:1333
 msgid "Do not display Dotclear updates"
 msgstr "Älä näytä Dotclear-päivityksiä"
 
-#: src/Process/Backend/UserPreferences.php:1224
+#: src/Process/Backend/UserPreferences.php:1346
 msgid "Save my dashboard options"
 msgstr "Tallenna ohjaustauluasetukseni"
 
-#: src/Process/Backend/UserPreferences.php:1237
+#: src/Process/Backend/UserPreferences.php:1359
 msgid "Dashboard items order"
 msgstr "Ohjaustaulun moduulit"
 
-#: src/Process/Backend/UserPreferences.php:1240
+#: src/Process/Backend/UserPreferences.php:1362
 msgid "Reset dashboard items order"
 msgstr "Palauta ohjaustaulun kohteiden oletusjärjestys"
 
@@ -6215,11 +6350,11 @@ msgstr "Onnittelut, päivitys on valmis yhden napin painalluksen jälkeen."
 msgid "Finish the update."
 msgstr "Suorita päivitys loppuun."
 
-#: src/Process/Upgrade/Auth.php:177 src/Process/Upgrade/Auth.php:195
+#: src/Process/Upgrade/Auth.php:176 src/Process/Upgrade/Auth.php:194
 msgid "Upgrade"
 msgstr "Päivitys"
 
-#: src/Process/Upgrade/Auth.php:242
+#: src/Process/Upgrade/Auth.php:241
 msgid "Back to normal dashboard"
 msgstr "Takaisin normaaliin kojelautaan"
 
