@@ -656,4 +656,8 @@ interface ConfigInterface
      * @return     int   Maximum number of media to add in DB in not in it
      */
     public function mediaUpdateDBLimit(): int;
+
+    public function hasOauth2(): bool;
+
+    public function oauth2Path(): string;
 }
