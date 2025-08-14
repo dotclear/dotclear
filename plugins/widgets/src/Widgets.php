@@ -324,7 +324,7 @@ class Widgets
                     ->text(__('Archives')),
             ]);
 
-        $res .= (new Div(null, 'navigation'))
+        $res .= (new Div(null, 'nav'))
             ->items([
                 (new Ul())
                     ->items($links),
