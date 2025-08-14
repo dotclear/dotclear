@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-14 10:14+0200\n"
+"POT-Creation-Date: 2025-08-14 13:18+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -5322,7 +5322,7 @@ msgid "List options saved"
 msgstr ""
 
 #: src/Process/Backend/Rest.php:985
-msgid "Auhtentication key successfully registered"
+msgid "Authentication key successfully registered"
 msgstr ""
 
 #: src/Process/Backend/Rest.php:1040
@@ -5860,7 +5860,7 @@ msgid "Authentication applications"
 msgstr ""
 
 #: src/Process/Backend/UserPreferences.php:1098
-msgid "Auhtentication keys"
+msgid "Authentication keys"
 msgstr ""
 
 #: src/Process/Backend/UserPreferences.php:1109
