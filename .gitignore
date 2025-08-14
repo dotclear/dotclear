@@ -1,5 +1,6 @@
 /cache
 /inc/config.php
+/inc/oauth2.php
 \.htaccess
 /public
 /build-tools/ckeditor/ckbuilder.jar
