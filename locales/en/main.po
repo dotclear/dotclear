@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-14 10:14+0200\n"
-"PO-Revision-Date: 2025-08-14 08:28\n"
+"PO-Revision-Date: 2025-08-14 10:34\n"
 "Last-Translator: \n"
 "Language-Team: English\n"
 "Language: en_US\n"
@@ -5318,7 +5318,7 @@ msgid "List options saved"
 msgstr ""
 
 #: src/Process/Backend/Rest.php:985
-msgid "Auhtentication key successfully registered"
+msgid "Authentication key successfully registered"
 msgstr ""
 
 #: src/Process/Backend/Rest.php:1040
@@ -5856,7 +5856,7 @@ msgid "Authentication applications"
 msgstr ""
 
 #: src/Process/Backend/UserPreferences.php:1098
-msgid "Auhtentication keys"
+msgid "Authentication keys"
 msgstr ""
 
 #: src/Process/Backend/UserPreferences.php:1109
