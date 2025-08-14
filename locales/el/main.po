@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-14 10:14+0200\n"
-"PO-Revision-Date: 2025-08-14 08:28\n"
+"PO-Revision-Date: 2025-08-14 10:34\n"
 "Last-Translator: \n"
 "Language-Team: Greek\n"
 "Language: el_GR\n"
@@ -2279,7 +2279,7 @@ msgstr "Χωρίς URL ιστολογίου"
 
 #: src/Core/Frontend/Session.php:35
 msgid "Something went wrong while trying to read blog URL."
-msgstr ""
+msgstr "Κάτι πήγε στραβά ενώ προσπαθούσατε να διαβάσετε τη διεύθυνση URL του ιστολογίου."
 
 #: src/Core/Frontend/Url.php:612
 msgid "You must provide a valid email address."
@@ -2876,86 +2876,86 @@ msgstr "ΠΡΟΕΙΔΟΠΟΙΗΣΗ: κατά την ανάλυση του αρχ
 
 #: src/Helper/OAuth2/Client/Client.php:170
 msgid "Services does not work on unsecured protocol."
-msgstr ""
+msgstr "Οι υπηρεσίες δεν λειτουργούν σε μη ασφαλές πρωτόκολλο."
 
 #: src/Helper/OAuth2/Client/Client.php:175
 msgid "Services does not work on IP address."
-msgstr ""
+msgstr "Οι υπηρεσίες δεν λειτουργούν στη διεύθυνση IP."
 
 #: src/Helper/OAuth2/Client/Client.php:180
 msgid "Services does not work on local network."
-msgstr ""
+msgstr "Οι υπηρεσίες δεν λειτουργούν στο τοπικό δίκτυο."
 
 #: src/Helper/OAuth2/Client/Client.php:210
 #, php-format
 msgid "Authorize %s connection"
-msgstr ""
+msgstr "Εξουσιοδότηση σύνδεσης %s"
 
 #: src/Helper/OAuth2/Client/Client.php:210
 #, php-format
 msgid "Connect with %s"
-msgstr ""
+msgstr "Συνδεθείτε με το %s"
 
 #: src/Helper/OAuth2/Client/Client.php:212
 #, php-format
 msgid "Disconnect from %s"
-msgstr ""
+msgstr "Αποσύνδεση από το %s"
 
 #: src/Helper/OAuth2/Client/Client.php:212
 #, php-format
 msgid "Revoke %s connection"
-msgstr ""
+msgstr "Ανάκληση της σύνδεσης %s"
 
 #: src/Helper/OAuth2/Client/Client.php:308
 msgid "Failed to retrieve user ID from this provider"
-msgstr ""
+msgstr "Απέτυχε η ανάκτηση του αναγνωριστικού χρήστη από αυτόν τον πάροχο"
 
 #: src/Helper/OAuth2/Client/Client.php:312
 msgid "No user ID linked to this provider"
-msgstr ""
+msgstr "Δεν υπάρχει αναγνωριστικό χρήστη που να συνδέεται με αυτόν τον πάροχο"
 
 #: src/Helper/OAuth2/Client/Exception/InvalidClient.php:26
 msgid "Invalid client configuration"
-msgstr ""
+msgstr "Μη έγκυρη ρύθμιση παραμέτρων πελάτη"
 
 #: src/Helper/OAuth2/Client/Exception/InvalidClient.php:26
 #, php-format
 msgid "Missing client configuration key \"%s\""
-msgstr ""
+msgstr "Λείπει το κλειδί διαμόρφωσης του πελάτη \"%s\""
 
 #: src/Helper/OAuth2/Client/Exception/Unauthorized.php:26
 #, php-format
 msgid "Unauthorized: %s"
-msgstr ""
+msgstr "Μη εξουσιοδοτημένο: %s"
 
 #: src/Helper/OAuth2/Client/Provider.php:132
 #, php-format
 msgid "Allow user connection using %s application."
-msgstr ""
+msgstr "Επιτρέψτε τη σύνδεση του χρήστη μέσω της εφαρμογής %s."
 
 #: src/Helper/OAuth2/Client/Provider.php:309
 msgid "Invalid response state"
-msgstr ""
+msgstr "Μη έγκυρη κατάσταση απόκρισης"
 
 #: src/Helper/OAuth2/Client/Provider.php:312
 msgid "Invalid response code"
-msgstr ""
+msgstr "Μη έγκυρος κωδικός απόκρισης"
 
 #: src/Helper/OAuth2/Client/Provider.php:378
 #: src/Helper/OAuth2/Client/Provider.php:451
 #: src/Helper/OAuth2/Client/Provider.php:661
 msgid "Invalid response content"
-msgstr ""
+msgstr "Μη έγκυρο περιεχόμενο απάντησης"
 
 #: src/Helper/OAuth2/Client/Provider.php:542
 msgid "Invalid response format"
-msgstr ""
+msgstr "Μη έγκυρη μορφή απάντησης"
 
 #: src/Helper/OAuth2/Client/Services.php:118
 #: src/Helper/OAuth2/Client/Services.php:127
 #, php-format
 msgid "Failed to load provider \"%s\""
-msgstr ""
+msgstr "Απέτυχε να φορτώσει τον πάροχο \"%s\""
 
 #: src/Helper/Stack/Statuses.php:315 src/Process/Backend/Comment.php:331
 #: src/Process/Backend/User.php:390
@@ -2964,11 +2964,11 @@ msgstr "Κατάσταση:"
 
 #: src/Helper/WebAuthn/Data/Provider.php:62
 msgid "Unknown passkey"
-msgstr ""
+msgstr "Άγνωστο κλειδί πρόσβασης"
 
 #: src/Helper/WebAuthn/Data/Store.php:52
 msgid "Arguments are missing"
-msgstr ""
+msgstr "Τα επιχειρήματα λείπουν"
 
 #: src/Module/Modules.php:247
 #, php-format
@@ -3226,11 +3226,11 @@ msgstr "σύνδεση"
 
 #: src/Process/Backend/Auth.php:561
 msgid "Sign in with a passkey"
-msgstr ""
+msgstr "Συνδεθείτε με κλειδί πρόσβασης"
 
 #: src/Process/Backend/Auth.php:604
 msgid "Third party applications connections"
-msgstr ""
+msgstr "Συνδέσεις εφαρμογών τρίτων"
 
 #: src/Process/Backend/Auth.php:613 src/Process/Upgrade/Auth.php:240
 msgid "You must accept cookies in order to use the private area."
@@ -5320,12 +5320,12 @@ msgid "List options saved"
 msgstr "Οι επιλογές λίστας αποθηκεύτηκαν"
 
 #: src/Process/Backend/Rest.php:985
-msgid "Auhtentication key successfully registered"
-msgstr ""
+msgid "Authentication key successfully registered"
+msgstr "Κλειδί ελέγχου ταυτότητας καταχωρήθηκε επιτυχώς"
 
 #: src/Process/Backend/Rest.php:1040
 msgid "This key is not registered"
-msgstr ""
+msgstr "Αυτό το κλειδί δεν είναι καταχωρημένο"
 
 #: src/Process/Backend/Search.php:174
 msgid "Search options"
@@ -5634,7 +5634,7 @@ msgstr "Περιγραφή κατηγορίας"
 
 #: src/Process/Backend/UserPreferences.php:232
 msgid "Passkey successfully deleted."
-msgstr ""
+msgstr "Το κλειδί πρόσβασης διαγράφηκε επιτυχώς."
 
 #: src/Process/Backend/UserPreferences.php:243
 #: src/Process/Backend/UserPreferences.php:260
@@ -5738,15 +5738,15 @@ msgstr "Επιλέξτε έναν επεξεργαστή"
 
 #: src/Process/Backend/UserPreferences.php:874
 msgid "Linked to account:"
-msgstr ""
+msgstr "Συνδέεται με λογαριασμό:"
 
 #: src/Process/Backend/UserPreferences.php:896
 msgid "Unknown certificat issuer"
-msgstr ""
+msgstr "Άγνωστος εκδότης πιστοποιητικού"
 
 #: src/Process/Backend/UserPreferences.php:906
 msgid "You have no registered key yet."
-msgstr ""
+msgstr "Δεν έχετε καταχωρημένο κλειδί ακόμα."
 
 #: src/Process/Backend/UserPreferences.php:912
 #: src/Process/Backend/UserPreferences.php:918
@@ -5855,11 +5855,11 @@ msgstr "Χρήση επεξεργαστή HTML για:"
 
 #: src/Process/Backend/UserPreferences.php:1093
 msgid "Authentication applications"
-msgstr ""
+msgstr "Εφαρμογές πιστοποίησης ταυτότητας"
 
 #: src/Process/Backend/UserPreferences.php:1098
-msgid "Auhtentication keys"
-msgstr ""
+msgid "Authentication keys"
+msgstr "Κλειδιά Auhtentication"
 
 #: src/Process/Backend/UserPreferences.php:1109
 msgid "Other options"
