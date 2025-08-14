@@ -865,8 +865,7 @@ class UserPreferences extends Process
                                     ->class('box')
                                     ->items([
                                         (new Img($oauth2_user->get('avatar') ?: $oauth2_service::getIcon()))
-                                            ->width(64)
-                                            ->height(64),
+                                            ->class('icon-medium'),
                                     ]),
                                 // user name
                                 (new Div())

@@ -4766,6 +4766,11 @@ ul.from-left ul {
   vertical-align: text-top;
 }
 
+:is(.icon-medium) {
+  width: 4em;
+  height: 4em;
+}
+
 /* ---------------------------------------------- Couleurs ajoutées via javascript
 
 /* Sortable (jQuery UI) */

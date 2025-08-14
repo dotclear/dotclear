@@ -551,3 +551,7 @@ ul.from-left {
   height: 1em;
   vertical-align: text-top;
 }
+:is(.icon-medium) {
+  width: 4em;
+  height: 4em;
+}
