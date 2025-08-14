@@ -21,6 +21,7 @@
     <directory name="themes/ductile" />
     <ignoreFiles>
       <file name="inc/config.php" />
+      <file name="inc/oauth2.php" />
     </ignoreFiles>
   </projectFiles>
 

@@ -61,6 +61,7 @@ parameters:
 
   excludePaths:
     - inc/config.php
+    - inc/oauth2.php
 
   dynamicConstantNames:
 

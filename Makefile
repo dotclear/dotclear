@@ -27,8 +27,9 @@ config: clean config-stamp
 	cp -p inc/.htaccess ./$(DC)/db/
 	cp -p inc/.htaccess ./$(DC)/plugins/
 
-	## Remove config file if any
+	## Remove config and oauth2 file if any
 	rm -f ./$(DC)/inc/config.php
+	rm -f ./$(DC)/inc/oauth2.php
 
 	## Copy built-in themes (same list that "distributed_themes" from release.json)
 	cp -pRf \

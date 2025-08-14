@@ -25,6 +25,7 @@
       </source>
       <ignore hidden="true" symlinks="true">
         <path>inc/config.php</path>
+        <path>inc/oauth2.php</path>
       </ignore>
       <include-source>true</include-source>
     </api>

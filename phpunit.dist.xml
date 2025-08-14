@@ -24,6 +24,7 @@
       <directory suffix=".php">admin</directory>
       <directory suffix=".php">inc</directory>
       <file>inc/config.php.in</file>
+      <file>inc/oauth2.php.in</file>
       <directory suffix=".php">src</directory>
       <directory suffix=".php">locales</directory>
       <directory suffix=".php">plugins</directory>
@@ -35,6 +36,7 @@
     </include>
     <exclude>
       <file>inc/config.php</file>
+      <file>inc/oauth2.php</file>
     </exclude>
   </source>
 
