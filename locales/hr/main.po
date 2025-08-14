@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-14 10:14+0200\n"
-"PO-Revision-Date: 2025-08-14 08:28\n"
+"PO-Revision-Date: 2025-08-14 10:34\n"
 "Last-Translator: \n"
 "Language-Team: Croatian\n"
 "Language: hr_HR\n"
@@ -2308,7 +2308,7 @@ msgstr "Nema URL-a bloga"
 
 #: src/Core/Frontend/Session.php:35
 msgid "Something went wrong while trying to read blog URL."
-msgstr ""
+msgstr "Došlo je do pogreške prilikom pokušaja čitanja URL-a bloga."
 
 #: src/Core/Frontend/Url.php:612
 msgid "You must provide a valid email address."
@@ -2905,86 +2905,86 @@ msgstr "UPOZORENJE: prilikom analize datoteke predloška pronađene su sljedeće
 
 #: src/Helper/OAuth2/Client/Client.php:170
 msgid "Services does not work on unsecured protocol."
-msgstr ""
+msgstr "Usluge ne rade na nezaštićenom protokolu."
 
 #: src/Helper/OAuth2/Client/Client.php:175
 msgid "Services does not work on IP address."
-msgstr ""
+msgstr "Usluge ne rade na IP adresi."
 
 #: src/Helper/OAuth2/Client/Client.php:180
 msgid "Services does not work on local network."
-msgstr ""
+msgstr "Usluge ne rade na lokalnoj mreži."
 
 #: src/Helper/OAuth2/Client/Client.php:210
 #, php-format
 msgid "Authorize %s connection"
-msgstr ""
+msgstr "Autoriziraj %s vezu"
 
 #: src/Helper/OAuth2/Client/Client.php:210
 #, php-format
 msgid "Connect with %s"
-msgstr ""
+msgstr "Poveži se s %s"
 
 #: src/Helper/OAuth2/Client/Client.php:212
 #, php-format
 msgid "Disconnect from %s"
-msgstr ""
+msgstr "Prekini vezu s %s"
 
 #: src/Helper/OAuth2/Client/Client.php:212
 #, php-format
 msgid "Revoke %s connection"
-msgstr ""
+msgstr "Otkaži %s vezu"
 
 #: src/Helper/OAuth2/Client/Client.php:308
 msgid "Failed to retrieve user ID from this provider"
-msgstr ""
+msgstr "Nije uspjelo dohvaćanje korisničkog ID-a od ovog pružatelja usluga"
 
 #: src/Helper/OAuth2/Client/Client.php:312
 msgid "No user ID linked to this provider"
-msgstr ""
+msgstr "Nijedan korisnički ID nije povezan s ovim pružateljem usluga"
 
 #: src/Helper/OAuth2/Client/Exception/InvalidClient.php:26
 msgid "Invalid client configuration"
-msgstr ""
+msgstr "Nevažeća konfiguracija klijenta"
 
 #: src/Helper/OAuth2/Client/Exception/InvalidClient.php:26
 #, php-format
 msgid "Missing client configuration key \"%s\""
-msgstr ""
+msgstr "Nedostaje ključ konfiguracije klijenta \"%s\""
 
 #: src/Helper/OAuth2/Client/Exception/Unauthorized.php:26
 #, php-format
 msgid "Unauthorized: %s"
-msgstr ""
+msgstr "Neovlašteno: %s"
 
 #: src/Helper/OAuth2/Client/Provider.php:132
 #, php-format
 msgid "Allow user connection using %s application."
-msgstr ""
+msgstr "Dopusti korisnikovo povezivanje pomoću %s aplikacije."
 
 #: src/Helper/OAuth2/Client/Provider.php:309
 msgid "Invalid response state"
-msgstr ""
+msgstr "Nevažeće stanje odgovora"
 
 #: src/Helper/OAuth2/Client/Provider.php:312
 msgid "Invalid response code"
-msgstr ""
+msgstr "Nevažeći kod odgovora"
 
 #: src/Helper/OAuth2/Client/Provider.php:378
 #: src/Helper/OAuth2/Client/Provider.php:451
 #: src/Helper/OAuth2/Client/Provider.php:661
 msgid "Invalid response content"
-msgstr ""
+msgstr "Nevažeći sadržaj odgovora"
 
 #: src/Helper/OAuth2/Client/Provider.php:542
 msgid "Invalid response format"
-msgstr ""
+msgstr "Nevažeći format odgovora"
 
 #: src/Helper/OAuth2/Client/Services.php:118
 #: src/Helper/OAuth2/Client/Services.php:127
 #, php-format
 msgid "Failed to load provider \"%s\""
-msgstr ""
+msgstr "Nije uspjelo učitavanje pružatelja usluga \"%s\""
 
 #: src/Helper/Stack/Statuses.php:315 src/Process/Backend/Comment.php:331
 #: src/Process/Backend/User.php:390
@@ -2993,11 +2993,11 @@ msgstr "Status:"
 
 #: src/Helper/WebAuthn/Data/Provider.php:62
 msgid "Unknown passkey"
-msgstr ""
+msgstr "Nepoznata lozinka"
 
 #: src/Helper/WebAuthn/Data/Store.php:52
 msgid "Arguments are missing"
-msgstr ""
+msgstr "Nedostaju argumenti"
 
 #: src/Module/Modules.php:247
 #, php-format
@@ -3255,11 +3255,11 @@ msgstr "prijaviti se"
 
 #: src/Process/Backend/Auth.php:561
 msgid "Sign in with a passkey"
-msgstr ""
+msgstr "Prijavite se s lozinkom"
 
 #: src/Process/Backend/Auth.php:604
 msgid "Third party applications connections"
-msgstr ""
+msgstr "Veze s aplikacijama trećih strana"
 
 #: src/Process/Backend/Auth.php:613 src/Process/Upgrade/Auth.php:240
 msgid "You must accept cookies in order to use the private area."
@@ -5353,12 +5353,12 @@ msgid "List options saved"
 msgstr "Opcije popisa su spremljene"
 
 #: src/Process/Backend/Rest.php:985
-msgid "Auhtentication key successfully registered"
-msgstr ""
+msgid "Authentication key successfully registered"
+msgstr "Ključ za autentifikaciju uspješno registriran"
 
 #: src/Process/Backend/Rest.php:1040
 msgid "This key is not registered"
-msgstr ""
+msgstr "Ovaj ključ nije registriran"
 
 #: src/Process/Backend/Search.php:174
 msgid "Search options"
@@ -5669,7 +5669,7 @@ msgstr "Opis kategorije"
 
 #: src/Process/Backend/UserPreferences.php:232
 msgid "Passkey successfully deleted."
-msgstr ""
+msgstr "Lozinka je uspješno izbrisana."
 
 #: src/Process/Backend/UserPreferences.php:243
 #: src/Process/Backend/UserPreferences.php:260
@@ -5773,15 +5773,15 @@ msgstr "Odaberite urednika"
 
 #: src/Process/Backend/UserPreferences.php:874
 msgid "Linked to account:"
-msgstr ""
+msgstr "Povezano s računom:"
 
 #: src/Process/Backend/UserPreferences.php:896
 msgid "Unknown certificat issuer"
-msgstr ""
+msgstr "Nepoznati izdavatelj certifikata"
 
 #: src/Process/Backend/UserPreferences.php:906
 msgid "You have no registered key yet."
-msgstr ""
+msgstr "Još nemate registrirani ključ."
 
 #: src/Process/Backend/UserPreferences.php:912
 #: src/Process/Backend/UserPreferences.php:918
@@ -5890,11 +5890,11 @@ msgstr "Koristite HTML editor za:"
 
 #: src/Process/Backend/UserPreferences.php:1093
 msgid "Authentication applications"
-msgstr ""
+msgstr "Aplikacije za autentifikaciju"
 
 #: src/Process/Backend/UserPreferences.php:1098
-msgid "Auhtentication keys"
-msgstr ""
+msgid "Authentication keys"
+msgstr "Ključevi za autentifikaciju"
 
 #: src/Process/Backend/UserPreferences.php:1109
 msgid "Other options"
