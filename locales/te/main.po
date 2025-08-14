@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-14 10:14+0200\n"
-"PO-Revision-Date: 2025-08-14 08:29\n"
+"PO-Revision-Date: 2025-08-14 10:35\n"
 "Last-Translator: \n"
 "Language-Team: Telugu\n"
 "Language: te_IN\n"
@@ -2279,7 +2279,7 @@ msgstr "బ్లాగు URL లేదు"
 
 #: src/Core/Frontend/Session.php:35
 msgid "Something went wrong while trying to read blog URL."
-msgstr ""
+msgstr "బ్లాగు URL చదవడానికి ప్రయత్నిస్తున్నప్పుడు ఏదో తప్పు జరిగింది."
 
 #: src/Core/Frontend/Url.php:612
 msgid "You must provide a valid email address."
@@ -2876,86 +2876,86 @@ msgstr "హెచ్చరిక: ట్యాప్మెంట్ దస్త
 
 #: src/Helper/OAuth2/Client/Client.php:170
 msgid "Services does not work on unsecured protocol."
-msgstr ""
+msgstr "సేవలు అసురక్షిత ప్రోటోకాల్‌పై పనిచేయవు."
 
 #: src/Helper/OAuth2/Client/Client.php:175
 msgid "Services does not work on IP address."
-msgstr ""
+msgstr "సేవలు IP చిరునామాపై పనిచేయవు."
 
 #: src/Helper/OAuth2/Client/Client.php:180
 msgid "Services does not work on local network."
-msgstr ""
+msgstr "స్థానిక నెట్‌వర్క్‌లో సేవలు పనిచేయవు."
 
 #: src/Helper/OAuth2/Client/Client.php:210
 #, php-format
 msgid "Authorize %s connection"
-msgstr ""
+msgstr "%s కనెక్షన్‌ను ప్రామాణీకరించండి"
 
 #: src/Helper/OAuth2/Client/Client.php:210
 #, php-format
 msgid "Connect with %s"
-msgstr ""
+msgstr "%s తో కనెక్ట్ అవ్వండి"
 
 #: src/Helper/OAuth2/Client/Client.php:212
 #, php-format
 msgid "Disconnect from %s"
-msgstr ""
+msgstr "%s నుండి డిస్‌కనెక్ట్ చేయండి"
 
 #: src/Helper/OAuth2/Client/Client.php:212
 #, php-format
 msgid "Revoke %s connection"
-msgstr ""
+msgstr "%s కనెక్షన్‌ను రద్దు చేయి"
 
 #: src/Helper/OAuth2/Client/Client.php:308
 msgid "Failed to retrieve user ID from this provider"
-msgstr ""
+msgstr "ఈ ప్రొవైడర్ నుండి యూజర్ ఐడిని తిరిగి పొందడంలో విఫలమైంది"
 
 #: src/Helper/OAuth2/Client/Client.php:312
 msgid "No user ID linked to this provider"
-msgstr ""
+msgstr "ఈ ప్రొవైడర్‌కు లింక్ చేయబడిన వినియోగదారు ID లేదు"
 
 #: src/Helper/OAuth2/Client/Exception/InvalidClient.php:26
 msgid "Invalid client configuration"
-msgstr ""
+msgstr "చెల్లని క్లయింట్ కాన్ఫిగరేషన్"
 
 #: src/Helper/OAuth2/Client/Exception/InvalidClient.php:26
 #, php-format
 msgid "Missing client configuration key \"%s\""
-msgstr ""
+msgstr "క్లయింట్ కాన్ఫిగరేషన్ కీ \"%s\" లేదు"
 
 #: src/Helper/OAuth2/Client/Exception/Unauthorized.php:26
 #, php-format
 msgid "Unauthorized: %s"
-msgstr ""
+msgstr "అనధికారికం: %s"
 
 #: src/Helper/OAuth2/Client/Provider.php:132
 #, php-format
 msgid "Allow user connection using %s application."
-msgstr ""
+msgstr "%s అప్లికేషన్ ఉపయోగించి యూజర్ కనెక్షన్‌ను అనుమతించండి."
 
 #: src/Helper/OAuth2/Client/Provider.php:309
 msgid "Invalid response state"
-msgstr ""
+msgstr "చెల్లని ప్రతిస్పందన స్థితి"
 
 #: src/Helper/OAuth2/Client/Provider.php:312
 msgid "Invalid response code"
-msgstr ""
+msgstr "చెల్లని ప్రతిస్పందన కోడ్"
 
 #: src/Helper/OAuth2/Client/Provider.php:378
 #: src/Helper/OAuth2/Client/Provider.php:451
 #: src/Helper/OAuth2/Client/Provider.php:661
 msgid "Invalid response content"
-msgstr ""
+msgstr "చెల్లని ప్రతిస్పందన కంటెంట్"
 
 #: src/Helper/OAuth2/Client/Provider.php:542
 msgid "Invalid response format"
-msgstr ""
+msgstr "చెల్లని ప్రతిస్పందన ఫార్మాట్"
 
 #: src/Helper/OAuth2/Client/Services.php:118
 #: src/Helper/OAuth2/Client/Services.php:127
 #, php-format
 msgid "Failed to load provider \"%s\""
-msgstr ""
+msgstr "ప్రొవైడర్ \"%s\" ని లోడ్ చేయడంలో విఫలమైంది"
 
 #: src/Helper/Stack/Statuses.php:315 src/Process/Backend/Comment.php:331
 #: src/Process/Backend/User.php:390
@@ -2964,11 +2964,11 @@ msgstr "స్థితి:"
 
 #: src/Helper/WebAuthn/Data/Provider.php:62
 msgid "Unknown passkey"
-msgstr ""
+msgstr "తెలియని పాస్‌కీ"
 
 #: src/Helper/WebAuthn/Data/Store.php:52
 msgid "Arguments are missing"
-msgstr ""
+msgstr "వాదనలు లేవు"
 
 #: src/Module/Modules.php:247
 #, php-format
@@ -3226,11 +3226,11 @@ msgstr "లాగ్ లో"
 
 #: src/Process/Backend/Auth.php:561
 msgid "Sign in with a passkey"
-msgstr ""
+msgstr "పాస్‌కీతో సైన్ ఇన్ చేయండి"
 
 #: src/Process/Backend/Auth.php:604
 msgid "Third party applications connections"
-msgstr ""
+msgstr "మూడవ పార్టీ అప్లికేషన్ కనెక్షన్లు"
 
 #: src/Process/Backend/Auth.php:613 src/Process/Upgrade/Auth.php:240
 msgid "You must accept cookies in order to use the private area."
@@ -5320,12 +5320,12 @@ msgid "List options saved"
 msgstr "జాబితా ఐచ్ఛికములు రక్షించు"
 
 #: src/Process/Backend/Rest.php:985
-msgid "Auhtentication key successfully registered"
-msgstr ""
+msgid "Authentication key successfully registered"
+msgstr "ప్రామాణీకరణ కీ విజయవంతంగా నమోదు చేయబడింది"
 
 #: src/Process/Backend/Rest.php:1040
 msgid "This key is not registered"
-msgstr ""
+msgstr "ఈ కీ నమోదు చేయబడలేదు"
 
 #: src/Process/Backend/Search.php:174
 msgid "Search options"
@@ -5634,7 +5634,7 @@ msgstr "వర్గం: వర్ణము"
 
 #: src/Process/Backend/UserPreferences.php:232
 msgid "Passkey successfully deleted."
-msgstr ""
+msgstr "పాస్‌కీ విజయవంతంగా తొలగించబడింది."
 
 #: src/Process/Backend/UserPreferences.php:243
 #: src/Process/Backend/UserPreferences.php:260
@@ -5738,15 +5738,15 @@ msgstr "ఎడిటర్ను యెంచుకొనుము"
 
 #: src/Process/Backend/UserPreferences.php:874
 msgid "Linked to account:"
-msgstr ""
+msgstr "ఖాతాకు లింక్ చేయబడింది:"
 
 #: src/Process/Backend/UserPreferences.php:896
 msgid "Unknown certificat issuer"
-msgstr ""
+msgstr "తెలియని సర్టిఫికేట్ జారీదారు"
 
 #: src/Process/Backend/UserPreferences.php:906
 msgid "You have no registered key yet."
-msgstr ""
+msgstr "మీకు ఇంకా రిజిస్టర్డ్ కీ లేదు."
 
 #: src/Process/Backend/UserPreferences.php:912
 #: src/Process/Backend/UserPreferences.php:918
@@ -5855,11 +5855,11 @@ msgstr "HTML ఎడిటర్ కొరకు వుపయోగించు�
 
 #: src/Process/Backend/UserPreferences.php:1093
 msgid "Authentication applications"
-msgstr ""
+msgstr "ప్రామాణీకరణ అప్లికేషన్లు"
 
 #: src/Process/Backend/UserPreferences.php:1098
-msgid "Auhtentication keys"
-msgstr ""
+msgid "Authentication keys"
+msgstr "ప్రామాణీకరణ కీలు"
 
 #: src/Process/Backend/UserPreferences.php:1109
 msgid "Other options"
