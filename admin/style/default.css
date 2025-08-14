@@ -2043,6 +2043,10 @@ p.addMeta {
   border-radius: 3px;
 }
 
+.warn a {
+  color: var(--msg-warn-color);
+}
+
 .error {
   background: url(msg-error.svg) no-repeat 0.75em 0.75em;
   background-size: 2.5em;
