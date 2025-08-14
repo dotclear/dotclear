@@ -3033,6 +3033,12 @@ span.ibw {
   padding-bottom: 6px;
   font-size: 1em;
 }
+#login-screen .wide-button {
+  width: 100%;
+}
+#login-screen .wide-button a {
+  width: 100%;
+}
 #login-screen #issue {
   margin-top: 1em;
   margin-left: 1.33em;

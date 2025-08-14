@@ -558,7 +558,8 @@ class Auth extends Process
                         App::backend()->webauthn === null ? new None() : (new Para('webauthn_action'))
                             ->class('hidden-if-no-js')
                             ->items([
-                                (new Button(['webauthn_button'], __('Sign in with a passkey'))),
+                                (new Button(['webauthn_button'], __('Sign in with a passkey')))
+                                    ->class('wide-button'),
                             ]),
                     ]);
 
@@ -585,7 +586,9 @@ class Auth extends Process
                         if (App::backend()->oauth2->services()->hasDisabledProvider($oauth2_service::getId())
                             || !App::backend()->oauth2->store()->hasConsumer($oauth2_service::getId())
                         ) {
-                            continue;
+                            if (false) {
+                                continue;
+                            }
                         }
                         $link = App::backend()->oauth2->getActionButton(
                             (string) App::auth()->userID(),
@@ -594,14 +597,14 @@ class Auth extends Process
                         );
                         if ($link !== null) {
                             $oauth2_items[] = (new Para())
+                                ->class('wide-button')
                                 ->items([$link]);
                         }
                     }
                     if ($oauth2_items !== []) {
                         $parts[] = (new Fieldset())
                             ->legend(new Legend(__('Third party applications connections')))
-                            ->items($oauth2_items)
-                            ->separator("\n");
+                            ->items($oauth2_items);
                     }
                 }
 

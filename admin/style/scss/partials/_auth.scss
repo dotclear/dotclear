@@ -34,18 +34,18 @@
     margin-top: 1em;
   }
   input:is(
-      [type='text'],
-      [type='color'],
-      [type='email'],
-      [type='url'],
-      [type='datetime-local'],
-      [type='date'],
-      [type='time'],
-      [type='file'],
-      [type='number'],
-      [type='password'],
-      [type='submit']
-    ) {
+    [type='text'],
+    [type='color'],
+    [type='email'],
+    [type='url'],
+    [type='datetime-local'],
+    [type='date'],
+    [type='time'],
+    [type='file'],
+    [type='number'],
+    [type='password'],
+    [type='submit']
+  ) {
     &,
     &:focus {
       width: 100%;
@@ -60,6 +60,12 @@
       padding-top: 6px;
       padding-bottom: 6px;
       font-size: 1em;
+    }
+  }
+  .wide-button {
+    width: 100%;
+    a {
+      width: 100%;
     }
   }
   #issue {
