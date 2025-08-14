@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-14 10:14+0200\n"
-"PO-Revision-Date: 2025-08-14 08:29\n"
+"PO-Revision-Date: 2025-08-14 10:35\n"
 "Last-Translator: \n"
 "Language-Team: Hindi\n"
 "Language: hi_IN\n"
@@ -2279,7 +2279,7 @@ msgstr "कोई ब्लॉग यूआरएल नहीं"
 
 #: src/Core/Frontend/Session.php:35
 msgid "Something went wrong while trying to read blog URL."
-msgstr ""
+msgstr "ब्लॉग URL पढ़ने का प्रयास करते समय कुछ गड़बड़ी हुई।"
 
 #: src/Core/Frontend/Url.php:612
 msgid "You must provide a valid email address."
@@ -2876,86 +2876,86 @@ msgstr "चेतावनी: निम्नलिखित त्रुटि
 
 #: src/Helper/OAuth2/Client/Client.php:170
 msgid "Services does not work on unsecured protocol."
-msgstr ""
+msgstr "ब्लॉग URL पढ़ने का प्रयास करते समय कुछ गड़बड़ी हुई।"
 
 #: src/Helper/OAuth2/Client/Client.php:175
 msgid "Services does not work on IP address."
-msgstr ""
+msgstr "सेवाएँ IP पते पर काम नहीं करतीं।"
 
 #: src/Helper/OAuth2/Client/Client.php:180
 msgid "Services does not work on local network."
-msgstr ""
+msgstr "सेवाएँ स्थानीय नेटवर्क पर काम नहीं करतीं।"
 
 #: src/Helper/OAuth2/Client/Client.php:210
 #, php-format
 msgid "Authorize %s connection"
-msgstr ""
+msgstr "%s कनेक्शन अधिकृत करें"
 
 #: src/Helper/OAuth2/Client/Client.php:210
 #, php-format
 msgid "Connect with %s"
-msgstr ""
+msgstr "%s से जुड़ें"
 
 #: src/Helper/OAuth2/Client/Client.php:212
 #, php-format
 msgid "Disconnect from %s"
-msgstr ""
+msgstr "%s से डिस्कनेक्ट करें"
 
 #: src/Helper/OAuth2/Client/Client.php:212
 #, php-format
 msgid "Revoke %s connection"
-msgstr ""
+msgstr "%s कनेक्शन रद्द करें"
 
 #: src/Helper/OAuth2/Client/Client.php:308
 msgid "Failed to retrieve user ID from this provider"
-msgstr ""
+msgstr "इस प्रदाता से उपयोगकर्ता आईडी प्राप्त करने में विफल"
 
 #: src/Helper/OAuth2/Client/Client.php:312
 msgid "No user ID linked to this provider"
-msgstr ""
+msgstr "इस प्रदाता से कोई उपयोगकर्ता आईडी लिंक नहीं है"
 
 #: src/Helper/OAuth2/Client/Exception/InvalidClient.php:26
 msgid "Invalid client configuration"
-msgstr ""
+msgstr "अमान्य क्लाइंट कॉन्फ़िगरेशन"
 
 #: src/Helper/OAuth2/Client/Exception/InvalidClient.php:26
 #, php-format
 msgid "Missing client configuration key \"%s\""
-msgstr ""
+msgstr "क्लाइंट कॉन्फ़िगरेशन कुंजी \"%s\" गुम है"
 
 #: src/Helper/OAuth2/Client/Exception/Unauthorized.php:26
 #, php-format
 msgid "Unauthorized: %s"
-msgstr ""
+msgstr "अनधिकृत: %s"
 
 #: src/Helper/OAuth2/Client/Provider.php:132
 #, php-format
 msgid "Allow user connection using %s application."
-msgstr ""
+msgstr "%s अनुप्रयोग का उपयोग करके उपयोगकर्ता कनेक्शन की अनुमति दें।"
 
 #: src/Helper/OAuth2/Client/Provider.php:309
 msgid "Invalid response state"
-msgstr ""
+msgstr "अमान्य प्रतिक्रिया स्थिति"
 
 #: src/Helper/OAuth2/Client/Provider.php:312
 msgid "Invalid response code"
-msgstr ""
+msgstr "अमान्य प्रतिक्रिया कोड"
 
 #: src/Helper/OAuth2/Client/Provider.php:378
 #: src/Helper/OAuth2/Client/Provider.php:451
 #: src/Helper/OAuth2/Client/Provider.php:661
 msgid "Invalid response content"
-msgstr ""
+msgstr "अमान्य प्रतिक्रिया सामग्री"
 
 #: src/Helper/OAuth2/Client/Provider.php:542
 msgid "Invalid response format"
-msgstr ""
+msgstr "अमान्य प्रतिक्रिया प्रारूप"
 
 #: src/Helper/OAuth2/Client/Services.php:118
 #: src/Helper/OAuth2/Client/Services.php:127
 #, php-format
 msgid "Failed to load provider \"%s\""
-msgstr ""
+msgstr "प्रदाता \"%s\" लोड करने में विफल"
 
 #: src/Helper/Stack/Statuses.php:315 src/Process/Backend/Comment.php:331
 #: src/Process/Backend/User.php:390
@@ -2964,11 +2964,11 @@ msgstr "स्थिति:"
 
 #: src/Helper/WebAuthn/Data/Provider.php:62
 msgid "Unknown passkey"
-msgstr ""
+msgstr "अज्ञात पासकी"
 
 #: src/Helper/WebAuthn/Data/Store.php:52
 msgid "Arguments are missing"
-msgstr ""
+msgstr "तर्क गायब हैं"
 
 #: src/Module/Modules.php:247
 #, php-format
@@ -3226,11 +3226,11 @@ msgstr "लॉग इन"
 
 #: src/Process/Backend/Auth.php:561
 msgid "Sign in with a passkey"
-msgstr ""
+msgstr "पासकी से साइन इन करें"
 
 #: src/Process/Backend/Auth.php:604
 msgid "Third party applications connections"
-msgstr ""
+msgstr "तृतीय पक्ष एप्लिकेशन कनेक्शन"
 
 #: src/Process/Backend/Auth.php:613 src/Process/Upgrade/Auth.php:240
 msgid "You must accept cookies in order to use the private area."
@@ -5320,12 +5320,12 @@ msgid "List options saved"
 msgstr "सूची विकल्प सहेजा गया"
 
 #: src/Process/Backend/Rest.php:985
-msgid "Auhtentication key successfully registered"
-msgstr ""
+msgid "Authentication key successfully registered"
+msgstr "प्रमाणीकरण कुंजी सफलतापूर्वक पंजीकृत हो गई"
 
 #: src/Process/Backend/Rest.php:1040
 msgid "This key is not registered"
-msgstr ""
+msgstr "यह कुंजी पंजीकृत नहीं है"
 
 #: src/Process/Backend/Search.php:174
 msgid "Search options"
@@ -5634,7 +5634,7 @@ msgstr "श्रेणी विवरण"
 
 #: src/Process/Backend/UserPreferences.php:232
 msgid "Passkey successfully deleted."
-msgstr ""
+msgstr "पासकी सफलतापूर्वक हटा दी गई।"
 
 #: src/Process/Backend/UserPreferences.php:243
 #: src/Process/Backend/UserPreferences.php:260
@@ -5738,15 +5738,15 @@ msgstr "एक संपादक चुनें"
 
 #: src/Process/Backend/UserPreferences.php:874
 msgid "Linked to account:"
-msgstr ""
+msgstr "खाते से लिंक:"
 
 #: src/Process/Backend/UserPreferences.php:896
 msgid "Unknown certificat issuer"
-msgstr ""
+msgstr "अज्ञात प्रमाणपत्र जारीकर्ता"
 
 #: src/Process/Backend/UserPreferences.php:906
 msgid "You have no registered key yet."
-msgstr ""
+msgstr "आपके पास अभी तक कोई पंजीकृत कुंजी नहीं है।"
 
 #: src/Process/Backend/UserPreferences.php:912
 #: src/Process/Backend/UserPreferences.php:918
@@ -5855,11 +5855,11 @@ msgstr "के लिए HTML संपादक का उपयोग कर�
 
 #: src/Process/Backend/UserPreferences.php:1093
 msgid "Authentication applications"
-msgstr ""
+msgstr "प्रमाणीकरण अनुप्रयोग"
 
 #: src/Process/Backend/UserPreferences.php:1098
-msgid "Auhtentication keys"
-msgstr ""
+msgid "Authentication keys"
+msgstr "प्रमाणीकरण कुंजियाँ"
 
 #: src/Process/Backend/UserPreferences.php:1109
 msgid "Other options"
