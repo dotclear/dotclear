@@ -586,9 +586,7 @@ class Auth extends Process
                         if (App::backend()->oauth2->services()->hasDisabledProvider($oauth2_service::getId())
                             || !App::backend()->oauth2->store()->hasConsumer($oauth2_service::getId())
                         ) {
-                            if (false) {
-                                continue;
-                            }
+                            continue;
                         }
                         $link = App::backend()->oauth2->getActionButton(
                             (string) App::auth()->userID(),
