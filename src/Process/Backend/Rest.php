@@ -982,7 +982,7 @@ class Rest extends Process
                 );
 
                 return [
-                    'message' => __('Auhtentication key successfully registered'),
+                    'message' => __('Authentication key successfully registered'),
                 ];
 
             default:

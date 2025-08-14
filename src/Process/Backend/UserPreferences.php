@@ -1095,7 +1095,7 @@ class UserPreferences extends Process
                             ->items($oauth2_items),
                         // wenauthn
                         (new Fieldset('user_options_webauthn'))
-                            ->legend(new Legend(__('Auhtentication keys')))
+                            ->legend(new Legend(__('Authentication keys')))
                             ->separator('')
                             ->items([
                                 (new Ul())
