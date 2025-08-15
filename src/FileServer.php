@@ -256,15 +256,18 @@ class FileServer
         if ($blogId === '') {
             // Get blog ID currently defined if any (whatever is the context)
             $blogId = App::blog()->id();
-            if ($blogId === '' && App::auth()->sessionExists() && App::auth()->checkSession()) {
-                // Try to get currently selected blog from session (Backend context)
-                if (isset($_SESSION['sess_blog_id'])) {
-                    if (App::auth()->getPermissions($_SESSION['sess_blog_id']) !== false) {
-                        $blogId = $_SESSION['sess_blog_id'];
+            if ($blogId === '') {
+                App::session()->start();
+                if (App::auth()->sessionExists() && App::auth()->checkSession()) {
+                    // Try to get currently selected blog from session (Backend context)
+                    if (isset($_SESSION['sess_blog_id'])) {
+                        if (App::auth()->getPermissions($_SESSION['sess_blog_id']) !== false) {
+                            $blogId = $_SESSION['sess_blog_id'];
+                        }
+                    } elseif (($b = App::auth()->findUserBlog(App::auth()->getInfo('user_default_blog'), false)) !== false) {
+                        // Finally get default blog for currently authenticated user
+                        $blogId = $b;
                     }
-                } elseif (($b = App::auth()->findUserBlog(App::auth()->getInfo('user_default_blog'), false)) !== false) {
-                    // Finally get default blog for currently authenticated user
-                    $blogId = $b;
                 }
             }
         }
