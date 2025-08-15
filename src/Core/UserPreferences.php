@@ -30,6 +30,8 @@ use Throwable;
  * updating another user prefs.
  *
  * @since   2.28, container services have been added to constructor
+ *
+ * @psalm-no-seal-properties
  */
 class UserPreferences implements UserPreferencesInterface
 {

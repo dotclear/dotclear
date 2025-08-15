@@ -21,6 +21,10 @@ use Dotclear\Helper\Text;
 use Dotclear\Interface\Core\BlogInterface;
 use Exception;
 
+/**
+ * @psalm-no-seal-properties
+ * @psalm-no-seal-methods
+ */
 class Ctx
 {
     /**

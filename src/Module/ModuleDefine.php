@@ -18,6 +18,8 @@ use Dotclear\App;
  * Provides an object to handle modules properties (themes or plugins).
  *
  * @since   2.25
+ *
+ * @psalm-no-seal-properties
  */
 class ModuleDefine
 {

@@ -19,6 +19,8 @@ use Dotclear\Helper\Html\Form\Text;
  * @brief   Post types handler interface.
  *
  * @since   2.28
+ *
+ * @psalm-no-seal-properties
  */
 interface PostTypesInterface
 {

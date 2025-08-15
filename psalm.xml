@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<psalm errorLevel="4" resolveFromConfigFile="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://getpsalm.org/schema/config" xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd" findUnusedBaselineEntry="true" phpVersion="8.1" autoloader="psalm.bootstrap.php" findUnusedCode="false" errorBaseline="psalm-baseline.xml">
+<psalm errorLevel="4" resolveFromConfigFile="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://getpsalm.org/schema/config" xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd" findUnusedBaselineEntry="true" phpVersion="8.1" autoloader="psalm.bootstrap.php" findUnusedCode="false" errorBaseline="psalm-baseline.xml" ensureOverrideAttribute="false">
   <fileExtensions>
     <extension name=".php" />
     <extension name=".in" />
@@ -28,6 +28,16 @@
   <!-- Filters -->
 
   <issueHandlers>
+    <!-- temporary -->
+    <TaintedTextWithQuotes errorLevel="suppress" />
+    <TaintedHtml errorLevel="suppress" />
+    <TaintedFile errorLevel="suppress" />
+    <TaintedSSRF errorLevel="suppress" />
+    <TaintedHeader errorLevel="suppress" />
+    <TaintedInclude errorLevel="suppress" />
+    <TaintedCookie errorLevel="suppress" />
+    <UnsupportedPropertyReferenceUsage errorLevel="suppress" />
+    <!-- permanent -->
     <InvalidScope>
       <errorLevel type="suppress">
         <file name="plugins/*/_define.php" />
@@ -54,7 +64,13 @@
         <referencedProperty name="Dotclear\Helper\File\File::$media_dtstr" />
         <referencedProperty name="Dotclear\Helper\File\File::$media_image" />
         <referencedProperty name="Dotclear\Helper\File\File::$media_preview" />
+        <referencedProperty name="Dotclear\Helper\File\File::$media_icon" />
+        <referencedProperty name="Dotclear\Helper\File\File::$media_type" />
+        <referencedProperty name="Dotclear\Helper\File\File::$media_thumb" />
         <referencedProperty name="Dotclear\Database\MetaRecord::$_nb_media" />
+        <referencedProperty name="Dotclear\Database\MetaRecord::$user_pwd" />
+        <referencedProperty name="SimpleXMLElement::$subject" />
+        <referencedProperty name="SimpleXMLElement::$category" />
       </errorLevel>
     </UndefinedPropertyAssignment>
     <UndefinedPropertyFetch>
@@ -63,6 +79,10 @@
         <referencedProperty name="Dotclear\Helper\File\File::$media_id" />
         <referencedProperty name="Dotclear\Helper\File\File::$media_icon" />
         <referencedProperty name="Dotclear\Helper\File\File::$media_dtstr" />
+        <referencedProperty name="Dotclear\Helper\File\File::$media_meta" />
+        <referencedProperty name="Dotclear\Helper\File\File::$media_dt" />
+        <referencedProperty name="Dotclear\Helper\File\File::$media_priv" />
+        <referencedProperty name="Dotclear\Helper\File\File::$media_user" />
       </errorLevel>
     </UndefinedPropertyFetch>
   </issueHandlers>

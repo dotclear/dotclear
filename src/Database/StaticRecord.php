@@ -18,6 +18,9 @@ use Dotclear\Helper\Text;
  * Query Result Static Record Class
  *
  * Unlike Record parent class, this one contains all results in an associative array.
+ *
+ * @psalm-no-seal-properties
+ * @psalm-no-seal-methods
  */
 class StaticRecord extends Record
 {

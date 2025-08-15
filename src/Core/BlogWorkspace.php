@@ -37,6 +37,8 @@ use Throwable;
  * }
  *
  * @since   2.28, container services have been added to constructor
+ *
+ * @psalm-no-seal-properties
  */
 class BlogWorkspace implements BlogWorkspaceInterface
 {

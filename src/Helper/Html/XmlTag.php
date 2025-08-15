@@ -13,6 +13,9 @@ namespace Dotclear\Helper\Html;
 /**
  * @class XmlTag
  * @brief XML Tree
+ *
+ * @psalm-no-seal-properties
+ * @psalm-no-seal-methods
  */
 class XmlTag
 {

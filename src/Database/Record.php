@@ -24,6 +24,9 @@ use ReflectionClass;
  * fill PHP process memory.
  *
  * @implements Iterator<int, array<mixed>>
+ *
+ * @psalm-no-seal-properties
+ * @psalm-no-seal-methods
  */
 class Record implements Iterator, Countable
 {

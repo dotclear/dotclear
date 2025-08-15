@@ -20,6 +20,8 @@ use Dotclear\Exception\BadRequestException;
  * updating another user prefs.
  *
  * @since   2.28
+ *
+ * @psalm-no-seal-properties
  */
 interface UserPreferencesInterface
 {

@@ -33,6 +33,8 @@ use Throwable;
  *      global:bool
  * }
  * @since   2.28, container services have been added to constructor
+ *
+ * @psalm-no-seal-properties
  */
 class UserWorkspace implements UserWorkspaceInterface
 {

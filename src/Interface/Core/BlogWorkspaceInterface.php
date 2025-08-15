@@ -18,6 +18,8 @@ use Dotclear\Exception\BadRequestException;
  * @brief   Blog namespace for settings handler interface.
  *
  * @since   2.28
+ *
+ * @psalm-no-seal-properties
  */
 interface BlogWorkspaceInterface
 {

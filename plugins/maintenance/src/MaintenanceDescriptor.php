@@ -16,6 +16,8 @@ namespace Dotclear\Plugin\maintenance;
  *
  * Simple descriptor for tabs, groups and more.
  * At this time this class is used in same way an arrayObject but in futur it could be completed with advance methods.
+ *
+ * @psalm-no-seal-properties
  */
 class MaintenanceDescriptor
 {

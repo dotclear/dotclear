@@ -20,6 +20,8 @@ use Dotclear\Exception\BadRequestException;
  * updating another blog settings.
  *
  * @since   2.28
+ *
+ * @psalm-no-seal-properties
  */
 interface BlogSettingsInterface
 {

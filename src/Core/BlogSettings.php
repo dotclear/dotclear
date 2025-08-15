@@ -31,6 +31,8 @@ use Throwable;
  * updating another blog settings.
  *
  * @since   2.28, container services have been added to constructor
+ *
+ * @psalm-no-seal-properties
  */
 class BlogSettings implements BlogSettingsInterface
 {

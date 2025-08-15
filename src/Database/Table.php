@@ -16,6 +16,8 @@ use Exception;
  * @class Table
  *
  * Database Table structure Handler
+ *
+ * @psalm-no-seal-methods
  */
 class Table
 {

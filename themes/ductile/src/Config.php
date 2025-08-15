@@ -185,6 +185,9 @@ class Config extends Process
             'search'       => null,
         ];
 
+        /**
+         * @return array<array-key, mixed>
+         */
         $getSetting = function (string $name, array $default): array {
             // Get current setting
             $setting = App::blog()->settings()->themes->get(App::blog()->settings()->system->theme . '_' . $name);
@@ -202,13 +205,13 @@ class Config extends Process
         };
 
         App::backend()->ductile_user = $getSetting('style', []);
-        App::backend()->ductile_user = [...$ductile_base, ...App::backend()->ductile_user];
+        App::backend()->ductile_user = array_merge($ductile_base, App::backend()->ductile_user);
 
         App::backend()->ductile_lists = $getSetting('entries_lists', $ductile_lists_base);
-        App::backend()->ductile_lists = [...$ductile_lists_base, ...App::backend()->ductile_lists];
+        App::backend()->ductile_lists = array_merge($ductile_lists_base, App::backend()->ductile_lists);
 
         App::backend()->ductile_counts = $getSetting('entries_counts', App::backend()->ductile_counts_base);
-        App::backend()->ductile_counts = [...App::backend()->ductile_counts_base, ...App::backend()->ductile_counts];
+        App::backend()->ductile_counts = array_merge(App::backend()->ductile_counts_base, App::backend()->ductile_counts);
 
         $ductile_stickers = App::blog()->settings()->themes->get(App::blog()->settings()->system->theme . '_stickers');
         $ductile_stickers = @unserialize((string) $ductile_stickers);

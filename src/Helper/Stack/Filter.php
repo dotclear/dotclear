@@ -25,6 +25,9 @@ use Exception;
  * @brief       Generic class for admin list filters form.
  *
  * @since       2.20
+ *
+ * @psalm-no-seal-properties
+ * @psalm-no-seal-methods
  */
 class Filter
 {

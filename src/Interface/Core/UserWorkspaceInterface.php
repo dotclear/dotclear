@@ -18,6 +18,8 @@ use Dotclear\Exception\BadRequestException;
  * @brief   User workspace for preferences handler interface.
  *
  * @since   2.28
+ *
+ * @psalm-no-seal-properties
  */
 interface UserWorkspaceInterface
 {

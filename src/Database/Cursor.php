@@ -18,6 +18,8 @@ use Exception;
  * @class Cursor
  *
  * This class implements facilities to insert or update in a table.
+ *
+ * @psalm-no-seal-properties
  */
 class Cursor
 {

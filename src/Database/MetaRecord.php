@@ -18,6 +18,9 @@ use Iterator;
  * @brief   MetaRecord class
  *
  * @implements Iterator<int, array<mixed>>
+ *
+ * @psalm-no-seal-properties
+ * @psalm-no-seal-methods
  */
 #[\AllowDynamicProperties]
 class MetaRecord implements Iterator, Countable
