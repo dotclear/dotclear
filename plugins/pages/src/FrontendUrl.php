@@ -106,13 +106,13 @@ class FrontendUrl extends Url
                         exit;
                     }
 
-                    $name    = $_POST['c_name'];
-                    $mail    = $_POST['c_mail'];
-                    $site    = $_POST['c_site'];
-                    $content = $_POST['c_content'];
+                    $name    = (string) $_POST['c_name'];
+                    $mail    = (string) $_POST['c_mail'];
+                    $site    = (string) $_POST['c_site'];
+                    $content = (string) $_POST['c_content'];
                     $preview = !empty($_POST['preview']);
 
-                    if ($content != '') {
+                    if ($content !== '') {
                         # --BEHAVIOR-- publicBeforeCommentTransform -- string
                         $buffer = App::behavior()->callBehavior('publicBeforeCommentTransform', $content);
                         if ($buffer !== '') {
@@ -128,8 +128,8 @@ class FrontendUrl extends Url
                         $content = App::filter()->HTMLfilter($content);
                     }
 
-                    App::frontend()->context()->comment_preview['content']    = (string) $content;
-                    App::frontend()->context()->comment_preview['rawcontent'] = $_POST['c_content'];
+                    App::frontend()->context()->comment_preview['content']    = $content;
+                    App::frontend()->context()->comment_preview['rawcontent'] = (string) $_POST['c_content'];
                     App::frontend()->context()->comment_preview['name']       = $name;
                     App::frontend()->context()->comment_preview['mail']       = $mail;
                     App::frontend()->context()->comment_preview['site']       = $site;
@@ -146,7 +146,9 @@ class FrontendUrl extends Url
                                 [&$content, 'html'],
                             ]
                         );
-                        App::frontend()->context()->comment_preview['content'] = (string) $content;
+
+                        // Get back the $content value using '' . to force string casting (not sure about $content value after behavior)
+                        App::frontend()->context()->comment_preview['content'] = '' . $content;
 
                         App::frontend()->context()->comment_preview['preview'] = true;
                     } else {

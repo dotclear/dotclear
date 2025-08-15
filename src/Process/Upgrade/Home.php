@@ -115,17 +115,17 @@ class Home extends Process
                 $icons[] = (new Para())
                     ->items([
                         (new Link('icon-process-' . $icon->id . '-fav'))
-                            ->href(App::upgrade()->url()->get((string) $icon->url))
+                            ->href(App::upgrade()->url()->get($icon->url))
                             ->items([
-                                (new Img((string) $icon->icon))
-                                    ->alt((string) $icon->id)
+                                (new Img($icon->icon))
+                                    ->alt($icon->id)
                                     ->class('light-only'),
-                                (new Img((string) $icon->dark))
-                                    ->alt((string) $icon->id)
+                                (new Img($icon->dark))
+                                    ->alt($icon->id)
                                     ->class('dark-only'),
-                                (new Span((string) $icon->name))
+                                (new Span($icon->name))
                                     ->class('db-icon-title'),
-                                (new Span((string) $icon->descr))
+                                (new Span($icon->descr))
                                     ->class('db-icon-descr'),
                             ]),
                     ]);

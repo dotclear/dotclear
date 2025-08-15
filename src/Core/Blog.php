@@ -1486,7 +1486,7 @@ class Blog implements BlogInterface
             $sql
                 ->column('post_id')
                 ->from($this->prefix . self::POST_TABLE_NAME)
-                ->where('post_id = ' . (int) $id)
+                ->where('post_id = ' . $id)
                 ->and('user_id = ' . $sql->quote((string) $this->auth->userID()));
 
             $rs = $sql->select();

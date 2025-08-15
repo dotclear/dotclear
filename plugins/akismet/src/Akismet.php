@@ -94,13 +94,11 @@ class Akismet extends HttpClient
     public function comment_check(string $permalink, string $type, ?string $author, ?string $email, ?string $url, ?string $content): bool
     {
         $info_ignore = ['HTTP_COOKIE'];
-        $info        = [];
-
-        foreach ($_SERVER as $k => $v) {
-            if (str_starts_with((string) $k, 'HTTP_') && !in_array($k, $info_ignore)) {
-                $info[$k] = $v;
-            }
-        }
+        $info        = array_filter(
+            $_SERVER,
+            fn ($k): bool => (is_string($k) && str_starts_with($k, 'HTTP_') && !in_array($k, $info_ignore, true)),
+            ARRAY_FILTER_USE_KEY
+        );
 
         return $this->callFunc('comment-check', $permalink, $type, $author, $email, $url, $content, $info);
     }

@@ -572,7 +572,7 @@ abstract class Component
                     continue;
                 }
                 if (!$first && $this->separator) {
-                    $buffer .= (string) $this->separator;
+                    $buffer .= $this->separator;
                 }
                 $buffer .= sprintf($format, $inline ? rtrim($child->render(), "\n") : $child->render());
                 $first = false;

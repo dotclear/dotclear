@@ -418,13 +418,13 @@ class Langs extends Process
     /**
      * Language installation function
      *
-     * @param      mixed      $file   The file
+     * @param      string      $file   The language file to install
      *
      * @throws     Exception
      *
      * @return     int        self::LANG_INSTALLED = installation ok, self::LANG_UPDATED = update ok
      */
-    protected static function installLanguage($file): int
+    protected static function installLanguage(string $file): int
     {
         // Language installation function
         $zip = new Unzip($file);
@@ -438,7 +438,7 @@ class Langs extends Process
             throw new Exception(__('The zip file does not appear to be a valid Dotclear language pack.'));
         }
 
-        $target      = dirname((string) $file);
+        $target      = dirname($file);
         $destination = $target . '/' . $zip->getRootDir();
         $res         = self::LANG_INSTALLED;
 

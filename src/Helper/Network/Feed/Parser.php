@@ -173,7 +173,7 @@ class Parser
                 $item->creator = (string) $children->creator;
                 $item->pubdate = (string) $children->date;
             }
-            $item->TS = strtotime((string) $item->pubdate);
+            $item->TS = strtotime($item->pubdate);
             if ($children = $i->children('http://purl.org/rss/1.0/modules/content/')) {
                 $item->content = (string) $children->encoded;
             }
