@@ -19,7 +19,7 @@
     <directory name="themes/blueSilence" />
     <directory name="themes/customCSS" />
     <directory name="themes/ductile" />
-    <ignoreFiles>
+    <ignoreFiles allowMissingFiles="true">
       <file name="inc/config.php" />
       <file name="inc/oauth2.php" />
     </ignoreFiles>
