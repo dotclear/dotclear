@@ -457,9 +457,6 @@ class MediaItem extends Process
                 (bool) App::blog()->settings()->system->media_img_use_dto_first,
                 (bool) App::blog()->settings()->system->media_img_no_date_alone
             );
-            if ($media_legend === $media_alt) {
-                $media_legend = '';
-            }
 
             $defaults = $getImageDefaults(App::backend()->file);
 
@@ -532,9 +529,6 @@ class MediaItem extends Process
                 (bool) App::blog()->settings()->system->media_img_use_dto_first,
                 (bool) App::blog()->settings()->system->media_img_no_date_alone
             );
-            if ($media_legend === $media_alt) {
-                $media_legend = '';
-            }
 
             // Get title
             $media_title = App::media()->getMediaTitle(App::backend()->file, false);
