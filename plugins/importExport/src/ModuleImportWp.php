@@ -203,7 +203,7 @@ class ModuleImportWp extends Module
                 if ($this->importPosts($percent) === -1) {
                     Http::redirect($this->getURL() . '&do=ok');
                 } else {
-                    echo $this->progressBar(ceil($percent * 0.93) + 7);
+                    echo $this->progressBar((int) ceil((float) $percent * 0.93) + 7);
                 }
 
                 break;

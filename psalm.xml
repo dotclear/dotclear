@@ -36,6 +36,7 @@
     <TaintedHeader errorLevel="suppress" />
     <TaintedInclude errorLevel="suppress" />
     <TaintedCookie errorLevel="suppress" />
+    <TaintedCallable errorLevel="suppress" />
     <UnsupportedPropertyReferenceUsage errorLevel="suppress" />
     <!-- permanent -->
     <InvalidScope>
@@ -85,5 +86,10 @@
         <referencedProperty name="Dotclear\Helper\File\File::$media_user" />
       </errorLevel>
     </UndefinedPropertyFetch>
+    <RedundantPropertyInitializationCheck>
+      <errorLevel type="suppress">
+        <file name="inc/core/class.dc.core.php" />
+      </errorLevel>
+    </RedundantPropertyInitializationCheck>
   </issueHandlers>
 </psalm>

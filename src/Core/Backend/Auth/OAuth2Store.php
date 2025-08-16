@@ -53,20 +53,20 @@ class OAuth2Store extends Store
         // We never save consumer configuration as it is set for the wole plateforme in inc/oauth2.php
     }
 
-    public function getToken(string $provider, string $user_id): Token
+    public function getToken(string $provider, string $user): Token
     {
         $config = [];
-        if ($user_id !== '') {
+        if ($user !== '') {
             $rs = App::credential()->getCredentials([
                 'credential_type' => $this->getType($provider, true),
-                'credential_id'   => $user_id,
-                'user_id'         => $user_id,
+                'credential_id'   => $user,
+                'user_id'         => $user,
             ]);
 
             if ($rs->isEmpty()) {
                 // Set an empty token
                 if (App::auth()->userID() != '') {
-                    $this->setToken($provider, $user_id);
+                    $this->setToken($provider, $user);
                 }
             } else {
                 $config = json_decode((string) $rs->f('credential_data'), true);
@@ -123,7 +123,7 @@ class OAuth2Store extends Store
 
     public function setUser(string $provider, User $user, string $user_id): void
     {
-        $config = $user->getConfiguration();
+        $config            = $user->getConfiguration();
         $config['user_id'] = $user_id;
 
         if (!empty($config['avatar'] ?? '')) {
@@ -135,7 +135,6 @@ class OAuth2Store extends Store
                     $config['avatar'] = $this->getUserAvatarLocalUrl($provider, $config);
                 }
             } catch (Throwable) {
-
             }
         }
 
@@ -150,7 +149,6 @@ class OAuth2Store extends Store
         $cur->setField('credential_data', json_encode($config));
 
         App::credential()->setCredential($user_id, $cur);
-
     }
 
     public function delUser(string $provider, string $user_id): void
