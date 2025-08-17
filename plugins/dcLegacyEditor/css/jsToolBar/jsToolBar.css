@@ -28,6 +28,8 @@ body.rtl .jstEditor iframe {
   border-color: #bee74b;
 }
 .jstElements {
+  color: var(--body-color);
+  background-color: var(--body-background);
   box-sizing: border-box;
   padding: 0.25em;
   border: 1px solid;
