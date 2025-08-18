@@ -170,6 +170,10 @@ class Manage extends Process
                 ]) :
             (new None());
 
+        if (App::backend()->editor?->devMode() && App::themes()->isOverloadable(App::blog()->settings()->system->theme)) {
+            Notices::addWarningNotice(__('The theme editor is in development mode, theme files will be overwritten!'));
+        }
+
         $head = '';
         if (App::backend()->user_ui_colorsyntax) {
             $head .= Page::jsJson('dotclear_colorsyntax', ['colorsyntax' => App::backend()->user_ui_colorsyntax]);

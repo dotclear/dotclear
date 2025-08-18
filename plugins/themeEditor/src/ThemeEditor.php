@@ -161,6 +161,14 @@ class ThemeEditor
     }
 
     /**
+     * Return current development mode
+     */
+    public function devMode(): bool
+    {
+        return $this->dev_mode;
+    }
+
+    /**
      * Display a file list.
      *
      * @param   string  $type   The type of file
