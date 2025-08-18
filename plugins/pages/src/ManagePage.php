@@ -424,6 +424,15 @@ class ManagePage extends Process
             App::backend()->default_tab = 'comments';
         }
 
+        # HTML conversion
+        if (!empty($_GET['xconv'])) {
+            App::backend()->post_excerpt = App::backend()->post_excerpt_xhtml;
+            App::backend()->post_content = App::backend()->post_content_xhtml;
+            App::backend()->post_format  = 'xhtml';
+
+            Notices::addMessageNotice(__('Don\'t forget to validate your HTML conversion by saving your post.'));
+        }
+
         // 3rd party conversion
         if (!empty($_GET['convert']) && !empty($_GET['convert-format'])) {
             $params = new ArrayObject([
@@ -510,7 +519,8 @@ class ManagePage extends Process
                 My::name()                            => App::backend()->getPageURL(),
                 $edit_entry_title                     => '',
             ]
-        );
+        ) .
+        Notices::getNotices();
 
         if (!empty($_GET['upd'])) {
             Notices::success(__('Page has been successfully updated.'));
@@ -520,15 +530,6 @@ class ManagePage extends Process
             Notices::success(__('File has been successfully attached.'));
         } elseif (!empty($_GET['rmattach'])) {
             Notices::success(__('Attachment has been successfully removed.'));
-        }
-
-        # HTML conversion
-        if (!empty($_GET['xconv'])) {
-            App::backend()->post_excerpt = App::backend()->post_excerpt_xhtml;
-            App::backend()->post_content = App::backend()->post_content_xhtml;
-            App::backend()->post_format  = 'xhtml';
-
-            Notices::message(__('Don\'t forget to validate your HTML conversion by saving your post.'));
         }
 
         if (App::backend()->post_id && !App::status()->post()->isRestricted((int) App::backend()->post->post_status)) {
@@ -788,7 +789,7 @@ class ManagePage extends Process
                 ]
             );
 
-            # --BEHAVIOR-- adminPostFormItems -- ArrayObject, ArrayObject, MetaRecord|null
+            # --BEHAVIOR-- adminPageFormItems -- ArrayObject, ArrayObject, MetaRecord|null
             App::behavior()->callBehavior('adminPageFormItems', $main_items, $sidebar_items, App::backend()->post ?? null);
 
             // Prepare main and side parts

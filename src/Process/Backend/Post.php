@@ -494,6 +494,15 @@ class Post extends Process
             App::backend()->default_tab = 'trackbacks';
         }
 
+        // HTML conversion
+        if (!empty($_GET['xconv'])) {
+            App::backend()->post_excerpt = App::backend()->post_excerpt_xhtml;
+            App::backend()->post_content = App::backend()->post_content_xhtml;
+            App::backend()->post_format  = 'xhtml';
+
+            Notices::addMessageNotice(__('Don\'t forget to validate your XHTML conversion by saving your post.'));
+        }
+
         // 3rd party conversion
         if (!empty($_GET['convert']) && !empty($_GET['convert-format'])) {
             $params = new ArrayObject([
@@ -603,15 +612,6 @@ class Post extends Process
         }
         if (!empty($_GET['tbsent'])) {
             Notices::success(__('All pings sent.'));
-        }
-
-        // HTML conversion
-        if (!empty($_GET['xconv'])) {
-            App::backend()->post_excerpt = App::backend()->post_excerpt_xhtml;
-            App::backend()->post_content = App::backend()->post_content_xhtml;
-            App::backend()->post_format  = 'xhtml';
-
-            Notices::message(__('Don\'t forget to validate your XHTML conversion by saving your post.'));
         }
 
         if (App::backend()->post_id && !App::status()->post()->isRestricted((int) App::backend()->post->post_status)) {
