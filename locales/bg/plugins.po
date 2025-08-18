@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-13 15:06+0200\n"
-"PO-Revision-Date: 2025-08-13 13:12\n"
+"POT-Creation-Date: 2025-08-18 12:26+0200\n"
+"PO-Revision-Date: 2025-08-18 11:02\n"
 "Last-Translator: \n"
 "Language-Team: Bulgarian\n"
 "Language: bg_BG\n"
@@ -2410,7 +2410,7 @@ msgid "%d pages"
 msgstr "%d страници"
 
 #: plugins/pages/src/Backend.php:108 plugins/pages/src/Manage.php:148
-#: plugins/pages/src/ManagePage.php:107 plugins/pages/src/ManagePage.php:854
+#: plugins/pages/src/ManagePage.php:107 plugins/pages/src/ManagePage.php:855
 msgid "New page"
 msgstr "Нова страница"
 
@@ -2487,56 +2487,56 @@ msgstr "Запазване на реда на страниците"
 msgid "This page does not exist."
 msgstr "Тази страница не съществува."
 
-#: plugins/pages/src/ManagePage.php:188 plugins/pages/src/ManagePage.php:854
-#: plugins/pages/src/ManagePage.php:875
+#: plugins/pages/src/ManagePage.php:188 plugins/pages/src/ManagePage.php:855
+#: plugins/pages/src/ManagePage.php:876
 msgid "Edit page"
 msgstr "Редактиране на страницата"
 
-#: plugins/pages/src/ManagePage.php:488
-msgid "Are you sure you want to delete this page?"
-msgstr "Сигурни ли сте, че искате да изтриете тази страница?"
-
-#: plugins/pages/src/ManagePage.php:516
-msgid "Page has been successfully updated."
-msgstr "Страницата беше успешно актуализирана."
-
-#: plugins/pages/src/ManagePage.php:518
-msgid "Page has been successfully created."
-msgstr "Страницата е създадена успешно."
-
-#: plugins/pages/src/ManagePage.php:531
+#: plugins/pages/src/ManagePage.php:433
 msgid "Don't forget to validate your HTML conversion by saving your post."
 msgstr "Не забравяйте да потвърдите преобразуването на HTML, като запазите публикацията си."
 
-#: plugins/pages/src/ManagePage.php:541
+#: plugins/pages/src/ManagePage.php:497
+msgid "Are you sure you want to delete this page?"
+msgstr "Сигурни ли сте, че искате да изтриете тази страница?"
+
+#: plugins/pages/src/ManagePage.php:526
+msgid "Page has been successfully updated."
+msgstr "Страницата беше успешно актуализирана."
+
+#: plugins/pages/src/ManagePage.php:528
+msgid "Page has been successfully created."
+msgstr "Страницата е създадена успешно."
+
+#: plugins/pages/src/ManagePage.php:542
 msgid "Go to this page on the site"
 msgstr "Отидете на тази страница в сайта"
 
-#: plugins/pages/src/ManagePage.php:583
+#: plugins/pages/src/ManagePage.php:584
 msgid "Page status"
 msgstr "Състояние на страницата"
 
-#: plugins/pages/src/ManagePage.php:600
+#: plugins/pages/src/ManagePage.php:601
 msgid "Page language"
 msgstr "Език на страницата"
 
-#: plugins/pages/src/ManagePage.php:629 plugins/pages/src/Widgets.php:41
+#: plugins/pages/src/ManagePage.php:630 plugins/pages/src/Widgets.php:41
 msgid "Page position"
 msgstr "Позиция на страницата"
 
-#: plugins/pages/src/ManagePage.php:680
+#: plugins/pages/src/ManagePage.php:681
 msgid "Hide in widget Pages"
 msgstr "Скриване в страници с уиджети"
 
-#: plugins/pages/src/ManagePage.php:706
+#: plugins/pages/src/ManagePage.php:707
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "Предупреждение: Ако зададете URL адреса ръчно, той може да влезе в конфликт с друга страница."
 
-#: plugins/pages/src/ManagePage.php:745
+#: plugins/pages/src/ManagePage.php:746
 msgid "Introduction to the page."
 msgstr "Въведение в страницата."
 
-#: plugins/pages/src/ManagePage.php:1124
+#: plugins/pages/src/ManagePage.php:1125
 msgid "Select this comment"
 msgstr "Изберете този коментар"
 
@@ -2964,8 +2964,8 @@ msgid "themeEditor"
 msgstr "ТемаЕдитор"
 
 #: plugins/themeEditor/src/BackendBehaviors.php:45
-#: plugins/themeEditor/src/Manage.php:190
-#: plugins/themeEditor/src/Manage.php:197
+#: plugins/themeEditor/src/Manage.php:194
+#: plugins/themeEditor/src/Manage.php:201
 msgid "Edit theme files"
 msgstr "Редактиране на файловете на темата"
 
@@ -3001,114 +3001,118 @@ msgstr "Актуализация за отключване"
 msgid "Lock theme update disables theme update, but allows theme files to be modified."
 msgstr "Заключване на актуализирането на темата забранява актуализирането на темата, но позволява модифицирането на файловете на темата."
 
-#: plugins/themeEditor/src/Manage.php:178
+#: plugins/themeEditor/src/Manage.php:174
+msgid "The theme editor is in development mode, theme files will be overwritten!"
+msgstr "Редакторът на темата е в режим на разработка, файловете на темата ще бъдат презаписани!"
+
+#: plugins/themeEditor/src/Manage.php:182
 msgid "Saving document..."
 msgstr "Запазване на документ..."
 
-#: plugins/themeEditor/src/Manage.php:179
+#: plugins/themeEditor/src/Manage.php:183
 msgid "Document saved"
 msgstr "Запазен документ"
 
-#: plugins/themeEditor/src/Manage.php:180
+#: plugins/themeEditor/src/Manage.php:184
 msgid "An error occurred:"
 msgstr "Възникна грешка:"
 
-#: plugins/themeEditor/src/Manage.php:181
+#: plugins/themeEditor/src/Manage.php:185
 msgid "Are you sure you want to reset this file?"
 msgstr "Сигурни ли сте, че искате да нулирате този файл?"
 
-#: plugins/themeEditor/src/Manage.php:205
+#: plugins/themeEditor/src/Manage.php:209
 #, php-format
 msgid "Your current theme on this blog is \"%s\"."
 msgstr "Вашата текуща тема в този блог е \"%s\"."
 
-#: plugins/themeEditor/src/Manage.php:215
+#: plugins/themeEditor/src/Manage.php:219
 msgid "Please select a file to edit."
 msgstr "Моля, изберете файл за редактиране."
 
-#: plugins/themeEditor/src/Manage.php:226
+#: plugins/themeEditor/src/Manage.php:230
 msgid "File editor"
 msgstr "Редактор на файлове"
 
-#: plugins/themeEditor/src/Manage.php:235
+#: plugins/themeEditor/src/Manage.php:239
 #, php-format
 msgid "Editing file %s"
 msgstr "Редактиране на файл %s"
 
-#: plugins/themeEditor/src/Manage.php:245
+#: plugins/themeEditor/src/Manage.php:249
 msgid "Reset"
 msgstr "Нулиране на"
 
-#: plugins/themeEditor/src/Manage.php:252
+#: plugins/themeEditor/src/Manage.php:256
 msgid "If you use <code>url(...)</code> in your CSS files, be sure to use <code>url(index.php?tf=...)</code> to correctly load theme resources (imported CSS, images, etc.), except for URL types in the form <code>data:image</code>.<br>Example: do <code>@import url(index.php?tf=css/layout.css);</code> instead of <code>@import url(css/layout.css);</code>."
 msgstr "Ако използвате <code>url(...)</code> в CSS файловете си, не забравяйте да използвате <code>url(index.php?tf=...),</code> за да заредите правилно ресурсите на темата (импортирани CSS, изображения и т.н.), с изключение на типове URL във формата <code>data:image</code>.<br>Пример: направете <code>@import url(index.php?tf=css/layout.css);</code> вместо <code>@import url(css/layout.css);.</code>."
 
-#: plugins/themeEditor/src/Manage.php:257
+#: plugins/themeEditor/src/Manage.php:261
 msgid "This file is not overloadable. Please check your var folder permissions."
 msgstr "Този файл не може да се претоварва. Моля, проверете разрешенията на папката var."
 
-#: plugins/themeEditor/src/Manage.php:260
+#: plugins/themeEditor/src/Manage.php:264
 msgid "This theme is too old to be modified. Please check if an update is available."
 msgstr "Тази тема е твърде стара, за да бъде променена. Моля, проверете дали е налична актуализация."
 
-#: plugins/themeEditor/src/Manage.php:279
+#: plugins/themeEditor/src/Manage.php:283
 msgid "Templates files"
 msgstr "Файлове с шаблони"
 
-#: plugins/themeEditor/src/Manage.php:284
+#: plugins/themeEditor/src/Manage.php:288
 msgid "CSS files"
 msgstr "CSS файлове"
 
-#: plugins/themeEditor/src/Manage.php:289
+#: plugins/themeEditor/src/Manage.php:293
 msgid "JavaScript files"
 msgstr "Файлове на JavaScript"
 
-#: plugins/themeEditor/src/Manage.php:294
+#: plugins/themeEditor/src/Manage.php:298
 msgid "Locales files"
 msgstr "Файлове с локали"
 
-#: plugins/themeEditor/src/Manage.php:299
+#: plugins/themeEditor/src/Manage.php:303
 msgid "PHP files"
 msgstr "Файлове на PHP"
 
-#: plugins/themeEditor/src/ThemeEditor.php:159
+#: plugins/themeEditor/src/ThemeEditor.php:183
 msgid "No file"
 msgstr "Няма файл"
 
-#: plugins/themeEditor/src/ThemeEditor.php:189
+#: plugins/themeEditor/src/ThemeEditor.php:213
 msgid "Customized:"
 msgstr "Персонализирани:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:197
-#: plugins/themeEditor/src/ThemeEditor.php:203
+#: plugins/themeEditor/src/ThemeEditor.php:221
+#: plugins/themeEditor/src/ThemeEditor.php:227
 msgid "From theme:"
 msgstr "От темата:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:214
+#: plugins/themeEditor/src/ThemeEditor.php:238
 msgid "From parent:"
 msgstr "От родителя:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:224
+#: plugins/themeEditor/src/ThemeEditor.php:248
 msgid "From template set:"
 msgstr "От комплекта шаблони:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:252
-#: plugins/themeEditor/src/ThemeEditor.php:289
-#: plugins/themeEditor/src/ThemeEditor.php:361
+#: plugins/themeEditor/src/ThemeEditor.php:276
+#: plugins/themeEditor/src/ThemeEditor.php:313
+#: plugins/themeEditor/src/ThemeEditor.php:390
 msgid "File does not exist."
 msgstr "Файлът не съществува."
 
-#: plugins/themeEditor/src/ThemeEditor.php:257
+#: plugins/themeEditor/src/ThemeEditor.php:281
 #, php-format
 msgid "File %s is not readable"
 msgstr "Файлът %s не може да се чете"
 
-#: plugins/themeEditor/src/ThemeEditor.php:326
+#: plugins/themeEditor/src/ThemeEditor.php:350
 #, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr "Невъзможно е да се запише файл %s. Моля, проверете разрешенията на файловете и папките на вашата тема."
 
-#: plugins/themeEditor/src/ThemeEditor.php:397
+#: plugins/themeEditor/src/ThemeEditor.php:428
 #, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "Невъзможност за изтриване на файл %s. Моля, проверете разрешенията на файловете и папките на вашата тема."
