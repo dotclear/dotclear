@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-13 15:06+0200\n"
-"PO-Revision-Date: 2025-08-13 13:34\n"
+"POT-Creation-Date: 2025-08-18 12:26+0200\n"
+"PO-Revision-Date: 2025-08-18 10:29\n"
 "Last-Translator: \n"
 "Language-Team: Indonesian\n"
 "Language: id_ID\n"
@@ -2405,7 +2405,7 @@ msgid "%d pages"
 msgstr "%d halaman"
 
 #: plugins/pages/src/Backend.php:108 plugins/pages/src/Manage.php:148
-#: plugins/pages/src/ManagePage.php:107 plugins/pages/src/ManagePage.php:854
+#: plugins/pages/src/ManagePage.php:107 plugins/pages/src/ManagePage.php:855
 msgid "New page"
 msgstr "Halaman baru"
 
@@ -2482,56 +2482,56 @@ msgstr "Simpan urutan halaman"
 msgid "This page does not exist."
 msgstr "Halaman ini tidak ada."
 
-#: plugins/pages/src/ManagePage.php:188 plugins/pages/src/ManagePage.php:854
-#: plugins/pages/src/ManagePage.php:875
+#: plugins/pages/src/ManagePage.php:188 plugins/pages/src/ManagePage.php:855
+#: plugins/pages/src/ManagePage.php:876
 msgid "Edit page"
 msgstr "Halaman edit"
 
-#: plugins/pages/src/ManagePage.php:488
-msgid "Are you sure you want to delete this page?"
-msgstr "Apakah Anda yakin ingin menghapus halaman ini?"
-
-#: plugins/pages/src/ManagePage.php:516
-msgid "Page has been successfully updated."
-msgstr "Halaman telah berhasil diperbarui."
-
-#: plugins/pages/src/ManagePage.php:518
-msgid "Page has been successfully created."
-msgstr "Halaman telah berhasil dibuat."
-
-#: plugins/pages/src/ManagePage.php:531
+#: plugins/pages/src/ManagePage.php:433
 msgid "Don't forget to validate your HTML conversion by saving your post."
 msgstr "Jangan lupa untuk memvalidasi konversi HTML Anda dengan menyimpan postingan Anda."
 
-#: plugins/pages/src/ManagePage.php:541
+#: plugins/pages/src/ManagePage.php:497
+msgid "Are you sure you want to delete this page?"
+msgstr "Apakah Anda yakin ingin menghapus halaman ini?"
+
+#: plugins/pages/src/ManagePage.php:526
+msgid "Page has been successfully updated."
+msgstr "Halaman telah berhasil diperbarui."
+
+#: plugins/pages/src/ManagePage.php:528
+msgid "Page has been successfully created."
+msgstr "Halaman telah berhasil dibuat."
+
+#: plugins/pages/src/ManagePage.php:542
 msgid "Go to this page on the site"
 msgstr "Buka halaman ini di situs"
 
-#: plugins/pages/src/ManagePage.php:583
+#: plugins/pages/src/ManagePage.php:584
 msgid "Page status"
 msgstr "Status halaman"
 
-#: plugins/pages/src/ManagePage.php:600
+#: plugins/pages/src/ManagePage.php:601
 msgid "Page language"
 msgstr "Bahasa halaman"
 
-#: plugins/pages/src/ManagePage.php:629 plugins/pages/src/Widgets.php:41
+#: plugins/pages/src/ManagePage.php:630 plugins/pages/src/Widgets.php:41
 msgid "Page position"
 msgstr "Posisi halaman"
 
-#: plugins/pages/src/ManagePage.php:680
+#: plugins/pages/src/ManagePage.php:681
 msgid "Hide in widget Pages"
 msgstr "Menyembunyikan di halaman widget"
 
-#: plugins/pages/src/ManagePage.php:706
+#: plugins/pages/src/ManagePage.php:707
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "Peringatan: Jika Anda mengatur URL secara manual, URL tersebut mungkin bertentangan dengan halaman lain."
 
-#: plugins/pages/src/ManagePage.php:745
+#: plugins/pages/src/ManagePage.php:746
 msgid "Introduction to the page."
 msgstr "Pengantar ke halaman."
 
-#: plugins/pages/src/ManagePage.php:1124
+#: plugins/pages/src/ManagePage.php:1125
 msgid "Select this comment"
 msgstr "Pilih komentar ini"
 
@@ -2957,8 +2957,8 @@ msgid "themeEditor"
 msgstr "themeEditor"
 
 #: plugins/themeEditor/src/BackendBehaviors.php:45
-#: plugins/themeEditor/src/Manage.php:190
-#: plugins/themeEditor/src/Manage.php:197
+#: plugins/themeEditor/src/Manage.php:194
+#: plugins/themeEditor/src/Manage.php:201
 msgid "Edit theme files"
 msgstr "Mengedit file tema"
 
@@ -2994,114 +2994,118 @@ msgstr "Buka kunci pembaruan"
 msgid "Lock theme update disables theme update, but allows theme files to be modified."
 msgstr "Kunci pembaruan tema menonaktifkan pembaruan tema, tetapi memungkinkan file tema dimodifikasi."
 
-#: plugins/themeEditor/src/Manage.php:178
+#: plugins/themeEditor/src/Manage.php:174
+msgid "The theme editor is in development mode, theme files will be overwritten!"
+msgstr ""
+
+#: plugins/themeEditor/src/Manage.php:182
 msgid "Saving document..."
 msgstr "Menyimpan dokumen..."
 
-#: plugins/themeEditor/src/Manage.php:179
+#: plugins/themeEditor/src/Manage.php:183
 msgid "Document saved"
 msgstr "Dokumen disimpan"
 
-#: plugins/themeEditor/src/Manage.php:180
+#: plugins/themeEditor/src/Manage.php:184
 msgid "An error occurred:"
 msgstr "Terjadi kesalahan:"
 
-#: plugins/themeEditor/src/Manage.php:181
+#: plugins/themeEditor/src/Manage.php:185
 msgid "Are you sure you want to reset this file?"
 msgstr "Apakah Anda yakin ingin mengatur ulang file ini?"
 
-#: plugins/themeEditor/src/Manage.php:205
+#: plugins/themeEditor/src/Manage.php:209
 #, php-format
 msgid "Your current theme on this blog is \"%s\"."
 msgstr "Tema Anda saat ini di blog ini adalah \"%s\"."
 
-#: plugins/themeEditor/src/Manage.php:215
+#: plugins/themeEditor/src/Manage.php:219
 msgid "Please select a file to edit."
 msgstr "Pilih file yang akan diedit."
 
-#: plugins/themeEditor/src/Manage.php:226
+#: plugins/themeEditor/src/Manage.php:230
 msgid "File editor"
 msgstr "Editor file"
 
-#: plugins/themeEditor/src/Manage.php:235
+#: plugins/themeEditor/src/Manage.php:239
 #, php-format
 msgid "Editing file %s"
 msgstr "Mengedit file %s"
 
-#: plugins/themeEditor/src/Manage.php:245
+#: plugins/themeEditor/src/Manage.php:249
 msgid "Reset"
 msgstr "Atur ulang"
 
-#: plugins/themeEditor/src/Manage.php:252
+#: plugins/themeEditor/src/Manage.php:256
 msgid "If you use <code>url(...)</code> in your CSS files, be sure to use <code>url(index.php?tf=...)</code> to correctly load theme resources (imported CSS, images, etc.), except for URL types in the form <code>data:image</code>.<br>Example: do <code>@import url(index.php?tf=css/layout.css);</code> instead of <code>@import url(css/layout.css);</code>."
 msgstr "Jika Anda menggunakan <code>url(...)</code> dalam berkas CSS Anda, pastikan untuk menggunakan <code>url(index.php?tf=...)</code> untuk memuat sumber daya tema dengan benar (CSS yang diimpor, gambar, dan lain-lain), kecuali untuk tipe URL dalam bentuk <code>data:image</code>.<br>Contoh: lakukan <code>@impor url(index.php?tf=css/layout.css);</code> alih-alih <code>@impor url(css/layout.css);</code>."
 
-#: plugins/themeEditor/src/Manage.php:257
+#: plugins/themeEditor/src/Manage.php:261
 msgid "This file is not overloadable. Please check your var folder permissions."
 msgstr "Berkas ini tidak dapat dimuat secara berlebihan. Silakan periksa izin folder var Anda."
 
-#: plugins/themeEditor/src/Manage.php:260
+#: plugins/themeEditor/src/Manage.php:264
 msgid "This theme is too old to be modified. Please check if an update is available."
 msgstr "Tema ini sudah terlalu tua untuk dimodifikasi. Silakan periksa apakah pembaruan tersedia."
 
-#: plugins/themeEditor/src/Manage.php:279
+#: plugins/themeEditor/src/Manage.php:283
 msgid "Templates files"
 msgstr "File templat"
 
-#: plugins/themeEditor/src/Manage.php:284
+#: plugins/themeEditor/src/Manage.php:288
 msgid "CSS files"
 msgstr "File CSS"
 
-#: plugins/themeEditor/src/Manage.php:289
+#: plugins/themeEditor/src/Manage.php:293
 msgid "JavaScript files"
 msgstr "File JavaScript"
 
-#: plugins/themeEditor/src/Manage.php:294
+#: plugins/themeEditor/src/Manage.php:298
 msgid "Locales files"
 msgstr "File lokal"
 
-#: plugins/themeEditor/src/Manage.php:299
+#: plugins/themeEditor/src/Manage.php:303
 msgid "PHP files"
 msgstr "File PHP"
 
-#: plugins/themeEditor/src/ThemeEditor.php:159
+#: plugins/themeEditor/src/ThemeEditor.php:183
 msgid "No file"
 msgstr "Tidak ada file"
 
-#: plugins/themeEditor/src/ThemeEditor.php:189
+#: plugins/themeEditor/src/ThemeEditor.php:213
 msgid "Customized:"
 msgstr "Disesuaikan:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:197
-#: plugins/themeEditor/src/ThemeEditor.php:203
+#: plugins/themeEditor/src/ThemeEditor.php:221
+#: plugins/themeEditor/src/ThemeEditor.php:227
 msgid "From theme:"
 msgstr "Dari tema:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:214
+#: plugins/themeEditor/src/ThemeEditor.php:238
 msgid "From parent:"
 msgstr "Dari orang tua:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:224
+#: plugins/themeEditor/src/ThemeEditor.php:248
 msgid "From template set:"
 msgstr "Dari set template:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:252
-#: plugins/themeEditor/src/ThemeEditor.php:289
-#: plugins/themeEditor/src/ThemeEditor.php:361
+#: plugins/themeEditor/src/ThemeEditor.php:276
+#: plugins/themeEditor/src/ThemeEditor.php:313
+#: plugins/themeEditor/src/ThemeEditor.php:390
 msgid "File does not exist."
 msgstr "File tidak ada."
 
-#: plugins/themeEditor/src/ThemeEditor.php:257
+#: plugins/themeEditor/src/ThemeEditor.php:281
 #, php-format
 msgid "File %s is not readable"
 msgstr "File %s tidak dapat dibaca"
 
-#: plugins/themeEditor/src/ThemeEditor.php:326
+#: plugins/themeEditor/src/ThemeEditor.php:350
 #, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr "Tidak dapat menulis file %s. Periksa izin file dan folder tema Anda."
 
-#: plugins/themeEditor/src/ThemeEditor.php:397
+#: plugins/themeEditor/src/ThemeEditor.php:428
 #, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "Tidak dapat menghapus file %s. Periksa izin file dan folder tema Anda."
