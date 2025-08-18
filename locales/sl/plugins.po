@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-18 12:26+0200\n"
-"PO-Revision-Date: 2025-08-18 10:29\n"
+"PO-Revision-Date: 2025-08-18 11:03\n"
 "Last-Translator: \n"
 "Language-Team: Slovenian\n"
 "Language: sl_SI\n"
@@ -3017,7 +3017,7 @@ msgstr "Zaklepanje posodobitve teme onemogoči posodobitev teme, vendar omogoča
 
 #: plugins/themeEditor/src/Manage.php:174
 msgid "The theme editor is in development mode, theme files will be overwritten!"
-msgstr ""
+msgstr "Urejevalnik teme je v razvojnem načinu, datoteke teme bodo prepisane!"
 
 #: plugins/themeEditor/src/Manage.php:182
 msgid "Saving document..."
