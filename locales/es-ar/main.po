@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-14 13:18+0200\n"
-"PO-Revision-Date: 2025-08-14 11:29\n"
+"POT-Creation-Date: 2025-08-18 12:11+0200\n"
+"PO-Revision-Date: 2025-08-18 10:29\n"
 "Last-Translator: \n"
 "Language-Team: Spanish, Argentina\n"
 "Language: es_AR\n"
@@ -40,7 +40,7 @@ msgstr "cuadrado"
 #: src/Core/Backend/Action/ActionsPosts.php:73
 #: src/Core/Backend/Favorites.php:416 src/Core/Backend/Menus.php:168
 #: src/Core/Backend/UserPref.php:41 src/Core/Backend/UserPref.php:178
-#: src/Process/Backend/Post.php:567 src/Process/Backend/Post.php:582
+#: src/Process/Backend/Post.php:576 src/Process/Backend/Post.php:591
 #: src/Process/Backend/Posts.php:94 src/Process/Backend/Posts.php:99
 msgid "Posts"
 msgstr "Puestos"
@@ -94,7 +94,7 @@ msgstr "Esta clave no existe en la base de datos."
 #: src/Core/Backend/Combos.php:256 src/Core/Backend/Listing/ListingPosts.php:78
 #: src/Core/Backend/Listing/ListingPostsMini.php:63
 #: src/Core/Backend/UserPref.php:205 src/Process/Backend/Home.php:594
-#: src/Process/Backend/MediaItem.php:1093 src/Process/Backend/Post.php:836
+#: src/Process/Backend/MediaItem.php:1087 src/Process/Backend/Post.php:836
 msgid "Title"
 msgstr "Título"
 
@@ -388,7 +388,7 @@ msgstr "Crear una nueva categoría para la(s) entrada(s)"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:370
 #: src/Process/Backend/Home.php:598 src/Process/Backend/Home.php:632
-#: src/Process/Backend/Media.php:763 src/Process/Backend/MediaItem.php:1233
+#: src/Process/Backend/Media.php:763 src/Process/Backend/MediaItem.php:1227
 #: src/Process/Backend/Post.php:738 src/Process/Backend/Post.php:841
 msgid "Title:"
 msgstr "Título:"
@@ -406,7 +406,7 @@ msgstr "Superior:"
 #: src/Process/Backend/Category.php:298 src/Process/Backend/Category.php:337
 #: src/Process/Backend/Category.php:373 src/Process/Backend/Comment.php:350
 #: src/Process/Backend/Home.php:649 src/Process/Backend/Home.php:703
-#: src/Process/Backend/MediaItem.php:1273 src/Process/Backend/Post.php:925
+#: src/Process/Backend/MediaItem.php:1267 src/Process/Backend/Post.php:925
 #: src/Process/Backend/Post.php:1139 src/Process/Backend/User.php:536
 #: src/Process/Backend/UsersActions.php:513 src/Process/Install/Install.php:479
 msgid "Save"
@@ -771,36 +771,36 @@ msgstr "Cerrado"
 msgid "Trackbacks:"
 msgstr "Enlaces inversos:"
 
-#: src/Core/Backend/Filter/Filters.php:357
+#: src/Core/Backend/Filter/Filters.php:359
 msgid "Filters"
 msgstr "Filtros"
 
-#: src/Core/Backend/Filter/Filters.php:370
+#: src/Core/Backend/Filter/Filters.php:372
 msgid "Order by:"
 msgstr "Ordenar por:"
 
-#: src/Core/Backend/Filter/Filters.php:380
+#: src/Core/Backend/Filter/Filters.php:382
 msgid "Sort:"
 msgstr "Clasificar:"
 
-#: src/Core/Backend/Filter/Filters.php:391
+#: src/Core/Backend/Filter/Filters.php:393
 #: src/Process/Backend/UserPreferences.php:803
 msgid "Show"
 msgstr "Mostrar"
 
-#: src/Core/Backend/Filter/Filters.php:405
+#: src/Core/Backend/Filter/Filters.php:407
 msgid "Save current options"
 msgstr "Guardar opciones actuales"
 
-#: src/Core/Backend/Filter/Filters.php:414
+#: src/Core/Backend/Filter/Filters.php:416
 msgid "Display options"
 msgstr "Opciones de visualización"
 
-#: src/Core/Backend/Filter/Filters.php:423 src/Core/Backend/Page.php:1469
+#: src/Core/Backend/Filter/Filters.php:425 src/Core/Backend/Page.php:1469
 msgid "Show filters and display options"
 msgstr "Mostrar filtros y opciones de visualización"
 
-#: src/Core/Backend/Filter/Filters.php:433
+#: src/Core/Backend/Filter/Filters.php:435
 msgid "Apply filters and display options"
 msgstr "Aplicar filtros y opciones de visualización"
 
@@ -1477,7 +1477,7 @@ msgstr "Configurar \"%s\""
 #: src/Core/Backend/ModulesList.php:1966 src/Process/Backend/Blog.php:197
 #: src/Process/Backend/BlogDel.php:138 src/Process/Backend/BlogPref.php:1182
 #: src/Process/Backend/Category.php:301 src/Process/Backend/Comment.php:352
-#: src/Process/Backend/Media.php:857 src/Process/Backend/MediaItem.php:1359
+#: src/Process/Backend/Media.php:857 src/Process/Backend/MediaItem.php:1353
 #: src/Process/Backend/Post.php:950 src/Process/Backend/Search.php:197
 #: src/Process/Backend/User.php:547 src/Process/Backend/UserPreferences.php:731
 #: src/Process/Backend/UserPreferences.php:1122
@@ -1636,7 +1636,7 @@ msgid "Invert selection"
 msgstr "invertir la selección"
 
 #: src/Core/Backend/Page.php:1264 src/Process/Backend/Post.php:466
-#: src/Process/Backend/Post.php:594
+#: src/Process/Backend/Post.php:603
 msgid "Entry has been successfully created."
 msgstr "Entrada creada con éxito."
 
@@ -1862,8 +1862,8 @@ msgid "Choose files"
 msgstr "Elegir archivos"
 
 #: src/Core/Backend/Page.php:1423 src/Process/Backend/LinkPopup.php:113
-#: src/Process/Backend/Media.php:293 src/Process/Backend/MediaItem.php:512
-#: src/Process/Backend/MediaItem.php:771 src/Process/Backend/Post.php:956
+#: src/Process/Backend/Media.php:293 src/Process/Backend/MediaItem.php:509
+#: src/Process/Backend/MediaItem.php:765 src/Process/Backend/Post.php:956
 #: src/Process/Backend/PostMedia.php:113
 msgid "Cancel"
 msgstr "cancelar"
@@ -2231,31 +2231,31 @@ msgstr "Debe indicar un nombre de autor"
 msgid "Email address is not valid."
 msgstr "Dirección e-mail invalida."
 
-#: src/Core/BlogSettings.php:103
+#: src/Core/BlogSettings.php:105
 msgid "Unable to retrieve namespaces:"
 msgstr "No se han podido recuperar los espacios de nombres:"
 
-#: src/Core/BlogSettings.php:138
+#: src/Core/BlogSettings.php:140
 #, php-format
 msgid "Invalid setting namespace: %s"
 msgstr "Parámetros de nombre de espacio inválidos: %s"
 
-#: src/Core/BlogWorkspace.php:91
+#: src/Core/BlogWorkspace.php:93
 #, php-format
 msgid "Invalid setting dcNamespace: %s"
 msgstr "Configuración no válida dcNamespace: %s"
 
-#: src/Core/BlogWorkspace.php:137
+#: src/Core/BlogWorkspace.php:139
 msgid "Unable to retrieve settings:"
 msgstr "No se pueden obtener los parámetros:"
 
-#: src/Core/BlogWorkspace.php:229 src/Core/BlogWorkspace.php:327
+#: src/Core/BlogWorkspace.php:231 src/Core/BlogWorkspace.php:329
 #, php-format
 msgid "%s is not a valid setting id"
 msgstr "%s no es un ID de parámetro válido."
 
-#: src/Core/BlogWorkspace.php:319 src/Core/BlogWorkspace.php:359
-#: src/Core/BlogWorkspace.php:382 src/Core/BlogWorkspace.php:402
+#: src/Core/BlogWorkspace.php:321 src/Core/BlogWorkspace.php:361
+#: src/Core/BlogWorkspace.php:384 src/Core/BlogWorkspace.php:404
 msgid "No namespace specified"
 msgstr "No se ha especificado el nombre de espacio"
 
@@ -2592,31 +2592,31 @@ msgstr "Reproducir"
 msgid "On this page, you can try to replay update action from a given version if some files remain from last update."
 msgstr "En esta página, puede intentar repetir la acción de actualización desde una versión determinada si quedan algunos archivos de la última actualización."
 
-#: src/Core/UserPreferences.php:70
+#: src/Core/UserPreferences.php:72
 msgid "Unable to retrieve workspaces:"
 msgstr "No se pueden recuperar los espacios de trabajo:"
 
-#: src/Core/UserPreferences.php:144
+#: src/Core/UserPreferences.php:146
 #, php-format
 msgid "Invalid UserWorkspace: %s"
 msgstr "Espacio de trabajo de usuario no válido: %s"
 
-#: src/Core/UserWorkspace.php:85
+#: src/Core/UserWorkspace.php:87
 #, php-format
 msgid "Invalid dcWorkspace: %s"
 msgstr "DcWorkspace no válido: %s"
 
-#: src/Core/UserWorkspace.php:91
+#: src/Core/UserWorkspace.php:93
 msgid "Unable to retrieve prefs:"
 msgstr "No se pueden recuperar los prefijos:"
 
-#: src/Core/UserWorkspace.php:223 src/Core/UserWorkspace.php:321
+#: src/Core/UserWorkspace.php:225 src/Core/UserWorkspace.php:323
 #, php-format
 msgid "%s is not a valid pref id"
 msgstr "%s no es un pref id válido"
 
-#: src/Core/UserWorkspace.php:313 src/Core/UserWorkspace.php:348
-#: src/Core/UserWorkspace.php:381 src/Core/UserWorkspace.php:411
+#: src/Core/UserWorkspace.php:315 src/Core/UserWorkspace.php:350
+#: src/Core/UserWorkspace.php:383 src/Core/UserWorkspace.php:413
 msgid "No workspace specified"
 msgstr "No se ha especificado ningún espacio de trabajo"
 
@@ -3365,7 +3365,7 @@ msgid "P"
 msgstr "P"
 
 #: src/Process/Backend/BlogPref.php:167 src/Process/Backend/BlogPref.php:1264
-#: src/Process/Backend/MediaItem.php:609 src/Process/Backend/MediaItem.php:614
+#: src/Process/Backend/MediaItem.php:603 src/Process/Backend/MediaItem.php:608
 msgid "(none)"
 msgstr "(ninguna)"
 
@@ -3385,33 +3385,33 @@ msgstr "Descripción, País, Fecha"
 msgid "Description, City, Country, Date"
 msgstr "Descripción, Ciudad, País, Fecha"
 
-#: src/Process/Backend/BlogPref.php:201 src/Process/Backend/MediaItem.php:486
-#: src/Process/Backend/MediaItem.php:583 src/Process/Backend/MediaItem.php:852
+#: src/Process/Backend/BlogPref.php:201 src/Process/Backend/MediaItem.php:483
+#: src/Process/Backend/MediaItem.php:577 src/Process/Backend/MediaItem.php:846
 msgid "original"
 msgstr "original"
 
 #: src/Process/Backend/BlogPref.php:212 src/Process/Backend/BlogPref.php:222
-#: src/Process/Backend/MediaItem.php:546 src/Process/Backend/MediaItem.php:602
+#: src/Process/Backend/MediaItem.php:540 src/Process/Backend/MediaItem.php:596
 msgid "None"
 msgstr "Ninguna"
 
-#: src/Process/Backend/BlogPref.php:213 src/Process/Backend/MediaItem.php:547
+#: src/Process/Backend/BlogPref.php:213 src/Process/Backend/MediaItem.php:541
 msgid "Left"
 msgstr "Izquierda"
 
-#: src/Process/Backend/BlogPref.php:214 src/Process/Backend/MediaItem.php:548
+#: src/Process/Backend/BlogPref.php:214 src/Process/Backend/MediaItem.php:542
 msgid "Right"
 msgstr "Derecha"
 
-#: src/Process/Backend/BlogPref.php:215 src/Process/Backend/MediaItem.php:549
+#: src/Process/Backend/BlogPref.php:215 src/Process/Backend/MediaItem.php:543
 msgid "Center"
 msgstr "Centro"
 
-#: src/Process/Backend/BlogPref.php:220 src/Process/Backend/MediaItem.php:595
+#: src/Process/Backend/BlogPref.php:220 src/Process/Backend/MediaItem.php:589
 msgid "Legend and alternate text"
 msgstr "Leyenda y texto alternativo"
 
-#: src/Process/Backend/BlogPref.php:221 src/Process/Backend/MediaItem.php:599
+#: src/Process/Backend/BlogPref.php:221 src/Process/Backend/MediaItem.php:593
 msgid "Alternate text"
 msgstr "Texto alternativo"
 
@@ -4107,7 +4107,7 @@ msgstr "Nombre:"
 msgid "Warning: If you set the URL manually, it may conflict with another category."
 msgstr "Atención : si indica la URL manualmente, ésta puede entrar en conflicto con otra categoría."
 
-#: src/Process/Backend/Category.php:293 src/Process/Backend/MediaItem.php:1251
+#: src/Process/Backend/Category.php:293 src/Process/Backend/MediaItem.php:1245
 msgid "Description:"
 msgstr "Descripción:"
 
@@ -4143,7 +4143,7 @@ msgstr "Mover esta categoría"
 msgid "Entry does not exist."
 msgstr "La entrada no existe."
 
-#: src/Process/Backend/Comment.php:109 src/Process/Backend/Post.php:602
+#: src/Process/Backend/Comment.php:109 src/Process/Backend/Post.php:611
 msgid "Comment has been successfully created."
 msgstr "Comentario creado con éxito."
 
@@ -4493,7 +4493,7 @@ msgstr "Título del enlace:"
 msgid "Link language:"
 msgstr "Idioma del enlace:"
 
-#: src/Process/Backend/LinkPopup.php:115 src/Process/Backend/MediaItem.php:769
+#: src/Process/Backend/LinkPopup.php:115 src/Process/Backend/MediaItem.php:763
 msgid "Insert"
 msgstr "Insertar"
 
@@ -4666,7 +4666,7 @@ msgstr "Por favor, tenga cuidado de publicar sólo medios que le pertenezcan o q
 msgid "Maximum file size allowed:"
 msgstr "Tamaño de máximo de archivo permitido:"
 
-#: src/Process/Backend/Media.php:770 src/Process/Backend/MediaItem.php:1264
+#: src/Process/Backend/Media.php:770 src/Process/Backend/MediaItem.php:1258
 msgid "Private"
 msgstr "Privado"
 
@@ -4721,247 +4721,247 @@ msgstr "La configuración de inserción de medios se ha registrado correctamente
 msgid "Media insertion settings have been successfully removed for this folder."
 msgstr "La configuración de inserción de medios se ha eliminado correctamente para esta carpeta."
 
-#: src/Process/Backend/MediaItem.php:480 src/Process/Backend/MediaItem.php:577
+#: src/Process/Backend/MediaItem.php:477 src/Process/Backend/MediaItem.php:571
 msgid "Image size:"
 msgstr "Tamaño de la imagen:"
 
-#: src/Process/Backend/MediaItem.php:499 src/Process/Backend/MediaItem.php:501
+#: src/Process/Backend/MediaItem.php:496 src/Process/Backend/MediaItem.php:498
 msgid "Select media item"
 msgstr "Seleccionar elemento multimedia"
 
-#: src/Process/Backend/MediaItem.php:510 src/Process/Upgrade/Attic.php:313
+#: src/Process/Backend/MediaItem.php:507 src/Process/Upgrade/Attic.php:313
 msgid "Select"
 msgstr "Selecciona"
 
-#: src/Process/Backend/MediaItem.php:589
+#: src/Process/Backend/MediaItem.php:583
 msgid "Image legend and alternate text"
 msgstr "Leyenda de la imagen y texto alternativo"
 
-#: src/Process/Backend/MediaItem.php:606 src/Process/Backend/MediaItem.php:1102
-#: src/Process/Backend/MediaItem.php:1242
+#: src/Process/Backend/MediaItem.php:600 src/Process/Backend/MediaItem.php:1096
+#: src/Process/Backend/MediaItem.php:1236
 msgid "Alternate text:"
 msgstr "Texto alternativo:"
 
-#: src/Process/Backend/MediaItem.php:611
+#: src/Process/Backend/MediaItem.php:605
 msgid "Legend:"
 msgstr "Leyenda:"
 
-#: src/Process/Backend/MediaItem.php:620
+#: src/Process/Backend/MediaItem.php:614
 msgid "Image alignment"
 msgstr "Alineación de la imagen"
 
-#: src/Process/Backend/MediaItem.php:627
+#: src/Process/Backend/MediaItem.php:621
 msgid "Image insertion"
 msgstr "Inserción de imagen"
 
-#: src/Process/Backend/MediaItem.php:632
+#: src/Process/Backend/MediaItem.php:626
 msgid "As a single image"
 msgstr "Como una única imagen"
 
-#: src/Process/Backend/MediaItem.php:635
+#: src/Process/Backend/MediaItem.php:629
 msgid "As a link to the original image"
 msgstr "Como enlace a la imagen original"
 
-#: src/Process/Backend/MediaItem.php:652
+#: src/Process/Backend/MediaItem.php:646
 msgid "MP3 disposition"
 msgstr "Disposición del mp3"
 
-#: src/Process/Backend/MediaItem.php:661
+#: src/Process/Backend/MediaItem.php:655
 msgid "Please note that you cannot insert mp3 files with standard editor in WYSIWYG HTML mode."
 msgstr "Tenga en cuenta que no puede insertar archivos mp3 con el editor estándar en modo HTML WYSIWYG."
 
-#: src/Process/Backend/MediaItem.php:677
+#: src/Process/Backend/MediaItem.php:671
 msgid "Video size"
 msgstr "Tamaño del video"
 
-#: src/Process/Backend/MediaItem.php:681
+#: src/Process/Backend/MediaItem.php:675
 msgid "Width:"
 msgstr "Ancho:"
 
-#: src/Process/Backend/MediaItem.php:686
+#: src/Process/Backend/MediaItem.php:680
 msgid "Height:"
 msgstr "Alto:"
 
-#: src/Process/Backend/MediaItem.php:690
+#: src/Process/Backend/MediaItem.php:684
 msgid "A value of 0 means that the corresponding size is not included when inserting a video."
 msgstr "Un valor de 0 significa que el tamaño correspondiente no se incluye al insertar un vídeo."
 
-#: src/Process/Backend/MediaItem.php:695
+#: src/Process/Backend/MediaItem.php:689
 msgid "Video disposition"
 msgstr "Disposición del video"
 
-#: src/Process/Backend/MediaItem.php:705
+#: src/Process/Backend/MediaItem.php:699
 msgid "Please note that you cannot insert video files with standard editor in WYSIWYG HTML mode."
 msgstr "Tenga en cuenta que no puede insertar archivos de vídeo con el editor estándar en modo HTML WYSIWYG."
 
-#: src/Process/Backend/MediaItem.php:711
+#: src/Process/Backend/MediaItem.php:705
 msgid "Media item will be inserted as a link."
 msgstr "El medio sera insertado como un enlace."
 
-#: src/Process/Backend/MediaItem.php:732
+#: src/Process/Backend/MediaItem.php:726
 msgid "Make current settings as default"
 msgstr "Establecer la configuración actual como predeterminada"
 
-#: src/Process/Backend/MediaItem.php:733
+#: src/Process/Backend/MediaItem.php:727
 msgid "For the blog"
 msgstr "Para el blog"
 
-#: src/Process/Backend/MediaItem.php:735
+#: src/Process/Backend/MediaItem.php:729
 msgid "For this folder only"
 msgstr "Sólo para esta carpeta"
 
-#: src/Process/Backend/MediaItem.php:747
+#: src/Process/Backend/MediaItem.php:741
 msgid "Settings exist for this folder:"
 msgstr "Existen ajustes para esta carpeta:"
 
-#: src/Process/Backend/MediaItem.php:748
+#: src/Process/Backend/MediaItem.php:742
 msgid "Remove them"
 msgstr "Eliminarlos"
 
-#: src/Process/Backend/MediaItem.php:758 src/Process/Backend/MediaItem.php:760
+#: src/Process/Backend/MediaItem.php:752 src/Process/Backend/MediaItem.php:754
 msgid "Insert media item"
 msgstr "Insertar medio"
 
-#: src/Process/Backend/MediaItem.php:845
+#: src/Process/Backend/MediaItem.php:839
 msgid "Available sizes:"
 msgstr "Tamaños disponibles:"
 
-#: src/Process/Backend/MediaItem.php:870 src/Process/Backend/MediaItem.php:944
-#: src/Process/Backend/MediaItem.php:952 src/Process/Backend/MediaItem.php:963
+#: src/Process/Backend/MediaItem.php:864 src/Process/Backend/MediaItem.php:938
+#: src/Process/Backend/MediaItem.php:946 src/Process/Backend/MediaItem.php:957
 msgid "Image width:"
 msgstr "Anchura de la imagen:"
 
-#: src/Process/Backend/MediaItem.php:876 src/Process/Backend/MediaItem.php:969
+#: src/Process/Backend/MediaItem.php:870 src/Process/Backend/MediaItem.php:963
 msgid "Image height:"
 msgstr "Altura de la imagen:"
 
-#: src/Process/Backend/MediaItem.php:884 src/Process/Backend/MediaItem.php:979
+#: src/Process/Backend/MediaItem.php:878 src/Process/Backend/MediaItem.php:973
 msgid "File size:"
 msgstr "Tamaño del archivo:"
 
-#: src/Process/Backend/MediaItem.php:892 src/Process/Backend/MediaItem.php:985
+#: src/Process/Backend/MediaItem.php:886 src/Process/Backend/MediaItem.php:979
 msgid "File URL:"
 msgstr "URL del archivo:"
 
-#: src/Process/Backend/MediaItem.php:900
+#: src/Process/Backend/MediaItem.php:894
 msgid "Thumbnail details"
 msgstr "Detalles en miniatura"
 
-#: src/Process/Backend/MediaItem.php:923
+#: src/Process/Backend/MediaItem.php:917
 msgid "File owner:"
 msgstr "Propietario del archivo:"
 
-#: src/Process/Backend/MediaItem.php:929
+#: src/Process/Backend/MediaItem.php:923
 msgid "File type:"
 msgstr "Tipo de archivo:"
 
-#: src/Process/Backend/MediaItem.php:996
+#: src/Process/Backend/MediaItem.php:990
 msgid "Show entries containing this media"
 msgstr "Mostrar entradas conteniendo este medio"
 
-#: src/Process/Backend/MediaItem.php:1038
+#: src/Process/Backend/MediaItem.php:1032
 msgid "No entry seems contain this media."
 msgstr "Ninguna entrada parece contener este medio."
 
-#: src/Process/Backend/MediaItem.php:1068
+#: src/Process/Backend/MediaItem.php:1062
 msgid "Inside the entry"
 msgstr "Dentro de la entrada"
 
-#: src/Process/Backend/MediaItem.php:1075
+#: src/Process/Backend/MediaItem.php:1069
 msgid "Linked to entry"
 msgstr "Vinculado a la entrada"
 
-#: src/Process/Backend/MediaItem.php:1083
+#: src/Process/Backend/MediaItem.php:1077
 msgid "Entries containing this media"
 msgstr "Entradas que contienen este medio"
 
-#: src/Process/Backend/MediaItem.php:1117
+#: src/Process/Backend/MediaItem.php:1111
 msgid ":"
 msgstr ":"
 
-#: src/Process/Backend/MediaItem.php:1127
+#: src/Process/Backend/MediaItem.php:1121
 msgid "Metadata"
 msgstr "Metadatos"
 
-#: src/Process/Backend/MediaItem.php:1139
-#: src/Process/Backend/MediaItem.php:1341
-#: src/Process/Backend/MediaItem.php:1350
+#: src/Process/Backend/MediaItem.php:1133
+#: src/Process/Backend/MediaItem.php:1335
+#: src/Process/Backend/MediaItem.php:1344
 msgid "Media details"
 msgstr "Detalles del medio"
 
-#: src/Process/Backend/MediaItem.php:1157
-#: src/Process/Backend/MediaItem.php:1164
+#: src/Process/Backend/MediaItem.php:1151
+#: src/Process/Backend/MediaItem.php:1158
 msgid "Update thumbnails"
 msgstr "Actualizar vistas previas"
 
-#: src/Process/Backend/MediaItem.php:1159
+#: src/Process/Backend/MediaItem.php:1153
 msgid "This will create or update thumbnails for this image."
 msgstr "Esto creará o actualizará la vista previa para esta imagen."
 
-#: src/Process/Backend/MediaItem.php:1173
-#: src/Process/Backend/MediaItem.php:1188
+#: src/Process/Backend/MediaItem.php:1167
+#: src/Process/Backend/MediaItem.php:1182
 msgid "Extract in a new directory"
 msgstr "Extraer en un nuevo directorio"
 
-#: src/Process/Backend/MediaItem.php:1174
-#: src/Process/Backend/MediaItem.php:1194
+#: src/Process/Backend/MediaItem.php:1168
+#: src/Process/Backend/MediaItem.php:1188
 msgid "Extract in current directory"
 msgstr "Extraer en el directorio actual"
 
-#: src/Process/Backend/MediaItem.php:1182
+#: src/Process/Backend/MediaItem.php:1176
 msgid "Extract archive"
 msgstr "Extraer archivo"
 
-#: src/Process/Backend/MediaItem.php:1189
+#: src/Process/Backend/MediaItem.php:1183
 msgid "This will extract archive in a new directory that should not exist yet."
 msgstr "Esto extraerá el archivo en un nuevo directorio que aún no debería existir."
 
-#: src/Process/Backend/MediaItem.php:1195
+#: src/Process/Backend/MediaItem.php:1189
 msgid "This will extract archive in current directory and will overwrite existing files or directory."
 msgstr "Esto extraerá el archivo en el directorio actual y sobrescribirá archivos o directorios existentes."
 
-#: src/Process/Backend/MediaItem.php:1203
+#: src/Process/Backend/MediaItem.php:1197
 msgid "Extract mode:"
 msgstr "Modo de extracción:"
 
-#: src/Process/Backend/MediaItem.php:1204
+#: src/Process/Backend/MediaItem.php:1198
 msgid "Extract"
 msgstr "Extracto"
 
-#: src/Process/Backend/MediaItem.php:1216
+#: src/Process/Backend/MediaItem.php:1210
 msgid "Change media properties"
 msgstr "Cambiar las propiedades del medio"
 
-#: src/Process/Backend/MediaItem.php:1225
+#: src/Process/Backend/MediaItem.php:1219
 msgid "File name:"
 msgstr "Nombre del archivo:"
 
-#: src/Process/Backend/MediaItem.php:1258
+#: src/Process/Backend/MediaItem.php:1252
 msgid "File date:"
 msgstr "Fecha del archivo:"
 
-#: src/Process/Backend/MediaItem.php:1271
+#: src/Process/Backend/MediaItem.php:1265
 msgid "New directory:"
 msgstr "Nuevo directorio:"
 
-#: src/Process/Backend/MediaItem.php:1286
+#: src/Process/Backend/MediaItem.php:1280
 msgid "Change file"
 msgstr "Cambiar el archivo"
 
-#: src/Process/Backend/MediaItem.php:1295
+#: src/Process/Backend/MediaItem.php:1289
 msgid "Choose a file:"
 msgstr "Elegir archivo:"
 
-#: src/Process/Backend/MediaItem.php:1295
+#: src/Process/Backend/MediaItem.php:1289
 #, php-format
 msgid "Maximum size %s"
 msgstr "Tamaño máximo %s"
 
-#: src/Process/Backend/MediaItem.php:1313
+#: src/Process/Backend/MediaItem.php:1307
 msgid "Delete this media"
 msgstr "Borrar este medio"
 
-#: src/Process/Backend/MediaItem.php:1332
+#: src/Process/Backend/MediaItem.php:1326
 msgid "Updates and modifications"
 msgstr "Actualizaciones y modificaciones"
 
@@ -5063,7 +5063,7 @@ msgstr "Siguiente publicación"
 msgid "Previous post"
 msgstr "Publicación anterior"
 
-#: src/Process/Backend/Post.php:292 src/Process/Backend/Post.php:605
+#: src/Process/Backend/Post.php:292 src/Process/Backend/Post.php:614
 msgid "All pings sent."
 msgstr "Todos los pings han sido enviados."
 
@@ -5076,21 +5076,21 @@ msgstr "Fecha de publicación no válida"
 msgid "The post \"%s\" has been successfully updated"
 msgstr "El post \"%s\" ha sido actualizado correctamente"
 
-#: src/Process/Backend/Post.php:592
+#: src/Process/Backend/Post.php:503
+msgid "Don't forget to validate your XHTML conversion by saving your post."
+msgstr "No olvide validar su conversión XHTML guardando su entrada."
+
+#: src/Process/Backend/Post.php:601
 msgid "Entry has been successfully updated."
 msgstr "Entrada actualizada con éxito."
 
-#: src/Process/Backend/Post.php:596
+#: src/Process/Backend/Post.php:605
 msgid "File has been successfully attached."
 msgstr "Archivo adjuntado con éxito."
 
-#: src/Process/Backend/Post.php:598 src/Process/Backend/PostMedia.php:89
+#: src/Process/Backend/Post.php:607 src/Process/Backend/PostMedia.php:89
 msgid "Attachment has been successfully removed."
 msgstr "Archivo adjunto quitado con éxito."
-
-#: src/Process/Backend/Post.php:614
-msgid "Don't forget to validate your XHTML conversion by saving your post."
-msgstr "No olvide validar su conversión XHTML guardando su entrada."
 
 #: src/Process/Backend/Post.php:624
 msgid "Go to this entry on the site"

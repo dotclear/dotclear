@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-14 13:18+0200\n"
-"PO-Revision-Date: 2025-08-14 11:29\n"
+"POT-Creation-Date: 2025-08-18 12:11+0200\n"
+"PO-Revision-Date: 2025-08-18 10:29\n"
 "Last-Translator: \n"
 "Language-Team: Bengali\n"
 "Language: bn_BD\n"
@@ -40,7 +40,7 @@ msgstr "Progname"
 #: src/Core/Backend/Action/ActionsPosts.php:73
 #: src/Core/Backend/Favorites.php:416 src/Core/Backend/Menus.php:168
 #: src/Core/Backend/UserPref.php:41 src/Core/Backend/UserPref.php:178
-#: src/Process/Backend/Post.php:567 src/Process/Backend/Post.php:582
+#: src/Process/Backend/Post.php:576 src/Process/Backend/Post.php:591
 #: src/Process/Backend/Posts.php:94 src/Process/Backend/Posts.php:99
 msgid "Posts"
 msgstr "পোস্টগুলো"
@@ -94,7 +94,7 @@ msgstr "এই চাবি ডাটাবেসে নেই."
 #: src/Core/Backend/Combos.php:256 src/Core/Backend/Listing/ListingPosts.php:78
 #: src/Core/Backend/Listing/ListingPostsMini.php:63
 #: src/Core/Backend/UserPref.php:205 src/Process/Backend/Home.php:594
-#: src/Process/Backend/MediaItem.php:1093 src/Process/Backend/Post.php:836
+#: src/Process/Backend/MediaItem.php:1087 src/Process/Backend/Post.php:836
 msgid "Title"
 msgstr "টাইটেল"
 
@@ -388,7 +388,7 @@ msgstr "পোস্টের জন্য একটি নতুন বিভ�
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:370
 #: src/Process/Backend/Home.php:598 src/Process/Backend/Home.php:632
-#: src/Process/Backend/Media.php:763 src/Process/Backend/MediaItem.php:1233
+#: src/Process/Backend/Media.php:763 src/Process/Backend/MediaItem.php:1227
 #: src/Process/Backend/Post.php:738 src/Process/Backend/Post.php:841
 msgid "Title:"
 msgstr "টাইটেল:"
@@ -406,7 +406,7 @@ msgstr "প্যারেন্ট:"
 #: src/Process/Backend/Category.php:298 src/Process/Backend/Category.php:337
 #: src/Process/Backend/Category.php:373 src/Process/Backend/Comment.php:350
 #: src/Process/Backend/Home.php:649 src/Process/Backend/Home.php:703
-#: src/Process/Backend/MediaItem.php:1273 src/Process/Backend/Post.php:925
+#: src/Process/Backend/MediaItem.php:1267 src/Process/Backend/Post.php:925
 #: src/Process/Backend/Post.php:1139 src/Process/Backend/User.php:536
 #: src/Process/Backend/UsersActions.php:513 src/Process/Install/Install.php:479
 msgid "Save"
@@ -771,36 +771,36 @@ msgstr "বন্ধ করা হয়েছে"
 msgid "Trackbacks:"
 msgstr "ট্র্যাকব্যাক:"
 
-#: src/Core/Backend/Filter/Filters.php:357
+#: src/Core/Backend/Filter/Filters.php:359
 msgid "Filters"
 msgstr "ফিল্টার"
 
-#: src/Core/Backend/Filter/Filters.php:370
+#: src/Core/Backend/Filter/Filters.php:372
 msgid "Order by:"
 msgstr "অর্ডার:"
 
-#: src/Core/Backend/Filter/Filters.php:380
+#: src/Core/Backend/Filter/Filters.php:382
 msgid "Sort:"
 msgstr "সড়ক:"
 
-#: src/Core/Backend/Filter/Filters.php:391
+#: src/Core/Backend/Filter/Filters.php:393
 #: src/Process/Backend/UserPreferences.php:803
 msgid "Show"
 msgstr "দেখাও"
 
-#: src/Core/Backend/Filter/Filters.php:405
+#: src/Core/Backend/Filter/Filters.php:407
 msgid "Save current options"
 msgstr "বর্তমান অপশন সংরক্ষণ করুন"
 
-#: src/Core/Backend/Filter/Filters.php:414
+#: src/Core/Backend/Filter/Filters.php:416
 msgid "Display options"
 msgstr "ডিসপ্লে অপশন"
 
-#: src/Core/Backend/Filter/Filters.php:423 src/Core/Backend/Page.php:1469
+#: src/Core/Backend/Filter/Filters.php:425 src/Core/Backend/Page.php:1469
 msgid "Show filters and display options"
 msgstr "ফিল্টার ও ডিসপ্লে অপশন প্রদর্শন করা হবে"
 
-#: src/Core/Backend/Filter/Filters.php:433
+#: src/Core/Backend/Filter/Filters.php:435
 msgid "Apply filters and display options"
 msgstr "ফিল্টার ও ডিসপ্লে অপশন প্রয়োগ করো"
 
@@ -1477,7 +1477,7 @@ msgstr "\"%s\" কনফিগার করুন"
 #: src/Core/Backend/ModulesList.php:1966 src/Process/Backend/Blog.php:197
 #: src/Process/Backend/BlogDel.php:138 src/Process/Backend/BlogPref.php:1182
 #: src/Process/Backend/Category.php:301 src/Process/Backend/Comment.php:352
-#: src/Process/Backend/Media.php:857 src/Process/Backend/MediaItem.php:1359
+#: src/Process/Backend/Media.php:857 src/Process/Backend/MediaItem.php:1353
 #: src/Process/Backend/Post.php:950 src/Process/Backend/Search.php:197
 #: src/Process/Backend/User.php:547 src/Process/Backend/UserPreferences.php:731
 #: src/Process/Backend/UserPreferences.php:1122
@@ -1636,7 +1636,7 @@ msgid "Invert selection"
 msgstr "Select-action"
 
 #: src/Core/Backend/Page.php:1264 src/Process/Backend/Post.php:466
-#: src/Process/Backend/Post.php:594
+#: src/Process/Backend/Post.php:603
 msgid "Entry has been successfully created."
 msgstr "এন্ট্রি সফলভাবে তৈরি করা হয়েছে."
 
@@ -1862,8 +1862,8 @@ msgid "Choose files"
 msgstr "ফাইল নির্বাচন করুন"
 
 #: src/Core/Backend/Page.php:1423 src/Process/Backend/LinkPopup.php:113
-#: src/Process/Backend/Media.php:293 src/Process/Backend/MediaItem.php:512
-#: src/Process/Backend/MediaItem.php:771 src/Process/Backend/Post.php:956
+#: src/Process/Backend/Media.php:293 src/Process/Backend/MediaItem.php:509
+#: src/Process/Backend/MediaItem.php:765 src/Process/Backend/Post.php:956
 #: src/Process/Backend/PostMedia.php:113
 msgid "Cancel"
 msgstr "বাতিল"
@@ -2231,31 +2231,31 @@ msgstr "আপনি একটি লেখকের নাম প্রদা�
 msgid "Email address is not valid."
 msgstr "ই-মেইল ঠিকানা বৈধ নয়."
 
-#: src/Core/BlogSettings.php:103
+#: src/Core/BlogSettings.php:105
 msgid "Unable to retrieve namespaces:"
 msgstr "Namespaces পুনরুদ্ধার করতে ব্যর্থ:"
 
-#: src/Core/BlogSettings.php:138
+#: src/Core/BlogSettings.php:140
 #, php-format
 msgid "Invalid setting namespace: %s"
 msgstr "অকার্যকর সেটিং namespace: %s"
 
-#: src/Core/BlogWorkspace.php:91
+#: src/Core/BlogWorkspace.php:93
 #, php-format
 msgid "Invalid setting dcNamespace: %s"
 msgstr "অকার্যকর সেটিং dcNamespace: %s"
 
-#: src/Core/BlogWorkspace.php:137
+#: src/Core/BlogWorkspace.php:139
 msgid "Unable to retrieve settings:"
 msgstr "সেটিংস উদ্ধার করা যায়নি:"
 
-#: src/Core/BlogWorkspace.php:229 src/Core/BlogWorkspace.php:327
+#: src/Core/BlogWorkspace.php:231 src/Core/BlogWorkspace.php:329
 #, php-format
 msgid "%s is not a valid setting id"
 msgstr "%s একটি বৈধ সেটিং ID নয়"
 
-#: src/Core/BlogWorkspace.php:319 src/Core/BlogWorkspace.php:359
-#: src/Core/BlogWorkspace.php:382 src/Core/BlogWorkspace.php:402
+#: src/Core/BlogWorkspace.php:321 src/Core/BlogWorkspace.php:361
+#: src/Core/BlogWorkspace.php:384 src/Core/BlogWorkspace.php:404
 msgid "No namespace specified"
 msgstr "কোন নেম-স্পেস উল্লিখিত হয়নি"
 
@@ -2592,31 +2592,31 @@ msgstr "রিপ্লে"
 msgid "On this page, you can try to replay update action from a given version if some files remain from last update."
 msgstr "এই পৃষ্ঠায়, যদি সর্বশেষ আপডেট থেকে কিছু ফাইল থেকে যায় তবে আপনি প্রদত্ত সংস্করণ থেকে আপডেট ক্রিয়াটি পুনরায় প্লে করার চেষ্টা করতে পারেন।"
 
-#: src/Core/UserPreferences.php:70
+#: src/Core/UserPreferences.php:72
 msgid "Unable to retrieve workspaces:"
 msgstr "ওয়ার্কস্পেস উদ্ধার করতে ব্যর্থ:"
 
-#: src/Core/UserPreferences.php:144
+#: src/Core/UserPreferences.php:146
 #, php-format
 msgid "Invalid UserWorkspace: %s"
 msgstr "অকার্যকর UserWorkspace: %s"
 
-#: src/Core/UserWorkspace.php:85
+#: src/Core/UserWorkspace.php:87
 #, php-format
 msgid "Invalid dcWorkspace: %s"
 msgstr "অকার্যকর dcWorkspace: %s"
 
-#: src/Core/UserWorkspace.php:91
+#: src/Core/UserWorkspace.php:93
 msgid "Unable to retrieve prefs:"
 msgstr "প্রাপ্য উদ্ধার করা যায়নি:"
 
-#: src/Core/UserWorkspace.php:223 src/Core/UserWorkspace.php:321
+#: src/Core/UserWorkspace.php:225 src/Core/UserWorkspace.php:323
 #, php-format
 msgid "%s is not a valid pref id"
 msgstr "%s একটি বৈধ প্রিফ আইডি নয়"
 
-#: src/Core/UserWorkspace.php:313 src/Core/UserWorkspace.php:348
-#: src/Core/UserWorkspace.php:381 src/Core/UserWorkspace.php:411
+#: src/Core/UserWorkspace.php:315 src/Core/UserWorkspace.php:350
+#: src/Core/UserWorkspace.php:383 src/Core/UserWorkspace.php:413
 msgid "No workspace specified"
 msgstr "কোন ওয়ার্কস্পেস উল্লিখিত হয়নি"
 
@@ -3365,7 +3365,7 @@ msgid "P"
 msgstr "পি."
 
 #: src/Process/Backend/BlogPref.php:167 src/Process/Backend/BlogPref.php:1264
-#: src/Process/Backend/MediaItem.php:609 src/Process/Backend/MediaItem.php:614
+#: src/Process/Backend/MediaItem.php:603 src/Process/Backend/MediaItem.php:608
 msgid "(none)"
 msgstr "(কোনটাই)"
 
@@ -3385,33 +3385,33 @@ msgstr "বর্ণনা, দেশ, তারিখ"
 msgid "Description, City, Country, Date"
 msgstr "বর্ণনা, শহর, দেশ, তারিখ"
 
-#: src/Process/Backend/BlogPref.php:201 src/Process/Backend/MediaItem.php:486
-#: src/Process/Backend/MediaItem.php:583 src/Process/Backend/MediaItem.php:852
+#: src/Process/Backend/BlogPref.php:201 src/Process/Backend/MediaItem.php:483
+#: src/Process/Backend/MediaItem.php:577 src/Process/Backend/MediaItem.php:846
 msgid "original"
 msgstr "আসল"
 
 #: src/Process/Backend/BlogPref.php:212 src/Process/Backend/BlogPref.php:222
-#: src/Process/Backend/MediaItem.php:546 src/Process/Backend/MediaItem.php:602
+#: src/Process/Backend/MediaItem.php:540 src/Process/Backend/MediaItem.php:596
 msgid "None"
 msgstr "কোনটাই নয়"
 
-#: src/Process/Backend/BlogPref.php:213 src/Process/Backend/MediaItem.php:547
+#: src/Process/Backend/BlogPref.php:213 src/Process/Backend/MediaItem.php:541
 msgid "Left"
 msgstr "বামে"
 
-#: src/Process/Backend/BlogPref.php:214 src/Process/Backend/MediaItem.php:548
+#: src/Process/Backend/BlogPref.php:214 src/Process/Backend/MediaItem.php:542
 msgid "Right"
 msgstr "ডানে"
 
-#: src/Process/Backend/BlogPref.php:215 src/Process/Backend/MediaItem.php:549
+#: src/Process/Backend/BlogPref.php:215 src/Process/Backend/MediaItem.php:543
 msgid "Center"
 msgstr "মাঝে"
 
-#: src/Process/Backend/BlogPref.php:220 src/Process/Backend/MediaItem.php:595
+#: src/Process/Backend/BlogPref.php:220 src/Process/Backend/MediaItem.php:589
 msgid "Legend and alternate text"
 msgstr "কিংবদন্তি এবং বিকল্প পাঠ্য"
 
-#: src/Process/Backend/BlogPref.php:221 src/Process/Backend/MediaItem.php:599
+#: src/Process/Backend/BlogPref.php:221 src/Process/Backend/MediaItem.php:593
 msgid "Alternate text"
 msgstr "বিকল্প লেখা"
 
@@ -4107,7 +4107,7 @@ msgstr "নাম:"
 msgid "Warning: If you set the URL manually, it may conflict with another category."
 msgstr "মনে রাখুন: আপনি যদি নিজে URL সেট করে দেন, তাহলে সেটা অন্য ক্যাটাগরির সাথে সমস্যা হতে পারে।"
 
-#: src/Process/Backend/Category.php:293 src/Process/Backend/MediaItem.php:1251
+#: src/Process/Backend/Category.php:293 src/Process/Backend/MediaItem.php:1245
 msgid "Description:"
 msgstr "বিবরণ:"
 
@@ -4143,7 +4143,7 @@ msgstr "এই ক্যাটাগরিকে সরিয়ে নিন"
 msgid "Entry does not exist."
 msgstr "এই এন্ট্রিটি নেই।"
 
-#: src/Process/Backend/Comment.php:109 src/Process/Backend/Post.php:602
+#: src/Process/Backend/Comment.php:109 src/Process/Backend/Post.php:611
 msgid "Comment has been successfully created."
 msgstr "মন্তব্য সফলভাবে তৈরি করা হয়েছে."
 
@@ -4493,7 +4493,7 @@ msgstr "লিঙ্ক শিরোনাম:"
 msgid "Link language:"
 msgstr "লিংক ভাষা:"
 
-#: src/Process/Backend/LinkPopup.php:115 src/Process/Backend/MediaItem.php:769
+#: src/Process/Backend/LinkPopup.php:115 src/Process/Backend/MediaItem.php:763
 msgid "Insert"
 msgstr "লাগান"
 
@@ -4666,7 +4666,7 @@ msgstr "অনুগ্রহ করে প্রচার মাধ্যমক
 msgid "Maximum file size allowed:"
 msgstr "সর্বোচ্চ ফাইল মাপ অনুমোদিত:"
 
-#: src/Process/Backend/Media.php:770 src/Process/Backend/MediaItem.php:1264
+#: src/Process/Backend/Media.php:770 src/Process/Backend/MediaItem.php:1258
 msgid "Private"
 msgstr "প্রাইভেট"
 
@@ -4721,247 +4721,247 @@ msgstr "এই ফোল্ডারের জন্য মিডিয়া ই�
 msgid "Media insertion settings have been successfully removed for this folder."
 msgstr "এই ফোল্ডারের জন্য মিডিয়া ইনসার্শন সেটিংস সফলভাবে মুছে ফেলা হয়েছে."
 
-#: src/Process/Backend/MediaItem.php:480 src/Process/Backend/MediaItem.php:577
+#: src/Process/Backend/MediaItem.php:477 src/Process/Backend/MediaItem.php:571
 msgid "Image size:"
 msgstr "ইমেজ সাইজ:"
 
-#: src/Process/Backend/MediaItem.php:499 src/Process/Backend/MediaItem.php:501
+#: src/Process/Backend/MediaItem.php:496 src/Process/Backend/MediaItem.php:498
 msgid "Select media item"
 msgstr "মিডিয়া আইটেম নির্বাচন করুন"
 
-#: src/Process/Backend/MediaItem.php:510 src/Process/Upgrade/Attic.php:313
+#: src/Process/Backend/MediaItem.php:507 src/Process/Upgrade/Attic.php:313
 msgid "Select"
 msgstr "নির্বাচন করুন"
 
-#: src/Process/Backend/MediaItem.php:589
+#: src/Process/Backend/MediaItem.php:583
 msgid "Image legend and alternate text"
 msgstr "চিত্রের কিংবদন্তি এবং বিকল্প পাঠ্য"
 
-#: src/Process/Backend/MediaItem.php:606 src/Process/Backend/MediaItem.php:1102
-#: src/Process/Backend/MediaItem.php:1242
+#: src/Process/Backend/MediaItem.php:600 src/Process/Backend/MediaItem.php:1096
+#: src/Process/Backend/MediaItem.php:1236
 msgid "Alternate text:"
 msgstr "বিকল্প পাঠ্য:"
 
-#: src/Process/Backend/MediaItem.php:611
+#: src/Process/Backend/MediaItem.php:605
 msgid "Legend:"
 msgstr "কিংবদন্তি:"
 
-#: src/Process/Backend/MediaItem.php:620
+#: src/Process/Backend/MediaItem.php:614
 msgid "Image alignment"
 msgstr "ছবির অ্যালগমেন্ট"
 
-#: src/Process/Backend/MediaItem.php:627
+#: src/Process/Backend/MediaItem.php:621
 msgid "Image insertion"
 msgstr "ছবি নেয়া"
 
-#: src/Process/Backend/MediaItem.php:632
+#: src/Process/Backend/MediaItem.php:626
 msgid "As a single image"
 msgstr "একক ছবি হিসেবে"
 
-#: src/Process/Backend/MediaItem.php:635
+#: src/Process/Backend/MediaItem.php:629
 msgid "As a link to the original image"
 msgstr "মূল ছবির লিংক হিসেবে"
 
-#: src/Process/Backend/MediaItem.php:652
+#: src/Process/Backend/MediaItem.php:646
 msgid "MP3 disposition"
 msgstr "MP3 disposition"
 
-#: src/Process/Backend/MediaItem.php:661
+#: src/Process/Backend/MediaItem.php:655
 msgid "Please note that you cannot insert mp3 files with standard editor in WYSIWYG HTML mode."
 msgstr "দয়া করে মনে রাখবেন যে আপনি WYSIWYG HTML মোডে স্ট্যান্ডার্ড এডিটরের সাথে mp3 ফাইল সন্নিবেশ করতে পারবেন না।"
 
-#: src/Process/Backend/MediaItem.php:677
+#: src/Process/Backend/MediaItem.php:671
 msgid "Video size"
 msgstr "ভিডিও সাইজ"
 
-#: src/Process/Backend/MediaItem.php:681
+#: src/Process/Backend/MediaItem.php:675
 msgid "Width:"
 msgstr "দৈর্ঘ্য:"
 
-#: src/Process/Backend/MediaItem.php:686
+#: src/Process/Backend/MediaItem.php:680
 msgid "Height:"
 msgstr "প্রস্থ:"
 
-#: src/Process/Backend/MediaItem.php:690
+#: src/Process/Backend/MediaItem.php:684
 msgid "A value of 0 means that the corresponding size is not included when inserting a video."
 msgstr "০ মান মানে হল ভিডিও সন্নিবেশ করার সময় সংশ্লিষ্ট আকার অন্তর্ভুক্ত করা হয় না।"
 
-#: src/Process/Backend/MediaItem.php:695
+#: src/Process/Backend/MediaItem.php:689
 msgid "Video disposition"
 msgstr "ভিডিও ডিসপজিশন"
 
-#: src/Process/Backend/MediaItem.php:705
+#: src/Process/Backend/MediaItem.php:699
 msgid "Please note that you cannot insert video files with standard editor in WYSIWYG HTML mode."
 msgstr "দয়া করে মনে রাখবেন যে আপনি WYSIWYG HTML মোডে স্ট্যান্ডার্ড সম্পাদক সহ ভিডিও ফাইলগুলি সন্নিবেশ করতে পারবেন না।"
 
-#: src/Process/Backend/MediaItem.php:711
+#: src/Process/Backend/MediaItem.php:705
 msgid "Media item will be inserted as a link."
 msgstr "মিডিয়া আইটেমটি লিংক হিসেবে লাগানো হবে।"
 
-#: src/Process/Backend/MediaItem.php:732
+#: src/Process/Backend/MediaItem.php:726
 msgid "Make current settings as default"
 msgstr "বর্তমান বৈশিষ্ট্যাবলী ডিফল্ট হিসেবে তৈরি করো"
 
-#: src/Process/Backend/MediaItem.php:733
+#: src/Process/Backend/MediaItem.php:727
 msgid "For the blog"
 msgstr "ব্লগের জন্য"
 
-#: src/Process/Backend/MediaItem.php:735
+#: src/Process/Backend/MediaItem.php:729
 msgid "For this folder only"
 msgstr "শুধুমাত্র এই ফোল্ডারের জন্য"
 
-#: src/Process/Backend/MediaItem.php:747
+#: src/Process/Backend/MediaItem.php:741
 msgid "Settings exist for this folder:"
 msgstr "এই ফোল্ডারের জন্য বৈশিষ্ট্য বিদ্যমান:"
 
-#: src/Process/Backend/MediaItem.php:748
+#: src/Process/Backend/MediaItem.php:742
 msgid "Remove them"
 msgstr "তাদের অপসারণ করো"
 
-#: src/Process/Backend/MediaItem.php:758 src/Process/Backend/MediaItem.php:760
+#: src/Process/Backend/MediaItem.php:752 src/Process/Backend/MediaItem.php:754
 msgid "Insert media item"
 msgstr "মিডিয়া আইটেম লাগান"
 
-#: src/Process/Backend/MediaItem.php:845
+#: src/Process/Backend/MediaItem.php:839
 msgid "Available sizes:"
 msgstr "বিদ্যমান মাপ:"
 
-#: src/Process/Backend/MediaItem.php:870 src/Process/Backend/MediaItem.php:944
-#: src/Process/Backend/MediaItem.php:952 src/Process/Backend/MediaItem.php:963
+#: src/Process/Backend/MediaItem.php:864 src/Process/Backend/MediaItem.php:938
+#: src/Process/Backend/MediaItem.php:946 src/Process/Backend/MediaItem.php:957
 msgid "Image width:"
 msgstr "ছবির প্রস্থ:"
 
-#: src/Process/Backend/MediaItem.php:876 src/Process/Backend/MediaItem.php:969
+#: src/Process/Backend/MediaItem.php:870 src/Process/Backend/MediaItem.php:963
 msgid "Image height:"
 msgstr "ছবির উচ্চতা:"
 
-#: src/Process/Backend/MediaItem.php:884 src/Process/Backend/MediaItem.php:979
+#: src/Process/Backend/MediaItem.php:878 src/Process/Backend/MediaItem.php:973
 msgid "File size:"
 msgstr "ফাইল সাইজ:"
 
-#: src/Process/Backend/MediaItem.php:892 src/Process/Backend/MediaItem.php:985
+#: src/Process/Backend/MediaItem.php:886 src/Process/Backend/MediaItem.php:979
 msgid "File URL:"
 msgstr "ফাইল URL:"
 
-#: src/Process/Backend/MediaItem.php:900
+#: src/Process/Backend/MediaItem.php:894
 msgid "Thumbnail details"
 msgstr "থাম্বনেইল বিবরণ"
 
-#: src/Process/Backend/MediaItem.php:923
+#: src/Process/Backend/MediaItem.php:917
 msgid "File owner:"
 msgstr "ফাইলের মালিক:"
 
-#: src/Process/Backend/MediaItem.php:929
+#: src/Process/Backend/MediaItem.php:923
 msgid "File type:"
 msgstr "ফাইলের ধরণ:"
 
-#: src/Process/Backend/MediaItem.php:996
+#: src/Process/Backend/MediaItem.php:990
 msgid "Show entries containing this media"
 msgstr "যেসব এন্ট্রিতে এই মিডিয়াটি আছে সেগুলো দেখাও"
 
-#: src/Process/Backend/MediaItem.php:1038
+#: src/Process/Backend/MediaItem.php:1032
 msgid "No entry seems contain this media."
 msgstr "এই মিডিয়াটি কোনো এন্ট্রিতে নেই।"
 
-#: src/Process/Backend/MediaItem.php:1068
+#: src/Process/Backend/MediaItem.php:1062
 msgid "Inside the entry"
 msgstr "প্রবেশের ভিতরে"
 
-#: src/Process/Backend/MediaItem.php:1075
+#: src/Process/Backend/MediaItem.php:1069
 msgid "Linked to entry"
 msgstr "এন্ট্রির সাথে লিঙ্ক করা হয়েছে"
 
-#: src/Process/Backend/MediaItem.php:1083
+#: src/Process/Backend/MediaItem.php:1077
 msgid "Entries containing this media"
 msgstr "যেসব এন্ট্রিতে এই মিডিয়া আছে"
 
-#: src/Process/Backend/MediaItem.php:1117
+#: src/Process/Backend/MediaItem.php:1111
 msgid ":"
 msgstr ":"
 
-#: src/Process/Backend/MediaItem.php:1127
+#: src/Process/Backend/MediaItem.php:1121
 msgid "Metadata"
 msgstr "মেটাডেটা"
 
-#: src/Process/Backend/MediaItem.php:1139
-#: src/Process/Backend/MediaItem.php:1341
-#: src/Process/Backend/MediaItem.php:1350
+#: src/Process/Backend/MediaItem.php:1133
+#: src/Process/Backend/MediaItem.php:1335
+#: src/Process/Backend/MediaItem.php:1344
 msgid "Media details"
 msgstr "মিডিয়ার বিবরণ"
 
-#: src/Process/Backend/MediaItem.php:1157
-#: src/Process/Backend/MediaItem.php:1164
+#: src/Process/Backend/MediaItem.php:1151
+#: src/Process/Backend/MediaItem.php:1158
 msgid "Update thumbnails"
 msgstr "আপডেট থাম্বনেইল"
 
-#: src/Process/Backend/MediaItem.php:1159
+#: src/Process/Backend/MediaItem.php:1153
 msgid "This will create or update thumbnails for this image."
 msgstr "এটি এই ছবির জন্য থাম্বনেইল তৈরি বা হালনাগাদ করা হবে."
 
-#: src/Process/Backend/MediaItem.php:1173
-#: src/Process/Backend/MediaItem.php:1188
+#: src/Process/Backend/MediaItem.php:1167
+#: src/Process/Backend/MediaItem.php:1182
 msgid "Extract in a new directory"
 msgstr "নতুন ডিরেক্টরিতে সম্প্রসারণ করা হবে"
 
-#: src/Process/Backend/MediaItem.php:1174
-#: src/Process/Backend/MediaItem.php:1194
+#: src/Process/Backend/MediaItem.php:1168
+#: src/Process/Backend/MediaItem.php:1188
 msgid "Extract in current directory"
 msgstr "বর্তমান ডিরেক্টরিতে সম্প্রসারণ করা হবে"
 
-#: src/Process/Backend/MediaItem.php:1182
+#: src/Process/Backend/MediaItem.php:1176
 msgid "Extract archive"
 msgstr "আর্কাইভ সম্প্রসারণ করা হবে"
 
-#: src/Process/Backend/MediaItem.php:1189
+#: src/Process/Backend/MediaItem.php:1183
 msgid "This will extract archive in a new directory that should not exist yet."
 msgstr "এটি একটি নতুন ডিরেক্টরিতে আর্কাইভ বের করবে যা এখনো বিদ্যমান নয়."
 
-#: src/Process/Backend/MediaItem.php:1195
+#: src/Process/Backend/MediaItem.php:1189
 msgid "This will extract archive in current directory and will overwrite existing files or directory."
 msgstr "এটি বর্তমান ডিরেক্টরিতে আর্কাইভ বের করবে এবং বিদ্যমান ফাইল অথবা ডিরেক্টরি লিখবে."
 
-#: src/Process/Backend/MediaItem.php:1203
+#: src/Process/Backend/MediaItem.php:1197
 msgid "Extract mode:"
 msgstr "সম্প্রসারণ মোড:"
 
-#: src/Process/Backend/MediaItem.php:1204
+#: src/Process/Backend/MediaItem.php:1198
 msgid "Extract"
 msgstr "সম্প্রসারণ"
 
-#: src/Process/Backend/MediaItem.php:1216
+#: src/Process/Backend/MediaItem.php:1210
 msgid "Change media properties"
 msgstr "মিডিয়া প্রোপার্টিজ পরিবর্তন"
 
-#: src/Process/Backend/MediaItem.php:1225
+#: src/Process/Backend/MediaItem.php:1219
 msgid "File name:"
 msgstr "ফাইলের নাম:"
 
-#: src/Process/Backend/MediaItem.php:1258
+#: src/Process/Backend/MediaItem.php:1252
 msgid "File date:"
 msgstr "ফাইলের তারিখ:"
 
-#: src/Process/Backend/MediaItem.php:1271
+#: src/Process/Backend/MediaItem.php:1265
 msgid "New directory:"
 msgstr "নতুন ডিরেক্টরি:"
 
-#: src/Process/Backend/MediaItem.php:1286
+#: src/Process/Backend/MediaItem.php:1280
 msgid "Change file"
 msgstr "ফাইল পরিবর্তন করুন"
 
-#: src/Process/Backend/MediaItem.php:1295
+#: src/Process/Backend/MediaItem.php:1289
 msgid "Choose a file:"
 msgstr "একটি ফাইল নির্বাচন করুন:"
 
-#: src/Process/Backend/MediaItem.php:1295
+#: src/Process/Backend/MediaItem.php:1289
 #, php-format
 msgid "Maximum size %s"
 msgstr "সর্বোচ্চ সাইজ %s"
 
-#: src/Process/Backend/MediaItem.php:1313
+#: src/Process/Backend/MediaItem.php:1307
 msgid "Delete this media"
 msgstr "এই মিডিয়া মুছে ফেলুন"
 
-#: src/Process/Backend/MediaItem.php:1332
+#: src/Process/Backend/MediaItem.php:1326
 msgid "Updates and modifications"
 msgstr "আপডেট ও পরিবর্তন"
 
@@ -5063,7 +5063,7 @@ msgstr "পরবর্তী পোস্ট"
 msgid "Previous post"
 msgstr "পূর্ববর্তী পোস্ট"
 
-#: src/Process/Backend/Post.php:292 src/Process/Backend/Post.php:605
+#: src/Process/Backend/Post.php:292 src/Process/Backend/Post.php:614
 msgid "All pings sent."
 msgstr "সব পিংস পাঠানো হয়েছে."
 
@@ -5076,21 +5076,21 @@ msgstr "অবৈধ প্রকাশনা তারিখ"
 msgid "The post \"%s\" has been successfully updated"
 msgstr "\"%s\" পোস্টটি সফলভাবে আপডেট করা হয়েছে"
 
-#: src/Process/Backend/Post.php:592
+#: src/Process/Backend/Post.php:503
+msgid "Don't forget to validate your XHTML conversion by saving your post."
+msgstr "আপনার পোস্ট সংরক্ষণ করে আপনার XHTML রূপান্তর বৈধতা দিতে ভুলবেন না."
+
+#: src/Process/Backend/Post.php:601
 msgid "Entry has been successfully updated."
 msgstr "এন্ট্রি সফলভাবে হালনাগাদ করা হয়েছে."
 
-#: src/Process/Backend/Post.php:596
+#: src/Process/Backend/Post.php:605
 msgid "File has been successfully attached."
 msgstr "ফাইল সফলভাবে সংযুক্ত করা হয়েছে."
 
-#: src/Process/Backend/Post.php:598 src/Process/Backend/PostMedia.php:89
+#: src/Process/Backend/Post.php:607 src/Process/Backend/PostMedia.php:89
 msgid "Attachment has been successfully removed."
 msgstr "সংযুক্তি সফলভাবে অপসারণ করা হয়েছে."
-
-#: src/Process/Backend/Post.php:614
-msgid "Don't forget to validate your XHTML conversion by saving your post."
-msgstr "আপনার পোস্ট সংরক্ষণ করে আপনার XHTML রূপান্তর বৈধতা দিতে ভুলবেন না."
 
 #: src/Process/Backend/Post.php:624
 msgid "Go to this entry on the site"

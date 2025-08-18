@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-13 15:06+0200\n"
-"PO-Revision-Date: 2025-08-13 13:21\n"
+"POT-Creation-Date: 2025-08-18 12:26+0200\n"
+"PO-Revision-Date: 2025-08-18 11:02\n"
 "Last-Translator: \n"
 "Language-Team: Japanese\n"
 "Language: ja_JP\n"
@@ -2405,7 +2405,7 @@ msgid "%d pages"
 msgstr "%d ページ"
 
 #: plugins/pages/src/Backend.php:108 plugins/pages/src/Manage.php:148
-#: plugins/pages/src/ManagePage.php:107 plugins/pages/src/ManagePage.php:854
+#: plugins/pages/src/ManagePage.php:107 plugins/pages/src/ManagePage.php:855
 msgid "New page"
 msgstr "新しいページ"
 
@@ -2482,56 +2482,56 @@ msgstr "ページの順序を保存"
 msgid "This page does not exist."
 msgstr "このページは存在しません。"
 
-#: plugins/pages/src/ManagePage.php:188 plugins/pages/src/ManagePage.php:854
-#: plugins/pages/src/ManagePage.php:875
+#: plugins/pages/src/ManagePage.php:188 plugins/pages/src/ManagePage.php:855
+#: plugins/pages/src/ManagePage.php:876
 msgid "Edit page"
 msgstr "ページの編集"
 
-#: plugins/pages/src/ManagePage.php:488
-msgid "Are you sure you want to delete this page?"
-msgstr "本当に、このページを削除してもよろしいですか？"
-
-#: plugins/pages/src/ManagePage.php:516
-msgid "Page has been successfully updated."
-msgstr "ページは正常に更新されました。"
-
-#: plugins/pages/src/ManagePage.php:518
-msgid "Page has been successfully created."
-msgstr "ページは正常に作成されました。"
-
-#: plugins/pages/src/ManagePage.php:531
+#: plugins/pages/src/ManagePage.php:433
 msgid "Don't forget to validate your HTML conversion by saving your post."
 msgstr "投稿を保存してHTML変換を検証することを忘れないでください。"
 
-#: plugins/pages/src/ManagePage.php:541
+#: plugins/pages/src/ManagePage.php:497
+msgid "Are you sure you want to delete this page?"
+msgstr "本当に、このページを削除してもよろしいですか？"
+
+#: plugins/pages/src/ManagePage.php:526
+msgid "Page has been successfully updated."
+msgstr "ページは正常に更新されました。"
+
+#: plugins/pages/src/ManagePage.php:528
+msgid "Page has been successfully created."
+msgstr "ページは正常に作成されました。"
+
+#: plugins/pages/src/ManagePage.php:542
 msgid "Go to this page on the site"
 msgstr "サイトのこのページに移動"
 
-#: plugins/pages/src/ManagePage.php:583
+#: plugins/pages/src/ManagePage.php:584
 msgid "Page status"
 msgstr "ページの状態："
 
-#: plugins/pages/src/ManagePage.php:600
+#: plugins/pages/src/ManagePage.php:601
 msgid "Page language"
 msgstr "ページ言語"
 
-#: plugins/pages/src/ManagePage.php:629 plugins/pages/src/Widgets.php:41
+#: plugins/pages/src/ManagePage.php:630 plugins/pages/src/Widgets.php:41
 msgid "Page position"
 msgstr "ページの位置"
 
-#: plugins/pages/src/ManagePage.php:680
+#: plugins/pages/src/ManagePage.php:681
 msgid "Hide in widget Pages"
 msgstr "ウィジェットページで非表示"
 
-#: plugins/pages/src/ManagePage.php:706
+#: plugins/pages/src/ManagePage.php:707
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "警告： URLを手作業で設定した場合、別のページと衝突する可能性があります。"
 
-#: plugins/pages/src/ManagePage.php:745
+#: plugins/pages/src/ManagePage.php:746
 msgid "Introduction to the page."
 msgstr "ページの紹介"
 
-#: plugins/pages/src/ManagePage.php:1124
+#: plugins/pages/src/ManagePage.php:1125
 msgid "Select this comment"
 msgstr "このコメントを選択"
 
@@ -2957,8 +2957,8 @@ msgid "themeEditor"
 msgstr "themeEditor"
 
 #: plugins/themeEditor/src/BackendBehaviors.php:45
-#: plugins/themeEditor/src/Manage.php:190
-#: plugins/themeEditor/src/Manage.php:197
+#: plugins/themeEditor/src/Manage.php:194
+#: plugins/themeEditor/src/Manage.php:201
 msgid "Edit theme files"
 msgstr "テーマファイルを編集"
 
@@ -2994,114 +2994,118 @@ msgstr "アップデートのロックを解除"
 msgid "Lock theme update disables theme update, but allows theme files to be modified."
 msgstr "テーマ更新のロックはテーマ更新を無効にしますが、テーマファイルの変更は許可します。"
 
-#: plugins/themeEditor/src/Manage.php:178
+#: plugins/themeEditor/src/Manage.php:174
+msgid "The theme editor is in development mode, theme files will be overwritten!"
+msgstr "テーマエディターは開発モードになっており、テーマファイルは上書きされます！"
+
+#: plugins/themeEditor/src/Manage.php:182
 msgid "Saving document..."
 msgstr "ドキュメントの保存中..."
 
-#: plugins/themeEditor/src/Manage.php:179
+#: plugins/themeEditor/src/Manage.php:183
 msgid "Document saved"
 msgstr "ドキュメントは保存されました"
 
-#: plugins/themeEditor/src/Manage.php:180
+#: plugins/themeEditor/src/Manage.php:184
 msgid "An error occurred:"
 msgstr "エラーが発生しました："
 
-#: plugins/themeEditor/src/Manage.php:181
+#: plugins/themeEditor/src/Manage.php:185
 msgid "Are you sure you want to reset this file?"
 msgstr "このファイルをリセットしてもよろしいですか？"
 
-#: plugins/themeEditor/src/Manage.php:205
+#: plugins/themeEditor/src/Manage.php:209
 #, php-format
 msgid "Your current theme on this blog is \"%s\"."
 msgstr "このブログの現在のテーマは \"%s\" です。"
 
-#: plugins/themeEditor/src/Manage.php:215
+#: plugins/themeEditor/src/Manage.php:219
 msgid "Please select a file to edit."
 msgstr "編集したいファイルを選択してください。"
 
-#: plugins/themeEditor/src/Manage.php:226
+#: plugins/themeEditor/src/Manage.php:230
 msgid "File editor"
 msgstr "ファイルエディタ"
 
-#: plugins/themeEditor/src/Manage.php:235
+#: plugins/themeEditor/src/Manage.php:239
 #, php-format
 msgid "Editing file %s"
 msgstr "ファイル %s の編集"
 
-#: plugins/themeEditor/src/Manage.php:245
+#: plugins/themeEditor/src/Manage.php:249
 msgid "Reset"
 msgstr "Reset"
 
-#: plugins/themeEditor/src/Manage.php:252
+#: plugins/themeEditor/src/Manage.php:256
 msgid "If you use <code>url(...)</code> in your CSS files, be sure to use <code>url(index.php?tf=...)</code> to correctly load theme resources (imported CSS, images, etc.), except for URL types in the form <code>data:image</code>.<br>Example: do <code>@import url(index.php?tf=css/layout.css);</code> instead of <code>@import url(css/layout.css);</code>."
 msgstr "CSS ファイルで <code>url(...)</code> を使用する場合は、<code>data:image</code> 形式の URL タイプを除き、テーマ リソース (インポートされた CSS、画像など) を正しく読み込むために必ず <code>url(index.php?tf=...)</code> を使用してください。<br>例: <code>@import url(css/layout.css);</code> ではなく、<code>@import url(index.php?tf=css/layout.css);</code> を使用します。"
 
-#: plugins/themeEditor/src/Manage.php:257
+#: plugins/themeEditor/src/Manage.php:261
 msgid "This file is not overloadable. Please check your var folder permissions."
 msgstr "このファイルはオーバーロードできません。var フォルダのパーミッションを確認してください。"
 
-#: plugins/themeEditor/src/Manage.php:260
+#: plugins/themeEditor/src/Manage.php:264
 msgid "This theme is too old to be modified. Please check if an update is available."
 msgstr "このテーマは古すぎて修正できません。アップデートがあるかどうかご確認ください。"
 
-#: plugins/themeEditor/src/Manage.php:279
+#: plugins/themeEditor/src/Manage.php:283
 msgid "Templates files"
 msgstr "テンプレートファイル"
 
-#: plugins/themeEditor/src/Manage.php:284
+#: plugins/themeEditor/src/Manage.php:288
 msgid "CSS files"
 msgstr "CSSファイル"
 
-#: plugins/themeEditor/src/Manage.php:289
+#: plugins/themeEditor/src/Manage.php:293
 msgid "JavaScript files"
 msgstr "JavaScriptファイル"
 
-#: plugins/themeEditor/src/Manage.php:294
+#: plugins/themeEditor/src/Manage.php:298
 msgid "Locales files"
 msgstr "ロケールファイル"
 
-#: plugins/themeEditor/src/Manage.php:299
+#: plugins/themeEditor/src/Manage.php:303
 msgid "PHP files"
 msgstr "PHPファイル"
 
-#: plugins/themeEditor/src/ThemeEditor.php:159
+#: plugins/themeEditor/src/ThemeEditor.php:183
 msgid "No file"
 msgstr "ファイルはありません"
 
-#: plugins/themeEditor/src/ThemeEditor.php:189
+#: plugins/themeEditor/src/ThemeEditor.php:213
 msgid "Customized:"
 msgstr "カスタマイズされた："
 
-#: plugins/themeEditor/src/ThemeEditor.php:197
-#: plugins/themeEditor/src/ThemeEditor.php:203
+#: plugins/themeEditor/src/ThemeEditor.php:221
+#: plugins/themeEditor/src/ThemeEditor.php:227
 msgid "From theme:"
 msgstr "テーマから:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:214
+#: plugins/themeEditor/src/ThemeEditor.php:238
 msgid "From parent:"
 msgstr "親から:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:224
+#: plugins/themeEditor/src/ThemeEditor.php:248
 msgid "From template set:"
 msgstr "テンプレートセットから:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:252
-#: plugins/themeEditor/src/ThemeEditor.php:289
-#: plugins/themeEditor/src/ThemeEditor.php:361
+#: plugins/themeEditor/src/ThemeEditor.php:276
+#: plugins/themeEditor/src/ThemeEditor.php:313
+#: plugins/themeEditor/src/ThemeEditor.php:390
 msgid "File does not exist."
 msgstr "ファイルが存在しません。"
 
-#: plugins/themeEditor/src/ThemeEditor.php:257
+#: plugins/themeEditor/src/ThemeEditor.php:281
 #, php-format
 msgid "File %s is not readable"
 msgstr "ファイル %s は読み込み可能ではありません"
 
-#: plugins/themeEditor/src/ThemeEditor.php:326
+#: plugins/themeEditor/src/ThemeEditor.php:350
 #, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr "ファイル %s に書き込むことができません。 テーマのファイルとフォルダのパーミッションを確認してください。"
 
-#: plugins/themeEditor/src/ThemeEditor.php:397
+#: plugins/themeEditor/src/ThemeEditor.php:428
 #, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "ファイルを削除できません %s.テーマのファイルとフォルダのパーミッションを確認してください。"

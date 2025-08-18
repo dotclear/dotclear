@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-14 13:18+0200\n"
-"PO-Revision-Date: 2025-08-14 11:29\n"
+"POT-Creation-Date: 2025-08-18 12:11+0200\n"
+"PO-Revision-Date: 2025-08-18 10:28\n"
 "Last-Translator: \n"
 "Language-Team: Danish\n"
 "Language: da_DK\n"
@@ -40,7 +40,7 @@ msgstr "firkant"
 #: src/Core/Backend/Action/ActionsPosts.php:73
 #: src/Core/Backend/Favorites.php:416 src/Core/Backend/Menus.php:168
 #: src/Core/Backend/UserPref.php:41 src/Core/Backend/UserPref.php:178
-#: src/Process/Backend/Post.php:567 src/Process/Backend/Post.php:582
+#: src/Process/Backend/Post.php:576 src/Process/Backend/Post.php:591
 #: src/Process/Backend/Posts.php:94 src/Process/Backend/Posts.php:99
 msgid "Posts"
 msgstr "Indlæg"
@@ -94,7 +94,7 @@ msgstr "Denne nøgle findes ikke i databasen."
 #: src/Core/Backend/Combos.php:256 src/Core/Backend/Listing/ListingPosts.php:78
 #: src/Core/Backend/Listing/ListingPostsMini.php:63
 #: src/Core/Backend/UserPref.php:205 src/Process/Backend/Home.php:594
-#: src/Process/Backend/MediaItem.php:1093 src/Process/Backend/Post.php:836
+#: src/Process/Backend/MediaItem.php:1087 src/Process/Backend/Post.php:836
 msgid "Title"
 msgstr "Titel"
 
@@ -388,7 +388,7 @@ msgstr "Opret en ny kategori for indlæggene"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:370
 #: src/Process/Backend/Home.php:598 src/Process/Backend/Home.php:632
-#: src/Process/Backend/Media.php:763 src/Process/Backend/MediaItem.php:1233
+#: src/Process/Backend/Media.php:763 src/Process/Backend/MediaItem.php:1227
 #: src/Process/Backend/Post.php:738 src/Process/Backend/Post.php:841
 msgid "Title:"
 msgstr "Titel:"
@@ -406,7 +406,7 @@ msgstr "Forælder:"
 #: src/Process/Backend/Category.php:298 src/Process/Backend/Category.php:337
 #: src/Process/Backend/Category.php:373 src/Process/Backend/Comment.php:350
 #: src/Process/Backend/Home.php:649 src/Process/Backend/Home.php:703
-#: src/Process/Backend/MediaItem.php:1273 src/Process/Backend/Post.php:925
+#: src/Process/Backend/MediaItem.php:1267 src/Process/Backend/Post.php:925
 #: src/Process/Backend/Post.php:1139 src/Process/Backend/User.php:536
 #: src/Process/Backend/UsersActions.php:513 src/Process/Install/Install.php:479
 msgid "Save"
@@ -771,36 +771,36 @@ msgstr "Lukket"
 msgid "Trackbacks:"
 msgstr "Trackbacks:"
 
-#: src/Core/Backend/Filter/Filters.php:357
+#: src/Core/Backend/Filter/Filters.php:359
 msgid "Filters"
 msgstr "Filtre"
 
-#: src/Core/Backend/Filter/Filters.php:370
+#: src/Core/Backend/Filter/Filters.php:372
 msgid "Order by:"
 msgstr "Sorter via:"
 
-#: src/Core/Backend/Filter/Filters.php:380
+#: src/Core/Backend/Filter/Filters.php:382
 msgid "Sort:"
 msgstr "Sorter:"
 
-#: src/Core/Backend/Filter/Filters.php:391
+#: src/Core/Backend/Filter/Filters.php:393
 #: src/Process/Backend/UserPreferences.php:803
 msgid "Show"
 msgstr "Vis"
 
-#: src/Core/Backend/Filter/Filters.php:405
+#: src/Core/Backend/Filter/Filters.php:407
 msgid "Save current options"
 msgstr "Gem aktuelle indstillinger"
 
-#: src/Core/Backend/Filter/Filters.php:414
+#: src/Core/Backend/Filter/Filters.php:416
 msgid "Display options"
 msgstr "Indstillinger for visning"
 
-#: src/Core/Backend/Filter/Filters.php:423 src/Core/Backend/Page.php:1469
+#: src/Core/Backend/Filter/Filters.php:425 src/Core/Backend/Page.php:1469
 msgid "Show filters and display options"
 msgstr "Vis filtre og visningsindstillinger"
 
-#: src/Core/Backend/Filter/Filters.php:433
+#: src/Core/Backend/Filter/Filters.php:435
 msgid "Apply filters and display options"
 msgstr "Anvend filtre og visningsindstillinger"
 
@@ -1477,7 +1477,7 @@ msgstr "Konfigurer \"%s\""
 #: src/Core/Backend/ModulesList.php:1966 src/Process/Backend/Blog.php:197
 #: src/Process/Backend/BlogDel.php:138 src/Process/Backend/BlogPref.php:1182
 #: src/Process/Backend/Category.php:301 src/Process/Backend/Comment.php:352
-#: src/Process/Backend/Media.php:857 src/Process/Backend/MediaItem.php:1359
+#: src/Process/Backend/Media.php:857 src/Process/Backend/MediaItem.php:1353
 #: src/Process/Backend/Post.php:950 src/Process/Backend/Search.php:197
 #: src/Process/Backend/User.php:547 src/Process/Backend/UserPreferences.php:731
 #: src/Process/Backend/UserPreferences.php:1122
@@ -1636,7 +1636,7 @@ msgid "Invert selection"
 msgstr "Invertér valg"
 
 #: src/Core/Backend/Page.php:1264 src/Process/Backend/Post.php:466
-#: src/Process/Backend/Post.php:594
+#: src/Process/Backend/Post.php:603
 msgid "Entry has been successfully created."
 msgstr "Posten er blevet oprettet."
 
@@ -1862,8 +1862,8 @@ msgid "Choose files"
 msgstr "Vælg filer"
 
 #: src/Core/Backend/Page.php:1423 src/Process/Backend/LinkPopup.php:113
-#: src/Process/Backend/Media.php:293 src/Process/Backend/MediaItem.php:512
-#: src/Process/Backend/MediaItem.php:771 src/Process/Backend/Post.php:956
+#: src/Process/Backend/Media.php:293 src/Process/Backend/MediaItem.php:509
+#: src/Process/Backend/MediaItem.php:765 src/Process/Backend/Post.php:956
 #: src/Process/Backend/PostMedia.php:113
 msgid "Cancel"
 msgstr "Annuller"
@@ -2231,31 +2231,31 @@ msgstr "Du skal angive et forfatternavn"
 msgid "Email address is not valid."
 msgstr "E-mailadressen er ikke gyldig."
 
-#: src/Core/BlogSettings.php:103
+#: src/Core/BlogSettings.php:105
 msgid "Unable to retrieve namespaces:"
 msgstr "Kan ikke hente navneområder:"
 
-#: src/Core/BlogSettings.php:138
+#: src/Core/BlogSettings.php:140
 #, php-format
 msgid "Invalid setting namespace: %s"
 msgstr "Ugyldig indstillings navnerum: %s"
 
-#: src/Core/BlogWorkspace.php:91
+#: src/Core/BlogWorkspace.php:93
 #, php-format
 msgid "Invalid setting dcNamespace: %s"
 msgstr "Ugyldig indstilling dcNamespace: %s"
 
-#: src/Core/BlogWorkspace.php:137
+#: src/Core/BlogWorkspace.php:139
 msgid "Unable to retrieve settings:"
 msgstr "Kan ikke hente indstillinger:"
 
-#: src/Core/BlogWorkspace.php:229 src/Core/BlogWorkspace.php:327
+#: src/Core/BlogWorkspace.php:231 src/Core/BlogWorkspace.php:329
 #, php-format
 msgid "%s is not a valid setting id"
 msgstr "%s er ikke et gyldigt indstillings-id"
 
-#: src/Core/BlogWorkspace.php:319 src/Core/BlogWorkspace.php:359
-#: src/Core/BlogWorkspace.php:382 src/Core/BlogWorkspace.php:402
+#: src/Core/BlogWorkspace.php:321 src/Core/BlogWorkspace.php:361
+#: src/Core/BlogWorkspace.php:384 src/Core/BlogWorkspace.php:404
 msgid "No namespace specified"
 msgstr "Intet navneområde angivet"
 
@@ -2592,31 +2592,31 @@ msgstr "Afspilning"
 msgid "On this page, you can try to replay update action from a given version if some files remain from last update."
 msgstr "På denne side kan du forsøge at gentage opdateringen fra en given version, hvis der er filer tilbage fra sidste opdatering."
 
-#: src/Core/UserPreferences.php:70
+#: src/Core/UserPreferences.php:72
 msgid "Unable to retrieve workspaces:"
 msgstr "Kan ikke hente arbejdsområder:"
 
-#: src/Core/UserPreferences.php:144
+#: src/Core/UserPreferences.php:146
 #, php-format
 msgid "Invalid UserWorkspace: %s"
 msgstr "Ugyldigt UserWorkspace: %s"
 
-#: src/Core/UserWorkspace.php:85
+#: src/Core/UserWorkspace.php:87
 #, php-format
 msgid "Invalid dcWorkspace: %s"
 msgstr "Ugyldigt dcWorkspace: %s"
 
-#: src/Core/UserWorkspace.php:91
+#: src/Core/UserWorkspace.php:93
 msgid "Unable to retrieve prefs:"
 msgstr "Kan ikke hente prefs:"
 
-#: src/Core/UserWorkspace.php:223 src/Core/UserWorkspace.php:321
+#: src/Core/UserWorkspace.php:225 src/Core/UserWorkspace.php:323
 #, php-format
 msgid "%s is not a valid pref id"
 msgstr "%s er ikke et gyldigt pref id"
 
-#: src/Core/UserWorkspace.php:313 src/Core/UserWorkspace.php:348
-#: src/Core/UserWorkspace.php:381 src/Core/UserWorkspace.php:411
+#: src/Core/UserWorkspace.php:315 src/Core/UserWorkspace.php:350
+#: src/Core/UserWorkspace.php:383 src/Core/UserWorkspace.php:413
 msgid "No workspace specified"
 msgstr "Intet arbejdsområde angivet"
 
@@ -3365,7 +3365,7 @@ msgid "P"
 msgstr "P"
 
 #: src/Process/Backend/BlogPref.php:167 src/Process/Backend/BlogPref.php:1264
-#: src/Process/Backend/MediaItem.php:609 src/Process/Backend/MediaItem.php:614
+#: src/Process/Backend/MediaItem.php:603 src/Process/Backend/MediaItem.php:608
 msgid "(none)"
 msgstr "(ingen)"
 
@@ -3385,33 +3385,33 @@ msgstr "Beskrivelse, land, dato"
 msgid "Description, City, Country, Date"
 msgstr "Beskrivelse, by, land, dato"
 
-#: src/Process/Backend/BlogPref.php:201 src/Process/Backend/MediaItem.php:486
-#: src/Process/Backend/MediaItem.php:583 src/Process/Backend/MediaItem.php:852
+#: src/Process/Backend/BlogPref.php:201 src/Process/Backend/MediaItem.php:483
+#: src/Process/Backend/MediaItem.php:577 src/Process/Backend/MediaItem.php:846
 msgid "original"
 msgstr "original"
 
 #: src/Process/Backend/BlogPref.php:212 src/Process/Backend/BlogPref.php:222
-#: src/Process/Backend/MediaItem.php:546 src/Process/Backend/MediaItem.php:602
+#: src/Process/Backend/MediaItem.php:540 src/Process/Backend/MediaItem.php:596
 msgid "None"
 msgstr "Ingen"
 
-#: src/Process/Backend/BlogPref.php:213 src/Process/Backend/MediaItem.php:547
+#: src/Process/Backend/BlogPref.php:213 src/Process/Backend/MediaItem.php:541
 msgid "Left"
 msgstr "Venstre"
 
-#: src/Process/Backend/BlogPref.php:214 src/Process/Backend/MediaItem.php:548
+#: src/Process/Backend/BlogPref.php:214 src/Process/Backend/MediaItem.php:542
 msgid "Right"
 msgstr "Højre"
 
-#: src/Process/Backend/BlogPref.php:215 src/Process/Backend/MediaItem.php:549
+#: src/Process/Backend/BlogPref.php:215 src/Process/Backend/MediaItem.php:543
 msgid "Center"
 msgstr "Centreret"
 
-#: src/Process/Backend/BlogPref.php:220 src/Process/Backend/MediaItem.php:595
+#: src/Process/Backend/BlogPref.php:220 src/Process/Backend/MediaItem.php:589
 msgid "Legend and alternate text"
 msgstr "Tegnforklaring og alternativ tekst"
 
-#: src/Process/Backend/BlogPref.php:221 src/Process/Backend/MediaItem.php:599
+#: src/Process/Backend/BlogPref.php:221 src/Process/Backend/MediaItem.php:593
 msgid "Alternate text"
 msgstr "Alternativ tekst"
 
@@ -4107,7 +4107,7 @@ msgstr "Navn:"
 msgid "Warning: If you set the URL manually, it may conflict with another category."
 msgstr "Advarsel: Hvis du sætter URL'en manuelt, giver det måske konflikter med andre kategorier."
 
-#: src/Process/Backend/Category.php:293 src/Process/Backend/MediaItem.php:1251
+#: src/Process/Backend/Category.php:293 src/Process/Backend/MediaItem.php:1245
 msgid "Description:"
 msgstr "Beskrivelse:"
 
@@ -4143,7 +4143,7 @@ msgstr "Flyte denne kategori"
 msgid "Entry does not exist."
 msgstr "Indlægget eksisterer ikke."
 
-#: src/Process/Backend/Comment.php:109 src/Process/Backend/Post.php:602
+#: src/Process/Backend/Comment.php:109 src/Process/Backend/Post.php:611
 msgid "Comment has been successfully created."
 msgstr "Kommentar er blevet oprettet."
 
@@ -4493,7 +4493,7 @@ msgstr "Link titel:"
 msgid "Link language:"
 msgstr "Link sprog:"
 
-#: src/Process/Backend/LinkPopup.php:115 src/Process/Backend/MediaItem.php:769
+#: src/Process/Backend/LinkPopup.php:115 src/Process/Backend/MediaItem.php:763
 msgid "Insert"
 msgstr "Insert"
 
@@ -4666,7 +4666,7 @@ msgstr "Vær forsigtig med at udgive medier, som du ejer, og som ikke er beskytt
 msgid "Maximum file size allowed:"
 msgstr "Maksimal filstørrelse tilladt:"
 
-#: src/Process/Backend/Media.php:770 src/Process/Backend/MediaItem.php:1264
+#: src/Process/Backend/Media.php:770 src/Process/Backend/MediaItem.php:1258
 msgid "Private"
 msgstr "Privat"
 
@@ -4721,247 +4721,247 @@ msgstr "Indstillinger for indsættelse af medier er blevet registreret for denne
 msgid "Media insertion settings have been successfully removed for this folder."
 msgstr "Medieindsættelsesindstillinger er blevet fjernet for denne mappe."
 
-#: src/Process/Backend/MediaItem.php:480 src/Process/Backend/MediaItem.php:577
+#: src/Process/Backend/MediaItem.php:477 src/Process/Backend/MediaItem.php:571
 msgid "Image size:"
 msgstr "Billedstørrelse:"
 
-#: src/Process/Backend/MediaItem.php:499 src/Process/Backend/MediaItem.php:501
+#: src/Process/Backend/MediaItem.php:496 src/Process/Backend/MediaItem.php:498
 msgid "Select media item"
 msgstr "Vælg medieelement"
 
-#: src/Process/Backend/MediaItem.php:510 src/Process/Upgrade/Attic.php:313
+#: src/Process/Backend/MediaItem.php:507 src/Process/Upgrade/Attic.php:313
 msgid "Select"
 msgstr "Vælg"
 
-#: src/Process/Backend/MediaItem.php:589
+#: src/Process/Backend/MediaItem.php:583
 msgid "Image legend and alternate text"
 msgstr "Billedforklaring og alternativ tekst"
 
-#: src/Process/Backend/MediaItem.php:606 src/Process/Backend/MediaItem.php:1102
-#: src/Process/Backend/MediaItem.php:1242
+#: src/Process/Backend/MediaItem.php:600 src/Process/Backend/MediaItem.php:1096
+#: src/Process/Backend/MediaItem.php:1236
 msgid "Alternate text:"
 msgstr "Alternativ tekst:"
 
-#: src/Process/Backend/MediaItem.php:611
+#: src/Process/Backend/MediaItem.php:605
 msgid "Legend:"
 msgstr "Forklaring:"
 
-#: src/Process/Backend/MediaItem.php:620
+#: src/Process/Backend/MediaItem.php:614
 msgid "Image alignment"
 msgstr "Billedjustering"
 
-#: src/Process/Backend/MediaItem.php:627
+#: src/Process/Backend/MediaItem.php:621
 msgid "Image insertion"
 msgstr "Indsættelse af billede"
 
-#: src/Process/Backend/MediaItem.php:632
+#: src/Process/Backend/MediaItem.php:626
 msgid "As a single image"
 msgstr "Som et enkelt billede"
 
-#: src/Process/Backend/MediaItem.php:635
+#: src/Process/Backend/MediaItem.php:629
 msgid "As a link to the original image"
 msgstr "Som et link til det oprindelige billede"
 
-#: src/Process/Backend/MediaItem.php:652
+#: src/Process/Backend/MediaItem.php:646
 msgid "MP3 disposition"
 msgstr "MP3-disposition"
 
-#: src/Process/Backend/MediaItem.php:661
+#: src/Process/Backend/MediaItem.php:655
 msgid "Please note that you cannot insert mp3 files with standard editor in WYSIWYG HTML mode."
 msgstr "Bemærk, at du ikke kan indsætte mp3-filer med standardeditoren i WYSIWYG HTML-tilstand."
 
-#: src/Process/Backend/MediaItem.php:677
+#: src/Process/Backend/MediaItem.php:671
 msgid "Video size"
 msgstr "Video størrelse"
 
-#: src/Process/Backend/MediaItem.php:681
+#: src/Process/Backend/MediaItem.php:675
 msgid "Width:"
 msgstr "Bredde:"
 
-#: src/Process/Backend/MediaItem.php:686
+#: src/Process/Backend/MediaItem.php:680
 msgid "Height:"
 msgstr "Højde:"
 
-#: src/Process/Backend/MediaItem.php:690
+#: src/Process/Backend/MediaItem.php:684
 msgid "A value of 0 means that the corresponding size is not included when inserting a video."
 msgstr "En værdi på 0 betyder, at den tilsvarende størrelse ikke medtages, når man indsætter en video."
 
-#: src/Process/Backend/MediaItem.php:695
+#: src/Process/Backend/MediaItem.php:689
 msgid "Video disposition"
 msgstr "Video disposition"
 
-#: src/Process/Backend/MediaItem.php:705
+#: src/Process/Backend/MediaItem.php:699
 msgid "Please note that you cannot insert video files with standard editor in WYSIWYG HTML mode."
 msgstr "Bemærk, at du ikke kan indsætte videofiler med standardeditoren i WYSIWYG HTML-tilstand."
 
-#: src/Process/Backend/MediaItem.php:711
+#: src/Process/Backend/MediaItem.php:705
 msgid "Media item will be inserted as a link."
 msgstr "Medie element vil blive indsat som et link."
 
-#: src/Process/Backend/MediaItem.php:732
+#: src/Process/Backend/MediaItem.php:726
 msgid "Make current settings as default"
 msgstr "Gør aktuelle indstillinger som standard"
 
-#: src/Process/Backend/MediaItem.php:733
+#: src/Process/Backend/MediaItem.php:727
 msgid "For the blog"
 msgstr "Til bloggen"
 
-#: src/Process/Backend/MediaItem.php:735
+#: src/Process/Backend/MediaItem.php:729
 msgid "For this folder only"
 msgstr "Kun for denne mappe"
 
-#: src/Process/Backend/MediaItem.php:747
+#: src/Process/Backend/MediaItem.php:741
 msgid "Settings exist for this folder:"
 msgstr "Indstillinger findes for denne mappe:"
 
-#: src/Process/Backend/MediaItem.php:748
+#: src/Process/Backend/MediaItem.php:742
 msgid "Remove them"
 msgstr "Fjern dem"
 
-#: src/Process/Backend/MediaItem.php:758 src/Process/Backend/MediaItem.php:760
+#: src/Process/Backend/MediaItem.php:752 src/Process/Backend/MediaItem.php:754
 msgid "Insert media item"
 msgstr "Indsæt medieelement"
 
-#: src/Process/Backend/MediaItem.php:845
+#: src/Process/Backend/MediaItem.php:839
 msgid "Available sizes:"
 msgstr "Tilgængelige størrelser:"
 
-#: src/Process/Backend/MediaItem.php:870 src/Process/Backend/MediaItem.php:944
-#: src/Process/Backend/MediaItem.php:952 src/Process/Backend/MediaItem.php:963
+#: src/Process/Backend/MediaItem.php:864 src/Process/Backend/MediaItem.php:938
+#: src/Process/Backend/MediaItem.php:946 src/Process/Backend/MediaItem.php:957
 msgid "Image width:"
 msgstr "Billedbredde:"
 
-#: src/Process/Backend/MediaItem.php:876 src/Process/Backend/MediaItem.php:969
+#: src/Process/Backend/MediaItem.php:870 src/Process/Backend/MediaItem.php:963
 msgid "Image height:"
 msgstr "Billede højde:"
 
-#: src/Process/Backend/MediaItem.php:884 src/Process/Backend/MediaItem.php:979
+#: src/Process/Backend/MediaItem.php:878 src/Process/Backend/MediaItem.php:973
 msgid "File size:"
 msgstr "Filstørrelse:"
 
-#: src/Process/Backend/MediaItem.php:892 src/Process/Backend/MediaItem.php:985
+#: src/Process/Backend/MediaItem.php:886 src/Process/Backend/MediaItem.php:979
 msgid "File URL:"
 msgstr "Fil URL:"
 
-#: src/Process/Backend/MediaItem.php:900
+#: src/Process/Backend/MediaItem.php:894
 msgid "Thumbnail details"
 msgstr "Thumbnail details"
 
-#: src/Process/Backend/MediaItem.php:923
+#: src/Process/Backend/MediaItem.php:917
 msgid "File owner:"
 msgstr "Filejer:"
 
-#: src/Process/Backend/MediaItem.php:929
+#: src/Process/Backend/MediaItem.php:923
 msgid "File type:"
 msgstr "Filtype:"
 
-#: src/Process/Backend/MediaItem.php:996
+#: src/Process/Backend/MediaItem.php:990
 msgid "Show entries containing this media"
 msgstr "Vis indgange der indeholder dette medie"
 
-#: src/Process/Backend/MediaItem.php:1038
+#: src/Process/Backend/MediaItem.php:1032
 msgid "No entry seems contain this media."
 msgstr "Ingen indgang synes at indeholde dette medie."
 
-#: src/Process/Backend/MediaItem.php:1068
+#: src/Process/Backend/MediaItem.php:1062
 msgid "Inside the entry"
 msgstr "Inde i indgangen"
 
-#: src/Process/Backend/MediaItem.php:1075
+#: src/Process/Backend/MediaItem.php:1069
 msgid "Linked to entry"
 msgstr "Linket til indgang"
 
-#: src/Process/Backend/MediaItem.php:1083
+#: src/Process/Backend/MediaItem.php:1077
 msgid "Entries containing this media"
 msgstr "Indgange der indeholder dette medie"
 
-#: src/Process/Backend/MediaItem.php:1117
+#: src/Process/Backend/MediaItem.php:1111
 msgid ":"
 msgstr ":"
 
-#: src/Process/Backend/MediaItem.php:1127
+#: src/Process/Backend/MediaItem.php:1121
 msgid "Metadata"
 msgstr "Metadata"
 
-#: src/Process/Backend/MediaItem.php:1139
-#: src/Process/Backend/MediaItem.php:1341
-#: src/Process/Backend/MediaItem.php:1350
+#: src/Process/Backend/MediaItem.php:1133
+#: src/Process/Backend/MediaItem.php:1335
+#: src/Process/Backend/MediaItem.php:1344
 msgid "Media details"
 msgstr "Medie detaljer"
 
-#: src/Process/Backend/MediaItem.php:1157
-#: src/Process/Backend/MediaItem.php:1164
+#: src/Process/Backend/MediaItem.php:1151
+#: src/Process/Backend/MediaItem.php:1158
 msgid "Update thumbnails"
 msgstr "Opdater miniaturer"
 
-#: src/Process/Backend/MediaItem.php:1159
+#: src/Process/Backend/MediaItem.php:1153
 msgid "This will create or update thumbnails for this image."
 msgstr "Dette vil oprette eller opdatere miniaturer for dette billede."
 
-#: src/Process/Backend/MediaItem.php:1173
-#: src/Process/Backend/MediaItem.php:1188
+#: src/Process/Backend/MediaItem.php:1167
+#: src/Process/Backend/MediaItem.php:1182
 msgid "Extract in a new directory"
 msgstr "Udpak i en ny mappe"
 
-#: src/Process/Backend/MediaItem.php:1174
-#: src/Process/Backend/MediaItem.php:1194
+#: src/Process/Backend/MediaItem.php:1168
+#: src/Process/Backend/MediaItem.php:1188
 msgid "Extract in current directory"
 msgstr "Udpak i nuværende mappe"
 
-#: src/Process/Backend/MediaItem.php:1182
+#: src/Process/Backend/MediaItem.php:1176
 msgid "Extract archive"
 msgstr "Udpak arkiv"
 
-#: src/Process/Backend/MediaItem.php:1189
+#: src/Process/Backend/MediaItem.php:1183
 msgid "This will extract archive in a new directory that should not exist yet."
 msgstr "Dette vil pakke arkivet ud i en ny mappe som ikke skulle eksistere endnu."
 
-#: src/Process/Backend/MediaItem.php:1195
+#: src/Process/Backend/MediaItem.php:1189
 msgid "This will extract archive in current directory and will overwrite existing files or directory."
 msgstr "Dette vil udpakke arkivet i den aktuelle mappe og overskrive eksisterende filer eller mappe."
 
-#: src/Process/Backend/MediaItem.php:1203
+#: src/Process/Backend/MediaItem.php:1197
 msgid "Extract mode:"
 msgstr "Udpak tilstand:"
 
-#: src/Process/Backend/MediaItem.php:1204
+#: src/Process/Backend/MediaItem.php:1198
 msgid "Extract"
 msgstr "Udpak"
 
-#: src/Process/Backend/MediaItem.php:1216
+#: src/Process/Backend/MediaItem.php:1210
 msgid "Change media properties"
 msgstr "Skift medie egenskaber"
 
-#: src/Process/Backend/MediaItem.php:1225
+#: src/Process/Backend/MediaItem.php:1219
 msgid "File name:"
 msgstr "Fil navn:"
 
-#: src/Process/Backend/MediaItem.php:1258
+#: src/Process/Backend/MediaItem.php:1252
 msgid "File date:"
 msgstr "Fil dato:"
 
-#: src/Process/Backend/MediaItem.php:1271
+#: src/Process/Backend/MediaItem.php:1265
 msgid "New directory:"
 msgstr "Ny mappe:"
 
-#: src/Process/Backend/MediaItem.php:1286
+#: src/Process/Backend/MediaItem.php:1280
 msgid "Change file"
 msgstr "Skift fil"
 
-#: src/Process/Backend/MediaItem.php:1295
+#: src/Process/Backend/MediaItem.php:1289
 msgid "Choose a file:"
 msgstr "Vælg en fil:"
 
-#: src/Process/Backend/MediaItem.php:1295
+#: src/Process/Backend/MediaItem.php:1289
 #, php-format
 msgid "Maximum size %s"
 msgstr "Maksimal størrelse %s"
 
-#: src/Process/Backend/MediaItem.php:1313
+#: src/Process/Backend/MediaItem.php:1307
 msgid "Delete this media"
 msgstr "Slet dette medie"
 
-#: src/Process/Backend/MediaItem.php:1332
+#: src/Process/Backend/MediaItem.php:1326
 msgid "Updates and modifications"
 msgstr "Opdateringer og ændringer"
 
@@ -5063,7 +5063,7 @@ msgstr "Næste indlæg"
 msgid "Previous post"
 msgstr "Tidligere indlæg"
 
-#: src/Process/Backend/Post.php:292 src/Process/Backend/Post.php:605
+#: src/Process/Backend/Post.php:292 src/Process/Backend/Post.php:614
 msgid "All pings sent."
 msgstr "Alle pings sendt."
 
@@ -5076,21 +5076,21 @@ msgstr "Ugyldig publiceringsdato"
 msgid "The post \"%s\" has been successfully updated"
 msgstr "Indlægget \"%s\" er blevet opdateret"
 
-#: src/Process/Backend/Post.php:592
+#: src/Process/Backend/Post.php:503
+msgid "Don't forget to validate your XHTML conversion by saving your post."
+msgstr "Glem ikke at validere din XHTML-konvertering ved at gemme dit indlæg."
+
+#: src/Process/Backend/Post.php:601
 msgid "Entry has been successfully updated."
 msgstr "Posten er blevet opdateret."
 
-#: src/Process/Backend/Post.php:596
+#: src/Process/Backend/Post.php:605
 msgid "File has been successfully attached."
 msgstr "Filen er blevet tilknyttet."
 
-#: src/Process/Backend/Post.php:598 src/Process/Backend/PostMedia.php:89
+#: src/Process/Backend/Post.php:607 src/Process/Backend/PostMedia.php:89
 msgid "Attachment has been successfully removed."
 msgstr "Vedhæftning er blevet fjernet."
-
-#: src/Process/Backend/Post.php:614
-msgid "Don't forget to validate your XHTML conversion by saving your post."
-msgstr "Glem ikke at validere din XHTML-konvertering ved at gemme dit indlæg."
 
 #: src/Process/Backend/Post.php:624
 msgid "Go to this entry on the site"

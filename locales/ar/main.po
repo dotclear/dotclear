@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-14 13:18+0200\n"
-"PO-Revision-Date: 2025-08-14 11:28\n"
+"POT-Creation-Date: 2025-08-18 12:11+0200\n"
+"PO-Revision-Date: 2025-08-18 10:28\n"
 "Last-Translator: \n"
 "Language-Team: Arabic\n"
 "Language: ar_SA\n"
@@ -40,7 +40,7 @@ msgstr "مربع"
 #: src/Core/Backend/Action/ActionsPosts.php:73
 #: src/Core/Backend/Favorites.php:416 src/Core/Backend/Menus.php:168
 #: src/Core/Backend/UserPref.php:41 src/Core/Backend/UserPref.php:178
-#: src/Process/Backend/Post.php:567 src/Process/Backend/Post.php:582
+#: src/Process/Backend/Post.php:576 src/Process/Backend/Post.php:591
 #: src/Process/Backend/Posts.php:94 src/Process/Backend/Posts.php:99
 msgid "Posts"
 msgstr "المشاركات"
@@ -94,7 +94,7 @@ msgstr "وهذا المفتاح غير موجود في قاعدة البيانا
 #: src/Core/Backend/Combos.php:256 src/Core/Backend/Listing/ListingPosts.php:78
 #: src/Core/Backend/Listing/ListingPostsMini.php:63
 #: src/Core/Backend/UserPref.php:205 src/Process/Backend/Home.php:594
-#: src/Process/Backend/MediaItem.php:1093 src/Process/Backend/Post.php:836
+#: src/Process/Backend/MediaItem.php:1087 src/Process/Backend/Post.php:836
 msgid "Title"
 msgstr "العنوان"
 
@@ -416,7 +416,7 @@ msgstr "إنشاء فئة جديدة للمنشور (المشاركات)"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:370
 #: src/Process/Backend/Home.php:598 src/Process/Backend/Home.php:632
-#: src/Process/Backend/Media.php:763 src/Process/Backend/MediaItem.php:1233
+#: src/Process/Backend/Media.php:763 src/Process/Backend/MediaItem.php:1227
 #: src/Process/Backend/Post.php:738 src/Process/Backend/Post.php:841
 msgid "Title:"
 msgstr "العنوان:"
@@ -434,7 +434,7 @@ msgstr "الأصل:"
 #: src/Process/Backend/Category.php:298 src/Process/Backend/Category.php:337
 #: src/Process/Backend/Category.php:373 src/Process/Backend/Comment.php:350
 #: src/Process/Backend/Home.php:649 src/Process/Backend/Home.php:703
-#: src/Process/Backend/MediaItem.php:1273 src/Process/Backend/Post.php:925
+#: src/Process/Backend/MediaItem.php:1267 src/Process/Backend/Post.php:925
 #: src/Process/Backend/Post.php:1139 src/Process/Backend/User.php:536
 #: src/Process/Backend/UsersActions.php:513 src/Process/Install/Install.php:479
 msgid "Save"
@@ -815,36 +815,36 @@ msgstr "مغلق"
 msgid "Trackbacks:"
 msgstr "المسار:"
 
-#: src/Core/Backend/Filter/Filters.php:357
+#: src/Core/Backend/Filter/Filters.php:359
 msgid "Filters"
 msgstr "فلاتر"
 
-#: src/Core/Backend/Filter/Filters.php:370
+#: src/Core/Backend/Filter/Filters.php:372
 msgid "Order by:"
 msgstr "ترتيب بواسطة:"
 
-#: src/Core/Backend/Filter/Filters.php:380
+#: src/Core/Backend/Filter/Filters.php:382
 msgid "Sort:"
 msgstr "الفرز:"
 
-#: src/Core/Backend/Filter/Filters.php:391
+#: src/Core/Backend/Filter/Filters.php:393
 #: src/Process/Backend/UserPreferences.php:803
 msgid "Show"
 msgstr "إظهار"
 
-#: src/Core/Backend/Filter/Filters.php:405
+#: src/Core/Backend/Filter/Filters.php:407
 msgid "Save current options"
 msgstr "حفظ الخيارات الحالية"
 
-#: src/Core/Backend/Filter/Filters.php:414
+#: src/Core/Backend/Filter/Filters.php:416
 msgid "Display options"
 msgstr "عرض الخيارات"
 
-#: src/Core/Backend/Filter/Filters.php:423 src/Core/Backend/Page.php:1469
+#: src/Core/Backend/Filter/Filters.php:425 src/Core/Backend/Page.php:1469
 msgid "Show filters and display options"
 msgstr "إظهار الفلاتر وخيارات العرض"
 
-#: src/Core/Backend/Filter/Filters.php:433
+#: src/Core/Backend/Filter/Filters.php:435
 msgid "Apply filters and display options"
 msgstr "تطبيق الفلاتر وخيارات العرض"
 
@@ -1569,7 +1569,7 @@ msgstr "تكوين \"%s\""
 #: src/Core/Backend/ModulesList.php:1966 src/Process/Backend/Blog.php:197
 #: src/Process/Backend/BlogDel.php:138 src/Process/Backend/BlogPref.php:1182
 #: src/Process/Backend/Category.php:301 src/Process/Backend/Comment.php:352
-#: src/Process/Backend/Media.php:857 src/Process/Backend/MediaItem.php:1359
+#: src/Process/Backend/Media.php:857 src/Process/Backend/MediaItem.php:1353
 #: src/Process/Backend/Post.php:950 src/Process/Backend/Search.php:197
 #: src/Process/Backend/User.php:547 src/Process/Backend/UserPreferences.php:731
 #: src/Process/Backend/UserPreferences.php:1122
@@ -1728,7 +1728,7 @@ msgid "Invert selection"
 msgstr "عكس التحديد"
 
 #: src/Core/Backend/Page.php:1264 src/Process/Backend/Post.php:466
-#: src/Process/Backend/Post.php:594
+#: src/Process/Backend/Post.php:603
 msgid "Entry has been successfully created."
 msgstr "تم إنشاء الإدخال بنجاح."
 
@@ -1954,8 +1954,8 @@ msgid "Choose files"
 msgstr "اختر الملفات"
 
 #: src/Core/Backend/Page.php:1423 src/Process/Backend/LinkPopup.php:113
-#: src/Process/Backend/Media.php:293 src/Process/Backend/MediaItem.php:512
-#: src/Process/Backend/MediaItem.php:771 src/Process/Backend/Post.php:956
+#: src/Process/Backend/Media.php:293 src/Process/Backend/MediaItem.php:509
+#: src/Process/Backend/MediaItem.php:765 src/Process/Backend/Post.php:956
 #: src/Process/Backend/PostMedia.php:113
 msgid "Cancel"
 msgstr "إلغاء"
@@ -2347,31 +2347,31 @@ msgstr "يجب عليك تقديم اسم المؤلف"
 msgid "Email address is not valid."
 msgstr "عنوان البريد الإلكتروني غير صالح."
 
-#: src/Core/BlogSettings.php:103
+#: src/Core/BlogSettings.php:105
 msgid "Unable to retrieve namespaces:"
 msgstr "غير قادر على استرداد فضاءات الأسماء:"
 
-#: src/Core/BlogSettings.php:138
+#: src/Core/BlogSettings.php:140
 #, php-format
 msgid "Invalid setting namespace: %s"
 msgstr "مساحة اسم الإعدادات غير صالحة: %s"
 
-#: src/Core/BlogWorkspace.php:91
+#: src/Core/BlogWorkspace.php:93
 #, php-format
 msgid "Invalid setting dcNamespace: %s"
 msgstr "إعداد dcNamespace: %s غير صالح"
 
-#: src/Core/BlogWorkspace.php:137
+#: src/Core/BlogWorkspace.php:139
 msgid "Unable to retrieve settings:"
 msgstr "غير قادر على استرداد الإعدادات:"
 
-#: src/Core/BlogWorkspace.php:229 src/Core/BlogWorkspace.php:327
+#: src/Core/BlogWorkspace.php:231 src/Core/BlogWorkspace.php:329
 #, php-format
 msgid "%s is not a valid setting id"
 msgstr "%s ليس معرف إعداد صالح"
 
-#: src/Core/BlogWorkspace.php:319 src/Core/BlogWorkspace.php:359
-#: src/Core/BlogWorkspace.php:382 src/Core/BlogWorkspace.php:402
+#: src/Core/BlogWorkspace.php:321 src/Core/BlogWorkspace.php:361
+#: src/Core/BlogWorkspace.php:384 src/Core/BlogWorkspace.php:404
 msgid "No namespace specified"
 msgstr "لا توجد مساحة أسماء محددة"
 
@@ -2708,31 +2708,31 @@ msgstr "اعادة تشغيل"
 msgid "On this page, you can try to replay update action from a given version if some files remain from last update."
 msgstr "في هذه الصفحة ، يمكنك محاولة اعادة تشغيل تصرف التعديل من نسخة محددة اذا ظلت بعض الملفات من آخر تعديل."
 
-#: src/Core/UserPreferences.php:70
+#: src/Core/UserPreferences.php:72
 msgid "Unable to retrieve workspaces:"
 msgstr "غير قادر على استرداد مساحات العمل:"
 
-#: src/Core/UserPreferences.php:144
+#: src/Core/UserPreferences.php:146
 #, php-format
 msgid "Invalid UserWorkspace: %s"
 msgstr "مساحة عمل المستخدم غير صالحة: %s"
 
-#: src/Core/UserWorkspace.php:85
+#: src/Core/UserWorkspace.php:87
 #, php-format
 msgid "Invalid dcWorkspace: %s"
 msgstr "مساحة عمل غير صالحة: %s"
 
-#: src/Core/UserWorkspace.php:91
+#: src/Core/UserWorkspace.php:93
 msgid "Unable to retrieve prefs:"
 msgstr "غير قادر على استرداد التفضيل:"
 
-#: src/Core/UserWorkspace.php:223 src/Core/UserWorkspace.php:321
+#: src/Core/UserWorkspace.php:225 src/Core/UserWorkspace.php:323
 #, php-format
 msgid "%s is not a valid pref id"
 msgstr "%s ليس معرف بادئة صالح"
 
-#: src/Core/UserWorkspace.php:313 src/Core/UserWorkspace.php:348
-#: src/Core/UserWorkspace.php:381 src/Core/UserWorkspace.php:411
+#: src/Core/UserWorkspace.php:315 src/Core/UserWorkspace.php:350
+#: src/Core/UserWorkspace.php:383 src/Core/UserWorkspace.php:413
 msgid "No workspace specified"
 msgstr "لا توجد مساحة عمل محددة"
 
@@ -3481,7 +3481,7 @@ msgid "P"
 msgstr "ب"
 
 #: src/Process/Backend/BlogPref.php:167 src/Process/Backend/BlogPref.php:1264
-#: src/Process/Backend/MediaItem.php:609 src/Process/Backend/MediaItem.php:614
+#: src/Process/Backend/MediaItem.php:603 src/Process/Backend/MediaItem.php:608
 msgid "(none)"
 msgstr "(لا شيء)"
 
@@ -3501,33 +3501,33 @@ msgstr "الوصف والبلد والتاريخ"
 msgid "Description, City, Country, Date"
 msgstr "الوصف, المدينة, البلد, التاريخ"
 
-#: src/Process/Backend/BlogPref.php:201 src/Process/Backend/MediaItem.php:486
-#: src/Process/Backend/MediaItem.php:583 src/Process/Backend/MediaItem.php:852
+#: src/Process/Backend/BlogPref.php:201 src/Process/Backend/MediaItem.php:483
+#: src/Process/Backend/MediaItem.php:577 src/Process/Backend/MediaItem.php:846
 msgid "original"
 msgstr "الأصلي"
 
 #: src/Process/Backend/BlogPref.php:212 src/Process/Backend/BlogPref.php:222
-#: src/Process/Backend/MediaItem.php:546 src/Process/Backend/MediaItem.php:602
+#: src/Process/Backend/MediaItem.php:540 src/Process/Backend/MediaItem.php:596
 msgid "None"
 msgstr "لا"
 
-#: src/Process/Backend/BlogPref.php:213 src/Process/Backend/MediaItem.php:547
+#: src/Process/Backend/BlogPref.php:213 src/Process/Backend/MediaItem.php:541
 msgid "Left"
 msgstr "اليسار"
 
-#: src/Process/Backend/BlogPref.php:214 src/Process/Backend/MediaItem.php:548
+#: src/Process/Backend/BlogPref.php:214 src/Process/Backend/MediaItem.php:542
 msgid "Right"
 msgstr "يمين"
 
-#: src/Process/Backend/BlogPref.php:215 src/Process/Backend/MediaItem.php:549
+#: src/Process/Backend/BlogPref.php:215 src/Process/Backend/MediaItem.php:543
 msgid "Center"
 msgstr "الوسط"
 
-#: src/Process/Backend/BlogPref.php:220 src/Process/Backend/MediaItem.php:595
+#: src/Process/Backend/BlogPref.php:220 src/Process/Backend/MediaItem.php:589
 msgid "Legend and alternate text"
 msgstr "الأسطورة والنص البديل"
 
-#: src/Process/Backend/BlogPref.php:221 src/Process/Backend/MediaItem.php:599
+#: src/Process/Backend/BlogPref.php:221 src/Process/Backend/MediaItem.php:593
 msgid "Alternate text"
 msgstr "نص بديل"
 
@@ -4227,7 +4227,7 @@ msgstr "الاسم:"
 msgid "Warning: If you set the URL manually, it may conflict with another category."
 msgstr "تحذير: إذا قمت بتعيين عنوان URL يدوياً، قد يتعارض مع فئة أخرى."
 
-#: src/Process/Backend/Category.php:293 src/Process/Backend/MediaItem.php:1251
+#: src/Process/Backend/Category.php:293 src/Process/Backend/MediaItem.php:1245
 msgid "Description:"
 msgstr "وصف:"
 
@@ -4263,7 +4263,7 @@ msgstr "نقل هذه الفئة"
 msgid "Entry does not exist."
 msgstr "الإدخال غير موجود."
 
-#: src/Process/Backend/Comment.php:109 src/Process/Backend/Post.php:602
+#: src/Process/Backend/Comment.php:109 src/Process/Backend/Post.php:611
 msgid "Comment has been successfully created."
 msgstr "تم إنشاء التعليق بنجاح."
 
@@ -4613,7 +4613,7 @@ msgstr "عنوان الرابط:"
 msgid "Link language:"
 msgstr "لغة الرابط:"
 
-#: src/Process/Backend/LinkPopup.php:115 src/Process/Backend/MediaItem.php:769
+#: src/Process/Backend/LinkPopup.php:115 src/Process/Backend/MediaItem.php:763
 msgid "Insert"
 msgstr "Insert"
 
@@ -4790,7 +4790,7 @@ msgstr "يرجى الاهتمام بنشر الوسائط التي تملكها 
 msgid "Maximum file size allowed:"
 msgstr "الحد الأقصى لحجم الملف المسموح به:"
 
-#: src/Process/Backend/Media.php:770 src/Process/Backend/MediaItem.php:1264
+#: src/Process/Backend/Media.php:770 src/Process/Backend/MediaItem.php:1258
 msgid "Private"
 msgstr "خاص"
 
@@ -4845,247 +4845,247 @@ msgstr "تم تسجيل إعدادات إدخال الوسائط بنجاح له
 msgid "Media insertion settings have been successfully removed for this folder."
 msgstr "تم بنجاح إزالة إعدادات إدخال الوسائط لهذا المجلد."
 
-#: src/Process/Backend/MediaItem.php:480 src/Process/Backend/MediaItem.php:577
+#: src/Process/Backend/MediaItem.php:477 src/Process/Backend/MediaItem.php:571
 msgid "Image size:"
 msgstr "حجم الصورة:"
 
-#: src/Process/Backend/MediaItem.php:499 src/Process/Backend/MediaItem.php:501
+#: src/Process/Backend/MediaItem.php:496 src/Process/Backend/MediaItem.php:498
 msgid "Select media item"
 msgstr "حدد عنصر الوسائط"
 
-#: src/Process/Backend/MediaItem.php:510 src/Process/Upgrade/Attic.php:313
+#: src/Process/Backend/MediaItem.php:507 src/Process/Upgrade/Attic.php:313
 msgid "Select"
 msgstr "حدد"
 
-#: src/Process/Backend/MediaItem.php:589
+#: src/Process/Backend/MediaItem.php:583
 msgid "Image legend and alternate text"
 msgstr "وسيلة ايضاح الصورة والنص البديل"
 
-#: src/Process/Backend/MediaItem.php:606 src/Process/Backend/MediaItem.php:1102
-#: src/Process/Backend/MediaItem.php:1242
+#: src/Process/Backend/MediaItem.php:600 src/Process/Backend/MediaItem.php:1096
+#: src/Process/Backend/MediaItem.php:1236
 msgid "Alternate text:"
 msgstr "النص البديل :"
 
-#: src/Process/Backend/MediaItem.php:611
+#: src/Process/Backend/MediaItem.php:605
 msgid "Legend:"
 msgstr "اسطوري:"
 
-#: src/Process/Backend/MediaItem.php:620
+#: src/Process/Backend/MediaItem.php:614
 msgid "Image alignment"
 msgstr "محاذاة الصورة"
 
-#: src/Process/Backend/MediaItem.php:627
+#: src/Process/Backend/MediaItem.php:621
 msgid "Image insertion"
 msgstr "إدراج صورة"
 
-#: src/Process/Backend/MediaItem.php:632
+#: src/Process/Backend/MediaItem.php:626
 msgid "As a single image"
 msgstr "كصورة واحدة"
 
-#: src/Process/Backend/MediaItem.php:635
+#: src/Process/Backend/MediaItem.php:629
 msgid "As a link to the original image"
 msgstr "كرابط للصورة الأصلية"
 
-#: src/Process/Backend/MediaItem.php:652
+#: src/Process/Backend/MediaItem.php:646
 msgid "MP3 disposition"
 msgstr "تصريف MP3"
 
-#: src/Process/Backend/MediaItem.php:661
+#: src/Process/Backend/MediaItem.php:655
 msgid "Please note that you cannot insert mp3 files with standard editor in WYSIWYG HTML mode."
 msgstr "يرجى ملاحظة أنه لا يمكنك إدراج ملفات mp3 باستخدام المحرر القياسي في وضع WYSIWYG HTML."
 
-#: src/Process/Backend/MediaItem.php:677
+#: src/Process/Backend/MediaItem.php:671
 msgid "Video size"
 msgstr "حجم الفيديو"
 
-#: src/Process/Backend/MediaItem.php:681
+#: src/Process/Backend/MediaItem.php:675
 msgid "Width:"
 msgstr "العرض:"
 
-#: src/Process/Backend/MediaItem.php:686
+#: src/Process/Backend/MediaItem.php:680
 msgid "Height:"
 msgstr "الارتفاع:"
 
-#: src/Process/Backend/MediaItem.php:690
+#: src/Process/Backend/MediaItem.php:684
 msgid "A value of 0 means that the corresponding size is not included when inserting a video."
 msgstr "تعني القيمة 0 عدم تضمين الحجم المقابل عند إدراج مقطع فيديو."
 
-#: src/Process/Backend/MediaItem.php:695
+#: src/Process/Backend/MediaItem.php:689
 msgid "Video disposition"
 msgstr "عرض الفيديو"
 
-#: src/Process/Backend/MediaItem.php:705
+#: src/Process/Backend/MediaItem.php:699
 msgid "Please note that you cannot insert video files with standard editor in WYSIWYG HTML mode."
 msgstr "يرجى ملاحظة أنه لا يمكنك إدراج ملفات الفيديو باستخدام المحرر القياسي في وضع WYSIWYG HTML."
 
-#: src/Process/Backend/MediaItem.php:711
+#: src/Process/Backend/MediaItem.php:705
 msgid "Media item will be inserted as a link."
 msgstr "سيتم إدراج عنصر الوسائط كوصل."
 
-#: src/Process/Backend/MediaItem.php:732
+#: src/Process/Backend/MediaItem.php:726
 msgid "Make current settings as default"
 msgstr "جعل الإعدادات الحالية افتراضية"
 
-#: src/Process/Backend/MediaItem.php:733
+#: src/Process/Backend/MediaItem.php:727
 msgid "For the blog"
 msgstr "للمدوّنة"
 
-#: src/Process/Backend/MediaItem.php:735
+#: src/Process/Backend/MediaItem.php:729
 msgid "For this folder only"
 msgstr "لهذا المجلد فقط"
 
-#: src/Process/Backend/MediaItem.php:747
+#: src/Process/Backend/MediaItem.php:741
 msgid "Settings exist for this folder:"
 msgstr "توجد إعدادات لهذا المجلد:"
 
-#: src/Process/Backend/MediaItem.php:748
+#: src/Process/Backend/MediaItem.php:742
 msgid "Remove them"
 msgstr "إزالتها"
 
-#: src/Process/Backend/MediaItem.php:758 src/Process/Backend/MediaItem.php:760
+#: src/Process/Backend/MediaItem.php:752 src/Process/Backend/MediaItem.php:754
 msgid "Insert media item"
 msgstr "إدراج عنصر الوسائط"
 
-#: src/Process/Backend/MediaItem.php:845
+#: src/Process/Backend/MediaItem.php:839
 msgid "Available sizes:"
 msgstr "الأحجام المتاحة:"
 
-#: src/Process/Backend/MediaItem.php:870 src/Process/Backend/MediaItem.php:944
-#: src/Process/Backend/MediaItem.php:952 src/Process/Backend/MediaItem.php:963
+#: src/Process/Backend/MediaItem.php:864 src/Process/Backend/MediaItem.php:938
+#: src/Process/Backend/MediaItem.php:946 src/Process/Backend/MediaItem.php:957
 msgid "Image width:"
 msgstr "عرض الصورة:"
 
-#: src/Process/Backend/MediaItem.php:876 src/Process/Backend/MediaItem.php:969
+#: src/Process/Backend/MediaItem.php:870 src/Process/Backend/MediaItem.php:963
 msgid "Image height:"
 msgstr "ارتفاع الصورة:"
 
-#: src/Process/Backend/MediaItem.php:884 src/Process/Backend/MediaItem.php:979
+#: src/Process/Backend/MediaItem.php:878 src/Process/Backend/MediaItem.php:973
 msgid "File size:"
 msgstr "حجم الملف:"
 
-#: src/Process/Backend/MediaItem.php:892 src/Process/Backend/MediaItem.php:985
+#: src/Process/Backend/MediaItem.php:886 src/Process/Backend/MediaItem.php:979
 msgid "File URL:"
 msgstr "رابط الملف:"
 
-#: src/Process/Backend/MediaItem.php:900
+#: src/Process/Backend/MediaItem.php:894
 msgid "Thumbnail details"
 msgstr "Thumbnail details"
 
-#: src/Process/Backend/MediaItem.php:923
+#: src/Process/Backend/MediaItem.php:917
 msgid "File owner:"
 msgstr "مالك الملف:"
 
-#: src/Process/Backend/MediaItem.php:929
+#: src/Process/Backend/MediaItem.php:923
 msgid "File type:"
 msgstr "نوع الملف:"
 
-#: src/Process/Backend/MediaItem.php:996
+#: src/Process/Backend/MediaItem.php:990
 msgid "Show entries containing this media"
 msgstr "إظهار المواد التي تحتوي على هذه الوسائط"
 
-#: src/Process/Backend/MediaItem.php:1038
+#: src/Process/Backend/MediaItem.php:1032
 msgid "No entry seems contain this media."
 msgstr "لا يبدو أن أي إدخال يحتوي على هذه الوسائط."
 
-#: src/Process/Backend/MediaItem.php:1068
+#: src/Process/Backend/MediaItem.php:1062
 msgid "Inside the entry"
 msgstr "داخل المدخل"
 
-#: src/Process/Backend/MediaItem.php:1075
+#: src/Process/Backend/MediaItem.php:1069
 msgid "Linked to entry"
 msgstr "مرتبط بالدخول"
 
-#: src/Process/Backend/MediaItem.php:1083
+#: src/Process/Backend/MediaItem.php:1077
 msgid "Entries containing this media"
 msgstr "المدخلات التي تحتوي على هذه الوسائط"
 
-#: src/Process/Backend/MediaItem.php:1117
+#: src/Process/Backend/MediaItem.php:1111
 msgid ":"
 msgstr ":"
 
-#: src/Process/Backend/MediaItem.php:1127
+#: src/Process/Backend/MediaItem.php:1121
 msgid "Metadata"
 msgstr "البيانات الوصفية"
 
-#: src/Process/Backend/MediaItem.php:1139
-#: src/Process/Backend/MediaItem.php:1341
-#: src/Process/Backend/MediaItem.php:1350
+#: src/Process/Backend/MediaItem.php:1133
+#: src/Process/Backend/MediaItem.php:1335
+#: src/Process/Backend/MediaItem.php:1344
 msgid "Media details"
 msgstr "تفاصيل الوسائط"
 
-#: src/Process/Backend/MediaItem.php:1157
-#: src/Process/Backend/MediaItem.php:1164
+#: src/Process/Backend/MediaItem.php:1151
+#: src/Process/Backend/MediaItem.php:1158
 msgid "Update thumbnails"
 msgstr "تحديث الصور المصغرة"
 
-#: src/Process/Backend/MediaItem.php:1159
+#: src/Process/Backend/MediaItem.php:1153
 msgid "This will create or update thumbnails for this image."
 msgstr "سيؤدي هذا إلى إنشاء أو تحديث الصور المصغرة لهذه الصورة."
 
-#: src/Process/Backend/MediaItem.php:1173
-#: src/Process/Backend/MediaItem.php:1188
+#: src/Process/Backend/MediaItem.php:1167
+#: src/Process/Backend/MediaItem.php:1182
 msgid "Extract in a new directory"
 msgstr "استخراج في دليل جديد"
 
-#: src/Process/Backend/MediaItem.php:1174
-#: src/Process/Backend/MediaItem.php:1194
+#: src/Process/Backend/MediaItem.php:1168
+#: src/Process/Backend/MediaItem.php:1188
 msgid "Extract in current directory"
 msgstr "استخراج في الدليل الحالي"
 
-#: src/Process/Backend/MediaItem.php:1182
+#: src/Process/Backend/MediaItem.php:1176
 msgid "Extract archive"
 msgstr "استخراج الأرشيف"
 
-#: src/Process/Backend/MediaItem.php:1189
+#: src/Process/Backend/MediaItem.php:1183
 msgid "This will extract archive in a new directory that should not exist yet."
 msgstr "سيؤدي هذا إلى استخراج الأرشيف في دليل جديد لا ينبغي أن يكون موجودا بعد."
 
-#: src/Process/Backend/MediaItem.php:1195
+#: src/Process/Backend/MediaItem.php:1189
 msgid "This will extract archive in current directory and will overwrite existing files or directory."
 msgstr "هذا سوف يستخرج الأرشيف في الدليل الحالي وسوف يستبدل الملفات أو الدليل الموجود."
 
-#: src/Process/Backend/MediaItem.php:1203
+#: src/Process/Backend/MediaItem.php:1197
 msgid "Extract mode:"
 msgstr "وضع الاستخراج:"
 
-#: src/Process/Backend/MediaItem.php:1204
+#: src/Process/Backend/MediaItem.php:1198
 msgid "Extract"
 msgstr "استخراج"
 
-#: src/Process/Backend/MediaItem.php:1216
+#: src/Process/Backend/MediaItem.php:1210
 msgid "Change media properties"
 msgstr "تغيير خصائص الوسائط"
 
-#: src/Process/Backend/MediaItem.php:1225
+#: src/Process/Backend/MediaItem.php:1219
 msgid "File name:"
 msgstr "اسم الملف:"
 
-#: src/Process/Backend/MediaItem.php:1258
+#: src/Process/Backend/MediaItem.php:1252
 msgid "File date:"
 msgstr "تاريخ الملف:"
 
-#: src/Process/Backend/MediaItem.php:1271
+#: src/Process/Backend/MediaItem.php:1265
 msgid "New directory:"
 msgstr "دليل جديد:"
 
-#: src/Process/Backend/MediaItem.php:1286
+#: src/Process/Backend/MediaItem.php:1280
 msgid "Change file"
 msgstr "تغيير الملف"
 
-#: src/Process/Backend/MediaItem.php:1295
+#: src/Process/Backend/MediaItem.php:1289
 msgid "Choose a file:"
 msgstr "اختر ملف:"
 
-#: src/Process/Backend/MediaItem.php:1295
+#: src/Process/Backend/MediaItem.php:1289
 #, php-format
 msgid "Maximum size %s"
 msgstr "الحد الأقصى للحجم %s"
 
-#: src/Process/Backend/MediaItem.php:1313
+#: src/Process/Backend/MediaItem.php:1307
 msgid "Delete this media"
 msgstr "حذف هذه الوسائط"
 
-#: src/Process/Backend/MediaItem.php:1332
+#: src/Process/Backend/MediaItem.php:1326
 msgid "Updates and modifications"
 msgstr "التحديثات والتعديلات"
 
@@ -5191,7 +5191,7 @@ msgstr "المنشور التالي"
 msgid "Previous post"
 msgstr "المنشور السابق"
 
-#: src/Process/Backend/Post.php:292 src/Process/Backend/Post.php:605
+#: src/Process/Backend/Post.php:292 src/Process/Backend/Post.php:614
 msgid "All pings sent."
 msgstr "تم إرسال جميع الحقائق."
 
@@ -5204,21 +5204,21 @@ msgstr "تاريخ النشر غير صالح"
 msgid "The post \"%s\" has been successfully updated"
 msgstr "تم تحديث المنشور \"%s\" بنجاح"
 
-#: src/Process/Backend/Post.php:592
+#: src/Process/Backend/Post.php:503
+msgid "Don't forget to validate your XHTML conversion by saving your post."
+msgstr "لا تنسى التحقق من تحويل XHTML عن طريق حفظ مشاركتك."
+
+#: src/Process/Backend/Post.php:601
 msgid "Entry has been successfully updated."
 msgstr "تم تحديث الإدخال بنجاح."
 
-#: src/Process/Backend/Post.php:596
+#: src/Process/Backend/Post.php:605
 msgid "File has been successfully attached."
 msgstr "تم إرفاق الملف بنجاح."
 
-#: src/Process/Backend/Post.php:598 src/Process/Backend/PostMedia.php:89
+#: src/Process/Backend/Post.php:607 src/Process/Backend/PostMedia.php:89
 msgid "Attachment has been successfully removed."
 msgstr "تمت إزالة المرفق بنجاح."
-
-#: src/Process/Backend/Post.php:614
-msgid "Don't forget to validate your XHTML conversion by saving your post."
-msgstr "لا تنسى التحقق من تحويل XHTML عن طريق حفظ مشاركتك."
 
 #: src/Process/Backend/Post.php:624
 msgid "Go to this entry on the site"
