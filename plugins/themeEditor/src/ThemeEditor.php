@@ -71,6 +71,13 @@ class ThemeEditor
     protected string $var_root;
 
     /**
+     * Edition in development mode or not
+     *
+     * If set to true, then the custom files will be ignored and the theme files will be editable
+     */
+    protected bool $dev_mode = false;
+
+    /**
      * List of theme template files.
      *
      * @var     array<string,string>    $tpl
@@ -110,12 +117,9 @@ class ThemeEditor
      */
     public function __construct()
     {
-        $this->var_root     = (string) Path::real(App::config()->varRoot(), false);
-        $this->custom_theme = $this->var_root . '/themes/' . App::blog()->id() . '/' . App::blog()->settings()->system->theme;
-
-        // Create var hierarchy if necessary
-        if (!is_dir(dirname($this->custom_theme))) {
-            Files::makeDir($this->custom_theme, true);
+        # --BEHAVIOR-- themeEditorDevMode -- bool -- since 2.36
+        if (App::behavior()->callBehavior('themeEditorDevMode', $this->dev_mode) !== '') {
+            $this->dev_mode = true;
         }
 
         $user_theme_path  = Path::real(App::blog()->themesPath() . '/' . App::blog()->settings()->system->theme);
@@ -135,6 +139,18 @@ class ThemeEditor
         if ($tplset) {
             $this->tplset_theme = App::config()->dotclearRoot() . '/inc/public/' . Utility::TPL_ROOT . '/' . $tplset;
             $this->tplset_name  = $tplset;
+        }
+
+        $this->var_root = (string) Path::real(App::config()->varRoot(), false);
+        if ($this->dev_mode) {
+            // Development mode, overwrite theme files
+            $this->custom_theme = $this->user_theme;
+        } else {
+            $this->custom_theme = $this->var_root . '/themes/' . App::blog()->id() . '/' . App::blog()->settings()->system->theme;
+            // Create var hierarchy if necessary
+            if (!is_dir(dirname($this->custom_theme))) {
+                Files::makeDir($this->custom_theme, true);
+            }
         }
 
         $this->findTemplates();
@@ -335,6 +351,11 @@ class ThemeEditor
      */
     public function deletableFile(string $type, string $filename): bool
     {
+        if ($this->dev_mode) {
+            // Only tpl files may be deleted
+            return $type === 'tpl';
+        }
+
         $files = $this->getFilesFromType($type);
         if (isset($files[$filename])) {
             $dest = $this->getDestinationFile($type, $filename);
@@ -378,17 +399,19 @@ class ThemeEditor
                     }
                 }
 
-                // Cleanup empty hierarchy (keeping main blog-id/theme-id structure)
-                $dest = substr(dirname($dest), strlen($this->custom_theme) + 1);
-                while (strlen($dest) > 1) {
-                    $path = $this->custom_theme . DIRECTORY_SEPARATOR . $dest;
-                    if (Files::isDeletable($path)) {
-                        rmdir($path);
-                        $dest = substr(dirname($path), strlen($this->custom_theme) + 1);
-                    } else {
-                        break;
-                    }
-                };
+                if (!$this->dev_mode) {
+                    // Cleanup empty hierarchy (keeping main blog-id/theme-id structure)
+                    $dest = substr(dirname($dest), strlen($this->custom_theme) + 1);
+                    while (strlen($dest) > 1) {
+                        $path = $this->custom_theme . DIRECTORY_SEPARATOR . $dest;
+                        if (Files::isDeletable($path)) {
+                            rmdir($path);
+                            $dest = substr(dirname($path), strlen($this->custom_theme) + 1);
+                        } else {
+                            break;
+                        }
+                    };
+                }
 
                 // Updating template files list
                 $this->findTemplates();
@@ -490,8 +513,13 @@ class ThemeEditor
             ...$this->getFilesInDir($this->tplset_theme),
             ...$this->getFilesInDir($this->parent_theme . '/tpl'),
             ...$this->getFilesInDir($this->user_theme . '/tpl'),
-            ...$this->getFilesInDir($this->custom_theme . '/tpl'),
         ];
+        if (!$this->dev_mode) {
+            $this->tpl = [
+                ...$this->tpl,
+                ...$this->getFilesInDir($this->custom_theme . '/tpl'),
+            ];
+        }
 
         # Then we look in Utility::TPL_ROOT plugins directory
         foreach (App::plugins()->getDefines(['state' => ModuleDefine::STATE_ENABLED]) as $define) {
@@ -528,11 +556,16 @@ class ThemeEditor
             ...$this->getFilesInDir($this->user_theme, 'css'),
             ...$this->getFilesInDir($this->user_theme . '/style', 'css', 'style/'),
             ...$this->getFilesInDir($this->user_theme . '/css', 'css', 'css/'),
-            // Custom theme
-            ...$this->getFilesInDir($this->custom_theme, 'css'),
-            ...$this->getFilesInDir($this->custom_theme . '/style', 'css', 'style/'),
-            ...$this->getFilesInDir($this->custom_theme . '/css', 'css', 'css/'),
         ];
+        if (!$this->dev_mode) {
+            $this->css = [
+                ...$this->css,
+                // Custom theme
+                ...$this->getFilesInDir($this->custom_theme, 'css'),
+                ...$this->getFilesInDir($this->custom_theme . '/style', 'css', 'style/'),
+                ...$this->getFilesInDir($this->custom_theme . '/css', 'css', 'css/'),
+            ];
+        }
 
         uksort($this->css, $this->sortFilesHelper(...));
     }
@@ -561,12 +594,17 @@ class ThemeEditor
             ...$this->getFilesInDir($this->user_theme, 'mjs'),
             ...$this->getFilesInDir($this->user_theme . '/js', 'js', 'js/'),
             ...$this->getFilesInDir($this->user_theme . '/js', 'mjs', 'js/'),
-            // Custom theme
-            ...$this->getFilesInDir($this->custom_theme, 'js'),
-            ...$this->getFilesInDir($this->custom_theme, 'mjs'),
-            ...$this->getFilesInDir($this->custom_theme . '/js', 'js', 'js/'),
-            ...$this->getFilesInDir($this->custom_theme . '/js', 'mjs', 'js/'),
         ];
+        if (!$this->dev_mode) {
+            $this->js = [
+                ...$this->js,
+                // Custom theme
+                ...$this->getFilesInDir($this->custom_theme, 'js'),
+                ...$this->getFilesInDir($this->custom_theme, 'mjs'),
+                ...$this->getFilesInDir($this->custom_theme . '/js', 'js', 'js/'),
+                ...$this->getFilesInDir($this->custom_theme . '/js', 'mjs', 'js/'),
+            ];
+        }
 
         uksort($this->js, $this->sortFilesHelper(...));
     }
@@ -591,9 +629,14 @@ class ThemeEditor
                 ...$this->po,
                 // Current theme
                 ...$this->getFilesInDir($this->user_theme . '/locales/' . $v, 'po', $v . '/'),
-                // Custom theme
-                ...$this->getFilesInDir($this->custom_theme . '/locales/' . $v, 'po', $v . '/'),
             ];
+            if (!$this->dev_mode) {
+                $this->po = [
+                    ...$this->po,
+                    // Custom theme
+                    ...$this->getFilesInDir($this->custom_theme . '/locales/' . $v, 'po', $v . '/'),
+                ];
+            }
         }
 
         uksort($this->po, $this->sortFilesHelper(...));
@@ -620,10 +663,16 @@ class ThemeEditor
             // Current theme
             ...$this->getFilesInDir($this->user_theme, 'php'),
             ...$this->getFilesInDir($this->user_theme . '/src', 'php', 'src/'),
-            // Custom theme
-            ...$this->getFilesInDir($this->custom_theme, 'php'),
-            ...$this->getFilesInDir($this->custom_theme . '/src', 'php', 'src/'),
         ];
+
+        if (!$this->dev_mode) {
+            $this->php = [
+                ...$this->php,
+                // Custom theme
+                ...$this->getFilesInDir($this->custom_theme, 'php'),
+                ...$this->getFilesInDir($this->custom_theme . '/src', 'php', 'src/'),
+            ];
+        }
 
         uksort($this->php, $this->sortFilesHelper(...));
     }
