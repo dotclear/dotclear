@@ -104,17 +104,27 @@ input[type='search'] {
 .sidebar li:hover ul {
   background-color: $gray-very-dark;
 }
-@media screen and(min-width: $small-screen) and (max-width: $large-screen) {
-  .blognav__widgets .widget,
-  .blogextra__widgets .widget {
-    width: 50%;
-    float: left;
+@media screen and(min-width: $medium-screen) and (max-width: $large-screen) {
+  .blognav__widgets,
+  .blogextra__widgets {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    .blognav__title,
+    .blogextra__title {
+      grid-column: 1 / 3;
+    }
   }
 }
 @media screen and(min-width: $large-screen) and (max-width: $xlarge-screen) {
-  .blognav__widgets .widget,
-  .blogextra__widgets .widget {
-    width: 33.33%;
-    float: left;
+  .blognav__widgets,
+  .blogextra__widgets {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    .blognav__title,
+    .blogextra__title {
+      grid-column: 1 / 4;
+    }
   }
 }
