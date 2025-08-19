@@ -81,6 +81,9 @@ dotclear.ready(() => {
         }
       };
       dtField.addEventListener('blur', (event) => askReset(event));
+      dtField.addEventListener('keypress', (/** @type {KeyboardEvent} */ event) => {
+        if (event?.key === 'Enter') dtField.blur();
+      });
     }
   }
 
