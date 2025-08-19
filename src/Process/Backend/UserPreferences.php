@@ -76,14 +76,14 @@ class UserPreferences extends Process
         App::backend()->page_title = __('My preferences');
 
         if (App::config()->authPasswordOnly()) {
-            App::backend()->oauth2 = null;
+            App::backend()->oauth2   = null;
             App::backend()->webauthn = null;
-            App::backend()->otp = null;
+            App::backend()->otp      = null;
         } else {
             // Create otp instance
             try {
                 App::backend()->otp = new Otp();
-                App::backend()->otp->setUser(App::auth()->userID());
+                App::backend()->otp->setUser((string) App::auth()->userID());
             } catch (Exception $e) {
                 App::backend()->otp = null;
                 App::error()->add($e->getMessage());
@@ -271,7 +271,6 @@ class UserPreferences extends Process
             // process oAuth2 client action
             App::backend()->oauth2->requestAction((string) App::auth()->userID());
         }
-
 
         if (isset($_POST['user_name'])) {
             // Update user
@@ -886,9 +885,9 @@ class UserPreferences extends Process
                 ];
             } else {
                 $otp_items = [
-                    (New Text('p', __('Scan this QR code with your authentication application:'))),
+                    (new Text('p', __('Scan this QR code with your authentication application:'))),
                     (new Para())
-                        ->items([App::backend()->otp->getQrCodeImageHtml(),]),
+                        ->items([App::backend()->otp->getQrCodeImageHtml()]),
                     (new Para())
                         ->items([
                             (new Input('otp_secret'))
@@ -911,7 +910,7 @@ class UserPreferences extends Process
                                 ->label(new Label(__('Enter verification code:'), Label::OL_TF)),
                             (new Submit('otp_verify_submit', __('Verify'))),
                         ]),
-                    (new Text('p',''))->class('clear'),
+                    (new Text('p', ''))->class('clear'),
                 ];
             }
         }
@@ -950,7 +949,7 @@ class UserPreferences extends Process
                 ) {
                     continue;
                 }
-;
+                ;
                 // Get auth button
                 $oauth_link = App::backend()->oauth2->getActionButton(
                     (string) App::auth()->userID(),

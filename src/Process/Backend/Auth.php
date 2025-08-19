@@ -126,9 +126,9 @@ class Auth extends Process
 
         // Disable exotic authentication
         if (App::config()->authPasswordOnly()) {
-            App::backend()->oauth2 = null;
+            App::backend()->oauth2   = null;
             App::backend()->webauthn = null;
-            App::backend()->otp = null;
+            App::backend()->otp      = null;
         } else {
             // Create oAuth2 client instance
             try {
@@ -155,7 +155,7 @@ class Auth extends Process
         }
 
         // 2fa verification
-        App::backend()->verify_code = App::backend()->otp !== null && isset($_POST['user_code']) && isset($_POST['login_data']);
+        App::backend()->verify_code = App::backend()->otp instanceof Otp && isset($_POST['user_code']) && isset($_POST['login_data']);
         App::backend()->require_2fa = false;
 
         return self::status(true);
@@ -191,7 +191,6 @@ class Auth extends Process
                 if (App::backend()->otp !== null && App::backend()->otp->setUser(App::backend()->user_id)->isVerified()) {
                     App::backend()->msg .= ' ' . __('This removes two factors authentication.');
                 }
-
             } catch (Exception $e) {
                 App::backend()->err = $e->getMessage();
             }
@@ -373,7 +372,7 @@ class Auth extends Process
                 // User may log-in
 
                 // Check if user need 2fa
-                App::backend()->require_2fa = App::backend()->otp !== null &&App::backend()->otp->setUser(App::backend()->user_id)->isVerified();
+                App::backend()->require_2fa = App::backend()->otp !== null && App::backend()->otp->setUser(App::backend()->user_id)->isVerified();
 
                 if (App::backend()->require_2fa) {
                     // Required 2fa authentication. Skip normal login and go to 2fa form

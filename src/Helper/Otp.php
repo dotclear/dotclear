@@ -88,50 +88,36 @@ abstract class Otp
 
     /**
      * The OTP type.
-     *
-     * @var     string  $otp_type
      */
     protected readonly string $otp_type;
 
     /**
      * The issuer domain.
-     *
-     * @var     string  $domain
      */
     protected string $domain = 'Undefined';
 
     /**
      * The user (ID).
-     *
-     * @var     string $user
      */
     protected string $user = '';
 
     /**
      * The QR code image correction level.
-     *
-     * @var     string  $qrcode_correction
      */
     protected string $qrcode_correction = 'L';
 
     /**
      * The QR code image size.
-     *
-     * @var     int     $qrcode_size
      */
     protected int $qrcode_size = 200;
 
     /**
      * The QR code image margin.
-     *
-     * @var int     $qrcode_margin
      */
     protected int $qrcode_margin = 1;
 
     /**
      * The QR code image title (for HTML render).
-     *
-     * @var     string  $qrcode_title
      */
     protected string $qrcode_title = '';
 
@@ -144,8 +130,6 @@ abstract class Otp
 
     /**
      * The leeway.
-     *
-     * @var     int     $leeway
      */
     protected int $leeway = 0;
 
@@ -231,7 +215,7 @@ abstract class Otp
      */
     public function getTimestamp(): int
     {
-        return (int) (new DateTimeImmutable('now'))->getTimestamp();
+        return (new DateTimeImmutable('now'))->getTimestamp();
     }
 
     /**
@@ -328,10 +312,10 @@ abstract class Otp
     protected function queryQrCodeService(): string
     {
         $params = [
-            'cht' => 'qr',
-            'chs' => ceil($this->qrcode_size / 2) . 'x' . ceil($this->qrcode_size / 2),
+            'cht'  => 'qr',
+            'chs'  => ceil($this->qrcode_size / 2) . 'x' . ceil($this->qrcode_size / 2),
             'chld' => $this->qrcode_correction . '|' . $this->qrcode_margin,
-            'chl' => $this->getUrl(),
+            'chl'  => $this->getUrl(),
         ];
 
         $data = HttpClient::quickGet(static::QRCODE_SERVICE_URL . http_build_query($params));
@@ -342,7 +326,7 @@ abstract class Otp
     /**
      * Load credential from database.
      *
-     * If theres no credential yet, 
+     * If theres no credential yet,
      * this MUST populate credential instance with defautl values.
      */
     abstract public function getCredential(): void;
@@ -365,12 +349,12 @@ abstract class Otp
     public function setData(array $data): void
     {
         $this->data = [
-            'secret'    => isset($data['secret']) && is_string($data['secret']) ? $data['secret'] : $this->createSecret(),
-            'counter'   => isset($data['counter']) && is_numeric($data['counter']) ? (int) $data['counter'] : 0, // hotp
-            'period'    => isset($data['period']) && is_numeric($data['period']) ? (int) $data['period'] : static::DEFAULT_PERIOD, // totp
-            'digits'    => isset($data['digits']) && is_numeric($data['digits']) ? (int) $data['digits'] : static::DEFAULT_DIGITS,
+            'secret'    => isset($data['secret'])    && is_string($data['secret']) ? $data['secret'] : $this->createSecret(),
+            'counter'   => isset($data['counter'])   && is_numeric($data['counter']) ? (int) $data['counter'] : 0, // hotp
+            'period'    => isset($data['period'])    && is_numeric($data['period']) ? (int) $data['period'] : static::DEFAULT_PERIOD, // totp
+            'digits'    => isset($data['digits'])    && is_numeric($data['digits']) ? (int) $data['digits'] : static::DEFAULT_DIGITS,
             'algorithm' => isset($data['algorithm']) && is_string($data['algorithm']) ? $data['algorithm'] : static::DEFAULT_ALGORITHM,
-            'verified'  => isset($data['verified']) && !empty($data['verified']),
+            'verified'  => isset($data['verified'])  && !empty($data['verified']),
         ];
     }
 
@@ -394,7 +378,7 @@ abstract class Otp
      */
     public function decodeData(string $data): void
     {
-        $data  = json_decode($data, true);
+        $data = json_decode($data, true);
         $this->setData(is_array($data) ? $data : []);
     }
 
@@ -624,7 +608,8 @@ abstract class Otp
             $params['counter'] = (string) $this->getCounter();
         }
 
-        return sprintf(static::OTP_URL,
+        return sprintf(
+            static::OTP_URL,
             $this->getType(),
             rawurlencode($this->getDomain() . ':' . $this->getUser()),
             http_build_query($params, '', '&')
@@ -683,27 +668,33 @@ abstract class Otp
      */
     public function base32Encode(string $input, bool $padding = true): string
     {
-        if(empty($input)) {
+        if ($input === '') {
             return '';
         }
 
-        $input = str_split($input);
-        $binaryString = "";
-        for($i = 0; $i < count($input); $i++) {
+        $input        = str_split($input);
+        $binaryString = '';
+        $counter      = count($input);
+        for ($i = 0; $i < $counter; $i++) {
             $binaryString .= str_pad(base_convert((string) ord($input[$i]), 10, 2), 8, '0', STR_PAD_LEFT);
         }
         $fiveBitBinaryArray = str_split($binaryString, 5);
-        $base32 = "";
-        $i=0;
-        while($i < count($fiveBitBinaryArray)) {    
-            $base32 .= $this->base32_map[(int) base_convert(str_pad($fiveBitBinaryArray[$i], 5,'0'), 2, 10)];
+        $base32             = '';
+        $i                  = 0;
+        while ($i < count($fiveBitBinaryArray)) {
+            $base32 .= $this->base32_map[(int) base_convert(str_pad($fiveBitBinaryArray[$i], 5, '0'), 2, 10)];
             $i++;
         }
-        if($padding && ($x = strlen($binaryString) % 40) != 0) {
-            if($x == 8) $base32 .= str_repeat($this->base32_map[32], 6);
-            else if($x == 16) $base32 .= str_repeat($this->base32_map[32], 4);
-            else if($x == 24) $base32 .= str_repeat($this->base32_map[32], 3);
-            else if($x == 32) $base32 .= $this->base32_map[32];
+        if ($padding && ($x = strlen($binaryString) % 40) != 0) {
+            if ($x == 8) {
+                $base32 .= str_repeat($this->base32_map[32], 6);
+            } elseif ($x == 16) {
+                $base32 .= str_repeat($this->base32_map[32], 4);
+            } elseif ($x == 24) {
+                $base32 .= str_repeat($this->base32_map[32], 3);
+            } elseif ($x == 32) {
+                $base32 .= $this->base32_map[32];
+            }
         }
 
         return $base32;
@@ -718,41 +709,41 @@ abstract class Otp
      */
     public function base32Decode(string $input): string
     {
-        if(empty($input)) {
+        if ($input === '') {
             return '';
         }
 
         $paddingCharCount = substr_count($input, $this->base32_map[32]);
-        $allowedValues    = array(6,4,3,1,0);
-        if(!in_array($paddingCharCount, $allowedValues)) {
+        $allowedValues    = [6,4,3,1,0];
+        if (!in_array($paddingCharCount, $allowedValues)) {
             return '';
         }
 
-        for($i=0; $i<4; $i++){ 
-            if($paddingCharCount == $allowedValues[$i] && 
-                substr($input, -($allowedValues[$i])) != str_repeat($this->base32_map[32], $allowedValues[$i])) {
+        for ($i = 0; $i < 4; $i++) {
+            if ($paddingCharCount == $allowedValues[$i] && substr($input, -($allowedValues[$i])) !== str_repeat($this->base32_map[32], $allowedValues[$i])) {
                 return '';
             }
         }
 
-        $input  = str_replace('=','', $input);
-        $input  = str_split($input);
-        $binary = "";
-        for($i=0; $i < count($input); $i = $i+8) {
-            $x = "";
-            if(!in_array($input[$i], $this->base32_map)) {
+        $input   = str_replace('=', '', $input);
+        $input   = str_split($input);
+        $binary  = '';
+        $counter = count($input);
+        for ($i = 0; $i < $counter; $i += 8) {
+            $x = '';
+            if (!in_array($input[$i], $this->base32_map)) {
                 return '';
             }
 
-            for($j=0; $j < 8; $j++) {
+            for ($j = 0; $j < 8; $j++) {
                 $x .= str_pad(base_convert((string) @$this->base32_lookup[@$input[$i + $j]], 10, 2), 5, '0', STR_PAD_LEFT);
             }
             $eightbits = str_split($x, 8);
-            for($z = 0; $z < count($eightbits); $z++) {
-                $binary .= ( ($y = chr((int) base_convert($eightbits[$z], 2, 10))) || ord($y) == 48 ) ? $y:"";
+            for ($z = 0; $z < count($eightbits); $z++) {
+                $binary .= (($y = chr((int) base_convert($eightbits[$z], 2, 10))) || ord($y) == 48) ? $y : '';
             }
         }
 
         return $binary;
     }
-} 
+}
