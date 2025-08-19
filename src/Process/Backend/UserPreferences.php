@@ -263,7 +263,7 @@ class UserPreferences extends Process
             App::backend()->webauthn->store()->delCredential(base64_decode((string) key($_POST['webauthn'])));
 
             Notices::addSuccessNotice(__('Passkey successfully deleted.'));
-            App::backend()->url()->redirect('admin.user.preferences', [], '#user-options');
+            App::backend()->url()->redirect('admin.user.preferences', [], '#user-profile');
         }
 
         // oauth2 action
@@ -659,221 +659,6 @@ class UserPreferences extends Process
                 ]);
         }
 
-        echo (new Div('user-profile'))
-            ->class('multi-part')
-            ->title(__('My profile'))
-            ->items([
-                (new Text('h3', __('My profile'))),
-                (new Form('user-form'))
-                    ->method('post')
-                    ->action(App::backend()->url()->get('admin.user.preferences'))
-                    ->fields([
-                        (new Para())
-                            ->items([
-                                (new Input('user_name'))
-                                    ->size(20)
-                                    ->maxlength(255)
-                                    ->value(Html::escapeHTML(App::backend()->user_name))
-                                    ->autocomplete('family-name')
-                                    ->translate(false)
-                                    ->label((new Label(__('Last Name:'), Label::OL_TF))),
-                            ]),
-                        (new Para())
-                            ->items([
-                                (new Input('user_firstname'))
-                                    ->size(20)
-                                    ->maxlength(255)
-                                    ->value(Html::escapeHTML(App::backend()->user_firstname))
-                                    ->autocomplete('given-name')
-                                    ->translate(false)
-                                    ->label((new Label(__('First Name:'), Label::OL_TF))),
-                            ]),
-                        (new Para())
-                            ->items([
-                                (new Input('user_displayname'))
-                                    ->size(20)
-                                    ->maxlength(255)
-                                    ->value(Html::escapeHTML(App::backend()->user_displayname))
-                                    ->autocomplete('nickname')
-                                    ->translate(false)
-                                    ->label((new Label(__('Display name:'), Label::OL_TF))),
-                            ]),
-                        (new Para())
-                            ->items([
-                                (new Email('user_email'))
-                                    ->size(40)
-                                    ->maxlength(255)
-                                    ->value(Html::escapeHTML(App::backend()->user_email))
-                                    ->autocomplete('email')
-                                    ->translate(false)
-                                    ->label((new Label(__('Email:'), Label::OL_TF))),
-                            ]),
-                        (new Para())
-                            ->items([
-                                (new Input('user_profile_mails'))
-                                    ->size(80)
-                                    ->maxlength(255)
-                                    ->value(Html::escapeHTML(App::backend()->user_profile_mails))
-                                    ->translate(false)
-                                    ->label((new Label(__('Alternate emails (comma separated list):'), Label::OL_TF))),
-                            ]),
-                        (new Note('sanitize_emails'))
-                            ->class(['form-note', 'info'])
-                            ->text(__('Invalid emails will be automatically removed from list.')),
-                        (new Para())
-                            ->items([
-                                (new Url('user_url'))
-                                    ->size(40)
-                                    ->maxlength(255)
-                                    ->value(Html::escapeHTML(App::backend()->user_url))
-                                    ->autocomplete('url')
-                                    ->translate(false)
-                                    ->label((new Label(__('URL:'), Label::OL_TF))),
-                            ]),
-                        (new Para())
-                            ->items([
-                                (new Input('user_profile_urls'))
-                                    ->size(80)
-                                    ->maxlength(255)
-                                    ->value(Html::escapeHTML(App::backend()->user_profile_urls))
-                                    ->translate(false)
-                                    ->label((new Label(__('Alternate URLs (comma separated list):'), Label::OL_TF))),
-                            ]),
-                        (new Note('sanitize_urls'))
-                            ->class(['form-note', 'info'])
-                            ->text(__('Invalid URLs will be automatically removed from list.')),
-                        (new Para())
-                            ->items([
-                                (new Select('user_lang'))
-                                    ->items(App::backend()->lang_combo)
-                                    ->default(App::backend()->user_lang)
-                                    ->translate(false)
-                                    ->label((new Label(__('Language for my interface:'), Label::OL_TF))),
-                            ]),
-                        (new Para())
-                            ->items([
-                                (new Select('user_tz'))
-                                    ->items(Date::getZones(true, true))
-                                    ->default(App::backend()->user_tz)
-                                    ->translate(false)
-                                    ->label((new Label(__('My timezone:'), Label::OL_TF))),
-                            ]),
-
-                        $pass_change,
-
-                        (new Para())
-                            ->class(['clear', 'form-buttons'])
-                            ->items([
-                                App::nonce()->formNonce(),
-                                (new Submit('user-form-submit', __('Update my profile')))
-                                    ->accesskey('s'),
-                                (new Button('user-form-back', __('Back')))
-                                    ->class(['go-back', 'reset', 'hidden-if-no-js']),
-                            ]),
-                    ]),
-            ])
-        ->render();
-
-        // User options : some from actual user profile, dashboard modules, ...
-
-        $odd     = true;
-        $columns = [];
-        foreach (App::backend()->cols as $col_type => $col_list) {
-            $fields = [];
-            foreach ($col_list[1] as $col_name => $col_data) {
-                $fields[] = (new Checkbox(['cols_' . $col_type . '[]', 'cols_' . $col_type . '-' . $col_name], $col_data[0]))
-                    ->value($col_name)
-                    ->label(new Label($col_data[1], Label::IL_FT));
-            }
-            $columns[] = (new Div())
-                ->class(['two-boxes', $odd ? 'odd' : 'even'])
-                ->items([
-                    (new Text('h5', $col_list[0])),
-                    ...$fields,
-                ]);
-            $odd = !$odd;
-        }
-
-        $sortingRows = function ($sorts) {
-            foreach ($sorts as $sort_type => $sort_data) {
-                yield (new Tr())
-                    ->cols([
-                        (new Td())
-                            ->text($sort_data[0]),
-                        (new Td())
-                            ->items([
-                                $sort_data[1] ?
-                                    (new Select('sorts_' . $sort_type . '_sortby'))
-                                        ->items($sort_data[1])
-                                        ->default($sort_data[2]) :
-                                    (new None()),
-                            ]),
-                        (new Td())
-                            ->items([
-                                $sort_data[3] ?
-                                    (new Select('sorts_' . $sort_type . '_order'))
-                                        ->items(App::backend()->order_combo)
-                                        ->default($sort_data[3]) :
-                                    (new None()),
-                            ]),
-                        (new Td())
-                            ->items([
-                                is_array($sort_data[4]) ?
-                                    (new Number('sorts_' . $sort_type . '_nb', 0, 999, (int) $sort_data[4][1]))
-                                        ->label(new Label($sort_data[4][0], Label::IL_FT)) :
-                                    (new None()),
-                            ]),
-                    ]);
-            }
-        };
-        $sorting = (new Table())
-            ->class('table-outer')
-            ->thead((new Thead())
-                ->rows([
-                    (new Tr())
-                        ->cols([
-                            (new Th())
-                                ->text(__('List')),
-                            (new Th())
-                                ->text(__('Order by')),
-                            (new Th())
-                                ->text(__('Sort')),
-                            (new Th())
-                                ->text(__('Show')),
-                        ]),
-                ]))
-            ->tbody((new Tbody())
-                ->rows([
-                    ... $sortingRows(App::backend()->sorts),
-                ]));
-
-        // List of choosen editor by syntax
-        $editorsByFormat = function ($list) {
-            foreach ($list as $format => $editors) {
-                $label = sprintf(__('Preferred editor for %s:'), (new Strong(App::formater()->getFormaterName($format)))->render());
-                yield (new Para())
-                    ->class('field')
-                    ->items([
-                        (new Select(['user_editor[' . $format . ']', 'user_editor_' . $format]))
-                            ->items(array_merge([__('Choose an editor') => ''], $editors))
-                            ->default(App::backend()->user_options['editor'][$format])
-                            ->label(new Label($label, Label::OL_TF)),
-                    ]);
-            }
-        };
-
-        // List of contexts (fields) where HTML editor should be use rather than pure text
-        $editInHtml = function ($list) {
-            foreach ($list as $rk => $rv) {
-                yield (new Para())
-                    ->items([
-                        (new Checkbox(['rte_flags[]', 'rte_' . $rk], (bool) $rv[0]))
-                            ->value($rk)
-                            ->label(new Label($rv[1], Label::IL_FT)),
-                    ]);
-            }
-        };
-
         // otp (2fa) configuration
         $otp_items = [];
         if (App::backend()->otp !== null) {
@@ -987,6 +772,245 @@ class UserPreferences extends Process
                 }
             }
         }
+
+        echo (new Div('user-profile'))
+            ->class('multi-part')
+            ->title(__('My profile'))
+            ->items([
+                (new Text('h3', __('My profile'))),
+                (new Form('user-form'))
+                    ->method('post')
+                    ->action(App::backend()->url()->get('admin.user.preferences'))
+                    ->fields([
+                        (new Para())
+                            ->items([
+                                (new Input('user_name'))
+                                    ->size(20)
+                                    ->maxlength(255)
+                                    ->value(Html::escapeHTML(App::backend()->user_name))
+                                    ->autocomplete('family-name')
+                                    ->translate(false)
+                                    ->label((new Label(__('Last Name:'), Label::OL_TF))),
+                            ]),
+                        (new Para())
+                            ->items([
+                                (new Input('user_firstname'))
+                                    ->size(20)
+                                    ->maxlength(255)
+                                    ->value(Html::escapeHTML(App::backend()->user_firstname))
+                                    ->autocomplete('given-name')
+                                    ->translate(false)
+                                    ->label((new Label(__('First Name:'), Label::OL_TF))),
+                            ]),
+                        (new Para())
+                            ->items([
+                                (new Input('user_displayname'))
+                                    ->size(20)
+                                    ->maxlength(255)
+                                    ->value(Html::escapeHTML(App::backend()->user_displayname))
+                                    ->autocomplete('nickname')
+                                    ->translate(false)
+                                    ->label((new Label(__('Display name:'), Label::OL_TF))),
+                            ]),
+                        (new Para())
+                            ->items([
+                                (new Email('user_email'))
+                                    ->size(40)
+                                    ->maxlength(255)
+                                    ->value(Html::escapeHTML(App::backend()->user_email))
+                                    ->autocomplete('email')
+                                    ->translate(false)
+                                    ->label((new Label(__('Email:'), Label::OL_TF))),
+                            ]),
+                        (new Para())
+                            ->items([
+                                (new Input('user_profile_mails'))
+                                    ->size(80)
+                                    ->maxlength(255)
+                                    ->value(Html::escapeHTML(App::backend()->user_profile_mails))
+                                    ->translate(false)
+                                    ->label((new Label(__('Alternate emails (comma separated list):'), Label::OL_TF))),
+                            ]),
+                        (new Note('sanitize_emails'))
+                            ->class(['form-note', 'info'])
+                            ->text(__('Invalid emails will be automatically removed from list.')),
+                        (new Para())
+                            ->items([
+                                (new Url('user_url'))
+                                    ->size(40)
+                                    ->maxlength(255)
+                                    ->value(Html::escapeHTML(App::backend()->user_url))
+                                    ->autocomplete('url')
+                                    ->translate(false)
+                                    ->label((new Label(__('URL:'), Label::OL_TF))),
+                            ]),
+                        (new Para())
+                            ->items([
+                                (new Input('user_profile_urls'))
+                                    ->size(80)
+                                    ->maxlength(255)
+                                    ->value(Html::escapeHTML(App::backend()->user_profile_urls))
+                                    ->translate(false)
+                                    ->label((new Label(__('Alternate URLs (comma separated list):'), Label::OL_TF))),
+                            ]),
+                        (new Note('sanitize_urls'))
+                            ->class(['form-note', 'info'])
+                            ->text(__('Invalid URLs will be automatically removed from list.')),
+                        (new Para())
+                            ->items([
+                                (new Select('user_lang'))
+                                    ->items(App::backend()->lang_combo)
+                                    ->default(App::backend()->user_lang)
+                                    ->translate(false)
+                                    ->label((new Label(__('Language for my interface:'), Label::OL_TF))),
+                            ]),
+                        (new Para())
+                            ->items([
+                                (new Select('user_tz'))
+                                    ->items(Date::getZones(true, true))
+                                    ->default(App::backend()->user_tz)
+                                    ->translate(false)
+                                    ->label((new Label(__('My timezone:'), Label::OL_TF))),
+                            ]),
+
+                        $pass_change,
+
+                        // otp
+                        App::backend()->otp === null ? new None() : (new Fieldset('user_options_otp'))
+                            ->legend(new Legend(__('Two factors authentication')))
+                            ->separator('')
+                            ->items($otp_items),
+                        // wenauthn
+                        App::backend()->webauthn === null ? new None() : (new Fieldset('user_options_webauthn'))
+                            ->legend(new Legend(__('Authentication keys')))
+                            ->separator('')
+                            ->items([
+                                (new Ul())
+                                    ->items($webauthn_items),
+                                (new Para('webauthn_action'))
+                                    ->items([
+                                        (new Button(['webauthn_button'], 'Register a new key')),
+                                    ])
+                                    ->class(['hidden-if-no-js']),
+                            ]),
+                        // oauth2
+                        $oauth2_items === [] ? new None() : (new Fieldset('user_options_oauth2'))
+                            ->legend(new Legend(__('Authentication applications')))
+                            ->separator('')
+                            ->items($oauth2_items),
+
+                        (new Para())
+                           ->class(['clear', 'form-buttons'])
+                           ->items([
+                               App::nonce()->formNonce(),
+                               (new Submit('user-form-submit', __('Update my profile')))
+                                   ->accesskey('s'),
+                               (new Button('user-form-back', __('Back')))
+                                   ->class(['go-back', 'reset', 'hidden-if-no-js']),
+                           ]),
+                    ]),
+            ])
+        ->render();
+
+        // User options : some from actual user profile, dashboard modules, ...
+
+        $odd     = true;
+        $columns = [];
+        foreach (App::backend()->cols as $col_type => $col_list) {
+            $fields = [];
+            foreach ($col_list[1] as $col_name => $col_data) {
+                $fields[] = (new Checkbox(['cols_' . $col_type . '[]', 'cols_' . $col_type . '-' . $col_name], $col_data[0]))
+                    ->value($col_name)
+                    ->label(new Label($col_data[1], Label::IL_FT));
+            }
+            $columns[] = (new Div())
+                ->class(['two-boxes', $odd ? 'odd' : 'even'])
+                ->items([
+                    (new Text('h5', $col_list[0])),
+                    ...$fields,
+                ]);
+            $odd = !$odd;
+        }
+
+        $sortingRows = function ($sorts) {
+            foreach ($sorts as $sort_type => $sort_data) {
+                yield (new Tr())
+                    ->cols([
+                        (new Td())
+                            ->text($sort_data[0]),
+                        (new Td())
+                            ->items([
+                                $sort_data[1] ?
+                                    (new Select('sorts_' . $sort_type . '_sortby'))
+                                        ->items($sort_data[1])
+                                        ->default($sort_data[2]) :
+                                    (new None()),
+                            ]),
+                        (new Td())
+                            ->items([
+                                $sort_data[3] ?
+                                    (new Select('sorts_' . $sort_type . '_order'))
+                                        ->items(App::backend()->order_combo)
+                                        ->default($sort_data[3]) :
+                                    (new None()),
+                            ]),
+                        (new Td())
+                            ->items([
+                                is_array($sort_data[4]) ?
+                                    (new Number('sorts_' . $sort_type . '_nb', 0, 999, (int) $sort_data[4][1]))
+                                        ->label(new Label($sort_data[4][0], Label::IL_FT)) :
+                                    (new None()),
+                            ]),
+                    ]);
+            }
+        };
+        $sorting = (new Table())
+            ->class('table-outer')
+            ->thead((new Thead())
+                ->rows([
+                    (new Tr())
+                        ->cols([
+                            (new Th())
+                                ->text(__('List')),
+                            (new Th())
+                                ->text(__('Order by')),
+                            (new Th())
+                                ->text(__('Sort')),
+                            (new Th())
+                                ->text(__('Show')),
+                        ]),
+                ]))
+            ->tbody((new Tbody())
+                ->rows([
+                    ... $sortingRows(App::backend()->sorts),
+                ]));
+
+        // List of choosen editor by syntax
+        $editorsByFormat = function ($list) {
+            foreach ($list as $format => $editors) {
+                $label = sprintf(__('Preferred editor for %s:'), (new Strong(App::formater()->getFormaterName($format)))->render());
+                yield (new Para())
+                    ->class('field')
+                    ->items([
+                        (new Select(['user_editor[' . $format . ']', 'user_editor_' . $format]))
+                            ->items(array_merge([__('Choose an editor') => ''], $editors))
+                            ->default(App::backend()->user_options['editor'][$format])
+                            ->label(new Label($label, Label::OL_TF)),
+                    ]);
+            }
+        };
+
+        // List of contexts (fields) where HTML editor should be use rather than pure text
+        $editInHtml = function ($list) {
+            foreach ($list as $rk => $rv) {
+                yield (new Para())
+                    ->items([
+                        (new Checkbox(['rte_flags[]', 'rte_' . $rk], (bool) $rv[0]))
+                            ->value($rk)
+                            ->label(new Label($rv[1], Label::IL_FT)),
+                    ]);
+            }
+        };
 
         echo (new Div('user-options'))
             ->class('multi-part')
@@ -1170,29 +1194,6 @@ class UserPreferences extends Process
                                         ... $editInHtml(App::backend()->rte),
                                     ]),
                             ]),
-                        // otp
-                        App::backend()->otp === null ? new None() : (new Fieldset('user_options_otp'))
-                            ->legend(new Legend(__('Two factors authentication')))
-                            ->separator('')
-                            ->items($otp_items),
-                        // wenauthn
-                        App::backend()->webauthn === null ? new None() : (new Fieldset('user_options_webauthn'))
-                            ->legend(new Legend(__('Authentication keys')))
-                            ->separator('')
-                            ->items([
-                                (new Ul())
-                                    ->items($webauthn_items),
-                                (new Para('webauthn_action'))
-                                    ->items([
-                                        (new Button(['webauthn_button'], 'Register a new key')),
-                                    ])
-                                    ->class(['hidden-if-no-js']),
-                            ]),
-                        // oauth2
-                        $oauth2_items === [] ? new None() : (new Fieldset('user_options_oauth2'))
-                            ->legend(new Legend(__('Authentication applications')))
-                            ->separator('')
-                            ->items($oauth2_items),
                         (new Text('h4', __('Other options')))
                             ->class('pretty-title'),
                         (new Capture(
