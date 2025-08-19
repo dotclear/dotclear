@@ -221,7 +221,13 @@ class Manage extends Process
             ];
         } else {
             $deletable = App::backend()->editor->deletableFile(App::backend()->file['type'], App::backend()->file['f']);
-            $items     = [
+            if (App::backend()->editor?->devMode() && !$deletable) {
+                $deleteButton = (new None());
+            } else {
+                $deleteButton = (new Submit(['delete'], __('Reset')))
+                    ->class(['delete', $deletable ? '' : 'hide']);
+            }
+            $items = [
                 (new Form())
                     ->method('post')
                     ->action(App::backend()->getPageURL())
@@ -246,8 +252,7 @@ class Manage extends Process
                                 ...My::hiddenFields(),
                                 (new Submit(['write'], __('Save') . ' (s)'))
                                     ->accesskey('s'),
-                                (new Submit(['delete'], __('Reset')))
-                                    ->class(['delete', $deletable ? '' : 'hide']),
+                                $deleteButton,
                                 App::backend()->file['type'] ?
                                     (new Hidden([App::backend()->file['type']], App::backend()->file['f'])) :
                                     (new None()),
