@@ -15,6 +15,7 @@ use ArrayObject;
 use Dotclear\App;
 use Dotclear\Core\Backend\Auth\OAuth2Client;
 use Dotclear\Core\Backend\Auth\OAuth2Store;
+use Dotclear\Core\Backend\Auth\Otp;
 use Dotclear\Core\Backend\Auth\WebAuthn;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Helper;
@@ -74,20 +75,37 @@ class UserPreferences extends Process
 
         App::backend()->page_title = __('My preferences');
 
-        // Create oAuth2 client instance
-        try {
-            App::backend()->oauth2 = new OAuth2Client(
-                new OAuth2Store(App::config()->adminUrl() . App::backend()->url()->get('admin.user.preferences'))
-            );
-        } catch (Exception $e) {
-            App::error()->add($e->getMessage());
-        }
+        if (App::config()->authPasswordOnly()) {
+            App::backend()->oauth2 = null;
+            App::backend()->webauthn = null;
+            App::backend()->otp = null;
+        } else {
+            // Create otp instance
+            try {
+                App::backend()->otp = new Otp();
+                App::backend()->otp->setUser(App::auth()->userID());
+            } catch (Exception $e) {
+                App::backend()->otp = null;
+                App::error()->add($e->getMessage());
+            }
 
-        // Create webauthn instance
-        try {
-            App::backend()->webauthn = new WebAuthn();
-        } catch (Exception $e) {
-            App::error()->add($e->getMessage());
+            // Create webauthn instance
+            try {
+                App::backend()->webauthn = new WebAuthn();
+            } catch (Exception $e) {
+                App::backend()->webauthn = null;
+                App::error()->add($e->getMessage());
+            }
+
+            // Create oAuth2 client instance
+            try {
+                App::backend()->oauth2 = new OAuth2Client(
+                    new OAuth2Store(App::config()->adminUrl() . App::backend()->url()->get('admin.user.preferences'))
+                );
+            } catch (Exception $e) {
+                App::backend()->oauth2 = null;
+                App::error()->add($e->getMessage());
+            }
         }
 
         App::backend()->user_name        = App::auth()->getInfo('user_name');
@@ -220,11 +238,26 @@ class UserPreferences extends Process
 
     public static function process(): bool
     {
-        if (App::backend()->oauth2 !== null) {
-            // process oAuth2 client action
-            App::backend()->oauth2->requestAction((string) App::auth()->userID());
+        // otp action
+        if (App::backend()->otp !== null) {
+            if (!empty($_POST['otp_verify_submit']) && !empty($_POST['otp_verify_code'])) {
+                // verify code
+                if (!App::backend()->otp->verifyCode($_POST['otp_verify_code'])) {
+                    App::error()->add(__('Two facors authentication verification failed.'));
+                } else {
+                    Notices::addSuccessNotice(__('Two facors authentication verification succeeded.'));
+                }
+            }
+            if (!empty($_POST['otp_delete']) || !empty($_POST['otp_regenerate'])) {
+                // delete credential
+                App::backend()->otp->delCredential();
+                App::backend()->otp->setUser(App::auth()->userID()); // reload info
+
+                Notices::addSuccessNotice(__('Two factors authentication secret regenerated.'));
+            }
         }
 
+        // webauthn action
         if (App::backend()->webauthn !== null && !empty($_POST['webauthn'])) {
             // process webauhtn key deletion
             App::backend()->webauthn->store()->delCredential(base64_decode((string) key($_POST['webauthn'])));
@@ -232,6 +265,13 @@ class UserPreferences extends Process
             Notices::addSuccessNotice(__('Passkey successfully deleted.'));
             App::backend()->url()->redirect('admin.user.preferences', [], '#user-options');
         }
+
+        // oauth2 action
+        if (App::backend()->oauth2 !== null) {
+            // process oAuth2 client action
+            App::backend()->oauth2->requestAction((string) App::auth()->userID());
+        }
+
 
         if (isset($_POST['user_name'])) {
             // Update user
@@ -835,6 +875,71 @@ class UserPreferences extends Process
             }
         };
 
+        // otp (2fa) configuration
+        $otp_items = [];
+        if (App::backend()->otp !== null) {
+            if (App::backend()->otp->isVerified()) {
+                $otp_items = [
+                    (new Text('p', __('Your account is registered to two factors authentication.'))),
+                    (new Submit(['otp_delete'], __('Disable two factors authentication')))
+                        ->class('delete'),
+                ];
+            } else {
+                $otp_items = [
+                    (New Text('p', __('Scan this QR code with your authentication application:'))),
+                    (new Para())
+                        ->items([App::backend()->otp->getQrCodeImageHtml(),]),
+                    (new Para())
+                        ->items([
+                            (new Input('otp_secret'))
+                                ->size(80)
+                                ->maxlength(255)
+                                ->value(App::backend()->otp->getSecret())
+                                ->disabled(true)
+                                //->extra('aria-describedby="otp_verify_secret_help')
+                                ->label(new Label(__('Or enter this secret into your authentication application:'), Label::OL_TF)),
+                            (new Submit('otp_regenerate', __('Regenerate')))
+                                ->class('delete'),
+                        ]),
+                    (new Para())
+                        ->items([
+                            (new Input('otp_verify_code'))
+                                ->size(10)
+                                ->maxlength(App::backend()->otp->getDigits())
+                                ->value('')
+                                //->extra('aria-describedby="otp_verify_code_help')
+                                ->label(new Label(__('Enter verification code:'), Label::OL_TF)),
+                            (new Submit('otp_verify_submit', __('Verify'))),
+                        ]),
+                    (new Text('p',''))->class('clear'),
+                ];
+            }
+        }
+
+        // webauthn (passkey) configuration
+        $webauthn_items = [];
+        if (App::backend()->webauthn !== null) {
+            $webauthn_creds = App::backend()->webauthn->store()->getCredentials(null, (string) App::auth()->userID());
+
+            foreach ($webauthn_creds as $webauthn_cred) {
+                $webauthn_items[] = (new Li())
+                    ->separator(', ')
+                    ->items([
+                        (new Text('', Html::escapeHTML(App::backend()->webauthn->provider()->getProvider($webauthn_cred->UUID()))))
+                            ->title(Html::escapeHTML($webauthn_cred->certificateIssuer() ?: __('Unknown certificat issuer'))),
+                        (new Timestamp(Date::dt2str(__('%Y-%m-%d %H:%M'), $webauthn_cred->createDate())))
+                            ->datetime(Date::iso8601((int) strtotime((string) $webauthn_cred->createDate()), App::auth()->getInfo('user_tz'))),
+                        (new Submit(['webauthn[' . base64_encode((string) $webauthn_cred->credentialId()) . ']'], __('Delete')))
+                            ->class('delete'),
+                    ]);
+            }
+
+            if ($webauthn_items === []) {
+                $webauthn_items[] = (new Li())
+                    ->text(__('You have no registered key yet.'));
+            }
+        }
+
         // Oauth2 client configuration
         $oauth2_items = [];
         if (App::backend()->oauth2 !== null) {
@@ -845,7 +950,7 @@ class UserPreferences extends Process
                 ) {
                     continue;
                 }
-
+;
                 // Get auth button
                 $oauth_link = App::backend()->oauth2->getActionButton(
                     (string) App::auth()->userID(),
@@ -881,29 +986,6 @@ class UserPreferences extends Process
                         ->class(['three-boxes'])
                         ->items([...$oauth2_div, $oauth_link]);
                 }
-            }
-        }
-
-        $webauthn_items = [];
-        if (App::backend()->webauthn !== null) {
-            $webauthn_creds = App::backend()->webauthn->store()->getCredentials(null, (string) App::auth()->userID());
-
-            foreach ($webauthn_creds as $webauthn_cred) {
-                $webauthn_items[] = (new Li())
-                    ->separator(', ')
-                    ->items([
-                        (new Text('', Html::escapeHTML(App::backend()->webauthn->provider()->getProvider($webauthn_cred->UUID()))))
-                            ->title(Html::escapeHTML($webauthn_cred->certificateIssuer() ?: __('Unknown certificat issuer'))),
-                        (new Timestamp(Date::dt2str(__('%Y-%m-%d %H:%M'), $webauthn_cred->createDate())))
-                            ->datetime(Date::iso8601((int) strtotime((string) $webauthn_cred->createDate()), App::auth()->getInfo('user_tz'))),
-                        (new Submit(['webauthn[' . base64_encode((string) $webauthn_cred->credentialId()) . ']'], __('Delete')))
-                            ->class('delete'),
-                    ]);
-            }
-
-            if ($webauthn_items === []) {
-                $webauthn_items[] = (new Li())
-                    ->text(__('You have no registered key yet.'));
             }
         }
 
@@ -1089,12 +1171,13 @@ class UserPreferences extends Process
                                         ... $editInHtml(App::backend()->rte),
                                     ]),
                             ]),
-                        $oauth2_items === [] ? new None() : (new Fieldset('user_options_oauth2'))
-                            ->legend(new Legend(__('Authentication applications')))
+                        // otp
+                        App::backend()->otp === null ? new None() : (new Fieldset('user_options_otp'))
+                            ->legend(new Legend(__('Two factors authentication')))
                             ->separator('')
-                            ->items($oauth2_items),
+                            ->items($otp_items),
                         // wenauthn
-                        (new Fieldset('user_options_webauthn'))
+                        App::backend()->webauthn === null ? new None() : (new Fieldset('user_options_webauthn'))
                             ->legend(new Legend(__('Authentication keys')))
                             ->separator('')
                             ->items([
@@ -1106,6 +1189,11 @@ class UserPreferences extends Process
                                     ])
                                     ->class(['hidden-if-no-js']),
                             ]),
+                        // oauth2
+                        $oauth2_items === [] ? new None() : (new Fieldset('user_options_oauth2'))
+                            ->legend(new Legend(__('Authentication applications')))
+                            ->separator('')
+                            ->items($oauth2_items),
                         (new Text('h4', __('Other options')))
                             ->class('pretty-title'),
                         (new Capture(

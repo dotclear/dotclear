@@ -143,6 +143,7 @@ class Config implements ConfigInterface
     private readonly int $media_update_db_limit;
     private readonly string $oauth2_path;
     private readonly bool $has_oauth2;
+    private readonly bool $auth_password_only;
 
     /**
      * Constructor.
@@ -422,6 +423,10 @@ class Config implements ConfigInterface
             define('DC_MEDIA_UPDATE_DB_LIMIT', 1000);
         }
 
+        if (!defined('DC_AUTH_PASSWORD_ONLY')) {
+            define('DC_AUTH_PASSWORD_ONLY', false);
+        }
+
         $this->debug_mode            = DC_DEBUG;
         $this->dev_mode              = DC_DEV;
         $this->error_file            = (string) DC_ERRORFILE;
@@ -463,6 +468,7 @@ class Config implements ConfigInterface
         $this->check_ads_blocker     = (bool) DC_ADBLOCKER_CHECK;
         $this->dotclear_migrate      = (bool) DC_MIGRATE;
         $this->media_update_db_limit = (int) DC_MEDIA_UPDATE_DB_LIMIT;
+        $this->auth_password_only    = (bool) DC_AUTH_PASSWORD_ONLY;
 
         // Various
         if (!defined('DC_CSP_LOGFILE')) {
@@ -852,5 +858,10 @@ class Config implements ConfigInterface
     public function mediaUpdateDBLimit(): int
     {
         return $this->media_update_db_limit;
+    }
+
+    public function authPasswordOnly(): bool
+    {
+        return $this->auth_password_only;
     }
 }
