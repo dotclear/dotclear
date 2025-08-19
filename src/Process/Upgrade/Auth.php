@@ -12,9 +12,19 @@ declare(strict_types=1);
 namespace Dotclear\Process\Upgrade;
 
 use Dotclear\App;
+use Dotclear\Core\Upgrade\Otp;
 use Dotclear\Core\Upgrade\Page;
 use Dotclear\Core\Process;
 use Dotclear\Core\Upgrade\Upgrade;
+use Dotclear\Helper\Html\Form\Fieldset;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Input;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Legend;
+use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Set;
+use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
@@ -37,6 +47,11 @@ class Auth extends Process
     private static ?string $user_key = null;
     private static ?string $err      = null;
     private static ?string $msg      = null;
+
+    private static ?Otp $otp           = null;
+    private static bool $verify_code   = false;
+    private static bool $require_2fa   = false;
+    private static ?string $login_data = null;
 
     public static function init(): bool
     {
@@ -90,12 +105,93 @@ class Auth extends Process
             App::rest()->enableRestServer(true);
         }
 
+        // Disable otp authentication
+        if (App::config()->authPasswordOnly()) {
+            self::$otp = null;
+        } else {
+            // Create otp instance
+            try {
+                self::$otp = new Otp();
+            } catch (Exception) { // silently fail
+                self::$otp = null;
+            }
+        }
+
+        // 2fa verification
+        self::$verify_code = self::$otp !== null && isset($_POST['user_code']) && isset($_POST['login_data']);
+ 
         return self::status(true);
     }
 
     public static function process(): bool
     {
-        if (self::$user_id !== null && (self::$user_pwd !== null || self::$user_key !== null)) {
+        if (self::$otp !== null && self::$verify_code) {
+            //Check 2fa code
+
+                $tmp_data = explode('/', (string) $_POST['login_data']);
+                if (count($tmp_data) != 3) {
+                    throw new Exception();
+                }
+                $data = [
+                    'user_id'       => base64_decode($tmp_data[0], true),
+                    'cookie_admin'  => $tmp_data[1],
+                    'user_remember' => $tmp_data[2] === '1',
+                ];
+                if ($data['user_id'] === false) {
+                    throw new Exception();
+                }
+
+                // Check login informations
+                $check_user = false;
+                if (strlen($data['cookie_admin']) == 104) {
+                    $user_id = substr($data['cookie_admin'], 40);
+                    $user_id = @unpack('a32', @pack('H*', $user_id));
+                    if (is_array($user_id)) {
+                        $user_id    = trim($data['user_id']);
+                        $user_key   = substr($data['cookie_admin'], 0, 40);
+                        $check_user = App::auth()->checkUser($user_id, null, $user_key);
+                    } else {
+                        $user_id = trim((string) $user_id);
+                    }
+                    self::$user_id = $user_id;
+                }
+
+                // Check user permissions
+                $check_perms = $check_user && App::auth()->isSuperAdmin();
+                $check_code  = $check_perms && self::$otp->setUser((string) self::$user_id)->verifyCode($_POST['user_code']);
+
+            if ($check_code) {
+                $_SESSION['sess_user_id']     = self::$user_id;
+                $_SESSION['sess_browser_uid'] = Http::browserUID(App::config()->masterKey());
+
+                if ($data['user_remember']) {
+                    setcookie(App::upgrade()::COOKIE_NAME, $data['cookie_admin'], ['expires' => strtotime('+15 days'), 'path' => '', 'domain' => '', 'secure' => App::config()->adminSsl()]);
+                }
+
+                App::upgrade()->url()->redirect('upgrade.home');
+            } else {
+                // User cannot login
+
+                if ($check_user) {
+                    // Code verification failed
+
+                    self::$err = __('Code verification failed');
+                } elseif (!$check_perms) {
+                    // Insufficient permissions
+
+                    self::$err = __('Insufficient permissions');
+                } else {
+                    // Session expired
+
+                    self::$err = isset($_COOKIE[App::upgrade()::COOKIE_NAME]) ? __('Administration session expired') : __('Wrong username or password');
+                }
+                if (isset($_COOKIE[App::upgrade()::COOKIE_NAME])) {
+                    unset($_COOKIE[App::upgrade()::COOKIE_NAME]);
+                    setcookie(App::upgrade()::COOKIE_NAME, '', ['expires' => -600, 'path' => '', 'domain' => '', 'secure' => App::config()->adminSsl()]);
+                }
+            }
+
+        } elseif (self::$user_id !== null && (self::$user_pwd !== null || self::$user_key !== null)) {
             // Try to log
 
             // We check the user
@@ -114,18 +210,31 @@ class Auth extends Process
             if ($check_perms) {
                 // User may log-in
 
-                $_SESSION['sess_user_id']     = self::$user_id;
-                $_SESSION['sess_browser_uid'] = Http::browserUID(App::config()->masterKey());
+                // Check if user need 2fa
+                self::$require_2fa = self::$otp !== null && self::$otp->setUser(self::$user_id)->isVerified();
 
-                if (!empty($_POST['blog'])) {
-                    $_SESSION['sess_blog_id'] = $_POST['blog'];
+                if (self::$require_2fa) {
+                    // Required 2fa authentication. Skip normal login and go to 2fa form
+
+                    self::$login_data = implode('/', [
+                        base64_encode(self::$user_id),
+                        $cookie_admin,
+                        empty($_POST['user_remember']) ? '0' : '1',
+                    ]);
+                } else {
+                    $_SESSION['sess_user_id']     = self::$user_id;
+                    $_SESSION['sess_browser_uid'] = Http::browserUID(App::config()->masterKey());
+
+                    if (!empty($_POST['blog'])) {
+                        $_SESSION['sess_blog_id'] = $_POST['blog'];
+                    }
+
+                    if (!empty($_POST['user_remember'])) {
+                        setcookie(App::upgrade()::COOKIE_NAME, $cookie_admin, ['expires' => strtotime('+15 days'), 'path' => '', 'domain' => '', 'secure' => App::config()->adminSsl()]);
+                    }
+
+                    App::upgrade()->url()->redirect('upgrade.home');
                 }
-
-                if (!empty($_POST['user_remember'])) {
-                    setcookie(App::upgrade()::COOKIE_NAME, $cookie_admin, ['expires' => strtotime('+15 days'), 'path' => '', 'domain' => '', 'secure' => App::config()->adminSsl()]);
-                }
-
-                App::upgrade()->url()->redirect('upgrade.home');
             } else {
                 // User cannot login
 
@@ -208,6 +317,37 @@ class Auth extends Process
             // User-defined authentication form
 
             echo $user_defined_auth_form(self::$user_id);
+        } elseif (self::$otp !== null && self::$require_2fa) {
+            // 2FA verification
+            echo (new Set())
+                ->items([
+                    (new Fieldset())
+                        ->role('main')
+                        ->legend((new Legend(__('Two factors authentication'))))
+                        ->fields([
+                            (new Para())
+                                ->items([
+                                    (new Input('user_code'))
+                                        ->label((new Label(__('Enter code:'), Label::IL_TF)))
+                                        ->size(20)
+                                        ->maxlength(self::$otp->getDigits())
+                                        ->default('')
+                                        ->translate(false),
+                                ]),
+                            (new Para())
+                                ->items([
+                                    (new Submit('verify_sbumit', __('Verify'))),
+                                    (new Hidden('login_data', (string) self::$login_data)),
+                                ]),
+                            (new Para())
+                                ->items([
+                                    (new Link())
+                                        ->href(App::upgrade()->url()->get('upgrade.auth'))
+                                        ->text(__('Back to login screen')),
+                                ]),
+                        ]),
+                ])
+                ->render();
         } else {
             // Standard authentication form
 

@@ -14,6 +14,7 @@ namespace Dotclear\Process\Backend;
 use Dotclear\App;
 use Dotclear\Core\Backend\Auth\OAuth2Client;
 use Dotclear\Core\Backend\Auth\OAuth2Store;
+use Dotclear\Core\Backend\Auth\Otp;
 use Dotclear\Core\Backend\Auth\WebAuthn;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
@@ -123,23 +124,39 @@ class Auth extends Process
             App::rest()->enableRestServer(true);
         }
 
-        // Create oAuth2 client instance
-        try {
-            App::backend()->oauth2 = App::backend()->safe_mode ? null : new OAuth2Client(
-                new OAuth2Store(App::config()->adminUrl() . App::backend()->url()->get('admin.auth'))
-            );
-        } catch (Exception $e) {
-            App::backend()->err    = $e->getMessage();
+        // Disable exotic authentication
+        if (App::config()->authPasswordOnly()) {
             App::backend()->oauth2 = null;
+            App::backend()->webauthn = null;
+            App::backend()->otp = null;
+        } else {
+            // Create oAuth2 client instance
+            try {
+                App::backend()->oauth2 = App::backend()->safe_mode ? null : new OAuth2Client(
+                    new OAuth2Store(App::config()->adminUrl() . App::backend()->url()->get('admin.auth'))
+                );
+            } catch (Exception) { // silently fail
+                App::backend()->oauth2 = null;
+            }
+
+            // Create webauthn instance
+            try {
+                App::backend()->webauthn = App::backend()->safe_mode ? null : new WebAuthn();
+            } catch (Exception) { // silently fail
+                App::backend()->oauth2 = null;
+            }
+
+            // Create otp instance
+            try {
+                App::backend()->otp = new Otp();
+            } catch (Exception) { // silently fail
+                App::backend()->otp = null;
+            }
         }
 
-        // Create webauthn instance
-        try {
-            App::backend()->webauthn = App::backend()->safe_mode ? null : new WebAuthn();
-        } catch (Exception $e) {
-            App::backend()->err    = $e->getMessage();
-            App::backend()->oauth2 = null;
-        }
+        // 2fa verification
+        App::backend()->verify_code = App::backend()->otp !== null && isset($_POST['user_code']) && isset($_POST['login_data']);
+        App::backend()->require_2fa = false;
 
         return self::status(true);
     }
@@ -169,6 +186,12 @@ class Auth extends Process
 
                 Mail::sendMail(App::backend()->user_email, $subject, $message, $headers);
                 App::backend()->msg = sprintf(__('The e-mail was sent successfully to %s.'), App::backend()->user_email);
+
+                // message saying that 2fa authentication be be removed
+                if (App::backend()->otp !== null && App::backend()->otp->setUser(App::backend()->user_id)->isVerified()) {
+                    App::backend()->msg .= ' ' . __('This removes two factors authentication.');
+                }
+
             } catch (Exception $e) {
                 App::backend()->err = $e->getMessage();
             }
@@ -185,6 +208,11 @@ class Auth extends Process
 
                 Mail::sendMail($recover_res['user_email'], $subject, $message, $headers);
                 App::backend()->msg = __('Your new password is in your mailbox.');
+
+                // Remove 2fa authentication on password change
+                if (App::backend()->otp !== null && App::backend()->otp->setUser($recover_res['user_id'])->isVerified()) {
+                    App::backend()->otp->delCredential();
+                }
             } catch (Exception $e) {
                 App::backend()->err = $e->getMessage();
             }
@@ -250,6 +278,62 @@ class Auth extends Process
             } catch (Exception $e) {
                 App::backend()->err = $e->getMessage();
             }
+        } elseif (App::backend()->verify_code) {
+            //Check 2fa code
+            try {
+                $tmp_data = explode('/', (string) $_POST['login_data']);
+                if (count($tmp_data) != 4) {
+                    throw new Exception();
+                }
+                $data = [
+                    'user_id'       => base64_decode($tmp_data[0], true),
+                    'cookie_admin'  => $tmp_data[1],
+                    'user_remember' => $tmp_data[2] === '1',
+                    'safe_mode'     => $tmp_data[3] === '1',
+                ];
+                if ($data['user_id'] === false) {
+                    throw new Exception();
+                }
+
+                // Check login informations
+                $check_user = false;
+                if (strlen($data['cookie_admin']) == 104) {
+                    $user_id = substr($data['cookie_admin'], 40);
+                    $user_id = @unpack('a32', @pack('H*', $user_id));
+                    if (is_array($user_id)) {
+                        $user_id                 = trim($data['user_id']);
+                        App::backend()->user_key = substr($data['cookie_admin'], 0, 40);
+                        $check_user              = App::auth()->checkUser($user_id, null, App::backend()->user_key);
+                    } else {
+                        $user_id = trim((string) $user_id);
+                    }
+                    App::backend()->user_id = $user_id;
+                }
+
+                // Check user permissions
+                if (!$check_user || App::auth()->findUserBlog() === false) {
+                    throw new Exception();
+                }
+
+                if (!App::backend()->otp->setUser(App::backend()->user_id)->verifyCode($_POST['user_code'])) {
+                    throw new Exception(__('Code validation failed.'));
+                }
+
+                $_SESSION['sess_user_id']     = App::backend()->user_id;
+                $_SESSION['sess_browser_uid'] = Http::browserUID(App::config()->masterKey());
+
+                if ($data['safe_mode'] && App::auth()->isSuperAdmin()) {
+                    $_SESSION['sess_safe_mode'] = true;
+                }
+
+                if ($data['user_remember']) {
+                    setcookie(App::backend()::COOKIE_NAME, $data['cookie_admin'], ['expires' => strtotime('+15 days'), 'path' => '', 'domain' => '', 'secure' => App::config()->adminSsl()]);
+                }
+
+                App::backend()->url()->redirect('admin.home');
+            } catch (Exception $e) {
+                App::backend()->err = $e->getMessage();
+            }
         } elseif (App::backend()->user_id !== null && (App::backend()->user_pwd !== null || App::backend()->user_key !== null)) {
             // Try to log
 
@@ -288,26 +372,42 @@ class Auth extends Process
             } elseif ($check_perms) {
                 // User may log-in
 
-                $_SESSION['sess_user_id']     = App::backend()->user_id;
-                $_SESSION['sess_browser_uid'] = Http::browserUID(App::config()->masterKey());
+                // Check if user need 2fa
+                App::backend()->require_2fa = App::backend()->otp !== null &&App::backend()->otp->setUser(App::backend()->user_id)->isVerified();
 
-                if (!empty($_POST['blog'])) {
-                    $_SESSION['sess_blog_id'] = $_POST['blog'];
+                if (App::backend()->require_2fa) {
+                    // Required 2fa authentication. Skip normal login and go to 2fa form
+
+                    App::backend()->login_data = implode('/', [
+                        base64_encode(App::backend()->user_id),
+                        $cookie_admin,
+                        empty($_POST['user_remember']) ? '0' : '1',
+                        App::backend()->safe_mode ? '1' : '0',
+                    ]);
+                } else {
+                    // normal login
+
+                    $_SESSION['sess_user_id']     = App::backend()->user_id;
+                    $_SESSION['sess_browser_uid'] = Http::browserUID(App::config()->masterKey());
+
+                    if (!empty($_POST['blog'])) {
+                        $_SESSION['sess_blog_id'] = $_POST['blog'];
+                    }
+
+                    if (App::backend()->safe_mode && App::auth()->isSuperAdmin()) {
+                        $_SESSION['sess_safe_mode'] = true;
+                    }
+
+                    if (!empty($_POST['user_remember'])) {
+                        setcookie(App::backend()::COOKIE_NAME, $cookie_admin, ['expires' => strtotime('+15 days'), 'path' => '', 'domain' => '', 'secure' => App::config()->adminSsl()]);
+                    }
+
+                    if (isset($_REQUEST['go']) && $url = self::thenGo($_REQUEST['go'])) {
+                        Http::redirect($url);
+                    }
+
+                    App::backend()->url()->redirect('admin.home');
                 }
-
-                if (App::backend()->safe_mode && App::auth()->isSuperAdmin()) {
-                    $_SESSION['sess_safe_mode'] = true;
-                }
-
-                if (!empty($_POST['user_remember'])) {
-                    setcookie(App::backend()::COOKIE_NAME, $cookie_admin, ['expires' => strtotime('+15 days'), 'path' => '', 'domain' => '', 'secure' => App::config()->adminSsl()]);
-                }
-
-                if (isset($_REQUEST['go']) && $url = self::thenGo($_REQUEST['go'])) {
-                    Http::redirect($url);
-                }
-
-                App::backend()->url()->redirect('admin.home');
             } else {
                 // User cannot login
 
@@ -497,6 +597,36 @@ class Auth extends Process
                             (new Hidden('login_data', App::backend()->login_data)),
                         ]),
                 ]);
+        } elseif (App::backend()->require_2fa && App::backend()->user_id !== null) {
+            // 2FA verification
+            $parts[] = (new Set())
+                ->items([
+                    (new Fieldset())
+                        ->role('main')
+                        ->legend((new Legend(__('Two factors authentication'))))
+                        ->fields([
+                            (new Para())
+                                ->items([
+                                    (new Input('user_code'))
+                                        ->label((new Label(__('Enter code:'), Label::IL_TF)))
+                                        ->size(20)
+                                        ->maxlength(App::backend()->otp->getDigits())
+                                        ->default('')
+                                        ->translate(false),
+                                ]),
+                            (new Para())
+                                ->items([
+                                    (new Submit('verify_sbumit', __('Verify'))),
+                                    (new Hidden('login_data', App::backend()->login_data)),
+                                ]),
+                            (new Para())
+                                ->items([
+                                    (new Link())
+                                        ->href(App::backend()->url()->get('admin.auth'))
+                                        ->text(__('Back to login screen')),
+                                ]),
+                        ]),
+                ]);
         } else {
             // Authentication
             $user_defined_auth_form = null;
@@ -589,7 +719,7 @@ class Auth extends Process
                             continue;
                         }
                         $link = App::backend()->oauth2->getActionButton(
-                            (string) App::auth()->userID(),
+                            '',
                             $oauth2_service::getId(),
                             App::config()->adminUrl() . App::backend()->url()->get('admin.auth')
                         );

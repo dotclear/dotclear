@@ -657,7 +657,39 @@ interface ConfigInterface
      */
     public function mediaUpdateDBLimit(): int;
 
+    /**
+     * Check if an oauth2 client config file exists.
+     *
+     * Construct in place.
+     *
+     * @since   2.36
+     *
+     * @return  bool    True if exists
+     */
     public function hasOauth2(): bool;
 
+    /**
+     * OAuth2 client configuration file path.
+     *
+     * Construct in place using self::configPath().
+     * Returns empty string if not set.
+     *
+     * @since   2.36
+     *
+     * @return  string  OAuth2 client config file path
+     */
     public function oauth2Path(): string;
+
+    /**
+     * Disable exotic authentication methods.
+     *
+     * This disables authentication using oauth2, webauthn, otp.
+     * From config file.
+     * Returns false if not set.
+     *
+     * @since   2.36
+     *
+     * @return  bool    True if exotic auth is disabled
+     */
+    public function authPasswordOnly(): bool;
 }
