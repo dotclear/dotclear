@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-20 08:27+0200\n"
-"PO-Revision-Date: 2025-08-20 06:29\n"
+"PO-Revision-Date: 2025-08-20 07:50\n"
 "Last-Translator: \n"
 "Language-Team: Dutch\n"
 "Language: nl_NL\n"
@@ -2959,7 +2959,7 @@ msgstr "Provider \"%s\" kon niet worden geladen"
 
 #: src/Helper/Otp.php:304
 msgid "Two Factors authentication"
-msgstr ""
+msgstr "Authenticatie met twee factoren"
 
 #: src/Helper/Stack/Statuses.php:315 src/Process/Backend/Comment.php:331
 #: src/Process/Backend/User.php:390
@@ -3112,7 +3112,7 @@ msgstr "De e-mail is succesvol verzonden naar %s."
 
 #: src/Process/Backend/Auth.php:192
 msgid "This removes two factors authentication."
-msgstr ""
+msgstr "Dit maakt authenticatie op basis van twee factoren overbodig."
 
 #: src/Process/Backend/Auth.php:203
 msgid "Your new password"
@@ -3134,7 +3134,7 @@ msgstr "Je hebt je wachtwoord niet gewijzigd."
 
 #: src/Process/Backend/Auth.php:318
 msgid "Code validation failed."
-msgstr ""
+msgstr "Codevalidatie mislukt."
 
 #: src/Process/Backend/Auth.php:362
 msgid "You have to change your password before you can login."
@@ -3222,16 +3222,16 @@ msgstr "veranderen"
 #: src/Process/Backend/Auth.php:605 src/Process/Backend/UserPreferences.php:880
 #: src/Process/Upgrade/Auth.php:325
 msgid "Two factors authentication"
-msgstr ""
+msgstr "Verificatie met twee factoren"
 
 #: src/Process/Backend/Auth.php:610 src/Process/Upgrade/Auth.php:330
 msgid "Enter code:"
-msgstr ""
+msgstr "Voer code in:"
 
 #: src/Process/Backend/Auth.php:618 src/Process/Backend/UserPreferences.php:696
 #: src/Process/Upgrade/Auth.php:338
 msgid "Verify"
-msgstr ""
+msgstr "Controleer"
 
 #: src/Process/Backend/Auth.php:645
 msgid "Safe mode login"
@@ -5664,15 +5664,15 @@ msgstr "Categorie beschrijving"
 
 #: src/Process/Backend/UserPreferences.php:246
 msgid "Two factors authentication verification failed."
-msgstr ""
+msgstr "Verificatie met twee verificatiefactoren mislukt."
 
 #: src/Process/Backend/UserPreferences.php:248
 msgid "Two factors authentication verification succeeded."
-msgstr ""
+msgstr "Verificatie met twee verificatiefactoren is gelukt."
 
 #: src/Process/Backend/UserPreferences.php:256
 msgid "Two factors authentication secret regenerated."
-msgstr ""
+msgstr "Authenticatiegeheim met twee factoren geregenereerd."
 
 #: src/Process/Backend/UserPreferences.php:265
 msgid "Passkey successfully deleted."
@@ -5742,27 +5742,27 @@ msgstr "Als u uw e-mailadres of wachtwoord hebt gewijzigd, moet u uw huidige wac
 
 #: src/Process/Backend/UserPreferences.php:667
 msgid "Your account is registered to two factors authentication."
-msgstr ""
+msgstr "Uw account is geregistreerd voor verificatie met twee factoren."
 
 #: src/Process/Backend/UserPreferences.php:668
 msgid "Disable two factors authentication"
-msgstr ""
+msgstr "Verificatie met twee factoren uitschakelen"
 
 #: src/Process/Backend/UserPreferences.php:673
 msgid "Scan this QR code with your authentication application:"
-msgstr ""
+msgstr "Scan deze QR-code met je verificatietoepassing:"
 
 #: src/Process/Backend/UserPreferences.php:684
 msgid "Or enter this secret into your authentication application:"
-msgstr ""
+msgstr "Of voer dit geheim in uw authenticatietoepassing in:"
 
 #: src/Process/Backend/UserPreferences.php:685
 msgid "Regenerate"
-msgstr ""
+msgstr "Regenereer"
 
 #: src/Process/Backend/UserPreferences.php:695
 msgid "Enter verification code:"
-msgstr ""
+msgstr "Verificatiecode invoeren:"
 
 #: src/Process/Backend/UserPreferences.php:713
 msgid "Unknown certificat issuer"
@@ -6418,7 +6418,7 @@ msgstr "Voltooi de update."
 
 #: src/Process/Upgrade/Auth.php:178
 msgid "Code verification failed"
-msgstr ""
+msgstr "Codeverificatie mislukt"
 
 #: src/Process/Upgrade/Auth.php:284 src/Process/Upgrade/Auth.php:302
 msgid "Upgrade"
