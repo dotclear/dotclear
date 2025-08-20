@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Dotclear\Tests\Helper;
+namespace Dotclear\Tests\Helper\Network\Feed;
 
 use Dotclear\Helper\File\Files;
 use PHPUnit\Framework\TestCase;

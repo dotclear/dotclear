@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 namespace Dotclear\Helper\Network\Mail {
-    use Dotclear\Tests\Helper\MailTest;
+    use Dotclear\Tests\Helper\Network\Mail\MailTest;
 
     // Declare mail() function in same namespace as sendMail(), so it will be used before the native one
     function mail(
@@ -18,7 +18,7 @@ namespace Dotclear\Helper\Network\Mail {
     }
 }
 
-namespace Dotclear\Tests\Helper {
+namespace Dotclear\Tests\Helper\Network\Mail {
     use Exception;
     use PHPUnit\Framework\TestCase;
 

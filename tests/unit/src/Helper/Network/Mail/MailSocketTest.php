@@ -1,7 +1,7 @@
 <?php
 
 namespace Dotclear\Helper\Network\Mail {
-    use Dotclear\Tests\Helper\MailSocketTest;
+    use Dotclear\Tests\Helper\Network\Mail\MailSocketTest;
 
     // Mock some natives PHP functions used in tested methods
 
@@ -31,7 +31,7 @@ namespace Dotclear\Helper\Network\Mail {
     }
 }
 
-namespace Dotclear\Tests\Helper {
+namespace Dotclear\Tests\Helper\Network\Mail {
     use Exception;
     use PHPUnit\Framework\TestCase;
 
