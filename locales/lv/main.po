@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-20 08:27+0200\n"
-"PO-Revision-Date: 2025-08-20 06:29\n"
+"PO-Revision-Date: 2025-08-20 07:50\n"
 "Last-Translator: \n"
 "Language-Team: Latvian\n"
 "Language: lv_LV\n"
@@ -2988,7 +2988,7 @@ msgstr "Neizdevās ielādēt pakalpojumu sniedzēju \"%s\""
 
 #: src/Helper/Otp.php:304
 msgid "Two Factors authentication"
-msgstr ""
+msgstr "Divu faktoru autentifikācija"
 
 #: src/Helper/Stack/Statuses.php:315 src/Process/Backend/Comment.php:331
 #: src/Process/Backend/User.php:390
@@ -3141,7 +3141,7 @@ msgstr "E-pasts tika veiksmīgi nosūtīts uz %s."
 
 #: src/Process/Backend/Auth.php:192
 msgid "This removes two factors authentication."
-msgstr ""
+msgstr "Tas novērš divu faktoru autentifikāciju."
 
 #: src/Process/Backend/Auth.php:203
 msgid "Your new password"
@@ -3163,7 +3163,7 @@ msgstr "Jūs nemainījāt savu paroli."
 
 #: src/Process/Backend/Auth.php:318
 msgid "Code validation failed."
-msgstr ""
+msgstr "Koda validācija neizdevās."
 
 #: src/Process/Backend/Auth.php:362
 msgid "You have to change your password before you can login."
@@ -3251,16 +3251,16 @@ msgstr "mainīt"
 #: src/Process/Backend/Auth.php:605 src/Process/Backend/UserPreferences.php:880
 #: src/Process/Upgrade/Auth.php:325
 msgid "Two factors authentication"
-msgstr ""
+msgstr "Autentifikācija ar diviem faktoriem"
 
 #: src/Process/Backend/Auth.php:610 src/Process/Upgrade/Auth.php:330
 msgid "Enter code:"
-msgstr ""
+msgstr "Ievadiet kodu:"
 
 #: src/Process/Backend/Auth.php:618 src/Process/Backend/UserPreferences.php:696
 #: src/Process/Upgrade/Auth.php:338
 msgid "Verify"
-msgstr ""
+msgstr "Pārbaudiet"
 
 #: src/Process/Backend/Auth.php:645
 msgid "Safe mode login"
@@ -5699,15 +5699,15 @@ msgstr "Kategorijas apraksts"
 
 #: src/Process/Backend/UserPreferences.php:246
 msgid "Two factors authentication verification failed."
-msgstr ""
+msgstr "Divu faktoru autentifikācijas pārbaude neizdevās."
 
 #: src/Process/Backend/UserPreferences.php:248
 msgid "Two factors authentication verification succeeded."
-msgstr ""
+msgstr "Divu faktoru autentifikācijas pārbaude ir veiksmīga."
 
 #: src/Process/Backend/UserPreferences.php:256
 msgid "Two factors authentication secret regenerated."
-msgstr ""
+msgstr "Divu faktoru autentifikācijas noslēpums reģenerēts."
 
 #: src/Process/Backend/UserPreferences.php:265
 msgid "Passkey successfully deleted."
@@ -5777,27 +5777,27 @@ msgstr "Ja esat mainījis savu e-pastu vai paroli, jums ir jānorāda pašreizē
 
 #: src/Process/Backend/UserPreferences.php:667
 msgid "Your account is registered to two factors authentication."
-msgstr ""
+msgstr "Jūsu kontā ir reģistrēta divu faktoru autentifikācija."
 
 #: src/Process/Backend/UserPreferences.php:668
 msgid "Disable two factors authentication"
-msgstr ""
+msgstr "Divu faktoru autentifikācijas atspējošana"
 
 #: src/Process/Backend/UserPreferences.php:673
 msgid "Scan this QR code with your authentication application:"
-msgstr ""
+msgstr "Noskenējiet šo QR kodu ar autentifikācijas lietojumprogrammu:"
 
 #: src/Process/Backend/UserPreferences.php:684
 msgid "Or enter this secret into your authentication application:"
-msgstr ""
+msgstr "Vai ievadiet šo noslēpumu autentifikācijas lietojumprogrammā:"
 
 #: src/Process/Backend/UserPreferences.php:685
 msgid "Regenerate"
-msgstr ""
+msgstr "Atjaunot"
 
 #: src/Process/Backend/UserPreferences.php:695
 msgid "Enter verification code:"
-msgstr ""
+msgstr "Ievadiet verifikācijas kodu:"
 
 #: src/Process/Backend/UserPreferences.php:713
 msgid "Unknown certificat issuer"
@@ -6453,7 +6453,7 @@ msgstr "Pabeidziet atjaunināšanu."
 
 #: src/Process/Upgrade/Auth.php:178
 msgid "Code verification failed"
-msgstr ""
+msgstr "Koda verifikācija neizdevās"
 
 #: src/Process/Upgrade/Auth.php:284 src/Process/Upgrade/Auth.php:302
 msgid "Upgrade"
