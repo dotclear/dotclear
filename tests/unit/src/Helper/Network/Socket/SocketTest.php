@@ -79,62 +79,69 @@ class SocketTest extends TestCase
         // Next test with content
 
         $socket = new \Dotclear\Helper\Network\Socket\Socket('example.org', 80);
-        $socket->open();
 
-        $this->assertTrue(
-            $socket->isOpen()
-        );
-        ;
+        try {
+            $socket->open();
 
-        $data = [
-            'GET / HTTP/1.0',
-        ];
-        $expected = [
-            'HTTP/1.0 400 Bad Request' . "\r\n",
-            'Server: AkamaiGHost' . "\r\n",
-            'Mime-Version: 1.0' . "\r\n",
-            'Content-Type: text/html' . "\r\n",
-            'Conten',
-            'Expire',
-            'Date: ',
-            'Connection: close' . "\r\n",
-            "\r\n",
-            '<HTML><HEAD>' . "\n",
-            '<TITLE>Invalid URL</TITLE>' . "\n",
-            '</HEAD><BODY>' . "\n",
-            '<H1>Invalid URL</H1>' . "\n",
-            '*',
-            '*',
-            '*',
-            '</BODY></HTML>' . "\n",
-        ];
-        $line = 0;
-        foreach ($socket->write($data) as $value) {
-            if ($line < count($expected)) {
-                //$this->dump($value);
-                if ($expected[$line] === '*') {
-                    continue;
+            $this->assertTrue(
+                $socket->isOpen()
+            );
+
+            $data = [
+                'GET / HTTP/1.0',
+            ];
+            $expected = [
+                'HTTP/1.0 400 Bad Request' . "\r\n",
+                'Server: AkamaiGHost' . "\r\n",
+                'Mime-Version: 1.0' . "\r\n",
+                'Content-Type: text/html' . "\r\n",
+                'Conten',
+                'Expire',
+                'Date: ',
+                'Connection: close' . "\r\n",
+                "\r\n",
+                '<HTML><HEAD>' . "\n",
+                '<TITLE>Invalid URL</TITLE>' . "\n",
+                '</HEAD><BODY>' . "\n",
+                '<H1>Invalid URL</H1>' . "\n",
+                '*',
+                '*',
+                '*',
+                '</BODY></HTML>' . "\n",
+            ];
+            $line = 0;
+            foreach ($socket->write($data) as $value) {
+                if ($line < count($expected)) {
+                    //$this->dump($value);
+                    if ($expected[$line] === '*') {
+                        continue;
+                    }
+                    $this->assertEquals(
+                        $expected[$line],
+                        mb_substr($value, 0, mb_strlen($expected[$line]))
+                    );
                 }
-                $this->assertEquals(
-                    $expected[$line],
-                    mb_substr($value, 0, mb_strlen($expected[$line]))
+                $line++;
+            }
+
+            if (gettype($value) === 'boolean') {
+                $this->assertFalse(
+                    $value
+                );
+            } else {
+                $this->assertStringStartsWith(
+                    '</BODY></HTML>',
+                    $value
                 );
             }
-            $line++;
-        }
 
-        if (gettype($value) === 'boolean') {
-            $this->assertFalse(
-                $value
-            );
-        } else {
-            $this->assertStringStartsWith(
-                '</BODY></HTML>',
-                $value
+            $socket->close();
+        } catch (Exception $e) {
+            $this->assertEquals(
+                'Socket error: Operation timed out (60)example.org',
+                $e->getMessage()
             );
         }
-
-        $socket->close();
 
         $this->assertFalse(
             $socket->isOpen()
