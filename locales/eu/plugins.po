@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-18 12:26+0200\n"
-"PO-Revision-Date: 2025-08-18 11:02\n"
+"POT-Creation-Date: 2025-08-20 08:27+0200\n"
+"PO-Revision-Date: 2025-08-20 06:30\n"
 "Last-Translator: \n"
 "Language-Team: Basque\n"
 "Language: eu_ES\n"
@@ -3030,48 +3030,48 @@ msgstr "Blog honetako uneko gaia \"%s\" da."
 msgid "Please select a file to edit."
 msgstr "Mesedez, hautatu editatzeko fitxategi bat."
 
-#: plugins/themeEditor/src/Manage.php:230
+#: plugins/themeEditor/src/Manage.php:227
+msgid "Reset"
+msgstr "Berrezarri"
+
+#: plugins/themeEditor/src/Manage.php:236
 msgid "File editor"
 msgstr "Fitxategien editorea"
 
-#: plugins/themeEditor/src/Manage.php:239
+#: plugins/themeEditor/src/Manage.php:245
 #, php-format
 msgid "Editing file %s"
 msgstr "%sfitxategia editatzen"
 
-#: plugins/themeEditor/src/Manage.php:249
-msgid "Reset"
-msgstr "Berrezarri"
-
-#: plugins/themeEditor/src/Manage.php:256
+#: plugins/themeEditor/src/Manage.php:261
 msgid "If you use <code>url(...)</code> in your CSS files, be sure to use <code>url(index.php?tf=...)</code> to correctly load theme resources (imported CSS, images, etc.), except for URL types in the form <code>data:image</code>.<br>Example: do <code>@import url(index.php?tf=css/layout.css);</code> instead of <code>@import url(css/layout.css);</code>."
 msgstr "CSS fitxategietan <code>url(...)</code> erabiltzen baduzu, ziurtatu <code>url(index.php?tf=...)</code> erabiltzen duzula gaiaren baliabideak (inportatutako CSS, irudiak, etab.) behar bezala kargatzeko, <code>data:image</code> formatuko URL motak izan ezik.<br>Adibidea: egin <code>@import url(index.php?tf=css/layout.css);</code> <code>@import url(css/layout.css);</code>-ren ordez."
 
-#: plugins/themeEditor/src/Manage.php:261
+#: plugins/themeEditor/src/Manage.php:266
 msgid "This file is not overloadable. Please check your var folder permissions."
 msgstr "Fitxategi hau ezin da gainkargatu. Mesedez, egiaztatu zure var karpetaren baimenak."
 
-#: plugins/themeEditor/src/Manage.php:264
+#: plugins/themeEditor/src/Manage.php:269
 msgid "This theme is too old to be modified. Please check if an update is available."
 msgstr "Gai hau zaharregia da aldatzeko. Mesedez, egiaztatu ea eguneratzerik dagoen."
 
-#: plugins/themeEditor/src/Manage.php:283
+#: plugins/themeEditor/src/Manage.php:288
 msgid "Templates files"
 msgstr "Txantiloien fitxategiak"
 
-#: plugins/themeEditor/src/Manage.php:288
+#: plugins/themeEditor/src/Manage.php:293
 msgid "CSS files"
 msgstr "CSS fitxategiak"
 
-#: plugins/themeEditor/src/Manage.php:293
+#: plugins/themeEditor/src/Manage.php:298
 msgid "JavaScript files"
 msgstr "JavaScript fitxategiak"
 
-#: plugins/themeEditor/src/Manage.php:298
+#: plugins/themeEditor/src/Manage.php:303
 msgid "Locales files"
 msgstr "Tokiko fitxategiak"
 
-#: plugins/themeEditor/src/Manage.php:303
+#: plugins/themeEditor/src/Manage.php:308
 msgid "PHP files"
 msgstr "PHP fitxategiak"
 
