@@ -1,0 +1,382 @@
+<html>
+
+<head>
+  <title></title> <!-- Leave the title empty -->
+</head>
+
+<body>
+  <div class="multi-part legible" id="first-step" title="Første skritt">
+    <h3>Oppdagelse av grensesnitt</h3>
+    <div class="fieldset">
+      <h4>Første skritt</h4>
+      <p>I tillegg til de globale hjelpesidene har flere administrasjonssider en nettbasert hjelp. Hvis javascript er aktivert
+        i nettleseren din, kan du se online-hjelpen øverst til høyre på siden ved å klikke på lenken <img src="images/menu/help.svg" alt="" style="width: 14px; vertical-align: middle;"> <strong>Trenger du hjelp?</strong> Hvis Javascript er deaktivert, vises hjelpen nederst på siden.</p>
+    </div>
+    <p>Hver administrasjonsside vil vise samme toppoverskrift, hovedmeny og bunntekst. <em>(Rekkefølgen som er angitt her, er den som vises på en dataskjerm. På mobile enheter eller nettbrett kan rekkefølgen variere avhengig av tilgjengelig plass).</em></p>
+    <h4 class="pretty-title">Øverste overskrift</h4>
+    <p>Den øverste overskriften består av tre elementer:</p>
+    <h5 class="as_h4">Logo</h5>
+    <p>Som standard er denne logoen Dotclear-logoen og lenker til administrasjonens landingsside. En plattformansvarlig på
+      kan imidlertid velge en annen logo og omdirigere til noe annet (vanligvis tjenestens landingsside).</p>
+    <h5 class="as_h4">Blogg(er)</h5>
+    <p>Det første elementet etter logoen viser den <em>aktive</em> bloggen, dvs. den bloggen du er inne på. Hvis
+      -installasjonen din består av flere blogger, er denne informasjonen tilgjengelig i en kombinasjonsmeny, som lar deg bytte til en annen blogg.</p>
+    <p>Koblingen etter bloggnavnet åpner den aktuelle bloggen i et annet vindu eller en annen fane.</p>
+    <h5 class="as_h4">Bruker</h5>
+    <p>Lenken <em>Mitt dashbord</em> tar deg tilbake til landingssiden for bloggadministrasjon.</p>
+    <p>Lenken <em>Mine preferanser</em> fører til siden der du kan endre dine personlige opplysninger, konfigurere dashbordet og velge grensesnitt og redigeringsalternativer.</p>
+    <p>Overraskende nok kobler koblingen Koble fra <em>[innloggingen din]</em> deg fra administrasjonen av bloggen din (hos Dotclear er vi ergonomimestere!).</p>
+    <h4 class="pretty-title">Hovedmeny</h4>
+    <p>Hovedmenyen er plassert på venstre side av skjermen. Den kan foldes sammen ved å klikke på høyre kant (og deretter foldes ut igjen ved å klikke på den igjen).</p>
+    <p>Den fører til de ulike administrasjonssidene, avhengig av hvilke rettigheter du har på den aktuelle bloggen. Den består av fire blokker:</p>
+    <ul>
+      <li><strong>Mine favoritter</strong> viser sidene du har valgt som favoritter i fanen <em>Mine preferanser/Mitt</em><em>dashbord</em>. Hvis du ikke har valgt noen favoritt ennå, vil denne listen inneholde standard Dotclear-settet, eller det settet som er definert av plattformadministratoren. Hvis du ikke ønsker å vise denne blokken, kan du fjerne merket i avmerkingsboksen for dette i alternativene på dashbordet.</li>
+      <li><strong>Blogg</strong> viser alle sidene som gjør det mulig å mate og konfigurere den aktuelle bloggen, fra å redigere et innlegg, administrere medier, velge bloggens utseende eller andre parametere.<br>
+        <em>Hvis du ikke har administratorrettigheter på den aktuelle bloggen, vil det ikke finnes noen andre blokker under den aktuelle bloggen i hovedmenyen.</em></li>
+      <li><strong>Systeminnstillinger</strong> lenker til sidene som lar deg administrere Dotclear-installasjonen: administrasjon av blogger, brukere og tilgjengelige språk, installasjon av plugins, systeminnstillinger. Hvis du har rettigheter på flere blogger, men ikke superadministratorrettigheter, vil du bare se oppføringen <em>Blogger</em>.</li>
+      <li><strong>Plugins</strong> gir deg mulighet til å konfigurere de installerte pluginene. Hvis plugin-innstillingene bare påvirker én blogg om gangen, er administrasjonssiden tilgjengelig fra <em>bloggblokken</em>, men hvis de påvirker hele installasjonen, ligger de her, og er bare tilgjengelige for superadministratorbrukere.</li>
+    </ul>
+    <h4 class="pretty-title">Bunntekst</h4>
+    <p>En gratis versjon av Dotclear vil bli tilbudt til alle brukere som oppdager hemmeligheten som er gjemt i bunnteksten.</p>
+    <h3>Hjelp for gode nybegynnere</h3>
+    <p>Hvis du ikke er kjent med blogger, anbefaler vi at du tar en titt på dokumentasjonen vår (hele innholdsfortegnelsen er tilgjengelig under fanen <strong>Dokumentasjon</strong> på denne siden) samt veiledninger som f.eks:
+      <ul>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/beginners">Min første post, trinn for trinn.</a></li>
+      </ul>
+      <p><a href="https://dotclear.org/forum/">Dotclear-forumet</a> er et innbydende sted der det ikke finnes <em>dumme spørsmål</em>. Ikke nøl med å delta hvis du trenger hjelp, og hvorfor ikke hjelpe andre i gjengjeld.</p>
+      <p class="info">Vi gjør vårt beste for å bruke et vokabular som er lett å forstå uten spesielle forkunnskaper. Hvis vi likevel ender opp med å bruke et faguttrykk, finner du sannsynligvis definisjonen i <a href="https://dotclear.org/documentation/glossary">ordlisten</a> i den elektroniske dokumentasjonen vår.</p>
+  </div>
+  <div class="multi-part" id="users-doc" title="Brukerhåndbok">
+    <h3>Brukerhåndbok</h3>
+    <div class="three-boxes">
+      <h4 class="pretty-title">Administrere innholdet</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/usage/entries">Innganger</a>
+          <ul>
+            <li>Opprettelse og redigering</li>
+            <li>Oppføringsdetaljer</li>
+            <li>Inngangsrelaterte handlinger</li>
+            <li>Kommentarer og trackbacks</li>
+            <li>Batchhåndtering av oppføringer</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/comments-trackbacks">Kommentarer og trackbacks</a>
+          <ul>
+            <li>Oppfølging</li>
+            <li>Ledelse</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/categories">Kategorier</a>
+          <ul>
+            <li>Opprette en kategori</li>
+            <li>Redigere en kategori</li>
+            <li>Slette en kategori</li>
+            <li>Sotring av kategorilisten</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/tags">Tagger (nøkkelord)</a>
+          <ul>
+            <li>Legge til tagger</li>
+            <li>Håndtering av tagger</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/media">Medier og vedlegg</a>
+          <ul>
+            <li>Opprette en underkatalog</li>
+            <li>Legge til filer</li>
+            <li>Laster ned et zip-arkiv av den aktuelle katalogen</li>
+            <li>Endring av utfylling av filinformasjon</li>
+            <li>Legge til filer direkte</li>
+            <li>Spesielle filtyper</li>
+            <li>Vedlegg</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/widgets">Innhold i bloggmenyen (widgets)</a>
+          <ul>
+            <li>Sidefelt for navigasjon, Ekstra sidefelt</li>
+            <li>Standard widgets</li>
+            <li>Legge til/fjerne en widget</li>
+            <li>Alternativer for widgets</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/blogroll">Bloggliste</a>
+          <ul>
+            <li>Bloggliste</li>
+            <li>Legge til en lenke</li>
+            <li>Legge til en kategori</li>
+            <li>XFN</li>
+            <li>Importere lenker fra en OPML- eller XBEL-fil</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="three-boxes">
+      <h4 class="pretty-title">Innstillinger og tilpasning</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/usage/blog-parameters">Blogginnstillinger</a>
+          <ul>
+            <li>Bloggdetaljer</li>
+            <li>Konfigurasjon av blogg</li>
+            <li>Kommentarer og trackbacks</li>
+            <li>Bloggpresentasjon</li>
+            <li>Medier og bilder</li>
+            <li>Retningslinjer for søkemotorroboter</li>
+            <li>Antispam</li>
+            <li>Lysboks</li>
+            <li>Spar</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/user-preferences">Brukerinnstillinger</a>
+          <ul>
+            <li>Min profil</li>
+            <li>Mine alternativer</li>
+            <li>Dashbordet mitt</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/themes">Bloggens utseende</a>
+          <ul>
+            <li>Velg et tema</li>
+            <li>Installer et tema</li>
+            <li>Personliggjør et tema</li>
+            <li>Redaktør for tema</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="three-boxes fieldset">
+      <h4 class="smart-title">Ytterligere avlesninger</h4>
+      <h5>Ordliste</h5>
+      <ul>
+        <li><a href="https://dotclear.org/documentation/glossary">Alle disse mystiske ordene som brukes på nettet og i Dotclear</a></li>
+      </ul>
+      <h5>Syntakser for inndata</h5>
+      <ul>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes">Wiki-syntaks og HTML-ekvivalent</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes#to-go-further">For å gå videre</a></li>
+      </ul>
+      <h5>Abonnement (RSS, Atom...)</h5>
+      <ul>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds">Hva er det der?</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-make-it-available-on-my-blog">Hvordan gjør jeg den tilgjengelig på bloggen min?</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-suscribe-to-a-feed">Hvordan abonnerer jeg på en feed?</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#to-go-further">For å gå videre</a></li>
+      </ul>
+      <h4 class="smart-title">Hjelp</h4>
+      <ul>
+        <li><a href="https://dotclear.org/forum">Dotclear-forumet</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/faq">Ofte stilte spørsmål</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="multi-part" id="admin-doc" title="Dokumentasjon for administratorer">
+    <h3>Dokumentasjon for administratorer</h3>
+    <div class="three-boxes">
+      <h4 class="pretty-title">Installasjon og oppdatering</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/admin/install">Installasjon</a>
+          <ul>
+            <li>Forutsetninger</li>
+            <li>Automatisk installasjon</li>
+            <li>Standard installasjon</li>
+            <li>Installere ved hjelp av veiviseren</li>
+            <li>Installere fra config.php-filen</li>
+            <li>Fullføre installasjonsprosessen</li>
+            <li>Neste skritt</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/upgrade">Oppdatering</a>
+          <ul>
+            <li>Forberedelser til oppdateringen</li>
+            <li>Automatisk oppgradering</li>
+            <li>Oppdatering av programmet</li>
+            <li>Oppdatering av databasen</li>
+            <li>Vedlegg: Oppdatering av en mercurial-kopi</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/config">Konfigurasjonsfil (config.php) Parametere</a>
+          <ul>
+            <li>Innledning</li>
+            <li>Parametere</li>
+            <li>Legge til informasjon i filen</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/1-to-2">Oppgradering fra Dotclear 1.2 til Dotclear 2</a>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/migrate">Migrering fra en annen bloggprogramvare til Dotclear</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/local-install">Lokal installasjon</a>
+          <ul>
+            <li>Vinduer</li>
+            <li>Mac OS X</li>
+            <li>Linux</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/install/iis">Installere Dotclear med IIS7</a></li>
+      </ul>
+      <h5>Hosting Annex</h5>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/hosting">Vertskap</a>
+        </li>
+      </ul>
+    </div>
+    <div class="three-boxes">
+      <h4 class="pretty-title">Administrasjon</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/admin/users">Administrere brukere</a>
+          <ul>
+            <li>Eksisterende brukerliste</li>
+            <li>Opprette en bruker</li>
+            <li>Endre en bruker</li>
+            <li>Brukerrettigheter</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/clean-install">Ren installasjon</a>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/multiblog">Installasjon av flere blogger</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/plugins">Administrere plugins</a>
+          <ul>
+            <li>Installere en plugin</li>
+            <li>Konfigurere plugins</li>
+            <li>Fjerne en plugin</li>
+            <li>Oppdatering av en plugin</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/themes/blowup">Standardtemaet Blowup</a>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/themes">Blogg-temaer</a>
+          <ul>
+            <li>Velge et tema</li>
+            <li>Installere et tema</li>
+            <li>Tilpasse et tema</li>
+            <li>Redaktør for tema</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/aboutconfig">Avansert konfigurasjon</a></li>
+      </ul>
+    </div>
+    <div class="three-boxes">
+      <h4 class="pretty-title">Vedlikehold</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/admin/backup">Sikkerhetskopiering og gjenoppretting</a>
+          <ul>
+            <li>Import/eksport</li>
+            <li>Filer</li>
+            <li>Database</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/antispam">Filter for søppelkommentarer</a>
+          <ul>
+            <li>Organisering av filter</li>
+            <li>Filterkonfigurasjon</li>
+          </ul>
+        </li>
+      </ul>
+      <div class="fieldset vertical-separator">
+        <h4 class="smart-title">Hjelp</h4>
+        <ul>
+          <li><a href="https://dotclear.org/forum">Dotclear-forumet</a></li>
+          <li><a href="https://dotclear.org/documentation/2.0/faq#administration">Ofte stilte spørsmål (administratorer)</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="multi-part" id="guide-dev" title="Dokumentasjon for utviklere">
+    <h3>Ressurser for utviklere og designere</h3>
+    <div class="three-boxes first-child">
+      <h4 class="pretty-title">Design &amp; Temaer</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/resources/themes">Temaer</a>
+          <ul>
+            <li>Brukerveiledning for temaer</li>
+            <li>Malletikettene</li>
+            <li>Vedlegg</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/themes/inheritance">Temaer arv</a>
+          <ul>
+            <li>Prinsipp</li>
+            <li>Begrensninger</li>
+            <li>Sett opp</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/themes/tags">Mal-tagger</a>
+          <ul>
+            <li>Allmennheter / verktøy</li>
+            <li>Blogg</li>
+            <li>Innganger</li>
+            <li>Paginering av oppføringer</li>
+            <li>Kommentarer</li>
+            <li>Forhåndsvisning av kommentar</li>
+            <li>Pinger</li>
+            <li>Vedlegg</li>
+            <li>Kategorier</li>
+            <li>Tagger</li>
+            <li>Arkiv</li>
+            <li>Språk</li>
+            <li>System</li>
+            <li>Widgets</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="three-boxes first-child">
+      <h4 class="pretty-title">Kode &amp; Plugins</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/resources/tpl">Opprettelse av en tpl-tagg for en plugin eller et tema</a>
+          <ul>
+            <li>Innledning</li>
+            <li>Verdier</li>
+            <li>Instruksjonsblokker</li>
+            <li>Demonstrasjon av malbufferens innflytelse</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/plugins">Plugins</a>
+          <ul>
+            <li>Skrive en plugin</li>
+            <li>Vedlegg</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/plugins/help">Oppbygging av kontekstuell hjelp for plugin-modulen</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/authentication">Ekstern autentisering</a>
+          <ul>
+            <li>Innledning</li>
+            <li>En ny autentiseringsklasse</li>
+            <li>Scenario</li>
+            <li>Søknad</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/xml-rpc">XML/RPC-grensesnitt</a></li>
+        <li><a href="https://dev.dotclear.org/code/2/">API-dokumentasjon</a></li>
+      </ul>
+    </div>
+    <div class="three-boxes">
+      <h4 class="pretty-title">Bidrag &amp; Støtte</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/resources/contribute">Bidra</a>
+          <ul>
+            <li>Rediger denne dokumentasjonen</li>
+            <li>Del kreasjonene dine</li>
+            <li>Rapporter feil eller foreslå nye funksjoner</li>
+            <li>Lokalisering</li>
+          </ul>
+        </li>
+        <li><a href="https://git.dotclear.org/dev/dotclear">Dotclears kildekodelager</a></li>
+        <li><a href="https://dotclear.org/forum">Dotclear-forum</a></li>
+      </ul>
+      <div class="fieldset">
+        <h4 class="smart-title">Konvensjoner</h4>
+        <ul>
+          <li><a href="https://dotclear.org/documentation/2.0/resources/coding-standards">Kodingsstandarder</a></li>
+          <li><a href="index.php?process=HelpCharte">Administrasjonssider diagram</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="multi-part legible" id="a11y-ergo" title="Tilgjengelighet og ergonomi">
+    <h3>Tilgjengelighet og ergonomi</h3>
+    <p>Dotclear-grensesnittet oppfyller nesten alle <a href="http://www.w3.org/TR/WCAG20/">WCAG 2.0-kriteriene</a>. Vi arbeider med å gjøre Dotclear kompatibelt med <a href="http://www.w3.org/TR/ATAG20/">ATAG 2.0</a> -retningslinjene.</p>
+    <p>Tilgjengelighet og ergonomi er noe av det viktigste for oss. Vi gjennomfører jevnlig analyser ved hjelp av eksperter, og vi tilbyr kontinuerlig rettelser og forbedringer.</p>
+    <p>Du kan hjelpe oss ved å åpne <a href="https://git.dotclear.org/dev/dotclear/issues">tickets</a> eller ved å delta på <a href="https://dotclear.org/forum/">forumet</a>. Du kan også delta i brukertesting eller bli med i teamet vårt!</p>
+  </div>
+</body>
+
+</html>
