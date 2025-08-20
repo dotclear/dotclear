@@ -35,7 +35,7 @@ class LinkTest extends TestCase
         );
     }
 
-    public function testWithDownload()
+    public function testWithDownloadBool()
     {
         $component = new \Dotclear\Helper\Html\Form\Link();
         $component->download(true);
@@ -47,6 +47,46 @@ class LinkTest extends TestCase
         );
         $this->assertStringContainsString(
             'download',
+            $rendered
+        );
+
+        $component->download(false);
+        $rendered = $component->render();
+
+        $this->assertMatchesRegularExpression(
+            '/<a.*?>(?:.*?\n*)?<\/a>/',
+            $rendered
+        );
+        $this->assertStringNotContainsString(
+            'download',
+            $rendered
+        );
+    }
+
+    public function testWithDownloadString()
+    {
+        $component = new \Dotclear\Helper\Html\Form\Link();
+        $component->download('downloadable_file.txt');
+        $rendered = $component->render();
+
+        $this->assertMatchesRegularExpression(
+            '/<a.*?>(?:.*?\n*)?<\/a>/',
+            $rendered
+        );
+        $this->assertStringContainsString(
+            'download="downloadable_file.txt"',
+            $rendered
+        );
+
+        $component->download('');
+        $rendered = $component->render();
+
+        $this->assertMatchesRegularExpression(
+            '/<a.*?>(?:.*?\n*)?<\/a>/',
+            $rendered
+        );
+        $this->assertStringNotContainsString(
+            'download="',
             $rendered
         );
     }
