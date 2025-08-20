@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-18 12:26+0200\n"
-"PO-Revision-Date: 2025-08-18 11:03\n"
+"POT-Creation-Date: 2025-08-20 08:27+0200\n"
+"PO-Revision-Date: 2025-08-20 06:30\n"
 "Last-Translator: \n"
 "Language-Team: Swedish\n"
 "Language: sv_SE\n"
@@ -3030,48 +3030,48 @@ msgstr "Ditt nuvarande tema på den här bloggen är \"%s\"."
 msgid "Please select a file to edit."
 msgstr "Välj en fil att redigera."
 
-#: plugins/themeEditor/src/Manage.php:230
+#: plugins/themeEditor/src/Manage.php:227
+msgid "Reset"
+msgstr "Reset"
+
+#: plugins/themeEditor/src/Manage.php:236
 msgid "File editor"
 msgstr "Filredigerare"
 
-#: plugins/themeEditor/src/Manage.php:239
+#: plugins/themeEditor/src/Manage.php:245
 #, php-format
 msgid "Editing file %s"
 msgstr "Redigerar fil %s"
 
-#: plugins/themeEditor/src/Manage.php:249
-msgid "Reset"
-msgstr "Reset"
-
-#: plugins/themeEditor/src/Manage.php:256
+#: plugins/themeEditor/src/Manage.php:261
 msgid "If you use <code>url(...)</code> in your CSS files, be sure to use <code>url(index.php?tf=...)</code> to correctly load theme resources (imported CSS, images, etc.), except for URL types in the form <code>data:image</code>.<br>Example: do <code>@import url(index.php?tf=css/layout.css);</code> instead of <code>@import url(css/layout.css);</code>."
 msgstr "Om du använder <code>url(...)</code> i dina CSS-filer, se till att använda <code>url(index.php?tf=...)</code> för att korrekt ladda temaresurser (importerad CSS, bilder, etc.), förutom för URL-typer i formen <code>data:image</code>.<br>Exempel: gör <code>@import url(index.php?tf=css/layout.css);</code> istället för <code>@import url(css/layout.css);</code>."
 
-#: plugins/themeEditor/src/Manage.php:261
+#: plugins/themeEditor/src/Manage.php:266
 msgid "This file is not overloadable. Please check your var folder permissions."
 msgstr "Den här filen är inte överbelastningsbar. Kontrollera behörigheterna för din var-mapp."
 
-#: plugins/themeEditor/src/Manage.php:264
+#: plugins/themeEditor/src/Manage.php:269
 msgid "This theme is too old to be modified. Please check if an update is available."
 msgstr "Detta tema är för gammalt för att kunna modifieras. Kontrollera om en uppdatering finns tillgänglig."
 
-#: plugins/themeEditor/src/Manage.php:283
+#: plugins/themeEditor/src/Manage.php:288
 msgid "Templates files"
 msgstr "Mallar filer"
 
-#: plugins/themeEditor/src/Manage.php:288
+#: plugins/themeEditor/src/Manage.php:293
 msgid "CSS files"
 msgstr "CSS files"
 
-#: plugins/themeEditor/src/Manage.php:293
+#: plugins/themeEditor/src/Manage.php:298
 msgid "JavaScript files"
 msgstr "JavaScript-filer"
 
-#: plugins/themeEditor/src/Manage.php:298
+#: plugins/themeEditor/src/Manage.php:303
 msgid "Locales files"
 msgstr "Språkfiler filer"
 
-#: plugins/themeEditor/src/Manage.php:303
+#: plugins/themeEditor/src/Manage.php:308
 msgid "PHP files"
 msgstr "PHP-filer"
 

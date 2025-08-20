@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-18 12:11+0200\n"
-"PO-Revision-Date: 2025-08-18 10:29\n"
+"POT-Creation-Date: 2025-08-20 08:27+0200\n"
+"PO-Revision-Date: 2025-08-20 07:50\n"
 "Last-Translator: \n"
 "Language-Team: Bengali\n"
 "Language: bn_BD\n"
@@ -17,9 +17,9 @@ msgstr ""
 "X-Crowdin-File: /master/locales/_pot/main.pot\n"
 "X-Crowdin-File-ID: 262\n"
 
-#: inc/core/_fake_l10n.php:6 src/Process/Backend/Auth.php:378
-#: src/Process/Backend/User.php:264 src/Process/Backend/UserPreferences.php:559
-#: src/Process/Install/Install.php:397 src/Process/Upgrade/Auth.php:184
+#: inc/core/_fake_l10n.php:6 src/Process/Backend/Auth.php:477
+#: src/Process/Backend/User.php:264 src/Process/Backend/UserPreferences.php:598
+#: src/Process/Install/Install.php:397 src/Process/Upgrade/Auth.php:292
 msgid "medium"
 msgstr "মাঝারি"
 
@@ -157,7 +157,7 @@ msgstr "অবস্থা"
 #: src/Core/Backend/Listing/ListingMedia.php:309
 #: src/Core/Backend/ModulesList.php:1350 src/Core/Upgrade/PluginsList.php:125
 #: src/Process/Backend/Comment.php:355 src/Process/Backend/Langs.php:231
-#: src/Process/Backend/Post.php:960 src/Process/Backend/UserPreferences.php:899
+#: src/Process/Backend/Post.php:960 src/Process/Backend/UserPreferences.php:716
 #: src/Process/Backend/Users.php:46 src/Process/Upgrade/Langs.php:299
 msgid "Delete"
 msgstr "মুছে ফেলুন"
@@ -458,11 +458,11 @@ msgstr "উপস্থিত"
 msgid "Other"
 msgstr "অন্যান্য"
 
-#: src/Core/Backend/Combos.php:242 src/Process/Backend/UserPreferences.php:209
+#: src/Core/Backend/Combos.php:242 src/Process/Backend/UserPreferences.php:227
 msgid "Descending"
 msgstr "বড় থেকে ছোট"
 
-#: src/Core/Backend/Combos.php:243 src/Process/Backend/UserPreferences.php:210
+#: src/Core/Backend/Combos.php:243 src/Process/Backend/UserPreferences.php:228
 msgid "Ascending"
 msgstr "ছোট থেকে বড়"
 
@@ -553,13 +553,13 @@ msgid "Number of entries"
 msgstr "এন্ট্রির সংখ্যা"
 
 #: src/Core/Backend/Favorites.php:287
-#: src/Process/Backend/UserPreferences.php:1267
+#: src/Process/Backend/UserPreferences.php:1355
 msgid "My favorites"
 msgstr "আমার পছন্দের"
 
 #: src/Core/Backend/Favorites.php:399 src/Core/Backend/Menus.php:195
 #: src/Core/Backend/Page.php:372 src/Process/Backend/Media.php:782
-#: src/Process/Backend/UserPreferences.php:75
+#: src/Process/Backend/UserPreferences.php:76
 msgid "My preferences"
 msgstr "আমার পছন্দসমূহ"
 
@@ -650,9 +650,9 @@ msgid "Global help"
 msgstr "গ্লোবাল সহায়তা"
 
 #: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1261
-#: src/Process/Backend/Auth.php:445 src/Process/Backend/BlogPref.php:1351
+#: src/Process/Backend/Auth.php:544 src/Process/Backend/BlogPref.php:1351
 #: src/Process/Backend/Comment.php:306 src/Process/Backend/Post.php:1108
-#: src/Process/Backend/User.php:432 src/Process/Backend/UserPreferences.php:670
+#: src/Process/Backend/User.php:432 src/Process/Backend/UserPreferences.php:823
 #: src/Process/Install/Install.php:445
 msgid "Email:"
 msgstr "ইমেইল:"
@@ -711,9 +711,9 @@ msgstr "ভিডিও"
 msgid "Format:"
 msgstr "ফরম্যাট:"
 
-#: src/Core/Backend/Filter/FilterPosts.php:180 src/Process/Backend/Auth.php:182
-#: src/Process/Backend/Auth.php:541 src/Process/Backend/User.php:344
-#: src/Process/Install/Install.php:509 src/Process/Upgrade/Auth.php:227
+#: src/Core/Backend/Filter/FilterPosts.php:180 src/Process/Backend/Auth.php:204
+#: src/Process/Backend/Auth.php:670 src/Process/Backend/User.php:344
+#: src/Process/Install/Install.php:509 src/Process/Upgrade/Auth.php:366
 msgid "Password:"
 msgstr "পাসওয়ার্ড:"
 
@@ -784,7 +784,7 @@ msgid "Sort:"
 msgstr "সড়ক:"
 
 #: src/Core/Backend/Filter/Filters.php:393
-#: src/Process/Backend/UserPreferences.php:803
+#: src/Process/Backend/UserPreferences.php:980
 msgid "Show"
 msgstr "দেখাও"
 
@@ -1464,8 +1464,8 @@ msgstr "অজানা প্লাগ-ইন"
 msgid "This plugin has no configuration file."
 msgstr "এই প্লাগিনের কোন কনফিগারেশন ফাইল নেই."
 
-#: src/Core/Backend/ModulesList.php:1886 src/Process/Backend/Auth.php:317
-#: src/Process/Upgrade/Auth.php:135
+#: src/Core/Backend/ModulesList.php:1886 src/Process/Backend/Auth.php:416
+#: src/Process/Upgrade/Auth.php:182 src/Process/Upgrade/Auth.php:243
 msgid "Insufficient permissions"
 msgstr "অপর্যাপ্ত অনুমতি"
 
@@ -1479,9 +1479,9 @@ msgstr "\"%s\" কনফিগার করুন"
 #: src/Process/Backend/Category.php:301 src/Process/Backend/Comment.php:352
 #: src/Process/Backend/Media.php:857 src/Process/Backend/MediaItem.php:1353
 #: src/Process/Backend/Post.php:950 src/Process/Backend/Search.php:197
-#: src/Process/Backend/User.php:547 src/Process/Backend/UserPreferences.php:731
-#: src/Process/Backend/UserPreferences.php:1122
-#: src/Process/Backend/UserPreferences.php:1348
+#: src/Process/Backend/User.php:547 src/Process/Backend/UserPreferences.php:908
+#: src/Process/Backend/UserPreferences.php:1210
+#: src/Process/Backend/UserPreferences.php:1436
 msgid "Back"
 msgstr "ব্যাক"
 
@@ -1534,8 +1534,8 @@ msgid "Go to help"
 msgstr "সহায়তা করো"
 
 #: src/Core/Backend/Page.php:339 src/Core/Upgrade/Page.php:175
-#: src/Process/Backend/UserPreferences.php:1257
-#: src/Process/Backend/UserPreferences.php:1259
+#: src/Process/Backend/UserPreferences.php:1345
+#: src/Process/Backend/UserPreferences.php:1347
 msgid "My dashboard"
 msgstr "আমার ড্যাশবোর্ড"
 
@@ -2957,6 +2957,10 @@ msgstr "ভুল প্রতিক্রিয়া ফর্ম্যাট"
 msgid "Failed to load provider \"%s\""
 msgstr "\"%s\" সরবরাহকারী লোড করতে ব্যর্থ হয়েছে।"
 
+#: src/Helper/Otp.php:304
+msgid "Two Factors authentication"
+msgstr "দুইটি বিষয়ের প্রমাণীকরণ"
+
 #: src/Helper/Stack/Statuses.php:315 src/Process/Backend/Comment.php:331
 #: src/Process/Backend/User.php:390
 msgid "Status:"
@@ -3078,177 +3082,202 @@ msgstr "সংজ্ঞায়িত পরিবর্তন করতে ব্
 msgid "Destination folder already exist"
 msgstr "গন্তব্য ফোল্ডারটি ইতিমধ্যেই বিদ্যমান"
 
-#: src/Process/Backend/Auth.php:94 src/Process/Upgrade/Auth.php:81
+#: src/Process/Backend/Auth.php:95 src/Process/Upgrade/Auth.php:96
 msgid "Dotclear has been upgraded."
 msgstr "ডটক্লিয়ার আপগ্রেড করা হয়েছে।"
 
-#: src/Process/Backend/Auth.php:164
+#: src/Process/Backend/Auth.php:181
 msgid "Password reset"
 msgstr "পাসওয়ার্ড রিসেট"
 
-#: src/Process/Backend/Auth.php:165
+#: src/Process/Backend/Auth.php:182
 msgid "Someone has requested to reset the password for the following site and username."
 msgstr "নিচের সাইট ও ব্যবহারকারীর পাসওয়ার্ড রিসেট করার জন্য কেউ অনুরোধ করেছেন."
 
-#: src/Process/Backend/Auth.php:165
+#: src/Process/Backend/Auth.php:182
 msgid "To reset your password visit the following address, otherwise just ignore this email and nothing will happen."
 msgstr "আপনার পাসওয়ার্ড রিসেট করার জন্য নিম্নলিখিত ঠিকানায় দেখা যাবে, অন্যথায় এই ইমেইলটিকে উপেক্ষা করা হবে এবং কিছুই ঘটবে না."
 
-#: src/Process/Backend/Auth.php:165 src/Process/Backend/Auth.php:182
-#: src/Process/Backend/Auth.php:435 src/Process/Backend/Auth.php:531
+#: src/Process/Backend/Auth.php:182 src/Process/Backend/Auth.php:204
+#: src/Process/Backend/Auth.php:534 src/Process/Backend/Auth.php:660
 #: src/Process/Install/Install.php:456 src/Process/Install/Install.php:508
-#: src/Process/Upgrade/Auth.php:216
+#: src/Process/Upgrade/Auth.php:355
 msgid "Username:"
 msgstr "ইউজারনেম:"
 
-#: src/Process/Backend/Auth.php:171
+#: src/Process/Backend/Auth.php:188
 #, php-format
 msgid "The e-mail was sent successfully to %s."
 msgstr "ই-মেইলটি সফলভাবে %s-এ পাঠানো হয়েছে।"
 
-#: src/Process/Backend/Auth.php:181
+#: src/Process/Backend/Auth.php:192
+msgid "This removes two factors authentication."
+msgstr "এটি দুটি ফ্যাক্টর প্রমাণীকরণ সরিয়ে দেয়।"
+
+#: src/Process/Backend/Auth.php:203
 msgid "Your new password"
 msgstr "আপনার নতুন পাসওয়ার্ড"
 
-#: src/Process/Backend/Auth.php:187
+#: src/Process/Backend/Auth.php:209
 msgid "Your new password is in your mailbox."
 msgstr "আপনার নতুন পাসওয়ার্ড আপনার মেইলবক্সে পাঠিয়ে দেয়া হয়েছে।"
 
-#: src/Process/Backend/Auth.php:230 src/Process/Backend/User.php:158
-#: src/Process/Backend/UserPreferences.php:264
+#: src/Process/Backend/Auth.php:257 src/Process/Backend/User.php:158
+#: src/Process/Backend/UserPreferences.php:303
 #: src/Process/Install/Install.php:170
 msgid "Passwords don't match"
 msgstr "দুটো পাসওয়ার্ডে অমিল রয়েছে"
 
-#: src/Process/Backend/Auth.php:234
+#: src/Process/Backend/Auth.php:261
 msgid "You didn't change your password."
 msgstr "আপনি আপনার পাসওয়ার্ড পরিবর্তন করেন নি।"
 
-#: src/Process/Backend/Auth.php:279
+#: src/Process/Backend/Auth.php:318
+msgid "Code validation failed."
+msgstr "কোড যাচাইকরণ ব্যর্থ হয়েছে।"
+
+#: src/Process/Backend/Auth.php:362
 msgid "You have to change your password before you can login."
 msgstr "লগ-ইন করার পূর্বে আপনার পাসওয়ার্ড পরিবর্তন করতে হবে."
 
-#: src/Process/Backend/Auth.php:281
+#: src/Process/Backend/Auth.php:364
 msgid "In order to login, you have to change your password now."
 msgstr "লগইন করার জন্য, এখন আপনার পাসওয়ার্ড পরিবর্তন করতে হবে."
 
-#: src/Process/Backend/Auth.php:287
+#: src/Process/Backend/Auth.php:370
 msgid "Safe Mode can only be used for super administrators."
 msgstr "নিরাপদ মোড শুধুমাত্র সুপার প্রশাসকদের জন্য ব্যবহার করা যেতে পারে."
 
-#: src/Process/Backend/Auth.php:321 src/Process/Upgrade/Auth.php:139
+#: src/Process/Backend/Auth.php:420 src/Process/Upgrade/Auth.php:186
+#: src/Process/Upgrade/Auth.php:247
 msgid "Administration session expired"
 msgstr "প্রশাসন অধিবেশনের মেয়াদ শেষ হয়েছে"
 
-#: src/Process/Backend/Auth.php:321 src/Process/Upgrade/Auth.php:139
+#: src/Process/Backend/Auth.php:420 src/Process/Upgrade/Auth.php:186
+#: src/Process/Upgrade/Auth.php:247
 msgid "Wrong username or password"
 msgstr "ভুল ইউজারনেম বা পাসওয়ার্ড"
 
-#: src/Process/Backend/Auth.php:377 src/Process/Backend/Auth.php:378
-#: src/Process/Backend/Auth.php:379 src/Process/Backend/User.php:263
+#: src/Process/Backend/Auth.php:476 src/Process/Backend/Auth.php:477
+#: src/Process/Backend/Auth.php:478 src/Process/Backend/User.php:263
 #: src/Process/Backend/User.php:264 src/Process/Backend/User.php:265
-#: src/Process/Backend/UserPreferences.php:558
-#: src/Process/Backend/UserPreferences.php:559
-#: src/Process/Backend/UserPreferences.php:560
+#: src/Process/Backend/UserPreferences.php:597
+#: src/Process/Backend/UserPreferences.php:598
+#: src/Process/Backend/UserPreferences.php:599
 #: src/Process/Install/Install.php:396 src/Process/Install/Install.php:397
-#: src/Process/Install/Install.php:398 src/Process/Upgrade/Auth.php:183
-#: src/Process/Upgrade/Auth.php:184 src/Process/Upgrade/Auth.php:185
+#: src/Process/Install/Install.php:398 src/Process/Upgrade/Auth.php:291
+#: src/Process/Upgrade/Auth.php:292 src/Process/Upgrade/Auth.php:293
 #, php-format
 msgid "Password strength: %s"
 msgstr "পাসওয়ার্ডের শক্তি: %s"
 
-#: src/Process/Backend/Auth.php:377 src/Process/Backend/User.php:263
-#: src/Process/Backend/UserPreferences.php:558
-#: src/Process/Install/Install.php:396 src/Process/Upgrade/Auth.php:183
+#: src/Process/Backend/Auth.php:476 src/Process/Backend/User.php:263
+#: src/Process/Backend/UserPreferences.php:597
+#: src/Process/Install/Install.php:396 src/Process/Upgrade/Auth.php:291
 msgid "weak"
 msgstr "দুর্বল"
 
-#: src/Process/Backend/Auth.php:379 src/Process/Backend/User.php:265
-#: src/Process/Backend/UserPreferences.php:560
-#: src/Process/Install/Install.php:398 src/Process/Upgrade/Auth.php:185
+#: src/Process/Backend/Auth.php:478 src/Process/Backend/User.php:265
+#: src/Process/Backend/UserPreferences.php:599
+#: src/Process/Install/Install.php:398 src/Process/Upgrade/Auth.php:293
 msgid "strong"
 msgstr "শক্তিশালী"
 
-#: src/Process/Backend/Auth.php:422 src/Process/Backend/Auth.php:466
+#: src/Process/Backend/Auth.php:521 src/Process/Backend/Auth.php:565
+#: src/Process/Backend/Auth.php:625 src/Process/Upgrade/Auth.php:345
 msgid "Back to login screen"
 msgstr "লগইন পাতায় ফিরে যাও"
 
-#: src/Process/Backend/Auth.php:430
+#: src/Process/Backend/Auth.php:529
 msgid "Request a new password"
 msgstr "নতুন পাসওয়ার্ডের জন্য অনুরোধ করুন"
 
-#: src/Process/Backend/Auth.php:454
+#: src/Process/Backend/Auth.php:553
 msgid "recover"
 msgstr "উদ্ধার করুন"
 
-#: src/Process/Backend/Auth.php:460 src/Process/Backend/Auth.php:619
+#: src/Process/Backend/Auth.php:559 src/Process/Backend/Auth.php:748
 msgid "Other option"
 msgstr "অন্যান্য অপশন"
 
-#: src/Process/Backend/Auth.php:473
+#: src/Process/Backend/Auth.php:572
 msgid "Change your password"
 msgstr "আপনার পাসওয়ার্ড পরিবর্তন"
 
-#: src/Process/Backend/Auth.php:478 src/Process/Backend/User.php:334
-#: src/Process/Backend/UserPreferences.php:596
+#: src/Process/Backend/Auth.php:577 src/Process/Backend/User.php:334
+#: src/Process/Backend/UserPreferences.php:635
 #: src/Process/Install/Install.php:464
 msgid "New password:"
 msgstr "নতুন পাসওয়ার্ড:"
 
-#: src/Process/Backend/Auth.php:488 src/Process/Backend/User.php:358
+#: src/Process/Backend/Auth.php:587 src/Process/Backend/User.php:358
 #: src/Process/Backend/User.php:367 src/Process/Install/Install.php:471
 msgid "Confirm password:"
 msgstr "আবার পাসওয়ার্ড:"
 
-#: src/Process/Backend/Auth.php:496
+#: src/Process/Backend/Auth.php:595
 msgid "change"
 msgstr "পরিবর্তন করুন"
 
-#: src/Process/Backend/Auth.php:516
+#: src/Process/Backend/Auth.php:605 src/Process/Backend/UserPreferences.php:880
+#: src/Process/Upgrade/Auth.php:325
+msgid "Two factors authentication"
+msgstr "দুটি বিষয়ের প্রমাণীকরণ"
+
+#: src/Process/Backend/Auth.php:610 src/Process/Upgrade/Auth.php:330
+msgid "Enter code:"
+msgstr "কোড লিখুন:"
+
+#: src/Process/Backend/Auth.php:618 src/Process/Backend/UserPreferences.php:696
+#: src/Process/Upgrade/Auth.php:338
+msgid "Verify"
+msgstr "যাচাই করুন"
+
+#: src/Process/Backend/Auth.php:645
 msgid "Safe mode login"
 msgstr "নিরাপদ মোড লগ-ইন"
 
-#: src/Process/Backend/Auth.php:519
+#: src/Process/Backend/Auth.php:648
 msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
 msgstr "এই মোড আপনার প্লাগ-ইন সক্রিয় না করে লগ-ইন করতে পারবেন. এটি সুসংগতি সমস্যার সমাধানের জন্য উপযোগী হতে পারে"
 
-#: src/Process/Backend/Auth.php:520
+#: src/Process/Backend/Auth.php:649
 msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
 msgstr "সমস্যা সৃষ্টি করার জন্য সন্দেহভাজন কোন প্লাগ-ইন নিষ্কাশন, নিষ্কাশন অথবা মুছে ফেলা, তারপর লগ-আউট এবং স্বাভাবিকভাবে লগ-ইন করুন."
 
-#: src/Process/Backend/Auth.php:551 src/Process/Upgrade/Auth.php:237
+#: src/Process/Backend/Auth.php:680 src/Process/Upgrade/Auth.php:376
 msgid "Remember my ID on this device"
 msgstr "আমার ID এই কম্পিউটারে মনে রেখো"
 
-#: src/Process/Backend/Auth.php:555 src/Process/Upgrade/Auth.php:238
+#: src/Process/Backend/Auth.php:684 src/Process/Upgrade/Auth.php:377
 msgid "log in"
 msgstr "লগ ইন"
 
-#: src/Process/Backend/Auth.php:561
+#: src/Process/Backend/Auth.php:690
 msgid "Sign in with a passkey"
 msgstr "একটি পাসকি দিয়ে সাইন ইন করুন"
 
-#: src/Process/Backend/Auth.php:604
+#: src/Process/Backend/Auth.php:733
 msgid "Third party applications connections"
 msgstr "তৃতীয় পক্ষের অ্যাপ্লিকেশন সংযোগ"
 
-#: src/Process/Backend/Auth.php:613 src/Process/Upgrade/Auth.php:240
+#: src/Process/Backend/Auth.php:742 src/Process/Upgrade/Auth.php:379
 msgid "You must accept cookies in order to use the private area."
 msgstr "প্রাইভেট এলাকা ব্যবহার করার জন্য আপনাকে কুকি গ্রহণ করতে হবে."
 
-#: src/Process/Backend/Auth.php:625
+#: src/Process/Backend/Auth.php:754
 msgid "Get back to normal authentication"
 msgstr "স্বাভাবিক প্রমাণীকরণের জন্য ফেরত যাও"
 
-#: src/Process/Backend/Auth.php:630
+#: src/Process/Backend/Auth.php:759
 msgid "Connection issue?"
 msgstr "সংযোগ সমস্যা?"
 
-#: src/Process/Backend/Auth.php:637
+#: src/Process/Backend/Auth.php:766
 msgid "I forgot my password"
 msgstr "আমার পাসওয়ার্ড ভুলে গেছি"
 
-#: src/Process/Backend/Auth.php:644
+#: src/Process/Backend/Auth.php:773
 msgid "I want to log in in safe mode"
 msgstr "আমি নিরাপদ মোডে লগ-ইন করতে চাই"
 
@@ -3428,7 +3457,7 @@ msgid "I would like to prevent search engines and archivers from indexing or arc
 msgstr "আমি অনুসন্ধান ইঞ্জিন এবং আর্কাইভার্স থেকে অনুসন্ধান বন্ধ করতে চাই অথবা আমার ব্লগের বিষয়বস্তু সংরক্ষণ করতে চাই."
 
 #: src/Process/Backend/BlogPref.php:234
-#: src/Process/Backend/UserPreferences.php:171
+#: src/Process/Backend/UserPreferences.php:189
 msgid "Default"
 msgstr "ডিফল্ট"
 
@@ -4062,7 +4091,7 @@ msgid "total:"
 msgstr "মোট:"
 
 #: src/Process/Backend/Categories.php:326 src/Process/Backend/Category.php:279
-#: src/Process/Backend/User.php:457 src/Process/Backend/UserPreferences.php:692
+#: src/Process/Backend/User.php:457 src/Process/Backend/UserPreferences.php:845
 msgid "URL:"
 msgstr "URL:"
 
@@ -5488,17 +5517,17 @@ msgstr "সতর্কীকরণ:"
 msgid "Password change required to connect"
 msgstr "সংযোগ স্থাপনের জন্য পাসওয়ার্ড পরিবর্তন"
 
-#: src/Process/Backend/User.php:401 src/Process/Backend/UserPreferences.php:640
+#: src/Process/Backend/User.php:401 src/Process/Backend/UserPreferences.php:793
 #: src/Process/Install/Install.php:439
 msgid "Last Name:"
 msgstr "শেষ নাম:"
 
-#: src/Process/Backend/User.php:411 src/Process/Backend/UserPreferences.php:650
+#: src/Process/Backend/User.php:411 src/Process/Backend/UserPreferences.php:803
 #: src/Process/Install/Install.php:433
 msgid "First Name:"
 msgstr "প্রথম নাম:"
 
-#: src/Process/Backend/User.php:421 src/Process/Backend/UserPreferences.php:660
+#: src/Process/Backend/User.php:421 src/Process/Backend/UserPreferences.php:813
 msgid "Display name:"
 msgstr "ডিসপ্লে নাম:"
 
@@ -5506,23 +5535,24 @@ msgstr "ডিসপ্লে নাম:"
 msgid "Mandatory for password recovering procedure."
 msgstr "পাসওয়ার্ড পুনরুদ্ধারের জন্য ম্যান্ডেটরি."
 
-#: src/Process/Backend/User.php:444 src/Process/Backend/UserPreferences.php:679
+#: src/Process/Backend/User.php:444 src/Process/Backend/UserPreferences.php:832
 msgid "Alternate emails (comma separated list):"
 msgstr "বিকল্প ইমেইল (comma separated list):"
 
-#: src/Process/Backend/User.php:448 src/Process/Backend/UserPreferences.php:683
+#: src/Process/Backend/User.php:448 src/Process/Backend/UserPreferences.php:836
 msgid "Invalid emails will be automatically removed from list."
 msgstr "অবৈধ ইমেইল তালিকা থেকে স্বয়ংক্রিয়ভাবে অপসারণ করা হবে."
 
-#: src/Process/Backend/User.php:466 src/Process/Backend/UserPreferences.php:701
+#: src/Process/Backend/User.php:466 src/Process/Backend/UserPreferences.php:854
 msgid "Alternate URLs (comma separated list):"
 msgstr "বিকল্প URLs (comma separated list):"
 
-#: src/Process/Backend/User.php:470 src/Process/Backend/UserPreferences.php:705
+#: src/Process/Backend/User.php:470 src/Process/Backend/UserPreferences.php:858
 msgid "Invalid URLs will be automatically removed from list."
 msgstr "অকার্যকর ইউ. আর. এল. স্বয়ংক্রিয়ভাবে তালিকা থেকে অপসারণ করা হবে."
 
-#: src/Process/Backend/User.php:476 src/Process/Backend/UserPreferences.php:920
+#: src/Process/Backend/User.php:476
+#: src/Process/Backend/UserPreferences.php:1025
 msgid "Interface"
 msgstr "ইন্টারফেস"
 
@@ -5531,22 +5561,22 @@ msgid "Timezone:"
 msgstr "টাইমজোন:"
 
 #: src/Process/Backend/User.php:492
-#: src/Process/Backend/UserPreferences.php:1044
+#: src/Process/Backend/UserPreferences.php:1149
 msgid "Edition"
 msgstr "Edition"
 
 #: src/Process/Backend/User.php:498
-#: src/Process/Backend/UserPreferences.php:1056
+#: src/Process/Backend/UserPreferences.php:1161
 msgid "Preferred format:"
 msgstr "পছন্দের বিন্যাস:"
 
 #: src/Process/Backend/User.php:505
-#: src/Process/Backend/UserPreferences.php:1064
+#: src/Process/Backend/UserPreferences.php:1169
 msgid "Default entry status:"
 msgstr "ডিফল্ট এন্ট্রি স্ট্যাটাস:"
 
 #: src/Process/Backend/User.php:510
-#: src/Process/Backend/UserPreferences.php:1070
+#: src/Process/Backend/UserPreferences.php:1175
 msgid "Entry edit field height:"
 msgstr "সম্পাদন ক্ষেত্র উচ্চতা:"
 
@@ -5596,365 +5626,401 @@ msgstr "পোস্টের তালিকা"
 msgid "List of comments"
 msgstr "মন্তব্যের তালিকা"
 
-#: src/Process/Backend/UserPreferences.php:162
+#: src/Process/Backend/UserPreferences.php:180
 msgid "Light"
 msgstr "আলো"
 
-#: src/Process/Backend/UserPreferences.php:163
+#: src/Process/Backend/UserPreferences.php:181
 msgid "Dark"
 msgstr "অন্ধকার"
 
-#: src/Process/Backend/UserPreferences.php:164
+#: src/Process/Backend/UserPreferences.php:182
 msgid "Automatic"
 msgstr "স্বয়ংক্রিয়"
 
-#: src/Process/Backend/UserPreferences.php:169
+#: src/Process/Backend/UserPreferences.php:187
 msgid "Smallest"
 msgstr "Smallest"
 
-#: src/Process/Backend/UserPreferences.php:170
+#: src/Process/Backend/UserPreferences.php:188
 msgid "Smaller"
 msgstr "ছোট"
 
-#: src/Process/Backend/UserPreferences.php:172
+#: src/Process/Backend/UserPreferences.php:190
 msgid "Larger"
 msgstr "লার্গার"
 
-#: src/Process/Backend/UserPreferences.php:173
+#: src/Process/Backend/UserPreferences.php:191
 msgid "Largest"
 msgstr "Largest"
 
-#: src/Process/Backend/UserPreferences.php:185
+#: src/Process/Backend/UserPreferences.php:203
 msgid "Blog description (in blog parameters)"
 msgstr "ব্লগ বর্ণনা (ব্লগ প্যারামিটার ব্যবহার করেছে)"
 
-#: src/Process/Backend/UserPreferences.php:186
+#: src/Process/Backend/UserPreferences.php:204
 msgid "Category description"
 msgstr "শ্রেণীবিভাগ"
 
-#: src/Process/Backend/UserPreferences.php:232
+#: src/Process/Backend/UserPreferences.php:246
+msgid "Two factors authentication verification failed."
+msgstr "দুটি বিষয়ের প্রমাণীকরণ যাচাইকরণ ব্যর্থ হয়েছে।"
+
+#: src/Process/Backend/UserPreferences.php:248
+msgid "Two factors authentication verification succeeded."
+msgstr "দুটি বিষয়ের প্রমাণীকরণ যাচাইকরণ সফল হয়েছে।"
+
+#: src/Process/Backend/UserPreferences.php:256
+msgid "Two factors authentication secret regenerated."
+msgstr "দুটি বিষয়ের প্রমাণীকরণ গোপন পুনরুজ্জীবিত।"
+
+#: src/Process/Backend/UserPreferences.php:265
 msgid "Passkey successfully deleted."
 msgstr "পাসকি সফলভাবে মুছে ফেলা হয়েছে।"
 
-#: src/Process/Backend/UserPreferences.php:243
-#: src/Process/Backend/UserPreferences.php:260
+#: src/Process/Backend/UserPreferences.php:282
+#: src/Process/Backend/UserPreferences.php:299
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "আপনার ইমেইল অথবা পাসওয়ার্ড পরিবর্তন করতে চাইলে আপনার বর্তমান পাসওয়ার্ড প্রদান করতে হবে."
 
-#: src/Process/Backend/UserPreferences.php:291
+#: src/Process/Backend/UserPreferences.php:330
 msgid "Personal information has been successfully updated."
 msgstr "ব্যক্তিগত তথ্য সফলভাবে হালনাগাদ করা হয়েছে."
 
-#: src/Process/Backend/UserPreferences.php:409
+#: src/Process/Backend/UserPreferences.php:448
 msgid "Personal options has been successfully updated."
 msgstr "ব্যক্তিগত অপশন সফলভাবে হালনাগাদ করা হয়েছে."
 
-#: src/Process/Backend/UserPreferences.php:437
+#: src/Process/Backend/UserPreferences.php:476
 msgid "Dashboard options has been successfully updated."
 msgstr "ড্যাশবোর্ড অপশন সফলভাবে হালনাগাদ করা হয়েছে."
 
-#: src/Process/Backend/UserPreferences.php:449
-#: src/Process/Backend/UserPreferences.php:473
+#: src/Process/Backend/UserPreferences.php:488
+#: src/Process/Backend/UserPreferences.php:512
 msgid "No favorite selected"
 msgstr "কোন প্রিয় নির্বাচিত হয়নি"
 
-#: src/Process/Backend/UserPreferences.php:460
+#: src/Process/Backend/UserPreferences.php:499
 msgid "Favorites have been successfully added."
 msgstr "Favorites সফলভাবে যোগ করা হয়েছে."
 
-#: src/Process/Backend/UserPreferences.php:486
+#: src/Process/Backend/UserPreferences.php:525
 msgid "Favorites have been successfully removed."
 msgstr "Favorites সফলভাবে সরিয়ে ফেলা হয়েছে."
 
-#: src/Process/Backend/UserPreferences.php:516
+#: src/Process/Backend/UserPreferences.php:555
 msgid "Favorites have been successfully updated."
 msgstr "Favorites সফলভাবে হালনাগাদ করা হয়েছে."
 
-#: src/Process/Backend/UserPreferences.php:528
+#: src/Process/Backend/UserPreferences.php:567
 msgid "Default favorites have been successfully updated."
 msgstr "ডিফল্ট অনুকূল সফলভাবে হালনাগাদ করা হয়েছে."
 
-#: src/Process/Backend/UserPreferences.php:542
+#: src/Process/Backend/UserPreferences.php:581
 msgid "Dashboard items order have been successfully reset."
 msgstr "ড্যাশবোর্ড আইটেম আদেশটি সফলভাবে রিসেট করা হয়েছে."
 
-#: src/Process/Backend/UserPreferences.php:564
+#: src/Process/Backend/UserPreferences.php:603
 msgid "Are you sure you want to remove selected favorites?"
 msgstr "আপনি কি নিশ্চিতভাবে নির্বাচিত পছন্দসই অপসারণ করতে চান?"
 
-#: src/Process/Backend/UserPreferences.php:586
+#: src/Process/Backend/UserPreferences.php:625
 msgid "Change my password"
 msgstr "পাসওয়ার্ড পরিবর্তন করুন"
 
-#: src/Process/Backend/UserPreferences.php:605
+#: src/Process/Backend/UserPreferences.php:644
 msgid "Confirm new password:"
 msgstr "নতুন পাসওয়ার্ড কনফার্ম করুন:"
 
-#: src/Process/Backend/UserPreferences.php:615
+#: src/Process/Backend/UserPreferences.php:654
 msgid "Your current password:"
 msgstr "আপনার বর্তমান পাসওয়ার্ড:"
 
-#: src/Process/Backend/UserPreferences.php:619
+#: src/Process/Backend/UserPreferences.php:658
 msgid "If you have changed your email or password you must provide your current password to save these modifications."
 msgstr "যদি আপনি আপনার ইমেইল অথবা পাসওয়ার্ড পরিবর্তন করেছেন, তবে এই পরিবর্তনগুলি সংরক্ষণ করার জন্য আপনার বর্তমান পাসওয়ার্ড প্রদান করতে হবে."
 
-#: src/Process/Backend/UserPreferences.php:625
-#: src/Process/Backend/UserPreferences.php:627
+#: src/Process/Backend/UserPreferences.php:667
+msgid "Your account is registered to two factors authentication."
+msgstr "আপনার অ্যাকাউন্ট দুটি ফ্যাক্টর প্রমাণীকরণের মাধ্যমে নিবন্ধিত।"
+
+#: src/Process/Backend/UserPreferences.php:668
+msgid "Disable two factors authentication"
+msgstr "দুইটি ফ্যাক্টর প্রমাণীকরণ অক্ষম করুন"
+
+#: src/Process/Backend/UserPreferences.php:673
+msgid "Scan this QR code with your authentication application:"
+msgstr "আপনার প্রমাণীকরণ অ্যাপ্লিকেশন দিয়ে এই QR কোডটি স্ক্যান করুন:"
+
+#: src/Process/Backend/UserPreferences.php:684
+msgid "Or enter this secret into your authentication application:"
+msgstr "অথবা আপনার প্রমাণীকরণ অ্যাপ্লিকেশনে এই গোপনীয়তাটি প্রবেশ করান:"
+
+#: src/Process/Backend/UserPreferences.php:685
+msgid "Regenerate"
+msgstr "পুনরুজ্জীবিত করা"
+
+#: src/Process/Backend/UserPreferences.php:695
+msgid "Enter verification code:"
+msgstr "যাচাইকরণ কোড লিখুন:"
+
+#: src/Process/Backend/UserPreferences.php:713
+msgid "Unknown certificat issuer"
+msgstr "অজানা সার্টিফিকেট ইস্যুকারী"
+
+#: src/Process/Backend/UserPreferences.php:723
+msgid "You have no registered key yet."
+msgstr "তোমার কাছে এখনও কোন নিবন্ধিত চাবি নেই।"
+
+#: src/Process/Backend/UserPreferences.php:763
+msgid "Linked to account:"
+msgstr "অ্যাকাউন্টের সাথে লিঙ্ক করা হয়েছে:"
+
+#: src/Process/Backend/UserPreferences.php:778
+#: src/Process/Backend/UserPreferences.php:780
 msgid "My profile"
 msgstr "আমার প্রোফাইল"
 
-#: src/Process/Backend/UserPreferences.php:712
+#: src/Process/Backend/UserPreferences.php:865
 msgid "Language for my interface:"
 msgstr "আমার ইন্টারফেসের ভাষা:"
 
-#: src/Process/Backend/UserPreferences.php:720
+#: src/Process/Backend/UserPreferences.php:873
 msgid "My timezone:"
 msgstr "আমার সময়সীমা:"
 
-#: src/Process/Backend/UserPreferences.php:729
+#: src/Process/Backend/UserPreferences.php:885
+msgid "Authentication keys"
+msgstr "প্রমাণীকরণ কী"
+
+#: src/Process/Backend/UserPreferences.php:898
+msgid "Authentication applications"
+msgstr "প্রমাণীকরণ অ্যাপ্লিকেশন"
+
+#: src/Process/Backend/UserPreferences.php:906
 msgid "Update my profile"
 msgstr "আমার প্রোফাইল আপডেট করুন"
 
-#: src/Process/Backend/UserPreferences.php:797
+#: src/Process/Backend/UserPreferences.php:974
 msgid "List"
 msgstr "তালিকা"
 
-#: src/Process/Backend/UserPreferences.php:799
+#: src/Process/Backend/UserPreferences.php:976
 msgid "Order by"
 msgstr "অর্ডার"
 
-#: src/Process/Backend/UserPreferences.php:801
+#: src/Process/Backend/UserPreferences.php:978
 msgid "Sort"
 msgstr "সড়ক"
 
-#: src/Process/Backend/UserPreferences.php:814
+#: src/Process/Backend/UserPreferences.php:991
 #, php-format
 msgid "Preferred editor for %s:"
 msgstr "%s-এর জন্য পছন্দসই সম্পাদক:"
 
-#: src/Process/Backend/UserPreferences.php:819
+#: src/Process/Backend/UserPreferences.php:996
 msgid "Choose an editor"
 msgstr "একটি সম্পাদক নির্বাচন করুন"
 
-#: src/Process/Backend/UserPreferences.php:874
-msgid "Linked to account:"
-msgstr "অ্যাকাউন্টের সাথে লিঙ্ক করা হয়েছে:"
-
-#: src/Process/Backend/UserPreferences.php:896
-msgid "Unknown certificat issuer"
-msgstr "অজানা সার্টিফিকেট ইস্যুকারী"
-
-#: src/Process/Backend/UserPreferences.php:906
-msgid "You have no registered key yet."
-msgstr "তোমার কাছে এখনও কোন নিবন্ধিত চাবি নেই।"
-
-#: src/Process/Backend/UserPreferences.php:912
-#: src/Process/Backend/UserPreferences.php:918
+#: src/Process/Backend/UserPreferences.php:1017
+#: src/Process/Backend/UserPreferences.php:1023
 msgid "My options"
 msgstr "আমার অপশন"
 
-#: src/Process/Backend/UserPreferences.php:927
+#: src/Process/Backend/UserPreferences.php:1032
 msgid "Theme:"
 msgstr "থিম:"
 
-#: src/Process/Backend/UserPreferences.php:933
+#: src/Process/Backend/UserPreferences.php:1038
 msgid "Activate enhanced uploader in media manager"
 msgstr "মিডিয়া ব্যবস্থাপকের মধ্যে বর্ধিত আপলোডার সক্রিয় করুন"
 
-#: src/Process/Backend/UserPreferences.php:939
+#: src/Process/Backend/UserPreferences.php:1044
 msgid "Preview the entry being edited in a blank window or tab (depending on your browser settings)."
 msgstr "একটি ফাঁকা উইণ্ডো অথবা ট্যাবে (আপনার ব্রাউজার বৈশিষ্ট্যের উপর নির্ভর করে) এন্ট্রি সম্পাদন করা হচ্ছে."
 
-#: src/Process/Backend/UserPreferences.php:946
+#: src/Process/Backend/UserPreferences.php:1051
 msgid "Disable javascript powered drag and drop for ordering items"
 msgstr "অর্ডারিং আইটেমের জন্য জাভাস্ক্রিপ্ট চালিত ড্র্যাগ এবং ড্রপ নিষ্ক্রিয় করুন"
 
-#: src/Process/Backend/UserPreferences.php:950
+#: src/Process/Backend/UserPreferences.php:1055
 msgid "If checked, numeric fields will allow to type the elements' ordering number."
 msgstr "এটিতে টিক দিলে, সাংখ্যিক ক্ষেত্রগুলি উপাত্তের অর্ডারিং নম্বর টাইপ করতে দেবে."
 
-#: src/Process/Backend/UserPreferences.php:955
+#: src/Process/Backend/UserPreferences.php:1060
 msgid "Hide all secondary information and notes"
 msgstr "সকল মাধ্যমিক তথ্য ও নোট আড়াল করো"
 
-#: src/Process/Backend/UserPreferences.php:961
+#: src/Process/Backend/UserPreferences.php:1066
 msgid "Hide help button"
 msgstr "সহায়ক বাটন আড়াল করো"
 
-#: src/Process/Backend/UserPreferences.php:968
+#: src/Process/Backend/UserPreferences.php:1073
 msgid "Font size:"
 msgstr "ফন্ট মাপ:"
 
-#: src/Process/Backend/UserPreferences.php:974
+#: src/Process/Backend/UserPreferences.php:1079
 msgid "Use operating system font"
 msgstr "অপারেটিং সিস্টেম ফন্ট ব্যবহার করো"
 
-#: src/Process/Backend/UserPreferences.php:980
+#: src/Process/Backend/UserPreferences.php:1085
 msgid "Number of recent folders proposed in media manager:"
 msgstr "মিডিয়া ব্যবস্থাপকের মধ্যে প্রস্তাবিত সাম্প্রতিক ফোল্ডারের সংখ্যা:"
 
-#: src/Process/Backend/UserPreferences.php:984
+#: src/Process/Backend/UserPreferences.php:1089
 msgid "Set to 0 (zero) to ignore, displayed only if Javascript is enabled in your browser."
 msgstr "উপেক্ষা করার জন্য 0 (শূন্য) তে সেট করুন, শুধুমাত্র আপনার ব্রাউজারে জাভাস্ক্রিপ্ট সক্রিয় থাকলেই প্রদর্শিত হবে।"
 
-#: src/Process/Backend/UserPreferences.php:991
+#: src/Process/Backend/UserPreferences.php:1096
 msgid "Do not use standard favicon"
 msgstr "স্ট্যান্ডার্ড পছন্দের ব্যবহার করবেন না"
 
-#: src/Process/Backend/UserPreferences.php:992
+#: src/Process/Backend/UserPreferences.php:1097
 msgid "This will be applied for all users"
 msgstr "এটি সকল ব্যবহারকারীর জন্য প্রয়োগ করা হবে"
 
-#: src/Process/Backend/UserPreferences.php:1002
+#: src/Process/Backend/UserPreferences.php:1107
 msgid "Disable Ad-blocker check"
 msgstr "Ad-ব্লকার পরীক্ষা নিষ্ক্রিয় করুন"
 
-#: src/Process/Backend/UserPreferences.php:1006
+#: src/Process/Backend/UserPreferences.php:1111
 msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
 msgstr "কিছু বিজ্ঞাপন-অবরোধ (Ghostery, Adblock plus, uBloc origin, …) CKEditorএর সাথে এন্ট্রির মধ্যে লিংক অথবা মিডিয়া ইনসার্টিংকারী হিসাবে কিছু বৈশিষ্ট্যের মধ্যে হস্তক্ষেপ করতে পারে; এই ক্ষেত্রে আপনি এই Dotclear ইনস্টলেশনের (শুধুমাত্র ব্যাকএন্ড) জন্য এটি নিষ্ক্রিয় করা উচিত. উল্লেখ্য যে, ডটস্পট ব্যাকএন্ড-এ বিজ্ঞাপন ট্র্যাকার্স যোগ করে না."
 
-#: src/Process/Backend/UserPreferences.php:1009
+#: src/Process/Backend/UserPreferences.php:1114
 msgid "Note also that deactivating this detection of ad blockers will not deactivate the installed ad blockers. Dotclear cannot interfere with the operation of browser extensions!"
 msgstr "এছাড়াও নোট করুন যে বিজ্ঞাপন ব্লকারগুলির এই সনাক্তকরণটি নিষ্ক্রিয় করা ইনস্টল করা বিজ্ঞাপন ব্লকারগুলিকে নিষ্ক্রিয় করবে না। ডটক্লিয়ার ব্রাউজার এক্সটেনশনগুলির ক্রিয়াকলাপে হস্তক্ষেপ করতে পারে না!"
 
-#: src/Process/Backend/UserPreferences.php:1017
+#: src/Process/Backend/UserPreferences.php:1122
 msgid "Quick menu character:"
 msgstr "দ্রুত মেনু অক্ষর:"
 
-#: src/Process/Backend/UserPreferences.php:1021
+#: src/Process/Backend/UserPreferences.php:1126
 msgid "Leave empty to use the default character <kbd>:</kbd>"
 msgstr "ডিফল্ট অক্ষরটি ব্যবহার করতে খালি ছেড়ে দিন<kbd>:</kbd>"
 
-#: src/Process/Backend/UserPreferences.php:1026
+#: src/Process/Backend/UserPreferences.php:1131
 msgid "Keep the main menu at the top of the page as much as possible"
 msgstr "যতটা সম্ভব মূল মেনুটি পৃষ্ঠার উপরে রাখুন।"
 
-#: src/Process/Backend/UserPreferences.php:1030
+#: src/Process/Backend/UserPreferences.php:1135
 msgid "Optional columns displayed in lists"
 msgstr "তালিকায় প্রদর্শিত অপশনাল কলাম"
 
-#: src/Process/Backend/UserPreferences.php:1033
+#: src/Process/Backend/UserPreferences.php:1138
 msgid "Options for lists"
 msgstr "তালিকার জন্য অপশন"
 
-#: src/Process/Backend/UserPreferences.php:1039
+#: src/Process/Backend/UserPreferences.php:1144
 msgid "Apply filters on the fly"
 msgstr "উড়ার উপর ফিল্টার প্রয়োগ করো"
 
-#: src/Process/Backend/UserPreferences.php:1076
+#: src/Process/Backend/UserPreferences.php:1181
 msgid "Enable WYSIWYG mode"
 msgstr "WYSIWYG মোড সক্রিয় করুন"
 
-#: src/Process/Backend/UserPreferences.php:1082
+#: src/Process/Backend/UserPreferences.php:1187
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr "টেক্সট-এলাকার নীচে সম্পাদকের টুলবার প্রদর্শন করা হবে (যদি সম্ভব হয়)"
 
-#: src/Process/Backend/UserPreferences.php:1088
+#: src/Process/Backend/UserPreferences.php:1193
 msgid "Use HTML editor for:"
 msgstr "HTML সম্পাদক ব্যবহার করো:"
 
-#: src/Process/Backend/UserPreferences.php:1093
-msgid "Authentication applications"
-msgstr "প্রমাণীকরণ অ্যাপ্লিকেশন"
-
-#: src/Process/Backend/UserPreferences.php:1098
-msgid "Authentication keys"
-msgstr "প্রমাণীকরণ কী"
-
-#: src/Process/Backend/UserPreferences.php:1109
+#: src/Process/Backend/UserPreferences.php:1197
 msgid "Other options"
 msgstr "অন্যান্য অপশন"
 
-#: src/Process/Backend/UserPreferences.php:1120
+#: src/Process/Backend/UserPreferences.php:1208
 msgid "Save my options"
 msgstr "আমার অপশন সংরক্ষণ করুন"
 
-#: src/Process/Backend/UserPreferences.php:1151
+#: src/Process/Backend/UserPreferences.php:1239
 #, php-format
 msgid "position of %s"
 msgstr "%s-এর অবস্থান"
 
-#: src/Process/Backend/UserPreferences.php:1174
+#: src/Process/Backend/UserPreferences.php:1262
 msgid "Save order"
 msgstr "অর্ডার সংরক্ষণ করো"
 
-#: src/Process/Backend/UserPreferences.php:1175
+#: src/Process/Backend/UserPreferences.php:1263
 msgid "Delete selected favorites"
 msgstr "নির্বাচিত পছন্দগুলি মুছে ফেলুন"
 
-#: src/Process/Backend/UserPreferences.php:1182
+#: src/Process/Backend/UserPreferences.php:1270
 msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
 msgstr "আপনি যদি একজন সুপার অ্যাডমিনিস্ট্রেটর, আপনি এই ইনস্টলেশনের সমস্ত ব্লগগুলোতে ডিফল্ট দ্বারা ব্যবহার করা পছন্দসই নির্ধারণ করতে পারেন."
 
-#: src/Process/Backend/UserPreferences.php:1185
+#: src/Process/Backend/UserPreferences.php:1273
 msgid "Define as default favorites"
 msgstr "ডিফল্ট অনুকূল হিসেবে নির্ধারণ করা হবে"
 
-#: src/Process/Backend/UserPreferences.php:1194
+#: src/Process/Backend/UserPreferences.php:1282
 msgid "Currently no personal favorites."
 msgstr "বর্তমানে ব্যক্তিগত পছন্দসই নেই."
 
-#: src/Process/Backend/UserPreferences.php:1233
+#: src/Process/Backend/UserPreferences.php:1321
 msgid "(default favorite)"
 msgstr "(ডিফল্ট প্রিয়)"
 
-#: src/Process/Backend/UserPreferences.php:1248
+#: src/Process/Backend/UserPreferences.php:1336
 msgid "Add to my favorites"
 msgstr "আমার পছন্দের সাথে যোগ করো"
 
-#: src/Process/Backend/UserPreferences.php:1272
+#: src/Process/Backend/UserPreferences.php:1360
 msgid "Other available favorites"
 msgstr "অন্যান্য সহজলভ্য পছন্দের"
 
-#: src/Process/Backend/UserPreferences.php:1284
+#: src/Process/Backend/UserPreferences.php:1372
 msgid "Menu"
 msgstr "মেনু"
 
-#: src/Process/Backend/UserPreferences.php:1290
+#: src/Process/Backend/UserPreferences.php:1378
 msgid "Display favorites at the top of the menu"
 msgstr "মেনুর শীর্ষে অনুকূল প্রদর্শন করা হবে"
 
-#: src/Process/Backend/UserPreferences.php:1294
+#: src/Process/Backend/UserPreferences.php:1382
 msgid "Dashboard icons"
 msgstr "ড্যাশবোর্ড আইকন"
 
-#: src/Process/Backend/UserPreferences.php:1300
+#: src/Process/Backend/UserPreferences.php:1388
 msgid "Display dashboard icons"
 msgstr "ড্যাশবোর্ড আইকন প্রদর্শন করো"
 
-#: src/Process/Backend/UserPreferences.php:1304
+#: src/Process/Backend/UserPreferences.php:1392
 msgid "Dashboard modules"
 msgstr "ড্যাশবোর্ড মডিউল"
 
-#: src/Process/Backend/UserPreferences.php:1310
+#: src/Process/Backend/UserPreferences.php:1398
 msgid "Display documentation links"
 msgstr "ডকুমেন্টেশন লিঙ্ক প্রদর্শন"
 
-#: src/Process/Backend/UserPreferences.php:1316
+#: src/Process/Backend/UserPreferences.php:1404
 msgid "Display donate links"
 msgstr "দান লিঙ্ক প্রদর্শন করুন"
 
-#: src/Process/Backend/UserPreferences.php:1322
+#: src/Process/Backend/UserPreferences.php:1410
 msgid "Display Dotclear news"
 msgstr "Dotclear সংবাদ প্রদর্শন করা হবে"
 
-#: src/Process/Backend/UserPreferences.php:1328
+#: src/Process/Backend/UserPreferences.php:1416
 msgid "Display quick entry form"
 msgstr "দ্রুত এন্ট্রি ফর্ম প্রদর্শন করুন"
 
-#: src/Process/Backend/UserPreferences.php:1333
+#: src/Process/Backend/UserPreferences.php:1421
 msgid "Do not display Dotclear updates"
 msgstr "Dotclear আপডেট প্রদর্শন করা হবে না"
 
-#: src/Process/Backend/UserPreferences.php:1346
+#: src/Process/Backend/UserPreferences.php:1434
 msgid "Save my dashboard options"
 msgstr "আমার ড্যাশবোর্ড অপশন সংরক্ষণ করুন"
 
-#: src/Process/Backend/UserPreferences.php:1359
+#: src/Process/Backend/UserPreferences.php:1447
 msgid "Dashboard items order"
 msgstr "ড্যাশবোর্ড আইটেম অর্ডার"
 
-#: src/Process/Backend/UserPreferences.php:1362
+#: src/Process/Backend/UserPreferences.php:1450
 msgid "Reset dashboard items order"
 msgstr "ড্যাশবোর্ড আইটেম রিসেট করো"
 
@@ -6350,11 +6416,15 @@ msgstr "অভিনন্দন, আপডেটের শেষ থেকে �
 msgid "Finish the update."
 msgstr "আপডেট শেষ করো."
 
-#: src/Process/Upgrade/Auth.php:176 src/Process/Upgrade/Auth.php:194
+#: src/Process/Upgrade/Auth.php:178
+msgid "Code verification failed"
+msgstr "কোড যাচাইকরণ ব্যর্থ হয়েছে"
+
+#: src/Process/Upgrade/Auth.php:284 src/Process/Upgrade/Auth.php:302
 msgid "Upgrade"
 msgstr "উচ্চায়ন"
 
-#: src/Process/Upgrade/Auth.php:241
+#: src/Process/Upgrade/Auth.php:380
 msgid "Back to normal dashboard"
 msgstr "সাধারণ ড্যাশবোর্ডে ফিরে যান"
 

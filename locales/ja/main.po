@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-18 12:11+0200\n"
-"PO-Revision-Date: 2025-08-18 10:28\n"
+"POT-Creation-Date: 2025-08-20 08:27+0200\n"
+"PO-Revision-Date: 2025-08-20 07:50\n"
 "Last-Translator: \n"
 "Language-Team: Japanese\n"
 "Language: ja_JP\n"
@@ -17,9 +17,9 @@ msgstr ""
 "X-Crowdin-File: /master/locales/_pot/main.pot\n"
 "X-Crowdin-File-ID: 262\n"
 
-#: inc/core/_fake_l10n.php:6 src/Process/Backend/Auth.php:378
-#: src/Process/Backend/User.php:264 src/Process/Backend/UserPreferences.php:559
-#: src/Process/Install/Install.php:397 src/Process/Upgrade/Auth.php:184
+#: inc/core/_fake_l10n.php:6 src/Process/Backend/Auth.php:477
+#: src/Process/Backend/User.php:264 src/Process/Backend/UserPreferences.php:598
+#: src/Process/Install/Install.php:397 src/Process/Upgrade/Auth.php:292
 msgid "medium"
 msgstr "medium"
 
@@ -157,7 +157,7 @@ msgstr "状態"
 #: src/Core/Backend/Listing/ListingMedia.php:309
 #: src/Core/Backend/ModulesList.php:1350 src/Core/Upgrade/PluginsList.php:125
 #: src/Process/Backend/Comment.php:355 src/Process/Backend/Langs.php:231
-#: src/Process/Backend/Post.php:960 src/Process/Backend/UserPreferences.php:899
+#: src/Process/Backend/Post.php:960 src/Process/Backend/UserPreferences.php:716
 #: src/Process/Backend/Users.php:46 src/Process/Upgrade/Langs.php:299
 msgid "Delete"
 msgstr "削除"
@@ -449,11 +449,11 @@ msgstr "利用可能"
 msgid "Other"
 msgstr "その他"
 
-#: src/Core/Backend/Combos.php:242 src/Process/Backend/UserPreferences.php:209
+#: src/Core/Backend/Combos.php:242 src/Process/Backend/UserPreferences.php:227
 msgid "Descending"
 msgstr "降順"
 
-#: src/Core/Backend/Combos.php:243 src/Process/Backend/UserPreferences.php:210
+#: src/Core/Backend/Combos.php:243 src/Process/Backend/UserPreferences.php:228
 msgid "Ascending"
 msgstr "昇順"
 
@@ -544,13 +544,13 @@ msgid "Number of entries"
 msgstr "エントリ数"
 
 #: src/Core/Backend/Favorites.php:287
-#: src/Process/Backend/UserPreferences.php:1267
+#: src/Process/Backend/UserPreferences.php:1355
 msgid "My favorites"
 msgstr "お気に入り"
 
 #: src/Core/Backend/Favorites.php:399 src/Core/Backend/Menus.php:195
 #: src/Core/Backend/Page.php:372 src/Process/Backend/Media.php:782
-#: src/Process/Backend/UserPreferences.php:75
+#: src/Process/Backend/UserPreferences.php:76
 msgid "My preferences"
 msgstr "マイ設定"
 
@@ -639,9 +639,9 @@ msgid "Global help"
 msgstr "グローバルヘルプ"
 
 #: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1261
-#: src/Process/Backend/Auth.php:445 src/Process/Backend/BlogPref.php:1351
+#: src/Process/Backend/Auth.php:544 src/Process/Backend/BlogPref.php:1351
 #: src/Process/Backend/Comment.php:306 src/Process/Backend/Post.php:1108
-#: src/Process/Backend/User.php:432 src/Process/Backend/UserPreferences.php:670
+#: src/Process/Backend/User.php:432 src/Process/Backend/UserPreferences.php:823
 #: src/Process/Install/Install.php:445
 msgid "Email:"
 msgstr "メール："
@@ -700,9 +700,9 @@ msgstr "ビデオ"
 msgid "Format:"
 msgstr "フォーマット:"
 
-#: src/Core/Backend/Filter/FilterPosts.php:180 src/Process/Backend/Auth.php:182
-#: src/Process/Backend/Auth.php:541 src/Process/Backend/User.php:344
-#: src/Process/Install/Install.php:509 src/Process/Upgrade/Auth.php:227
+#: src/Core/Backend/Filter/FilterPosts.php:180 src/Process/Backend/Auth.php:204
+#: src/Process/Backend/Auth.php:670 src/Process/Backend/User.php:344
+#: src/Process/Install/Install.php:509 src/Process/Upgrade/Auth.php:366
 msgid "Password:"
 msgstr "パスワード："
 
@@ -773,7 +773,7 @@ msgid "Sort:"
 msgstr "並び替え："
 
 #: src/Core/Backend/Filter/Filters.php:393
-#: src/Process/Backend/UserPreferences.php:803
+#: src/Process/Backend/UserPreferences.php:980
 msgid "Show"
 msgstr "表示"
 
@@ -1441,8 +1441,8 @@ msgstr "不明なプラグインID"
 msgid "This plugin has no configuration file."
 msgstr "このプラグインには設定ファイルがありません。"
 
-#: src/Core/Backend/ModulesList.php:1886 src/Process/Backend/Auth.php:317
-#: src/Process/Upgrade/Auth.php:135
+#: src/Core/Backend/ModulesList.php:1886 src/Process/Backend/Auth.php:416
+#: src/Process/Upgrade/Auth.php:182 src/Process/Upgrade/Auth.php:243
 msgid "Insufficient permissions"
 msgstr "権限が不足しています"
 
@@ -1456,9 +1456,9 @@ msgstr "設定 \"%s\""
 #: src/Process/Backend/Category.php:301 src/Process/Backend/Comment.php:352
 #: src/Process/Backend/Media.php:857 src/Process/Backend/MediaItem.php:1353
 #: src/Process/Backend/Post.php:950 src/Process/Backend/Search.php:197
-#: src/Process/Backend/User.php:547 src/Process/Backend/UserPreferences.php:731
-#: src/Process/Backend/UserPreferences.php:1122
-#: src/Process/Backend/UserPreferences.php:1348
+#: src/Process/Backend/User.php:547 src/Process/Backend/UserPreferences.php:908
+#: src/Process/Backend/UserPreferences.php:1210
+#: src/Process/Backend/UserPreferences.php:1436
 msgid "Back"
 msgstr "戻る"
 
@@ -1511,8 +1511,8 @@ msgid "Go to help"
 msgstr "ヘルプに移動"
 
 #: src/Core/Backend/Page.php:339 src/Core/Upgrade/Page.php:175
-#: src/Process/Backend/UserPreferences.php:1257
-#: src/Process/Backend/UserPreferences.php:1259
+#: src/Process/Backend/UserPreferences.php:1345
+#: src/Process/Backend/UserPreferences.php:1347
 msgid "My dashboard"
 msgstr "自分のダッシュボード"
 
@@ -2928,6 +2928,10 @@ msgstr "無効な応答フォーマット"
 msgid "Failed to load provider \"%s\""
 msgstr "プロバイダのロードに失敗しました \"%s\""
 
+#: src/Helper/Otp.php:304
+msgid "Two Factors authentication"
+msgstr "二要素認証"
+
 #: src/Helper/Stack/Statuses.php:315 src/Process/Backend/Comment.php:331
 #: src/Process/Backend/User.php:390
 msgid "Status:"
@@ -3049,178 +3053,203 @@ msgstr "_define.phpを変更できません"
 msgid "Destination folder already exist"
 msgstr "保存先フォルダは既に存在します"
 
-#: src/Process/Backend/Auth.php:94 src/Process/Upgrade/Auth.php:81
+#: src/Process/Backend/Auth.php:95 src/Process/Upgrade/Auth.php:96
 msgid "Dotclear has been upgraded."
 msgstr "Dotclear はアップグレードされました。"
 
-#: src/Process/Backend/Auth.php:164
+#: src/Process/Backend/Auth.php:181
 msgid "Password reset"
 msgstr "パスワードのリセット"
 
-#: src/Process/Backend/Auth.php:165
+#: src/Process/Backend/Auth.php:182
 msgid "Someone has requested to reset the password for the following site and username."
 msgstr "以下のサイトとユーザ名のパスワードを、リセットするリクエストがありました。"
 
-#: src/Process/Backend/Auth.php:165
+#: src/Process/Backend/Auth.php:182
 msgid "To reset your password visit the following address, otherwise just ignore this email and nothing will happen."
 msgstr "パスワードをリセットするには、以下のアドレスへアクセスしてください。\n"
 "そうでない場合は、このメールを無視してください。"
 
-#: src/Process/Backend/Auth.php:165 src/Process/Backend/Auth.php:182
-#: src/Process/Backend/Auth.php:435 src/Process/Backend/Auth.php:531
+#: src/Process/Backend/Auth.php:182 src/Process/Backend/Auth.php:204
+#: src/Process/Backend/Auth.php:534 src/Process/Backend/Auth.php:660
 #: src/Process/Install/Install.php:456 src/Process/Install/Install.php:508
-#: src/Process/Upgrade/Auth.php:216
+#: src/Process/Upgrade/Auth.php:355
 msgid "Username:"
 msgstr "ユーザ名："
 
-#: src/Process/Backend/Auth.php:171
+#: src/Process/Backend/Auth.php:188
 #, php-format
 msgid "The e-mail was sent successfully to %s."
 msgstr "%s へのメールは正常に送信されました。"
 
-#: src/Process/Backend/Auth.php:181
+#: src/Process/Backend/Auth.php:192
+msgid "This removes two factors authentication."
+msgstr "これにより、2要素認証が削除される。"
+
+#: src/Process/Backend/Auth.php:203
 msgid "Your new password"
 msgstr "新しいパスワード"
 
-#: src/Process/Backend/Auth.php:187
+#: src/Process/Backend/Auth.php:209
 msgid "Your new password is in your mailbox."
 msgstr "新しいパスワードは、あなたのメールボックスに届けられました。"
 
-#: src/Process/Backend/Auth.php:230 src/Process/Backend/User.php:158
-#: src/Process/Backend/UserPreferences.php:264
+#: src/Process/Backend/Auth.php:257 src/Process/Backend/User.php:158
+#: src/Process/Backend/UserPreferences.php:303
 #: src/Process/Install/Install.php:170
 msgid "Passwords don't match"
 msgstr "パスワードが一致しません"
 
-#: src/Process/Backend/Auth.php:234
+#: src/Process/Backend/Auth.php:261
 msgid "You didn't change your password."
 msgstr "パスワードを変更していません。"
 
-#: src/Process/Backend/Auth.php:279
+#: src/Process/Backend/Auth.php:318
+msgid "Code validation failed."
+msgstr "コードの検証に失敗しました。"
+
+#: src/Process/Backend/Auth.php:362
 msgid "You have to change your password before you can login."
 msgstr "ログインする前にパスワードを変更する必要があります。"
 
-#: src/Process/Backend/Auth.php:281
+#: src/Process/Backend/Auth.php:364
 msgid "In order to login, you have to change your password now."
 msgstr "ログインするには、今すぐパスワードを変更する必要があります。"
 
-#: src/Process/Backend/Auth.php:287
+#: src/Process/Backend/Auth.php:370
 msgid "Safe Mode can only be used for super administrators."
 msgstr "セーフモードはスーパー管理者にのみ使用できます。"
 
-#: src/Process/Backend/Auth.php:321 src/Process/Upgrade/Auth.php:139
+#: src/Process/Backend/Auth.php:420 src/Process/Upgrade/Auth.php:186
+#: src/Process/Upgrade/Auth.php:247
 msgid "Administration session expired"
 msgstr "管理セッションの有効期限が切れました"
 
-#: src/Process/Backend/Auth.php:321 src/Process/Upgrade/Auth.php:139
+#: src/Process/Backend/Auth.php:420 src/Process/Upgrade/Auth.php:186
+#: src/Process/Upgrade/Auth.php:247
 msgid "Wrong username or password"
 msgstr "ユーザ名またはパスワードが間違っています"
 
-#: src/Process/Backend/Auth.php:377 src/Process/Backend/Auth.php:378
-#: src/Process/Backend/Auth.php:379 src/Process/Backend/User.php:263
+#: src/Process/Backend/Auth.php:476 src/Process/Backend/Auth.php:477
+#: src/Process/Backend/Auth.php:478 src/Process/Backend/User.php:263
 #: src/Process/Backend/User.php:264 src/Process/Backend/User.php:265
-#: src/Process/Backend/UserPreferences.php:558
-#: src/Process/Backend/UserPreferences.php:559
-#: src/Process/Backend/UserPreferences.php:560
+#: src/Process/Backend/UserPreferences.php:597
+#: src/Process/Backend/UserPreferences.php:598
+#: src/Process/Backend/UserPreferences.php:599
 #: src/Process/Install/Install.php:396 src/Process/Install/Install.php:397
-#: src/Process/Install/Install.php:398 src/Process/Upgrade/Auth.php:183
-#: src/Process/Upgrade/Auth.php:184 src/Process/Upgrade/Auth.php:185
+#: src/Process/Install/Install.php:398 src/Process/Upgrade/Auth.php:291
+#: src/Process/Upgrade/Auth.php:292 src/Process/Upgrade/Auth.php:293
 #, php-format
 msgid "Password strength: %s"
 msgstr "パスワード強度: %s"
 
-#: src/Process/Backend/Auth.php:377 src/Process/Backend/User.php:263
-#: src/Process/Backend/UserPreferences.php:558
-#: src/Process/Install/Install.php:396 src/Process/Upgrade/Auth.php:183
+#: src/Process/Backend/Auth.php:476 src/Process/Backend/User.php:263
+#: src/Process/Backend/UserPreferences.php:597
+#: src/Process/Install/Install.php:396 src/Process/Upgrade/Auth.php:291
 msgid "weak"
 msgstr "弱い"
 
-#: src/Process/Backend/Auth.php:379 src/Process/Backend/User.php:265
-#: src/Process/Backend/UserPreferences.php:560
-#: src/Process/Install/Install.php:398 src/Process/Upgrade/Auth.php:185
+#: src/Process/Backend/Auth.php:478 src/Process/Backend/User.php:265
+#: src/Process/Backend/UserPreferences.php:599
+#: src/Process/Install/Install.php:398 src/Process/Upgrade/Auth.php:293
 msgid "strong"
 msgstr "強い"
 
-#: src/Process/Backend/Auth.php:422 src/Process/Backend/Auth.php:466
+#: src/Process/Backend/Auth.php:521 src/Process/Backend/Auth.php:565
+#: src/Process/Backend/Auth.php:625 src/Process/Upgrade/Auth.php:345
 msgid "Back to login screen"
 msgstr "ログイン画面に戻る"
 
-#: src/Process/Backend/Auth.php:430
+#: src/Process/Backend/Auth.php:529
 msgid "Request a new password"
 msgstr "新しいパスワードをリクエスト"
 
-#: src/Process/Backend/Auth.php:454
+#: src/Process/Backend/Auth.php:553
 msgid "recover"
 msgstr "回復"
 
-#: src/Process/Backend/Auth.php:460 src/Process/Backend/Auth.php:619
+#: src/Process/Backend/Auth.php:559 src/Process/Backend/Auth.php:748
 msgid "Other option"
 msgstr "その他のオプション"
 
-#: src/Process/Backend/Auth.php:473
+#: src/Process/Backend/Auth.php:572
 msgid "Change your password"
 msgstr "パスワードの変更"
 
-#: src/Process/Backend/Auth.php:478 src/Process/Backend/User.php:334
-#: src/Process/Backend/UserPreferences.php:596
+#: src/Process/Backend/Auth.php:577 src/Process/Backend/User.php:334
+#: src/Process/Backend/UserPreferences.php:635
 #: src/Process/Install/Install.php:464
 msgid "New password:"
 msgstr "新しいパスワード："
 
-#: src/Process/Backend/Auth.php:488 src/Process/Backend/User.php:358
+#: src/Process/Backend/Auth.php:587 src/Process/Backend/User.php:358
 #: src/Process/Backend/User.php:367 src/Process/Install/Install.php:471
 msgid "Confirm password:"
 msgstr "パスワードの再入力："
 
-#: src/Process/Backend/Auth.php:496
+#: src/Process/Backend/Auth.php:595
 msgid "change"
 msgstr "変更"
 
-#: src/Process/Backend/Auth.php:516
+#: src/Process/Backend/Auth.php:605 src/Process/Backend/UserPreferences.php:880
+#: src/Process/Upgrade/Auth.php:325
+msgid "Two factors authentication"
+msgstr "二要素認証"
+
+#: src/Process/Backend/Auth.php:610 src/Process/Upgrade/Auth.php:330
+msgid "Enter code:"
+msgstr "コードを入力してください："
+
+#: src/Process/Backend/Auth.php:618 src/Process/Backend/UserPreferences.php:696
+#: src/Process/Upgrade/Auth.php:338
+msgid "Verify"
+msgstr "ベリファイ"
+
+#: src/Process/Backend/Auth.php:645
 msgid "Safe mode login"
 msgstr "セーフモードでログイン"
 
-#: src/Process/Backend/Auth.php:519
+#: src/Process/Backend/Auth.php:648
 msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
 msgstr "このモードでは、プラグインをアクティブにせずにログインできます。互換性の問題を解決するのに便利かもしれません。"
 
-#: src/Process/Backend/Auth.php:520
+#: src/Process/Backend/Auth.php:649
 msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
 msgstr "問題を引き起こす可能性のあるプラグインを更新、無効または削除し、ログアウトして正常にログインしてください。"
 
-#: src/Process/Backend/Auth.php:551 src/Process/Upgrade/Auth.php:237
+#: src/Process/Backend/Auth.php:680 src/Process/Upgrade/Auth.php:376
 msgid "Remember my ID on this device"
 msgstr "次回から入力を省略"
 
-#: src/Process/Backend/Auth.php:555 src/Process/Upgrade/Auth.php:238
+#: src/Process/Backend/Auth.php:684 src/Process/Upgrade/Auth.php:377
 msgid "log in"
 msgstr "ログイン"
 
-#: src/Process/Backend/Auth.php:561
+#: src/Process/Backend/Auth.php:690
 msgid "Sign in with a passkey"
 msgstr "パスキーでサインインする"
 
-#: src/Process/Backend/Auth.php:604
+#: src/Process/Backend/Auth.php:733
 msgid "Third party applications connections"
 msgstr "サードパーティ・アプリケーションとの接続"
 
-#: src/Process/Backend/Auth.php:613 src/Process/Upgrade/Auth.php:240
+#: src/Process/Backend/Auth.php:742 src/Process/Upgrade/Auth.php:379
 msgid "You must accept cookies in order to use the private area."
 msgstr "プライベートエリアを使用するために、クッキーを受け入れる必要があります。"
 
-#: src/Process/Backend/Auth.php:625
+#: src/Process/Backend/Auth.php:754
 msgid "Get back to normal authentication"
 msgstr "通常の認証に戻る"
 
-#: src/Process/Backend/Auth.php:630
+#: src/Process/Backend/Auth.php:759
 msgid "Connection issue?"
 msgstr "接続の問題？"
 
-#: src/Process/Backend/Auth.php:637
+#: src/Process/Backend/Auth.php:766
 msgid "I forgot my password"
 msgstr "パスワードの再発行"
 
-#: src/Process/Backend/Auth.php:644
+#: src/Process/Backend/Auth.php:773
 msgid "I want to log in in safe mode"
 msgstr "セーフモードでログインしたい"
 
@@ -3400,7 +3429,7 @@ msgid "I would like to prevent search engines and archivers from indexing or arc
 msgstr "検索エンジンやarchiverが自分のブログのコンテンツをインデックス化したりアーカイブしたりするのを防ぎたいと思います。"
 
 #: src/Process/Backend/BlogPref.php:234
-#: src/Process/Backend/UserPreferences.php:171
+#: src/Process/Backend/UserPreferences.php:189
 msgid "Default"
 msgstr "デフォルト"
 
@@ -4033,7 +4062,7 @@ msgid "total:"
 msgstr "合計："
 
 #: src/Process/Backend/Categories.php:326 src/Process/Backend/Category.php:279
-#: src/Process/Backend/User.php:457 src/Process/Backend/UserPreferences.php:692
+#: src/Process/Backend/User.php:457 src/Process/Backend/UserPreferences.php:845
 msgid "URL:"
 msgstr "URL："
 
@@ -5454,17 +5483,17 @@ msgstr "警告："
 msgid "Password change required to connect"
 msgstr "接続にはパスワードの変更が必要です"
 
-#: src/Process/Backend/User.php:401 src/Process/Backend/UserPreferences.php:640
+#: src/Process/Backend/User.php:401 src/Process/Backend/UserPreferences.php:793
 #: src/Process/Install/Install.php:439
 msgid "Last Name:"
 msgstr "姓:"
 
-#: src/Process/Backend/User.php:411 src/Process/Backend/UserPreferences.php:650
+#: src/Process/Backend/User.php:411 src/Process/Backend/UserPreferences.php:803
 #: src/Process/Install/Install.php:433
 msgid "First Name:"
 msgstr "氏名:"
 
-#: src/Process/Backend/User.php:421 src/Process/Backend/UserPreferences.php:660
+#: src/Process/Backend/User.php:421 src/Process/Backend/UserPreferences.php:813
 msgid "Display name:"
 msgstr "表示名："
 
@@ -5472,23 +5501,24 @@ msgstr "表示名："
 msgid "Mandatory for password recovering procedure."
 msgstr "パスワードを復元するために必須です。"
 
-#: src/Process/Backend/User.php:444 src/Process/Backend/UserPreferences.php:679
+#: src/Process/Backend/User.php:444 src/Process/Backend/UserPreferences.php:832
 msgid "Alternate emails (comma separated list):"
 msgstr "代替のメール (カンマ区切りリスト):"
 
-#: src/Process/Backend/User.php:448 src/Process/Backend/UserPreferences.php:683
+#: src/Process/Backend/User.php:448 src/Process/Backend/UserPreferences.php:836
 msgid "Invalid emails will be automatically removed from list."
 msgstr "無効なメールは自動的にリストから削除されます。"
 
-#: src/Process/Backend/User.php:466 src/Process/Backend/UserPreferences.php:701
+#: src/Process/Backend/User.php:466 src/Process/Backend/UserPreferences.php:854
 msgid "Alternate URLs (comma separated list):"
 msgstr "代替URL(カンマ区切りリスト):"
 
-#: src/Process/Backend/User.php:470 src/Process/Backend/UserPreferences.php:705
+#: src/Process/Backend/User.php:470 src/Process/Backend/UserPreferences.php:858
 msgid "Invalid URLs will be automatically removed from list."
 msgstr "無効な URL は自動的にリストから削除されます。"
 
-#: src/Process/Backend/User.php:476 src/Process/Backend/UserPreferences.php:920
+#: src/Process/Backend/User.php:476
+#: src/Process/Backend/UserPreferences.php:1025
 msgid "Interface"
 msgstr "インターフェイス"
 
@@ -5497,22 +5527,22 @@ msgid "Timezone:"
 msgstr "Timezone:"
 
 #: src/Process/Backend/User.php:492
-#: src/Process/Backend/UserPreferences.php:1044
+#: src/Process/Backend/UserPreferences.php:1149
 msgid "Edition"
 msgstr "版"
 
 #: src/Process/Backend/User.php:498
-#: src/Process/Backend/UserPreferences.php:1056
+#: src/Process/Backend/UserPreferences.php:1161
 msgid "Preferred format:"
 msgstr "優先書式"
 
 #: src/Process/Backend/User.php:505
-#: src/Process/Backend/UserPreferences.php:1064
+#: src/Process/Backend/UserPreferences.php:1169
 msgid "Default entry status:"
 msgstr "デフォルトのエントリ状態："
 
 #: src/Process/Backend/User.php:510
-#: src/Process/Backend/UserPreferences.php:1070
+#: src/Process/Backend/UserPreferences.php:1175
 msgid "Entry edit field height:"
 msgstr "エントリ編集フィールドの高さ"
 
@@ -5562,365 +5592,401 @@ msgstr "投稿一覧"
 msgid "List of comments"
 msgstr "コメント一覧"
 
-#: src/Process/Backend/UserPreferences.php:162
+#: src/Process/Backend/UserPreferences.php:180
 msgid "Light"
 msgstr "ライト"
 
-#: src/Process/Backend/UserPreferences.php:163
+#: src/Process/Backend/UserPreferences.php:181
 msgid "Dark"
 msgstr "ダーク"
 
-#: src/Process/Backend/UserPreferences.php:164
+#: src/Process/Backend/UserPreferences.php:182
 msgid "Automatic"
 msgstr "自動"
 
-#: src/Process/Backend/UserPreferences.php:169
+#: src/Process/Backend/UserPreferences.php:187
 msgid "Smallest"
 msgstr "小"
 
-#: src/Process/Backend/UserPreferences.php:170
+#: src/Process/Backend/UserPreferences.php:188
 msgid "Smaller"
 msgstr "小さく"
 
-#: src/Process/Backend/UserPreferences.php:172
+#: src/Process/Backend/UserPreferences.php:190
 msgid "Larger"
 msgstr "もっと大きい"
 
-#: src/Process/Backend/UserPreferences.php:173
+#: src/Process/Backend/UserPreferences.php:191
 msgid "Largest"
 msgstr "最大"
 
-#: src/Process/Backend/UserPreferences.php:185
+#: src/Process/Backend/UserPreferences.php:203
 msgid "Blog description (in blog parameters)"
 msgstr "ブログの説明（ブログパラメータ内）"
 
-#: src/Process/Backend/UserPreferences.php:186
+#: src/Process/Backend/UserPreferences.php:204
 msgid "Category description"
 msgstr "カテゴリの説明"
 
-#: src/Process/Backend/UserPreferences.php:232
+#: src/Process/Backend/UserPreferences.php:246
+msgid "Two factors authentication verification failed."
+msgstr "二要素認証の検証に失敗しました。"
+
+#: src/Process/Backend/UserPreferences.php:248
+msgid "Two factors authentication verification succeeded."
+msgstr "二要素認証が成功した。"
+
+#: src/Process/Backend/UserPreferences.php:256
+msgid "Two factors authentication secret regenerated."
+msgstr "二要素認証の秘密が再生された。"
+
+#: src/Process/Backend/UserPreferences.php:265
 msgid "Passkey successfully deleted."
 msgstr "パスキーの削除に成功しました。"
 
-#: src/Process/Backend/UserPreferences.php:243
-#: src/Process/Backend/UserPreferences.php:260
+#: src/Process/Backend/UserPreferences.php:282
+#: src/Process/Backend/UserPreferences.php:299
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "メールアドレスやパスワードを変更したい場合は、現在のパスワードを入力する必要があります。"
 
-#: src/Process/Backend/UserPreferences.php:291
+#: src/Process/Backend/UserPreferences.php:330
 msgid "Personal information has been successfully updated."
 msgstr "個人情報は正常に更新されました。"
 
-#: src/Process/Backend/UserPreferences.php:409
+#: src/Process/Backend/UserPreferences.php:448
 msgid "Personal options has been successfully updated."
 msgstr "個人設定が正常に更新されました。"
 
-#: src/Process/Backend/UserPreferences.php:437
+#: src/Process/Backend/UserPreferences.php:476
 msgid "Dashboard options has been successfully updated."
 msgstr "ダッシュボードのオプションが正常に更新されました。"
 
-#: src/Process/Backend/UserPreferences.php:449
-#: src/Process/Backend/UserPreferences.php:473
+#: src/Process/Backend/UserPreferences.php:488
+#: src/Process/Backend/UserPreferences.php:512
 msgid "No favorite selected"
 msgstr "お気に入りが選択されていません"
 
-#: src/Process/Backend/UserPreferences.php:460
+#: src/Process/Backend/UserPreferences.php:499
 msgid "Favorites have been successfully added."
 msgstr "お気に入りを追加しました。"
 
-#: src/Process/Backend/UserPreferences.php:486
+#: src/Process/Backend/UserPreferences.php:525
 msgid "Favorites have been successfully removed."
 msgstr "お気に入りを削除しました。"
 
-#: src/Process/Backend/UserPreferences.php:516
+#: src/Process/Backend/UserPreferences.php:555
 msgid "Favorites have been successfully updated."
 msgstr "お気に入りが正常に更新されました。"
 
-#: src/Process/Backend/UserPreferences.php:528
+#: src/Process/Backend/UserPreferences.php:567
 msgid "Default favorites have been successfully updated."
 msgstr "デフォルトのお気に入りは正常に更新されました。"
 
-#: src/Process/Backend/UserPreferences.php:542
+#: src/Process/Backend/UserPreferences.php:581
 msgid "Dashboard items order have been successfully reset."
 msgstr "ダッシュボードの注文が正常にリセットされました。"
 
-#: src/Process/Backend/UserPreferences.php:564
+#: src/Process/Backend/UserPreferences.php:603
 msgid "Are you sure you want to remove selected favorites?"
 msgstr "お気に入りを削除してもよろしいですか？"
 
-#: src/Process/Backend/UserPreferences.php:586
+#: src/Process/Backend/UserPreferences.php:625
 msgid "Change my password"
 msgstr "パスワードを変更する"
 
-#: src/Process/Backend/UserPreferences.php:605
+#: src/Process/Backend/UserPreferences.php:644
 msgid "Confirm new password:"
 msgstr "新しいパスワードを確認:"
 
-#: src/Process/Backend/UserPreferences.php:615
+#: src/Process/Backend/UserPreferences.php:654
 msgid "Your current password:"
 msgstr "現在のパスワード:"
 
-#: src/Process/Backend/UserPreferences.php:619
+#: src/Process/Backend/UserPreferences.php:658
 msgid "If you have changed your email or password you must provide your current password to save these modifications."
 msgstr "メールアドレスまたはパスワードを変更した場合は、現在のパスワードを入力する必要があります。"
 
-#: src/Process/Backend/UserPreferences.php:625
-#: src/Process/Backend/UserPreferences.php:627
+#: src/Process/Backend/UserPreferences.php:667
+msgid "Your account is registered to two factors authentication."
+msgstr "あなたのアカウントは2要素認証に登録されています。"
+
+#: src/Process/Backend/UserPreferences.php:668
+msgid "Disable two factors authentication"
+msgstr "二要素認証を無効にする"
+
+#: src/Process/Backend/UserPreferences.php:673
+msgid "Scan this QR code with your authentication application:"
+msgstr "認証アプリケーションでこのQRコードを読み取ってください："
+
+#: src/Process/Backend/UserPreferences.php:684
+msgid "Or enter this secret into your authentication application:"
+msgstr "または、認証アプリケーションにこの秘密を入力する："
+
+#: src/Process/Backend/UserPreferences.php:685
+msgid "Regenerate"
+msgstr "再生"
+
+#: src/Process/Backend/UserPreferences.php:695
+msgid "Enter verification code:"
+msgstr "認証コードを入力してください："
+
+#: src/Process/Backend/UserPreferences.php:713
+msgid "Unknown certificat issuer"
+msgstr "証明書の発行者が不明"
+
+#: src/Process/Backend/UserPreferences.php:723
+msgid "You have no registered key yet."
+msgstr "まだ登録キーがありません。"
+
+#: src/Process/Backend/UserPreferences.php:763
+msgid "Linked to account:"
+msgstr "アカウントにリンクされています："
+
+#: src/Process/Backend/UserPreferences.php:778
+#: src/Process/Backend/UserPreferences.php:780
 msgid "My profile"
 msgstr "マイプロフィール"
 
-#: src/Process/Backend/UserPreferences.php:712
+#: src/Process/Backend/UserPreferences.php:865
 msgid "Language for my interface:"
 msgstr "自分のインターフェイスの言語:"
 
-#: src/Process/Backend/UserPreferences.php:720
+#: src/Process/Backend/UserPreferences.php:873
 msgid "My timezone:"
 msgstr "私のタイムゾーン:"
 
-#: src/Process/Backend/UserPreferences.php:729
+#: src/Process/Backend/UserPreferences.php:885
+msgid "Authentication keys"
+msgstr "認証キー"
+
+#: src/Process/Backend/UserPreferences.php:898
+msgid "Authentication applications"
+msgstr "認証アプリケーション"
+
+#: src/Process/Backend/UserPreferences.php:906
 msgid "Update my profile"
 msgstr "プロフィールを更新"
 
-#: src/Process/Backend/UserPreferences.php:797
+#: src/Process/Backend/UserPreferences.php:974
 msgid "List"
 msgstr "リスト"
 
-#: src/Process/Backend/UserPreferences.php:799
+#: src/Process/Backend/UserPreferences.php:976
 msgid "Order by"
 msgstr "並び順"
 
-#: src/Process/Backend/UserPreferences.php:801
+#: src/Process/Backend/UserPreferences.php:978
 msgid "Sort"
 msgstr "並べ替え"
 
-#: src/Process/Backend/UserPreferences.php:814
+#: src/Process/Backend/UserPreferences.php:991
 #, php-format
 msgid "Preferred editor for %s:"
 msgstr "%s の優先エディタ"
 
-#: src/Process/Backend/UserPreferences.php:819
+#: src/Process/Backend/UserPreferences.php:996
 msgid "Choose an editor"
 msgstr "エディタを選択"
 
-#: src/Process/Backend/UserPreferences.php:874
-msgid "Linked to account:"
-msgstr "アカウントにリンクされています："
-
-#: src/Process/Backend/UserPreferences.php:896
-msgid "Unknown certificat issuer"
-msgstr "証明書の発行者が不明"
-
-#: src/Process/Backend/UserPreferences.php:906
-msgid "You have no registered key yet."
-msgstr "まだ登録キーがありません。"
-
-#: src/Process/Backend/UserPreferences.php:912
-#: src/Process/Backend/UserPreferences.php:918
+#: src/Process/Backend/UserPreferences.php:1017
+#: src/Process/Backend/UserPreferences.php:1023
 msgid "My options"
 msgstr "自分のオプション"
 
-#: src/Process/Backend/UserPreferences.php:927
+#: src/Process/Backend/UserPreferences.php:1032
 msgid "Theme:"
 msgstr "テーマ:"
 
-#: src/Process/Backend/UserPreferences.php:933
+#: src/Process/Backend/UserPreferences.php:1038
 msgid "Activate enhanced uploader in media manager"
 msgstr "メディアマネージャーで強化されたアップローダーを有効にする"
 
-#: src/Process/Backend/UserPreferences.php:939
+#: src/Process/Backend/UserPreferences.php:1044
 msgid "Preview the entry being edited in a blank window or tab (depending on your browser settings)."
 msgstr "(ブラウザの設定に応じて) 空白のウィンドウまたはタブで編集されているエントリをプレビューします。"
 
-#: src/Process/Backend/UserPreferences.php:946
+#: src/Process/Backend/UserPreferences.php:1051
 msgid "Disable javascript powered drag and drop for ordering items"
 msgstr "javascriptによるドラッグ&ドロップを無効にしてアイテムを注文する"
 
-#: src/Process/Backend/UserPreferences.php:950
+#: src/Process/Backend/UserPreferences.php:1055
 msgid "If checked, numeric fields will allow to type the elements' ordering number."
 msgstr "チェックされている場合、数値フィールドは要素の順序番号を入力することができます。"
 
-#: src/Process/Backend/UserPreferences.php:955
+#: src/Process/Backend/UserPreferences.php:1060
 msgid "Hide all secondary information and notes"
 msgstr "すべての二次情報とメモを非表示にする"
 
-#: src/Process/Backend/UserPreferences.php:961
+#: src/Process/Backend/UserPreferences.php:1066
 msgid "Hide help button"
 msgstr "ヘルプボタンを隠す"
 
-#: src/Process/Backend/UserPreferences.php:968
+#: src/Process/Backend/UserPreferences.php:1073
 msgid "Font size:"
 msgstr "フォントサイズ:"
 
-#: src/Process/Backend/UserPreferences.php:974
+#: src/Process/Backend/UserPreferences.php:1079
 msgid "Use operating system font"
 msgstr "オペレーティングシステムのフォントを使用"
 
-#: src/Process/Backend/UserPreferences.php:980
+#: src/Process/Backend/UserPreferences.php:1085
 msgid "Number of recent folders proposed in media manager:"
 msgstr "メディア・マネージャーで提案された最近のフォルダ数:"
 
-#: src/Process/Backend/UserPreferences.php:984
+#: src/Process/Backend/UserPreferences.php:1089
 msgid "Set to 0 (zero) to ignore, displayed only if Javascript is enabled in your browser."
 msgstr "ブラウザのJavascriptが有効な場合にのみ表示されます。"
 
-#: src/Process/Backend/UserPreferences.php:991
+#: src/Process/Backend/UserPreferences.php:1096
 msgid "Do not use standard favicon"
 msgstr "標準のファビコンを使用しない"
 
-#: src/Process/Backend/UserPreferences.php:992
+#: src/Process/Backend/UserPreferences.php:1097
 msgid "This will be applied for all users"
 msgstr "これはすべてのユーザーに適用されます"
 
-#: src/Process/Backend/UserPreferences.php:1002
+#: src/Process/Backend/UserPreferences.php:1107
 msgid "Disable Ad-blocker check"
 msgstr "広告ブロッカーチェックを無効にする"
 
-#: src/Process/Backend/UserPreferences.php:1006
+#: src/Process/Backend/UserPreferences.php:1111
 msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
 msgstr "一部の広告ブロッカー（Ghostery、Adblock Plus、uBloc origin、 …）は、CKEditorのエントリにリンクやメディアを挿入する際にいくつかの機能を妨げる可能性があります。 この場合、Dotclear のインストールで無効にする必要があります (バックエンドのみ)。 Dotclear は、バックエンドに広告を追加しないことに注意してください。"
 
-#: src/Process/Backend/UserPreferences.php:1009
+#: src/Process/Backend/UserPreferences.php:1114
 msgid "Note also that deactivating this detection of ad blockers will not deactivate the installed ad blockers. Dotclear cannot interfere with the operation of browser extensions!"
 msgstr "また、広告ブロッカーの検出を無効にしても、インストールされている広告ブロッカーは無効化されませんのでご注意ください。ドットクリアは、ブラウザの拡張機能の動作を妨げることはできません！"
 
-#: src/Process/Backend/UserPreferences.php:1017
+#: src/Process/Backend/UserPreferences.php:1122
 msgid "Quick menu character:"
 msgstr "クイックメニューの文字："
 
-#: src/Process/Backend/UserPreferences.php:1021
+#: src/Process/Backend/UserPreferences.php:1126
 msgid "Leave empty to use the default character <kbd>:</kbd>"
 msgstr "デフォルトの文字を使用する場合は空のままにします<kbd>：</kbd>"
 
-#: src/Process/Backend/UserPreferences.php:1026
+#: src/Process/Backend/UserPreferences.php:1131
 msgid "Keep the main menu at the top of the page as much as possible"
 msgstr "メインメニューはできるだけページの上部に置く"
 
-#: src/Process/Backend/UserPreferences.php:1030
+#: src/Process/Backend/UserPreferences.php:1135
 msgid "Optional columns displayed in lists"
 msgstr "リストに表示される任意の列"
 
-#: src/Process/Backend/UserPreferences.php:1033
+#: src/Process/Backend/UserPreferences.php:1138
 msgid "Options for lists"
 msgstr "リストのオプション"
 
-#: src/Process/Backend/UserPreferences.php:1039
+#: src/Process/Backend/UserPreferences.php:1144
 msgid "Apply filters on the fly"
 msgstr "その場でフィルターを適用する"
 
-#: src/Process/Backend/UserPreferences.php:1076
+#: src/Process/Backend/UserPreferences.php:1181
 msgid "Enable WYSIWYG mode"
 msgstr "WYSIWYG モードの有効化"
 
-#: src/Process/Backend/UserPreferences.php:1082
+#: src/Process/Backend/UserPreferences.php:1187
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr "テキストエリアの下部にエディタのツールバーを表示します (可能な場合)"
 
-#: src/Process/Backend/UserPreferences.php:1088
+#: src/Process/Backend/UserPreferences.php:1193
 msgid "Use HTML editor for:"
 msgstr "次のHTMLエディタを使用:"
 
-#: src/Process/Backend/UserPreferences.php:1093
-msgid "Authentication applications"
-msgstr "認証アプリケーション"
-
-#: src/Process/Backend/UserPreferences.php:1098
-msgid "Authentication keys"
-msgstr "認証キー"
-
-#: src/Process/Backend/UserPreferences.php:1109
+#: src/Process/Backend/UserPreferences.php:1197
 msgid "Other options"
 msgstr "その他のオプション"
 
-#: src/Process/Backend/UserPreferences.php:1120
+#: src/Process/Backend/UserPreferences.php:1208
 msgid "Save my options"
 msgstr "オプションを保存"
 
-#: src/Process/Backend/UserPreferences.php:1151
+#: src/Process/Backend/UserPreferences.php:1239
 #, php-format
 msgid "position of %s"
 msgstr "%s の位置"
 
-#: src/Process/Backend/UserPreferences.php:1174
+#: src/Process/Backend/UserPreferences.php:1262
 msgid "Save order"
 msgstr "順序を保存"
 
-#: src/Process/Backend/UserPreferences.php:1175
+#: src/Process/Backend/UserPreferences.php:1263
 msgid "Delete selected favorites"
 msgstr "選択したお気に入りを削除"
 
-#: src/Process/Backend/UserPreferences.php:1182
+#: src/Process/Backend/UserPreferences.php:1270
 msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
 msgstr "スーパー管理者であれば、このインストールのすべてのブログでデフォルトで使用されるお気に入りのセットを定義することができます。"
 
-#: src/Process/Backend/UserPreferences.php:1185
+#: src/Process/Backend/UserPreferences.php:1273
 msgid "Define as default favorites"
 msgstr "既定のお気に入りとして定義"
 
-#: src/Process/Backend/UserPreferences.php:1194
+#: src/Process/Backend/UserPreferences.php:1282
 msgid "Currently no personal favorites."
 msgstr "現在個人のお気に入りはありません。"
 
-#: src/Process/Backend/UserPreferences.php:1233
+#: src/Process/Backend/UserPreferences.php:1321
 msgid "(default favorite)"
 msgstr "(既定のお気に入り)"
 
-#: src/Process/Backend/UserPreferences.php:1248
+#: src/Process/Backend/UserPreferences.php:1336
 msgid "Add to my favorites"
 msgstr "お気に入りに追加"
 
-#: src/Process/Backend/UserPreferences.php:1272
+#: src/Process/Backend/UserPreferences.php:1360
 msgid "Other available favorites"
 msgstr "他の利用可能なお気に入り"
 
-#: src/Process/Backend/UserPreferences.php:1284
+#: src/Process/Backend/UserPreferences.php:1372
 msgid "Menu"
 msgstr "メニュー"
 
-#: src/Process/Backend/UserPreferences.php:1290
+#: src/Process/Backend/UserPreferences.php:1378
 msgid "Display favorites at the top of the menu"
 msgstr "メニューの上部にお気に入りを表示する"
 
-#: src/Process/Backend/UserPreferences.php:1294
+#: src/Process/Backend/UserPreferences.php:1382
 msgid "Dashboard icons"
 msgstr "ダッシュボードのアイコン"
 
-#: src/Process/Backend/UserPreferences.php:1300
+#: src/Process/Backend/UserPreferences.php:1388
 msgid "Display dashboard icons"
 msgstr "ダッシュボードアイコンを表示"
 
-#: src/Process/Backend/UserPreferences.php:1304
+#: src/Process/Backend/UserPreferences.php:1392
 msgid "Dashboard modules"
 msgstr "ダッシュボードモジュール"
 
-#: src/Process/Backend/UserPreferences.php:1310
+#: src/Process/Backend/UserPreferences.php:1398
 msgid "Display documentation links"
 msgstr "ドキュメントのリンクを表示"
 
-#: src/Process/Backend/UserPreferences.php:1316
+#: src/Process/Backend/UserPreferences.php:1404
 msgid "Display donate links"
 msgstr "寄付リンクを表示する"
 
-#: src/Process/Backend/UserPreferences.php:1322
+#: src/Process/Backend/UserPreferences.php:1410
 msgid "Display Dotclear news"
 msgstr "Dotclear ニュースを表示"
 
-#: src/Process/Backend/UserPreferences.php:1328
+#: src/Process/Backend/UserPreferences.php:1416
 msgid "Display quick entry form"
 msgstr "クイック入力フォームを表示"
 
-#: src/Process/Backend/UserPreferences.php:1333
+#: src/Process/Backend/UserPreferences.php:1421
 msgid "Do not display Dotclear updates"
 msgstr "Dotclear の更新を表示しない"
 
-#: src/Process/Backend/UserPreferences.php:1346
+#: src/Process/Backend/UserPreferences.php:1434
 msgid "Save my dashboard options"
 msgstr "ダッシュボードのオプションを保存"
 
-#: src/Process/Backend/UserPreferences.php:1359
+#: src/Process/Backend/UserPreferences.php:1447
 msgid "Dashboard items order"
 msgstr "ダッシュボードのアイテムの順序"
 
-#: src/Process/Backend/UserPreferences.php:1362
+#: src/Process/Backend/UserPreferences.php:1450
 msgid "Reset dashboard items order"
 msgstr "ダッシュボードアイテムの順序をリセット"
 
@@ -6316,11 +6382,15 @@ msgstr "おめでとう、あと1クリックでアップデートは完了で�
 msgid "Finish the update."
 msgstr "アップデートを完了する。"
 
-#: src/Process/Upgrade/Auth.php:176 src/Process/Upgrade/Auth.php:194
+#: src/Process/Upgrade/Auth.php:178
+msgid "Code verification failed"
+msgstr "コード検証に失敗"
+
+#: src/Process/Upgrade/Auth.php:284 src/Process/Upgrade/Auth.php:302
 msgid "Upgrade"
 msgstr "アップグレード"
 
-#: src/Process/Upgrade/Auth.php:241
+#: src/Process/Upgrade/Auth.php:380
 msgid "Back to normal dashboard"
 msgstr "通常のダッシュボードに戻る"
 

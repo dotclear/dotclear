@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-18 12:26+0200\n"
-"PO-Revision-Date: 2025-08-18 11:03\n"
+"POT-Creation-Date: 2025-08-20 08:27+0200\n"
+"PO-Revision-Date: 2025-08-20 06:30\n"
 "Last-Translator: \n"
 "Language-Team: Estonian\n"
 "Language: et_EE\n"
@@ -3030,48 +3030,48 @@ msgstr "Teie praegune teema selles blogis on \"%s\"."
 msgid "Please select a file to edit."
 msgstr "Palun valige fail, mida soovite muuta."
 
-#: plugins/themeEditor/src/Manage.php:230
+#: plugins/themeEditor/src/Manage.php:227
+msgid "Reset"
+msgstr "Reset"
+
+#: plugins/themeEditor/src/Manage.php:236
 msgid "File editor"
 msgstr "Faili redaktor"
 
-#: plugins/themeEditor/src/Manage.php:239
+#: plugins/themeEditor/src/Manage.php:245
 #, php-format
 msgid "Editing file %s"
 msgstr "Faili redigeerimine %s"
 
-#: plugins/themeEditor/src/Manage.php:249
-msgid "Reset"
-msgstr "Reset"
-
-#: plugins/themeEditor/src/Manage.php:256
+#: plugins/themeEditor/src/Manage.php:261
 msgid "If you use <code>url(...)</code> in your CSS files, be sure to use <code>url(index.php?tf=...)</code> to correctly load theme resources (imported CSS, images, etc.), except for URL types in the form <code>data:image</code>.<br>Example: do <code>@import url(index.php?tf=css/layout.css);</code> instead of <code>@import url(css/layout.css);</code>."
 msgstr "Kui kasutate CSS-failides <code>url(...)</code>, siis kasutage kindlasti <code>url(index.php?tf=...)</code>, et laadida korrektselt teema ressursse (imporditud CSS, pildid jne), välja arvatud URL-tüübid kujul <code>data:image</code>.<br>Näide: tehke <code>@import url(index.php?tf=css/layout.css);</code> asemel <code>@import url(css/layout.css);</code>."
 
-#: plugins/themeEditor/src/Manage.php:261
+#: plugins/themeEditor/src/Manage.php:266
 msgid "This file is not overloadable. Please check your var folder permissions."
 msgstr "See fail ei ole ülekoormatav. Palun kontrollige oma var-kausta õigusi."
 
-#: plugins/themeEditor/src/Manage.php:264
+#: plugins/themeEditor/src/Manage.php:269
 msgid "This theme is too old to be modified. Please check if an update is available."
 msgstr "See teema on liiga vana, et seda muuta. Palun kontrollige, kas uuendus on saadaval."
 
-#: plugins/themeEditor/src/Manage.php:283
+#: plugins/themeEditor/src/Manage.php:288
 msgid "Templates files"
 msgstr "Mallide failid"
 
-#: plugins/themeEditor/src/Manage.php:288
+#: plugins/themeEditor/src/Manage.php:293
 msgid "CSS files"
 msgstr "CSS-failid"
 
-#: plugins/themeEditor/src/Manage.php:293
+#: plugins/themeEditor/src/Manage.php:298
 msgid "JavaScript files"
 msgstr "JavaScript failid"
 
-#: plugins/themeEditor/src/Manage.php:298
+#: plugins/themeEditor/src/Manage.php:303
 msgid "Locales files"
 msgstr "Locales failid"
 
-#: plugins/themeEditor/src/Manage.php:303
+#: plugins/themeEditor/src/Manage.php:308
 msgid "PHP files"
 msgstr "PHP failid"
 
