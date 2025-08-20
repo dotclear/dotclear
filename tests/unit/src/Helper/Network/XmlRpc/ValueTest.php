@@ -1,38 +1,26 @@
 <?php
-/**
- * Unit tests
- *
- * @package Dotclear
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
- */
+
 declare(strict_types=1);
 
-namespace tests\unit\Dotclear\Helper\Network\XmlRpc;
+namespace Dotclear\Tests\Helper\Network\XmlRpc;
 
-require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', '..', 'bootstrap.php']);
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\TestCase;
 
-use atoum;
-
-/*
- * @tags XmlRpc, XmlRpcValue
- */
-class Value extends atoum
+class ValueTest extends TestCase
 {
+    #[DataProvider('dataProviderTest')]
     public function test($value, $type, $xml)
     {
         $elt = new \Dotclear\Helper\Network\XmlRpc\Value($value, $type);
-        if ($value instanceof \Dotclear\Helper\Network\XmlRpc\Date) {
-            //                $this->dump(json_encode($elt->getXml()));
-        }
-        $this
-            ->string($elt->getXml())
-            ->isEqualTo($xml)
-        ;
+
+        $this->assertEquals(
+            $xml,
+            $elt->getXml()
+        );
     }
 
-    protected function testDataProvider()
+    public static function dataProviderTest(): array
     {
         $date         = new \Dotclear\Helper\Network\XmlRpc\Date('+2003-08-13T00:01:42+00:00');
         $base64       = new \Dotclear\Helper\Network\XmlRpc\Base64('data');
