@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-20 08:27+0200\n"
+"POT-Creation-Date: 2025-08-20 14:45+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -5793,6 +5793,10 @@ msgstr ""
 
 #: src/Process/Backend/UserPreferences.php:885
 msgid "Authentication keys"
+msgstr ""
+
+#: src/Process/Backend/UserPreferences.php:892
+msgid "Register a new key"
 msgstr ""
 
 #: src/Process/Backend/UserPreferences.php:898

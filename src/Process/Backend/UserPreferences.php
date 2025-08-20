@@ -889,7 +889,7 @@ class UserPreferences extends Process
                                     ->items($webauthn_items),
                                 (new Para('webauthn_action'))
                                     ->items([
-                                        (new Button(['webauthn_button'], 'Register a new key')),
+                                        (new Button(['webauthn_button'], __('Register a new key'))),
                                     ])
                                     ->class(['hidden-if-no-js']),
                             ]),
