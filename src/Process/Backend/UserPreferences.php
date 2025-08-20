@@ -739,7 +739,7 @@ class UserPreferences extends Process
                 $oauth_link = App::backend()->oauth2->getActionButton(
                     (string) App::auth()->userID(),
                     $oauth2_service::getId(),
-                    App::backend()->url()->get('admin.user.preferences') . '#user-options.user_options_oauth2',
+                    App::backend()->url()->get('admin.user.preferences') . '#user-profile.user_options_oauth2',
                     true
                 );
 
