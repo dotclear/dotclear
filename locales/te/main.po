@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-20 08:27+0200\n"
-"PO-Revision-Date: 2025-08-20 06:30\n"
+"PO-Revision-Date: 2025-08-20 07:50\n"
 "Last-Translator: \n"
 "Language-Team: Telugu\n"
 "Language: te_IN\n"
@@ -2959,7 +2959,7 @@ msgstr "ప్రొవైడర్ \"%s\" ని లోడ్ చేయడం�
 
 #: src/Helper/Otp.php:304
 msgid "Two Factors authentication"
-msgstr ""
+msgstr "రెండు కారకాల ప్రామాణీకరణ"
 
 #: src/Helper/Stack/Statuses.php:315 src/Process/Backend/Comment.php:331
 #: src/Process/Backend/User.php:390
@@ -3112,7 +3112,7 @@ msgstr "%sకి ఈ-మెయిలు విజయవంతంగా పంప
 
 #: src/Process/Backend/Auth.php:192
 msgid "This removes two factors authentication."
-msgstr ""
+msgstr "ఇది రెండు కారకాల ప్రామాణీకరణను తొలగిస్తుంది."
 
 #: src/Process/Backend/Auth.php:203
 msgid "Your new password"
@@ -3134,7 +3134,7 @@ msgstr "మీరు మీ సంకేతపదమును మార్చల
 
 #: src/Process/Backend/Auth.php:318
 msgid "Code validation failed."
-msgstr ""
+msgstr "కోడ్ ధ్రువీకరణ విఫలమైంది."
 
 #: src/Process/Backend/Auth.php:362
 msgid "You have to change your password before you can login."
@@ -3222,16 +3222,16 @@ msgstr "మార్పు"
 #: src/Process/Backend/Auth.php:605 src/Process/Backend/UserPreferences.php:880
 #: src/Process/Upgrade/Auth.php:325
 msgid "Two factors authentication"
-msgstr ""
+msgstr "రెండు కారకాల ప్రామాణీకరణ"
 
 #: src/Process/Backend/Auth.php:610 src/Process/Upgrade/Auth.php:330
 msgid "Enter code:"
-msgstr ""
+msgstr "కోడ్‌ను నమోదు చేయండి:"
 
 #: src/Process/Backend/Auth.php:618 src/Process/Backend/UserPreferences.php:696
 #: src/Process/Upgrade/Auth.php:338
 msgid "Verify"
-msgstr ""
+msgstr "ధృవీకరించండి"
 
 #: src/Process/Backend/Auth.php:645
 msgid "Safe mode login"
@@ -5664,15 +5664,15 @@ msgstr "వర్గం: వర్ణము"
 
 #: src/Process/Backend/UserPreferences.php:246
 msgid "Two factors authentication verification failed."
-msgstr ""
+msgstr "రెండు అంశాల ప్రామాణీకరణ ధృవీకరణ విఫలమైంది."
 
 #: src/Process/Backend/UserPreferences.php:248
 msgid "Two factors authentication verification succeeded."
-msgstr ""
+msgstr "రెండు అంశాల ప్రామాణీకరణ ధృవీకరణ విజయవంతమైంది."
 
 #: src/Process/Backend/UserPreferences.php:256
 msgid "Two factors authentication secret regenerated."
-msgstr ""
+msgstr "రెండు కారకాల ప్రామాణీకరణ రహస్యం పునరుత్పత్తి చేయబడింది."
 
 #: src/Process/Backend/UserPreferences.php:265
 msgid "Passkey successfully deleted."
@@ -5742,27 +5742,27 @@ msgstr "మీరు మీ మెయిల్ లేదా పాస్ వర�
 
 #: src/Process/Backend/UserPreferences.php:667
 msgid "Your account is registered to two factors authentication."
-msgstr ""
+msgstr "మీ ఖాతా రెండు కారకాల ప్రామాణీకరణకు నమోదు చేయబడింది."
 
 #: src/Process/Backend/UserPreferences.php:668
 msgid "Disable two factors authentication"
-msgstr ""
+msgstr "రెండు కారకాల ప్రామాణీకరణను నిలిపివేయండి"
 
 #: src/Process/Backend/UserPreferences.php:673
 msgid "Scan this QR code with your authentication application:"
-msgstr ""
+msgstr "మీ ప్రామాణీకరణ అప్లికేషన్‌తో ఈ QR కోడ్‌ను స్కాన్ చేయండి:"
 
 #: src/Process/Backend/UserPreferences.php:684
 msgid "Or enter this secret into your authentication application:"
-msgstr ""
+msgstr "లేదా ఈ రహస్యాన్ని మీ ప్రామాణీకరణ అప్లికేషన్‌లో నమోదు చేయండి:"
 
 #: src/Process/Backend/UserPreferences.php:685
 msgid "Regenerate"
-msgstr ""
+msgstr "పునరుత్పత్తి"
 
 #: src/Process/Backend/UserPreferences.php:695
 msgid "Enter verification code:"
-msgstr ""
+msgstr "ధృవీకరణ కోడ్‌ను నమోదు చేయండి:"
 
 #: src/Process/Backend/UserPreferences.php:713
 msgid "Unknown certificat issuer"
@@ -6418,7 +6418,7 @@ msgstr "నవీకరణను ముగించాడు."
 
 #: src/Process/Upgrade/Auth.php:178
 msgid "Code verification failed"
-msgstr ""
+msgstr "కోడ్ ధృవీకరణ విఫలమైంది"
 
 #: src/Process/Upgrade/Auth.php:284 src/Process/Upgrade/Auth.php:302
 msgid "Upgrade"
