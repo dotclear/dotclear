@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-18 12:11+0200\n"
-"PO-Revision-Date: 2025-08-18 10:29\n"
+"POT-Creation-Date: 2025-08-20 08:27+0200\n"
+"PO-Revision-Date: 2025-08-20 06:29\n"
 "Last-Translator: \n"
 "Language-Team: Portuguese, Brazilian\n"
 "Language: pt_BR\n"
@@ -17,9 +17,9 @@ msgstr ""
 "X-Crowdin-File: /master/locales/_pot/main.pot\n"
 "X-Crowdin-File-ID: 262\n"
 
-#: inc/core/_fake_l10n.php:6 src/Process/Backend/Auth.php:378
-#: src/Process/Backend/User.php:264 src/Process/Backend/UserPreferences.php:559
-#: src/Process/Install/Install.php:397 src/Process/Upgrade/Auth.php:184
+#: inc/core/_fake_l10n.php:6 src/Process/Backend/Auth.php:477
+#: src/Process/Backend/User.php:264 src/Process/Backend/UserPreferences.php:598
+#: src/Process/Install/Install.php:397 src/Process/Upgrade/Auth.php:292
 msgid "medium"
 msgstr "Médio"
 
@@ -157,7 +157,7 @@ msgstr "SItuação"
 #: src/Core/Backend/Listing/ListingMedia.php:309
 #: src/Core/Backend/ModulesList.php:1350 src/Core/Upgrade/PluginsList.php:125
 #: src/Process/Backend/Comment.php:355 src/Process/Backend/Langs.php:231
-#: src/Process/Backend/Post.php:960 src/Process/Backend/UserPreferences.php:899
+#: src/Process/Backend/Post.php:960 src/Process/Backend/UserPreferences.php:716
 #: src/Process/Backend/Users.php:46 src/Process/Upgrade/Langs.php:299
 msgid "Delete"
 msgstr "Suprimir"
@@ -458,11 +458,11 @@ msgstr "Disponível"
 msgid "Other"
 msgstr "Outros"
 
-#: src/Core/Backend/Combos.php:242 src/Process/Backend/UserPreferences.php:209
+#: src/Core/Backend/Combos.php:242 src/Process/Backend/UserPreferences.php:227
 msgid "Descending"
 msgstr "Descendente"
 
-#: src/Core/Backend/Combos.php:243 src/Process/Backend/UserPreferences.php:210
+#: src/Core/Backend/Combos.php:243 src/Process/Backend/UserPreferences.php:228
 msgid "Ascending"
 msgstr "Ascendente"
 
@@ -553,13 +553,13 @@ msgid "Number of entries"
 msgstr "Número de posts"
 
 #: src/Core/Backend/Favorites.php:287
-#: src/Process/Backend/UserPreferences.php:1267
+#: src/Process/Backend/UserPreferences.php:1355
 msgid "My favorites"
 msgstr "Meus Favoritos"
 
 #: src/Core/Backend/Favorites.php:399 src/Core/Backend/Menus.php:195
 #: src/Core/Backend/Page.php:372 src/Process/Backend/Media.php:782
-#: src/Process/Backend/UserPreferences.php:75
+#: src/Process/Backend/UserPreferences.php:76
 msgid "My preferences"
 msgstr "Minhas preferências"
 
@@ -650,9 +650,9 @@ msgid "Global help"
 msgstr "Ajuda global"
 
 #: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1261
-#: src/Process/Backend/Auth.php:445 src/Process/Backend/BlogPref.php:1351
+#: src/Process/Backend/Auth.php:544 src/Process/Backend/BlogPref.php:1351
 #: src/Process/Backend/Comment.php:306 src/Process/Backend/Post.php:1108
-#: src/Process/Backend/User.php:432 src/Process/Backend/UserPreferences.php:670
+#: src/Process/Backend/User.php:432 src/Process/Backend/UserPreferences.php:823
 #: src/Process/Install/Install.php:445
 msgid "Email:"
 msgstr "Email:"
@@ -711,9 +711,9 @@ msgstr "Vídeo"
 msgid "Format:"
 msgstr "Formato:"
 
-#: src/Core/Backend/Filter/FilterPosts.php:180 src/Process/Backend/Auth.php:182
-#: src/Process/Backend/Auth.php:541 src/Process/Backend/User.php:344
-#: src/Process/Install/Install.php:509 src/Process/Upgrade/Auth.php:227
+#: src/Core/Backend/Filter/FilterPosts.php:180 src/Process/Backend/Auth.php:204
+#: src/Process/Backend/Auth.php:670 src/Process/Backend/User.php:344
+#: src/Process/Install/Install.php:509 src/Process/Upgrade/Auth.php:366
 msgid "Password:"
 msgstr "Senha:"
 
@@ -784,7 +784,7 @@ msgid "Sort:"
 msgstr "Ordenar:"
 
 #: src/Core/Backend/Filter/Filters.php:393
-#: src/Process/Backend/UserPreferences.php:803
+#: src/Process/Backend/UserPreferences.php:980
 msgid "Show"
 msgstr "Apresentar"
 
@@ -1464,8 +1464,8 @@ msgstr "ID de plugin desconhecido"
 msgid "This plugin has no configuration file."
 msgstr "Este plugin não tem arquivo de configuração."
 
-#: src/Core/Backend/ModulesList.php:1886 src/Process/Backend/Auth.php:317
-#: src/Process/Upgrade/Auth.php:135
+#: src/Core/Backend/ModulesList.php:1886 src/Process/Backend/Auth.php:416
+#: src/Process/Upgrade/Auth.php:182 src/Process/Upgrade/Auth.php:243
 msgid "Insufficient permissions"
 msgstr "Permissões insuficientes"
 
@@ -1479,9 +1479,9 @@ msgstr "Configurar \"%s\""
 #: src/Process/Backend/Category.php:301 src/Process/Backend/Comment.php:352
 #: src/Process/Backend/Media.php:857 src/Process/Backend/MediaItem.php:1353
 #: src/Process/Backend/Post.php:950 src/Process/Backend/Search.php:197
-#: src/Process/Backend/User.php:547 src/Process/Backend/UserPreferences.php:731
-#: src/Process/Backend/UserPreferences.php:1122
-#: src/Process/Backend/UserPreferences.php:1348
+#: src/Process/Backend/User.php:547 src/Process/Backend/UserPreferences.php:908
+#: src/Process/Backend/UserPreferences.php:1210
+#: src/Process/Backend/UserPreferences.php:1436
 msgid "Back"
 msgstr "Anterior"
 
@@ -1534,8 +1534,8 @@ msgid "Go to help"
 msgstr "Vá ajudar"
 
 #: src/Core/Backend/Page.php:339 src/Core/Upgrade/Page.php:175
-#: src/Process/Backend/UserPreferences.php:1257
-#: src/Process/Backend/UserPreferences.php:1259
+#: src/Process/Backend/UserPreferences.php:1345
+#: src/Process/Backend/UserPreferences.php:1347
 msgid "My dashboard"
 msgstr "Meu painel"
 
@@ -2957,6 +2957,10 @@ msgstr "Formato de resposta inválido"
 msgid "Failed to load provider \"%s\""
 msgstr "Falha ao carregar o provedor \"%s\""
 
+#: src/Helper/Otp.php:304
+msgid "Two Factors authentication"
+msgstr ""
+
 #: src/Helper/Stack/Statuses.php:315 src/Process/Backend/Comment.php:331
 #: src/Process/Backend/User.php:390
 msgid "Status:"
@@ -3078,177 +3082,202 @@ msgstr "Não é possível modificar _define.php"
 msgid "Destination folder already exist"
 msgstr "A pasta destino já existe"
 
-#: src/Process/Backend/Auth.php:94 src/Process/Upgrade/Auth.php:81
+#: src/Process/Backend/Auth.php:95 src/Process/Upgrade/Auth.php:96
 msgid "Dotclear has been upgraded."
 msgstr "Os pontos foram atualizados."
 
-#: src/Process/Backend/Auth.php:164
+#: src/Process/Backend/Auth.php:181
 msgid "Password reset"
 msgstr "Reinicialização da senha"
 
-#: src/Process/Backend/Auth.php:165
+#: src/Process/Backend/Auth.php:182
 msgid "Someone has requested to reset the password for the following site and username."
 msgstr "Alguém pediu a reinicialização da senha pelos seguintes saite e usuário."
 
-#: src/Process/Backend/Auth.php:165
+#: src/Process/Backend/Auth.php:182
 msgid "To reset your password visit the following address, otherwise just ignore this email and nothing will happen."
 msgstr "Para reinicializar a sua senha visite o endereço seguinte, senão simplesmente ignore esse email e nada vai acontecer."
 
-#: src/Process/Backend/Auth.php:165 src/Process/Backend/Auth.php:182
-#: src/Process/Backend/Auth.php:435 src/Process/Backend/Auth.php:531
+#: src/Process/Backend/Auth.php:182 src/Process/Backend/Auth.php:204
+#: src/Process/Backend/Auth.php:534 src/Process/Backend/Auth.php:660
 #: src/Process/Install/Install.php:456 src/Process/Install/Install.php:508
-#: src/Process/Upgrade/Auth.php:216
+#: src/Process/Upgrade/Auth.php:355
 msgid "Username:"
 msgstr "Nome de usuário:"
 
-#: src/Process/Backend/Auth.php:171
+#: src/Process/Backend/Auth.php:188
 #, php-format
 msgid "The e-mail was sent successfully to %s."
 msgstr "O email foi enviado com sucesso para %s."
 
-#: src/Process/Backend/Auth.php:181
+#: src/Process/Backend/Auth.php:192
+msgid "This removes two factors authentication."
+msgstr ""
+
+#: src/Process/Backend/Auth.php:203
 msgid "Your new password"
 msgstr "A sua nova senha"
 
-#: src/Process/Backend/Auth.php:187
+#: src/Process/Backend/Auth.php:209
 msgid "Your new password is in your mailbox."
 msgstr "A sua nova senha está no seu mailbox."
 
-#: src/Process/Backend/Auth.php:230 src/Process/Backend/User.php:158
-#: src/Process/Backend/UserPreferences.php:264
+#: src/Process/Backend/Auth.php:257 src/Process/Backend/User.php:158
+#: src/Process/Backend/UserPreferences.php:303
 #: src/Process/Install/Install.php:170
 msgid "Passwords don't match"
 msgstr "As senhas não correspondem"
 
-#: src/Process/Backend/Auth.php:234
+#: src/Process/Backend/Auth.php:261
 msgid "You didn't change your password."
 msgstr "Você não alterou sua senha."
 
-#: src/Process/Backend/Auth.php:279
+#: src/Process/Backend/Auth.php:318
+msgid "Code validation failed."
+msgstr ""
+
+#: src/Process/Backend/Auth.php:362
 msgid "You have to change your password before you can login."
 msgstr "Você precisa alterar sua senha antes de poder fazer o login."
 
-#: src/Process/Backend/Auth.php:281
+#: src/Process/Backend/Auth.php:364
 msgid "In order to login, you have to change your password now."
 msgstr "Para entrar, você tem que mudar sua senha agora."
 
-#: src/Process/Backend/Auth.php:287
+#: src/Process/Backend/Auth.php:370
 msgid "Safe Mode can only be used for super administrators."
 msgstr "O Modo de Segurança só pode ser usado para super administradores."
 
-#: src/Process/Backend/Auth.php:321 src/Process/Upgrade/Auth.php:139
+#: src/Process/Backend/Auth.php:420 src/Process/Upgrade/Auth.php:186
+#: src/Process/Upgrade/Auth.php:247
 msgid "Administration session expired"
 msgstr "A sessão de administração expirou"
 
-#: src/Process/Backend/Auth.php:321 src/Process/Upgrade/Auth.php:139
+#: src/Process/Backend/Auth.php:420 src/Process/Upgrade/Auth.php:186
+#: src/Process/Upgrade/Auth.php:247
 msgid "Wrong username or password"
 msgstr "Nome de usuário incorrecto ou senha incorrecta"
 
-#: src/Process/Backend/Auth.php:377 src/Process/Backend/Auth.php:378
-#: src/Process/Backend/Auth.php:379 src/Process/Backend/User.php:263
+#: src/Process/Backend/Auth.php:476 src/Process/Backend/Auth.php:477
+#: src/Process/Backend/Auth.php:478 src/Process/Backend/User.php:263
 #: src/Process/Backend/User.php:264 src/Process/Backend/User.php:265
-#: src/Process/Backend/UserPreferences.php:558
-#: src/Process/Backend/UserPreferences.php:559
-#: src/Process/Backend/UserPreferences.php:560
+#: src/Process/Backend/UserPreferences.php:597
+#: src/Process/Backend/UserPreferences.php:598
+#: src/Process/Backend/UserPreferences.php:599
 #: src/Process/Install/Install.php:396 src/Process/Install/Install.php:397
-#: src/Process/Install/Install.php:398 src/Process/Upgrade/Auth.php:183
-#: src/Process/Upgrade/Auth.php:184 src/Process/Upgrade/Auth.php:185
+#: src/Process/Install/Install.php:398 src/Process/Upgrade/Auth.php:291
+#: src/Process/Upgrade/Auth.php:292 src/Process/Upgrade/Auth.php:293
 #, php-format
 msgid "Password strength: %s"
 msgstr "Força da senha: %s"
 
-#: src/Process/Backend/Auth.php:377 src/Process/Backend/User.php:263
-#: src/Process/Backend/UserPreferences.php:558
-#: src/Process/Install/Install.php:396 src/Process/Upgrade/Auth.php:183
+#: src/Process/Backend/Auth.php:476 src/Process/Backend/User.php:263
+#: src/Process/Backend/UserPreferences.php:597
+#: src/Process/Install/Install.php:396 src/Process/Upgrade/Auth.php:291
 msgid "weak"
 msgstr "fraco"
 
-#: src/Process/Backend/Auth.php:379 src/Process/Backend/User.php:265
-#: src/Process/Backend/UserPreferences.php:560
-#: src/Process/Install/Install.php:398 src/Process/Upgrade/Auth.php:185
+#: src/Process/Backend/Auth.php:478 src/Process/Backend/User.php:265
+#: src/Process/Backend/UserPreferences.php:599
+#: src/Process/Install/Install.php:398 src/Process/Upgrade/Auth.php:293
 msgid "strong"
 msgstr "forte"
 
-#: src/Process/Backend/Auth.php:422 src/Process/Backend/Auth.php:466
+#: src/Process/Backend/Auth.php:521 src/Process/Backend/Auth.php:565
+#: src/Process/Backend/Auth.php:625 src/Process/Upgrade/Auth.php:345
 msgid "Back to login screen"
 msgstr "Retorno à tela de conexão"
 
-#: src/Process/Backend/Auth.php:430
+#: src/Process/Backend/Auth.php:529
 msgid "Request a new password"
 msgstr "Pedir uma nova senha"
 
-#: src/Process/Backend/Auth.php:454
+#: src/Process/Backend/Auth.php:553
 msgid "recover"
 msgstr "recuperar"
 
-#: src/Process/Backend/Auth.php:460 src/Process/Backend/Auth.php:619
+#: src/Process/Backend/Auth.php:559 src/Process/Backend/Auth.php:748
 msgid "Other option"
 msgstr "Outra opção"
 
-#: src/Process/Backend/Auth.php:473
+#: src/Process/Backend/Auth.php:572
 msgid "Change your password"
 msgstr "Mudar a sua senha"
 
-#: src/Process/Backend/Auth.php:478 src/Process/Backend/User.php:334
-#: src/Process/Backend/UserPreferences.php:596
+#: src/Process/Backend/Auth.php:577 src/Process/Backend/User.php:334
+#: src/Process/Backend/UserPreferences.php:635
 #: src/Process/Install/Install.php:464
 msgid "New password:"
 msgstr "Nova senha:"
 
-#: src/Process/Backend/Auth.php:488 src/Process/Backend/User.php:358
+#: src/Process/Backend/Auth.php:587 src/Process/Backend/User.php:358
 #: src/Process/Backend/User.php:367 src/Process/Install/Install.php:471
 msgid "Confirm password:"
 msgstr "Confirmar a senha:"
 
-#: src/Process/Backend/Auth.php:496
+#: src/Process/Backend/Auth.php:595
 msgid "change"
 msgstr "Alterar"
 
-#: src/Process/Backend/Auth.php:516
+#: src/Process/Backend/Auth.php:605 src/Process/Backend/UserPreferences.php:880
+#: src/Process/Upgrade/Auth.php:325
+msgid "Two factors authentication"
+msgstr ""
+
+#: src/Process/Backend/Auth.php:610 src/Process/Upgrade/Auth.php:330
+msgid "Enter code:"
+msgstr ""
+
+#: src/Process/Backend/Auth.php:618 src/Process/Backend/UserPreferences.php:696
+#: src/Process/Upgrade/Auth.php:338
+msgid "Verify"
+msgstr ""
+
+#: src/Process/Backend/Auth.php:645
 msgid "Safe mode login"
 msgstr "Acesso em modo de segurança"
 
-#: src/Process/Backend/Auth.php:519
+#: src/Process/Backend/Auth.php:648
 msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
 msgstr "Este modo permite que você faça login sem ativar nenhum de seus plugins. Isso pode ser útil para resolver problemas de compatibilidade"
 
-#: src/Process/Backend/Auth.php:520
+#: src/Process/Backend/Auth.php:649
 msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
 msgstr "Atualizar, desativar ou excluir qualquer plugin suspeito de causar problemas, depois deslogar e logar novamente normalmente."
 
-#: src/Process/Backend/Auth.php:551 src/Process/Upgrade/Auth.php:237
+#: src/Process/Backend/Auth.php:680 src/Process/Upgrade/Auth.php:376
 msgid "Remember my ID on this device"
 msgstr "Se lembrar do meu ID nesse computador"
 
-#: src/Process/Backend/Auth.php:555 src/Process/Upgrade/Auth.php:238
+#: src/Process/Backend/Auth.php:684 src/Process/Upgrade/Auth.php:377
 msgid "log in"
 msgstr "fazer login"
 
-#: src/Process/Backend/Auth.php:561
+#: src/Process/Backend/Auth.php:690
 msgid "Sign in with a passkey"
 msgstr "Fazer login com uma chave de acesso"
 
-#: src/Process/Backend/Auth.php:604
+#: src/Process/Backend/Auth.php:733
 msgid "Third party applications connections"
 msgstr "Conexões de aplicativos de terceiros"
 
-#: src/Process/Backend/Auth.php:613 src/Process/Upgrade/Auth.php:240
+#: src/Process/Backend/Auth.php:742 src/Process/Upgrade/Auth.php:379
 msgid "You must accept cookies in order to use the private area."
 msgstr "Você tem de aceitar os cookies para utilizar a área particular."
 
-#: src/Process/Backend/Auth.php:625
+#: src/Process/Backend/Auth.php:754
 msgid "Get back to normal authentication"
 msgstr "Volte à autenticação normal"
 
-#: src/Process/Backend/Auth.php:630
+#: src/Process/Backend/Auth.php:759
 msgid "Connection issue?"
 msgstr "Problema de conexão?"
 
-#: src/Process/Backend/Auth.php:637
+#: src/Process/Backend/Auth.php:766
 msgid "I forgot my password"
 msgstr "Eu esquecí a minha senha"
 
-#: src/Process/Backend/Auth.php:644
+#: src/Process/Backend/Auth.php:773
 msgid "I want to log in in safe mode"
 msgstr "Quero fazer login no modo de segurança"
 
@@ -3428,7 +3457,7 @@ msgid "I would like to prevent search engines and archivers from indexing or arc
 msgstr "Eu gostaria de impedir que os motores de busca e os arquivadores indexassem ou arquivassem o conteúdo do meu blog."
 
 #: src/Process/Backend/BlogPref.php:234
-#: src/Process/Backend/UserPreferences.php:171
+#: src/Process/Backend/UserPreferences.php:189
 msgid "Default"
 msgstr "Padrão"
 
@@ -4062,7 +4091,7 @@ msgid "total:"
 msgstr "total:"
 
 #: src/Process/Backend/Categories.php:326 src/Process/Backend/Category.php:279
-#: src/Process/Backend/User.php:457 src/Process/Backend/UserPreferences.php:692
+#: src/Process/Backend/User.php:457 src/Process/Backend/UserPreferences.php:845
 msgid "URL:"
 msgstr "URL:"
 
@@ -5488,17 +5517,17 @@ msgstr "Atenção:"
 msgid "Password change required to connect"
 msgstr "Alteração de senha necessária para conectar"
 
-#: src/Process/Backend/User.php:401 src/Process/Backend/UserPreferences.php:640
+#: src/Process/Backend/User.php:401 src/Process/Backend/UserPreferences.php:793
 #: src/Process/Install/Install.php:439
 msgid "Last Name:"
 msgstr "Último Nome:"
 
-#: src/Process/Backend/User.php:411 src/Process/Backend/UserPreferences.php:650
+#: src/Process/Backend/User.php:411 src/Process/Backend/UserPreferences.php:803
 #: src/Process/Install/Install.php:433
 msgid "First Name:"
 msgstr "Primeiro nome:"
 
-#: src/Process/Backend/User.php:421 src/Process/Backend/UserPreferences.php:660
+#: src/Process/Backend/User.php:421 src/Process/Backend/UserPreferences.php:813
 msgid "Display name:"
 msgstr "Apelido:"
 
@@ -5506,23 +5535,24 @@ msgstr "Apelido:"
 msgid "Mandatory for password recovering procedure."
 msgstr "Obrigatório para o procedimento de recuperação de senha."
 
-#: src/Process/Backend/User.php:444 src/Process/Backend/UserPreferences.php:679
+#: src/Process/Backend/User.php:444 src/Process/Backend/UserPreferences.php:832
 msgid "Alternate emails (comma separated list):"
 msgstr "E-mails alternativos (lista separada por vírgulas):"
 
-#: src/Process/Backend/User.php:448 src/Process/Backend/UserPreferences.php:683
+#: src/Process/Backend/User.php:448 src/Process/Backend/UserPreferences.php:836
 msgid "Invalid emails will be automatically removed from list."
 msgstr "E-mails inválidos serão automaticamente removidos da lista."
 
-#: src/Process/Backend/User.php:466 src/Process/Backend/UserPreferences.php:701
+#: src/Process/Backend/User.php:466 src/Process/Backend/UserPreferences.php:854
 msgid "Alternate URLs (comma separated list):"
 msgstr "URLs alternativas (lista separada por vírgulas):"
 
-#: src/Process/Backend/User.php:470 src/Process/Backend/UserPreferences.php:705
+#: src/Process/Backend/User.php:470 src/Process/Backend/UserPreferences.php:858
 msgid "Invalid URLs will be automatically removed from list."
 msgstr "URLs inválidas serão automaticamente removidas da lista."
 
-#: src/Process/Backend/User.php:476 src/Process/Backend/UserPreferences.php:920
+#: src/Process/Backend/User.php:476
+#: src/Process/Backend/UserPreferences.php:1025
 msgid "Interface"
 msgstr "Interface"
 
@@ -5531,22 +5561,22 @@ msgid "Timezone:"
 msgstr "Timezone:"
 
 #: src/Process/Backend/User.php:492
-#: src/Process/Backend/UserPreferences.php:1044
+#: src/Process/Backend/UserPreferences.php:1149
 msgid "Edition"
 msgstr "Edição"
 
 #: src/Process/Backend/User.php:498
-#: src/Process/Backend/UserPreferences.php:1056
+#: src/Process/Backend/UserPreferences.php:1161
 msgid "Preferred format:"
 msgstr "Formato de edição preferido:"
 
 #: src/Process/Backend/User.php:505
-#: src/Process/Backend/UserPreferences.php:1064
+#: src/Process/Backend/UserPreferences.php:1169
 msgid "Default entry status:"
 msgstr "Status padrão dos posts:"
 
 #: src/Process/Backend/User.php:510
-#: src/Process/Backend/UserPreferences.php:1070
+#: src/Process/Backend/UserPreferences.php:1175
 msgid "Entry edit field height:"
 msgstr "Tamanho da zona de edição:"
 
@@ -5596,365 +5626,401 @@ msgstr "Lista de postagens"
 msgid "List of comments"
 msgstr "Lista de comentários"
 
-#: src/Process/Backend/UserPreferences.php:162
+#: src/Process/Backend/UserPreferences.php:180
 msgid "Light"
 msgstr "Fino"
 
-#: src/Process/Backend/UserPreferences.php:163
+#: src/Process/Backend/UserPreferences.php:181
 msgid "Dark"
 msgstr "Escuro"
 
-#: src/Process/Backend/UserPreferences.php:164
+#: src/Process/Backend/UserPreferences.php:182
 msgid "Automatic"
 msgstr "Automático"
 
-#: src/Process/Backend/UserPreferences.php:169
+#: src/Process/Backend/UserPreferences.php:187
 msgid "Smallest"
 msgstr "Menor"
 
-#: src/Process/Backend/UserPreferences.php:170
+#: src/Process/Backend/UserPreferences.php:188
 msgid "Smaller"
 msgstr "Menor"
 
-#: src/Process/Backend/UserPreferences.php:172
+#: src/Process/Backend/UserPreferences.php:190
 msgid "Larger"
 msgstr "Maior"
 
-#: src/Process/Backend/UserPreferences.php:173
+#: src/Process/Backend/UserPreferences.php:191
 msgid "Largest"
 msgstr "Maior"
 
-#: src/Process/Backend/UserPreferences.php:185
+#: src/Process/Backend/UserPreferences.php:203
 msgid "Blog description (in blog parameters)"
 msgstr "Descrição do blog (em parâmetros do blog)"
 
-#: src/Process/Backend/UserPreferences.php:186
+#: src/Process/Backend/UserPreferences.php:204
 msgid "Category description"
 msgstr "Descrição da categoria"
 
-#: src/Process/Backend/UserPreferences.php:232
+#: src/Process/Backend/UserPreferences.php:246
+msgid "Two factors authentication verification failed."
+msgstr ""
+
+#: src/Process/Backend/UserPreferences.php:248
+msgid "Two factors authentication verification succeeded."
+msgstr ""
+
+#: src/Process/Backend/UserPreferences.php:256
+msgid "Two factors authentication secret regenerated."
+msgstr ""
+
+#: src/Process/Backend/UserPreferences.php:265
 msgid "Passkey successfully deleted."
 msgstr "Chave de acesso excluída com sucesso."
 
-#: src/Process/Backend/UserPreferences.php:243
-#: src/Process/Backend/UserPreferences.php:260
+#: src/Process/Backend/UserPreferences.php:282
+#: src/Process/Backend/UserPreferences.php:299
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "Se você quer mudar o seu endereço de email o a sua senha, você tem de indicar a sua senha atual."
 
-#: src/Process/Backend/UserPreferences.php:291
+#: src/Process/Backend/UserPreferences.php:330
 msgid "Personal information has been successfully updated."
 msgstr "Informações pessoais atualizadas com sucesso."
 
-#: src/Process/Backend/UserPreferences.php:409
+#: src/Process/Backend/UserPreferences.php:448
 msgid "Personal options has been successfully updated."
 msgstr "As opções pessoais foram atualizadas com sucesso."
 
-#: src/Process/Backend/UserPreferences.php:437
+#: src/Process/Backend/UserPreferences.php:476
 msgid "Dashboard options has been successfully updated."
 msgstr "Opções do painel foram atualizadas com sucesso."
 
-#: src/Process/Backend/UserPreferences.php:449
-#: src/Process/Backend/UserPreferences.php:473
+#: src/Process/Backend/UserPreferences.php:488
+#: src/Process/Backend/UserPreferences.php:512
 msgid "No favorite selected"
 msgstr "Nenhum favorito selecionado"
 
-#: src/Process/Backend/UserPreferences.php:460
+#: src/Process/Backend/UserPreferences.php:499
 msgid "Favorites have been successfully added."
 msgstr "Os favoritos foram adicionados com sucesso."
 
-#: src/Process/Backend/UserPreferences.php:486
+#: src/Process/Backend/UserPreferences.php:525
 msgid "Favorites have been successfully removed."
 msgstr "Os favoritos foram removidos com sucesso."
 
-#: src/Process/Backend/UserPreferences.php:516
+#: src/Process/Backend/UserPreferences.php:555
 msgid "Favorites have been successfully updated."
 msgstr "Os favoritos foram atualizados com sucesso."
 
-#: src/Process/Backend/UserPreferences.php:528
+#: src/Process/Backend/UserPreferences.php:567
 msgid "Default favorites have been successfully updated."
 msgstr "Favoritos padrão atualizados com sucesso."
 
-#: src/Process/Backend/UserPreferences.php:542
+#: src/Process/Backend/UserPreferences.php:581
 msgid "Dashboard items order have been successfully reset."
 msgstr "O pedido dos itens do painel foi redefinido com sucesso."
 
-#: src/Process/Backend/UserPreferences.php:564
+#: src/Process/Backend/UserPreferences.php:603
 msgid "Are you sure you want to remove selected favorites?"
 msgstr "Tem certeza que deseja remover os favoritos selecionados?"
 
-#: src/Process/Backend/UserPreferences.php:586
+#: src/Process/Backend/UserPreferences.php:625
 msgid "Change my password"
 msgstr "Alterar minha senha"
 
-#: src/Process/Backend/UserPreferences.php:605
+#: src/Process/Backend/UserPreferences.php:644
 msgid "Confirm new password:"
 msgstr "Confirme a nova senha:"
 
-#: src/Process/Backend/UserPreferences.php:615
+#: src/Process/Backend/UserPreferences.php:654
 msgid "Your current password:"
 msgstr "Sua senha atual:"
 
-#: src/Process/Backend/UserPreferences.php:619
+#: src/Process/Backend/UserPreferences.php:658
 msgid "If you have changed your email or password you must provide your current password to save these modifications."
 msgstr "Se você alterou seu e-mail ou senha, você deve fornecer sua senha atual para salvar essas modificações."
 
-#: src/Process/Backend/UserPreferences.php:625
-#: src/Process/Backend/UserPreferences.php:627
+#: src/Process/Backend/UserPreferences.php:667
+msgid "Your account is registered to two factors authentication."
+msgstr ""
+
+#: src/Process/Backend/UserPreferences.php:668
+msgid "Disable two factors authentication"
+msgstr ""
+
+#: src/Process/Backend/UserPreferences.php:673
+msgid "Scan this QR code with your authentication application:"
+msgstr ""
+
+#: src/Process/Backend/UserPreferences.php:684
+msgid "Or enter this secret into your authentication application:"
+msgstr ""
+
+#: src/Process/Backend/UserPreferences.php:685
+msgid "Regenerate"
+msgstr ""
+
+#: src/Process/Backend/UserPreferences.php:695
+msgid "Enter verification code:"
+msgstr ""
+
+#: src/Process/Backend/UserPreferences.php:713
+msgid "Unknown certificat issuer"
+msgstr "Emissor de certificado desconhecido"
+
+#: src/Process/Backend/UserPreferences.php:723
+msgid "You have no registered key yet."
+msgstr "Você ainda não tem uma chave registrada."
+
+#: src/Process/Backend/UserPreferences.php:763
+msgid "Linked to account:"
+msgstr "Vinculado à conta:"
+
+#: src/Process/Backend/UserPreferences.php:778
+#: src/Process/Backend/UserPreferences.php:780
 msgid "My profile"
 msgstr "Meu perfil"
 
-#: src/Process/Backend/UserPreferences.php:712
+#: src/Process/Backend/UserPreferences.php:865
 msgid "Language for my interface:"
 msgstr "Idioma para minha interface:"
 
-#: src/Process/Backend/UserPreferences.php:720
+#: src/Process/Backend/UserPreferences.php:873
 msgid "My timezone:"
 msgstr "Meu fuso horário:"
 
-#: src/Process/Backend/UserPreferences.php:729
+#: src/Process/Backend/UserPreferences.php:885
+msgid "Authentication keys"
+msgstr "Chaves de autenticação"
+
+#: src/Process/Backend/UserPreferences.php:898
+msgid "Authentication applications"
+msgstr "Aplicativos de autenticação"
+
+#: src/Process/Backend/UserPreferences.php:906
 msgid "Update my profile"
 msgstr "Atualizar meu perfil"
 
-#: src/Process/Backend/UserPreferences.php:797
+#: src/Process/Backend/UserPreferences.php:974
 msgid "List"
 msgstr "Lista"
 
-#: src/Process/Backend/UserPreferences.php:799
+#: src/Process/Backend/UserPreferences.php:976
 msgid "Order by"
 msgstr "Ordenar por"
 
-#: src/Process/Backend/UserPreferences.php:801
+#: src/Process/Backend/UserPreferences.php:978
 msgid "Sort"
 msgstr "Ordenar"
 
-#: src/Process/Backend/UserPreferences.php:814
+#: src/Process/Backend/UserPreferences.php:991
 #, php-format
 msgid "Preferred editor for %s:"
 msgstr "Editor preferido para %s:"
 
-#: src/Process/Backend/UserPreferences.php:819
+#: src/Process/Backend/UserPreferences.php:996
 msgid "Choose an editor"
 msgstr "Escolha um editor"
 
-#: src/Process/Backend/UserPreferences.php:874
-msgid "Linked to account:"
-msgstr "Vinculado à conta:"
-
-#: src/Process/Backend/UserPreferences.php:896
-msgid "Unknown certificat issuer"
-msgstr "Emissor de certificado desconhecido"
-
-#: src/Process/Backend/UserPreferences.php:906
-msgid "You have no registered key yet."
-msgstr "Você ainda não tem uma chave registrada."
-
-#: src/Process/Backend/UserPreferences.php:912
-#: src/Process/Backend/UserPreferences.php:918
+#: src/Process/Backend/UserPreferences.php:1017
+#: src/Process/Backend/UserPreferences.php:1023
 msgid "My options"
 msgstr "Minhas opções"
 
-#: src/Process/Backend/UserPreferences.php:927
+#: src/Process/Backend/UserPreferences.php:1032
 msgid "Theme:"
 msgstr "Tema:"
 
-#: src/Process/Backend/UserPreferences.php:933
+#: src/Process/Backend/UserPreferences.php:1038
 msgid "Activate enhanced uploader in media manager"
 msgstr "Ativar o carregador aprimorado no gerenciador de mídias"
 
-#: src/Process/Backend/UserPreferences.php:939
+#: src/Process/Backend/UserPreferences.php:1044
 msgid "Preview the entry being edited in a blank window or tab (depending on your browser settings)."
 msgstr "Pré-visualize a entrada sendo editada em uma janela em branco ou aba (dependendo das configurações do seu navegador)."
 
-#: src/Process/Backend/UserPreferences.php:946
+#: src/Process/Backend/UserPreferences.php:1051
 msgid "Disable javascript powered drag and drop for ordering items"
 msgstr "Desativar arrastar e soltar javascript para ordenar itens"
 
-#: src/Process/Backend/UserPreferences.php:950
+#: src/Process/Backend/UserPreferences.php:1055
 msgid "If checked, numeric fields will allow to type the elements' ordering number."
 msgstr "Se marcado, campos numéricos permitirão digitar o número de ordenação dos elementos."
 
-#: src/Process/Backend/UserPreferences.php:955
+#: src/Process/Backend/UserPreferences.php:1060
 msgid "Hide all secondary information and notes"
 msgstr "Ocultar todas as informações e notas secundárias"
 
-#: src/Process/Backend/UserPreferences.php:961
+#: src/Process/Backend/UserPreferences.php:1066
 msgid "Hide help button"
 msgstr "Ocultar botão de ajuda"
 
-#: src/Process/Backend/UserPreferences.php:968
+#: src/Process/Backend/UserPreferences.php:1073
 msgid "Font size:"
 msgstr "Tamanho da fonte:"
 
-#: src/Process/Backend/UserPreferences.php:974
+#: src/Process/Backend/UserPreferences.php:1079
 msgid "Use operating system font"
 msgstr "Usar fonte do sistema operacional"
 
-#: src/Process/Backend/UserPreferences.php:980
+#: src/Process/Backend/UserPreferences.php:1085
 msgid "Number of recent folders proposed in media manager:"
 msgstr "Número de pastas recentes propostas no gerenciador de mídia:"
 
-#: src/Process/Backend/UserPreferences.php:984
+#: src/Process/Backend/UserPreferences.php:1089
 msgid "Set to 0 (zero) to ignore, displayed only if Javascript is enabled in your browser."
 msgstr "Defina como 0 (zero) para ignorar, exibido somente se o Javascript estiver ativado em seu navegador."
 
-#: src/Process/Backend/UserPreferences.php:991
+#: src/Process/Backend/UserPreferences.php:1096
 msgid "Do not use standard favicon"
 msgstr "Não usar o favicon padrão"
 
-#: src/Process/Backend/UserPreferences.php:992
+#: src/Process/Backend/UserPreferences.php:1097
 msgid "This will be applied for all users"
 msgstr "Isto será aplicado para todos os usuários"
 
-#: src/Process/Backend/UserPreferences.php:1002
+#: src/Process/Backend/UserPreferences.php:1107
 msgid "Disable Ad-blocker check"
 msgstr "Desativar verificação de bloqueador de anúncios"
 
-#: src/Process/Backend/UserPreferences.php:1006
+#: src/Process/Backend/UserPreferences.php:1111
 msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
 msgstr "Alguns bloqueadores de anúncios (Ghostery, Adblock plus, origem uBloc …) podem interferir com algum recurso como link de inserção ou mídia em entradas com CKEditor; neste caso você deve desativá-lo para esta instalação de Dotclear (apenas para o backend). Note que Dotclear não adiciona rastreadores de capas de anúncios no backend."
 
-#: src/Process/Backend/UserPreferences.php:1009
+#: src/Process/Backend/UserPreferences.php:1114
 msgid "Note also that deactivating this detection of ad blockers will not deactivate the installed ad blockers. Dotclear cannot interfere with the operation of browser extensions!"
 msgstr "Observe também que a desativação dessa detecção de bloqueadores de anúncios não desativará os bloqueadores de anúncios instalados. A Dotclear não pode interferir na operação das extensões do navegador!"
 
-#: src/Process/Backend/UserPreferences.php:1017
+#: src/Process/Backend/UserPreferences.php:1122
 msgid "Quick menu character:"
 msgstr "Caractere do menu rápido:"
 
-#: src/Process/Backend/UserPreferences.php:1021
+#: src/Process/Backend/UserPreferences.php:1126
 msgid "Leave empty to use the default character <kbd>:</kbd>"
 msgstr "Deixe em branco para usar o caractere padrão <kbd>:</kbd>"
 
-#: src/Process/Backend/UserPreferences.php:1026
+#: src/Process/Backend/UserPreferences.php:1131
 msgid "Keep the main menu at the top of the page as much as possible"
 msgstr "Mantenha o menu principal na parte superior da página o máximo possível"
 
-#: src/Process/Backend/UserPreferences.php:1030
+#: src/Process/Backend/UserPreferences.php:1135
 msgid "Optional columns displayed in lists"
 msgstr "Colunas opcionais exibidas nas listas"
 
-#: src/Process/Backend/UserPreferences.php:1033
+#: src/Process/Backend/UserPreferences.php:1138
 msgid "Options for lists"
 msgstr "Opções para listas"
 
-#: src/Process/Backend/UserPreferences.php:1039
+#: src/Process/Backend/UserPreferences.php:1144
 msgid "Apply filters on the fly"
 msgstr "Aplicar filtros em tempo real"
 
-#: src/Process/Backend/UserPreferences.php:1076
+#: src/Process/Backend/UserPreferences.php:1181
 msgid "Enable WYSIWYG mode"
 msgstr "Ativar o editor visual"
 
-#: src/Process/Backend/UserPreferences.php:1082
+#: src/Process/Backend/UserPreferences.php:1187
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr "Exibe a barra de ferramentas do editor na parte inferior do textarea (se possível)"
 
-#: src/Process/Backend/UserPreferences.php:1088
+#: src/Process/Backend/UserPreferences.php:1193
 msgid "Use HTML editor for:"
 msgstr "Usar editor HTML para:"
 
-#: src/Process/Backend/UserPreferences.php:1093
-msgid "Authentication applications"
-msgstr "Aplicativos de autenticação"
-
-#: src/Process/Backend/UserPreferences.php:1098
-msgid "Authentication keys"
-msgstr "Chaves de autenticação"
-
-#: src/Process/Backend/UserPreferences.php:1109
+#: src/Process/Backend/UserPreferences.php:1197
 msgid "Other options"
 msgstr "Outras opções"
 
-#: src/Process/Backend/UserPreferences.php:1120
+#: src/Process/Backend/UserPreferences.php:1208
 msgid "Save my options"
 msgstr "Salvar as minhas opções"
 
-#: src/Process/Backend/UserPreferences.php:1151
+#: src/Process/Backend/UserPreferences.php:1239
 #, php-format
 msgid "position of %s"
 msgstr "posição de %s"
 
-#: src/Process/Backend/UserPreferences.php:1174
+#: src/Process/Backend/UserPreferences.php:1262
 msgid "Save order"
 msgstr "Salvar Ordem"
 
-#: src/Process/Backend/UserPreferences.php:1175
+#: src/Process/Backend/UserPreferences.php:1263
 msgid "Delete selected favorites"
 msgstr "Excluir favoritos selecionados"
 
-#: src/Process/Backend/UserPreferences.php:1182
+#: src/Process/Backend/UserPreferences.php:1270
 msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
 msgstr "Se você é um super administrador, você pode definir este conjunto de favoritos que serão usados por padrão em todos os blogs desta instalação."
 
-#: src/Process/Backend/UserPreferences.php:1185
+#: src/Process/Backend/UserPreferences.php:1273
 msgid "Define as default favorites"
 msgstr "Definir como favoritos padrão"
 
-#: src/Process/Backend/UserPreferences.php:1194
+#: src/Process/Backend/UserPreferences.php:1282
 msgid "Currently no personal favorites."
 msgstr "Atualmente não há favoritos pessoais."
 
-#: src/Process/Backend/UserPreferences.php:1233
+#: src/Process/Backend/UserPreferences.php:1321
 msgid "(default favorite)"
 msgstr "(favorito padrão)"
 
-#: src/Process/Backend/UserPreferences.php:1248
+#: src/Process/Backend/UserPreferences.php:1336
 msgid "Add to my favorites"
 msgstr "Adicionar aos meus favoritos"
 
-#: src/Process/Backend/UserPreferences.php:1272
+#: src/Process/Backend/UserPreferences.php:1360
 msgid "Other available favorites"
 msgstr "Outros favoritos disponíveis"
 
-#: src/Process/Backend/UserPreferences.php:1284
+#: src/Process/Backend/UserPreferences.php:1372
 msgid "Menu"
 msgstr "Menu"
 
-#: src/Process/Backend/UserPreferences.php:1290
+#: src/Process/Backend/UserPreferences.php:1378
 msgid "Display favorites at the top of the menu"
 msgstr "Mostrar favoritos na parte superior do menu"
 
-#: src/Process/Backend/UserPreferences.php:1294
+#: src/Process/Backend/UserPreferences.php:1382
 msgid "Dashboard icons"
 msgstr "Ícones do painel"
 
-#: src/Process/Backend/UserPreferences.php:1300
+#: src/Process/Backend/UserPreferences.php:1388
 msgid "Display dashboard icons"
 msgstr "Exibir ícones do painel"
 
-#: src/Process/Backend/UserPreferences.php:1304
+#: src/Process/Backend/UserPreferences.php:1392
 msgid "Dashboard modules"
 msgstr "Módulos do painel"
 
-#: src/Process/Backend/UserPreferences.php:1310
+#: src/Process/Backend/UserPreferences.php:1398
 msgid "Display documentation links"
 msgstr "Exibir links de documentação"
 
-#: src/Process/Backend/UserPreferences.php:1316
+#: src/Process/Backend/UserPreferences.php:1404
 msgid "Display donate links"
 msgstr "Exibir links de doação"
 
-#: src/Process/Backend/UserPreferences.php:1322
+#: src/Process/Backend/UserPreferences.php:1410
 msgid "Display Dotclear news"
 msgstr "Exibir notícias de Dotclear"
 
-#: src/Process/Backend/UserPreferences.php:1328
+#: src/Process/Backend/UserPreferences.php:1416
 msgid "Display quick entry form"
 msgstr "Exibir formulário de entrada rápida"
 
-#: src/Process/Backend/UserPreferences.php:1333
+#: src/Process/Backend/UserPreferences.php:1421
 msgid "Do not display Dotclear updates"
 msgstr "Não exibir atualizações Dotclear"
 
-#: src/Process/Backend/UserPreferences.php:1346
+#: src/Process/Backend/UserPreferences.php:1434
 msgid "Save my dashboard options"
 msgstr "Salvar opções do meu painel"
 
-#: src/Process/Backend/UserPreferences.php:1359
+#: src/Process/Backend/UserPreferences.php:1447
 msgid "Dashboard items order"
 msgstr "Ordem dos itens do painel"
 
-#: src/Process/Backend/UserPreferences.php:1362
+#: src/Process/Backend/UserPreferences.php:1450
 msgid "Reset dashboard items order"
 msgstr "Redefinir ordem dos itens do painel"
 
@@ -6350,11 +6416,15 @@ msgstr "Parabéns, você está a um clique do final da atualização."
 msgid "Finish the update."
 msgstr "Finalizar a atualização."
 
-#: src/Process/Upgrade/Auth.php:176 src/Process/Upgrade/Auth.php:194
+#: src/Process/Upgrade/Auth.php:178
+msgid "Code verification failed"
+msgstr ""
+
+#: src/Process/Upgrade/Auth.php:284 src/Process/Upgrade/Auth.php:302
 msgid "Upgrade"
 msgstr "Atualização"
 
-#: src/Process/Upgrade/Auth.php:241
+#: src/Process/Upgrade/Auth.php:380
 msgid "Back to normal dashboard"
 msgstr "Voltar ao painel de controle normal"
 
