@@ -272,7 +272,7 @@ class UserPreferences extends Process
             App::backend()->oauth2->requestAction((string) App::auth()->userID());
         }
 
-        if (isset($_POST['user_name'])) {
+        if (isset($_POST['user_name']) && isset($_POST['user-form-submit'])) {
             // Update user
 
             try {
@@ -739,7 +739,7 @@ class UserPreferences extends Process
                 $oauth_link = App::backend()->oauth2->getActionButton(
                     (string) App::auth()->userID(),
                     $oauth2_service::getId(),
-                    App::backend()->url()->get('admin.user.preferences') . '#user-options.user_options_oauth2',
+                    App::backend()->url()->get('admin.user.preferences') . '#user-profile.user_options_oauth2',
                     true
                 );
 
