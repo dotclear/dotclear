@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-20 08:27+0200\n"
-"PO-Revision-Date: 2025-08-20 06:29\n"
+"PO-Revision-Date: 2025-08-20 07:50\n"
 "Last-Translator: \n"
 "Language-Team: Estonian\n"
 "Language: et_EE\n"
@@ -2959,7 +2959,7 @@ msgstr "Ei õnnestunud laadida teenusepakkuja \"%s\""
 
 #: src/Helper/Otp.php:304
 msgid "Two Factors authentication"
-msgstr ""
+msgstr "Kaks tegurit autentimine"
 
 #: src/Helper/Stack/Statuses.php:315 src/Process/Backend/Comment.php:331
 #: src/Process/Backend/User.php:390
@@ -3112,7 +3112,7 @@ msgstr "E-post saadeti edukalt aadressile %s."
 
 #: src/Process/Backend/Auth.php:192
 msgid "This removes two factors authentication."
-msgstr ""
+msgstr "See eemaldab kahe teguri autentimise."
 
 #: src/Process/Backend/Auth.php:203
 msgid "Your new password"
@@ -3134,7 +3134,7 @@ msgstr "Te ei muutnud oma salasõna."
 
 #: src/Process/Backend/Auth.php:318
 msgid "Code validation failed."
-msgstr ""
+msgstr "Koodi valideerimine ebaõnnestus."
 
 #: src/Process/Backend/Auth.php:362
 msgid "You have to change your password before you can login."
@@ -3222,16 +3222,16 @@ msgstr "muuta"
 #: src/Process/Backend/Auth.php:605 src/Process/Backend/UserPreferences.php:880
 #: src/Process/Upgrade/Auth.php:325
 msgid "Two factors authentication"
-msgstr ""
+msgstr "Kaks tegurit autentimine"
 
 #: src/Process/Backend/Auth.php:610 src/Process/Upgrade/Auth.php:330
 msgid "Enter code:"
-msgstr ""
+msgstr "Sisestage kood:"
 
 #: src/Process/Backend/Auth.php:618 src/Process/Backend/UserPreferences.php:696
 #: src/Process/Upgrade/Auth.php:338
 msgid "Verify"
-msgstr ""
+msgstr "Kontrollida"
 
 #: src/Process/Backend/Auth.php:645
 msgid "Safe mode login"
@@ -5664,15 +5664,15 @@ msgstr "Kategooria kirjeldus"
 
 #: src/Process/Backend/UserPreferences.php:246
 msgid "Two factors authentication verification failed."
-msgstr ""
+msgstr "Kahe teguri autentimise kontrollimine ebaõnnestus."
 
 #: src/Process/Backend/UserPreferences.php:248
 msgid "Two factors authentication verification succeeded."
-msgstr ""
+msgstr "Kahe teguri autentimise kontrollimine õnnestus."
 
 #: src/Process/Backend/UserPreferences.php:256
 msgid "Two factors authentication secret regenerated."
-msgstr ""
+msgstr "Kahe teguri autentimise saladus taastatakse."
 
 #: src/Process/Backend/UserPreferences.php:265
 msgid "Passkey successfully deleted."
@@ -5742,27 +5742,27 @@ msgstr "Kui olete muutnud oma e-posti aadressi või salasõna, peate nende muuda
 
 #: src/Process/Backend/UserPreferences.php:667
 msgid "Your account is registered to two factors authentication."
-msgstr ""
+msgstr "Teie konto on registreeritud kahetegurilise autentimise jaoks."
 
 #: src/Process/Backend/UserPreferences.php:668
 msgid "Disable two factors authentication"
-msgstr ""
+msgstr "Kahe teguri autentimise väljalülitamine"
 
 #: src/Process/Backend/UserPreferences.php:673
 msgid "Scan this QR code with your authentication application:"
-msgstr ""
+msgstr "Skaneerige see QR-kood oma autentimisrakendusega:"
 
 #: src/Process/Backend/UserPreferences.php:684
 msgid "Or enter this secret into your authentication application:"
-msgstr ""
+msgstr "Või sisestage see saladus oma autentimisrakendusse:"
 
 #: src/Process/Backend/UserPreferences.php:685
 msgid "Regenerate"
-msgstr ""
+msgstr "Regenereeri"
 
 #: src/Process/Backend/UserPreferences.php:695
 msgid "Enter verification code:"
-msgstr ""
+msgstr "Sisestage kinnituskood:"
 
 #: src/Process/Backend/UserPreferences.php:713
 msgid "Unknown certificat issuer"
@@ -6418,7 +6418,7 @@ msgstr "Lõpetage ajakohastamine."
 
 #: src/Process/Upgrade/Auth.php:178
 msgid "Code verification failed"
-msgstr ""
+msgstr "Koodi kontrollimine ebaõnnestus"
 
 #: src/Process/Upgrade/Auth.php:284 src/Process/Upgrade/Auth.php:302
 msgid "Upgrade"
