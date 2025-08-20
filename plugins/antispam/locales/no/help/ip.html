@@ -1,0 +1,19 @@
+<html>
+
+<head>
+  <title>IP-filter</title>
+</head>
+
+<body>
+  <h4>IP-filter</h4>
+  <p>Med dette filteret kan du manuelt svarteliste eller hviteliste IP-adresser. En kommentar som kommer fra en IP-adresse som er oppført på svartelisten, vil umiddelbart bli ansett som søppel. En kommentar som kommer fra en IP-adresse som er oppført i hvitliste-delen, vil bli ansett som klarert, og de andre antispam-filtrene vil ikke behandle den.</p>
+  <p>For å legge til en IP velger du først den fanen du ønsker<strong>(Svarteliste</strong> eller <strong>Hviteliste</strong>) og skriver inn IP-adressen. Avkrysningsboksen <strong>Global IP</strong> er tilgjengelig hvis du er superadministrator og lar deg legge til IP-adressen i alle bloggene i Dotclear-installasjonen din.</p>
+  <p>Du kan legge til IP-adresser med en nettverksmaske for å blokkere eller tillate en rekke IP-adresser. For eksempel</p>
+  <ul>
+    <li><code>127.0.0.0.0/255</code>.<code>0</code>.<code>0</code>.<code>0</code>.<code>0</code> eller den forkortede formen <code>127/8</code> vil gjenkjenne alle IP-adresser som <code>127.xxx.xxx.xxx</code></li>
+    <li><code>127.0.0.0.0/255.255.0.0</code> eller den forkortede formen <code>127.0.0/16</code> vil gjenkjenne alle IP-adresser som <code>127.0.xxx.xxx</code></li>
+    <li><code>127.0.0.0.0/255.255.255.255.0</code> eller den forkortede formen <code>127.0.0/24</code> vil gjenkjenne alle IP-adresser som <code>127.0.0.xxx</code></li>
+  </ul>
+</body>
+
+</html>
