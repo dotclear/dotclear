@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-20 08:27+0200\n"
-"PO-Revision-Date: 2025-08-20 06:29\n"
+"PO-Revision-Date: 2025-08-20 07:50\n"
 "Last-Translator: \n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -3017,7 +3017,7 @@ msgstr "Не удалось загрузить провайдера \"%s\""
 
 #: src/Helper/Otp.php:304
 msgid "Two Factors authentication"
-msgstr ""
+msgstr "Двухфакторная аутентификация"
 
 #: src/Helper/Stack/Statuses.php:315 src/Process/Backend/Comment.php:331
 #: src/Process/Backend/User.php:390
@@ -3170,7 +3170,7 @@ msgstr "Email для  %s был успешно отправлен."
 
 #: src/Process/Backend/Auth.php:192
 msgid "This removes two factors authentication."
-msgstr ""
+msgstr "Это устраняет двухфакторную аутентификацию."
 
 #: src/Process/Backend/Auth.php:203
 msgid "Your new password"
@@ -3192,7 +3192,7 @@ msgstr "Вы не изменили ваш пароль."
 
 #: src/Process/Backend/Auth.php:318
 msgid "Code validation failed."
-msgstr ""
+msgstr "Проверка кода не удалась."
 
 #: src/Process/Backend/Auth.php:362
 msgid "You have to change your password before you can login."
@@ -3280,16 +3280,16 @@ msgstr "изменить"
 #: src/Process/Backend/Auth.php:605 src/Process/Backend/UserPreferences.php:880
 #: src/Process/Upgrade/Auth.php:325
 msgid "Two factors authentication"
-msgstr ""
+msgstr "Двухфакторная аутентификация"
 
 #: src/Process/Backend/Auth.php:610 src/Process/Upgrade/Auth.php:330
 msgid "Enter code:"
-msgstr ""
+msgstr "Введите код:"
 
 #: src/Process/Backend/Auth.php:618 src/Process/Backend/UserPreferences.php:696
 #: src/Process/Upgrade/Auth.php:338
 msgid "Verify"
-msgstr ""
+msgstr "Проверьте"
 
 #: src/Process/Backend/Auth.php:645
 msgid "Safe mode login"
@@ -5734,15 +5734,15 @@ msgstr "Описание категории"
 
 #: src/Process/Backend/UserPreferences.php:246
 msgid "Two factors authentication verification failed."
-msgstr ""
+msgstr "Проверка двухфакторной аутентификации не удалась."
 
 #: src/Process/Backend/UserPreferences.php:248
 msgid "Two factors authentication verification succeeded."
-msgstr ""
+msgstr "Успешная проверка подлинности двух факторов."
 
 #: src/Process/Backend/UserPreferences.php:256
 msgid "Two factors authentication secret regenerated."
-msgstr ""
+msgstr "Регенерирован секрет двухфакторной аутентификации."
 
 #: src/Process/Backend/UserPreferences.php:265
 msgid "Passkey successfully deleted."
@@ -5812,27 +5812,27 @@ msgstr "Если вы изменили свой адрес электронно�
 
 #: src/Process/Backend/UserPreferences.php:667
 msgid "Your account is registered to two factors authentication."
-msgstr ""
+msgstr "Ваша учетная запись зарегистрирована для двухфакторной аутентификации."
 
 #: src/Process/Backend/UserPreferences.php:668
 msgid "Disable two factors authentication"
-msgstr ""
+msgstr "Отключите двухфакторную аутентификацию"
 
 #: src/Process/Backend/UserPreferences.php:673
 msgid "Scan this QR code with your authentication application:"
-msgstr ""
+msgstr "Отсканируйте этот QR-код с помощью приложения для аутентификации:"
 
 #: src/Process/Backend/UserPreferences.php:684
 msgid "Or enter this secret into your authentication application:"
-msgstr ""
+msgstr "Или введите этот секрет в приложение для аутентификации:"
 
 #: src/Process/Backend/UserPreferences.php:685
 msgid "Regenerate"
-msgstr ""
+msgstr "Регенерировать"
 
 #: src/Process/Backend/UserPreferences.php:695
 msgid "Enter verification code:"
-msgstr ""
+msgstr "Введите код проверки:"
 
 #: src/Process/Backend/UserPreferences.php:713
 msgid "Unknown certificat issuer"
@@ -6488,7 +6488,7 @@ msgstr "Завершить  обновление"
 
 #: src/Process/Upgrade/Auth.php:178
 msgid "Code verification failed"
-msgstr ""
+msgstr "Проверка кода не удалась"
 
 #: src/Process/Upgrade/Auth.php:284 src/Process/Upgrade/Auth.php:302
 msgid "Upgrade"
