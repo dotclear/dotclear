@@ -243,9 +243,9 @@ class UserPreferences extends Process
             if (!empty($_POST['otp_verify_submit']) && !empty($_POST['otp_verify_code'])) {
                 // verify code
                 if (!App::backend()->otp->verifyCode($_POST['otp_verify_code'])) {
-                    App::error()->add(__('Two facors authentication verification failed.'));
+                    App::error()->add(__('Two factors authentication verification failed.'));
                 } else {
-                    Notices::addSuccessNotice(__('Two facors authentication verification succeeded.'));
+                    Notices::addSuccessNotice(__('Two factors authentication verification succeeded.'));
                 }
             }
             if (!empty($_POST['otp_delete']) || !empty($_POST['otp_regenerate'])) {
