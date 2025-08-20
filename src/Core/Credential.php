@@ -20,6 +20,7 @@ use Dotclear\Interface\Core\BehaviorInterface;
 use Dotclear\Interface\Core\BlogInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\CredentialInterface;
+use Dotclear\Schema\Extension\Log;
 use Exception;
 
 /**
@@ -59,16 +60,18 @@ class Credential implements CredentialInterface
         if ($count_only) {
             $sql
                 ->column($sql->count('K.user_id'))
-                ->from($sql->as($this->credential_table, 'K'))
-                ->where('NULL IS NULL');
+                ->from($sql->as($this->credential_table, 'K'));
         } else {
             $sql
                 ->columns([
                     'K.user_id',
-                    //'credential_dt',
                     'credential_id',
                     'credential_type',
                     'credential_data',
+                    'U.user_name',
+                    'U.user_firstname',
+                    'U.user_displayname',
+                    'U.user_url',
                 ])
                 ->from($sql->as($this->credential_table, 'K'));
 
@@ -82,14 +85,17 @@ class Credential implements CredentialInterface
                         ->from($sql->as($this->con->prefix() . $this->blog->auth()::USER_TABLE_NAME, 'U'))
                         ->on('K.user_id = U.user_id')
                         ->statement()
-                )
-                ->where('NULL IS NULL');
+                );
         }
 
-        if (empty($params['credential_type'])) {
+        if (!isset($params['credential_type'])) {
             $params['credential_type'] = 'webauthn';
         }
-        $sql->where('credential_type =' . $sql->quote($params['credential_type']));
+        if (!empty($params['credential_type'])) {
+            $sql->where('credential_type =' . $sql->quote($params['credential_type']));
+        } else {
+            $sql->where('NULL IS NULL');
+        }
 
         if (!empty($params['user_id'])) {
             $sql->and('K.user_id =' . $sql->quote($params['user_id']));
@@ -114,7 +120,13 @@ class Credential implements CredentialInterface
             $sql->limit($params['limit']);
         }
 
-        return $sql->select() ?? MetaRecord::newFromArray([]);
+        $rs = $sql->select();
+        if ($rs instanceof MetaRecord) {
+            // we use Log extension to get user cn
+            $rs->extend(Log::class);
+        }
+
+        return $rs ?? MetaRecord::newFromArray([]);
     }
 
     public function setCredential(string $user_id, Cursor $cur): void
