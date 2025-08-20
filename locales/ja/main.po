@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-20 08:27+0200\n"
-"PO-Revision-Date: 2025-08-20 06:29\n"
+"PO-Revision-Date: 2025-08-20 07:50\n"
 "Last-Translator: \n"
 "Language-Team: Japanese\n"
 "Language: ja_JP\n"
@@ -2930,7 +2930,7 @@ msgstr "プロバイダのロードに失敗しました \"%s\""
 
 #: src/Helper/Otp.php:304
 msgid "Two Factors authentication"
-msgstr ""
+msgstr "二要素認証"
 
 #: src/Helper/Stack/Statuses.php:315 src/Process/Backend/Comment.php:331
 #: src/Process/Backend/User.php:390
@@ -3084,7 +3084,7 @@ msgstr "%s へのメールは正常に送信されました。"
 
 #: src/Process/Backend/Auth.php:192
 msgid "This removes two factors authentication."
-msgstr ""
+msgstr "これにより、2要素認証が削除される。"
 
 #: src/Process/Backend/Auth.php:203
 msgid "Your new password"
@@ -3106,7 +3106,7 @@ msgstr "パスワードを変更していません。"
 
 #: src/Process/Backend/Auth.php:318
 msgid "Code validation failed."
-msgstr ""
+msgstr "コードの検証に失敗しました。"
 
 #: src/Process/Backend/Auth.php:362
 msgid "You have to change your password before you can login."
@@ -3194,16 +3194,16 @@ msgstr "変更"
 #: src/Process/Backend/Auth.php:605 src/Process/Backend/UserPreferences.php:880
 #: src/Process/Upgrade/Auth.php:325
 msgid "Two factors authentication"
-msgstr ""
+msgstr "二要素認証"
 
 #: src/Process/Backend/Auth.php:610 src/Process/Upgrade/Auth.php:330
 msgid "Enter code:"
-msgstr ""
+msgstr "コードを入力してください："
 
 #: src/Process/Backend/Auth.php:618 src/Process/Backend/UserPreferences.php:696
 #: src/Process/Upgrade/Auth.php:338
 msgid "Verify"
-msgstr ""
+msgstr "ベリファイ"
 
 #: src/Process/Backend/Auth.php:645
 msgid "Safe mode login"
@@ -5630,15 +5630,15 @@ msgstr "カテゴリの説明"
 
 #: src/Process/Backend/UserPreferences.php:246
 msgid "Two factors authentication verification failed."
-msgstr ""
+msgstr "二要素認証の検証に失敗しました。"
 
 #: src/Process/Backend/UserPreferences.php:248
 msgid "Two factors authentication verification succeeded."
-msgstr ""
+msgstr "二要素認証が成功した。"
 
 #: src/Process/Backend/UserPreferences.php:256
 msgid "Two factors authentication secret regenerated."
-msgstr ""
+msgstr "二要素認証の秘密が再生された。"
 
 #: src/Process/Backend/UserPreferences.php:265
 msgid "Passkey successfully deleted."
@@ -5708,27 +5708,27 @@ msgstr "メールアドレスまたはパスワードを変更した場合は、
 
 #: src/Process/Backend/UserPreferences.php:667
 msgid "Your account is registered to two factors authentication."
-msgstr ""
+msgstr "あなたのアカウントは2要素認証に登録されています。"
 
 #: src/Process/Backend/UserPreferences.php:668
 msgid "Disable two factors authentication"
-msgstr ""
+msgstr "二要素認証を無効にする"
 
 #: src/Process/Backend/UserPreferences.php:673
 msgid "Scan this QR code with your authentication application:"
-msgstr ""
+msgstr "認証アプリケーションでこのQRコードを読み取ってください："
 
 #: src/Process/Backend/UserPreferences.php:684
 msgid "Or enter this secret into your authentication application:"
-msgstr ""
+msgstr "または、認証アプリケーションにこの秘密を入力する："
 
 #: src/Process/Backend/UserPreferences.php:685
 msgid "Regenerate"
-msgstr ""
+msgstr "再生"
 
 #: src/Process/Backend/UserPreferences.php:695
 msgid "Enter verification code:"
-msgstr ""
+msgstr "認証コードを入力してください："
 
 #: src/Process/Backend/UserPreferences.php:713
 msgid "Unknown certificat issuer"
@@ -6384,7 +6384,7 @@ msgstr "アップデートを完了する。"
 
 #: src/Process/Upgrade/Auth.php:178
 msgid "Code verification failed"
-msgstr ""
+msgstr "コード検証に失敗"
 
 #: src/Process/Upgrade/Auth.php:284 src/Process/Upgrade/Auth.php:302
 msgid "Upgrade"
