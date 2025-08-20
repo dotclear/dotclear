@@ -10,6 +10,7 @@ files:
         pt-BR: pt-br
         zh-CN: zh-cn
         vls: nl
+        nb: no
   - source: /locales/en/help/*.html
     translation: /locales/%two_letters_code%/help/%original_file_name%
     content_segmentation: 0
@@ -19,6 +20,7 @@ files:
         pt-BR: pt-br
         zh-CN: zh-cn
         vls: nl
+        nb: no
   - source: /plugins/**/locales/en/help/*.html
     translation: /plugins/**/locales/%two_letters_code%/help/%original_file_name%
     content_segmentation: 0
@@ -28,6 +30,7 @@ files:
         pt-BR: pt-br
         zh-CN: zh-cn
         vls: nl
+        nb: no
   - source: /themes/**/locales/_pot/
     ignore:
       - _*.pot
@@ -38,6 +41,7 @@ files:
         pt-BR: pt-br
         zh-CN: zh-cn
         vls: nl
+        nb: no
   - source: /themes/**/locales/en/help/*.html
     translation: /themes/**/locales/%two_letters_code%/help/%original_file_name%
     content_segmentation: 0
@@ -47,3 +51,4 @@ files:
         pt-BR: pt-br
         zh-CN: zh-cn
         vls: nl
+        nb: no
