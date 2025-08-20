@@ -1,0 +1,3393 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-20 08:27+0200\n"
+"PO-Revision-Date: 2025-08-20 15:22\n"
+"Last-Translator: \n"
+"Language-Team: Norwegian Bokmal\n"
+"Language: nb_NO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Crowdin-Project: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"X-Crowdin-Project-ID: 2\n"
+"X-Crowdin-Language: nb\n"
+"X-Crowdin-File: /master/locales/_pot/plugins.pot\n"
+"X-Crowdin-File-ID: 264\n"
+
+#: plugins/Uninstaller/src/Backend.php:47
+msgid "Uninstall"
+msgstr "Avinstaller"
+
+#: plugins/Uninstaller/src/Backend.php:105
+msgid "Plugin has been successfully uninstalled."
+msgstr "Plugin har blitt avinstallert."
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:38
+msgid "Folders from cache directory"
+msgstr "Mapper fra hurtigbuffer-katalogen"
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:43
+#, php-format
+msgid "delete \"%s\" cache directory"
+msgstr "slett \"%s\" hurtigbuffer-katalog"
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:44
+#, php-format
+msgid "\"%s\" cache directory deleted"
+msgstr "\"%s\" cache-katalog slettet"
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:45
+#, php-format
+msgid "Failed to delete \"%s\" cache directory"
+msgstr "Kunne ikke slette hurtigbuffer-katalogen \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:46
+msgid "delete selected cache directories"
+msgstr "slette utvalgte cache-kataloger"
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:52
+#, php-format
+msgid "empty \"%s\" cache directory"
+msgstr "tom \"%s\" cache-katalog"
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:53
+#, php-format
+msgid "\"%s\" cache directory emptied"
+msgstr "\"%s\" cache-katalogen tømt"
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:54
+#, php-format
+msgid "Failed to empty \"%s\" cache directory"
+msgstr "Kunne ikke tømme hurtigbuffer-katalogen \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:55
+msgid "empty selected cache directories"
+msgstr "tømme utvalgte cachekataloger"
+
+#: plugins/Uninstaller/src/Cleaner/Logs.php:38
+msgid "Logs"
+msgstr "Logger"
+
+#: plugins/Uninstaller/src/Cleaner/Logs.php:39
+msgid "Logs in Dotclear logs table"
+msgstr "Logger i Dotclear-loggtabellen"
+
+#: plugins/Uninstaller/src/Cleaner/Logs.php:44
+#, php-format
+msgid "delete \"%s\" logs table"
+msgstr "slett tabellen \"%s\" logger"
+
+#: plugins/Uninstaller/src/Cleaner/Logs.php:45
+#, php-format
+msgid "\"%s\" logs table deleted"
+msgstr "\"%s\" logger tabell slettet"
+
+#: plugins/Uninstaller/src/Cleaner/Logs.php:46
+#, php-format
+msgid "Failed to delete \"%s\" logs table"
+msgstr "Kunne ikke slette tabellen \"%s\" logger"
+
+#: plugins/Uninstaller/src/Cleaner/Logs.php:47
+msgid "delete selected logs tables"
+msgstr "slette utvalgte loggtabeller"
+
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:37
+msgid "Folders from plugins directories"
+msgstr "Mapper fra plugins-kataloger"
+
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:42
+#, php-format
+msgid "delete \"%s\" plugin files and directories"
+msgstr "slette \"%s\" plugin-filer og -kataloger"
+
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:43
+#, php-format
+msgid "\"%s\" plugin files and directories deleted"
+msgstr "\"%s\" plugin-filer og -kataloger slettet"
+
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:44
+#, php-format
+msgid "Failed to delete \"%s\" plugin files and directories"
+msgstr "Kunne ikke slette \"%s\" plugin-filer og -kataloger"
+
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:45
+msgid "delete selected plugins files and directories"
+msgstr "slette utvalgte plugin-filer og -kataloger"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:38
+msgid "Preferences"
+msgstr "Innstillinger"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:39
+msgid "Users preferences workspaces"
+msgstr "Brukerpreferanser arbeidsområder"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:44
+#, php-format
+msgid "delete \"%s\" global preferences workspace"
+msgstr "slett \"%s\" globale preferanser arbeidsområde"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:45
+#, php-format
+msgid "\"%s\" global preferences workspace deleted"
+msgstr "\"%s\" globale preferanser arbeidsområde slettet"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:46
+#, php-format
+msgid "Failed to delete \"%s\" global preferences workspace"
+msgstr "Kunne ikke slette \"%s\" globale preferanser arbeidsområde"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:47
+msgid "delete selected global preferences workspaces"
+msgstr "slette valgte arbeidsområder for globale preferanser"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:53
+#, php-format
+msgid "delete \"%s\" users preferences workspace"
+msgstr "slett \"%s\" brukerinnstillinger arbeidsområde"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:54
+#, php-format
+msgid "\"%s\" users preferences workspace deleted"
+msgstr "\"%s\" brukerinnstillinger arbeidsområde slettet"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:55
+#, php-format
+msgid "Failed to delete \"%s\" users preferences workspace"
+msgstr "Kunne ikke slette \"%s\" brukerinnstillinger arbeidsområde"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:56
+msgid "delete selected users preferences workspaces"
+msgstr "slette valgte brukerinnstillinger arbeidsområder"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:62
+#, php-format
+msgid "delete \"%s\" preferences workspace"
+msgstr "slett \"%s\" preferanser arbeidsområde"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:63
+#, php-format
+msgid "\"%s\" preferences workspace deleted"
+msgstr "\"%s\" preferanser arbeidsområde slettet"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:64
+#, php-format
+msgid "Failed to delete \"%s\" preferences workspace"
+msgstr "Kunne ikke slette arbeidsområdet \"%s\" for innstillinger"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:65
+msgid "delete selected preferences workspaces"
+msgstr "slette valgte innstillingsarbeidsområder"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:71
+msgid "delete related preferences"
+msgstr "slette relaterte innstillinger"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:72
+msgid "related preferences deleted"
+msgstr "relaterte innstillinger slettet"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:73
+msgid "Failed to delete related preferences"
+msgstr "Kunne ikke slette relaterte innstillinger"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:39
+msgid "Namespaces registered in dcSettings"
+msgstr "Navnerom registrert i dcSettings"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:44
+#, php-format
+msgid "delete \"%s\" global settings namespace"
+msgstr "slett \"%s\" globale innstillinger navnerom"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:45
+#, php-format
+msgid "\"%s\" global settings namespace deleted"
+msgstr "\"%s\" globale innstillinger navneområde slettet"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:46
+#, php-format
+msgid "Failed to delete \"%s\" global settings namespace"
+msgstr "Kunne ikke slette navneområdet for globale innstillinger \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:47
+msgid "delete selected global settings namespaces"
+msgstr "slette utvalgte navneområder for globale innstillinger"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:53
+#, php-format
+msgid "delete \"%s\" blog settings namespace"
+msgstr "slett \"%s\" blogginnstillinger navnerom"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:54
+#, php-format
+msgid "\"%s\" blog settings namespace deleted"
+msgstr "\"%s\" navnerom for blogginnstillinger slettet"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:55
+#, php-format
+msgid "Failed to delete \"%s\" blog settings namespace"
+msgstr "Kunne ikke slette \"%s\" navnerom for blogginnstillinger"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:56
+msgid "delete selected blog settings namespaces"
+msgstr "slette utvalgte navneområder for blogginnstillinger"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:62
+#, php-format
+msgid "delete \"%s\" settings namespace"
+msgstr "slett \"%s\" innstillinger navnerom"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:63
+#, php-format
+msgid "\"%s\" settings namespace deleted"
+msgstr "\"%s\" innstillingsnavnerom slettet"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:64
+#, php-format
+msgid "Failed to delete \"%s\" settings namespace"
+msgstr "Kunne ikke slette \"%s\"-innstillingsnavneområdet"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:65
+msgid "delete selected settings namespaces"
+msgstr "slette valgte innstillinger navneområder"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:71
+msgid "delete related settings"
+msgstr "slette relaterte innstillinger"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:72
+msgid "related settings deleted"
+msgstr "relaterte innstillinger slettet"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:73
+msgid "Failed to delete related settings"
+msgstr "Kunne ikke slette relaterte innstillinger"
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:39
+msgid "Tables"
+msgstr "Bord"
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:40
+msgid "All database tables of Dotclear"
+msgstr "Alle databasetabeller i Dotclear"
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:45
+#, php-format
+msgid "delete \"%s\" table"
+msgstr "slett tabellen \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:46
+#, php-format
+msgid "\"%s\" table deleted"
+msgstr "\"%s\" tabell slettet"
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:47
+#, php-format
+msgid "Failed to delete \"%s\" table"
+msgstr "Kunne ikke slette tabellen \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:48
+msgid "delete selected tables"
+msgstr "slette utvalgte tabeller"
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:54
+#, php-format
+msgid "empty \"%s\" table"
+msgstr "tom \"%s\" tabell"
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:55
+#, php-format
+msgid "\"%s\" table emptied"
+msgstr "\"%s\" tabell tømt"
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:56
+#, php-format
+msgid "Failed to empty \"%s\" table"
+msgstr "Kunne ikke tømme tabellen \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:57
+msgid "empty selected tables"
+msgstr "tømme utvalgte tabeller"
+
+#: plugins/Uninstaller/src/Cleaner/Themes.php:36
+msgid "Themes"
+msgstr "Temaer"
+
+#: plugins/Uninstaller/src/Cleaner/Themes.php:37
+msgid "Folders from blog themes directory"
+msgstr "Mapper fra katalogen for bloggtemaer"
+
+#: plugins/Uninstaller/src/Cleaner/Themes.php:42
+#, php-format
+msgid "delete \"%s\" theme files and directories"
+msgstr "slette \"%s\" temafiler og -kataloger"
+
+#: plugins/Uninstaller/src/Cleaner/Themes.php:43
+#, php-format
+msgid "\"%s\" theme files and directories deleted"
+msgstr "\"%s\" temafiler og -kataloger slettet"
+
+#: plugins/Uninstaller/src/Cleaner/Themes.php:44
+#, php-format
+msgid "Failed to delete \"%s\" theme files and directories"
+msgstr "Kunne ikke slette temafiler og -kataloger fra \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Themes.php:45
+msgid "delete selected themes files and directories"
+msgstr "slette utvalgte temafiler og -kataloger"
+
+#: plugins/Uninstaller/src/Cleaner/Vars.php:37
+msgid "Var"
+msgstr "Var"
+
+#: plugins/Uninstaller/src/Cleaner/Vars.php:38
+msgid "Folders from Dotclear VAR directory"
+msgstr "Mapper fra Dotclear VAR-katalogen"
+
+#: plugins/Uninstaller/src/Cleaner/Vars.php:43
+#, php-format
+msgid "delete \"%s\" var directory"
+msgstr "delete \"%s\" var directory"
+
+#: plugins/Uninstaller/src/Cleaner/Vars.php:44
+#, php-format
+msgid "\"%s\" var directory deleted"
+msgstr "\"%s\" var-katalog slettet"
+
+#: plugins/Uninstaller/src/Cleaner/Vars.php:45
+#, php-format
+msgid "Failed to delete \"%s\" var directory"
+msgstr "Kunne ikke slette \"%s\" var-katalogen"
+
+#: plugins/Uninstaller/src/Cleaner/Vars.php:46
+msgid "delete selected var directories"
+msgstr "slette utvalgte var-kataloger"
+
+#: plugins/Uninstaller/src/Cleaner/Versions.php:36
+msgid "Versions"
+msgstr "Versjoner"
+
+#: plugins/Uninstaller/src/Cleaner/Versions.php:37
+msgid "Versions registered in table \"version\" of Dotclear"
+msgstr "Versjoner registrert i tabellen \"versjon\" i Dotclear"
+
+#: plugins/Uninstaller/src/Cleaner/Versions.php:42
+#, php-format
+msgid "delete \"%s\" version number"
+msgstr "delete \"%s\" versjonsnummer"
+
+#: plugins/Uninstaller/src/Cleaner/Versions.php:43
+#, php-format
+msgid "\"%s\" version number deleted"
+msgstr "\"%s\" versjonsnummer slettet"
+
+#: plugins/Uninstaller/src/Cleaner/Versions.php:44
+#, php-format
+msgid "Failed to delete \"%s\" version number"
+msgstr "Kunne ikke slette \"%s\" versjonsnummer"
+
+#: plugins/Uninstaller/src/Cleaner/Versions.php:45
+msgid "delete selected versions numbers"
+msgstr "slette valgte versjonsnumre"
+
+#: plugins/Uninstaller/src/CleanersStack.php:112
+#, php-format
+msgid "Unknown cleaner \"%s\""
+msgstr "Ukjent rengjøringsmiddel \"%s\""
+
+#: plugins/Uninstaller/src/CleanersStack.php:115
+msgid "Uninstaller can't remove itself"
+msgstr "Uninstaller kan ikke fjerne seg selv"
+
+#: plugins/Uninstaller/src/Manage.php:63
+msgid "Unknown module id to uninstall"
+msgstr "Ukjent modul-ID for avinstallering"
+
+#: plugins/Uninstaller/src/Manage.php:71
+msgid "There are no uninstall actions for this module"
+msgstr "Det finnes ingen avinstalleringshandlinger for denne modulen"
+
+#: plugins/Uninstaller/src/Manage.php:96
+msgid "Uninstall action successfuly excecuted"
+msgstr "Avinstalleringshandling vellykket utført"
+
+#: plugins/Uninstaller/src/Manage.php:99
+msgid "No uninstall action done"
+msgstr "Ingen avinstalleringshandling utført"
+
+#: plugins/Uninstaller/src/Manage.php:145
+msgid "Perform selected actions"
+msgstr "Utfør valgte handlinger"
+
+#: plugins/Uninstaller/src/Manage.php:160
+msgid "Are you sure you perform these ations?"
+msgstr "Er du sikker på at du utfører disse handlingene?"
+
+#: plugins/Uninstaller/src/Manage.php:176
+#, php-format
+msgid "Uninstall plugin \"%s\""
+msgstr "Avinstaller plugin \"%s\""
+
+#: plugins/Uninstaller/src/Manage.php:176
+#, php-format
+msgid "Uninstall theme \"%s\""
+msgstr "Avinstaller tema \"%s\""
+
+#: plugins/Uninstaller/src/Manage.php:177
+#, php-format
+msgid "The module \"%1$s\" version %2$s offers advanced uninstall process:"
+msgstr "Modulen \"%1$s\" versjon %2$s tilbyr avansert avinstallasjonsprosess:"
+
+#: plugins/_fake_plugin/_fake_l10n.php:6
+msgid "Cope with old core classes (< 2.26)"
+msgstr "Håndtere gamle kjerneklasser (< 2.26)"
+
+#: plugins/_fake_plugin/_fake_l10n.php:7 plugins/antispam/src/Backend.php:30
+msgid "Generic antispam plugin for Dotclear"
+msgstr "Generisk antispam-plugin for Dotclear"
+
+#: plugins/_fake_plugin/_fake_l10n.php:8 plugins/akismet/src/Prepend.php:27
+msgid "Akismet interface for Dotclear"
+msgstr "Akismet-grensesnitt for Dotclear"
+
+#: plugins/_fake_plugin/_fake_l10n.php:9
+#: plugins/fairTrackbacks/src/Prepend.php:27
+msgid "Trackback validity check"
+msgstr "Gyldighetskontroll av trackback"
+
+#: plugins/_fake_plugin/_fake_l10n.php:10
+#: plugins/attachments/src/Backend.php:26
+msgid "Manage post attachments"
+msgstr "Administrer vedlegg til innlegg"
+
+#: plugins/_fake_plugin/_fake_l10n.php:11 plugins/pages/src/Backend.php:29
+msgid "Serve entries as simple web pages"
+msgstr "Server oppføringer som enkle websider"
+
+#: plugins/_fake_plugin/_fake_l10n.php:12
+#: plugins/aboutConfig/src/Backend.php:26
+msgid "Manage every blog configuration directive"
+msgstr "Administrer alle bloggkonfigurasjonsdirektiver"
+
+#: plugins/_fake_plugin/_fake_l10n.php:13
+msgid "Uninstall cleanly plugins and themes"
+msgstr "Avinstaller plugins og temaer på en ren måte"
+
+#: plugins/_fake_plugin/_fake_l10n.php:14
+msgid "dotclear legacy editor"
+msgstr "dotclear legacy-editor"
+
+#: plugins/_fake_plugin/_fake_l10n.php:15
+#: plugins/themeEditor/src/Backend.php:26
+msgid "Theme Editor"
+msgstr "Temaredaktør"
+
+#: plugins/_fake_plugin/_fake_l10n.php:16 plugins/simpleMenu/src/Backend.php:27
+msgid "Simple menu for Dotclear"
+msgstr "Enkel meny for Dotclear"
+
+#: plugins/_fake_plugin/_fake_l10n.php:17
+#: plugins/importExport/src/Backend.php:28
+msgid "Import and Export your blog"
+msgstr "Importer og eksporter bloggen din"
+
+#: plugins/_fake_plugin/_fake_l10n.php:18 plugins/userPref/src/Backend.php:26
+msgid "Manage every user preference directive"
+msgstr "Administrer alle brukerpreferansedirektiver"
+
+#: plugins/_fake_plugin/_fake_l10n.php:19
+msgid "dotclear CKEditor integration"
+msgstr "dotclear CKEditor-integrering"
+
+#: plugins/_fake_plugin/_fake_l10n.php:20
+#: plugins/maintenance/src/Backend.php:26
+msgid "Maintain your installation"
+msgstr "Vedlikehold installasjonen din"
+
+#: plugins/_fake_plugin/_fake_l10n.php:21 plugins/breadcrumb/src/Backend.php:26
+msgid "Breadcrumb for Dotclear"
+msgstr "Brødsmuler for Dotclear"
+
+#: plugins/_fake_plugin/_fake_l10n.php:22 plugins/blogroll/src/Backend.php:27
+msgid "Manage your blogroll"
+msgstr "Administrer bloggrullen din"
+
+#: plugins/_fake_plugin/_fake_l10n.php:23 plugins/pings/src/Backend.php:28
+msgid "Ping services"
+msgstr "Ping-tjenester"
+
+#: plugins/_fake_plugin/_fake_l10n.php:24 plugins/tags/src/Backend.php:26
+msgid "Tags for posts"
+msgstr "Tagger for innlegg"
+
+#: plugins/_fake_plugin/_fake_l10n.php:25 plugins/widgets/src/Backend.php:28
+msgid "Widgets for your blog sidebars"
+msgstr "Widgets for sidefeltene på bloggen din"
+
+#: plugins/_fake_plugin/_fake_l10n.php:26
+msgid "Cope with function/method footprint V1 (< 2.24, 2.25)"
+msgstr "Håndtere funksjon/metode fotavtrykk V1 (< 2,24, 2,25)"
+
+#: plugins/_fake_plugin/_fake_l10n.php:30
+msgid "Search engine form"
+msgstr "Søkemotorskjema"
+
+#: plugins/_fake_plugin/_fake_l10n.php:31
+msgid "List of navigation links"
+msgstr "Liste over navigasjonslenker"
+
+#: plugins/_fake_plugin/_fake_l10n.php:32
+msgid "List of selected entries"
+msgstr "Liste over valgte oppføringer"
+
+#: plugins/_fake_plugin/_fake_l10n.php:33
+msgid "List of available languages"
+msgstr "Liste over tilgjengelige språk"
+
+#: plugins/_fake_plugin/_fake_l10n.php:34 plugins/widgets/src/Widgets.php:134
+msgid "List of categories"
+msgstr "Liste over kategorier"
+
+#: plugins/_fake_plugin/_fake_l10n.php:35
+msgid "Feed subscription links (RSS or Atom)"
+msgstr "Lenker til feedabonnement (RSS eller Atom)"
+
+#: plugins/_fake_plugin/_fake_l10n.php:36
+msgid "List of last entries from feed (RSS or Atom)"
+msgstr "Liste over siste oppføringer fra feed (RSS eller Atom)"
+
+#: plugins/_fake_plugin/_fake_l10n.php:37
+msgid "Simple text"
+msgstr "Enkel tekst"
+
+#: plugins/_fake_plugin/_fake_l10n.php:38
+msgid "List of last entries published"
+msgstr "Liste over siste publiserte oppføringer"
+
+#: plugins/_fake_plugin/_fake_l10n.php:39
+msgid "List of last comments published"
+msgstr "Liste over siste publiserte kommentarer"
+
+#: plugins/_fake_plugin/_fake_l10n.php:40
+msgid "List of published pages"
+msgstr "Liste over publiserte sider"
+
+#: plugins/_fake_plugin/_fake_l10n.php:41
+msgid "List of simple menu items"
+msgstr "Liste over enkle menypunkter"
+
+#: plugins/_fake_plugin/_fake_l10n.php:42
+msgid "Blogroll list"
+msgstr "Bloggroll-liste"
+
+#: plugins/_fake_plugin/_fake_l10n.php:43
+msgid "Tags cloud"
+msgstr "Tagger sky"
+
+#: plugins/aboutConfig/src/Backend.php:25
+msgid "about:config"
+msgstr "about:config"
+
+#: plugins/aboutConfig/src/Manage.php:89 plugins/aboutConfig/src/Manage.php:109
+msgid "Configuration successfully updated"
+msgstr "Konfigurasjonen er vellykket oppdatert"
+
+#: plugins/aboutConfig/src/Manage.php:149
+#: plugins/aboutConfig/src/Manage.php:151
+#, php-format
+msgid "Settings for %s"
+msgstr "Innstillinger for %s"
+
+#: plugins/aboutConfig/src/Manage.php:159
+#: plugins/aboutConfig/src/Manage.php:161
+msgid "Global settings"
+msgstr "Globale innstillinger"
+
+#: plugins/aboutConfig/src/Manage.php:226 plugins/userPref/src/Manage.php:224
+msgid "Goto:"
+msgstr "Goto:"
+
+#: plugins/aboutConfig/src/Manage.php:253 plugins/userPref/src/Manage.php:251
+msgid "Setting ID"
+msgstr "Innstilling ID"
+
+#: plugins/aboutConfig/src/Manage.php:254 plugins/userPref/src/Manage.php:252
+msgid "Value"
+msgstr "Verdi"
+
+#: plugins/aboutConfig/src/Manage.php:314 plugins/userPref/src/Manage.php:312
+msgid "no"
+msgstr "nei"
+
+#: plugins/aboutConfig/src/Manage.php:314 plugins/userPref/src/Manage.php:312
+msgid "yes"
+msgstr "ja"
+
+#: plugins/akismet/src/AntispamFilterAkismet.php:80
+msgid "Akismet spam filter"
+msgstr "Akismet spamfilter"
+
+#: plugins/akismet/src/AntispamFilterAkismet.php:93
+#, php-format
+msgid "Filtered by %s."
+msgstr "Filtrert av %s."
+
+#: plugins/akismet/src/AntispamFilterAkismet.php:207
+msgid "Filter configuration have been successfully saved."
+msgstr "Filterkonfigurasjonen er vellykket lagret."
+
+#: plugins/akismet/src/AntispamFilterAkismet.php:229
+msgid "API key verified"
+msgstr "API-nøkkel verifisert"
+
+#: plugins/akismet/src/AntispamFilterAkismet.php:232
+msgid "API key not verified"
+msgstr "API-nøkkel ikke bekreftet"
+
+#: plugins/akismet/src/AntispamFilterAkismet.php:250
+msgid "Akismet API key"
+msgstr "Akismet API-nøkkel"
+
+#: plugins/akismet/src/AntispamFilterAkismet.php:253
+msgid "Akismet API key:"
+msgstr "Akismet API-nøkkel:"
+
+#: plugins/akismet/src/AntispamFilterAkismet.php:263
+msgid "Get your own API key"
+msgstr "Få din egen API-nøkkel"
+
+#: plugins/akismet/src/Prepend.php:26
+msgid "Akismet"
+msgstr "Akismet"
+
+#: plugins/antispam/src/Antispam.php:147
+msgid "This comment is a spam:"
+msgstr "Denne kommentaren er spam:"
+
+#: plugins/antispam/src/Antispam.php:163 plugins/antispam/src/Rest.php:27
+#, php-format
+msgid "(including %d spam comment)"
+msgstr "(inkludert %d spam-kommentar)"
+
+#: plugins/antispam/src/Antispam.php:163 plugins/antispam/src/Rest.php:27
+#, php-format
+msgid "(including %d spam comments)"
+msgstr "(inkludert %d spam-kommentarer)"
+
+#: plugins/antispam/src/Backend.php:29
+msgid "Antispam"
+msgstr "Antispam"
+
+#: plugins/antispam/src/BackendBehaviors.php:56
+#: plugins/antispam/src/Manage.php:224
+#, php-format
+msgid "All spam comments older than %s day(s) will be automatically deleted."
+msgstr "Alle spamkommentarer som er eldre enn %s dag(er), blir automatisk slettet."
+
+#: plugins/antispam/src/BackendBehaviors.php:59
+#, php-format
+msgid "You can modify this duration in the %s."
+msgstr "Du kan endre denne varigheten på %s."
+
+#: plugins/antispam/src/BackendBehaviors.php:87
+msgid "Moderate only spam comments/trackbacks"
+msgstr "Moderer kun spam-kommentarer/trackbacks"
+
+#: plugins/antispam/src/BackendBehaviors.php:91
+msgid "If comments and/or trackbacks are moderated (see blog settings above), messages recognized  by one of the active spam filters as not being spam will be published immediately."
+msgstr "Hvis kommentarer og/eller trackbacks modereres (se blogginnstillingene ovenfor), vil meldinger som gjenkjennes av et av de aktive spamfiltrene som ikke er spam, bli publisert umiddelbart."
+
+#: plugins/antispam/src/BackendBehaviors.php:95
+msgid "Delete junk comments older than"
+msgstr "Slett uønskede kommentarer eldre enn"
+
+#: plugins/antispam/src/BackendBehaviors.php:99
+msgid "Set -1 to disabled this feature ; recommended delay is 7 days."
+msgstr "Sett -1 for å deaktivere denne funksjonen; anbefalt forsinkelse er 7 dager."
+
+#: plugins/antispam/src/BackendBehaviors.php:103
+msgid "Set spam filters."
+msgstr "Still inn spamfiltre."
+
+#: plugins/antispam/src/Filters/Ip.php:81
+msgid "IP Blocklist / Allowlist Filter"
+msgstr "Filter for IP-blokkliste/tillatelsesliste"
+
+#: plugins/antispam/src/Filters/Ip.php:94
+#: plugins/antispam/src/Filters/IpV6.php:94
+#, php-format
+msgid "Filtered by %1$s with rule %2$s."
+msgstr "Filtrert av %1$s med regelen %2$s."
+
+#: plugins/antispam/src/Filters/Ip.php:153
+#: plugins/antispam/src/Filters/IpV6.php:153
+msgid "IP address has been successfully added."
+msgstr "IP-adressen har blitt lagt til."
+
+#: plugins/antispam/src/Filters/Ip.php:164
+#: plugins/antispam/src/Filters/IpV6.php:164
+msgid "IP addresses have been successfully removed."
+msgstr "IP-adresser har blitt fjernet."
+
+#: plugins/antispam/src/Filters/Ip.php:173
+#: plugins/antispam/src/Filters/IpV6.php:173
+msgid "Blocklist"
+msgstr "Blokkliste"
+
+#: plugins/antispam/src/Filters/Ip.php:174
+#: plugins/antispam/src/Filters/IpV6.php:174
+msgid "Allowlist"
+msgstr "Tillat liste"
+
+#: plugins/antispam/src/Filters/Ip.php:189
+#: plugins/antispam/src/Filters/IpV6.php:189
+msgid "No IP address in list."
+msgstr "Ingen IP-adresse i listen."
+
+#: plugins/antispam/src/Filters/Ip.php:218
+#: plugins/antispam/src/Filters/IpV6.php:217
+msgid "Local IPs (used only for this blog)"
+msgstr "Lokale IP-er (brukes kun for denne bloggen)"
+
+#: plugins/antispam/src/Filters/Ip.php:226
+#: plugins/antispam/src/Filters/IpV6.php:225
+msgid "Global IPs (used for all blogs)"
+msgstr "Globale IP-er (brukes for alle blogger)"
+
+#: plugins/antispam/src/Filters/Ip.php:237
+#: plugins/antispam/src/Filters/IpV6.php:236
+msgid "IP list"
+msgstr "IP-liste"
+
+#: plugins/antispam/src/Filters/Ip.php:253
+#: plugins/antispam/src/Filters/IpV6.php:252
+msgid "Global IP (used for all blogs)"
+msgstr "Global IP (brukes for alle blogger)"
+
+#: plugins/antispam/src/Filters/Ip.php:270
+#: plugins/antispam/src/Filters/IpV6.php:269
+msgid "Add an IP address:"
+msgstr "Legg til en IP-adresse:"
+
+#: plugins/antispam/src/Filters/Ip.php:274
+#: plugins/antispam/src/Filters/IpV6.php:273
+#: plugins/antispam/src/Filters/Words.php:292
+#: plugins/widgets/src/Manage.php:322
+msgid "Add"
+msgstr "Legg til"
+
+#: plugins/antispam/src/Filters/IpLookup.php:75
+msgid "Checks sender IP address against DNSBL servers"
+msgstr "Sjekker avsenderens IP-adresse mot DNSBL-servere"
+
+#: plugins/antispam/src/Filters/IpLookup.php:88
+#: plugins/antispam/src/Filters/LinksLookup.php:64
+#, php-format
+msgid "Filtered by %1$s with server %2$s."
+msgstr "Filtrert av %1$s med server %2$s."
+
+#: plugins/antispam/src/Filters/IpLookup.php:144
+msgid "The list of DNSBL servers has been succesfully updated."
+msgstr "Listen over DNSBL-servere har blitt oppdatert."
+
+#: plugins/antispam/src/Filters/IpLookup.php:157
+msgid "IP Lookup servers"
+msgstr "IP-oppslagsservere"
+
+#: plugins/antispam/src/Filters/IpLookup.php:162
+msgid "Add here a coma separated list of servers."
+msgstr "Legg til en komaseparert liste over servere her."
+
+#: plugins/antispam/src/Filters/IpV6.php:81
+msgid "IP v6 Blocklist / Allowlist Filter"
+msgstr "IP v6 Blocklist / Allowlist-filter"
+
+#: plugins/antispam/src/Filters/LinksLookup.php:51
+msgid "Checks links in comments against surbl.org"
+msgstr "Sjekker lenker i kommentarer mot surbl.org"
+
+#: plugins/antispam/src/Filters/Words.php:82
+msgid "Words Blocklist"
+msgstr "Ord Sperreliste"
+
+#: plugins/antispam/src/Filters/Words.php:95
+#, php-format
+msgid "Filtered by %1$s with word %2$s."
+msgstr "Filtrert av %1$s med ordet %2$s."
+
+#: plugins/antispam/src/Filters/Words.php:150
+msgid "Words have been successfully added."
+msgstr "Ord har blitt lagt til."
+
+#: plugins/antispam/src/Filters/Words.php:163
+msgid "Word has been successfully added."
+msgstr "Ordet har blitt lagt til."
+
+#: plugins/antispam/src/Filters/Words.php:174
+msgid "Words have been successfully removed."
+msgstr "Ord har blitt fjernet."
+
+#: plugins/antispam/src/Filters/Words.php:196
+msgid "No word in list."
+msgstr "Ingen ord i listen."
+
+#: plugins/antispam/src/Filters/Words.php:224
+msgid "Local words (used only for this blog)"
+msgstr "Lokale ord (kun brukt i denne bloggen)"
+
+#: plugins/antispam/src/Filters/Words.php:232
+msgid "Global words (used for all blogs)"
+msgstr "Globale ord (brukes for alle blogger)"
+
+#: plugins/antispam/src/Filters/Words.php:243
+msgid "List of bad words"
+msgstr "Liste over stygge ord"
+
+#: plugins/antispam/src/Filters/Words.php:248
+msgid "Delete selected words"
+msgstr "Slett valgte ord"
+
+#: plugins/antispam/src/Filters/Words.php:258
+msgid "Global word (used for all blogs)"
+msgstr "Globalt ord (brukes for alle blogger)"
+
+#: plugins/antispam/src/Filters/Words.php:268
+msgid "Create default wordlist"
+msgstr "Opprett standard ordliste"
+
+#: plugins/antispam/src/Filters/Words.php:289
+msgid "Add a word:"
+msgstr "Legg til et ord:"
+
+#: plugins/antispam/src/Filters/Words.php:354
+msgid "This word exists"
+msgstr "Dette ordet finnes"
+
+#: plugins/antispam/src/FrontendUrl.php:61
+msgid "Spam moderation"
+msgstr "Moderering av søppelpost"
+
+#: plugins/antispam/src/FrontendUrl.php:65
+msgid "Spam"
+msgstr "Søppelpost"
+
+#: plugins/antispam/src/FrontendUrl.php:69
+msgid "Ham"
+msgstr "Skinke"
+
+#: plugins/antispam/src/Manage.php:72
+msgid "Filter does not exist."
+msgstr "Filteret finnes ikke."
+
+#: plugins/antispam/src/Manage.php:76
+msgid "Filter has no user interface."
+msgstr "Filteret har ikke noe brukergrensesnitt."
+
+#: plugins/antispam/src/Manage.php:137 plugins/antispam/src/Manage.php:270
+msgid "Filters configuration has been successfully saved."
+msgstr "Filterkonfigurasjonen er vellykket lagret."
+
+#: plugins/antispam/src/Manage.php:154
+#, php-format
+msgid "%s configuration"
+msgstr "%s konfigurasjon"
+
+#: plugins/antispam/src/Manage.php:175
+#, php-format
+msgid "%s filter configuration"
+msgstr "%s filterkonfigurasjon"
+
+#: plugins/antispam/src/Manage.php:182
+msgid "Back to filters list"
+msgstr "Tilbake til filterlisten"
+
+#: plugins/antispam/src/Manage.php:229
+#, php-format
+msgid "You can modify this duration in the %s"
+msgstr "Du kan endre denne varigheten i %s"
+
+#: plugins/antispam/src/Manage.php:238
+msgid "Information"
+msgstr "Informasjon"
+
+#: plugins/antispam/src/Manage.php:249
+msgid "Junk comments:"
+msgstr "Uønskede kommentarer:"
+
+#: plugins/antispam/src/Manage.php:255
+msgid "Published comments:"
+msgstr "Publiserte kommentarer:"
+
+#: plugins/antispam/src/Manage.php:279 plugins/antispam/src/Manage.php:282
+#: plugins/antispam/src/Manage.php:286
+msgid "Filter configuration"
+msgstr "Filterkonfigurasjon"
+
+#: plugins/antispam/src/Manage.php:302 plugins/blogroll/src/Manage.php:306
+msgid "position"
+msgstr "stilling"
+
+#: plugins/antispam/src/Manage.php:309 plugins/antispam/src/Manage.php:343
+msgid "Active"
+msgstr "Aktiv"
+
+#: plugins/antispam/src/Manage.php:316 plugins/antispam/src/Manage.php:344
+msgid "Auto Del."
+msgstr "Auto Del."
+
+#: plugins/antispam/src/Manage.php:337
+msgid "Available spam filters"
+msgstr "Tilgjengelige spamfiltre"
+
+#: plugins/antispam/src/Manage.php:342
+#: plugins/pages/src/BackendDefaultActions.php:74
+msgid "Order"
+msgstr "Bestilling"
+
+#: plugins/antispam/src/Manage.php:345
+msgid "Filter name"
+msgstr "Navn på filter"
+
+#: plugins/antispam/src/Manage.php:372
+msgid "Syndication"
+msgstr "Syndikering"
+
+#: plugins/antispam/src/Manage.php:375
+msgid "Junk comments RSS feed"
+msgstr "Søppelkommentarer RSS-feed"
+
+#: plugins/antispam/src/Manage.php:378
+msgid "Published comments RSS feed"
+msgstr "Publiserte kommentarer RSS-feed"
+
+#: plugins/antispam/src/SpamFilter.php:93
+msgid "No description"
+msgstr "Ingen beskrivelse"
+
+#: plugins/antispam/src/SpamFilter.php:151
+#, php-format
+msgid "Filtered by %1$s (%2$s)"
+msgstr "Filtrert etter %1$s (%2$s)"
+
+#: plugins/antispam/src/SpamFilters.php:158
+msgid "Unknown filter."
+msgstr "Ukjent filter."
+
+#: plugins/attachments/src/Backend.php:25
+msgid "attachments"
+msgstr "Vedlegg"
+
+#: plugins/attachments/src/BackendBehaviors.php:97
+msgid "remove"
+msgstr "fjerne"
+
+#: plugins/attachments/src/BackendBehaviors.php:107
+msgid "No attachment."
+msgstr "Ingen vedlegg."
+
+#: plugins/attachments/src/BackendBehaviors.php:112
+#, php-format
+msgid "Attachments (%d)"
+msgstr "Vedlegg (%d)"
+
+#: plugins/attachments/src/BackendBehaviors.php:121
+msgid "Add files to this entry"
+msgstr "Legg til filer til denne oppføringen"
+
+#: plugins/attachments/src/BackendBehaviors.php:130
+msgid "You must save the entry before adding an attachment."
+msgstr "Du må lagre oppføringen før du kan legge til et vedlegg."
+
+#: plugins/blogroll/src/Action/ActionsLinks.php:67
+#: plugins/blogroll/src/Action/ActionsLinks.php:73
+#: plugins/blogroll/src/Widgets.php:48
+msgid "Links"
+msgstr "Lenker"
+
+#: plugins/blogroll/src/Action/ActionsLinks.php:83
+msgid "Back to links list"
+msgstr "Tilbake til lenkelisten"
+
+#: plugins/blogroll/src/Action/ActionsLinks.php:111
+msgid "Links actions"
+msgstr "Lenker handlinger"
+
+#: plugins/blogroll/src/Action/ActionsLinksDefault.php:77
+#, php-format
+msgid "%d link has been successfully updated to status : \"%s\""
+msgid_plural "%d links have been successfully updated to status : \"%s\""
+msgstr[0] "%d lenken har blitt oppdatert til status : \"%s\""
+msgstr[1] "%d lenker har blitt oppdatert til status : \"%s\""
+
+#: plugins/blogroll/src/Action/ActionsLinksDefault.php:99
+msgid "No link selected"
+msgstr "Ingen lenke valgt"
+
+#: plugins/blogroll/src/Action/ActionsLinksDefault.php:116
+#, php-format
+msgid "%d link has been successfully deleted"
+msgid_plural "%d links have been successfully deleted"
+msgstr[0] "%d lenken har blitt slettet"
+msgstr[1] "%d lenker har blitt slettet"
+
+#: plugins/blogroll/src/Backend.php:26
+msgid "Blogroll"
+msgstr "Bloggliste"
+
+#: plugins/blogroll/src/Backend.php:38
+msgid "manage blogroll"
+msgstr "administrere bloggroll"
+
+#: plugins/blogroll/src/Blogroll.php:176 plugins/blogroll/src/Blogroll.php:220
+msgid "You must provide a link title"
+msgstr "Du må oppgi en lenketittel"
+
+#: plugins/blogroll/src/Blogroll.php:180 plugins/blogroll/src/Blogroll.php:224
+msgid "You must provide a link URL"
+msgstr "Du må oppgi en URL-adresse for lenken"
+
+#: plugins/blogroll/src/Blogroll.php:421
+msgid "You are not allowed to change link status"
+msgstr "Du har ikke lov til å endre koblingsstatus"
+
+#: plugins/blogroll/src/Blogroll.php:454
+msgid "You are not allowed to delete links"
+msgstr "Du har ikke lov til å slette lenker"
+
+#: plugins/blogroll/src/Manage.php:114 plugins/blogroll/src/Manage.php:617
+msgid "Nothing to import"
+msgstr "Ingenting å importere"
+
+#: plugins/blogroll/src/Manage.php:137
+msgid "links have been successfully imported."
+msgstr "lenker har blitt importert."
+
+#: plugins/blogroll/src/Manage.php:144
+msgid "Import operation cancelled."
+msgstr "Importoperasjonen avbrutt."
+
+#: plugins/blogroll/src/Manage.php:160
+msgid "Link has been successfully created."
+msgstr "Koblingen har blitt opprettet."
+
+#: plugins/blogroll/src/Manage.php:176
+msgid "category has been successfully created."
+msgstr "kategorien har blitt opprettet."
+
+#: plugins/blogroll/src/Manage.php:209
+msgid "Items order has been successfully updated"
+msgstr "Varebestillingen har blitt oppdatert"
+
+#: plugins/blogroll/src/Manage.php:275
+msgid "Are you sure you want to delete selected links?"
+msgstr "Er du sikker på at du vil slette valgte lenker?"
+
+#: plugins/blogroll/src/Manage.php:313
+msgid "select this link"
+msgstr "velg denne lenken"
+
+#: plugins/blogroll/src/Manage.php:373
+msgid "Lang"
+msgstr "Lang"
+
+#: plugins/blogroll/src/Manage.php:421
+msgid "Selected links action:"
+msgstr "Utvalgte lenker handling:"
+
+#: plugins/blogroll/src/Manage.php:441
+msgid "The link list is empty"
+msgstr "Lenkelisten er tom"
+
+#: plugins/blogroll/src/Manage.php:464
+msgid "Add a new link"
+msgstr "Legg til en ny lenke"
+
+#: plugins/blogroll/src/Manage.php:515 plugins/blogroll/src/Manage.php:565
+#: plugins/blogroll/src/ManageEdit.php:224
+#: plugins/blogroll/src/ManageEdit.php:296
+msgid "Link status"
+msgstr "Linkstatus"
+
+#: plugins/blogroll/src/Manage.php:534
+msgid "Add a category"
+msgstr "Legg til en kategori"
+
+#: plugins/blogroll/src/Manage.php:588 plugins/blogroll/src/Manage.php:680
+#: plugins/blogroll/src/Manage.php:687
+msgid "Import links"
+msgstr "Importer lenker"
+
+#: plugins/blogroll/src/Manage.php:597
+msgid "OPML or XBEL File:"
+msgstr "OPML- eller XBEL-fil:"
+
+#: plugins/blogroll/src/Manage.php:607 plugins/blogroll/src/Manage.php:672
+#: plugins/importExport/src/Manage.php:130
+#: plugins/importExport/src/ModuleImportFeed.php:239
+#: plugins/importExport/src/ModuleImportFlat.php:245
+#: plugins/importExport/src/ModuleImportFlat.php:307
+msgid "Import"
+msgstr "Import"
+
+#: plugins/blogroll/src/ManageEdit.php:71
+msgid "No such link or title"
+msgstr "Ingen slik lenke eller tittel"
+
+#: plugins/blogroll/src/ManageEdit.php:131
+msgid "Link has been successfully updated"
+msgstr "Lenken har blitt oppdatert"
+
+#: plugins/blogroll/src/ManageEdit.php:148
+msgid "Category has been successfully updated"
+msgstr "Kategorien har blitt oppdatert"
+
+#: plugins/blogroll/src/ManageEdit.php:181
+#: plugins/dcCKEditor/src/BackendBehaviors.php:62
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:221
+msgid "Link"
+msgstr "Lenke"
+
+#: plugins/blogroll/src/ManageEdit.php:188
+msgid "Return to blogroll"
+msgstr "Gå tilbake til bloggrullen"
+
+#: plugins/blogroll/src/ManageEdit.php:199
+msgid "Edit category"
+msgstr "Rediger kategori"
+
+#: plugins/blogroll/src/ManageEdit.php:243
+msgid "Edit link"
+msgstr "Rediger lenke"
+
+#: plugins/blogroll/src/ManageEdit.php:302
+msgid "XFN information"
+msgstr "XFN-informasjon"
+
+#: plugins/blogroll/src/ManageEdit.php:306
+#, php-format
+msgid "More information on <a href=\"%s\">Wikipedia</a> website"
+msgstr "Mer informasjon på <a href=\"%s\">Wikipedias</a> nettside"
+
+#: plugins/blogroll/src/ManageEdit.php:312
+msgid "_xfn_Me"
+msgstr "_xfn_Me"
+
+#: plugins/blogroll/src/ManageEdit.php:316
+msgid "_xfn_Another link for myself"
+msgstr "_xfn_Enda en lenke til meg selv"
+
+#: plugins/blogroll/src/ManageEdit.php:320
+msgid "_xfn_Friendship"
+msgstr "_xfn_Friendship"
+
+#: plugins/blogroll/src/ManageEdit.php:324
+msgid "_xfn_Contact"
+msgstr "_xfn_Kontakt"
+
+#: plugins/blogroll/src/ManageEdit.php:327
+msgid "_xfn_Acquaintance"
+msgstr "_xfn_Bekjentskap"
+
+#: plugins/blogroll/src/ManageEdit.php:330
+msgid "_xfn_Friend"
+msgstr "_xfn_Friend"
+
+#: plugins/blogroll/src/ManageEdit.php:340
+msgid "_xfn_Physical"
+msgstr "_xfn_Physical"
+
+#: plugins/blogroll/src/ManageEdit.php:344
+msgid "_xfn_Met"
+msgstr "_xfn_Met"
+
+#: plugins/blogroll/src/ManageEdit.php:348
+msgid "_xfn_Professional"
+msgstr "_xfn_Profesjonell"
+
+#: plugins/blogroll/src/ManageEdit.php:352
+msgid "_xfn_Co-worker"
+msgstr "_xfn_Co-arbeider"
+
+#: plugins/blogroll/src/ManageEdit.php:355
+msgid "_xfn_Colleague"
+msgstr "_xfn_Colleague"
+
+#: plugins/blogroll/src/ManageEdit.php:359
+msgid "_xfn_Geographical"
+msgstr "_xfn_Geografisk"
+
+#: plugins/blogroll/src/ManageEdit.php:363
+msgid "_xfn_Co-resident"
+msgstr "_xfn_Co-resident"
+
+#: plugins/blogroll/src/ManageEdit.php:366
+msgid "_xfn_Neighbor"
+msgstr "_xfn_Nabo"
+
+#: plugins/blogroll/src/ManageEdit.php:376
+msgid "_xfn_Family"
+msgstr "_xfn_Family"
+
+#: plugins/blogroll/src/ManageEdit.php:380
+msgid "_xfn_Child"
+msgstr "_xfn_Child"
+
+#: plugins/blogroll/src/ManageEdit.php:383
+msgid "_xfn_Parent"
+msgstr "_xfn_Parent"
+
+#: plugins/blogroll/src/ManageEdit.php:386
+msgid "_xfn_Sibling"
+msgstr "_xfn_Søsken"
+
+#: plugins/blogroll/src/ManageEdit.php:389
+msgid "_xfn_Spouse"
+msgstr "_xfn_Spouse"
+
+#: plugins/blogroll/src/ManageEdit.php:392
+msgid "_xfn_Kin"
+msgstr "_xfn_Kin"
+
+#: plugins/blogroll/src/ManageEdit.php:402
+msgid "_xfn_Romantic"
+msgstr "_xfn_Romantic"
+
+#: plugins/blogroll/src/ManageEdit.php:406
+msgid "_xfn_Muse"
+msgstr "_xfn_Muse"
+
+#: plugins/blogroll/src/ManageEdit.php:409
+msgid "_xfn_Crush"
+msgstr "_xfn_Crush"
+
+#: plugins/blogroll/src/ManageEdit.php:412
+msgid "_xfn_Date"
+msgstr "_xfn_Dato"
+
+#: plugins/blogroll/src/ManageEdit.php:415
+msgid "_xfn_Sweetheart"
+msgstr "_xfn_Sweetheart"
+
+#: plugins/blogroll/src/UtilsImport.php:38
+msgid "You need to provide a XBEL or OPML file."
+msgstr "Du må oppgi en XBEL- eller OPML-fil."
+
+#: plugins/blogroll/src/UtilsImport.php:55
+#: plugins/blogroll/src/UtilsImport.php:99
+msgid "File is not in XML format."
+msgstr "Filen er ikke i XML-format."
+
+#: plugins/blogroll/src/Widgets.php:39
+msgid "All categories"
+msgstr "Alle kategorier"
+
+#: plugins/breadcrumb/src/Backend.php:25
+msgid "Breadcrumb"
+msgstr "Brødsmuler"
+
+#: plugins/breadcrumb/src/BackendBehaviors.php:40
+msgid "Enable breadcrumb for this blog"
+msgstr "Aktiver brødsmuler for denne bloggen"
+
+#: plugins/breadcrumb/src/BackendBehaviors.php:44
+msgid "The {{tpl:Breadcrumb [separator=\" &amp;rsaquo; \"]}} tag should be present (or inserted if not) in the template."
+msgstr "Taggen {{tpl:Breadcrumb [separator=\" &amp;rsaquo; \"]}} skal være til stede (eller settes inn hvis den ikke er det) i malen."
+
+#: plugins/breadcrumb/src/BackendBehaviors.php:49
+msgid "Do not encapsulate breadcrumb in a &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; tag."
+msgstr "Ikke kapsl inn breadcrumb i en &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; tag."
+
+#: plugins/breadcrumb/src/FrontendTemplate.php:71
+#: plugins/breadcrumb/src/FrontendTemplate.php:76
+#: plugins/breadcrumb/src/FrontendTemplate.php:83
+#: plugins/breadcrumb/src/FrontendTemplate.php:87
+#: plugins/breadcrumb/src/FrontendTemplate.php:98
+#: plugins/breadcrumb/src/FrontendTemplate.php:111
+#: plugins/breadcrumb/src/FrontendTemplate.php:127
+#: plugins/breadcrumb/src/FrontendTemplate.php:144
+#: plugins/breadcrumb/src/FrontendTemplate.php:152
+#: plugins/breadcrumb/src/FrontendTemplate.php:166
+#: plugins/breadcrumb/src/FrontendTemplate.php:173
+#: plugins/breadcrumb/src/FrontendTemplate.php:180
+#: plugins/breadcrumb/src/FrontendTemplate.php:193
+#: plugins/breadcrumb/src/FrontendTemplate.php:205
+#: plugins/breadcrumb/src/FrontendTemplate.php:211
+#: plugins/simpleMenu/src/Manage.php:147 plugins/simpleMenu/src/Manage.php:260
+#: plugins/widgets/src/Widgets.php:296
+msgid "Home"
+msgstr "Hjem"
+
+#: plugins/breadcrumb/src/FrontendTemplate.php:105
+#: plugins/breadcrumb/src/FrontendTemplate.php:120
+#: plugins/breadcrumb/src/FrontendTemplate.php:186
+#: plugins/breadcrumb/src/FrontendTemplate.php:198
+#, php-format
+msgid "page %d"
+msgstr "side %d"
+
+#: plugins/breadcrumb/src/FrontendTemplate.php:155
+#: plugins/breadcrumb/src/FrontendTemplate.php:158
+#: plugins/simpleMenu/src/Manage.php:287 plugins/widgets/src/Widgets.php:324
+msgid "Archives"
+msgstr "Arkiv"
+
+#: plugins/breadcrumb/src/FrontendTemplate.php:174
+#: plugins/breadcrumb/src/FrontendTemplate.php:181
+#: plugins/simpleMenu/src/Manage.php:131 plugins/simpleMenu/src/Manage.php:307
+#: plugins/tags/src/Widgets.php:57
+msgid "All tags"
+msgstr "Alle tagger"
+
+#: plugins/breadcrumb/src/FrontendTemplate.php:206
+msgid "404"
+msgstr "404"
+
+#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:37
+msgid "Generate fake l10n"
+msgstr "Generer falske l10n"
+
+#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:38
+msgid "fake l10n file generated."
+msgstr "falsk l10n-fil generert."
+
+#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:39
+msgid "Failed to generate fake l10n file."
+msgstr "Kunne ikke generere en falsk l10n-fil."
+
+#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:40
+msgid "Generate a php file that contents strings to translate that are not be done with core tools."
+msgstr "Generer en php-fil som inneholder strenger som skal oversettes, men som ikke kan gjøres med kjerneverktøyene."
+
+#: plugins/dcCKEditor/src/Backend.php:25
+msgid "dcCKEditor"
+msgstr "dcCKEditor"
+
+#: plugins/dcCKEditor/src/Backend.php:26 plugins/dcCKEditor/src/Manage.php:170
+msgid "CKEditor"
+msgstr "CKEditor"
+
+#: plugins/dcCKEditor/src/Backend.php:41
+#: plugins/dcLegacyEditor/src/Backend.php:46
+msgid "HTML"
+msgstr "HTML"
+
+#: plugins/dcCKEditor/src/BackendBehaviors.php:59
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:237
+msgid "Media chooser"
+msgstr "Medievalg"
+
+#: plugins/dcCKEditor/src/BackendBehaviors.php:60
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:240
+msgid "m"
+msgstr "m"
+
+#: plugins/dcCKEditor/src/BackendBehaviors.php:61
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:244
+msgid "Link to an entry"
+msgstr "Lenke til en oppføring"
+
+#: plugins/dcCKEditor/src/BackendBehaviors.php:63
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:224
+msgid "l"
+msgstr "l"
+
+#: plugins/dcCKEditor/src/BackendBehaviors.php:64
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:230
+msgid "External image"
+msgstr "Eksternt bilde"
+
+#: plugins/dcCKEditor/src/BackendBehaviors.php:65
+msgid "URL field cannot be empty."
+msgstr "URL-feltet kan ikke være tomt."
+
+#: plugins/dcCKEditor/src/BackendBehaviors.php:89
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:266
+msgid "Open the media"
+msgstr "Åpne mediet"
+
+#: plugins/dcCKEditor/src/Manage.php:149
+#: plugins/dcLegacyEditor/src/Manage.php:56
+msgid "The configuration has been updated."
+msgstr "Konfigurasjonen har blitt oppdatert."
+
+#: plugins/dcCKEditor/src/Manage.php:179
+#: plugins/dcLegacyEditor/src/Manage.php:82
+msgid "Plugin activation"
+msgstr "Plugin-aktivering"
+
+#: plugins/dcCKEditor/src/Manage.php:185
+msgid "Enable CKEditor plugin"
+msgstr "Aktiver CKEditor-plugin"
+
+#: plugins/dcCKEditor/src/Manage.php:198
+msgid "Add alignment buttons"
+msgstr "Legg til justeringsknapper"
+
+#: plugins/dcCKEditor/src/Manage.php:204
+msgid "Add lists buttons"
+msgstr "Knappene Legg til lister"
+
+#: plugins/dcCKEditor/src/Manage.php:210
+msgid "Add text color button"
+msgstr "Knappen Legg til tekstfarge"
+
+#: plugins/dcCKEditor/src/Manage.php:216
+msgid "Add background text color button"
+msgstr "Knappen Legg til bakgrunnstekstfarge"
+
+#: plugins/dcCKEditor/src/Manage.php:219
+msgid "Custom colors list:"
+msgstr "Liste over tilpassede farger:"
+
+#: plugins/dcCKEditor/src/Manage.php:233
+msgid "Add colors without # separated by a comma."
+msgstr "Legg til farger uten # atskilt med komma."
+
+#: plugins/dcCKEditor/src/Manage.php:238
+msgid "Leave empty to use the default palette:"
+msgstr "La den stå tom for å bruke standardpaletten:"
+
+#: plugins/dcCKEditor/src/Manage.php:244
+msgid "Example of custom color list:"
+msgstr "Eksempel på tilpasset fargeliste:"
+
+#: plugins/dcCKEditor/src/Manage.php:252
+msgid "Colors per row in palette:"
+msgstr "Farger per rad i paletten:"
+
+#: plugins/dcCKEditor/src/Manage.php:256
+msgid "Valid range: 4 to 16"
+msgstr "Gyldig område: 4 til 16"
+
+#: plugins/dcCKEditor/src/Manage.php:261
+msgid "Add collapse button"
+msgstr "Legg til kollaps-knapp"
+
+#: plugins/dcCKEditor/src/Manage.php:267
+msgid "Add format selection"
+msgstr "Legg til formatvalg"
+
+#: plugins/dcCKEditor/src/Manage.php:270
+msgid "Custom formats"
+msgstr "Tilpassede formater"
+
+#: plugins/dcCKEditor/src/Manage.php:284
+msgid "Default formats are p;h1;h2;h3;h4;h5;h6;pre;address"
+msgstr "Standardformater er p;h1;h2;h3;h4;h5;h6;pre;address"
+
+#: plugins/dcCKEditor/src/Manage.php:290
+msgid "Add table button"
+msgstr "Knappen Legg til tabell"
+
+#: plugins/dcCKEditor/src/Manage.php:296
+msgid "Add clipboard buttons"
+msgstr "Legg til utklippstavleknapper"
+
+#: plugins/dcCKEditor/src/Manage.php:300
+msgid "Copy, Paste, Paste Text, Paste from Word"
+msgstr "Kopier, Lim inn, Lim inn tekst, Lim inn fra Word"
+
+#: plugins/dcCKEditor/src/Manage.php:305
+msgid "Add undo/redo buttons"
+msgstr "Legg til angre/gjenopprett-knapper"
+
+#: plugins/dcCKEditor/src/Manage.php:311
+msgid "Disables the built-in spell checker if the browser provides one"
+msgstr "Deaktiverer den innebygde stavekontrollen hvis nettleseren har en slik"
+
+#: plugins/dcCKEditor/src/Manage.php:321
+#: plugins/dcLegacyEditor/src/Manage.php:111
+#: plugins/simpleMenu/src/Manage.php:761
+msgid "Save configuration"
+msgstr "Lagre konfigurasjon"
+
+#: plugins/dcCKEditor/src/ManagePostConfig.php:136
+msgid "Note(s)"
+msgstr "Merknad(er)"
+
+#: plugins/dcLegacyEditor/src/Backend.php:26
+msgid "dcLegacyEditor"
+msgstr "dcLegacyEditor"
+
+#: plugins/dcLegacyEditor/src/Backend.php:27
+#: plugins/dcLegacyEditor/src/Manage.php:73
+msgid "Dotclear editor"
+msgstr "Dotclear-redaktør"
+
+#: plugins/dcLegacyEditor/src/Backend.php:50
+msgid "Dotclear wiki"
+msgstr "Dotclear wiki"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:141
+msgid "visual"
+msgstr "visuell"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:142
+msgid "source"
+msgstr "kilde"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:143
+msgid "You can use the following shortcuts to format your text."
+msgstr "Du kan bruke følgende snarveier for å formatere teksten."
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:146
+msgid "Block format"
+msgstr "Blokkformat"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:148
+msgid "-- none --"
+msgstr "-- ingen --"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:149
+msgid "-- block format --"
+msgstr "-- blokkformat --"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:150
+msgid "Paragraph"
+msgstr "Paragraf"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:151
+msgid "Level 1 header"
+msgstr "Nivå 1-topptekst"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:152
+msgid "Level 2 header"
+msgstr "Nivå 2-topptekst"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:153
+msgid "Level 3 header"
+msgstr "Nivå 3-topptekst"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:154
+msgid "Level 4 header"
+msgstr "Topptekst på nivå 4"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:155
+msgid "Level 5 header"
+msgstr "Topptekst på nivå 5"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:156
+msgid "Level 6 header"
+msgstr "Nivå 6 topptekst"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:160
+msgid "Strong emphasis"
+msgstr "Sterk vektlegging"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:165
+msgid "Emphasis"
+msgstr "Utheving"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:170
+msgid "Inserted"
+msgstr "Satt inn"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:175
+msgid "Deleted"
+msgstr "Slettet"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:180
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:268
+msgid "Inline quote"
+msgstr "Inline sitat"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:185
+msgid "Code"
+msgstr "Kode"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:195
+msgid "Line break"
+msgstr "Linjeskift"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:200
+msgid "Blockquote"
+msgstr "Sitatblokk"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:205
+msgid "Preformated text"
+msgstr "Forhåndsformulert tekst"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:210
+msgid "Unordered list"
+msgstr "Uordnet liste"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:215
+msgid "Ordered list"
+msgstr "Ordnet liste"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:225
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:233
+msgid "URL?"
+msgstr "URL?"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:226
+msgid "Language?"
+msgstr "Språk?"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:249
+msgid "Remove text formating"
+msgstr "Fjern tekstformatering"
+
+#: plugins/dcLegacyEditor/src/Manage.php:88
+msgid "Enable standard editor plugin"
+msgstr "Aktiver standard redigeringsprogramtillegg"
+
+#: plugins/dcLegacyEditor/src/Manage.php:101
+msgid "Adjust height of input area during editing"
+msgstr "Juster høyden på inndataområdet under redigering"
+
+#: plugins/fairTrackbacks/src/AntispamFilterFairTrackbacks.php:54
+msgid "Checks trackback source for a link to the post"
+msgstr "Sjekker trackback-kilden for en lenke til innlegget"
+
+#: plugins/fairTrackbacks/src/Prepend.php:26
+msgid "Fair Trackbacks"
+msgstr "Fair Trackbacks"
+
+#: plugins/importExport/src/Backend.php:27
+msgid "Import / Export"
+msgstr "Import/eksport"
+
+#: plugins/importExport/src/ExportBlogMaintenanceTask.php:43
+#: plugins/importExport/src/ExportFullMaintenanceTask.php:42
+msgid "Database export"
+msgstr "Eksport av databaser"
+
+#: plugins/importExport/src/ExportBlogMaintenanceTask.php:44
+msgid "Download database of current blog"
+msgstr "Last ned database med aktuelle blogger"
+
+#: plugins/importExport/src/ExportBlogMaintenanceTask.php:108
+#: plugins/importExport/src/ExportFullMaintenanceTask.php:107
+msgid "Compress file"
+msgstr "Komprimere filen"
+
+#: plugins/importExport/src/ExportFullMaintenanceTask.php:43
+msgid "Download database of all blogs"
+msgstr "Last ned database over alle blogger"
+
+#: plugins/importExport/src/FlatBackup.php:50
+msgid "No file to read."
+msgstr "Ingen fil å lese."
+
+#: plugins/importExport/src/FlatExport.php:48
+msgid "Unable to create output file."
+msgstr "Kan ikke opprette utdatafil."
+
+#: plugins/importExport/src/FlatImportV2.php:97
+msgid "Unable to read the DotClear backup file."
+msgstr "Kunne ikke lese DotClear-sikkerhetskopifilen."
+
+#: plugins/importExport/src/FlatImportV2.php:101
+msgid "File is not a DotClear backup."
+msgstr "Filen er ikke en DotClear-sikkerhetskopi."
+
+#: plugins/importExport/src/FlatImportV2.php:177
+msgid "File is not a single blog export."
+msgstr "Filen er ikke en enkelt bloggeksport."
+
+#: plugins/importExport/src/FlatImportV2.php:291
+#: plugins/importExport/src/FlatImportV2.php:345
+#, php-format
+msgid "Error raised at line %s"
+msgstr "Feil oppstått på linje %s"
+
+#: plugins/importExport/src/FlatImportV2.php:300
+msgid "File is not a full export."
+msgstr "Filen er ikke en fullstendig eksport."
+
+#: plugins/importExport/src/FlatImportV2.php:756
+#, php-format
+msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
+msgstr "ID for \"%3$s\" stemmer ikke overens med oppføringen \"%1$s\" på linje %2$s i sikkerhetskopifilen."
+
+#: plugins/importExport/src/Manage.php:90
+#: plugins/maintenance/src/Manage.php:199
+msgid "Please wait..."
+msgstr "Vennligst vent..."
+
+#: plugins/importExport/src/Manage.php:136
+msgid "Export"
+msgstr "Eksport"
+
+#: plugins/importExport/src/Manage.php:141
+#, php-format
+msgid "Export functions are in the page %s."
+msgstr "Eksportfunksjonene finnes på siden %s."
+
+#: plugins/importExport/src/Manage.php:144
+#: plugins/maintenance/src/Backend.php:25
+#: plugins/maintenance/src/BackendBehaviors.php:221
+msgid "Maintenance"
+msgstr "Vedlikehold"
+
+#: plugins/importExport/src/Module.php:157
+msgid "Congratulation!"
+msgstr "Gratulerer!"
+
+#: plugins/importExport/src/Module.php:161
+msgid "Your blog has been successfully imported. Welcome on Dotclear 2!"
+msgstr "Bloggen din har blitt importert. Velkommen på Dotclear 2!"
+
+#: plugins/importExport/src/Module.php:168
+msgid "Why don't you blog this now?"
+msgstr "Hvorfor blogger du ikke om dette nå?"
+
+#: plugins/importExport/src/Module.php:176
+msgid "visit your dashboard"
+msgstr "besøk dashbordet ditt"
+
+#: plugins/importExport/src/ModuleExportFlat.php:28
+msgid "Flat file export"
+msgstr "Eksport av flat fil"
+
+#: plugins/importExport/src/ModuleExportFlat.php:29
+msgid "Exports a blog or a full Dotclear installation to flat file."
+msgstr "Eksporterer en blogg eller en fullstendig Dotclear-installasjon til en flat fil."
+
+#: plugins/importExport/src/ModuleExportFlat.php:154
+msgid "Export file not found."
+msgstr "Eksportfil ikke funnet."
+
+#: plugins/importExport/src/ModuleExportFlat.php:193
+msgid "Failed to compress export file."
+msgstr "Kunne ikke komprimere eksportfilen."
+
+#: plugins/importExport/src/ModuleImportDc1.php:84
+msgid "Dotclear 1.2 import"
+msgstr "Dotclear 1.2 import"
+
+#: plugins/importExport/src/ModuleImportDc1.php:85
+msgid "Import a Dotclear 1.2 installation into your current blog."
+msgstr "Importer en Dotclear 1.2-installasjon til din nåværende blogg."
+
+#: plugins/importExport/src/ModuleImportDc1.php:204
+#, php-format
+msgid "Import the content of a Dotclear 1.2's blog in the current blog: %s."
+msgstr "Importer innholdet i en Dotclear 1.2-blogg i den nåværende bloggen: %s."
+
+#: plugins/importExport/src/ModuleImportDc1.php:212
+#: plugins/importExport/src/ModuleImportWp.php:241
+msgid "Please note that this process will empty your categories, blogroll, entries and comments on the current blog."
+msgstr "Vær oppmerksom på at denne prosessen vil tømme kategorier, bloggruller, innlegg og kommentarer på den aktuelle bloggen."
+
+#: plugins/importExport/src/ModuleImportDc1.php:219
+msgid "We first need some information about your old Dotclear 1.2 installation."
+msgstr "Vi trenger først litt informasjon om din gamle Dotclear 1.2-installasjon."
+
+#: plugins/importExport/src/ModuleImportDc1.php:226
+msgid "Database driver:"
+msgstr "Databasedriver:"
+
+#: plugins/importExport/src/ModuleImportDc1.php:268
+#: plugins/importExport/src/ModuleImportWp.php:290
+msgid "Entries import options"
+msgstr "Alternativer for import av oppføringer"
+
+#: plugins/importExport/src/ModuleImportDc1.php:273
+#: plugins/importExport/src/ModuleImportWp.php:335
+msgid "Number of entries to import at once:"
+msgstr "Antall oppføringer som skal importeres samtidig:"
+
+#: plugins/importExport/src/ModuleImportDc1.php:279
+#: plugins/importExport/src/ModuleImportWp.php:360
+msgid "General information"
+msgstr "Generell informasjon"
+
+#: plugins/importExport/src/ModuleImportDc1.php:279
+#: plugins/importExport/src/ModuleImportWp.php:360
+msgid "Import my blog now"
+msgstr "Importer bloggen min nå"
+
+#: plugins/importExport/src/ModuleImportDc1.php:286
+#: plugins/importExport/src/ModuleImportWp.php:367
+msgid "Importing users"
+msgstr "Importere brukere"
+
+#: plugins/importExport/src/ModuleImportDc1.php:293
+#: plugins/importExport/src/ModuleImportWp.php:374
+msgid "Importing categories"
+msgstr "Importere kategorier"
+
+#: plugins/importExport/src/ModuleImportDc1.php:300
+#: plugins/importExport/src/ModuleImportWp.php:381
+msgid "Importing blogroll"
+msgstr "Importerer blogroll"
+
+#: plugins/importExport/src/ModuleImportDc1.php:307
+#: plugins/importExport/src/ModuleImportWp.php:388
+#, php-format
+msgid "Importing entries from %d to %d / %d"
+msgstr "Importere oppføringer fra %d til %d / %d"
+
+#: plugins/importExport/src/ModuleImportDc1.php:322
+#: plugins/importExport/src/ModuleImportWp.php:403
+msgid "Please read carefully"
+msgstr "Vennligst les nøye"
+
+#: plugins/importExport/src/ModuleImportDc1.php:324
+#: plugins/importExport/src/ModuleImportWp.php:406
+msgid "Every newly imported user has received a random password and will need to ask for a new one by following the \"I forgot my password\" link on the login page (Their registered email address has to be valid.)"
+msgstr "Alle nyimporterte brukere har fått et tilfeldig passord og må be om et nytt passord ved å følge lenken \"Jeg har glemt passordet mitt\" på påloggingssiden (den registrerte e-postadressen må være gyldig)."
+
+#: plugins/importExport/src/ModuleImportDc1.php:326
+#, php-format
+msgid "Please note that Dotclear 2 has a new URL layout. You can avoid broken links by installing <a href=\"%s\">DC1 redirect</a> plugin and activate it in your blog configuration."
+msgstr "Vær oppmerksom på at Dotclear 2 har et nytt URL-oppsett. Du kan unngå ødelagte lenker ved å installere <a href=\"%s\">DC1 redirect</a> plugin og aktivere den i bloggkonfigurasjonen."
+
+#: plugins/importExport/src/ModuleImportDc1.php:349
+#: plugins/importExport/src/ModuleImportWp.php:428
+msgid "next step"
+msgstr "neste trinn"
+
+#: plugins/importExport/src/ModuleImportDc1.php:367
+#: plugins/importExport/src/ModuleImportWp.php:446
+msgid "Depending on the size of your blog, it could take a few minutes."
+msgstr "Avhengig av størrelsen på bloggen din, kan det ta noen minutter."
+
+#: plugins/importExport/src/ModuleImportDc1.php:395
+msgid "Dotclear tables not found"
+msgstr "Dotclear-tabeller ble ikke funnet"
+
+#: plugins/importExport/src/ModuleImportFeed.php:126
+msgid "RSS or Atom feed import"
+msgstr "Import av RSS- eller Atom-feed"
+
+#: plugins/importExport/src/ModuleImportFeed.php:127
+msgid "Add a feed content to the blog."
+msgstr "Legg til et feedinnhold i bloggen."
+
+#: plugins/importExport/src/ModuleImportFeed.php:149
+#: plugins/importExport/src/ModuleImportFeed.php:155
+#: plugins/importExport/src/ModuleImportFeed.php:164
+#: plugins/importExport/src/ModuleImportFeed.php:168
+#: plugins/importExport/src/ModuleImportFeed.php:172
+#: plugins/importExport/src/ModuleImportFeed.php:178
+msgid "Cannot retrieve feed URL."
+msgstr "Kan ikke hente URL-adressen til feeden."
+
+#: plugins/importExport/src/ModuleImportFeed.php:181
+msgid "No items in feed."
+msgstr "Ingen elementer i feeden."
+
+#: plugins/importExport/src/ModuleImportFeed.php:215
+#: plugins/importExport/src/ModuleImportFlat.php:190
+msgid "Content successfully imported."
+msgstr "Innholdet ble importert."
+
+#: plugins/importExport/src/ModuleImportFeed.php:224
+#, php-format
+msgid "Add a feed content to the current blog: <strong>%s</strong>."
+msgstr "Legg til en feed i den gjeldende bloggen: <strong>%s</strong>."
+
+#: plugins/importExport/src/ModuleImportFeed.php:232
+#: plugins/widgets/src/Widgets.php:156
+msgid "Feed URL:"
+msgstr "Feed URL:"
+
+#: plugins/importExport/src/ModuleImportFlat.php:52
+msgid "Flat file import"
+msgstr "Import av flate filer"
+
+#: plugins/importExport/src/ModuleImportFlat.php:53
+msgid "Imports a blog or a full Dotclear installation from flat file."
+msgstr "Importerer en blogg eller en fullstendig Dotclear-installasjon fra en flat fil."
+
+#: plugins/importExport/src/ModuleImportFlat.php:185
+msgid "Single blog successfully imported."
+msgstr "En enkelt blogg ble importert."
+
+#: plugins/importExport/src/ModuleImportFlat.php:201
+msgid "Are you sure you want to import a full backup file?"
+msgstr "Er du sikker på at du vil importere en fullstendig sikkerhetskopifil?"
+
+#: plugins/importExport/src/ModuleImportFlat.php:211
+msgid "Single blog"
+msgstr "Enkel blogg"
+
+#: plugins/importExport/src/ModuleImportFlat.php:216
+#, php-format
+msgid "This will import a single blog backup as new content in the current blog: <strong>%s</strong>."
+msgstr "Dette importerer en sikkerhetskopi av en enkelt blogg som nytt innhold i den gjeldende bloggen: <strong>%s</strong>."
+
+#: plugins/importExport/src/ModuleImportFlat.php:223
+#: plugins/importExport/src/ModuleImportFlat.php:270
+msgid "Upload a backup file"
+msgstr "Last opp en sikkerhetskopifil"
+
+#: plugins/importExport/src/ModuleImportFlat.php:224
+#: plugins/importExport/src/ModuleImportFlat.php:271
+#, php-format
+msgid "maximum size %s"
+msgstr "maksimal størrelse %s"
+
+#: plugins/importExport/src/ModuleImportFlat.php:236
+#: plugins/importExport/src/ModuleImportFlat.php:283
+msgid "or pick up a local file in your public directory"
+msgstr "eller hente en lokal fil i den offentlige katalogen din"
+
+#: plugins/importExport/src/ModuleImportFlat.php:258
+msgid "Multiple blogs"
+msgstr "Flere blogger"
+
+#: plugins/importExport/src/ModuleImportFlat.php:265
+msgid "This will reset all the content of your database, except users."
+msgstr "Dette vil tilbakestille alt innholdet i databasen, bortsett fra brukere."
+
+#: plugins/importExport/src/ModuleImportFlat.php:396
+msgid "Another file with same name exists."
+msgstr "Det finnes en annen fil med samme navn."
+
+#: plugins/importExport/src/ModuleImportFlat.php:404
+msgid "Failed to extract backup file."
+msgstr "Kunne ikke pakke ut sikkerhetskopifilen."
+
+#: plugins/importExport/src/ModuleImportFlat.php:416
+msgid "No backup in compressed file."
+msgstr "Ingen sikkerhetskopi i komprimert fil."
+
+#: plugins/importExport/src/ModuleImportWp.php:111
+msgid "WordPress import"
+msgstr "WordPress-import"
+
+#: plugins/importExport/src/ModuleImportWp.php:112
+msgid "Import a WordPress installation into your current blog."
+msgstr "Importer en WordPress-installasjon til din nåværende blogg."
+
+#: plugins/importExport/src/ModuleImportWp.php:233
+#, php-format
+msgid "This will import your WordPress content as new content in the current blog: %s."
+msgstr "Dette vil importere WordPress-innholdet ditt som nytt innhold i den gjeldende bloggen: %s."
+
+#: plugins/importExport/src/ModuleImportWp.php:248
+msgid "We first need some information about your old WordPress installation."
+msgstr "Vi trenger først litt informasjon om den gamle WordPress-installasjonen din."
+
+#: plugins/importExport/src/ModuleImportWp.php:298
+msgid "WordPress and Dotclear's handling of categories are quite different. You can assign several categories to a single post in WordPress. In the Dotclear world, we see it more like \"One category, several tags.\" Therefore Dotclear can only import one category per post and will chose the lowest numbered one. If you want to keep a trace of every category, you can import them as tags, with an optional prefix."
+msgstr "WordPress og Dotclears håndtering av kategorier er ganske forskjellige. I WordPress kan du tilordne flere kategorier til ett og samme innlegg. I Dotclear-verdenen ser vi det mer som \"Én kategori, flere tagger\". Dotclear kan derfor bare importere én kategori per innlegg, og vil velge den lavest nummererte. Hvis du vil ha oversikt over alle kategoriene, kan du importere dem som tagger, med et valgfritt prefiks."
+
+#: plugins/importExport/src/ModuleImportWp.php:300
+msgid "On the other hand, in WordPress, a post can not be uncategorized, and a default installation has a first category labelised <i>\"Uncategorized\"</i>. If you did not change that category, you can just ignore it while importing your blog, as Dotclear allows you to actually keep your posts uncategorized."
+msgstr "På den annen side, i WordPress, kan et innlegg ikke være ukategorisert, og en standardinstallasjon har en første kategori merket <i>\"Uncategorized\".</i> Hvis du ikke har endret denne kategorien, kan du bare ignorere den når du importerer bloggen din, ettersom Dotclear faktisk lar deg beholde innleggene dine ukategoriserte."
+
+#: plugins/importExport/src/ModuleImportWp.php:309
+msgid "Ignore the first category:"
+msgstr "Ignorer den første kategorien:"
+
+#: plugins/importExport/src/ModuleImportWp.php:315
+msgid "Import lowest numbered category on posts:"
+msgstr "Importer laveste nummererte kategori på innlegg:"
+
+#: plugins/importExport/src/ModuleImportWp.php:321
+msgid "Import all categories as tags:"
+msgstr "Importer alle kategorier som tagger:"
+
+#: plugins/importExport/src/ModuleImportWp.php:329
+msgid "Prefix such tags with:"
+msgstr "Prefiks slike tagger med:"
+
+#: plugins/importExport/src/ModuleImportWp.php:339
+msgid "Content filters"
+msgstr "Innholdsfiltre"
+
+#: plugins/importExport/src/ModuleImportWp.php:341
+msgid "You may want to process your post and/or comment content with the following filters."
+msgstr "Det kan være lurt å behandle innleggs- og/eller kommentarinnholdet med følgende filtre."
+
+#: plugins/importExport/src/ModuleImportWp.php:347
+msgid "Post content formatter:"
+msgstr "Formatering av innleggsinnhold:"
+
+#: plugins/importExport/src/ModuleImportWp.php:354
+msgid "Comment content formatter:"
+msgstr "Formatering av kommentarinnhold:"
+
+#: plugins/importExport/src/ModuleImportWp.php:474
+msgid "WordPress tables not found"
+msgstr "WordPress-tabeller ble ikke funnet"
+
+#: plugins/maintenance/src/BackendBehaviors.php:50
+msgid "Servicing"
+msgstr "Service"
+
+#: plugins/maintenance/src/BackendBehaviors.php:50
+msgid "Tools to maintain the performance of your blogs."
+msgstr "Verktøy for å opprettholde ytelsen til bloggene dine."
+
+#: plugins/maintenance/src/BackendBehaviors.php:51
+msgid "Backup"
+msgstr "Sikkerhetskopiering"
+
+#: plugins/maintenance/src/BackendBehaviors.php:51
+msgid "Tools to back up your content."
+msgstr "Verktøy for sikkerhetskopiering av innholdet ditt."
+
+#: plugins/maintenance/src/BackendBehaviors.php:52
+msgid "Development"
+msgstr "Utvikling"
+
+#: plugins/maintenance/src/BackendBehaviors.php:52
+msgid "Tools to assist in development of plugins, themes and core."
+msgstr "Verktøy som hjelper deg med å utvikle plugins, temaer og kjernen."
+
+#: plugins/maintenance/src/BackendBehaviors.php:54
+msgid "Optimize"
+msgstr "Optimaliser"
+
+#: plugins/maintenance/src/BackendBehaviors.php:55
+msgid "Count and index"
+msgstr "Telling og indeks"
+
+#: plugins/maintenance/src/BackendBehaviors.php:56
+msgid "Purge"
+msgstr "Rensing"
+
+#: plugins/maintenance/src/BackendBehaviors.php:58
+msgid "Current blog"
+msgstr "Nåværende blogg"
+
+#: plugins/maintenance/src/BackendBehaviors.php:59
+msgid "All blogs"
+msgstr "Alle blogger"
+
+#: plugins/maintenance/src/BackendBehaviors.php:61
+msgid "Maintain translations"
+msgstr "Vedlikeholde oversettelser"
+
+#: plugins/maintenance/src/BackendBehaviors.php:61
+msgid "Translations"
+msgstr "Oversettelser"
+
+#: plugins/maintenance/src/BackendBehaviors.php:95
+#, php-format
+msgid "One <a href=\"%2$s\">maintenance task</a> to execute."
+msgid_plural "%1$s <a href=\"%2$s\">maintenance tasks</a> to execute."
+msgstr[0] "En <a href=\"%2$s\">vedlikeholdsoppgave</a> som skal utføres."
+msgstr[1] "%1$s <a href=\"%2$s\">vedlikeholdsoppgaver</a> som skal utføres."
+
+#: plugins/maintenance/src/BackendBehaviors.php:169
+#: plugins/maintenance/src/Rest.php:83
+#, php-format
+msgid "One task to execute"
+msgid_plural "%s tasks to execute"
+msgstr[0] "Én oppgave å utføre"
+msgstr[1] "%s oppgaver som skal utføres"
+
+#: plugins/maintenance/src/BackendBehaviors.php:203
+#: plugins/maintenance/src/Manage.php:305
+msgid "This task has never been executed."
+msgstr "Denne oppgaven har aldri blitt utført."
+
+#: plugins/maintenance/src/BackendBehaviors.php:206
+#: plugins/maintenance/src/Manage.php:308
+#, php-format
+msgid "Last execution of this task was on %s."
+msgstr "Siste utførelse av denne oppgaven var på %s."
+
+#: plugins/maintenance/src/BackendBehaviors.php:224
+#, php-format
+msgid "There is a task to execute."
+msgid_plural "There are %s tasks to execute."
+msgstr[0] "Det er en oppgave som skal utføres."
+msgstr[1] "Det er %s oppgaver som skal utføres."
+
+#: plugins/maintenance/src/BackendBehaviors.php:231
+msgid "Manage tasks"
+msgstr "Administrer oppgaver"
+
+#: plugins/maintenance/src/BackendBehaviors.php:253
+msgid "Display overdue tasks counter on maintenance dashboard icon"
+msgstr "Vis telleren for forfalte oppgaver på ikonet på vedlikeholdspanelet"
+
+#: plugins/maintenance/src/BackendBehaviors.php:259
+msgid "Display overdue tasks list on dashboard items"
+msgstr "Vis listen over forfalte oppgaver på dashbordet"
+
+#: plugins/maintenance/src/MaintenanceTask.php:135
+msgid "Failed to execute task."
+msgstr "Kunne ikke utføre oppgaven."
+
+#: plugins/maintenance/src/MaintenanceTask.php:138
+msgid "Task successfully executed."
+msgstr "Oppgaven er vellykket utført."
+
+#: plugins/maintenance/src/Manage.php:135
+msgid "Maintenance plugin has been successfully configured."
+msgstr "Vedlikeholdsprogramtillegget er konfigurert."
+
+#: plugins/maintenance/src/Manage.php:153
+msgid "System settings have been saved."
+msgstr "Systeminnstillingene er lagret."
+
+#: plugins/maintenance/src/Manage.php:158
+msgid "All blog's Content-Security-Policy settings have been reset to default."
+msgstr "Alle bloggens innstillinger for Content-Security-Policy er tilbakestilt til standardinnstillingene."
+
+#: plugins/maintenance/src/Manage.php:180
+msgid "Every week"
+msgstr "Hver uke"
+
+#: plugins/maintenance/src/Manage.php:181
+msgid "Every two weeks"
+msgstr "Annenhver uke"
+
+#: plugins/maintenance/src/Manage.php:182
+msgid "Every month"
+msgstr "Hver måned"
+
+#: plugins/maintenance/src/Manage.php:183
+msgid "Every two months"
+msgstr "Annenhver måned"
+
+#: plugins/maintenance/src/Manage.php:216
+msgid "You have not sufficient permissions to view this page."
+msgstr "Du har ikke tilstrekkelige rettigheter til å se denne siden."
+
+#: plugins/maintenance/src/Manage.php:305
+#: plugins/maintenance/src/Manage.php:311
+msgid "You should execute it now."
+msgstr "Du bør utføre det nå."
+
+#: plugins/maintenance/src/Manage.php:347
+#: plugins/maintenance/src/Manage.php:381
+msgid "Execute task"
+msgstr "Utfør oppgaven"
+
+#: plugins/maintenance/src/Manage.php:352
+msgid "This may take a very long time."
+msgstr "Dette kan ta svært lang tid."
+
+#: plugins/maintenance/src/Manage.php:419
+#: plugins/maintenance/src/Manage.php:421
+msgid "Alert settings"
+msgstr "Varslingsinnstillinger"
+
+#: plugins/maintenance/src/Manage.php:427
+msgid "Activation"
+msgstr "Aktivering"
+
+#: plugins/maintenance/src/Manage.php:433
+msgid "Display alert messages on late tasks"
+msgstr "Vis varselmeldinger om forsinkede oppgaver"
+
+#: plugins/maintenance/src/Manage.php:438
+#, php-format
+msgid "You can place list of late tasks on your %s."
+msgstr "Du kan legge ut en liste over forsinkede oppgaver på %s."
+
+#: plugins/maintenance/src/Manage.php:443
+msgid "Frequency"
+msgstr "Frekvens"
+
+#: plugins/maintenance/src/Manage.php:451
+msgid "Use one recall time for all tasks"
+msgstr "Bruk én tilbakekallingstid for alle oppgaver"
+
+#: plugins/maintenance/src/Manage.php:461
+msgid "Recall time for all tasks:"
+msgstr "Husk tid for alle oppgaver:"
+
+#: plugins/maintenance/src/Manage.php:470
+msgid "Use one recall time per task"
+msgstr "Bruk én tilbakekallingstid per oppgave"
+
+#: plugins/maintenance/src/Manage.php:501
+msgid "Content-Security-Policy"
+msgstr "Retningslinjer for innholdssikkerhet"
+
+#: plugins/maintenance/src/Manage.php:513
+msgid "Enable Content-Security-Policy system"
+msgstr "Aktiver Content-Security-Policy-systemet"
+
+#: plugins/maintenance/src/Manage.php:519
+msgid "Enable Content-Security-Policy report only"
+msgstr "Aktiver kun Content-Security-Policy-rapport"
+
+#: plugins/maintenance/src/Manage.php:529
+msgid "Enable Content-Security-Policy system by default"
+msgstr "Aktiver Content-Security-Policy-systemet som standard"
+
+#: plugins/maintenance/src/Manage.php:535
+msgid "Enable Content-Security-Policy report only by default"
+msgstr "Aktiver kun Content-Security-Policy-rapport som standard"
+
+#: plugins/maintenance/src/Manage.php:541
+msgid "Also apply these settings to all blogs"
+msgstr "Bruk også disse innstillingene på alle blogger"
+
+#: plugins/maintenance/src/Task/CSP.php:38
+msgid "Delete the Content-Security-Policy report file"
+msgstr "Slett Content-Security-Policy-rapportfilen"
+
+#: plugins/maintenance/src/Task/CSP.php:39
+msgid "Content-Security-Policy report file has been deleted."
+msgstr "Content-Security-Policy-rapportfilen er slettet."
+
+#: plugins/maintenance/src/Task/CSP.php:40
+msgid "Failed to delete the Content-Security-Policy report file."
+msgstr "Kunne ikke slette Content-Security-Policy-rapportfilen."
+
+#: plugins/maintenance/src/Task/CSP.php:42
+msgid "Remove the Content-Security-Policy report file."
+msgstr "Fjern Content-Security-Policy-rapportfilen."
+
+#: plugins/maintenance/src/Task/Cache.php:40
+msgid "Failed to empty templates cache directory."
+msgstr "Kunne ikke tømme malbuffer-katalogen."
+
+#: plugins/maintenance/src/Task/Cache.php:42
+#, php-format
+msgid "It may be useful to empty this cache when modifying a theme's .html or .css files (or when updating a theme or plugin). Notice : with some hosters, the templates cache cannot be emptied with this plugin. You may then have to delete the directory <strong>%s</strong> directly on the server with your FTP software."
+msgstr "Det kan være nyttig å tømme denne hurtigbufferen når du endrer et temas .html- eller .css-filer (eller når du oppdaterer et tema eller en plugin). Merk: Hos noen hostere kan ikke malbufferen tømmes med denne plugin-modulen. Du må da kanskje slette katalogen <strong>%s</strong> direkte på serveren med FTP-programvaren din."
+
+#: plugins/maintenance/src/Task/CountComments.php:39
+msgid "Count again comments and trackbacks"
+msgstr "Tell igjen kommentarer og trackbacks"
+
+#: plugins/maintenance/src/Task/CountComments.php:40
+msgid "Comments and trackback counted."
+msgstr "Kommentarer og trackback teller."
+
+#: plugins/maintenance/src/Task/CountComments.php:41
+msgid "Failed to count comments and trackbacks."
+msgstr "Kunne ikke telle kommentarer og trackbacks."
+
+#: plugins/maintenance/src/Task/CountComments.php:43
+msgid "Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating from dotclear 1 to dotclear 2)."
+msgstr "Tell igjen kommentarer og trackbacks gjør det mulig å sjekke det nøyaktige antallet. Denne operasjonen kan være nyttig når du importerer fra en annen bloggplattform (eller når du migrerer fra dotclear 1 til dotclear 2)."
+
+#: plugins/maintenance/src/Task/IndexComments.php:55
+#: plugins/maintenance/src/Task/IndexPosts.php:55
+msgid "Search engine index"
+msgstr "Søkemotorens indeks"
+
+#: plugins/maintenance/src/Task/IndexComments.php:56
+msgid "Index all comments for search engine"
+msgstr "Indeksere alle kommentarer for søkemotor"
+
+#: plugins/maintenance/src/Task/IndexComments.php:57
+#: plugins/maintenance/src/Task/IndexPosts.php:57
+#: plugins/maintenance/src/Task/SynchPostMeta.php:57
+msgid "Next"
+msgstr "Neste"
+
+#: plugins/maintenance/src/Task/IndexComments.php:58
+#, php-format
+msgid "Indexing comments %1$d to %2$d of %3$d."
+msgstr "Indeksering av kommentarer %1$d til %2$d av %3$d."
+
+#: plugins/maintenance/src/Task/IndexComments.php:59
+msgid "Comments indexing done."
+msgstr "Indeksering av kommentarer utført."
+
+#: plugins/maintenance/src/Task/IndexComments.php:60
+msgid "Failed to index comments."
+msgstr "Kunne ikke indeksere kommentarer."
+
+#: plugins/maintenance/src/Task/IndexComments.php:62
+msgid "Index all comments and trackbacks in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
+msgstr "Indeksere alle kommentarer og trackbacks i søkemotorindeksen. Denne operasjonen er nødvendig, etter at du har importert innhold i bloggen din, for å bruke intern søkemotor, på offentlige og private sider."
+
+#: plugins/maintenance/src/Task/IndexPosts.php:56
+msgid "Index all entries for search engine"
+msgstr "Indeksere alle oppføringer for søkemotor"
+
+#: plugins/maintenance/src/Task/IndexPosts.php:58
+#, php-format
+msgid "Indexing entries %1$d to %2$d of %3$d."
+msgstr "Indeksering av oppføringene %1$d til %2$d i %3$d."
+
+#: plugins/maintenance/src/Task/IndexPosts.php:59
+msgid "Entries indexing done."
+msgstr "Indeksering av oppføringer fullført."
+
+#: plugins/maintenance/src/Task/IndexPosts.php:60
+msgid "Failed to index entries."
+msgstr "Kunne ikke indeksere oppføringer."
+
+#: plugins/maintenance/src/Task/IndexPosts.php:62
+msgid "Index all entries in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
+msgstr "Indeksere alle oppføringer i søkemotorens indeks. Denne operasjonen er nødvendig, etter at du har importert innhold i bloggen din, for å bruke intern søkemotor, på offentlige og private sider."
+
+#: plugins/maintenance/src/Task/Logs.php:43
+msgid "Delete all logs"
+msgstr "Slett alle logger"
+
+#: plugins/maintenance/src/Task/Logs.php:44
+msgid "Logs deleted."
+msgstr "Logger slettet."
+
+#: plugins/maintenance/src/Task/Logs.php:45
+msgid "Failed to delete logs."
+msgstr "Kunne ikke slette logger."
+
+#: plugins/maintenance/src/Task/Logs.php:47
+msgid "Logs record all activity and connection to your blog history. Unless you need to keep this history, consider deleting these logs from time to time."
+msgstr "Logger registrerer all aktivitet og alle tilkoblinger til blogghistorikken din. Med mindre du har behov for å beholde denne historikken, bør du vurdere å slette disse loggene fra tid til annen."
+
+#: plugins/maintenance/src/Task/SynchPostMeta.php:55
+msgid "Entries metadata"
+msgstr "Metadata for oppføringer"
+
+#: plugins/maintenance/src/Task/SynchPostMeta.php:56
+msgid "Synchronize entries metadata"
+msgstr "Synkroniser metadata for oppføringer"
+
+#: plugins/maintenance/src/Task/SynchPostMeta.php:58
+#, php-format
+msgid "Synchronizing metadata of entries %1$d to %2$d of %3$d."
+msgstr "Synkronisering av metadata for oppføringene %1$d til %2$d i %3$d."
+
+#: plugins/maintenance/src/Task/SynchPostMeta.php:59
+msgid "Entries metadata synchronize done."
+msgstr "Synkronisering av metadata for oppføringer fullført."
+
+#: plugins/maintenance/src/Task/SynchPostMeta.php:60
+msgid "Failed to synchronize entries metadata."
+msgstr "Kunne ikke synkronisere metadata for oppføringer."
+
+#: plugins/maintenance/src/Task/SynchPostMeta.php:62
+msgid "Synchronize all entries metadata could be useful after importing content in your blog or do bad operation on database tables."
+msgstr "Synkroniser alle metadata for oppføringer kan være nyttig etter at du har importert innhold i bloggen din eller gjort en dårlig operasjon på databasetabeller."
+
+#: plugins/maintenance/src/Task/Vacuum.php:37
+msgid "Optimise database"
+msgstr "Optimaliser databasen"
+
+#: plugins/maintenance/src/Task/Vacuum.php:38
+msgid "optimize tables"
+msgstr "optimalisere tabeller"
+
+#: plugins/maintenance/src/Task/Vacuum.php:39
+msgid "Optimization successful."
+msgstr "Optimalisering vellykket."
+
+#: plugins/maintenance/src/Task/Vacuum.php:40
+msgid "Failed to optimize tables."
+msgstr "Kunne ikke optimalisere tabeller."
+
+#: plugins/maintenance/src/Task/Vacuum.php:42
+msgid "After numerous delete or update operations on Dotclear's database, it gets fragmented. Optimizing will allow to defragment it. It has no incidence on your data's integrity. It is recommended to optimize before any blog export."
+msgstr "Etter mange slette- eller oppdateringsoperasjoner på Dotclears database, blir den fragmentert. Optimalisering vil gjøre det mulig å defragmentere den. Det har ingen innvirkning på dataintegriteten. Det anbefales å optimalisere før du eksporterer en blogg."
+
+#: plugins/maintenance/src/Task/ZipMedia.php:53
+msgid "Download media folder of current blog"
+msgstr "Last ned mediemappen til den aktuelle bloggen"
+
+#: plugins/maintenance/src/Task/ZipMedia.php:55
+msgid "It may be useful to backup your media folder. This compress all content of media folder into a single zip file. Notice : with some hosters, the media folder cannot be compressed with this plugin if it is too big."
+msgstr "Det kan være nyttig å ta sikkerhetskopi av mediemappen din. Dette komprimerer alt innholdet i mediemappen til en enkelt zip-fil. Merk: Hos noen hostere kan ikke mediemappen komprimeres med denne plugin-modulen hvis den er for stor."
+
+#: plugins/maintenance/src/Task/ZipTheme.php:54
+msgid "Download active theme of current blog"
+msgstr "Last ned aktivt tema for gjeldende blogg"
+
+#: plugins/maintenance/src/Task/ZipTheme.php:56
+msgid "It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file."
+msgstr "Det kan være nyttig å ta sikkerhetskopi av det aktive temaet før endringer eller oppdateringer. Dette komprimerer temamappen til en enkelt zip-fil."
+
+#: plugins/pages/src/Backend.php:47
+msgid "manage pages"
+msgstr "administrere sider"
+
+#: plugins/pages/src/Backend.php:78
+msgid "pages per page"
+msgstr "sider per side"
+
+#: plugins/pages/src/Backend.php:101
+#, php-format
+msgid "%d page"
+msgstr "%d side"
+
+#: plugins/pages/src/Backend.php:101
+#, php-format
+msgid "%d pages"
+msgstr "%d sider"
+
+#: plugins/pages/src/Backend.php:108 plugins/pages/src/Manage.php:148
+#: plugins/pages/src/ManagePage.php:107 plugins/pages/src/ManagePage.php:855
+msgid "New page"
+msgstr "Ny side"
+
+#: plugins/pages/src/BackendActions.php:54
+msgid "Pages actions"
+msgstr "Sider handlinger"
+
+#: plugins/pages/src/BackendActions.php:76
+msgid "Back to pages list"
+msgstr "Tilbake til sidelisten"
+
+#: plugins/pages/src/BackendDefaultActions.php:119
+#: plugins/pages/src/Manage.php:139
+msgid "Selected pages have been successfully reordered."
+msgstr "Utvalgte sider har blitt omorganisert."
+
+#: plugins/pages/src/BackendList.php:55
+msgid "No page"
+msgstr "Ingen side"
+
+#: plugins/pages/src/BackendList.php:179 plugins/pages/src/BackendList.php:240
+msgid "Hidden"
+msgstr "Skjult"
+
+#: plugins/pages/src/BackendList.php:270
+msgid "Select this page"
+msgstr "Velg denne siden"
+
+#: plugins/pages/src/Frontend.php:36
+msgid "Published on"
+msgstr "Publisert på"
+
+#: plugins/pages/src/Frontend.php:37
+msgid "This page's comments feed"
+msgstr "Denne sidens kommentarfelt"
+
+#: plugins/pages/src/Install.php:49
+msgid "My first page"
+msgstr "Min første side"
+
+#: plugins/pages/src/Install.php:50
+msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
+msgstr "Dette er din første side. Når du er klar til å blogge, logger du inn for å redigere eller slette den."
+
+#: plugins/pages/src/Manage.php:121
+msgid "Are you sure you want to delete selected pages?"
+msgstr "Er du sikker på at du vil slette utvalgte sider?"
+
+#: plugins/pages/src/Manage.php:135
+msgid "Selected pages have been successfully updated."
+msgstr "Utvalgte sider har blitt oppdatert."
+
+#: plugins/pages/src/Manage.php:137
+msgid "Selected pages have been successfully deleted."
+msgstr "Valgte sider har blitt slettet."
+
+#: plugins/pages/src/Manage.php:171
+msgid "Selected pages action:"
+msgstr "Utvalgte sider handling:"
+
+#: plugins/pages/src/Manage.php:177
+msgid "To rearrange pages order, change number at the begining of the line, then click on “Save pages order” button."
+msgstr "Hvis du vil endre siderekkefølgen, endrer du nummeret i begynnelsen av linjen og klikker deretter på knappen \"Lagre siderekkefølge\"."
+
+#: plugins/pages/src/Manage.php:180
+msgid "To rearrange pages order, move items by drag and drop, then click on “Save pages order” button."
+msgstr "For å omorganisere siderekkefølgen flytter du elementer ved å dra og slippe, og klikker deretter på \"Lagre siderekkefølge\"-knappen."
+
+#: plugins/pages/src/Manage.php:187
+msgid "Save pages order"
+msgstr "Lagre sider i rekkefølge"
+
+#: plugins/pages/src/ManagePage.php:167
+msgid "This page does not exist."
+msgstr "Denne siden finnes ikke."
+
+#: plugins/pages/src/ManagePage.php:188 plugins/pages/src/ManagePage.php:855
+#: plugins/pages/src/ManagePage.php:876
+msgid "Edit page"
+msgstr "Rediger side"
+
+#: plugins/pages/src/ManagePage.php:433
+msgid "Don't forget to validate your HTML conversion by saving your post."
+msgstr "Ikke glem å validere HTML-konverteringen ved å lagre innlegget."
+
+#: plugins/pages/src/ManagePage.php:497
+msgid "Are you sure you want to delete this page?"
+msgstr "Er du sikker på at du vil slette denne siden?"
+
+#: plugins/pages/src/ManagePage.php:526
+msgid "Page has been successfully updated."
+msgstr "Siden har blitt oppdatert."
+
+#: plugins/pages/src/ManagePage.php:528
+msgid "Page has been successfully created."
+msgstr "Siden har blitt opprettet."
+
+#: plugins/pages/src/ManagePage.php:542
+msgid "Go to this page on the site"
+msgstr "Gå til denne siden på nettstedet"
+
+#: plugins/pages/src/ManagePage.php:584
+msgid "Page status"
+msgstr "Sidestatus"
+
+#: plugins/pages/src/ManagePage.php:601
+msgid "Page language"
+msgstr "Språk på siden"
+
+#: plugins/pages/src/ManagePage.php:630 plugins/pages/src/Widgets.php:41
+msgid "Page position"
+msgstr "Sideposisjon"
+
+#: plugins/pages/src/ManagePage.php:681
+msgid "Hide in widget Pages"
+msgstr "Skjul i widgetsider"
+
+#: plugins/pages/src/ManagePage.php:707
+msgid "Warning: If you set the URL manually, it may conflict with another page."
+msgstr "Advarsel: Hvis du angir URL-adressen manuelt, kan den komme i konflikt med en annen side."
+
+#: plugins/pages/src/ManagePage.php:746
+msgid "Introduction to the page."
+msgstr "Introduksjon til siden."
+
+#: plugins/pages/src/ManagePage.php:1125
+msgid "Select this comment"
+msgstr "Velg denne kommentaren"
+
+#: plugins/pages/src/Widgets.php:40
+msgid "Page title"
+msgstr "Sidetittel"
+
+#: plugins/pages/src/Widgets.php:42
+msgid "Publication date"
+msgstr "Dato for publisering"
+
+#: plugins/pings/src/Backend.php:27 plugins/pings/src/BackendBehaviors.php:64
+msgid "Pings"
+msgstr "Pinger"
+
+#: plugins/pings/src/Manage.php:80
+msgid "Settings have been successfully updated."
+msgstr "Innstillingene har blitt oppdatert."
+
+#: plugins/pings/src/Manage.php:98
+msgid "Pings configuration"
+msgstr "Konfigurasjon av pinger"
+
+#: plugins/pings/src/Manage.php:112
+msgid "Error"
+msgstr "Feil"
+
+#: plugins/pings/src/Manage.php:164
+msgid "Service name:"
+msgstr "Tjenestens navn:"
+
+#: plugins/pings/src/Manage.php:165
+msgid "Service URI:"
+msgstr "Tjeneste-URI:"
+
+#: plugins/pings/src/Manage.php:180
+msgid "Activate pings extension"
+msgstr "Aktiver pingsutvidelse"
+
+#: plugins/pings/src/Manage.php:186
+msgid "Auto pings all services on first publication of entry (current blog only)"
+msgstr "Automatisk pinger alle tjenester ved første publisering av et innlegg (kun nåværende blogg)"
+
+#: plugins/pings/src/Manage.php:193
+msgid "Test ping services"
+msgstr "Test ping-tjenester"
+
+#: plugins/simpleMenu/src/Backend.php:26 plugins/simpleMenu/src/Manage.php:72
+#: plugins/simpleMenu/src/Widgets.php:29
+msgid "Simple menu"
+msgstr "Enkel meny"
+
+#: plugins/simpleMenu/src/FrontendTemplate.php:164
+msgid "Active page"
+msgstr "Aktiv side"
+
+#: plugins/simpleMenu/src/FrontendTemplate.php:164
+msgid "active page"
+msgstr "aktiv side"
+
+#: plugins/simpleMenu/src/Manage.php:97
+msgid "All months"
+msgstr "Alle måneder"
+
+#: plugins/simpleMenu/src/Manage.php:160
+msgid "Archive"
+msgstr "Arkiv"
+
+#: plugins/simpleMenu/src/Manage.php:163
+msgid "Page"
+msgstr "Side"
+
+#: plugins/simpleMenu/src/Manage.php:166 plugins/tags/src/Backend.php:25
+#: plugins/tags/src/Widgets.php:33
+msgid "Tags"
+msgstr "Tagger"
+
+#: plugins/simpleMenu/src/Manage.php:173
+msgid "User defined"
+msgstr "Brukerdefinert"
+
+#: plugins/simpleMenu/src/Manage.php:214
+msgid "Configuration successfully updated."
+msgstr "Konfigurasjonen er vellykket oppdatert."
+
+#: plugins/simpleMenu/src/Manage.php:255 plugins/simpleMenu/src/Manage.php:677
+#: plugins/simpleMenu/src/Manage.php:797
+msgid "Label"
+msgstr "Etikett"
+
+#: plugins/simpleMenu/src/Manage.php:261
+msgid "Home page"
+msgstr "Startside"
+
+#: plugins/simpleMenu/src/Manage.php:261 plugins/simpleMenu/src/Manage.php:266
+#: plugins/widgets/src/Widgets.php:305 plugins/widgets/src/Widgets.php:315
+msgid "Recent posts"
+msgstr "Nylige innlegg"
+
+#: plugins/simpleMenu/src/Manage.php:273
+#, php-format
+msgid "Switch to %s language"
+msgstr "Bytt til %s språk"
+
+#: plugins/simpleMenu/src/Manage.php:280
+msgid "Recent Posts from this category"
+msgstr "Nyere innlegg fra denne kategorien"
+
+#: plugins/simpleMenu/src/Manage.php:292
+#, php-format
+msgid "Posts from %s"
+msgstr "Innlegg fra %s"
+
+#: plugins/simpleMenu/src/Manage.php:312
+#, php-format
+msgid "Recent posts for %s tag"
+msgstr "Siste innlegg for %s tag"
+
+#: plugins/simpleMenu/src/Manage.php:372
+msgid "Menu item has been successfully added."
+msgstr "Menyelementet har blitt lagt til."
+
+#: plugins/simpleMenu/src/Manage.php:377
+msgid "Label and URL of menu item are mandatory."
+msgstr "Etikett og URL for menyelementet er obligatoriske."
+
+#: plugins/simpleMenu/src/Manage.php:410
+msgid "Menu items have been successfully removed."
+msgstr "Menyelementene har blitt fjernet."
+
+#: plugins/simpleMenu/src/Manage.php:413
+msgid "No menu items selected."
+msgstr "Ingen menyelementer valgt."
+
+#: plugins/simpleMenu/src/Manage.php:425
+msgid "Label is mandatory."
+msgstr "Merking er obligatorisk."
+
+#: plugins/simpleMenu/src/Manage.php:430
+msgid "URL is mandatory."
+msgstr "URL er obligatorisk."
+
+#: plugins/simpleMenu/src/Manage.php:475
+msgid "Menu items have been successfully updated."
+msgstr "Menyelementene har blitt oppdatert."
+
+#: plugins/simpleMenu/src/Manage.php:502
+msgid "Are you sure you want to remove selected menu items?"
+msgstr "Er du sikker på at du vil fjerne valgte menyelementer?"
+
+#: plugins/simpleMenu/src/Manage.php:511
+msgid "Step #1"
+msgstr "Trinn 1"
+
+#: plugins/simpleMenu/src/Manage.php:516 plugins/simpleMenu/src/Manage.php:521
+msgid "Step #2"
+msgstr "Trinn 2"
+
+#: plugins/simpleMenu/src/Manage.php:521
+msgid "Step #3"
+msgstr "Trinn 3"
+
+#: plugins/simpleMenu/src/Manage.php:530
+msgid "Add item"
+msgstr "Legg til vare"
+
+#: plugins/simpleMenu/src/Manage.php:561
+msgid "Select type"
+msgstr "Velg type"
+
+#: plugins/simpleMenu/src/Manage.php:568
+msgid "Type of item menu:"
+msgstr "Type elementmeny:"
+
+#: plugins/simpleMenu/src/Manage.php:574 plugins/simpleMenu/src/Manage.php:641
+msgid "Continue..."
+msgstr "Fortsett..."
+
+#: plugins/simpleMenu/src/Manage.php:597
+msgid "Select language:"
+msgstr "Velg språk:"
+
+#: plugins/simpleMenu/src/Manage.php:603
+msgid "Select category:"
+msgstr "Velg kategori:"
+
+#: plugins/simpleMenu/src/Manage.php:609
+msgid "Select month (if necessary):"
+msgstr "Velg måned (om nødvendig):"
+
+#: plugins/simpleMenu/src/Manage.php:615
+msgid "Select page:"
+msgstr "Velg side:"
+
+#: plugins/simpleMenu/src/Manage.php:621
+msgid "Select tag (if necessary):"
+msgstr "Velg tagg (om nødvendig):"
+
+#: plugins/simpleMenu/src/Manage.php:682
+msgid "Label of item menu:"
+msgstr "Etikett for elementmeny:"
+
+#: plugins/simpleMenu/src/Manage.php:696
+msgid "Description of item menu:"
+msgstr "Beskrivelse av menyen:"
+
+#: plugins/simpleMenu/src/Manage.php:711
+msgid "URL of item menu:"
+msgstr "URL-adressen til elementmenyen:"
+
+#: plugins/simpleMenu/src/Manage.php:721 plugins/simpleMenu/src/Manage.php:800
+msgid "Open URL on a new tab"
+msgstr "Åpne URL i en ny fane"
+
+#: plugins/simpleMenu/src/Manage.php:729
+msgid "Add this item"
+msgstr "Legg til denne varen"
+
+#: plugins/simpleMenu/src/Manage.php:755
+msgid "Enable simple menu for this blog"
+msgstr "Aktiver enkel meny for denne bloggen"
+
+#: plugins/simpleMenu/src/Manage.php:778
+msgid "Add an item"
+msgstr "Legg til et element"
+
+#: plugins/simpleMenu/src/Manage.php:896
+msgid "Menu items list"
+msgstr "Liste over menyelementer"
+
+#: plugins/simpleMenu/src/Manage.php:923
+msgid "Delete selected menu items"
+msgstr "Slett valgte menyelementer"
+
+#: plugins/simpleMenu/src/Manage.php:932
+msgid "Update menu"
+msgstr "Oppdater menyen"
+
+#: plugins/simpleMenu/src/Manage.php:942
+msgid "No menu items so far."
+msgstr "Ingen menypunkter så langt."
+
+#: plugins/simpleMenu/src/Widgets.php:33
+msgid "Item description"
+msgstr "Varebeskrivelse"
+
+#: plugins/simpleMenu/src/Widgets.php:37
+msgid "Displayed in link"
+msgstr "Vises i lenke"
+
+#: plugins/simpleMenu/src/Widgets.php:38
+msgid "Used as link title"
+msgstr "Brukes som lenketittel"
+
+#: plugins/simpleMenu/src/Widgets.php:39
+msgid "Displayed in link and used as title"
+msgstr "Vises i lenke og brukes som tittel"
+
+#: plugins/simpleMenu/src/Widgets.php:40
+msgid "Not displayed nor used"
+msgstr "Ikke vist eller brukt"
+
+#: plugins/tags/src/BackendBehaviors.php:63
+#: plugins/tags/src/BackendBehaviors.php:75
+#: plugins/tags/src/FrontendUrl.php:105 plugins/tags/src/ManagePosts.php:155
+msgid "Tag"
+msgstr "Tag"
+
+#: plugins/tags/src/BackendBehaviors.php:238
+msgid "Add tags"
+msgstr "Legg til tagger"
+
+#: plugins/tags/src/BackendBehaviors.php:247
+msgid "Remove tags"
+msgstr "Fjern tagger"
+
+#: plugins/tags/src/BackendBehaviors.php:282
+msgid "Tag has been successfully added to selected entries"
+msgid_plural "Tags have been successfully added to selected entries"
+msgstr[0] "Taggen har blitt lagt til i valgte oppføringer"
+msgstr[1] "Tagger har blitt lagt til i utvalgte oppføringer"
+
+#: plugins/tags/src/BackendBehaviors.php:295
+#: plugins/tags/src/BackendBehaviors.php:450
+msgid "Are you sure you want to remove this tag?"
+msgstr "Er du sikker på at du vil fjerne denne taggen?"
+
+#: plugins/tags/src/BackendBehaviors.php:296
+#: plugins/tags/src/BackendBehaviors.php:451
+msgid "Add a tag to this entry"
+msgstr "Legg til en tagg til denne oppføringen"
+
+#: plugins/tags/src/BackendBehaviors.php:297
+#: plugins/tags/src/BackendBehaviors.php:452
+msgid "Choose from list"
+msgstr "Velg fra listen"
+
+#: plugins/tags/src/BackendBehaviors.php:298
+#: plugins/tags/src/BackendBehaviors.php:453
+msgid "all"
+msgstr "alle"
+
+#: plugins/tags/src/BackendBehaviors.php:299
+#: plugins/tags/src/BackendBehaviors.php:454
+msgid "Enter tags separated by comma"
+msgstr "Skriv inn tagger atskilt med komma"
+
+#: plugins/tags/src/BackendBehaviors.php:307
+msgid "Add tags to this selection"
+msgstr "Legg til tagger til dette utvalget"
+
+#: plugins/tags/src/BackendBehaviors.php:325
+msgid "Tags to add:"
+msgstr "Tagger å legge til:"
+
+#: plugins/tags/src/BackendBehaviors.php:364
+msgid "Tag has been successfully removed from selected entries"
+msgid_plural "Tags have been successfully removed from selected entries"
+msgstr[0] "Taggen har blitt fjernet fra valgte oppføringer"
+msgstr[1] "Tagger har blitt fjernet fra utvalgte oppføringer"
+
+#: plugins/tags/src/BackendBehaviors.php:387
+msgid "No tags for selected entries"
+msgstr "Ingen tagger for valgte oppføringer"
+
+#: plugins/tags/src/BackendBehaviors.php:394
+msgid "Remove selected tags from this selection"
+msgstr "Fjern valgte tagger fra dette utvalget"
+
+#: plugins/tags/src/BackendBehaviors.php:421
+msgid "Following tags have been found in selected entries:"
+msgstr "Følgende tagger er funnet i utvalgte oppføringer:"
+
+#: plugins/tags/src/BackendBehaviors.php:430
+msgid "Remove"
+msgstr "Fjern"
+
+#: plugins/tags/src/BackendBehaviors.php:493
+msgid "Tags list format:"
+msgstr "Format for taggliste:"
+
+#: plugins/tags/src/BackendBehaviors.php:496
+msgid "Short"
+msgstr "Kort"
+
+#: plugins/tags/src/BackendBehaviors.php:497
+msgid "Extended"
+msgstr "Utvidet"
+
+#: plugins/tags/src/FrontendBehaviors.php:30
+msgid "This tag's comments Atom feed"
+msgstr "Denne taggens kommentarer Atom-feed"
+
+#: plugins/tags/src/FrontendBehaviors.php:31
+msgid "This tag's entries Atom feed"
+msgstr "Denne taggens oppføringer Atom-feed"
+
+#: plugins/tags/src/Manage.php:119
+msgid "entries"
+msgstr "oppføringer"
+
+#: plugins/tags/src/Manage.php:119
+msgid "entry"
+msgstr "oppføring"
+
+#: plugins/tags/src/Manage.php:150
+msgid "No tags on this blog."
+msgstr "Ingen tagger på denne bloggen."
+
+#: plugins/tags/src/ManagePosts.php:94
+msgid "Tag has been successfully renamed"
+msgstr "Taggen har blitt omdøpt"
+
+#: plugins/tags/src/ManagePosts.php:113
+msgid "Tag has been successfully removed"
+msgstr "Taggen har blitt fjernet"
+
+#: plugins/tags/src/ManagePosts.php:144
+#, php-format
+msgid "Are you sure you want to remove tag: “%s”?"
+msgstr "Er du sikker på at du vil fjerne taggen: \"%s\"?"
+
+#: plugins/tags/src/ManagePosts.php:159
+msgid "Back to tags list"
+msgstr "Tilbake til tagglisten"
+
+#: plugins/tags/src/ManagePosts.php:174
+msgid "Delete this tag"
+msgstr "Slett denne taggen"
+
+#: plugins/tags/src/ManagePosts.php:196
+msgid "Rename:"
+msgstr "Gi nytt navn:"
+
+#: plugins/tags/src/ManagePosts.php:207
+msgid "List of entries with this tag"
+msgstr "Liste over oppføringer med denne taggen"
+
+#: plugins/tags/src/Widgets.php:34
+msgid "Limit (empty means no limit):"
+msgstr "Grense (tom betyr ingen grense):"
+
+#: plugins/tags/src/Widgets.php:41
+msgid "Tag name"
+msgstr "Tagg navn"
+
+#: plugins/tags/src/Widgets.php:42
+msgid "Entries count"
+msgstr "Antall oppføringer"
+
+#: plugins/tags/src/Widgets.php:43
+msgid "Newest entry"
+msgstr "Nyeste oppføring"
+
+#: plugins/tags/src/Widgets.php:44
+msgid "Oldest entry"
+msgstr "Eldste oppføring"
+
+#: plugins/tags/src/Widgets.php:57
+msgid "Link to all tags:"
+msgstr "Lenke til alle tagger:"
+
+#: plugins/themeEditor/src/Backend.php:25
+msgid "themeEditor"
+msgstr "themeEditor"
+
+#: plugins/themeEditor/src/BackendBehaviors.php:45
+#: plugins/themeEditor/src/Manage.php:194
+#: plugins/themeEditor/src/Manage.php:201
+msgid "Edit theme files"
+msgstr "Rediger temafiler"
+
+#: plugins/themeEditor/src/BackendBehaviors.php:105
+msgid "Syntax highlighting"
+msgstr "Syntaksutheving"
+
+#: plugins/themeEditor/src/BackendBehaviors.php:117
+msgid "Syntax highlighting in theme editor"
+msgstr "Syntaksutheving i temaredigeringsprogrammet"
+
+#: plugins/themeEditor/src/Manage.php:99
+msgid "The theme update has been locked."
+msgstr "Temaoppdateringen er låst."
+
+#: plugins/themeEditor/src/Manage.php:107
+msgid "The theme update has been unocked."
+msgstr "Temaoppdateringen har blitt låst opp."
+
+#: plugins/themeEditor/src/Manage.php:130
+msgid "The file has been reset."
+msgstr "Filen har blitt tilbakestilt."
+
+#: plugins/themeEditor/src/Manage.php:163
+msgid "Lock update"
+msgstr "Oppdatering av lås"
+
+#: plugins/themeEditor/src/Manage.php:163
+msgid "Unlock update"
+msgstr "Lås opp oppdatering"
+
+#: plugins/themeEditor/src/Manage.php:168
+msgid "Lock theme update disables theme update, but allows theme files to be modified."
+msgstr "Lås temaoppdatering deaktiverer temaoppdatering, men gjør det mulig å endre temafiler."
+
+#: plugins/themeEditor/src/Manage.php:174
+msgid "The theme editor is in development mode, theme files will be overwritten!"
+msgstr "Temaredigeringsprogrammet er i utviklingsmodus, og temafiler vil bli overskrevet!"
+
+#: plugins/themeEditor/src/Manage.php:182
+msgid "Saving document..."
+msgstr "Lagring av dokument..."
+
+#: plugins/themeEditor/src/Manage.php:183
+msgid "Document saved"
+msgstr "Dokument lagret"
+
+#: plugins/themeEditor/src/Manage.php:184
+msgid "An error occurred:"
+msgstr "Det oppsto en feil:"
+
+#: plugins/themeEditor/src/Manage.php:185
+msgid "Are you sure you want to reset this file?"
+msgstr "Er du sikker på at du vil tilbakestille denne filen?"
+
+#: plugins/themeEditor/src/Manage.php:209
+#, php-format
+msgid "Your current theme on this blog is \"%s\"."
+msgstr "Ditt nåværende tema på denne bloggen er \"%s\"."
+
+#: plugins/themeEditor/src/Manage.php:219
+msgid "Please select a file to edit."
+msgstr "Velg en fil du vil redigere."
+
+#: plugins/themeEditor/src/Manage.php:227
+msgid "Reset"
+msgstr "Tilbakestill"
+
+#: plugins/themeEditor/src/Manage.php:236
+msgid "File editor"
+msgstr "Filredigeringsprogram"
+
+#: plugins/themeEditor/src/Manage.php:245
+#, php-format
+msgid "Editing file %s"
+msgstr "Redigere fil %s"
+
+#: plugins/themeEditor/src/Manage.php:261
+msgid "If you use <code>url(...)</code> in your CSS files, be sure to use <code>url(index.php?tf=...)</code> to correctly load theme resources (imported CSS, images, etc.), except for URL types in the form <code>data:image</code>.<br>Example: do <code>@import url(index.php?tf=css/layout.css);</code> instead of <code>@import url(css/layout.css);</code>."
+msgstr "Hvis du bruker <code>url(...)</code> i CSS-filene dine, må du sørge for å bruke <code>url(index.php?tf=</code>...) for å laste inn temaressurser (importert CSS, bilder osv.) på riktig måte, med unntak av URL-typer i formen <code>data:image</code>.<br>Eksempel: gjør @import url <code>(index.php?tf=css/layout</code>.css); i stedet for <code>@import url(css/layout</code>.css) <code>;</code>."
+
+#: plugins/themeEditor/src/Manage.php:266
+msgid "This file is not overloadable. Please check your var folder permissions."
+msgstr "Denne filen kan ikke overbelastes. Vennligst sjekk tillatelsene til var-mappen din."
+
+#: plugins/themeEditor/src/Manage.php:269
+msgid "This theme is too old to be modified. Please check if an update is available."
+msgstr "Dette temaet er for gammelt til å bli endret. Vennligst sjekk om en oppdatering er tilgjengelig."
+
+#: plugins/themeEditor/src/Manage.php:288
+msgid "Templates files"
+msgstr "Maler filer"
+
+#: plugins/themeEditor/src/Manage.php:293
+msgid "CSS files"
+msgstr "CSS-filer"
+
+#: plugins/themeEditor/src/Manage.php:298
+msgid "JavaScript files"
+msgstr "JavaScript-filer"
+
+#: plugins/themeEditor/src/Manage.php:303
+msgid "Locales files"
+msgstr "Lokale filer"
+
+#: plugins/themeEditor/src/Manage.php:308
+msgid "PHP files"
+msgstr "PHP-filer"
+
+#: plugins/themeEditor/src/ThemeEditor.php:183
+msgid "No file"
+msgstr "Ingen fil"
+
+#: plugins/themeEditor/src/ThemeEditor.php:213
+msgid "Customized:"
+msgstr "Tilpasset:"
+
+#: plugins/themeEditor/src/ThemeEditor.php:221
+#: plugins/themeEditor/src/ThemeEditor.php:227
+msgid "From theme:"
+msgstr "Fra tema:"
+
+#: plugins/themeEditor/src/ThemeEditor.php:238
+msgid "From parent:"
+msgstr "Fra foreldrene:"
+
+#: plugins/themeEditor/src/ThemeEditor.php:248
+msgid "From template set:"
+msgstr "Fra malsettet:"
+
+#: plugins/themeEditor/src/ThemeEditor.php:276
+#: plugins/themeEditor/src/ThemeEditor.php:313
+#: plugins/themeEditor/src/ThemeEditor.php:390
+msgid "File does not exist."
+msgstr "Filen finnes ikke."
+
+#: plugins/themeEditor/src/ThemeEditor.php:281
+#, php-format
+msgid "File %s is not readable"
+msgstr "Filen %s er ikke lesbar"
+
+#: plugins/themeEditor/src/ThemeEditor.php:350
+#, php-format
+msgid "Unable to write file %s. Please check your theme files and folders permissions."
+msgstr "Kan ikke skrive filen %s. Kontroller tillatelsene for temafiler og -mapper."
+
+#: plugins/themeEditor/src/ThemeEditor.php:428
+#, php-format
+msgid "Unable to delete file %s. Please check your theme files and folders permissions."
+msgstr "Kan ikke slette filen %s. Kontroller tillatelsene for temafiler og -mapper."
+
+#: plugins/userPref/src/Backend.php:25
+msgid "user:preferences"
+msgstr "bruker:preferanser"
+
+#: plugins/userPref/src/Manage.php:88 plugins/userPref/src/Manage.php:107
+msgid "Preferences successfully updated"
+msgstr "Innstillingene er oppdatert"
+
+#: plugins/userPref/src/Manage.php:157 plugins/userPref/src/Manage.php:159
+msgid "Global preferences"
+msgstr "Globale preferanser"
+
+#: plugins/widgets/src/Backend.php:51
+msgid "Widget's textareas"
+msgstr "Widgets tekstområder"
+
+#: plugins/widgets/src/Install.php:35
+msgid "Unable to initialize default widgets."
+msgstr "Kunne ikke initialisere standard widgeter."
+
+#: plugins/widgets/src/Manage.php:79
+msgid "navigation"
+msgstr "navigasjon"
+
+#: plugins/widgets/src/Manage.php:80
+msgid "extra"
+msgstr "ekstra"
+
+#: plugins/widgets/src/Manage.php:81
+msgid "custom"
+msgstr "tilpasset"
+
+#: plugins/widgets/src/Manage.php:217
+msgid "Sidebars and their widgets have been saved."
+msgstr "Sidefelt og tilhørende widgeter er lagret."
+
+#: plugins/widgets/src/Manage.php:231
+msgid "Sidebars have been resetting."
+msgstr "Sidefelt har blitt tilbakestilt."
+
+#: plugins/widgets/src/Manage.php:260
+msgid "Are you sure you want to reset sidebars?"
+msgstr "Er du sikker på at du vil tilbakestille sidefeltene?"
+
+#: plugins/widgets/src/Manage.php:261 plugins/widgets/src/Manage.php:391
+msgid "Temporarily display the action buttons for each widget"
+msgstr "Midlertidig visning av handlingsknappene for hver widget"
+
+#: plugins/widgets/src/Manage.php:262
+msgid "Hide the action buttons for each widget"
+msgstr "Skjul handlingsknappene for hver widget"
+
+#: plugins/widgets/src/Manage.php:309 plugins/widgets/src/Manage.php:490
+msgid "order"
+msgstr "rekkefølge"
+
+#: plugins/widgets/src/Manage.php:321
+msgid "Append to:"
+msgstr "Legg til:"
+
+#: plugins/widgets/src/Manage.php:340
+msgid "Available widgets"
+msgstr "Tilgjengelige widgets"
+
+#: plugins/widgets/src/Manage.php:342
+msgid "Drag widgets from this list to one of the sidebars, for add."
+msgstr "Dra widgeter fra denne listen til en av sidebjelkene, for å legge til."
+
+#: plugins/widgets/src/Manage.php:350
+msgid "Add widgets to sidebars"
+msgstr "Legg til widgeter i sidefelt"
+
+#: plugins/widgets/src/Manage.php:365
+msgid "Navigation sidebar"
+msgstr "Sidefelt for navigasjon"
+
+#: plugins/widgets/src/Manage.php:372
+msgid "Extra sidebar"
+msgstr "Ekstra sidefelt"
+
+#: plugins/widgets/src/Manage.php:379
+msgid "Custom sidebar"
+msgstr "Tilpasset sidefelt"
+
+#: plugins/widgets/src/Manage.php:386
+msgid "Update sidebars"
+msgstr "Oppdater sidefeltene"
+
+#: plugins/widgets/src/Manage.php:388
+msgid "Reset sidebars"
+msgstr "Tilbakestill sidefelt"
+
+#: plugins/widgets/src/Manage.php:401
+msgid "No setting for this widget"
+msgstr "Ingen innstilling for denne widgeten"
+
+#: plugins/widgets/src/Manage.php:407
+msgid "boolean"
+msgstr "boolsk"
+
+#: plugins/widgets/src/Manage.php:407 plugins/widgets/src/Manage.php:412
+msgid "possible values:"
+msgstr "mulige verdier:"
+
+#: plugins/widgets/src/Manage.php:411
+msgid "empty string"
+msgstr "tom streng"
+
+#: plugins/widgets/src/Manage.php:412
+msgid "listitem"
+msgstr "listeelement"
+
+#: plugins/widgets/src/Manage.php:418
+msgid "string"
+msgstr "streng"
+
+#: plugins/widgets/src/Manage.php:438
+msgid "Widget ID:"
+msgstr "Widget-ID:"
+
+#: plugins/widgets/src/Manage.php:502 plugins/widgets/src/Manage.php:503
+msgid "Up the widget"
+msgstr "Opp med widgeten"
+
+#: plugins/widgets/src/Manage.php:507 plugins/widgets/src/Manage.php:508
+msgid "Down the widget"
+msgstr "Ned i widgeten"
+
+#: plugins/widgets/src/Manage.php:511 plugins/widgets/src/Manage.php:512
+msgid "Remove the widget"
+msgstr "Fjern widgeten"
+
+#: plugins/widgets/src/Manage.php:536
+msgid "No widget as far."
+msgstr "Ingen widget så langt."
+
+#: plugins/widgets/src/Manage.php:545
+msgid "Drag widgets here to remove."
+msgstr "Dra widgeter hit for å fjerne dem."
+
+#: plugins/widgets/src/Widgets.php:100
+msgid "Search engine"
+msgstr "Søkemotor"
+
+#: plugins/widgets/src/Widgets.php:102
+msgid "Placeholder (HTML5 only, optional):"
+msgstr "Plassholder (kun HTML5, valgfritt):"
+
+#: plugins/widgets/src/Widgets.php:109
+msgid "Navigation links"
+msgstr "Navigasjonslenker"
+
+#: plugins/widgets/src/Widgets.php:117
+msgid "Selected entries"
+msgstr "Utvalgte oppføringer"
+
+#: plugins/widgets/src/Widgets.php:118
+msgid "Best of me"
+msgstr "Det beste av meg"
+
+#: plugins/widgets/src/Widgets.php:126
+msgid "Blog languages"
+msgstr "Bloggspråk"
+
+#: plugins/widgets/src/Widgets.php:136
+msgid "With entries counts"
+msgstr "Med antall oppføringer"
+
+#: plugins/widgets/src/Widgets.php:137
+msgid "Include sub cats in count"
+msgstr "Inkluder underkatter i opptellingen"
+
+#: plugins/widgets/src/Widgets.php:138
+msgid "Include empty categories"
+msgstr "Inkluder tomme kategorier"
+
+#: plugins/widgets/src/Widgets.php:145
+msgid "Subscribe links"
+msgstr "Abonner på lenker"
+
+#: plugins/widgets/src/Widgets.php:146
+msgid "Subscribe"
+msgstr "Abonner"
+
+#: plugins/widgets/src/Widgets.php:147
+msgid "Feeds type:"
+msgstr "Fôrtype:"
+
+#: plugins/widgets/src/Widgets.php:154
+msgid "Feed reader"
+msgstr "Feed-leser"
+
+#: plugins/widgets/src/Widgets.php:155
+msgid "Somewhere else"
+msgstr "Et annet sted"
+
+#: plugins/widgets/src/Widgets.php:157 plugins/widgets/src/Widgets.php:185
+msgid "Entries limit:"
+msgstr "Begrensning på antall bidrag:"
+
+#: plugins/widgets/src/Widgets.php:164
+msgid "Text"
+msgstr "Tekst"
+
+#: plugins/widgets/src/Widgets.php:166
+msgid "Text:"
+msgstr "Tekst:"
+
+#: plugins/widgets/src/Widgets.php:173
+msgid "Uncategorized"
+msgstr "Uncategorized"
+
+#: plugins/widgets/src/Widgets.php:177 plugins/widgets/src/Widgets.php:179
+msgid "Last entries"
+msgstr "Siste oppføringer"
+
+#: plugins/widgets/src/Widgets.php:182
+msgid "Tag:"
+msgstr "Tag:"
+
+#: plugins/widgets/src/Widgets.php:194
+msgid "Last comments"
+msgstr "Siste kommentarer"
+
+#: plugins/widgets/src/Widgets.php:195
+msgid "Comments limit:"
+msgstr "Grensen for kommentarer:"
+
+#: plugins/widgets/src/Widgets.php:552
+#, php-format
+msgid "This blog's entries %s feed"
+msgstr "Innlegg på denne bloggen %s feed"
+
+#: plugins/widgets/src/Widgets.php:553
+#, php-format
+msgid "This blog's comments %s feed"
+msgstr "Denne bloggens kommentarer %s feed"
+
+#: plugins/widgets/src/Widgets.php:566
+msgid "Entries feed"
+msgstr "Innganger feed"
+
+#: plugins/widgets/src/Widgets.php:576
+msgid "Comments feed"
+msgstr "Kommentarer"
+
+#: plugins/widgets/src/WidgetsElement.php:548
+msgid "Title (optional)"
+msgstr "Tittel (valgfritt)"
+
+#: plugins/widgets/src/WidgetsElement.php:559
+msgid "All pages"
+msgstr "Alle sider"
+
+#: plugins/widgets/src/WidgetsElement.php:560
+msgid "Home page only"
+msgstr "Kun startsiden"
+
+#: plugins/widgets/src/WidgetsElement.php:561
+msgid "Except on home page"
+msgstr "Unntatt på startsiden"
+
+#: plugins/widgets/src/WidgetsElement.php:569
+msgid "Display on:"
+msgstr "Vis på:"
+
+#: plugins/widgets/src/WidgetsElement.php:595
+msgid "Content only"
+msgstr "Kun innhold"
+
+#: plugins/widgets/src/WidgetsElement.php:605
+msgid "CSS class:"
+msgstr "CSS-klasse:"
+

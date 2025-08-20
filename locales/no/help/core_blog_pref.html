@@ -1,0 +1,148 @@
+<html>
+
+<head>
+  <title>Blogginnstillinger</title>
+</head>
+
+<body>
+  <h4>Bloggdetaljer</h4>
+  <dl>
+    <dt>Blogg-ID</dt>
+    <dd>Unik ID for bloggen. Obligatorisk, kan bare endres av en superadministrator.</dd>
+    <dt>Navn på bloggen</dt>
+    <dd>Navn på bloggen, obligatorisk. Det kan endres når som helst uten at det påvirker driften av bloggen.</dd>
+    <dt>Blogg-URL</dt>
+    <dd>Fullstendig URL til bloggen. Obligatorisk, kan bare endres av en superadministrator.</dd>
+    <dt>Metode for URL-skanning</dt>
+    <dd>Definerer hvordan URL-en skal leses. PATH_INFO anbefales, men QUERY_STRING må brukes hvis PATH_INFO ikke fungerer. I PATH_INFO-modus må blogg-URL-en slutte med "/", og i QUERY_STRING-modus må den slutte med "?".</dd>
+    <dt>Bloggstatus</dt>
+    <dd>
+      <ul>
+        <li><strong>På nett:</strong> Bloggen er åpen for besøkende.</li>
+        <li><strong>Frakoblet:</strong> Bloggen er stengt for besøkende, men åpen for skribenter.</li>
+        <li><strong>Fjernet:</strong> Bloggen er stengt for både besøkende og skribenter, kun åpen for superadministratorer.</li>
+      </ul>
+    </dd>
+    <dt>Bloggbeskrivelse</dt>
+    <dd>Her kan du legge inn en beskrivelse av bloggen din. Dette er en enkel tekst, uten noen formatering.</dd>
+  </dl>
+  <h4>Konfigurasjon av blogg</h4>
+  <dl>
+    <dt>Bloggredaktørens navn</dt>
+    <dd>Navnet på personen som er ansvarlig for bloggen. Det kan være eieren eller utgiveren, hvis det finnes en slik. Denne informasjonen vises i bloggfeeden.</dd>
+    <dt>Standard språk</dt>
+    <dd>Språk for blogggrensesnittet. Enten er dette språket blant de tilgjengelige språkene, og grensesnittet vil bli oversatt, eller så er det ikke det, og grensesnittet vil være på engelsk som standard.</dd>
+    <dt>Tidssone for blogg</dt>
+    <dd>Definerer tidssonen som skal brukes for kommentarer og trackbacks.</dd>
+    <dt>Merknad om opphavsrett</dt>
+    <dd>Merknad om gjengivelsesrettigheter for bloggen.</dd>
+    <dt>Nytt URL-format for innlegg</dt>
+    <dd>Nedtrekksliste for å velge URL-format.</dd>
+    <dt>HTML-tagg for tittelen på notatene på bloggen</dt>
+    <dd>Nedtrekksliste for å velge en HTML-tagg.</dd>
+    <dt>XML/RPC-grensesnitt</dt>
+    <dd>Gjør det mulig for eksterne klienter å samhandle med bloggen din via XML/RPC-protokollen. Etter aktivering vises de nødvendige parameterne som skal angis i de eksterne klientene.</dd>
+  </dl>
+  <h4>Kommentarer og trackbacks</h4>
+  <dl>
+    <dt>Godta kommentarer</dt>
+    <dd>Aksepterer kommentarer globalt på bloggen. Har forrang over innstillingen per innlegg.</dd>
+    <dt>Moderate kommentarer</dt>
+    <dd>Med dette alternativet vil kommentarer kun bli publisert etter samtykke fra redaktøren.</dd>
+    <dt>La kommentarer være åpne i X dager</dt>
+    <dd>Antall dager kommentarene skal være åpne etter publisering av innlegget. Når den er tom, vil kommentarene holdes åpne på ubestemt tid.</dd>
+    <dt>Wiki-syntaks for kommentarer</dt>
+    <dd>Tillater at en delmengde av wiki-syntaksen brukes i kommentarer.</dd>
+    <dt>Godta trackbacks</dt>
+    <dd>Aksepterer trackbacks globalt på bloggen. Har forrang over innstillingen per innlegg.</dd>
+    <dt>Moderate trackbacks</dt>
+    <dd>Med dette alternativet publiseres trackbacks bare etter samtykke fra redaktøren.</dd>
+    <dt>La trackbacks være åpne i X dager</dt>
+    <dd>Antall dager som trackbacks vil være åpne etter publisering av innlegget. Når den er tom, vil trackbacks holdes åpne på ubestemt tid.</dd>
+    <dt>Legg til "nofollow"-relasjon på kommentarer og trackbacks-lenker</dt>
+    <dd>Legger til et attributt på lenker i kommentarer og trackbacks, som instruerer søkeroboter om ikke å følge dem. Denne antispam-funksjonen har ennå ikke bevist sin verdi.</dd>
+  </dl>
+  <h4>Bloggpresentasjon</h4>
+  <dl>
+    <dt>Datoformat</dt>
+    <dd>Definerer datoformatet for blogginnleggene. Se avsnittet "Formatreferanse" nedenfor for mer informasjon. Du kan bruke rullegardinlisten til å raskt velge et eksisterende mønster.</dd>
+    <dt>Tidsformat</dt>
+    <dd>Definerer tidsformatet for blogginnleggene. Se avsnittet "Formatreferanse" nedenfor for mer informasjon. Du kan bruke nedtrekkslisten til å raskt velge et eksisterende mønster.</dd>
+    <dt>Vis smilies på innlegg og kommentarer</dt>
+    <dd>Gjør noen strenger som :-) eller ;-) om til bilder.</dd>
+    <dt>Vis X oppføringer per side</dt>
+    <dd>Viser X-oppføringer på bloggens hovedside samt i de ulike kategoriene.</dd>
+    <dt>Vis X oppføringer per feed</dt>
+    <dd>Viser X oppføringer i bloggfeeden.</dd>
+    <dt>Vis X kommentarer per feed</dt>
+    <dd>Viser X kommentarer i bloggkommentarfeeden.</dd>
+    <dt>Avkort feeds</dt>
+    <dd>Dette alternativet gir bare et sammendrag av blogginnleggene i feeden.</dd>
+    <dt>Inkluder underkategorier på kategorisiden og i feeden for kategoriinnlegg</dt>
+    <dd>Når dette alternativet er aktivert, vil innlegg i underkategorier vises på sidene til de overordnede kategoriene i tillegg til i feeden deres.</dd>
+  </dl>
+  <h4>Medier og bilder</h4>
+  <dl>
+    <dt>Genererte bildestørrelser (i piksler)</dt>
+    <dd>Når du legger til et bilde i mediebehandleren, genereres det automatisk andre størrelser. Her kan du definere dimensjonen for den lengste størrelsen (bredde eller høyde) for hver type genererte bilder. Hvis du lar et felt stå tomt, vil mediebehandleren ikke opprette den tilsvarende miniatyren.</dd>
+    <dt>Standardattributter for innsetting av bilder</dt>
+    <dd>De valgte innstillingene vil gjelde for alle nye bilder som legges til i mediebehandleren.</dd>
+    <dt>Sett inn bildetittel</dt>
+    <dd>Velg formatet på "tittel"-taggene som brukes på bildene dine, basert på informasjon hentet fra bildenes metadata.</dd>
+    <dt>Bruk original mediedato hvis mulig</dt>
+    <dd>Når dette alternativet er aktivert, vil metadataene for bildet brukes hvis de inneholder en dato. Hvis ikke, brukes opplastingsdatoen.</dd>
+    <dt>Størrelse på det innsatte bildet</dt>
+    <dd>Definerer standardstørrelsen som brukes når du setter inn et bilde i et blogginnlegg.</dd>
+    <dt>Justering av bilder</dt>
+    <dd>Definerer standardinnstillingen som brukes når du setter inn et bilde i et blogginnlegg.</dd>
+    <dt>Sett inn en lenke til originalbildet</dt>
+    <dd>Når dette alternativet er aktivert, vil bildene som settes inn i et blogginnlegg, være klikkbare og peke til bildet i originalstørrelse.</dd>
+  </dl>
+  <h4>Retningslinjer for søkemotorroboter</h4>
+  <p>Her kan du angi om du vil at nettsøkemotorer skal indeksere og/eller arkivere sidene dine eller ikke. Velg det siste alternativet hvis du ikke vil at folk skal kunne finne bloggen din ved hjelp av en søkemotor på nettet.</p>
+  <h4>Antispam</h4>
+  <p>Du kan angi hvor mange dager du vil at søppelkommentarene skal slettes automatisk etter. La feltet stå tomt (eller skriv inn 0) for å deaktivere denne funksjonen.</p>
+  <h4>Brukere</h4>
+  <p>Viser en liste over bloggens brukere og deres rettigheter.</p>
+  <h3>Formatreferanse</h3>
+  <p>Noen felt kan konfigureres til å formatere dato og klokkeslett etter dine behov. Her er en referanse:</p>
+  <ul>
+    <li><strong>%a:</strong> Forkortet ukedag (lokal).</li>
+    <li><strong>%A:</strong> Fullstendig ukedag (lokal).</li>
+    <li><strong>%b:</strong> Forkortet månedsnavn (lokalt).</li>
+    <li><strong>%B:</strong> Fullstendig månedsnavn (lokalt).</li>
+    <li><strong>%c:</strong> Standardvisning av lokal dato og klokkeslett.</li>
+    <li><strong>%CÅrhundre</strong> <strong> (</strong> årstallet dividert med 100 og rund opp mellom 00 og 99)</li>
+    <li><strong>%d:</strong> Numerisk månedsdag (fra 01 til 31)</li>
+    <li><strong>%D:</strong> Identisk med %m/%d/%y</li>
+    <li><strong>%e:</strong> Numerisk månedsdag (fra 1 til 31)</li>
+    <li><strong>%g:</strong> Identisk med %G, 2 siffer.</li>
+    <li><strong>%G:</strong> Årstallet på 4 siffer, i henhold til ukenummeret (jf. %V). Format og verdi identisk med %Y, bortsett fra at hvis ukenummeret tilhører foregående eller påfølgende år, vil inneværende år bli brukt i stedet.</li>
+    <li><strong>%h:</strong> Identisk med %b</li>
+    <li><strong>%H:</strong> Digital time på dagen, 24H-modus (fra 00 til 23)</li>
+    <li><strong>%I:</strong> Digital time på dagen, 12H-modus (fra 01 til 12)</li>
+    <li><strong>%j:</strong> Årets dag, digital (fra 001 til 366)</li>
+    <li><strong>%m:</strong> Måned, digital (fra 1 til 12)</li>
+    <li><strong>%M:</strong> Minute, digital</li>
+    <li><strong>%n:</strong> Nytt strek-tegn</li>
+    <li><strong>%p:</strong> Enten `am' eller `pm', i henhold til absolutt tid, eller avhengig av de lokale innstillingene.</li>
+    <li><strong>%r:</strong> Timen, formiddags- og ettermiddagsformat</li>
+    <li><strong>%R:</strong> Timen, 24 timers format</li>
+    <li><strong>%S:</strong> Sekunder, digital</li>
+    <li><strong>%t:</strong> Tabulatortegn</li>
+    <li><strong>%T:</strong> Aktuell tid (identisk med %H:%M:%S)</li>
+    <li><strong>%u:</strong> Ukens dag, siffer, fra 1 til 7. (1 står for mandag)</li>
+    <li><strong>%U:</strong> Ukenummer, der årets første søndag er den første dagen i den første uken.</li>
+    <li><strong>%V:</strong> Ukenummeret som definert i ISO 8601:1988, digitalt, fra 01 til 53. Uke 1 er den første uken med mer enn 4 dager i inneværende år, med mandag som første dag. (Bruk %G eller %g for årselementene som tilsvarer ukenummeret for det aktuelle tidsstempelet).</li>
+    <li><strong>%W:</strong> Nummeret på uken i året, hvor den første mandagen i året er starten på den første uken</li>
+    <li><strong>%w:</strong> Ukedag, digital, 0 står for søndag</li>
+    <li><strong>%x:</strong> Foretrukket format for dato uten klokkeslett</li>
+    <li><strong>%X:</strong> Foretrukket format for klokkeslett uten dato</li>
+    <li><strong>%y:</strong> Årstall, to sifre (fra 00 til 99)</li>
+    <li><strong>%Y:</strong> Årstallet, fire sifre</li>
+    <li><strong>%Z </strong> <strong> eller %z:</strong> Tidssone, navn eller forkortelse</li>
+    <li><strong>%%:</strong> Et bokstavelig `%'-tegn</li>
+  </ul>
+</body>
+
+</html>

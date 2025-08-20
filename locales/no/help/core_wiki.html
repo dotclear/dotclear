@@ -1,0 +1,75 @@
+<html>
+
+<head>
+  <title>Wiki-syntaksreferanse</title>
+</head>
+
+<body>
+  <h4>Wiki-syntaksreferanse</h4>
+  <p>Wiki-syntaksen er en måte å forbedre teksten på med et minimalt sett med tagger som dekker de grunnleggende behovene (titler, avsnitt, anførselstegn, lister...).</p>
+  <dl>
+    <dt>Blokker elementer</dt>
+    <dd>
+      <ul>
+        <li>La det være en tom linje mellom to like blokker.</li>
+        <li><strong>Avsnitt:</strong> Fri tekst som avsluttes med en tom linje hvis det skal følge et nytt avsnitt.</li>
+        <li><strong>Tittel:</strong> <code>!!</code><strong>! tittel</strong>, <code>!</code>!! <code> tittel</code> eller <code>! tittel</code>, slik at du kan bruke tre ulike nivåer av overskrifter.</li>
+        <li><strong>Horisontal linje:</strong> <code>----</code></li>
+        <li><strong>Lister:</strong> Start hver linje med <code>*</code> eller <code>#</code> for henholdsvis unummererte eller nummererte lister. Listeimbrikasjon gjøres ved å blande listemarkører på denne måten:
+          <pre>
+    <code>*</code> punkt 1
+    <code>**</code> punkt 1.1
+    <code>*</code> punkt 2
+    <code>*#</code> punkt 2.1
+  ...
+  </pre>
+        </li>
+        <li><strong>Definisjonslister:</strong> Start hver linje med <code>=</code> for termen som skal defineres, og med <code>:</code> for definisjonen av termen.
+          <pre>
+  <code>=</code> term
+  <code>:</code> beskrivelse av termen
+  </pre>
+        </li>
+        <li><strong>Forformatert tekst:</strong> Hver linje må begynne med et mellomrom.</li>
+        <li><strong>Blokk sitat:</strong> Hver linje må begynne med et <code>&gt;</code>.</li>
+        <li><strong>Sideblokk:</strong> Hver linje må begynne med <code> et ).</code></li>
+      </ul>
+    </dd>
+    <dt>Formatering av tagger</dt>
+    <dd>
+      <ul>
+        <li><strong>Understrekning:</strong> To anførselstegn <code>''tekst''</code></li>
+        <li><strong>Sterk vektlegging:</strong> To understrekninger <code>__text__</code></li>
+        <li><strong>Uthevet:</strong> To doble anførselstegn <code>""tekst""</code></li>
+        <li><strong>Ny linje:</strong> <code>%%%</code></li>
+        <li><strong>Innsetting:</strong> To plusser <code>++tekst++++</code>.</li>
+        <li><strong>Sletting:</strong> Two minuses <code>--text--</code></li>
+        <li><strong>Lenke:</strong> <code>[url]</code>, <code>[navn|url</code>], <code>[navn|url|språk]</code> eller <code>[navn|url|språk|tittel]</code></li>
+        <li><strong>Image:</strong><code>((url|alternativ tekst))</code>, <code>((url|alternativ tekst</code> |posisjon <code>))</code> eller <code>((url|alternativ tekst|posisjon|lang beskrivelse))</code>.<br>Posisjonen kan være enten L (venstre), R (høyre) eller C (sentrert).</li>
+        <li><strong>Anker:</strong> <code>~anker~</code></li>
+        <li><strong>Akronym:</strong> <code>Akronym|tittel</code></li>
+        <li><strong>Inline HTML:</strong> To anførselstegn bak <code>``HTML-kode``</code></li>
+        <li><strong>Inline sitat</strong>: <code>{{quote}}</code>, <code>{{quote|language}}</code> eller <code>{{quote|language|url}}</code></li>
+        <li><strong>Kode:</strong> <code>@@kode@@@</code></li>
+        <li><strong>Fotnoter</strong> <code>$footnote$</code></li>
+        <li><strong>Superscript</strong>&nbsp;: <code>^superscript^</code></li>
+        <li><strong>Subscript</strong>&nbsp;: <code>,,subscript</code>,,</li>
+      </ul>
+    </dd>
+    <dt>Uformatert tekst</dt>
+    <dd>Hvis du ikke vil at et formateringstegn skal tolkes slik, legger du til
+      <code>\</code> rett før det. For eksempel
+      <code>\[Tekst i parentes uten å være en lenke\]</code>
+    </dd>
+    <dt>HTML-kode</dt>
+    <dd>Selv om du har valgt Wiki-syntaksen, kan du noen ganger ha behov for en kraftigere formatering, dvs. HTML-syntaks. Gjør det på følgende måte:
+      <pre>
+///html
+&lt;p style="color:red"&gt;my text in red&lt;/p&gt;
+///
+</pre>
+    </dd>
+  </dl>
+</body>
+
+</html>
