@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-20 08:27+0200\n"
-"PO-Revision-Date: 2025-08-20 06:29\n"
+"PO-Revision-Date: 2025-08-20 07:50\n"
 "Last-Translator: \n"
 "Language-Team: Hungarian\n"
 "Language: hu_HU\n"
@@ -2959,7 +2959,7 @@ msgstr "Nem sikerült betölteni a szolgáltatót \"%s\""
 
 #: src/Helper/Otp.php:304
 msgid "Two Factors authentication"
-msgstr ""
+msgstr "Kétfaktoros hitelesítés"
 
 #: src/Helper/Stack/Statuses.php:315 src/Process/Backend/Comment.php:331
 #: src/Process/Backend/User.php:390
@@ -3112,7 +3112,7 @@ msgstr "Az e-mailt elküldtük az alábbi címre: %s."
 
 #: src/Process/Backend/Auth.php:192
 msgid "This removes two factors authentication."
-msgstr ""
+msgstr "Ez megszünteti a kétfaktoros hitelesítést."
 
 #: src/Process/Backend/Auth.php:203
 msgid "Your new password"
@@ -3134,7 +3134,7 @@ msgstr "Nem változtattad meg a jelszavadat."
 
 #: src/Process/Backend/Auth.php:318
 msgid "Code validation failed."
-msgstr ""
+msgstr "A kód érvényesítés sikertelen."
 
 #: src/Process/Backend/Auth.php:362
 msgid "You have to change your password before you can login."
@@ -3222,16 +3222,16 @@ msgstr "megváltoztatni"
 #: src/Process/Backend/Auth.php:605 src/Process/Backend/UserPreferences.php:880
 #: src/Process/Upgrade/Auth.php:325
 msgid "Two factors authentication"
-msgstr ""
+msgstr "Kétfaktoros hitelesítés"
 
 #: src/Process/Backend/Auth.php:610 src/Process/Upgrade/Auth.php:330
 msgid "Enter code:"
-msgstr ""
+msgstr "Írja be a kódot:"
 
 #: src/Process/Backend/Auth.php:618 src/Process/Backend/UserPreferences.php:696
 #: src/Process/Upgrade/Auth.php:338
 msgid "Verify"
-msgstr ""
+msgstr "Ellenőrizze a címet"
 
 #: src/Process/Backend/Auth.php:645
 msgid "Safe mode login"
@@ -5664,15 +5664,15 @@ msgstr "Kategória leírása"
 
 #: src/Process/Backend/UserPreferences.php:246
 msgid "Two factors authentication verification failed."
-msgstr ""
+msgstr "A kéttényezős hitelesítés ellenőrzése sikertelen."
 
 #: src/Process/Backend/UserPreferences.php:248
 msgid "Two factors authentication verification succeeded."
-msgstr ""
+msgstr "A kéttényezős hitelesítési ellenőrzés sikeres volt."
 
 #: src/Process/Backend/UserPreferences.php:256
 msgid "Two factors authentication secret regenerated."
-msgstr ""
+msgstr "A kétfaktoros hitelesítési titok újratermelődött."
 
 #: src/Process/Backend/UserPreferences.php:265
 msgid "Passkey successfully deleted."
@@ -5742,27 +5742,27 @@ msgstr "Ha megváltoztatta az e-mail címét vagy jelszavát, akkor a módosít�
 
 #: src/Process/Backend/UserPreferences.php:667
 msgid "Your account is registered to two factors authentication."
-msgstr ""
+msgstr "A fiókja kétfaktoros hitelesítésre van regisztrálva."
 
 #: src/Process/Backend/UserPreferences.php:668
 msgid "Disable two factors authentication"
-msgstr ""
+msgstr "Kétfaktoros hitelesítés kikapcsolása"
 
 #: src/Process/Backend/UserPreferences.php:673
 msgid "Scan this QR code with your authentication application:"
-msgstr ""
+msgstr "Szkennelje be ezt a QR-kódot a hitelesítési alkalmazással:"
 
 #: src/Process/Backend/UserPreferences.php:684
 msgid "Or enter this secret into your authentication application:"
-msgstr ""
+msgstr "Vagy adja meg ezt a titkot a hitelesítési alkalmazásban:"
 
 #: src/Process/Backend/UserPreferences.php:685
 msgid "Regenerate"
-msgstr ""
+msgstr "Regenerálja"
 
 #: src/Process/Backend/UserPreferences.php:695
 msgid "Enter verification code:"
-msgstr ""
+msgstr "Adja meg az ellenőrző kódot:"
 
 #: src/Process/Backend/UserPreferences.php:713
 msgid "Unknown certificat issuer"
@@ -6418,7 +6418,7 @@ msgstr "Frissítés vége"
 
 #: src/Process/Upgrade/Auth.php:178
 msgid "Code verification failed"
-msgstr ""
+msgstr "A kódellenőrzés sikertelen"
 
 #: src/Process/Upgrade/Auth.php:284 src/Process/Upgrade/Auth.php:302
 msgid "Upgrade"
