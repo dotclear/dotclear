@@ -191,9 +191,10 @@ class OAuth2Store extends Store
             ]);
 
             if (!$rs->isEmpty()) {
-                while($rs->fetch()) {
+                while ($rs->fetch()) {
                     if ($rs->f('credential_value') != 'token') { // type is for token and user
                         $config = $rs->getAllData();
+
                         break;
                     }
                 }

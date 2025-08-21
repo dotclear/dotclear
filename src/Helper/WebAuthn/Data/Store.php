@@ -10,7 +10,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\WebAuthn\Data;
 
-use Dotclear\Helper\WebAuthn\Exception\StoreException;
 use Dotclear\Interface\Helper\WebAuthn\Credentials\Option\RpOptionInterface;
 use Dotclear\Interface\Helper\WebAuthn\Credentials\Option\UserOptionInterface;
 use Dotclear\Interface\Helper\WebAuthn\Data\CredentialInterface;
@@ -43,12 +42,12 @@ abstract class Store implements StoreInterface
 
     public static function encodeValue(?string $data): string
     {
-        return empty($data) ? '' : base64_encode((string) $data);
+        return is_null($data) || $data === '' ? '' : base64_encode($data);
     }
 
     public static function decodeValue(?string $data): string
     {
-        return empty($data) ? '' : base64_decode((string) $data, false);
+        return is_null($data) || $data === '' ? '' : base64_decode($data, false);
     }
 
     public static function encodeData(array $data): array
@@ -69,12 +68,12 @@ abstract class Store implements StoreInterface
     public function setChallenge(ByteBufferInterface $challenge): void
     {
         // note: encode binary string for database session store.
-        $_SESSION['webauthn_challenge'] = $this->encodeValue($challenge->getBinaryString());
+        $_SESSION['webauthn_challenge'] = static::encodeValue($challenge->getBinaryString());
     }
 
     public function getChallenge(): ByteBufferInterface
     {
-        return isset($_SESSION['webauthn_challenge']) ? $this->buffer->fromBinary($this->decodeValue($_SESSION['webauthn_challenge'])) : $this->buffer->randomBuffer(32);
+        return isset($_SESSION['webauthn_challenge']) ? $this->buffer->fromBinary(static::decodeValue($_SESSION['webauthn_challenge'])) : $this->buffer->randomBuffer(32);
     }
 
     public function getRelyingParty(): RpOptionInterface

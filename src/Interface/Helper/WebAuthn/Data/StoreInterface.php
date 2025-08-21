@@ -2,7 +2,7 @@
 
 /**
  * @package     Dotclear
- *    
+ *
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
@@ -17,7 +17,7 @@ use Dotclear\Interface\Helper\WebAuthn\Util\ByteBufferInterface;
 /**
  * @brief   WebAuthn store interface.
  *
- * WebAuthn store manage some binary strings, 
+ * WebAuthn store manage some binary strings,
  * they must be encoded in order to be added to database.
  *
  * @author  Jean-Christian Paul Denis

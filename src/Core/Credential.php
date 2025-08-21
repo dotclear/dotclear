@@ -109,9 +109,8 @@ class Credential implements CredentialInterface
             $sql->and($sql->isNull('K.blog_id'));
         } elseif (!empty($params['blog_id'])) {
             $sql->and('K.blog_id =' . $sql->quote($params['blog_id']));
-        } else {
-            // nothing to do
         }
+        // nothing to do
 
         if (!empty($params['user_id'])) {
             $sql->and('K.user_id =' . $sql->quote($params['user_id']));
@@ -154,7 +153,6 @@ class Credential implements CredentialInterface
             throw new Exception('Invalid user id');
         }
 
-
         if ('' == $cur->getField('credential_dt')) {
             $cur->setField('credential_dt', (new DateTimeImmutable('now'))->format('Y-m-d H:i:00'));
         }
@@ -184,7 +182,7 @@ class Credential implements CredentialInterface
             ->from($this->credential_table)
             ->where('credential_type = ' . $sql->quote($credential_type))
             ->and('credential_value = ' . $sql->quote($credential_value))
-            ;
+        ;
 
         if (null !== $user_id) {
             $sql->and('user_id =' . $sql->quote($user_id));
@@ -214,7 +212,7 @@ class Credential implements CredentialInterface
 
     public function decryptData(string $data): array
     {
-        $data = (string) base64_decode($data ,false);
+        $data = base64_decode($data, false);
 
         if ($this->hasOpenssl()) {
             $key  = hash($this->config->cryptAlgo(), $this->config->masterKey());
