@@ -247,10 +247,9 @@ abstract class Store
      * Used for token and user stored in credential db.
      *
      * @param   string  $provider   The provider
-     * @param   bool    $is_token   True for token else user
      */
-    protected static function getType(string $provider, bool $is_token): string
+    protected static function getType(string $provider): string
     {
-        return substr(static::CONTAINER_ID . '_' . ($is_token ? 'token' : 'user') . '_' . $provider, 0, 63);
+        return substr('oauth2_' . $provider, 0, 31);
     }
 }

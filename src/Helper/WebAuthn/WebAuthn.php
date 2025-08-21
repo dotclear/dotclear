@@ -231,7 +231,7 @@ class WebAuthn extends WebAuthnContainer
 
         // 1. If the allowCredentials option was given when this authentication ceremony was initiated, verify that credential.id identifies one of the public key credentials that were listed in allowCredentials.
         // 2. If credential.response.userHandle is present, verify that the user identified by this value is the owner of the public key credential identified by credential.id.
-        $credentials = $this->store()->getCredentials($id, $user ?: null);
+        $credentials = $this->store()->getCredentials($id, $user);
         $user_id     = '';
 
         foreach ($credentials as $credential) {

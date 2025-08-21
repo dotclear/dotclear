@@ -703,7 +703,7 @@ class UserPreferences extends Process
         // webauthn (passkey) configuration
         $webauthn_items = [];
         if (App::backend()->webauthn !== null) {
-            $webauthn_creds = App::backend()->webauthn->store()->getCredentials(null, (string) App::auth()->userID());
+            $webauthn_creds = App::backend()->webauthn->store()->getCredentials('', (string) App::auth()->userID());
 
             foreach ($webauthn_creds as $webauthn_cred) {
                 $webauthn_items[] = (new Li())

@@ -248,11 +248,13 @@ class Schema
 
         $struct->credential
             ->field('user_id', 'varchar', 32, false)
-            ->field('credential_type', 'varchar', 64, false)
-            ->field('credential_id', 'varchar', 255, false)
-            ->field('credential_data', 'text', 0, true)
+            ->field('blog_id', 'varchar', 32, true, null)
+            ->field('credential_dt', 'timestamp', 0, false, 'now()')
+            ->field('credential_type', 'varchar', 32, false)
+            ->field('credential_value', 'varchar', 255, false, "''")
+            ->field('credential_data', 'text', 0, true, null)
 
-            ->primary('pk_credential', 'credential_type', 'credential_id')
+            ->unique('uk_credential', 'credential_type', 'user_id', 'blog_id', 'credential_value')
         ;
 
         /* References indexes
@@ -275,6 +277,7 @@ class Schema
         $struct->meta->index('idx_meta_meta_type', 'btree', 'meta_type');
         $struct->pref->index('idx_pref_user_id', 'btree', 'user_id');
         $struct->credential->index('idx_credential_user_id', 'btree', 'user_id');
+        $struct->credential->index('idx_credential_blog_id', 'btree', 'blog_id');
 
         /* Performance indexes
         -------------------------------------------------------- */
@@ -286,6 +289,7 @@ class Schema
         $struct->blog->index('idx_blog_blog_upddt', 'btree', 'blog_upddt');
         $struct->media->index('idx_media_media_path', 'btree', 'media_path', 'media_dir', 'media_private');
         $struct->user->index('idx_user_user_super', 'btree', 'user_super');
+        //$struct->credential->index('idx_credential_credential_type', 'btree', 'credential_type');
 
         /* Foreign keys
         -------------------------------------------------------- */
@@ -307,6 +311,7 @@ class Schema
         $struct->pref->reference('fk_pref_user', 'user_id', 'user', 'user_id', 'cascade', 'cascade');
         $struct->notice->reference('fk_notice_session', 'ses_id', 'session', 'ses_id', 'cascade', 'cascade');
         $struct->credential->reference('fk_credential_user', 'user_id', 'user', 'user_id', 'cascade', 'cascade');
+        $struct->credential->reference('fk_credential_blog', 'blog_id', 'blog', 'blog_id', 'cascade', 'cascade');
 
         /* PostgreSQL specific indexes
         -------------------------------------------------------- */

@@ -43,27 +43,38 @@ abstract class Store implements StoreInterface
 
     public static function encodeValue(?string $data): string
     {
-        return base64_encode((string) $data);
+        return empty($data) ? '' : base64_encode((string) $data);
     }
 
     public static function decodeValue(?string $data): string
     {
-        if ($data == '') {
-            throw new StoreException(__('Arguments are missing'));
-        }
+        return empty($data) ? '' : base64_decode((string) $data, false);
+    }
 
-        return base64_decode($data, false);
+    public static function encodeData(array $data): array
+    {
+        return array_map(fn ($v): string => base64_encode((string) $v), $data);
+    }
+
+    public static function decodeData(array $data): array
+    {
+        return array_map(fn ($v): string => base64_decode((string) $v, false), $data);
+    }
+
+    public function getType(): string
+    {
+        return 'webauthn';
     }
 
     public function setChallenge(ByteBufferInterface $challenge): void
     {
         // note: encode binary string for database session store.
-        $_SESSION['webauthn_challenge'] = static::encodeValue($challenge->getBinaryString());
+        $_SESSION['webauthn_challenge'] = $this->encodeValue($challenge->getBinaryString());
     }
 
     public function getChallenge(): ByteBufferInterface
     {
-        return isset($_SESSION['webauthn_challenge']) ? $this->buffer->fromBinary(static::decodeValue($_SESSION['webauthn_challenge'])) : $this->buffer->randomBuffer(32);
+        return isset($_SESSION['webauthn_challenge']) ? $this->buffer->fromBinary($this->decodeValue($_SESSION['webauthn_challenge'])) : $this->buffer->randomBuffer(32);
     }
 
     public function getRelyingParty(): RpOptionInterface
@@ -80,7 +91,7 @@ abstract class Store implements StoreInterface
     {
     }
 
-    public function getCredentials(?string $credential_id = null, ?string $user_id = null): array
+    public function getCredentials(string $credential_id = '', string $user_id = ''): array
     {
         return [];
     }

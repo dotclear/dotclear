@@ -359,30 +359,6 @@ abstract class Otp
     }
 
     /**
-     * Encode credential data for database.
-     *
-     * @return  string  The encoded data
-     */
-    public function encodeData(): string
-    {
-        return (string) json_encode($this->data);
-    }
-
-    /**
-     * Decode credentail data from database entry.
-     *
-     * From data encoded with self::encodeData
-     * This populate current instance with theses values
-     *
-     * @param   string  $data   The database encoded credential data
-     */
-    public function decodeData(string $data): void
-    {
-        $data = json_decode($data, true);
-        $this->setData(is_array($data) ? $data : []);
-    }
-
-    /**
      * Get crendetail secret.
      *
      * @return  string  The credential secret

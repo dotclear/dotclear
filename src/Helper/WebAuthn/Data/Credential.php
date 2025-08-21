@@ -49,39 +49,37 @@ class Credential implements CredentialInterface
         ];
     }
 
-    public function fromArray(array $res): void
+    public function fromArray(array $data): void
     {
         $this->data = [
-            'createDate'          => $res['createDate']          ?? date('Y-m-d H:i:s'),
-            'attestationFormat'   => $res['attestationFormat']   ?? '',
-            'credentialId'        => $res['credentialId']        ?? '',
-            'credentialPublicKey' => $res['credentialPublicKey'] ?? '',
-            'certificateChain'    => $res['certificateChain']    ?? '',
-            'certificate'         => $res['certificate']         ?? '',
-            'certificateIssuer'   => $res['certificateIssuer']   ?? '',
-            'certificateSubject'  => $res['certificateSubject']  ?? '',
-            'signatureCounter'    => $res['signatureCounter']    ?? '',
-            'AAGUID'              => $res['AAGUID']              ?? '',
-            'userPresent'         => $res['userPresent']         ?? '',
-            'userVerified'        => $res['userVerified']        ?? '',
-            'isBackupEligible'    => $res['isBackupEligible']    ?? '',
-            'isBackedUp'          => $res['isBackedUp']          ?? '',
+            'createDate'          => $data['createDate']          ?? date('Y-m-d H:i:s'),
+            'attestationFormat'   => $data['attestationFormat']   ?? '',
+            'credentialId'        => $data['credentialId']        ?? '',
+            'credentialPublicKey' => $data['credentialPublicKey'] ?? '',
+            'certificateChain'    => $data['certificateChain']    ?? '',
+            'certificate'         => $data['certificate']         ?? '',
+            'certificateIssuer'   => $data['certificateIssuer']   ?? '',
+            'certificateSubject'  => $data['certificateSubject']  ?? '',
+            'signatureCounter'    => $data['signatureCounter']    ?? '',
+            'AAGUID'              => $data['AAGUID']              ?? '',
+            'userPresent'         => $data['userPresent']         ?? '',
+            'userVerified'        => $data['userVerified']        ?? '',
+            'isBackupEligible'    => $data['isBackupEligible']    ?? '',
+            'isBackedUp'          => $data['isBackedUp']          ?? '',
         ];
     }
 
-    public function encodeData(): string
+    public function newFromArray(array $data): CredentialInterface
     {
-        return (string) json_encode(array_map(fn ($v): string => base64_encode((string) $v), $this->data));
-    }
-
-    public function decodeData(string $data): CredentialInterface
-    {
-        // Need to clone instance to get uniq data for records, see Store::getCredentials()
         $clone = clone $this;
-        $data  = json_decode($data, true);
-        $clone->fromArray(array_map(fn ($v): string => base64_decode((string) $v), is_array($data) ? $data : []));
+        $clone->fromArray($data);
 
         return $clone;
+    }
+
+    public function getData(): array
+    {
+        return $this->data;
     }
 
     public function CreateDate(): string

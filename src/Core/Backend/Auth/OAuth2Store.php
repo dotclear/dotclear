@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Core\Backend\Auth;
 
+use ArrayObject;
 use Dotclear\App;
 use Dotclear\Helper\Container\{ Factories, Factory };
 use Dotclear\Helper\OAuth2\Client\{ Consumer, Store, Token, User };
@@ -58,9 +59,9 @@ class OAuth2Store extends Store
         $config = [];
         if ($user !== '') {
             $rs = App::credential()->getCredentials([
-                'credential_type' => $this->getType($provider, true),
-                'credential_id'   => $user,
-                'user_id'         => $user,
+                'user_id'          => $user,
+                'credential_type'  => $this->getType($provider),
+                'credential_value' => 'token',
             ]);
 
             if ($rs->isEmpty()) {
@@ -69,10 +70,7 @@ class OAuth2Store extends Store
                     $this->setToken($provider, $user);
                 }
             } else {
-                $config = json_decode((string) $rs->f('credential_data'), true);
-                if (!is_array($config)) {
-                    $config = [];
-                }
+                $config = $rs->getAllData();
             }
         }
 
@@ -84,34 +82,36 @@ class OAuth2Store extends Store
         $this->delToken($provider, $user_id);
 
         $cur = App::credential()->openCredentialCursor();
-        $cur->setField('credential_type', $this->getType($provider, true));
-        $cur->setField('credential_id', $user_id);
         $cur->setField('user_id', $user_id);
-        $cur->setField('credential_data', json_encode($token?->getConfiguration() ?? []));
+        $cur->setField('credential_type', $this->getType($provider));
+        $cur->setField('credential_value', 'token');
+        $cur->setField('credential_data', new ArrayObject($token?->getConfiguration() ?? []));
 
         App::credential()->setCredential($user_id, $cur);
     }
 
     public function delToken(string $provider, string $user_id): void
     {
-        App::credential()->delCredential(
-            $this->getType($provider, true),
-            $user_id
+        App::credential()->delCredentials(
+            $this->getType($provider),
+            'token',
+            $user_id,
+            true
         );
     }
 
     public function getUser(string $provider, string $uid): User
     {
         $rs = App::credential()->getCredentials([
-            'credential_type' => $this->getType($provider, false),
-            'credential_id'   => $uid,
+            'credential_type'  => $this->getType($provider),
+            'credential_value' => $uid,
         ]);
 
         $config = [];
         if (!$rs->isEmpty()) {
-            $config = json_decode((string) $rs->f('credential_data'), true);
+            $config = $rs->getAllData();
         }
-        if (!is_array($config) || $config === []) {
+        if ($config === []) {
             $config = [
                 'user_id' => (string) App::auth()->userID(),
                 'uid'     => $uid,
@@ -143,10 +143,10 @@ class OAuth2Store extends Store
 
         // Add user to credential table
         $cur = App::credential()->openCredentialCursor();
-        $cur->setField('credential_type', $this->getType($provider, false));
-        $cur->setField('credential_id', $user->get('uid'));
         $cur->setField('user_id', $user_id);
-        $cur->setField('credential_data', json_encode($config));
+        $cur->setField('credential_type', $this->getType($provider));
+        $cur->setField('credential_value', $user->get('uid')); // user distant uid
+        $cur->setField('credential_data', new ArrayObject($config));
 
         App::credential()->setCredential($user_id, $cur);
     }
@@ -154,19 +154,20 @@ class OAuth2Store extends Store
     public function delUser(string $provider, string $user_id): void
     {
         $rs = App::credential()->getCredentials([
-            'credential_type' => $this->getType($provider, false),
             'user_id'         => $user_id,
+            'credential_type' => $this->getType($provider),
         ]);
 
         while ($rs->fetch()) {
-            $config = json_decode((string) $rs->f('credential_data'), true);
-
             // Delete user from credential table
-            App::credential()->delCredential(
-                $this->getType($provider, false),
-                $config['uid'] ?? ''
+            App::credential()->delCredentials(
+                $this->getType($provider),
+                (string) $rs->f('credential_value'), // user distant uid
+                null,
+                true
             );
 
+            $config = $rs->getAllData();
             if (!empty($config['avatar'] ?? '')) {
                 // Delete user avatar from var
                 try {
@@ -185,12 +186,17 @@ class OAuth2Store extends Store
         $config = [];
         if (App::auth()->userID() != '') {
             $rs = App::credential()->getCredentials([
-                'credential_type' => $this->getType($provider, false),
                 'user_id'         => App::auth()->userID(),
+                'credential_type' => $this->getType($provider),
             ]);
 
             if (!$rs->isEmpty()) {
-                $config = json_decode((string) $rs->f('credential_data'), true);
+                while($rs->fetch()) {
+                    if ($rs->f('credential_value') != 'token') { // type is for token and user
+                        $config = $rs->getAllData();
+                        break;
+                    }
+                }
             }
         }
 

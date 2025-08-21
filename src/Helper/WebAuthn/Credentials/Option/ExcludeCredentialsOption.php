@@ -49,7 +49,7 @@ class ExcludeCredentialsOption implements ExcludeCredentialsOptionInterface
     public function configure(array $config = []): self
     {
         // Get user existing credentials
-        $this->credentials = array_map(fn (CredentialInterface $v): string => $v->credentialId(), $this->store->getCredentials(null, $this->store->getUser()->id()));
+        $this->credentials = array_map(fn (CredentialInterface $v): string => $v->credentialId(), $this->store->getCredentials('', $this->store->getUser()->id()));
 
         return $this;
     }
