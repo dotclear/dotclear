@@ -35,24 +35,20 @@ interface CredentialInterface
     public function fromArray(array $res): void;
 
     /**
-     * Safe encode data.
+     * Parse data from an array to a new instance.
      *
-     * Used to encode data before adding it to database.
+     * @param   array<string, mixed>    $res    The data to parse
      *
-     * @return  string  Encoded data
+     * @return  CredentialInterface     Self instance clone
      */
-    public function encodeData(): string;
+    public function newFromArray(array $res): CredentialInterface;
 
     /**
-     * Safe decode data and return a new instance of itself.
+     * Get data.
      *
-     * Decode string encoded with self::encodeData().
-     *
-     * @param   string  $data   The encoded data
-     *
-     * @return  CredentialInterface     Self instance
+     * @return  array<string, mixed>    The data
      */
-    public function decodeData(string $data): CredentialInterface;
+    public function getData(): array;
 
     /**
      * Get creation date.

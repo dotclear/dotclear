@@ -17,15 +17,18 @@ use Dotclear\Interface\Helper\WebAuthn\Util\ByteBufferInterface;
 /**
  * @brief   WebAuthn store interface.
  *
+ * WebAuthn store manage some binary strings, 
+ * they must be encoded in order to be added to database.
+ *
  * @author  Jean-Christian Paul Denis
  * @since   2.36
  */
 interface StoreInterface
 {
     /**
-     * Safe encode string.
+     * Safe encode binary string.
      *
-     * Used to encode data before adding it to database.
+     * Required to encode binary data before adding it to database.
      *
      * @param   null|string     $data   The data to encode
      *
@@ -34,16 +37,46 @@ interface StoreInterface
     public static function encodeValue(?string $data): string;
 
     /**
-     * Safe decode string.
+     * Safe decode binary string.
      *
-     * Decode string encoded from js webauthn script or
-     * Decode string encoded with self::safeEncode.
+     * Decode binary string encoded from js webauthn script or self::encodeValue().
      *
      * @param   null|string    $data   The encoded data
      *
      * @return  string  The decoded data
      */
     public static function decodeValue(?string $data): string;
+
+    /**
+     * Safe encode binary data.
+     *
+     * Required to encode binary data before adding them to database.
+     *
+     * @param   array<string, mixed>    $data   The data to encode
+     *
+     * @return  array<string, mixed>    The encoded data
+     */
+    public static function encodeData(array $data): array;
+
+    /**
+     * Safe decode binary data.
+     *
+     * Decode binary string encoded with self::encodeData().
+     *
+     * @param   array<string, mixed>    $data   The data to decode
+     *
+     * @return  array<string, mixed>    The decoded data
+     */
+    public static function decodeData(array $data): array;
+
+    /**
+     * Get webauthn type.
+     *
+     * For now it is always 'webauthn'.
+     *
+     * @return  string  The webauthn type
+     */
+    public function getType(): string;
 
     /**
      * Set webauthn challenge in session.
@@ -83,12 +116,12 @@ interface StoreInterface
     /**
      * Get users credentials.
      *
-     * @param   null|string     $credential_id  The optional credential ID to search
-     * @param   null|string     $user_id        The optional user ID to search
+     * @param   string  $credential_id  The optional credential ID to search
+     * @param   string  $user_id        The optional user ID to search
      *
      * @return  CredentialInterface[]
      */
-    public function getCredentials(?string $credential_id = null, ?string $user_id = null): array;
+    public function getCredentials(string $credential_id = '', string $user_id = ''): array;
 
     /**
      * Delete a credential.

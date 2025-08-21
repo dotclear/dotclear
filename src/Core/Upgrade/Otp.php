@@ -47,15 +47,10 @@ class Otp extends OtpHelper
         $params = [
             'user_id'         => $this->getUser(),
             'credential_type' => $this->getType(),
-            'limit'           => 1, // Should have only one record
         ];
 
         $rs = App::credential()->getCredentials($params);
-        if ($rs->isEmpty()) {
-            $this->setData([]);
-        } else {
-            $this->decodeData((string) $rs->f('credential_data'));
-        }
+        $this->setData($rs->isEmpty() ? [] : $rs->getAllData());
     }
 
     public function setCredential(): void

@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Core\Upgrade\GrowUp;
 
+use Dotclear\App;
 use Dotclear\Core\Upgrade\Upgrade;
 
 /**
@@ -30,6 +31,12 @@ class GrowUp_2_36_lt
                 'plugins/antispam/locales/lb',
             ]
         );
+
+        // credential database table was wrong in 2.36-dev-r20250820...
+        $columns = App::con()->schema()->getColumns(App::con()->prefix() . 'credential');
+        if (array_key_exists('credential_id', $columns)) {
+            App::con()->execute('DROP TABLE ' . App::con()->prefix() . 'credential');
+        }
 
         return $cleanup_sessions;
     }

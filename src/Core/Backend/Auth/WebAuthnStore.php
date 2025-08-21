@@ -10,9 +10,9 @@ declare(strict_types=1);
 
 namespace Dotclear\Core\Backend\Auth;
 
+use ArrayObject;
 use Dotclear\App;
 use Dotclear\Helper\Network\Http;
-
 use Dotclear\Helper\WebAuthn\Data\Store;
 use Dotclear\Helper\WebAuthn\Exception\StoreException;
 use Dotclear\Interface\Helper\WebAuthn\Credentials\Option\RpOptionInterface;
@@ -23,20 +23,11 @@ use Dotclear\Interface\Helper\WebAuthn\Util\ByteBufferInterface;
 /**
  * @brief   Dotclear backend WebAuthn store class.
  *
- * WebAuthn credential id is base64 encoded to be safety added to database.
- *
  * @author  Jean-Christian Paul Denis
  * @since   2.36
  */
 class WebAuthnStore extends Store
 {
-    /**
-     * Default database credential type.
-     *
-     * @var     string  DEFAULT_TYPE
-     */
-    public const DEFAULT_TYPE = 'webauthn';
-
     /**
      * The passkey providers file name.
      *
@@ -86,30 +77,27 @@ class WebAuthnStore extends Store
         $this->delCredential($credential->credentialId());
 
         $cur = App::credential()->openCredentialCursor();
-        $cur->setField('credential_id', $this->encodeValue($credential->credentialId()));
-        $cur->setField('credential_type', static::DEFAULT_TYPE);
-        $cur->setField('credential_data', $credential->encodeData());
+        $cur->setField('user_id', $this->getUser()->id());
+        $cur->setField('credential_type', $this->getType());
+        $cur->setField('credential_value', $this->encodeValue($credential->credentialId()));
+        $cur->setField('credential_data', new ArrayObject($this->encodeData($credential->getData())));
 
-        App::credential()->setCredential((string) App::auth()->userID(), $cur);
+        App::credential()->setCredential($this->getUser()->id(), $cur);
     }
 
-    public function getCredentials(?string $credential_id = null, ?string $user_id = null): array
+    public function getCredentials(string $credential_id = '', string $user_id = ''): array
     {
         $data   = [];
         $params = [
-            'credntial_type' => static::DEFAULT_TYPE,
+            'credential_type'  => $this->getType(),
+            'credential_value' => $this->encodeValue($credential_id),
+            'user_id'          => $user_id,
         ];
-        if (!is_null($credential_id)) {
-            $params['credential_id'] = $this->encodeValue($credential_id);
-        }
-        if (!is_null($user_id)) {
-            $params['user_id'] = $user_id;
-        }
 
         $rs = App::credential()->getCredentials($params);
         if (!$rs->isEmpty()) {
             while ($rs->fetch()) {
-                $data[] = $this->credential->decodeData((string) $rs->f('credential_data'));
+                $data[] = $this->credential->newFromArray($this->decodeData($rs->getAllData()));
             }
         }
 
@@ -118,7 +106,12 @@ class WebAuthnStore extends Store
 
     public function delCredential(string $credential_id): void
     {
-        App::credential()->delCredential(static::DEFAULT_TYPE, $this->encodeValue($credential_id));
+        App::credential()->delCredentials(
+            $this->getType(),
+            $this->encodeValue($credential_id),
+            $this->getUser()->id(),
+            true
+        );
     }
 
     public function setProviders(array $data): void

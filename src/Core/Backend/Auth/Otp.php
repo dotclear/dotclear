@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Core\Backend\Auth;
 
+use ArrayObject;
 use Dotclear\App;
 use Dotclear\Helper\Otp as OtpHelper;
 
@@ -49,7 +50,6 @@ class Otp extends OtpHelper
         $params = [
             'user_id'         => $this->getUser(),
             'credential_type' => $this->getType(),
-            'limit'           => 1, // Should have only one record
         ];
 
         $rs = App::credential()->getCredentials($params);
@@ -57,7 +57,7 @@ class Otp extends OtpHelper
             $this->setData([]);
             $this->setCredential();
         } else {
-            $this->decodeData((string) $rs->f('credential_data'));
+            $this->setData($rs->getAllData());
         }
     }
 
@@ -66,15 +66,20 @@ class Otp extends OtpHelper
         $this->delCredential();
 
         $cur = App::credential()->openCredentialCursor();
-        $cur->setField('credential_id', $this->getSecret());
+        $cur->setField('user_id', $this->getUser());
         $cur->setField('credential_type', $this->getType());
-        $cur->setField('credential_data', $this->encodeData());
+        $cur->setField('credential_data', new ArrayObject($this->data));
 
         App::credential()->setCredential($this->getUser(), $cur);
     }
 
     public function delCredential(): void
     {
-        App::credential()->delCredential($this->getType(), $this->getSecret());
+        App::credential()->delCredentials(
+            $this->getType(),
+            '',
+            $this->getUser(),
+            true
+        );
     }
 }
