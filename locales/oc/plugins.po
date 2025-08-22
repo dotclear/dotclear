@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-20 08:27+0200\n"
-"PO-Revision-Date: 2025-08-20 06:30\n"
+"POT-Creation-Date: 2025-08-22 11:46+0200\n"
+"PO-Revision-Date: 2025-08-22 10:03\n"
 "Last-Translator: \n"
 "Language-Team: Occitan\n"
 "Language: oc_FR\n"
@@ -2431,11 +2431,11 @@ msgstr "Las paginas seleccionadas son estadas reordenadas amb succès."
 msgid "No page"
 msgstr "Pas de pagina"
 
-#: plugins/pages/src/BackendList.php:179 plugins/pages/src/BackendList.php:240
+#: plugins/pages/src/BackendList.php:179 plugins/pages/src/BackendList.php:248
 msgid "Hidden"
 msgstr "Amagat"
 
-#: plugins/pages/src/BackendList.php:270
+#: plugins/pages/src/BackendList.php:278
 msgid "Select this page"
 msgstr "Seleccionatz aquesta pagina"
 

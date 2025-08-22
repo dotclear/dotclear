@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-20 14:45+0200\n"
-"PO-Revision-Date: 2025-08-20 13:17\n"
+"POT-Creation-Date: 2025-08-22 11:44+0200\n"
+"PO-Revision-Date: 2025-08-22 10:01\n"
 "Last-Translator: \n"
 "Language-Team: Hebrew\n"
 "Language: he_IL\n"
@@ -373,7 +373,7 @@ msgstr[3] "%d רשומות נמחקו בהצלחה"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:315
 #: src/Core/Backend/Combos.php:42 src/Core/Backend/Filter/FilterPosts.php:121
-#: src/Core/Backend/Listing/ListingPosts.php:261
+#: src/Core/Backend/Listing/ListingPosts.php:268
 msgid "(No cat)"
 msgstr "(אין חתול)"
 
@@ -501,7 +501,7 @@ msgstr "קטגוריה"
 
 #: src/Core/Backend/Combos.php:260 src/Core/Backend/Filter/FilterPosts.php:201
 #: src/Core/Backend/Listing/ListingPosts.php:209
-#: src/Core/Backend/Listing/ListingPosts.php:243
+#: src/Core/Backend/Listing/ListingPosts.php:250
 #: src/Core/Backend/Listing/ListingPostsMini.php:136
 msgid "Selected"
 msgstr "נבחר"
@@ -1047,7 +1047,7 @@ msgid "List of entries (%s)"
 msgstr "רשימת רישומים (%s)"
 
 #: src/Core/Backend/Listing/ListingPosts.php:208
-#: src/Core/Backend/Listing/ListingPosts.php:240
+#: src/Core/Backend/Listing/ListingPosts.php:247
 #: src/Core/Backend/Listing/ListingPostsMini.php:133
 msgid "Protected"
 msgstr "מוגן"
@@ -1056,21 +1056,29 @@ msgstr "מוגן"
 msgid "Attachments"
 msgstr "קבצים מצורפים"
 
-#: src/Core/Backend/Listing/ListingPosts.php:247
+#: src/Core/Backend/Listing/ListingPosts.php:254
 #: src/Core/Backend/Listing/ListingPostsMini.php:140
 #, php-format
 msgid "%d attachment"
 msgstr "%d קובץ מצורף"
 
-#: src/Core/Backend/Listing/ListingPosts.php:247
+#: src/Core/Backend/Listing/ListingPosts.php:254
 #: src/Core/Backend/Listing/ListingPostsMini.php:140
 #, php-format
 msgid "%d attachments"
 msgstr "%d קבצים מצורפים"
 
-#: src/Core/Backend/Listing/ListingPosts.php:271
+#: src/Core/Backend/Listing/ListingPosts.php:278
 msgid "Select this post"
 msgstr "בחר פוסט זה"
+
+#: src/Core/Backend/Listing/ListingPosts.php:309
+msgid "Comments closed"
+msgstr "התגובות סגורות"
+
+#: src/Core/Backend/Listing/ListingPosts.php:314
+msgid "Trackbacks closed"
+msgstr "הפניות סגורות"
 
 #: src/Core/Backend/Listing/ListingPostsMini.php:97
 msgid "Entries list"
@@ -3027,10 +3035,6 @@ msgstr "ε÷ß:"
 #: src/Helper/WebAuthn/Data/Provider.php:62
 msgid "Unknown passkey"
 msgstr "מפתח גישה לא ידוע"
-
-#: src/Helper/WebAuthn/Data/Store.php:52
-msgid "Arguments are missing"
-msgstr "חסרים טיעונים"
 
 #: src/Module/Modules.php:247
 #, php-format
@@ -6776,7 +6780,7 @@ msgstr "כדי לשדרג את התקנת Dotclear, פשוט לחצו על הל�
 msgid "This update may potentially require some precautions, you should carefully read the information post associated with this release (see above)."
 msgstr "ייתכן שעדכון זה עשוי לדרוש אמצעי זהירות מסוימים, עליכם לקרוא בזהירות את פרסום המידע המשויך לגירסה זו (ראו לעיל)."
 
-#: src/Schema/Extension/Log.php:44
+#: src/Schema/Extension/Credential.php:47 src/Schema/Extension/Log.php:44
 msgid "unknown"
 msgstr "לא ידוע"
 
