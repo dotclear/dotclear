@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-20 14:45+0200\n"
-"PO-Revision-Date: 2025-08-20 13:17\n"
+"POT-Creation-Date: 2025-08-22 11:44+0200\n"
+"PO-Revision-Date: 2025-08-22 10:01\n"
 "Last-Translator: \n"
 "Language-Team: Greek\n"
 "Language: el_GR\n"
@@ -361,7 +361,7 @@ msgstr[1] "%d καταχωρήσεις έχουν διαγραφεί επιτυ�
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:315
 #: src/Core/Backend/Combos.php:42 src/Core/Backend/Filter/FilterPosts.php:121
-#: src/Core/Backend/Listing/ListingPosts.php:261
+#: src/Core/Backend/Listing/ListingPosts.php:268
 msgid "(No cat)"
 msgstr "(Χωρίς γάτα)"
 
@@ -483,7 +483,7 @@ msgstr "Κατηγορία"
 
 #: src/Core/Backend/Combos.php:260 src/Core/Backend/Filter/FilterPosts.php:201
 #: src/Core/Backend/Listing/ListingPosts.php:209
-#: src/Core/Backend/Listing/ListingPosts.php:243
+#: src/Core/Backend/Listing/ListingPosts.php:250
 #: src/Core/Backend/Listing/ListingPostsMini.php:136
 msgid "Selected"
 msgstr "Επιλεγμένο"
@@ -1017,7 +1017,7 @@ msgid "List of entries (%s)"
 msgstr "Κατάλογος καταχωρήσεων (%s)"
 
 #: src/Core/Backend/Listing/ListingPosts.php:208
-#: src/Core/Backend/Listing/ListingPosts.php:240
+#: src/Core/Backend/Listing/ListingPosts.php:247
 #: src/Core/Backend/Listing/ListingPostsMini.php:133
 msgid "Protected"
 msgstr "Προστατευμένο"
@@ -1026,21 +1026,29 @@ msgstr "Προστατευμένο"
 msgid "Attachments"
 msgstr "Συνημμένα"
 
-#: src/Core/Backend/Listing/ListingPosts.php:247
+#: src/Core/Backend/Listing/ListingPosts.php:254
 #: src/Core/Backend/Listing/ListingPostsMini.php:140
 #, php-format
 msgid "%d attachment"
 msgstr "%d συνημμένο"
 
-#: src/Core/Backend/Listing/ListingPosts.php:247
+#: src/Core/Backend/Listing/ListingPosts.php:254
 #: src/Core/Backend/Listing/ListingPostsMini.php:140
 #, php-format
 msgid "%d attachments"
 msgstr "%d συνημμένα"
 
-#: src/Core/Backend/Listing/ListingPosts.php:271
+#: src/Core/Backend/Listing/ListingPosts.php:278
 msgid "Select this post"
 msgstr "Επιλέξτε αυτή τη θέση"
+
+#: src/Core/Backend/Listing/ListingPosts.php:309
+msgid "Comments closed"
+msgstr "Σχόλια κλειστά"
+
+#: src/Core/Backend/Listing/ListingPosts.php:314
+msgid "Trackbacks closed"
+msgstr "Τα κομμάτια έκλεισαν"
 
 #: src/Core/Backend/Listing/ListingPostsMini.php:97
 msgid "Entries list"
@@ -2969,10 +2977,6 @@ msgstr "Κατάσταση:"
 #: src/Helper/WebAuthn/Data/Provider.php:62
 msgid "Unknown passkey"
 msgstr "Άγνωστο κλειδί πρόσβασης"
-
-#: src/Helper/WebAuthn/Data/Store.php:52
-msgid "Arguments are missing"
-msgstr "Τα επιχειρήματα λείπουν"
 
 #: src/Module/Modules.php:247
 #, php-format
@@ -6706,7 +6710,7 @@ msgstr "Για να αναβαθμίσετε την εγκατάσταση Dotcl
 msgid "This update may potentially require some precautions, you should carefully read the information post associated with this release (see above)."
 msgstr "Αυτή η ενημερωμένη έκδοση πιθανόν να απαιτεί ορισμένες προφυλάξεις, θα πρέπει να διαβάσετε προσεκτικά τις πληροφορίες που σχετίζονται με αυτήν την έκδοση (βλ. παραπάνω)."
 
-#: src/Schema/Extension/Log.php:44
+#: src/Schema/Extension/Credential.php:47 src/Schema/Extension/Log.php:44
 msgid "unknown"
 msgstr "άγνωστο"
 
