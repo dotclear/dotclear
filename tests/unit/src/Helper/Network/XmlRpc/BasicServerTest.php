@@ -13,10 +13,12 @@ namespace Dotclear\Helper\Network\XmlRpc {
 
 namespace Dotclear\Tests\Helper\Network\XmlRpc {
     use Exception;
+    use PHPUnit\Framework\Attributes\BackupGlobals;
     use PHPUnit\Framework\TestCase;
 
     class BasicServerTest extends TestCase
     {
+        #[BackupGlobals(true)]
         public function testServer()
         {
             $this->expectOutputString(

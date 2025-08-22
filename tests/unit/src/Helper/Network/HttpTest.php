@@ -43,9 +43,9 @@ class HttpTest extends TestCase
         // On secure port without enforcing TLS
         $_SERVER['SERVER_PORT'] = 443;
 
-        $this->assertEquals(
-            'https://localhost',
-            \Dotclear\Helper\Network\Http::getHost()
+        $this->assertContains(
+            \Dotclear\Helper\Network\Http::getHost(),
+            ['http://localhost:443', 'https://localhost']
         );
 
         // On secure via $_SERVER

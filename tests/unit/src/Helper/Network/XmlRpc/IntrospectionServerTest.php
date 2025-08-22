@@ -4,32 +4,32 @@ declare(strict_types=1);
 
 namespace Dotclear\Tests\Helper\Network\XmlRpc;
 
+use Exception;
+use PHPUnit\Framework\Attributes\BackupGlobals;
 use PHPUnit\Framework\TestCase;
 
 class IntrospectionServerTest extends TestCase
 {
+    /**
+     * Note: terminate() is mocked by BasicServerTest.php
+     */
+    #[BackupGlobals(true)]
     public function test()
     {
-        /*
         $this->expectOutputString(
-            'XML-RPC server accepts POST requests only.'
+            ''
         );
-        $this->expectException(Exception::class);
-        */
+        //$this->expectException(Exception::class);
 
-        //$server = new \Dotclear\Helper\Network\XmlRpc\IntrospectionServer();
+        $_SERVER['REQUEST_METHOD'] = 'GET';
 
-        /*
-        $this->expectExceptionMessage(
-            'XML-RPC server accepts POST requests only.'
-        );
-        $this->expectExceptionCode(
-            405
-        );
-        */
+        $server = new \Dotclear\Helper\Network\XmlRpc\IntrospectionServer();
 
-        $this->AssertIsString(
-            'I know no way to catch the exit; statement which ends every public method of the tested class parent!'
-        );
+        //$this->expectExceptionMessage(
+        //    'XML-RPC server accepts POST requests only.'
+        //);
+        //$this->expectExceptionCode(
+        //    405
+        //);
     }
 }
