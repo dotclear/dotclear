@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-20 14:45+0200\n"
-"PO-Revision-Date: 2025-08-20 13:18\n"
+"POT-Creation-Date: 2025-08-22 11:44+0200\n"
+"PO-Revision-Date: 2025-08-22 10:02\n"
 "Last-Translator: \n"
 "Language-Team: Hindi\n"
 "Language: hi_IN\n"
@@ -361,7 +361,7 @@ msgstr[1] "%d प्रविष्टियाँ सफलतापूर्�
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:315
 #: src/Core/Backend/Combos.php:42 src/Core/Backend/Filter/FilterPosts.php:121
-#: src/Core/Backend/Listing/ListingPosts.php:261
+#: src/Core/Backend/Listing/ListingPosts.php:268
 msgid "(No cat)"
 msgstr "(कोई बिल्ली नहीं)"
 
@@ -483,7 +483,7 @@ msgstr "श्रेणी"
 
 #: src/Core/Backend/Combos.php:260 src/Core/Backend/Filter/FilterPosts.php:201
 #: src/Core/Backend/Listing/ListingPosts.php:209
-#: src/Core/Backend/Listing/ListingPosts.php:243
+#: src/Core/Backend/Listing/ListingPosts.php:250
 #: src/Core/Backend/Listing/ListingPostsMini.php:136
 msgid "Selected"
 msgstr "चुना गया"
@@ -1017,7 +1017,7 @@ msgid "List of entries (%s)"
 msgstr "प्रविष्टियों की सूची (%s)"
 
 #: src/Core/Backend/Listing/ListingPosts.php:208
-#: src/Core/Backend/Listing/ListingPosts.php:240
+#: src/Core/Backend/Listing/ListingPosts.php:247
 #: src/Core/Backend/Listing/ListingPostsMini.php:133
 msgid "Protected"
 msgstr "संरक्षित"
@@ -1026,21 +1026,29 @@ msgstr "संरक्षित"
 msgid "Attachments"
 msgstr "संलग्नक"
 
-#: src/Core/Backend/Listing/ListingPosts.php:247
+#: src/Core/Backend/Listing/ListingPosts.php:254
 #: src/Core/Backend/Listing/ListingPostsMini.php:140
 #, php-format
 msgid "%d attachment"
 msgstr "%d अनुलग्नक"
 
-#: src/Core/Backend/Listing/ListingPosts.php:247
+#: src/Core/Backend/Listing/ListingPosts.php:254
 #: src/Core/Backend/Listing/ListingPostsMini.php:140
 #, php-format
 msgid "%d attachments"
 msgstr "%d अनुलग्नक"
 
-#: src/Core/Backend/Listing/ListingPosts.php:271
+#: src/Core/Backend/Listing/ListingPosts.php:278
 msgid "Select this post"
 msgstr "इस पोस्ट का चयन करें"
+
+#: src/Core/Backend/Listing/ListingPosts.php:309
+msgid "Comments closed"
+msgstr "टिप्पणियाँ बंद"
+
+#: src/Core/Backend/Listing/ListingPosts.php:314
+msgid "Trackbacks closed"
+msgstr "ट्रैकबैक बंद"
 
 #: src/Core/Backend/Listing/ListingPostsMini.php:97
 msgid "Entries list"
@@ -2969,10 +2977,6 @@ msgstr "स्थिति:"
 #: src/Helper/WebAuthn/Data/Provider.php:62
 msgid "Unknown passkey"
 msgstr "अज्ञात पासकी"
-
-#: src/Helper/WebAuthn/Data/Store.php:52
-msgid "Arguments are missing"
-msgstr "तर्क गायब हैं"
 
 #: src/Module/Modules.php:247
 #, php-format
@@ -6706,7 +6710,7 @@ msgstr "अपने Dottlight अधिष्ठापन को उन्न�
 msgid "This update may potentially require some precautions, you should carefully read the information post associated with this release (see above)."
 msgstr "इस अद्यतन के लिए कुछ सावधानियों की आवश्यकता हो सकती है, आपको ध्यान से इस रिलीज (ऊपर देखें) के साथ जुड़े सूचना पोस्ट को ध्यान में रखना चाहिए."
 
-#: src/Schema/Extension/Log.php:44
+#: src/Schema/Extension/Credential.php:47 src/Schema/Extension/Log.php:44
 msgid "unknown"
 msgstr "अज्ञात"
 
