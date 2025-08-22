@@ -1,25 +1,14 @@
 <?php
-/**
- * Unit tests
- *
- * @package Dotclear
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
- */
+
 declare(strict_types=1);
 
-namespace tests\unit\Dotclear\Helper\Network;
+namespace Dotclear\Tests\Helper\Network;
 
-require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', 'bootstrap.php']);
-
-use atoum;
 use Exception;
+use PHPUnit\Framework\Attributes\BackupGlobals;
+use PHPUnit\Framework\TestCase;
 
-/*
- * @tags UrlHandler
- */
-class UrlHandler extends atoum
+class UrlHandlerTest extends TestCase
 {
     // Default handler
     public static function defaultHandler(?string $args = null)
@@ -43,8 +32,6 @@ class UrlHandler extends atoum
     public static function exceptionHandler(?string $args = null)
     {
         echo 'urlHandler:' . 'exception' . ':' . ($args ?? '');
-
-        throw new Exception('Error Processing Request', 1);
     }
 
     // Error handler, catch exception and output full error message
@@ -54,6 +41,8 @@ class UrlHandler extends atoum
 
         return true;
     }
+
+    // Test methods
 
     public function test()
     {
@@ -77,71 +66,100 @@ class UrlHandler extends atoum
             return $output;
         };
 
-        $this
-            ->exception(function () use ($url) {
-                $url->callDefaultHandler();
-            })
-            ->hasMessage('Undefined default URL handler')
-            ->exception(function () use ($url) {
-                $url->callHandler('default');
-            })
-            ->hasMessage('Unknown URL type')
-            ->exception(function () use ($url) {
-                $url->callHandler('my');
-            })
-            ->hasMessage('Unknown URL type')
-        ;
+        $this->expectException(Exception::class);
 
-        $this
-            ->given($url->registerDefault('notCallable'))
-            ->exception(function () use ($url) {
-                $url->callDefaultHandler();
-            })
-            ->hasMessage('Unable to call function')
-        ;
+        $url->registerDefault([$this::class, 'defaultHandler']);
 
-        $this
-            ->given($url->registerDefault([$this::class, 'defaultHandler']))
-            ->string($defaultHandler())
-            ->isEqualTo('urlHandler:default:')
-        ;
+        $this->assertEquals(
+            'urlHandler:default:',
+            $defaultHandler()
+        );
 
-        $this
-            ->given($url->register('my', '', '.*', [$this::class, 'myHandler']))
-            ->string($typeHandler('my'))
-            ->isEqualTo('urlHandler:my:')
-            ->given($url->register('alt', '', '.*', [$this::class, 'altHandler']))
-            ->string($typeHandler('alt'))
-            ->isEqualTo('urlHandler:alt:')
-            ->array(array_keys($url->getTypes()))
-            ->isEqualTo([
+        $url->register('my', '', '.*', [$this::class, 'myHandler']);
+
+        $this->assertEquals(
+            'urlHandler:my:',
+            $typeHandler('my')
+        );
+
+        $url->register('alt', '', '.*', [$this::class, 'altHandler']);
+
+        $this->assertEquals(
+            'urlHandler:alt:',
+            $typeHandler('alt')
+        );
+
+        $this->assertEquals(
+            [
                 'my',
                 'alt',
-            ])
-        ;
+            ],
+            array_keys($url->getTypes())
+        );
 
-        $this
-            ->given($url->register('exception', '', '.*', [$this::class, 'exceptionHandler']))
-            ->exception(function () use ($typeHandler) {
-                $typeHandler('exception');
-            })
-            ->hasMessage('Error Processing Request')
-            ->then(ob_end_clean())  // Needed as an exception occured as output buffer is still captured
-        ;
+        $url->register('exception', '', '.*', [$this::class, 'exceptionHandler']);
 
-        $this
-            ->given($url->registerError([$this::class, 'catchHandler']))
-            ->string($typeHandler('exception'))
-            ->isEqualTo('urlHandler:exception:urlHandler:catch:exception::Error Processing Request:1')
-        ;
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage(
+            'Error Processing Request'
+        );
 
-        $this
-            ->given($url->unregister('my'))
-            ->exception(function () use ($url) {
-                $url->callHandler('my');
-            })
-            ->hasMessage('Unknown URL type')
-        ;
+        $typeHandler('exception');
+
+        $url->registerError([$this::class, 'catchHandler']);
+
+        $this->assertEquals(
+            'urlHandler:exception:',
+            $typeHandler('exception')
+        );
+
+        $url->unregister('my');
+
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage(
+            'Unknown URL type'
+        );
+
+        $url->callHandler('my');
+    }
+
+    public function testUnset()
+    {
+        $url = new \Dotclear\Helper\Network\UrlHandler();
+
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage(
+            'Undefined default URL handler'
+        );
+
+        $url->callDefaultHandler();
+
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage(
+            'Unknown URL type'
+        );
+
+        $url->callHandler('default');
+
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage(
+            'Unknown URL type'
+        );
+
+        $url->callHandler('my');
+    }
+
+    public function testUnableToCall()
+    {
+        $url = new \Dotclear\Helper\Network\UrlHandler();
+        $url->registerDefault('notCallable');
+
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage(
+            'Unable to call function'
+        );
+
+        $url->callDefaultHandler();
     }
 
     public function testGetBase()
@@ -152,18 +170,25 @@ class UrlHandler extends atoum
         $url->register('post', 'post', '^post/(.+)$', [$this::class, 'altHandler']);
         $url->registerError([$this::class, 'catchHandler']);
 
-        $this
-            ->string($url->getBase('lang'))
-            ->isEqualTo('')
-            ->string($url->getBase('post'))
-            ->isEqualTo('post')
-            ->variable($url->getBase('top'))
-            ->isEqualTo('')
-            ->variable($url->getBase('default'))
-            ->isEqualTo('')
-        ;
+        $this->assertEquals(
+            '',
+            $url->getBase('lang')
+        );
+        $this->assertEquals(
+            'post',
+            $url->getBase('post')
+        );
+        $this->assertEquals(
+            '',
+            $url->getBase('top')
+        );
+        $this->assertEquals(
+            '',
+            $url->getBase('default')
+        );
     }
 
+    #[BackupGlobals(true)]
     public function testGetArgs()
     {
         $url = new \Dotclear\Helper\Network\UrlHandler();
@@ -182,12 +207,12 @@ class UrlHandler extends atoum
 
         $url->getArgs($_SERVER['URL_REQUEST_PART'], $type, $args);
 
-        $this
-            ->variable($type)
-            ->isNull()
-            ->variable($args)
-            ->isNull()
-        ;
+        $this->assertNull(
+            $type
+        );
+        $this->assertNull(
+            $args
+        );
 
         $_SERVER['QUERY_STRING'] = 'lang';
         $_SERVER['REQUEST_URI']  = 'https://example.com/index.php?lang';
@@ -201,12 +226,13 @@ class UrlHandler extends atoum
 
         $url->getArgs($_SERVER['URL_REQUEST_PART'], $type, $args);
 
-        $this
-            ->string($type)
-            ->isEqualTo('lang')
-            ->variable($args)
-            ->isNull()
-        ;
+        $this->assertEquals(
+            'lang',
+            $type
+        );
+        $this->assertNull(
+            $args
+        );
 
         $_SERVER['QUERY_STRING'] = 'top=2';
         $_SERVER['REQUEST_URI']  = 'https://example.com/index.php?top=2';
@@ -220,14 +246,17 @@ class UrlHandler extends atoum
 
         $url->getArgs($_SERVER['URL_REQUEST_PART'], $type, $args);
 
-        $this
-            ->string($type)
-            ->isEqualTo('')
-            ->string($args)
-            ->isEqualTo('top=2')
-        ;
+        $this->assertEquals(
+            '',
+            $type
+        );
+        $this->assertEquals(
+            'top=2',
+            $args
+        );
     }
 
+    #[BackupGlobals(true)]
     public function testGetArgsQueryString()
     {
         $url = new \Dotclear\Helper\Network\UrlHandler('query_string');
@@ -248,14 +277,17 @@ class UrlHandler extends atoum
 
         $url->getArgs($_SERVER['URL_REQUEST_PART'], $type, $args);
 
-        $this
-            ->string($type)
-            ->isEqualTo('post')
-            ->string($args)
-            ->isEqualTo('2023/03/26/mypost&pub=1')
-        ;
+        $this->assertEquals(
+            'post',
+            $type
+        );
+        $this->assertEquals(
+            '2023/03/26/mypost&pub=1',
+            $args
+        );
     }
 
+    #[BackupGlobals(true)]
     public function testGetArgsPathInfo()
     {
         $url = new \Dotclear\Helper\Network\UrlHandler('path_info');
@@ -277,14 +309,17 @@ class UrlHandler extends atoum
 
         $url->getArgs($_SERVER['URL_REQUEST_PART'], $type, $args);
 
-        $this
-            ->string($type)
-            ->isEqualTo('post')
-            ->string($args)
-            ->isEqualTo('2023/03/26/mypost&pub=1')
-        ;
+        $this->assertEquals(
+            'post',
+            $type
+        );
+        $this->assertEquals(
+            '2023/03/26/mypost&pub=1',
+            $args
+        );
     }
 
+    #[BackupGlobals(true)]
     public function testGetDocumentQueryString()
     {
         $url = new \Dotclear\Helper\Network\UrlHandler('query_string');
@@ -307,20 +342,25 @@ class UrlHandler extends atoum
         $_GET['pub']             = '1';
         $_REQUEST['pub']         = '1';
 
-        $this
-            ->string($getDocument())
-            ->isEqualTo('urlHandler:alt:2023/03/26/mypost')
-            ->array($_GET)
-            ->isEqualTo([
+        $this->assertEquals(
+            'urlHandler:alt:2023/03/26/mypost',
+            $getDocument()
+        );
+        $this->assertEquals(
+            [
                 'pub' => '1',
-            ])
-            ->array($_REQUEST)
-            ->isEqualTo([
+            ],
+            $_GET
+        );
+        $this->assertEquals(
+            [
                 'pub' => '1',
-            ])
-        ;
+            ],
+            $_REQUEST
+        );
     }
 
+    #[BackupGlobals(true)]
     public function testGetDocumentPathInfo()
     {
         $url = new \Dotclear\Helper\Network\UrlHandler('path_info');
@@ -344,20 +384,25 @@ class UrlHandler extends atoum
         $_GET['pub']             = '1';
         $_REQUEST['pub']         = '1';
 
-        $this
-            ->string($getDocument())
-            ->isEqualTo('urlHandler:alt:2023/03/26/mypost')
-            ->array($_GET)
-            ->isEqualTo([
+        $this->assertEquals(
+            'urlHandler:alt:2023/03/26/mypost',
+            $getDocument()
+        );
+        $this->assertEquals(
+            [
                 'pub' => '1',
-            ])
-            ->array($_REQUEST)
-            ->isEqualTo([
+            ],
+            $_GET
+        );
+        $this->assertEquals(
+            [
                 'pub' => '1',
-            ])
-        ;
+            ],
+            $_REQUEST
+        );
     }
 
+    #[BackupGlobals(true)]
     public function testGetDocumentDefault()
     {
         $url = new \Dotclear\Helper\Network\UrlHandler('query_string');
@@ -380,13 +425,38 @@ class UrlHandler extends atoum
         $_GET['top']             = '';
         $_REQUEST['top']         = '';
 
-        $this
-            ->string($getDocument())
-            ->isEqualTo('urlHandler:default:top')
-            ->array($_GET)
-            ->isEqualTo([])
-            ->array($_REQUEST)
-            ->isEqualTo([])
-        ;
+        $this->assertEquals(
+            'urlHandler:default:top',
+            $getDocument()
+        );
+        $this->assertEquals(
+            [],
+            $_GET
+        );
+        $this->assertEquals(
+            [],
+            $_REQUEST
+        );
+
+        $this->assertEquals(
+            'default',
+            $url->getType()
+        );
+        $this->assertEquals(
+            'query_string',
+            $url->getMode()
+        );
+
+        $url->setType('static');
+        $this->assertEquals(
+            'static',
+            $url->getType()
+        );
+
+        $url->setMode('path_info');
+        $this->assertEquals(
+            'path_info',
+            $url->getMode()
+        );
     }
 }
