@@ -138,7 +138,7 @@ class Utility extends Process
                 App::backend()->killAdminSession();
                 // Logout
                 App::backend()->url()->redirect('admin.auth');
-                exit;
+                terminate();
             }
 
             // Check nonce from POST requests
@@ -171,7 +171,7 @@ class Utility extends Process
                 $redir = (string) preg_replace('/(\?|&)blog=(?:[^&.]*)(&|$)/', '', $redir);
 
                 Http::redirect($redir);
-                exit;
+                terminate();
             }
 
             // Check if requested blog is in URL query (blog=blog_id)

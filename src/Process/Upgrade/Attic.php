@@ -90,7 +90,7 @@ class Attic extends Process
 
             Page::helpBlock('core_upgrade');
             Page::close();
-            exit;
+            terminate();
         }
 
         if (!is_readable(App::config()->digestsRoot())) {
@@ -115,7 +115,7 @@ class Attic extends Process
 
             Page::helpBlock('core_upgrade');
             Page::close();
-            exit;
+            terminate();
         }
 
         return self::status(true);

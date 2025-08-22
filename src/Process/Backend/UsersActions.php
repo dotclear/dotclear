@@ -240,7 +240,7 @@ class UsersActions extends Process
 
         if (App::backend()->action === null) {
             Page::close();
-            exit;
+            terminate();
         }
 
         $hiddens = [];

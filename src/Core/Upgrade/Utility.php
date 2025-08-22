@@ -112,7 +112,7 @@ class Utility extends Process
                 App::upgrade()->killAdminSession();
                 // Logout
                 App::upgrade()->url()->redirect('upgrade.auth');
-                exit;
+                terminate();
             }
 
             // Check nonce from POST requests

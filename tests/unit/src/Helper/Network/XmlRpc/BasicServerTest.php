@@ -2,35 +2,38 @@
 
 declare(strict_types=1);
 
-namespace Dotclear\Tests\Helper\Network\XmlRpc;
+namespace Dotclear\Helper\Network\XmlRpc {
+    use Exception;
 
-use Exception;
-use PHPUnit\Framework\TestCase;
-
-class BasicServerTest extends TestCase
-{
-    public function testServer()
+    function terminate()
     {
-        /*
-        $this->expectOutputString(
-            'XML-RPC server accepts POST requests only.'
-        );
-        $this->expectException(Exception::class);
-        */
+        throw new Exception('Exit application', 13);
+    }
+}
 
-        //$server = new \Dotclear\Helper\Network\XmlRpc\BasicServer();
+namespace Dotclear\Tests\Helper\Network\XmlRpc {
+    use Exception;
+    use PHPUnit\Framework\TestCase;
 
-        /*
-        $this->expectExceptionMessage(
-            'XML-RPC server accepts POST requests only.'
-        );
-        $this->expectExceptionCode(
-            405
-        );
-        */
+    class BasicServerTest extends TestCase
+    {
+        public function testServer()
+        {
+            $this->expectOutputString(
+                'XML-RPC server accepts POST requests only.'
+            );
+            $this->expectException(Exception::class);
 
-        $this->AssertIsString(
-            'I know no way to catch the exit; statement which ends every public method of the tested class!'
-        );
+            $_SERVER['REQUEST_METHOD'] = 'GET';
+
+            $server = new \Dotclear\Helper\Network\XmlRpc\BasicServer();
+
+            $this->expectExceptionMessage(
+                'XML-RPC server accepts POST requests only.'
+            );
+            $this->expectExceptionCode(
+                405
+            );
+        }
     }
 }

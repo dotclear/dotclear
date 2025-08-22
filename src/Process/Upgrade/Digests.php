@@ -130,7 +130,7 @@ class Digests extends Process
                 header('Content-Type: application/x-zip');
                 header('Content-Length: ' . strlen($c));
                 echo $c;
-                exit;
+                terminate();
             }
         }
 

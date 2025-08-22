@@ -168,7 +168,7 @@ class ModuleExportFlat extends Module
 
                 unlink($_SESSION['export_file']);
                 unset($_SESSION['export_file'], $_SESSION['export_filename'], $_SESSION['export_filezip']);
-                exit;
+                terminate();
             }
 
             // Zip export
@@ -186,7 +186,7 @@ class ModuleExportFlat extends Module
                 $zip->write();
 
                 unlink($_SESSION['export_file']);
-                exit;
+                terminate();
             } catch (Exception) {
                 @unlink($_SESSION['export_file']);
 

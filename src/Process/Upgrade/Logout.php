@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  * @subpackage  Upgrade
@@ -35,6 +36,6 @@ class Logout extends Process
         App::upgrade()->killAdminSession();
         // Logout
         App::upgrade()->url()->redirect('upgrade.auth');
-        exit;
+        terminate();
     }
 }

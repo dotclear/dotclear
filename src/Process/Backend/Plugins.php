@@ -69,7 +69,7 @@ class Plugins extends Process
             );
 
             App::backend()->url()->redirect('admin.plugins');
-            exit;
+            terminate();
         }
 
         if (App::backend()->list->setConfiguration()) {

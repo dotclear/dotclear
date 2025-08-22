@@ -86,7 +86,7 @@ class Home extends Process
             );
 
             App::backend()->url()->redirect('admin.home');
-            exit;
+            terminate();
         }
 
         // Check dashboard module global prefs
@@ -128,7 +128,7 @@ class Home extends Process
             App::backend()->killAdminSession();
             // Logout
             App::backend()->url()->redirect('admin.auth');
-            exit;
+            terminate();
         }
 
         if (!empty($_POST['donation-save'])) {

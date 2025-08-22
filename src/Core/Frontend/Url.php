@@ -284,7 +284,7 @@ class Url extends UrlHandler implements UrlInterface
 
         # --BEHAVIOR-- publicAfterDocument --
         App::behavior()->callBehavior('publicAfterDocumentV2');
-        exit;
+        terminate();
     }
 
     /**
@@ -545,7 +545,7 @@ class Url extends UrlHandler implements UrlInterface
                         header('Content-Type: text/plain');
                         echo 'So Long, and Thanks For All the Fish';
                         // Exits immediately the application to preserve the server.
-                        exit;
+                        terminate();
                     }
 
                     $name    = (string) $_POST['c_name'];
@@ -948,6 +948,6 @@ class Url extends UrlHandler implements UrlInterface
     {
         // Rick Roll script kiddies
         Http::redirect('https://www.youtube.com/watch?v=dQw4w9WgXcQ');
-        exit;
+        terminate();
     }
 }

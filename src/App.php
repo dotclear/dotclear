@@ -28,6 +28,9 @@ require_once implode(DIRECTORY_SEPARATOR, [__DIR__, 'Autoloader.php']);
 // Add root folder for namespaced and autoloaded classes
 Autoloader::me()->addNamespace('Dotclear', __DIR__);
 
+// Load PHPGlobal helper
+require_once implode(DIRECTORY_SEPARATOR, [__DIR__, 'PHPGlobal.php']);
+
 /**
  * @brief   Application.
  *

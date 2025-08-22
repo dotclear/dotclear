@@ -357,7 +357,7 @@ abstract class Actions
     public function redirect(bool $with_selected_entries = false, array $params = []): void
     {
         Http::redirect($this->getRedirection($with_selected_entries, $params));
-        exit;
+        terminate();
     }
 
     /**

@@ -170,7 +170,8 @@ class Http
         }
 
         header('Location: ' . self::prepareRedirect($relative_url));
-        exit;
+
+        terminate();
     }
 
     /**
@@ -320,7 +321,8 @@ class Http
             foreach ($headers as $header) {
                 header($header);
             }
-            exit;
+
+            terminate();
         }
 
         header('Date: ' . gmdate('D, d M Y H:i:s', $now) . ' GMT');
@@ -353,7 +355,8 @@ class Http
             foreach (explode(',', (string) $_SERVER['HTTP_IF_NONE_MATCH']) as $i) {
                 if (stripslashes(trim($i)) === $etag) {
                     self::head(304, 'Not Modified');
-                    exit;
+
+                    terminate();
                 }
             }
         }

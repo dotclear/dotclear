@@ -50,10 +50,10 @@ class Cli extends Process
             }
             App::con()->commit();
             echo 'Upgrade process successfully completed (' . $changes . "). \n";
-            exit(0);
+            terminate(0);
         } catch (Exception $e) {
             echo $e->getMessage() . "\n";
-            exit(1);
+            terminate(1);
         }
     }
 }

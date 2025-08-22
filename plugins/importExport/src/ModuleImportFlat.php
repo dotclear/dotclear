@@ -176,7 +176,7 @@ class ModuleImportFlat extends Module
 
         header('content-type:text/plain');
         var_dump($_POST);
-        exit;
+        terminate();
     }
 
     public function gui(): void
