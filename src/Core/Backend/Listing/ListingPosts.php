@@ -235,6 +235,13 @@ class ListingPosts extends Listing
         }
         $post_classes[] = 'sts-' . App::status()->post()->id((int) $this->rs->post_status);
 
+        if (!(bool) $this->rs->post_open_comment) {
+            $post_classes[] = 'entry-comments-closed';
+        }
+        if (!(bool) $this->rs->post_open_tb) {
+            $post_classes[] = 'entry-trackbacks-closed';
+        }
+
         $status = [];
         if ($this->rs->post_password) {
             $status[] = self::getRowImage(__('Protected'), 'images/locker.svg', 'locked');
@@ -297,12 +304,14 @@ class ListingPosts extends Listing
                 ->text($this->rs->user_id)
             ->render(),
             'comments' => (new Td())
-                ->class(['nowrap', 'count'])
+                ->class(['nowrap', 'count', 'entry-comments-count'])
                 ->text($this->rs->nb_comment)
+                ->extra((bool) $this->rs->post_open_comment ? '' : 'aria-details="' . __('Comments closed') . '"')
             ->render(),
             'trackbacks' => (new Td())
-                ->class(['nowrap', 'count'])
+                ->class(['nowrap', 'count', 'entry-trackbacks-count'])
                 ->text($this->rs->nb_trackback)
+                ->extra((bool) $this->rs->post_open_tb ? '' : 'aria-details="' . __('Trackbacks closed') . '"')
             ->render(),
             'status' => (new Td())
                 ->class(['nowrap', 'status'])

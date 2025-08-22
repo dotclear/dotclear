@@ -377,6 +377,11 @@ p {
   filter: var(--mark-locked-filter);
 }
 
+.entry-comments-closed .entry-comments-count,
+.entry-trackbacks-closed .entry-trackbacks-count {
+  color: var(--entry-feedback-closed-color);
+}
+
 /* ---------------------------------------------------------------- utilisables partout  */
 
 .legible {

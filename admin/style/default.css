@@ -549,6 +549,7 @@ html body.dark-mode .light-only {
   --entry-sb-background: light-dark(#fff, #494c52);
   --entry-sb-focus-background: light-dark(#ededed, #565a60);
   --entry-sb-spacer: light-dark(#dbdbdb, #f3f4f5);
+  --entry-feedback-closed-color: light-dark(#d33800, #ff6e3a);
   --fav-list-border: light-dark(#ececec, #ecedee);
   --fav-list-border-alt: light-dark(#dbdbdb, #dadbde);
   --my-favs-border: light-dark(#9ac123, #9ac123);
@@ -4614,6 +4615,11 @@ p img.mark {
 
 .mark-locked {
   filter: var(--mark-locked-filter);
+}
+
+.entry-comments-closed .entry-comments-count,
+.entry-trackbacks-closed .entry-trackbacks-count {
+  color: var(--entry-feedback-closed-color);
 }
 
 /* ---------------------------------------------------------------- utilisables partout  */
