@@ -117,10 +117,11 @@ class WebAuthn extends WebAuthnContainer
      * @param   string  $client         Binary client data from browser
      * @param   string  $attestation    Binary attestation data from browser
      * @param   string  $transports     Binary transports data from browser
+     * @param   string  $label          The passkey friendly name
      *
      * @return  bool    True on success
      */
-    public function processCreate(string $client, string $attestation, string $transports): bool
+    public function processCreate(string $client, string $attestation, string $transports, string $label = ''): bool
     {
         $this->client()->fromResponse($client);
 
@@ -171,7 +172,7 @@ class WebAuthn extends WebAuthnContainer
         }
 
         // Store data for futur login
-        $this->credential()->fromAttestation($this->attestation());
+        $this->credential()->fromAttestation($this->attestation(), $label);
         $this->store()->setCredential($this->credential());
 
         return true;

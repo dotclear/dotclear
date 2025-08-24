@@ -600,7 +600,8 @@ class UserPreferences extends Process
             ]) .
             Page::jsLoad('js/pwstrength.js') .
             Page::jsJson('userprefs', [
-                'remove' => __('Are you sure you want to remove selected favorites?'),
+                'remove'       => __('Are you sure you want to remove selected favorites?'),
+                'passkeylabel' => __('Enter a name for this key:'),
             ]) .
             Page::jsLoad('js/_preferences.js') .
             Page::jsPageTabs(App::backend()->tab) .
@@ -707,13 +708,12 @@ class UserPreferences extends Process
 
             foreach ($webauthn_creds as $webauthn_cred) {
                 $webauthn_items[] = (new Li())
-                    ->separator(', ')
+                    ->separator(' ')
                     ->items([
-                        (new Text('', Html::escapeHTML(App::backend()->webauthn->provider()->getProvider($webauthn_cred->UUID()))))
-                            ->title(Html::escapeHTML($webauthn_cred->certificateIssuer() ?: __('Unknown certificat issuer'))),
-                        (new Timestamp(Date::dt2str(__('%Y-%m-%d %H:%M'), $webauthn_cred->createDate())))
-                            ->datetime(Date::iso8601((int) strtotime((string) $webauthn_cred->createDate()), App::auth()->getInfo('user_tz'))),
-                        (new Text('', sprintf(__('valid for %s'), $webauthn_cred->rpId()))),
+                        (new Text('', Html::escapeHTML($webauthn_cred->label() ?: __('unlabeled key'))))
+                            ->title( App::backend()->webauthn->provider()->getProvider($webauthn_cred->UUID())),
+                        (new Text('', sprintf(__('valid on %s'), $webauthn_cred->rpId())))
+                            ->title(Date::dt2str(__('%Y-%m-%d %H:%M'), $webauthn_cred->createDate())),
                         (new Submit(['webauthn[' . base64_encode((string) $webauthn_cred->credentialId()) . ']'], __('Delete')))
                             ->class('delete'),
                     ]);
