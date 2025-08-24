@@ -58,6 +58,13 @@ interface CredentialInterface
     public function createDate(): string;
 
     /**
+     * Get relying party ID.
+     *
+     * @return  string  The relying party ID
+     */
+    public function rpId(): string;
+
+    /**
      * Get attestation format.
      *
      * @return  string  The attestation format

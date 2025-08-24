@@ -713,6 +713,7 @@ class UserPreferences extends Process
                             ->title(Html::escapeHTML($webauthn_cred->certificateIssuer() ?: __('Unknown certificat issuer'))),
                         (new Timestamp(Date::dt2str(__('%Y-%m-%d %H:%M'), $webauthn_cred->createDate())))
                             ->datetime(Date::iso8601((int) strtotime((string) $webauthn_cred->createDate()), App::auth()->getInfo('user_tz'))),
+                        (new Text('', sprintf(__('valid for %s'), $webauthn_cred->rpId()))),
                         (new Submit(['webauthn[' . base64_encode((string) $webauthn_cred->credentialId()) . ']'], __('Delete')))
                             ->class('delete'),
                     ]);
@@ -734,7 +735,7 @@ class UserPreferences extends Process
                 ) {
                     continue;
                 }
-                ;
+
                 // Get auth button
                 $oauth_link = App::backend()->oauth2->getActionButton(
                     (string) App::auth()->userID(),
