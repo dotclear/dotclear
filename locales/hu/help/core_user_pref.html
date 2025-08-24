@@ -21,6 +21,12 @@
     <dd>Ez a választás határozza meg a közzététel után megjelenő időpontot.</dd>
     <dt>Entry edit field height</dt>
     <dd>A jelszó megváltoztatásához írja be kétszer a jelszavát a <em>Új jelszó</em> és <em>Jelszó megerősítése</em>mezőkbe. A jelszó minimális hossza 6 karakter. Ha nem ad meg új jelszót, a jelenlegi megmarad. <em>(Ha frissíti ezt a mezőt, meg kell adnia jelenlegi jelszavát a megfelelő mezőben az űrlap alján)</em></dd>
+    <dt>Kétfaktoros hitelesítés</dt>
+    <dd>A kéttényezős hitelesítés egyszeri jelszavas hitelesítést használ, és csak a szokásos bejelentkezés+jelszó hitelesítés mellett használatos. A funkció aktiválásához szkennelje be a QR-kódot egy hitelesítési alkalmazással vagy használjon böngészőbővítményt, majd adja meg az ellenőrző kódot. Bejelentkezéskor, amikor erre felszólítják, adja meg az alkalmazás által megadott kódot.</dd>
+    <dt>Hitelesítési kulcsok</dt>
+    <dd>A hitelesítési kulcsot a szokásos bejelentkezés+jelszó hitelesítés helyett használják, ez lehet fizikai kulcs, böngészőbővítmény vagy jelszókezelő. A Javascript és a navigátor hitelesítő API-jának engedélyezve kell lennie a funkció használatához. Több kulcs is regisztrálható.</dd>
+    <dt>Hitelesítési alkalmazások</dt>
+    <dd>Ha konfigurálva van, különböző harmadik féltől származó alkalmazások állnak rendelkezésre. Ezt a szabványos bejelentkezés+jelszó hitelesítés helyett használják. Megadhatja vagy visszavonhatja a hozzáférést ezekhez az alkalmazásokhoz, ha rendelkezik fiókkal a platformjaikon, akkor ezekkel a fiókokkal bejelentkezhet.</dd>
   </dl>
   <h4>A lehetőségeim</h4>
   <h5>Interfész</h5>
