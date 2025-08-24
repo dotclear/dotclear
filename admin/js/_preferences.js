@@ -87,6 +87,8 @@ dotclear.ready(() => {
         throw new Error('Browser not supported.');
       }
 
+      const passkeyLabel = prompt(userprefsData.passkeylabel, '');
+
       // register flow step 1: get arguments
       dotclear.jsonServicesPost(
         'webAuthnRegistration',
@@ -116,6 +118,7 @@ dotclear.ready(() => {
                 {
                   json: 1,
                   step: 'process',
+                  label: (passkeyLabel || '').toString(),
                   client: publicKeyCredential.response.clientDataJSON
                     ? wanHelper.atb(publicKeyCredential.response.clientDataJSON)
                     : null,
@@ -152,6 +155,7 @@ dotclear.ready(() => {
     $('#webauthn_action input').on('click', (e) => {
       dotclear.webAuthnRegistration();
       e.preventDefault();
+      e.returnValue = '';
     });
   } else {
     $('#webauthn_action').hide();

@@ -978,7 +978,8 @@ class Rest extends Process
                 $webauthn->processCreate(
                     $webauthn->store()->decodeValue($post['client'] ?? ''),
                     $webauthn->store()->decodeValue($post['attestation'] ?? ''),
-                    $webauthn->store()->decodeValue($post['transports'] ?? '')
+                    $webauthn->store()->decodeValue($post['transports'] ?? ''),
+                    $post['label'] ?? ''
                 );
 
                 return [

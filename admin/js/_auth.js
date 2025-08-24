@@ -148,6 +148,7 @@ dotclear.ready(() => {
     $('#webauthn_action input').on('click', (e) => {
       dotclear.webAuthnAuthentication();
       e.preventDefault();
+      e.returnValue = '';
     });
   } else {
     $('#webauthn_action').hide();
