@@ -7,11 +7,13 @@ namespace Dotclear\Helper\File\Image {
 
     // Holds the mock callback
 
-    function function_exists(string $function): bool
-    {
-        return FunctionExistsMock::$callback
-            ? (FunctionExistsMock::$callback)($function)
-            : \function_exists($function); // fallback to real function
+    if (!\class_exists('Dotclear\Helper\File\Image\FunctionExistsMock')) {
+        function function_exists(string $function): bool
+        {
+            return FunctionExistsMock::$callback
+                ? (FunctionExistsMock::$callback)($function)
+                : \function_exists($function); // fallback to real function
+        }
     }
 
     function getimagesize(string $filename, &$image_info): array|false
@@ -28,12 +30,14 @@ namespace Dotclear\Helper\File\Image {
             : \exif_read_data($file, $required_sections, $as_arrays, $read_thumbnail); // fallback to real function
     }
 
-    final class FunctionExistsMock
-    {
-        public static ?Closure $callback = null;
-        public static function set(?Closure $callback): void
+    if (!\class_exists('Dotclear\Helper\File\Image\FunctionExistsMock')) {
+        final class FunctionExistsMock
         {
-            self::$callback = $callback;
+            public static ?Closure $callback = null;
+            public static function set(?Closure $callback): void
+            {
+                self::$callback = $callback;
+            }
         }
     }
 
