@@ -11,6 +11,7 @@ declare(strict_types=1);
 namespace Dotclear\Helper\WebAuthn\Data;
 
 use Dotclear\Interface\Helper\WebAuthn\Attestation\AttestationInterface;
+use Dotclear\Interface\Helper\WebAuthn\Credentials\Option\RpOptionInterface;
 use Dotclear\Interface\Helper\WebAuthn\Data\CredentialInterface;
 
 /**
@@ -27,11 +28,18 @@ class Credential implements CredentialInterface
      * @var     array<string, mixed>    $data
      */
     private array $data = [];
+    public function __construct(
+        protected RpOptionInterface $rp
+    ) {
 
-    public function fromAttestation(AttestationInterface $attestation): void
+    }
+
+    public function fromAttestation(AttestationInterface $attestation, string $label = ''): void
     {
         $this->data = [
             'createDate'          => date('Y-m-d H:i:s'),
+            'label'               => trim($label),
+            'rpId'                => $this->rp->id(),
             'attestationFormat'   => $attestation->getAttestationFormatType()->value,
             'credentialId'        => $attestation->getAuthenticator()->getCredentialId(),
             'credentialPublicKey' => $attestation->getAuthenticator()->getPublicKeyPem(),
@@ -53,6 +61,8 @@ class Credential implements CredentialInterface
     {
         $this->data = [
             'createDate'          => $data['createDate']          ?? date('Y-m-d H:i:s'),
+            'label'               => $data['label']               ?? '',
+            'rpId'                => $data['rpId']                ?? '',
             'attestationFormat'   => $data['attestationFormat']   ?? '',
             'credentialId'        => $data['credentialId']        ?? '',
             'credentialPublicKey' => $data['credentialPublicKey'] ?? '',
@@ -85,6 +95,16 @@ class Credential implements CredentialInterface
     public function CreateDate(): string
     {
         return $this->data['createDate'] ?? '';
+    }
+
+    public function label(): string
+    {
+        return $this->data['label'] ?: '';
+    }
+
+    public function rpId(): string
+    {
+        return $this->data['rpId'] ?? '';
     }
 
     public function attestationFormat(): string

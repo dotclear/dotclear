@@ -186,10 +186,10 @@ class Media extends Process
         # Removing items
         if (App::backend()->page->getDirs() && !empty($_POST['medias']) && !empty($_POST['delete_medias'])) {
             try {
+                $currentDir    = App::backend()->page->d;
                 $search_filter = isset($_POST['q']) && $_POST['q'] !== '';
                 if ($search_filter) {
                     // In search mode, medias contain full paths (relative to media main folder), so go back to main folder
-                    $currentDir = App::backend()->page->d;
                     App::media()->chdir(null);
                 }
 
@@ -224,6 +224,13 @@ class Media extends Process
             $forget          = false;
 
             try {
+                $currentDir    = App::backend()->page->d;
+                $search_filter = isset($_POST['q']) && $_POST['q'] !== '';
+                if ($search_filter) {
+                    // In search mode, medias contain full paths (relative to media main folder), so go back to main folder
+                    App::media()->chdir(null);
+                }
+
                 if (is_dir((string) Path::real(App::media()->getPwd() . '/' . Path::clean($_POST['remove'])))) {
                     $msg = __('Directory has been successfully removed.');
                     # Remove dir from recents/favs if necessary
@@ -232,10 +239,17 @@ class Media extends Process
                     $msg = __('File has been successfully removed.');
                 }
                 App::media()->removeItem($_POST['remove']);
+
+                if ($search_filter) {
+                    // Back to current directory
+                    App::media()->chdir($currentDir);
+                }
+
                 if ($forget) {
                     App::backend()->page->updateLast(App::backend()->page->d . '/' . Path::clean($_POST['remove']), true);
                     App::backend()->page->updateFav(App::backend()->page->d . '/' . Path::clean($_POST['remove']), true);
                 }
+
                 Notices::addSuccessNotice($msg);
                 App::backend()->url()->redirect('admin.media', App::backend()->page->values());
             } catch (Exception $e) {

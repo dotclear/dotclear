@@ -1884,7 +1884,7 @@ class Tpl extends Template
 
         if (isset($attr['selected'])) {
             $sign = (bool) $attr['selected'] ? '' : '!';
-            $if->append($sign . '(boolean)App::frontend()->context()->posts->post_selected');
+            $if->append($sign . '(bool)App::frontend()->context()->posts->post_selected');
         }
 
         if (isset($attr['has_category'])) {
@@ -1930,7 +1930,7 @@ class Tpl extends Template
 
         if (isset($attr['republished'])) {
             $sign = (bool) $attr['republished'] ? '' : '!';
-            $if->append($sign . '(boolean)App::frontend()->context()->posts->isRepublished()');
+            $if->append($sign . '(bool)App::frontend()->context()->posts->isRepublished()');
         }
 
         if (isset($attr['author'])) {

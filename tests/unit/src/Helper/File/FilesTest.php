@@ -1,32 +1,17 @@
 <?php
 
-/**
- * Unit tests
- *
- * @package Dotclear
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
- */
 declare(strict_types=1);
 
-namespace tests\unit\Dotclear\Helper\File;
+namespace Dotclear\Tests\Helper\File;
 
-require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', 'bootstrap.php']);
-
-use atoum;
-use atoum\atoum\mock\stream;
 use Exception;
+use PHPUnit\Framework\Attributes\Depends;
+use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
+use PHPUnit\Framework\TestCase;
 
-/**
- * @tags Files
- * @engine isolate
- */
-class Files extends atoum
+#[RunTestsInSeparateProcesses]
+class FilesTest extends TestCase
 {
-    // Atoum VFS stream
-    public const ATOUM_STREAM = 'atoum:\\\\';
-
     // Test folder
     public const TEST_FOLDER = 'dotclear_temp_files';
 
@@ -40,21 +25,11 @@ class Files extends atoum
     private string $testDirectory;
     private string $providerDirectory;
 
-    public function __construct()
+    protected function setUp(): void
     {
-        parent::__construct();
-
         $this->providerDirectory = realpath(implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', 'fixtures', 'src', 'Helper', 'File']));
         $this->testDirectory     = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::TEST_FOLDER]);
 
-        $this
-            ->dump($this->providerDirectory)
-            ->dump($this->testDirectory)
-        ;
-    }
-
-    public function setUp()
-    {
         // Create a temporary test folder and copy provided files in it
         if (!is_dir($this->testDirectory)) {
             mkdir($this->testDirectory);
@@ -65,7 +40,7 @@ class Files extends atoum
         }
     }
 
-    public function tearDown()
+    protected function tearDown(): void
     {
         // Remove the temporary test folder including content
         if (is_dir($this->testDirectory)) {
@@ -75,9 +50,9 @@ class Files extends atoum
         }
     }
 
-    public function getTempDir(): string
+    protected function getTempDir(): string
     {
-        $dir = implode(DIRECTORY_SEPARATOR, [$this->testDirectory, uniqid('atoum_')]);
+        $dir = implode(DIRECTORY_SEPARATOR, [$this->testDirectory, uniqid('phpunit_')]);
         mkdir($dir);
         if (!is_dir($dir)) {
             throw new Exception(sprintf('Unable to create temporary directory %s', $dir));
@@ -91,43 +66,59 @@ class Files extends atoum
         return $dir;
     }
 
-    public function delTempDir(string $dir): void
+    protected function delTempDir(string $dir): void
     {
         if (is_dir($dir)) {
             \Dotclear\Helper\File\Files::deltree($dir);
         }
     }
 
+    public function test()
+    {
+        $this->assertTrue(
+            is_dir($this->testDirectory)
+        );
+    }
+
+    #[Depends('test')]
     public function testLock()
     {
         $dir = $this->getTempDir();
 
-        $this
-            ->string(\Dotclear\Helper\File\Files::lock('unknown.file'))
-            ->isEqualTo('')
-            ->string(\Dotclear\Helper\File\Files::getlastLockError())
-            ->isEqualTo('Can\'t create file')
-        ;
+        $this->assertEquals(
+            '',
+            \Dotclear\Helper\File\Files::lock('unknown.file')
+        );
+        $this->assertEquals(
+            'Can\'t create file',
+            \Dotclear\Helper\File\Files::getlastLockError()
+        );
 
-        $this
-            ->string(\Dotclear\Helper\File\Files::lock($dir))
-            ->isEqualTo('')
-            ->string(\Dotclear\Helper\File\Files::getlastLockError())
-            ->isEqualTo('Can\'t lock a directory')
-        ;
+        $this->assertEquals(
+            '',
+            \Dotclear\Helper\File\Files::lock($dir)
+        );
+        $this->assertEquals(
+            'Can\'t lock a directory',
+            \Dotclear\Helper\File\Files::getlastLockError()
+        );
 
         $file = implode(DIRECTORY_SEPARATOR, [$dir, '1-one.txt']);
 
-        $this
-            ->string(\Dotclear\Helper\File\Files::lock($file))
-            ->isEqualTo($file)
-            ->variable(\Dotclear\Helper\File\Files::lock($file))
-            ->isEqualTo(null)
-            ->given(\Dotclear\Helper\File\Files::unlock($file))
-            ->then()
-            ->string(\Dotclear\Helper\File\Files::lock($file))
-            ->isEqualTo($file)
-        ;
+        $this->assertEquals(
+            $file,
+            \Dotclear\Helper\File\Files::lock($file)
+        );
+        $this->assertNull(
+            \Dotclear\Helper\File\Files::lock($file)
+        );
+
+        \Dotclear\Helper\File\Files::unlock($file);
+
+        $this->assertEquals(
+            $file,
+            \Dotclear\Helper\File\Files::lock($file)
+        );
 
         $file_lock = implode(DIRECTORY_SEPARATOR, [$this->providerDirectory, 'watchdog.lock']);
         if (file_exists($file_lock)) {
@@ -136,21 +127,22 @@ class Files extends atoum
 
         $lock = \Dotclear\Helper\File\Files::lock($file_lock, true);
 
-        $this
-            ->string($lock)
-            ->isEqualTo($file_lock)
-            ->boolean(file_exists($file_lock))
-            ->isTrue()
-            ->given(\Dotclear\Helper\File\Files::unlock($lock))
-        ;
+        $this->assertEquals(
+            $file_lock,
+            $lock
+        );
+        $this->assertTrue(
+            file_exists($file_lock)
+        );
+
+        \Dotclear\Helper\File\Files::unlock($lock);
 
         sleep(2);
         clearstatcache(true, $lock);
 
-        $this
-            ->boolean(file_exists($lock))
-            ->isFalse()
-        ;
+        $this->assertFalse(
+            file_exists($lock)
+        );
 
         $this->delTempDir($dir);
     }
@@ -159,28 +151,26 @@ class Files extends atoum
      * Scan a directory. For that we use the /../fixtures/files which contains
      * know files
      */
+    #[Depends('testLock')]
     public function testScanDir()
     {
         $dir = $this->getTempDir();
 
         // Normal (sorted)
-        $this
-            ->array(\Dotclear\Helper\File\Files::scandir($dir))
-            ->isIdenticalTo(['.', '..', '02-two.txt', '1-one.txt', '30-three.txt'])
-        ;
+        $this->assertEquals(
+            ['.', '..', '02-two.txt', '1-one.txt', '30-three.txt'],
+            \Dotclear\Helper\File\Files::scandir($dir)
+        );
 
         // Not sorted
-        $this
-            ->array(\Dotclear\Helper\File\Files::scandir($dir, false))
-            ->containsValues(['.', '..', '1-one.txt', '02-two.txt', '30-three.txt'])
-        ;
+        $this->assertEquals(
+            ['.', '..', '02-two.txt', '30-three.txt', '1-one.txt'],
+            \Dotclear\Helper\File\Files::scandir($dir, false)
+        );
 
         // Don't exists
-        $this
-            ->exception(function () {
-                \Dotclear\Helper\File\Files::scandir('thisdirectorydontexists');
-            })
-        ;
+        $this->expectException(Exception::class);
+        \Dotclear\Helper\File\Files::scandir('thisdirectorydontexists');
 
         $this->delTempDir($dir);
     }
@@ -188,14 +178,17 @@ class Files extends atoum
     /**
      * Test the extension
      */
+    #[Depends('testScanDir')]
     public function testExtension()
     {
-        $this
-            ->string(\Dotclear\Helper\File\Files::getExtension('fichier.txt'))
-            ->isEqualTo('txt')
-            ->string(\Dotclear\Helper\File\Files::getExtension('fichier'))
-            ->isEqualTo('')
-        ;
+        $this->assertEquals(
+            'txt',
+            \Dotclear\Helper\File\Files::getExtension('fichier.txt')
+        );
+        $this->assertEquals(
+            '',
+            \Dotclear\Helper\File\Files::getExtension('fichier')
+        );
     }
 
     /**
@@ -205,51 +198,58 @@ class Files extends atoum
      * W3C spec.
      * See http://en.wikipedia.org/wiki/Internet_media_type for all mimetypes
      */
+    #[Depends('testExtension')]
     public function testGetMimeType()
     {
-        $this
-            ->string(\Dotclear\Helper\File\Files::getMimeType('fichier.txt'))
-            ->isEqualTo('text/plain')
-            ->string(\Dotclear\Helper\File\Files::getMimeType('fichier.css'))
-            ->isEqualTo('text/css')
-            ->string(\Dotclear\Helper\File\Files::getMimeType('fichier.js'))
-            ->isEqualTo('text/javascript')
-        ;
+        $this->assertEquals(
+            'text/plain',
+            \Dotclear\Helper\File\Files::getMimeType('fichier.txt')
+        );
+        $this->assertEquals(
+            'text/css',
+            \Dotclear\Helper\File\Files::getMimeType('fichier.css')
+        );
+        $this->assertEquals(
+            'text/javascript',
+            \Dotclear\Helper\File\Files::getMimeType('fichier.js')
+        );
 
-        $this
-            ->string(\Dotclear\Helper\File\Files::getMimeType('fichier.dummy'))
-            ->isEqualTo('application/octet-stream')
-        ;
+        $this->assertEquals(
+            'application/octet-stream',
+            \Dotclear\Helper\File\Files::getMimeType('fichier.dummy')
+        );
     }
 
     /**
      * There's a lot of mimetypes. Only test if mimetypes array is not empty
      */
+    #[Depends('testGetMimeType')]
     public function testMimeTypes()
     {
-        $this
-            ->array(\Dotclear\Helper\File\Files::mimeTypes())
-            ->isNotEmpty()
-        ;
+        $this->assertNotEmpty(
+            \Dotclear\Helper\File\Files::mimeTypes()
+        );
     }
 
     /**
      * Try to register a new mimetype: test/test which don't exists
      */
+    #[Depends('testMimeTypes')]
     public function testRegisterMimeType()
     {
         \Dotclear\Helper\File\Files::registerMimeTypes(['text/test']);
 
-        $this
-            ->array(\Dotclear\Helper\File\Files::mimeTypes())
-            ->contains('text/test')
-        ;
+        $this->assertContains(
+            'text/test',
+            \Dotclear\Helper\File\Files::mimeTypes()
+        );
     }
 
     /**
      * Test if a file is deletable. Under windows every file is deletable
      * TODO: Do it under an Unix/Unix-like system
      */
+    #[Depends('testRegisterMimeType')]
     public function testFileIsDeletable()
     {
         $dir = $this->getTempDir();
@@ -257,10 +257,9 @@ class Files extends atoum
         $tmpname = tempnam($dir, 'testFileIsDeletable');
         $file    = fopen($tmpname, 'w+');
 
-        $this
-            ->boolean(\Dotclear\Helper\File\Files::isDeletable($tmpname))
-            ->isTrue()
-        ;
+        $this->assertTrue(
+            \Dotclear\Helper\File\Files::isDeletable($tmpname)
+        );
 
         fclose($file);
 
@@ -270,6 +269,7 @@ class Files extends atoum
     /**
      * Test if a directory is deletable
      */
+    #[Depends('testFileIsDeletable')]
     public function testDirIsDeletable()
     {
         $dir = $this->getTempDir();
@@ -279,16 +279,9 @@ class Files extends atoum
 
         $ret = \Dotclear\Helper\File\Files::isDeletable($dirname);
 
-        //        $dirname   = 'testDirIsDeletable';
-        //        $directory = stream::get($dirname);
-        //        $directory->mkdir($dirname, self::READ_WRITE_EXECUTE_USER_GROUP);
-
-        //        $ret = \Dotclear\Helper\File\Files::isDeletable(self::ATOUM_STREAM . $dirname);
-
-        $this
-            ->boolean($ret)
-            ->isTrue()
-        ;
+        $this->assertTrue(
+            $ret
+        );
 
         $this->delTempDir($dir);
     }
@@ -297,6 +290,7 @@ class Files extends atoum
      * Test if a directory is deletable
      * TODO: Do it under Unix/Unix-like system
      */
+    #[Depends('testDirIsDeletable')]
     public function testDirIsNotDeletable()
     {
         $dir = $this->getTempDir();
@@ -304,10 +298,9 @@ class Files extends atoum
         $dirname = $dir . DIRECTORY_SEPARATOR . 'testDirIsNotDeletable';
 
         // Test with a non existing dir
-        $this
-            ->boolean(\Dotclear\Helper\File\Files::isDeletable($dirname))
-            ->isFalse()
-        ;
+        $this->assertFalse(
+            \Dotclear\Helper\File\Files::isDeletable($dirname)
+        );
 
         $this->delTempDir($dir);
     }
@@ -315,6 +308,7 @@ class Files extends atoum
     /**
      * Create a directories structure and delete it
      */
+    #[Depends('testDirIsNotDeletable')]
     public function testDeltree()
     {
         $dir = $this->getTempDir();
@@ -324,12 +318,12 @@ class Files extends atoum
         touch($dirstructure . DIRECTORY_SEPARATOR . 'file.txt');
         $del = \Dotclear\Helper\File\Files::deltree(join(DIRECTORY_SEPARATOR, [$dir, 'testDeltree']));
 
-        $this
-            ->boolean($del)
-            ->isTrue()
-            ->boolean(is_dir($this->testDirectory . DIRECTORY_SEPARATOR . 'testDeltree'))
-            ->isFalse()
-        ;
+        $this->assertTrue(
+            $del
+        );
+        $this->assertFalse(
+            is_dir($this->testDirectory . DIRECTORY_SEPARATOR . 'testDeltree')
+        );
 
         $this->delTempDir($dir);
     }
@@ -338,6 +332,7 @@ class Files extends atoum
      * There's a know bug on windows system with filemtime,
      * so this test might fail within this system
      */
+    #[Depends('testDeltree')]
     public function testTouch()
     {
         $dir = $this->getTempDir();
@@ -356,10 +351,10 @@ class Files extends atoum
 
         $sts = filemtime($file_name);
 
-        $this
-            ->integer($sts)
-            ->isGreaterThan($fts)
-        ;
+        $this->assertGreaterThan(
+            $fts,
+            $sts
+        );
 
         $this->delTempDir($dir);
     }
@@ -367,6 +362,7 @@ class Files extends atoum
     /**
      * Make a single directory
      */
+    #[Depends('testTouch')]
     public function testMakeDir()
     {
         $dir = $this->getTempDir();
@@ -375,24 +371,21 @@ class Files extends atoum
         $dirPath = $dir . DIRECTORY_SEPARATOR . 'testMakeDir';
         \Dotclear\Helper\File\Files::makeDir($dirPath);
 
-        $this
-            ->boolean(is_dir($dirPath))
-            ->isTrue()
-        ;
+        $this->assertTrue(
+            is_dir($dirPath)
+        );
 
         \Dotclear\Helper\File\Files::deltree($dirPath);
 
         // Test with void name
-        $this
-            ->variable(\Dotclear\Helper\File\Files::makeDir(''))
-            ->isNull()
-        ;
+        $this->assertNull(
+            \Dotclear\Helper\File\Files::makeDir('')
+        );
 
         // test with already existing dir
-        $this
-            ->variable(\Dotclear\Helper\File\Files::makeDir($dir))
-            ->isNull()
-        ;
+        $this->assertNull(
+            \Dotclear\Helper\File\Files::makeDir($dir)
+        );
 
         $this->delTempDir($dir);
     }
@@ -400,6 +393,7 @@ class Files extends atoum
     /**
      * Make a directory structure
      */
+    #[Depends('testMakeDir')]
     public function testMakeDirWithParent()
     {
         $dir = $this->getTempDir();
@@ -411,9 +405,9 @@ class Files extends atoum
         $path = '';
         foreach ([$dir . DIRECTORY_SEPARATOR . 'testMakeDirWithParent', 'is', 'a', 'test', 'directory'] as $p) {
             $path .= $p . DIRECTORY_SEPARATOR;
-            $this->
-                boolean(is_dir($path))
-            ;
+            $this->assertTrue(
+                is_dir($path)
+            );
         }
 
         $this->delTempDir($dir);
@@ -424,6 +418,7 @@ class Files extends atoum
      * Under windows try to create a reserved directory
      * Under Unix/Unix-like sytem try to create a directory at root dir
      */
+    #[Depends('testMakeDirWithParent')]
     public function testMakeDirImpossible()
     {
         if (DIRECTORY_SEPARATOR == '\\') {
@@ -432,11 +427,11 @@ class Files extends atoum
             $dir = '/dummy'; // On Unix system can't create a directory at root
         }
 
-        $this->exception(function () use ($dir) {
-            \Dotclear\Helper\File\Files::makeDir($dir);
-        });
+        $this->expectException(Exception::class);
+        \Dotclear\Helper\File\Files::makeDir($dir);
     }
 
+    #[Depends('testMakeDirImpossible')]
     public function testInheritChmod()
     {
         $dir = $this->getTempDir();
@@ -450,14 +445,14 @@ class Files extends atoum
         \Dotclear\Helper\File\Files::inheritChmod($sonDirName);
         $sonPerms = fileperms($sonDirName);
 
-        $this
-            ->boolean($sonPerms === $parentPerms)
-            ->isTrue()
-        ;
+        $this->assertTrue(
+            $sonPerms === $parentPerms
+        );
 
         $this->delTempDir($dir);
     }
 
+    #[Depends('testInheritChmod')]
     public function testInheritChmodDirMode()
     {
         $dir = $this->getTempDir();
@@ -472,16 +467,18 @@ class Files extends atoum
         \Dotclear\Helper\File\Files::inheritChmod($sonDirName);
         $sonPerms = fileperms($sonDirName);
 
-        $this
-            ->boolean($sonPerms === $parentPerms)
-            ->isFalse()
-            ->integer($sonPerms)
-            ->isEqualTo(16888) // Aka self::READ_WRITE_EXECUTE_USER_GROUP
-        ;
+        $this->assertFalse(
+            $sonPerms === $parentPerms
+        );
+        $this->assertEquals(
+            16888,  // Aka self::READ_WRITE_EXECUTE_USER_GROUP
+            $sonPerms
+        );
 
         $this->delTempDir($dir);
     }
 
+    #[Depends('testInheritChmodDirMode')]
     public function testPutContent()
     {
         $dir = $this->getTempDir();
@@ -490,14 +487,15 @@ class Files extends atoum
         $filename = $dir . DIRECTORY_SEPARATOR . 'testPutContent.txt';
         \Dotclear\Helper\File\Files::putContent($filename, $content);
 
-        $this
-            ->string(file_get_contents($filename))
-            ->isEqualTo($content)
-        ;
+        $this->assertEquals(
+            $content,
+            file_get_contents($filename)
+        );
 
         $this->delTempDir($dir);
     }
 
+    #[Depends('testPutContent')]
     public function testPutContentException()
     {
         $dir = $this->getTempDir();
@@ -508,57 +506,77 @@ class Files extends atoum
         @unlink($filename);
         \Dotclear\Helper\File\Files::putContent($filename, $content);
 
-        $this
-            ->exception(function () use ($filename) {
-                chmod($filename, self::READ_ONLY); // Read only
+        chmod($filename, self::READ_ONLY); // Read only
 
-                sleep(2);
-                clearstatcache(true, $filename);
+        sleep(2);
+        clearstatcache(true, $filename);
 
-                \Dotclear\Helper\File\Files::putContent($filename, 'unwritable');
-            })
-            ->hasMessage('File is not writable.')
-        ;
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage('File is not writable.');
+
+        \Dotclear\Helper\File\Files::putContent($filename, 'unwritable');
 
         chmod($filename, self::READ_WRITE_EXECUTE);
 
         $this->delTempDir($dir);
     }
 
+    #[Depends('testPutContentException')]
     public function testSize()
     {
-        $this
-            ->string(\Dotclear\Helper\File\Files::size(512))
-            ->isEqualTo('512 B')
-            ->string(\Dotclear\Helper\File\Files::size(1024))
-            ->isEqualTo('1 KB')
-            ->string(\Dotclear\Helper\File\Files::size(1024 + 1024 + 1))
-            ->isEqualTo('2 KB')
-            ->string(\Dotclear\Helper\File\Files::size(1024 * 1024))
-            ->isEqualTo('1 MB')
-            ->string(\Dotclear\Helper\File\Files::size(1024 * 1024 * 1024))
-            ->isEqualTo('1 GB')
-            ->string(\Dotclear\Helper\File\Files::size(1024 * 1024 * 1024 * 3))
-            ->isEqualTo('3 GB')
-            ->string(\Dotclear\Helper\File\Files::size(1024 * 1024 * 1024 * 1024))
-            ->isEqualTo('1 TB')
-        ;
+        $this->assertEquals(
+            '512 B',
+            \Dotclear\Helper\File\Files::size(512)
+        );
+        $this->assertEquals(
+            '1 KB',
+            \Dotclear\Helper\File\Files::size(1024)
+        );
+        $this->assertEquals(
+            '2 KB',
+            \Dotclear\Helper\File\Files::size(1024 + 1024 + 1)
+        );
+        $this->assertEquals(
+            '1 MB',
+            \Dotclear\Helper\File\Files::size(1024 * 1024)
+        );
+        $this->assertEquals(
+            '1 GB',
+            \Dotclear\Helper\File\Files::size(1024 * 1024 * 1024)
+        );
+        $this->assertEquals(
+            '3 GB',
+            \Dotclear\Helper\File\Files::size(1024 * 1024 * 1024 * 3)
+        );
+        $this->assertEquals(
+            '1 TB',
+            \Dotclear\Helper\File\Files::size(1024 * 1024 * 1024 * 1024)
+        );
     }
 
+    #[Depends('testSize')]
     public function testStr2Bytes()
     {
-        $this
-            ->float(\Dotclear\Helper\File\Files::str2bytes('512B'))
-            ->isEqualTo((float) 512)
-            ->float(\Dotclear\Helper\File\Files::str2bytes('512 B'))
-            ->isEqualTo((float) 512)
-            ->float(\Dotclear\Helper\File\Files::str2bytes('1k'))
-            ->isEqualTo((float) 1024)
-            ->float(\Dotclear\Helper\File\Files::str2bytes('1M'))
-            ->isEqualTo((float) 1024 * 1024)
-            ->float(\Dotclear\Helper\File\Files::str2bytes('2G'))
-            ->isEqualTo((float) 2 * 1024 * 1024 * 1024)
-        ;
+        $this->assertEquals(
+            (float) 512,
+            \Dotclear\Helper\File\Files::str2bytes('512B')
+        );
+        $this->assertEquals(
+            (float) 512,
+            \Dotclear\Helper\File\Files::str2bytes('512 B')
+        );
+        $this->assertEquals(
+            (float) 1024,
+            \Dotclear\Helper\File\Files::str2bytes('1k')
+        );
+        $this->assertEquals(
+            (float) 1024 * 1024,
+            \Dotclear\Helper\File\Files::str2bytes('1M')
+        );
+        $this->assertEquals(
+            (float) 2 * 1024 * 1024 * 1024,
+            \Dotclear\Helper\File\Files::str2bytes('2G')
+        );
     }
 
     /**
@@ -566,6 +584,7 @@ class Files extends atoum
      *
      * This must fail until Files::uploadStatus don't handle UPLOAD_ERR_EXTENSION
      */
+    #[Depends('testStr2Bytes')]
     public function testUploadStatus()
     {
         // Create a false $_FILES global without error
@@ -577,38 +596,44 @@ class Files extends atoum
             'type'     => 'image/jpeg',
         ];
 
-        $this
-            ->boolean(\Dotclear\Helper\File\Files::uploadStatus($file))
-            ->isTrue();
+        $this->assertTrue(
+            \Dotclear\Helper\File\Files::uploadStatus($file)
+        );
 
         // Simulate error
         $file['error'] = UPLOAD_ERR_INI_SIZE;
-        $this->exception(function () use ($file) {\Dotclear\Helper\File\Files::uploadStatus($file);});
+        $this->expectException(Exception::class);
+        \Dotclear\Helper\File\Files::uploadStatus($file);
 
         $file['error'] = UPLOAD_ERR_FORM_SIZE;
-        $this->exception(function () use ($file) {\Dotclear\Helper\File\Files::uploadStatus($file);});
+        $this->expectException(Exception::class);
+        \Dotclear\Helper\File\Files::uploadStatus($file);
 
         $file['error'] = UPLOAD_ERR_PARTIAL;
-        $this->exception(function () use ($file) {\Dotclear\Helper\File\Files::uploadStatus($file);});
+        $this->expectException(Exception::class);
+        \Dotclear\Helper\File\Files::uploadStatus($file);
 
         $file['error'] = UPLOAD_ERR_NO_TMP_DIR; // Since PHP 5.0.3
-        $this->exception(function () use ($file) {\Dotclear\Helper\File\Files::uploadStatus($file);});
+        $this->expectException(Exception::class);
+        \Dotclear\Helper\File\Files::uploadStatus($file);
 
         $file['error'] = UPLOAD_ERR_NO_FILE;
-        $this->exception(function () use ($file) {\Dotclear\Helper\File\Files::uploadStatus($file);});
+        $this->expectException(Exception::class);
+        \Dotclear\Helper\File\Files::uploadStatus($file);
 
         $file['error'] = UPLOAD_ERR_CANT_WRITE;
-        $this->exception(function () use ($file) {\Dotclear\Helper\File\Files::uploadStatus($file);});
+        $this->expectException(Exception::class);
+        \Dotclear\Helper\File\Files::uploadStatus($file);
 
         // This part might fail
         if (version_compare(phpversion(), '5.2.0', '>')) {
             $file['error'] = UPLOAD_ERR_EXTENSION; // Since PHP 5.2
-            $this->exception(function () use ($file) {
-                \Dotclear\Helper\File\Files::uploadStatus($file);
-            });
+            $this->expectException(Exception::class);
+            \Dotclear\Helper\File\Files::uploadStatus($file);
         }
     }
 
+    #[Depends('testUploadStatus')]
     public function testGetDirList()
     {
         $dir = $this->getTempDir();
@@ -616,56 +641,61 @@ class Files extends atoum
         $arr = [];
         \Dotclear\Helper\File\Files::getDirList($dir, $arr);
 
-        $this
-            ->array($arr)
-            ->isNotEmpty()
-            ->hasKeys(['files', 'dirs'])
-            ->array($arr['files'])
-            ->isNotEmpty()
-            ->array($arr['dirs'])
-            ->isNotEmpty()
-        ;
+        $this->assertNotEmpty(
+            $arr
+        );
+        $this->assertArrayHasKey(
+            'files',
+            $arr
+        );
+        $this->assertArrayHasKey(
+            'dirs',
+            $arr
+        );
+        $this->assertNotEmpty(
+            $arr['files']
+        );
+        $this->assertNotEmpty(
+            $arr['dirs']
+        );
 
-        $this
-            ->exception(function () use ($dir) {
-                \Dotclear\Helper\File\Files::getDirList($dir . DIRECTORY_SEPARATOR . 'void', $arr);
-            })
-            ->hasMessage(sprintf('%s is not a directory.', $dir . DIRECTORY_SEPARATOR . 'void'));
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage(sprintf('%s is not a directory.', $dir . DIRECTORY_SEPARATOR . 'void'));
+
+        \Dotclear\Helper\File\Files::getDirList($dir . DIRECTORY_SEPARATOR . 'void', $arr);
 
         // Deep structure read
         $dirstructure = join(DIRECTORY_SEPARATOR, [$dir, 'testGetDirList', 'tests', 'are', 'good', 'for', 'you']);
         mkdir($dirstructure, self::READ_WRITE_EXECUTE, true);
         \Dotclear\Helper\File\Files::getDirList(join(DIRECTORY_SEPARATOR, [$dir, 'testGetDirList']), $arr);
 
-        $this
-            ->array($arr['dirs'])
-            ->isNotEmpty()
-        ;
+        $this->assertNotEmpty(
+            $arr['dirs']
+        );
 
         \Dotclear\Helper\File\Files::deltree(join(DIRECTORY_SEPARATOR, [$dir, 'testGetDirList']));
 
         // Unreadable dir
         $dirname = $dir . DIRECTORY_SEPARATOR . 'testGetDirListVoid';
         mkdir($dirname);
+        chmod($dirname, self::WRITE_ONLY);
 
-        $this
-            ->exception(function () use ($dirname) {
-                chmod($dirname, self::WRITE_ONLY);
-                \Dotclear\Helper\File\Files::getDirList($dirname, $arr);
-            })
-            ->hasMessage('Unable to open directory.')
-        ;
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage('Unable to open directory.');
+
+        \Dotclear\Helper\File\Files::getDirList($dirname, $arr);
 
         chmod($dirname, self::READ_WRITE_EXECUTE);
 
         $this->delTempDir($dir);
     }
 
+    #[Depends('testGetDirList')]
     public function testTidyFilename()
     {
-        $this
-            ->string(\Dotclear\Helper\File\Files::tidyFileName('a test file.txt'))
-            ->isEqualTo('a_test_file.txt')
-        ;
+        $this->assertEquals(
+            'a_test_file.txt',
+            \Dotclear\Helper\File\Files::tidyFileName('a test file.txt')
+        );
     }
 }

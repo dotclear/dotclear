@@ -74,7 +74,7 @@ class WebAuthn extends Wan
     /**
      * Process passkey registration, step 2 of registration flow.
      */
-    public function processCreate(string $client, string $attestation, string $transports): bool
+    public function processCreate(string $client, string $attestation, string $transports, string $label = ''): bool
     {
         // same as above
         $this->authenticatorSelectionOption()->configure([
@@ -82,7 +82,7 @@ class WebAuthn extends Wan
             'user_verification' => UserVerificationEnum::PREFERRED, // preferred user verification
         ]);
 
-        return parent::processCreate($client, $attestation, $transports);
+        return parent::processCreate($client, $attestation, $transports, $label);
     }
 
     /**

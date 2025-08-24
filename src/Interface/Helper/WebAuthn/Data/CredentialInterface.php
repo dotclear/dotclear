@@ -24,8 +24,9 @@ interface CredentialInterface
      * Parse data from Attestation Object from response.
      *
      * @param   AttestationInterface    $attestation    The attestation intance
+     * @param   string                  $label          The key friendly name
      */
-    public function fromAttestation(AttestationInterface $attestation): void;
+    public function fromAttestation(AttestationInterface $attestation, string $label = ''): void;
 
     /**
      * Parse data from an array.
@@ -56,6 +57,20 @@ interface CredentialInterface
      * @return  string  The creation date
      */
     public function createDate(): string;
+
+    /**
+     * Get key label.
+     *
+     * @return  string  The key label
+     */
+    public function label(): string;
+
+    /**
+     * Get relying party ID.
+     *
+     * @return  string  The relying party ID
+     */
+    public function rpId(): string;
 
     /**
      * Get attestation format.

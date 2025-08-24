@@ -1,25 +1,13 @@
 <?php
-/**
- * Unit tests
- *
- * @package Dotclear
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
- */
+
 declare(strict_types=1);
 
-namespace tests\unit\Dotclear\Helper\File\Zip;
+namespace Dotclear\Tests\Helper\File\Zip;
 
-require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', '..', 'bootstrap.php']);
-
-use atoum;
+use PHPUnit\Framework\TestCase;
 use SplFileInfo;
 
-/**
- * @tags Zip
- */
-class Zip extends atoum
+class ZipTest extends TestCase
 {
     public const ZIP_LEGACY = 'legacy.zip';
 
@@ -78,18 +66,6 @@ class Zip extends atoum
         }
     }
 
-    public function setUp()
-    {
-        $this
-            ->dump(sys_get_temp_dir())    // Equal to $TMPDIR on MacOS
-            ->dump(realpath(sys_get_temp_dir()))
-        ;
-
-        // Executed *before each* test method.
-        $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
-        self::prepareTests($rootzip);
-    }
-
     private function openArchive(string $archive, &$fp)
     {
         $fp = @fopen($archive, 'wb');
@@ -107,6 +83,13 @@ class Zip extends atoum
         }
         fclose($fp);
         $zip->close();
+    }
+
+    protected function setUp(): void
+    {
+        // Executed *before each* test method.
+        $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
+        self::prepareTests($rootzip);
     }
 
     public function testLegacy()
@@ -143,38 +126,47 @@ class Zip extends atoum
             $sts = (int) $sts['mtime'];
         }
 
+        $this->assertNotFalse(
+            $ret
+        );
+        $this->assertGreaterThan(
+            0,
+            $sts
+        );
+        $this->assertNotNull(
+            $zip
+        );
+
         $spl = new SplFileInfo($archive);
 
-        $this
-            ->variable($ret)
-            ->isNotFalse()
-            ->integer($sts)
-            ->isGreaterThan(0)
-            ->variable($zip)
-            ->isNotNull()
-            ->integer($spl->getSize())
-            ->isGreaterThan(0)
-        ;
+        $this->assertGreaterThan(
+            0,
+            $spl->getSize()
+        );
     }
 
     public function testStreamLegacy()
     {
-        $this
-            ->output(function () {
-                $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
+        $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
 
-                // Create archive
-                $fp  = null;
-                $zip = $this->openArchive('php://output', $fp);
+        ob_start();
 
-                $zip->addExclusion('/(notmine|notyours)$/');
-                $zip->addExclusion(self::ZIP_EXCLUDE);
-                $zip->addDirectory($rootzip, self::ZIP_NAME, true);
+        // Create archive
+        $fp  = null;
+        $zip = $this->openArchive('php://output', $fp);
 
-                // Close archive
-                $this->closeArchive($zip, $fp, true);
-            })
-            ->isNotEmpty()
-        ;
+        $zip->addExclusion('/(notmine|notyours)$/');
+        $zip->addExclusion(self::ZIP_EXCLUDE);
+        $zip->addDirectory($rootzip, self::ZIP_NAME, true);
+
+        // Close archive
+        $this->closeArchive($zip, $fp, true);
+
+        $content = ob_get_contents();
+        ob_end_clean();
+
+        $this->assertNotEmpty(
+            $content
+        );
     }
 }
