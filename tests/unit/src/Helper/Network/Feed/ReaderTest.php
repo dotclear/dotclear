@@ -13,8 +13,7 @@ class ReaderTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->cacheDirectory = realpath(implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', '..', 'fixtures', 'src', 'Helper', 'Network', 'Feed']));
-        $this->cacheDirectory .= DIRECTORY_SEPARATOR . 'cache';
+        $this->cacheDirectory = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), 'feed_reader']);
         if (!file_exists($this->cacheDirectory)) {
             mkdir($this->cacheDirectory);
         }
