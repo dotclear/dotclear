@@ -663,7 +663,7 @@ class L10n
     public static function createPluralFunction(int $nplurals, string $expression)
     {
         return function ($n) use ($nplurals, $expression) {
-            $i = eval('return (integer) (' . str_replace('n', (string) $n, $expression) . ');');
+            $i = eval('return (int) (' . str_replace('n', (string) $n, $expression) . ');');
 
             return ($i < $nplurals) ? $i : $nplurals - 1;
         };

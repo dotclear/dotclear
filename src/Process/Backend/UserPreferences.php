@@ -936,6 +936,7 @@ class UserPreferences extends Process
         $sortingRows = function ($sorts) {
             foreach ($sorts as $sort_type => $sort_data) {
                 yield (new Tr())
+                    ->class('line')
                     ->cols([
                         (new Td())
                             ->text($sort_data[0]),
