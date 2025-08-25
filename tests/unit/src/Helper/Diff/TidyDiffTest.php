@@ -1,21 +1,12 @@
 <?php
-/**
- * Unit tests
- *
- * @package Dotclear
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
- */
+
 declare(strict_types=1);
 
-namespace tests\unit\Dotclear\Helper\Diff;
+namespace Dotclear\Tests\Helper\Diff;
 
-require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', 'bootstrap.php']);
+use PHPUnit\Framework\TestCase;
 
-use atoum;
-
-class TidyDiff extends atoum
+class TidyDiffTest extends TestCase
 {
     public function test()
     {
@@ -37,12 +28,12 @@ class TidyDiff extends atoum
         $chunk->addLine('insert', [3, 2], 'Ligne 2 ajoutée');
         $chunk->addLine('context', [3, 3], 'Ligne 4 ajoutée');
 
-        $this
-            ->array($component->getChunks())
-            ->isEqualTo([
+        $this->assertEquals(
+            [
                 $chunk,
-            ])
-        ;
+            ],
+            $component->getChunks()
+        );
     }
 
     public function testWithInlineChange()
@@ -66,11 +57,11 @@ class TidyDiff extends atoum
         $chunk->addLine('context', [3, 3], 'Ligne 4 ajoutée');
         $chunk->findInsideChanges();
 
-        $this
-            ->array($component->getChunks())
-            ->isEqualTo([
+        $this->assertEquals(
+            [
                 $chunk,
-            ])
-        ;
+            ],
+            $component->getChunks()
+        );
     }
 }

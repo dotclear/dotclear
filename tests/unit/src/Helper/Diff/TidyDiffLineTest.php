@@ -1,0 +1,109 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Dotclear\Tests\Helper\Diff;
+
+use PHPUnit\Framework\TestCase;
+
+class TidyDiffLineTest extends TestCase
+{
+    public function test()
+    {
+        $component = new \Dotclear\Helper\Diff\TidyDiffLine('context', [3, 4], 'content');
+
+        $this->assertEquals(
+            'context',
+            $component->type
+        );
+
+        $this->assertEquals(
+            [3, 4],
+            $component->lines
+        );
+
+        $this->assertEquals(
+            'content',
+            $component->content
+        );
+
+        $this->assertNull(
+            $component->unknown
+        );
+    }
+
+    public function testWithUnknownType()
+    {
+        $component = new \Dotclear\Helper\Diff\TidyDiffLine('unknown', [3, 4], 'content');
+
+        $this->assertNull(
+            $component->type
+        );
+
+        $this->assertNull(
+            $component->lines
+        );
+
+        $this->assertNull(
+            $component->content
+        );
+    }
+
+    public function testWithNullLines()
+    {
+        $component = new \Dotclear\Helper\Diff\TidyDiffLine('unknown', null, 'content');
+
+        $this->assertNull(
+            $component->type
+        );
+
+        $this->assertNull(
+            $component->lines
+        );
+
+        $this->assertNull(
+            $component->content
+        );
+    }
+
+    public function testWithNullContent()
+    {
+        $component = new \Dotclear\Helper\Diff\TidyDiffLine('unknown', [3, 4], null);
+
+        $this->assertNull(
+            $component->type
+        );
+
+        $this->assertNull(
+            $component->lines
+        );
+
+        $this->assertNull(
+            $component->content
+        );
+    }
+
+    public function testOverwrite()
+    {
+        $component = new \Dotclear\Helper\Diff\TidyDiffLine('context', [3, 4], 'content');
+
+        $component->overwrite('new content');
+
+        $this->assertEquals(
+            'new content',
+            $component->content
+        );
+    }
+
+    public function testOverwriteWithNull()
+    {
+        $component = new \Dotclear\Helper\Diff\TidyDiffLine('context', [3, 4], 'content');
+
+        $component->overwrite(null);
+
+        $this->assertEquals(
+            'content',
+            $component->content
+        );
+    }
+}

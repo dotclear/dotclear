@@ -1,55 +1,44 @@
 <?php
-/**
- * Unit tests
- *
- * @package Dotclear
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
- */
+
 declare(strict_types=1);
 
-namespace tests\unit\Dotclear\Helper\Diff;
+namespace Dotclear\Tests\Helper\Diff;
 
-require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', 'bootstrap.php']);
+use PHPUnit\Framework\TestCase;
 
-use atoum;
-
-class TidyDiffChunk extends atoum
+class TidyDiffChunkTest extends TestCase
 {
     public function test()
     {
         $component = new \Dotclear\Helper\Diff\TidyDiffChunk();
 
-        $this
-            ->array($component->getLines())
-            ->isEmpty()
-        ;
+        $this->assertEmpty(
+            $component->getLines()
+        );
 
-        $this
-            ->integer($component->getInfo('context'))
-            ->isEqualTo(0)
-        ;
+        $this->assertEquals(
+            0,
+            $component->getInfo('context')
+        );
 
-        $this
-            ->integer($component->getInfo('delete'))
-            ->isEqualTo(0)
-        ;
+        $this->assertEquals(
+            0,
+            $component->getInfo('delete')
+        );
 
-        $this
-            ->integer($component->getInfo('insert'))
-            ->isEqualTo(0)
-        ;
+        $this->assertEquals(
+            0,
+            $component->getInfo('insert')
+        );
 
-        $this
-            ->array($component->getInfo('range'))
-            ->isEqualTo(['start' => [], 'end' => []])
-        ;
+        $this->assertEquals(
+            ['start' => [], 'end' => []],
+            $component->getInfo('range')
+        );
 
-        $this
-            ->variable($component->getInfo('unknown'))
-            ->isNull()
-        ;
+        $this->assertNull(
+            $component->getInfo('unknown')
+        );
     }
 
     public function testSetRange()
@@ -57,10 +46,10 @@ class TidyDiffChunk extends atoum
         $component = new \Dotclear\Helper\Diff\TidyDiffChunk();
         $component->setRange(1, 2, 3, 4);
 
-        $this
-            ->array($component->getInfo('range'))
-            ->isEqualTo(['start' => [1, 2], 'end' => [3, 4]])
-        ;
+        $this->assertEquals(
+            ['start' => [1, 2], 'end' => [3, 4]],
+            $component->getInfo('range')
+        );
     }
 
     public function testAddLine()
@@ -68,25 +57,32 @@ class TidyDiffChunk extends atoum
         $component = new \Dotclear\Helper\Diff\TidyDiffChunk();
         $component->addLine('context', [3, 4], '@@ -1,3 +1,4 @@');
 
-        $this
-            ->array($component->getLines())
-            ->isEqualTo([
+        $this->assertEquals(
+            [
                 new \Dotclear\Helper\Diff\TidyDiffLine('context', [3, 4], '@@ -1,3 +1,4 @@'),
-            ])
-            ->integer($component->getInfo('context'))
-            ->isEqualTo(1)
-        ;
+            ],
+            $component->getLines()
+        );
+
+        $this->assertEquals(
+            1,
+            $component->getInfo('context')
+        );
 
         $component->addLine('context', [5, 6], '@@ -1,5 +1,6 @@');
-        $this
-            ->array($component->getLines())
-            ->isEqualTo([
+
+        $this->assertEquals(
+            [
                 new \Dotclear\Helper\Diff\TidyDiffLine('context', [3, 4], '@@ -1,3 +1,4 @@'),
                 new \Dotclear\Helper\Diff\TidyDiffLine('context', [5, 6], '@@ -1,5 +1,6 @@'),
-            ])
-            ->integer($component->getInfo('context'))
-            ->isEqualTo(2)
-        ;
+            ],
+            $component->getLines()
+        );
+
+        $this->assertEquals(
+            2,
+            $component->getInfo('context')
+        );
     }
 
     public function testUniDiff()
@@ -108,24 +104,32 @@ class TidyDiffChunk extends atoum
         $component->addLine('insert', [3, 2], 'Ligne 2 ajoutée');
         $component->addLine('context', [3, 3], 'Ligne 4 ajoutée');
 
-        $this
-            ->array($component->getLines())
-            ->isEqualTo([
+        $this->assertEquals(
+            [
                 new \Dotclear\Helper\Diff\TidyDiffLine('delete', [1, 1], 'Ligne 1'),
                 new \Dotclear\Helper\Diff\TidyDiffLine('delete', [2, 1], 'Ligne 2 (ligne 3 supprimée) ajoutée'),
                 new \Dotclear\Helper\Diff\TidyDiffLine('insert', [3, 1], 'Ligne 1'),
                 new \Dotclear\Helper\Diff\TidyDiffLine('insert', [3, 2], 'Ligne 2 ajoutée'),
                 new \Dotclear\Helper\Diff\TidyDiffLine('context', [3, 3], 'Ligne 4 ajoutée'),
-            ])
-            ->integer($component->getInfo('context'))
-            ->isEqualTo(1)
-            ->integer($component->getInfo('delete'))
-            ->isEqualTo(2)
-            ->integer($component->getInfo('insert'))
-            ->isEqualTo(2)
-            ->array($component->getInfo('range'))
-            ->isEqualTo(['start' => [1, 3], 'end' => [1, 3]])
-        ;
+            ],
+            $component->getLines()
+        );
+        $this->assertEquals(
+            1,
+            $component->getInfo('context')
+        );
+        $this->assertEquals(
+            2,
+            $component->getInfo('delete')
+        );
+        $this->assertEquals(
+            2,
+            $component->getInfo('insert')
+        );
+        $this->assertEquals(
+            ['start' => [1, 3], 'end' => [1, 3]],
+            $component->getInfo('range')
+        );
     }
 
     public function testInsideChange()
@@ -148,23 +152,31 @@ class TidyDiffChunk extends atoum
         $component->addLine('context', [3, 3], 'Ligne 4 ajoutée');
         $component->findInsideChanges();
 
-        $this
-            ->array($component->getLines())
-            ->isEqualTo([
+        $this->assertEquals(
+            [
                 new \Dotclear\Helper\Diff\TidyDiffLine('delete', [1, 1], 'Ligne 1\0\1'),
                 new \Dotclear\Helper\Diff\TidyDiffLine('delete', [2, 1], 'Ligne 2 \0(ligne 3 supprimée) \1ajoutée'),
                 new \Dotclear\Helper\Diff\TidyDiffLine('insert', [3, 1], 'Ligne 1\0\1'),
                 new \Dotclear\Helper\Diff\TidyDiffLine('insert', [3, 2], 'Ligne 2 \0\1ajoutée'),
                 new \Dotclear\Helper\Diff\TidyDiffLine('context', [3, 3], 'Ligne 4 ajoutée'),
-            ])
-            ->integer($component->getInfo('context'))
-            ->isEqualTo(1)
-            ->integer($component->getInfo('delete'))
-            ->isEqualTo(2)
-            ->integer($component->getInfo('insert'))
-            ->isEqualTo(2)
-            ->array($component->getInfo('range'))
-            ->isEqualTo(['start' => [1, 3], 'end' => [1, 3]])
-        ;
+            ],
+            $component->getLines()
+        );
+        $this->assertEquals(
+            1,
+            $component->getInfo('context')
+        );
+        $this->assertEquals(
+            2,
+            $component->getInfo('delete')
+        );
+        $this->assertEquals(
+            2,
+            $component->getInfo('insert')
+        );
+        $this->assertEquals(
+            ['start' => [1, 3], 'end' => [1, 3]],
+            $component->getInfo('range')
+        );
     }
 }
