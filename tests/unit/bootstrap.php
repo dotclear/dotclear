@@ -10,9 +10,7 @@
  */
 declare(strict_types=1);
 
-use Dotclear\Config;
 use Dotclear\Core\Core;
-use Dotclear\Helper\Container\Factories;
 use Dotclear\Helper\L10n;
 
 // Composer Autoloader
@@ -34,4 +32,5 @@ spl_autoload_register(function ($name) use ($__autoload) {if (isset($__autoload[
 L10n::bootstrap();
 
 // Instanciate Core
-new Core(new Config(implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..'])), Factories::getFactory(Core::CONTAINER_ID));
+$root = implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..']);
+new Core($root);
