@@ -11,6 +11,7 @@ declare(strict_types=1);
 namespace Dotclear;
 
 use Dotclear\Helper\L10n;
+use Dotclear\Interface\Core\ConfigInterface;
 use Throwable;
 
 /**
@@ -26,7 +27,7 @@ class Fault
      *
      * Class can work without Config for early exception.
      */
-    public static ?Config $config = null;
+    public static ?ConfigInterface $config = null;
 
     /**
      * Constructor parse throwable exception or error.

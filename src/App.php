@@ -19,7 +19,6 @@ use Autoloader;
 use Dotclear\Core\Core;
 use Dotclear\Exception\AppException;
 use Dotclear\Exception\DatabaseException;
-use Dotclear\Helper\Container\Factories;
 use Throwable;
 
 // Load Autoloader file
@@ -73,7 +72,7 @@ final class App extends Core
 
         try {
             // Run application
-            parent::__construct(new Config(dirname(__DIR__)), Factories::getFactory(Core::CONTAINER_ID));
+            parent::__construct(dirname(__DIR__));
 
             if (self::config()->hasConfig()) {
                 try {

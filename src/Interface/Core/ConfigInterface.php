@@ -13,7 +13,7 @@ declare(strict_types=1);
  * @brief       Dotclear application interfaces
  */
 
-namespace Dotclear\Interface;
+namespace Dotclear\Interface\Core;
 
 /**
  * @brief   Application Config handler interface.

@@ -15,8 +15,8 @@ use Dotclear\Core\Upgrade\Update;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\Html\Template\Template;
 use Dotclear\Helper\Network\HttpCacheStack;
-use Dotclear\Interface\ConfigInterface;
 use Dotclear\Interface\Core\CacheInterface;
+use Dotclear\Interface\Core\ConfigInterface;
 use Dotclear\Module\StoreReader;
 
 /**
