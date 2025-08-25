@@ -8,8 +8,9 @@
  */
 declare(strict_types=1);
 
-namespace Dotclear;
+namespace Dotclear\Core;
 
+use Dotclear\Fault;
 use Dotclear\Helper\Container\Factories;
 use Dotclear\Helper\Crypt;
 use Dotclear\Helper\File\Files;
@@ -17,8 +18,8 @@ use Dotclear\Helper\File\Path;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Exception\ConfigException;
-use Dotclear\Interface\ConfigInterface;
 use Dotclear\Interface\Core\AuthInterface;
+use Dotclear\Interface\Core\ConfigInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
 
 /**

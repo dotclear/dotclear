@@ -11,7 +11,7 @@ declare(strict_types=1);
 namespace Dotclear;
 
 use Dotclear\Core\Frontend\Utility;
-use Dotclear\Interface\ConfigInterface;
+use Dotclear\Interface\Core\ConfigInterface;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Network\Http;

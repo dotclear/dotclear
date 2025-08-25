@@ -12,7 +12,7 @@ declare(strict_types=1);
 namespace Dotclear\Core;
 
 use Dotclear\Database\Session as DatabaseSession;
-use Dotclear\Interface\ConfigInterface;
+use Dotclear\Interface\Core\ConfigInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
 use Throwable;
 

@@ -29,6 +29,8 @@ class GrowUp_2_36_lt
                 'locales/el/core_core_*.html',
                 'locales/he/core_core_*.html',
                 'locales/uk/core_core_*.html',
+                'src/Config.php', //moved to src/Core
+                'src/Interface/Config.php', // moved to src/Interface/Core
             ],
             // Folders
             [

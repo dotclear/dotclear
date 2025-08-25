@@ -13,7 +13,7 @@ namespace Dotclear\Core;
 
 use dcCore;
 use Dotclear\Helper\RestServer;
-use Dotclear\Interface\ConfigInterface;
+use Dotclear\Interface\Core\ConfigInterface;
 use Throwable;
 
 /**

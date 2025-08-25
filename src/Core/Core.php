@@ -29,10 +29,10 @@ use Dotclear\Module\Themes;
 // Container helpers
 use Dotclear\Exception\ContextException;
 use Dotclear\Helper\Container\Container;
+use Dotclear\Helper\Container\Factories;
 use Dotclear\Helper\Container\Factory;
 
 // Container interfaces
-use Dotclear\Interface\ConfigInterface;
 use Dotclear\Interface\Core\AuthInterface;
 use Dotclear\Interface\Core\BehaviorInterface;
 use Dotclear\Interface\Core\BlogInterface;
@@ -41,6 +41,7 @@ use Dotclear\Interface\Core\BlogsInterface;
 use Dotclear\Interface\Core\BlogWorkspaceInterface;
 use Dotclear\Interface\Core\CacheInterface;
 use Dotclear\Interface\Core\CategoriesInterface;
+use Dotclear\Interface\Core\ConfigInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\CredentialInterface;
 use Dotclear\Interface\Core\DeprecatedInterface;
@@ -99,34 +100,19 @@ class Core extends Container
      *
      * @throws  ContextException
      *
-     * @param   ConfigInterface     $config     The config
-     * @param   Factory             $factory    The factory (third party services)
+     * @param   string  $dotclear_root  Dotclear root directory path
      */
     public function __construct(
-        protected ConfigInterface $config,
-        Factory $factory
+        private string $dotclear_root
     ) {
         // Singleton mode
         if (isset(self::$instance)) {
             throw new ContextException(__('Application can not be started twice.'));
         }
 
-        parent::__construct($factory);
+        parent::__construct(Factories::getFactory(static::CONTAINER_ID));
 
         self::$instance = $this;
-    }
-
-    /**
-     * Get application configuration instance.
-     *
-     * This is a special method as Config does not come from Factory.
-     * Use App::config() to get it.
-     *
-     * @return  ConfigInterface     The application configuration interface.
-     */
-    public function getConfig(): ConfigInterface
-    {
-        return $this->config;
     }
 
     /**
@@ -139,8 +125,7 @@ class Core extends Container
     protected function getDefaultServices(): array
     {
         return [    // @phpstan-ignore-line
-            ConfigInterface::class     => fn ($container) => $container->getConfig(),
-            ConnectionInterface::class => function ($container, string $driver = '', string $host = '', string $database = '', string $user = '', string $password = '', bool $persistent = false, string $prefix = ''): ConnectionInterface {
+            ConnectionInterface::class => function (Core $container, string $driver = '', string $host = '', string $database = '', string $user = '', string $password = '', bool $persistent = false, string $prefix = ''): ConnectionInterface {
                 if ($driver === '') {
                     $driver     = $container->config()->dbDriver();
                     $host       = $container->config()->dbHost();
@@ -162,6 +147,7 @@ class Core extends Container
             BlogWorkspaceInterface::class   => BlogWorkspace::class,
             CacheInterface::class           => Cache::class,
             CategoriesInterface::class      => Categories::class,
+            ConfigInterface::class          => Config::class,
             CredentialInterface::class      => Credential::class,
             ErrorInterface::class           => Error::class,
             DeprecatedInterface::class      => Deprecated::class,
@@ -342,7 +328,7 @@ class Core extends Container
      */
     public static function config(): ConfigInterface
     {
-        return self::$instance->getConfig();
+        return self::$instance->get(ConfigInterface::class, false, self::$instance->dotclear_root);
     }
 
     /**
