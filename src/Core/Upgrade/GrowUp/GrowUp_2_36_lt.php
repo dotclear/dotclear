@@ -25,6 +25,10 @@ class GrowUp_2_36_lt
         Upgrade::houseCleaning(
             // Files
             [
+                'locales/ar/core_core_*.html',
+                'locales/el/core_core_*.html',
+                'locales/he/core_core_*.html',
+                'locales/uk/core_core_*.html',
             ],
             // Folders
             [
