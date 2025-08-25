@@ -30,7 +30,6 @@ use Dotclear\Module\Themes;
 use Dotclear\Exception\ContextException;
 use Dotclear\Helper\Container\Container;
 use Dotclear\Helper\Container\Factories;
-use Dotclear\Helper\Container\Factory;
 
 // Container interfaces
 use Dotclear\Interface\Core\AuthInterface;
@@ -103,7 +102,7 @@ class Core extends Container
      * @param   string  $dotclear_root  Dotclear root directory path
      */
     public function __construct(
-        private string $dotclear_root
+        private readonly string $dotclear_root
     ) {
         // Singleton mode
         if (isset(self::$instance)) {
