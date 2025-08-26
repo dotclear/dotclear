@@ -121,8 +121,7 @@ class Install extends Process
         }
 
         # Check if dotclear is already installed
-        $schema = App::db()->schema(App::db()->con()->driver());
-        if (in_array(App::db()->con()->prefix() . App::blog()::POST_TABLE_NAME, $schema->getTables())) {
+        if (in_array(App::db()->con()->prefix() . App::blog()::POST_TABLE_NAME, App::db()->con()->schema()->getTables())) {
             self::$can_install = false;
             self::$err         = '<p>' . __('Dotclear is already installed.') . '</p>';
         }

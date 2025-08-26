@@ -44,9 +44,7 @@ class Vacuum extends MaintenanceTask
 
     public function execute(): bool|int
     {
-        $schema = App::con()->schema();
-
-        foreach ($schema->getTables() as $table) {
+        foreach (App::db()->con()->schema()->getTables() as $table) {
             if (str_starts_with($table, App::con()->prefix())) {
                 App::con()->vacuum($table);
             }

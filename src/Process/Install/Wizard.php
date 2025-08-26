@@ -136,8 +136,7 @@ class Wizard extends Process
                 }
 
                 # Check if dotclear is already installed
-                $schema = App::db()->schema(self::$DBDRIVER);
-                if (in_array(self::$DBPREFIX . 'version', $schema->getTables())) {
+                if (in_array(self::$DBPREFIX . 'version', $con->schema()->getTables())) {
                     throw new Exception(__('Dotclear is already installed.'));
                 }
                 # Check master email

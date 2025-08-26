@@ -12,12 +12,10 @@ declare(strict_types=1);
 namespace Dotclear\Core;
 
 use Dotclear\Database\ContainerHandler;
-use Dotclear\Database\ContainerSchema;
 use Dotclear\Exception\DatabaseException;
 use Dotclear\Interface\Core\ConfigInterface;
 use Dotclear\Interface\Core\DatabaseInterface;
 use Dotclear\Interface\Database\ConnectionInterface;
-use Dotclear\Interface\Database\SchemaInterface;
 
 /**
  * @brief   Database handler.
@@ -27,7 +25,6 @@ use Dotclear\Interface\Database\SchemaInterface;
 class Database implements DatabaseInterface
 {
     protected ContainerHandler $container_handler;
-    protected ContainerSchema $container_schema;
 
     public function __construct(
         protected ConfigInterface $config
@@ -65,22 +62,5 @@ class Database implements DatabaseInterface
         }
 
         return $this->container_handler->get($driver, $reload, host: $host, database: $database, user: $user, password: $password, persistent: $persistent, prefix: $prefix);
-    }
-
-    public function schema(string $driver = ''): SchemaInterface
-    {
-        if (!isset($this->container_schema)) {
-            $this->container_schema  = new ContainerSchema();
-        }
-
-        if ($driver === '') {
-            $driver = $this->con()->driver();
-        }
-
-        if (!$this->container_schema->has($driver)) {
-            throw new DatabaseException(sprintf('Database schema %s does not exist', $driver));
-        }
-
-        return $this->container_schema->get($driver, true, $this->con());
     }
 }

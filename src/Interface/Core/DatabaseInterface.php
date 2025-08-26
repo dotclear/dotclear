@@ -12,7 +12,6 @@ declare(strict_types=1);
 namespace Dotclear\Interface\Core;
 
 use Dotclear\Interface\Database\ConnectionInterface;
-use Dotclear\Interface\Database\SchemaInterface;
 
 /**
  * @brief   Database handler interface.
@@ -35,15 +34,4 @@ interface DatabaseInterface
      * @param   string  $prefix         Database tables prefix
      */
     public function con(string $driver = '', string $host = '', string $database = '', string $user = '', string $password = '', bool $persistent = false, string $prefix = ''): ConnectionInterface;
-
-    /**
-     * Get new dabatase schema handler instance.
-     *
-     * If <var>$driver</var> is empty, current connection driver is used.
-     *
-     * @param   string  $driver     Driver name
-     *
-     * @return  SchemaInterface     The database schema handler instance
-     */
-    public function schema(string $driver = ''): SchemaInterface;
 }

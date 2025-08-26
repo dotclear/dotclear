@@ -11,6 +11,7 @@ declare(strict_types=1);
 namespace Dotclear\Database;
 
 use Dotclear\App;
+use Dotclear\Exception\DatabaseException;
 use Dotclear\Interface\Database\ConnectionInterface;
 use Dotclear\Interface\Database\SchemaInterface;
 
@@ -21,6 +22,11 @@ use Dotclear\Interface\Database\SchemaInterface;
  */
 abstract class AbstractHandler implements ConnectionInterface
 {
+    /**
+     * Database schema factory container.
+     */
+    protected ContainerSchema $container_schema;
+
     /**
      * Driver name
      */
@@ -69,6 +75,8 @@ abstract class AbstractHandler implements ConnectionInterface
      */
     public function __construct(string $host, string $database, string $user = '', string $password = '', bool $persistent = false, string $prefix = '')
     {
+        $this->container_schema  = new ContainerSchema();
+
         if ($persistent) {
             $this->__link = $this->db_pconnect($host, $user, $password, $database);
         } else {
@@ -101,7 +109,11 @@ abstract class AbstractHandler implements ConnectionInterface
 
     public function schema(): SchemaInterface
     {
-        return App::db()->schema($this->driver());
+        if (!$this->container_schema->has($this->driver())) {
+            throw new DatabaseException(sprintf('Database schema %s does not exist', $this->driver()));
+        }
+
+        return $this->container_schema->get($this->driver(), true, $this);
     }
 
     /**

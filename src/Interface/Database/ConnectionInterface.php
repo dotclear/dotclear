@@ -33,9 +33,7 @@ interface ConnectionInterface extends DbHandlerInterface
     public function close(): void;
 
     /**
-     * Returns database schema handler
-     *
-     * This is a long term alias for App::db()->schema('driver');
+     * Returns database schema handler.
      */
     public function schema(): SchemaInterface;
 
