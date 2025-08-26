@@ -8,7 +8,7 @@
  */
 declare(strict_types=1);
 
-namespace Dotclear\DSchema\atabase\Sqlite;
+namespace Dotclear\Schema\Database\Sqlite;
 
 use Collator;
 use Dotclear\App;
