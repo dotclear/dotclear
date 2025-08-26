@@ -287,6 +287,8 @@ class Core extends Container
      */
     public static function con(): ConnectionInterface
     {
+        //self::deprecated()->set('App::db()->con()', '2.36'); // break old dcCore
+
         return self::$instance->get(ConnectionInterface::class);
     }
 
