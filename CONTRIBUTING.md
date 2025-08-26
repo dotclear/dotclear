@@ -140,13 +140,5 @@ bin/psalm
 ### PHP code unit testing
 
 ```sh
-bin/atoum
-```
-
-And:
-
-```sh
 bin/phpunit -d memory_limit=-1
 ```
-
-Note: PHPUnit will replace Atoum in future.
