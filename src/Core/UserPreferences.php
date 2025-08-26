@@ -17,7 +17,7 @@ use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
 use Dotclear\Exception\BadRequestException;
 use Dotclear\Exception\ProcessException;
-use Dotclear\Interface\Core\ConnectionInterface;
+use Dotclear\Interface\Core\DatabaseInterface;
 use Dotclear\Interface\Core\UserPreferencesInterface;
 use Dotclear\Interface\Core\UserWorkspaceInterface;
 use Throwable;
@@ -30,6 +30,7 @@ use Throwable;
  * updating another user prefs.
  *
  * @since   2.28, container services have been added to constructor
+ * @since   2.36, constructor argument ConnectionInteface has been replaced by DatabaseInterface
  *
  * @psalm-no-seal-properties
  */
@@ -52,31 +53,31 @@ class UserPreferences implements UserPreferencesInterface
      *
      * @throws  ProcessException
      *
-     * @param   ConnectionInterface     $con                The database connection instance
+     * @param   DatabaseInterface       $db                 The database handler instance
      * @param   UserWorkspaceInterface  $workspace          The user workspace handler
      * @param   string                  $user_id            The user ID
      * @param   null|string             $user_workspace     The workspace ID
      */
     public function __construct(
-        protected ConnectionInterface $con,
+        protected DatabaseInterface $db,
         protected UserWorkspaceInterface $workspace,
         protected string $user_id = '',
         ?string $user_workspace = null
     ) {
-        $this->table = $this->con->prefix() . $this->workspace::WS_TABLE_NAME;
+        $this->table = $this->db->con()->prefix() . $this->workspace::WS_TABLE_NAME;
 
         if ($user_id !== '') {
             try {
                 $this->loadPrefs($user_workspace);
             } catch (Throwable) {
-                throw new ProcessException(__('Unable to retrieve workspaces:') . ' ' . $this->con->error());
+                throw new ProcessException(__('Unable to retrieve workspaces:') . ' ' . $this->db->con()->error());
             }
         }
     }
 
     public function createFromUser(string $user_id, ?string $user_workspace = null): UserPreferencesInterface
     {
-        return new self($this->con, $this->workspace, $user_id, $user_workspace);
+        return new self($this->db, $this->workspace, $user_id, $user_workspace);
     }
 
     /**

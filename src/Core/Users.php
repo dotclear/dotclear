@@ -22,7 +22,7 @@ use Dotclear\Exception\BadRequestException;
 use Dotclear\Exception\UnauthorizedException;
 use Dotclear\Interface\Core\BehaviorInterface;
 use Dotclear\Interface\Core\BlogInterface;
-use Dotclear\Interface\Core\ConnectionInterface;
+use Dotclear\Interface\Core\DatabaseInterface;
 use Dotclear\Interface\Core\UsersInterface;
 use Dotclear\Schema\Extension\User;
 
@@ -30,20 +30,21 @@ use Dotclear\Schema\Extension\User;
  * @brief   Users handler.
  *
  * @since   2.28, users features have been grouped in this class
+ * @since   2.36, constructor argument ConnectionInteface has been replaced by DatabaseInterface
  */
 class Users implements UsersInterface
 {
     /**
      * Constructor.
      *
-     * @param   BehaviorInterface       $behavior   The behavior instance
-     * @param   BlogInterface           $blog       The blog instance
-     * @param   ConnectionInterface     $con        The database connection instance
+     * @param   BehaviorInterface   $behavior   The behavior instance
+     * @param   BlogInterface       $blog       The blog instance
+     * @param   DatabaseInterface   $db         The database handler instance
      */
     public function __construct(
         protected BehaviorInterface $behavior,
         protected BlogInterface $blog,
-        protected ConnectionInterface $con,
+        protected DatabaseInterface $db,
     ) {
     }
 
@@ -61,7 +62,7 @@ class Users implements UsersInterface
         if ($count_only) {
             $sql
                 ->column($sql->count('U.user_id'))
-                ->from($sql->as($this->con->prefix() . $this->blog->auth()::USER_TABLE_NAME, 'U'))
+                ->from($sql->as($this->db->con()->prefix() . $this->blog->auth()::USER_TABLE_NAME, 'U'))
                 ->where('NULL IS NULL');
         } else {
             $sql
@@ -83,7 +84,7 @@ class Users implements UsersInterface
                     'user_options',
                     $sql->count('P.post_id', 'nb_post'),
                 ])
-                ->from($sql->as($this->con->prefix() . $this->blog->auth()::USER_TABLE_NAME, 'U'));
+                ->from($sql->as($this->db->con()->prefix() . $this->blog->auth()::USER_TABLE_NAME, 'U'));
 
             if (!empty($params['columns'])) {
                 $sql->columns($params['columns']);
@@ -92,7 +93,7 @@ class Users implements UsersInterface
                 ->join(
                     (new JoinStatement())
                         ->left()
-                        ->from($sql->as($this->con->prefix() . $this->blog::POST_TABLE_NAME, 'P'))
+                        ->from($sql->as($this->db->con()->prefix() . $this->blog::POST_TABLE_NAME, 'P'))
                         ->on('U.user_id = P.user_id')
                         ->statement()
                 )
@@ -214,7 +215,7 @@ class Users implements UsersInterface
         $sql
             ->distinct()
             ->column('blog_id')
-            ->from($this->con->prefix() . $this->blog::POST_TABLE_NAME)
+            ->from($this->db->con()->prefix() . $this->blog::POST_TABLE_NAME)
             ->where('user_id = ' . $sql->quote($id));
 
         $rs = $sql->select();
@@ -249,7 +250,7 @@ class Users implements UsersInterface
 
         $sql = new DeleteStatement();
         $sql
-            ->from($this->con->prefix() . $this->blog->auth()::USER_TABLE_NAME)
+            ->from($this->db->con()->prefix() . $this->blog->auth()::USER_TABLE_NAME)
             ->where('user_id = ' . $sql->quote($id));
 
         $sql->delete();
@@ -263,7 +264,7 @@ class Users implements UsersInterface
         $sql = new SelectStatement();
         $sql
             ->column('user_id')
-            ->from($this->con->prefix() . $this->blog->auth()::USER_TABLE_NAME)
+            ->from($this->db->con()->prefix() . $this->blog->auth()::USER_TABLE_NAME)
             ->where('user_id = ' . $sql->quote($id));
 
         $rs = $sql->select();
@@ -288,11 +289,11 @@ class Users implements UsersInterface
                 'blog_url',
                 'permissions',
             ])
-            ->from($sql->as($this->con->prefix() . $this->blog->auth()::PERMISSIONS_TABLE_NAME, 'P'))
+            ->from($sql->as($this->db->con()->prefix() . $this->blog->auth()::PERMISSIONS_TABLE_NAME, 'P'))
             ->join(
                 (new JoinStatement())
                 ->inner()
-                ->from($sql->as($this->con->prefix() . $this->blog::BLOG_TABLE_NAME, 'B'))
+                ->from($sql->as($this->db->con()->prefix() . $this->blog::BLOG_TABLE_NAME, 'B'))
                 ->on('P.blog_id = B.blog_id')
                 ->statement()
             )
@@ -323,7 +324,7 @@ class Users implements UsersInterface
 
         $sql = new DeleteStatement();
         $sql
-            ->from($this->con->prefix() . $this->blog->auth()::PERMISSIONS_TABLE_NAME)
+            ->from($this->db->con()->prefix() . $this->blog->auth()::PERMISSIONS_TABLE_NAME)
             ->where('user_id = ' . $sql->quote($id));
 
         $sql->delete();
@@ -352,7 +353,7 @@ class Users implements UsersInterface
         if ($delete_first || $no_perm) {
             $sql = new DeleteStatement();
             $sql
-                ->from($this->con->prefix() . $this->blog->auth()::PERMISSIONS_TABLE_NAME)
+                ->from($this->db->con()->prefix() . $this->blog->auth()::PERMISSIONS_TABLE_NAME)
                 ->where('blog_id = ' . $sql->quote($blog_id))
                 ->and('user_id = ' . $sql->quote($id));
 

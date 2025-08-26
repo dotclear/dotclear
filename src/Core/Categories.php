@@ -14,7 +14,7 @@ namespace Dotclear\Core;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Interface\Core\CategoriesInterface;
-use Dotclear\Interface\Core\ConnectionInterface;
+use Dotclear\Interface\Core\DatabaseInterface;
 use Exception;
 
 /**
@@ -25,6 +25,7 @@ use Exception;
  *
  * @since   2.28, categories features have been grouped in this class
  * @since   2.28, container services have been added to constructor
+ * @since   2.36, constructor argument ConnectionInteface has been replaced by DatabaseInterface
  */
 class Categories implements CategoriesInterface
 {
@@ -51,23 +52,23 @@ class Categories implements CategoriesInterface
     /**
      * Constructor.
      *
-     * @param   ConnectionInterface     $con    The database connection instance
+     * @param   DatabaseInterface   $db    The database handler instance
      */
     public function __construct(
-        protected ConnectionInterface $con,
+        protected DatabaseInterface $db,
         protected string $blog_id = ''
     ) {
-        $this->table = $this->con->prefix() . self::CATEGORY_TABLE_NAME;
+        $this->table = $this->db->con()->prefix() . self::CATEGORY_TABLE_NAME;
     }
 
     public function createFromBlog(string $blog_id): CategoriesInterface
     {
-        return new self($this->con, $blog_id);
+        return new self($this->db, $blog_id);
     }
 
     public function openCategoryCursor(): Cursor
     {
-        return $this->con->openCursor($this->con->prefix() . self::CATEGORY_TABLE_NAME);
+        return $this->db->con()->openCursor($this->db->con()->prefix() . self::CATEGORY_TABLE_NAME);
     }
 
     /**
@@ -100,7 +101,7 @@ class Categories implements CategoriesInterface
 
         $sql = sprintf($sql, $from, $where, $having);
 
-        return new MetaRecord($this->con->select($sql));
+        return new MetaRecord($this->db->con()->select($sql));
     }
 
     /**
@@ -113,7 +114,7 @@ class Categories implements CategoriesInterface
      */
     public function getParents(int $id, array $fields = []): MetaRecord
     {
-        return new MetaRecord($this->con->select(
+        return new MetaRecord($this->db->con()->select(
             'SELECT C1.' . $this->f_id . ' ' . $this->getFields($fields, 'C1.') . ' ' . 'FROM ' . $this->table . ' C1, ' . $this->table . ' C2 ' . 'WHERE C2.' . $this->f_id . ' = ' . $id . ' ' . 'AND C1.' . $this->f_left . ' < C2.' . $this->f_left . ' ' . 'AND C1.' . $this->f_right . ' > C2.' . $this->f_right . ' ' . $this->getCondition('AND', 'C2.') . $this->getCondition('AND', 'C1.') . 'ORDER BY C1.' . $this->f_left . ' ASC '
         ));
     }
@@ -128,8 +129,8 @@ class Categories implements CategoriesInterface
      */
     public function getParent(int $id, array $fields = []): MetaRecord
     {
-        return new MetaRecord($this->con->select(
-            'SELECT C1.' . $this->f_id . ' ' . $this->getFields($fields, 'C1.') . ' ' . 'FROM ' . $this->table . ' C1, ' . $this->table . ' C2 ' . 'WHERE C2.' . $this->f_id . ' = ' . $id . ' ' . 'AND C1.' . $this->f_left . ' < C2.' . $this->f_left . ' ' . 'AND C1.' . $this->f_right . ' > C2.' . $this->f_right . ' ' . $this->getCondition('AND', 'C2.') . $this->getCondition('AND', 'C1.') . 'ORDER BY C1.' . $this->f_left . ' DESC ' . $this->con->limit(1)
+        return new MetaRecord($this->db->con()->select(
+            'SELECT C1.' . $this->f_id . ' ' . $this->getFields($fields, 'C1.') . ' ' . 'FROM ' . $this->table . ' C1, ' . $this->table . ' C2 ' . 'WHERE C2.' . $this->f_id . ' = ' . $id . ' ' . 'AND C1.' . $this->f_left . ' < C2.' . $this->f_left . ' ' . 'AND C1.' . $this->f_right . ' > C2.' . $this->f_right . ' ' . $this->getCondition('AND', 'C2.') . $this->getCondition('AND', 'C1.') . 'ORDER BY C1.' . $this->f_left . ' DESC ' . $this->db->con()->limit(1)
         ));
     }
 
@@ -149,13 +150,13 @@ class Categories implements CategoriesInterface
         }
 
         # We want to put it at the end
-        $this->con->writeLock($this->table);
+        $this->db->con()->writeLock($this->table);
 
         try {
-            $rs = new MetaRecord($this->con->select('SELECT MAX(' . $this->f_id . ') as n_id FROM ' . $this->table));
+            $rs = new MetaRecord($this->db->con()->select('SELECT MAX(' . $this->f_id . ') as n_id FROM ' . $this->table));
             $id = (int) $rs->n_id;
 
-            $rs = new MetaRecord($this->con->select(
+            $rs = new MetaRecord($this->db->con()->select(
                 'SELECT MAX(' . $this->f_right . ') as n_r ' .
                 'FROM ' . $this->table .
                 $this->getCondition('WHERE')
@@ -167,7 +168,7 @@ class Categories implements CategoriesInterface
             $data->{$this->f_right} = $last + 2;
 
             $data->insert();
-            $this->con->unlock();
+            $this->db->con()->unlock();
 
             try {
                 $this->setNodeParent($id + 1, $target);
@@ -177,7 +178,7 @@ class Categories implements CategoriesInterface
                 // We don't mind error in this case
             }
         } catch (Exception $e) {
-            $this->con->unlock();
+            $this->db->con()->unlock();
 
             throw $e;
         }
@@ -189,13 +190,13 @@ class Categories implements CategoriesInterface
     {
         $sql = 'UPDATE ' . $this->table . ' SET ' . $this->f_left . ' = ' . $left . ', ' . $this->f_right . ' = ' . $right . ' WHERE ' . $this->f_id . ' = ' . $id . $this->getCondition();
 
-        $this->con->begin();
+        $this->db->con()->begin();
 
         try {
-            $this->con->execute($sql);
-            $this->con->commit();
+            $this->db->con()->execute($sql);
+            $this->db->con()->commit();
         } catch (Exception $e) {
-            $this->con->rollback();
+            $this->db->con()->rollback();
 
             throw $e;
         }
@@ -210,24 +211,24 @@ class Categories implements CategoriesInterface
         $node_right = (int) $rs->{$this->f_right};
 
         try {
-            $this->con->begin();
+            $this->db->con()->begin();
 
             if ($keep_children) {
-                $this->con->execute('DELETE FROM ' . $this->table . ' WHERE ' . $this->f_id . ' = ' . $node);
+                $this->db->con()->execute('DELETE FROM ' . $this->table . ' WHERE ' . $this->f_id . ' = ' . $node);
 
                 $sql = 'UPDATE ' . $this->table . ' SET ' . $this->f_right . ' = CASE ' . 'WHEN ' . $this->f_right . ' BETWEEN ' . $node_left . ' AND ' . $node_right . ' ' . 'THEN ' . $this->f_right . ' - 1 ' . 'WHEN ' . $this->f_right . ' > ' . $node_right . ' ' . 'THEN ' . $this->f_right . ' - 2 ' . 'ELSE ' . $this->f_right . ' ' . 'END, ' . $this->f_left . ' = CASE ' . 'WHEN ' . $this->f_left . ' BETWEEN ' . $node_left . ' AND ' . $node_right . ' ' . 'THEN ' . $this->f_left . ' - 1 ' . 'WHEN ' . $this->f_left . ' > ' . $node_right . ' ' . 'THEN ' . $this->f_left . ' - 2 ' . 'ELSE ' . $this->f_left . ' ' . 'END ' . 'WHERE ' . $this->f_right . ' > ' . $node_left . $this->getCondition();
 
-                $this->con->execute($sql);
+                $this->db->con()->execute($sql);
             } else {
-                $this->con->execute('DELETE FROM ' . $this->table . ' WHERE ' . $this->f_left . ' BETWEEN ' . $node_left . ' AND ' . $node_right);
+                $this->db->con()->execute('DELETE FROM ' . $this->table . ' WHERE ' . $this->f_left . ' BETWEEN ' . $node_left . ' AND ' . $node_right);
 
                 $node_delta = $node_right - $node_left + 1;
                 $sql        = 'UPDATE ' . $this->table . ' SET ' . $this->f_left . ' = CASE ' . 'WHEN ' . $this->f_left . ' > ' . $node_left . ' ' . 'THEN ' . $this->f_left . ' - (' . $node_delta . ') ' . 'ELSE ' . $this->f_left . ' ' . 'END, ' . $this->f_right . ' = CASE ' . 'WHEN ' . $this->f_right . ' > ' . $node_left . ' ' . 'THEN ' . $this->f_right . ' - (' . $node_delta . ') ' . 'ELSE ' . $this->f_right . ' ' . 'END ' . 'WHERE ' . $this->f_right . ' > ' . $node_right . $this->getCondition();
             }
 
-            $this->con->commit();
+            $this->db->con()->commit();
         } catch (Exception $e) {
-            $this->con->rollback();
+            $this->db->con()->rollback();
 
             throw $e;
         }
@@ -235,21 +236,21 @@ class Categories implements CategoriesInterface
 
     public function resetOrder(): void
     {
-        $rs = new MetaRecord($this->con->select(
+        $rs = new MetaRecord($this->db->con()->select(
             'SELECT ' . $this->f_id . ' ' . 'FROM ' . $this->table . ' ' . $this->getCondition('WHERE') . 'ORDER BY ' . $this->f_left . ' ASC '
         ));
         $lft = 2;
-        $this->con->begin();
+        $this->db->con()->begin();
 
         try {
             while ($rs->fetch()) {
-                $this->con->execute(
+                $this->db->con()->execute(
                     'UPDATE ' . $this->table . ' SET ' . $this->f_left . ' = ' . ($lft++) . ', ' . $this->f_right . ' = ' . ($lft++) . ' ' . 'WHERE ' . $this->f_id . ' = ' . (int) $rs->{$this->f_id} . ' ' . $this->getCondition()
                 );
             }
-            $this->con->commit();
+            $this->db->con()->commit();
         } catch (Exception $e) {
-            $this->con->rollback();
+            $this->db->con()->rollback();
 
             throw $e;
         }
@@ -272,7 +273,7 @@ class Categories implements CategoriesInterface
         if ($target > 0) {
             $rs = $this->getChildren(0, $target);
         } else {
-            $rs = new MetaRecord($this->con->select(
+            $rs = new MetaRecord($this->db->con()->select(
                 'SELECT MIN(' . $this->f_left . ')-1 AS ' . $this->f_left . ', MAX(' . $this->f_right . ')+1 AS ' . $this->f_right . ', 0 AS level ' . 'FROM ' . $this->table . ' ' . $this->getCondition('WHERE')
             ));
         }
@@ -296,7 +297,7 @@ class Categories implements CategoriesInterface
         }
         $sql .= ' ' . $this->getCondition();
 
-        $this->con->execute($sql);
+        $this->db->con()->execute($sql);
     }
 
     public function setNodePosition(int $nodeA, int $nodeB, string $position = 'after'): void
@@ -343,7 +344,7 @@ class Categories implements CategoriesInterface
         }
 
         $sql .= $this->getCondition();
-        $this->con->execute($sql);
+        $this->db->con()->execute($sql);
     }
 
     /**
@@ -356,7 +357,7 @@ class Categories implements CategoriesInterface
      */
     protected function getCondition(string $start = 'AND', string $prefix = ''): string
     {
-        return ' ' . $start . ' ' . $prefix . "blog_id = '" . $this->con->escapeStr($this->blog_id) . "' ";
+        return ' ' . $start . ' ' . $prefix . "blog_id = '" . $this->db->con()->escapeStr($this->blog_id) . "' ";
     }
 
     /**

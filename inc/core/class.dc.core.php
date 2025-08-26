@@ -75,14 +75,14 @@ final class dcCore
     /**
      * Database connection
      *
-     * @deprecated since 2.28, use App::con() instead
+     * @deprecated since 2.28, use App::db()->con() instead
      */
     public readonly ConnectionInterface $con;
 
     /**
      * Database tables prefix
      *
-     * @deprecated since 2.28, use App::con()->prefix() instead
+     * @deprecated since 2.28, use App::db()->con()->prefix() instead
      */
     public readonly string $prefix;
 
@@ -329,8 +329,8 @@ final class dcCore
         class_alias(Auth::class, 'dcAuth');
 
         // deprecated since 2.28, use App::xxx() instead
-        $this->con     = App::con();
-        $this->prefix  = App::con()->prefix();
+        $this->con     = App::db()->con();
+        $this->prefix  = App::db()->con()->prefix();
         $this->error   = App::error();
         $this->auth    = App::auth();
         $this->session = App::session();

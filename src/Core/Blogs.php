@@ -22,13 +22,14 @@ use Dotclear\Exception\BadRequestException;
 use Dotclear\Exception\UnauthorizedException;
 use Dotclear\Interface\Core\BlogInterface;
 use Dotclear\Interface\Core\BlogsInterface;
-use Dotclear\Interface\Core\ConnectionInterface;
+use Dotclear\Interface\Core\DatabaseInterface;
 use Dotclear\Interface\Core\DeprecatedInterface;
 
 /**
  * @brief   Blogs handler.
  *
  * @since   2.28, blogs features have been grouped in this class
+ * @since   2.36, constructor argument ConnectionInteface has been replaced by DatabaseInterface
  */
 class Blogs implements BlogsInterface
 {
@@ -36,12 +37,12 @@ class Blogs implements BlogsInterface
      * Constructor.
      *
      * @param   BlogInterface           $blog           The blog instance
-     * @param   ConnectionInterface     $con            The database connection instance
-     * @param   DeprecatedInterface     $deprecated     The database connection instance
+     * @param   DatabaseInterface       $db             The database handler instance
+     * @param   DeprecatedInterface     $deprecated     The deprecate instance
      */
     public function __construct(
         protected BlogInterface $blog,
-        protected ConnectionInterface $con,
+        protected DatabaseInterface $db,
         protected DeprecatedInterface $deprecated
     ) {
     }
@@ -87,9 +88,9 @@ class Blogs implements BlogsInterface
                 'user_email',
                 'permissions',
             ])
-            ->from($sql->as($this->con->prefix() . $this->blog->auth()::USER_TABLE_NAME, 'U'))
+            ->from($sql->as($this->db->con()->prefix() . $this->blog->auth()::USER_TABLE_NAME, 'U'))
             ->join((new JoinStatement())
-                ->from($sql->as($this->con->prefix() . $this->blog->auth()::PERMISSIONS_TABLE_NAME, 'P'))
+                ->from($sql->as($this->db->con()->prefix() . $this->blog->auth()::PERMISSIONS_TABLE_NAME, 'P'))
                 ->on('U.user_id = P.user_id')
                 ->statement())
             ->where('blog_id = ' . $sql->quote($id));
@@ -106,7 +107,7 @@ class Blogs implements BlogsInterface
                     'user_email',
                     'NULL AS permissions',
                 ])
-                ->from($sql->as($this->con->prefix() . $this->blog->auth()::USER_TABLE_NAME, 'U'))
+                ->from($sql->as($this->db->con()->prefix() . $this->blog->auth()::USER_TABLE_NAME, 'U'))
                 ->where('user_super = 1')
                 ->statement()
             );
@@ -144,7 +145,7 @@ class Blogs implements BlogsInterface
         if ($count_only) {
             $sql
                 ->column($sql->count('B.blog_id'))
-                ->from($sql->as($this->con->prefix() . $this->blog::BLOG_TABLE_NAME, 'B'))
+                ->from($sql->as($this->db->con()->prefix() . $this->blog::BLOG_TABLE_NAME, 'B'))
                 ->where('NULL IS NULL')
             ;
         } else {
@@ -159,7 +160,7 @@ class Blogs implements BlogsInterface
                     'blog_upddt',
                     'blog_status',
                 ])
-                ->from($sql->as($this->con->prefix() . $this->blog::BLOG_TABLE_NAME, 'B'))
+                ->from($sql->as($this->db->con()->prefix() . $this->blog::BLOG_TABLE_NAME, 'B'))
                 ->where('NULL IS NULL')
             ;
 
@@ -179,7 +180,7 @@ class Blogs implements BlogsInterface
                 ->join(
                     (new JoinStatement())
                         ->inner()
-                        ->from($sql->as($this->con->prefix() . $this->blog->auth()::PERMISSIONS_TABLE_NAME, 'PE'))
+                        ->from($sql->as($this->db->con()->prefix() . $this->blog->auth()::PERMISSIONS_TABLE_NAME, 'PE'))
                         ->on('B.blog_id = PE.blog_id')
                         ->statement()
                 )
@@ -236,7 +237,7 @@ class Blogs implements BlogsInterface
 
         $cur->blog_upddt = date('Y-m-d H:i:s');
 
-        $cur->update("WHERE blog_id = '" . $this->con->escapeStr($id) . "'");
+        $cur->update("WHERE blog_id = '" . $this->db->con()->escapeStr($id) . "'");
     }
 
     /**
@@ -270,7 +271,7 @@ class Blogs implements BlogsInterface
 
         $sql = new DeleteStatement();
         $sql
-            ->from($this->con->prefix() . $this->blog::BLOG_TABLE_NAME)
+            ->from($this->db->con()->prefix() . $this->blog::BLOG_TABLE_NAME)
             ->where('blog_id = ' . $sql->quote($id))
             ->delete();
     }
@@ -280,7 +281,7 @@ class Blogs implements BlogsInterface
         $sql = new SelectStatement();
         $rs  = $sql
             ->column('blog_id')
-            ->from($this->con->prefix() . $this->blog::BLOG_TABLE_NAME)
+            ->from($this->db->con()->prefix() . $this->blog::BLOG_TABLE_NAME)
             ->where('blog_id = ' . $sql->quote($id))
             ->select();
 
@@ -292,7 +293,7 @@ class Blogs implements BlogsInterface
         $sql = new SelectStatement();
         $sql
             ->column($sql->count('post_id'))
-            ->from($this->con->prefix() . $this->blog::POST_TABLE_NAME)
+            ->from($this->db->con()->prefix() . $this->blog::POST_TABLE_NAME)
             ->where('blog_id = ' . $sql->quote($id));
 
         if ($type) {

@@ -37,7 +37,7 @@ use Dotclear\Interface\Core\BlogInterface;
 use Dotclear\Interface\Core\BlogSettingsInterface;
 use Dotclear\Interface\Core\CategoriesInterface;
 use Dotclear\Interface\Core\ConfigInterface;
-use Dotclear\Interface\Core\ConnectionInterface;
+use Dotclear\Interface\Core\DatabaseInterface;
 use Dotclear\Interface\Core\DeprecatedInterface;
 use Dotclear\Interface\Core\FilterInterface;
 use Dotclear\Interface\Core\FormaterInterface;
@@ -54,6 +54,7 @@ use Throwable;
  * @since   2.28, public properties become deprecated and will be protected soon
  * @since   2.28, blog could be (un)load in same instance
  * @since   2.28, container services have been added to constructor
+ * @since   2.36, constructor argument ConnectionInteface has been replaced by DatabaseInterface
  */
 class Blog implements BlogInterface
 {
@@ -68,7 +69,7 @@ class Blog implements BlogInterface
     /**
      * Database table prefix.
      *
-     * @deprecated  since 2.28, use App::con()->prefix() instead
+     * @deprecated  since 2.28, use App::db()->con()->prefix() instead
      */
     public readonly string $prefix;
 
@@ -163,7 +164,7 @@ class Blog implements BlogInterface
      * @param   BlogSettingsInterface   $settings       The blog settings handler
      * @param   CategoriesInterface     $categories     The blog categories handler
      * @param   ConfigInterface         $config         The application configuration
-     * @param   ConnectionInterface     $con            The database connection instance
+     * @param   DatabaseInterface       $db             The database handler instance
      * @param   FilterInterface         $filter         The wiki filter handler
      * @param   FormaterInterface       $formater       The text formater handler
      * @param   PostMediaInterface      $postmedia      The post media handler
@@ -175,14 +176,14 @@ class Blog implements BlogInterface
         public BlogSettingsInterface $settings, // public for backward compatibility
         protected CategoriesInterface $categories,
         protected ConfigInterface $config,
-        protected ConnectionInterface $con,
+        protected DatabaseInterface $db,
         protected FilterInterface $filter,
         protected FormaterInterface $formater,
         protected PostMediaInterface $postmedia,
         protected DeprecatedInterface $deprecated,
         string $blog_id = ''
     ) {
-        $this->prefix = $this->con->prefix();
+        $this->prefix = $this->db->con()->prefix();
 
         $this->loadFromBlog($blog_id);
     }
@@ -263,17 +264,17 @@ class Blog implements BlogInterface
 
     public function openBlogCursor(): Cursor
     {
-        return $this->con->openCursor($this->prefix . self::BLOG_TABLE_NAME);
+        return $this->db->con()->openCursor($this->prefix . self::BLOG_TABLE_NAME);
     }
 
     public function openPostCursor(): Cursor
     {
-        return $this->con->openCursor($this->prefix . self::POST_TABLE_NAME);
+        return $this->db->con()->openCursor($this->prefix . self::POST_TABLE_NAME);
     }
 
     public function openCommentCursor(): Cursor
     {
-        return $this->con->openCursor($this->prefix . self::COMMENT_TABLE_NAME);
+        return $this->db->con()->openCursor($this->prefix . self::COMMENT_TABLE_NAME);
     }
 
     public function isDefined(): bool
@@ -1235,8 +1236,8 @@ class Blog implements BlogInterface
         $params['limit']     = 1;
         $params['order']     = 'post_dt ' . $order . ', P.post_id ' . $order;
         $params['sql']       = 'AND ( ' .
-            "   (post_dt = '" . $this->con->escapeStr($dt) . "' AND P.post_id " . $sign . ' ' . $post_id . ') ' .
-            '   OR post_dt ' . $sign . " '" . $this->con->escapeStr($dt) . "' " .
+            "   (post_dt = '" . $this->db->con()->escapeStr($dt) . "' AND P.post_id " . $sign . ' ' . $post_id . ') ' .
+            '   OR post_dt ' . $sign . " '" . $this->db->con()->escapeStr($dt) . "' " .
             ') ';
 
         if ($restrict_to_category) {
@@ -1244,7 +1245,7 @@ class Blog implements BlogInterface
         }
 
         if ($restrict_to_lang) {
-            $params['sql'] .= $post->post_lang ? 'AND P.post_lang = \'' . $this->con->escapeStr($post->post_lang) . '\' ' : 'AND P.post_lang IS NULL ';
+            $params['sql'] .= $post->post_lang ? 'AND P.post_lang = \'' . $this->db->con()->escapeStr($post->post_lang) . '\' ' : 'AND P.post_lang IS NULL ';
         }
 
         $rs = $this->getPosts($params);
@@ -1394,7 +1395,7 @@ class Blog implements BlogInterface
             throw new UnauthorizedException(__('You are not allowed to create an entry'));
         }
 
-        $this->con->writeLock($this->prefix . self::POST_TABLE_NAME);
+        $this->db->con()->writeLock($this->prefix . self::POST_TABLE_NAME);
 
         try {
             # Get ID
@@ -1428,9 +1429,9 @@ class Blog implements BlogInterface
             $this->behavior->callBehavior('coreBeforePostCreate', $this, $cur);
 
             $cur->insert();
-            $this->con->unlock();
+            $this->db->con()->unlock();
         } catch (Throwable $e) {
-            $this->con->unlock();
+            $this->db->con()->unlock();
 
             throw $e;
         }
@@ -1876,7 +1877,7 @@ class Blog implements BlogInterface
                 if ($field === 'cat_id') {
                     $queries[$id] = preg_match('/^null$/i', (string) $id) ? 'P.cat_id IS NULL' : 'P.cat_id = ' . (int) $id;
                 } else {
-                    $queries[$id] = "C.cat_url = '" . $this->con->escapeStr((string) $id) . "' ";
+                    $queries[$id] = "C.cat_url = '" . $this->db->con()->escapeStr((string) $id) . "' ";
                 }
             }
         }
@@ -2384,7 +2385,7 @@ class Blog implements BlogInterface
      */
     public function addComment(Cursor $cur): int
     {
-        $this->con->writeLock($this->prefix . self::COMMENT_TABLE_NAME);
+        $this->db->con()->writeLock($this->prefix . self::COMMENT_TABLE_NAME);
 
         try {
             # Get ID
@@ -2423,9 +2424,9 @@ class Blog implements BlogInterface
             $cur->comment_content = $content;
 
             $cur->insert();
-            $this->con->unlock();
+            $this->db->con()->unlock();
         } catch (Throwable $e) {
-            $this->con->unlock();
+            $this->db->con()->unlock();
 
             throw $e;
         }

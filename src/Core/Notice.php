@@ -17,7 +17,7 @@ use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Exception\BadRequestException;
 use Dotclear\Interface\Core\BehaviorInterface;
-use Dotclear\Interface\Core\ConnectionInterface;
+use Dotclear\Interface\Core\DatabaseInterface;
 use Dotclear\Interface\Core\DeprecatedInterface;
 use Dotclear\Interface\Core\NoticeInterface;
 use Throwable;
@@ -26,6 +26,7 @@ use Throwable;
  * @brief   Core notice handler.
  *
  * @since   2.28, container services have been added to constructor
+ * @since   2.36, constructor argument ConnectionInteface has been replaced by DatabaseInterface
  */
 class Notice implements NoticeInterface
 {
@@ -38,20 +39,20 @@ class Notice implements NoticeInterface
      * Constructor.
      *
      * @param   BehaviorInterface       $behavior       The behavior instance
-     * @param   ConnectionInterface     $con            The database connection instance
+     * @param   DatabaseInterface       $db             The database handler instance
      * @param   DeprecatedInterface     $deprecated     The deprecated handler
      */
     public function __construct(
         protected BehaviorInterface $behavior,
-        protected ConnectionInterface $con,
+        protected DatabaseInterface $db,
         protected DeprecatedInterface $deprecated,
     ) {
-        $this->table = $this->con->prefix() . self::NOTICE_TABLE_NAME;
+        $this->table = $this->db->con()->prefix() . self::NOTICE_TABLE_NAME;
     }
 
     public function openNoticeCursor(): Cursor
     {
-        return $this->con->openCursor($this->table);
+        return $this->db->con()->openCursor($this->table);
     }
 
     /**
@@ -124,7 +125,7 @@ class Notice implements NoticeInterface
 
     public function addNotice(Cursor $cur): int
     {
-        $this->con->writeLock($this->table);
+        $this->db->con()->writeLock($this->table);
 
         try {
             # Get ID
@@ -144,9 +145,9 @@ class Notice implements NoticeInterface
 
                 $cur->insert();
             }
-            $this->con->unlock();
+            $this->db->con()->unlock();
         } catch (Throwable $e) {
-            $this->con->unlock();
+            $this->db->con()->unlock();
 
             throw $e;
         }

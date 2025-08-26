@@ -20,8 +20,8 @@ use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Interface\Core\BehaviorInterface;
 use Dotclear\Interface\Core\BlogInterface;
 use Dotclear\Interface\Core\ConfigInterface;
-use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\CredentialInterface;
+use Dotclear\Interface\Core\DatabaseInterface;
 use Dotclear\Schema\Extension\Credential as CredentialExtension;
 use Exception;
 
@@ -40,23 +40,23 @@ class Credential implements CredentialInterface
     /**
      * Load services from Core container.
      *
-     * @param   BehaviorInterface       $behavior   The behavior instance
-     * @param   BlogInterface           $blog       The blog instance
-     * @param   ConnectionInterface     $con        The database connection instance
-     * @param   ConfigInterface         $config     The configuration
+     * @param   BehaviorInterface   $behavior   The behavior instance
+     * @param   BlogInterface       $blog       The blog instance
+     * @param   ConfigInterface     $config     The configuration
+     * @param   DatabaseInterface   $db         The database handler instance
      */
     public function __construct(
         protected BehaviorInterface $behavior,
         protected BlogInterface $blog,
-        protected ConnectionInterface $con,
-        protected ConfigInterface $config
+        protected ConfigInterface $config,
+        protected DatabaseInterface $db
     ) {
-        $this->credential_table = $this->con->prefix() . self::CREDENTIAL_TABLE_NAME;
+        $this->credential_table = $this->db->con()->prefix() . self::CREDENTIAL_TABLE_NAME;
     }
 
     public function openCredentialCursor(): Cursor
     {
-        return $this->con->openCursor($this->credential_table);
+        return $this->db->con()->openCursor($this->credential_table);
     }
 
     public function getCredentials(array|ArrayObject $params = [], bool $count_only = false): MetaRecord
@@ -90,7 +90,7 @@ class Credential implements CredentialInterface
                 ->join(
                     (new JoinStatement())
                         ->left()
-                        ->from($sql->as($this->con->prefix() . $this->blog->auth()::USER_TABLE_NAME, 'U'))
+                        ->from($sql->as($this->db->con()->prefix() . $this->blog->auth()::USER_TABLE_NAME, 'U'))
                         ->on('K.user_id = U.user_id')
                         ->statement()
                 );

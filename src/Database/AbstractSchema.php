@@ -11,23 +11,29 @@ declare(strict_types=1);
 namespace Dotclear\Database;
 
 use Dotclear\Interface\Core\ConnectionInterface;
+use Dotclear\Interface\Core\DatabaseInterface;
 use Dotclear\Interface\Core\SchemaInterface;
 
 /**
  * @class AbstractSchema
  *
  * Database schema abstraction
+ *
+ * @since   2.36, constructor argument ConnectionInteface has been replaced by DatabaseInterface
  */
 abstract class AbstractSchema implements SchemaInterface, InterfaceSchema
 {
+    protected ConnectionInterface $con;
+
     /**
      * Constructs a new instance.
      *
-     * @param   ConnectionInterface     $con    The DB handler
+     * @param   DatabaseInterface   $db     The database handler instance
      */
     public function __construct(
-        protected ConnectionInterface $con
+        protected DatabaseInterface $db
     ) {
+        $this->con = $this->db->con();
     }
 
     /**

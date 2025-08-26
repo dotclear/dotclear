@@ -17,13 +17,14 @@ use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\JoinStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Interface\Core\BlogInterface;
-use Dotclear\Interface\Core\ConnectionInterface;
+use Dotclear\Interface\Core\DatabaseInterface;
 use Dotclear\Interface\Core\PostMediaInterface;
 
 /**
  * @brief   Post media database handler.
  *
  * @since   2.28, container services have been added to constructor
+ * @since   2.36, constructor argument ConnectionInteface has been replaced by DatabaseInterface
  */
 class PostMedia implements PostMediaInterface
 {
@@ -40,12 +41,12 @@ class PostMedia implements PostMediaInterface
     /**
      * Constructor.
      *
-     * @param   ConnectionInterface     $con    The database connection instance
+     * @param   DatabaseInterface   $db     The database handler instance
      */
     public function __construct(
-        protected ConnectionInterface $con
+        protected DatabaseInterface $db
     ) {
-        $this->table = $this->con->prefix() . self::POST_MEDIA_TABLE_NAME;
+        $this->table = $this->db->con()->prefix() . self::POST_MEDIA_TABLE_NAME;
     }
 
     public function loadFromBlog(BlogInterface $blog): PostMediaInterface
@@ -57,7 +58,7 @@ class PostMedia implements PostMediaInterface
 
     public function openPostMediaCursor(): Cursor
     {
-        return $this->con->openCursor($this->table);
+        return $this->db->con()->openCursor($this->table);
     }
 
     /**
@@ -90,7 +91,7 @@ class PostMedia implements PostMediaInterface
         }
 
         $sql
-            ->from($sql->as($this->con->prefix() . self::MEDIA_TABLE_NAME, 'M'))
+            ->from($sql->as($this->db->con()->prefix() . self::MEDIA_TABLE_NAME, 'M'))
             ->join(
                 (new JoinStatement())
                 ->inner()

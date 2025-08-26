@@ -24,7 +24,7 @@ use Dotclear\Interface\Core\AuthInterface;
 use Dotclear\Interface\Core\BlogInterface;
 use Dotclear\Interface\Core\BlogsInterface;
 use Dotclear\Interface\Core\ConfigInterface;
-use Dotclear\Interface\Core\ConnectionInterface;
+use Dotclear\Interface\Core\DatabaseInterface;
 use Dotclear\Interface\Core\SessionInterface;
 use Dotclear\Interface\Core\UserPreferencesInterface;
 use Dotclear\Interface\Core\UsersInterface;
@@ -36,6 +36,8 @@ use Throwable;
  *
  * Auth is a class used to handle everything related to user authentication
  * and credentials. Object is provided by App::auth() method.
+ *
+ * @since   2.36, constructor argument ConnectionInteface has been replaced by DatabaseInterface
  */
 class Auth implements AuthInterface
 {
@@ -110,7 +112,7 @@ class Auth implements AuthInterface
      * @param   BlogInterface               $blog           The blog instance
      * @param   BlogsInterface              $blogs          The blogs handler
      * @param   ConfigInterface             $config         The configuration instance
-     * @param   ConnectionInterface         $con            The database connection instance
+     * @param   DatabaseInterface           $db             The database handler instance
      * @param   SessionInterface            $session        The session handler
      * @param   UserPreferencesInterface    $user_prefs     The user preferences instance
      * @param   UsersInterface              $users          The users handler
@@ -119,13 +121,13 @@ class Auth implements AuthInterface
         protected BlogInterface $blog,
         protected BlogsInterface $blogs,
         protected ConfigInterface $config,
-        protected ConnectionInterface $con,
+        protected DatabaseInterface $db,
         protected SessionInterface $session,
         public UserpreferencesInterface $user_prefs,
         protected UsersInterface $users
     ) {
-        $this->user_table = $this->con->prefix() . self::USER_TABLE_NAME;
-        $this->perm_table = $this->con->prefix() . self::PERMISSIONS_TABLE_NAME;
+        $this->user_table = $this->db->con()->prefix() . self::USER_TABLE_NAME;
+        $this->perm_table = $this->db->con()->prefix() . self::PERMISSIONS_TABLE_NAME;
 
         $this->perm_types = [
             self::PERMISSION_ADMIN         => __('administrator'),
@@ -143,12 +145,12 @@ class Auth implements AuthInterface
 
     public function openUserCursor(): Cursor
     {
-        return $this->con->openCursor($this->user_table);
+        return $this->db->con()->openCursor($this->user_table);
     }
 
     public function openPermCursor(): Cursor
     {
-        return $this->con->openCursor($this->perm_table);
+        return $this->db->con()->openCursor($this->perm_table);
     }
 
     /// @name Credentials and user permissions
@@ -436,7 +438,7 @@ class Auth implements AuthInterface
             $sql = new SelectStatement();
             $sql
                 ->column('blog_id')
-                ->from($this->con->prefix() . $this->blog::BLOG_TABLE_NAME)
+                ->from($this->db->con()->prefix() . $this->blog::BLOG_TABLE_NAME)
                 ->where('blog_id = ' . $sql->quote((string) $blog_id));
 
             $rs = $sql->select();
@@ -486,7 +488,7 @@ class Auth implements AuthInterface
         if ($this->isSuperAdmin()) {
             $sql
                 ->column('blog_id')
-                ->from($this->con->prefix() . $this->blog::BLOG_TABLE_NAME)
+                ->from($this->db->con()->prefix() . $this->blog::BLOG_TABLE_NAME)
                 ->order('blog_id ASC')
                 ->limit(1);
         } else {
@@ -494,7 +496,7 @@ class Auth implements AuthInterface
                 ->column('P.blog_id')
                 ->from([
                     $this->perm_table . ' P',
-                    $this->con->prefix() . $this->blog::BLOG_TABLE_NAME . ' B',
+                    $this->db->con()->prefix() . $this->blog::BLOG_TABLE_NAME . ' B',
                 ])
                 ->where('user_id = ' . $sql->quote($this->userID()))
                 ->and('P.blog_id = B.blog_id')

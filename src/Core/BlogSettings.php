@@ -19,7 +19,7 @@ use Dotclear\Exception\BadRequestException;
 use Dotclear\Exception\ProcessException;
 use Dotclear\Interface\Core\BlogSettingsInterface;
 use Dotclear\Interface\Core\BlogWorkspaceInterface;
-use Dotclear\Interface\Core\ConnectionInterface;
+use Dotclear\Interface\Core\DatabaseInterface;
 use Dotclear\Interface\Core\DeprecatedInterface;
 use Throwable;
 
@@ -31,6 +31,7 @@ use Throwable;
  * updating another blog settings.
  *
  * @since   2.28, container services have been added to constructor
+ * @since   2.36, constructor argument ConnectionInteface has been replaced by DatabaseInterface
  *
  * @psalm-no-seal-properties
  */
@@ -52,17 +53,17 @@ class BlogSettings implements BlogSettingsInterface
      * Constructor.
      *
      * @param   BlogWorkspaceInterface  $workspace      The blog workspace handler
-     * @param   ConnectionInterface     $con            The database connection instance
+     * @param   DatabaseInterface       $db             The database handler instance
      * @param   DeprecatedInterface     $deprecated     The deprecated handler
      * @param   null|string             $blog_id        The blog ID
      */
     public function __construct(
         protected BlogWorkspaceInterface $workspace,
-        protected ConnectionInterface $con,
+        protected DatabaseInterface $db,
         protected DeprecatedInterface $deprecated,
         protected ?string $blog_id = null
     ) {
-        $this->table = $this->con->prefix() . $this->workspace::NS_TABLE_NAME;
+        $this->table = $this->db->con()->prefix() . $this->workspace::NS_TABLE_NAME;
 
         if ($blog_id) {
             $this->loadSettings();
@@ -71,7 +72,7 @@ class BlogSettings implements BlogSettingsInterface
 
     public function createFromBlog(?string $blog_id): BlogSettingsInterface
     {
-        return new self($this->workspace, $this->con, $this->deprecated, $blog_id);
+        return new self($this->workspace, $this->db, $this->deprecated, $blog_id);
     }
 
     /**
@@ -102,7 +103,7 @@ class BlogSettings implements BlogSettingsInterface
         try {
             $rs = $sql->select();
         } catch (Throwable) {
-            throw new ProcessException(__('Unable to retrieve namespaces:') . ' ' . $this->con->error());
+            throw new ProcessException(__('Unable to retrieve namespaces:') . ' ' . $this->db->con()->error());
         }
 
         /* Prevent empty tables (install phase, for instance) */

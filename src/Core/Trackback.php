@@ -26,7 +26,7 @@ use Dotclear\Exception\BadRequestException;
 use Dotclear\Interface\Core\BehaviorInterface;
 use Dotclear\Interface\Core\BlogInterface;
 use Dotclear\Interface\Core\ConfigInterface;
-use Dotclear\Interface\Core\ConnectionInterface;
+use Dotclear\Interface\Core\DatabaseInterface;
 use Dotclear\Interface\Core\PostTypesInterface;
 use Dotclear\Interface\Core\TrackbackInterface;
 use Throwable;
@@ -38,6 +38,7 @@ use Throwable;
  * Also handles trackbacks/pingbacks auto discovery.
  *
  * @since   2.28, container services have been added to constructor
+ * @since   2.36, constructor argument ConnectionInteface has been replaced by DatabaseInterface
  */
 class Trackback implements TrackbackInterface
 {
@@ -54,26 +55,26 @@ class Trackback implements TrackbackInterface
     /**
      * Constructor.
      *
-     * @param   BehaviorInterface       $behavior       The behavior instance
-     * @param   BlogInterface           $blog           The blog instance
-     * @param   ConfigInterface         $config         The application configuration
-     * @param   ConnectionInterface     $con            The database connection instance
-     * @param   PostTypesInterface      $post_types     The post types handler
+     * @param   BehaviorInterface   $behavior       The behavior instance
+     * @param   BlogInterface       $blog           The blog instance
+     * @param   ConfigInterface     $config         The application configuration
+     * @param   DatabaseInterface   $db             The database handler instance
+     * @param   PostTypesInterface  $post_types     The post types handler
      */
     public function __construct(
         protected BehaviorInterface $behavior,
         protected BlogInterface $blog,
         protected ConfigInterface $config,
-        protected ConnectionInterface $con,
+        protected DatabaseInterface $db,
         protected PostTypesInterface $post_types,
     ) {
-        $this->table         = $this->con->prefix() . self::PING_TABLE_NAME;
+        $this->table         = $this->db->con()->prefix() . self::PING_TABLE_NAME;
         self::$query_timeout = $config->queryTimeout();
     }
 
     public function openTrackbackCursor(): Cursor
     {
-        return $this->con->openCursor($this->con->prefix() . self::PING_TABLE_NAME);
+        return $this->db->con()->openCursor($this->db->con()->prefix() . self::PING_TABLE_NAME);
     }
 
     /// @name Send
@@ -525,9 +526,9 @@ class Trackback implements TrackbackInterface
     {
         $sql = new DeleteStatement();
         $sql
-            ->from($this->con->prefix() . $this->blog::COMMENT_TABLE_NAME)
+            ->from($this->db->con()->prefix() . $this->blog::COMMENT_TABLE_NAME)
             ->where('post_id = ' . $post_id)
-            ->and('comment_site = ' . $sql->quote($this->con->escapeStr($url)))
+            ->and('comment_site = ' . $sql->quote($this->db->con()->escapeStr($url)))
             ->and('comment_trackback = 1')
             ->delete();
     }
