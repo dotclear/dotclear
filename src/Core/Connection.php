@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
+use Dotclear\App;
 use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\SchemaInterface;
 
@@ -21,6 +22,6 @@ abstract class Connection implements ConnectionInterface
 {
     public function schema(): SchemaInterface
     {
-        App::db()->schema($this->driver());
+        return App::db()->schema($this->driver());
     }
 }
