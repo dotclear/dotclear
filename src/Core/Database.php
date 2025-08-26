@@ -77,6 +77,6 @@ class Database implements DatabaseInterface
             throw new DatabaseException(sprintf('Database schema %s does not exist', $driver));
         }
 
-        return $this->container_schema->get($driver, true, $this);
+        return $this->container_schema->get($driver, true, $this->con());
     }
 }
