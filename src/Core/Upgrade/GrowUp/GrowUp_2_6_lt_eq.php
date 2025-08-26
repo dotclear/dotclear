@@ -51,11 +51,11 @@ class GrowUp_2_6_lt_eq
         }
 
         # Some settings change, prepare db queries
-        $strReqFormat = 'INSERT INTO ' . App::con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME;
+        $strReqFormat = 'INSERT INTO ' . App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME;
         $strReqFormat .= ' (setting_id,setting_ns,setting_value,setting_type,setting_label)';
         $strReqFormat .= ' VALUES(\'%s\',\'system\',\'%s\',\'string\',\'%s\')';
 
-        $strReqSelect = 'SELECT count(1) FROM ' . App::con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME;
+        $strReqSelect = 'SELECT count(1) FROM ' . App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME;
         $strReqSelect .= ' WHERE setting_id = \'%s\'';
         $strReqSelect .= ' AND setting_ns = \'system\'';
         $strReqSelect .= ' AND blog_id IS NULL';
@@ -69,27 +69,27 @@ class GrowUp_2_6_lt_eq
             $date_formats = array_map(fn (string $f): string => str_replace('%e', '%#d', $f), $date_formats);
         }
 
-        $rs = App::con()->select(sprintf($strReqSelect, 'date_formats'));
+        $rs = App::db()->con()->select(sprintf($strReqSelect, 'date_formats'));
         if ($rs->f(0) == 0) {
             $strReq = sprintf($strReqFormat, 'date_formats', serialize($date_formats), 'Date formats examples');
-            App::con()->execute($strReq);
+            App::db()->con()->execute($strReq);
         }
-        $rs = App::con()->select(sprintf($strReqSelect, 'time_formats'));
+        $rs = App::db()->con()->select(sprintf($strReqSelect, 'time_formats'));
         if ($rs->f(0) == 0) {
             $strReq = sprintf($strReqFormat, 'time_formats', serialize($time_formats), 'Time formats examples');
-            App::con()->execute($strReq);
+            App::db()->con()->execute($strReq);
         }
 
         # Add repository URL for themes and plugins as daInstaller move to core
-        $rs = App::con()->select(sprintf($strReqSelect, 'store_plugin_url'));
+        $rs = App::db()->con()->select(sprintf($strReqSelect, 'store_plugin_url'));
         if ($rs->f(0) == 0) {
             $strReq = sprintf($strReqFormat, 'store_plugin_url', 'http://update.dotaddict.org/dc2/plugins.xml', 'Plugins XML feed location');
-            App::con()->execute($strReq);
+            App::db()->con()->execute($strReq);
         }
-        $rs = App::con()->select(sprintf($strReqSelect, 'store_theme_url'));
+        $rs = App::db()->con()->select(sprintf($strReqSelect, 'store_theme_url'));
         if ($rs->f(0) == 0) {
             $strReq = sprintf($strReqFormat, 'store_theme_url', 'http://update.dotaddict.org/dc2/themes.xml', 'Themes XML feed location');
-            App::con()->execute($strReq);
+            App::db()->con()->execute($strReq);
         }
 
         return $cleanup_sessions;

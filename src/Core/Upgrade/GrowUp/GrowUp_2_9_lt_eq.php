@@ -22,16 +22,16 @@ class GrowUp_2_9_lt_eq
     public static function init(bool $cleanup_sessions): bool
     {
         # Some new settings should be initialized, prepare db queries
-        $strReq = 'INSERT INTO ' . App::con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME .
+        $strReq = 'INSERT INTO ' . App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME .
             ' (setting_id,setting_ns,setting_value,setting_type,setting_label)' .
             ' VALUES(\'%s\',\'system\',\'%s\',\'%s\',\'%s\')';
-        App::con()->execute(
+        App::db()->con()->execute(
             sprintf($strReq, 'media_video_width', '400', 'integer', 'Media video insertion width')
         );
-        App::con()->execute(
+        App::db()->con()->execute(
             sprintf($strReq, 'media_video_height', '300', 'integer', 'Media video insertion height')
         );
-        App::con()->execute(
+        App::db()->con()->execute(
             sprintf($strReq, 'media_flash_fallback', '1', 'boolean', 'Flash player fallback for audio and video media')
         );
 

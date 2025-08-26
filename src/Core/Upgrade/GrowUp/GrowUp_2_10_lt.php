@@ -42,36 +42,36 @@ class GrowUp_2_10_lt
         }
 
         # Some new settings should be initialized, prepare db queries
-        $strReq = 'INSERT INTO ' . App::con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME .
+        $strReq = 'INSERT INTO ' . App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME .
             ' (setting_id,setting_ns,setting_value,setting_type,setting_label)' .
             ' VALUES(\'%s\',\'system\',\'%s\',\'%s\',\'%s\')';
         # Import feed control
-        App::con()->execute(
+        App::db()->con()->execute(
             sprintf($strReq, 'import_feed_url_control', (string) true, 'boolean', 'Control feed URL before import')
         );
-        App::con()->execute(
+        App::db()->con()->execute(
             sprintf($strReq, 'import_feed_no_private_ip', (string) true, 'boolean', 'Prevent import feed from private IP')
         );
-        App::con()->execute(
+        App::db()->con()->execute(
             sprintf($strReq, 'import_feed_ip_regexp', '', 'string', 'Authorize import feed only from this IP regexp')
         );
-        App::con()->execute(
+        App::db()->con()->execute(
             sprintf($strReq, 'import_feed_port_regexp', '/^(80|443)$/', 'string', 'Authorize import feed only from this port regexp')
         );
         # CSP directive (admin part)
-        App::con()->execute(
+        App::db()->con()->execute(
             sprintf($strReq, 'csp_admin_on', (string) true, 'boolean', 'Send CSP header (admin)')
         );
-        App::con()->execute(
+        App::db()->con()->execute(
             sprintf($strReq, 'csp_admin_default', "''self''", 'string', 'CSP default-src directive')
         );
-        App::con()->execute(
+        App::db()->con()->execute(
             sprintf($strReq, 'csp_admin_script', "''self'' ''unsafe-inline'' ''unsafe-eval''", 'string', 'CSP script-src directive')
         );
-        App::con()->execute(
+        App::db()->con()->execute(
             sprintf($strReq, 'csp_admin_style', "''self'' ''unsafe-inline''", 'string', 'CSP style-src directive')
         );
-        App::con()->execute(
+        App::db()->con()->execute(
             sprintf($strReq, 'csp_admin_img', "''self'' data: media.dotaddict.org", 'string', 'CSP img-src directive')
         );
 

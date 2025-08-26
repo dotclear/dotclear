@@ -22,57 +22,57 @@ class GrowUp_2_11_lt
     public static function init(bool $cleanup_sessions): bool
     {
         // Some new settings should be initialized, prepare db queries
-        $strReq = 'INSERT INTO ' . App::con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME .
+        $strReq = 'INSERT INTO ' . App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME .
             ' (setting_id,setting_ns,setting_value,setting_type,setting_label)' .
             ' VALUES(\'%s\',\'system\',\'%s\',\'%s\',\'%s\')';
-        App::con()->execute(
+        App::db()->con()->execute(
             sprintf($strReq, 'csp_admin_report_only', (string) false, 'boolean', 'CSP Report only violations (admin)')
         );
 
         // SQlite Clearbricks driver does not allow using single quote at beginning or end of a field value
         // so we have to use neutral values (localhost and 127.0.0.1) for some CSP directives
-        $csp_prefix = App::con()->driver() === 'sqlite' ? 'localhost ' : ''; // Hack for SQlite Clearbricks driver
-        $csp_suffix = App::con()->driver() === 'sqlite' ? ' 127.0.0.1' : ''; // Hack for SQlite Clearbricks driver
+        $csp_prefix = App::db()->con()->driver() === 'sqlite' ? 'localhost ' : ''; // Hack for SQlite Clearbricks driver
+        $csp_suffix = App::db()->con()->driver() === 'sqlite' ? ' 127.0.0.1' : ''; // Hack for SQlite Clearbricks driver
 
         # Try to fix some CSP directive wrongly stored for SQLite drivers
-        $strReq = 'UPDATE ' . App::con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME .
+        $strReq = 'UPDATE ' . App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME .
             " SET setting_value = '" . $csp_prefix . "''self''" . $csp_suffix . "' " .
             " WHERE setting_id = 'csp_admin_default' " .
             " AND setting_ns = 'system' " .
             " AND setting_value = 'self' ";
-        App::con()->execute($strReq);
-        $strReq = 'UPDATE ' . App::con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME .
+        App::db()->con()->execute($strReq);
+        $strReq = 'UPDATE ' . App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME .
             " SET setting_value = '" . $csp_prefix . "''self'' ''unsafe-inline'' ''unsafe-eval''" . $csp_suffix . "' " .
             " WHERE setting_id = 'csp_admin_script' " .
             " AND setting_ns = 'system' " .
             " AND setting_value = 'self'' ''unsafe-inline'' ''unsafe-eval' ";
-        App::con()->execute($strReq);
-        $strReq = 'UPDATE ' . App::con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME .
+        App::db()->con()->execute($strReq);
+        $strReq = 'UPDATE ' . App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME .
             " SET setting_value = '" . $csp_prefix . "''self'' ''unsafe-inline''" . $csp_suffix . "' " .
             " WHERE setting_id = 'csp_admin_style' " .
             " AND setting_ns = 'system' " .
             " AND setting_value = 'self'' ''unsafe-inline' ";
-        App::con()->execute($strReq);
-        $strReq = 'UPDATE ' . App::con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME .
+        App::db()->con()->execute($strReq);
+        $strReq = 'UPDATE ' . App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME .
             " SET setting_value = '" . $csp_prefix . "''self'' data: media.dotaddict.org blob:' " .
             " WHERE setting_id = 'csp_admin_img' " .
             " AND setting_ns = 'system' " .
             " AND setting_value = 'self'' data: media.dotaddict.org' ";
-        App::con()->execute($strReq);
+        App::db()->con()->execute($strReq);
 
         # Update CSP img-src default directive
-        $strReq = 'UPDATE ' . App::con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME .
+        $strReq = 'UPDATE ' . App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME .
             " SET setting_value = '" . $csp_prefix . "''self'' data: media.dotaddict.org blob:' " .
             " WHERE setting_id = 'csp_admin_img' " .
             " AND setting_ns = 'system' " .
             " AND setting_value = '''self'' data: media.dotaddict.org' ";
-        App::con()->execute($strReq);
+        App::db()->con()->execute($strReq);
 
         # Update first publication on published posts
-        $strReq = 'UPDATE ' . App::con()->prefix() . App::blog()::POST_TABLE_NAME .
+        $strReq = 'UPDATE ' . App::db()->con()->prefix() . App::blog()::POST_TABLE_NAME .
             ' SET post_firstpub = 1' .
             ' WHERE post_status = ' . App::status()->post()::PUBLISHED;
-        App::con()->execute($strReq);
+        App::db()->con()->execute($strReq);
 
         // A bit of housecleaning for no longer needed folders
         Upgrade::houseCleaning(

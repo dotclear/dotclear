@@ -22,10 +22,10 @@ class GrowUp_2_30_lt
     public static function init(bool $cleanup_sessions): bool
     {
         // Set default Legacy JS loading for blog
-        $strReq = 'INSERT INTO ' . App::con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME .
+        $strReq = 'INSERT INTO ' . App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME .
             ' (setting_id,setting_ns,setting_value,setting_type,setting_label)' .
             ' VALUES(\'%s\',\'system\',\'%s\',\'%s\',\'%s\')';
-        App::con()->execute(
+        App::db()->con()->execute(
             sprintf($strReq, 'legacy_needed', (string) true, 'boolean', 'Load Legacy JS library')
         );
 

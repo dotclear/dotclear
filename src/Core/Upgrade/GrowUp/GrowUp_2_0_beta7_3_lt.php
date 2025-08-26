@@ -21,13 +21,13 @@ class GrowUp_2_0_beta7_3_lt
     public static function init(bool $cleanup_sessions): bool
     {
         // Blowup becomes default theme
-        $strReq = 'UPDATE ' . App::con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME . ' ' .
+        $strReq = 'UPDATE ' . App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME . ' ' .
             "SET setting_value = '%s' " .
             "WHERE setting_id = 'theme' " .
             "AND setting_value = '%s' " .
             'AND blog_id IS NOT NULL ';
-        App::con()->execute(sprintf($strReq, 'blueSilence', 'default'));
-        App::con()->execute(sprintf($strReq, 'default', 'blowup'));
+        App::db()->con()->execute(sprintf($strReq, 'blueSilence', 'default'));
+        App::db()->con()->execute(sprintf($strReq, 'default', 'blowup'));
 
         return $cleanup_sessions;
     }

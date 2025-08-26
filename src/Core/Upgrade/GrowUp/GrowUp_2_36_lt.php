@@ -40,9 +40,9 @@ class GrowUp_2_36_lt
         );
 
         // credential database table was wrong in 2.36-dev-r20250820...
-        $columns = App::con()->schema()->getColumns(App::con()->prefix() . 'credential');
+        $columns = App::db()->con()->schema()->getColumns(App::db()->con()->prefix() . 'credential');
         if (array_key_exists('credential_id', $columns)) {
-            App::con()->execute('DROP TABLE ' . App::con()->prefix() . 'credential');
+            App::db()->con()->execute('DROP TABLE ' . App::db()->con()->prefix() . 'credential');
         }
 
         return $cleanup_sessions;
