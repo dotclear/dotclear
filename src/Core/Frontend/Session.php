@@ -36,8 +36,8 @@ class Session extends DatabaseSession
         }
 
         parent::__construct(
-            con: App::con(),
-            table : App::con()->prefix() . Session::SESSION_TABLE_NAME,
+            con: App::db()->con(),
+            table : App::db()->con()->prefix() . Session::SESSION_TABLE_NAME,
             cookie_name: App::config()->sessionName() . '_' . App::blog()->id(),
             cookie_path: isset($url['path']) ? dirname($url['path']) : '',
             cookie_secure: empty($url['scheme']) || !preg_match('%^http[s]?$%', $url['scheme']) ? false : $url['scheme'] === 'https',
@@ -50,7 +50,7 @@ class Session extends DatabaseSession
                     // Explicitly close session before DB connection
                     session_write_close();
                 }
-                App::con()->close();
+                App::db()->con()->close();
             } catch (Throwable) {
                 // Ignore exceptions
             }
