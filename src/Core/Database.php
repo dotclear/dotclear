@@ -15,9 +15,9 @@ use Dotclear\Database\ContainerHandler;
 use Dotclear\Database\ContainerSchema;
 use Dotclear\Exception\DatabaseException;
 use Dotclear\Interface\Core\ConfigInterface;
-use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\DatabaseInterface;
-use Dotclear\Interface\Core\SchemaInterface;
+use Dotclear\Interface\Database\ConnectionInterface;
+use Dotclear\Interface\Database\SchemaInterface;
 
 /**
  * @brief   Database handler.
@@ -67,10 +67,14 @@ class Database implements DatabaseInterface
         return $this->container_handler->get($driver, $reload, host: $host, database: $database, user: $user, password: $password, persistent: $persistent, prefix: $prefix);
     }
 
-    public function schema(string $driver): SchemaInterface
+    public function schema(string $driver = ''): SchemaInterface
     {
         if (!isset($this->container_schema)) {
             $this->container_schema  = new ContainerSchema();
+        }
+
+        if ($driver === '') {
+            $driver = $this->con()->driver();
         }
 
         if (!$this->container_schema->has($driver)) {

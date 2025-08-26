@@ -179,10 +179,10 @@ dcProxyV1::classAliases([
     'staticRecord'    => \Dotclear\Database\StaticRecord::class,
     'extStaticRecord' => \Dotclear\Database\StaticRecord::class,
 
-    'i_dbLayer' => \Dotclear\Database\InterfaceHandler::class,
+    'i_dbLayer' => \Dotclear\Interface\Database\DbHandlerInterface::class,
     'dbLayer'   => \Dotclear\Database\AbstractHandler::class,
 
-    'i_dbSchema' => \Dotclear\Database\InterfaceSchema::class,
+    'i_dbSchema' => \Dotclear\Interface\Database\DbSchemaInterface::class,
     'dbSchema'   => \Dotclear\Database\AbstractSchema::class,
 
     'dbStruct'      => \Dotclear\Database\Structure::class,

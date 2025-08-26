@@ -23,7 +23,6 @@ use Dotclear\Helper\Html\Form\Hidden;
 use Dotclear\Helper\Html\WikiToHtml;
 use Dotclear\Interface\Core\AuthInterface;
 use Dotclear\Interface\Core\BlogInterface;
-use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\ErrorInterface;
 use Dotclear\Interface\Core\LogInterface;
 use Dotclear\Interface\Core\MediaInterface;
@@ -33,6 +32,7 @@ use Dotclear\Interface\Core\PostMediaInterface;
 use Dotclear\Interface\Core\RestInterface;
 use Dotclear\Interface\Core\SessionInterface;
 use Dotclear\Interface\Core\UrlInterface;
+use Dotclear\Interface\Database\ConnectionInterface;
 use Dotclear\Interface\Module\ModulesInterface;
 
 /**

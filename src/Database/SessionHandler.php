@@ -13,7 +13,7 @@ namespace Dotclear\Database;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
-use Dotclear\Interface\Core\ConnectionInterface;
+use Dotclear\Interface\Database\ConnectionInterface;
 use SessionHandlerInterface;
 
 /**

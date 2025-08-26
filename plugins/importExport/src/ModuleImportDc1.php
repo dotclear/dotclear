@@ -33,7 +33,7 @@ use Dotclear\Helper\Html\Form\Ul;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Text as Txt;
-use Dotclear\Interface\Core\ConnectionInterface;
+use Dotclear\Interface\Database\ConnectionInterface;
 use Dotclear\Plugin\blogroll\Blogroll;
 use Exception;
 

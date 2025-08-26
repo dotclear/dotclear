@@ -11,7 +11,7 @@ declare(strict_types=1);
 namespace Dotclear\Database;
 
 use Dotclear\Interface\Core\SessionInterface;
-use Dotclear\Interface\Core\ConnectionInterface;
+use Dotclear\Interface\Database\ConnectionInterface;
 
 /**
  * @class Session

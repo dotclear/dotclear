@@ -42,7 +42,7 @@ class SqlStatement
     /**
      * DB handle
      *
-     * @var     null|\Dotclear\Interface\Core\ConnectionInterface   $con
+     * @var     null|\Dotclear\Interface\Database\ConnectionInterface   $con
      */
     protected $con;
 

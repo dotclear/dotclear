@@ -8,14 +8,14 @@
  */
 declare(strict_types=1);
 
-namespace Dotclear\Database;
+namespace Dotclear\Interface\Database;
 
 /**
  * @class InterfaceHandler
  *
  * Database handler interface
  */
-interface InterfaceHandler
+interface DbHandlerInterface
 {
     /**
      * Open connection

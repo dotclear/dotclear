@@ -10,15 +10,15 @@ declare(strict_types=1);
 
 namespace Dotclear\Database;
 
-use Dotclear\Interface\Core\ConnectionInterface;
-use Dotclear\Interface\Core\SchemaInterface;
+use Dotclear\Interface\Database\ConnectionInterface;
+use Dotclear\Interface\Database\SchemaInterface;
 
 /**
  * @class AbstractSchema
  *
  * Database schema abstraction
  */
-abstract class AbstractSchema implements SchemaInterface, InterfaceSchema
+abstract class AbstractSchema implements SchemaInterface
 {
     /**
      * Constructs a new instance.

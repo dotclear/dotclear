@@ -13,7 +13,7 @@ namespace Dotclear\Plugin\importExport;
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\TraitDynamicProperties;
-use Dotclear\Interface\Core\ConnectionInterface;
+use Dotclear\Interface\Database\ConnectionInterface;
 use Exception;
 
 /**

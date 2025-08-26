@@ -15,7 +15,7 @@ use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Html;
-use Dotclear\Interface\Core\ConnectionInterface;
+use Dotclear\Interface\Database\ConnectionInterface;
 use Dotclear\Plugin\antispam\Antispam;
 use Dotclear\Plugin\blogroll\Blogroll;
 use UnhandledMatchError;

@@ -12,7 +12,7 @@ namespace Dotclear\Core\Install;
 
 use Dotclear\App;
 use Dotclear\Database\Structure;
-use Dotclear\Interface\Core\ConnectionInterface;
+use Dotclear\Interface\Database\ConnectionInterface;
 use Dotclear\Schema\Schema;
 
 /**

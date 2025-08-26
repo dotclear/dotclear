@@ -10,14 +10,16 @@ declare(strict_types=1);
 
 namespace Dotclear\Database;
 
-use Dotclear\Core\Connection;
+use Dotclear\App;
+use Dotclear\Interface\Database\ConnectionInterface;
+use Dotclear\Interface\Database\SchemaInterface;
 
 /**
  * @class AbstractHandler
  *
  * Database handler abstraction
  */
-abstract class AbstractHandler extends Connection
+abstract class AbstractHandler implements ConnectionInterface
 {
     /**
      * Driver name
@@ -95,6 +97,11 @@ abstract class AbstractHandler extends Connection
     public function driver(): string
     {
         return $this->__driver;
+    }
+
+    public function schema(): SchemaInterface
+    {
+        return App::db()->schema($this->driver());
     }
 
     /**
