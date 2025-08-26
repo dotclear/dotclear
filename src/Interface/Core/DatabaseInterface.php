@@ -31,7 +31,7 @@ interface DatabaseInterface
      * @param   bool    $persistent     Persistent connection
      * @param   string  $prefix         Database tables prefix
      */
-    public function connection(string $driver = '', string $host = '', string $database = '', string $user = '', string $password = '', bool $persistent = false, string $prefix = ''): ConnectionInterface;
+    public function con(string $driver = '', string $host = '', string $database = '', string $user = '', string $password = '', bool $persistent = false, string $prefix = ''): ConnectionInterface;
 
     /**
      * Get new dabatase schema handler instance.

@@ -34,7 +34,7 @@ class Database implements DatabaseInterface
     ) {
     }
 
-    public function connection(string $driver = '', string $host = '', string $database = '', string $user = '', string $password = '', bool $persistent = false, string $prefix = ''): ConnectionInterface
+    public function con(string $driver = '', string $host = '', string $database = '', string $user = '', string $password = '', bool $persistent = false, string $prefix = ''): ConnectionInterface
     {
         // Reload connection handler if driver is set
         $reload = !empty($driver);

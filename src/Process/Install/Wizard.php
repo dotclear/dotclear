@@ -124,7 +124,7 @@ class Wizard extends Process
 
                 # Tries to connect to database
                 try {
-                    $con = App::db()->connection(self::$DBDRIVER, self::$DBHOST, self::$DBNAME, self::$DBUSER, self::$DBPASSWORD);
+                    $con = App::db()->con(self::$DBDRIVER, self::$DBHOST, self::$DBNAME, self::$DBUSER, self::$DBPASSWORD);
                 } catch (Exception $e) {
                     throw new Exception('<p>' . __($e->getMessage()) . '</p>', (int) $e->getCode(), $e);
                 }
