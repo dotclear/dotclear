@@ -101,8 +101,8 @@ class SqlStatement
      */
     public function __construct($con = null, ?string $syntax = null)
     {
-        $this->con    = $con    ?? App::con();
-        $this->syntax = $syntax ?? ($con ? $con->syntax() : App::con()->syntax());
+        $this->con    = $con    ?? App::db()->con();
+        $this->syntax = $syntax ?? ($con ? $con->syntax() : App::db()->con()->syntax());
 
         /* @phpstan-ignore-next-line */
         $this->_AS = ($this->syntax === 'sqlite' || self::VERBOSE_SQL_ALIAS ? ' AS ' : ' ');
