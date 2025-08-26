@@ -159,18 +159,20 @@ class Handler extends AbstractHandler
         }
 
         $data = [];
-        while ($r = $result->fetch(PDO::FETCH_ASSOC)) {
-            $R = [];
-            foreach ($r as $k => $v) {
-                $k     = (string) preg_replace('/^(.*)\./', '', (string) $k);    // @phpstan-ignore-line
-                $R[$k] = $v;
-                $R[]   = &$R[$k];
+        if ($result) {
+            while ($r = $result->fetch(PDO::FETCH_ASSOC)) {
+                $R = [];
+                foreach ($r as $k => $v) {
+                    $k     = (string) preg_replace('/^(.*)\./', '', (string) $k);    // @phpstan-ignore-line
+                    $R[$k] = $v;
+                    $R[]   = &$R[$k];
+                }
+                $data[] = $R;
             }
-            $data[] = $R;
-        }
 
-        $info['rows'] = count($data);
-        $result->closeCursor();
+            $info['rows'] = count($data);
+            $result->closeCursor();
+        }
 
         return new StaticRecord($data, $info);
     }

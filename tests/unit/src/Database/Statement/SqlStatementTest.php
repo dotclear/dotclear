@@ -1,64 +1,73 @@
 <?php
 
-/**
- * Unit tests
- *
- * @package Dotclear
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
- */
+declare(strict_types=1);
 
-// This statement may broke class mocking system:
-// declare(strict_types=1);
+namespace Dotclear\Tests\Database\Statement;
 
-namespace tests\unit\Dotclear\Database\Statement;
+use Exception;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\TestCase;
 
-require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', 'bootstrap.php']);
-
-use atoum;
-use atoum\atoum\mock\controller;
-
-/*
- * @tags SqlStatement
- */
-class SqlStatement extends atoum
+class SqlStatementTest extends TestCase
 {
-    private function getConnection($driver, $syntax)
+    private function getConnection(string $driver, string $syntax)
     {
-        $controller              = new controller();
-        $controller->__construct = function () {};
+        // Build a mock handler for the driver
+        $driverClass = ucfirst($driver);
+        $mock        = $this->getMockBuilder("Dotclear\\Database\\Driver\\$driverClass\\Handler")
+            ->disableOriginalConstructor()
+            ->onlyMethods([
+                'link',
+                'escapeStr',
+                'driver',
+                'syntax',
+                'execute',
+            ])
+            ->getMock();
 
-        $class_name = sprintf('\\mock\\Dotclear\\Database\\Driver\\%s\\Handler', ucfirst($driver));
-        $con        = new $class_name($controller, $driver);
+        // Common return values
+        $mock->method('link')->willReturn($mock);
+        $mock->method('escapeStr')->willReturnCallback(fn ($str) => addslashes((string) $str));
+        $mock->method('driver')->willReturn($driver);
+        $mock->method('syntax')->willReturn($syntax);
+        $mock->method('execute')->willReturn(true);
 
-        $this->calling($con)->driver    = $driver;
-        $this->calling($con)->syntax    = $syntax;
-        $this->calling($con)->escapeStr = fn ($str) => addslashes((string) $str);
-
-        return $con;
+        return $mock;
     }
 
+    protected function setUp(): void
+    {
+        set_error_handler(static function (int $errno, string $errstr): never {
+            throw new Exception($errstr, $errno);
+        }, E_USER_WARNING);
+    }
+
+    protected function tearDown(): void
+    {
+        restore_error_handler();
+    }
+
+    #[DataProvider('dataProviderTest')]
     public function test($driver, $syntax)
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
 
-        $this
-            //->dump($driver . ' - ' . $syntax . ' - ' . $source . ' : ' . $result)
-            ->string($sql->statement())
-            ->isEqualTo('')
-        ;
+        $this->assertEquals(
+            '',
+            $sql->statement()
+        );
 
-        $this
-            ->string($sql())
-            ->isEqualTo('')
-        ;
+        $this->assertEquals(
+            '',
+            $sql()
+        );
     }
 
-    protected function testDataProvider()
+    public static function dataProviderTest()
     {
         return [
+            // driver, syntax
             ['mysqli', 'mysql'],
             ['mysqlimb4', 'mysql'],
             ['pgsql', 'postgresql'],
@@ -66,19 +75,19 @@ class SqlStatement extends atoum
         ];
     }
 
+    #[DataProvider('dataProviderTestEscape')]
     public function testEscape($driver, $syntax, $source, $result)
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
 
-        $this
-            //->dump($driver . ' - ' . $syntax . ' - ' . $source . ' : ' . $result)
-            ->string($sql->escape($source))
-            ->isEqualTo($result)
-        ;
+        $this->assertEquals(
+            $result,
+            $sql->escape($source)
+        );
     }
 
-    protected function testEscapeDataProvider()
+    public static function dataProviderTestEscape()
     {
         return [
             ['mysqli', 'mysql', 'test', 'test'],
@@ -96,19 +105,19 @@ class SqlStatement extends atoum
         ];
     }
 
+    #[DataProvider('dataProviderTestQuote')]
     public function testQuote($driver, $syntax, $source, $result, $escape)
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
 
-        $this
-            //->dump($driver . ' - ' . $syntax . ' - ' . $source . ' : ' . $result . ' (' . ($escape ? 'true' : 'false') . ')')
-            ->string($sql->quote($source, $escape))
-            ->isEqualTo($result)
-        ;
+        $this->assertEquals(
+            $result,
+            $sql->quote($source, $escape)
+        );
     }
 
-    protected function testQuoteDataProvider()
+    public static function dataProviderTestQuote()
     {
         return [
             ['mysqli', 'mysql', 'test', '\'test\'', true],
@@ -130,21 +139,23 @@ class SqlStatement extends atoum
         ];
     }
 
+    #[DataProvider('dataProviderTestAlias')]
     public function testAlias($driver, $syntax, $name, $alias, $result)
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
 
-        $this
-            //->dump($driver . ' - ' . $syntax . ' - ' . $name . ' - ' . $alias . ' : ' . $result)
-            ->string($sql->alias($name, $alias))
-            ->isEqualTo($result)
-            ->string($sql->as($name, $alias))
-            ->isEqualTo($result)
-        ;
+        $this->assertEquals(
+            $result,
+            $sql->alias($name, $alias)
+        );
+        $this->assertEquals(
+            $result,
+            $sql->as($name, $alias)
+        );
     }
 
-    protected function testAliasDataProvider()
+    public static function dataProviderTestAlias()
     {
         return [
             ['mysqli', 'mysql', 'MyTable.MyField', 'MyAlias', 'MyTable.MyField MyAlias'],
@@ -154,19 +165,19 @@ class SqlStatement extends atoum
         ];
     }
 
+    #[DataProvider('dataProviderTestIn')]
     public function testIn($driver, $syntax, $values, $cast, $result)
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
 
-        $this
-            //->dump($driver . ' - ' . $syntax . ' - ' . implode(',', $values ? (is_array($values) ? $values : [$values]) : []) . ' - ' . $cast . ' : ' . $result)
-            ->string($sql->in($values, $cast))
-            ->isEqualTo($result)
-        ;
+        $this->assertEquals(
+            $result,
+            $sql->in($values, $cast)
+        );
     }
 
-    protected function testInDataProvider()
+    public static function dataProviderTestIn()
     {
         return [
             // Numeric values
@@ -237,19 +248,19 @@ class SqlStatement extends atoum
         ];
     }
 
+    #[DataProvider('dataProviderTestDateFormat')]
     public function testDateFormat($driver, $syntax, $field, $pattern, $result)
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
 
-        $this
-            //->dump($driver . ' - ' . $syntax . ' - ' . $field . ' - ' . $pattern . ' : ' . $result)
-            ->string($sql->dateFormat($field, $pattern))
-            ->isEqualTo($result)
-        ;
+        $this->assertEquals(
+            $result,
+            $sql->dateFormat($field, $pattern)
+        );
     }
 
-    protected function testDateFormatDataProvider()
+    public static function dataProviderTestDateFormat()
     {
         return [
             ['mysqli', 'mysql', 'MyTable.MyField', '%Y/%m/%d %H:%M:%S', 'DATE_FORMAT(MyTable.MyField,\'%Y/%m/%d %H:%i:%S\')'],
@@ -259,19 +270,19 @@ class SqlStatement extends atoum
         ];
     }
 
+    #[DataProvider('dataProviderTestLike')]
     public function testLike($driver, $syntax, $field, $pattern, $result)
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
 
-        $this
-            //->dump($driver . ' - ' . $syntax . ' - ' . $field . ' - ' . $pattern . ' : ' . $result)
-            ->string($sql->like($field, $pattern))
-            ->isEqualTo($result)
-        ;
+        $this->assertEquals(
+            $result,
+            $sql->like($field, $pattern)
+        );
     }
 
-    protected function testLikeDataProvider()
+    public static function dataProviderTestLike()
     {
         return [
             ['mysqli', 'mysql', 'MyTable.MyField', 't*s_t', 'MyTable.MyField LIKE \'t*s_t\''],
@@ -281,19 +292,19 @@ class SqlStatement extends atoum
         ];
     }
 
+    #[DataProvider('dataProviderTestRegexp')]
     public function testRegexp($driver, $syntax, $pattern, $result)
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
 
-        $this
-            //->dump($driver . ' - ' . $syntax . ' - ' . $pattern . ' : ' . $result)
-            ->string($sql->regexp($pattern))
-            ->isEqualTo($result)
-        ;
+        $this->assertEquals(
+            $result,
+            $sql->regexp($pattern)
+        );
     }
 
-    protected function testRegexpDataProvider()
+    public static function dataProviderTestRegexp()
     {
         return [
             ['mysqli', 'mysql', '([A-Za-z0-9]+)', ' REGEXP \'^\\\\(\\\\[A\\\\-Za\\\\-z0\\\\-9\\\\]\\\\+\\\\)[0-9]+$\''],
@@ -303,19 +314,19 @@ class SqlStatement extends atoum
         ];
     }
 
+    #[DataProvider('dataProviderTestUnique')]
     public function testUnique($driver, $syntax, $field, $result)
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
 
-        $this
-            //->dump($driver . ' - ' . $syntax . ' - ' . $pattern . ' : ' . $result)
-            ->string($sql->unique($field))
-            ->isEqualTo($result)
-        ;
+        $this->assertEquals(
+            $result,
+            $sql->unique($field)
+        );
     }
 
-    protected function testUniqueDataProvider()
+    public static function dataProviderTestUnique()
     {
         return [
             ['mysqli', 'mysql', 'MyTable.MyField', 'DISTINCT MyTable.MyField'],
@@ -325,19 +336,19 @@ class SqlStatement extends atoum
         ];
     }
 
+    #[DataProvider('dataProviderTestCount')]
     public function testCount($driver, $syntax, $field, $alias, $unique, $result)
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
 
-        $this
-            //->dump($driver . ' - ' . $syntax . ' - ' . $pattern . ' : ' . $result)
-            ->string($sql->count($field, $alias, $unique))
-            ->isEqualTo($result)
-        ;
+        $this->assertEquals(
+            $result,
+            $sql->count($field, $alias, $unique)
+        );
     }
 
-    protected function testCountDataProvider()
+    public static function dataProviderTestCount()
     {
         return [
             // With alias and unique
@@ -363,18 +374,19 @@ class SqlStatement extends atoum
         ];
     }
 
+    #[DataProvider('dataProviderTestAvg')]
     public function testAvg($driver, $syntax, $field, $alias, $result)
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
 
-        $this
-            ->string($sql->avg($field, $alias))
-            ->isEqualTo($result)
-        ;
+        $this->assertEquals(
+            $result,
+            $sql->avg($field, $alias)
+        );
     }
 
-    protected function testAvgDataProvider()
+    public static function dataProviderTestAvg()
     {
         return [
             // With alias
@@ -390,18 +402,19 @@ class SqlStatement extends atoum
         ];
     }
 
+    #[DataProvider('dataProviderTestMax')]
     public function testMax($driver, $syntax, $field, $alias, $result)
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
 
-        $this
-            ->string($sql->max($field, $alias))
-            ->isEqualTo($result)
-        ;
+        $this->assertEquals(
+            $result,
+            $sql->max($field, $alias)
+        );
     }
 
-    protected function testMaxDataProvider()
+    public static function dataProviderTestMax()
     {
         return [
             // With alias
@@ -417,18 +430,19 @@ class SqlStatement extends atoum
         ];
     }
 
+    #[DataProvider('dataProviderTestMin')]
     public function testMin($driver, $syntax, $field, $alias, $result)
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
 
-        $this
-            ->string($sql->min($field, $alias))
-            ->isEqualTo($result)
-        ;
+        $this->assertEquals(
+            $result,
+            $sql->min($field, $alias)
+        );
     }
 
-    protected function testMinDataProvider()
+    public static function dataProviderTestMin()
     {
         return [
             // With alias
@@ -444,18 +458,19 @@ class SqlStatement extends atoum
         ];
     }
 
+    #[DataProvider('dataProviderTestSum')]
     public function testSum($driver, $syntax, $field, $alias, $result)
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
 
-        $this
-            ->string($sql->sum($field, $alias))
-            ->isEqualTo($result)
-        ;
+        $this->assertEquals(
+            $result,
+            $sql->sum($field, $alias)
+        );
     }
 
-    protected function testSumDataProvider()
+    public static function dataProviderTestSum()
     {
         return [
             // With alias
@@ -471,18 +486,19 @@ class SqlStatement extends atoum
         ];
     }
 
+    #[DataProvider('dataProviderTestIsNull')]
     public function testIsNull($driver, $syntax, $field, $result)
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
 
-        $this
-            ->string($sql->isNull($field))
-            ->isEqualTo($result)
-        ;
+        $this->assertEquals(
+            $result,
+            $sql->isNull($field)
+        );
     }
 
-    protected function testIsNullDataProvider()
+    public static function dataProviderTestIsNull()
     {
         return [
             ['mysqli', 'mysql', 'MyTable.MyField', 'MyTable.MyField IS NULL'],
@@ -492,18 +508,19 @@ class SqlStatement extends atoum
         ];
     }
 
+    #[DataProvider('dataProviderTestIsNotNull')]
     public function testIsNotNull($driver, $syntax, $field, $result)
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
 
-        $this
-            ->string($sql->isNotNull($field))
-            ->isEqualTo($result)
-        ;
+        $this->assertEquals(
+            $result,
+            $sql->isNotNull($field)
+        );
     }
 
-    protected function testIsNotNullDataProvider()
+    public static function dataProviderTestIsNotNull()
     {
         return [
             ['mysqli', 'mysql', 'MyTable.MyField', 'MyTable.MyField IS NOT NULL'],
@@ -513,46 +530,40 @@ class SqlStatement extends atoum
         ];
     }
 
-    public function testMagic()
+    #[DataProvider('dataProviderTest')]
+    public function testMagic(string $driver, string $syntax)
     {
-        $driver = 'mysqli';
-        $syntax = 'mysql';
-
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
 
         $sql->syntax = 'Hello';
 
-        $this
-            ->string($sql->syntax)
-            ->isEqualTo('Hello')
-            ->boolean(isset($sql->syntax))
-            ->isTrue()
-        ;
+        $this->assertEquals(
+            'Hello',
+            $sql->syntax
+        );
+        $this->assertTrue(
+            isset($sql->syntax)
+        );
 
         unset($sql->syntax);
 
-        $this
-            ->boolean(isset($sql->syntax))
-            ->isFalse()
-            ->boolean(isset($sql->syntaxEngine))
-            ->isFalse()
-        ;
+        $this->assertFalse(
+            isset($sql->syntax)
+        );
+        $this->assertFalse(
+            isset($sql->syntaxEngine)
+        );
 
-        $this
-            ->when(
-                function () use ($sql) {
-                    $sql->syntaxEngine = 'Hello';
-                }
-            )
-            ->error('Unknown property syntaxEngine', E_USER_WARNING)->exists()
-            ->when(
-                function () use ($sql) {
-                    if ($sql->syntaxEngine === 'Hello')
-                    ;
-                }
-            )
-            ->error('Unknown property syntaxEngine', E_USER_WARNING)->exists()
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage('Unknown property syntaxEngine');
+
+        $sql->syntaxEngine = 'Hello';
+
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage('Unknown property syntaxEngine');
+
+        if ($sql->syntaxEngine === 'Hello')
         ;
     }
 }
