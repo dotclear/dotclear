@@ -35,6 +35,7 @@ class GrowUp_2_36_lt
             // Folders
             [
                 'plugins/antispam/locales/lb',
+                'src/Database/Driver', // moved to src/Schema/Database
             ]
         );
 
