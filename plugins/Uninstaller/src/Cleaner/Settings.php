@@ -98,7 +98,7 @@ class Settings extends CleanerParent
     public function values(): array
     {
         $sql = new SelectStatement();
-        $sql->from(App::con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME)
+        $sql->from(App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME)
             ->columns([
                 $sql->as($sql->count('*'), 'counter'),
                 'setting_ns',
@@ -128,7 +128,7 @@ class Settings extends CleanerParent
     public function related(string $ns): array
     {
         $sql = new SelectStatement();
-        $sql->from(App::con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME)
+        $sql->from(App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME)
             ->columns([
                 $sql->as($sql->count('*'), 'counter'),
                 'setting_id',
@@ -160,7 +160,7 @@ class Settings extends CleanerParent
         $sql = new DeleteStatement();
 
         if ($action === 'delete_global' && $this->checkNs($ns)) {
-            $sql->from(App::con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME)
+            $sql->from(App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME)
                 ->where('blog_id IS NULL')
                 ->and('setting_ns = ' . $sql->quote($ns))
                 ->delete();
@@ -168,7 +168,7 @@ class Settings extends CleanerParent
             return true;
         }
         if ($action === 'delete_local' && $this->checkNs($ns)) {
-            $sql->from(App::con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME)
+            $sql->from(App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME)
                 ->where('blog_id = ' . $sql->quote(App::blog()->id()))
                 ->and('setting_ns = ' . $sql->quote($ns))
                 ->delete();
@@ -176,7 +176,7 @@ class Settings extends CleanerParent
             return true;
         }
         if ($action === 'delete_all' && $this->checkNs($ns)) {
-            $sql->from(App::con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME)
+            $sql->from(App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME)
                 ->where('setting_ns = ' . $sql->quote($ns))
                 ->and($sql->orGroup(['blog_id IS NULL', 'blog_id IS NOT NULL']))
                 ->delete();
@@ -200,7 +200,7 @@ class Settings extends CleanerParent
                 return false;
             }
 
-            $sql->from(App::con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME)
+            $sql->from(App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME)
                 ->where($sql->orGroup($or))
                 ->and($sql->orGroup(['blog_id IS NULL', 'blog_id IS NOT NULL']))
                 ->delete();

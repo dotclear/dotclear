@@ -70,7 +70,7 @@ class Ip extends SpamFilter
     public function __construct()
     {
         parent::__construct();
-        $this->table = App::con()->prefix() . Antispam::SPAMRULE_TABLE_NAME;
+        $this->table = App::db()->con()->prefix() . Antispam::SPAMRULE_TABLE_NAME;
     }
 
     /**
@@ -333,7 +333,7 @@ class Ip extends SpamFilter
         $content = $pattern . ':' . $ip . ':' . $mask;
 
         $old = $this->getRuleCIDR($type, $global, $ip, $mask);
-        $cur = App::con()->openCursor($this->table);
+        $cur = App::db()->con()->openCursor($this->table);
 
         if ($old->isEmpty()) {
             $sql = new SelectStatement();

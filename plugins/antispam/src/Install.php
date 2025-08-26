@@ -33,7 +33,7 @@ class Install extends Process
 
         /* Database schema
         -------------------------------------------------------- */
-        $schema = new Structure(App::con(), App::con()->prefix());
+        $schema = new Structure(App::db()->con(), App::db()->con()->prefix());
 
         $schema->{Antispam::SPAMRULE_TABLE_NAME}    // @phpstan-ignore-line (weird usage of __call to set field in Table)
             ->rule_id('bigint', 0, false)
@@ -52,7 +52,7 @@ class Install extends Process
         }
 
         // Schema installation
-        (new Structure(App::con(), App::con()->prefix()))->synchronize($schema);
+        (new Structure(App::db()->con(), App::db()->con()->prefix()))->synchronize($schema);
 
         // Creating default wordslist
         if (App::version()->getVersion(My::id()) === '') {

@@ -208,10 +208,10 @@ class Antispam
         $sql = new SelectStatement();
         $sql
             ->column('comment_id')
-            ->from($sql->as(App::con()->prefix() . App::blog()::COMMENT_TABLE_NAME, 'C'))
+            ->from($sql->as(App::db()->con()->prefix() . App::blog()::COMMENT_TABLE_NAME, 'C'))
             ->join(
                 (new JoinStatement())
-                    ->from($sql->as(App::con()->prefix() . App::blog()::POST_TABLE_NAME, 'P'))
+                    ->from($sql->as(App::db()->con()->prefix() . App::blog()::POST_TABLE_NAME, 'P'))
                     ->on('P.post_id = C.post_id')
                     ->statement()
             )
@@ -236,7 +236,7 @@ class Antispam
 
         $sql = new DeleteStatement();
         $sql
-            ->from(App::con()->prefix() . App::blog()::COMMENT_TABLE_NAME)
+            ->from(App::db()->con()->prefix() . App::blog()::COMMENT_TABLE_NAME)
             ->where('comment_id ' . $sql->in($r))
             ->delete();
     }
@@ -276,7 +276,7 @@ class Antispam
                 'user_id',
                 'user_pwd',
             ])
-            ->from(App::con()->prefix() . App::auth()::USER_TABLE_NAME)
+            ->from(App::db()->con()->prefix() . App::auth()::USER_TABLE_NAME)
             ->where('user_id = ' . $sql->quote($user_id))
             ->select();
 

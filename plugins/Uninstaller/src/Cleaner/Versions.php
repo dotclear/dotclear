@@ -62,7 +62,7 @@ class Versions extends CleanerParent
     {
         $sql = new SelectStatement();
         $rs  = $sql
-            ->from(App::con()->prefix() . App::version()::VERSION_TABLE_NAME)
+            ->from(App::db()->con()->prefix() . App::version()::VERSION_TABLE_NAME)
             ->columns(['module', 'version'])
             ->order('module ASC')
             ->select();
@@ -88,7 +88,7 @@ class Versions extends CleanerParent
         if ($action === 'delete') {
             $sql = new DeleteStatement();
             $sql
-                ->from(App::con()->prefix() . App::version()::VERSION_TABLE_NAME)
+                ->from(App::db()->con()->prefix() . App::version()::VERSION_TABLE_NAME)
                 ->where('module = ' . $sql->quote($ns))
                 ->delete();
 

@@ -87,8 +87,8 @@ class ModuleImportDc1 extends Module
 
     public function init(): void
     {
-        $this->con     = App::con();
-        $this->prefix  = App::con()->prefix();
+        $this->con     = App::db()->con();
+        $this->prefix  = App::db()->con()->prefix();
         $this->blog_id = App::blog()->id();
 
         if (!isset($_SESSION['dc1_import_vars'])) {

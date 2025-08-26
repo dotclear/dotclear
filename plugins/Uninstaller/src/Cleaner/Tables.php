@@ -91,8 +91,8 @@ class Tables extends CleanerParent
         $stack = [];
         foreach ($tables as $k => $v) {
             // get only tables with dotclear prefix
-            if (App::con()->prefix() !== '') {
-                if (!preg_match('/^' . preg_quote(App::con()->prefix()) . '(.*?)$/', $v, $m)) { // @phpstan-ignore-line
+            if (App::db()->con()->prefix() !== '') {
+                if (!preg_match('/^' . preg_quote(App::db()->con()->prefix()) . '(.*?)$/', $v, $m)) { // @phpstan-ignore-line
                     continue;
                 }
                 $v = $m[1];
@@ -112,13 +112,13 @@ class Tables extends CleanerParent
 
     public function execute(string $action, string $ns): bool
     {
-        $struct = new Structure(App::con(), App::con()->prefix());
+        $struct = new Structure(App::db()->con(), App::db()->con()->prefix());
         $struct->reverse();
 
-        if ($struct->tableExists(App::con()->prefix() . $ns)) {
+        if ($struct->tableExists(App::db()->con()->prefix() . $ns)) {
             if (in_array($action, ['empty', 'delete'])) {
                 $sql = new DeleteStatement();
-                $sql->from(App::con()->prefix() . $ns)
+                $sql->from(App::db()->con()->prefix() . $ns)
                     ->delete();
             }
             if ($action === 'empty') {
@@ -126,7 +126,7 @@ class Tables extends CleanerParent
             }
             if ($action === 'delete') {
                 $sql = new DropStatement();
-                $sql->from(App::con()->prefix() . $ns)
+                $sql->from(App::db()->con()->prefix() . $ns)
                     ->drop();
 
                 return true;

@@ -221,7 +221,7 @@ class Maintenance
         $sql = new SelectStatement();
         $rs  = $sql
             ->column('log_id')
-            ->from(App::con()->prefix() . App::log()::LOG_TABLE_NAME)
+            ->from(App::db()->con()->prefix() . App::log()::LOG_TABLE_NAME)
             ->where('log_msg = ' . $sql->quote($id))
             ->and('log_table = ' . $sql->quote('maintenance'))
             ->select();
