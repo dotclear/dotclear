@@ -67,7 +67,7 @@ class Posts extends Process
         App::behavior()->callBehavior('adminPostsSortbyLexCombo', [&$sortby_lex]);
 
         $params['order'] = (array_key_exists(App::backend()->post_filter->sortby, $sortby_lex) ?
-            App::con()->lexFields($sortby_lex[App::backend()->post_filter->sortby]) :
+            App::db()->con()->lexFields($sortby_lex[App::backend()->post_filter->sortby]) :
             App::backend()->post_filter->sortby) . ' ' . App::backend()->post_filter->order;
 
         $params['no_content'] = true;

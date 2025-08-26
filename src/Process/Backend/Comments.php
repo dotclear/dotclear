@@ -74,7 +74,7 @@ class Comments extends Process
         App::behavior()->callBehavior('adminCommentsSortbyLexCombo', [&$sortby_lex]);
 
         $params['order'] = (array_key_exists(App::backend()->comment_filter->sortby, $sortby_lex) ?
-            App::con()->lexFields($sortby_lex[App::backend()->comment_filter->sortby]) :
+            App::db()->con()->lexFields($sortby_lex[App::backend()->comment_filter->sortby]) :
             App::backend()->comment_filter->sortby) . ' ' . App::backend()->comment_filter->order;
 
         // default filter ? do not display spam

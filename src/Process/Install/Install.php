@@ -121,15 +121,15 @@ class Install extends Process
         }
 
         # Check if dotclear is already installed
-        $schema = App::con()->schema();
-        if (in_array(App::con()->prefix() . App::blog()::POST_TABLE_NAME, $schema->getTables())) {
+        $schema = App::db()->schema(App::db()->con()->driver());
+        if (in_array(App::db()->con()->prefix() . App::blog()::POST_TABLE_NAME, $schema->getTables())) {
             self::$can_install = false;
             self::$err         = '<p>' . __('Dotclear is already installed.') . '</p>';
         }
 
         # Check system capabilites
         $_e = [];
-        if (!Utils::check(App::con(), $_e)) {
+        if (!Utils::check(App::db()->con(), $_e)) {
             self::$can_install = false;
             self::$err         = '<p>' . __('Dotclear cannot be installed.') . '</p><ul><li>' . implode('</li><li>', $_e) . '</li></ul>';
         }
@@ -191,16 +191,16 @@ class Install extends Process
                 }
 
                 # Create schema
-                $_s = new Structure(App::con(), App::con()->prefix());
+                $_s = new Structure(App::db()->con(), App::db()->con()->prefix());
 
                 # Fill database structrue
                 Schema::fillStructure($_s);
 
-                $si = new Structure(App::con(), App::con()->prefix());
+                $si = new Structure(App::db()->con(), App::db()->con()->prefix());
                 $si->synchronize($_s);
 
                 # Create user
-                $cur                 = App::con()->openCursor(App::con()->prefix() . App::auth()::USER_TABLE_NAME);
+                $cur                 = App::db()->con()->openCursor(App::db()->con()->prefix() . App::auth()::USER_TABLE_NAME);
                 $cur->user_id        = self::$u_login;
                 $cur->user_super     = 1;
                 $cur->user_pwd       = App::auth()->crypt(self::$u_pwd);
@@ -261,8 +261,8 @@ class Install extends Process
                 /* SQlite Clearbricks driver does not allow using single quote at beginning or end of a field value
                 so we have to use neutral values (localhost and 127.0.0.1) for some CSP directives
                  */
-                $csp_prefix = App::con()->driver() === 'sqlite' ? 'localhost ' : ''; // Hack for SQlite Clearbricks driver
-                $csp_suffix = App::con()->driver() === 'sqlite' ? ' 127.0.0.1' : ''; // Hack for SQlite Clearbricks driver
+                $csp_prefix = App::db()->con()->driver() === 'sqlite' ? 'localhost ' : ''; // Hack for SQlite Clearbricks driver
+                $csp_suffix = App::db()->con()->driver() === 'sqlite' ? ' 127.0.0.1' : ''; // Hack for SQlite Clearbricks driver
 
                 $blog_settings->system->put('csp_admin_on', true, 'boolean', 'Send CSP header (admin)', true, true);
                 $blog_settings->system->put('csp_admin_report_only', false, 'boolean', 'CSP Report only violations (admin)', true, true);
