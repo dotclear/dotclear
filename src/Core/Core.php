@@ -43,6 +43,7 @@ use Dotclear\Interface\Core\CategoriesInterface;
 use Dotclear\Interface\Core\ConfigInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\CredentialInterface;
+use Dotclear\Interface\Core\DatabaseInterface;
 use Dotclear\Interface\Core\DeprecatedInterface;
 use Dotclear\Interface\Core\ErrorInterface;
 use Dotclear\Interface\Core\FilterInterface;
@@ -124,19 +125,6 @@ class Core extends Container
     protected function getDefaultServices(): array
     {
         return [    // @phpstan-ignore-line
-            ConnectionInterface::class => function (Core $container, string $driver = '', string $host = '', string $database = '', string $user = '', string $password = '', bool $persistent = false, string $prefix = ''): ConnectionInterface {
-                if ($driver === '') {
-                    $driver     = $container->config()->dbDriver();
-                    $host       = $container->config()->dbHost();
-                    $database   = $container->config()->dbName();
-                    $user       = $container->config()->dbUser();
-                    $password   = $container->config()->dbPassword();
-                    $persistent = $container->config()->dbPersist();
-                    $prefix     = $container->config()->dbPrefix();
-                }
-
-                return Connection::init($driver, $host, $database, $user, $password, $persistent, $prefix);
-            },
             AuthInterface::class            => Auth::class,
             Backend::class                  => Backend::class,
             BehaviorInterface::class        => Behavior::class,
@@ -147,9 +135,11 @@ class Core extends Container
             CacheInterface::class           => Cache::class,
             CategoriesInterface::class      => Categories::class,
             ConfigInterface::class          => Config::class,
+            ConnectionInterface::class      => fn (Core $core): ConnectionInterface => $core->db()->connection(),
             CredentialInterface::class      => Credential::class,
-            ErrorInterface::class           => Error::class,
+            DatabaseInterface::class        => Database::class,
             DeprecatedInterface::class      => Deprecated::class,
+            ErrorInterface::class           => Error::class,
             FilterInterface::class          => Filter::class,
             FormaterInterface::class        => Formater::class,
             Frontend::class                 => Frontend::class,
@@ -287,33 +277,13 @@ class Core extends Container
     }
 
     /**
-     * Create a new database connection from given values.
-     *
-     * Note this overwrite current application connection.
-     *
-     * @see     Calls core container service Dotclear\Interface\Core\ConnectionInterface
-     * @see     Uses default core service Dotclear\Core\Connection
-     * @see     Dotclear\Database\InterfaceHandler  Dotclear\Database\AbstractHandler
-     *
-     * @param   string  $driver         Driver name
-     * @param   string  $host           Database hostname
-     * @param   string  $database       Database name
-     * @param   string  $user           User ID
-     * @param   string  $password       Password
-     * @param   bool    $persistent     Persistent connection
-     * @param   string  $prefix         Database tables prefix
-     */
-    public static function newConnectionFromValues(string $driver, string $host, string $database, string $user = '', string $password = '', bool $persistent = false, string $prefix = ''): ConnectionInterface
-    {
-        return self::$instance->get(ConnectionInterface::class, true, $driver, $host, $database, $user, $password, $persistent, $prefix);
-    }
-
-    /**
      * Connection handler.
      *
+     * This is a long term alias for App::db()->connection();
+     *
      * @see     Calls core container service Dotclear\Interface\Core\ConnectionInterface
      * @see     Uses default core service Dotclear\Core\Connection
-     * @see     Dotclear\Database\InterfaceHandler  Dotclear\Database\AbstractHandler
+     * @see     Uses core service method Dotclear\Core\Database::connection()
      */
     public static function con(): ConnectionInterface
     {
@@ -323,7 +293,8 @@ class Core extends Container
     /**
      * Application configuration handler.
      *
-     * @see     Dotclear\Config     Dotclear\Interface\ConfigInterface
+     * @see     Calls core container service Dotclear\Interface\Core\ConfigInterface
+     * @see     Uses default core service Dotclear\Core\Config
      */
     public static function config(): ConfigInterface
     {
@@ -339,6 +310,19 @@ class Core extends Container
     public static function credential(): CredentialInterface
     {
         return self::$instance->get(CredentialInterface::class);
+    }
+
+    /**
+     * Database handler.
+     *
+     * @see     Calls core container service Dotclear\Interface\Core\DatabaseInterface
+     * @see     Uses default core service Dotclear\Core\Database
+     *
+     * @since   2.36
+     */
+    public static function db(): DatabaseInterface
+    {
+        return self::$instance->get(DatabaseInterface::class);
     }
 
     /**

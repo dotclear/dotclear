@@ -8,9 +8,9 @@
  */
 declare(strict_types=1);
 
-namespace Dotclear\Database\Driver\Mysqlimb4;
+namespace Dotclear\Schema\Database\Mysqlimb4;
 
-use Dotclear\Database\Driver\Mysqli\Handler as MysqliHandler;
+use Dotclear\Schema\Database\Mysqli\Handler as MysqliHandler;
 use Exception;
 use mysqli;
 

@@ -388,7 +388,7 @@ class ModuleImportDc1 extends Module
      */
     protected function db()
     {
-        $db = App::newConnectionFromValues($this->vars['db_driver'], $this->vars['db_host'], $this->vars['db_name'], $this->vars['db_user'], $this->vars['db_pwd']);
+        $db = App::db()->connection($this->vars['db_driver'], $this->vars['db_host'], $this->vars['db_name'], $this->vars['db_user'], $this->vars['db_pwd']);
 
         $rs = $db->select("SHOW TABLES LIKE '" . $this->vars['db_prefix'] . "%'");
         if ($rs->isEmpty()) {

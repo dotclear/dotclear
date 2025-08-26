@@ -37,6 +37,8 @@ interface ConnectionInterface extends InterfaceHandler
 
     /**
      * Returns database schema handler
+     *
+     * This is a long term alias for App::db()->schema('driver');
      */
     public function schema(): SchemaInterface;
 
