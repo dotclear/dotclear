@@ -135,7 +135,6 @@ class Core extends Container
             CacheInterface::class           => Cache::class,
             CategoriesInterface::class      => Categories::class,
             ConfigInterface::class          => Config::class,
-            ConnectionInterface::class      => fn (Core $core): ConnectionInterface => $core->db()->con(),
             CredentialInterface::class      => Credential::class,
             DatabaseInterface::class        => Database::class,
             DeprecatedInterface::class      => Deprecated::class,
@@ -279,17 +278,13 @@ class Core extends Container
     /**
      * Connection handler.
      *
-     * This is a long term alias for App::db()->con();
+     * @deprecated  since 2.36, This is a long term alias for App::db()->con();
      *
-     * @see     Calls core container service Dotclear\Interface\Core\ConnectionInterface
-     * @see     Uses default core service Dotclear\Core\Connection
      * @see     Uses core service method Dotclear\Core\Database::con()
      */
     public static function con(): ConnectionInterface
     {
-        //self::deprecated()->set('App::db()->con()', '2.36'); // break old dcCore
-
-        return self::$instance->get(ConnectionInterface::class);
+        return self::db()->con();
     }
 
     /**
