@@ -30,17 +30,18 @@ class CursorTest extends TestCase
 
         // Common return values
 
+        $info = [
+            'con'  => $mock,
+            'info' => null,
+            'cols' => 0,
+            'rows' => 0,
+        ];
+
         $mock->method('link')->willReturn($mock);
         $mock->method('select')->willReturn(
             $driver !== 'sqlite' ?
-            new \Dotclear\Database\Record([], [
-                'con'  => $mock,
-                'rows' => [],
-            ]) :
-            new \Dotclear\Database\StaticRecord([], [
-                'con'  => $mock,
-                'rows' => [],
-            ])
+            new \Dotclear\Database\Record([], $info) :
+            new \Dotclear\Database\StaticRecord([], $info)
         );
         $mock->method('openCursor')->willReturn(new \Dotclear\Database\Cursor($mock, 'dc_table'));
         $mock->method('changes')->willReturn(1);

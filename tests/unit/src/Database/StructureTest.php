@@ -1,96 +1,107 @@
 <?php
-/**
- * Unit tests
- *
- * @package Dotclear
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
- */
 
-// This statement may broke class mocking system:
-// declare(strict_types=1);
+declare(strict_types=1);
 
-namespace tests\unit\Dotclear\Database;
+namespace Dotclear\Tests\Database;
 
-use atoum;
-use atoum\atoum\mock\controller;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\TestCase;
 
-require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'bootstrap.php']);
-
-/*
- * @tags StructureDB
- */
-class Structure extends atoum
+class StructureTest extends TestCase
 {
-    private function getConnection($driver, $syntax)
+    private \Dotclear\Database\Structure $structure;
+    private array $info;
+
+    private function getConnection(string $driver, string $syntax): \Dotclear\Interface\Core\ConnectionInterface
     {
-        $controller              = new controller();
-        $controller->__construct = function () {};
+        // Build a mock handler for the driver
+        $driverClass = ucfirst($driver);
+        $mock        = $this->getMockBuilder("Dotclear\\Database\\Driver\\$driverClass\\Handler")
+            ->disableOriginalConstructor()
+            ->onlyMethods([
+                'link',
+                'driver',
+                'syntax',
+                'escapeStr',
+                'execute',
+                'select',
+            ])
+            ->getMock();
 
-        $class_name = sprintf('\\mock\\Dotclear\\Database\\Driver\\%s\\Handler', ucfirst($driver));
-        $con        = new $class_name($controller, $driver);
+        // Common return values
+        $info = [
+            'con'  => $mock,
+            'cols' => 0,
+            'rows' => 0,
+            'info' => [
+                'name' => [
+                ],
+                'type' => [
+                ],
+            ],
+        ];
 
-        $this->calling($con)->driver    = $driver;
-        $this->calling($con)->syntax    = $syntax;
-        $this->calling($con)->escapeStr = fn ($str) => addslashes((string) $str);
-        /*
-        $this->calling($con)->escapeSystem = function ($str) use ($syntax) {
-            $str = (string) $str;
-            switch ($syntax) {
-                case 'mysql':
-                    return '`' . $str . '`';
-                case 'postgresql':
-                    return '"' . $str . '"';
-                case 'sqlite':
-                    return '\'' . $str . '\'';
+        $mock->method('link')->willReturn($mock);
+        $mock->method('driver')->willReturn($driver);
+        $mock->method('syntax')->willReturn($syntax);
+        $mock->method('escapeStr')->willReturnCallback(fn ($str) => addslashes((string) $str));
+        $mock->method('execute')->willReturn(true);
+        $mock->method('select')->willReturn(
+            $driver !== 'sqlite' ?
+            new \Dotclear\Database\Record(null, $info) :
+            new \Dotclear\Database\StaticRecord(null, $info)
+        );
+
+        return $mock;
+    }
+
+    private function getSchema($con, string $driver): \Dotclear\Interface\Core\SchemaInterface
+    {
+        // Build a mock handler for the driver
+        $driverClass = ucfirst($driver);
+        $mock        = $this->getMockBuilder("Dotclear\\Database\\Driver\\$driverClass\\Schema")
+            ->disableOriginalConstructor()
+            ->onlyMethods([
+                'flushStack',
+                'getTables',
+                'getColumns',
+                'getKeys',
+                'getIndexes',
+                'getReferences',
+            ])
+            ->getMock();
+
+        // Common return values
+        $table_exists = fn ($table) => in_array($table, ['dc_table', 'dc_dc_table']);
+
+        $mock->method('getTables')->willReturnCallback(function (): array {
+            $res    = [];
+            $tables = $this->structure->getTables();
+            if (count($tables)) {
+                $res = array_keys($tables);
             }
 
-            return '"' . $str . '"';
-        };
-        */
-        $this->calling($con)
-            ->methods(
-                function ($method) use ($con) {
-                    if (in_array($method, ['link'])) {
-                        switch ($method) {
-                            case 'link':
-                                return $con;
+            return $res;
+        });
+        $mock->method('getColumns')->willReturnCallback(fn ($table) => $table_exists($table) ? $this->info['dc_table']['columns'] : []);
+        $mock->method('getKeys')->willReturnCallback(fn ($table) => $table_exists($table) ? $this->info['dc_table']['keys'] : []);
+        $mock->method('getIndexes')->willReturnCallback(fn ($table) => $table_exists($table) ? $this->info['dc_table']['indexes'] : []);
+        $mock->method('getReferences')->willReturnCallback(fn ($table) => $table_exists($table) ? $this->info['dc_table']['references'] : []);
 
-                                break;
-                        }
-
-                        return true;
-                    }
-                }
-            )
-        ;
-
-        return $con;
+        return $mock;
     }
 
-    private function getSchema($con, $driver)
-    {
-        $controller              = new controller();
-        $controller->__construct = function () {};
-
-        $class_name = sprintf('\\mock\\Dotclear\\Database\\Driver\\%s\\Schema', ucfirst($driver));
-        $schema     = new $class_name($con, $controller);
-
-        $this->calling($schema)->flushStack = null;     // Nothing to do
-
-        return $schema;
-    }
-
+    #[DataProvider('dataProviderTest')]
     public function test($driver, $syntax)
     {
         $con = $this->getConnection($driver, $syntax);
 
         $structure = new \Dotclear\Database\Structure($con, 'dc_');
 
-        $this
-            ->string($structure->driver())
-            ->isEqualTo($driver)
+        $this->assertEquals(
+            $driver,
+            $structure->driver()
+        );
         ;
 
         // Add a table
@@ -98,34 +109,49 @@ class Structure extends atoum
         $structure->table('table');
         $tables = $structure->getTables();
 
-        $this
-            ->integer(count($tables))
-            ->isEqualTo(1)
-            ->array(array_keys($tables))
-            ->isEqualTo(['dc_table'])
-            ->given($table = $tables['dc_table'])
-            ->object($table)
-            ->isNotNull()
-            ->boolean($structure->tableExists('table'))
-            ->isTrue()
+        $this->assertEquals(
+            1,
+            count($tables)
+        );
+        $this->assertEquals(
+            ['dc_table'],
+            array_keys($tables)
+        );
+
+        $table = $tables['dc_table'];
+
+        $this->assertNotNull(
+            $table
+        );
+        $this->assertTrue(
+            $structure->tableExists('table')
+        );
         ;
 
         // Use magic to create a second table
 
-        $this
-            ->array($structure->table_bis->getFields())
-            ->isEqualTo([])
-            ->array($structure->table->getFields())
-            ->isEqualTo([])
-            ->given($tables = $structure->getTables())
-            ->integer(count($tables))
-            ->isEqualTo(2)
-            ->array(array_keys($tables))
-            ->isEqualTo(['dc_table', 'dc_table_bis'])
-        ;
+        $this->assertEquals(
+            [],
+            $structure->table_bis->getFields()
+        );
+        $this->assertEquals(
+            [],
+            $structure->table->getFields()
+        );
+
+        $tables = $structure->getTables();
+
+        $this->assertEquals(
+            2,
+            count($tables)
+        );
+        $this->assertEquals(
+            ['dc_table', 'dc_table_bis'],
+            array_keys($tables)
+        );
     }
 
-    protected function testDataProvider()
+    public static function dataProviderTest()
     {
         return [
             // driver, syntax
@@ -136,37 +162,9 @@ class Structure extends atoum
         ];
     }
 
-    public function testSynchronize($driver, $syntax, $data, $info, $sql, $sql_bis)
+    #[DataProvider('dataProviderTestSynchronize')]
+    public function testSynchronize(string $driver, string $syntax, array $data, array $info, array $sql, array $sql_bis)
     {
-        /* A mocker:
-         *
-         * Pour reverse() :
-         *
-         * - AbstractSchema::init()
-         * - AbstractSchema::flushStack() → void
-         *
-         * - AbstractSchema::getTables()
-         * - AbstractSchema::getColumns()
-         * - AbstractSchema::getKeys()
-         * - AbstractSchema::getIndexes()
-         * - AbstractSchema::getReferences()
-         *
-         * - con->execute() pour contrôler les requêtes SQL (argument $sql) de synchro :
-         *   - AbstractSchema::createTable()
-         *   - AbstractSchema::createField()
-         *   - AbstractSchema::alterField()
-         *   - AbstractSchema::createPrimary()
-         *   - AbstractSchema::createUnique()
-         *   - AbstractSchema::alterPrimary()
-         *   - AbstractSchema::alterUnique()
-         *   - AbstractSchema::createIndex()
-         *   - AbstractSchema::alterIndex()
-         *   - AbstractSchema::createReference()
-         *   - AbstractSchema::alterReference()
-         *
-         * (ancienne_structure)->synchronize(nouvelle_structure)
-         */
-
         $con    = $this->getConnection($driver, $syntax);
         $schema = $this->getSchema($con, $driver);
 
@@ -176,47 +174,13 @@ class Structure extends atoum
         // Prepare new structure (empty)
         $update_str = new \Dotclear\Database\Structure($con, 'dc_');
 
-        // Mock some Schema methods
-        $this->calling($schema)->getTables = function () use ($current_str) {
-            $res    = [];
-            $tables = $current_str->getTables();
-            if (count($tables)) {
-                $res = array_keys($tables);
-            }
+        $this->structure = $current_str;
+        $this->info      = $info;
 
-            return $res;
-        };
-
-        $table_exists = fn ($table) => in_array($table, ['dc_table', 'dc_dc_table']);
-
-        $this->calling($schema)->getColumns    = fn ($table) => $table_exists($table) ? $info['dc_table']['columns'] : [];
-        $this->calling($schema)->getKeys       = fn ($table) => $table_exists($table) ? $info['dc_table']['keys'] : [];
-        $this->calling($schema)->getIndexes    = fn ($table) => $table_exists($table) ? $info['dc_table']['indexes'] : [];
-        $this->calling($schema)->getReferences = fn ($table) => $table_exists($table) ? $info['dc_table']['references'] : [];
-
-        // Temporary
-        $this->calling($con)->execute = true;
-        $info                         = [
-            'con'  => $con,
-            'cols' => 0,
-            'rows' => 0,
-            'info' => [
-                'name' => [
-                ],
-                'type' => [
-                ],
-            ],
-        ];
-        if ($driver !== 'sqlite') {
-            $this->calling($con)->select = new \Dotclear\Database\Record(null, $info);
-        } else {
-            $this->calling($con)->select = new \Dotclear\Database\StaticRecord(null, $info);
-        }
-
-        $this
-            ->integer($current_str->synchronize($update_str))
-            ->isEqualTo(0)
-        ;
+        $this->assertEquals(
+            0,
+            $current_str->synchronize($update_str)
+        );
 
         // Add some stuff to update structure, then run synchronize and test execute queries
         $table = $update_str->table($data['table']);
@@ -234,53 +198,71 @@ class Structure extends atoum
             $table->reference(...$reference);
         }
 
-        $this
-            //->dump($schema->getTables())
-            ->given($synchro = $current_str->synchronize($update_str))
-            ->then()
-                ->mock($con)->call('execute')
-                ->withIdenticalArguments($sql[0])
-                ->atLeastOnce()
-                ->mock($con)->call('execute')
-                ->withIdenticalArguments($sql[1])
-                ->once()
-                ->mock($con)->call('execute')
-                ->withIdenticalArguments($sql[2])
-                ->once()
-                ->mock($con)->call('execute')
-                ->withIdenticalArguments($sql[3])
-                ->once()
-                ->mock($con)->call('execute')
-                ->withIdenticalArguments($sql[4])
-                ->once()
-        ;
+        // Expect SQL calls on synchronize
+        $matcher = $this->exactly(count($sql));
+        $con->expects($matcher)->method('execute')->with(
+            $this->callback(function ($query) use ($sql, $matcher) {
+                $expected = $sql[$matcher->numberOfInvocations() - 1];
 
-        if (count($sql) > 5) {
-            $this
-                ->mock($con)->call('execute')
-                ->withIdenticalArguments($sql[5])
-                ->once()
-            ;
+                return $query === $expected;
+            })
+        );
+
+        $synchro = $current_str->synchronize($update_str);
+
+        $this->assertEquals(
+            4,
+            $synchro
+        );
+    }
+
+    #[DataProvider('dataProviderTestSynchronize')]
+    public function testSynchronizeWithModifications(string $driver, string $syntax, array $data, array $info, array $sql, array $sql_bis)
+    {
+        $con    = $this->getConnection($driver, $syntax);
+        $schema = $this->getSchema($con, $driver);
+
+        // Prepare current structure
+        $current_str = new \Dotclear\Database\Structure($con, 'dc_');
+
+        // Prepare new structure (empty)
+        $update_str = new \Dotclear\Database\Structure($con, 'dc_');
+
+        $this->structure = $current_str;
+        $this->info      = $info;
+
+        $this->assertEquals(
+            0,
+            $current_str->synchronize($update_str)
+        );
+
+        // Add some stuff to update structure, then run synchronize and test execute queries
+        $table = $update_str->table($data['table']);
+        foreach ($data['fields'] as $field) {
+            $table->field(...$field);
+        }
+        $table->primary(...$data['primary']);
+        foreach ($data['unique'] as $unique) {
+            $table->unique(...$unique);
+        }
+        foreach ($data['indexes'] as $index) {
+            $table->index(...$index);
+        }
+        foreach ($data['references'] as $reference) {
+            $table->reference(...$reference);
         }
 
-        $this
-            ->integer($synchro)
-            ->isEqualTo(4)
-        ;
+        $synchro = $current_str->synchronize($update_str);
+
+        $this->assertEquals(
+            4,
+            $synchro
+        );
 
         if ($driver !== 'sqlite') {
             // Test structure modifications (not for SQlite)
 
-            // Mock some Schema methods
-            $this->calling($schema)->getTables = function () use ($update_str) {
-                $res    = [];
-                $tables = $update_str->getTables();
-                if (count($tables)) {
-                    $res = array_keys($tables);
-                }
-
-                return $res;
-            };
+            $this->structure = $update_str;
 
             // Add some stuff to current structure, then run synchronize and test execute queries
 
@@ -329,80 +311,57 @@ class Structure extends atoum
 
             // Check current structure
 
-            $this
-                ->variable($update_str->getTables())
-                ->isNotNull()
-                //->dump(array_keys($update_str->getTables()))
-                ->boolean($update_str->tableExists($data['table']))
-                ->isTrue()
-                ->variable($schema->getTables())
-                ->isNotNull()
-                //->dump($schema->getTables())
-                ->variable($schema->getColumns($data['table']))
-                ->isNotNull()
-                //->dump($schema->getColumns($data['table']))
-                ->variable($schema->getKeys($data['table']))
-                ->isNotNull()
-                //->dump($schema->getKeys($data['table']))
-                ->variable($schema->getIndexes($data['table']))
-                ->isNotNull()
-                //->dump($schema->getIndexes($data['table']))
-                ->variable($schema->getReferences($data['table']))
-                ->isNotNull()
-                //->dump($schema->getReferences($data['table']))
-            ;
+            $this->assertNotNull(
+                $update_str->getTables()
+            );
+            $this->assertTrue(
+                $update_str->tableExists($data['table'])
+            );
+            $this->assertNotNull(
+                $schema->getTables()
+            );
+            $this->assertNotNull(
+                $schema->getColumns($data['table'])
+            );
+            $this->assertNotNull(
+                $schema->getKeys($data['table'])
+            );
+            $this->assertNotNull(
+                $schema->getIndexes($data['table'])
+            );
+            $this->assertNotNull(
+                $schema->getReferences($data['table'])
+            );
 
             // Check new structure
 
-            $this
-                //->dump($update_bis_str)
-                ->variable($update_bis_str->getTables())
-                ->isNotNull()
-                //->dump(array_keys($update_bis_str->getTables()))
-                ->boolean($update_bis_str->tableExists($data['table']))
-                ->isTrue()
-            ;
+            $this->assertNotNull(
+                $update_bis_str->getTables()
+            );
+            $this->assertTrue(
+                $update_bis_str->tableExists($data['table'])
+            );
+
+            $matcher_bis = $this->exactly(count($sql_bis));
+            $con->expects($matcher_bis)->method('execute')->with(
+                $this->callback(function ($query) use ($sql_bis, $matcher_bis) {
+                    $expected = $sql_bis[$matcher_bis->numberOfInvocations() - 1];
+
+                    return $query === $expected;
+                })
+            );
 
             // Run synchronize again and test execute queries
-            $this
-                ->given($synchro = $update_str->synchronize($update_bis_str))
-                ->then()
-                    ->integer($synchro)
-                    ->isEqualTo(4)
-                    ->mock($con)->call('execute')
-                    ->withIdenticalArguments($sql_bis[0])
-                    ->once()
-                    ->mock($con)->call('execute')
-                    ->withIdenticalArguments($sql_bis[1])
-                    ->atLeastOnce()
-                    ->mock($con)->call('execute')
-                    ->withIdenticalArguments($sql_bis[2])
-                    ->once()
-                    ->mock($con)->call('execute')
-                    ->withIdenticalArguments($sql_bis[3])
-                    ->once()
-                    ->mock($con)->call('execute')
-                    ->withIdenticalArguments($sql_bis[4])
-                    ->once()
-                    ->mock($con)->call('execute')
-                    ->withIdenticalArguments($sql_bis[5])
-                    ->once()
-                    ->mock($con)->call('execute')
-                    ->withIdenticalArguments($sql_bis[6])
-                    ->once()
-                    ->mock($con)->call('execute')
-                    ->withIdenticalArguments($sql_bis[7])
-                    ->once()
-            ;
+            $synchro = $update_str->synchronize($update_bis_str);
 
-            $this
-                ->integer($synchro)
-                ->isEqualTo(4)
-            ;
+            $this->assertEquals(
+                4,
+                $synchro
+            );
         }
     }
 
-    protected function testSynchronizeDataProvider()
+    public static function dataProviderTestSynchronize()
     {
         $data = [
             'table'  => 'dc_table',

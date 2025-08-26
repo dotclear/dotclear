@@ -1,26 +1,13 @@
 <?php
-/**
- * Unit tests
- *
- * @package Dotclear
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
- */
 
-// This statement may broke class mocking system:
-// declare(strict_types=1);
+declare(strict_types=1);
 
-namespace tests\unit\Dotclear\Database;
+namespace Dotclear\Tests\Database;
 
-use atoum;
+use Exception;
+use PHPUnit\Framework\TestCase;
 
-require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'bootstrap.php']);
-
-/*
- * @tags TableDB
- */
-class Table extends atoum
+class TableTest extends TestCase
 {
     public function test()
     {
@@ -44,10 +31,9 @@ class Table extends atoum
             ->strange('WTF', null, true, null, true)
         ;
 
-        $this
-            // Fields
-            ->array($table->getFields())
-            ->isEqualTo([
+        // Fields
+        $this->assertEquals(
+            [
                 'id' => [
                     'type'    => 'integer',
                     'len'     => 0,
@@ -126,16 +112,21 @@ class Table extends atoum
                     'default' => null,
                     'null'    => true,
                 ],
-            ])
-            ->exception(function () use ($table) {
-                $table->bizarre('weird', 0);
-            })
-            ->hasMessage('Invalid data type weird in schema')
-            ->boolean($table->fieldExists('id'))
-            ->isTrue()
-            ->boolean($table->fieldExists('unknown'))
-            ->isFalse()
-        ;
+            ],
+            $table->getFields()
+        );
+
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage('Invalid data type weird in schema');
+
+        $table->bizarre('weird', 0);
+
+        $this->assertTrue(
+            $table->fieldExists('id')
+        );
+        $this->assertFalse(
+            $table->fieldExists('unknown')
+        );
 
         // Primary key
 
@@ -143,25 +134,30 @@ class Table extends atoum
             ->primary('pk_id', 'id')
         ;
 
-        $this
-            ->array($table->getKeys())
-            ->isEqualTo([
+        $this->assertEquals(
+            [
                 'pk_id' => [
                     'type' => 'primary',
                     'cols' => [
                         'id',
                     ],
                 ],
-            ])
-            ->exception(function () use ($table) {
-                $table->primary('pk_uid', 'uid');
-            })
-            ->hasMessage('Table dc_table already has a primary key')
-            ->string($table->keyExists('pk_id', 'primary', ['id']))
-            ->isEqualTo('pk_id')
-            ->boolean($table->keyExists('pk_uid', 'primary', ['uid']))
-            ->isFalse()
-        ;
+            ],
+            $table->getKeys()
+        );
+
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage('Table dc_table already has a primary key');
+
+        $table->primary('pk_uid', 'uid');
+
+        $this->assertEquals(
+            'pk_id',
+            $table->keyExists('pk_id', 'primary', ['id'])
+        );
+        $this->assertFalse(
+            $table->keyExists('pk_uid', 'primary', ['uid'])
+        );
 
         // Unique keys
 
@@ -169,9 +165,8 @@ class Table extends atoum
             ->unique('uk_uid', 'id', 'uid')
         ;
 
-        $this
-            ->array($table->getKeys())
-            ->isEqualTo([
+        $this->assertEquals(
+            [
                 'pk_id' => [
                     'type' => 'primary',
                     'cols' => [
@@ -185,20 +180,30 @@ class Table extends atoum
                         'uid',
                     ],
                 ],
-            ])
-            ->exception(function () use ($table) {
-                $table->unique('pk_unknown', 'unknown');
-            })
-            ->hasMessage('Field unknown does not exist in table dc_table')
-            ->string($table->keyExists('uk_uid', 'unique', ['id', 'uid']))
-            ->isEqualTo('uk_uid')
-            ->string($table->keyExists('pk_bis', 'primary', ['id']))
-            ->isEqualTo('pk_id')
-            ->string($table->keyExists('uk_bis', 'unique', ['id', 'uid']))
-            ->isEqualTo('uk_uid')
-            ->boolean($table->keyExists('pk_unknown', 'unique', ['unknown']))
-            ->isFalse()
-        ;
+            ],
+            $table->getKeys()
+        );
+
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage('Field unknown does not exist in table dc_table');
+
+        $table->unique('pk_unknown', 'unknown');
+
+        $this->assertEquals(
+            'uk_uid',
+            $table->keyExists('uk_uid', 'unique', ['id', 'uid'])
+        );
+        $this->assertEquals(
+            'pk_id',
+            $table->keyExists('pk_bis', 'primary', ['id'])
+        );
+        $this->assertEquals(
+            'uk_uid',
+            $table->keyExists('uk_bis', 'unique', ['id', 'uid'])
+        );
+        $this->assertFalse(
+            $table->keyExists('pk_unknown', 'unique', ['unknown'])
+        );
 
         // Indexes
 
@@ -206,9 +211,8 @@ class Table extends atoum
             ->index('idx_name', 'btree', 'name', 'fullname')
         ;
 
-        $this
-            ->array($table->getIndexes())
-            ->isEqualTo([
+        $this->assertEquals(
+            [
                 'idx_name' => [
                     'type' => 'btree',
                     'cols' => [
@@ -216,14 +220,20 @@ class Table extends atoum
                         'fullname',
                     ],
                 ],
-            ])
-            ->string($table->indexExists('idx_name', 'btree', ['name', 'fullname']))
-            ->isEqualTo('idx_name')
-            ->string($table->indexExists('idx_bis', 'btree', ['name', 'fullname']))
-            ->isEqualTo('idx_name')
-            ->boolean($table->indexExists('idx_unknown', 'btree', ['id', 'uid']))
-            ->isFalse()
-        ;
+            ],
+            $table->getIndexes()
+        );
+        $this->assertEquals(
+            'idx_name',
+            $table->indexExists('idx_name', 'btree', ['name', 'fullname'])
+        );
+        $this->assertEquals(
+            'idx_name',
+            $table->indexExists('idx_bis', 'btree', ['name', 'fullname'])
+        );
+        $this->assertFalse(
+            $table->indexExists('idx_unknown', 'btree', ['id', 'uid'])
+        );
 
         // References
 
@@ -231,9 +241,8 @@ class Table extends atoum
             ->reference('fk_contact', 'name', 'dc_contact', 'name', 'cascade', 'cascade');
         ;
 
-        $this
-            ->array($table->getReferences())
-            ->isEqualTo([
+        $this->assertEquals(
+            [
                 'fk_contact' => [
                     'c_cols' => [
                         'name',
@@ -245,13 +254,19 @@ class Table extends atoum
                     'update' => 'cascade',
                     'delete' => 'cascade',
                 ],
-            ])
-            ->string($table->referenceExists('fk_contact', ['name'], 'dc_contact', ['name']))
-            ->isEqualTo('fk_contact')
-            ->string($table->referenceExists('fk_bis', ['name'], 'dc_contact', ['name']))
-            ->isEqualTo('fk_contact')
-            ->boolean($table->referenceExists('fk_unknown', ['id'], 'dc_report', ['uid']))
-            ->isFalse()
-        ;
+            ],
+            $table->getReferences()
+        );
+        $this->assertEquals(
+            'fk_contact',
+            $table->referenceExists('fk_contact', ['name'], 'dc_contact', ['name'])
+        );
+        $this->assertEquals(
+            'fk_contact',
+            $table->referenceExists('fk_bis', ['name'], 'dc_contact', ['name'])
+        );
+        $this->assertFalse(
+            $table->referenceExists('fk_unknown', ['id'], 'dc_report', ['uid'])
+        );
     }
 }
