@@ -12,7 +12,6 @@ declare(strict_types=1);
 namespace Dotclear\Core;
 
 use Dotclear\Interface\Core\FormaterInterface;
-use Dotclear\Interface\Core\PluginsInterface;
 
 /**
  * @brief   Text formater handler.
@@ -36,12 +35,12 @@ class Formater implements FormaterInterface
     private array $names = [];
 
     /**
-     * Constructor.
+     * Constructs a new instance.
      *
-     * @param   PluginsInterface   $plugins   The plugins instance
+     * @param   Core    $core   The core container
      */
     public function __construct(
-        protected PluginsInterface $plugins
+        protected Core $core
     ) {
     }
 
@@ -72,7 +71,7 @@ class Formater implements FormaterInterface
         $res = [];
 
         foreach (array_keys($this->stack) as $editor_id) {
-            $res[$editor_id] = $this->plugins->getDefine($editor_id)->get('name');
+            $res[$editor_id] = $this->core->plugins()->getDefine($editor_id)->get('name');
         }
 
         return $res;

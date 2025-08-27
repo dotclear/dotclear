@@ -18,7 +18,6 @@ use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
 use Dotclear\Exception\BadRequestException;
 use Dotclear\Exception\ProcessException;
-use Dotclear\Interface\Core\DatabaseInterface;
 use Dotclear\Interface\Core\UserWorkspaceInterface;
 use Throwable;
 
@@ -33,7 +32,7 @@ use Throwable;
  *      global:bool
  * }
  * @since   2.28, container services have been added to constructor
- * @since   2.36, constructor argument ConnectionInteface has been replaced by DatabaseInterface
+ * @since   2.36, constructor arguments has been replaced by Core instance
  *
  * @psalm-no-seal-properties
  */
@@ -66,22 +65,22 @@ class UserWorkspace implements UserWorkspaceInterface
     protected array $prefs = [];
 
     /**
-     * Constructor.
+     * Constructs a new instance.
      *
      * @throws  BadRequestException|ProcessException
      *
-     * @param   DatabaseInterface   $db         The database handler instance
-     * @param   null|string         $user_id    The user identifier
-     * @param   string              $workspace  The workspace name
-     * @param   MetaRecord          $rs         The recordset
+     * @param   Core            $core       The core container
+     * @param   null|string     $user_id    The user identifier
+     * @param   string          $workspace  The workspace name
+     * @param   MetaRecord      $rs         The recordset
      */
     public function __construct(
-        protected DatabaseInterface $db,
+        protected Core $core,
         protected ?string $user_id = null,
         protected ?string $workspace = null,
         ?MetaRecord $rs = null
     ) {
-        $this->table = $this->db->con()->prefix() . self::WS_TABLE_NAME;
+        $this->table = $this->core->db()->con()->prefix() . self::WS_TABLE_NAME;
 
         if ($workspace !== null) {
             if (!preg_match(self::WS_NAME_SCHEMA, $workspace)) {
@@ -91,19 +90,19 @@ class UserWorkspace implements UserWorkspaceInterface
             try {
                 $this->getPrefs($rs);
             } catch (Throwable) {
-                throw new ProcessException(__('Unable to retrieve prefs:') . ' ' . $this->db->con()->error());
+                throw new ProcessException(__('Unable to retrieve prefs:') . ' ' . $this->core->db()->con()->error());
             }
         }
     }
 
     public function openUserWorkspaceCursor(): Cursor
     {
-        return $this->db->con()->openCursor($this->table);
+        return $this->core->db()->con()->openCursor($this->table);
     }
 
     public function createFromUser(?string $user_id, string $workspace, ?MetaRecord $rs = null): UserWorkspaceInterface
     {
-        return new self($this->db, $user_id, $workspace, $rs);
+        return new self($this->core, $user_id, $workspace, $rs);
     }
 
     /**
@@ -267,7 +266,7 @@ class UserWorkspace implements UserWorkspaceInterface
             $value = json_encode($value);
         }
 
-        $cur = $this->db->con()->openCursor($this->table);
+        $cur = $this->core->db()->con()->openCursor($this->table);
 
         $cur->pref_value = ($type === self::WS_BOOL) ? (string) (int) $value : (string) $value;
         $cur->pref_type  = $type;

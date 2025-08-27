@@ -19,11 +19,6 @@ use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\TruncateStatement;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Exception\BadRequestException;
-use Dotclear\Interface\Core\AuthInterface;
-use Dotclear\Interface\Core\BehaviorInterface;
-use Dotclear\Interface\Core\BlogInterface;
-use Dotclear\Interface\Core\DatabaseInterface;
-use Dotclear\Interface\Core\DeprecatedInterface;
 use Dotclear\Interface\Core\LogInterface;
 use Dotclear\Schema\Extension\Log as ExtLog;
 use Throwable;
@@ -32,7 +27,7 @@ use Throwable;
  * @brief   Core log handler.
  *
  * @since   2.28, container services have been added to constructor
- * @since   2.36, constructor argument ConnectionInteface has been replaced by DatabaseInterface
+ * @since   2.36, constructor arguments has been replaced by Core instance
  */
 class Log implements LogInterface
 {
@@ -47,25 +42,15 @@ class Log implements LogInterface
     protected string $user_table;
 
     /**
-     * Constructor.
+     * Constructs a new instance.
      *
-     * Used blogLoader to have blog ID just in time.
-     *
-     * @param   AuthInterface           $auth           The authentication instance
-     * @param   BehaviorInterface       $behavior       The behavior instance
-     * @param   BlogInterface           $blog           The blog instance
-     * @param   DatabaseInterface       $db             The database handler instance
-     * @param   DeprecatedInterface     $deprecated     The deprecated handler
+     * @param   Core    $core   The core container
      */
     public function __construct(
-        protected AuthInterface $auth,
-        protected BehaviorInterface $behavior,
-        protected BlogInterface $blog,
-        protected DatabaseInterface $db,
-        protected DeprecatedInterface $deprecated
+        protected Core $core
     ) {
-        $this->log_table  = $this->db->con()->prefix() . self::LOG_TABLE_NAME;
-        $this->user_table = $this->db->con()->prefix() . $this->auth::USER_TABLE_NAME;
+        $this->log_table  = $this->core->db()->con()->prefix() . self::LOG_TABLE_NAME;
+        $this->user_table = $this->core->db()->con()->prefix() . $this->core->auth()::USER_TABLE_NAME;
     }
 
     /**
@@ -77,14 +62,14 @@ class Log implements LogInterface
      */
     public function getTable(): string
     {
-        $this->deprecated->set('App::log()::LOG_TABLE_NAME', '2.28');
+        $this->core->deprecated()->set('App::log()::LOG_TABLE_NAME', '2.28');
 
         return self::LOG_TABLE_NAME;
     }
 
     public function openLogCursor(): Cursor
     {
-        return $this->db->con()->openCursor($this->log_table);
+        return $this->core->db()->con()->openCursor($this->log_table);
     }
 
     /**
@@ -136,7 +121,7 @@ class Log implements LogInterface
                 $sql->where('L.blog_id = ' . $sql->quote($params['blog_id']));
             }
         } else {
-            $sql->where('L.blog_id = ' . $sql->quote($this->blog->id()));
+            $sql->where('L.blog_id = ' . $sql->quote($this->core->blog()->id()));
         }
 
         if (!empty($params['user_id'])) {
@@ -171,7 +156,7 @@ class Log implements LogInterface
 
     public function addLog(Cursor $cur): int
     {
-        $this->db->con()->writeLock($this->log_table);
+        $this->core->db()->con()->writeLock($this->log_table);
 
         try {
             # Get ID
@@ -197,7 +182,7 @@ class Log implements LogInterface
             }
 
             if ($cur->blog_id === null) {
-                $cur->blog_id = $this->blog->id();
+                $cur->blog_id = $this->core->blog()->id();
             }
 
             if ($cur->log_dt === '' || $cur->log_dt === null) {
@@ -209,18 +194,18 @@ class Log implements LogInterface
             }
 
             # --BEHAVIOR-- coreBeforeLogCreate -- Log, Cursor
-            $this->behavior->callBehavior('coreBeforeLogCreate', $this, $cur);
+            $this->core->behavior()->callBehavior('coreBeforeLogCreate', $this, $cur);
 
             $cur->insert();
-            $this->db->con()->unlock();
+            $this->core->db()->con()->unlock();
         } catch (Throwable $e) {
-            $this->db->con()->unlock();
+            $this->core->db()->con()->unlock();
 
             throw $e;
         }
 
         # --BEHAVIOR-- coreAfterLogCreate -- Log, Cursor
-        $this->behavior->callBehavior('coreAfterLogCreate', $this, $cur);
+        $this->core->behavior()->callBehavior('coreAfterLogCreate', $this, $cur);
 
         return $cur->log_id;
     }

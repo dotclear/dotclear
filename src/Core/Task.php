@@ -20,10 +20,6 @@ use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Exception\ContextException;
 use Dotclear\Exception\ProcessException;
-use Dotclear\Interface\Core\BehaviorInterface;
-use Dotclear\Interface\Core\ConfigInterface;
-use Dotclear\Interface\Core\PostTypesInterface;
-use Dotclear\Interface\Core\UrlInterface;
 use Dotclear\Interface\Core\TaskInterface;
 use Throwable;
 
@@ -33,6 +29,7 @@ use Throwable;
  * This class execute application according to an Utility and its Process.
  *
  * @since   2.28, preload events has been grouped in this class
+ * @since   2.36, constructor arguments has been replaced by Core instance
  */
 class Task implements TaskInterface
 {
@@ -58,18 +55,12 @@ class Task implements TaskInterface
     ];
 
     /**
-     * Constructor.
+     * Constructs a new instance.
      *
-     * @param   BehaviorInterface   $behavior       The behavior instance
-     * @param   ConfigInterface     $config         The application configuration
-     * @param   PostTypesInterface  $post_types     The post types handler
-     * @param   UrlInterface        $url            The URL handler
+     * @param   Core    $core   The core container
      */
     public function __construct(
-        protected BehaviorInterface $behavior,
-        protected ConfigInterface $config,
-        protected PostTypesInterface $post_types,
-        protected UrlInterface $url,
+        protected Core $core,
     ) {
     }
 
@@ -133,20 +124,20 @@ class Task implements TaskInterface
 
         // deprecated since 2.28, loads core classes (old way)
         Clearbricks::lib()->autoload([
-            'dcCore'  => implode(DIRECTORY_SEPARATOR, [$this->config->dotclearRoot(),  'inc', 'core', 'class.dc.core.php']),
-            'dcUtils' => implode(DIRECTORY_SEPARATOR, [$this->config->dotclearRoot(),  'inc', 'core', 'class.dc.utils.php']),
+            'dcCore'  => implode(DIRECTORY_SEPARATOR, [$this->core->config()->dotclearRoot(),  'inc', 'core', 'class.dc.core.php']),
+            'dcUtils' => implode(DIRECTORY_SEPARATOR, [$this->core->config()->dotclearRoot(),  'inc', 'core', 'class.dc.utils.php']),
         ]);
 
         // Check and serve plugins and var files. (from ?pf=, ?tf= and ?vf= URI)
-        FileServer::check($this->config);
+        FileServer::check($this->core->config());
 
         // Config file exists
-        if (is_file($this->config->configPath())) {
+        if (is_file($this->core->config()->configPath())) {
             // Http setup
-            if ($this->config->httpScheme443()) {
+            if ($this->core->config()->httpScheme443()) {
                 Http::$https_scheme_on_443 = true;
             }
-            if ($this->config->httpReverseProxy()) {
+            if ($this->core->config()->httpReverseProxy()) {
                 Http::$reverse_proxy = true;
             }
             Http::trimRequest();
@@ -166,34 +157,34 @@ class Task implements TaskInterface
             # If we have some __top_behaviors, we load them
             if (isset($GLOBALS['__top_behaviors']) && is_array($GLOBALS['__top_behaviors'])) {
                 foreach ($GLOBALS['__top_behaviors'] as $b) {
-                    $this->behavior->addBehavior($b[0], $b[1]);
+                    $this->core->behavior()->addBehavior($b[0], $b[1]);
                 }
                 unset($GLOBALS['__top_behaviors'], $b);
             }
 
             // Register default URLs
-            $this->url->registerDefault(Url::home(...));
+            $this->core->url()->registerDefault(Url::home(...));
 
-            $this->url->registerError(Url::default404(...));
+            $this->core->url()->registerError(Url::default404(...));
 
-            $this->url->register('lang', '', '^([a-zA-Z]{2}(?:-[a-z]{2})?(?:/page/[0-9]+)?)$', Url::lang(...));
-            $this->url->register('posts', 'posts', '^posts(/.+)?$', Url::home(...));
-            $this->url->register('post', 'post', '^post/(.+)$', Url::post(...));
-            $this->url->register('preview', 'preview', '^preview/(.+)$', Url::preview(...));
-            $this->url->register('category', 'category', '^category/(.+)$', Url::category(...));
-            $this->url->register('archive', 'archive', '^archive(/.+)?$', Url::archive(...));
-            $this->url->register('try', 'try', '^try/(.+)$', Url::try(...));
+            $this->core->url()->register('lang', '', '^([a-zA-Z]{2}(?:-[a-z]{2})?(?:/page/[0-9]+)?)$', Url::lang(...));
+            $this->core->url()->register('posts', 'posts', '^posts(/.+)?$', Url::home(...));
+            $this->core->url()->register('post', 'post', '^post/(.+)$', Url::post(...));
+            $this->core->url()->register('preview', 'preview', '^preview/(.+)$', Url::preview(...));
+            $this->core->url()->register('category', 'category', '^category/(.+)$', Url::category(...));
+            $this->core->url()->register('archive', 'archive', '^archive(/.+)?$', Url::archive(...));
+            $this->core->url()->register('try', 'try', '^try/(.+)$', Url::try(...));
 
-            $this->url->register('feed', 'feed', '^feed/(.+)$', Url::feed(...));
-            $this->url->register('trackback', 'trackback', '^trackback/(.+)$', Url::trackback(...));
-            $this->url->register('webmention', 'webmention', '^webmention(/.+)?$', Url::webmention(...));
-            $this->url->register('xmlrpc', 'xmlrpc', '^xmlrpc/(.+)$', Url::xmlrpc(...));
+            $this->core->url()->register('feed', 'feed', '^feed/(.+)$', Url::feed(...));
+            $this->core->url()->register('trackback', 'trackback', '^trackback/(.+)$', Url::trackback(...));
+            $this->core->url()->register('webmention', 'webmention', '^webmention(/.+)?$', Url::webmention(...));
+            $this->core->url()->register('xmlrpc', 'xmlrpc', '^xmlrpc/(.+)$', Url::xmlrpc(...));
 
-            $this->url->register('wp-admin', 'wp-admin', '^wp-admin(?:/(.+))?$', Url::wpfaker(...));
-            $this->url->register('wp-login', 'wp-login', '^wp-login.php(?:/(.+))?$', Url::wpfaker(...));
+            $this->core->url()->register('wp-admin', 'wp-admin', '^wp-admin(?:/(.+))?$', Url::wpfaker(...));
+            $this->core->url()->register('wp-login', 'wp-login', '^wp-login.php(?:/(.+))?$', Url::wpfaker(...));
 
             // Set post type for frontend instance with harcoded backend URL (but should not be required in backend before Utility instanciated)
-            $this->post_types->set(new PostType('post', 'index.php?process=Post&id=%d', $this->url->getURLFor('post', '%s'), 'Posts'));
+            $this->core->postTypes()->set(new PostType('post', 'index.php?process=Post&id=%d', $this->core->url()->getURLFor('post', '%s'), 'Posts'));
 
             // Register local shutdown handler
             register_shutdown_function(function (): void {

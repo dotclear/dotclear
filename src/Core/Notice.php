@@ -16,9 +16,6 @@ use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Exception\BadRequestException;
-use Dotclear\Interface\Core\BehaviorInterface;
-use Dotclear\Interface\Core\DatabaseInterface;
-use Dotclear\Interface\Core\DeprecatedInterface;
 use Dotclear\Interface\Core\NoticeInterface;
 use Throwable;
 
@@ -26,7 +23,7 @@ use Throwable;
  * @brief   Core notice handler.
  *
  * @since   2.28, container services have been added to constructor
- * @since   2.36, constructor argument ConnectionInteface has been replaced by DatabaseInterface
+ * @since   2.36, constructor arguments has been replaced by Core instance
  */
 class Notice implements NoticeInterface
 {
@@ -36,23 +33,19 @@ class Notice implements NoticeInterface
     protected string $table;
 
     /**
-     * Constructor.
+     * Constructs a new instance.
      *
-     * @param   BehaviorInterface       $behavior       The behavior instance
-     * @param   DatabaseInterface       $db             The database handler instance
-     * @param   DeprecatedInterface     $deprecated     The deprecated handler
+     * @param   Core    $core   The core container
      */
     public function __construct(
-        protected BehaviorInterface $behavior,
-        protected DatabaseInterface $db,
-        protected DeprecatedInterface $deprecated,
+        protected Core $core,
     ) {
-        $this->table = $this->db->con()->prefix() . self::NOTICE_TABLE_NAME;
+        $this->table = $this->core->db()->con()->prefix() . self::NOTICE_TABLE_NAME;
     }
 
     public function openNoticeCursor(): Cursor
     {
-        return $this->db->con()->openCursor($this->table);
+        return $this->core->db()->con()->openCursor($this->table);
     }
 
     /**
@@ -125,7 +118,7 @@ class Notice implements NoticeInterface
 
     public function addNotice(Cursor $cur): int
     {
-        $this->db->con()->writeLock($this->table);
+        $this->core->db()->con()->writeLock($this->table);
 
         try {
             # Get ID
@@ -141,19 +134,19 @@ class Notice implements NoticeInterface
                 $this->fillNoticeCursor($cur);
 
                 # --BEHAVIOR-- coreBeforeNoticeCreate -- Notice, Cursor
-                $this->behavior->callBehavior('coreBeforeNoticeCreate', $this, $cur);
+                $this->core->behavior()->callBehavior('coreBeforeNoticeCreate', $this, $cur);
 
                 $cur->insert();
             }
-            $this->db->con()->unlock();
+            $this->core->db()->con()->unlock();
         } catch (Throwable $e) {
-            $this->db->con()->unlock();
+            $this->core->db()->con()->unlock();
 
             throw $e;
         }
 
         # --BEHAVIOR-- coreAfterNoticeCreate -- Notice, Cursor
-        $this->behavior->callBehavior('coreAfterNoticeCreate', $this, $cur);
+        $this->core->behavior()->callBehavior('coreAfterNoticeCreate', $this, $cur);
 
         return $cur->notice_id;
     }
@@ -203,7 +196,7 @@ class Notice implements NoticeInterface
      */
     public function delNotices(?int $id, bool $all = false): void
     {
-        $this->deprecated->set('App::notice()->delNotice() or App::notice()->delSessionNotices()', '2.28');
+        $this->core->deprecated()->set('App::notice()->delNotice() or App::notice()->delSessionNotices()', '2.28');
 
         $sql = new DeleteStatement();
         $sql

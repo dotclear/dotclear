@@ -13,7 +13,6 @@ namespace Dotclear\Core;
 
 use dcCore;
 use SimpleXMLElement;
-use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
@@ -34,11 +33,6 @@ use Dotclear\Exception\ConfigException;
 use Dotclear\Exception\ProcessException;
 use Dotclear\Exception\UnauthorizedException;
 use Dotclear\Helper\Html\Html;
-use Dotclear\Interface\Core\AuthInterface;
-use Dotclear\Interface\Core\BehaviorInterface;
-use Dotclear\Interface\Core\BlogInterface;
-use Dotclear\Interface\Core\ConfigInterface;
-use Dotclear\Interface\Core\DatabaseInterface;
 use Dotclear\Interface\Core\MediaInterface;
 use Dotclear\Interface\Core\PostMediaInterface;
 use stdClass;
@@ -48,7 +42,7 @@ use Throwable;
  * @brief   Media items handler.
  *
  * @since   2.28, container services have been added to constructor
- * @since   2.36, constructor argument ConnectionInteface has been replaced by DatabaseInterface
+ * @since   2.36, constructor arguments has been replaced by Core instance
  */
 class Media extends Manager implements MediaInterface
 {
@@ -156,34 +150,22 @@ class Media extends Manager implements MediaInterface
     /**
      * Constructs a new instance.
      *
-     * @throws     ProcessException|ConfigException
-     *
-     * @param   AuthInterface           $auth       The authentication instance
-     * @param   BehaviorInterface       $behavior   The behavior instance
-     * @param   BlogInterface           $blog       The blog instance
-     * @param   ConfigInterface         $config     The application configuration
-     * @param   DatabaseInterface       $db         The database handler instance
-     * @param   PostmediaInterface      $postmedia  The post media instance
+     * @param   Core    $core   The core container
      */
     public function __construct(
-        protected AuthInterface $auth,
-        protected BehaviorInterface $behavior,
-        protected BlogInterface $blog,
-        protected ConfigInterface $config,
-        protected DatabaseInterface $db,
-        protected PostMediaInterface $postmedia
+        protected Core $core
     ) {
-        if (!$this->blog->isDefined()) {
+        if (!$this->core->blog()->isDefined()) {
             throw new ProcessException(__('No blog defined.'));
         }
 
-        $this->table = $this->db->con()->prefix() . $this->postmedia::MEDIA_TABLE_NAME;
-        $root        = $this->blog->publicPath();
+        $this->table = $this->core->db()->con()->prefix() . $this->core->postMedia()::MEDIA_TABLE_NAME;
+        $root        = $this->core->blog()->publicPath();
 
-        if (preg_match('#^http(s)?://#', (string) $this->blog->settings()->system->public_url)) {
-            $root_url = rawurldecode((string) $this->blog->settings()->system->public_url);
+        if (preg_match('#^http(s)?://#', (string) $this->core->blog()->settings()->system->public_url)) {
+            $root_url = rawurldecode((string) $this->core->blog()->settings()->system->public_url);
         } else {
-            $root_url = rawurldecode($this->blog->host() . Path::clean($this->blog->settings()->system->public_url));
+            $root_url = rawurldecode($this->core->blog()->host() . Path::clean($this->core->blog()->settings()->system->public_url));
         }
 
         // Check public directory
@@ -195,19 +177,19 @@ class Media extends Manager implements MediaInterface
             parent::__construct($root, $root_url);
             $this->chdir('');
 
-            $this->path = $this->blog->settings()->system->public_path;
+            $this->path = $this->core->blog()->settings()->system->public_path;
         }
 
-        $this->addExclusion($this->config->configPath());
+        $this->addExclusion($this->core->config()->configPath());
         $this->addExclusion(__DIR__ . '/../');
 
-        $this->addExcludePattern($this->blog->settings()->system->media_exclusion);
+        $this->addExcludePattern($this->core->blog()->settings()->system->media_exclusion);
 
         // Disallow double (or more) extensions if the 1st one will allow a potential RCE (remote code execution)
         $this->addExcludePattern('/\.(phps?|pht(ml)?|phl|phar|.?html?|inc|xml|js)\d*(\.\w*)+$/');
 
-        if (((string) $this->blog->settings()->system->media_thumbnail_prefix !== '') && ((string) $this->blog->settings()->system->media_thumbnail_prefix !== $this->thumbnail_prefix)) {
-            $this->thumbnail_prefix = (string) $this->blog->settings()->system->media_thumbnail_prefix;
+        if (((string) $this->core->blog()->settings()->system->media_thumbnail_prefix !== '') && ((string) $this->core->blog()->settings()->system->media_thumbnail_prefix !== $this->thumbnail_prefix)) {
+            $this->thumbnail_prefix = (string) $this->core->blog()->settings()->system->media_thumbnail_prefix;
             $this->addExcludePattern(sprintf('/^%s(.*)/', preg_quote($this->thumbnail_prefix, '/')));
         }
 
@@ -247,12 +229,12 @@ class Media extends Manager implements MediaInterface
         $this->addFileHandler('image/avif', 'recreate', $this->imageThumbCreate(...));
 
         # Thumbnails sizes
-        $this->thumb_sizes['m'][0] = abs((int) $this->blog->settings()->system->media_img_m_size);
-        $this->thumb_sizes['s'][0] = abs((int) $this->blog->settings()->system->media_img_s_size);
-        $this->thumb_sizes['t'][0] = abs((int) $this->blog->settings()->system->media_img_t_size);
+        $this->thumb_sizes['m'][0] = abs((int) $this->core->blog()->settings()->system->media_img_m_size);
+        $this->thumb_sizes['s'][0] = abs((int) $this->core->blog()->settings()->system->media_img_s_size);
+        $this->thumb_sizes['t'][0] = abs((int) $this->core->blog()->settings()->system->media_img_t_size);
 
         # --BEHAVIOR-- coreMediaConstruct -- Manager -- deprecated since 2.28, as plugins are not yet loaded here
-        $this->behavior->callBehavior('coreMediaConstruct', $this);
+        $this->core->behavior()->callBehavior('coreMediaConstruct', $this);
 
         // Sort thumb_sizes DESC on largest sizes
         $sizes = [];
@@ -288,12 +270,12 @@ class Media extends Manager implements MediaInterface
 
     public function openMediaCursor(): Cursor
     {
-        return $this->db->con()->openCursor($this->table);
+        return $this->core->db()->con()->openCursor($this->table);
     }
 
     public function postMedia(): PostMediaInterface
     {
-        return $this->postmedia;
+        return $this->core->postMedia();
     }
 
     /**
@@ -481,10 +463,10 @@ class Media extends Manager implements MediaInterface
             $fi->media_image   = false;
             $fi->media_preview = false;
 
-            if (!$this->auth->check($this->auth->makePermissions([
-                $this->auth::PERMISSION_MEDIA_ADMIN,
-            ]), $this->blog->id())
-                && $this->auth->userID() != $fi->media_user) {
+            if (!$this->core->auth()->check($this->core->auth()->makePermissions([
+                $this->core->auth()::PERMISSION_MEDIA_ADMIN,
+            ]), $this->core->blog()->id())
+                && $this->core->auth()->userID() != $fi->media_user) {
                 $fi->del      = false;
                 $fi->editable = false;
             }
@@ -658,15 +640,15 @@ class Media extends Manager implements MediaInterface
         }
 
         return match ($this->file_sort) {
-            'title-asc'  => App::lexical()->lexicalCompare($a->media_title, $b->media_title, App::lexical()::ADMIN_LOCALE),
-            'title-desc' => App::lexical()->lexicalCompare($b->media_title, $a->media_title, App::lexical()::ADMIN_LOCALE),
+            'title-asc'  => $this->core->lexical()->lexicalCompare($a->media_title, $b->media_title, $this->core->lexical()::ADMIN_LOCALE),
+            'title-desc' => $this->core->lexical()->lexicalCompare($b->media_title, $a->media_title, $this->core->lexical()::ADMIN_LOCALE),
             'size-asc'   => $a->size     <=> $b->size,
             'size-desc'  => $b->size     <=> $a->size,
             'date-asc'   => $a->media_dt <=> $b->media_dt,
             'date-desc'  => $b->media_dt <=> $a->media_dt,
-            'name-asc'   => App::lexical()->lexicalCompare($a->basename, $b->basename, App::lexical()::ADMIN_LOCALE),
-            'name-desc'  => App::lexical()->lexicalCompare($b->basename, $a->basename, App::lexical()::ADMIN_LOCALE),
-            default      => App::lexical()->lexicalCompare($a->basename, $b->basename, App::lexical()::ADMIN_LOCALE),
+            'name-asc'   => $this->core->lexical()->lexicalCompare($a->basename, $b->basename, $this->core->lexical()::ADMIN_LOCALE),
+            'name-desc'  => $this->core->lexical()->lexicalCompare($b->basename, $a->basename, $this->core->lexical()::ADMIN_LOCALE),
+            default      => $this->core->lexical()->lexicalCompare($a->basename, $b->basename, $this->core->lexical()::ADMIN_LOCALE),
         };
     }
 
@@ -709,11 +691,11 @@ class Media extends Manager implements MediaInterface
             ->where('media_path = ' . $sql->quote($this->path))
             ->and('media_dir = ' . $sql->quote($media_dir));
 
-        if (!$this->auth->check($this->auth->makePermissions([
-            $this->auth::PERMISSION_MEDIA_ADMIN,
-        ]), $this->blog->id())) {
+        if (!$this->core->auth()->check($this->core->auth()->makePermissions([
+            $this->core->auth()::PERMISSION_MEDIA_ADMIN,
+        ]), $this->core->blog()->id())) {
             $list = ['media_private <> 1'];
-            if ($user_id = $this->auth->userID()) {
+            if ($user_id = $this->core->auth()->userID()) {
                 $list[] = 'user_id = ' . $sql->quote($user_id);
             }
             $sql->and($sql->orGroup($list));
@@ -816,13 +798,13 @@ class Media extends Manager implements MediaInterface
         }
 
         # Check files that don't exist in database and create them
-        if ($this->auth->check($this->auth->makePermissions([
-            $this->auth::PERMISSION_MEDIA,
-            $this->auth::PERMISSION_MEDIA_ADMIN,
-        ]), $this->blog->id())) {
+        if ($this->core->auth()->check($this->core->auth()->makePermissions([
+            $this->core->auth()::PERMISSION_MEDIA,
+            $this->core->auth()::PERMISSION_MEDIA_ADMIN,
+        ]), $this->core->blog()->id())) {
             $count = 0;
             foreach ($p_dir['files'] as $f) {
-                if (++$count >= App::config()->mediaUpdateDBLimit()) {
+                if (++$count >= $this->core->config()->mediaUpdateDBLimit()) {
                     // Limit reached, keep the remaining ones for the next pass
                     break;
                 }
@@ -864,11 +846,11 @@ class Media extends Manager implements MediaInterface
             ->where('media_path = ' . $sql->quote($this->path))
             ->and('media_id = ' . $id);
 
-        if (!$this->auth->check($this->auth->makePermissions([
-            $this->auth::PERMISSION_MEDIA_ADMIN,
-        ]), $this->blog->id())) {
+        if (!$this->core->auth()->check($this->core->auth()->makePermissions([
+            $this->core->auth()::PERMISSION_MEDIA_ADMIN,
+        ]), $this->core->blog()->id())) {
             $list = ['media_private <> 1'];
-            if ($user_id = $this->auth->userID()) {
+            if ($user_id = $this->core->auth()->userID()) {
                 $list[] = 'user_id = ' . $sql->quote($user_id);
             }
             $sql->and($sql->orGroup($list));
@@ -912,11 +894,11 @@ class Media extends Manager implements MediaInterface
                 $sql->like('media_meta', '%<AltText>%' . $sql->escape($query) . '%</AltText>%'),
             ]));
 
-        if (!$this->auth->check($this->auth->makePermissions([
-            $this->auth::PERMISSION_MEDIA_ADMIN,
-        ]), $this->blog->id())) {
+        if (!$this->core->auth()->check($this->core->auth()->makePermissions([
+            $this->core->auth()::PERMISSION_MEDIA_ADMIN,
+        ]), $this->core->blog()->id())) {
             $list = ['media_private <> 1'];
-            if ($user_id = $this->auth->userID()) {
+            if ($user_id = $this->core->auth()->userID()) {
                 $list[] = 'user_id = ' . $sql->quote($user_id);
             }
             $sql->and($sql->orGroup($list));
@@ -958,7 +940,7 @@ class Media extends Manager implements MediaInterface
         if ($link_type) {
             $params['link_type'] = $link_type;
         }
-        $rs = $this->postmedia->getPostMedia($params);
+        $rs = $this->core->postMedia()->getPostMedia($params);
 
         $res = [];
 
@@ -1048,7 +1030,7 @@ class Media extends Manager implements MediaInterface
 
         if (is_null($pattern)) {
             // Récupération réglage blog
-            $pattern = App::blog()->settings()->system->media_img_title_pattern;
+            $pattern = $this->core->blog()->settings()->system->media_img_title_pattern;
         }
         if ((string) $pattern === '') {
             $pattern = 'Description';
@@ -1103,7 +1085,7 @@ class Media extends Manager implements MediaInterface
             return;
         }
 
-        if (!$this->auth->isSuperAdmin()) {
+        if (!$this->core->auth()->isSuperAdmin()) {
             throw new UnauthorizedException(__('You are not a super administrator.'));
         }
 
@@ -1134,7 +1116,7 @@ class Media extends Manager implements MediaInterface
             return;
         }
 
-        if (!$this->auth->isSuperAdmin()) {
+        if (!$this->core->auth()->isSuperAdmin()) {
             throw new UnauthorizedException(__('You are not a super administrator.'));
         }
 
@@ -1213,7 +1195,7 @@ class Media extends Manager implements MediaInterface
         parent::makeDir($name);
 
         # --BEHAVIOR-- coreAfterMediaDirCreate -- string|null
-        $this->behavior->callBehavior('coreAfterMediaDirCreate', $name);
+        $this->core->behavior()->callBehavior('coreAfterMediaDirCreate', $name);
     }
 
     public function removeDir(?string $directory): void
@@ -1225,7 +1207,7 @@ class Media extends Manager implements MediaInterface
         parent::removeDir($directory);
 
         # --BEHAVIOR-- coreAfterMediaDirDelete - string|null
-        $this->behavior->callBehavior('coreAfterMediaDirDelete', $directory);
+        $this->core->behavior()->callBehavior('coreAfterMediaDirDelete', $directory);
     }
 
     public function createFile(string $name, ?string $title = null, bool $private = false, $dt = null, bool $force = true): false|int
@@ -1234,10 +1216,10 @@ class Media extends Manager implements MediaInterface
             return false;
         }
 
-        if (!$this->auth->check($this->auth->makePermissions([
-            $this->auth::PERMISSION_MEDIA,
-            $this->auth::PERMISSION_MEDIA_ADMIN,
-        ]), $this->blog->id())) {
+        if (!$this->core->auth()->check($this->core->auth()->makePermissions([
+            $this->core->auth()::PERMISSION_MEDIA,
+            $this->core->auth()::PERMISSION_MEDIA_ADMIN,
+        ]), $this->core->blog()->id())) {
             throw new UnauthorizedException(__('Permission denied.'));
         }
 
@@ -1261,7 +1243,7 @@ class Media extends Manager implements MediaInterface
         $rs = $sql->select();
 
         if (!$rs instanceof MetaRecord || $rs->isEmpty()) {
-            $this->db->con()->writeLock($this->table);
+            $this->core->db()->con()->writeLock($this->table);
 
             try {
                 $sql = new SelectStatement();
@@ -1273,7 +1255,7 @@ class Media extends Manager implements MediaInterface
                 $media_id = $rsId instanceof MetaRecord ? (int) $rsId->f(0) + 1 : 1;
 
                 $cur->media_id     = $media_id;
-                $cur->user_id      = $this->auth->userID();
+                $cur->user_id      = $this->core->auth()->userID();
                 $cur->media_path   = $this->path;
                 $cur->media_file   = $media_file;
                 $cur->media_dir    = dirname($media_file);
@@ -1300,9 +1282,9 @@ class Media extends Manager implements MediaInterface
 
                     throw $e;
                 }
-                $this->db->con()->unlock();
+                $this->core->db()->con()->unlock();
             } catch (Throwable $e) {
-                $this->db->con()->unlock();
+                $this->core->db()->con()->unlock();
 
                 throw $e;
             }
@@ -1328,10 +1310,10 @@ class Media extends Manager implements MediaInterface
             return;
         }
 
-        if (!$this->auth->check($this->auth->makePermissions([
-            $this->auth::PERMISSION_MEDIA,
-            $this->auth::PERMISSION_MEDIA_ADMIN,
-        ]), $this->blog->id())) {
+        if (!$this->core->auth()->check($this->core->auth()->makePermissions([
+            $this->core->auth()::PERMISSION_MEDIA,
+            $this->core->auth()::PERMISSION_MEDIA_ADMIN,
+        ]), $this->core->blog()->id())) {
             throw new UnauthorizedException(__('Permission denied.'));
         }
 
@@ -1341,10 +1323,10 @@ class Media extends Manager implements MediaInterface
             throw new BadRequestException('No file ID');
         }
 
-        if (!$this->auth->check($this->auth->makePermissions([
-            $this->auth::PERMISSION_MEDIA_ADMIN,
-        ]), $this->blog->id())
-            && $this->auth->userID() != $file->media_user) {
+        if (!$this->core->auth()->check($this->core->auth()->makePermissions([
+            $this->core->auth()::PERMISSION_MEDIA_ADMIN,
+        ]), $this->core->blog()->id())
+            && $this->core->auth()->userID() != $file->media_user) {
             throw new UnauthorizedException(__('You are not the file owner.'));
         }
 
@@ -1409,10 +1391,10 @@ class Media extends Manager implements MediaInterface
             return '';
         }
 
-        if (!$this->auth->check($this->auth->makePermissions([
-            $this->auth::PERMISSION_MEDIA,
-            $this->auth::PERMISSION_MEDIA_ADMIN,
-        ]), $this->blog->id())) {
+        if (!$this->core->auth()->check($this->core->auth()->makePermissions([
+            $this->core->auth()::PERMISSION_MEDIA,
+            $this->core->auth()::PERMISSION_MEDIA_ADMIN,
+        ]), $this->core->blog()->id())) {
             throw new UnauthorizedException(__('Permission denied.'));
         }
 
@@ -1431,10 +1413,10 @@ class Media extends Manager implements MediaInterface
             return '';
         }
 
-        if (!$this->auth->check($this->auth->makePermissions([
-            $this->auth::PERMISSION_MEDIA,
-            $this->auth::PERMISSION_MEDIA_ADMIN,
-        ]), $this->blog->id())) {
+        if (!$this->core->auth()->check($this->core->auth()->makePermissions([
+            $this->core->auth()::PERMISSION_MEDIA,
+            $this->core->auth()::PERMISSION_MEDIA_ADMIN,
+        ]), $this->core->blog()->id())) {
             throw new UnauthorizedException(__('Permission denied.'));
         }
 
@@ -1453,10 +1435,10 @@ class Media extends Manager implements MediaInterface
             return;
         }
 
-        if (!$this->auth->check($this->auth->makePermissions([
-            $this->auth::PERMISSION_MEDIA,
-            $this->auth::PERMISSION_MEDIA_ADMIN,
-        ]), $this->blog->id())) {
+        if (!$this->core->auth()->check($this->core->auth()->makePermissions([
+            $this->core->auth()::PERMISSION_MEDIA,
+            $this->core->auth()::PERMISSION_MEDIA_ADMIN,
+        ]), $this->core->blog()->id())) {
             throw new UnauthorizedException(__('Permission denied.'));
         }
 
@@ -1468,15 +1450,15 @@ class Media extends Manager implements MediaInterface
             ->where('media_path = ' . $sql->quote($this->path))
             ->and('media_file = ' . $sql->quote($media_file));
 
-        if (!$this->auth->check($this->auth->makePermissions([
-            $this->auth::PERMISSION_MEDIA_ADMIN,
-        ]), $this->blog->id())) {
-            $sql->and('user_id = ' . $sql->quote((string) $this->auth->userID()));
+        if (!$this->core->auth()->check($this->core->auth()->makePermissions([
+            $this->core->auth()::PERMISSION_MEDIA_ADMIN,
+        ]), $this->core->blog()->id())) {
+            $sql->and('user_id = ' . $sql->quote((string) $this->core->auth()->userID()));
         }
 
         $sql->delete();
 
-        if ($this->db->con()->changes() == 0) {
+        if ($this->core->db()->con()->changes() == 0) {
             throw new BadRequestException(__('File does not exist in the database.'));
         }
 
@@ -1741,13 +1723,13 @@ class Media extends Manager implements MediaInterface
             # We set picture time to user timezone
             $media_ts = strtotime((string) $meta['DateTimeOriginal']);
             if ($media_ts !== false) {
-                $o           = Date::getTimeOffset($this->auth->getInfo('user_tz'), $media_ts);
+                $o           = Date::getTimeOffset($this->core->auth()->getInfo('user_tz'), $media_ts);
                 $c->media_dt = Date::str('%Y-%m-%d %H:%M:%S', $media_ts + $o);
             }
         }
 
         # --BEHAVIOR-- coreBeforeImageMetaCreate -- Cursor
-        $this->behavior->callBehavior('coreBeforeImageMetaCreate', $c);
+        $this->core->behavior()->callBehavior('coreBeforeImageMetaCreate', $c);
 
         $sql = new UpdateStatement();
         $sql->where('media_id = ' . $id);
@@ -1802,17 +1784,5 @@ class Media extends Manager implements MediaInterface
     public static function mp3player(string $url, ?string $player = null, $args = null, bool $fallback = false, bool $preload = true): string
     {
         return self::audioPlayer('audio/mp3', $url, $player, $args, false, $preload);
-    }
-
-    /**
-     * Returns HTML code for FLV player.
-     *
-     * @deprecated  since 2.15, use another format instead !
-     */
-    public static function flvplayer(string $url, ?string $player = null, $args = null): string
-    {
-        App::deprecated()->set('', '2.15');
-
-        return '';
     }
 }

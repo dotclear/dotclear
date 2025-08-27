@@ -13,7 +13,6 @@ namespace Dotclear\Core;
 
 use dcCore;
 use Dotclear\Helper\RestServer;
-use Dotclear\Interface\Core\ConfigInterface;
 use Throwable;
 
 /**
@@ -25,16 +24,17 @@ use Throwable;
  * Rest class uses RestServer (class that RestInterface interface) constants.
  *
  * @since   2.28, container services have been added to constructor
+ * @since   2.36, constructor arguments has been replaced by Core instance
  */
 class Rest extends RestServer
 {
     /**
-     * Constructor.
+     * Constructs a new instance.
      *
-     * @param   ConfigInterface     $config    The application configuration
+     * @param   Core    $core   The core container
      */
     public function __construct(
-        protected ConfigInterface $config
+        protected Core $core
     ) {
         parent::__construct();
     }
@@ -55,14 +55,14 @@ class Rest extends RestServer
 
     public function enableRestServer(bool $serve = true): void
     {
-        if ($this->config->coreUpgrade() !== '') {
+        if ($this->core->config()->coreUpgrade() !== '') {
             try {
-                if ($serve && file_exists($this->config->coreUpgrade())) {
+                if ($serve && file_exists($this->core->config()->coreUpgrade())) {
                     // Remove watchdog file
-                    unlink($this->config->coreUpgrade());
-                } elseif (!$serve && !file_exists($this->config->coreUpgrade())) {
+                    unlink($this->core->config()->coreUpgrade());
+                } elseif (!$serve && !file_exists($this->core->config()->coreUpgrade())) {
                     // Create watchdog file
-                    touch($this->config->coreUpgrade());
+                    touch($this->core->config()->coreUpgrade());
                 }
             } catch (Throwable) {
             }
@@ -71,6 +71,6 @@ class Rest extends RestServer
 
     public function serveRestRequests(): bool
     {
-        return !file_exists($this->config->coreUpgrade()) && $this->config->allowRestServices();
+        return !file_exists($this->core->config()->coreUpgrade()) && $this->core->config()->allowRestServices();
     }
 }

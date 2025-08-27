@@ -16,7 +16,6 @@ use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
-use Dotclear\Interface\Core\DatabaseInterface;
 use Dotclear\Interface\Core\VersionInterface;
 
 /**
@@ -25,7 +24,7 @@ use Dotclear\Interface\Core\VersionInterface;
  * Handle id,version pairs through database.
  *
  * @since   2.28, modules version features have been grouped in this class
- * @since   2.36, constructor argument ConnectionInteface has been replaced by DatabaseInterface
+ * @since   2.36, constructor arguments has been replaced by Core instance
  */
 class Version implements VersionInterface
 {
@@ -42,19 +41,19 @@ class Version implements VersionInterface
     protected string $table;
 
     /**
-     * Constructor.
+     * Constructs a new instance.
      *
-     * @param   DatabaseInterface   $db     The database handler instance
+     * @param   Core    $core   The core container
      */
     public function __construct(
-        protected DatabaseInterface $db
+        protected Core $core
     ) {
-        $this->table = $this->db->con()->prefix() . self::VERSION_TABLE_NAME;
+        $this->table = $this->core->db()->con()->prefix() . self::VERSION_TABLE_NAME;
     }
 
     public function openVersionCursor(): Cursor
     {
-        return $this->db->con()->openCursor($this->db->con()->prefix() . self::VERSION_TABLE_NAME);
+        return $this->core->db()->con()->openCursor($this->core->db()->con()->prefix() . self::VERSION_TABLE_NAME);
     }
 
     public function getVersion(string $module = 'core'): string

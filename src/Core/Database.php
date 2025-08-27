@@ -13,7 +13,6 @@ namespace Dotclear\Core;
 
 use Dotclear\Database\ContainerHandler;
 use Dotclear\Exception\DatabaseException;
-use Dotclear\Interface\Core\ConfigInterface;
 use Dotclear\Interface\Core\DatabaseInterface;
 use Dotclear\Interface\Database\ConnectionInterface;
 
@@ -24,10 +23,18 @@ use Dotclear\Interface\Database\ConnectionInterface;
  */
 class Database implements DatabaseInterface
 {
+    /**
+     * Database connection handlers container.
+     */
     protected ContainerHandler $container_handler;
 
+    /**
+     * Constructs a new instance.
+     *
+     * @param   Core    $core   The core container
+     */
     public function __construct(
-        protected ConfigInterface $config
+        protected Core $core
     ) {
     }
 
@@ -38,13 +45,13 @@ class Database implements DatabaseInterface
 
         // If driver is not set, we use parameters from config
         if ($driver === '') {
-            $driver     = $this->config->dbDriver();
-            $host       = $this->config->dbHost();
-            $database   = $this->config->dbName();
-            $user       = $this->config->dbUser();
-            $password   = $this->config->dbPassword();
-            $persistent = $this->config->dbPersist();
-            $prefix     = $this->config->dbPrefix();
+            $driver     = $this->core->config()->dbDriver();
+            $host       = $this->core->config()->dbHost();
+            $database   = $this->core->config()->dbName();
+            $user       = $this->core->config()->dbUser();
+            $password   = $this->core->config()->dbPassword();
+            $persistent = $this->core->config()->dbPersist();
+            $prefix     = $this->core->config()->dbPrefix();
         }
 
         // PHP 7.0 mysql driver is obsolete, map to mysqli

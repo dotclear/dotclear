@@ -19,8 +19,6 @@ use Dotclear\Exception\BadRequestException;
 use Dotclear\Exception\ProcessException;
 use Dotclear\Interface\Core\BlogSettingsInterface;
 use Dotclear\Interface\Core\BlogWorkspaceInterface;
-use Dotclear\Interface\Core\DatabaseInterface;
-use Dotclear\Interface\Core\DeprecatedInterface;
 use Throwable;
 
 /**
@@ -31,7 +29,7 @@ use Throwable;
  * updating another blog settings.
  *
  * @since   2.28, container services have been added to constructor
- * @since   2.36, constructor argument ConnectionInteface has been replaced by DatabaseInterface
+ * @since   2.36, constructor arguments has been replaced by Core instance
  *
  * @psalm-no-seal-properties
  */
@@ -50,20 +48,15 @@ class BlogSettings implements BlogSettingsInterface
     protected $workspaces = [];
 
     /**
-     * Constructor.
+     * Constructs a new instance.
      *
-     * @param   BlogWorkspaceInterface  $workspace      The blog workspace handler
-     * @param   DatabaseInterface       $db             The database handler instance
-     * @param   DeprecatedInterface     $deprecated     The deprecated handler
-     * @param   null|string             $blog_id        The blog ID
+     * @param   Core    $core   The core container
      */
     public function __construct(
-        protected BlogWorkspaceInterface $workspace,
-        protected DatabaseInterface $db,
-        protected DeprecatedInterface $deprecated,
+        protected Core $core,
         protected ?string $blog_id = null
     ) {
-        $this->table = $this->db->con()->prefix() . $this->workspace::NS_TABLE_NAME;
+        $this->table = $this->core->db()->con()->prefix() . $this->core->blogWorkspace()::NS_TABLE_NAME;
 
         if ($blog_id) {
             $this->loadSettings();
@@ -72,7 +65,7 @@ class BlogSettings implements BlogSettingsInterface
 
     public function createFromBlog(?string $blog_id): BlogSettingsInterface
     {
-        return new self($this->workspace, $this->db, $this->deprecated, $blog_id);
+        return new self($this->core, $blog_id);
     }
 
     /**
@@ -103,7 +96,7 @@ class BlogSettings implements BlogSettingsInterface
         try {
             $rs = $sql->select();
         } catch (Throwable) {
-            throw new ProcessException(__('Unable to retrieve namespaces:') . ' ' . $this->db->con()->error());
+            throw new ProcessException(__('Unable to retrieve namespaces:') . ' ' . $this->core->db()->con()->error());
         }
 
         /* Prevent empty tables (install phase, for instance) */
@@ -118,14 +111,14 @@ class BlogSettings implements BlogSettingsInterface
                 // at very first time
                 $rs->movePrev();
             }
-            $this->workspaces[$ns] = $this->workspace->createFromBlog($this->blog_id, $ns, $rs);
+            $this->workspaces[$ns] = $this->core->blogWorkspace()->createFromBlog($this->blog_id, $ns, $rs);
         } while (!$rs->isStart());
     }
 
     public function addWorkspace(string $workspace): BlogWorkspaceInterface
     {
         if (!$this->exists($workspace)) {
-            $this->workspaces[$workspace] = $this->workspace->createFromBlog($this->blog_id, $workspace);
+            $this->workspaces[$workspace] = $this->core->blogWorkspace()->createFromBlog($this->blog_id, $workspace);
         }
 
         return $this->workspaces[$workspace];
@@ -137,7 +130,7 @@ class BlogSettings implements BlogSettingsInterface
             return false;
         }
 
-        if (!preg_match($this->workspace::NS_NAME_SCHEMA, $new_workspace)) {
+        if (!preg_match($this->core->blogWorkspace()::NS_NAME_SCHEMA, $new_workspace)) {
             throw new BadRequestException(sprintf(__('Invalid setting namespace: %s'), $new_workspace));
         }
 
@@ -150,7 +143,7 @@ class BlogSettings implements BlogSettingsInterface
         $sql->update();
 
         // Reload the renamed namespace in the namespace array
-        $this->workspaces[$new_workspace] = $this->workspace->createFromBlog($this->blog_id, $new_workspace);
+        $this->workspaces[$new_workspace] = $this->core->blogWorkspace()->createFromBlog($this->blog_id, $new_workspace);
 
         // Remove the old namespace from the namespace array
         unset($this->workspaces[$old_workspace]);
@@ -205,21 +198,21 @@ class BlogSettings implements BlogSettingsInterface
 
     public function addNamespace(string $namespace): BlogWorkspaceInterface
     {
-        $this->deprecated->set(self::class . '->addWorkspace()', '2.28');
+        $this->core->deprecated()->set(self::class . '->addWorkspace()', '2.28');
 
         return $this->addWorkspace($namespace);
     }
 
     public function renNamespace(string $old_namespace, string $new_namespace): bool
     {
-        $this->deprecated->set(self::class . '->renWorkspace()', '2.28');
+        $this->core->deprecated()->set(self::class . '->renWorkspace()', '2.28');
 
         return $this->renWorkspace($old_namespace, $new_namespace);
     }
 
     public function delNamespace(string $namespace): bool
     {
-        $this->deprecated->set(self::class . '->delWorkspace()', '2.28');
+        $this->core->deprecated()->set(self::class . '->delWorkspace()', '2.28');
 
         return $this->delWorkspace($namespace);
     }
@@ -231,7 +224,7 @@ class BlogSettings implements BlogSettingsInterface
      */
     public function dumpNamespaces(): array
     {
-        $this->deprecated->set(self::class . '->dumpWorkspaces()', '2.28');
+        $this->core->deprecated()->set(self::class . '->dumpWorkspaces()', '2.28');
 
         return $this->workspaces;
     }

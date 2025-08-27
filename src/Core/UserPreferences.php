@@ -17,7 +17,6 @@ use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
 use Dotclear\Exception\BadRequestException;
 use Dotclear\Exception\ProcessException;
-use Dotclear\Interface\Core\DatabaseInterface;
 use Dotclear\Interface\Core\UserPreferencesInterface;
 use Dotclear\Interface\Core\UserWorkspaceInterface;
 use Throwable;
@@ -30,7 +29,7 @@ use Throwable;
  * updating another user prefs.
  *
  * @since   2.28, container services have been added to constructor
- * @since   2.36, constructor argument ConnectionInteface has been replaced by DatabaseInterface
+ * @since   2.36, constructor arguments has been replaced by Core instance
  *
  * @psalm-no-seal-properties
  */
@@ -49,35 +48,31 @@ class UserPreferences implements UserPreferencesInterface
     protected $workspaces = [];
 
     /**
-     * Constructor.
+     * Constructs a new instance.
      *
-     * @throws  ProcessException
-     *
-     * @param   DatabaseInterface       $db                 The database handler instance
-     * @param   UserWorkspaceInterface  $workspace          The user workspace handler
-     * @param   string                  $user_id            The user ID
-     * @param   null|string             $user_workspace     The workspace ID
+     * @param   Core            $core               The core container
+     * @param   string          $user_id            The user ID
+     * @param   null|string     $user_workspace     The workspace ID
      */
     public function __construct(
-        protected DatabaseInterface $db,
-        protected UserWorkspaceInterface $workspace,
+        protected Core $core,
         protected string $user_id = '',
         ?string $user_workspace = null
     ) {
-        $this->table = $this->db->con()->prefix() . $this->workspace::WS_TABLE_NAME;
+        $this->table = $this->core->db()->con()->prefix() . $this->core->userWorkspace()::WS_TABLE_NAME;
 
         if ($user_id !== '') {
             try {
                 $this->loadPrefs($user_workspace);
             } catch (Throwable) {
-                throw new ProcessException(__('Unable to retrieve workspaces:') . ' ' . $this->db->con()->error());
+                throw new ProcessException(__('Unable to retrieve workspaces:') . ' ' . $this->core->db()->con()->error());
             }
         }
     }
 
     public function createFromUser(string $user_id, ?string $user_workspace = null): UserPreferencesInterface
     {
-        return new self($this->db, $this->workspace, $user_id, $user_workspace);
+        return new self($this->core, $user_id, $user_workspace);
     }
 
     /**
@@ -124,14 +119,14 @@ class UserPreferences implements UserPreferencesInterface
                 // at very first time
                 $rs->movePrev();
             }
-            $this->workspaces[$user_workspace] = $this->workspace->createFromUser($this->user_id, $user_workspace, $rs);
+            $this->workspaces[$user_workspace] = $this->core->userWorkspace()->createFromUser($this->user_id, $user_workspace, $rs);
         } while (!$rs->isStart());
     }
 
     public function addWorkspace(string $workspace): UserWorkspaceInterface
     {
         if (!$this->exists($workspace)) {
-            $this->workspaces[$workspace] = $this->workspace->createFromUser($this->user_id, $workspace);
+            $this->workspaces[$workspace] = $this->core->userWorkspace()->createFromUser($this->user_id, $workspace);
         }
 
         return $this->workspaces[$workspace];
@@ -143,7 +138,7 @@ class UserPreferences implements UserPreferencesInterface
             return false;
         }
 
-        if (!preg_match($this->workspace::WS_NAME_SCHEMA, $new_workspace)) {
+        if (!preg_match($this->core->userWorkspace()::WS_NAME_SCHEMA, $new_workspace)) {
             throw new BadRequestException(sprintf(__('Invalid UserWorkspace: %s'), $new_workspace));
         }
 
@@ -156,7 +151,7 @@ class UserPreferences implements UserPreferencesInterface
         $sql->update();
 
         // Reload the renamed workspace in the workspace array
-        $this->workspaces[$new_workspace] = $this->workspace->createFromUser($this->user_id, $new_workspace);
+        $this->workspaces[$new_workspace] = $this->core->userWorkspace()->createFromUser($this->user_id, $new_workspace);
 
         // Remove the old workspace from the workspace array
         unset($this->workspaces[$old_workspace]);
