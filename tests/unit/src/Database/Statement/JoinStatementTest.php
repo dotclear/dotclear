@@ -112,6 +112,9 @@ class JoinStatementTest extends TestCase
         $sql->statement();
     }
 
+    /**
+     * @return list<array>
+     */
     public static function dataProviderTest(): array
     {
         return [

@@ -91,6 +91,9 @@ class DropStatementTest extends TestCase
         );
     }
 
+    /**
+     * @return list<array>
+     */
     public static function dataProviderTest(): array
     {
         return [

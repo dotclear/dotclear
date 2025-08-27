@@ -150,6 +150,9 @@ class CursorTest extends TestCase
         $cursor->update('');
     }
 
+    /**
+     * @return list<array>
+     */
     public static function dataProviderTest(): array
     {
         return [

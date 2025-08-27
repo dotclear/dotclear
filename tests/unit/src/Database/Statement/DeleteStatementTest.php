@@ -124,6 +124,9 @@ class DeleteStatementTest extends TestCase
         );
     }
 
+    /**
+     * @return list<array>
+     */
     public static function dataProviderTest(): array
     {
         return [

@@ -48,7 +48,7 @@ class SqlStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function test($driver, $syntax): void
+    public function test(string $driver, string $syntax): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
@@ -64,6 +64,9 @@ class SqlStatementTest extends TestCase
         );
     }
 
+    /**
+     * @return list<array>
+     */
     public static function dataProviderTest(): array
     {
         return [
@@ -87,6 +90,9 @@ class SqlStatementTest extends TestCase
         );
     }
 
+    /**
+     * @return list<array>
+     */
     public static function dataProviderTestEscape(): array
     {
         return [
@@ -117,6 +123,9 @@ class SqlStatementTest extends TestCase
         );
     }
 
+    /**
+     * @return list<array>
+     */
     public static function dataProviderTestQuote(): array
     {
         return [
@@ -140,7 +149,7 @@ class SqlStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTestAlias')]
-    public function testAlias($driver, $syntax, $name, $alias, $result): void
+    public function testAlias(string $driver, string $syntax, string $name, string $alias, bool $result): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
@@ -155,6 +164,9 @@ class SqlStatementTest extends TestCase
         );
     }
 
+    /**
+     * @return list<array>
+     */
     public static function dataProviderTestAlias(): array
     {
         return [
@@ -166,7 +178,7 @@ class SqlStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTestIn')]
-    public function testIn($driver, $syntax, $values, $cast, $result): void
+    public function testIn(string $driver, string $syntax, array $values, string $cast, string $result): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
@@ -177,6 +189,9 @@ class SqlStatementTest extends TestCase
         );
     }
 
+    /**
+     * @return list<array>
+     */
     public static function dataProviderTestIn(): array
     {
         return [
@@ -249,7 +264,7 @@ class SqlStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTestDateFormat')]
-    public function testDateFormat($driver, $syntax, $field, $pattern, $result): void
+    public function testDateFormat(string $driver, string $syntax, string $field, string $pattern, string $result): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
@@ -260,6 +275,9 @@ class SqlStatementTest extends TestCase
         );
     }
 
+    /**
+     * @return list<array>
+     */
     public static function dataProviderTestDateFormat(): array
     {
         return [
@@ -271,7 +289,7 @@ class SqlStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTestLike')]
-    public function testLike($driver, $syntax, $field, $pattern, $result): void
+    public function testLike(string $driver, string $syntax, string $field, string $pattern, string $result): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
@@ -282,6 +300,9 @@ class SqlStatementTest extends TestCase
         );
     }
 
+    /**
+     * @return list<array>
+     */
     public static function dataProviderTestLike(): array
     {
         return [
@@ -293,7 +314,7 @@ class SqlStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTestRegexp')]
-    public function testRegexp($driver, $syntax, $pattern, $result): void
+    public function testRegexp(string $driver, string $syntax, string $pattern, string $result): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
@@ -304,6 +325,9 @@ class SqlStatementTest extends TestCase
         );
     }
 
+    /**
+     * @return list<array>
+     */
     public static function dataProviderTestRegexp(): array
     {
         return [
@@ -315,7 +339,7 @@ class SqlStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTestUnique')]
-    public function testUnique($driver, $syntax, $field, $result): void
+    public function testUnique(string $driver, string $syntax, string $field, string $result): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
@@ -326,6 +350,9 @@ class SqlStatementTest extends TestCase
         );
     }
 
+    /**
+     * @return list<array>
+     */
     public static function dataProviderTestUnique(): array
     {
         return [
@@ -337,7 +364,7 @@ class SqlStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTestCount')]
-    public function testCount($driver, $syntax, $field, $alias, $unique, $result): void
+    public function testCount(string $driver, string $syntax, string $field, ?string $alias, bool $unique, string $result): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
@@ -348,6 +375,9 @@ class SqlStatementTest extends TestCase
         );
     }
 
+    /**
+     * @return list<array>
+     */
     public static function dataProviderTestCount(): array
     {
         return [
@@ -375,7 +405,7 @@ class SqlStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTestAvg')]
-    public function testAvg($driver, $syntax, $field, $alias, $result): void
+    public function testAvg(string $driver, string $syntax, string $field, ?string $alias, string $result): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
@@ -386,6 +416,9 @@ class SqlStatementTest extends TestCase
         );
     }
 
+    /**
+     * @return list<array>
+     */
     public static function dataProviderTestAvg(): array
     {
         return [
@@ -414,6 +447,9 @@ class SqlStatementTest extends TestCase
         );
     }
 
+    /**
+     * @return list<array>
+     */
     public static function dataProviderTestMax(): array
     {
         return [
@@ -431,7 +467,7 @@ class SqlStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTestMin')]
-    public function testMin($driver, $syntax, $field, $alias, $result): void
+    public function testMin(string $driver, string $syntax, string $field, ?string $alias, string $result): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
@@ -442,6 +478,9 @@ class SqlStatementTest extends TestCase
         );
     }
 
+    /**
+     * @return list<array>
+     */
     public static function dataProviderTestMin(): array
     {
         return [
@@ -459,7 +498,7 @@ class SqlStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTestSum')]
-    public function testSum($driver, $syntax, $field, $alias, $result): void
+    public function testSum(string $driver, string $syntax, string $field, ?string $alias, string $result): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
@@ -470,6 +509,9 @@ class SqlStatementTest extends TestCase
         );
     }
 
+    /**
+     * @return list<array>
+     */
     public static function dataProviderTestSum(): array
     {
         return [
@@ -487,7 +529,7 @@ class SqlStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTestIsNull')]
-    public function testIsNull($driver, $syntax, $field, $result): void
+    public function testIsNull(string $driver, string $syntax, string $field, string $result): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
@@ -498,6 +540,9 @@ class SqlStatementTest extends TestCase
         );
     }
 
+    /**
+     * @return list<array>
+     */
     public static function dataProviderTestIsNull(): array
     {
         return [
@@ -509,7 +554,7 @@ class SqlStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTestIsNotNull')]
-    public function testIsNotNull($driver, $syntax, $field, $result): void
+    public function testIsNotNull(string $driver, string $syntax, string $field, string $result): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
@@ -520,6 +565,9 @@ class SqlStatementTest extends TestCase
         );
     }
 
+    /**
+     * @return list<array>
+     */
     public static function dataProviderTestIsNotNull(): array
     {
         return [

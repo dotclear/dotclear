@@ -99,7 +99,7 @@ class StructureTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function test($driver, $syntax): void
+    public function test(string $driver, string $syntax): void
     {
         $con = $this->getConnection($driver, $syntax);
 
@@ -158,6 +158,9 @@ class StructureTest extends TestCase
         );
     }
 
+    /**
+     * @return list<array>
+     */
     public static function dataProviderTest(): array
     {
         return [
@@ -368,6 +371,9 @@ class StructureTest extends TestCase
         }
     }
 
+    /**
+     * @return list<array>
+     */
     public static function dataProviderTestSynchronize(): array
     {
         $data = [

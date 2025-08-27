@@ -81,6 +81,9 @@ class SessionTest extends TestCase
         $session->destroy();
     }
 
+    /**
+     * @return list<array>
+     */
     public static function dataProviderTest(): array
     {
         return [

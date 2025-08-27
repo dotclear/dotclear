@@ -970,6 +970,9 @@ class MetaRecordTest extends TestCase
         $record->unknown();
     }
 
+    /**
+     * @return list<array>
+     */
     public static function dataProviderTest(): array
     {
         return [

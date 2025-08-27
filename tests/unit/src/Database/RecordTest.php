@@ -62,7 +62,7 @@ class RecordTest extends TestCase
         return $mock;
     }
 
-    private function createRecord($driver, $syntax, &$rows, &$info, &$valid, &$pointer): \Dotclear\Database\Record
+    private function createRecord(string $driver, string $syntax, mixed &$rows, array &$info, bool &$valid, int &$pointer): \Dotclear\Database\Record
     {
         $con = $this->getConnection($driver, $syntax);
 
@@ -314,7 +314,7 @@ class RecordTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function testToStatic($driver, $syntax): void
+    public function testToStatic(string $driver, string $syntax): void
     {
         // Sample data
         $rows = [
@@ -370,7 +370,7 @@ class RecordTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function testExtend($driver, $syntax): void
+    public function testExtend(string $driver, string $syntax): void
     {
         // Sample data
         $rows = [
@@ -482,7 +482,7 @@ class RecordTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function testRows($driver, $syntax): void
+    public function testRows(string $driver, string $syntax): void
     {
         // Sample data
         $rows = [
@@ -550,6 +550,9 @@ class RecordTest extends TestCase
         );
     }
 
+    /**
+     * @return list<array>
+     */
     public static function dataProviderTest(): array
     {
         return [

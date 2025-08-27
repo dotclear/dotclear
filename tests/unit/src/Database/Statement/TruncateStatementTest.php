@@ -91,6 +91,9 @@ class TruncateStatementTest extends TestCase
         );
     }
 
+    /**
+     * @return list<array>
+     */
     public static function dataProviderTest(): array
     {
         return [
