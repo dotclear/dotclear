@@ -23,6 +23,7 @@ use Dotclear\Module\StoreReader;
  * @brief   Application cache handler.
  *
  * @since   2.28, cache features have been grouped in this class
+ * @since   2.36, constructor arguments has been replaced by Core instance
  */
 class Cache extends HttpCacheStack implements CacheInterface
 {
@@ -32,13 +33,13 @@ class Cache extends HttpCacheStack implements CacheInterface
     protected string $cache_dir;
 
     /**
-     * Constructor.
+     * Constructs a new instance.
      *
-     * @param   ConfigInterface     $config     The application configuration
+     * @param   Core    $core   The core container
      */
-    public function __construct(ConfigInterface $config)
+    public function __construct(Core $core)
     {
-        $this->cache_dir = $config->cacheRoot();
+        $this->cache_dir = $core->config()->cacheRoot();
     }
 
     /**

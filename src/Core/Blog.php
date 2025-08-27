@@ -13,7 +13,6 @@ namespace Dotclear\Core;
 
 use ArrayObject;
 use dcCore;
-use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Record;
@@ -31,17 +30,9 @@ use Dotclear\Helper\TraitDynamicProperties;
 use Dotclear\Exception\ConflictException;
 use Dotclear\Exception\BadRequestException;
 use Dotclear\Exception\UnauthorizedException;
-use Dotclear\Interface\Core\AuthInterface;
-use Dotclear\Interface\Core\BehaviorInterface;
 use Dotclear\Interface\Core\BlogInterface;
 use Dotclear\Interface\Core\BlogSettingsInterface;
 use Dotclear\Interface\Core\CategoriesInterface;
-use Dotclear\Interface\Core\ConfigInterface;
-use Dotclear\Interface\Core\DatabaseInterface;
-use Dotclear\Interface\Core\DeprecatedInterface;
-use Dotclear\Interface\Core\FilterInterface;
-use Dotclear\Interface\Core\FormaterInterface;
-use Dotclear\Interface\Core\PostMediaInterface;
 use Dotclear\Schema\Extension\Comment;
 use Dotclear\Schema\Extension\Dates;
 use Dotclear\Schema\Extension\Post;
@@ -54,17 +45,12 @@ use Throwable;
  * @since   2.28, public properties become deprecated and will be protected soon
  * @since   2.28, blog could be (un)load in same instance
  * @since   2.28, container services have been added to constructor
- * @since   2.36, constructor argument ConnectionInteface has been replaced by DatabaseInterface
+ * @since   2.36, constructor arguments has been replaced by Core instance
  */
 class Blog implements BlogInterface
 {
     // deprecated since 2.28,
     use TraitDynamicProperties;
-
-    /**
-     * The authentication instance
-     */
-    protected AuthInterface $auth;
 
     /**
      * Database table prefix.
@@ -158,44 +144,32 @@ class Blog implements BlogInterface
     public bool $without_password = true;
 
     /**
+     * Blog settings
+     *
+     * @deprecated  since 2.28, use App::blog()->settings() instead
+     */
+    public BlogSettingsInterface $settings;
+
+    /**
+     * Blog categories.
+     */
+    protected CategoriesInterface $categories;
+
+    /**
      * Constructs a new instance.
      *
-     * @param   BehaviorInterface       $behavior       The behavior instance
-     * @param   BlogSettingsInterface   $settings       The blog settings handler
-     * @param   CategoriesInterface     $categories     The blog categories handler
-     * @param   ConfigInterface         $config         The application configuration
-     * @param   DatabaseInterface       $db             The database handler instance
-     * @param   FilterInterface         $filter         The wiki filter handler
-     * @param   FormaterInterface       $formater       The text formater handler
-     * @param   PostMediaInterface      $postmedia      The post media handler
-     * @param   DeprecatedInterface     $deprecated     The deprecated handler
-     * @param   string                  $blog_id        The blog identifier
+     * @param   Core    $core       The core container
+     * @param   string  $blog_id    The blog identifier
      */
     public function __construct(
-        protected BehaviorInterface $behavior,
-        public BlogSettingsInterface $settings, // public for backward compatibility
-        protected CategoriesInterface $categories,
-        protected ConfigInterface $config,
-        protected DatabaseInterface $db,
-        protected FilterInterface $filter,
-        protected FormaterInterface $formater,
-        protected PostMediaInterface $postmedia,
-        protected DeprecatedInterface $deprecated,
+        protected Core $core,
         string $blog_id = ''
     ) {
-        $this->prefix = $this->db->con()->prefix();
+        $this->settings   = $this->core->blogSettings();
+        $this->categories = $this->core->categories();
+        $this->prefix     = $this->core->db()->con()->prefix();
 
         $this->loadFromBlog($blog_id);
-    }
-
-    public function setAuth(AuthInterface $auth): void
-    {
-        $this->auth = $auth;
-    }
-
-    public function auth(): AuthInterface
-    {
-        return $this->auth;
     }
 
     public function loadFromBlog(string $blog_id): BlogInterface
@@ -209,12 +183,12 @@ class Blog implements BlogInterface
         $host        = '';
         $creadt      = 0;
         $upddt       = 0;
-        $status      = App::status()->blog()::UNDEFINED;
+        $status      = $this->core->status()->blog()::UNDEFINED;
         $themes_path = '';
         $public_path = '';
 
         if ($id !== '') {
-            $blog = App::blogs()->getBlog($id);
+            $blog = $this->core->blogs()->getBlog($id);
             if ($blog->count() > 0) {
                 $uid    = (string) $blog->blog_uid;
                 $name   = (string) $blog->blog_name;
@@ -225,11 +199,11 @@ class Blog implements BlogInterface
                 $upddt  = (int) strtotime($blog->blog_upddt);
                 $status = (int) $blog->blog_status;
 
-                $this->settings   = $this->settings->createFromBlog($id);
-                $this->categories = $this->categories->createFromBlog($id);
+                $this->settings   = $this->settings()->createFromBlog($id);
+                $this->categories = $this->categories()->createFromBlog($id);
 
-                $themes_path = Path::fullFromRoot($this->settings->system->themes_path, $this->config->dotclearRoot());
-                $public_path = Path::fullFromRoot($this->settings->system->public_path, $this->config->dotclearRoot());
+                $themes_path = Path::fullFromRoot($this->settings()->system->themes_path, $this->core->config()->dotclearRoot());
+                $public_path = Path::fullFromRoot($this->settings()->system->public_path, $this->core->config()->dotclearRoot());
             }
         }
 
@@ -246,12 +220,12 @@ class Blog implements BlogInterface
         $this->themes_path = $themes_path;
         $this->public_path = $public_path;
 
-        $this->filter->loadFromBlog($this);
-        $this->postmedia->loadFromBlog($this);
+        $this->core->filter()->loadFromBlog($this);
+        $this->core->postMedia()->loadFromBlog($this);
 
         if ($id !== '') {
             # --BEHAVIOR-- coreBlogConstruct -- BlogInterface -- deprecated since 2.28, as plugins are not yet loaded here
-            $this->behavior->callBehavior('coreBlogConstruct', $this);
+            $this->core->behavior()->callBehavior('coreBlogConstruct', $this);
         }
 
         dcCore::app()->blog = $uid === '' ? null : $this;
@@ -264,22 +238,22 @@ class Blog implements BlogInterface
 
     public function openBlogCursor(): Cursor
     {
-        return $this->db->con()->openCursor($this->prefix . self::BLOG_TABLE_NAME);
+        return $this->core->db()->con()->openCursor($this->prefix . self::BLOG_TABLE_NAME);
     }
 
     public function openPostCursor(): Cursor
     {
-        return $this->db->con()->openCursor($this->prefix . self::POST_TABLE_NAME);
+        return $this->core->db()->con()->openCursor($this->prefix . self::POST_TABLE_NAME);
     }
 
     public function openCommentCursor(): Cursor
     {
-        return $this->db->con()->openCursor($this->prefix . self::COMMENT_TABLE_NAME);
+        return $this->core->db()->con()->openCursor($this->prefix . self::COMMENT_TABLE_NAME);
     }
 
     public function isDefined(): bool
     {
-        return $this->status !== App::status()->blog()::UNDEFINED;
+        return $this->status !== $this->core->status()->blog()::UNDEFINED;
     }
 
     ///@}
@@ -359,13 +333,13 @@ class Blog implements BlogInterface
 
     public function getJsJQuery(): string
     {
-        $version = $this->settings->system->jquery_version;
+        $version = $this->settings()->system->jquery_version;
         if ($version == '') {
             // Version not set, use default one
-            $version = $this->config->defaultJQuery(); // defined in src/App.php
-        } elseif ((!$this->settings->system->jquery_allow_old_version) && version_compare($version, $this->config->defaultJQuery(), '<')) {
+            $version = $this->core->config()->defaultJQuery(); // defined in src/App.php
+        } elseif ((!$this->settings()->system->jquery_allow_old_version) && version_compare($version, $this->core->config()->defaultJQuery(), '<')) {
             // Use the blog defined version only if more recent than default
-            $version = $this->config->defaultJQuery(); // defined in src/App.php
+            $version = $this->core->config()->defaultJQuery(); // defined in src/App.php
         }
 
         return 'jquery/' . $version;
@@ -403,23 +377,23 @@ class Blog implements BlogInterface
 
     public function getPostStatus(int $status): string
     {
-        $this->deprecated->set('App::status()->post()->name($status)', '2.33');
+        $this->core->deprecated()->set('$this->core->status()->post()->name($status)', '2.33');
 
-        return App::status()->post()->name($status); // default to unpublished
+        return $this->core->status()->post()->name($status); // default to unpublished
     }
 
     public function getAllPostStatus(): array
     {
-        $this->deprecated->set('App::status()->post()->statuses()', '2.33');
+        $this->core->deprecated()->set('$this->core->status()->post()->statuses()', '2.33');
 
-        return App::status()->post()->statuses();
+        return $this->core->status()->post()->statuses();
     }
 
     public function getAllCommentStatus(): array
     {
-        $this->deprecated->set('App::status()->comment()->statuses()', '2.33');
+        $this->core->deprecated()->set('$this->core->status()->comment()->statuses()', '2.33');
 
-        return App::status()->comment()->statuses();
+        return $this->core->status()->comment()->statuses();
     }
 
     public function withoutPassword(?bool $value = null): bool
@@ -444,7 +418,7 @@ class Blog implements BlogInterface
         $sql->update($cur);
 
         # --BEHAVIOR-- coreBlogAfterTriggerBlog -- Cursor
-        $this->behavior->callBehavior('coreBlogAfterTriggerBlog', $cur);
+        $this->core->behavior()->callBehavior('coreBlogAfterTriggerBlog', $cur);
     }
 
     public function triggerComment(int $id, bool $del = false): void
@@ -487,7 +461,7 @@ class Blog implements BlogInterface
                 'comment_trackback',
             ])
             ->from($this->prefix . self::COMMENT_TABLE_NAME)
-            ->where('comment_status > ' . App::status()->comment()->threshold())
+            ->where('comment_status > ' . $this->core->status()->comment()->threshold())
             ->and('post_id' . $sql->in($affected_posts))
             ->group([
                 'post_id',
@@ -526,7 +500,7 @@ class Blog implements BlogInterface
         }
 
         # --BEHAVIOR-- coreBlogAfterTriggerComments -- Array, Array
-        $this->behavior->callBehavior('coreBlogAfterTriggerComments', $comments_ids, $affected_posts);
+        $this->core->behavior()->callBehavior('coreBlogAfterTriggerComments', $comments_ids, $affected_posts);
     }
     ///@}
 
@@ -550,7 +524,7 @@ class Blog implements BlogInterface
         if (isset($params['without_empty'])) {
             $without_empty = (bool) $params['without_empty'];
         } else {
-            $without_empty = !$this->auth->userID(); // Get all categories if in admin display
+            $without_empty = !$this->core->auth()->userID(); // Get all categories if in admin display
         }
 
         $start = isset($params['start']) ? (int) $params['start'] : 0;
@@ -715,8 +689,8 @@ class Blog implements BlogInterface
 
     public function addCategory(Cursor $cur, int $parent = 0): int
     {
-        if (!$this->auth->check($this->auth->makePermissions([
-            $this->auth::PERMISSION_CATEGORIES,
+        if (!$this->core->auth()->check($this->core->auth()->makePermissions([
+            $this->core->auth()::PERMISSION_CATEGORIES,
         ]), $this->id)) {
             throw new UnauthorizedException(__('You are not allowed to add categories'));
         }
@@ -739,7 +713,7 @@ class Blog implements BlogInterface
         $cur->blog_id = $this->id;
 
         # --BEHAVIOR-- coreBeforeCategoryCreate -- BlogInterface, Cursor
-        $this->behavior->callBehavior('coreBeforeCategoryCreate', $this, $cur);
+        $this->core->behavior()->callBehavior('coreBeforeCategoryCreate', $this, $cur);
 
         $id = $this->categories()->addNode($cur, $parent);
 
@@ -751,7 +725,7 @@ class Blog implements BlogInterface
         }
 
         # --BEHAVIOR-- coreAfterCategoryCreate -- BlogInterface, Cursor
-        $this->behavior->callBehavior('coreAfterCategoryCreate', $this, $cur);
+        $this->core->behavior()->callBehavior('coreAfterCategoryCreate', $this, $cur);
         $this->triggerBlog();
 
         return $cur->cat_id;
@@ -759,8 +733,8 @@ class Blog implements BlogInterface
 
     public function updCategory(int $id, Cursor $cur): void
     {
-        if (!$this->auth->check($this->auth->makePermissions([
-            $this->auth::PERMISSION_CATEGORIES,
+        if (!$this->core->auth()->check($this->core->auth()->makePermissions([
+            $this->core->auth()::PERMISSION_CATEGORIES,
         ]), $this->id)) {
             throw new UnauthorizedException(__('You are not allowed to update categories'));
         }
@@ -781,7 +755,7 @@ class Blog implements BlogInterface
         $this->fillCategoryCursor($cur, $id);
 
         # --BEHAVIOR-- coreBeforeCategoryUpdate -- BlogInterface, Cursor
-        $this->behavior->callBehavior('coreBeforeCategoryUpdate', $this, $cur);
+        $this->core->behavior()->callBehavior('coreBeforeCategoryUpdate', $this, $cur);
 
         $sql = new UpdateStatement();
         $sql
@@ -791,7 +765,7 @@ class Blog implements BlogInterface
         $sql->update($cur);
 
         # --BEHAVIOR-- coreAfterCategoryUpdate -- BlogInterface, Cursor
-        $this->behavior->callBehavior('coreAfterCategoryUpdate', $this, $cur);
+        $this->core->behavior()->callBehavior('coreAfterCategoryUpdate', $this, $cur);
 
         $this->triggerBlog();
     }
@@ -816,8 +790,8 @@ class Blog implements BlogInterface
 
     public function delCategory(int $id): void
     {
-        if (!$this->auth->check($this->auth->makePermissions([
-            $this->auth::PERMISSION_CATEGORIES,
+        if (!$this->core->auth()->check($this->core->auth()->makePermissions([
+            $this->core->auth()::PERMISSION_CATEGORIES,
         ]), $this->id)) {
             throw new UnauthorizedException(__('You are not allowed to delete categories'));
         }
@@ -842,8 +816,8 @@ class Blog implements BlogInterface
 
     public function resetCategoriesOrder(): void
     {
-        if (!$this->auth->check($this->auth->makePermissions([
-            $this->auth::PERMISSION_CATEGORIES,
+        if (!$this->core->auth()->check($this->core->auth()->makePermissions([
+            $this->core->auth()::PERMISSION_CATEGORIES,
         ]), $this->id)) {
             throw new UnauthorizedException(__('You are not allowed to reset categories order'));
         }
@@ -950,15 +924,15 @@ class Blog implements BlogInterface
 
         $title = $cur->cat_title;
         # --BEHAVIOR-- coreContentFilter -- string, array<int, array<int, string>> -- since 2.34
-        $this->behavior->callBehavior('coreContentFilter', 'category', [
+        $this->core->behavior()->callBehavior('coreContentFilter', 'category', [
             [&$title, 'text'],
         ]);
         $cur->cat_title = $title;
 
         if ($cur->cat_desc !== null) {
-            $description = $this->filter->HTMLfilter($cur->cat_desc);
+            $description = $this->core->filter()->HTMLfilter($cur->cat_desc);
             # --BEHAVIOR-- coreContentFilter -- string, array<int, array<int, string>> -- since 2.34
-            $this->behavior->callBehavior('coreContentFilter', 'category', [
+            $this->core->behavior()->callBehavior('coreContentFilter', 'category', [
                 [&$description, 'html'],
             ]);
             $cur->cat_desc = $description;
@@ -975,7 +949,7 @@ class Blog implements BlogInterface
         # --BEHAVIOR-- coreBlogBeforeGetPosts
         $params = $params instanceof ArrayObject ? $params : new ArrayObject($params);
         # --BEHAVIOR-- coreBlogBeforeGetPosts -- ArrayObject
-        $this->behavior->callBehavior('coreBlogBeforeGetPosts', $params);
+        $this->core->behavior()->callBehavior('coreBlogBeforeGetPosts', $params);
 
         $sql = $ext_sql instanceof SelectStatement ? clone $ext_sql : new SelectStatement();
 
@@ -1035,7 +1009,7 @@ class Blog implements BlogInterface
             ->join(
                 (new JoinStatement())
                     ->inner()
-                    ->from($sql->as($this->prefix . $this->auth::USER_TABLE_NAME, 'U'))
+                    ->from($sql->as($this->prefix . $this->core->auth()::USER_TABLE_NAME, 'U'))
                     ->on('U.user_id = P.user_id')
                     ->statement()
             )
@@ -1154,9 +1128,9 @@ class Blog implements BlogInterface
 
             if ($words !== []) {
                 # --BEHAVIOR-- corePostSearch
-                if ($this->behavior->hasBehavior('corePostSearch') || $this->behavior->hasBehavior('corePostSearchV2')) {
+                if ($this->core->behavior()->hasBehavior('corePostSearch') || $this->core->behavior()->hasBehavior('corePostSearchV2')) {
                     # --BEHAVIOR-- corePostSearchV2 -- array<int,mixed>
-                    $this->behavior->callBehavior('corePostSearchV2', [&$words, &$params, $sql]);
+                    $this->core->behavior()->callBehavior('corePostSearchV2', [&$words, &$params, $sql]);
                 }
 
                 foreach ($words as $i => $w) {
@@ -1169,7 +1143,7 @@ class Blog implements BlogInterface
         if (isset($params['media'])) {
             $sqlExists = new SelectStatement();
             $sqlExists
-                ->from($sql->as($this->prefix . $this->postmedia::POST_MEDIA_TABLE_NAME, 'M'))
+                ->from($sql->as($this->prefix . $this->core->postMedia()::POST_MEDIA_TABLE_NAME, 'M'))
                 ->column('M.post_id')
                 ->where('M.post_id = P.post_id');
 
@@ -1202,11 +1176,11 @@ class Blog implements BlogInterface
             $rs->extend(Post::class);
 
             # --BEHAVIOR-- coreBlogGetPosts -- MetaRecord
-            $this->behavior->callBehavior('coreBlogGetPosts', $rs);
+            $this->core->behavior()->callBehavior('coreBlogGetPosts', $rs);
 
             # --BEHAVIOR-- coreBlogAfterGetPosts -- MetaRecord, ArrayObject
             $alt = new ArrayObject(['rs' => null, 'params' => $params, 'count_only' => $count_only]);
-            $this->behavior->callBehavior('coreBlogAfterGetPosts', $rs, $alt);
+            $this->core->behavior()->callBehavior('coreBlogAfterGetPosts', $rs, $alt);
             if ($alt['rs']) {
                 if ($alt['rs'] instanceof Record) { // @phpstan-ignore-line
                     $rs = new MetaRecord($alt['rs']);
@@ -1236,8 +1210,8 @@ class Blog implements BlogInterface
         $params['limit']     = 1;
         $params['order']     = 'post_dt ' . $order . ', P.post_id ' . $order;
         $params['sql']       = 'AND ( ' .
-            "   (post_dt = '" . $this->db->con()->escapeStr($dt) . "' AND P.post_id " . $sign . ' ' . $post_id . ') ' .
-            '   OR post_dt ' . $sign . " '" . $this->db->con()->escapeStr($dt) . "' " .
+            "   (post_dt = '" . $this->core->db()->con()->escapeStr($dt) . "' AND P.post_id " . $sign . ' ' . $post_id . ') ' .
+            '   OR post_dt ' . $sign . " '" . $this->core->db()->con()->escapeStr($dt) . "' " .
             ') ';
 
         if ($restrict_to_category) {
@@ -1245,7 +1219,7 @@ class Blog implements BlogInterface
         }
 
         if ($restrict_to_lang) {
-            $params['sql'] .= $post->post_lang ? 'AND P.post_lang = \'' . $this->db->con()->escapeStr($post->post_lang) . '\' ' : 'AND P.post_lang IS NULL ';
+            $params['sql'] .= $post->post_lang ? 'AND P.post_lang = \'' . $this->core->db()->con()->escapeStr($post->post_lang) . '\' ' : 'AND P.post_lang IS NULL ';
         }
 
         $rs = $this->getPosts($params);
@@ -1388,14 +1362,14 @@ class Blog implements BlogInterface
 
     public function addPost(Cursor $cur): int
     {
-        if (!$this->auth->check($this->auth->makePermissions([
-            $this->auth::PERMISSION_USAGE,
-            $this->auth::PERMISSION_CONTENT_ADMIN,
+        if (!$this->core->auth()->check($this->core->auth()->makePermissions([
+            $this->core->auth()::PERMISSION_USAGE,
+            $this->core->auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
             throw new UnauthorizedException(__('You are not allowed to create an entry'));
         }
 
-        $this->db->con()->writeLock($this->prefix . self::POST_TABLE_NAME);
+        $this->core->db()->con()->writeLock($this->prefix . self::POST_TABLE_NAME);
 
         try {
             # Get ID
@@ -1409,7 +1383,7 @@ class Blog implements BlogInterface
             $cur->blog_id     = $this->id;
             $cur->post_creadt = date('Y-m-d H:i:s');
             $cur->post_upddt  = date('Y-m-d H:i:s');
-            $cur->post_tz     = $this->auth->getInfo('user_tz');
+            $cur->post_tz     = $this->core->auth()->getInfo('user_tz');
 
             # Post excerpt and content
             $this->getPostContent($cur, $cur->post_id);
@@ -1418,26 +1392,26 @@ class Blog implements BlogInterface
 
             $cur->post_url = $this->getPostURL($cur->post_url, $cur->post_dt, $cur->post_title, $cur->post_id);
 
-            if (!$this->auth->check($this->auth->makePermissions([
-                $this->auth::PERMISSION_PUBLISH,
-                $this->auth::PERMISSION_CONTENT_ADMIN,
+            if (!$this->core->auth()->check($this->core->auth()->makePermissions([
+                $this->core->auth()::PERMISSION_PUBLISH,
+                $this->core->auth()::PERMISSION_CONTENT_ADMIN,
             ]), $this->id)) {
-                $cur->post_status = App::status()->post()::PENDING;
+                $cur->post_status = $this->core->status()->post()::PENDING;
             }
 
             # --BEHAVIOR-- coreBeforePostCreate -- BlogInterface, Cursor
-            $this->behavior->callBehavior('coreBeforePostCreate', $this, $cur);
+            $this->core->behavior()->callBehavior('coreBeforePostCreate', $this, $cur);
 
             $cur->insert();
-            $this->db->con()->unlock();
+            $this->core->db()->con()->unlock();
         } catch (Throwable $e) {
-            $this->db->con()->unlock();
+            $this->core->db()->con()->unlock();
 
             throw $e;
         }
 
         # --BEHAVIOR-- coreAfterPostCreate -- BlogInterface, Cursor
-        $this->behavior->callBehavior('coreAfterPostCreate', $this, $cur);
+        $this->core->behavior()->callBehavior('coreAfterPostCreate', $this, $cur);
 
         $this->triggerBlog();
 
@@ -1448,9 +1422,9 @@ class Blog implements BlogInterface
 
     public function updPost($id, Cursor $cur): void
     {
-        if (!$this->auth->check($this->auth->makePermissions([
-            $this->auth::PERMISSION_USAGE,
-            $this->auth::PERMISSION_CONTENT_ADMIN,
+        if (!$this->core->auth()->check($this->core->auth()->makePermissions([
+            $this->core->auth()::PERMISSION_USAGE,
+            $this->core->auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
             throw new UnauthorizedException(__('You are not allowed to update entries'));
         }
@@ -1470,9 +1444,9 @@ class Blog implements BlogInterface
             $cur->post_url = $this->getPostURL($cur->post_url, $cur->post_dt, $cur->post_title, $id);
         }
 
-        if (!$this->auth->check($this->auth->makePermissions([
-            $this->auth::PERMISSION_PUBLISH,
-            $this->auth::PERMISSION_CONTENT_ADMIN,
+        if (!$this->core->auth()->check($this->core->auth()->makePermissions([
+            $this->core->auth()::PERMISSION_PUBLISH,
+            $this->core->auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
             $cur->unsetField('post_status');
         }
@@ -1480,15 +1454,15 @@ class Blog implements BlogInterface
         $cur->post_upddt = date('Y-m-d H:i:s');
 
         #If user is only "usage", we need to check the post's owner
-        if (!$this->auth->check($this->auth->makePermissions([
-            $this->auth::PERMISSION_CONTENT_ADMIN,
+        if (!$this->core->auth()->check($this->core->auth()->makePermissions([
+            $this->core->auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
             $sql = new SelectStatement();
             $sql
                 ->column('post_id')
                 ->from($this->prefix . self::POST_TABLE_NAME)
                 ->where('post_id = ' . $id)
-                ->and('user_id = ' . $sql->quote((string) $this->auth->userID()));
+                ->and('user_id = ' . $sql->quote((string) $this->core->auth()->userID()));
 
             $rs = $sql->select();
             if (!$rs instanceof MetaRecord || $rs->isEmpty()) {
@@ -1497,12 +1471,12 @@ class Blog implements BlogInterface
         }
 
         # --BEHAVIOR-- coreBeforePostUpdate -- BlogInterface, Cursor
-        $this->behavior->callBehavior('coreBeforePostUpdate', $this, $cur);
+        $this->core->behavior()->callBehavior('coreBeforePostUpdate', $this, $cur);
 
         $cur->update('WHERE post_id = ' . $id . ' ');
 
         # --BEHAVIOR-- coreAfterPostUpdate -- BlogInterface, Cursor
-        $this->behavior->callBehavior('coreAfterPostUpdate', $this, $cur);
+        $this->core->behavior()->callBehavior('coreAfterPostUpdate', $this, $cur);
 
         $this->triggerBlog();
 
@@ -1516,9 +1490,9 @@ class Blog implements BlogInterface
 
     public function updPostsStatus($ids, $status): void
     {
-        if (!$this->auth->check($this->auth->makePermissions([
-            $this->auth::PERMISSION_PUBLISH,
-            $this->auth::PERMISSION_CONTENT_ADMIN,
+        if (!$this->core->auth()->check($this->core->auth()->makePermissions([
+            $this->core->auth()::PERMISSION_PUBLISH,
+            $this->core->auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
             throw new UnauthorizedException(__('You are not allowed to change this entry status'));
         }
@@ -1532,10 +1506,10 @@ class Blog implements BlogInterface
             ->and('post_id' . $sql->in($posts_ids));
 
         #If user can only publish, we need to check the post's owner
-        if (!$this->auth->check($this->auth->makePermissions([
-            $this->auth::PERMISSION_CONTENT_ADMIN,
+        if (!$this->core->auth()->check($this->core->auth()->makePermissions([
+            $this->core->auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            $sql->and('user_id = ' . $sql->quote((string) $this->auth->userID()));
+            $sql->and('user_id = ' . $sql->quote((string) $this->core->auth()->userID()));
         }
 
         $cur = $this->openPostCursor();
@@ -1551,9 +1525,9 @@ class Blog implements BlogInterface
 
     public function updPostsFirstPub($ids, int $status): void
     {
-        if (!$this->auth->check($this->auth->makePermissions([
-            $this->auth::PERMISSION_PUBLISH,
-            $this->auth::PERMISSION_CONTENT_ADMIN,
+        if (!$this->core->auth()->check($this->core->auth()->makePermissions([
+            $this->core->auth()::PERMISSION_PUBLISH,
+            $this->core->auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
             throw new UnauthorizedException(__('You are not allowed to change this entry status'));
         }
@@ -1566,10 +1540,10 @@ class Blog implements BlogInterface
             ->and('post_id' . $sql->in($posts_ids));
 
         #If user can only publish, we need to check the post's owner
-        if (!$this->auth->check($this->auth->makePermissions([
-            $this->auth::PERMISSION_CONTENT_ADMIN,
+        if (!$this->core->auth()->check($this->core->auth()->makePermissions([
+            $this->core->auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            $sql->and('user_id = ' . $sql->quote((string) $this->auth->userID()));
+            $sql->and('user_id = ' . $sql->quote((string) $this->core->auth()->userID()));
         }
 
         $cur = $this->openPostCursor();
@@ -1596,9 +1570,9 @@ class Blog implements BlogInterface
 
     public function updPostsSelected($ids, $selected): void
     {
-        if (!$this->auth->check($this->auth->makePermissions([
-            $this->auth::PERMISSION_USAGE,
-            $this->auth::PERMISSION_CONTENT_ADMIN,
+        if (!$this->core->auth()->check($this->core->auth()->makePermissions([
+            $this->core->auth()::PERMISSION_USAGE,
+            $this->core->auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
             throw new UnauthorizedException(__('You are not allowed to change this entry category'));
         }
@@ -1612,10 +1586,10 @@ class Blog implements BlogInterface
             ->and('post_id' . $sql->in($posts_ids));
 
         # If user is only usage, we need to check the post's owner
-        if (!$this->auth->check($this->auth->makePermissions([
-            $this->auth::PERMISSION_CONTENT_ADMIN,
+        if (!$this->core->auth()->check($this->core->auth()->makePermissions([
+            $this->core->auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            $sql->and('user_id = ' . $sql->quote((string) $this->auth->userID()));
+            $sql->and('user_id = ' . $sql->quote((string) $this->core->auth()->userID()));
         }
 
         $cur = $this->openPostCursor();
@@ -1634,9 +1608,9 @@ class Blog implements BlogInterface
 
     public function updPostsCategory($ids, $cat_id): void
     {
-        if (!$this->auth->check($this->auth->makePermissions([
-            $this->auth::PERMISSION_USAGE,
-            $this->auth::PERMISSION_CONTENT_ADMIN,
+        if (!$this->core->auth()->check($this->core->auth()->makePermissions([
+            $this->core->auth()::PERMISSION_USAGE,
+            $this->core->auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
             throw new UnauthorizedException(__('You are not allowed to change this entry category'));
         }
@@ -1650,10 +1624,10 @@ class Blog implements BlogInterface
             ->and('post_id' . $sql->in($posts_ids));
 
         # If user is only usage, we need to check the post's owner
-        if (!$this->auth->check($this->auth->makePermissions([
-            $this->auth::PERMISSION_CONTENT_ADMIN,
+        if (!$this->core->auth()->check($this->core->auth()->makePermissions([
+            $this->core->auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            $sql->and('user_id = ' . $sql->quote((string) $this->auth->userID()));
+            $sql->and('user_id = ' . $sql->quote((string) $this->core->auth()->userID()));
         }
 
         $cur = $this->openPostCursor();
@@ -1667,9 +1641,9 @@ class Blog implements BlogInterface
 
     public function changePostsCategory($old_cat_id, $new_cat_id): void
     {
-        if (!$this->auth->check($this->auth->makePermissions([
-            $this->auth::PERMISSION_CATEGORIES,
-            $this->auth::PERMISSION_CONTENT_ADMIN,
+        if (!$this->core->auth()->check($this->core->auth()->makePermissions([
+            $this->core->auth()::PERMISSION_CATEGORIES,
+            $this->core->auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
             throw new UnauthorizedException(__('You are not allowed to change entries category'));
         }
@@ -1703,9 +1677,9 @@ class Blog implements BlogInterface
 
     public function delPosts($ids): void
     {
-        if (!$this->auth->check($this->auth->makePermissions([
-            $this->auth::PERMISSION_DELETE,
-            $this->auth::PERMISSION_CONTENT_ADMIN,
+        if (!$this->core->auth()->check($this->core->auth()->makePermissions([
+            $this->core->auth()::PERMISSION_DELETE,
+            $this->core->auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
             throw new UnauthorizedException(__('You are not allowed to delete entries'));
         }
@@ -1723,10 +1697,10 @@ class Blog implements BlogInterface
             ->and('post_id' . $sql->in($posts_ids));
 
         #If user can only delete, we need to check the post's owner
-        if (!$this->auth->check($this->auth->makePermissions([
-            $this->auth::PERMISSION_CONTENT_ADMIN,
+        if (!$this->core->auth()->check($this->core->auth()->makePermissions([
+            $this->core->auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            $sql->and('user_id = ' . $sql->quote((string) $this->auth->userID()));
+            $sql->and('user_id = ' . $sql->quote((string) $this->core->auth()->userID()));
         }
 
         $sql->delete();
@@ -1743,7 +1717,7 @@ class Blog implements BlogInterface
                 'post_tz',
             ])
             ->from($this->prefix . self::POST_TABLE_NAME)
-            ->where('post_status = ' . App::status()->post()::SCHEDULED)
+            ->where('post_status = ' . $this->core->status()->post()::SCHEDULED)
             ->and('blog_id = ' . $sql->quote($this->id));
 
         $rs = $sql->select();
@@ -1769,12 +1743,12 @@ class Blog implements BlogInterface
         }
         if (count($to_change) > 0) {
             # --BEHAVIOR-- coreBeforeScheduledEntriesPublish -- BlogInterface, ArrayObject<int, int>
-            $this->behavior->callBehavior('coreBeforeScheduledEntriesPublish', $this, $to_change);
+            $this->core->behavior()->callBehavior('coreBeforeScheduledEntriesPublish', $this, $to_change);
 
             $sql = new UpdateStatement();
             $sql
                 ->ref($this->prefix . self::POST_TABLE_NAME)
-                ->set('post_status = ' . App::status()->post()::PUBLISHED)
+                ->set('post_status = ' . $this->core->status()->post()::PUBLISHED)
                 ->where('blog_id = ' . $sql->quote($this->id))
                 ->and('post_id' . $sql->in([...$to_change]));
 
@@ -1782,7 +1756,7 @@ class Blog implements BlogInterface
             $this->triggerBlog();
 
             # --BEHAVIOR-- coreAfterScheduledEntriesPublish -- BlogInterface, ArrayObject<int, int>
-            $this->behavior->callBehavior('coreAfterScheduledEntriesPublish', $this, $to_change);
+            $this->core->behavior()->callBehavior('coreAfterScheduledEntriesPublish', $this, $to_change);
 
             $this->firstPublicationEntries($to_change);
         }
@@ -1792,7 +1766,7 @@ class Blog implements BlogInterface
     {
         $posts = $this->getPosts([
             'post_id'       => $this->cleanIds($ids),
-            'post_status'   => App::status()->post()::PUBLISHED,
+            'post_status'   => $this->core->status()->post()::PUBLISHED,
             'post_firstpub' => 0,
         ]);
 
@@ -1812,7 +1786,7 @@ class Blog implements BlogInterface
             $sql->update();
 
             # --BEHAVIOR-- coreFirstPublicationEntries -- BlogInterface, ArrayObject
-            $this->behavior->callBehavior('coreFirstPublicationEntries', $this, $to_change);
+            $this->core->behavior()->callBehavior('coreFirstPublicationEntries', $this, $to_change);
         }
     }
 
@@ -1829,7 +1803,7 @@ class Blog implements BlogInterface
             ])
             ->from([
                 $sql->as($this->prefix . self::POST_TABLE_NAME, 'P'),
-                $sql->as($this->prefix . $this->auth::USER_TABLE_NAME, 'U'),
+                $sql->as($this->prefix . $this->core->auth()::USER_TABLE_NAME, 'U'),
             ])
             ->where('P.user_id = U.user_id')
             ->and('blog_id = ' . $sql->quote($this->id))
@@ -1877,7 +1851,7 @@ class Blog implements BlogInterface
                 if ($field === 'cat_id') {
                     $queries[$id] = preg_match('/^null$/i', (string) $id) ? 'P.cat_id IS NULL' : 'P.cat_id = ' . (int) $id;
                 } else {
-                    $queries[$id] = "C.cat_url = '" . $this->db->con()->escapeStr((string) $id) . "' ";
+                    $queries[$id] = "C.cat_url = '" . $this->core->db()->con()->escapeStr((string) $id) . "' ";
                 }
             }
         }
@@ -1953,7 +1927,7 @@ class Blog implements BlogInterface
         }
 
         if ($cur->post_dt == '') {
-            $offset       = Date::getTimeOffset($this->auth->getInfo('user_tz'));
+            $offset       = Date::getTimeOffset($this->core->auth()->getInfo('user_tz'));
             $now          = time() + $offset;
             $cur->post_dt = date('Y-m-d H:i:00', $now);
         }
@@ -2016,40 +1990,40 @@ class Blog implements BlogInterface
     public function setPostContent($post_id, $format, $lang, &$excerpt, &$excerpt_xhtml, &$content, &$content_xhtml): void
     {
         if ($format == 'wiki') {
-            $this->filter->initWikiPost();
-            if ($this->filter->wiki() instanceof WikiToHtml) {
-                $this->filter->wiki()->setOpt('note_prefix', 'pnote-' . $post_id);
-                $tag = match ($this->settings->system->note_title_tag) {
+            $this->core->filter()->initWikiPost();
+            if ($this->core->filter()->wiki() instanceof WikiToHtml) {
+                $this->core->filter()->wiki()->setOpt('note_prefix', 'pnote-' . $post_id);
+                $tag = match ($this->settings()->system->note_title_tag) {
                     1       => 'h3',
                     2       => 'p',
                     default => 'h4',
                 };
-                $this->filter->wiki()->setOpt('note_str', '<div class="footnotes"><' . $tag . ' class="footnotes-title">' .
+                $this->core->filter()->wiki()->setOpt('note_str', '<div class="footnotes"><' . $tag . ' class="footnotes-title">' .
                     __('Notes') . '</' . $tag . '>%s</div>');
-                $this->filter->wiki()->setOpt('note_str_single', '<div class="footnotes"><' . $tag . ' class="footnotes-title">' .
+                $this->core->filter()->wiki()->setOpt('note_str_single', '<div class="footnotes"><' . $tag . ' class="footnotes-title">' .
                     __('Note') . '</' . $tag . '>%s</div>');
                 if (str_starts_with($lang, 'fr')) {
-                    $this->filter->wiki()->setOpt('active_fr_syntax', 1);
+                    $this->core->filter()->wiki()->setOpt('active_fr_syntax', 1);
                 }
             }
         }
 
         if ($excerpt) {
-            $excerpt_xhtml = $this->formater->callEditorFormater('dcLegacyEditor', $format, $excerpt);
-            $excerpt_xhtml = $this->filter->HTMLfilter($excerpt_xhtml);
+            $excerpt_xhtml = $this->core->formater()->callEditorFormater('dcLegacyEditor', $format, $excerpt);
+            $excerpt_xhtml = $this->core->filter()->HTMLfilter($excerpt_xhtml);
         } else {
             $excerpt_xhtml = '';
         }
 
         if ($content) {
-            $content_xhtml = $this->formater->callEditorFormater('dcLegacyEditor', $format, $content);
-            $content_xhtml = $this->filter->HTMLfilter($content_xhtml);
+            $content_xhtml = $this->core->formater()->callEditorFormater('dcLegacyEditor', $format, $content);
+            $content_xhtml = $this->core->filter()->HTMLfilter($content_xhtml);
         } else {
             $content_xhtml = '';
         }
 
         # --BEHAVIOR-- coreAfterPostContentFormat -- arra<string,string> -- deprecated since 2.34
-        $this->behavior->callBehavior('coreAfterPostContentFormat', [
+        $this->core->behavior()->callBehavior('coreAfterPostContentFormat', [
             'excerpt'       => &$excerpt,
             'content'       => &$content,
             'excerpt_xhtml' => &$excerpt_xhtml,
@@ -2057,7 +2031,7 @@ class Blog implements BlogInterface
         ]);
 
         # --BEHAVIOR-- coreContentFilter -- string, array<int, array<int, string>> -- since 2.34
-        $this->behavior->callBehavior('coreContentFilter', 'post', [
+        $this->core->behavior()->callBehavior('coreContentFilter', 'post', [
             [&$excerpt, $format],
             [&$content, $format],
             [&$excerpt_xhtml, 'html'],
@@ -2084,7 +2058,7 @@ class Blog implements BlogInterface
             $url = (string) str_replace(    // @phpstan-ignore-line
                 array_keys($url_patterns),
                 array_values($url_patterns),    // @phpstan-ignore-line
-                $this->settings->system->post_url_format
+                $this->settings()->system->post_url_format
             );
         } else {
             $url = Text::tidyURL($url);
@@ -2093,7 +2067,7 @@ class Blog implements BlogInterface
         # --BEHAVIOR-- coreGetPostURL
         $obj      = new stdClass();
         $obj->url = $url;
-        App::behavior()->callBehavior('coreGetPostURL', $obj);
+        $this->core->behavior()->callBehavior('coreGetPostURL', $obj);
         $url = $obj->url;
 
         # Let's check if URL is taken...
@@ -2149,7 +2123,7 @@ class Blog implements BlogInterface
         $copy = clone $params;
 
         # --BEHAVIOR-- coreBlogBeforeGetPostsAddingParameters -- ArrayObject
-        $this->behavior->callBehavior('coreBlogBeforeGetPostsAddingParameters', $copy);
+        $this->core->behavior()->callBehavior('coreBlogBeforeGetPostsAddingParameters', $copy);
 
         # Allowed changes to limited fields.
         foreach (['post_type', 'post_status', 'comment_status'] as $type) {
@@ -2178,23 +2152,23 @@ class Blog implements BlogInterface
             }
         }
 
-        if (!$this->auth->check($this->auth->makePermissions([
-            $this->auth::PERMISSION_CONTENT_ADMIN,
+        if (!$this->core->auth()->check($this->core->auth()->makePermissions([
+            $this->core->auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id) || // Check if in frontend context, excluding preview in backend
-            (App::task()->checkContext('FRONTEND') && !App::frontend()->context()->preview)) {
+            ($this->core->task()->checkContext('FRONTEND') && !$this->core->frontend()->context()->preview)) {
             $and = [];
             if ($with_comment) {
-                $and[] = 'comment_status > ' . App::status()->comment()->threshold();
+                $and[] = 'comment_status > ' . $this->core->status()->comment()->threshold();
             }
             # limit to PUBLISHED by default
-            $params['post_status'][] = App::status()->post()::PUBLISHED;
+            $params['post_status'][] = $this->core->status()->post()::PUBLISHED;
             $and[]                   = 'post_status ' . $sql->in($params['post_status']);
             if ($this->without_password) {
                 $and[] = 'post_password IS NULL';
             }
             $or = [$sql->andGroup($and)];
-            if ($this->auth->userID() && !App::task()->checkContext('FRONTEND')) {
-                $or[] = 'P.user_id = ' . $sql->quote($this->auth->userID());
+            if ($this->core->auth()->userID() && !$this->core->task()->checkContext('FRONTEND')) {
+                $or[] = 'P.user_id = ' . $sql->quote($this->core->auth()->userID());
             }
             $sql->and($sql->orGroup($or));
         } elseif (!empty($params['post_status'])) {
@@ -2259,7 +2233,7 @@ class Blog implements BlogInterface
             ->join(
                 (new JoinStatement())
                     ->inner()
-                    ->from($sql->as($this->prefix . $this->auth::USER_TABLE_NAME, 'U'))
+                    ->from($sql->as($this->prefix . $this->core->auth()::USER_TABLE_NAME, 'U'))
                     ->on('P.user_id = U.user_id')
                     ->statement()
             );
@@ -2339,9 +2313,9 @@ class Blog implements BlogInterface
 
             if ($words !== []) {
                 # --BEHAVIOR coreCommentSearch
-                if ($this->behavior->hasBehavior('coreCommentSearch') || $this->behavior->hasBehavior('coreCommentSearchV2')) {
+                if ($this->core->behavior()->hasBehavior('coreCommentSearch') || $this->core->behavior()->hasBehavior('coreCommentSearchV2')) {
                     # --BEHAVIOR-- coreCommentSearchV2 -- array<int,mixed>
-                    $this->behavior->callBehavior('coreCommentSearchV2', [&$words, &$sql, &$params]);
+                    $this->core->behavior()->callBehavior('coreCommentSearchV2', [&$words, &$sql, &$params]);
                 }
 
                 foreach ($words as $i => $w) {
@@ -2372,7 +2346,7 @@ class Blog implements BlogInterface
             $rs->extend(Comment::class);
 
             # --BEHAVIOR-- coreBlogGetComments -- MetaRecord
-            $this->behavior->callBehavior('coreBlogGetComments', $rs);
+            $this->core->behavior()->callBehavior('coreBlogGetComments', $rs);
         }
 
         return $rs ?? MetaRecord::newFromArray([]);
@@ -2385,7 +2359,7 @@ class Blog implements BlogInterface
      */
     public function addComment(Cursor $cur): int
     {
-        $this->db->con()->writeLock($this->prefix . self::COMMENT_TABLE_NAME);
+        $this->core->db()->con()->writeLock($this->prefix . self::COMMENT_TABLE_NAME);
 
         try {
             # Get ID
@@ -2399,9 +2373,9 @@ class Blog implements BlogInterface
             $cur->comment_id    = $rs instanceof MetaRecord ? (int) $rs->f(0) + 1 : 1;
             $cur->comment_upddt = date('Y-m-d H:i:s');
 
-            $offset          = Date::getTimeOffset($this->settings->system->blog_timezone);
+            $offset          = Date::getTimeOffset($this->settings()->system->blog_timezone);
             $cur->comment_dt = date('Y-m-d H:i:s', time() + $offset);
-            $cur->comment_tz = $this->settings->system->blog_timezone;
+            $cur->comment_tz = $this->settings()->system->blog_timezone;
 
             $this->getCommentCursor($cur);
 
@@ -2410,11 +2384,11 @@ class Blog implements BlogInterface
             }
 
             # --BEHAVIOR-- coreBeforeCommentCreate -- BlogInterface, Cursor
-            $this->behavior->callBehavior('coreBeforeCommentCreate', $this, $cur);
+            $this->core->behavior()->callBehavior('coreBeforeCommentCreate', $this, $cur);
 
             $content = $cur->comment_content;
             # --BEHAVIOR-- coreContentFilter -- string, array<int, array<int, string>> -- since 2.34
-            $this->behavior->callBehavior(
+            $this->core->behavior()->callBehavior(
                 'coreContentFilter',
                 (bool) $cur->comment_trackback ? 'trackback' : 'comment',
                 [
@@ -2424,18 +2398,18 @@ class Blog implements BlogInterface
             $cur->comment_content = $content;
 
             $cur->insert();
-            $this->db->con()->unlock();
+            $this->core->db()->con()->unlock();
         } catch (Throwable $e) {
-            $this->db->con()->unlock();
+            $this->core->db()->con()->unlock();
 
             throw $e;
         }
 
         # --BEHAVIOR-- coreAfterCommentCreate -- BlogInterface, Cursor
-        $this->behavior->callBehavior('coreAfterCommentCreate', $this, $cur);
+        $this->core->behavior()->callBehavior('coreAfterCommentCreate', $this, $cur);
 
         $this->triggerComment($cur->comment_id);
-        if ($cur->comment_status != App::status()->comment()::JUNK) {
+        if ($cur->comment_status != $this->core->status()->comment()::JUNK) {
             $this->triggerBlog();
         }
 
@@ -2444,9 +2418,9 @@ class Blog implements BlogInterface
 
     public function updComment($id, Cursor $cur): void
     {
-        if (!$this->auth->check($this->auth->makePermissions([
-            $this->auth::PERMISSION_USAGE,
-            $this->auth::PERMISSION_CONTENT_ADMIN,
+        if (!$this->core->auth()->check($this->core->auth()->makePermissions([
+            $this->core->auth()::PERMISSION_USAGE,
+            $this->core->auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
             throw new UnauthorizedException(__('You are not allowed to update comments'));
         }
@@ -2464,9 +2438,9 @@ class Blog implements BlogInterface
         }
 
         #If user is only usage, we need to check the post's owner
-        if (!$this->auth->check($this->auth->makePermissions([
-            $this->auth::PERMISSION_CONTENT_ADMIN,
-        ]), $this->id) && $rs->user_id != $this->auth->userID()) {
+        if (!$this->core->auth()->check($this->core->auth()->makePermissions([
+            $this->core->auth()::PERMISSION_CONTENT_ADMIN,
+        ]), $this->id) && $rs->user_id != $this->core->auth()->userID()) {
             throw new UnauthorizedException(__('You are not allowed to update this comment'));
         }
 
@@ -2474,19 +2448,19 @@ class Blog implements BlogInterface
 
         $cur->comment_upddt = date('Y-m-d H:i:s');
 
-        if (!$this->auth->check($this->auth->makePermissions([
-            $this->auth::PERMISSION_PUBLISH,
-            $this->auth::PERMISSION_CONTENT_ADMIN,
+        if (!$this->core->auth()->check($this->core->auth()->makePermissions([
+            $this->core->auth()::PERMISSION_PUBLISH,
+            $this->core->auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
             $cur->unsetField('comment_status');
         }
 
         # --BEHAVIOR-- coreBeforeCommentUpdate -- BlogInterface, Cursor, MetaRecord
-        $this->behavior->callBehavior('coreBeforeCommentUpdate', $this, $cur, $rs);
+        $this->core->behavior()->callBehavior('coreBeforeCommentUpdate', $this, $cur, $rs);
 
         $content = $cur->comment_content;
         # --BEHAVIOR-- coreContentFilter -- string, array<int, array<int, string>> -- since 2.34
-        $this->behavior->callBehavior(
+        $this->core->behavior()->callBehavior(
             'coreContentFilter',
             (bool) $cur->comment_trackback ? 'trackback' : 'comment',
             [
@@ -2501,7 +2475,7 @@ class Blog implements BlogInterface
         $sql->update($cur);
 
         # --BEHAVIOR-- coreAfterCommentUpdate -- BlogInterface, Cursor, MetaRecord
-        $this->behavior->callBehavior('coreAfterCommentUpdate', $this, $cur, $rs);
+        $this->core->behavior()->callBehavior('coreAfterCommentUpdate', $this, $cur, $rs);
 
         $this->triggerComment($id);
         $this->triggerBlog();
@@ -2514,9 +2488,9 @@ class Blog implements BlogInterface
 
     public function updCommentsStatus($ids, $status): void
     {
-        if (!$this->auth->check($this->auth->makePermissions([
-            $this->auth::PERMISSION_PUBLISH,
-            $this->auth::PERMISSION_CONTENT_ADMIN,
+        if (!$this->core->auth()->check($this->core->auth()->makePermissions([
+            $this->core->auth()::PERMISSION_PUBLISH,
+            $this->core->auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
             throw new UnauthorizedException(__("You are not allowed to change this comment's status"));
         }
@@ -2535,10 +2509,10 @@ class Blog implements BlogInterface
             ->column('tp.post_id')
             ->from($sqlIn->as($this->prefix . self::POST_TABLE_NAME, 'tp'))
             ->where('tp.blog_id = ' . $sqlIn->quote($this->id));
-        if (!$this->auth->check($this->auth->makePermissions([
-            $this->auth::PERMISSION_CONTENT_ADMIN,
+        if (!$this->core->auth()->check($this->core->auth()->makePermissions([
+            $this->core->auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            $sqlIn->and('tp.user_id = ' . $sql->quote((string) $this->auth->userID()));
+            $sqlIn->and('tp.user_id = ' . $sql->quote((string) $this->core->auth()->userID()));
         }
 
         $sql->and($sql->inSelect('post_id', $sqlIn));
@@ -2555,9 +2529,9 @@ class Blog implements BlogInterface
 
     public function delComments($ids): void
     {
-        if (!$this->auth->check($this->auth->makePermissions([
-            $this->auth::PERMISSION_DELETE,
-            $this->auth::PERMISSION_CONTENT_ADMIN,
+        if (!$this->core->auth()->check($this->core->auth()->makePermissions([
+            $this->core->auth()::PERMISSION_DELETE,
+            $this->core->auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
             throw new UnauthorizedException(__('You are not allowed to delete comments'));
         }
@@ -2594,10 +2568,10 @@ class Blog implements BlogInterface
             ->column('tp.post_id')
             ->from($sqlIn->as($this->prefix . self::POST_TABLE_NAME, 'tp'))
             ->where('tp.blog_id = ' . $sqlIn->quote($this->id));
-        if (!$this->auth->check($this->auth->makePermissions([
-            $this->auth::PERMISSION_CONTENT_ADMIN,
+        if (!$this->core->auth()->check($this->core->auth()->makePermissions([
+            $this->core->auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            $sqlIn->and('tp.user_id = ' . $sql->quote((string) $this->auth->userID()));
+            $sqlIn->and('tp.user_id = ' . $sql->quote((string) $this->core->auth()->userID()));
         }
 
         $sql->and($sql->inSelect('post_id', $sqlIn));
@@ -2609,9 +2583,9 @@ class Blog implements BlogInterface
 
     public function delJunkComments(): void
     {
-        if (!$this->auth->check($this->auth->makePermissions([
-            $this->auth::PERMISSION_DELETE,
-            $this->auth::PERMISSION_CONTENT_ADMIN,
+        if (!$this->core->auth()->check($this->core->auth()->makePermissions([
+            $this->core->auth()::PERMISSION_DELETE,
+            $this->core->auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
             throw new UnauthorizedException(__('You are not allowed to delete comments'));
         }
@@ -2619,17 +2593,17 @@ class Blog implements BlogInterface
         $sql = new DeleteStatement();
         $sql
             ->from($this->prefix . self::COMMENT_TABLE_NAME)
-            ->where('comment_status = ' . App::status()->comment()::JUNK);
+            ->where('comment_status = ' . $this->core->status()->comment()::JUNK);
 
         $sqlIn = new SelectStatement();
         $sqlIn
             ->column('tp.post_id')
             ->from($sqlIn->as($this->prefix . self::POST_TABLE_NAME, 'tp'))
             ->where('tp.blog_id = ' . $sqlIn->quote($this->id));
-        if (!$this->auth->check($this->auth->makePermissions([
-            $this->auth::PERMISSION_CONTENT_ADMIN,
+        if (!$this->core->auth()->check($this->core->auth()->makePermissions([
+            $this->core->auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            $sqlIn->and('tp.user_id = ' . $sql->quote((string) $this->auth->userID()));
+            $sqlIn->and('tp.user_id = ' . $sql->quote((string) $this->core->auth()->userID()));
         }
 
         $sql->and($sql->inSelect('post_id', $sqlIn));
@@ -2668,7 +2642,7 @@ class Blog implements BlogInterface
         }
 
         if ($cur->comment_status === null) {
-            $cur->comment_status = $this->settings->system->comments_pub ? App::status()->comment()::PUBLISHED : App::status()->comment()::UNPUBLISHED;
+            $cur->comment_status = $this->settings()->system->comments_pub ? $this->core->status()->comment()::PUBLISHED : $this->core->status()->comment()::UNPUBLISHED;
         }
 
         # Words list
@@ -2692,15 +2666,15 @@ class Blog implements BlogInterface
             return false;
         }
 
-        $delay = (int) $this->settings->system->sleepmode_timeout;
+        $delay = (int) $this->settings()->system->sleepmode_timeout;
 
         if (!$delay || (strtotime($last->post_upddt) + $delay) > time()) {
             return false;
         }
 
         if ($apply) {
-            $this->settings->system->put('allow_comments', false);
-            $this->settings->system->put('allow_trackbacks', false);
+            $this->settings()->system->put('allow_comments', false);
+            $this->settings()->system->put('allow_trackbacks', false);
         }
 
         return true;

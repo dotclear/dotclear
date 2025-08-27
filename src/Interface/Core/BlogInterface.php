@@ -169,22 +169,6 @@ interface BlogInterface
     public function loadFromBlog(string $blog_id): BlogInterface;
 
     /**
-     * Set authentication handler.
-     *
-     * This is a bad way to avoid circular reference for Auth class in constructor.
-     */
-    public function setAuth(AuthInterface $auth): void;
-
-    /**
-     * Get authentication instance.
-     *
-     * Used by Users class and Blogs class to avoir circular reference in constructor.
-     *
-     * @return  AuthInterface   The authentication instance
-     */
-    public function auth(): AuthInterface;
-
-    /**
      * Open a database table cursor.
      *
      * @return  Cursor  The blog database table cursor

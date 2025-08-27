@@ -17,11 +17,7 @@ use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\JoinStatement;
 use Dotclear\Database\Statement\SelectStatement;
-use Dotclear\Interface\Core\BehaviorInterface;
-use Dotclear\Interface\Core\BlogInterface;
-use Dotclear\Interface\Core\ConfigInterface;
 use Dotclear\Interface\Core\CredentialInterface;
-use Dotclear\Interface\Core\DatabaseInterface;
 use Dotclear\Schema\Extension\Credential as CredentialExtension;
 use Exception;
 
@@ -38,25 +34,19 @@ class Credential implements CredentialInterface
     private readonly string $credential_table;
 
     /**
-     * Load services from Core container.
+     * Constructs a new instance.
      *
-     * @param   BehaviorInterface   $behavior   The behavior instance
-     * @param   BlogInterface       $blog       The blog instance
-     * @param   ConfigInterface     $config     The configuration
-     * @param   DatabaseInterface   $db         The database handler instance
+     * @param   Core    $core   The core container
      */
     public function __construct(
-        protected BehaviorInterface $behavior,
-        protected BlogInterface $blog,
-        protected ConfigInterface $config,
-        protected DatabaseInterface $db
+        protected Core $core
     ) {
-        $this->credential_table = $this->db->con()->prefix() . self::CREDENTIAL_TABLE_NAME;
+        $this->credential_table = $this->core->db()->con()->prefix() . self::CREDENTIAL_TABLE_NAME;
     }
 
     public function openCredentialCursor(): Cursor
     {
-        return $this->db->con()->openCursor($this->credential_table);
+        return $this->core->db()->con()->openCursor($this->credential_table);
     }
 
     public function getCredentials(array|ArrayObject $params = [], bool $count_only = false): MetaRecord
@@ -90,7 +80,7 @@ class Credential implements CredentialInterface
                 ->join(
                     (new JoinStatement())
                         ->left()
-                        ->from($sql->as($this->db->con()->prefix() . $this->blog->auth()::USER_TABLE_NAME, 'U'))
+                        ->from($sql->as($this->core->db()->con()->prefix() . $this->core->auth()::USER_TABLE_NAME, 'U'))
                         ->on('K.user_id = U.user_id')
                         ->statement()
                 );
@@ -147,7 +137,7 @@ class Credential implements CredentialInterface
         }
 
         if (null === $cur->getField('user_id')) {
-            $cur->setField('user_id', $this->blog->auth()->userID());
+            $cur->setField('user_id', $this->core->auth()->userID());
         }
         if ('' == $cur->getField('user_id')) {
             throw new Exception('Invalid user id');
@@ -191,7 +181,7 @@ class Credential implements CredentialInterface
         if ($global) {
             $sql->and($sql->isNull('blog_id'));
         } else {
-            $sql->and('blog_id =' . $sql->quote($this->blog->id()));
+            $sql->and('blog_id =' . $sql->quote($this->core->blog()->id()));
         }
 
         $sql->delete();
@@ -202,8 +192,8 @@ class Credential implements CredentialInterface
         $data = (string) json_encode($data, JSON_UNESCAPED_SLASHES);
 
         if ($this->hasOpenssl()) {
-            $key  = hash($this->config->cryptAlgo(), $this->config->masterKey());
-            $iv   = substr(hash($this->config->cryptAlgo(), $this->config->vendorName()), 0, 16); // find a better key
+            $key  = hash($this->core->config()->cryptAlgo(), $this->core->config()->masterKey());
+            $iv   = substr(hash($this->core->config()->cryptAlgo(), $this->core->config()->vendorName()), 0, 16); // find a better key
             $data = (string) openssl_encrypt($data, static::SSL_ENCRYPTION, $key, 0, $iv);
         }
 
@@ -215,8 +205,8 @@ class Credential implements CredentialInterface
         $data = base64_decode($data, false);
 
         if ($this->hasOpenssl()) {
-            $key  = hash($this->config->cryptAlgo(), $this->config->masterKey());
-            $iv   = substr(hash($this->config->cryptAlgo(), $this->config->vendorName()), 0, 16); // find a better key
+            $key  = hash($this->core->config()->cryptAlgo(), $this->core->config()->masterKey());
+            $iv   = substr(hash($this->core->config()->cryptAlgo(), $this->core->config()->vendorName()), 0, 16); // find a better key
             $data = (string) openssl_decrypt($data, static::SSL_ENCRYPTION, $key, 0, $iv);
         }
 

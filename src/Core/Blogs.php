@@ -12,7 +12,6 @@ declare(strict_types=1);
 namespace Dotclear\Core;
 
 use ArrayObject;
-use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
@@ -20,30 +19,23 @@ use Dotclear\Database\Statement\JoinStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Exception\BadRequestException;
 use Dotclear\Exception\UnauthorizedException;
-use Dotclear\Interface\Core\BlogInterface;
 use Dotclear\Interface\Core\BlogsInterface;
-use Dotclear\Interface\Core\DatabaseInterface;
-use Dotclear\Interface\Core\DeprecatedInterface;
 
 /**
  * @brief   Blogs handler.
  *
  * @since   2.28, blogs features have been grouped in this class
- * @since   2.36, constructor argument ConnectionInteface has been replaced by DatabaseInterface
+ * @since   2.36, constructor arguments has been replaced by Core instance
  */
 class Blogs implements BlogsInterface
 {
     /**
-     * Constructor.
+     * Constructs a new instance.
      *
-     * @param   BlogInterface           $blog           The blog instance
-     * @param   DatabaseInterface       $db             The database handler instance
-     * @param   DeprecatedInterface     $deprecated     The deprecate instance
+     * @param   Core    $core   The core container
      */
     public function __construct(
-        protected BlogInterface $blog,
-        protected DatabaseInterface $db,
-        protected DeprecatedInterface $deprecated
+        protected Core $core
     ) {
     }
 
@@ -52,9 +44,9 @@ class Blogs implements BlogsInterface
      */
     public function getAllBlogStatus(): array
     {
-        $this->deprecated->set('App::status()->blog()->statuses()', '2.33');
+        $this->core->deprecated()->set('App::status()->blog()->statuses()', '2.33');
 
-        return App::status()->blog()->statuses();
+        return $this->core->status()->blog()->statuses();
     }
 
     /**
@@ -62,9 +54,9 @@ class Blogs implements BlogsInterface
      */
     public function getBlogStatus(int $s): string
     {
-        $this->deprecated->set('App::status()->blog()->status($s)', '2.33');
+        $this->core->deprecated()->set('App::status()->blog()->status($s)', '2.33');
 
-        return App::status()->blog()->name($s);
+        return $this->core->status()->blog()->name($s);
     }
 
     /**
@@ -88,9 +80,9 @@ class Blogs implements BlogsInterface
                 'user_email',
                 'permissions',
             ])
-            ->from($sql->as($this->db->con()->prefix() . $this->blog->auth()::USER_TABLE_NAME, 'U'))
+            ->from($sql->as($this->core->db()->con()->prefix() . $this->core->auth()::USER_TABLE_NAME, 'U'))
             ->join((new JoinStatement())
-                ->from($sql->as($this->db->con()->prefix() . $this->blog->auth()::PERMISSIONS_TABLE_NAME, 'P'))
+                ->from($sql->as($this->core->db()->con()->prefix() . $this->core->auth()::PERMISSIONS_TABLE_NAME, 'P'))
                 ->on('U.user_id = P.user_id')
                 ->statement())
             ->where('blog_id = ' . $sql->quote($id));
@@ -107,7 +99,7 @@ class Blogs implements BlogsInterface
                     'user_email',
                     'NULL AS permissions',
                 ])
-                ->from($sql->as($this->db->con()->prefix() . $this->blog->auth()::USER_TABLE_NAME, 'U'))
+                ->from($sql->as($this->core->db()->con()->prefix() . $this->core->auth()::USER_TABLE_NAME, 'U'))
                 ->where('user_super = 1')
                 ->statement()
             );
@@ -125,7 +117,7 @@ class Blogs implements BlogsInterface
                     'displayname' => $rs->user_displayname,
                     'email'       => $rs->user_email,
                     'super'       => (bool) $rs->user_super,
-                    'p'           => $this->blog->auth()->parsePermissions($rs->permissions),
+                    'p'           => $this->core->auth()->parsePermissions($rs->permissions),
                 ];
             }
         }
@@ -145,7 +137,7 @@ class Blogs implements BlogsInterface
         if ($count_only) {
             $sql
                 ->column($sql->count('B.blog_id'))
-                ->from($sql->as($this->db->con()->prefix() . $this->blog::BLOG_TABLE_NAME, 'B'))
+                ->from($sql->as($this->core->db()->con()->prefix() . $this->core->blog()::BLOG_TABLE_NAME, 'B'))
                 ->where('NULL IS NULL')
             ;
         } else {
@@ -160,7 +152,7 @@ class Blogs implements BlogsInterface
                     'blog_upddt',
                     'blog_status',
                 ])
-                ->from($sql->as($this->db->con()->prefix() . $this->blog::BLOG_TABLE_NAME, 'B'))
+                ->from($sql->as($this->core->db()->con()->prefix() . $this->core->blog()::BLOG_TABLE_NAME, 'B'))
                 ->where('NULL IS NULL')
             ;
 
@@ -175,28 +167,28 @@ class Blogs implements BlogsInterface
             }
         }
 
-        if ($this->blog->auth()->userID() && !$this->blog->auth()->isSuperAdmin()) {
+        if ($this->core->auth()->userID() && !$this->core->auth()->isSuperAdmin()) {
             $sql
                 ->join(
                     (new JoinStatement())
                         ->inner()
-                        ->from($sql->as($this->db->con()->prefix() . $this->blog->auth()::PERMISSIONS_TABLE_NAME, 'PE'))
+                        ->from($sql->as($this->core->db()->con()->prefix() . $this->core->auth()::PERMISSIONS_TABLE_NAME, 'PE'))
                         ->on('B.blog_id = PE.blog_id')
                         ->statement()
                 )
-                ->and('PE.user_id = ' . $sql->quote($this->blog->auth()->userID()))
+                ->and('PE.user_id = ' . $sql->quote($this->core->auth()->userID()))
                 ->and($sql->orGroup([
-                    $sql->like('permissions', '%|' . $this->blog->auth()::PERMISSION_USAGE . '|%'),
-                    $sql->like('permissions', '%|' . $this->blog->auth()::PERMISSION_ADMIN . '|%'),
-                    $sql->like('permissions', '%|' . $this->blog->auth()::PERMISSION_CONTENT_ADMIN . '|%'),
+                    $sql->like('permissions', '%|' . $this->core->auth()::PERMISSION_USAGE . '|%'),
+                    $sql->like('permissions', '%|' . $this->core->auth()::PERMISSION_ADMIN . '|%'),
+                    $sql->like('permissions', '%|' . $this->core->auth()::PERMISSION_CONTENT_ADMIN . '|%'),
                 ]))
-                ->and('blog_status >= ' . App::status()->blog()->threshold())
+                ->and('blog_status >= ' . $this->core->status()->blog()->threshold())
             ;
-        } elseif (!$this->blog->auth()->userID()) {
-            $sql->and('blog_status >= ' . App::status()->blog()->threshold());
+        } elseif (!$this->core->auth()->userID()) {
+            $sql->and('blog_status >= ' . $this->core->status()->blog()->threshold());
         }
 
-        if (isset($params['blog_status']) && $params['blog_status'] !== '' && $this->blog->auth()->isSuperAdmin()) {
+        if (isset($params['blog_status']) && $params['blog_status'] !== '' && $this->core->auth()->isSuperAdmin()) {
             $sql->and('blog_status = ' . (int) $params['blog_status']);
         }
 
@@ -218,7 +210,7 @@ class Blogs implements BlogsInterface
 
     public function addBlog(Cursor $cur): void
     {
-        if (!$this->blog->auth()->isSuperAdmin()) {
+        if (!$this->core->auth()->isSuperAdmin()) {
             throw new UnauthorizedException(__('You are not an administrator'));
         }
 
@@ -237,7 +229,7 @@ class Blogs implements BlogsInterface
 
         $cur->blog_upddt = date('Y-m-d H:i:s');
 
-        $cur->update("WHERE blog_id = '" . $this->db->con()->escapeStr($id) . "'");
+        $cur->update("WHERE blog_id = '" . $this->core->db()->con()->escapeStr($id) . "'");
     }
 
     /**
@@ -265,13 +257,13 @@ class Blogs implements BlogsInterface
 
     public function delBlog(string $id): void
     {
-        if (!$this->blog->auth()->isSuperAdmin()) {
+        if (!$this->core->auth()->isSuperAdmin()) {
             throw new UnauthorizedException(__('You are not an administrator'));
         }
 
         $sql = new DeleteStatement();
         $sql
-            ->from($this->db->con()->prefix() . $this->blog::BLOG_TABLE_NAME)
+            ->from($this->core->db()->con()->prefix() . $this->core->blog()::BLOG_TABLE_NAME)
             ->where('blog_id = ' . $sql->quote($id))
             ->delete();
     }
@@ -281,7 +273,7 @@ class Blogs implements BlogsInterface
         $sql = new SelectStatement();
         $rs  = $sql
             ->column('blog_id')
-            ->from($this->db->con()->prefix() . $this->blog::BLOG_TABLE_NAME)
+            ->from($this->core->db()->con()->prefix() . $this->core->blog()::BLOG_TABLE_NAME)
             ->where('blog_id = ' . $sql->quote($id))
             ->select();
 
@@ -293,7 +285,7 @@ class Blogs implements BlogsInterface
         $sql = new SelectStatement();
         $sql
             ->column($sql->count('post_id'))
-            ->from($this->db->con()->prefix() . $this->blog::POST_TABLE_NAME)
+            ->from($this->core->db()->con()->prefix() . $this->core->blog()::POST_TABLE_NAME)
             ->where('blog_id = ' . $sql->quote($id));
 
         if ($type) {
@@ -316,113 +308,111 @@ class Blogs implements BlogsInterface
     {
         if (!is_array($defaults)) {
             $defaults = [
-                ['allow_comments', App::blogWorkspace()::NS_BOOL, true,
+                ['allow_comments', $this->core->blogWorkspace()::NS_BOOL, true,
                     'Allow comments on blog', ],
-                ['allow_trackbacks', App::blogWorkspace()::NS_BOOL, true,
+                ['allow_trackbacks', $this->core->blogWorkspace()::NS_BOOL, true,
                     'Allow trackbacks on blog', ],
-                ['blog_timezone', App::blogWorkspace()::NS_STRING, 'Europe/London',
+                ['blog_timezone', $this->core->blogWorkspace()::NS_STRING, 'Europe/London',
                     'Blog timezone', ],
-                ['comments_nofollow', App::blogWorkspace()::NS_BOOL, true,
+                ['comments_nofollow', $this->core->blogWorkspace()::NS_BOOL, true,
                     'Add rel="nofollow" to comments URLs', ],
-                ['comments_pub', App::blogWorkspace()::NS_BOOL, true,
+                ['comments_pub', $this->core->blogWorkspace()::NS_BOOL, true,
                     'Publish comments immediately', ],
-                ['comments_ttl', App::blogWorkspace()::NS_INT, 0,
+                ['comments_ttl', $this->core->blogWorkspace()::NS_INT, 0,
                     'Number of days to keep comments open (0 means no ttl)', ],
-                ['copyright_notice', App::blogWorkspace()::NS_STRING, '',
+                ['copyright_notice', $this->core->blogWorkspace()::NS_STRING, '',
                     'Copyright notice (simple text)', ],
-                ['date_format', App::blogWorkspace()::NS_STRING, '%A, %B %e %Y',
+                ['date_format', $this->core->blogWorkspace()::NS_STRING, '%A, %B %e %Y',
                     'Date format. See PHP strftime function for patterns', ],
-                ['editor', App::blogWorkspace()::NS_STRING, '',
+                ['editor', $this->core->blogWorkspace()::NS_STRING, '',
                     'Person responsible of the content', ],
-                ['enable_html_filter', App::blogWorkspace()::NS_BOOL, 0,
+                ['enable_html_filter', $this->core->blogWorkspace()::NS_BOOL, 0,
                     'Enable HTML filter', ],
-                ['lang', App::blogWorkspace()::NS_STRING, 'en',
+                ['lang', $this->core->blogWorkspace()::NS_STRING, 'en',
                     'Default blog language', ],
-                ['media_exclusion', App::blogWorkspace()::NS_STRING, '/\.(phps?|pht(ml)?|phl|phar|.?html?|inc|xml|js|htaccess)[0-9]*$/i',
+                ['media_exclusion', $this->core->blogWorkspace()::NS_STRING, '/\.(phps?|pht(ml)?|phl|phar|.?html?|inc|xml|js|htaccess)[0-9]*$/i',
                     'File name exclusion pattern in media manager. (PCRE value)', ],
-                ['media_img_m_size', App::blogWorkspace()::NS_INT, 448,
+                ['media_img_m_size', $this->core->blogWorkspace()::NS_INT, 448,
                     'Image medium size in media manager', ],
-                ['media_img_s_size', App::blogWorkspace()::NS_INT, 240,
+                ['media_img_s_size', $this->core->blogWorkspace()::NS_INT, 240,
                     'Image small size in media manager', ],
-                ['media_img_t_size', App::blogWorkspace()::NS_INT, 100,
+                ['media_img_t_size', $this->core->blogWorkspace()::NS_INT, 100,
                     'Image thumbnail size in media manager', ],
-                ['media_img_title_pattern', App::blogWorkspace()::NS_STRING, 'Description ;; Date(%b %Y) ;; separator(, )',
+                ['media_img_title_pattern', $this->core->blogWorkspace()::NS_STRING, 'Description ;; Date(%b %Y) ;; separator(, )',
                     'Pattern to set image legend when you insert it in a post', ],
-                ['media_video_width', App::blogWorkspace()::NS_INT, 400,
+                ['media_video_width', $this->core->blogWorkspace()::NS_INT, 400,
                     'Video width in media manager', ],
-                ['media_video_height', App::blogWorkspace()::NS_INT, 300,
+                ['media_video_height', $this->core->blogWorkspace()::NS_INT, 300,
                     'Video height in media manager', ],
-                ['nb_post_for_home', App::blogWorkspace()::NS_INT, 20,
+                ['nb_post_for_home', $this->core->blogWorkspace()::NS_INT, 20,
                     'Number of entries on first home page', ],
-                ['nb_post_per_page', App::blogWorkspace()::NS_INT, 20,
+                ['nb_post_per_page', $this->core->blogWorkspace()::NS_INT, 20,
                     'Number of entries on home pages and category pages', ],
-                ['nb_post_per_feed', App::blogWorkspace()::NS_INT, 20,
+                ['nb_post_per_feed', $this->core->blogWorkspace()::NS_INT, 20,
                     'Number of entries on feeds', ],
-                ['nb_comment_per_feed', App::blogWorkspace()::NS_INT, 20,
+                ['nb_comment_per_feed', $this->core->blogWorkspace()::NS_INT, 20,
                     'Number of comments on feeds', ],
-                ['post_url_format', App::blogWorkspace()::NS_STRING, '{y}/{m}/{d}/{t}',
+                ['post_url_format', $this->core->blogWorkspace()::NS_STRING, '{y}/{m}/{d}/{t}',
                     'Post URL format. {y}: year, {m}: month, {d}: day, {id}: post id, {t}: entry title', ],
-                ['public_path', App::blogWorkspace()::NS_STRING, 'public',
+                ['public_path', $this->core->blogWorkspace()::NS_STRING, 'public',
                     'Path to public directory, begins with a / for a full system path', ],
-                ['public_url', App::blogWorkspace()::NS_STRING, '/public',
+                ['public_url', $this->core->blogWorkspace()::NS_STRING, '/public',
                     'URL to public directory', ],
-                ['robots_policy', App::blogWorkspace()::NS_STRING, 'INDEX,FOLLOW',
+                ['robots_policy', $this->core->blogWorkspace()::NS_STRING, 'INDEX,FOLLOW',
                     'Search engines robots policy', ],
-                ['short_feed_items', App::blogWorkspace()::NS_BOOL, false,
+                ['short_feed_items', $this->core->blogWorkspace()::NS_BOOL, false,
                     'Display short feed items', ],
-                ['theme', App::blogWorkspace()::NS_STRING, App::config()->defaultTheme(),
+                ['theme', $this->core->blogWorkspace()::NS_STRING, $this->core->config()->defaultTheme(),
                     'Blog theme', ],
-                ['themes_path', App::blogWorkspace()::NS_STRING, 'themes',
+                ['themes_path', $this->core->blogWorkspace()::NS_STRING, 'themes',
                     'Themes root path', ],
-                ['themes_url', App::blogWorkspace()::NS_STRING, '/themes',
+                ['themes_url', $this->core->blogWorkspace()::NS_STRING, '/themes',
                     'Themes root URL', ],
-                ['time_format', App::blogWorkspace()::NS_STRING, '%H:%M',
+                ['time_format', $this->core->blogWorkspace()::NS_STRING, '%H:%M',
                     'Time format. See PHP strftime function for patterns', ],
-                ['tpl_allow_php', App::blogWorkspace()::NS_BOOL, false,
+                ['tpl_allow_php', $this->core->blogWorkspace()::NS_BOOL, false,
                     'Allow PHP code in templates', ],
-                ['tpl_use_cache', App::blogWorkspace()::NS_BOOL, true,
+                ['tpl_use_cache', $this->core->blogWorkspace()::NS_BOOL, true,
                     'Use template caching', ],
-                ['trackbacks_pub', App::blogWorkspace()::NS_BOOL, true,
+                ['trackbacks_pub', $this->core->blogWorkspace()::NS_BOOL, true,
                     'Publish trackbacks immediately', ],
-                ['trackbacks_ttl', App::blogWorkspace()::NS_INT, 0,
+                ['trackbacks_ttl', $this->core->blogWorkspace()::NS_INT, 0,
                     'Number of days to keep trackbacks open (0 means no ttl)', ],
-                ['url_scan', App::blogWorkspace()::NS_STRING, 'query_string',
+                ['url_scan', $this->core->blogWorkspace()::NS_STRING, 'query_string',
                     'URL handle mode (path_info or query_string)', ],
-                ['no_public_css', App::blogWorkspace()::NS_BOOL, false,
+                ['no_public_css', $this->core->blogWorkspace()::NS_BOOL, false,
                     'Don\'t use generic public.css stylesheet', ],
-                ['use_smilies', App::blogWorkspace()::NS_BOOL, false,
+                ['use_smilies', $this->core->blogWorkspace()::NS_BOOL, false,
                     'Show smilies on entries and comments', ],
-                ['no_search', App::blogWorkspace()::NS_BOOL, false,
+                ['no_search', $this->core->blogWorkspace()::NS_BOOL, false,
                     'Disable search', ],
-                ['inc_subcats', App::blogWorkspace()::NS_BOOL, false,
+                ['inc_subcats', $this->core->blogWorkspace()::NS_BOOL, false,
                     'Include sub-categories in category page and category posts feed', ],
-                ['wiki_comments', App::blogWorkspace()::NS_BOOL, false,
+                ['wiki_comments', $this->core->blogWorkspace()::NS_BOOL, false,
                     'Allow commenters to use a subset of wiki syntax', ],
-                ['import_feed_url_control', App::blogWorkspace()::NS_BOOL, true,
+                ['import_feed_url_control', $this->core->blogWorkspace()::NS_BOOL, true,
                     'Control feed URL before import', ],
-                ['import_feed_no_private_ip', App::blogWorkspace()::NS_BOOL, true,
+                ['import_feed_no_private_ip', $this->core->blogWorkspace()::NS_BOOL, true,
                     'Prevent import feed from private IP', ],
-                ['import_feed_ip_regexp', App::blogWorkspace()::NS_STRING, '',
+                ['import_feed_ip_regexp', $this->core->blogWorkspace()::NS_STRING, '',
                     'Authorize import feed only from this IP regexp', ],
-                ['import_feed_port_regexp', App::blogWorkspace()::NS_STRING, '/^(80|443)$/',
+                ['import_feed_port_regexp', $this->core->blogWorkspace()::NS_STRING, '/^(80|443)$/',
                     'Authorize import feed only from this port regexp', ],
-                ['jquery_needed', App::blogWorkspace()::NS_BOOL, true,
+                ['jquery_needed', $this->core->blogWorkspace()::NS_BOOL, true,
                     'Load jQuery library', ],
-                ['legacy_needed', App::blogWorkspace()::NS_BOOL, true,
+                ['legacy_needed', $this->core->blogWorkspace()::NS_BOOL, true,
                     'Load Legacy JS library', ],
-                ['sleepmode_timeout', App::blogWorkspace()::NS_INT, 31536000,
+                ['sleepmode_timeout', $this->core->blogWorkspace()::NS_INT, 31536000,
                     'Sleep mode timeout', ],
-                ['store_plugin_url', App::blogWorkspace()::NS_STRING, 'https://update.dotaddict.org/dc2/plugins.xml',
+                ['store_plugin_url', $this->core->blogWorkspace()::NS_STRING, 'https://update.dotaddict.org/dc2/plugins.xml',
                     'Plugins XML feed location', ],
-                ['store_theme_url', App::blogWorkspace()::NS_STRING, 'https://update.dotaddict.org/dc2/themes.xml',
+                ['store_theme_url', $this->core->blogWorkspace()::NS_STRING, 'https://update.dotaddict.org/dc2/themes.xml',
                     'Themes XML feed location', ],
             ];
         }
 
-        $settings = App::blogSettings();
-
         foreach ($defaults as $v) {
-            $settings->system->put($v[0], $v[2], $v[1], $v[3], false, true);
+            $this->core->blogSettings()->system->put($v[0], $v[2], $v[1], $v[3], false, true);
         }
     }
 }

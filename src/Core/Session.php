@@ -12,8 +12,6 @@ declare(strict_types=1);
 namespace Dotclear\Core;
 
 use Dotclear\Database\Session as DatabaseSession;
-use Dotclear\Interface\Core\ConfigInterface;
-use Dotclear\Interface\Core\DatabaseInterface;
 use Throwable;
 
 /**
@@ -22,26 +20,24 @@ use Throwable;
  * Transitionnal class to set Dotclear default session handler table.
  *
  * @since   2.28, container services have been added to constructor
- * @since   2.36, constructor argument ConnectionInteface has been replaced by DatabaseInterface
+ * @since   2.36, constructor arguments has been replaced by Core instance
  */
 class Session extends DatabaseSession
 {
     /**
-     * Constructor.
+     * Constructs a new instance.
      *
-     * @param   ConfigInterface     $config     The application configuration
-     * @param   DatabaseInterface   $db         The database handler instance
+     * @param   Core    $core   The core container
      */
     public function __construct(
-        protected ConfigInterface $config,
-        protected DatabaseInterface $db
+        protected Core $core
     ) {
         parent::__construct(
-            con: $this->db->con(),
-            table : $this->db->con()->prefix() . Session::SESSION_TABLE_NAME,
-            cookie_name: $this->config->sessionName(),
-            cookie_secure: $this->config->adminSsl(),
-            ttl: $this->config->sessionTtl()
+            con: $this->core->db()->con(),
+            table : $this->core->db()->con()->prefix() . Session::SESSION_TABLE_NAME,
+            cookie_name: $this->core->config()->sessionName(),
+            cookie_secure: $this->core->config()->adminSsl(),
+            ttl: $this->core->config()->sessionTtl()
         );
 
         register_shutdown_function(function (): void {
@@ -50,7 +46,7 @@ class Session extends DatabaseSession
                     // Explicitly close session before DB connection
                     session_write_close();
                 }
-                $this->db->con()->close();
+                $this->core->db()->con()->close();
             } catch (Throwable) {
                 // Ignore exceptions
             }

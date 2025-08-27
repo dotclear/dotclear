@@ -16,7 +16,6 @@ use dcCore;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Html\HtmlFilter;
 use Dotclear\Helper\Html\WikiToHtml;
-use Dotclear\Interface\Core\BehaviorInterface;
 use Dotclear\Interface\Core\BlogInterface;
 use Dotclear\Interface\Core\FilterInterface;
 
@@ -24,6 +23,7 @@ use Dotclear\Interface\Core\FilterInterface;
  * @brief   Wiki and HTML filter handler.
  *
  * @since   2.28, wiki and HTML filters features have been grouped in this class
+ * @since   2.36, constructor arguments has been replaced by Core instance
  */
 class Filter implements FilterInterface
 {
@@ -48,12 +48,12 @@ class Filter implements FilterInterface
     }
 
     /**
-     * Constructor.
+     * Constructs a new instance.
      *
-     * @param   BehaviorInterface   $behavior   The behavior instance
+     * @param   Core    $core   The core container
      */
     public function __construct(
-        protected BehaviorInterface $behavior,
+        protected Core $core,
     ) {
     }
 
@@ -141,7 +141,7 @@ class Filter implements FilterInterface
         $this->wiki->registerFunction('url:post', $this->wikiPostLink(...));
 
         # --BEHAVIOR-- coreWikiPostInit -- WikiToHtml
-        $this->behavior->callBehavior('coreInitWikiPost', $this->wiki);
+        $this->core->behavior()->callBehavior('coreInitWikiPost', $this->wiki);
     }
 
     public function initWikiSimpleComment(): void
@@ -191,7 +191,7 @@ class Filter implements FilterInterface
         ]);
 
         # --BEHAVIOR-- coreInitWikiSimpleComment -- WikiToHtml
-        $this->behavior->callBehavior('coreInitWikiSimpleComment', $this->wiki);
+        $this->core->behavior()->callBehavior('coreInitWikiSimpleComment', $this->wiki);
     }
 
     public function initWikiComment(): void
@@ -240,7 +240,7 @@ class Filter implements FilterInterface
         ]);
 
         # --BEHAVIOR-- coreInitWikiComment -- WikiToHtml
-        $this->behavior->callBehavior('coreInitWikiComment', $this->wiki);
+        $this->core->behavior()->callBehavior('coreInitWikiComment', $this->wiki);
     }
 
     public function wikiPostLink(string $url, string $content): array
@@ -288,7 +288,7 @@ class Filter implements FilterInterface
             'keep_js'   => false,
         ]);
         # --BEHAVIOR-- HTMLfilter -- ArrayObject
-        $this->behavior->callBehavior('HTMLfilter', $options);
+        $this->core->behavior()->callBehavior('HTMLfilter', $options);
 
         $filter = new HtmlFilter((bool) $options['keep_aria'], (bool) $options['keep_data'], (bool) $options['keep_js']);
 

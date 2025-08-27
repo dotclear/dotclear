@@ -518,11 +518,7 @@ interface MediaInterface
     /**
      * Returns HTML code for FLV player.
      *
-     * @deprecated  since 2.15, nothing to use instead
-     *
-     * @param   string  $url        The url
-     * @param   string  $player     The player
-     * @param   mixed   $args       The arguments
+     * deprecated since 2.15, retired in 2.36
      */
-    public static function flvplayer(string $url, ?string $player = null, $args = null): string;
+    //public static function flvplayer(string $url, ?string $player = null, $args = null): string;
 }

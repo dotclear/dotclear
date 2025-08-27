@@ -12,13 +12,13 @@ declare(strict_types=1);
 namespace Dotclear\Core;
 
 use Dotclear\Core\Backend\Notices; // deprecated
-use Dotclear\Interface\Core\DeprecatedInterface;
 use Dotclear\Interface\Core\ErrorInterface;
 
 /**
  * @brief   Error handler.
  *
  * @since   2.28, container services have been added to constructor
+ * @since   2.36, constructor arguments has been replaced by Core instance
  */
 class Error implements ErrorInterface
 {
@@ -37,12 +37,12 @@ class Error implements ErrorInterface
     protected $flag = false;
 
     /**
-     * Constructor.
+     * Constructs a new instance.
      *
-     * @param   DeprecatedInterface     $deprecated     The deprecated handler
+     * @param   Core    $core   The core container
      */
     public function __construct(
-        protected DeprecatedInterface $deprecated
+        protected Core $core
     ) {
     }
 
@@ -78,7 +78,7 @@ class Error implements ErrorInterface
      */
     public function toHTML(bool $reset = true): string
     {
-        $this->deprecated->set('', '2.28');
+        $this->core->deprecated()->set('', '2.28');
 
         $res = '';
 

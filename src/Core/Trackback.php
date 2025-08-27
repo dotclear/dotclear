@@ -11,7 +11,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
-use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
@@ -23,11 +22,6 @@ use Dotclear\Helper\Network\XmlRpc\Client;
 use Dotclear\Helper\Network\XmlRpc\XmlRpcException;
 use Dotclear\Helper\Text;
 use Dotclear\Exception\BadRequestException;
-use Dotclear\Interface\Core\BehaviorInterface;
-use Dotclear\Interface\Core\BlogInterface;
-use Dotclear\Interface\Core\ConfigInterface;
-use Dotclear\Interface\Core\DatabaseInterface;
-use Dotclear\Interface\Core\PostTypesInterface;
 use Dotclear\Interface\Core\TrackbackInterface;
 use Throwable;
 
@@ -38,7 +32,7 @@ use Throwable;
  * Also handles trackbacks/pingbacks auto discovery.
  *
  * @since   2.28, container services have been added to constructor
- * @since   2.36, constructor argument ConnectionInteface has been replaced by DatabaseInterface
+ * @since   2.36, constructor arguments has been replaced by Core instance
  */
 class Trackback implements TrackbackInterface
 {
@@ -53,28 +47,20 @@ class Trackback implements TrackbackInterface
     protected static int $query_timeout = 4;
 
     /**
-     * Constructor.
+     * Constructs a new instance.
      *
-     * @param   BehaviorInterface   $behavior       The behavior instance
-     * @param   BlogInterface       $blog           The blog instance
-     * @param   ConfigInterface     $config         The application configuration
-     * @param   DatabaseInterface   $db             The database handler instance
-     * @param   PostTypesInterface  $post_types     The post types handler
+     * @param   Core    $core   The core container
      */
     public function __construct(
-        protected BehaviorInterface $behavior,
-        protected BlogInterface $blog,
-        protected ConfigInterface $config,
-        protected DatabaseInterface $db,
-        protected PostTypesInterface $post_types,
+        protected Core $core,
     ) {
-        $this->table         = $this->db->con()->prefix() . self::PING_TABLE_NAME;
-        self::$query_timeout = $config->queryTimeout();
+        $this->table         = $this->core->db()->con()->prefix() . self::PING_TABLE_NAME;
+        self::$query_timeout = $this->core->config()->queryTimeout();
     }
 
     public function openTrackbackCursor(): Cursor
     {
-        return $this->db->con()->openCursor($this->db->con()->prefix() . self::PING_TABLE_NAME);
+        return $this->core->db()->con()->openCursor($this->core->db()->con()->prefix() . self::PING_TABLE_NAME);
     }
 
     /// @name Send
@@ -95,7 +81,7 @@ class Trackback implements TrackbackInterface
 
     public function ping(string $url, int $post_id, string $post_title, string $post_excerpt, string $post_url): bool
     {
-        if (!$this->blog->isDefined()) {
+        if (!$this->core->blog()->isDefined()) {
             return false;
         }
 
@@ -152,7 +138,7 @@ class Trackback implements TrackbackInterface
                 'title'     => $post_title,
                 'excerpt'   => $post_excerpt,
                 'url'       => $post_url,
-                'blog_name' => trim(Html::escapeHTML(Html::clean($this->blog->name()))),
+                'blog_name' => trim(Html::escapeHTML(Html::clean($this->core->blog()->name()))),
                 //,'__debug' => false
             ];
 
@@ -238,7 +224,7 @@ class Trackback implements TrackbackInterface
         $err = false;
         $msg = '';
 
-        if (!$this->blog->isDefined()) {
+        if (!$this->core->blog()->isDefined()) {
             $err = true;
             $msg = 'No blog.';
         } elseif ($url == '') {
@@ -250,7 +236,7 @@ class Trackback implements TrackbackInterface
         }
 
         if (!$err) {
-            $post = $this->blog->getPosts(['post_id' => $post_id, 'post_type' => '']);
+            $post = $this->core->blog()->getPosts(['post_id' => $post_id, 'post_type' => '']);
 
             if ($post->isEmpty()) {
                 $err = true;
@@ -442,7 +428,7 @@ class Trackback implements TrackbackInterface
             $this->addBacklink((int) $post_id, $from_url, $blog_name, $title, $excerpt, $comment);
 
             # All done, thanks
-            $code = $this->blog->settings()->system->trackbacks_pub ? 200 : 202;
+            $code = $this->core->blog()->settings()->system->trackbacks_pub ? 200 : 202;
             Http::head($code);
 
             return;
@@ -468,7 +454,7 @@ class Trackback implements TrackbackInterface
             'comment_trackback' => 1,
         ];
 
-        $rs = $this->blog->getComments($params, true);
+        $rs = $this->core->blog()->getComments($params, true);
         if (!$rs->isEmpty()) {
             return (bool) $rs->f(0);
         }
@@ -497,22 +483,22 @@ class Trackback implements TrackbackInterface
             '<p><strong>' . ($title ?: $blog_name) . "</strong></p>\n" .
             '<p>' . $excerpt . '</p>';
 
-        $cur                    = $this->blog->openCommentCursor();
+        $cur                    = $this->core->blog()->openCommentCursor();
         $cur->comment_author    = $blog_name;
         $cur->comment_site      = $url;
         $cur->comment_content   = $comment;
         $cur->post_id           = $post_id;
         $cur->comment_trackback = 1;
-        $cur->comment_status    = $this->blog->settings()->system->trackbacks_pub ? App::status()->comment()::PUBLISHED : App::status()->comment()::PENDING;
+        $cur->comment_status    = $this->core->blog()->settings()->system->trackbacks_pub ? $this->core->status()->comment()::PUBLISHED : $this->core->status()->comment()::PENDING;
         $cur->comment_ip        = Http::realIP();
 
         # --BEHAVIOR-- publicBeforeTrackbackCreate -- Cursor
-        $this->behavior->callBehavior('publicBeforeTrackbackCreate', $cur);
+        $this->core->behavior()->callBehavior('publicBeforeTrackbackCreate', $cur);
         if ($cur->post_id !== 0) {
-            $comment_id = $this->blog->addComment($cur);
+            $comment_id = $this->core->blog()->addComment($cur);
 
             # --BEHAVIOR-- publicAfterTrackbackCreate -- Cursor, int
-            $this->behavior->callBehavior('publicAfterTrackbackCreate', $cur, $comment_id);
+            $this->core->behavior()->callBehavior('publicAfterTrackbackCreate', $cur, $comment_id);
         }
     }
 
@@ -526,9 +512,9 @@ class Trackback implements TrackbackInterface
     {
         $sql = new DeleteStatement();
         $sql
-            ->from($this->db->con()->prefix() . $this->blog::COMMENT_TABLE_NAME)
+            ->from($this->core->db()->con()->prefix() . $this->core->blog()::COMMENT_TABLE_NAME)
             ->where('post_id = ' . $post_id)
-            ->and('comment_site = ' . $sql->quote($this->db->con()->escapeStr($url)))
+            ->and('comment_site = ' . $sql->quote($this->core->db()->con()->escapeStr($url)))
             ->and('comment_trackback = 1')
             ->delete();
     }
@@ -579,7 +565,7 @@ class Trackback implements TrackbackInterface
      */
     private function getTargetPost(string $to_url): MetaRecord
     {
-        $reg = '!^' . preg_quote($this->blog->url()) . '(.*)!';
+        $reg = '!^' . preg_quote($this->core->blog()->url()) . '(.*)!';
 
         # Are you dumb?
         if (!preg_match($reg, $to_url, $m)) {
@@ -589,7 +575,7 @@ class Trackback implements TrackbackInterface
         # Does the targeted URL look like a registered post type?
         $url_part   = $m[1];
         $p_type     = '';
-        $post_types = $this->post_types->dump();
+        $post_types = $this->core->postTypes()->dump();
         $post_url   = '';
         foreach ($post_types as $v) {
             $reg = '!^' . preg_quote(str_replace('%s', '', $v->get('public_url'))) . '(.*)!';
@@ -610,7 +596,7 @@ class Trackback implements TrackbackInterface
             'post_type' => $p_type,
             'post_url'  => $post_url,
         ];
-        $posts = $this->blog->getPosts($params);
+        $posts = $this->core->blog()->getPosts($params);
 
         # Missed!
         if ($posts->isEmpty()) {
