@@ -21,7 +21,7 @@ class Number extends Input
     /**
      * Constructs a new instance.
      *
-     * @param      string|array{0: string, 1?: string}|null     $id       The identifier
+     * @param      string|list{0: string, 1?: string}|null      $id       The identifier
      * @param      int                                          $min      The minimum value
      * @param      int                                          $max      The maximum value
      * @param      int                                          $value    The value

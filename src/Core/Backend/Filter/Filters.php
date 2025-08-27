@@ -318,7 +318,7 @@ class Filters
     /**
      * Echo filter form.
      *
-     * @param   array{0:string, 1:string}|string    $adminurl   The registered adminurl
+     * @param   list{0:string, 1:string}|string     $adminurl   The registered adminurl
      * @param   string                              $extra      The extra contents
      */
     public function display($adminurl, string $extra = ''): void

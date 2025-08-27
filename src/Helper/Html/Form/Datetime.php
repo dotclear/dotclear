@@ -19,7 +19,7 @@ class Datetime extends Input
     /**
      * Constructs a new instance.
      *
-     * @param      string|array{0: string, 1?: string}|null     $id       The identifier
+     * @param      string|list{0: string, 1?: string}|null      $id       The identifier
      * @param      string                                       $value    The value
      */
     public function __construct(string|array|null $id = null, ?string $value = null)

@@ -111,7 +111,7 @@ class Utils
      *
      * Optionnal parameter <var>defaults</var> replaces default params while needed.
      *
-     * @param   null|array<array{0:string, 1:string, 2:mixed, 3:string}>  $defaults   The defaults settings
+     * @param   null|array<list{0:string, 1:string, 2:mixed, 3:string}>  $defaults   The defaults settings
      *
      * @deprecated  Since 2.33  Use App::blogs()->blogDefaults() instead
      */

@@ -71,14 +71,14 @@ interface MediaInterface
      * - t: thumbnail image
      * - sq: square image
      *
-     * @return array<string, array{0:int, 1:string, 2:string, 3?:string}>
+     * @return array<string, list{0:int, 1:string, 2:string, 3?:string}>
      */
     public function getThumbSizes(): array;
 
     /**
      * Sets the thumb sizes definition.
      *
-     * @param     array<string, array{0:int, 1:string, 2:string, 3?:string}>  $thumb_sizes    The thumb sizes.
+     * @param     array<string, list{0:int, 1:string, 2:string, 3?:string}>  $thumb_sizes    The thumb sizes.
      */
     public function setThumbSizes(array $thumb_sizes): void;
 

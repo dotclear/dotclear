@@ -19,8 +19,8 @@ class Favorite
      * @param string                                    $id           favorite id
      * @param ?string                                   $title        favorite title (localized)
      * @param ?string                                   $url          favorite URL
-     * @param null|string|array{0: string, 1?: string}  $small_icon   favorite small icon(s) (for menu)
-     * @param null|string|array{0: string, 1?: string}  $large_icon   favorite large icon(s) (for dashboard)
+     * @param null|string|list{0: string, 1?: string}   $small_icon   favorite small icon(s) (for menu)
+     * @param null|string|list{0: string, 1?: string}   $large_icon   favorite large icon(s) (for dashboard)
      * @param string|bool|null                          $permissions  comma-separated list of permissions, if not set : no restriction
      * @param ?callable                                 $dashboard_cb callback to modify title if dynamic
      * @param ?callable                                 $active_cb    callback to tell whether current page matches favorite or not
@@ -66,7 +66,7 @@ class Favorite
     /**
      * Return favorite small icon
      *
-     * @return null|string|array{0: string, 1?: string}
+     * @return null|string|list{0: string, 1?: string}
      */
     public function smallIcon(): null|string|array
     {
@@ -76,7 +76,7 @@ class Favorite
     /**
      * Return favorite large icon
      *
-     * @return null|string|array{0: string, 1?: string}
+     * @return null|string|list{0: string, 1?: string}
      */
     public function largeIcon(): null|string|array
     {

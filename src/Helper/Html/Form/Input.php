@@ -27,7 +27,7 @@ class Input extends Component
     /**
      * Constructs a new instance.
      *
-     * @param      string|array{0: string, 1?: string}|null     $id             The identifier
+     * @param      string|list{0: string, 1?: string}|null      $id             The identifier
      * @param      string                                       $type           The input type
      * @param      bool                                         $renderLabel    Render label if present
      */

@@ -347,7 +347,7 @@ abstract class Component
      * If it is an array of only one element, name = [first element]
      * Else name = [first element], id = [second element]
      *
-     * @param      string|array{0: string, 1?: string}|null $identifier (string or array)
+     * @param      string|list{0: string, 1?: string}|null $identifier (string or array)
      *
      * @return static    self instance, enabling to chain calls
      */

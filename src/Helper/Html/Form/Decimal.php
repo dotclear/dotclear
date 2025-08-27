@@ -21,7 +21,7 @@ class Decimal extends Input
     /**
      * Constructs a new instance.
      *
-     * @param      string|array{0: string, 1?: string}|null     $id       The identifier
+     * @param      string|list{0: string, 1?: string}|null      $id       The identifier
      * @param      float                                        $min      The minimum value
      * @param      float                                        $max      The maximum value
      * @param      float                                        $value    The value

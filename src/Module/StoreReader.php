@@ -120,7 +120,7 @@ class StoreReader extends HttpClient
      * Next try on this host, if it is in this list, use stored timeout / 2 or if 6 hours delay has expired, retry with original timeout
      * Successful fetch will remove the host from list.
      *
-     * @var     array<string, array{0:int, 1:int}>  $hosts
+     * @var     array<string, list{0:int, 1:int}>  $hosts
      */
     protected static array $hosts = [];
 

@@ -29,7 +29,7 @@ class Btn extends Component
     /**
      * Constructs a new instance.
      *
-     * @param      string|array{0: string, 1?: string}|null     $id       The identifier
+     * @param      string|list{0: string, 1?: string}|null      $id       The identifier
      * @param      string                                       $value    The value
      * @param      string                                       $element  The element
      */

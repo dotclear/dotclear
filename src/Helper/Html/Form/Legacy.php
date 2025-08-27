@@ -28,7 +28,7 @@ use Dotclear\Helper\Html\Form\Url;
  * @class form
  * @brief HTML Form legacy helpers
  *
- * @phpstan-type    THelperHtmlFormNid    string|array{0:string,1?:string}
+ * @phpstan-type    THelperHtmlFormNid    string|list{0:string,1?:string}
  *
  * @deprecated  Since 2.26, use Dotclear::Helper::Html::Form::* instead
  */

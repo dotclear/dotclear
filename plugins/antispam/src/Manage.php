@@ -94,7 +94,7 @@ class Manage extends Process
             // Update filters
             if (isset($_POST['filters_upd'])) {
                 /**
-                 * @var        array<int|string, array{0:bool, 1:int, 2:bool}>
+                 * @var        array<int|string, list{0:bool, 1:int, 2:bool}>
                  */
                 $filters_opt = [];
                 $i           = 0;

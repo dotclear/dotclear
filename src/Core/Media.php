@@ -134,7 +134,7 @@ class Media extends Manager implements MediaInterface
      *
      * @deprecated since 2.28, use self::getThumbnailCombo()
      *
-     * @var array<string, array{0:int, 1:string, 2:string, 3?:string}>  $thumb_sizes
+     * @var array<string, list{0:int, 1:string, 2:string, 3?:string}>  $thumb_sizes
      */
     public array $thumb_sizes = [
         'm'  => [448, 'ratio', 'medium'],
@@ -341,7 +341,7 @@ class Media extends Manager implements MediaInterface
     /**
      * Gets the thumb sizes.
      *
-     * @return     array<string, array{0:int, 1:string, 2:string, 3?:string}>  The thumb sizes.
+     * @return     array<string, list{0:int, 1:string, 2:string, 3?:string}>  The thumb sizes.
      */
     public function getThumbSizes(): array
     {
@@ -351,7 +351,7 @@ class Media extends Manager implements MediaInterface
     /**
      * Sets the thumb sizes.
      *
-     * @param     array<string, array{0:int, 1:string, 2:string, 3?:string}>  $thumb_sizes    The thumb sizes.
+     * @param     array<string, list{0:int, 1:string, 2:string, 3?:string}>  $thumb_sizes    The thumb sizes.
      */
     public function setThumbSizes(array $thumb_sizes): void
     {

@@ -30,7 +30,7 @@ class Image extends Input
      * Constructs a new instance.
      *
      * @param      string                                       $src      The mandatory img src
-     * @param      string|array{0: string, 1?: string}|null     $id       The identifier
+     * @param      string|list{0: string, 1?: string}|null      $id       The identifier
      */
     public function __construct(string $src, string|array|null $id = null)
     {

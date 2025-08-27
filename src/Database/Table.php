@@ -260,7 +260,7 @@ class Table
      * - to_null:bool   null type is valid?
      *
      * @param      string                                                   $name           The name
-     * @param      array{0: string, 1: ?int, 2: bool, 3: mixed, 4: bool}    $properties     The arguments
+     * @param      list{0: string, 1: ?int, 2: bool, 3: mixed, 4: bool}     $properties     The arguments
      */
     public function __call(string $name, array $properties): Table
     {

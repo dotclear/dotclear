@@ -26,7 +26,7 @@ class Legend extends Component
      * Constructs a new instance.
      *
      * @param      string                                       $text     The text
-     * @param      string|array{0: string, 1?: string}|null     $id       The identifier
+     * @param      string|list{0: string, 1?: string}|null      $id       The identifier
      * @param      string                                       $element  The element
      */
     public function __construct(string $text = '', string|array|null $id = null, ?string $element = null)
