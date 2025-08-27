@@ -14,7 +14,7 @@ class DropStatementTest extends TestCase
     {
         // Build a mock handler for the driver
         $driverClass = ucfirst($driver);
-        $mock        = $this->getMockBuilder("Dotclear\\Database\\Driver\\$driverClass\\Handler")
+        $mock        = $this->getMockBuilder("Dotclear\\Schema\\Database\\$driverClass\\Handler")
             ->disableOriginalConstructor()
             ->onlyMethods([
                 'link',

@@ -6,17 +6,18 @@ namespace Dotclear\Tests\Database;
 
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
+use ReflectionClass;
 
 class StructureTest extends TestCase
 {
     private \Dotclear\Database\Structure $structure;
     private array $info;
 
-    private function getConnection(string $driver, string $syntax): \Dotclear\Interface\Core\ConnectionInterface
+    private function getConnection(string $driver, string $syntax): \Dotclear\Interface\Database\ConnectionInterface
     {
         // Build a mock handler for the driver
         $driverClass = ucfirst($driver);
-        $mock        = $this->getMockBuilder("Dotclear\\Database\\Driver\\$driverClass\\Handler")
+        $mock        = $this->getMockBuilder("Dotclear\\Schema\\Database\\$driverClass\\Handler")
             ->disableOriginalConstructor()
             ->onlyMethods([
                 'link',
@@ -27,6 +28,12 @@ class StructureTest extends TestCase
                 'select',
             ])
             ->getMock();
+
+        // Mock container_schema protected property
+        $reflection          = new ReflectionClass("Dotclear\\Schema\\Database\\$driverClass\\Handler");
+        $reflection_property = $reflection->getProperty('container_schema');
+        $reflection_property->setAccessible(true);
+        $reflection_property->setValue($mock, new \Dotclear\Database\ContainerSchema());
 
         // Common return values
         $info = [
@@ -55,11 +62,11 @@ class StructureTest extends TestCase
         return $mock;
     }
 
-    private function getSchema($con, string $driver): \Dotclear\Interface\Core\SchemaInterface
+    private function getSchema($con, string $driver): \Dotclear\Interface\Database\SchemaInterface
     {
         // Build a mock handler for the driver
         $driverClass = ucfirst($driver);
-        $mock        = $this->getMockBuilder("Dotclear\\Database\\Driver\\$driverClass\\Schema")
+        $mock        = $this->getMockBuilder("Dotclear\\Schema\\Database\\$driverClass\\Schema")
             ->disableOriginalConstructor()
             ->onlyMethods([
                 'flushStack',
