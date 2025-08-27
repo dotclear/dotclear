@@ -170,7 +170,7 @@ interface MetaInterface
      * @param   string  $type       The meta type (if null, select all types)
      * @param   string  $post_type  The post type (if null, select all types)
      *
-     * @return  array<int,int>  The list of impacted post_ids
+     * @return  list<int>  The list of impacted post_ids
      */
     public function delMeta(string $meta_id, ?string $type = null, ?string $post_type = null): array;
 }

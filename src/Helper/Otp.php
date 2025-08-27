@@ -82,7 +82,7 @@ abstract class Otp
     /**
      * Reverse base32 dictionary.
      *
-     * @var     array<string, int>
+     * @var     array<int|string, int>
      */
     protected readonly array $base32_lookup;
 
@@ -141,7 +141,7 @@ abstract class Otp
     public function __construct(bool $is_totp = true)
     {
         $this->otp_type      = $is_totp ? 'totp' : 'hotp';
-        $this->base32_map    = str_split(static::BASE32_DICTIONARY);
+        $this->base32_map    = str_split(self::BASE32_DICTIONARY);
         $this->base32_lookup = array_flip($this->base32_map);
     }
 
@@ -351,9 +351,9 @@ abstract class Otp
         $this->data = [
             'secret'    => isset($data['secret'])    && is_string($data['secret']) ? $data['secret'] : $this->createSecret(),
             'counter'   => isset($data['counter'])   && is_numeric($data['counter']) ? (int) $data['counter'] : 0, // hotp
-            'period'    => isset($data['period'])    && is_numeric($data['period']) ? (int) $data['period'] : static::DEFAULT_PERIOD, // totp
-            'digits'    => isset($data['digits'])    && is_numeric($data['digits']) ? (int) $data['digits'] : static::DEFAULT_DIGITS,
-            'algorithm' => isset($data['algorithm']) && is_string($data['algorithm']) ? $data['algorithm'] : static::DEFAULT_ALGORITHM,
+            'period'    => isset($data['period'])    && is_numeric($data['period']) ? (int) $data['period'] : self::DEFAULT_PERIOD, // totp
+            'digits'    => isset($data['digits'])    && is_numeric($data['digits']) ? (int) $data['digits'] : self::DEFAULT_DIGITS,
+            'algorithm' => isset($data['algorithm']) && is_string($data['algorithm']) ? $data['algorithm'] : self::DEFAULT_ALGORITHM,
             'verified'  => isset($data['verified'])  && !empty($data['verified']),
         ];
     }
@@ -409,7 +409,7 @@ abstract class Otp
      */
     public function getPeriod(): int
     {
-        return $this->data['period'] ?? static::DEFAULT_PERIOD;
+        return $this->data['period'] ?? self::DEFAULT_PERIOD;
     }
 
     /**
@@ -421,7 +421,7 @@ abstract class Otp
      */
     public function getDigits(): int
     {
-        return $this->data['digits'] ?? static::DEFAULT_DIGITS;
+        return $this->data['digits'] ?? self::DEFAULT_DIGITS;
     }
 
     /**
@@ -433,7 +433,7 @@ abstract class Otp
      */
     public function getAlgorithm(): string
     {
-        return $this->data['algorithm'] ?? static::DEFAULT_ALGORITHM;
+        return $this->data['algorithm'] ?? self::DEFAULT_ALGORITHM;
     }
 
     /**
@@ -570,13 +570,13 @@ abstract class Otp
         ];
 
         // optionnal parameters
-        if ($this->getDigits() !== static::DEFAULT_DIGITS) {
+        if ($this->getDigits() !== self::DEFAULT_DIGITS) {
             $params['digits'] = $this->getDigits();
         }
-        if ($this->getPeriod() !== static::DEFAULT_PERIOD) {
+        if ($this->getPeriod() !== self::DEFAULT_PERIOD) {
             $params['period'] = $this->getPeriod();
         }
-        if ($this->getAlgorithm() !== static::DEFAULT_ALGORITHM) {
+        if ($this->getAlgorithm() !== self::DEFAULT_ALGORITHM) {
             $params['algorithm'] = strtoupper($this->getAlgorithm());
         }
         // hotp parameter
@@ -585,7 +585,7 @@ abstract class Otp
         }
 
         return sprintf(
-            static::OTP_URL,
+            self::OTP_URL,
             $this->getType(),
             rawurlencode($this->getDomain() . ':' . $this->getUser()),
             http_build_query($params, '', '&')

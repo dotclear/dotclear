@@ -114,8 +114,8 @@ class Path
      * The .. (parent folder) names will be reduce if possible by removing their's previous item
      * Ex: path(['main', 'sub', '..', 'inc']) will return 'main/inc'
      *
-     * @param   array<int,string>   $elements   The elements
-     * @param   string              $separator  The separator
+     * @param   list<string>    $elements   The elements
+     * @param   string          $separator  The separator
      */
     public static function reduce(array $elements, string $separator = DIRECTORY_SEPARATOR): string
     {

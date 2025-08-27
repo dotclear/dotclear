@@ -23,7 +23,7 @@ class Behavior implements BehaviorInterface
     /**
      * The behaviors stack.
      *
-     * @var    array<string,callable[]>    $stack
+     * @var    array<string,list<callable>>    $stack
      */
     private array $stack = [];
 
@@ -72,7 +72,7 @@ class Behavior implements BehaviorInterface
      *
      * @param   string  $behavior   The behavior
      *
-     * @return  array<int,callable>     The behaviors.
+     * @return  list<callable>     The behaviors.
      */
     public function getBehavior(string $behavior): array
     {
@@ -82,7 +82,7 @@ class Behavior implements BehaviorInterface
     /**
      * Gets the behaviors stack.
      *
-     * @return  array<string,array<int,callable>>   The behaviors.
+     * @return  array<string,list<callable>>   The behaviors.
      */
     public function getBehaviors(): array
     {

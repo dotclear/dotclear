@@ -50,7 +50,7 @@ class Uninstaller
     /**
      * List of modules with custom actions render.
      *
-     * @var     array<int,string>   $renders
+     * @var     list<string>   $renders
      */
     private array $renders = [];
 
@@ -100,7 +100,7 @@ class Uninstaller
      *
      * This also resets previously loaded modules and actions.
      *
-     * @param   array<int,ModuleDefine>     $modules    List of modules Define
+     * @param   list<ModuleDefine>     $modules    List of modules Define
      *
      * @return  Uninstaller     Uninstaller instance
      */

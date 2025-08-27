@@ -317,7 +317,7 @@ class Manage extends Process
                             case 'special':
                                 break;
                             default:
-                                # --BEHAVIOR-- adminSimpleMenuBeforeEdit - string, string, array<int,string>
+                                # --BEHAVIOR-- adminSimpleMenuBeforeEdit - string, string, list<string>
                                 # Should modify if necessary $item_label, $item_descr and $item_url
                                 # Should set if necessary $item_select_label (displayed on further admin step only)
                                 [

@@ -24,7 +24,7 @@ class Menu
     /**
      * List of items pinned at top of menu
      *
-     * @var array<int,string>   $pinned
+     * @var list<string>            $pinned
      */
     protected $pinned = [];
 
@@ -208,7 +208,7 @@ class Menu
     /**
      * Get list of menuitems in menu
      *
-     * @return     array<int, string>
+     * @return     list<string>
      */
     public function listMenus(): array
     {

@@ -43,7 +43,7 @@ class dcUtils
      *
      * @deprecated  since 2.28, use Path::reduce() instead
      *
-     * @param   array<string>   $elements   The elements
+     * @param   list<string>    $elements   The elements
      * @param   string          $separator  The separator
      */
     public static function path(array $elements, string $separator = DIRECTORY_SEPARATOR): string

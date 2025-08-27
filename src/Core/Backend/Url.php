@@ -232,7 +232,7 @@ class Url
      *
      * @throws  Exception   If unknown URL
      *
-     * @return  array<int, Hidden>   The hidden form fields.
+     * @return  list<Hidden>   The hidden form fields.
      */
     public function hiddenFormFields(string $name, array $params = []): array
     {

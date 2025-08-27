@@ -370,7 +370,7 @@ class Utility extends Process
     /**
      * Get list of available menuitems
      *
-     * @return     array<int, string>
+     * @return     list<string>
      */
     public function listMenus(): array
     {

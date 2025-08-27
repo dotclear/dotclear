@@ -74,7 +74,7 @@ class ModuleDefine
     /**
      * Dependencies : implies.
      *
-     * @var     array<int,string>   $implies
+     * @var     list<string>   $implies
      */
     private array $implies = [];
 
@@ -88,7 +88,7 @@ class ModuleDefine
     /**
      * Dependencies : using.
      *
-     * @var     array<int,string>   $using
+     * @var     list<string>   $using
      */
     private array $using = [];
 
@@ -216,7 +216,7 @@ class ModuleDefine
     /**
      * Get implies dependencies.
      *
-     * @return  array<int,string>   The dependencies
+     * @return  list<string>   The dependencies
      */
     public function getImplies(): array
     {
@@ -257,7 +257,7 @@ class ModuleDefine
     /**
      * Get using dependencies.
      *
-     * @return  array<int,string>   The dependencies
+     * @return  list<string>   The dependencies
      */
     public function getUsing(): array
     {

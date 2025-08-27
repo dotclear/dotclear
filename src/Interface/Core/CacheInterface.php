@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -46,14 +47,14 @@ interface CacheInterface
     /**
      * Add files to the files list.
      *
-     * @param   array<int,string>   $files  The files path to add
+     * @param   list<string>   $files  The files path to add
      */
     public function addFiles(array $files): void;
 
     /**
      * Get the files list.
      *
-     * @return  array<int,string>   The files path
+     * @return  list<string>   The files path
      */
     public function getFiles(): array;
 
@@ -72,14 +73,14 @@ interface CacheInterface
     /**
      * Add timestamps to the timestamps list.
      *
-     * @param   array<int,int>  $times  The timestamps
+     * @param   list<int>  $times  The timestamps
      */
     public function addTimes(array $times): void;
 
     /**
      * Get the timestamps list.
      *
-     * @return  array<int,int>  The timestamps
+     * @return  list<int>  The timestamps
      */
     public function getTimes(): array;
 }

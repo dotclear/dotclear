@@ -126,7 +126,7 @@ class LinksLookup extends SpamFilter
      *
      * @param   string  $text   The text
      *
-     * @return  array<string>   The links.
+     * @return  list<string>   The links.
      */
     private function getLinks(string $text): array
     {
