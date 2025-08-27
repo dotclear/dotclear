@@ -99,7 +99,7 @@ class SynchPostMeta extends MaintenanceTask
             $sql = new SelectStatement();
             $run = $sql
                 ->column($sql->count('post_id'))
-                ->from(App::con()->prefix() . App::blog()::POST_TABLE_NAME)
+                ->from(App::db()->con()->prefix() . App::blog()::POST_TABLE_NAME)
                 ->select();
             $this->count = $run instanceof MetaRecord ? (int) $run->f(0) : 0;
 
@@ -113,7 +113,7 @@ class SynchPostMeta extends MaintenanceTask
         $sql = new SelectStatement();
         $sql
             ->column('post_id')
-            ->from(App::con()->prefix() . App::blog()::POST_TABLE_NAME);
+            ->from(App::db()->con()->prefix() . App::blog()::POST_TABLE_NAME);
         if ($start !== null && $limit !== null) {
             $sql->limit([$start, $limit]);
         }
@@ -128,7 +128,7 @@ class SynchPostMeta extends MaintenanceTask
                         'meta_id',
                         'meta_type',
                     ])
-                    ->from(App::con()->prefix() . App::meta()::META_TABLE_NAME)
+                    ->from(App::db()->con()->prefix() . App::meta()::META_TABLE_NAME)
                     ->where('post_id = ' . $rs->post_id)
                     ->select();
 

@@ -36,62 +36,62 @@ class ModuleExportFlat extends Module
             App::auth()::PERMISSION_ADMIN,
         ]), App::blog()->id())) {
             $fullname = App::blog()->publicPath() . '/.backup_' . sha1(uniqid());
-            $blog_id  = App::con()->escapeStr(App::blog()->id());
+            $blog_id  = App::db()->con()->escapeStr(App::blog()->id());
 
             try {
-                $exp = new FlatExport(App::con(), $fullname, App::con()->prefix());
+                $exp = new FlatExport(App::db()->con(), $fullname, App::db()->con()->prefix());
                 fwrite($exp->fp, '///DOTCLEAR|' . App::config()->dotclearVersion() . "|single\n");
 
                 $exp->export(
                     'category',
-                    'SELECT * FROM ' . App::con()->prefix() . App::blog()->categories()::CATEGORY_TABLE_NAME . ' ' .
+                    'SELECT * FROM ' . App::db()->con()->prefix() . App::blog()->categories()::CATEGORY_TABLE_NAME . ' ' .
                     "WHERE blog_id = '" . $blog_id . "'"
                 );
                 $exp->export(
                     'link',
-                    'SELECT * FROM ' . App::con()->prefix() . Blogroll::LINK_TABLE_NAME . ' ' .
+                    'SELECT * FROM ' . App::db()->con()->prefix() . Blogroll::LINK_TABLE_NAME . ' ' .
                     "WHERE blog_id = '" . $blog_id . "'"
                 );
                 $exp->export(
                     'setting',
-                    'SELECT * FROM ' . App::con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME . ' ' .
+                    'SELECT * FROM ' . App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME . ' ' .
                     "WHERE blog_id = '" . $blog_id . "'"
                 );
                 $exp->export(
                     'post',
-                    'SELECT * FROM ' . App::con()->prefix() . App::blog()::POST_TABLE_NAME . ' ' .
+                    'SELECT * FROM ' . App::db()->con()->prefix() . App::blog()::POST_TABLE_NAME . ' ' .
                     "WHERE blog_id = '" . $blog_id . "'"
                 );
                 $exp->export(
                     'meta',
                     'SELECT meta_id, meta_type, M.post_id ' .
-                    'FROM ' . App::con()->prefix() . App::meta()::META_TABLE_NAME . ' M, ' . App::con()->prefix() . App::blog()::POST_TABLE_NAME . ' P ' .
+                    'FROM ' . App::db()->con()->prefix() . App::meta()::META_TABLE_NAME . ' M, ' . App::db()->con()->prefix() . App::blog()::POST_TABLE_NAME . ' P ' .
                     'WHERE P.post_id = M.post_id ' .
                     "AND P.blog_id = '" . $blog_id . "'"
                 );
                 $exp->export(
                     'media',
-                    'SELECT * FROM ' . App::con()->prefix() . App::postMedia()::MEDIA_TABLE_NAME . " WHERE media_path = '" .
-                    App::con()->escapeStr(App::blog()->settings()->system->public_path) . "'"
+                    'SELECT * FROM ' . App::db()->con()->prefix() . App::postMedia()::MEDIA_TABLE_NAME . " WHERE media_path = '" .
+                    App::db()->con()->escapeStr(App::blog()->settings()->system->public_path) . "'"
                 );
                 $exp->export(
                     'post_media',
                     'SELECT media_id, M.post_id ' .
-                    'FROM ' . App::con()->prefix() . App::postMedia()::POST_MEDIA_TABLE_NAME . ' M, ' . App::con()->prefix() . App::blog()::POST_TABLE_NAME . ' P ' .
+                    'FROM ' . App::db()->con()->prefix() . App::postMedia()::POST_MEDIA_TABLE_NAME . ' M, ' . App::db()->con()->prefix() . App::blog()::POST_TABLE_NAME . ' P ' .
                     'WHERE P.post_id = M.post_id ' .
                     "AND P.blog_id = '" . $blog_id . "'"
                 );
                 $exp->export(
                     'ping',
                     'SELECT ping.post_id, ping_url, ping_dt ' .
-                    'FROM ' . App::con()->prefix() . App::trackback()::PING_TABLE_NAME . ' ping, ' . App::con()->prefix() . App::blog()::POST_TABLE_NAME . ' P ' .
+                    'FROM ' . App::db()->con()->prefix() . App::trackback()::PING_TABLE_NAME . ' ping, ' . App::db()->con()->prefix() . App::blog()::POST_TABLE_NAME . ' P ' .
                     'WHERE P.post_id = ping.post_id ' .
                     "AND P.blog_id = '" . $blog_id . "'"
                 );
                 $exp->export(
                     'comment',
                     'SELECT C.* ' .
-                    'FROM ' . App::con()->prefix() . App::blog()::COMMENT_TABLE_NAME . ' C, ' . App::con()->prefix() . App::blog()::POST_TABLE_NAME . ' P ' .
+                    'FROM ' . App::db()->con()->prefix() . App::blog()::COMMENT_TABLE_NAME . ' C, ' . App::db()->con()->prefix() . App::blog()::POST_TABLE_NAME . ' P ' .
                     'WHERE P.post_id = C.post_id ' .
                     "AND P.blog_id = '" . $blog_id . "'"
                 );
@@ -115,7 +115,7 @@ class ModuleExportFlat extends Module
             $fullname = App::blog()->publicPath() . '/.backup_' . sha1(uniqid());
 
             try {
-                $exp = new FlatExport(App::con(), $fullname, App::con()->prefix());
+                $exp = new FlatExport(App::db()->con(), $fullname, App::db()->con()->prefix());
                 fwrite($exp->fp, '///DOTCLEAR|' . App::config()->dotclearVersion() . "|full\n");
                 $exp->exportTable('blog');
                 $exp->exportTable('category');

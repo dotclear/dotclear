@@ -13,7 +13,7 @@ namespace Dotclear\Core;
 
 use Dotclear\Database\Session as DatabaseSession;
 use Dotclear\Interface\Core\ConfigInterface;
-use Dotclear\Interface\Core\ConnectionInterface;
+use Dotclear\Interface\Core\DatabaseInterface;
 use Throwable;
 
 /**
@@ -22,22 +22,23 @@ use Throwable;
  * Transitionnal class to set Dotclear default session handler table.
  *
  * @since   2.28, container services have been added to constructor
+ * @since   2.36, constructor argument ConnectionInteface has been replaced by DatabaseInterface
  */
 class Session extends DatabaseSession
 {
     /**
      * Constructor.
      *
-     * @param   ConfigInterface         $config     The application configuration
-     * @param   ConnectionInterface     $con        The database connection instance
+     * @param   ConfigInterface     $config     The application configuration
+     * @param   DatabaseInterface   $db         The database handler instance
      */
     public function __construct(
         protected ConfigInterface $config,
-        protected ConnectionInterface $con
+        protected DatabaseInterface $db
     ) {
         parent::__construct(
-            con: $this->con,
-            table : $this->con->prefix() . Session::SESSION_TABLE_NAME,
+            con: $this->db->con(),
+            table : $this->db->con()->prefix() . Session::SESSION_TABLE_NAME,
             cookie_name: $this->config->sessionName(),
             cookie_secure: $this->config->adminSsl(),
             ttl: $this->config->sessionTtl()
@@ -49,7 +50,7 @@ class Session extends DatabaseSession
                     // Explicitly close session before DB connection
                     session_write_close();
                 }
-                $this->con->close();
+                $this->db->con()->close();
             } catch (Throwable) {
                 // Ignore exceptions
             }

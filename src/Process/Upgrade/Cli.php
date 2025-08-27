@@ -39,16 +39,16 @@ class Cli extends Process
 
         try {
             echo "Starting upgrade process\n";
-            App::con()->begin();
+            App::db()->con()->begin();
 
             try {
                 $changes = (int) Upgrade::dotclearUpgrade();
             } catch (Exception $e) {
-                App::con()->rollback();
+                App::db()->con()->rollback();
 
                 throw $e;
             }
-            App::con()->commit();
+            App::db()->con()->commit();
             echo 'Upgrade process successfully completed (' . $changes . "). \n";
             terminate(0);
         } catch (Exception $e) {

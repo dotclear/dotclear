@@ -990,7 +990,7 @@ class MediaItem extends Process
                         ->text(__('Show entries containing this media')),
                 ]);
         } else {
-            $relname = App::con()->escapeStr(App::backend()->file->relname);
+            $relname = App::db()->con()->escapeStr(App::backend()->file->relname);
 
             // 1st, look inside entries content
             $params = [
@@ -1008,7 +1008,7 @@ class MediaItem extends Process
                     $media_root = App::blog()->host() . Path::clean(App::blog()->settings()->system->public_url) . '/';
                 }
                 foreach (App::backend()->file->media_thumb as $value) {
-                    $value = App::con()->escapeStr((string) preg_replace('/^' . preg_quote((string) $media_root, '/') . '/', '', (string) $value));
+                    $value = App::db()->con()->escapeStr((string) preg_replace('/^' . preg_quote((string) $media_root, '/') . '/', '', (string) $value));
                     $params['sql'] .= "OR post_content_xhtml LIKE '%" . $value . "%' ";
                     $params['sql'] .= "OR post_excerpt_xhtml LIKE '%" . $value . "%' ";
                 }
@@ -1021,7 +1021,7 @@ class MediaItem extends Process
             // 2nd, look inside entries attachments (any kind)
             $params = [
                 'post_type' => '',
-                'join'      => 'LEFT OUTER JOIN ' . App::con()->prefix() . App::postMedia()::POST_MEDIA_TABLE_NAME . ' PM ON P.post_id = PM.post_id ',
+                'join'      => 'LEFT OUTER JOIN ' . App::db()->con()->prefix() . App::postMedia()::POST_MEDIA_TABLE_NAME . ' PM ON P.post_id = PM.post_id ',
                 'sql'       => 'AND (PM.media_id = ' . (int) App::backend()->id . ')',
             ];
 

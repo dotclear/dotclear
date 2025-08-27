@@ -8,7 +8,7 @@
  */
 declare(strict_types=1);
 
-namespace Dotclear\Database\Driver\Pgsql;
+namespace Dotclear\Schema\Database\Pgsql;
 
 use Dotclear\Database\AbstractSchema;
 

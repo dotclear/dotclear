@@ -8,14 +8,14 @@
  */
 declare(strict_types=1);
 
-namespace Dotclear\Database;
+namespace Dotclear\Interface\Database;
 
 /**
  * @class InterfaceSchema
  *
  * Database schema interface
  */
-interface InterfaceSchema
+interface DbSchemaInterface
 {
     /**
      * This method should return an array of all tables in database for the current connection.

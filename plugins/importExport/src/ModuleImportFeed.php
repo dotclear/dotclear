@@ -182,7 +182,7 @@ class ModuleImportFeed extends Module
         }
 
         $cur = App::blog()->openPostCursor();
-        App::con()->begin();
+        App::db()->con()->begin();
         foreach ($feed->items as $item) {
             $cur->clean();
             $cur->user_id      = App::auth()->userID();
@@ -195,7 +195,7 @@ class ModuleImportFeed extends Module
             try {
                 $post_id = App::blog()->addPost($cur);
             } catch (Exception $e) {
-                App::con()->rollback();
+                App::db()->con()->rollback();
 
                 throw $e;
             }
@@ -205,7 +205,7 @@ class ModuleImportFeed extends Module
             }
         }
 
-        App::con()->commit();
+        App::db()->con()->commit();
         Http::redirect($this->getURL() . '&do=ok');
     }
 

@@ -315,7 +315,7 @@ class Comment
                     'user_email',
                     'user_url',
                 ])
-                ->from(App::con()->prefix() . App::auth()::USER_TABLE_NAME)
+                ->from(App::db()->con()->prefix() . App::auth()::USER_TABLE_NAME)
                 ->where('user_status = ' . User::ENABLED)
                 ->and('user_id ' . $sql->in($blogUsers));
 

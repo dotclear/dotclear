@@ -99,7 +99,7 @@ class IndexPosts extends MaintenanceTask
             $sql = new SelectStatement();
             $run = $sql
                 ->column($sql->count('post_id'))
-                ->from(App::con()->prefix() . App::blog()::POST_TABLE_NAME)
+                ->from(App::db()->con()->prefix() . App::blog()::POST_TABLE_NAME)
                 ->select();
             $this->count = $run instanceof MetaRecord ? (int) $run->f(0) : 0;
 
@@ -117,7 +117,7 @@ class IndexPosts extends MaintenanceTask
                 'post_excerpt_xhtml',
                 'post_content_xhtml',
             ])
-            ->from(App::con()->prefix() . App::blog()::POST_TABLE_NAME);
+            ->from(App::db()->con()->prefix() . App::blog()::POST_TABLE_NAME);
 
         if ($start !== null && $limit !== null) {
             $sql->limit([$start, $limit]);

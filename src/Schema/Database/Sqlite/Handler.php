@@ -8,35 +8,34 @@
  */
 declare(strict_types=1);
 
-namespace Dotclear\Database\Driver\Mysqli;
+namespace Dotclear\Schema\Database\Sqlite;
 
+use Collator;
 use Dotclear\App;
 use Dotclear\Database\AbstractHandler;
+use Dotclear\Database\StaticRecord;
 use Exception;
-use mysqli;
-use mysqli_result;
+use PDO;
+use PDOStatement;
 
 /**
  * @class Handler
  *
- * MySQL Database handler
+ * SQLite Database handler
  */
 class Handler extends AbstractHandler
 {
-    /**
-     * Enables weak locks if true
-     */
-    public static bool $weak_locks = true;
+    protected string $__driver = 'sqlite';
+    protected string $__syntax = 'sqlite';
 
     /**
-     * Driver name
+     * UTF-8 Collator (if class exists)
+     *
+     * @var        mixed    $utf8_unicode_ci
      */
-    protected string $__driver = 'mysqli';
+    protected $utf8_unicode_ci;
 
-    /**
-     * SQL Syntax supported
-     */
-    protected string $__syntax = 'mysql';
+    protected bool $vacuum = false;
 
     /**
      * Open a DB connection
@@ -47,35 +46,14 @@ class Handler extends AbstractHandler
      * @param      string     $database  The database
      *
      * @throws     Exception
-     *
-     * @return     mixed
      */
-    public function db_connect(string $host, string $user, string $password, string $database)
+    public function db_connect(string $host, string $user, string $password, string $database): \PDO
     {
-        if (!function_exists('mysqli_connect')) {
-            throw new Exception('PHP MySQLi functions are not available');
+        if (!class_exists('PDO') || !in_array('sqlite', PDO::getAvailableDrivers())) {
+            throw new Exception('PDO SQLite class is not available');
         }
 
-        $port   = abs((int) ini_get('mysqli.default_port'));
-        $socket = '';
-        if (str_contains($host, ':')) {
-            // Port or socket given
-            $bits   = explode(':', $host);
-            $host   = array_shift($bits);
-            $socket = array_shift($bits);
-            if (abs((int) $socket) > 0) {
-                // TCP/IP connection on given port
-                $port   = abs((int) $socket);
-                $socket = '';
-            } else {
-                // Socket connection
-                $port = 0;
-            }
-        }
-        if (($link = @mysqli_connect($host, $user, $password, $database, $port, $socket)) === false) {
-            throw new Exception('Unable to connect to database');
-        }
-
+        $link = new PDO('sqlite:' . $database);
         $this->db_post_connect($link);
 
         return $link;
@@ -88,33 +66,34 @@ class Handler extends AbstractHandler
      * @param      string  $user      The user
      * @param      string  $password  The password
      * @param      string  $database  The database
-     *
-     * @return     mixed
      */
-    public function db_pconnect(string $host, string $user, string $password, string $database)
+    public function db_pconnect(string $host, string $user, string $password, string $database): \PDO
     {
-        // No pconnect wtih mysqli, below code is for comatibility
-        return $this->db_connect($host, $user, $password, $database);
+        if (!class_exists('PDO') || !in_array('sqlite', PDO::getAvailableDrivers())) {
+            throw new Exception('PDO SQLite class is not available');
+        }
+
+        $link = new PDO('sqlite:' . $database, null, null, [PDO::ATTR_PERSISTENT => true]);
+        $this->db_post_connect($link);
+
+        return $link;
     }
 
     /**
      * Post connection helper
      *
-     * @param      mysqli  $handle   The DB handle
+     * @param      \PDO  $handle   The DB handle
      */
-    private function db_post_connect(mysqli $handle): void
+    private function db_post_connect(\PDO $handle): void
     {
-        if (version_compare($this->db_version($handle), '4.1', '>=')) {
-            $this->db_query($handle, 'SET NAMES utf8');
-            $this->db_query($handle, 'SET CHARACTER SET utf8');
-            $this->db_query($handle, "SET COLLATION_CONNECTION = 'utf8_general_ci'");
-            $this->db_query($handle, "SET COLLATION_SERVER = 'utf8_general_ci'");
-            $this->db_query($handle, "SET CHARACTER_SET_SERVER = 'utf8'");
-            if (version_compare($this->db_version($handle), '8.0', '<')) {
-                // Setting CHARACTER_SET_DATABASE is obosolete for MySQL 8.0+
-                $this->db_query($handle, "SET CHARACTER_SET_DATABASE = 'utf8'");
+        $this->db_exec($handle, 'PRAGMA short_column_names = 1');
+        $this->db_exec($handle, 'PRAGMA encoding = "UTF-8"');
+        $handle->sqliteCreateFunction('now', $this->now(...), 0);
+        if (class_exists('Collator')) {
+            $this->utf8_unicode_ci = new Collator('root');
+            if (!$handle->sqliteCreateCollation('utf8_unicode_ci', $this->utf8_unicode_ci->compare(...))) {
+                $this->utf8_unicode_ci = null;
             }
-            $handle->set_charset('utf8');
         }
     }
 
@@ -125,8 +104,12 @@ class Handler extends AbstractHandler
      */
     public function db_close($handle): void
     {
-        if ($handle instanceof mysqli) {
-            $handle->close();
+        if ($handle instanceof PDO) {
+            if ($this->vacuum) {
+                $this->db_exec($handle, 'VACUUM');
+            }
+            $handle       = null;
+            $this->__link = null;
         }
     }
 
@@ -137,13 +120,7 @@ class Handler extends AbstractHandler
      */
     public function db_version($handle): string
     {
-        if ($handle instanceof mysqli) {
-            $v = $handle->server_version;
-
-            return sprintf('%s.%s.%s', ($v - ($v % 10000)) / 10000, ($v - ($v % 100)) % 10000 / 100, $v % 100);
-        }
-
-        return '';
+        return $handle instanceof PDO ? $handle->getAttribute(PDO::ATTR_SERVER_VERSION) : '';
     }
 
     /**
@@ -158,6 +135,49 @@ class Handler extends AbstractHandler
     }
 
     /**
+     * Get query data in a StaticRecord
+     *
+     * There is no other way than get all selected data in a StaticRecord with SQlite
+     *
+     * @param      string        $sql    The sql
+     *
+     * @return     StaticRecord  The static record.
+     */
+    public function select(string $sql): StaticRecord
+    {
+        $result              = $this->db_query($this->__link, $sql);
+        $this->__last_result = &$result;
+
+        $info         = [];
+        $info['con']  = &$this;
+        $info['cols'] = $this->db_num_fields($result);
+        $info['info'] = [];
+
+        for ($i = 0; $i < $info['cols']; $i++) {
+            $info['info']['name'][] = $this->db_field_name($result, $i);
+            $info['info']['type'][] = $this->db_field_type($result, $i);
+        }
+
+        $data = [];
+        if ($result) {
+            while ($r = $result->fetch(PDO::FETCH_ASSOC)) {
+                $R = [];
+                foreach ($r as $k => $v) {
+                    $k     = (string) preg_replace('/^(.*)\./', '', (string) $k);    // @phpstan-ignore-line
+                    $R[$k] = $v;
+                    $R[]   = &$R[$k];
+                }
+                $data[] = $R;
+            }
+
+            $info['rows'] = count($data);
+            $result->closeCursor();
+        }
+
+        return new StaticRecord($data, $info);
+    }
+
+    /**
      * Execute a DB query
      *
      * @param      mixed      $handle  The handle
@@ -169,8 +189,8 @@ class Handler extends AbstractHandler
      */
     public function db_query($handle, string $query)
     {
-        if ($handle instanceof mysqli) {
-            $res = @$handle->query($query);
+        if ($handle instanceof PDO) {
+            $res = $handle->query($query);
             if ($res === false) {
                 $msg = (string) $this->db_last_error($handle);
                 if (App::config()->devMode()) {
@@ -206,7 +226,7 @@ class Handler extends AbstractHandler
      */
     public function db_num_fields($res): int
     {
-        return $res instanceof mysqli_result ? $res->field_count : 0;
+        return $res instanceof PDOStatement ? $res->columnCount() : 0;
     }
 
     /**
@@ -216,7 +236,7 @@ class Handler extends AbstractHandler
      */
     public function db_num_rows($res): int
     {
-        return $res instanceof mysqli_result ? (int) $res->num_rows : 0;
+        return 0;
     }
 
     /**
@@ -227,11 +247,11 @@ class Handler extends AbstractHandler
      */
     public function db_field_name($res, int $position): string
     {
-        if ($res instanceof mysqli_result) {
-            $res->field_seek($position);
-            $finfo = $res->fetch_field();
+        if ($res instanceof PDOStatement) {
+            $m = $res->getColumnMeta($position);
 
-            return $finfo->name;    // @phpstan-ignore-line
+            // We said short_column_names = 1
+            return (string) preg_replace('/^.+\./', '', $m['name']); // @phpstan-ignore-line
         }
 
         return '';
@@ -245,11 +265,17 @@ class Handler extends AbstractHandler
      */
     public function db_field_type($res, int $position): string
     {
-        if ($res instanceof mysqli_result) {
-            $res->field_seek($position);
-            $finfo = $res->fetch_field();
+        if ($res instanceof PDOStatement) {
+            $m = $res->getColumnMeta($position);
 
-            return $this->_convert_types((string) $finfo->type); // @phpstan-ignore-line
+            if ($m !== false) {
+                return match ($m['pdo_type']) {
+                    PDO::PARAM_BOOL => 'boolean',
+                    PDO::PARAM_NULL => 'null',
+                    PDO::PARAM_INT  => 'integer',
+                    default         => 'varchar',
+                };
+            }
         }
 
         return '';
@@ -264,10 +290,8 @@ class Handler extends AbstractHandler
      */
     public function db_fetch_assoc($res): false|array
     {
-        if ($res instanceof mysqli_result) {
-            $v = $res->fetch_assoc();
-
-            return $v ?? false;
+        if ($res instanceof PDOStatement) {
+            return [];
         }
 
         return false;
@@ -279,9 +303,9 @@ class Handler extends AbstractHandler
      * @param      mixed   $res    The resource
      * @param      int     $row    The row
      */
-    public function db_result_seek($res, int $row): bool
+    public function db_result_seek($res, $row): bool
     {
-        return $res instanceof mysqli_result && $res->data_seek($row);
+        return false;
     }
 
     /**
@@ -292,7 +316,7 @@ class Handler extends AbstractHandler
      */
     public function db_changes($handle, $res): int
     {
-        return $handle instanceof mysqli ? (int) $handle->affected_rows : 0;
+        return $res instanceof PDOStatement ? $res->rowCount() : 0;
     }
 
     /**
@@ -302,8 +326,10 @@ class Handler extends AbstractHandler
      */
     public function db_last_error($handle): false|string
     {
-        if ($handle instanceof mysqli && ($e = $handle->error)) {
-            return $e . ' (' . $handle->errno . ')';
+        if ($handle instanceof PDO) {
+            $err = $handle->errorInfo();
+
+            return $err[2] . ' (' . $err[1] . ')';
         }
 
         return false;
@@ -317,7 +343,33 @@ class Handler extends AbstractHandler
      */
     public function db_escape_string($str, $handle = null): string
     {
-        return $handle instanceof mysqli ? $handle->real_escape_string((string) $str) : addslashes((string) $str);
+        return $handle instanceof PDO ? trim((string) $handle->quote($str), "'") : addslashes((string) $str);
+    }
+
+    public function escapeSystem(string $str): string
+    {
+        return "'" . $this->escapeStr($str) . "'";
+    }
+
+    public function begin(): void
+    {
+        if ($this->__link instanceof PDO) {
+            $this->__link->beginTransaction();
+        }
+    }
+
+    public function commit(): void
+    {
+        if ($this->__link instanceof PDO) {
+            $this->__link->commit();
+        }
+    }
+
+    public function rollback(): void
+    {
+        if ($this->__link instanceof PDO) {
+            $this->__link->rollBack();
+        }
     }
 
     /**
@@ -327,14 +379,7 @@ class Handler extends AbstractHandler
      */
     public function db_write_lock(string $table): void
     {
-        try {
-            $this->execute('LOCK TABLES ' . $this->escapeSystem($table) . ' WRITE');
-        } catch (Exception $e) {
-            # As lock is a privilege in MySQL, we can avoid errors with weak_locks static var
-            if (!self::$weak_locks) {
-                throw $e;
-            }
-        }
+        $this->execute('BEGIN EXCLUSIVE TRANSACTION');
     }
 
     /**
@@ -342,13 +387,7 @@ class Handler extends AbstractHandler
      */
     public function db_unlock(): void
     {
-        try {
-            $this->execute('UNLOCK TABLES');
-        } catch (Exception $e) {
-            if (!self::$weak_locks) {
-                throw $e;
-            }
-        }
+        $this->execute('END');
     }
 
     /**
@@ -358,7 +397,7 @@ class Handler extends AbstractHandler
      */
     public function vacuum(string $table): void
     {
-        $this->execute('OPTIMIZE TABLE ' . $this->escapeSystem($table));
+        $this->vacuum = true;
     }
 
     /**
@@ -369,9 +408,7 @@ class Handler extends AbstractHandler
      */
     public function dateFormat(string $field, string $pattern): string
     {
-        $pattern = str_replace('%M', '%i', $pattern);
-
-        return 'DATE_FORMAT(' . $field . ',' . "'" . $this->escapeStr($pattern) . "')";
+        return "strftime('" . $this->escapeStr($pattern) . "'," . $field . ')';
     }
 
     /**
@@ -392,7 +429,15 @@ class Handler extends AbstractHandler
             } elseif (is_array($v) && !empty($v['field'])) {
                 $v          = array_merge($default, $v);
                 $v['order'] = (strtoupper((string) $v['order']) === 'DESC' ? 'DESC' : '');
-                $res[]      = $v['field'] . ($v['collate'] ? ' COLLATE utf8_unicode_ci' : '') . ' ' . $v['order'];
+                if ($v['collate']) {
+                    if ($this->utf8_unicode_ci instanceof Collator) {
+                        $res[] = $v['field'] . ' COLLATE utf8_unicode_ci ' . $v['order'];
+                    } else {
+                        $res[] = 'LOWER(' . $v['field'] . ') ' . $v['order'];
+                    }
+                } else {
+                    $res[] = $v['field'] . ' ' . $v['order'];
+                }
             }
         }
 
@@ -407,7 +452,7 @@ class Handler extends AbstractHandler
     public function lexFields(...$args): string
     {
         $res = [];
-        $fmt = '%s COLLATE utf8_unicode_ci';
+        $fmt = $this->utf8_unicode_ci instanceof Collator ? '%s COLLATE utf8_unicode_ci' : 'LOWER(%s)';
         foreach ($args as $v) {
             if (is_string($v)) {
                 $res[] = sprintf($fmt, $v);
@@ -419,60 +464,9 @@ class Handler extends AbstractHandler
         return implode(',', $res);
     }
 
-    /**
-     * Get a CONCAT fragment
-     *
-     * @param   mixed     ...$args
-     */
-    public function concat(...$args): string
+    # Internal SQLite function that adds NOW() SQL function.
+    public function now(): string|false
     {
-        return 'CONCAT(' . implode(',', $args) . ')';
-    }
-
-    /**
-     * Escape a string
-     *
-     * @param      string  $str    The string
-     */
-    public function escapeSystem(string $str): string
-    {
-        return '`' . $str . '`';
-    }
-
-    /**
-     * Get type label
-     *
-     * @param      string  $id     The identifier
-     */
-    protected function _convert_types(string $id): string
-    {
-        $id2type = [
-            1 => 'int',
-            2 => 'int',
-            3 => 'int',
-            8 => 'int',
-            9 => 'int',
-
-            16 => 'int', //BIT type recognized as unknown with mysql adapter
-
-            4   => 'real',
-            5   => 'real',
-            246 => 'real',
-
-            253 => 'string',
-            254 => 'string',
-
-            10 => 'date',
-            11 => 'time',
-            12 => 'datetime',
-            13 => 'year',
-
-            7 => 'timestamp',
-
-            252 => 'blob',
-
-        ];
-
-        return $id2type[(int) $id] ?? 'unknown';
+        return date('Y-m-d H:i:s');
     }
 }

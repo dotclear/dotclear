@@ -15,7 +15,7 @@ use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Html;
-use Dotclear\Interface\Core\ConnectionInterface;
+use Dotclear\Interface\Database\ConnectionInterface;
 use Dotclear\Plugin\antispam\Antispam;
 use Dotclear\Plugin\blogroll\Blogroll;
 use UnhandledMatchError;
@@ -120,8 +120,8 @@ class FlatImportV2 extends FlatBackup
             $this->dc_major_version = '2.0';
         }
 
-        $this->con    = App::con();
-        $this->prefix = App::con()->prefix();
+        $this->con    = App::db()->con();
+        $this->prefix = App::db()->con()->prefix();
 
         $this->cur_blog        = App::blog()->openBlogCursor();
         $this->cur_category    = App::blog()->categories()->openCategoryCursor();

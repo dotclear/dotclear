@@ -19,7 +19,7 @@ use Dotclear\Database\Statement\UpdateStatement;
 use Dotclear\Exception\BadRequestException;
 use Dotclear\Exception\ProcessException;
 use Dotclear\Interface\Core\BlogWorkspaceInterface;
-use Dotclear\Interface\Core\ConnectionInterface;
+use Dotclear\Interface\Core\DatabaseInterface;
 use Dotclear\Interface\Core\DeprecatedInterface;
 use Throwable;
 
@@ -37,6 +37,7 @@ use Throwable;
  * }
  *
  * @since   2.28, container services have been added to constructor
+ * @since   2.36, constructor argument ConnectionInteface has been replaced by DatabaseInterface
  *
  * @psalm-no-seal-properties
  */
@@ -73,20 +74,20 @@ class BlogWorkspace implements BlogWorkspaceInterface
      *
      * @throws  BadRequestException
      *
-     * @param   ConnectionInterface     $con            The database connection instance
+     * @param   DatabaseInterface       $db             The database handler instance
      * @param   DeprecatedInterface     $deprecated     The deprecated handler
      * @param   null|string             $blog_id        The blog ID
      * @param   null|string             $workspace      The blog workspace
      * @param   null|MetaRecord         $rs             The record
      */
     public function __construct(
-        protected ConnectionInterface $con,
+        protected DatabaseInterface $db,
         protected DeprecatedInterface $deprecated,
         protected ?string $blog_id = null,
         protected ?string $workspace = null,
         ?MetaRecord $rs = null
     ) {
-        $this->table = $this->con->prefix() . self::NS_TABLE_NAME;
+        $this->table = $this->db->con()->prefix() . self::NS_TABLE_NAME;
 
         if ($workspace !== null) {
             if (!preg_match(self::NS_NAME_SCHEMA, $workspace)) {
@@ -99,12 +100,12 @@ class BlogWorkspace implements BlogWorkspaceInterface
 
     public function createFromBlog(?string $blog_id, string $workspace, ?MetaRecord $rs = null): BlogWorkspaceInterface
     {
-        return new self($this->con, $this->deprecated, $blog_id, $workspace, $rs);
+        return new self($this->db, $this->deprecated, $blog_id, $workspace, $rs);
     }
 
     public function openBlogWorkspaceCursor(): Cursor
     {
-        return $this->con->openCursor($this->table);
+        return $this->db->con()->openCursor($this->table);
     }
 
     /**
@@ -136,7 +137,7 @@ class BlogWorkspace implements BlogWorkspaceInterface
             try {
                 $rs = $sql->select();
             } catch (Throwable) {
-                throw new ProcessException(__('Unable to retrieve settings:') . ' ' . $this->con->error());
+                throw new ProcessException(__('Unable to retrieve settings:') . ' ' . $this->db->con()->error());
             }
         }
         if ($rs instanceof MetaRecord) {
@@ -272,7 +273,7 @@ class BlogWorkspace implements BlogWorkspaceInterface
             $value = json_encode($value, JSON_THROW_ON_ERROR);
         }
 
-        $cur = $this->con->openCursor($this->table);
+        $cur = $this->db->con()->openCursor($this->table);
 
         $cur->setting_value = ($type === self::NS_BOOL) ? (string) (int) $value : (string) $value;
         $cur->setting_type  = $type;

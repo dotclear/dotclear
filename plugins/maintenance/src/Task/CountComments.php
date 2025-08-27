@@ -57,14 +57,14 @@ class CountComments extends MaintenanceTask
     {
         $sql_com = new UpdateStatement();
         $sql_com
-            ->ref($sql_com->alias(App::con()->prefix() . App::blog()::POST_TABLE_NAME, 'P'));
+            ->ref($sql_com->alias(App::db()->con()->prefix() . App::blog()::POST_TABLE_NAME, 'P'));
 
         $sql_tb = clone $sql_com;
 
         $sql_count_com = new SelectStatement();
         $sql_count_com
             ->field($sql_count_com->count('C.comment_id'))
-            ->from($sql_count_com->alias(App::con()->prefix() . App::blog()::COMMENT_TABLE_NAME, 'C'))
+            ->from($sql_count_com->alias(App::db()->con()->prefix() . App::blog()::COMMENT_TABLE_NAME, 'C'))
             ->where('C.post_id = P.post_id')
             ->and('C.comment_status > ' . App::status()->comment()->threshold());
 

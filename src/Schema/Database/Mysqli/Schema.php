@@ -8,7 +8,7 @@
  */
 declare(strict_types=1);
 
-namespace Dotclear\Database\Driver\Mysqli;
+namespace Dotclear\Schema\Database\Mysqli;
 
 use Dotclear\Database\AbstractSchema;
 

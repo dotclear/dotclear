@@ -23,7 +23,7 @@ use Dotclear\Exception\UnauthorizedException;
 use Dotclear\Helper\Text;
 use Dotclear\Interface\Core\AuthInterface;
 use Dotclear\Interface\Core\BlogInterface;
-use Dotclear\Interface\Core\ConnectionInterface;
+use Dotclear\Interface\Core\DatabaseInterface;
 use Dotclear\Interface\Core\MetaInterface;
 
 /**
@@ -31,6 +31,7 @@ use Dotclear\Interface\Core\MetaInterface;
  *
  * @since   2.28, metadata class instance is provided by App::meta() method.
  * @since   2.28, container services have been added to constructor
+ * @since   2.36, constructor argument ConnectionInteface has been replaced by DatabaseInterface
  */
 class Meta implements MetaInterface
 {
@@ -42,21 +43,21 @@ class Meta implements MetaInterface
     /**
      * Constructor.
      *
-     * @param   AuthInterface           $auth       The authentication instance
-     * @param   BlogInterface           $blog       The blog instance
-     * @param   ConnectionInterface     $con        The database connection instance
+     * @param   AuthInterface       $auth   The authentication instance
+     * @param   BlogInterface       $blog   The blog instance
+     * @param   DatabaseInterface   $db     The database handler instance
      */
     public function __construct(
         protected AuthInterface $auth,
         protected BlogInterface $blog,
-        protected ConnectionInterface $con
+        protected DatabaseInterface $db
     ) {
-        $this->table = $this->con->prefix() . self::META_TABLE_NAME;
+        $this->table = $this->db->con()->prefix() . self::META_TABLE_NAME;
     }
 
     public function openMetaCursor(): Cursor
     {
-        return $this->con->openCursor($this->table);
+        return $this->db->con()->openCursor($this->table);
     }
 
     public function splitMetaValues(string $str): array
@@ -151,7 +152,7 @@ class Meta implements MetaInterface
         ]), $this->blog->id())) {
             $sql = new SelectStatement();
             $sql
-                ->from($this->con->prefix() . $this->blog::POST_TABLE_NAME)
+                ->from($this->db->con()->prefix() . $this->blog::POST_TABLE_NAME)
                 ->column('post_id')
                 ->where('post_id = ' . $post_id)
                 ->and('user_id = ' . $sql->quote((string) $this->auth->userID()));
@@ -297,7 +298,7 @@ class Meta implements MetaInterface
             ->join(
                 (new JoinStatement())
                 ->left()
-                ->from($sql->as($this->con->prefix() . $this->blog::POST_TABLE_NAME, 'P'))
+                ->from($sql->as($this->db->con()->prefix() . $this->blog::POST_TABLE_NAME, 'P'))
                 ->on('M.post_id = P.post_id')
                 ->statement()
             )
@@ -441,7 +442,7 @@ class Meta implements MetaInterface
         $sql
             ->from([
                 $sql->as($this->table, 'M'),
-                $sql->as($this->con->prefix() . $this->blog::POST_TABLE_NAME, 'P'),
+                $sql->as($this->db->con()->prefix() . $this->blog::POST_TABLE_NAME, 'P'),
             ])
             ->column('M.post_id')
             ->where('P.post_id = M.post_id')
@@ -537,7 +538,7 @@ class Meta implements MetaInterface
             ->column('M.post_id')
             ->from([
                 $sql->as($this->table, 'M'),
-                $sql->as($this->con->prefix() . $this->blog::POST_TABLE_NAME, 'P'),
+                $sql->as($this->db->con()->prefix() . $this->blog::POST_TABLE_NAME, 'P'),
             ])
             ->where('P.post_id = M.post_id')
             ->and('P.blog_id = ' . $sql->quote($this->blog->id()))

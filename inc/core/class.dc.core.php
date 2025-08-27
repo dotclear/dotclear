@@ -23,7 +23,6 @@ use Dotclear\Helper\Html\Form\Hidden;
 use Dotclear\Helper\Html\WikiToHtml;
 use Dotclear\Interface\Core\AuthInterface;
 use Dotclear\Interface\Core\BlogInterface;
-use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\ErrorInterface;
 use Dotclear\Interface\Core\LogInterface;
 use Dotclear\Interface\Core\MediaInterface;
@@ -33,6 +32,7 @@ use Dotclear\Interface\Core\PostMediaInterface;
 use Dotclear\Interface\Core\RestInterface;
 use Dotclear\Interface\Core\SessionInterface;
 use Dotclear\Interface\Core\UrlInterface;
+use Dotclear\Interface\Database\ConnectionInterface;
 use Dotclear\Interface\Module\ModulesInterface;
 
 /**
@@ -75,14 +75,14 @@ final class dcCore
     /**
      * Database connection
      *
-     * @deprecated since 2.28, use App::con() instead
+     * @deprecated since 2.28, use App::db()->con() instead
      */
     public readonly ConnectionInterface $con;
 
     /**
      * Database tables prefix
      *
-     * @deprecated since 2.28, use App::con()->prefix() instead
+     * @deprecated since 2.28, use App::db()->con()->prefix() instead
      */
     public readonly string $prefix;
 
@@ -329,8 +329,8 @@ final class dcCore
         class_alias(Auth::class, 'dcAuth');
 
         // deprecated since 2.28, use App::xxx() instead
-        $this->con     = App::con();
-        $this->prefix  = App::con()->prefix();
+        $this->con     = App::db()->con();
+        $this->prefix  = App::db()->con()->prefix();
         $this->error   = App::error();
         $this->auth    = App::auth();
         $this->session = App::session();

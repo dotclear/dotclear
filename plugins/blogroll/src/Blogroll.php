@@ -56,7 +56,7 @@ class Blogroll
     public function __construct(
         private readonly BlogInterface $blog
     ) {
-        $this->table = App::con()->prefix() . self::LINK_TABLE_NAME;
+        $this->table = App::db()->con()->prefix() . self::LINK_TABLE_NAME;
     }
 
     /**
@@ -162,7 +162,7 @@ class Blogroll
      */
     public function addLink(string $title, string $href, string $desc = '', string $lang = '', string $xfn = '', int $status = Link::ONLINE): void
     {
-        $cur = App::con()->openCursor($this->table);
+        $cur = App::db()->con()->openCursor($this->table);
 
         $cur->blog_id     = $this->blog->id();
         $cur->link_title  = $title;
@@ -207,7 +207,7 @@ class Blogroll
      */
     public function updateLink(string $id, string $title, string $href, string $desc = '', string $lang = '', string $xfn = '', int $status = Link::ONLINE): void
     {
-        $cur = App::con()->openCursor($this->table);
+        $cur = App::db()->con()->openCursor($this->table);
 
         $cur->link_title  = $title;
         $cur->link_href   = $href;
@@ -238,7 +238,7 @@ class Blogroll
      */
     public function updateCategory(string $id, string $desc, int $status = Link::ONLINE): void
     {
-        $cur = App::con()->openCursor($this->table);
+        $cur = App::db()->con()->openCursor($this->table);
 
         $cur->link_desc   = $desc;
         $cur->link_status = $status;
@@ -262,7 +262,7 @@ class Blogroll
      */
     public function addCategory(string $title, int $status = Link::ONLINE): int
     {
-        $cur = App::con()->openCursor($this->table);
+        $cur = App::db()->con()->openCursor($this->table);
 
         $cur->blog_id     = $this->blog->id();
         $cur->link_desc   = $title;
@@ -316,7 +316,7 @@ class Blogroll
      */
     public function updateOrder(string $id, string $position): void
     {
-        $cur                = App::con()->openCursor($this->table);
+        $cur                = App::db()->con()->openCursor($this->table);
         $cur->link_position = (int) $position;
 
         $this->updateCursor($cur, $id);
@@ -432,7 +432,7 @@ class Blogroll
             ->where('blog_id = ' . $sql->quote($this->blog->id()))
             ->and('link_id' . $sql->in($posts_ids));
 
-        $cur = App::con()->openCursor($this->table);
+        $cur = App::db()->con()->openCursor($this->table);
 
         $cur->link_status = $status;
 

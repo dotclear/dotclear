@@ -7,9 +7,9 @@
  */
 declare(strict_types=1);
 
-namespace Dotclear\Database\Driver\Mysqlimb4;
+namespace Dotclear\Schema\Database\Mysqlimb4;
 
-use Dotclear\Database\Driver\Mysqli\Schema as MysqliSchema;
+use Dotclear\Schema\Database\Mysqli\Schema as MysqliSchema;
 
 /**
  * @class Schema

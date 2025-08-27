@@ -20,7 +20,6 @@ use Dotclear\Helper\Network\Http;
 use Dotclear\Exception\ConfigException;
 use Dotclear\Interface\Core\AuthInterface;
 use Dotclear\Interface\Core\ConfigInterface;
-use Dotclear\Interface\Core\ConnectionInterface;
 
 /**
  * @brief   The helper to parse configuration values.
@@ -491,11 +490,13 @@ class Config implements ConfigInterface
         }
 
         // Deprecated since 2.28, for backward compatibility, override core connection class with third party class
-        if (defined('DC_DBHANDLER_CLASS') && is_string(DC_DBHANDLER_CLASS) && is_subclass_of(DC_DBHANDLER_CLASS, ConnectionInterface::class)) {
-            Factories::addService('core', ConnectionInterface::class, DC_DBHANDLER_CLASS);
-        }
+        // Use Factories::addService('database_handler', DRIVER_NAME, DC_DBHANDLER_CLASS);
+        //if (defined('DC_DBHANDLER_CLASS') && is_string(DC_DBHANDLER_CLASS) && is_subclass_of(DC_DBHANDLER_CLASS, ConnectionInterface::class)) {
+        //    Factories::addService('core', ConnectionInterface::class, DC_DBHANDLER_CLASS);
+        //}
 
         // Deprecated since 2.28, DC_DBSCHEMA_CLASS is no more used, database Schema class MUST be provided by Connection class method schema()
+        // Use Factories::addService('database_schema', DRIVER_NAME, DC_DBSCHEMA_CLASS);
         //if (defined('DC_DBSCHEMA_CLASS')) {
         //    throw new ConfigException('Database Schema class MUST be provided by Connection class method schema().');
         //}

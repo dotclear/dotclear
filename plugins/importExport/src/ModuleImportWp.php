@@ -33,7 +33,7 @@ use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Text as Txt;
-use Dotclear\Interface\Core\ConnectionInterface;
+use Dotclear\Interface\Database\ConnectionInterface;
 use Dotclear\Plugin\blogroll\Blogroll;
 use Exception;
 
@@ -114,8 +114,8 @@ class ModuleImportWp extends Module
 
     public function init(): void
     {
-        $this->con     = App::con();
-        $this->prefix  = App::con()->prefix();
+        $this->con     = App::db()->con();
+        $this->prefix  = App::db()->con()->prefix();
         $this->blog_id = App::blog()->id();
 
         if (!isset($_SESSION['wp_import_vars'])) {
@@ -467,7 +467,7 @@ class ModuleImportWp extends Module
      */
     protected function db()
     {
-        $db = App::newConnectionFromValues('mysqli', $this->vars['db_host'], $this->vars['db_name'], $this->vars['db_user'], $this->vars['db_pwd']);
+        $db = App::db()->con('mysqli', $this->vars['db_host'], $this->vars['db_name'], $this->vars['db_user'], $this->vars['db_pwd']);
 
         $rs = $db->select("SHOW TABLES LIKE '" . $this->vars['db_prefix'] . "%'");
         if ($rs->isEmpty()) {

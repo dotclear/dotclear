@@ -22,7 +22,7 @@ use Dotclear\Exception\BadRequestException;
 use Dotclear\Interface\Core\AuthInterface;
 use Dotclear\Interface\Core\BehaviorInterface;
 use Dotclear\Interface\Core\BlogInterface;
-use Dotclear\Interface\Core\ConnectionInterface;
+use Dotclear\Interface\Core\DatabaseInterface;
 use Dotclear\Interface\Core\DeprecatedInterface;
 use Dotclear\Interface\Core\LogInterface;
 use Dotclear\Schema\Extension\Log as ExtLog;
@@ -32,6 +32,7 @@ use Throwable;
  * @brief   Core log handler.
  *
  * @since   2.28, container services have been added to constructor
+ * @since   2.36, constructor argument ConnectionInteface has been replaced by DatabaseInterface
  */
 class Log implements LogInterface
 {
@@ -53,18 +54,18 @@ class Log implements LogInterface
      * @param   AuthInterface           $auth           The authentication instance
      * @param   BehaviorInterface       $behavior       The behavior instance
      * @param   BlogInterface           $blog           The blog instance
-     * @param   ConnectionInterface     $con            The database connection instance
+     * @param   DatabaseInterface       $db             The database handler instance
      * @param   DeprecatedInterface     $deprecated     The deprecated handler
      */
     public function __construct(
         protected AuthInterface $auth,
         protected BehaviorInterface $behavior,
         protected BlogInterface $blog,
-        protected ConnectionInterface $con,
+        protected DatabaseInterface $db,
         protected DeprecatedInterface $deprecated
     ) {
-        $this->log_table  = $this->con->prefix() . self::LOG_TABLE_NAME;
-        $this->user_table = $this->con->prefix() . $this->auth::USER_TABLE_NAME;
+        $this->log_table  = $this->db->con()->prefix() . self::LOG_TABLE_NAME;
+        $this->user_table = $this->db->con()->prefix() . $this->auth::USER_TABLE_NAME;
     }
 
     /**
@@ -83,7 +84,7 @@ class Log implements LogInterface
 
     public function openLogCursor(): Cursor
     {
-        return $this->con->openCursor($this->log_table);
+        return $this->db->con()->openCursor($this->log_table);
     }
 
     /**
@@ -170,7 +171,7 @@ class Log implements LogInterface
 
     public function addLog(Cursor $cur): int
     {
-        $this->con->writeLock($this->log_table);
+        $this->db->con()->writeLock($this->log_table);
 
         try {
             # Get ID
@@ -211,9 +212,9 @@ class Log implements LogInterface
             $this->behavior->callBehavior('coreBeforeLogCreate', $this, $cur);
 
             $cur->insert();
-            $this->con->unlock();
+            $this->db->con()->unlock();
         } catch (Throwable $e) {
-            $this->con->unlock();
+            $this->db->con()->unlock();
 
             throw $e;
         }

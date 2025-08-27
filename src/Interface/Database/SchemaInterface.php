@@ -8,16 +8,14 @@
  */
 declare(strict_types=1);
 
-namespace Dotclear\Interface\Core;
+namespace Dotclear\Interface\Database;
 
 /**
  * @brief   Database schema handler interface.
  *
- * @see     \Dotclear\Database\InterfaceSchema
- *
  * @since   2.28
  */
-interface SchemaInterface
+interface SchemaInterface extends DbSchemaInterface
 {
     /**
      * Database data type to universal data type conversion.

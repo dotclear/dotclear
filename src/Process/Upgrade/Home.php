@@ -80,7 +80,7 @@ class Home extends Process
             $infos[] = (new li())->text(sprintf(__('Backup directory "%s" does not exist or is not writable.'), App::config()->backupRoot()));
         }
 
-        if (App::con()->driver() === 'sqlite') {
+        if (App::db()->con()->driver() === 'sqlite') {
             $infos[] = (new li())->text(__('Your are using Sqlite database driver, Database structure upgrade will NOT be performed.'));
         }
 

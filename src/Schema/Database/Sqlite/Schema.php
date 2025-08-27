@@ -8,7 +8,7 @@
  */
 declare(strict_types=1);
 
-namespace Dotclear\Database\Driver\Sqlite;
+namespace Dotclear\Schema\Database\Sqlite;
 
 use Dotclear\Database\AbstractSchema;
 use Exception;

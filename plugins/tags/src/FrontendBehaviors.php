@@ -45,10 +45,10 @@ class FrontendBehaviors
             "if (!isset(\$params)) { \$params = []; }\n" .
             "if (!isset(\$params['from'])) { \$params['from'] = ''; }\n" .
             "if (!isset(\$params['sql'])) { \$params['sql'] = ''; }\n" .
-            "\$params['from'] .= ', '.App::con()->prefix().'meta META ';\n" .
+            "\$params['from'] .= ', '.App::db()->con()->prefix().'meta META ';\n" .
             "\$params['sql'] .= 'AND META.post_id = P.post_id ';\n" .
             "\$params['sql'] .= \"AND META.meta_type = 'tag' \";\n" .
-            "\$params['sql'] .= \"AND META.meta_id = '" . App::con()->escapeStr($attr['tag']) . "' \";\n" .
+            "\$params['sql'] .= \"AND META.meta_id = '" . App::db()->con()->escapeStr($attr['tag']) . "' \";\n" .
                 "?>\n";
         } elseif (empty($attr['no_context']) && ($block === 'Entries' || $block === 'Comments')) {
             return
@@ -56,10 +56,10 @@ class FrontendBehaviors
                 "if (!isset(\$params)) { \$params = []; }\n" .
                 "if (!isset(\$params['from'])) { \$params['from'] = ''; }\n" .
                 "if (!isset(\$params['sql'])) { \$params['sql'] = ''; }\n" .
-                "\$params['from'] .= ', '.App::con()->prefix().'meta META ';\n" .
+                "\$params['from'] .= ', '.App::db()->con()->prefix().'meta META ';\n" .
                 "\$params['sql'] .= 'AND META.post_id = P.post_id ';\n" .
                 "\$params['sql'] .= \"AND META.meta_type = 'tag' \";\n" .
-                "\$params['sql'] .= \"AND META.meta_id = '\".App::con()->escape(App::frontend()->context()->meta->meta_id).\"' \";\n" .
+                "\$params['sql'] .= \"AND META.meta_id = '\".App::db()->con()->escape(App::frontend()->context()->meta->meta_id).\"' \";\n" .
                 "} ?>\n";
         }
 

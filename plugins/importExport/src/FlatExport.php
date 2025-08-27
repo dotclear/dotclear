@@ -10,10 +10,9 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\importExport;
 
-use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\TraitDynamicProperties;
-use Dotclear\Interface\Core\ConnectionInterface;
+use Dotclear\Interface\Database\ConnectionInterface;
 use Exception;
 
 /**
@@ -93,8 +92,7 @@ class FlatExport
      */
     public function getTables(): array
     {
-        $schema    = App::con()->schema();
-        $db_tables = $schema->getTables();
+        $db_tables = $this->con->schema()->getTables();
 
         $tables = [];
         foreach ($db_tables as $t) {

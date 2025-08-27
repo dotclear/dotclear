@@ -93,7 +93,7 @@ class Preferences extends CleanerParent
     public function values(): array
     {
         $sql = new SelectStatement();
-        $sql->from(App::con()->prefix() . App::userWorkspace()::WS_TABLE_NAME)
+        $sql->from(App::db()->con()->prefix() . App::userWorkspace()::WS_TABLE_NAME)
             ->columns([
                 $sql->as($sql->count('*'), 'counter'),
                 'pref_ws',
@@ -123,7 +123,7 @@ class Preferences extends CleanerParent
     public function related(string $ns): array
     {
         $sql = new SelectStatement();
-        $sql->from(App::con()->prefix() . App::userWorkspace()::WS_TABLE_NAME)
+        $sql->from(App::db()->con()->prefix() . App::userWorkspace()::WS_TABLE_NAME)
             ->columns([
                 $sql->as($sql->count('*'), 'counter'),
                 'pref_id',
@@ -155,7 +155,7 @@ class Preferences extends CleanerParent
         $sql = new DeleteStatement();
 
         if ($action === 'delete_global' && $this->checkNs($ns)) {
-            $sql->from(App::con()->prefix() . App::userWorkspace()::WS_TABLE_NAME)
+            $sql->from(App::db()->con()->prefix() . App::userWorkspace()::WS_TABLE_NAME)
                 ->where('user_id IS NULL')
                 ->and('pref_ws = ' . $sql->quote($ns))
                 ->delete();
@@ -163,7 +163,7 @@ class Preferences extends CleanerParent
             return true;
         }
         if ($action === 'delete_local' && $this->checkNs($ns)) {
-            $sql->from(App::con()->prefix() . App::userWorkspace()::WS_TABLE_NAME)
+            $sql->from(App::db()->con()->prefix() . App::userWorkspace()::WS_TABLE_NAME)
                 ->where('user_id = ' . $sql->quote(App::blog()->id()))
                 ->and('pref_ws = ' . $sql->quote($ns))
                 ->delete();
@@ -171,7 +171,7 @@ class Preferences extends CleanerParent
             return true;
         }
         if ($action === 'delete_all' && $this->checkNs($ns)) {
-            $sql->from(App::con()->prefix() . App::userWorkspace()::WS_TABLE_NAME)
+            $sql->from(App::db()->con()->prefix() . App::userWorkspace()::WS_TABLE_NAME)
                 ->where('pref_ws = ' . $sql->quote($ns))
                 ->and($sql->orGroup(['user_id IS NULL', 'user_id IS NOT NULL']))
                 ->delete();
@@ -195,7 +195,7 @@ class Preferences extends CleanerParent
                 return false;
             }
 
-            $sql->from(App::con()->prefix() . App::userWorkspace()::WS_TABLE_NAME)
+            $sql->from(App::db()->con()->prefix() . App::userWorkspace()::WS_TABLE_NAME)
                 ->where($sql->orGroup($or))
                 ->and($sql->orGroup(['user_id IS NULL', 'user_id IS NOT NULL']))
                 ->delete();

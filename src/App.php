@@ -77,7 +77,7 @@ final class App extends Core
             if (self::config()->hasConfig()) {
                 try {
                     // Run database connection
-                    $this->con();
+                    $this->db()->con();
                 } catch (Throwable $e) {
                     throw new DatabaseException(
                         sprintf(

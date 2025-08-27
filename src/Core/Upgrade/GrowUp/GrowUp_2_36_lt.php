@@ -29,19 +29,24 @@ class GrowUp_2_36_lt
                 'locales/el/core_core_*.html',
                 'locales/he/core_core_*.html',
                 'locales/uk/core_core_*.html',
-                'src/Config.php', //moved to src/Core
-                'src/Interface/Config.php', // moved to src/Interface/Core
+                'src/Config.php', // mv src/Core
+                'src/Core/Connection.php', // rm
+                'src/Database/InterfaceHandler.php', // mv src/Interface/Database
+                'src/Interface/Config.php', // mv src/Interface/Core
+                'src/Interface/Core/ConnectionInterface.php', // mv src/Interface/Database
+                'src/Interface/Core/SchemaInterface.php', // mv src/Interface/Database
             ],
             // Folders
             [
                 'plugins/antispam/locales/lb',
+                'src/Database/Driver', // moved to src/Schema/Database
             ]
         );
 
         // credential database table was wrong in 2.36-dev-r20250820...
-        $columns = App::con()->schema()->getColumns(App::con()->prefix() . 'credential');
+        $columns = App::db()->con()->schema()->getColumns(App::db()->con()->prefix() . 'credential');
         if (array_key_exists('credential_id', $columns)) {
-            App::con()->execute('DROP TABLE ' . App::con()->prefix() . 'credential');
+            App::db()->con()->execute('DROP TABLE ' . App::db()->con()->prefix() . 'credential');
         }
 
         return $cleanup_sessions;

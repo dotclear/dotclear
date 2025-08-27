@@ -124,7 +124,7 @@ class Wizard extends Process
 
                 # Tries to connect to database
                 try {
-                    $con = App::newConnectionFromValues(self::$DBDRIVER, self::$DBHOST, self::$DBNAME, self::$DBUSER, self::$DBPASSWORD);
+                    $con = App::db()->con(self::$DBDRIVER, self::$DBHOST, self::$DBNAME, self::$DBUSER, self::$DBPASSWORD);
                 } catch (Exception $e) {
                     throw new Exception('<p>' . __($e->getMessage()) . '</p>', (int) $e->getCode(), $e);
                 }
@@ -136,8 +136,7 @@ class Wizard extends Process
                 }
 
                 # Check if dotclear is already installed
-                $schema = $con->schema();
-                if (in_array(self::$DBPREFIX . 'version', $schema->getTables())) {
+                if (in_array(self::$DBPREFIX . 'version', $con->schema()->getTables())) {
                     throw new Exception(__('Dotclear is already installed.'));
                 }
                 # Check master email

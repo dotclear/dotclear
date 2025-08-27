@@ -99,7 +99,7 @@ class IndexComments extends MaintenanceTask
             $sql = new SelectStatement();
             $run = $sql
                 ->column($sql->count('comment_id'))
-                ->from(App::con()->prefix() . App::blog()::COMMENT_TABLE_NAME)
+                ->from(App::db()->con()->prefix() . App::blog()::COMMENT_TABLE_NAME)
                 ->select();
             $this->count = $run instanceof MetaRecord ? (int) $run->f(0) : 0;
 
@@ -115,7 +115,7 @@ class IndexComments extends MaintenanceTask
                 'comment_id',
                 'comment_content',
             ])
-            ->from(App::con()->prefix() . App::blog()::COMMENT_TABLE_NAME);
+            ->from(App::db()->con()->prefix() . App::blog()::COMMENT_TABLE_NAME);
 
         if ($start !== null && $limit !== null) {
             $sql->limit([$start, $limit]);

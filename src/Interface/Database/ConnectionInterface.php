@@ -15,20 +15,17 @@ declare(strict_types=1);
  * Third party core services MUST implement these interfaces.
  */
 
-namespace Dotclear\Interface\Core;
+namespace Dotclear\Interface\Database;
 
 use Dotclear\Database\Cursor;
-use Dotclear\Database\InterfaceHandler;
 use Dotclear\Database\Record;
 
 /**
  * @brief   Database connection handler interface.
  *
- * @see     \Dotclear\Database\InterfaceHandler
- *
  * @since   2.28
  */
-interface ConnectionInterface extends InterfaceHandler
+interface ConnectionInterface extends DbHandlerInterface
 {
     /**
      * Closes database connection.
@@ -36,7 +33,7 @@ interface ConnectionInterface extends InterfaceHandler
     public function close(): void;
 
     /**
-     * Returns database schema handler
+     * Returns database schema handler.
      */
     public function schema(): SchemaInterface;
 

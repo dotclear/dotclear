@@ -442,7 +442,7 @@ class Post
         $sql = new SelectStatement();
         $sql
             ->column($sql->count('media_id'))
-            ->from(App::con()->prefix() . App::postMedia()::POST_MEDIA_TABLE_NAME)
+            ->from(App::db()->con()->prefix() . App::postMedia()::POST_MEDIA_TABLE_NAME)
             ->where('post_id = ' . $rs->post_id);
 
         if ($link_type) {

@@ -38,7 +38,7 @@ use Dotclear\Interface\Core\AuthInterface;
 use Dotclear\Interface\Core\BehaviorInterface;
 use Dotclear\Interface\Core\BlogInterface;
 use Dotclear\Interface\Core\ConfigInterface;
-use Dotclear\Interface\Core\ConnectionInterface;
+use Dotclear\Interface\Core\DatabaseInterface;
 use Dotclear\Interface\Core\MediaInterface;
 use Dotclear\Interface\Core\PostMediaInterface;
 use stdClass;
@@ -48,6 +48,7 @@ use Throwable;
  * @brief   Media items handler.
  *
  * @since   2.28, container services have been added to constructor
+ * @since   2.36, constructor argument ConnectionInteface has been replaced by DatabaseInterface
  */
 class Media extends Manager implements MediaInterface
 {
@@ -161,7 +162,7 @@ class Media extends Manager implements MediaInterface
      * @param   BehaviorInterface       $behavior   The behavior instance
      * @param   BlogInterface           $blog       The blog instance
      * @param   ConfigInterface         $config     The application configuration
-     * @param   ConnectionInterface     $con        The database connection instance
+     * @param   DatabaseInterface       $db         The database handler instance
      * @param   PostmediaInterface      $postmedia  The post media instance
      */
     public function __construct(
@@ -169,14 +170,14 @@ class Media extends Manager implements MediaInterface
         protected BehaviorInterface $behavior,
         protected BlogInterface $blog,
         protected ConfigInterface $config,
-        protected ConnectionInterface $con,
+        protected DatabaseInterface $db,
         protected PostMediaInterface $postmedia
     ) {
         if (!$this->blog->isDefined()) {
             throw new ProcessException(__('No blog defined.'));
         }
 
-        $this->table = $this->con->prefix() . $this->postmedia::MEDIA_TABLE_NAME;
+        $this->table = $this->db->con()->prefix() . $this->postmedia::MEDIA_TABLE_NAME;
         $root        = $this->blog->publicPath();
 
         if (preg_match('#^http(s)?://#', (string) $this->blog->settings()->system->public_url)) {
@@ -287,7 +288,7 @@ class Media extends Manager implements MediaInterface
 
     public function openMediaCursor(): Cursor
     {
-        return $this->con->openCursor($this->table);
+        return $this->db->con()->openCursor($this->table);
     }
 
     public function postMedia(): PostMediaInterface
@@ -1260,7 +1261,7 @@ class Media extends Manager implements MediaInterface
         $rs = $sql->select();
 
         if (!$rs instanceof MetaRecord || $rs->isEmpty()) {
-            $this->con->writeLock($this->table);
+            $this->db->con()->writeLock($this->table);
 
             try {
                 $sql = new SelectStatement();
@@ -1299,9 +1300,9 @@ class Media extends Manager implements MediaInterface
 
                     throw $e;
                 }
-                $this->con->unlock();
+                $this->db->con()->unlock();
             } catch (Throwable $e) {
-                $this->con->unlock();
+                $this->db->con()->unlock();
 
                 throw $e;
             }
@@ -1475,7 +1476,7 @@ class Media extends Manager implements MediaInterface
 
         $sql->delete();
 
-        if ($this->con->changes() == 0) {
+        if ($this->db->con()->changes() == 0) {
             throw new BadRequestException(__('File does not exist in the database.'));
         }
 

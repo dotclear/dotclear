@@ -45,13 +45,13 @@ class GrowUp_2_19_lt
         );
 
         # Global settings
-        $strReq = 'INSERT INTO ' . App::con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME .
+        $strReq = 'INSERT INTO ' . App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME .
             ' (setting_id,setting_ns,setting_value,setting_type,setting_label)' .
             ' VALUES(\'%s\',\'system\',\'%s\',\'%s\',\'%s\')';
-        App::con()->execute(
+        App::db()->con()->execute(
             sprintf($strReq, 'prevents_clickjacking', (string) true, 'boolean', 'Prevents Clickjacking')
         );
-        App::con()->execute(
+        App::db()->con()->execute(
             sprintf($strReq, 'prevents_floc', (string) true, 'boolean', 'Prevents FLoC tracking')
         );
 

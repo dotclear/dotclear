@@ -70,7 +70,7 @@ class Users extends Process
         App::behavior()->callBehavior('adminUsersSortbyLexCombo', [& $sortby_lex]);
 
         $params['order'] = (array_key_exists(App::backend()->user_filter->sortby, $sortby_lex) ?
-            App::con()->lexFields($sortby_lex[App::backend()->user_filter->sortby]) :
+            App::db()->con()->lexFields($sortby_lex[App::backend()->user_filter->sortby]) :
             App::backend()->user_filter->sortby) . ' ' . App::backend()->user_filter->order;
 
         // List
