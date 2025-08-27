@@ -28,7 +28,7 @@ abstract class MyTheme extends MyModule
             App::themes()->loadModules(App::blog()->themesPath());
         }
 
-        return static::getDefineFromNamespace(App::themes());
+        return self::getDefineFromNamespace(App::themes());
     }
 
     protected static function checkCustomContext(int $context): ?bool

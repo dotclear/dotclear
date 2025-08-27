@@ -382,16 +382,21 @@ class Words extends SpamFilter
      *
      * @param   mixed   $ids    The rules identifiers
      */
-    private function removeRule($ids): void
+    private function removeRule(mixed $ids): void
     {
         $sql = new DeleteStatement();
 
+        /**
+         * @var list<int>
+         */
+        $list = [];
+
         if (is_array($ids)) {
-            foreach ($ids as $i => $v) {
-                $ids[$i] = (int) $v;
+            foreach ($ids as $v) {
+                $list[] = (int) $v;
             }
         } else {
-            $ids = [(int) $ids];
+            $list[] = (int) $ids;
         }
 
         if (!App::auth()->isSuperAdmin()) {
@@ -400,7 +405,7 @@ class Words extends SpamFilter
 
         $sql
             ->from($this->table)
-            ->where('rule_id' . $sql->in($ids))
+            ->where('rule_id' . $sql->in($list))
             ->delete();
     }
 

@@ -221,7 +221,7 @@ abstract class MyModule
     {
         $name = static::define()->get('name');
 
-        return is_string($name) ? __($name) : __(static::id());
+        return is_string($name) ? __($name) : __(self::id());
     }
 
     /**
@@ -231,7 +231,7 @@ abstract class MyModule
      */
     final public static function settings(): BlogWorkspaceInterface
     {
-        return App::blog()->settings()->get(static::id());
+        return App::blog()->settings()->get(self::id());
     }
 
     /**
@@ -239,7 +239,7 @@ abstract class MyModule
      */
     final public static function prefs(): UserWorkspaceInterface
     {
-        return App::auth()->prefs()->get(static::id());
+        return App::auth()->prefs()->get(self::id());
     }
 
     /**
@@ -249,7 +249,7 @@ abstract class MyModule
      */
     final public static function l10n(string $process): void
     {
-        L10n::set(implode(DIRECTORY_SEPARATOR, [static::path(), 'locales', App::lang()->getLang(), $process]));
+        L10n::set(implode(DIRECTORY_SEPARATOR, [self::path(), 'locales', App::lang()->getLang(), $process]));
     }
 
     /**
@@ -332,7 +332,7 @@ abstract class MyModule
     {
         // take into account modules not loaded
         if (!$modules instanceof ModulesInterface) {
-            static::exception('Failed to load modules for ' . static::class);
+            self::exception('Failed to load modules for ' . static::class);
         }
 
         // check if Define is already known
@@ -342,7 +342,7 @@ abstract class MyModule
                 'namespace' => '\\' . (new \ReflectionClass(static::class))->getNamespaceName(),
             ]);
             if (count($find) != 1) {
-                static::exception('Failed to find namespace from ' . static::class);
+                self::exception('Failed to find namespace from ' . static::class);
             }
 
             static::$defines[static::class] = $find[0];

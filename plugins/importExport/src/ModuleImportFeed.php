@@ -80,7 +80,7 @@ class ModuleImportFeed extends Module
      *
      * @return  array<mixed>|false
      */
-    private function gethostbynamel6(string $host, bool $try_a = false)
+    private function gethostbynamel6(string $host, bool $try_a = false): false|array
     {
         $dns  = [];
         $dns6 = dns_get_record($host, DNS_AAAA);

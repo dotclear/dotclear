@@ -26,7 +26,7 @@ abstract class MyPlugin extends MyModule
 {
     protected static function define(): ModuleDefine
     {
-        return static::getDefineFromNamespace(App::plugins());
+        return self::getDefineFromNamespace(App::plugins());
     }
 
     /**
@@ -44,12 +44,12 @@ abstract class MyPlugin extends MyModule
         }
 
         App::backend()->menus()[$menu]->addItem(
-            static::name(),
+            self::name(),
             static::manageUrl($params, '&'),
             static::icons(),
             preg_match('/' . preg_quote(static::manageUrl([], '&')) . $scheme . '/', (string) $_SERVER['REQUEST_URI']), // @phpstan-ignore-line
-            static::checkContext(static::MENU),
-            'plugin-' . ($id ?? static::id())
+            self::checkContext(static::MENU),
+            'plugin-' . ($id ?? self::id())
         );
     }
 
@@ -73,11 +73,11 @@ abstract class MyPlugin extends MyModule
         $icons = [];
         if (App::task()->checkContext('BACKEND')) {
             // Light mode version
-            if ($icon = $check(static::path(), 'icon' . ($suffix !== '' ? '-' . $suffix : ''))) {
+            if ($icon = $check(self::path(), 'icon' . ($suffix !== '' ? '-' . $suffix : ''))) {
                 $icons[] = $icon;
             }
             // Dark mode version
-            if ($icon = $check(static::path(), 'icon-dark' . ($suffix !== '' ? '-' . $suffix : ''))) {
+            if ($icon = $check(self::path(), 'icon-dark' . ($suffix !== '' ? '-' . $suffix : ''))) {
                 $icons[] = $icon;
             }
         }
@@ -98,7 +98,7 @@ abstract class MyPlugin extends MyModule
      */
     public static function manageUrl(array $params = [], string $separator = '&amp;', bool $parametric = false): string
     {
-        return App::task()->checkContext('BACKEND') ? App::backend()->url()->get('admin.plugin.' . static::id(), $params, $separator, $parametric) : '';
+        return App::task()->checkContext('BACKEND') ? App::backend()->url()->get('admin.plugin.' . self::id(), $params, $separator, $parametric) : '';
     }
 
     /**
@@ -113,7 +113,7 @@ abstract class MyPlugin extends MyModule
         $fields = [];
         if (App::task()->checkContext('BACKEND')) {
             $params = [
-                ...App::backend()->url()->getParams('admin.plugin.' . static::id()),
+                ...App::backend()->url()->getParams('admin.plugin.' . self::id()),
                 ...$params,
             ];
             foreach ($params as $key => $value) {
@@ -149,7 +149,7 @@ abstract class MyPlugin extends MyModule
     public static function redirect(array $params = [], string $suffix = ''): void
     {
         if (App::task()->checkContext('BACKEND')) {
-            App::backend()->url()->redirect('admin.plugin.' . static::id(), $params, $suffix);
+            App::backend()->url()->redirect('admin.plugin.' . self::id(), $params, $suffix);
         }
     }
 }
