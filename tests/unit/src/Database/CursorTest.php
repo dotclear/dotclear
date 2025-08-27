@@ -150,7 +150,7 @@ class CursorTest extends TestCase
         $cursor->update('');
     }
 
-    public static function dataProviderTest()
+    public static function dataProviderTest(): array
     {
         return [
             // driver, syntax

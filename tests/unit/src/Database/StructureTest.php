@@ -158,7 +158,7 @@ class StructureTest extends TestCase
         );
     }
 
-    public static function dataProviderTest()
+    public static function dataProviderTest(): array
     {
         return [
             // driver, syntax
@@ -368,7 +368,7 @@ class StructureTest extends TestCase
         }
     }
 
-    public static function dataProviderTestSynchronize()
+    public static function dataProviderTestSynchronize(): array
     {
         $data = [
             'table'  => 'dc_table',

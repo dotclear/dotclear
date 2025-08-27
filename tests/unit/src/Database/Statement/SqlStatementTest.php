@@ -64,7 +64,7 @@ class SqlStatementTest extends TestCase
         );
     }
 
-    public static function dataProviderTest()
+    public static function dataProviderTest(): array
     {
         return [
             // driver, syntax
@@ -87,7 +87,7 @@ class SqlStatementTest extends TestCase
         );
     }
 
-    public static function dataProviderTestEscape()
+    public static function dataProviderTestEscape(): array
     {
         return [
             ['mysqli', 'mysql', 'test', 'test'],
@@ -117,7 +117,7 @@ class SqlStatementTest extends TestCase
         );
     }
 
-    public static function dataProviderTestQuote()
+    public static function dataProviderTestQuote(): array
     {
         return [
             ['mysqli', 'mysql', 'test', '\'test\'', true],
@@ -155,7 +155,7 @@ class SqlStatementTest extends TestCase
         );
     }
 
-    public static function dataProviderTestAlias()
+    public static function dataProviderTestAlias(): array
     {
         return [
             ['mysqli', 'mysql', 'MyTable.MyField', 'MyAlias', 'MyTable.MyField MyAlias'],
@@ -177,7 +177,7 @@ class SqlStatementTest extends TestCase
         );
     }
 
-    public static function dataProviderTestIn()
+    public static function dataProviderTestIn(): array
     {
         return [
             // Numeric values
@@ -260,7 +260,7 @@ class SqlStatementTest extends TestCase
         );
     }
 
-    public static function dataProviderTestDateFormat()
+    public static function dataProviderTestDateFormat(): array
     {
         return [
             ['mysqli', 'mysql', 'MyTable.MyField', '%Y/%m/%d %H:%M:%S', 'DATE_FORMAT(MyTable.MyField,\'%Y/%m/%d %H:%i:%S\')'],
@@ -282,7 +282,7 @@ class SqlStatementTest extends TestCase
         );
     }
 
-    public static function dataProviderTestLike()
+    public static function dataProviderTestLike(): array
     {
         return [
             ['mysqli', 'mysql', 'MyTable.MyField', 't*s_t', 'MyTable.MyField LIKE \'t*s_t\''],
@@ -304,7 +304,7 @@ class SqlStatementTest extends TestCase
         );
     }
 
-    public static function dataProviderTestRegexp()
+    public static function dataProviderTestRegexp(): array
     {
         return [
             ['mysqli', 'mysql', '([A-Za-z0-9]+)', ' REGEXP \'^\\\\(\\\\[A\\\\-Za\\\\-z0\\\\-9\\\\]\\\\+\\\\)[0-9]+$\''],
@@ -326,7 +326,7 @@ class SqlStatementTest extends TestCase
         );
     }
 
-    public static function dataProviderTestUnique()
+    public static function dataProviderTestUnique(): array
     {
         return [
             ['mysqli', 'mysql', 'MyTable.MyField', 'DISTINCT MyTable.MyField'],
@@ -348,7 +348,7 @@ class SqlStatementTest extends TestCase
         );
     }
 
-    public static function dataProviderTestCount()
+    public static function dataProviderTestCount(): array
     {
         return [
             // With alias and unique
@@ -386,7 +386,7 @@ class SqlStatementTest extends TestCase
         );
     }
 
-    public static function dataProviderTestAvg()
+    public static function dataProviderTestAvg(): array
     {
         return [
             // With alias
@@ -414,7 +414,7 @@ class SqlStatementTest extends TestCase
         );
     }
 
-    public static function dataProviderTestMax()
+    public static function dataProviderTestMax(): array
     {
         return [
             // With alias
@@ -442,7 +442,7 @@ class SqlStatementTest extends TestCase
         );
     }
 
-    public static function dataProviderTestMin()
+    public static function dataProviderTestMin(): array
     {
         return [
             // With alias
@@ -470,7 +470,7 @@ class SqlStatementTest extends TestCase
         );
     }
 
-    public static function dataProviderTestSum()
+    public static function dataProviderTestSum(): array
     {
         return [
             // With alias
@@ -498,7 +498,7 @@ class SqlStatementTest extends TestCase
         );
     }
 
-    public static function dataProviderTestIsNull()
+    public static function dataProviderTestIsNull(): array
     {
         return [
             ['mysqli', 'mysql', 'MyTable.MyField', 'MyTable.MyField IS NULL'],
@@ -520,7 +520,7 @@ class SqlStatementTest extends TestCase
         );
     }
 
-    public static function dataProviderTestIsNotNull()
+    public static function dataProviderTestIsNotNull(): array
     {
         return [
             ['mysqli', 'mysql', 'MyTable.MyField', 'MyTable.MyField IS NOT NULL'],

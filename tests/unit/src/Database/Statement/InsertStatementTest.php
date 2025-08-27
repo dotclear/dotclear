@@ -119,7 +119,7 @@ class InsertStatementTest extends TestCase
         );
     }
 
-    public static function dataProviderTest()
+    public static function dataProviderTest(): array
     {
         return [
             // driver, syntax

@@ -23,7 +23,7 @@ class TextTest extends TestCase
         );
     }
 
-    public static function dataProviderIsEmailAll()
+    public static function dataProviderIsEmailAll(): array
     {
         require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'fixtures', 'src', 'Helper', 'Text.php']);
 

@@ -81,7 +81,7 @@ class SessionTest extends TestCase
         $session->destroy();
     }
 
-    public static function dataProviderTest()
+    public static function dataProviderTest(): array
     {
         return [
             // driver, syntax

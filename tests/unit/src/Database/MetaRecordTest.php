@@ -970,7 +970,7 @@ class MetaRecordTest extends TestCase
         $record->unknown();
     }
 
-    public static function dataProviderTest()
+    public static function dataProviderTest(): array
     {
         return [
             // driver, syntax

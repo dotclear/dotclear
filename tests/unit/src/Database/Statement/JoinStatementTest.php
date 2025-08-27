@@ -112,7 +112,7 @@ class JoinStatementTest extends TestCase
         $sql->statement();
     }
 
-    public static function dataProviderTest()
+    public static function dataProviderTest(): array
     {
         return [
             // driver, syntax

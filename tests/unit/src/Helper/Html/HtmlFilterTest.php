@@ -244,7 +244,7 @@ class HtmlFilterTest extends TestCase
         );
     }
 
-    public static function dataProviderTestAll()
+    public static function dataProviderTestAll(): array
     {
         require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', 'fixtures', 'src', 'Helper', 'Html', 'HtmlFilter.php']);
 
