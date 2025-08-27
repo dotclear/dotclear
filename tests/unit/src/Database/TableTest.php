@@ -116,11 +116,6 @@ class TableTest extends TestCase
             $table->getFields()
         );
 
-        $this->expectException(Exception::class);
-        $this->expectExceptionMessage('Invalid data type weird in schema');
-
-        $table->bizarre('weird', 0);
-
         $this->assertTrue(
             $table->fieldExists('id')
         );
@@ -145,11 +140,6 @@ class TableTest extends TestCase
             ],
             $table->getKeys()
         );
-
-        $this->expectException(Exception::class);
-        $this->expectExceptionMessage('Table dc_table already has a primary key');
-
-        $table->primary('pk_uid', 'uid');
 
         $this->assertEquals(
             'pk_id',
@@ -183,11 +173,6 @@ class TableTest extends TestCase
             ],
             $table->getKeys()
         );
-
-        $this->expectException(Exception::class);
-        $this->expectExceptionMessage('Field unknown does not exist in table dc_table');
-
-        $table->unique('pk_unknown', 'unknown');
 
         $this->assertEquals(
             'uk_uid',
@@ -268,5 +253,126 @@ class TableTest extends TestCase
         $this->assertFalse(
             $table->referenceExists('fk_unknown', ['id'], 'dc_report', ['uid'])
         );
+    }
+
+    public function testUniqueIndexOnUnknownField()
+    {
+        $table = new \Dotclear\Database\Table('dc_table');
+
+        // Fields
+
+        $table
+            ->id('INTEGER', null, false, 0)
+            ->status('SMALLINT', null, true, -1)
+            ->uid('BIGINT', null)
+            ->cost('FLOAT', null)
+            ->discount('REAL', null)
+            ->number('NUMERIC', null)
+            ->date('DATE', null)
+            ->hour('TIME', null)
+            ->ts('TIMESTAMP', null, true, 'now()')
+            ->name('CHAR', 256, true, null)
+            ->fullname('VARCHAR', null)
+            ->description('TEXT', null)
+            ->strange('WTF', null, true, null, true)
+        ;
+
+        // Unique keys
+
+        $table
+            ->unique('uk_uid', 'id', 'uid')
+        ;
+
+        $this->assertEquals(
+            [
+                'uk_uid' => [
+                    'type' => 'unique',
+                    'cols' => [
+                        'id',
+                        'uid',
+                    ],
+                ],
+            ],
+            $table->getKeys()
+        );
+
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage('Field unknown does not exist in table dc_table');
+
+        $table->unique('pk_unknown', 'unknown');
+    }
+
+    public function testPrimaryKeyAlreadyExists()
+    {
+        $table = new \Dotclear\Database\Table('dc_table');
+
+        // Fields
+
+        $table
+            ->id('INTEGER', null, false, 0)
+            ->status('SMALLINT', null, true, -1)
+            ->uid('BIGINT', null)
+            ->cost('FLOAT', null)
+            ->discount('REAL', null)
+            ->number('NUMERIC', null)
+            ->date('DATE', null)
+            ->hour('TIME', null)
+            ->ts('TIMESTAMP', null, true, 'now()')
+            ->name('CHAR', 256, true, null)
+            ->fullname('VARCHAR', null)
+            ->description('TEXT', null)
+            ->strange('WTF', null, true, null, true)
+        ;
+
+        // Primary key
+
+        $table
+            ->primary('pk_id', 'id')
+        ;
+
+        $this->assertEquals(
+            [
+                'pk_id' => [
+                    'type' => 'primary',
+                    'cols' => [
+                        'id',
+                    ],
+                ],
+            ],
+            $table->getKeys()
+        );
+
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage('Table dc_table already has a primary key');
+
+        $table->primary('pk_uid', 'uid');
+    }
+
+    public function testMagicSetFieldError()
+    {
+        $table = new \Dotclear\Database\Table('dc_table');
+
+        // Fields
+
+        $table
+            ->id('INTEGER', null, false, 0)
+            ->status('SMALLINT', null, true, -1)
+            ->uid('BIGINT', null)
+            ->cost('FLOAT', null)
+            ->discount('REAL', null)
+            ->number('NUMERIC', null)
+            ->date('DATE', null)
+            ->hour('TIME', null)
+            ->ts('TIMESTAMP', null, true, 'now()')
+            ->name('CHAR', 256, true, null)
+            ->fullname('VARCHAR', null)
+            ->description('TEXT', null)
+            ->strange('WTF', null, true, null, true)
+        ;
+
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage('Invalid data type weird in schema');
+
+        $table->bizarre('weird', 0);
     }
 }

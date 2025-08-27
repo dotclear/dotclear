@@ -55,7 +55,7 @@ class SessionTest extends TestCase
     public function test(string $driver, string $syntax)
     {
         $con     = $this->getConnection($driver, $syntax);
-        $session = new \Dotclear\Database\Session($con, 'dc_session', 'ck_session');
+        $session = new \Dotclear\Database\Session($con, 'dc_session', 'ck_session', ttl: '60 minutes');
 
         $session->start();
 
@@ -63,6 +63,16 @@ class SessionTest extends TestCase
             'ck_session',
             session_name()
         );
+        $this->assertEquals(
+            ['ck_session', 'mycookie', -1, '/', '', false],
+            $session->getCookieParameters('mycookie', -1)
+        );
+
+        $session->destroy();
+
+        $session->createFromCookieName('mycookie');
+        $session->start();
+
         $this->assertEquals(
             ['ck_session', 'mycookie', -1, '/', '', false],
             $session->getCookieParameters('mycookie', -1)

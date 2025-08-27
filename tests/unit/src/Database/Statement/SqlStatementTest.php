@@ -551,6 +551,14 @@ class SqlStatementTest extends TestCase
         $this->assertFalse(
             isset($sql->syntax)
         );
+    }
+
+    #[DataProvider('dataProviderTest')]
+    public function testMagicSetError(string $driver, string $syntax)
+    {
+        $con = $this->getConnection($driver, $syntax);
+        $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
+
         $this->assertFalse(
             isset($sql->syntaxEngine)
         );
@@ -559,6 +567,13 @@ class SqlStatementTest extends TestCase
         $this->expectExceptionMessage('Unknown property syntaxEngine');
 
         $sql->syntaxEngine = 'Hello';
+    }
+
+    #[DataProvider('dataProviderTest')]
+    public function testMagicGetError(string $driver, string $syntax)
+    {
+        $con = $this->getConnection($driver, $syntax);
+        $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
 
         $this->expectException(Exception::class);
         $this->expectExceptionMessage('Unknown property syntaxEngine');
