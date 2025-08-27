@@ -6,15 +6,18 @@ namespace Dotclear\Tests\Database\Statement;
 
 use Exception;
 use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 class SqlStatementTest extends TestCase
 {
-    private function getConnection(string $driver, string $syntax)
+    private function getConnection(string $driver, string $syntax): MockObject
     {
         // Build a mock handler for the driver
-        $driverClass = ucfirst($driver);
-        $mock        = $this->getMockBuilder("Dotclear\\Schema\\Database\\$driverClass\\Handler")
+        $driverClass  = ucfirst($driver);
+        $handlerClass = implode('\\', ['Dotclear', 'Schema', 'Database', $driverClass, 'Handler']);
+        // @phpstan-ignore argument.templateType, argument.type
+        $mock = $this->getMockBuilder($handlerClass)
             ->disableOriginalConstructor()
             ->onlyMethods([
                 'link',
@@ -79,7 +82,7 @@ class SqlStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTestEscape')]
-    public function testEscape($driver, $syntax, $source, $result): void
+    public function testEscape(string $driver, string $syntax, string $source, string $result): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
@@ -112,7 +115,7 @@ class SqlStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTestQuote')]
-    public function testQuote($driver, $syntax, $source, $result, $escape): void
+    public function testQuote(string $driver, string $syntax, string $source, string $result, bool $escape): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
@@ -149,7 +152,7 @@ class SqlStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTestAlias')]
-    public function testAlias(string $driver, string $syntax, string $name, string $alias, bool $result): void
+    public function testAlias(string $driver, string $syntax, string $name, string $alias, string $result): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
@@ -178,7 +181,7 @@ class SqlStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTestIn')]
-    public function testIn(string $driver, string $syntax, array $values, string $cast, string $result): void
+    public function testIn(string $driver, string $syntax, mixed $values, string $cast, string $result): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
@@ -436,7 +439,7 @@ class SqlStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTestMax')]
-    public function testMax($driver, $syntax, $field, $alias, $result): void
+    public function testMax(string $driver, string $syntax, string $field, ?string $alias, string $result): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
@@ -584,19 +587,25 @@ class SqlStatementTest extends TestCase
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
 
+        // @phpstan-ignore property.protected
         $sql->syntax = 'Hello';
 
         $this->assertEquals(
             'Hello',
+            // @phpstan-ignore property.protected
             $sql->syntax
         );
+        // @phpstan-ignore method.alreadyNarrowedType
         $this->assertTrue(
+            // @phpstan-ignore isset.property, property.protected
             isset($sql->syntax)
         );
 
+        // @phpstan-ignore property.protected
         unset($sql->syntax);
 
         $this->assertFalse(
+            // @phpstan-ignore property.protected
             isset($sql->syntax)
         );
     }
@@ -608,12 +617,14 @@ class SqlStatementTest extends TestCase
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
 
         $this->assertFalse(
+            // @phpstan-ignore property.notFound
             isset($sql->syntaxEngine)
         );
 
         $this->expectException(Exception::class);
         $this->expectExceptionMessage('Unknown property syntaxEngine');
 
+        // @phpstan-ignore property.notFound
         $sql->syntaxEngine = 'Hello';
     }
 
@@ -626,6 +637,7 @@ class SqlStatementTest extends TestCase
         $this->expectException(Exception::class);
         $this->expectExceptionMessage('Unknown property syntaxEngine');
 
+        // @phpstan-ignore property.notFound
         if ($sql->syntaxEngine === 'Hello')
         ;
     }

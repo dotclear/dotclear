@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Dotclear\Tests\Database;
 
 use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 
@@ -13,11 +14,13 @@ class StructureTest extends TestCase
     private \Dotclear\Database\Structure $structure;
     private array $info;
 
-    private function getConnection(string $driver, string $syntax): \Dotclear\Interface\Database\ConnectionInterface
+    private function getConnection(string $driver, string $syntax): MockObject
     {
         // Build a mock handler for the driver
-        $driverClass = ucfirst($driver);
-        $mock        = $this->getMockBuilder("Dotclear\\Schema\\Database\\$driverClass\\Handler")
+        $driverClass  = ucfirst($driver);
+        $handlerClass = implode('\\', ['Dotclear', 'Schema', 'Database', $driverClass, 'Handler']);
+        // @phpstan-ignore argument.templateType, argument.type
+        $mock = $this->getMockBuilder($handlerClass)
             ->disableOriginalConstructor()
             ->onlyMethods([
                 'link',
@@ -30,7 +33,8 @@ class StructureTest extends TestCase
             ->getMock();
 
         // Mock container_schema protected property
-        $reflection          = new ReflectionClass("Dotclear\\Schema\\Database\\$driverClass\\Handler");
+        // @phpstan-ignore argument.type
+        $reflection          = new ReflectionClass($handlerClass);
         $reflection_property = $reflection->getProperty('container_schema');
         $reflection_property->setAccessible(true);
         $reflection_property->setValue($mock, new \Dotclear\Database\ContainerSchema());
@@ -62,11 +66,13 @@ class StructureTest extends TestCase
         return $mock;
     }
 
-    private function getSchema($con, string $driver): \Dotclear\Interface\Database\SchemaInterface
+    private function getSchema($con, string $driver): MockObject
     {
         // Build a mock handler for the driver
         $driverClass = ucfirst($driver);
-        $mock        = $this->getMockBuilder("Dotclear\\Schema\\Database\\$driverClass\\Schema")
+        $schemaClass = implode('\\', ['Dotclear', 'Schema', 'Database', $driverClass, 'Schema']);
+        // @phpstan-ignore argument.type
+        $mock = $this->getMockBuilder($schemaClass)
             ->disableOriginalConstructor()
             ->onlyMethods([
                 'flushStack',

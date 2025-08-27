@@ -6,15 +6,18 @@ namespace Dotclear\Tests\Database\Statement;
 
 use Exception;
 use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 class TruncateStatementTest extends TestCase
 {
-    private function getConnection(string $driver, string $syntax)
+    private function getConnection(string $driver, string $syntax): MockObject
     {
         // Build a mock handler for the driver
-        $driverClass = ucfirst($driver);
-        $mock        = $this->getMockBuilder("Dotclear\\Schema\\Database\\$driverClass\\Handler")
+        $driverClass  = ucfirst($driver);
+        $handlerClass = implode('\\', ['Dotclear', 'Schema', 'Database', $driverClass, 'Handler']);
+        // @phpstan-ignore argument.templateType, argument.type
+        $mock = $this->getMockBuilder($handlerClass)
             ->disableOriginalConstructor()
             ->onlyMethods([
                 'link',

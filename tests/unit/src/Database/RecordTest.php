@@ -6,6 +6,7 @@ namespace Dotclear\Tests\Database;
 
 use Exception;
 use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 class RecordExtend
@@ -18,11 +19,13 @@ class RecordExtend
 
 class RecordTest extends TestCase
 {
-    private function getConnection(string $driver, string $syntax)
+    private function getConnection(string $driver, string $syntax): MockObject
     {
         // Build a mock handler for the driver
-        $driverClass = ucfirst($driver);
-        $mock        = $this->getMockBuilder("Dotclear\\Schema\\Database\\$driverClass\\Handler")
+        $driverClass  = ucfirst($driver);
+        $handlerClass = implode('\\', ['Dotclear', 'Schema', 'Database', $driverClass, 'Handler']);
+        // @phpstan-ignore argument.templateType, argument.type
+        $mock = $this->getMockBuilder($handlerClass)
             ->disableOriginalConstructor()
             ->onlyMethods([
                 'link',
@@ -53,6 +56,7 @@ class RecordTest extends TestCase
             new \Dotclear\Database\Record([], $info) :
             new \Dotclear\Database\StaticRecord([], $info)
         );
+        // @phpstan-ignore argument.type
         $mock->method('openCursor')->willReturn(new \Dotclear\Database\Cursor($mock, 'dc_table'));
         $mock->method('changes')->willReturn(1);
         $mock->method('escapeStr')->willReturnCallback(fn ($str) => addslashes((string) $str));

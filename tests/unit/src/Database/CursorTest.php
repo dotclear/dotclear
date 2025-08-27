@@ -6,15 +6,18 @@ namespace Dotclear\Tests\Database;
 
 use Exception;
 use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 class CursorTest extends TestCase
 {
-    private function getConnection(string $driver, string $syntax): \Dotclear\Database\AbstractHandler
+    private function getConnection(string $driver, string $syntax): MockObject
     {
         // Build a mock handler for the driver
-        $driverClass = ucfirst($driver);
-        $mock        = $this->getMockBuilder("Dotclear\\Schema\\Database\\$driverClass\\Handler")
+        $driverClass  = ucfirst($driver);
+        $handlerClass = implode('\\', ['Dotclear', 'Schema', 'Database', $driverClass, 'Handler']);
+        // @phpstan-ignore argument.templateType, argument.type
+        $mock = $this->getMockBuilder($handlerClass)
             ->disableOriginalConstructor()
             ->onlyMethods([
                 'link',
@@ -43,6 +46,7 @@ class CursorTest extends TestCase
             new \Dotclear\Database\Record([], $info) :
             new \Dotclear\Database\StaticRecord([], $info)
         );
+        // @phpstan-ignore argument.type
         $mock->method('openCursor')->willReturn(new \Dotclear\Database\Cursor($mock, 'dc_table'));
         $mock->method('changes')->willReturn(1);
         $mock->method('escapeStr')->willReturnCallback(fn ($str) => addslashes((string) $str));
@@ -55,7 +59,8 @@ class CursorTest extends TestCase
     #[DataProvider('dataProviderTest')]
     public function test(string $driver, string $syntax): void
     {
-        $con    = $this->getConnection($driver, $syntax);
+        $con = $this->getConnection($driver, $syntax);
+        // @phpstan-ignore argument.type
         $cursor = new \Dotclear\Database\Cursor($con, 'dc_table');
 
         $this->assertFalse(
@@ -129,7 +134,8 @@ class CursorTest extends TestCase
     #[DataProvider('dataProviderTest')]
     public function testInsertError(string $driver, string $syntax): void
     {
-        $con    = $this->getConnection($driver, $syntax);
+        $con = $this->getConnection($driver, $syntax);
+        // @phpstan-ignore argument.type
         $cursor = new \Dotclear\Database\Cursor($con, '');
 
         $this->expectException(Exception::class);
@@ -141,7 +147,8 @@ class CursorTest extends TestCase
     #[DataProvider('dataProviderTest')]
     public function testUpdateError(string $driver, string $syntax): void
     {
-        $con    = $this->getConnection($driver, $syntax);
+        $con = $this->getConnection($driver, $syntax);
+        // @phpstan-ignore argument.type
         $cursor = new \Dotclear\Database\Cursor($con, '');
 
         $this->expectException(Exception::class);
