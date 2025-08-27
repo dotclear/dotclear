@@ -29,7 +29,7 @@ class FileServer
     /**
      * Supported types of resource.
      *
-     * @var     array<int, string>  DEFAULT_TYPES
+     * @var     list<string>  DEFAULT_TYPES
      */
     public const DEFAULT_TYPES = [
         'plugin',
@@ -41,7 +41,7 @@ class FileServer
     /**
      * Supported file extension.
      *
-     * @var     array<int, string>  DEFAULT_EXTENSIONS
+     * @var     list<string>  DEFAULT_EXTENSIONS
      */
     public const DEFAULT_EXTENSIONS = [
         'css',
@@ -69,7 +69,7 @@ class FileServer
     /**
      * Supported core base folder.
      *
-     * @var     array<int, string>  DEFAULT_CORE_LIMITS
+     * @var     list<string>  DEFAULT_CORE_LIMITS
      */
     public const DEFAULT_CORE_LIMITS = [
         'js',
@@ -81,7 +81,7 @@ class FileServer
     /**
      * Supported minifield file extension.
      *
-     * @var     array<int, string>  DEFAULT_MINIFIED
+     * @var     list<string>  DEFAULT_MINIFIED
      */
     public const DEFAULT_MINIFIED = [
         'css',
@@ -92,7 +92,7 @@ class FileServer
     /**
      * File extension that does not need cache in dev mode.
      *
-     * @var     array<int, string>  DEFAULT_NOCACHE
+     * @var     list<string>  DEFAULT_NOCACHE
      */
     public const DEFAULT_NOCACHE = [
         'css',

@@ -22,7 +22,7 @@ trait DirTrait
     /**
      * Get excuded files.
      *
-     * @return  array<int,string>   The excluded files
+     * @return  list<string>   The excluded files
      */
     public static function getExcluded(): array
     {
@@ -98,9 +98,9 @@ trait DirTrait
      *
      * @param   string              $path   The directory path to scan
      * @param   string              $dir    The current directory
-     * @param   array<int,string>   $stack  The paths stack
+     * @param   list<string>        $stack  The paths stack
      *
-     * @return  array<int,string>   The paths stack
+     * @return  list<string>        The paths stack
      */
     private static function scanDir(string $path, string $dir = '', array $stack = []): array
     {

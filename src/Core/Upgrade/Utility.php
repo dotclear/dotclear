@@ -245,7 +245,7 @@ class Utility extends Process
      *
      * Used by sidebar menu, home dashboard and url handler.
      *
-     * @return  array<int, Icon>
+     * @return  list<Icon>
      */
     public function getIcons(): array
     {

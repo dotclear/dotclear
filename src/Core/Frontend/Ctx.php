@@ -670,7 +670,7 @@ class Ctx
      *
      * @param      string  $str    The HTML string
      *
-     * @return     array<int, list{0:string, 1:string}>
+     * @return     list<list{0:string, 1:string}>
      */
     private static function tokenizeHTML(string $str): array
     {

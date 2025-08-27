@@ -269,7 +269,7 @@ class Manage extends Process
             $head .= My::jsLoad('dragdrop');
         }
         if ($rte_flag) {
-            # --BEHAVIOR-- adminPostEditor -- string, string, string, array<int,string>, string
+            # --BEHAVIOR-- adminPostEditor -- string, string, string, list<string>, string
             $head .= App::behavior()->callBehavior(
                 'adminPostEditor',
                 $widget_editor['xhtml'],

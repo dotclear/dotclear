@@ -190,7 +190,7 @@ class WikiToHtml
     /**
      * Stack of macros
      *
-     * @var array<int, string>      $macros
+     * @var list<string>            $macros
      */
     public array $macros = [];
 

@@ -655,7 +655,7 @@ class Update
      *
      * @throws  Exception
      *
-     * @return  array<int,string>
+     * @return  list<string>
      */
     protected function md5sum(string $root, string $digests_file): array
     {

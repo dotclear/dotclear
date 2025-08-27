@@ -65,14 +65,14 @@ abstract class CleanerParent
     /**
      * Get list of distirbuted values for the cleaner.
      *
-     * @return  array<int,string>   The values [value,]
+     * @return  list<string>   The values [value,]
      */
     abstract public function distributed(): array;
 
     /**
      * Get all possible ns values from the cleaner.
      *
-     * @return  array<int,ValueDescriptor>  The values.
+     * @return  list<ValueDescriptor>  The values.
      */
     abstract public function values(): array;
 
@@ -81,7 +81,7 @@ abstract class CleanerParent
      *
      * @param   string  $ns     The namespace
      *
-     * @return  array<int,ValueDescriptor>  The values.
+     * @return  list<ValueDescriptor>  The values.
      */
     public function related(string $ns): array
     {

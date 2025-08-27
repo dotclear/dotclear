@@ -60,7 +60,7 @@ abstract class MyPlugin extends MyModule
      *
      * @param   string    $suffix   Optionnal suffix (will be prefixed by - if any)
      *
-     * @return  array<int,string>   The module icons URLs
+     * @return  list<string>   The module icons URLs
      */
     public static function icons(string $suffix = ''): array
     {
@@ -106,7 +106,7 @@ abstract class MyPlugin extends MyModule
      *
      * @param   array<string,string|int>    $params     The additionnal parameters
      *
-     * @return  array<int,Hidden>
+     * @return  list<Hidden>
      */
     public static function hiddenFields(array $params = []): array
     {

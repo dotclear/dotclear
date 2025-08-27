@@ -463,7 +463,7 @@ class ManagePage extends Process
                 $c_edit = App::backend()->post_editor['xhtml'];
             }
             if ($p_edit == $c_edit) {
-                # --BEHAVIOR-- adminPostEditor -- string, string, string, array<int,string>, string
+                # --BEHAVIOR-- adminPostEditor -- string, string, string, list<string>, string
                 $admin_post_behavior .= App::behavior()->callBehavior(
                     'adminPostEditor',
                     $p_edit,
@@ -472,7 +472,7 @@ class ManagePage extends Process
                     App::backend()->post_format
                 );
             } else {
-                # --BEHAVIOR-- adminPostEditor -- string, string, string, array<int,string>, string
+                # --BEHAVIOR-- adminPostEditor -- string, string, string, list<string>, string
                 $admin_post_behavior .= App::behavior()->callBehavior(
                     'adminPostEditor',
                     $p_edit,
@@ -480,7 +480,7 @@ class ManagePage extends Process
                     ['#post_excerpt', '#post_content'],
                     App::backend()->post_format
                 );
-                # --BEHAVIOR-- adminPostEditor -- string, string, string, array<int,string>, string
+                # --BEHAVIOR-- adminPostEditor -- string, string, string, list<string>, string
                 $admin_post_behavior .= App::behavior()->callBehavior(
                     'adminPostEditor',
                     $c_edit,

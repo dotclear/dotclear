@@ -643,7 +643,7 @@ class L10n
      *
      * @param string $expression Plural form as of gettext Plural-form param
      *
-     * @return array<int, int|string> Number of plurals and cleaned plural expression
+     * @return list<int|string> Number of plurals and cleaned plural expression
      */
     public static function parsePluralExpression(string $expression): array
     {

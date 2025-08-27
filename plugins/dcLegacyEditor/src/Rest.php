@@ -38,7 +38,7 @@ class Rest
             }
             $html = App::formater()->callEditorFormater(My::id(), 'wiki', $wiki);
 
-            # --BEHAVIOR-- coreContentFilter -- string, array<int, array<int, string>> -- since 2.34
+            # --BEHAVIOR-- coreContentFilter -- string, list<list<string>> -- since 2.34
             App::behavior()->callBehavior('coreContentFilter', 'post', [
                 [&$html, 'html'],
             ]);
