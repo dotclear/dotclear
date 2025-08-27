@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 class DiffTest extends TestCase
 {
-    public function testUniDiff()
+    public function testUniDiff(): void
     {
         $udiff = implode("\n", [
             '@@ -1,5 +1,4 @@',
@@ -42,7 +42,7 @@ Ligne 4
         );
     }
 
-    public function testUniPatch()
+    public function testUniPatch(): void
     {
         $src = 'Ligne 1
 Ligne 2 ajoutée
@@ -64,7 +64,7 @@ Ligne 4
         );
     }
 
-    public function testUniCheck()
+    public function testUniCheck(): void
     {
         $udiff = implode("\n", [
             '@@ -1,5 +1,4 @@',
@@ -83,7 +83,7 @@ Ligne 4
         \Dotclear\Helper\Diff\Diff::uniCheck($udiff);
     }
 
-    public function testUniCheckWithError()
+    public function testUniCheckWithError(): void
     {
         $udiff1 = implode("\n", [
             '@@ -1,5 +1,4 @@',
@@ -146,7 +146,7 @@ Ligne 4
         \Dotclear\Helper\Diff\Diff::uniCheck($udiff4);
     }
 
-    public function testUniCheckWithPatch()
+    public function testUniCheckWithPatch(): void
     {
         $src = 'Ligne 1
 Ligne 2 ajoutée
@@ -166,7 +166,7 @@ Ligne 4
         \Dotclear\Helper\Diff\Diff::uniCheck($patch);
     }
 
-    public function testSES()
+    public function testSES(): void
     {
         $src = 'Ligne 1
 Ligne 2 ajoutée

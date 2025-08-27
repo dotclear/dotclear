@@ -54,7 +54,7 @@ namespace Dotclear\Tests\Helper\Network\Mail {
             return true;
         }
 
-        public function testsendMail()
+        public function testsendMail(): void
         {
             // Note user defined _mail() will be tested via MailSocket class, no need to define it for tests
 
@@ -86,7 +86,7 @@ namespace Dotclear\Tests\Helper\Network\Mail {
             );
         }
 
-        public function testGetMX()
+        public function testGetMX(): void
         {
             $mx = \Dotclear\Helper\Network\Mail\Mail::getMX('localhost');
 
@@ -117,7 +117,7 @@ namespace Dotclear\Tests\Helper\Network\Mail {
             );
         }
 
-        public function testB64Header()
+        public function testB64Header(): void
         {
             $header = \Dotclear\Helper\Network\Mail\Mail::B64Header('dotclear');
 

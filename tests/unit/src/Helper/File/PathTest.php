@@ -23,7 +23,7 @@ class PathTest extends TestCase
         $_SERVER['SCRIPT_FILENAME'] = __FILE__;
     }
 
-    public function testRealUnstrict()
+    public function testRealUnstrict(): void
     {
         if (DIRECTORY_SEPARATOR === '\\') {
             // Hack to make it works under Windows
@@ -55,7 +55,7 @@ class PathTest extends TestCase
         }
     }
 
-    public function testRealStrict()
+    public function testRealStrict(): void
     {
         if (DIRECTORY_SEPARATOR === '\\') {
             // Hack to make it works under Windows
@@ -71,7 +71,7 @@ class PathTest extends TestCase
         }
     }
 
-    public function testReduce()
+    public function testReduce(): void
     {
         if (DIRECTORY_SEPARATOR === '\\') {
             // Hack to make it works under Windows
@@ -87,7 +87,7 @@ class PathTest extends TestCase
         }
     }
 
-    public function testClean()
+    public function testClean(): void
     {
         $this->assertEquals(
             DIRECTORY_SEPARATOR . 'testDirectory',
@@ -107,7 +107,7 @@ class PathTest extends TestCase
         );
     }
 
-    public function testInfo()
+    public function testInfo(): void
     {
         $info = \Dotclear\Helper\File\Path::info($this->testDirectory . DIRECTORY_SEPARATOR . '1-one.txt');
 
@@ -148,7 +148,7 @@ class PathTest extends TestCase
         );
     }
 
-    public function testFullFromRoot()
+    public function testFullFromRoot(): void
     {
         $this->assertEquals(
             '/test',
@@ -160,7 +160,7 @@ class PathTest extends TestCase
         );
     }
 
-    public function testdirWithSym()
+    public function testdirWithSym(): void
     {
         $target = $this->testDirectory . DIRECTORY_SEPARATOR . 'target';
         if (!is_dir($target)) {
@@ -197,7 +197,7 @@ class PathTest extends TestCase
     }
 
     #[RequiresPhpExtension('opcache'), RequiresFunction('opcache_get_status'), RequiresFunction('opcache_reset')]
-    public function testResetCache()
+    public function testResetCache(): void
     {
         $status = opcache_get_status();
 

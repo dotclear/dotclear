@@ -14,7 +14,7 @@ class IntrospectionServerTest extends TestCase
      * Note: terminate() is mocked by BasicServerTest.php
      */
     #[BackupGlobals(true)]
-    public function test()
+    public function test(): void
     {
         $this->expectOutputString(
             ''

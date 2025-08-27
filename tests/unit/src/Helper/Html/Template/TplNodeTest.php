@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class TtplNodeTest extends TestCase
 {
-    public function test()
+    public function test(): void
     {
         $instance = new \Dotclear\Helper\Html\Template\TplNode();
         $child    = new \Dotclear\Helper\Html\Template\TplNodeText('content');

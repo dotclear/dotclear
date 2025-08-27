@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class LabelTest extends TestCase
 {
-    public function test()
+    public function test(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Label('My Label');
         $rendered  = $component->render();
@@ -23,7 +23,7 @@ class LabelTest extends TestCase
         );
     }
 
-    public function testInsideTextBefore()
+    public function testInsideTextBefore(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Label('My Label', \Dotclear\Helper\Html\Form\Label::INSIDE_TEXT_BEFORE, 'myid');
         $rendered  = $component->render('<slot id="myid"></slot>');
@@ -34,7 +34,7 @@ class LabelTest extends TestCase
         );
     }
 
-    public function testInsideTextAfter()
+    public function testInsideTextAfter(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Label('My Label', \Dotclear\Helper\Html\Form\Label::INSIDE_TEXT_AFTER, 'myid');
         $rendered  = $component->render('<slot id="myid"></slot>');
@@ -45,7 +45,7 @@ class LabelTest extends TestCase
         );
     }
 
-    public function testOutsideLabelBefore()
+    public function testOutsideLabelBefore(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Label('My Label', \Dotclear\Helper\Html\Form\Label::OUTSIDE_LABEL_BEFORE, 'myid');
         $rendered  = $component->render('<slot id="myid"></slot>');
@@ -56,7 +56,7 @@ class LabelTest extends TestCase
         );
     }
 
-    public function testOutsideLabelAfter()
+    public function testOutsideLabelAfter(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Label('My Label', \Dotclear\Helper\Html\Form\Label::OUTSIDE_LABEL_AFTER, 'myid');
         $rendered  = $component->render('<slot id="myid"></slot>');
@@ -67,7 +67,7 @@ class LabelTest extends TestCase
         );
     }
 
-    public function testOutsideLabelBeforeWithoutId()
+    public function testOutsideLabelBeforeWithoutId(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Label('My Label', \Dotclear\Helper\Html\Form\Label::OUTSIDE_LABEL_BEFORE);
         $rendered  = $component->render('<slot id="myid"></slot>');
@@ -78,7 +78,7 @@ class LabelTest extends TestCase
         );
     }
 
-    public function testOutsideLabelAfterWithoutId()
+    public function testOutsideLabelAfterWithoutId(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Label('My Label', \Dotclear\Helper\Html\Form\Label::OUTSIDE_LABEL_AFTER);
         $rendered  = $component->render('<slot id="myid"></slot>');
@@ -89,7 +89,7 @@ class LabelTest extends TestCase
         );
     }
 
-    public function testFalsyPosition()
+    public function testFalsyPosition(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Label('My Label', 99, 'myid');
         $rendered  = $component->render('<slot id="myid"></slot>');
@@ -100,7 +100,7 @@ class LabelTest extends TestCase
         );
     }
 
-    public function testGetDefaultElement()
+    public function testGetDefaultElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Label('My Label');
 
@@ -110,7 +110,7 @@ class LabelTest extends TestCase
         );
     }
 
-    public function testGetType()
+    public function testGetType(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Label('My Label');
 
@@ -124,7 +124,7 @@ class LabelTest extends TestCase
         );
     }
 
-    public function testGetPosition()
+    public function testGetPosition(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Label('My Label');
 
@@ -134,7 +134,7 @@ class LabelTest extends TestCase
         );
     }
 
-    public function testSetPosition()
+    public function testSetPosition(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Label('My Label');
         $component->setPosition(\Dotclear\Helper\Html\Form\Label::INSIDE_TEXT_BEFORE);
@@ -145,7 +145,7 @@ class LabelTest extends TestCase
         );
     }
 
-    public function testSetFalsyPosition()
+    public function testSetFalsyPosition(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Label('My Label');
         $component->setPosition(99);

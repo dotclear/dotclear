@@ -102,7 +102,7 @@ class RecordTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function test(string $driver, string $syntax)
+    public function test(string $driver, string $syntax): void
     {
         // Sample data
         $rows = [
@@ -314,7 +314,7 @@ class RecordTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function testToStatic($driver, $syntax)
+    public function testToStatic($driver, $syntax): void
     {
         // Sample data
         $rows = [
@@ -370,7 +370,7 @@ class RecordTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function testExtend($driver, $syntax)
+    public function testExtend($driver, $syntax): void
     {
         // Sample data
         $rows = [
@@ -482,7 +482,7 @@ class RecordTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function testRows($driver, $syntax)
+    public function testRows($driver, $syntax): void
     {
         // Sample data
         $rows = [

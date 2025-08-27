@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class PasswordTest extends TestCase
 {
-    public function test()
+    public function test(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Password('my', 'value');
         $rendered  = $component->render();
@@ -43,7 +43,7 @@ class PasswordTest extends TestCase
         );
     }
 
-    public function testWithoutValue()
+    public function testWithoutValue(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Password('my');
         $rendered  = $component->render();
@@ -66,7 +66,7 @@ class PasswordTest extends TestCase
         );
     }
 
-    public function testWithoutNameOrId()
+    public function testWithoutNameOrId(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Password();
         $rendered  = $component->render();
@@ -77,7 +77,7 @@ class PasswordTest extends TestCase
         );
     }
 
-    public function testWithoutNameOrIdAndWithAValue()
+    public function testWithoutNameOrIdAndWithAValue(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Password(null, 'value');
         $rendered  = $component->render();

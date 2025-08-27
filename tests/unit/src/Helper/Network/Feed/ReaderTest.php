@@ -24,7 +24,7 @@ class ReaderTest extends TestCase
         Files::deltree($this->cacheDirectory);
     }
 
-    public function test()
+    public function test(): void
     {
         $reader = new \Dotclear\Helper\Network\Feed\Reader();
 
@@ -104,7 +104,7 @@ class ReaderTest extends TestCase
         }
     }
 
-    public function testBadURL()
+    public function testBadURL(): void
     {
         $parser = \Dotclear\Helper\Network\Feed\Reader::quickParse('https://dotclear.org/blog/feed/atome');
 

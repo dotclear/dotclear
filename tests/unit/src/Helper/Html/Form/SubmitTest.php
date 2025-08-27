@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class SubmitTest extends TestCase
 {
-    public function test()
+    public function test(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Submit('my', 'value');
         $rendered  = $component->render();
@@ -31,7 +31,7 @@ class SubmitTest extends TestCase
         );
     }
 
-    public function testWithoutValue()
+    public function testWithoutValue(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Submit('my');
         $rendered  = $component->render();
@@ -54,7 +54,7 @@ class SubmitTest extends TestCase
         );
     }
 
-    public function testWithoutNameOrId()
+    public function testWithoutNameOrId(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Submit();
         $rendered  = $component->render();
@@ -65,7 +65,7 @@ class SubmitTest extends TestCase
         );
     }
 
-    public function testWithoutNameOrIdAndWithAValue()
+    public function testWithoutNameOrIdAndWithAValue(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Submit(null, 'value');
         $rendered  = $component->render();

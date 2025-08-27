@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class NoneTest extends TestCase
 {
-    public function test()
+    public function test(): void
     {
         $component = new \Dotclear\Helper\Html\Form\None();
         $rendered  = $component->render();
@@ -19,7 +19,7 @@ class NoneTest extends TestCase
         );
     }
 
-    public function testGetDefaultElement()
+    public function testGetDefaultElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\None();
 
@@ -29,7 +29,7 @@ class NoneTest extends TestCase
         );
     }
 
-    public function testGetType()
+    public function testGetType(): void
     {
         $component = new \Dotclear\Helper\Html\Form\None();
 

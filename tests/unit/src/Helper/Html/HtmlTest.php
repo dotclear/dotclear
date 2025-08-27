@@ -10,7 +10,7 @@ class HtmlTest extends TestCase
 {
     /** Simple test. Don't need to test PHP functions
      */
-    public function testEscapeHTML()
+    public function testEscapeHTML(): void
     {
         $str = '"<>&';
         $this->assertEquals(
@@ -24,7 +24,7 @@ class HtmlTest extends TestCase
         );
     }
 
-    public function testDecodeEntities()
+    public function testDecodeEntities(): void
     {
         $this->assertEquals(
             '&lt;body&gt;',
@@ -41,7 +41,7 @@ class HtmlTest extends TestCase
      * Html::clean is a wrapper of a PHP native function
      * Simple test
      */
-    public function testClean()
+    public function testClean(): void
     {
         $this->assertEquals(
             'test',
@@ -49,7 +49,7 @@ class HtmlTest extends TestCase
         );
     }
 
-    public function testEscapeJS()
+    public function testEscapeJS(): void
     {
         $this->assertEquals(
             '&lt;script&gt;alert(\"Hello world\");&lt;/script&gt;',
@@ -61,7 +61,7 @@ class HtmlTest extends TestCase
      * Html::escapeURL is a wrapper of a PHP native function
      * Simple test
      */
-    public function testEscapeURL()
+    public function testEscapeURL(): void
     {
         $this->assertEquals(
             'https://www.dotclear.org/?q=test&amp;test=1',
@@ -73,7 +73,7 @@ class HtmlTest extends TestCase
      * Html::sanitizeURL is a wrapper of a PHP native function
      * Simple test
      */
-    public function testSanitizeURL()
+    public function testSanitizeURL(): void
     {
         $this->assertEquals(
             'https%3A//www.dotclear.org/',
@@ -84,7 +84,7 @@ class HtmlTest extends TestCase
     /**
      * Test removing host prefix
      */
-    public function testStripHostURL()
+    public function testStripHostURL(): void
     {
         $this->assertEquals(
             '/best-blog-engine/',
@@ -97,7 +97,7 @@ class HtmlTest extends TestCase
         );
     }
 
-    public function testAbsoluteURLs()
+    public function testAbsoluteURLs(): void
     {
         \Dotclear\Helper\Html\Html::$absolute_regs[] = '/(<param\s+name="movie"\s+value=")(.*?)(")/msu';
 
@@ -132,7 +132,7 @@ class HtmlTest extends TestCase
         );
     }
 
-    public function testJsJson()
+    public function testJsJson(): void
     {
         $this->assertEquals(
             '<script type="application/json" id="data-data">' . "\n" .

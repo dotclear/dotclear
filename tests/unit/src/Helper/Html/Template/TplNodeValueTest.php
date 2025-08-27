@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class TtplNodeValueTest extends TestCase
 {
-    public function test()
+    public function test(): void
     {
         $instance = new \Dotclear\Helper\Html\Template\TplNodeValue('tag', ['attr' => true], 'str_attr');
 

@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class LinkTest extends TestCase
 {
-    public function test()
+    public function test(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Link();
         $rendered  = $component->render();
@@ -19,7 +19,7 @@ class LinkTest extends TestCase
         );
     }
 
-    public function testWithHref()
+    public function testWithHref(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Link();
         $component->href('#here');
@@ -35,7 +35,7 @@ class LinkTest extends TestCase
         );
     }
 
-    public function testWithDownloadBool()
+    public function testWithDownloadBool(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Link();
         $component->download(true);
@@ -63,7 +63,7 @@ class LinkTest extends TestCase
         );
     }
 
-    public function testWithDownloadString()
+    public function testWithDownloadString(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Link();
         $component->download('downloadable_file.txt');
@@ -91,7 +91,7 @@ class LinkTest extends TestCase
         );
     }
 
-    public function testWithText()
+    public function testWithText(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Link();
         $component->text('Here');
@@ -103,7 +103,7 @@ class LinkTest extends TestCase
         );
     }
 
-    public function testWithId()
+    public function testWithId(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Link('myid');
         $rendered  = $component->render();
@@ -122,7 +122,7 @@ class LinkTest extends TestCase
         );
     }
 
-    public function testGetDefaultElement()
+    public function testGetDefaultElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Link();
 
@@ -132,7 +132,7 @@ class LinkTest extends TestCase
         );
     }
 
-    public function testGetType()
+    public function testGetType(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Link();
 
@@ -146,7 +146,7 @@ class LinkTest extends TestCase
         );
     }
 
-    public function testGetElement()
+    public function testGetElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Link();
 
@@ -156,7 +156,7 @@ class LinkTest extends TestCase
         );
     }
 
-    public function testGetElementWithOtherElement()
+    public function testGetElementWithOtherElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Link('my', 'slot');
 

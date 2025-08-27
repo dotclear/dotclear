@@ -106,7 +106,7 @@ class MetaRecordTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function test(string $driver, string $syntax)
+    public function test(string $driver, string $syntax): void
     {
         // Sample data
         $rows = [
@@ -303,7 +303,7 @@ class MetaRecordTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function testToStatic(string $driver, string $syntax)
+    public function testToStatic(string $driver, string $syntax): void
     {
         // Sample data
         $rows = [
@@ -359,7 +359,7 @@ class MetaRecordTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function testExtend(string $driver, string $syntax)
+    public function testExtend(string $driver, string $syntax): void
     {
         // Sample data
         $rows = [
@@ -471,7 +471,7 @@ class MetaRecordTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function testRows(string $driver, string $syntax)
+    public function testRows(string $driver, string $syntax): void
     {
         // Sample data
         $rows = [
@@ -540,7 +540,7 @@ class MetaRecordTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function testStatic(string $driver, string $syntax)
+    public function testStatic(string $driver, string $syntax): void
     {
         // Sample data
         $rows = [

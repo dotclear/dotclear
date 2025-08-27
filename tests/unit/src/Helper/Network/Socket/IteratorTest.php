@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 class IteratorTest extends TestCase
 {
-    public function testWithHandle()
+    public function testWithHandle(): void
     {
         $input = realpath(implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', '..', 'fixtures', 'src', 'Helper', 'Network', 'Socket', 'stream-input.txt']));
 
@@ -78,7 +78,7 @@ class IteratorTest extends TestCase
         fclose($handle);
     }
 
-    public function testWithoutHandle()
+    public function testWithoutHandle(): void
     {
         $handle = null;
 

@@ -73,7 +73,7 @@ class FilesTest extends TestCase
         }
     }
 
-    public function test()
+    public function test(): void
     {
         $this->assertTrue(
             is_dir($this->testDirectory)
@@ -81,7 +81,7 @@ class FilesTest extends TestCase
     }
 
     #[Depends('test')]
-    public function testLock()
+    public function testLock(): void
     {
         $dir = $this->getTempDir();
 
@@ -152,7 +152,7 @@ class FilesTest extends TestCase
      * know files
      */
     #[Depends('testLock')]
-    public function testScanDir()
+    public function testScanDir(): void
     {
         $dir = $this->getTempDir();
 
@@ -179,7 +179,7 @@ class FilesTest extends TestCase
      * Test the extension
      */
     #[Depends('testScanDir')]
-    public function testExtension()
+    public function testExtension(): void
     {
         $this->assertEquals(
             'txt',
@@ -199,7 +199,7 @@ class FilesTest extends TestCase
      * See http://en.wikipedia.org/wiki/Internet_media_type for all mimetypes
      */
     #[Depends('testExtension')]
-    public function testGetMimeType()
+    public function testGetMimeType(): void
     {
         $this->assertEquals(
             'text/plain',
@@ -224,7 +224,7 @@ class FilesTest extends TestCase
      * There's a lot of mimetypes. Only test if mimetypes array is not empty
      */
     #[Depends('testGetMimeType')]
-    public function testMimeTypes()
+    public function testMimeTypes(): void
     {
         $this->assertNotEmpty(
             \Dotclear\Helper\File\Files::mimeTypes()
@@ -235,7 +235,7 @@ class FilesTest extends TestCase
      * Try to register a new mimetype: test/test which don't exists
      */
     #[Depends('testMimeTypes')]
-    public function testRegisterMimeType()
+    public function testRegisterMimeType(): void
     {
         \Dotclear\Helper\File\Files::registerMimeTypes(['text/test']);
 
@@ -250,7 +250,7 @@ class FilesTest extends TestCase
      * TODO: Do it under an Unix/Unix-like system
      */
     #[Depends('testRegisterMimeType')]
-    public function testFileIsDeletable()
+    public function testFileIsDeletable(): void
     {
         $dir = $this->getTempDir();
 
@@ -270,7 +270,7 @@ class FilesTest extends TestCase
      * Test if a directory is deletable
      */
     #[Depends('testFileIsDeletable')]
-    public function testDirIsDeletable()
+    public function testDirIsDeletable(): void
     {
         $dir = $this->getTempDir();
 
@@ -291,7 +291,7 @@ class FilesTest extends TestCase
      * TODO: Do it under Unix/Unix-like system
      */
     #[Depends('testDirIsDeletable')]
-    public function testDirIsNotDeletable()
+    public function testDirIsNotDeletable(): void
     {
         $dir = $this->getTempDir();
 
@@ -309,7 +309,7 @@ class FilesTest extends TestCase
      * Create a directories structure and delete it
      */
     #[Depends('testDirIsNotDeletable')]
-    public function testDeltree()
+    public function testDeltree(): void
     {
         $dir = $this->getTempDir();
 
@@ -333,7 +333,7 @@ class FilesTest extends TestCase
      * so this test might fail within this system
      */
     #[Depends('testDeltree')]
-    public function testTouch()
+    public function testTouch(): void
     {
         $dir = $this->getTempDir();
 
@@ -363,7 +363,7 @@ class FilesTest extends TestCase
      * Make a single directory
      */
     #[Depends('testTouch')]
-    public function testMakeDir()
+    public function testMakeDir(): void
     {
         $dir = $this->getTempDir();
 
@@ -394,7 +394,7 @@ class FilesTest extends TestCase
      * Make a directory structure
      */
     #[Depends('testMakeDir')]
-    public function testMakeDirWithParent()
+    public function testMakeDirWithParent(): void
     {
         $dir = $this->getTempDir();
 
@@ -419,7 +419,7 @@ class FilesTest extends TestCase
      * Under Unix/Unix-like sytem try to create a directory at root dir
      */
     #[Depends('testMakeDirWithParent')]
-    public function testMakeDirImpossible()
+    public function testMakeDirImpossible(): void
     {
         if (DIRECTORY_SEPARATOR == '\\') {
             $dir = 'COM1'; // Windows system forbid that name
@@ -432,7 +432,7 @@ class FilesTest extends TestCase
     }
 
     #[Depends('testMakeDirImpossible')]
-    public function testInheritChmod()
+    public function testInheritChmod(): void
     {
         $dir = $this->getTempDir();
 
@@ -453,7 +453,7 @@ class FilesTest extends TestCase
     }
 
     #[Depends('testInheritChmod')]
-    public function testInheritChmodDirMode()
+    public function testInheritChmodDirMode(): void
     {
         $dir = $this->getTempDir();
 
@@ -479,7 +479,7 @@ class FilesTest extends TestCase
     }
 
     #[Depends('testInheritChmodDirMode')]
-    public function testPutContent()
+    public function testPutContent(): void
     {
         $dir = $this->getTempDir();
 
@@ -496,7 +496,7 @@ class FilesTest extends TestCase
     }
 
     #[Depends('testPutContent')]
-    public function testPutContentException()
+    public function testPutContentException(): void
     {
         $dir = $this->getTempDir();
 
@@ -522,7 +522,7 @@ class FilesTest extends TestCase
     }
 
     #[Depends('testPutContentException')]
-    public function testSize()
+    public function testSize(): void
     {
         $this->assertEquals(
             '512 B',
@@ -555,7 +555,7 @@ class FilesTest extends TestCase
     }
 
     #[Depends('testSize')]
-    public function testStr2Bytes()
+    public function testStr2Bytes(): void
     {
         $this->assertEquals(
             (float) 512,
@@ -585,7 +585,7 @@ class FilesTest extends TestCase
      * This must fail until Files::uploadStatus don't handle UPLOAD_ERR_EXTENSION
      */
     #[Depends('testStr2Bytes')]
-    public function testUploadStatus()
+    public function testUploadStatus(): void
     {
         // Create a false $_FILES global without error
         $file = [
@@ -634,7 +634,7 @@ class FilesTest extends TestCase
     }
 
     #[Depends('testUploadStatus')]
-    public function testGetDirList()
+    public function testGetDirList(): void
     {
         $dir = $this->getTempDir();
 
@@ -691,7 +691,7 @@ class FilesTest extends TestCase
     }
 
     #[Depends('testGetDirList')]
-    public function testTidyFilename()
+    public function testTidyFilename(): void
     {
         $this->assertEquals(
             'a_test_file.txt',

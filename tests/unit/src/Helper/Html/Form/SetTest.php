@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class SetTest extends TestCase
 {
-    public function test()
+    public function test(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Set();
         $rendered  = $component->render();
@@ -19,7 +19,7 @@ class SetTest extends TestCase
         );
     }
 
-    public function testWithEmptyItems()
+    public function testWithEmptyItems(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Set();
         $component->items([
@@ -32,7 +32,7 @@ class SetTest extends TestCase
         );
     }
 
-    public function testWithItems()
+    public function testWithItems(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Set();
         $component->items([
@@ -47,7 +47,7 @@ class SetTest extends TestCase
         );
     }
 
-    public function testWithItemsWithSeparator()
+    public function testWithItemsWithSeparator(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Set();
         $component
@@ -66,7 +66,7 @@ class SetTest extends TestCase
         );
     }
 
-    public function testWithItemsWithFormat()
+    public function testWithItemsWithFormat(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Set();
         $component
@@ -85,7 +85,7 @@ class SetTest extends TestCase
         );
     }
 
-    public function testGetDefaultElement()
+    public function testGetDefaultElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Set();
 
@@ -95,7 +95,7 @@ class SetTest extends TestCase
         );
     }
 
-    public function testGetType()
+    public function testGetType(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Set();
 

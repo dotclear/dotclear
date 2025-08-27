@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class TextareaTest extends TestCase
 {
-    public function test()
+    public function test(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Textarea('myid');
         $rendered  = $component->render();
@@ -27,7 +27,7 @@ class TextareaTest extends TestCase
         );
     }
 
-    public function testWithValue()
+    public function testWithValue(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Textarea('myid', 'CONTENT');
         $rendered  = $component->render();
@@ -38,7 +38,7 @@ class TextareaTest extends TestCase
         );
     }
 
-    public function testWithoutId()
+    public function testWithoutId(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Textarea();
         $rendered  = $component->render();
@@ -49,7 +49,7 @@ class TextareaTest extends TestCase
         );
     }
 
-    public function testAttachLabel()
+    public function testAttachLabel(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Textarea('my');
 
@@ -63,7 +63,7 @@ class TextareaTest extends TestCase
         );
     }
 
-    public function testAttachLabelOutside()
+    public function testAttachLabelOutside(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Textarea('my');
 
@@ -77,7 +77,7 @@ class TextareaTest extends TestCase
         );
     }
 
-    public function testDetachLabel()
+    public function testDetachLabel(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Textarea('my');
 
@@ -90,7 +90,7 @@ class TextareaTest extends TestCase
         );
     }
 
-    public function testGetDefaultElement()
+    public function testGetDefaultElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Textarea('myid');
 
@@ -100,7 +100,7 @@ class TextareaTest extends TestCase
         );
     }
 
-    public function testGetType()
+    public function testGetType(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Textarea('myid');
 
@@ -114,7 +114,7 @@ class TextareaTest extends TestCase
         );
     }
 
-    public function testGetElement()
+    public function testGetElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Textarea('myid');
 
@@ -124,7 +124,7 @@ class TextareaTest extends TestCase
         );
     }
 
-    public function testNoIdOutsideLabel()
+    public function testNoIdOutsideLabel(): void
     {
         $component = $this->getMockBuilder(\Dotclear\Helper\Html\Form\Textarea::class)
             ->onlyMethods(['checkMandatoryAttributes'])
@@ -143,7 +143,7 @@ class TextareaTest extends TestCase
         );
     }
 
-    public function testNoIdVerbose()
+    public function testNoIdVerbose(): void
     {
         $component = $this->getMockBuilder(\Dotclear\Helper\Html\Form\Textarea::class)
             ->onlyMethods(['checkMandatoryAttributes', 'isVerbose'])

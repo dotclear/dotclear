@@ -153,7 +153,7 @@ namespace Dotclear\Tests\Helper\File\Image {
             $this->root = realpath(implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', '..', 'fixtures', 'src', 'Helper', 'Image']));
         }
 
-        public function testPng()
+        public function testPng(): void
         {
             $tool = new \Dotclear\Helper\File\Image\ImageTools();
 
@@ -216,7 +216,7 @@ namespace Dotclear\Tests\Helper\File\Image {
         }
 
         #[Depends('testPng')]
-        public function testJpg()
+        public function testJpg(): void
         {
             $tool = new \Dotclear\Helper\File\Image\ImageTools();
 
@@ -279,7 +279,7 @@ namespace Dotclear\Tests\Helper\File\Image {
         }
 
         #[Depends('testJpg')]
-        public function testGif()
+        public function testGif(): void
         {
             $tool = new \Dotclear\Helper\File\Image\ImageTools();
 
@@ -342,7 +342,7 @@ namespace Dotclear\Tests\Helper\File\Image {
         }
 
         #[Depends('testGif')]
-        public function testWebp()
+        public function testWebp(): void
         {
             $tool = new \Dotclear\Helper\File\Image\ImageTools();
 
@@ -405,7 +405,7 @@ namespace Dotclear\Tests\Helper\File\Image {
         }
 
         #[Depends('testWebp')]
-        public function testAvif()
+        public function testAvif(): void
         {
             $tool = new \Dotclear\Helper\File\Image\ImageTools();
 
@@ -467,7 +467,7 @@ namespace Dotclear\Tests\Helper\File\Image {
             ImageAvifMock::set(null);
         }
 
-        public function testBmp()
+        public function testBmp(): void
         {
             $tool = new \Dotclear\Helper\File\Image\ImageTools();
 
@@ -477,7 +477,7 @@ namespace Dotclear\Tests\Helper\File\Image {
             $tool->loadImage(implode(DIRECTORY_SEPARATOR, [$this->root, 'image.bmp']));
         }
 
-        public function testUnknown()
+        public function testUnknown(): void
         {
             $tool = new \Dotclear\Helper\File\Image\ImageTools();
 
@@ -487,7 +487,7 @@ namespace Dotclear\Tests\Helper\File\Image {
             $tool->loadImage(implode(DIRECTORY_SEPARATOR, [$this->root, 'unknown.jpg']));
         }
 
-        public function testNoGD()
+        public function testNoGD(): void
         {
             // Mock function_exists()
             FunctionExistsMock::set(fn (string $function): bool => $function === 'imagegd2' ? false : \function_exists($function));
@@ -502,7 +502,7 @@ namespace Dotclear\Tests\Helper\File\Image {
         }
 
         #[Depends('testNoGD')]
-        public function testWebpDisabled()
+        public function testWebpDisabled(): void
         {
             $tool = new \Dotclear\Helper\File\Image\ImageTools();
 
@@ -519,7 +519,7 @@ namespace Dotclear\Tests\Helper\File\Image {
         }
 
         #[Depends('testWebpDisabled')]
-        public function testAvifDisabled()
+        public function testAvifDisabled(): void
         {
             $tool = new \Dotclear\Helper\File\Image\ImageTools();
 
@@ -535,7 +535,7 @@ namespace Dotclear\Tests\Helper\File\Image {
             FunctionExistsMock::set(null);
         }
 
-        public function testResizeRatio()
+        public function testResizeRatio(): void
         {
             $tool = new \Dotclear\Helper\File\Image\ImageTools();
 
@@ -564,7 +564,7 @@ namespace Dotclear\Tests\Helper\File\Image {
             $tool->close();
         }
 
-        public function testResizePercent()
+        public function testResizePercent(): void
         {
             $tool = new \Dotclear\Helper\File\Image\ImageTools();
 
@@ -592,7 +592,7 @@ namespace Dotclear\Tests\Helper\File\Image {
             $tool->close();
         }
 
-        public function testResizeCrop()
+        public function testResizeCrop(): void
         {
             $tool = new \Dotclear\Helper\File\Image\ImageTools();
 
@@ -620,7 +620,7 @@ namespace Dotclear\Tests\Helper\File\Image {
             $tool->close();
         }
 
-        public function testResizeForce()
+        public function testResizeForce(): void
         {
             $tool = new \Dotclear\Helper\File\Image\ImageTools();
 
@@ -648,7 +648,7 @@ namespace Dotclear\Tests\Helper\File\Image {
             $tool->close();
         }
 
-        public function testResizeRatioWidth()
+        public function testResizeRatioWidth(): void
         {
             $tool = new \Dotclear\Helper\File\Image\ImageTools();
 
@@ -676,7 +676,7 @@ namespace Dotclear\Tests\Helper\File\Image {
             $tool->close();
         }
 
-        public function testResizeRatioHeight()
+        public function testResizeRatioHeight(): void
         {
             $tool = new \Dotclear\Helper\File\Image\ImageTools();
 
@@ -705,7 +705,7 @@ namespace Dotclear\Tests\Helper\File\Image {
             $tool->close();
         }
 
-        public function testResizeRatioWidthForce()
+        public function testResizeRatioWidthForce(): void
         {
             $tool = new \Dotclear\Helper\File\Image\ImageTools();
 
@@ -733,7 +733,7 @@ namespace Dotclear\Tests\Helper\File\Image {
             $tool->close();
         }
 
-        public function testResizeRatioHeightForce()
+        public function testResizeRatioHeightForce(): void
         {
             $tool = new \Dotclear\Helper\File\Image\ImageTools();
 
@@ -762,7 +762,7 @@ namespace Dotclear\Tests\Helper\File\Image {
             $tool->close();
         }
 
-        public function testResizeRatioWidthForceNotExpand()
+        public function testResizeRatioWidthForceNotExpand(): void
         {
             $tool = new \Dotclear\Helper\File\Image\ImageTools();
 
@@ -790,7 +790,7 @@ namespace Dotclear\Tests\Helper\File\Image {
             $tool->close();
         }
 
-        public function testResizeRatioNotExpand()
+        public function testResizeRatioNotExpand(): void
         {
             $tool = new \Dotclear\Helper\File\Image\ImageTools();
 
@@ -819,7 +819,7 @@ namespace Dotclear\Tests\Helper\File\Image {
             $tool->close();
         }
 
-        public function testResizeRatioExpand()
+        public function testResizeRatioExpand(): void
         {
             $tool = new \Dotclear\Helper\File\Image\ImageTools();
 
@@ -848,7 +848,7 @@ namespace Dotclear\Tests\Helper\File\Image {
             $tool->close();
         }
 
-        public function testResizeLargeRatioExpand()
+        public function testResizeLargeRatioExpand(): void
         {
             $tool = new \Dotclear\Helper\File\Image\ImageTools();
 

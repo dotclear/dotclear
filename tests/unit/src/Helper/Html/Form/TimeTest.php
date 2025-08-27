@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class TimeTest extends TestCase
 {
-    public function test()
+    public function test(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Time('my', 'value');
         $rendered  = $component->render();
@@ -47,7 +47,7 @@ class TimeTest extends TestCase
         );
     }
 
-    public function testWithoutValue()
+    public function testWithoutValue(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Time('my');
         $rendered  = $component->render();
@@ -86,7 +86,7 @@ class TimeTest extends TestCase
         );
     }
 
-    public function testWithoutNameOrId()
+    public function testWithoutNameOrId(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Time();
         $rendered  = $component->render();
@@ -97,7 +97,7 @@ class TimeTest extends TestCase
         );
     }
 
-    public function testWithoutNameOrIdAndWithAValue()
+    public function testWithoutNameOrIdAndWithAValue(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Time(null, 'value');
         $rendered  = $component->render();
@@ -108,7 +108,7 @@ class TimeTest extends TestCase
         );
     }
 
-    public function testSize()
+    public function testSize(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Time(['myname','myid'], 'value');
         $component->size(13);
@@ -148,7 +148,7 @@ class TimeTest extends TestCase
         );
     }
 
-    public function testMaxlength()
+    public function testMaxlength(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Time(['myname','myid'], 'value');
         $component->maxlength(21);
@@ -188,7 +188,7 @@ class TimeTest extends TestCase
         );
     }
 
-    public function testPattern()
+    public function testPattern(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Time(['myname','myid'], 'value');
         $component->pattern('[0-9]{2}');
@@ -228,7 +228,7 @@ class TimeTest extends TestCase
         );
     }
 
-    public function testPlaceholder()
+    public function testPlaceholder(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Time(['myname','myid'], 'value');
         $component->placeholder('12:15');

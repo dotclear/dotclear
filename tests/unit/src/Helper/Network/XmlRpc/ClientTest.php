@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 class ClientTest extends TestCase
 {
-    public function test()
+    public function test(): void
     {
         $client = new \Dotclear\Helper\Network\XmlRpc\Client('https://dotclear.org/xmlrpc');
 

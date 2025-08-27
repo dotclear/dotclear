@@ -18,7 +18,7 @@ class FileTest extends TestCase
         $this->url  = 'https://example.com/public/';
     }
 
-    public function test()
+    public function test(): void
     {
         $file = new \Dotclear\Helper\File\File($this->root . DIRECTORY_SEPARATOR . 'valid.md', $this->root);
 
@@ -31,7 +31,7 @@ class FileTest extends TestCase
     }
 
     #[RunInSeparateProcess]
-    public function testStdPropertiesFile()
+    public function testStdPropertiesFile(): void
     {
         $file = new \Dotclear\Helper\File\File($this->root . DIRECTORY_SEPARATOR . 'valid.md', $this->root, $this->url);
 
@@ -112,7 +112,7 @@ class FileTest extends TestCase
     }
 
     #[RunInSeparateProcess]
-    public function testStdPropertiesDir()
+    public function testStdPropertiesDir(): void
     {
         $file = new \Dotclear\Helper\File\File($this->root . DIRECTORY_SEPARATOR . 'sub', $this->root, $this->url);
 
@@ -194,7 +194,7 @@ class FileTest extends TestCase
     }
 
     #[RunInSeparateProcess]
-    public function testStdPropertiesDirFile()
+    public function testStdPropertiesDirFile(): void
     {
         $file = new \Dotclear\Helper\File\File($this->root . DIRECTORY_SEPARATOR . 'sub' . DIRECTORY_SEPARATOR . 'valid.md', $this->root, $this->url);
 
@@ -275,7 +275,7 @@ class FileTest extends TestCase
     }
 
     #[RunInSeparateProcess]
-    public function testStdPropertiesDirUp()
+    public function testStdPropertiesDirUp(): void
     {
         $file = new \Dotclear\Helper\File\File(implode(DIRECTORY_SEPARATOR, [$this->root, 'sub', 'subsub', '..']), $this->root, $this->url);
 
@@ -356,7 +356,7 @@ class FileTest extends TestCase
         ;
     }
 
-    public function testUserDefinedProperties()
+    public function testUserDefinedProperties(): void
     {
         $file = new \Dotclear\Helper\File\File($this->root . DIRECTORY_SEPARATOR . 'valid.md', $this->root);
 
@@ -379,7 +379,7 @@ class FileTest extends TestCase
         );
     }
 
-    public function testInvalid()
+    public function testInvalid(): void
     {
         $file = new \Dotclear\Helper\File\File($this->root . DIRECTORY_SEPARATOR . 'invalid.md', $this->root);
 

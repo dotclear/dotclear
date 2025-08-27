@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 class TextTest extends TestCase
 {
-    public function testIsEmail()
+    public function testIsEmail(): void
     {
         $faker = Factory::create();
         $text  = $faker->email();
@@ -31,7 +31,7 @@ class TextTest extends TestCase
     }
 
     #[DataProvider('dataProviderIsEmailAll')]
-    public function testIsEmailAll($payload, $expected)
+    public function testIsEmailAll($payload, $expected): void
     {
         $this->assertEquals(
             $expected,
@@ -39,7 +39,7 @@ class TextTest extends TestCase
         );
     }
 
-    public function testDeaccent()
+    public function testDeaccent(): void
     {
         $this->assertEquals(
             'AAAECDEEIINOOOOESUUYZaaaecdeeiinooooesuuyyzss ee',
@@ -47,7 +47,7 @@ class TextTest extends TestCase
         );
     }
 
-    public function testStr2URL()
+    public function testStr2URL(): void
     {
         $this->assertEquals(
             'https://domaincom/AAAECDEEIINOOOOESUUYZaaaecdeeiinooooesuuyyzss/eehtml',
@@ -59,7 +59,7 @@ class TextTest extends TestCase
         );
     }
 
-    public function testTidyURL()
+    public function testTidyURL(): void
     {
         // Keep /, no spaces
         $this->assertEquals(
@@ -86,7 +86,7 @@ class TextTest extends TestCase
         );
     }
 
-    public function testcutString()
+    public function testcutString(): void
     {
         $faker = Factory::create();
         $text  = $faker->realText(400);
@@ -105,7 +105,7 @@ class TextTest extends TestCase
         );
     }
 
-    public function testSplitWords()
+    public function testSplitWords(): void
     {
         $test = \Dotclear\Helper\Text::splitWords('Étrange et curieux/=À vous !');
         $this->assertCount(
@@ -130,7 +130,7 @@ class TextTest extends TestCase
         );
     }
 
-    public function testDetectEncoding()
+    public function testDetectEncoding(): void
     {
         $this->assertEquals(
             'utf-8',
@@ -144,7 +144,7 @@ class TextTest extends TestCase
         );
     }
 
-    public function testToUTF8()
+    public function testToUTF8(): void
     {
         $this->assertEquals(
             'Étrange et curieux/=À vous !',
@@ -158,7 +158,7 @@ class TextTest extends TestCase
         );
     }
 
-    public function testUtf8badFind()
+    public function testUtf8badFind(): void
     {
         $this->assertFalse(
             \Dotclear\Helper\Text::utf8badFind('Étrange et curieux/=À vous !')
@@ -169,7 +169,7 @@ class TextTest extends TestCase
         );
     }
 
-    public function testCleanUTF8()
+    public function testCleanUTF8(): void
     {
         $this->assertEquals(
             'Étrange et curieux/=À vous !',
@@ -181,7 +181,7 @@ class TextTest extends TestCase
         );
     }
 
-    public function testCleanStr()
+    public function testCleanStr(): void
     {
         $this->assertEquals(
             'Étrange et curieux/=À vous !',
@@ -195,7 +195,7 @@ class TextTest extends TestCase
         );
     }
 
-    public function testRemoveDiacritics()
+    public function testRemoveDiacritics(): void
     {
         $this->assertEquals(
             'AAAAEAOAUAVAYBCDDZDzEFGHIJKLLJLjMNNJNjOOEOIOOe',

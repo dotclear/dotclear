@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class ThTest extends TestCase
 {
-    public function test()
+    public function test(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Th();
         $rendered  = $component->render();
@@ -19,7 +19,7 @@ class ThTest extends TestCase
         );
     }
 
-    public function testWithText()
+    public function testWithText(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Th();
         $component->text('Here');
@@ -31,7 +31,7 @@ class ThTest extends TestCase
         );
     }
 
-    public function testWithId()
+    public function testWithId(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Th('myid');
         $rendered  = $component->render();
@@ -50,7 +50,7 @@ class ThTest extends TestCase
         );
     }
 
-    public function testWithColspan()
+    public function testWithColspan(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Th();
         $component->colspan(2);
@@ -66,7 +66,7 @@ class ThTest extends TestCase
         );
     }
 
-    public function testWithRowspan()
+    public function testWithRowspan(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Th();
         $component->rowspan(4);
@@ -82,7 +82,7 @@ class ThTest extends TestCase
         );
     }
 
-    public function testWithHeaders()
+    public function testWithHeaders(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Th();
         $component->headers('id1 id2');
@@ -98,7 +98,7 @@ class ThTest extends TestCase
         );
     }
 
-    public function testWithScope()
+    public function testWithScope(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Th();
         $component->scope('row');
@@ -114,7 +114,7 @@ class ThTest extends TestCase
         );
     }
 
-    public function testGetDefaultElement()
+    public function testGetDefaultElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Th();
 
@@ -124,7 +124,7 @@ class ThTest extends TestCase
         );
     }
 
-    public function testGetType()
+    public function testGetType(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Th();
 
@@ -138,7 +138,7 @@ class ThTest extends TestCase
         );
     }
 
-    public function testGetElement()
+    public function testGetElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Th();
 
@@ -148,7 +148,7 @@ class ThTest extends TestCase
         );
     }
 
-    public function testGetElementWithOtherElement()
+    public function testGetElementWithOtherElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Th('my', 'span');
 

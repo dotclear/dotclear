@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class OlTest extends TestCase
 {
-    public function test()
+    public function test(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Ol();
         $rendered  = $component->render();
@@ -19,7 +19,7 @@ class OlTest extends TestCase
         );
     }
 
-    public function testWithId()
+    public function testWithId(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Ol('myid');
         $rendered  = $component->render();
@@ -38,7 +38,7 @@ class OlTest extends TestCase
         );
     }
 
-    public function testWithStart()
+    public function testWithStart(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Ol();
         $component->start('3');
@@ -54,7 +54,7 @@ class OlTest extends TestCase
         );
     }
 
-    public function testWithType()
+    public function testWithType(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Ol();
         $component->type('I');
@@ -70,7 +70,7 @@ class OlTest extends TestCase
         );
     }
 
-    public function testWithReversed()
+    public function testWithReversed(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Ol();
         $component->reversed(true);
@@ -98,7 +98,7 @@ class OlTest extends TestCase
         );
     }
 
-    public function testGetDefaultElement()
+    public function testGetDefaultElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Ol();
 
@@ -108,7 +108,7 @@ class OlTest extends TestCase
         );
     }
 
-    public function testGetType()
+    public function testGetType(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Ol();
 
@@ -122,7 +122,7 @@ class OlTest extends TestCase
         );
     }
 
-    public function testGetElement()
+    public function testGetElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Ol();
 
@@ -132,7 +132,7 @@ class OlTest extends TestCase
         );
     }
 
-    public function testGetElementWithOtherElement()
+    public function testGetElementWithOtherElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Ol('my', 'span');
 

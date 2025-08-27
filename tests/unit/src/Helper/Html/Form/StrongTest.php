@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class StrongTest extends TestCase
 {
-    public function test()
+    public function test(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Strong('TEXT');
         $rendered  = $component->render();
@@ -19,7 +19,7 @@ class StrongTest extends TestCase
         );
     }
 
-    public function testGetElement()
+    public function testGetElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Strong();
 
@@ -29,7 +29,7 @@ class StrongTest extends TestCase
         );
     }
 
-    public function testWithItems()
+    public function testWithItems(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Strong();
         $component

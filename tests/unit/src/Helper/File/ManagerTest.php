@@ -133,7 +133,7 @@ namespace Dotclear\Tests\Helper\File {
             }
         }
 
-        public function test()
+        public function test(): void
         {
             $manager = new \Dotclear\Helper\File\Manager($this->root, $this->url);
 
@@ -154,7 +154,7 @@ namespace Dotclear\Tests\Helper\File {
         }
 
         #[Depends('test')]
-        public function testUnknown()
+        public function testUnknown(): void
         {
             $this->expectException(Exception::class);
             $this->expectExceptionMessage('Invalid root directory.');
@@ -163,7 +163,7 @@ namespace Dotclear\Tests\Helper\File {
         }
 
         #[Depends('testUnknown')]
-        public function testStdProperties()
+        public function testStdProperties(): void
         {
             $manager = new \Dotclear\Helper\File\Manager($this->root, $this->url);
             $dir     = [
@@ -189,7 +189,7 @@ namespace Dotclear\Tests\Helper\File {
         }
 
         #[Depends('testStdProperties')]
-        public function testChdir()
+        public function testChdir(): void
         {
             $manager = new \Dotclear\Helper\File\Manager($this->root, $this->url);
 
@@ -202,7 +202,7 @@ namespace Dotclear\Tests\Helper\File {
         }
 
         #[Depends('testChdir')]
-        public function testChdirException()
+        public function testChdirException(): void
         {
             $manager = new \Dotclear\Helper\File\Manager($this->root, $this->url);
 
@@ -218,7 +218,7 @@ namespace Dotclear\Tests\Helper\File {
         }
 
         #[Depends('testChdirException')]
-        public function testChdirExceptionExclusion()
+        public function testChdirExceptionExclusion(): void
         {
             $manager = new \Dotclear\Helper\File\Manager($this->root, $this->url);
             $manager->addExclusion($this->root . DIRECTORY_SEPARATOR . 'sub');
@@ -235,7 +235,7 @@ namespace Dotclear\Tests\Helper\File {
         }
 
         #[Depends('testChdirExceptionExclusion')]
-        public function testWritable()
+        public function testWritable(): void
         {
             $manager = new \Dotclear\Helper\File\Manager($this->root, $this->url);
             $manager->chdir('sub');
@@ -255,7 +255,7 @@ namespace Dotclear\Tests\Helper\File {
         }
 
         #[Depends('testWritable')]
-        public function testAddDirExclusion()
+        public function testAddDirExclusion(): void
         {
             $manager = new \Dotclear\Helper\File\Manager($this->root, $this->url);
             $manager->addExclusion([$this->root . DIRECTORY_SEPARATOR . 'private']);
@@ -279,7 +279,7 @@ namespace Dotclear\Tests\Helper\File {
         }
 
         #[Depends('testAddDirExclusion')]
-        public function testGetDir()
+        public function testGetDir(): void
         {
             $manager = new \Dotclear\Helper\File\Manager($this->root, $this->url);
             $manager->addExclusion([$this->root . DIRECTORY_SEPARATOR . 'private']);
@@ -333,7 +333,7 @@ namespace Dotclear\Tests\Helper\File {
         }
 
         #[Depends('testGetDir')]
-        public function testGetSubDir()
+        public function testGetSubDir(): void
         {
             $manager = new \Dotclear\Helper\File\Manager($this->root, $this->url);
 
@@ -384,7 +384,7 @@ namespace Dotclear\Tests\Helper\File {
         }
 
         #[Depends('testGetSubDir')]
-        public function testGetDirWithExclusionPattern()
+        public function testGetDirWithExclusionPattern(): void
         {
             $manager = new \Dotclear\Helper\File\Manager($this->root, $this->url);
             $manager->addExclusion([$this->root . DIRECTORY_SEPARATOR . 'private']);
@@ -430,7 +430,7 @@ namespace Dotclear\Tests\Helper\File {
         }
 
         #[Depends('testGetDirWithExclusionPattern')]
-        public function testGetRootDir()
+        public function testGetRootDir(): void
         {
             $manager = new \Dotclear\Helper\File\Manager($this->root, $this->url);
 
@@ -452,7 +452,7 @@ namespace Dotclear\Tests\Helper\File {
         }
 
         #[Depends('testGetRootDir')]
-        public function testUploadFile()
+        public function testUploadFile(): void
         {
             $manager = new \Dotclear\Helper\File\Manager($this->root, $this->url);
             $manager->setExcludePattern('/stop\.md$/');
@@ -532,7 +532,7 @@ namespace Dotclear\Tests\Helper\File {
         }
 
         #[Depends('testUploadFile')]
-        public function testUploadBits()
+        public function testUploadBits(): void
         {
             $manager = new \Dotclear\Helper\File\Manager($this->root, $this->url);
             $manager->setExcludePattern('/warning\.md$/');
@@ -598,7 +598,7 @@ namespace Dotclear\Tests\Helper\File {
         }
 
         #[Depends('testUploadBits')]
-        public function testMakeDir()
+        public function testMakeDir(): void
         {
             $manager = new \Dotclear\Helper\File\Manager($this->root, $this->url);
 
@@ -623,7 +623,7 @@ namespace Dotclear\Tests\Helper\File {
         }
 
         #[Depends('testMakeDir')]
-        public function testMoveFile()
+        public function testMoveFile(): void
         {
             $manager = new \Dotclear\Helper\File\Manager($this->root, $this->url);
 
@@ -663,7 +663,7 @@ namespace Dotclear\Tests\Helper\File {
         }
 
         #[Depends('testMoveFile')]
-        public function testMoveFileError()
+        public function testMoveFileError(): void
         {
             $manager = new \Dotclear\Helper\File\Manager($this->root, $this->url);
 
@@ -680,7 +680,7 @@ namespace Dotclear\Tests\Helper\File {
         }
 
         #[Depends('testMoveFileError')]
-        public function testRemoveFile()
+        public function testRemoveFile(): void
         {
             $manager = new \Dotclear\Helper\File\Manager($this->root, $this->url);
 
@@ -698,7 +698,7 @@ namespace Dotclear\Tests\Helper\File {
         }
 
         #[Depends('testRemoveFile')]
-        public function testRemoveFileUnlinkError()
+        public function testRemoveFileUnlinkError(): void
         {
             $manager = new \Dotclear\Helper\File\Manager($this->root, $this->url);
 
@@ -725,7 +725,7 @@ namespace Dotclear\Tests\Helper\File {
         }
 
         #[Depends('testRemoveFileUnlinkError')]
-        public function testRemoveFileInJailError()
+        public function testRemoveFileInJailError(): void
         {
             $manager = new \Dotclear\Helper\File\Manager($this->root, $this->url);
 
@@ -736,7 +736,7 @@ namespace Dotclear\Tests\Helper\File {
         }
 
         #[Depends('testRemoveFileInJailError')]
-        public function testRemoveFilePermError()
+        public function testRemoveFilePermError(): void
         {
             $manager = new \Dotclear\Helper\File\Manager($this->root, $this->url);
 
@@ -762,7 +762,7 @@ namespace Dotclear\Tests\Helper\File {
         }
 
         #[Depends('testRemoveFilePermError')]
-        public function testRemoveDir()
+        public function testRemoveDir(): void
         {
             $manager = new \Dotclear\Helper\File\Manager($this->root, $this->url);
 
@@ -779,7 +779,7 @@ namespace Dotclear\Tests\Helper\File {
         }
 
         #[Depends('testRemoveDir')]
-        public function testRemoveDirRmdirError()
+        public function testRemoveDirRmdirError(): void
         {
             $manager = new \Dotclear\Helper\File\Manager($this->root, $this->url);
 
@@ -806,7 +806,7 @@ namespace Dotclear\Tests\Helper\File {
         }
 
         #[Depends('testRemoveDirRmdirError')]
-        public function testRemoveDirInJailError()
+        public function testRemoveDirInJailError(): void
         {
             $manager = new \Dotclear\Helper\File\Manager($this->root, $this->url);
 
@@ -817,7 +817,7 @@ namespace Dotclear\Tests\Helper\File {
         }
 
         #[Depends('testRemoveDirInJailError')]
-        public function testRemoveDirPermError()
+        public function testRemoveDirPermError(): void
         {
             $manager = new \Dotclear\Helper\File\Manager($this->root, $this->url);
 
@@ -844,7 +844,7 @@ namespace Dotclear\Tests\Helper\File {
         }
 
         #[Depends('testRemoveDirPermError'), RunInSeparateProcess]
-        public function testRemoveItem()
+        public function testRemoveItem(): void
         {
             $manager = new \Dotclear\Helper\File\Manager($this->root, $this->url);
 

@@ -13,7 +13,7 @@ class HelperDateTest extends TestCase
     /**
      * Normal way. The result must be as the PHP function.
      */
-    public function testStrNormal()
+    public function testStrNormal(): void
     {
         \Dotclear\Helper\Date::setTZ('UTC');
 
@@ -27,7 +27,7 @@ class HelperDateTest extends TestCase
     /**
      * Timestamp  is set to 1 which is 1 second after Janurary, 1th 1970
      */
-    public function testStrTimestamp()
+    public function testStrTimestamp(): void
     {
         \Dotclear\Helper\Date::setTZ('UTC');
 
@@ -42,7 +42,7 @@ class HelperDateTest extends TestCase
      * GMT+4. The difference might be 3.
      * The timestamp is forced due to the summer or winter time.
      */
-    public function testStrWithTimestampAndTimezone()
+    public function testStrWithTimestampAndTimezone(): void
     {
         \Dotclear\Helper\Date::setTZ('UTC');
 
@@ -56,7 +56,7 @@ class HelperDateTest extends TestCase
      * dt2str is a wrapper for dt::str but convert the human readable time
      * into a computer understandable time
      */
-    public function testDt2Str()
+    public function testDt2Str(): void
     {
         \Dotclear\Helper\Date::setTZ('UTC');
 
@@ -69,7 +69,7 @@ class HelperDateTest extends TestCase
     /**
      *
      */
-    public function testSetGetTZ()
+    public function testSetGetTZ(): void
     {
         \Dotclear\Helper\Date::setTZ('Indian/Reunion');
 
@@ -82,7 +82,7 @@ class HelperDateTest extends TestCase
      * dtstr with anything but the time. We don't test strtodate,
      * we test dt1str will always have the same behaviour.
      */
-    public function testDt2DummyStr()
+    public function testDt2DummyStr(): void
     {
         \Dotclear\Helper\Date::setTZ('UTC');
 
@@ -95,7 +95,7 @@ class HelperDateTest extends TestCase
     /*
      * Convert timestamp to ISO8601 date
      */
-    public function testISO8601()
+    public function testISO8601(): void
     {
         \Dotclear\Helper\Date::setTZ('UTC');
 
@@ -108,7 +108,7 @@ class HelperDateTest extends TestCase
     /*
      * Convert timestamp to ISO8601 date but not UTC.
      */
-    public function testISO8601WithAnotherTimezone()
+    public function testISO8601WithAnotherTimezone(): void
     {
         \Dotclear\Helper\Date::setTZ('UTC');
 
@@ -118,7 +118,7 @@ class HelperDateTest extends TestCase
         );
     }
 
-    public function testRfc822()
+    public function testRfc822(): void
     {
         \Dotclear\Helper\Date::setTZ('UTC');
 
@@ -128,7 +128,7 @@ class HelperDateTest extends TestCase
         );
     }
 
-    public function testGetTimeOffset()
+    public function testGetTimeOffset(): void
     {
         \Dotclear\Helper\Date::setTZ('UTC');
 
@@ -138,7 +138,7 @@ class HelperDateTest extends TestCase
         );
     }
 
-    public function testToUTC()
+    public function testToUTC(): void
     {
         \Dotclear\Helper\Date::setTZ('Indian/Reunion'); // UTC + 4
 
@@ -151,7 +151,7 @@ class HelperDateTest extends TestCase
     /*
      * AddTimezone implies getZones but I prefer testing both of them separatly
      */
-    public function testAddTimezone()
+    public function testAddTimezone(): void
     {
         \Dotclear\Helper\Date::setTZ('UTC');
 
@@ -172,7 +172,7 @@ class HelperDateTest extends TestCase
      * There's many different time zone. Basicly, dt::getZone call a PHP function.
      * Ensure that the key is the value array('time/zone' => 'time/zone')
      */
-    public function testGetZones()
+    public function testGetZones(): void
     {
         $tzs = \Dotclear\Helper\Date::getZones();
         $this->assertNotEmpty(
@@ -194,7 +194,7 @@ class HelperDateTest extends TestCase
         );
     }
 
-    public function testGetZonesFlip()
+    public function testGetZonesFlip(): void
     {
         $tzs = \Dotclear\Helper\Date::getZones(true, false);
 
@@ -207,7 +207,7 @@ class HelperDateTest extends TestCase
         );
     }
 
-    public function testGetZonesGroup()
+    public function testGetZonesGroup(): void
     {
         $tzs = \Dotclear\Helper\Date::getZones(true, true);
 
@@ -222,7 +222,7 @@ class HelperDateTest extends TestCase
         );
     }
 
-    public function testStr()
+    public function testStr(): void
     {
         \Dotclear\Helper\Date::setTZ('UTC');
 

@@ -99,7 +99,7 @@ class StructureTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function test($driver, $syntax)
+    public function test($driver, $syntax): void
     {
         $con = $this->getConnection($driver, $syntax);
 
@@ -170,7 +170,7 @@ class StructureTest extends TestCase
     }
 
     #[DataProvider('dataProviderTestSynchronize')]
-    public function testSynchronize(string $driver, string $syntax, array $data, array $info, array $sql, array $sql_bis)
+    public function testSynchronize(string $driver, string $syntax, array $data, array $info, array $sql, array $sql_bis): void
     {
         $con    = $this->getConnection($driver, $syntax);
         $schema = $this->getSchema($con, $driver);
@@ -224,7 +224,7 @@ class StructureTest extends TestCase
     }
 
     #[DataProvider('dataProviderTestSynchronize')]
-    public function testSynchronizeWithModifications(string $driver, string $syntax, array $data, array $info, array $sql, array $sql_bis)
+    public function testSynchronizeWithModifications(string $driver, string $syntax, array $data, array $info, array $sql, array $sql_bis): void
     {
         $con    = $this->getConnection($driver, $syntax);
         $schema = $this->getSchema($con, $driver);

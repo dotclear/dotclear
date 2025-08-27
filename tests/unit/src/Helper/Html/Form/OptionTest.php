@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class OptionTest extends TestCase
 {
-    public function test()
+    public function test(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Option('My option', 'value');
         $rendered  = $component->render();
@@ -27,7 +27,7 @@ class OptionTest extends TestCase
         );
     }
 
-    public function testWithEmptyText()
+    public function testWithEmptyText(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Option('', 'value');
         $rendered  = $component->render();
@@ -46,7 +46,7 @@ class OptionTest extends TestCase
         );
     }
 
-    public function testWithSelected()
+    public function testWithSelected(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Option('text', 'value');
         $component->selected(true);
@@ -70,7 +70,7 @@ class OptionTest extends TestCase
         );
     }
 
-    public function testWithNotSelected()
+    public function testWithNotSelected(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Option('text', 'value');
         $component->selected(false);
@@ -94,7 +94,7 @@ class OptionTest extends TestCase
         );
     }
 
-    public function testGetDefaultElement()
+    public function testGetDefaultElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Option('My option', 'value');
 
@@ -104,7 +104,7 @@ class OptionTest extends TestCase
         );
     }
 
-    public function testGetType()
+    public function testGetType(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Option('My option', 'value');
 
@@ -118,7 +118,7 @@ class OptionTest extends TestCase
         );
     }
 
-    public function testGetElement()
+    public function testGetElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Option('My option', 'value');
 
@@ -128,7 +128,7 @@ class OptionTest extends TestCase
         );
     }
 
-    public function testGetElementWithOtherElement()
+    public function testGetElementWithOtherElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Option('My option', 'value', 'slot');
 

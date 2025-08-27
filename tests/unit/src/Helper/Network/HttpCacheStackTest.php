@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class HttpCacheStackTest extends TestCase
 {
-    public function testResetFiles()
+    public function testResetFiles(): void
     {
         $instance = new \Dotclear\Helper\Network\HttpCacheStack();
 
@@ -25,7 +25,7 @@ class HttpCacheStackTest extends TestCase
         );
     }
 
-    public function testAddFile()
+    public function testAddFile(): void
     {
         $instance = new \Dotclear\Helper\Network\HttpCacheStack();
 
@@ -37,7 +37,7 @@ class HttpCacheStackTest extends TestCase
         );
     }
 
-    public function testAddFiles()
+    public function testAddFiles(): void
     {
         $instance = new \Dotclear\Helper\Network\HttpCacheStack();
         $files    = ['file1', 'file2', 'file3'];
@@ -50,7 +50,7 @@ class HttpCacheStackTest extends TestCase
         );
     }
 
-    public function testGetFiles()
+    public function testGetFiles(): void
     {
         $instance = new \Dotclear\Helper\Network\HttpCacheStack();
         $files    = ['file1', 'file2'];
@@ -63,7 +63,7 @@ class HttpCacheStackTest extends TestCase
         );
     }
 
-    public function testResetTimes()
+    public function testResetTimes(): void
     {
         $instance = new \Dotclear\Helper\Network\HttpCacheStack();
 
@@ -80,7 +80,7 @@ class HttpCacheStackTest extends TestCase
         );
     }
 
-    public function testAddTime()
+    public function testAddTime(): void
     {
         $instance = new \Dotclear\Helper\Network\HttpCacheStack();
 
@@ -92,7 +92,7 @@ class HttpCacheStackTest extends TestCase
         );
     }
 
-    public function testAddTimes()
+    public function testAddTimes(): void
     {
         $instance = new \Dotclear\Helper\Network\HttpCacheStack();
         $times    = [1234567890, 1234567891, 1234567892];
@@ -105,7 +105,7 @@ class HttpCacheStackTest extends TestCase
         );
     }
 
-    public function testGetTimes()
+    public function testGetTimes(): void
     {
         $instance = new \Dotclear\Helper\Network\HttpCacheStack();
         $times    = [1234567890, 1234567891];

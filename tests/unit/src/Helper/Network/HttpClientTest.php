@@ -35,7 +35,7 @@ namespace Dotclear\Tests\Helper\Network {
             return \stream_get_transports();
         }
 
-        public function test()
+        public function test(): void
         {
             $client = new \Dotclear\Helper\Network\HttpClient('example.com', 443, 5);
 
@@ -55,7 +55,7 @@ namespace Dotclear\Tests\Helper\Network {
         }
 
         #[DataProvider('dataProviderReadURL')]
-        public function testReadURL(?string $url, bool $status, array $data)
+        public function testReadURL(?string $url, bool $status, array $data): void
         {
             $ssl  = false;
             $host = '';
@@ -92,7 +92,7 @@ namespace Dotclear\Tests\Helper\Network {
             ];
         }
 
-        public function testQuickGet()
+        public function testQuickGet(): void
         {
             $ret = \Dotclear\Helper\Network\HttpClient::quickGet('http://dotclear.org');
 
@@ -109,7 +109,7 @@ namespace Dotclear\Tests\Helper\Network {
             );
         }
 
-        public function testQuickGetSsl()
+        public function testQuickGetSsl(): void
         {
             $ret = \Dotclear\Helper\Network\HttpClient::quickGet('https://dotclear.org');
 
@@ -122,7 +122,7 @@ namespace Dotclear\Tests\Helper\Network {
             );
         }
 
-        public function testQuickPost()
+        public function testQuickPost(): void
         {
             $ret = \Dotclear\Helper\Network\HttpClient::quickPost('https://ptsv3.com/', ['my' => 42]);
 
@@ -139,7 +139,7 @@ namespace Dotclear\Tests\Helper\Network {
             );
         }
 
-        public function testVariousData()
+        public function testVariousData(): void
         {
             $client = new \Dotclear\Helper\Network\HttpClient('ptsv3.com', 80);
 
@@ -160,7 +160,7 @@ namespace Dotclear\Tests\Helper\Network {
         }
 
         #[BackupGlobals(true)]
-        public function testSetProxy()
+        public function testSetProxy(): void
         {
             define('HTTP_PROXY_HOST', '127.0.0.1');
             define('HTTP_PROXY_PORT', 80);
@@ -186,7 +186,7 @@ namespace Dotclear\Tests\Helper\Network {
             );
         }
 
-        public function testProperties()
+        public function testProperties(): void
         {
             $client = new \Dotclear\Helper\Network\HttpClient('ptsv3.com', 80);
 
@@ -227,7 +227,7 @@ namespace Dotclear\Tests\Helper\Network {
             );
         }
 
-        public function testOutput()
+        public function testOutput(): void
         {
             $client = new \Dotclear\Helper\Network\HttpClient('dotclear.org', 80);
             $output = realpath(sys_get_temp_dir()) . DIRECTORY_SEPARATOR . 'dc-temp-test-' . bin2hex(random_bytes(8)) . '.txt';
@@ -250,7 +250,7 @@ namespace Dotclear\Tests\Helper\Network {
             }
         }
 
-        public function testHeadersOnly()
+        public function testHeadersOnly(): void
         {
             $client = new \Dotclear\Helper\Network\HttpClient('dotclear.org', 80);
 
@@ -272,7 +272,7 @@ namespace Dotclear\Tests\Helper\Network {
             );
         }
 
-        public function testMoreHeader()
+        public function testMoreHeader(): void
         {
             $client = new \Dotclear\Helper\Network\HttpClient('dotclear.org', 80);
 
@@ -328,7 +328,7 @@ namespace Dotclear\Tests\Helper\Network {
             );
         }
 
-        public function testRedirect()
+        public function testRedirect(): void
         {
             $client = new \Dotclear\Helper\Network\HttpClient('dotclear.net', 80);
 
@@ -355,7 +355,7 @@ namespace Dotclear\Tests\Helper\Network {
             );
         }
 
-        public function testHandlerRedirect()
+        public function testHandlerRedirect(): void
         {
             $client = new \Dotclear\Helper\Network\HttpClient('dotclear.net', 80);
 
@@ -382,7 +382,7 @@ namespace Dotclear\Tests\Helper\Network {
             );
         }
 
-        public function testMaxRedirect()
+        public function testMaxRedirect(): void
         {
             $client = new \Dotclear\Helper\Network\HttpClient('dotclear.org', 80);
 
@@ -395,7 +395,7 @@ namespace Dotclear\Tests\Helper\Network {
             $this->expectExceptionMessage('Number of redirects exceeded maximum (1)');
         }
 
-        public function testDebug()
+        public function testDebug(): void
         {
             $client = new \Dotclear\Helper\Network\HttpClient('example.com', 443);
             $client->setDebug(true);
@@ -425,7 +425,7 @@ namespace Dotclear\Tests\Helper\Network {
         }
 
         #[RunInSeparateProcess]
-        public function testSSLDisabled()
+        public function testSSLDisabled(): void
         {
             $client = new \Dotclear\Helper\Network\HttpClient('dotclear.org', 80);
             $client->useSSL(true);

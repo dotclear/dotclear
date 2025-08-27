@@ -50,7 +50,7 @@ class SelectStatementTest extends TestCase
     // Generic (including tests of some SqlStatement methods too)
 
     #[DataProvider('dataProviderTest')]
-    public function test(string $driver, string $syntax)
+    public function test(string $driver, string $syntax): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SelectStatement($con, $syntax);
@@ -89,7 +89,7 @@ class SelectStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function testReset(string $driver, string $syntax)
+    public function testReset(string $driver, string $syntax): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SelectStatement($con, $syntax);
@@ -116,7 +116,7 @@ class SelectStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function testIsSame(string $driver, string $syntax)
+    public function testIsSame(string $driver, string $syntax): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SelectStatement($con, $syntax);
@@ -137,7 +137,7 @@ class SelectStatementTest extends TestCase
     // Specific SelectStatement tests
 
     #[DataProvider('dataProviderTest')]
-    public function testJoin(string $driver, string $syntax)
+    public function testJoin(string $driver, string $syntax): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SelectStatement($con, $syntax);
@@ -194,7 +194,7 @@ class SelectStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function testUnion(string $driver, string $syntax)
+    public function testUnion(string $driver, string $syntax): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SelectStatement($con, $syntax);
@@ -249,7 +249,7 @@ class SelectStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function testHaving(string $driver, string $syntax)
+    public function testHaving(string $driver, string $syntax): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SelectStatement($con, $syntax);
@@ -283,7 +283,7 @@ class SelectStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function testOrder(string $driver, string $syntax)
+    public function testOrder(string $driver, string $syntax): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SelectStatement($con, $syntax);
@@ -313,7 +313,7 @@ class SelectStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function testGroup(string $driver, string $syntax)
+    public function testGroup(string $driver, string $syntax): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SelectStatement($con, $syntax);
@@ -343,7 +343,7 @@ class SelectStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function testLimit(string $driver, string $syntax)
+    public function testLimit(string $driver, string $syntax): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SelectStatement($con, $syntax);
@@ -379,7 +379,7 @@ class SelectStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function testOffset(string $driver, string $syntax)
+    public function testOffset(string $driver, string $syntax): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SelectStatement($con, $syntax);
@@ -397,7 +397,7 @@ class SelectStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function testDistinct(string $driver, string $syntax)
+    public function testDistinct(string $driver, string $syntax): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SelectStatement($con, $syntax);
@@ -415,7 +415,7 @@ class SelectStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function testNoFrom(string $driver, string $syntax)
+    public function testNoFrom(string $driver, string $syntax): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SelectStatement($con, $syntax);
@@ -432,7 +432,7 @@ class SelectStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function testCondAndNoWhere(string $driver, string $syntax)
+    public function testCondAndNoWhere(string $driver, string $syntax): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SelectStatement($con, $syntax);
@@ -457,7 +457,7 @@ class SelectStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function testRun(string $driver, string $syntax)
+    public function testRun(string $driver, string $syntax): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SelectStatement($con, $syntax);

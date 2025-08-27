@@ -96,7 +96,7 @@ class StaticRecordTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function test($driver, $syntax)
+    public function test($driver, $syntax): void
     {
         // Sample data
         $rows = [

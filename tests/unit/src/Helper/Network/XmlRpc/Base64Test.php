@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class Base64Test extends TestCase
 {
-    public function test()
+    public function test(): void
     {
         $data = new \Dotclear\Helper\Network\XmlRpc\Base64('data');
 

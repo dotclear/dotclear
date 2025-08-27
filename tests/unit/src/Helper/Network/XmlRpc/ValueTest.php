@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 class ValueTest extends TestCase
 {
     #[DataProvider('dataProviderTest')]
-    public function test($value, $type, $xml)
+    public function test($value, $type, $xml): void
     {
         $elt = new \Dotclear\Helper\Network\XmlRpc\Value($value, $type);
 

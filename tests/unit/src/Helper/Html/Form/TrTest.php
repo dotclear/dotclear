@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class TrTest extends TestCase
 {
-    public function test()
+    public function test(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Tr();
         $rendered  = $component->render();
@@ -19,7 +19,7 @@ class TrTest extends TestCase
         );
     }
 
-    public function testWithEmptyItems()
+    public function testWithEmptyItems(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Tr();
         $component->items([
@@ -32,7 +32,7 @@ class TrTest extends TestCase
         );
     }
 
-    public function testWithCols()
+    public function testWithCols(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Tr();
         $component->cols([
@@ -48,7 +48,7 @@ class TrTest extends TestCase
         );
     }
 
-    public function testWithItems()
+    public function testWithItems(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Tr();
         $component->items([
@@ -64,7 +64,7 @@ class TrTest extends TestCase
         );
     }
 
-    public function testWithId()
+    public function testWithId(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Tr('myid');
         $rendered  = $component->render();
@@ -83,7 +83,7 @@ class TrTest extends TestCase
         );
     }
 
-    public function testGetDefaultElement()
+    public function testGetDefaultElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Tr();
 
@@ -93,7 +93,7 @@ class TrTest extends TestCase
         );
     }
 
-    public function testGetType()
+    public function testGetType(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Tr();
 
@@ -107,7 +107,7 @@ class TrTest extends TestCase
         );
     }
 
-    public function testGetElement()
+    public function testGetElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Tr();
 
@@ -117,7 +117,7 @@ class TrTest extends TestCase
         );
     }
 
-    public function testGetElementWithOtherElement()
+    public function testGetElementWithOtherElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Tr('my', 'div');
 

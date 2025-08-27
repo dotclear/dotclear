@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class EmailTest extends TestCase
 {
-    public function test()
+    public function test(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Email('my', 'value');
         $rendered  = $component->render();
@@ -35,7 +35,7 @@ class EmailTest extends TestCase
         );
     }
 
-    public function testWithoutValue()
+    public function testWithoutValue(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Email('my');
         $rendered  = $component->render();
@@ -62,7 +62,7 @@ class EmailTest extends TestCase
         );
     }
 
-    public function testWithoutNameOrId()
+    public function testWithoutNameOrId(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Email();
         $rendered  = $component->render();
@@ -73,7 +73,7 @@ class EmailTest extends TestCase
         );
     }
 
-    public function testWithoutNameOrIdAndWithAValue()
+    public function testWithoutNameOrIdAndWithAValue(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Email(null, 'value');
         $rendered  = $component->render();

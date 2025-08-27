@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 class DateTest extends TestCase
 {
-    public function testWithString()
+    public function testWithString(): void
     {
         $str_date = '+2003-08-13T00:01:42+00:00';
         $ref_date = new DateTime($str_date, new DateTimeZone('Europe/Paris'));
@@ -31,7 +31,7 @@ class DateTest extends TestCase
         );
     }
 
-    public function testWithTimestamp()
+    public function testWithTimestamp(): void
     {
         $str_date = '+2003-08-13T00:01:42+00:00';
         $ref_date = new DateTime($str_date, new DateTimeZone('Europe/Paris'));

@@ -121,7 +121,7 @@ class RestServerTest extends TestCase
 
     // Tests
 
-    public function test()
+    public function test(): void
     {
         $rest = new \Dotclear\Helper\RestServer();
 
@@ -137,7 +137,7 @@ class RestServerTest extends TestCase
         );
     }
 
-    public function testAddFunction()
+    public function testAddFunction(): void
     {
         $rest = $this->prepareServer(false);
 
@@ -158,7 +158,7 @@ class RestServerTest extends TestCase
         );
     }
 
-    public function testServe()
+    public function testServe(): void
     {
         $rest = $this->prepareServer();
         $res  = '';
@@ -174,7 +174,7 @@ class RestServerTest extends TestCase
         );
     }
 
-    public function testServeJson()
+    public function testServeJson(): void
     {
         $rest = $this->prepareServer();
         $res  = '';
@@ -190,7 +190,7 @@ class RestServerTest extends TestCase
         );
     }
 
-    public function testServeXml()
+    public function testServeXml(): void
     {
         $rest = $this->prepareServer();
         $res  = '';
@@ -206,7 +206,7 @@ class RestServerTest extends TestCase
         );
     }
 
-    public function testServeWithWrongFormat()
+    public function testServeWithWrongFormat(): void
     {
         $rest = $this->prepareServer();
         $res  = '';
@@ -222,7 +222,7 @@ class RestServerTest extends TestCase
         );
     }
 
-    public function testServeWithAnotherEncoding()
+    public function testServeWithAnotherEncoding(): void
     {
         $rest = $this->prepareServer();
         $res  = '';
@@ -238,7 +238,7 @@ class RestServerTest extends TestCase
         );
     }
 
-    public function testServeWithParam()
+    public function testServeWithParam(): void
     {
         $rest = $this->prepareServer();
         $res  = '';
@@ -254,7 +254,7 @@ class RestServerTest extends TestCase
         );
     }
 
-    public function testServeWithWrongFn()
+    public function testServeWithWrongFn(): void
     {
         $rest = $this->prepareServer();
         $res  = '';
@@ -270,7 +270,7 @@ class RestServerTest extends TestCase
         );
     }
 
-    public function testServeWithErrorFn()
+    public function testServeWithErrorFn(): void
     {
         $rest = $this->prepareServer();
         $res  = '';
@@ -286,7 +286,7 @@ class RestServerTest extends TestCase
         );
     }
 
-    public function testServeWithNoFn()
+    public function testServeWithNoFn(): void
     {
         $rest = $this->prepareServer();
         $res  = '';
@@ -302,7 +302,7 @@ class RestServerTest extends TestCase
         );
     }
 
-    public function testServeWithWrongFnJson()
+    public function testServeWithWrongFnJson(): void
     {
         $rest = $this->prepareServer();
         $res  = '';
@@ -318,7 +318,7 @@ class RestServerTest extends TestCase
         );
     }
 
-    public function testServeWithErrorFnJson()
+    public function testServeWithErrorFnJson(): void
     {
         $rest = $this->prepareServer();
         $res  = '';
@@ -334,7 +334,7 @@ class RestServerTest extends TestCase
         );
     }
 
-    public function testServeWithNoFnJson()
+    public function testServeWithNoFnJson(): void
     {
         $rest = $this->prepareServer();
         $res  = '';
@@ -350,7 +350,7 @@ class RestServerTest extends TestCase
         );
     }
 
-    public function testServeRestRequests()
+    public function testServeRestRequests(): void
     {
         $rest = $this->prepareServer();
 

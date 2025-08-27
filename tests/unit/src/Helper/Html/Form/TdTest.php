@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class TdTest extends TestCase
 {
-    public function test()
+    public function test(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Td();
         $rendered  = $component->render();
@@ -19,7 +19,7 @@ class TdTest extends TestCase
         );
     }
 
-    public function testWithText()
+    public function testWithText(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Td();
         $component->text('Here');
@@ -31,7 +31,7 @@ class TdTest extends TestCase
         );
     }
 
-    public function testWithId()
+    public function testWithId(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Td('myid');
         $rendered  = $component->render();
@@ -50,7 +50,7 @@ class TdTest extends TestCase
         );
     }
 
-    public function testWithColspan()
+    public function testWithColspan(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Td();
         $component->colspan(2);
@@ -66,7 +66,7 @@ class TdTest extends TestCase
         );
     }
 
-    public function testWithRowspan()
+    public function testWithRowspan(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Td();
         $component->rowspan(4);
@@ -82,7 +82,7 @@ class TdTest extends TestCase
         );
     }
 
-    public function testWithHeaders()
+    public function testWithHeaders(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Td();
         $component->headers('id1 id2');
@@ -98,7 +98,7 @@ class TdTest extends TestCase
         );
     }
 
-    public function testGetDefaultElement()
+    public function testGetDefaultElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Td();
 
@@ -108,7 +108,7 @@ class TdTest extends TestCase
         );
     }
 
-    public function testGetType()
+    public function testGetType(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Td();
 
@@ -122,7 +122,7 @@ class TdTest extends TestCase
         );
     }
 
-    public function testGetElement()
+    public function testGetElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Td();
 
@@ -132,7 +132,7 @@ class TdTest extends TestCase
         );
     }
 
-    public function testGetElementWithOtherElement()
+    public function testGetElementWithOtherElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Td('my', 'span');
 

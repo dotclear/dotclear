@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class BtnTest extends TestCase
 {
-    public function test()
+    public function test(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Btn(null, 'My Btn');
         $rendered  = $component->render();
@@ -23,7 +23,7 @@ class BtnTest extends TestCase
         );
     }
 
-    public function testWithText()
+    public function testWithText(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Btn();
         $component->text('My Btn');
@@ -39,7 +39,7 @@ class BtnTest extends TestCase
         );
     }
 
-    public function testWithPopovertarget()
+    public function testWithPopovertarget(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Btn();
         $component->popovertarget('My-Popover');
@@ -55,7 +55,7 @@ class BtnTest extends TestCase
         );
     }
 
-    public function testWithPopovertargetaction()
+    public function testWithPopovertargetaction(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Btn();
         $component->popovertargetaction('show');
@@ -71,7 +71,7 @@ class BtnTest extends TestCase
         );
     }
 
-    public function testWithoutText()
+    public function testWithoutText(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Btn();
         $rendered  = $component->render();
@@ -82,7 +82,7 @@ class BtnTest extends TestCase
         );
     }
 
-    public function testWithId()
+    public function testWithId(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Btn('myid', 'My Btn');
         $rendered  = $component->render();
@@ -101,7 +101,7 @@ class BtnTest extends TestCase
         );
     }
 
-    public function testGetDefaultElement()
+    public function testGetDefaultElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Btn('My Btn');
 
@@ -111,7 +111,7 @@ class BtnTest extends TestCase
         );
     }
 
-    public function testGetType()
+    public function testGetType(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Btn('My Btn');
 
@@ -125,7 +125,7 @@ class BtnTest extends TestCase
         );
     }
 
-    public function testGetElement()
+    public function testGetElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Btn('My Btn');
 
@@ -135,7 +135,7 @@ class BtnTest extends TestCase
         );
     }
 
-    public function testGetElementWithOtherElement()
+    public function testGetElementWithOtherElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Btn('myid', 'My Btn', 'span');
 

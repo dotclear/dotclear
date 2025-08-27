@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class CheckboxTest extends TestCase
 {
-    public function test()
+    public function test(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Checkbox('my', true);
         $rendered  = $component->render();
@@ -31,7 +31,7 @@ class CheckboxTest extends TestCase
         );
     }
 
-    public function testWithoutCheckedValue()
+    public function testWithoutCheckedValue(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Checkbox('my');
         $rendered  = $component->render();
@@ -54,7 +54,7 @@ class CheckboxTest extends TestCase
         );
     }
 
-    public function testWithoutNameOrId()
+    public function testWithoutNameOrId(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Checkbox();
         $rendered  = $component->render();
@@ -65,7 +65,7 @@ class CheckboxTest extends TestCase
         );
     }
 
-    public function testWithFalsyCheckedValue()
+    public function testWithFalsyCheckedValue(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Checkbox('my', false);
         $rendered  = $component->render();
@@ -88,7 +88,7 @@ class CheckboxTest extends TestCase
         );
     }
 
-    public function testWithoutNameOrIdAndWithCheckedValue()
+    public function testWithoutNameOrIdAndWithCheckedValue(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Checkbox(null, true);
         $rendered  = $component->render();

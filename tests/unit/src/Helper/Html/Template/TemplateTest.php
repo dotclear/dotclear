@@ -28,7 +28,7 @@ class TemplateTest extends TestCase
     }
 
     #[DataProvider('dataProviderTemplate')]
-    public function testTemplate(string $file)
+    public function testTemplate(string $file): void
     {
         //fwrite(STDOUT, 'being tested with : ' . $file . "\n");
 

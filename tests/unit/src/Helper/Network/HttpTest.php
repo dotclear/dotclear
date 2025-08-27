@@ -17,7 +17,7 @@ class HttpTest extends TestCase
     }
 
     #[BackupGlobals(true)]
-    public function testGetHost()
+    public function testGetHost(): void
     {
         /* Test getHost
          * In CLI mode superglobal variable $_SERVER is not set correctly
@@ -66,7 +66,7 @@ class HttpTest extends TestCase
         );
     }
 
-    public function testGetHostFromURL()
+    public function testGetHostFromURL(): void
     {
         $this->assertEquals(
             'https://www.dotclear.org',
@@ -81,7 +81,7 @@ class HttpTest extends TestCase
     }
 
     #[BackupGlobals(true)]
-    public function testGetSelfURI()
+    public function testGetSelfURI(): void
     {
         $_SERVER['HTTP_HOST']   = 'localhost';
         $_SERVER['SERVER_PORT'] = 80;
@@ -145,7 +145,7 @@ class HttpTest extends TestCase
     }
 
     #[BackupGlobals(true)]
-    public function testPrepareRedirect()
+    public function testPrepareRedirect(): void
     {
         $_SERVER['HTTP_HOST']   = 'localhost';
         $_SERVER['SERVER_PORT'] = 80;
@@ -181,7 +181,7 @@ class HttpTest extends TestCase
         );
     }
 
-    public function testConcatURL()
+    public function testConcatURL(): void
     {
         $this->assertEquals(
             'http://localhost/index.html',
@@ -234,7 +234,7 @@ class HttpTest extends TestCase
     }
 
     #[BackupGlobals(true)]
-    public function testRealIP()
+    public function testRealIP(): void
     {
         $this->assertNull(
             \Dotclear\Helper\Network\Http::realIP()
@@ -249,7 +249,7 @@ class HttpTest extends TestCase
     }
 
     #[BackupGlobals(true)]
-    public function testBrowserUID()
+    public function testBrowserUID(): void
     {
         unset($_SERVER['HTTP_USER_AGENT'], $_SERVER['HTTP_ACCEPT_CHARSET']);
 
@@ -281,7 +281,7 @@ class HttpTest extends TestCase
     }
 
     #[BackupGlobals(true)]
-    public function testGetAcceptLanguage()
+    public function testGetAcceptLanguage(): void
     {
         unset($_SERVER['HTTP_ACCEPT_LANGUAGE']);
 
@@ -299,7 +299,7 @@ class HttpTest extends TestCase
     }
 
     #[BackupGlobals(true)]
-    public function testGetAcceptLanguages()
+    public function testGetAcceptLanguages(): void
     {
         unset($_SERVER['HTTP_ACCEPT_LANGUAGE']);
 
@@ -334,7 +334,7 @@ class HttpTest extends TestCase
     }
 
     #[BackupGlobals(true)]
-    public function testCache()
+    public function testCache(): void
     {
         $this->assertNull(
             \Dotclear\Helper\Network\Http::cache([])
@@ -355,7 +355,7 @@ class HttpTest extends TestCase
     }
 
     #[BackupGlobals(true)]
-    public function testEtag()
+    public function testEtag(): void
     {
         $_SERVER['HTTP_IF_NONE_MATCH'] = 'W/"67ab43", "54ed21", "7892dd"';
 
@@ -367,7 +367,7 @@ class HttpTest extends TestCase
         );
     }
 
-    public function testHead()
+    public function testHead(): void
     {
         $this->assertNull(
             \Dotclear\Helper\Network\Http::head(200)
@@ -378,7 +378,7 @@ class HttpTest extends TestCase
     }
 
     #[BackupGlobals(true)]
-    public function testTrimRequest()
+    public function testTrimRequest(): void
     {
         $_GET['single']      = 'single';
         $_GET['trim_single'] = ' trim_single ';

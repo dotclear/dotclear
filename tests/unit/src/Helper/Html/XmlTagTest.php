@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class XmlTagTest extends TestCase
 {
-    public function test()
+    public function test(): void
     {
         $xml = new \Dotclear\Helper\Html\XmlTag();
 
@@ -18,7 +18,7 @@ class XmlTagTest extends TestCase
         );
     }
 
-    public function testWithName()
+    public function testWithName(): void
     {
         $xml = new \Dotclear\Helper\Html\XmlTag('mytag');
 
@@ -28,7 +28,7 @@ class XmlTagTest extends TestCase
         );
     }
 
-    public function testWithValue()
+    public function testWithValue(): void
     {
         $xml = new \Dotclear\Helper\Html\XmlTag(null, 'myvalue');
 
@@ -38,7 +38,7 @@ class XmlTagTest extends TestCase
         );
     }
 
-    public function testWithNameAndValue()
+    public function testWithNameAndValue(): void
     {
         $xml = new \Dotclear\Helper\Html\XmlTag('mytag', 'myvalue');
 
@@ -48,7 +48,7 @@ class XmlTagTest extends TestCase
         );
     }
 
-    public function testWithTrueValue()
+    public function testWithTrueValue(): void
     {
         $xml = new \Dotclear\Helper\Html\XmlTag(null, true);
 
@@ -58,7 +58,7 @@ class XmlTagTest extends TestCase
         );
     }
 
-    public function testWithFalseValue()
+    public function testWithFalseValue(): void
     {
         $xml = new \Dotclear\Helper\Html\XmlTag(null, false);
 
@@ -68,7 +68,7 @@ class XmlTagTest extends TestCase
         );
     }
 
-    public function testWithArrayValue()
+    public function testWithArrayValue(): void
     {
         $xml = new \Dotclear\Helper\Html\XmlTag(null, ['mystring' => 13, 'myvalue' => 42]);
 
@@ -78,7 +78,7 @@ class XmlTagTest extends TestCase
         );
     }
 
-    public function testWithNodeValue()
+    public function testWithNodeValue(): void
     {
         $xml = new \Dotclear\Helper\Html\XmlTag('mytag', new \Dotclear\Helper\Html\XmlTag('node', 'nodevalue'));
 
@@ -88,7 +88,7 @@ class XmlTagTest extends TestCase
         );
     }
 
-    public function testWithBadArrayValue()
+    public function testWithBadArrayValue(): void
     {
         $this->expectException(\TypeError::class);
 
@@ -98,7 +98,7 @@ class XmlTagTest extends TestCase
         $this->expectExceptionMessageMatches('/' . preg_quote($msg) . '/');
     }
 
-    public function testAddAttribute()
+    public function testAddAttribute(): void
     {
         $xml = new \Dotclear\Helper\Html\XmlTag('mytag');
 
@@ -110,7 +110,7 @@ class XmlTagTest extends TestCase
         );
     }
 
-    public function testMagicAddAttribute()
+    public function testMagicAddAttribute(): void
     {
         $xml = new \Dotclear\Helper\Html\XmlTag('mytag');
 
@@ -122,7 +122,7 @@ class XmlTagTest extends TestCase
         );
     }
 
-    public function testInsertNode()
+    public function testInsertNode(): void
     {
         $xml = new \Dotclear\Helper\Html\XmlTag('mytag');
 
@@ -134,7 +134,7 @@ class XmlTagTest extends TestCase
         );
     }
 
-    public function testInsertNodeWithValue()
+    public function testInsertNodeWithValue(): void
     {
         $xml = new \Dotclear\Helper\Html\XmlTag('mytag');
 
@@ -146,7 +146,7 @@ class XmlTagTest extends TestCase
         );
     }
 
-    public function testMagicInsertNode()
+    public function testMagicInsertNode(): void
     {
         $xml = new \Dotclear\Helper\Html\XmlTag('mytag');
 
@@ -158,7 +158,7 @@ class XmlTagTest extends TestCase
         );
     }
 
-    public function testMagicInsertNodeWithBadName()
+    public function testMagicInsertNodeWithBadName(): void
     {
         $xml = new \Dotclear\Helper\Html\XmlTag('mytag');
 
@@ -170,7 +170,7 @@ class XmlTagTest extends TestCase
         );
     }
 
-    public function testMagicInsertNodeWithNoValue()
+    public function testMagicInsertNodeWithNoValue(): void
     {
         $xml = new \Dotclear\Helper\Html\XmlTag('mytag');
 
@@ -182,7 +182,7 @@ class XmlTagTest extends TestCase
         );
     }
 
-    public function testCDATA()
+    public function testCDATA(): void
     {
         $xml = new \Dotclear\Helper\Html\XmlTag('mytag');
 
@@ -194,7 +194,7 @@ class XmlTagTest extends TestCase
         );
     }
 
-    public function testToXMLWithProlog()
+    public function testToXMLWithProlog(): void
     {
         $xml = new \Dotclear\Helper\Html\XmlTag('mytag', 'myvalue');
 
@@ -204,7 +204,7 @@ class XmlTagTest extends TestCase
         );
     }
 
-    public function testToXMLWithPrologAndEnconding()
+    public function testToXMLWithPrologAndEnconding(): void
     {
         $xml = new \Dotclear\Helper\Html\XmlTag('mytag', 'myvalue');
 
@@ -214,7 +214,7 @@ class XmlTagTest extends TestCase
         );
     }
 
-    public function testToXMLWithPrologButNoName()
+    public function testToXMLWithPrologButNoName(): void
     {
         $xml = new \Dotclear\Helper\Html\XmlTag();
 

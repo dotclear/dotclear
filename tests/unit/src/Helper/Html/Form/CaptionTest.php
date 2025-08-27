@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class CaptionTest extends TestCase
 {
-    public function test()
+    public function test(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Caption('My Caption');
         $rendered  = $component->render();
@@ -23,7 +23,7 @@ class CaptionTest extends TestCase
         );
     }
 
-    public function testWithText()
+    public function testWithText(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Caption();
         $component->text('My Caption');
@@ -39,7 +39,7 @@ class CaptionTest extends TestCase
         );
     }
 
-    public function testWithoutText()
+    public function testWithoutText(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Caption();
         $rendered  = $component->render();
@@ -50,7 +50,7 @@ class CaptionTest extends TestCase
         );
     }
 
-    public function testWithId()
+    public function testWithId(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Caption('My Caption', 'myid');
         $rendered  = $component->render();
@@ -69,7 +69,7 @@ class CaptionTest extends TestCase
         );
     }
 
-    public function testGetDefaultElement()
+    public function testGetDefaultElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Caption('My Caption');
 
@@ -79,7 +79,7 @@ class CaptionTest extends TestCase
         );
     }
 
-    public function testGetType()
+    public function testGetType(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Caption('My Caption');
 
@@ -93,7 +93,7 @@ class CaptionTest extends TestCase
         );
     }
 
-    public function testGetElement()
+    public function testGetElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Caption('My Caption');
 
@@ -103,7 +103,7 @@ class CaptionTest extends TestCase
         );
     }
 
-    public function testGetElementWithOtherElement()
+    public function testGetElementWithOtherElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Caption('My Caption', 'myid', 'span');
 

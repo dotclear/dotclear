@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class ColorTest extends TestCase
 {
-    public function test()
+    public function test(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Color('my', 'value');
         $rendered  = $component->render();
@@ -39,7 +39,7 @@ class ColorTest extends TestCase
         );
     }
 
-    public function testWithoutValue()
+    public function testWithoutValue(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Color('my');
         $rendered  = $component->render();
@@ -70,7 +70,7 @@ class ColorTest extends TestCase
         );
     }
 
-    public function testWithoutNameOrId()
+    public function testWithoutNameOrId(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Color();
         $rendered  = $component->render();
@@ -81,7 +81,7 @@ class ColorTest extends TestCase
         );
     }
 
-    public function testWithoutNameOrIdAndWithAValue()
+    public function testWithoutNameOrIdAndWithAValue(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Color(null, 'value');
         $rendered  = $component->render();
@@ -92,7 +92,7 @@ class ColorTest extends TestCase
         );
     }
 
-    public function testSize()
+    public function testSize(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Color(['myname','myid'], 'value');
         $component->size(13);
@@ -124,7 +124,7 @@ class ColorTest extends TestCase
         );
     }
 
-    public function testMaxlength()
+    public function testMaxlength(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Color(['myname','myid'], 'value');
         $component->maxlength(21);

@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class NumberTest extends TestCase
 {
-    public function test()
+    public function test(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Number('my', 0, 99, 50);
         $rendered  = $component->render();
@@ -43,7 +43,7 @@ class NumberTest extends TestCase
         );
     }
 
-    public function testWithoutValue()
+    public function testWithoutValue(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Number('my');
         $rendered  = $component->render();
@@ -78,7 +78,7 @@ class NumberTest extends TestCase
         );
     }
 
-    public function testWithMin()
+    public function testWithMin(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Number('my', 0);
         $rendered  = $component->render();
@@ -113,7 +113,7 @@ class NumberTest extends TestCase
         );
     }
 
-    public function testWithMax()
+    public function testWithMax(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Number('my', null, 99);
         $rendered  = $component->render();
@@ -148,7 +148,7 @@ class NumberTest extends TestCase
         );
     }
 
-    public function testWithValue()
+    public function testWithValue(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Number('my', null, null, 50);
         $rendered  = $component->render();
@@ -183,7 +183,7 @@ class NumberTest extends TestCase
         );
     }
 
-    public function testWithoutNameOrId()
+    public function testWithoutNameOrId(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Number();
         $rendered  = $component->render();
@@ -194,7 +194,7 @@ class NumberTest extends TestCase
         );
     }
 
-    public function testWithoutNameOrIdAndWithAValue()
+    public function testWithoutNameOrIdAndWithAValue(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Number(null, null, null, 50);
         $rendered  = $component->render();

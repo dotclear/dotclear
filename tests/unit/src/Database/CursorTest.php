@@ -53,7 +53,7 @@ class CursorTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function test(string $driver, string $syntax)
+    public function test(string $driver, string $syntax): void
     {
         $con    = $this->getConnection($driver, $syntax);
         $cursor = new \Dotclear\Database\Cursor($con, 'dc_table');
@@ -127,7 +127,7 @@ class CursorTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function testInsertError(string $driver, string $syntax)
+    public function testInsertError(string $driver, string $syntax): void
     {
         $con    = $this->getConnection($driver, $syntax);
         $cursor = new \Dotclear\Database\Cursor($con, '');
@@ -139,7 +139,7 @@ class CursorTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function testUpdateError(string $driver, string $syntax)
+    public function testUpdateError(string $driver, string $syntax): void
     {
         $con    = $this->getConnection($driver, $syntax);
         $cursor = new \Dotclear\Database\Cursor($con, '');

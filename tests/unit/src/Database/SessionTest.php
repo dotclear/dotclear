@@ -52,7 +52,7 @@ class SessionTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function test(string $driver, string $syntax)
+    public function test(string $driver, string $syntax): void
     {
         $con     = $this->getConnection($driver, $syntax);
         $session = new \Dotclear\Database\Session($con, 'dc_session', 'ck_session', ttl: '60 minutes');

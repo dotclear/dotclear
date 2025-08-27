@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 class WikiToHtmlTest extends TestCase
 {
-    public function testHelp()
+    public function testHelp(): void
     {
         $wiki = new \Dotclear\Helper\Html\WikiToHtml();
 
@@ -18,7 +18,7 @@ class WikiToHtmlTest extends TestCase
         $this->assertNotEmpty($help);
     }
 
-    public function testAntispam()
+    public function testAntispam(): void
     {
         $wiki = new \Dotclear\Helper\Html\WikiToHtml();
 
@@ -38,7 +38,7 @@ class WikiToHtmlTest extends TestCase
         );
     }
 
-    public function testOpt()
+    public function testOpt(): void
     {
         $wiki = new \Dotclear\Helper\Html\WikiToHtml();
 
@@ -211,7 +211,7 @@ class WikiToHtmlTest extends TestCase
         );
     }
 
-    public function testOpts()
+    public function testOpts(): void
     {
         $wiki = new \Dotclear\Helper\Html\WikiToHtml();
 
@@ -269,7 +269,7 @@ class WikiToHtmlTest extends TestCase
         );
     }
 
-    public function testLinks()
+    public function testLinks(): void
     {
         $wiki = new \Dotclear\Helper\Html\WikiToHtml();
 
@@ -336,7 +336,7 @@ class WikiToHtmlTest extends TestCase
         );
     }
 
-    public function testImages()
+    public function testImages(): void
     {
         $wiki = new \Dotclear\Helper\Html\WikiToHtml();
 
@@ -587,7 +587,7 @@ class WikiToHtmlTest extends TestCase
     }
 
     #[DataProvider('dataProviderTestBlocks')]
-    public function testBlocks($in, $out, $count)
+    public function testBlocks($in, $out, $count): void
     {
         $wiki = new \Dotclear\Helper\Html\WikiToHtml();
 
@@ -617,7 +617,7 @@ class WikiToHtmlTest extends TestCase
         );
     }
 
-    public function testAutoBR()
+    public function testAutoBR(): void
     {
         $wiki  = new \Dotclear\Helper\Html\WikiToHtml();
         $faker = Factory::create();
@@ -637,7 +637,7 @@ class WikiToHtmlTest extends TestCase
         );
     }
 
-    public function testMacro()
+    public function testMacro(): void
     {
         $wiki = new \Dotclear\Helper\Html\WikiToHtml();
 
@@ -667,7 +667,7 @@ class WikiToHtmlTest extends TestCase
         );
     }
 
-    public function testAcronyms()
+    public function testAcronyms(): void
     {
         $wiki = new \Dotclear\Helper\Html\WikiToHtml();
 
@@ -689,7 +689,7 @@ class WikiToHtmlTest extends TestCase
         );
     }
 
-    public function testWikiWords()
+    public function testWikiWords(): void
     {
         $wiki = new \Dotclear\Helper\Html\WikiToHtml();
 
@@ -715,7 +715,7 @@ class WikiToHtmlTest extends TestCase
         );
     }
 
-    public function testSpecialURLs()
+    public function testSpecialURLs(): void
     {
         $wiki = new \Dotclear\Helper\Html\WikiToHtml();
 
@@ -735,7 +735,7 @@ class WikiToHtmlTest extends TestCase
         );
     }
 
-    public function testAttributes()
+    public function testAttributes(): void
     {
         $wiki = new \Dotclear\Helper\Html\WikiToHtml();
 

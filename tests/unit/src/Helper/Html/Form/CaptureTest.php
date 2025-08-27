@@ -18,7 +18,7 @@ class CaptureTest extends TestCase
         throw new \Exception('Error Processing Request');
     }
 
-    public function test()
+    public function test(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Capture($this->echoing(...));
         $rendered  = $component->render();
@@ -29,7 +29,7 @@ class CaptureTest extends TestCase
         );
     }
 
-    public function testWithParam()
+    public function testWithParam(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Capture($this->echoing(...), ['Output']);
         $rendered  = $component->render();
@@ -40,7 +40,7 @@ class CaptureTest extends TestCase
         );
     }
 
-    public function testGetDefaultElement()
+    public function testGetDefaultElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Capture($this->echoing(...));
 
@@ -50,7 +50,7 @@ class CaptureTest extends TestCase
         );
     }
 
-    public function testGetType()
+    public function testGetType(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Capture($this->echoing(...));
 
@@ -64,7 +64,7 @@ class CaptureTest extends TestCase
         );
     }
 
-    public function testException()
+    public function testException(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Capture($this->error(...));
         $rendered  = $component->render();

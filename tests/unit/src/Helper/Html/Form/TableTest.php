@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class TableTest extends TestCase
 {
-    public function test()
+    public function test(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Table('my');
         $rendered  = $component->render();
@@ -27,7 +27,7 @@ class TableTest extends TestCase
         );
     }
 
-    public function testWithElement()
+    public function testWithElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Table('my', 'div');
         $rendered  = $component->render();
@@ -46,7 +46,7 @@ class TableTest extends TestCase
         );
     }
 
-    public function testGetDefaultElement()
+    public function testGetDefaultElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Table('my', 'slot');
 
@@ -56,7 +56,7 @@ class TableTest extends TestCase
         );
     }
 
-    public function testGetType()
+    public function testGetType(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Table('my');
 
@@ -70,7 +70,7 @@ class TableTest extends TestCase
         );
     }
 
-    public function testGetElement()
+    public function testGetElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Table('my');
 
@@ -80,7 +80,7 @@ class TableTest extends TestCase
         );
     }
 
-    public function testGetElementWithOtherElement()
+    public function testGetElementWithOtherElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Table('my', 'div');
 
@@ -90,7 +90,7 @@ class TableTest extends TestCase
         );
     }
 
-    public function testAttachCaption()
+    public function testAttachCaption(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Table();
 
@@ -104,7 +104,7 @@ class TableTest extends TestCase
         );
     }
 
-    public function testAttachNullCaption()
+    public function testAttachNullCaption(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Table();
 
@@ -119,7 +119,7 @@ class TableTest extends TestCase
         );
     }
 
-    public function testDetachCaption()
+    public function testDetachCaption(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Table();
 
@@ -134,7 +134,7 @@ class TableTest extends TestCase
         );
     }
 
-    public function testItems()
+    public function testItems(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Table();
 
@@ -150,7 +150,7 @@ class TableTest extends TestCase
         );
     }
 
-    public function testParts()
+    public function testParts(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Table();
 
@@ -186,7 +186,7 @@ class TableTest extends TestCase
         );
     }
 
-    public function testPartsUnordered()
+    public function testPartsUnordered(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Table();
 
@@ -221,7 +221,7 @@ class TableTest extends TestCase
         );
     }
 
-    public function testDirectParts()
+    public function testDirectParts(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Table();
 
@@ -256,7 +256,7 @@ class TableTest extends TestCase
         );
     }
 
-    public function testDirectAndIndirectParts()
+    public function testDirectAndIndirectParts(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Table();
 
@@ -297,7 +297,7 @@ class TableTest extends TestCase
         );
     }
 
-    public function testItemsIncludingCaption()
+    public function testItemsIncludingCaption(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Table();
 
@@ -316,7 +316,7 @@ class TableTest extends TestCase
         );
     }
 
-    public function testFieldsIncludingAttachedCaption()
+    public function testFieldsIncludingAttachedCaption(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Table();
 
@@ -350,7 +350,7 @@ class TableTest extends TestCase
         );
     }
 
-    public function testWithoutNameOrId()
+    public function testWithoutNameOrId(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Table();
         $rendered  = $component->render();
@@ -361,7 +361,7 @@ class TableTest extends TestCase
         );
     }
 
-    public function testWithoutNameOrIdAndWithAnElement()
+    public function testWithoutNameOrIdAndWithAnElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Table(null, 'div');
         $rendered  = $component->render();

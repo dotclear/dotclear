@@ -15,7 +15,7 @@ use PHPUnit\Framework\TestCase;
 #[CoversClass(\form::class)]
 class LegacyTest extends TestCase
 {
-    public function testOption()
+    public function testOption(): void
     {
         $component = new \formSelectOption('un', 1, 'classme', 'data-test="This Is A Test"');
         $rendered  = $component->render('0');
@@ -45,7 +45,7 @@ class LegacyTest extends TestCase
         );
     }
 
-    public function testOptionOpt()
+    public function testOptionOpt(): void
     {
         $component = new \formSelectOption('deux', 2);
         $rendered  = $component->render('0');
@@ -78,7 +78,7 @@ class LegacyTest extends TestCase
     /**
      * Create a combo (select)
      */
-    public function testCombo()
+    public function testCombo(): void
     {
         $rendered = \form::combo('testID', [], '', 'classme', 'atabindex', true, 'data-test="This Is A Test"');
 
@@ -190,7 +190,7 @@ class LegacyTest extends TestCase
 
     /** Test for <input type="radio"
      */
-    public function testRadio()
+    public function testRadio(): void
     {
         $rendered = \form::radio('testID', 'testvalue', true, 'aclassname', 'atabindex', true, 'data-test="A test"');
 
@@ -262,7 +262,7 @@ class LegacyTest extends TestCase
 
     /** Test for <input type="checkbox"
      */
-    public function testCheckbox()
+    public function testCheckbox(): void
     {
         $rendered = \form::checkbox('testID', 'testvalue', true, 'aclassname', 'atabindex', true, 'data-test="A test"');
 
@@ -332,7 +332,7 @@ class LegacyTest extends TestCase
         );
     }
 
-    public function testField()
+    public function testField(): void
     {
         $rendered = \form::field('testID', 10, 20, 'testvalue', 'aclassname', 'atabindex', true, 'data-test="A test"', true, autocomplete: 'username');
 
@@ -418,7 +418,7 @@ class LegacyTest extends TestCase
         );
     }
 
-    public function testPassword()
+    public function testPassword(): void
     {
         $rendered = \form::password('testID', 10, 20, 'testvalue', 'aclassname', 'atabindex', true, 'data-test="A test"', true, autocomplete: 'password');
 
@@ -507,7 +507,7 @@ class LegacyTest extends TestCase
     /**
      * Create a color input field
      */
-    public function testColor()
+    public function testColor(): void
     {
         $rendered = \form::color('testID', 10, 20, '#f369a3', 'aclassname', 'atabindex', true, 'data-test="A test"', true, autocomplete: 'color');
 
@@ -604,7 +604,7 @@ class LegacyTest extends TestCase
     /**
      * Create an email input field
      */
-    public function testEmail()
+    public function testEmail(): void
     {
         $rendered = \form::email('testID', 10, 20, 'me@example.com', 'aclassname', 'atabindex', true, 'data-test="A test"', true, autocomplete: 'email');
 
@@ -693,7 +693,7 @@ class LegacyTest extends TestCase
     /**
      * Create an URL input field
      */
-    public function testUrl()
+    public function testUrl(): void
     {
         $rendered = \form::url('testID', 10, 20, 'https://example.com/', 'aclassname', 'atabindex', true, 'data-test="A test"', true, autocomplete: 'url');
 
@@ -782,7 +782,7 @@ class LegacyTest extends TestCase
     /**
      * Create a datetime (local) input field
      */
-    public function testDatetime()
+    public function testDatetime(): void
     {
         $rendered = \form::datetime('testID', 10, 20, '1962-05-13T02:15', 'aclassname', 'atabindex', true, 'data-test="A test"', true, autocomplete: 'datetime');
 
@@ -879,7 +879,7 @@ class LegacyTest extends TestCase
     /**
      * Create a date input field
      */
-    public function testDate()
+    public function testDate(): void
     {
         $rendered = \form::date('testID', 10, 20, '1962-05-13', 'aclassname', 'atabindex', true, 'data-test="A test"', true, autocomplete: 'date');
 
@@ -976,7 +976,7 @@ class LegacyTest extends TestCase
     /**
      * Create a datetime (local) input field
      */
-    public function testTime()
+    public function testTime(): void
     {
         $rendered = \form::time('testID', 10, 20, '02:15', 'aclassname', 'atabindex', true, 'data-test="A test"', true, autocomplete: 'time');
 
@@ -1073,7 +1073,7 @@ class LegacyTest extends TestCase
     /**
      * Create a file input field
      */
-    public function testFile()
+    public function testFile(): void
     {
         $rendered = \form::file('testID', 'filename.ext', 'aclassname', 'atabindex', true, 'data-test="A test"', true);
 
@@ -1147,7 +1147,7 @@ class LegacyTest extends TestCase
         );
     }
 
-    public function testNumber()
+    public function testNumber(): void
     {
         $rendered = \form::number('testID', 0, 99, '13', 'aclassname', 'atabindex', true, 'data-test="A test"', true, autocomplete: 'number');
 
@@ -1241,7 +1241,7 @@ class LegacyTest extends TestCase
         );
     }
 
-    public function testTextArea()
+    public function testTextArea(): void
     {
         $rendered = \form::textArea('testID', 10, 20, 'testvalue', 'aclassname', 'atabindex', true, 'data-test="A test"', true, autocomplete: 'none');
 
@@ -1323,7 +1323,7 @@ class LegacyTest extends TestCase
         );
     }
 
-    public function testHidden()
+    public function testHidden(): void
     {
         $rendered = \form::hidden('testID', 'testvalue');
 

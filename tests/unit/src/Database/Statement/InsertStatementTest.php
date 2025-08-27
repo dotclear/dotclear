@@ -48,7 +48,7 @@ class InsertStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function test(string $driver, string $syntax)
+    public function test(string $driver, string $syntax): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\InsertStatement($con, $syntax);
@@ -92,7 +92,7 @@ class InsertStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function testNoFrom(string $driver, string $syntax)
+    public function testNoFrom(string $driver, string $syntax): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\InsertStatement($con, $syntax);
@@ -105,7 +105,7 @@ class InsertStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function testRun(string $driver, string $syntax)
+    public function testRun(string $driver, string $syntax): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\InsertStatement($con, $syntax);

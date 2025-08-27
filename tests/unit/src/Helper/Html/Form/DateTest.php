@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class DateTest extends TestCase
 {
-    public function test()
+    public function test(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Date('my', 'value');
         $rendered  = $component->render();
@@ -47,7 +47,7 @@ class DateTest extends TestCase
         );
     }
 
-    public function testWithoutValue()
+    public function testWithoutValue(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Date('my');
         $rendered  = $component->render();
@@ -86,7 +86,7 @@ class DateTest extends TestCase
         );
     }
 
-    public function testWithoutNameOrId()
+    public function testWithoutNameOrId(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Date();
         $rendered  = $component->render();
@@ -97,7 +97,7 @@ class DateTest extends TestCase
         );
     }
 
-    public function testWithoutNameOrIdAndWithAValue()
+    public function testWithoutNameOrIdAndWithAValue(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Date(null, 'value');
         $rendered  = $component->render();
@@ -108,7 +108,7 @@ class DateTest extends TestCase
         );
     }
 
-    public function testSize()
+    public function testSize(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Date(['myname','myid'], 'value');
         $component->size(13);
@@ -148,7 +148,7 @@ class DateTest extends TestCase
         );
     }
 
-    public function testMaxlength()
+    public function testMaxlength(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Date(['myname','myid'], 'value');
         $component->maxlength(21);
@@ -189,7 +189,7 @@ class DateTest extends TestCase
         );
     }
 
-    public function testPattern()
+    public function testPattern(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Date(['myname','myid'], 'value');
         $component->pattern('[0-9]{2}-[0-9]{2}');
@@ -229,7 +229,7 @@ class DateTest extends TestCase
         );
     }
 
-    public function testPlaceholder()
+    public function testPlaceholder(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Date(['myname','myid'], 'value');
         $component->placeholder('2023-03-17');

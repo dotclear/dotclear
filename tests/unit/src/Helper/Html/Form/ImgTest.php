@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class ImgTest extends TestCase
 {
-    public function test()
+    public function test(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Img('img.jpg', 'my');
         $rendered  = $component->render();
@@ -27,7 +27,7 @@ class ImgTest extends TestCase
         );
     }
 
-    public function testGetDefaultElement()
+    public function testGetDefaultElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Img('img.jpg');
 
@@ -37,7 +37,7 @@ class ImgTest extends TestCase
         );
     }
 
-    public function testWithoutNameOrId()
+    public function testWithoutNameOrId(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Img('img.jpg');
         $rendered  = $component->render();
@@ -48,7 +48,7 @@ class ImgTest extends TestCase
         );
     }
 
-    public function testWithoutNameOrIdAndWithAAlt()
+    public function testWithoutNameOrIdAndWithAAlt(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Img('img.jpg');
         $component->alt('textual alternative');

@@ -11,7 +11,7 @@ class DivTest extends TestCase
 {
     // This class is used to test all generic Component abstract class methods
 
-    public function test()
+    public function test(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $rendered  = $component->render();
@@ -30,7 +30,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testStatic()
+    public function testStatic(): void
     {
         $component = \Dotclear\Helper\Html\Form\Div::init('my');
         $rendered  = $component->render();
@@ -49,7 +49,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testMagicInvoke()
+    public function testMagicInvoke(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $rendered  = $component();
@@ -68,7 +68,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testWithAnotherHtmlElement()
+    public function testWithAnotherHtmlElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my', 'slot');
         $rendered  = $component->render();
@@ -87,7 +87,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testGetDefaultElement()
+    public function testGetDefaultElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my', 'slot');
 
@@ -97,7 +97,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testItemsWithSeparator()
+    public function testItemsWithSeparator(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component
@@ -115,7 +115,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testItemsWithFormat()
+    public function testItemsWithFormat(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component
@@ -133,7 +133,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testWithoutNameOrId()
+    public function testWithoutNameOrId(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div();
         $rendered  = $component->render();
@@ -148,7 +148,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testGetType()
+    public function testGetType(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
 
@@ -162,7 +162,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testSetType()
+    public function testSetType(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->setType(\Dotclear\Helper\Html\Form\Text::class);
@@ -177,7 +177,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testGetElement()
+    public function testGetElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
 
@@ -187,7 +187,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testSetElement()
+    public function testSetElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->setElement('slot');
@@ -198,7 +198,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testAttachLabel()
+    public function testAttachLabel(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
 
@@ -212,7 +212,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testAttachLabelWithPosition()
+    public function testAttachLabelWithPosition(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
 
@@ -226,7 +226,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testAttachNullLabel()
+    public function testAttachNullLabel(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
 
@@ -241,7 +241,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testDetachLabel()
+    public function testDetachLabel(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
 
@@ -254,7 +254,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testNameOnly()
+    public function testNameOnly(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div(['my']);
         $rendered  = $component->render();
@@ -273,7 +273,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testNameAndId()
+    public function testNameAndId(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div(['myname', 'myid']);
         $rendered  = $component->render();
@@ -292,7 +292,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testIntegerNameAndId()
+    public function testIntegerNameAndId(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div([42, 'myid']);
         $rendered  = $component->render();
@@ -311,7 +311,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testNameAndIntegerId()
+    public function testNameAndIntegerId(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div(['myname', 17]);
         $rendered  = $component->render();
@@ -330,7 +330,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testIntegerNameAndIntegerId()
+    public function testIntegerNameAndIntegerId(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div([42, 17]);
         $rendered  = $component->render();
@@ -349,7 +349,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testNamedArrayAndId()
+    public function testNamedArrayAndId(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div(['myname[]', 'myid']);
         $rendered  = $component->render();
@@ -368,7 +368,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeType()
+    public function testCommonAttributeType(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->type('magic');
@@ -392,7 +392,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeValue()
+    public function testCommonAttributeValue(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->value('magic');
@@ -416,7 +416,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeIntegerValue()
+    public function testCommonAttributeIntegerValue(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->value(142);
@@ -440,7 +440,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeNullValue()
+    public function testCommonAttributeNullValue(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->value(null);
@@ -464,7 +464,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeEmptyValue()
+    public function testCommonAttributeEmptyValue(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->value('');
@@ -488,7 +488,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeZeroValue()
+    public function testCommonAttributeZeroValue(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->value(0);
@@ -512,7 +512,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeFalseValue()
+    public function testCommonAttributeFalseValue(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->value(false);
@@ -536,7 +536,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeTrueValue()
+    public function testCommonAttributeTrueValue(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->value(true);
@@ -560,7 +560,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeDefaultValue()
+    public function testCommonAttributeDefaultValue(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->default('magic');
@@ -584,7 +584,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeNoDefaultValue()
+    public function testCommonAttributeNoDefaultValue(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->default('magic');
@@ -613,7 +613,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeFalseChecked()
+    public function testCommonAttributeFalseChecked(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->checked(false);
@@ -637,7 +637,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeTrueChecked()
+    public function testCommonAttributeTrueChecked(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->checked(true);
@@ -661,7 +661,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeAccesskey()
+    public function testCommonAttributeAccesskey(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->accesskey('s');
@@ -685,7 +685,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeAutocapitalize()
+    public function testCommonAttributeAutocapitalize(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->autocapitalize('words');
@@ -709,7 +709,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeAutocomplete()
+    public function testCommonAttributeAutocomplete(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->autocomplete('off');
@@ -733,7 +733,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeAutocorrect()
+    public function testCommonAttributeAutocorrect(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->autocorrect('on');
@@ -757,7 +757,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeAutofocus()
+    public function testCommonAttributeAutofocus(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->autofocus(true);
@@ -781,7 +781,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeNoAutofocus()
+    public function testCommonAttributeNoAutofocus(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->autofocus(false);
@@ -805,7 +805,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeClass()
+    public function testCommonAttributeClass(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->class('myclass');
@@ -829,7 +829,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeClasses()
+    public function testCommonAttributeClasses(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->class(['myfirstclass', 'mysecondclass', '']);
@@ -853,7 +853,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeEmptyClasses()
+    public function testCommonAttributeEmptyClasses(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->class([]);
@@ -877,7 +877,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeContenteditable()
+    public function testCommonAttributeContenteditable(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->contenteditable(true);
@@ -901,7 +901,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeNoContenteditable()
+    public function testCommonAttributeNoContenteditable(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->contenteditable(false);
@@ -925,7 +925,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeDir()
+    public function testCommonAttributeDir(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->dir('ltr');
@@ -949,7 +949,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeDisabled()
+    public function testCommonAttributeDisabled(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->disabled(true);
@@ -973,7 +973,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeNoDisabled()
+    public function testCommonAttributeNoDisabled(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->disabled(false);
@@ -997,7 +997,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeForm()
+    public function testCommonAttributeForm(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->form('myform');
@@ -1021,7 +1021,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeInert()
+    public function testCommonAttributeInert(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->inert(true);
@@ -1045,7 +1045,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeNoInert()
+    public function testCommonAttributeNoInert(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->inert(false);
@@ -1069,7 +1069,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeInputmode()
+    public function testCommonAttributeInputmode(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->inputmode('numeric');
@@ -1093,7 +1093,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeLang()
+    public function testCommonAttributeLang(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->lang('fr');
@@ -1117,7 +1117,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeList()
+    public function testCommonAttributeList(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->list('mylist');
@@ -1141,7 +1141,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeMax()
+    public function testCommonAttributeMax(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->max(13);
@@ -1165,7 +1165,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeZeroMax()
+    public function testCommonAttributeZeroMax(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->max(0);
@@ -1189,7 +1189,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeNullMax()
+    public function testCommonAttributeNullMax(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->max(null);
@@ -1213,7 +1213,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeStringMax()
+    public function testCommonAttributeStringMax(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->max('13');
@@ -1237,7 +1237,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeNegativeMax()
+    public function testCommonAttributeNegativeMax(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->max(-13);
@@ -1261,7 +1261,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeMaxlength()
+    public function testCommonAttributeMaxlength(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->maxlength(13);
@@ -1285,7 +1285,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeZeroMaxlength()
+    public function testCommonAttributeZeroMaxlength(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->maxlength(0);
@@ -1309,7 +1309,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeNullMaxlength()
+    public function testCommonAttributeNullMaxlength(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->maxlength(null);
@@ -1333,7 +1333,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeStringMaxlength()
+    public function testCommonAttributeStringMaxlength(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->maxlength('13');
@@ -1357,7 +1357,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeMin()
+    public function testCommonAttributeMin(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->min(13);
@@ -1381,7 +1381,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeZeroMin()
+    public function testCommonAttributeZeroMin(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->min(0);
@@ -1405,7 +1405,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeNullMin()
+    public function testCommonAttributeNullMin(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->min(null);
@@ -1429,7 +1429,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeStringMin()
+    public function testCommonAttributeStringMin(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->min('13');
@@ -1453,7 +1453,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeNegativeMin()
+    public function testCommonAttributeNegativeMin(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->min(-13);
@@ -1477,7 +1477,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributePattern()
+    public function testCommonAttributePattern(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->pattern('HH:MM');
@@ -1501,7 +1501,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributePlaceholder()
+    public function testCommonAttributePlaceholder(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->placeholder('Dotclear');
@@ -1525,7 +1525,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributePopover()
+    public function testCommonAttributePopover(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->popover(true);
@@ -1549,7 +1549,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeNoPopover()
+    public function testCommonAttributeNoPopover(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->popover(false);
@@ -1573,7 +1573,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeReadonly()
+    public function testCommonAttributeReadonly(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->readonly(true);
@@ -1597,7 +1597,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeNoReadonly()
+    public function testCommonAttributeNoReadonly(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->readonly(false);
@@ -1621,7 +1621,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeRequired()
+    public function testCommonAttributeRequired(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->required(true);
@@ -1645,7 +1645,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeNoRequired()
+    public function testCommonAttributeNoRequired(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->required(false);
@@ -1669,7 +1669,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeRole()
+    public function testCommonAttributeRole(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->role('banner');
@@ -1693,7 +1693,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeNoRole()
+    public function testCommonAttributeNoRole(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->role('');
@@ -1717,7 +1717,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeSize()
+    public function testCommonAttributeSize(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->size(13);
@@ -1741,7 +1741,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeZeroSize()
+    public function testCommonAttributeZeroSize(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->size(0);
@@ -1765,7 +1765,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeNullSize()
+    public function testCommonAttributeNullSize(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->size(null);
@@ -1789,7 +1789,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeStringSize()
+    public function testCommonAttributeStringSize(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->size('13');
@@ -1813,7 +1813,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeSpellcheck()
+    public function testCommonAttributeSpellcheck(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->spellcheck(true);
@@ -1837,7 +1837,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeNoSpellcheck()
+    public function testCommonAttributeNoSpellcheck(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->spellcheck(false);
@@ -1861,7 +1861,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeTabindex()
+    public function testCommonAttributeTabindex(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->tabindex(13);
@@ -1885,7 +1885,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeZeroTabindex()
+    public function testCommonAttributeZeroTabindex(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->tabindex(0);
@@ -1909,7 +1909,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeNullTabindex()
+    public function testCommonAttributeNullTabindex(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->tabindex(null);
@@ -1933,7 +1933,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeStringTabindex()
+    public function testCommonAttributeStringTabindex(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->tabindex('13');
@@ -1957,7 +1957,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeNegativeTabindex()
+    public function testCommonAttributeNegativeTabindex(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->tabindex(-13);
@@ -1981,7 +1981,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeTitle()
+    public function testCommonAttributeTitle(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->title('My Title');
@@ -2005,7 +2005,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeData()
+    public function testCommonAttributeData(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->data([
@@ -2051,7 +2051,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeExtra()
+    public function testCommonAttributeExtra(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->extra('extra="1"');
@@ -2075,7 +2075,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeExtras()
+    public function testCommonAttributeExtras(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->extra([
@@ -2106,7 +2106,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeUnknown()
+    public function testCommonAttributeUnknown(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->unknown('unknown');
@@ -2130,7 +2130,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testIsVerbose()
+    public function testIsVerbose(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
 

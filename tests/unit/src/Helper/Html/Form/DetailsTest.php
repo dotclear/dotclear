@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class DetailsTest extends TestCase
 {
-    public function test()
+    public function test(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Details('my');
         $rendered  = $component->render();
@@ -31,7 +31,7 @@ class DetailsTest extends TestCase
         );
     }
 
-    public function testWithElement()
+    public function testWithElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Details('my', 'div');
         $rendered  = $component->render();
@@ -50,7 +50,7 @@ class DetailsTest extends TestCase
         );
     }
 
-    public function testGetDefaultElement()
+    public function testGetDefaultElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Details('my', 'slot');
 
@@ -60,7 +60,7 @@ class DetailsTest extends TestCase
         );
     }
 
-    public function testGetType()
+    public function testGetType(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Details('my');
 
@@ -74,7 +74,7 @@ class DetailsTest extends TestCase
         );
     }
 
-    public function testGetElement()
+    public function testGetElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Details('my');
 
@@ -84,7 +84,7 @@ class DetailsTest extends TestCase
         );
     }
 
-    public function testGetElementWithOtherElement()
+    public function testGetElementWithOtherElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Details('my', 'div');
 
@@ -94,7 +94,7 @@ class DetailsTest extends TestCase
         );
     }
 
-    public function testAttachSummary()
+    public function testAttachSummary(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Details();
 
@@ -108,7 +108,7 @@ class DetailsTest extends TestCase
         );
     }
 
-    public function testAttachNullSummary()
+    public function testAttachNullSummary(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Details();
 
@@ -123,7 +123,7 @@ class DetailsTest extends TestCase
         );
     }
 
-    public function testDetachSummary()
+    public function testDetachSummary(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Details();
 
@@ -138,7 +138,7 @@ class DetailsTest extends TestCase
         );
     }
 
-    public function testFields()
+    public function testFields(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Details();
 
@@ -154,7 +154,7 @@ class DetailsTest extends TestCase
         );
     }
 
-    public function testFieldsIncludingSummary()
+    public function testFieldsIncludingSummary(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Details();
 
@@ -177,7 +177,7 @@ class DetailsTest extends TestCase
         );
     }
 
-    public function testFieldsIncludingAttachedSummary()
+    public function testFieldsIncludingAttachedSummary(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Details();
 
@@ -210,7 +210,7 @@ class DetailsTest extends TestCase
         );
     }
 
-    public function testWithoutNameOrId()
+    public function testWithoutNameOrId(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Details();
         $rendered  = $component->render();
@@ -221,7 +221,7 @@ class DetailsTest extends TestCase
         );
     }
 
-    public function testWithoutNameOrIdAndWithAnElement()
+    public function testWithoutNameOrIdAndWithAnElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Details(null, 'div');
         $rendered  = $component->render();
@@ -232,7 +232,7 @@ class DetailsTest extends TestCase
         );
     }
 
-    public function testAttributeFalseOpen()
+    public function testAttributeFalseOpen(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Details();
         $component->open(false);
@@ -248,7 +248,7 @@ class DetailsTest extends TestCase
         );
     }
 
-    public function testAttributeTrueOpen()
+    public function testAttributeTrueOpen(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Details();
         $component->open(true);

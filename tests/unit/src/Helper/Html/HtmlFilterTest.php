@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 class HtmlFilterTest extends TestCase
 {
-    public function testTidySimple()
+    public function testTidySimple(): void
     {
         $filter = new \Dotclear\Helper\Html\HtmlFilter();
 
@@ -26,7 +26,7 @@ class HtmlFilterTest extends TestCase
         }
     }
 
-    public function testTidyComplex()
+    public function testTidyComplex(): void
     {
         $filter = new \Dotclear\Helper\Html\HtmlFilter();
         $str    = <<<EODTIDY
@@ -84,7 +84,7 @@ class HtmlFilterTest extends TestCase
         }
     }
 
-    public function testTidyOnerror()
+    public function testTidyOnerror(): void
     {
         $filter = new \Dotclear\Helper\Html\HtmlFilter();
 
@@ -101,7 +101,7 @@ class HtmlFilterTest extends TestCase
         }
     }
 
-    public function testSimple()
+    public function testSimple(): void
     {
         $filter = new \Dotclear\Helper\Html\HtmlFilter();
 
@@ -111,7 +111,7 @@ class HtmlFilterTest extends TestCase
         );
     }
 
-    public function testSimpleAttr()
+    public function testSimpleAttr(): void
     {
         $filter = new \Dotclear\Helper\Html\HtmlFilter();
         $filter->removeAttributes('id');
@@ -122,7 +122,7 @@ class HtmlFilterTest extends TestCase
         );
     }
 
-    public function testSimpleTagAttr()
+    public function testSimpleTagAttr(): void
     {
         $filter = new \Dotclear\Helper\Html\HtmlFilter();
         $filter->removeTagAttributes('p', 'id');
@@ -133,7 +133,7 @@ class HtmlFilterTest extends TestCase
         );
     }
 
-    public function testSimpleURI()
+    public function testSimpleURI(): void
     {
         $filter = new \Dotclear\Helper\Html\HtmlFilter();
 
@@ -143,7 +143,7 @@ class HtmlFilterTest extends TestCase
         );
     }
 
-    public function testSimpleOwnTags()
+    public function testSimpleOwnTags(): void
     {
         $filter = new \Dotclear\Helper\Html\HtmlFilter();
         $filter->setTags(['span' => []]);
@@ -154,7 +154,7 @@ class HtmlFilterTest extends TestCase
         );
     }
 
-    public function testRemovedAttr()
+    public function testRemovedAttr(): void
     {
         $filter = new \Dotclear\Helper\Html\HtmlFilter();
         $filter->removeTagAttributes('a', ['href']);
@@ -165,7 +165,7 @@ class HtmlFilterTest extends TestCase
         );
     }
 
-    public function testRemovedAttrs()
+    public function testRemovedAttrs(): void
     {
         $filter = new \Dotclear\Helper\Html\HtmlFilter();
         $filter->removeTagAttributes('a', ['target', 'href']);
@@ -176,7 +176,7 @@ class HtmlFilterTest extends TestCase
         );
     }
 
-    public function testKeepAria()
+    public function testKeepAria(): void
     {
         $filter = new \Dotclear\Helper\Html\HtmlFilter(keep_aria: true);
         $str    = <<<EOD
@@ -192,7 +192,7 @@ class HtmlFilterTest extends TestCase
         );
     }
 
-    public function testKeepData()
+    public function testKeepData(): void
     {
         $filter = new \Dotclear\Helper\Html\HtmlFilter(keep_data: true);
         $str    = <<<EOD
@@ -208,7 +208,7 @@ class HtmlFilterTest extends TestCase
         );
     }
 
-    public function testKeepJs()
+    public function testKeepJs(): void
     {
         $filter = new \Dotclear\Helper\Html\HtmlFilter(keep_js: true);
         $str    = <<<EOD
@@ -224,7 +224,7 @@ class HtmlFilterTest extends TestCase
         );
     }
 
-    public function testOnerror()
+    public function testOnerror(): void
     {
         $filter = new \Dotclear\Helper\Html\HtmlFilter();
 
@@ -234,7 +234,7 @@ class HtmlFilterTest extends TestCase
         );
     }
 
-    public function testAccesskey()
+    public function testAccesskey(): void
     {
         $filter = new \Dotclear\Helper\Html\HtmlFilter();
 
@@ -254,7 +254,7 @@ class HtmlFilterTest extends TestCase
     }
 
     #[DataProvider('dataProviderTestAll')]
-    public function testAll($title, $payload, $expected)
+    public function testAll($title, $payload, $expected): void
     {
         $filter = new \Dotclear\Helper\Html\HtmlFilter(true, true);
 

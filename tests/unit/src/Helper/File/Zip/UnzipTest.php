@@ -108,7 +108,7 @@ class UnzipTest extends TestCase
         return $values;
     }
 
-    public function testLegacy()
+    public function testLegacy(): void
     {
         $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
         $archive = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER . '-' . self::ZIP_LEGACY]);
@@ -170,7 +170,7 @@ class UnzipTest extends TestCase
         );
     }
 
-    public function testGetListLegacyWithExclusion()
+    public function testGetListLegacyWithExclusion(): void
     {
         $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
         $archive = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER . '-' . self::ZIP_LEGACY]);
@@ -198,7 +198,7 @@ class UnzipTest extends TestCase
         );
     }
 
-    public function testGetListLegacyWithoutExclusion()
+    public function testGetListLegacyWithoutExclusion(): void
     {
         $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
         $archive = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER . '-' . self::ZIP_LEGACY]);
@@ -228,7 +228,7 @@ class UnzipTest extends TestCase
         $unzip->close();
     }
 
-    public function testGetFilesListLegacy()
+    public function testGetFilesListLegacy(): void
     {
         $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
         $archive = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER . '-' . self::ZIP_LEGACY]);
@@ -278,7 +278,7 @@ class UnzipTest extends TestCase
         $unzip->close();
     }
 
-    public function testGetDirsListLegacy()
+    public function testGetDirsListLegacy(): void
     {
         $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
         $archive = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER . '-' . self::ZIP_LEGACY]);
@@ -320,7 +320,7 @@ class UnzipTest extends TestCase
         $unzip->close();
     }
 
-    public function testGetRootDirLegacy()
+    public function testGetRootDirLegacy(): void
     {
         $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
         $archive = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER . '-' . self::ZIP_LEGACY]);
@@ -348,7 +348,7 @@ class UnzipTest extends TestCase
         $unzip->close();
     }
 
-    public function testGetRootDirNoRootLegacy()
+    public function testGetRootDirNoRootLegacy(): void
     {
         $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
         $archive = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER . '-no-root-' . self::ZIP_LEGACY]);
@@ -389,7 +389,7 @@ class UnzipTest extends TestCase
         $unzip->close();
     }
 
-    public function testIsEmptyLegacy()
+    public function testIsEmptyLegacy(): void
     {
         $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
         $archive = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER . '-' . self::ZIP_LEGACY]);
@@ -415,7 +415,7 @@ class UnzipTest extends TestCase
         $unzip->close();
     }
 
-    public function testHasFileLegacy()
+    public function testHasFileLegacy(): void
     {
         $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
         $archive = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER . '-' . self::ZIP_LEGACY]);

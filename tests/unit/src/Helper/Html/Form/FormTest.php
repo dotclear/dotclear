@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class FormTest extends TestCase
 {
-    public function test()
+    public function test(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Form('my');
         $rendered  = $component->render();
@@ -27,7 +27,7 @@ class FormTest extends TestCase
         );
     }
 
-    public function testWithElement()
+    public function testWithElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Form('my', 'div');
         $rendered  = $component->render();
@@ -46,7 +46,7 @@ class FormTest extends TestCase
         );
     }
 
-    public function testGetDefaultElement()
+    public function testGetDefaultElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Form('my', 'slot');
 
@@ -56,7 +56,7 @@ class FormTest extends TestCase
         );
     }
 
-    public function testGetType()
+    public function testGetType(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Form('my');
 
@@ -70,7 +70,7 @@ class FormTest extends TestCase
         );
     }
 
-    public function testGetElement()
+    public function testGetElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Form('my');
 
@@ -80,7 +80,7 @@ class FormTest extends TestCase
         );
     }
 
-    public function testGetElementWithOtherElement()
+    public function testGetElementWithOtherElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Form('my', 'div');
 
@@ -90,7 +90,7 @@ class FormTest extends TestCase
         );
     }
 
-    public function testFields()
+    public function testFields(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Form('my');
 
@@ -106,7 +106,7 @@ class FormTest extends TestCase
         );
     }
 
-    public function testWithoutNameOrId()
+    public function testWithoutNameOrId(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Form();
         $rendered  = $component->render();
@@ -117,7 +117,7 @@ class FormTest extends TestCase
         );
     }
 
-    public function testWithoutNameOrIdAndWithAnElement()
+    public function testWithoutNameOrIdAndWithAnElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Form(null, 'div');
         $rendered  = $component->render();
@@ -128,7 +128,7 @@ class FormTest extends TestCase
         );
     }
 
-    public function testNoIdVerbose()
+    public function testNoIdVerbose(): void
     {
         $component = $this->getMockBuilder(\Dotclear\Helper\Html\Form\Form::class)
             ->onlyMethods(['checkMandatoryAttributes', 'isVerbose'])
@@ -146,7 +146,7 @@ class FormTest extends TestCase
         );
     }
 
-    public function testNoMethodVerbose()
+    public function testNoMethodVerbose(): void
     {
         $component = $this->getMockBuilder(\Dotclear\Helper\Html\Form\Form::class)
             ->onlyMethods(['checkMandatoryAttributes', 'isVerbose'])

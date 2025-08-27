@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class SelectTest extends TestCase
 {
-    public function test()
+    public function test(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Select('myid');
         $rendered  = $component->render();
@@ -27,7 +27,7 @@ class SelectTest extends TestCase
         );
     }
 
-    public function testItemsText()
+    public function testItemsText(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Select('myid');
         $component->items([
@@ -51,7 +51,7 @@ class SelectTest extends TestCase
         );
     }
 
-    public function testItemsOption()
+    public function testItemsOption(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Select('myid');
         $component->items([
@@ -66,7 +66,7 @@ class SelectTest extends TestCase
         );
     }
 
-    public function testItemsSelect()
+    public function testItemsSelect(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Select('myid');
         $component->items([
@@ -90,7 +90,7 @@ class SelectTest extends TestCase
         );
     }
 
-    public function testItemsSelectWithDefault()
+    public function testItemsSelectWithDefault(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Select('myid');
         $component->items([
@@ -114,7 +114,7 @@ class SelectTest extends TestCase
         );
     }
 
-    public function testItemsArray()
+    public function testItemsArray(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Select('myid');
         $component->items([
@@ -148,7 +148,7 @@ class SelectTest extends TestCase
         );
     }
 
-    public function testEmptyItems()
+    public function testEmptyItems(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Select('myid');
         $component->items([]);
@@ -160,7 +160,7 @@ class SelectTest extends TestCase
         );
     }
 
-    public function testWithoutId()
+    public function testWithoutId(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Select();
         $rendered  = $component->render();
@@ -171,7 +171,7 @@ class SelectTest extends TestCase
         );
     }
 
-    public function testAttachLabel()
+    public function testAttachLabel(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Select('my');
 
@@ -185,7 +185,7 @@ class SelectTest extends TestCase
         );
     }
 
-    public function testAttachLabelOutside()
+    public function testAttachLabelOutside(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Select('my');
 
@@ -199,7 +199,7 @@ class SelectTest extends TestCase
         );
     }
 
-    public function testAttachLabelButWithoutRendering()
+    public function testAttachLabelButWithoutRendering(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Select('my', null, false);
 
@@ -213,7 +213,7 @@ class SelectTest extends TestCase
         );
     }
 
-    public function testDetachLabel()
+    public function testDetachLabel(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Select('my');
 
@@ -226,7 +226,7 @@ class SelectTest extends TestCase
         );
     }
 
-    public function testNoIdOutsideLabel()
+    public function testNoIdOutsideLabel(): void
     {
         $component = $this->getMockBuilder(\Dotclear\Helper\Html\Form\Select::class)
             ->onlyMethods(['checkMandatoryAttributes'])
@@ -245,7 +245,7 @@ class SelectTest extends TestCase
         );
     }
 
-    public function testGetDefaultElement()
+    public function testGetDefaultElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Select('myid');
 
@@ -255,7 +255,7 @@ class SelectTest extends TestCase
         );
     }
 
-    public function testGetType()
+    public function testGetType(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Select('myid');
 
@@ -269,7 +269,7 @@ class SelectTest extends TestCase
         );
     }
 
-    public function testGetElement()
+    public function testGetElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Select('myid');
 
@@ -279,7 +279,7 @@ class SelectTest extends TestCase
         );
     }
 
-    public function testGetElementWithOtherElement()
+    public function testGetElementWithOtherElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Select('myid', 'div');
 
@@ -289,7 +289,7 @@ class SelectTest extends TestCase
         );
     }
 
-    public function testNoIdVerbose()
+    public function testNoIdVerbose(): void
     {
         $component = $this->getMockBuilder(\Dotclear\Helper\Html\Form\Select::class)
             ->onlyMethods(['checkMandatoryAttributes', 'isVerbose'])

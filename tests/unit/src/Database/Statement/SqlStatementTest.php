@@ -48,7 +48,7 @@ class SqlStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function test($driver, $syntax)
+    public function test($driver, $syntax): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
@@ -76,7 +76,7 @@ class SqlStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTestEscape')]
-    public function testEscape($driver, $syntax, $source, $result)
+    public function testEscape($driver, $syntax, $source, $result): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
@@ -106,7 +106,7 @@ class SqlStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTestQuote')]
-    public function testQuote($driver, $syntax, $source, $result, $escape)
+    public function testQuote($driver, $syntax, $source, $result, $escape): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
@@ -140,7 +140,7 @@ class SqlStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTestAlias')]
-    public function testAlias($driver, $syntax, $name, $alias, $result)
+    public function testAlias($driver, $syntax, $name, $alias, $result): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
@@ -166,7 +166,7 @@ class SqlStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTestIn')]
-    public function testIn($driver, $syntax, $values, $cast, $result)
+    public function testIn($driver, $syntax, $values, $cast, $result): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
@@ -249,7 +249,7 @@ class SqlStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTestDateFormat')]
-    public function testDateFormat($driver, $syntax, $field, $pattern, $result)
+    public function testDateFormat($driver, $syntax, $field, $pattern, $result): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
@@ -271,7 +271,7 @@ class SqlStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTestLike')]
-    public function testLike($driver, $syntax, $field, $pattern, $result)
+    public function testLike($driver, $syntax, $field, $pattern, $result): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
@@ -293,7 +293,7 @@ class SqlStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTestRegexp')]
-    public function testRegexp($driver, $syntax, $pattern, $result)
+    public function testRegexp($driver, $syntax, $pattern, $result): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
@@ -315,7 +315,7 @@ class SqlStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTestUnique')]
-    public function testUnique($driver, $syntax, $field, $result)
+    public function testUnique($driver, $syntax, $field, $result): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
@@ -337,7 +337,7 @@ class SqlStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTestCount')]
-    public function testCount($driver, $syntax, $field, $alias, $unique, $result)
+    public function testCount($driver, $syntax, $field, $alias, $unique, $result): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
@@ -375,7 +375,7 @@ class SqlStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTestAvg')]
-    public function testAvg($driver, $syntax, $field, $alias, $result)
+    public function testAvg($driver, $syntax, $field, $alias, $result): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
@@ -403,7 +403,7 @@ class SqlStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTestMax')]
-    public function testMax($driver, $syntax, $field, $alias, $result)
+    public function testMax($driver, $syntax, $field, $alias, $result): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
@@ -431,7 +431,7 @@ class SqlStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTestMin')]
-    public function testMin($driver, $syntax, $field, $alias, $result)
+    public function testMin($driver, $syntax, $field, $alias, $result): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
@@ -459,7 +459,7 @@ class SqlStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTestSum')]
-    public function testSum($driver, $syntax, $field, $alias, $result)
+    public function testSum($driver, $syntax, $field, $alias, $result): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
@@ -487,7 +487,7 @@ class SqlStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTestIsNull')]
-    public function testIsNull($driver, $syntax, $field, $result)
+    public function testIsNull($driver, $syntax, $field, $result): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
@@ -509,7 +509,7 @@ class SqlStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTestIsNotNull')]
-    public function testIsNotNull($driver, $syntax, $field, $result)
+    public function testIsNotNull($driver, $syntax, $field, $result): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
@@ -531,7 +531,7 @@ class SqlStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function testMagic(string $driver, string $syntax)
+    public function testMagic(string $driver, string $syntax): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
@@ -554,7 +554,7 @@ class SqlStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function testMagicSetError(string $driver, string $syntax)
+    public function testMagicSetError(string $driver, string $syntax): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
@@ -570,7 +570,7 @@ class SqlStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function testMagicGetError(string $driver, string $syntax)
+    public function testMagicGetError(string $driver, string $syntax): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);

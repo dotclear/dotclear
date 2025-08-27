@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 class TableTest extends TestCase
 {
-    public function test()
+    public function test(): void
     {
         $table = new \Dotclear\Database\Table('dc_table');
 
@@ -255,7 +255,7 @@ class TableTest extends TestCase
         );
     }
 
-    public function testUniqueIndexOnUnknownField()
+    public function testUniqueIndexOnUnknownField(): void
     {
         $table = new \Dotclear\Database\Table('dc_table');
 
@@ -302,7 +302,7 @@ class TableTest extends TestCase
         $table->unique('pk_unknown', 'unknown');
     }
 
-    public function testPrimaryKeyAlreadyExists()
+    public function testPrimaryKeyAlreadyExists(): void
     {
         $table = new \Dotclear\Database\Table('dc_table');
 
@@ -348,7 +348,7 @@ class TableTest extends TestCase
         $table->primary('pk_uid', 'uid');
     }
 
-    public function testMagicSetFieldError()
+    public function testMagicSetFieldError(): void
     {
         $table = new \Dotclear\Database\Table('dc_table');
 

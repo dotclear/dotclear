@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class PagerTest extends TestCase
 {
-    public function test()
+    public function test(): void
     {
         $pager = new \Dotclear\Helper\Html\Pager(0, 10);
 
@@ -86,7 +86,7 @@ class PagerTest extends TestCase
         );
     }
 
-    public function testLargeNumberOfElements()
+    public function testLargeNumberOfElements(): void
     {
         $pager = new \Dotclear\Helper\Html\Pager(0, 999);
 
@@ -127,7 +127,7 @@ class PagerTest extends TestCase
         );
     }
 
-    public function testWithBaseUrl()
+    public function testWithBaseUrl(): void
     {
         $pager           = new \Dotclear\Helper\Html\Pager(0, 999);
         $pager->base_url = '/list.php?page=%1$d&go';
@@ -170,7 +170,7 @@ class PagerTest extends TestCase
         ;
     }
 
-    public function testLargeWrongEnv()
+    public function testLargeWrongEnv(): void
     {
         $pager = new \Dotclear\Helper\Html\Pager(120, 999);
 
@@ -211,7 +211,7 @@ class PagerTest extends TestCase
         );
     }
 
-    public function testAlmostMiddlePosition()
+    public function testAlmostMiddlePosition(): void
     {
         $pager = new \Dotclear\Helper\Html\Pager(54, 999);
 
@@ -252,7 +252,7 @@ class PagerTest extends TestCase
         );
     }
 
-    public function testAlmostEndPosition()
+    public function testAlmostEndPosition(): void
     {
         $pager = new \Dotclear\Helper\Html\Pager(100, 994);
 
@@ -293,7 +293,7 @@ class PagerTest extends TestCase
         );
     }
 
-    public function testLargeWithSessionID()
+    public function testLargeWithSessionID(): void
     {
         // Mock global variable
         $_SERVER['REQUEST_URI'] = '/list.php?page=1&mysession=bed414bd8914729827ce73664985e8bf36fb0206';
@@ -338,7 +338,7 @@ class PagerTest extends TestCase
         );
     }
 
-    public function testLargeWithFragment()
+    public function testLargeWithFragment(): void
     {
         // Mock global variable
         $_SERVER['REQUEST_URI'] = '/list.php?page=1';
@@ -380,7 +380,7 @@ class PagerTest extends TestCase
         );
     }
 
-    public function testNoParamInURI()
+    public function testNoParamInURI(): void
     {
         $pager = new \Dotclear\Helper\Html\Pager(120, 999);
 
@@ -421,7 +421,7 @@ class PagerTest extends TestCase
         );
     }
 
-    public function testNoPageInURI()
+    public function testNoPageInURI(): void
     {
         $pager = new \Dotclear\Helper\Html\Pager(120, 999);
 
@@ -462,7 +462,7 @@ class PagerTest extends TestCase
         );
     }
 
-    public function testWithNbElementsPerPage()
+    public function testWithNbElementsPerPage(): void
     {
         $pager = new \Dotclear\Helper\Html\Pager(0, 999, 20);
 
@@ -502,7 +502,7 @@ class PagerTest extends TestCase
         );
     }
 
-    public function testWithNbElementsPerPageAndNbPagesPerGroup()
+    public function testWithNbElementsPerPageAndNbPagesPerGroup(): void
     {
         $pager = new \Dotclear\Helper\Html\Pager(0, 999, 20, 12);
 
@@ -543,7 +543,7 @@ class PagerTest extends TestCase
         );
     }
 
-    public function testWithNegativeValues()
+    public function testWithNegativeValues(): void
     {
         $pager = new \Dotclear\Helper\Html\Pager(-10, -999, -10, -10);
 

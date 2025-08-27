@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class HiddenTest extends TestCase
 {
-    public function test()
+    public function test(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Hidden('my', 'value');
         $rendered  = $component->render();
@@ -31,7 +31,7 @@ class HiddenTest extends TestCase
         );
     }
 
-    public function testWithoutValue()
+    public function testWithoutValue(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Hidden('my');
         $rendered  = $component->render();
@@ -54,7 +54,7 @@ class HiddenTest extends TestCase
         );
     }
 
-    public function testWithoutNameOrId()
+    public function testWithoutNameOrId(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Hidden();
         $rendered  = $component->render();
@@ -65,7 +65,7 @@ class HiddenTest extends TestCase
         );
     }
 
-    public function testWithoutNameOrIdAndWithAValue()
+    public function testWithoutNameOrIdAndWithAValue(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Hidden(null, 'value');
         $rendered  = $component->render();

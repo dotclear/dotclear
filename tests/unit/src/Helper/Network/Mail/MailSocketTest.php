@@ -129,7 +129,7 @@ namespace Dotclear\Tests\Helper\Network\Mail {
             return \fclose(self::$handle);
         }
 
-        public function testMail()
+        public function testMail(): void
         {
             $header_from = 'From: contact@dotclear.org';
 

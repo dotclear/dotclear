@@ -16,7 +16,7 @@ class L10nTest extends TestCase
         $this->l10n_dir = realpath(implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'fixtures', 'src', 'Helper', 'L10n']));
     }
 
-    public function testWithEmpty()
+    public function testWithEmpty(): void
     {
         $this->assertEquals(
             '',
@@ -24,7 +24,7 @@ class L10nTest extends TestCase
         );
     }
 
-    public function testWithoutTranslation()
+    public function testWithoutTranslation(): void
     {
         $faker = Factory::create();
         $text  = $faker->text(50);
@@ -35,7 +35,7 @@ class L10nTest extends TestCase
         );
     }
 
-    public function testSimpleSingular()
+    public function testSimpleSingular(): void
     {
         \Dotclear\Helper\L10n::init();
         \Dotclear\Helper\L10n::set(implode(DIRECTORY_SEPARATOR, [$this->l10n_dir, 'fr','core']));
@@ -46,7 +46,7 @@ class L10nTest extends TestCase
         );
     }
 
-    public function testZeroForCountEn()
+    public function testZeroForCountEn(): void
     {
         \Dotclear\Helper\L10n::init();
 
@@ -56,7 +56,7 @@ class L10nTest extends TestCase
         );
     }
 
-    public function testZeroForCountFr()
+    public function testZeroForCountFr(): void
     {
         \Dotclear\Helper\L10n::init();
         \Dotclear\Helper\L10n::set(implode(DIRECTORY_SEPARATOR, [$this->l10n_dir, 'fr','main']));
@@ -71,7 +71,7 @@ class L10nTest extends TestCase
         );
     }
 
-    public function testZeroForCountFrUsingLang()
+    public function testZeroForCountFrUsingLang(): void
     {
         \Dotclear\Helper\L10n::init();
         \Dotclear\Helper\L10n::set(implode(DIRECTORY_SEPARATOR, [$this->l10n_dir, 'fr','main']));
@@ -83,7 +83,7 @@ class L10nTest extends TestCase
         );
     }
 
-    public function testPluralWithSingularOnly()
+    public function testPluralWithSingularOnly(): void
     {
         \Dotclear\Helper\L10n::init();
         \Dotclear\Helper\L10n::set(implode(DIRECTORY_SEPARATOR, [$this->l10n_dir, 'fr','main']));
@@ -94,7 +94,7 @@ class L10nTest extends TestCase
         );
     }
 
-    public function testCodeLang()
+    public function testCodeLang(): void
     {
         \Dotclear\Helper\L10n::init();
 
@@ -109,7 +109,7 @@ class L10nTest extends TestCase
         );
     }
 
-    public function testChangeNonExistingLangShouldUseDefaultOne()
+    public function testChangeNonExistingLangShouldUseDefaultOne(): void
     {
         \Dotclear\Helper\L10n::init('en');
 
@@ -119,7 +119,7 @@ class L10nTest extends TestCase
         );
     }
 
-    public function testGetLanguageName()
+    public function testGetLanguageName(): void
     {
         \Dotclear\Helper\L10n::init();
 
@@ -129,7 +129,7 @@ class L10nTest extends TestCase
         );
     }
 
-    public function testGetCode()
+    public function testGetCode(): void
     {
         \Dotclear\Helper\L10n::init();
 
@@ -147,7 +147,7 @@ class L10nTest extends TestCase
         );
     }
 
-    public function testPhpFormatSingular()
+    public function testPhpFormatSingular(): void
     {
         $faker = Factory::create();
         $text  = $faker->text(20);
@@ -161,7 +161,7 @@ class L10nTest extends TestCase
         );
     }
 
-    public function testPluralWithoutTranslation()
+    public function testPluralWithoutTranslation(): void
     {
         \Dotclear\Helper\L10n::init();
         \Dotclear\Helper\L10n::set(implode(DIRECTORY_SEPARATOR, [$this->l10n_dir, 'dummy']));
@@ -176,7 +176,7 @@ class L10nTest extends TestCase
         );
     }
 
-    public function testPluralWithEmptyTranslation()
+    public function testPluralWithEmptyTranslation(): void
     {
         \Dotclear\Helper\L10n::init();
         \Dotclear\Helper\L10n::set(implode(DIRECTORY_SEPARATOR, [$this->l10n_dir, 'empty']));
@@ -191,7 +191,7 @@ class L10nTest extends TestCase
         );
     }
 
-    public function testPluralForLanguageWithoutPluralForms()
+    public function testPluralForLanguageWithoutPluralForms(): void
     {
         \Dotclear\Helper\L10n::init();
 
@@ -205,7 +205,7 @@ class L10nTest extends TestCase
         );
     }
 
-    public function testSimplePlural()
+    public function testSimplePlural(): void
     {
         \Dotclear\Helper\L10n::init();
         \Dotclear\Helper\L10n::set(implode(DIRECTORY_SEPARATOR, [$this->l10n_dir, 'fr','main']));
@@ -227,7 +227,7 @@ class L10nTest extends TestCase
         );
     }
 
-    public function testSimplePluralNone()
+    public function testSimplePluralNone(): void
     {
         \Dotclear\Helper\L10n::init();
         \Dotclear\Helper\L10n::set(implode(DIRECTORY_SEPARATOR, [$this->l10n_dir, 'ja','core']));
@@ -248,7 +248,7 @@ class L10nTest extends TestCase
         );
     }
 
-    public function testNotExistingPhpAndPoFiles()
+    public function testNotExistingPhpAndPoFiles(): void
     {
         \Dotclear\Helper\L10n::init();
         \Dotclear\Helper\L10n::set(implode(DIRECTORY_SEPARATOR, [$this->l10n_dir, 'dummy']));
@@ -259,7 +259,7 @@ class L10nTest extends TestCase
         );
     }
 
-    public function testNotExistingPoFile()
+    public function testNotExistingPoFile(): void
     {
         \Dotclear\Helper\L10n::init();
         \Dotclear\Helper\L10n::set(implode(DIRECTORY_SEPARATOR, [$this->l10n_dir, 'fr','nopo']));
@@ -270,7 +270,7 @@ class L10nTest extends TestCase
         );
     }
 
-    public function testGetFilePath()
+    public function testGetFilePath(): void
     {
         \Dotclear\Helper\L10n::init();
 
@@ -283,7 +283,7 @@ class L10nTest extends TestCase
         );
     }
 
-    public function testMultiLineIdString()
+    public function testMultiLineIdString(): void
     {
         \Dotclear\Helper\L10n::init();
 
@@ -306,7 +306,7 @@ class L10nTest extends TestCase
         }
     }
 
-    public function testMultiLineValueString()
+    public function testMultiLineValueString(): void
     {
         \Dotclear\Helper\L10n::init();
 
@@ -330,7 +330,7 @@ class L10nTest extends TestCase
         }
     }
 
-    public function testSimpleStringInPhpFile()
+    public function testSimpleStringInPhpFile(): void
     {
         \Dotclear\Helper\L10n::init();
 
@@ -347,7 +347,7 @@ class L10nTest extends TestCase
         );
     }
 
-    public function testPluralStringsInPhpFile()
+    public function testPluralStringsInPhpFile(): void
     {
         \Dotclear\Helper\L10n::init();
 
@@ -364,7 +364,7 @@ class L10nTest extends TestCase
         );
     }
 
-    public function testParsePluralExpression()
+    public function testParsePluralExpression(): void
     {
         $this->assertCount(
             2,
@@ -384,7 +384,7 @@ class L10nTest extends TestCase
         );
     }
 
-    public function testGetISOcodes()
+    public function testGetISOcodes(): void
     {
         $this->assertContains(
             'Français',
@@ -404,7 +404,7 @@ class L10nTest extends TestCase
         );
     }
 
-    public function testGetTextDirection()
+    public function testGetTextDirection(): void
     {
         $this->assertEquals(
             'ltr',
@@ -416,7 +416,7 @@ class L10nTest extends TestCase
         );
     }
 
-    public function testGetLanguagesDefinitions()
+    public function testGetLanguagesDefinitions(): void
     {
         $getLangDefs = new \ReflectionMethod('\Dotclear\Helper\L10n', 'getLanguagesDefinitions');
         $getLangDefs->setAccessible(true);

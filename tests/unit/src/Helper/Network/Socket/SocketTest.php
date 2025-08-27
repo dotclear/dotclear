@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 class SocketTest extends TestCase
 {
-    public function test()
+    public function test(): void
     {
         $socket = new \Dotclear\Helper\Network\Socket\Socket('example.org', 443);
 
@@ -148,7 +148,7 @@ class SocketTest extends TestCase
         );
     }
 
-    public function testOpenError()
+    public function testOpenError(): void
     {
         $this->expectException(Exception::class);
 

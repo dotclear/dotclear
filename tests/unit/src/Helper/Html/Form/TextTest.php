@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class TextTest extends TestCase
 {
-    public function test()
+    public function test(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Text(null, 'TEXT');
         $rendered  = $component->render();
@@ -19,7 +19,7 @@ class TextTest extends TestCase
         );
     }
 
-    public function testWithACommonAttribute()
+    public function testWithACommonAttribute(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Text(null, 'TEXT');
         $component->setIdentifier('myid');
@@ -39,7 +39,7 @@ class TextTest extends TestCase
         );
     }
 
-    public function testGetDefaultElement()
+    public function testGetDefaultElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Text();
 
@@ -49,7 +49,7 @@ class TextTest extends TestCase
         );
     }
 
-    public function testGetType()
+    public function testGetType(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Text();
 
@@ -63,7 +63,7 @@ class TextTest extends TestCase
         );
     }
 
-    public function testGetElement()
+    public function testGetElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Text();
 
@@ -73,7 +73,7 @@ class TextTest extends TestCase
         );
     }
 
-    public function testGetElementWithOtherElement()
+    public function testGetElementWithOtherElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Text('span');
 
@@ -83,7 +83,7 @@ class TextTest extends TestCase
         );
     }
 
-    public function testWithItems()
+    public function testWithItems(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Text(null, 'TEXT');
         $component
@@ -100,7 +100,7 @@ class TextTest extends TestCase
         );
     }
 
-    public function testWithItemsAndOtherElement()
+    public function testWithItemsAndOtherElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Text('var', 'TEXT');
         $component

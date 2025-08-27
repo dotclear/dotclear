@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class TidyDiffTest extends TestCase
 {
-    public function test()
+    public function test(): void
     {
         $udiff = '@@ -1,3 +1,3 @@
 -Ligne 1
@@ -36,7 +36,7 @@ class TidyDiffTest extends TestCase
         );
     }
 
-    public function testWithInlineChange()
+    public function testWithInlineChange(): void
     {
         $udiff = '@@ -1,3 +1,3 @@
 -Ligne 1

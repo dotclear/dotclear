@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class RequestTest extends TestCase
 {
-    public function test()
+    public function test(): void
     {
         $req = new \Dotclear\Helper\Network\XmlRpc\Request('myBestMethod', ['id' => 42, 'dotclear' => true]);
 

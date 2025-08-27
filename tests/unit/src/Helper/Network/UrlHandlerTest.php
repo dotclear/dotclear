@@ -44,7 +44,7 @@ class UrlHandlerTest extends TestCase
 
     // Test methods
 
-    public function test()
+    public function test(): void
     {
         $url = new \Dotclear\Helper\Network\UrlHandler();
 
@@ -123,7 +123,7 @@ class UrlHandlerTest extends TestCase
         $url->callHandler('my');
     }
 
-    public function testUnset()
+    public function testUnset(): void
     {
         $url = new \Dotclear\Helper\Network\UrlHandler();
 
@@ -149,7 +149,7 @@ class UrlHandlerTest extends TestCase
         $url->callHandler('my');
     }
 
-    public function testUnableToCall()
+    public function testUnableToCall(): void
     {
         $url = new \Dotclear\Helper\Network\UrlHandler();
         $url->registerDefault('notCallable');
@@ -162,7 +162,7 @@ class UrlHandlerTest extends TestCase
         $url->callDefaultHandler();
     }
 
-    public function testGetBase()
+    public function testGetBase(): void
     {
         $url = new \Dotclear\Helper\Network\UrlHandler();
         $url->registerDefault([$this::class, 'defaultHandler']);
@@ -189,7 +189,7 @@ class UrlHandlerTest extends TestCase
     }
 
     #[BackupGlobals(true)]
-    public function testGetArgs()
+    public function testGetArgs(): void
     {
         $url = new \Dotclear\Helper\Network\UrlHandler();
         $url->registerDefault([$this::class, 'defaultHandler']);
@@ -257,7 +257,7 @@ class UrlHandlerTest extends TestCase
     }
 
     #[BackupGlobals(true)]
-    public function testGetArgsQueryString()
+    public function testGetArgsQueryString(): void
     {
         $url = new \Dotclear\Helper\Network\UrlHandler('query_string');
         $url->registerDefault([$this::class, 'defaultHandler']);
@@ -288,7 +288,7 @@ class UrlHandlerTest extends TestCase
     }
 
     #[BackupGlobals(true)]
-    public function testGetArgsPathInfo()
+    public function testGetArgsPathInfo(): void
     {
         $url = new \Dotclear\Helper\Network\UrlHandler('path_info');
         $url->registerDefault([$this::class, 'defaultHandler']);
@@ -320,7 +320,7 @@ class UrlHandlerTest extends TestCase
     }
 
     #[BackupGlobals(true)]
-    public function testGetDocumentQueryString()
+    public function testGetDocumentQueryString(): void
     {
         $url = new \Dotclear\Helper\Network\UrlHandler('query_string');
         $url->registerDefault([$this::class, 'defaultHandler']);
@@ -361,7 +361,7 @@ class UrlHandlerTest extends TestCase
     }
 
     #[BackupGlobals(true)]
-    public function testGetDocumentPathInfo()
+    public function testGetDocumentPathInfo(): void
     {
         $url = new \Dotclear\Helper\Network\UrlHandler('path_info');
         $url->registerDefault([$this::class, 'defaultHandler']);
@@ -403,7 +403,7 @@ class UrlHandlerTest extends TestCase
     }
 
     #[BackupGlobals(true)]
-    public function testGetDocumentDefault()
+    public function testGetDocumentDefault(): void
     {
         $url = new \Dotclear\Helper\Network\UrlHandler('query_string');
         $url->registerDefault([$this::class, 'defaultHandler']);

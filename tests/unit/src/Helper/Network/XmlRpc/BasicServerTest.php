@@ -19,7 +19,7 @@ namespace Dotclear\Tests\Helper\Network\XmlRpc {
     class BasicServerTest extends TestCase
     {
         #[BackupGlobals(true)]
-        public function testServer()
+        public function testServer(): void
         {
             $this->expectOutputString(
                 'XML-RPC server accepts POST requests only.'

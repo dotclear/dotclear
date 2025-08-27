@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class ParaTest extends TestCase
 {
-    public function test()
+    public function test(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Para();
         $rendered  = $component->render();
@@ -19,7 +19,7 @@ class ParaTest extends TestCase
         );
     }
 
-    public function testWithEmptyItems()
+    public function testWithEmptyItems(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Para();
         $component->items([
@@ -32,7 +32,7 @@ class ParaTest extends TestCase
         );
     }
 
-    public function testWithItems()
+    public function testWithItems(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Para();
         $component->items([
@@ -48,7 +48,7 @@ class ParaTest extends TestCase
         );
     }
 
-    public function testWithItemsWithSeparator()
+    public function testWithItemsWithSeparator(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Para();
         $component
@@ -67,7 +67,7 @@ class ParaTest extends TestCase
         );
     }
 
-    public function testWithItemsWithFormat()
+    public function testWithItemsWithFormat(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Para();
         $component
@@ -86,7 +86,7 @@ class ParaTest extends TestCase
         );
     }
 
-    public function testWithId()
+    public function testWithId(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Para('myid');
         $rendered  = $component->render();
@@ -105,7 +105,7 @@ class ParaTest extends TestCase
         );
     }
 
-    public function testGetDefaultElement()
+    public function testGetDefaultElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Para();
 
@@ -115,7 +115,7 @@ class ParaTest extends TestCase
         );
     }
 
-    public function testGetType()
+    public function testGetType(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Para();
 
@@ -129,7 +129,7 @@ class ParaTest extends TestCase
         );
     }
 
-    public function testGetElement()
+    public function testGetElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Para();
 
@@ -139,7 +139,7 @@ class ParaTest extends TestCase
         );
     }
 
-    public function testGetElementWithOtherElement()
+    public function testGetElementWithOtherElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Para('my', 'div');
 

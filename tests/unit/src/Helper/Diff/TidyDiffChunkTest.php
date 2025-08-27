@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class TidyDiffChunkTest extends TestCase
 {
-    public function test()
+    public function test(): void
     {
         $component = new \Dotclear\Helper\Diff\TidyDiffChunk();
 
@@ -41,7 +41,7 @@ class TidyDiffChunkTest extends TestCase
         );
     }
 
-    public function testSetRange()
+    public function testSetRange(): void
     {
         $component = new \Dotclear\Helper\Diff\TidyDiffChunk();
         $component->setRange(1, 2, 3, 4);
@@ -52,7 +52,7 @@ class TidyDiffChunkTest extends TestCase
         );
     }
 
-    public function testAddLine()
+    public function testAddLine(): void
     {
         $component = new \Dotclear\Helper\Diff\TidyDiffChunk();
         $component->addLine('context', [3, 4], '@@ -1,3 +1,4 @@');
@@ -85,7 +85,7 @@ class TidyDiffChunkTest extends TestCase
         );
     }
 
-    public function testUniDiff()
+    public function testUniDiff(): void
     {
         /* Will test with this chunk:
             @@ -1,3 +1,3 @@
@@ -132,7 +132,7 @@ class TidyDiffChunkTest extends TestCase
         );
     }
 
-    public function testInsideChange()
+    public function testInsideChange(): void
     {
         /* Will test with this chunk:
             @@ -1,3 +1,3 @@

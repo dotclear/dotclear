@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 class ClientMulticallTest extends TestCase
 {
-    public function test()
+    public function test(): void
     {
         $client = new \Dotclear\Helper\Network\XmlRpc\ClientMulticall('https://dotclear.org/xmlrpc');
 

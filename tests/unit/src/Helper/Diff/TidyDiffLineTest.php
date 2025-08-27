@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class TidyDiffLineTest extends TestCase
 {
-    public function test()
+    public function test(): void
     {
         $component = new \Dotclear\Helper\Diff\TidyDiffLine('context', [3, 4], 'content');
 
@@ -32,7 +32,7 @@ class TidyDiffLineTest extends TestCase
         );
     }
 
-    public function testWithUnknownType()
+    public function testWithUnknownType(): void
     {
         $component = new \Dotclear\Helper\Diff\TidyDiffLine('unknown', [3, 4], 'content');
 
@@ -49,7 +49,7 @@ class TidyDiffLineTest extends TestCase
         );
     }
 
-    public function testWithNullLines()
+    public function testWithNullLines(): void
     {
         $component = new \Dotclear\Helper\Diff\TidyDiffLine('unknown', null, 'content');
 
@@ -66,7 +66,7 @@ class TidyDiffLineTest extends TestCase
         );
     }
 
-    public function testWithNullContent()
+    public function testWithNullContent(): void
     {
         $component = new \Dotclear\Helper\Diff\TidyDiffLine('unknown', [3, 4], null);
 
@@ -83,7 +83,7 @@ class TidyDiffLineTest extends TestCase
         );
     }
 
-    public function testOverwrite()
+    public function testOverwrite(): void
     {
         $component = new \Dotclear\Helper\Diff\TidyDiffLine('context', [3, 4], 'content');
 
@@ -95,7 +95,7 @@ class TidyDiffLineTest extends TestCase
         );
     }
 
-    public function testOverwriteWithNull()
+    public function testOverwriteWithNull(): void
     {
         $component = new \Dotclear\Helper\Diff\TidyDiffLine('context', [3, 4], 'content');
 

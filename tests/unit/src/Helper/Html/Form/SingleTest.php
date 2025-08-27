@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class SingleTest extends TestCase
 {
-    public function test()
+    public function test(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Single('hr');
         $rendered  = $component->render();
@@ -19,7 +19,7 @@ class SingleTest extends TestCase
         );
     }
 
-    public function testWithEmptyElement()
+    public function testWithEmptyElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Single('');
         $rendered  = $component->render();
@@ -30,7 +30,7 @@ class SingleTest extends TestCase
         );
     }
 
-    public function testWithACommonAttribute()
+    public function testWithACommonAttribute(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Single('hr');
         $component->setIdentifier('myid');
@@ -50,7 +50,7 @@ class SingleTest extends TestCase
         );
     }
 
-    public function testGetDefaultElement()
+    public function testGetDefaultElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Single('');
 
@@ -60,7 +60,7 @@ class SingleTest extends TestCase
         );
     }
 
-    public function testGetType()
+    public function testGetType(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Single('');
 
@@ -74,7 +74,7 @@ class SingleTest extends TestCase
         );
     }
 
-    public function testGetElement()
+    public function testGetElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Single('');
 
@@ -84,7 +84,7 @@ class SingleTest extends TestCase
         );
     }
 
-    public function testGetElementWithOtherElement()
+    public function testGetElementWithOtherElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Single('br');
 

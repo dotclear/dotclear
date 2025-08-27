@@ -25,7 +25,7 @@ class CryptTest extends TestCase
     /**
      *  Test big key. crypt don't allow key > than 64 cars
      */
-    public function testHMacBigKeyMD5()
+    public function testHMacBigKeyMD5(): void
     {
         $this->assertSame(
             hash_hmac('md5', $this->data, $this->big_key),
@@ -36,7 +36,7 @@ class CryptTest extends TestCase
     /**
      * hmac implicit SHA1 encryption (default argument)
      */
-    public function testHMacSHA1Implicit()
+    public function testHMacSHA1Implicit(): void
     {
         $this->assertSame(
             hash_hmac('sha1', $this->data, $this->big_key),
@@ -47,7 +47,7 @@ class CryptTest extends TestCase
     /**
      * hmac explicit SHA1 encryption
      */
-    public function testHMacSHA1Explicit()
+    public function testHMacSHA1Explicit(): void
     {
         $this->assertSame(
             hash_hmac('sha1', $this->data, $this->big_key),
@@ -58,7 +58,7 @@ class CryptTest extends TestCase
     /**
      * hmac explicit MD5 encryption
      */
-    public function testHMacMD5()
+    public function testHMacMD5(): void
     {
         $this->assertSame(
             hash_hmac('md5', $this->data, $this->big_key),
@@ -69,7 +69,7 @@ class CryptTest extends TestCase
     /**
      * If the encoder is not known, fallback into sha1 encoder (if PHP hash_hmac() exists)
      */
-    public function testHMacFallback()
+    public function testHMacFallback(): void
     {
         $this->assertSame(
             hash_hmac('sha1', $this->data, $this->big_key),
@@ -80,7 +80,7 @@ class CryptTest extends TestCase
     /**
      * hmacLegacy implicit
      */
-    public function testHMacLegacy()
+    public function testHMacLegacy(): void
     {
         $this->assertSame(
             hash_hmac('sha1', $this->data, $this->big_key),
@@ -91,7 +91,7 @@ class CryptTest extends TestCase
     /**
      * hmacLegacy explicit MD5 encryption
      */
-    public function testHMacLegacyMD5()
+    public function testHMacLegacyMD5(): void
     {
         $this->assertSame(
             hash_hmac('md5', $this->data, $this->big_key),
@@ -102,7 +102,7 @@ class CryptTest extends TestCase
     /**
      * hmacLegacy explicit Sha1 encryption
      */
-    public function testHMacLegacySha1()
+    public function testHMacLegacySha1(): void
     {
         $this->assertSame(
             hash_hmac('sha1', $this->data, $this->big_key),
@@ -113,7 +113,7 @@ class CryptTest extends TestCase
     /**
      * If the encoder is not known, fallback into sha1 encoder (if PHP hash_hmac() exists)
      */
-    public function testHMacLegacyFallback()
+    public function testHMacLegacyFallback(): void
     {
         $this->assertSame(
             hash_hmac('md5', $this->data, $this->big_key),
@@ -125,7 +125,7 @@ class CryptTest extends TestCase
      * Password must be 8 char size and only contains alpha numerical
      * values
      */
-    public function testCreatePassword()
+    public function testCreatePassword(): void
     {
         for ($i = 0; $i < 10; $i++) {
             $password = \Dotclear\Helper\Crypt::createPassword();

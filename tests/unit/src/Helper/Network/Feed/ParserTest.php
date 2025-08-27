@@ -15,7 +15,7 @@ class ParserTest extends TestCase
         $this->testDirectory = realpath(implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', '..', 'fixtures', 'src', 'Helper', 'Network', 'Feed']));
     }
 
-    public function testAsXML()
+    public function testAsXML(): void
     {
         $xml = file_get_contents($this->testDirectory . DIRECTORY_SEPARATOR . 'atom-1.0.xml');
 
@@ -27,7 +27,7 @@ class ParserTest extends TestCase
         );
     }
 
-    public function testRss10()
+    public function testRss10(): void
     {
         $xml    = file_get_contents($this->testDirectory . DIRECTORY_SEPARATOR . 'rss-1.0.xml');
         $parser = new \Dotclear\Helper\Network\Feed\Parser($xml);
@@ -80,7 +80,7 @@ class ParserTest extends TestCase
         );
     }
 
-    public function testRss20()
+    public function testRss20(): void
     {
         $xml    = file_get_contents($this->testDirectory . DIRECTORY_SEPARATOR . 'rss-2.0.xml');
         $parser = new \Dotclear\Helper\Network\Feed\Parser($xml);
@@ -134,7 +134,7 @@ class ParserTest extends TestCase
         );
     }
 
-    public function testAtom03()
+    public function testAtom03(): void
     {
         $xml    = file_get_contents($this->testDirectory . DIRECTORY_SEPARATOR . 'atom-0.3.xml');
         $parser = new \Dotclear\Helper\Network\Feed\Parser($xml);
@@ -187,7 +187,7 @@ class ParserTest extends TestCase
         );
     }
 
-    public function testAtom10()
+    public function testAtom10(): void
     {
         $xml    = file_get_contents($this->testDirectory . DIRECTORY_SEPARATOR . 'atom-1.0.xml');
         $parser = new \Dotclear\Helper\Network\Feed\Parser($xml);

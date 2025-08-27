@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class FieldsetTest extends TestCase
 {
-    public function test()
+    public function test(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Fieldset('my');
         $rendered  = $component->render();
@@ -27,7 +27,7 @@ class FieldsetTest extends TestCase
         );
     }
 
-    public function testWithElement()
+    public function testWithElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Fieldset('my', 'div');
         $rendered  = $component->render();
@@ -46,7 +46,7 @@ class FieldsetTest extends TestCase
         );
     }
 
-    public function testGetDefaultElement()
+    public function testGetDefaultElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Fieldset('my', 'slot');
 
@@ -56,7 +56,7 @@ class FieldsetTest extends TestCase
         );
     }
 
-    public function testGetType()
+    public function testGetType(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Fieldset('my');
 
@@ -70,7 +70,7 @@ class FieldsetTest extends TestCase
         );
     }
 
-    public function testGetElement()
+    public function testGetElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Fieldset('my');
 
@@ -80,7 +80,7 @@ class FieldsetTest extends TestCase
         );
     }
 
-    public function testGetElementWithOtherElement()
+    public function testGetElementWithOtherElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Fieldset('my', 'div');
 
@@ -90,7 +90,7 @@ class FieldsetTest extends TestCase
         );
     }
 
-    public function testAttachLegend()
+    public function testAttachLegend(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Fieldset();
 
@@ -104,7 +104,7 @@ class FieldsetTest extends TestCase
         );
     }
 
-    public function testAttachNullLegend()
+    public function testAttachNullLegend(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Fieldset();
 
@@ -119,7 +119,7 @@ class FieldsetTest extends TestCase
         );
     }
 
-    public function testDetachLegend()
+    public function testDetachLegend(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Fieldset();
 
@@ -134,7 +134,7 @@ class FieldsetTest extends TestCase
         );
     }
 
-    public function testFields()
+    public function testFields(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Fieldset();
 
@@ -150,7 +150,7 @@ class FieldsetTest extends TestCase
         );
     }
 
-    public function testFieldsIncludingLegend()
+    public function testFieldsIncludingLegend(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Fieldset();
 
@@ -173,7 +173,7 @@ class FieldsetTest extends TestCase
         );
     }
 
-    public function testFieldsIncludingAttachedLegend()
+    public function testFieldsIncludingAttachedLegend(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Fieldset();
 
@@ -206,7 +206,7 @@ class FieldsetTest extends TestCase
         );
     }
 
-    public function testWithoutNameOrId()
+    public function testWithoutNameOrId(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Fieldset();
         $rendered  = $component->render();
@@ -217,7 +217,7 @@ class FieldsetTest extends TestCase
         );
     }
 
-    public function testWithoutNameOrIdAndWithAnElement()
+    public function testWithoutNameOrIdAndWithAnElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Fieldset(null, 'div');
         $rendered  = $component->render();

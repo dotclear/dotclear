@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class XmlRpcExceptionTest extends TestCase
 {
-    public function test()
+    public function test(): void
     {
         $elt = new \Dotclear\Helper\Network\XmlRpc\XmlRpcException('dotclear', 42);
 

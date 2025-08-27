@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class OptgroupTest extends TestCase
 {
-    public function test()
+    public function test(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Optgroup('My Group');
         $rendered  = $component->render();
@@ -19,7 +19,7 @@ class OptgroupTest extends TestCase
         );
     }
 
-    public function testItemsText()
+    public function testItemsText(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Optgroup('My Group');
         $component->items([
@@ -43,7 +43,7 @@ class OptgroupTest extends TestCase
         );
     }
 
-    public function testItemsOption()
+    public function testItemsOption(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Optgroup('My Group');
         $component->items([
@@ -58,7 +58,7 @@ class OptgroupTest extends TestCase
         );
     }
 
-    public function testItemsOptgroup()
+    public function testItemsOptgroup(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Optgroup('My Group');
         $component->items([
@@ -82,7 +82,7 @@ class OptgroupTest extends TestCase
         );
     }
 
-    public function testItemsArray()
+    public function testItemsArray(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Optgroup('My Group');
         $component->items([
@@ -116,7 +116,7 @@ class OptgroupTest extends TestCase
         );
     }
 
-    public function testEmptyItems()
+    public function testEmptyItems(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Optgroup('My Group');
         $component->items([]);
@@ -128,7 +128,7 @@ class OptgroupTest extends TestCase
         );
     }
 
-    public function testGetDefaultElement()
+    public function testGetDefaultElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Optgroup('My Group');
 
@@ -138,7 +138,7 @@ class OptgroupTest extends TestCase
         );
     }
 
-    public function testGetType()
+    public function testGetType(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Optgroup('My Group');
 
@@ -152,7 +152,7 @@ class OptgroupTest extends TestCase
         );
     }
 
-    public function testGetElement()
+    public function testGetElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Optgroup('My Group');
 
@@ -162,7 +162,7 @@ class OptgroupTest extends TestCase
         );
     }
 
-    public function testGetElementWithOtherElement()
+    public function testGetElementWithOtherElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Optgroup('My Group', 'span');
 

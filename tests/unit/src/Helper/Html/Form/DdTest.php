@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class DdTest extends TestCase
 {
-    public function test()
+    public function test(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Dd();
         $rendered  = $component->render();
@@ -19,7 +19,7 @@ class DdTest extends TestCase
         );
     }
 
-    public function testWithText()
+    public function testWithText(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Dd();
         $component->text('Here');
@@ -31,7 +31,7 @@ class DdTest extends TestCase
         );
     }
 
-    public function testWithId()
+    public function testWithId(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Dd('myid');
         $rendered  = $component->render();
@@ -50,7 +50,7 @@ class DdTest extends TestCase
         );
     }
 
-    public function testGetDefaultElement()
+    public function testGetDefaultElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Dd();
 
@@ -60,7 +60,7 @@ class DdTest extends TestCase
         );
     }
 
-    public function testGetType()
+    public function testGetType(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Dd();
 
@@ -74,7 +74,7 @@ class DdTest extends TestCase
         );
     }
 
-    public function testGetElement()
+    public function testGetElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Dd();
 
@@ -84,7 +84,7 @@ class DdTest extends TestCase
         );
     }
 
-    public function testGetElementWithOtherElement()
+    public function testGetElementWithOtherElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Dd('my', 'span');
 

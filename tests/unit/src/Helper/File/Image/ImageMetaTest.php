@@ -80,7 +80,7 @@ namespace Dotclear\Tests\Helper\File\Image {
             $this->root = realpath(implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', '..', 'fixtures', 'src', 'Helper', 'Image']));
         }
 
-        public function test()
+        public function test(): void
         {
             $meta = \Dotclear\Helper\File\Image\ImageMeta::readMeta(implode(DIRECTORY_SEPARATOR, [$this->root, 'image.jpg']));
 
@@ -113,7 +113,7 @@ namespace Dotclear\Tests\Helper\File\Image {
             );
         }
 
-        public function testExifIptc()
+        public function testExifIptc(): void
         {
             $meta = \Dotclear\Helper\File\Image\ImageMeta::readMeta(implode(DIRECTORY_SEPARATOR, [$this->root, 'img_exif_iptc.jpg']));
 
@@ -146,7 +146,7 @@ namespace Dotclear\Tests\Helper\File\Image {
             );
         }
 
-        public function testExifIptcXmp()
+        public function testExifIptcXmp(): void
         {
             $meta = \Dotclear\Helper\File\Image\ImageMeta::readMeta(implode(DIRECTORY_SEPARATOR, [$this->root, 'img_exif_iptc_xmp.jpg']));
 
@@ -179,7 +179,7 @@ namespace Dotclear\Tests\Helper\File\Image {
             );
         }
 
-        public function testUnreadable()
+        public function testUnreadable(): void
         {
             $this->expectException(Exception::class);
             $this->expectExceptionMessage('Unable to read file');
@@ -187,7 +187,7 @@ namespace Dotclear\Tests\Helper\File\Image {
             $meta = \Dotclear\Helper\File\Image\ImageMeta::readMeta(implode(DIRECTORY_SEPARATOR, [$this->root, 'none.jpg']));
         }
 
-        public function testIptcParseDisabled()
+        public function testIptcParseDisabled(): void
         {
             // Mock function_exists()
             FunctionExistsMock::set(fn (string $function): bool => $function === 'iptcparse' ? false : \function_exists($function));
@@ -227,7 +227,7 @@ namespace Dotclear\Tests\Helper\File\Image {
         }
 
         #[Depends('testIptcParseDisabled')]
-        public function testExifReadDataDisabled()
+        public function testExifReadDataDisabled(): void
         {
             // Mock function_exists()
             FunctionExistsMock::set(fn (string $function): bool => $function === 'exif_read_data' ? false : \function_exists($function));
@@ -266,7 +266,7 @@ namespace Dotclear\Tests\Helper\File\Image {
             FunctionExistsMock::set(null);
         }
 
-        public function testGetImageSizeDisabled()
+        public function testGetImageSizeDisabled(): void
         {
             // Mock getimagesize()
             GetImageSizeMock::set(fn (string $function, &$image_info): array|false => false);
@@ -305,7 +305,7 @@ namespace Dotclear\Tests\Helper\File\Image {
             GetImageSizeMock::set(null);
         }
 
-        public function testExifReadDataError()
+        public function testExifReadDataError(): void
         {
             // Mock exif_read_data()
             ExifReadDataMock::set(fn ($file, ?string $required_sections = null, bool $as_arrays = false, bool $read_thumbnail = false): array|false => false);

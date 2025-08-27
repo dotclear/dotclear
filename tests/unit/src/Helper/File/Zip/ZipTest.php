@@ -92,7 +92,7 @@ class ZipTest extends TestCase
         self::prepareTests($rootzip);
     }
 
-    public function testLegacy()
+    public function testLegacy(): void
     {
         $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
         $archive = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER . '-' . self::ZIP_LEGACY]);
@@ -145,7 +145,7 @@ class ZipTest extends TestCase
         );
     }
 
-    public function testStreamLegacy()
+    public function testStreamLegacy(): void
     {
         $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
 

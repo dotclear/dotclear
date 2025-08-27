@@ -48,7 +48,7 @@ class JoinStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function test(string $driver, string $syntax)
+    public function test(string $driver, string $syntax): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\JoinStatement($con, $syntax);
@@ -95,7 +95,7 @@ class JoinStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function testNoFrom(string $driver, string $syntax)
+    public function testNoFrom(string $driver, string $syntax): void
     {
         $con = $this->getConnection($driver, $syntax);
         $sql = new \Dotclear\Database\Statement\JoinStatement($con, $syntax);

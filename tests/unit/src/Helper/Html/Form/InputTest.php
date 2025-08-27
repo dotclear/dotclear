@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class InputTest extends TestCase
 {
-    public function test()
+    public function test(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Input('my', 'hidden');
         $rendered  = $component->render();
@@ -27,7 +27,7 @@ class InputTest extends TestCase
         );
     }
 
-    public function testWithoutType()
+    public function testWithoutType(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Input('my');
         $rendered  = $component->render();
@@ -50,7 +50,7 @@ class InputTest extends TestCase
         );
     }
 
-    public function testGetDefaultElement()
+    public function testGetDefaultElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Input('my');
 
@@ -60,7 +60,7 @@ class InputTest extends TestCase
         );
     }
 
-    public function testAttachLabel()
+    public function testAttachLabel(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Input('my');
 
@@ -74,7 +74,7 @@ class InputTest extends TestCase
         );
     }
 
-    public function testAttachLabelOutside()
+    public function testAttachLabelOutside(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Input('my');
 
@@ -88,7 +88,7 @@ class InputTest extends TestCase
         );
     }
 
-    public function testAttachLabelButWithoutRendering()
+    public function testAttachLabelButWithoutRendering(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Input('my', 'test', false);
 
@@ -102,7 +102,7 @@ class InputTest extends TestCase
         );
     }
 
-    public function testDetachLabel()
+    public function testDetachLabel(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Input('my');
 
@@ -115,7 +115,7 @@ class InputTest extends TestCase
         );
     }
 
-    public function testWithPopovertarget()
+    public function testWithPopovertarget(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Input('my');
         $component->popovertarget('My-Popover');
@@ -127,7 +127,7 @@ class InputTest extends TestCase
         );
     }
 
-    public function testWithPopovertargetaction()
+    public function testWithPopovertargetaction(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Input('my');
         $component->popovertargetaction('show');
@@ -139,7 +139,7 @@ class InputTest extends TestCase
         );
     }
 
-    public function testWithoutNameOrId()
+    public function testWithoutNameOrId(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Input();
         $rendered  = $component->render();
@@ -150,7 +150,7 @@ class InputTest extends TestCase
         );
     }
 
-    public function testWithoutNameOrIdAndWithAValue()
+    public function testWithoutNameOrIdAndWithAValue(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Input(null, 'value');
         $rendered  = $component->render();
@@ -161,7 +161,7 @@ class InputTest extends TestCase
         );
     }
 
-    public function testNoIdOutsideLabel()
+    public function testNoIdOutsideLabel(): void
     {
         $component = $this->getMockBuilder(\Dotclear\Helper\Html\Form\Input::class)
             ->onlyMethods(['checkMandatoryAttributes'])
@@ -180,7 +180,7 @@ class InputTest extends TestCase
         );
     }
 
-    public function testNoIdVerbose()
+    public function testNoIdVerbose(): void
     {
         $component = $this->getMockBuilder(\Dotclear\Helper\Html\Form\Input::class)
             ->onlyMethods(['checkMandatoryAttributes', 'isVerbose'])

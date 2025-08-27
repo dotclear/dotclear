@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class HtmlValidatorTest extends TestCase
 {
-    public function testNetworkError()
+    public function testNetworkError(): void
     {
         /*
          * Create partial mock for getStatus() and post()
@@ -25,7 +25,7 @@ class HtmlValidatorTest extends TestCase
         $validator->perform($doc);
     }
 
-    public function testGetDocument()
+    public function testGetDocument(): void
     {
         $validator = new \Dotclear\Helper\Html\HtmlValidator();
         $str       = <<<EODTIDY
@@ -49,7 +49,7 @@ class HtmlValidatorTest extends TestCase
         );
     }
 
-    public function testGetErrors()
+    public function testGetErrors(): void
     {
         $validator = new \Dotclear\Helper\Html\HtmlValidator();
         $str       = <<<EODTIDYE
@@ -75,7 +75,7 @@ class HtmlValidatorTest extends TestCase
         );
     }
 
-    public function testValidate()
+    public function testValidate(): void
     {
         $validate = \Dotclear\Helper\Html\HtmlValidator::validate('<p>Hello</p>');
 
