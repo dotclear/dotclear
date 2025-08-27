@@ -14,10 +14,10 @@ use Dotclear\Core\Core;
 use Dotclear\Helper\L10n;
 
 // Composer Autoloader
-require_once __DIR__ . '/../../vendor/autoload.php';
+require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'vendor', 'autoload.php']);
 
 // Dotclear Autoloader
-require_once __DIR__ . '/../../src/Autoloader.php';
+require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'src', 'Autoloader.php']);
 $autoloader = new Autoloader('', '', true);
 $autoloader->addNamespace('Dotclear', implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'src']));
 
@@ -27,6 +27,9 @@ $__autoload = [
     'formSelectOption' => implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'src', 'Helper', 'Html', 'Form', 'Legacy.php']),
 ];
 spl_autoload_register(function ($name) use ($__autoload) {if (isset($__autoload[$name])) { require_once $__autoload[$name]; }});
+
+// Load PHPGlobal helper
+require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'src', 'PHPGlobal.php']);
 
 // Ensure L10n functions exist
 L10n::bootstrap();

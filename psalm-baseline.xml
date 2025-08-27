@@ -85,7 +85,7 @@
       <code><![CDATA[$v['collate']]]></code>
     </TypeDoesNotContainType>
   </file>
-  <file src="src/Database/Driver/Mysqli/Handler.php">
+  <file src="src/Schema/Database/Mysqli/Handler.php">
     <RedundantCondition>
       <code><![CDATA['']]></code>
     </RedundantCondition>
@@ -94,7 +94,7 @@
       <code><![CDATA[$v['collate']]]></code>
     </TypeDoesNotContainType>
   </file>
-  <file src="src/Database/Driver/Mysqlimb4/Handler.php">
+  <file src="src/Schema/Database/Mysqlimb4/Handler.php">
     <RedundantCondition>
       <code><![CDATA['']]></code>
     </RedundantCondition>
@@ -103,14 +103,14 @@
       <code><![CDATA[$v['collate']]]></code>
     </TypeDoesNotContainType>
   </file>
-  <file src="src/Database/Driver/Pgsql/Handler.php">
+  <file src="src/Schema/Database/Pgsql/Handler.php">
     <RedundantCast/>
     <TypeDoesNotContainType>
       <code><![CDATA[$v['collate']]]></code>
       <code><![CDATA[$v['collate']]]></code>
     </TypeDoesNotContainType>
   </file>
-  <file src="src/Database/Driver/Sqlite/Handler.php">
+  <file src="src/Schema/Database/Sqlite/Handler.php">
     <TypeDoesNotContainType>
       <code><![CDATA[$v['collate']]]></code>
       <code><![CDATA[$v['collate']]]></code>
