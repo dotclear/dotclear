@@ -17,9 +17,9 @@ use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\JoinStatement;
 use Dotclear\Database\Statement\SelectStatement;
+use Dotclear\Exception\BadRequestException;
 use Dotclear\Interface\Core\CredentialInterface;
 use Dotclear\Schema\Extension\Credential as CredentialExtension;
-use Exception;
 
 /**
  * @brief   User credentials handler.
@@ -133,14 +133,14 @@ class Credential implements CredentialInterface
     public function setCredential(string $user_id, Cursor $cur): void
     {
         if ('' === $cur->getField('blog_id')) {
-            throw new Exception('Invalid blog id');
+            throw new BadRequestException('Invalid blog id');
         }
 
         if (null === $cur->getField('user_id')) {
             $cur->setField('user_id', $this->core->auth()->userID());
         }
         if ('' == $cur->getField('user_id')) {
-            throw new Exception('Invalid user id');
+            throw new BadRequestException('Invalid user id');
         }
 
         if ('' == $cur->getField('credential_dt')) {
@@ -148,7 +148,7 @@ class Credential implements CredentialInterface
         }
 
         if ('' == $cur->getField('credential_type')) {
-            throw new Exception('Invalid credential type');
+            throw new BadRequestException('Invalid credential type');
         }
 
         if (null === $cur->getField('credential_value')) {
