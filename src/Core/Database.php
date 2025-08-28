@@ -11,22 +11,23 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
-use Dotclear\Database\ContainerHandler;
 use Dotclear\Exception\DatabaseException;
+use Dotclear\Helper\Container\Container;
+use Dotclear\Helper\Container\Factories;
 use Dotclear\Interface\Core\DatabaseInterface;
 use Dotclear\Interface\Database\ConnectionInterface;
 
 /**
  * @brief   Database handler.
  *
+ * If container service in an anonymous function 
+ * we can not check it extends ConnectionInterface.
+ *
  * @since   2.36
  */
-class Database implements DatabaseInterface
+class Database extends Container implements DatabaseInterface
 {
-    /**
-     * Database connection handlers container.
-     */
-    protected ContainerHandler $container_handler;
+    public const CONTAINER_ID = 'database';
 
     /**
      * Constructs a new instance.
@@ -36,6 +37,17 @@ class Database implements DatabaseInterface
     public function __construct(
         protected Core $core
     ) {
+        parent::__construct(Factories::getFactory(static::CONTAINER_ID));
+    }
+
+    public function getDefaultServices(): array
+    {
+        return [    // @phpstan-ignore-line
+            'mysqli'    => \Dotclear\Schema\Database\Mysqli\Handler::class,
+            'mysqlimb4' => \Dotclear\Schema\Database\Mysqlimb4\Handler::class,
+            'pgsql'     => \Dotclear\Schema\Database\Pgsql\Handler::class,
+            'sqlite'    => \Dotclear\Schema\Database\Sqlite\Handler::class,
+        ];
     }
 
     public function con(string $driver = '', string $host = '', string $database = '', string $user = '', string $password = '', bool $persistent = false, string $prefix = ''): ConnectionInterface
@@ -59,15 +71,27 @@ class Database implements DatabaseInterface
             $driver = 'mysqli';
         }
 
-        if (!isset($this->container_handler)) {
-            $this->container_handler = new ContainerHandler();
-        }
-
         // Stop on unknown driver
-        if ($driver === '' || !$this->container_handler->has($driver)) {
+        $class = $this->factory->get($driver);
+        if ($driver === '' || !$this->has($driver) || (is_string($class) && !is_subclass_of($class, ConnectionInterface::class))) {
             throw new DatabaseException(sprintf('Database handler %s does not exist', $driver));
         }
 
-        return $this->container_handler->get($driver, $reload, host: $host, database: $database, user: $user, password: $password, persistent: $persistent, prefix: $prefix);
+        return $this->get($driver, $reload, host: $host, database: $database, user: $user, password: $password, persistent: $persistent, prefix: $prefix);
+    }
+
+    public function combo(): array
+    {
+        $res = [];
+        foreach ($this->factory->dump() as $driver => $service) {
+            if (is_string($service) && is_subclass_of($service, ConnectionInterface::class)) {
+                $res[__($service::HANDLER_NAME)] = $service::HANDLER_DRIVER;
+            } else {
+                // or maybe an anonymous function
+                $res[$driver] = $driver;
+            }
+        }
+
+        return $res;
     }
 }

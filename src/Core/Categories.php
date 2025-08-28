@@ -13,8 +13,10 @@ namespace Dotclear\Core;
 
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
+use Dotclear\Exception\BadRequestException;
+use Dotclear\Exception\ProcessException;
 use Dotclear\Interface\Core\CategoriesInterface;
-use Exception;
+use Throwable;
 
 /**
  * @brief   Categories handler.
@@ -136,7 +138,7 @@ class Categories implements CategoriesInterface
     public function addNode($data, int $target = 0)
     {
         if (!is_array($data) && !($data instanceof Cursor)) {
-            throw new Exception('Invalid data block');
+            throw new BadRequestException('Invalid data block');
         }
 
         if (is_array($data)) {
@@ -173,10 +175,10 @@ class Categories implements CategoriesInterface
                 $this->setNodeParent($id + 1, $target);
 
                 return $data->{$this->f_id};
-            } catch (Exception) {
+            } catch (Throwable) {
                 // We don't mind error in this case
             }
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             $this->core->db()->con()->unlock();
 
             throw $e;
@@ -194,7 +196,7 @@ class Categories implements CategoriesInterface
         try {
             $this->core->db()->con()->execute($sql);
             $this->core->db()->con()->commit();
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             $this->core->db()->con()->rollback();
 
             throw $e;
@@ -204,7 +206,7 @@ class Categories implements CategoriesInterface
     {
         $rs = $this->getChildren(0, $node);
         if ($rs->isEmpty()) {
-            throw new Exception('Node does not exist.');
+            throw new BadRequestException('Node does not exist.');
         }
         $node_left  = (int) $rs->{$this->f_left};
         $node_right = (int) $rs->{$this->f_right};
@@ -226,7 +228,7 @@ class Categories implements CategoriesInterface
             }
 
             $this->core->db()->con()->commit();
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             $this->core->db()->con()->rollback();
 
             throw $e;
@@ -248,7 +250,7 @@ class Categories implements CategoriesInterface
                 );
             }
             $this->core->db()->con()->commit();
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             $this->core->db()->con()->rollback();
 
             throw $e;
@@ -263,7 +265,7 @@ class Categories implements CategoriesInterface
 
         $rs = $this->getChildren(0, $node);
         if ($rs->isEmpty()) {
-            throw new Exception('Node does not exist.');
+            throw new BadRequestException('Node does not exist.');
         }
         $node_left  = (int) $rs->{$this->f_left};
         $node_right = (int) $rs->{$this->f_right};
@@ -284,7 +286,7 @@ class Categories implements CategoriesInterface
             || ($target_left >= $node_left && $target_left <= $node_right)
             || ($node_level === $target_level + 1 && $node_left > $target_left && $node_right < $target_right)
         ) {
-            throw new Exception('Cannot move tree');
+            throw new ProcessException('Cannot move tree');
         }
 
         if ($target_left < $node_left && $target_right > $node_right && $target_level < $node_level - 1) {
@@ -303,7 +305,7 @@ class Categories implements CategoriesInterface
     {
         $rs = $this->getChildren(0, $nodeA);
         if ($rs->isEmpty()) {
-            throw new Exception('Node does not exist.');
+            throw new BadRequestException('Node does not exist.');
         }
         $A_left  = (int) $rs->{$this->f_left};
         $A_right = (int) $rs->{$this->f_right};
@@ -311,14 +313,14 @@ class Categories implements CategoriesInterface
 
         $rs = $this->getChildren(0, $nodeB);
         if ($rs->isEmpty()) {
-            throw new Exception('Node does not exist.');
+            throw new BadRequestException('Node does not exist.');
         }
         $B_left  = (int) $rs->{$this->f_left};
         $B_right = (int) $rs->{$this->f_right};
         $B_level = (int) $rs->level;
 
         if ($A_level !== $B_level) {
-            throw new Exception('Cannot change position');
+            throw new ProcessException('Cannot change position');
         }
 
         $rs      = $this->getParents($nodeA);
@@ -327,7 +329,7 @@ class Categories implements CategoriesInterface
         $parentB = $rs->isEmpty() ? 0 : (int) $rs->{$this->f_id};
 
         if ($parentA !== $parentB) {
-            throw new Exception('Cannot change position');
+            throw new ProcessException('Cannot change position');
         }
 
         if ($position === 'before') {

@@ -263,11 +263,7 @@ class Wizard extends Process
         '<p><label class="required" for="DBDRIVER"><span>*</span> ' . __('Database type:') . '</label> ' .
         form::combo(
             'DBDRIVER',
-            [
-                __('MySQLi')              => 'mysqli',
-                __('MySQLi (full UTF-8)') => 'mysqlimb4',
-                __('PostgreSQL')          => 'pgsql',
-                __('SQLite')              => 'sqlite', ],
+            App::db()->combo(),
             ['default' => self::$DBDRIVER, 'extra_html' => 'required placeholder="' . __('Driver') . '"']
         ) . '</p>' .
         '<p><label for="DBHOST">' . __('Database Host Name:') . '</label> ' .

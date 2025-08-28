@@ -34,4 +34,11 @@ interface DatabaseInterface
      * @param   string  $prefix         Database tables prefix
      */
     public function con(string $driver = '', string $host = '', string $database = '', string $user = '', string $password = '', bool $persistent = false, string $prefix = ''): ConnectionInterface;
+
+    /**
+     * Get combo of available database drivers.
+     *
+     * @return  array<string, string>   The drivers name/driver pairs
+     */
+    public function combo(): array;
 }

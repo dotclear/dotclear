@@ -109,7 +109,7 @@ class Lexical implements LexicalInterface
     {
         $this->setLexicalLang($namespace, $lang);
 
-        return self::lexicalSortHelper($a, $b);
+        return $this->lexicalSortHelper($a, $b);
     }
 
     /**

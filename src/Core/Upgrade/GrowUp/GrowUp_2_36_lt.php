@@ -30,16 +30,22 @@ class GrowUp_2_36_lt
                 'locales/he/core_core_*.html',
                 'locales/uk/core_core_*.html',
                 'src/Config.php', // mv src/Core
+                'src/Interface/ConfigInterface.php', // mv src/Inertafce/Core
                 'src/Core/Connection.php', // rm
-                'src/Database/InterfaceHandler.php', // mv src/Interface/Database
                 'src/Interface/Config.php', // mv src/Interface/Core
                 'src/Interface/Core/ConnectionInterface.php', // mv src/Interface/Database
                 'src/Interface/Core/SchemaInterface.php', // mv src/Interface/Database
+                'src/Interface/Database/InterfaceSchema.php', // merge in SchemaInterface
+                'src/Database/InterfaceHandler.php', // merge in ConnectionInterface
+                'src/Database/ContainerHandler.php', // rm
+                'src/Database/ContainerSchema.php', // rm
+                'src/Database/DbSchemaInterface.php', // rm
+                'src/Database/DbHandlerInterface', // rm
             ],
             // Folders
             [
                 'plugins/antispam/locales/lb',
-                'src/Database/Driver', // moved to src/Schema/Database
+                'src/Database/Driver', // mv src/Schema/Database
             ]
         );
 

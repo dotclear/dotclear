@@ -10,23 +10,15 @@ declare(strict_types=1);
 
 namespace Dotclear\Database;
 
-use Dotclear\App;
 use Dotclear\Exception\DatabaseException;
 use Dotclear\Interface\Database\ConnectionInterface;
 use Dotclear\Interface\Database\SchemaInterface;
 
 /**
- * @class AbstractHandler
- *
- * Database handler abstraction
+ * @brief   Database handler abstraction
  */
 abstract class AbstractHandler implements ConnectionInterface
 {
-    /**
-     * Database schema factory container.
-     */
-    protected ContainerSchema $container_schema;
-
     /**
      * Driver name
      */
@@ -67,6 +59,8 @@ abstract class AbstractHandler implements ConnectionInterface
     protected string $__database;
 
     /**
+     * Constructs a new instance.
+     *
      * @param string    $host        Database hostname
      * @param string    $database    Database name
      * @param string    $user        User ID
@@ -75,7 +69,12 @@ abstract class AbstractHandler implements ConnectionInterface
      */
     public function __construct(string $host, string $database, string $user = '', string $password = '', bool $persistent = false, string $prefix = '')
     {
-        $this->container_schema  = new ContainerSchema();
+        if (!isset($this->__driver)) {
+            $this->__driver = static::HANDLER_DRIVER;
+        }
+        if (!isset($this->__syntax)) {
+            $this->__syntax = static::HANDLER_SYNTAX;
+        }
 
         if ($persistent) {
             $this->__link = $this->db_pconnect($host, $user, $password, $database);
@@ -91,17 +90,11 @@ abstract class AbstractHandler implements ConnectionInterface
         }
     }
 
-    /**
-     * Closes database connection.
-     */
     public function close(): void
     {
         $this->db_close($this->__link);
     }
 
-    /**
-     * Returns database driver name
-     */
     public function driver(): string
     {
         return $this->__driver;
@@ -109,62 +102,41 @@ abstract class AbstractHandler implements ConnectionInterface
 
     public function schema(): SchemaInterface
     {
-        if (!$this->container_schema->has($this->driver())) {
-            throw new DatabaseException(sprintf('Database schema %s does not exist', $this->driver()));
+        // If handler does not provide method schema(), we try a class named Schema in same namespace
+        $class = substr(static::class, 0, (int) strrpos(static::class, '\\')) . '\\Schema';
+
+        if (!class_exists($class) || !is_subclass_of($class, SchemaInterface::class)) {
+            throw new DatabaseException('Undefined database schema handler');
         }
 
-        return $this->container_schema->get($this->driver(), true, $this);
+        return new $class($this);
     }
 
-    /**
-     * Returns database SQL syntax name
-     */
     public function syntax(): string
     {
         return $this->__syntax;
     }
 
-    /**
-     * Returns database driver version
-     */
     public function version(): string
     {
         return $this->__version;
     }
 
-    /**
-     * Returns database table prefix
-     */
     public function prefix(): string
     {
         return $this->__prefix;
     }
 
-    /**
-     * Returns current database name
-     */
     public function database(): string
     {
         return $this->__database;
     }
 
-    /**
-     * Returns link resource
-     *
-     * @return mixed
-     */
     public function link()
     {
         return $this->__link;
     }
 
-    /**
-     * Run query and get results
-     *
-     * Executes a query and return a {@link record} object.
-     *
-     * @param string    $sql            SQL query
-     */
     public function select(string $sql): Record
     {
         /* @phpstan-ignore-next-line */
@@ -186,11 +158,6 @@ abstract class AbstractHandler implements ConnectionInterface
         return new Record($result, $info);
     }
 
-    /**
-     * Return an empty record
-     *
-     * Return an empty {@link record} object (without any information).
-     */
     public function nullRecord(): Record
     {
         $result = false;
@@ -204,15 +171,6 @@ abstract class AbstractHandler implements ConnectionInterface
         return new Record($result, $info);
     }
 
-    /**
-     * Run query
-     *
-     * Executes a query and return true if succeed
-     *
-     * @param string    $sql            SQL query
-     *
-     * @return bool true
-     */
     public function execute(string $sql): bool
     {
         $result = $this->db_exec($this->__link, $sql);
@@ -222,86 +180,40 @@ abstract class AbstractHandler implements ConnectionInterface
         return true;
     }
 
-    /**
-     * Begin transaction
-     *
-     * Begins a transaction. Transaction should be {@link commit() commited}
-     * or {@link rollback() rollbacked}.
-     */
     public function begin(): void
     {
         $this->execute('BEGIN');
     }
 
-    /**
-     * Commit transaction
-     *
-     * Commits a previoulsy started transaction.
-     */
     public function commit(): void
     {
         $this->execute('COMMIT');
     }
 
-    /**
-     * Rollback transaction
-     *
-     * Rollbacks a previously started transaction.
-     */
     public function rollback(): void
     {
         $this->execute('ROLLBACK');
     }
 
-    /**
-     * Aquiere write lock
-     *
-     * This method lock the given table in write access.
-     *
-     * @param string    $table        Table name
-     */
     public function writeLock(string $table): void
     {
         $this->db_write_lock($table);
     }
 
-    /**
-     * Release lock
-     *
-     * This method releases an acquiered lock.
-     */
     public function unlock(): void
     {
         $this->db_unlock();
     }
 
-    /**
-     * Vacuum the table given in argument.
-     *
-     * @param string    $table        Table name
-     */
     public function vacuum(string $table): void
     {
     }
 
-    /**
-     * Changed rows
-     *
-     * Returns the number of lines affected by the last DELETE, INSERT or UPDATE
-     * query.
-     */
     public function changes(): int
     {
         return $this->db_changes($this->__link, $this->__last_result);
     }
 
-    /**
-     * Last error
-     *
-     * Returns the last database error or false if no error.
-     *
-     * @return string|false
-     */
     public function error()
     {
         $err = $this->db_last_error($this->__link);
@@ -313,39 +225,12 @@ abstract class AbstractHandler implements ConnectionInterface
         return $err;
     }
 
-    /**
-     * Date formatting
-     *
-     * Returns a query fragment with date formater.
-     *
-     * The following modifiers are accepted:
-     *
-     * - %d : Day of the month, numeric
-     * - %H : Hour 24 (00..23)
-     * - %M : Minute (00..59)
-     * - %m : Month numeric (01..12)
-     * - %S : Seconds (00..59)
-     * - %Y : Year, numeric, four digits
-     *
-     * @param string    $field            Field name
-     * @param string    $pattern          Date format
-     */
     public function dateFormat(string $field, string $pattern): string
     {
         return
         'TO_CHAR(' . $field . ',' . "'" . $this->escape($pattern) . "')";   // @phpstan-ignore-line
     }
 
-    /**
-     * Query Limit
-     *
-     * Returns a LIMIT query fragment. <var>$arg1</var> could be an array of
-     * offset and limit or an integer which is only limit. If <var>$arg2</var>
-     * is given and <var>$arg1</var> is an integer, it would become limit.
-     *
-     * @param array<mixed>|int      $arg1        array or integer with limit intervals
-     * @param int|null              $arg2        integer or null
-     */
     public function limit($arg1, ?int $arg2 = null): string
     {
         if (is_array($arg1)) {
@@ -357,14 +242,6 @@ abstract class AbstractHandler implements ConnectionInterface
         return $arg2 === null ? ' LIMIT ' . (int) $arg1 . ' ' : ' LIMIT ' . $arg2 . ' OFFSET ' . (int) $arg1 . ' ';
     }
 
-    /**
-     * IN fragment
-     *
-     * Returns a IN query fragment where $in could be an array, a string,
-     * an integer or null
-     *
-     * @param array<mixed>|string|int|null        $in        "IN" values
-     */
     public function in($in): string
     {
         if (is_null($in)) {
@@ -386,21 +263,6 @@ abstract class AbstractHandler implements ConnectionInterface
         return ' IN (' . (int) $in . ') ';
     }
 
-    /**
-     * ORDER BY fragment
-     *
-     * Returns a ORDER BY query fragment where arguments could be an array or a string
-     *
-     * array param:
-     *    key      : decription
-     *    field    : field name (string)
-     *    collate  : True or False (boolean) (Alphabetical order / Binary order)
-     *    order    : ASC or DESC (string) (Ascending order / Descending order)
-     *
-     * string param field name (Binary ascending order)
-     *
-     * @param   array<string, mixed>|string     ...$args
-     */
     public function orderBy(...$args): string
     {
         $res     = [];
@@ -421,16 +283,6 @@ abstract class AbstractHandler implements ConnectionInterface
         return $res === [] ? '' : ' ORDER BY ' . implode(',', $res) . ' ';
     }
 
-    /**
-     * Field name(s) fragment (using generic UTF8 collating sequence if available else using SQL LOWER function)
-     *
-     * Returns a fields list where args could be an array or a string
-     *
-     * array param: list of field names
-     * string param: field name
-     *
-     * @param   array<string>|string     ...$args
-     */
     public function lexFields(...$args): string
     {
         $res = [];
@@ -446,28 +298,11 @@ abstract class AbstractHandler implements ConnectionInterface
         return implode(',', $res);
     }
 
-    /**
-     * Concat strings
-     *
-     * Returns SQL concatenation of methods arguments. Theses arguments
-     * should be properly escaped when needed.
-     *
-     * @param   mixed     ...$args
-     */
     public function concat(...$args): string
     {
         return implode(' || ', $args);
     }
 
-    /**
-     * Escape string
-     *
-     * Returns SQL protected string or array values.
-     *
-     * @param string|array<string, mixed>    $i        String or array to protect
-     *
-     * @return string|array<string, string>
-     */
     public function escape($i)
     {
         if (is_array($i)) {
@@ -481,38 +316,16 @@ abstract class AbstractHandler implements ConnectionInterface
         return $this->escapeStr($i);
     }
 
-    /**
-     * Escape string
-     *
-     * Returns SQL protected string value.
-     *
-     * @param string    $str        String to protect
-     */
     public function escapeStr(string $str): string
     {
         return $this->db_escape_string($str, $this->__link);
     }
 
-    /**
-     * System escape string
-     *
-     * Returns SQL system protected string.
-     *
-     * @param string        $str        String to protect
-     */
     public function escapeSystem(string $str): string
     {
         return '"' . $str . '"';
     }
 
-    /**
-     * Cursor object
-     *
-     * Returns a new instance of {@link Cursor} class on <var>$table</var> for
-     * the current connection.
-     *
-     * @param string        $table    Target table
-     */
     public function openCursor(string $table): Cursor
     {
         return new Cursor($this, $table);

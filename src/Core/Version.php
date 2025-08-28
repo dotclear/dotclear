@@ -53,7 +53,7 @@ class Version implements VersionInterface
 
     public function openVersionCursor(): Cursor
     {
-        return $this->core->db()->con()->openCursor($this->core->db()->con()->prefix() . self::VERSION_TABLE_NAME);
+        return $this->core->db()->con()->openCursor($this->table);
     }
 
     public function getVersion(string $module = 'core'): string
