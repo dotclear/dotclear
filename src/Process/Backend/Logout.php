@@ -36,6 +36,6 @@ class Logout extends Process
         App::backend()->killAdminSession();
         // Logout
         App::backend()->url()->redirect('admin.auth');
-        terminate();
+        dotclear_exit();
     }
 }

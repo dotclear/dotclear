@@ -648,7 +648,7 @@ class Post extends Process
         if (!App::backend()->can_view_page) {
             Page::helpBlock('core_post');
             Page::close();
-            terminate();
+            dotclear_exit();
         }
 
         /* Post form if we can edit post

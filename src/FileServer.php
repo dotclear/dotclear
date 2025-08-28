@@ -393,7 +393,7 @@ class FileServer
 
         header('Content-Type: ' . Files::getMimeType((string) $this->file));
         readfile((string) $this->file);
-        terminate();
+        dotclear_exit();
     }
 
     /**
@@ -403,7 +403,7 @@ class FileServer
     {
         header('Content-Type: text/plain');
         Http::head(404, 'Not Found');
-        terminate();
+        dotclear_exit();
     }
 
     /**
@@ -413,6 +413,6 @@ class FileServer
     {
         header('Content-Type: text/plain');
         Http::head(403, 'Forbidden');
-        terminate();
+        dotclear_exit();
     }
 }

@@ -28,6 +28,7 @@ class TidyDiffLineTest extends TestCase
         );
 
         $this->assertNull(
+            // @phpstan-ignore property.notFound
             $component->unknown
         );
     }
@@ -36,7 +37,8 @@ class TidyDiffLineTest extends TestCase
     {
         $component = new \Dotclear\Helper\Diff\TidyDiffLine('unknown', [3, 4], 'content');
 
-        $this->assertNull(
+        $this->assertEquals(
+            '',
             $component->type
         );
 

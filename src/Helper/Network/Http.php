@@ -171,7 +171,7 @@ class Http
 
         header('Location: ' . self::prepareRedirect($relative_url));
 
-        terminate();
+        dotclear_exit();
     }
 
     /**
@@ -322,7 +322,7 @@ class Http
                 header($header);
             }
 
-            terminate();
+            dotclear_exit();
         }
 
         header('Date: ' . gmdate('D, d M Y H:i:s', $now) . ' GMT');
@@ -356,7 +356,7 @@ class Http
                 if (stripslashes(trim($i)) === $etag) {
                     self::head(304, 'Not Modified');
 
-                    terminate();
+                    dotclear_exit();
                 }
             }
         }

@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 class IntrospectionServerTest extends TestCase
 {
     /**
-     * Note: terminate() is mocked by BasicServerTest.php
+     * Note: dotclear_exit() is mocked by BasicServerTest.php
      */
     #[BackupGlobals(true)]
     public function test(): void

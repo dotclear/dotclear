@@ -87,6 +87,6 @@ class ZipMedia extends MaintenanceTask
 
         $zip->write();
         unset($zip);
-        terminate(1);
+        dotclear_exit(1);
     }
 }

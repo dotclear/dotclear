@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Dotclear\Helper\Network\XmlRpc {
     use Exception;
 
-    function terminate()
+    function dotclear_exit(): void
     {
         throw new Exception('Exit application', 13);
     }

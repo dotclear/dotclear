@@ -71,7 +71,7 @@ class Upgrade extends Process
 
             Page::helpBlock('core_upgrade');
             Page::close();
-            terminate();
+            dotclear_exit();
         }
 
         if (!is_readable(App::config()->digestsRoot())) {
@@ -96,7 +96,7 @@ class Upgrade extends Process
 
             Page::helpBlock('core_upgrade');
             Page::close();
-            terminate();
+            dotclear_exit();
         }
 
         self::$updater = new Update(App::config()->coreUpdateUrl(), 'dotclear', App::config()->coreUpdateCanal(), App::config()->cacheRoot() . DIRECTORY_SEPARATOR . Update::CACHE_FOLDER);

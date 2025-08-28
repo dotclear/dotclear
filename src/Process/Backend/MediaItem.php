@@ -424,7 +424,7 @@ class MediaItem extends Process
 
         if (App::backend()->file === null) {
             call_user_func(App::backend()->close_function);
-            terminate();
+            dotclear_exit();
         }
 
         if (!empty($_GET['fupd']) || !empty($_GET['fupl'])) {

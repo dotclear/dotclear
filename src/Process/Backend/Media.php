@@ -90,7 +90,7 @@ class Media extends Process
                     header('Content-Type: application/x-zip');
                     $zip->write();
                     unset($zip);
-                    terminate();
+                    dotclear_exit();
                 }
                 App::backend()->page->d = null;
                 App::media()->chdir(App::backend()->page->d);
@@ -165,7 +165,7 @@ class Media extends Process
                     ];
                 }
                 echo json_encode($message, JSON_THROW_ON_ERROR);
-                terminate();
+                dotclear_exit();
             }
 
             try {
@@ -314,7 +314,7 @@ class Media extends Process
             ->render();
 
             App::backend()->page->closePage();
-            terminate();
+            dotclear_exit();
         }
 
         return true;
@@ -425,7 +425,7 @@ class Media extends Process
 
         if (!App::backend()->page->getDirs()) {
             App::backend()->page->closePage();
-            terminate();
+            dotclear_exit();
         }
 
         if (App::backend()->page->select) {

@@ -74,7 +74,7 @@ class Backup extends Process
                 ->render();
 
             Page::close();
-            terminate();
+            dotclear_exit();
         }
 
         $archives = [];

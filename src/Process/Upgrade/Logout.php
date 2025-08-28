@@ -36,6 +36,6 @@ class Logout extends Process
         App::upgrade()->killAdminSession();
         // Logout
         App::upgrade()->url()->redirect('upgrade.auth');
-        terminate();
+        dotclear_exit();
     }
 }

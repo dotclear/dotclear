@@ -76,7 +76,7 @@ class BlogTheme extends Process
             );
 
             App::backend()->url()->redirect('admin.blog.theme');
-            terminate();
+            dotclear_exit();
         }
 
         if (App::backend()->list->setConfiguration(App::blog()->settings()->system->theme)) {
@@ -153,7 +153,7 @@ class BlogTheme extends Process
             readfile($filename);
 
             // File sent, so bye bye
-            terminate();
+            dotclear_exit();
         }
 
         return true;

@@ -103,7 +103,7 @@ class FrontendUrl extends Url
                         header('Content-Type: text/plain');
                         echo 'So Long, and Thanks For All the Fish';
                         # Exits immediately the application to preserve the server.
-                        terminate();
+                        dotclear_exit();
                     }
 
                     $name    = (string) $_POST['c_name'];

@@ -63,7 +63,7 @@ class Manage extends Process
         if (!empty($_GET['config'])) {
             // text/javascript response stop stream just after including file
             ManagePostConfig::load();
-            terminate();
+            dotclear_exit();
         }
 
         if (!App::backend()->editor_is_admin) {

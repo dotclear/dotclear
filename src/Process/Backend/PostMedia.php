@@ -41,7 +41,7 @@ class PostMedia extends Process
         App::backend()->link_type = $_REQUEST['link_type'] ?? null;
 
         if (!App::backend()->post_id) {
-            terminate();
+            dotclear_exit();
         }
 
         return self::status(true);
@@ -51,7 +51,7 @@ class PostMedia extends Process
     {
         $rs = App::blog()->getPosts(['post_id' => App::backend()->post_id, 'post_type' => '']);
         if ($rs->isEmpty()) {
-            terminate();
+            dotclear_exit();
         }
 
         try {
@@ -64,7 +64,7 @@ class PostMedia extends Process
                 if (!empty($_SERVER['HTTP_X_REQUESTED_WITH'])) {
                     header('Content-type: application/json');
                     echo json_encode(['url' => App::postTypes()->get($rs->post_type)->adminUrl(App::backend()->post_id, false)], JSON_THROW_ON_ERROR);
-                    terminate();
+                    dotclear_exit();
                 }
                 Http::redirect(App::postTypes()->get($rs->post_type)->adminUrl(App::backend()->post_id, false));
             }
@@ -120,7 +120,7 @@ class PostMedia extends Process
                 ->render();
 
                 Page::close();
-                terminate();
+                dotclear_exit();
             }
         }
 

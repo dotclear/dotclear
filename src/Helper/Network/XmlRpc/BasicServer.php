@@ -135,7 +135,7 @@ class BasicServer
                 header('Content-Type: text/plain');
                 echo $e->getMessage();
 
-                terminate();
+                dotclear_exit();
             }
         }
 
@@ -265,7 +265,7 @@ class BasicServer
 
         echo $xml;
 
-        terminate();
+        dotclear_exit();
     }
 
     /**
