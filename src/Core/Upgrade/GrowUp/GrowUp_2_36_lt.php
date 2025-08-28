@@ -30,7 +30,7 @@ class GrowUp_2_36_lt
                 'locales/he/core_core_*.html',
                 'locales/uk/core_core_*.html',
                 'src/Config.php', // mv src/Core
-                'src/Interface/ConfigInterface.php', // mv src/Inertafce/Core
+                'src/Interface/ConfigInterface.php', // mv src/Interface/Core
                 'src/Core/Connection.php', // rm
                 'src/Interface/Config.php', // mv src/Interface/Core
                 'src/Interface/Core/ConnectionInterface.php', // mv src/Interface/Database

@@ -20,7 +20,7 @@ use Dotclear\Interface\Database\ConnectionInterface;
 /**
  * @brief   Database handler.
  *
- * If container service in an anonymous function 
+ * If container service in an anonymous function
  * we can not check it extends ConnectionInterface.
  *
  * @since   2.36

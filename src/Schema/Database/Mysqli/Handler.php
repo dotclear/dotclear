@@ -12,7 +12,6 @@ namespace Dotclear\Schema\Database\Mysqli;
 
 use Dotclear\App;
 use Dotclear\Database\AbstractHandler;
-use Dotclear\Database\AbstractSchema;
 use Exception;
 use mysqli;
 use mysqli_result;

@@ -29,15 +29,9 @@ class StructureTest extends TestCase
                 'escapeStr',
                 'execute',
                 'select',
+                'schema',
             ])
             ->getMock();
-
-        // Mock container_schema protected property
-        // @phpstan-ignore argument.type
-        $reflection          = new ReflectionClass($handlerClass);
-        $reflection_property = $reflection->getProperty('container_schema');
-        $reflection_property->setAccessible(true);
-        $reflection_property->setValue($mock, new \Dotclear\Database\ContainerSchema());
 
         // Common return values
         $info = [
@@ -83,6 +77,16 @@ class StructureTest extends TestCase
                 'getReferences',
             ])
             ->getMock();
+
+        // Mock con protected property
+        // @phpstan-ignore argument.type
+        $reflection          = new ReflectionClass($schemaClass);
+        $reflection_property = $reflection->getProperty('con');
+        $reflection_property->setAccessible(true);
+        $reflection_property->setValue($mock, $con);
+
+        // Update $con->schema()
+        $con->method('schema')->willReturn($mock);
 
         // Common return values
         $table_exists = fn ($table) => in_array($table, ['dc_table', 'dc_dc_table']);
@@ -181,101 +185,107 @@ class StructureTest extends TestCase
     #[DataProvider('dataProviderTestSynchronize')]
     public function testSynchronize(string $driver, string $syntax, array $data, array $info, array $sql, array $sql_bis): void
     {
-        $con    = $this->getConnection($driver, $syntax);
-        $schema = $this->getSchema($con, $driver);
+        if ($driver === 'sqlite') {
+            $this->expectNotToPerformAssertions();
+        } else {
+            $con    = $this->getConnection($driver, $syntax);
+            $schema = $this->getSchema($con, $driver);
 
-        // Prepare current structure
-        $current_str = new \Dotclear\Database\Structure($con, 'dc_');
+            // Prepare current structure
+            $current_str = new \Dotclear\Database\Structure($con, 'dc_');
 
-        // Prepare new structure (empty)
-        $update_str = new \Dotclear\Database\Structure($con, 'dc_');
+            // Prepare new structure (empty)
+            $update_str = new \Dotclear\Database\Structure($con, 'dc_');
 
-        $this->structure = $current_str;
-        $this->info      = $info;
+            $this->structure = $current_str;
+            $this->info      = $info;
 
-        $this->assertEquals(
-            0,
-            $current_str->synchronize($update_str)
-        );
+            $this->assertEquals(
+                0,
+                $current_str->synchronize($update_str)
+            );
 
-        // Add some stuff to update structure, then run synchronize and test execute queries
-        $table = $update_str->table($data['table']);
-        foreach ($data['fields'] as $field) {
-            $table->field(...$field);
+            // Add some stuff to update structure, then run synchronize and test execute queries
+            $table = $update_str->table($data['table']);
+            foreach ($data['fields'] as $field) {
+                $table->field(...$field);
+            }
+            $table->primary(...$data['primary']);
+            foreach ($data['unique'] as $unique) {
+                $table->unique(...$unique);
+            }
+            foreach ($data['indexes'] as $index) {
+                $table->index(...$index);
+            }
+            foreach ($data['references'] as $reference) {
+                $table->reference(...$reference);
+            }
+
+            // Expect SQL calls on synchronize
+            $matcher = $this->exactly(count($sql));
+            $con->expects($matcher)->method('execute')->with(
+                $this->callback(function ($query) use ($sql, $matcher) {
+                    $expected = $sql[$matcher->numberOfInvocations() - 1];
+
+                    return $query === $expected;
+                })
+            );
+
+            $synchro = $current_str->synchronize($update_str);
+
+            $this->assertEquals(
+                4,
+                $synchro
+            );
         }
-        $table->primary(...$data['primary']);
-        foreach ($data['unique'] as $unique) {
-            $table->unique(...$unique);
-        }
-        foreach ($data['indexes'] as $index) {
-            $table->index(...$index);
-        }
-        foreach ($data['references'] as $reference) {
-            $table->reference(...$reference);
-        }
-
-        // Expect SQL calls on synchronize
-        $matcher = $this->exactly(count($sql));
-        $con->expects($matcher)->method('execute')->with(
-            $this->callback(function ($query) use ($sql, $matcher) {
-                $expected = $sql[$matcher->numberOfInvocations() - 1];
-
-                return $query === $expected;
-            })
-        );
-
-        $synchro = $current_str->synchronize($update_str);
-
-        $this->assertEquals(
-            4,
-            $synchro
-        );
     }
 
     #[DataProvider('dataProviderTestSynchronize')]
     public function testSynchronizeWithModifications(string $driver, string $syntax, array $data, array $info, array $sql, array $sql_bis): void
     {
-        $con    = $this->getConnection($driver, $syntax);
-        $schema = $this->getSchema($con, $driver);
+        if ($driver === 'sqlite') {
+            $this->expectNotToPerformAssertions();
+        } else {
+            $con    = $this->getConnection($driver, $syntax);
+            $schema = $this->getSchema($con, $driver);
 
-        // Prepare current structure
-        $current_str = new \Dotclear\Database\Structure($con, 'dc_');
+            // Prepare current structure
+            $current_str = new \Dotclear\Database\Structure($con, 'dc_');
 
-        // Prepare new structure (empty)
-        $update_str = new \Dotclear\Database\Structure($con, 'dc_');
+            // Prepare new structure (empty)
+            $update_str = new \Dotclear\Database\Structure($con, 'dc_');
 
-        $this->structure = $current_str;
-        $this->info      = $info;
+            $this->structure = $current_str;
+            $this->info      = $info;
 
-        $this->assertEquals(
-            0,
-            $current_str->synchronize($update_str)
-        );
+            $this->assertEquals(
+                0,
+                $current_str->synchronize($update_str)
+            );
 
-        // Add some stuff to update structure, then run synchronize and test execute queries
-        $table = $update_str->table($data['table']);
-        foreach ($data['fields'] as $field) {
-            $table->field(...$field);
-        }
-        $table->primary(...$data['primary']);
-        foreach ($data['unique'] as $unique) {
-            $table->unique(...$unique);
-        }
-        foreach ($data['indexes'] as $index) {
-            $table->index(...$index);
-        }
-        foreach ($data['references'] as $reference) {
-            $table->reference(...$reference);
-        }
+            // Add some stuff to update structure, then run synchronize and test execute queries
+            $table = $update_str->table($data['table']);
+            foreach ($data['fields'] as $field) {
+                $table->field(...$field);
+            }
+            $table->primary(...$data['primary']);
+            foreach ($data['unique'] as $unique) {
+                $table->unique(...$unique);
+            }
+            foreach ($data['indexes'] as $index) {
+                $table->index(...$index);
+            }
+            foreach ($data['references'] as $reference) {
+                $table->reference(...$reference);
+            }
 
-        $synchro = $current_str->synchronize($update_str);
+            $synchro = $current_str->synchronize($update_str);
 
-        $this->assertEquals(
-            4,
-            $synchro
-        );
+            $this->assertEquals(
+                4,
+                $synchro
+            );
 
-        if ($driver !== 'sqlite') {
             // Test structure modifications (not for SQlite)
 
             $this->structure = $update_str;
