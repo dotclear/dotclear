@@ -27,7 +27,7 @@ use Dotclear\Interface\Database\ConnectionInterface;
  */
 class Database extends Container implements DatabaseInterface
 {
-    public const CONTAINER_ID = 'database_handler';
+    public const CONTAINER_ID = 'database';
 
     /**
      * Constructs a new instance.
