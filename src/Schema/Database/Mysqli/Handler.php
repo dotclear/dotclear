@@ -12,6 +12,7 @@ namespace Dotclear\Schema\Database\Mysqli;
 
 use Dotclear\App;
 use Dotclear\Database\AbstractHandler;
+use Dotclear\Database\AbstractSchema;
 use Exception;
 use mysqli;
 use mysqli_result;
@@ -23,20 +24,14 @@ use mysqli_result;
  */
 class Handler extends AbstractHandler
 {
+    public const HANDLER_NAME   = 'MySQLi';
+    public const HANDLER_DRIVER = 'mysqli';
+    public const HANDLER_SYNTAX = 'mysql';
+
     /**
      * Enables weak locks if true
      */
     public static bool $weak_locks = true;
-
-    /**
-     * Driver name
-     */
-    protected string $__driver = 'mysqli';
-
-    /**
-     * SQL Syntax supported
-     */
-    protected string $__syntax = 'mysql';
 
     /**
      * Open a DB connection

@@ -25,8 +25,9 @@ use PDOStatement;
  */
 class Handler extends AbstractHandler
 {
-    protected string $__driver = 'sqlite';
-    protected string $__syntax = 'sqlite';
+    public const HANDLER_NAME   = 'SQLite';
+    public const HANDLER_DRIVER = 'sqlite';
+    public const HANDLER_SYNTAX = 'sqlite';
 
     /**
      * UTF-8 Collator (if class exists)

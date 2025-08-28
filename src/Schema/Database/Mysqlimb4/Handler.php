@@ -21,10 +21,8 @@ use mysqli;
  */
 class Handler extends MysqliHandler
 {
-    /**
-     * Driver name
-     */
-    protected string $__driver = 'mysqlimb4';
+    public const HANDLER_NAME   = 'MySQLi (full UTF-8)';
+    public const HANDLER_DRIVER = 'mysqlimb4';
 
     /**
      * Open a DB connection
