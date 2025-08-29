@@ -15,13 +15,30 @@ use Dotclear\Core\Backend\Favorites;
 use Dotclear\Core\Install\Utils;
 use Dotclear\Core\Process;
 use Dotclear\Database\Structure;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Email;
+use Dotclear\Helper\Html\Form\Fieldset;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Input;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Legend;
+use Dotclear\Helper\Html\Form\Li;
+use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Password;
+use Dotclear\Helper\Html\Form\Set;
+use Dotclear\Helper\Html\Form\Span;
+use Dotclear\Helper\Html\Form\Strong;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\Ul;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
-use Dotclear\Helper\Text;
+use Dotclear\Helper\Text as Htext;
 use Dotclear\Schema\Schema;
 use Exception;
-use form;
 
 /**
  * @brief   Intallation process.
@@ -158,7 +175,7 @@ class Install extends Process
                 if (!preg_match('/^[A-Za-z0-9@._-]{2,}$/', self::$u_login)) {
                     throw new Exception(__('User ID must contain at least 2 characters using letters, numbers or symbols.'));
                 }
-                if (self::$u_email && !Text::isEmail(self::$u_email)) {
+                if (self::$u_email && !HText::isEmail(self::$u_email)) {
                     throw new Exception(__('Invalid email address'));
                 }
 
@@ -387,153 +404,251 @@ class Install extends Process
   <title><?= __('Dotclear Install') ?></title>
 
     <link rel="stylesheet" href="../style/install.css" type="text/css" media="screen">
-
-          <?php
-          echo
-            Page::jsLoad('../js/prepend.js') .
-            Page::jsJson('pwstrength', [
-                'min' => sprintf(__('Password strength: %s'), __('weak')),
-                'avg' => sprintf(__('Password strength: %s'), __('medium')),
-                'max' => sprintf(__('Password strength: %s'), __('strong')),
-            ]) .
-            Page::jsLoad('../js/pwstrength.js') .
-            Page::jsLoad('../js/jquery/jquery.js') .
-            Page::jsJson('install_show', __('show')) .
-            Page::jsLoad('../js/_install.js'); ?>
+        <?php self::renderHeader(); ?>
 </head>
 
 <body id="dotclear-admin" class="install">
-<div id="content">
-        <?php
-        echo
-        '<h1>' . __('Dotclear installation') . '</h1>' .
-            '<div id="main">';
-
-        if (!is_writable(App::config()->cacheRoot())) {
-            echo '<div class="error" role="alert"><p>' . sprintf(__('Cache directory %s is not writable.'), App::config()->cacheRoot()) . '</p></div>';
-        }
-
-        if (self::$can_install && self::$err !== '') {
-            echo '<div class="error" role="alert"><p><strong>' . __('Errors:') . '</strong></p>' . self::$err . '</div>';
-        }
-
-        if (!empty($_GET['wiz'])) {
-            echo '<p class="success" role="alert">' . __('Configuration file has been successfully created.') . '</p>';
-        }
-
-        if (self::$can_install && self::$step == 0) {
-            echo
-            '<h2>' . __('User information') . '</h2>' .
-
-            '<p>' . __('Please provide the following information needed to create the first user.') . '</p>' .
-
-            '<form action="index.php" method="post">' .
-            '<fieldset><legend>' . __('User information') . '</legend>' .
-            '<p><label for="u_firstname">' . __('First Name:') . '</label> ' .
-            form::field('u_firstname', 30, 255, [
-                'default'      => Html::escapeHTML(self::$u_firstname),
-                'autocomplete' => 'given-name',
-            ]) .
-            '</p>' .
-            '<p><label for="u_name">' . __('Last Name:') . '</label> ' .
-            form::field('u_name', 30, 255, [
-                'default'      => Html::escapeHTML(self::$u_name),
-                'autocomplete' => 'family-name',
-            ]) .
-            '</p>' .
-            '<p><label for="u_email">' . __('Email:') . '</label> ' .
-            form::email('u_email', [
-                'size'         => 30,
-                'default'      => Html::escapeHTML(self::$u_email),
-                'autocomplete' => 'email',
-            ]) .
-            '</p>' .
-            '</fieldset>' .
-
-            '<fieldset><legend>' . __('Username and password') . '</legend>' .
-            '<p class="form-note">' . sprintf(__('Fields preceded by %s are mandatory.'), '<span class="required">*</span>') . '</p>' .
-            '<p><label for="u_login" class="required"><span>*</span> ' . __('Username:') . ' ' .
-            form::field('u_login', 30, 32, [
-                'default'      => Html::escapeHTML(self::$u_login),
-                'extra_html'   => 'required placeholder="' . __('Username') . '"',
-                'autocomplete' => 'username',
-            ]) .
-            '</label></p>' .
-            '<p>' .
-            '<label for="u_pwd" class="required"><span>*</span> ' . __('New password:') . '</label>' .
-            form::password('u_pwd', 30, 255, [
-                'class'        => 'pw-strength',
-                'extra_html'   => 'data-indicator="pwindicator" required placeholder="' . __('Password') . '"',
-                'autocomplete' => 'new-password',
-            ]) .
-            '</p>' .
-            '<p><label for="u_pwd2" class="required"><span>*</span> ' . __('Confirm password:') . ' ' .
-            form::password('u_pwd2', 30, 255, [
-                'extra_html'   => 'required placeholder="' . __('Password') . '"',
-                'autocomplete' => 'new-password',
-            ]) .
-            '</label></p>' .
-            '</fieldset>' .
-
-            '<p><input type="submit" value="' . __('Save') . '"></p>' .
-                '</form>';
-        } elseif (self::$can_install && self::$step == 1) {
-            # Plugins install messages
-            $plugins_install_result = '';
-            if (!empty(self::$plugins_install['success'])) {
-                $plugins_install_result .= '<div class="static-msg">' . __('Following plugins have been installed:') . '<ul>';
-                foreach (array_keys(self::$plugins_install['success']) as $k) {
-                    $plugins_install_result .= '<li>' . $k . '</li>';
-                }
-                $plugins_install_result .= '</ul></div>';
-            }
-            if (!empty(self::$plugins_install['failure'])) {
-                $plugins_install_result .= '<div class="error">' . __('Following plugins have not been installed:') . '<ul>';
-                foreach (self::$plugins_install['failure'] as $k => $v) {
-                    $plugins_install_result .= '<li>' . $k . ' (' . $v . ')</li>';
-                }
-                $plugins_install_result .= '</ul></div>';
-            }
-
-            echo
-            '<h2>' . __('All done!') . '</h2>' .
-
-            $plugins_install_result .
-
-            '<p class="success" role="alert">' . __('Dotclear has been successfully installed. Here is some useful information you should keep.') . '</p>' .
-
-            '<h3>' . __('Your account') . '</h3>' .
-            '<ul>' .
-            '<li>' . __('Username:') . ' <strong>' . Html::escapeHTML(self::$u_login) . '</strong></li>' .
-            '<li>' . __('Password:') . ' <strong id="password">' . Html::escapeHTML(self::$u_pwd) . '</strong></li>' .
-            '</ul>' .
-
-            '<h3>' . __('Your blog') . '</h3>' .
-            '<ul>' .
-            '<li>' . __('Blog address:') . ' <strong>' . Html::escapeHTML(Http::getHost() . self::$root_url) . '/index.php?</strong></li>' .
-            '<li>' . __('Administration interface:') . ' <strong>' . Html::escapeHTML(Http::getHost() . self::$admin_url) . '</strong></li>' .
-            '</ul>' .
-
-            '<form action="../index.php" method="post">' .
-            '<p><input type="submit" value="' . __('Manage your blog now') . '">' .
-            form::hidden(['user_id'], Html::escapeHTML(self::$u_login)) .
-            form::hidden(['user_pwd'], Html::escapeHTML(self::$u_pwd)) .
-            form::hidden(['process'], 'Auth') .
-                '</p>' .
-                '</form>';
-        } elseif (!self::$can_install) {
-            echo '<h2>' . __('Installation can not be completed') . '</h2>' .
-            '<div class="error" role="alert"><p><strong>' . __('Errors:') . '</strong></p>' . self::$err . '</div>' .
-            '<p>' . sprintf(
-                __('For the said reasons, Dotclear can not be installed. Please refer to <a href="%s">the documentation</a> to learn how to correct the problem.'),
-                'https://dotclear.org/documentation/2.0/admin/install'
-            ) . '</p>';
-        }
-        ?>
-</div>
-</div>
+        <?php self::renderContent(); ?>
 </body>
 </html>
-<?php
+        <?php
+    }
+
+    /**
+     * Render form headers.
+     */
+    private static function renderHeader(): void
+    {
+        echo
+        Page::jsLoad('../js/prepend.js') .
+        Page::jsJson('pwstrength', [
+            'min' => sprintf(__('Password strength: %s'), __('weak')),
+            'avg' => sprintf(__('Password strength: %s'), __('medium')),
+            'max' => sprintf(__('Password strength: %s'), __('strong')),
+        ]) .
+        Page::jsLoad('../js/pwstrength.js') .
+        Page::jsLoad('../js/jquery/jquery.js') .
+        Page::jsJson('install_show', __('show')) .
+        Page::jsLoad('../js/_install.js');
+    }
+
+    /**
+     * Render form content.
+     */
+    private static function renderContent(): void
+    {
+        $required = (new Span())->text('*')->class('required')->render();
+
+        $msg = [];
+        if (!is_writable(App::config()->cacheRoot())) {
+            $msg[] = (new Div())
+                ->class('error')
+                ->role('alert')
+                ->items([
+                    new Text('p', sprintf(__('Cache directory %s is not writable.'), App::config()->cacheRoot())),
+                ]);
+        }
+        if (self::$can_install && self::$err !== '') {
+            $msg[] = (new Div())
+                ->class('error')
+                ->role('alert')
+                ->items([
+                    (new Para())
+                        ->items([
+                            (new Text('p'))
+                                ->items([
+                                    new Strong(__('Errors:')),
+                                ]),
+                            new Text('p', self::$err),
+                        ]),
+                ]);
+        }
+        if (!empty($_GET['wiz'])) {
+            $msg[] = (new Text('p', __('Configuration file has been successfully created.')))
+                ->class('success')
+                ->role('alert');
+        }
+        if (self::$can_install && self::$step == 0) {
+            $msg[] = (new Set())
+                ->items([
+                    new Text('h2', __('User information')),
+                    new Text('p', __('Please provide the following information needed to create the first user.')),
+                    (new Form('install-form'))
+                        ->method('post')
+                        ->action('index.php')
+                        ->fields([
+                            (new Fieldset())
+                                ->legend(new Legend(__('User information')))
+                                ->items([
+                                    (new Para())
+                                        ->items([
+                                            (new Input('u_firstname'))
+                                                ->size(30)
+                                                ->maxlength(255)
+                                                ->autocomplete('given-name')
+                                                ->value(Html::escapeHTML(self::$u_firstname))
+                                                ->label(new Label(__('First Name:'), Label::OUTSIDE_LABEL_BEFORE)),
+                                        ]),
+                                    (new Para())
+                                        ->items([
+                                            (new Input('u_name'))
+                                                ->size(30)
+                                                ->maxlength(255)
+                                                ->autocomplete('family-name')
+                                                ->value(Html::escapeHTML(self::$u_name))
+                                                ->label(new Label(__('Last Name:'), Label::OUTSIDE_LABEL_BEFORE)),
+                                        ]),
+                                    (new Para())
+                                        ->items([
+                                            (new Email('u_email'))
+                                                ->size(30)
+                                                ->autocomplete('email')
+                                                ->value(Html::escapeHTML(self::$u_email))
+                                                ->label(new Label(__('Email:'), Label::OUTSIDE_LABEL_BEFORE)),
+                                        ]),
+                                ]),
+
+                            (new Fieldset())
+                                ->legend(new Legend(__('Username and password')))
+                                ->items([
+                                    (new Note())
+                                        ->class('form-note')
+                                        ->text(sprintf(__('Fields preceded by %s are mandatory.'), $required)),
+                                    (new Para())
+                                        ->items([
+                                            (new Input('u_login'))
+                                                ->size(30)
+                                                ->maxlength(255)
+                                                ->autocomplete('username')
+                                                ->value(Html::escapeHTML(self::$u_login))
+                                                ->label((new Label($required . __('Username:'), Label::OUTSIDE_LABEL_BEFORE))->class('required'))
+                                                ->extra('required placeholder="' . __('Username') . '"'),
+                                        ]),
+                                    (new Para())
+                                        ->items([
+                                            (new Password('u_pwd'))
+                                                ->class('pw-strength')
+                                                ->size(30)
+                                                ->maxlength(255)
+                                                ->autocomplete('new-password')
+                                                ->value('')
+                                                ->label((new Label($required . __('New Password:'), Label::OUTSIDE_LABEL_BEFORE))->class('required'))
+                                                ->extra('data-indicator="pwindicator" required placeholder="' . __('Password') . '"'),
+                                        ]),
+                                    (new Para())
+                                        ->items([
+                                            (new Password('u_pwd2'))
+                                                ->size(30)
+                                                ->maxlength(255)
+                                                ->autocomplete('new-password')
+                                                ->value('')
+                                                ->label((new Label($required . __('Confirm Password:'), Label::OUTSIDE_LABEL_BEFORE))->class('required'))
+                                                ->extra('required placeholder="' . __('Password') . '"'),
+                                        ]),
+                                ]),
+                                (new Submit('install-submit', __('Save')))
+                        ]),
+                ]);
+        } elseif (self::$can_install && self::$step == 1) {
+            # Plugins install messages
+            $plugins_install_result = [];
+            if (!empty(self::$plugins_install['success'])) {
+                $plugins_install_result[] = (new Div())
+                    ->class('static-msg')
+                    ->items([
+                        (new Text('', __('Following plugins have been installed:'))),
+                        (new Ul())->items(array_map(fn (string $v): Li => (new Li())->text($v), array_keys(self::$plugins_install['success']))),
+                    ]);
+            }
+            if (!empty(self::$plugins_install['failure'])) {
+                $plugins_install_result[] = (new Div())
+                    ->class('error')
+                    ->items([
+                        (new Text('', __('Following plugins have not been installed:'))),
+                        (new Ul())->items(array_map(
+                            fn ($k, $v): Li => (new Li())->text(sprintf('%s (%s)', $k, $v)), 
+                            array_keys(self::$plugins_install['failure']),
+                            array_values(self::$plugins_install['failure'])
+                        )),
+                    ]);
+            }
+
+            $msg[] = (new Set())
+                ->items([
+                    (new Text('h2', __('All done!'))),
+                    ... $plugins_install_result,
+                    (new Text('p', __('Dotclear has been successfully installed. Here is some useful information you should keep.'))),
+                    (new text('h3', __('Your account'))),
+                    (new Ul())
+                        ->items([
+                            (new Li())
+                                ->items([
+                                    (new Text('', __('Username:'))),
+                                    (new Strong(Html::escapeHTML(self::$u_login))),
+                                ]),
+                            (new Li())
+                                ->items([
+                                    (new Text('', __('Password:'))),
+                                    (new Strong(Html::escapeHTML(self::$u_pwd))->id('password')),
+                                ]),
+                        ]),
+                    (new text('h3', __('Your blog'))),
+                    (new Ul())
+                        ->items([
+                            (new Li())
+                                ->items([
+                                    (new Text('', __('Blog address:'))),
+                                    (new Strong(Html::escapeHTML(Http::getHost() . self::$root_url) . '/index.php?')),
+                                ]),
+                            (new Li())
+                                ->items([
+                                    (new Text('', __('Administration interface:'))),
+                                    (new Strong(Html::escapeHTML(Http::getHost() . self::$admin_url))),
+                                ]),
+                        ]),
+                    (new Form('success-form'))
+                        ->method('post')
+                        ->action('../index.php')
+                        ->fields([
+                            (new Para())
+                                ->items([
+                                    new Submit('success-submit', __('Manage your blog now')),
+                                    new Hidden(['user_id'], Html::escapeHTML(self::$u_login)),
+                                    new Hidden(['user_pwd'], Html::escapeHTML(self::$u_pwd)),
+                                    new Hidden(['process'], 'Auth'),
+                                ]),
+                        ]),
+                ]);
+        } elseif (!self::$can_install) {
+            $msg[] = (new Set())
+                ->items([
+                    (new Text('h2', __('Installation can not be completed'))),
+                    (new Div())
+                        ->class('error')
+                        ->role('alert')
+                        ->items([
+                            (new Para())
+                                ->items([
+                                    (new Text('p'))
+                                        ->items([
+                                            new Strong(__('Errors:')),
+                                        ]),
+                                    new Text('p', self::$err),
+                                ]),
+                        ]),
+                    new Text('p', sprintf(
+                        __('For the said reasons, Dotclear can not be installed. Please refer to <a href="%s">the documentation</a> to learn how to correct the problem.'),
+                        'https://dotclear.org/documentation/2.0/admin/install'
+                    )),
+                ]);
+        }
+
+        echo (new Div('content'))
+            ->items([
+                new Text('h1', __('Dotclear installation')),
+                (new Div('main'))
+                    ->items($msg),
+            ])
+            ->render();
     }
 }
