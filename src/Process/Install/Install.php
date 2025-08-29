@@ -516,7 +516,7 @@ class Install extends Process
                                         ->items([
                                             (new Input('u_login'))
                                                 ->size(30)
-                                                ->maxlength(255)
+                                                ->maxlength(32)
                                                 ->autocomplete('username')
                                                 ->value(Html::escapeHTML(self::$u_login))
                                                 ->label((new Label($required . __('Username:'), Label::OUTSIDE_LABEL_BEFORE))->class('required'))
