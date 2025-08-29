@@ -13,12 +13,15 @@ class IteratorTest extends TestCase
     {
         $input = realpath(implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', '..', 'fixtures', 'src', 'Helper', 'Network', 'Socket', 'stream-input.txt']));
 
-        $handle   = fopen($input, 'rb');
+        $handle = fopen((string) $input, 'rb');
+        // @phpstan-ignore argument.type
         $iterator = new \Dotclear\Helper\Network\Socket\Iterator($handle);
 
+        // @phpstan-ignore method.alreadyNarrowedType
         $this->assertIsResource(
             $handle
         );
+        // @phpstan-ignore method.impossibleType
         $this->assertIsNotClosedResource(
             $handle
         );
@@ -83,6 +86,7 @@ class IteratorTest extends TestCase
         $handle = null;
 
         $this->expectException(Exception::class);
+        // @phpstan-ignore argument.type
         $iterator = new \Dotclear\Helper\Network\Socket\Iterator($handle);
     }
 }

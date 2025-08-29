@@ -110,6 +110,7 @@ class SocketTest extends TestCase
                 '</BODY></HTML>' . "\n",
             ];
             $line = 0;
+            // @phpstan-ignore foreach.nonIterable
             foreach ($socket->write($data) as $value) {
                 if ($line < count($expected)) {
                     //$this->dump($value);
@@ -118,13 +119,15 @@ class SocketTest extends TestCase
                     }
                     $this->assertEquals(
                         $expected[$line],
-                        mb_substr($value, 0, mb_strlen($expected[$line]))
+                        mb_substr((string) $value, 0, mb_strlen($expected[$line]))
                     );
                 }
                 $line++;
             }
 
+            // @phpstan-ignore variable.undefined
             if (gettype($value) === 'boolean') {
+                // @phpstan-ignore method.impossibleType
                 $this->assertFalse(
                     $value
                 );
