@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace Dotclear\Helper\Network\HttpClient {
     use Dotclear\Tests\Helper\Network\HttpClientTest;
 
+    /**
+     * @return list<string>
+     */
     function stream_get_transports(): array
     {
         return HttpClientTest::stream_get_transports();
@@ -24,6 +27,9 @@ namespace Dotclear\Tests\Helper\Network {
     {
         private static bool $no_ssl = false;
 
+        /**
+         * @return list<string>
+         */
         public static function stream_get_transports(): array
         {
             if (self::$no_ssl) {
@@ -54,8 +60,11 @@ namespace Dotclear\Tests\Helper\Network {
             );
         }
 
+        /**
+         * @param  array{string, bool, array{bool, string, int, string, ?string, ?string}}  $data
+         */
         #[DataProvider('dataProviderReadURL')]
-        public function testReadURL(?string $url, bool $status, array $data): void
+        public function testReadURL(string $url, bool $status, array $data): void
         {
             $ssl  = false;
             $host = '';
@@ -74,6 +83,9 @@ namespace Dotclear\Tests\Helper\Network {
             );
         }
 
+        /**
+         * @return list<array{string, bool, array{bool, string, int, string, ?string, ?string}}>
+         */
         public static function dataProviderReadURL(): array
         {
             return [
@@ -195,7 +207,9 @@ namespace Dotclear\Tests\Helper\Network {
             $client->useGzip(true);
             $client->setPersistReferers(true);
             $client->setPersistCookies(true);
-            $client->setCookies(['Cookie: dcxd-dc2-git=61af8c3f8fcfa8921814cc9d2db0d87482e1ff76']);
+            $client->setCookies([
+                'dcxd-dc2-git' => '61af8c3f8fcfa8921814cc9d2db0d87482e1ff76',
+            ]);
             $client->setMoreHeader('Set-Cookie: dcxd-dc2-hg=0');
 
             $this->assertTrue(
@@ -222,7 +236,9 @@ namespace Dotclear\Tests\Helper\Network {
                 $client->getContent()
             );
             $this->assertEquals(
-                ['Cookie: dcxd-dc2-git=61af8c3f8fcfa8921814cc9d2db0d87482e1ff76'],
+                [
+                    'dcxd-dc2-git' => '61af8c3f8fcfa8921814cc9d2db0d87482e1ff76',
+                ],
                 $client->getCookies()
             );
         }

@@ -494,10 +494,10 @@ class Files
      * Returns an array of a given directory's content. The array contains two arrays: dirs and files.
      * Directory's content is fetched recursively.
      *
-     * @param string                                $directory    Directory name
-     * @param array<string, array<string>>|null     $list         Contents array (leave it empty)
+     * @param string                                     $directory    Directory name
+     * @param array<'dirs'|'files', list<string>>|null   $list         Contents array (leave it empty)
      *
-     * @return array<string, array<string>>|null
+     * @return array<'dirs'|'files', list<string>>|null
      */
     public static function getDirList(string $directory, ?array &$list = null): ?array
     {

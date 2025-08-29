@@ -11,25 +11,25 @@ use PHPUnit\Framework\TestCase;
 class UrlHandlerTest extends TestCase
 {
     // Default handler
-    public static function defaultHandler(?string $args = null)
+    public static function defaultHandler(?string $args = null): void
     {
         echo 'urlHandler:' . 'default' . ':' . ($args ?? '');
     }
 
     // Specific handler
-    public static function myHandler(?string $args = null)
+    public static function myHandler(?string $args = null): void
     {
         echo 'urlHandler:' . 'my' . ':' . ($args ?? '');
     }
 
     // Specific handler
-    public static function altHandler(?string $args = null)
+    public static function altHandler(?string $args = null): void
     {
         echo 'urlHandler:' . 'alt' . ':' . ($args ?? '');
     }
 
     // Exception handler
-    public static function exceptionHandler(?string $args = null)
+    public static function exceptionHandler(?string $args = null): void
     {
         echo 'urlHandler:' . 'exception' . ':' . ($args ?? '');
     }
@@ -152,6 +152,7 @@ class UrlHandlerTest extends TestCase
     public function testUnableToCall(): void
     {
         $url = new \Dotclear\Helper\Network\UrlHandler();
+        // @phpstan-ignore argument.type
         $url->registerDefault('notCallable');
 
         $this->expectException(Exception::class);

@@ -93,7 +93,7 @@ class HttpClient extends Socket
     /**
      * Stack of cookies sent
      *
-     * @var array<string, string>   $cookies
+     * @var array<string, string>   $cookies array of cookie key => cookie value
      */
     protected $cookies = [];
 
@@ -364,8 +364,8 @@ class HttpClient extends Socket
      * <var>$data</var> can be an array of key value pairs, in which case a
      * matching query string will be constructed. Returns true on success.
      *
-     * @param string                        $path            Request path
-     * @param false|array<string, mixed>    $data            Request parameters
+     * @param string                                $path            Request path
+     * @param false|string|array<string, mixed>     $data            Request parameters
      */
     public function get(string $path, $data = false): bool
     {

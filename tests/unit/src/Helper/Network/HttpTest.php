@@ -13,7 +13,7 @@ class HttpTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->testDirectory = realpath(implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', 'fixtures', 'src', 'Helper', 'File']));
+        $this->testDirectory = (string) realpath(implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', 'fixtures', 'src', 'Helper', 'File']));
     }
 
     #[BackupGlobals(true)]
@@ -336,22 +336,21 @@ class HttpTest extends TestCase
     #[BackupGlobals(true)]
     public function testCache(): void
     {
-        $this->assertNull(
-            \Dotclear\Helper\Network\Http::cache([])
-        );
+        \Dotclear\Helper\Network\Http::cache([]);
 
-        \Dotclear\Helper\File\Files::getDirList($this->testDirectory, $arr);
-        $fl = [];
-        foreach ($arr['files'] as $file) {
-            if ($file != '.' && $file != '..') {
-                $fl[] = $file;
+        $arr = \Dotclear\Helper\File\Files::getDirList($this->testDirectory);
+        $fl  = [];
+        if ($arr) {
+            foreach ($arr['files'] as $file) {
+                if ($file != '.' && $file != '..') {
+                    $fl[] = $file;
+                }
             }
         }
         $_SERVER['HTTP_IF_MODIFIED_SINCE'] = 'Tue, 27 Feb 2004 10:17:09 GMT';
 
-        $this->assertNull(
-            \Dotclear\Helper\Network\Http::cache($fl)
-        );
+        $this->expectNotToPerformAssertions();
+        \Dotclear\Helper\Network\Http::cache($fl);
     }
 
     #[BackupGlobals(true)]
@@ -359,22 +358,16 @@ class HttpTest extends TestCase
     {
         $_SERVER['HTTP_IF_NONE_MATCH'] = 'W/"67ab43", "54ed21", "7892dd"';
 
-        $this->assertNull(
-            \Dotclear\Helper\Network\Http::etag()
-        );
-        $this->assertNull(
-            \Dotclear\Helper\Network\Http::etag('bfc13a64729c4290ef5b2c2730249c88ca92d82d')
-        );
+        $this->expectNotToPerformAssertions();
+        \Dotclear\Helper\Network\Http::etag();
+        \Dotclear\Helper\Network\Http::etag('bfc13a64729c4290ef5b2c2730249c88ca92d82d');
     }
 
     public function testHead(): void
     {
-        $this->assertNull(
-            \Dotclear\Helper\Network\Http::head(200)
-        );
-        $this->assertNull(
-            \Dotclear\Helper\Network\Http::head(200, '\\o/')
-        );
+        $this->expectNotToPerformAssertions();
+        \Dotclear\Helper\Network\Http::head(200);
+        \Dotclear\Helper\Network\Http::head(200, '\\o/');
     }
 
     #[BackupGlobals(true)]
