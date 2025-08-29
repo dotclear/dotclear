@@ -4,11 +4,15 @@ declare(strict_types=1);
 
 namespace Dotclear\Tests\Helper\Html\Template;
 
+use ArrayObject;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class TemplateTest extends TestCase
 {
+    /**
+     * @return list<list<string>>
+     */
     public static function dataProviderTemplate(): array
     {
         $fixtures = implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', '..', 'fixtures', 'src', 'Helper', 'Html', 'Template']);
@@ -86,15 +90,19 @@ class TemplateTest extends TestCase
         unset($GLOBALS['tpl']);
     }
 
-    protected function parse(string $file)
+    /**
+     * @return array<string, mixed>
+     */
+    protected function parse(string $file): array
     {
         $fixtures = implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', '..', 'fixtures', 'src', 'Helper', 'Html', 'Template']);
 
-        $test = file_get_contents($file);
+        $test = (string) file_get_contents($file);
         if (preg_match('/--TEST--\s*(.*?)\s*(?:--CONDITION--\s*(.*))?\s*((?:--TEMPLATE(?:\(.*?\))?--(?:.*?))+)(?:--PATH--\s*(.*))?--EXCEPTION--\s*(.*)/s', $test, $match)) {
             $message   = $match[1];
             $condition = $match[2];
             $templates = $this->parseTemplates($match[3]);
+            // @phpstan-ignore isset.offset
             $path      = isset($match[4]) ? explode(';', $match[4]) : [];
             $exception = $match[5];
             //$outputs = array(array(null, $match[4], null, ''));
@@ -123,7 +131,10 @@ class TemplateTest extends TestCase
         return $ret;
     }
 
-    protected function parseTemplates($test)
+    /**
+     * @return array<string, string>
+     */
+    protected function parseTemplates(string $test): array
     {
         $templates = [];
         preg_match_all('/--TEMPLATE(?:\((.*?)\))?--\s*(.*?)(?=\-\-TEMPLATE|$)/s', $test, $matches, PREG_SET_ORDER);
@@ -134,7 +145,7 @@ class TemplateTest extends TestCase
         return $templates;
     }
 
-    public function TestGetPath()
+    public function testGetPath(): void
     {
         $dir      = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), 'tplpath']);
         $cachedir = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), 'cbtplpath']);
@@ -156,14 +167,17 @@ class TemplateTest extends TestCase
 
 class mockTemplates
 {
-    public static function register($tpl)
+    public static function register(\Dotclear\Helper\Html\Template\Template $tpl): void
     {
         $tpl->addValue('echo', [self::class, 'tplecho']);
         $tpl->addBlock('loop', [self::class, 'tplloop']);
         $tpl->addBlock('entity', [self::class, 'tplentity']);
     }
 
-    public static function tplentity($attr, $content)
+    /**
+     * @param  array<string, mixed>|ArrayObject<string, mixed> $attr
+     */
+    public static function tplentity(array|ArrayObject $attr, string $content): string
     {
         $ret = '<div';
         foreach ($attr as $k => $v) {
@@ -174,8 +188,15 @@ class mockTemplates
         return $ret;
     }
 
-    public static function tplecho($attr, $str)
+    /**
+     * @param  array<string, mixed>|ArrayObject<string, mixed> $attr
+     */
+    public static function tplecho(array|ArrayObject $attr, string $str): string
     {
+        if (!$attr instanceof ArrayObject) {
+            $attr = new ArrayObject($attr);
+        }
+
         $ret = '';
         $txt = [];
         foreach ($attr as $k => $v) {
@@ -184,15 +205,22 @@ class mockTemplates
         if (!empty($txt)) {
             $ret .= '{' . join(',', $txt) . '}';
         }
-        if (empty($attr)) {
+        if (!$attr->count()) {
             $ret .= '[' . $str . ']';
         }
 
         return $ret;
     }
 
-    public static function tplloop($attr, $content)
+    /**
+     * @param  array<string, mixed>|ArrayObject<string, mixed> $attr
+     */
+    public static function tplloop(array|ArrayObject $attr, string $content): string
     {
+        if (!$attr instanceof ArrayObject) {
+            $attr = new ArrayObject($attr);
+        }
+
         $ret = '';
         if (isset($attr['times'])) {
             $times = (int) $attr['times'];
@@ -201,14 +229,14 @@ class mockTemplates
             }
             unset($attr['times']);
         }
-        if (!empty($attr)) {
+        if ($attr->count()) {
             $ret = self::tplecho($attr, '') . $ret;
         }
 
         return $ret;
     }
 
-    public static function trimHereDoc($t)
+    public static function trimHereDoc(string $t): string
     {
         return trim(implode("\n", array_map('trim', explode("\n", $t))));
     }

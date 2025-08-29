@@ -13,6 +13,7 @@ class TtplNodeTest extends TestCase
         $instance = new \Dotclear\Helper\Html\Template\TplNode();
         $child    = new \Dotclear\Helper\Html\Template\TplNodeText('content');
 
+        // @phpstan-ignore argument.type
         $instance->setChildren(new \ArrayObject([$child]));
 
         $this->assertEquals(

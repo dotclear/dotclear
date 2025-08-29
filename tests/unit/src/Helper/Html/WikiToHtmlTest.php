@@ -232,6 +232,9 @@ class WikiToHtmlTest extends TestCase
         );
     }
 
+    /**
+     * @return list<array{string, list<string>}>
+     */
     public static function dataProviderTestTagTransform(): array
     {
         return [
@@ -250,6 +253,9 @@ class WikiToHtmlTest extends TestCase
         ];
     }
 
+    /**
+     * @param list<string>   $delimiters
+     */
     #[DataProvider('dataProviderTestTagTransform')]
     public function testTagTransform(string $tag, array $delimiters): void
     {
@@ -428,6 +434,9 @@ class WikiToHtmlTest extends TestCase
         );
     }
 
+    /**
+     * @return list<array{string, string, int}>
+     */
     public static function dataProviderTestBlocks(): array
     {
         return [
@@ -587,7 +596,7 @@ class WikiToHtmlTest extends TestCase
     }
 
     #[DataProvider('dataProviderTestBlocks')]
-    public function testBlocks($in, $out, $count): void
+    public function testBlocks(string $in, string $out, int $count): void
     {
         $wiki = new \Dotclear\Helper\Html\WikiToHtml();
 
@@ -604,6 +613,7 @@ class WikiToHtmlTest extends TestCase
         $out = str_replace($search, $replace, $out);
 
         if (str_contains($in, '%s')) {
+            $phrase = [];
             for ($n = 1; $n <= $count; $n++) {
                 $phrase[$n] = $faker->text(20);
             }
@@ -623,6 +633,9 @@ class WikiToHtmlTest extends TestCase
         $faker = Factory::create();
 
         $text = $faker->paragraphs(3);
+        if (!is_array($text)) {
+            $text = [$text];
+        }
 
         $this->assertSame(
             '<p>' . implode("\n", $text) . '</p>',
@@ -659,6 +672,7 @@ class WikiToHtmlTest extends TestCase
         );
 
         $wiki->registerFunction('macro:dummy-macro', fn ($s) => "[[$s]]");
+        // @phpstan-ignore method.alreadyNarrowedType
         $this->assertIsCallable($wiki->functions['macro:dummy-macro']);
 
         $this->assertSame(
@@ -777,7 +791,12 @@ class WikiToHtmlTest extends TestCase
         );
     }
 
-    private function removeSpace($s)
+    /**
+     * @param  list<string>|string $s
+     *
+     * @return list<string>|string
+     */
+    private function removeSpace(array|string $s): string|array
     {
         return str_replace(["\r\n", "\n"], ['', ''], $s);
     }
