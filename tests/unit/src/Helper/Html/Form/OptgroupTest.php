@@ -22,6 +22,7 @@ class OptgroupTest extends TestCase
     public function testItemsText(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Optgroup('My Group');
+        // @phpstan-ignore argument.type
         $component->items([
             'one' => 1,
             'two' => '0',
@@ -85,6 +86,7 @@ class OptgroupTest extends TestCase
     public function testItemsArray(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Optgroup('My Group');
+        // @phpstan-ignore argument.type
         $component->items([
             'First' => [
                 'one' => 1,

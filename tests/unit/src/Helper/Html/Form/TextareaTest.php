@@ -86,6 +86,7 @@ class TextareaTest extends TestCase
         $component->detachLabel();
 
         $this->assertNull(
+            // @phpstan-ignore arguments.count
             $component->label()
         );
     }

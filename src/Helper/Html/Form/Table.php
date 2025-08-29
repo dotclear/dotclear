@@ -17,7 +17,7 @@ namespace Dotclear\Helper\Html\Form;
  * @method      $this caption(Caption $caption)
  * @method      $this thead(Thead $thead)
  * @method      $this tbody(Tbody $tbody)
- * @method      $this tfoot(Tbody $tfoot)
+ * @method      $this tfoot(Tfoot $tfoot)
  * @method      $this items(Iterable<int|string, Component> $items)
  *
  * @property    Caption $caption

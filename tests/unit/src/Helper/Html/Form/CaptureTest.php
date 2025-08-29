@@ -8,12 +8,12 @@ use PHPUnit\Framework\TestCase;
 
 class CaptureTest extends TestCase
 {
-    public function echoing(string $buffer = 'Buffer')
+    public function echoing(string $buffer = 'Buffer'): void
     {
         echo $buffer;
     }
 
-    private function error()
+    private function error(): void
     {
         throw new \Exception('Error Processing Request');
     }

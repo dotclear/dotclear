@@ -5,8 +5,11 @@ declare(strict_types=1);
 namespace Dotclear\Tests\Helper\Html\Form;
 
 use Dotclear\Helper\Html\Form\Label;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
+#[CoversClass(\Dotclear\Helper\Html\Form\Div::class)]
+#[CoversClass(\Dotclear\Helper\Html\Form\Component::class)]
 class DivTest extends TestCase
 {
     // This class is used to test all generic Component abstract class methods
@@ -33,7 +36,8 @@ class DivTest extends TestCase
     public function testStatic(): void
     {
         $component = \Dotclear\Helper\Html\Form\Div::init('my');
-        $rendered  = $component->render();
+        // @phpstan-ignore method.notFound
+        $rendered = $component->render();
 
         $this->assertMatchesRegularExpression(
             '/<div.*?>\n<\/div>/',
@@ -204,6 +208,7 @@ class DivTest extends TestCase
 
         $label = new \Dotclear\Helper\Html\Form\Label('mylabel');
         $component->attachLabel($label);
+        // @phpstan-ignore arguments.count
         $rendered = $component->label()->render();
 
         $this->assertEquals(
@@ -218,6 +223,7 @@ class DivTest extends TestCase
 
         $label = new \Dotclear\Helper\Html\Form\Label('mylabel');
         $component->attachLabel($label, Label::IL_TF);
+        // @phpstan-ignore arguments.count
         $rendered = $component->label()->render();
 
         $this->assertStringContainsString(
@@ -250,6 +256,7 @@ class DivTest extends TestCase
         $component->detachLabel();
 
         $this->assertNull(
+            // @phpstan-ignore arguments.count
             $component->label()
         );
     }
@@ -294,6 +301,7 @@ class DivTest extends TestCase
 
     public function testIntegerNameAndId(): void
     {
+        // @phpstan-ignore argument.type
         $component = new \Dotclear\Helper\Html\Form\Div([42, 'myid']);
         $rendered  = $component->render();
 
@@ -313,6 +321,7 @@ class DivTest extends TestCase
 
     public function testNameAndIntegerId(): void
     {
+        // @phpstan-ignore argument.type
         $component = new \Dotclear\Helper\Html\Form\Div(['myname', 17]);
         $rendered  = $component->render();
 
@@ -332,6 +341,7 @@ class DivTest extends TestCase
 
     public function testIntegerNameAndIntegerId(): void
     {
+        // @phpstan-ignore argument.type
         $component = new \Dotclear\Helper\Html\Form\Div([42, 17]);
         $rendered  = $component->render();
 
@@ -443,6 +453,7 @@ class DivTest extends TestCase
     public function testCommonAttributeNullValue(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
+        // @phpstan-ignore argument.type
         $component->value(null);
         $rendered = $component->render();
 
@@ -515,6 +526,7 @@ class DivTest extends TestCase
     public function testCommonAttributeFalseValue(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
+        // @phpstan-ignore argument.type
         $component->value(false);
         $rendered = $component->render();
 
@@ -539,6 +551,7 @@ class DivTest extends TestCase
     public function testCommonAttributeTrueValue(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
+        // @phpstan-ignore argument.type
         $component->value(true);
         $rendered = $component->render();
 
@@ -1312,6 +1325,7 @@ class DivTest extends TestCase
     public function testCommonAttributeNullMaxlength(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
+        // @phpstan-ignore argument.type
         $component->maxlength(null);
         $rendered = $component->render();
 
@@ -1336,6 +1350,7 @@ class DivTest extends TestCase
     public function testCommonAttributeStringMaxlength(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
+        // @phpstan-ignore argument.type
         $component->maxlength('13');
         $rendered = $component->render();
 
@@ -1768,6 +1783,7 @@ class DivTest extends TestCase
     public function testCommonAttributeNullSize(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
+        // @phpstan-ignore argument.type
         $component->size(null);
         $rendered = $component->render();
 
@@ -1792,6 +1808,7 @@ class DivTest extends TestCase
     public function testCommonAttributeStringSize(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
+        // @phpstan-ignore argument.type
         $component->size('13');
         $rendered = $component->render();
 
@@ -1912,6 +1929,7 @@ class DivTest extends TestCase
     public function testCommonAttributeNullTabindex(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
+        // @phpstan-ignore argument.type
         $component->tabindex(null);
         $rendered = $component->render();
 
@@ -1936,6 +1954,7 @@ class DivTest extends TestCase
     public function testCommonAttributeStringTabindex(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
+        // @phpstan-ignore argument.type
         $component->tabindex('13');
         $rendered = $component->render();
 
@@ -2008,6 +2027,7 @@ class DivTest extends TestCase
     public function testCommonAttributeData(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
+        // @phpstan-ignore argument.type
         $component->data([
             'key'  => 'value',
             '0'    => '1',
@@ -2109,6 +2129,7 @@ class DivTest extends TestCase
     public function testCommonAttributeUnknown(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
+        // @phpstan-ignore method.notFound
         $component->unknown('unknown');
         $rendered = $component->render();
 
