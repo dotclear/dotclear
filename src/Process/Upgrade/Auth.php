@@ -16,20 +16,24 @@ use Dotclear\Core\Upgrade\Otp;
 use Dotclear\Core\Upgrade\Page;
 use Dotclear\Core\Process;
 use Dotclear\Core\Upgrade\Upgrade;
+use Dotclear\Helper\Html\Form\Checkbox;
+use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Fieldset;
+use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Hidden;
 use Dotclear\Helper\Html\Form\Input;
 use Dotclear\Helper\Html\Form\Label;
 use Dotclear\Helper\Html\Form\Legend;
 use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\Password;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Set;
 use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
 use Exception;
-use form;
 
 /**
  * @brief   Upgrade process authentication page
@@ -270,6 +274,113 @@ class Auth extends Process
         header('Content-Type: text/html; charset=UTF-8');
         header('X-Frame-Options: SAMEORIGIN');  // Prevents Clickjacking as far as possible
 
+        $fields = [
+            (new Text('h1', Html::escapeHTML(App::config()->vendorName())))
+                ->role('banner'),
+            (new Text('h2', __('Upgrade'))),
+        ];
+
+        if (self::$err) {
+            $fields[] = (new Div())
+                ->class('error')
+                ->role('alert')
+                ->items([
+                    new Text('', self::$err),
+                ]);
+        }
+        if (self::$msg) {
+            $fields[] = (new Text('p', self::$msg))
+                ->class('success')
+                ->role('alert');
+        }
+
+        // Authentication
+        $user_defined_auth_form = null;
+        if (is_callable([App::auth(), 'authForm'], false, $user_defined_auth_form)) {
+            // User-defined authentication form
+
+            $fields[] = new Text('', $user_defined_auth_form(self::$user_id));
+        } elseif (self::$otp instanceof Otp && self::$require_2fa) {
+            // 2FA verification
+            $fields[] = (new Set())
+                ->items([
+                    (new Fieldset())
+                        ->role('main')
+                        ->legend((new Legend(__('Two factors authentication'))))
+                        ->fields([
+                            (new Para())
+                                ->items([
+                                    (new Input('user_code'))
+                                        ->label((new Label(__('Enter code:'), Label::IL_TF)))
+                                        ->size(20)
+                                        ->maxlength(self::$otp->getDigits())
+                                        ->default('')
+                                        ->translate(false),
+                                ]),
+                            (new Para())
+                                ->items([
+                                    (new Submit('verify_sbumit', __('Verify'))),
+                                    (new Hidden('login_data', (string) self::$login_data)),
+                                ]),
+                            (new Para())
+                                ->items([
+                                    (new Link())
+                                        ->href(App::upgrade()->url()->get('upgrade.auth'))
+                                        ->text(__('Back to login screen')),
+                                ]),
+                        ]),
+                ]);
+        } else {
+            // Standard authentication form
+            $fields[] = (new Set())
+                ->items([
+                    (new Fieldset())
+                        ->role('main')
+                        ->items([
+                            (new Para())
+                                ->items([
+                                    (new Input('user_id'))
+                                        ->label((new Label(__('Username:'), Label::IL_TF)))
+                                        ->size(20)
+                                        ->maxlength(32)
+                                        ->default(Html::escapeHTML(self::$user_id))
+                                        ->translate(false)
+                                        ->autocomplete('username'),
+                                ]),
+                            (new Para())
+                                ->items([
+                                    (new Password('user_pwd'))
+                                        ->label((new Label(__('Password:'), Label::IL_TF)))
+                                        ->size(20)
+                                        ->maxlength(255)
+                                        ->translate(false)
+                                        ->autocomplete('current-password'),
+                                ]),
+                            (new Para())
+                                ->items([
+                                    (new Checkbox('user_remember'))
+                                        ->value(1)
+                                        ->label((new Label(__('Remember my ID on this device'), Label::IL_FT))),
+                                ]),
+                            (new Para())
+                                ->items([
+                                    (new Submit('login', __('log in')))
+                                        ->class('login'),
+                                ]),
+
+                        ]),
+                    (new Text('p', __('You must accept cookies in order to use the private area.')))
+                        ->id('cookie_help')
+                        ->class('error'),
+                    (new Para())
+                        ->items([
+                            (new Link())
+                                ->href(App::upgrade()->url()->get('admin.home'))
+                                ->text(__('Back to normal dashboard'))
+                        ]),
+                ]);
+        }
+
         echo
      '<!DOCTYPE html>' . "\n" .
         '<html lang="' . self::$dlang . '">' . "\n" .
@@ -297,90 +408,12 @@ class Auth extends Process
 
         '</head>' . "\n" .
         '<body id="dotclear-admin" class="auth">' . "\n" .
-        '<form action="' . App::upgrade()->url()->get('upgrade.auth') . '" method="post" id="login-screen">' . "\n" .
-        '<h1 role="banner">' . Html::escapeHTML(App::config()->vendorName()) . '</h1>' .
-        '<h2>' . __('Upgrade') . '</h2>';
-
-        if (self::$err) {
-            echo
-            '<div class="error" role="alert">' . self::$err . '</div>';
-        }
-        if (self::$msg) {
-            echo
-            '<p class="success" role="alert">' . self::$msg . '</p>';
-        }
-
-        // Authentication
-        $user_defined_auth_form = null;
-        if (is_callable([App::auth(), 'authForm'], false, $user_defined_auth_form)) {
-            // User-defined authentication form
-
-            echo $user_defined_auth_form(self::$user_id);
-        } elseif (self::$otp instanceof Otp && self::$require_2fa) {
-            // 2FA verification
-            echo (new Set())
-                ->items([
-                    (new Fieldset())
-                        ->role('main')
-                        ->legend((new Legend(__('Two factors authentication'))))
-                        ->fields([
-                            (new Para())
-                                ->items([
-                                    (new Input('user_code'))
-                                        ->label((new Label(__('Enter code:'), Label::IL_TF)))
-                                        ->size(20)
-                                        ->maxlength(self::$otp->getDigits())
-                                        ->default('')
-                                        ->translate(false),
-                                ]),
-                            (new Para())
-                                ->items([
-                                    (new Submit('verify_sbumit', __('Verify'))),
-                                    (new Hidden('login_data', (string) self::$login_data)),
-                                ]),
-                            (new Para())
-                                ->items([
-                                    (new Link())
-                                        ->href(App::upgrade()->url()->get('upgrade.auth'))
-                                        ->text(__('Back to login screen')),
-                                ]),
-                        ]),
-                ])
-                ->render();
-        } else {
-            // Standard authentication form
-
-            echo
-            '<fieldset role="main">' .
-            '<p><label for="user_id">' . __('Username:') . '</label> ' .
-            form::field(
-                'user_id',
-                20,
-                32,
-                [
-                    'default'      => Html::escapeHTML(self::$user_id),
-                    'autocomplete' => 'username',
-                ]
-            ) . '</p>' .
-
-            '<p><label for="user_pwd">' . __('Password:') . '</label> ' .
-            form::password(
-                'user_pwd',
-                20,
-                255,
-                [
-                    'autocomplete' => 'current-password',
-                ]
-            ) . '</p>' .
-            '<p>' . form::checkbox('user_remember', 1) . '<label for="user_remember" class="classic">' .
-            __('Remember my ID on this device') . '</label></p>' .
-            '<p><input type="submit" value="' . __('log in') . '" class="login"></p>' .
-            '</fieldset>' .
-            '<p id="cookie_help" class="error">' . __('You must accept cookies in order to use the private area.') . '</p>' .
-            '<p><a href="' . App::upgrade()->url()->get('admin.home') . '">' . __('Back to normal dashboard') . '</a><p>';
-        }
-
-        echo self::html_end();
+        (new Form('login-screen'))
+            ->method('post')
+            ->action(App::upgrade()->url()->get('upgrade.auth'))
+            ->fields($fields)
+            ->render() .
+        self::html_end();
     }
 
     private static function html_end(): string
@@ -388,7 +421,6 @@ class Auth extends Process
         // Tricky code to avoid xgettext bug on indented end heredoc identifier (see https://savannah.gnu.org/bugs/?62158)
         // Warning: don't use <<< if there is some __() l10n calls after as xgettext will not find them
         return <<<HTML_END
-            </form>
             </body>
             </html>
             HTML_END;
