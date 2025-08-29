@@ -42,8 +42,6 @@ use Exception;
 
 /**
  * @brief   Intallation process.
- *
- * @todo switch Helper/Html/Form/...
  */
 class Install extends Process
 {

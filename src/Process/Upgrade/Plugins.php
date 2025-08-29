@@ -46,8 +46,6 @@ use Throwable;
  * As we are in safe mode, plugins are soft disabled.
  *
  * @since   2.29
- *
- * @todo switch Helper/Html/Form/...
  */
 class Plugins extends Process
 {

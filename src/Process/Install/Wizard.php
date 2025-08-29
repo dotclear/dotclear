@@ -37,8 +37,6 @@ use Exception;
 
 /**
  * @brief   Installation wizard process.
- *
- * @todo switch Helper/Html/Form/...
  */
 class Wizard extends Process
 {
