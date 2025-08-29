@@ -261,9 +261,9 @@ class Trackback implements TrackbackInterface
             }
 
             if (strtolower($charset) !== 'utf-8') {
-                $title     = iconv($charset, 'UTF-8', (string) $title);
-                $excerpt   = iconv($charset, 'UTF-8', (string) $excerpt);
-                $blog_name = iconv($charset, 'UTF-8', (string) $blog_name);
+                $title     = Text::toUTF8((string) $title, $charset);
+                $excerpt   = Text::toUTF8((string) $excerpt, $charset);
+                $blog_name = Text::toUTF8((string) $blog_name, $charset);
             }
 
             $title = trim(Html::clean($title));
@@ -660,10 +660,7 @@ class Trackback implements TrackbackInterface
                 $charset = $this->detectCharset($remote_content);
             }
             if (strtolower($charset) !== 'utf-8') {
-                $remote_content = iconv($charset, 'UTF-8', $remote_content);
-                if ($remote_content === false) {
-                    $remote_content = '';
-                }
+                $remote_content = Text::toUTF8($remote_content, $charset);
             }
         }
 

@@ -2330,10 +2330,6 @@ msgstr ""
 msgid "Multibyte string module (mbstring) is not available."
 msgstr ""
 
-#: src/Core/Install/Utils.php:44
-msgid "Iconv module is not available."
-msgstr ""
-
 #: src/Core/Install/Utils.php:48
 msgid "Output control functions are not available."
 msgstr ""

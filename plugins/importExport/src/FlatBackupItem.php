@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\importExport;
 
+use Dotclear\Helper\Text;
+
 /**
  * @brief   The module flat backup item handler.
  * @ingroup importExport
@@ -31,9 +33,7 @@ class FlatBackupItem
 
     public function f(string $name): string
     {
-        $ret = iconv('UTF-8', 'UTF-8//IGNORE', (string) $this->__data[$name]);
-
-        return $ret === false ? (string) $this->__data[$name] : $ret;
+        return Text::toUTF8((string) $this->__data[$name]) ?: (string) $this->__data[$name];
     }
 
     public function __get(string $name): mixed

@@ -81,6 +81,7 @@ class Task implements TaskInterface
         self::$watchdog = true;
 
         // Set encoding
+        @ini_set('mbstring.substitute_character', "none"); // discard unsupported characters
         mb_internal_encoding('UTF-8');
 
         // Initialize lang definition
