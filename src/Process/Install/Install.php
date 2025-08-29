@@ -546,7 +546,7 @@ class Install extends Process
                                                 ->extra('required placeholder="' . __('Password') . '"'),
                                         ]),
                                 ]),
-                                (new Submit('install-submit', __('Save')))
+                            (new Submit('install-submit', __('Save'))),
                         ]),
                 ]);
         } elseif (self::$can_install && self::$step == 1) {
@@ -566,7 +566,7 @@ class Install extends Process
                     ->items([
                         (new Text('', __('Following plugins have not been installed:'))),
                         (new Ul())->items(array_map(
-                            fn ($k, $v): Li => (new Li())->text(sprintf('%s (%s)', $k, $v)), 
+                            fn ($k, $v): Li => (new Li())->text(sprintf('%s (%s)', $k, $v)),
                             array_keys(self::$plugins_install['failure']),
                             array_values(self::$plugins_install['failure'])
                         )),
@@ -589,7 +589,7 @@ class Install extends Process
                             (new Li())
                                 ->items([
                                     (new Text('', __('Password:'))),
-                                    (new Strong(Html::escapeHTML(self::$u_pwd))->id('password')),
+                                    ((new Strong(Html::escapeHTML(self::$u_pwd)))->id('password')),
                                 ]),
                         ]),
                     (new text('h3', __('Your blog'))),

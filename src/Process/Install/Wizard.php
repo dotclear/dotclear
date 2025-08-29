@@ -151,7 +151,8 @@ class Wizard extends Process
                 # Checks system capabilites
                 $_e = [];
                 if (!Utils::check($con, $_e)) {
-                    throw new Exception((new Set())
+                    throw new Exception(
+                        (new Set())
                         ->items([
                             new Text('p', __('Dotclear cannot be installed.')),
                             (new Ul())
@@ -278,7 +279,7 @@ class Wizard extends Process
             ->items([
                 (new Text('h1', __('Dotclear installation wizard'))),
                 (new Div('main'))
-                    ->items([ ... 
+                    ->items([...
                         (self::$err !== '' ? [
                             (new Div())
                                 ->class('error')
@@ -292,7 +293,7 @@ class Wizard extends Process
                                                 ]),
                                             new Text('', self::$err),
                                         ]),
-                                ])
+                                ]),
                         ] : [
                             (new Text('h2', __('Welcome'))),
                             (new Text('p', __('To complete your Dotclear installation and start writing on your blog, we just need to know how to access your database and who you are. Just fill this two steps wizard with this information and we will be done.'))),
@@ -377,7 +378,7 @@ class Wizard extends Process
                                                     ->value(Html::escapeHTML(self::$ADMINMAILFROM))
                                                     ->label(new Label(__('Master Email: (used as sender for password recovery)'), Label::OUTSIDE_LABEL_BEFORE)),
                                             ]),
-                                            (new Submit('submit', __('Continue')))
+                                        (new Submit('submit', __('Continue'))),
                                     ]),
                             ]),
                     ]),
@@ -409,7 +410,7 @@ class Wizard extends Process
      * @param   null|Exception  $error      The error
      *
      * @throws  Exception
-     * 
+     *
      * @return  never
      */
     private static function throwString(string $message, int $code = 0, ?Exception $error = null): void
