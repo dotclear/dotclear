@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-22 11:44+0200\n"
-"PO-Revision-Date: 2025-08-22 10:02\n"
+"PO-Revision-Date: 2025-08-29 19:12\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -2300,10 +2300,6 @@ msgstr "PHP 버전은 %s (%s 또는 이전 버전 필요)입니다."
 #: src/Core/Install/Utils.php:40
 msgid "Multibyte string module (mbstring) is not available."
 msgstr "다중바이트 문자열 모듈(mbstring)을 사용할 수 없습니다."
-
-#: src/Core/Install/Utils.php:44
-msgid "Iconv module is not available."
-msgstr "Iconv모듈을 사용할 수 없습니다."
 
 #: src/Core/Install/Utils.php:48
 msgid "Output control functions are not available."

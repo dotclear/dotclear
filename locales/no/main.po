@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-22 11:44+0200\n"
-"PO-Revision-Date: 2025-08-22 10:29\n"
+"PO-Revision-Date: 2025-08-29 19:12\n"
 "Last-Translator: \n"
 "Language-Team: Norwegian Bokmal\n"
 "Language: nb_NO\n"
@@ -2329,10 +2329,6 @@ msgstr "PHP-versjonen er %s (%s eller tidligere nødvendig)."
 #: src/Core/Install/Utils.php:40
 msgid "Multibyte string module (mbstring) is not available."
 msgstr "Multibyte-strengmodulen (mbstring) er ikke tilgjengelig."
-
-#: src/Core/Install/Utils.php:44
-msgid "Iconv module is not available."
-msgstr "Iconv-modulen er ikke tilgjengelig."
 
 #: src/Core/Install/Utils.php:48
 msgid "Output control functions are not available."
