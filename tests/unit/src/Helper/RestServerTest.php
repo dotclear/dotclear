@@ -11,19 +11,20 @@ class RestServerTest extends TestCase
 {
     // Rest functions
 
-    public static function restTrueFn()
+    public static function restTrueFn(): bool
     {
         return true;
     }
 
-    public static function restErrorFn()
+    public static function restErrorFn(): bool
     {
         throw new Exception('Error Processing Request');
-
-        return false;
     }
 
-    public static function restJsonFn()
+    /**
+     * @return array<string, bool>
+     */
+    public static function restJsonFn(): array
     {
         $ret = [
             'check' => false,
@@ -33,7 +34,7 @@ class RestServerTest extends TestCase
         return $ret;
     }
 
-    public static function restXmlFn()
+    public static function restXmlFn(): \Dotclear\Helper\Html\XmlTag
     {
         $rsp = new \Dotclear\Helper\Html\XmlTag('test');
 
@@ -43,7 +44,7 @@ class RestServerTest extends TestCase
         return $rsp;
     }
 
-    public static function restTrueFnParam($param = null)
+    public static function restTrueFnParam(mixed $param = null): bool
     {
         if ($param !== null) {
             return false;
@@ -52,7 +53,10 @@ class RestServerTest extends TestCase
         return true;
     }
 
-    public static function restJsonFnParam($param = null)
+    /**
+     * @return array<string, mixed>
+     */
+    public static function restJsonFnParam(mixed $param = null): array
     {
         $ret = [
             'check' => false,
@@ -65,7 +69,7 @@ class RestServerTest extends TestCase
         return $ret;
     }
 
-    public static function restXmlFnParam($param = null)
+    public static function restXmlFnParam(mixed $param = null): \Dotclear\Helper\Html\XmlTag
     {
         $rsp = new \Dotclear\Helper\Html\XmlTag('test');
 
@@ -103,7 +107,7 @@ class RestServerTest extends TestCase
         string &$response = '',
         string $encoding = 'UTF-8',
         int $format = \Dotclear\Helper\RestServer::DEFAULT_RESPONSE,
-        $param = null,
+        mixed $param = null,
     ): bool {
         // Set function
         if ($fn !== null) {
@@ -125,9 +129,6 @@ class RestServerTest extends TestCase
     {
         $rest = new \Dotclear\Helper\RestServer();
 
-        $this->assertNotNull(
-            $rest
-        );
         $this->assertEquals(
             new \Dotclear\Helper\Html\XmlTag('rsp'),
             $rest->rsp
@@ -141,9 +142,6 @@ class RestServerTest extends TestCase
     {
         $rest = $this->prepareServer(false);
 
-        $this->assertNotNull(
-            $rest->rsp
-        );
         $this->assertNull(
             $rest->json
         );

@@ -13,7 +13,7 @@ class L10nTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->l10n_dir = realpath(implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'fixtures', 'src', 'Helper', 'L10n']));
+        $this->l10n_dir = (string) realpath(implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'fixtures', 'src', 'Helper', 'L10n']));
     }
 
     public function testWithEmpty(): void
@@ -294,15 +294,15 @@ class L10nTest extends TestCase
         $content .= 'msgstr "Pas vraiment une très longue phrase"' . "\n";
 
         $tmp_file = $this->tempPoFile($content);
-        \Dotclear\Helper\L10n::set(str_replace('.po', '', $tmp_file));
+        \Dotclear\Helper\L10n::set(str_replace('.po', '', (string) $tmp_file));
 
         $this->assertEquals(
             'Pas vraiment une très longue phrase',
             __($en_str)
         );
 
-        if (file_exists($tmp_file)) {
-            unlink($tmp_file);
+        if (file_exists((string) $tmp_file)) {
+            unlink((string) $tmp_file);
         }
     }
 
@@ -318,15 +318,15 @@ class L10nTest extends TestCase
         $content .= '"' . "\n";
 
         $tmp_file = $this->tempPoFile($content);
-        \Dotclear\Helper\L10n::set(str_replace('.po', '', $tmp_file));
+        \Dotclear\Helper\L10n::set(str_replace('.po', '', (string) $tmp_file));
 
         $this->assertEquals(
             $fr_str,
             __($en_str)
         );
 
-        if (file_exists($tmp_file)) {
-            unlink($tmp_file);
+        if (file_exists((string) $tmp_file)) {
+            unlink((string) $tmp_file);
         }
     }
 
@@ -457,7 +457,7 @@ class L10nTest extends TestCase
         );
     }
 
-    protected function tempPoFile($content)
+    protected function tempPoFile(string $content): string|false
     {
         $output = realpath(sys_get_temp_dir()) . DIRECTORY_SEPARATOR . 'dc-temp-test-' . bin2hex(random_bytes(8)) . '.po';
 

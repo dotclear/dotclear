@@ -459,7 +459,7 @@ class Date
      * @param boolean    $flip      Names are keys and codes are values
      * @param boolean    $groups    Return timezones in arrays of continents
      *
-     * @return array<string, string>
+     * @return array<string, string|non-empty-array<string, string>>
      */
     public static function getZones(bool $flip = false, bool $groups = false): array
     {
@@ -486,13 +486,13 @@ class Date
             if ($groups) {
                 $tmp = [];
                 foreach ($res as $code => $timezone) {
-                    $group                 = explode('/', $code);
+                    $group                 = explode('/', (string) $code);
                     $tmp[$group[0]][$code] = $timezone;
                 }
                 $res = $tmp;
             }
         }
 
-        return $res;    // @phpstan-ignore-line
+        return $res;
     }
 }

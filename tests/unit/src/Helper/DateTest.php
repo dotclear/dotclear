@@ -218,6 +218,7 @@ class HelperDateTest extends TestCase
             $tzs['Europe']
         );
         $this->assertNotEmpty(
+            // @phpstan-ignore offsetAccess.notFound
             $tzs['Europe']['Europe/Paris']
         );
     }
