@@ -39,8 +39,6 @@ use Exception;
  * @brief   Upgrade process authentication page
  *
  * @since   2.29
- *
- * @todo switch Helper/Html/Form/...
  */
 class Auth extends Process
 {
@@ -376,7 +374,7 @@ class Auth extends Process
                         ->items([
                             (new Link())
                                 ->href(App::upgrade()->url()->get('admin.home'))
-                                ->text(__('Back to normal dashboard'))
+                                ->text(__('Back to normal dashboard')),
                         ]),
                 ]);
         }
