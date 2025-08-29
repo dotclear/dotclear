@@ -156,7 +156,7 @@ class Wizard extends Process
                         ->items([
                             new Text('p', __('Dotclear cannot be installed.')),
                             (new Ul())
-                                ->items(array_map(fn ($e): Li => (new Li())->text($e), $_e)),
+                                ->items(array_map(fn (string $e): Li => (new Li())->text($e), $_e)),
                         ])
                         ->render()
                     );
@@ -415,6 +415,6 @@ class Wizard extends Process
      */
     private static function throwString(string $message, int $code = 0, ?Exception $error = null): void
     {
-        throw new Exception((new Text('p', $message))->render(), (int) $code, $error);
+        throw new Exception((new Text('p', $message))->render(), $code, $error);
     }
 }
