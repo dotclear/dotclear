@@ -12,24 +12,24 @@ class ParserTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->testDirectory = realpath(implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', '..', 'fixtures', 'src', 'Helper', 'Network', 'Feed']));
+        $this->testDirectory = (string) realpath(implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', '..', 'fixtures', 'src', 'Helper', 'Network', 'Feed']));
     }
 
     public function testAsXML(): void
     {
-        $xml = file_get_contents($this->testDirectory . DIRECTORY_SEPARATOR . 'atom-1.0.xml');
+        $xml = (string) file_get_contents($this->testDirectory . DIRECTORY_SEPARATOR . 'atom-1.0.xml');
 
         $parser = new \Dotclear\Helper\Network\Feed\Parser($xml);
 
         $this->assertStringStartsWith(
             '<?xml version="1.0"',
-            $parser->asXML()
+            (string) $parser->asXML()
         );
     }
 
     public function testRss10(): void
     {
-        $xml    = file_get_contents($this->testDirectory . DIRECTORY_SEPARATOR . 'rss-1.0.xml');
+        $xml    = (string) file_get_contents($this->testDirectory . DIRECTORY_SEPARATOR . 'rss-1.0.xml');
         $parser = new \Dotclear\Helper\Network\Feed\Parser($xml);
 
         $this->assertEquals(
@@ -52,7 +52,8 @@ class ParserTest extends TestCase
             '',
             $parser->pubdate
         );
-        $this->isNull(
+        // @phpstan-ignore method.impossibleType
+        $this->assertNull(
             $parser->generator
         );
         $this->assertNotEmpty(
@@ -82,7 +83,7 @@ class ParserTest extends TestCase
 
     public function testRss20(): void
     {
-        $xml    = file_get_contents($this->testDirectory . DIRECTORY_SEPARATOR . 'rss-2.0.xml');
+        $xml    = (string) file_get_contents($this->testDirectory . DIRECTORY_SEPARATOR . 'rss-2.0.xml');
         $parser = new \Dotclear\Helper\Network\Feed\Parser($xml);
 
         $this->assertEquals(
@@ -136,7 +137,7 @@ class ParserTest extends TestCase
 
     public function testAtom03(): void
     {
-        $xml    = file_get_contents($this->testDirectory . DIRECTORY_SEPARATOR . 'atom-0.3.xml');
+        $xml    = (string) file_get_contents($this->testDirectory . DIRECTORY_SEPARATOR . 'atom-0.3.xml');
         $parser = new \Dotclear\Helper\Network\Feed\Parser($xml);
 
         $this->assertEquals(
@@ -189,7 +190,7 @@ class ParserTest extends TestCase
 
     public function testAtom10(): void
     {
-        $xml    = file_get_contents($this->testDirectory . DIRECTORY_SEPARATOR . 'atom-1.0.xml');
+        $xml    = (string) file_get_contents($this->testDirectory . DIRECTORY_SEPARATOR . 'atom-1.0.xml');
         $parser = new \Dotclear\Helper\Network\Feed\Parser($xml);
 
         $this->assertEquals(
@@ -200,7 +201,8 @@ class ParserTest extends TestCase
             'Example Feed',
             $parser->title
         );
-        $this->isNull(
+        // @phpstan-ignore method.impossibleType
+        $this->assertNull(
             $parser->link
         );
         $this->assertEquals(

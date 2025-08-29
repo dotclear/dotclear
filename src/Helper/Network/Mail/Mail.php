@@ -26,15 +26,15 @@ class Mail
      * be used instead of PHP mail() function. _mail() function should have the
      * same signature. Headers could be provided as a string or an array.
      *
-     * @param string                $to           Email destination
-     * @param string                $subject      Email subject
-     * @param string                $message      Email message
-     * @param string|array<string>  $headers      Email headers
-     * @param string                $params       UNIX mail additionnal parameters
+     * @param string                    $to           Email destination
+     * @param string                    $subject      Email subject
+     * @param string                    $message      Email message
+     * @param null|string|list<string>  $headers      Email headers
+     * @param string                    $params       UNIX mail additionnal parameters
      *
      * @return boolean                        true on success
      */
-    public static function sendMail(string $to, string $subject, string $message, $headers = null, ?string $params = null): bool
+    public static function sendMail(string $to, string $subject, string $message, null|string|array $headers = null, ?string $params = null): bool
     {
         /**
          * User defined mail function

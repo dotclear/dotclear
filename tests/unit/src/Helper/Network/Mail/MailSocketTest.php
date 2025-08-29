@@ -39,9 +39,12 @@ namespace Dotclear\Tests\Helper\Network\Mail {
     {
         private static string $output;
         private static int $fgets_counter;
+        /**
+         * @var list<string>
+         */
         private static array $fgets_socket;
         private static string $commands;
-        private static $handle;
+        private static mixed $handle;
         private static bool $nosocket;
 
         protected function setUp(): void
@@ -133,11 +136,8 @@ namespace Dotclear\Tests\Helper\Network\Mail {
         {
             $header_from = 'From: contact@dotclear.org';
 
-            $ret = \Dotclear\Helper\Network\Mail\MailSocket::mail('security@dotclear.org', 'Subject', 'Content', $header_from);
+            \Dotclear\Helper\Network\Mail\MailSocket::mail('security@dotclear.org', 'Subject', 'Content', $header_from);
 
-            $this->assertNotFalse(
-                $ret
-            );
             $this->assertEquals(
                 str_replace("\n", "\r\n", self::$commands),
                 file_get_contents(self::$output)
@@ -145,7 +145,7 @@ namespace Dotclear\Tests\Helper\Network\Mail {
 
             self::$nosocket = true;
             $this->expectException(Exception::class);
-            $ret = \Dotclear\Helper\Network\Mail\MailSocket::mail('contact@example.com', 'Subject', 'Content');
+            \Dotclear\Helper\Network\Mail\MailSocket::mail('contact@example.com', 'Subject', 'Content');
         }
     }
 }

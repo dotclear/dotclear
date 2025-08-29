@@ -5,12 +5,16 @@ declare(strict_types=1);
 namespace Dotclear\Helper\Network\Mail {
     use Dotclear\Tests\Helper\Network\Mail\MailTest;
 
-    // Declare mail() function in same namespace as sendMail(), so it will be used before the native one
+    /**
+     * Declare mail() function in same namespace as sendMail(), so it will be used before the native one
+     *
+     * @param  null|string|list<string> $additional_headers
+     */
     function mail(
         string $to,
         string $subject,
         string $message,
-        array|string $additional_headers = [],
+        null|array|string $additional_headers = [],
         string $additional_params = ''
     ): bool {
         // Call test method to perform some test on given parameters
@@ -24,12 +28,16 @@ namespace Dotclear\Tests\Helper\Network\Mail {
 
     class MailTest extends TestCase
     {
-        // Local mock of mail() function
+        /**
+         * Local mock of mail() function
+         *
+         * @param  null|string|list<string> $additional_headers
+         */
         public static function mail(
             string $to,
             string $subject,
             string $message,
-            array|string $additional_headers = [],
+            null|array|string $additional_headers = null,
             string $additional_params = ''
         ): bool {
             if ($to === '') {
@@ -41,8 +49,10 @@ namespace Dotclear\Tests\Helper\Network\Mail {
             if ($message === '') {
                 throw new Exception('Unable to send email');
             }
-            if ($additional_headers !== [] && $additional_headers[0] !== 'Content-Type: text/plain; charset=UTF-8;') {
-                throw new Exception('Unable to send email');
+            if (!is_null($additional_headers)) {
+                if ($additional_headers !== [] && $additional_headers[0] !== 'Content-Type: text/plain; charset=UTF-8;') {
+                    throw new Exception('Unable to send email');
+                }
             }
             if ($additional_params !== '' && $additional_params !== '-fwebmaster@example.com') {
                 throw new Exception('Unable to send email');
@@ -100,6 +110,7 @@ namespace Dotclear\Tests\Helper\Network\Mail {
                 return;
             }
 
+            // @phpstan-ignore method.alreadyNarrowedType
             $this->assertIsArray(
                 $mx
             );

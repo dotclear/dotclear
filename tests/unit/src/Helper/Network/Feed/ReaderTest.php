@@ -30,9 +30,6 @@ class ReaderTest extends TestCase
 
         $parser = $reader->parse('https://dotclear.org/blog/feed/atom');
         if ($parser) {
-            $this->assertTrue(
-                $parser instanceof \Dotclear\Helper\Network\Feed\Parser
-            );
             $this->assertEquals(
                 'Dotclear News',
                 $parser->title
@@ -52,9 +49,6 @@ class ReaderTest extends TestCase
 
         $parser = $reader->parse('https://dotclear.org/blog/feed/atom');
         if ($parser) {
-            $this->assertTrue(
-                $parser instanceof \Dotclear\Helper\Network\Feed\Parser
-            );
             $this->assertEquals(
                 'Dotclear News',
                 $parser->title
@@ -70,9 +64,6 @@ class ReaderTest extends TestCase
         // 2nd time (from cache)
         $parser = $reader->parse('https://dotclear.org/blog/feed/atom');
         if ($parser) {
-            $this->assertTrue(
-                $parser instanceof \Dotclear\Helper\Network\Feed\Parser
-            );
             $this->assertEquals(
                 'Dotclear News',
                 $parser->title
@@ -88,9 +79,6 @@ class ReaderTest extends TestCase
         // Quick parse
         $parser = \Dotclear\Helper\Network\Feed\Reader::quickParse('https://dotclear.org/blog/feed/atom', $this->cacheDirectory);
         if ($parser) {
-            $this->assertTrue(
-                $parser instanceof \Dotclear\Helper\Network\Feed\Parser
-            );
             $this->assertEquals(
                 'Dotclear News',
                 $parser->title
