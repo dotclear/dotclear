@@ -183,6 +183,16 @@ class jsToolBar {
     this.encloseSelection(stag, etag);
   }
 
+  getCurrentSelection() {
+    let sel = '';
+    if (typeof document.selection !== 'undefined') {
+      sel = document.selection.createRange().text;
+    } else if (typeof this.textarea.setSelectionRange !== 'undefined') {
+      sel = this.textarea.value.substring(this.textarea.selectionStart, this.textarea.selectionEnd);
+    }
+    return sel;
+  }
+
   encloseSelection(prefix = '', suffix = '', fn = null) {
     this.textarea.focus();
 

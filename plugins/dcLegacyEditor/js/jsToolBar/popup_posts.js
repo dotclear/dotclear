@@ -15,6 +15,7 @@ dotclear.ready(() => {
       const { data } = tb.elements.link;
 
       data.href = tb.stripBaseURL(event.target.getAttribute('title'));
+      data.href_title = event.target.text ?? '';
 
       tb.elements.link.fncall[tb.mode].call(tb);
       window.close();

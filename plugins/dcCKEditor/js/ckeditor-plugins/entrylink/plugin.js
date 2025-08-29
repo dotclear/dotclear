@@ -11,9 +11,7 @@
 
       editor.addCommand('entryLinkCommand', {
         exec(editor) {
-          if (editor.getSelection().getNative().toString().replace(/\s*/, '') != '') {
-            $.toolbarPopup('popup_posts.php?popup=1&plugin_id=dcCKEditor', popup_params);
-          }
+          $.toolbarPopup('popup_posts.php?popup=1&plugin_id=dcCKEditor', popup_params);
         },
       });
 

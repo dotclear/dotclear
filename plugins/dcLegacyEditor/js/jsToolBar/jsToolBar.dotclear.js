@@ -45,7 +45,7 @@ jsToolBar.prototype.elements.link.fncall.wiki = function () {
   if (data.content) {
     this.encloseSelection(`[${data.content}`, `${etag}]`);
   } else {
-    this.encloseSelection('[', `${etag}]`);
+    this.encloseSelection(`[${this.getCurrentSelection() ? '' : data.href_title || ''}`, `${etag}]`);
   }
 };
 
@@ -73,7 +73,7 @@ jsToolBar.prototype.elements.link.fncall.xhtml = function () {
   if (data.content) {
     this.encloseSelection('', '', () => stag + data.content + etag);
   } else {
-    this.encloseSelection(stag, etag);
+    this.encloseSelection(`${stag}${this.getCurrentSelection() ? '' : data.href_title || ''}`, etag);
   }
 };
 
@@ -127,6 +127,7 @@ jsToolBar.prototype.elements.link.fncall.wysiwyg = function () {
   a.href = data.href;
   if (data.hreflang) a.setAttribute('hreflang', data.hreflang);
   if (data.title) a.setAttribute('title', data.title);
+  if (!n.textContent && n.childElementCount === 0 && data.href_title) n.textContent = data.href_title;
   a.appendChild(n);
   this.insertNode(a);
 };

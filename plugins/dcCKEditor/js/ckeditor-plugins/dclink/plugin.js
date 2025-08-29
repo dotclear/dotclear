@@ -6,12 +6,7 @@
     init(editor) {
       editor.addCommand('dcLinkCommand', {
         exec(editor) {
-          if (
-            editor.getSelection().getSelectedElement() != null ||
-            editor.getSelection().getNative().toString().replace(/\s*/, '') != ''
-          ) {
-            $.toolbarPopup('index.php?process=LinkPopup&plugin_id=dcCKEditor');
-          }
+          $.toolbarPopup('index.php?process=LinkPopup&plugin_id=dcCKEditor');
         },
       });
 

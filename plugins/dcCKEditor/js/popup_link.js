@@ -28,7 +28,11 @@ dotclear.ready(() => {
         link.setAttribute('hreflang', window.opener.CKEDITOR.tools.htmlEncodeAttr(insert_form.elements.hreflang.value));
       }
       if (editor.getSelection().getSelectedElement() == null) {
-        link.appendText(selected_element);
+        link.appendText(
+          selected_element ||
+            window.opener.CKEDITOR.tools.htmlEncodeAttr(insert_form.elements.title.value) ||
+            insert_form.elements.href.value,
+        );
       } else {
         selected_element.appendTo(link);
       }
