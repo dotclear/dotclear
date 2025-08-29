@@ -40,10 +40,6 @@ class Utils
             $err[] = __('Multibyte string module (mbstring) is not available.');
         }
 
-        if (!function_exists('iconv')) {
-            $err[] = __('Iconv module is not available.');
-        }
-
         if (!function_exists('ob_start')) {
             $err[] = __('Output control functions are not available.');
         }

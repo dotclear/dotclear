@@ -47,7 +47,6 @@ In order to run Dotclear you need:
 - A web server (Apache, Nginx, lighttpd, Caddy, etc)
 - PHP 8.1 to 8.4 with the following modules:
   - mbstring
-  - iconv
   - simplexml
   - mysqli, postgresql or sqlite
   - intl (required for PHP 8.2+)

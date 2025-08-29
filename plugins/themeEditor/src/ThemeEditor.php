@@ -22,6 +22,7 @@ use Dotclear\Helper\Html\Form\Summary;
 use Dotclear\Helper\Html\Form\Ul;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
+use Dotclear\Helper\Text;
 use Dotclear\Module\ModuleDefine;
 use Exception;
 
@@ -284,8 +285,7 @@ class ThemeEditor
         $content = file_get_contents($pathname);
         if ($content && mb_strlen(Html::escapeHTML($content)) === 0) {
             // Try to cope with non UTF-8 encoding files
-            $from    = mb_detect_encoding($content);
-            $content = mb_convert_encoding($content, 'UTF-8', $from === false ? 'auto' : $from);
+            $content = Text::toUTF8($content);
         }
 
         return [
