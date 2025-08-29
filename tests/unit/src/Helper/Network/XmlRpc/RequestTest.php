@@ -10,6 +10,7 @@ class RequestTest extends TestCase
 {
     public function test(): void
     {
+        // @phpstan-ignore argument.type
         $req = new \Dotclear\Helper\Network\XmlRpc\Request('myBestMethod', ['id' => 42, 'dotclear' => true]);
 
         $this->assertEquals(

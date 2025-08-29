@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 class ValueTest extends TestCase
 {
     #[DataProvider('dataProviderTest')]
-    public function test($value, $type, $xml): void
+    public function test(mixed $value, false|string $type, string $xml): void
     {
         $elt = new \Dotclear\Helper\Network\XmlRpc\Value($value, $type);
 
@@ -20,6 +20,9 @@ class ValueTest extends TestCase
         );
     }
 
+    /**
+     * @return list<array{mixed, false|string, string}>
+     */
     public static function dataProviderTest(): array
     {
         $date         = new \Dotclear\Helper\Network\XmlRpc\Date('+2003-08-13T00:01:42+00:00');
