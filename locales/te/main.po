@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-30 17:29+0200\n"
-"PO-Revision-Date: 2025-08-30 22:26\n"
+"PO-Revision-Date: 2025-08-30 22:55\n"
 "Last-Translator: \n"
 "Language-Team: Telugu\n"
 "Language: te_IN\n"
@@ -5726,7 +5726,7 @@ msgstr "మీరు ఎంచుకున్న అభిప్రాయాల�
 
 #: src/Process/Backend/UserPreferences.php:604
 msgid "Enter a name for this key:"
-msgstr ""
+msgstr "ఈ కీ కోసం ఒక పేరును నమోదు చేయండి:"
 
 #: src/Process/Backend/UserPreferences.php:626
 msgid "Change my password"
@@ -5770,12 +5770,12 @@ msgstr "ధృవీకరణ కోడ్‌ను నమోదు చేయం
 
 #: src/Process/Backend/UserPreferences.php:713
 msgid "unlabeled key"
-msgstr ""
+msgstr "లేబుల్ చేయని కీ"
 
 #: src/Process/Backend/UserPreferences.php:715
 #, php-format
 msgid "valid on %s"
-msgstr ""
+msgstr "%s న చెల్లుతుంది"
 
 #: src/Process/Backend/UserPreferences.php:724
 msgid "You have no registered key yet."
@@ -6173,11 +6173,11 @@ msgstr "Username and password"
 
 #: src/Process/Install/Install.php:533
 msgid "New Password:"
-msgstr ""
+msgstr "కొత్త పాస్‌వర్డ్:"
 
 #: src/Process/Install/Install.php:543
 msgid "Confirm Password:"
-msgstr ""
+msgstr "పాస్‌వర్డ్‌ను నిర్ధారించండి:"
 
 #: src/Process/Install/Install.php:576
 msgid "All done!"
@@ -6232,12 +6232,12 @@ msgstr "డాట్‌క్లియర్ ఇన్‌స్టాలేష�
 
 #: src/Process/Install/Wizard.php:126
 msgid "There are no supported database driver."
-msgstr ""
+msgstr "మద్దతు ఉన్న డేటాబేస్ డ్రైవర్లు లేవు."
 
 #: src/Process/Install/Wizard.php:128
 #, php-format
 msgid "Dotclear installation wizard could not find database driver. You must change your PHP configuration to add a supported database handler please refer to <a href=\"%s\">the documentation</a> to learn how to do this."
-msgstr ""
+msgstr "డాట్‌క్లియర్ ఇన్‌స్టాలేషన్ విజార్డ్ డేటాబేస్ డ్రైవర్‌ను కనుగొనలేకపోయింది. మద్దతు ఉన్న డేటాబేస్ హ్యాండ్లర్‌ను జోడించడానికి మీరు మీ PHP కాన్ఫిగరేషన్‌ను మార్చాలి, దయచేసి దీన్ని ఎలా చేయాలో తెలుసుకోవడానికి <a href=\"%s\">డాక్యుమెంటేషన్</a>ని చూడండి."
 
 #: src/Process/Install/Wizard.php:165
 #, php-format
@@ -6265,7 +6265,7 @@ msgstr "Dotclear స్థాపన wizard"
 
 #: src/Process/Install/Wizard.php:326
 msgid "Dotclear can not be installed."
-msgstr ""
+msgstr "డాట్‌క్లియర్‌ను ఇన్‌స్టాల్ చేయడం సాధ్యం కాదు."
 
 #: src/Process/Install/Wizard.php:354
 msgid "Welcome"
