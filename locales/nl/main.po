@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-30 17:29+0200\n"
-"PO-Revision-Date: 2025-08-30 22:26\n"
+"PO-Revision-Date: 2025-08-30 22:55\n"
 "Last-Translator: \n"
 "Language-Team: Dutch\n"
 "Language: nl_NL\n"
@@ -5726,7 +5726,7 @@ msgstr "Weet u zeker dat u geselecteerde favorieten wilt verwijderen?"
 
 #: src/Process/Backend/UserPreferences.php:604
 msgid "Enter a name for this key:"
-msgstr ""
+msgstr "Voer een naam in voor deze sleutel:"
 
 #: src/Process/Backend/UserPreferences.php:626
 msgid "Change my password"
@@ -5770,12 +5770,12 @@ msgstr "Verificatiecode invoeren:"
 
 #: src/Process/Backend/UserPreferences.php:713
 msgid "unlabeled key"
-msgstr ""
+msgstr "ongelabelde sleutel"
 
 #: src/Process/Backend/UserPreferences.php:715
 #, php-format
 msgid "valid on %s"
-msgstr ""
+msgstr "geldig op %s"
 
 #: src/Process/Backend/UserPreferences.php:724
 msgid "You have no registered key yet."
@@ -6173,11 +6173,11 @@ msgstr "Gebruikersnaam en wachtwoord"
 
 #: src/Process/Install/Install.php:533
 msgid "New Password:"
-msgstr ""
+msgstr "Nieuw wachtwoord:"
 
 #: src/Process/Install/Install.php:543
 msgid "Confirm Password:"
-msgstr ""
+msgstr "Wachtwoord bevestigen:"
 
 #: src/Process/Install/Install.php:576
 msgid "All done!"
@@ -6232,12 +6232,12 @@ msgstr "Dotclear installatie wizard kon geen configuratie bestand voor u aanmake
 
 #: src/Process/Install/Wizard.php:126
 msgid "There are no supported database driver."
-msgstr ""
+msgstr "Er zijn geen ondersteunde databasestuurprogramma's."
 
 #: src/Process/Install/Wizard.php:128
 #, php-format
 msgid "Dotclear installation wizard could not find database driver. You must change your PHP configuration to add a supported database handler please refer to <a href=\"%s\">the documentation</a> to learn how to do this."
-msgstr ""
+msgstr "Dotclear installatie wizard kon database driver niet vinden. U moet uw PHP configuratie wijzigen om een ondersteunde database handler toe te voegen. Raadpleeg <a href=\"%s\">de documentatie</a> om te leren hoe u dit moet doen."
 
 #: src/Process/Install/Wizard.php:165
 #, php-format
@@ -6265,7 +6265,7 @@ msgstr "Dotclear installatie wizard"
 
 #: src/Process/Install/Wizard.php:326
 msgid "Dotclear can not be installed."
-msgstr ""
+msgstr "Dotclear kan niet worden geïnstalleerd."
 
 #: src/Process/Install/Wizard.php:354
 msgid "Welcome"
