@@ -71,11 +71,11 @@ class Record implements Iterator, Countable
      * - info[name] => an array with columns names
      * - info[type] => an array with columns types
      *
-     * @param list<array<array-key, mixed>>     $__result      Resource result
+     * @param mixed     $__result      Resource result
      * @param array{con: ?AbstractHandler, cols: int, rows: int, info: array{name: list<string>, type: list<string>}}   $__info   Information array
      */
     public function __construct(
-        protected ?array $__result,
+        protected mixed $__result,
         protected array $__info
     ) {
         if ($this->__info['con'] instanceof AbstractHandler) {

@@ -25,18 +25,16 @@ use Dotclear\Helper\Text;
 class StaticRecord extends Record
 {
     /**
-     * Data arrat
+     * Data array
      *
-     * @var        list<array<array-key, mixed>>   $__data
+     * @var mixed   $__data
      */
     public $__data = [];
 
     /**
-     * Sort field name
-     *
-     * @var string|int|null     $__sortfield
+     * Sort field name/index
      */
-    private $__sortfield;
+    private null|string|int $__sortfield = null;
 
     /**
      * Sort order (1 or -1)
@@ -46,10 +44,10 @@ class StaticRecord extends Record
     /**
      * Constructs a new instance.
      *
-     * @param list<array<array-key, mixed>>     $result  The result
+     * @param mixed     $result  The result
      * @param null|array{con: ?AbstractHandler, cols: int, rows: int, info: array{name: list<string>, type: list<string>}}    $info    The information
      */
-    public function __construct(?array $result, ?array $info)
+    public function __construct(mixed $result, ?array $info)
     {
         $null_info = [
             'con'  => null,
