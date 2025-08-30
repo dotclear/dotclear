@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-30 17:29+0200\n"
-"PO-Revision-Date: 2025-08-30 22:26\n"
+"PO-Revision-Date: 2025-08-30 22:55\n"
 "Last-Translator: \n"
 "Language-Team: Turkish\n"
 "Language: tr_TR\n"
@@ -5726,7 +5726,7 @@ msgstr "Seçili favorileri kaldırmak istediğinizden emin misiniz?"
 
 #: src/Process/Backend/UserPreferences.php:604
 msgid "Enter a name for this key:"
-msgstr ""
+msgstr "Bu anahtar için bir ad girin:"
 
 #: src/Process/Backend/UserPreferences.php:626
 msgid "Change my password"
@@ -5770,12 +5770,12 @@ msgstr "Doğrulama kodunu girin:"
 
 #: src/Process/Backend/UserPreferences.php:713
 msgid "unlabeled key"
-msgstr ""
+msgstr "etiketsiz anahtar"
 
 #: src/Process/Backend/UserPreferences.php:715
 #, php-format
 msgid "valid on %s"
-msgstr ""
+msgstr "%sadresinde geçerlidir"
 
 #: src/Process/Backend/UserPreferences.php:724
 msgid "You have no registered key yet."
@@ -6173,11 +6173,11 @@ msgstr "Kullanıcı adı ve parola"
 
 #: src/Process/Install/Install.php:533
 msgid "New Password:"
-msgstr ""
+msgstr "Yeni Şifre:"
 
 #: src/Process/Install/Install.php:543
 msgid "Confirm Password:"
-msgstr ""
+msgstr "Şifreyi Onayla:"
 
 #: src/Process/Install/Install.php:576
 msgid "All done!"
@@ -6232,12 +6232,12 @@ msgstr "Dotclear kurulum sihirbazı sizin için yapılandırma dosyası oluştur
 
 #: src/Process/Install/Wizard.php:126
 msgid "There are no supported database driver."
-msgstr ""
+msgstr "Desteklenen veritabanı sürücüsü yoktur."
 
 #: src/Process/Install/Wizard.php:128
 #, php-format
 msgid "Dotclear installation wizard could not find database driver. You must change your PHP configuration to add a supported database handler please refer to <a href=\"%s\">the documentation</a> to learn how to do this."
-msgstr ""
+msgstr "Dotclear kurulum sihirbazı veritabanı sürücüsünü bulamadı. Desteklenen bir veritabanı işleyicisi eklemek için PHP yapılandırmanızı değiştirmelisiniz, bunu nasıl yapacağınızı öğrenmek için lütfen <a href=\"%s\">belgelere</a> bakın."
 
 #: src/Process/Install/Wizard.php:165
 #, php-format
@@ -6265,7 +6265,7 @@ msgstr "Dotclear kurulum sihirbazı"
 
 #: src/Process/Install/Wizard.php:326
 msgid "Dotclear can not be installed."
-msgstr ""
+msgstr "Dotclear yüklenemiyor."
 
 #: src/Process/Install/Wizard.php:354
 msgid "Welcome"
