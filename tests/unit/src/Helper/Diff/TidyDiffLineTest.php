@@ -42,10 +42,12 @@ class TidyDiffLineTest extends TestCase
             $component->type
         );
 
+        // @phpstan-ignore method.impossibleType
         $this->assertNull(
             $component->lines
         );
 
+        // @phpstan-ignore method.impossibleType
         $this->assertNull(
             $component->content
         );
@@ -55,14 +57,17 @@ class TidyDiffLineTest extends TestCase
     {
         $component = new \Dotclear\Helper\Diff\TidyDiffLine('unknown', null, 'content');
 
+        // @phpstan-ignore method.impossibleType
         $this->assertNull(
             $component->type
         );
 
+        // @phpstan-ignore method.impossibleType
         $this->assertNull(
             $component->lines
         );
 
+        // @phpstan-ignore method.impossibleType
         $this->assertNull(
             $component->content
         );
@@ -72,14 +77,17 @@ class TidyDiffLineTest extends TestCase
     {
         $component = new \Dotclear\Helper\Diff\TidyDiffLine('unknown', [3, 4], null);
 
+        // @phpstan-ignore method.impossibleType
         $this->assertNull(
             $component->type
         );
 
+        // @phpstan-ignore method.impossibleType
         $this->assertNull(
             $component->lines
         );
 
+        // @phpstan-ignore method.impossibleType
         $this->assertNull(
             $component->content
         );
