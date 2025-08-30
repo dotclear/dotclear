@@ -52,6 +52,7 @@ use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Html\Form\Url;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
+use Dotclear\Helper\Stack\Status;
 use Exception;
 
 /**
@@ -1184,10 +1185,27 @@ class ManagePage extends Process
         $cols[] = (new Th())
             ->text(__('Edit'));
 
-        return (new Table())
-            ->class('comments-list')
-            ->thead((new Thead())->rows([(new Tr())->cols($cols)]))
-            ->tbody((new Tbody())->rows($rows))
+        return (new Div())
+            ->class('table-outer')
+            ->items([
+                (new Table())
+                    ->class('comments-list')
+                    ->thead((new Thead())->rows([(new Tr())->cols($cols)]))
+                    ->tbody((new Tbody())->rows($rows)),
+                (new Para())
+                    ->class('info')
+                    ->items([
+                        (new Text(
+                            null,
+                            __('Legend: ') . (new Set())
+                            ->separator(' - ')
+                            ->items([
+                                ... array_map(fn (Status $k): Img|Set|Text => App::status()->comment()->image($k->id(), true), App::status()->comment()->dump(false)),
+                            ])
+                            ->render(),
+                        )),
+                    ]),
+            ])
         ->render();
     }
 }
