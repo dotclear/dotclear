@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-30 17:29+0200\n"
-"PO-Revision-Date: 2025-08-30 22:25\n"
+"PO-Revision-Date: 2025-08-30 22:55\n"
 "Last-Translator: \n"
 "Language-Team: Bulgarian\n"
 "Language: bg_BG\n"
@@ -5726,7 +5726,7 @@ msgstr "Сигурни ли сте, че искате да премахнете 
 
 #: src/Process/Backend/UserPreferences.php:604
 msgid "Enter a name for this key:"
-msgstr ""
+msgstr "Въведете име за този ключ:"
 
 #: src/Process/Backend/UserPreferences.php:626
 msgid "Change my password"
@@ -5770,12 +5770,12 @@ msgstr "Въведете код за проверка:"
 
 #: src/Process/Backend/UserPreferences.php:713
 msgid "unlabeled key"
-msgstr ""
+msgstr "немаркиран ключ"
 
 #: src/Process/Backend/UserPreferences.php:715
 #, php-format
 msgid "valid on %s"
-msgstr ""
+msgstr "валиден на %s"
 
 #: src/Process/Backend/UserPreferences.php:724
 msgid "You have no registered key yet."
@@ -6173,11 +6173,11 @@ msgstr "Потребителско име и парола"
 
 #: src/Process/Install/Install.php:533
 msgid "New Password:"
-msgstr ""
+msgstr "Нова парола:"
 
 #: src/Process/Install/Install.php:543
 msgid "Confirm Password:"
-msgstr ""
+msgstr "Потвърдете паролата:"
 
 #: src/Process/Install/Install.php:576
 msgid "All done!"
@@ -6232,12 +6232,12 @@ msgstr "Съветникът за инсталиране на Dotclear не мо
 
 #: src/Process/Install/Wizard.php:126
 msgid "There are no supported database driver."
-msgstr ""
+msgstr "Няма поддържан драйвер за база данни."
 
 #: src/Process/Install/Wizard.php:128
 #, php-format
 msgid "Dotclear installation wizard could not find database driver. You must change your PHP configuration to add a supported database handler please refer to <a href=\"%s\">the documentation</a> to learn how to do this."
-msgstr ""
+msgstr "Съветникът за инсталиране на Dotclear не можа да намери драйвер за база данни. Трябва да промените конфигурацията на PHP, за да добавите поддържан драйвер за бази данни, моля, вижте <a href=\"%s\">документацията</a>, за да научите как да направите това."
 
 #: src/Process/Install/Wizard.php:165
 #, php-format
@@ -6265,7 +6265,7 @@ msgstr "Съветник за инсталиране на Dotclear"
 
 #: src/Process/Install/Wizard.php:326
 msgid "Dotclear can not be installed."
-msgstr ""
+msgstr "Dotclear не може да бъде инсталиран."
 
 #: src/Process/Install/Wizard.php:354
 msgid "Welcome"
