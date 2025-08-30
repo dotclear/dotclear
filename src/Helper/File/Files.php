@@ -457,7 +457,7 @@ class Files
      *
      * Returns true if upload status is ok, throws an exception instead.
      *
-     * @param array<string, array<string, mixed>>        $file        File array as found in $_FILES
+     * @param array{name: string, type: string, size: int, tmp_name: string, error?: int, full_path: string}  $file  File array (see $_FILES)
      */
     public static function uploadStatus(array $file): bool
     {

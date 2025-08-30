@@ -14,7 +14,7 @@ class FileTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->root = realpath(implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', 'fixtures', 'src', 'Helper', 'FileManager']));
+        $this->root = (string) realpath(implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', 'fixtures', 'src', 'Helper', 'FileManager']));
         $this->url  = 'https://example.com/public/';
     }
 
@@ -22,11 +22,9 @@ class FileTest extends TestCase
     {
         $file = new \Dotclear\Helper\File\File($this->root . DIRECTORY_SEPARATOR . 'valid.md', $this->root);
 
-        $this->assertNotNull(
-            $file
-        );
-        $this->assertTrue(
-            $file instanceof \Dotclear\Helper\File\File,
+        $this->assertEquals(
+            $this->root . DIRECTORY_SEPARATOR . 'valid.md',
+            $file->file
         );
     }
 
@@ -383,12 +381,7 @@ class FileTest extends TestCase
     {
         $file = new \Dotclear\Helper\File\File($this->root . DIRECTORY_SEPARATOR . 'invalid.md', $this->root);
 
-        $this->assertNotNull(
-            $file
-        );
-        $this->assertTrue(
-            $file instanceof \Dotclear\Helper\File\File,
-        );
+        // @phpstan-ignore method.impossibleType
         $this->assertNull(
             $file->file
         );

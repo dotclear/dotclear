@@ -14,21 +14,21 @@ namespace Dotclear\Helper\File {
             : \move_uploaded_file($from, $to); // fallback to real function
     }
 
-    function rename(string $from, string $to, $context = null): bool
+    function rename(string $from, string $to, mixed $context = null): bool
     {
         return RenameMock::$callback
             ? (RenameMock::$callback)($from, $to, $context)
             : \rename($from, $to, $context); // fallback to real function
     }
 
-    function unlink(string $filename, $context = null): bool
+    function unlink(string $filename, mixed $context = null): bool
     {
         return UnlinkMock::$callback
             ? (UnlinkMock::$callback)($filename, $context)
             : \unlink($filename, $context); // fallback to real function
     }
 
-    function rmdir(string $filename, $context = null): bool
+    function rmdir(string $filename, mixed $context = null): bool
     {
         return RmdirMock::$callback
             ? (RmdirMock::$callback)($filename, $context)
@@ -106,7 +106,7 @@ namespace Dotclear\Tests\Helper\File {
 
         protected function setUp(): void
         {
-            $this->root = realpath(implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', 'fixtures', 'src', 'Helper', 'FileManager']));
+            $this->root = (string) realpath(implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', 'fixtures', 'src', 'Helper', 'FileManager']));
             $this->url  = 'https://example.com/public/';
         }
 
@@ -137,12 +137,6 @@ namespace Dotclear\Tests\Helper\File {
         {
             $manager = new \Dotclear\Helper\File\Manager($this->root, $this->url);
 
-            $this->assertNotNull(
-                $manager
-            );
-            $this->assertTrue(
-                $manager instanceof \Dotclear\Helper\File\Manager
-            );
             $this->assertEquals(
                 $this->root,
                 $manager->getRoot()
@@ -251,7 +245,7 @@ namespace Dotclear\Tests\Helper\File {
                 $manager->writable()
             );
 
-            chmod($manager->getPwd(), $current);
+            chmod($manager->getPwd(), (int) $current);
         }
 
         #[Depends('testWritable')]
@@ -521,7 +515,7 @@ namespace Dotclear\Tests\Helper\File {
 
             $manager->uploadFile($this->root . DIRECTORY_SEPARATOR . 'valid.md', 'valid-clone.md');
 
-            chmod($manager->getPwd(), $current);
+            chmod($manager->getPwd(), (int) $current);
 
             if (file_exists($manager->getPwd() . DIRECTORY_SEPARATOR . 'stop.md')) {
                 unlink($manager->getPwd() . DIRECTORY_SEPARATOR . 'stop.md');
@@ -576,7 +570,7 @@ namespace Dotclear\Tests\Helper\File {
 
             $manager->uploadBits('valid-bits.md', 'I\'m validl!');
 
-            chmod($manager->getPwd(), $current);
+            chmod($manager->getPwd(), (int) $current);
 
             if (file_exists($manager->getPwd() . DIRECTORY_SEPARATOR . 'valid-bits.md')) {
                 unlink($manager->getPwd() . DIRECTORY_SEPARATOR . 'valid-bits.md');
@@ -659,7 +653,7 @@ namespace Dotclear\Tests\Helper\File {
 
             $manager->moveFile('sub' . DIRECTORY_SEPARATOR . 'valid.md', 'sub' . DIRECTORY_SEPARATOR . 'valid-clone.md');
 
-            chmod($manager->getPwd(), $current);
+            chmod($manager->getPwd(), (int) $current);
         }
 
         #[Depends('testMoveFile')]
@@ -753,7 +747,7 @@ namespace Dotclear\Tests\Helper\File {
 
             $manager->removeFile('valid-perm.md');
 
-            chmod($manager->getPwd(), $current);
+            chmod($manager->getPwd(), (int) $current);
             chmod($this->root, 0o755);
 
             if (file_exists($manager->getPwd() . DIRECTORY_SEPARATOR . 'valid-perm.md')) {

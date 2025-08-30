@@ -27,7 +27,7 @@ class FilesTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->providerDirectory = realpath(implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', 'fixtures', 'src', 'Helper', 'File']));
+        $this->providerDirectory = (string) realpath(implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', 'fixtures', 'src', 'Helper', 'File']));
         $this->testDirectory     = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::TEST_FOLDER]);
 
         // Create a temporary test folder and copy provided files in it
@@ -36,7 +36,6 @@ class FilesTest extends TestCase
         }
         if (!is_dir($this->testDirectory)) {
             throw new Exception(sprintf('Unable to create %s temporary directory', $this->testDirectory));
-            exit;
         }
     }
 
@@ -135,13 +134,13 @@ class FilesTest extends TestCase
             file_exists($file_lock)
         );
 
-        \Dotclear\Helper\File\Files::unlock($lock);
+        \Dotclear\Helper\File\Files::unlock((string) $lock);
 
         sleep(2);
-        clearstatcache(true, $lock);
+        clearstatcache(true, (string) $lock);
 
         $this->assertFalse(
-            file_exists($lock)
+            file_exists((string) $lock)
         );
 
         $this->delTempDir($dir);
@@ -237,7 +236,7 @@ class FilesTest extends TestCase
     #[Depends('testMimeTypes')]
     public function testRegisterMimeType(): void
     {
-        \Dotclear\Helper\File\Files::registerMimeTypes(['text/test']);
+        \Dotclear\Helper\File\Files::registerMimeTypes(['tst' => 'text/test']);
 
         $this->assertContains(
             'text/test',
@@ -255,13 +254,15 @@ class FilesTest extends TestCase
         $dir = $this->getTempDir();
 
         $tmpname = tempnam($dir, 'testFileIsDeletable');
-        $file    = fopen($tmpname, 'w+');
+        $file    = fopen((string) $tmpname, 'w+');
 
         $this->assertTrue(
-            \Dotclear\Helper\File\Files::isDeletable($tmpname)
+            \Dotclear\Helper\File\Files::isDeletable((string) $tmpname)
         );
 
-        fclose($file);
+        if ($file) {
+            fclose($file);
+        }
 
         $this->delTempDir($dir);
     }
@@ -338,18 +339,18 @@ class FilesTest extends TestCase
         $dir = $this->getTempDir();
 
         $file_name = tempnam($dir, 'testTouch');
-        $fts       = filemtime($file_name);
+        $fts       = filemtime((string) $file_name);
 
         // Must keep at least one second of difference
         sleep(1);
-        clearstatcache(true, $file_name);
+        clearstatcache(true, (string) $file_name);
 
-        \Dotclear\Helper\File\Files::touch($file_name);
+        \Dotclear\Helper\File\Files::touch((string) $file_name);
 
         sleep(1);
         clearstatcache();
 
-        $sts = filemtime($file_name);
+        $sts = filemtime((string) $file_name);
 
         $this->assertGreaterThan(
             $fts,
@@ -378,14 +379,18 @@ class FilesTest extends TestCase
         \Dotclear\Helper\File\Files::deltree($dirPath);
 
         // Test with void name
-        $this->assertNull(
-            \Dotclear\Helper\File\Files::makeDir('')
-        );
+        try {
+            \Dotclear\Helper\File\Files::makeDir('');
+        } catch (Exception) {
+            $this->fail();
+        }
 
         // test with already existing dir
-        $this->assertNull(
-            \Dotclear\Helper\File\Files::makeDir($dir)
-        );
+        try {
+            \Dotclear\Helper\File\Files::makeDir($dir);
+        } catch (Exception) {
+            $this->fail();
+        }
 
         $this->delTempDir($dir);
     }
@@ -587,13 +592,14 @@ class FilesTest extends TestCase
     #[Depends('testStr2Bytes')]
     public function testUploadStatus(): void
     {
-        // Create a false $_FILES global without error
+        // Create a false $_FILES item without error
         $file = [
-            'name'     => 'test.jpg',
-            'size'     => ini_get('post_max_size'),
-            'tmp_name' => 'temptestname.jpg',
-            'error'    => UPLOAD_ERR_OK,
-            'type'     => 'image/jpeg',
+            'name'      => 'test.jpg',
+            'type'      => 'image/jpeg',
+            'size'      => (int) ini_get('post_max_size'),
+            'tmp_name'  => 'temptestname.jpg',
+            'error'     => UPLOAD_ERR_OK,
+            'full_path' => 'dir/test.jpg',
         ];
 
         $this->assertTrue(
@@ -646,16 +652,20 @@ class FilesTest extends TestCase
         );
         $this->assertArrayHasKey(
             'files',
+            // @phpstan-ignore argument.type
             $arr
         );
         $this->assertArrayHasKey(
             'dirs',
+            // @phpstan-ignore argument.type
             $arr
         );
         $this->assertNotEmpty(
+            // @phpstan-ignore offsetAccess.notFound
             $arr['files']
         );
         $this->assertNotEmpty(
+            // @phpstan-ignore offsetAccess.notFound
             $arr['dirs']
         );
 
@@ -670,6 +680,7 @@ class FilesTest extends TestCase
         \Dotclear\Helper\File\Files::getDirList(join(DIRECTORY_SEPARATOR, [$dir, 'testGetDirList']), $arr);
 
         $this->assertNotEmpty(
+            // @phpstan-ignore offsetAccess.notFound
             $arr['dirs']
         );
 

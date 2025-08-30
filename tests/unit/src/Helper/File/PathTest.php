@@ -17,8 +17,8 @@ class PathTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->testDirectory = realpath(implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', 'fixtures', 'src', 'Helper', 'File']));
-        $this->rootDirectory = realpath(implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', '..', '..']));
+        $this->testDirectory = (string) realpath(implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', 'fixtures', 'src', 'Helper', 'File']));
+        $this->rootDirectory = (string) realpath(implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', '..', '..']));
 
         $_SERVER['SCRIPT_FILENAME'] = __FILE__;
     }
@@ -29,15 +29,15 @@ class PathTest extends TestCase
             // Hack to make it works under Windows
             $this->assertEquals(
                 $this->testDirectory,
-                str_replace('/', '\\', \Dotclear\Helper\File\Path::real(__DIR__ . '/../../../fixtures/src/Helper/File', false))
+                str_replace('/', '\\', (string) \Dotclear\Helper\File\Path::real(__DIR__ . '/../../../fixtures/src/Helper/File', false))
             );
             $this->assertEquals(
                 '/tests/unit/fixtures/src/Helper/File',
-                str_replace('/', '\\', \Dotclear\Helper\File\Path::real('tests/unit/fixtures/files', false))
+                str_replace('/', '\\', (string) \Dotclear\Helper\File\Path::real('tests/unit/fixtures/files', false))
             );
             $this->assertEquals(
                 '/tests/unit/fixtures/src/Helper/File',
-                str_replace('/', '\\', \Dotclear\Helper\File\Path::real('tests/./unit/fixtures/files', false))
+                str_replace('/', '\\', (string) \Dotclear\Helper\File\Path::real('tests/./unit/fixtures/files', false))
             );
         } else {
             $this->assertEquals(
@@ -61,7 +61,7 @@ class PathTest extends TestCase
             // Hack to make it works under Windows
             $this->assertEquals(
                 $this->testDirectory,
-                str_replace('/', '\\', \Dotclear\Helper\File\Path::real(__DIR__ . '/../fixtures/files', true))
+                str_replace('/', '\\', (string) \Dotclear\Helper\File\Path::real(__DIR__ . '/../fixtures/files', true))
             );
         } else {
             $this->assertEquals(
