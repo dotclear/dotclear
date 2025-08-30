@@ -52,6 +52,17 @@ interface ConnectionInterface
     ///@{
 
     /**
+     * Check driver requirements.
+     *
+     * This method MUST throw a DatabaseException if driver can not be used.
+     *
+     * @since   2.36
+     *
+     * @throws  \Dotclear\Exception\DatabaseException   if condition not meets driver requirements
+     */
+    public static function precondition(): void;
+
+    /**
      * Open connection
      *
      * This method should open a database connection and return a new resource link.

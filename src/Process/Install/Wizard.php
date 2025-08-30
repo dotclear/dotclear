@@ -46,6 +46,18 @@ class Wizard extends Process
     private static string $err = '';
 
     /**
+     * Installation checking flag
+     */
+    private static bool $can_install = true;
+
+    /**
+     * Available database drivers.
+     *
+     * @var     array<string, string>
+     */
+    private static array $drivers = [];
+
+    /**
      * DB driver name
      */
     private static string $DBDRIVER = 'mysqli';
@@ -94,11 +106,26 @@ class Wizard extends Process
         }
 
         if (!is_writable(dirname(App::config()->configPath()))) {
-            self::$err = (new Set())
+            self::$can_install = false;
+            self::$err .= (new Set())
                 ->items([
                     (new Text('p', sprintf(__('Path <strong>%s</strong> is not writable.'), Path::real(dirname(App::config()->configPath()))))),
                     (new Text('p', sprintf(
                         __('Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href="%s">the documentation</a> to learn how to do this.'),
+                        'https://dotclear.org/documentation/2.0/admin/install'
+                    ))),
+                ])
+                ->render();
+        }
+
+        self::$drivers = App::db()->combo();
+        if (self::$drivers === []) {
+            self::$can_install = false;
+            self::$err .= (new Set())
+                ->items([
+                    new Text('p', __('There are no supported database driver.')),
+                    (new Text('p', sprintf(
+                        __('Dotclear installation wizard could not find database driver. You must change your PHP configuration to add a supported database handler please refer to <a href="%s">the documentation</a> to learn how to do this.'),
                         'https://dotclear.org/documentation/2.0/admin/install'
                     ))),
                 ])
@@ -112,6 +139,10 @@ class Wizard extends Process
     {
         if (!self::status()) {
             throw new Exception('Not found', 404);
+        }
+
+        if (!self::$can_install) {
+            return true;
         }
 
         # Uses HTML form or server variables (ie docker)
@@ -273,6 +304,33 @@ class Wizard extends Process
     {
         $required = (new Span())->text('*')->render();
 
+        if (!self::$can_install) {
+            echo (new Div('content'))
+                ->items([
+                    (new Text('h1', __('Dotclear installation wizard'))),
+                    (new Div('main'))
+                        ->items([
+                            (new Div())
+                                ->class('error')
+                                ->role('main')
+                                ->items([
+                                    (new Para())
+                                        ->items([
+                                            (new Text('p'))
+                                                ->items([
+                                                    new Strong(__('Errors:')),
+                                                ]),
+                                            new Text('', self::$err),
+                                        ]),
+                                ]),
+                                new Text('p', __('Dotclear can not be installed.')),
+                        ]),
+                ])
+                ->render();
+
+            return;
+        }
+
         echo (new Div('content'))
             ->items([
                 (new Text('h1', __('Dotclear installation wizard'))),
@@ -324,7 +382,7 @@ class Wizard extends Process
                                             ->class('required')
                                             ->for('DBDRIVER'),
                                         (new Select('DBDRIVER'))
-                                            ->items(App::db()->combo())
+                                            ->items(self::$drivers)
                                             ->default(self::$DBDRIVER)
                                             ->extra('required placeholder="' . __('Driver') . '"'),
                                         (new Para())

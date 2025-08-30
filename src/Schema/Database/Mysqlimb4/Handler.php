@@ -38,9 +38,7 @@ class Handler extends MysqliHandler
      */
     public function db_connect(string $host, string $user, string $password, string $database)
     {
-        if (!function_exists('mysqli_connect')) {
-            throw new Exception('PHP MySQLi functions are not available');
-        }
+        self::precondition();
 
         $port   = abs((int) ini_get('mysqli.default_port'));
         $socket = '';

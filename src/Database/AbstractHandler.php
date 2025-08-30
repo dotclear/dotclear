@@ -90,6 +90,11 @@ abstract class AbstractHandler implements ConnectionInterface
         }
     }
 
+    public static function precondition(): void
+    {
+        // by default do not throw Exception for backward compatibility to dc < 2.36
+    }
+
     public function close(): void
     {
         $this->db_close($this->__link);
