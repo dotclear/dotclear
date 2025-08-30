@@ -315,7 +315,22 @@ class MetaRecordTest extends TestCase
             0,
             $record->index()
         );
-        ;
+
+        // Test some specific static record methods
+        $this->assertFalse(
+            $record->hasStatic()
+        );
+        $this->assertTrue(
+            $record->hasDynamic()
+        );
+
+        $record->rewind();
+        $record->set('Age', 43);    // Should not be taken into account on dynamic record only
+
+        $this->assertEquals(
+            42,
+            $record->Age
+        );
     }
 
     #[DataProvider('dataProviderTest')]
@@ -363,6 +378,12 @@ class MetaRecordTest extends TestCase
         $double = $static->toExtStatic();
 
         // Info
+        $this->assertTrue(
+            $record->hasStatic()
+        );
+        $this->assertTrue(
+            $record->hasDynamic()
+        );
         $this->assertEquals(
             2,
             $static->count()
@@ -598,6 +619,9 @@ class MetaRecordTest extends TestCase
 
         $this->assertTrue(
             $record->hasStatic()
+        );
+        $this->assertFalse(
+            $record->hasDynamic()
         );
         $this->assertEquals(
             2,
