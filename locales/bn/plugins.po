@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-22 11:46+0200\n"
-"PO-Revision-Date: 2025-08-22 10:03\n"
+"POT-Creation-Date: 2025-08-31 00:24+0200\n"
+"PO-Revision-Date: 2025-08-30 22:27\n"
 "Last-Translator: \n"
 "Language-Team: Bengali\n"
 "Language: bn_BD\n"
@@ -1674,7 +1674,7 @@ msgstr "সকল ব্লগের ডাটাবেজ ডাউনলোড
 msgid "No file to read."
 msgstr "পড়ার কোন ফাইল নেই."
 
-#: plugins/importExport/src/FlatExport.php:48
+#: plugins/importExport/src/FlatExport.php:47
 msgid "Unable to create output file."
 msgstr "আউটপুট ফাইল তৈরি করা যায়নি."
 
@@ -2410,7 +2410,7 @@ msgid "%d pages"
 msgstr "%d পৃষ্ঠা"
 
 #: plugins/pages/src/Backend.php:108 plugins/pages/src/Manage.php:148
-#: plugins/pages/src/ManagePage.php:107 plugins/pages/src/ManagePage.php:855
+#: plugins/pages/src/ManagePage.php:108 plugins/pages/src/ManagePage.php:856
 msgid "New page"
 msgstr "নতুন পৃষ্ঠা"
 
@@ -2483,60 +2483,60 @@ msgstr "পৃষ্ঠার শৃঙ্খলা পুনঃবিন্য�
 msgid "Save pages order"
 msgstr "পৃষ্ঠার ক্রম সংরক্ষণ করুন"
 
-#: plugins/pages/src/ManagePage.php:167
+#: plugins/pages/src/ManagePage.php:168
 msgid "This page does not exist."
 msgstr "এই পৃষ্ঠাটি বিদ্যমান নেই."
 
-#: plugins/pages/src/ManagePage.php:188 plugins/pages/src/ManagePage.php:855
-#: plugins/pages/src/ManagePage.php:876
+#: plugins/pages/src/ManagePage.php:189 plugins/pages/src/ManagePage.php:856
+#: plugins/pages/src/ManagePage.php:877
 msgid "Edit page"
 msgstr "পৃষ্ঠা সম্পাদন করুন"
 
-#: plugins/pages/src/ManagePage.php:433
+#: plugins/pages/src/ManagePage.php:434
 msgid "Don't forget to validate your HTML conversion by saving your post."
 msgstr "আপনার পোস্ট সংরক্ষণ করে আপনার এইচটিএমএল রূপান্তর বৈধতা দিতে ভুলবেন না."
 
-#: plugins/pages/src/ManagePage.php:497
+#: plugins/pages/src/ManagePage.php:498
 msgid "Are you sure you want to delete this page?"
 msgstr "আপনি কি এই পৃষ্ঠা মুছে ফেলতে চান?"
 
-#: plugins/pages/src/ManagePage.php:526
+#: plugins/pages/src/ManagePage.php:527
 msgid "Page has been successfully updated."
 msgstr "পৃষ্ঠা সফলভাবে হালনাগাদ করা হয়েছে."
 
-#: plugins/pages/src/ManagePage.php:528
+#: plugins/pages/src/ManagePage.php:529
 msgid "Page has been successfully created."
 msgstr "পৃষ্ঠা সফলভাবে তৈরি করা হয়েছে."
 
-#: plugins/pages/src/ManagePage.php:542
+#: plugins/pages/src/ManagePage.php:543
 msgid "Go to this page on the site"
 msgstr "এই সাইটে এই পৃষ্ঠায় যান"
 
-#: plugins/pages/src/ManagePage.php:584
+#: plugins/pages/src/ManagePage.php:585
 msgid "Page status"
 msgstr "পৃষ্ঠার অবস্থা"
 
-#: plugins/pages/src/ManagePage.php:601
+#: plugins/pages/src/ManagePage.php:602
 msgid "Page language"
 msgstr "পৃষ্ঠা ভাষা"
 
-#: plugins/pages/src/ManagePage.php:630 plugins/pages/src/Widgets.php:41
+#: plugins/pages/src/ManagePage.php:631 plugins/pages/src/Widgets.php:41
 msgid "Page position"
 msgstr "পৃষ্ঠার অবস্থান"
 
-#: plugins/pages/src/ManagePage.php:681
+#: plugins/pages/src/ManagePage.php:682
 msgid "Hide in widget Pages"
 msgstr "উইজেট পেজে আড়াল করো"
 
-#: plugins/pages/src/ManagePage.php:707
+#: plugins/pages/src/ManagePage.php:708
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "সতর্কবাণী: আপনি যদি ইউআরএল আস্তে আস্তে সেট করেন, তবে এটি অন্য পাতার সাথে দ্বন্দ্ব হতে পারে."
 
-#: plugins/pages/src/ManagePage.php:746
+#: plugins/pages/src/ManagePage.php:747
 msgid "Introduction to the page."
 msgstr "পৃষ্ঠার ভূমিকা."
 
-#: plugins/pages/src/ManagePage.php:1125
+#: plugins/pages/src/ManagePage.php:1126
 msgid "Select this comment"
 msgstr "এই মন্তব্যটি বেছে নিন"
 
@@ -3075,34 +3075,34 @@ msgstr "স্থানীয় ফাইল"
 msgid "PHP files"
 msgstr "PHP ফাইল"
 
-#: plugins/themeEditor/src/ThemeEditor.php:183
+#: plugins/themeEditor/src/ThemeEditor.php:184
 msgid "No file"
 msgstr "কোনো ফাইল নেই"
 
-#: plugins/themeEditor/src/ThemeEditor.php:213
+#: plugins/themeEditor/src/ThemeEditor.php:214
 msgid "Customized:"
 msgstr "কাস্টমাইজড:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:221
-#: plugins/themeEditor/src/ThemeEditor.php:227
+#: plugins/themeEditor/src/ThemeEditor.php:222
+#: plugins/themeEditor/src/ThemeEditor.php:228
 msgid "From theme:"
 msgstr "থিম থেকে:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:238
+#: plugins/themeEditor/src/ThemeEditor.php:239
 msgid "From parent:"
 msgstr "প্যারেন্ট থেকে:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:248
+#: plugins/themeEditor/src/ThemeEditor.php:249
 msgid "From template set:"
 msgstr "টেমপ্লেট:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:276
+#: plugins/themeEditor/src/ThemeEditor.php:277
 #: plugins/themeEditor/src/ThemeEditor.php:313
 #: plugins/themeEditor/src/ThemeEditor.php:390
 msgid "File does not exist."
 msgstr "ফাইল নেই."
 
-#: plugins/themeEditor/src/ThemeEditor.php:281
+#: plugins/themeEditor/src/ThemeEditor.php:282
 #, php-format
 msgid "File %s is not readable"
 msgstr "%s ফাইলটি পঠনযোগ্য নয়"
