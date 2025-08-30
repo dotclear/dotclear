@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-30 17:29+0200\n"
-"PO-Revision-Date: 2025-08-30 22:25\n"
+"PO-Revision-Date: 2025-08-30 22:55\n"
 "Last-Translator: \n"
 "Language-Team: Arabic\n"
 "Language: ar_SA\n"
@@ -5866,7 +5866,7 @@ msgstr "هل أنت متأكد من أنك تريد إزالة المفضلة ا
 
 #: src/Process/Backend/UserPreferences.php:604
 msgid "Enter a name for this key:"
-msgstr ""
+msgstr "أدخل اسماً لهذا المفتاح:"
 
 #: src/Process/Backend/UserPreferences.php:626
 msgid "Change my password"
@@ -5910,12 +5910,12 @@ msgstr "أدخل رمز التحقق:"
 
 #: src/Process/Backend/UserPreferences.php:713
 msgid "unlabeled key"
-msgstr ""
+msgstr "مفتاح غير موسوم"
 
 #: src/Process/Backend/UserPreferences.php:715
 #, php-format
 msgid "valid on %s"
-msgstr ""
+msgstr "صالح على %s"
 
 #: src/Process/Backend/UserPreferences.php:724
 msgid "You have no registered key yet."
@@ -6313,11 +6313,11 @@ msgstr "اسم المستخدم وكلمة المرور"
 
 #: src/Process/Install/Install.php:533
 msgid "New Password:"
-msgstr ""
+msgstr "كلمة مرور جديدة:"
 
 #: src/Process/Install/Install.php:543
 msgid "Confirm Password:"
-msgstr ""
+msgstr "تأكيد كلمة المرور:"
 
 #: src/Process/Install/Install.php:576
 msgid "All done!"
@@ -6372,12 +6372,12 @@ msgstr "لم يتمكن معالج التثبيت Dotclear من إنشاء مل�
 
 #: src/Process/Install/Wizard.php:126
 msgid "There are no supported database driver."
-msgstr ""
+msgstr "لا يوجد برنامج تشغيل قاعدة بيانات مدعوم."
 
 #: src/Process/Install/Wizard.php:128
 #, php-format
 msgid "Dotclear installation wizard could not find database driver. You must change your PHP configuration to add a supported database handler please refer to <a href=\"%s\">the documentation</a> to learn how to do this."
-msgstr ""
+msgstr "تعذر على معالج تثبيت Dotclear العثور على برنامج تشغيل قاعدة البيانات. يجب عليك تغيير تكوين PHP الخاص بك لإضافة معالج قاعدة بيانات مدعوم يرجى الرجوع إلى <a href=\"%s\">الوثائق</a> لمعرفة كيفية القيام بذلك."
 
 #: src/Process/Install/Wizard.php:165
 #, php-format
@@ -6405,7 +6405,7 @@ msgstr "معالج تثبيت Dotlear"
 
 #: src/Process/Install/Wizard.php:326
 msgid "Dotclear can not be installed."
-msgstr ""
+msgstr "لا يمكن تثبيت Dotclear."
 
 #: src/Process/Install/Wizard.php:354
 msgid "Welcome"
