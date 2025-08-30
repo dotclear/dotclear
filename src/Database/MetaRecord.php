@@ -27,24 +27,18 @@ class MetaRecord implements Iterator, Countable
 {
     /**
      * Record object
-     *
-     * @var null|Record     $dynamic
      */
-    protected $dynamic;
+    protected ?Record $dynamic = null;
 
     /**
      * Static record object
-     *
-     * @var null|StaticRecord   $static
      */
-    protected $static;
+    protected ?StaticRecord $static = null;
 
     /**
      * Constructs a new instance.
-     *
-     * @param      Record|StaticRecord            $record    The record
      */
-    public function __construct($record)
+    public function __construct(Record|StaticRecord $record)
     {
         if ($record instanceof StaticRecord) {
             $this->static = $record;
@@ -85,6 +79,14 @@ class MetaRecord implements Iterator, Countable
     }
 
     /**
+     * Check if MetaRecord has static data
+     */
+    public function hasStatic(): bool
+    {
+        return (!is_null($this->static));
+    }
+
+    /**
      * Magic call
      *
      * Magic call function. Calls function added by {@link extend()} if exists, passing it
@@ -92,10 +94,8 @@ class MetaRecord implements Iterator, Countable
      *
      * @param string $f     Function name
      * @param mixed  $args  Arguments
-     *
-     * @return mixed
      */
-    public function __call(string $f, $args)
+    public function __call(string $f, mixed $args): mixed
     {
         // Search method in StaticRecord instance first
         if ($this->static instanceof StaticRecord) {
@@ -123,10 +123,8 @@ class MetaRecord implements Iterator, Countable
      * Alias for {@link field()}.
      *
      * @param string|int    $n        Field name or field position
-     *
-     * @return mixed
      */
-    public function __get($n)
+    public function __get(string|int $n): mixed
     {
         return $this->field($n);
     }
@@ -137,10 +135,8 @@ class MetaRecord implements Iterator, Countable
      * Alias for {@link field()}.
      *
      * @param string|int    $n        Field name or field position
-     *
-     * @return mixed
      */
-    public function f($n)
+    public function f(string|int $n): mixed
     {
         return $this->field($n);
     }
@@ -149,10 +145,8 @@ class MetaRecord implements Iterator, Countable
      * Get field value
      *
      * @param      string|int  $n      Field name|position
-     *
-     * @return     mixed
      */
-    public function field($n)
+    public function field(string|int $n): mixed
     {
         if ($this->static instanceof StaticRecord) {
             return $this->static->field($n);
@@ -168,7 +162,7 @@ class MetaRecord implements Iterator, Countable
      *
      * @param      string|int  $n      Field name|position
      */
-    public function exists($n): bool
+    public function exists(string|int $n): bool
     {
         if ($this->static instanceof StaticRecord) {
             return $this->static->exists($n);
@@ -182,7 +176,7 @@ class MetaRecord implements Iterator, Countable
     /**
      * Field isset
      *
-     * Returns true if a field exists (magic method from PHP 5.1).
+     * Returns true if a field exists.
      *
      * @param string        $n        Field name
      */
@@ -239,10 +233,8 @@ class MetaRecord implements Iterator, Countable
      * Get current index
      *
      * @param      int   $row    The row
-     *
-     * @return     mixed
      */
-    public function index(?int $row = null)
+    public function index(?int $row = null): mixed
     {
         if ($this->static instanceof StaticRecord) {
             return $this->static->index($row);
@@ -392,7 +384,7 @@ class MetaRecord implements Iterator, Countable
     /**
      * Get record rows
      *
-     * @return     array<array<mixed>>
+     * @return     list<array<mixed>>
      */
     public function rows(): array
     {
@@ -514,7 +506,7 @@ class MetaRecord implements Iterator, Countable
      * @param string|int    $n            Field name|position
      * @param mixed         $v            Field value
      */
-    public function set($n, $v): ?bool
+    public function set(string|int $n, mixed $v): ?bool
     {
         if ($this->static instanceof StaticRecord) {
             return $this->static->set($n, $v);

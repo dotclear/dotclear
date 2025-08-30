@@ -596,6 +596,14 @@ class MetaRecordTest extends TestCase
 
         $record = $this->createRecord($driver, $syntax, $rows, $info, $valid, $pointer, true);
 
+        $this->assertTrue(
+            $record->hasStatic()
+        );
+        $this->assertEquals(
+            2,
+            $record->count()
+        );
+
         // Initial index
         $this->assertEquals(
             0,

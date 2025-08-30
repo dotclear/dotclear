@@ -163,7 +163,7 @@ abstract class AbstractHandler implements ConnectionInterface
 
     public function nullRecord(): Record
     {
-        $result = false;
+        $result = null;
 
         $info = [
             'con'  => &$this,

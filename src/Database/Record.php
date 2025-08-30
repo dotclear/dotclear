@@ -32,31 +32,27 @@ class Record implements Iterator, Countable
 {
     /**
      * Database resource link
-     *
-     * @var mixed   $__link
      */
-    protected $__link;
+    protected mixed $__link;
 
     /**
      * List of static functions that extend Record
      *
      * @var        array<string, callable>  $__extend
      */
-    protected $__extend = [];
+    protected array $__extend = [];
 
     /**
      * Current result position
-     *
-     * @var        int  $__index
      */
-    protected $__index = 0;
+    protected int $__index = 0;
 
     /**
      * Current result row content
      *
-     * @var        mixed[]  $__row
+     * @var        array<array-key, mixed>  $__row
      */
-    protected $__row = [];
+    protected array $__row = [];
 
     /**
      * Fetch occured once?
@@ -75,11 +71,11 @@ class Record implements Iterator, Countable
      * - info[name] => an array with columns names
      * - info[type] => an array with columns types
      *
-     * @param mixed                     $__result      Resource result
+     * @param list<array<array-key, mixed>>     $__result      Resource result
      * @param array{con: ?AbstractHandler, cols: int, rows: int, info: array{name: list<string>, type: list<string>}}   $__info   Information array
      */
     public function __construct(
-        protected $__result,
+        protected ?array $__result,
         protected array $__info
     ) {
         if ($this->__info['con'] instanceof AbstractHandler) {
@@ -112,10 +108,8 @@ class Record implements Iterator, Countable
      *
      * @param string $f     Function name
      * @param mixed  $args  Arguments
-     *
-     * @return mixed
      */
-    public function __call(string $f, $args)
+    public function __call(string $f, mixed $args): mixed
     {
         if (isset($this->__extend[$f])) {
             return $this->__extend[$f]($this, ...$args);
@@ -132,10 +126,8 @@ class Record implements Iterator, Countable
      * Alias for {@link field()}.
      *
      * @param string|int    $n        Field name or field position
-     *
-     * @return mixed
      */
-    public function __get($n)
+    public function __get(string|int $n): mixed
     {
         return $this->field($n);
     }
@@ -146,10 +138,8 @@ class Record implements Iterator, Countable
      * Alias for {@link field()}.
      *
      * @param string|int    $n        Field name or field position
-     *
-     * @return mixed
      */
-    public function f($n)
+    public function f(string|int $n): mixed
     {
         return $this->field($n);
     }
@@ -160,10 +150,8 @@ class Record implements Iterator, Countable
      * Retrieve field value by its name or column position.
      *
      * @param string|int    $n        Field name or field position
-     *
-     * @return mixed
      */
-    public function field($n)
+    public function field(string|int $n): mixed
     {
         return $this->__row[$n] ?? null;
     }
@@ -175,7 +163,7 @@ class Record implements Iterator, Countable
      *
      * @param string|int     $n        Field name or field position
      */
-    public function exists($n): bool
+    public function exists(string|int $n): bool
     {
         return isset($this->__row[$n]);
     }
@@ -257,10 +245,8 @@ class Record implements Iterator, Countable
      * specified.
      *
      * @param int    $row            Row number to move
-     *
-     * @return int|boolean
      */
-    public function index(?int $row = null)
+    public function index(?int $row = null): int|bool
     {
         if ($row === null) {
             return $this->__index;
@@ -378,7 +364,7 @@ class Record implements Iterator, Countable
     }
 
     /**
-     * @return array<string>   array of columns names
+     * @return list<string>   array of columns names
      */
     public function columns(): array
     {
@@ -386,7 +372,7 @@ class Record implements Iterator, Countable
     }
 
     /**
-     * @return array<array<mixed>>    all rows in record.
+     * @return list<array<array-key, mixed>>    all rows in record.
      */
     public function rows(): array
     {
@@ -398,7 +384,7 @@ class Record implements Iterator, Countable
      *
      * Returns an array of all rows in record. This method is called by rows().
      *
-     * @return array<array<mixed>>
+     * @return list<array<array-key, mixed>>
      */
     protected function getData(): array
     {
@@ -423,9 +409,9 @@ class Record implements Iterator, Countable
     }
 
     /**
-     * @return array<mixed>    current rows.
+     * @return array<array-key, mixed>    current rows.
      */
-    public function row()
+    public function row(): array
     {
         return $this->__row;
     }

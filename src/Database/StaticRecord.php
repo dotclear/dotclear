@@ -27,7 +27,7 @@ class StaticRecord extends Record
     /**
      * Data arrat
      *
-     * @var        array<mixed[]>   $__data
+     * @var        list<array<array-key, mixed>>   $__data
      */
     public $__data = [];
 
@@ -46,10 +46,10 @@ class StaticRecord extends Record
     /**
      * Constructs a new instance.
      *
-     * @param mixed                        $result  The result
+     * @param list<array<array-key, mixed>>     $result  The result
      * @param null|array{con: ?AbstractHandler, cols: int, rows: int, info: array{name: list<string>, type: list<string>}}    $info    The information
      */
-    public function __construct($result, ?array $info)
+    public function __construct(?array $result, ?array $info)
     {
         $null_info = [
             'con'  => null,
@@ -74,7 +74,7 @@ class StaticRecord extends Record
      *
      * Returns a new instance of object from an associative array.
      *
-     * @param array<mixed>        $data        Data array
+     * @param array<array-key, mixed>        $data        Data array
      */
     public static function newFromArray(?array $data): StaticRecord
     {
@@ -103,10 +103,8 @@ class StaticRecord extends Record
      * Get field value
      *
      * @param      string|int  $n      Field name|position
-     *
-     * @return     mixed
      */
-    public function field($n)
+    public function field(string|int $n): mixed
     {
         return $this->__data[$this->__index][$n] ?? null;
     }
@@ -116,7 +114,7 @@ class StaticRecord extends Record
      *
      * @param      string|int  $n      Field name|position
      */
-    public function exists($n): bool
+    public function exists(string|int $n): bool
     {
         return isset($this->__data[$this->__index][$n]);
     }
@@ -125,10 +123,8 @@ class StaticRecord extends Record
      * Get current index
      *
      * @param      int   $row    The row
-     *
-     * @return     bool|int
      */
-    public function index(?int $row = null)
+    public function index(?int $row = null): bool|int
     {
         if ($row === null) {
             return $this->__index;
@@ -144,7 +140,7 @@ class StaticRecord extends Record
     }
 
     /**
-     * @return array<mixed>    current rows.
+     * @return array<array-key, mixed>    current rows.
      */
     public function row(): array
     {
@@ -154,7 +150,7 @@ class StaticRecord extends Record
     /**
      * Get record rows
      *
-     * @return     array<array<mixed>>
+     * @return     list<array<array-key, mixed>>
      */
     public function rows(): array
     {
@@ -167,9 +163,9 @@ class StaticRecord extends Record
      * @param string|int    $n            Field name|position
      * @param mixed         $v            Field value
      */
-    public function set($n, $v): ?bool
+    public function set(string|int $n, mixed $v): ?bool
     {
-        if ($this->__index === null) {
+        if ($this->__info['rows'] === 0) {
             return false;
         }
 
@@ -246,7 +242,7 @@ class StaticRecord extends Record
      * @param      mixed   $a      First term to compare
      * @param      mixed   $b      Second term to compare
      */
-    private function lexicalSortCallback($a, $b): int
+    private function lexicalSortCallback(mixed $a, mixed $b): int
     {
         if (!isset($a[$this->__sortfield]) || !isset($b[$this->__sortfield])) {
             return 0;
