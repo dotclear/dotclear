@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-22 11:44+0200\n"
-"PO-Revision-Date: 2025-08-29 19:12\n"
+"POT-Creation-Date: 2025-08-30 17:29+0200\n"
+"PO-Revision-Date: 2025-08-30 22:26\n"
 "Last-Translator: \n"
 "Language-Team: Hungarian\n"
 "Language: hu_HU\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #: inc/core/_fake_l10n.php:6 src/Process/Backend/Auth.php:477
 #: src/Process/Backend/User.php:264 src/Process/Backend/UserPreferences.php:598
-#: src/Process/Install/Install.php:397 src/Process/Upgrade/Auth.php:292
+#: src/Process/Install/Install.php:424 src/Process/Upgrade/Auth.php:401
 msgid "medium"
 msgstr "közepes"
 
@@ -40,7 +40,7 @@ msgstr "négyzet"
 #: src/Core/Backend/Action/ActionsPosts.php:73
 #: src/Core/Backend/Favorites.php:416 src/Core/Backend/Menus.php:168
 #: src/Core/Backend/UserPref.php:41 src/Core/Backend/UserPref.php:178
-#: src/Process/Backend/Post.php:576 src/Process/Backend/Post.php:591
+#: src/Process/Backend/Post.php:577 src/Process/Backend/Post.php:592
 #: src/Process/Backend/Posts.php:94 src/Process/Backend/Posts.php:99
 msgid "Posts"
 msgstr "Hozzászólások"
@@ -49,43 +49,43 @@ msgstr "Hozzászólások"
 msgid "Pages"
 msgstr "Oldalak"
 
-#: src/Core/Auth.php:131
+#: src/Core/Auth.php:122
 msgid "administrator"
 msgstr "adminisztrátor"
 
-#: src/Core/Auth.php:132
+#: src/Core/Auth.php:123
 msgid "manage all entries and comments"
 msgstr "az összes bejegyzés és hozzászólás kezelése"
 
-#: src/Core/Auth.php:133
+#: src/Core/Auth.php:124
 msgid "manage their own entries and comments"
 msgstr "az ő bejegzyéseik és hozzászólásaik módosítása"
 
-#: src/Core/Auth.php:134
+#: src/Core/Auth.php:125
 msgid "publish entries and comments"
 msgstr "bejegyzések és hozzászólások publikálása"
 
-#: src/Core/Auth.php:135
+#: src/Core/Auth.php:126
 msgid "delete entries and comments"
 msgstr "bejegyzések és hozzászólások törlése"
 
-#: src/Core/Auth.php:136
+#: src/Core/Auth.php:127
 msgid "manage categories"
 msgstr "kategóriák kezelése"
 
-#: src/Core/Auth.php:137
+#: src/Core/Auth.php:128
 msgid "manage all media items"
 msgstr "az összes médiaelem kezelése"
 
-#: src/Core/Auth.php:138
+#: src/Core/Auth.php:129
 msgid "manage their own media items"
 msgstr "médiaelemeik kezelése"
 
-#: src/Core/Auth.php:597
+#: src/Core/Auth.php:586
 msgid "That user does not exist in the database."
 msgstr "Ez a felhasználó nem létezik az adatbázisban."
 
-#: src/Core/Auth.php:624
+#: src/Core/Auth.php:613
 msgid "That key does not exist in the database."
 msgstr "Ez a kulcs nem létezik az adatbázisban."
 
@@ -94,7 +94,7 @@ msgstr "Ez a kulcs nem létezik az adatbázisban."
 #: src/Core/Backend/Combos.php:256 src/Core/Backend/Listing/ListingPosts.php:78
 #: src/Core/Backend/Listing/ListingPostsMini.php:63
 #: src/Core/Backend/UserPref.php:205 src/Process/Backend/Home.php:594
-#: src/Process/Backend/MediaItem.php:1087 src/Process/Backend/Post.php:836
+#: src/Process/Backend/MediaItem.php:1087 src/Process/Backend/Post.php:837
 msgid "Title"
 msgstr "Cím"
 
@@ -141,8 +141,8 @@ msgstr "Blognév"
 #: src/Core/Backend/Listing/ListingPostsMini.php:75
 #: src/Core/Backend/Listing/ListingUsers.php:93
 #: src/Core/Backend/UserPref.php:55 src/Core/Backend/UserPref.php:71
-#: src/Core/Backend/UserPref.php:81 src/Process/Backend/Post.php:659
-#: src/Process/Backend/Post.php:1385 src/Process/Backend/Users.php:45
+#: src/Core/Backend/UserPref.php:81 src/Process/Backend/Post.php:660
+#: src/Process/Backend/Post.php:1386 src/Process/Backend/Users.php:45
 #: src/Process/Backend/UsersActions.php:377
 msgid "Status"
 msgstr "Állapot"
@@ -157,7 +157,7 @@ msgstr "Állapot"
 #: src/Core/Backend/Listing/ListingMedia.php:309
 #: src/Core/Backend/ModulesList.php:1350 src/Core/Upgrade/PluginsList.php:125
 #: src/Process/Backend/Comment.php:355 src/Process/Backend/Langs.php:231
-#: src/Process/Backend/Post.php:960 src/Process/Backend/UserPreferences.php:716
+#: src/Process/Backend/Post.php:961 src/Process/Backend/UserPreferences.php:717
 #: src/Process/Backend/Users.php:46 src/Process/Upgrade/Langs.php:299
 msgid "Delete"
 msgstr "Törlés"
@@ -201,8 +201,8 @@ msgstr[1] "%d a blogokat sikeresen törölték"
 #: src/Core/Backend/Listing/ListingPosts.php:100
 #: src/Core/Backend/Listing/ListingPosts.php:101 src/Core/Backend/Menus.php:155
 #: src/Core/Backend/UserPref.php:46 src/Core/Backend/UserPref.php:51
-#: src/Core/Backend/UserPref.php:185 src/Process/Backend/Post.php:1033
-#: src/Process/Backend/Post.php:1060
+#: src/Core/Backend/UserPref.php:185 src/Process/Backend/Post.php:1034
+#: src/Process/Backend/Post.php:1061
 msgid "Comments"
 msgstr "Hozzászólások"
 
@@ -220,8 +220,8 @@ msgstr "Comments actions"
 #: src/Core/Backend/Listing/ListingPosts.php:90
 #: src/Core/Backend/Listing/ListingPostsMini.php:71
 #: src/Core/Backend/UserPref.php:45 src/Core/Backend/UserPref.php:54
-#: src/Process/Backend/Comment.php:292 src/Process/Backend/Post.php:1095
-#: src/Process/Backend/Post.php:1376
+#: src/Process/Backend/Comment.php:292 src/Process/Backend/Post.php:1096
+#: src/Process/Backend/Post.php:1377
 msgid "Author"
 msgstr "Szerző"
 
@@ -234,7 +234,7 @@ msgid "Blocklist IP (global)"
 msgstr "Blokkolólista IP (globális)"
 
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:69
-#: src/Process/Backend/Post.php:1382
+#: src/Process/Backend/Post.php:1383
 msgid "IP address"
 msgstr "IP cím"
 
@@ -378,7 +378,7 @@ msgstr "A bejegyzések kategóriája nem létezik"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:352
 #: src/Core/Backend/Filter/FilterPosts.php:132 src/Process/Backend/Home.php:620
-#: src/Process/Backend/Post.php:724
+#: src/Process/Backend/Post.php:725
 msgid "Category:"
 msgstr "Kategória:"
 
@@ -388,14 +388,14 @@ msgstr "Új kategória létrehozása a bejegyzés(ek)nek"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:370
 #: src/Process/Backend/Home.php:598 src/Process/Backend/Home.php:632
-#: src/Process/Backend/Media.php:763 src/Process/Backend/MediaItem.php:1227
-#: src/Process/Backend/Post.php:738 src/Process/Backend/Post.php:841
+#: src/Process/Backend/Media.php:777 src/Process/Backend/MediaItem.php:1227
+#: src/Process/Backend/Post.php:739 src/Process/Backend/Post.php:842
 msgid "Title:"
 msgstr "Cím::"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:379
 #: src/Process/Backend/Category.php:268 src/Process/Backend/Category.php:326
-#: src/Process/Backend/Home.php:639 src/Process/Backend/Post.php:745
+#: src/Process/Backend/Home.php:639 src/Process/Backend/Post.php:746
 msgid "Parent:"
 msgstr "Szülő:"
 
@@ -406,9 +406,9 @@ msgstr "Szülő:"
 #: src/Process/Backend/Category.php:298 src/Process/Backend/Category.php:337
 #: src/Process/Backend/Category.php:373 src/Process/Backend/Comment.php:350
 #: src/Process/Backend/Home.php:649 src/Process/Backend/Home.php:703
-#: src/Process/Backend/MediaItem.php:1267 src/Process/Backend/Post.php:925
-#: src/Process/Backend/Post.php:1139 src/Process/Backend/User.php:536
-#: src/Process/Backend/UsersActions.php:513 src/Process/Install/Install.php:479
+#: src/Process/Backend/MediaItem.php:1267 src/Process/Backend/Post.php:926
+#: src/Process/Backend/Post.php:1140 src/Process/Backend/User.php:536
+#: src/Process/Backend/UsersActions.php:513 src/Process/Install/Install.php:547
 msgid "Save"
 msgstr "Mentés"
 
@@ -472,12 +472,12 @@ msgstr "Növekvő"
 #: src/Core/Backend/Listing/ListingPosts.php:82
 #: src/Core/Backend/Listing/ListingPostsMini.php:67
 #: src/Core/Backend/UserPref.php:43 src/Core/Backend/UserPref.php:53
-#: src/Core/Backend/UserPref.php:203 src/Process/Backend/Post.php:1378
+#: src/Core/Backend/UserPref.php:203 src/Process/Backend/Post.php:1379
 msgid "Date"
 msgstr "Dátum"
 
 #: src/Core/Backend/Combos.php:257 src/Core/Backend/Listing/ListingPosts.php:86
-#: src/Core/Backend/UserPref.php:44 src/Process/Backend/Post.php:716
+#: src/Core/Backend/UserPref.php:44 src/Process/Backend/Post.php:717
 msgid "Category"
 msgstr "Kategória"
 
@@ -529,7 +529,7 @@ msgid "Blog ID"
 msgstr "Blog azonosító"
 
 #: src/Core/Backend/Combos.php:332 src/Core/Backend/Listing/ListingUsers.php:68
-#: src/Process/Install/Install.php:459
+#: src/Process/Install/Install.php:523
 msgid "Username"
 msgstr "Felhasználónév"
 
@@ -553,19 +553,19 @@ msgid "Number of entries"
 msgstr "Bejegyzések száma"
 
 #: src/Core/Backend/Favorites.php:287
-#: src/Process/Backend/UserPreferences.php:1355
+#: src/Process/Backend/UserPreferences.php:1357
 msgid "My favorites"
 msgstr "A kedvenceim"
 
 #: src/Core/Backend/Favorites.php:399 src/Core/Backend/Menus.php:195
-#: src/Core/Backend/Page.php:372 src/Process/Backend/Media.php:782
+#: src/Core/Backend/Page.php:372 src/Process/Backend/Media.php:796
 #: src/Process/Backend/UserPreferences.php:76
 msgid "My preferences"
 msgstr "Az én preferenciáim"
 
 #: src/Core/Backend/Favorites.php:405 src/Core/Backend/Menus.php:181
-#: src/Process/Backend/Home.php:583 src/Process/Backend/Post.php:95
-#: src/Process/Backend/Post.php:968 src/Process/Backend/Posts.php:115
+#: src/Process/Backend/Home.php:583 src/Process/Backend/Post.php:96
+#: src/Process/Backend/Post.php:969 src/Process/Backend/Posts.php:115
 msgid "New post"
 msgstr "Új bejegyzés"
 
@@ -599,7 +599,7 @@ msgstr "Kategóriák"
 #: src/Core/Backend/Favorites.php:465 src/Core/Backend/MediaPage.php:363
 #: src/Core/Backend/MediaPage.php:365 src/Core/Backend/MediaPage.php:416
 #: src/Core/Backend/Menus.php:117 src/Core/Backend/UserPref.php:200
-#: src/Process/Backend/Media.php:688 src/Process/Backend/Media.php:816
+#: src/Process/Backend/Media.php:702 src/Process/Backend/Media.php:830
 #: src/Process/Backend/MediaItem.php:404 src/Process/Backend/MediaItem.php:410
 msgid "Media manager"
 msgstr "Médiakezelő"
@@ -629,7 +629,7 @@ msgstr "Felhasználók"
 #: src/Core/Backend/Favorites.php:509 src/Core/Backend/Menus.php:225
 #: src/Process/Backend/Plugins.php:110 src/Process/Backend/Plugins.php:123
 #: src/Process/Backend/Plugins.php:388 src/Process/Backend/Plugins.php:395
-#: src/Process/Upgrade/Plugins.php:178 src/Process/Upgrade/Plugins.php:188
+#: src/Process/Upgrade/Plugins.php:176 src/Process/Upgrade/Plugins.php:186
 msgid "Plugins management"
 msgstr "Kiegészítő-kezelő"
 
@@ -651,14 +651,14 @@ msgstr "Globális segítség"
 
 #: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1261
 #: src/Process/Backend/Auth.php:544 src/Process/Backend/BlogPref.php:1351
-#: src/Process/Backend/Comment.php:306 src/Process/Backend/Post.php:1108
-#: src/Process/Backend/User.php:432 src/Process/Backend/UserPreferences.php:823
-#: src/Process/Install/Install.php:445
+#: src/Process/Backend/Comment.php:306 src/Process/Backend/Post.php:1109
+#: src/Process/Backend/User.php:432 src/Process/Backend/UserPreferences.php:824
+#: src/Process/Install/Install.php:505
 msgid "Email:"
 msgstr "E-mail:"
 
 #: src/Core/Backend/Filter/FilterComments.php:37 src/Core/Backend/Page.php:1260
-#: src/Process/Backend/Comment.php:322 src/Process/Backend/Post.php:1117
+#: src/Process/Backend/Comment.php:322 src/Process/Backend/Post.php:1118
 msgid "Web site:"
 msgstr "Honlap:"
 
@@ -674,7 +674,7 @@ msgid "Type:"
 msgstr "Típus:"
 
 #: src/Core/Backend/Filter/FilterComments.php:73
-#: src/Process/Backend/Post.php:1127 src/Process/Backend/Post.php:1130
+#: src/Process/Backend/Post.php:1128 src/Process/Backend/Post.php:1131
 msgid "Comment"
 msgstr "Comment"
 
@@ -713,7 +713,7 @@ msgstr "Formátum:"
 
 #: src/Core/Backend/Filter/FilterPosts.php:180 src/Process/Backend/Auth.php:204
 #: src/Process/Backend/Auth.php:670 src/Process/Backend/User.php:344
-#: src/Process/Install/Install.php:509 src/Process/Upgrade/Auth.php:366
+#: src/Process/Install/Install.php:589 src/Process/Upgrade/Auth.php:351
 msgid "Password:"
 msgstr "Jelszó:"
 
@@ -784,7 +784,7 @@ msgid "Sort:"
 msgstr "Rendezés:"
 
 #: src/Core/Backend/Filter/Filters.php:393
-#: src/Process/Backend/UserPreferences.php:980
+#: src/Process/Backend/UserPreferences.php:982
 msgid "Show"
 msgstr "Mutasd meg a"
 
@@ -853,6 +853,7 @@ msgstr "Blogok listája"
 #: src/Core/Backend/Listing/ListingComments.php:183
 #: src/Core/Backend/Listing/ListingPosts.php:204
 #: src/Core/Backend/Listing/ListingUsers.php:134
+#: src/Process/Backend/Post.php:1402
 msgid "Legend: "
 msgstr "Legenda: "
 
@@ -872,7 +873,7 @@ msgid "Switch to blog %s"
 msgstr "%s blogra ugrás"
 
 #: src/Core/Backend/Listing/ListingComments.php:57
-#: src/Process/Backend/Comment.php:152 src/Process/Backend/Post.php:1037
+#: src/Process/Backend/Comment.php:152 src/Process/Backend/Post.php:1038
 msgid "No comments"
 msgstr "Nincs hozzászólás"
 
@@ -919,7 +920,7 @@ msgstr "trackback"
 
 #: src/Core/Backend/Listing/ListingComments.php:241
 #: src/Core/Backend/Listing/ListingComments.php:244
-#: src/Process/Backend/Post.php:1362 src/Process/Backend/Post.php:1387
+#: src/Process/Backend/Post.php:1363 src/Process/Backend/Post.php:1388
 msgid "Edit"
 msgstr "Szerkesztés"
 
@@ -950,7 +951,7 @@ msgstr "Tételek száma: %d"
 
 #: src/Core/Backend/Listing/ListingMedia.php:125
 #: src/Core/Backend/ModulesList.php:810 src/Core/Backend/UserPref.php:202
-#: src/Process/Backend/Category.php:256 src/Process/Upgrade/Plugins.php:497
+#: src/Process/Backend/Category.php:256 src/Process/Upgrade/Plugins.php:495
 msgid "Name"
 msgstr "Név"
 
@@ -961,19 +962,19 @@ msgstr "Méret"
 
 #: src/Core/Backend/Listing/ListingMedia.php:242
 #: src/Core/Backend/Listing/ListingMedia.php:245
-#: src/Process/Backend/Media.php:430
+#: src/Process/Backend/Media.php:444
 msgid "Select this file"
 msgstr "Válassza ki ezt a fájlt"
 
 #: src/Core/Backend/Listing/ListingMedia.php:268
 #: src/Core/Backend/Listing/ListingMedia.php:271
-#: src/Process/Backend/Media.php:468
+#: src/Process/Backend/Media.php:482
 msgid "Attach this file to entry"
 msgstr "Fájl csatolása a bejegyzéshez"
 
 #: src/Core/Backend/Listing/ListingMedia.php:279
 #: src/Core/Backend/Listing/ListingMedia.php:282
-#: src/Process/Backend/Media.php:495
+#: src/Process/Backend/Media.php:509
 msgid "Insert this file into entry"
 msgstr "Fájl beillesztése a bejegyzésbe"
 
@@ -999,8 +1000,8 @@ msgstr "Egyetlen bejegyzés sem felel meg a szűrőnek"
 #: src/Core/Backend/Listing/ListingPosts.php:110
 #: src/Core/Backend/Listing/ListingPosts.php:113
 #: src/Core/Backend/Listing/ListingPosts.php:114
-#: src/Core/Backend/UserPref.php:47 src/Process/Backend/Post.php:1165
-#: src/Process/Backend/Post.php:1213
+#: src/Core/Backend/UserPref.php:47 src/Process/Backend/Post.php:1166
+#: src/Process/Backend/Post.php:1214
 msgid "Trackbacks"
 msgstr "Trackbackek"
 
@@ -1201,7 +1202,7 @@ msgstr "Score"
 msgid "Version"
 msgstr "Verzió"
 
-#: src/Core/Backend/ModulesList.php:833 src/Process/Upgrade/Plugins.php:501
+#: src/Core/Backend/ModulesList.php:833 src/Process/Upgrade/Plugins.php:499
 msgid "Current version"
 msgstr "Jelenlegi verzió"
 
@@ -1211,7 +1212,7 @@ msgstr "Jelenlegi verzió"
 msgid "Details"
 msgstr "Tulajdonságok"
 
-#: src/Core/Backend/ModulesList.php:847 src/Process/Upgrade/Plugins.php:513
+#: src/Core/Backend/ModulesList.php:847 src/Process/Upgrade/Plugins.php:511
 msgid "Repository"
 msgstr "Tárhely"
 
@@ -1220,7 +1221,7 @@ msgstr "Tárhely"
 msgid "Action"
 msgstr "Feladat"
 
-#: src/Core/Backend/ModulesList.php:927 src/Process/Upgrade/Plugins.php:451
+#: src/Core/Backend/ModulesList.php:927 src/Process/Upgrade/Plugins.php:449
 #, php-format
 msgid " (%s)"
 msgstr " (%s)"
@@ -1235,12 +1236,12 @@ msgid "This module cannot be enabled, because of the following reasons :"
 msgstr "Ez a modul a következő okok miatt nem engedélyezhető:"
 
 #: src/Core/Backend/ModulesList.php:1006 src/Core/Backend/ThemesList.php:215
-#: src/Process/Upgrade/Plugins.php:467
+#: src/Process/Upgrade/Plugins.php:465
 msgid "Official repository"
 msgstr "Hivatalos adattár"
 
 #: src/Core/Backend/ModulesList.php:1006 src/Core/Backend/ModulesList.php:1109
-#: src/Core/Backend/ThemesList.php:215 src/Process/Upgrade/Plugins.php:467
+#: src/Core/Backend/ThemesList.php:215 src/Process/Upgrade/Plugins.php:465
 msgid "Third-party repository"
 msgstr "Harmadik fél tárolója"
 
@@ -1419,10 +1420,10 @@ msgstr "Zip fájl feltöltése"
 #: src/Process/Backend/BlogPref.php:1010 src/Process/Backend/Category.php:248
 #: src/Process/Backend/Comment.php:284 src/Process/Backend/Home.php:586
 #: src/Process/Backend/Langs.php:322 src/Process/Backend/Langs.php:372
-#: src/Process/Backend/LinkPopup.php:83 src/Process/Backend/Post.php:993
-#: src/Process/Backend/Post.php:1084 src/Process/Backend/User.php:303
-#: src/Process/Backend/UsersActions.php:492 src/Process/Install/Install.php:455
-#: src/Process/Install/Wizard.php:263 src/Process/Upgrade/Langs.php:406
+#: src/Process/Backend/LinkPopup.php:83 src/Process/Backend/Post.php:994
+#: src/Process/Backend/Post.php:1085 src/Process/Backend/User.php:303
+#: src/Process/Backend/UsersActions.php:492 src/Process/Install/Install.php:514
+#: src/Process/Install/Wizard.php:379 src/Process/Upgrade/Langs.php:406
 #, php-format
 msgid "Fields preceded by %s are mandatory."
 msgstr "A %s előtti mezők kitöltése kötelező."
@@ -1433,10 +1434,10 @@ msgstr "Zip fájl elérési útvonala:"
 
 #: src/Core/Backend/ModulesList.php:1763 src/Core/Backend/ModulesList.php:1813
 #: src/Process/Backend/Langs.php:344 src/Process/Backend/Langs.php:393
-#: src/Process/Backend/Post.php:804 src/Process/Backend/User.php:340
+#: src/Process/Backend/Post.php:805 src/Process/Backend/User.php:340
 #: src/Process/Backend/User.php:364 src/Process/Backend/User.php:529
-#: src/Process/Backend/UsersActions.php:499 src/Process/Install/Install.php:467
-#: src/Process/Install/Install.php:473 src/Process/Upgrade/Langs.php:430
+#: src/Process/Backend/UsersActions.php:499 src/Process/Install/Install.php:534
+#: src/Process/Install/Install.php:544 src/Process/Upgrade/Langs.php:430
 msgid "Password"
 msgstr "Jelszó"
 
@@ -1448,7 +1449,7 @@ msgid "Your password:"
 msgstr "Jelszó:"
 
 #: src/Core/Backend/ModulesList.php:1774 src/Core/Backend/Page.php:1425
-#: src/Process/Backend/Media.php:795
+#: src/Process/Backend/Media.php:809
 msgid "Upload"
 msgstr "Feltölt"
 
@@ -1473,7 +1474,7 @@ msgid "This plugin has no configuration file."
 msgstr "Ez a bővítmény nem rendelkezik konfigurációs fájllal."
 
 #: src/Core/Backend/ModulesList.php:1886 src/Process/Backend/Auth.php:416
-#: src/Process/Upgrade/Auth.php:182 src/Process/Upgrade/Auth.php:243
+#: src/Process/Upgrade/Auth.php:184 src/Process/Upgrade/Auth.php:245
 msgid "Insufficient permissions"
 msgstr "Elégtelen engedélyek"
 
@@ -1485,11 +1486,11 @@ msgstr "Konfiguráció \"%s\""
 #: src/Core/Backend/ModulesList.php:1966 src/Process/Backend/Blog.php:197
 #: src/Process/Backend/BlogDel.php:138 src/Process/Backend/BlogPref.php:1182
 #: src/Process/Backend/Category.php:301 src/Process/Backend/Comment.php:352
-#: src/Process/Backend/Media.php:857 src/Process/Backend/MediaItem.php:1353
-#: src/Process/Backend/Post.php:950 src/Process/Backend/Search.php:197
-#: src/Process/Backend/User.php:547 src/Process/Backend/UserPreferences.php:908
-#: src/Process/Backend/UserPreferences.php:1210
-#: src/Process/Backend/UserPreferences.php:1436
+#: src/Process/Backend/Media.php:871 src/Process/Backend/MediaItem.php:1353
+#: src/Process/Backend/Post.php:951 src/Process/Backend/Search.php:197
+#: src/Process/Backend/User.php:547 src/Process/Backend/UserPreferences.php:909
+#: src/Process/Backend/UserPreferences.php:1212
+#: src/Process/Backend/UserPreferences.php:1438
 msgid "Back"
 msgstr "Vissza"
 
@@ -1500,8 +1501,8 @@ msgid "Error:"
 msgstr "Hiba:"
 
 #: src/Core/Backend/Notices.php:86 src/Core/Upgrade/Notices.php:48
-#: src/Process/Install/Install.php:418 src/Process/Install/Install.php:527
-#: src/Process/Install/Wizard.php:246
+#: src/Process/Install/Install.php:458 src/Process/Install/Install.php:632
+#: src/Process/Install/Wizard.php:321 src/Process/Install/Wizard.php:348
 msgid "Errors:"
 msgstr "Hibák:"
 
@@ -1511,8 +1512,8 @@ msgstr "%H:%M:%S"
 
 #: src/Core/Backend/Notices.php:258 src/Core/Backend/Notices.php:298
 #: src/Core/Backend/Notices.php:308 src/Core/Backend/Page.php:1309
-#: src/Process/Backend/Categories.php:341 src/Process/Backend/Post.php:1052
-#: src/Process/Backend/Post.php:1184 src/Process/Backend/PostsPopup.php:121
+#: src/Process/Backend/Categories.php:341 src/Process/Backend/Post.php:1053
+#: src/Process/Backend/Post.php:1185 src/Process/Backend/PostsPopup.php:121
 msgid "Ok"
 msgstr "Oké"
 
@@ -1542,8 +1543,8 @@ msgid "Go to help"
 msgstr "Menj segítségért"
 
 #: src/Core/Backend/Page.php:339 src/Core/Upgrade/Page.php:175
-#: src/Process/Backend/UserPreferences.php:1345
 #: src/Process/Backend/UserPreferences.php:1347
+#: src/Process/Backend/UserPreferences.php:1349
 msgid "My dashboard"
 msgstr "Az én műszerfalam"
 
@@ -1643,8 +1644,8 @@ msgstr "Válasszon ki mindent"
 msgid "Invert selection"
 msgstr "ellenkezőket"
 
-#: src/Core/Backend/Page.php:1264 src/Process/Backend/Post.php:466
-#: src/Process/Backend/Post.php:603
+#: src/Core/Backend/Page.php:1264 src/Process/Backend/Post.php:467
+#: src/Process/Backend/Post.php:604
 msgid "Entry has been successfully created."
 msgstr "A bejegyzést létrehoztam."
 
@@ -1861,17 +1862,17 @@ msgstr "Visszavonva."
 msgid "HTTP Error:"
 msgstr "HTTP Hiba:"
 
-#: src/Core/Backend/Page.php:1421 src/Process/Backend/Media.php:738
+#: src/Core/Backend/Page.php:1421 src/Process/Backend/Media.php:752
 msgid "Choose file"
 msgstr "Válassz fájlt"
 
-#: src/Core/Backend/Page.php:1422 src/Process/Backend/Media.php:744
+#: src/Core/Backend/Page.php:1422 src/Process/Backend/Media.php:758
 msgid "Choose files"
 msgstr "Válassz fájlokat"
 
 #: src/Core/Backend/Page.php:1423 src/Process/Backend/LinkPopup.php:113
-#: src/Process/Backend/Media.php:293 src/Process/Backend/MediaItem.php:509
-#: src/Process/Backend/MediaItem.php:765 src/Process/Backend/Post.php:956
+#: src/Process/Backend/Media.php:307 src/Process/Backend/MediaItem.php:509
+#: src/Process/Backend/MediaItem.php:765 src/Process/Backend/Post.php:957
 #: src/Process/Backend/PostMedia.php:113
 msgid "Cancel"
 msgstr "vissza"
@@ -2013,7 +2014,7 @@ msgstr "Nincs olyan téma, amely megfelelt volna a keresésednek."
 msgid "Use this one"
 msgstr "Használja ezt"
 
-#: src/Core/Backend/ThemesList.php:395 src/Process/Backend/Post.php:949
+#: src/Core/Backend/ThemesList.php:395 src/Process/Backend/Post.php:950
 msgid "Preview"
 msgstr "Előnézet"
 
@@ -2122,166 +2123,166 @@ msgstr "média oldalanként"
 msgid "results per page"
 msgstr "eredmények oldalanként"
 
-#: src/Core/Blog.php:720
+#: src/Core/Blog.php:695
 msgid "You are not allowed to add categories"
 msgstr "Nem lehet neked új kategóriákat hozzáadni."
 
-#: src/Core/Blog.php:764
+#: src/Core/Blog.php:739
 msgid "You are not allowed to update categories"
 msgstr "Nem lehet neked kategóriákat frissíteni."
 
-#: src/Core/Blog.php:821
+#: src/Core/Blog.php:796
 msgid "You are not allowed to delete categories"
 msgstr "Nem lehet neked kategóriákat törölnöd."
 
-#: src/Core/Blog.php:834
+#: src/Core/Blog.php:809
 msgid "This category is not empty."
 msgstr "A kategória ne üres."
 
-#: src/Core/Blog.php:847
+#: src/Core/Blog.php:822
 msgid "You are not allowed to reset categories order"
 msgstr "Nem állítható vissza a kategóriák sorrendje"
 
-#: src/Core/Blog.php:916
+#: src/Core/Blog.php:891
 msgid "Empty category URL"
 msgstr "Üres kategória URL"
 
-#: src/Core/Blog.php:933
+#: src/Core/Blog.php:908
 msgid "You must provide a category title"
 msgstr "Meg kell adnod kategóriacímet"
 
-#: src/Core/Blog.php:943
+#: src/Core/Blog.php:918
 msgid "You must provide a category URL"
 msgstr "Meg kell adnod kategória URL-t"
 
-#: src/Core/Blog.php:1394
+#: src/Core/Blog.php:1369
 msgid "You are not allowed to create an entry"
 msgstr "Nem hozhatsz létre új bejegyzést"
 
-#: src/Core/Blog.php:1454
+#: src/Core/Blog.php:1429
 msgid "You are not allowed to update entries"
 msgstr "Nem frissítheted a bejegyzéseket"
 
-#: src/Core/Blog.php:1460 src/Core/Blog.php:1715
+#: src/Core/Blog.php:1435 src/Core/Blog.php:1690
 msgid "No such entry ID"
 msgstr "Nincs ilyen ID-jű bejegyzés"
 
-#: src/Core/Blog.php:1494
+#: src/Core/Blog.php:1469
 msgid "You are not allowed to edit this entry"
 msgstr "Nem lehet szerkesztened ezt a bejegyzést"
 
-#: src/Core/Blog.php:1522 src/Core/Blog.php:1557 src/Core/Meta.php:145
-#: src/Core/Meta.php:162
+#: src/Core/Blog.php:1497 src/Core/Blog.php:1532 src/Core/Meta.php:139
+#: src/Core/Meta.php:156
 msgid "You are not allowed to change this entry status"
 msgstr "Nem lehet megváltoztatnod a bejegyzés állapotát"
 
-#: src/Core/Blog.php:1602 src/Core/Blog.php:1640
+#: src/Core/Blog.php:1577 src/Core/Blog.php:1615
 msgid "You are not allowed to change this entry category"
 msgstr "Nem lehet megváltoztatnod a bejegyzés kategóriáját"
 
-#: src/Core/Blog.php:1673
+#: src/Core/Blog.php:1648
 msgid "You are not allowed to change entries category"
 msgstr "Nem változtathatja meg a kategóriát"
 
-#: src/Core/Blog.php:1709
+#: src/Core/Blog.php:1684
 msgid "You are not allowed to delete entries"
 msgstr "Nem lehet bejegyzéseket törölnöd"
 
-#: src/Core/Blog.php:1943
+#: src/Core/Blog.php:1918
 msgid "No entry title"
 msgstr "Nincs cím"
 
-#: src/Core/Blog.php:1947 src/Core/Blog.php:1961
+#: src/Core/Blog.php:1922 src/Core/Blog.php:1936
 msgid "No entry content"
 msgstr "Nincs tartalom"
 
-#: src/Core/Blog.php:2027
+#: src/Core/Blog.php:2002
 msgid "Notes"
 msgstr "Megjegyzések"
 
-#: src/Core/Blog.php:2029
+#: src/Core/Blog.php:2004
 msgid "Note"
 msgstr "Megjegyzés:"
 
-#: src/Core/Blog.php:2140
+#: src/Core/Blog.php:2115
 msgid "Empty entry URL"
 msgstr "Üres az URL"
 
-#: src/Core/Blog.php:2450
+#: src/Core/Blog.php:2425
 msgid "You are not allowed to update comments"
 msgstr "Nem tudod frissíteni a hozzászólásokat"
 
-#: src/Core/Blog.php:2456 src/Core/Blog.php:2462 src/Core/Blog.php:2567
+#: src/Core/Blog.php:2431 src/Core/Blog.php:2437 src/Core/Blog.php:2542
 msgid "No such comment ID"
 msgstr "Nincs ilyen ID-jű megjegyzés"
 
-#: src/Core/Blog.php:2469
+#: src/Core/Blog.php:2444
 msgid "You are not allowed to update this comment"
 msgstr "Nem frissítheted a hozzásólást"
 
-#: src/Core/Blog.php:2520
+#: src/Core/Blog.php:2495
 msgid "You are not allowed to change this comment's status"
 msgstr "Nem váloztathatod a hozzászólás állapotát"
 
-#: src/Core/Blog.php:2561 src/Core/Blog.php:2615
+#: src/Core/Blog.php:2536 src/Core/Blog.php:2590
 msgid "You are not allowed to delete comments"
 msgstr "Nem törölhetsz hozzásólásokat"
 
-#: src/Core/Blog.php:2650
+#: src/Core/Blog.php:2625
 msgid "You must provide a comment"
 msgstr "Írnod kell hozzászólást"
 
-#: src/Core/Blog.php:2654
+#: src/Core/Blog.php:2629
 msgid "You must provide an author name"
 msgstr "Meg kell adnod a szerző nevét"
 
-#: src/Core/Blog.php:2658
+#: src/Core/Blog.php:2633
 msgid "Email address is not valid."
 msgstr "Az e-mail cím nem érvényes."
 
-#: src/Core/BlogSettings.php:105
+#: src/Core/BlogSettings.php:99
 msgid "Unable to retrieve namespaces:"
 msgstr "Nem sikerült lekérdezni a névtereket:"
 
-#: src/Core/BlogSettings.php:140
+#: src/Core/BlogSettings.php:134
 #, php-format
 msgid "Invalid setting namespace: %s"
 msgstr "Hibás beállítási név: %s"
 
-#: src/Core/BlogWorkspace.php:93
+#: src/Core/BlogWorkspace.php:85
 #, php-format
 msgid "Invalid setting dcNamespace: %s"
 msgstr "Érvénytelen beállítás dcNamespace: %s"
 
-#: src/Core/BlogWorkspace.php:139
+#: src/Core/BlogWorkspace.php:131
 msgid "Unable to retrieve settings:"
 msgstr "Nem lehet a beállításokat lekérni:"
 
-#: src/Core/BlogWorkspace.php:231 src/Core/BlogWorkspace.php:329
+#: src/Core/BlogWorkspace.php:223 src/Core/BlogWorkspace.php:321
 #, php-format
 msgid "%s is not a valid setting id"
 msgstr "A(z) %s nem érvényes beállítókulcs"
 
-#: src/Core/BlogWorkspace.php:321 src/Core/BlogWorkspace.php:361
-#: src/Core/BlogWorkspace.php:384 src/Core/BlogWorkspace.php:404
+#: src/Core/BlogWorkspace.php:313 src/Core/BlogWorkspace.php:353
+#: src/Core/BlogWorkspace.php:376 src/Core/BlogWorkspace.php:396
 msgid "No namespace specified"
 msgstr "Nincs meghatározva név"
 
-#: src/Core/Blogs.php:221 src/Core/Blogs.php:268 src/Core/Users.php:167
-#: src/Core/Users.php:197 src/Core/Users.php:237 src/Core/Users.php:321
-#: src/Core/Users.php:339
+#: src/Core/Blogs.php:214 src/Core/Blogs.php:261 src/Core/Users.php:161
+#: src/Core/Users.php:191 src/Core/Users.php:231 src/Core/Users.php:315
+#: src/Core/Users.php:333
 msgid "You are not an administrator"
 msgstr "Nem vagy adminisztrátor"
 
-#: src/Core/Blogs.php:253
+#: src/Core/Blogs.php:246
 msgid "Blog ID must contain at least 2 characters using letters, numbers or symbols."
 msgstr "A blog ID-jének legalább 2 karaktert kell tartalmaznia (betűket, számokat és szimbólumokat írhatsz)"
 
-#: src/Core/Blogs.php:257
+#: src/Core/Blogs.php:250
 msgid "No blog name"
 msgstr "Nincs blognév"
 
-#: src/Core/Blogs.php:261
+#: src/Core/Blogs.php:254
 msgid "No blog URL"
 msgstr "Nincs blog URL"
 
@@ -2330,152 +2331,152 @@ msgstr "A PHP verziója %s (%s vagy korábbi verzió szükséges)."
 msgid "Multibyte string module (mbstring) is not available."
 msgstr "Multibyte string modul (mbstring) nem elérhető."
 
-#: src/Core/Install/Utils.php:48
+#: src/Core/Install/Utils.php:44
 msgid "Output control functions are not available."
 msgstr "Kimeneti konrolfunkciók nem elérhetőek."
 
-#: src/Core/Install/Utils.php:52
+#: src/Core/Install/Utils.php:48
 msgid "SimpleXML module is not available."
 msgstr "SimpleXML modul nem elérhető."
 
-#: src/Core/Install/Utils.php:56
+#: src/Core/Install/Utils.php:52
 msgid "DOM XML module is not available."
 msgstr "DOM XML modul nem elérhető."
 
-#: src/Core/Install/Utils.php:61
+#: src/Core/Install/Utils.php:57
 msgid "PCRE engine does not support UTF-8 strings."
 msgstr "PRCE motor nem támogatja az UTF-8 szövegeket."
 
-#: src/Core/Install/Utils.php:65
+#: src/Core/Install/Utils.php:61
 msgid "SPL module is not available."
 msgstr "SPL modul nem elérhető."
 
-#: src/Core/Install/Utils.php:70
+#: src/Core/Install/Utils.php:66
 #, php-format
 msgid "MySQL version is %1$s (%2$s or earlier needed)."
 msgstr "A MySQL verziója: %1$s (%2$s vagy korábbi verzió szükséges)."
 
-#: src/Core/Install/Utils.php:83
+#: src/Core/Install/Utils.php:79
 msgid "MySQL InnoDB engine is not available."
 msgstr "MySQL InnoDB motor nem elérhető."
 
-#: src/Core/Install/Utils.php:88
+#: src/Core/Install/Utils.php:84
 #, php-format
 msgid "PostgreSQL version is %s (%s or earlier needed)."
 msgstr "A PostgreSQL verziója %s (%s vagy korábbi verzió szükséges)."
 
-#: src/Core/Log.php:187
+#: src/Core/Log.php:173
 msgid "No log message"
 msgstr "Nincs naplóüzenet"
 
-#: src/Core/Media.php:176
+#: src/Core/Media.php:159
 msgid "No blog defined."
 msgstr "Nincs definiált blog."
 
-#: src/Core/Media.php:1106 src/Core/Media.php:1137
+#: src/Core/Media.php:1089 src/Core/Media.php:1120
 msgid "You are not a super administrator."
 msgstr "Nem vagy szuper adminisztrátor."
 
-#: src/Core/Media.php:1240 src/Core/Media.php:1334 src/Core/Media.php:1415
-#: src/Core/Media.php:1437 src/Core/Media.php:1459
+#: src/Core/Media.php:1223 src/Core/Media.php:1317 src/Core/Media.php:1398
+#: src/Core/Media.php:1420 src/Core/Media.php:1442
 msgid "Permission denied."
 msgstr "Hozzáférés megtagadva."
 
-#: src/Core/Media.php:1347
+#: src/Core/Media.php:1330
 msgid "You are not the file owner."
 msgstr "Nem te vagy a fájl tulajdonosa."
 
-#: src/Core/Media.php:1362
+#: src/Core/Media.php:1345
 msgid "This file is not allowed."
 msgstr "Ez a fájl nem engedélyezett."
 
-#: src/Core/Media.php:1366
+#: src/Core/Media.php:1349
 msgid "New file already exists."
 msgstr "Az új fájl már létezik."
 
-#: src/Core/Media.php:1479
+#: src/Core/Media.php:1462
 msgid "File does not exist in the database."
 msgstr "A fájl nincs az adatbázisban."
 
-#: src/Core/Media.php:1528
+#: src/Core/Media.php:1511
 #, php-format
 msgid "Extract destination directory %s already exists."
 msgstr "A(z) %s célmappa már létezik."
 
-#: src/Core/Notice.php:170
+#: src/Core/Notice.php:164
 msgid "No notice message"
 msgstr "Nincs üzenet"
 
-#: src/Core/Trackback.php:114
+#: src/Core/Trackback.php:101
 #, php-format
 msgid "%s has still been pinged"
 msgstr "A(z) %s -t már megpingeltem."
 
-#: src/Core/Trackback.php:131 src/Core/Trackback.php:140
-#: src/Core/Trackback.php:165 src/Core/Trackback.php:170
-#: src/Core/Trackback.php:194
+#: src/Core/Trackback.php:118 src/Core/Trackback.php:127
+#: src/Core/Trackback.php:152 src/Core/Trackback.php:157
+#: src/Core/Trackback.php:181
 msgid "Unable to ping URL"
 msgstr "Nem lehet megpingelni az URL-t."
 
-#: src/Core/Trackback.php:145
+#: src/Core/Trackback.php:132
 msgid "Bad server response code"
 msgstr "Rossz szerver válaszkód"
 
-#: src/Core/Trackback.php:178
+#: src/Core/Trackback.php:165
 #, php-format
 msgid "%s is not a ping URL"
 msgstr "A(z) %s nem egy URL-ping."
 
-#: src/Core/Trackback.php:199
+#: src/Core/Trackback.php:186
 #, php-format
 msgid "%s, ping error:"
 msgstr "%s, ping hiba:"
 
-#: src/Core/Trackback.php:334
+#: src/Core/Trackback.php:321
 msgid "Don't repeat yourself, please."
 msgstr "Ne ismételje magát, kérem."
 
-#: src/Core/Trackback.php:341 src/Core/Trackback.php:410
+#: src/Core/Trackback.php:328 src/Core/Trackback.php:397
 msgid "Where's your title?"
 msgstr "Hol van a cím?"
 
-#: src/Core/Trackback.php:374
+#: src/Core/Trackback.php:361
 msgid "Sorry, an internal problem has occured."
 msgstr "Sajnáljuk, belső probléma lépett fel."
 
-#: src/Core/Trackback.php:377
+#: src/Core/Trackback.php:364
 msgid "Thanks, mate. It was a pleasure."
 msgstr "Kösz, haver. Öröm volt."
 
-#: src/Core/Trackback.php:585
+#: src/Core/Trackback.php:572
 msgid "Any chance you ping one of my contents? No? Really?"
 msgstr "Van rá esély, hogy megpingeled az egyik tartalmamat? Nem? Tényleg nem?"
 
-#: src/Core/Trackback.php:604
+#: src/Core/Trackback.php:591
 msgid "Sorry but you can not ping this type of content."
 msgstr "Sajnálom, de nem tudod pingelni ezt a típusú tartalmat."
 
-#: src/Core/Trackback.php:616
+#: src/Core/Trackback.php:603
 msgid "Oops. Kinda \"not found\" stuff. Please check the target URL twice."
 msgstr "Hoppá. Valami \"nem talált\" dolog. Kérjük, ellenőrizze kétszer a cél-URL-t."
 
-#: src/Core/Trackback.php:621
+#: src/Core/Trackback.php:608
 msgid "Sorry, dude. This entry does not accept pingback at the moment."
 msgstr "Bocs, haver. Ez a bejegyzés jelenleg nem fogad el pingbacket."
 
-#: src/Core/Trackback.php:656
+#: src/Core/Trackback.php:643
 msgid "Your source URL does not look like a supported content type. Sorry. Bye, bye!"
 msgstr "A forrás URL címe nem tűnik támogatott tartalomtípusnak. Sajnálom. Viszlát!"
 
-#: src/Core/Trackback.php:918
+#: src/Core/Trackback.php:902
 msgid "No valid source URL provided? Try again!"
 msgstr "Nincs érvényes forrás URL címe? Próbálja újra!"
 
-#: src/Core/Trackback.php:922
+#: src/Core/Trackback.php:906
 msgid "No valid target URL provided? Try again!"
 msgstr "Nincs érvényes cél-URL megadva? Próbálja újra!"
 
-#: src/Core/Trackback.php:926
+#: src/Core/Trackback.php:910
 msgid "LOL!"
 msgstr "LOL!"
 
@@ -2596,11 +2597,11 @@ msgstr "Visszajátszás"
 msgid "On this page, you can try to replay update action from a given version if some files remain from last update."
 msgstr "Ezen az oldalon megpróbálhatja újrajátszani a frissítési műveletet egy adott verzióról, ha néhány fájl megmaradt a legutóbbi frissítésből."
 
-#: src/Core/UserPreferences.php:72
+#: src/Core/UserPreferences.php:68
 msgid "Unable to retrieve workspaces:"
 msgstr "Nem sikerült lekérdezni a munkaterületeket:"
 
-#: src/Core/UserPreferences.php:146
+#: src/Core/UserPreferences.php:142
 #, php-format
 msgid "Invalid UserWorkspace: %s"
 msgstr "Érvénytelen felhasználói munkaterület: %s"
@@ -2624,24 +2625,24 @@ msgstr "%s nem érvényes pref azonosító"
 msgid "No workspace specified"
 msgstr "Nincs munkaterület megadva"
 
-#: src/Core/Users.php:171 src/Process/Install/Install.php:157
+#: src/Core/Users.php:165 src/Process/Install/Install.php:171
 msgid "No user ID given"
 msgstr "Nem adtál meg felhasználói nevet"
 
-#: src/Core/Users.php:175 src/Process/Install/Install.php:167
+#: src/Core/Users.php:169 src/Process/Install/Install.php:181
 msgid "No password given"
 msgstr "Nincs jelszó"
 
-#: src/Core/Users.php:402 src/Process/Install/Install.php:160
+#: src/Core/Users.php:396 src/Process/Install/Install.php:174
 msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
 msgstr "A felhasználónévnek legalább 2 karakter hosszúnak kell lennie! Tartalmazhat betűt, számokat vagy szimbólumokat."
 
-#: src/Core/Users.php:411 src/Process/Backend/User.php:348
-#: src/Process/Install/Install.php:173
+#: src/Core/Users.php:405 src/Process/Backend/User.php:348
+#: src/Process/Install/Install.php:187
 msgid "Password must contain at least 6 characters."
 msgstr "A jelszónak legalább 6 karakter hosszúnak kell lennie."
 
-#: src/Core/Users.php:417
+#: src/Core/Users.php:411
 msgid "Invalid user language code"
 msgstr "Érvénytelen nyelvi kód"
 
@@ -3082,7 +3083,7 @@ msgstr "A _define.php módosítása nem lehetséges"
 msgid "Destination folder already exist"
 msgstr "A célmappa már létezik"
 
-#: src/Process/Backend/Auth.php:95 src/Process/Upgrade/Auth.php:96
+#: src/Process/Backend/Auth.php:95 src/Process/Upgrade/Auth.php:98
 msgid "Dotclear has been upgraded."
 msgstr "A DotClear-t sikerrel frissítettem."
 
@@ -3100,8 +3101,8 @@ msgstr "Jelszóváltoztatáshoz kattints ide (vagy ha nem kértél jelszócseré
 
 #: src/Process/Backend/Auth.php:182 src/Process/Backend/Auth.php:204
 #: src/Process/Backend/Auth.php:534 src/Process/Backend/Auth.php:660
-#: src/Process/Install/Install.php:456 src/Process/Install/Install.php:508
-#: src/Process/Upgrade/Auth.php:355
+#: src/Process/Install/Install.php:522 src/Process/Install/Install.php:584
+#: src/Process/Upgrade/Auth.php:341
 msgid "Username:"
 msgstr "Felhasználónév:"
 
@@ -3124,7 +3125,7 @@ msgstr "Az új jelszavad a postaládádban pihen."
 
 #: src/Process/Backend/Auth.php:257 src/Process/Backend/User.php:158
 #: src/Process/Backend/UserPreferences.php:303
-#: src/Process/Install/Install.php:170
+#: src/Process/Install/Install.php:184
 msgid "Passwords don't match"
 msgstr "A jelszavak nem egyeznek"
 
@@ -3148,13 +3149,13 @@ msgstr "A bejelentkezéshez most meg kell változtatnia a jelszavát."
 msgid "Safe Mode can only be used for super administrators."
 msgstr "A Biztonságos módot csak szuperadminisztrátorok használhatják."
 
-#: src/Process/Backend/Auth.php:420 src/Process/Upgrade/Auth.php:186
-#: src/Process/Upgrade/Auth.php:247
+#: src/Process/Backend/Auth.php:420 src/Process/Upgrade/Auth.php:188
+#: src/Process/Upgrade/Auth.php:249
 msgid "Administration session expired"
 msgstr "Az adminisztrációs munkamenet lejárt"
 
-#: src/Process/Backend/Auth.php:420 src/Process/Upgrade/Auth.php:186
-#: src/Process/Upgrade/Auth.php:247
+#: src/Process/Backend/Auth.php:420 src/Process/Upgrade/Auth.php:188
+#: src/Process/Upgrade/Auth.php:249
 msgid "Wrong username or password"
 msgstr "Hibás felhasználónév vagy jelszó"
 
@@ -3164,27 +3165,27 @@ msgstr "Hibás felhasználónév vagy jelszó"
 #: src/Process/Backend/UserPreferences.php:597
 #: src/Process/Backend/UserPreferences.php:598
 #: src/Process/Backend/UserPreferences.php:599
-#: src/Process/Install/Install.php:396 src/Process/Install/Install.php:397
-#: src/Process/Install/Install.php:398 src/Process/Upgrade/Auth.php:291
-#: src/Process/Upgrade/Auth.php:292 src/Process/Upgrade/Auth.php:293
+#: src/Process/Install/Install.php:423 src/Process/Install/Install.php:424
+#: src/Process/Install/Install.php:425 src/Process/Upgrade/Auth.php:400
+#: src/Process/Upgrade/Auth.php:401 src/Process/Upgrade/Auth.php:402
 #, php-format
 msgid "Password strength: %s"
 msgstr "Jelszó erőssége: %s"
 
 #: src/Process/Backend/Auth.php:476 src/Process/Backend/User.php:263
 #: src/Process/Backend/UserPreferences.php:597
-#: src/Process/Install/Install.php:396 src/Process/Upgrade/Auth.php:291
+#: src/Process/Install/Install.php:423 src/Process/Upgrade/Auth.php:400
 msgid "weak"
 msgstr "gyenge"
 
 #: src/Process/Backend/Auth.php:478 src/Process/Backend/User.php:265
 #: src/Process/Backend/UserPreferences.php:599
-#: src/Process/Install/Install.php:398 src/Process/Upgrade/Auth.php:293
+#: src/Process/Install/Install.php:425 src/Process/Upgrade/Auth.php:402
 msgid "strong"
 msgstr "erős"
 
 #: src/Process/Backend/Auth.php:521 src/Process/Backend/Auth.php:565
-#: src/Process/Backend/Auth.php:625 src/Process/Upgrade/Auth.php:345
+#: src/Process/Backend/Auth.php:625 src/Process/Upgrade/Auth.php:327
 msgid "Back to login screen"
 msgstr "Vissza a bejelentkező képernyőre"
 
@@ -3205,13 +3206,12 @@ msgid "Change your password"
 msgstr "Jelszó lecserélése"
 
 #: src/Process/Backend/Auth.php:577 src/Process/Backend/User.php:334
-#: src/Process/Backend/UserPreferences.php:635
-#: src/Process/Install/Install.php:464
+#: src/Process/Backend/UserPreferences.php:636
 msgid "New password:"
 msgstr "Új jelszó:"
 
 #: src/Process/Backend/Auth.php:587 src/Process/Backend/User.php:358
-#: src/Process/Backend/User.php:367 src/Process/Install/Install.php:471
+#: src/Process/Backend/User.php:367
 msgid "Confirm password:"
 msgstr "Jelszó megerősítése:"
 
@@ -3219,17 +3219,17 @@ msgstr "Jelszó megerősítése:"
 msgid "change"
 msgstr "megváltoztatni"
 
-#: src/Process/Backend/Auth.php:605 src/Process/Backend/UserPreferences.php:880
-#: src/Process/Upgrade/Auth.php:325
+#: src/Process/Backend/Auth.php:605 src/Process/Backend/UserPreferences.php:881
+#: src/Process/Upgrade/Auth.php:307
 msgid "Two factors authentication"
 msgstr "Kétfaktoros hitelesítés"
 
-#: src/Process/Backend/Auth.php:610 src/Process/Upgrade/Auth.php:330
+#: src/Process/Backend/Auth.php:610 src/Process/Upgrade/Auth.php:312
 msgid "Enter code:"
 msgstr "Írja be a kódot:"
 
-#: src/Process/Backend/Auth.php:618 src/Process/Backend/UserPreferences.php:696
-#: src/Process/Upgrade/Auth.php:338
+#: src/Process/Backend/Auth.php:618 src/Process/Backend/UserPreferences.php:697
+#: src/Process/Upgrade/Auth.php:320
 msgid "Verify"
 msgstr "Ellenőrizze a címet"
 
@@ -3245,11 +3245,11 @@ msgstr "Ez az üzemmód lehetővé teszi a bejelentkezést anélkül, hogy aktiv
 msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
 msgstr "Frissítse, tiltsa le vagy törölje a gyaníthatóan problémát okozó pluginokat, majd jelentkezzen ki és jelentkezzen be újra normálisan."
 
-#: src/Process/Backend/Auth.php:680 src/Process/Upgrade/Auth.php:376
+#: src/Process/Backend/Auth.php:680 src/Process/Upgrade/Auth.php:361
 msgid "Remember my ID on this device"
 msgstr "Emlékezz rám"
 
-#: src/Process/Backend/Auth.php:684 src/Process/Upgrade/Auth.php:377
+#: src/Process/Backend/Auth.php:684 src/Process/Upgrade/Auth.php:365
 msgid "log in"
 msgstr "bejelentkezés"
 
@@ -3261,7 +3261,7 @@ msgstr "Jelentkezzen be jelszóval"
 msgid "Third party applications connections"
 msgstr "Harmadik fél alkalmazások kapcsolatai"
 
-#: src/Process/Backend/Auth.php:742 src/Process/Upgrade/Auth.php:379
+#: src/Process/Backend/Auth.php:742 src/Process/Upgrade/Auth.php:370
 msgid "You must accept cookies in order to use the private area."
 msgstr "Engedélyezned kell a sütiket a belépéshez."
 
@@ -3315,7 +3315,7 @@ msgstr "Blog URL-je:"
 msgid "Blog description:"
 msgstr "Blog leírása:"
 
-#: src/Process/Backend/Blog.php:195 src/Process/Backend/Media.php:641
+#: src/Process/Backend/Blog.php:195 src/Process/Backend/Media.php:655
 msgid "Create"
 msgstr "Hozzon létre"
 
@@ -3519,7 +3519,7 @@ msgid "Blog details"
 msgstr "Blog részletei"
 
 #: src/Process/Backend/BlogPref.php:534 src/Process/Backend/BlogPref.php:1019
-#: src/Process/Backend/BlogPref.php:1040 src/Process/Backend/Post.php:846
+#: src/Process/Backend/BlogPref.php:1040 src/Process/Backend/Post.php:847
 msgid "Required field"
 msgstr "Kötelező mező"
 
@@ -3548,7 +3548,7 @@ msgstr "Védjegy megjegyzései:"
 msgid "Comments and trackbacks"
 msgstr "Megjegyések és trackback-ek"
 
-#: src/Process/Backend/BlogPref.php:605 src/Process/Backend/Post.php:762
+#: src/Process/Backend/BlogPref.php:605 src/Process/Backend/Post.php:763
 msgid "Accept comments"
 msgstr "Hozzászólások engedélyezve"
 
@@ -3576,7 +3576,7 @@ msgstr "Wiki szintakszis a megjegyzésekhez"
 msgid "Preview of comment before submit is not mandatory"
 msgstr "A megjegyzés elküldés előtti előnézete nem kötelező"
 
-#: src/Process/Backend/BlogPref.php:644 src/Process/Backend/Post.php:779
+#: src/Process/Backend/BlogPref.php:644 src/Process/Backend/Post.php:780
 msgid "Accept trackbacks"
 msgstr "Trackback-ek engedélyezve"
 
@@ -3765,7 +3765,7 @@ msgstr "Az eredeti képre mutató link beillesztése"
 msgid "Image legend and alternate text:"
 msgstr "Képmagyarázat és alternatív szöveg:"
 
-#: src/Process/Backend/BlogPref.php:957 src/Process/Backend/Media.php:846
+#: src/Process/Backend/BlogPref.php:957 src/Process/Backend/Media.php:860
 #: src/Process/Backend/Settings.php:91
 msgid "Blog parameters"
 msgstr "Blog paraméterek"
@@ -3921,7 +3921,7 @@ msgid "Installed themes"
 msgstr "Telepített témák"
 
 #: src/Process/Backend/BlogTheme.php:208 src/Process/Backend/Plugins.php:190
-#: src/Process/Upgrade/Plugins.php:208
+#: src/Process/Upgrade/Plugins.php:206
 msgid "(in normal mode)"
 msgstr "(normál üzemmódban)"
 
@@ -3970,7 +3970,7 @@ msgstr[1] "A %s témafrissítések elérhetők:"
 
 #: src/Process/Backend/BlogTheme.php:315 src/Process/Backend/BlogTheme.php:352
 #: src/Process/Backend/Plugins.php:282 src/Process/Backend/Plugins.php:336
-#: src/Process/Upgrade/Plugins.php:281 src/Process/Upgrade/Plugins.php:337
+#: src/Process/Upgrade/Plugins.php:279 src/Process/Upgrade/Plugins.php:335
 #, php-format
 msgid "Visit %s repository, the resources center for Dotclear."
 msgstr "Látogasson el a %s oldalra, a Dotclear erőforrásközpontjába."
@@ -3984,7 +3984,7 @@ msgid "Add themes from repository"
 msgstr "Témák hozzáadása az adattárból"
 
 #: src/Process/Backend/BlogTheme.php:362 src/Process/Backend/Plugins.php:342
-#: src/Process/Upgrade/Plugins.php:343
+#: src/Process/Upgrade/Plugins.php:341
 msgid "Install or upgrade manually"
 msgstr "Kézi telepítés vagy frissítés"
 
@@ -4091,7 +4091,7 @@ msgid "total:"
 msgstr "összes ::"
 
 #: src/Process/Backend/Categories.php:326 src/Process/Backend/Category.php:279
-#: src/Process/Backend/User.php:457 src/Process/Backend/UserPreferences.php:845
+#: src/Process/Backend/User.php:457 src/Process/Backend/UserPreferences.php:846
 msgid "URL:"
 msgstr "URL ::"
 
@@ -4128,7 +4128,7 @@ msgstr "A kategória adatai frissítve."
 msgid "Category information"
 msgstr "kategória információi"
 
-#: src/Process/Backend/Category.php:259 src/Process/Backend/Post.php:1097
+#: src/Process/Backend/Category.php:259 src/Process/Backend/Post.php:1098
 msgid "Name:"
 msgstr "Keresztnév::"
 
@@ -4172,7 +4172,7 @@ msgstr "Mozgassa ezt a kategóriát"
 msgid "Entry does not exist."
 msgstr "A bejegyzés nem létezik."
 
-#: src/Process/Backend/Comment.php:109 src/Process/Backend/Post.php:611
+#: src/Process/Backend/Comment.php:109 src/Process/Backend/Post.php:612
 msgid "Comment has been successfully created."
 msgstr "A megjegyzés létrejött."
 
@@ -4251,7 +4251,7 @@ msgstr "Megmutat"
 msgid "Delete all spams"
 msgstr "Minden spam törlése"
 
-#: src/Process/Backend/Comments.php:217 src/Process/Backend/Post.php:1048
+#: src/Process/Backend/Comments.php:217 src/Process/Backend/Post.php:1049
 #: src/Process/Backend/Search.php:410
 msgid "Selected comments action:"
 msgstr "Teendő a kiválasztott hozzászólásokkal"
@@ -4318,12 +4318,12 @@ msgid "There is no writable root directory for the media manager. You should con
 msgstr "Nincs írható gyökérkönyvtár a médiakezelő számára. Vegye fel a kapcsolatot a rendszergazdával."
 
 #: src/Process/Backend/Home.php:352 src/Process/Backend/Plugins.php:139
-#: src/Process/Install/Install.php:485 src/Process/Upgrade/Plugins.php:126
+#: src/Process/Install/Install.php:557 src/Process/Upgrade/Plugins.php:124
 msgid "Following plugins have been installed:"
 msgstr "A következő kiegészítőket telepítettem ::"
 
 #: src/Process/Backend/Home.php:374 src/Process/Backend/Plugins.php:161
-#: src/Process/Install/Install.php:492 src/Process/Upgrade/Plugins.php:148
+#: src/Process/Install/Install.php:565 src/Process/Upgrade/Plugins.php:146
 msgid "Following plugins have not been installed:"
 msgstr "A következő kiegészítőket NEM telepítettem ::"
 
@@ -4335,15 +4335,15 @@ msgstr "A következő pluginokkal kapcsolatban hibák léptek fel:"
 msgid "Quick post"
 msgstr "Gyors posta"
 
-#: src/Process/Backend/Home.php:607 src/Process/Backend/Post.php:878
+#: src/Process/Backend/Home.php:607 src/Process/Backend/Post.php:879
 msgid "Content:"
 msgstr "Tartalom:"
 
-#: src/Process/Backend/Home.php:613 src/Process/Backend/Post.php:875
+#: src/Process/Backend/Home.php:613 src/Process/Backend/Post.php:876
 msgid "Content"
 msgstr "Tartalom"
 
-#: src/Process/Backend/Home.php:624 src/Process/Backend/Post.php:729
+#: src/Process/Backend/Home.php:624 src/Process/Backend/Post.php:730
 msgid "Add a new category"
 msgstr "Új kategória hozzáadása"
 
@@ -4551,172 +4551,172 @@ msgid_plural "Successfully delete %d medias."
 msgstr[0] "Sikeresen törölt egy adathordozót."
 msgstr[1] "Sikeresen törölte a %d medias."
 
-#: src/Process/Backend/Media.php:228
+#: src/Process/Backend/Media.php:235
 msgid "Directory has been successfully removed."
 msgstr "A mappát letöröltem."
 
-#: src/Process/Backend/Media.php:232
+#: src/Process/Backend/Media.php:239
 msgid "File has been successfully removed."
 msgstr "A fájlokat letöröltem."
 
-#: src/Process/Backend/Media.php:253
+#: src/Process/Backend/Media.php:267
 #, php-format
 msgid "Directory \"%s\" has been successfully completed."
 msgstr "A \"%s\" könyvtár sikeresen befejeződött."
 
-#: src/Process/Backend/Media.php:270
+#: src/Process/Backend/Media.php:284
 #, php-format
 msgid "Directory \"%s\" has been successfully rebuild."
 msgstr "A \"%s\" könyvtárat sikeresen újraépítettük."
 
-#: src/Process/Backend/Media.php:282 src/Process/Backend/PostMedia.php:98
+#: src/Process/Backend/Media.php:296 src/Process/Backend/PostMedia.php:98
 msgid "confirm removal"
 msgstr "törlés megerősítése"
 
-#: src/Process/Backend/Media.php:289
+#: src/Process/Backend/Media.php:303
 #, php-format
 msgid "Are you sure you want to remove %s?"
 msgstr "Biztosan szeretnéd a %s-t törölni?"
 
-#: src/Process/Backend/Media.php:294 src/Process/Backend/PostMedia.php:114
+#: src/Process/Backend/Media.php:308 src/Process/Backend/PostMedia.php:114
 msgid "Yes"
 msgstr "igen"
 
-#: src/Process/Backend/Media.php:336
+#: src/Process/Backend/Media.php:350
 msgid "Remove this folder from your favorites"
 msgstr "Távolítsa el ezt a mappát a kedvencek közül"
 
-#: src/Process/Backend/Media.php:361
+#: src/Process/Backend/Media.php:375
 msgid "Add this folder to your favorites"
 msgstr "Add ezt a mappát a kedvenceidhez"
 
-#: src/Process/Backend/Media.php:372
+#: src/Process/Backend/Media.php:386
 msgid "Goto recent folder:"
 msgstr "Menjen a legutóbbi mappába:"
 
-#: src/Process/Backend/Media.php:409
+#: src/Process/Backend/Media.php:423
 msgid "You do not have sufficient permissions to write to this folder."
 msgstr "Nem rendelkezik elegendő jogosultsággal a mappa írásához."
 
-#: src/Process/Backend/Media.php:429
+#: src/Process/Backend/Media.php:443
 #, php-format
 msgid "Select a file by clicking on %s"
 msgstr "Válasszon ki egy fájlt a %sgombra kattintva."
 
-#: src/Process/Backend/Media.php:433
+#: src/Process/Backend/Media.php:447
 #, php-format
 msgid "Select files and click on <strong>%s</strong> button"
 msgstr "Válassza ki a fájlokat és kattintson a <strong>%s</strong> gombra"
 
-#: src/Process/Backend/Media.php:434 src/Process/Backend/Media.php:563
+#: src/Process/Backend/Media.php:448 src/Process/Backend/Media.php:577
 msgid "Choose selected medias"
 msgstr "Válassza ki a kiválasztott médiumokat"
 
-#: src/Process/Backend/Media.php:440 src/Process/Backend/Media.php:474
-#: src/Process/Backend/Media.php:501
+#: src/Process/Backend/Media.php:454 src/Process/Backend/Media.php:488
+#: src/Process/Backend/Media.php:515
 msgid "or"
 msgstr "vagy"
 
-#: src/Process/Backend/Media.php:443 src/Process/Backend/Media.php:477
-#: src/Process/Backend/Media.php:504
+#: src/Process/Backend/Media.php:457 src/Process/Backend/Media.php:491
+#: src/Process/Backend/Media.php:518
 msgid "upload a new file"
 msgstr "új fájl feltöltése"
 
-#: src/Process/Backend/Media.php:466
+#: src/Process/Backend/Media.php:480
 #, php-format
 msgid "Choose a file to attach to entry %1$s by clicking on %2$s"
 msgstr "Válassza ki a %1$s bejegyzéshez csatolandó fájlt a %2$sgombra kattintva."
 
-#: src/Process/Backend/Media.php:494
+#: src/Process/Backend/Media.php:508
 #, php-format
 msgid "Choose a file to insert into entry by clicking on %s"
 msgstr "Válasszon egy fájlt a bejegyzésbe való beillesztéshez a %sgombra kattintva."
 
-#: src/Process/Backend/Media.php:524 src/Process/Backend/Media.php:528
-#: src/Process/Backend/Media.php:531
+#: src/Process/Backend/Media.php:538 src/Process/Backend/Media.php:542
+#: src/Process/Backend/Media.php:545
 msgid "Grid display mode"
 msgstr "Rácsos megjelenítési mód"
 
-#: src/Process/Backend/Media.php:535 src/Process/Backend/Media.php:539
-#: src/Process/Backend/Media.php:542
+#: src/Process/Backend/Media.php:549 src/Process/Backend/Media.php:553
+#: src/Process/Backend/Media.php:556
 msgid "List display mode"
 msgstr "Lista megjelenítési mód"
 
-#: src/Process/Backend/Media.php:567
+#: src/Process/Backend/Media.php:581
 msgid "Remove selected medias"
 msgstr "Kiválasztott médiumok eltávolítása"
 
-#: src/Process/Backend/Media.php:628
+#: src/Process/Backend/Media.php:642
 msgid "Create new directory"
 msgstr "Új könyvtár létrehozása"
 
-#: src/Process/Backend/Media.php:635
+#: src/Process/Backend/Media.php:649
 msgid "Directory Name:"
 msgstr "Címtár neve:"
 
-#: src/Process/Backend/Media.php:655
+#: src/Process/Backend/Media.php:669
 msgid "Build missing thumbnails in directory"
 msgstr "Hiányzó miniatűrök építése a könyvtárban"
 
-#: src/Process/Backend/Media.php:660
+#: src/Process/Backend/Media.php:674
 msgid "Build"
 msgstr "Build"
 
-#: src/Process/Backend/Media.php:670
+#: src/Process/Backend/Media.php:684
 msgid "Force rebuild all thumbnails in directory"
 msgstr "A könyvtárban lévő összes miniatűr újraépítésének kikényszerítése"
 
-#: src/Process/Backend/Media.php:675
+#: src/Process/Backend/Media.php:689
 msgid "Force rebuild"
 msgstr "Újjáépítés erőltetése"
 
-#: src/Process/Backend/Media.php:680
+#: src/Process/Backend/Media.php:694
 msgid "Use with caution especially if there is a large numbers of media if this directory."
 msgstr "Használja óvatosan, különösen, ha nagyszámú média van ebben a könyvtárban."
 
-#: src/Process/Backend/Media.php:688
+#: src/Process/Backend/Media.php:702
 #, php-format
 msgid "Backup content of %s"
 msgstr "A %startalmának biztonsági mentése"
 
-#: src/Process/Backend/Media.php:695
+#: src/Process/Backend/Media.php:709
 msgid "Download zip file"
 msgstr "Zip fájl letöltése"
 
-#: src/Process/Backend/Media.php:714
+#: src/Process/Backend/Media.php:728
 msgid "Add files"
 msgstr "Fájlok hozzáadása"
 
-#: src/Process/Backend/Media.php:717
+#: src/Process/Backend/Media.php:731
 msgid "Please take care to publish media that you own and that are not protected by copyright."
 msgstr "Vigyázz a feltöltött anyagaidra, amelyek a sajátjaid és nem védettek!"
 
-#: src/Process/Backend/Media.php:756
+#: src/Process/Backend/Media.php:770
 msgid "Maximum file size allowed:"
 msgstr "A maximális fájlméret:"
 
-#: src/Process/Backend/Media.php:770 src/Process/Backend/MediaItem.php:1258
+#: src/Process/Backend/Media.php:784 src/Process/Backend/MediaItem.php:1258
 msgid "Private"
 msgstr "Privát"
 
-#: src/Process/Backend/Media.php:779
+#: src/Process/Backend/Media.php:793
 msgid "To send several files at the same time, you can activate the enhanced uploader in"
 msgstr "Ha egyszerre több fájlt szeretne elküldeni, akkor aktiválhatja a továbbfejlesztett feltöltőt a"
 
-#: src/Process/Backend/Media.php:788
+#: src/Process/Backend/Media.php:802
 msgid "Refresh"
 msgstr "Frissítés"
 
-#: src/Process/Backend/Media.php:791
+#: src/Process/Backend/Media.php:805
 msgid "Clear all"
 msgstr "Mindent törölni"
 
-#: src/Process/Backend/Media.php:816
+#: src/Process/Backend/Media.php:830
 #, php-format
 msgid "In %s:"
 msgstr "A %soldalon:"
 
-#: src/Process/Backend/Media.php:843
+#: src/Process/Backend/Media.php:857
 #, php-format
 msgid "Current settings for medias and images are defined in %s"
 msgstr "A médiumok és képek aktuális beállításai a %soldalon találhatók."
@@ -5010,36 +5010,36 @@ msgstr "Az elért kiegészítő nem létezik vagy nincs adminisztációs oldala.
 msgid "The following plugins have been disabled :"
 msgstr "A következő bővítményeket letiltották:"
 
-#: src/Process/Backend/Plugins.php:189 src/Process/Upgrade/Plugins.php:208
+#: src/Process/Backend/Plugins.php:189 src/Process/Upgrade/Plugins.php:206
 msgid "Activated plugins"
 msgstr "Bekapcsolt kiegészítők"
 
 #: src/Process/Backend/Plugins.php:189 src/Process/Backend/Plugins.php:236
-#: src/Process/Upgrade/Plugins.php:252
+#: src/Process/Upgrade/Plugins.php:250
 msgid "Installed plugins"
 msgstr "Telepített bővítmények"
 
-#: src/Process/Backend/Plugins.php:194 src/Process/Upgrade/Plugins.php:212
+#: src/Process/Backend/Plugins.php:194 src/Process/Upgrade/Plugins.php:210
 msgid "You can configure and manage installed plugins from this list."
 msgstr "Ebből a listából konfigurálhatja és kezelheti a telepített bővítményeket."
 
-#: src/Process/Backend/Plugins.php:216 src/Process/Upgrade/Plugins.php:233
+#: src/Process/Backend/Plugins.php:216 src/Process/Upgrade/Plugins.php:231
 msgid "Deactivated plugins"
 msgstr "Kikapcsolt kiegészítők"
 
-#: src/Process/Backend/Plugins.php:220 src/Process/Upgrade/Plugins.php:237
+#: src/Process/Backend/Plugins.php:220 src/Process/Upgrade/Plugins.php:235
 msgid "Deactivated plugins are installed but not usable. You can activate them from here."
 msgstr "A deaktivált bővítmények telepítve vannak, de nem használhatók. Innen aktiválhatja őket."
 
-#: src/Process/Backend/Plugins.php:247 src/Process/Upgrade/Plugins.php:168
+#: src/Process/Backend/Plugins.php:247 src/Process/Upgrade/Plugins.php:166
 msgid "Manual checking of plugins update done successfully."
 msgstr "A bővítmények frissítésének kézi ellenőrzése sikeresen megtörtént."
 
-#: src/Process/Backend/Plugins.php:264 src/Process/Upgrade/Plugins.php:263
+#: src/Process/Backend/Plugins.php:264 src/Process/Upgrade/Plugins.php:261
 msgid "No updates available for plugins."
 msgstr "A bővítményekhez nem állnak rendelkezésre frissítések."
 
-#: src/Process/Backend/Plugins.php:267 src/Process/Upgrade/Plugins.php:266
+#: src/Process/Backend/Plugins.php:267 src/Process/Upgrade/Plugins.php:264
 #, php-format
 msgid "There is one plugin update available:"
 msgid_plural "There are %s plugin updates available:"
@@ -5047,31 +5047,31 @@ msgstr[0] "Egy plugin frissítés érhető el:"
 msgstr[1] "A %s plugin frissítései elérhetők:"
 
 #: src/Process/Backend/Plugins.php:286 src/Process/Backend/Plugins.php:289
-#: src/Process/Upgrade/Plugins.php:285 src/Process/Upgrade/Plugins.php:288
+#: src/Process/Upgrade/Plugins.php:283 src/Process/Upgrade/Plugins.php:286
 msgid "Update plugins"
 msgstr "Pluginok frissítése"
 
-#: src/Process/Backend/Plugins.php:298 src/Process/Upgrade/Plugins.php:297
+#: src/Process/Backend/Plugins.php:298 src/Process/Upgrade/Plugins.php:295
 msgid "Force checking update of plugins"
 msgstr "A bővítmények frissítésének kényszerellenőrzése"
 
-#: src/Process/Backend/Plugins.php:317 src/Process/Upgrade/Plugins.php:318
+#: src/Process/Backend/Plugins.php:317 src/Process/Upgrade/Plugins.php:316
 msgid "Add plugins"
 msgstr "Pluginok hozzáadása"
 
-#: src/Process/Backend/Plugins.php:320 src/Process/Upgrade/Plugins.php:321
+#: src/Process/Backend/Plugins.php:320 src/Process/Upgrade/Plugins.php:319
 msgid "Add plugins from repository"
 msgstr "Pluginok hozzáadása az adattárból"
 
-#: src/Process/Backend/Plugins.php:345 src/Process/Upgrade/Plugins.php:346
+#: src/Process/Backend/Plugins.php:345 src/Process/Upgrade/Plugins.php:344
 msgid "Add plugins from a package"
 msgstr "Pluginok hozzáadása egy csomagból"
 
-#: src/Process/Backend/Plugins.php:348 src/Process/Upgrade/Plugins.php:349
+#: src/Process/Backend/Plugins.php:348 src/Process/Upgrade/Plugins.php:347
 msgid "You can install plugins by uploading or downloading zip files."
 msgstr "Zip fájl fel- vagy letöltésével tudsz telepíteni kiegészítőt."
 
-#: src/Process/Backend/Plugins.php:364 src/Process/Upgrade/Plugins.php:362
+#: src/Process/Backend/Plugins.php:364 src/Process/Upgrade/Plugins.php:360
 msgid "Some functions are disabled, please give write access to your plugins directory to enable them."
 msgstr "Néhány funkció le van tiltva, kérjük, adjon írási hozzáférést a plugin könyvtárhoz, hogy engedélyezze őket."
 
@@ -5079,173 +5079,173 @@ msgstr "Néhány funkció le van tiltva, kérjük, adjon írási hozzáférést 
 msgid "Plugin configuration"
 msgstr "Plugin konfiguráció"
 
-#: src/Process/Backend/Post.php:159 src/Process/Backend/Post.php:968
-#: src/Process/Backend/Post.php:989
+#: src/Process/Backend/Post.php:160 src/Process/Backend/Post.php:969
+#: src/Process/Backend/Post.php:990
 msgid "Edit post"
 msgstr "Hozzászólás szerkesztése"
 
-#: src/Process/Backend/Post.php:199
+#: src/Process/Backend/Post.php:200
 msgid "Next post"
 msgstr "Következő bejegyzés"
 
-#: src/Process/Backend/Post.php:215
+#: src/Process/Backend/Post.php:216
 msgid "Previous post"
 msgstr "Előző bejegyzés"
 
-#: src/Process/Backend/Post.php:292 src/Process/Backend/Post.php:614
+#: src/Process/Backend/Post.php:293 src/Process/Backend/Post.php:615
 msgid "All pings sent."
 msgstr "Minden ping el lett küldve."
 
-#: src/Process/Backend/Post.php:322
+#: src/Process/Backend/Post.php:323
 msgid "Invalid publication date"
 msgstr "Érvénytelen közzétételi dátum"
 
-#: src/Process/Backend/Post.php:446
+#: src/Process/Backend/Post.php:447
 #, php-format
 msgid "The post \"%s\" has been successfully updated"
 msgstr "A poszt \"%s\" sikeresen frissítve lett"
 
-#: src/Process/Backend/Post.php:503
+#: src/Process/Backend/Post.php:504
 msgid "Don't forget to validate your XHTML conversion by saving your post."
 msgstr "Ne felejtse el érvényesíteni az XHTML konverziót a hozzászólás mentésével."
 
-#: src/Process/Backend/Post.php:601
+#: src/Process/Backend/Post.php:602
 msgid "Entry has been successfully updated."
 msgstr "A bejegyzést frissítettem."
 
-#: src/Process/Backend/Post.php:605
+#: src/Process/Backend/Post.php:606
 msgid "File has been successfully attached."
 msgstr "A fájlt hozzácsatoltam."
 
-#: src/Process/Backend/Post.php:607 src/Process/Backend/PostMedia.php:89
+#: src/Process/Backend/Post.php:608 src/Process/Backend/PostMedia.php:89
 msgid "Attachment has been successfully removed."
 msgstr "A csatolmányt eltávolítottam."
 
-#: src/Process/Backend/Post.php:624
+#: src/Process/Backend/Post.php:625
 msgid "Go to this entry on the site"
 msgstr "Menjen a honlapon erre a bejegyzésre"
 
-#: src/Process/Backend/Post.php:666
+#: src/Process/Backend/Post.php:667
 msgid "Entry status"
 msgstr "Belépési státusz"
 
-#: src/Process/Backend/Post.php:674
+#: src/Process/Backend/Post.php:675
 msgid "Publication date and hour"
 msgstr "Megjelenés dátuma és órája"
 
-#: src/Process/Backend/Post.php:683
+#: src/Process/Backend/Post.php:684
 msgid "Entry language"
 msgstr "Belépési nyelv"
 
-#: src/Process/Backend/Post.php:691
+#: src/Process/Backend/Post.php:692
 msgid "Text formatting"
 msgstr "Szövegformázás"
 
-#: src/Process/Backend/Post.php:698
+#: src/Process/Backend/Post.php:699
 msgid "Convert to HTML"
 msgstr "Konvertálás HTML-lé"
 
-#: src/Process/Backend/Post.php:706
+#: src/Process/Backend/Post.php:707
 msgid "Filing"
 msgstr "Iktatás"
 
-#: src/Process/Backend/Post.php:711
+#: src/Process/Backend/Post.php:712
 msgid "Selected entry"
 msgstr "Kijelölt bejegyzés"
 
-#: src/Process/Backend/Post.php:755 src/Process/Backend/User.php:475
+#: src/Process/Backend/Post.php:756 src/Process/Backend/User.php:475
 msgid "Options"
 msgstr "Opciók"
 
-#: src/Process/Backend/Post.php:758
+#: src/Process/Backend/Post.php:759
 msgid "Comments and trackbacks list"
 msgstr "Hozzászólások és trackbackek listája"
 
-#: src/Process/Backend/Post.php:771
+#: src/Process/Backend/Post.php:772
 msgid "Warning: Comments are no longer accepted for this entry."
 msgstr "Figyelmeztetés: Hozzászólások már nem fogadhatók el ehhez a bejegyzéshez."
 
-#: src/Process/Backend/Post.php:775
+#: src/Process/Backend/Post.php:776
 msgid "Comments are not accepted on this blog so far."
 msgstr "Ezen a blogon eddig nem fogadnak el hozzászólásokat."
 
-#: src/Process/Backend/Post.php:788
+#: src/Process/Backend/Post.php:789
 msgid "Warning: Trackbacks are no longer accepted for this entry."
 msgstr "Figyelmeztetés: Trackback nem fogadják el ezt a bejegyzést."
 
-#: src/Process/Backend/Post.php:792
+#: src/Process/Backend/Post.php:793
 msgid "Trackbacks are not accepted on this blog so far."
 msgstr "A trackbackeket eddig nem fogadták el ezen a blogon."
 
-#: src/Process/Backend/Post.php:816
+#: src/Process/Backend/Post.php:817
 msgid "Edit basename"
 msgstr "Alapnév szerkesztése"
 
-#: src/Process/Backend/Post.php:820
+#: src/Process/Backend/Post.php:821
 msgid "Warning: If you set the URL manually, it may conflict with another entry."
 msgstr "Figyelem: ha az URL-t magad szerkeszted, akkor ütközhet más bejegyzésekével."
 
-#: src/Process/Backend/Post.php:859
+#: src/Process/Backend/Post.php:860
 msgid "Excerpt:"
 msgstr "Bevezető:"
 
-#: src/Process/Backend/Post.php:859
+#: src/Process/Backend/Post.php:860
 msgid "Introduction to the post."
 msgstr "Bevezetés a poszthoz."
 
-#: src/Process/Backend/Post.php:895
+#: src/Process/Backend/Post.php:896
 msgid "Personal notes:"
 msgstr "Személyes megjegyzések:"
 
-#: src/Process/Backend/Post.php:895
+#: src/Process/Backend/Post.php:896
 msgid "Unpublished notes."
 msgstr "Kiadatlan feljegyzések."
 
-#: src/Process/Backend/Post.php:1065 src/Process/Backend/Post.php:1080
+#: src/Process/Backend/Post.php:1066 src/Process/Backend/Post.php:1081
 msgid "Add a comment"
 msgstr "Megjegyzés hozzáadása"
 
-#: src/Process/Backend/Post.php:1169
+#: src/Process/Backend/Post.php:1170
 msgid "No trackback"
 msgstr "Nincs trackback"
 
-#: src/Process/Backend/Post.php:1180
+#: src/Process/Backend/Post.php:1181
 msgid "Selected trackbacks action:"
 msgstr "Kijelölt trackbacks akció:"
 
-#: src/Process/Backend/Post.php:1203
+#: src/Process/Backend/Post.php:1204
 msgid "Previously sent pings"
 msgstr "Elzőleg üldött pingek"
 
-#: src/Process/Backend/Post.php:1229 src/Process/Backend/Post.php:1251
+#: src/Process/Backend/Post.php:1230 src/Process/Backend/Post.php:1252
 msgid "Ping blogs"
 msgstr "Bejegyzések pingelése"
 
-#: src/Process/Backend/Post.php:1237
+#: src/Process/Backend/Post.php:1238
 msgid "URLs to ping:"
 msgstr "Pingelendő URL-ek:"
 
-#: src/Process/Backend/Post.php:1245
+#: src/Process/Backend/Post.php:1246
 msgid "Excerpt to send:"
 msgstr "Küldendő kivonat:"
 
-#: src/Process/Backend/Post.php:1258
+#: src/Process/Backend/Post.php:1259
 msgid "Auto discover ping URLs"
 msgstr "Automata felfedezés az URL pingeléshez"
 
-#: src/Process/Backend/Post.php:1327
+#: src/Process/Backend/Post.php:1328
 msgid "select this comment"
 msgstr "válassza ki ezt a megjegyzést"
 
-#: src/Process/Backend/Post.php:1327
+#: src/Process/Backend/Post.php:1328
 msgid "select this trackback"
 msgstr "válassza ki ezt a trackbacket"
 
-#: src/Process/Backend/Post.php:1358
+#: src/Process/Backend/Post.php:1359
 msgid "Edit this comment"
 msgstr "Megjegyzés szerkesztése"
 
-#: src/Process/Backend/Post.php:1358
+#: src/Process/Backend/Post.php:1359
 msgid "Edit this trackback"
 msgstr "Szerkeszd ezt a trackbacket"
 
@@ -5348,11 +5348,11 @@ msgstr[1] "%s frissítések állnak rendelkezésre."
 msgid "List options saved"
 msgstr "Mentett opciók listája"
 
-#: src/Process/Backend/Rest.php:985
+#: src/Process/Backend/Rest.php:986
 msgid "Authentication key successfully registered"
 msgstr "Hitelesítési kulcs sikeresen regisztrálva"
 
-#: src/Process/Backend/Rest.php:1040
+#: src/Process/Backend/Rest.php:1041
 msgid "This key is not registered"
 msgstr "Ez a kulcs nincs regisztrálva"
 
@@ -5517,17 +5517,17 @@ msgstr "Figyelem:"
 msgid "Password change required to connect"
 msgstr "Jelszó módosítása szükséges a csatlakozáshoz"
 
-#: src/Process/Backend/User.php:401 src/Process/Backend/UserPreferences.php:793
-#: src/Process/Install/Install.php:439
+#: src/Process/Backend/User.php:401 src/Process/Backend/UserPreferences.php:794
+#: src/Process/Install/Install.php:497
 msgid "Last Name:"
 msgstr "Utónév:"
 
-#: src/Process/Backend/User.php:411 src/Process/Backend/UserPreferences.php:803
-#: src/Process/Install/Install.php:433
+#: src/Process/Backend/User.php:411 src/Process/Backend/UserPreferences.php:804
+#: src/Process/Install/Install.php:488
 msgid "First Name:"
 msgstr "Keresztnév:"
 
-#: src/Process/Backend/User.php:421 src/Process/Backend/UserPreferences.php:813
+#: src/Process/Backend/User.php:421 src/Process/Backend/UserPreferences.php:814
 msgid "Display name:"
 msgstr "Név:"
 
@@ -5535,24 +5535,24 @@ msgstr "Név:"
 msgid "Mandatory for password recovering procedure."
 msgstr "Kötelező a jelszó-visszaállítási eljáráshoz."
 
-#: src/Process/Backend/User.php:444 src/Process/Backend/UserPreferences.php:832
+#: src/Process/Backend/User.php:444 src/Process/Backend/UserPreferences.php:833
 msgid "Alternate emails (comma separated list):"
 msgstr "Alternatív e-mail címek (vesszővel elválasztott lista):"
 
-#: src/Process/Backend/User.php:448 src/Process/Backend/UserPreferences.php:836
+#: src/Process/Backend/User.php:448 src/Process/Backend/UserPreferences.php:837
 msgid "Invalid emails will be automatically removed from list."
 msgstr "Az érvénytelen e-maileket automatikusan eltávolítjuk a listáról."
 
-#: src/Process/Backend/User.php:466 src/Process/Backend/UserPreferences.php:854
+#: src/Process/Backend/User.php:466 src/Process/Backend/UserPreferences.php:855
 msgid "Alternate URLs (comma separated list):"
 msgstr "Alternatív URL-címek (vesszővel elválasztott lista):"
 
-#: src/Process/Backend/User.php:470 src/Process/Backend/UserPreferences.php:858
+#: src/Process/Backend/User.php:470 src/Process/Backend/UserPreferences.php:859
 msgid "Invalid URLs will be automatically removed from list."
 msgstr "Az érvénytelen URL-ek automatikusan eltávolításra kerülnek a listáról."
 
 #: src/Process/Backend/User.php:476
-#: src/Process/Backend/UserPreferences.php:1025
+#: src/Process/Backend/UserPreferences.php:1027
 msgid "Interface"
 msgstr "Interfész"
 
@@ -5561,22 +5561,22 @@ msgid "Timezone:"
 msgstr "Időzóna:"
 
 #: src/Process/Backend/User.php:492
-#: src/Process/Backend/UserPreferences.php:1149
+#: src/Process/Backend/UserPreferences.php:1151
 msgid "Edition"
 msgstr "Kiadás"
 
 #: src/Process/Backend/User.php:498
-#: src/Process/Backend/UserPreferences.php:1161
+#: src/Process/Backend/UserPreferences.php:1163
 msgid "Preferred format:"
 msgstr "Kedvelt forma:"
 
 #: src/Process/Backend/User.php:505
-#: src/Process/Backend/UserPreferences.php:1169
+#: src/Process/Backend/UserPreferences.php:1171
 msgid "Default entry status:"
 msgstr "Alapértelmezett bejegyzési státusz:"
 
 #: src/Process/Backend/User.php:510
-#: src/Process/Backend/UserPreferences.php:1175
+#: src/Process/Backend/UserPreferences.php:1177
 msgid "Entry edit field height:"
 msgstr "Szerkesztő magassága:"
 
@@ -5724,307 +5724,316 @@ msgstr "A műszerfal elemeinek sorrendje sikeresen visszaállt."
 msgid "Are you sure you want to remove selected favorites?"
 msgstr "Biztos, hogy el akarja távolítani a kiválasztott kedvenceket?"
 
-#: src/Process/Backend/UserPreferences.php:625
+#: src/Process/Backend/UserPreferences.php:604
+msgid "Enter a name for this key:"
+msgstr ""
+
+#: src/Process/Backend/UserPreferences.php:626
 msgid "Change my password"
 msgstr "Jelszó módosítása"
 
-#: src/Process/Backend/UserPreferences.php:644
+#: src/Process/Backend/UserPreferences.php:645
 msgid "Confirm new password:"
 msgstr "Új jelszó megerősítése:"
 
-#: src/Process/Backend/UserPreferences.php:654
+#: src/Process/Backend/UserPreferences.php:655
 msgid "Your current password:"
 msgstr "Az Ön jelenlegi jelszava:"
 
-#: src/Process/Backend/UserPreferences.php:658
+#: src/Process/Backend/UserPreferences.php:659
 msgid "If you have changed your email or password you must provide your current password to save these modifications."
 msgstr "Ha megváltoztatta az e-mail címét vagy jelszavát, akkor a módosítások mentéséhez meg kell adnia az aktuális jelszavát."
 
-#: src/Process/Backend/UserPreferences.php:667
+#: src/Process/Backend/UserPreferences.php:668
 msgid "Your account is registered to two factors authentication."
 msgstr "A fiókja kétfaktoros hitelesítésre van regisztrálva."
 
-#: src/Process/Backend/UserPreferences.php:668
+#: src/Process/Backend/UserPreferences.php:669
 msgid "Disable two factors authentication"
 msgstr "Kétfaktoros hitelesítés kikapcsolása"
 
-#: src/Process/Backend/UserPreferences.php:673
+#: src/Process/Backend/UserPreferences.php:674
 msgid "Scan this QR code with your authentication application:"
 msgstr "Szkennelje be ezt a QR-kódot a hitelesítési alkalmazással:"
 
-#: src/Process/Backend/UserPreferences.php:684
+#: src/Process/Backend/UserPreferences.php:685
 msgid "Or enter this secret into your authentication application:"
 msgstr "Vagy adja meg ezt a titkot a hitelesítési alkalmazásban:"
 
-#: src/Process/Backend/UserPreferences.php:685
+#: src/Process/Backend/UserPreferences.php:686
 msgid "Regenerate"
 msgstr "Regenerálja"
 
-#: src/Process/Backend/UserPreferences.php:695
+#: src/Process/Backend/UserPreferences.php:696
 msgid "Enter verification code:"
 msgstr "Adja meg az ellenőrző kódot:"
 
 #: src/Process/Backend/UserPreferences.php:713
-msgid "Unknown certificat issuer"
-msgstr "Ismeretlen tanúsítványkiállító"
+msgid "unlabeled key"
+msgstr ""
 
-#: src/Process/Backend/UserPreferences.php:723
+#: src/Process/Backend/UserPreferences.php:715
+#, php-format
+msgid "valid on %s"
+msgstr ""
+
+#: src/Process/Backend/UserPreferences.php:724
 msgid "You have no registered key yet."
 msgstr "Még nincs regisztrált kulcsod."
 
-#: src/Process/Backend/UserPreferences.php:763
+#: src/Process/Backend/UserPreferences.php:764
 msgid "Linked to account:"
 msgstr "Számlához kapcsolódik:"
 
-#: src/Process/Backend/UserPreferences.php:778
-#: src/Process/Backend/UserPreferences.php:780
+#: src/Process/Backend/UserPreferences.php:779
+#: src/Process/Backend/UserPreferences.php:781
 msgid "My profile"
 msgstr "Profilom"
 
-#: src/Process/Backend/UserPreferences.php:865
+#: src/Process/Backend/UserPreferences.php:866
 msgid "Language for my interface:"
 msgstr "Nyelv az én felületemhez:"
 
-#: src/Process/Backend/UserPreferences.php:873
+#: src/Process/Backend/UserPreferences.php:874
 msgid "My timezone:"
 msgstr "Az én időzónám:"
 
-#: src/Process/Backend/UserPreferences.php:885
+#: src/Process/Backend/UserPreferences.php:886
 msgid "Authentication keys"
 msgstr "Hitelesítési kulcsok"
 
-#: src/Process/Backend/UserPreferences.php:892
+#: src/Process/Backend/UserPreferences.php:893
 msgid "Register a new key"
 msgstr "Új kulcs regisztrálása"
 
-#: src/Process/Backend/UserPreferences.php:898
+#: src/Process/Backend/UserPreferences.php:899
 msgid "Authentication applications"
 msgstr "Hitelesítési alkalmazások"
 
-#: src/Process/Backend/UserPreferences.php:906
+#: src/Process/Backend/UserPreferences.php:907
 msgid "Update my profile"
 msgstr "Profilom frissítése"
 
-#: src/Process/Backend/UserPreferences.php:974
+#: src/Process/Backend/UserPreferences.php:976
 msgid "List"
 msgstr "Lista"
 
-#: src/Process/Backend/UserPreferences.php:976
+#: src/Process/Backend/UserPreferences.php:978
 msgid "Order by"
 msgstr "Rendelés"
 
-#: src/Process/Backend/UserPreferences.php:978
+#: src/Process/Backend/UserPreferences.php:980
 msgid "Sort"
 msgstr "Rendezés"
 
-#: src/Process/Backend/UserPreferences.php:991
+#: src/Process/Backend/UserPreferences.php:993
 #, php-format
 msgid "Preferred editor for %s:"
 msgstr "Előnyös szerkesztő a %s:"
 
-#: src/Process/Backend/UserPreferences.php:996
+#: src/Process/Backend/UserPreferences.php:998
 msgid "Choose an editor"
 msgstr "Válasszon szerkesztőt"
 
-#: src/Process/Backend/UserPreferences.php:1017
-#: src/Process/Backend/UserPreferences.php:1023
+#: src/Process/Backend/UserPreferences.php:1019
+#: src/Process/Backend/UserPreferences.php:1025
 msgid "My options"
 msgstr "A lehetőségeim"
 
-#: src/Process/Backend/UserPreferences.php:1032
+#: src/Process/Backend/UserPreferences.php:1034
 msgid "Theme:"
 msgstr "Téma:"
 
-#: src/Process/Backend/UserPreferences.php:1038
+#: src/Process/Backend/UserPreferences.php:1040
 msgid "Activate enhanced uploader in media manager"
 msgstr "Fokozott feltöltő aktiválása a médiakezelőben"
 
-#: src/Process/Backend/UserPreferences.php:1044
+#: src/Process/Backend/UserPreferences.php:1046
 msgid "Preview the entry being edited in a blank window or tab (depending on your browser settings)."
 msgstr "Tekintse elő a szerkesztett bejegyzést egy üres ablakban vagy lapon (a böngésző beállításaitól függően)."
 
-#: src/Process/Backend/UserPreferences.php:1051
+#: src/Process/Backend/UserPreferences.php:1053
 msgid "Disable javascript powered drag and drop for ordering items"
 msgstr "A javascriptes drag and drop letiltása a tételek rendeléséhez"
 
-#: src/Process/Backend/UserPreferences.php:1055
+#: src/Process/Backend/UserPreferences.php:1057
 msgid "If checked, numeric fields will allow to type the elements' ordering number."
 msgstr "Ha be van jelölve, a numerikus mezőkbe be lehet írni az elemek sorszámát."
 
-#: src/Process/Backend/UserPreferences.php:1060
+#: src/Process/Backend/UserPreferences.php:1062
 msgid "Hide all secondary information and notes"
 msgstr "Minden másodlagos információ és jegyzet elrejtése"
 
-#: src/Process/Backend/UserPreferences.php:1066
+#: src/Process/Backend/UserPreferences.php:1068
 msgid "Hide help button"
 msgstr "Súgó gomb elrejtése"
 
-#: src/Process/Backend/UserPreferences.php:1073
+#: src/Process/Backend/UserPreferences.php:1075
 msgid "Font size:"
 msgstr "Betűméret:"
 
-#: src/Process/Backend/UserPreferences.php:1079
+#: src/Process/Backend/UserPreferences.php:1081
 msgid "Use operating system font"
 msgstr "Az operációs rendszer betűtípusának használata"
 
-#: src/Process/Backend/UserPreferences.php:1085
+#: src/Process/Backend/UserPreferences.php:1087
 msgid "Number of recent folders proposed in media manager:"
 msgstr "A médiakezelőben javasolt legutóbbi mappák száma:"
 
-#: src/Process/Backend/UserPreferences.php:1089
+#: src/Process/Backend/UserPreferences.php:1091
 msgid "Set to 0 (zero) to ignore, displayed only if Javascript is enabled in your browser."
 msgstr "0 (nulla) értékre állítva figyelmen kívül hagyja, csak akkor jelenik meg, ha a böngészőben engedélyezve van a Javascript."
 
-#: src/Process/Backend/UserPreferences.php:1096
+#: src/Process/Backend/UserPreferences.php:1098
 msgid "Do not use standard favicon"
 msgstr "Ne használjon szabványos favicont"
 
-#: src/Process/Backend/UserPreferences.php:1097
+#: src/Process/Backend/UserPreferences.php:1099
 msgid "This will be applied for all users"
 msgstr "Ez minden felhasználóra vonatkozik"
 
-#: src/Process/Backend/UserPreferences.php:1107
+#: src/Process/Backend/UserPreferences.php:1109
 msgid "Disable Ad-blocker check"
 msgstr "Ad-blokkoló ellenőrzés kikapcsolása"
 
-#: src/Process/Backend/UserPreferences.php:1111
+#: src/Process/Backend/UserPreferences.php:1113
 msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
 msgstr "Egyes reklámblokkolók (Ghostery, Adblock plus, uBloc origin, …) zavarhatják bizonyos funkciókat, mint például a link vagy média beillesztése a CKEditor bejegyzésekbe; ebben az esetben ki kell kapcsolnia a Dotclear telepítéshez (csak a backendben). Vegye figyelembe, hogy a Dotclear nem ad hozzá hirdetéseket vagy nyomkövetőket a backendben."
 
-#: src/Process/Backend/UserPreferences.php:1114
+#: src/Process/Backend/UserPreferences.php:1116
 msgid "Note also that deactivating this detection of ad blockers will not deactivate the installed ad blockers. Dotclear cannot interfere with the operation of browser extensions!"
 msgstr "Vegye figyelembe azt is, hogy a hirdetésblokkolók észlelésének kikapcsolása nem kapcsolja ki a telepített hirdetésblokkolókat. A Dotclear nem tud beavatkozni a böngészőbővítmények működésébe!"
 
-#: src/Process/Backend/UserPreferences.php:1122
+#: src/Process/Backend/UserPreferences.php:1124
 msgid "Quick menu character:"
 msgstr "Gyors menü karakter:"
 
-#: src/Process/Backend/UserPreferences.php:1126
+#: src/Process/Backend/UserPreferences.php:1128
 msgid "Leave empty to use the default character <kbd>:</kbd>"
 msgstr "Hagyja üresen az alapértelmezett karakter használatához <kbd>:</kbd>"
 
-#: src/Process/Backend/UserPreferences.php:1131
+#: src/Process/Backend/UserPreferences.php:1133
 msgid "Keep the main menu at the top of the page as much as possible"
 msgstr "Tartsa a főmenüt az oldal tetején, amennyire csak lehetséges"
 
-#: src/Process/Backend/UserPreferences.php:1135
+#: src/Process/Backend/UserPreferences.php:1137
 msgid "Optional columns displayed in lists"
 msgstr "A listákban megjelenített választható oszlopok"
 
-#: src/Process/Backend/UserPreferences.php:1138
+#: src/Process/Backend/UserPreferences.php:1140
 msgid "Options for lists"
 msgstr "Lehetőségek a listákhoz"
 
-#: src/Process/Backend/UserPreferences.php:1144
+#: src/Process/Backend/UserPreferences.php:1146
 msgid "Apply filters on the fly"
 msgstr "Szűrők alkalmazása menet közben"
 
-#: src/Process/Backend/UserPreferences.php:1181
+#: src/Process/Backend/UserPreferences.php:1183
 msgid "Enable WYSIWYG mode"
 msgstr "WYSIWYG mód"
 
-#: src/Process/Backend/UserPreferences.php:1187
+#: src/Process/Backend/UserPreferences.php:1189
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr "A szerkesztő eszköztárának megjelenítése a szövegterület alján (ha lehetséges)"
 
-#: src/Process/Backend/UserPreferences.php:1193
+#: src/Process/Backend/UserPreferences.php:1195
 msgid "Use HTML editor for:"
 msgstr "HTML-szerkesztő használata:"
 
-#: src/Process/Backend/UserPreferences.php:1197
+#: src/Process/Backend/UserPreferences.php:1199
 msgid "Other options"
 msgstr "Egyéb lehetőségek"
 
-#: src/Process/Backend/UserPreferences.php:1208
+#: src/Process/Backend/UserPreferences.php:1210
 msgid "Save my options"
 msgstr "Mentsd el a lehetőségeimet"
 
-#: src/Process/Backend/UserPreferences.php:1239
+#: src/Process/Backend/UserPreferences.php:1241
 #, php-format
 msgid "position of %s"
 msgstr "a %shelyzete"
 
-#: src/Process/Backend/UserPreferences.php:1262
+#: src/Process/Backend/UserPreferences.php:1264
 msgid "Save order"
 msgstr "Rendelés mentése"
 
-#: src/Process/Backend/UserPreferences.php:1263
+#: src/Process/Backend/UserPreferences.php:1265
 msgid "Delete selected favorites"
 msgstr "Kijelölt kedvencek törlése"
 
-#: src/Process/Backend/UserPreferences.php:1270
+#: src/Process/Backend/UserPreferences.php:1272
 msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
 msgstr "Ha Ön szuperadminisztrátor, akkor meghatározhatja, hogy a kedvencek ezen csoportját alapértelmezés szerint a telepítés összes blogján használni kelljen."
 
-#: src/Process/Backend/UserPreferences.php:1273
+#: src/Process/Backend/UserPreferences.php:1275
 msgid "Define as default favorites"
 msgstr "Alapértelmezett kedvencekként definiálni"
 
-#: src/Process/Backend/UserPreferences.php:1282
+#: src/Process/Backend/UserPreferences.php:1284
 msgid "Currently no personal favorites."
 msgstr "Jelenleg nincsenek személyes kedvenceim."
 
-#: src/Process/Backend/UserPreferences.php:1321
+#: src/Process/Backend/UserPreferences.php:1323
 msgid "(default favorite)"
 msgstr "(alapértelmezett kedvenc)"
 
-#: src/Process/Backend/UserPreferences.php:1336
+#: src/Process/Backend/UserPreferences.php:1338
 msgid "Add to my favorites"
 msgstr "Hozzáadás a kedvenceimhez"
 
-#: src/Process/Backend/UserPreferences.php:1360
+#: src/Process/Backend/UserPreferences.php:1362
 msgid "Other available favorites"
 msgstr "Egyéb elérhető kedvencek"
 
-#: src/Process/Backend/UserPreferences.php:1372
+#: src/Process/Backend/UserPreferences.php:1374
 msgid "Menu"
 msgstr "Menü"
 
-#: src/Process/Backend/UserPreferences.php:1378
+#: src/Process/Backend/UserPreferences.php:1380
 msgid "Display favorites at the top of the menu"
 msgstr "Kedvencek megjelenítése a menü tetején"
 
-#: src/Process/Backend/UserPreferences.php:1382
+#: src/Process/Backend/UserPreferences.php:1384
 msgid "Dashboard icons"
 msgstr "Műszerfal ikonok"
 
-#: src/Process/Backend/UserPreferences.php:1388
+#: src/Process/Backend/UserPreferences.php:1390
 msgid "Display dashboard icons"
 msgstr "Műszerfal ikonok megjelenítése"
 
-#: src/Process/Backend/UserPreferences.php:1392
+#: src/Process/Backend/UserPreferences.php:1394
 msgid "Dashboard modules"
 msgstr "Műszerfal modulok"
 
-#: src/Process/Backend/UserPreferences.php:1398
+#: src/Process/Backend/UserPreferences.php:1400
 msgid "Display documentation links"
 msgstr "Dokumentációs hivatkozások megjelenítése"
 
-#: src/Process/Backend/UserPreferences.php:1404
+#: src/Process/Backend/UserPreferences.php:1406
 msgid "Display donate links"
 msgstr "Adományozás linkek megjelenítése"
 
-#: src/Process/Backend/UserPreferences.php:1410
+#: src/Process/Backend/UserPreferences.php:1412
 msgid "Display Dotclear news"
 msgstr "Dotclear hírek megjelenítése"
 
-#: src/Process/Backend/UserPreferences.php:1416
+#: src/Process/Backend/UserPreferences.php:1418
 msgid "Display quick entry form"
 msgstr "Gyorsbeviteli űrlap megjelenítése"
 
-#: src/Process/Backend/UserPreferences.php:1421
+#: src/Process/Backend/UserPreferences.php:1423
 msgid "Do not display Dotclear updates"
 msgstr "Ne jelenítse meg a Dotclear frissítéseket"
 
-#: src/Process/Backend/UserPreferences.php:1434
+#: src/Process/Backend/UserPreferences.php:1436
 msgid "Save my dashboard options"
 msgstr "Műszerfali beállítások mentése"
 
-#: src/Process/Backend/UserPreferences.php:1447
+#: src/Process/Backend/UserPreferences.php:1449
 msgid "Dashboard items order"
 msgstr "Műszerfal elemek sorrendje"
 
-#: src/Process/Backend/UserPreferences.php:1450
+#: src/Process/Backend/UserPreferences.php:1452
 msgid "Reset dashboard items order"
 msgstr "Műszerfal elemeinek sorrendjének visszaállítása"
 
@@ -6091,229 +6100,235 @@ msgstr "A(z) %s felhasználó jogait fogod módosítani...."
 msgid "Validate permissions"
 msgstr "Engedélyek érvényesítése"
 
-#: src/Process/Install/Install.php:120
+#: src/Process/Install/Install.php:135
 msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
 msgstr "Állíts be mesterkulcsot (DC_MASTER_KEY) a konfigurációs fájlodban."
 
-#: src/Process/Install/Install.php:127 src/Process/Install/Wizard.php:141
+#: src/Process/Install/Install.php:141 src/Process/Install/Wizard.php:196
 msgid "Dotclear is already installed."
 msgstr "A DotClear már telepítve van."
 
-#: src/Process/Install/Install.php:134 src/Process/Install/Wizard.php:135
+#: src/Process/Install/Install.php:148 src/Process/Install/Wizard.php:186
 msgid "Dotclear cannot be installed."
 msgstr "A DotClear-t nem lehet telepíteni."
 
-#: src/Process/Install/Install.php:163
+#: src/Process/Install/Install.php:177
 msgid "Invalid email address"
 msgstr "Helytelen e-mail cím"
 
-#: src/Process/Install/Install.php:226
+#: src/Process/Install/Install.php:240
 msgid "My first blog"
 msgstr "Az első blogom"
 
-#: src/Process/Install/Install.php:239
+#: src/Process/Install/Install.php:253
 msgid "%A, %B %e %Y"
 msgstr "%A, %B %e %Y"
 
-#: src/Process/Install/Install.php:315
+#: src/Process/Install/Install.php:329
 msgid "Welcome to Dotclear!"
 msgstr "Üdvözlet a DorClearnél!"
 
-#: src/Process/Install/Install.php:316
+#: src/Process/Install/Install.php:330
 msgid "This is your first entry. When you're ready to blog, log in to edit or delete it."
 msgstr "Ez az első bejegyzésed. Mikor kész vagy arra, hogy blogolhass, egyszerűen jelentkezz be, hogy ezt megváltoztasd vagy töröld!"
 
-#: src/Process/Install/Install.php:328
+#: src/Process/Install/Install.php:342
 msgid "Dotclear Team"
 msgstr "DotClear csapat"
 
-#: src/Process/Install/Install.php:331
+#: src/Process/Install/Install.php:345
 msgid "<p>This is a comment.</p>\n"
 "<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
 msgstr "<p>Bármily különös, ez egy megjegyzés.</p>\n"
 "<p>Ahhoz, hogy törölhesd, jelentkezz be és nézd meg a blog hozzászólásait. Aztán törölheted vagy átírhatod őket!</p>"
 
-#: src/Process/Install/Install.php:388
+#: src/Process/Install/Install.php:402
 msgid "Dotclear Install"
 msgstr "Dotclear telepítése"
 
-#: src/Process/Install/Install.php:402
+#: src/Process/Install/Install.php:429
 msgid "show"
 msgstr "mutasd meg a"
 
-#: src/Process/Install/Install.php:410
-msgid "Dotclear installation"
-msgstr "DotClear telepítés"
-
-#: src/Process/Install/Install.php:414
+#: src/Process/Install/Install.php:446
 #, php-format
 msgid "Cache directory %s is not writable."
 msgstr "%s cache mappa nem írható."
 
-#: src/Process/Install/Install.php:422
+#: src/Process/Install/Install.php:465
 msgid "Configuration file has been successfully created."
 msgstr "A konfigurációs fájl sikeresen létrejött."
 
-#: src/Process/Install/Install.php:427 src/Process/Install/Install.php:432
+#: src/Process/Install/Install.php:472 src/Process/Install/Install.php:479
 msgid "User information"
 msgstr "Felhasználói adatok"
 
-#: src/Process/Install/Install.php:429
+#: src/Process/Install/Install.php:473
 msgid "Please provide the following information needed to create the first user."
 msgstr "Kérlek, add meg a következő információkat, melyek szükségesek az első felhasználó létrehozásához."
 
-#: src/Process/Install/Install.php:454
+#: src/Process/Install/Install.php:510
 msgid "Username and password"
 msgstr "Felhasználónév és jelszó"
 
-#: src/Process/Install/Install.php:500
+#: src/Process/Install/Install.php:533
+msgid "New Password:"
+msgstr ""
+
+#: src/Process/Install/Install.php:543
+msgid "Confirm Password:"
+msgstr ""
+
+#: src/Process/Install/Install.php:576
 msgid "All done!"
 msgstr "Minden rendben!"
 
-#: src/Process/Install/Install.php:504
+#: src/Process/Install/Install.php:578
 msgid "Dotclear has been successfully installed. Here is some useful information you should keep."
 msgstr "A Dotclear sikeresen települt. Itt van néhány hasznos információ, amit érdemes megőrizni."
 
-#: src/Process/Install/Install.php:506
+#: src/Process/Install/Install.php:579
 msgid "Your account"
 msgstr "A fiókod"
 
-#: src/Process/Install/Install.php:512
+#: src/Process/Install/Install.php:593
 msgid "Your blog"
 msgstr "A blogod"
 
-#: src/Process/Install/Install.php:514
+#: src/Process/Install/Install.php:598
 msgid "Blog address:"
 msgstr "Blogod címe::"
 
-#: src/Process/Install/Install.php:515
+#: src/Process/Install/Install.php:603
 msgid "Administration interface:"
 msgstr "Adminisztrációs felület::"
 
-#: src/Process/Install/Install.php:519
+#: src/Process/Install/Install.php:613
 msgid "Manage your blog now"
 msgstr "Kezeld a blogodat MOST"
 
-#: src/Process/Install/Install.php:526
+#: src/Process/Install/Install.php:623
 msgid "Installation can not be completed"
 msgstr "A telepítés nem fejezhető be"
 
-#: src/Process/Install/Install.php:529
+#: src/Process/Install/Install.php:638
 #, php-format
 msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"%s\">the documentation</a> to learn how to correct the problem."
 msgstr "Az említett okok miatt a Dotclear nem telepíthető. Kérjük, olvassa el <a href=\"%s\">a dokumentációt</a>, hogy megtudja, hogyan lehet a problémát orvosolni."
 
-#: src/Process/Install/Wizard.php:84
+#: src/Process/Install/Install.php:646
+msgid "Dotclear installation"
+msgstr "DotClear telepítés"
+
+#: src/Process/Install/Wizard.php:112
 #, php-format
 msgid "Path <strong>%s</strong> is not writable."
 msgstr "A <strong>%s</strong> elérési útvonal nem írható."
 
-#: src/Process/Install/Wizard.php:86
+#: src/Process/Install/Wizard.php:114
 #, php-format
 msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"%s\">the documentation</a> to learn how to do this."
 msgstr "A Dotclear telepítő varázsló nem tudott konfigurációs fájlt létrehozni az Ön számára. Meg kell változtatnia a mappa jogát, vagy manuálisan kell létrehoznia a <strong>config.php</strong> fájlt, kérjük, olvassa el <a href=\"%s\">a dokumentációt</a>, hogy megtudja, hogyan kell ezt megtenni."
 
-#: src/Process/Install/Wizard.php:117
+#: src/Process/Install/Wizard.php:126
+msgid "There are no supported database driver."
+msgstr ""
+
+#: src/Process/Install/Wizard.php:128
+#, php-format
+msgid "Dotclear installation wizard could not find database driver. You must change your PHP configuration to add a supported database handler please refer to <a href=\"%s\">the documentation</a> to learn how to do this."
+msgstr ""
+
+#: src/Process/Install/Wizard.php:165
 #, php-format
 msgid "Cannot write \"%s\" directory."
 msgstr "Nem lehet írni a \"%s\" könyvtárba."
 
-#: src/Process/Install/Wizard.php:145
+#: src/Process/Install/Wizard.php:200
 msgid "Master email is not valid."
 msgstr "A mester e-mailje nem érvényes."
 
-#: src/Process/Install/Wizard.php:151
+#: src/Process/Install/Wizard.php:206
 #, php-format
 msgid "File %s does not exist."
 msgstr "A %s nem létezik."
 
-#: src/Process/Install/Wizard.php:156 src/Process/Install/Wizard.php:191
+#: src/Process/Install/Wizard.php:211 src/Process/Install/Wizard.php:246
 #, php-format
 msgid "Cannot write %s file."
 msgstr "Nem tudok hozzáférni a %s -hez."
 
-#: src/Process/Install/Wizard.php:234 src/Process/Install/Wizard.php:242
+#: src/Process/Install/Wizard.php:289 src/Process/Install/Wizard.php:310
+#: src/Process/Install/Wizard.php:336
 msgid "Dotclear installation wizard"
 msgstr "DotClear telepítő tündér"
 
-#: src/Process/Install/Wizard.php:248
+#: src/Process/Install/Wizard.php:326
+msgid "Dotclear can not be installed."
+msgstr ""
+
+#: src/Process/Install/Wizard.php:354
 msgid "Welcome"
 msgstr "Üdvözöljük"
 
-#: src/Process/Install/Wizard.php:249
+#: src/Process/Install/Wizard.php:355
 msgid "To complete your Dotclear installation and start writing on your blog, we just need to know how to access your database and who you are. Just fill this two steps wizard with this information and we will be done."
 msgstr "Ahhoz, hogy befejezze a Dotclear telepítését és elkezdhessen írni a blogján, csak azt kell tudnunk, hogyan férhetünk hozzá az adatbázisához és ki Ön. Csak töltse ki ezt a kétlépéses varázslót ezekkel az információkkal, és már kész is vagyunk."
 
-#: src/Process/Install/Wizard.php:250
+#: src/Process/Install/Wizard.php:361
 msgid "Attention:"
 msgstr "Figyelem!"
 
-#: src/Process/Install/Wizard.php:252
+#: src/Process/Install/Wizard.php:363
 #, php-format
 msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"%s\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
 msgstr "ez a varázsló nem minden gépen működik. Ha nem működik, kérjük, olvassa el <a href=\"%s\">a dokumentációt</a> a <strong>config.php</strong> fájl manuális létrehozásának módjáról."
 
-#: src/Process/Install/Wizard.php:258
+#: src/Process/Install/Wizard.php:369
 msgid "System information"
 msgstr "Rendszerinformációk"
 
-#: src/Process/Install/Wizard.php:260
+#: src/Process/Install/Wizard.php:370
 msgid "Please provide the following information needed to create your configuration file."
 msgstr "Kérlek, add meg a következő információkat, amelyek szükségesek a konfigurációs fájl elkészítésében."
 
-#: src/Process/Install/Wizard.php:264
+#: src/Process/Install/Wizard.php:381
 msgid "Database type:"
 msgstr "Adatbázis típusa:"
 
-#: src/Process/Install/Wizard.php:268
-msgid "MySQLi"
-msgstr "MySQLi"
-
-#: src/Process/Install/Wizard.php:269
-msgid "MySQLi (full UTF-8)"
-msgstr "MySQLi (teljes UTF-8)"
-
-#: src/Process/Install/Wizard.php:270
-msgid "PostgreSQL"
-msgstr "PostgreSQL"
-
-#: src/Process/Install/Wizard.php:271
-msgid "SQLite"
-msgstr "SQLite"
-
-#: src/Process/Install/Wizard.php:272
+#: src/Process/Install/Wizard.php:387
 msgid "Driver"
 msgstr "Vezető"
 
-#: src/Process/Install/Wizard.php:274
+#: src/Process/Install/Wizard.php:394
 msgid "Database Host Name:"
 msgstr "Adatbázis host neve:"
 
-#: src/Process/Install/Wizard.php:276
+#: src/Process/Install/Wizard.php:402
 msgid "Database Name:"
 msgstr "Adatbázisnév:"
 
-#: src/Process/Install/Wizard.php:278
+#: src/Process/Install/Wizard.php:410
 msgid "Database User Name:"
 msgstr "Adatbázis felhasználói neve:"
 
-#: src/Process/Install/Wizard.php:280
+#: src/Process/Install/Wizard.php:418
 msgid "Database Password:"
 msgstr "Adatbázis jelszava:"
 
-#: src/Process/Install/Wizard.php:282
-msgid "Database Tables Prefix:"
-msgstr "Adatbázis tábláinak prefixuma:"
-
-#: src/Process/Install/Wizard.php:285
+#: src/Process/Install/Wizard.php:426
 msgid "Prefix"
 msgstr "Előtag"
 
-#: src/Process/Install/Wizard.php:288
+#: src/Process/Install/Wizard.php:427
+msgid "Database Tables Prefix:"
+msgstr "Adatbázis tábláinak prefixuma:"
+
+#: src/Process/Install/Wizard.php:435
 msgid "Master Email: (used as sender for password recovery)"
 msgstr "Mester e-mail: (feladónak használják a jelszó helyreállításához)"
 
-#: src/Process/Install/Wizard.php:296 src/Process/Upgrade/Digests.php:258
+#: src/Process/Install/Wizard.php:437 src/Process/Upgrade/Digests.php:258
 #: src/Process/Upgrade/Digests.php:279
 msgid "Continue"
 msgstr "Folytatás"
@@ -6324,7 +6339,7 @@ msgstr "Folytatás"
 #: src/Process/Upgrade/Backup.php:58 src/Process/Upgrade/Backup.php:62
 #: src/Process/Upgrade/Backup.php:215 src/Process/Upgrade/Cache.php:73
 #: src/Process/Upgrade/Digests.php:142 src/Process/Upgrade/Home.php:146
-#: src/Process/Upgrade/Langs.php:265 src/Process/Upgrade/Plugins.php:187
+#: src/Process/Upgrade/Langs.php:265 src/Process/Upgrade/Plugins.php:185
 #: src/Process/Upgrade/Replay.php:80 src/Process/Upgrade/Upgrade.php:54
 #: src/Process/Upgrade/Upgrade.php:58 src/Process/Upgrade/Upgrade.php:79
 #: src/Process/Upgrade/Upgrade.php:83 src/Process/Upgrade/Upgrade.php:317
@@ -6420,15 +6435,15 @@ msgstr "Gratulálok, egyetlen kattintás választ el a frissítés végétől."
 msgid "Finish the update."
 msgstr "Frissítés vége"
 
-#: src/Process/Upgrade/Auth.php:178
+#: src/Process/Upgrade/Auth.php:180
 msgid "Code verification failed"
 msgstr "A kódellenőrzés sikertelen"
 
-#: src/Process/Upgrade/Auth.php:284 src/Process/Upgrade/Auth.php:302
+#: src/Process/Upgrade/Auth.php:278 src/Process/Upgrade/Auth.php:393
 msgid "Upgrade"
 msgstr "Frissítés"
 
-#: src/Process/Upgrade/Auth.php:380
+#: src/Process/Upgrade/Auth.php:377
 msgid "Back to normal dashboard"
 msgstr "Vissza a normál műszerfalhoz"
 
@@ -6586,7 +6601,7 @@ msgstr "Ön a fejlesztői kiadást használja, egyes funkciók még nem állnak 
 msgid "Dotclear digests file \"%s\" is not readable."
 msgstr "Dotclear digests fájl \"%s\" nem olvasható."
 
-#: src/Process/Upgrade/Home.php:95 src/Process/Upgrade/Plugins.php:164
+#: src/Process/Upgrade/Home.php:95 src/Process/Upgrade/Plugins.php:162
 msgid "Official plugins repository could not be updated as there is no URL set in configuration."
 msgstr "A hivatalos plugin-tárat nem lehetett frissíteni, mivel a konfigurációban nincs beállított URL."
 
@@ -6622,52 +6637,52 @@ msgstr "Nyelvek telepítése vagy frissítése a rendelkezésre álló nyelvek k
 msgid "Install or upgrade languages from an upload a zip file"
 msgstr "Nyelvek telepítése vagy frissítése egy zip fájl feltöltéséből"
 
-#: src/Process/Upgrade/Plugins.php:76
+#: src/Process/Upgrade/Plugins.php:74
 msgid "Some plugins could not be loaded."
 msgstr "Néhány bővítményt nem sikerült betölteni."
 
-#: src/Process/Upgrade/Plugins.php:386
+#: src/Process/Upgrade/Plugins.php:384
 msgid "There is no module to check"
 msgstr "Nincs modul az ellenőrzéshez"
 
-#: src/Process/Upgrade/Plugins.php:394
+#: src/Process/Upgrade/Plugins.php:392
 msgid "Store version"
 msgstr "Store verzió"
 
-#: src/Process/Upgrade/Plugins.php:396
+#: src/Process/Upgrade/Plugins.php:394
 msgid "Check stores versions"
 msgstr "Ellenőrizze a boltok verzióit"
 
-#: src/Process/Upgrade/Plugins.php:404
+#: src/Process/Upgrade/Plugins.php:402
 msgid "Check lastest stores versions"
 msgstr "Ellenőrizze a legfrissebb áruházak verzióit"
 
-#: src/Process/Upgrade/Plugins.php:408
+#: src/Process/Upgrade/Plugins.php:406
 #, php-format
 msgid "You can check repositories for modules written explicitly for Dotclear release greater than %s."
 msgstr "Ellenőrizheti a tárolókban a %s-nál nagyobb Dotclear kiadáshoz írt modulokat."
 
-#: src/Process/Upgrade/Plugins.php:433 src/Process/Upgrade/Plugins.php:476
+#: src/Process/Upgrade/Plugins.php:431 src/Process/Upgrade/Plugins.php:474
 msgid "No version available"
 msgstr "Nincs elérhető verzió"
 
-#: src/Process/Upgrade/Plugins.php:435
+#: src/Process/Upgrade/Plugins.php:433
 msgid "No update available"
 msgstr "Nincs frissítés elérhető"
 
-#: src/Process/Upgrade/Plugins.php:437
+#: src/Process/Upgrade/Plugins.php:435
 msgid "Newer version available"
 msgstr "Újabb verzió elérhető"
 
-#: src/Process/Upgrade/Plugins.php:490
+#: src/Process/Upgrade/Plugins.php:488
 msgid "Modules list"
 msgstr "Modulok listája"
 
-#: src/Process/Upgrade/Plugins.php:505
+#: src/Process/Upgrade/Plugins.php:503
 msgid "Latest version"
 msgstr "Legújabb verzió"
 
-#: src/Process/Upgrade/Plugins.php:509
+#: src/Process/Upgrade/Plugins.php:507
 msgid "Written for Dotclear"
 msgstr "Írta a Dotclear számára"
 
