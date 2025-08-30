@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-30 17:29+0200\n"
-"PO-Revision-Date: 2025-08-30 22:26\n"
+"PO-Revision-Date: 2025-08-30 22:55\n"
 "Last-Translator: \n"
 "Language-Team: Finnish\n"
 "Language: fi_FI\n"
@@ -5726,7 +5726,7 @@ msgstr "Oletko varma, että haluat poistaa valitut suosikit?"
 
 #: src/Process/Backend/UserPreferences.php:604
 msgid "Enter a name for this key:"
-msgstr ""
+msgstr "Anna tälle avaimelle nimi:"
 
 #: src/Process/Backend/UserPreferences.php:626
 msgid "Change my password"
@@ -5770,12 +5770,12 @@ msgstr "Syötä vahvistuskoodi:"
 
 #: src/Process/Backend/UserPreferences.php:713
 msgid "unlabeled key"
-msgstr ""
+msgstr "merkitsemätön avain"
 
 #: src/Process/Backend/UserPreferences.php:715
 #, php-format
 msgid "valid on %s"
-msgstr ""
+msgstr "voimassa osoitteessa %s"
 
 #: src/Process/Backend/UserPreferences.php:724
 msgid "You have no registered key yet."
@@ -6173,11 +6173,11 @@ msgstr "Käyttäjätunnus ja salasana"
 
 #: src/Process/Install/Install.php:533
 msgid "New Password:"
-msgstr ""
+msgstr "Uusi salasana:"
 
 #: src/Process/Install/Install.php:543
 msgid "Confirm Password:"
-msgstr ""
+msgstr "Vahvista salasana:"
 
 #: src/Process/Install/Install.php:576
 msgid "All done!"
@@ -6232,12 +6232,12 @@ msgstr "Dotclearin ohjatun asennuksen ohjattu asennus ei onnistunut luomaan aset
 
 #: src/Process/Install/Wizard.php:126
 msgid "There are no supported database driver."
-msgstr ""
+msgstr "Tuettuja tietokantaohjaimia ei ole."
 
 #: src/Process/Install/Wizard.php:128
 #, php-format
 msgid "Dotclear installation wizard could not find database driver. You must change your PHP configuration to add a supported database handler please refer to <a href=\"%s\">the documentation</a> to learn how to do this."
-msgstr ""
+msgstr "Ohjattu Dotclearin asennus ei löytänyt tietokantaohjainta. Sinun on muutettava PHP-konfiguraatiotasi lisäämällä tuettu tietokantakäsittelijä, katso <a href=\"%s\">dokumentaatio</a>, miten tämä tehdään."
 
 #: src/Process/Install/Wizard.php:165
 #, php-format
@@ -6265,7 +6265,7 @@ msgstr "Dotclear-asennusvelho"
 
 #: src/Process/Install/Wizard.php:326
 msgid "Dotclear can not be installed."
-msgstr ""
+msgstr "Dotclearia ei voi asentaa."
 
 #: src/Process/Install/Wizard.php:354
 msgid "Welcome"
