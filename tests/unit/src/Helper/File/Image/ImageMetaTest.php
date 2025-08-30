@@ -16,14 +16,22 @@ namespace Dotclear\Helper\File\Image {
         }
     }
 
-    function getimagesize(string $filename, &$image_info): array|false
+    /**
+     * @param  array<array-key, mixed>  &$image_info
+     *
+     * @return array<array-key, mixed>|false
+     */
+    function getimagesize(string $filename, ?array &$image_info): array|false
     {
         return GetImageSizeMock::$callback
             ? (GetImageSizeMock::$callback)($filename, $image_info)
             : \getimagesize($filename, $image_info); // fallback to real function
     }
 
-    function exif_read_data($file, ?string $required_sections = null, bool $as_arrays = false, bool $read_thumbnail = false): array|false
+    /**
+     * @return array<array-key, mixed>|false
+     */
+    function exif_read_data(mixed $file, ?string $required_sections = null, bool $as_arrays = false, bool $read_thumbnail = false): array|false
     {
         return ExifReadDataMock::$callback
             ? (ExifReadDataMock::$callback)($file, $required_sections, $as_arrays, $read_thumbnail)
@@ -77,7 +85,7 @@ namespace Dotclear\Tests\Helper\File\Image {
 
         protected function setUp(): void
         {
-            $this->root = realpath(implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', '..', 'fixtures', 'src', 'Helper', 'Image']));
+            $this->root = (string) realpath(implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', '..', 'fixtures', 'src', 'Helper', 'Image']));
         }
 
         public function test(): void
@@ -269,7 +277,7 @@ namespace Dotclear\Tests\Helper\File\Image {
         public function testGetImageSizeDisabled(): void
         {
             // Mock getimagesize()
-            GetImageSizeMock::set(fn (string $function, &$image_info): array|false => false);
+            GetImageSizeMock::set(fn (string $function, &$image_info): bool => false);
 
             $meta = \Dotclear\Helper\File\Image\ImageMeta::readMeta(implode(DIRECTORY_SEPARATOR, [$this->root, 'img_exif_iptc.jpg']));
 
@@ -308,7 +316,7 @@ namespace Dotclear\Tests\Helper\File\Image {
         public function testExifReadDataError(): void
         {
             // Mock exif_read_data()
-            ExifReadDataMock::set(fn ($file, ?string $required_sections = null, bool $as_arrays = false, bool $read_thumbnail = false): array|false => false);
+            ExifReadDataMock::set(fn ($file, ?string $required_sections = null, bool $as_arrays = false, bool $read_thumbnail = false): bool => false);
 
             $meta = \Dotclear\Helper\File\Image\ImageMeta::readMeta(implode(DIRECTORY_SEPARATOR, [$this->root, 'img_exif_iptc.jpg']));
 

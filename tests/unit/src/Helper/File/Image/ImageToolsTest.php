@@ -24,35 +24,35 @@ namespace Dotclear\Helper\File\Image {
             : \header($header, $replace, $response_code); // fallback to real function
     }
 
-    function imagepng(GdImage $image, $file = null, int $quality = -1, int $filters = -1): bool
+    function imagepng(GdImage $image, mixed $file = null, int $quality = -1, int $filters = -1): bool
     {
         return ImagePngMock::$callback
             ? (ImagePngMock::$callback)($image, $file, $quality, $filters)
             : \imagepng($image, $file, $quality, $filters); // fallback to real function
     }
 
-    function imagejpeg(GdImage $image, $file = null, int $quality = -1): bool
+    function imagejpeg(GdImage $image, mixed $file = null, int $quality = -1): bool
     {
         return ImageJpegMock::$callback
             ? (ImageJpegMock::$callback)($image, $file, $quality)
             : \imagejpeg($image, $file, $quality); // fallback to real function
     }
 
-    function imagegif(GdImage $image, $file = null): bool
+    function imagegif(GdImage $image, mixed $file = null): bool
     {
         return ImageGifMock::$callback
             ? (ImageGifMock::$callback)($image, $file)
             : \imagegif($image, $file); // fallback to real function
     }
 
-    function imagewebp(GdImage $image, $file = null, int $quality = -1): bool
+    function imagewebp(GdImage $image, mixed $file = null, int $quality = -1): bool
     {
         return ImageWebpMock::$callback
             ? (ImageWebpMock::$callback)($image, $file, $quality)
             : \imagewebp($image, $file, $quality); // fallback to real function
     }
 
-    function imageavif(GdImage $image, $file = null, int $quality = -1, int $speed = -1): bool
+    function imageavif(GdImage $image, mixed $file = null, int $quality = -1, int $speed = -1): bool
     {
         return ImageAvifMock::$callback
             ? (ImageAvifMock::$callback)($image, $file, $quality, $speed)
@@ -150,7 +150,7 @@ namespace Dotclear\Tests\Helper\File\Image {
 
         protected function setUp(): void
         {
-            $this->root = realpath(implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', '..', 'fixtures', 'src', 'Helper', 'Image']));
+            $this->root = (string) realpath(implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', '..', 'fixtures', 'src', 'Helper', 'Image']));
         }
 
         public function testPng(): void
@@ -549,9 +549,13 @@ namespace Dotclear\Tests\Helper\File\Image {
                 240,
                 $tool->getW()
             );
-            $this->assertTrue(
-                $tool->resize(120, 32)
-            );
+
+            try {
+                $tool->resize(120, 32);
+            } catch (Exception) {
+                $this->fail();
+            }
+
             $this->assertEquals(
                 32,
                 $tool->getH()
@@ -578,9 +582,13 @@ namespace Dotclear\Tests\Helper\File\Image {
                 240,
                 $tool->getW()
             );
-            $this->assertTrue(
-                $tool->resize('50%', '50%')
-            );
+
+            try {
+                $tool->resize('50%', '50%');
+            } catch (Exception) {
+                $this->fail();
+            }
+
             $this->assertEquals(
                 32,
                 $tool->getH()
@@ -606,9 +614,13 @@ namespace Dotclear\Tests\Helper\File\Image {
                 240,
                 $tool->getW()
             );
-            $this->assertTrue(
-                $tool->resize('48', '48', 'crop')
-            );
+
+            try {
+                $tool->resize('48', '48', 'crop');
+            } catch (Exception) {
+                $this->fail();
+            }
+
             $this->assertEquals(
                 48,
                 $tool->getH()
@@ -634,9 +646,13 @@ namespace Dotclear\Tests\Helper\File\Image {
                 240,
                 $tool->getW()
             );
-            $this->assertTrue(
-                $tool->resize(120, 32, 'force')
-            );
+
+            try {
+                $tool->resize(120, 32, 'force');
+            } catch (Exception) {
+                $this->fail();
+            }
+
             $this->assertEquals(
                 32,
                 $tool->getH()
@@ -662,9 +678,13 @@ namespace Dotclear\Tests\Helper\File\Image {
                 240,
                 $tool->getW()
             );
-            $this->assertTrue(
-                $tool->resize(100, 0)
-            );
+
+            try {
+                $tool->resize(100, 0);
+            } catch (Exception) {
+                $this->fail();
+            }
+
             $this->assertEquals(
                 27,     // Ratio applied
                 $tool->getH()
@@ -690,9 +710,13 @@ namespace Dotclear\Tests\Helper\File\Image {
                 240,
                 $tool->getW()
             );
-            $this->assertTrue(
-                $tool->resize(0, 28)
-            );
+
+            try {
+                $tool->resize(0, 28);
+            } catch (Exception) {
+                $this->fail();
+            }
+
             $this->assertEquals(
                 28,
                 $tool->getH()
@@ -719,9 +743,13 @@ namespace Dotclear\Tests\Helper\File\Image {
                 240,
                 $tool->getW()
             );
-            $this->assertTrue(
-                $tool->resize(100, 0, 'force')
-            );
+
+            try {
+                $tool->resize(100, 0, 'force');
+            } catch (Exception) {
+                $this->fail();
+            }
+
             $this->assertEquals(
                 27,     // Ratio applied
                 $tool->getH()
@@ -747,9 +775,13 @@ namespace Dotclear\Tests\Helper\File\Image {
                 240,
                 $tool->getW()
             );
-            $this->assertTrue(
-                $tool->resize(0, 28, 'force')
-            );
+
+            try {
+                $tool->resize(0, 28, 'force');
+            } catch (Exception) {
+                $this->fail();
+            }
+
             $this->assertEquals(
                 28,
                 $tool->getH()
@@ -776,9 +808,13 @@ namespace Dotclear\Tests\Helper\File\Image {
                 240,
                 $tool->getW()
             );
-            $this->assertTrue(
-                $tool->resize(0, 480, 'force')
-            );
+
+            try {
+                $tool->resize(0, 480, 'force');
+            } catch (Exception) {
+                $this->fail();
+            }
+
             $this->assertEquals(
                 65,     // Ratio applied
                 $tool->getH()
@@ -804,9 +840,13 @@ namespace Dotclear\Tests\Helper\File\Image {
                 240,
                 $tool->getW()
             );
-            $this->assertTrue(
-                $tool->resize(0, 480)
-            );
+
+            try {
+                $tool->resize(0, 480);
+            } catch (Exception) {
+                $this->fail();
+            }
+
             $this->assertEquals(
                 65,
                 $tool->getH()
@@ -833,9 +873,13 @@ namespace Dotclear\Tests\Helper\File\Image {
                 240,
                 $tool->getW()
             );
-            $this->assertTrue(
-                $tool->resize(0, 480, 'ratio', true)
-            );
+
+            try {
+                $tool->resize(0, 480, 'ratio', true);
+            } catch (Exception) {
+                $this->fail();
+            }
+
             $this->assertEquals(
                 480,
                 $tool->getH()
@@ -862,9 +906,13 @@ namespace Dotclear\Tests\Helper\File\Image {
                 240,    // Ratio = 3,69
                 $tool->getW()
             );
-            $this->assertTrue(
-                $tool->resize(800, 200, 'crop', true)
-            );
+
+            try {
+                $tool->resize(800, 200, 'crop', true);
+            } catch (Exception) {
+                $this->fail();
+            }
+
             $this->assertEquals(
                 200,
                 $tool->getH()

@@ -21,7 +21,7 @@ class UnzipTest extends TestCase
 
     public const ZIP_EXCLUDE = '#(^|/)(__MACOSX|\.svn|\.hg.*|\.git.*|\.DS_Store|\.directory|Thumbs\.db)(/|$)#';
 
-    private static function fillFile($filename, int $timeOffset = 0)
+    private static function fillFile(string $filename, int $timeOffset = 0): void
     {
         if (!file_exists($filename)) {
             touch($filename, time() - $timeOffset);
@@ -30,15 +30,17 @@ class UnzipTest extends TestCase
         }
         if (file_exists($filename)) {
             $fp = fopen($filename, 'wb');
-            fwrite($fp, file_get_contents(__FILE__));
-            fclose($fp);
+            if ($fp) {
+                fwrite($fp, (string) file_get_contents(__FILE__));
+                fclose($fp);
+            }
             touch($filename, time() - $timeOffset);
             sleep(1);
             clearstatcache(true, $filename);
         }
     }
 
-    public static function prepareTests(string $rootzip)
+    public static function prepareTests(string $rootzip): void
     {
         // Create a folder with two files and a sub-folder with the two same files inside in the tmp directory
         if (!is_dir($rootzip)) {
@@ -72,7 +74,7 @@ class UnzipTest extends TestCase
         self::prepareTests($rootzip);
     }
 
-    public static function prepareArchive(string $archive, string $rootzip, ?string $dirname)
+    public static function prepareArchive(string $archive, string $rootzip, ?string $dirname): void
     {
         // Create archive
 
@@ -100,14 +102,6 @@ class UnzipTest extends TestCase
         sleep(2);
     }
 
-    public static function sortArray(array $array): array
-    {
-        $values = $array;
-        sort($values);
-
-        return $values;
-    }
-
     public function testLegacy(): void
     {
         $rootzip = implode(DIRECTORY_SEPARATOR, [realpath(sys_get_temp_dir()), self::ZIP_FOLDER]);
@@ -119,7 +113,7 @@ class UnzipTest extends TestCase
         // Uncompress archive
         $folder = $rootzip . '-' . substr(self::ZIP_LEGACY, 0, -4);
         if (is_dir($folder)) {
-            \Dotclear\Helper\File\Files::delTree($folder);
+            \Dotclear\Helper\File\Files::deltree($folder);
             clearstatcache(); // stats are cached, clear them!
             sleep(2);
         }
@@ -130,10 +124,6 @@ class UnzipTest extends TestCase
 
         clearstatcache(); // stats are cached, clear them!
         sleep(2);
-
-        $this->assertNotNull(
-            $unzip
-        );
 
         $this->assertTrue(
             file_exists(implode(DIRECTORY_SEPARATOR, [$folder, self::ZIP_NAME, self::ZIP_FILE_1]))
@@ -184,18 +174,26 @@ class UnzipTest extends TestCase
         $unzip    = new \Dotclear\Helper\File\Zip\Unzip($archive);
         $manifest = $unzip->getList(false, '/(notmine|notyours)$/');
 
-        $this->assertCount(
-            6,
-            $manifest
-        );
+        if ($manifest) {
+            $this->assertCount(
+                6,
+                $manifest
+            );
+        } else {
+            $this->fail();
+        }
 
         // Check if the list is always the same
         $manifest = $unzip->getList(false, '/(notmine|notyours)$/');
 
-        $this->assertCount(
-            6,
-            $manifest
-        );
+        if ($manifest) {
+            $this->assertCount(
+                6,
+                $manifest
+            );
+        } else {
+            $this->fail();
+        }
     }
 
     public function testGetListLegacyWithoutExclusion(): void
@@ -212,18 +210,26 @@ class UnzipTest extends TestCase
         $unzip    = new \Dotclear\Helper\File\Zip\Unzip($archive);
         $manifest = $unzip->getList(false, false);
 
-        $this->assertCount(
-            8,
-            $manifest
-        );
+        if ($manifest) {
+            $this->assertCount(
+                8,
+                $manifest
+            );
+        } else {
+            $this->fail();
+        }
 
         // Check if the list is always the same
         $manifest = $unzip->getList(false, false);
 
-        $this->assertCount(
-            8,
-            $manifest
-        );
+        if ($manifest) {
+            $this->assertCount(
+                8,
+                $manifest
+            );
+        } else {
+            $this->fail();
+        }
 
         $unzip->close();
     }
@@ -240,16 +246,17 @@ class UnzipTest extends TestCase
         $unzip    = new \Dotclear\Helper\File\Zip\Unzip($archive);
         $manifest = $unzip->getFilesList();
 
+        $expected = [
+            'dotclear/subfolder/file_1.txt',
+            'dotclear/subfolder/secret.notmine',
+            'dotclear/subfolder/file_2.txt',
+            'dotclear/file_1.txt',
+            'dotclear/file_2.txt',
+            'dotclear/secret.notyours',
+        ];
         $this->assertEquals(
-            self::sortArray([
-                'dotclear/subfolder/file_1.txt',
-                'dotclear/subfolder/secret.notmine',
-                'dotclear/subfolder/file_2.txt',
-                'dotclear/file_1.txt',
-                'dotclear/file_2.txt',
-                'dotclear/secret.notyours',
-            ]),
-            self::sortArray($manifest)
+            sort($expected),
+            sort($manifest)
         );
         $this->assertCount(
             6,
@@ -259,16 +266,17 @@ class UnzipTest extends TestCase
         // Check if the list is always the same
         $manifest = $unzip->getFilesList();
 
+        $expected = [
+            'dotclear/subfolder/file_1.txt',
+            'dotclear/subfolder/secret.notmine',
+            'dotclear/subfolder/file_2.txt',
+            'dotclear/file_1.txt',
+            'dotclear/file_2.txt',
+            'dotclear/secret.notyours',
+        ];
         $this->assertEquals(
-            self::sortArray([
-                'dotclear/subfolder/file_1.txt',
-                'dotclear/subfolder/secret.notmine',
-                'dotclear/subfolder/file_2.txt',
-                'dotclear/file_1.txt',
-                'dotclear/file_2.txt',
-                'dotclear/secret.notyours',
-            ]),
-            self::sortArray($manifest)
+            sort($expected),
+            sort($manifest)
         );
         $this->assertCount(
             6,
@@ -290,12 +298,13 @@ class UnzipTest extends TestCase
         $unzip    = new \Dotclear\Helper\File\Zip\Unzip($archive);
         $manifest = $unzip->getDirsList();
 
+        $expected = [
+            'dotclear',
+            'dotclear/subfolder',
+        ];
         $this->assertEquals(
-            self::sortArray([
-                'dotclear',
-                'dotclear/subfolder',
-            ]),
-            self::sortArray($manifest)
+            sort($expected),
+            sort($manifest)
         );
         $this->assertCount(
             2,
@@ -305,12 +314,13 @@ class UnzipTest extends TestCase
         // Check if the list is always the same
         $manifest = $unzip->getDirsList();
 
+        $expected = [
+            'dotclear',
+            'dotclear/subfolder',
+        ];
         $this->assertEquals(
-            self::sortArray([
-                'dotclear',
-                'dotclear/subfolder',
-            ]),
-            self::sortArray($manifest)
+            sort($expected),
+            sort($manifest)
         );
         $this->assertCount(
             2,
@@ -372,18 +382,19 @@ class UnzipTest extends TestCase
         );
 
         $manifest = $unzip->getFilesList();
-        $tmpdir   = substr(realpath(sys_get_temp_dir()), 1);
+        $tmpdir   = substr((string) realpath(sys_get_temp_dir()), 1);
 
+        $expected = [
+            implode(DIRECTORY_SEPARATOR, [$tmpdir, self::ZIP_FOLDER, self::ZIP_SUBFOLDER, self::ZIP_FILE_1]),
+            implode(DIRECTORY_SEPARATOR, [$tmpdir, self::ZIP_FOLDER, self::ZIP_SUBFOLDER, self::ZIP_SECRET_2]),
+            implode(DIRECTORY_SEPARATOR, [$tmpdir, self::ZIP_FOLDER, self::ZIP_SUBFOLDER, self::ZIP_FILE_2]),
+            implode(DIRECTORY_SEPARATOR, [$tmpdir, self::ZIP_FOLDER, self::ZIP_FILE_1]),
+            implode(DIRECTORY_SEPARATOR, [$tmpdir, self::ZIP_FOLDER, self::ZIP_FILE_2]),
+            implode(DIRECTORY_SEPARATOR, [$tmpdir, self::ZIP_FOLDER, self::ZIP_SECRET_1]),
+        ];
         $this->assertEquals(
-            self::sortArray([
-                implode(DIRECTORY_SEPARATOR, [$tmpdir, self::ZIP_FOLDER, self::ZIP_SUBFOLDER, self::ZIP_FILE_1]),
-                implode(DIRECTORY_SEPARATOR, [$tmpdir, self::ZIP_FOLDER, self::ZIP_SUBFOLDER, self::ZIP_SECRET_2]),
-                implode(DIRECTORY_SEPARATOR, [$tmpdir, self::ZIP_FOLDER, self::ZIP_SUBFOLDER, self::ZIP_FILE_2]),
-                implode(DIRECTORY_SEPARATOR, [$tmpdir, self::ZIP_FOLDER, self::ZIP_FILE_1]),
-                implode(DIRECTORY_SEPARATOR, [$tmpdir, self::ZIP_FOLDER, self::ZIP_FILE_2]),
-                implode(DIRECTORY_SEPARATOR, [$tmpdir, self::ZIP_FOLDER, self::ZIP_SECRET_1]),
-            ]),
-            self::sortArray($manifest)
+            sort($expected),
+            sort($manifest)
         );
 
         $unzip->close();

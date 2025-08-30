@@ -22,7 +22,7 @@ class ZipTest extends TestCase
 
     public const ZIP_EXCLUDE = '#(^|/)(__MACOSX|\.svn|\.hg.*|\.git.*|\.DS_Store|\.directory|Thumbs\.db)(/|$)#';
 
-    private static function fillFile($filename, int $timeOffset = 0)
+    private static function fillFile(string $filename, int $timeOffset = 0): void
     {
         if (!file_exists($filename)) {
             touch($filename, time() - $timeOffset);
@@ -31,15 +31,17 @@ class ZipTest extends TestCase
         }
         if (file_exists($filename)) {
             $fp = fopen($filename, 'wb');
-            fwrite($fp, file_get_contents(__FILE__));
-            fclose($fp);
+            if ($fp) {
+                fwrite($fp, (string) file_get_contents(__FILE__));
+                fclose($fp);
+            }
             touch($filename, time() - $timeOffset);
             sleep(1);
             clearstatcache(true, $filename);
         }
     }
 
-    public static function prepareTests(string $rootzip)
+    public static function prepareTests(string $rootzip): void
     {
         // Create a folder with two files and a sub-folder with the two same files inside in the tmp directory
         if (!is_dir($rootzip)) {
@@ -66,7 +68,7 @@ class ZipTest extends TestCase
         }
     }
 
-    private function openArchive(string $archive, &$fp)
+    private function openArchive(string $archive, mixed &$fp): \Dotclear\Helper\File\Zip\Zip|null
     {
         $fp = @fopen($archive, 'wb');
         if ($fp === false) {
@@ -76,7 +78,7 @@ class ZipTest extends TestCase
         return new \Dotclear\Helper\File\Zip\Zip($fp);
     }
 
-    private function closeArchive($zip, $fp, bool $write = false)
+    private function closeArchive(\Dotclear\Helper\File\Zip\Zip $zip, mixed $fp, bool $write = false): void
     {
         if ($write) {
             $zip->write();
@@ -101,12 +103,14 @@ class ZipTest extends TestCase
         $fp  = null;
         $zip = $this->openArchive($archive, $fp);
 
-        $zip->addExclusion('/(notmine|notyours)$/');
-        $zip->addExclusion(self::ZIP_EXCLUDE);
-        $zip->addDirectory($rootzip, self::ZIP_NAME, true);
+        if ($zip) {
+            $zip->addExclusion('/(notmine|notyours)$/');
+            $zip->addExclusion(self::ZIP_EXCLUDE);
+            $zip->addDirectory($rootzip, self::ZIP_NAME, true);
 
-        // Close archive
-        $this->closeArchive($zip, $fp, true);
+            // Close archive
+            $this->closeArchive($zip, $fp, true);
+        }
 
         if (!file_exists($archive)) {
             clearstatcache(true, $archive);
@@ -155,12 +159,14 @@ class ZipTest extends TestCase
         $fp  = null;
         $zip = $this->openArchive('php://output', $fp);
 
-        $zip->addExclusion('/(notmine|notyours)$/');
-        $zip->addExclusion(self::ZIP_EXCLUDE);
-        $zip->addDirectory($rootzip, self::ZIP_NAME, true);
+        if ($zip) {
+            $zip->addExclusion('/(notmine|notyours)$/');
+            $zip->addExclusion(self::ZIP_EXCLUDE);
+            $zip->addDirectory($rootzip, self::ZIP_NAME, true);
 
-        // Close archive
-        $this->closeArchive($zip, $fp, true);
+            // Close archive
+            $this->closeArchive($zip, $fp, true);
+        }
 
         $content = ob_get_contents();
         ob_end_clean();
