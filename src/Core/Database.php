@@ -84,8 +84,18 @@ class Database extends Container implements DatabaseInterface
     {
         $res = [];
         foreach ($this->factory->dump() as $driver => $service) {
-            if (is_string($service) && is_subclass_of($service, ConnectionInterface::class)) {
-                $res[__($service::HANDLER_NAME)] = $service::HANDLER_DRIVER;
+            if (is_string($service)) {
+                // service is a class
+                if (is_subclass_of($service, ConnectionInterface::class)) {
+                    try {
+                        // check if driver is useable
+                        $service::precondition();
+                    } catch (DatabaseException) {
+                        continue;
+                    }
+
+                    $res[__($service::HANDLER_NAME)] = $service::HANDLER_DRIVER;
+                }
             } else {
                 // or maybe an anonymous function
                 $res[$driver] = $driver;

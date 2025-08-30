@@ -12,6 +12,7 @@ namespace Dotclear\Schema\Database\Mysqli;
 
 use Dotclear\App;
 use Dotclear\Database\AbstractHandler;
+use Dotclear\Exception\DatabaseException;
 use Exception;
 use mysqli;
 use mysqli_result;
@@ -32,6 +33,13 @@ class Handler extends AbstractHandler
      */
     public static bool $weak_locks = true;
 
+    public static function precondition(): void
+    {
+        if (!function_exists('mysqli_connect')) {
+            throw new DatabaseException('PHP MySQLi functions are not available');
+        }
+    }
+
     /**
      * Open a DB connection
      *
@@ -46,9 +54,7 @@ class Handler extends AbstractHandler
      */
     public function db_connect(string $host, string $user, string $password, string $database)
     {
-        if (!function_exists('mysqli_connect')) {
-            throw new Exception('PHP MySQLi functions are not available');
-        }
+        self::precondition();
 
         $port   = abs((int) ini_get('mysqli.default_port'));
         $socket = '';

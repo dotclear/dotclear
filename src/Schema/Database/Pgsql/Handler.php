@@ -13,6 +13,7 @@ namespace Dotclear\Schema\Database\Pgsql;
 use Dotclear\App;
 use Dotclear\Database\AbstractHandler;
 use Dotclear\Database\Record;
+use Dotclear\Exception\DatabaseException;
 use Exception;
 use PgSql\Connection;
 use PgSql\Result;
@@ -31,6 +32,13 @@ class Handler extends AbstractHandler
     public const HANDLER_SYNTAX = 'postgresql';
 
     protected ?string $utf8_unicode_ci = null;
+
+    public static function precondition(): void
+    {
+        if (!function_exists('pg_connect')) {
+            throw new DatabaseException('PHP PostgreSQL functions are not available');
+        }
+    }
 
     /**
      * Gets the PostgreSQL connection string.
@@ -86,9 +94,7 @@ class Handler extends AbstractHandler
      */
     public function db_connect(string $host, string $user, string $password, string $database)
     {
-        if (!function_exists('pg_connect')) {
-            throw new Exception('PHP PostgreSQL functions are not available');
-        }
+        self::precondition();
 
         $str = $this->get_connection_string($host, $user, $password, $database);
 
@@ -113,9 +119,7 @@ class Handler extends AbstractHandler
      */
     public function db_pconnect(string $host, string $user, string $password, string $database)
     {
-        if (!function_exists('pg_pconnect')) {
-            throw new Exception('PHP PostgreSQL functions are not available');
-        }
+        self::precondition();
 
         $str = $this->get_connection_string($host, $user, $password, $database);
 

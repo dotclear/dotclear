@@ -14,6 +14,7 @@ use Collator;
 use Dotclear\App;
 use Dotclear\Database\AbstractHandler;
 use Dotclear\Database\StaticRecord;
+use Dotclear\Exception\DatabaseException;
 use Exception;
 use PDO;
 use PDOStatement;
@@ -38,6 +39,13 @@ class Handler extends AbstractHandler
 
     protected bool $vacuum = false;
 
+    public static function precondition(): void
+    {
+        if (!class_exists('PDO') || !in_array('sqlite', PDO::getAvailableDrivers())) {
+            throw new DatabaseException('PDO SQLite class is not available');
+        }
+    }
+
     /**
      * Open a DB connection
      *
@@ -50,9 +58,7 @@ class Handler extends AbstractHandler
      */
     public function db_connect(string $host, string $user, string $password, string $database): \PDO
     {
-        if (!class_exists('PDO') || !in_array('sqlite', PDO::getAvailableDrivers())) {
-            throw new Exception('PDO SQLite class is not available');
-        }
+        self::precondition();
 
         $link = new PDO('sqlite:' . $database);
         $this->db_post_connect($link);
@@ -70,9 +76,7 @@ class Handler extends AbstractHandler
      */
     public function db_pconnect(string $host, string $user, string $password, string $database): \PDO
     {
-        if (!class_exists('PDO') || !in_array('sqlite', PDO::getAvailableDrivers())) {
-            throw new Exception('PDO SQLite class is not available');
-        }
+        self::precondition();
 
         $link = new PDO('sqlite:' . $database, null, null, [PDO::ATTR_PERSISTENT => true]);
         $this->db_post_connect($link);
