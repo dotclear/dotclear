@@ -35,15 +35,20 @@ class CursorTest extends TestCase
 
         $info = [
             'con'  => $mock,
-            'info' => null,
             'cols' => 0,
             'rows' => 0,
+            'info' => [
+                'name' => [],
+                'type' => [],
+            ],
         ];
 
         $mock->method('link')->willReturn($mock);
         $mock->method('select')->willReturn(
             $driver !== 'sqlite' ?
+            // @phpstan-ignore argument.type
             new \Dotclear\Database\Record([], $info) :
+            // @phpstan-ignore argument.type
             new \Dotclear\Database\StaticRecord([], $info)
         );
         // @phpstan-ignore argument.type

@@ -149,11 +149,15 @@ class Handler extends AbstractHandler
         $result              = $this->db_query($this->__link, $sql);
         $this->__last_result = &$result;
 
-        $info         = [];
-        $info['con']  = &$this;
-        $info['cols'] = $this->db_num_fields($result);
-        $info['info'] = [];
-
+        $info = [
+            'con'  => &$this,
+            'cols' => $this->db_num_fields($result),
+            'rows' => 0,
+            'info' => [
+                'name' => [],
+                'type' => [],
+            ],
+        ];
         for ($i = 0; $i < $info['cols']; $i++) {
             $info['info']['name'][] = $this->db_field_name($result, $i);
             $info['info']['type'][] = $this->db_field_type($result, $i);

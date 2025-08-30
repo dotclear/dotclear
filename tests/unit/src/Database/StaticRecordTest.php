@@ -37,15 +37,20 @@ class StaticRecordTest extends TestCase
 
         $info = [
             'con'  => $mock,
-            'info' => null,
             'cols' => 0,
             'rows' => 0,
+            'info' => [
+                'name' => [],
+                'type' => [],
+            ],
         ];
 
         $mock->method('link')->willReturn($mock);
         $mock->method('select')->willReturn(
             $driver !== 'sqlite' ?
+            // @phpstan-ignore argument.type
             new \Dotclear\Database\Record([], $info) :
+            // @phpstan-ignore argument.type
             new \Dotclear\Database\StaticRecord([], $info)
         );
         // @phpstan-ignore argument.type
@@ -59,7 +64,11 @@ class StaticRecordTest extends TestCase
         return $mock;
     }
 
-    private function createRecord($driver, $syntax, &$rows, &$info, &$valid, &$pointer, bool $from_array = false): \Dotclear\Database\StaticRecord
+    /**
+     * @param  array<array-key, mixed>  &$rows
+     * @param  array{con: mixed, cols: int, rows: int, info: array{name: list<string>, type: list<string>}}  &$info
+     */
+    private function createRecord(mixed $driver, string $syntax, ?array &$rows, array &$info, bool &$valid, int &$pointer, bool $from_array = false): \Dotclear\Database\StaticRecord
     {
         $con = $this->getConnection($driver, $syntax);
 
@@ -73,6 +82,7 @@ class StaticRecordTest extends TestCase
         });
 
         $con->method('db_fetch_assoc')->willReturnCallback(function ($res) use (&$valid, &$pointer, $rows) {
+            // @phpstan-ignore offsetAccess.notFound
             $ret = $valid ? $rows[$pointer] : false;
             $pointer++;
             $valid   = ($pointer >= 0 && $pointer < 2);
@@ -83,6 +93,7 @@ class StaticRecordTest extends TestCase
 
         $record = $from_array ?
             \Dotclear\Database\StaticRecord::newFromArray($rows) :
+            // @phpstan-ignore argument.type
             new \Dotclear\Database\StaticRecord($rows, $info);
 
         return $record;

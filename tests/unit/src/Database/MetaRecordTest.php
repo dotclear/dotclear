@@ -45,15 +45,20 @@ class MetaRecordTest extends TestCase
 
         $info = [
             'con'  => $mock,
-            'info' => null,
             'cols' => 0,
             'rows' => 0,
+            'info' => [
+                'name' => [],
+                'type' => [],
+            ],
         ];
 
         $mock->method('link')->willReturn($mock);
         $mock->method('select')->willReturn(
             $driver !== 'sqlite' ?
+            // @phpstan-ignore argument.type
             new \Dotclear\Database\Record([], $info) :
+            // @phpstan-ignore argument.type
             new \Dotclear\Database\StaticRecord([], $info)
         );
         // @phpstan-ignore argument.type
@@ -66,7 +71,11 @@ class MetaRecordTest extends TestCase
         return $mock;
     }
 
-    private function createRecord($driver, $syntax, &$rows, &$info, &$valid, &$pointer, bool $static = false): \Dotclear\Database\MetaRecord
+    /**
+     * @param  array<array-key, mixed>  &$rows
+     * @param  array{con: mixed, cols: int, rows: int, info: array{name: list<string>, type: list<string>}}  &$info
+     */
+    private function createRecord(string $driver, string $syntax, ?array &$rows, array &$info, bool &$valid, int &$pointer, bool $static = false): \Dotclear\Database\MetaRecord
     {
         $con = $this->getConnection($driver, $syntax);
 
@@ -80,6 +89,7 @@ class MetaRecordTest extends TestCase
         });
 
         $con->method('db_fetch_assoc')->willReturnCallback(function ($res) use (&$valid, &$pointer, $rows) {
+            // @phpstan-ignore offsetAccess.notFound
             $ret = $valid ? $rows[$pointer] : false;
             $pointer++;
             $valid   = ($pointer >= 0 && $pointer < 2);
@@ -90,7 +100,9 @@ class MetaRecordTest extends TestCase
 
         $record = new \Dotclear\Database\MetaRecord(
             $static ?
+            // @phpstan-ignore argument.type
             new \Dotclear\Database\StaticRecord($rows, $info) :
+            // @phpstan-ignore argument.type
             new \Dotclear\Database\Record($rows, $info)
         );
 

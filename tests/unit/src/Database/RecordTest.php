@@ -45,15 +45,20 @@ class RecordTest extends TestCase
 
         $info = [
             'con'  => $mock,
-            'info' => null,
             'cols' => 0,
             'rows' => 0,
+            'info' => [
+                'name' => [],
+                'type' => [],
+            ],
         ];
 
         $mock->method('link')->willReturn($mock);
         $mock->method('select')->willReturn(
             $driver !== 'sqlite' ?
+            // @phpstan-ignore argument.type
             new \Dotclear\Database\Record([], $info) :
+            // @phpstan-ignore argument.type
             new \Dotclear\Database\StaticRecord([], $info)
         );
         // @phpstan-ignore argument.type
@@ -66,7 +71,11 @@ class RecordTest extends TestCase
         return $mock;
     }
 
-    private function createRecord(string $driver, string $syntax, mixed &$rows, array &$info, bool &$valid, int &$pointer): \Dotclear\Database\Record
+    /**
+     * @param  array<array-key, mixed>  &$rows
+     * @param  array{con: mixed, cols: int, rows: int, info: array{name: list<string>, type: list<string>}}  &$info
+     */
+    private function createRecord(string $driver, string $syntax, ?array &$rows, array &$info, bool &$valid, int &$pointer): \Dotclear\Database\Record
     {
         $con = $this->getConnection($driver, $syntax);
 
@@ -80,6 +89,7 @@ class RecordTest extends TestCase
         });
 
         $con->method('db_fetch_assoc')->willReturnCallback(function ($res) use (&$valid, &$pointer, $rows) {
+            // @phpstan-ignore offsetAccess.notFound
             $ret = $valid ? $rows[$pointer] : false;
             $pointer++;
             $valid   = ($pointer >= 0 && $pointer < 2);
@@ -88,6 +98,7 @@ class RecordTest extends TestCase
             return $ret;
         });
 
+        // @phpstan-ignore argument.type
         $record = new \Dotclear\Database\Record($rows, $info);
 
         return $record;
@@ -442,6 +453,7 @@ class RecordTest extends TestCase
             $record->extensions()
         );
         $this->assertTrue(
+            // @phpstan-ignore method.notFound
             $record->isEditable()
         );
 
@@ -454,6 +466,7 @@ class RecordTest extends TestCase
             $record->index()
         );
         $this->assertFalse(
+            // @phpstan-ignore method.notFound
             $record->isEditable()
         );
 
@@ -468,6 +481,7 @@ class RecordTest extends TestCase
             $record->valid()
         );
         $this->assertTrue(
+            // @phpstan-ignore method.notFound
             $record->isEditable()
         );
 
@@ -482,6 +496,7 @@ class RecordTest extends TestCase
         $this->expectException(Exception::class);
         $this->expectExceptionMessage('Call to undefined method Record::unknown()');
 
+        // @phpstan-ignore method.notFound
         $record->unknown();
     }
 

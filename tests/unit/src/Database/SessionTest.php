@@ -34,15 +34,20 @@ class SessionTest extends TestCase
 
         $info = [
             'con'  => $mock,
-            'info' => null,
             'cols' => 0,
             'rows' => 0,
+            'info' => [
+                'name' => [],
+                'type' => [],
+            ],
         ];
 
         $mock->method('link')->willReturn($mock);
         $mock->method('select')->willReturn(
             $driver !== 'sqlite' ?
+            // @phpstan-ignore argument.type
             new \Dotclear\Database\Record([], $info) :
+            // @phpstan-ignore argument.type
             new \Dotclear\Database\StaticRecord([], $info)
         );
         // @phpstan-ignore argument.type
@@ -58,7 +63,8 @@ class SessionTest extends TestCase
     #[DataProvider('dataProviderTest')]
     public function test(string $driver, string $syntax): void
     {
-        $con     = $this->getConnection($driver, $syntax);
+        $con = $this->getConnection($driver, $syntax);
+        // @phpstan-ignore argument.type
         $session = new \Dotclear\Database\Session($con, 'dc_session', 'ck_session', ttl: '60 minutes');
 
         $session->start();

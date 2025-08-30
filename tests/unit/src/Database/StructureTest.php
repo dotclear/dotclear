@@ -12,6 +12,9 @@ use ReflectionClass;
 class StructureTest extends TestCase
 {
     private \Dotclear\Database\Structure $structure;
+    /**
+     * @var array<array-key, mixed> $info
+     */
     private array $info;
 
     private function getConnection(string $driver, string $syntax): MockObject
@@ -39,10 +42,8 @@ class StructureTest extends TestCase
             'cols' => 0,
             'rows' => 0,
             'info' => [
-                'name' => [
-                ],
-                'type' => [
-                ],
+                'name' => [],
+                'type' => [],
             ],
         ];
 
@@ -53,19 +54,21 @@ class StructureTest extends TestCase
         $mock->method('execute')->willReturn(true);
         $mock->method('select')->willReturn(
             $driver !== 'sqlite' ?
+            // @phpstan-ignore argument.type
             new \Dotclear\Database\Record(null, $info) :
+            // @phpstan-ignore argument.type
             new \Dotclear\Database\StaticRecord(null, $info)
         );
 
         return $mock;
     }
 
-    private function getSchema($con, string $driver): MockObject
+    private function getSchema(mixed $con, string $driver): MockObject
     {
         // Build a mock handler for the driver
         $driverClass = ucfirst($driver);
         $schemaClass = implode('\\', ['Dotclear', 'Schema', 'Database', $driverClass, 'Schema']);
-        // @phpstan-ignore argument.type
+        // @phpstan-ignore argument.templateType, argument.type
         $mock = $this->getMockBuilder($schemaClass)
             ->disableOriginalConstructor()
             ->onlyMethods([
@@ -113,6 +116,7 @@ class StructureTest extends TestCase
     {
         $con = $this->getConnection($driver, $syntax);
 
+        // @phpstan-ignore argument.type
         $structure = new \Dotclear\Database\Structure($con, 'dc_');
 
         $this->assertEquals(
@@ -137,6 +141,7 @@ class StructureTest extends TestCase
 
         $table = $tables['dc_table'];
 
+        // @phpstan-ignore method.alreadyNarrowedType
         $this->assertNotNull(
             $table
         );
@@ -182,6 +187,12 @@ class StructureTest extends TestCase
         ];
     }
 
+    /**
+     * @param array<array-key, mixed>   $data
+     * @param array<array-key, mixed>   $info
+     * @param list<string>              $sql
+     * @param list<string>              $sql_bis
+     */
     #[DataProvider('dataProviderTestSynchronize')]
     public function testSynchronize(string $driver, string $syntax, array $data, array $info, array $sql, array $sql_bis): void
     {
@@ -192,9 +203,11 @@ class StructureTest extends TestCase
             $schema = $this->getSchema($con, $driver);
 
             // Prepare current structure
+            // @phpstan-ignore argument.type
             $current_str = new \Dotclear\Database\Structure($con, 'dc_');
 
             // Prepare new structure (empty)
+            // @phpstan-ignore argument.type
             $update_str = new \Dotclear\Database\Structure($con, 'dc_');
 
             $this->structure = $current_str;
@@ -225,6 +238,7 @@ class StructureTest extends TestCase
             $matcher = $this->exactly(count($sql));
             $con->expects($matcher)->method('execute')->with(
                 $this->callback(function ($query) use ($sql, $matcher) {
+                    // @phpstan-ignore method.internalClass
                     $expected = $sql[$matcher->numberOfInvocations() - 1];
 
                     return $query === $expected;
@@ -240,6 +254,12 @@ class StructureTest extends TestCase
         }
     }
 
+    /**
+     * @param array<array-key, mixed>   $data
+     * @param array<array-key, mixed>   $info
+     * @param list<string>              $sql
+     * @param list<string>              $sql_bis
+     */
     #[DataProvider('dataProviderTestSynchronize')]
     public function testSynchronizeWithModifications(string $driver, string $syntax, array $data, array $info, array $sql, array $sql_bis): void
     {
@@ -250,9 +270,11 @@ class StructureTest extends TestCase
             $schema = $this->getSchema($con, $driver);
 
             // Prepare current structure
+            // @phpstan-ignore argument.type
             $current_str = new \Dotclear\Database\Structure($con, 'dc_');
 
             // Prepare new structure (empty)
+            // @phpstan-ignore argument.type
             $update_str = new \Dotclear\Database\Structure($con, 'dc_');
 
             $this->structure = $current_str;
@@ -293,6 +315,7 @@ class StructureTest extends TestCase
             // Add some stuff to current structure, then run synchronize and test execute queries
 
             // Prepare new structure
+            // @phpstan-ignore argument.type
             $update_bis_str = new \Dotclear\Database\Structure($con, 'dc_');
 
             // Clone existing structure
@@ -337,6 +360,7 @@ class StructureTest extends TestCase
 
             // Check current structure
 
+            // @phpstan-ignore method.alreadyNarrowedType
             $this->assertNotNull(
                 $update_str->getTables()
             );
@@ -344,23 +368,29 @@ class StructureTest extends TestCase
                 $update_str->tableExists($data['table'])
             );
             $this->assertNotNull(
+                // @phpstan-ignore method.notFound
                 $schema->getTables()
             );
             $this->assertNotNull(
+                // @phpstan-ignore method.notFound
                 $schema->getColumns($data['table'])
             );
             $this->assertNotNull(
+                // @phpstan-ignore method.notFound
                 $schema->getKeys($data['table'])
             );
             $this->assertNotNull(
+                // @phpstan-ignore method.notFound
                 $schema->getIndexes($data['table'])
             );
             $this->assertNotNull(
+                // @phpstan-ignore method.notFound
                 $schema->getReferences($data['table'])
             );
 
             // Check new structure
 
+            // @phpstan-ignore method.alreadyNarrowedType
             $this->assertNotNull(
                 $update_bis_str->getTables()
             );
@@ -371,6 +401,7 @@ class StructureTest extends TestCase
             $matcher_bis = $this->exactly(count($sql_bis));
             $con->expects($matcher_bis)->method('execute')->with(
                 $this->callback(function ($query) use ($sql_bis, $matcher_bis) {
+                    // @phpstan-ignore method.internalClass
                     $expected = $sql_bis[$matcher_bis->numberOfInvocations() - 1];
 
                     return $query === $expected;

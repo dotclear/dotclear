@@ -15,6 +15,7 @@ class TableTest extends TestCase
 
         // Fields
 
+        // @phpstan-ignore method.notFound
         $table
             ->id('INTEGER', null, false, 0)
             ->status('SMALLINT', null, true, -1)
@@ -261,6 +262,7 @@ class TableTest extends TestCase
 
         // Fields
 
+        // @phpstan-ignore method.notFound
         $table
             ->id('INTEGER', null, false, 0)
             ->status('SMALLINT', null, true, -1)
@@ -308,6 +310,7 @@ class TableTest extends TestCase
 
         // Fields
 
+        // @phpstan-ignore method.notFound
         $table
             ->id('INTEGER', null, false, 0)
             ->status('SMALLINT', null, true, -1)
@@ -354,6 +357,7 @@ class TableTest extends TestCase
 
         // Fields
 
+        // @phpstan-ignore method.notFound
         $table
             ->id('INTEGER', null, false, 0)
             ->status('SMALLINT', null, true, -1)
@@ -373,6 +377,7 @@ class TableTest extends TestCase
         $this->expectException(Exception::class);
         $this->expectExceptionMessage('Invalid data type weird in schema');
 
+        // @phpstan-ignore method.notFound
         $table->bizarre('weird', 0);
     }
 }

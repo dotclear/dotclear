@@ -46,16 +46,25 @@ class StaticRecord extends Record
     /**
      * Constructs a new instance.
      *
-     * @param      mixed                        $result  The result
-     * @param      null|array<string, mixed>    $info    The information
+     * @param mixed                        $result  The result
+     * @param null|array{con: ?AbstractHandler, cols: int, rows: int, info: array{name: list<string>, type: list<string>}}    $info    The information
      */
     public function __construct($result, ?array $info)
     {
+        $null_info = [
+            'con'  => null,
+            'cols' => 0,
+            'rows' => 0,
+            'info' => [
+                'name' => [],
+                'type' => [],
+            ],
+        ];
         if (is_array($result)) {
-            $this->__info = $info ?? [];
+            $this->__info = $info ?? $null_info;
             $this->__data = $result;
         } else {
-            parent::__construct($result, $info ?? []);
+            parent::__construct($result, $info ?? $null_info);
             $this->__data = parent::getData();
         }
     }
@@ -79,9 +88,12 @@ class StaticRecord extends Record
 
         $info = [
             'con'  => null,
-            'info' => null,
             'cols' => $cols,
             'rows' => count($data),
+            'info' => [
+                'name' => [],
+                'type' => [],
+            ],
         ];
 
         return new self($data, $info);

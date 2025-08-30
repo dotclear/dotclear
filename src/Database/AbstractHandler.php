@@ -144,12 +144,15 @@ abstract class AbstractHandler implements ConnectionInterface
 
         $this->__last_result = &$result;
 
-        $info         = [];
-        $info['con']  = &$this;
-        $info['cols'] = $this->db_num_fields($result);
-        $info['rows'] = $this->db_num_rows($result);
-        $info['info'] = [];
-
+        $info = [
+            'con'  => &$this,
+            'cols' => $this->db_num_fields($result),
+            'rows' => $this->db_num_rows($result),
+            'info' => [
+                'name' => [],
+                'type' => [],
+            ],
+        ];
         for ($i = 0; $i < $info['cols']; $i++) {
             $info['info']['name'][] = $this->db_field_name($result, $i);
             $info['info']['type'][] = $this->db_field_type($result, $i);
@@ -162,11 +165,15 @@ abstract class AbstractHandler implements ConnectionInterface
     {
         $result = false;
 
-        $info         = [];
-        $info['con']  = &$this;
-        $info['cols'] = 0; // no fields
-        $info['rows'] = 0; // no rows
-        $info['info'] = ['name' => [], 'type' => []];
+        $info = [
+            'con'  => &$this,
+            'cols' => 0, // no fields
+            'rows' => 0, // no rows,
+            'info' => [
+                'name' => [],
+                'type' => [],
+            ],
+        ];
 
         return new Record($result, $info);
     }

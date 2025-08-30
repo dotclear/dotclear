@@ -69,20 +69,22 @@ class Record implements Iterator, Countable
      * Creates class instance from result link and some informations.
      * <var>$info</var> is an array with the following content:
      *
-     * - con => database object instance
+     * - con => database object instance (might be null in some cases)
      * - cols => number of columns
      * - rows => number of rows
      * - info[name] => an array with columns names
      * - info[type] => an array with columns types
      *
      * @param mixed                     $__result      Resource result
-     * @param array<string, mixed>      $__info        Information array
+     * @param array{con: ?AbstractHandler, cols: int, rows: int, info: array{name: list<string>, type: list<string>}}   $__info   Information array
      */
     public function __construct(
         protected $__result,
         protected array $__info
     ) {
-        $this->__link = $this->__info['con']->link();
+        if ($this->__info['con'] instanceof AbstractHandler) {
+            $this->__link = $this->__info['con']->link();
+        }
 
         // Move to first row
         $this->index(0);
@@ -230,9 +232,16 @@ class Record implements Iterator, Countable
      */
     private function setRow(): bool
     {
-        $this->__row = $this->__info['con']->db_fetch_assoc($this->__result);
+        $this->__row = [];
+        $data        = false;
+        if ($this->__info['con'] instanceof AbstractHandler) {
+            $data = $this->__info['con']->db_fetch_assoc($this->__result);
+            if ($data) {
+                $this->__row = $data;
+            }
+        }
 
-        if ($this->__row !== false) {
+        if ($data) {
             foreach (array_keys($this->__row) as $k) {
                 $this->__row[] = &$this->__row[$k];
             }
@@ -261,7 +270,7 @@ class Record implements Iterator, Countable
             return false;
         }
 
-        if ($this->__info['con']->db_result_seek($this->__result, $row)) {
+        if ($this->__info['con'] instanceof AbstractHandler && $this->__info['con']->db_result_seek($this->__result, $row)) {
             $this->__index = $row;
             $this->setRow();
             $this->__info['con']->db_result_seek($this->__result, $row);
@@ -399,14 +408,16 @@ class Record implements Iterator, Countable
             return $res;
         }
 
-        $this->__info['con']->db_result_seek($this->__result, 0);
-        while (($r = $this->__info['con']->db_fetch_assoc($this->__result)) !== false) {
-            foreach (array_keys($r) as $k) {
-                $r[] = &$r[$k];
+        if ($this->__info['con'] instanceof AbstractHandler) {
+            $this->__info['con']->db_result_seek($this->__result, 0);
+            while (($r = $this->__info['con']->db_fetch_assoc($this->__result)) !== false) {
+                foreach (array_keys($r) as $k) {
+                    $r[] = &$r[$k];
+                }
+                $res[] = $r;
             }
-            $res[] = $r;
+            $this->__info['con']->db_result_seek($this->__result, $this->__index);
         }
-        $this->__info['con']->db_result_seek($this->__result, $this->__index);
 
         return $res;
     }
