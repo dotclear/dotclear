@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-22 11:46+0200\n"
-"PO-Revision-Date: 2025-08-22 10:02\n"
+"POT-Creation-Date: 2025-08-31 00:24+0200\n"
+"PO-Revision-Date: 2025-08-30 22:26\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -1674,7 +1674,7 @@ msgstr "Télécharger les contenus et réglages de tous les blogs"
 msgid "No file to read."
 msgstr "Aucun fichier à lire."
 
-#: plugins/importExport/src/FlatExport.php:48
+#: plugins/importExport/src/FlatExport.php:47
 msgid "Unable to create output file."
 msgstr "Impossible de créer le fichier d'exportation."
 
@@ -2410,7 +2410,7 @@ msgid "%d pages"
 msgstr "%d pages"
 
 #: plugins/pages/src/Backend.php:108 plugins/pages/src/Manage.php:148
-#: plugins/pages/src/ManagePage.php:107 plugins/pages/src/ManagePage.php:855
+#: plugins/pages/src/ManagePage.php:108 plugins/pages/src/ManagePage.php:856
 msgid "New page"
 msgstr "Nouvelle page"
 
@@ -2483,60 +2483,60 @@ msgstr "Pour réordonner les pages, déplacez les items par glisser déposer pui
 msgid "Save pages order"
 msgstr "Enregistrer l'ordre des pages"
 
-#: plugins/pages/src/ManagePage.php:167
+#: plugins/pages/src/ManagePage.php:168
 msgid "This page does not exist."
 msgstr "Cette page n'existe pas."
 
-#: plugins/pages/src/ManagePage.php:188 plugins/pages/src/ManagePage.php:855
-#: plugins/pages/src/ManagePage.php:876
+#: plugins/pages/src/ManagePage.php:189 plugins/pages/src/ManagePage.php:856
+#: plugins/pages/src/ManagePage.php:877
 msgid "Edit page"
 msgstr "Modifier la page"
 
-#: plugins/pages/src/ManagePage.php:433
+#: plugins/pages/src/ManagePage.php:434
 msgid "Don't forget to validate your HTML conversion by saving your post."
 msgstr "Enregistrez votre billet pour valider la transformation en HTML."
 
-#: plugins/pages/src/ManagePage.php:497
+#: plugins/pages/src/ManagePage.php:498
 msgid "Are you sure you want to delete this page?"
 msgstr "Êtes-vous sûr·e de vouloir supprimer cette page ?"
 
-#: plugins/pages/src/ManagePage.php:526
+#: plugins/pages/src/ManagePage.php:527
 msgid "Page has been successfully updated."
 msgstr "La page a été modifiée."
 
-#: plugins/pages/src/ManagePage.php:528
+#: plugins/pages/src/ManagePage.php:529
 msgid "Page has been successfully created."
 msgstr "La page a été créée."
 
-#: plugins/pages/src/ManagePage.php:542
+#: plugins/pages/src/ManagePage.php:543
 msgid "Go to this page on the site"
 msgstr "Voir cette page sur le site"
 
-#: plugins/pages/src/ManagePage.php:584
+#: plugins/pages/src/ManagePage.php:585
 msgid "Page status"
 msgstr "État de la page"
 
-#: plugins/pages/src/ManagePage.php:601
+#: plugins/pages/src/ManagePage.php:602
 msgid "Page language"
 msgstr "Langue de la page"
 
-#: plugins/pages/src/ManagePage.php:630 plugins/pages/src/Widgets.php:41
+#: plugins/pages/src/ManagePage.php:631 plugins/pages/src/Widgets.php:41
 msgid "Page position"
 msgstr "Position de la page"
 
-#: plugins/pages/src/ManagePage.php:681
+#: plugins/pages/src/ManagePage.php:682
 msgid "Hide in widget Pages"
 msgstr "Ne pas lister dans le widget Pages"
 
-#: plugins/pages/src/ManagePage.php:707
+#: plugins/pages/src/ManagePage.php:708
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "Attention : si vous définissez vous-même l'URL, elle peut entrer en conflit avec celle d'une autre page."
 
-#: plugins/pages/src/ManagePage.php:746
+#: plugins/pages/src/ManagePage.php:747
 msgid "Introduction to the page."
 msgstr "Introduction à la page."
 
-#: plugins/pages/src/ManagePage.php:1125
+#: plugins/pages/src/ManagePage.php:1126
 msgid "Select this comment"
 msgstr "Sélectionner ce commentaire"
 
@@ -3075,34 +3075,34 @@ msgstr "Fichiers de traduction"
 msgid "PHP files"
 msgstr "Fichiers PHP"
 
-#: plugins/themeEditor/src/ThemeEditor.php:183
+#: plugins/themeEditor/src/ThemeEditor.php:184
 msgid "No file"
 msgstr "Aucun fichier"
 
-#: plugins/themeEditor/src/ThemeEditor.php:213
+#: plugins/themeEditor/src/ThemeEditor.php:214
 msgid "Customized:"
 msgstr "Personnalisé :"
 
-#: plugins/themeEditor/src/ThemeEditor.php:221
-#: plugins/themeEditor/src/ThemeEditor.php:227
+#: plugins/themeEditor/src/ThemeEditor.php:222
+#: plugins/themeEditor/src/ThemeEditor.php:228
 msgid "From theme:"
 msgstr "Du thème :"
 
-#: plugins/themeEditor/src/ThemeEditor.php:238
+#: plugins/themeEditor/src/ThemeEditor.php:239
 msgid "From parent:"
 msgstr "Du thème parent :"
 
-#: plugins/themeEditor/src/ThemeEditor.php:248
+#: plugins/themeEditor/src/ThemeEditor.php:249
 msgid "From template set:"
 msgstr "Du jeu de template :"
 
-#: plugins/themeEditor/src/ThemeEditor.php:276
+#: plugins/themeEditor/src/ThemeEditor.php:277
 #: plugins/themeEditor/src/ThemeEditor.php:313
 #: plugins/themeEditor/src/ThemeEditor.php:390
 msgid "File does not exist."
 msgstr "Ce fichier n'existe pas."
 
-#: plugins/themeEditor/src/ThemeEditor.php:281
+#: plugins/themeEditor/src/ThemeEditor.php:282
 #, php-format
 msgid "File %s is not readable"
 msgstr "Le fichier %s n'est pas lisible"
