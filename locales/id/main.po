@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-30 17:29+0200\n"
-"PO-Revision-Date: 2025-08-30 22:26\n"
+"PO-Revision-Date: 2025-08-30 22:55\n"
 "Last-Translator: \n"
 "Language-Team: Indonesian\n"
 "Language: id_ID\n"
@@ -5691,7 +5691,7 @@ msgstr "Apakah Anda yakin ingin menghapus favorit yang dipilih?"
 
 #: src/Process/Backend/UserPreferences.php:604
 msgid "Enter a name for this key:"
-msgstr ""
+msgstr "Masukkan nama untuk kunci ini:"
 
 #: src/Process/Backend/UserPreferences.php:626
 msgid "Change my password"
@@ -5735,12 +5735,12 @@ msgstr "Masukkan kode verifikasi:"
 
 #: src/Process/Backend/UserPreferences.php:713
 msgid "unlabeled key"
-msgstr ""
+msgstr "kunci yang tidak berlabel"
 
 #: src/Process/Backend/UserPreferences.php:715
 #, php-format
 msgid "valid on %s"
-msgstr ""
+msgstr "berlaku di %s"
 
 #: src/Process/Backend/UserPreferences.php:724
 msgid "You have no registered key yet."
@@ -6138,11 +6138,11 @@ msgstr "Nama pengguna dan kata sandi"
 
 #: src/Process/Install/Install.php:533
 msgid "New Password:"
-msgstr ""
+msgstr "Kata sandi baru:"
 
 #: src/Process/Install/Install.php:543
 msgid "Confirm Password:"
-msgstr ""
+msgstr "Konfirmasi Kata Sandi:"
 
 #: src/Process/Install/Install.php:576
 msgid "All done!"
@@ -6197,12 +6197,12 @@ msgstr "Wizard instalasi DotClear tidak dapat membuat file konfigurasi untuk And
 
 #: src/Process/Install/Wizard.php:126
 msgid "There are no supported database driver."
-msgstr ""
+msgstr "Tidak ada driver database yang didukung."
 
 #: src/Process/Install/Wizard.php:128
 #, php-format
 msgid "Dotclear installation wizard could not find database driver. You must change your PHP configuration to add a supported database handler please refer to <a href=\"%s\">the documentation</a> to learn how to do this."
-msgstr ""
+msgstr "Wizard instalasi DotClear tidak dapat menemukan driver database. Anda harus mengubah konfigurasi PHP Anda untuk menambahkan penangan basis data yang didukung, silakan lihat <a href=\"%s\">dokumentasi</a> untuk mempelajari cara melakukannya."
 
 #: src/Process/Install/Wizard.php:165
 #, php-format
@@ -6230,7 +6230,7 @@ msgstr "Panduan instalasi Dotclear"
 
 #: src/Process/Install/Wizard.php:326
 msgid "Dotclear can not be installed."
-msgstr ""
+msgstr "Dotclear tidak dapat diinstal."
 
 #: src/Process/Install/Wizard.php:354
 msgid "Welcome"
