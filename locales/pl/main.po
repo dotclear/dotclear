@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-30 17:29+0200\n"
-"PO-Revision-Date: 2025-08-30 22:26\n"
+"PO-Revision-Date: 2025-08-30 22:55\n"
 "Last-Translator: \n"
 "Language-Team: Polish\n"
 "Language: pl_PL\n"
@@ -5796,7 +5796,7 @@ msgstr "Jesteś pewny, że chcesz usunąc zazanczone ulubione?"
 
 #: src/Process/Backend/UserPreferences.php:604
 msgid "Enter a name for this key:"
-msgstr ""
+msgstr "Wprowadź nazwę tego klucza:"
 
 #: src/Process/Backend/UserPreferences.php:626
 msgid "Change my password"
@@ -5840,12 +5840,12 @@ msgstr "Wprowadź kod weryfikacyjny:"
 
 #: src/Process/Backend/UserPreferences.php:713
 msgid "unlabeled key"
-msgstr ""
+msgstr "nieoznaczony klucz"
 
 #: src/Process/Backend/UserPreferences.php:715
 #, php-format
 msgid "valid on %s"
-msgstr ""
+msgstr "ważne na %s"
 
 #: src/Process/Backend/UserPreferences.php:724
 msgid "You have no registered key yet."
@@ -6243,11 +6243,11 @@ msgstr "Nazwa użytkownika i hasło"
 
 #: src/Process/Install/Install.php:533
 msgid "New Password:"
-msgstr ""
+msgstr "Nowe hasło:"
 
 #: src/Process/Install/Install.php:543
 msgid "Confirm Password:"
-msgstr ""
+msgstr "Potwierdź hasło:"
 
 #: src/Process/Install/Install.php:576
 msgid "All done!"
@@ -6302,12 +6302,12 @@ msgstr "Kreator instalacji Dotclear nie mógł utworzyć pliku konfiguracyjnego.
 
 #: src/Process/Install/Wizard.php:126
 msgid "There are no supported database driver."
-msgstr ""
+msgstr "Nie ma obsługiwanych sterowników baz danych."
 
 #: src/Process/Install/Wizard.php:128
 #, php-format
 msgid "Dotclear installation wizard could not find database driver. You must change your PHP configuration to add a supported database handler please refer to <a href=\"%s\">the documentation</a> to learn how to do this."
-msgstr ""
+msgstr "Kreator instalacji Dotclear nie mógł znaleźć sterownika bazy danych. Musisz zmienić konfigurację PHP, aby dodać obsługiwaną obsługę bazy danych, zapoznaj się z <a href=\"%s\">dokumentacją</a>, aby dowiedzieć się, jak to zrobić."
 
 #: src/Process/Install/Wizard.php:165
 #, php-format
@@ -6335,7 +6335,7 @@ msgstr "Asystent instalacji DotClear."
 
 #: src/Process/Install/Wizard.php:326
 msgid "Dotclear can not be installed."
-msgstr ""
+msgstr "Dotclear nie może zostać zainstalowany."
 
 #: src/Process/Install/Wizard.php:354
 msgid "Welcome"
