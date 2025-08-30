@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-22 11:46+0200\n"
-"PO-Revision-Date: 2025-08-22 10:03\n"
+"POT-Creation-Date: 2025-08-31 00:24+0200\n"
+"PO-Revision-Date: 2025-08-30 22:27\n"
 "Last-Translator: \n"
 "Language-Team: Occitan\n"
 "Language: oc_FR\n"
@@ -1674,7 +1674,7 @@ msgstr "Descargar base de datos de todos los blogs"
 msgid "No file to read."
 msgstr "Pas de fichièr de legir."
 
-#: plugins/importExport/src/FlatExport.php:48
+#: plugins/importExport/src/FlatExport.php:47
 msgid "Unable to create output file."
 msgstr "Impossible de crear un fichièr de sortida."
 
@@ -2410,7 +2410,7 @@ msgid "%d pages"
 msgstr "%d paginas"
 
 #: plugins/pages/src/Backend.php:108 plugins/pages/src/Manage.php:148
-#: plugins/pages/src/ManagePage.php:107 plugins/pages/src/ManagePage.php:855
+#: plugins/pages/src/ManagePage.php:108 plugins/pages/src/ManagePage.php:856
 msgid "New page"
 msgstr "Pagina novèla"
 
@@ -2483,60 +2483,60 @@ msgstr "Per reorganizar l'òrdre de las paginas, desplaçatz los elements en arr
 msgid "Save pages order"
 msgstr "Enregistrar las paginas òrdre"
 
-#: plugins/pages/src/ManagePage.php:167
+#: plugins/pages/src/ManagePage.php:168
 msgid "This page does not exist."
 msgstr "Aquesta pagina existís pas."
 
-#: plugins/pages/src/ManagePage.php:188 plugins/pages/src/ManagePage.php:855
-#: plugins/pages/src/ManagePage.php:876
+#: plugins/pages/src/ManagePage.php:189 plugins/pages/src/ManagePage.php:856
+#: plugins/pages/src/ManagePage.php:877
 msgid "Edit page"
 msgstr "Modificar la pagina"
 
-#: plugins/pages/src/ManagePage.php:433
+#: plugins/pages/src/ManagePage.php:434
 msgid "Don't forget to validate your HTML conversion by saving your post."
 msgstr "Oblidetz pas de validar vòstra conversion HTML en enregistrant vòstre article."
 
-#: plugins/pages/src/ManagePage.php:497
+#: plugins/pages/src/ManagePage.php:498
 msgid "Are you sure you want to delete this page?"
 msgstr "Sètz segur que volètz suprimir aquesta pagina?"
 
-#: plugins/pages/src/ManagePage.php:526
+#: plugins/pages/src/ManagePage.php:527
 msgid "Page has been successfully updated."
 msgstr "La pagina es estada mesa a jorn amb succès."
 
-#: plugins/pages/src/ManagePage.php:528
+#: plugins/pages/src/ManagePage.php:529
 msgid "Page has been successfully created."
 msgstr "La pagina es estada creada amb succès."
 
-#: plugins/pages/src/ManagePage.php:542
+#: plugins/pages/src/ManagePage.php:543
 msgid "Go to this page on the site"
 msgstr "Anatz sus aquesta pagina sul sit"
 
-#: plugins/pages/src/ManagePage.php:584
+#: plugins/pages/src/ManagePage.php:585
 msgid "Page status"
 msgstr "Estat de la pagina"
 
-#: plugins/pages/src/ManagePage.php:601
+#: plugins/pages/src/ManagePage.php:602
 msgid "Page language"
 msgstr "Lenga de la pagina"
 
-#: plugins/pages/src/ManagePage.php:630 plugins/pages/src/Widgets.php:41
+#: plugins/pages/src/ManagePage.php:631 plugins/pages/src/Widgets.php:41
 msgid "Page position"
 msgstr "Posicion de la pagina"
 
-#: plugins/pages/src/ManagePage.php:681
+#: plugins/pages/src/ManagePage.php:682
 msgid "Hide in widget Pages"
 msgstr "Amagar dins las paginas del widget"
 
-#: plugins/pages/src/ManagePage.php:707
+#: plugins/pages/src/ManagePage.php:708
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "Atencion: se definissètz l'URL manualament, pòt èsser en conflicte amb una autra pagina."
 
-#: plugins/pages/src/ManagePage.php:746
+#: plugins/pages/src/ManagePage.php:747
 msgid "Introduction to the page."
 msgstr "Introduccion a la pagina."
 
-#: plugins/pages/src/ManagePage.php:1125
+#: plugins/pages/src/ManagePage.php:1126
 msgid "Select this comment"
 msgstr "Seleccionatz aqueste comentari"
 
@@ -3075,34 +3075,34 @@ msgstr "Los fichièrs de localizacion"
 msgid "PHP files"
 msgstr "Fichièrs PHP"
 
-#: plugins/themeEditor/src/ThemeEditor.php:183
+#: plugins/themeEditor/src/ThemeEditor.php:184
 msgid "No file"
 msgstr "Cap de fichièr"
 
-#: plugins/themeEditor/src/ThemeEditor.php:213
+#: plugins/themeEditor/src/ThemeEditor.php:214
 msgid "Customized:"
 msgstr "Personalizat:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:221
-#: plugins/themeEditor/src/ThemeEditor.php:227
+#: plugins/themeEditor/src/ThemeEditor.php:222
+#: plugins/themeEditor/src/ThemeEditor.php:228
 msgid "From theme:"
 msgstr "Dempuèi lo tèma:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:238
+#: plugins/themeEditor/src/ThemeEditor.php:239
 msgid "From parent:"
 msgstr "Del parent:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:248
+#: plugins/themeEditor/src/ThemeEditor.php:249
 msgid "From template set:"
 msgstr "Dempuèi lo jòc de modèls:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:276
+#: plugins/themeEditor/src/ThemeEditor.php:277
 #: plugins/themeEditor/src/ThemeEditor.php:313
 #: plugins/themeEditor/src/ThemeEditor.php:390
 msgid "File does not exist."
 msgstr "Lo fichièr existís pas."
 
-#: plugins/themeEditor/src/ThemeEditor.php:281
+#: plugins/themeEditor/src/ThemeEditor.php:282
 #, php-format
 msgid "File %s is not readable"
 msgstr "Lo fichièr %s es pas legible"

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-22 11:46+0200\n"
-"PO-Revision-Date: 2025-08-22 10:03\n"
+"POT-Creation-Date: 2025-08-31 00:24+0200\n"
+"PO-Revision-Date: 2025-08-30 22:27\n"
 "Last-Translator: \n"
 "Language-Team: Telugu\n"
 "Language: te_IN\n"
@@ -1674,7 +1674,7 @@ msgstr "అన్ని బ్లాగుల డాటాబేస్ డౌన
 msgid "No file to read."
 msgstr "చదువుటకు ఏ ఫైలు లేదు."
 
-#: plugins/importExport/src/FlatExport.php:48
+#: plugins/importExport/src/FlatExport.php:47
 msgid "Unable to create output file."
 msgstr "అవుట్పుట్ ఫైలు సృష్టించలేక పోయింది."
 
@@ -2410,7 +2410,7 @@ msgid "%d pages"
 msgstr "%d పేజీలు"
 
 #: plugins/pages/src/Backend.php:108 plugins/pages/src/Manage.php:148
-#: plugins/pages/src/ManagePage.php:107 plugins/pages/src/ManagePage.php:855
+#: plugins/pages/src/ManagePage.php:108 plugins/pages/src/ManagePage.php:856
 msgid "New page"
 msgstr "కొత్త పేజీ"
 
@@ -2483,60 +2483,60 @@ msgstr "పేజీలను పునర్క్రమించుటకు, 
 msgid "Save pages order"
 msgstr "పేజీల క్రమమును దాచు"
 
-#: plugins/pages/src/ManagePage.php:167
+#: plugins/pages/src/ManagePage.php:168
 msgid "This page does not exist."
 msgstr "ఈ పేజీ లేనే లేదు."
 
-#: plugins/pages/src/ManagePage.php:188 plugins/pages/src/ManagePage.php:855
-#: plugins/pages/src/ManagePage.php:876
+#: plugins/pages/src/ManagePage.php:189 plugins/pages/src/ManagePage.php:856
+#: plugins/pages/src/ManagePage.php:877
 msgid "Edit page"
 msgstr "పేజీ మార్పు"
 
-#: plugins/pages/src/ManagePage.php:433
+#: plugins/pages/src/ManagePage.php:434
 msgid "Don't forget to validate your HTML conversion by saving your post."
 msgstr "మీ పదవిని సేవించడం ద్వారా మీ HTML మార్పిడి వడపోవడానికి మర్చిపోవద్దు."
 
-#: plugins/pages/src/ManagePage.php:497
+#: plugins/pages/src/ManagePage.php:498
 msgid "Are you sure you want to delete this page?"
 msgstr "ఈ పేజీని మీరు నిజంగానే తొలగించాలనుకుంటున్నారా?"
 
-#: plugins/pages/src/ManagePage.php:526
+#: plugins/pages/src/ManagePage.php:527
 msgid "Page has been successfully updated."
 msgstr "పేజీని విజయవంతంగా తాజాకరించాం."
 
-#: plugins/pages/src/ManagePage.php:528
+#: plugins/pages/src/ManagePage.php:529
 msgid "Page has been successfully created."
 msgstr "పేజీని విజయవంతంగా సృష్టించాం."
 
-#: plugins/pages/src/ManagePage.php:542
+#: plugins/pages/src/ManagePage.php:543
 msgid "Go to this page on the site"
 msgstr "సైటుపై ఈ పేజీ వెళ్ళు"
 
-#: plugins/pages/src/ManagePage.php:584
+#: plugins/pages/src/ManagePage.php:585
 msgid "Page status"
 msgstr "పేజీ స్థితి:"
 
-#: plugins/pages/src/ManagePage.php:601
+#: plugins/pages/src/ManagePage.php:602
 msgid "Page language"
 msgstr "పుట భాష"
 
-#: plugins/pages/src/ManagePage.php:630 plugins/pages/src/Widgets.php:41
+#: plugins/pages/src/ManagePage.php:631 plugins/pages/src/Widgets.php:41
 msgid "Page position"
 msgstr "పేజీ స్థానం"
 
-#: plugins/pages/src/ManagePage.php:681
+#: plugins/pages/src/ManagePage.php:682
 msgid "Hide in widget Pages"
 msgstr "విడ్జట్ పేజీలలో మరుగుచేయి"
 
-#: plugins/pages/src/ManagePage.php:707
+#: plugins/pages/src/ManagePage.php:708
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "హెచ్చరిక: మీరు URL స్నేహం చేయబడితే, అది మరొక పేజీతో కలపవచ్చు."
 
-#: plugins/pages/src/ManagePage.php:746
+#: plugins/pages/src/ManagePage.php:747
 msgid "Introduction to the page."
 msgstr "పేజీకి ప్రవేశం."
 
-#: plugins/pages/src/ManagePage.php:1125
+#: plugins/pages/src/ManagePage.php:1126
 msgid "Select this comment"
 msgstr "ఈ వ్యాఖ్యను యెంపికచేయుము"
 
@@ -3075,34 +3075,34 @@ msgstr "Locales దస్త్రములు"
 msgid "PHP files"
 msgstr "PHP ఫైల్స్"
 
-#: plugins/themeEditor/src/ThemeEditor.php:183
+#: plugins/themeEditor/src/ThemeEditor.php:184
 msgid "No file"
 msgstr "ఫైళ్ళు లేవు"
 
-#: plugins/themeEditor/src/ThemeEditor.php:213
+#: plugins/themeEditor/src/ThemeEditor.php:214
 msgid "Customized:"
 msgstr "అనుకూలీకరించబడింది:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:221
-#: plugins/themeEditor/src/ThemeEditor.php:227
+#: plugins/themeEditor/src/ThemeEditor.php:222
+#: plugins/themeEditor/src/ThemeEditor.php:228
 msgid "From theme:"
 msgstr "థీమ్ నుండి:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:238
+#: plugins/themeEditor/src/ThemeEditor.php:239
 msgid "From parent:"
 msgstr "తల్లిదారు నుండి:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:248
+#: plugins/themeEditor/src/ThemeEditor.php:249
 msgid "From template set:"
 msgstr "ట్యాప్లెట్ సెట్ నుండి:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:276
+#: plugins/themeEditor/src/ThemeEditor.php:277
 #: plugins/themeEditor/src/ThemeEditor.php:313
 #: plugins/themeEditor/src/ThemeEditor.php:390
 msgid "File does not exist."
 msgstr "ఫైలు లేనే లేదు."
 
-#: plugins/themeEditor/src/ThemeEditor.php:281
+#: plugins/themeEditor/src/ThemeEditor.php:282
 #, php-format
 msgid "File %s is not readable"
 msgstr "దస్త్రం %s చదువుకోలేదు"

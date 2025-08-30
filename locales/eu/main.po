@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-22 11:44+0200\n"
-"PO-Revision-Date: 2025-08-22 10:01\n"
+"POT-Creation-Date: 2025-08-30 17:29+0200\n"
+"PO-Revision-Date: 2025-08-30 22:55\n"
 "Last-Translator: \n"
 "Language-Team: Basque\n"
 "Language: eu_ES\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #: inc/core/_fake_l10n.php:6 src/Process/Backend/Auth.php:477
 #: src/Process/Backend/User.php:264 src/Process/Backend/UserPreferences.php:598
-#: src/Process/Install/Install.php:397 src/Process/Upgrade/Auth.php:292
+#: src/Process/Install/Install.php:424 src/Process/Upgrade/Auth.php:401
 msgid "medium"
 msgstr "ertaina"
 
@@ -40,7 +40,7 @@ msgstr "karratu"
 #: src/Core/Backend/Action/ActionsPosts.php:73
 #: src/Core/Backend/Favorites.php:416 src/Core/Backend/Menus.php:168
 #: src/Core/Backend/UserPref.php:41 src/Core/Backend/UserPref.php:178
-#: src/Process/Backend/Post.php:576 src/Process/Backend/Post.php:591
+#: src/Process/Backend/Post.php:577 src/Process/Backend/Post.php:592
 #: src/Process/Backend/Posts.php:94 src/Process/Backend/Posts.php:99
 msgid "Posts"
 msgstr "Mezuak"
@@ -49,43 +49,43 @@ msgstr "Mezuak"
 msgid "Pages"
 msgstr "Orriak"
 
-#: src/Core/Auth.php:131
+#: src/Core/Auth.php:122
 msgid "administrator"
 msgstr "administratzailea"
 
-#: src/Core/Auth.php:132
+#: src/Core/Auth.php:123
 msgid "manage all entries and comments"
 msgstr "kudeatu sarrera eta iruzkin guztiak"
 
-#: src/Core/Auth.php:133
+#: src/Core/Auth.php:124
 msgid "manage their own entries and comments"
 msgstr "kudeatu beren sarrerak eta iruzkinak"
 
-#: src/Core/Auth.php:134
+#: src/Core/Auth.php:125
 msgid "publish entries and comments"
 msgstr "sarrerak eta iruzkinak argitaratu"
 
-#: src/Core/Auth.php:135
+#: src/Core/Auth.php:126
 msgid "delete entries and comments"
 msgstr "sarrerak eta iruzkinak ezabatu"
 
-#: src/Core/Auth.php:136
+#: src/Core/Auth.php:127
 msgid "manage categories"
 msgstr "kategoriak kudeatu"
 
-#: src/Core/Auth.php:137
+#: src/Core/Auth.php:128
 msgid "manage all media items"
 msgstr "kudeatu multimedia-elementu guztiak"
 
-#: src/Core/Auth.php:138
+#: src/Core/Auth.php:129
 msgid "manage their own media items"
 msgstr "beren multimedia elementuak kudeatu"
 
-#: src/Core/Auth.php:597
+#: src/Core/Auth.php:586
 msgid "That user does not exist in the database."
 msgstr "Erabiltzaile hori ez dago datu-basean."
 
-#: src/Core/Auth.php:624
+#: src/Core/Auth.php:613
 msgid "That key does not exist in the database."
 msgstr "Gako hori ez dago datu-basean."
 
@@ -94,7 +94,7 @@ msgstr "Gako hori ez dago datu-basean."
 #: src/Core/Backend/Combos.php:256 src/Core/Backend/Listing/ListingPosts.php:78
 #: src/Core/Backend/Listing/ListingPostsMini.php:63
 #: src/Core/Backend/UserPref.php:205 src/Process/Backend/Home.php:594
-#: src/Process/Backend/MediaItem.php:1087 src/Process/Backend/Post.php:836
+#: src/Process/Backend/MediaItem.php:1087 src/Process/Backend/Post.php:837
 msgid "Title"
 msgstr "Izenburua"
 
@@ -141,8 +141,8 @@ msgstr "Blogaren izena"
 #: src/Core/Backend/Listing/ListingPostsMini.php:75
 #: src/Core/Backend/Listing/ListingUsers.php:93
 #: src/Core/Backend/UserPref.php:55 src/Core/Backend/UserPref.php:71
-#: src/Core/Backend/UserPref.php:81 src/Process/Backend/Post.php:659
-#: src/Process/Backend/Post.php:1385 src/Process/Backend/Users.php:45
+#: src/Core/Backend/UserPref.php:81 src/Process/Backend/Post.php:660
+#: src/Process/Backend/Post.php:1386 src/Process/Backend/Users.php:45
 #: src/Process/Backend/UsersActions.php:377
 msgid "Status"
 msgstr "Egoera"
@@ -157,7 +157,7 @@ msgstr "Egoera"
 #: src/Core/Backend/Listing/ListingMedia.php:309
 #: src/Core/Backend/ModulesList.php:1350 src/Core/Upgrade/PluginsList.php:125
 #: src/Process/Backend/Comment.php:355 src/Process/Backend/Langs.php:231
-#: src/Process/Backend/Post.php:960 src/Process/Backend/UserPreferences.php:716
+#: src/Process/Backend/Post.php:961 src/Process/Backend/UserPreferences.php:717
 #: src/Process/Backend/Users.php:46 src/Process/Upgrade/Langs.php:299
 msgid "Delete"
 msgstr "Ezabatu"
@@ -201,8 +201,8 @@ msgstr[1] "%d blogak behar bezala ezabatu dira"
 #: src/Core/Backend/Listing/ListingPosts.php:100
 #: src/Core/Backend/Listing/ListingPosts.php:101 src/Core/Backend/Menus.php:155
 #: src/Core/Backend/UserPref.php:46 src/Core/Backend/UserPref.php:51
-#: src/Core/Backend/UserPref.php:185 src/Process/Backend/Post.php:1033
-#: src/Process/Backend/Post.php:1060
+#: src/Core/Backend/UserPref.php:185 src/Process/Backend/Post.php:1034
+#: src/Process/Backend/Post.php:1061
 msgid "Comments"
 msgstr "Iruzkinak"
 
@@ -220,8 +220,8 @@ msgstr "Ekintzak iruzkinak"
 #: src/Core/Backend/Listing/ListingPosts.php:90
 #: src/Core/Backend/Listing/ListingPostsMini.php:71
 #: src/Core/Backend/UserPref.php:45 src/Core/Backend/UserPref.php:54
-#: src/Process/Backend/Comment.php:292 src/Process/Backend/Post.php:1095
-#: src/Process/Backend/Post.php:1376
+#: src/Process/Backend/Comment.php:292 src/Process/Backend/Post.php:1096
+#: src/Process/Backend/Post.php:1377
 msgid "Author"
 msgstr "Egilea"
 
@@ -234,7 +234,7 @@ msgid "Blocklist IP (global)"
 msgstr "Bloke-zerrenda IP (globala)"
 
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:69
-#: src/Process/Backend/Post.php:1382
+#: src/Process/Backend/Post.php:1383
 msgid "IP address"
 msgstr "IP helbidea"
 
@@ -378,7 +378,7 @@ msgstr "Aldatu kategoria aukeraketa honetarako"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:352
 #: src/Core/Backend/Filter/FilterPosts.php:132 src/Process/Backend/Home.php:620
-#: src/Process/Backend/Post.php:724
+#: src/Process/Backend/Post.php:725
 msgid "Category:"
 msgstr "Kategoria:"
 
@@ -388,14 +388,14 @@ msgstr "Sortu kategoria berri bat argitalpenetarako"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:370
 #: src/Process/Backend/Home.php:598 src/Process/Backend/Home.php:632
-#: src/Process/Backend/Media.php:763 src/Process/Backend/MediaItem.php:1227
-#: src/Process/Backend/Post.php:738 src/Process/Backend/Post.php:841
+#: src/Process/Backend/Media.php:777 src/Process/Backend/MediaItem.php:1227
+#: src/Process/Backend/Post.php:739 src/Process/Backend/Post.php:842
 msgid "Title:"
 msgstr "Izenburua:"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:379
 #: src/Process/Backend/Category.php:268 src/Process/Backend/Category.php:326
-#: src/Process/Backend/Home.php:639 src/Process/Backend/Post.php:745
+#: src/Process/Backend/Home.php:639 src/Process/Backend/Post.php:746
 msgid "Parent:"
 msgstr "Gurasoa:"
 
@@ -406,9 +406,9 @@ msgstr "Gurasoa:"
 #: src/Process/Backend/Category.php:298 src/Process/Backend/Category.php:337
 #: src/Process/Backend/Category.php:373 src/Process/Backend/Comment.php:350
 #: src/Process/Backend/Home.php:649 src/Process/Backend/Home.php:703
-#: src/Process/Backend/MediaItem.php:1267 src/Process/Backend/Post.php:925
-#: src/Process/Backend/Post.php:1139 src/Process/Backend/User.php:536
-#: src/Process/Backend/UsersActions.php:513 src/Process/Install/Install.php:479
+#: src/Process/Backend/MediaItem.php:1267 src/Process/Backend/Post.php:926
+#: src/Process/Backend/Post.php:1140 src/Process/Backend/User.php:536
+#: src/Process/Backend/UsersActions.php:513 src/Process/Install/Install.php:547
 msgid "Save"
 msgstr "Gorde"
 
@@ -472,12 +472,12 @@ msgstr "Igokorra"
 #: src/Core/Backend/Listing/ListingPosts.php:82
 #: src/Core/Backend/Listing/ListingPostsMini.php:67
 #: src/Core/Backend/UserPref.php:43 src/Core/Backend/UserPref.php:53
-#: src/Core/Backend/UserPref.php:203 src/Process/Backend/Post.php:1378
+#: src/Core/Backend/UserPref.php:203 src/Process/Backend/Post.php:1379
 msgid "Date"
 msgstr "Data"
 
 #: src/Core/Backend/Combos.php:257 src/Core/Backend/Listing/ListingPosts.php:86
-#: src/Core/Backend/UserPref.php:44 src/Process/Backend/Post.php:716
+#: src/Core/Backend/UserPref.php:44 src/Process/Backend/Post.php:717
 msgid "Category"
 msgstr "Kategoria"
 
@@ -529,7 +529,7 @@ msgid "Blog ID"
 msgstr "Blogaren IDa"
 
 #: src/Core/Backend/Combos.php:332 src/Core/Backend/Listing/ListingUsers.php:68
-#: src/Process/Install/Install.php:459
+#: src/Process/Install/Install.php:523
 msgid "Username"
 msgstr "Erabiltzaile izena"
 
@@ -553,19 +553,19 @@ msgid "Number of entries"
 msgstr "Sarrera kopurua"
 
 #: src/Core/Backend/Favorites.php:287
-#: src/Process/Backend/UserPreferences.php:1355
+#: src/Process/Backend/UserPreferences.php:1357
 msgid "My favorites"
 msgstr "Nire gogokoenak"
 
 #: src/Core/Backend/Favorites.php:399 src/Core/Backend/Menus.php:195
-#: src/Core/Backend/Page.php:372 src/Process/Backend/Media.php:782
+#: src/Core/Backend/Page.php:372 src/Process/Backend/Media.php:796
 #: src/Process/Backend/UserPreferences.php:76
 msgid "My preferences"
 msgstr "Nire lehentasunak"
 
 #: src/Core/Backend/Favorites.php:405 src/Core/Backend/Menus.php:181
-#: src/Process/Backend/Home.php:583 src/Process/Backend/Post.php:95
-#: src/Process/Backend/Post.php:968 src/Process/Backend/Posts.php:115
+#: src/Process/Backend/Home.php:583 src/Process/Backend/Post.php:96
+#: src/Process/Backend/Post.php:969 src/Process/Backend/Posts.php:115
 msgid "New post"
 msgstr "Mezu berria"
 
@@ -599,7 +599,7 @@ msgstr "Kategoriak"
 #: src/Core/Backend/Favorites.php:465 src/Core/Backend/MediaPage.php:363
 #: src/Core/Backend/MediaPage.php:365 src/Core/Backend/MediaPage.php:416
 #: src/Core/Backend/Menus.php:117 src/Core/Backend/UserPref.php:200
-#: src/Process/Backend/Media.php:688 src/Process/Backend/Media.php:816
+#: src/Process/Backend/Media.php:702 src/Process/Backend/Media.php:830
 #: src/Process/Backend/MediaItem.php:404 src/Process/Backend/MediaItem.php:410
 msgid "Media manager"
 msgstr "Komunikabideen kudeatzailea"
@@ -629,7 +629,7 @@ msgstr "Erabiltzaileak"
 #: src/Core/Backend/Favorites.php:509 src/Core/Backend/Menus.php:225
 #: src/Process/Backend/Plugins.php:110 src/Process/Backend/Plugins.php:123
 #: src/Process/Backend/Plugins.php:388 src/Process/Backend/Plugins.php:395
-#: src/Process/Upgrade/Plugins.php:178 src/Process/Upgrade/Plugins.php:188
+#: src/Process/Upgrade/Plugins.php:176 src/Process/Upgrade/Plugins.php:186
 msgid "Plugins management"
 msgstr "Pluginen kudeaketa"
 
@@ -651,14 +651,14 @@ msgstr "Laguntza globala"
 
 #: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1261
 #: src/Process/Backend/Auth.php:544 src/Process/Backend/BlogPref.php:1351
-#: src/Process/Backend/Comment.php:306 src/Process/Backend/Post.php:1108
-#: src/Process/Backend/User.php:432 src/Process/Backend/UserPreferences.php:823
-#: src/Process/Install/Install.php:445
+#: src/Process/Backend/Comment.php:306 src/Process/Backend/Post.php:1109
+#: src/Process/Backend/User.php:432 src/Process/Backend/UserPreferences.php:824
+#: src/Process/Install/Install.php:505
 msgid "Email:"
 msgstr "Posta elektronikoa:"
 
 #: src/Core/Backend/Filter/FilterComments.php:37 src/Core/Backend/Page.php:1260
-#: src/Process/Backend/Comment.php:322 src/Process/Backend/Post.php:1117
+#: src/Process/Backend/Comment.php:322 src/Process/Backend/Post.php:1118
 msgid "Web site:"
 msgstr "Webgunea:"
 
@@ -674,7 +674,7 @@ msgid "Type:"
 msgstr "Mota:"
 
 #: src/Core/Backend/Filter/FilterComments.php:73
-#: src/Process/Backend/Post.php:1127 src/Process/Backend/Post.php:1130
+#: src/Process/Backend/Post.php:1128 src/Process/Backend/Post.php:1131
 msgid "Comment"
 msgstr "Iruzkina"
 
@@ -713,7 +713,7 @@ msgstr "Formatua:"
 
 #: src/Core/Backend/Filter/FilterPosts.php:180 src/Process/Backend/Auth.php:204
 #: src/Process/Backend/Auth.php:670 src/Process/Backend/User.php:344
-#: src/Process/Install/Install.php:509 src/Process/Upgrade/Auth.php:366
+#: src/Process/Install/Install.php:589 src/Process/Upgrade/Auth.php:351
 msgid "Password:"
 msgstr "Pasahitza:"
 
@@ -784,7 +784,7 @@ msgid "Sort:"
 msgstr "Ordenatu:"
 
 #: src/Core/Backend/Filter/Filters.php:393
-#: src/Process/Backend/UserPreferences.php:980
+#: src/Process/Backend/UserPreferences.php:982
 msgid "Show"
 msgstr "Erakutsi"
 
@@ -853,6 +853,7 @@ msgstr "Blogen zerrenda"
 #: src/Core/Backend/Listing/ListingComments.php:183
 #: src/Core/Backend/Listing/ListingPosts.php:204
 #: src/Core/Backend/Listing/ListingUsers.php:134
+#: src/Process/Backend/Post.php:1402
 msgid "Legend: "
 msgstr "Kondaira: "
 
@@ -872,7 +873,7 @@ msgid "Switch to blog %s"
 msgstr "Aldatu blogera %s"
 
 #: src/Core/Backend/Listing/ListingComments.php:57
-#: src/Process/Backend/Comment.php:152 src/Process/Backend/Post.php:1037
+#: src/Process/Backend/Comment.php:152 src/Process/Backend/Post.php:1038
 msgid "No comments"
 msgstr "Iruzkinik gabe"
 
@@ -919,7 +920,7 @@ msgstr "trackback"
 
 #: src/Core/Backend/Listing/ListingComments.php:241
 #: src/Core/Backend/Listing/ListingComments.php:244
-#: src/Process/Backend/Post.php:1362 src/Process/Backend/Post.php:1387
+#: src/Process/Backend/Post.php:1363 src/Process/Backend/Post.php:1388
 msgid "Edit"
 msgstr "Editatu"
 
@@ -950,7 +951,7 @@ msgstr "Elementu kopurua: %d"
 
 #: src/Core/Backend/Listing/ListingMedia.php:125
 #: src/Core/Backend/ModulesList.php:810 src/Core/Backend/UserPref.php:202
-#: src/Process/Backend/Category.php:256 src/Process/Upgrade/Plugins.php:497
+#: src/Process/Backend/Category.php:256 src/Process/Upgrade/Plugins.php:495
 msgid "Name"
 msgstr "Izena"
 
@@ -961,19 +962,19 @@ msgstr "Tamaina"
 
 #: src/Core/Backend/Listing/ListingMedia.php:242
 #: src/Core/Backend/Listing/ListingMedia.php:245
-#: src/Process/Backend/Media.php:430
+#: src/Process/Backend/Media.php:444
 msgid "Select this file"
 msgstr "Hautatu fitxategi hau"
 
 #: src/Core/Backend/Listing/ListingMedia.php:268
 #: src/Core/Backend/Listing/ListingMedia.php:271
-#: src/Process/Backend/Media.php:468
+#: src/Process/Backend/Media.php:482
 msgid "Attach this file to entry"
 msgstr "Erantsi fitxategi hau sarrerari"
 
 #: src/Core/Backend/Listing/ListingMedia.php:279
 #: src/Core/Backend/Listing/ListingMedia.php:282
-#: src/Process/Backend/Media.php:495
+#: src/Process/Backend/Media.php:509
 msgid "Insert this file into entry"
 msgstr "Txertatu fitxategi hau sarreran"
 
@@ -999,8 +1000,8 @@ msgstr "Sarrerarik ez dator bat iragazkiarekin"
 #: src/Core/Backend/Listing/ListingPosts.php:110
 #: src/Core/Backend/Listing/ListingPosts.php:113
 #: src/Core/Backend/Listing/ListingPosts.php:114
-#: src/Core/Backend/UserPref.php:47 src/Process/Backend/Post.php:1165
-#: src/Process/Backend/Post.php:1213
+#: src/Core/Backend/UserPref.php:47 src/Process/Backend/Post.php:1166
+#: src/Process/Backend/Post.php:1214
 msgid "Trackbacks"
 msgstr "Trackbackak"
 
@@ -1201,7 +1202,7 @@ msgstr "Puntuazioa"
 msgid "Version"
 msgstr "Bertsioa"
 
-#: src/Core/Backend/ModulesList.php:833 src/Process/Upgrade/Plugins.php:501
+#: src/Core/Backend/ModulesList.php:833 src/Process/Upgrade/Plugins.php:499
 msgid "Current version"
 msgstr "Egungo bertsioa"
 
@@ -1211,7 +1212,7 @@ msgstr "Egungo bertsioa"
 msgid "Details"
 msgstr "Xehetasunak"
 
-#: src/Core/Backend/ModulesList.php:847 src/Process/Upgrade/Plugins.php:513
+#: src/Core/Backend/ModulesList.php:847 src/Process/Upgrade/Plugins.php:511
 msgid "Repository"
 msgstr "Biltegia"
 
@@ -1220,7 +1221,7 @@ msgstr "Biltegia"
 msgid "Action"
 msgstr "Ekintza"
 
-#: src/Core/Backend/ModulesList.php:927 src/Process/Upgrade/Plugins.php:451
+#: src/Core/Backend/ModulesList.php:927 src/Process/Upgrade/Plugins.php:449
 #, php-format
 msgid " (%s)"
 msgstr " (%s)"
@@ -1235,12 +1236,12 @@ msgid "This module cannot be enabled, because of the following reasons :"
 msgstr "Modulu hau ezin da gaitu, arrazoi hauengatik:"
 
 #: src/Core/Backend/ModulesList.php:1006 src/Core/Backend/ThemesList.php:215
-#: src/Process/Upgrade/Plugins.php:467
+#: src/Process/Upgrade/Plugins.php:465
 msgid "Official repository"
 msgstr "Biltegi ofiziala"
 
 #: src/Core/Backend/ModulesList.php:1006 src/Core/Backend/ModulesList.php:1109
-#: src/Core/Backend/ThemesList.php:215 src/Process/Upgrade/Plugins.php:467
+#: src/Core/Backend/ThemesList.php:215 src/Process/Upgrade/Plugins.php:465
 msgid "Third-party repository"
 msgstr "Hirugarrenen biltegia"
 
@@ -1419,10 +1420,10 @@ msgstr "Kargatu zip fitxategi bat"
 #: src/Process/Backend/BlogPref.php:1010 src/Process/Backend/Category.php:248
 #: src/Process/Backend/Comment.php:284 src/Process/Backend/Home.php:586
 #: src/Process/Backend/Langs.php:322 src/Process/Backend/Langs.php:372
-#: src/Process/Backend/LinkPopup.php:83 src/Process/Backend/Post.php:993
-#: src/Process/Backend/Post.php:1084 src/Process/Backend/User.php:303
-#: src/Process/Backend/UsersActions.php:492 src/Process/Install/Install.php:455
-#: src/Process/Install/Wizard.php:263 src/Process/Upgrade/Langs.php:406
+#: src/Process/Backend/LinkPopup.php:83 src/Process/Backend/Post.php:994
+#: src/Process/Backend/Post.php:1085 src/Process/Backend/User.php:303
+#: src/Process/Backend/UsersActions.php:492 src/Process/Install/Install.php:514
+#: src/Process/Install/Wizard.php:379 src/Process/Upgrade/Langs.php:406
 #, php-format
 msgid "Fields preceded by %s are mandatory."
 msgstr "%s aurreko eremuak derrigorrezkoak dira."
@@ -1433,10 +1434,10 @@ msgstr "Zip fitxategiaren bidea:"
 
 #: src/Core/Backend/ModulesList.php:1763 src/Core/Backend/ModulesList.php:1813
 #: src/Process/Backend/Langs.php:344 src/Process/Backend/Langs.php:393
-#: src/Process/Backend/Post.php:804 src/Process/Backend/User.php:340
+#: src/Process/Backend/Post.php:805 src/Process/Backend/User.php:340
 #: src/Process/Backend/User.php:364 src/Process/Backend/User.php:529
-#: src/Process/Backend/UsersActions.php:499 src/Process/Install/Install.php:467
-#: src/Process/Install/Install.php:473 src/Process/Upgrade/Langs.php:430
+#: src/Process/Backend/UsersActions.php:499 src/Process/Install/Install.php:534
+#: src/Process/Install/Install.php:544 src/Process/Upgrade/Langs.php:430
 msgid "Password"
 msgstr "Pasahitza"
 
@@ -1448,7 +1449,7 @@ msgid "Your password:"
 msgstr "Zure pasahitza:"
 
 #: src/Core/Backend/ModulesList.php:1774 src/Core/Backend/Page.php:1425
-#: src/Process/Backend/Media.php:795
+#: src/Process/Backend/Media.php:809
 msgid "Upload"
 msgstr "Kargatu"
 
@@ -1473,7 +1474,7 @@ msgid "This plugin has no configuration file."
 msgstr "Plugin honek ez du konfigurazio fitxategirik."
 
 #: src/Core/Backend/ModulesList.php:1886 src/Process/Backend/Auth.php:416
-#: src/Process/Upgrade/Auth.php:182 src/Process/Upgrade/Auth.php:243
+#: src/Process/Upgrade/Auth.php:184 src/Process/Upgrade/Auth.php:245
 msgid "Insufficient permissions"
 msgstr "Baimen nahikoa ez"
 
@@ -1485,11 +1486,11 @@ msgstr "Konfiguratu \"%s\""
 #: src/Core/Backend/ModulesList.php:1966 src/Process/Backend/Blog.php:197
 #: src/Process/Backend/BlogDel.php:138 src/Process/Backend/BlogPref.php:1182
 #: src/Process/Backend/Category.php:301 src/Process/Backend/Comment.php:352
-#: src/Process/Backend/Media.php:857 src/Process/Backend/MediaItem.php:1353
-#: src/Process/Backend/Post.php:950 src/Process/Backend/Search.php:197
-#: src/Process/Backend/User.php:547 src/Process/Backend/UserPreferences.php:908
-#: src/Process/Backend/UserPreferences.php:1210
-#: src/Process/Backend/UserPreferences.php:1436
+#: src/Process/Backend/Media.php:871 src/Process/Backend/MediaItem.php:1353
+#: src/Process/Backend/Post.php:951 src/Process/Backend/Search.php:197
+#: src/Process/Backend/User.php:547 src/Process/Backend/UserPreferences.php:909
+#: src/Process/Backend/UserPreferences.php:1212
+#: src/Process/Backend/UserPreferences.php:1438
 msgid "Back"
 msgstr "Itzuli"
 
@@ -1500,8 +1501,8 @@ msgid "Error:"
 msgstr "Errorea:"
 
 #: src/Core/Backend/Notices.php:86 src/Core/Upgrade/Notices.php:48
-#: src/Process/Install/Install.php:418 src/Process/Install/Install.php:527
-#: src/Process/Install/Wizard.php:246
+#: src/Process/Install/Install.php:458 src/Process/Install/Install.php:632
+#: src/Process/Install/Wizard.php:321 src/Process/Install/Wizard.php:348
 msgid "Errors:"
 msgstr "Akatsak:"
 
@@ -1511,8 +1512,8 @@ msgstr "%H:%M:%S"
 
 #: src/Core/Backend/Notices.php:258 src/Core/Backend/Notices.php:298
 #: src/Core/Backend/Notices.php:308 src/Core/Backend/Page.php:1309
-#: src/Process/Backend/Categories.php:341 src/Process/Backend/Post.php:1052
-#: src/Process/Backend/Post.php:1184 src/Process/Backend/PostsPopup.php:121
+#: src/Process/Backend/Categories.php:341 src/Process/Backend/Post.php:1053
+#: src/Process/Backend/Post.php:1185 src/Process/Backend/PostsPopup.php:121
 msgid "Ok"
 msgstr "Ados"
 
@@ -1542,8 +1543,8 @@ msgid "Go to help"
 msgstr "Joan laguntzera"
 
 #: src/Core/Backend/Page.php:339 src/Core/Upgrade/Page.php:175
-#: src/Process/Backend/UserPreferences.php:1345
 #: src/Process/Backend/UserPreferences.php:1347
+#: src/Process/Backend/UserPreferences.php:1349
 msgid "My dashboard"
 msgstr "Nire aginte-panela"
 
@@ -1643,8 +1644,8 @@ msgstr "Hautatu guztiak"
 msgid "Invert selection"
 msgstr "Alderantzikatu hautaketa"
 
-#: src/Core/Backend/Page.php:1264 src/Process/Backend/Post.php:466
-#: src/Process/Backend/Post.php:603
+#: src/Core/Backend/Page.php:1264 src/Process/Backend/Post.php:467
+#: src/Process/Backend/Post.php:604
 msgid "Entry has been successfully created."
 msgstr "Sarrera behar bezala sortu da."
 
@@ -1861,17 +1862,17 @@ msgstr "Bertan behera utzita."
 msgid "HTTP Error:"
 msgstr "HTTP errorea:"
 
-#: src/Core/Backend/Page.php:1421 src/Process/Backend/Media.php:738
+#: src/Core/Backend/Page.php:1421 src/Process/Backend/Media.php:752
 msgid "Choose file"
 msgstr "Aukeratu fitxategia"
 
-#: src/Core/Backend/Page.php:1422 src/Process/Backend/Media.php:744
+#: src/Core/Backend/Page.php:1422 src/Process/Backend/Media.php:758
 msgid "Choose files"
 msgstr "Aukeratu fitxategiak"
 
 #: src/Core/Backend/Page.php:1423 src/Process/Backend/LinkPopup.php:113
-#: src/Process/Backend/Media.php:293 src/Process/Backend/MediaItem.php:509
-#: src/Process/Backend/MediaItem.php:765 src/Process/Backend/Post.php:956
+#: src/Process/Backend/Media.php:307 src/Process/Backend/MediaItem.php:509
+#: src/Process/Backend/MediaItem.php:765 src/Process/Backend/Post.php:957
 #: src/Process/Backend/PostMedia.php:113
 msgid "Cancel"
 msgstr "Utzi"
@@ -2013,7 +2014,7 @@ msgstr "Ez dago zure bilaketarekin bat datorren gairik."
 msgid "Use this one"
 msgstr "Erabili hau"
 
-#: src/Core/Backend/ThemesList.php:395 src/Process/Backend/Post.php:949
+#: src/Core/Backend/ThemesList.php:395 src/Process/Backend/Post.php:950
 msgid "Preview"
 msgstr "Aurrebista"
 
@@ -2122,166 +2123,166 @@ msgstr "euskarria orrialde bakoitzeko"
 msgid "results per page"
 msgstr "orrialde bakoitzeko emaitzak"
 
-#: src/Core/Blog.php:720
+#: src/Core/Blog.php:695
 msgid "You are not allowed to add categories"
 msgstr "Ezin duzu kategoria gehitzeko baimenik"
 
-#: src/Core/Blog.php:764
+#: src/Core/Blog.php:739
 msgid "You are not allowed to update categories"
 msgstr "Ezin duzu kategoriak eguneratzeko baimenik"
 
-#: src/Core/Blog.php:821
+#: src/Core/Blog.php:796
 msgid "You are not allowed to delete categories"
 msgstr "Ezin duzu kategoria ezabatzeko baimenik"
 
-#: src/Core/Blog.php:834
+#: src/Core/Blog.php:809
 msgid "This category is not empty."
 msgstr "Kategoria hau ez dago hutsik."
 
-#: src/Core/Blog.php:847
+#: src/Core/Blog.php:822
 msgid "You are not allowed to reset categories order"
 msgstr "Ezin duzu kategorien ordena berrezartzeko"
 
-#: src/Core/Blog.php:916
+#: src/Core/Blog.php:891
 msgid "Empty category URL"
 msgstr "Kategoriaren URL hutsa"
 
-#: src/Core/Blog.php:933
+#: src/Core/Blog.php:908
 msgid "You must provide a category title"
 msgstr "Kategoriaren izenburua eman behar duzu"
 
-#: src/Core/Blog.php:943
+#: src/Core/Blog.php:918
 msgid "You must provide a category URL"
 msgstr "Kategoriaren URL bat eman behar duzu"
 
-#: src/Core/Blog.php:1394
+#: src/Core/Blog.php:1369
 msgid "You are not allowed to create an entry"
 msgstr "Ez duzu sarrerarik sortzeko baimenik"
 
-#: src/Core/Blog.php:1454
+#: src/Core/Blog.php:1429
 msgid "You are not allowed to update entries"
 msgstr "Ez duzu sarrerak eguneratzeko baimenik"
 
-#: src/Core/Blog.php:1460 src/Core/Blog.php:1715
+#: src/Core/Blog.php:1435 src/Core/Blog.php:1690
 msgid "No such entry ID"
 msgstr "Ez dago sarrera ID hori"
 
-#: src/Core/Blog.php:1494
+#: src/Core/Blog.php:1469
 msgid "You are not allowed to edit this entry"
 msgstr "Ez duzu sarrera hau editatzeko baimenik"
 
-#: src/Core/Blog.php:1522 src/Core/Blog.php:1557 src/Core/Meta.php:145
-#: src/Core/Meta.php:162
+#: src/Core/Blog.php:1497 src/Core/Blog.php:1532 src/Core/Meta.php:139
+#: src/Core/Meta.php:156
 msgid "You are not allowed to change this entry status"
 msgstr "Ezin duzu sarreraren egoera aldatzeko baimenik"
 
-#: src/Core/Blog.php:1602 src/Core/Blog.php:1640
+#: src/Core/Blog.php:1577 src/Core/Blog.php:1615
 msgid "You are not allowed to change this entry category"
 msgstr "Ezin duzu sarrera-kategoria hau aldatzeko baimenik"
 
-#: src/Core/Blog.php:1673
+#: src/Core/Blog.php:1648
 msgid "You are not allowed to change entries category"
 msgstr "Ezin duzu sarreren kategoria aldatzeko baimenik"
 
-#: src/Core/Blog.php:1709
+#: src/Core/Blog.php:1684
 msgid "You are not allowed to delete entries"
 msgstr "Ez duzu sarrerarik ezabatzeko baimenik"
 
-#: src/Core/Blog.php:1943
+#: src/Core/Blog.php:1918
 msgid "No entry title"
 msgstr "Ez dago sarrerako izenbururik"
 
-#: src/Core/Blog.php:1947 src/Core/Blog.php:1961
+#: src/Core/Blog.php:1922 src/Core/Blog.php:1936
 msgid "No entry content"
 msgstr "Ez dago sarrerako edukirik"
 
-#: src/Core/Blog.php:2027
+#: src/Core/Blog.php:2002
 msgid "Notes"
 msgstr "Oharrak"
 
-#: src/Core/Blog.php:2029
+#: src/Core/Blog.php:2004
 msgid "Note"
 msgstr "Ohar"
 
-#: src/Core/Blog.php:2140
+#: src/Core/Blog.php:2115
 msgid "Empty entry URL"
 msgstr "Sarrerako URL hutsa"
 
-#: src/Core/Blog.php:2450
+#: src/Core/Blog.php:2425
 msgid "You are not allowed to update comments"
 msgstr "Ezin duzu iruzkinak eguneratzeko baimenik"
 
-#: src/Core/Blog.php:2456 src/Core/Blog.php:2462 src/Core/Blog.php:2567
+#: src/Core/Blog.php:2431 src/Core/Blog.php:2437 src/Core/Blog.php:2542
 msgid "No such comment ID"
 msgstr "Ez dago horrelako iruzkinen IDrik"
 
-#: src/Core/Blog.php:2469
+#: src/Core/Blog.php:2444
 msgid "You are not allowed to update this comment"
 msgstr "Ezin duzu iruzkin hau eguneratzeko baimenik"
 
-#: src/Core/Blog.php:2520
+#: src/Core/Blog.php:2495
 msgid "You are not allowed to change this comment's status"
 msgstr "Ezin duzu iruzkin honen egoera aldatzeko baimenik"
 
-#: src/Core/Blog.php:2561 src/Core/Blog.php:2615
+#: src/Core/Blog.php:2536 src/Core/Blog.php:2590
 msgid "You are not allowed to delete comments"
 msgstr "Ezin duzu iruzkinak ezabatzeko baimenik"
 
-#: src/Core/Blog.php:2650
+#: src/Core/Blog.php:2625
 msgid "You must provide a comment"
 msgstr "Iruzkin bat eman behar duzu"
 
-#: src/Core/Blog.php:2654
+#: src/Core/Blog.php:2629
 msgid "You must provide an author name"
 msgstr "Egilearen izena eman behar duzu"
 
-#: src/Core/Blog.php:2658
+#: src/Core/Blog.php:2633
 msgid "Email address is not valid."
 msgstr "Helbide elektronikoak ez du balio."
 
-#: src/Core/BlogSettings.php:105
+#: src/Core/BlogSettings.php:99
 msgid "Unable to retrieve namespaces:"
 msgstr "Ezin dira izen-espazioak berreskuratu:"
 
-#: src/Core/BlogSettings.php:140
+#: src/Core/BlogSettings.php:134
 #, php-format
 msgid "Invalid setting namespace: %s"
 msgstr "Ezarpen-izen-espazio baliogabea: %s"
 
-#: src/Core/BlogWorkspace.php:93
+#: src/Core/BlogWorkspace.php:85
 #, php-format
 msgid "Invalid setting dcNamespace: %s"
 msgstr "Ezarpen baliogabea dcNamespace: %s"
 
-#: src/Core/BlogWorkspace.php:139
+#: src/Core/BlogWorkspace.php:131
 msgid "Unable to retrieve settings:"
 msgstr "Ezin dira ezarpenak berreskuratu:"
 
-#: src/Core/BlogWorkspace.php:231 src/Core/BlogWorkspace.php:329
+#: src/Core/BlogWorkspace.php:223 src/Core/BlogWorkspace.php:321
 #, php-format
 msgid "%s is not a valid setting id"
 msgstr "%s ez da baliozko ezarpen-id bat"
 
-#: src/Core/BlogWorkspace.php:321 src/Core/BlogWorkspace.php:361
-#: src/Core/BlogWorkspace.php:384 src/Core/BlogWorkspace.php:404
+#: src/Core/BlogWorkspace.php:313 src/Core/BlogWorkspace.php:353
+#: src/Core/BlogWorkspace.php:376 src/Core/BlogWorkspace.php:396
 msgid "No namespace specified"
 msgstr "Ez dago izen-espaziorik zehaztu"
 
-#: src/Core/Blogs.php:221 src/Core/Blogs.php:268 src/Core/Users.php:167
-#: src/Core/Users.php:197 src/Core/Users.php:237 src/Core/Users.php:321
-#: src/Core/Users.php:339
+#: src/Core/Blogs.php:214 src/Core/Blogs.php:261 src/Core/Users.php:161
+#: src/Core/Users.php:191 src/Core/Users.php:231 src/Core/Users.php:315
+#: src/Core/Users.php:333
 msgid "You are not an administrator"
 msgstr "Ez zara administratzailea"
 
-#: src/Core/Blogs.php:253
+#: src/Core/Blogs.php:246
 msgid "Blog ID must contain at least 2 characters using letters, numbers or symbols."
 msgstr "Blogaren IDak gutxienez 2 karaktere izan behar ditu letrak, zenbakiak edo ikurrak erabiliz."
 
-#: src/Core/Blogs.php:257
+#: src/Core/Blogs.php:250
 msgid "No blog name"
 msgstr "Blogaren izenik ez"
 
-#: src/Core/Blogs.php:261
+#: src/Core/Blogs.php:254
 msgid "No blog URL"
 msgstr "Ez dago blogaren URLrik"
 
@@ -2331,155 +2332,151 @@ msgid "Multibyte string module (mbstring) is not available."
 msgstr "Byte anitzeko kate-modulua (mbstring) ez dago erabilgarri."
 
 #: src/Core/Install/Utils.php:44
-msgid "Iconv module is not available."
-msgstr "Iconv modulua ez dago erabilgarri."
-
-#: src/Core/Install/Utils.php:48
 msgid "Output control functions are not available."
 msgstr "Irteera kontrolatzeko funtzioak ez daude erabilgarri."
 
-#: src/Core/Install/Utils.php:52
+#: src/Core/Install/Utils.php:48
 msgid "SimpleXML module is not available."
 msgstr "SimpleXML modulua ez dago erabilgarri."
 
-#: src/Core/Install/Utils.php:56
+#: src/Core/Install/Utils.php:52
 msgid "DOM XML module is not available."
 msgstr "DOM XML modulua ez dago erabilgarri."
 
-#: src/Core/Install/Utils.php:61
+#: src/Core/Install/Utils.php:57
 msgid "PCRE engine does not support UTF-8 strings."
 msgstr "PCRE motorrak ez ditu UTF-8 kateak onartzen."
 
-#: src/Core/Install/Utils.php:65
+#: src/Core/Install/Utils.php:61
 msgid "SPL module is not available."
 msgstr "SPL modulua ez dago erabilgarri."
 
-#: src/Core/Install/Utils.php:70
+#: src/Core/Install/Utils.php:66
 #, php-format
 msgid "MySQL version is %1$s (%2$s or earlier needed)."
 msgstr "MySQL bertsioa %1$s da (%2$s edo lehenagokoa behar da)."
 
-#: src/Core/Install/Utils.php:83
+#: src/Core/Install/Utils.php:79
 msgid "MySQL InnoDB engine is not available."
 msgstr "MySQL InnoDB motorra ez dago erabilgarri."
 
-#: src/Core/Install/Utils.php:88
+#: src/Core/Install/Utils.php:84
 #, php-format
 msgid "PostgreSQL version is %s (%s or earlier needed)."
 msgstr "PostgreSQL bertsioa %s da (%s edo lehenagokoa behar da)."
 
-#: src/Core/Log.php:187
+#: src/Core/Log.php:173
 msgid "No log message"
 msgstr "Ez dago erregistro-mezurik"
 
-#: src/Core/Media.php:176
+#: src/Core/Media.php:159
 msgid "No blog defined."
 msgstr "Ez dago blogik definitu."
 
-#: src/Core/Media.php:1106 src/Core/Media.php:1137
+#: src/Core/Media.php:1089 src/Core/Media.php:1120
 msgid "You are not a super administrator."
 msgstr "Ez zara super administratzailea."
 
-#: src/Core/Media.php:1240 src/Core/Media.php:1334 src/Core/Media.php:1415
-#: src/Core/Media.php:1437 src/Core/Media.php:1459
+#: src/Core/Media.php:1223 src/Core/Media.php:1317 src/Core/Media.php:1398
+#: src/Core/Media.php:1420 src/Core/Media.php:1442
 msgid "Permission denied."
 msgstr "Baimena ukatu egin da."
 
-#: src/Core/Media.php:1347
+#: src/Core/Media.php:1330
 msgid "You are not the file owner."
 msgstr "Ez zara fitxategiaren jabea."
 
-#: src/Core/Media.php:1362
+#: src/Core/Media.php:1345
 msgid "This file is not allowed."
 msgstr "Fitxategi hau ez da onartzen."
 
-#: src/Core/Media.php:1366
+#: src/Core/Media.php:1349
 msgid "New file already exists."
 msgstr "Dagoeneko fitxategi berria dago."
 
-#: src/Core/Media.php:1479
+#: src/Core/Media.php:1462
 msgid "File does not exist in the database."
 msgstr "Fitxategia ez dago datu-basean."
 
-#: src/Core/Media.php:1528
+#: src/Core/Media.php:1511
 #, php-format
 msgid "Extract destination directory %s already exists."
 msgstr "Atera helmuga-direktorioa %s badago dagoeneko."
 
-#: src/Core/Notice.php:170
+#: src/Core/Notice.php:164
 msgid "No notice message"
 msgstr "Ez dago ohar-mezurik"
 
-#: src/Core/Trackback.php:114
+#: src/Core/Trackback.php:101
 #, php-format
 msgid "%s has still been pinged"
 msgstr "%s ping-a egin zaio oraindik"
 
-#: src/Core/Trackback.php:131 src/Core/Trackback.php:140
-#: src/Core/Trackback.php:165 src/Core/Trackback.php:170
-#: src/Core/Trackback.php:194
+#: src/Core/Trackback.php:118 src/Core/Trackback.php:127
+#: src/Core/Trackback.php:152 src/Core/Trackback.php:157
+#: src/Core/Trackback.php:181
 msgid "Unable to ping URL"
 msgstr "Ezin da URL ping-a egin"
 
-#: src/Core/Trackback.php:145
+#: src/Core/Trackback.php:132
 msgid "Bad server response code"
 msgstr "Zerbitzariaren erantzun-kode txarra"
 
-#: src/Core/Trackback.php:178
+#: src/Core/Trackback.php:165
 #, php-format
 msgid "%s is not a ping URL"
 msgstr "%s ez da ping URL bat"
 
-#: src/Core/Trackback.php:199
+#: src/Core/Trackback.php:186
 #, php-format
 msgid "%s, ping error:"
 msgstr "%s, ping errorea:"
 
-#: src/Core/Trackback.php:334
+#: src/Core/Trackback.php:321
 msgid "Don't repeat yourself, please."
 msgstr "Ez errepikatu, mesedez."
 
-#: src/Core/Trackback.php:341 src/Core/Trackback.php:410
+#: src/Core/Trackback.php:328 src/Core/Trackback.php:397
 msgid "Where's your title?"
 msgstr "Non da zure izenburua?"
 
-#: src/Core/Trackback.php:374
+#: src/Core/Trackback.php:361
 msgid "Sorry, an internal problem has occured."
 msgstr "Barneko arazo bat gertatu da."
 
-#: src/Core/Trackback.php:377
+#: src/Core/Trackback.php:364
 msgid "Thanks, mate. It was a pleasure."
 msgstr "Eskerrik asko, lagun. Plazer bat izan zen."
 
-#: src/Core/Trackback.php:585
+#: src/Core/Trackback.php:572
 msgid "Any chance you ping one of my contents? No? Really?"
 msgstr "Nire edukiren bati ping egiteko aukerarik? Ez? Benetan?"
 
-#: src/Core/Trackback.php:604
+#: src/Core/Trackback.php:591
 msgid "Sorry but you can not ping this type of content."
 msgstr "Barkatu, baina ezin diozu ping-a egin mota honetako edukiei."
 
-#: src/Core/Trackback.php:616
+#: src/Core/Trackback.php:603
 msgid "Oops. Kinda \"not found\" stuff. Please check the target URL twice."
 msgstr "Aupa! \"Ez aurkitu\" gauza batzuk. Mesedez, egiaztatu helburuko URLa bi aldiz."
 
-#: src/Core/Trackback.php:621
+#: src/Core/Trackback.php:608
 msgid "Sorry, dude. This entry does not accept pingback at the moment."
 msgstr "Barkatu, lagun. Sarrera honek ez du pingback onartzen momentuz."
 
-#: src/Core/Trackback.php:656
+#: src/Core/Trackback.php:643
 msgid "Your source URL does not look like a supported content type. Sorry. Bye, bye!"
 msgstr "Zure iturburu-URLak ez du onartzen eduki mota baten itxura. Barkatu. Agur!"
 
-#: src/Core/Trackback.php:918
+#: src/Core/Trackback.php:902
 msgid "No valid source URL provided? Try again!"
 msgstr "Ez da baliozko iturburu URLrik eman? Saiatu berriro!"
 
-#: src/Core/Trackback.php:922
+#: src/Core/Trackback.php:906
 msgid "No valid target URL provided? Try again!"
 msgstr "Ez da baliozko helburuko URLrik eman? Saiatu berriro!"
 
-#: src/Core/Trackback.php:926
+#: src/Core/Trackback.php:910
 msgid "LOL!"
 msgstr "LOL!"
 
@@ -2600,11 +2597,11 @@ msgstr "Erreprodukzioa"
 msgid "On this page, you can try to replay update action from a given version if some files remain from last update."
 msgstr "Orri honetan, bertsio jakin bateko eguneratze-ekintza errepikatzen saia zaitezke azken eguneratzetik fitxategi batzuk geratzen badira."
 
-#: src/Core/UserPreferences.php:72
+#: src/Core/UserPreferences.php:68
 msgid "Unable to retrieve workspaces:"
 msgstr "Ezin dira lan-eremuak berreskuratu:"
 
-#: src/Core/UserPreferences.php:146
+#: src/Core/UserPreferences.php:142
 #, php-format
 msgid "Invalid UserWorkspace: %s"
 msgstr "Erabiltzaileen lan-espazio baliogabea: %s"
@@ -2628,24 +2625,24 @@ msgstr "%s ez da baliozko aurrizki bat"
 msgid "No workspace specified"
 msgstr "Ez dago lan-eremurik zehaztu"
 
-#: src/Core/Users.php:171 src/Process/Install/Install.php:157
+#: src/Core/Users.php:165 src/Process/Install/Install.php:171
 msgid "No user ID given"
 msgstr "Ez da erabiltzaile IDrik eman"
 
-#: src/Core/Users.php:175 src/Process/Install/Install.php:167
+#: src/Core/Users.php:169 src/Process/Install/Install.php:181
 msgid "No password given"
 msgstr "Ez da pasahitzik eman"
 
-#: src/Core/Users.php:402 src/Process/Install/Install.php:160
+#: src/Core/Users.php:396 src/Process/Install/Install.php:174
 msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
 msgstr "Erabiltzaile IDak gutxienez 2 karaktere izan behar ditu letrak, zenbakiak edo ikurrak erabiliz."
 
-#: src/Core/Users.php:411 src/Process/Backend/User.php:348
-#: src/Process/Install/Install.php:173
+#: src/Core/Users.php:405 src/Process/Backend/User.php:348
+#: src/Process/Install/Install.php:187
 msgid "Password must contain at least 6 characters."
 msgstr "Pasahitzak 6 karaktere izan behar ditu gutxienez."
 
-#: src/Core/Users.php:417
+#: src/Core/Users.php:411
 msgid "Invalid user language code"
 msgstr "Erabiltzailearen hizkuntza-kode baliogabea"
 
@@ -3086,7 +3083,7 @@ msgstr "Ezin da _define.php aldatu"
 msgid "Destination folder already exist"
 msgstr "Helmuga karpeta dagoeneko existitzen da"
 
-#: src/Process/Backend/Auth.php:95 src/Process/Upgrade/Auth.php:96
+#: src/Process/Backend/Auth.php:95 src/Process/Upgrade/Auth.php:98
 msgid "Dotclear has been upgraded."
 msgstr "Dotclear berritu egin da."
 
@@ -3104,8 +3101,8 @@ msgstr "Pasahitza berrezartzeko, bisitatu helbide hau, bestela, ez ikusi mezu el
 
 #: src/Process/Backend/Auth.php:182 src/Process/Backend/Auth.php:204
 #: src/Process/Backend/Auth.php:534 src/Process/Backend/Auth.php:660
-#: src/Process/Install/Install.php:456 src/Process/Install/Install.php:508
-#: src/Process/Upgrade/Auth.php:355
+#: src/Process/Install/Install.php:522 src/Process/Install/Install.php:584
+#: src/Process/Upgrade/Auth.php:341
 msgid "Username:"
 msgstr "Erabiltzaile izena:"
 
@@ -3128,7 +3125,7 @@ msgstr "Pasahitz berria zure postontzian dago."
 
 #: src/Process/Backend/Auth.php:257 src/Process/Backend/User.php:158
 #: src/Process/Backend/UserPreferences.php:303
-#: src/Process/Install/Install.php:170
+#: src/Process/Install/Install.php:184
 msgid "Passwords don't match"
 msgstr "Pasahitzak ez datoz bat"
 
@@ -3152,13 +3149,13 @@ msgstr "Saioa hasteko, pasahitza aldatu behar duzu orain."
 msgid "Safe Mode can only be used for super administrators."
 msgstr "Modu segurua super administratzaileentzat bakarrik erabil daiteke."
 
-#: src/Process/Backend/Auth.php:420 src/Process/Upgrade/Auth.php:186
-#: src/Process/Upgrade/Auth.php:247
+#: src/Process/Backend/Auth.php:420 src/Process/Upgrade/Auth.php:188
+#: src/Process/Upgrade/Auth.php:249
 msgid "Administration session expired"
 msgstr "Administrazio saioa iraungi da"
 
-#: src/Process/Backend/Auth.php:420 src/Process/Upgrade/Auth.php:186
-#: src/Process/Upgrade/Auth.php:247
+#: src/Process/Backend/Auth.php:420 src/Process/Upgrade/Auth.php:188
+#: src/Process/Upgrade/Auth.php:249
 msgid "Wrong username or password"
 msgstr "Erabiltzaile-izena edo pasahitza okerra"
 
@@ -3168,27 +3165,27 @@ msgstr "Erabiltzaile-izena edo pasahitza okerra"
 #: src/Process/Backend/UserPreferences.php:597
 #: src/Process/Backend/UserPreferences.php:598
 #: src/Process/Backend/UserPreferences.php:599
-#: src/Process/Install/Install.php:396 src/Process/Install/Install.php:397
-#: src/Process/Install/Install.php:398 src/Process/Upgrade/Auth.php:291
-#: src/Process/Upgrade/Auth.php:292 src/Process/Upgrade/Auth.php:293
+#: src/Process/Install/Install.php:423 src/Process/Install/Install.php:424
+#: src/Process/Install/Install.php:425 src/Process/Upgrade/Auth.php:400
+#: src/Process/Upgrade/Auth.php:401 src/Process/Upgrade/Auth.php:402
 #, php-format
 msgid "Password strength: %s"
 msgstr "Pasahitzaren sendotasuna: %s"
 
 #: src/Process/Backend/Auth.php:476 src/Process/Backend/User.php:263
 #: src/Process/Backend/UserPreferences.php:597
-#: src/Process/Install/Install.php:396 src/Process/Upgrade/Auth.php:291
+#: src/Process/Install/Install.php:423 src/Process/Upgrade/Auth.php:400
 msgid "weak"
 msgstr "ahula"
 
 #: src/Process/Backend/Auth.php:478 src/Process/Backend/User.php:265
 #: src/Process/Backend/UserPreferences.php:599
-#: src/Process/Install/Install.php:398 src/Process/Upgrade/Auth.php:293
+#: src/Process/Install/Install.php:425 src/Process/Upgrade/Auth.php:402
 msgid "strong"
 msgstr "indartsu"
 
 #: src/Process/Backend/Auth.php:521 src/Process/Backend/Auth.php:565
-#: src/Process/Backend/Auth.php:625 src/Process/Upgrade/Auth.php:345
+#: src/Process/Backend/Auth.php:625 src/Process/Upgrade/Auth.php:327
 msgid "Back to login screen"
 msgstr "Itzuli saioa hasteko pantailara"
 
@@ -3209,13 +3206,12 @@ msgid "Change your password"
 msgstr "Aldatu pasahitza"
 
 #: src/Process/Backend/Auth.php:577 src/Process/Backend/User.php:334
-#: src/Process/Backend/UserPreferences.php:635
-#: src/Process/Install/Install.php:464
+#: src/Process/Backend/UserPreferences.php:636
 msgid "New password:"
 msgstr "Pasahitz berria:"
 
 #: src/Process/Backend/Auth.php:587 src/Process/Backend/User.php:358
-#: src/Process/Backend/User.php:367 src/Process/Install/Install.php:471
+#: src/Process/Backend/User.php:367
 msgid "Confirm password:"
 msgstr "Pasahitza baieztatu:"
 
@@ -3223,17 +3219,17 @@ msgstr "Pasahitza baieztatu:"
 msgid "change"
 msgstr "aldatu"
 
-#: src/Process/Backend/Auth.php:605 src/Process/Backend/UserPreferences.php:880
-#: src/Process/Upgrade/Auth.php:325
+#: src/Process/Backend/Auth.php:605 src/Process/Backend/UserPreferences.php:881
+#: src/Process/Upgrade/Auth.php:307
 msgid "Two factors authentication"
 msgstr "Bi faktoreko autentifikazioa"
 
-#: src/Process/Backend/Auth.php:610 src/Process/Upgrade/Auth.php:330
+#: src/Process/Backend/Auth.php:610 src/Process/Upgrade/Auth.php:312
 msgid "Enter code:"
 msgstr "Sartu kodea:"
 
-#: src/Process/Backend/Auth.php:618 src/Process/Backend/UserPreferences.php:696
-#: src/Process/Upgrade/Auth.php:338
+#: src/Process/Backend/Auth.php:618 src/Process/Backend/UserPreferences.php:697
+#: src/Process/Upgrade/Auth.php:320
 msgid "Verify"
 msgstr "Egiaztatu"
 
@@ -3249,11 +3245,11 @@ msgstr "Modu honek zure plugin-a aktibatu gabe saioa hasteko aukera ematen du. H
 msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
 msgstr "Eguneratu, desgaitu edo ezabatu arazoak sor ditzakeela susmatzen den edozein plugin, ondoren amaitu saioa eta berriro hasi normalean."
 
-#: src/Process/Backend/Auth.php:680 src/Process/Upgrade/Auth.php:376
+#: src/Process/Backend/Auth.php:680 src/Process/Upgrade/Auth.php:361
 msgid "Remember my ID on this device"
 msgstr "Gogoratu nire NANa gailu honetan"
 
-#: src/Process/Backend/Auth.php:684 src/Process/Upgrade/Auth.php:377
+#: src/Process/Backend/Auth.php:684 src/Process/Upgrade/Auth.php:365
 msgid "log in"
 msgstr "saioa hasi"
 
@@ -3265,7 +3261,7 @@ msgstr "Hasi saioa pasahitz batekin"
 msgid "Third party applications connections"
 msgstr "Hirugarrenen aplikazioen konexioak"
 
-#: src/Process/Backend/Auth.php:742 src/Process/Upgrade/Auth.php:379
+#: src/Process/Backend/Auth.php:742 src/Process/Upgrade/Auth.php:370
 msgid "You must accept cookies in order to use the private area."
 msgstr "Cookieak onartu behar dituzu eremu pribatua erabiltzeko."
 
@@ -3319,7 +3315,7 @@ msgstr "Blogaren URLa:"
 msgid "Blog description:"
 msgstr "Blogaren deskribapena:"
 
-#: src/Process/Backend/Blog.php:195 src/Process/Backend/Media.php:641
+#: src/Process/Backend/Blog.php:195 src/Process/Backend/Media.php:655
 msgid "Create"
 msgstr "Sortu"
 
@@ -3523,7 +3519,7 @@ msgid "Blog details"
 msgstr "Blogaren xehetasunak"
 
 #: src/Process/Backend/BlogPref.php:534 src/Process/Backend/BlogPref.php:1019
-#: src/Process/Backend/BlogPref.php:1040 src/Process/Backend/Post.php:846
+#: src/Process/Backend/BlogPref.php:1040 src/Process/Backend/Post.php:847
 msgid "Required field"
 msgstr "Beharrezko eremua"
 
@@ -3552,7 +3548,7 @@ msgstr "Copyright-oharra:"
 msgid "Comments and trackbacks"
 msgstr "Iruzkinak eta jarraipenak"
 
-#: src/Process/Backend/BlogPref.php:605 src/Process/Backend/Post.php:762
+#: src/Process/Backend/BlogPref.php:605 src/Process/Backend/Post.php:763
 msgid "Accept comments"
 msgstr "Onartu iruzkinak"
 
@@ -3580,7 +3576,7 @@ msgstr "Wiki sintaxia iruzkinetarako"
 msgid "Preview of comment before submit is not mandatory"
 msgstr "Bidali aurretik iruzkinaren aurrebista ez da derrigorrezkoa"
 
-#: src/Process/Backend/BlogPref.php:644 src/Process/Backend/Post.php:779
+#: src/Process/Backend/BlogPref.php:644 src/Process/Backend/Post.php:780
 msgid "Accept trackbacks"
 msgstr "Onartu trackback-ak"
 
@@ -3769,7 +3765,7 @@ msgstr "Sartu esteka bat jatorrizko irudirako"
 msgid "Image legend and alternate text:"
 msgstr "Irudiaren kondaira eta ordezko testua:"
 
-#: src/Process/Backend/BlogPref.php:957 src/Process/Backend/Media.php:846
+#: src/Process/Backend/BlogPref.php:957 src/Process/Backend/Media.php:860
 #: src/Process/Backend/Settings.php:91
 msgid "Blog parameters"
 msgstr "Blogaren parametroak"
@@ -3925,7 +3921,7 @@ msgid "Installed themes"
 msgstr "Instalatutako gaiak"
 
 #: src/Process/Backend/BlogTheme.php:208 src/Process/Backend/Plugins.php:190
-#: src/Process/Upgrade/Plugins.php:208
+#: src/Process/Upgrade/Plugins.php:206
 msgid "(in normal mode)"
 msgstr "(modu normalean)"
 
@@ -3974,7 +3970,7 @@ msgstr[1] "%s gaiaren eguneraketak daude eskuragarri:"
 
 #: src/Process/Backend/BlogTheme.php:315 src/Process/Backend/BlogTheme.php:352
 #: src/Process/Backend/Plugins.php:282 src/Process/Backend/Plugins.php:336
-#: src/Process/Upgrade/Plugins.php:281 src/Process/Upgrade/Plugins.php:337
+#: src/Process/Upgrade/Plugins.php:279 src/Process/Upgrade/Plugins.php:335
 #, php-format
 msgid "Visit %s repository, the resources center for Dotclear."
 msgstr "Bisitatu %s biltegia, Dotclear-en baliabideen zentrora."
@@ -3988,7 +3984,7 @@ msgid "Add themes from repository"
 msgstr "Gehitu gaiak biltegitik"
 
 #: src/Process/Backend/BlogTheme.php:362 src/Process/Backend/Plugins.php:342
-#: src/Process/Upgrade/Plugins.php:343
+#: src/Process/Upgrade/Plugins.php:341
 msgid "Install or upgrade manually"
 msgstr "Instalatu edo berritu eskuz"
 
@@ -4095,7 +4091,7 @@ msgid "total:"
 msgstr "guztira:"
 
 #: src/Process/Backend/Categories.php:326 src/Process/Backend/Category.php:279
-#: src/Process/Backend/User.php:457 src/Process/Backend/UserPreferences.php:845
+#: src/Process/Backend/User.php:457 src/Process/Backend/UserPreferences.php:846
 msgid "URL:"
 msgstr "URLa:"
 
@@ -4132,7 +4128,7 @@ msgstr "Kategoria behar bezala eguneratu da."
 msgid "Category information"
 msgstr "Kategoriaren informazioa"
 
-#: src/Process/Backend/Category.php:259 src/Process/Backend/Post.php:1097
+#: src/Process/Backend/Category.php:259 src/Process/Backend/Post.php:1098
 msgid "Name:"
 msgstr "Izena:"
 
@@ -4176,7 +4172,7 @@ msgstr "Mugitu kategoria hau"
 msgid "Entry does not exist."
 msgstr "Sarrera ez da existitzen."
 
-#: src/Process/Backend/Comment.php:109 src/Process/Backend/Post.php:611
+#: src/Process/Backend/Comment.php:109 src/Process/Backend/Post.php:612
 msgid "Comment has been successfully created."
 msgstr "Iruzkina behar bezala sortu da."
 
@@ -4255,7 +4251,7 @@ msgstr "Erakutsi."
 msgid "Delete all spams"
 msgstr "Ezabatu spam guztiak"
 
-#: src/Process/Backend/Comments.php:217 src/Process/Backend/Post.php:1048
+#: src/Process/Backend/Comments.php:217 src/Process/Backend/Post.php:1049
 #: src/Process/Backend/Search.php:410
 msgid "Selected comments action:"
 msgstr "Hautatutako iruzkinen ekintza:"
@@ -4322,12 +4318,12 @@ msgid "There is no writable root directory for the media manager. You should con
 msgstr "Ez dago idazteko erro-direktoriorik multimedia-kudeatzailearentzat. Zure administratzailearekin harremanetan jarri beharko zenuke."
 
 #: src/Process/Backend/Home.php:352 src/Process/Backend/Plugins.php:139
-#: src/Process/Install/Install.php:485 src/Process/Upgrade/Plugins.php:126
+#: src/Process/Install/Install.php:557 src/Process/Upgrade/Plugins.php:124
 msgid "Following plugins have been installed:"
 msgstr "Plugin hauek instalatu dira:"
 
 #: src/Process/Backend/Home.php:374 src/Process/Backend/Plugins.php:161
-#: src/Process/Install/Install.php:492 src/Process/Upgrade/Plugins.php:148
+#: src/Process/Install/Install.php:565 src/Process/Upgrade/Plugins.php:146
 msgid "Following plugins have not been installed:"
 msgstr "Plugin hauek ez dira instalatu:"
 
@@ -4339,15 +4335,15 @@ msgstr "Erroreak gertatu dira ondorengo pluginekin:"
 msgid "Quick post"
 msgstr "Argitalpen azkarra"
 
-#: src/Process/Backend/Home.php:607 src/Process/Backend/Post.php:878
+#: src/Process/Backend/Home.php:607 src/Process/Backend/Post.php:879
 msgid "Content:"
 msgstr "Edukia:"
 
-#: src/Process/Backend/Home.php:613 src/Process/Backend/Post.php:875
+#: src/Process/Backend/Home.php:613 src/Process/Backend/Post.php:876
 msgid "Content"
 msgstr "Edukia"
 
-#: src/Process/Backend/Home.php:624 src/Process/Backend/Post.php:729
+#: src/Process/Backend/Home.php:624 src/Process/Backend/Post.php:730
 msgid "Add a new category"
 msgstr "Gehitu kategoria berri bat"
 
@@ -4555,172 +4551,172 @@ msgid_plural "Successfully delete %d medias."
 msgstr[0] "Ezabatu behar bezala multimedia bat."
 msgstr[1] "Ezabatu behar bezala %d multimedia."
 
-#: src/Process/Backend/Media.php:228
+#: src/Process/Backend/Media.php:235
 msgid "Directory has been successfully removed."
 msgstr "Direktorioa behar bezala kendu da."
 
-#: src/Process/Backend/Media.php:232
+#: src/Process/Backend/Media.php:239
 msgid "File has been successfully removed."
 msgstr "Fitxategia behar bezala kendu da."
 
-#: src/Process/Backend/Media.php:253
+#: src/Process/Backend/Media.php:267
 #, php-format
 msgid "Directory \"%s\" has been successfully completed."
 msgstr "\"%s\" direktorioa behar bezala osatu da."
 
-#: src/Process/Backend/Media.php:270
+#: src/Process/Backend/Media.php:284
 #, php-format
 msgid "Directory \"%s\" has been successfully rebuild."
 msgstr "\"%s\" direktorioa behar bezala berreraiki da."
 
-#: src/Process/Backend/Media.php:282 src/Process/Backend/PostMedia.php:98
+#: src/Process/Backend/Media.php:296 src/Process/Backend/PostMedia.php:98
 msgid "confirm removal"
 msgstr "kentzea berretsi"
 
-#: src/Process/Backend/Media.php:289
+#: src/Process/Backend/Media.php:303
 #, php-format
 msgid "Are you sure you want to remove %s?"
 msgstr "Ziur %skendu nahi duzula?"
 
-#: src/Process/Backend/Media.php:294 src/Process/Backend/PostMedia.php:114
+#: src/Process/Backend/Media.php:308 src/Process/Backend/PostMedia.php:114
 msgid "Yes"
 msgstr "Bai"
 
-#: src/Process/Backend/Media.php:336
+#: src/Process/Backend/Media.php:350
 msgid "Remove this folder from your favorites"
 msgstr "Kendu karpeta hau gogokoetatik"
 
-#: src/Process/Backend/Media.php:361
+#: src/Process/Backend/Media.php:375
 msgid "Add this folder to your favorites"
 msgstr "Gehitu karpeta hau gogokoetara"
 
-#: src/Process/Backend/Media.php:372
+#: src/Process/Backend/Media.php:386
 msgid "Goto recent folder:"
 msgstr "Joan azken karpetara:"
 
-#: src/Process/Backend/Media.php:409
+#: src/Process/Backend/Media.php:423
 msgid "You do not have sufficient permissions to write to this folder."
 msgstr "Ez duzu karpeta honetan idazteko behar adinako baimenik."
 
-#: src/Process/Backend/Media.php:429
+#: src/Process/Backend/Media.php:443
 #, php-format
 msgid "Select a file by clicking on %s"
 msgstr "Hautatu fitxategi bat %ssakatuz"
 
-#: src/Process/Backend/Media.php:433
+#: src/Process/Backend/Media.php:447
 #, php-format
 msgid "Select files and click on <strong>%s</strong> button"
 msgstr "Hautatu fitxategiak eta egin klik <strong>%s</strong> botoian"
 
-#: src/Process/Backend/Media.php:434 src/Process/Backend/Media.php:563
+#: src/Process/Backend/Media.php:448 src/Process/Backend/Media.php:577
 msgid "Choose selected medias"
 msgstr "Aukeratu hautatutako euskarriak"
 
-#: src/Process/Backend/Media.php:440 src/Process/Backend/Media.php:474
-#: src/Process/Backend/Media.php:501
+#: src/Process/Backend/Media.php:454 src/Process/Backend/Media.php:488
+#: src/Process/Backend/Media.php:515
 msgid "or"
 msgstr "edo"
 
-#: src/Process/Backend/Media.php:443 src/Process/Backend/Media.php:477
-#: src/Process/Backend/Media.php:504
+#: src/Process/Backend/Media.php:457 src/Process/Backend/Media.php:491
+#: src/Process/Backend/Media.php:518
 msgid "upload a new file"
 msgstr "fitxategi berri bat igo"
 
-#: src/Process/Backend/Media.php:466
+#: src/Process/Backend/Media.php:480
 #, php-format
 msgid "Choose a file to attach to entry %1$s by clicking on %2$s"
 msgstr "Aukeratu %1$s sarrerari eransteko fitxategia %2$sklik eginez"
 
-#: src/Process/Backend/Media.php:494
+#: src/Process/Backend/Media.php:508
 #, php-format
 msgid "Choose a file to insert into entry by clicking on %s"
 msgstr "Aukeratu sarreran txertatzeko fitxategi bat %sklik eginez"
 
-#: src/Process/Backend/Media.php:524 src/Process/Backend/Media.php:528
-#: src/Process/Backend/Media.php:531
+#: src/Process/Backend/Media.php:538 src/Process/Backend/Media.php:542
+#: src/Process/Backend/Media.php:545
 msgid "Grid display mode"
 msgstr "Sarea bistaratzeko modua"
 
-#: src/Process/Backend/Media.php:535 src/Process/Backend/Media.php:539
-#: src/Process/Backend/Media.php:542
+#: src/Process/Backend/Media.php:549 src/Process/Backend/Media.php:553
+#: src/Process/Backend/Media.php:556
 msgid "List display mode"
 msgstr "Zerrenda bistaratzeko modua"
 
-#: src/Process/Backend/Media.php:567
+#: src/Process/Backend/Media.php:581
 msgid "Remove selected medias"
 msgstr "Kendu hautatutako euskarria"
 
-#: src/Process/Backend/Media.php:628
+#: src/Process/Backend/Media.php:642
 msgid "Create new directory"
 msgstr "Sortu direktorio berria"
 
-#: src/Process/Backend/Media.php:635
+#: src/Process/Backend/Media.php:649
 msgid "Directory Name:"
 msgstr "Direktorioaren izena:"
 
-#: src/Process/Backend/Media.php:655
+#: src/Process/Backend/Media.php:669
 msgid "Build missing thumbnails in directory"
 msgstr "Eraiki direktorioan falta diren irudi txikiak"
 
-#: src/Process/Backend/Media.php:660
+#: src/Process/Backend/Media.php:674
 msgid "Build"
 msgstr "Eraiki"
 
-#: src/Process/Backend/Media.php:670
+#: src/Process/Backend/Media.php:684
 msgid "Force rebuild all thumbnails in directory"
 msgstr "Behartu direktorioan dauden miniatura guztiak berreraikitzea"
 
-#: src/Process/Backend/Media.php:675
+#: src/Process/Backend/Media.php:689
 msgid "Force rebuild"
 msgstr "Berreraikuntza behartua"
 
-#: src/Process/Backend/Media.php:680
+#: src/Process/Backend/Media.php:694
 msgid "Use with caution especially if there is a large numbers of media if this directory."
 msgstr "Kontuz erabili, batez ere direktorio honetan multimedia kopuru handia badago."
 
-#: src/Process/Backend/Media.php:688
+#: src/Process/Backend/Media.php:702
 #, php-format
 msgid "Backup content of %s"
 msgstr "Egin babeskopiak %s-ren edukia"
 
-#: src/Process/Backend/Media.php:695
+#: src/Process/Backend/Media.php:709
 msgid "Download zip file"
 msgstr "Deskargatu zip fitxategia"
 
-#: src/Process/Backend/Media.php:714
+#: src/Process/Backend/Media.php:728
 msgid "Add files"
 msgstr "Gehitu fitxategiak"
 
-#: src/Process/Backend/Media.php:717
+#: src/Process/Backend/Media.php:731
 msgid "Please take care to publish media that you own and that are not protected by copyright."
 msgstr "Mesedez, zaindu zure jabetzako eta egile-eskubidez babestuta ez dauden euskarriak argitaratzen."
 
-#: src/Process/Backend/Media.php:756
+#: src/Process/Backend/Media.php:770
 msgid "Maximum file size allowed:"
 msgstr "Onartutako fitxategiaren gehienezko tamaina:"
 
-#: src/Process/Backend/Media.php:770 src/Process/Backend/MediaItem.php:1258
+#: src/Process/Backend/Media.php:784 src/Process/Backend/MediaItem.php:1258
 msgid "Private"
 msgstr "Pribatua"
 
-#: src/Process/Backend/Media.php:779
+#: src/Process/Backend/Media.php:793
 msgid "To send several files at the same time, you can activate the enhanced uploader in"
 msgstr "Hainbat fitxategi aldi berean bidaltzeko, kargatzaile hobetua aktibatu dezakezu"
 
-#: src/Process/Backend/Media.php:788
+#: src/Process/Backend/Media.php:802
 msgid "Refresh"
 msgstr "Freskatu"
 
-#: src/Process/Backend/Media.php:791
+#: src/Process/Backend/Media.php:805
 msgid "Clear all"
 msgstr "Garbitu dena"
 
-#: src/Process/Backend/Media.php:816
+#: src/Process/Backend/Media.php:830
 #, php-format
 msgid "In %s:"
 msgstr "%s-n:"
 
-#: src/Process/Backend/Media.php:843
+#: src/Process/Backend/Media.php:857
 #, php-format
 msgid "Current settings for medias and images are defined in %s"
 msgstr "Media eta irudien egungo ezarpenak %s-n definitzen dira"
@@ -5014,36 +5010,36 @@ msgstr "Iritsi zaren plugina ez dago edo ez du administratzaile orririk."
 msgid "The following plugins have been disabled :"
 msgstr "Plugin hauek desgaitu dira:"
 
-#: src/Process/Backend/Plugins.php:189 src/Process/Upgrade/Plugins.php:208
+#: src/Process/Backend/Plugins.php:189 src/Process/Upgrade/Plugins.php:206
 msgid "Activated plugins"
 msgstr "Aktibatutako pluginak"
 
 #: src/Process/Backend/Plugins.php:189 src/Process/Backend/Plugins.php:236
-#: src/Process/Upgrade/Plugins.php:252
+#: src/Process/Upgrade/Plugins.php:250
 msgid "Installed plugins"
 msgstr "Instalatutako pluginak"
 
-#: src/Process/Backend/Plugins.php:194 src/Process/Upgrade/Plugins.php:212
+#: src/Process/Backend/Plugins.php:194 src/Process/Upgrade/Plugins.php:210
 msgid "You can configure and manage installed plugins from this list."
 msgstr "Zerrenda honetatik instalatutako pluginak konfiguratu eta kudeatu ditzakezu."
 
-#: src/Process/Backend/Plugins.php:216 src/Process/Upgrade/Plugins.php:233
+#: src/Process/Backend/Plugins.php:216 src/Process/Upgrade/Plugins.php:231
 msgid "Deactivated plugins"
 msgstr "Desaktibatuta dauden pluginak"
 
-#: src/Process/Backend/Plugins.php:220 src/Process/Upgrade/Plugins.php:237
+#: src/Process/Backend/Plugins.php:220 src/Process/Upgrade/Plugins.php:235
 msgid "Deactivated plugins are installed but not usable. You can activate them from here."
 msgstr "Desaktibatuta dauden pluginak instalatuta daude baina ez dira erabilgarri. Hemendik aktibatu ditzakezu."
 
-#: src/Process/Backend/Plugins.php:247 src/Process/Upgrade/Plugins.php:168
+#: src/Process/Backend/Plugins.php:247 src/Process/Upgrade/Plugins.php:166
 msgid "Manual checking of plugins update done successfully."
 msgstr "Pluginen eguneratzearen eskuzko egiaztapena arrakastaz egin da."
 
-#: src/Process/Backend/Plugins.php:264 src/Process/Upgrade/Plugins.php:263
+#: src/Process/Backend/Plugins.php:264 src/Process/Upgrade/Plugins.php:261
 msgid "No updates available for plugins."
 msgstr "Ez dago eguneratzerik erabilgarri pluginetarako."
 
-#: src/Process/Backend/Plugins.php:267 src/Process/Upgrade/Plugins.php:266
+#: src/Process/Backend/Plugins.php:267 src/Process/Upgrade/Plugins.php:264
 #, php-format
 msgid "There is one plugin update available:"
 msgid_plural "There are %s plugin updates available:"
@@ -5051,31 +5047,31 @@ msgstr[0] "Plugin eguneratze bat dago eskuragarri:"
 msgstr[1] "%s plugin-eguneratze eskuragarri daude:"
 
 #: src/Process/Backend/Plugins.php:286 src/Process/Backend/Plugins.php:289
-#: src/Process/Upgrade/Plugins.php:285 src/Process/Upgrade/Plugins.php:288
+#: src/Process/Upgrade/Plugins.php:283 src/Process/Upgrade/Plugins.php:286
 msgid "Update plugins"
 msgstr "Eguneratu pluginak"
 
-#: src/Process/Backend/Plugins.php:298 src/Process/Upgrade/Plugins.php:297
+#: src/Process/Backend/Plugins.php:298 src/Process/Upgrade/Plugins.php:295
 msgid "Force checking update of plugins"
 msgstr "Behartu pluginen eguneratzea egiaztatzea"
 
-#: src/Process/Backend/Plugins.php:317 src/Process/Upgrade/Plugins.php:318
+#: src/Process/Backend/Plugins.php:317 src/Process/Upgrade/Plugins.php:316
 msgid "Add plugins"
 msgstr "Gehitu pluginak"
 
-#: src/Process/Backend/Plugins.php:320 src/Process/Upgrade/Plugins.php:321
+#: src/Process/Backend/Plugins.php:320 src/Process/Upgrade/Plugins.php:319
 msgid "Add plugins from repository"
 msgstr "Gehitu biltegitik pluginak"
 
-#: src/Process/Backend/Plugins.php:345 src/Process/Upgrade/Plugins.php:346
+#: src/Process/Backend/Plugins.php:345 src/Process/Upgrade/Plugins.php:344
 msgid "Add plugins from a package"
 msgstr "Gehitu pakete batetik pluginak"
 
-#: src/Process/Backend/Plugins.php:348 src/Process/Upgrade/Plugins.php:349
+#: src/Process/Backend/Plugins.php:348 src/Process/Upgrade/Plugins.php:347
 msgid "You can install plugins by uploading or downloading zip files."
 msgstr "Pluginak instala ditzakezu zip fitxategiak igoz edo deskargatuz."
 
-#: src/Process/Backend/Plugins.php:364 src/Process/Upgrade/Plugins.php:362
+#: src/Process/Backend/Plugins.php:364 src/Process/Upgrade/Plugins.php:360
 msgid "Some functions are disabled, please give write access to your plugins directory to enable them."
 msgstr "Funtzio batzuk desgaituta daude, mesedez, eman idazteko sarbidea zure pluginen direktorioa gaitzeko."
 
@@ -5083,173 +5079,173 @@ msgstr "Funtzio batzuk desgaituta daude, mesedez, eman idazteko sarbidea zure pl
 msgid "Plugin configuration"
 msgstr "Plugin konfigurazioa"
 
-#: src/Process/Backend/Post.php:159 src/Process/Backend/Post.php:968
-#: src/Process/Backend/Post.php:989
+#: src/Process/Backend/Post.php:160 src/Process/Backend/Post.php:969
+#: src/Process/Backend/Post.php:990
 msgid "Edit post"
 msgstr "Editatu mezua"
 
-#: src/Process/Backend/Post.php:199
+#: src/Process/Backend/Post.php:200
 msgid "Next post"
 msgstr "Hurrengo mezua"
 
-#: src/Process/Backend/Post.php:215
+#: src/Process/Backend/Post.php:216
 msgid "Previous post"
 msgstr "Aurreko mezua"
 
-#: src/Process/Backend/Post.php:292 src/Process/Backend/Post.php:614
+#: src/Process/Backend/Post.php:293 src/Process/Backend/Post.php:615
 msgid "All pings sent."
 msgstr "Bidalitako ping guztiak."
 
-#: src/Process/Backend/Post.php:322
+#: src/Process/Backend/Post.php:323
 msgid "Invalid publication date"
 msgstr "Argitalpen data baliogabea"
 
-#: src/Process/Backend/Post.php:446
+#: src/Process/Backend/Post.php:447
 #, php-format
 msgid "The post \"%s\" has been successfully updated"
 msgstr "\"%s\" argitalpena behar bezala eguneratu da"
 
-#: src/Process/Backend/Post.php:503
+#: src/Process/Backend/Post.php:504
 msgid "Don't forget to validate your XHTML conversion by saving your post."
 msgstr "Ez ahaztu zure XHTML bihurketa baliozkotzea zure mezua gordez."
 
-#: src/Process/Backend/Post.php:601
+#: src/Process/Backend/Post.php:602
 msgid "Entry has been successfully updated."
 msgstr "Sarrera behar bezala eguneratu da."
 
-#: src/Process/Backend/Post.php:605
+#: src/Process/Backend/Post.php:606
 msgid "File has been successfully attached."
 msgstr "Fitxategia behar bezala erantsi da."
 
-#: src/Process/Backend/Post.php:607 src/Process/Backend/PostMedia.php:89
+#: src/Process/Backend/Post.php:608 src/Process/Backend/PostMedia.php:89
 msgid "Attachment has been successfully removed."
 msgstr "Eranskina behar bezala kendu da."
 
-#: src/Process/Backend/Post.php:624
+#: src/Process/Backend/Post.php:625
 msgid "Go to this entry on the site"
 msgstr "Joan webguneko sarrera honetara"
 
-#: src/Process/Backend/Post.php:666
+#: src/Process/Backend/Post.php:667
 msgid "Entry status"
 msgstr "Sarrera egoera"
 
-#: src/Process/Backend/Post.php:674
+#: src/Process/Backend/Post.php:675
 msgid "Publication date and hour"
 msgstr "Argitalpen data eta ordua"
 
-#: src/Process/Backend/Post.php:683
+#: src/Process/Backend/Post.php:684
 msgid "Entry language"
 msgstr "Sarrerako hizkuntza"
 
-#: src/Process/Backend/Post.php:691
+#: src/Process/Backend/Post.php:692
 msgid "Text formatting"
 msgstr "Testuaren formatua"
 
-#: src/Process/Backend/Post.php:698
+#: src/Process/Backend/Post.php:699
 msgid "Convert to HTML"
 msgstr "Bihurtu HTMLra"
 
-#: src/Process/Backend/Post.php:706
+#: src/Process/Backend/Post.php:707
 msgid "Filing"
 msgstr "Artxibatzea"
 
-#: src/Process/Backend/Post.php:711
+#: src/Process/Backend/Post.php:712
 msgid "Selected entry"
 msgstr "Aukeratutako sarrera"
 
-#: src/Process/Backend/Post.php:755 src/Process/Backend/User.php:475
+#: src/Process/Backend/Post.php:756 src/Process/Backend/User.php:475
 msgid "Options"
 msgstr "Aukerak"
 
-#: src/Process/Backend/Post.php:758
+#: src/Process/Backend/Post.php:759
 msgid "Comments and trackbacks list"
 msgstr "Iruzkinen eta trackback-en zerrenda"
 
-#: src/Process/Backend/Post.php:771
+#: src/Process/Backend/Post.php:772
 msgid "Warning: Comments are no longer accepted for this entry."
 msgstr "Abisua: jada ez dira iruzkinak onartzen sarrera honetarako."
 
-#: src/Process/Backend/Post.php:775
+#: src/Process/Backend/Post.php:776
 msgid "Comments are not accepted on this blog so far."
 msgstr "Orain arte ez dira blog honetan iruzkinak onartzen."
 
-#: src/Process/Backend/Post.php:788
+#: src/Process/Backend/Post.php:789
 msgid "Warning: Trackbacks are no longer accepted for this entry."
 msgstr "Abisua: jada ez dira onartzen sarrera honetarako trackback-ak."
 
-#: src/Process/Backend/Post.php:792
+#: src/Process/Backend/Post.php:793
 msgid "Trackbacks are not accepted on this blog so far."
 msgstr "Orain arte ez dira blog honetan trackback-ak onartzen."
 
-#: src/Process/Backend/Post.php:816
+#: src/Process/Backend/Post.php:817
 msgid "Edit basename"
 msgstr "Editatu oinarrizko izena"
 
-#: src/Process/Backend/Post.php:820
+#: src/Process/Backend/Post.php:821
 msgid "Warning: If you set the URL manually, it may conflict with another entry."
 msgstr "Abisua: URLa eskuz ezartzen baduzu, baliteke beste sarrera batekin gatazka izatea."
 
-#: src/Process/Backend/Post.php:859
+#: src/Process/Backend/Post.php:860
 msgid "Excerpt:"
 msgstr "Laburpena:"
 
-#: src/Process/Backend/Post.php:859
+#: src/Process/Backend/Post.php:860
 msgid "Introduction to the post."
 msgstr "Postaren aurkezpena."
 
-#: src/Process/Backend/Post.php:895
+#: src/Process/Backend/Post.php:896
 msgid "Personal notes:"
 msgstr "Oharrak pertsonalak:"
 
-#: src/Process/Backend/Post.php:895
+#: src/Process/Backend/Post.php:896
 msgid "Unpublished notes."
 msgstr "Argitaratu gabeko oharrak."
 
-#: src/Process/Backend/Post.php:1065 src/Process/Backend/Post.php:1080
+#: src/Process/Backend/Post.php:1066 src/Process/Backend/Post.php:1081
 msgid "Add a comment"
 msgstr "Gehitu iruzkin bat"
 
-#: src/Process/Backend/Post.php:1169
+#: src/Process/Backend/Post.php:1170
 msgid "No trackback"
 msgstr "Ez dago ibilbiderik"
 
-#: src/Process/Backend/Post.php:1180
+#: src/Process/Backend/Post.php:1181
 msgid "Selected trackbacks action:"
 msgstr "Hautatutako trackback-en ekintza:"
 
-#: src/Process/Backend/Post.php:1203
+#: src/Process/Backend/Post.php:1204
 msgid "Previously sent pings"
 msgstr "Aurretik bidalitako ping-ak"
 
-#: src/Process/Backend/Post.php:1229 src/Process/Backend/Post.php:1251
+#: src/Process/Backend/Post.php:1230 src/Process/Backend/Post.php:1252
 msgid "Ping blogs"
 msgstr "Ping blogak"
 
-#: src/Process/Backend/Post.php:1237
+#: src/Process/Backend/Post.php:1238
 msgid "URLs to ping:"
 msgstr "Ping egiteko URLak:"
 
-#: src/Process/Backend/Post.php:1245
+#: src/Process/Backend/Post.php:1246
 msgid "Excerpt to send:"
 msgstr "Bidaltzeko zatia:"
 
-#: src/Process/Backend/Post.php:1258
+#: src/Process/Backend/Post.php:1259
 msgid "Auto discover ping URLs"
 msgstr "Aurki ping URLak automatikoki"
 
-#: src/Process/Backend/Post.php:1327
+#: src/Process/Backend/Post.php:1328
 msgid "select this comment"
 msgstr "hautatu iruzkin hau"
 
-#: src/Process/Backend/Post.php:1327
+#: src/Process/Backend/Post.php:1328
 msgid "select this trackback"
 msgstr "hautatu trackback hau"
 
-#: src/Process/Backend/Post.php:1358
+#: src/Process/Backend/Post.php:1359
 msgid "Edit this comment"
 msgstr "Editatu iruzkin hau"
 
-#: src/Process/Backend/Post.php:1358
+#: src/Process/Backend/Post.php:1359
 msgid "Edit this trackback"
 msgstr "Editatu trackback hau"
 
@@ -5352,11 +5348,11 @@ msgstr[1] "%s eguneraketak eskuragarri daude."
 msgid "List options saved"
 msgstr "Zerrenda aukerak gordeta"
 
-#: src/Process/Backend/Rest.php:985
+#: src/Process/Backend/Rest.php:986
 msgid "Authentication key successfully registered"
 msgstr "Autentifikazio-giltza behar bezala erregistratu da"
 
-#: src/Process/Backend/Rest.php:1040
+#: src/Process/Backend/Rest.php:1041
 msgid "This key is not registered"
 msgstr "Giltza hau ez dago erregistratuta"
 
@@ -5521,17 +5517,17 @@ msgstr "Abisua:"
 msgid "Password change required to connect"
 msgstr "Konektatzeko pasahitza aldatu behar da"
 
-#: src/Process/Backend/User.php:401 src/Process/Backend/UserPreferences.php:793
-#: src/Process/Install/Install.php:439
+#: src/Process/Backend/User.php:401 src/Process/Backend/UserPreferences.php:794
+#: src/Process/Install/Install.php:497
 msgid "Last Name:"
 msgstr "Abizena:"
 
-#: src/Process/Backend/User.php:411 src/Process/Backend/UserPreferences.php:803
-#: src/Process/Install/Install.php:433
+#: src/Process/Backend/User.php:411 src/Process/Backend/UserPreferences.php:804
+#: src/Process/Install/Install.php:488
 msgid "First Name:"
 msgstr "Izena:"
 
-#: src/Process/Backend/User.php:421 src/Process/Backend/UserPreferences.php:813
+#: src/Process/Backend/User.php:421 src/Process/Backend/UserPreferences.php:814
 msgid "Display name:"
 msgstr "Bistaratzeko izena:"
 
@@ -5539,24 +5535,24 @@ msgstr "Bistaratzeko izena:"
 msgid "Mandatory for password recovering procedure."
 msgstr "Pasahitza berreskuratzeko prozedura derrigorrezkoa."
 
-#: src/Process/Backend/User.php:444 src/Process/Backend/UserPreferences.php:832
+#: src/Process/Backend/User.php:444 src/Process/Backend/UserPreferences.php:833
 msgid "Alternate emails (comma separated list):"
 msgstr "Ordezko mezu elektronikoak (komaz bereizitako zerrenda):"
 
-#: src/Process/Backend/User.php:448 src/Process/Backend/UserPreferences.php:836
+#: src/Process/Backend/User.php:448 src/Process/Backend/UserPreferences.php:837
 msgid "Invalid emails will be automatically removed from list."
 msgstr "Mezu elektroniko baliogabeak automatikoki kenduko dira zerrendatik."
 
-#: src/Process/Backend/User.php:466 src/Process/Backend/UserPreferences.php:854
+#: src/Process/Backend/User.php:466 src/Process/Backend/UserPreferences.php:855
 msgid "Alternate URLs (comma separated list):"
 msgstr "Ordezko URLak (komaz bereizitako zerrenda):"
 
-#: src/Process/Backend/User.php:470 src/Process/Backend/UserPreferences.php:858
+#: src/Process/Backend/User.php:470 src/Process/Backend/UserPreferences.php:859
 msgid "Invalid URLs will be automatically removed from list."
 msgstr "URL baliogabeak automatikoki kenduko dira zerrendatik."
 
 #: src/Process/Backend/User.php:476
-#: src/Process/Backend/UserPreferences.php:1025
+#: src/Process/Backend/UserPreferences.php:1027
 msgid "Interface"
 msgstr "Interfazea"
 
@@ -5565,22 +5561,22 @@ msgid "Timezone:"
 msgstr "Ordu eremu:"
 
 #: src/Process/Backend/User.php:492
-#: src/Process/Backend/UserPreferences.php:1149
+#: src/Process/Backend/UserPreferences.php:1151
 msgid "Edition"
 msgstr "Edizioa"
 
 #: src/Process/Backend/User.php:498
-#: src/Process/Backend/UserPreferences.php:1161
+#: src/Process/Backend/UserPreferences.php:1163
 msgid "Preferred format:"
 msgstr "Formatu hobetsia:"
 
 #: src/Process/Backend/User.php:505
-#: src/Process/Backend/UserPreferences.php:1169
+#: src/Process/Backend/UserPreferences.php:1171
 msgid "Default entry status:"
 msgstr "Sarrera lehenetsiaren egoera:"
 
 #: src/Process/Backend/User.php:510
-#: src/Process/Backend/UserPreferences.php:1175
+#: src/Process/Backend/UserPreferences.php:1177
 msgid "Entry edit field height:"
 msgstr "Sarrera editatzeko eremuaren altuera:"
 
@@ -5728,307 +5724,316 @@ msgstr "Arbeleko elementuen ordena behar bezala berrezarri da."
 msgid "Are you sure you want to remove selected favorites?"
 msgstr "Ziur hautatutako gogokoak kendu nahi dituzula?"
 
-#: src/Process/Backend/UserPreferences.php:625
+#: src/Process/Backend/UserPreferences.php:604
+msgid "Enter a name for this key:"
+msgstr "Sartu giltza honen izena:"
+
+#: src/Process/Backend/UserPreferences.php:626
 msgid "Change my password"
 msgstr "Aldatu nire pasahitza"
 
-#: src/Process/Backend/UserPreferences.php:644
+#: src/Process/Backend/UserPreferences.php:645
 msgid "Confirm new password:"
 msgstr "Berretsi pasahitz berria:"
 
-#: src/Process/Backend/UserPreferences.php:654
+#: src/Process/Backend/UserPreferences.php:655
 msgid "Your current password:"
 msgstr "Zure uneko pasahitza:"
 
-#: src/Process/Backend/UserPreferences.php:658
+#: src/Process/Backend/UserPreferences.php:659
 msgid "If you have changed your email or password you must provide your current password to save these modifications."
 msgstr "Zure posta elektronikoa edo pasahitza aldatu baduzu, zure uneko pasahitza eman behar duzu aldaketa hauek gordetzeko."
 
-#: src/Process/Backend/UserPreferences.php:667
+#: src/Process/Backend/UserPreferences.php:668
 msgid "Your account is registered to two factors authentication."
 msgstr "Zure kontua bi faktoreko autentifikazioarekin erregistratuta dago."
 
-#: src/Process/Backend/UserPreferences.php:668
+#: src/Process/Backend/UserPreferences.php:669
 msgid "Disable two factors authentication"
 msgstr "Desgaitu bi faktoreko autentifikazioa"
 
-#: src/Process/Backend/UserPreferences.php:673
+#: src/Process/Backend/UserPreferences.php:674
 msgid "Scan this QR code with your authentication application:"
 msgstr "Eskaneatu QR kode hau zure autentifikazio aplikazioarekin:"
 
-#: src/Process/Backend/UserPreferences.php:684
+#: src/Process/Backend/UserPreferences.php:685
 msgid "Or enter this secret into your authentication application:"
 msgstr "Edo sartu sekretu hau zure autentifikazio aplikazioan:"
 
-#: src/Process/Backend/UserPreferences.php:685
+#: src/Process/Backend/UserPreferences.php:686
 msgid "Regenerate"
 msgstr "Birsortu"
 
-#: src/Process/Backend/UserPreferences.php:695
+#: src/Process/Backend/UserPreferences.php:696
 msgid "Enter verification code:"
 msgstr "Sartu egiaztapen-kodea:"
 
 #: src/Process/Backend/UserPreferences.php:713
-msgid "Unknown certificat issuer"
-msgstr "Ziurtagiri-jaulkitzaile ezezaguna"
+msgid "unlabeled key"
+msgstr "etiketa gabeko giltza"
 
-#: src/Process/Backend/UserPreferences.php:723
+#: src/Process/Backend/UserPreferences.php:715
+#, php-format
+msgid "valid on %s"
+msgstr "baliozkoa %s-n"
+
+#: src/Process/Backend/UserPreferences.php:724
 msgid "You have no registered key yet."
 msgstr "Ez duzu oraindik giltzarik erregistratuta."
 
-#: src/Process/Backend/UserPreferences.php:763
+#: src/Process/Backend/UserPreferences.php:764
 msgid "Linked to account:"
 msgstr "Kontuari lotuta:"
 
-#: src/Process/Backend/UserPreferences.php:778
-#: src/Process/Backend/UserPreferences.php:780
+#: src/Process/Backend/UserPreferences.php:779
+#: src/Process/Backend/UserPreferences.php:781
 msgid "My profile"
 msgstr "Nire profila"
 
-#: src/Process/Backend/UserPreferences.php:865
+#: src/Process/Backend/UserPreferences.php:866
 msgid "Language for my interface:"
 msgstr "Nire interfazearen hizkuntza:"
 
-#: src/Process/Backend/UserPreferences.php:873
+#: src/Process/Backend/UserPreferences.php:874
 msgid "My timezone:"
 msgstr "Nire ordu-zona:"
 
-#: src/Process/Backend/UserPreferences.php:885
+#: src/Process/Backend/UserPreferences.php:886
 msgid "Authentication keys"
 msgstr "Autentifikazio-giltzak"
 
-#: src/Process/Backend/UserPreferences.php:892
+#: src/Process/Backend/UserPreferences.php:893
 msgid "Register a new key"
 msgstr "Erregistratu giltza berri bat"
 
-#: src/Process/Backend/UserPreferences.php:898
+#: src/Process/Backend/UserPreferences.php:899
 msgid "Authentication applications"
 msgstr "Autentifikazio aplikazioak"
 
-#: src/Process/Backend/UserPreferences.php:906
+#: src/Process/Backend/UserPreferences.php:907
 msgid "Update my profile"
 msgstr "Eguneratu nire profila"
 
-#: src/Process/Backend/UserPreferences.php:974
+#: src/Process/Backend/UserPreferences.php:976
 msgid "List"
 msgstr "Zerrenda"
 
-#: src/Process/Backend/UserPreferences.php:976
+#: src/Process/Backend/UserPreferences.php:978
 msgid "Order by"
 msgstr "Ordenatu"
 
-#: src/Process/Backend/UserPreferences.php:978
+#: src/Process/Backend/UserPreferences.php:980
 msgid "Sort"
 msgstr "Ordenatu"
 
-#: src/Process/Backend/UserPreferences.php:991
+#: src/Process/Backend/UserPreferences.php:993
 #, php-format
 msgid "Preferred editor for %s:"
 msgstr "%s-rako editore hobetsia:"
 
-#: src/Process/Backend/UserPreferences.php:996
+#: src/Process/Backend/UserPreferences.php:998
 msgid "Choose an editor"
 msgstr "Aukeratu editore bat"
 
-#: src/Process/Backend/UserPreferences.php:1017
-#: src/Process/Backend/UserPreferences.php:1023
+#: src/Process/Backend/UserPreferences.php:1019
+#: src/Process/Backend/UserPreferences.php:1025
 msgid "My options"
 msgstr "Nire aukerak"
 
-#: src/Process/Backend/UserPreferences.php:1032
+#: src/Process/Backend/UserPreferences.php:1034
 msgid "Theme:"
 msgstr "Gaia:"
 
-#: src/Process/Backend/UserPreferences.php:1038
+#: src/Process/Backend/UserPreferences.php:1040
 msgid "Activate enhanced uploader in media manager"
 msgstr "Aktibatu kargatzaile hobetua multimedia-kudeatzailean"
 
-#: src/Process/Backend/UserPreferences.php:1044
+#: src/Process/Backend/UserPreferences.php:1046
 msgid "Preview the entry being edited in a blank window or tab (depending on your browser settings)."
 msgstr "Aurreikusi editatzen ari den sarrera leiho edo fitxa huts batean (zure arakatzailearen ezarpenen arabera)."
 
-#: src/Process/Backend/UserPreferences.php:1051
+#: src/Process/Backend/UserPreferences.php:1053
 msgid "Disable javascript powered drag and drop for ordering items"
 msgstr "Desgaitu javascript bidezko arrastatu eta jaregin elementuak eskatzeko"
 
-#: src/Process/Backend/UserPreferences.php:1055
+#: src/Process/Backend/UserPreferences.php:1057
 msgid "If checked, numeric fields will allow to type the elements' ordering number."
 msgstr "Hautatzen bada, zenbakizko eremuek elementuen ordena-zenbakia idazteko aukera emango dute."
 
-#: src/Process/Backend/UserPreferences.php:1060
+#: src/Process/Backend/UserPreferences.php:1062
 msgid "Hide all secondary information and notes"
 msgstr "Ezkutatu bigarren mailako informazio eta ohar guztiak"
 
-#: src/Process/Backend/UserPreferences.php:1066
+#: src/Process/Backend/UserPreferences.php:1068
 msgid "Hide help button"
 msgstr "Ezkutatu laguntza botoia"
 
-#: src/Process/Backend/UserPreferences.php:1073
+#: src/Process/Backend/UserPreferences.php:1075
 msgid "Font size:"
 msgstr "Letra-tamaina:"
 
-#: src/Process/Backend/UserPreferences.php:1079
+#: src/Process/Backend/UserPreferences.php:1081
 msgid "Use operating system font"
 msgstr "Erabili sistema eragilearen letra-tipoa"
 
-#: src/Process/Backend/UserPreferences.php:1085
+#: src/Process/Backend/UserPreferences.php:1087
 msgid "Number of recent folders proposed in media manager:"
 msgstr "Multimedia-kudeatzailean proposatutako azken karpeta kopurua:"
 
-#: src/Process/Backend/UserPreferences.php:1089
+#: src/Process/Backend/UserPreferences.php:1091
 msgid "Set to 0 (zero) to ignore, displayed only if Javascript is enabled in your browser."
 msgstr "Ezarri 0 (zero) kontuan hartu gabe uzteko, zure arakatzailean Javascript gaituta badago bakarrik bistaratuko da."
 
-#: src/Process/Backend/UserPreferences.php:1096
+#: src/Process/Backend/UserPreferences.php:1098
 msgid "Do not use standard favicon"
 msgstr "Ez erabili favicon estandarra"
 
-#: src/Process/Backend/UserPreferences.php:1097
+#: src/Process/Backend/UserPreferences.php:1099
 msgid "This will be applied for all users"
 msgstr "Erabiltzaile guztiei aplikatuko zaie"
 
-#: src/Process/Backend/UserPreferences.php:1107
+#: src/Process/Backend/UserPreferences.php:1109
 msgid "Disable Ad-blocker check"
 msgstr "Desgaitu iragarki-blokeatzaileen egiaztapena"
 
-#: src/Process/Backend/UserPreferences.php:1111
+#: src/Process/Backend/UserPreferences.php:1113
 msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
 msgstr "Iragarki-blokeatzaile batzuek (Ghostery, Adblock plus, uBloc jatorria, …) eginbideren bat oztopatu dezakete CKEditor-eko sarreretan esteka edo multimedia txertatzea; kasu honetan Dotclear instalazio honetarako desgaitu beharko zenuke (backend-a soilik). Kontuan izan Dotclear-ek ez duela iragarkirik eta jarraitzailerik gehitzen backend-ean."
 
-#: src/Process/Backend/UserPreferences.php:1114
+#: src/Process/Backend/UserPreferences.php:1116
 msgid "Note also that deactivating this detection of ad blockers will not deactivate the installed ad blockers. Dotclear cannot interfere with the operation of browser extensions!"
 msgstr "Kontuan izan, gainera, iragarki-blokeatzaileen detekzio hau desaktibatzeak ez dituela instalatutako iragarki-blokeatzaileak desaktibatuko. Dotclear-ek ezin du nabigatzailearen luzapenen funtzionamendua oztopatu!"
 
-#: src/Process/Backend/UserPreferences.php:1122
+#: src/Process/Backend/UserPreferences.php:1124
 msgid "Quick menu character:"
 msgstr "Menu bizkorreko karakterea:"
 
-#: src/Process/Backend/UserPreferences.php:1126
+#: src/Process/Backend/UserPreferences.php:1128
 msgid "Leave empty to use the default character <kbd>:</kbd>"
 msgstr "Utzi hutsik <kbd>karaktere lehenetsia erabiltzeko:</kbd>"
 
-#: src/Process/Backend/UserPreferences.php:1131
+#: src/Process/Backend/UserPreferences.php:1133
 msgid "Keep the main menu at the top of the page as much as possible"
 msgstr "Mantendu menu nagusia orriaren goialdean ahalik eta gehien"
 
-#: src/Process/Backend/UserPreferences.php:1135
+#: src/Process/Backend/UserPreferences.php:1137
 msgid "Optional columns displayed in lists"
 msgstr "Zerrendetan bistaratzen diren hautazko zutabeak"
 
-#: src/Process/Backend/UserPreferences.php:1138
+#: src/Process/Backend/UserPreferences.php:1140
 msgid "Options for lists"
 msgstr "Zerrenden aukerak"
 
-#: src/Process/Backend/UserPreferences.php:1144
+#: src/Process/Backend/UserPreferences.php:1146
 msgid "Apply filters on the fly"
 msgstr "Aplikatu iragazkiak hegaldian"
 
-#: src/Process/Backend/UserPreferences.php:1181
+#: src/Process/Backend/UserPreferences.php:1183
 msgid "Enable WYSIWYG mode"
 msgstr "Gaitu WYSIWYG modua"
 
-#: src/Process/Backend/UserPreferences.php:1187
+#: src/Process/Backend/UserPreferences.php:1189
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr "Bistaratu editorearen tresna-barra testu-eremuaren behealdean (ahal bada)"
 
-#: src/Process/Backend/UserPreferences.php:1193
+#: src/Process/Backend/UserPreferences.php:1195
 msgid "Use HTML editor for:"
 msgstr "Erabili HTML editorea:"
 
-#: src/Process/Backend/UserPreferences.php:1197
+#: src/Process/Backend/UserPreferences.php:1199
 msgid "Other options"
 msgstr "Beste aukera batzuk"
 
-#: src/Process/Backend/UserPreferences.php:1208
+#: src/Process/Backend/UserPreferences.php:1210
 msgid "Save my options"
 msgstr "Gorde nire aukerak"
 
-#: src/Process/Backend/UserPreferences.php:1239
+#: src/Process/Backend/UserPreferences.php:1241
 #, php-format
 msgid "position of %s"
 msgstr "%s-ren posizioa"
 
-#: src/Process/Backend/UserPreferences.php:1262
+#: src/Process/Backend/UserPreferences.php:1264
 msgid "Save order"
 msgstr "Gorde eskaera"
 
-#: src/Process/Backend/UserPreferences.php:1263
+#: src/Process/Backend/UserPreferences.php:1265
 msgid "Delete selected favorites"
 msgstr "Ezabatu hautatutako gogokoak"
 
-#: src/Process/Backend/UserPreferences.php:1270
+#: src/Process/Backend/UserPreferences.php:1272
 msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
 msgstr "Super administratzailea bazara, instalazio honetako blog guztietan lehenespenez erabiltzeko gogokoen multzo hau defini dezakezu."
 
-#: src/Process/Backend/UserPreferences.php:1273
+#: src/Process/Backend/UserPreferences.php:1275
 msgid "Define as default favorites"
 msgstr "Definitu gogoko lehenetsi gisa"
 
-#: src/Process/Backend/UserPreferences.php:1282
+#: src/Process/Backend/UserPreferences.php:1284
 msgid "Currently no personal favorites."
 msgstr "Momentuz ez dago gogoko pertsonalik."
 
-#: src/Process/Backend/UserPreferences.php:1321
+#: src/Process/Backend/UserPreferences.php:1323
 msgid "(default favorite)"
 msgstr "(gogoko lehenetsia)"
 
-#: src/Process/Backend/UserPreferences.php:1336
+#: src/Process/Backend/UserPreferences.php:1338
 msgid "Add to my favorites"
 msgstr "Gehitu nire gogokoetara"
 
-#: src/Process/Backend/UserPreferences.php:1360
+#: src/Process/Backend/UserPreferences.php:1362
 msgid "Other available favorites"
 msgstr "Eskuragarri dauden beste gogokoenak"
 
-#: src/Process/Backend/UserPreferences.php:1372
+#: src/Process/Backend/UserPreferences.php:1374
 msgid "Menu"
 msgstr "Menua"
 
-#: src/Process/Backend/UserPreferences.php:1378
+#: src/Process/Backend/UserPreferences.php:1380
 msgid "Display favorites at the top of the menu"
 msgstr "Erakutsi gogokoak menuaren goialdean"
 
-#: src/Process/Backend/UserPreferences.php:1382
+#: src/Process/Backend/UserPreferences.php:1384
 msgid "Dashboard icons"
 msgstr "Arbel-ikonoak"
 
-#: src/Process/Backend/UserPreferences.php:1388
+#: src/Process/Backend/UserPreferences.php:1390
 msgid "Display dashboard icons"
 msgstr "Bistaratu aginte-paneleko ikonoak"
 
-#: src/Process/Backend/UserPreferences.php:1392
+#: src/Process/Backend/UserPreferences.php:1394
 msgid "Dashboard modules"
 msgstr "Arbel moduluak"
 
-#: src/Process/Backend/UserPreferences.php:1398
+#: src/Process/Backend/UserPreferences.php:1400
 msgid "Display documentation links"
 msgstr "Bistaratu dokumentazioaren estekak"
 
-#: src/Process/Backend/UserPreferences.php:1404
+#: src/Process/Backend/UserPreferences.php:1406
 msgid "Display donate links"
 msgstr "Erakutsi dohaintza estekak"
 
-#: src/Process/Backend/UserPreferences.php:1410
+#: src/Process/Backend/UserPreferences.php:1412
 msgid "Display Dotclear news"
 msgstr "Erakutsi Dotclear albisteak"
 
-#: src/Process/Backend/UserPreferences.php:1416
+#: src/Process/Backend/UserPreferences.php:1418
 msgid "Display quick entry form"
 msgstr "Erakutsi sarrera azkarreko formularioa"
 
-#: src/Process/Backend/UserPreferences.php:1421
+#: src/Process/Backend/UserPreferences.php:1423
 msgid "Do not display Dotclear updates"
 msgstr "Ez erakutsi Dotclear eguneraketak"
 
-#: src/Process/Backend/UserPreferences.php:1434
+#: src/Process/Backend/UserPreferences.php:1436
 msgid "Save my dashboard options"
 msgstr "Gorde nire paneleko aukerak"
 
-#: src/Process/Backend/UserPreferences.php:1447
+#: src/Process/Backend/UserPreferences.php:1449
 msgid "Dashboard items order"
 msgstr "Arbeleko elementuen ordena"
 
-#: src/Process/Backend/UserPreferences.php:1450
+#: src/Process/Backend/UserPreferences.php:1452
 msgid "Reset dashboard items order"
 msgstr "Berrezarri paneleko elementuen ordena"
 
@@ -6095,229 +6100,235 @@ msgstr "Erabiltzaileentzako blog hauetan baimenak aldatzera zoaz %s."
 msgid "Validate permissions"
 msgstr "Baliozkotu baimenak"
 
-#: src/Process/Install/Install.php:120
+#: src/Process/Install/Install.php:135
 msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
 msgstr "Ezarri gako nagusi bat (DC_MASTER_KEY) konfigurazio fitxategian."
 
-#: src/Process/Install/Install.php:127 src/Process/Install/Wizard.php:141
+#: src/Process/Install/Install.php:141 src/Process/Install/Wizard.php:196
 msgid "Dotclear is already installed."
 msgstr "Dotclear instalatuta dago jada."
 
-#: src/Process/Install/Install.php:134 src/Process/Install/Wizard.php:135
+#: src/Process/Install/Install.php:148 src/Process/Install/Wizard.php:186
 msgid "Dotclear cannot be installed."
 msgstr "Ezin da Dotclear instalatu."
 
-#: src/Process/Install/Install.php:163
+#: src/Process/Install/Install.php:177
 msgid "Invalid email address"
 msgstr "Helbide elektroniko baliogabea"
 
-#: src/Process/Install/Install.php:226
+#: src/Process/Install/Install.php:240
 msgid "My first blog"
 msgstr "Nire lehenengo bloga"
 
-#: src/Process/Install/Install.php:239
+#: src/Process/Install/Install.php:253
 msgid "%A, %B %e %Y"
 msgstr "%A, %B %e %Y"
 
-#: src/Process/Install/Install.php:315
+#: src/Process/Install/Install.php:329
 msgid "Welcome to Dotclear!"
 msgstr "Ongi etorri Dotclear-era!"
 
-#: src/Process/Install/Install.php:316
+#: src/Process/Install/Install.php:330
 msgid "This is your first entry. When you're ready to blog, log in to edit or delete it."
 msgstr "Hau da zure lehen sarrera. Bloga egiteko prest zaudenean, hasi saioa editatzeko edo ezabatzeko."
 
-#: src/Process/Install/Install.php:328
+#: src/Process/Install/Install.php:342
 msgid "Dotclear Team"
 msgstr "Dotclear taldea"
 
-#: src/Process/Install/Install.php:331
+#: src/Process/Install/Install.php:345
 msgid "<p>This is a comment.</p>\n"
 "<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
 msgstr "<p>Hau iruzkin bat da.</p>\n"
 "<p>Ezabatzeko, hasi saioa eta ikusi zure blogaren iruzkinak. Orduan kendu edo edita dezakezu.</p>"
 
-#: src/Process/Install/Install.php:388
+#: src/Process/Install/Install.php:402
 msgid "Dotclear Install"
 msgstr "Dotclear instalatu"
 
-#: src/Process/Install/Install.php:402
+#: src/Process/Install/Install.php:429
 msgid "show"
 msgstr "erakutsi"
 
-#: src/Process/Install/Install.php:410
-msgid "Dotclear installation"
-msgstr "Dotclear instalazioa"
-
-#: src/Process/Install/Install.php:414
+#: src/Process/Install/Install.php:446
 #, php-format
 msgid "Cache directory %s is not writable."
 msgstr "Cache direktorioa %s ezin da idatz."
 
-#: src/Process/Install/Install.php:422
+#: src/Process/Install/Install.php:465
 msgid "Configuration file has been successfully created."
 msgstr "Konfigurazio fitxategia behar bezala sortu da."
 
-#: src/Process/Install/Install.php:427 src/Process/Install/Install.php:432
+#: src/Process/Install/Install.php:472 src/Process/Install/Install.php:479
 msgid "User information"
 msgstr "Erabiltzailearen informazioa"
 
-#: src/Process/Install/Install.php:429
+#: src/Process/Install/Install.php:473
 msgid "Please provide the following information needed to create the first user."
 msgstr "Mesedez, eman behar den informazio hau lehen erabiltzailea sortzeko."
 
-#: src/Process/Install/Install.php:454
+#: src/Process/Install/Install.php:510
 msgid "Username and password"
 msgstr "Erabiltzaile izena eta pasahitza"
 
-#: src/Process/Install/Install.php:500
+#: src/Process/Install/Install.php:533
+msgid "New Password:"
+msgstr "Pasahitz berria:"
+
+#: src/Process/Install/Install.php:543
+msgid "Confirm Password:"
+msgstr "Pasahitza berretsi:"
+
+#: src/Process/Install/Install.php:576
 msgid "All done!"
 msgstr "Dena eginda!"
 
-#: src/Process/Install/Install.php:504
+#: src/Process/Install/Install.php:578
 msgid "Dotclear has been successfully installed. Here is some useful information you should keep."
 msgstr "Dotclear behar bezala instalatu da. Hona hemen gorde behar dituzun informazio erabilgarria."
 
-#: src/Process/Install/Install.php:506
+#: src/Process/Install/Install.php:579
 msgid "Your account"
 msgstr "Zure kontua"
 
-#: src/Process/Install/Install.php:512
+#: src/Process/Install/Install.php:593
 msgid "Your blog"
 msgstr "Zure bloga"
 
-#: src/Process/Install/Install.php:514
+#: src/Process/Install/Install.php:598
 msgid "Blog address:"
 msgstr "Blogaren helbidea:"
 
-#: src/Process/Install/Install.php:515
+#: src/Process/Install/Install.php:603
 msgid "Administration interface:"
 msgstr "Administrazio interfazea:"
 
-#: src/Process/Install/Install.php:519
+#: src/Process/Install/Install.php:613
 msgid "Manage your blog now"
 msgstr "Kudeatu zure bloga orain"
 
-#: src/Process/Install/Install.php:526
+#: src/Process/Install/Install.php:623
 msgid "Installation can not be completed"
 msgstr "Instalazioa ezin da amaitu"
 
-#: src/Process/Install/Install.php:529
+#: src/Process/Install/Install.php:638
 #, php-format
 msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"%s\">the documentation</a> to learn how to correct the problem."
 msgstr "Aipatutako arrazoiengatik, ezin da Dotclear instalatu. Mesedez, jo ezazu <a href=\"%s\">dokumentazioa</a> arazoa nola konpondu jakiteko."
 
-#: src/Process/Install/Wizard.php:84
+#: src/Process/Install/Install.php:646
+msgid "Dotclear installation"
+msgstr "Dotclear instalazioa"
+
+#: src/Process/Install/Wizard.php:112
 #, php-format
 msgid "Path <strong>%s</strong> is not writable."
 msgstr "<strong>%s</strong> ezin da idatzi."
 
-#: src/Process/Install/Wizard.php:86
+#: src/Process/Install/Wizard.php:114
 #, php-format
 msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"%s\">the documentation</a> to learn how to do this."
 msgstr "Dotclear instalazio-morroiak ezin izan du konfigurazio-fitxategia sortu zuretzat. Karpeta-eskubidea aldatu edo <strong>config.php</strong> fitxategia eskuz sortu behar duzu, mesedez, jo <a href=\"%s\">dokumentaziora</a> nola egin jakiteko."
 
-#: src/Process/Install/Wizard.php:117
+#: src/Process/Install/Wizard.php:126
+msgid "There are no supported database driver."
+msgstr "Ez dago datu-baseko kontrolatzaile onarturik."
+
+#: src/Process/Install/Wizard.php:128
+#, php-format
+msgid "Dotclear installation wizard could not find database driver. You must change your PHP configuration to add a supported database handler please refer to <a href=\"%s\">the documentation</a> to learn how to do this."
+msgstr "Dotclear instalazio-morroiak ezin izan du datu-basearen kontrolatzailea aurkitu. PHP konfigurazioa aldatu behar duzu onartutako datu-basearen kudeatzaile bat gehitzeko. Mesedez, jo ezazu <a href=\"%s\">dokumentazioa</a> nola egin jakiteko."
+
+#: src/Process/Install/Wizard.php:165
 #, php-format
 msgid "Cannot write \"%s\" directory."
 msgstr "Ezin da \"%s\" direktorioa idatzi."
 
-#: src/Process/Install/Wizard.php:145
+#: src/Process/Install/Wizard.php:200
 msgid "Master email is not valid."
 msgstr "Helbide elektroniko nagusiak ez du balio."
 
-#: src/Process/Install/Wizard.php:151
+#: src/Process/Install/Wizard.php:206
 #, php-format
 msgid "File %s does not exist."
 msgstr "%s fitxategia ez da existitzen."
 
-#: src/Process/Install/Wizard.php:156 src/Process/Install/Wizard.php:191
+#: src/Process/Install/Wizard.php:211 src/Process/Install/Wizard.php:246
 #, php-format
 msgid "Cannot write %s file."
 msgstr "Ezin da %s fitxategia idatzi."
 
-#: src/Process/Install/Wizard.php:234 src/Process/Install/Wizard.php:242
+#: src/Process/Install/Wizard.php:289 src/Process/Install/Wizard.php:310
+#: src/Process/Install/Wizard.php:336
 msgid "Dotclear installation wizard"
 msgstr "Dotclear instalatzeko morroia"
 
-#: src/Process/Install/Wizard.php:248
+#: src/Process/Install/Wizard.php:326
+msgid "Dotclear can not be installed."
+msgstr "Ezin da Dotclear instalatu."
+
+#: src/Process/Install/Wizard.php:354
 msgid "Welcome"
 msgstr "Ongi etorri"
 
-#: src/Process/Install/Wizard.php:249
+#: src/Process/Install/Wizard.php:355
 msgid "To complete your Dotclear installation and start writing on your blog, we just need to know how to access your database and who you are. Just fill this two steps wizard with this information and we will be done."
 msgstr "Dotclear-en instalazioa osatzeko eta zure blogean idazten hasteko, zure datu-basean nola sartu eta nor zaren jakin behar dugu. Besterik gabe, bete bi urratseko morroi hau informazio honekin eta amaituko dugu."
 
-#: src/Process/Install/Wizard.php:250
+#: src/Process/Install/Wizard.php:361
 msgid "Attention:"
 msgstr "Arreta:"
 
-#: src/Process/Install/Wizard.php:252
+#: src/Process/Install/Wizard.php:363
 #, php-format
 msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"%s\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
 msgstr "baliteke morroi honek ez funtzionatzea ostalari guztietan. Zure kasuan funtzionatzen ez badu, jo ezazu <a href=\"%s\">dokumentaziora</a> <strong>config.php</strong> fitxategia eskuz nola sortu jakiteko."
 
-#: src/Process/Install/Wizard.php:258
+#: src/Process/Install/Wizard.php:369
 msgid "System information"
 msgstr "Sistemaren informazioa"
 
-#: src/Process/Install/Wizard.php:260
+#: src/Process/Install/Wizard.php:370
 msgid "Please provide the following information needed to create your configuration file."
 msgstr "Mesedez, eman zure konfigurazio fitxategia sortzeko beharrezkoa den informazio hau."
 
-#: src/Process/Install/Wizard.php:264
+#: src/Process/Install/Wizard.php:381
 msgid "Database type:"
 msgstr "Datu-base mota:"
 
-#: src/Process/Install/Wizard.php:268
-msgid "MySQLi"
-msgstr "MySQLi"
-
-#: src/Process/Install/Wizard.php:269
-msgid "MySQLi (full UTF-8)"
-msgstr "MySQLi (UTF-8 osoa)"
-
-#: src/Process/Install/Wizard.php:270
-msgid "PostgreSQL"
-msgstr "PostgreSQL"
-
-#: src/Process/Install/Wizard.php:271
-msgid "SQLite"
-msgstr "SQLite"
-
-#: src/Process/Install/Wizard.php:272
+#: src/Process/Install/Wizard.php:387
 msgid "Driver"
 msgstr "Gidaria"
 
-#: src/Process/Install/Wizard.php:274
+#: src/Process/Install/Wizard.php:394
 msgid "Database Host Name:"
 msgstr "Datu-basearen ostalariaren izena:"
 
-#: src/Process/Install/Wizard.php:276
+#: src/Process/Install/Wizard.php:402
 msgid "Database Name:"
 msgstr "Datu-basearen izena:"
 
-#: src/Process/Install/Wizard.php:278
+#: src/Process/Install/Wizard.php:410
 msgid "Database User Name:"
 msgstr "Datu-basearen erabiltzaile-izena:"
 
-#: src/Process/Install/Wizard.php:280
+#: src/Process/Install/Wizard.php:418
 msgid "Database Password:"
 msgstr "Datu-basearen pasahitza:"
 
-#: src/Process/Install/Wizard.php:282
-msgid "Database Tables Prefix:"
-msgstr "Datu-base-taulen aurrizkia:"
-
-#: src/Process/Install/Wizard.php:285
+#: src/Process/Install/Wizard.php:426
 msgid "Prefix"
 msgstr "Aurrizkia"
 
-#: src/Process/Install/Wizard.php:288
+#: src/Process/Install/Wizard.php:427
+msgid "Database Tables Prefix:"
+msgstr "Datu-base-taulen aurrizkia:"
+
+#: src/Process/Install/Wizard.php:435
 msgid "Master Email: (used as sender for password recovery)"
 msgstr "Posta elektroniko nagusia: (pasahitza berreskuratzeko igorle gisa erabiltzen da)"
 
-#: src/Process/Install/Wizard.php:296 src/Process/Upgrade/Digests.php:258
+#: src/Process/Install/Wizard.php:437 src/Process/Upgrade/Digests.php:258
 #: src/Process/Upgrade/Digests.php:279
 msgid "Continue"
 msgstr "Jarraitu"
@@ -6328,7 +6339,7 @@ msgstr "Jarraitu"
 #: src/Process/Upgrade/Backup.php:58 src/Process/Upgrade/Backup.php:62
 #: src/Process/Upgrade/Backup.php:215 src/Process/Upgrade/Cache.php:73
 #: src/Process/Upgrade/Digests.php:142 src/Process/Upgrade/Home.php:146
-#: src/Process/Upgrade/Langs.php:265 src/Process/Upgrade/Plugins.php:187
+#: src/Process/Upgrade/Langs.php:265 src/Process/Upgrade/Plugins.php:185
 #: src/Process/Upgrade/Replay.php:80 src/Process/Upgrade/Upgrade.php:54
 #: src/Process/Upgrade/Upgrade.php:58 src/Process/Upgrade/Upgrade.php:79
 #: src/Process/Upgrade/Upgrade.php:83 src/Process/Upgrade/Upgrade.php:317
@@ -6424,15 +6435,15 @@ msgstr "Zorionak, klik bakarrera zaude eguneratzearen amaieratik."
 msgid "Finish the update."
 msgstr "Amaitu eguneratzea."
 
-#: src/Process/Upgrade/Auth.php:178
+#: src/Process/Upgrade/Auth.php:180
 msgid "Code verification failed"
 msgstr "Kodearen egiaztapena huts egin du"
 
-#: src/Process/Upgrade/Auth.php:284 src/Process/Upgrade/Auth.php:302
+#: src/Process/Upgrade/Auth.php:278 src/Process/Upgrade/Auth.php:393
 msgid "Upgrade"
 msgstr "Berritu"
 
-#: src/Process/Upgrade/Auth.php:380
+#: src/Process/Upgrade/Auth.php:377
 msgid "Back to normal dashboard"
 msgstr "Itzuli panel arruntera"
 
@@ -6590,7 +6601,7 @@ msgstr "Garapen-oharra erabiltzen ari zara, eginbide batzuk ez daude erabilgarri
 msgid "Dotclear digests file \"%s\" is not readable."
 msgstr "Dotclear-en laburpenen fitxategia \"%s\" ezin da irakurtzen."
 
-#: src/Process/Upgrade/Home.php:95 src/Process/Upgrade/Plugins.php:164
+#: src/Process/Upgrade/Home.php:95 src/Process/Upgrade/Plugins.php:162
 msgid "Official plugins repository could not be updated as there is no URL set in configuration."
 msgstr "Pluginen biltegi ofiziala ezin izan da eguneratu, ez baitago URL ezarri konfigurazioan."
 
@@ -6626,52 +6637,52 @@ msgstr "Instalatu edo eguneratu hizkuntzak erabilgarri dauden hizkuntzetatik"
 msgid "Install or upgrade languages from an upload a zip file"
 msgstr "Instalatu edo eguneratu hizkuntzak kargatutako zip fitxategi batetik"
 
-#: src/Process/Upgrade/Plugins.php:76
+#: src/Process/Upgrade/Plugins.php:74
 msgid "Some plugins could not be loaded."
 msgstr "Plugin batzuk ezin izan dira kargatu."
 
-#: src/Process/Upgrade/Plugins.php:386
+#: src/Process/Upgrade/Plugins.php:384
 msgid "There is no module to check"
 msgstr "Ez dago egiaztatzeko modulurik"
 
-#: src/Process/Upgrade/Plugins.php:394
+#: src/Process/Upgrade/Plugins.php:392
 msgid "Store version"
 msgstr "Dendaren bertsioa"
 
-#: src/Process/Upgrade/Plugins.php:396
+#: src/Process/Upgrade/Plugins.php:394
 msgid "Check stores versions"
 msgstr "Egiaztatu dendetako bertsioak"
 
-#: src/Process/Upgrade/Plugins.php:404
+#: src/Process/Upgrade/Plugins.php:402
 msgid "Check lastest stores versions"
 msgstr "Egiaztatu dendaren azken bertsioak"
 
-#: src/Process/Upgrade/Plugins.php:408
+#: src/Process/Upgrade/Plugins.php:406
 #, php-format
 msgid "You can check repositories for modules written explicitly for Dotclear release greater than %s."
 msgstr "%sbaino gehiago Dotclear bertsiorako esplizituki idatzitako moduluen biltegietan egiaztatu dezakezu."
 
-#: src/Process/Upgrade/Plugins.php:433 src/Process/Upgrade/Plugins.php:476
+#: src/Process/Upgrade/Plugins.php:431 src/Process/Upgrade/Plugins.php:474
 msgid "No version available"
 msgstr "Ez dago bertsiorik eskuragarri"
 
-#: src/Process/Upgrade/Plugins.php:435
+#: src/Process/Upgrade/Plugins.php:433
 msgid "No update available"
 msgstr "Ez dago eguneratzerik"
 
-#: src/Process/Upgrade/Plugins.php:437
+#: src/Process/Upgrade/Plugins.php:435
 msgid "Newer version available"
 msgstr "Bertsio berriagoa eskuragarri"
 
-#: src/Process/Upgrade/Plugins.php:490
+#: src/Process/Upgrade/Plugins.php:488
 msgid "Modules list"
 msgstr "Moduluen zerrenda"
 
-#: src/Process/Upgrade/Plugins.php:505
+#: src/Process/Upgrade/Plugins.php:503
 msgid "Latest version"
 msgstr "Azken bertsioa"
 
-#: src/Process/Upgrade/Plugins.php:509
+#: src/Process/Upgrade/Plugins.php:507
 msgid "Written for Dotclear"
 msgstr "Dotclear-erako idatzia"
 
