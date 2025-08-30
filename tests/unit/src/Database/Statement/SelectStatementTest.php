@@ -137,6 +137,25 @@ class SelectStatementTest extends TestCase
         );
     }
 
+    #[DataProvider('dataProviderTest')]
+    public function testCompare(string $driver, string $syntax): void
+    {
+        $con = $this->getConnection($driver, $syntax);
+        $sql = new \Dotclear\Database\Statement\SelectStatement($con, $syntax);
+
+        $sql
+            ->columns(['K', 'L'])
+            ->from('U')
+            ->where('D = 0')
+            ->cond('OR F = -1')
+            ->sql('OR (H IS NULL AND I IS NOT NULL)')
+        ;
+
+        $this->assertFalse(
+            $sql->compare(' SELECT KC  , L FROM U WHERE D = 0 OR F = -1 OR  ( H IS NULL AND  I IS NOT NULL )  ')
+        );
+    }
+
     // Specific SelectStatement tests
 
     #[DataProvider('dataProviderTest')]
