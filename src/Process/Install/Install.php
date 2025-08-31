@@ -14,7 +14,6 @@ use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Backend\Favorites;
 use Dotclear\Core\Install\Utils;
 use Dotclear\Core\Process;
-use Dotclear\Database\Structure;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Email;
 use Dotclear\Helper\Html\Form\Fieldset;
@@ -205,13 +204,13 @@ class Install extends Process
                 }
 
                 # Create schema
-                $_s = new Structure(App::db()->con(), App::db()->con()->prefix());
+                $_s = App::db()->structure();
 
-                # Fill database structrue
+                # Fill database structure
                 Schema::fillStructure($_s);
 
-                $si = new Structure(App::db()->con(), App::db()->con()->prefix());
-                $si->synchronize($_s);
+                # Update database
+                App::db()->structure()->synchronize($_s);
 
                 # Create user
                 $cur                 = App::db()->con()->openCursor(App::db()->con()->prefix() . App::auth()::USER_TABLE_NAME);

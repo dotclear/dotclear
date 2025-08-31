@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Interface\Core;
 
+use Dotclear\Database\Structure;
 use Dotclear\Interface\Database\ConnectionInterface;
 
 /**
@@ -34,6 +35,16 @@ interface DatabaseInterface
      * @param   string  $prefix         Database tables prefix
      */
     public function con(string $driver = '', string $host = '', string $database = '', string $user = '', string $password = '', bool $persistent = false, string $prefix = ''): ConnectionInterface;
+
+    /**
+     * Get database structure handler.
+     *
+     * The handler uses current connexion.
+     * Each call to this method MUST return a new instance.
+     *
+     * @return  Structure   The database structure handler
+     */
+    public function structure(): Structure;
 
     /**
      * Get combo of available database drivers.
