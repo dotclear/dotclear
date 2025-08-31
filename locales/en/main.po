@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-31 12:25+0200\n"
-"PO-Revision-Date: 2025-08-31 10:31\n"
+"POT-Creation-Date: 2025-08-31 12:34+0200\n"
+"PO-Revision-Date: 2025-08-31 10:37\n"
 "Last-Translator: \n"
 "Language-Team: English\n"
 "Language: en_US\n"
@@ -32,14 +32,10 @@ msgid "thumbnail"
 msgstr ""
 
 #: inc/core/_fake_l10n.php:10
-msgid "X-Large"
-msgstr ""
-
-#: inc/core/_fake_l10n.php:11
 msgid "square"
 msgstr ""
 
-#: inc/core/_fake_l10n.php:15 src/Core/Backend/Action/Actions.php:140
+#: inc/core/_fake_l10n.php:14 src/Core/Backend/Action/Actions.php:140
 #: src/Core/Backend/Action/ActionsPosts.php:66
 #: src/Core/Backend/Action/ActionsPosts.php:73
 #: src/Core/Backend/Favorites.php:416 src/Core/Backend/Menus.php:168
@@ -49,31 +45,23 @@ msgstr ""
 msgid "Posts"
 msgstr ""
 
-#: inc/core/_fake_l10n.php:16
+#: inc/core/_fake_l10n.php:15
 msgid "Pages"
 msgstr ""
 
-#: inc/core/_fake_l10n.php:17
-msgid "Plugins store"
-msgstr ""
-
-#: inc/core/_fake_l10n.php:18
-msgid "Themes store"
-msgstr ""
-
-#: inc/core/_fake_l10n.php:22
+#: inc/core/_fake_l10n.php:19
 msgid "MySQLi"
 msgstr ""
 
-#: inc/core/_fake_l10n.php:23
+#: inc/core/_fake_l10n.php:20
 msgid "MySQLi (full UTF-8)"
 msgstr ""
 
-#: inc/core/_fake_l10n.php:24
+#: inc/core/_fake_l10n.php:21
 msgid "PostgreSQL"
 msgstr ""
 
-#: inc/core/_fake_l10n.php:25
+#: inc/core/_fake_l10n.php:22
 msgid "SQLite"
 msgstr ""
 
