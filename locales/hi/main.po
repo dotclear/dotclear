@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-31 12:34+0200\n"
-"PO-Revision-Date: 2025-08-31 10:37\n"
+"PO-Revision-Date: 2025-08-31 11:04\n"
 "Last-Translator: \n"
 "Language-Team: Hindi\n"
 "Language: hi_IN\n"
@@ -51,15 +51,15 @@ msgstr "पृष्ठ"
 
 #: inc/core/_fake_l10n.php:19
 msgid "MySQLi"
-msgstr "माइकेसिली"
+msgstr "MySQLi"
 
 #: inc/core/_fake_l10n.php:20
 msgid "MySQLi (full UTF-8)"
-msgstr "MySQLLe (पूरा UTF-8)"
+msgstr "MySQLi (पूरा UTF-8)"
 
 #: inc/core/_fake_l10n.php:21
 msgid "PostgreSQL"
-msgstr "पोस्टग्रेएसक्यूएल"
+msgstr "PostgreSQL"
 
 #: inc/core/_fake_l10n.php:22
 msgid "SQLite"
