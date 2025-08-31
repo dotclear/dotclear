@@ -396,7 +396,7 @@ class Config extends Process
                             ->items([
                                 (new Number(['order[' . $i . ']'], 0, count(App::backend()->ductile_stickers), $count))
                                     ->class('position'),
-                                (new Hidden(['dynorder[]', 'dynorder-' . $i], $i)),
+                                (new Hidden(['dynorder[]', 'dynorder-' . $i], (string) $i)),
                             ]),
                         (new Td())
                             ->items([
