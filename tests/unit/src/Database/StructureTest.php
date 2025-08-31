@@ -17,11 +17,10 @@ class StructureTest extends TestCase
      */
     private array $info;
 
-    private function getConnection(string $driver, string $syntax): MockObject
+    private function getConnection(string $driver, string $driver_folder, string $syntax): MockObject
     {
         // Build a mock handler for the driver
-        $driverClass  = ucfirst($driver);
-        $handlerClass = implode('\\', ['Dotclear', 'Schema', 'Database', $driverClass, 'Handler']);
+        $handlerClass = implode('\\', ['Dotclear', 'Schema', 'Database', $driver_folder, 'Handler']);
         // @phpstan-ignore argument.templateType, argument.type
         $mock = $this->getMockBuilder($handlerClass)
             ->disableOriginalConstructor()
@@ -53,7 +52,7 @@ class StructureTest extends TestCase
         $mock->method('escapeStr')->willReturnCallback(fn ($str) => addslashes((string) $str));
         $mock->method('execute')->willReturn(true);
         $mock->method('select')->willReturn(
-            $driver !== 'sqlite' ?
+            $syntax !== 'sqlite' ?
             // @phpstan-ignore argument.type
             new \Dotclear\Database\Record(null, $info) :
             // @phpstan-ignore argument.type
@@ -63,11 +62,10 @@ class StructureTest extends TestCase
         return $mock;
     }
 
-    private function getSchema(mixed $con, string $driver): MockObject
+    private function getSchema(mixed $con, string $schema_folder): MockObject
     {
         // Build a mock handler for the driver
-        $driverClass = ucfirst($driver);
-        $schemaClass = implode('\\', ['Dotclear', 'Schema', 'Database', $driverClass, 'Schema']);
+        $schemaClass = implode('\\', ['Dotclear', 'Schema', 'Database', $schema_folder, 'Schema']);
         // @phpstan-ignore argument.templateType, argument.type
         $mock = $this->getMockBuilder($schemaClass)
             ->disableOriginalConstructor()
@@ -112,9 +110,9 @@ class StructureTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function test(string $driver, string $syntax): void
+    public function test(string $driver, string $driver_folder, string $syntax, string $schema): void
     {
-        $con = $this->getConnection($driver, $syntax);
+        $con = $this->getConnection($driver, $driver_folder, $syntax);
 
         // @phpstan-ignore argument.type
         $structure = new \Dotclear\Database\Structure($con, 'dc_');
@@ -179,11 +177,11 @@ class StructureTest extends TestCase
     public static function dataProviderTest(): array
     {
         return [
-            // driver, syntax
-            ['mysqli', 'mysql'],
-            ['mysqlimb4', 'mysql'],
-            ['pgsql', 'postgresql'],
-            ['sqlite', 'sqlite'],
+            // driver, driver_folder, syntax, schema_folder
+            ['mysqli', 'Mysqli', 'mysql', 'Mysql'],
+            ['mysqlimb4', 'Mysqlimb4', 'mysql', 'Mysqlimb4'],
+            ['pgsql', 'Pgsql', 'postgresql', 'Pgsql'],
+            ['pdosqlite', 'PdoSqlite', 'sqlite', 'PdoSqlite'],
         ];
     }
 
@@ -194,13 +192,13 @@ class StructureTest extends TestCase
      * @param list<string>              $sql_bis
      */
     #[DataProvider('dataProviderTestSynchronize')]
-    public function testSynchronize(string $driver, string $syntax, array $data, array $info, array $sql, array $sql_bis): void
+    public function testSynchronize(string $driver, string $driver_folder, string $syntax, string $schema_folder, array $data, array $info, array $sql, array $sql_bis): void
     {
-        if ($driver === 'sqlite') {
+        if ($syntax === 'sqlite') {
             $this->expectNotToPerformAssertions();
         } else {
-            $con    = $this->getConnection($driver, $syntax);
-            $schema = $this->getSchema($con, $driver);
+            $con    = $this->getConnection($driver, $driver_folder, $syntax);
+            $schema = $this->getSchema($con, $schema_folder);
 
             // Prepare current structure
             // @phpstan-ignore argument.type
@@ -261,13 +259,13 @@ class StructureTest extends TestCase
      * @param list<string>              $sql_bis
      */
     #[DataProvider('dataProviderTestSynchronize')]
-    public function testSynchronizeWithModifications(string $driver, string $syntax, array $data, array $info, array $sql, array $sql_bis): void
+    public function testSynchronizeWithModifications(string $driver, string $driver_folder, string $syntax, string $schema_folder, array $data, array $info, array $sql, array $sql_bis): void
     {
-        if ($driver === 'sqlite') {
+        if ($syntax === 'sqlite') {
             $this->expectNotToPerformAssertions();
         } else {
-            $con    = $this->getConnection($driver, $syntax);
-            $schema = $this->getSchema($con, $driver);
+            $con    = $this->getConnection($driver, $driver_folder, $syntax);
+            $schema = $this->getSchema($con, $schema_folder);
 
             // Prepare current structure
             // @phpstan-ignore argument.type
@@ -513,8 +511,8 @@ class StructureTest extends TestCase
         }
 
         return [
-            // driver, syntax, queries
-            ['mysqli', 'mysql', $data, $info,
+            // driver, driver_folder, syntax_folder, queries
+            ['mysqli', 'Mysqli', 'mysql', 'Mysqli', $data, $info,
                 [
                     // Init
                     "CREATE TABLE `dc_dc_table` (
@@ -562,7 +560,7 @@ class StructureTest extends TestCase
                     'ALTER TABLE `dc_dc_table` ADD CONSTRAINT dc_fk_uid FOREIGN KEY (`uid`) REFERENCES `dc_dc_uid` (`uid`) ON UPDATE cascade ON DELETE cascade ',
                 ],
             ],
-            ['mysqlimb4', 'mysql', $data, $info,
+            ['mysqlimb4', 'Mysqlimb4', 'mysql', 'Mysqlimb4', $data, $info,
                 [
                     // Init
                     "CREATE TABLE `dc_dc_table` (
@@ -611,7 +609,7 @@ class StructureTest extends TestCase
                 ],
             ],
 
-            ['pgsql', 'postgresql', $data, $info,
+            ['pgsql', 'Pgsql', 'postgresql', 'Pgsql', $data, $info,
                 [
                     // Init
                     'CREATE TABLE "dc_dc_table" (
@@ -660,7 +658,7 @@ extra text NULL DEFAULT NULL
                 ],
             ],
 
-            ['sqlite', 'sqlite', $data, $info,
+            ['pdosqlite', 'PdoQqlite', 'sqlite', 'PdoSqlite', $data, $info,
                 [
                     // Init
                     "CREATE TABLE dc_dc_table (id integer NOT NULL DEFAULT 0 , status integer NULL DEFAULT -1 , uid integer NULL DEFAULT NULL, cost float NULL DEFAULT NULL, discount real NULL DEFAULT NULL, number numeric NULL DEFAULT NULL, date timestamp NULL DEFAULT NULL, hour timestamp NULL DEFAULT NULL, ts timestamp NULL DEFAULT '1970-01-01 00:00:00' , name char(256) NULL DEFAULT NULL, fullname varchar NULL DEFAULT NULL, description text NULL DEFAULT NULL, CONSTRAINT dc_pk_id PRIMARY KEY (id), CONSTRAINT dc_uk_uid UNIQUE (id,uid))",

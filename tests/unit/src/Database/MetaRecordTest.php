@@ -19,11 +19,10 @@ class MetaRecordExtend
 
 class MetaRecordTest extends TestCase
 {
-    private function getConnection(string $driver, string $syntax): MockObject
+    private function getConnection(string $driver, string $driver_folder, string $syntax): MockObject
     {
         // Build a mock handler for the driver
-        $driverClass  = ucfirst($driver);
-        $handlerClass = implode('\\', ['Dotclear', 'Schema', 'Database', $driverClass, 'Handler']);
+        $handlerClass = implode('\\', ['Dotclear', 'Schema', 'Database', $driver_folder, 'Handler']);
         // @phpstan-ignore argument.templateType, argument.type
         $mock = $this->getMockBuilder($handlerClass)
             ->disableOriginalConstructor()
@@ -75,9 +74,9 @@ class MetaRecordTest extends TestCase
      * @param  array<array-key, mixed>  &$rows
      * @param  array{con: mixed, cols: int, rows: int, info: array{name: list<string>, type: list<string>}}  &$info
      */
-    private function createRecord(string $driver, string $syntax, ?array &$rows, array &$info, bool &$valid, int &$pointer, bool $static = false): \Dotclear\Database\MetaRecord
+    private function createRecord(string $driver, string $driver_folder, string $syntax, ?array &$rows, array &$info, bool &$valid, int &$pointer, bool $static = false): \Dotclear\Database\MetaRecord
     {
-        $con = $this->getConnection($driver, $syntax);
+        $con = $this->getConnection($driver, $driver_folder, $syntax);
 
         $info['con'] = $con;
 
@@ -122,7 +121,7 @@ class MetaRecordTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function test(string $driver, string $syntax): void
+    public function test(string $driver, string $driver_folder, string $syntax): void
     {
         // Sample data
         $rows = [
@@ -160,7 +159,7 @@ class MetaRecordTest extends TestCase
             ],
         ];
 
-        $record = $this->createRecord($driver, $syntax, $rows, $info, $valid, $pointer);
+        $record = $this->createRecord($driver, $driver_folder, $syntax, $rows, $info, $valid, $pointer);
 
         // Initial index
         $this->assertEquals(
@@ -334,7 +333,7 @@ class MetaRecordTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function testToStatic(string $driver, string $syntax): void
+    public function testToStatic(string $driver, string $driver_folder, string $syntax): void
     {
         // Sample data
         $rows = [
@@ -372,7 +371,7 @@ class MetaRecordTest extends TestCase
             ],
         ];
 
-        $record = $this->createRecord($driver, $syntax, $rows, $info, $valid, $pointer);
+        $record = $this->createRecord($driver, $driver_folder, $syntax, $rows, $info, $valid, $pointer);
 
         $static = $record->toStatic();
         $double = $static->toExtStatic();
@@ -396,7 +395,7 @@ class MetaRecordTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function testExtend(string $driver, string $syntax): void
+    public function testExtend(string $driver, string $driver_folder, string $syntax): void
     {
         // Sample data
         $rows = [
@@ -434,7 +433,7 @@ class MetaRecordTest extends TestCase
             ],
         ];
 
-        $record = $this->createRecord($driver, $syntax, $rows, $info, $valid, $pointer);
+        $record = $this->createRecord($driver, $driver_folder, $syntax, $rows, $info, $valid, $pointer);
 
         // Initial index
         $this->assertEquals(
@@ -508,7 +507,7 @@ class MetaRecordTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function testRows(string $driver, string $syntax): void
+    public function testRows(string $driver, string $driver_folder, string $syntax): void
     {
         // Sample data
         $rows = [
@@ -546,7 +545,7 @@ class MetaRecordTest extends TestCase
             ],
         ];
 
-        $record = $this->createRecord($driver, $syntax, $rows, $info, $valid, $pointer);
+        $record = $this->createRecord($driver, $driver_folder, $syntax, $rows, $info, $valid, $pointer);
 
         // Rows/GetData
         $this->assertEquals(
@@ -577,7 +576,7 @@ class MetaRecordTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function testStatic(string $driver, string $syntax): void
+    public function testStatic(string $driver, string $driver_folder, string $syntax): void
     {
         // Sample data
         $rows = [
@@ -615,7 +614,7 @@ class MetaRecordTest extends TestCase
             ],
         ];
 
-        $record = $this->createRecord($driver, $syntax, $rows, $info, $valid, $pointer, true);
+        $record = $this->createRecord($driver, $driver_folder, $syntax, $rows, $info, $valid, $pointer, true);
 
         $this->assertTrue(
             $record->hasStatic()
@@ -1024,11 +1023,11 @@ class MetaRecordTest extends TestCase
     public static function dataProviderTest(): array
     {
         return [
-            // driver, syntax
-            ['mysqli', 'mysql'],
-            ['mysqlimb4', 'mysql'],
-            ['pgsql', 'postgresql'],
-            ['sqlite', 'sqlite'],
+            // driver, driver_foler, syntax
+            ['mysqli', 'Mysqli', 'mysql'],
+            ['mysqlimb4', 'Mysqlimb4', 'mysql'],
+            ['pgsql', 'Pgsql', 'postgresql'],
+            ['sqlite', 'PdoSqlite', 'sqlite'],
         ];
     }
 }

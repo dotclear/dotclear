@@ -157,7 +157,7 @@ class Wizard extends Process
         if ($_POST !== [] || !empty($_SERVER['DC_DBDRIVER'])) {
             try {
                 if (str_contains(self::$DBDRIVER, 'sqlite') && !str_contains(self::$DBNAME, '/')) {
-                    if (self::$DBNAME == '') {
+                    if (self::$DBNAME === '') {
                         // create sqlite db name if not set
                         self::$DBNAME = date('YmdHi') . '.sqlite';
                     }
@@ -328,7 +328,7 @@ class Wizard extends Process
                                             new Text('', self::$err),
                                         ]),
                                 ]),
-                                new Text('p', __('Dotclear can not be installed.')),
+                            new Text('p', __('Dotclear can not be installed.')),
                         ]),
                 ])
                 ->render();

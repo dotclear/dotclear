@@ -14,7 +14,6 @@ use Dotclear\Database\AbstractPdoHandler;
 use Dotclear\Database\StaticRecord;
 use Dotclear\Interface\Database\SchemaInterface;
 use Dotclear\Schema\Database\Pgsql\Schema;
-use Exception;
 use PDO;
 
 /**
@@ -129,7 +128,7 @@ class Handler extends AbstractPdoHandler
             if (is_string($v)) {
                 $res[] = sprintf($fmt, $v);
             } elseif (is_array($v)) {
-                $res = array_map(fn ($i): string => sprintf($fmt, $i), $v);
+                $res = array_map(fn (string $i): string => sprintf($fmt, $i), $v);
             }
         }
 

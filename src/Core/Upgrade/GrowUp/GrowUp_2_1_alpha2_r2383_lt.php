@@ -20,7 +20,7 @@ class GrowUp_2_1_alpha2_r2383_lt
 {
     public static function init(bool $cleanup_sessions): bool
     {
-        if (App::db()->con()->driver() === 'sqlite') {
+        if (str_contains(App::db()->con()->driver(), 'sqlite')) {
             return $cleanup_sessions;
         }
 

@@ -272,11 +272,11 @@ class Install extends Process
 
                 # CSP directive (admin part)
 
-                /* SQlite Clearbricks driver does not allow using single quote at beginning or end of a field value
+                /* SQlite driver does not allow using single quote at beginning or end of a field value
                 so we have to use neutral values (localhost and 127.0.0.1) for some CSP directives
                  */
-                $csp_prefix = str_contains(App::db()->con()->driver(), 'sqlite') ? 'localhost ' : ''; // Hack for SQlite Clearbricks driver
-                $csp_suffix = str_contains(App::db()->con()->driver(), 'sqlite') ? ' 127.0.0.1' : ''; // Hack for SQlite Clearbricks driver
+                $csp_prefix = str_contains(App::db()->con()->driver(), 'sqlite') ? 'localhost ' : ''; // Hack for SQlite syntax
+                $csp_suffix = str_contains(App::db()->con()->driver(), 'sqlite') ? ' 127.0.0.1' : ''; // Hack for SQlite syntax
 
                 $blog_settings->system->put('csp_admin_on', true, 'boolean', 'Send CSP header (admin)', true, true);
                 $blog_settings->system->put('csp_admin_report_only', false, 'boolean', 'CSP Report only violations (admin)', true, true);

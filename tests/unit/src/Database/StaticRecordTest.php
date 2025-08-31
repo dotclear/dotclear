@@ -11,11 +11,10 @@ use PHPUnit\Framework\TestCase;
 
 class StaticRecordTest extends TestCase
 {
-    private function getConnection(string $driver, string $syntax): MockObject
+    private function getConnection(string $driver, string $driver_folder, string $syntax): MockObject
     {
         // Build a mock handler for the driver
-        $driverClass  = ucfirst($driver);
-        $handlerClass = implode('\\', ['Dotclear', 'Schema', 'Database', $driverClass, 'Handler']);
+        $handlerClass = implode('\\', ['Dotclear', 'Schema', 'Database', $driver_folder, 'Handler']);
         // @phpstan-ignore argument.templateType, argument.type
         $mock = $this->getMockBuilder($handlerClass)
             ->disableOriginalConstructor()
@@ -68,9 +67,9 @@ class StaticRecordTest extends TestCase
      * @param  array<array-key, mixed>  &$rows
      * @param  array{con: mixed, cols: int, rows: int, info: array{name: list<string>, type: list<string>}}  &$info
      */
-    private function createRecord(mixed $driver, string $syntax, ?array &$rows, array &$info, bool &$valid, int &$pointer, bool $from_array = false): \Dotclear\Database\StaticRecord
+    private function createRecord(mixed $driver, string $driver_folder, string $syntax, ?array &$rows, array &$info, bool &$valid, int &$pointer, bool $from_array = false): \Dotclear\Database\StaticRecord
     {
-        $con = $this->getConnection($driver, $syntax);
+        $con = $this->getConnection($driver, $driver_folder, $syntax);
 
         $info['con'] = $con;
 
@@ -112,7 +111,7 @@ class StaticRecordTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function test(string $driver, string $syntax): void
+    public function test(string $driver, string $driver_folder, string $syntax): void
     {
         // Sample data
         $rows = [
@@ -150,7 +149,7 @@ class StaticRecordTest extends TestCase
             ],
         ];
 
-        $record = $this->createRecord($driver, $syntax, $rows, $info, $valid, $pointer);
+        $record = $this->createRecord($driver, $driver_folder, $syntax, $rows, $info, $valid, $pointer);
 
         // Info
         $this->assertEquals(
@@ -262,7 +261,7 @@ class StaticRecordTest extends TestCase
 
         // From array
 
-        $record = $this->createRecord($driver, $syntax, $rows, $info, $valid, $pointer, true);
+        $record = $this->createRecord($driver, $driver_folder, $syntax, $rows, $info, $valid, $pointer, true);
 
         $this->assertEquals(
             2,
@@ -301,7 +300,7 @@ class StaticRecordTest extends TestCase
         // From null
 
         $rows   = null;
-        $record = $this->createRecord($driver, $syntax, $rows, $info, $valid, $pointer, true);
+        $record = $this->createRecord($driver, $driver_folder, $syntax, $rows, $info, $valid, $pointer, true);
 
         $this->assertEquals(
             0,
@@ -332,11 +331,11 @@ class StaticRecordTest extends TestCase
     public static function dataProviderTest(): array
     {
         return [
-            // driver, syntax
-            ['mysqli', 'mysql'],
-            ['mysqlimb4', 'mysql'],
-            ['pgsql', 'postgresql'],
-            ['sqlite', 'sqlite'],
+            // driver, driver_foler, syntax
+            ['mysqli', 'Mysqli', 'mysql'],
+            ['mysqlimb4', 'Mysqlimb4', 'mysql'],
+            ['pgsql', 'Pgsql', 'postgresql'],
+            ['sqlite', 'PdoSqlite', 'sqlite'],
         ];
     }
 }

@@ -22,7 +22,7 @@ class GrowUp_2_12_2_lt
     {
         // SQlite Clearbricks driver does not allow using single quote at beginning or end of a field value
         // so we have to use neutral values (localhost and 127.0.0.1) for some CSP directives
-        $csp_prefix = App::db()->con()->driver() === 'sqlite' ? 'localhost ' : ''; // Hack for SQlite Clearbricks driver
+        $csp_prefix = App::db()->con()->syntax() === 'sqlite' ? 'localhost ' : ''; // Hack for SQlite Clearbricks driver
 
         # Update CSP img-src default directive
         $strReq = 'UPDATE ' . App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME .

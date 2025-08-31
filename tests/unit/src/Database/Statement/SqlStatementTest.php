@@ -11,11 +11,10 @@ use PHPUnit\Framework\TestCase;
 
 class SqlStatementTest extends TestCase
 {
-    private function getConnection(string $driver, string $syntax): MockObject
+    private function getConnection(string $driver, string $driver_folder, string $syntax): MockObject
     {
         // Build a mock handler for the driver
-        $driverClass  = ucfirst($driver);
-        $handlerClass = implode('\\', ['Dotclear', 'Schema', 'Database', $driverClass, 'Handler']);
+        $handlerClass = implode('\\', ['Dotclear', 'Schema', 'Database', $driver_folder, 'Handler']);
         // @phpstan-ignore argument.templateType, argument.type
         $mock = $this->getMockBuilder($handlerClass)
             ->disableOriginalConstructor()
@@ -51,9 +50,9 @@ class SqlStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function test(string $driver, string $syntax): void
+    public function test(string $driver, string $driver_folder, string $syntax): void
     {
-        $con = $this->getConnection($driver, $syntax);
+        $con = $this->getConnection($driver, $driver_folder, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
 
         $this->assertEquals(
@@ -73,18 +72,18 @@ class SqlStatementTest extends TestCase
     public static function dataProviderTest(): array
     {
         return [
-            // driver, syntax
-            ['mysqli', 'mysql'],
-            ['mysqlimb4', 'mysql'],
-            ['pgsql', 'postgresql'],
-            ['sqlite', 'sqlite'],
+            // driver, driver_foler, syntax
+            ['mysqli', 'Mysqli', 'mysql'],
+            ['mysqlimb4', 'Mysqlimb4', 'mysql'],
+            ['pgsql', 'Pgsql', 'postgresql'],
+            ['sqlite', 'PdoSqlite', 'sqlite'],
         ];
     }
 
     #[DataProvider('dataProviderTestEscape')]
-    public function testEscape(string $driver, string $syntax, string $source, string $result): void
+    public function testEscape(string $driver, string $driver_folder, string $syntax, string $source, string $result): void
     {
-        $con = $this->getConnection($driver, $syntax);
+        $con = $this->getConnection($driver, $driver_folder, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
 
         $this->assertEquals(
@@ -99,25 +98,25 @@ class SqlStatementTest extends TestCase
     public static function dataProviderTestEscape(): array
     {
         return [
-            ['mysqli', 'mysql', 'test', 'test'],
-            ['mysqlimb4', 'mysql', 'test', 'test'],
-            ['pgsql', 'postgresql', 'test', 'test'],
-            ['sqlite', 'sqlite', 'test', 'test'],
-            ['mysqli', 'mysql', 't"e\'s`t', 't\"e\\\'s`t'],
-            ['mysqlimb4', 'mysql', 't"e\'s`t', 't\"e\\\'s`t'],
-            ['pgsql', 'postgresql', 't"e\'s`t', 't\"e\\\'s`t'],
-            ['sqlite', 'sqlite', 't"e\'s`t', 't\"e\\\'s`t'],
-            ['mysqli', 'mysql', 't%es_t*', 't%es_t*'],
-            ['mysqlimb4', 'mysql', 't%es_t*', 't%es_t*'],
-            ['pgsql', 'postgresql', 't%es_t*', 't%es_t*'],
-            ['sqlite', 'sqlite', 't%es_t*', 't%es_t*'],
+            ['mysqli', 'Mysqli', 'mysql', 'test', 'test'],
+            ['mysqlimb4', 'Mysqlimb4', 'mysql', 'test', 'test'],
+            ['pgsql', 'Pgsql', 'postgresql', 'test', 'test'],
+            ['sqlite', 'PdoSqlite', 'sqlite', 'test', 'test'],
+            ['mysqli', 'Mysqli', 'mysql', 't"e\'s`t', 't\"e\\\'s`t'],
+            ['mysqlimb4', 'Mysqlimb4', 'mysql', 't"e\'s`t', 't\"e\\\'s`t'],
+            ['pgsql', 'Pgsql', 'postgresql', 't"e\'s`t', 't\"e\\\'s`t'],
+            ['sqlite', 'PdoSqlite', 'sqlite', 't"e\'s`t', 't\"e\\\'s`t'],
+            ['mysqli', 'Mysqli', 'mysql', 't%es_t*', 't%es_t*'],
+            ['mysqlimb4', 'Mysqlimb4', 'mysql', 't%es_t*', 't%es_t*'],
+            ['pgsql', 'Pgsql', 'postgresql', 't%es_t*', 't%es_t*'],
+            ['sqlite', 'PdoSqlite', 'sqlite', 't%es_t*', 't%es_t*'],
         ];
     }
 
     #[DataProvider('dataProviderTestQuote')]
-    public function testQuote(string $driver, string $syntax, string $source, string $result, bool $escape): void
+    public function testQuote(string $driver, string $driver_folder, string $syntax, string $source, string $result, bool $escape): void
     {
-        $con = $this->getConnection($driver, $syntax);
+        $con = $this->getConnection($driver, $driver_folder, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
 
         $this->assertEquals(
@@ -132,29 +131,29 @@ class SqlStatementTest extends TestCase
     public static function dataProviderTestQuote(): array
     {
         return [
-            ['mysqli', 'mysql', 'test', '\'test\'', true],
-            ['mysqlimb4', 'mysql', 'test', '\'test\'', true],
-            ['pgsql', 'postgresql', 'test', '\'test\'', true],
-            ['sqlite', 'sqlite', 'test', '\'test\'', true],
-            ['mysqli', 'mysql', 'test', '\'test\'', false],
-            ['mysqlimb4', 'mysql', 'test', '\'test\'', false],
-            ['pgsql', 'postgresql', 'test', '\'test\'', false],
-            ['sqlite', 'sqlite', 'test', '\'test\'', false],
-            ['mysqli', 'mysql', 't"e\'st', '\'t\"e\\\'st\'', true],
-            ['mysqlimb4', 'mysql', 't"e\'st', '\'t\"e\\\'st\'', true],
-            ['pgsql', 'postgresql', 't"e\'st', '\'t\"e\\\'st\'', true],
-            ['sqlite', 'sqlite', 't"e\'st', '\'t\"e\\\'st\'', true],
-            ['mysqli', 'mysql', 't"e\'st', '\'t"e\'st\'', false],
-            ['mysqlimb4', 'mysql', 't"e\'st', '\'t"e\'st\'', false],
-            ['pgsql', 'postgresql', 't"e\'st', '\'t"e\'st\'', false],
-            ['sqlite', 'sqlite', 't"e\'st', '\'t"e\'st\'', false],
+            ['mysqli', 'Mysqli', 'mysql', 'test', '\'test\'', true],
+            ['mysqlimb4', 'Mysqlimb4', 'mysql', 'test', '\'test\'', true],
+            ['pgsql', 'Pgsql', 'postgresql', 'test', '\'test\'', true],
+            ['sqlite', 'PdoSqlite', 'sqlite', 'test', '\'test\'', true],
+            ['mysqli', 'Mysqli', 'mysql', 'test', '\'test\'', false],
+            ['mysqlimb4', 'Mysqlimb4', 'mysql', 'test', '\'test\'', false],
+            ['pgsql', 'Pgsql', 'postgresql', 'test', '\'test\'', false],
+            ['sqlite', 'PdoSqlite', 'sqlite', 'test', '\'test\'', false],
+            ['mysqli', 'Mysqli', 'mysql', 't"e\'st', '\'t\"e\\\'st\'', true],
+            ['mysqlimb4', 'Mysqlimb4', 'mysql', 't"e\'st', '\'t\"e\\\'st\'', true],
+            ['pgsql', 'Pgsql', 'postgresql', 't"e\'st', '\'t\"e\\\'st\'', true],
+            ['sqlite', 'PdoSqlite', 'sqlite', 't"e\'st', '\'t\"e\\\'st\'', true],
+            ['mysqli', 'Mysqli', 'mysql', 't"e\'st', '\'t"e\'st\'', false],
+            ['mysqlimb4', 'Mysqlimb4', 'mysql', 't"e\'st', '\'t"e\'st\'', false],
+            ['pgsql', 'Pgsql', 'postgresql', 't"e\'st', '\'t"e\'st\'', false],
+            ['sqlite', 'PdoSqlite', 'sqlite', 't"e\'st', '\'t"e\'st\'', false],
         ];
     }
 
     #[DataProvider('dataProviderTestAlias')]
-    public function testAlias(string $driver, string $syntax, string $name, string $alias, string $result): void
+    public function testAlias(string $driver, string $driver_folder, string $syntax, string $name, string $alias, string $result): void
     {
-        $con = $this->getConnection($driver, $syntax);
+        $con = $this->getConnection($driver, $driver_folder, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
 
         $this->assertEquals(
@@ -173,17 +172,17 @@ class SqlStatementTest extends TestCase
     public static function dataProviderTestAlias(): array
     {
         return [
-            ['mysqli', 'mysql', 'MyTable.MyField', 'MyAlias', 'MyTable.MyField MyAlias'],
-            ['mysqlimb4', 'mysql', 'MyTable.MyField', 'MyAlias', 'MyTable.MyField MyAlias'],
-            ['pgsql', 'postgresql', 'MyTable.MyField', 'MyAlias', 'MyTable.MyField MyAlias'],
-            ['sqlite', 'sqlite', 'MyTable.MyField', 'MyAlias', 'MyTable.MyField AS MyAlias'],
+            ['mysqli', 'Mysqli', 'mysql', 'MyTable.MyField', 'MyAlias', 'MyTable.MyField MyAlias'],
+            ['mysqlimb4', 'Mysqlimb4', 'mysql', 'MyTable.MyField', 'MyAlias', 'MyTable.MyField MyAlias'],
+            ['pgsql', 'Pgsql', 'postgresql', 'MyTable.MyField', 'MyAlias', 'MyTable.MyField MyAlias'],
+            ['sqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', 'MyAlias', 'MyTable.MyField AS MyAlias'],
         ];
     }
 
     #[DataProvider('dataProviderTestIn')]
-    public function testIn(string $driver, string $syntax, mixed $values, string $cast, string $result): void
+    public function testIn(string $driver, string $driver_folder, string $syntax, mixed $values, string $cast, string $result): void
     {
-        $con = $this->getConnection($driver, $syntax);
+        $con = $this->getConnection($driver, $driver_folder, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
 
         $this->assertEquals(
@@ -199,77 +198,77 @@ class SqlStatementTest extends TestCase
     {
         return [
             // Numeric values
-            ['mysqli', 'mysql', [1, 2, 3, 4], '', ' IN (1,2,3,4)'],
-            ['mysqlimb4', 'mysql', [1, 2, 3, 4], '', ' IN (1,2,3,4)'],
-            ['pgsql', 'postgresql', [1, 2, 3, 4], '', ' IN (1,2,3,4)'],
-            ['sqlite', 'sqlite', [1, 2, 3, 4], '', ' IN (1,2,3,4)'],
-            ['mysqli', 'mysql', [1, 2, 3, 4], 'int', ' IN (1,2,3,4)'],
-            ['mysqlimb4', 'mysql', [1, 2, 3, 4], 'int', ' IN (1,2,3,4)'],
-            ['pgsql', 'postgresql', [1, 2, 3, 4], 'int', ' IN (1,2,3,4)'],
-            ['sqlite', 'sqlite', [1, 2, 3, 4], 'int', ' IN (1,2,3,4)'],
-            ['mysqli', 'mysql', [1, 2, 3, 4], 'string', ' IN (\'1\',\'2\',\'3\',\'4\')'],
-            ['mysqlimb4', 'mysql', [1, 2, 3, 4], 'string', ' IN (\'1\',\'2\',\'3\',\'4\')'],
-            ['pgsql', 'postgresql', [1, 2, 3, 4], 'string', ' IN (\'1\',\'2\',\'3\',\'4\')'],
-            ['sqlite', 'sqlite', [1, 2, 3, 4], 'string', ' IN (\'1\',\'2\',\'3\',\'4\')'],
+            ['mysqli', 'Mysqli', 'mysql', [1, 2, 3, 4], '', ' IN (1,2,3,4)'],
+            ['mysqlimb4', 'Mysqlimb4', 'mysql', [1, 2, 3, 4], '', ' IN (1,2,3,4)'],
+            ['pgsql', 'Pgsql', 'postgresql', [1, 2, 3, 4], '', ' IN (1,2,3,4)'],
+            ['sqlite', 'PdoSqlite', 'sqlite', [1, 2, 3, 4], '', ' IN (1,2,3,4)'],
+            ['mysqli', 'Mysqli', 'mysql', [1, 2, 3, 4], 'int', ' IN (1,2,3,4)'],
+            ['mysqlimb4', 'Mysqlimb4', 'mysql', [1, 2, 3, 4], 'int', ' IN (1,2,3,4)'],
+            ['pgsql', 'Pgsql', 'postgresql', [1, 2, 3, 4], 'int', ' IN (1,2,3,4)'],
+            ['sqlite', 'PdoSqlite', 'sqlite', [1, 2, 3, 4], 'int', ' IN (1,2,3,4)'],
+            ['mysqli', 'Mysqli', 'mysql', [1, 2, 3, 4], 'string', ' IN (\'1\',\'2\',\'3\',\'4\')'],
+            ['mysqlimb4', 'Mysqlimb4', 'mysql', [1, 2, 3, 4], 'string', ' IN (\'1\',\'2\',\'3\',\'4\')'],
+            ['pgsql', 'Pgsql', 'postgresql', [1, 2, 3, 4], 'string', ' IN (\'1\',\'2\',\'3\',\'4\')'],
+            ['sqlite', 'PdoSqlite', 'sqlite', [1, 2, 3, 4], 'string', ' IN (\'1\',\'2\',\'3\',\'4\')'],
             // String values
-            ['mysqli', 'mysql', ['1', '2', '3', '4'], '', ' IN (\'1\',\'2\',\'3\',\'4\')'],
-            ['mysqlimb4', 'mysql', ['1', '2', '3', '4'], '', ' IN (\'1\',\'2\',\'3\',\'4\')'],
-            ['pgsql', 'postgresql', ['1', '2', '3', '4'], '', ' IN (\'1\',\'2\',\'3\',\'4\')'],
-            ['sqlite', 'sqlite', ['1', '2', '3', '4'], '', ' IN (\'1\',\'2\',\'3\',\'4\')'],
-            ['mysqli', 'mysql', ['1', '2', '3', '4'], 'int', ' IN (1,2,3,4)'],
-            ['mysqlimb4', 'mysql', ['1', '2', '3', '4'], 'int', ' IN (1,2,3,4)'],
-            ['pgsql', 'postgresql', ['1', '2', '3', '4'], 'int', ' IN (1,2,3,4)'],
-            ['sqlite', 'sqlite', ['1', '2', '3', '4'], 'int', ' IN (1,2,3,4)'],
-            ['mysqli', 'mysql', ['1', '2', '3', '4'], 'string', ' IN (\'1\',\'2\',\'3\',\'4\')'],
-            ['mysqlimb4', 'mysql', ['1', '2', '3', '4'], 'string', ' IN (\'1\',\'2\',\'3\',\'4\')'],
-            ['pgsql', 'postgresql', ['1', '2', '3', '4'], 'string', ' IN (\'1\',\'2\',\'3\',\'4\')'],
-            ['sqlite', 'sqlite', ['1', '2', '3', '4'], 'string', ' IN (\'1\',\'2\',\'3\',\'4\')'],
+            ['mysqli', 'Mysqli', 'mysql', ['1', '2', '3', '4'], '', ' IN (\'1\',\'2\',\'3\',\'4\')'],
+            ['mysqlimb4', 'Mysqlimb4', 'mysql', ['1', '2', '3', '4'], '', ' IN (\'1\',\'2\',\'3\',\'4\')'],
+            ['pgsql', 'Pgsql', 'postgresql', ['1', '2', '3', '4'], '', ' IN (\'1\',\'2\',\'3\',\'4\')'],
+            ['sqlite', 'PdoSqlite', 'sqlite', ['1', '2', '3', '4'], '', ' IN (\'1\',\'2\',\'3\',\'4\')'],
+            ['mysqli', 'Mysqli', 'mysql', ['1', '2', '3', '4'], 'int', ' IN (1,2,3,4)'],
+            ['mysqlimb4', 'Mysqlimb4', 'mysql', ['1', '2', '3', '4'], 'int', ' IN (1,2,3,4)'],
+            ['pgsql', 'Pgsql', 'postgresql', ['1', '2', '3', '4'], 'int', ' IN (1,2,3,4)'],
+            ['sqlite', 'PdoSqlite', 'sqlite', ['1', '2', '3', '4'], 'int', ' IN (1,2,3,4)'],
+            ['mysqli', 'Mysqli', 'mysql', ['1', '2', '3', '4'], 'string', ' IN (\'1\',\'2\',\'3\',\'4\')'],
+            ['mysqlimb4', 'Mysqlimb4', 'mysql', ['1', '2', '3', '4'], 'string', ' IN (\'1\',\'2\',\'3\',\'4\')'],
+            ['pgsql', 'Pgsql', 'postgresql', ['1', '2', '3', '4'], 'string', ' IN (\'1\',\'2\',\'3\',\'4\')'],
+            ['sqlite', 'PdoSqlite', 'sqlite', ['1', '2', '3', '4'], 'string', ' IN (\'1\',\'2\',\'3\',\'4\')'],
             // Null values
-            ['mysqli', 'mysql', null, '', ' IN (NULL)'],
-            ['mysqlimb4', 'mysql', null, '', ' IN (NULL)'],
-            ['pgsql', 'postgresql', null, '', ' IN (NULL)'],
-            ['sqlite', 'sqlite', null, '', ' IN (NULL)'],
-            ['mysqli', 'mysql', null, 'int', ' IN (NULL)'],
-            ['mysqlimb4', 'mysql', null, 'int', ' IN (NULL)'],
-            ['pgsql', 'postgresql', null, 'int', ' IN (NULL)'],
-            ['sqlite', 'sqlite', null, 'int', ' IN (NULL)'],
-            ['mysqli', 'mysql', null, 'string', ' IN (NULL)'],
-            ['mysqlimb4', 'mysql', null, 'string', ' IN (NULL)'],
-            ['pgsql', 'postgresql', null, 'string', ' IN (NULL)'],
-            ['sqlite', 'sqlite', null, 'string', ' IN (NULL)'],
+            ['mysqli', 'Mysqli', 'mysql', null, '', ' IN (NULL)'],
+            ['mysqlimb4', 'Mysqlimb4', 'mysql', null, '', ' IN (NULL)'],
+            ['pgsql', 'Pgsql', 'postgresql', null, '', ' IN (NULL)'],
+            ['sqlite', 'PdoSqlite', 'sqlite', null, '', ' IN (NULL)'],
+            ['mysqli', 'Mysqli', 'mysql', null, 'int', ' IN (NULL)'],
+            ['mysqlimb4', 'Mysqlimb4', 'mysql', null, 'int', ' IN (NULL)'],
+            ['pgsql', 'Pgsql', 'postgresql', null, 'int', ' IN (NULL)'],
+            ['sqlite', 'PdoSqlite', 'sqlite', null, 'int', ' IN (NULL)'],
+            ['mysqli', 'Mysqli', 'mysql', null, 'string', ' IN (NULL)'],
+            ['mysqlimb4', 'Mysqlimb4', 'mysql', null, 'string', ' IN (NULL)'],
+            ['pgsql', 'Pgsql', 'postgresql', null, 'string', ' IN (NULL)'],
+            ['sqlite', 'PdoSqlite', 'sqlite', null, 'string', ' IN (NULL)'],
             // Single int value
-            ['mysqli', 'mysql', 0, '', ' IN (0)'],
-            ['mysqlimb4', 'mysql', 0, '', ' IN (0)'],
-            ['pgsql', 'postgresql', 0, '', ' IN (0)'],
-            ['sqlite', 'sqlite', 0, '', ' IN (0)'],
-            ['mysqli', 'mysql', 0, 'int', ' IN (0)'],
-            ['mysqlimb4', 'mysql', 0, 'int', ' IN (0)'],
-            ['pgsql', 'postgresql', 0, 'int', ' IN (0)'],
-            ['sqlite', 'sqlite', 0, 'int', ' IN (0)'],
-            ['mysqli', 'mysql', 0, 'string', ' IN (\'0\')'],
-            ['mysqlimb4', 'mysql', 0, 'string', ' IN (\'0\')'],
-            ['pgsql', 'postgresql', 0, 'string', ' IN (\'0\')'],
-            ['sqlite', 'sqlite', 0, 'string', ' IN (\'0\')'],
+            ['mysqli', 'Mysqli', 'mysql', 0, '', ' IN (0)'],
+            ['mysqlimb4', 'Mysqlimb4', 'mysql', 0, '', ' IN (0)'],
+            ['pgsql', 'Pgsql', 'postgresql', 0, '', ' IN (0)'],
+            ['sqlite', 'PdoSqlite', 'sqlite', 0, '', ' IN (0)'],
+            ['mysqli', 'Mysqli', 'mysql', 0, 'int', ' IN (0)'],
+            ['mysqlimb4', 'Mysqlimb4', 'mysql', 0, 'int', ' IN (0)'],
+            ['pgsql', 'Pgsql', 'postgresql', 0, 'int', ' IN (0)'],
+            ['sqlite', 'PdoSqlite', 'sqlite', 0, 'int', ' IN (0)'],
+            ['mysqli', 'Mysqli', 'mysql', 0, 'string', ' IN (\'0\')'],
+            ['mysqlimb4', 'Mysqlimb4', 'mysql', 0, 'string', ' IN (\'0\')'],
+            ['pgsql', 'Pgsql', 'postgresql', 0, 'string', ' IN (\'0\')'],
+            ['sqlite', 'PdoSqlite', 'sqlite', 0, 'string', ' IN (\'0\')'],
             // Single string value
-            ['mysqli', 'mysql', '0', '', ' IN (\'0\')'],
-            ['mysqlimb4', 'mysql', '0', '', ' IN (\'0\')'],
-            ['pgsql', 'postgresql', '0', '', ' IN (\'0\')'],
-            ['sqlite', 'sqlite', '0', '', ' IN (\'0\')'],
-            ['mysqli', 'mysql', '0', 'int', ' IN (0)'],
-            ['mysqlimb4', 'mysql', '0', 'int', ' IN (0)'],
-            ['pgsql', 'postgresql', '0', 'int', ' IN (0)'],
-            ['sqlite', 'sqlite', '0', 'int', ' IN (0)'],
-            ['mysqli', 'mysql', '0', 'string', ' IN (\'0\')'],
-            ['mysqlimb4', 'mysql', '0', 'string', ' IN (\'0\')'],
-            ['pgsql', 'postgresql', '0', 'string', ' IN (\'0\')'],
-            ['sqlite', 'sqlite', '0', 'string', ' IN (\'0\')'],
+            ['mysqli', 'Mysqli', 'mysql', '0', '', ' IN (\'0\')'],
+            ['mysqlimb4', 'Mysqlimb4', 'mysql', '0', '', ' IN (\'0\')'],
+            ['pgsql', 'Pgsql', 'postgresql', '0', '', ' IN (\'0\')'],
+            ['sqlite', 'PdoSqlite', 'sqlite', '0', '', ' IN (\'0\')'],
+            ['mysqli', 'Mysqli', 'mysql', '0', 'int', ' IN (0)'],
+            ['mysqlimb4', 'Mysqlimb4', 'mysql', '0', 'int', ' IN (0)'],
+            ['pgsql', 'Pgsql', 'postgresql', '0', 'int', ' IN (0)'],
+            ['sqlite', 'PdoSqlite', 'sqlite', '0', 'int', ' IN (0)'],
+            ['mysqli', 'Mysqli', 'mysql', '0', 'string', ' IN (\'0\')'],
+            ['mysqlimb4', 'Mysqlimb4', 'mysql', '0', 'string', ' IN (\'0\')'],
+            ['pgsql', 'Pgsql', 'postgresql', '0', 'string', ' IN (\'0\')'],
+            ['sqlite', 'PdoSqlite', 'sqlite', '0', 'string', ' IN (\'0\')'],
         ];
     }
 
     #[DataProvider('dataProviderTestDateFormat')]
-    public function testDateFormat(string $driver, string $syntax, string $field, string $pattern, string $result): void
+    public function testDateFormat(string $driver, string $driver_folder, string $syntax, string $field, string $pattern, string $result): void
     {
-        $con = $this->getConnection($driver, $syntax);
+        $con = $this->getConnection($driver, $driver_folder, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
 
         $this->assertEquals(
@@ -284,17 +283,17 @@ class SqlStatementTest extends TestCase
     public static function dataProviderTestDateFormat(): array
     {
         return [
-            ['mysqli', 'mysql', 'MyTable.MyField', '%Y/%m/%d %H:%M:%S', 'DATE_FORMAT(MyTable.MyField,\'%Y/%m/%d %H:%i:%S\')'],
-            ['mysqlimb4', 'mysql', 'MyTable.MyField', '%Y/%m/%d %H:%M:%S', 'DATE_FORMAT(MyTable.MyField,\'%Y/%m/%d %H:%i:%S\')'],
-            ['pgsql', 'postgresql', 'MyTable.MyField', '%Y/%m/%d %H:%M:%S', 'TO_CHAR(MyTable.MyField,\'YYYY/MM/DD HH24:MI:SS\')'],
-            ['sqlite', 'sqlite', 'MyTable.MyField', '%Y/%m/%d %H:%M:%S', 'strftime(\'%Y/%m/%d %H:%M:%S\',MyTable.MyField)'],
+            ['mysqli', 'Mysqli', 'mysql', 'MyTable.MyField', '%Y/%m/%d %H:%M:%S', 'DATE_FORMAT(MyTable.MyField,\'%Y/%m/%d %H:%i:%S\')'],
+            ['mysqlimb4', 'Mysqlimb4', 'mysql', 'MyTable.MyField', '%Y/%m/%d %H:%M:%S', 'DATE_FORMAT(MyTable.MyField,\'%Y/%m/%d %H:%i:%S\')'],
+            ['pgsql', 'Pgsql', 'postgresql', 'MyTable.MyField', '%Y/%m/%d %H:%M:%S', 'TO_CHAR(MyTable.MyField,\'YYYY/MM/DD HH24:MI:SS\')'],
+            ['sqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', '%Y/%m/%d %H:%M:%S', 'strftime(\'%Y/%m/%d %H:%M:%S\',MyTable.MyField)'],
         ];
     }
 
     #[DataProvider('dataProviderTestLike')]
-    public function testLike(string $driver, string $syntax, string $field, string $pattern, string $result): void
+    public function testLike(string $driver, string $driver_folder, string $syntax, string $field, string $pattern, string $result): void
     {
-        $con = $this->getConnection($driver, $syntax);
+        $con = $this->getConnection($driver, $driver_folder, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
 
         $this->assertEquals(
@@ -309,17 +308,17 @@ class SqlStatementTest extends TestCase
     public static function dataProviderTestLike(): array
     {
         return [
-            ['mysqli', 'mysql', 'MyTable.MyField', 't*s_t', 'MyTable.MyField LIKE \'t*s_t\''],
-            ['mysqlimb4', 'mysql', 'MyTable.MyField', 't*s_t', 'MyTable.MyField LIKE \'t*s_t\''],
-            ['pgsql', 'postgresql', 'MyTable.MyField', 't*s_t', 'MyTable.MyField LIKE \'t*s_t\''],
-            ['sqlite', 'sqlite', 'MyTable.MyField', 't*s_t', 'MyTable.MyField LIKE \'t*s_t\''],
+            ['mysqli', 'Mysqli', 'mysql', 'MyTable.MyField', 't*s_t', 'MyTable.MyField LIKE \'t*s_t\''],
+            ['mysqlimb4', 'Mysqlimb4', 'mysql', 'MyTable.MyField', 't*s_t', 'MyTable.MyField LIKE \'t*s_t\''],
+            ['pgsql', 'Pgsql', 'postgresql', 'MyTable.MyField', 't*s_t', 'MyTable.MyField LIKE \'t*s_t\''],
+            ['sqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', 't*s_t', 'MyTable.MyField LIKE \'t*s_t\''],
         ];
     }
 
     #[DataProvider('dataProviderTestRegexp')]
-    public function testRegexp(string $driver, string $syntax, string $pattern, string $result): void
+    public function testRegexp(string $driver, string $driver_folder, string $syntax, string $pattern, string $result): void
     {
-        $con = $this->getConnection($driver, $syntax);
+        $con = $this->getConnection($driver, $driver_folder, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
 
         $this->assertEquals(
@@ -334,17 +333,17 @@ class SqlStatementTest extends TestCase
     public static function dataProviderTestRegexp(): array
     {
         return [
-            ['mysqli', 'mysql', '([A-Za-z0-9]+)', ' REGEXP \'^\\\\(\\\\[A\\\\-Za\\\\-z0\\\\-9\\\\]\\\\+\\\\)[0-9]+$\''],
-            ['mysqlimb4', 'mysql', '([A-Za-z0-9]+)', ' REGEXP \'^\\\\(\\\\[A\\\\-Za\\\\-z0\\\\-9\\\\]\\\\+\\\\)[0-9]+$\''],
-            ['pgsql', 'postgresql', '([A-Za-z0-9]+)', ' ~ \'^\\\\(\\\\[A\\\\-Za\\\\-z0\\\\-9\\\\]\\\\+\\\\)[0-9]+$\''],
-            ['sqlite', 'sqlite', '([A-Za-z0-9]+)', ' LIKE \'([A-Za-z0-9]+)%\' ESCAPE \'!\''],
+            ['mysqli', 'Mysqli', 'mysql', '([A-Za-z0-9]+)', ' REGEXP \'^\\\\(\\\\[A\\\\-Za\\\\-z0\\\\-9\\\\]\\\\+\\\\)[0-9]+$\''],
+            ['mysqlimb4', 'Mysqlimb4', 'mysql', '([A-Za-z0-9]+)', ' REGEXP \'^\\\\(\\\\[A\\\\-Za\\\\-z0\\\\-9\\\\]\\\\+\\\\)[0-9]+$\''],
+            ['pgsql', 'Pgsql', 'postgresql', '([A-Za-z0-9]+)', ' ~ \'^\\\\(\\\\[A\\\\-Za\\\\-z0\\\\-9\\\\]\\\\+\\\\)[0-9]+$\''],
+            ['sqlite', 'PdoSqlite', 'sqlite', '([A-Za-z0-9]+)', ' LIKE \'([A-Za-z0-9]+)%\' ESCAPE \'!\''],
         ];
     }
 
     #[DataProvider('dataProviderTestUnique')]
-    public function testUnique(string $driver, string $syntax, string $field, string $result): void
+    public function testUnique(string $driver, string $driver_folder, string $syntax, string $field, string $result): void
     {
-        $con = $this->getConnection($driver, $syntax);
+        $con = $this->getConnection($driver, $driver_folder, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
 
         $this->assertEquals(
@@ -359,17 +358,17 @@ class SqlStatementTest extends TestCase
     public static function dataProviderTestUnique(): array
     {
         return [
-            ['mysqli', 'mysql', 'MyTable.MyField', 'DISTINCT MyTable.MyField'],
-            ['mysqlimb4', 'mysql', 'MyTable.MyField', 'DISTINCT MyTable.MyField'],
-            ['pgsql', 'postgresql', 'MyTable.MyField', 'DISTINCT MyTable.MyField'],
-            ['sqlite', 'sqlite', 'MyTable.MyField', 'DISTINCT MyTable.MyField'],
+            ['mysqli', 'Mysqli', 'mysql', 'MyTable.MyField', 'DISTINCT MyTable.MyField'],
+            ['mysqlimb4', 'Mysqlimb4', 'mysql', 'MyTable.MyField', 'DISTINCT MyTable.MyField'],
+            ['pgsql', 'Pgsql', 'postgresql', 'MyTable.MyField', 'DISTINCT MyTable.MyField'],
+            ['sqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', 'DISTINCT MyTable.MyField'],
         ];
     }
 
     #[DataProvider('dataProviderTestCount')]
-    public function testCount(string $driver, string $syntax, string $field, ?string $alias, bool $unique, string $result): void
+    public function testCount(string $driver, string $driver_folder, string $syntax, string $field, ?string $alias, bool $unique, string $result): void
     {
-        $con = $this->getConnection($driver, $syntax);
+        $con = $this->getConnection($driver, $driver_folder, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
 
         $this->assertEquals(
@@ -385,32 +384,32 @@ class SqlStatementTest extends TestCase
     {
         return [
             // With alias and unique
-            ['mysqli', 'mysql', 'MyTable.MyField', 'MyAlias', true, 'COUNT(DISTINCT MyTable.MyField) MyAlias'],
-            ['mysqlimb4', 'mysql', 'MyTable.MyField', 'MyAlias', true, 'COUNT(DISTINCT MyTable.MyField) MyAlias'],
-            ['pgsql', 'postgresql', 'MyTable.MyField', 'MyAlias', true, 'COUNT(DISTINCT MyTable.MyField) MyAlias'],
-            ['sqlite', 'sqlite', 'MyTable.MyField', 'MyAlias', true, 'COUNT(DISTINCT MyTable.MyField) AS MyAlias'],
+            ['mysqli', 'Mysqli', 'mysql', 'MyTable.MyField', 'MyAlias', true, 'COUNT(DISTINCT MyTable.MyField) MyAlias'],
+            ['mysqlimb4', 'Mysqlimb4', 'mysql', 'MyTable.MyField', 'MyAlias', true, 'COUNT(DISTINCT MyTable.MyField) MyAlias'],
+            ['pgsql', 'Pgsql', 'postgresql', 'MyTable.MyField', 'MyAlias', true, 'COUNT(DISTINCT MyTable.MyField) MyAlias'],
+            ['sqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', 'MyAlias', true, 'COUNT(DISTINCT MyTable.MyField) AS MyAlias'],
             // With alias
-            ['mysqli', 'mysql', 'MyTable.MyField', 'MyAlias', false, 'COUNT(MyTable.MyField) MyAlias'],
-            ['mysqlimb4', 'mysql', 'MyTable.MyField', 'MyAlias', false, 'COUNT(MyTable.MyField) MyAlias'],
-            ['pgsql', 'postgresql', 'MyTable.MyField', 'MyAlias', false, 'COUNT(MyTable.MyField) MyAlias'],
-            ['sqlite', 'sqlite', 'MyTable.MyField', 'MyAlias', false, 'COUNT(MyTable.MyField) AS MyAlias'],
+            ['mysqli', 'Mysqli', 'mysql', 'MyTable.MyField', 'MyAlias', false, 'COUNT(MyTable.MyField) MyAlias'],
+            ['mysqlimb4', 'Mysqlimb4', 'mysql', 'MyTable.MyField', 'MyAlias', false, 'COUNT(MyTable.MyField) MyAlias'],
+            ['pgsql', 'Pgsql', 'postgresql', 'MyTable.MyField', 'MyAlias', false, 'COUNT(MyTable.MyField) MyAlias'],
+            ['sqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', 'MyAlias', false, 'COUNT(MyTable.MyField) AS MyAlias'],
             // With unique
-            ['mysqli', 'mysql', 'MyTable.MyField', null, true, 'COUNT(DISTINCT MyTable.MyField)'],
-            ['mysqlimb4', 'mysql', 'MyTable.MyField', null, true, 'COUNT(DISTINCT MyTable.MyField)'],
-            ['pgsql', 'postgresql', 'MyTable.MyField', null, true, 'COUNT(DISTINCT MyTable.MyField)'],
-            ['sqlite', 'sqlite', 'MyTable.MyField', null, true, 'COUNT(DISTINCT MyTable.MyField)'],
+            ['mysqli', 'Mysqli', 'mysql', 'MyTable.MyField', null, true, 'COUNT(DISTINCT MyTable.MyField)'],
+            ['mysqlimb4', 'Mysqlimb4', 'mysql', 'MyTable.MyField', null, true, 'COUNT(DISTINCT MyTable.MyField)'],
+            ['pgsql', 'Pgsql', 'postgresql', 'MyTable.MyField', null, true, 'COUNT(DISTINCT MyTable.MyField)'],
+            ['sqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', null, true, 'COUNT(DISTINCT MyTable.MyField)'],
             // Nothing
-            ['mysqli', 'mysql', 'MyTable.MyField', null, false, 'COUNT(MyTable.MyField)'],
-            ['mysqlimb4', 'mysql', 'MyTable.MyField', null, false, 'COUNT(MyTable.MyField)'],
-            ['pgsql', 'postgresql', 'MyTable.MyField', null, false, 'COUNT(MyTable.MyField)'],
-            ['sqlite', 'sqlite', 'MyTable.MyField', null, false, 'COUNT(MyTable.MyField)'],
+            ['mysqli', 'Mysqli', 'mysql', 'MyTable.MyField', null, false, 'COUNT(MyTable.MyField)'],
+            ['mysqlimb4', 'Mysqlimb4', 'mysql', 'MyTable.MyField', null, false, 'COUNT(MyTable.MyField)'],
+            ['pgsql', 'Pgsql', 'postgresql', 'MyTable.MyField', null, false, 'COUNT(MyTable.MyField)'],
+            ['sqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', null, false, 'COUNT(MyTable.MyField)'],
         ];
     }
 
     #[DataProvider('dataProviderTestAvg')]
-    public function testAvg(string $driver, string $syntax, string $field, ?string $alias, string $result): void
+    public function testAvg(string $driver, string $driver_folder, string $syntax, string $field, ?string $alias, string $result): void
     {
-        $con = $this->getConnection($driver, $syntax);
+        $con = $this->getConnection($driver, $driver_folder, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
 
         $this->assertEquals(
@@ -426,22 +425,22 @@ class SqlStatementTest extends TestCase
     {
         return [
             // With alias
-            ['mysqli', 'mysql', 'MyTable.MyField', 'MyAlias', 'AVG(MyTable.MyField) MyAlias'],
-            ['mysqlimb4', 'mysql', 'MyTable.MyField', 'MyAlias', 'AVG(MyTable.MyField) MyAlias'],
-            ['pgsql', 'postgresql', 'MyTable.MyField', 'MyAlias', 'AVG(MyTable.MyField) MyAlias'],
-            ['sqlite', 'sqlite', 'MyTable.MyField', 'MyAlias', 'AVG(MyTable.MyField) AS MyAlias'],
+            ['mysqli', 'Mysqli', 'mysql', 'MyTable.MyField', 'MyAlias', 'AVG(MyTable.MyField) MyAlias'],
+            ['mysqlimb4', 'Mysqlimb4', 'mysql', 'MyTable.MyField', 'MyAlias', 'AVG(MyTable.MyField) MyAlias'],
+            ['pgsql', 'Pgsql', 'postgresql', 'MyTable.MyField', 'MyAlias', 'AVG(MyTable.MyField) MyAlias'],
+            ['sqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', 'MyAlias', 'AVG(MyTable.MyField) AS MyAlias'],
             // Nothing
-            ['mysqli', 'mysql', 'MyTable.MyField', null, 'AVG(MyTable.MyField)'],
-            ['mysqlimb4', 'mysql', 'MyTable.MyField', null, 'AVG(MyTable.MyField)'],
-            ['pgsql', 'postgresql', 'MyTable.MyField', null, 'AVG(MyTable.MyField)'],
-            ['sqlite', 'sqlite', 'MyTable.MyField', null, 'AVG(MyTable.MyField)'],
+            ['mysqli', 'Mysqli', 'mysql', 'MyTable.MyField', null, 'AVG(MyTable.MyField)'],
+            ['mysqlimb4', 'Mysqlimb4', 'mysql', 'MyTable.MyField', null, 'AVG(MyTable.MyField)'],
+            ['pgsql', 'Pgsql', 'postgresql', 'MyTable.MyField', null, 'AVG(MyTable.MyField)'],
+            ['sqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', null, 'AVG(MyTable.MyField)'],
         ];
     }
 
     #[DataProvider('dataProviderTestMax')]
-    public function testMax(string $driver, string $syntax, string $field, ?string $alias, string $result): void
+    public function testMax(string $driver, string $driver_folder, string $syntax, string $field, ?string $alias, string $result): void
     {
-        $con = $this->getConnection($driver, $syntax);
+        $con = $this->getConnection($driver, $driver_folder, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
 
         $this->assertEquals(
@@ -457,22 +456,22 @@ class SqlStatementTest extends TestCase
     {
         return [
             // With alias
-            ['mysqli', 'mysql', 'MyTable.MyField', 'MyAlias', 'MAX(MyTable.MyField) MyAlias'],
-            ['mysqlimb4', 'mysql', 'MyTable.MyField', 'MyAlias', 'MAX(MyTable.MyField) MyAlias'],
-            ['pgsql', 'postgresql', 'MyTable.MyField', 'MyAlias', 'MAX(MyTable.MyField) MyAlias'],
-            ['sqlite', 'sqlite', 'MyTable.MyField', 'MyAlias', 'MAX(MyTable.MyField) AS MyAlias'],
+            ['mysqli', 'Mysqli', 'mysql', 'MyTable.MyField', 'MyAlias', 'MAX(MyTable.MyField) MyAlias'],
+            ['mysqlimb4', 'Mysqlimb4', 'mysql', 'MyTable.MyField', 'MyAlias', 'MAX(MyTable.MyField) MyAlias'],
+            ['pgsql', 'Pgsql', 'postgresql', 'MyTable.MyField', 'MyAlias', 'MAX(MyTable.MyField) MyAlias'],
+            ['sqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', 'MyAlias', 'MAX(MyTable.MyField) AS MyAlias'],
             // Nothing
-            ['mysqli', 'mysql', 'MyTable.MyField', null, 'MAX(MyTable.MyField)'],
-            ['mysqlimb4', 'mysql', 'MyTable.MyField', null, 'MAX(MyTable.MyField)'],
-            ['pgsql', 'postgresql', 'MyTable.MyField', null, 'MAX(MyTable.MyField)'],
-            ['sqlite', 'sqlite', 'MyTable.MyField', null, 'MAX(MyTable.MyField)'],
+            ['mysqli', 'Mysqli', 'mysql', 'MyTable.MyField', null, 'MAX(MyTable.MyField)'],
+            ['mysqlimb4', 'Mysqlimb4', 'mysql', 'MyTable.MyField', null, 'MAX(MyTable.MyField)'],
+            ['pgsql', 'Pgsql', 'postgresql', 'MyTable.MyField', null, 'MAX(MyTable.MyField)'],
+            ['sqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', null, 'MAX(MyTable.MyField)'],
         ];
     }
 
     #[DataProvider('dataProviderTestMin')]
-    public function testMin(string $driver, string $syntax, string $field, ?string $alias, string $result): void
+    public function testMin(string $driver, string $driver_folder, string $syntax, string $field, ?string $alias, string $result): void
     {
-        $con = $this->getConnection($driver, $syntax);
+        $con = $this->getConnection($driver, $driver_folder, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
 
         $this->assertEquals(
@@ -488,22 +487,22 @@ class SqlStatementTest extends TestCase
     {
         return [
             // With alias
-            ['mysqli', 'mysql', 'MyTable.MyField', 'MyAlias', 'MIN(MyTable.MyField) MyAlias'],
-            ['mysqlimb4', 'mysql', 'MyTable.MyField', 'MyAlias', 'MIN(MyTable.MyField) MyAlias'],
-            ['pgsql', 'postgresql', 'MyTable.MyField', 'MyAlias', 'MIN(MyTable.MyField) MyAlias'],
-            ['sqlite', 'sqlite', 'MyTable.MyField', 'MyAlias', 'MIN(MyTable.MyField) AS MyAlias'],
+            ['mysqli', 'Mysqli', 'mysql', 'MyTable.MyField', 'MyAlias', 'MIN(MyTable.MyField) MyAlias'],
+            ['mysqlimb4', 'Mysqlimb4', 'mysql', 'MyTable.MyField', 'MyAlias', 'MIN(MyTable.MyField) MyAlias'],
+            ['pgsql', 'Pgsql', 'postgresql', 'MyTable.MyField', 'MyAlias', 'MIN(MyTable.MyField) MyAlias'],
+            ['sqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', 'MyAlias', 'MIN(MyTable.MyField) AS MyAlias'],
             // Nothing
-            ['mysqli', 'mysql', 'MyTable.MyField', null, 'MIN(MyTable.MyField)'],
-            ['mysqlimb4', 'mysql', 'MyTable.MyField', null, 'MIN(MyTable.MyField)'],
-            ['pgsql', 'postgresql', 'MyTable.MyField', null, 'MIN(MyTable.MyField)'],
-            ['sqlite', 'sqlite', 'MyTable.MyField', null, 'MIN(MyTable.MyField)'],
+            ['mysqli', 'Mysqli', 'mysql', 'MyTable.MyField', null, 'MIN(MyTable.MyField)'],
+            ['mysqlimb4', 'Mysqlimb4', 'mysql', 'MyTable.MyField', null, 'MIN(MyTable.MyField)'],
+            ['pgsql', 'Pgsql', 'postgresql', 'MyTable.MyField', null, 'MIN(MyTable.MyField)'],
+            ['sqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', null, 'MIN(MyTable.MyField)'],
         ];
     }
 
     #[DataProvider('dataProviderTestSum')]
-    public function testSum(string $driver, string $syntax, string $field, ?string $alias, string $result): void
+    public function testSum(string $driver, string $driver_folder, string $syntax, string $field, ?string $alias, string $result): void
     {
-        $con = $this->getConnection($driver, $syntax);
+        $con = $this->getConnection($driver, $driver_folder, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
 
         $this->assertEquals(
@@ -519,22 +518,22 @@ class SqlStatementTest extends TestCase
     {
         return [
             // With alias
-            ['mysqli', 'mysql', 'MyTable.MyField', 'MyAlias', 'SUM(MyTable.MyField) MyAlias'],
-            ['mysqlimb4', 'mysql', 'MyTable.MyField', 'MyAlias', 'SUM(MyTable.MyField) MyAlias'],
-            ['pgsql', 'postgresql', 'MyTable.MyField', 'MyAlias', 'SUM(MyTable.MyField) MyAlias'],
-            ['sqlite', 'sqlite', 'MyTable.MyField', 'MyAlias', 'SUM(MyTable.MyField) AS MyAlias'],
+            ['mysqli', 'Mysqli', 'mysql', 'MyTable.MyField', 'MyAlias', 'SUM(MyTable.MyField) MyAlias'],
+            ['mysqlimb4', 'Mysqlimb4', 'mysql', 'MyTable.MyField', 'MyAlias', 'SUM(MyTable.MyField) MyAlias'],
+            ['pgsql', 'Pgsql', 'postgresql', 'MyTable.MyField', 'MyAlias', 'SUM(MyTable.MyField) MyAlias'],
+            ['sqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', 'MyAlias', 'SUM(MyTable.MyField) AS MyAlias'],
             // Nothing
-            ['mysqli', 'mysql', 'MyTable.MyField', null, 'SUM(MyTable.MyField)'],
-            ['mysqlimb4', 'mysql', 'MyTable.MyField', null, 'SUM(MyTable.MyField)'],
-            ['pgsql', 'postgresql', 'MyTable.MyField', null, 'SUM(MyTable.MyField)'],
-            ['sqlite', 'sqlite', 'MyTable.MyField', null, 'SUM(MyTable.MyField)'],
+            ['mysqli', 'Mysqli', 'mysql', 'MyTable.MyField', null, 'SUM(MyTable.MyField)'],
+            ['mysqlimb4', 'Mysqlimb4', 'mysql', 'MyTable.MyField', null, 'SUM(MyTable.MyField)'],
+            ['pgsql', 'Pgsql', 'postgresql', 'MyTable.MyField', null, 'SUM(MyTable.MyField)'],
+            ['sqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', null, 'SUM(MyTable.MyField)'],
         ];
     }
 
     #[DataProvider('dataProviderTestIsNull')]
-    public function testIsNull(string $driver, string $syntax, string $field, string $result): void
+    public function testIsNull(string $driver, string $driver_folder, string $syntax, string $field, string $result): void
     {
-        $con = $this->getConnection($driver, $syntax);
+        $con = $this->getConnection($driver, $driver_folder, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
 
         $this->assertEquals(
@@ -549,17 +548,17 @@ class SqlStatementTest extends TestCase
     public static function dataProviderTestIsNull(): array
     {
         return [
-            ['mysqli', 'mysql', 'MyTable.MyField', 'MyTable.MyField IS NULL'],
-            ['mysqlimb4', 'mysql', 'MyTable.MyField', 'MyTable.MyField IS NULL'],
-            ['pgsql', 'postgresql', 'MyTable.MyField', 'MyTable.MyField IS NULL'],
-            ['sqlite', 'sqlite', 'MyTable.MyField', 'MyTable.MyField IS NULL'],
+            ['mysqli', 'Mysqli', 'mysql', 'MyTable.MyField', 'MyTable.MyField IS NULL'],
+            ['mysqlimb4', 'Mysqlimb4', 'mysql', 'MyTable.MyField', 'MyTable.MyField IS NULL'],
+            ['pgsql', 'Pgsql', 'postgresql', 'MyTable.MyField', 'MyTable.MyField IS NULL'],
+            ['sqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', 'MyTable.MyField IS NULL'],
         ];
     }
 
     #[DataProvider('dataProviderTestIsNotNull')]
-    public function testIsNotNull(string $driver, string $syntax, string $field, string $result): void
+    public function testIsNotNull(string $driver, string $driver_folder, string $syntax, string $field, string $result): void
     {
-        $con = $this->getConnection($driver, $syntax);
+        $con = $this->getConnection($driver, $driver_folder, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
 
         $this->assertEquals(
@@ -574,17 +573,17 @@ class SqlStatementTest extends TestCase
     public static function dataProviderTestIsNotNull(): array
     {
         return [
-            ['mysqli', 'mysql', 'MyTable.MyField', 'MyTable.MyField IS NOT NULL'],
-            ['mysqlimb4', 'mysql', 'MyTable.MyField', 'MyTable.MyField IS NOT NULL'],
-            ['pgsql', 'postgresql', 'MyTable.MyField', 'MyTable.MyField IS NOT NULL'],
-            ['sqlite', 'sqlite', 'MyTable.MyField', 'MyTable.MyField IS NOT NULL'],
+            ['mysqli', 'Mysqli', 'mysql', 'MyTable.MyField', 'MyTable.MyField IS NOT NULL'],
+            ['mysqlimb4', 'Mysqlimb4', 'mysql', 'MyTable.MyField', 'MyTable.MyField IS NOT NULL'],
+            ['pgsql', 'Pgsql', 'postgresql', 'MyTable.MyField', 'MyTable.MyField IS NOT NULL'],
+            ['sqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', 'MyTable.MyField IS NOT NULL'],
         ];
     }
 
     #[DataProvider('dataProviderTest')]
-    public function testMagic(string $driver, string $syntax): void
+    public function testMagic(string $driver, string $driver_folder, string $syntax): void
     {
-        $con = $this->getConnection($driver, $syntax);
+        $con = $this->getConnection($driver, $driver_folder, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
 
         // @phpstan-ignore property.protected
@@ -611,9 +610,9 @@ class SqlStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function testMagicSetError(string $driver, string $syntax): void
+    public function testMagicSetError(string $driver, string $driver_folder, string $syntax): void
     {
-        $con = $this->getConnection($driver, $syntax);
+        $con = $this->getConnection($driver, $driver_folder, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
 
         $this->assertFalse(
@@ -629,9 +628,9 @@ class SqlStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function testMagicGetError(string $driver, string $syntax): void
+    public function testMagicGetError(string $driver, string $driver_folder, string $syntax): void
     {
-        $con = $this->getConnection($driver, $syntax);
+        $con = $this->getConnection($driver, $driver_folder, $syntax);
         $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
 
         $this->expectException(Exception::class);

@@ -34,7 +34,7 @@ class Handler extends PdoMysqlHandler
 
     public function db_dsn(string $host, string $user, string $password, string $database): string
     {
-        return (string) str_replace('charset=utf8;', 'charset=utf8mb4;', parent::db_dsn($host, $user, $password, $database));
+        return str_replace('charset=utf8;', 'charset=utf8mb4;', parent::db_dsn($host, $user, $password, $database));
     }
 
     protected function db_post_connect(PDO $handle): void
@@ -82,7 +82,7 @@ class Handler extends PdoMysqlHandler
             if (is_string($v)) {
                 $res[] = sprintf($fmt, $v);
             } elseif (is_array($v)) {
-                $res = array_map(fn ($i): string => sprintf($fmt, $i), $v);
+                $res = array_map(fn (string $i): string => sprintf($fmt, $i), $v);
             }
         }
 

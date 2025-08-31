@@ -43,7 +43,7 @@ class Upgrade
             try {
                 // Need to find a way to upgrade sqlite database
                 $changes = 0;
-                if (App::db()->con()->driver() !== 'sqlite') {
+                if (!str_contains(App::db()->con()->driver(), 'sqlite')) {
                     # Database upgrade
                     $_s = new Structure(App::db()->con(), App::db()->con()->prefix());
 

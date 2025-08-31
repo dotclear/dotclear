@@ -11,11 +11,10 @@ use PHPUnit\Framework\TestCase;
 
 class UpdateStatementTest extends TestCase
 {
-    private function getConnection(string $driver, string $syntax): MockObject
+    private function getConnection(string $driver, string $driver_folder, string $syntax): MockObject
     {
         // Build a mock handler for the driver
-        $driverClass  = ucfirst($driver);
-        $handlerClass = implode('\\', ['Dotclear', 'Schema', 'Database', $driverClass, 'Handler']);
+        $handlerClass = implode('\\', ['Dotclear', 'Schema', 'Database', $driver_folder, 'Handler']);
         // @phpstan-ignore argument.templateType, argument.type
         $mock = $this->getMockBuilder($handlerClass)
             ->disableOriginalConstructor()
@@ -51,9 +50,9 @@ class UpdateStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function test(string $driver, string $syntax): void
+    public function test(string $driver, string $driver_folder, string $syntax): void
     {
-        $con = $this->getConnection($driver, $syntax);
+        $con = $this->getConnection($driver, $driver_folder, $syntax);
         $sql = new \Dotclear\Database\Statement\UpdateStatement($con, $syntax);
 
         $sql
@@ -96,9 +95,9 @@ class UpdateStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function testNoFields(string $driver, string $syntax): void
+    public function testNoFields(string $driver, string $driver_folder, string $syntax): void
     {
-        $con = $this->getConnection($driver, $syntax);
+        $con = $this->getConnection($driver, $driver_folder, $syntax);
         $sql = new \Dotclear\Database\Statement\UpdateStatement($con, $syntax);
 
         $sql
@@ -121,9 +120,9 @@ class UpdateStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function testNoWhere(string $driver, string $syntax): void
+    public function testNoWhere(string $driver, string $driver_folder, string $syntax): void
     {
-        $con = $this->getConnection($driver, $syntax);
+        $con = $this->getConnection($driver, $driver_folder, $syntax);
         $sql = new \Dotclear\Database\Statement\UpdateStatement($con, $syntax);
 
         $sql
@@ -160,9 +159,9 @@ class UpdateStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function testNoFrom(string $driver, string $syntax): void
+    public function testNoFrom(string $driver, string $driver_folder, string $syntax): void
     {
-        $con = $this->getConnection($driver, $syntax);
+        $con = $this->getConnection($driver, $driver_folder, $syntax);
         $sql = new \Dotclear\Database\Statement\UpdateStatement($con, $syntax);
 
         $this->expectException(Exception::class);
@@ -173,9 +172,9 @@ class UpdateStatementTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function testRun(string $driver, string $syntax): void
+    public function testRun(string $driver, string $driver_folder, string $syntax): void
     {
-        $con = $this->getConnection($driver, $syntax);
+        $con = $this->getConnection($driver, $driver_folder, $syntax);
         $sql = new \Dotclear\Database\Statement\UpdateStatement($con, $syntax);
 
         $sql
@@ -193,11 +192,11 @@ class UpdateStatementTest extends TestCase
     public static function dataProviderTest(): array
     {
         return [
-            // driver, syntax
-            ['mysqli', 'mysql'],
-            ['mysqlimb4', 'mysql'],
-            ['pgsql', 'postgresql'],
-            ['sqlite', 'sqlite'],
+            // driver, driver_foler, syntax
+            ['mysqli', 'Mysqli', 'mysql'],
+            ['mysqlimb4', 'Mysqlimb4', 'mysql'],
+            ['pgsql', 'Pgsql', 'postgresql'],
+            ['sqlite', 'PdoSqlite', 'sqlite'],
         ];
     }
 }

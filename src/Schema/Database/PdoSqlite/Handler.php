@@ -11,11 +11,7 @@ declare(strict_types=1);
 namespace Dotclear\Schema\Database\PdoSqlite;
 
 use Collator;
-use Dotclear\App;
 use Dotclear\Database\AbstractPdoHandler;
-use Dotclear\Database\StaticRecord;
-use Dotclear\Exception\DatabaseException;
-use Exception;
 use PDO;
 
 /**
@@ -124,7 +120,7 @@ class Handler extends AbstractPdoHandler
             if (is_string($v)) {
                 $res[] = sprintf($fmt, $v);
             } elseif (is_array($v)) {
-                $res = array_map(fn ($i): string => sprintf($fmt, $i), $v);
+                $res = array_map(fn (string $i): string => sprintf($fmt, $i), $v);
             }
         }
 

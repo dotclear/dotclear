@@ -11,11 +11,10 @@ use PHPUnit\Framework\TestCase;
 
 class CursorTest extends TestCase
 {
-    private function getConnection(string $driver, string $syntax): MockObject
+    private function getConnection(string $driver, string $driver_folder, string $syntax): MockObject
     {
         // Build a mock handler for the driver
-        $driverClass  = ucfirst($driver);
-        $handlerClass = implode('\\', ['Dotclear', 'Schema', 'Database', $driverClass, 'Handler']);
+        $handlerClass = implode('\\', ['Dotclear', 'Schema', 'Database', $driver_folder, 'Handler']);
         // @phpstan-ignore argument.templateType, argument.type
         $mock = $this->getMockBuilder($handlerClass)
             ->disableOriginalConstructor()
@@ -62,9 +61,9 @@ class CursorTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function test(string $driver, string $syntax): void
+    public function test(string $driver, string $driver_folder, string $syntax): void
     {
-        $con = $this->getConnection($driver, $syntax);
+        $con = $this->getConnection($driver, $driver_folder, $syntax);
         // @phpstan-ignore argument.type
         $cursor = new \Dotclear\Database\Cursor($con, 'dc_table');
 
@@ -137,9 +136,9 @@ class CursorTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function testInsertError(string $driver, string $syntax): void
+    public function testInsertError(string $driver, string $driver_folder, string $syntax): void
     {
-        $con = $this->getConnection($driver, $syntax);
+        $con = $this->getConnection($driver, $driver_folder, $syntax);
         // @phpstan-ignore argument.type
         $cursor = new \Dotclear\Database\Cursor($con, '');
 
@@ -150,9 +149,9 @@ class CursorTest extends TestCase
     }
 
     #[DataProvider('dataProviderTest')]
-    public function testUpdateError(string $driver, string $syntax): void
+    public function testUpdateError(string $driver, string $driver_folder, string $syntax): void
     {
-        $con = $this->getConnection($driver, $syntax);
+        $con = $this->getConnection($driver, $driver_folder, $syntax);
         // @phpstan-ignore argument.type
         $cursor = new \Dotclear\Database\Cursor($con, '');
 
@@ -168,11 +167,11 @@ class CursorTest extends TestCase
     public static function dataProviderTest(): array
     {
         return [
-            // driver, syntax
-            ['mysqli', 'mysql'],
-            ['mysqlimb4', 'mysql'],
-            ['pgsql', 'postgresql'],
-            ['sqlite', 'sqlite'],
+            // driver, driver_foler, syntax
+            ['mysqli', 'Mysqli', 'mysql'],
+            ['mysqlimb4', 'Mysqlimb4', 'mysql'],
+            ['pgsql', 'Pgsql', 'postgresql'],
+            ['sqlite', 'PdoSqlite', 'sqlite'],
         ];
     }
 
