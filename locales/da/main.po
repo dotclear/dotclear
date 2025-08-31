@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-30 17:29+0200\n"
-"PO-Revision-Date: 2025-08-30 22:55\n"
+"POT-Creation-Date: 2025-08-31 12:25+0200\n"
+"PO-Revision-Date: 2025-08-31 10:31\n"
 "Last-Translator: \n"
 "Language-Team: Danish\n"
 "Language: da_DK\n"
@@ -17,25 +17,29 @@ msgstr ""
 "X-Crowdin-File: /master/locales/_pot/main.pot\n"
 "X-Crowdin-File-ID: 262\n"
 
-#: inc/core/_fake_l10n.php:6 src/Process/Backend/Auth.php:477
+#: inc/core/_fake_l10n.php:7 src/Process/Backend/Auth.php:477
 #: src/Process/Backend/User.php:264 src/Process/Backend/UserPreferences.php:598
 #: src/Process/Install/Install.php:424 src/Process/Upgrade/Auth.php:401
 msgid "medium"
 msgstr "medium"
 
-#: inc/core/_fake_l10n.php:7
+#: inc/core/_fake_l10n.php:8
 msgid "small"
 msgstr "lille"
 
-#: inc/core/_fake_l10n.php:8
+#: inc/core/_fake_l10n.php:9
 msgid "thumbnail"
 msgstr "thumbnail"
 
-#: inc/core/_fake_l10n.php:9
+#: inc/core/_fake_l10n.php:10
+msgid "X-Large"
+msgstr ""
+
+#: inc/core/_fake_l10n.php:11
 msgid "square"
 msgstr "firkant"
 
-#: inc/core/_fake_l10n.php:13 src/Core/Backend/Action/Actions.php:140
+#: inc/core/_fake_l10n.php:15 src/Core/Backend/Action/Actions.php:140
 #: src/Core/Backend/Action/ActionsPosts.php:66
 #: src/Core/Backend/Action/ActionsPosts.php:73
 #: src/Core/Backend/Favorites.php:416 src/Core/Backend/Menus.php:168
@@ -45,9 +49,33 @@ msgstr "firkant"
 msgid "Posts"
 msgstr "Indlæg"
 
-#: inc/core/_fake_l10n.php:14
+#: inc/core/_fake_l10n.php:16
 msgid "Pages"
 msgstr "Sider"
+
+#: inc/core/_fake_l10n.php:17
+msgid "Plugins store"
+msgstr ""
+
+#: inc/core/_fake_l10n.php:18
+msgid "Themes store"
+msgstr ""
+
+#: inc/core/_fake_l10n.php:22
+msgid "MySQLi"
+msgstr "MySQLi"
+
+#: inc/core/_fake_l10n.php:23
+msgid "MySQLi (full UTF-8)"
+msgstr "MySQLi (fuld UTF- 8)"
+
+#: inc/core/_fake_l10n.php:24
+msgid "PostgreSQL"
+msgstr "PostgreSQL"
+
+#: inc/core/_fake_l10n.php:25
+msgid "SQLite"
+msgstr "SQLite"
 
 #: src/Core/Auth.php:122
 msgid "administrator"
