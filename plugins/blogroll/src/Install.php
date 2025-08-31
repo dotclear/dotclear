@@ -12,7 +12,6 @@ namespace Dotclear\Plugin\blogroll;
 
 use Dotclear\App;
 use Dotclear\Core\Process;
-use Dotclear\Database\Structure;
 use Dotclear\Plugin\blogroll\Status\Link;
 
 /**
@@ -32,7 +31,7 @@ class Install extends Process
             return false;
         }
 
-        $schema = new Structure(App::db()->con(), App::db()->con()->prefix());
+        $schema = App::db()->structure();
 
         $schema->{Blogroll::LINK_TABLE_NAME}    // @phpstan-ignore-line (weird usage of __call to set field in Table)
             ->link_id('bigint', 0, false)
@@ -50,7 +49,7 @@ class Install extends Process
             ->reference('fk_link_blog', 'blog_id', 'blog', 'blog_id', 'cascade', 'cascade')
         ;
 
-        (new Structure(App::db()->con(), App::db()->con()->prefix()))->synchronize($schema);
+        App::db()->structure()->synchronize($schema);
 
         return true;
     }

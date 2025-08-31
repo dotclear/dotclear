@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
+use Dotclear\Databse\Structure;
 use Dotclear\Exception\DatabaseException;
 use Dotclear\Helper\Container\Container;
 use Dotclear\Helper\Container\Factories;
@@ -85,6 +86,11 @@ class Database extends Container implements DatabaseInterface
         }
 
         return $this->get($driver, $reload, host: $host, database: $database, user: $user, password: $password, persistent: $persistent, prefix: $prefix);
+    }
+
+    public function structure(): Structure
+    {
+        return new Structure($this->con(), $this->con()->prefix());
     }
 
     public function combo(): array

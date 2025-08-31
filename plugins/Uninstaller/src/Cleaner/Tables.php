@@ -11,7 +11,6 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\Uninstaller\Cleaner;
 
 use Dotclear\App;
-use Dotclear\Database\Structure;
 use Dotclear\Database\Statement\{
     DeleteStatement,
     DropStatement,
@@ -112,7 +111,7 @@ class Tables extends CleanerParent
 
     public function execute(string $action, string $ns): bool
     {
-        $struct = new Structure(App::db()->con(), App::db()->con()->prefix());
+        $struct = App::db()->structure();
         $struct->reverse();
 
         if ($struct->tableExists(App::db()->con()->prefix() . $ns)) {

@@ -13,7 +13,6 @@ namespace Dotclear\Core\Upgrade;
 
 use Dotclear\App;
 use Dotclear\Core\Session;
-use Dotclear\Database\Structure;
 use Dotclear\Helper\File\Files;
 use Dotclear\Schema\Schema;
 use Exception;
@@ -45,13 +44,12 @@ class Upgrade
                 $changes = 0;
                 if (!str_contains(App::db()->con()->driver(), 'sqlite')) {
                     # Database upgrade
-                    $_s = new Structure(App::db()->con(), App::db()->con()->prefix());
+                    $_s = App::db()->structure();
 
                     # Fill database structrue
                     Schema::fillStructure($_s);
 
-                    $si      = new Structure(App::db()->con(), App::db()->con()->prefix());
-                    $changes = $si->synchronize($_s);
+                    $changes = App::db()->structure()->synchronize($_s);
                 }
 
                 /* Some other upgrades
