@@ -11,7 +11,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
-use Dotclear\Databse\Structure;
+use Dotclear\Database\Structure;
 use Dotclear\Exception\DatabaseException;
 use Dotclear\Helper\Container\Container;
 use Dotclear\Helper\Container\Factories;
