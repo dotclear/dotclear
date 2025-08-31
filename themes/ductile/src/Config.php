@@ -220,8 +220,7 @@ class Config extends Process
         if (!is_array($ductile_stickers)) {
             $ductile_stickers = [[
                 'label' => __('Subscribe'),
-                'url'   => App::blog()->url() .
-                App::url()->getURLFor('feed', 'atom'),
+                'url'   => App::blog()->url() . App::url()->getURLFor('feed', 'atom'),
                 'image' => 'sticker-feed.png',
             ]];
         }
@@ -268,6 +267,9 @@ class Config extends Process
 
                 App::backend()->ductile_user = $ductile_user;
 
+                /**
+                 * @var list<array{label: string, url: string, image: string}>
+                 */
                 $ductile_stickers = [];
                 for ($i = 0; $i < (is_countable($_POST['sticker_image']) ? count($_POST['sticker_image']) : 0); $i++) {
                     $ductile_stickers[] = [
