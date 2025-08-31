@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-31 00:24+0200\n"
-"PO-Revision-Date: 2025-08-30 22:27\n"
+"POT-Creation-Date: 2025-08-31 12:34+0200\n"
+"PO-Revision-Date: 2025-08-31 10:38\n"
 "Last-Translator: \n"
 "Language-Team: Japanese\n"
 "Language: ja_JP\n"
@@ -442,149 +442,152 @@ msgstr "テーマのアンインストール \"%s\""
 msgid "The module \"%1$s\" version %2$s offers advanced uninstall process:"
 msgstr "モジュール \"%1$s\" バージョン %2$s は、高度なアンインストールプロセスを提供します："
 
-#: plugins/_fake_plugin/_fake_l10n.php:6
+#: plugins/_fake_plugin/_fake_l10n.php:7
 msgid "Cope with old core classes (< 2.26)"
 msgstr "古いコアクラスに対応 (< 2.26)"
 
-#: plugins/_fake_plugin/_fake_l10n.php:7 plugins/antispam/src/Backend.php:30
+#: plugins/_fake_plugin/_fake_l10n.php:8 plugins/antispam/src/Backend.php:30
 msgid "Generic antispam plugin for Dotclear"
 msgstr "Dotclear 用の汎用アンチスパムプラグイン"
 
-#: plugins/_fake_plugin/_fake_l10n.php:8 plugins/akismet/src/Prepend.php:27
+#: plugins/_fake_plugin/_fake_l10n.php:9 plugins/akismet/src/Prepend.php:27
 msgid "Akismet interface for Dotclear"
 msgstr "Dotclear 用の Akismet インターフェイス"
 
-#: plugins/_fake_plugin/_fake_l10n.php:9
+#: plugins/_fake_plugin/_fake_l10n.php:10
 #: plugins/fairTrackbacks/src/Prepend.php:27
 msgid "Trackback validity check"
 msgstr "トラックバックの有効性チェック"
 
-#: plugins/_fake_plugin/_fake_l10n.php:10
+#: plugins/_fake_plugin/_fake_l10n.php:11
 #: plugins/attachments/src/Backend.php:26
 msgid "Manage post attachments"
 msgstr "投稿の添付ファイルを管理"
 
-#: plugins/_fake_plugin/_fake_l10n.php:11 plugins/pages/src/Backend.php:29
+#: plugins/_fake_plugin/_fake_l10n.php:12 plugins/pages/src/Backend.php:29
 msgid "Serve entries as simple web pages"
 msgstr "単純な Web ページとしてエントリを提供します"
 
-#: plugins/_fake_plugin/_fake_l10n.php:12
+#: plugins/_fake_plugin/_fake_l10n.php:13
 #: plugins/aboutConfig/src/Backend.php:26
 msgid "Manage every blog configuration directive"
 msgstr "すべてのブログ設定ディレクティブを管理"
 
-#: plugins/_fake_plugin/_fake_l10n.php:13
+#: plugins/_fake_plugin/_fake_l10n.php:14
 msgid "Uninstall cleanly plugins and themes"
 msgstr "プラグインとテーマをクリーンにアンインストール"
 
-#: plugins/_fake_plugin/_fake_l10n.php:14
-msgid "dotclear legacy editor"
+#: plugins/_fake_plugin/_fake_l10n.php:15
+#: plugins/dcLegacyEditor/src/Backend.php:27
+#: plugins/dcLegacyEditor/src/Manage.php:73
+msgid "Dotclear editor"
 msgstr "Dotclearエディター"
 
-#: plugins/_fake_plugin/_fake_l10n.php:15
+#: plugins/_fake_plugin/_fake_l10n.php:16
 #: plugins/themeEditor/src/Backend.php:26
 msgid "Theme Editor"
 msgstr "テーマエディタ"
 
-#: plugins/_fake_plugin/_fake_l10n.php:16 plugins/simpleMenu/src/Backend.php:27
+#: plugins/_fake_plugin/_fake_l10n.php:17 plugins/simpleMenu/src/Backend.php:27
 msgid "Simple menu for Dotclear"
 msgstr "Dotclear 用のシンプルメニュー"
 
-#: plugins/_fake_plugin/_fake_l10n.php:17
+#: plugins/_fake_plugin/_fake_l10n.php:18
 #: plugins/importExport/src/Backend.php:28
 msgid "Import and Export your blog"
 msgstr "ブログのインポートとエクスポート"
 
-#: plugins/_fake_plugin/_fake_l10n.php:18 plugins/userPref/src/Backend.php:26
+#: plugins/_fake_plugin/_fake_l10n.php:19 plugins/userPref/src/Backend.php:26
 msgid "Manage every user preference directive"
 msgstr "すべてのユーザ設定ディレクティブを管理"
 
-#: plugins/_fake_plugin/_fake_l10n.php:19
-msgid "dotclear CKEditor integration"
+#: plugins/_fake_plugin/_fake_l10n.php:20 plugins/dcCKEditor/src/Backend.php:26
+#: plugins/dcCKEditor/src/Manage.php:170
+msgid "CKEditor"
 msgstr "CKEditor"
 
-#: plugins/_fake_plugin/_fake_l10n.php:20
+#: plugins/_fake_plugin/_fake_l10n.php:21
 #: plugins/maintenance/src/Backend.php:26
 msgid "Maintain your installation"
 msgstr "インストールを維持する"
 
-#: plugins/_fake_plugin/_fake_l10n.php:21 plugins/breadcrumb/src/Backend.php:26
+#: plugins/_fake_plugin/_fake_l10n.php:22 plugins/breadcrumb/src/Backend.php:26
 msgid "Breadcrumb for Dotclear"
 msgstr "Dotclear 用のパンくずリスト"
 
-#: plugins/_fake_plugin/_fake_l10n.php:22 plugins/blogroll/src/Backend.php:27
+#: plugins/_fake_plugin/_fake_l10n.php:23 plugins/blogroll/src/Backend.php:27
 msgid "Manage your blogroll"
 msgstr "ブログロールの管理"
 
-#: plugins/_fake_plugin/_fake_l10n.php:23 plugins/pings/src/Backend.php:28
+#: plugins/_fake_plugin/_fake_l10n.php:24 plugins/pings/src/Backend.php:28
 msgid "Ping services"
 msgstr "Ping サービス"
 
-#: plugins/_fake_plugin/_fake_l10n.php:24 plugins/tags/src/Backend.php:26
+#: plugins/_fake_plugin/_fake_l10n.php:25 plugins/tags/src/Backend.php:26
 msgid "Tags for posts"
 msgstr "投稿用タグ"
 
-#: plugins/_fake_plugin/_fake_l10n.php:25 plugins/widgets/src/Backend.php:28
+#: plugins/_fake_plugin/_fake_l10n.php:26 plugins/widgets/src/Backend.php:28
 msgid "Widgets for your blog sidebars"
 msgstr "ブログサイドバーのウィジェット"
 
-#: plugins/_fake_plugin/_fake_l10n.php:26
+#: plugins/_fake_plugin/_fake_l10n.php:27
 msgid "Cope with function/method footprint V1 (< 2.24, 2.25)"
 msgstr "機能/メソッドフットプリントV1に対応 (< 2.24, 2.25)"
 
-#: plugins/_fake_plugin/_fake_l10n.php:30
+#: plugins/_fake_plugin/_fake_l10n.php:31
 msgid "Search engine form"
 msgstr "検索エンジンフォーム"
 
-#: plugins/_fake_plugin/_fake_l10n.php:31
+#: plugins/_fake_plugin/_fake_l10n.php:32
 msgid "List of navigation links"
 msgstr "ナビゲーションリンクの一覧"
 
-#: plugins/_fake_plugin/_fake_l10n.php:32
+#: plugins/_fake_plugin/_fake_l10n.php:33
 msgid "List of selected entries"
 msgstr "List of selected entries"
 
-#: plugins/_fake_plugin/_fake_l10n.php:33
+#: plugins/_fake_plugin/_fake_l10n.php:34
 msgid "List of available languages"
 msgstr "利用可能な言語のリスト"
 
-#: plugins/_fake_plugin/_fake_l10n.php:34 plugins/widgets/src/Widgets.php:134
+#: plugins/_fake_plugin/_fake_l10n.php:35 plugins/widgets/src/Widgets.php:134
 msgid "List of categories"
 msgstr "カテゴリ一覧"
 
-#: plugins/_fake_plugin/_fake_l10n.php:35
+#: plugins/_fake_plugin/_fake_l10n.php:36
 msgid "Feed subscription links (RSS or Atom)"
 msgstr "フィードサブスクリプションリンク (RSS または Atom)"
 
-#: plugins/_fake_plugin/_fake_l10n.php:36
+#: plugins/_fake_plugin/_fake_l10n.php:37
 msgid "List of last entries from feed (RSS or Atom)"
 msgstr "フィードからの最後のエントリのリスト (RSSまたはAtom)"
 
-#: plugins/_fake_plugin/_fake_l10n.php:37
+#: plugins/_fake_plugin/_fake_l10n.php:38
 msgid "Simple text"
 msgstr "シンプルなテキスト"
 
-#: plugins/_fake_plugin/_fake_l10n.php:38
+#: plugins/_fake_plugin/_fake_l10n.php:39
 msgid "List of last entries published"
 msgstr "List of last entries published"
 
-#: plugins/_fake_plugin/_fake_l10n.php:39
+#: plugins/_fake_plugin/_fake_l10n.php:40
 msgid "List of last comments published"
 msgstr "最後に公開されたコメント一覧"
 
-#: plugins/_fake_plugin/_fake_l10n.php:40
+#: plugins/_fake_plugin/_fake_l10n.php:41
 msgid "List of published pages"
 msgstr "公開されたページ一覧"
 
-#: plugins/_fake_plugin/_fake_l10n.php:41
+#: plugins/_fake_plugin/_fake_l10n.php:42
 msgid "List of simple menu items"
 msgstr "単純なメニュー項目のリスト"
 
-#: plugins/_fake_plugin/_fake_l10n.php:42
+#: plugins/_fake_plugin/_fake_l10n.php:43
 msgid "Blogroll list"
 msgstr "ブログリスト"
 
-#: plugins/_fake_plugin/_fake_l10n.php:43
+#: plugins/_fake_plugin/_fake_l10n.php:44
 msgid "Tags cloud"
 msgstr "タグクラウド"
 
@@ -1364,10 +1367,6 @@ msgstr "コアツールでは行われない文字列を変換するPHPファイ
 msgid "dcCKEditor"
 msgstr "CKEditor"
 
-#: plugins/dcCKEditor/src/Backend.php:26 plugins/dcCKEditor/src/Manage.php:170
-msgid "CKEditor"
-msgstr "CKEditor"
-
 #: plugins/dcCKEditor/src/Backend.php:41
 #: plugins/dcLegacyEditor/src/Backend.php:46
 msgid "HTML"
@@ -1509,11 +1508,6 @@ msgstr "メモ"
 
 #: plugins/dcLegacyEditor/src/Backend.php:26
 msgid "dcLegacyEditor"
-msgstr "Dotclearエディター"
-
-#: plugins/dcLegacyEditor/src/Backend.php:27
-#: plugins/dcLegacyEditor/src/Manage.php:73
-msgid "Dotclear editor"
 msgstr "Dotclearエディター"
 
 #: plugins/dcLegacyEditor/src/Backend.php:50
