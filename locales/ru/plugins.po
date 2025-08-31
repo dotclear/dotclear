@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-31 12:28+0200\n"
-"PO-Revision-Date: 2025-08-31 10:32\n"
+"POT-Creation-Date: 2025-08-31 12:34+0200\n"
+"PO-Revision-Date: 2025-08-31 10:38\n"
 "Last-Translator: \n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -588,92 +588,8 @@ msgid "Blogroll list"
 msgstr "Список блогов"
 
 #: plugins/_fake_plugin/_fake_l10n.php:44
-msgid "List of categories (non discrete)"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:45
-msgid "Lien vers le formulaire de contact"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:46
-msgid "Compteur de mots"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:47
-msgid "Widget d'aide au changement de thème, inclus JS et CSS"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:48
-msgid "List of last modules"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:49
-msgid "Modules search engine form"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:50
-msgid "List of versions of a module"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:51
-msgid "List of modifications of a module"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:52
-msgid "Informations about a module"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:53
-msgid "List of categories of modules"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:54
-msgid "List of tags of modules"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:55
-msgid "Public login form"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:56
-msgid "Sélecteur de styles permettant à vos lecteurs d'adapter votre blog à leurs besoins."
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:57
-msgid "Calendrier des billets"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:58
-msgid "Liste des auteur·rice·s"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:59
-msgid "Liste d'images de billets par le plugin listImages"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:60
-msgid "Traductions disponibles"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:61
-msgid "Language(s) of blog"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:62
 msgid "Tags cloud"
 msgstr "Облако тегов"
-
-#: plugins/_fake_plugin/_fake_l10n.php:63
-msgid "Liste des séries"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:64
-msgid "Autres billets de la/des même(s) série(s)"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:65
-msgid "Déconnexion du blog"
-msgstr ""
 
 #: plugins/aboutConfig/src/Backend.php:25
 msgid "about:config"
