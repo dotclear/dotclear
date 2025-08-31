@@ -26,7 +26,7 @@ class l10nFaker
      */
     protected function fake_l10n(string $str): string
     {
-        return sprintf('__("%s");' . "\n", str_replace('"', '\\"', $str));
+        return trim($str) !== '' ? sprintf('__(\'%s\');', addslashes($str)) . "\n" : '';
     }
 
     /**
@@ -37,8 +37,11 @@ class l10nFaker
      */
     public function generate_file(): void
     {
-        $main = $plugin = "<?php\n" . '// Generated on ' . Date::dt2str('%Y-%m-%d %H:%M %z', (string) time(), App::auth()->getInfo('user_tz')) . "\n";
+        $main = $plugin = "<?php\n\n" . '// Generated on ' . Date::dt2str('%Y-%m-%d %H:%M %z', (string) time(), App::auth()->getInfo('user_tz')) . "\n";
 
+        // Main file
+
+        // Get list of media thumb sizes
         $main .= "\n// Media sizes\n\n";
         foreach (App::media()->getThumbSizes() as $v) {
             if (isset($v[3])) {
@@ -46,13 +49,24 @@ class l10nFaker
             }
         }
 
+        // Get list of post types
         $post_types = App::postTypes()->dump();
         $main .= "\n// Post types\n\n";
         foreach ($post_types as $v) {
             $main .= $this->fake_l10n($v->get('label'));
         }
+
+        // Get list of DB drivers names
+        $main .= "\n// DB drivers names\n\n";
+        foreach (array_keys(App::db()->combo()) as $driver_name) {
+            $main .= $this->fake_l10n($driver_name);
+        }
+
         file_put_contents(implode(DIRECTORY_SEPARATOR, [App::config()->dotclearRoot(), 'inc', 'core', '_fake_l10n.php']), $main);
 
+        // Plugin file
+
+        // Get list of plugins names
         $plugin .= "\n// Plugin names\n\n";
         foreach (App::plugins()->getDefines() as $define) {
             if ($define->get('distributed')) {
@@ -60,6 +74,7 @@ class l10nFaker
             }
         }
 
+        // Get list of widgets settings names
         if (class_exists(\Dotclear\Plugin\widgets\Widgets::class)) {
             $plugin .= "\n// Widget settings names\n\n";
             $widgets = \Dotclear\Plugin\widgets\Widgets::$widgets->elements();
