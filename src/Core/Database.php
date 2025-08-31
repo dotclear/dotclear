@@ -43,10 +43,13 @@ class Database extends Container implements DatabaseInterface
     public function getDefaultServices(): array
     {
         return [    // @phpstan-ignore-line
-            'mysqli'    => \Dotclear\Schema\Database\Mysqli\Handler::class,
-            'mysqlimb4' => \Dotclear\Schema\Database\Mysqlimb4\Handler::class,
-            'pgsql'     => \Dotclear\Schema\Database\Pgsql\Handler::class,
-            'sqlite'    => \Dotclear\Schema\Database\Sqlite\Handler::class,
+            'mysqli'      => \Dotclear\Schema\Database\Mysqli\Handler::class,
+            'mysqlimb4'   => \Dotclear\Schema\Database\Mysqlimb4\Handler::class,
+            'pgsql'       => \Dotclear\Schema\Database\Pgsql\Handler::class,
+            'pdomysql'    => \Dotclear\Schema\Database\PdoMysql\Handler::class,
+            'pdomysqlmb4' => \Dotclear\Schema\Database\PdoMysqlMb4\Handler::class,
+            'pdosqlite'   => \Dotclear\Schema\Database\PdoSqlite\Handler::class,
+            'pdopgsql'    => \Dotclear\Schema\Database\PdoPgsql\Handler::class,
         ];
     }
 
@@ -69,6 +72,10 @@ class Database extends Container implements DatabaseInterface
         // PHP 7.0 mysql driver is obsolete, map to mysqli
         if ($driver === 'mysql') {
             $driver = 'mysqli';
+        }
+        // Standardized name from driver dc >= 2.36
+        if ($driver === 'sqlite') {
+            $driver = 'pdosqlite';
         }
 
         // Stop on unknown driver

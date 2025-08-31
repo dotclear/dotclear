@@ -8,7 +8,7 @@
  */
 declare(strict_types=1);
 
-namespace Dotclear\Schema\Database\Sqlite;
+namespace Dotclear\Schema\Database\PdoSqlite;
 
 use Dotclear\Database\AbstractSchema;
 use Exception;

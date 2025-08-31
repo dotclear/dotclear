@@ -156,7 +156,12 @@ class Wizard extends Process
 
         if ($_POST !== [] || !empty($_SERVER['DC_DBDRIVER'])) {
             try {
-                if (self::$DBDRIVER === 'sqlite' && !str_contains(self::$DBNAME, '/')) {
+                if (str_contains(self::$DBDRIVER, 'sqlite') && !str_contains(self::$DBNAME, '/')) {
+                    if (self::$DBNAME == '') {
+                        // create sqlite db name if not set
+                        self::$DBNAME = date('YmdHi') . '.sqlite';
+                    }
+                    // create sqlite db dir if not set
                     $sqlite_db_directory = dirname(App::config()->configPath()) . '/../db/';
                     Files::makeDir($sqlite_db_directory, true);
 
@@ -432,7 +437,8 @@ class Wizard extends Process
                                                     ->size(30)
                                                     ->autocomplete('email')
                                                     ->value(Html::escapeHTML(self::$ADMINMAILFROM))
-                                                    ->label(new Label(__('Master Email: (used as sender for password recovery)'), Label::OUTSIDE_LABEL_BEFORE)),
+                                                    ->extra('required placeholder="' . __('Email') . '"')
+                                                    ->label(new Label($required . __('Master Email: (used as sender for password recovery)'), Label::OUTSIDE_LABEL_BEFORE)),
                                             ]),
                                         (new Submit('submit', __('Continue'))),
                                     ]),

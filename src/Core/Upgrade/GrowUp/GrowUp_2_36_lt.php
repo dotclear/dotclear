@@ -30,22 +30,26 @@ class GrowUp_2_36_lt
                 'locales/he/core_core_*.html',
                 'locales/uk/core_core_*.html',
                 'src/Config.php', // mv src/Core
-                'src/Interface/ConfigInterface.php', // mv src/Interface/Core
+                'src/Interface/ConfigInterface.php', // mv src/Interface/Core/ConfigInterface
                 'src/Core/Connection.php', // rm
-                'src/Interface/Config.php', // mv src/Interface/Core
-                'src/Interface/Core/ConnectionInterface.php', // mv src/Interface/Database
-                'src/Interface/Core/SchemaInterface.php', // mv src/Interface/Database
-                'src/Interface/Database/InterfaceSchema.php', // merge in SchemaInterface
-                'src/Database/InterfaceHandler.php', // merge in ConnectionInterface
-                'src/Database/ContainerHandler.php', // rm
-                'src/Database/ContainerSchema.php', // rm
-                'src/Database/DbSchemaInterface.php', // rm
-                'src/Database/DbHandlerInterface', // rm
+                'src/Interface/Config.php', // mv src/Interface/Core/Config
+                'src/Interface/Core/ConnectionInterface.php', // mv src/Interface/Database/ConnectionInterface
+                'src/Interface/Core/SchemaInterface.php', // mv src/Interface/Database/SchemaInterface
+                'src/Database/InterfaceHandler.php', // merge in src/Interface/Database/ConnectionInterface
+                'src/Database/InterfaceSchema.php', // merge in src/Interface/Database/SchemaInterface
+                'src/Interface/Database/DbSchemaInterface.php', // rm dev
+                'src/Interface/Database/DbHandlerInterface', // rm dev
+                'src/Interface/Database/InterfaceSchema.php', // rm dev
+                'src/Database/ContainerHandler.php', // rm dev
+                'src/Database/ContainerSchema.php', // rm dev
+                'src/Database/DbSchemaInterface.php', // rm dev
+                'src/Database/DbHandlerInterface', // rm dev
             ],
             // Folders
             [
                 'plugins/antispam/locales/lb',
-                'src/Database/Driver', // mv src/Schema/Database
+                'src/Database/Driver', // mv src/Schema/Database/Driver
+                'src/Schema/Database/Sqlite', // rm dev
             ]
         );
 
