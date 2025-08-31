@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-31 00:24+0200\n"
-"PO-Revision-Date: 2025-08-30 22:27\n"
+"POT-Creation-Date: 2025-08-31 12:28+0200\n"
+"PO-Revision-Date: 2025-08-31 10:32\n"
 "Last-Translator: \n"
 "Language-Team: Telugu\n"
 "Language: te_IN\n"
@@ -442,151 +442,238 @@ msgstr "థీమ్ స్థాపించుము \"%s\""
 msgid "The module \"%1$s\" version %2$s offers advanced uninstall process:"
 msgstr "మాడ్యూల్ \"%1$s\" వెర్షన్ %2$s అధునాతన అన్‌ఇన్‌స్టాల్ ప్రక్రియను అందిస్తుంది:"
 
-#: plugins/_fake_plugin/_fake_l10n.php:6
+#: plugins/_fake_plugin/_fake_l10n.php:7
 msgid "Cope with old core classes (< 2.26)"
 msgstr "పాత కోర్ తరగతులతో కోప్ (< 2.26)"
 
-#: plugins/_fake_plugin/_fake_l10n.php:7 plugins/antispam/src/Backend.php:30
+#: plugins/_fake_plugin/_fake_l10n.php:8 plugins/antispam/src/Backend.php:30
 msgid "Generic antispam plugin for Dotclear"
 msgstr "Dotclear కొరకు జెనరాక్ యాంటిస్పామ్ ప్లగిన్"
 
-#: plugins/_fake_plugin/_fake_l10n.php:8 plugins/akismet/src/Prepend.php:27
+#: plugins/_fake_plugin/_fake_l10n.php:9 plugins/akismet/src/Prepend.php:27
 msgid "Akismet interface for Dotclear"
 msgstr "Dotclear కోసం Akismet ఇంటర్ఫేస్"
 
-#: plugins/_fake_plugin/_fake_l10n.php:9
+#: plugins/_fake_plugin/_fake_l10n.php:10
 #: plugins/fairTrackbacks/src/Prepend.php:27
 msgid "Trackback validity check"
 msgstr "ట్రాక్బ్యాక్ వాలీ పరిశీలము"
 
-#: plugins/_fake_plugin/_fake_l10n.php:10
+#: plugins/_fake_plugin/_fake_l10n.php:11
 #: plugins/attachments/src/Backend.php:26
 msgid "Manage post attachments"
 msgstr "పోస్ట్ యాటాక్మెంట్లను చేర్చు"
 
-#: plugins/_fake_plugin/_fake_l10n.php:11 plugins/pages/src/Backend.php:29
+#: plugins/_fake_plugin/_fake_l10n.php:12 plugins/pages/src/Backend.php:29
 msgid "Serve entries as simple web pages"
 msgstr "సాధారణ వెబ్ పేజీలుగా సెర్వ్ ఎంట్రీలను"
 
-#: plugins/_fake_plugin/_fake_l10n.php:12
+#: plugins/_fake_plugin/_fake_l10n.php:13
 #: plugins/aboutConfig/src/Backend.php:26
 msgid "Manage every blog configuration directive"
 msgstr "ప్రతి బ్లాగు ఆకృతీకరణను నిర్వచించుము"
 
-#: plugins/_fake_plugin/_fake_l10n.php:13
+#: plugins/_fake_plugin/_fake_l10n.php:14
 msgid "Uninstall cleanly plugins and themes"
 msgstr "ప్లగిన్‌లు మరియు థీమ్‌లను శుభ్రంగా అన్‌ఇన్‌స్టాల్ చేయండి"
 
-#: plugins/_fake_plugin/_fake_l10n.php:14
-msgid "dotclear legacy editor"
+#: plugins/_fake_plugin/_fake_l10n.php:15
+#: plugins/dcLegacyEditor/src/Backend.php:27
+#: plugins/dcLegacyEditor/src/Manage.php:73
+msgid "Dotclear editor"
 msgstr "డాట్‌క్లియర్ ఎడిటర్"
 
-#: plugins/_fake_plugin/_fake_l10n.php:15
+#: plugins/_fake_plugin/_fake_l10n.php:16
 #: plugins/themeEditor/src/Backend.php:26
 msgid "Theme Editor"
 msgstr "అలంకార కూర్పరి"
 
-#: plugins/_fake_plugin/_fake_l10n.php:16 plugins/simpleMenu/src/Backend.php:27
+#: plugins/_fake_plugin/_fake_l10n.php:17 plugins/simpleMenu/src/Backend.php:27
 msgid "Simple menu for Dotclear"
 msgstr "Dotస్పష్టం కొరకు Name"
 
-#: plugins/_fake_plugin/_fake_l10n.php:17
+#: plugins/_fake_plugin/_fake_l10n.php:18
 #: plugins/importExport/src/Backend.php:28
 msgid "Import and Export your blog"
 msgstr "మీ బ్లాగు దిగుమతి మరియు ఎగుమతి చేయుము"
 
-#: plugins/_fake_plugin/_fake_l10n.php:18 plugins/userPref/src/Backend.php:26
+#: plugins/_fake_plugin/_fake_l10n.php:19 plugins/userPref/src/Backend.php:26
 msgid "Manage every user preference directive"
 msgstr "ప్రతి వినియోగదారు అభ్యర్ధన డైరెక్టివ్ మానేజ్"
 
-#: plugins/_fake_plugin/_fake_l10n.php:19
-msgid "dotclear CKEditor integration"
+#: plugins/_fake_plugin/_fake_l10n.php:20 plugins/dcCKEditor/src/Backend.php:26
+#: plugins/dcCKEditor/src/Manage.php:170
+msgid "CKEditor"
 msgstr "CKEditor"
 
-#: plugins/_fake_plugin/_fake_l10n.php:20
+#: plugins/_fake_plugin/_fake_l10n.php:21
 #: plugins/maintenance/src/Backend.php:26
 msgid "Maintain your installation"
 msgstr "మీ స్థాపన నిర్వహించుము"
 
-#: plugins/_fake_plugin/_fake_l10n.php:21 plugins/breadcrumb/src/Backend.php:26
+#: plugins/_fake_plugin/_fake_l10n.php:22 plugins/breadcrumb/src/Backend.php:26
 msgid "Breadcrumb for Dotclear"
 msgstr "Dotస్పష్టం కొరకు Breadcrumb"
 
-#: plugins/_fake_plugin/_fake_l10n.php:22 plugins/blogroll/src/Backend.php:27
+#: plugins/_fake_plugin/_fake_l10n.php:23 plugins/blogroll/src/Backend.php:27
 msgid "Manage your blogroll"
 msgstr "మీ బ్లాగ్రోల్ మేనేజ్"
 
-#: plugins/_fake_plugin/_fake_l10n.php:23 plugins/pings/src/Backend.php:28
+#: plugins/_fake_plugin/_fake_l10n.php:24 plugins/pings/src/Backend.php:28
 msgid "Ping services"
 msgstr "పిండం సేవలు"
 
-#: plugins/_fake_plugin/_fake_l10n.php:24 plugins/tags/src/Backend.php:26
+#: plugins/_fake_plugin/_fake_l10n.php:25 plugins/tags/src/Backend.php:26
 msgid "Tags for posts"
 msgstr "జాబితా కొరకు టాగ్స్"
 
-#: plugins/_fake_plugin/_fake_l10n.php:25 plugins/widgets/src/Backend.php:28
+#: plugins/_fake_plugin/_fake_l10n.php:26 plugins/widgets/src/Backend.php:28
 msgid "Widgets for your blog sidebars"
 msgstr "మీ బ్లాగు సిబార్ల కొరకు విడ్జెట్స్"
 
-#: plugins/_fake_plugin/_fake_l10n.php:26
+#: plugins/_fake_plugin/_fake_l10n.php:27
 msgid "Cope with function/method footprint V1 (< 2.24, 2.25)"
 msgstr "Cope with function/method footprint V1 (< 2.24, 2.25)"
 
-#: plugins/_fake_plugin/_fake_l10n.php:30
+#: plugins/_fake_plugin/_fake_l10n.php:31
 msgid "Search engine form"
 msgstr "శోధన ఇంజిన్ రూపం"
 
-#: plugins/_fake_plugin/_fake_l10n.php:31
+#: plugins/_fake_plugin/_fake_l10n.php:32
 msgid "List of navigation links"
 msgstr "नेविगेशन లింకుల జాబితా"
 
-#: plugins/_fake_plugin/_fake_l10n.php:32
+#: plugins/_fake_plugin/_fake_l10n.php:33
 msgid "List of selected entries"
 msgstr "ఎంపికచేసిన ఎంట్రీల జాబితా"
 
-#: plugins/_fake_plugin/_fake_l10n.php:33
+#: plugins/_fake_plugin/_fake_l10n.php:34
 msgid "List of available languages"
 msgstr "లభ్యమైన భాషల జాబితా"
 
-#: plugins/_fake_plugin/_fake_l10n.php:34 plugins/widgets/src/Widgets.php:134
+#: plugins/_fake_plugin/_fake_l10n.php:35 plugins/widgets/src/Widgets.php:134
 msgid "List of categories"
 msgstr "వర్గాల జాబితా"
 
-#: plugins/_fake_plugin/_fake_l10n.php:35
+#: plugins/_fake_plugin/_fake_l10n.php:36
 msgid "Feed subscription links (RSS or Atom)"
 msgstr "ఫీడ్ సబ్స్క్రిప్షన్ లింకులు (RSS లేదా Atom)"
 
-#: plugins/_fake_plugin/_fake_l10n.php:36
+#: plugins/_fake_plugin/_fake_l10n.php:37
 msgid "List of last entries from feed (RSS or Atom)"
 msgstr "ఫీడ్ (RSS లేదా Atom) నుండి చివరి ఎంట్రీలను జాబితా"
 
-#: plugins/_fake_plugin/_fake_l10n.php:37
+#: plugins/_fake_plugin/_fake_l10n.php:38
 msgid "Simple text"
 msgstr "సామాన్య పాఠం"
 
-#: plugins/_fake_plugin/_fake_l10n.php:38
+#: plugins/_fake_plugin/_fake_l10n.php:39
 msgid "List of last entries published"
 msgstr "ప్రచురించిన ఆఖరి ఎంట్రీల జాబితా"
 
-#: plugins/_fake_plugin/_fake_l10n.php:39
+#: plugins/_fake_plugin/_fake_l10n.php:40
 msgid "List of last comments published"
 msgstr "ప్రచురించిన చివరి వ్యాఖ్యల జాబితా"
 
-#: plugins/_fake_plugin/_fake_l10n.php:40
+#: plugins/_fake_plugin/_fake_l10n.php:41
 msgid "List of published pages"
 msgstr "ప్రచురించిన పేజీల జాబితా"
 
-#: plugins/_fake_plugin/_fake_l10n.php:41
+#: plugins/_fake_plugin/_fake_l10n.php:42
 msgid "List of simple menu items"
 msgstr "సరళమైన మెనూ అంశాలను జాబితా"
 
-#: plugins/_fake_plugin/_fake_l10n.php:42
+#: plugins/_fake_plugin/_fake_l10n.php:43
 msgid "Blogroll list"
 msgstr "Blogroll జాబితా"
 
-#: plugins/_fake_plugin/_fake_l10n.php:43
+#: plugins/_fake_plugin/_fake_l10n.php:44
+msgid "List of categories (non discrete)"
+msgstr ""
+
+#: plugins/_fake_plugin/_fake_l10n.php:45
+msgid "Lien vers le formulaire de contact"
+msgstr ""
+
+#: plugins/_fake_plugin/_fake_l10n.php:46
+msgid "Compteur de mots"
+msgstr ""
+
+#: plugins/_fake_plugin/_fake_l10n.php:47
+msgid "Widget d'aide au changement de thème, inclus JS et CSS"
+msgstr ""
+
+#: plugins/_fake_plugin/_fake_l10n.php:48
+msgid "List of last modules"
+msgstr ""
+
+#: plugins/_fake_plugin/_fake_l10n.php:49
+msgid "Modules search engine form"
+msgstr ""
+
+#: plugins/_fake_plugin/_fake_l10n.php:50
+msgid "List of versions of a module"
+msgstr ""
+
+#: plugins/_fake_plugin/_fake_l10n.php:51
+msgid "List of modifications of a module"
+msgstr ""
+
+#: plugins/_fake_plugin/_fake_l10n.php:52
+msgid "Informations about a module"
+msgstr ""
+
+#: plugins/_fake_plugin/_fake_l10n.php:53
+msgid "List of categories of modules"
+msgstr ""
+
+#: plugins/_fake_plugin/_fake_l10n.php:54
+msgid "List of tags of modules"
+msgstr ""
+
+#: plugins/_fake_plugin/_fake_l10n.php:55
+msgid "Public login form"
+msgstr ""
+
+#: plugins/_fake_plugin/_fake_l10n.php:56
+msgid "Sélecteur de styles permettant à vos lecteurs d'adapter votre blog à leurs besoins."
+msgstr ""
+
+#: plugins/_fake_plugin/_fake_l10n.php:57
+msgid "Calendrier des billets"
+msgstr ""
+
+#: plugins/_fake_plugin/_fake_l10n.php:58
+msgid "Liste des auteur·rice·s"
+msgstr ""
+
+#: plugins/_fake_plugin/_fake_l10n.php:59
+msgid "Liste d'images de billets par le plugin listImages"
+msgstr ""
+
+#: plugins/_fake_plugin/_fake_l10n.php:60
+msgid "Traductions disponibles"
+msgstr ""
+
+#: plugins/_fake_plugin/_fake_l10n.php:61
+msgid "Language(s) of blog"
+msgstr ""
+
+#: plugins/_fake_plugin/_fake_l10n.php:62
 msgid "Tags cloud"
 msgstr "టాగ్స్ మేఘName"
+
+#: plugins/_fake_plugin/_fake_l10n.php:63
+msgid "Liste des séries"
+msgstr ""
+
+#: plugins/_fake_plugin/_fake_l10n.php:64
+msgid "Autres billets de la/des même(s) série(s)"
+msgstr ""
+
+#: plugins/_fake_plugin/_fake_l10n.php:65
+msgid "Déconnexion du blog"
+msgstr ""
 
 #: plugins/aboutConfig/src/Backend.php:25
 msgid "about:config"
@@ -1366,10 +1453,6 @@ msgstr "ఒక php దస్త్రమును జెనరేట్ చే�
 msgid "dcCKEditor"
 msgstr "CKEditor"
 
-#: plugins/dcCKEditor/src/Backend.php:26 plugins/dcCKEditor/src/Manage.php:170
-msgid "CKEditor"
-msgstr "CKEditor"
-
 #: plugins/dcCKEditor/src/Backend.php:41
 #: plugins/dcLegacyEditor/src/Backend.php:46
 msgid "HTML"
@@ -1511,11 +1594,6 @@ msgstr "Note (s)"
 
 #: plugins/dcLegacyEditor/src/Backend.php:26
 msgid "dcLegacyEditor"
-msgstr "డాట్‌క్లియర్ ఎడిటర్"
-
-#: plugins/dcLegacyEditor/src/Backend.php:27
-#: plugins/dcLegacyEditor/src/Manage.php:73
-msgid "Dotclear editor"
 msgstr "డాట్‌క్లియర్ ఎడిటర్"
 
 #: plugins/dcLegacyEditor/src/Backend.php:50
