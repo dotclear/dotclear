@@ -55,6 +55,7 @@ interface ConnectionInterface
      * Check driver requirements.
      *
      * This method MUST throw a DatabaseException if driver can not be used.
+     * This method does NOT say a SGBD is installed but only PHP supports it.
      *
      * @since   2.36
      *
