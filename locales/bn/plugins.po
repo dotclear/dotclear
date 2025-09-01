@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-31 12:34+0200\n"
-"PO-Revision-Date: 2025-08-31 10:38\n"
+"POT-Creation-Date: 2025-09-01 12:51+0200\n"
+"PO-Revision-Date: 2025-09-01 10:55\n"
 "Last-Translator: \n"
 "Language-Team: Bengali\n"
 "Language: bn_BD\n"
@@ -267,49 +267,49 @@ msgstr "সম্পর্কিত সেটিংস মুছে ফেলা
 msgid "Failed to delete related settings"
 msgstr "সংশ্লিষ্ট সেটিংস মুছে ফেলতে ব্যর্থ"
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:39
+#: plugins/Uninstaller/src/Cleaner/Tables.php:38
 msgid "Tables"
 msgstr "টেবিল"
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:40
+#: plugins/Uninstaller/src/Cleaner/Tables.php:39
 msgid "All database tables of Dotclear"
 msgstr "Dotclear এর সকল ডাটাবেস টেবিল"
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:45
+#: plugins/Uninstaller/src/Cleaner/Tables.php:44
 #, php-format
 msgid "delete \"%s\" table"
 msgstr "\"%s\" সারণী মুছুন"
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:46
+#: plugins/Uninstaller/src/Cleaner/Tables.php:45
 #, php-format
 msgid "\"%s\" table deleted"
 msgstr "\"%s\" সারণী মোছা হয়েছে"
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:47
+#: plugins/Uninstaller/src/Cleaner/Tables.php:46
 #, php-format
 msgid "Failed to delete \"%s\" table"
 msgstr "\"%s\" সারণী মুছতে ব্যর্থ হয়েছে"
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:48
+#: plugins/Uninstaller/src/Cleaner/Tables.php:47
 msgid "delete selected tables"
 msgstr "নির্বাচিত টেবিল মুছে ফেলো"
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:54
+#: plugins/Uninstaller/src/Cleaner/Tables.php:53
 #, php-format
 msgid "empty \"%s\" table"
 msgstr "\"%s\" সারণী খালি করুন"
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:55
+#: plugins/Uninstaller/src/Cleaner/Tables.php:54
 #, php-format
 msgid "\"%s\" table emptied"
 msgstr "\"%s\" সারণী খালি"
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:56
+#: plugins/Uninstaller/src/Cleaner/Tables.php:55
 #, php-format
 msgid "Failed to empty \"%s\" table"
 msgstr "\"%s\" সারণী খালি করতে ব্যর্থ হয়েছে"
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:57
+#: plugins/Uninstaller/src/Cleaner/Tables.php:56
 msgid "empty selected tables"
 msgstr "নির্বাচিত টেবিল ফাঁকা করো"
 
