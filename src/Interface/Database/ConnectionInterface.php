@@ -44,7 +44,7 @@ interface ConnectionInterface
     /**
      * Database handler syntax.
      *
-     * @var    string  SHANDLER_YNTAX
+     * @var    string  HANDLER_SYNTAX
      */
     public const HANDLER_SYNTAX = 'undefined';
 
