@@ -124,7 +124,7 @@ class ModuleImportWp extends Module
         $this->vars = &$_SESSION['wp_import_vars'];
 
         if ($this->vars['post_limit'] > 0) {
-            $this->post_limit = $this->vars['post_limit'];
+            $this->post_limit = (int) $this->vars['post_limit'];
         }
 
         $this->formaters = Combos::getFormatersCombo();
@@ -161,7 +161,7 @@ class ModuleImportWp extends Module
                 $this->vars['cat_import']       = isset($_POST['cat_import']);
                 $this->vars['cat_as_tags']      = isset($_POST['cat_as_tags']);
                 $this->vars['cat_tags_prefix']  = $_POST['cat_tags_prefix'];
-                $this->vars['post_limit']       = abs((int) $_POST['post_limit']) > 0 ? $_POST['post_limit'] : 0;
+                $this->vars['post_limit']       = abs((int) $_POST['post_limit']) > 0 ? (int) $_POST['post_limit'] : 0;
                 $this->vars['post_formater']    = isset($this->formaters[$_POST['post_formater']]) ? $_POST['post_formater'] : 'xhtml';
                 $this->vars['comment_formater'] = isset($this->formaters[$_POST['comment_formater']]) ? $_POST['comment_formater'] : 'xhtml';
                 $db                             = $this->db();
@@ -490,7 +490,7 @@ class ModuleImportWp extends Module
         $db->execute('SET CHARACTER_SET_SERVER = DEFAULT');
         $db->execute('SET CHARACTER_SET_DATABASE = DEFAULT');
 
-        $this->post_count = $db->select(
+        $this->post_count = (int) $db->select(
             'SELECT COUNT(ID) FROM ' . $this->vars['db_prefix'] . 'posts ' .
             'WHERE post_type = \'post\' OR post_type = \'page\''
         )->f(0);
@@ -715,7 +715,7 @@ class ModuleImportWp extends Module
         );
 
         try {
-            if ($this->post_offset == 0) {
+            if ($this->post_offset === 0) {
                 $this->con->execute(
                     'DELETE FROM ' . $this->prefix . App::blog()::POST_TABLE_NAME . ' ' .
                     "WHERE blog_id = '" . $this->con->escapeStr($this->blog_id) . "' "
