@@ -66,14 +66,14 @@ class Container implements ContainerInterface
      *
      * @throws NotFoundExceptionInterface
      *
-     * @param   string  $id         The object ID
-     * @param   bool    $reload     Force reload of the class
-     * @param   mixed   ...$args    The method arguments
+     * @param   string      $id         The object ID
+     * @param   ?bool       $reload     Force reload the class if true, do not if false, load once and forget if null
+     * @param   mixed       ...$args    The method arguments
      */
-    public function get(string $id, bool $reload = false, ...$args)
+    public function get(string $id, ?bool $reload = false, ...$args)
     {
         // Service is already instanciated
-        if (!$reload && array_key_exists($id, $this->services)) {
+        if ($reload === false && array_key_exists($id, $this->services)) {
             return $this->services[$id];
         }
 
@@ -81,11 +81,18 @@ class Container implements ContainerInterface
         if ($this->has($id)) {
             $service = $this->factory->get($id);
 
-            return is_callable($service) ?
+            $resolve = is_callable($service) ?
                 // callable service
-                $this->services[$id] = $service($this, ...$args) :
+                $service($this, ...$args) :
                 // alias service, resolve alias and parse know container arguments
-                $this->services[$id] = $this->resolve((string) $service, $args);
+                $this->resolve((string) $service, $args);
+
+            if ($reload !== null) {
+                // Keep this service for further instance get
+                $this->services[$id] = $resolve;
+            }
+
+            return $resolve;
         }
 
         // Unknow service
