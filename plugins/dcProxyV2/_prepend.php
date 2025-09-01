@@ -71,6 +71,7 @@ dcProxyV2::loadBehaviors('dcProxyV2PublicBehaviors', __DIR__ . '/inc/class.publi
 Clearbricks::lib()->autoload([
     'dcAntispam'   => __DIR__ . '/inc/antispam.php',
     'dcSpamFilter' => __DIR__ . '/inc/antispam.php',
+    'SessionDB'    => __DIR__ . '/inc/sessiondb.php', // 2.36
 ]);
 
 if (!App::task()->checkContext('BACKEND')) {

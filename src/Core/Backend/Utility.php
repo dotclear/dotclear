@@ -95,6 +95,13 @@ class Utility extends Process
         // deprecated since 2.28, use App::backend() instead
         dcCore::app()->admin = $this;
 
+        // configure backend session
+        App::session()->configure(
+            cookie_name: App::config()->sessionName(),
+            cookie_secure: App::config()->adminSsl(),
+            ttl: App::config()->sessionTtl()
+        );
+
         // HTTP/1.1
         header('Expires: Mon, 13 Aug 2003 07:48:00 GMT');
         header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
@@ -115,7 +122,7 @@ class Utility extends Process
      */
     public static function process(): bool
     {
-        // Instanciate Backend instance
+        // Instanciate Backend instance, to configure session since 2.36
         App::backend();
 
         // deprecated since 2.28, need to load dcCore::app()->adminurl

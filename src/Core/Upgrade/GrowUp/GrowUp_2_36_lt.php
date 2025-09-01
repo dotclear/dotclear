@@ -38,12 +38,13 @@ class GrowUp_2_36_lt
                 'src/Database/InterfaceHandler.php', // merge in src/Interface/Database/ConnectionInterface
                 'src/Database/InterfaceSchema.php', // merge in src/Interface/Database/SchemaInterface
                 'src/Interface/Database/DbSchemaInterface.php', // rm dev
-                'src/Interface/Database/DbHandlerInterface', // rm dev
+                'src/Interface/Database/DbHandlerInterface.php', // rm dev
                 'src/Interface/Database/InterfaceSchema.php', // rm dev
                 'src/Database/ContainerHandler.php', // rm dev
                 'src/Database/ContainerSchema.php', // rm dev
                 'src/Database/DbSchemaInterface.php', // rm dev
-                'src/Database/DbHandlerInterface', // rm dev
+                'src/Database/DbHandlerInterface.php', // rm dev
+                'src/Core/Frontend/Session.php', // rm dev
             ],
             // Folders
             [
