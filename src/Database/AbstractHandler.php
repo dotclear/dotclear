@@ -144,7 +144,6 @@ abstract class AbstractHandler implements ConnectionInterface
 
     public function select(string $sql): Record
     {
-        /* @phpstan-ignore-next-line */
         $result = $this->db_query($this->__link, $sql);
 
         $this->__last_result = &$result;

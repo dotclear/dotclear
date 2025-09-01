@@ -54,7 +54,7 @@ class MetaRecordTest extends TestCase
 
         $mock->method('link')->willReturn($mock);
         $mock->method('select')->willReturn(
-            $driver !== 'sqlite' ?
+            !str_starts_with($driver, 'pdo') ?
             // @phpstan-ignore argument.type
             new \Dotclear\Database\Record([], $info) :
             // @phpstan-ignore argument.type
@@ -1027,7 +1027,10 @@ class MetaRecordTest extends TestCase
             ['mysqli', 'Mysqli', 'mysql'],
             ['mysqlimb4', 'Mysqlimb4', 'mysql'],
             ['pgsql', 'Pgsql', 'postgresql'],
-            ['sqlite', 'PdoSqlite', 'sqlite'],
+            ['pdosqlite', 'PdoSqlite', 'sqlite'],
+            ['pdomysql', 'PdoMysql', 'mysql'],
+            ['pdomysqlmb4', 'PdoMysqlmb4', 'mysql'],
+            ['pdopgsql', 'PdoPgsql', 'postgresql'],
         ];
     }
 }

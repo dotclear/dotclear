@@ -136,7 +136,10 @@ class DeleteStatementTest extends TestCase
             ['mysqli', 'Mysqli', 'mysql'],
             ['mysqlimb4', 'Mysqlimb4', 'mysql'],
             ['pgsql', 'Pgsql', 'postgresql'],
-            ['sqlite', 'PdoSqlite', 'sqlite'],
+            ['pdosqlite', 'PdoSqlite', 'sqlite'],
+            ['pdomysql', 'PdoMysql', 'mysql'],
+            ['pdomysqlmb4', 'PdoMysqlmb4', 'mysql'],
+            ['pdopgsql', 'PdoPgsql', 'postgresql'],
         ];
     }
 }

@@ -52,7 +52,7 @@ class StructureTest extends TestCase
         $mock->method('escapeStr')->willReturnCallback(fn ($str) => addslashes((string) $str));
         $mock->method('execute')->willReturn(true);
         $mock->method('select')->willReturn(
-            $syntax !== 'sqlite' ?
+            !str_starts_with($driver, 'pdo') ?
             // @phpstan-ignore argument.type
             new \Dotclear\Database\Record(null, $info) :
             // @phpstan-ignore argument.type

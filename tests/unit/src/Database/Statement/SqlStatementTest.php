@@ -76,7 +76,10 @@ class SqlStatementTest extends TestCase
             ['mysqli', 'Mysqli', 'mysql'],
             ['mysqlimb4', 'Mysqlimb4', 'mysql'],
             ['pgsql', 'Pgsql', 'postgresql'],
-            ['sqlite', 'PdoSqlite', 'sqlite'],
+            ['pdosqlite', 'PdoSqlite', 'sqlite'],
+            ['pdomysql', 'PdoMysql', 'mysql'],
+            ['pdomysqlmb4', 'PdoMysqlmb4', 'mysql'],
+            ['pdopgsql', 'PdoPgsql', 'postgresql'],
         ];
     }
 
@@ -101,15 +104,24 @@ class SqlStatementTest extends TestCase
             ['mysqli', 'Mysqli', 'mysql', 'test', 'test'],
             ['mysqlimb4', 'Mysqlimb4', 'mysql', 'test', 'test'],
             ['pgsql', 'Pgsql', 'postgresql', 'test', 'test'],
-            ['sqlite', 'PdoSqlite', 'sqlite', 'test', 'test'],
+            ['pdosqlite', 'PdoSqlite', 'sqlite', 'test', 'test'],
+            ['pdomysql', 'PdoMysql', 'mysql', 'test', 'test'],
+            ['pdomysqlmb4', 'PdoMysqlmb4', 'mysql', 'test', 'test'],
+            ['pdopgsql', 'PdoPgsql', 'postgresql', 'test', 'test'],
             ['mysqli', 'Mysqli', 'mysql', 't"e\'s`t', 't\"e\\\'s`t'],
             ['mysqlimb4', 'Mysqlimb4', 'mysql', 't"e\'s`t', 't\"e\\\'s`t'],
             ['pgsql', 'Pgsql', 'postgresql', 't"e\'s`t', 't\"e\\\'s`t'],
-            ['sqlite', 'PdoSqlite', 'sqlite', 't"e\'s`t', 't\"e\\\'s`t'],
+            ['pdosqlite', 'PdoSqlite', 'sqlite', 't"e\'s`t', 't\"e\\\'s`t'],
+            ['pdomysql', 'PdoMysql', 'mysql', 't"e\'s`t', 't\"e\\\'s`t'],
+            ['pdomysqlmb4', 'PdoMysqlmb4', 'mysql', 't"e\'s`t', 't\"e\\\'s`t'],
+            ['pdopgsql', 'PdoPgsql', 'postgresql', 't"e\'s`t', 't\"e\\\'s`t'],
             ['mysqli', 'Mysqli', 'mysql', 't%es_t*', 't%es_t*'],
             ['mysqlimb4', 'Mysqlimb4', 'mysql', 't%es_t*', 't%es_t*'],
             ['pgsql', 'Pgsql', 'postgresql', 't%es_t*', 't%es_t*'],
-            ['sqlite', 'PdoSqlite', 'sqlite', 't%es_t*', 't%es_t*'],
+            ['pdosqlite', 'PdoSqlite', 'sqlite', 't%es_t*', 't%es_t*'],
+            ['pdomysql', 'PdoMysql', 'mysql', 't%es_t*', 't%es_t*'],
+            ['pdomysqlmb4', 'PdoMysqlmb4', 'mysql', 't%es_t*', 't%es_t*'],
+            ['pdopgsql', 'PdoPgsql', 'postgresql', 't%es_t*', 't%es_t*'],
         ];
     }
 
@@ -134,19 +146,31 @@ class SqlStatementTest extends TestCase
             ['mysqli', 'Mysqli', 'mysql', 'test', '\'test\'', true],
             ['mysqlimb4', 'Mysqlimb4', 'mysql', 'test', '\'test\'', true],
             ['pgsql', 'Pgsql', 'postgresql', 'test', '\'test\'', true],
-            ['sqlite', 'PdoSqlite', 'sqlite', 'test', '\'test\'', true],
+            ['pdosqlite', 'PdoSqlite', 'sqlite', 'test', '\'test\'', true],
+            ['pdomysql', 'PdoMysql', 'mysql', 'test', '\'test\'', true],
+            ['pdomysqlmb4', 'PdoMysqlmb4', 'mysql', 'test', '\'test\'', true],
+            ['pdopgsql', 'PdoPgsql', 'postgresql', 'test', '\'test\'', true],
             ['mysqli', 'Mysqli', 'mysql', 'test', '\'test\'', false],
             ['mysqlimb4', 'Mysqlimb4', 'mysql', 'test', '\'test\'', false],
             ['pgsql', 'Pgsql', 'postgresql', 'test', '\'test\'', false],
-            ['sqlite', 'PdoSqlite', 'sqlite', 'test', '\'test\'', false],
+            ['pdosqlite', 'PdoSqlite', 'sqlite', 'test', '\'test\'', false],
+            ['pdomysql', 'PdoMysql', 'mysql', 'test', '\'test\'', false],
+            ['pdomysqlmb4', 'PdoMysqlmb4', 'mysql', 'test', '\'test\'', false],
+            ['pdopgsql', 'PdoPgsql', 'postgresql', 'test', '\'test\'', false],
             ['mysqli', 'Mysqli', 'mysql', 't"e\'st', '\'t\"e\\\'st\'', true],
             ['mysqlimb4', 'Mysqlimb4', 'mysql', 't"e\'st', '\'t\"e\\\'st\'', true],
             ['pgsql', 'Pgsql', 'postgresql', 't"e\'st', '\'t\"e\\\'st\'', true],
-            ['sqlite', 'PdoSqlite', 'sqlite', 't"e\'st', '\'t\"e\\\'st\'', true],
+            ['pdosqlite', 'PdoSqlite', 'sqlite', 't"e\'st', '\'t\"e\\\'st\'', true],
+            ['pdomysql', 'PdoMysql', 'mysql', 't"e\'st', '\'t\"e\\\'st\'', true],
+            ['pdomysqlmb4', 'PdoMysqlmb4', 'mysql', 't"e\'st', '\'t\"e\\\'st\'', true],
+            ['pdopgsql', 'PdoPgsql', 'postgresql', 't"e\'st', '\'t\"e\\\'st\'', true],
             ['mysqli', 'Mysqli', 'mysql', 't"e\'st', '\'t"e\'st\'', false],
             ['mysqlimb4', 'Mysqlimb4', 'mysql', 't"e\'st', '\'t"e\'st\'', false],
             ['pgsql', 'Pgsql', 'postgresql', 't"e\'st', '\'t"e\'st\'', false],
-            ['sqlite', 'PdoSqlite', 'sqlite', 't"e\'st', '\'t"e\'st\'', false],
+            ['pdosqlite', 'PdoSqlite', 'sqlite', 't"e\'st', '\'t"e\'st\'', false],
+            ['pdomysql', 'PdoMysql', 'mysql', 't"e\'st', '\'t"e\'st\'', false],
+            ['pdomysqlmb4', 'PdoMysqlmb4', 'mysql', 't"e\'st', '\'t"e\'st\'', false],
+            ['pdopgsql', 'PdoPgsql', 'postgresql', 't"e\'st', '\'t"e\'st\'', false],
         ];
     }
 
@@ -175,7 +199,10 @@ class SqlStatementTest extends TestCase
             ['mysqli', 'Mysqli', 'mysql', 'MyTable.MyField', 'MyAlias', 'MyTable.MyField MyAlias'],
             ['mysqlimb4', 'Mysqlimb4', 'mysql', 'MyTable.MyField', 'MyAlias', 'MyTable.MyField MyAlias'],
             ['pgsql', 'Pgsql', 'postgresql', 'MyTable.MyField', 'MyAlias', 'MyTable.MyField MyAlias'],
-            ['sqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', 'MyAlias', 'MyTable.MyField AS MyAlias'],
+            ['pdosqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', 'MyAlias', 'MyTable.MyField AS MyAlias'],
+            ['pdomysql', 'PdoMysql', 'mysql', 'MyTable.MyField', 'MyAlias', 'MyTable.MyField MyAlias'],
+            ['pdomysqlmb4', 'PdoMysqlmb4', 'mysql', 'MyTable.MyField', 'MyAlias', 'MyTable.MyField MyAlias'],
+            ['pdopgsql', 'PdoPgsql', 'postgresql', 'MyTable.MyField', 'MyAlias', 'MyTable.MyField MyAlias'],
         ];
     }
 
@@ -201,67 +228,126 @@ class SqlStatementTest extends TestCase
             ['mysqli', 'Mysqli', 'mysql', [1, 2, 3, 4], '', ' IN (1,2,3,4)'],
             ['mysqlimb4', 'Mysqlimb4', 'mysql', [1, 2, 3, 4], '', ' IN (1,2,3,4)'],
             ['pgsql', 'Pgsql', 'postgresql', [1, 2, 3, 4], '', ' IN (1,2,3,4)'],
-            ['sqlite', 'PdoSqlite', 'sqlite', [1, 2, 3, 4], '', ' IN (1,2,3,4)'],
+            ['pdosqlite', 'PdoSqlite', 'sqlite', [1, 2, 3, 4], '', ' IN (1,2,3,4)'],
+            ['pdomysql', 'PdoMysql', 'mysql', [1, 2, 3, 4], '', ' IN (1,2,3,4)'],
+            ['pdomysqlmb4', 'PdoMysqlmb4', 'mysql', [1, 2, 3, 4], '', ' IN (1,2,3,4)'],
+            ['pdopgsql', 'PdoPgsql', 'postgresql', [1, 2, 3, 4], '', ' IN (1,2,3,4)'],
+
             ['mysqli', 'Mysqli', 'mysql', [1, 2, 3, 4], 'int', ' IN (1,2,3,4)'],
             ['mysqlimb4', 'Mysqlimb4', 'mysql', [1, 2, 3, 4], 'int', ' IN (1,2,3,4)'],
             ['pgsql', 'Pgsql', 'postgresql', [1, 2, 3, 4], 'int', ' IN (1,2,3,4)'],
-            ['sqlite', 'PdoSqlite', 'sqlite', [1, 2, 3, 4], 'int', ' IN (1,2,3,4)'],
+            ['pdosqlite', 'PdoSqlite', 'sqlite', [1, 2, 3, 4], 'int', ' IN (1,2,3,4)'],
+            ['pdomysql', 'PdoMysql', 'mysql', [1, 2, 3, 4], 'int', ' IN (1,2,3,4)'],
+            ['pdomysqlmb4', 'PdoMysqlmb4', 'mysql', [1, 2, 3, 4], 'int', ' IN (1,2,3,4)'],
+            ['pdopgsql', 'PdoPgsql', 'postgresql', [1, 2, 3, 4], 'int', ' IN (1,2,3,4)'],
+
             ['mysqli', 'Mysqli', 'mysql', [1, 2, 3, 4], 'string', ' IN (\'1\',\'2\',\'3\',\'4\')'],
             ['mysqlimb4', 'Mysqlimb4', 'mysql', [1, 2, 3, 4], 'string', ' IN (\'1\',\'2\',\'3\',\'4\')'],
             ['pgsql', 'Pgsql', 'postgresql', [1, 2, 3, 4], 'string', ' IN (\'1\',\'2\',\'3\',\'4\')'],
-            ['sqlite', 'PdoSqlite', 'sqlite', [1, 2, 3, 4], 'string', ' IN (\'1\',\'2\',\'3\',\'4\')'],
+            ['pdosqlite', 'PdoSqlite', 'sqlite', [1, 2, 3, 4], 'string', ' IN (\'1\',\'2\',\'3\',\'4\')'],
+            ['pdomysql', 'PdoMysql', 'mysql', [1, 2, 3, 4], 'string', ' IN (\'1\',\'2\',\'3\',\'4\')'],
+            ['pdomysqlmb4', 'PdoMysqlmb4', 'mysql', [1, 2, 3, 4], 'string', ' IN (\'1\',\'2\',\'3\',\'4\')'],
+            ['pdopgsql', 'PdoPgsql', 'postgresql', [1, 2, 3, 4], 'string', ' IN (\'1\',\'2\',\'3\',\'4\')'],
+
             // String values
             ['mysqli', 'Mysqli', 'mysql', ['1', '2', '3', '4'], '', ' IN (\'1\',\'2\',\'3\',\'4\')'],
             ['mysqlimb4', 'Mysqlimb4', 'mysql', ['1', '2', '3', '4'], '', ' IN (\'1\',\'2\',\'3\',\'4\')'],
             ['pgsql', 'Pgsql', 'postgresql', ['1', '2', '3', '4'], '', ' IN (\'1\',\'2\',\'3\',\'4\')'],
-            ['sqlite', 'PdoSqlite', 'sqlite', ['1', '2', '3', '4'], '', ' IN (\'1\',\'2\',\'3\',\'4\')'],
+            ['pdosqlite', 'PdoSqlite', 'sqlite', ['1', '2', '3', '4'], '', ' IN (\'1\',\'2\',\'3\',\'4\')'],
+            ['pdomysql', 'PdoMysql', 'mysql', ['1', '2', '3', '4'], '', ' IN (\'1\',\'2\',\'3\',\'4\')'],
+            ['pdomysqlmb4', 'PdoMysqlmb4', 'mysql', ['1', '2', '3', '4'], '', ' IN (\'1\',\'2\',\'3\',\'4\')'],
+            ['pdopgsql', 'PdoPgsql', 'postgresql', ['1', '2', '3', '4'], '', ' IN (\'1\',\'2\',\'3\',\'4\')'],
+
             ['mysqli', 'Mysqli', 'mysql', ['1', '2', '3', '4'], 'int', ' IN (1,2,3,4)'],
             ['mysqlimb4', 'Mysqlimb4', 'mysql', ['1', '2', '3', '4'], 'int', ' IN (1,2,3,4)'],
             ['pgsql', 'Pgsql', 'postgresql', ['1', '2', '3', '4'], 'int', ' IN (1,2,3,4)'],
-            ['sqlite', 'PdoSqlite', 'sqlite', ['1', '2', '3', '4'], 'int', ' IN (1,2,3,4)'],
+            ['pdosqlite', 'PdoSqlite', 'sqlite', ['1', '2', '3', '4'], 'int', ' IN (1,2,3,4)'],
+            ['pdomysql', 'PdoMysql', 'mysql', ['1', '2', '3', '4'], 'int', ' IN (1,2,3,4)'],
+            ['pdomysqlmb4', 'PdoMysqlmb4', 'mysql', ['1', '2', '3', '4'], 'int', ' IN (1,2,3,4)'],
+            ['pdopgsql', 'PdoPgsql', 'postgresql', ['1', '2', '3', '4'], 'int', ' IN (1,2,3,4)'],
+
             ['mysqli', 'Mysqli', 'mysql', ['1', '2', '3', '4'], 'string', ' IN (\'1\',\'2\',\'3\',\'4\')'],
             ['mysqlimb4', 'Mysqlimb4', 'mysql', ['1', '2', '3', '4'], 'string', ' IN (\'1\',\'2\',\'3\',\'4\')'],
             ['pgsql', 'Pgsql', 'postgresql', ['1', '2', '3', '4'], 'string', ' IN (\'1\',\'2\',\'3\',\'4\')'],
-            ['sqlite', 'PdoSqlite', 'sqlite', ['1', '2', '3', '4'], 'string', ' IN (\'1\',\'2\',\'3\',\'4\')'],
+            ['pdosqlite', 'PdoSqlite', 'sqlite', ['1', '2', '3', '4'], 'string', ' IN (\'1\',\'2\',\'3\',\'4\')'],
+            ['pdomysql', 'PdoMysql', 'mysql', ['1', '2', '3', '4'], 'string', ' IN (\'1\',\'2\',\'3\',\'4\')'],
+            ['pdomysqlmb4', 'PdoMysqlmb4', 'mysql', ['1', '2', '3', '4'], 'string', ' IN (\'1\',\'2\',\'3\',\'4\')'],
+            ['pdopgsql', 'PdoPgsql', 'postgresql', ['1', '2', '3', '4'], 'string', ' IN (\'1\',\'2\',\'3\',\'4\')'],
+
             // Null values
             ['mysqli', 'Mysqli', 'mysql', null, '', ' IN (NULL)'],
             ['mysqlimb4', 'Mysqlimb4', 'mysql', null, '', ' IN (NULL)'],
             ['pgsql', 'Pgsql', 'postgresql', null, '', ' IN (NULL)'],
-            ['sqlite', 'PdoSqlite', 'sqlite', null, '', ' IN (NULL)'],
+            ['pdosqlite', 'PdoSqlite', 'sqlite', null, '', ' IN (NULL)'],
+            ['pdomysql', 'PdoMysql', 'mysql', null, '', ' IN (NULL)'],
+            ['pdomysqlmb4', 'PdoMysqlmb4', 'mysql', null, '', ' IN (NULL)'],
+            ['pdopgsql', 'PdoPgsql', 'postgresql', null, '', ' IN (NULL)'],
+
             ['mysqli', 'Mysqli', 'mysql', null, 'int', ' IN (NULL)'],
             ['mysqlimb4', 'Mysqlimb4', 'mysql', null, 'int', ' IN (NULL)'],
             ['pgsql', 'Pgsql', 'postgresql', null, 'int', ' IN (NULL)'],
-            ['sqlite', 'PdoSqlite', 'sqlite', null, 'int', ' IN (NULL)'],
+            ['pdosqlite', 'PdoSqlite', 'sqlite', null, 'int', ' IN (NULL)'],
+            ['pdomysql', 'PdoMysql', 'mysql', null, 'int', ' IN (NULL)'],
+            ['pdomysqlmb4', 'PdoMysqlmb4', 'mysql', null, 'int', ' IN (NULL)'],
+            ['pdopgsql', 'PdoPgsql', 'postgresql', null, 'int', ' IN (NULL)'],
+
             ['mysqli', 'Mysqli', 'mysql', null, 'string', ' IN (NULL)'],
             ['mysqlimb4', 'Mysqlimb4', 'mysql', null, 'string', ' IN (NULL)'],
             ['pgsql', 'Pgsql', 'postgresql', null, 'string', ' IN (NULL)'],
-            ['sqlite', 'PdoSqlite', 'sqlite', null, 'string', ' IN (NULL)'],
+            ['pdosqlite', 'PdoSqlite', 'sqlite', null, 'string', ' IN (NULL)'],
+            ['pdomysql', 'PdoMysql', 'mysql', null, 'string', ' IN (NULL)'],
+            ['pdomysqlmb4', 'PdoMysqlmb4', 'mysql', null, 'string', ' IN (NULL)'],
+            ['pdopgsql', 'PdoPgsql', 'postgresql', null, 'string', ' IN (NULL)'],
+
             // Single int value
             ['mysqli', 'Mysqli', 'mysql', 0, '', ' IN (0)'],
             ['mysqlimb4', 'Mysqlimb4', 'mysql', 0, '', ' IN (0)'],
             ['pgsql', 'Pgsql', 'postgresql', 0, '', ' IN (0)'],
-            ['sqlite', 'PdoSqlite', 'sqlite', 0, '', ' IN (0)'],
+            ['pdosqlite', 'PdoSqlite', 'sqlite', 0, '', ' IN (0)'],
+            ['pdomysql', 'PdoMysql', 'mysql', 0, '', ' IN (0)'],
+            ['pdomysqlmb4', 'PdoMysqlmb4', 'mysql', 0, '', ' IN (0)'],
+            ['pdopgsql', 'PdoPgsql', 'postgresql', 0, '', ' IN (0)'],
+
             ['mysqli', 'Mysqli', 'mysql', 0, 'int', ' IN (0)'],
             ['mysqlimb4', 'Mysqlimb4', 'mysql', 0, 'int', ' IN (0)'],
             ['pgsql', 'Pgsql', 'postgresql', 0, 'int', ' IN (0)'],
-            ['sqlite', 'PdoSqlite', 'sqlite', 0, 'int', ' IN (0)'],
+            ['pdosqlite', 'PdoSqlite', 'sqlite', 0, 'int', ' IN (0)'],
+            ['pdomysql', 'PdoMysql', 'mysql', 0, 'int', ' IN (0)'],
+            ['pdomysqlmb4', 'PdoMysqlmb4', 'mysql', 0, 'int', ' IN (0)'],
+            ['pdopgsql', 'PdoPgsql', 'postgresql', 0, 'int', ' IN (0)'],
+
             ['mysqli', 'Mysqli', 'mysql', 0, 'string', ' IN (\'0\')'],
             ['mysqlimb4', 'Mysqlimb4', 'mysql', 0, 'string', ' IN (\'0\')'],
             ['pgsql', 'Pgsql', 'postgresql', 0, 'string', ' IN (\'0\')'],
-            ['sqlite', 'PdoSqlite', 'sqlite', 0, 'string', ' IN (\'0\')'],
+            ['pdosqlite', 'PdoSqlite', 'sqlite', 0, 'string', ' IN (\'0\')'],
+            ['pdomysql', 'PdoMysql', 'mysql', 0, 'string', ' IN (\'0\')'],
+            ['pdomysqlmb4', 'PdoMysqlmb4', 'mysql', 0, 'string', ' IN (\'0\')'],
+            ['pdopgsql', 'PdoPgsql', 'postgresql', 0, 'string', ' IN (\'0\')'],
+
             // Single string value
             ['mysqli', 'Mysqli', 'mysql', '0', '', ' IN (\'0\')'],
             ['mysqlimb4', 'Mysqlimb4', 'mysql', '0', '', ' IN (\'0\')'],
             ['pgsql', 'Pgsql', 'postgresql', '0', '', ' IN (\'0\')'],
-            ['sqlite', 'PdoSqlite', 'sqlite', '0', '', ' IN (\'0\')'],
+            ['pdosqlite', 'PdoSqlite', 'sqlite', '0', '', ' IN (\'0\')'],
+            ['pdomysql', 'PdoMysql', 'mysql', '0', '', ' IN (\'0\')'],
+            ['pdomysqlmb4', 'PdoMysqlmb4', 'mysql', '0', '', ' IN (\'0\')'],
+            ['pdopgsql', 'PdoPgsql', 'postgresql', '0', '', ' IN (\'0\')'],
+
             ['mysqli', 'Mysqli', 'mysql', '0', 'int', ' IN (0)'],
             ['mysqlimb4', 'Mysqlimb4', 'mysql', '0', 'int', ' IN (0)'],
             ['pgsql', 'Pgsql', 'postgresql', '0', 'int', ' IN (0)'],
-            ['sqlite', 'PdoSqlite', 'sqlite', '0', 'int', ' IN (0)'],
+            ['pdosqlite', 'PdoSqlite', 'sqlite', '0', 'int', ' IN (0)'],
+            ['pdomysql', 'PdoMysql', 'mysql', '0', 'int', ' IN (0)'],
+            ['pdomysqlmb4', 'PdoMysqlmb4', 'mysql', '0', 'int', ' IN (0)'],
+            ['pdopgsql', 'PdoPgsql', 'postgresql', '0', 'int', ' IN (0)'],
+
             ['mysqli', 'Mysqli', 'mysql', '0', 'string', ' IN (\'0\')'],
             ['mysqlimb4', 'Mysqlimb4', 'mysql', '0', 'string', ' IN (\'0\')'],
             ['pgsql', 'Pgsql', 'postgresql', '0', 'string', ' IN (\'0\')'],
-            ['sqlite', 'PdoSqlite', 'sqlite', '0', 'string', ' IN (\'0\')'],
+            ['pdosqlite', 'PdoSqlite', 'sqlite', '0', 'string', ' IN (\'0\')'],
+            ['pdomysql', 'PdoMysql', 'mysql', '0', 'string', ' IN (\'0\')'],
+            ['pdomysqlmb4', 'PdoMysqlmb4', 'mysql', '0', 'string', ' IN (\'0\')'],
+            ['pdopgsql', 'PdoPgsql', 'postgresql', '0', 'string', ' IN (\'0\')'],
         ];
     }
 
@@ -286,7 +372,10 @@ class SqlStatementTest extends TestCase
             ['mysqli', 'Mysqli', 'mysql', 'MyTable.MyField', '%Y/%m/%d %H:%M:%S', 'DATE_FORMAT(MyTable.MyField,\'%Y/%m/%d %H:%i:%S\')'],
             ['mysqlimb4', 'Mysqlimb4', 'mysql', 'MyTable.MyField', '%Y/%m/%d %H:%M:%S', 'DATE_FORMAT(MyTable.MyField,\'%Y/%m/%d %H:%i:%S\')'],
             ['pgsql', 'Pgsql', 'postgresql', 'MyTable.MyField', '%Y/%m/%d %H:%M:%S', 'TO_CHAR(MyTable.MyField,\'YYYY/MM/DD HH24:MI:SS\')'],
-            ['sqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', '%Y/%m/%d %H:%M:%S', 'strftime(\'%Y/%m/%d %H:%M:%S\',MyTable.MyField)'],
+            ['pdosqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', '%Y/%m/%d %H:%M:%S', 'strftime(\'%Y/%m/%d %H:%M:%S\',MyTable.MyField)'],
+            ['pdomysql', 'PdoMysql', 'mysql', 'MyTable.MyField', '%Y/%m/%d %H:%M:%S', 'DATE_FORMAT(MyTable.MyField,\'%Y/%m/%d %H:%i:%S\')'],
+            ['pdomysqlmb4', 'PdoMysqlmb4', 'mysql', 'MyTable.MyField', '%Y/%m/%d %H:%M:%S', 'DATE_FORMAT(MyTable.MyField,\'%Y/%m/%d %H:%i:%S\')'],
+            ['pdopgsql', 'PdoPgsql', 'postgresql', 'MyTable.MyField', '%Y/%m/%d %H:%M:%S', 'TO_CHAR(MyTable.MyField,\'YYYY/MM/DD HH24:MI:SS\')'],
         ];
     }
 
@@ -311,7 +400,10 @@ class SqlStatementTest extends TestCase
             ['mysqli', 'Mysqli', 'mysql', 'MyTable.MyField', 't*s_t', 'MyTable.MyField LIKE \'t*s_t\''],
             ['mysqlimb4', 'Mysqlimb4', 'mysql', 'MyTable.MyField', 't*s_t', 'MyTable.MyField LIKE \'t*s_t\''],
             ['pgsql', 'Pgsql', 'postgresql', 'MyTable.MyField', 't*s_t', 'MyTable.MyField LIKE \'t*s_t\''],
-            ['sqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', 't*s_t', 'MyTable.MyField LIKE \'t*s_t\''],
+            ['pdosqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', 't*s_t', 'MyTable.MyField LIKE \'t*s_t\''],
+            ['pdomysql', 'PdoMysql', 'mysql', 'MyTable.MyField', 't*s_t', 'MyTable.MyField LIKE \'t*s_t\''],
+            ['pdomysqlmb4', 'PdoMysqlmb4', 'mysql', 'MyTable.MyField', 't*s_t', 'MyTable.MyField LIKE \'t*s_t\''],
+            ['pdopgsql', 'PdoPgsql', 'postgresql', 'MyTable.MyField', 't*s_t', 'MyTable.MyField LIKE \'t*s_t\''],
         ];
     }
 
@@ -336,7 +428,10 @@ class SqlStatementTest extends TestCase
             ['mysqli', 'Mysqli', 'mysql', '([A-Za-z0-9]+)', ' REGEXP \'^\\\\(\\\\[A\\\\-Za\\\\-z0\\\\-9\\\\]\\\\+\\\\)[0-9]+$\''],
             ['mysqlimb4', 'Mysqlimb4', 'mysql', '([A-Za-z0-9]+)', ' REGEXP \'^\\\\(\\\\[A\\\\-Za\\\\-z0\\\\-9\\\\]\\\\+\\\\)[0-9]+$\''],
             ['pgsql', 'Pgsql', 'postgresql', '([A-Za-z0-9]+)', ' ~ \'^\\\\(\\\\[A\\\\-Za\\\\-z0\\\\-9\\\\]\\\\+\\\\)[0-9]+$\''],
-            ['sqlite', 'PdoSqlite', 'sqlite', '([A-Za-z0-9]+)', ' LIKE \'([A-Za-z0-9]+)%\' ESCAPE \'!\''],
+            ['pdosqlite', 'PdoSqlite', 'sqlite', '([A-Za-z0-9]+)', ' LIKE \'([A-Za-z0-9]+)%\' ESCAPE \'!\''],
+            ['pdomysql', 'PdoMysql', 'mysql', '([A-Za-z0-9]+)', ' REGEXP \'^\\\\(\\\\[A\\\\-Za\\\\-z0\\\\-9\\\\]\\\\+\\\\)[0-9]+$\''],
+            ['pdomysqlmb4', 'PdoMysqlmb4', 'mysql', '([A-Za-z0-9]+)', ' REGEXP \'^\\\\(\\\\[A\\\\-Za\\\\-z0\\\\-9\\\\]\\\\+\\\\)[0-9]+$\''],
+            ['pdopgsql', 'PdoPgsql', 'postgresql', '([A-Za-z0-9]+)', ' ~ \'^\\\\(\\\\[A\\\\-Za\\\\-z0\\\\-9\\\\]\\\\+\\\\)[0-9]+$\''],
         ];
     }
 
@@ -361,7 +456,10 @@ class SqlStatementTest extends TestCase
             ['mysqli', 'Mysqli', 'mysql', 'MyTable.MyField', 'DISTINCT MyTable.MyField'],
             ['mysqlimb4', 'Mysqlimb4', 'mysql', 'MyTable.MyField', 'DISTINCT MyTable.MyField'],
             ['pgsql', 'Pgsql', 'postgresql', 'MyTable.MyField', 'DISTINCT MyTable.MyField'],
-            ['sqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', 'DISTINCT MyTable.MyField'],
+            ['pdosqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', 'DISTINCT MyTable.MyField'],
+            ['pdomysql', 'PdoMysql', 'mysql', 'MyTable.MyField', 'DISTINCT MyTable.MyField'],
+            ['pdomysqlmb4', 'PdoMysqlmb4', 'mysql', 'MyTable.MyField', 'DISTINCT MyTable.MyField'],
+            ['pdopgsql', 'PdoPgsql', 'postgresql', 'MyTable.MyField', 'DISTINCT MyTable.MyField'],
         ];
     }
 
@@ -387,22 +485,37 @@ class SqlStatementTest extends TestCase
             ['mysqli', 'Mysqli', 'mysql', 'MyTable.MyField', 'MyAlias', true, 'COUNT(DISTINCT MyTable.MyField) MyAlias'],
             ['mysqlimb4', 'Mysqlimb4', 'mysql', 'MyTable.MyField', 'MyAlias', true, 'COUNT(DISTINCT MyTable.MyField) MyAlias'],
             ['pgsql', 'Pgsql', 'postgresql', 'MyTable.MyField', 'MyAlias', true, 'COUNT(DISTINCT MyTable.MyField) MyAlias'],
-            ['sqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', 'MyAlias', true, 'COUNT(DISTINCT MyTable.MyField) AS MyAlias'],
+            ['pdosqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', 'MyAlias', true, 'COUNT(DISTINCT MyTable.MyField) AS MyAlias'],
+            ['pdomysql', 'PdoMysql', 'mysql', 'MyTable.MyField', 'MyAlias', true, 'COUNT(DISTINCT MyTable.MyField) MyAlias'],
+            ['pdomysqlmb4', 'PdoMysqlmb4', 'mysql', 'MyTable.MyField', 'MyAlias', true, 'COUNT(DISTINCT MyTable.MyField) MyAlias'],
+            ['pdopgsql', 'PdoPgsql', 'postgresql', 'MyTable.MyField', 'MyAlias', true, 'COUNT(DISTINCT MyTable.MyField) MyAlias'],
+
             // With alias
             ['mysqli', 'Mysqli', 'mysql', 'MyTable.MyField', 'MyAlias', false, 'COUNT(MyTable.MyField) MyAlias'],
             ['mysqlimb4', 'Mysqlimb4', 'mysql', 'MyTable.MyField', 'MyAlias', false, 'COUNT(MyTable.MyField) MyAlias'],
             ['pgsql', 'Pgsql', 'postgresql', 'MyTable.MyField', 'MyAlias', false, 'COUNT(MyTable.MyField) MyAlias'],
-            ['sqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', 'MyAlias', false, 'COUNT(MyTable.MyField) AS MyAlias'],
+            ['pdosqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', 'MyAlias', false, 'COUNT(MyTable.MyField) AS MyAlias'],
+            ['pdomysql', 'PdoMysql', 'mysql', 'MyTable.MyField', 'MyAlias', false, 'COUNT(MyTable.MyField) MyAlias'],
+            ['pdomysqlmb4', 'PdoMysqlmb4', 'mysql', 'MyTable.MyField', 'MyAlias', false, 'COUNT(MyTable.MyField) MyAlias'],
+            ['pdopgsql', 'PdoPgsql', 'postgresql', 'MyTable.MyField', 'MyAlias', false, 'COUNT(MyTable.MyField) MyAlias'],
+
             // With unique
             ['mysqli', 'Mysqli', 'mysql', 'MyTable.MyField', null, true, 'COUNT(DISTINCT MyTable.MyField)'],
             ['mysqlimb4', 'Mysqlimb4', 'mysql', 'MyTable.MyField', null, true, 'COUNT(DISTINCT MyTable.MyField)'],
             ['pgsql', 'Pgsql', 'postgresql', 'MyTable.MyField', null, true, 'COUNT(DISTINCT MyTable.MyField)'],
-            ['sqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', null, true, 'COUNT(DISTINCT MyTable.MyField)'],
+            ['pdosqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', null, true, 'COUNT(DISTINCT MyTable.MyField)'],
+            ['pdomysql', 'PdoMysql', 'mysql', 'MyTable.MyField', null, true, 'COUNT(DISTINCT MyTable.MyField)'],
+            ['pdomysqlmb4', 'PdoMysqlmb4', 'mysql', 'MyTable.MyField', null, true, 'COUNT(DISTINCT MyTable.MyField)'],
+            ['pdopgsql', 'PdoPgsql', 'postgresql', 'MyTable.MyField', null, true, 'COUNT(DISTINCT MyTable.MyField)'],
+
             // Nothing
             ['mysqli', 'Mysqli', 'mysql', 'MyTable.MyField', null, false, 'COUNT(MyTable.MyField)'],
             ['mysqlimb4', 'Mysqlimb4', 'mysql', 'MyTable.MyField', null, false, 'COUNT(MyTable.MyField)'],
             ['pgsql', 'Pgsql', 'postgresql', 'MyTable.MyField', null, false, 'COUNT(MyTable.MyField)'],
-            ['sqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', null, false, 'COUNT(MyTable.MyField)'],
+            ['pdosqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', null, false, 'COUNT(MyTable.MyField)'],
+            ['pdomysql', 'PdoMysql', 'mysql', 'MyTable.MyField', null, false, 'COUNT(MyTable.MyField)'],
+            ['pdomysqlmb4', 'PdoMysqlmb4', 'mysql', 'MyTable.MyField', null, false, 'COUNT(MyTable.MyField)'],
+            ['pdopgsql', 'PdoPgsql', 'postgresql', 'MyTable.MyField', null, false, 'COUNT(MyTable.MyField)'],
         ];
     }
 
@@ -428,12 +541,19 @@ class SqlStatementTest extends TestCase
             ['mysqli', 'Mysqli', 'mysql', 'MyTable.MyField', 'MyAlias', 'AVG(MyTable.MyField) MyAlias'],
             ['mysqlimb4', 'Mysqlimb4', 'mysql', 'MyTable.MyField', 'MyAlias', 'AVG(MyTable.MyField) MyAlias'],
             ['pgsql', 'Pgsql', 'postgresql', 'MyTable.MyField', 'MyAlias', 'AVG(MyTable.MyField) MyAlias'],
-            ['sqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', 'MyAlias', 'AVG(MyTable.MyField) AS MyAlias'],
+            ['pdosqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', 'MyAlias', 'AVG(MyTable.MyField) AS MyAlias'],
+            ['pdomysql', 'PdoMysql', 'mysql', 'MyTable.MyField', 'MyAlias', 'AVG(MyTable.MyField) MyAlias'],
+            ['pdomysqlmb4', 'PdoMysqlmb4', 'mysql', 'MyTable.MyField', 'MyAlias', 'AVG(MyTable.MyField) MyAlias'],
+            ['pdopgsql', 'PdoPgsql', 'postgresql', 'MyTable.MyField', 'MyAlias', 'AVG(MyTable.MyField) MyAlias'],
+
             // Nothing
             ['mysqli', 'Mysqli', 'mysql', 'MyTable.MyField', null, 'AVG(MyTable.MyField)'],
             ['mysqlimb4', 'Mysqlimb4', 'mysql', 'MyTable.MyField', null, 'AVG(MyTable.MyField)'],
             ['pgsql', 'Pgsql', 'postgresql', 'MyTable.MyField', null, 'AVG(MyTable.MyField)'],
-            ['sqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', null, 'AVG(MyTable.MyField)'],
+            ['pdosqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', null, 'AVG(MyTable.MyField)'],
+            ['pdomysql', 'PdoMysql', 'mysql', 'MyTable.MyField', null, 'AVG(MyTable.MyField)'],
+            ['pdomysqlmb4', 'PdoMysqlmb4', 'mysql', 'MyTable.MyField', null, 'AVG(MyTable.MyField)'],
+            ['pdopgsql', 'PdoPgsql', 'postgresql', 'MyTable.MyField', null, 'AVG(MyTable.MyField)'],
         ];
     }
 
@@ -459,12 +579,19 @@ class SqlStatementTest extends TestCase
             ['mysqli', 'Mysqli', 'mysql', 'MyTable.MyField', 'MyAlias', 'MAX(MyTable.MyField) MyAlias'],
             ['mysqlimb4', 'Mysqlimb4', 'mysql', 'MyTable.MyField', 'MyAlias', 'MAX(MyTable.MyField) MyAlias'],
             ['pgsql', 'Pgsql', 'postgresql', 'MyTable.MyField', 'MyAlias', 'MAX(MyTable.MyField) MyAlias'],
-            ['sqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', 'MyAlias', 'MAX(MyTable.MyField) AS MyAlias'],
+            ['pdosqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', 'MyAlias', 'MAX(MyTable.MyField) AS MyAlias'],
+            ['pdomysql', 'PdoMysql', 'mysql', 'MyTable.MyField', 'MyAlias', 'MAX(MyTable.MyField) MyAlias'],
+            ['pdomysqlmb4', 'PdoMysqlmb4', 'mysql', 'MyTable.MyField', 'MyAlias', 'MAX(MyTable.MyField) MyAlias'],
+            ['pdopgsql', 'PdoPgsql', 'postgresql', 'MyTable.MyField', 'MyAlias', 'MAX(MyTable.MyField) MyAlias'],
+
             // Nothing
             ['mysqli', 'Mysqli', 'mysql', 'MyTable.MyField', null, 'MAX(MyTable.MyField)'],
             ['mysqlimb4', 'Mysqlimb4', 'mysql', 'MyTable.MyField', null, 'MAX(MyTable.MyField)'],
             ['pgsql', 'Pgsql', 'postgresql', 'MyTable.MyField', null, 'MAX(MyTable.MyField)'],
-            ['sqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', null, 'MAX(MyTable.MyField)'],
+            ['pdosqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', null, 'MAX(MyTable.MyField)'],
+            ['pdomysql', 'PdoMysql', 'mysql', 'MyTable.MyField', null, 'MAX(MyTable.MyField)'],
+            ['pdomysqlmb4', 'PdoMysqlmb4', 'mysql', 'MyTable.MyField', null, 'MAX(MyTable.MyField)'],
+            ['pdopgsql', 'PdoPgsql', 'postgresql', 'MyTable.MyField', null, 'MAX(MyTable.MyField)'],
         ];
     }
 
@@ -490,12 +617,19 @@ class SqlStatementTest extends TestCase
             ['mysqli', 'Mysqli', 'mysql', 'MyTable.MyField', 'MyAlias', 'MIN(MyTable.MyField) MyAlias'],
             ['mysqlimb4', 'Mysqlimb4', 'mysql', 'MyTable.MyField', 'MyAlias', 'MIN(MyTable.MyField) MyAlias'],
             ['pgsql', 'Pgsql', 'postgresql', 'MyTable.MyField', 'MyAlias', 'MIN(MyTable.MyField) MyAlias'],
-            ['sqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', 'MyAlias', 'MIN(MyTable.MyField) AS MyAlias'],
+            ['pdosqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', 'MyAlias', 'MIN(MyTable.MyField) AS MyAlias'],
+            ['pdomysql', 'PdoMysql', 'mysql', 'MyTable.MyField', 'MyAlias', 'MIN(MyTable.MyField) MyAlias'],
+            ['pdomysqlmb4', 'PdoMysqlmb4', 'mysql', 'MyTable.MyField', 'MyAlias', 'MIN(MyTable.MyField) MyAlias'],
+            ['pdopgsql', 'PdoPgsql', 'postgresql', 'MyTable.MyField', 'MyAlias', 'MIN(MyTable.MyField) MyAlias'],
+
             // Nothing
             ['mysqli', 'Mysqli', 'mysql', 'MyTable.MyField', null, 'MIN(MyTable.MyField)'],
             ['mysqlimb4', 'Mysqlimb4', 'mysql', 'MyTable.MyField', null, 'MIN(MyTable.MyField)'],
             ['pgsql', 'Pgsql', 'postgresql', 'MyTable.MyField', null, 'MIN(MyTable.MyField)'],
-            ['sqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', null, 'MIN(MyTable.MyField)'],
+            ['pdosqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', null, 'MIN(MyTable.MyField)'],
+            ['pdomysql', 'PdoMysql', 'mysql', 'MyTable.MyField', null, 'MIN(MyTable.MyField)'],
+            ['pdomysqlmb4', 'PdoMysqlmb4', 'mysql', 'MyTable.MyField', null, 'MIN(MyTable.MyField)'],
+            ['pdopgsql', 'PdoPgsql', 'postgresql', 'MyTable.MyField', null, 'MIN(MyTable.MyField)'],
         ];
     }
 
@@ -521,12 +655,19 @@ class SqlStatementTest extends TestCase
             ['mysqli', 'Mysqli', 'mysql', 'MyTable.MyField', 'MyAlias', 'SUM(MyTable.MyField) MyAlias'],
             ['mysqlimb4', 'Mysqlimb4', 'mysql', 'MyTable.MyField', 'MyAlias', 'SUM(MyTable.MyField) MyAlias'],
             ['pgsql', 'Pgsql', 'postgresql', 'MyTable.MyField', 'MyAlias', 'SUM(MyTable.MyField) MyAlias'],
-            ['sqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', 'MyAlias', 'SUM(MyTable.MyField) AS MyAlias'],
+            ['pdosqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', 'MyAlias', 'SUM(MyTable.MyField) AS MyAlias'],
+            ['pdomysql', 'PdoMysql', 'mysql', 'MyTable.MyField', 'MyAlias', 'SUM(MyTable.MyField) MyAlias'],
+            ['pdomysqlmb4', 'PdoMysqlmb4', 'mysql', 'MyTable.MyField', 'MyAlias', 'SUM(MyTable.MyField) MyAlias'],
+            ['pdopgsql', 'PdoPgsql', 'postgresql', 'MyTable.MyField', 'MyAlias', 'SUM(MyTable.MyField) MyAlias'],
+
             // Nothing
             ['mysqli', 'Mysqli', 'mysql', 'MyTable.MyField', null, 'SUM(MyTable.MyField)'],
             ['mysqlimb4', 'Mysqlimb4', 'mysql', 'MyTable.MyField', null, 'SUM(MyTable.MyField)'],
             ['pgsql', 'Pgsql', 'postgresql', 'MyTable.MyField', null, 'SUM(MyTable.MyField)'],
-            ['sqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', null, 'SUM(MyTable.MyField)'],
+            ['pdosqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', null, 'SUM(MyTable.MyField)'],
+            ['pdomysql', 'PdoMysql', 'mysql', 'MyTable.MyField', null, 'SUM(MyTable.MyField)'],
+            ['pdomysqlmb4', 'PdoMysqlmb4', 'mysql', 'MyTable.MyField', null, 'SUM(MyTable.MyField)'],
+            ['pdopgsql', 'PdoPgsql', 'postgresql', 'MyTable.MyField', null, 'SUM(MyTable.MyField)'],
         ];
     }
 
@@ -551,7 +692,10 @@ class SqlStatementTest extends TestCase
             ['mysqli', 'Mysqli', 'mysql', 'MyTable.MyField', 'MyTable.MyField IS NULL'],
             ['mysqlimb4', 'Mysqlimb4', 'mysql', 'MyTable.MyField', 'MyTable.MyField IS NULL'],
             ['pgsql', 'Pgsql', 'postgresql', 'MyTable.MyField', 'MyTable.MyField IS NULL'],
-            ['sqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', 'MyTable.MyField IS NULL'],
+            ['pdosqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', 'MyTable.MyField IS NULL'],
+            ['pdomysql', 'PdoMysql', 'mysql', 'MyTable.MyField', 'MyTable.MyField IS NULL'],
+            ['pdomysqlmb4', 'PdoMysqlmb4', 'mysql', 'MyTable.MyField', 'MyTable.MyField IS NULL'],
+            ['pdopgsql', 'PdoPgsql', 'postgresql', 'MyTable.MyField', 'MyTable.MyField IS NULL'],
         ];
     }
 
@@ -576,7 +720,10 @@ class SqlStatementTest extends TestCase
             ['mysqli', 'Mysqli', 'mysql', 'MyTable.MyField', 'MyTable.MyField IS NOT NULL'],
             ['mysqlimb4', 'Mysqlimb4', 'mysql', 'MyTable.MyField', 'MyTable.MyField IS NOT NULL'],
             ['pgsql', 'Pgsql', 'postgresql', 'MyTable.MyField', 'MyTable.MyField IS NOT NULL'],
-            ['sqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', 'MyTable.MyField IS NOT NULL'],
+            ['pdosqlite', 'PdoSqlite', 'sqlite', 'MyTable.MyField', 'MyTable.MyField IS NOT NULL'],
+            ['pdomysql', 'PdoMysql', 'mysql', 'MyTable.MyField', 'MyTable.MyField IS NOT NULL'],
+            ['pdomysqlmb4', 'PdoMysqlmb4', 'mysql', 'MyTable.MyField', 'MyTable.MyField IS NOT NULL'],
+            ['pdopgsql', 'PdoPgsql', 'postgresql', 'MyTable.MyField', 'MyTable.MyField IS NOT NULL'],
         ];
     }
 
