@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-31 12:34+0200\n"
-"PO-Revision-Date: 2025-08-31 11:04\n"
+"POT-Creation-Date: 2025-09-01 12:51+0200\n"
+"PO-Revision-Date: 2025-09-01 11:24\n"
 "Last-Translator: \n"
 "Language-Team: Bengali\n"
 "Language: bn_BD\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #: inc/core/_fake_l10n.php:7 src/Process/Backend/Auth.php:477
 #: src/Process/Backend/User.php:264 src/Process/Backend/UserPreferences.php:598
-#: src/Process/Install/Install.php:424 src/Process/Upgrade/Auth.php:401
+#: src/Process/Install/Install.php:423 src/Process/Upgrade/Auth.php:401
 msgid "medium"
 msgstr "মাঝারি"
 
@@ -54,16 +54,28 @@ msgid "MySQLi"
 msgstr "MySQLi"
 
 #: inc/core/_fake_l10n.php:20
-msgid "MySQLi (full UTF-8)"
-msgstr "MySQLi (পূর্ণ UTF-8)"
+msgid "MySQLi full UTF-8"
+msgstr "MySQLi পূর্ণ UTF-8"
 
 #: inc/core/_fake_l10n.php:21
 msgid "PostgreSQL"
 msgstr "PostgreSQL"
 
 #: inc/core/_fake_l10n.php:22
-msgid "SQLite"
-msgstr "SQLite"
+msgid "MySQL (PDO)"
+msgstr "MySQL (PDO)"
+
+#: inc/core/_fake_l10n.php:23
+msgid "MySQL full UTF-8 (PDO)"
+msgstr "MySQL পূর্ণ UTF-8 (PDO)"
+
+#: inc/core/_fake_l10n.php:24
+msgid "SQLite (PDO)"
+msgstr "SQLite (PDO)"
+
+#: inc/core/_fake_l10n.php:25
+msgid "PostgreSQL (PDO)"
+msgstr "PostgreSQL (PDO)"
 
 #: src/Core/Auth.php:122
 msgid "administrator"
@@ -424,7 +436,7 @@ msgstr "প্যারেন্ট:"
 #: src/Process/Backend/Home.php:649 src/Process/Backend/Home.php:703
 #: src/Process/Backend/MediaItem.php:1267 src/Process/Backend/Post.php:926
 #: src/Process/Backend/Post.php:1140 src/Process/Backend/User.php:536
-#: src/Process/Backend/UsersActions.php:513 src/Process/Install/Install.php:547
+#: src/Process/Backend/UsersActions.php:513 src/Process/Install/Install.php:546
 msgid "Save"
 msgstr "সংরক্ষণ করুন"
 
@@ -545,7 +557,7 @@ msgid "Blog ID"
 msgstr "ব্লগ আইডি"
 
 #: src/Core/Backend/Combos.php:332 src/Core/Backend/Listing/ListingUsers.php:68
-#: src/Process/Install/Install.php:523
+#: src/Process/Install/Install.php:522
 msgid "Username"
 msgstr "Username"
 
@@ -669,7 +681,7 @@ msgstr "গ্লোবাল সহায়তা"
 #: src/Process/Backend/Auth.php:544 src/Process/Backend/BlogPref.php:1351
 #: src/Process/Backend/Comment.php:306 src/Process/Backend/Post.php:1109
 #: src/Process/Backend/User.php:432 src/Process/Backend/UserPreferences.php:824
-#: src/Process/Install/Install.php:505
+#: src/Process/Install/Install.php:504
 msgid "Email:"
 msgstr "ইমেইল:"
 
@@ -729,7 +741,7 @@ msgstr "ফরম্যাট:"
 
 #: src/Core/Backend/Filter/FilterPosts.php:180 src/Process/Backend/Auth.php:204
 #: src/Process/Backend/Auth.php:670 src/Process/Backend/User.php:344
-#: src/Process/Install/Install.php:589 src/Process/Upgrade/Auth.php:351
+#: src/Process/Install/Install.php:588 src/Process/Upgrade/Auth.php:351
 msgid "Password:"
 msgstr "পাসওয়ার্ড:"
 
@@ -1438,8 +1450,8 @@ msgstr "Zip ফাইল আপলোড করুন"
 #: src/Process/Backend/Langs.php:322 src/Process/Backend/Langs.php:372
 #: src/Process/Backend/LinkPopup.php:83 src/Process/Backend/Post.php:994
 #: src/Process/Backend/Post.php:1085 src/Process/Backend/User.php:303
-#: src/Process/Backend/UsersActions.php:492 src/Process/Install/Install.php:514
-#: src/Process/Install/Wizard.php:379 src/Process/Upgrade/Langs.php:406
+#: src/Process/Backend/UsersActions.php:492 src/Process/Install/Install.php:513
+#: src/Process/Install/Wizard.php:384 src/Process/Upgrade/Langs.php:406
 #, php-format
 msgid "Fields preceded by %s are mandatory."
 msgstr "%s-এর আগের ক্ষেত্রগুলি বাধ্যতামূলক।"
@@ -1452,8 +1464,8 @@ msgstr "জিপ ফাইল পাথ:"
 #: src/Process/Backend/Langs.php:344 src/Process/Backend/Langs.php:393
 #: src/Process/Backend/Post.php:805 src/Process/Backend/User.php:340
 #: src/Process/Backend/User.php:364 src/Process/Backend/User.php:529
-#: src/Process/Backend/UsersActions.php:499 src/Process/Install/Install.php:534
-#: src/Process/Install/Install.php:544 src/Process/Upgrade/Langs.php:430
+#: src/Process/Backend/UsersActions.php:499 src/Process/Install/Install.php:533
+#: src/Process/Install/Install.php:543 src/Process/Upgrade/Langs.php:430
 msgid "Password"
 msgstr "পাসওয়ার্ড"
 
@@ -1517,8 +1529,8 @@ msgid "Error:"
 msgstr "ত্রুটি:"
 
 #: src/Core/Backend/Notices.php:86 src/Core/Upgrade/Notices.php:48
-#: src/Process/Install/Install.php:458 src/Process/Install/Install.php:632
-#: src/Process/Install/Wizard.php:321 src/Process/Install/Wizard.php:348
+#: src/Process/Install/Install.php:457 src/Process/Install/Install.php:631
+#: src/Process/Install/Wizard.php:326 src/Process/Install/Wizard.php:353
 msgid "Errors:"
 msgstr "ত্রুটি:"
 
@@ -2554,7 +2566,7 @@ msgstr "ডাইজেস্ট ফাইল পড়া যায়নি."
 msgid "Invalid digests file."
 msgstr "অকার্যকর ডাইজেস্ট ফাইল."
 
-#: src/Core/Upgrade/Upgrade.php:75
+#: src/Core/Upgrade/Upgrade.php:73
 msgid "Something went wrong with auto upgrade:"
 msgstr "অটো আপগ্রেড নিয়ে কিছু সমস্যা হয়েছে:"
 
@@ -2641,20 +2653,20 @@ msgstr "%s একটি বৈধ প্রিফ আইডি নয়"
 msgid "No workspace specified"
 msgstr "কোন ওয়ার্কস্পেস উল্লিখিত হয়নি"
 
-#: src/Core/Users.php:165 src/Process/Install/Install.php:171
+#: src/Core/Users.php:165 src/Process/Install/Install.php:170
 msgid "No user ID given"
 msgstr "কোনো ইউজার আইডি দেয়া হয় নি"
 
-#: src/Core/Users.php:169 src/Process/Install/Install.php:181
+#: src/Core/Users.php:169 src/Process/Install/Install.php:180
 msgid "No password given"
 msgstr "কোনো পাসওয়ার্ড দেয়া হয় নি"
 
-#: src/Core/Users.php:396 src/Process/Install/Install.php:174
+#: src/Core/Users.php:396 src/Process/Install/Install.php:173
 msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
 msgstr "ইউজার আইডিতে কমপক্ষে ২টি অক্ষর থাকতে হবে, যাতে বর্ণ, সংখ্যা বা সিম্বল থাকতে পারবে।"
 
 #: src/Core/Users.php:405 src/Process/Backend/User.php:348
-#: src/Process/Install/Install.php:187
+#: src/Process/Install/Install.php:186
 msgid "Password must contain at least 6 characters."
 msgstr "পাসওয়ার্ডে কমপক্ষে ৬টি অক্ষর থাকতে হবে।"
 
@@ -3117,7 +3129,7 @@ msgstr "আপনার পাসওয়ার্ড রিসেট করার
 
 #: src/Process/Backend/Auth.php:182 src/Process/Backend/Auth.php:204
 #: src/Process/Backend/Auth.php:534 src/Process/Backend/Auth.php:660
-#: src/Process/Install/Install.php:522 src/Process/Install/Install.php:584
+#: src/Process/Install/Install.php:521 src/Process/Install/Install.php:583
 #: src/Process/Upgrade/Auth.php:341
 msgid "Username:"
 msgstr "ইউজারনেম:"
@@ -3141,7 +3153,7 @@ msgstr "আপনার নতুন পাসওয়ার্ড আপনা
 
 #: src/Process/Backend/Auth.php:257 src/Process/Backend/User.php:158
 #: src/Process/Backend/UserPreferences.php:303
-#: src/Process/Install/Install.php:184
+#: src/Process/Install/Install.php:183
 msgid "Passwords don't match"
 msgstr "দুটো পাসওয়ার্ডে অমিল রয়েছে"
 
@@ -3181,8 +3193,8 @@ msgstr "ভুল ইউজারনেম বা পাসওয়ার্ড
 #: src/Process/Backend/UserPreferences.php:597
 #: src/Process/Backend/UserPreferences.php:598
 #: src/Process/Backend/UserPreferences.php:599
-#: src/Process/Install/Install.php:423 src/Process/Install/Install.php:424
-#: src/Process/Install/Install.php:425 src/Process/Upgrade/Auth.php:400
+#: src/Process/Install/Install.php:422 src/Process/Install/Install.php:423
+#: src/Process/Install/Install.php:424 src/Process/Upgrade/Auth.php:400
 #: src/Process/Upgrade/Auth.php:401 src/Process/Upgrade/Auth.php:402
 #, php-format
 msgid "Password strength: %s"
@@ -3190,13 +3202,13 @@ msgstr "পাসওয়ার্ডের শক্তি: %s"
 
 #: src/Process/Backend/Auth.php:476 src/Process/Backend/User.php:263
 #: src/Process/Backend/UserPreferences.php:597
-#: src/Process/Install/Install.php:423 src/Process/Upgrade/Auth.php:400
+#: src/Process/Install/Install.php:422 src/Process/Upgrade/Auth.php:400
 msgid "weak"
 msgstr "দুর্বল"
 
 #: src/Process/Backend/Auth.php:478 src/Process/Backend/User.php:265
 #: src/Process/Backend/UserPreferences.php:599
-#: src/Process/Install/Install.php:425 src/Process/Upgrade/Auth.php:402
+#: src/Process/Install/Install.php:424 src/Process/Upgrade/Auth.php:402
 msgid "strong"
 msgstr "শক্তিশালী"
 
@@ -4334,12 +4346,12 @@ msgid "There is no writable root directory for the media manager. You should con
 msgstr "মিডিয়া ম্যানেজারের জন্য কোন লিখনযোগ্য মূল ডিরেক্টরি নেই. আপনার প্রশাসকের সাথে যোগাযোগ করা উচিত."
 
 #: src/Process/Backend/Home.php:352 src/Process/Backend/Plugins.php:139
-#: src/Process/Install/Install.php:557 src/Process/Upgrade/Plugins.php:124
+#: src/Process/Install/Install.php:556 src/Process/Upgrade/Plugins.php:124
 msgid "Following plugins have been installed:"
 msgstr "নিচের প্লাগইনগুলো ইন্সটল করা হয়েছে:"
 
 #: src/Process/Backend/Home.php:374 src/Process/Backend/Plugins.php:161
-#: src/Process/Install/Install.php:565 src/Process/Upgrade/Plugins.php:146
+#: src/Process/Install/Install.php:564 src/Process/Upgrade/Plugins.php:146
 msgid "Following plugins have not been installed:"
 msgstr "নিচের প্লাগইনগুলো ইন্সটল করা হয় নি:"
 
@@ -5534,12 +5546,12 @@ msgid "Password change required to connect"
 msgstr "সংযোগ স্থাপনের জন্য পাসওয়ার্ড পরিবর্তন"
 
 #: src/Process/Backend/User.php:401 src/Process/Backend/UserPreferences.php:794
-#: src/Process/Install/Install.php:497
+#: src/Process/Install/Install.php:496
 msgid "Last Name:"
 msgstr "শেষ নাম:"
 
 #: src/Process/Backend/User.php:411 src/Process/Backend/UserPreferences.php:804
-#: src/Process/Install/Install.php:488
+#: src/Process/Install/Install.php:487
 msgid "First Name:"
 msgstr "প্রথম নাম:"
 
@@ -6116,123 +6128,123 @@ msgstr "আপনি %s ব্যবহারকারীদের জন্য 
 msgid "Validate permissions"
 msgstr "বৈধ অনুমতি"
 
-#: src/Process/Install/Install.php:135
+#: src/Process/Install/Install.php:134
 msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
 msgstr "অনুগ্রহ করে একটি মাস্টার কী (DC_MASTER_KEY) কনফিগারেশন ফাইলে নির্ধারণ করুন."
 
-#: src/Process/Install/Install.php:141 src/Process/Install/Wizard.php:196
+#: src/Process/Install/Install.php:140 src/Process/Install/Wizard.php:201
 msgid "Dotclear is already installed."
 msgstr "Dotclear ইতিমধ্যেই ইন্সটল করা আছে।"
 
-#: src/Process/Install/Install.php:148 src/Process/Install/Wizard.php:186
+#: src/Process/Install/Install.php:147 src/Process/Install/Wizard.php:191
 msgid "Dotclear cannot be installed."
 msgstr "Dotclear ইন্সটল করা সম্ভব নয়।"
 
-#: src/Process/Install/Install.php:177
+#: src/Process/Install/Install.php:176
 msgid "Invalid email address"
 msgstr "অবৈধ ইমেইল এড্রেস"
 
-#: src/Process/Install/Install.php:240
+#: src/Process/Install/Install.php:239
 msgid "My first blog"
 msgstr "আমার প্রথম ব্লগ"
 
-#: src/Process/Install/Install.php:253
+#: src/Process/Install/Install.php:252
 msgid "%A, %B %e %Y"
 msgstr "%A, %B %e %Y"
 
-#: src/Process/Install/Install.php:329
+#: src/Process/Install/Install.php:328
 msgid "Welcome to Dotclear!"
 msgstr "ডটক্লিয়ারে স্বাগতম!"
 
-#: src/Process/Install/Install.php:330
+#: src/Process/Install/Install.php:329
 msgid "This is your first entry. When you're ready to blog, log in to edit or delete it."
 msgstr "এটি আপনার প্রথম এন্ট্রি। আপনি ব্লগ লেখার জন্য প্রস্তুত হলে, লগইন করে এটিকে এডিট করতে বা মুছে ফেলতে পারবেন।"
 
-#: src/Process/Install/Install.php:342
+#: src/Process/Install/Install.php:341
 msgid "Dotclear Team"
 msgstr "ডটক্লিয়ার টিম"
 
-#: src/Process/Install/Install.php:345
+#: src/Process/Install/Install.php:344
 msgid "<p>This is a comment.</p>\n"
 "<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
 msgstr "<p>এটি একটি মন্তব্য।</p>\n"
 "<p>এটি মুছতে হলে, লগইন করুন এবং ব্লগের মন্তব্য দেখুন। তারপর আপনি মন্তব্যটি মুছে ফেলতে বা এডিট করতে পারবেন।</p>"
 
-#: src/Process/Install/Install.php:402
+#: src/Process/Install/Install.php:401
 msgid "Dotclear Install"
 msgstr "Dotclear ইনস্টল"
 
-#: src/Process/Install/Install.php:429
+#: src/Process/Install/Install.php:428
 msgid "show"
 msgstr "দেখাও"
 
-#: src/Process/Install/Install.php:446
+#: src/Process/Install/Install.php:445
 #, php-format
 msgid "Cache directory %s is not writable."
 msgstr "ক্যাশে ডিরেক্টরি %s লিখনযোগ্য নয়।"
 
-#: src/Process/Install/Install.php:465
+#: src/Process/Install/Install.php:464
 msgid "Configuration file has been successfully created."
 msgstr "কনফিগারেশন ফাইল সফলভাবে তৈরি হয়েছে।"
 
-#: src/Process/Install/Install.php:472 src/Process/Install/Install.php:479
+#: src/Process/Install/Install.php:471 src/Process/Install/Install.php:478
 msgid "User information"
 msgstr "ইউজারের তথ্য"
 
-#: src/Process/Install/Install.php:473
+#: src/Process/Install/Install.php:472
 msgid "Please provide the following information needed to create the first user."
 msgstr "অনুগ্রহ করে প্রথম ইউজার তৈরির জন্য নিচের তথ্য প্রদান করুন।"
 
-#: src/Process/Install/Install.php:510
+#: src/Process/Install/Install.php:509
 msgid "Username and password"
 msgstr "Username ও পাসওয়ার্ড"
 
-#: src/Process/Install/Install.php:533
+#: src/Process/Install/Install.php:532
 msgid "New Password:"
 msgstr "নতুন পাসওয়ার্ড:"
 
-#: src/Process/Install/Install.php:543
+#: src/Process/Install/Install.php:542
 msgid "Confirm Password:"
 msgstr "পাসওয়ার্ড নিশ্চিত করুন:"
 
-#: src/Process/Install/Install.php:576
+#: src/Process/Install/Install.php:575
 msgid "All done!"
 msgstr "কাজ শেষ!"
 
-#: src/Process/Install/Install.php:578
+#: src/Process/Install/Install.php:577
 msgid "Dotclear has been successfully installed. Here is some useful information you should keep."
 msgstr "Dotclear সফলভাবে ইনস্টল করা হয়েছে. এখানে কিছু প্রয়োজনীয় তথ্য আপনার রাখা উচিত."
 
-#: src/Process/Install/Install.php:579
+#: src/Process/Install/Install.php:578
 msgid "Your account"
 msgstr "আপনার এ্যাকাউন্ট"
 
-#: src/Process/Install/Install.php:593
+#: src/Process/Install/Install.php:592
 msgid "Your blog"
 msgstr "আপনার ব্লগ"
 
-#: src/Process/Install/Install.php:598
+#: src/Process/Install/Install.php:597
 msgid "Blog address:"
 msgstr "ব্লগ এড্রেস:"
 
-#: src/Process/Install/Install.php:603
+#: src/Process/Install/Install.php:602
 msgid "Administration interface:"
 msgstr "প্রশাসন ইন্টারফেস:"
 
-#: src/Process/Install/Install.php:613
+#: src/Process/Install/Install.php:612
 msgid "Manage your blog now"
 msgstr "এখন আপনার ব্লগ পরিচালনা করুন"
 
-#: src/Process/Install/Install.php:623
+#: src/Process/Install/Install.php:622
 msgid "Installation can not be completed"
 msgstr "ইনস্টলেশন সম্পন্ন করা যাবে না"
 
-#: src/Process/Install/Install.php:638
+#: src/Process/Install/Install.php:637
 #, php-format
 msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"%s\">the documentation</a> to learn how to correct the problem."
 msgstr "উল্লিখিত কারণে, ডটক্লিয়ার ইনস্টল করা যাচ্ছে না। সমস্যাটি কীভাবে সমাধান করবেন তা জানতে দয়া করে <a href=\"%s\">ডকুমেন্টেশন</a> দেখুন।"
 
-#: src/Process/Install/Install.php:646
+#: src/Process/Install/Install.php:645
 msgid "Dotclear installation"
 msgstr "Dotclear ইন্সটলেশন"
 
@@ -6255,96 +6267,100 @@ msgstr "কোনও সমর্থিত ডাটাবেস ড্রাই
 msgid "Dotclear installation wizard could not find database driver. You must change your PHP configuration to add a supported database handler please refer to <a href=\"%s\">the documentation</a> to learn how to do this."
 msgstr "ডটক্লিয়ার ইনস্টলেশন উইজার্ড ডাটাবেস ড্রাইভার খুঁজে পায়নি। একটি সমর্থিত ডাটাবেস হ্যান্ডলার যোগ করার জন্য আপনাকে আপনার PHP কনফিগারেশন পরিবর্তন করতে হবে। এটি কীভাবে করবেন তা জানতে দয়া করে <a href=\"%s\">ডকুমেন্টেশন</a> দেখুন।"
 
-#: src/Process/Install/Wizard.php:165
+#: src/Process/Install/Wizard.php:170
 #, php-format
 msgid "Cannot write \"%s\" directory."
 msgstr "\"%s\" নির্দেশিকা লেখা সম্ভব নয়।"
 
-#: src/Process/Install/Wizard.php:200
+#: src/Process/Install/Wizard.php:205
 msgid "Master email is not valid."
 msgstr "মাস্টার ইমেইল বৈধ নয়."
 
-#: src/Process/Install/Wizard.php:206
+#: src/Process/Install/Wizard.php:211
 #, php-format
 msgid "File %s does not exist."
 msgstr "%s ফাইলটি নেই।"
 
-#: src/Process/Install/Wizard.php:211 src/Process/Install/Wizard.php:246
+#: src/Process/Install/Wizard.php:216 src/Process/Install/Wizard.php:251
 #, php-format
 msgid "Cannot write %s file."
 msgstr "%s ফাইল লেখা যাচ্ছে না।"
 
-#: src/Process/Install/Wizard.php:289 src/Process/Install/Wizard.php:310
-#: src/Process/Install/Wizard.php:336
+#: src/Process/Install/Wizard.php:294 src/Process/Install/Wizard.php:315
+#: src/Process/Install/Wizard.php:341
 msgid "Dotclear installation wizard"
 msgstr "ডটক্লিয়ার ইন্সটলেশন উইজার্ড"
 
-#: src/Process/Install/Wizard.php:326
+#: src/Process/Install/Wizard.php:331
 msgid "Dotclear can not be installed."
 msgstr "ডটক্লিয়ার ইনস্টল করা যাচ্ছে না।"
 
-#: src/Process/Install/Wizard.php:354
+#: src/Process/Install/Wizard.php:359
 msgid "Welcome"
 msgstr "স্বাগতম"
 
-#: src/Process/Install/Wizard.php:355
+#: src/Process/Install/Wizard.php:360
 msgid "To complete your Dotclear installation and start writing on your blog, we just need to know how to access your database and who you are. Just fill this two steps wizard with this information and we will be done."
 msgstr "আপনার ডটস্পট ইনস্টলেশন সম্পন্ন করতে এবং আপনার ব্লগে লেখা আরম্ভ করার জন্য, আমরা শুধু জানতে চাই আপনার ডাটাবেজ কিভাবে ব্যবহার করা হবে এবং আপনি কে. এই তথ্য দিয়ে যাদুকর এই দুই ধাপ পূরণ করুন এবং আমরা করা হবে."
 
-#: src/Process/Install/Wizard.php:361
+#: src/Process/Install/Wizard.php:366
 msgid "Attention:"
 msgstr "দৃষ্টি আকর্ষন:"
 
-#: src/Process/Install/Wizard.php:363
+#: src/Process/Install/Wizard.php:368
 #, php-format
 msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"%s\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
 msgstr "এই উইজার্ডটি প্রতিটি হোস্টে কাজ নাও করতে পারে। যদি এটি আপনার জন্য কাজ না করে, তাহলে <a href=\"%s\">ডকুমেন্টেশন</a> দেখুন এবং <strong>config.php</strong> ফাইলটি ম্যানুয়ালি কীভাবে তৈরি করবেন তা শিখুন।"
 
-#: src/Process/Install/Wizard.php:369
+#: src/Process/Install/Wizard.php:374
 msgid "System information"
 msgstr "সিস্টেমের তথ্য"
 
-#: src/Process/Install/Wizard.php:370
+#: src/Process/Install/Wizard.php:375
 msgid "Please provide the following information needed to create your configuration file."
 msgstr "অনুগ্রহ করে নিচের তথ্যগুলো দিন যাতে কনফিগারেশন ফাইল প্রস্তুত করা যায়।"
 
-#: src/Process/Install/Wizard.php:381
+#: src/Process/Install/Wizard.php:386
 msgid "Database type:"
 msgstr "ডাটাবেজের ধরণ:"
 
-#: src/Process/Install/Wizard.php:387
+#: src/Process/Install/Wizard.php:392
 msgid "Driver"
 msgstr "ড্রাইভার"
 
-#: src/Process/Install/Wizard.php:394
+#: src/Process/Install/Wizard.php:399
 msgid "Database Host Name:"
 msgstr "ডাটাবেজের হোস্টের নাম:"
 
-#: src/Process/Install/Wizard.php:402
+#: src/Process/Install/Wizard.php:407
 msgid "Database Name:"
 msgstr "ডাটাবেজের নাম:"
 
-#: src/Process/Install/Wizard.php:410
+#: src/Process/Install/Wizard.php:415
 msgid "Database User Name:"
 msgstr "ডাটাবেজের ইউজারনেম:"
 
-#: src/Process/Install/Wizard.php:418
+#: src/Process/Install/Wizard.php:423
 msgid "Database Password:"
 msgstr "ডাটাবেজ পাসওয়ার্ড:"
 
-#: src/Process/Install/Wizard.php:426
+#: src/Process/Install/Wizard.php:431
 msgid "Prefix"
 msgstr "প্রিফিক্স"
 
-#: src/Process/Install/Wizard.php:427
+#: src/Process/Install/Wizard.php:432
 msgid "Database Tables Prefix:"
 msgstr "ডাটাবেজের টেবিল প্রেফিক্স:"
 
-#: src/Process/Install/Wizard.php:435
+#: src/Process/Install/Wizard.php:440
+msgid "Email"
+msgstr "ই-মেইল"
+
+#: src/Process/Install/Wizard.php:441
 msgid "Master Email: (used as sender for password recovery)"
 msgstr "মাস্টার ইমেইল: (পাসওয়ার্ড পুনরুদ্ধারের জন্য প্রেরক হিসেবে ব্যবহৃত)"
 
-#: src/Process/Install/Wizard.php:437 src/Process/Upgrade/Digests.php:258
+#: src/Process/Install/Wizard.php:443 src/Process/Upgrade/Digests.php:258
 #: src/Process/Upgrade/Digests.php:279
 msgid "Continue"
 msgstr "@ title: group"

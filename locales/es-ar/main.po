@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-31 12:34+0200\n"
-"PO-Revision-Date: 2025-08-31 10:37\n"
+"POT-Creation-Date: 2025-09-01 12:51+0200\n"
+"PO-Revision-Date: 2025-09-01 11:24\n"
 "Last-Translator: \n"
 "Language-Team: Spanish, Argentina\n"
 "Language: es_AR\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #: inc/core/_fake_l10n.php:7 src/Process/Backend/Auth.php:477
 #: src/Process/Backend/User.php:264 src/Process/Backend/UserPreferences.php:598
-#: src/Process/Install/Install.php:424 src/Process/Upgrade/Auth.php:401
+#: src/Process/Install/Install.php:423 src/Process/Upgrade/Auth.php:401
 msgid "medium"
 msgstr "medio"
 
@@ -54,16 +54,28 @@ msgid "MySQLi"
 msgstr "MySQLi"
 
 #: inc/core/_fake_l10n.php:20
-msgid "MySQLi (full UTF-8)"
-msgstr "MySQLi (UTF-8 completo)"
+msgid "MySQLi full UTF-8"
+msgstr "MySQLi UTF-8 completo"
 
 #: inc/core/_fake_l10n.php:21
 msgid "PostgreSQL"
 msgstr "PostgreSQL"
 
 #: inc/core/_fake_l10n.php:22
-msgid "SQLite"
-msgstr "SQLite"
+msgid "MySQL (PDO)"
+msgstr "MySQL (PDO)"
+
+#: inc/core/_fake_l10n.php:23
+msgid "MySQL full UTF-8 (PDO)"
+msgstr "MySQL UTF-8 completo (PDO)"
+
+#: inc/core/_fake_l10n.php:24
+msgid "SQLite (PDO)"
+msgstr "SQLite (PDO)"
+
+#: inc/core/_fake_l10n.php:25
+msgid "PostgreSQL (PDO)"
+msgstr "PostgreSQL (PDO)"
 
 #: src/Core/Auth.php:122
 msgid "administrator"
@@ -424,7 +436,7 @@ msgstr "Superior:"
 #: src/Process/Backend/Home.php:649 src/Process/Backend/Home.php:703
 #: src/Process/Backend/MediaItem.php:1267 src/Process/Backend/Post.php:926
 #: src/Process/Backend/Post.php:1140 src/Process/Backend/User.php:536
-#: src/Process/Backend/UsersActions.php:513 src/Process/Install/Install.php:547
+#: src/Process/Backend/UsersActions.php:513 src/Process/Install/Install.php:546
 msgid "Save"
 msgstr "Guardar"
 
@@ -545,7 +557,7 @@ msgid "Blog ID"
 msgstr "ID del blog"
 
 #: src/Core/Backend/Combos.php:332 src/Core/Backend/Listing/ListingUsers.php:68
-#: src/Process/Install/Install.php:523
+#: src/Process/Install/Install.php:522
 msgid "Username"
 msgstr "Nombre de usuario"
 
@@ -669,7 +681,7 @@ msgstr "Ayuda global"
 #: src/Process/Backend/Auth.php:544 src/Process/Backend/BlogPref.php:1351
 #: src/Process/Backend/Comment.php:306 src/Process/Backend/Post.php:1109
 #: src/Process/Backend/User.php:432 src/Process/Backend/UserPreferences.php:824
-#: src/Process/Install/Install.php:505
+#: src/Process/Install/Install.php:504
 msgid "Email:"
 msgstr "Correo electrónico:"
 
@@ -729,7 +741,7 @@ msgstr "Formato:"
 
 #: src/Core/Backend/Filter/FilterPosts.php:180 src/Process/Backend/Auth.php:204
 #: src/Process/Backend/Auth.php:670 src/Process/Backend/User.php:344
-#: src/Process/Install/Install.php:589 src/Process/Upgrade/Auth.php:351
+#: src/Process/Install/Install.php:588 src/Process/Upgrade/Auth.php:351
 msgid "Password:"
 msgstr "Contraseña:"
 
@@ -1438,8 +1450,8 @@ msgstr "Subir un archivo zip"
 #: src/Process/Backend/Langs.php:322 src/Process/Backend/Langs.php:372
 #: src/Process/Backend/LinkPopup.php:83 src/Process/Backend/Post.php:994
 #: src/Process/Backend/Post.php:1085 src/Process/Backend/User.php:303
-#: src/Process/Backend/UsersActions.php:492 src/Process/Install/Install.php:514
-#: src/Process/Install/Wizard.php:379 src/Process/Upgrade/Langs.php:406
+#: src/Process/Backend/UsersActions.php:492 src/Process/Install/Install.php:513
+#: src/Process/Install/Wizard.php:384 src/Process/Upgrade/Langs.php:406
 #, php-format
 msgid "Fields preceded by %s are mandatory."
 msgstr "Los campos precedidos por %s son obligatorios."
@@ -1452,8 +1464,8 @@ msgstr "Ruta del archivo zip:"
 #: src/Process/Backend/Langs.php:344 src/Process/Backend/Langs.php:393
 #: src/Process/Backend/Post.php:805 src/Process/Backend/User.php:340
 #: src/Process/Backend/User.php:364 src/Process/Backend/User.php:529
-#: src/Process/Backend/UsersActions.php:499 src/Process/Install/Install.php:534
-#: src/Process/Install/Install.php:544 src/Process/Upgrade/Langs.php:430
+#: src/Process/Backend/UsersActions.php:499 src/Process/Install/Install.php:533
+#: src/Process/Install/Install.php:543 src/Process/Upgrade/Langs.php:430
 msgid "Password"
 msgstr "Contraseña"
 
@@ -1517,8 +1529,8 @@ msgid "Error:"
 msgstr "Error:"
 
 #: src/Core/Backend/Notices.php:86 src/Core/Upgrade/Notices.php:48
-#: src/Process/Install/Install.php:458 src/Process/Install/Install.php:632
-#: src/Process/Install/Wizard.php:321 src/Process/Install/Wizard.php:348
+#: src/Process/Install/Install.php:457 src/Process/Install/Install.php:631
+#: src/Process/Install/Wizard.php:326 src/Process/Install/Wizard.php:353
 msgid "Errors:"
 msgstr "Errores:"
 
@@ -2554,7 +2566,7 @@ msgstr "No se puede leer el resumen de archivo."
 msgid "Invalid digests file."
 msgstr "Resumen de archivo invalido."
 
-#: src/Core/Upgrade/Upgrade.php:75
+#: src/Core/Upgrade/Upgrade.php:73
 msgid "Something went wrong with auto upgrade:"
 msgstr "Algo ha sido erróneo con la actualización automática:"
 
@@ -2641,20 +2653,20 @@ msgstr "%s no es un pref id válido"
 msgid "No workspace specified"
 msgstr "No se ha especificado ningún espacio de trabajo"
 
-#: src/Core/Users.php:165 src/Process/Install/Install.php:171
+#: src/Core/Users.php:165 src/Process/Install/Install.php:170
 msgid "No user ID given"
 msgstr "El ID de usuario no ha sido especificado"
 
-#: src/Core/Users.php:169 src/Process/Install/Install.php:181
+#: src/Core/Users.php:169 src/Process/Install/Install.php:180
 msgid "No password given"
 msgstr "La contraseña no ha sido especificada"
 
-#: src/Core/Users.php:396 src/Process/Install/Install.php:174
+#: src/Core/Users.php:396 src/Process/Install/Install.php:173
 msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
 msgstr "El ID del usuario debe contener al menos 2 caracteres compuestos por letras, cifras o símbolos."
 
 #: src/Core/Users.php:405 src/Process/Backend/User.php:348
-#: src/Process/Install/Install.php:187
+#: src/Process/Install/Install.php:186
 msgid "Password must contain at least 6 characters."
 msgstr "La contraseña debe tener al menos 6 caracteres."
 
@@ -3117,7 +3129,7 @@ msgstr "Para blanquear su contraseña vaya a la siguiente dirección, si no, sim
 
 #: src/Process/Backend/Auth.php:182 src/Process/Backend/Auth.php:204
 #: src/Process/Backend/Auth.php:534 src/Process/Backend/Auth.php:660
-#: src/Process/Install/Install.php:522 src/Process/Install/Install.php:584
+#: src/Process/Install/Install.php:521 src/Process/Install/Install.php:583
 #: src/Process/Upgrade/Auth.php:341
 msgid "Username:"
 msgstr "Nombre de usuario:"
@@ -3141,7 +3153,7 @@ msgstr "Su nueva contraseña está en la bandeja de entrada de su correo electr�
 
 #: src/Process/Backend/Auth.php:257 src/Process/Backend/User.php:158
 #: src/Process/Backend/UserPreferences.php:303
-#: src/Process/Install/Install.php:184
+#: src/Process/Install/Install.php:183
 msgid "Passwords don't match"
 msgstr "Las contraseñas no concuerdan"
 
@@ -3181,8 +3193,8 @@ msgstr "Nombre de usuario o contraseña incorrecta"
 #: src/Process/Backend/UserPreferences.php:597
 #: src/Process/Backend/UserPreferences.php:598
 #: src/Process/Backend/UserPreferences.php:599
-#: src/Process/Install/Install.php:423 src/Process/Install/Install.php:424
-#: src/Process/Install/Install.php:425 src/Process/Upgrade/Auth.php:400
+#: src/Process/Install/Install.php:422 src/Process/Install/Install.php:423
+#: src/Process/Install/Install.php:424 src/Process/Upgrade/Auth.php:400
 #: src/Process/Upgrade/Auth.php:401 src/Process/Upgrade/Auth.php:402
 #, php-format
 msgid "Password strength: %s"
@@ -3190,13 +3202,13 @@ msgstr "Seguridad de la contraseña: %s"
 
 #: src/Process/Backend/Auth.php:476 src/Process/Backend/User.php:263
 #: src/Process/Backend/UserPreferences.php:597
-#: src/Process/Install/Install.php:423 src/Process/Upgrade/Auth.php:400
+#: src/Process/Install/Install.php:422 src/Process/Upgrade/Auth.php:400
 msgid "weak"
 msgstr "débil"
 
 #: src/Process/Backend/Auth.php:478 src/Process/Backend/User.php:265
 #: src/Process/Backend/UserPreferences.php:599
-#: src/Process/Install/Install.php:425 src/Process/Upgrade/Auth.php:402
+#: src/Process/Install/Install.php:424 src/Process/Upgrade/Auth.php:402
 msgid "strong"
 msgstr "fuerte"
 
@@ -4334,12 +4346,12 @@ msgid "There is no writable root directory for the media manager. You should con
 msgstr "No existe un directorio raíz con permisos de escritura para el gestor multimedia. Debe ponerse en contacto con su administrador."
 
 #: src/Process/Backend/Home.php:352 src/Process/Backend/Plugins.php:139
-#: src/Process/Install/Install.php:557 src/Process/Upgrade/Plugins.php:124
+#: src/Process/Install/Install.php:556 src/Process/Upgrade/Plugins.php:124
 msgid "Following plugins have been installed:"
 msgstr "Los siguientes agregados han sido instalados:"
 
 #: src/Process/Backend/Home.php:374 src/Process/Backend/Plugins.php:161
-#: src/Process/Install/Install.php:565 src/Process/Upgrade/Plugins.php:146
+#: src/Process/Install/Install.php:564 src/Process/Upgrade/Plugins.php:146
 msgid "Following plugins have not been installed:"
 msgstr "Los siguientes agregados no han sido instalados:"
 
@@ -5534,12 +5546,12 @@ msgid "Password change required to connect"
 msgstr "Se necesita un cambio de contraseña para conectar"
 
 #: src/Process/Backend/User.php:401 src/Process/Backend/UserPreferences.php:794
-#: src/Process/Install/Install.php:497
+#: src/Process/Install/Install.php:496
 msgid "Last Name:"
 msgstr "Apellido:"
 
 #: src/Process/Backend/User.php:411 src/Process/Backend/UserPreferences.php:804
-#: src/Process/Install/Install.php:488
+#: src/Process/Install/Install.php:487
 msgid "First Name:"
 msgstr "Nombre:"
 
@@ -6116,123 +6128,123 @@ msgstr "Usted esta a punto de cambiar los permisos de los usuarios %s para estos
 msgid "Validate permissions"
 msgstr "Validar permisos"
 
-#: src/Process/Install/Install.php:135
+#: src/Process/Install/Install.php:134
 msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
 msgstr "Indique una clave de referencia (DC_MASTER_KEY) en el archivo de configuración."
 
-#: src/Process/Install/Install.php:141 src/Process/Install/Wizard.php:196
+#: src/Process/Install/Install.php:140 src/Process/Install/Wizard.php:201
 msgid "Dotclear is already installed."
 msgstr "Dotclear ya está instalado."
 
-#: src/Process/Install/Install.php:148 src/Process/Install/Wizard.php:186
+#: src/Process/Install/Install.php:147 src/Process/Install/Wizard.php:191
 msgid "Dotclear cannot be installed."
 msgstr "Dotclear no puede ser instalado."
 
-#: src/Process/Install/Install.php:177
+#: src/Process/Install/Install.php:176
 msgid "Invalid email address"
 msgstr "Dirección de e-mail invalida"
 
-#: src/Process/Install/Install.php:240
+#: src/Process/Install/Install.php:239
 msgid "My first blog"
 msgstr "Mi primer blog"
 
-#: src/Process/Install/Install.php:253
+#: src/Process/Install/Install.php:252
 msgid "%A, %B %e %Y"
 msgstr "%A, %B %e %Y"
 
-#: src/Process/Install/Install.php:329
+#: src/Process/Install/Install.php:328
 msgid "Welcome to Dotclear!"
 msgstr "¡Bienvenido a Dotclear!"
 
-#: src/Process/Install/Install.php:330
+#: src/Process/Install/Install.php:329
 msgid "This is your first entry. When you're ready to blog, log in to edit or delete it."
 msgstr "Esta es su primer entrada. Cuando este preparado, ingrese a su blog para editarla o eliminarla."
 
-#: src/Process/Install/Install.php:342
+#: src/Process/Install/Install.php:341
 msgid "Dotclear Team"
 msgstr "Equipo de Dotclear"
 
-#: src/Process/Install/Install.php:345
+#: src/Process/Install/Install.php:344
 msgid "<p>This is a comment.</p>\n"
 "<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
 msgstr "<p>Esto es un comentario.</p>\n"
 "<p>Para eliminarlo, ingrese y vea los comentarios del blog. Desde ahí podrá editarlo o eliminarlo.</p>"
 
-#: src/Process/Install/Install.php:402
+#: src/Process/Install/Install.php:401
 msgid "Dotclear Install"
 msgstr "Instalación de Dotclear"
 
-#: src/Process/Install/Install.php:429
+#: src/Process/Install/Install.php:428
 msgid "show"
 msgstr "mostrar"
 
-#: src/Process/Install/Install.php:446
+#: src/Process/Install/Install.php:445
 #, php-format
 msgid "Cache directory %s is not writable."
 msgstr "El directorio de cache %s no se puede escribir."
 
-#: src/Process/Install/Install.php:465
+#: src/Process/Install/Install.php:464
 msgid "Configuration file has been successfully created."
 msgstr "El archivo de configuración ha sido creado con éxito."
 
-#: src/Process/Install/Install.php:472 src/Process/Install/Install.php:479
+#: src/Process/Install/Install.php:471 src/Process/Install/Install.php:478
 msgid "User information"
 msgstr "Información de usuario:"
 
-#: src/Process/Install/Install.php:473
+#: src/Process/Install/Install.php:472
 msgid "Please provide the following information needed to create the first user."
 msgstr "Por favor, introduzca la siguiente información para crear el primer usuario."
 
-#: src/Process/Install/Install.php:510
+#: src/Process/Install/Install.php:509
 msgid "Username and password"
 msgstr "Nombre de usuario y contraseña:"
 
-#: src/Process/Install/Install.php:533
+#: src/Process/Install/Install.php:532
 msgid "New Password:"
 msgstr "Nueva contraseña:"
 
-#: src/Process/Install/Install.php:543
+#: src/Process/Install/Install.php:542
 msgid "Confirm Password:"
 msgstr "Confirmar contraseña:"
 
-#: src/Process/Install/Install.php:576
+#: src/Process/Install/Install.php:575
 msgid "All done!"
 msgstr "Hecho"
 
-#: src/Process/Install/Install.php:578
+#: src/Process/Install/Install.php:577
 msgid "Dotclear has been successfully installed. Here is some useful information you should keep."
 msgstr "Dotclear se ha instalado con éxito. Aquí tiene cierta información útil que debería conservar."
 
-#: src/Process/Install/Install.php:579
+#: src/Process/Install/Install.php:578
 msgid "Your account"
 msgstr "Su cuenta"
 
-#: src/Process/Install/Install.php:593
+#: src/Process/Install/Install.php:592
 msgid "Your blog"
 msgstr "Su blog"
 
-#: src/Process/Install/Install.php:598
+#: src/Process/Install/Install.php:597
 msgid "Blog address:"
 msgstr "Dirección del blog:"
 
-#: src/Process/Install/Install.php:603
+#: src/Process/Install/Install.php:602
 msgid "Administration interface:"
 msgstr "Interfaz de administración:"
 
-#: src/Process/Install/Install.php:613
+#: src/Process/Install/Install.php:612
 msgid "Manage your blog now"
 msgstr "Administre ahora su blog"
 
-#: src/Process/Install/Install.php:623
+#: src/Process/Install/Install.php:622
 msgid "Installation can not be completed"
 msgstr "No se puede completar la instalación"
 
-#: src/Process/Install/Install.php:638
+#: src/Process/Install/Install.php:637
 #, php-format
 msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"%s\">the documentation</a> to learn how to correct the problem."
 msgstr "Por dichas razones, Dotclear no puede instalarse. Consulte <a href=\"%s\">la documentación</a> para saber cómo corregir el problema."
 
-#: src/Process/Install/Install.php:646
+#: src/Process/Install/Install.php:645
 msgid "Dotclear installation"
 msgstr "Instalación de Dotclear"
 
@@ -6255,96 +6267,100 @@ msgstr "No hay ningún controlador de base de datos compatible."
 msgid "Dotclear installation wizard could not find database driver. You must change your PHP configuration to add a supported database handler please refer to <a href=\"%s\">the documentation</a> to learn how to do this."
 msgstr "El asistente de instalación de Dotclear no pudo encontrar el controlador de base de datos. Debe cambiar la configuración de PHP para añadir un controlador de base de datos compatible, consulte <a href=\"%s\">la documentación</a> para saber cómo hacerlo."
 
-#: src/Process/Install/Wizard.php:165
+#: src/Process/Install/Wizard.php:170
 #, php-format
 msgid "Cannot write \"%s\" directory."
 msgstr "No se puede escribir en el directorio \"%s\"."
 
-#: src/Process/Install/Wizard.php:200
+#: src/Process/Install/Wizard.php:205
 msgid "Master email is not valid."
 msgstr "El correo electrónico principal no es válido."
 
-#: src/Process/Install/Wizard.php:206
+#: src/Process/Install/Wizard.php:211
 #, php-format
 msgid "File %s does not exist."
 msgstr "El archivo %s no existe."
 
-#: src/Process/Install/Wizard.php:211 src/Process/Install/Wizard.php:246
+#: src/Process/Install/Wizard.php:216 src/Process/Install/Wizard.php:251
 #, php-format
 msgid "Cannot write %s file."
 msgstr "No se puede escribir el archivo %s."
 
-#: src/Process/Install/Wizard.php:289 src/Process/Install/Wizard.php:310
-#: src/Process/Install/Wizard.php:336
+#: src/Process/Install/Wizard.php:294 src/Process/Install/Wizard.php:315
+#: src/Process/Install/Wizard.php:341
 msgid "Dotclear installation wizard"
 msgstr "Asistente de instalación de Dotclear"
 
-#: src/Process/Install/Wizard.php:326
+#: src/Process/Install/Wizard.php:331
 msgid "Dotclear can not be installed."
 msgstr "Dotclear no se puede instalar."
 
-#: src/Process/Install/Wizard.php:354
+#: src/Process/Install/Wizard.php:359
 msgid "Welcome"
 msgstr "Bienvenido"
 
-#: src/Process/Install/Wizard.php:355
+#: src/Process/Install/Wizard.php:360
 msgid "To complete your Dotclear installation and start writing on your blog, we just need to know how to access your database and who you are. Just fill this two steps wizard with this information and we will be done."
 msgstr "Para completar tu instalación de Dotclear y empezar a escribir en tu blog, sólo necesitamos saber cómo acceder a tu base de datos y quién eres. Solo tienes que rellenar este asistente de dos pasos con esta información y habremos terminado."
 
-#: src/Process/Install/Wizard.php:361
+#: src/Process/Install/Wizard.php:366
 msgid "Attention:"
 msgstr "Atención:"
 
-#: src/Process/Install/Wizard.php:363
+#: src/Process/Install/Wizard.php:368
 #, php-format
 msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"%s\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
 msgstr "este asistente puede no funcionar en todos los hosts. Si no le funciona, consulte <a href=\"%s\">la documentación</a> para aprender a crear el archivo <strong>config.php</strong> manualmente."
 
-#: src/Process/Install/Wizard.php:369
+#: src/Process/Install/Wizard.php:374
 msgid "System information"
 msgstr "Información de sistema"
 
-#: src/Process/Install/Wizard.php:370
+#: src/Process/Install/Wizard.php:375
 msgid "Please provide the following information needed to create your configuration file."
 msgstr "Por favor, indique la información siguiente para crear su archivo de configuración."
 
-#: src/Process/Install/Wizard.php:381
+#: src/Process/Install/Wizard.php:386
 msgid "Database type:"
 msgstr "Tipo de base de datos:"
 
-#: src/Process/Install/Wizard.php:387
+#: src/Process/Install/Wizard.php:392
 msgid "Driver"
 msgstr "Conductor"
 
-#: src/Process/Install/Wizard.php:394
+#: src/Process/Install/Wizard.php:399
 msgid "Database Host Name:"
 msgstr "Nombre del servidor de la base de datos:"
 
-#: src/Process/Install/Wizard.php:402
+#: src/Process/Install/Wizard.php:407
 msgid "Database Name:"
 msgstr "Nombre de la base de datos:"
 
-#: src/Process/Install/Wizard.php:410
+#: src/Process/Install/Wizard.php:415
 msgid "Database User Name:"
 msgstr "Nombre de usuario de la base de datos:"
 
-#: src/Process/Install/Wizard.php:418
+#: src/Process/Install/Wizard.php:423
 msgid "Database Password:"
 msgstr "Contraseña de la base de datos:"
 
-#: src/Process/Install/Wizard.php:426
+#: src/Process/Install/Wizard.php:431
 msgid "Prefix"
 msgstr "Prefijo"
 
-#: src/Process/Install/Wizard.php:427
+#: src/Process/Install/Wizard.php:432
 msgid "Database Tables Prefix:"
 msgstr "Prefijo de las tablas de la base de datos:"
 
-#: src/Process/Install/Wizard.php:435
+#: src/Process/Install/Wizard.php:440
+msgid "Email"
+msgstr "Correo electrónico"
+
+#: src/Process/Install/Wizard.php:441
 msgid "Master Email: (used as sender for password recovery)"
 msgstr "Correo electrónico principal: (utilizado como remitente para recuperar la contraseña)"
 
-#: src/Process/Install/Wizard.php:437 src/Process/Upgrade/Digests.php:258
+#: src/Process/Install/Wizard.php:443 src/Process/Upgrade/Digests.php:258
 #: src/Process/Upgrade/Digests.php:279
 msgid "Continue"
 msgstr "Continuar"

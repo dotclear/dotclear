@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-31 12:34+0200\n"
-"PO-Revision-Date: 2025-08-31 10:38\n"
+"POT-Creation-Date: 2025-09-01 12:51+0200\n"
+"PO-Revision-Date: 2025-09-01 10:55\n"
 "Last-Translator: \n"
 "Language-Team: Greek\n"
 "Language: el_GR\n"
@@ -267,49 +267,49 @@ msgstr "σχετικές ρυθμίσεις διαγράφονται"
 msgid "Failed to delete related settings"
 msgstr "Απέτυχε η διαγραφή σχετικών ρυθμίσεων"
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:39
+#: plugins/Uninstaller/src/Cleaner/Tables.php:38
 msgid "Tables"
 msgstr "Πίνακες"
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:40
+#: plugins/Uninstaller/src/Cleaner/Tables.php:39
 msgid "All database tables of Dotclear"
 msgstr "Όλοι οι πίνακες της βάσης δεδομένων της Dotclear"
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:45
+#: plugins/Uninstaller/src/Cleaner/Tables.php:44
 #, php-format
 msgid "delete \"%s\" table"
 msgstr "delete \"%s\" table"
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:46
+#: plugins/Uninstaller/src/Cleaner/Tables.php:45
 #, php-format
 msgid "\"%s\" table deleted"
 msgstr "\"%s\" πίνακας διαγράφηκε"
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:47
+#: plugins/Uninstaller/src/Cleaner/Tables.php:46
 #, php-format
 msgid "Failed to delete \"%s\" table"
 msgstr "Απέτυχε η διαγραφή του πίνακα \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:48
+#: plugins/Uninstaller/src/Cleaner/Tables.php:47
 msgid "delete selected tables"
 msgstr "διαγραφή επιλεγμένων πινάκων"
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:54
+#: plugins/Uninstaller/src/Cleaner/Tables.php:53
 #, php-format
 msgid "empty \"%s\" table"
 msgstr "άδειος πίνακας \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:55
+#: plugins/Uninstaller/src/Cleaner/Tables.php:54
 #, php-format
 msgid "\"%s\" table emptied"
 msgstr "\"%s\" πίνακας άδειασε"
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:56
+#: plugins/Uninstaller/src/Cleaner/Tables.php:55
 #, php-format
 msgid "Failed to empty \"%s\" table"
 msgstr "Απέτυχε να αδειάσει ο πίνακας \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:57
+#: plugins/Uninstaller/src/Cleaner/Tables.php:56
 msgid "empty selected tables"
 msgstr "άδεια επιλεγμένα τραπέζια"
 

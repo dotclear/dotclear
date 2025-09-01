@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-31 12:34+0200\n"
-"PO-Revision-Date: 2025-08-31 10:36\n"
+"POT-Creation-Date: 2025-09-01 12:51+0200\n"
+"PO-Revision-Date: 2025-09-01 11:24\n"
 "Last-Translator: \n"
 "Language-Team: Bulgarian\n"
 "Language: bg_BG\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #: inc/core/_fake_l10n.php:7 src/Process/Backend/Auth.php:477
 #: src/Process/Backend/User.php:264 src/Process/Backend/UserPreferences.php:598
-#: src/Process/Install/Install.php:424 src/Process/Upgrade/Auth.php:401
+#: src/Process/Install/Install.php:423 src/Process/Upgrade/Auth.php:401
 msgid "medium"
 msgstr "среден"
 
@@ -54,16 +54,28 @@ msgid "MySQLi"
 msgstr "MySQLi"
 
 #: inc/core/_fake_l10n.php:20
-msgid "MySQLi (full UTF-8)"
-msgstr "MySQLi (пълен UTF-8)"
+msgid "MySQLi full UTF-8"
+msgstr "MySQLi пълен UTF-8"
 
 #: inc/core/_fake_l10n.php:21
 msgid "PostgreSQL"
 msgstr "PostgreSQL"
 
 #: inc/core/_fake_l10n.php:22
-msgid "SQLite"
-msgstr "SQLite"
+msgid "MySQL (PDO)"
+msgstr "MySQL (PDO)"
+
+#: inc/core/_fake_l10n.php:23
+msgid "MySQL full UTF-8 (PDO)"
+msgstr "MySQL пълен UTF-8 (PDO)"
+
+#: inc/core/_fake_l10n.php:24
+msgid "SQLite (PDO)"
+msgstr "SQLite (PDO)"
+
+#: inc/core/_fake_l10n.php:25
+msgid "PostgreSQL (PDO)"
+msgstr "PostgreSQL (PDO)"
 
 #: src/Core/Auth.php:122
 msgid "administrator"
@@ -424,7 +436,7 @@ msgstr "Родител:"
 #: src/Process/Backend/Home.php:649 src/Process/Backend/Home.php:703
 #: src/Process/Backend/MediaItem.php:1267 src/Process/Backend/Post.php:926
 #: src/Process/Backend/Post.php:1140 src/Process/Backend/User.php:536
-#: src/Process/Backend/UsersActions.php:513 src/Process/Install/Install.php:547
+#: src/Process/Backend/UsersActions.php:513 src/Process/Install/Install.php:546
 msgid "Save"
 msgstr "Запазете"
 
@@ -545,7 +557,7 @@ msgid "Blog ID"
 msgstr "Идентификатор на блога"
 
 #: src/Core/Backend/Combos.php:332 src/Core/Backend/Listing/ListingUsers.php:68
-#: src/Process/Install/Install.php:523
+#: src/Process/Install/Install.php:522
 msgid "Username"
 msgstr "Потребителско име"
 
@@ -669,7 +681,7 @@ msgstr "Глобална помощ"
 #: src/Process/Backend/Auth.php:544 src/Process/Backend/BlogPref.php:1351
 #: src/Process/Backend/Comment.php:306 src/Process/Backend/Post.php:1109
 #: src/Process/Backend/User.php:432 src/Process/Backend/UserPreferences.php:824
-#: src/Process/Install/Install.php:505
+#: src/Process/Install/Install.php:504
 msgid "Email:"
 msgstr "Имейл:"
 
@@ -729,7 +741,7 @@ msgstr "Формат:"
 
 #: src/Core/Backend/Filter/FilterPosts.php:180 src/Process/Backend/Auth.php:204
 #: src/Process/Backend/Auth.php:670 src/Process/Backend/User.php:344
-#: src/Process/Install/Install.php:589 src/Process/Upgrade/Auth.php:351
+#: src/Process/Install/Install.php:588 src/Process/Upgrade/Auth.php:351
 msgid "Password:"
 msgstr "Парола:"
 
@@ -1438,8 +1450,8 @@ msgstr "Качване на zip файл"
 #: src/Process/Backend/Langs.php:322 src/Process/Backend/Langs.php:372
 #: src/Process/Backend/LinkPopup.php:83 src/Process/Backend/Post.php:994
 #: src/Process/Backend/Post.php:1085 src/Process/Backend/User.php:303
-#: src/Process/Backend/UsersActions.php:492 src/Process/Install/Install.php:514
-#: src/Process/Install/Wizard.php:379 src/Process/Upgrade/Langs.php:406
+#: src/Process/Backend/UsersActions.php:492 src/Process/Install/Install.php:513
+#: src/Process/Install/Wizard.php:384 src/Process/Upgrade/Langs.php:406
 #, php-format
 msgid "Fields preceded by %s are mandatory."
 msgstr "Полетата, предшествани от %s , са задължителни."
@@ -1452,8 +1464,8 @@ msgstr "Пътят на Zip файла:"
 #: src/Process/Backend/Langs.php:344 src/Process/Backend/Langs.php:393
 #: src/Process/Backend/Post.php:805 src/Process/Backend/User.php:340
 #: src/Process/Backend/User.php:364 src/Process/Backend/User.php:529
-#: src/Process/Backend/UsersActions.php:499 src/Process/Install/Install.php:534
-#: src/Process/Install/Install.php:544 src/Process/Upgrade/Langs.php:430
+#: src/Process/Backend/UsersActions.php:499 src/Process/Install/Install.php:533
+#: src/Process/Install/Install.php:543 src/Process/Upgrade/Langs.php:430
 msgid "Password"
 msgstr "Парола"
 
@@ -1517,8 +1529,8 @@ msgid "Error:"
 msgstr "Грешка:"
 
 #: src/Core/Backend/Notices.php:86 src/Core/Upgrade/Notices.php:48
-#: src/Process/Install/Install.php:458 src/Process/Install/Install.php:632
-#: src/Process/Install/Wizard.php:321 src/Process/Install/Wizard.php:348
+#: src/Process/Install/Install.php:457 src/Process/Install/Install.php:631
+#: src/Process/Install/Wizard.php:326 src/Process/Install/Wizard.php:353
 msgid "Errors:"
 msgstr "Грешки:"
 
@@ -2554,7 +2566,7 @@ msgstr "Невъзможно е да се прочете файл с цифри.
 msgid "Invalid digests file."
 msgstr "Невалиден файл с цифри."
 
-#: src/Core/Upgrade/Upgrade.php:75
+#: src/Core/Upgrade/Upgrade.php:73
 msgid "Something went wrong with auto upgrade:"
 msgstr "Нещо се обърка при автоматичното обновяване:"
 
@@ -2641,20 +2653,20 @@ msgstr "%s не е валиден преф идентификатор"
 msgid "No workspace specified"
 msgstr "Не е зададено работно пространство"
 
-#: src/Core/Users.php:165 src/Process/Install/Install.php:171
+#: src/Core/Users.php:165 src/Process/Install/Install.php:170
 msgid "No user ID given"
 msgstr "Не е посочен идентификатор на потребител"
 
-#: src/Core/Users.php:169 src/Process/Install/Install.php:181
+#: src/Core/Users.php:169 src/Process/Install/Install.php:180
 msgid "No password given"
 msgstr "Не е предоставена парола"
 
-#: src/Core/Users.php:396 src/Process/Install/Install.php:174
+#: src/Core/Users.php:396 src/Process/Install/Install.php:173
 msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
 msgstr "Потребителският идентификатор трябва да съдържа най-малко 2 символа, като се използват букви, цифри или символи."
 
 #: src/Core/Users.php:405 src/Process/Backend/User.php:348
-#: src/Process/Install/Install.php:187
+#: src/Process/Install/Install.php:186
 msgid "Password must contain at least 6 characters."
 msgstr "Паролата трябва да съдържа поне 6 символа."
 
@@ -3117,7 +3129,7 @@ msgstr "За да възстановите паролата си, посетет
 
 #: src/Process/Backend/Auth.php:182 src/Process/Backend/Auth.php:204
 #: src/Process/Backend/Auth.php:534 src/Process/Backend/Auth.php:660
-#: src/Process/Install/Install.php:522 src/Process/Install/Install.php:584
+#: src/Process/Install/Install.php:521 src/Process/Install/Install.php:583
 #: src/Process/Upgrade/Auth.php:341
 msgid "Username:"
 msgstr "Потребителско име:"
@@ -3141,7 +3153,7 @@ msgstr "Новата ви парола е в пощенската ви кути�
 
 #: src/Process/Backend/Auth.php:257 src/Process/Backend/User.php:158
 #: src/Process/Backend/UserPreferences.php:303
-#: src/Process/Install/Install.php:184
+#: src/Process/Install/Install.php:183
 msgid "Passwords don't match"
 msgstr "Паролите не съвпадат"
 
@@ -3181,8 +3193,8 @@ msgstr "Грешно потребителско име или парола"
 #: src/Process/Backend/UserPreferences.php:597
 #: src/Process/Backend/UserPreferences.php:598
 #: src/Process/Backend/UserPreferences.php:599
-#: src/Process/Install/Install.php:423 src/Process/Install/Install.php:424
-#: src/Process/Install/Install.php:425 src/Process/Upgrade/Auth.php:400
+#: src/Process/Install/Install.php:422 src/Process/Install/Install.php:423
+#: src/Process/Install/Install.php:424 src/Process/Upgrade/Auth.php:400
 #: src/Process/Upgrade/Auth.php:401 src/Process/Upgrade/Auth.php:402
 #, php-format
 msgid "Password strength: %s"
@@ -3190,13 +3202,13 @@ msgstr "Сила на паролата: %s"
 
 #: src/Process/Backend/Auth.php:476 src/Process/Backend/User.php:263
 #: src/Process/Backend/UserPreferences.php:597
-#: src/Process/Install/Install.php:423 src/Process/Upgrade/Auth.php:400
+#: src/Process/Install/Install.php:422 src/Process/Upgrade/Auth.php:400
 msgid "weak"
 msgstr "слаб"
 
 #: src/Process/Backend/Auth.php:478 src/Process/Backend/User.php:265
 #: src/Process/Backend/UserPreferences.php:599
-#: src/Process/Install/Install.php:425 src/Process/Upgrade/Auth.php:402
+#: src/Process/Install/Install.php:424 src/Process/Upgrade/Auth.php:402
 msgid "strong"
 msgstr "силен"
 
@@ -4334,12 +4346,12 @@ msgid "There is no writable root directory for the media manager. You should con
 msgstr "Няма записваема главна директория за медийния мениджър. Трябва да се свържете с вашия администратор."
 
 #: src/Process/Backend/Home.php:352 src/Process/Backend/Plugins.php:139
-#: src/Process/Install/Install.php:557 src/Process/Upgrade/Plugins.php:124
+#: src/Process/Install/Install.php:556 src/Process/Upgrade/Plugins.php:124
 msgid "Following plugins have been installed:"
 msgstr "Инсталирани са следните плъгини:"
 
 #: src/Process/Backend/Home.php:374 src/Process/Backend/Plugins.php:161
-#: src/Process/Install/Install.php:565 src/Process/Upgrade/Plugins.php:146
+#: src/Process/Install/Install.php:564 src/Process/Upgrade/Plugins.php:146
 msgid "Following plugins have not been installed:"
 msgstr "Следните плъгини не са инсталирани:"
 
@@ -5534,12 +5546,12 @@ msgid "Password change required to connect"
 msgstr "Необходима е промяна на паролата за свързване"
 
 #: src/Process/Backend/User.php:401 src/Process/Backend/UserPreferences.php:794
-#: src/Process/Install/Install.php:497
+#: src/Process/Install/Install.php:496
 msgid "Last Name:"
 msgstr "Фамилия:"
 
 #: src/Process/Backend/User.php:411 src/Process/Backend/UserPreferences.php:804
-#: src/Process/Install/Install.php:488
+#: src/Process/Install/Install.php:487
 msgid "First Name:"
 msgstr "Първо име:"
 
@@ -6116,123 +6128,123 @@ msgstr "Предстои ви да промените разрешенията �
 msgid "Validate permissions"
 msgstr "Потвърждаване на разрешенията"
 
-#: src/Process/Install/Install.php:135
+#: src/Process/Install/Install.php:134
 msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
 msgstr "Моля, задайте главен ключ (DC_MASTER_KEY) в конфигурационния файл."
 
-#: src/Process/Install/Install.php:141 src/Process/Install/Wizard.php:196
+#: src/Process/Install/Install.php:140 src/Process/Install/Wizard.php:201
 msgid "Dotclear is already installed."
 msgstr "Dotclear вече е инсталиран."
 
-#: src/Process/Install/Install.php:148 src/Process/Install/Wizard.php:186
+#: src/Process/Install/Install.php:147 src/Process/Install/Wizard.php:191
 msgid "Dotclear cannot be installed."
 msgstr "Dotclear не може да бъде инсталиран."
 
-#: src/Process/Install/Install.php:177
+#: src/Process/Install/Install.php:176
 msgid "Invalid email address"
 msgstr "Невалиден имейл адрес"
 
-#: src/Process/Install/Install.php:240
+#: src/Process/Install/Install.php:239
 msgid "My first blog"
 msgstr "Първият ми блог"
 
-#: src/Process/Install/Install.php:253
+#: src/Process/Install/Install.php:252
 msgid "%A, %B %e %Y"
 msgstr "%A, %B %e %Y"
 
-#: src/Process/Install/Install.php:329
+#: src/Process/Install/Install.php:328
 msgid "Welcome to Dotclear!"
 msgstr "Добре дошли в Dotclear!"
 
-#: src/Process/Install/Install.php:330
+#: src/Process/Install/Install.php:329
 msgid "This is your first entry. When you're ready to blog, log in to edit or delete it."
 msgstr "Това е първият ви запис. Когато сте готови да водите блог, влезте, за да го редактирате или изтриете."
 
-#: src/Process/Install/Install.php:342
+#: src/Process/Install/Install.php:341
 msgid "Dotclear Team"
 msgstr "Екип на Dotclear"
 
-#: src/Process/Install/Install.php:345
+#: src/Process/Install/Install.php:344
 msgid "<p>This is a comment.</p>\n"
 "<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
 msgstr "<p>Това е коментар.</p>\n"
 "<p>За да го изтриете, влезте в профила си и прегледайте коментарите в блога си. След това можете да го премахнете или редактирате.</p>"
 
-#: src/Process/Install/Install.php:402
+#: src/Process/Install/Install.php:401
 msgid "Dotclear Install"
 msgstr "Инсталиране на Dotclear"
 
-#: src/Process/Install/Install.php:429
+#: src/Process/Install/Install.php:428
 msgid "show"
 msgstr "Покажи"
 
-#: src/Process/Install/Install.php:446
+#: src/Process/Install/Install.php:445
 #, php-format
 msgid "Cache directory %s is not writable."
 msgstr "Директорията за кеш %s не може да се записва."
 
-#: src/Process/Install/Install.php:465
+#: src/Process/Install/Install.php:464
 msgid "Configuration file has been successfully created."
 msgstr "Конфигурационният файл е създаден успешно."
 
-#: src/Process/Install/Install.php:472 src/Process/Install/Install.php:479
+#: src/Process/Install/Install.php:471 src/Process/Install/Install.php:478
 msgid "User information"
 msgstr "Информация за потребителя"
 
-#: src/Process/Install/Install.php:473
+#: src/Process/Install/Install.php:472
 msgid "Please provide the following information needed to create the first user."
 msgstr "Моля, предоставете следната информация, необходима за създаването на първия потребител."
 
-#: src/Process/Install/Install.php:510
+#: src/Process/Install/Install.php:509
 msgid "Username and password"
 msgstr "Потребителско име и парола"
 
-#: src/Process/Install/Install.php:533
+#: src/Process/Install/Install.php:532
 msgid "New Password:"
 msgstr "Нова парола:"
 
-#: src/Process/Install/Install.php:543
+#: src/Process/Install/Install.php:542
 msgid "Confirm Password:"
 msgstr "Потвърдете паролата:"
 
-#: src/Process/Install/Install.php:576
+#: src/Process/Install/Install.php:575
 msgid "All done!"
 msgstr "Всичко е готово!"
 
-#: src/Process/Install/Install.php:578
+#: src/Process/Install/Install.php:577
 msgid "Dotclear has been successfully installed. Here is some useful information you should keep."
 msgstr "Dotclear е инсталиран успешно. Ето някои полезни данни, които трябва да запазите."
 
-#: src/Process/Install/Install.php:579
+#: src/Process/Install/Install.php:578
 msgid "Your account"
 msgstr "Вашият акаунт"
 
-#: src/Process/Install/Install.php:593
+#: src/Process/Install/Install.php:592
 msgid "Your blog"
 msgstr "Вашият блог"
 
-#: src/Process/Install/Install.php:598
+#: src/Process/Install/Install.php:597
 msgid "Blog address:"
 msgstr "Адрес на блога:"
 
-#: src/Process/Install/Install.php:603
+#: src/Process/Install/Install.php:602
 msgid "Administration interface:"
 msgstr "Административен интерфейс:"
 
-#: src/Process/Install/Install.php:613
+#: src/Process/Install/Install.php:612
 msgid "Manage your blog now"
 msgstr "Управлявайте блога си сега"
 
-#: src/Process/Install/Install.php:623
+#: src/Process/Install/Install.php:622
 msgid "Installation can not be completed"
 msgstr "Инсталацията не може да бъде завършена"
 
-#: src/Process/Install/Install.php:638
+#: src/Process/Install/Install.php:637
 #, php-format
 msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"%s\">the documentation</a> to learn how to correct the problem."
 msgstr "Поради посочените причини Dotclear не може да бъде инсталиран. Моля, вижте <a href=\"%s\">документацията</a>, за да научите как да отстраните проблема."
 
-#: src/Process/Install/Install.php:646
+#: src/Process/Install/Install.php:645
 msgid "Dotclear installation"
 msgstr "Инсталиране на Dotclear"
 
@@ -6255,96 +6267,100 @@ msgstr "Няма поддържан драйвер за база данни."
 msgid "Dotclear installation wizard could not find database driver. You must change your PHP configuration to add a supported database handler please refer to <a href=\"%s\">the documentation</a> to learn how to do this."
 msgstr "Съветникът за инсталиране на Dotclear не можа да намери драйвер за база данни. Трябва да промените конфигурацията на PHP, за да добавите поддържан драйвер за бази данни, моля, вижте <a href=\"%s\">документацията</a>, за да научите как да направите това."
 
-#: src/Process/Install/Wizard.php:165
+#: src/Process/Install/Wizard.php:170
 #, php-format
 msgid "Cannot write \"%s\" directory."
 msgstr "Не може да се запише директория \"%s\"."
 
-#: src/Process/Install/Wizard.php:200
+#: src/Process/Install/Wizard.php:205
 msgid "Master email is not valid."
 msgstr "Основният имейл не е валиден."
 
-#: src/Process/Install/Wizard.php:206
+#: src/Process/Install/Wizard.php:211
 #, php-format
 msgid "File %s does not exist."
 msgstr "Файлът %s не съществува."
 
-#: src/Process/Install/Wizard.php:211 src/Process/Install/Wizard.php:246
+#: src/Process/Install/Wizard.php:216 src/Process/Install/Wizard.php:251
 #, php-format
 msgid "Cannot write %s file."
 msgstr "Не може да се запише файл %s ."
 
-#: src/Process/Install/Wizard.php:289 src/Process/Install/Wizard.php:310
-#: src/Process/Install/Wizard.php:336
+#: src/Process/Install/Wizard.php:294 src/Process/Install/Wizard.php:315
+#: src/Process/Install/Wizard.php:341
 msgid "Dotclear installation wizard"
 msgstr "Съветник за инсталиране на Dotclear"
 
-#: src/Process/Install/Wizard.php:326
+#: src/Process/Install/Wizard.php:331
 msgid "Dotclear can not be installed."
 msgstr "Dotclear не може да бъде инсталиран."
 
-#: src/Process/Install/Wizard.php:354
+#: src/Process/Install/Wizard.php:359
 msgid "Welcome"
 msgstr "Добре дошли"
 
-#: src/Process/Install/Wizard.php:355
+#: src/Process/Install/Wizard.php:360
 msgid "To complete your Dotclear installation and start writing on your blog, we just need to know how to access your database and who you are. Just fill this two steps wizard with this information and we will be done."
 msgstr "За да завършите инсталацията на Dotclear и да започнете да пишете в блога си, трябва само да знаем как да получим достъп до вашата база данни и кой сте вие. Просто попълнете с тази информация този съветник в две стъпки и ще бъдем готови."
 
-#: src/Process/Install/Wizard.php:361
+#: src/Process/Install/Wizard.php:366
 msgid "Attention:"
 msgstr "Внимание:"
 
-#: src/Process/Install/Wizard.php:363
+#: src/Process/Install/Wizard.php:368
 #, php-format
 msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"%s\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
 msgstr "този съветник може да не функционира на всеки хост. Ако не работи при вас, моля, вижте <a href=\"%s\">документацията</a>, за да научите как да създадете файла <strong>config.php</strong> ръчно."
 
-#: src/Process/Install/Wizard.php:369
+#: src/Process/Install/Wizard.php:374
 msgid "System information"
 msgstr "Системна информация"
 
-#: src/Process/Install/Wizard.php:370
+#: src/Process/Install/Wizard.php:375
 msgid "Please provide the following information needed to create your configuration file."
 msgstr "Предоставете следната информация, необходима за създаването на конфигурационния файл."
 
-#: src/Process/Install/Wizard.php:381
+#: src/Process/Install/Wizard.php:386
 msgid "Database type:"
 msgstr "Тип база данни:"
 
-#: src/Process/Install/Wizard.php:387
+#: src/Process/Install/Wizard.php:392
 msgid "Driver"
 msgstr "Шофьор"
 
-#: src/Process/Install/Wizard.php:394
+#: src/Process/Install/Wizard.php:399
 msgid "Database Host Name:"
 msgstr "Име на хоста на базата данни:"
 
-#: src/Process/Install/Wizard.php:402
+#: src/Process/Install/Wizard.php:407
 msgid "Database Name:"
 msgstr "Име на базата данни:"
 
-#: src/Process/Install/Wizard.php:410
+#: src/Process/Install/Wizard.php:415
 msgid "Database User Name:"
 msgstr "Потребителско име на базата данни:"
 
-#: src/Process/Install/Wizard.php:418
+#: src/Process/Install/Wizard.php:423
 msgid "Database Password:"
 msgstr "Парола на базата данни:"
 
-#: src/Process/Install/Wizard.php:426
+#: src/Process/Install/Wizard.php:431
 msgid "Prefix"
 msgstr "Префикс"
 
-#: src/Process/Install/Wizard.php:427
+#: src/Process/Install/Wizard.php:432
 msgid "Database Tables Prefix:"
 msgstr "Таблици на базата данни Префикс:"
 
-#: src/Process/Install/Wizard.php:435
+#: src/Process/Install/Wizard.php:440
+msgid "Email"
+msgstr "Имейл"
+
+#: src/Process/Install/Wizard.php:441
 msgid "Master Email: (used as sender for password recovery)"
 msgstr "Главна електронна поща: (използва се като изпращач за възстановяване на парола)"
 
-#: src/Process/Install/Wizard.php:437 src/Process/Upgrade/Digests.php:258
+#: src/Process/Install/Wizard.php:443 src/Process/Upgrade/Digests.php:258
 #: src/Process/Upgrade/Digests.php:279
 msgid "Continue"
 msgstr "Продължи"

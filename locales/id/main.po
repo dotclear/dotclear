@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-31 12:34+0200\n"
-"PO-Revision-Date: 2025-08-31 10:37\n"
+"POT-Creation-Date: 2025-09-01 12:51+0200\n"
+"PO-Revision-Date: 2025-09-01 11:24\n"
 "Last-Translator: \n"
 "Language-Team: Indonesian\n"
 "Language: id_ID\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #: inc/core/_fake_l10n.php:7 src/Process/Backend/Auth.php:477
 #: src/Process/Backend/User.php:264 src/Process/Backend/UserPreferences.php:598
-#: src/Process/Install/Install.php:424 src/Process/Upgrade/Auth.php:401
+#: src/Process/Install/Install.php:423 src/Process/Upgrade/Auth.php:401
 msgid "medium"
 msgstr "sedang"
 
@@ -54,16 +54,28 @@ msgid "MySQLi"
 msgstr "MySQLi"
 
 #: inc/core/_fake_l10n.php:20
-msgid "MySQLi (full UTF-8)"
-msgstr "MySQLi (UTF-8 lengkap)"
+msgid "MySQLi full UTF-8"
+msgstr "MySQLi UTF-8 lengkap"
 
 #: inc/core/_fake_l10n.php:21
 msgid "PostgreSQL"
 msgstr "PostgreSQL"
 
 #: inc/core/_fake_l10n.php:22
-msgid "SQLite"
-msgstr "SQLite"
+msgid "MySQL (PDO)"
+msgstr "MySQL (PDO)"
+
+#: inc/core/_fake_l10n.php:23
+msgid "MySQL full UTF-8 (PDO)"
+msgstr "MySQL lengkap UTF-8 (PDO)"
+
+#: inc/core/_fake_l10n.php:24
+msgid "SQLite (PDO)"
+msgstr "SQLite (PDO)"
+
+#: inc/core/_fake_l10n.php:25
+msgid "PostgreSQL (PDO)"
+msgstr "PostgreSQL (PDO)"
 
 #: src/Core/Auth.php:122
 msgid "administrator"
@@ -417,7 +429,7 @@ msgstr "Orang tua:"
 #: src/Process/Backend/Home.php:649 src/Process/Backend/Home.php:703
 #: src/Process/Backend/MediaItem.php:1267 src/Process/Backend/Post.php:926
 #: src/Process/Backend/Post.php:1140 src/Process/Backend/User.php:536
-#: src/Process/Backend/UsersActions.php:513 src/Process/Install/Install.php:547
+#: src/Process/Backend/UsersActions.php:513 src/Process/Install/Install.php:546
 msgid "Save"
 msgstr "Simpan"
 
@@ -536,7 +548,7 @@ msgid "Blog ID"
 msgstr "ID Blog"
 
 #: src/Core/Backend/Combos.php:332 src/Core/Backend/Listing/ListingUsers.php:68
-#: src/Process/Install/Install.php:523
+#: src/Process/Install/Install.php:522
 msgid "Username"
 msgstr "Nama pengguna"
 
@@ -658,7 +670,7 @@ msgstr "Bantuan global"
 #: src/Process/Backend/Auth.php:544 src/Process/Backend/BlogPref.php:1351
 #: src/Process/Backend/Comment.php:306 src/Process/Backend/Post.php:1109
 #: src/Process/Backend/User.php:432 src/Process/Backend/UserPreferences.php:824
-#: src/Process/Install/Install.php:505
+#: src/Process/Install/Install.php:504
 msgid "Email:"
 msgstr "Email:"
 
@@ -718,7 +730,7 @@ msgstr "Format:"
 
 #: src/Core/Backend/Filter/FilterPosts.php:180 src/Process/Backend/Auth.php:204
 #: src/Process/Backend/Auth.php:670 src/Process/Backend/User.php:344
-#: src/Process/Install/Install.php:589 src/Process/Upgrade/Auth.php:351
+#: src/Process/Install/Install.php:588 src/Process/Upgrade/Auth.php:351
 msgid "Password:"
 msgstr "Kata sandi:"
 
@@ -1415,8 +1427,8 @@ msgstr "Unggah file zip"
 #: src/Process/Backend/Langs.php:322 src/Process/Backend/Langs.php:372
 #: src/Process/Backend/LinkPopup.php:83 src/Process/Backend/Post.php:994
 #: src/Process/Backend/Post.php:1085 src/Process/Backend/User.php:303
-#: src/Process/Backend/UsersActions.php:492 src/Process/Install/Install.php:514
-#: src/Process/Install/Wizard.php:379 src/Process/Upgrade/Langs.php:406
+#: src/Process/Backend/UsersActions.php:492 src/Process/Install/Install.php:513
+#: src/Process/Install/Wizard.php:384 src/Process/Upgrade/Langs.php:406
 #, php-format
 msgid "Fields preceded by %s are mandatory."
 msgstr "Bidang yang diawali dengan %s adalah wajib."
@@ -1429,8 +1441,8 @@ msgstr "Jalur file zip:"
 #: src/Process/Backend/Langs.php:344 src/Process/Backend/Langs.php:393
 #: src/Process/Backend/Post.php:805 src/Process/Backend/User.php:340
 #: src/Process/Backend/User.php:364 src/Process/Backend/User.php:529
-#: src/Process/Backend/UsersActions.php:499 src/Process/Install/Install.php:534
-#: src/Process/Install/Install.php:544 src/Process/Upgrade/Langs.php:430
+#: src/Process/Backend/UsersActions.php:499 src/Process/Install/Install.php:533
+#: src/Process/Install/Install.php:543 src/Process/Upgrade/Langs.php:430
 msgid "Password"
 msgstr "Kata sandi"
 
@@ -1494,8 +1506,8 @@ msgid "Error:"
 msgstr "Kesalahan:"
 
 #: src/Core/Backend/Notices.php:86 src/Core/Upgrade/Notices.php:48
-#: src/Process/Install/Install.php:458 src/Process/Install/Install.php:632
-#: src/Process/Install/Wizard.php:321 src/Process/Install/Wizard.php:348
+#: src/Process/Install/Install.php:457 src/Process/Install/Install.php:631
+#: src/Process/Install/Wizard.php:326 src/Process/Install/Wizard.php:353
 msgid "Errors:"
 msgstr "Kesalahan:"
 
@@ -2525,7 +2537,7 @@ msgstr "Tidak dapat membaca file intisari."
 msgid "Invalid digests file."
 msgstr "File digest tidak valid."
 
-#: src/Core/Upgrade/Upgrade.php:75
+#: src/Core/Upgrade/Upgrade.php:73
 msgid "Something went wrong with auto upgrade:"
 msgstr "Ada yang tidak beres dengan peningkatan otomatis:"
 
@@ -2612,20 +2624,20 @@ msgstr "%s bukan pref id yang valid"
 msgid "No workspace specified"
 msgstr "Tidak ada ruang kerja yang ditentukan"
 
-#: src/Core/Users.php:165 src/Process/Install/Install.php:171
+#: src/Core/Users.php:165 src/Process/Install/Install.php:170
 msgid "No user ID given"
 msgstr "Tidak ada ID pengguna yang diberikan"
 
-#: src/Core/Users.php:169 src/Process/Install/Install.php:181
+#: src/Core/Users.php:169 src/Process/Install/Install.php:180
 msgid "No password given"
 msgstr "Tidak ada kata sandi yang diberikan"
 
-#: src/Core/Users.php:396 src/Process/Install/Install.php:174
+#: src/Core/Users.php:396 src/Process/Install/Install.php:173
 msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
 msgstr "User ID harus terdiri dari minimal 2 karakter yang menggunakan huruf, angka, atau simbol."
 
 #: src/Core/Users.php:405 src/Process/Backend/User.php:348
-#: src/Process/Install/Install.php:187
+#: src/Process/Install/Install.php:186
 msgid "Password must contain at least 6 characters."
 msgstr "Kata sandi harus terdiri dari setidaknya 6 karakter."
 
@@ -3088,7 +3100,7 @@ msgstr "Untuk mengatur ulang kata sandi Anda, kunjungi alamat berikut, jika tida
 
 #: src/Process/Backend/Auth.php:182 src/Process/Backend/Auth.php:204
 #: src/Process/Backend/Auth.php:534 src/Process/Backend/Auth.php:660
-#: src/Process/Install/Install.php:522 src/Process/Install/Install.php:584
+#: src/Process/Install/Install.php:521 src/Process/Install/Install.php:583
 #: src/Process/Upgrade/Auth.php:341
 msgid "Username:"
 msgstr "Nama pengguna:"
@@ -3112,7 +3124,7 @@ msgstr "Kata sandi baru Anda ada di kotak surat Anda."
 
 #: src/Process/Backend/Auth.php:257 src/Process/Backend/User.php:158
 #: src/Process/Backend/UserPreferences.php:303
-#: src/Process/Install/Install.php:184
+#: src/Process/Install/Install.php:183
 msgid "Passwords don't match"
 msgstr "Kata sandi tidak cocok"
 
@@ -3152,8 +3164,8 @@ msgstr "Nama pengguna atau kata sandi yang salah"
 #: src/Process/Backend/UserPreferences.php:597
 #: src/Process/Backend/UserPreferences.php:598
 #: src/Process/Backend/UserPreferences.php:599
-#: src/Process/Install/Install.php:423 src/Process/Install/Install.php:424
-#: src/Process/Install/Install.php:425 src/Process/Upgrade/Auth.php:400
+#: src/Process/Install/Install.php:422 src/Process/Install/Install.php:423
+#: src/Process/Install/Install.php:424 src/Process/Upgrade/Auth.php:400
 #: src/Process/Upgrade/Auth.php:401 src/Process/Upgrade/Auth.php:402
 #, php-format
 msgid "Password strength: %s"
@@ -3161,13 +3173,13 @@ msgstr "Kekuatan kata sandi: %s"
 
 #: src/Process/Backend/Auth.php:476 src/Process/Backend/User.php:263
 #: src/Process/Backend/UserPreferences.php:597
-#: src/Process/Install/Install.php:423 src/Process/Upgrade/Auth.php:400
+#: src/Process/Install/Install.php:422 src/Process/Upgrade/Auth.php:400
 msgid "weak"
 msgstr "lemah"
 
 #: src/Process/Backend/Auth.php:478 src/Process/Backend/User.php:265
 #: src/Process/Backend/UserPreferences.php:599
-#: src/Process/Install/Install.php:425 src/Process/Upgrade/Auth.php:402
+#: src/Process/Install/Install.php:424 src/Process/Upgrade/Auth.php:402
 msgid "strong"
 msgstr "kuat"
 
@@ -4304,12 +4316,12 @@ msgid "There is no writable root directory for the media manager. You should con
 msgstr "Tidak ada direktori root yang dapat ditulis untuk manajer media. Anda harus menghubungi administrator Anda."
 
 #: src/Process/Backend/Home.php:352 src/Process/Backend/Plugins.php:139
-#: src/Process/Install/Install.php:557 src/Process/Upgrade/Plugins.php:124
+#: src/Process/Install/Install.php:556 src/Process/Upgrade/Plugins.php:124
 msgid "Following plugins have been installed:"
 msgstr "Plugin berikut ini telah diinstal:"
 
 #: src/Process/Backend/Home.php:374 src/Process/Backend/Plugins.php:161
-#: src/Process/Install/Install.php:565 src/Process/Upgrade/Plugins.php:146
+#: src/Process/Install/Install.php:564 src/Process/Upgrade/Plugins.php:146
 msgid "Following plugins have not been installed:"
 msgstr "Plugin-pugin berikut ini belum diinstal:"
 
@@ -5499,12 +5511,12 @@ msgid "Password change required to connect"
 msgstr "Diperlukan perubahan kata sandi untuk menyambung"
 
 #: src/Process/Backend/User.php:401 src/Process/Backend/UserPreferences.php:794
-#: src/Process/Install/Install.php:497
+#: src/Process/Install/Install.php:496
 msgid "Last Name:"
 msgstr "Nama belakang:"
 
 #: src/Process/Backend/User.php:411 src/Process/Backend/UserPreferences.php:804
-#: src/Process/Install/Install.php:488
+#: src/Process/Install/Install.php:487
 msgid "First Name:"
 msgstr "Nama depan:"
 
@@ -6081,123 +6093,123 @@ msgstr "Anda akan mengubah izin pada blog berikut untuk pengguna %s."
 msgid "Validate permissions"
 msgstr "Memvalidasi izin"
 
-#: src/Process/Install/Install.php:135
+#: src/Process/Install/Install.php:134
 msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
 msgstr "Tetapkan kunci master (DC_MASTER_KEY) dalam file konfigurasi."
 
-#: src/Process/Install/Install.php:141 src/Process/Install/Wizard.php:196
+#: src/Process/Install/Install.php:140 src/Process/Install/Wizard.php:201
 msgid "Dotclear is already installed."
 msgstr "Dotclear sudah terpasang."
 
-#: src/Process/Install/Install.php:148 src/Process/Install/Wizard.php:186
+#: src/Process/Install/Install.php:147 src/Process/Install/Wizard.php:191
 msgid "Dotclear cannot be installed."
 msgstr "Dotclear tidak dapat diinstal."
 
-#: src/Process/Install/Install.php:177
+#: src/Process/Install/Install.php:176
 msgid "Invalid email address"
 msgstr "Alamat email tidak valid"
 
-#: src/Process/Install/Install.php:240
+#: src/Process/Install/Install.php:239
 msgid "My first blog"
 msgstr "Blog pertama saya"
 
-#: src/Process/Install/Install.php:253
+#: src/Process/Install/Install.php:252
 msgid "%A, %B %e %Y"
 msgstr "%A, %B %e %Y"
 
-#: src/Process/Install/Install.php:329
+#: src/Process/Install/Install.php:328
 msgid "Welcome to Dotclear!"
 msgstr "Selamat datang di Dotclear!"
 
-#: src/Process/Install/Install.php:330
+#: src/Process/Install/Install.php:329
 msgid "This is your first entry. When you're ready to blog, log in to edit or delete it."
 msgstr "Ini adalah entri pertama Anda. Saat Anda siap menulis blog, masuklah untuk mengedit atau menghapusnya."
 
-#: src/Process/Install/Install.php:342
+#: src/Process/Install/Install.php:341
 msgid "Dotclear Team"
 msgstr "Tim Dotclear"
 
-#: src/Process/Install/Install.php:345
+#: src/Process/Install/Install.php:344
 msgid "<p>This is a comment.</p>\n"
 "<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
 msgstr "<p>Ini adalah sebuah komentar.</p>\n"
 "<p>Untuk menghapusnya, masuk dan lihat komentar blog Anda. Kemudian Anda dapat menghapus atau mengeditnya.</p>"
 
-#: src/Process/Install/Install.php:402
+#: src/Process/Install/Install.php:401
 msgid "Dotclear Install"
 msgstr "Instal Dotclear"
 
-#: src/Process/Install/Install.php:429
+#: src/Process/Install/Install.php:428
 msgid "show"
 msgstr "menunjukkan"
 
-#: src/Process/Install/Install.php:446
+#: src/Process/Install/Install.php:445
 #, php-format
 msgid "Cache directory %s is not writable."
 msgstr "Direktori cache %s tidak dapat ditulis."
 
-#: src/Process/Install/Install.php:465
+#: src/Process/Install/Install.php:464
 msgid "Configuration file has been successfully created."
 msgstr "File konfigurasi telah berhasil dibuat."
 
-#: src/Process/Install/Install.php:472 src/Process/Install/Install.php:479
+#: src/Process/Install/Install.php:471 src/Process/Install/Install.php:478
 msgid "User information"
 msgstr "Informasi pengguna"
 
-#: src/Process/Install/Install.php:473
+#: src/Process/Install/Install.php:472
 msgid "Please provide the following information needed to create the first user."
 msgstr "Berikan informasi berikut yang diperlukan untuk membuat pengguna pertama."
 
-#: src/Process/Install/Install.php:510
+#: src/Process/Install/Install.php:509
 msgid "Username and password"
 msgstr "Nama pengguna dan kata sandi"
 
-#: src/Process/Install/Install.php:533
+#: src/Process/Install/Install.php:532
 msgid "New Password:"
 msgstr "Kata sandi baru:"
 
-#: src/Process/Install/Install.php:543
+#: src/Process/Install/Install.php:542
 msgid "Confirm Password:"
 msgstr "Konfirmasi Kata Sandi:"
 
-#: src/Process/Install/Install.php:576
+#: src/Process/Install/Install.php:575
 msgid "All done!"
 msgstr "Semua selesai!"
 
-#: src/Process/Install/Install.php:578
+#: src/Process/Install/Install.php:577
 msgid "Dotclear has been successfully installed. Here is some useful information you should keep."
 msgstr "Dotclear telah berhasil diinstal. Berikut ini adalah beberapa informasi berguna yang harus Anda simpan."
 
-#: src/Process/Install/Install.php:579
+#: src/Process/Install/Install.php:578
 msgid "Your account"
 msgstr "Akun Anda"
 
-#: src/Process/Install/Install.php:593
+#: src/Process/Install/Install.php:592
 msgid "Your blog"
 msgstr "Blog Anda"
 
-#: src/Process/Install/Install.php:598
+#: src/Process/Install/Install.php:597
 msgid "Blog address:"
 msgstr "Alamat blog:"
 
-#: src/Process/Install/Install.php:603
+#: src/Process/Install/Install.php:602
 msgid "Administration interface:"
 msgstr "Antarmuka administrasi:"
 
-#: src/Process/Install/Install.php:613
+#: src/Process/Install/Install.php:612
 msgid "Manage your blog now"
 msgstr "Kelola blog Anda sekarang"
 
-#: src/Process/Install/Install.php:623
+#: src/Process/Install/Install.php:622
 msgid "Installation can not be completed"
 msgstr "Instalasi tidak dapat diselesaikan"
 
-#: src/Process/Install/Install.php:638
+#: src/Process/Install/Install.php:637
 #, php-format
 msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"%s\">the documentation</a> to learn how to correct the problem."
 msgstr "Karena alasan tersebut, Dotclear tidak dapat diinstal. Silakan lihat <a href=\"%s\">dokumentasi</a> untuk mempelajari cara memperbaiki masalah ini."
 
-#: src/Process/Install/Install.php:646
+#: src/Process/Install/Install.php:645
 msgid "Dotclear installation"
 msgstr "Instalasi Dotclear"
 
@@ -6220,96 +6232,100 @@ msgstr "Tidak ada driver database yang didukung."
 msgid "Dotclear installation wizard could not find database driver. You must change your PHP configuration to add a supported database handler please refer to <a href=\"%s\">the documentation</a> to learn how to do this."
 msgstr "Wizard instalasi DotClear tidak dapat menemukan driver database. Anda harus mengubah konfigurasi PHP Anda untuk menambahkan penangan basis data yang didukung, silakan lihat <a href=\"%s\">dokumentasi</a> untuk mempelajari cara melakukannya."
 
-#: src/Process/Install/Wizard.php:165
+#: src/Process/Install/Wizard.php:170
 #, php-format
 msgid "Cannot write \"%s\" directory."
 msgstr "Tidak dapat menulis direktori \"%s\"."
 
-#: src/Process/Install/Wizard.php:200
+#: src/Process/Install/Wizard.php:205
 msgid "Master email is not valid."
 msgstr "Email master tidak valid."
 
-#: src/Process/Install/Wizard.php:206
+#: src/Process/Install/Wizard.php:211
 #, php-format
 msgid "File %s does not exist."
 msgstr "File %s tidak ada."
 
-#: src/Process/Install/Wizard.php:211 src/Process/Install/Wizard.php:246
+#: src/Process/Install/Wizard.php:216 src/Process/Install/Wizard.php:251
 #, php-format
 msgid "Cannot write %s file."
 msgstr "Tidak dapat menulis file %s ."
 
-#: src/Process/Install/Wizard.php:289 src/Process/Install/Wizard.php:310
-#: src/Process/Install/Wizard.php:336
+#: src/Process/Install/Wizard.php:294 src/Process/Install/Wizard.php:315
+#: src/Process/Install/Wizard.php:341
 msgid "Dotclear installation wizard"
 msgstr "Panduan instalasi Dotclear"
 
-#: src/Process/Install/Wizard.php:326
+#: src/Process/Install/Wizard.php:331
 msgid "Dotclear can not be installed."
 msgstr "Dotclear tidak dapat diinstal."
 
-#: src/Process/Install/Wizard.php:354
+#: src/Process/Install/Wizard.php:359
 msgid "Welcome"
 msgstr "Selamat datang."
 
-#: src/Process/Install/Wizard.php:355
+#: src/Process/Install/Wizard.php:360
 msgid "To complete your Dotclear installation and start writing on your blog, we just need to know how to access your database and who you are. Just fill this two steps wizard with this information and we will be done."
 msgstr "Untuk menyelesaikan instalasi Dotclear Anda dan mulai menulis di blog Anda, kami hanya perlu mengetahui cara mengakses basis data Anda dan siapa Anda. Cukup isi wizard dua langkah ini dengan informasi ini dan kita akan selesai."
 
-#: src/Process/Install/Wizard.php:361
+#: src/Process/Install/Wizard.php:366
 msgid "Attention:"
 msgstr "Perhatian:"
 
-#: src/Process/Install/Wizard.php:363
+#: src/Process/Install/Wizard.php:368
 #, php-format
 msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"%s\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
 msgstr "wizard ini mungkin tidak berfungsi pada setiap hos. Jika tidak berfungsi untuk Anda, silakan lihat <a href=\"%s\">dokumentasi</a> untuk mempelajari cara membuat berkas <strong>config.php</strong> secara manual."
 
-#: src/Process/Install/Wizard.php:369
+#: src/Process/Install/Wizard.php:374
 msgid "System information"
 msgstr "Informasi sistem"
 
-#: src/Process/Install/Wizard.php:370
+#: src/Process/Install/Wizard.php:375
 msgid "Please provide the following information needed to create your configuration file."
 msgstr "Berikan informasi berikut yang diperlukan untuk membuat file konfigurasi Anda."
 
-#: src/Process/Install/Wizard.php:381
+#: src/Process/Install/Wizard.php:386
 msgid "Database type:"
 msgstr "Jenis basis data:"
 
-#: src/Process/Install/Wizard.php:387
+#: src/Process/Install/Wizard.php:392
 msgid "Driver"
 msgstr "Sopir"
 
-#: src/Process/Install/Wizard.php:394
+#: src/Process/Install/Wizard.php:399
 msgid "Database Host Name:"
 msgstr "Nama Host Basis Data:"
 
-#: src/Process/Install/Wizard.php:402
+#: src/Process/Install/Wizard.php:407
 msgid "Database Name:"
 msgstr "Nama Basis Data:"
 
-#: src/Process/Install/Wizard.php:410
+#: src/Process/Install/Wizard.php:415
 msgid "Database User Name:"
 msgstr "Nama Pengguna Basis Data:"
 
-#: src/Process/Install/Wizard.php:418
+#: src/Process/Install/Wizard.php:423
 msgid "Database Password:"
 msgstr "Kata Sandi Basis Data:"
 
-#: src/Process/Install/Wizard.php:426
+#: src/Process/Install/Wizard.php:431
 msgid "Prefix"
 msgstr "Awalan"
 
-#: src/Process/Install/Wizard.php:427
+#: src/Process/Install/Wizard.php:432
 msgid "Database Tables Prefix:"
 msgstr "Awalan Tabel Basis Data:"
 
-#: src/Process/Install/Wizard.php:435
+#: src/Process/Install/Wizard.php:440
+msgid "Email"
+msgstr "Email"
+
+#: src/Process/Install/Wizard.php:441
 msgid "Master Email: (used as sender for password recovery)"
 msgstr "Email Master: (digunakan sebagai pengirim untuk pemulihan kata sandi)"
 
-#: src/Process/Install/Wizard.php:437 src/Process/Upgrade/Digests.php:258
+#: src/Process/Install/Wizard.php:443 src/Process/Upgrade/Digests.php:258
 #: src/Process/Upgrade/Digests.php:279
 msgid "Continue"
 msgstr "Lanjutkan"
