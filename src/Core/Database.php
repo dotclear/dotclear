@@ -56,8 +56,8 @@ class Database extends Container implements DatabaseInterface
 
     public function con(string $driver = '', string $host = '', string $database = '', string $user = '', string $password = '', bool $persistent = false, string $prefix = ''): ConnectionInterface
     {
-        // Reload connection handler (temporary) if driver is set
-        $reload = ($driver !== '' ? null : false);
+        // Reload connection handler if driver is set
+        $reload = $driver !== '';
 
         // If driver is not set, we use parameters from config
         if ($driver === '') {
@@ -70,22 +70,12 @@ class Database extends Container implements DatabaseInterface
             $prefix     = $this->core->config()->dbPrefix();
         }
 
-        // PHP 7.0 mysql driver is obsolete, map to mysqli
-        if ($driver === 'mysql') {
-            $driver = 'mysqli';
-        }
-        // Standardized name from driver dc >= 2.36
-        if ($driver === 'sqlite') {
-            $driver = 'pdosqlite';
-        }
+        return $this->get($this->sanitizeDriver($driver), $reload, host: $host, database: $database, user: $user, password: $password, persistent: $persistent, prefix: $prefix);
+    }
 
-        // Stop on unknown driver
-        $class = $this->factory->get($driver);
-        if ($driver === '' || !$this->has($driver) || (is_string($class) && !is_subclass_of($class, ConnectionInterface::class))) {
-            throw new DatabaseException(sprintf('Database handler %s does not exist', $driver));
-        }
-
-        return $this->get($driver, $reload, host: $host, database: $database, user: $user, password: $password, persistent: $persistent, prefix: $prefix);
+    public function newCon(string $driver, string $host, string $database, string $user = '', string $password = '', bool $persistent = false, string $prefix = ''): ConnectionInterface
+    {
+        return $this->get($this->sanitizeDriver($driver), null, host: $host, database: $database, user: $user, password: $password, persistent: $persistent, prefix: $prefix);
     }
 
     public function structure(): Structure
@@ -116,5 +106,34 @@ class Database extends Container implements DatabaseInterface
         }
 
         return $res;
+    }
+
+    /**
+     * Sanitize and check driver.
+     *
+     * @param   string  $driver     The driver ID
+     *
+     * @throws  DatabaseException
+     *
+     * @return  string  The driver ID
+     */
+    private function sanitizeDriver(string $driver): string
+    {
+        // PHP 7.0 mysql driver is obsolete, map to mysqli
+        if ($driver === 'mysql') {
+            $driver = 'mysqli';
+        }
+        // Standardized name from driver dc >= 2.36
+        if ($driver === 'sqlite') {
+            $driver = 'pdosqlite';
+        }
+
+        // Stop on unknown driver
+        $class = $this->factory->get($driver);
+        if ($driver === '' || !$this->has($driver) || (is_string($class) && !is_subclass_of($class, ConnectionInterface::class))) {
+            throw new DatabaseException(sprintf('Database handler %s does not exist', $driver));
+        }
+
+        return $driver;
     }
 }

@@ -24,7 +24,7 @@ interface DatabaseInterface
     /**
      * Get dabatase connection handler instance.
      *
-     * If <var>$driver</var> is given, a new instance is returned.
+     * If <var>$driver</var> is given, a new instance is set until a new driver is given.
      *
      * @param   string  $driver         Driver name
      * @param   string  $host           Database hostname
@@ -35,6 +35,19 @@ interface DatabaseInterface
      * @param   string  $prefix         Database tables prefix
      */
     public function con(string $driver = '', string $host = '', string $database = '', string $user = '', string $password = '', bool $persistent = false, string $prefix = ''): ConnectionInterface;
+
+    /**
+     * Get new dabatase connection handler instance.
+     *
+     * @param   string  $driver         Driver name
+     * @param   string  $host           Database hostname
+     * @param   string  $database       Database name
+     * @param   string  $user           User ID
+     * @param   string  $password       Password
+     * @param   bool    $persistent     Persistent connection
+     * @param   string  $prefix         Database tables prefix
+     */
+    public function newCon(string $driver, string $host, string $database, string $user = '', string $password = '', bool $persistent = false, string $prefix = ''): ConnectionInterface;
 
     /**
      * Get database structure handler.
