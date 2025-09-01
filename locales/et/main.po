@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-01 12:51+0200\n"
-"PO-Revision-Date: 2025-09-01 10:54\n"
+"PO-Revision-Date: 2025-09-01 11:24\n"
 "Last-Translator: \n"
 "Language-Team: Estonian\n"
 "Language: et_EE\n"
@@ -55,7 +55,7 @@ msgstr "MySQLi"
 
 #: inc/core/_fake_l10n.php:20
 msgid "MySQLi full UTF-8"
-msgstr ""
+msgstr "MySQLi täielik UTF-8"
 
 #: inc/core/_fake_l10n.php:21
 msgid "PostgreSQL"
@@ -63,19 +63,19 @@ msgstr "PostgreSQL"
 
 #: inc/core/_fake_l10n.php:22
 msgid "MySQL (PDO)"
-msgstr ""
+msgstr "MySQL (PDO)"
 
 #: inc/core/_fake_l10n.php:23
 msgid "MySQL full UTF-8 (PDO)"
-msgstr ""
+msgstr "MySQL täielik UTF-8 (PDO)"
 
 #: inc/core/_fake_l10n.php:24
 msgid "SQLite (PDO)"
-msgstr ""
+msgstr "SQLite (PDO)"
 
 #: inc/core/_fake_l10n.php:25
 msgid "PostgreSQL (PDO)"
-msgstr ""
+msgstr "PostgreSQL (PDO)"
 
 #: src/Core/Auth.php:122
 msgid "administrator"
