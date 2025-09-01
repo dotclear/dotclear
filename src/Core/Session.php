@@ -83,11 +83,11 @@ class Session implements SessionInterface
             throw new SessionException('Session is already configured');
         }
 
-        $this->cookie_name    = $cookie_name;
-        $this->cookie_path    = $cookie_path ?? '/';
-        $this->cookie_domain  = $cookie_domain ?? '';
-        $this->cookie_secure  = $cookie_secure;
-        $this->ttl            = $ttl ?? '-120 minutes';
+        $this->cookie_name   = $cookie_name;
+        $this->cookie_path   = $cookie_path   ?? '/';
+        $this->cookie_domain = $cookie_domain ?? '';
+        $this->cookie_secure = $cookie_secure;
+        $this->ttl           = $ttl ?? '-120 minutes';
 
         if (function_exists('ini_set')) {
             @ini_set('session.use_cookies', '1');

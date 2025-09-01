@@ -35,7 +35,7 @@ interface SessionInterface
      * @param   bool            $cookie_secure  Cookie secure
      * @param   null|string     $ttl            The ttl
      *
-     * @throws  Dotclear\Exception\SessionException     if session is already configured
+     * @throws  \Dotclear\Exception\SessionException     if session is already configured
      */
     public function configure(string $cookie_name, ?string $cookie_path = null, ?string $cookie_domain = null, bool $cookie_secure = false, ?string $ttl = null): void;
 
@@ -49,7 +49,7 @@ interface SessionInterface
     /**
      * Session Start.
      *
-     * @throws  Dotclear\Exception\SessionException     if session is not configured
+     * @throws  \Dotclear\Exception\SessionException     if session is not configured
      */
     public function start(): void;
 
