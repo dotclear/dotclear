@@ -23,7 +23,7 @@ use PDO;
  */
 class Handler extends PdoMysqlHandler
 {
-    public const HANDLER_NAME   = 'MySQL full UTF-8 (PDO))';
+    public const HANDLER_NAME   = 'MySQL full UTF-8 (PDO)';
     public const HANDLER_DRIVER = 'pdomysqlmb4';
 
     public function schema(): SchemaInterface

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-31 12:34+0200\n"
+"POT-Creation-Date: 2025-09-01 12:51+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -267,49 +267,49 @@ msgstr ""
 msgid "Failed to delete related settings"
 msgstr ""
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:39
+#: plugins/Uninstaller/src/Cleaner/Tables.php:38
 msgid "Tables"
 msgstr ""
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:40
+#: plugins/Uninstaller/src/Cleaner/Tables.php:39
 msgid "All database tables of Dotclear"
 msgstr ""
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:45
+#: plugins/Uninstaller/src/Cleaner/Tables.php:44
 #, php-format
 msgid "delete \"%s\" table"
 msgstr ""
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:46
+#: plugins/Uninstaller/src/Cleaner/Tables.php:45
 #, php-format
 msgid "\"%s\" table deleted"
 msgstr ""
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:47
+#: plugins/Uninstaller/src/Cleaner/Tables.php:46
 #, php-format
 msgid "Failed to delete \"%s\" table"
 msgstr ""
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:48
+#: plugins/Uninstaller/src/Cleaner/Tables.php:47
 msgid "delete selected tables"
 msgstr ""
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:54
+#: plugins/Uninstaller/src/Cleaner/Tables.php:53
 #, php-format
 msgid "empty \"%s\" table"
 msgstr ""
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:55
+#: plugins/Uninstaller/src/Cleaner/Tables.php:54
 #, php-format
 msgid "\"%s\" table emptied"
 msgstr ""
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:56
+#: plugins/Uninstaller/src/Cleaner/Tables.php:55
 #, php-format
 msgid "Failed to empty \"%s\" table"
 msgstr ""
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:57
+#: plugins/Uninstaller/src/Cleaner/Tables.php:56
 msgid "empty selected tables"
 msgstr ""
 
