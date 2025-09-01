@@ -9,9 +9,9 @@ dotclear.ready(() => {
   if ($('*.error').length > 0) {
     return;
   }
-  $('#ie-gui form[method=post]:has(input[type=hidden][name=autosubmit])').each(function () {
+  $('form[method=post]:has(input[type=hidden][name=autosubmit])').each(function () {
     $('input[type=submit]', this).remove();
-    $(this).after(`<p style="font-size:2em;text-align:center">${dotclear.msg.please_wait}</p>`);
+    $(this).before(`<p style="font-size:1em;text-align:center">${dotclear.msg.please_wait}</p>`);
     $(this).trigger('submit');
   });
 });

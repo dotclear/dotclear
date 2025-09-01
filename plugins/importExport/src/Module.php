@@ -126,7 +126,7 @@ abstract class Module
      */
     protected function progressBar(float $percent): string
     {
-        $percent = trim((string) max(ceil($percent), 100));
+        $percent = trim((string) min(ceil($percent), 100));
 
         return (new Div())
             ->class('ie-progress')
