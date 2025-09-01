@@ -172,7 +172,7 @@ dcProxyV1::classAliases([
     'dcDeleteStatement'   => \Dotclear\Database\Statement\DeleteStatement::class,
     'dcTruncateStatement' => \Dotclear\Database\Statement\TruncateStatement::class,
 
-    'sessionDB' => \Dotclear\Database\Session::class,
+    //'sessionDB' => \Dotclear\Database\Session::class, // 2.26, 2.36 => dcproxyV2
 
     'cursor'          => \Dotclear\Database\Cursor::class,
     'record'          => \Dotclear\Database\Record::class,

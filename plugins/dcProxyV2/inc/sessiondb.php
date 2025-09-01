@@ -6,21 +6,15 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright AGPL-3.0
  */
-declare(strict_types=1);
 
-namespace Dotclear\Database;
-
-use Dotclear\Interface\Core\SessionInterface;
+use Dotclear\Database\SessionHandler;
 use Dotclear\Interface\Database\ConnectionInterface;
 
 /**
- * @class Session
- *
- * Database Session Handler
- *
- * This class allows you to handle session data in database.
+ * @brief   Database Session Handler
+ * @ingroup dcProxyV2
  */
-class Session implements SessionInterface
+class SessionDB
 {
     /**
      * TTL (must be a negative duration as '-120 minutes')
@@ -82,7 +76,7 @@ class Session implements SessionInterface
         }
     }
 
-    public function createFromCookieName(string $cookie_name): SessionInterface
+    public function createFromCookieName(string $cookie_name): SessionDB
     {
         return new self(
             $this->con,

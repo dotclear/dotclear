@@ -71,6 +71,13 @@ class Utility extends Process
             throw new ContextException('Application is not in upgrade context.');
         }
 
+        // configure upgrade session
+        App::session()->configure(
+            cookie_name: App::config()->sessionName(),
+            cookie_secure: App::config()->adminSsl(),
+            ttl: App::config()->sessionTtl()
+        );
+
         // HTTP/1.1
         header('Expires: Mon, 13 Aug 2003 07:48:00 GMT');
         header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
@@ -94,6 +101,9 @@ class Utility extends Process
 
             return true;
         }
+
+        // Instanciate Upgrade instance
+        App::upgrade();
 
         // Always start a session
         App::session()->start();

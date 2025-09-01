@@ -103,11 +103,6 @@ class Utility extends Process
     protected $page_number;
 
     /**
-     * Session instance
-     */
-    private Session $session;
-
-    /**
      * Constructs a new instance.
      *
      * @throws     ContextException  (if not public context)
@@ -121,10 +116,20 @@ class Utility extends Process
         // deprecated since 2.28, use App::frontend() instead
         dcCore::app()->public = $this;
 
-        // Set frontend session handler if plugins need one. since 2.36
-        if (App::blog()->isDefined()) {
-            $this->session = new Session();
+        // Take care of blog URL for frontend session
+        $url = parse_url(App::blog()->url());
+        if (!is_array($url)) {
+            throw new BlogException(__('Something went wrong while trying to read blog URL.')) ;
         }
+
+        // configure frontend session
+        App::session()->configure(
+            cookie_name: App::config()->sessionName() . '_' . App::blog()->id(),
+            cookie_path: isset($url['path']) ? dirname($url['path']) : '',
+            //cookie_domain: null,
+            cookie_secure: empty($url['scheme']) || !preg_match('%^http[s]?$%', $url['scheme']) ? false : $url['scheme'] === 'https',
+            ttl: App::config()->sessionTtl()
+        );
     }
 
     /**
@@ -331,20 +336,6 @@ class Utility extends Process
 
         // Do not try to execute a process added to the URL.
         return false;
-    }
-
-    /**
-     * Get frontend session instance.
-     *
-     * Plugins dealing with frontend session MUST use this handler.
-     *
-     * @since   2.36
-     *
-     * @return  Session The session
-     */
-    public function session(): Session
-    {
-        return $this->session;
     }
 
     /**

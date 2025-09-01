@@ -25,35 +25,43 @@ interface SessionInterface
     public const SESSION_TABLE_NAME = 'session';
 
     /**
-     * Destructor
+     * Configure session cookie.
+     *
+     * This MUST be done before session starts.
+     *
+     * @param   string          $cookie_name    Cookie name
+     * @param   null|string     $cookie_path    Cookie path
+     * @param   null|string     $cookie_domain  Cookie domain
+     * @param   bool            $cookie_secure  Cookie secure
+     * @param   null|string     $ttl            The ttl
+     *
+     * @throws  Dotclear\Exception\SessionException     if session is already configured
+     */
+    public function configure(string $cookie_name, ?string $cookie_path = null, ?string $cookie_domain = null, bool $cookie_secure = false, ?string $ttl = null): void;
+
+    /**
+     * Destructor.
      *
      * This method calls session_write_close PHP function.
      */
     public function __destruct();
 
     /**
-     * Session Start
+     * Session Start.
+     *
+     * @throws  Dotclear\Exception\SessionException     if session is not configured
      */
     public function start(): void;
 
     /**
-     * Session Destroy
+     * Session Destroy.
      *
      * This method destroies all session data and removes cookie.
      */
     public function destroy(): void;
 
     /**
-     * Create a new session instance with a given cookie name.
-     *
-     * This does not overwrite current session instance.
-     *
-     * @param   string  $cookie_name    The cookie name
-     */
-    public function createFromCookieName(string $cookie_name): SessionInterface;
-
-    /**
-     * Session Cookie
+     * Session Cookie.
      *
      * This method returns an array of all session cookie parameters:
      * <ul>
