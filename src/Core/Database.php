@@ -56,8 +56,8 @@ class Database extends Container implements DatabaseInterface
 
     public function con(string $driver = '', string $host = '', string $database = '', string $user = '', string $password = '', bool $persistent = false, string $prefix = ''): ConnectionInterface
     {
-        // Reload connection handler if driver is set
-        $reload = ($driver !== '');
+        // Reload connection handler (temporary) if driver is set
+        $reload = ($driver !== '' ? null : false);
 
         // If driver is not set, we use parameters from config
         if ($driver === '') {
