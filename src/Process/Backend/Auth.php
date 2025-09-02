@@ -53,7 +53,7 @@ class Auth extends Process
     public static function init(): bool
     {
         // If we have a session cookie, go to index.php
-        if (isset($_SESSION['sess_user_id'])) {
+        if (App::session()->get('sess_user_id') != '') {
             App::backend()->url()->redirect('admin.home');
         }
 
@@ -266,8 +266,8 @@ class Auth extends Process
                 $cur->user_pwd        = $_POST['new_pwd'];
                 App::users()->updUser((string) App::auth()->userID(), $cur);
 
-                $_SESSION['sess_user_id']     = App::backend()->user_id;
-                $_SESSION['sess_browser_uid'] = Http::browserUID(App::config()->masterKey());
+                App::session()->set('sess_user_id', App::backend()->user_id);
+                App::session()->set('sess_browser_uid', Http::browserUID(App::config()->masterKey()));
 
                 if ($data['user_remember']) {
                     setcookie(App::backend()::COOKIE_NAME, $data['cookie_admin'], ['expires' => strtotime('+15 days'), 'path' => '', 'domain' => '', 'secure' => App::config()->adminSsl()]);
@@ -318,11 +318,11 @@ class Auth extends Process
                     throw new Exception(__('Code validation failed.'));
                 }
 
-                $_SESSION['sess_user_id']     = App::backend()->user_id;
-                $_SESSION['sess_browser_uid'] = Http::browserUID(App::config()->masterKey());
+                App::session()->set('sess_user_id', App::backend()->user_id);
+                App::session()->set('sess_browser_uid', Http::browserUID(App::config()->masterKey()));
 
                 if ($data['safe_mode'] && App::auth()->isSuperAdmin()) {
-                    $_SESSION['sess_safe_mode'] = true;
+                    App::session()->set('sess_safe_mode', true);
                 }
 
                 if ($data['user_remember']) {
@@ -386,15 +386,15 @@ class Auth extends Process
                 } else {
                     // normal login
 
-                    $_SESSION['sess_user_id']     = App::backend()->user_id;
-                    $_SESSION['sess_browser_uid'] = Http::browserUID(App::config()->masterKey());
+                    App::session()->set('sess_user_id', App::backend()->user_id);
+                    App::session()->set('sess_browser_uid', Http::browserUID(App::config()->masterKey()));
 
                     if (!empty($_POST['blog'])) {
-                        $_SESSION['sess_blog_id'] = $_POST['blog'];
+                        App::session()->set('sess_blog_id', $_POST['blog']);
                     }
 
                     if (App::backend()->safe_mode && App::auth()->isSuperAdmin()) {
-                        $_SESSION['sess_safe_mode'] = true;
+                        App::session()->set('sess_safe_mode', true);
                     }
 
                     if (!empty($_POST['user_remember'])) {

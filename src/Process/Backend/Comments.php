@@ -48,7 +48,7 @@ class Comments extends Process
 
             try {
                 App::blog()->delJunkComments();
-                $_SESSION['comments_del_spam'] = true;
+                App::session()->set('comments_del_spam', true);
                 App::backend()->url()->redirect('admin.comments');
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
@@ -142,9 +142,9 @@ class Comments extends Process
         }
 
         if (!App::error()->flag()) {
-            if (isset($_SESSION['comments_del_spam'])) {
+            if (App::session()->get('comments_del_spam') != '') {
                 Notices::message(__('Spam comments have been successfully deleted.'));
-                unset($_SESSION['comments_del_spam']);
+                App::session()->unset('comments_del_spam');
             }
 
             $spam_count = App::blog()->getComments(['comment_status' => App::status()->comment()::JUNK], true)->f(0);

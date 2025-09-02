@@ -58,7 +58,7 @@ class Auth extends Process
     public static function init(): bool
     {
         // If we have a session cookie, go to index.php
-        if (isset($_SESSION['sess_user_id'])) {
+        if (App::session()->get('sess_user_id') != '') {
             App::upgrade()->url()->redirect('upgrade.home');
         }
 
@@ -163,8 +163,8 @@ class Auth extends Process
             $check_code  = $check_perms && self::$otp->setUser((string) self::$user_id)->verifyCode($_POST['user_code']);
 
             if ($check_code) {
-                $_SESSION['sess_user_id']     = self::$user_id;
-                $_SESSION['sess_browser_uid'] = Http::browserUID(App::config()->masterKey());
+                App::session()->set('sess_user_id', self::$user_id);
+                App::session()->set('sess_browser_uid', Http::browserUID(App::config()->masterKey()));
 
                 if ($data['user_remember']) {
                     setcookie(App::upgrade()::COOKIE_NAME, $data['cookie_admin'], ['expires' => strtotime('+15 days'), 'path' => '', 'domain' => '', 'secure' => App::config()->adminSsl()]);
@@ -223,11 +223,11 @@ class Auth extends Process
                         empty($_POST['user_remember']) ? '0' : '1',
                     ]);
                 } else {
-                    $_SESSION['sess_user_id']     = self::$user_id;
-                    $_SESSION['sess_browser_uid'] = Http::browserUID(App::config()->masterKey());
+                    App::session()->set('sess_user_id', self::$user_id);
+                    App::session()->set('sess_browser_uid', Http::browserUID(App::config()->masterKey()));
 
                     if (!empty($_POST['blog'])) {
-                        $_SESSION['sess_blog_id'] = $_POST['blog'];
+                        App::session()->set('sess_blog_id', $_POST['blog']);
                     }
 
                     if (!empty($_POST['user_remember'])) {

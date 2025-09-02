@@ -38,9 +38,7 @@ class OAuth2Client extends Client
 
     protected function checkSession(): void
     {
-        if (session_status() === PHP_SESSION_NONE) {
-            App::session()->start();
-        }
+        App::session()->start();
     }
 
     protected function requestActionError(Exception $e): bool
@@ -57,8 +55,8 @@ class OAuth2Client extends Client
     protected function checkUser(string $user_id): bool
     {
         if (App::auth()->checkUser($user_id, null, null, false)) {
-            $_SESSION['sess_user_id']     = $user_id;
-            $_SESSION['sess_browser_uid'] = Http::browserUID(App::config()->masterKey());
+            App::session()->set('sess_user_id', $user_id);
+            App::session()->set('sess_browser_uid', Http::browserUID(App::config()->masterKey()));
 
             return true;
         }

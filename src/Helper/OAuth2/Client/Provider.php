@@ -260,9 +260,9 @@ abstract class Provider
         }
 
         if (static::REQUIRE_CHALLENGE) {
-            $_SESSION['code_verifier'] = static::getPKCEVerifier();
+            $this->setCodeVerifier(static::getPKCEVerifier());
 
-            $parameters['code_challenge']        = static::getPKCEChallenge($_SESSION['code_verifier']);
+            $parameters['code_challenge']        = static::getPKCEChallenge($this->getCodeVerifier());
             $parameters['code_challenge_method'] = 'S256';
         }
 
@@ -336,15 +336,15 @@ abstract class Provider
         ];
 
         if (static::REQUIRE_CHALLENGE) {
-            $code = $_SESSION['code_verifier'] ?? '';
-            if (!$code) {
+            $code = $this->getCodeVerifier();
+            if ($code == '') {
                 throw new Exception\InvalidResponse('PKCE code verifier not found');
             }
 
             $parameters['code_verifier'] = $code;
             //$parameters['device_id'] = $this->session->get('device_id');
 
-            unset($_SESSION['code_verifier']);
+            $this->setCodeVerifier(null);
         }
 
         return $parameters;
@@ -715,5 +715,25 @@ abstract class Provider
     public function getUserUID(Token $token): string
     {
         return '';
+    }
+
+    /**
+     * Get code verifier from session.
+     *
+     * @return  string  The code
+     */
+    protected function getCodeVerifier(): string
+    {
+        return $_SESSION['code_verifier'] ?? '';
+    }
+
+    /**
+     * Set code verifer in session.
+     *
+     * @param   null|string     $code   The code
+     */
+    protected function setCodeVerifier(?string $code): void
+    {
+        $_SESSION['code_verifier'] = $code;
     }
 }

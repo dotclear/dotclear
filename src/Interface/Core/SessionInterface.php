@@ -79,4 +79,37 @@ interface SessionInterface
      * @return  list{0:string,1:string,2:int,3:string,4:string,5:bool}
      */
     public function getCookieParameters($value = null, int $expire = 0): array;
+
+    /**
+     * Check if sessions are active and a session exists.
+     *
+     * This does not mean the active session is from this instance.
+     *
+     * @return  bool    True if there is an actve session
+     */
+    public function exists(): bool;
+
+    /**
+     * Set a value to session.
+     *
+     * @param   string  $key    The key
+     * @param   mixed   $value  The value
+     */
+    public function set(string $key, mixed $value): void;
+
+    /**
+     * Get a value from session.
+     *
+     * @param   string  $key    The key
+     *
+     * @return  mixed   The value or null if not set
+     */
+    public function get(string $key): mixed;
+
+    /**
+     * Unset values from session.
+     *
+     * @param   string  $keys   The keys
+     */
+    public function unset(...$keys): void;
 }

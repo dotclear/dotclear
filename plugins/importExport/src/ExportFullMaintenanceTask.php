@@ -72,7 +72,7 @@ class ExportFullMaintenanceTask extends MaintenanceTask
     public function step(): ?string
     {
         // Download zip file
-        if (isset($_SESSION['export_file']) && file_exists($_SESSION['export_file'])) {
+        if (App::session()->get('export_file') != '' && file_exists(App::session()->get('export_file'))) {
             // Log task execution here as we sent file and stop script
             $this->log();
 

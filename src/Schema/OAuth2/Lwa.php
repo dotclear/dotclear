@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Schema\OAuth2;
 
-use Dotclear\Helper\OAuth2\Client\{Methods, Provider, Token, User };
+use Dotclear\Helper\OAuth2\Client\{Methods, Token, User };
 
 /**
  * @brief   Lwa (Login With Amazon) oAuth2 client provider class.

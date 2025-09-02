@@ -99,9 +99,9 @@ class ModuleExportFlat extends Module
                 # --BEHAVIOR-- exportSingle -- FlatExport, string
                 App::behavior()->callBehavior('exportSingleV2', $exp, $blog_id);
 
-                $_SESSION['export_file']     = $fullname;
-                $_SESSION['export_filename'] = $_POST['file_name'];
-                $_SESSION['export_filezip']  = !empty($_POST['file_zip']);
+                App::session()->set('export_file', $fullname);
+                App::session()->set('export_filename', $_POST['file_name']);
+                App::session()->set('export_filezip', !empty($_POST['file_zip']));
                 Http::redirect($this->getURL() . '&do=ok');
             } catch (Exception $e) {
                 @unlink($fullname);
@@ -137,9 +137,9 @@ class ModuleExportFlat extends Module
                 # --BEHAVIOR-- exportFull -- FlatExport
                 App::behavior()->callBehavior('exportFullV2', $exp);
 
-                $_SESSION['export_file']     = $fullname;
-                $_SESSION['export_filename'] = $_POST['file_name'];
-                $_SESSION['export_filezip']  = !empty($_POST['file_zip']);
+                App::session()->set('export_file', $fullname);
+                App::session()->set('export_filename', $_POST['file_name']);
+                App::session()->set('export_filezip', !empty($_POST['file_zip']));
                 Http::redirect($this->getURL() . '&do=ok');
             } catch (Exception $e) {
                 @unlink($fullname);
@@ -150,49 +150,49 @@ class ModuleExportFlat extends Module
 
         // Send file content
         if ($do === 'ok') {
-            if (!file_exists($_SESSION['export_file'])) {
+            if (App::session()->get('export_file') == '' || !file_exists(App::session()->get('export_file'))) {
                 throw new Exception(__('Export file not found.'));
             }
 
             ob_end_clean();
 
-            if (str_ends_with((string) $_SESSION['export_filename'], '.zip')) {
-                $_SESSION['export_filename'] = substr((string) $_SESSION['export_filename'], 0, -4); //.'.txt';
+            if (str_ends_with((string) App::session()->get('export_filename'), '.zip')) {
+                App::session()->set('export_filename', substr(App::session()->get('export_filename'), 0, -4)); //.'.txt';
             }
 
             // Flat export
-            if (empty($_SESSION['export_filezip'])) {
-                header('Content-Disposition: attachment;filename=' . $_SESSION['export_filename']);
+            if (App::session()->get('export_filezip') != '') {
+                header('Content-Disposition: attachment;filename=' . (string) App::session()->get('export_filename'));
                 header('Content-Type: text/plain; charset=UTF-8');
-                readfile($_SESSION['export_file']);
+                readfile(App::session()->get('export_file'));
 
-                unlink($_SESSION['export_file']);
-                unset($_SESSION['export_file'], $_SESSION['export_filename'], $_SESSION['export_filezip']);
+                unlink(App::session()->get('export_file'));
+                App::session()->unset('export_file', 'export_filename', 'export_filezip');
                 dotclear_exit();
             }
 
             // Zip export
 
-            $file_zipname = $_SESSION['export_filename'] . '.zip';
+            $file_zipname = App::session()->get('export_filename') . '.zip';
 
             try {
                 $fp  = fopen('php://output', 'wb');
                 $zip = new Zip($fp);
-                $zip->addFile($_SESSION['export_file'], $_SESSION['export_filename']);
+                $zip->addFile(App::session()->get('export_file'), (string) App::session()->get('export_filename'));
 
                 header('Content-Disposition: attachment;filename=' . $file_zipname);
                 header('Content-Type: application/x-zip');
 
                 $zip->write();
 
-                unlink($_SESSION['export_file']);
+                unlink(App::session()->get('export_file'));
                 dotclear_exit();
             } catch (Exception) {
-                @unlink($_SESSION['export_file']);
+                @unlink(App::session()->get('export_file'));
 
                 throw new Exception(__('Failed to compress export file.'));
             } finally {
-                unset($zip, $_SESSION['export_file'], $_SESSION['export_filename'], $file_zipname);
+                unset($zip, App::session()->get('export_file'), (string) App::session()->get('export_filename'), $file_zipname);
             }
         }
     }

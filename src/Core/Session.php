@@ -110,7 +110,7 @@ class Session implements SessionInterface
     public function start(): void
     {
         // We can't set session stuff (handler, id, name) if session already exists
-        if (session_status() === PHP_SESSION_ACTIVE) {
+        if ($this->exists()) {
             return;
         }
         if ($this->cookie_name === '') {
@@ -150,5 +150,25 @@ class Session implements SessionInterface
             (string) $this->cookie_domain,
             $this->cookie_secure,
         ];
+    }
+
+    public function exists(): bool
+    {
+        return session_status() === PHP_SESSION_ACTIVE;
+    }
+
+    public function set(string $key, mixed $value): void
+    {
+        $_SESSION[$key] = $value;
+    }
+
+    public function get(string $key): mixed
+    {
+        return $_SESSION[$key] ?? null;
+    }
+
+    public function unset(...$keys): void
+    {
+        array_walk($keys, function ($value): void { unset($_SESSION[$value]); });
     }
 }

@@ -91,20 +91,31 @@ class ModuleImportDc1 extends Module
         $this->prefix  = App::db()->con()->prefix();
         $this->blog_id = App::blog()->id();
 
-        if (!isset($_SESSION['dc1_import_vars'])) {
-            $_SESSION['dc1_import_vars'] = $this->base_vars;
-        }
-        $this->vars = &$_SESSION['dc1_import_vars'];
+        $this->readVars();
 
         if ($this->vars['post_limit'] > 0) {
             $this->post_limit = $this->vars['post_limit'];
+            $this->writeVars();
         }
+    }
+
+    protected function readVars(): void
+    {
+        if (App::session()->get('dc1_import_vars') == '') {
+            $this->resetVars();
+        }
+        $this->vars = App::session()->get('dc1_import_vars');
+    }
+
+    protected function writeVars(): void
+    {
+        App::session()->set('dc1_import_vars', $this->vars);
     }
 
     public function resetVars(): void
     {
         $this->vars = $this->base_vars;
-        unset($_SESSION['dc1_import_vars']);
+        $this->writeVars();
     }
 
     public function process(string $do): void
@@ -132,6 +143,7 @@ class ModuleImportDc1 extends Module
                 $this->vars['db_prefix']  = $_POST['db_prefix'];
                 $db                       = $this->db();
                 $db->close();
+                $this->writeVars();
                 $this->step = 2;
                 echo $this->progressBar(1);
 
@@ -388,7 +400,7 @@ class ModuleImportDc1 extends Module
      */
     protected function db()
     {
-        $db = App::db()->con($this->vars['db_driver'], $this->vars['db_host'], $this->vars['db_name'], $this->vars['db_user'], $this->vars['db_pwd']);
+        $db = App::db()->newCon($this->vars['db_driver'], $this->vars['db_host'], $this->vars['db_name'], $this->vars['db_user'], $this->vars['db_pwd']);
 
         $rs = $db->select("SHOW TABLES LIKE '" . $this->vars['db_prefix'] . "%'");
         if ($rs->isEmpty()) {
@@ -521,6 +533,7 @@ class ModuleImportDc1 extends Module
             }
 
             $db->close();
+            $this->writeVars();
         } catch (Exception $e) {
             $db->close();
 
