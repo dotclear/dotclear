@@ -266,7 +266,7 @@ class Filter
             }
             # HTML field
             $select = (new Select($this->id))
-                ->default(Html::escapeHTML($this->value))
+                ->default(Html::escapeHTML((string) $this->value))
                 ->items($this->options);
 
             $label = (new Label($this->title, 2, $this->id))
@@ -284,7 +284,7 @@ class Filter
             $input = (new Input($this->id))
                 ->size(20)
                 ->maxlength(255)
-                ->value(Html::escapeHTML($this->value));
+                ->value(Html::escapeHTML((string) $this->value));
 
             $label = (new Label($this->title, 2, $this->id))
                 ->class('ib');
