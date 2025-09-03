@@ -17,9 +17,9 @@ use Dotclear\Interface\Database\ConnectionInterface;
 class SessionDB
 {
     /**
-     * TTL (must be a negative duration as '-120 minutes')
+     * TTL (must be a negative duration as '-20 hours')
      */
-    private string $ttl = '-120 minutes';
+    private string $ttl = '-20 hours';
 
     /**
      * Session handler
@@ -37,7 +37,7 @@ class SessionDB
      * @param string                $cookie_path       Session cookie path
      * @param string                $cookie_domain     Session cookie domaine
      * @param bool                  $cookie_secure     Session cookie is available only through SSL if true
-     * @param string                $ttl               TTL (default -120 minutes)
+     * @param string                $ttl               TTL
      */
     public function __construct(
         private readonly ConnectionInterface $con,

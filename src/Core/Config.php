@@ -434,7 +434,7 @@ class Config implements ConfigInterface
         $this->master_key            = DC_MASTER_KEY;
         $this->next_required_php     = (string) DC_NEXT_REQUIRED_PHP;
         $this->vendor_name           = DC_VENDOR_NAME;
-        $this->session_ttl           = (string) (is_null(DC_SESSION_TTL) ? '-120 minutes' : DC_SESSION_TTL);
+        $this->session_ttl           = (string) (is_null(DC_SESSION_TTL) ? '-20 hours' : DC_SESSION_TTL);
         $this->session_name          = DC_SESSION_NAME;
         $this->admin_ssl             = DC_ADMIN_SSL;
         $this->admin_url             = DC_ADMIN_URL;

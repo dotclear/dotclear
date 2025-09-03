@@ -46,7 +46,7 @@ define('DC_ADMIN_MAILFROM', '');
 define('DC_SESSION_NAME', 'dcxd');
 
 // Session TTL
-//define('DC_SESSION_TTL','120 seconds');
+//define('DC_SESSION_TTL','-20 hours');
 
 // Plugins root
 define('DC_PLUGINS_ROOT', __DIR__ . '/../plugins');

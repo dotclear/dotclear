@@ -32,7 +32,7 @@ class SessionHandler implements SessionHandlerInterface
      *
      * @param ConnectionInterface   $con               AbstractHandler inherited database instance
      * @param string                $table             Table name
-     * @param string                $ttl               TTL (default -120 minutes)
+     * @param string                $ttl               TTL
      */
     public function __construct(
         private readonly ConnectionInterface $con,
