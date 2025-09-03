@@ -230,7 +230,6 @@ class OAuth2Store extends Store
         return 'index.php?vf=' . static::VAR_DIR . '/' . md5($file) . '.' . (Files::getExtension($config['avatar']) ?: 'jpg');
     }
 
-
     public function getState(string $state): string
     {
         $session = $this->getSession();
@@ -304,7 +303,7 @@ class OAuth2Store extends Store
     protected function getSession(): array
     {
         $session = App::session()->get(static::CONTAINER_ID);
-        
+
         return is_array($session) ? $session : [];
     }
 }

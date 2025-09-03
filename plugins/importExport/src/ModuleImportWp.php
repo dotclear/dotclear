@@ -657,7 +657,8 @@ class ModuleImportWp extends Module
                 $cur->insert();
             }
 
-            $db->close();$this->writeVars();
+            $db->close();
+            $this->writeVars();
         } catch (Exception $e) {
             $db->close();
 

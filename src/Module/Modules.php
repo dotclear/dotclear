@@ -395,7 +395,7 @@ class Modules implements ModulesInterface
     {
         $this->path      = explode(PATH_SEPARATOR, $path);
         $this->ns        = $ns;
-        $this->safe_mode = App::session()->get('sess_safe_mode') != '';
+        $this->safe_mode = (App::session()->get('sess_safe_mode') != '');
 
         $ignored = [];
 

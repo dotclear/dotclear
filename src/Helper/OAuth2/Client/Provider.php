@@ -337,7 +337,7 @@ abstract class Provider
 
         if (static::REQUIRE_CHALLENGE) {
             $code = $this->getCodeVerifier();
-            if ($code == '') {
+            if ($code === '') {
                 throw new Exception\InvalidResponse('PKCE code verifier not found');
             }
 

@@ -95,7 +95,7 @@ class Session implements SessionInterface
             @ini_set('url_rewriter.tags', '');
             @ini_set('session.use_trans_sid', '0');
             @ini_set('session.cookie_path', $this->cookie_path);
-            @ini_set('session.cookie_domain', (string) $this->cookie_domain);
+            @ini_set('session.cookie_domain', $this->cookie_domain);
             @ini_set('session.cookie_secure', (string) $this->cookie_secure);
         }
     }
@@ -146,8 +146,8 @@ class Session implements SessionInterface
             (string) session_name(),
             (string) $value,
             $expire,
-            (string) $this->cookie_path,
-            (string) $this->cookie_domain,
+            $this->cookie_path,
+            $this->cookie_domain,
             $this->cookie_secure,
         ];
     }
@@ -169,6 +169,6 @@ class Session implements SessionInterface
 
     public function unset(...$keys): void
     {
-        array_walk($keys, function ($value): void { unset($_SESSION[$value]); });
+        array_walk($keys, function (string $value): void { unset($_SESSION[$value]); });
     }
 }

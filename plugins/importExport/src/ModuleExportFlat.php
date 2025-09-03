@@ -157,12 +157,12 @@ class ModuleExportFlat extends Module
             ob_end_clean();
 
             if (str_ends_with((string) App::session()->get('export_filename'), '.zip')) {
-                App::session()->set('export_filename', substr(App::session()->get('export_filename'), 0, -4)); //.'.txt';
+                App::session()->set('export_filename', substr((string) App::session()->get('export_filename'), 0, -4)); //.'.txt';
             }
 
             // Flat export
             if (App::session()->get('export_filezip') != '') {
-                header('Content-Disposition: attachment;filename=' . (string) App::session()->get('export_filename'));
+                header('Content-Disposition: attachment;filename=' . App::session()->get('export_filename'));
                 header('Content-Type: text/plain; charset=UTF-8');
                 readfile(App::session()->get('export_file'));
 
@@ -192,7 +192,8 @@ class ModuleExportFlat extends Module
 
                 throw new Exception(__('Failed to compress export file.'));
             } finally {
-                unset($zip, App::session()->get('export_file'), (string) App::session()->get('export_filename'), $file_zipname);
+                unset($zip, $file_zipname);
+                App::session()->unset('export_file', 'export_filename');
             }
         }
     }
