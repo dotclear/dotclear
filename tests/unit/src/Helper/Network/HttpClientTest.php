@@ -136,7 +136,7 @@ namespace Dotclear\Tests\Helper\Network {
 
         public function testQuickPost(): void
         {
-            $ret = \Dotclear\Helper\Network\HttpClient::quickPost('https://ptsv3.com/', ['my' => 42]);
+            $ret = \Dotclear\Helper\Network\HttpClient::quickPost('https://ptsv3.com/dotclear', ['my' => 42]);
 
             $this->assertIsString(
                 $ret
@@ -213,10 +213,10 @@ namespace Dotclear\Tests\Helper\Network {
             $client->setMoreHeader('Set-Cookie: dcxd-dc2-hg=0');
 
             $this->assertTrue(
-                $client->post('/', ['my' => 42], 'UTF-8')
+                $client->post('/dotclear', ['my' => 42], 'UTF-8')
             );
             $this->assertEquals(
-                'http://ptsv3.com/',
+                'http://ptsv3.com/dotclear',
                 $client->getRequestURL()
             );
             $this->assertArrayHasKey(
@@ -224,7 +224,7 @@ namespace Dotclear\Tests\Helper\Network {
                 $client->getHeaders()
             );
             $this->assertEquals(
-                'text/html; charset=utf-8',
+                'application/json',
                 $client->getHeader('content-type')
             );
             $this->assertEquals(
@@ -232,7 +232,7 @@ namespace Dotclear\Tests\Helper\Network {
                 $client->getStatus()
             );
             $this->assertStringContainsString(
-                '<html>',
+                '{"message":"Request recorded","status":"success"}',
                 $client->getContent()
             );
             $this->assertEquals(
