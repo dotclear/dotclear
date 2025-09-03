@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Tests\Database;
 
-use Exception;
+use Dotclear\Exception\DatabaseException;
 use PHPUnit\Framework\TestCase;
 
 class TableTest extends TestCase
@@ -298,7 +298,7 @@ class TableTest extends TestCase
             $table->getKeys()
         );
 
-        $this->expectException(Exception::class);
+        $this->expectException(DatabaseException::class);
         $this->expectExceptionMessage('Field unknown does not exist in table dc_table');
 
         $table->unique('pk_unknown', 'unknown');
@@ -345,7 +345,7 @@ class TableTest extends TestCase
             $table->getKeys()
         );
 
-        $this->expectException(Exception::class);
+        $this->expectException(DatabaseException::class);
         $this->expectExceptionMessage('Table dc_table already has a primary key');
 
         $table->primary('pk_uid', 'uid');
@@ -374,7 +374,7 @@ class TableTest extends TestCase
             ->strange('WTF', null, true, null, true)
         ;
 
-        $this->expectException(Exception::class);
+        $this->expectException(DatabaseException::class);
         $this->expectExceptionMessage('Invalid data type weird in schema');
 
         // @phpstan-ignore method.notFound

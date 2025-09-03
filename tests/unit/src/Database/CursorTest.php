@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Tests\Database;
 
-use Exception;
+use Dotclear\Exception\DatabaseException;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
@@ -142,7 +142,7 @@ class CursorTest extends TestCase
         // @phpstan-ignore argument.type
         $cursor = new \Dotclear\Database\Cursor($con, '');
 
-        $this->expectException(Exception::class);
+        $this->expectException(DatabaseException::class);
         $this->expectExceptionMessage('No table name.');
 
         $cursor->insert();
@@ -155,7 +155,7 @@ class CursorTest extends TestCase
         // @phpstan-ignore argument.type
         $cursor = new \Dotclear\Database\Cursor($con, '');
 
-        $this->expectException(Exception::class);
+        $this->expectException(DatabaseException::class);
         $this->expectExceptionMessage('No table name.');
 
         $cursor->update('');
@@ -173,7 +173,7 @@ class CursorTest extends TestCase
             ['pgsql', 'Pgsql', 'postgresql'],
             ['pdosqlite', 'PdoSqlite', 'sqlite'],
             ['pdomysql', 'PdoMysql', 'mysql'],
-            ['pdomysqlmb4', 'PdoMysqlmb4', 'mysql'],
+            ['pdomysqlmb4', 'PdoMysqlMb4', 'mysql'],
             ['pdopgsql', 'PdoPgsql', 'postgresql'],
         ];
     }

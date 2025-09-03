@@ -505,7 +505,7 @@ class SelectStatementTest extends TestCase
             ['pgsql', 'Pgsql', 'postgresql'],
             ['pdosqlite', 'PdoSqlite', 'sqlite'],
             ['pdomysql', 'PdoMysql', 'mysql'],
-            ['pdomysqlmb4', 'PdoMysqlmb4', 'mysql'],
+            ['pdomysqlmb4', 'PdoMysqlMb4', 'mysql'],
             ['pdopgsql', 'PdoPgsql', 'postgresql'],
         ];
     }

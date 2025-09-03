@@ -10,10 +10,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Schema\Database\PdoMysqlMb4;
 
+use Dotclear\Exception\DatabaseException;
 use Dotclear\Schema\Database\PdoMysql\Handler as PdoMysqlHandler;
-use Dotclear\Interface\Database\SchemaInterface;
 use Dotclear\Schema\Database\Mysqlimb4\Schema;
-use Exception;
+use Dotclear\Interface\Database\SchemaInterface;
 use PDO;
 
 /**
@@ -50,7 +50,7 @@ class Handler extends PdoMysqlHandler
                 $this->db_query($handle, "SET CHARACTER_SET_DATABASE = 'utf8mb4'");
             }
         } else {
-            throw new Exception('Unable to connect to an utf8mb4 database');
+            throw new DatabaseException('Unable to connect to an utf8mb4 database');
         }
     }
 

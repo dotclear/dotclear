@@ -12,7 +12,7 @@ namespace Dotclear\Database;
 
 use Dotclear\Database\Statement\InsertStatement;
 use Dotclear\Database\Statement\UpdateStatement;
-use Exception;
+use Dotclear\Exception\DatabaseException;
 
 /**
  * @class Cursor
@@ -38,7 +38,7 @@ class Cursor
     private string $__table;
 
     /**
-     * Constructor
+     * Constructor.
      *
      * Init Cursor object on a given table. Note that you can init it with
      * {@link AbstractHandler::openCursor() openCursor()} method of your connection object.
@@ -53,10 +53,10 @@ class Cursor
      *    $cur->update('WHERE field3 = 4'); // ... or update field
      * ```
      *
-     * @see AbstractHandler::openCursor()
+     * @see     AbstractHandler::openCursor()
      *
-     * @param AbstractHandler   $con      Connection object
-     * @param string            $table    Table name
+     * @param   AbstractHandler     $con    Connection object
+     * @param   string              $table  Table name
      */
     public function __construct(AbstractHandler $con, string $table)
     {
@@ -65,11 +65,11 @@ class Cursor
     }
 
     /**
-     * Set table
+     * Set table.
      *
      * Changes working table and resets data
      *
-     * @param string    $table    Table name
+     * @param   string  $table  Table name
      */
     public function setTable(string $table): void
     {
@@ -78,7 +78,7 @@ class Cursor
     }
 
     /**
-     * Set field
+     * Set field.
      *
      * Set value <var>$value</var> to a field named <var>$name</var>. Value could be
      * an string, an integer, a float, a null value or an array.
@@ -86,10 +86,10 @@ class Cursor
      * If value is an array, its first value will be interpreted as a SQL
      * command. String values will be automatically escaped.
      *
-     * @see __set()
+     * @see     __set()
      *
-     * @param string    $name        Field name
-     * @param mixed     $value       Field value
+     * @param   string  $name   Field name
+     * @param   mixed   $value  Field value
      */
     public function setField(string $name, $value): void
     {
@@ -97,11 +97,11 @@ class Cursor
     }
 
     /**
-     * Unset field
+     * Unset field.
      *
      * Remove a field from data set.
      *
-     * @param string    $name        Field name
+     * @param   string  $name   Field name
      */
     public function unsetField(string $name): void
     {
@@ -109,9 +109,9 @@ class Cursor
     }
 
     /**
-     * Field exists
+     * Field exists.
      *
-     * @return boolean    true if field named <var>$name</var> exists
+     * @return  boolean     true if field named <var>$name</var> exists
      */
     public function isField(string $name): bool
     {
@@ -119,11 +119,11 @@ class Cursor
     }
 
     /**
-     * Field value
+     * Field value.
      *
-     * @see __get()
+     * @see     __get()
      *
-     * @return mixed    value for a field named <var>$name</var>
+     * @return  mixed   value for a field named <var>$name</var>
      */
     public function getField(string $name)
     {
@@ -131,12 +131,12 @@ class Cursor
     }
 
     /**
-     * Set Field
+     * Set Field.
      *
      * Magic alias for {@link setField()}
      *
-     * @param string    $name        Field name
-     * @param mixed     $value       Field value
+     * @param   string  $name   Field name
+     * @param   mixed   $value  Field value
      */
     public function __set(string $name, $value): void
     {
@@ -144,11 +144,11 @@ class Cursor
     }
 
     /**
-     * Field value
+     * Field value.
      *
      * Magic alias for {@link getField()}
      *
-     * @return mixed    value for a field named <var>$n</var>
+     * @return  mixed   value for a field named <var>$n</var>
      */
     public function __get(string $name)
     {
@@ -156,7 +156,7 @@ class Cursor
     }
 
     /**
-     * Empty data set
+     * Empty data set.
      *
      * Removes all data from data set
      */
@@ -166,7 +166,7 @@ class Cursor
     }
 
     /**
-     * Get insert query
+     * Get insert query.
      *
      * Returns the generated INSERT query
      */
@@ -183,11 +183,11 @@ class Cursor
     }
 
     /**
-     * Get update query
+     * Get update query.
      *
      * Returns the generated UPDATE query
      *
-     * @param string    $where        WHERE condition
+     * @param   string  $where  WHERE condition
      */
     public function getUpdate(string $where): string
     {
@@ -206,14 +206,16 @@ class Cursor
     }
 
     /**
-     * Execute insert query
+     * Execute insert query.
      *
      * Executes the generated INSERT query
+     *
+     * @throws  DatabaseException
      */
     public function insert(): bool
     {
         if ($this->__table === '') {
-            throw new Exception('No table name.');
+            throw new DatabaseException('No table name.');
         }
 
         $insReq = $this->getInsert();
@@ -224,16 +226,18 @@ class Cursor
     }
 
     /**
-     * Execute update query
+     * Execute update query.
      *
      * Executes the generated UPDATE query
      *
-     * @param string    $where        WHERE condition
+     * @throws  DatabaseException
+     *
+     * @param   string  $where  WHERE condition
      */
     public function update(string $where): bool
     {
         if ($this->__table === '') {
-            throw new Exception('No table name.');
+            throw new DatabaseException('No table name.');
         }
 
         $updReq = $this->getUpdate($where);

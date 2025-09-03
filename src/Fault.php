@@ -41,7 +41,7 @@ class Fault
 
         // Parse some Exception values. And try to translate them even if they are already translated.
         $code    = $exception->getCode() ?: 500;
-        $label   = htmlspecialchars(__($exception->getMessage()));
+        $label   = htmlspecialchars(strip_tags(__($exception->getMessage())));
         $message = nl2br(__($exception->getPrevious() instanceof Throwable ? $exception->getPrevious()->getMessage() : $exception->getMessage()));
         $trace   = htmlspecialchars(self::$config?->debugMode() !== false ? self::trace($exception) : '');
 
@@ -133,6 +133,11 @@ class Fault
      */
     public static function render(int $code, string $label, string $message, string $trace = ''): never
     {
+        // Try to remove any previous buffer without notice
+        if (ob_get_length()) {
+            ob_clean();
+        }
+
         $vendor = htmlspecialchars(self::$config?->vendorName() ?: 'Dotclear');
 
         // HTTP header
@@ -155,6 +160,7 @@ class Fault
     background : #B2B2B2;
     margin : 0;
     padding : 0;
+    line-height: 2em;
   }
   #content {
       margin: 10px 25%;

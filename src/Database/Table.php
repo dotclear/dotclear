@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Database;
 
-use Exception;
+use \Dotclear\Exception\DatabaseException;
 
 /**
  * @class Table
@@ -225,7 +225,7 @@ class Table
      * @param      mixed      $default  The default value
      * @param      bool       $to_null  Set type to null if type unknown
      *
-     * @throws     Exception
+     * @throws     DatabaseException
      */
     public function field(string $name, string $type, ?int $len, bool $null = true, $default = false, bool $to_null = false): Table
     {
@@ -235,7 +235,7 @@ class Table
             if ($to_null) {
                 $type = null;
             } else {
-                throw new Exception('Invalid data type ' . $type . ' in schema');
+                throw new DatabaseException('Invalid data type ' . $type . ' in schema');
             }
         }
 
@@ -273,12 +273,12 @@ class Table
      * @param      string         $name         The name
      * @param      mixed          ...$fields    The cols
      *
-     * @throws     Exception
+     * @throws     DatabaseException
      */
     public function primary(string $name, ...$fields): Table
     {
         if ($this->has_primary) {
-            throw new Exception(sprintf('Table %s already has a primary key', $this->name));
+            throw new DatabaseException(sprintf('Table %s already has a primary key', $this->name));
         }
 
         return $this->newKey('primary', $name, $fields);
@@ -372,13 +372,13 @@ class Table
      *
      * @param      string[]        $fields   The fields
      *
-     * @throws     Exception
+     * @throws     DatabaseException
      */
     protected function checkCols(array $fields): void
     {
         foreach ($fields as $field) {
             if (!preg_match('/^\(.*?\)$/', $field) && !isset($this->fields[$field])) {
-                throw new Exception(sprintf('Field %s does not exist in table %s', $field, $this->name));
+                throw new DatabaseException(sprintf('Field %s does not exist in table %s', $field, $this->name));
             }
         }
     }

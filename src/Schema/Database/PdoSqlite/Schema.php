@@ -11,7 +11,7 @@ declare(strict_types=1);
 namespace Dotclear\Schema\Database\PdoSqlite;
 
 use Dotclear\Database\AbstractSchema;
-use Exception;
+use Dotclear\Exception\DatabaseException;
 
 /**
  * @class Schema
@@ -468,7 +468,7 @@ class Schema extends AbstractSchema
      * @param      false|string     $update          The update
      * @param      false|string     $delete          The delete
      *
-     * @throws     Exception
+     * @throws     DatabaseException
      */
     public function db_create_reference(string $name, string $table, array $fields, string $foreign_table, array $foreign_fields, $update, $delete): void
     {
@@ -477,7 +477,7 @@ class Schema extends AbstractSchema
         }
 
         if (count($fields) > 1 || count($foreign_fields) > 1) {
-            throw new Exception('SQLite UDBS does not support multiple columns foreign keys');
+            throw new DatabaseException('SQLite UDBS does not support multiple columns foreign keys');
         }
 
         $c_col = $fields[0];
@@ -563,13 +563,13 @@ class Schema extends AbstractSchema
      * @param      bool       $null     The null
      * @param      mixed      $default  The default
      *
-     * @throws     Exception
+     * @throws     DatabaseException
      */
     public function db_alter_field(string $table, string $name, string $type, ?int $len, bool $null, $default): void
     {
         $type = $this->udt2dbt($type, $len, $default);
         if ($type !== 'integer' && $type !== 'text' && $type !== 'timestamp') {
-            throw new Exception('SQLite fields cannot be changed.');
+            throw new DatabaseException('SQLite fields cannot be changed.');
         }
     }
 
@@ -581,12 +581,12 @@ class Schema extends AbstractSchema
      * @param      string           $newname  The newname
      * @param      array<string>    $fields   The fields
      *
-     * @throws     Exception
+     * @throws     DatabaseException
      * @return never
      */
     public function db_alter_primary(string $table, string $name, string $newname, array $fields): void
     {
-        throw new Exception('SQLite primary key cannot be changed.');
+        throw new DatabaseException('SQLite primary key cannot be changed.');
     }
 
     /**
@@ -597,12 +597,12 @@ class Schema extends AbstractSchema
      * @param      string           $newname  The newname
      * @param      array<string>    $fields   The fields
      *
-     * @throws     Exception
+     * @throws     DatabaseException
      * @return never
      */
     public function db_alter_unique(string $table, string $name, string $newname, array $fields): void
     {
-        throw new Exception('SQLite unique index cannot be changed.');
+        throw new DatabaseException('SQLite unique index cannot be changed.');
     }
 
     /**
@@ -650,11 +650,11 @@ class Schema extends AbstractSchema
      * @param      string     $table  The table
      * @param      string     $name   The name
      *
-     * @throws     Exception
+     * @throws     DatabaseException
      * @return never
      */
     public function db_drop_unique(string $table, string $name): void
     {
-        throw new Exception('SQLite unique index cannot be removed.');
+        throw new DatabaseException('SQLite unique index cannot be removed.');
     }
 }

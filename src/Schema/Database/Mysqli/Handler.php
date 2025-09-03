@@ -48,7 +48,7 @@ class Handler extends AbstractHandler
      * @param      string     $password  The password
      * @param      string     $database  The database
      *
-     * @throws     Exception
+     * @throws     DatabaseException
      *
      * @return     mixed
      */
@@ -73,7 +73,7 @@ class Handler extends AbstractHandler
             }
         }
         if (($link = @mysqli_connect($host, $user, $password, $database, $port, $socket)) === false) {
-            throw new Exception('Unable to connect to database');
+            throw new DatabaseException('Unable to connect to database');
         }
 
         $this->db_post_connect($link);
@@ -163,7 +163,7 @@ class Handler extends AbstractHandler
      * @param      mixed      $handle  The handle
      * @param      string     $query   The query
      *
-     * @throws     Exception
+     * @throws     DatabaseException
      *
      * @return     mixed
      */
@@ -177,7 +177,7 @@ class Handler extends AbstractHandler
                     $msg .= ' SQL=[' . $query . ']';
                 }
 
-                throw new Exception($msg);
+                throw new DatabaseException($msg);
             }
 
             return $res;
