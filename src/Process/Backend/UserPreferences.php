@@ -40,6 +40,8 @@ use Dotclear\Helper\Html\Form\Li;
 use Dotclear\Helper\Html\Form\None;
 use Dotclear\Helper\Html\Form\Note;
 use Dotclear\Helper\Html\Form\Number;
+use Dotclear\Helper\Html\Form\Optgroup;
+use Dotclear\Helper\Html\Form\Option;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Password;
 use Dotclear\Helper\Html\Form\Select;
@@ -53,7 +55,6 @@ use Dotclear\Helper\Html\Form\Td;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Th;
 use Dotclear\Helper\Html\Form\Thead;
-use Dotclear\Helper\Html\Form\Timestamp;
 use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Html\Form\Ul;
 use Dotclear\Helper\Html\Form\Url;
@@ -711,7 +712,7 @@ class UserPreferences extends Process
                     ->separator(' ')
                     ->items([
                         (new Text('', Html::escapeHTML($webauthn_cred->label() ?: __('unlabeled key'))))
-                            ->title( App::backend()->webauthn->provider()->getProvider($webauthn_cred->UUID())),
+                            ->title(App::backend()->webauthn->provider()->getProvider($webauthn_cred->UUID())),
                         (new Text('', sprintf(__('valid on %s'), $webauthn_cred->rpId())))
                             ->title(Date::dt2str(__('%Y-%m-%d %H:%M'), $webauthn_cred->createDate())),
                         (new Submit(['webauthn[' . base64_encode((string) $webauthn_cred->credentialId()) . ']'], __('Delete')))
@@ -771,6 +772,18 @@ class UserPreferences extends Process
                         ->class(['three-boxes'])
                         ->items([...$oauth2_div, $oauth_link]);
                 }
+            }
+        }
+
+        $zones = [];
+        foreach (Date::getZones(true, true) as $key => $value) {
+            if (is_array($value)) {
+                // Group of zones
+                $zones[] = (new Optgroup($key))
+                    ->items(array_map(fn ($key, $val): Option => new Option($key, $val), array_keys($value), array_values($value)));
+            } else {
+                // Simple zone
+                $zones[] = new Option($key, $value);
             }
         }
 
@@ -868,7 +881,7 @@ class UserPreferences extends Process
                         (new Para())
                             ->items([
                                 (new Select('user_tz'))
-                                    ->items(Date::getZones(true, true))
+                                    ->items($zones)
                                     ->default(App::backend()->user_tz)
                                     ->translate(false)
                                     ->label((new Label(__('My timezone:'), Label::OL_TF))),

@@ -32,6 +32,8 @@ use Dotclear\Helper\Html\Form\Link;
 use Dotclear\Helper\Html\Form\None;
 use Dotclear\Helper\Html\Form\Note;
 use Dotclear\Helper\Html\Form\Number;
+use Dotclear\Helper\Html\Form\Optgroup;
+use Dotclear\Helper\Html\Form\Option;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Password;
 use Dotclear\Helper\Html\Form\Select;
@@ -287,6 +289,23 @@ class User extends Process
 
         $super_disabled = App::backend()->user_super && App::backend()->user_id === App::auth()->userID();
 
+        $zones = [];
+        foreach (Date::getZones(true, true) as $key => $value) {
+            if (is_array($value)) {
+                // Group of zones
+                $zones[] = (new Optgroup($key))
+                    ->items(array_map(fn ($key, $val): Option => new Option($key, $val), array_keys($value), array_values($value)));
+            } else {
+                // Simple zone
+                $zones[] = new Option($key, $value);
+            }
+        }
+
+        $statuses = [];
+        foreach (App::status()->user()->combo() as $key => $value) {
+            $statuses[] = new Option($key, $value);
+        }
+
         echo (new Form('user-form'))
             ->method('post')
             ->action(App::backend()->url()->get('admin.user'))
@@ -385,7 +404,7 @@ class User extends Process
                                     ->items([
                                         App::backend()->user_id !== App::auth()->userID() ?
                                         (new Select('user_status'))
-                                            ->items(App::status()->user()->combo())
+                                            ->items($statuses)
                                             ->default(App::backend()->user_status)
                                             ->label((new Label(__('Status:'), Label::OL_TF))) :
                                         (new Hidden(['user_status', App::backend()->user_status])),
@@ -485,7 +504,7 @@ class User extends Process
                                 (new Para())
                                     ->items([
                                         (new Select('user_tz'))
-                                            ->items(Date::getZones(true, true))
+                                            ->items($zones)
                                             ->default(App::backend()->user_tz)
                                             ->label((new Label(__('Timezone:'), Label::OL_TF))),
                                     ]),

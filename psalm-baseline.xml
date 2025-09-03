@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="dev-master@986ef8dcd78884e7625f07eef32a9db1c739b961">
+<files psalm-version="dev-master@cdceda044f0255e4eb1da0557ff1479e6d317e01">
   <file src="plugins/antispam/src/Manage.php">
     <InvalidArgument>
       <code><![CDATA[$filters_opt]]></code>
@@ -109,18 +109,6 @@
       <code><![CDATA[$v['collate']]]></code>
       <code><![CDATA[$v['collate']]]></code>
     </TypeDoesNotContainType>
-  </file>
-  <file src="src/Schema/Database/Sqlite/Handler.php">
-    <TypeDoesNotContainType>
-      <code><![CDATA[$v['collate']]]></code>
-      <code><![CDATA[$v['collate']]]></code>
-    </TypeDoesNotContainType>
-  </file>
-  <file src="src/Database/Record.php">
-    <InvalidArrayOffset>
-      <code><![CDATA[$r[$k]]]></code>
-      <code><![CDATA[$this->__row[$k]]]></code>
-    </InvalidArrayOffset>
   </file>
   <file src="src/Database/Statement/SqlStatement.php">
     <ForbiddenCode>

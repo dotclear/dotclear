@@ -24,6 +24,7 @@ use Dotclear\Helper\Html\Form\Input;
 use Dotclear\Helper\Html\Form\Label;
 use Dotclear\Helper\Html\Form\None;
 use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Option;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Select;
 use Dotclear\Helper\Html\Form\Set;
@@ -405,7 +406,11 @@ class Config extends Process
                     ->class('field')
                     ->items([
                         (new Select('blog_title_a'))
-                            ->items([__('center') => 'center', __('left') => 'left', __('right') => 'right'])
+                            ->items([
+                                new Option(__('center'), 'center'),
+                                new Option(__('left'), 'left'),
+                                new Option(__('right'), 'right'),
+                            ])
                             ->default(App::backend()->blowup_user['blog_title_a'])
                             ->label((new Label(__('Main title alignment:'), Label::OL_TF))),
                     ]),
@@ -456,7 +461,10 @@ class Config extends Process
                     ->class('field')
                     ->items([
                         (new Select('sidebar_position'))
-                            ->items([__('right') => 'right', __('left') => 'left'])
+                            ->items([
+                                new Option(__('right'), 'right'),
+                                new Option(__('left'), 'left'),
+                            ])
                             ->default(App::backend()->blowup_user['sidebar_position'])
                             ->label((new Label(__('Sidebar position:'), Label::OL_TF))),
                     ]),

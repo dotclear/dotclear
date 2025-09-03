@@ -37,6 +37,7 @@ use Dotclear\Helper\Html\Form\Link;
 use Dotclear\Helper\Html\Form\None;
 use Dotclear\Helper\Html\Form\Note;
 use Dotclear\Helper\Html\Form\Number;
+use Dotclear\Helper\Html\Form\Option;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Radio;
 use Dotclear\Helper\Html\Form\Select;
@@ -1164,8 +1165,8 @@ class MediaItem extends Process
 
             if (App::backend()->file->type == 'application/zip') {
                 $inflate_combo = [
-                    __('Extract in a new directory')   => 'new',
-                    __('Extract in current directory') => 'current',
+                    new Option(__('Extract in a new directory'), 'new'),
+                    new Option(__('Extract in current directory'), 'current'),
                 ];
 
                 $actions[] = (new Form('file-unzip'))

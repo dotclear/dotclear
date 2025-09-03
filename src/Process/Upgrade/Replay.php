@@ -21,6 +21,7 @@ use Dotclear\Helper\Html\Form\{
     Form,
     Label,
     Note,
+    Option,
     Para,
     Select,
     Submit
@@ -37,7 +38,7 @@ class Replay extends Process
     /**
      * List of version having growup actions.
      *
-     * @var     array<string, string> $versions
+     * @var     list<Option> $versions
      */
     private static array $versions = [];
 
@@ -52,7 +53,7 @@ class Replay extends Process
     {
         $versions = [];
         foreach (array_reverse(Upgrade::getGrowUpVersions()) as $version) {
-            $versions[$version['version']] = $version['version'];
+            $versions[] = new Option($version['version'], $version['version']);
         }
         self::$versions = $versions;
 

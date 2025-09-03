@@ -25,6 +25,7 @@ use Dotclear\Helper\Html\Form\{
     Hidden,
     Label,
     Note,
+    Option,
     Para,
     Password,
     Select,
@@ -347,7 +348,7 @@ class Langs extends Process
             $dc_langs_combo = [];
             foreach (self::$dc_langs as $lang) {
                 if ($lang->link && isset(self::$iso_codes[$lang->title])) {
-                    $dc_langs_combo[Html::escapeHTML('(' . $lang->title . ') ' . self::$iso_codes[$lang->title])] = Html::escapeHTML($lang->link);
+                    $dc_langs_combo[] = new Option(Html::escapeHTML('(' . $lang->title . ') ' . self::$iso_codes[$lang->title]), Html::escapeHTML($lang->link));
                 }
             }
 

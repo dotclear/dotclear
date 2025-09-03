@@ -12,6 +12,8 @@ namespace Dotclear\Theme\blowup;
 use Dotclear\App;
 use Dotclear\Core\Backend\ThemeConfig;
 use Dotclear\Helper\File\Files;
+use Dotclear\Helper\Html\Form\Optgroup;
+use Dotclear\Helper\Html\Form\Option;
 use Exception;
 
 /**
@@ -59,7 +61,7 @@ class Blowup
     /**
      * Combo for font families selector
      *
-     * @var        array<string, string|array<string, string> >     $fonts_combo
+     * @var        list<Option|Optgroup>     $fonts_combo
      */
     protected static $fonts_combo = [];
 
@@ -97,18 +99,21 @@ class Blowup
     /**
      * Populate the combo selector
      *
-     * @return     array<string, string|array<string, string>>
+     * @return     list<Option|Optgroup>
      */
     public static function fontsList(): array
     {
         if (self::$fonts_combo === []) {
-            self::$fonts_combo[__('default')] = '';
+            self::$fonts_combo[] = new Option(__('default'), '');
+            //self::$fonts_combo[__('default')] = '';
             foreach (self::$fonts as $family => $g) {
                 $fonts = [];
                 foreach ($g as $code => $font) {
-                    $fonts[str_replace('"', '', $font)] = $code;
+                    $fonts[] = new Option(str_replace('"', '', $font), $code);
+                    //$fonts[str_replace('"', '', $font)] = $code;
                 }
-                self::$fonts_combo[$family] = $fonts;
+                //self::$fonts_combo[$family] = $fonts;
+                self::$fonts_combo[] = (new Optgroup($family))->items($fonts);
             }
         }
 
@@ -240,7 +245,7 @@ class Blowup
     /**
      * Uploads an image.
      *
-     * @param      array<string, string>   $f      file properties
+     * @param      array{name: string, type: string, size: int, tmp_name: string, error?: int, full_path: string}   $f      file properties
      */
     public static function uploadImage(array $f): string
     {

@@ -20,6 +20,7 @@ use Dotclear\Helper\Html\Form\Input;
 use Dotclear\Helper\Html\Form\Label;
 use Dotclear\Helper\Html\Form\Li;
 use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Option;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Password;
 use Dotclear\Helper\Html\Form\Select;
@@ -53,7 +54,7 @@ class Wizard extends Process
     /**
      * Available database drivers.
      *
-     * @var     array<string, string>
+     * @var     list<Option>
      */
     private static array $drivers = [];
 
@@ -118,7 +119,9 @@ class Wizard extends Process
                 ->render();
         }
 
-        self::$drivers = App::db()->combo();
+        foreach (App::db()->combo() as $key => $value) {
+            self::$drivers[] = new Option($key, $value);
+        }
         if (self::$drivers === []) {
             self::$can_install = false;
             self::$err .= (new Set())
