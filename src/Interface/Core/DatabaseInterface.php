@@ -24,19 +24,11 @@ interface DatabaseInterface
     /**
      * Get dabatase connection handler instance.
      *
-     * If <var>$driver</var> is given, a new instance is set until a new driver is given.
+     * This connection instance uses parameters from config service.
      *
      * @throws  \Dotclear\Exception\DatabaseException
-     *
-     * @param   string  $driver         Driver name
-     * @param   string  $host           Database hostname
-     * @param   string  $database       Database name
-     * @param   string  $user           User ID
-     * @param   string  $password       Password
-     * @param   bool    $persistent     Persistent connection
-     * @param   string  $prefix         Database tables prefix
      */
-    public function con(string $driver = '', string $host = '', string $database = '', string $user = '', string $password = '', bool $persistent = false, string $prefix = ''): ConnectionInterface;
+    public function con(): ConnectionInterface;
 
     /**
      * Get new dabatase connection handler instance.
