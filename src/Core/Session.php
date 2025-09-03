@@ -47,9 +47,9 @@ class Session implements SessionInterface
     protected bool $cookie_secure = false;
 
     /**
-     * The cookie TTL (must be a negative duration as '-120 minutes')
+     * The cookie TTL (must be a negative duration as '-20 hours')
      */
-    protected string $ttl = '-120 minutes';
+    protected string $ttl = '-20 hours';
 
     /**
      * Session handler
@@ -87,7 +87,7 @@ class Session implements SessionInterface
         $this->cookie_path   = $cookie_path   ?? '/';
         $this->cookie_domain = $cookie_domain ?? '';
         $this->cookie_secure = $cookie_secure;
-        $this->ttl           = $ttl ?? '-120 minutes';
+        $this->ttl           = $ttl ?? '-20 hours';
 
         if (function_exists('ini_set')) {
             @ini_set('session.use_cookies', '1');
