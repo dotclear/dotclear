@@ -260,9 +260,9 @@ class FileServer
                 App::session()->start();
                 if (App::auth()->sessionExists() && App::auth()->checkSession()) {
                     // Try to get currently selected blog from session (Backend context)
-                    if (isset($_SESSION['sess_blog_id'])) {
-                        if (App::auth()->getPermissions($_SESSION['sess_blog_id']) !== false) {
-                            $blogId = $_SESSION['sess_blog_id'];
+                    if (App::session()->get('sess_blog_id') != '') {
+                        if (App::auth()->getPermissions(App::session()->get('sess_blog_id')) !== false) {
+                            $blogId = App::session()->get('sess_blog_id');
                         }
                     } elseif (($b = App::auth()->findUserBlog(App::auth()->getInfo('user_default_blog'), false)) !== false) {
                         // Finally get default blog for currently authenticated user

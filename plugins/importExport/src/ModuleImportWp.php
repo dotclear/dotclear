@@ -118,22 +118,33 @@ class ModuleImportWp extends Module
         $this->prefix  = App::db()->con()->prefix();
         $this->blog_id = App::blog()->id();
 
-        if (!isset($_SESSION['wp_import_vars'])) {
-            $_SESSION['wp_import_vars'] = $this->base_vars;
-        }
-        $this->vars = &$_SESSION['wp_import_vars'];
+        $this->readVars();
 
         if ($this->vars['post_limit'] > 0) {
             $this->post_limit = (int) $this->vars['post_limit'];
+            $this->writeVars();
         }
 
         $this->formaters = Combos::getFormatersCombo();
     }
 
+    protected function readVars(): void
+    {
+        if (App::session()->get('wp_import_vars') == '') {
+            $this->resetVars();
+        }
+        $this->vars = App::session()->get('wp_import_vars');
+    }
+
+    protected function writeVars(): void
+    {
+        App::session()->set('wp_import_vars', $this->vars);
+    }
+
     public function resetVars(): void
     {
         $this->vars = $this->base_vars;
-        unset($_SESSION['wp_import_vars']);
+        $this->writeVars();
     }
 
     public function process(string $do): void
@@ -166,6 +177,7 @@ class ModuleImportWp extends Module
                 $this->vars['comment_formater'] = isset($this->formaters[$_POST['comment_formater']]) ? $_POST['comment_formater'] : 'xhtml';
                 $db                             = $this->db();
                 $db->close();
+                $this->writeVars();
                 $this->step = 2;
                 echo $this->progressBar(1);
 
@@ -597,6 +609,7 @@ class ModuleImportWp extends Module
                 }
                 $this->con->commit();
                 $db->close();
+                $this->writeVars();
             } catch (Exception $e) {
                 $this->con->rollback();
                 $db->close();
@@ -644,7 +657,7 @@ class ModuleImportWp extends Module
                 $cur->insert();
             }
 
-            $db->close();
+            $db->close();$this->writeVars();
         } catch (Exception $e) {
             $db->close();
 
@@ -705,6 +718,7 @@ class ModuleImportWp extends Module
         )->option_value;
         if ($plink) {
             $this->vars['permalink_template'] = substr((string) $plink, 1);
+            $this->writeVars();
         }
 
         $rs = $db->select(

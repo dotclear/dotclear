@@ -147,4 +147,15 @@ class WebAuthnStore extends Store
 
         return is_array($data) ? $data : [];
     }
+
+    public function setChallenge(ByteBufferInterface $challenge): void
+    {
+        // encode binary string for database session store.
+        App::session()->set('webauthn_challenge', static::encodeValue($challenge->getBinaryString()));
+    }
+
+    public function getChallenge(): ByteBufferInterface
+    {
+        return App::session()->get('webauthn_challenge') != '' ? $this->buffer->fromBinary(static::decodeValue(App::session()->get('webauthn_challenge'))) : $this->buffer->randomBuffer(32);
+    }
 }

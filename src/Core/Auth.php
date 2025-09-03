@@ -295,15 +295,15 @@ class Auth implements AuthInterface
     {
         $welcome = true;
 
-        if (!isset($_SESSION['sess_user_id'])) {
+        if ($this->core->session()->get('sess_user_id') == '') {
             // If session does not exist, logout.
             $welcome = false;
         } else {
             // Check here for user and IP address
-            $this->checkUser($_SESSION['sess_user_id']);
+            $this->checkUser((string) $this->core->session()->get('sess_user_id'));
             $uid = $uid ?: Http::browserUID($this->core->config()->masterKey());
 
-            if (!$this->userID() || ($uid !== $_SESSION['sess_browser_uid'])) {
+            if (!$this->userID() || ($uid !== $this->core->session()->get('sess_browser_uid'))) {
                 $welcome = false;
             }
         }

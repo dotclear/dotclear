@@ -155,7 +155,7 @@ class Utility extends Process
 
             // Switch blog
             if (!empty($_REQUEST['switchblog']) && App::auth()->getPermissions($_REQUEST['switchblog']) !== false) {
-                $_SESSION['sess_blog_id'] = $_REQUEST['switchblog'];
+                App::session()->set('sess_blog_id', $_REQUEST['switchblog']);
 
                 if (!empty($_REQUEST['redir'])) {
                     // Keep context as far as possible
@@ -186,17 +186,17 @@ class Utility extends Process
                 $params = [];
                 parse_str($url['query'], $params);
                 if (isset($params['blog'])) {
-                    $_SESSION['sess_blog_id'] = $params['blog'];
+                    App::session()->set('sess_blog_id', $params['blog']);
                 }
             }
 
             // Check blog to use and log out if no result
-            if (isset($_SESSION['sess_blog_id'])) {
-                if (App::auth()->getPermissions($_SESSION['sess_blog_id']) === false) {
-                    unset($_SESSION['sess_blog_id']);
+            if (App::session()->get('sess_blog_id') != '') {
+                if (App::auth()->getPermissions(App::session()->get('sess_blog_id')) === false) {
+                    App::session()->unset('sess_blog_id');
                 }
             } elseif (($b = App::auth()->findUserBlog(App::auth()->getInfo('user_default_blog'), false)) !== false) {
-                $_SESSION['sess_blog_id'] = $b;
+                App::session()->set('sess_blog_id', $b);
                 unset($b);
             }
 
@@ -207,8 +207,8 @@ class Utility extends Process
             $GLOBALS['_lang'] = App::lang()->getLang();
 
             // Load blog
-            if (isset($_SESSION['sess_blog_id'])) {
-                App::blog()->loadFromBlog($_SESSION['sess_blog_id']);
+            if (App::session()->get('sess_blog_id') != '') {
+                App::blog()->loadFromBlog(App::session()->get('sess_blog_id'));
             } else {
                 App::session()->destroy();
                 App::backend()->url()->redirect('admin.auth');

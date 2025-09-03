@@ -1028,8 +1028,8 @@ class Rest extends Process
                     && App::auth()->findUserBlog() !== false
                 ) {
                     // if ok, sign in user in session then page MUST be reloaded (see auth.js)
-                    $_SESSION['sess_user_id']     = $data;
-                    $_SESSION['sess_browser_uid'] = Http::browserUID(App::config()->masterKey());
+                    App::session()->set('sess_user_id', $data);
+                    App::session()->set('sess_browser_uid', Http::browserUID(App::config()->masterKey()));
 
                     return [
                         'message' => 'user found',

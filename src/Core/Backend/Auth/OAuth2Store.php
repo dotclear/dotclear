@@ -229,4 +229,82 @@ class OAuth2Store extends Store
 
         return 'index.php?vf=' . static::VAR_DIR . '/' . md5($file) . '.' . (Files::getExtension($config['avatar']) ?: 'jpg');
     }
+
+
+    public function getState(string $state): string
+    {
+        $session = $this->getSession();
+
+        if (isset($session['state'])
+            && is_array($session['state'])
+        ) {
+            return $session['state'][$state] ?? '';
+        }
+
+        return '';
+    }
+
+    public function setState(string $provider, string $state): void
+    {
+        $session                  = $this->getSession();
+        $session['state'][$state] = $provider;
+
+        App::session()->set(static::CONTAINER_ID, $session);
+    }
+
+    public function delState(string $provider): void
+    {
+        $session = $this->getSession();
+        if (isset($session['state'])
+            && is_array($session['state'])
+            && false !== ($state = array_search($provider, $session['state']))
+        ) {
+            $session['state'][$state] = null;
+
+            App::session()->set(static::CONTAINER_ID, $session);
+        }
+    }
+
+    public function delStates(): void
+    {
+        $session          = $this->getSession();
+        $session['state'] = null;
+
+        App::session()->set(static::CONTAINER_ID, $session);
+    }
+
+    public function getRedir(): string
+    {
+        $session = $this->getSession();
+
+        return $session['redir'] ?: $this->redirect_url;
+    }
+
+    public function setRedir(string $redir): void
+    {
+        $session          = $this->getSession();
+        $session['redir'] = $redir;
+
+        App::session()->set(static::CONTAINER_ID, $session);
+    }
+
+    public function delRedir(): void
+    {
+        $session          = $this->getSession();
+        $session['redir'] = null;
+
+        App::session()->set(static::CONTAINER_ID, $session);
+    }
+
+    /**
+     * Get session values.
+     *
+     * @return  array<string, mixed>
+     */
+    protected function getSession(): array
+    {
+        $session = App::session()->get(static::CONTAINER_ID);
+        
+        return is_array($session) ? $session : [];
+    }
 }

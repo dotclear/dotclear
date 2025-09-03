@@ -345,7 +345,7 @@ class BlogPref extends Process
                 if ($cur->blog_id != null && $cur->blog_id != App::backend()->blog_id) {
                     if (App::backend()->blog_id == App::blog()->id()) {
                         App::blog()->loadFromBlog($cur->blog_id);
-                        $_SESSION['sess_blog_id']     = $cur->blog_id;
+                        App::session()->set('sess_blog_id', $cur->blog_id);
                         App::backend()->blog_settings = App::blog()->settings();
                     } else {
                         App::backend()->blog_settings = App::blogSettings()->createFromBlog($cur->blog_id);
