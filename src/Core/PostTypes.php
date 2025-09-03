@@ -69,25 +69,16 @@ class PostTypes implements PostTypesInterface
         return $this->get($type)->adminUrl($post_id, $escaped, $params);
     }
 
-    /**
-     * Gets a post type icon URI.
-     */
     public function icon(string $type): string
     {
         return $this->get($type)->icon();
     }
 
-    /**
-     * Gets a post type dark icon URI.
-     */
     public function iconDark(string $type): string
     {
         return $this->get($type)->iconDark();
     }
 
-    /**
-     * Get post type admin image.
-     */
     public function image(string $type, bool $with_text = false): Text|Img|Set
     {
         if ($this->exists($type)) {

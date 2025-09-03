@@ -186,11 +186,6 @@ class BlogSettings implements BlogSettingsInterface
         return array_key_exists($workspace, $this->workspaces);
     }
 
-    /**
-     * Dumps workspaces.
-     *
-     * @return     array<string, BlogWorkspaceInterface>
-     */
     public function dumpWorkspaces(): array
     {
         return $this->workspaces;
@@ -217,11 +212,6 @@ class BlogSettings implements BlogSettingsInterface
         return $this->delWorkspace($namespace);
     }
 
-    /**
-     * Dumps namespaces.
-     *
-     * @return  array<string, BlogWorkspaceInterface>
-     */
     public function dumpNamespaces(): array
     {
         $this->core->deprecated()->set(self::class . '->dumpWorkspaces()', '2.28');

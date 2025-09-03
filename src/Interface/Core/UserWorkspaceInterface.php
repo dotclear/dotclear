@@ -12,12 +12,19 @@ namespace Dotclear\Interface\Core;
 
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
-use Dotclear\Exception\BadRequestException;
 
 /**
  * @brief   User workspace for preferences handler interface.
  *
  * @since   2.28
+ *
+ * @phpstan-type TCoreUserWorkspaceSettings array{
+ *      ws:?string,
+ *      value:mixed,
+ *      type:string,
+ *      label:string,
+ *      global:bool
+ * }
  *
  * @psalm-no-seal-properties
  */
@@ -197,24 +204,24 @@ interface UserWorkspaceInterface
      * $ignore_value allow you to not change pref. Useful if you need to change
      * a pref label or type and don't want to change its value.
      *
+     * @throws  \Dotclear\Exception\BadRequestException
+     *
      * @param   string  $name           The pref identifier
      * @param   mixed   $value          The pref value
      * @param   string  $type           The pref type
      * @param   string  $label          The pref label
      * @param   bool    $ignore_value   Change pref value or not
      * @param   bool    $global         Pref is global
-     *
-     * @throws  BadRequestException
      */
     public function put(string $name, $value, ?string $type = null, ?string $label = null, bool $ignore_value = true, bool $global = false): void;
 
     /**
      * Rename an existing preference in a Workspace.
      *
+     * @throws  \Dotclear\Exception\BadRequestException
+     *
      * @param   string  $old_name   The old identifier
      * @param   string  $new_name   The new identifier
-     *
-     * @throws  BadRequestException
      *
      * @return  bool    false is error, true if renamed
      */
@@ -223,29 +230,29 @@ interface UserWorkspaceInterface
     /**
      * Removes an existing preference Workspace.
      *
+     * @throws  \Dotclear\Exception\BadRequestException
+     *
      * @param   string  $name           The pref identifier
      * @param   bool    $force_global   Force global pref drop
-     *
-     * @throws  BadRequestException
      */
     public function drop(string $name, bool $force_global = false): void;
 
     /**
      * Removes every existing specific pref in a workspace.
      *
+     * @throws  \Dotclear\Exception\BadRequestException
+     *
      * @param   string  $name       Pref ID
      * @param   bool    $global     Remove global pref too
-     *
-     * @throws  BadRequestException
      */
     public function dropEvery(string $name, bool $global = false): void;
 
     /**
      * Removes all existing preference in a Workspace.
      *
-     * @param   bool    $force_global   Remove global prefs too
+     * @throws  \Dotclear\Exception\BadRequestException
      *
-     * @throws  BadRequestException
+     * @param   bool    $force_global   Remove global prefs too
      */
     public function dropAll(bool $force_global = false): void;
 
@@ -257,21 +264,21 @@ interface UserWorkspaceInterface
     /**
      * Dumps preferences.
      *
-     * @return  array<string, array<string, mixed>>
+     * @return     array<string, TCoreUserWorkspaceSettings>
      */
     public function dumpPrefs(): array;
 
     /**
      * Dumps local preferences.
      *
-     * @return  array<string, array<string, mixed>>
+     * @return     array<string, TCoreUserWorkspaceSettings>
      */
     public function dumpLocalPrefs(): array;
 
     /**
      * Dumps global preferences.
      *
-     * @return  array<string, array<string, mixed>>
+     * @return     array<string, TCoreUserWorkspaceSettings>
      */
     public function dumpGlobalPrefs(): array;
 }

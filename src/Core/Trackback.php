@@ -671,13 +671,6 @@ class Trackback implements TrackbackInterface
     /// @name Discover
     ///@{
 
-    /**
-     * Find ping URLs from links inside text
-     *
-     * @param      string  $text   The text
-     *
-     * @return     array<string>
-     */
     public function discover(string $text): array
     {
         $res = [];

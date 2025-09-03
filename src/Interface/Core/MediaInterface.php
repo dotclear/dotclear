@@ -11,8 +11,6 @@ declare(strict_types=1);
 namespace Dotclear\Interface\Core;
 
 use Dotclear\Database\Cursor;
-use Dotclear\Exception\BadRequestException;
-use Dotclear\Exception\UnauthorizedException;
 use Dotclear\Helper\File\File;
 use stdClass;
 
@@ -71,14 +69,14 @@ interface MediaInterface
      * - t: thumbnail image
      * - sq: square image
      *
-     * @return array<string, list{0:int, 1:string, 2:string, 3?:string}>
+     * @return  array<string, list{0:int, 1:string, 2:string, 3?:string}>  The thumb sizes.
      */
     public function getThumbSizes(): array;
 
     /**
      * Sets the thumb sizes definition.
      *
-     * @param     array<string, list{0:int, 1:string, 2:string, 3?:string}>  $thumb_sizes    The thumb sizes.
+     * @param   array<string, list{0:int, 1:string, 2:string, 3?:string}>   $thumb_sizes    The thumb sizes.
      */
     public function setThumbSizes(array $thumb_sizes): void;
 
@@ -179,7 +177,7 @@ interface MediaInterface
      *
      * @param   string      $type       The media type
      * @param   string      $event      The event
-     * @param   callable    $function   The callback
+     * @param   callable    $function   The callback function
      */
     public function addFileHandler(string $type, string $event, $function): void;
 
@@ -302,10 +300,10 @@ interface MediaInterface
      * Optional <var>$pwd</var> parameter is
      * the path where to start rebuild.
      *
+     * @throws  \Dotclear\Exception\UnauthorizedException
+     *
      * @param   string  $pwd        The directory to rebuild
      * @param   bool    $recursive  If true rebuild also sub-directories
-     *
-     * @throws  UnauthorizedException
      */
     public function rebuild(string $pwd = '', bool $recursive = false): void;
 
@@ -315,11 +313,11 @@ interface MediaInterface
      * Optional <var>$pwd</var> parameter is
      * the path where to start rebuild.
      *
+     * @throws  \Dotclear\Exception\UnauthorizedException
+     *
      * @param   string  $pwd        The directory to rebuild
      * @param   bool    $force      Recreate existing thumbnails if True
      * @param   bool    $recursive  If true rebuild also sub-directories
-     *
-     * @throws  UnauthorizedException
      */
     public function rebuildThumbnails(string $pwd = '', bool $recursive = false, bool $force = false): void;
 
@@ -346,13 +344,13 @@ interface MediaInterface
      *
      * (returned type not set for backward compatibility with Helper\File\Manager)
      *
+     * @throws  \Dotclear\Exception\UnauthorizedException
+     *
      * @param   string  $name       The file name (relative to working directory)
      * @param   string  $title      The file title
      * @param   bool    $private    File is private
      * @param   mixed   $dt         File date
      * @param   bool    $force      The force flag
-     *
-     * @throws  UnauthorizedException
      *
      * @return  int|false    New media ID or false
      */
@@ -363,25 +361,26 @@ interface MediaInterface
      *
      * (returned type not set for backward compatibility with Helper\File\Manager)
      *
+     * @throws  \Dotclear\Exception\BadRequestException
+     * @throws  \Dotclear\Exception\UnauthorizedException
+     *
      * @param   File    $file       The file
      * @param   File    $newFile    The new file
      *
-     * @throws  UnauthorizedException|BadRequestException
-     *
-     * @return void
+     * @return  void
      */
     public function updateFile(File $file, File $newFile);
 
     /**
      * Uploads a file.
      *
+     * @throws  \Dotclear\Exception\UnauthorizedException
+     *
      * @param   string      $tmp        The full path of temporary uploaded file
      * @param   string      $dest       The file name (relative to working directory)me
      * @param   bool        $overwrite  File should be overwrite
      * @param   string      $title      The file title (should be string|null)
      * @param   bool        $private    File is private
-     *
-     * @throws  UnauthorizedException
      *
      * @return  string   New media ID or ''
      */
@@ -390,10 +389,10 @@ interface MediaInterface
     /**
      * Creates a file from binary content.
      *
+     * @throws  \Dotclear\Exception\UnauthorizedException
+     *
      * @param   string  $name   The file name (relative to working directory)
      * @param   string  $bits   The binary file contentits
-     *
-     * @throws  UnauthorizedException
      *
      * @return  string  New media ID or ''
      */
@@ -411,9 +410,10 @@ interface MediaInterface
     /**
      * Removes a file.
      *
-     * @param   string  $file   filename
+     * @throws  \Dotclear\Exception\BadRequestException
+     * @throws  \Dotclear\Exception\UnauthorizedException
      *
-     * @throws  UnauthorizedException|BadRequestException
+     * @param   string  $file   filename
      */
     public function removeFile(?string $file): void;
 
@@ -431,10 +431,10 @@ interface MediaInterface
     /**
      * Extract zip file in current location.
      *
+     * @throws  \Dotclear\Exception\UnauthorizedException
+     *
      * @param   File    $f              File object
      * @param   bool    $create_dir     Create dir
-     *
-     * @throws  UnauthorizedException
      *
      * @return  string  The destination
      */

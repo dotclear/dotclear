@@ -13,8 +13,6 @@ namespace Dotclear\Interface\Core;
 use ArrayObject;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
-use Dotclear\Exception\BadRequestException;
-use Dotclear\Exception\UnauthorizedException;
 
 /**
  * @brief   Users handler interface.
@@ -55,28 +53,30 @@ interface UsersInterface
      *
      * Takes a Cursor as input and returns the new user ID.
      *
-     * @param      Cursor     $cur    The user Cursor
+     * @throws  \Dotclear\Exception\BadRequestException
+     * @throws  \Dotclear\Exception\UnauthorizedException
      *
-     * @throws     BadRequestException|UnauthorizedException
+     * @param   Cursor  $cur    The user Cursor
      */
     public function addUser(Cursor $cur): string;
 
     /**
      * Updates an existing user. Returns the user ID.
      *
-     * @param      string     $id     The user identifier
-     * @param      Cursor     $cur    The Cursor
+     * @throws  \Dotclear\Exception\UnauthorizedException
      *
-     * @throws     UnauthorizedException
+     * @param   string  $id     The user identifier
+     * @param   Cursor  $cur    The Cursor
      */
     public function updUser(string $id, Cursor $cur): string;
 
     /**
      * Deletes a user.
      *
-     * @param      string     $id     The user identifier
+     * @throws  \Dotclear\Exception\BadRequestException
+     * @throws  \Dotclear\Exception\UnauthorizedException
      *
-     * @throws     UnauthorizedException
+     * @param   string  $id     The user identifier
      */
     public function delUser(string $id): void;
 
@@ -113,22 +113,22 @@ interface UsersInterface
      * - [blog_id] => '|perm1|perm2|'
      * - ...
      *
-     * @param      string     $id     The user identifier
-     * @param      array<string,array<string,bool>>      $perms  The permissions
+     * @throws  \Dotclear\Exception\UnauthorizedException
      *
-     * @throws     UnauthorizedException
+     * @param   string                              $id     The user identifier
+     * @param   array<string,array<string,bool>>    $perms  The permissions
      */
     public function setUserPermissions(string $id, array $perms): void;
 
     /**
      * Sets the user blog permissions.
      *
-     * @param      string     $id            The user identifier
-     * @param      string     $blog_id       The blog identifier
-     * @param      array<string,bool>      $perms         The permissions
-     * @param      bool       $delete_first  Delete permissions first
+     * @throws  \Dotclear\Exception\UnauthorizedException
      *
-     * @throws     UnauthorizedException
+     * @param   string              $id             The user identifier
+     * @param   string              $blog_id        The blog identifier
+     * @param   array<string,bool>  $perms          The permissions
+     * @param   bool                $delete_first   Delete permissions first
      */
     public function setUserBlogPermissions(string $id, string $blog_id, array $perms, bool $delete_first = true): void;
 

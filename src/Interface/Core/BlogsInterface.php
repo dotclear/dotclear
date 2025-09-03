@@ -13,7 +13,6 @@ namespace Dotclear\Interface\Core;
 use ArrayObject;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
-use Dotclear\Exception\UnauthorizedException;
 
 /**
  * @brief   Blogs handler interface.
@@ -43,7 +42,7 @@ interface BlogsInterface
     public function getBlogStatus(int $s): string;
 
     /**
-     * Returns all blog permissions (users).
+     * Gets the blog permissions.
      *
      * Return permissions as an array which looks like:
      * - [user_id]
@@ -55,10 +54,10 @@ interface BlogsInterface
      *   - [permission] => true
      *   - ...
      *
-     * @param   string  $id             The blog identifier
-     * @param   bool    $with_super     Includes super admins in result
+     * @param      string  $id          The blog identifier
+     * @param      bool    $with_super  The with super
      *
-     * @return  array<string, array<string, mixed>>     The blog permissions.
+     * @return     array<string, array{name: mixed, firstname: mixed, displayname: mixed, email: mixed, super: bool, p: array<string, bool>}>
      */
     public function getBlogPermissions(string $id, bool $with_super = true): array;
 
@@ -91,9 +90,9 @@ interface BlogsInterface
     /**
      * Adds a new blog.
      *
-     * @param   Cursor  $cur    The blog Cursor
+     * @throws  \Dotclear\Exception\UnauthorizedException
      *
-     * @throws  UnauthorizedException
+     * @param   Cursor  $cur    The blog Cursor
      */
     public function addBlog(Cursor $cur): void;
 
@@ -111,9 +110,9 @@ interface BlogsInterface
      * @warning This will remove everything related to the blog (posts,
      * categories, comments, links...)
      *
-     * @param   string  $id     The blog identifier
+     * @throws  \Dotclear\Exception\UnauthorizedException
      *
-     * @throws  UnauthorizedException
+     * @param   string  $id     The blog identifier
      */
     public function delBlog(string $id): void;
 
@@ -140,6 +139,8 @@ interface BlogsInterface
      * Creates default settings for active blog.
      *
      * Optionnal parameter <var>defaults</var> replaces default params while needed.
+     *
+     * @since 2.33
      *
      * @param   null|array<list{0:string, 1:string, 2:mixed, 3:string}>  $defaults   The defaults settings
      */

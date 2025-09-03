@@ -59,14 +59,6 @@ class Blogs implements BlogsInterface
         return $this->core->status()->blog()->name($s);
     }
 
-    /**
-     * Gets the blog permissions.
-     *
-     * @param      string  $id          The identifier
-     * @param      bool    $with_super  The with super
-     *
-     * @return     array<string, array{name: mixed, firstname: mixed, displayname: mixed, email: mixed, super: bool, p: array<string, bool>}>
-     */
     public function getBlogPermissions(string $id, bool $with_super = true): array
     {
         $sql = new SelectStatement();
@@ -295,15 +287,6 @@ class Blogs implements BlogsInterface
         return (int) $sql->select()?->f(0);
     }
 
-    /**
-     * Creates default settings for active blog.
-     *
-     * Optionnal parameter <var>defaults</var> replaces default params while needed.
-     *
-     * @param   null|array<list{0:string,1:string,2:mixed,3:string}>  $defaults   The defaults settings
-     *
-     * @since 2.33
-     */
     public function blogDefaults(?array $defaults = null): void
     {
         if (!is_array($defaults)) {

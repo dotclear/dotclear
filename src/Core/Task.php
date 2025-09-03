@@ -64,14 +64,6 @@ class Task implements TaskInterface
     ) {
     }
 
-    /**
-     * Process app
-     *
-     * @param      string     $utility  The utility
-     * @param      string     $process  The process
-     *
-     * @throws     ContextException|ProcessException
-     */
     public function run(string $utility, string $process): void
     {
         // watchdog

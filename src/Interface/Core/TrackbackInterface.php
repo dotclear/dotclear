@@ -12,7 +12,6 @@ namespace Dotclear\Interface\Core;
 
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
-use Dotclear\Exception\BadRequestException;
 
 /**
  * @brief   Trackbacks/Pingbacks sender and server interface.
@@ -52,13 +51,13 @@ interface TrackbackInterface
     /**
      * Sends a ping to given <var>$url</var>.
      *
+     * @throws  \Dotclear\Exception\BadRequestException
+     *
      * @param   string  $url            The url
      * @param   int     $post_id        The post identifier
      * @param   string  $post_title     The post title
      * @param   string  $post_excerpt   The post excerpt
      * @param   string  $post_url       The post url
-     *
-     * @throws  BadRequestException
      *
      * @return  bool    false if error
      */
@@ -77,10 +76,10 @@ interface TrackbackInterface
     /**
      * Receives a pingback and insert it as a comment of given post.
      *
+     * @throws  \Dotclear\Exception\BadRequestException
+     *
      * @param   string  $from_url   Source URL
      * @param   string  $to_url     Target URL
-     *
-     * @throws  BadRequestException
      */
     public function receivePingback(string $from_url, string $to_url): string;
 
@@ -89,7 +88,7 @@ interface TrackbackInterface
      *
      * NB: plugin Fair Trackback check source content to find url.
      *
-     * @throws  BadRequestException
+     * @throws  \Dotclear\Exception\BadRequestException
      */
     public function receiveWebmention(): void;
 
@@ -98,13 +97,13 @@ interface TrackbackInterface
     /// @name Discover
     ///@{
     /**
-     * DIscover trackbacks.
+     * Discover trackbacks.
      *
      * Returns an array containing all discovered trackbacks URLs in <var>$text</var>.
      *
      * @param   string  $text   The text
      *
-     * @return  array<string>
+     * @return  string[]    The URLs
      */
     public function discover(string $text): array;
 
@@ -113,10 +112,10 @@ interface TrackbackInterface
     /**
      * URL helper.
      *
+     * @throws  \Dotclear\Exception\BadRequestException
+     *
      * @param   string  $from_url   The from url
      * @param   string  $to_url     To url
-     *
-     * @throws  BadRequestException
      */
     public static function checkURLs(string $from_url, string $to_url): void;
 }

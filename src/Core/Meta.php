@@ -196,15 +196,6 @@ class Meta implements MetaInterface
         }
     }
 
-    /**
-     * Gets the posts by meta.
-     *
-     * @param      array<string, mixed>     $params      The parameters
-     * @param      bool                     $count_only  The count only
-     * @param      SelectStatement|null     $ext_sql     The extent sql
-     *
-     * @return     MetaRecord                                              The posts by meta.
-     */
     public function getPostsByMeta(array $params = [], bool $count_only = false, ?SelectStatement $ext_sql = null): MetaRecord
     {
         if (!isset($params['meta_id'])) {
@@ -229,15 +220,6 @@ class Meta implements MetaInterface
         return $this->core->blog()->getPosts($params, $count_only, $sql);
     }
 
-    /**
-     * Gets the comments by meta.
-     *
-     * @param      array<string, mixed>     $params      The parameters
-     * @param      bool                     $count_only  The count only
-     * @param      SelectStatement|null     $ext_sql     The extent sql
-     *
-     * @return     MetaRecord                                              The comments by meta.
-     */
     public function getCommentsByMeta(array $params = [], bool $count_only = false, ?SelectStatement $ext_sql = null): MetaRecord
     {
         if (!isset($params['meta_id'])) {
@@ -260,15 +242,6 @@ class Meta implements MetaInterface
         return $this->core->blog()->getComments($params, $count_only, $sql);
     }
 
-    /**
-     * Gets the metadata.
-     *
-     * @param   array<string, mixed>    $params         The parameters
-     * @param   bool                    $count_only     Only counts results
-     * @param   SelectStatement|null    $ext_sql        Optional SqlStatement instance
-     *
-     * @return     MetaRecord                                              The metadata.
-     */
     public function getMetadata(array $params = [], bool $count_only = false, ?SelectStatement $ext_sql = null): MetaRecord
     {
         $params = new ArrayObject($params);
@@ -332,22 +305,6 @@ class Meta implements MetaInterface
         return $sql->select() ?? MetaRecord::newFromArray([]);
     }
 
-    /**
-     * Calculates the meta statistics from metadata recordset.
-     *
-     * @param      MetaRecord             $rs     Metadata recordset
-     *
-     * Will add these fields of each record of given recordset:
-     *
-     * - meta_id_lower = metadata id in lowercase without any diacritics
-     * - percent = Usage frequency of this metadata upon all metadata of same type
-     * - roundpercent = Decile usage (0 to 100 by 10 step)
-     *
-     * The percent (and roundpercent) will be calculate based on metadata usage (most used = 100%)
-     *
-     * Ex: A "photo" tag (assuming it's the the most used) is used 476 times (in 476 entries), its frequency will be 100%,
-     * then a "blog" tag which is used in 327 entries will have a 69% frequency (327 ÷ 476 * 100).
-     */
     public function computeMetaStats(MetaRecord $rs): MetaRecord
     {
         $rs_static = $rs->toStatic();

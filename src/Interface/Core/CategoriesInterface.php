@@ -80,10 +80,10 @@ interface CategoriesInterface
     /**
      * Add a node.
      *
+     * @throws  \Dotclear\Exception\BadRequestException
+     *
      * @param   mixed   $data       The data
      * @param   int     $target     The target
-     *
-     * @throws  \Exception
      *
      * @return  mixed
      */
@@ -101,10 +101,10 @@ interface CategoriesInterface
     /**
      * Delete a node.
      *
+     * @throws  \Dotclear\Exception\BadRequestException
+     *
      * @param   int     $node           The node
      * @param   bool    $keep_children  keep children
-     *
-     * @throws  \Exception
      */
     public function deleteNode(int $node, bool $keep_children = true): void;
 
@@ -116,21 +116,23 @@ interface CategoriesInterface
     /**
      * Set the node parent.
      *
+     * @throws  \Dotclear\Exception\BadRequestException
+     * @throws  \Dotclear\Exception\ProcessException
+     *
      * @param   int     $node       The node
      * @param   int     $target     The target
-     *
-     * @throws  \Exception
      */
     public function setNodeParent(int $node, int $target = 0): void;
 
     /**
      * Set the node position.
      *
+     * @throws  \Dotclear\Exception\BadRequestException
+     * @throws  \Dotclear\Exception\ProcessException
+     *
      * @param   int     $nodeA      The node a
      * @param   int     $nodeB      The node b
      * @param   string  $position   The position
-     *
-     * @throws  \Exception
      */
     public function setNodePosition(int $nodeA, int $nodeB, string $position = 'after'): void;
 

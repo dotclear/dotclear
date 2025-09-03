@@ -278,13 +278,6 @@ class Media extends Manager implements MediaInterface
         return $this->core->postMedia();
     }
 
-    /**
-     * Gets the thumbnail file pattern.
-     *
-     * @param      string  $type   The media type
-     *
-     * @return     string  The thumbnail file pattern.
-     */
     public function getThumbnailFilePattern(string $type = ''): string
     {
         return match (strtolower($type)) {
@@ -295,23 +288,11 @@ class Media extends Manager implements MediaInterface
         };
     }
 
-    /**
-     * Gets the thumbnail prefix.
-     *
-     * @return     string  The thumbnail prefix.
-     */
     public function getThumbnailPrefix(): string
     {
         return $this->thumbnail_prefix;
     }
 
-    /**
-     * Determines if media has an alpha layer.
-     *
-     * @param      string  $type   The media type
-     *
-     * @return     bool    True if media alpha layer, False otherwise.
-     */
     public function hasMediaAlphaLayer(string $type = ''): bool
     {
         return match (strtolower($type)) {
@@ -320,21 +301,11 @@ class Media extends Manager implements MediaInterface
         };
     }
 
-    /**
-     * Gets the thumb sizes.
-     *
-     * @return     array<string, list{0:int, 1:string, 2:string, 3?:string}>  The thumb sizes.
-     */
     public function getThumbSizes(): array
     {
         return $this->thumb_sizes;
     }
 
-    /**
-     * Sets the thumb sizes.
-     *
-     * @param     array<string, list{0:int, 1:string, 2:string, 3?:string}>  $thumb_sizes    The thumb sizes.
-     */
     public function setThumbSizes(array $thumb_sizes): void
     {
         $this->thumb_sizes = $thumb_sizes;
@@ -360,13 +331,6 @@ class Media extends Manager implements MediaInterface
         $this->type = $type;
     }
 
-    /**
-     * Adds a file handler.
-     *
-     * @param      string       $type      The type
-     * @param      string       $event     The event
-     * @param      callable     $function  The function
-     */
     public function addFileHandler(string $type, string $event, $function): void
     {
         if (is_callable($function)) {   // @phpstan-ignore-line waiting to put callable type in method signature for $function
@@ -953,13 +917,6 @@ class Media extends Manager implements MediaInterface
         return $res;
     }
 
-    /**
-     * Return media title.
-     *
-     * @param   File|stdClass      $file           Media file instance (or object like)
-     * @param   bool               $fallback       Fallback to media alternate text if no title
-     * @param   bool               $no_filename    Consider filename in title as empty string
-     */
     public function getMediaTitle(File|stdClass $file, bool $fallback = true, bool $no_filename = true): string
     {
         if ((string) $file->media_title !== '') {
@@ -982,13 +939,6 @@ class Media extends Manager implements MediaInterface
         return '';
     }
 
-    /**
-     * Return media alternate text.
-     *
-     * @param   File|stdClass      $file           Media file instance (or object like)
-     * @param   bool               $fallback       Fallback to media title if no alternate text
-     * @param   bool               $no_filename    Consider filename in title as empty string
-     */
     public function getMediaAlt(File|stdClass $file, bool $fallback = true, bool $no_filename = true): string
     {
         // Use metadata AltText if present
@@ -1013,14 +963,6 @@ class Media extends Manager implements MediaInterface
         return '';
     }
 
-    /**
-     * Returns media legend.
-     *
-     * @param   File|stdClass   $file           Media file instance (or object like)
-     * @param   null|string     $pattern        Pattern to use to compose legend (null = get from blog settings), default to 'Description'
-     * @param   bool            $dto_first      Use original date-time (from meta) rather than media one
-     * @param   bool            $no_date_alone  Don't return date only if there is available legend
-     */
     public function getMediaLegend(File|stdClass $file, ?string $pattern = null, bool $dto_first = false, bool $no_date_alone = false): string
     {
         $res   = [];
@@ -1372,19 +1314,6 @@ class Media extends Manager implements MediaInterface
         $this->callFileHandler((string) $file->type, 'update', $file, $newFile);
     }
 
-    /**
-     * Uploads a file.
-     *
-     * @param   string      $tmp        The full path of temporary uploaded file
-     * @param   string      $dest       The file name (relative to working directory)me
-     * @param   bool        $overwrite  File should be overwrite
-     * @param   string      $title      The file title (should be string|null)
-     * @param   bool        $private    File is private
-     *
-     * @throws  UnauthorizedException
-     *
-     * @return  string      New media ID or ''
-     */
     public function uploadFile(string $tmp, string $dest, bool $overwrite = false, ?string $title = null, bool $private = false): string
     {
         if ($this->root_missing) {
@@ -1541,13 +1470,6 @@ class Media extends Manager implements MediaInterface
         return dirname($f->relname) . '/' . $destination;
     }
 
-    /**
-     * Gets the zip content.
-     *
-     * @param      File  $f      The ZIP file
-     *
-     * @return     array<string, array<string, mixed>>         The zip content.
-     */
     public function getZipContent(File $f): array
     {
         $zip  = new Unzip($f->file);

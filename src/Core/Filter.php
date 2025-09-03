@@ -38,16 +38,6 @@ class Filter implements FilterInterface
     private ?WikiToHtml $wiki = null;
 
     /**
-     * Get wiki instance.
-     *
-     * @return  null|WikiToHtml Instance or null if not set
-     */
-    public function wiki(): ?WikiToHtml
-    {
-        return $this->wiki;
-    }
-
-    /**
      * Constructs a new instance.
      *
      * @param   Core    $core   The core container
@@ -62,6 +52,11 @@ class Filter implements FilterInterface
         $this->blog = $blog;
 
         return $this;
+    }
+
+    public function wiki(): ?WikiToHtml
+    {
+        return $this->wiki;
     }
 
     /**

@@ -213,6 +213,9 @@ class Credential implements CredentialInterface
         return json_decode($data, true) ?: [];
     }
 
+    /**
+     * Check if system has openssl_* methods.
+     */
     private function hasOpenssl(): bool
     {
         return function_exists('openssl_encrypt') && in_array(static::SSL_ENCRYPTION, openssl_get_cipher_methods());

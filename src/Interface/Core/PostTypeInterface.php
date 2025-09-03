@@ -58,6 +58,16 @@ interface PostTypeInterface
     public function publicUrl(string $post_url, bool $escaped = true): string;
 
     /**
+     * Gets post type icon URI.
+     */
+    public function icon(): string;
+
+    /**
+     * Gets post type dark icon URI.
+     */
+    public function iconDark(): string;
+
+    /**
      * Get post type properties as array.
      *
      * @return  array<string,string> The post type properties

@@ -10,8 +10,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Interface\Core;
 
-use Dotclear\Exception\BadRequestException;
-
 /**
  * @brief   Blog settings handler interface.
  *
@@ -50,10 +48,10 @@ interface BlogSettingsInterface
     /**
      * Rename a namespace.
      *
+     * @throws  \Dotclear\Exception\BadRequestException
+     *
      * @param   string  $old_workspace  The old ns
      * @param   string  $new_workspace  The new ns
-     *
-     * @throws  BadRequestException
      *
      * @return  bool    return true if no error, else false
      */

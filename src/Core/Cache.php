@@ -42,9 +42,6 @@ class Cache extends HttpCacheStack implements CacheInterface
         $this->cache_dir = $core->config()->cacheRoot();
     }
 
-    /**
-     * Empty templates cache directory.
-     */
     public function emptyTemplatesCache(): void
     {
         if (is_dir($this->cache_dir . DIRECTORY_SEPARATOR . Template::CACHE_FOLDER)) {
@@ -52,9 +49,6 @@ class Cache extends HttpCacheStack implements CacheInterface
         }
     }
 
-    /**
-     * Empty modules store cache directory.
-     */
     public function emptyModulesStoreCache(): void
     {
         if (is_dir($this->cache_dir . DIRECTORY_SEPARATOR . StoreReader::CACHE_FOLDER)) {
@@ -62,9 +56,6 @@ class Cache extends HttpCacheStack implements CacheInterface
         }
     }
 
-    /**
-     * Empty Dotclear versions cache directory.
-     */
     public function emptyDotclearVersionsCache(): void
     {
         if (is_dir($this->cache_dir . DIRECTORY_SEPARATOR . Update::CACHE_FOLDER)) {
