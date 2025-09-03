@@ -18,7 +18,6 @@ namespace Dotclear;
 use Autoloader;
 use Dotclear\Core\Core;
 use Dotclear\Exception\AppException;
-use Dotclear\Exception\DatabaseException;
 use Throwable;
 
 // Load Autoloader file
@@ -79,16 +78,17 @@ final class App extends Core
                     // Run database connection
                     $this->db()->con();
                 } catch (Throwable $e) {
-                    throw new DatabaseException(
+                    // Give a pretty message for this one
+                    throw new AppException($e->getMessage(), (int) $e->getCode(), new AppException(
                         sprintf(
                             __('<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can\'t contact the database server at "<em>%1$s</em>". This could mean your ' .
                             'host\'s database server is down.</p><ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you\'re unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href="%2$s">Dotclear Support Forums</a>.</p>'),
-                            ($this->config()->dbHost() !== '' ? $this->config()->dbHost() : 'localhost'),
+                            $this->config()->dbHost() ?: 'localhost',
                             'https://matrix.to/#/#dotclear:matrix.org'
                         ),
-                        DatabaseException::code(),
+                        (int) $e->getCode(),
                         $e
-                    );
+                    ));
                 }
             }
 
@@ -101,6 +101,9 @@ final class App extends Core
             // Throw uncaught exception as application exception. See Dotclear.Fault handler.
             throw new AppException('Site temporarily unavailable', (int) $e->getCode(), $e);
         }
+
+        // Disable doing anything after app
+        dotclear_exit();
     }
 
     /// @name Deprecated methods
