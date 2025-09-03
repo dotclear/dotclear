@@ -159,7 +159,12 @@ class Session implements SessionInterface
 
     public function set(string $key, mixed $value): void
     {
-        $_SESSION[$key] = $value;
+        if ($value === null) {
+            // keep session as clean as possible
+            $this->unset($key);
+        } else {
+            $_SESSION[$key] = $value;
+        }
     }
 
     public function get(string $key): mixed

@@ -92,6 +92,8 @@ interface SessionInterface
     /**
      * Set a value to session.
      *
+     * To set a session value to null is equal to unset it.
+     *
      * @param   string  $key    The key
      * @param   mixed   $value  The value
      */
