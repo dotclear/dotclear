@@ -180,7 +180,7 @@ class Wizard extends Process
 
                 # Tries to connect to database
                 try {
-                    $con = App::db()->con(self::$DBDRIVER, self::$DBHOST, self::$DBNAME, self::$DBUSER, self::$DBPASSWORD);
+                    $con = App::db()->newCon(self::$DBDRIVER, self::$DBHOST, self::$DBNAME, self::$DBUSER, self::$DBPASSWORD);
                 } catch (Exception $e) {
                     self::throwString(__($e->getMessage()), (int) $e->getCode(), $e);
                 }

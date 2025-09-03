@@ -54,23 +54,18 @@ class Database extends Container implements DatabaseInterface
         ];
     }
 
-    public function con(string $driver = '', string $host = '', string $database = '', string $user = '', string $password = '', bool $persistent = false, string $prefix = ''): ConnectionInterface
+    public function con(): ConnectionInterface
     {
-        // Reload connection handler if driver is set
-        $reload = $driver !== '';
-
-        // If driver is not set, we use parameters from config
-        if ($driver === '') {
-            $driver     = $this->core->config()->dbDriver();
-            $host       = $this->core->config()->dbHost();
-            $database   = $this->core->config()->dbName();
-            $user       = $this->core->config()->dbUser();
-            $password   = $this->core->config()->dbPassword();
-            $persistent = $this->core->config()->dbPersist();
-            $prefix     = $this->core->config()->dbPrefix();
-        }
-
-        return $this->get($this->sanitizeDriver($driver), $reload, host: $host, database: $database, user: $user, password: $password, persistent: $persistent, prefix: $prefix);
+        return $this->get(
+            $this->sanitizeDriver($this->core->config()->dbDriver()),
+            false,
+            host: $this->core->config()->dbHost(),
+            database: $this->core->config()->dbName(),
+            user: $this->core->config()->dbUser(),
+            password: $this->core->config()->dbPassword(),
+            persistent: $this->core->config()->dbPersist(),
+            prefix: $this->core->config()->dbPrefix()
+        );
     }
 
     public function newCon(string $driver, string $host, string $database, string $user = '', string $password = '', bool $persistent = false, string $prefix = ''): ConnectionInterface
