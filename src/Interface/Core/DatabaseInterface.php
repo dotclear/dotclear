@@ -26,6 +26,8 @@ interface DatabaseInterface
      *
      * If <var>$driver</var> is given, a new instance is set until a new driver is given.
      *
+     * @throws  \Dotclear\Exception\DatabaseException
+     *
      * @param   string  $driver         Driver name
      * @param   string  $host           Database hostname
      * @param   string  $database       Database name
@@ -38,6 +40,8 @@ interface DatabaseInterface
 
     /**
      * Get new dabatase connection handler instance.
+     *
+     * @throws  \Dotclear\Exception\DatabaseException
      *
      * @param   string  $driver         Driver name
      * @param   string  $host           Database hostname
@@ -61,6 +65,8 @@ interface DatabaseInterface
 
     /**
      * Get combo of available database drivers.
+     *
+     * @throws  \Dotclear\Exception\DatabaseException
      *
      * @return  array<string, string>   The drivers name/driver pairs
      */

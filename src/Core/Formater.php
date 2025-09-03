@@ -61,11 +61,6 @@ class Formater implements FormaterInterface
         return $this->names[$format] ?? $format;
     }
 
-    /**
-     * Gets the editors.
-     *
-     * @return  array<string, string>   The editors.
-     */
     public function getEditors(): array
     {
         $res = [];
@@ -77,13 +72,6 @@ class Formater implements FormaterInterface
         return $res;
     }
 
-    /**
-     * Gets the formater.
-     *
-     * @param      string  $editor_id  The editor identifier
-     *
-     * @return  string[]   The formaters.
-     */
     public function getFormater(string $editor_id): array
     {
         $res = [];
@@ -95,11 +83,6 @@ class Formater implements FormaterInterface
         return $res;
     }
 
-    /**
-     * Gets the formaters.
-     *
-     * @return     array<string, string[]>  The formaters.
-     */
     public function getFormaters(): array
     {
         $res = [];

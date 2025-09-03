@@ -12,7 +12,6 @@ namespace Dotclear\Interface\Core;
 
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
-use Dotclear\Exception\BadRequestException;
 
 /**
  * @brief   Core log handler interface.
@@ -57,7 +56,7 @@ interface LogInterface
     /**
      * Creates a new log. Takes a Cursor as input and returns the new log ID.
      *
-     * @throws  BadRequestException
+     * @throws  \Dotclear\Exception\BadRequestException
      *
      * @param   Cursor  $cur    The current
      */

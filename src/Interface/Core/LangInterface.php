@@ -18,23 +18,23 @@ namespace Dotclear\Interface\Core;
 interface LangInterface
 {
     /**
-     * The default lang (code).
+     * The default language code.
      *
      * @var     string  DEFAULT_LANG
      */
     public const DEFAULT_LANG = 'en';
 
     /**
-     * Get the lang.
+     * Gets the current language code.
      *
-     * @return  string  The lang code.
+     * @return  string  The language code.
      */
     public function getLang(): string;
 
     /**
-     * Set the lang.
+     * Sets the language code.
      *
-     * @param   string  $lang     The lang code
+     * @param   string  $lang   The language code
      */
     public function setLang(string $lang): void;
 }

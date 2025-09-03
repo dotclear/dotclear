@@ -10,8 +10,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Interface\Core;
 
-use Dotclear\Exception\BadRequestException;
-
 /**
  * @brief   User prefs handler interface.
  *
@@ -48,10 +46,10 @@ interface UserPreferencesInterface
     /**
      * Rename a workspace.
      *
+     * @throws  \Dotclear\Exception\BadRequestException
+     *
      * @param   string  $old_workspace  The old workspace name
      * @param   string  $new_workspace  The new workspace name
-     *
-     * @throws  BadRequestException
      */
     public function renWorkspace(string $old_workspace, string $new_workspace): bool;
 

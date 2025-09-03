@@ -24,6 +24,9 @@ use Throwable;
 /**
  * @brief   User workspace for preferences handler.
  *
+ * @since   2.28, container services have been added to constructor
+ * @since   2.36, constructor arguments has been replaced by Core instance
+ *
  * @phpstan-type TCoreUserWorkspaceSettings array{
  *      ws:?string,
  *      value:mixed,
@@ -31,9 +34,7 @@ use Throwable;
  *      label:string,
  *      global:bool
  * }
- * @since   2.28, container services have been added to constructor
- * @since   2.36, constructor arguments has been replaced by Core instance
- *
+ * 
  * @psalm-no-seal-properties
  */
 class UserWorkspace implements UserWorkspaceInterface
@@ -442,31 +443,16 @@ class UserWorkspace implements UserWorkspaceInterface
         return $this->workspace ?? '';
     }
 
-    /**
-     * Dumps preferences.
-     *
-     * @return     array<string, TCoreUserWorkspaceSettings>
-     */
     public function dumpPrefs(): array
     {
         return $this->prefs;
     }
 
-    /**
-     * Dumps local preferences.
-     *
-     * @return     array<string, TCoreUserWorkspaceSettings>
-     */
     public function dumpLocalPrefs(): array
     {
         return $this->local_prefs;
     }
 
-    /**
-     * Dumps global preferences.
-     *
-     * @return     array<string, TCoreUserWorkspaceSettings>
-     */
     public function dumpGlobalPrefs(): array
     {
         return $this->global_prefs;

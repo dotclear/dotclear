@@ -19,6 +19,9 @@ interface TaskInterface
     /**
      * Run task.
      *
+     * @throws  \Dotclear\Exception\ContextException
+     * @throws  \Dotclear\Exception\ProcessException
+     *
      * @param   string  $utility    The called app Utility
      * @param   string  $process    The called app Process
      */
@@ -55,6 +58,8 @@ interface TaskInterface
      * Processes the given process.
      *
      * A process MUST extends Dotclear\Core\Process class.
+     *
+     * @throws  \Dotclear\Exception\ProcessException
      *
      * @param   string  $process    The process
      */

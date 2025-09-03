@@ -79,7 +79,7 @@ class Session implements SessionInterface
 
     public function configure(string $cookie_name, ?string $cookie_path = null, ?string $cookie_domain = null, bool $cookie_secure = false, ?string $ttl = null): void
     {
-        if (session_status() === PHP_SESSION_ACTIVE) {
+        if ($this->exists()) {
             throw new SessionException('Session is already configured');
         }
 

@@ -26,6 +26,9 @@ use Throwable;
  *
  * Handle id,version pairs through database.
  *
+ * @since   2.28, container services have been added to constructor
+ * @since   2.36, constructor arguments has been replaced by Core instance
+ *
  * @phpstan-type TCoreBlogWorkspaceSettings array{
  *      ns:?string,
  *      value:mixed,
@@ -33,9 +36,6 @@ use Throwable;
  *      label:string,
  *      global:bool
  * }
- *
- * @since   2.28, container services have been added to constructor
- * @since   2.36, constructor arguments has been replaced by Core instance
  *
  * @psalm-no-seal-properties
  */
@@ -424,31 +424,16 @@ class BlogWorkspace implements BlogWorkspaceInterface
         return (string) $this->workspace;
     }
 
-    /**
-     * Dumps settings.
-     *
-     * @return     array<string, TCoreBlogWorkspaceSettings>
-     */
     public function dumpSettings(): array
     {
         return $this->settings;
     }
 
-    /**
-     * Dumps local settings.
-     *
-     * @return     array<string, TCoreBlogWorkspaceSettings>
-     */
     public function dumpLocalSettings(): array
     {
         return $this->local_settings;
     }
 
-    /**
-     * Dumps global settings.
-     *
-     * @return     array<string, TCoreBlogWorkspaceSettings>
-     */
     public function dumpGlobalSettings(): array
     {
         return $this->global_settings;

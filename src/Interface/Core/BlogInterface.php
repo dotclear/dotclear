@@ -14,9 +14,6 @@ use ArrayObject;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\SelectStatement;
-use Dotclear\Exception\ConflictException;
-use Dotclear\Exception\BadRequestException;
-use Dotclear\Exception\UnauthorizedException;
 
 /**
  * @brief   Blog handler interface.
@@ -440,10 +437,10 @@ interface BlogInterface
     /**
      * Adds a new category. Takes a Cursor as input and returns the new category ID.
      *
+     * @throws  \Dotclear\Exception\UnauthorizedException
+     *
      * @param   Cursor  $cur        The category Cursor
      * @param   int     $parent     The parent category ID
-     *
-     * @throws  UnauthorizedException
      *
      * @return  int     New category ID
      */
@@ -452,10 +449,10 @@ interface BlogInterface
     /**
      * Updates an existing category.
      *
+     * @throws  \Dotclear\Exception\UnauthorizedException
+     *
      * @param   int     $id     The category ID
      * @param   Cursor  $cur    The category Cursor
-     *
-     * @throws  UnauthorizedException
      */
     public function updCategory(int $id, Cursor $cur): void;
 
@@ -488,16 +485,17 @@ interface BlogInterface
     /**
      * Delete a category.
      *
-     * @param   int     $id     The category ID
+     * @throws  \Dotclear\Exception\ConflictException
+     * @throws  \Dotclear\Exception\BadRequestException
      *
-     * @throws  UnauthorizedException|ConflictException
+     * @param   int     $id     The category ID
      */
     public function delCategory(int $id): void;
 
     /**
      * Reset categories order and relocate them to first level.
      *
-     * @throws  UnauthorizedException
+     * @throws  \Dotclear\Exception\UnauthorizedException
      */
     public function resetCategoriesOrder(): void;
 
@@ -604,19 +602,20 @@ interface BlogInterface
     /**
      * Creates a new entry. Takes a Cursor as input and returns the new entry ID.
      *
-     * @param   Cursor  $cur    The post Cursor
+     * @throws  \Dotclear\Exception\UnauthorizedException
      *
-     * @throws  UnauthorizedException
+     * @param   Cursor  $cur    The post Cursor
      */
     public function addPost(Cursor $cur): int;
 
     /**
      * Updates an existing post.
      *
+     * @throws  \Dotclear\Exception\BadRequestException
+     * @throws  \Dotclear\Exception\UnauthorizedException
+     *
      * @param   int     $id     The post identifier
      * @param   Cursor  $cur    The post Cursor
-     *
-     * @throws  UnauthorizedException|BadRequestException
      */
     public function updPost($id, Cursor $cur): void;
 
@@ -631,27 +630,27 @@ interface BlogInterface
     /**
      * Updates posts status.
      *
+     * @throws  \Dotclear\Exception\UnauthorizedException
+     *
      * @param   mixed   $ids        The identifiers
      * @param   int     $status     The status
-     *
-     * @throws  UnauthorizedException
      */
     public function updPostsStatus($ids, $status): void;
 
     /**
      * Updates posts first publication flag.
      *
+     * @throws  \Dotclear\Exception\UnauthorizedException
+     *
      * @param   mixed   $ids        The identifiers
      * @param   int     $status     The flag
-     *
-     * @throws  UnauthorizedException
      */
     public function updPostsFirstPub($ids, int $status): void;
 
     /**
      * Updates post selection.
      *
-     * @param   int     $id     The identifier
+     * @param   int     $id         The identifier
      * @param   mixed   $selected   The selected flag
      */
     public function updPostSelected($id, $selected): void;
@@ -659,10 +658,10 @@ interface BlogInterface
     /**
      * Updates posts selection.
      *
-     * @param   mixed   $ids        The identifiers
-     * @param   mixed   $selected    The selected flag
+     * @throws  \Dotclear\Exception\UnauthorizedException
      *
-     * @throws  UnauthorizedException
+     * @param   mixed   $ids        The identifiers
+     * @param   mixed   $selected   The selected flag
      */
     public function updPostsSelected($ids, $selected): void;
 
@@ -681,10 +680,10 @@ interface BlogInterface
      *
      * <var>$cat_id</var> can be null.
      *
+     * @throws  \Dotclear\Exception\UnauthorizedException
+     *
      * @param   mixed   $ids        The identifiers
      * @param   mixed   $cat_id     The cat identifier
-     *
-     * @throws  UnauthorizedException
      */
     public function updPostsCategory($ids, $cat_id): void;
 
@@ -693,10 +692,10 @@ interface BlogInterface
      *
      * <var>$new_cat_id</var> can be null.
      *
+     * @throws  \Dotclear\Exception\UnauthorizedException
+     *
      * @param   mixed   $old_cat_id     The old cat identifier
      * @param   mixed   $new_cat_id     The new cat identifier
-     *
-     * @throws  UnauthorizedException
      */
     public function changePostsCategory($old_cat_id, $new_cat_id): void;
 
@@ -710,9 +709,10 @@ interface BlogInterface
     /**
      * Deletes multiple posts.
      *
-     * @param   mixed   $ids    The posts identifiers
+     * @throws  \Dotclear\Exception\BadRequestException
+     * @throws  \Dotclear\Exception\UnauthorizedException
      *
-     * @throws  UnauthorizedException|BadRequestException
+     * @param   mixed   $ids    The posts identifiers
      */
     public function delPosts($ids): void;
 
@@ -753,7 +753,7 @@ interface BlogInterface
      *
      * It will try to guess URL and append some figures if needed.
      *
-     * @throw  BadRequestException
+     * @throws  \Dotclear\Exception\BadRequestException
      *
      * @param   string  $url            The url
      * @param   string  $post_dt        The post dt
@@ -818,10 +818,11 @@ interface BlogInterface
     /**
      * Updates an existing comment.
      *
+     * @throws  \Dotclear\Exception\BadRequestException
+     * @throws  \Dotclear\Exception\UnauthorizedException
+     *
      * @param   int     $id     The comment identifier
      * @param   Cursor  $cur    The comment Cursor
-     *
-     * @throws  UnauthorizedException|BadRequestException
      */
     public function updComment($id, Cursor $cur): void;
 
@@ -836,10 +837,10 @@ interface BlogInterface
     /**
      * Updates comments status.
      *
+     * @throws  \Dotclear\Exception\UnauthorizedException
+     *
      * @param   mixed   $ids        The identifiers
      * @param   mixed   $status     The status
-     *
-     * @throws  UnauthorizedException
      */
     public function updCommentsStatus($ids, $status): void;
 
@@ -853,16 +854,17 @@ interface BlogInterface
     /**
      * Delete comments.
      *
-     * @param   mixed   $ids    The comments identifiers
+     * @throws  \Dotclear\Exception\BadRequestException
+     * @throws  \Dotclear\Exception\UnauthorizedException
      *
-     * @throws  UnauthorizedException|BadRequestException
+     * @param   mixed   $ids    The comments identifiers
      */
     public function delComments($ids): void;
 
     /**
      * Delete Junk comments.
      *
-     * @throws  UnauthorizedException
+     * @throws  \Dotclear\Exception\UnauthorizedException
      */
     public function delJunkComments(): void;
 

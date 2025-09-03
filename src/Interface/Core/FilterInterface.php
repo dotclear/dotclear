@@ -20,7 +20,7 @@ use Dotclear\Helper\Html\WikiToHtml;
 interface FilterInterface
 {
     /**
-     * Load working blog on filter instance
+     * Load working blog on filter instance.
      *
      * @param   BlogInterface       $blog       The blog instance
      */
@@ -29,7 +29,7 @@ interface FilterInterface
     /// @name WikiToHtml methods
     ///@{
     /**
-     * Get wiki instance
+     * Get wiki instance.
      *
      * @return  null|WikiToHtml    The wiki Instance
      */
@@ -58,7 +58,7 @@ interface FilterInterface
     public function initWikiComment(): void;
 
     /**
-     * Get info about a post:id wiki macro
+     * Get info about a post:id wiki macro.
      *
      * @param   string  $url        The post url
      * @param   string  $content    The content
@@ -71,9 +71,11 @@ interface FilterInterface
     /// @name HTML Filter methods
     ///@{
     /**
-     * Calls HTML filter to drop bad tags and produce valid HTML output (if
-     * tidy extension is present). If <b>enable_html_filter</b> blog setting is
-     * false, returns not filtered string.
+     * Calls HTML filter to drop bad tags and produce valid HTML output.
+     *
+     * If tidy extension is present.
+     * If <b>enable_html_filter</b> blog setting is false, 
+     * returns not filtered string.
      *
      * @param   string  $str     The string
      * @param   bool    $forced  True to force filter

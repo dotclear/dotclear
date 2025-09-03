@@ -51,6 +51,8 @@ interface CredentialInterface
     /**
      * Set user credential.
      *
+     * @throws  \Dotclear\Exception\BadRequestException
+     *
      * @param 	string 	$user_id 	The user ID
      * @param 	Cursor 	$cur 		The credential Cursor
      */

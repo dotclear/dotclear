@@ -12,12 +12,19 @@ namespace Dotclear\Interface\Core;
 
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
-use Dotclear\Exception\BadRequestException;
 
 /**
  * @brief   Blog namespace for settings handler interface.
  *
  * @since   2.28
+ *
+ * @phpstan-type TCoreBlogWorkspaceSettings array{
+ *      ns:?string,
+ *      value:mixed,
+ *      type:string,
+ *      label:string,
+ *      global:bool
+ * }
  *
  * @psalm-no-seal-properties
  */
@@ -200,52 +207,52 @@ interface BlogWorkspaceInterface
      * $ignore_value allow you to not change setting. Useful if you need to change
      * a setting label or type and don't want to change its value.
      *
+     * @throws  \Dotclear\Exception\BadRequestException
+     *
      * @param   string  $name           The setting identifier
      * @param   mixed   $value          The setting value
      * @param   string  $type           The setting type
      * @param   string  $label          The setting label
      * @param   bool    $ignore_value   Change setting value or not
      * @param   bool    $global         Setting is global
-     *
-     * @throws  BadRequestException
      */
     public function put(string $name, $value, ?string $type = null, ?string $label = null, bool $ignore_value = true, bool $global = false): void;
 
     /**
      * Rename an existing setting in a wrokspace.
      *
+     * @throws  \Dotclear\Exception\BadRequestException
+     *
      * @param   string  $old_name   The old setting identifier
      * @param   string  $new_name   The new setting identifier
-     *
-     * @throws  BadRequestException
      */
     public function rename(string $old_name, string $new_name): bool;
 
     /**
      * Removes an existing setting in a workspace.
      *
-     * @param   string  $name   The setting identifier
+     * @throws  \Dotclear\Exception\BadRequestException
      *
-     * @throws  BadRequestException
+     * @param   string  $name   The setting identifier
      */
     public function drop(string $name): void;
 
     /**
      * Removes every existing specific setting in a workspace.
      *
+     * @throws  \Dotclear\Exception\BadRequestException
+     *
      * @param   string      $name       Setting ID
      * @param   boolean     $global     Remove global setting too
-     *
-     * @throws  BadRequestException
      */
     public function dropEvery(string $name, bool $global = false): void;
 
     /**
      * Removes all existing settings in a workspace.
      *
-     * @param   bool    $force_global   Force global pref drop
+     * @throws  \Dotclear\Exception\BadRequestException
      *
-     * @throws  BadRequestException
+     * @param   bool    $force_global   Force global pref drop
      */
     public function dropAll(bool $force_global = false): void;
 
@@ -257,21 +264,21 @@ interface BlogWorkspaceInterface
     /**
      * Dumps settings.
      *
-     * @return  array<string, array<string, mixed>>
+     * @return  array<string, TCoreBlogWorkspaceSettings>
      */
     public function dumpSettings(): array;
 
     /**
      * Dumps local settings.
      *
-     * @return  array<string, array<string, mixed>>
+     * @return  array<string, TCoreBlogWorkspaceSettings>
      */
     public function dumpLocalSettings(): array;
 
     /**
      * Dumps global settings.
      *
-     * @return  array<string, array<string, mixed>>
+     * @return  array<string, TCoreBlogWorkspaceSettings>
      */
     public function dumpGlobalSettings(): array;
 

@@ -362,16 +362,6 @@ class Auth implements AuthInterface
     /// @name Sudo
     ///@{
 
-    /**
-     * Sudo command helper
-     *
-     * @param      callable     $fn     The function
-     * @param      mixed[]      $args   The arguments
-     *
-     * @throws     ProcessException
-     *
-     * @return     mixed
-     */
     public function sudo($fn, ...$args)
     {
         if (!is_callable($fn)) {    // @phpstan-ignore-line
@@ -407,13 +397,6 @@ class Auth implements AuthInterface
         return $this->user_prefs;
     }
 
-    /**
-     * Gets the permissions.
-     *
-     * @param   string|null  $blog_id  The blog identifier
-     *
-     * @return  false|array<string, bool>
-     */
     public function getPermissions(?string $blog_id)
     {
         if (isset($this->user_blogs[$blog_id])) {
@@ -526,13 +509,6 @@ class Auth implements AuthInterface
     /// @name Permissions
     ///@{
 
-    /**
-     * Parse user permissions
-     *
-     * @param      null|string  $level  The level
-     *
-     * @return     array<string, bool>
-     */
     public function parsePermissions($level): array
     {
         $level = (string) preg_replace('/^\|/', '', (string) $level);
@@ -546,11 +522,6 @@ class Auth implements AuthInterface
         return $res;
     }
 
-    /**
-     * Makes permissions.
-     *
-     * @param      string[]   $list   The list
-     */
     public function makePermissions(array $list): string
     {
         return implode(',', $list);

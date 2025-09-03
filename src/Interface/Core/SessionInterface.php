@@ -29,13 +29,13 @@ interface SessionInterface
      *
      * This MUST be done before session starts.
      *
+     * @throws  \Dotclear\Exception\SessionException     if session is already configured
+     *
      * @param   string          $cookie_name    Cookie name
      * @param   null|string     $cookie_path    Cookie path
      * @param   null|string     $cookie_domain  Cookie domain
      * @param   bool            $cookie_secure  Cookie secure
      * @param   null|string     $ttl            The ttl
-     *
-     * @throws  \Dotclear\Exception\SessionException     if session is already configured
      */
     public function configure(string $cookie_name, ?string $cookie_path = null, ?string $cookie_domain = null, bool $cookie_secure = false, ?string $ttl = null): void;
 

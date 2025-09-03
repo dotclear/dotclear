@@ -82,6 +82,7 @@ interface MetaInterface
 
     /**
      * Retrieves posts corresponding to given meta criteria.
+     *
      * <b>$params</b> is an array taking the following optional parameters:
      * - meta_id : get posts having meta id
      * - meta_type : get posts having meta type
@@ -96,6 +97,7 @@ interface MetaInterface
 
     /**
      * Retrieves comments corresponding to given meta criteria.
+     *
      * <b>$params</b> is an array taking the following optional parameters:
      * - meta_id : get posts having meta id
      * - meta_type : get posts having meta type
@@ -109,8 +111,10 @@ interface MetaInterface
     public function getCommentsByMeta(array $params = [], bool $count_only = false, ?SelectStatement $ext_sql = null): MetaRecord;
 
     /**
-     * Generic-purpose metadata retrieval : gets metadatas according to given
-     * criteria. <b>$params</b> is an array taking the following
+     * Generic-purpose metadata retrieval.
+     * 
+     * Gets metadatas according to given criteria. 
+     * <b>$params</b> is an array taking the following
      * optionnal parameters:
      *
      * - type: get metas having the given type
@@ -126,8 +130,18 @@ interface MetaInterface
     public function getMetadata(array $params = [], bool $count_only = false, ?SelectStatement $ext_sql = null): MetaRecord;
 
     /**
-     * Computes statistics from a metadata recordset.
-     * Each record gets enriched with lowercase name, percent and roundpercent columns
+     * Calculates the meta statistics from metadata recordset.
+     *
+     * Will add these fields of each record of given recordset:
+     *
+     * - meta_id_lower = metadata id in lowercase without any diacritics
+     * - percent = Usage frequency of this metadata upon all metadata of same type
+     * - roundpercent = Decile usage (0 to 100 by 10 step)
+     *
+     * The percent (and roundpercent) will be calculate based on metadata usage (most used = 100%)
+     *
+     * Ex: A "photo" tag (assuming it's the the most used) is used 476 times (in 476 entries), its frequency will be 100%,
+     * then a "blog" tag which is used in 327 entries will have a 69% frequency (327 ÷ 476 * 100).
      *
      * @param      MetaRecord  $rs     The metadata recordset
      */

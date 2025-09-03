@@ -11,8 +11,6 @@ declare(strict_types=1);
 namespace Dotclear\Interface\Core;
 
 use Dotclear\Database\Cursor;
-use Dotclear\Exception\ProcessException;
-use Dotclear\Exception\BadRequestException;
 
 /**
  * @brief   Authentication handler interface.
@@ -131,7 +129,10 @@ interface AuthInterface
     public function checkUser(string $user_id, ?string $pwd = null, ?string $user_key = null, bool $check_blog = true): bool;
 
     /**
-     * This method crypt given string (password, session_id, …).
+     * Crypt string.
+     *
+     * This method crypt given string (password, session_id, …)
+     * using PHP crypt function.
      *
      * @param   string  $pwd    String to be crypted
      *
@@ -140,7 +141,10 @@ interface AuthInterface
     public function crypt(string $pwd): string;
 
     /**
-     * This method crypt given string (password, session_id, …).
+     * Crypt string.
+     *
+     * This method crypt given string (password, session_id, …)
+     * using Dotclear Helper Crypt methods.
      *
      * @param   string  $pwd    String to be crypted
      *
@@ -149,6 +153,8 @@ interface AuthInterface
     public function cryptLegacy(string $pwd): string;
 
     /**
+     * Checks user password.
+     *
      * This method only check current user password.
      *
      * @param   string  $pwd    User password
@@ -156,11 +162,16 @@ interface AuthInterface
     public function checkPassword(string $pwd): bool;
 
     /**
+     * Checks if session exists.
+     *
      * This method checks if user session cookie exists.
+     * This method is only valid for backend session.
      */
     public function sessionExists(): bool;
 
     /**
+     * Checks user session.
+     *
      * This method checks user session validity.
      *
      * @param   string  $uid    Browser UID
@@ -178,6 +189,8 @@ interface AuthInterface
     public function isSuperAdmin(): bool;
 
     /**
+     * Checks user given permissions.
+     *
      * Checks if user has permissions given in <var>$permissions</var> for blog
      * <var>$blog_id</var>.
      *
@@ -197,12 +210,14 @@ interface AuthInterface
     ///@{
 
     /**
+     * Sudo command helper.
+     *
      * Calls <var>$fn</var> function with super admin rights.
      *
-     * @throws  ProcessException
+     * @throws     \Dotclear\Exception\ProcessException
      *
-     * @param   callable    $fn         Callback function
-     * @param   mixed       ...$args    Callback arguments
+     * @param      callable     $fn     The callback function
+     * @param      mixed[]      $args   The calbback function arguments
      *
      * @return  mixed   The function result
      */
@@ -219,15 +234,16 @@ interface AuthInterface
     public function prefs(): UserPreferencesInterface;
 
     /**
-     * Returns user permissions for a blog.
+     * Gets the permissions.
      *
-     * As an array which looks like:
+     * Returns user permissions for a blog
+     * as an array which looks like:
      *
      *  - [blog_id]
      *    - [permission] => true
      *    - ...
      *
-     * @param   string  $blog_id    Blog ID
+     * @param   string|null  $blog_id  The blog identifier
      *
      * @return  false|array<string, bool>
      */
@@ -287,9 +303,11 @@ interface AuthInterface
     ///@{
 
     /**
+     * Parse user permissions.
+     *
      * Returns an array with permissions parsed from the string <var>$level</var>
      *
-     * @param   string  $level  Permissions string
+     * @param   null|string     $level  The permissions level
      *
      * @return  array<string, bool>
      */
@@ -327,7 +345,7 @@ interface AuthInterface
      *
      * User is identified by its email and password.
      *
-     * @throws  BadRequestException
+     * @throws  \Dotclear\Exception\BadRequestException
      *
      * @param   string  $user_id        User ID
      * @param   string  $user_email     User Email
@@ -342,7 +360,7 @@ interface AuthInterface
      * - user_id
      * - new_pass
      *
-     * @throws  BadRequestException
+     * @throws  \Dotclear\Exception\BadRequestException
      *
      * @param   string  $recover_key    Recovery key
      *

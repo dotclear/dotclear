@@ -72,16 +72,6 @@ class Categories implements CategoriesInterface
         return $this->core->db()->con()->openCursor($this->core->db()->con()->prefix() . self::CATEGORY_TABLE_NAME);
     }
 
-    /**
-     * Gets the children.
-     *
-     * @param      int                      $start   The start
-     * @param      null|int                 $id      The identifier
-     * @param      string                   $sort    The sort
-     * @param      array<string>            $fields  The fields
-     *
-     * @return     MetaRecord    The children.
-     */
     public function getChildren(int $start = 0, ?int $id = null, string $sort = 'asc', array $fields = []): MetaRecord
     {
         $fields = $this->getFields($fields, 'C2.');
@@ -105,14 +95,6 @@ class Categories implements CategoriesInterface
         return new MetaRecord($this->core->db()->con()->select($sql));
     }
 
-    /**
-     * Gets the parents.
-     *
-     * @param   int             $id         The category identifier
-     * @param   array<string>   $fields     The fields
-     *
-     * @return  MetaRecord  The parents.
-     */
     public function getParents(int $id, array $fields = []): MetaRecord
     {
         return new MetaRecord($this->core->db()->con()->select(
@@ -120,14 +102,6 @@ class Categories implements CategoriesInterface
         ));
     }
 
-    /**
-     * Gets the parent.
-     *
-     * @param   int             $id         The category identifier
-     * @param   array<string>   $fields     The fields
-     *
-     * @return     MetaRecord  The parent.
-     */
     public function getParent(int $id, array $fields = []): MetaRecord
     {
         return new MetaRecord($this->core->db()->con()->select(

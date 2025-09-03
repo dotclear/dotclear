@@ -1557,12 +1557,6 @@ class Blog implements BlogInterface
         $this->firstPublicationEntries($posts_ids);
     }
 
-    /**
-     * Updates post selection.
-     *
-     * @param      int      $id        The identifier
-     * @param      mixed    $selected  The selected flag
-     */
     public function updPostSelected($id, $selected): void
     {
         $this->updPostsSelected($id, $selected);
@@ -1665,11 +1659,6 @@ class Blog implements BlogInterface
         $this->triggerBlog();
     }
 
-    /**
-     * Deletes a post.
-     *
-     * @param      int      $id     The post identifier
-     */
     public function delPost($id): void
     {
         $this->delPosts($id);
@@ -2352,11 +2341,6 @@ class Blog implements BlogInterface
         return $rs ?? MetaRecord::newFromArray([]);
     }
 
-    /**
-     * Creates a new comment. Takes a Cursor as input and returns the new comment ID.
-     *
-     * @param      Cursor  $cur    The comment Cursor
-     */
     public function addComment(Cursor $cur): int
     {
         $this->core->db()->con()->writeLock($this->prefix . self::COMMENT_TABLE_NAME);

@@ -30,8 +30,9 @@ interface BehaviorInterface
     public function addBehavior(string $behavior, $func): void;
 
     /**
-     * Adds new behaviors to behaviors stack. Each row must
-     * contains the behavior and a valid callable callback.
+     * Adds new behaviors to behaviors stack.
+     *
+     * Each row must contains the behavior and a valid callable callback.
      *
      * @param   array<string,callable>   $behaviors  The behaviors
      */
@@ -63,9 +64,10 @@ interface BehaviorInterface
     public function getBehaviors(): array;
 
     /**
+     * Calls behavior functions stack.
+     *
      * Calls every function in behaviors stack for a given behavior and returns
      * concatened result of each function.
-     *
      * Every parameters added after <var>$behavior</var> will be pass to
      * behavior calls.
      *
