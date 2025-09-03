@@ -116,20 +116,29 @@ class Utility extends Process
         // deprecated since 2.28, use App::frontend() instead
         dcCore::app()->public = $this;
 
-        // Take care of blog URL for frontend session
-        $url = parse_url(App::blog()->url());
-        if (!is_array($url)) {
-            throw new BlogException(__('Something went wrong while trying to read blog URL.')) ;
-        }
+        if (App::blog()->id() == '') {
+            // configure session with default paremeters, use case in FileServer
+            App::session()->configure(
+                cookie_name: App::config()->sessionName(),
+                cookie_secure: App::config()->adminSsl(),
+                ttl: App::config()->sessionTtl()
+            );
+        } else {
+            // Take care of blog URL for frontend session
+            $url = parse_url(App::blog()->url());
+            if (!is_array($url)) {
+                throw new BlogException(__('Something went wrong while trying to read blog URL.')) ;
+            }
 
-        // configure frontend session
-        App::session()->configure(
-            cookie_name: App::config()->sessionName() . '_' . App::blog()->id(),
-            cookie_path: isset($url['path']) ? dirname($url['path']) : '',
-            //cookie_domain: null,
-            cookie_secure: empty($url['scheme']) || !preg_match('%^http[s]?$%', $url['scheme']) ? false : $url['scheme'] === 'https',
-            ttl: App::config()->sessionTtl()
-        );
+            // configure frontend session
+            App::session()->configure(
+                cookie_name: App::config()->sessionName() . '_' . App::blog()->id(),
+                cookie_path: isset($url['path']) ? dirname($url['path']) : '',
+                //cookie_domain: null,
+                cookie_secure: empty($url['scheme']) || !preg_match('%^http[s]?$%', $url['scheme']) ? false : $url['scheme'] === 'https',
+                ttl: App::config()->sessionTtl()
+            );
+        }
     }
 
     /**
