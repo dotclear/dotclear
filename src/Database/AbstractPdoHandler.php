@@ -12,7 +12,6 @@ namespace Dotclear\Database;
 
 use Dotclear\App;
 use Dotclear\Exception\DatabaseException;
-use Exception;
 use PDO;
 use PDOException;
 use PDOStatement;
@@ -71,7 +70,7 @@ abstract class AbstractPdoHandler extends AbstractHandler
         try {
             $link = new PDO($this->db_dsn($host, $user, $password, $database));
         } catch (PDOException) {
-            throw new Exception('Unable to connect to database');
+            throw new DatabaseException('Unable to connect to database');
         }
 
         $this->db_post_connect($link);
@@ -86,7 +85,7 @@ abstract class AbstractPdoHandler extends AbstractHandler
         try {
             $link = new PDO(sprintf('%s:dbname=%s;host=%s;', static::HANDLER_PDO, $database, $host), null, null, [PDO::ATTR_PERSISTENT => true]);
         } catch (PDOException) {
-            throw new Exception('Unable to connect to database');
+            throw new DatabaseException('Unable to connect to database');
         }
 
         $this->db_post_connect($link);
@@ -131,7 +130,7 @@ abstract class AbstractPdoHandler extends AbstractHandler
                     $msg .= ' SQL=[' . $query . ']';
                 }
 
-                throw new Exception($msg);
+                throw new DatabaseException($msg);
             }
 
             return $res;

@@ -10,8 +10,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Schema\Database\Mysqlimb4;
 
+use Dotclear\Exception\DatabaseException;
 use Dotclear\Schema\Database\Mysqli\Handler as MysqliHandler;
-use Exception;
 use mysqli;
 
 /**
@@ -32,7 +32,7 @@ class Handler extends MysqliHandler
      * @param      string     $password  The password
      * @param      string     $database  The database
      *
-     * @throws     Exception
+     * @throws     DatabaseException
      *
      * @return     mixed
      */
@@ -57,7 +57,7 @@ class Handler extends MysqliHandler
             }
         }
         if (($link = @mysqli_connect($host, $user, $password, $database, $port, $socket)) === false) {
-            throw new Exception('Unable to connect to database');
+            throw new DatabaseException('Unable to connect to database');
         }
 
         $this->db_post_connect($link);
@@ -84,6 +84,8 @@ class Handler extends MysqliHandler
     /**
      * Post connection helper
      *
+     * @throws     DatabaseException
+     *
      * @param      mysqli  $handle   The DB handle
      */
     private function db_post_connect(mysqli $handle): void
@@ -100,7 +102,7 @@ class Handler extends MysqliHandler
             }
             $handle->set_charset('utf8mb4');
         } else {
-            throw new Exception('Unable to connect to an utf8mb4 database');
+            throw new DatabaseException('Unable to connect to an utf8mb4 database');
         }
     }
 

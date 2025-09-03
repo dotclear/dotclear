@@ -14,7 +14,6 @@ use Dotclear\App;
 use Dotclear\Database\AbstractHandler;
 use Dotclear\Database\Record;
 use Dotclear\Exception\DatabaseException;
-use Exception;
 use PgSql\Connection;
 use PgSql\Result;
 
@@ -88,7 +87,7 @@ class Handler extends AbstractHandler
      * @param      string     $password  The password
      * @param      string     $database  The database
      *
-     * @throws     Exception
+     * @throws     DatabaseException
      *
      * @return     mixed
      */
@@ -99,7 +98,7 @@ class Handler extends AbstractHandler
         $str = $this->get_connection_string($host, $user, $password, $database);
 
         if (($link = @pg_connect($str)) === false) {
-            throw new Exception('Unable to connect to database');
+            throw new DatabaseException('Unable to connect to database');
         }
 
         $this->db_post_connect($link);
@@ -115,6 +114,8 @@ class Handler extends AbstractHandler
      * @param      string  $password  The password
      * @param      string  $database  The database
      *
+     * @throws     DatabaseException
+     *
      * @return     mixed
      */
     public function db_pconnect(string $host, string $user, string $password, string $database)
@@ -124,7 +125,7 @@ class Handler extends AbstractHandler
         $str = $this->get_connection_string($host, $user, $password, $database);
 
         if (($link = @pg_pconnect($str)) === false) {
-            throw new Exception('Unable to connect to database');
+            throw new DatabaseException('Unable to connect to database');
         }
 
         $this->db_post_connect($link);
@@ -204,7 +205,7 @@ class Handler extends AbstractHandler
      * @param      mixed      $handle  The handle
      * @param      string     $query   The query
      *
-     * @throws     Exception
+     * @throws     DatabaseException
      */
     public function db_query($handle, string $query): ?\PgSql\Result
     {
@@ -216,7 +217,7 @@ class Handler extends AbstractHandler
                     $msg .= ' SQL=[' . $query . ']';
                 }
 
-                throw new Exception($msg);
+                throw new DatabaseException($msg);
             }
 
             return $res;
