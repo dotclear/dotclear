@@ -507,7 +507,7 @@ abstract class Otp
     {
         $verified = false;
         if ($this->getType() === 'hotp') {
-            $verifiy = hash_equals($this->getCode($this->getCounter()), $code);
+            $verified = hash_equals($this->getCode($this->getCounter()), $code);
         } else {
             $ts    = $this->getTimestamp();
             $lower = $ts - $this->getLeeway();
