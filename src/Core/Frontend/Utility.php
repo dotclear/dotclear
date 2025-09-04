@@ -116,7 +116,9 @@ class Utility extends Process
         // deprecated since 2.28, use App::frontend() instead
         dcCore::app()->public = $this;
 
-        if (App::blog()->id() === '') {
+        if (App::task()->checkContext('BACKEND') && App::session()->exists()) {
+            // Opening a Frontend context inside a Backend one, nothing more to do
+        } elseif (App::blog()->id() === '') {
             // configure session with default paremeters, use case in FileServer
             App::session()->configure(
                 cookie_name: App::config()->sessionName(),

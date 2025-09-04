@@ -82,7 +82,7 @@ class Task implements TaskInterface
         self::$watchdog = true;
 
         // Set encoding
-        @ini_set('mbstring.substitute_character', "none"); // discard unsupported characters
+        @ini_set('mbstring.substitute_character', 'none'); // discard unsupported characters
         mb_internal_encoding('UTF-8');
 
         // Initialize lang definition
@@ -118,7 +118,7 @@ class Task implements TaskInterface
             $_SERVER['PATH_INFO'] = '';
         }
 
-        // Stop on unsupported CLI mode 
+        // Stop on unsupported CLI mode
         if ($this->core->config()->cliMode() && !in_array(strtoupper($utility), $this->cli)) {
             throw new ProcessException(sprintf(__('%s context does not support CLI mode'), $utility));
         }
