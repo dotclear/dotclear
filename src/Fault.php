@@ -11,7 +11,6 @@ declare(strict_types=1);
 namespace Dotclear;
 
 use Dotclear\Helper\L10n;
-use Dotclear\Interface\Core\ConfigInterface;
 use Throwable;
 
 /**
@@ -23,11 +22,19 @@ use Throwable;
 class Fault
 {
     /**
-     * The application configuration (if loaded).
-     *
-     * Class can work without Config for early exception.
+     * The debug mode.
      */
-    public static ?ConfigInterface $config = null;
+    public static bool $debug_mode = false;
+
+    /**
+     * The custom error file.
+     */
+    public static string $error_file = '';
+
+    /**
+     * The vendor name.
+     */
+    public static string $vendor_name = '';
 
     /**
      * Constructor parse throwable exception or error.
@@ -36,14 +43,19 @@ class Fault
      */
     public function __construct(Throwable $exception)
     {
-        // We may need l10n __() function (should be already loaded but hey)
-        L10n::bootstrap();
+        
+        try {
+            // We may need l10n __() function (should be already loaded but hey)
+            L10n::bootstrap();
+        } catch (Throwable) {
+            // Continue even if L10n is broken
+        }
 
         // Parse some Exception values. And try to translate them even if they are already translated.
         $code    = $exception->getCode() ?: 500;
-        $label   = htmlspecialchars(strip_tags(__($exception->getMessage())));
-        $message = nl2br(__($exception->getPrevious() instanceof Throwable ? $exception->getPrevious()->getMessage() : $exception->getMessage()));
-        $trace   = htmlspecialchars(self::$config?->debugMode() !== false ? self::trace($exception) : '');
+        $label   = htmlspecialchars(strip_tags(self::trans($exception->getMessage()))) ?: self::trans('Site temporarily unavailable');
+        $message = nl2br(self::trans($exception->getPrevious() instanceof Throwable ? $exception->getPrevious()->getMessage() : $exception->getMessage()));
+        $trace   = self::$debug_mode ? htmlspecialchars(self::trace($exception)) : '';
 
         // Stop in CLI mode
         if (PHP_SAPI === 'cli') {
@@ -52,12 +64,24 @@ class Fault
         }
 
         // Load custom error file if any
-        if (isset(self::$config) && is_file(self::$config->errorFile())) {
-            include self::$config->errorFile();
+        if (self::$error_file !== '' && is_file(self::$error_file)) {
+            include self::$error_file;
         }
 
         // Render HTTP page
         self::render((int) $code, $label, $message, $trace);
+    }
+
+    /**
+     * Try to translate message.
+     */
+    protected static function trans(string $str): string
+    {
+        try {
+            return function_exists('\__') ? __($str) : $str;
+        } catch (Throwable) {
+            return $str;
+        }
     }
 
     /**
@@ -138,7 +162,7 @@ class Fault
             ob_clean();
         }
 
-        $vendor = htmlspecialchars(self::$config?->vendorName() ?: 'Dotclear');
+        $vendor = htmlspecialchars(self::$vendor_name ?: 'Dotclear');
 
         // HTTP header
         header('Content-Type: text/html; charset=utf-8');

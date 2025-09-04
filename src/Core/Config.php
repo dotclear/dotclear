@@ -478,7 +478,9 @@ class Config implements ConfigInterface
         $this->csp_report_file = (string) DC_CSP_LOGFILE;
 
         // Set config for Exception handler
-        Fault::$config = $this;
+        Fault::$debug_mode  = $this->debugMode();
+        Fault::$error_file  = $this->errorFile();
+        Fault::$vendor_name = $this->vendorName();
 
         // No release file
         if ($this->dotclearVersion() === '') {
