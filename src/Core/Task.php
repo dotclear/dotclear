@@ -39,7 +39,7 @@ class Task implements TaskInterface
     private static bool $watchdog = false;
 
     /**
-     * The contexts in use
+     * The contexts in use.
      *
      * Multiple contexts can be set at same time like:
      * INSTALL / BACKEND, or BACKEND / MODULE
@@ -52,6 +52,15 @@ class Task implements TaskInterface
         'MODULE'   => false,
         'INSTALL'  => false,
         'UPGRADE'  => false,
+    ];
+
+    /**
+     * Utilities that support CLI mode.
+     *
+     * @var     string[]    $cli
+     */
+    private array $cli = [
+        'UPGRADE',
     ];
 
     /**
@@ -107,6 +116,11 @@ class Task implements TaskInterface
         // Ensure server PATH_INFO is set
         if (!isset($_SERVER['PATH_INFO'])) {
             $_SERVER['PATH_INFO'] = '';
+        }
+
+        // Stop on unsupported CLI mode 
+        if ($this->core->config()->cliMode() && !in_array(strtoupper($utility), $this->cli)) {
+            throw new ProcessException(sprintf(__('%s context does not support CLI mode'), $utility));
         }
 
         // Set called context
