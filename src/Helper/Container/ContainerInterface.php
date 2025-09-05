@@ -41,4 +41,13 @@ interface ContainerInterface
      * @return  bool    True if it exists
      */
     public function has(string $id): bool;
+
+    /**
+     * Dump services definitons stack.
+     *
+     * This sets container factory method dump() as public
+     *
+     * @return  array<string,string|callable>   The stack
+     */
+    public function dump(): array;
 }

@@ -19,19 +19,14 @@ declare(strict_types=1);
 namespace Dotclear\Core;
 
 // Default core class from elsewhere, see Container::getDefaultServices()
-use Dotclear\Core\Backend\Utility as Backend;
 use Dotclear\Core\Frontend\Url;
-use Dotclear\Core\Frontend\Utility as Frontend;
-use Dotclear\Core\Upgrade\Utility as Upgrade;
-use Dotclear\Module\Plugins;
-use Dotclear\Module\Themes;
 
 // Container helpers
 use Dotclear\Exception\ContextException;
 use Dotclear\Helper\Container\Container;
 use Dotclear\Helper\Container\Factories;
 
-// Container interfaces
+// Services with interfaces
 use Dotclear\Interface\Core\AuthInterface;
 use Dotclear\Interface\Core\BehaviorInterface;
 use Dotclear\Interface\Core\BlogInterface;
@@ -68,6 +63,16 @@ use Dotclear\Interface\Core\UsersInterface;
 use Dotclear\Interface\Core\UserPreferencesInterface;
 use Dotclear\Interface\Core\UserWorkspaceInterface;
 use Dotclear\Interface\Core\VersionInterface;
+
+// Service with extended modules interface
+use Dotclear\Module\Plugins;
+use Dotclear\Module\Themes;
+
+// Services as interfaces
+use Dotclear\Core\Backend\Utility as Backend;
+use Dotclear\Core\Frontend\Utility as Frontend;
+use Dotclear\Core\Install\Utility as Install;
+use Dotclear\Core\Upgrade\Utility as Upgrade;
 
 // deprecated in core
 use Dotclear\Interface\Database\ConnectionInterface;
@@ -128,7 +133,6 @@ class Core extends Container
     {
         return [    // @phpstan-ignore-line
             AuthInterface::class            => Auth::class,
-            Backend::class                  => Backend::class,
             BehaviorInterface::class        => Behavior::class,
             BlogInterface::class            => Blog::class,
             BlogSettingsInterface::class    => BlogSettings::class,
@@ -143,7 +147,6 @@ class Core extends Container
             ErrorInterface::class           => Error::class,
             FilterInterface::class          => Filter::class,
             FormaterInterface::class        => Formater::class,
-            Frontend::class                 => Frontend::class,
             LangInterface::class            => Lang::class,
             LexicalInterface::class         => Lexical::class,
             LogInterface::class             => Log::class,
@@ -160,12 +163,17 @@ class Core extends Container
             TaskInterface::class            => Task::class,
             ThemesInterface::class          => Themes::class,
             TrackbackInterface::class       => Trackback::class,
-            Upgrade::class                  => Upgrade::class,
             UrlInterface::class             => Url::class,
             UsersInterface::class           => Users::class,
             UserPreferencesInterface::class => UserPreferences::class,
             UserWorkspaceInterface::class   => UserWorkspace::class,
             VersionInterface::class         => Version::class,
+
+            // services as interfaces
+            Backend::class                  => Backend::class,
+            Frontend::class                 => Frontend::class,
+            Install::class                  => Install::class,
+            Upgrade::class                  => Upgrade::class,
         ];
     }
 
@@ -178,26 +186,6 @@ class Core extends Container
     public static function auth(): AuthInterface
     {
         return self::$instance->get(AuthInterface::class);
-    }
-
-    /**
-     * Backend Utility.
-     *
-     * @see     Dotclear\Core\Backend\Utility
-     */
-    public static function backend(): Backend
-    {
-        return self::$instance->get(Backend::class);
-    }
-
-    /**
-     * Upgrade Utility.
-     *
-     * @see     Dotclear\Core\Upgrade\Utility
-     */
-    public static function upgrade(): Upgrade
-    {
-        return self::$instance->get(Upgrade::class);
     }
 
     /**
@@ -366,16 +354,6 @@ class Core extends Container
     public static function formater(): FormaterInterface
     {
         return self::$instance->get(FormaterInterface::class);
-    }
-
-    /**
-     * Frontend Utility.
-     *
-     * @see     Dotclear\Core\Frontend\Utility
-     */
-    public static function frontend(): Frontend
-    {
-        return self::$instance->get(Frontend::class);
     }
 
     /**
@@ -608,5 +586,35 @@ class Core extends Container
     public static function version(): VersionInterface
     {
         return self::$instance->get(VersionInterface::class);
+    }
+
+    /**
+     * Backend Utility.
+     *
+     * @see     Dotclear\Core\Backend\Utility
+     */
+    public static function backend(): Backend
+    {
+        return self::$instance->get(Backend::class);
+    }
+
+    /**
+     * Frontend Utility.
+     *
+     * @see     Dotclear\Core\Frontend\Utility
+     */
+    public static function frontend(): Frontend
+    {
+        return self::$instance->get(Frontend::class);
+    }
+
+    /**
+     * Upgrade Utility.
+     *
+     * @see     Dotclear\Core\Upgrade\Utility
+     */
+    public static function upgrade(): Upgrade
+    {
+        return self::$instance->get(Upgrade::class);
     }
 }

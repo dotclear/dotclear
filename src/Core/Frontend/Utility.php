@@ -20,10 +20,9 @@ namespace Dotclear\Core\Frontend;
 
 use dcCore;
 use Dotclear\App;
-use Dotclear\Core\Process;
+use Dotclear\Core\Utility as AbstractUtility;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\L10n;
-use Dotclear\Helper\TraitDynamicProperties;
 use Dotclear\Exception\BlogException;
 use Dotclear\Exception\ContextException;
 use Dotclear\Exception\TemplateException;
@@ -34,9 +33,9 @@ use Throwable;
 /**
  * Utility class for public context.
  */
-class Utility extends Process
+class Utility extends AbstractUtility
 {
-    use TraitDynamicProperties;
+    public const UTILITY_ID = 'Frontend';
 
     /**
      * The default templates folder name
@@ -141,14 +140,6 @@ class Utility extends Process
                 ttl: App::config()->sessionTtl()
             );
         }
-    }
-
-    /**
-     * Prepare the context.
-     */
-    public static function init(): bool
-    {
-        return true;
     }
 
     /**

@@ -20,11 +20,10 @@ namespace Dotclear\Core\Upgrade;
 
 use Dotclear\App;
 use Dotclear\Core\Backend\Resources;
-use Dotclear\Core\Process;
+use Dotclear\Core\Utility as AbstractUtility;
 use Dotclear\Exception\ContextException;
 use Dotclear\Exception\PreconditionException;
 use Dotclear\Helper\L10n;
-use Dotclear\Process\Upgrade\Cli;
 
 /**
  * @brief   Utility class for upgrade context.
@@ -34,8 +33,10 @@ use Dotclear\Process\Upgrade\Cli;
  *
  * @since   2.29
  */
-class Utility extends Process
+class Utility extends AbstractUtility
 {
+    public const UTILITY_ID = 'Upgrade';
+
     /**
      * Upgrade login cookie name.
      *
@@ -97,7 +98,7 @@ class Utility extends Process
     {
         if (App::config()->cliMode()) {
             // In CLI mode process does the job
-            App::task()->loadProcess(Cli::class);
+            App::task()->loadProcess('Cli');
 
             return true;
         }

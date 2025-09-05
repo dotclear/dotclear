@@ -26,8 +26,6 @@ use Throwable;
 /**
  * @brief   Application task launcher.
  *
- * This class execute application according to an Utility and its Process.
- *
  * @since   2.28, preload events has been grouped in this class
  * @since   2.36, constructor arguments has been replaced by Core instance
  */
@@ -46,22 +44,12 @@ class Task implements TaskInterface
      *
      * @var     array<string, bool>     $context
      */
-    private array $context = [
-        'BACKEND'  => false,
-        'FRONTEND' => false,
-        'MODULE'   => false,
-        'INSTALL'  => false,
-        'UPGRADE'  => false,
-    ];
+    private array $context = [];
 
     /**
-     * Utilities that support CLI mode.
-     *
-     * @var     string[]    $cli
+     * The running utility.
      */
-    private array $cli = [
-        'UPGRADE',
-    ];
+    private string $utility = '';
 
     /**
      * Constructs a new instance.
@@ -118,16 +106,22 @@ class Task implements TaskInterface
             $_SERVER['PATH_INFO'] = '';
         }
 
-        // Stop on unsupported CLI mode
-        if ($this->core->config()->cliMode() && !in_array(strtoupper($utility), $this->cli)) {
-            throw new ProcessException(sprintf(__('%s context does not support CLI mode'), $utility));
+        // Look at core factory to get utility class name to call it statically
+        foreach ($this->core->dump() as $service) { // Not perfect but run once
+            if (is_string($service) && is_subclass_of($service, Utility::class) && $service::UTILITY_ID === $utility) {
+                $this->utility = $service;
+                break;
+            }
+        }
+        if ($this->utility === '') {
+            throw new ProcessException(sprintf(__('Unable to initialize utility %s'), $utility));
         }
 
         // Set called context
         $this->addContext($utility);
 
         // Initialize Utility
-        $utility_response = $utility === '' ? false : $this->loadUtility('Dotclear\\Core\\' . $utility . '\\Utility', false);
+        $utility_response = $utility === '' ? false : $this->utility::init();
 
         // deprecated since 2.28, loads core classes (old way)
         Clearbricks::lib()->autoload([
@@ -212,13 +206,13 @@ class Task implements TaskInterface
         }
 
         // Process app utility. If any.
-        if ($utility_response && $this->loadUtility('Dotclear\\Core\\' . $utility . '\\Utility', true)) {
+        if ($utility_response && $this->utility::process()) {
             // Try to load utility process, the _REQUEST process as priority on method process.
             if (!empty($_REQUEST['process']) && preg_match('/^[A-Za-z]+$/', (string) $_REQUEST['process'])) {
                 $process = $_REQUEST['process'];
             }
             if (!empty($process)) {
-                $this->loadProcess('Dotclear\\Process\\' . $utility . '\\' . $process);
+                $this->loadProcess($process);
             }
         }
     }
@@ -232,49 +226,36 @@ class Task implements TaskInterface
     {
         $context = strtoupper($context);
 
-        if (array_key_exists($context, $this->context)) {
-            $this->context[$context] = true;
+        $this->context[$context] = true;
 
-            // Constant compatibility
-            $constant = 'DC_CONTEXT_' . match ($context) {
-                'BACKEND'  => 'ADMIN',
-                'FRONTEND' => 'PUBLIC',
-                default    => $context
-            };
-            if (!defined($constant)) {
-                define($constant, true);
-            }
+        // Deprecated since 2.28 constant compatibility
+        $constant = 'DC_CONTEXT_' . match ($context) {
+            'BACKEND'  => 'ADMIN',
+            'FRONTEND' => 'PUBLIC',
+            default    => $context
+        };
+        if (!defined($constant)) {
+            define($constant, true);
         }
     }
 
     public function loadProcess(string $process): void
     {
-        if (!is_subclass_of($process, Process::class, true)) {
-            throw new ProcessException(sprintf(__('Unable to find class %s'), $process));
+        if ($this->utility === '') {
+            // Should never happened but hey
+            throw new ProcessException(__('Utility not initialized'));
+        }
+
+        // Build Process class name from its Utility
+        $class = sprintf($this->utility::PROCESS_NS, $this->utility::UTILITY_ID, $process);
+
+        if (!is_subclass_of($class, Process::class, true)) {
+            throw new ProcessException(sprintf(__('Unable to find class %s'), $class));
         }
 
         // Call process in 3 steps: init, process, render.
-        if ($process::init() !== false && $process::process() !== false) {
-            $process::render();
+        if ($class::init() !== false && $class::process() !== false) {
+            $class::render();
         }
-    }
-
-    /**
-     * Instanciate the given utility.
-     *
-     * An utility MUST extends Dotclear\Core\Process class.
-     *
-     * @param   string  $utility    The utility
-     * @param   bool    $next       Go to process step
-     *
-     * @return  bool    Result of $utility::init() or $utility::process() if exist
-     */
-    private function loadUtility(string $utility, bool $next = false): bool
-    {
-        if (!is_subclass_of($utility, Process::class, true)) {
-            throw new ProcessException(sprintf(__('Unable to initialize class %s'), $utility));
-        }
-
-        return $next ? $utility::process() : $utility::init();
     }
 }
