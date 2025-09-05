@@ -17,7 +17,6 @@ use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Note;
 use Dotclear\Helper\Html\Form\Set;
-use Dotclear\Helper\Html\Form\Single;
 use Dotclear\Helper\Network\Http;
 use Exception;
 
@@ -126,10 +125,8 @@ class Plugin extends Process
                 if ($settings !== []) {
                     echo (new Set())
                         ->items([
-                            (new Single('hr'))
-                                ->class('clear'),
                             (new Note())
-                                ->class(['right', 'modules'])
+                                ->class(['right', 'modules', 'vertical-separator'])
                                 ->text(implode(' - ', $settings)),
                         ])
                     ->render();
