@@ -1248,12 +1248,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FakerPHP/Faker.git",
-                "reference": "5974721af30db18aba3fd96e0d59db9b1dac8657"
+                "reference": "e36214b740bd2a711b5dc1ce4a700b22af604abe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FakerPHP/Faker/zipball/5974721af30db18aba3fd96e0d59db9b1dac8657",
-                "reference": "5974721af30db18aba3fd96e0d59db9b1dac8657",
+                "url": "https://api.github.com/repos/FakerPHP/Faker/zipball/e36214b740bd2a711b5dc1ce4a700b22af604abe",
+                "reference": "e36214b740bd2a711b5dc1ce4a700b22af604abe",
                 "shasum": ""
             },
             "require": {
@@ -1311,7 +1311,7 @@
                 "issues": "https://github.com/FakerPHP/Faker/issues",
                 "source": "https://github.com/FakerPHP/Faker/tree/2.0"
             },
-            "time": "2025-08-01T21:37:47+00:00"
+            "time": "2025-09-04T08:12:32+00:00"
         },
         {
             "name": "felixfbecker/language-server-protocol",
@@ -2191,12 +2191,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "8bb2a207ee886a1dd560b2d80135e16f032bedb3"
+                "reference": "7468aaa8669aa353ceca9bf4add2727458f36ed5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/8bb2a207ee886a1dd560b2d80135e16f032bedb3",
-                "reference": "8bb2a207ee886a1dd560b2d80135e16f032bedb3",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/7468aaa8669aa353ceca9bf4add2727458f36ed5",
+                "reference": "7468aaa8669aa353ceca9bf4add2727458f36ed5",
                 "shasum": ""
             },
             "require": {
@@ -2242,7 +2242,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-08-27T04:26:34+00:00"
+            "time": "2025-09-05T05:42:36+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -2250,30 +2250,30 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "086553c5b2e0e1e20293d782d788ab768202b621"
+                "reference": "da2cdaff87220fa641e7652364281b736e4347e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/086553c5b2e0e1e20293d782d788ab768202b621",
-                "reference": "086553c5b2e0e1e20293d782d788ab768202b621",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/da2cdaff87220fa641e7652364281b736e4347e0",
+                "reference": "da2cdaff87220fa641e7652364281b736e4347e0",
                 "shasum": ""
             },
             "require": {
                 "ext-dom": "*",
                 "ext-libxml": "*",
                 "ext-xmlwriter": "*",
-                "nikic/php-parser": "^5.4.0",
+                "nikic/php-parser": "^5.6.1",
                 "php": ">=8.3",
                 "phpunit/php-file-iterator": "^6.0",
                 "phpunit/php-text-template": "^5.0",
                 "sebastian/complexity": "^5.0",
-                "sebastian/environment": "^8.0",
+                "sebastian/environment": "^8.0.3",
                 "sebastian/lines-of-code": "^4.0",
                 "sebastian/version": "^6.0",
                 "theseer/tokenizer": "^1.2.3"
             },
             "require-dev": {
-                "phpunit/phpunit": "^12.1"
+                "phpunit/phpunit": "^12.3.7"
             },
             "suggest": {
                 "ext-pcov": "PHP extension that provides line coverage",
@@ -2312,7 +2312,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/php-code-coverage/issues",
                 "security": "https://github.com/sebastianbergmann/php-code-coverage/security/policy",
-                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/12.3.2"
+                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/12.3.6"
             },
             "funding": [
                 {
@@ -2332,7 +2332,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-07-29T06:19:24+00:00"
+            "time": "2025-09-02T05:23:14+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -2637,12 +2637,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "9befa6941421148c2ee3a06a2122f1c7ab11df36"
+                "reference": "864e93c73b6e4caf189461cdbdf63853c54271e2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/9befa6941421148c2ee3a06a2122f1c7ab11df36",
-                "reference": "9befa6941421148c2ee3a06a2122f1c7ab11df36",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/864e93c73b6e4caf189461cdbdf63853c54271e2",
+                "reference": "864e93c73b6e4caf189461cdbdf63853c54271e2",
                 "shasum": ""
             },
             "require": {
@@ -2656,7 +2656,7 @@
                 "phar-io/manifest": "^2.0.4",
                 "phar-io/version": "^3.2.1",
                 "php": ">=8.3",
-                "phpunit/php-code-coverage": "^12.3.2",
+                "phpunit/php-code-coverage": "^12.3.6",
                 "phpunit/php-file-iterator": "^6.0.0",
                 "phpunit/php-invoker": "^6.0.0",
                 "phpunit/php-text-template": "^5.0.0",
@@ -2666,7 +2666,7 @@
                 "sebastian/diff": "^7.0.0",
                 "sebastian/environment": "^8.0.3",
                 "sebastian/exporter": "^7.0.0",
-                "sebastian/global-state": "^8.0.0",
+                "sebastian/global-state": "^8.0.2",
                 "sebastian/object-enumerator": "^7.0.0",
                 "sebastian/type": "^6.0.3",
                 "sebastian/version": "^6.0.0",
@@ -2735,7 +2735,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-08-27T11:28:04+00:00"
+            "time": "2025-09-03T06:27:18+00:00"
         },
         {
             "name": "psr/container",
@@ -2957,12 +2957,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "c8ffe24fa6187e5c44d98a2a29f849bb8047411b"
+                "reference": "3956e807d24971b0753ee92ba7b6ee84bb33c52d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/c8ffe24fa6187e5c44d98a2a29f849bb8047411b",
-                "reference": "c8ffe24fa6187e5c44d98a2a29f849bb8047411b",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/3956e807d24971b0753ee92ba7b6ee84bb33c52d",
+                "reference": "3956e807d24971b0753ee92ba7b6ee84bb33c52d",
                 "shasum": ""
             },
             "require": {
@@ -3010,7 +3010,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-08-26T13:20:20+00:00"
+            "time": "2025-09-05T12:51:52+00:00"
         },
         {
             "name": "revolt/event-loop",
