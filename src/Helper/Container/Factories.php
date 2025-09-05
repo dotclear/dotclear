@@ -95,7 +95,7 @@ class Factories
     /**
      * Get a container factory.
      *
-     * A factory is a stack of services definitons.
+     * A factory is a stack of services definitions.
      *
      * @param   string  $container  The container ID
      *

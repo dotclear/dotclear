@@ -89,7 +89,7 @@ class Blog extends Process
     {
         if (!empty($_REQUEST['id'])) {
             App::backend()->edit_blog_mode = true;
-            App::task()->loadProcess('BlogPref');
+            App::task()->loadProcess((new \ReflectionClass(BlogPref::class))->getShortName());
         } else {
             Page::open(
                 __('New blog'),
