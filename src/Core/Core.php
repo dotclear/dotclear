@@ -22,6 +22,7 @@ namespace Dotclear\Core;
 use Dotclear\Core\Backend\Utility as Backend;
 use Dotclear\Core\Frontend\Url;
 use Dotclear\Core\Frontend\Utility as Frontend;
+use Dotclear\Core\Install\Utility as Install;
 use Dotclear\Core\Upgrade\Utility as Upgrade;
 use Dotclear\Module\Plugins;
 use Dotclear\Module\Themes;
@@ -144,6 +145,7 @@ class Core extends Container
             FilterInterface::class          => Filter::class,
             FormaterInterface::class        => Formater::class,
             Frontend::class                 => Frontend::class,
+            Install::class                  => Install::class,
             LangInterface::class            => Lang::class,
             LexicalInterface::class         => Lexical::class,
             LogInterface::class             => Log::class,

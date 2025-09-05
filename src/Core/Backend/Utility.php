@@ -21,10 +21,9 @@ namespace Dotclear\Core\Backend;
 use dcCore;
 use Dotclear\App;
 use Dotclear\Core\PostType;
-use Dotclear\Core\Process;
+use Dotclear\Core\Utility as AbstractUtility;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
-use Dotclear\Helper\TraitDynamicProperties;
 use Dotclear\Exception\ContextException;
 use Dotclear\Exception\PreconditionException;
 use Dotclear\Exception\SessionException;
@@ -32,10 +31,9 @@ use Dotclear\Exception\SessionException;
 /**
  * Utility class for admin context.
  */
-class Utility extends Process
+class Utility extends AbstractUtility
 {
-    /** Allow dynamic properties */
-    use TraitDynamicProperties;
+    public const UTILITY_ID = 'Backend';
 
     /**
      * Current admin page URL.
@@ -105,14 +103,6 @@ class Utility extends Process
         // HTTP/1.1
         header('Expires: Mon, 13 Aug 2003 07:48:00 GMT');
         header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
-    }
-
-    /**
-     * Initialize application utility.
-     */
-    public static function init(): bool
-    {
-        return true;
     }
 
     /**

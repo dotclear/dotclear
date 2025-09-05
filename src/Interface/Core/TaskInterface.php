@@ -12,6 +12,10 @@ namespace Dotclear\Interface\Core;
 /**
  * @brief   Application task interface.
  *
+ * This class execute application according to an Utility and its Process.
+ * * An utility MUST extends Dotclear\Core\Utility class.
+ * * A process MUST extends Dotclear\Core\Process class.
+ *
  * @since   2.28
  */
 interface TaskInterface
@@ -58,6 +62,7 @@ interface TaskInterface
      * Processes the given process.
      *
      * A process MUST extends Dotclear\Core\Process class.
+     * A process can only be loaded from its Utility.
      *
      * @throws  \Dotclear\Exception\ProcessException
      *

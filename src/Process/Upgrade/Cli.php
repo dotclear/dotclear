@@ -13,7 +13,8 @@ namespace Dotclear\Process\Upgrade;
 use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Core\Upgrade\Upgrade;
-use Exception;
+use Dotclear\Exception\ProcessException;
+use Throwable;
 
 /**
  * @brief   CLI upgrade process.
@@ -24,8 +25,8 @@ class Cli extends Process
 {
     public static function init(): bool
     {
-        if (!self::status(App::task()->checkContext('UPGRADE') && defined('PHP_SAPI') && PHP_SAPI === 'cli')) {
-            throw new Exception('Application is not in CLI mode', 550);
+        if (!self::status(App::task()->checkContext('UPGRADE') && App::config()->cliMode())) {
+            throw new ProcessException('Application is not in CLI mode', 550);
         }
 
         return self::status();
@@ -43,7 +44,7 @@ class Cli extends Process
 
             try {
                 $changes = (int) Upgrade::dotclearUpgrade();
-            } catch (Exception $e) {
+            } catch (Throwable $e) {
                 App::db()->con()->rollback();
 
                 throw $e;
@@ -51,7 +52,7 @@ class Cli extends Process
             App::db()->con()->commit();
             echo 'Upgrade process successfully completed (' . $changes . "). \n";
             dotclear_exit(0);
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             echo $e->getMessage() . "\n";
             dotclear_exit(1);
         }

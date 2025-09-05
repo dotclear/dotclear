@@ -167,6 +167,11 @@ class Container implements ContainerInterface
         return $reflector->newInstanceArgs($args);
     }
 
+    public function dump(): array
+    {
+        return $this->factory->dump();
+    }
+
     /**
      * Get default services definitions.
      *

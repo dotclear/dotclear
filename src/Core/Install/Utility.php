@@ -19,26 +19,21 @@ declare(strict_types=1);
 namespace Dotclear\Core\Install;
 
 use Dotclear\App;
-use Dotclear\Process\Install\Install;
-use Dotclear\Process\Install\Wizard;
-use Dotclear\Core\Process;
+use Dotclear\Core\Utility as AbstractUtility;
 
 /**
  * @brief   Utility class for install context.
  *
  * This utility calls itself Wizard or Intall process.
  */
-class Utility extends Process
+class Utility extends AbstractUtility
 {
-    public static function init(): bool
-    {
-        return true;
-    }
+    public const UTILITY_ID = 'Install';
 
     public static function process(): bool
     {
         // Call utility process from here
-        App::task()->loadProcess(is_file(App::config()->configPath()) ? Install::class : Wizard::class);
+        App::task()->loadProcess(is_file(App::config()->configPath()) ? 'Install' : 'Wizard');
 
         return true;
     }
