@@ -313,7 +313,9 @@ class Auth extends Process
                                         ->size(20)
                                         ->maxlength(self::$otp->getDigits())
                                         ->default('')
-                                        ->translate(false),
+                                        ->translate(false)
+                                        ->autocomplete('one-time-code')
+                                        ->autofocus(true),
                                 ]),
                             (new Para())
                                 ->items([
