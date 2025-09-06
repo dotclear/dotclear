@@ -265,10 +265,11 @@ dcProxyV1::classAliases([
 
     // Core public ----------------
 
-    'dcPublic'      => \Dotclear\Core\Frontend\Utility::class,
-    'dcTemplate'    => \Dotclear\Core\Frontend\Tpl::class,
-    'dcUrlHandlers' => \Dotclear\Core\Frontend\Url::class,
-    'context'       => \Dotclear\Core\Frontend\Ctx::class,
+    'dcPublic'                   => \Dotclear\Core\Frontend\Utility::class,
+    'dcTemplate'                 => \Dotclear\Core\Frontend\Tpl::class,
+    'dcUrlHandlers'              => \Dotclear\Core\Url::class,
+    'context'                    => \Dotclear\Core\Frontend\Ctx::class,
+    'Dotclear\Core\Frontend\Url' => \Dotclear\Core\Url::class, // 2.36
 
     'rsExtPostPublic'    => \Dotclear\Schema\Extension\PostPublic::class,
     'rsExtCommentPublic' => \Dotclear\Schema\Extension\CommentPublic::class,
