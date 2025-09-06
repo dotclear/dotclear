@@ -35,8 +35,8 @@ class Utility extends AbstractUtility
     public function getDefaultServices(): array
     {
         return [    // @phpstan-ignore-line
-            Install::class => Install::class,
-            Wizard::class  => Wizard::class,
+            'Install' => Install::class,
+            'Wizard'  => Wizard::class,
         ];
     }
 
