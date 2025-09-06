@@ -45,7 +45,7 @@ abstract class Utility extends Container
 
     public function getDefaultServices(): array
     {
-        return static::UTILITY_PROCESS;
+        return static::UTILITY_PROCESS;    // @phpstan-ignore-line
     }
 
     /**
