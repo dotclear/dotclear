@@ -10,7 +10,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\File;
 
-#[\AllowDynamicProperties]
 /**
  * @class File
  *

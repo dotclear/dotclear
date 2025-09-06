@@ -15,8 +15,8 @@ use ArrayObject;
 use Dotclear\App;
 use Dotclear\Core\Backend\Filter\FilterMedia;
 use Dotclear\Helper\Date;
-use Dotclear\Helper\File\File;
 use Dotclear\Helper\File\Files;
+use Dotclear\Helper\File\MediaFile;
 use Dotclear\Helper\Html\Form\Caption;
 use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Form\Div;
@@ -77,7 +77,7 @@ class ListingMedia extends Listing
         $items = $this->rs->rows();
         foreach ($items as $item) {
             if (is_array($item)) {  // @phpstan-ignore-line
-                // Convert array to object->properties (will then pretend to be like a File object)
+                // Convert array to object->properties (will then pretend to be like a MediaFile object)
                 $item = (object) $item;
             }
             if ($item->d) {
@@ -99,7 +99,7 @@ class ListingMedia extends Listing
         for ($index = $pager->index_start, $index_in_page = 0; $index <= $pager->index_end; $index++, $index_in_page++) {
             $item = $items[$index];
             if (is_array($item)) {  // @phpstan-ignore-line
-                // Convert array to object->properties (will then pretend to be like a File object)
+                // Convert array to object->properties (will then pretend to be like a MediaFile object)
                 $item = (object) $item;
             }
             if ($item->d) {
@@ -168,21 +168,21 @@ class ListingMedia extends Listing
     /**
      * Display a media item.
      *
-     * @param   FilterMedia                 $filters        The filters
-     * @param   File|array<string, mixed>   $file           The media file
-     * @param   int                         $index          Current index in page
-     * @param   bool                        $query          The query
-     * @param   string                      $page_adminurl  The page adminurl
+     * @param   FilterMedia                     $filters        The filters
+     * @param   MediaFile|array<string, mixed>  $file           The media file
+     * @param   int                             $index          Current index in page
+     * @param   bool                            $query          The query
+     * @param   string                          $page_adminurl  The page adminurl
      */
     private static function mediaItem(
         FilterMedia $filters,
-        File|array $file,
+        MediaFile|array $file,
         int $index,
         bool $query = false,
         string $page_adminurl = 'admin.media'
     ): Tr|Div {
         if (is_array($file)) {
-            // Convert array to object->properties (will then pretend to be like a File object)
+            // Convert array to object->properties (will then pretend to be like a MediaFile object)
             $file = (object) $file;
         }
 
@@ -435,13 +435,13 @@ class ListingMedia extends Listing
     /**
      * Display a media item.
      *
-     * @param   FilterMedia                 $filters        The filters
-     * @param   File|array<string, mixed>   $file           The media file
-     * @param   int                         $index          Current index in page
-     * @param   bool                        $query          The query
-     * @param   string                      $page_adminurl  The page adminurl
+     * @param   FilterMedia                     $filters        The filters
+     * @param   MediaFile|array<string, mixed>  $file           The media file
+     * @param   int                             $index          Current index in page
+     * @param   bool                            $query          The query
+     * @param   string                          $page_adminurl  The page adminurl
      */
-    public static function mediaLine(FilterMedia $filters, File|array $file, int $index, bool $query = false, string $page_adminurl = 'admin.media'): string
+    public static function mediaLine(FilterMedia $filters, MediaFile|array $file, int $index, bool $query = false, string $page_adminurl = 'admin.media'): string
     {
         return self::mediaItem($filters, $file, $index, $query, $page_adminurl)->render();
     }

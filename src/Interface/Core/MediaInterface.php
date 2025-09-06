@@ -11,7 +11,7 @@ declare(strict_types=1);
 namespace Dotclear\Interface\Core;
 
 use Dotclear\Database\Cursor;
-use Dotclear\Helper\File\File;
+use Dotclear\Helper\File\MediaFile;
 use stdClass;
 
 /**
@@ -203,28 +203,16 @@ interface MediaInterface
     /**
      * Get current dirs.
      *
-     * @return list<File>
+     * @return list<MediaFile>
      */
     public function getDirs(): array;
 
     /**
      * Get current dirs.
      *
-     * @return list<File>
+     * @return list<MediaFile>
      */
     public function getFiles(): array;
-
-    /**
-     * Gets current working directory content (using filesystem).
-     *
-     * (returned type not set for backward compatibility with Helper\File\Manager)
-     *
-     * @param   bool            $sort_dirs   Sort sub-directories
-     * @param   bool            $sort_files  Sort files
-     *
-     * @return void
-     */
-    public function getFSDir(bool $sort_dirs = true, bool $sort_files = true);
 
     /**
      * Gets current working directory content.
@@ -240,9 +228,9 @@ interface MediaInterface
      *
      * @param   int     $id     The file identifier
      *
-     * @return  File    The file.
+     * @return  MediaFile    The file.
      */
-    public function getFile(int $id): ?File;
+    public function getFile(int $id): ?MediaFile;
 
     /**
      * Search into media db (only).
@@ -256,43 +244,43 @@ interface MediaInterface
     /**
      * Returns media items attached to a blog post.
      *
-     * Result is an array containing Files objects.
+     * Result is an array containing MediaFile objects.
      *
      * @param   int     $post_id    The post identifier
      * @param   mixed   $media_id   The media identifier(s)
      * @param   mixed   $link_type  The link type(s)
      *
-     * @return  list<File>     Array of Files.
+     * @return  list<MediaFile>     Array of MediaFile.
      */
     public function getPostMedia(int $post_id, $media_id = null, $link_type = null): array;
 
     /**
      * Return media title.
      *
-     * @param   File|stdClass      $file           Media file instance (or object like)
-     * @param   bool               $fallback       Fallback to media alternate text if no title
-     * @param   bool               $no_filename    Consider filename in title as empty string
+     * @param   MediaFile|stdClass  $file           Media file instance (or object like)
+     * @param   bool                $fallback       Fallback to media alternate text if no title
+     * @param   bool                $no_filename    Consider filename in title as empty string
      */
-    public function getMediaTitle(File|stdClass $file, bool $fallback = true, bool $no_filename = true): string;
+    public function getMediaTitle(MediaFile|stdClass $file, bool $fallback = true, bool $no_filename = true): string;
 
     /**
      * Return media alternate text.
      *
-     * @param   File|stdClass      $file           Media file instance (or object like)
-     * @param   bool               $fallback       Fallback to media title if no alternate text
-     * @param   bool               $no_filename    Consider filename in title as empty string
+     * @param   MediaFile|stdClass  $file           Media file instance (or object like)
+     * @param   bool                $fallback       Fallback to media title if no alternate text
+     * @param   bool                $no_filename    Consider filename in title as empty string
      */
-    public function getMediaAlt(File|stdClass $file, bool $fallback = true, bool $no_filename = true): string;
+    public function getMediaAlt(MediaFile|stdClass $file, bool $fallback = true, bool $no_filename = true): string;
 
     /**
      * Returns media legend.
      *
-     * @param   File|stdClass      $file           Media file instance (or object like)
-     * @param   null|string        $pattern        Pattern to use to compose legend (null = get from blog settings), default to 'Description'
-     * @param   bool               $dto_first      Use original date-time (from meta) rather than media one
-     * @param   bool               $no_date_alone  Don't return date only if there is available legend
+     * @param   MediaFile|stdClass  $file           Media file instance (or object like)
+     * @param   null|string         $pattern        Pattern to use to compose legend (null = get from blog settings), default to 'Description'
+     * @param   bool                $dto_first      Use original date-time (from meta) rather than media one
+     * @param   bool                $no_date_alone  Don't return date only if there is available legend
      */
-    public function getMediaLegend(File|stdClass $file, ?string $pattern = null, bool $dto_first = false, bool $no_date_alone = false): string;
+    public function getMediaLegend(MediaFile|stdClass $file, ?string $pattern = null, bool $dto_first = false, bool $no_date_alone = false): string;
 
     /**
      * Rebuilds database items collection.
@@ -364,12 +352,12 @@ interface MediaInterface
      * @throws  \Dotclear\Exception\BadRequestException
      * @throws  \Dotclear\Exception\UnauthorizedException
      *
-     * @param   File    $file       The file
-     * @param   File    $newFile    The new file
+     * @param   MediaFile    $file       The file
+     * @param   MediaFile    $newFile    The new file
      *
      * @return  void
      */
-    public function updateFile(File $file, File $newFile);
+    public function updateFile(MediaFile $file, MediaFile $newFile);
 
     /**
      * Uploads a file.
@@ -422,7 +410,7 @@ interface MediaInterface
      *
      * Returns an array of directory under {@link $root} directory.
      *
-     * @uses    File
+     * @uses    MediaFile
      *
      * @return  list<string>
      */
@@ -433,28 +421,28 @@ interface MediaInterface
      *
      * @throws  \Dotclear\Exception\UnauthorizedException
      *
-     * @param   File    $f              File object
-     * @param   bool    $create_dir     Create dir
+     * @param   MediaFile    $f              File object
+     * @param   bool         $create_dir     Create dir
      *
      * @return  string  The destination
      */
-    public function inflateZipFile(File $f, bool $create_dir = true): string;
+    public function inflateZipFile(MediaFile $f, bool $create_dir = true): string;
 
     /**
      * Gets the zip content.
      *
-     * @param   File    $f  File object
+     * @param   MediaFile    $f  MediaFile object
      *
      * @return  array<string, array<string, mixed>>  The zip content.
      */
-    public function getZipContent(File $f): array;
+    public function getZipContent(MediaFile $f): array;
 
     /**
      * Calls file handlers registered for recreate event.
      *
-     * @param   File    $f  File object
+     * @param   MediaFile    $f  MediaFile object
      */
-    public function mediaFireRecreateEvent(File $f): void;
+    public function mediaFireRecreateEvent(MediaFile $f): void;
 
     /* Image handlers
        ------------------------------------------------------- */
@@ -515,7 +503,7 @@ interface MediaInterface
      */
     public static function mp3player(string $url, ?string $player = null, $args = null, bool $fallback = false, bool $preload = true): string;
 
-    /**
+    /*
      * Returns HTML code for FLV player.
      *
      * deprecated since 2.15, retired in 2.36

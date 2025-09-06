@@ -55,37 +55,12 @@
     </NoInterfaceProperties>
     <UndefinedPropertyAssignment>
       <errorLevel type="suppress">
-        <referencedProperty name="Dotclear\Helper\File\File::$editable" />
-        <referencedProperty name="Dotclear\Helper\File\File::$media_id" />
-        <referencedProperty name="Dotclear\Helper\File\File::$media_title" />
-        <referencedProperty name="Dotclear\Helper\File\File::$media_meta" />
-        <referencedProperty name="Dotclear\Helper\File\File::$media_user" />
-        <referencedProperty name="Dotclear\Helper\File\File::$media_priv" />
-        <referencedProperty name="Dotclear\Helper\File\File::$media_dt" />
-        <referencedProperty name="Dotclear\Helper\File\File::$media_dtstr" />
-        <referencedProperty name="Dotclear\Helper\File\File::$media_image" />
-        <referencedProperty name="Dotclear\Helper\File\File::$media_preview" />
-        <referencedProperty name="Dotclear\Helper\File\File::$media_icon" />
-        <referencedProperty name="Dotclear\Helper\File\File::$media_type" />
-        <referencedProperty name="Dotclear\Helper\File\File::$media_thumb" />
         <referencedProperty name="Dotclear\Database\MetaRecord::$_nb_media" />
         <referencedProperty name="Dotclear\Database\MetaRecord::$user_pwd" />
         <referencedProperty name="SimpleXMLElement::$subject" />
         <referencedProperty name="SimpleXMLElement::$category" />
       </errorLevel>
     </UndefinedPropertyAssignment>
-    <UndefinedPropertyFetch>
-      <errorLevel type="suppress">
-        <referencedProperty name="Dotclear\Helper\File\File::$media_title" />
-        <referencedProperty name="Dotclear\Helper\File\File::$media_id" />
-        <referencedProperty name="Dotclear\Helper\File\File::$media_icon" />
-        <referencedProperty name="Dotclear\Helper\File\File::$media_dtstr" />
-        <referencedProperty name="Dotclear\Helper\File\File::$media_meta" />
-        <referencedProperty name="Dotclear\Helper\File\File::$media_dt" />
-        <referencedProperty name="Dotclear\Helper\File\File::$media_priv" />
-        <referencedProperty name="Dotclear\Helper\File\File::$media_user" />
-      </errorLevel>
-    </UndefinedPropertyFetch>
     <RedundantPropertyInitializationCheck>
       <errorLevel type="suppress">
         <file name="inc/core/class.dc.core.php" />

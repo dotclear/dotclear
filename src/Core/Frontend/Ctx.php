@@ -14,12 +14,13 @@ namespace Dotclear\Core\Frontend;
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Record;
-use Dotclear\Helper\File\File;
+use Dotclear\Helper\File\MediaFile;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Text;
 use Dotclear\Interface\Core\BlogInterface;
 use Exception;
+use SimpleXMLElement;
 
 /**
  * @psalm-no-seal-properties
@@ -855,19 +856,19 @@ class Ctx
     /**
      * Gets the post media attachment title
      *
-     * @param      File  $file   The file
+     * @param      MediaFile  $file   The file
      */
-    public static function attachmentTitle(File $file): string
+    public static function attachmentTitle(MediaFile $file): string
     {
         // Use file title if exists
-        if (!is_null($file->media_title) && $file->media_title !== '') {
+        if ($file->media_title !== '') {
             return $file->media_title;
         }
 
         // Use alternate text if exists
-        if (is_countable($file->media_meta) && count($file->media_meta) && is_iterable($file->media_meta)) {
+        if ($file->media_meta instanceof SimpleXMLElement) {
             foreach ($file->media_meta as $k => $v) {
-                if ((string) $v && ($k == 'AltText')) {
+                if ((string) $v && ($k === 'AltText')) {
                     return (string) $v;
                 }
             }
