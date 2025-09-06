@@ -40,7 +40,8 @@ class Utility extends AbstractUtility
     public static function process(): bool
     {
         // Call utility process from here
-        App::task()->loadProcess(is_file(App::config()->configPath()) ? 
+        App::task()->loadProcess(
+            is_file(App::config()->configPath()) ?
             (new \ReflectionClass(Install::class))->getShortName() :
             (new \ReflectionClass(Wizard::class))->getShortName()
         );

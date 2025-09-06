@@ -248,7 +248,7 @@ class Utility extends AbstractUtility
         $GLOBALS['_ctx'] = App::frontend()->context();
 
         // deprecated since 2.28, use App::frontend()->template() instead
-        dcCore::app()->tpl =  App::frontend()->template();
+        dcCore::app()->tpl = App::frontend()->template();
 
         # Loading locales
         App::lang()->setLang((string) App::blog()->settings()->system->lang);

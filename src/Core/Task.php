@@ -109,6 +109,7 @@ class Task implements TaskInterface
         foreach ($this->core->dump() as $service) { // Not perfect but run once
             if (is_string($service) && is_subclass_of($service, Utility::class) && $service::CONTAINER_ID === $utility) {
                 $this->utility = $service;
+
                 break;
             }
         }

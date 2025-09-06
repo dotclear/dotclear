@@ -28,7 +28,8 @@ use Dotclear\Helper\Container\Factory;
  */
 abstract class Utility extends Container
 {
-    use TraitDynamicProperties, TraitProcess;
+    use TraitDynamicProperties;
+    use TraitProcess;
 
     /**
      * Utility Process.
@@ -59,7 +60,7 @@ abstract class Utility extends Container
     public function getProcess(string $process): string
     {
         // Search in Utility container a class with this name that extend process
-        if (is_string($service = $this->factory->get($process)) 
+        if (is_string($service = $this->factory->get($process))
             && ($class = $this->checkProcess($process, $service)) !== ''
         ) {
             return $class;

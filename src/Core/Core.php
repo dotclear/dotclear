@@ -163,10 +163,10 @@ class Core extends Container
             VersionInterface::class         => Version::class,
 
             // services as interfaces
-            Backend::class                  => Backend::class,
-            Frontend::class                 => Frontend::class,
-            Install::class                  => Install::class,
-            Upgrade::class                  => Upgrade::class,
+            Backend::class  => Backend::class,
+            Frontend::class => Frontend::class,
+            Install::class  => Install::class,
+            Upgrade::class  => Upgrade::class,
         ];
     }
 
