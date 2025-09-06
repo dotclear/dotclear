@@ -14,7 +14,7 @@ namespace Dotclear\Process\Upgrade;
 use Dotclear\App;
 use Dotclear\Core\Upgrade\Otp;
 use Dotclear\Core\Upgrade\Page;
-use Dotclear\Core\Process;
+use Dotclear\Core\TraitProcess;
 use Dotclear\Core\Upgrade\Upgrade;
 use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Form\Div;
@@ -40,8 +40,10 @@ use Exception;
  *
  * @since   2.29
  */
-class Auth extends Process
+class Auth
 {
+    use TraitProcess;
+
     private static string $dlang;
 
     private static ?string $user_id  = null;

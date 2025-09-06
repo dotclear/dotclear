@@ -20,6 +20,13 @@ namespace Dotclear\Helper\Container;
 interface ContainerInterface
 {
     /**
+     * Container ID.
+     *
+     * @var     string  CONTAINER_ID
+     */
+    public const CONTAINER_ID = 'undefined';
+
+    /**
      * Get instance of a service.
      *
      * By default, an object is instanciated once.

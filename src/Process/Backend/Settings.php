@@ -14,7 +14,7 @@ namespace Dotclear\Process\Backend;
 use Dotclear\App;
 use Dotclear\Core\Backend\ModulesList;
 use Dotclear\Core\Backend\Page;
-use Dotclear\Core\Process;
+use Dotclear\Core\TraitProcess;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Li;
 use Dotclear\Helper\Html\Form\Link;
@@ -36,8 +36,10 @@ use Dotclear\Plugin\widgets\Widgets;
 /**
  * @since 2.35
  */
-class Settings extends Process
+class Settings
 {
+    use TraitProcess;
+
     public static function init(): bool
     {
         return self::status(true);

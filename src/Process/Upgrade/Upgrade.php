@@ -14,7 +14,7 @@ namespace Dotclear\Process\Upgrade;
 use Dotclear\App;
 use Dotclear\Core\Upgrade\Page;
 use Dotclear\Core\Upgrade\Update;
-use Dotclear\Core\Process;
+use Dotclear\Core\TraitProcess;
 use Dotclear\Helper\Html\Form\{
     Div,
     Form,
@@ -35,8 +35,10 @@ use Exception;
  *
  * @since   2.29
  */
-class Upgrade extends Process
+class Upgrade
 {
+    use TraitProcess;
+
     private static Update $updater;
     private static bool|string $new_ver = false;
     private static string $zip_file     = '';

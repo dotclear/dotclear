@@ -17,7 +17,7 @@ use Dotclear\Core\Backend\MediaPage;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Backend\Filter\FilterMedia;
-use Dotclear\Core\Process;
+use Dotclear\Core\TraitProcess;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\File\Zip\Zip;
@@ -51,8 +51,10 @@ use Exception;
 /**
  * @since 2.27 Before as admin/media.php
  */
-class Media extends Process
+class Media
 {
+    use TraitProcess;
+
     public static function init(): bool
     {
         Page::check(App::auth()->makePermissions([

@@ -122,16 +122,9 @@ class Core extends Container
         self::$instance = $this;
     }
 
-    /**
-     * Get default Dotclear services definitions.
-     *
-     * This adds default Core class to the App.
-     *
-     * @return  array<string,callable>  The default core services
-     */
     protected function getDefaultServices(): array
     {
-        return [    // @phpstan-ignore-line
+        return [
             AuthInterface::class            => Auth::class,
             BehaviorInterface::class        => Behavior::class,
             BlogInterface::class            => Blog::class,

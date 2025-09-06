@@ -18,7 +18,7 @@ use Dotclear\Core\Backend\Helper;
 use Dotclear\Core\Backend\ModulesList;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
-use Dotclear\Core\Process;
+use Dotclear\Core\TraitProcess;
 use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Form\Date;
 use Dotclear\Helper\Html\Form\Details;
@@ -47,8 +47,10 @@ use Exception;
 /**
  * @since 2.27 Before as admin/index.php
  */
-class Home extends Process
+class Home
 {
+    use TraitProcess;
+
     public static function init(): bool
     {
         if (!App::task()->checkContext('BACKEND')) {

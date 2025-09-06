@@ -16,7 +16,7 @@ use Dotclear\Core\Upgrade\NextStore;
 use Dotclear\Core\Upgrade\Notices;
 use Dotclear\Core\Upgrade\Page;
 use Dotclear\Core\Upgrade\PluginsList;
-use Dotclear\Core\Process;
+use Dotclear\Core\TraitProcess;
 use Dotclear\Helper\Html\Form\{
     Caption,
     Capture,
@@ -47,8 +47,10 @@ use Throwable;
  *
  * @since   2.29
  */
-class Plugins extends Process
+class Plugins
 {
+    use TraitProcess;
+
     private static PluginsList $plugins_list;
 
     /**

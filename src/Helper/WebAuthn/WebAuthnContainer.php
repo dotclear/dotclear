@@ -122,16 +122,9 @@ class WebAuthnContainer extends Container
         return $this->factory;
     }
 
-    /**
-     * Get default services definitions.
-     *
-     * This adds default class to the App.
-     *
-     * @return  array<string,callable>  The default services
-     */
     protected function getDefaultServices(): array
     {
-        return [    // @phpstan-ignore-line
+        return [
             StoreInterface::class                        => Store::class,
             CertificatesInterface::class                 => Certificates::class,
             ClientInterface::class                       => Client::class,

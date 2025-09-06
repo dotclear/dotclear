@@ -12,7 +12,7 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
-use Dotclear\Core\Process;
+use Dotclear\Core\TraitProcess;
 use Dotclear\Helper\File\Files;
 use Exception;
 
@@ -24,8 +24,10 @@ use Exception;
  * Note: this script requires PHP ≥ 5.4.
  * Inspired from https://mathiasbynens.be/notes/csp-reports
  */
-class CspReport extends Process
+class CspReport
 {
+    use TraitProcess;
+
     public static function init(): bool
     {
         // Dareboost wants it? Not a problem.

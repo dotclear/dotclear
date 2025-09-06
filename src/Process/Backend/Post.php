@@ -17,7 +17,7 @@ use Dotclear\Core\Backend\Action\ActionsComments;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
-use Dotclear\Core\Process;
+use Dotclear\Core\TraitProcess;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Button;
@@ -62,8 +62,10 @@ use Exception;
 /**
  * @since 2.27 Before as admin/post.php
  */
-class Post extends Process
+class Post
 {
+    use TraitProcess;
+
     public static function init(): bool
     {
         $params = [];

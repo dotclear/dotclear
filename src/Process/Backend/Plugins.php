@@ -16,7 +16,7 @@ use Dotclear\App;
 use Dotclear\Core\Backend\ModulesList;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
-use Dotclear\Core\Process;
+use Dotclear\Core\TraitProcess;
 use Dotclear\Helper\Html\Form\Capture;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
@@ -36,8 +36,10 @@ use Exception;
 /**
  * @since 2.27 Before as admin/plugins.php
  */
-class Plugins extends Process
+class Plugins
 {
+    use TraitProcess;
+
     public static function init(): bool
     {
         // -- Page helper --

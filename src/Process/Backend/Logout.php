@@ -12,15 +12,17 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
-use Dotclear\Core\Process;
+use Dotclear\Core\TraitProcess;
 
 /**
  * @brief   Process to logout from backend.
  *
  * @since   2.28
  */
-class Logout extends Process
+class Logout
 {
+    use TraitProcess;
+
     public static function init(): bool
     {
         return self::status(true);

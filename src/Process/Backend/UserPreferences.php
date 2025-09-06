@@ -22,7 +22,7 @@ use Dotclear\Core\Backend\Helper;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Backend\UserPref;
-use Dotclear\Core\Process;
+use Dotclear\Core\TraitProcess;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Capture;
@@ -65,8 +65,10 @@ use Exception;
 /**
  * @since 2.27 Before as admin/preferences.php
  */
-class UserPreferences extends Process
+class UserPreferences
 {
+    use TraitProcess;
+
     public static function init(): bool
     {
         Page::check(App::auth()->makePermissions([

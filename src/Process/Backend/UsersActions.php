@@ -14,7 +14,7 @@ namespace Dotclear\Process\Backend;
 use Dotclear\App;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
-use Dotclear\Core\Process;
+use Dotclear\Core\TraitProcess;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Form\Div;
@@ -46,8 +46,10 @@ use Exception;
 /**
  * @since   2.27 Before as admin/users_actions.php
  */
-class UsersActions extends Process
+class UsersActions
 {
+    use TraitProcess;
+
     public static function init(): bool
     {
         Page::checkSuper();

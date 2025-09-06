@@ -14,7 +14,7 @@ namespace Dotclear\Process\Backend;
 use Dotclear\App;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
-use Dotclear\Core\Process;
+use Dotclear\Core\TraitProcess;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Zip\Unzip;
 use Dotclear\Helper\Html\Form\Div;
@@ -47,8 +47,10 @@ use Exception;
 /**
  * @since 2.27 Before as admin/langs.php
  */
-class Langs extends Process
+class Langs
 {
+    use TraitProcess;
+
     // Local constants
 
     private const LANG_INSTALLED = 1;

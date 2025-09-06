@@ -35,7 +35,22 @@ use Dotclear\Helper\L10n;
  */
 class Utility extends AbstractUtility
 {
-    public const UTILITY_ID = 'Upgrade';
+    public const CONTAINER_ID = 'Upgrade';
+
+    public const UTILITY_PROCESS = [
+        \Dotclear\Process\Upgrade\Attic::class,
+        \Dotclear\Process\Upgrade\Auth::class,
+        \Dotclear\Process\Upgrade\Backup::class,
+        \Dotclear\Process\Upgrade\Cache::class,
+        \Dotclear\Process\Upgrade\Cli::class,
+        \Dotclear\Process\Upgrade\Digests::class,
+        \Dotclear\Process\Upgrade\Home::class,
+        \Dotclear\Process\Upgrade\Langs::class,
+        \Dotclear\Process\Upgrade\Logout::class,
+        \Dotclear\Process\Upgrade\Plugins::class,
+        \Dotclear\Process\Upgrade\Replay::class,
+        \Dotclear\Process\Upgrade\Upgrade::class,
+    ];
 
     /**
      * Upgrade login cookie name.
@@ -45,21 +60,6 @@ class Utility extends AbstractUtility
      * @var     string  COOKIE_NAME
      */
     public const COOKIE_NAME = 'dc_admin';
-
-    /**
-     * Upgrade Url handler instance.
-     */
-    private Url $url;
-
-    /**
-     * Upgrade Menus handler instance.
-     */
-    private Menus $menus;
-
-    /**
-     * Upgrade help resources instance.
-     */
-    private Resources $resources;
 
     /**
      * Constructs a new instance.
@@ -82,6 +82,48 @@ class Utility extends AbstractUtility
         // HTTP/1.1
         header('Expires: Mon, 13 Aug 2003 07:48:00 GMT');
         header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
+
+        // Load utility container
+        parent::__construct();
+    }
+
+    public function getDefaultServices(): array
+    {
+        return [
+            Menus::class     => Menus::class,
+            Resources::class => Resources::class,
+            Url::class       => Url::class,
+        ];
+    }
+
+    /**
+     * Get upgrade Url instance.
+     *
+     * @return  Url     The upgrade URL handler
+     */
+    public function url(): Url
+    {
+        return $this->get(Url::class);
+    }
+
+    /**
+     * Get upgrade menus instance.
+     *
+     * @return  Menus   The menu
+     */
+    public function menus(): Menus
+    {
+        return $this->get(Menus::class);
+    }
+
+    /**
+     * Get upgrade resources instance.
+     *
+     * @return  Resources   The menu
+     */
+    public function resources(): Resources
+    {
+        return $this->get(Resources::class);
     }
 
     public static function init(): bool
@@ -187,48 +229,6 @@ class Utility extends AbstractUtility
 
         // Contextual help flag
         App::upgrade()->resources()->context(false);
-    }
-
-    /**
-     * Get upgrade Url instance.
-     *
-     * @return  Url     The upgrade URL handler
-     */
-    public function url(): Url
-    {
-        if (!isset($this->url)) {
-            $this->url = new Url();
-        }
-
-        return $this->url;
-    }
-
-    /**
-     * Get upgrade menus instance.
-     *
-     * @return  Menus   The menu
-     */
-    public function menus(): Menus
-    {
-        if (!isset($this->menus)) {
-            $this->menus = new Menus();
-        }
-
-        return $this->menus;
-    }
-
-    /**
-     * Get upgrade resources instance.
-     *
-     * @return  Resources   The menu
-     */
-    public function resources(): Resources
-    {
-        if (!isset($this->resources)) {
-            $this->resources = new Resources();
-        }
-
-        return $this->resources;
     }
 
     /**

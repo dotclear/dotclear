@@ -35,7 +35,7 @@ use Throwable;
  */
 class Utility extends AbstractUtility
 {
-    public const UTILITY_ID = 'Frontend';
+    public const CONTAINER_ID = 'Frontend';
 
     /**
      * The default templates folder name
@@ -43,16 +43,6 @@ class Utility extends AbstractUtility
      * @var    string  TPL_ROOT
      */
     public const TPL_ROOT = 'default-templates';
-
-    /**
-     * Context
-     */
-    private Ctx $ctx;
-
-    /**
-     * Tpl instance
-     */
-    private Tpl $tpl;
 
     /**
      * Searched term
@@ -140,6 +130,41 @@ class Utility extends AbstractUtility
                 ttl: App::config()->sessionTtl()
             );
         }
+
+        // Load utility container
+        parent::__construct();
+    }
+
+    public function getDefaultServices(): array
+    {
+        return [
+            Ctx::class => Ctx::class,
+            Tpl::class => Tpl::class,
+        ];
+    }
+
+    /**
+     * Get frontend context instance.
+     *
+     * @return  Ctx     The context
+     */
+    public function context(): Ctx
+    {
+        return $this->get(Ctx::class);
+    }
+
+    /**
+     * Get frontend template instance.
+     *
+     * @return  Tpl     The template instance
+     */
+    public function template(): Tpl
+    {
+        try {
+            return $this->get(Tpl::class, false, App::config()->cacheRoot(), 'App::frontend()->template()');
+        } catch (Throwable $e) {
+            throw new TemplateException(__('Can\'t create template files.'), TemplateException::code(), $e);
+        }
     }
 
     /**
@@ -210,17 +235,20 @@ class Utility extends AbstractUtility
 
         # Cope with static home page option
         if (App::blog()->settings()->system->static_home) {
-            App::url()->registerDefault(Url::static_home(...));
+            App::url()->registerDefault(App::url()::static_home(...));
         }
 
         // deprecated since 2.28, need to load dcCore::app()->media
         App::media();
 
-        // deprecated since 2.28, need to load dcCore::app()->ctx
-        App::frontend()->context();
+        // deprecated since 2.28, use App::frontend()->context() instead
+        dcCore::app()->ctx = App::frontend()->context();
 
-        // deprecated since 2.28, need to load dcCore::app()->tpl
-        App::frontend()->template();
+        // deprecated since 2.23, use App::frontend()->context() instead
+        $GLOBALS['_ctx'] = App::frontend()->context();
+
+        // deprecated since 2.28, use App::frontend()->template() instead
+        dcCore::app()->tpl =  App::frontend()->template();
 
         # Loading locales
         App::lang()->setLang((string) App::blog()->settings()->system->lang);
@@ -338,48 +366,6 @@ class Utility extends AbstractUtility
 
         // Do not try to execute a process added to the URL.
         return false;
-    }
-
-    /**
-     * Get frontend context instance.
-     *
-     * @return  Ctx     The context
-     */
-    public function context(): Ctx
-    {
-        if (!isset($this->ctx)) {
-            # Creating template context
-            $this->ctx = new Ctx();
-
-            // deprecated since 2.28, use App::frontend()->context() instead
-            dcCore::app()->ctx = $this->ctx;
-
-            // deprecated since 2.23, use App::frontend()->context() instead
-            $GLOBALS['_ctx'] = $this->ctx;
-        }
-
-        return $this->ctx;
-    }
-
-    /**
-     * Get frontend template instance.
-     *
-     * @return  Tpl     The template instance
-     */
-    public function template(): Tpl
-    {
-        if (!isset($this->tpl)) {
-            try {
-                $this->tpl = new Tpl(App::config()->cacheRoot(), 'App::frontend()->template()');
-
-                // deprecated since 2.28, use App::frontend()->template() instead
-                dcCore::app()->tpl = $this->tpl;
-            } catch (Throwable $e) {
-                throw new TemplateException(__('Can\'t create template files.'), TemplateException::code(), $e);
-            }
-        }
-
-        return $this->tpl;
     }
 
     /**

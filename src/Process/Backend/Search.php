@@ -18,7 +18,7 @@ use Dotclear\Core\Backend\Listing\ListingComments;
 use Dotclear\Core\Backend\Listing\ListingPosts;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Backend\UserPref;
-use Dotclear\Core\Process;
+use Dotclear\Core\TraitProcess;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Fieldset;
@@ -38,8 +38,10 @@ use Exception;
 /**
  * @since 2.27 Before as admin/search.php
  */
-class Search extends Process
+class Search
 {
+    use TraitProcess;
+
     // Local properties (used by behavior callbacks)
 
     /**
