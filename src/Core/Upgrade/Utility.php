@@ -35,7 +35,7 @@ use Dotclear\Helper\L10n;
  */
 class Utility extends AbstractUtility
 {
-    public const UTILITY_ID = 'Upgrade';
+    public const CONTAINER_ID = 'Upgrade';
 
     /**
      * Upgrade login cookie name.

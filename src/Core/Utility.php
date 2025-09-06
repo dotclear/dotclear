@@ -14,6 +14,8 @@ namespace Dotclear\Core;
 use Dotclear\App;
 use Dotclear\Exception\ProcessException;
 use Dotclear\Helper\TraitDynamicProperties;
+use Dotclear\Helper\Container\Container;
+use Dotclear\Helper\Container\Factory;
 
 /**
  * @brief   Utility class structure.
@@ -24,25 +26,46 @@ use Dotclear\Helper\TraitDynamicProperties;
  *
  * @since   2.36
  */
-abstract class Utility extends Process
+abstract class Utility extends Container
 {
     use TraitDynamicProperties;
+    use TraitProcess;
 
     /**
      * The utility ID.
      *
-     * This is also the task context.
+     * This is also the Task context.
+     * This is also the Utility container ID
      *
-     * @var     string  UTILITY_ID
+     * @var     string  CONTAINER_ID
      */
-    public const UTILITY_ID = '';
+    public const CONTAINER_ID = 'undefined';
+
+    public function __construct()
+    {
+        // Create a non replaceable factory
+        parent::__construct(new Factory(static::CONTAINER_ID, false));
+    }
 
     /**
-     * The utility process namespace schema.
+     * Get process class name.
      *
-     * @var     string  PROCESS_NS
+     * @throws  ProcessException
      */
-    public const PROCESS_NS = 'Dotclear\\Process\\%s\\%s';
+    public function getProcess(string $process): string
+    {
+        // Search in Utility container a class with this name that extend process
+        foreach([
+            $this->factory->get($process),
+            sprintf('Dotclear\\Process\\%s\\%s', static::CONTAINER_ID, $process), // Fallback waiting all process in Utility
+        ] as $service) {
+            if (is_string($service) && ($class = $this->checkProcess($process, $service)) !== '') {
+                return $class;
+            }
+        }
+
+        throw new ProcessException(sprintf(__('Unable to get process %s'), $process));
+    }
 
     /**
      * Initialize application utility.
@@ -50,5 +73,24 @@ abstract class Utility extends Process
     public static function init(): bool
     {
         return !App::config()->cliMode();
+    }
+
+    /**
+     * Check that service is an Utility Process.
+     */
+    private function checkProcess(string $process, string $service): string
+    {
+        try {
+            $reflection = new \ReflectionClass($service);    // @phpstan-ignore-line should tag service as class-string
+        } catch (\ReflectionException) {
+            return '';
+        }
+        if ($reflection->getShortName() === $process
+            && ($reflection->isSubclassOf(Process::class) || array_key_exists(TraitProcess::class, $reflection->getTraits()))
+        ) {
+            return $service;
+        }
+
+        return '';
     }
 }

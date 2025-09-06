@@ -20,6 +20,8 @@ namespace Dotclear\Core\Install;
 
 use Dotclear\App;
 use Dotclear\Core\Utility as AbstractUtility;
+use Dotclear\Process\Install\Install;
+use Dotclear\Process\Install\Wizard;
 
 /**
  * @brief   Utility class for install context.
@@ -28,12 +30,23 @@ use Dotclear\Core\Utility as AbstractUtility;
  */
 class Utility extends AbstractUtility
 {
-    public const UTILITY_ID = 'Install';
+    public const CONTAINER_ID = 'Install';
+
+    public function getDefaultServices(): array
+    {
+        return [    // @phpstan-ignore-line
+            Install::class => Install::class,
+            Wizard::class  => Wizard::class,
+        ];
+    }
 
     public static function process(): bool
     {
         // Call utility process from here
-        App::task()->loadProcess(is_file(App::config()->configPath()) ? 'Install' : 'Wizard');
+        App::task()->loadProcess(is_file(App::config()->configPath()) ? 
+            (new \ReflectionClass(Install::class))->getShortName() :
+            (new \ReflectionClass(Wizard::class))->getShortName()
+        );
 
         return true;
     }

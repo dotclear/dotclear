@@ -10,7 +10,7 @@ namespace Dotclear\Process\Install;
 
 use Dotclear\App;
 use Dotclear\Core\Install\Utils;
-use Dotclear\Core\Process;
+use Dotclear\Core\TraitProcess;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Form\Div;
@@ -39,8 +39,10 @@ use Exception;
 /**
  * @brief   Installation wizard process.
  */
-class Wizard extends Process
+class Wizard
 {
+    use TraitProcess;
+
     /**
      * Error description
      */

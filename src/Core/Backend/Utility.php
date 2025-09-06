@@ -28,37 +28,19 @@ use Dotclear\Exception\ContextException;
 use Dotclear\Exception\PreconditionException;
 use Dotclear\Exception\SessionException;
 
+use Dotclear\Process\Backend\Home;
+
 /**
  * Utility class for admin context.
  */
 class Utility extends AbstractUtility
 {
-    public const UTILITY_ID = 'Backend';
+    public const CONTAINER_ID = 'Backend';
 
     /**
      * Current admin page URL.
      */
     private string $p_url = '';
-
-    /**
-     * Backend (admin) Url handler instance.
-     */
-    private Url $url;
-
-    /**
-     * Backend (admin) Favorites handler instance.
-     */
-    private Favorites $favorites;
-
-    /**
-     * Backend (admin) Menus handler instance.
-     */
-    private Menus $menus;
-
-    /**
-     * Backend help resources instance.
-     */
-    private Resources $resources;
 
     /**
      * Backend login cookie name.
@@ -103,6 +85,23 @@ class Utility extends AbstractUtility
         // HTTP/1.1
         header('Expires: Mon, 13 Aug 2003 07:48:00 GMT');
         header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
+
+        // Load utility container
+        parent::__construct();
+    }
+
+    public function getDefaultServices(): array
+    {
+        return [    // @phpstan-ignore-line
+            // Utils
+            Favorites::class => Favorites::class,
+            Menus::class     => Menus::class,
+            Resources::class => Resources::class,
+            Url::class       => Url::class,
+
+            // Process
+            'Home' => Home::class, // First exemple with Backend Home
+        ];
     }
 
     /**
@@ -115,8 +114,8 @@ class Utility extends AbstractUtility
         // Instanciate Backend instance, to configure session since 2.36
         App::backend();
 
-        // deprecated since 2.28, need to load dcCore::app()->adminurl
-        App::backend()->url();
+        // deprecated since 2.27, use App::backend()->url() instead
+        dcCore::app()->adminurl = App::backend()->url();
 
         // Always start a session, since 2.36
         App::session()->start();
@@ -243,11 +242,16 @@ class Utility extends AbstractUtility
 
         $user_ui_nofavmenu = App::auth()->prefs()->interface->nofavmenu;
 
-        // deprecated since 2.28, need to load dcCore::app()->favs
-        App::backend()->favorites();
+        // deprecated since 2.27, use App::backend()->favorites() instead
+        dcCore::app()->favs = App::backend()->favorites();
 
         // Set default menu
         App::backend()->menus()->setDefaultItems();
+
+        // deprecated since 2.27, use App::backend()->menus() instead
+        dcCore::app()->menu = App::backend()->menus();
+        // deprecated Since 2.23, use App::backend()->menus() instead
+        $GLOBALS['_menu'] = App::backend()->menus();
 
         if (!$user_ui_nofavmenu) {
             App::backend()->favorites()->appendMenuSection(App::backend()->menus());
@@ -292,14 +296,7 @@ class Utility extends AbstractUtility
      */
     public function url(): Url
     {
-        if (!isset($this->url)) {
-            $this->url = new Url();
-
-            // deprecated since 2.27, use App::backend()->url() instead
-            dcCore::app()->adminurl = $this->url;
-        }
-
-        return $this->url;
+        return $this->get(Url::class);
     }
 
     /**
@@ -309,14 +306,7 @@ class Utility extends AbstractUtility
      */
     public function favorites(): Favorites
     {
-        if (!isset($this->favorites)) {
-            $this->favorites = new Favorites();
-
-            // deprecated since 2.27, use App::backend()->favorites() instead
-            dcCore::app()->favs = $this->favorites;
-        }
-
-        return $this->favorites;
+        return $this->get(Favorites::class);
     }
 
     /**
@@ -326,17 +316,17 @@ class Utility extends AbstractUtility
      */
     public function menus(): Menus
     {
-        if (!isset($this->menus)) {
-            $this->menus = new Menus();
+        return $this->get(Menus::class);
+    }
 
-            // deprecated since 2.27, use App::backend()->menus() instead
-            dcCore::app()->menu = $this->menus;
-
-            // deprecated Since 2.23, use App::backend()->menus() instead
-            $GLOBALS['_menu'] = $this->menus;
-        }
-
-        return $this->menus;
+    /**
+     * Get backend resources instance.
+     *
+     * @return  Resources   The menu
+     */
+    public function resources(): Resources
+    {
+        return $this->get(Resources::class);
     }
 
     /**
@@ -372,7 +362,7 @@ class Utility extends AbstractUtility
     public function listMenus(): array
     {
         $datalist = [];
-        foreach ($this->menus as $menu) {
+        foreach ($this->menus() as $menu) {
             $datalist = [
                 ...$datalist,
                 ...$menu->listMenus(),
@@ -380,20 +370,6 @@ class Utility extends AbstractUtility
         }
 
         return $datalist;
-    }
-
-    /**
-     * Get backend resources instance.
-     *
-     * @return  Resources   The menu
-     */
-    public function resources(): Resources
-    {
-        if (!isset($this->resources)) {
-            $this->resources = new Resources();
-        }
-
-        return $this->resources;
     }
 
     /**

@@ -108,7 +108,7 @@ class Task implements TaskInterface
 
         // Look at core factory to get utility class name to call it statically
         foreach ($this->core->dump() as $service) { // Not perfect but run once
-            if (is_string($service) && is_subclass_of($service, Utility::class) && $service::UTILITY_ID === $utility) {
+            if (is_string($service) && is_subclass_of($service, Utility::class) && $service::CONTAINER_ID === $utility) {
                 $this->utility = $service;
                 break;
             }
@@ -246,12 +246,7 @@ class Task implements TaskInterface
             throw new ProcessException(__('Utility not initialized'));
         }
 
-        // Build Process class name from its Utility
-        $class = sprintf($this->utility::PROCESS_NS, $this->utility::UTILITY_ID, $process);
-
-        if (!is_subclass_of($class, Process::class, true)) {
-            throw new ProcessException(sprintf(__('Unable to find class %s'), $class));
-        }
+        $class = $this->core->get($this->utility)->getProcess($process);
 
         // Call process in 3 steps: init, process, render.
         if ($class::init() !== false && $class::process() !== false) {

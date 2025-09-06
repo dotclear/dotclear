@@ -23,13 +23,6 @@ namespace Dotclear\Helper\Container;
 class Container implements ContainerInterface
 {
     /**
-     * Container ID.
-     *
-     * @var     string  CONTAINER_ID
-     */
-    public const CONTAINER_ID = 'undefined';
-
-    /**
      * Stack of loaded services.
      *
      * @var    array<string,mixed>  $services

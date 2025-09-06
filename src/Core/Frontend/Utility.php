@@ -35,7 +35,7 @@ use Throwable;
  */
 class Utility extends AbstractUtility
 {
-    public const UTILITY_ID = 'Frontend';
+    public const CONTAINER_ID = 'Frontend';
 
     /**
      * The default templates folder name
