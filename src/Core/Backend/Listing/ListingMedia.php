@@ -16,7 +16,6 @@ use Dotclear\App;
 use Dotclear\Core\Backend\Filter\FilterMedia;
 use Dotclear\Core\MediaFile;
 use Dotclear\Helper\Date;
-use Dotclear\Helper\File\File;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\Html\Form\Caption;
 use Dotclear\Helper\Html\Form\Checkbox;
@@ -78,7 +77,7 @@ class ListingMedia extends Listing
         $items = $this->rs->rows();
         foreach ($items as $item) {
             if (is_array($item)) {  // @phpstan-ignore-line
-                // Convert array to object->properties (will then pretend to be like a File object)
+                // Convert array to object->properties (will then pretend to be like a MediaFile object)
                 $item = (object) $item;
             }
             if ($item->d) {
@@ -100,7 +99,7 @@ class ListingMedia extends Listing
         for ($index = $pager->index_start, $index_in_page = 0; $index <= $pager->index_end; $index++, $index_in_page++) {
             $item = $items[$index];
             if (is_array($item)) {  // @phpstan-ignore-line
-                // Convert array to object->properties (will then pretend to be like a File object)
+                // Convert array to object->properties (will then pretend to be like a MediaFile object)
                 $item = (object) $item;
             }
             if ($item->d) {

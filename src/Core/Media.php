@@ -785,7 +785,7 @@ class Media extends Manager implements MediaInterface
 
         $this->dir['files'] = $f_res;
         foreach ($this->dir['dirs'] as $v) {
-            $v->media_icon = sprintf($this->icon_img, ($v->parent ? 'folder-up' : 'folder'));
+            $v->media_icon = sprintf($this->icon_img, ($v->parent ? 'folder-up' : 'folder')); // @phpstan-ignore-line it's really a MediaFile
         }
 
         # Check files that don't exist in database and create them

@@ -61,18 +61,6 @@
         <referencedProperty name="SimpleXMLElement::$category" />
       </errorLevel>
     </UndefinedPropertyAssignment>
-    <UndefinedPropertyFetch>
-      <errorLevel type="suppress">
-        <referencedProperty name="Dotclear\Helper\File\File::$media_title" />
-        <referencedProperty name="Dotclear\Helper\File\File::$media_id" />
-        <referencedProperty name="Dotclear\Helper\File\File::$media_icon" />
-        <referencedProperty name="Dotclear\Helper\File\File::$media_dtstr" />
-        <referencedProperty name="Dotclear\Helper\File\File::$media_meta" />
-        <referencedProperty name="Dotclear\Helper\File\File::$media_dt" />
-        <referencedProperty name="Dotclear\Helper\File\File::$media_priv" />
-        <referencedProperty name="Dotclear\Helper\File\File::$media_user" />
-      </errorLevel>
-    </UndefinedPropertyFetch>
     <RedundantPropertyInitializationCheck>
       <errorLevel type="suppress">
         <file name="inc/core/class.dc.core.php" />

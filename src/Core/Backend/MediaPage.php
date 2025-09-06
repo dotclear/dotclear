@@ -42,7 +42,7 @@ class MediaPage extends FilterMedia
     protected ?bool $media_archivable = null;
 
     /**
-     * Dirs and files File objects
+     * Dirs and files MediaFile objects
      *
      * @var array<string, mixed> $media_dir
      */
@@ -152,11 +152,11 @@ class MediaPage extends FilterMedia
     }
 
     /**
-     * Return list of File objects of current dir
+     * Return list of MediaFile objects of current dir
      *
      * @param string $type  dir, file, all type
      *
-     * @return null|array<string, mixed> Dirs and/or files File objects
+     * @return null|array<string, mixed> Dirs and/or files MediaFile objects
      */
     public function getDirs(string $type = ''): ?array
     {
@@ -168,9 +168,9 @@ class MediaPage extends FilterMedia
     }
 
     /**
-     * Return MetaRecord instance of File objects
+     * Return MetaRecord instance of MediaFile objects
      *
-     * @return MetaRecord Dirs and/or files File objects
+     * @return MetaRecord Dirs and/or files MediaFile objects
      */
     public function getDirsRecord(): MetaRecord
     {

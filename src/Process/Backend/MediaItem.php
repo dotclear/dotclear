@@ -1316,7 +1316,7 @@ class MediaItem extends Process
             }
 
             $actions[] = (new Capture(
-                # --BEHAVIOR-- adminMediaItemForm -- File
+                # --BEHAVIOR-- adminMediaItemForm -- MediaFile
                 App::behavior()->callBehavior(...),
                 ['adminMediaItemForm', App::backend()->file]
             ));
