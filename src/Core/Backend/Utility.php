@@ -367,13 +367,13 @@ class Utility extends AbstractUtility
     public function searchMenuitem(string $term): bool|string
     {
         // Try to find exact term
-        foreach ($this->menus as $menu) {
+        foreach ($this->menus() as $menu) {
             if (($link = $menu->searchMenuitem($term, true)) !== false) {
                 return $link;
             }
         }
         // Try to find a menuitem including the term
-        foreach ($this->menus as $menu) {
+        foreach ($this->menus() as $menu) {
             if (($link = $menu->searchMenuitem($term, false)) !== false) {
                 return $link;
             }
