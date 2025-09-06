@@ -33,7 +33,7 @@ abstract class Utility extends Container
     /**
      * Utility Process.
      *
-     * @var     array<string, string>   UTILITY_PROCESS
+     * @var     string[]   UTILITY_PROCESS
      */
     public const UTILITY_PROCESS = [];
 
@@ -43,9 +43,9 @@ abstract class Utility extends Container
         parent::__construct(new Factory(static::CONTAINER_ID, false));
 
         // Add utility process
-        foreach (static::UTILITY_PROCESS as $service => $callback) {
+        foreach (static::UTILITY_PROCESS as $callback) {
             if (class_exists($callback)) { // limit to class
-                $this->factory->set($service, $callback);
+                $this->factory->set((new \ReflectionClass($callback))->getShortName(), $callback);
             }
         }
     }

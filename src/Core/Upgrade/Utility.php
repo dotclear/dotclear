@@ -38,18 +38,18 @@ class Utility extends AbstractUtility
     public const CONTAINER_ID = 'Upgrade';
 
     public const UTILITY_PROCESS = [
-        'Attic'   => \Dotclear\Process\Upgrade\Attic::class,
-        'Auth'    => \Dotclear\Process\Upgrade\Auth::class,
-        'Backup'  => \Dotclear\Process\Upgrade\Backup::class,
-        'Cache'   => \Dotclear\Process\Upgrade\Cache::class,
-        'Cli'     => \Dotclear\Process\Upgrade\Cli::class,
-        'Digests' => \Dotclear\Process\Upgrade\Digests::class,
-        'Home'    => \Dotclear\Process\Upgrade\Home::class,
-        'Langs'   => \Dotclear\Process\Upgrade\Langs::class,
-        'Logout'  => \Dotclear\Process\Upgrade\Logout::class,
-        'Plugins' => \Dotclear\Process\Upgrade\Plugins::class,
-        'Replay'  => \Dotclear\Process\Upgrade\Replay::class,
-        'Upgrade' => \Dotclear\Process\Upgrade\Upgrade::class,
+        \Dotclear\Process\Upgrade\Attic::class,
+        \Dotclear\Process\Upgrade\Auth::class,
+        \Dotclear\Process\Upgrade\Backup::class,
+        \Dotclear\Process\Upgrade\Cache::class,
+        \Dotclear\Process\Upgrade\Cli::class,
+        \Dotclear\Process\Upgrade\Digests::class,
+        \Dotclear\Process\Upgrade\Home::class,
+        \Dotclear\Process\Upgrade\Langs::class,
+        \Dotclear\Process\Upgrade\Logout::class,
+        \Dotclear\Process\Upgrade\Plugins::class,
+        \Dotclear\Process\Upgrade\Replay::class,
+        \Dotclear\Process\Upgrade\Upgrade::class,
     ];
 
     /**

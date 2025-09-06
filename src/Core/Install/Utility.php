@@ -33,8 +33,8 @@ class Utility extends AbstractUtility
     public const CONTAINER_ID = 'Install';
 
     public const UTILITY_PROCESS = [
-        'Install' => Install::class,
-        'Wizard'  => Wizard::class,
+        Install::class,
+        Wizard::class,
     ];
 
     public static function process(): bool
