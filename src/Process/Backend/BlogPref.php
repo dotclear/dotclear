@@ -15,7 +15,7 @@ use Dotclear\App;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
-use Dotclear\Core\Process;
+use Dotclear\Core\TraitProcess;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Capture;
@@ -51,8 +51,10 @@ use Exception;
 /**
  * @since 2.27 Before as admin/blog_pref.php
  */
-class BlogPref extends Process
+class BlogPref
 {
+    use TraitProcess;
+
     public static function init(): bool
     {
         /*

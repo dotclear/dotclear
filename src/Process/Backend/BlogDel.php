@@ -14,7 +14,7 @@ namespace Dotclear\Process\Backend;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\App;
-use Dotclear\Core\Process;
+use Dotclear\Core\TraitProcess;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Form;
@@ -30,8 +30,10 @@ use Exception;
 /**
  * @since 2.27 Before as admin/blog_del.php
  */
-class BlogDel extends Process
+class BlogDel
 {
+    use TraitProcess;
+
     public static function init(): bool
     {
         Page::checkSuper();

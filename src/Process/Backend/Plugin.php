@@ -14,7 +14,7 @@ namespace Dotclear\Process\Backend;
 use Dotclear\App;
 use Dotclear\Core\Backend\ModulesList;
 use Dotclear\Core\Backend\Page;
-use Dotclear\Core\Process;
+use Dotclear\Core\TraitProcess;
 use Dotclear\Helper\Html\Form\Note;
 use Dotclear\Helper\Html\Form\Set;
 use Dotclear\Helper\Network\Http;
@@ -23,8 +23,10 @@ use Exception;
 /**
  * @since 2.27 Before as admin/plugin.php
  */
-class Plugin extends Process
+class Plugin
 {
+    use TraitProcess;
+
     public static function init(): bool
     {
         Page::check(App::auth()->makePermissions([

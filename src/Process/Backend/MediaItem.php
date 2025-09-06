@@ -14,7 +14,7 @@ namespace Dotclear\Process\Backend;
 use Dotclear\App;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
-use Dotclear\Core\Process;
+use Dotclear\Core\TraitProcess;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\File\File;
@@ -56,8 +56,10 @@ use SimpleXMLElement;
 /**
  * @since 2.27 Before as admin/media_item.php
  */
-class MediaItem extends Process
+class MediaItem
 {
+    use TraitProcess;
+
     public static function init(): bool
     {
         Page::check(App::auth()->makePermissions([

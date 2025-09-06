@@ -17,7 +17,7 @@ use Dotclear\Core\Backend\Auth\OAuth2Store;
 use Dotclear\Core\Backend\Auth\Otp;
 use Dotclear\Core\Backend\Auth\WebAuthn;
 use Dotclear\Core\Backend\Page;
-use Dotclear\Core\Process;
+use Dotclear\Core\TraitProcess;
 use Dotclear\Core\Upgrade\Upgrade;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
@@ -48,8 +48,10 @@ use Exception;
 /**
  * @since 2.27 Before as admin/auth.php
  */
-class Auth extends Process
+class Auth
 {
+    use TraitProcess;
+
     public static function init(): bool
     {
         // If we have a session cookie, go to index.php

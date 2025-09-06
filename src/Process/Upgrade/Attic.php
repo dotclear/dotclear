@@ -14,7 +14,7 @@ namespace Dotclear\Process\Upgrade;
 use Dotclear\App;
 use Dotclear\Core\Upgrade\Page;
 use Dotclear\Core\Upgrade\UpdateAttic;
-use Dotclear\Core\Process;
+use Dotclear\Core\TraitProcess;
 use Dotclear\Helper\Html\Form\{
     Div,
     Form,
@@ -39,8 +39,10 @@ use Exception;
  *
  * @since   2.29
  */
-class Attic extends Process
+class Attic
 {
+    use TraitProcess;
+
     /**
      * Step in update process.
      */

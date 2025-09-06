@@ -12,11 +12,13 @@ namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
 use Dotclear\Core\Backend\Page;
-use Dotclear\Core\Process;
+use Dotclear\Core\TraitProcess;
 use Dotclear\Helper\Html\Html;
 
-class HelpCharte extends Process
+class HelpCharte
 {
+    use TraitProcess;
+
     /**
      * Initializes the page.
      */

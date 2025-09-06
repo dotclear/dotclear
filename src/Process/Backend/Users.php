@@ -17,7 +17,7 @@ use Dotclear\Core\Backend\Listing\ListingUsers;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\App;
-use Dotclear\Core\Process;
+use Dotclear\Core\TraitProcess;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Hidden;
@@ -33,8 +33,10 @@ use Exception;
 /**
  * @since 2.27 Before as admin/users.php
  */
-class Users extends Process
+class Users
 {
+    use TraitProcess;
+
     public static function init(): bool
     {
         Page::checkSuper();

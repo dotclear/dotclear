@@ -15,7 +15,7 @@ use Dotclear\App;
 use Dotclear\Core\Upgrade\Notices;
 use Dotclear\Core\Upgrade\Page;
 use Dotclear\Core\Upgrade\Upgrade;
-use Dotclear\Core\Process;
+use Dotclear\Core\TraitProcess;
 use Dotclear\Helper\Html\Form\{
     Div,
     Form,
@@ -33,8 +33,10 @@ use Exception;
  *
  * @since   2.29
  */
-class Replay extends Process
+class Replay
 {
+    use TraitProcess;
+
     /**
      * List of version having growup actions.
      *

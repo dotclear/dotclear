@@ -13,14 +13,16 @@ namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
 use Dotclear\Core\Backend\Page;
-use Dotclear\Core\Process;
+use Dotclear\Core\TraitProcess;
 use Dotclear\Helper\Html\Html;
 
 /**
  * @since 2.27 Before as admin/help.php
  */
-class Help extends Process
+class Help
 {
+    use TraitProcess;
+
     public static function init(): bool
     {
         Page::check(App::auth()->makePermissions([

@@ -14,7 +14,7 @@ namespace Dotclear\Process\Backend;
 use Dotclear\App;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Page;
-use Dotclear\Core\Process;
+use Dotclear\Core\TraitProcess;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Input;
@@ -32,8 +32,10 @@ use Dotclear\Helper\Html\Html;
 /**
  * @since 2.27 Before as admin/popup_link.php
  */
-class LinkPopup extends Process
+class LinkPopup
 {
+    use TraitProcess;
+
     public static function init(): bool
     {
         Page::check(App::auth()->makePermissions([

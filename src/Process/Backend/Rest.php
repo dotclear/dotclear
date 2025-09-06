@@ -15,7 +15,7 @@ use ArrayObject;
 use Dotclear\App;
 use Dotclear\Core\Backend\Auth\WebAuthn;
 use Dotclear\Core\Backend\UserPref;
-use Dotclear\Core\Process;
+use Dotclear\Core\TraitProcess;
 use Dotclear\Core\Upgrade\Update;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\File\File;
@@ -45,8 +45,10 @@ use stdClass;
 /**
  * @since 2.27 Before as admin/services.php
  */
-class Rest extends Process
+class Rest
 {
+    use TraitProcess;
+
     public static function init(): bool
     {
         App::rest()->addFunction('getPostsCount', self::getPostsCount(...));
