@@ -140,6 +140,9 @@ class Utility extends AbstractUtility
                 ttl: App::config()->sessionTtl()
             );
         }
+
+        // Load utility container
+        parent::__construct();
     }
 
     /**

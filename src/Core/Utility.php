@@ -30,10 +30,22 @@ abstract class Utility extends Container
 {
     use TraitDynamicProperties, TraitProcess;
 
+    /**
+     * Utility Process.
+     *
+     * @var     array<string, string>   UTILITY_PROCESS
+     */
+    public const UTILITY_PROCESS = [];
+
     public function __construct()
     {
         // Create a non replaceable factory
         parent::__construct(new Factory(static::CONTAINER_ID, false));
+    }
+
+    public function getDefaultServices(): array
+    {
+        return static::UTILITY_PROCESS;
     }
 
     /**
@@ -44,13 +56,10 @@ abstract class Utility extends Container
     public function getProcess(string $process): string
     {
         // Search in Utility container a class with this name that extend process
-        foreach([
-            $this->factory->get($process),
-            sprintf('Dotclear\\Process\\%s\\%s', static::CONTAINER_ID, $process), // Fallback waiting all process in Utility
-        ] as $service) {
-            if (is_string($service) && ($class = $this->checkProcess($process, $service)) !== '') {
-                return $class;
-            }
+        if (is_string($service = $this->factory->get($process)) 
+            && ($class = $this->checkProcess($process, $service)) !== ''
+        ) {
+            return $class;
         }
 
         throw new ProcessException(sprintf(__('Unable to get process %s'), $process));

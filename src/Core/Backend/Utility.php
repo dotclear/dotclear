@@ -21,6 +21,7 @@ namespace Dotclear\Core\Backend;
 use dcCore;
 use Dotclear\App;
 use Dotclear\Core\PostType;
+use Dotclear\Core\Backend\BlogPref as CoreBlogPref;
 use Dotclear\Core\Utility as AbstractUtility;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
@@ -28,14 +29,46 @@ use Dotclear\Exception\ContextException;
 use Dotclear\Exception\PreconditionException;
 use Dotclear\Exception\SessionException;
 
-use Dotclear\Process\Backend\Home;
-
 /**
  * Utility class for admin context.
  */
 class Utility extends AbstractUtility
 {
     public const CONTAINER_ID = 'Backend';
+
+    public const UTILITY_PROCESS = [
+        'Auth'            => \Dotclear\Process\Backend\Auth::class,
+        'Blog'            => \Dotclear\Process\Backend\Blog::class,
+        'BlogDel'         => \Dotclear\Process\Backend\BlogDel::class,
+        'Blogs'           => \Dotclear\Process\Backend\Blogs::class,
+        'BlogTheme'       => \Dotclear\Process\Backend\BlogTheme::class,
+        'Categories'      => \Dotclear\Process\Backend\Categories::class,
+        'Category'        => \Dotclear\Process\Backend\Category::class,
+        'Comment'         => \Dotclear\Process\Backend\Comment::class,
+        'Comments'        => \Dotclear\Process\Backend\Comments::class,
+        'CspReport'       => \Dotclear\Process\Backend\CspReport::class,
+        'Help'            => \Dotclear\Process\Backend\Help::class,
+        'HelpCharte'      => \Dotclear\Process\Backend\HelpCharte::class,
+        'Home'            => \Dotclear\Process\Backend\Home::class,
+        'Langs'           => \Dotclear\Process\Backend\Langs::class,
+        'LinkPopup'       => \Dotclear\Process\Backend\LinkPopup::class,
+        'Logout'          => \Dotclear\Process\Backend\Logout::class,
+        'Media'           => \Dotclear\Process\Backend\Media::class,
+        'MediaItem'       => \Dotclear\Process\Backend\MediaItem::class,
+        'Plugin'          => \Dotclear\Process\Backend\Plugin::class,
+        'Plugins'         => \Dotclear\Process\Backend\Plugins::class,
+        'Post'            => \Dotclear\Process\Backend\Post::class,
+        'PostMedia'       => \Dotclear\Process\Backend\PostMedia::class,
+        'Posts'           => \Dotclear\Process\Backend\Posts::class,
+        'PostsPopup'      => \Dotclear\Process\Backend\PostsPopup::class,
+        'Rest'            => \Dotclear\Process\Backend\Rest::class,
+        'Search'          => \Dotclear\Process\Backend\Search::class,
+        'Settings'        => \Dotclear\Process\Backend\Settings::class,
+        'User'            => \Dotclear\Process\Backend\User::class,
+        'UserPreferences' => \Dotclear\Process\Backend\UserPreferences::class,
+        'Users'           => \Dotclear\Process\Backend\Users::class,
+        'UsersActions'    => \Dotclear\Process\Backend\UsersActions::class,
+    ];
 
     /**
      * Current admin page URL.
@@ -93,15 +126,52 @@ class Utility extends AbstractUtility
     public function getDefaultServices(): array
     {
         return [    // @phpstan-ignore-line
-            // Utils
             Favorites::class => Favorites::class,
             Menus::class     => Menus::class,
             Resources::class => Resources::class,
             Url::class       => Url::class,
-
-            // Process
-            'Home' => Home::class, // First exemple with Backend Home
+            ... self::UTILITY_PROCESS,
         ];
+    }
+
+    /**
+     * Get backend Url instance.
+     *
+     * @return  Url     The backend URL handler
+     */
+    public function url(): Url
+    {
+        return $this->get(Url::class);
+    }
+
+    /**
+     * Get backend favorites instance.
+     *
+     * @return  Favorites   The favorites
+     */
+    public function favorites(): Favorites
+    {
+        return $this->get(Favorites::class);
+    }
+
+    /**
+     * Get backend menus instance.
+     *
+     * @return  Menus   The menu
+     */
+    public function menus(): Menus
+    {
+        return $this->get(Menus::class);
+    }
+
+    /**
+     * Get backend resources instance.
+     *
+     * @return  Resources   The menu
+     */
+    public function resources(): Resources
+    {
+        return $this->get(Resources::class);
     }
 
     /**
@@ -284,49 +354,9 @@ class Utility extends AbstractUtility
         }
 
         // Admin behaviors
-        App::behavior()->addBehavior('adminPopupPosts', BlogPref::adminPopupPosts(...));
+        App::behavior()->addBehavior('adminPopupPosts', CoreBlogPref::adminPopupPosts(...));
 
         return true;
-    }
-
-    /**
-     * Get backend Url instance.
-     *
-     * @return  Url     The backend URL handler
-     */
-    public function url(): Url
-    {
-        return $this->get(Url::class);
-    }
-
-    /**
-     * Get backend favorites instance.
-     *
-     * @return  Favorites   The favorites
-     */
-    public function favorites(): Favorites
-    {
-        return $this->get(Favorites::class);
-    }
-
-    /**
-     * Get backend menus instance.
-     *
-     * @return  Menus   The menu
-     */
-    public function menus(): Menus
-    {
-        return $this->get(Menus::class);
-    }
-
-    /**
-     * Get backend resources instance.
-     *
-     * @return  Resources   The menu
-     */
-    public function resources(): Resources
-    {
-        return $this->get(Resources::class);
     }
 
     /**

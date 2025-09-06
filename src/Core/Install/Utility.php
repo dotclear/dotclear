@@ -32,13 +32,10 @@ class Utility extends AbstractUtility
 {
     public const CONTAINER_ID = 'Install';
 
-    public function getDefaultServices(): array
-    {
-        return [    // @phpstan-ignore-line
-            'Install' => Install::class,
-            'Wizard'  => Wizard::class,
-        ];
-    }
+    public const UTILITY_PROCESS = [
+        'Install' => Install::class,
+        'Wizard'  => Wizard::class,
+    ];
 
     public static function process(): bool
     {
