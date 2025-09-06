@@ -28,18 +28,7 @@ use Dotclear\Helper\Container\Factory;
  */
 abstract class Utility extends Container
 {
-    use TraitDynamicProperties;
-    use TraitProcess;
-
-    /**
-     * The utility ID.
-     *
-     * This is also the Task context.
-     * This is also the Utility container ID
-     *
-     * @var     string  CONTAINER_ID
-     */
-    public const CONTAINER_ID = 'undefined';
+    use TraitDynamicProperties, TraitProcess;
 
     public function __construct()
     {
