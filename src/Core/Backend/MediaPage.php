@@ -14,8 +14,8 @@ namespace Dotclear\Core\Backend;
 use Dotclear\App;
 use Dotclear\Core\Backend\Filter\FilterMedia;
 use Dotclear\Core\Backend\Listing\ListingMedia;
+use Dotclear\Core\MediaFile;
 use Dotclear\Database\MetaRecord;
-use Dotclear\Helper\File\File;
 use Dotclear\Helper\Html\Form\Span;
 use Dotclear\Helper\Html\Html;
 use Exception;
@@ -188,7 +188,7 @@ class MediaPage extends FilterMedia
             $items = array_values(array_merge($dir['dirs'], $dir['files']));
 
             // Transform each File array value to associative array if necessary
-            $items = array_map(fn ($v): mixed => $v instanceof File ? (array) $v : $v, $items);
+            $items = array_map(fn ($v): mixed => $v instanceof MediaFile ? (array) $v : $v, $items);
         }
 
         return MetaRecord::newFromArray($items);
@@ -205,7 +205,7 @@ class MediaPage extends FilterMedia
     {
         $file = App::media()->getFile((int) $file_id);
 
-        return $file instanceof File ? ListingMedia::mediaLine($this, $file, 1, $this->media_has_query) : '';
+        return $file instanceof MediaFile ? ListingMedia::mediaLine($this, $file, 1, $this->media_has_query) : '';
     }
 
     /**

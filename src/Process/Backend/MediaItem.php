@@ -14,10 +14,10 @@ namespace Dotclear\Process\Backend;
 use Dotclear\App;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
+use Dotclear\Core\MediaFile;
 use Dotclear\Core\Process;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Date;
-use Dotclear\Helper\File\File;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Form\Btn;
@@ -138,7 +138,7 @@ class MediaItem extends Process
                 App::backend()->file = App::media()->getFile((int) App::backend()->id);
             }
 
-            if (!App::backend()->file instanceof File) {
+            if (!App::backend()->file instanceof MediaFile) {
                 throw new Exception(__('Not a valid file'));
             }
 
@@ -150,7 +150,7 @@ class MediaItem extends Process
                 $dirs_combo['/' . $v] = $v;
             }
             # Add parent and direct childs directories if any
-            App::media()->getFSDir(false, false);   // No need to sort dirs/files, it will be done in combo later
+            App::media()->getDir(false, false);   // No need to sort dirs/files, it will be done in combo later
             foreach (App::media()->getDirs() as $v) {
                 $dirs_combo['/' . $v->relname] = $v->relname;
             }
@@ -352,7 +352,7 @@ class MediaItem extends Process
     {
         // Display helpers
 
-        $getImageDefaults = function (?File $file): array {
+        $getImageDefaults = function (?MediaFile $file): array {
             $defaults = [
                 'size'      => App::blog()->settings()->system->media_img_default_size ?: 'm',
                 'alignment' => App::blog()->settings()->system->media_img_default_alignment ?: 'none',
@@ -361,7 +361,7 @@ class MediaItem extends Process
                 'mediadef'  => false,
             ];
 
-            if (!$file instanceof File) {
+            if (!$file instanceof MediaFile) {
                 return $defaults;
             }
 

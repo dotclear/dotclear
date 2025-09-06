@@ -11,7 +11,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
+use Exception;
+
 use dcCore;
+use DirectoryIterator;
 use SimpleXMLElement;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
@@ -19,7 +22,6 @@ use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
 use Dotclear\Helper\Date;
-use Dotclear\Helper\File\File;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Image\ImageMeta;
 use Dotclear\Helper\File\Image\ImageTools;
@@ -29,7 +31,6 @@ use Dotclear\Helper\File\Zip\Unzip;
 use Dotclear\Helper\Html\XmlTag;
 use Dotclear\Helper\Text;
 use Dotclear\Exception\BadRequestException;
-use Dotclear\Exception\ConfigException;
 use Dotclear\Exception\ProcessException;
 use Dotclear\Exception\UnauthorizedException;
 use Dotclear\Helper\Html\Html;
@@ -393,9 +394,9 @@ class Media extends Manager implements MediaInterface
      *
      * @param      MetaRecord    $rs  The recordset
      *
-     * @return     File  The file item.
+     * @return     MediaFile  The file item.
      */
-    protected function fileRecord(MetaRecord $rs): ?File
+    protected function fileRecord(MetaRecord $rs): ?MediaFile
     {
         if ($this->root_missing) {
             return null;
@@ -406,22 +407,26 @@ class Media extends Manager implements MediaInterface
         }
 
         if (!$this->isFileExclude($this->root . '/' . $rs->media_file) && is_file($this->root . '/' . $rs->media_file)) {
-            $fi = new File($this->root . '/' . $rs->media_file, $this->root, $this->root_url);
+            $fi = new MediaFile($this->root . '/' . $rs->media_file, $this->root, $this->root_url);
 
             if ($this->type && $fi->type_prefix !== $this->type) {
                 // Check file mimetype base (before 1st /)
                 return null;
             }
 
-            $meta = @simplexml_load_string((string) $rs->media_meta);
+            $meta         = @simplexml_load_string((string) $rs->media_meta);
+            $default_meta = @simplexml_load_string('<meta></meta>');
+            if (!$default_meta instanceof SimpleXMLElement) {
+                $default_meta = null;
+            }
 
             $fi->editable    = true;
-            $fi->media_id    = $rs->media_id;
+            $fi->media_id    = (int) $rs->media_id;
             $fi->media_title = $rs->media_title;
-            $fi->media_meta  = $meta instanceof SimpleXMLElement ? $meta : simplexml_load_string('<meta></meta>');
+            $fi->media_meta  = $meta instanceof SimpleXMLElement ? $meta : $default_meta;
             $fi->media_user  = $rs->user_id;
             $fi->media_priv  = (bool) $rs->media_private;
-            $fi->media_dt    = strtotime($rs->media_dt);
+            $fi->media_dt    = (int) strtotime($rs->media_dt);
             $fi->media_dtstr = Date::str('%Y-%m-%d %H:%M', $fi->media_dt);
 
             $fi->media_image   = false;
@@ -594,10 +599,10 @@ class Media extends Manager implements MediaInterface
     /**
      * Sort calllback
      *
-     * @param      File  $a      1st media
-     * @param      File  $b      2nd media
+     * @param      MediaFile  $a      1st media
+     * @param      MediaFile  $b      2nd media
      */
-    protected function sortFileHandler(?File $a, ?File $b): int
+    protected function sortFileHandler(?MediaFile $a, ?MediaFile $b): int
     {
         if (is_null($a) || is_null($b)) {
             return is_null($a) ? 1 : -1;
@@ -614,15 +619,6 @@ class Media extends Manager implements MediaInterface
             'name-desc'  => $this->core->lexical()->lexicalCompare($b->basename, $a->basename, $this->core->lexical()::ADMIN_LOCALE),
             default      => $this->core->lexical()->lexicalCompare($a->basename, $b->basename, $this->core->lexical()::ADMIN_LOCALE),
         };
-    }
-
-    public function getFSDir(bool $sort_dirs = true, bool $sort_files = true): void
-    {
-        if ($this->root_missing) {
-            return;
-        }
-
-        parent::getDir($sort_dirs, $sort_files);
     }
 
     public function getDir(bool $sort_dirs = true, bool $sort_files = true, $type = null): void
@@ -694,14 +690,45 @@ class Media extends Manager implements MediaInterface
                 if (dirname($rsp->media_file) !== '.' && dirname($rsp->media_file) !== $this->relpwd) {
                     continue;
                 }
-                if (($f = $this->fileRecord($rsp)) instanceof File) {
+                if (($f = $this->fileRecord($rsp)) instanceof MediaFile) {
                     $privates[] = $f->relname;
                 }
             }
         }
 
         // Get directory content but whitout sorting files as it will be done after (see below)
-        parent::getDir(true, false);
+
+        $dir         = Path::clean($this->pwd);
+        $directories = [];
+        $files       = [];
+
+        try {
+            $dirfiles = new DirectoryIterator($dir);
+            foreach ($dirfiles as $file) {
+                $fullname = $file->getPathname();
+                if ($this->inJail($fullname) && !$this->isExclude($fullname)) {
+                    $filename = $file->getFilename();
+                    if ($file->isDir()) {
+                        if ($filename !== '.') {
+                            $directory = new MediaFile($fullname, $this->root, $this->root_url);
+                            if ($filename === '..') {
+                                $directory->parent = true;
+                            }
+                            $directories[] = $directory;
+                        }
+                    } elseif (!str_starts_with($filename, '.') && !$this->isFileExclude($filename)) {
+                        $files[] = new MediaFile($fullname, $this->root, $this->root_url);
+                    }
+                }
+            }
+        } catch (Exception) {
+            throw new Exception('Unable to read directory.');
+        }
+
+        $this->dir = [
+            'dirs'  => $directories,
+            'files' => $files,
+        ];
 
         $f_res = [];
         $p_dir = $this->dir;
@@ -724,7 +751,7 @@ class Media extends Manager implements MediaInterface
                 }
 
                 if ($this->inFiles($rs->media_file)) {
-                    if (($f = $this->fileRecord($rs)) instanceof File) {
+                    if (($f = $this->fileRecord($rs)) instanceof MediaFile) {
                         if (isset($f_reg[$rs->media_file])) {
                             # That media is duplicated in the database,
                             # time to do a bit of house cleaning.
@@ -739,7 +766,7 @@ class Media extends Manager implements MediaInterface
                             $f_reg[$rs->media_file] = 1;
                         }
                     }
-                } elseif (!empty($p_dir['files']) && $this->relpwd === '') {
+                } elseif ($p_dir['files'] !== [] && $this->relpwd === '') {
                     # Physical file does not exist remove it from DB
                     # Because we don't want to erase everything on
                     # dotclear upgrade, do it only if there are files
@@ -790,7 +817,7 @@ class Media extends Manager implements MediaInterface
         }
     }
 
-    public function getFile(int $id): ?File
+    public function getFile(int $id): ?MediaFile
     {
         $sql = new SelectStatement();
         $sql
@@ -874,7 +901,7 @@ class Media extends Manager implements MediaInterface
         $f_res     = [];
         if ($rs instanceof MetaRecord) {
             while ($rs->fetch()) {
-                if (($fr = $this->fileRecord($rs)) instanceof File) {
+                if (($fr = $this->fileRecord($rs)) instanceof MediaFile) {
                     $f_res[] = $fr;
                 }
             }
@@ -909,7 +936,7 @@ class Media extends Manager implements MediaInterface
         $res = [];
 
         while ($rs->fetch()) {
-            if (($f = $this->fileRecord($rs)) instanceof File) {
+            if (($f = $this->fileRecord($rs)) instanceof MediaFile) {
                 $res[] = $f;
             }
         }
@@ -917,7 +944,7 @@ class Media extends Manager implements MediaInterface
         return $res;
     }
 
-    public function getMediaTitle(File|stdClass $file, bool $fallback = true, bool $no_filename = true): string
+    public function getMediaTitle(MediaFile|stdClass $file, bool $fallback = true, bool $no_filename = true): string
     {
         if ((string) $file->media_title !== '') {
             if (($no_filename) && $file->media_title != $file->basename && Files::tidyFileName($file->media_title) != $file->basename) {
@@ -939,7 +966,7 @@ class Media extends Manager implements MediaInterface
         return '';
     }
 
-    public function getMediaAlt(File|stdClass $file, bool $fallback = true, bool $no_filename = true): string
+    public function getMediaAlt(MediaFile|stdClass $file, bool $fallback = true, bool $no_filename = true): string
     {
         // Use metadata AltText if present
         if (is_countable($file->media_meta) && count($file->media_meta) && is_iterable($file->media_meta)) {
@@ -963,7 +990,7 @@ class Media extends Manager implements MediaInterface
         return '';
     }
 
-    public function getMediaLegend(File|stdClass $file, ?string $pattern = null, bool $dto_first = false, bool $no_date_alone = false): string
+    public function getMediaLegend(MediaFile|stdClass $file, ?string $pattern = null, bool $dto_first = false, bool $no_date_alone = false): string
     {
         $res   = [];
         $sep   = ', ';
@@ -1246,7 +1273,7 @@ class Media extends Manager implements MediaInterface
         return $media_id;
     }
 
-    public function updateFile(File $file, File $newFile): void
+    public function updateFile(MediaFile $file, MediaFile $newFile): void
     {
         if ($this->root_missing) {
             return;
@@ -1259,7 +1286,7 @@ class Media extends Manager implements MediaInterface
             throw new UnauthorizedException(__('Permission denied.'));
         }
 
-        $id = (int) $file->media_id;
+        $id = $file->media_id;
 
         if ($id === 0) {
             throw new BadRequestException('No file ID');
@@ -1297,8 +1324,8 @@ class Media extends Manager implements MediaInterface
             $cur->media_dir  = dirname($newFile->relname);
         }
 
-        $cur->media_title   = (string) $newFile->media_title;
-        $cur->media_dt      = (string) $newFile->media_dtstr;
+        $cur->media_title   = $newFile->media_title;
+        $cur->media_dt      = $newFile->media_dtstr;
         $cur->media_upddt   = date('Y-m-d H:i:s');
         $cur->media_private = (int) $newFile->media_priv;
 
@@ -1417,7 +1444,7 @@ class Media extends Manager implements MediaInterface
         return $dir;
     }
 
-    public function inflateZipFile(File $f, bool $create_dir = true): string
+    public function inflateZipFile(MediaFile $f, bool $create_dir = true): string
     {
         if ($this->root_missing) {
             return '';
@@ -1470,7 +1497,7 @@ class Media extends Manager implements MediaInterface
         return dirname($f->relname) . '/' . $destination;
     }
 
-    public function getZipContent(File $f): array
+    public function getZipContent(MediaFile $f): array
     {
         $zip  = new Unzip($f->file);
         $list = $zip->getList(false, '#(^|/)(__MACOSX|\.svn|\.hg.*|\.git.*|\.DS_Store|\.directory|Thumbs\.db)(/|$)#');
@@ -1480,7 +1507,7 @@ class Media extends Manager implements MediaInterface
         return $list !== false ? $list : [];
     }
 
-    public function mediaFireRecreateEvent(File $f): void
+    public function mediaFireRecreateEvent(MediaFile $f): void
     {
         $media_type = Files::getMimeType($f->basename);
         $this->callFileHandler($media_type, 'recreate', null, $f->basename, 0);
@@ -1544,10 +1571,10 @@ class Media extends Manager implements MediaInterface
     /**
      * Update image thumbnails
      *
-     * @param      File  $file     The file
-     * @param      File  $newFile  The new file
+     * @param      MediaFile  $file     The file
+     * @param      MediaFile  $newFile  The new file
      */
-    protected function imageThumbUpdate(File $file, File $newFile): bool
+    protected function imageThumbUpdate(MediaFile $file, MediaFile $newFile): bool
     {
         if ($this->root_missing) {
             return false;
