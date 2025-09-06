@@ -13,7 +13,6 @@ namespace Dotclear\Core;
 
 use dcCore;
 use Dotclear\FileServer;
-use Dotclear\Core\Frontend\Url;
 use Dotclear\Helper\Clearbricks;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\L10n;
@@ -164,25 +163,25 @@ class Task implements TaskInterface
             }
 
             // Register default URLs
-            $this->core->url()->registerDefault(Url::home(...));
+            $this->core->url()->registerDefault($this->core->url()::home(...));
 
-            $this->core->url()->registerError(Url::default404(...));
+            $this->core->url()->registerError($this->core->url()::default404(...));
 
-            $this->core->url()->register('lang', '', '^([a-zA-Z]{2}(?:-[a-z]{2})?(?:/page/[0-9]+)?)$', Url::lang(...));
-            $this->core->url()->register('posts', 'posts', '^posts(/.+)?$', Url::home(...));
-            $this->core->url()->register('post', 'post', '^post/(.+)$', Url::post(...));
-            $this->core->url()->register('preview', 'preview', '^preview/(.+)$', Url::preview(...));
-            $this->core->url()->register('category', 'category', '^category/(.+)$', Url::category(...));
-            $this->core->url()->register('archive', 'archive', '^archive(/.+)?$', Url::archive(...));
-            $this->core->url()->register('try', 'try', '^try/(.+)$', Url::try(...));
+            $this->core->url()->register('lang', '', '^([a-zA-Z]{2}(?:-[a-z]{2})?(?:/page/[0-9]+)?)$', $this->core->url()::lang(...));
+            $this->core->url()->register('posts', 'posts', '^posts(/.+)?$', $this->core->url()::home(...));
+            $this->core->url()->register('post', 'post', '^post/(.+)$', $this->core->url()::post(...));
+            $this->core->url()->register('preview', 'preview', '^preview/(.+)$', $this->core->url()::preview(...));
+            $this->core->url()->register('category', 'category', '^category/(.+)$', $this->core->url()::category(...));
+            $this->core->url()->register('archive', 'archive', '^archive(/.+)?$', $this->core->url()::archive(...));
+            $this->core->url()->register('try', 'try', '^try/(.+)$', $this->core->url()::try(...));
 
-            $this->core->url()->register('feed', 'feed', '^feed/(.+)$', Url::feed(...));
-            $this->core->url()->register('trackback', 'trackback', '^trackback/(.+)$', Url::trackback(...));
-            $this->core->url()->register('webmention', 'webmention', '^webmention(/.+)?$', Url::webmention(...));
-            $this->core->url()->register('xmlrpc', 'xmlrpc', '^xmlrpc/(.+)$', Url::xmlrpc(...));
+            $this->core->url()->register('feed', 'feed', '^feed/(.+)$', $this->core->url()::feed(...));
+            $this->core->url()->register('trackback', 'trackback', '^trackback/(.+)$', $this->core->url()::trackback(...));
+            $this->core->url()->register('webmention', 'webmention', '^webmention(/.+)?$', $this->core->url()::webmention(...));
+            $this->core->url()->register('xmlrpc', 'xmlrpc', '^xmlrpc/(.+)$', $this->core->url()::xmlrpc(...));
 
-            $this->core->url()->register('wp-admin', 'wp-admin', '^wp-admin(?:/(.+))?$', Url::wpfaker(...));
-            $this->core->url()->register('wp-login', 'wp-login', '^wp-login.php(?:/(.+))?$', Url::wpfaker(...));
+            $this->core->url()->register('wp-admin', 'wp-admin', '^wp-admin(?:/(.+))?$', $this->core->url()::wpfaker(...));
+            $this->core->url()->register('wp-login', 'wp-login', '^wp-login.php(?:/(.+))?$', $this->core->url()::wpfaker(...));
 
             // Set post type for frontend instance with harcoded backend URL (but should not be required in backend before Utility instanciated)
             $this->core->postTypes()->set(new PostType('post', 'index.php?process=Post&id=%d', $this->core->url()->getURLFor('post', '%s'), 'Posts'));

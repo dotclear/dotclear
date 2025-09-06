@@ -235,7 +235,7 @@ class Utility extends AbstractUtility
 
         # Cope with static home page option
         if (App::blog()->settings()->system->static_home) {
-            App::url()->registerDefault(Url::static_home(...));
+            App::url()->registerDefault(App::url()::static_home(...));
         }
 
         // deprecated since 2.28, need to load dcCore::app()->media

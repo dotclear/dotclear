@@ -872,7 +872,7 @@ class Url extends UrlHandler implements UrlInterface
 
         App::frontend()->context()->feed_subtitle = $subtitle;
 
-        header('X-Robots-Tag: ' . Ctx::robotsPolicy(App::blog()->settings()->system->robots_policy, ''));
+        header('X-Robots-Tag: ' . App::frontend()->context()::robotsPolicy(App::blog()->settings()->system->robots_policy, ''));
         Http::$cache_max_age = 60 * 60; // 1 hour cache for feed
         self::serveDocument($tpl, $mime);
         if (!$comments && !$cat_url) {
