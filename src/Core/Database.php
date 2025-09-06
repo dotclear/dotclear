@@ -43,7 +43,7 @@ class Database extends Container implements DatabaseInterface
 
     public function getDefaultServices(): array
     {
-        return [    // @phpstan-ignore-line
+        return [
             'mysqli'      => \Dotclear\Schema\Database\Mysqli\Handler::class,
             'mysqlimb4'   => \Dotclear\Schema\Database\Mysqlimb4\Handler::class,
             'pgsql'       => \Dotclear\Schema\Database\Pgsql\Handler::class,

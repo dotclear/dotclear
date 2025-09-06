@@ -137,7 +137,7 @@ class Utility extends AbstractUtility
 
     public function getDefaultServices(): array
     {
-        return [    // @phpstan-ignore-line
+        return [
             Ctx::class => Ctx::class,
             Tpl::class => Tpl::class,
         ];

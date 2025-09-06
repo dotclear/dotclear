@@ -41,11 +41,13 @@ abstract class Utility extends Container
     {
         // Create a non replaceable factory
         parent::__construct(new Factory(static::CONTAINER_ID, false));
-    }
 
-    public function getDefaultServices(): array
-    {
-        return static::UTILITY_PROCESS;    // @phpstan-ignore-line
+        // Add utility process
+        foreach (static::UTILITY_PROCESS as $service => $callback) {
+            if (class_exists($callback)) { // limit to class
+                $this->factory->set($service, $callback);
+            }
+        }
     }
 
     /**

@@ -45,9 +45,8 @@ class Container implements ContainerInterface
 
         // Add default services
         foreach ($this->getDefaultServices() as $service => $callback) {
-            /* @phpstan-ignore-next-line */
-            if (is_string($service) && (is_string($callback) || is_callable($callback))) {
-                $this->factory->set($service, $callback);
+            if (is_callable($callback) || class_exists($callback)) {
+                $this->factory->set((string) $service, $callback);
             }
         }
     }
@@ -170,7 +169,7 @@ class Container implements ContainerInterface
      *
      * Return array of service ID / service callback pairs.
      *
-     * @return  array<string,callable>  The default services
+     * @return  array<string,string|callable>  The default services
      */
     protected function getDefaultServices(): array
     {

@@ -27,7 +27,7 @@ class OAuth2Client extends Client
 {
     protected function getDefaultServices(): array
     {
-        return [    // @phpstan-ignore-line
+        return [
             GoogleConnect::PROVIDER_ID => GoogleConnect::class,
             GithubConnect::PROVIDER_ID => GithubConnect::class,
             SlackConnect::PROVIDER_ID  => SlackConnect::class,

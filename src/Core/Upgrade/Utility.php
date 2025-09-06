@@ -89,11 +89,10 @@ class Utility extends AbstractUtility
 
     public function getDefaultServices(): array
     {
-        return [    // @phpstan-ignore-line
+        return [
             Menus::class     => Menus::class,
             Resources::class => Resources::class,
             Url::class       => Url::class,
-            ... self::UTILITY_PROCESS,
         ];
     }
 
