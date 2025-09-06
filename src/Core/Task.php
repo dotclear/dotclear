@@ -105,6 +105,15 @@ class Task implements TaskInterface
             $_SERVER['PATH_INFO'] = '';
         }
 
+        // deprecated since 2.28, loads core classes (old way)
+        Clearbricks::lib()->autoload([
+            'dcCore'  => implode(DIRECTORY_SEPARATOR, [$this->core->config()->dotclearRoot(),  'inc', 'core', 'class.dc.core.php']),
+            'dcUtils' => implode(DIRECTORY_SEPARATOR, [$this->core->config()->dotclearRoot(),  'inc', 'core', 'class.dc.utils.php']),
+        ]);
+
+        // Check and serve plugins and var files. (from ?pf=, ?tf= and ?vf= URI)
+        $this->core->fileserver();
+
         // Look at core factory to get utility class name to call it statically
         foreach ($this->core->dump() as $service) { // Not perfect but run once
             if (is_string($service) && is_subclass_of($service, Utility::class) && $service::CONTAINER_ID === $utility) {
@@ -122,15 +131,6 @@ class Task implements TaskInterface
 
         // Initialize Utility
         $utility_response = $utility === '' ? false : $this->utility::init();
-
-        // deprecated since 2.28, loads core classes (old way)
-        Clearbricks::lib()->autoload([
-            'dcCore'  => implode(DIRECTORY_SEPARATOR, [$this->core->config()->dotclearRoot(),  'inc', 'core', 'class.dc.core.php']),
-            'dcUtils' => implode(DIRECTORY_SEPARATOR, [$this->core->config()->dotclearRoot(),  'inc', 'core', 'class.dc.utils.php']),
-        ]);
-
-        // Check and serve plugins and var files. (from ?pf=, ?tf= and ?vf= URI)
-        FileServer::check($this->core->config());
 
         // Config file exists
         if (is_file($this->core->config()->configPath())) {

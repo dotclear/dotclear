@@ -8,13 +8,12 @@
  */
 declare(strict_types=1);
 
-namespace Dotclear;
+namespace Dotclear\Core;
 
-use Dotclear\Core\Frontend\Utility;
-use Dotclear\Interface\Core\ConfigInterface;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Network\Http;
+use Dotclear\Interface\Core\FileServerInterface;
 
 /**
  * @brief   The helper to serve file.
@@ -24,83 +23,8 @@ use Dotclear\Helper\Network\Http;
  *
  * @since   2.27
  */
-class FileServer
+class FileServer implements FileServerInterface
 {
-    /**
-     * Supported types of resource.
-     *
-     * @var     list<string>  DEFAULT_TYPES
-     */
-    public const DEFAULT_TYPES = [
-        'plugin',
-        'theme',
-        'core',
-        'var',
-    ];
-
-    /**
-     * Supported file extension.
-     *
-     * @var     list<string>  DEFAULT_EXTENSIONS
-     */
-    public const DEFAULT_EXTENSIONS = [
-        'css',
-        'eot',
-        'gif',
-        'html',
-        'jpeg',
-        'jpg',
-        'js',
-        'mjs',
-        'json',
-        'otf',
-        'png',
-        'svg',
-        'swf',
-        'ttf',
-        'txt',
-        'webp',
-        'avif',
-        'woff',
-        'woff2',
-        'xml',
-    ];
-
-    /**
-     * Supported core base folder.
-     *
-     * @var     list<string>  DEFAULT_CORE_LIMITS
-     */
-    public const DEFAULT_CORE_LIMITS = [
-        'js',
-        'css',
-        'img',
-        'smilies',
-    ];
-
-    /**
-     * Supported minifield file extension.
-     *
-     * @var     list<string>  DEFAULT_MINIFIED
-     */
-    public const DEFAULT_MINIFIED = [
-        'css',
-        'js',
-        'mjs',
-    ];
-
-    /**
-     * File extension that does not need cache in dev mode.
-     *
-     * @var     list<string>  DEFAULT_NOCACHE
-     */
-    public const DEFAULT_NOCACHE = [
-        'css',
-        'js',
-        'mjs',
-        'html',
-    ];
-
     /**
      * Default cache ttl (one week).
      */
@@ -110,6 +34,11 @@ class FileServer
      * Debug mode.
      */
     protected bool $debug = false;
+
+    /**
+     * The type of resource to find
+     */
+    protected string $type = '';
 
     /**
      * The resource to find.
@@ -126,35 +55,28 @@ class FileServer
      */
     protected ?string $file = null;
 
-    /**
-     * Check URL query to find file request.
-     *
-     * @param   ConfigInterface     $config     The configuration handler
-     */
-    public static function check(ConfigInterface $config): void
-    {
+    public function __construct(
+        protected Core $core
+    ) {
         if (!empty($_GET['pf']) && is_string($_GET['pf'])) {
-            new self($config, 'plugin', $_GET['pf']);
+            $this->serve('plugin', $_GET['pf']);
         } elseif (!empty($_GET['vf']) && is_string($_GET['vf'])) {
-            new self($config, 'var', $_GET['vf']);
+            $this->serve('var', $_GET['vf']);
         } elseif (!empty($_GET['tf']) && is_string($_GET['tf'])) {
-            new self($config, 'theme', $_GET['tf']);
+            $this->serve('theme', $_GET['tf']);
         }
     }
 
     /**
-     * Constructor does all job.
+     * Search and serve file.
      *
-     * @param   ConfigInterface     $config     The configuration handler
-     * @param   string              $type       The resource type
-     * @param   string              $resource   The resource path
+     * @param   string  $type       The resource type
+     * @param   string  $resource   The resource path
      */
-    public function __construct(
-        protected ConfigInterface $config,
-        protected string $type,
-        string $resource
-    ) {
-        $this->debug     = $this->config->debugMode() || $this->config->devMode();
+    protected function serve(string $type, string $resource): void
+    {
+        $this->debug     = $this->core->config()->debugMode() || $this->core->config()->devMode();
+        $this->type      = $type;
         $this->resource  = Path::clean($resource);
         $this->extension = Files::getExtension($this->resource);
 
@@ -212,7 +134,7 @@ class FileServer
 
         unset($_GET['pf'], $_GET['vf'], $_GET['tf']);
 
-        if (!$this->config->dotclearRoot() || !$this->config->pluginsRoot() || !$this->config->varRoot()) {
+        if (!$this->core->config()->dotclearRoot() || !$this->core->config()->pluginsRoot() || !$this->core->config()->varRoot()) {
             self::p404();
         }
 
@@ -226,7 +148,7 @@ class FileServer
      */
     protected function findPluginFile(): void
     {
-        $paths = array_reverse(explode(PATH_SEPARATOR, $this->config->pluginsRoot()));
+        $paths = array_reverse(explode(PATH_SEPARATOR, $this->core->config()->pluginsRoot()));
 
         foreach ($paths as $path) {
             $file = Path::real($path . '/' . $this->resource);
@@ -248,23 +170,23 @@ class FileServer
         $paths = [];
 
         // Emulate public prepend
-        App::task()->addContext('FRONTEND');
-        new Utility();
+        $this->core->task()->addContext('FRONTEND');
+        $this->core->frontend();
 
         // Get blog ID defined in index.php of blog (Frontend context)
-        $blogId = App::config()->blogId();
+        $blogId = $this->core->config()->blogId();
         if ($blogId === '') {
             // Get blog ID currently defined if any (whatever is the context)
-            $blogId = App::blog()->id();
+            $blogId = $this->core->blog()->id();
             if ($blogId === '') {
-                App::session()->start();
-                if (App::auth()->sessionExists() && App::auth()->checkSession()) {
+                $this->core->session()->start();
+                if ($this->core->auth()->sessionExists() && $this->core->auth()->checkSession()) {
                     // Try to get currently selected blog from session (Backend context)
-                    if (App::session()->get('sess_blog_id') != '') {
-                        if (App::auth()->getPermissions(App::session()->get('sess_blog_id')) !== false) {
-                            $blogId = App::session()->get('sess_blog_id');
+                    if ($this->core->session()->get('sess_blog_id') != '') {
+                        if ($this->core->auth()->getPermissions($this->core->session()->get('sess_blog_id')) !== false) {
+                            $blogId = $this->core->session()->get('sess_blog_id');
                         }
-                    } elseif (($b = App::auth()->findUserBlog(App::auth()->getInfo('user_default_blog'), false)) !== false) {
+                    } elseif (($b = $this->core->auth()->findUserBlog($this->core->auth()->getInfo('user_default_blog'), false)) !== false) {
                         // Finally get default blog for currently authenticated user
                         $blogId = $b;
                     }
@@ -274,25 +196,25 @@ class FileServer
 
         if ($blogId) {
             // Load blog
-            App::blog()->loadFromBlog($blogId);
-            $theme = App::blog()->settings()->system->theme;
+            $this->core->blog()->loadFromBlog($blogId);
+            $theme = $this->core->blog()->settings()->system->theme;
             if ($theme) {
                 // Get current theme path
-                $dir_theme = Path::real(App::blog()->themesPath() . '/' . $theme);
+                $dir_theme = Path::real($this->core->blog()->themesPath() . '/' . $theme);
                 if ($dir_theme) {
                     $paths[] = $dir_theme;
 
                     // Get current parent theme path if any
-                    $parent_theme = App::themes()->moduleInfo($theme, 'parent');
+                    $parent_theme = $this->core->themes()->moduleInfo($theme, 'parent');
                     if ($parent_theme) {
-                        $dir_parent_theme = Path::real(App::blog()->themesPath() . '/' . $parent_theme);
+                        $dir_parent_theme = Path::real($this->core->blog()->themesPath() . '/' . $parent_theme);
                         if ($dir_parent_theme) {
                             $paths[] = $dir_parent_theme;
                         }
                     }
 
                     // Check if there is a overloaded path for current theme
-                    $custom_theme = Path::real($this->config->varRoot() . '/themes/' . $blogId . '/' . $theme);
+                    $custom_theme = Path::real($this->core->config()->varRoot() . '/themes/' . $blogId . '/' . $theme);
 
                     if ($custom_theme) {
                         // Set custom path at first (custom > theme > parent > core)
@@ -319,7 +241,7 @@ class FileServer
     protected function findCoreFile(): void
     {
         foreach (self::DEFAULT_CORE_LIMITS as $folder) {
-            if ($this->setFile(implode(DIRECTORY_SEPARATOR, [$this->config->dotclearRoot(), 'inc', $folder, $this->resource]))) {
+            if ($this->setFile(implode(DIRECTORY_SEPARATOR, [$this->core->config()->dotclearRoot(), 'inc', $folder, $this->resource]))) {
                 break;
             }
         }
@@ -330,7 +252,7 @@ class FileServer
      */
     protected function findVarFile(): void
     {
-        $file = Path::real($this->config->varRoot() . '/' . $this->resource);
+        $file = Path::real($this->core->config()->varRoot() . '/' . $this->resource);
 
         if ($file !== false) {
             $this->setFile($file);
