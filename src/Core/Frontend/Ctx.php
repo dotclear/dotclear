@@ -12,9 +12,9 @@ declare(strict_types=1);
 namespace Dotclear\Core\Frontend;
 
 use Dotclear\App;
-use Dotclear\Core\MediaFile;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Record;
+use Dotclear\Helper\File\MediaFile;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Text;

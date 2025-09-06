@@ -9,9 +9,8 @@
  */
 declare(strict_types=1);
 
-namespace Dotclear\Core;
+namespace Dotclear\Helper\File;
 
-use Dotclear\Helper\File\File;
 use SimpleXMLElement;
 
 /**

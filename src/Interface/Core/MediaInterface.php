@@ -10,8 +10,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Interface\Core;
 
-use Dotclear\Core\MediaFile;
 use Dotclear\Database\Cursor;
+use Dotclear\Helper\File\MediaFile;
 use stdClass;
 
 /**
