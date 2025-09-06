@@ -11,7 +11,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\tags;
 
 use Dotclear\App;
-use Dotclear\Core\Frontend\Url;
+use Dotclear\Core\Url;
 
 /**
  * @brief   The module frontend URL.

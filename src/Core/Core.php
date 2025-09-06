@@ -18,9 +18,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
-// Default core class from elsewhere, see Container::getDefaultServices()
-use Dotclear\Core\Frontend\Url;
-
 // Container helpers
 use Dotclear\Exception\ContextException;
 use Dotclear\Helper\Container\Container;
@@ -73,9 +70,6 @@ use Dotclear\Core\Backend\Utility as Backend;
 use Dotclear\Core\Frontend\Utility as Frontend;
 use Dotclear\Core\Install\Utility as Install;
 use Dotclear\Core\Upgrade\Utility as Upgrade;
-
-// deprecated in core
-use Dotclear\Interface\Database\ConnectionInterface;
 
 /**
  * @brief   The core container.
@@ -265,7 +259,7 @@ class Core extends Container
      *
      * @see     Uses core service method Dotclear\Core\Database::con()
      */
-    public static function con(): ConnectionInterface
+    public static function con(): \Dotclear\Interface\Database\ConnectionInterface
     {
         return self::db()->con();
     }

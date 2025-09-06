@@ -138,8 +138,9 @@ class Utility extends AbstractUtility
     public function getDefaultServices(): array
     {
         return [
-            Ctx::class => Ctx::class,
-            Tpl::class => Tpl::class,
+            Ctx::class    => Ctx::class,
+            Tpl::class    => Tpl::class,
+            XmlRpc::class => XmlRpc::class,
         ];
     }
 
@@ -165,6 +166,18 @@ class Utility extends AbstractUtility
         } catch (Throwable $e) {
             throw new TemplateException(__('Can\'t create template files.'), TemplateException::code(), $e);
         }
+    }
+
+    /**
+     * Get frontend XML RPC instance.
+     *
+     * Create new instance on every call.
+     *
+     * @return  XmlRpc  The XML RPC instance
+     */
+    public function xmlrpc(?string $blog_id): XmlRpc
+    {
+        return $this->get(XmlRpc::class, true, $blog_id);
     }
 
     /**

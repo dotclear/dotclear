@@ -9,7 +9,7 @@
  */
 declare(strict_types=1);
 
-namespace Dotclear\Core\Frontend;
+namespace Dotclear\Core;
 
 use ArrayObject;
 use Dotclear\App;
@@ -30,6 +30,11 @@ class Url extends UrlHandler implements UrlInterface
      */
     public ?string $args = null;
 
+    public function __construct(
+        protected Core $core
+    ) {
+    }
+
     /**
      * Gets the home type set for the blog.
      *
@@ -37,7 +42,7 @@ class Url extends UrlHandler implements UrlInterface
      */
     public function getHomeType(): string
     {
-        return App::blog()->settings()->system->static_home ? 'static' : 'default';
+        return $this->core->blog()->settings()->system->static_home ? 'static' : 'default';
     }
 
     /**
@@ -61,7 +66,7 @@ class Url extends UrlHandler implements UrlInterface
     public function getURLFor(string $type, string $value = ''): string
     {
         # --BEHAVIOR-- publicGetURLFor -- string, string
-        $url = App::behavior()->callBehavior('publicGetURLFor', $type, $value);
+        $url = $this->core->behavior()->callBehavior('publicGetURLFor', $type, $value);
         if ($url === '') {
             $url = $this->getBase($type);
             if ($value !== '') {
@@ -87,7 +92,7 @@ class Url extends UrlHandler implements UrlInterface
     {
         $url_handler = new ArrayObject([$type, $url, $representation, $handler]);
         # --BEHAVIOR-- publicRegisterURL -- ArrayObject
-        App::behavior()->callBehavior('publicRegisterURL', $url_handler);
+        $this->core->behavior()->callBehavior('publicRegisterURL', $url_handler);
         parent::register($url_handler[0], $url_handler[1], $url_handler[2], $url_handler[3]);   // @phpstan-ignore-line
     }
 
@@ -249,7 +254,7 @@ class Url extends UrlHandler implements UrlInterface
         $this->getArgs($part, $type, $this->args);
 
         # --BEHAVIOR-- urlHandlerGetArgsDocument -- Urlhandler
-        App::behavior()->callBehavior('urlHandlerGetArgsDocument', $this);
+        $this->core->behavior()->callBehavior('urlHandlerGetArgsDocument', $this);
 
         if (!$type) {
             $this->setType($this->getHomeType());
@@ -724,7 +729,7 @@ class Url extends UrlHandler implements UrlInterface
                     $tpl_path[] = App::blog()->themesPath() . '/' . App::frontend()->parent_theme . '/tpl';
                 }
                 $tplset = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'tplset');
-                $dir    = implode(DIRECTORY_SEPARATOR, [App::config()->dotclearRoot(), 'inc', 'public', Utility::TPL_ROOT, $tplset]);
+                $dir    = implode(DIRECTORY_SEPARATOR, [App::config()->dotclearRoot(), 'inc', 'public', App::frontend()::TPL_ROOT, $tplset]);
                 if (!empty($tplset) && is_dir($dir)) {
                     App::frontend()->template()->setPath(
                         $tpl_path,
@@ -934,7 +939,7 @@ class Url extends UrlHandler implements UrlInterface
     public static function xmlrpc(?string $args): void
     {
         $blog_id = (string) preg_replace('#^([^/]*).*#', '$1', (string) $args);
-        (new XmlRpc($blog_id))->serve();
+        App::frontend()->xmlrpc($blog_id)->serve();
     }
 
     /**
