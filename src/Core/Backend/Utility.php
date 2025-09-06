@@ -21,7 +21,6 @@ namespace Dotclear\Core\Backend;
 use dcCore;
 use Dotclear\App;
 use Dotclear\Core\PostType;
-use Dotclear\Core\Backend\BlogPref as CoreBlogPref;
 use Dotclear\Core\Utility as AbstractUtility;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
@@ -353,7 +352,7 @@ class Utility extends AbstractUtility
         }
 
         // Admin behaviors
-        App::behavior()->addBehavior('adminPopupPosts', CoreBlogPref::adminPopupPosts(...));
+        App::behavior()->addBehavior('adminPopupPosts', BlogPref::adminPopupPosts(...));
 
         return true;
     }

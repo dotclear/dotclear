@@ -228,7 +228,7 @@ class Task implements TaskInterface
 
         $this->context[$context] = true;
 
-        // Deprecated since 2.28 constant compatibility
+        // Deprecated since 2.28, use App::task()->checkContext(...) instead
         $constant = 'DC_CONTEXT_' . match ($context) {
             'BACKEND'  => 'ADMIN',
             'FRONTEND' => 'PUBLIC',
@@ -246,6 +246,7 @@ class Task implements TaskInterface
             throw new ProcessException(__('Utility not initialized'));
         }
 
+        // Get Process full class name from Utility
         $class = $this->core->get($this->utility)->getProcess($process);
 
         // Call process in 3 steps: init, process, render.

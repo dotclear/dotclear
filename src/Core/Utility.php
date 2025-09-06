@@ -45,6 +45,7 @@ abstract class Utility extends Container
         // Add utility process
         foreach (static::UTILITY_PROCESS as $callback) {
             if (class_exists($callback)) { // limit to class
+                // Create on the fly the Process ID. ie called from App:task()->run(Utility, Process)
                 $this->factory->set((new \ReflectionClass($callback))->getShortName(), $callback);
             }
         }
@@ -68,14 +69,6 @@ abstract class Utility extends Container
     }
 
     /**
-     * Initialize application utility.
-     */
-    public static function init(): bool
-    {
-        return !App::config()->cliMode();
-    }
-
-    /**
      * Check that service is an Utility Process.
      */
     private function checkProcess(string $process, string $service): string
@@ -92,5 +85,10 @@ abstract class Utility extends Container
         }
 
         return '';
+    }
+
+    public static function init(): bool
+    {
+        return !App::config()->cliMode();
     }
 }

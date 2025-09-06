@@ -96,16 +96,6 @@ class Utility extends AbstractUtility
         ];
     }
 
-    public static function init(): bool
-    {
-        // We need to pass CLI argument to App::task()->run()
-        if (isset($_SERVER['argv'][1])) {
-            $_SERVER['DC_RC_PATH'] = $_SERVER['argv'][1];
-        }
-
-        return true;
-    }
-
     /**
      * Get upgrade Url instance.
      *
@@ -134,6 +124,16 @@ class Utility extends AbstractUtility
     public function resources(): Resources
     {
         return $this->get(Resources::class);
+    }
+
+    public static function init(): bool
+    {
+        // We need to pass CLI argument to App::task()->run()
+        if (isset($_SERVER['argv'][1])) {
+            $_SERVER['DC_RC_PATH'] = $_SERVER['argv'][1];
+        }
+
+        return true;
     }
 
     public static function process(): bool
