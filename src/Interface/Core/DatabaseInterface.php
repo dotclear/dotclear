@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace Dotclear\Interface\Core;
 
 use Dotclear\Database\Structure;
+use Dotclear\Helper\Container\ContainerInterface;
 use Dotclear\Interface\Database\ConnectionInterface;
 
 /**
@@ -19,7 +20,7 @@ use Dotclear\Interface\Database\ConnectionInterface;
  *
  * @since   2.36
  */
-interface DatabaseInterface
+interface DatabaseInterface extends ContainerInterface
 {
     /**
      * Get dabatase connection handler instance.
