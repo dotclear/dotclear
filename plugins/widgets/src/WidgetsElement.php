@@ -224,6 +224,23 @@ class WidgetsElement
     }
 
     /**
+     * Get format to use to render a title (or a subtitle) in a widget
+     *
+     * @param  bool   $subtitle True if it is a subtitle (default = false)
+     */
+    protected function getTitleFormat(bool $subtitle = false): string
+    {
+        $format = '<h%1$d>%%s</h%1$d>';
+
+        return sprintf($format, match (App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'tplset')) {
+            // Template set name => $subtitle ? H level for subtitle : H level for title
+            'dotty'  => $subtitle ? 4 : 3,
+            'mustek' => $subtitle ? 3 : 2,
+            default  => $subtitle ? 3 : 2,
+        });
+    }
+
+    /**
      * Render widget title.
      *
      * @param   null|string     $title  The title
@@ -234,16 +251,7 @@ class WidgetsElement
             return '';
         }
 
-        $wtscheme = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'widgettitleformat');
-        if (empty($wtscheme)) {
-            $tplset = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'tplset');
-            /**
-             * @todo should be reviewed as the default tpl set (mustek) may change in future
-             *
-             * Use H2 for mustek based themes and H3 for dotty based themes
-             */
-            $wtscheme = empty($tplset) || $tplset == App::config()->defaultTplset() ? '<h2>%s</h2>' : '<h3>%s</h3>';
-        }
+        $wtscheme = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'widgettitleformat') ?: $this->getTitleFormat();
 
         return sprintf($wtscheme, $title);
     }
@@ -262,16 +270,7 @@ class WidgetsElement
             return '';
         }
 
-        $wtscheme = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'widgetsubtitleformat');
-        if (empty($wtscheme)) {
-            $tplset = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'tplset');
-            /**
-             * @todo should be reviewed as the default tpl set (mustek) may change in future
-             *
-             * Use H3 for mustek based themes and H4 for dotty based themes
-             */
-            $wtscheme = empty($tplset) || $tplset == App::config()->defaultTplset() ? '<h3>%s</h3>' : '<h4>%s</h4>';
-        }
+        $wtscheme = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'widgetsubtitleformat') ?: $this->getTitleFormat(true);
         if (!$render) {
             return $wtscheme;
         }
