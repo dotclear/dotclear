@@ -11,7 +11,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\Uninstaller;
 
 use Dotclear\App;
-use Dotclear\Core\Process;
+use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Core\Backend\ModulesList;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Module\ModuleDefine;
@@ -21,8 +21,10 @@ use Exception;
  * @brief   The module backend process.
  * @ingroup Uninstaller
  */
-class Backend extends Process
+class Backend
 {
+    use TraitProcess;
+
     public static function init(): bool
     {
         return self::status(My::checkContext(My::BACKEND));

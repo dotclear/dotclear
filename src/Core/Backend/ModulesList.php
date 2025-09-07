@@ -13,7 +13,6 @@ namespace Dotclear\Core\Backend;
 
 use Autoloader;
 use Dotclear\App;
-use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
@@ -1871,7 +1870,7 @@ class ModulesList
 
         self::fillSanitizeModule($define);
         $class = $define->get('namespace') . Autoloader::NS_SEP . $this->modules::MODULE_CLASS_CONFIG;
-        $class = is_subclass_of($class, Process::class) ? $class : '';
+        $class = App::Task()->isProcessClass($class) ? $class : '';
         $file  = (string) Path::real($define->get('root') . DIRECTORY_SEPARATOR . $this->modules::MODULE_FILE_CONFIG);
 
         if ($class === '' && $file === '') {

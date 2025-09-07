@@ -14,7 +14,7 @@ use Dotclear\App;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Backend\UserPref;
-use Dotclear\Core\Process;
+use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
@@ -33,8 +33,10 @@ use Exception;
  * @brief   The module backend manage pages process.
  * @ingroup pages
  */
-class Manage extends Process
+class Manage
 {
+    use TraitProcess;
+
     public static function init(): bool
     {
         if (My::checkContext(My::MANAGE)) {

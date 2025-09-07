@@ -9,14 +9,16 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\pings;
 
-use Dotclear\Core\Process;
+use Dotclear\Helper\Process\TraitProcess;
 
 /**
  * @brief   The module install process.
  * @ingroup pings
  */
-class Install extends Process
+class Install
 {
+    use TraitProcess;
+
     /**
      * Default ping URIs.
      *

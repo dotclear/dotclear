@@ -15,7 +15,7 @@ use Dotclear\App;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
-use Dotclear\Core\Process;
+use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Form\Div;
@@ -43,8 +43,10 @@ use Dotclear\Plugin\blogroll\Status\Link as StatusLink;
  * @brief   The module manage blogroll process.
  * @ingroup blogroll
  */
-class ManageEdit extends Process
+class ManageEdit
 {
+    use TraitProcess;
+
     public static function init(): bool
     {
         self::status(My::checkContext(My::MANAGE) && !empty($_REQUEST['edit']) && !empty($_REQUEST['id']));

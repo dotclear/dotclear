@@ -15,7 +15,7 @@ use Dotclear\App;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
-use Dotclear\Core\Process;
+use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Caption;
 use Dotclear\Helper\Html\Form\Checkbox;
@@ -48,8 +48,10 @@ use Exception;
  * @brief   The module manage process.
  * @ingroup simpleMenu
  */
-class Manage extends Process
+class Manage
 {
+    use TraitProcess;
+
     // Local constants
 
     private const STEP_LIST       = 0;

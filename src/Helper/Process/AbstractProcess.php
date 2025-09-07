@@ -9,16 +9,14 @@
  */
 declare(strict_types=1);
 
-namespace Dotclear\Core;
-
-use Dotclear\Helper\Process\TraitProcess;
+namespace Dotclear\Helper\Process;
 
 /**
  * @brief   Process class structure.
  *
- * @deprecated  since 2.36, use Dotclear\Helper\Process\traitProcess instead
+ * You should use trait TraitProcess intead of class AbstractProcess.
  */
-abstract class Process
+abstract class AbstractProcess
 {
     use TraitProcess;
 }

@@ -13,7 +13,7 @@ namespace Dotclear\Process\Upgrade;
 
 use Dotclear\App;
 use Dotclear\Core\Upgrade\Page;
-use Dotclear\Core\Process;
+use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Helper\Html\Form\{
     Div,
     Img,
@@ -31,8 +31,10 @@ use Dotclear\Helper\Html\Form\{
  *
  * @since   2.29
  */
-class Home extends Process
+class Home
 {
+    use TraitProcess;
+
     public static function init(): bool
     {
         Page::checkSuper();

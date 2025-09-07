@@ -11,14 +11,16 @@ namespace Dotclear\Theme\blowup;
 
 use Dotclear\App;
 use Dotclear\Core\Backend\Page;
-use Dotclear\Core\Process;
+use Dotclear\Helper\Process\TraitProcess;
 
 /**
  * @brief   The module backend process.
  * @ingroup blowup
  */
-class Backend extends Process
+class Backend
 {
+    use TraitProcess;
+
     public static function init(): bool
     {
         return self::status(My::checkContext(My::BACKEND));

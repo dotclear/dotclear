@@ -39,6 +39,7 @@ class GrowUp_2_36_lt
                 'src/Database/InterfaceSchema.php', // merge in src/Interface/Database/SchemaInterface
                 'src/Database/Session.php', // mv plugins/dcProxyV2/inc/sessiondb.php
                 'src/FileServer.php', // mv src/Core/FileServer.php
+                'src/Core/Process.php', // mv src/Helper/Process/AbstractProcess.php
                 'src/Interface/Database/DbSchemaInterface.php', // rm dev
                 'src/Interface/Database/DbHandlerInterface.php', // rm dev
                 'src/Interface/Database/InterfaceSchema.php', // rm dev

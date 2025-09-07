@@ -10,15 +10,17 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\Uninstaller;
 
 use Dotclear\App;
-use Dotclear\Core\Process;
+use Dotclear\Helper\Process\TraitProcess;
 use Exception;
 
 /**
  * @brief   The module install process.
  * @ingroup Uninstaller
  */
-class Install extends Process
+class Install
 {
+    use TraitProcess;
+
     public static function init(): bool
     {
         return self::status(My::checkContext(My::INSTALL));

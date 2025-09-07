@@ -11,7 +11,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\pings;
 
 use Dotclear\App;
-use Dotclear\Core\Process;
+use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Interface\Core\BlogInterface;
 use Exception;
 
@@ -19,8 +19,10 @@ use Exception;
  * @brief   The module prepend process.
  * @ingroup pings
  */
-class Prepend extends Process
+class Prepend
 {
+    use TraitProcess;
+
     public static function init(): bool
     {
         return self::status(My::checkContext(My::PREPEND));

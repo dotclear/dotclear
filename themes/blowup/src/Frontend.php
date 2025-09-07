@@ -10,14 +10,16 @@
 namespace Dotclear\Theme\blowup;
 
 use Dotclear\App;
-use Dotclear\Core\Process;
+use Dotclear\Helper\Process\TraitProcess;
 
 /**
  * @brief   The module frontend process.
  * @ingroup blowup
  */
-class Frontend extends Process
+class Frontend
 {
+    use TraitProcess;
+
     public static function init(): bool
     {
         return self::status(My::checkContext(My::FRONTEND));

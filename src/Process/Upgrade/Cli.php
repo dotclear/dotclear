@@ -11,7 +11,7 @@ declare(strict_types=1);
 namespace Dotclear\Process\Upgrade;
 
 use Dotclear\App;
-use Dotclear\Core\Process;
+use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Core\Upgrade\Upgrade;
 use Dotclear\Exception\ProcessException;
 use Throwable;
@@ -21,8 +21,10 @@ use Throwable;
  *
  * @since   2.27 Before as inc/dbschema/upgrade-cli.php
  */
-class Cli extends Process
+class Cli
 {
+    use TraitProcess;
+
     public static function init(): bool
     {
         if (!self::status(App::task()->checkContext('UPGRADE') && App::config()->cliMode())) {

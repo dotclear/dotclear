@@ -13,7 +13,7 @@ namespace Dotclear\Plugin\userPref;
 use Dotclear\App;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
-use Dotclear\Core\Process;
+use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Decimal;
 use Dotclear\Helper\Html\Form\Details;
@@ -42,8 +42,10 @@ use Exception;
  * @brief   The module backend manage process.
  * @ingroup userPref
  */
-class Manage extends Process
+class Manage
 {
+    use TraitProcess;
+
     /**
      * Initializes the page.
      */

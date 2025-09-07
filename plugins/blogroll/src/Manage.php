@@ -15,7 +15,7 @@ use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\App;
 use Dotclear\Core\Backend\Combos;
-use Dotclear\Core\Process;
+use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Checkbox;
@@ -50,8 +50,10 @@ use Dotclear\Plugin\blogroll\Status\Link as StatusLink;
  * @brief   The module manage blogrolls process.
  * @ingroup blogroll
  */
-class Manage extends Process
+class Manage
 {
+    use TraitProcess;
+
     private static bool $edit = false;
 
     public static function init(): bool

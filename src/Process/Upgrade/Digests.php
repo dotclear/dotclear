@@ -14,7 +14,7 @@ namespace Dotclear\Process\Upgrade;
 use Dotclear\App;
 use Dotclear\Core\Upgrade\Notices;
 use Dotclear\Core\Upgrade\Page;
-use Dotclear\Core\Process;
+use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Helper\File\Zip\Zip;
 use Dotclear\Helper\Html\Form\{
     Checkbox,
@@ -43,8 +43,10 @@ use Exception;
  *
  * @since   2.29
  */
-class Digests extends Process
+class Digests
 {
+    use TraitProcess;
+
     private static string $path_backup;
     private static string $path_helpus;
     private static string $path_disclaimer;

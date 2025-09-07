@@ -11,15 +11,17 @@ namespace Dotclear\Theme\ductile;
 
 use ArrayObject;
 use Dotclear\App;
-use Dotclear\Core\Process;
+use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Helper\File\Files;
 
 /**
  * @brief   The module frontend process.
  * @ingroup ductile
  */
-class Frontend extends Process
+class Frontend
 {
+    use TraitProcess;
+
     /**
      * Init the process.
      */

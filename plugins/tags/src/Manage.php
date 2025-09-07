@@ -13,7 +13,7 @@ namespace Dotclear\Plugin\tags;
 use Dotclear\App;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
-use Dotclear\Core\Process;
+use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Link;
 use Dotclear\Helper\Html\Form\None;
@@ -30,8 +30,10 @@ use Dotclear\Helper\Html\Html;
  * @brief   The module backend manage tags process.
  * @ingroup tags
  */
-class Manage extends Process
+class Manage
 {
+    use TraitProcess;
+
     public static function init(): bool
     {
         if (My::checkContext(My::MANAGE)) {
