@@ -39,6 +39,7 @@ class Utility extends AbstractUtility
         \Dotclear\Process\Backend\Auth::class,
         \Dotclear\Process\Backend\Blog::class,
         \Dotclear\Process\Backend\BlogDel::class,
+        \Dotclear\Process\Backend\BlogPref::class,
         \Dotclear\Process\Backend\Blogs::class,
         \Dotclear\Process\Backend\BlogTheme::class,
         \Dotclear\Process\Backend\Categories::class,
