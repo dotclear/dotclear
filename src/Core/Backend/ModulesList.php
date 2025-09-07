@@ -1870,7 +1870,7 @@ class ModulesList
 
         self::fillSanitizeModule($define);
         $class = $define->get('namespace') . Autoloader::NS_SEP . $this->modules::MODULE_CLASS_CONFIG;
-        $class = App::Task()->isProcessClass($class) ? $class : '';
+        $class = App::task()->isProcessClass($class) ? $class : '';
         $file  = (string) Path::real($define->get('root') . DIRECTORY_SEPARATOR . $this->modules::MODULE_FILE_CONFIG);
 
         if ($class === '' && $file === '') {

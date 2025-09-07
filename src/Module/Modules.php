@@ -1230,7 +1230,7 @@ class Modules implements ModulesInterface
 
         // unknown class
         $class = $module->get('namespace') . Autoloader::NS_SEP . ucfirst($ns);
-        if (!App::Task()->isProcessClass($class)) {
+        if (!App::task()->isProcessClass($class)) {
             return '';
         }
 

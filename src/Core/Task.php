@@ -265,7 +265,7 @@ class Task implements TaskInterface
             return false;
         }
 
-        $reflection = new ReflectionClass($class);
+        $reflection = new ReflectionClass($class);    // @phpstan-ignore-line should tag class as class-string
         if (array_key_exists(TraitProcess::class, $reflection->getTraits())) {
 
             // Class use TraitProcess
