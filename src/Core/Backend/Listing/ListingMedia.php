@@ -60,12 +60,14 @@ class ListingMedia extends Listing
 
         if ($filters->q && !$query) {
             echo (new Para())
+                ->class('warn')
                 ->items([
                     (new Strong(__('No file matches the filter'))),
                 ])
             ->render();
         } elseif ($nb_items < 1) {
             echo (new Para())
+                ->class('info')
                 ->items([
                     (new Strong(__('No file.'))),
                 ])
