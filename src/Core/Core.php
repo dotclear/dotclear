@@ -37,6 +37,7 @@ use Dotclear\Interface\Core\CredentialInterface;
 use Dotclear\Interface\Core\DatabaseInterface;
 use Dotclear\Interface\Core\DeprecatedInterface;
 use Dotclear\Interface\Core\ErrorInterface;
+use Dotclear\Interface\Core\FileServerInterface;
 use Dotclear\Interface\Core\FilterInterface;
 use Dotclear\Interface\Core\FormaterInterface;
 use Dotclear\Interface\Core\LangInterface;
@@ -132,6 +133,7 @@ class Core extends Container
             DatabaseInterface::class        => Database::class,
             DeprecatedInterface::class      => Deprecated::class,
             ErrorInterface::class           => Error::class,
+            FileServerInterface::class      => FileServer::class,
             FilterInterface::class          => Filter::class,
             FormaterInterface::class        => Formater::class,
             LangInterface::class            => Lang::class,
@@ -319,6 +321,17 @@ class Core extends Container
     public static function error(): ErrorInterface
     {
         return self::$instance->get(ErrorInterface::class);
+    }
+
+    /**
+     * File server handler.
+     *
+     * @see     Calls core container service Dotclear\Interface\Core\FileServerInterface
+     * @see     Uses default core service Dotclear\Core\FileServer
+     */
+    public static function fileserver(): FileServerInterface
+    {
+        return self::$instance->get(FileServerInterface::class);
     }
 
     /**
