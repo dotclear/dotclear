@@ -47,6 +47,8 @@ class GrowUp_2_36_lt
                 'src/Database/DbSchemaInterface.php', // rm dev
                 'src/Database/DbHandlerInterface.php', // rm dev
                 'src/Core/Frontend/Session.php', // rm dev
+                'src/Core/TraitProcess.php', // rm dev
+                'src/Core/Utility.php', // rm dev
             ],
             // Folders
             [

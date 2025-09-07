@@ -17,6 +17,7 @@ use Dotclear\Helper\Clearbricks;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
+use Dotclear\Helper\Process\AbstractUtility;
 use Dotclear\Exception\ContextException;
 use Dotclear\Exception\ProcessException;
 use Dotclear\Interface\Core\TaskInterface;
@@ -116,7 +117,7 @@ class Task implements TaskInterface
 
         // Look at core factory to get utility class name to call it statically
         foreach ($this->core->dump() as $service) { // Not perfect but run once
-            if (is_string($service) && is_subclass_of($service, Utility::class) && $service::CONTAINER_ID === $utility) {
+            if (is_string($service) && is_subclass_of($service, AbstractUtility::class) && $service::CONTAINER_ID === $utility) {
                 $this->utility = $service;
 
                 break;

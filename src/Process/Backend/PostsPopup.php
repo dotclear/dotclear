@@ -14,7 +14,6 @@ namespace Dotclear\Process\Backend;
 use Dotclear\App;
 use Dotclear\Core\Backend\Listing\ListingPostsMini;
 use Dotclear\Core\Backend\Page;
-use Dotclear\Core\TraitProcess;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Capture;
 use Dotclear\Helper\Html\Form\Div;
@@ -29,6 +28,7 @@ use Dotclear\Helper\Html\Form\Set;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Process\TraitProcess;
 use Exception;
 
 /**

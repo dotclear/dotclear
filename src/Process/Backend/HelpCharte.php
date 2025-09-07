@@ -12,8 +12,8 @@ namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
 use Dotclear\Core\Backend\Page;
-use Dotclear\Core\TraitProcess;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Process\TraitProcess;
 
 class HelpCharte
 {

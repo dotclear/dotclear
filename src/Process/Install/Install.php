@@ -13,7 +13,6 @@ use Dotclear\App;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Backend\Favorites;
 use Dotclear\Core\Install\Utils;
-use Dotclear\Core\TraitProcess;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Email;
 use Dotclear\Helper\Html\Form\Fieldset;
@@ -36,6 +35,7 @@ use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Text as Htext;
+use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Schema\Schema;
 use Exception;
 

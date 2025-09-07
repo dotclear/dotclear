@@ -20,10 +20,10 @@ namespace Dotclear\Core\Upgrade;
 
 use Dotclear\App;
 use Dotclear\Core\Backend\Resources;
-use Dotclear\Core\Utility as AbstractUtility;
 use Dotclear\Exception\ContextException;
 use Dotclear\Exception\PreconditionException;
 use Dotclear\Helper\L10n;
+use Dotclear\Helper\Process\AbstractUtility;
 
 /**
  * @brief   Utility class for upgrade context.

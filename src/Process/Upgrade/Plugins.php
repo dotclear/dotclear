@@ -16,7 +16,6 @@ use Dotclear\Core\Upgrade\NextStore;
 use Dotclear\Core\Upgrade\Notices;
 use Dotclear\Core\Upgrade\Page;
 use Dotclear\Core\Upgrade\PluginsList;
-use Dotclear\Core\TraitProcess;
 use Dotclear\Helper\Html\Form\{
     Caption,
     Capture,
@@ -37,6 +36,7 @@ use Dotclear\Helper\Html\Form\{
     Ul
 };
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Module\ModuleDefine;
 use Throwable;
 

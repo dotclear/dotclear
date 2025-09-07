@@ -11,14 +11,12 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
+use Dotclear\Helper\Process\TraitProcess;
+
 /**
  * @brief   Process class structure.
  *
- * Provides an object to handle process in three steps:
- * init ? => process ? => render
- * (Before as modules file in dcModules::loadNsFile)
- *
- * @since   2.36    A class can extends Process or use TraitProcess
+ * @deprecated  since 2.36, use Dotclear\Helper\Process\traitProcess instead
  */
 abstract class Process
 {

@@ -14,10 +14,10 @@ namespace Dotclear\Process\Backend;
 use Dotclear\App;
 use Dotclear\Core\Backend\ModulesList;
 use Dotclear\Core\Backend\Page;
-use Dotclear\Core\TraitProcess;
 use Dotclear\Helper\Html\Form\Note;
 use Dotclear\Helper\Html\Form\Set;
 use Dotclear\Helper\Network\Http;
+use Dotclear\Helper\Process\TraitProcess;
 use Exception;
 
 /**

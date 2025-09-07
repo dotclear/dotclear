@@ -10,7 +10,6 @@ namespace Dotclear\Process\Install;
 
 use Dotclear\App;
 use Dotclear\Core\Install\Utils;
-use Dotclear\Core\TraitProcess;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Form\Div;
@@ -33,6 +32,7 @@ use Dotclear\Helper\Html\Form\Ul;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
+use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Helper\Text as Htext;
 use Exception;
 
