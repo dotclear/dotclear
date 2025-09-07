@@ -193,20 +193,6 @@ class ThemeConfig
     }
 
     /**
-     * Check and clean CSS. (not implemented)
-     *
-     * @todo    Implement ThemeConfig::cleanCSS method
-     *
-     * @param   string  $css    CSS to be checked
-     *
-     * @return  string  checked CSS
-     */
-    public static function cleanCSS(string $css): string
-    {
-        return $css;
-    }
-
-    /**
      * Return real path of a user defined CSS
      *
      * @param  string $folder CSS folder

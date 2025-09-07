@@ -199,7 +199,7 @@ class Config extends Process
                 $blowup_user['footer_l_c']  = ThemeConfig::adjustColor($_POST['footer_l_c']);
                 $blowup_user['footer_bg_c'] = ThemeConfig::adjustColor($_POST['footer_bg_c']);
 
-                $blowup_user['extra_css'] = ThemeConfig::cleanCSS($_POST['extra_css']);
+                $blowup_user['extra_css'] = (string) ($_POST['extra_css'] ?? '');
 
                 if (App::backend()->can_write_images) {
                     $uploaded = null;
