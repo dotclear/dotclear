@@ -21,9 +21,9 @@ namespace Dotclear\Core\Backend;
 use dcCore;
 use Dotclear\App;
 use Dotclear\Core\PostType;
-use Dotclear\Core\Utility as AbstractUtility;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
+use Dotclear\Helper\Process\AbstractUtility;
 use Dotclear\Exception\ContextException;
 use Dotclear\Exception\PreconditionException;
 use Dotclear\Exception\SessionException;
@@ -171,6 +171,11 @@ class Utility extends AbstractUtility
     public function resources(): Resources
     {
         return $this->get(Resources::class);
+    }
+
+    public static function init(): bool
+    {
+        return !App::config()->cliMode();
     }
 
     /**

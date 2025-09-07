@@ -13,7 +13,7 @@ namespace Dotclear\Plugin\dcLegacyEditor;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\App;
-use Dotclear\Core\Process;
+use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Form\Fieldset;
@@ -28,8 +28,10 @@ use Exception;
  * @brief   The module manage process.
  * @ingroup dcLegacyEditor
  */
-class Manage extends Process
+class Manage
 {
+    use TraitProcess;
+
     public static function init(): bool
     {
         App::backend()->editor_is_admin    = self::status(My::checkContext(My::MANAGE));

@@ -70,4 +70,11 @@ interface TaskInterface
      * @param   string  $process    The process
      */
     public function loadProcess(string $process): void;
+
+    /**
+     * Check if a class is a Process.
+     *
+     * @return  bool    True if it use TraitProcess
+     */
+    public function isProcessClass(?string $class): bool;
 }

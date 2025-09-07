@@ -10,14 +10,16 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\antispam;
 
 use Dotclear\App;
-use Dotclear\Core\Process;
+use Dotclear\Helper\Process\TraitProcess;
 
 /**
  * @brief   The module frontend process.
  * @ingroup antispam
  */
-class Frontend extends Process
+class Frontend
 {
+    use TraitProcess;
+
     public static function init(): bool
     {
         return self::status(My::checkContext(My::FRONTEND));

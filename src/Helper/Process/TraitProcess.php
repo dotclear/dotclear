@@ -9,7 +9,7 @@
  */
 declare(strict_types=1);
 
-namespace Dotclear\Core;
+namespace Dotclear\Helper\Process;
 
 /**
  * @brief   Process trait structure.

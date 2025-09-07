@@ -15,7 +15,7 @@ use Exception;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\App;
-use Dotclear\Core\Process;
+use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Helper\Html\Form\Dd;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Dl;
@@ -30,8 +30,10 @@ use Dotclear\Helper\Html\Html;
  * @brief   The module manage process.
  * @ingroup importExport
  */
-class Manage extends Process
+class Manage
 {
+    use TraitProcess;
+
     public static function init(): bool
     {
         self::status(My::checkContext(My::MANAGE));

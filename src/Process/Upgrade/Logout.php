@@ -12,7 +12,7 @@ declare(strict_types=1);
 namespace Dotclear\Process\Upgrade;
 
 use Dotclear\App;
-use Dotclear\Core\TraitProcess;
+use Dotclear\Helper\Process\TraitProcess;
 
 /**
  * @brief   Process to logout from upgrade.

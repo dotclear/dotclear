@@ -15,7 +15,7 @@ use stdClass;
 use Dotclear\App;
 use Dotclear\Core\Upgrade\Notices;
 use Dotclear\Core\Upgrade\Page;
-use Dotclear\Core\Process;
+use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Zip\Unzip;
 use Dotclear\Helper\Html\Form\{
@@ -49,8 +49,10 @@ use Exception;
  *
  * @since   2.29
  */
-class Langs extends Process
+class Langs
 {
+    use TraitProcess;
+
     // Local constants
 
     private const LANG_INSTALLED = 1;

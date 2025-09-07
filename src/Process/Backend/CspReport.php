@@ -12,8 +12,8 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
-use Dotclear\Core\TraitProcess;
 use Dotclear\Helper\File\Files;
+use Dotclear\Helper\Process\TraitProcess;
 use Exception;
 
 /**

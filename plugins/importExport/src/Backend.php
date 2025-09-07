@@ -12,15 +12,17 @@ namespace Dotclear\Plugin\importExport;
 
 use Dotclear\App;
 use Dotclear\Core\Backend\Favorites;
-use Dotclear\Core\Process;
+use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Plugin\maintenance\Maintenance;
 
 /**
  * @brief   The module backend process.
  * @ingroup importExport
  */
-class Backend extends Process
+class Backend
 {
+    use TraitProcess;
+
     public static function init(): bool
     {
         // Dead but useful code (for l10n)

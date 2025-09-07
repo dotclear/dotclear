@@ -11,7 +11,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\Uninstaller;
 
 use Dotclear\App;
-use Dotclear\Core\Process;
+use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Core\Backend\{
     Notices,
     Page
@@ -34,8 +34,10 @@ use Exception;
  * @brief   The module backend manage process.
  * @ingroup Uninstaller
  */
-class Manage extends Process
+class Manage
 {
+    use TraitProcess;
+
     public static function init(): bool
     {
         return self::status(My::checkContext(My::MANAGE));

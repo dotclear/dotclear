@@ -13,7 +13,7 @@ namespace Dotclear\Process\Upgrade;
 use Dotclear\App;
 use Dotclear\Core\Upgrade\Notices;
 use Dotclear\Core\Upgrade\Page;
-use Dotclear\Core\Process;
+use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Helper\Html\Form\{
     Div,
     Form,
@@ -29,8 +29,10 @@ use Exception;
  *
  * @since   2.29
  */
-class Cache extends Process
+class Cache
 {
+    use TraitProcess;
+
     public static function init(): bool
     {
         Page::checkSuper();

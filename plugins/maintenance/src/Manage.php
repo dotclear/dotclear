@@ -13,7 +13,7 @@ namespace Dotclear\Plugin\maintenance;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\App;
-use Dotclear\Core\Process;
+use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Checkbox;
@@ -39,8 +39,10 @@ use Exception;
  * @brief   The module manage process.
  * @ingroup maintenance
  */
-class Manage extends Process
+class Manage
 {
+    use TraitProcess;
+
     public static function init(): bool
     {
         if (!self::status(My::checkContext(My::MANAGE))) {

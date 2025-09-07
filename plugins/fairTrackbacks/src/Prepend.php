@@ -12,14 +12,16 @@ namespace Dotclear\Plugin\fairTrackbacks;
 
 use ArrayObject;
 use Dotclear\App;
-use Dotclear\Core\Process;
+use Dotclear\Helper\Process\TraitProcess;
 
 /**
  * @brief   The module prepend process.
  * @ingroup fairTrackbacks
  */
-class Prepend extends Process
+class Prepend
 {
+    use TraitProcess;
+
     public static function init(): bool
     {
         // Dead but useful code (for l10n)

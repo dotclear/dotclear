@@ -14,7 +14,6 @@ namespace Dotclear\Process\Upgrade;
 use Dotclear\App;
 use Dotclear\Core\Upgrade\Page;
 use Dotclear\Core\Upgrade\UpdateAttic;
-use Dotclear\Core\TraitProcess;
 use Dotclear\Helper\Html\Form\{
     Div,
     Form,
@@ -32,6 +31,7 @@ use Dotclear\Helper\Html\Form\{
     Tr
 };
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Process\TraitProcess;
 use Exception;
 
 /**

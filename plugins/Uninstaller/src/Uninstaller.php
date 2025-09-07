@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\Uninstaller;
 
-use Dotclear\Core\Process;
+use Dotclear\App;
 use Dotclear\Helper\Text;
 use Dotclear\Module\ModuleDefine;
 use Exception;
@@ -118,7 +118,7 @@ class Uninstaller
                 continue;
             }
             $class = $module->get('namespace') . '\\' . self::UNINSTALL_CLASS_NAME;
-            if ($module->getId() !== My::id() && is_a($class, Process::class, true)) {
+            if ($module->getId() !== My::id() && App::Task()->isProcessClass($class)) {
                 $this->modules[$module->getId()] = $this->module = $module;
                 // check class prerequiretics
                 if ($class::init()) {

@@ -12,14 +12,16 @@ namespace Dotclear\Plugin\pages;
 
 use Dotclear\App;
 use Dotclear\Core\PostType;
-use Dotclear\Core\Process;
+use Dotclear\Helper\Process\TraitProcess;
 
 /**
  * @brief   The module prepend process.
  * @ingroup pages
  */
-class Prepend extends Process
+class Prepend
 {
+    use TraitProcess;
+
     public static function init(): bool
     {
         return self::status(My::checkContext(My::PREPEND));

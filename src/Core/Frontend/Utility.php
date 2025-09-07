@@ -20,9 +20,9 @@ namespace Dotclear\Core\Frontend;
 
 use dcCore;
 use Dotclear\App;
-use Dotclear\Core\Utility as AbstractUtility;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\L10n;
+use Dotclear\Helper\Process\AbstractUtility;
 use Dotclear\Exception\BlogException;
 use Dotclear\Exception\ContextException;
 use Dotclear\Exception\TemplateException;
@@ -178,6 +178,11 @@ class Utility extends AbstractUtility
     public function xmlrpc(?string $blog_id): XmlRpc
     {
         return $this->get(XmlRpc::class, true, $blog_id);
+    }
+
+    public static function init(): bool
+    {
+        return !App::config()->cliMode();
     }
 
     /**

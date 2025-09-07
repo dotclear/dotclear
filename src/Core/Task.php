@@ -16,9 +16,12 @@ use Dotclear\Helper\Clearbricks;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
+use Dotclear\Helper\Process\AbstractUtility;
+use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Exception\ContextException;
 use Dotclear\Exception\ProcessException;
 use Dotclear\Interface\Core\TaskInterface;
+use ReflectionClass;
 use Throwable;
 
 /**
@@ -115,7 +118,7 @@ class Task implements TaskInterface
 
         // Look at core factory to get utility class name to call it statically
         foreach ($this->core->dump() as $service) { // Not perfect but run once
-            if (is_string($service) && is_subclass_of($service, Utility::class) && $service::CONTAINER_ID === $utility) {
+            if (is_string($service) && is_subclass_of($service, AbstractUtility::class) && $service::CONTAINER_ID === $utility) {
                 $this->utility = $service;
 
                 break;
@@ -252,5 +255,28 @@ class Task implements TaskInterface
         if ($class::init() !== false && $class::process() !== false) {
             $class::render();
         }
+    }
+
+    public function isProcessClass(?string $class): bool
+    {
+        if (!class_exists((string) $class)) {
+
+            // Not a class
+            return false;
+        }
+
+        $reflection = new ReflectionClass($class);    // @phpstan-ignore-line should tag class as class-string
+        if (array_key_exists(TraitProcess::class, $reflection->getTraits())) {
+
+            // Class use TraitProcess
+            return true;
+        }
+        if (($parent = $reflection->getParentClass()) !== false && array_key_exists(TraitProcess::class, $parent->getTraits())) {
+
+            // Class extends AbstractProcess that use TraitProcess
+            return true;
+        }
+
+        return false;
     }
 }

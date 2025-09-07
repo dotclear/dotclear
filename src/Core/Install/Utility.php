@@ -19,7 +19,7 @@ declare(strict_types=1);
 namespace Dotclear\Core\Install;
 
 use Dotclear\App;
-use Dotclear\Core\Utility as AbstractUtility;
+use Dotclear\Helper\Process\AbstractUtility;
 use Dotclear\Process\Install\Install;
 use Dotclear\Process\Install\Wizard;
 
@@ -47,5 +47,10 @@ class Utility extends AbstractUtility
         );
 
         return true;
+    }
+
+    public static function init(): bool
+    {
+        return !App::config()->cliMode();
     }
 }

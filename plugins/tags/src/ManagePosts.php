@@ -14,7 +14,7 @@ use Dotclear\Core\Backend\Listing\ListingPosts;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\App;
-use Dotclear\Core\Process;
+use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Input;
@@ -30,8 +30,10 @@ use Exception;
  * @brief   The module backend manage tag posts process.
  * @ingroup tags
  */
-class ManagePosts extends Process
+class ManagePosts
 {
+    use TraitProcess;
+
     public static function init(): bool
     {
         if (My::checkContext(My::MANAGE)) {

@@ -202,7 +202,7 @@ dcProxyV1::classAliases([
     'dcModules'      => \Dotclear\Module\Modules::class,
     'dcNamespace'    => \Dotclear\Core\BlogWorkspace::class,
     'dcNotices'      => \Dotclear\Core\Notice::class,
-    'dcNsProcess'    => \Dotclear\Core\Process::class,
+    'dcNsProcess'    => \Dotclear\Helper\Process\AbstractProcess::class,
     'dcPlugins'      => \Dotclear\Module\Plugins::class,
     'dcPostMedia'    => \Dotclear\Core\PostMedia::class,
     'dcPrefs'        => \Dotclear\Core\UserPreferences::class,
@@ -225,6 +225,7 @@ dcProxyV1::classAliases([
     'rsExtBlog'    => \Dotclear\Schema\Extension\Blog::class,
 
     'dcTraitDynamicProperties' => \Dotclear\Helper\TraitDynamicProperties::class,
+    'Dotclear\Core\Process'    => \Dotclear\Helper\Process\AbstractProcess::class, // 2.36
 
     // Core admin -----------------
 

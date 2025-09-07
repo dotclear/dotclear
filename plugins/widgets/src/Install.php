@@ -9,15 +9,17 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\widgets;
 
-use Dotclear\Core\Process;
+use Dotclear\Helper\Process\TraitProcess;
 use Exception;
 
 /**
  * @brief   The module install process.
  * @ingroup widgets
  */
-class Install extends Process
+class Install
 {
+    use TraitProcess;
+
     public static function init(): bool
     {
         return self::status(My::checkContext(My::INSTALL));

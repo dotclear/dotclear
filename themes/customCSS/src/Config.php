@@ -12,7 +12,7 @@ namespace Dotclear\Theme\customCSS;
 use Dotclear\App;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
-use Dotclear\Core\Process;
+use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Form\Label;
 use Dotclear\Helper\Html\Form\Para;
@@ -24,8 +24,10 @@ use Exception;
  * @brief   The module configuration.
  * @ingroup customCSS
  */
-class Config extends Process
+class Config
 {
+    use TraitProcess;
+
     public static function init(): bool
     {
         // limit to backend permissions

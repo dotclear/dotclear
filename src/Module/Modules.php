@@ -17,7 +17,6 @@ namespace Dotclear\Module;
 
 use Autoloader;
 use Dotclear\App;
-use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\File\Zip\Unzip;
@@ -1231,7 +1230,7 @@ class Modules implements ModulesInterface
 
         // unknown class
         $class = $module->get('namespace') . Autoloader::NS_SEP . ucfirst($ns);
-        if (!is_subclass_of($class, Process::class)) {
+        if (!App::task()->isProcessClass($class)) {
             return '';
         }
 

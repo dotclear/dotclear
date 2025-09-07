@@ -9,24 +9,25 @@
  */
 declare(strict_types=1);
 
-namespace Dotclear\Core;
+namespace Dotclear\Helper\Process;
 
-use Dotclear\App;
 use Dotclear\Exception\ProcessException;
 use Dotclear\Helper\TraitDynamicProperties;
 use Dotclear\Helper\Container\Container;
 use Dotclear\Helper\Container\Factory;
+use ReflectionClass;
+use ReflectionException;
 
 /**
  * @brief   Utility class structure.
  *
  * This class tags child class as Utility.
- * * An utility MUST extends Dotclear\Core\Utility class.
- * * A process MUST extends Dotclear\Core\Process class.
+ * * An utility MUST extends Dotclear\Helper\Process\AbstractUtility class.
+ * * A process MUST extends Dotclear\Helper\Process\TraitProcess class.
  *
  * @since   2.36
  */
-abstract class Utility extends Container
+abstract class AbstractUtility extends Container
 {
     use TraitDynamicProperties;
     use TraitProcess;
@@ -47,7 +48,7 @@ abstract class Utility extends Container
         foreach (static::UTILITY_PROCESS as $callback) {
             if (class_exists($callback)) { // limit to class
                 // Create on the fly the Process ID. ie called from App:task()->run(Utility, Process)
-                $this->factory->set((new \ReflectionClass($callback))->getShortName(), $callback);
+                $this->factory->set((new ReflectionClass($callback))->getShortName(), $callback);
             }
         }
     }
@@ -75,21 +76,16 @@ abstract class Utility extends Container
     private function checkProcess(string $process, string $service): string
     {
         try {
-            $reflection = new \ReflectionClass($service);    // @phpstan-ignore-line should tag service as class-string
-        } catch (\ReflectionException) {
+            $reflection = new ReflectionClass($service);    // @phpstan-ignore-line should tag service as class-string
+        } catch (ReflectionException) {
             return '';
         }
         if ($reflection->getShortName() === $process
-            && ($reflection->isSubclassOf(Process::class) || array_key_exists(TraitProcess::class, $reflection->getTraits()))
+            && array_key_exists(TraitProcess::class, $reflection->getTraits())
         ) {
             return $service;
         }
 
         return '';
-    }
-
-    public static function init(): bool
-    {
-        return !App::config()->cliMode();
     }
 }

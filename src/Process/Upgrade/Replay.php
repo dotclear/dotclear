@@ -15,7 +15,6 @@ use Dotclear\App;
 use Dotclear\Core\Upgrade\Notices;
 use Dotclear\Core\Upgrade\Page;
 use Dotclear\Core\Upgrade\Upgrade;
-use Dotclear\Core\TraitProcess;
 use Dotclear\Helper\Html\Form\{
     Div,
     Form,
@@ -26,6 +25,7 @@ use Dotclear\Helper\Html\Form\{
     Select,
     Submit
 };
+use Dotclear\Helper\Process\TraitProcess;
 use Exception;
 
 /**
