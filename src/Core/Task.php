@@ -260,23 +260,17 @@ class Task implements TaskInterface
     public function isProcessClass(?string $class): bool
     {
         if (!class_exists((string) $class)) {
-
             // Not a class
             return false;
         }
 
         $reflection = new ReflectionClass($class);    // @phpstan-ignore-line should tag class as class-string
         if (array_key_exists(TraitProcess::class, $reflection->getTraits())) {
-
             // Class use TraitProcess
             return true;
         }
-        if (($parent = $reflection->getParentClass()) !== false && array_key_exists(TraitProcess::class, $parent->getTraits())) {
 
-            // Class extends AbstractProcess that use TraitProcess
-            return true;
-        }
-
-        return false;
+        // Class extends AbstractProcess that use TraitProcess
+        return ($parent = $reflection->getParentClass()) !== false && array_key_exists(TraitProcess::class, $parent->getTraits());
     }
 }

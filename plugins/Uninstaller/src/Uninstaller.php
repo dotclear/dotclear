@@ -118,7 +118,7 @@ class Uninstaller
                 continue;
             }
             $class = $module->get('namespace') . '\\' . self::UNINSTALL_CLASS_NAME;
-            if ($module->getId() !== My::id() && App::Task()->isProcessClass($class)) {
+            if ($module->getId() !== My::id() && App::task()->isProcessClass($class)) {
                 $this->modules[$module->getId()] = $this->module = $module;
                 // check class prerequiretics
                 if ($class::init()) {
