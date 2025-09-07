@@ -56,36 +56,19 @@ abstract class AbstractUtility extends Container
     /**
      * Get process class name.
      *
+     * Search in Utility container a service named <var>$process</var> which uses TraitProcess.
+     *
      * @throws  ProcessException
      */
     public function getProcess(string $process): string
     {
-        // Search in Utility container a class with this name that extend process
-        if (is_string($service = $this->factory->get($process))
-            && ($class = $this->checkProcess($process, $service)) !== ''
-        ) {
-            return $class;
+        if (is_string($service = $this->factory->get($process)) && class_exists($service)) {
+            $reflection = new ReflectionClass($service);
+            if ($reflection->getShortName() === $process && array_key_exists(TraitProcess::class, $reflection->getTraits())) {
+                return $service;
+            }
         }
 
         throw new ProcessException(sprintf(__('Unable to get process %s'), $process));
-    }
-
-    /**
-     * Check that service is an Utility Process.
-     */
-    private function checkProcess(string $process, string $service): string
-    {
-        try {
-            $reflection = new ReflectionClass($service);    // @phpstan-ignore-line should tag service as class-string
-        } catch (ReflectionException) {
-            return '';
-        }
-        if ($reflection->getShortName() === $process
-            && array_key_exists(TraitProcess::class, $reflection->getTraits())
-        ) {
-            return $service;
-        }
-
-        return '';
     }
 }

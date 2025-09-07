@@ -74,6 +74,8 @@ interface TaskInterface
     /**
      * Check if a class is a Process.
      *
+     * This check if class uses TraitProcess or extends AbstractProcess.
+     *
      * @return  bool    True if it use TraitProcess
      */
     public function isProcessClass(?string $class): bool;
