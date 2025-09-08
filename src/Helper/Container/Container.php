@@ -46,7 +46,7 @@ class Container implements ContainerInterface
         // Add default services
         foreach ($this->getDefaultServices() as $service => $callback) {
             if (is_callable($callback) || class_exists($callback)) {
-                $this->factory->set((string) $service, $callback);
+                $this->factory->set((string) $service, $callback, false);
             }
         }
     }
@@ -64,6 +64,8 @@ class Container implements ContainerInterface
      */
     public function get(string $id, ?bool $reload = false, ...$args)
     {
+        $this->factory->increment($id); // staticstics
+
         // Service is already instanciated
         if ($reload === false && array_key_exists($id, $this->services)) {
             return $this->services[$id];
