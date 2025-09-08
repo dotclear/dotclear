@@ -29,36 +29,40 @@ class GrowUp_2_36_lt
                 'locales/el/core_core_*.html',
                 'locales/he/core_core_*.html',
                 'locales/uk/core_core_*.html',
-                'src/Config.php', // mv src/Core
-                'src/Interface/ConfigInterface.php', // mv src/Interface/Core/ConfigInterface
-                'src/Core/Connection.php', // rm
-                'src/Interface/Config.php', // mv src/Interface/Core/Config
-                'src/Interface/Core/ConnectionInterface.php', // mv src/Interface/Database/ConnectionInterface
-                'src/Interface/Core/SchemaInterface.php', // mv src/Interface/Database/SchemaInterface
-                'src/Database/InterfaceHandler.php', // merge in src/Interface/Database/ConnectionInterface
-                'src/Database/InterfaceSchema.php', // merge in src/Interface/Database/SchemaInterface
-                'src/Database/Session.php', // mv plugins/dcProxyV2/inc/sessiondb.php
-                'src/FileServer.php', // mv src/Core/FileServer.php
-                'src/Core/Process.php', // mv src/Helper/Process/AbstractProcess.php
-                'src/Interface/Database/DbSchemaInterface.php', // rm dev
-                'src/Interface/Database/DbHandlerInterface.php', // rm dev
-                'src/Interface/Database/InterfaceSchema.php', // rm dev
-                'src/Database/ContainerHandler.php', // rm dev
-                'src/Database/ContainerSchema.php', // rm dev
-                'src/Database/DbSchemaInterface.php', // rm dev
-                'src/Database/DbHandlerInterface.php', // rm dev
-                'src/Core/Frontend/Session.php', // rm dev
-                'src/Core/TraitProcess.php', // rm dev
-                'src/Core/Utility.php', // rm dev
+                'src/Config.php',
+                'src/Core/Connection.php',
+                'src/Core/Frontend/Session.php',
+                'src/Core/Frontend/Url.php',
+                'src/Core/Process.php',
+                'src/Core/Utility.php',
+                'src/Database/InterfaceHandler.php',
+                'src/Database/InterfaceSchema.php',
+                'src/Database/Session.php',
+                'src/FileServer.php',
+                'src/Interface/ConfigInterface.php',
+                'src/Interface/Core/ConnectionInterface.php',
+                'src/Interface/Core/SchemaInterface.php',
+
+                // Dev only -- TO BE REMOVED BEFORE 2.36 RELEASE - WERE NOT IN 2.35
+                'src/Interface/Database/DbSchemaInterface.php',
+                'src/Interface/Database/DbHandlerInterface.php',
+                'src/Interface/Database/InterfaceSchema.php',
+                'src/Database/ContainerHandler.php',
+                'src/Database/ContainerSchema.php',
+                'src/Database/DbSchemaInterface.php',
+                'src/Database/DbHandlerInterface.php',
             ],
             // Folders
             [
                 'plugins/antispam/locales/lb',
-                'src/Database/Driver', // mv src/Schema/Database/Driver
-                'src/Schema/Database/Sqlite', // rm dev
+                'src/Database/Driver',
+
+                // Dev only -- TO BE REMOVED BEFORE 2.36 RELEASE - WERE NOT IN 2.35
+                'src/Schema/Database/Sqlite',
             ]
         );
 
+        // Dev only -- TO BE REMOVED BEFORE 2.36 RELEASE - WERE NOT IN 2.35
         // credential database table was wrong in 2.36-dev-r20250820...
         $columns = App::db()->con()->schema()->getColumns(App::db()->con()->prefix() . 'credential');
         if (array_key_exists('credential_id', $columns)) {
