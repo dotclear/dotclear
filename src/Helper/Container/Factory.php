@@ -21,11 +21,26 @@ namespace Dotclear\Helper\Container;
 class Factory
 {
     /**
-     * The services stack.
+     * The factory services stack.
      *
      * @var     array<string,string|callable>   $stack
      */
     private array $stack = [];
+
+    /**
+     * The factories statistics.
+     *
+     * This fill statistics for all containers using this factory class.
+     *
+     * @var     array<string, array<string, mixed>>  $stats
+     */
+    private static array $stats = [
+        '*' => ['count' => 0],
+        //'container_id' => [
+        //    'factory' => ['service_id' => 'service_callback']
+        //    'default' => ['service_id' => 'service_callback']
+        //],
+    ];
 
     /**
      * Constructor.
@@ -42,13 +57,15 @@ class Factory
     /**
      * Set a service definiton.
      *
-     * @param   string              $service    The service name (commonly the interface name)
-     * @param   string|callable     $callback   The service calss name or callback
+     * @param   string              $service        The service name (commonly the interface name)
+     * @param   string|callable     $callback       The service calss name or callback
+     * @param   bool                $from_factory   Does service def comes from factory. (used for stats)
      */
-    public function set(string $service, string|callable $callback): void
+    public function set(string $service, string|callable $callback, bool $from_factory = true): void
     {
         if ($this->rewritable || !array_key_exists($service, $this->stack)) {
             $this->stack[$service] = $callback;
+            self::$stats[$this->id][$from_factory ? 'factory' : 'default'][$service] = is_string($callback) ? $callback : 'closure';
         }
     }
 
@@ -86,5 +103,26 @@ class Factory
     public function dump(): array
     {
         return $this->stack;
+    }
+
+    /**
+     * Increment service call count.
+     */
+    public function increment(string $service): void
+    {
+        self::$stats[$this->id]['count'][$service] = (self::$stats[$this->id]['count'][$service] ?? 0) + 1;
+        ++self::$stats['*']['count'];
+    }
+
+    /**
+     * Get factories statistics.
+     *
+     * Returns staticstics of all containers using this factory class.
+     *
+     * @return  array<string, array<string, mixed>>
+     */
+    public static function getStats(): array
+    {
+        return self::$stats;
     }
 }
