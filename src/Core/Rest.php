@@ -11,20 +11,18 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
-use dcCore;
 use Dotclear\Helper\RestServer;
 use Throwable;
 
 /**
  * @brief   Rest server handler.
  *
- * This class extends Dotclear\Helper\RestServer to handle dcCore instance in each rest method call (XML response only).
  * Instance of this class is provided by App::rest().
  *
  * Rest class uses RestServer (class that RestInterface interface) constants.
  *
  * @since   2.28, container services have been added to constructor
- * @since   2.36, constructor arguments has been replaced by Core instance
+ * @since   2.36, constructor arguments has been replaced by Core instance, dcCore instance is not longer provided
  */
 class Rest extends RestServer
 {
@@ -39,18 +37,14 @@ class Rest extends RestServer
         parent::__construct();
     }
 
-    /**
-     * @todo    Remove old dcCore from RestServer::serve returned parent parameters
-     */
     public function serve(string $encoding = 'UTF-8', int $format = parent::XML_RESPONSE, $param = null): bool
     {
-        if (isset($_REQUEST['json'])) {
-            // No need to use dcCore::app() with JSON response
-            return parent::serve($encoding, parent::JSON_RESPONSE);
-        }
-
-        // Use dcCore::app() as supplemental parameter to ensure retro-compatibility
-        return parent::serve($encoding, parent::XML_RESPONSE, dcCore::app());
+        return parent::serve(
+            $encoding,
+            isset($_REQUEST['json']) ?
+                parent::JSON_RESPONSE :
+                parent::XML_RESPONSE
+        );
     }
 
     public function enableRestServer(bool $serve = true): void

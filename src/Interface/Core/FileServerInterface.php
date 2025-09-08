@@ -13,8 +13,9 @@ namespace Dotclear\Interface\Core;
 /**
  * @brief   Interface for the helper to serve file.
  *
- * This class checks request URI to find pf and vf queries and serve related file.
- * It is limited as it is loaded before dcCore to speed up requests.
+ * This class checks request URI to find pf, tf and vf queries and serve related file.
+ * It is limited as it is loaded before any utility to speed up requests.
+ * Warning: Frontend URLs are not defined nor the context (Backend, Frontend, …).
  *
  * @since   2.27
  */

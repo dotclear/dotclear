@@ -11,7 +11,6 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\antispam;
 
 use ArrayObject;
-use dcCore;
 use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
@@ -28,6 +27,8 @@ use Dotclear\Interface\Core\BlogInterface;
 /**
  * @brief   The module antispam handler.
  * @ingroup antispam
+ *
+ * @since   2.36, dcCore::app()->spamfilters is no longer taken into account, use AntispamInitFilters behavior instead
  */
 class Antispam
 {
@@ -59,15 +60,6 @@ class Antispam
     {
         if (self::$spamfilters !== []) {
             return;
-        }
-
-        // deprecated since 2.28, use App::behavior->addBehavior('AntispamInitFilters', ...) instead
-        if (!empty(dcCore::app()->spamfilters)) {
-            foreach (dcCore::app()->spamfilters as $spamfilter) {
-                if (is_subclass_of($spamfilter, SpamFilter::class)) {
-                    self::$spamfilters[] = $spamfilter;
-                }
-            }
         }
 
         $spamfilters = new ArrayObject();

@@ -147,8 +147,7 @@ class Task implements TaskInterface
 
             try {
                 // deprecated since 2.23, use App:: instead
-                $core            = new dcCore();
-                $GLOBALS['core'] = $core;
+                $GLOBALS['core'] = new dcCore();
             } catch (Throwable) {
                 throw new ProcessException(
                     $this->checkContext('BACKEND') ?
