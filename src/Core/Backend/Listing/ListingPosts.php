@@ -130,8 +130,12 @@ class ListingPosts extends Listing
             ]);
         }
 
+        /**
+         * @var ArrayObject<string, string>
+         */
         $cols = new ArrayObject($cols);
-        # --BEHAVIOR-- adminPostListHeaderV2 -- MetaRecord, ArrayObject
+
+        # --BEHAVIOR-- adminPostListHeaderV2 -- MetaRecord, ArrayObject<string, string>
         App::behavior()->callBehavior('adminPostListHeaderV2', $this->rs, $cols);
 
         // Cope with optional columns

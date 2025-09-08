@@ -26,7 +26,7 @@ class FilterComments extends Filters
     {
         parent::__construct('comments');
 
-        $filters = new ArrayObject([
+        $filters = new ArrayObject(array_filter([
             FiltersLibrary::getPageFilter(),
             FiltersLibrary::getCurrentBlogFilter(),
             $this->getCommentAuthorFilter(),
@@ -35,14 +35,14 @@ class FilterComments extends Filters
             $this->getCommentIpFilter(),
             FiltersLibrary::getInputFilter('email', __('Email:'), 'comment_email'),
             FiltersLibrary::getInputFilter('site', __('Web site:'), 'comment_site'),
-        ]);
+        ]));
 
         # --BEHAVIOR-- adminCommentFilter -- ArrayObject
         App::behavior()->callBehavior('adminCommentFilterV2', $filters);
 
         $filters = $filters->getArrayCopy();
 
-        $this->add($filters);   // @phpstan-ignore-line
+        $this->add($filters);
     }
 
     /**

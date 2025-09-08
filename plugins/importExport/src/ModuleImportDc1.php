@@ -23,6 +23,7 @@ use Dotclear\Helper\Html\Form\Label;
 use Dotclear\Helper\Html\Form\Li;
 use Dotclear\Helper\Html\Form\Note;
 use Dotclear\Helper\Html\Form\Number;
+use Dotclear\Helper\Html\Form\Option;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Password;
 use Dotclear\Helper\Html\Form\Select;
@@ -205,7 +206,7 @@ class ModuleImportDc1 extends Module
 
         # db drivers
         $db_drivers = [
-            'mysqli' => 'mysqli',
+            new Option('mysqli', 'mysqli'),
         ];
 
         switch ($this->step) {

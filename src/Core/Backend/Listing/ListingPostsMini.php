@@ -76,8 +76,12 @@ class ListingPostsMini extends Listing
             ->render(),
         ];
 
+        /**
+         * @var ArrayObject<string, string>
+         */
         $cols = new ArrayObject($cols);
-        # --BEHAVIOR-- adminPostMiniListHeaderV2 -- MetaRecord, ArrayObject
+
+        # --BEHAVIOR-- adminPostMiniListHeaderV2 -- MetaRecord, ArrayObject<string, string>
         App::behavior()->callBehavior('adminPostMiniListHeaderV2', $this->rs, $cols);
 
         // Cope with optional columns

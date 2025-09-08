@@ -39,7 +39,7 @@ class FilterPosts extends Filters
             $this->add((new Filter('post_type', $post_type))->param('post_type'));
         }
 
-        $filters = new ArrayObject([
+        $filters = new ArrayObject(array_filter([
             FiltersLibrary::getPageFilter(),
             FiltersLibrary::getCurrentBlogFilter(),
             $this->getPostUserFilter(),
@@ -53,14 +53,14 @@ class FilterPosts extends Filters
             $this->getPostLangFilter(),
             $this->getPostCommentFilter(),
             $this->getPostTrackbackFilter(),
-        ]);
+        ]));
 
         # --BEHAVIOR-- adminPostFilter -- ArrayObject
         App::behavior()->callBehavior('adminPostFilterV2', $filters);
 
         $filters = $filters->getArrayCopy();
 
-        $this->add($filters);   // @phpstan-ignore-line
+        $this->add($filters);
     }
 
     /**

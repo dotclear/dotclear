@@ -137,7 +137,7 @@ class Filters
      * @param   bool    $escape     Escape widlcard %
      * @param   bool    $ui_only    Limit to filters with ui
      *
-     * @return  array<string,mixed>     The filters
+     * @return  array<string, mixed>     The filters
      */
     public function values(bool $escape = false, bool $ui_only = false): array
     {
@@ -152,7 +152,7 @@ class Filters
             }
         }
 
-        return $escape ? preg_replace('/%/', '%%', $res) : $res;
+        return $escape ? str_replace('%', '%%', $res) : $res;
     }
 
     /**
@@ -183,8 +183,8 @@ class Filters
     /**
      * Add filter(s).
      *
-     * @param   array<string|Filter>|string|Filter|null     $filter     The filter(s) array or id or object
-     * @param   mixed                                       $value      The filter value if $filter is id
+     * @param   array<int, string|Filter>|string|Filter|null    $filter     The filter(s) array or id or object
+     * @param   mixed                                           $value      The filter value if $filter is id
      *
      * @return  mixed   The filter value
      */

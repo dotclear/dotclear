@@ -24,6 +24,7 @@ use Dotclear\Helper\Html\Form\Label;
 use Dotclear\Helper\Html\Form\Legend;
 use Dotclear\Helper\Html\Form\None;
 use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Option;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Password;
 use Dotclear\Helper\Html\Form\Select;
@@ -192,8 +193,12 @@ class ModuleImportFlat extends Module
             return;
         }
 
-        $public_files = ['-' => '', ...$this->getPublicFiles()];
-        $has_files    = (bool) (count($public_files) - 1);
+        $files        = $this->getPublicFiles();
+        $public_files = [
+            new Option('-', ''),
+            ... array_map(fn ($key, $value): Option => new Option($key, $value), array_keys($files), array_values($files)),
+        ];
+        $has_files = (bool) (count($public_files) - 1);
 
         echo
         Page::jsJson(
@@ -315,7 +320,7 @@ class ModuleImportFlat extends Module
     /**
      * Gets the public files.
      *
-     * @return  array<string, mixed>   The public files.
+     * @return  array<string, string>   The public files (filename, path).
      */
     protected function getPublicFiles(): array
     {

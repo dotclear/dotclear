@@ -336,8 +336,13 @@ class Widgets
 
     public static function buildCategoryList(MetaRecord $rs, WidgetsElement $widget): Ul
     {
-        $root       = new Ul();
-        $stack      = [0 => $root];    // level => Ul
+        $root = new Ul();
+
+        /**
+         * @var list<Ul>
+         */
+        $stack = [0 => $root];    // level => Ul
+
         $last_child = [];              // level => last Li object at this level
 
         $categories = $rs->rows();
@@ -365,18 +370,26 @@ class Widgets
                 ]);
 
             // Add Li to its parent Ul
+
+            /**
+             * @var list<Li|Ul>
+             */
             $items                    = $stack[$level - 1]->items;
-            $items[]                  = $li;    // @phpstan-ignore-line
+            $items[]                  = $li;
             $stack[$level - 1]->items = $items;
-            $last_child[$level]       = $li;
+
+            $last_child[$level] = $li;
 
             // Look ahead to see if this node will have children
             $next_level = $categories[$i + 1]['level'] ?? 0;
             if ($next_level > $level) {
                 $ul = new Ul();
 
+                /**
+                 * @var list<Li|Ul>
+                 */
                 $items   = $li->items;
-                $items[] = $ul;     // @phpstan-ignore-line
+                $items[] = $ul;
                 $li->items($items);
 
                 $stack[$level] = $ul;

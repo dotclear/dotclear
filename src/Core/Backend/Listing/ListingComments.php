@@ -151,8 +151,12 @@ class ListingComments extends Listing
             ->text(__('Entry'))
         ->render();
 
+        /**
+         * @var ArrayObject<string, string>
+         */
         $cols = new ArrayObject($cols);
-        # --BEHAVIOR-- adminCommentListHeaderV2 -- MetaRecord, ArrayObject
+
+        # --BEHAVIOR-- adminCommentListHeaderV2 -- MetaRecord, ArrayObject<string, string>
         App::behavior()->callBehavior('adminCommentListHeaderV2', $this->rs, $cols);
 
         // Cope with optional columns

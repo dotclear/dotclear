@@ -57,16 +57,13 @@ class ActionsStack implements Countable, Iterator
         reset($this->stack);
     }
 
-    /**
-     * @return  false|ActionsCleanersStack
-     */
-    #[\ReturnTypeWillChange]
-    public function current(): false|ActionsCleanersStack
+    public function current(): ?ActionsCleanersStack
     {
-        return current($this->stack);
+        $ret = current($this->stack);
+
+        return $ret === false ? null : $ret;
     }
 
-    #[\ReturnTypeWillChange]
     public function key(): ?string
     {
         return key($this->stack);

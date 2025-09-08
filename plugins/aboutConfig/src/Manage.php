@@ -23,6 +23,7 @@ use Dotclear\Helper\Html\Form\Hidden;
 use Dotclear\Helper\Html\Form\Input;
 use Dotclear\Helper\Html\Form\Label;
 use Dotclear\Helper\Html\Form\Number;
+use Dotclear\Helper\Html\Form\Option;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Select;
 use Dotclear\Helper\Html\Form\Set;
@@ -211,10 +212,7 @@ class Manage
 
         ksort($settings, SORT_FLAG_CASE | SORT_STRING);
         if ($settings !== []) {
-            $ns_combo = [];
-            foreach (array_keys($settings) as $ns) {
-                $ns_combo[$ns] = $prefix_id . $ns;
-            }
+            $ns_combo = array_map(fn ($key): Option => new Option($key, $prefix_id . $key), array_keys($settings));
 
             $elements[] = (new Form('frm_' . $nav_id))
                 ->action(App::backend()->url()->get('admin.plugin'))
@@ -313,7 +311,10 @@ class Manage
             // Boolean
             App::blogWorkspace()::NS_BOOL => (new Select($nid))
                 ->default($s['value'] ? '1' : '0')
-                ->items([__('yes') => '1', __('no') => '0']),
+                ->items([
+                    new Option(__('yes'), '1'),
+                    new Option(__('no'), '0'),
+                ]),
 
             // Array (JSON encoded)
             App::blogWorkspace()::NS_ARRAY => (new Input($nid))

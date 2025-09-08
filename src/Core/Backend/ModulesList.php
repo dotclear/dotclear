@@ -97,7 +97,7 @@ class ModulesList
     /**
      * Module define to configure
      */
-    protected ModuleDefine $config_define;
+    protected ?ModuleDefine $config_define = null;
     /**
      * Module class to configure
      */
@@ -1950,8 +1950,7 @@ class ModulesList
      */
     public function displayConfiguration(): ModulesList
     {
-        /* @phpstan-ignore-next-line */
-        if (($this->config_define instanceof ModuleDefine) && ($this->config_class !== '' || $this->config_file !== '')) {
+        if ($this->config_define instanceof ModuleDefine && ($this->config_class !== '' || $this->config_file !== '')) {
             $items = [];
 
             if (!$this->config_define->get('standalone_config')) {

@@ -29,7 +29,7 @@ class SpamFilter
     /**
      * Filter name.
      */
-    public string $name;
+    public string $name = '';
 
     /**
      * Filter description.
@@ -78,7 +78,9 @@ class SpamFilter
         $id       = array_pop($path);
         $this->id = $id;
 
-        $this->name ??= $this->id;
+        if ($this->name === '') {
+            $this->name = $this->id;
+        }
 
         if (App::task()->checkContext('BACKEND') && !App::task()->checkContext('INSTALL')) {
             $this->gui_url = App::backend()->url()->get('admin.plugin.antispam', ['f' => $this->id], '&');

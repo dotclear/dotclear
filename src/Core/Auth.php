@@ -47,7 +47,7 @@ class Auth implements AuthInterface
     /**
      * Current user ID.
      */
-    protected string $user_id;
+    protected string $user_id = '';
 
     /**
      * Array with user information.
@@ -71,7 +71,7 @@ class Auth implements AuthInterface
     /**
      * User is super admin.
      */
-    protected bool $user_admin;
+    protected bool $user_admin = false;
 
     /**
      * User can change its password.
@@ -318,7 +318,7 @@ class Auth implements AuthInterface
 
     public function isSuperAdmin(): bool
     {
-        return $this->user_admin ?? false;
+        return $this->user_admin;
     }
 
     public function check(?string $permissions, ?string $blog_id): bool
@@ -487,7 +487,7 @@ class Auth implements AuthInterface
 
     public function userID(): string
     {
-        return $this->user_id ?? '';
+        return $this->user_id;
     }
 
     public function getInfo(string $information)

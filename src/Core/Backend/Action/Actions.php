@@ -82,7 +82,7 @@ abstract class Actions
     /**
      * List of url parameters (usually $_POST).
      *
-     * @var     ArrayObject<int|string, mixed>     $from
+     * @var     ArrayObject<array-key, mixed>     $from
      */
     protected ArrayObject $from;
 

@@ -142,37 +142,37 @@ class Manage
         /**
          * Liste des types d'item de menu
          *
-         * @var        ArrayObject<string, ArrayObject<int, mixed>>
+         * @var        ArrayObject<array-key, array{string, bool}>
          */
         $items = new ArrayObject();
 
-        $items['home'] = new ArrayObject([__('Home'), false]);
+        $items['home'] = [__('Home'), false];
 
         if (App::blog()->settings()->system->static_home) {
-            $items['posts'] = new ArrayObject([__('Posts'), false]);
+            $items['posts'] = [__('Posts'), false];
         }
 
         if (count(App::backend()->langs_combo) > 1) {
-            $items['lang'] = new ArrayObject([__('Language'), true]);
+            $items['lang'] = [__('Language'), true];
         }
         if (App::backend()->categories_combo !== []) {
-            $items['category'] = new ArrayObject([__('Category'), true]);
+            $items['category'] = [__('Category'), true];
         }
         if (count(App::backend()->months_combo) > 1) {
-            $items['archive'] = new ArrayObject([__('Archive'), true]);
+            $items['archive'] = [__('Archive'), true];
         }
         if (App::plugins()->moduleExists('pages') && count(App::backend()->pages_combo)) {
-            $items['pages'] = new ArrayObject([__('Page'), true]);
+            $items['pages'] = [__('Page'), true];
         }
         if (App::plugins()->moduleExists('tags') && count(App::backend()->tags_combo) > 1) {
-            $items['tags'] = new ArrayObject([__('Tags'), true]);
+            $items['tags'] = [__('Tags'), true];
         }
 
-        # --BEHAVIOR-- adminSimpleMenuAddType -- ArrayObject
+        # --BEHAVIOR-- adminSimpleMenuAddType -- ArrayObject<array-key, array{string, bool}>
         # Should add an item to $items[<id>] as an [<label>,<optional step (true or false)>]
         App::behavior()->callBehavior('adminSimpleMenuAddType', $items);
 
-        $items['special'] = new ArrayObject([__('User defined'), false]);
+        $items['special'] = [__('User defined'), false];
 
         $items_combo = [];
         foreach ($items as $k => $v) {
@@ -244,7 +244,8 @@ class Manage
                         break;
                     case self::STEP_SUBTYPE:
                         $item_info = App::backend()->items[App::backend()->item_type];
-                        if ($item_info instanceof ArrayObject && count($item_info) > 1 && $item_info[1]) {
+                        // @phpstan-ignore greater.alwaysTrue, instanceof.alwaysFalse
+                        if ((is_array($item_info) || $item_info instanceof ArrayObject) && count($item_info) > 1 && $item_info[1]) {
                             // Second step (optional), menu item sub-type to be selected
                             App::backend()->item_select = '';
 

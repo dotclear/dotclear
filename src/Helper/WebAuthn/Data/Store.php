@@ -86,7 +86,7 @@ abstract class Store implements StoreInterface
         return $this->user;
     }
 
-    public function setCredential(CredentialInterface $data): void
+    public function setCredential(CredentialInterface $credential): void
     {
     }
 

@@ -26,6 +26,7 @@ use Dotclear\Helper\Html\Form\Legend;
 use Dotclear\Helper\Html\Form\Link;
 use Dotclear\Helper\Html\Form\None;
 use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Option;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Radio;
 use Dotclear\Helper\Html\Form\Select;
@@ -178,17 +179,17 @@ class Manage
         // Combos
 
         $combo_ts = [
-            __('Never')            => (string) 0,
-            __('Every week')       => (string) 604_800,
-            __('Every two weeks')  => (string) 1_209_600,
-            __('Every month')      => (string) 2_592_000,
-            __('Every two months') => (string) 5_184_000,
+            new Option(__('Never'), (string) 0),
+            new Option(__('Every week'), (string) 604_800),
+            new Option(__('Every two weeks'), (string) 1_209_600),
+            new Option(__('Every month'), (string) 2_592_000),
+            new Option(__('Every two months'), (string) 5_184_000),
         ];
 
         if (App::config()->debugMode() && App::config()->devMode()) {
             $combo_ts = array_merge($combo_ts, [
-                '5 minutes' => (string) 300,
-                '1 minute'  => (string) 60,
+                new Option('5 minutes', (string) 300),
+                new Option('1 minute', (string) 60),
             ]);
         }
 

@@ -221,13 +221,16 @@ class FlatImportV2 extends FlatBackup
 
         $this->con->begin();
 
-        $line = false;
+        $line        = false;
+        $line_number = 0;
 
         try {
             $last_line_name = '';
             $constrained    = ['post', 'meta', 'post_media', 'ping', 'comment'];
 
             while (($line = $this->getLine()) !== false) {
+                $line_number = $line->__line;
+
                 # import DC 1.2.x, we fix lines before insert
                 if ($this->dc_major_version == '1.2') {
                     $this->prepareDC12line($line);
@@ -288,7 +291,9 @@ class FlatImportV2 extends FlatBackup
             @fclose($this->fp);
             $this->con->rollback();
 
-            throw new Exception($e->getMessage() . ' - ' . sprintf(__('Error raised at line %s'), $line?->__line), (int) $e->getCode(), $e); // @phpstan-ignore-line
+            $message = $e->getMessage() . ' - ' . sprintf(__('Error raised at line %s'), $line_number);
+
+            throw new Exception($message, (int) $e->getCode(), $e);
         }
         @fclose($this->fp);
         $this->con->commit();
@@ -311,10 +316,13 @@ class FlatImportV2 extends FlatBackup
         $this->con->execute('DELETE FROM ' . $this->prefix . App::blogWorkspace()::NS_TABLE_NAME);
         $this->con->execute('DELETE FROM ' . $this->prefix . App::log()::LOG_TABLE_NAME);
 
-        $line = false;
+        $line        = false;
+        $line_number = 0;
 
         try {
             while (($line = $this->getLine()) !== false) {
+                $line_number = $line->__line;
+
                 try {
                     match ($line->__name) {
                         'blog'        => $this->insertBlog($line),
@@ -342,7 +350,9 @@ class FlatImportV2 extends FlatBackup
             @fclose($this->fp);
             $this->con->rollback();
 
-            throw new Exception($e->getMessage() . ' - ' . sprintf(__('Error raised at line %s'), $line?->__line), (int) $e->getCode(), $e); // @phpstan-ignore-line
+            $message = $e->getMessage() . ' - ' . sprintf(__('Error raised at line %s'), $line_number);
+
+            throw new Exception($message, (int) $e->getCode(), $e);
         }
         @fclose($this->fp);
         $this->con->commit();
@@ -427,9 +437,9 @@ class FlatImportV2 extends FlatBackup
 
         $this->cur_pref->clean();
 
-        $this->cur_pref->pref_id    = (string) $pref->pref_id;
+        $this->cur_pref->pref_id    = $pref->pref_id;
         $this->cur_pref->user_id    = $pref->user_id ? (string) $pref->user_id : null;
-        $this->cur_pref->pref_ws    = (string) $pref->pref_ws;
+        $this->cur_pref->pref_ws    = $pref->pref_ws;
         $this->cur_pref->pref_value = (string) $pref->pref_value;
         $this->cur_pref->pref_type  = (string) $pref->pref_type;
         $this->cur_pref->pref_label = (string) $pref->pref_label;

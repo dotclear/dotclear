@@ -16,10 +16,6 @@
       <code><![CDATA[$_POST['romantic']]]></code>
     </InvalidArgument>
   </file>
-  <file src="plugins/importExport/src/FlatImportV2.php">
-    <InvalidPropertyFetch/>
-    <RedundantCast/>
-  </file>
   <file src="plugins/importExport/src/ModuleImportFlat.php">
     <ForbiddenCode>
       <code><![CDATA[var_dump($_POST)]]></code>
@@ -62,9 +58,6 @@
     <RedundantCast>
       <code><![CDATA[(string) $_SERVER['REQUEST_URI']]]></code>
     </RedundantCast>
-  </file>
-  <file src="src/Core/Backend/ModulesList.php">
-    <RedundantCondition/>
   </file>
   <file src="src/Core/Backend/Page.php">
     <RedundantCast>
@@ -218,11 +211,6 @@
     <TypeDoesNotContainNull>
       <code><![CDATA['']]></code>
     </TypeDoesNotContainNull>
-  </file>
-  <file src="src/Process/Backend/Rest.php">
-    <UndefinedPropertyFetch>
-      <code><![CDATA[$file->editable]]></code>
-    </UndefinedPropertyFetch>
   </file>
   <file src="src/Process/Backend/UserPreferences.php">
     <InvalidArrayOffset>

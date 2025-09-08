@@ -35,16 +35,16 @@ class Install
 
         $schema = App::db()->structure();
 
-        $schema->{Blogroll::LINK_TABLE_NAME}    // @phpstan-ignore-line (weird usage of __call to set field in Table)
-            ->link_id('bigint', 0, false)
-            ->blog_id('varchar', 32, false)
-            ->link_href('varchar', 255, false)
-            ->link_title('varchar', 255, false)
-            ->link_desc('varchar', 255, true)
-            ->link_lang('varchar', 5, true)
-            ->link_xfn('varchar', 255, true)
-            ->link_position('integer', 0, false, 0)
-            ->link_status('smallint', 0, false, Link::ONLINE)
+        $schema->{Blogroll::LINK_TABLE_NAME}
+            ->field('link_id', 'bigint', 0, false)
+            ->field('blog_id', 'varchar', 32, false)
+            ->field('link_href', 'varchar', 255, false)
+            ->field('link_title', 'varchar', 255, false)
+            ->field('link_desc', 'varchar', 255, true)
+            ->field('link_lang', 'varchar', 5, true)
+            ->field('link_xfn', 'varchar', 255, true)
+            ->field('link_position', 'integer', 0, false, 0)
+            ->field('link_status', 'smallint', 0, false, Link::ONLINE)
 
             ->primary('pk_link', 'link_id')
             ->index('idx_link_blog_id', 'btree', 'blog_id')

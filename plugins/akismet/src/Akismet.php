@@ -144,14 +144,14 @@ class Akismet extends HttpClient
     /**
      * Call an Akismet API method.
      *
-     * @param   string                  $function   The function
-     * @param   string                  $permalink  The permalink
-     * @param   string                  $type       The type
-     * @param   string                  $author     The author
-     * @param   string                  $email      The email
-     * @param   string                  $url        The url
-     * @param   string                  $content    The content
-     * @param   array<string,string>    $info       The information
+     * @param   string                                                  $function   The function
+     * @param   string                                                  $permalink  The permalink
+     * @param   string                                                  $type       The type
+     * @param   string                                                  $author     The author
+     * @param   string                                                  $email      The email
+     * @param   string                                                  $url        The url
+     * @param   string                                                  $content    The content
+     * @param   array<non-empty-string, non-empty-list<string>|scalar>  $info       The information
      *
      * @throws  Exception
      *

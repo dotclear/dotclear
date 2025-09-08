@@ -49,9 +49,9 @@ class ThemeConfig
             return 0;
         }
 
-        $l1 = (0.2126 * (hexdec(substr($color, 1, 2)) / 255) ** 2.2) + (0.7152 * (hexdec(substr($color, 3, 2)) / 255) ** 2.2) + (0.0722 * (hexdec(substr($color, 5, 2)) / 255) ** 2.2);
+        $l1 = (0.2126 * ((float) hexdec(substr($color, 1, 2)) / 255.0) ** 2.2) + (0.7152 * ((float) hexdec(substr($color, 3, 2)) / 255.0) ** 2.2) + (0.0722 * ((float) hexdec(substr($color, 5, 2)) / 255.0) ** 2.2);
 
-        $l2 = (0.2126 * (hexdec(substr($background, 1, 2)) / 255) ** 2.2) + (0.7152 * (hexdec(substr($background, 3, 2)) / 255) ** 2.2) + (0.0722 * (hexdec(substr($background, 5, 2)) / 255) ** 2.2);
+        $l2 = (0.2126 * ((float) hexdec(substr($background, 1, 2)) / 255.0) ** 2.2) + (0.7152 * ((float) hexdec(substr($background, 3, 2)) / 255.0) ** 2.2) + (0.0722 * ((float) hexdec(substr($background, 5, 2)) / 255.0) ** 2.2);
 
         if ($l1 <= $l2) {
             [$l1, $l2] = [$l2, $l1];

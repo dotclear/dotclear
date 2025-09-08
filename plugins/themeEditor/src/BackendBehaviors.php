@@ -20,6 +20,7 @@ use Dotclear\Helper\Html\Form\Hidden;
 use Dotclear\Helper\Html\Form\Label;
 use Dotclear\Helper\Html\Form\Legend;
 use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\Option;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Select;
 use Dotclear\Helper\Html\Form\Text;
@@ -76,10 +77,10 @@ class BackendBehaviors
         $current_theme = App::auth()->prefs()->interface->colorsyntax_theme ?? 'default';
 
         $themes_list  = Page::getCodeMirrorThemes();
-        $themes_combo = [__('Default') => ''];
-        foreach ($themes_list as $theme) {
-            $themes_combo[$theme] = $theme;
-        }
+        $themes_combo = [
+            new Option(__('Default'), ''),
+            ... array_map(fn (string $value): Option => new Option($value, $value), $themes_list),
+        ];
 
         $sample = '
 <textarea id="codemirror" name="codemirror" readonly="true">

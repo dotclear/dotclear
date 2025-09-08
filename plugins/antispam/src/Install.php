@@ -36,11 +36,11 @@ class Install
         -------------------------------------------------------- */
         $schema = App::db()->structure();
 
-        $schema->{Antispam::SPAMRULE_TABLE_NAME}    // @phpstan-ignore-line (weird usage of __call to set field in Table)
-            ->rule_id('bigint', 0, false)
-            ->blog_id('varchar', 32, true)
-            ->rule_type('varchar', 16, false, "'word'")
-            ->rule_content('varchar', 128, false)
+        $schema->{Antispam::SPAMRULE_TABLE_NAME}
+            ->field('rule_id', 'bigint', 0, false)
+            ->field('blog_id', 'varchar', 32, true)
+            ->field('rule_type', 'varchar', 16, false, "'word'")
+            ->field('rule_content', 'varchar', 128, false)
 
             ->primary('pk_spamrule', 'rule_id')
 

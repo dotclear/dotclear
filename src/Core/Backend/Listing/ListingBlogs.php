@@ -107,9 +107,12 @@ class ListingBlogs extends Listing
             ->render(),
         ];
 
+        /**
+         * @var ArrayObject<string, string>
+         */
         $cols = new ArrayObject($cols);
 
-        # --BEHAVIOR-- adminBlogListHeaderV2 -- MetaRecord, ArrayObject
+        # --BEHAVIOR-- adminBlogListHeaderV2 -- MetaRecord, ArrayObject<string, string>
         App::behavior()->callBehavior('adminBlogListHeaderV2', $this->rs, $cols);
 
         // Cope with optional columns

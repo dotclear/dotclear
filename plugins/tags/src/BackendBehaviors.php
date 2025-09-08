@@ -25,6 +25,7 @@ use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Hidden;
 use Dotclear\Helper\Html\Form\Label;
 use Dotclear\Helper\Html\Form\Legend;
+use Dotclear\Helper\Html\Form\Option;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Select;
 use Dotclear\Helper\Html\Form\Submit;
@@ -493,8 +494,8 @@ class BackendBehaviors
                     ->label(new Label(__('Tags list format:'), Label::OL_TF))
                     ->default($option ?? 'more')
                     ->items([
-                        __('Short')    => 'more',
-                        __('Extended') => 'all',
+                        new Option(__('Short'), 'more'),
+                        new Option(__('Extended'), 'all'),
                     ]),
             ]);
     }
