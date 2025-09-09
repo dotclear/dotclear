@@ -69,15 +69,6 @@
       <code><![CDATA[(string) $_SERVER['REQUEST_URI']]]></code>
     </RedundantCast>
   </file>
-  <file src="src/Database/AbstractHandler.php">
-    <RedundantCondition>
-      <code><![CDATA[$v['field']]]></code>
-    </RedundantCondition>
-    <TypeDoesNotContainType>
-      <code><![CDATA[$v['collate']]]></code>
-      <code><![CDATA[$v['collate']]]></code>
-    </TypeDoesNotContainType>
-  </file>
   <file src="src/Schema/Database/Mysqli/Handler.php">
     <RedundantCondition>
       <code><![CDATA['']]></code>
@@ -118,10 +109,6 @@
     </EmptyArrayAccess>
   </file>
   <file src="src/Helper/Date.php">
-    <InvalidArgument/>
-    <TooManyArguments>
-      <code><![CDATA[$replace($timestamp, $pattern)]]></code>
-    </TooManyArguments>
     <UndefinedMethod>
       <code><![CDATA[setGregorianChange]]></code>
     </UndefinedMethod>

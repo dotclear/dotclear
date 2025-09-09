@@ -420,14 +420,14 @@ class Files
         if ($size < $kb) {
             return $size . ' B';
         } elseif ($size < $mb) {
-            return round($size / $kb, 2) . ' KB';
+            return (int) round($size / $kb, 2) . ' KB';
         } elseif ($size < $gb) {
-            return round($size / $mb, 2) . ' MB';
+            return (int) round($size / $mb, 2) . ' MB';
         } elseif ($size < $tb) {
-            return round($size / $gb, 2) . ' GB';
+            return (int) round($size / $gb, 2) . ' GB';
         }
 
-        return round($size / $tb, 2) . ' TB';
+        return (int) round($size / $tb, 2) . ' TB';
     }
 
     /**
@@ -442,11 +442,11 @@ class Files
         $size = (float) substr($size, 0, -1);
         switch ($last) {
             case 'g':
-                $size *= 1024;
+                $size *= 1024.0;
             case 'm':
-                $size *= 1024;
+                $size *= 1024.0;
             case 'k':
-                $size *= 1024;
+                $size *= 1024.0;
         }
 
         return $size;

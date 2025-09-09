@@ -26,7 +26,7 @@ class NextStoreParser extends StoreParser
      */
     protected function _parse(): void
     {
-        if (empty($this->xml->module)) {
+        if ($this->xml === false || empty($this->xml->module)) {
             return;
         }
 

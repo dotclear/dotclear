@@ -33,7 +33,7 @@ class Version implements VersionInterface
      *
      * @var     array<string,string>    $stack;
      */
-    private array $stack;
+    private array $stack = [];
 
     /**
      * Full table name (including db prefix).
@@ -63,7 +63,7 @@ class Version implements VersionInterface
 
     public function getVersions(): array
     {
-        if (!isset($this->stack)) {
+        if ($this->stack === []) {
             $rs = (new SelectStatement())
                 ->columns([
                     'module',

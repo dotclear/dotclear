@@ -76,13 +76,13 @@ class ThemeConfig
                 $matches[2] = 'em';
             }
             $absolute_size = match ($matches[2]) {
-                '%'   => (float) $matches[1] / 100,
-                'pt'  => (float) $matches[1] / 12,
-                'px'  => (float) $matches[1] / 16,
+                '%'   => (float) $matches[1] / 100.0,
+                'pt'  => (float) $matches[1] / 12.0,
+                'px'  => (float) $matches[1] / 16.0,
                 'em'  => (float) $matches[1],
                 'rem' => (float) $matches[1],
-                'ex'  => (float) $matches[1] / 2,
-                'ch'  => (float) $matches[1] / 2,
+                'ex'  => (float) $matches[1] / 2.0,
+                'ch'  => (float) $matches[1] / 2.0,
             };
 
             if ($absolute_size !== 0.0) {

@@ -169,7 +169,7 @@ class ImageTools
             return;
         }
         if ($mem_limit !== '') {
-            $mem_limit = Files::str2bytes($mem_limit);
+            $mem_limit = (int) Files::str2bytes($mem_limit);
             $mem_avail = $mem_limit - $mem_used - (512 * 1024);
 
             $mem_needed = $width * $height * $bpp;

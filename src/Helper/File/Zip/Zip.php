@@ -410,7 +410,7 @@ class Zip
      */
     protected function makeDate(int $ts): int|float
     {
-        $year = date('Y', $ts) - 1980;
+        $year = (int) date('Y', $ts) - 1980;
         if ($year < 0) {
             $year = 0;
         }
@@ -429,9 +429,11 @@ class Zip
      */
     protected function makeTime(int $ts): int|float
     {
+        $s = (float) date('s', $ts) / 2.0;
+
         $hour   = sprintf('%05b', date('G', $ts));
         $minute = sprintf('%06b', date('i', $ts));
-        $second = sprintf('%05b', ceil(date('s', $ts) / 2));
+        $second = sprintf('%05b', ceil($s));
 
         return bindec($hour . $minute . $second);
     }
@@ -445,7 +447,7 @@ class Zip
      */
     protected function memoryAllocate($size): void
     {
-        $mem_used  = function_exists('memory_get_usage') ? @memory_get_usage() : 4_000_000;
+        $mem_used  = (float) (function_exists('memory_get_usage') ? @memory_get_usage() : 4_000_000);
         $mem_limit = @ini_get('memory_limit');
         if ($mem_limit && trim($mem_limit) === '-1' || !Files::str2bytes($mem_limit)) {
             // Cope with memory_limit set to -1 in PHP.ini
@@ -453,8 +455,8 @@ class Zip
         }
         if ($mem_limit !== '') {
             $mem_limit  = Files::str2bytes($mem_limit);
-            $mem_avail  = $mem_limit - $mem_used - (512 * 1024);
-            $mem_needed = $size;
+            $mem_avail  = $mem_limit - $mem_used - (512.0 * 1024.0);
+            $mem_needed = (float) $size;
 
             if ($mem_needed > $mem_avail) {
                 if (@ini_set('memory_limit', (string) ($mem_limit + $mem_needed + $mem_used)) === false) {

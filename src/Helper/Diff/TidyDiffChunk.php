@@ -110,7 +110,7 @@ class TidyDiffChunk
         $groups = $this->getGroups();
 
         foreach ($groups as $group) {
-            $middle = count($group) / 2;
+            $middle = (int) ((float) count($group) / 2.0);
             for ($i = 0; $i < $middle; $i++) {
                 $from      = $group[$i];
                 $to        = $group[$i + $middle];

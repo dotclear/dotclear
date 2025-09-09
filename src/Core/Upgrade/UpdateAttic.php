@@ -157,15 +157,18 @@ class UpdateAttic extends Update
             return;
         }
 
-        if ($xml->subject?->release) {
+        if ($xml->subject && $xml->subject->release) {
             foreach ($xml->subject->release as $release) {
-                $v                              = (string) $release['version'];
-                $this->releases[$v]['version']  = (string) ($release['version'] ?? '');
-                $this->releases[$v]['href']     = (string) ($release['href'] ?? '');
-                $this->releases[$v]['checksum'] = (string) ($release['checksum'] ?? '');
-                $this->releases[$v]['info']     = (string) ($release['info'] ?? '');
-                $this->releases[$v]['php']      = (string) ($release['php'] ?? '');
-                $this->releases[$v]['warning']  = (string) ($release['warning'] ?? '');
+                $version = (string) $release['version'];
+                $info    = [
+                    'version'  => $version,
+                    'href'     => (string) ($release['href'] ?? ''),
+                    'checksum' => (string) ($release['checksum'] ?? ''),
+                    'info'     => (string) ($release['info'] ?? ''),
+                    'php'      => (string) ($release['php'] ?? ''),
+                    'warning'  => (string) ($release['warning'] ?? ''),
+                ];
+                $this->releases[$version] = $info;
             }
         }
 

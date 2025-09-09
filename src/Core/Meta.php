@@ -330,8 +330,8 @@ class Meta implements MetaInterface
 
             $percent = ((int) $rs_static->count) * 100 / $max[$rs_static->meta_type];
 
-            $rs_static->set('percent', (int) round($percent));          // Usage frequency of this metadata upon all metadata of same type
-            $rs_static->set('roundpercent', round($percent / 10) * 10); // Decile usage (0 to 100 by 10 step)
+            $rs_static->set('percent', (int) round($percent));  // Usage frequency of this metadata upon all metadata of same type
+            $rs_static->set('roundpercent', (int) (round($percent / 10.0) * 10.0)); // Decile usage (0 to 100 by 10 step)
         }
 
         return $rs_static;

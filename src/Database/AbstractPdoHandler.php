@@ -201,7 +201,7 @@ abstract class AbstractPdoHandler extends AbstractHandler
         if ($handle instanceof PDO) {
             $err = $handle->errorInfo();
 
-            return $err[2] . ' (' . $err[1] . ')';
+            return $err[2] . ' (' . (int) $err[1] . ')';
         }
 
         return false;

@@ -511,35 +511,53 @@ class Ctx
     /**
      * Return the robots policy
      */
-    public static function robotsPolicy(?string $base, ?string $over): string
+    public static function robotsPolicy(?string $base = null, ?string $over = null): string
     {
+        /**
+         * Default robot policies
+         *
+         * @var array<string, bool>
+         */
         $policies = [
-            'INDEX'   => 'INDEX',
-            'FOLLOW'  => 'FOLLOW',
-            'ARCHIVE' => 'ARCHIVE',
+            'INDEX'   => true,
+            'FOLLOW'  => true,
+            'ARCHIVE' => true,
         ];
 
-        $bases = preg_split('/\s*,\s*/', (string) $base);
-        $overs = preg_split('/\s*,\s*/', (string) $over);
+        $getPolicies = function (string $setting) use ($policies): array {
+            $list = array_map(fn (string $item): string => trim($item), explode(',', $setting));
 
-        $bases = $bases !== false ? array_flip($bases) : [];
-        $overs = $overs !== false ? array_flip($overs) : [];
-
-        foreach ($policies as $key => &$value) {
-            if (isset($bases[$key]) || isset($bases['NO' . $key])) {
-                $value = isset($bases['NO' . $key]) ? 'NO' . $key : $key;
+            /**
+             * @var array<string, bool>
+             */
+            $final = [];
+            foreach (array_keys($policies) as $key) {
+                if (in_array($key, $list)) {
+                    $final[$key] = true;
+                } elseif (in_array('NO' . $key, $list)) {
+                    $final[$key] = false;
+                }
             }
-            if (isset($overs[$key]) || isset($overs['NO' . $key])) {
-                $value = isset($overs['NO' . $key]) ? 'NO' . $key : $key;
-            }
-        }
 
-        if ($policies['ARCHIVE'] === 'ARCHIVE') {   // @phpstan-ignore-line
-            // No need of ARCHIVE in robots policy, only NOARCHIVE
+            return $final;
+        };
+
+        $policies = array_merge(
+            $policies,
+            $getPolicies((string) $base),
+            $getPolicies((string) $over)
+        );
+
+        if ($policies['ARCHIVE']) {
+            // No need of ARCHIVE in robots policy, only NOARCHIVE, as ARCHIVE is implicit
             unset($policies['ARCHIVE']);
         }
 
-        return implode(', ', $policies);
+        return implode(', ', array_map(
+            fn (string $key, bool $value): string => ($value ? '' : 'NO') . $key,
+            array_keys($policies),
+            array_values($policies)
+        ));
     }
 
     // Smilies static methods

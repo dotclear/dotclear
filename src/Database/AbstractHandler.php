@@ -22,12 +22,12 @@ abstract class AbstractHandler implements ConnectionInterface
     /**
      * Driver name
      */
-    protected string $__driver;
+    protected string $__driver = '';
 
     /**
      * Syntax name
      */
-    protected string $__syntax;
+    protected string $__syntax = '';
 
     /**
      * Database driver version
@@ -69,10 +69,10 @@ abstract class AbstractHandler implements ConnectionInterface
      */
     public function __construct(string $host, string $database, string $user = '', string $password = '', bool $persistent = false, string $prefix = '')
     {
-        if (!isset($this->__driver)) {
+        if ($this->__driver === '') {
             $this->__driver = static::HANDLER_DRIVER;
         }
-        if (!isset($this->__syntax)) {
+        if ($this->__syntax === '') {
             $this->__syntax = static::HANDLER_SYNTAX;
         }
 
@@ -285,6 +285,9 @@ abstract class AbstractHandler implements ConnectionInterface
             if (is_string($v)) {
                 $res[] = $v;
             } elseif (is_array($v) && !empty($v['field'])) {    // @phpstan-ignore-line
+                /**
+                 * @var array{field: string, collate: bool, order: string}
+                 */
                 $v          = array_merge($default, $v);
                 $v['order'] = (strtoupper((string) $v['order']) === 'DESC' ? 'DESC' : '');
                 $res[]      = ($v['collate'] ? 'LOWER(' . $v['field'] . ')' : $v['field']) . ' ' . $v['order'];

@@ -152,7 +152,7 @@ class SessionHandler implements SessionHandlerInterface
      */
     public function gc(int $max_lifetime): int
     {
-        $ses_life = strtotime($this->ttl);
+        $ses_life = (int) strtotime($this->ttl);
 
         $sql = new DeleteStatement($this->con, $this->con->syntax());
         $sql

@@ -70,7 +70,7 @@ class XmlRpc extends IntrospectionServer
     /**
      * Start the XML-RPC server.
      *
-     * @param   bool    $data   The data
+     * @param   mixed    $data   The data
      */
     public function serve($data = false): void
     {

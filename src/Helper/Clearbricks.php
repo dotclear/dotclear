@@ -24,7 +24,7 @@ class Clearbricks
     /**
      * Instance singleton
      */
-    private static self $instance;
+    private static ?self $instance = null;
 
     public function __construct()
     {
@@ -56,12 +56,7 @@ class Clearbricks
      */
     public static function lib(): self
     {
-        if (!isset(self::$instance)) {
-            // Init singleton
-            new self();
-        }
-
-        return self::$instance;
+        return self::$instance ?? new self();
     }
 
     /**

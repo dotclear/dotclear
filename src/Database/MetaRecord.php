@@ -441,7 +441,7 @@ class MetaRecord implements Iterator, Countable
      * @see Iterator::current
      */
     #[\ReturnTypeWillChange]
-    public function current()
+    public function current(): mixed
     {
         return $this;   // @phpstan-ignore-line
     }
@@ -450,7 +450,7 @@ class MetaRecord implements Iterator, Countable
      * @see Iterator::key
      */
     #[\ReturnTypeWillChange]
-    public function key()
+    public function key(): mixed
     {
         return $this->index();
     }

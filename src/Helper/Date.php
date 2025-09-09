@@ -131,6 +131,9 @@ class Date
         };
 
         // Same order as https://www.php.net/manual/en/function.strftime.php
+        /**
+         * @var array<string, string|callable>
+         */
         $translation_table = [
             // Day
             '%a' => $intl_formatter,
@@ -195,8 +198,7 @@ class Date
             '%x' => $intl_formatter,
         ];
 
-        /* @phpstan-ignore-next-line */
-        $out = (string) preg_replace_callback('/(?<!%)%([_#-]?)([a-zA-Z])/', function (array $match) use ($translation_table, $timestamp) {
+        $do_translations = function (array $match) use ($translation_table, $timestamp): string {
             $prefix  = $match[1];
             $char    = $match[2];
             $pattern = '%' . $char;
@@ -211,21 +213,18 @@ class Date
             }
 
             $replace = $translation_table[$pattern];
-
-            if (is_string($replace)) {
-                $result = $timestamp->format($replace);
-            } else {
-                $result = $replace($timestamp, $pattern);   // @phpstan-ignore-line
-            }
+            $result  = is_string($replace) ? $timestamp->format($replace) : (string) $replace($timestamp, $pattern);
 
             return match ($prefix) {
                 // replace leading zeros with spaces but keep last char if also zero
-                '_' => preg_replace('/\G0(?=.)/', ' ', $result),        // @phpstan-ignore-line
+                '_' => (string) preg_replace('/\G0(?=.)/', ' ', $result),
                 // remove leading zeros but keep last char if also zero
-                '#', '-' => preg_replace('/^0+(?=.)/', '', $result),    // @phpstan-ignore-line
+                '#', '-' => (string) preg_replace('/^0+(?=.)/', '', $result),
                 default => $result,
             };
-        }, $format);
+        };
+
+        $out = (string) preg_replace_callback('/(?<!%)%([_#-]?)([a-zA-Z])/', $do_translations, $format);
 
         return str_replace('%%', '%', $out);
     }

@@ -691,14 +691,14 @@ class Unzip
     {
         $BINlastmod_date = str_pad(decbin($date), 16, '0', STR_PAD_LEFT);
         $BINlastmod_time = str_pad(decbin($time), 16, '0', STR_PAD_LEFT);
-        $lastmod_dateY   = bindec(substr($BINlastmod_date, 0, 7)) + 1980;
-        $lastmod_dateM   = bindec(substr($BINlastmod_date, 7, 4));
-        $lastmod_dateD   = bindec(substr($BINlastmod_date, 11, 5));
-        $lastmod_timeH   = bindec(substr($BINlastmod_time, 0, 5));
-        $lastmod_timeM   = bindec(substr($BINlastmod_time, 5, 6));
-        $lastmod_timeS   = bindec(substr($BINlastmod_time, 11, 5)) * 2;
+        $lastmod_dateY   = (int) bindec(substr($BINlastmod_date, 0, 7)) + 1980;
+        $lastmod_dateM   = (int) bindec(substr($BINlastmod_date, 7, 4));
+        $lastmod_dateD   = (int) bindec(substr($BINlastmod_date, 11, 5));
+        $lastmod_timeH   = (int) bindec(substr($BINlastmod_time, 0, 5));
+        $lastmod_timeM   = (int) bindec(substr($BINlastmod_time, 5, 6));
+        $lastmod_timeS   = (int) bindec(substr($BINlastmod_time, 11, 5)) * 2;
 
-        return mktime((int) $lastmod_timeH, (int) $lastmod_timeM, (int) $lastmod_timeS, (int) $lastmod_dateM, (int) $lastmod_dateD, (int) $lastmod_dateY);
+        return mktime($lastmod_timeH, $lastmod_timeM, $lastmod_timeS, $lastmod_dateM, $lastmod_dateD, $lastmod_dateY);
     }
 
     /**
@@ -722,7 +722,7 @@ class Unzip
      */
     protected function memoryAllocate(int|float $size): void
     {
-        $mem_used  = function_exists('memory_get_usage') ? @memory_get_usage() : 4_000_000;
+        $mem_used  = (float) (function_exists('memory_get_usage') ? @memory_get_usage() : 4_000_000);
         $mem_limit = @ini_get('memory_limit');
         if ($mem_limit && trim($mem_limit) === '-1' || !Files::str2bytes($mem_limit)) {
             // Cope with memory_limit set to -1 in PHP.ini
@@ -730,8 +730,8 @@ class Unzip
         }
         if ($mem_limit !== '') {
             $mem_limit  = Files::str2bytes($mem_limit);
-            $mem_avail  = $mem_limit - $mem_used - (512 * 1024);
-            $mem_needed = $size;
+            $mem_avail  = $mem_limit - $mem_used - (512.0 * 1024.0);
+            $mem_needed = (float) $size;
 
             if ($mem_needed > $mem_avail) {
                 if (@ini_set('memory_limit', (string) ($mem_limit + $mem_needed + $mem_used)) === false) {

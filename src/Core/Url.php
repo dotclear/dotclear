@@ -364,6 +364,9 @@ class Url extends UrlHandler implements UrlInterface
 
             App::frontend()->search = empty($_GET['q']) ? '' : Html::escapeHTML(rawurldecode((string) $_GET['q']));
             if (App::frontend()->search) {
+                /**
+                 * @var ArrayObject<string, mixed>
+                 */
                 $params = new ArrayObject(['search' => App::frontend()->search]);
                 # --BEHAVIOR-- publicBeforeSearchCount -- ArrayObject
                 App::behavior()->callBehavior('publicBeforeSearchCount', $params);
@@ -382,7 +385,10 @@ class Url extends UrlHandler implements UrlInterface
     public static function lang(?string $args): void
     {
         $page_number = self::getPageNumber($args);
-        $params      = new ArrayObject(
+        /**
+         * @var ArrayObject<string, mixed>
+         */
+        $params = new ArrayObject(
             [
                 'lang' => $args,
             ]
@@ -416,6 +422,9 @@ class Url extends UrlHandler implements UrlInterface
             // No category was specified.
             self::p404();
         } else {
+            /**
+             * @var ArrayObject<string, mixed>
+             */
             $params = new ArrayObject(
                 [
                     'cat_url'       => $args,
@@ -450,6 +459,9 @@ class Url extends UrlHandler implements UrlInterface
         if ($args == '') {
             self::serveDocument('archive.html');
         } elseif (preg_match('|^/(\d{4})/(\d{2})$|', $args, $m)) {
+            /**
+             * @var ArrayObject<string, mixed>
+             */
             $params = new ArrayObject(
                 [
                     'year'  => $m[1],
@@ -486,6 +498,9 @@ class Url extends UrlHandler implements UrlInterface
         } else {
             App::blog()->withoutPassword(false);
 
+            /**
+             * @var ArrayObject<string, mixed>
+             */
             $params = new ArrayObject(
                 [
                     'post_url' => $args,
@@ -780,6 +795,9 @@ class Url extends UrlHandler implements UrlInterface
 
         if (preg_match('!^([a-z]{2}(-[a-z]{2})?)/(.*)$!', (string) $args, $matches)) {
             // Specific language feed
+            /**
+             * @var ArrayObject<string, mixed>
+             */
             $params = new ArrayObject(
                 [
                     'lang' => $matches[1],
@@ -823,6 +841,9 @@ class Url extends UrlHandler implements UrlInterface
 
         if ($cat_url) {
             // Category feed
+            /**
+             * @var ArrayObject<string, mixed>
+             */
             $params = new ArrayObject(
                 [
                     'cat_url'   => $cat_url,
@@ -841,6 +862,9 @@ class Url extends UrlHandler implements UrlInterface
             $subtitle = ' - ' . App::frontend()->context()->categories->cat_title;
         } elseif ($post_id) {
             // Specific post
+            /**
+             * @var ArrayObject<string, mixed>
+             */
             $params = new ArrayObject(
                 [
                     'post_id'   => $post_id,
