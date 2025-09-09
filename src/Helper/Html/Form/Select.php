@@ -14,9 +14,9 @@ namespace Dotclear\Helper\Html\Form;
  * @class Select
  * @brief HTML Forms select creation helpers
  *
- * @method      $this items(array<int|string, Component|string|int|array<int|string, Component|string|int>>|Iterable<int|string, Component|string|int|array<int|string, Component|string|int>> $items)
+ * @method      $this items(array<array-key, Component|string|array<array-key, Component|string>>|Iterable<array-key, Component|string|array<array-key, Component|string>> $items)
  *
- * @property    array<int|string, Component|string|int|array<int|string, Component|string|int>>|Iterable<int|string, Component|string|int|array<int|string, Component|string|int>> $items
+ * @property    array<array-key, Component|string|array<array-key, Component|string>>|Iterable<array-key, Component|string|array<array-key, Component|string>> $items
  */
 class Select extends Component
 {
@@ -69,14 +69,18 @@ class Select extends Component
                     $current = (string) $current;
                 }
 
-                if ($value instanceof Option || $value instanceof Optgroup) {
-                    /* @phpstan-ignore-next-line */
-                    $buffer .= $value->render($current);
+                if ($value instanceof Component) {
+                    if ($value instanceof Option || $value instanceof Optgroup) {
+                        $buffer .= $value->render($current);
+                    } else {
+                        $buffer .= $value->render();
+                    }
                 } elseif (is_array($value)) {
-                    /* @phpstan-ignore-next-line */
+                    /**
+                     * @psalm-suppress InvalidArgument
+                     */
                     $buffer .= (new Optgroup((string) $item))->items($value)->render($current);
                 } else {
-                    /* @phpstan-ignore-next-line */
                     $buffer .= (new Option((string) $item, (string) $value))->render($current);
                 }
             }

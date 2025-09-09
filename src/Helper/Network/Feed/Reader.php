@@ -251,7 +251,7 @@ class Reader extends HttpClient
                         // Add feed in cache
                         Files::makeDir(dirname($cached_file), true);
                         if ($fp = @fopen($cached_file, 'wb')) {
-                            fwrite($fp, $content);
+                            fwrite($fp, (string) $content);
                             fclose($fp);
                             Files::inheritChmod($cached_file);
                         }

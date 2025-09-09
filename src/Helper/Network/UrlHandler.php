@@ -34,7 +34,7 @@ class UrlHandler
     /**
      * Stack of error handlers
      *
-     * @var        array<string, callable>    $error_handlers
+     * @var        list<callable>    $error_handlers
      */
     protected $error_handlers = [];
 

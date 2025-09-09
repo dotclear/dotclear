@@ -15,10 +15,10 @@ namespace Dotclear\Helper\Html\Form;
  * @brief HTML Forms optgroup creation helpers
  *
  * @method      $this text(string $text)
- * @method      $this items(array<int|string, Component|string|array<int, Component|string>>|Iterable<int|string, Component|string|array<int, Component|string>> $items)
+ * @method      $this items(array<array-key, Component|string|array<array-key, Component|string>>|Iterable<array-key, Component|string|array<array-key, Component|string>> $items)
  *
  * @property    string $text
- * @property    array<int|string, Component|string|array<int, Component|string>>|Iterable<int|string, Component|string|array<int, Component|string>> $items
+ * @property    array<array-key, Component|string|array<array-key, Component|string>>|Iterable<array-key, Component|string|array<array-key, Component|string>> $items
  */
 class Optgroup extends Component
 {
@@ -53,14 +53,21 @@ class Optgroup extends Component
                 if ($value instanceof None) {
                     continue;
                 }
-                if ($value instanceof Option || $value instanceof Optgroup) {
-                    $buffer .= $value->render($default);
+                if ($value instanceof Component) {
+                    if ($value instanceof Option || $value instanceof Optgroup) {
+                        $buffer .= $value->render($default);
+                    } else {
+                        $buffer .= $value->render();
+                    }
                 } elseif (is_array($value)) {
-                    /* @phpstan-ignore-next-line */
-                    $buffer .= (new Optgroup((string) $item))->items($value)->render($this->default ?? $default ?? null);
+                    $default_value = is_null($default) ? (isset($this->default) ? (string) $this->default : null) : $default;
+                    /**
+                     * @psalm-suppress InvalidArgument
+                     */
+                    $buffer .= (new Optgroup((string) $item))->items($value)->render($default_value);
                 } else {
-                    /* @phpstan-ignore-next-line */
-                    $buffer .= (new Option((string) $item, (string) $value))->render($this->default ?? $default ?? null);
+                    $default_value = is_null($default) ? (isset($this->default) ? (string) $this->default : null) : $default;
+                    $buffer .= (new Option((string) $item, (string) $value))->render($default_value);
                 }
             }
         }

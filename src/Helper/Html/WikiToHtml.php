@@ -534,12 +534,11 @@ class WikiToHtml
         # On ajoute les notes
         if ($this->foot_notes !== []) {
             $html_notes  = '';
-            $note_number = 1;
+            $note_number = 0;
             foreach ($this->foot_notes as $k => $v) {
-                $html_notes .= "\n" . '<p>[<a href="#rev-' . $k . '" id="' . $k . '">' . $note_number . '</a>] ' . $v . '</p>';
-                $note_number++;
+                $html_notes .= "\n" . '<p>[<a href="#rev-' . $k . '" id="' . $k . '">' . ++$note_number . '</a>] ' . $v . '</p>';
             }
-            $html .= sprintf("\n" . (count($this->foot_notes) > 1 ? $this->getOpt('note_str') : $this->getOpt('note_str_single')) . "\n", $html_notes);
+            $html .= sprintf("\n" . ($note_number > 1 ? $this->getOpt('note_str') : $this->getOpt('note_str_single')) . "\n", $html_notes);
         }
 
         return (string) $html;

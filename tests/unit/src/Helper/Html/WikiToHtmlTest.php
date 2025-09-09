@@ -477,9 +477,11 @@ class WikiToHtmlTest extends TestCase
             ['%s$$%s$$', '<p>%s<sup>[<a href="#wiki-footnote-1" id="rev-wiki-footnote-1">1</a>]</sup></p>' .
                 '<div class="footnotes"><h4>Note</h4><p>[<a href="#rev-wiki-footnote-1" id="wiki-footnote-1">1</a>] ' .
                 '%s</p></div>', 2, ],
-            ['%s$$%s$$', '<p>%s<sup>[<a href="#wiki-footnote-1" id="rev-wiki-footnote-1">1</a>]</sup></p>' .
-                '<div class="footnotes"><h4>Note</h4><p>[<a href="#rev-wiki-footnote-1" id="wiki-footnote-1">1</a>] ' .
-                '%s</p></div>', 2, ],
+            ['%1$s$$%2$s$$ - %3$s$$%4$s$$', '<p>%1$s<sup>[<a href="#wiki-footnote-1" id="rev-wiki-footnote-1">1</a>]</sup>' .
+                ' - %3$s<sup>[<a href="#wiki-footnote-2" id="rev-wiki-footnote-2">2</a>]</sup></p>' .
+                '<div class="footnotes"><h4>Notes</h4><p>[<a href="#rev-wiki-footnote-1" id="wiki-footnote-1">1</a>] ' .
+                '%2$s</p><p>[<a href="#rev-wiki-footnote-2" id="wiki-footnote-2">2</a>] ' .
+                '%4$s</p></div>', 4, ],
 
             ["* %s\n///\n%s\n///\n", '<ul><li>%s</li></ul><pre>%s</pre>', 2],
             ["# %s\n///\n%s\n///\n", '<ol><li>%s</li></ol><pre>%s</pre>', 2],
@@ -579,7 +581,7 @@ class WikiToHtmlTest extends TestCase
             ['[%1$s§class="link"§]', '<p><a class="link" href="%1$s" title="%1$s">%1$s</a></p>', 1],
             ['[%1$s|%2$s§class="link"§]', '<p><a class="link" href="%2$s">%1$s</a></p>', 2],
             ['[%1$s|%2$s|fr§class="link"§]', '<p><a class="link" href="%2$s" hreflang="fr">%1$s</a></p>', 2],
-            ['[%1$s|%2$s|fr|%3$s§class="link"§]', '<p><a class="link" href="%2$s" hreflang="fr" title="%3$s">%1$s</a></p>', 2],
+            ['[%1$s|%2$s|fr|%3$s§class="link"§]', '<p><a class="link" href="%2$s" hreflang="fr" title="%3$s">%1$s</a></p>', 3],
 
             ['((%s|%s§class="img"§))', '<p><img class="img" src="%s" alt="%s"></p>', 2],
             ['((%s|§class="img"§))', '<p><img class="img" src="%s" alt=""></p>', 1],
@@ -612,7 +614,7 @@ class WikiToHtmlTest extends TestCase
         $in  = str_replace($search, $replace, $in);
         $out = str_replace($search, $replace, $out);
 
-        if (str_contains($in, '%s')) {
+        if (preg_match('/%(\d\$)*s/', $in)) {
             $phrase = [];
             for ($n = 1; $n <= $count; $n++) {
                 $phrase[$n] = $faker->text(20);

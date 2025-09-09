@@ -139,11 +139,6 @@
       <code><![CDATA[global ${self::$_n};]]></code>
     </InvalidGlobal>
   </file>
-  <file src="src/Helper/Html/WikiToHtml.php">
-    <NoValue>
-      <code><![CDATA[$this->foot_notes]]></code>
-    </NoValue>
-  </file>
   <file src="src/Helper/Network/Feed/Parser.php">
     <RedundantCast>
       <code><![CDATA[(string) $item->link]]></code>

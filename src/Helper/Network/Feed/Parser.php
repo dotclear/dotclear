@@ -110,7 +110,7 @@ class Parser
     /**
      * Get XML representation of Parser data
      *
-     * @return     false|string  false on error
+     * @return     bool|string  false on error
      */
     public function asXML(): string|bool
     {
