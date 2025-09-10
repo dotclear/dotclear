@@ -57,7 +57,7 @@ class Http
             $scheme = $_SERVER['HTTP_X_FORWARDED_PROTO'];
 
             if (isset($_SERVER['HTTP_HOST'])) {
-                $name_port_array = explode(':', $_SERVER['HTTP_HOST']);
+                $name_port_array = explode(':', (string) $_SERVER['HTTP_HOST']);
             } else {
                 // Fallback to server name and port
                 $name_port_array = [
