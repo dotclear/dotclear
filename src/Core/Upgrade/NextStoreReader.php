@@ -27,7 +27,7 @@ class NextStoreReader extends StoreReader
      *
      * {@inheritdoc}
      */
-    public function parse(string $url): bool|NextStoreParser
+    public function parse(string $url): false|NextStoreParser
     {
         $this->validators = [];
 
@@ -43,7 +43,7 @@ class NextStoreReader extends StoreReader
      *
      * {@inheritdoc}
      */
-    public static function quickParse(string $url, ?string $cache_dir = null, ?bool $force = false, bool $use_host_cache = true): bool|NextStoreParser
+    public static function quickParse(string $url, ?string $cache_dir = null, ?bool $force = false, bool $use_host_cache = true): false|NextStoreParser
     {
         $parser = new self($use_host_cache);
 

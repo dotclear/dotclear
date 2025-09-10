@@ -154,7 +154,7 @@ class StoreReader extends HttpClient
      *
      * @return  false|StoreParser   Feed content, StoreParser instance or false
      */
-    public function parse(string $url): bool|StoreParser
+    public function parse(string $url): false|StoreParser
     {
         $this->validators = [];
 
@@ -217,7 +217,7 @@ class StoreReader extends HttpClient
 
         if ($this->cache_dir) {
             // Content extracted from cache, return it
-            return $result; // @phpstan-ignore-line: in this case $result can't be true (see above)
+            return is_bool($result) ? false : $result;
         }
 
         self::$read_code = static::READ_FROM_SOURCE;
@@ -360,7 +360,7 @@ class StoreReader extends HttpClient
      *
      * @return  StoreParser|false   Feed content or False on fail
      */
-    protected function withCache(string $url): bool|StoreParser
+    protected function withCache(string $url): false|StoreParser
     {
         $url_md5     = md5($url);
         $cached_file = sprintf(

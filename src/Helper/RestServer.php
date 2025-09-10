@@ -73,10 +73,10 @@ class RestServer implements RestInterface
      *
      * This method calls callback named <var>$name</var>.
      *
-     * @param   string                  $name   Function name
-     * @param   array<string, string>   $get    GET values
-     * @param   array<string, string>   $post   POST values
-     * @param   mixed                   $param  Supplemental parameter
+     * @param   string                                                                                $name   Function name
+     * @param   array<array-key, non-empty-array<array-key, array<array-key, mixed>|string>|string>   $get    GET values
+     * @param   array<array-key, non-empty-array<array-key, array<array-key, mixed>|string>|string>   $post   POST values
+     * @param   mixed                                                                                 $param  Supplemental parameter
      *
      * @return  mixed
      */

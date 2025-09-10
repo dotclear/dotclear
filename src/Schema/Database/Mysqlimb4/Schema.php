@@ -19,12 +19,6 @@ use Dotclear\Schema\Database\Mysqli\Schema as MysqliSchema;
  */
 class Schema extends MysqliSchema
 {
-    /**
-     * Create a table
-     *
-     * @param      string                   $name    The name
-     * @param      array<string, mixed>     $fields  The fields
-     */
     public function db_create_table(string $name, array $fields): void
     {
         $a = [];

@@ -138,12 +138,12 @@ class Media
         if (App::backend()->page->getDirs() && !empty($_FILES['upfile'])) {
             // only one file per request : @see option singleFileUploads in admin/js/jsUpload/jquery.fileupload
             $upfile = [
-                'name'     => $_FILES['upfile']['name'][0],
-                'type'     => $_FILES['upfile']['type'][0],
-                'tmp_name' => $_FILES['upfile']['tmp_name'][0],
-                'error'    => is_array($_FILES['upfile']['error']) ? $_FILES['upfile']['error'][0] : 0,
-                'size'     => is_array($_FILES['upfile']['size']) ? $_FILES['upfile']['size'][0] : 0,
-                'title'    => '',
+                'name'      => $_FILES['upfile']['name'][0],
+                'type'      => $_FILES['upfile']['type'][0],
+                'tmp_name'  => $_FILES['upfile']['tmp_name'][0],
+                'error'     => is_array($_FILES['upfile']['error']) ? $_FILES['upfile']['error'][0] : 0,
+                'size'      => is_array($_FILES['upfile']['size']) ? $_FILES['upfile']['size'][0] : 0,
+                'full_path' => '',
             ];
 
             if (!empty($_SERVER['HTTP_X_REQUESTED_WITH'])) {
@@ -151,8 +151,8 @@ class Media
                 $message = [];
 
                 try {
-                    Files::uploadStatus($upfile);   // @phpstan-ignore-line
-                    $new_file_id = App::media()->uploadFile($upfile['tmp_name'], $upfile['name'], false, $upfile['title']);
+                    Files::uploadStatus($upfile);
+                    $new_file_id = App::media()->uploadFile($upfile['tmp_name'], $upfile['name']);
 
                     $message['files'][] = [
                         'name' => $upfile['name'],

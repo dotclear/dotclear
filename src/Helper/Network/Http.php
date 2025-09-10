@@ -54,10 +54,10 @@ class Http
                 throw new Exception('Reverse proxy parametter is setted, header HTTP_X_FORWARDED_FOR is found but not the X-Forwarded-Proto. Please check your reverse proxy server settings');
             }
 
-            $scheme = (string) $_SERVER['HTTP_X_FORWARDED_PROTO'];
+            $scheme = $_SERVER['HTTP_X_FORWARDED_PROTO'];
 
             if (isset($_SERVER['HTTP_HOST'])) {
-                $name_port_array = explode(':', (string) $_SERVER['HTTP_HOST']);
+                $name_port_array = explode(':', $_SERVER['HTTP_HOST']);
             } else {
                 // Fallback to server name and port
                 $name_port_array = [

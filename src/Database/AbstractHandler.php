@@ -284,13 +284,11 @@ abstract class AbstractHandler implements ConnectionInterface
         foreach ($args as $v) {
             if (is_string($v)) {
                 $res[] = $v;
-            } elseif (is_array($v) && !empty($v['field'])) {    // @phpstan-ignore-line
-                /**
-                 * @var array{field: string, collate: bool, order: string}
-                 */
-                $v          = array_merge($default, $v);
-                $v['order'] = (strtoupper((string) $v['order']) === 'DESC' ? 'DESC' : '');
-                $res[]      = ($v['collate'] ? 'LOWER(' . $v['field'] . ')' : $v['field']) . ' ' . $v['order'];
+            } elseif (!empty($v['field'])) {
+                $v     = array_merge($default, $v);
+                $order = strtoupper($v['order']);
+                $order = ($order === 'DESC' ? $order : '');
+                $res[] = ($v['collate'] ? 'LOWER(' . $v['field'] . ')' : $v['field']) . ' ' . $order;
             }
         }
 

@@ -297,7 +297,7 @@ abstract class Client extends Container
         }
 
         $provider = $this->service->getProvider($this->store->getConsumer($service), [
-            'state'        => $state,
+            'state'        => (string) $state,
             'redirect_uri' => $this->getRedirectUrl(),
         ]);
         $token = $provider->requestAccessToken($_REQUEST);

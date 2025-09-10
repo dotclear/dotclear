@@ -401,7 +401,7 @@ class UserPreferences
                         $ct[$col_name] = isset($_POST['cols_' . $col_type]) && in_array($col_name, $_POST['cols_' . $col_type], true);
                     }
                     if ($ct !== []) {
-                        if (isset($_POST['cols_' . $col_type])) {
+                        if (isset($_POST['cols_' . $col_type]) && is_array($_POST['cols_' . $col_type])) {
                             // Sort resulting list
                             $order = array_values($_POST['cols_' . $col_type]);
                             $order = array_unique(array_merge($order, array_keys($ct)));

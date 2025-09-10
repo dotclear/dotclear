@@ -440,7 +440,7 @@ interface ConnectionInterface
      *
      * string param field name (Binary ascending order)
      *
-     * @param   array<string, mixed>|string     ...$args
+     * @param   array{field:string, collate?:bool, order?:string}|string     ...$args
      */
     public function orderBy(...$args): string;
 

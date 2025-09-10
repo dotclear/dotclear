@@ -56,7 +56,7 @@ class Plugins
     /**
      * @var     array<int, ModuleDefine>    $next_store
      */
-    private static array $next_store;
+    private static ?array $next_store = null;
 
     /**
      * @var     null|array<string, array<string, bool|string> > $plugins_install

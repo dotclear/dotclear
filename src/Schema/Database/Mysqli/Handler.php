@@ -374,11 +374,6 @@ class Handler extends AbstractHandler
         return 'DATE_FORMAT(' . $field . ',' . "'" . $this->escapeStr($pattern) . "')";
     }
 
-    /**
-     * Get an ORDER BY fragment to be used in a SQL query
-     *
-     * @param      mixed  ...$args  The arguments
-     */
     public function orderBy(...$args): string
     {
         $res     = [];
@@ -389,10 +384,11 @@ class Handler extends AbstractHandler
         foreach ($args as $v) {
             if (is_string($v)) {
                 $res[] = $v;
-            } elseif (is_array($v) && !empty($v['field'])) {
-                $v          = array_merge($default, $v);
-                $v['order'] = (strtoupper((string) $v['order']) === 'DESC' ? 'DESC' : '');
-                $res[]      = $v['field'] . ($v['collate'] ? ' COLLATE utf8_unicode_ci' : '') . ' ' . $v['order'];
+            } elseif (!empty($v['field'])) {
+                $v     = array_merge($default, $v);
+                $order = strtoupper($v['order']);
+                $order = ($order === 'DESC' ? $order : '');
+                $res[] = $v['field'] . ($v['collate'] ? ' COLLATE utf8_unicode_ci' : '') . ' ' . $order;
             }
         }
 

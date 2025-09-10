@@ -31,7 +31,6 @@ class Credential implements CredentialInterface
     public function __construct(
         protected RpOptionInterface $rp
     ) {
-
     }
 
     public function fromAttestation(AttestationInterface $attestation, string $label = ''): void
@@ -57,32 +56,32 @@ class Credential implements CredentialInterface
         ];
     }
 
-    public function fromArray(array $data): void
+    public function fromArray(array $res): void
     {
         $this->data = [
-            'createDate'          => $data['createDate']          ?? date('Y-m-d H:i:s'),
-            'label'               => $data['label']               ?? '',
-            'rpId'                => $data['rpId']                ?? '',
-            'attestationFormat'   => $data['attestationFormat']   ?? '',
-            'credentialId'        => $data['credentialId']        ?? '',
-            'credentialPublicKey' => $data['credentialPublicKey'] ?? '',
-            'certificateChain'    => $data['certificateChain']    ?? '',
-            'certificate'         => $data['certificate']         ?? '',
-            'certificateIssuer'   => $data['certificateIssuer']   ?? '',
-            'certificateSubject'  => $data['certificateSubject']  ?? '',
-            'signatureCounter'    => $data['signatureCounter']    ?? '',
-            'AAGUID'              => $data['AAGUID']              ?? '',
-            'userPresent'         => $data['userPresent']         ?? '',
-            'userVerified'        => $data['userVerified']        ?? '',
-            'isBackupEligible'    => $data['isBackupEligible']    ?? '',
-            'isBackedUp'          => $data['isBackedUp']          ?? '',
+            'createDate'          => $res['createDate']          ?? date('Y-m-d H:i:s'),
+            'label'               => $res['label']               ?? '',
+            'rpId'                => $res['rpId']                ?? '',
+            'attestationFormat'   => $res['attestationFormat']   ?? '',
+            'credentialId'        => $res['credentialId']        ?? '',
+            'credentialPublicKey' => $res['credentialPublicKey'] ?? '',
+            'certificateChain'    => $res['certificateChain']    ?? '',
+            'certificate'         => $res['certificate']         ?? '',
+            'certificateIssuer'   => $res['certificateIssuer']   ?? '',
+            'certificateSubject'  => $res['certificateSubject']  ?? '',
+            'signatureCounter'    => $res['signatureCounter']    ?? '',
+            'AAGUID'              => $res['AAGUID']              ?? '',
+            'userPresent'         => $res['userPresent']         ?? '',
+            'userVerified'        => $res['userVerified']        ?? '',
+            'isBackupEligible'    => $res['isBackupEligible']    ?? '',
+            'isBackedUp'          => $res['isBackedUp']          ?? '',
         ];
     }
 
-    public function newFromArray(array $data): CredentialInterface
+    public function newFromArray(array $res): CredentialInterface
     {
         $clone = clone $this;
-        $clone->fromArray($data);
+        $clone->fromArray($res);
 
         return $clone;
     }

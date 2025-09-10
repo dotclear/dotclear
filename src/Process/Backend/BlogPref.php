@@ -31,6 +31,8 @@ use Dotclear\Helper\Html\Form\Link;
 use Dotclear\Helper\Html\Form\None;
 use Dotclear\Helper\Html\Form\Note;
 use Dotclear\Helper\Html\Form\Number;
+use Dotclear\Helper\Html\Form\Optgroup;
+use Dotclear\Helper\Html\Form\Option;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Radio;
 use Dotclear\Helper\Html\Form\Select;
@@ -552,6 +554,18 @@ class BlogPref
                 ]);
 
             // Blog configuration
+            $zones = [];
+            foreach (Date::getZones(true, true) as $key => $value) {
+                if (is_array($value)) {
+                    // Group of zones
+                    $zones[] = (new Optgroup($key))
+                        ->items(array_map(fn ($key, $val): Option => new Option($key, $val), array_keys($value), array_values($value)));
+                } else {
+                    // Simple zone
+                    $zones[] = new Option($key, $value);
+                }
+            }
+
             $standard[] = (new Fieldset('blog-configuration'))
                 ->legend(new Legend(__('Blog configuration')))
                 ->fields([
@@ -574,7 +588,7 @@ class BlogPref
                     (new Para())
                         ->items([
                             (new Select('blog_timezone'))
-                                ->items(Date::getZones(true, true))
+                                ->items($zones)
                                 ->default(Html::escapeHTML(App::backend()->blog_settings->system->blog_timezone))
                                 ->label(new Label(__('Blog timezone:'), Label::IL_TF)),
                         ]),

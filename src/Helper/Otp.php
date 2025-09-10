@@ -311,9 +311,10 @@ abstract class Otp
      */
     protected function queryQrCodeService(): string
     {
-        $params = [
+        $qrcode_size = (int) ceil((float) $this->qrcode_size / 2.0);
+        $params      = [
             'cht'  => 'qr',
-            'chs'  => ceil($this->qrcode_size / 2) . 'x' . ceil($this->qrcode_size / 2),
+            'chs'  => sprintf('%dx%d', $qrcode_size, $qrcode_size),
             'chld' => $this->qrcode_correction . '|' . $this->qrcode_margin,
             'chl'  => $this->getUrl(),
         ];
@@ -608,7 +609,10 @@ abstract class Otp
             throw new Exception('Invalid cryptographic data.');
         }
 
-        $hmac   = array_values($unpacked);
+        $hmac = array_values($unpacked);
+        if ($hmac === []) {
+            throw new Exception('Invalid cryptographic data.');
+        }
         $offset = ($hmac[count($hmac) - 1] & 0xF);
         $code   = ($hmac[$offset] & 0x7F) << 24 | ($hmac[$offset + 1] & 0xFF) << 16 | ($hmac[$offset + 2] & 0xFF) << 8 | ($hmac[$offset + 3] & 0xFF);
         $otp    = $code % (10 ** $this->getDigits());

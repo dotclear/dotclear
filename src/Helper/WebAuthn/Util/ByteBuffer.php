@@ -166,7 +166,7 @@ class ByteBuffer implements JsonSerializable, Serializable, ByteBufferInterface,
             throw new ByteBufferException('Invalid offset');
         }
 
-        $val = (int) unpack('N', $this->data, $offset);
+        $val = unpack('N', $this->data, $offset);
         if (!isset($val[1]) || $val[1] < 0) {
             // Signed integer overflow causes signed negative numbers
             throw new ByteBufferException('Value out of integer range.');

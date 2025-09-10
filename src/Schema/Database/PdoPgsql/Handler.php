@@ -102,17 +102,18 @@ class Handler extends AbstractPdoHandler
         foreach ($args as $v) {
             if (is_string($v)) {
                 $res[] = $v;
-            } elseif (is_array($v) && !empty($v['field'])) {    // @phpstan-ignore-line
-                $v          = array_merge($default, $v);
-                $v['order'] = (strtoupper((string) $v['order']) === 'DESC' ? 'DESC' : '');
-                if ($v['collate']) {
+            } elseif (!empty($v['field'])) {
+                $v     = array_merge($default, $v);
+                $order = strtoupper($v['order']);
+                $order = ($order === 'DESC' ? $order : '');
+                if ($v['collate'] === true) {
                     if ($this->utf8_unicode_ci) {
-                        $res[] = $v['field'] . ' COLLATE ' . $this->utf8_unicode_ci . ' ' . $v['order'];
+                        $res[] = $v['field'] . ' COLLATE ' . $this->utf8_unicode_ci . ' ' . $order;
                     } else {
-                        $res[] = 'LOWER(' . $v['field'] . ') ' . $v['order'];
+                        $res[] = 'LOWER(' . $v['field'] . ') ' . $order;
                     }
                 } else {
-                    $res[] = $v['field'] . ' ' . $v['order'];
+                    $res[] = $v['field'] . ' ' . $order;
                 }
             }
         }

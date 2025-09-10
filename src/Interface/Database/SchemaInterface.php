@@ -35,11 +35,11 @@ interface SchemaInterface
      * - [type] data type (string)
      * - [len] data length (integer or null)
      * - [null] is null? (boolean)
-     * - [default] default value (string)
+     * - [default] default value (mixed)
      *
      * @param      string $table Table name
      *
-     * @return     array<string, array{type: string, len: int|null, null: bool, default: string}>
+     * @return     array<string, array{type: string, len: int|null, null: bool, default: mixed}>
      */
     public function db_get_columns(string $table): array;
 
@@ -54,7 +54,7 @@ interface SchemaInterface
      *
      * @param      string $table Table name
      *
-     * @return     array<array{name: string, primary: bool, unique: bool, cols: array<string>}>
+     * @return     array<array{name: string, primary: bool, unique: bool, cols: list<string>}>
      */
     public function db_get_keys(string $table): array;
 
@@ -68,7 +68,7 @@ interface SchemaInterface
      *
      * @param      string $table Table name
      *
-     * @return     array<array{name: string, type: string, cols: array<string>}>
+     * @return     array<array{name: string, type: string, cols: array<array-key, string>}>
      */
     public function db_get_indexes(string $table): array;
 
@@ -234,7 +234,7 @@ interface SchemaInterface
      *
      * @param   string      $type       Type name
      * @param   integer     $len        Field length (in/out)
-     * @param   string      $default    Default field value (in/out)
+     * @param   mixed       $default    Default field value (in/out)
      */
     public function udt2dbt(string $type, ?int &$len, &$default): string;
 

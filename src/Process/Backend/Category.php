@@ -361,8 +361,8 @@ class Category
                                             ->class('classic'),
                                         (new Select('cat_move'))
                                             ->items([
-                                                __('before') => 'before',
-                                                __('after')  => 'after',
+                                                new Option(__('before'), 'before'),
+                                                new Option(__('after'), 'after'),
                                             ])
                                             ->title(__('position: ')),
                                         (new Select('cat_sibling'))

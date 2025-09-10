@@ -30,11 +30,6 @@ class Schema extends AbstractSchema
         'd' => 'set default',
     ];
 
-    /**
-     * Get DB tables
-     *
-     * @return     string[]
-     */
     public function db_get_tables(): array
     {
         $sql = 'SELECT table_name ' .
@@ -51,13 +46,6 @@ class Schema extends AbstractSchema
         return $res;
     }
 
-    /**
-     * Get table's fields
-     *
-     * @param      string  $table  The table
-     *
-     * @return     array<string, array{type: string, len: int|null, null: bool, default: string|null}>
-     */
     public function db_get_columns(string $table): array
     {
         $sql = 'SELECT column_name, udt_name, character_maximum_length, ' .
@@ -95,13 +83,6 @@ class Schema extends AbstractSchema
         return $res;
     }
 
-    /**
-     * Get tables keys
-     *
-     * @param      string  $table  The table
-     *
-     * @return     array<array{name: string, primary: bool, unique: bool, cols: string[]}>
-     */
     public function db_get_keys(string $table): array
     {
         $sql = 'SELECT DISTINCT ON(cls.relname) cls.oid, cls.relname as idxname, indisunique::integer, indisprimary::integer, ' .
@@ -142,13 +123,6 @@ class Schema extends AbstractSchema
         return $res;
     }
 
-    /**
-     * Get table's indexes
-     *
-     * @param      string  $table  The table
-     *
-     * @return     array<array{name: string, type: string, cols: string[]}>
-     */
     public function db_get_indexes(string $table): array
     {
         $sql = 'SELECT DISTINCT ON(cls.relname) cls.oid, cls.relname as idxname, n.nspname, ' .
@@ -188,13 +162,6 @@ class Schema extends AbstractSchema
         return $res;
     }
 
-    /**
-     * Get references
-     *
-     * @param      string  $table  The table
-     *
-     * @return     array<array{name: string, c_cols: string[], p_table: string, p_cols: string[], update: string, delete: string}>
-     */
     public function db_get_references(string $table): array
     {
         $sql = 'SELECT ct.oid, conname, condeferrable, condeferred, confupdtype, ' .
@@ -242,12 +209,6 @@ class Schema extends AbstractSchema
         return $res;
     }
 
-    /**
-     * Create a table
-     *
-     * @param      string                   $name    The name
-     * @param      array<string, mixed>     $fields  The fields
-     */
     public function db_create_table(string $name, array $fields): void
     {
         $a = [];
@@ -281,16 +242,6 @@ class Schema extends AbstractSchema
         $this->con->execute($sql);
     }
 
-    /**
-     * Create a field
-     *
-     * @param      string           $table    The table
-     * @param      string           $name     The name
-     * @param      string           $type     The type
-     * @param      int|null         $len      The length
-     * @param      bool             $null     The null
-     * @param      mixed            $default  The default value
-     */
     public function db_create_field(string $table, string $name, string $type, ?int $len, bool $null, $default): void
     {
         $type = $this->udt2dbt($type, $len, $default);
@@ -307,13 +258,6 @@ class Schema extends AbstractSchema
         $this->con->execute($sql);
     }
 
-    /**
-     * Create primary key
-     *
-     * @param      string           $table    The table
-     * @param      string           $name     The name
-     * @param      string[]         $fields   The cols
-     */
     public function db_create_primary(string $table, string $name, array $fields): void
     {
         $sql = 'ALTER TABLE ' . $table . ' ' .
@@ -322,13 +266,6 @@ class Schema extends AbstractSchema
         $this->con->execute($sql);
     }
 
-    /**
-     * Create a unique key
-     *
-     * @param      string           $table   The table
-     * @param      string           $name    The name
-     * @param      string[]         $fields  The fields
-     */
     public function db_create_unique(string $table, string $name, array $fields): void
     {
         $sql = 'ALTER TABLE ' . $table . ' ' .
@@ -337,14 +274,6 @@ class Schema extends AbstractSchema
         $this->con->execute($sql);
     }
 
-    /**
-     * Create an index
-     *
-     * @param      string           $table   The table
-     * @param      string           $name    The name
-     * @param      string           $type    The type
-     * @param      string[]         $fields  The fields
-     */
     public function db_create_index(string $table, string $name, string $type, array $fields): void
     {
         $sql = 'CREATE INDEX ' . $name . ' ON ' . $table . ' USING ' . $type .
@@ -353,17 +282,6 @@ class Schema extends AbstractSchema
         $this->con->execute($sql);
     }
 
-    /**
-     * Create a reference
-     *
-     * @param      string           $name            The name
-     * @param      string           $table           The table
-     * @param      string[]         $fields          The fields
-     * @param      string           $foreign_table   The foreign table
-     * @param      string[]         $foreign_fields  The foreign fields
-     * @param      string|bool      $update          The update
-     * @param      string|bool      $delete          The delete
-     */
     public function db_create_reference(string $name, string $table, array $fields, string $foreign_table, array $foreign_fields, $update, $delete): void
     {
         $sql = 'ALTER TABLE ' . $table . ' ' .
@@ -382,16 +300,6 @@ class Schema extends AbstractSchema
         $this->con->execute($sql);
     }
 
-    /**
-     * Modify a field
-     *
-     * @param      string           $table    The table
-     * @param      string           $name     The name
-     * @param      string           $type     The type
-     * @param      int|null         $len      The length
-     * @param      bool             $null     The null
-     * @param      mixed            $default  The default value
-     */
     public function db_alter_field(string $table, string $name, string $type, ?int $len, bool $null, $default): void
     {
         $type = $this->udt2dbt($type, $len, $default);
@@ -415,14 +323,6 @@ class Schema extends AbstractSchema
         $this->con->execute($sql);
     }
 
-    /**
-     * Modify a primary key
-     *
-     * @param      string           $table    The table
-     * @param      string           $name     The name
-     * @param      string           $newname  The newname
-     * @param      string[]         $fields   The fields
-     */
     public function db_alter_primary(string $table, string $name, string $newname, array $fields): void
     {
         $sql = 'ALTER TABLE ' . $table . ' DROP CONSTRAINT ' . $name;
@@ -431,14 +331,6 @@ class Schema extends AbstractSchema
         $this->createPrimary($table, $newname, $fields);
     }
 
-    /**
-     * Modify a unique key
-     *
-     * @param      string           $table    The table
-     * @param      string           $name     The name
-     * @param      string           $newname  The newname
-     * @param      string[]         $fields   The fields
-     */
     public function db_alter_unique(string $table, string $name, string $newname, array $fields): void
     {
         $sql = 'ALTER TABLE ' . $table . ' DROP CONSTRAINT ' . $name;
@@ -447,15 +339,6 @@ class Schema extends AbstractSchema
         $this->createUnique($table, $newname, $fields);
     }
 
-    /**
-     * Modify an index
-     *
-     * @param      string           $table    The table
-     * @param      string           $name     The name
-     * @param      string           $newname  The newname
-     * @param      string           $type     The type
-     * @param      string[]         $fields   The fields
-     */
     public function db_alter_index(string $table, string $name, string $newname, string $type, array $fields): void
     {
         $sql = 'DROP INDEX ' . $name;
@@ -464,18 +347,6 @@ class Schema extends AbstractSchema
         $this->createIndex($table, $newname, $type, $fields);
     }
 
-    /**
-     * Modify a reference (foreign key)
-     *
-     * @param      string           $name            The name
-     * @param      string           $newname         The newname
-     * @param      string           $table           The table
-     * @param      string[]         $fields          The fields
-     * @param      string           $foreign_table   The foreign table
-     * @param      string[]         $foreign_fields  The foreign fields
-     * @param      false|string     $update          The update
-     * @param      false|string     $delete          The delete
-     */
     public function db_alter_reference(string $name, string $newname, string $table, array $fields, string $foreign_table, array $foreign_fields, $update, $delete): void
     {
         $sql = 'ALTER TABLE ' . $table . ' DROP CONSTRAINT ' . $name;
@@ -484,12 +355,6 @@ class Schema extends AbstractSchema
         $this->createReference($newname, $table, $fields, $foreign_table, $foreign_fields, $update, $delete);
     }
 
-    /**
-     * Remove a unique key
-     *
-     * @param      string  $table  The table
-     * @param      string  $name   The name
-     */
     public function db_drop_unique(string $table, string $name): void
     {
         $sql = 'ALTER TABLE ' . $table . ' DROP CONSTRAINT ' . $name;

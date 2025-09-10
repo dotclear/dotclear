@@ -23,6 +23,7 @@ use Dotclear\Helper\Html\Form\Hidden;
 use Dotclear\Helper\Html\Form\Label;
 use Dotclear\Helper\Html\Form\None;
 use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Option;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Password;
 use Dotclear\Helper\Html\Form\Select;
@@ -306,7 +307,10 @@ class Langs
             $dc_langs_combo = [];
             foreach (App::backend()->dc_langs as $lang) {
                 if ($lang->link && isset(App::backend()->iso_codes[$lang->title])) {
-                    $dc_langs_combo[Html::escapeHTML('(' . $lang->title . ') ' . App::backend()->iso_codes[$lang->title])] = Html::escapeHTML($lang->link);
+                    $dc_langs_combo[] = new Option(
+                        Html::escapeHTML('(' . $lang->title . ') ' . App::backend()->iso_codes[$lang->title]),
+                        Html::escapeHTML($lang->link)
+                    );
                 }
             }
 

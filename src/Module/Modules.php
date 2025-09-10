@@ -1336,6 +1336,7 @@ class Modules implements ModulesInterface
             $required_version = (string) preg_replace('/^([0-9\.]+)(.*?)$/', '$1', $required_version);
         }
 
+        // Note: Using a 3rd argument force version_compare to return true/false
         return version_compare($current_version, $required_version, $operator);
     }
 
