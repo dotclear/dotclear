@@ -1318,14 +1318,6 @@ class Modules implements ModulesInterface
         return require $________;
     }
 
-    /**
-     * Compare two module versions
-     *
-     * @param      string  $current_version   The current version
-     * @param      string  $required_version  The required version
-     * @param      string  $operator          The operator
-     * @param      bool    $strict            The strict
-     */
     public function versionsCompare(string $current_version, string $required_version, string $operator = '>=', bool $strict = true): bool
     {
         if ($strict) {

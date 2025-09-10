@@ -501,12 +501,12 @@ interface ModulesInterface
     public function resetErrors(): void;
 
     /**
-     * Compare two versions with option of using only main numbers.
+     * Compare two module versions
      *
-     * @param   string  $current_version    Current version
-     * @param   string  $required_version   Required version
-     * @param   string  $operator           Comparison operand
-     * @param   bool    $strict             Use full version
+     * @param      string                                                               $current_version   The current version
+     * @param      string                                                               $required_version  The required version
+     * @param      '!='|'<'|'<='|'<>'|'='|'=='|'>'|'>='|'eq'|'ge'|'gt'|'le'|'lt'|'ne'   $operator          The operator
+     * @param      bool                                                                 $strict            The strict
      */
     public function versionsCompare(string $current_version, string $required_version, string $operator = '>=', bool $strict = true): bool;
 

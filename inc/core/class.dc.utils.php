@@ -91,10 +91,10 @@ class dcUtils
      *
      * @deprecated  since 2.28, use App::plugins()->versionsCompare() instead
      *
-     * @param   string  $current_version    Current version
-     * @param   string  $required_version   Required version
-     * @param   string  $operator           Comparison operand
-     * @param   bool    $strict             Use full version
+     * @param      string                                                               $current_version   The current version
+     * @param      string                                                               $required_version  The required version
+     * @param      '!='|'<'|'<='|'<>'|'='|'=='|'>'|'>='|'eq'|'ge'|'gt'|'le'|'lt'|'ne'   $operator          The operator
+     * @param      bool                                                                 $strict            The strict
      */
     public static function versionsCompare(string $current_version, string $required_version, string $operator = '>=', bool $strict = true): bool
     {
