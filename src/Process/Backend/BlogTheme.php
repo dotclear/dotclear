@@ -151,8 +151,9 @@ class BlogTheme
             Http::cache([$filename, ...get_included_files()]);
 
             header('Content-Type: ' . Files::getMimeType($filename));
-            if (filesize($filename) !== false) {
-                header('Content-Length: ' . filesize($filename));
+            $size = filesize($filename);
+            if ($size !== false) {
+                header('Content-Length: ' . $size);
             }
             readfile($filename);
 
