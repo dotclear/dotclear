@@ -355,7 +355,7 @@ class SqlStatement
     protected function sanitizeCondition(array|string|null $c): array|string|null
     {
         if (is_array($c)) {
-            $ret = array_filter($c, fn ($item): bool => (bool) trim((string) $item));
+            $ret = array_filter($c, fn (string $item): bool => (bool) trim($item));
 
             return $ret !== [] ? $ret : null;
         }
