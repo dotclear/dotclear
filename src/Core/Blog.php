@@ -2141,22 +2141,28 @@ class Blog implements BlogInterface
             }
         }
 
-        if (!$this->core->auth()->check($this->core->auth()->makePermissions([
+        $frontend      = $this->core->task()->checkContext('FRONTEND');
+        $preview_mode  = $frontend ? $this->core->frontend()->context()->preview : false;
+        $content_admin = $this->core->auth()->check($this->core->auth()->makePermissions([
             $this->core->auth()::PERMISSION_CONTENT_ADMIN,
-        ]), $this->id) || // Check if in frontend context, excluding preview in backend
-            ($this->core->task()->checkContext('FRONTEND') && !$this->core->frontend()->context()->preview)) {
+        ]), $this->id);
+
+        // Permission reduced or (in frontend context and not in preview mode)
+        if (!$content_admin || ($frontend && !$preview_mode)) {
             $and = [];
             if ($with_comment) {
                 $and[] = 'comment_status > ' . $this->core->status()->comment()->threshold();
             }
-            # limit to PUBLISHED by default
-            $params['post_status'][] = $this->core->status()->post()::PUBLISHED;
-            $and[]                   = 'post_status ' . $sql->in($params['post_status']);
+            // limit to PUBLISHED by default but only if not in preview mode
+            if (!$preview_mode) {
+                $params['post_status'][] = $this->core->status()->post()::PUBLISHED;
+                $and[]                   = 'post_status ' . $sql->in($params['post_status']);
+            }
             if ($this->without_password) {
                 $and[] = 'post_password IS NULL';
             }
             $or = [$sql->andGroup($and)];
-            if ($this->core->auth()->userID() && !$this->core->task()->checkContext('FRONTEND')) {
+            if ($this->core->auth()->userID() && !$frontend) {
                 $or[] = 'P.user_id = ' . $sql->quote($this->core->auth()->userID());
             }
             $sql->and($sql->orGroup($or));
