@@ -335,13 +335,38 @@ class SqlStatement
         if ($reset) {
             $this->cond = [];
         }
+
+        $c = $this->sanitizeCondition($c);
+
         if (is_array($c)) {
             $this->cond = [...$this->cond, ...$c];
-        } elseif (!is_null($c)) {
+        } elseif (is_string($c)) {
             $this->cond[] = $c;
         }
 
         return $this;
+    }
+
+    /**
+     * @param  array<array-key, string>|string|null  $c
+     *
+     * @return array<array-key, string>|string|null
+     */
+    protected function sanitizeCondition(array|string|null $c): array|string|null
+    {
+        if (is_array($c)) {
+            $ret = array_filter($c, fn ($item): bool => (bool) trim((string) $item));
+
+            return $ret !== [] ? $ret : null;
+        }
+
+        if (is_string($c)) {
+            $ret = trim($c);
+
+            return $ret !== '' ? $ret : null;
+        }
+
+        return null;
     }
 
     /**
@@ -354,6 +379,12 @@ class SqlStatement
      */
     public function and($c, bool $reset = false): static
     {
+        $c = $this->sanitizeCondition($c);
+
+        if (is_null($c)) {
+            return $this;
+        }
+
         return $this->cond(array_map(fn ($v): string => 'AND ' . $v, is_array($c) ? $c : [$c]), $reset);
     }
 
@@ -364,6 +395,12 @@ class SqlStatement
      */
     public function andGroup($c): string
     {
+        $c = $this->sanitizeCondition($c);
+
+        if (is_null($c)) {
+            return '';
+        }
+
         $group = '(' . implode(' AND ', is_array($c) ? $c : [$c]) . ')';
 
         return $group === '()' ? '' : $group;
@@ -379,6 +416,12 @@ class SqlStatement
      */
     public function or($c, bool $reset = false): static
     {
+        if (is_array($c) && $c === []) {
+            return $this;
+        } elseif (is_string($c) && $c === '') {
+            return $this;
+        }
+
         return $this->cond(array_map(fn ($v): string => 'OR ' . $v, is_array($c) ? $c : [$c]), $reset);
     }
 
@@ -389,6 +432,12 @@ class SqlStatement
      */
     public function orGroup($c): string
     {
+        $c = $this->sanitizeCondition($c);
+
+        if (is_null($c)) {
+            return '';
+        }
+
         $group = '(' . implode(' OR ', is_array($c) ? $c : [$c]) . ')';
 
         return $group === '()' ? '' : $group;

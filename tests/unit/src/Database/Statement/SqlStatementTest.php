@@ -787,4 +787,44 @@ class SqlStatementTest extends TestCase
         if ($sql->syntaxEngine === 'Hello')
         ;
     }
+
+    #[DataProvider('dataProviderTest')]
+    public function testAnd(string $driver, string $driver_folder, string $syntax): void
+    {
+        $con = $this->getConnection($driver, $driver_folder, $syntax);
+        $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
+
+        $this->assertEquals(
+            '',
+            $sql->and([])->andGroup('')
+        );
+        $this->assertEquals(
+            '',
+            $sql->and('')->andGroup([])
+        );
+        $this->assertEquals(
+            '',
+            $sql->and(null)->andGroup([''])
+        );
+    }
+
+    #[DataProvider('dataProviderTest')]
+    public function testOr(string $driver, string $driver_folder, string $syntax): void
+    {
+        $con = $this->getConnection($driver, $driver_folder, $syntax);
+        $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
+
+        $this->assertEquals(
+            '',
+            $sql->or([])->orGroup('')
+        );
+        $this->assertEquals(
+            '',
+            $sql->or('')->orGroup([])
+        );
+        $this->assertEquals(
+            '',
+            $sql->or(null)->orGroup([''])
+        );
+    }
 }
