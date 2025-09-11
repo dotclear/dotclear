@@ -52,14 +52,14 @@ interface BehaviorInterface
      *
      * @param   string  $behavior   The behavior
      *
-     * @return  list<callable>     The behaviors.
+     * @return  callable[]     The behaviors.
      */
     public function getBehavior(string $behavior): array;
 
     /**
      * Gets the behaviors stack.
      *
-     * @return  array<string,list<callable>>   The behaviors.
+     * @return  array<string,callable[]>   The behaviors.
      */
     public function getBehaviors(): array;
 

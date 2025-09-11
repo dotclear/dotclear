@@ -54,7 +54,7 @@ interface SchemaInterface
      *
      * @param      string $table Table name
      *
-     * @return     array<array{name: string, primary: bool, unique: bool, cols: list<string>}>
+     * @return     array<array{name: string, primary: bool, unique: bool, cols: string[]}>
      */
     public function db_get_keys(string $table): array;
 

@@ -24,7 +24,7 @@ class Utils
      * Check server support.
      *
      * @param   ConnectionInterface     $con    The db handler instance
-     * @param   list<string>            $err    The errors
+     * @param   string[]                $err    The errors
      *
      * @return  bool    False on error
      */

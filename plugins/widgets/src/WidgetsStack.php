@@ -49,7 +49,7 @@ class WidgetsStack
     /**
      * Return encoded widgets.
      *
-     * @return  list<array<string, mixed>>
+     * @return  array<array<string, mixed>>
      */
     public function store(): array
     {
@@ -166,8 +166,8 @@ class WidgetsStack
     /**
      * Loads an array of widgets.
      *
-     * @param   list<array<string, mixed>>      $A
-     * @param   WidgetsStack                    $widgets    The widgets
+     * @param   array<array<string, mixed>>      $A
+     * @param   WidgetsStack                     $widgets    The widgets
      */
     public static function loadArray(array $A, self $widgets): self
     {

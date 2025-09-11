@@ -420,7 +420,7 @@ class IpV6 extends SpamFilter
         $sql = new DeleteStatement();
 
         /**
-         * @var list<int>
+         * @var int[]
          */
         $list = [];
 

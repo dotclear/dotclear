@@ -72,7 +72,7 @@ class Record implements Iterator, Countable
      * - info[type] => an array with columns types
      *
      * @param mixed     $__result      Resource result
-     * @param array{con: ?AbstractHandler, cols: int, rows: int, info: array{name: list<string>, type: list<string>}}   $__info   Information array
+     * @param array{con: ?AbstractHandler, cols: int, rows: int, info: array{name: string[], type: string[]}}   $__info   Information array
      */
     public function __construct(
         protected mixed $__result,
@@ -364,7 +364,7 @@ class Record implements Iterator, Countable
     }
 
     /**
-     * @return list<string>   array of columns names
+     * @return string[]   array of columns names
      */
     public function columns(): array
     {
@@ -372,7 +372,7 @@ class Record implements Iterator, Countable
     }
 
     /**
-     * @return list<array<array-key, mixed>>    all rows in record.
+     * @return array<array<array-key, mixed>>    all rows in record.
      */
     public function rows(): array
     {
@@ -384,7 +384,7 @@ class Record implements Iterator, Countable
      *
      * Returns an array of all rows in record. This method is called by rows().
      *
-     * @return list<array<array-key, mixed>>
+     * @return array<array<array-key, mixed>>
      */
     protected function getData(): array
     {

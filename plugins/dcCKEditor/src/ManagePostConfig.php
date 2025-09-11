@@ -45,7 +45,7 @@ class ManagePostConfig
     /**
      * Return jQuery ready part
      *
-     * @param      list<array{name:string, url:string, button:string}>   $extraPlugins  The extra plugins
+     * @param      array<array{name:string, url:string, button:string}>   $extraPlugins  The extra plugins
      */
     protected static function jsReady(array $extraPlugins): string
     {

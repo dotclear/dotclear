@@ -47,14 +47,14 @@ interface CacheInterface
     /**
      * Add files to the files list.
      *
-     * @param   list<string>   $files  The files path to add
+     * @param   string[]   $files  The files path to add
      */
     public function addFiles(array $files): void;
 
     /**
      * Get the files list.
      *
-     * @return  list<string>   The files path
+     * @return  string[]   The files path
      */
     public function getFiles(): array;
 
@@ -73,14 +73,14 @@ interface CacheInterface
     /**
      * Add timestamps to the timestamps list.
      *
-     * @param   list<int>  $times  The timestamps
+     * @param   int[]  $times  The timestamps
      */
     public function addTimes(array $times): void;
 
     /**
      * Get the timestamps list.
      *
-     * @return  list<int>  The timestamps
+     * @return  int[]  The timestamps
      */
     public function getTimes(): array;
 }

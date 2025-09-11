@@ -29,7 +29,7 @@ class Mail
      * @param string                    $to           Email destination
      * @param string                    $subject      Email subject
      * @param string                    $message      Email message
-     * @param null|string|list<string>  $headers      Email headers
+     * @param null|string|string[]      $headers      Email headers
      * @param string                    $params       UNIX mail additionnal parameters
      *
      * @return boolean                        true on success

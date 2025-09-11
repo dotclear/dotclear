@@ -391,7 +391,7 @@ class Utility extends AbstractUtility
     /**
      * Get list of available menuitems
      *
-     * @return     list<string>
+     * @return     string[]
      */
     public function listMenus(): array
     {

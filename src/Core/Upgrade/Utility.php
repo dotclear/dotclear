@@ -256,7 +256,7 @@ class Utility extends AbstractUtility
      *
      * Used by sidebar menu, home dashboard and url handler.
      *
-     * @return  list<Icon>
+     * @return  Icon[]
      */
     public function getIcons(): array
     {

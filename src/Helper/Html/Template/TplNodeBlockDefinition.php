@@ -22,7 +22,7 @@ class TplNodeBlockDefinition extends TplNodeBlock
     /**
      * Stack of blocks
      *
-     * @var        array<string, array{pos: int, blocks: list<string|ArrayObject<int,TplNode|TplNodeBlock|TplNodeBlockDefinition|TplNodeText|TplNodeValue|TplNodeValueParent> >}>  $stack
+     * @var        array<string, array{pos: int, blocks: array<string|ArrayObject<int,TplNode|TplNodeBlock|TplNodeBlockDefinition|TplNodeText|TplNodeValue|TplNodeValueParent> >}>  $stack
      */
     protected static $stack = [];
 

@@ -18,14 +18,14 @@ class HttpCacheStack
     /**
      * The files path stack
      *
-     * @var    list<string>     $files
+     * @var    string[]     $files
      */
     private array $files = [];
 
     /**
      * The timestamps stack
      *
-     * @var    list<int>        $times
+     * @var    int[]        $times
      */
     private array $times = [];
 
@@ -50,7 +50,7 @@ class HttpCacheStack
     /**
      * Add files to the files list.
      *
-     * @param   list<string>   $files  The files path to add
+     * @param   string[]   $files  The files path to add
      */
     public function addFiles(array $files): void
     {
@@ -62,7 +62,7 @@ class HttpCacheStack
     /**
      * Get the files list.
      *
-     * @return  list<string>   The files path
+     * @return  string[]   The files path
      */
     public function getFiles(): array
     {
@@ -90,7 +90,7 @@ class HttpCacheStack
     /**
      * Add timestamps to the timestamps list.
      *
-     * @param   list<int>  $times  The timestamps
+     * @param   int[]  $times  The timestamps
      */
     public function addTimes(array $times): void
     {
@@ -102,7 +102,7 @@ class HttpCacheStack
     /**
      * Get the timestamps list.
      *
-     * @return  list<int>  The timestamps
+     * @return  int[]  The timestamps
      */
     public function getTimes(): array
     {

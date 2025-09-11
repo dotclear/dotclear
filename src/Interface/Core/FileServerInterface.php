@@ -24,7 +24,7 @@ interface FileServerInterface
     /**
      * Supported types of resource.
      *
-     * @var     list<string>  DEFAULT_TYPES
+     * @var     string[]  DEFAULT_TYPES
      */
     public const DEFAULT_TYPES = [
         'plugin',
@@ -36,7 +36,7 @@ interface FileServerInterface
     /**
      * Supported file extension.
      *
-     * @var     list<string>  DEFAULT_EXTENSIONS
+     * @var     string[]  DEFAULT_EXTENSIONS
      */
     public const DEFAULT_EXTENSIONS = [
         'css',
@@ -64,7 +64,7 @@ interface FileServerInterface
     /**
      * Supported core base folder.
      *
-     * @var     list<string>  DEFAULT_CORE_LIMITS
+     * @var     string[]  DEFAULT_CORE_LIMITS
      */
     public const DEFAULT_CORE_LIMITS = [
         'js',
@@ -76,7 +76,7 @@ interface FileServerInterface
     /**
      * Supported minifield file extension.
      *
-     * @var     list<string>  DEFAULT_MINIFIED
+     * @var     string[]  DEFAULT_MINIFIED
      */
     public const DEFAULT_MINIFIED = [
         'css',
@@ -87,7 +87,7 @@ interface FileServerInterface
     /**
      * File extension that does not need cache in dev mode.
      *
-     * @var     list<string>  DEFAULT_NOCACHE
+     * @var     string[]  DEFAULT_NOCACHE
      */
     public const DEFAULT_NOCACHE = [
         'css',

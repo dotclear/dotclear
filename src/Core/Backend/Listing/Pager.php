@@ -53,8 +53,8 @@ class Pager extends HelperPager
      *
      * @param   string            $li_class           The li class
      * @param   string            $href               The href
-     * @param   list<string>      $img_src            The images source (light, dark)
-     * @param   list<string>      $img_src_nolink     The image source nolink (light, dark)
+     * @param   string[]          $img_src            The images source (light, dark)
+     * @param   string[]          $img_src_nolink     The image source nolink (light, dark)
      * @param   string            $img_alt            The image alternate
      * @param   bool              $enable_link        The enable link
      *

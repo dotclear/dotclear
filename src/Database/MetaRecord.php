@@ -392,7 +392,7 @@ class MetaRecord implements Iterator, Countable
     /**
      * Get record rows
      *
-     * @return     list<array<mixed>>
+     * @return     array<array<mixed>>
      */
     public function rows(): array
     {

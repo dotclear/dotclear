@@ -37,7 +37,7 @@ interface ErrorInterface
     /**
      * Get errors stack.
      *
-     * @return  list<string>   The errors stack
+     * @return  string[]   The errors stack
      */
     public function dump(): array;
 

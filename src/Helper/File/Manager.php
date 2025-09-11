@@ -71,7 +71,7 @@ class Manager
      *
      * @deprecated since 2.28, use self::getDirs() or self::getFiles();
      *
-     * @var        array<string, list<File>>    $dir
+     * @var        array<string, File[]>    $dir
      */
     protected $dir = [
         'dirs'  => [],
@@ -301,7 +301,7 @@ class Manager
     /**
      * Get current dirs.
      *
-     * @return list<File>
+     * @return File[]
      */
     public function getDirs(): array
     {
@@ -311,7 +311,7 @@ class Manager
     /**
      * Get current dirs.
      *
-     * @return list<File>
+     * @return File[]
      */
     public function getFiles(): array
     {

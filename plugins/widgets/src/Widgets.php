@@ -339,7 +339,7 @@ class Widgets
         $root = new Ul();
 
         /**
-         * @var list<Ul>
+         * @var Ul[]
          */
         $stack = [0 => $root];    // level => Ul
 
@@ -372,7 +372,7 @@ class Widgets
             // Add Li to its parent Ul
 
             /**
-             * @var list<Li|Ul>
+             * @var array<Li|Ul>
              */
             $items                    = $stack[$level - 1]->items;
             $items[]                  = $li;
@@ -386,7 +386,7 @@ class Widgets
                 $ul = new Ul();
 
                 /**
-                 * @var list<Li|Ul>
+                 * @var array<Li|Ul>
                  */
                 $items   = $li->items;
                 $items[] = $ul;

@@ -387,7 +387,7 @@ class Words extends SpamFilter
         $sql = new DeleteStatement();
 
         /**
-         * @var list<int>
+         * @var int[]
          */
         $list = [];
 

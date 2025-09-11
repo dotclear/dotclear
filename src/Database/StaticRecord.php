@@ -45,7 +45,7 @@ class StaticRecord extends Record
      * Constructs a new instance.
      *
      * @param mixed     $result  The result
-     * @param null|array{con: ?AbstractHandler, cols: int, rows: int, info: array{name: list<string>, type: list<string>}}    $info    The information
+     * @param null|array{con: ?AbstractHandler, cols: int, rows: int, info: array{name: string[], type: string[]}}    $info    The information
      */
     public function __construct(mixed $result, ?array $info)
     {
@@ -148,7 +148,7 @@ class StaticRecord extends Record
     /**
      * Get record rows
      *
-     * @return     list<array<array-key, mixed>>
+     * @return     array<array<array-key, mixed>>
      */
     public function rows(): array
     {

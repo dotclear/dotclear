@@ -61,7 +61,7 @@ class Blowup
     /**
      * Combo for font families selector
      *
-     * @var        list<Option|Optgroup>     $fonts_combo
+     * @var        array<Option|Optgroup>     $fonts_combo
      */
     protected static $fonts_combo = [];
 
@@ -99,7 +99,7 @@ class Blowup
     /**
      * Populate the combo selector
      *
-     * @return     list<Option|Optgroup>
+     * @return     array<Option|Optgroup>
      */
     public static function fontsList(): array
     {

@@ -174,7 +174,7 @@ class Manage
      *
      * @param   bool    $global     The global
      *
-     * @return     list<Set|Form>
+     * @return     array<Set|Form>
      */
     protected static function prefsTable(bool $global = false): array
     {

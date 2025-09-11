@@ -40,7 +40,7 @@ class Replay
     /**
      * List of version having growup actions.
      *
-     * @var     list<Option> $versions
+     * @var     Option[] $versions
      */
     private static array $versions = [];
 

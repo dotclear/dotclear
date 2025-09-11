@@ -56,7 +56,7 @@ class Wizard
     /**
      * Available database drivers.
      *
-     * @var     list<Option>
+     * @var     Option[]
      */
     private static array $drivers = [];
 

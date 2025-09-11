@@ -270,7 +270,7 @@ class Config
                 App::backend()->ductile_user = $ductile_user;
 
                 /**
-                 * @var list<array{label: string, url: string, image: string}>
+                 * @var array<array{label: string, url: string, image: string}>
                  */
                 $ductile_stickers = [];
                 for ($i = 0; $i < (is_countable($_POST['sticker_image']) ? count($_POST['sticker_image']) : 0); $i++) {

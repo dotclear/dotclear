@@ -23,14 +23,14 @@ use Dotclear\Helper\Html\Html;
 class Statuses
 {
     /**
-     * @var    list<Status>  $statuses
+     * @var    Status[]  $statuses
      */
     protected array $statuses = [];
 
     /**
      * Create status instance.
      *
-     * @param   list<Status>  $statuses    The status stack
+     * @param   Status[]  $statuses    The status stack
      */
     public function __construct(
         protected string $column,
@@ -236,7 +236,7 @@ class Statuses
     /**
      * Gets statuses descriptors.
      *
-     * @return  list<Status>  The descriptors.
+     * @return  Status[]  The descriptors.
      */
     public function dump(bool $with_hidden = true): array
     {

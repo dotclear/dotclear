@@ -141,7 +141,7 @@ interface MediaInterface
      *
      * @see \Dotclear\Helper\File\Manager::$exclude_list
      *
-     * @param   string|list<string>    $list   Exclusion regexp
+     * @param   string|string[]    $list   Exclusion regexp
      */
     public function addExclusion($list): void;
 
@@ -203,14 +203,14 @@ interface MediaInterface
     /**
      * Get current dirs.
      *
-     * @return list<MediaFile>
+     * @return MediaFile[]
      */
     public function getDirs(): array;
 
     /**
      * Get current dirs.
      *
-     * @return list<MediaFile>
+     * @return MediaFile[]
      */
     public function getFiles(): array;
 
@@ -250,7 +250,7 @@ interface MediaInterface
      * @param   mixed   $media_id   The media identifier(s)
      * @param   mixed   $link_type  The link type(s)
      *
-     * @return  list<MediaFile>     Array of MediaFile.
+     * @return  MediaFile[]     Array of MediaFile.
      */
     public function getPostMedia(int $post_id, $media_id = null, $link_type = null): array;
 
@@ -412,7 +412,7 @@ interface MediaInterface
      *
      * @uses    MediaFile
      *
-     * @return  list<string>
+     * @return  string[]
      */
     public function getDBDirs(): array;
 

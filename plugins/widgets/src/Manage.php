@@ -271,7 +271,7 @@ class Manage
             $head .= My::jsLoad('dragdrop');
         }
         if ($rte_flag) {
-            # --BEHAVIOR-- adminPostEditor -- string, string, string, list<string>, string
+            # --BEHAVIOR-- adminPostEditor -- string, string, string, string[], string
             $head .= App::behavior()->callBehavior(
                 'adminPostEditor',
                 $widget_editor['xhtml'],

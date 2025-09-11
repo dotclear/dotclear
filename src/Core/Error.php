@@ -25,7 +25,7 @@ class Error implements ErrorInterface
     /**
      * Errors stack.
      *
-     * @var     list<string>   $stack
+     * @var     string[]   $stack
      */
     protected $stack = [];
 

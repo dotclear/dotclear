@@ -176,7 +176,7 @@ class Manage
      *
      * @param      bool  $global  True if global settings
      *
-     * @return     list<Set|Form>
+     * @return     array<Set|Form>
      */
     protected static function settingsTable(bool $global = false): array
     {
