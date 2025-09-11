@@ -41,9 +41,9 @@ class Manage
     public static function init(): bool
     {
         // Menu is only accessible if admin/superadmin
-        App::backend()->editor_is_admin = self::status(My::checkContext(My::MENU));
+        App::backend()->editor_is_admin = My::checkContext(My::MENU);
 
-        if (!self::status()) {
+        if (!self::status(My::checkContext(My::MANAGE))) {
             return false;
         }
 
