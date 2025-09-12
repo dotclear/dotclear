@@ -63,8 +63,12 @@ class Listing
     /**
      * Get user defined columns
      *
+     * The $cols paramters should be populate with all possible columns and then unwanted columns
+     * will be removed if user set so via UserPref::getUserColumns.
+     * Each column having a key name and having some value (mixed).
+     *
      * @param      string                                               $type   The type
-     * @param      array<string, string>|ArrayObject<string, string>    $cols   The columns
+     * @param      array<string, mixed>|ArrayObject<string, mixed>      $cols   The columns
      */
     public function userColumns(string $type, array|ArrayObject $cols): void
     {
