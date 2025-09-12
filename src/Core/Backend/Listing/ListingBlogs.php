@@ -19,6 +19,7 @@ use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Img;
 use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\None;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Set;
 use Dotclear\Helper\Html\Form\Strong;
@@ -74,56 +75,48 @@ class ListingBlogs extends Listing
                 ->scope('col')
                 ->abbr('comm')
                 ->class(['first', 'nowrap'])
-                ->text(__('Blog id'))
-            ->render(),
+                ->text(__('Blog id')),
 
             'name' => (new Th())
                 ->scope('col')
                 ->abbr('name')
-                ->text(__('Blog name'))
-            ->render(),
+                ->text(__('Blog name')),
 
             'url' => (new Th())
                 ->scope('col')
                 ->class('nowrap')
-                ->text(__('URL'))
-            ->render(),
+                ->text(__('URL')),
 
             'posts' => (new Th())
                 ->scope('col')
                 ->class('nowrap')
-                ->text(__('Entries (all types)'))
-            ->render(),
+                ->text(__('Entries (all types)')),
 
             'upddt' => (new Th())
                 ->scope('col')
                 ->class('nowrap')
-                ->text(__('Last update'))
-            ->render(),
+                ->text(__('Last update')),
 
             'status' => (new Th())
                 ->scope('col')
-                ->text(__('Status'))
-            ->render(),
+                ->text(__('Status')),
         ];
 
         /**
-         * @var ArrayObject<string, string>
+         * @var ArrayObject<string, mixed>
          */
         $cols = new ArrayObject($cols);
 
-        # --BEHAVIOR-- adminBlogListHeaderV2 -- MetaRecord, ArrayObject<string, string>
+        # --BEHAVIOR-- adminBlogListHeaderV2 -- MetaRecord, ArrayObject<string, mixed>
         App::behavior()->callBehavior('adminBlogListHeaderV2', $this->rs, $cols);
 
         // Cope with optional columns
-        $this->userColumns('blogs', $cols);
+        $this->userColumns('blogs', $cols, true);
 
         // Prepare listing
         $lines = [
             (new Tr())
-                ->items([
-                    (new Text(null, implode('', iterator_to_array($cols)))),
-                ]),
+                ->items($cols),
         ];
         while ($this->rs->fetch()) {
             $lines[] = $this->blogLine(isset($blogs[$this->rs->blog_id]));
@@ -174,9 +167,8 @@ class ListingBlogs extends Listing
                     ->items([
                         (new Checkbox(['blogs[]'], $checked))
                             ->value($this->rs->blog_id),
-                    ])
-                ->render() :
-                '',
+                    ]) :
+                (new None()),
 
             'blog' => (new Td())
                 ->class('nowrap')
@@ -195,8 +187,7 @@ class ListingBlogs extends Listing
                             (new Text(null, $blog_id)),
                         ]) :
                     (new Text(null, $blog_id)),
-                ])
-            ->render(),
+                ]),
 
             'name' => (new Td())
                 ->class('maximal')
@@ -205,8 +196,7 @@ class ListingBlogs extends Listing
                         ->href(App::backend()->url()->get('admin.home', ['switchblog' => $this->rs->blog_id]))
                         ->title(sprintf(__('Switch to blog %s'), $this->rs->blog_id))
                         ->text(Html::escapeHTML($this->rs->blog_name)),
-                ])
-            ->render(),
+                ]),
 
             'url' => (new Td())
                 ->class('nowrap')
@@ -220,40 +210,37 @@ class ListingBlogs extends Listing
                             (new Img('images/outgoing-link.svg'))
                                 ->alt(''),
                         ]),
-                ])
-            ->render(),
+                ]),
 
             'posts' => (new Td())
                 ->class(['nowrap', 'count'])
-                ->text((string) App::blogs()->countBlogPosts($this->rs->blog_id))
-            ->render(),
+                ->text((string) App::blogs()->countBlogPosts($this->rs->blog_id)),
 
             'upddt' => (new Td())
                 ->class(['nowrap', 'count'])
                 ->items([
                     (new Timestamp(Date::str(__('%Y-%m-%d %H:%M'), strtotime($this->rs->blog_upddt) + Date::getTimeOffset(App::auth()->getInfo('user_tz')))))
                         ->datetime(Date::iso8601((int) strtotime($this->rs->blog_upddt), App::auth()->getInfo('user_tz'))),
-                ])
-            ->render(),
+                ]),
 
             'status' => (new Td())
                 ->class(['nowrap', 'status'])
-                ->items([App::status()->blog()->image((int) $this->rs->blog_status)])
-            ->render(),
+                ->items([App::status()->blog()->image((int) $this->rs->blog_status)]),
         ];
 
+        /**
+         * @var ArrayObject<string, mixed>
+         */
         $cols = new ArrayObject($cols);
         # --BEHAVIOR-- adminBlogListValueV2 -- MetaRecord, ArrayObject
         App::behavior()->callBehavior('adminBlogListValueV2', $this->rs, $cols);
 
         // Cope with optional columns
-        $this->userColumns('blogs', $cols);
+        $this->userColumns('blogs', $cols, true);
 
         return (new Tr())
             ->id('b' . $blog_id)
             ->class('line')
-            ->items([
-                (new Text(null, implode('', iterator_to_array($cols)))),
-            ]);
+            ->items($cols);
     }
 }

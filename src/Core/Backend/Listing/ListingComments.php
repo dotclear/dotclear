@@ -116,58 +116,49 @@ class ListingComments extends Listing
                 ->colspan(2)
                 ->scope('col')
                 ->class('first')
-                ->text(__('Type'))
-            ->render(),
+                ->text(__('Type')),
 
             'author' => (new Th())
                 ->scope('col')
-                ->text(__('Author'))
-            ->render(),
+                ->text(__('Author')),
 
             'date' => (new Th())
                 ->scope('col')
-                ->text(__('Date'))
-            ->render(),
+                ->text(__('Date')),
 
             'status' => (new Th())
                 ->scope('col')
-                ->text(__('Status'))
-            ->render(),
+                ->text(__('Status')),
         ];
         if ($show_ip) {
             $cols['ip'] = (new Th())
                 ->scope('col')
-                ->text(__('IP'))
-            ->render();
+                ->text(__('IP'));
         }
         if ($spam) {
             $cols['spam_filter'] = (new Th())
                 ->scope('col')
-                ->text(__('Spam filter'))
-            ->render();
+                ->text(__('Spam filter'));
         }
         $cols['entry'] = (new Th())
             ->scope('col')
-            ->text(__('Entry'))
-        ->render();
+            ->text(__('Entry'));
 
         /**
-         * @var ArrayObject<string, string>
+         * @var ArrayObject<string, mixed>
          */
         $cols = new ArrayObject($cols);
 
-        # --BEHAVIOR-- adminCommentListHeaderV2 -- MetaRecord, ArrayObject<string, string>
+        # --BEHAVIOR-- adminCommentListHeaderV2 -- MetaRecord, ArrayObject<string, mixed>
         App::behavior()->callBehavior('adminCommentListHeaderV2', $this->rs, $cols);
 
         // Cope with optional columns
-        $this->userColumns('comments', $cols);
+        $this->userColumns('comments', $cols, true);
 
         // Prepare listing
         $lines = [
             (new Tr())
-                ->items([
-                    (new Text(null, implode('', iterator_to_array($cols)))),
-                ]),
+                ->items($cols),
         ];
         while ($this->rs->fetch()) {
             $lines[] = $this->commentLine(isset($comments[$this->rs->comment_id]), $spam, $filters, $show_ip);
@@ -230,8 +221,7 @@ class ListingComments extends Listing
                 ->items([
                     (new Checkbox(['comments[]'], $checked))
                         ->value($this->rs->comment_id),
-                ])
-            ->render(),
+                ]),
 
             'type' => (new Td())
                 ->class('nowrap')
@@ -248,8 +238,7 @@ class ListingComments extends Listing
                                 ->alt(__('Edit')),
                             (new Text(null, $this->rs->comment_trackback ? __('trackback') : __('comment'))),
                         ]),
-                ])
-            ->render(),
+                ]),
 
             'author' => (new Td())
                 ->class(['nowrap', 'maximal'])
@@ -257,23 +246,20 @@ class ListingComments extends Listing
                     (new Link())
                         ->href($author_url)
                         ->text(Html::escapeHTML($this->rs->comment_author)),
-                ])
-            ->render(),
+                ]),
 
             'date' => (new Td())
                 ->class(['nowrap', 'count'])
                 ->items([
                     (new Timestamp(Date::dt2str(__('%Y-%m-%d %H:%M'), $this->rs->comment_dt)))
                         ->datetime(Date::iso8601((int) strtotime($this->rs->comment_dt), App::auth()->getInfo('user_tz'))),
-                ])
-            ->render(),
+                ]),
 
             'status' => (new Td())
                 ->class(['nowrap', 'status'])
                 ->items([
                     App::status()->post()->image((int) $this->rs->comment_status),
-                ])
-            ->render(),
+                ]),
         ];
 
         if ($show_ip) {
@@ -283,8 +269,7 @@ class ListingComments extends Listing
                     (new Link())
                         ->href(App::backend()->url()->get('admin.comments', ['ip' => $this->rs->comment_ip]))
                         ->text($this->rs->comment_ip),
-                ])
-            ->render();
+                ]);
         }
         if ($spam) {
             $filter_name = '';
@@ -297,8 +282,7 @@ class ListingComments extends Listing
             }
             $cols['spam_filter'] = (new Td())
                 ->class('nowrap')
-                ->text($filter_name)
-            ->render();
+                ->text($filter_name);
         }
 
         $cols['entry'] = (new Td())
@@ -309,15 +293,17 @@ class ListingComments extends Listing
                     ->href($post_url)
                     ->text($post_title),
                 (new Text(null, $this->rs->post_type !== 'post' ? '(' . Html::escapeHTML($this->rs->post_type) . ')' : '')),
-            ])
-        ->render();
+            ]);
 
+        /**
+         * @var ArrayObject<string, mixed>
+         */
         $cols = new ArrayObject($cols);
-        # --BEHAVIOR-- adminCommentListValueV2 -- MetaRecord, ArrayObject
+        # --BEHAVIOR-- adminCommentListValueV2 -- MetaRecord, ArrayObject<string, mixed>
         App::behavior()->callBehavior('adminCommentListValueV2', $this->rs, $cols);
 
         // Cope with optional columns
-        $this->userColumns('comments', $cols);
+        $this->userColumns('comments', $cols, true);
 
         return (new Tr())
             ->id('c' . $this->rs->comment_id)
@@ -326,8 +312,6 @@ class ListingComments extends Listing
                 App::status()->comment()->isRestricted((int) $this->rs->comment_status) ? 'offline' : '',
                 'sts-' . App::status()->post()->id((int) $this->rs->comment_status),
             ]))
-            ->items([
-                (new Text(null, implode('', iterator_to_array($cols)))),
-            ]);
+            ->items($cols);
     }
 }

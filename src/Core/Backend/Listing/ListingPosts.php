@@ -75,20 +75,20 @@ class ListingPosts extends Listing
                 ->scope('col')
                 ->colspan(2)
                 ->class('first')
-                ->text(__('Title'))
-            ->render(),
+                ->text(__('Title')),
+
             'date' => (new Th())
                 ->scope('col')
-                ->text(__('Date'))
-            ->render(),
+                ->text(__('Date')),
+
             'category' => (new Th())
                 ->scope('col')
-                ->text(__('Category'))
-            ->render(),
+                ->text(__('Category')),
+
             'author' => (new Th())
                 ->scope('col')
-                ->text(__('Author'))
-            ->render(),
+                ->text(__('Author')),
+
             'comments' => (new Th())
                 ->scope('col')
                 ->items([
@@ -100,8 +100,8 @@ class ListingPosts extends Listing
                         ->alt(__('Comments')),
                     (new Span(__('Comments')))
                         ->class('hidden'),
-                ])
-            ->render(),
+                ]),
+
             'trackbacks' => (new Th())
                 ->scope('col')
                 ->items([
@@ -113,33 +113,31 @@ class ListingPosts extends Listing
                         ->alt(__('Trackbacks')),
                     (new Span(__('Trackbacks')))
                         ->class('hidden'),
-                ])
-            ->render(),
+                ]),
+
             'status' => (new Th())
                 ->scope('col')
-                ->text(__('Status'))
-            ->render(),
+                ->text(__('Status')),
         ];
 
         if ($include_type) {
             $cols = array_merge($cols, [
                 'type' => (new Th())
                     ->scope('col')
-                    ->text(__('Type'))
-                ->render(),
+                    ->text(__('Type')),
             ]);
         }
 
         /**
-         * @var ArrayObject<string, string>
+         * @var ArrayObject<string, mixed>
          */
         $cols = new ArrayObject($cols);
 
-        # --BEHAVIOR-- adminPostListHeaderV2 -- MetaRecord, ArrayObject<string, string>
+        # --BEHAVIOR-- adminPostListHeaderV2 -- MetaRecord, ArrayObject<string, mixed>
         App::behavior()->callBehavior('adminPostListHeaderV2', $this->rs, $cols);
 
         // Cope with optional columns
-        $this->userColumns('posts', $cols);
+        $this->userColumns('posts', $cols, true);
 
         // Prepare listing
         $lines = [];
@@ -192,9 +190,7 @@ class ListingPosts extends Listing
                         (new Thead())
                             ->rows([
                                 (new Tr())
-                                    ->items([
-                                        (new Text(null, implode('', iterator_to_array($cols)))),
-                                    ]),
+                                    ->items($cols),
                             ]),
                         (new Tbody())
                             ->id('pageslist')
@@ -280,51 +276,50 @@ class ListingPosts extends Listing
                         ->value($this->rs->post_id)
                         ->disabled(!$this->rs->isEditable())
                         ->title(__('Select this post')),
-                ])
-            ->render(),
+                ]),
+
             'title' => (new Td())
                 ->class('maximal')
                 ->items([
                     (new Link())
                         ->href(App::postTypes()->get($this->rs->post_type)->adminUrl($this->rs->post_id))
                         ->text(Html::escapeHTML(trim(Html::clean($this->rs->post_title)))),
-                ])
-            ->render(),
+                ]),
+
             'date' => (new Td())
                 ->class(['nowrap', 'count'])
                 ->items([
                     (new Timestamp(Date::dt2str(__('%Y-%m-%d %H:%M'), $this->rs->post_dt)))
                         ->datetime(Date::iso8601((int) strtotime($this->rs->post_dt), App::auth()->getInfo('user_tz'))),
-                ])
-            ->render(),
+                ]),
+
             'category' => (new Td())
                 ->class('nowrap')
                 ->items([
                     $category,
-                ])
-            ->render(),
+                ]),
+
             'author' => (new Td())
                 ->class('nowrap')
-                ->text($this->rs->user_id)
-            ->render(),
+                ->text($this->rs->user_id),
+
             'comments' => (new Td())
                 ->class(['nowrap', 'count', 'entry-comments-count'])
                 ->text($this->rs->nb_comment)
-                ->extra((bool) $this->rs->post_open_comment ? '' : 'aria-details="' . __('Comments closed') . '"')
-            ->render(),
+                ->extra((bool) $this->rs->post_open_comment ? '' : 'aria-details="' . __('Comments closed') . '"'),
+
             'trackbacks' => (new Td())
                 ->class(['nowrap', 'count', 'entry-trackbacks-count'])
                 ->text($this->rs->nb_trackback)
-                ->extra((bool) $this->rs->post_open_tb ? '' : 'aria-details="' . __('Trackbacks closed') . '"')
-            ->render(),
+                ->extra((bool) $this->rs->post_open_tb ? '' : 'aria-details="' . __('Trackbacks closed') . '"'),
+
             'status' => (new Td())
                 ->class(['nowrap', 'status'])
                 ->separator(' ')
                 ->items([
                     App::status()->post()->image((int) $this->rs->post_status),
                     ... $status,
-                ])
-            ->render(),
+                ]),
         ];
 
         if ($include_type) {
@@ -334,23 +329,23 @@ class ListingPosts extends Listing
                     ->separator(' ')
                     ->items([
                         App::postTypes()->image($this->rs->post_type),
-                    ])
-                ->render(),
+                    ]),
             ]);
         }
 
+        /**
+         * @var ArrayObject<string, mixed>
+         */
         $cols = new ArrayObject($cols);
-        # --BEHAVIOR-- adminPostListValueV2 -- MetaRecord, ArrayObject
+        # --BEHAVIOR-- adminPostListValueV2 -- MetaRecord, ArrayObject<string, mixed>
         App::behavior()->callBehavior('adminPostListValueV2', $this->rs, $cols);
 
         // Cope with optional columns
-        $this->userColumns('posts', $cols);
+        $this->userColumns('posts', $cols, true);
 
         return (new Tr())
             ->id('p' . $this->rs->post_id)
             ->class($post_classes)
-            ->items([
-                (new Text(null, implode('', iterator_to_array($cols)))),
-            ]);
+            ->items($cols);
     }
 }

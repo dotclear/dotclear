@@ -22,7 +22,6 @@ use Dotclear\Helper\Html\Form\Strong;
 use Dotclear\Helper\Html\Form\Table;
 use Dotclear\Helper\Html\Form\Tbody;
 use Dotclear\Helper\Html\Form\Td;
-use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Th;
 use Dotclear\Helper\Html\Form\Thead;
 use Dotclear\Helper\Html\Form\Timestamp;
@@ -60,32 +59,31 @@ class ListingPostsMini extends Listing
         $cols = [
             'title' => (new Th())
                 ->scope('col')
-                ->text(__('Title'))
-            ->render(),
+                ->text(__('Title')),
+
             'date' => (new Th())
                 ->scope('col')
-                ->text(__('Date'))
-            ->render(),
+                ->text(__('Date')),
+
             'author' => (new Th())
                 ->scope('col')
-                ->text(__('Author'))
-            ->render(),
+                ->text(__('Author')),
+
             'status' => (new Th())
                 ->scope('col')
-                ->text(__('Status'))
-            ->render(),
+                ->text(__('Status')),
         ];
 
         /**
-         * @var ArrayObject<string, string>
+         * @var ArrayObject<string, mixed>
          */
         $cols = new ArrayObject($cols);
 
-        # --BEHAVIOR-- adminPostMiniListHeaderV2 -- MetaRecord, ArrayObject<string, string>
+        # --BEHAVIOR-- adminPostMiniListHeaderV2 -- MetaRecord, ArrayObject<string, mixed>
         App::behavior()->callBehavior('adminPostMiniListHeaderV2', $this->rs, $cols);
 
         // Cope with optional columns
-        $this->userColumns('posts', $cols);
+        $this->userColumns('posts', $cols, true);
 
         // Prepare listing
         $lines = [];
@@ -104,9 +102,7 @@ class ListingPostsMini extends Listing
                         (new Thead())
                             ->rows([
                                 (new Tr())
-                                    ->items([
-                                        (new Text(null, implode('', iterator_to_array($cols)))),
-                                    ]),
+                                    ->items($cols),
                             ]),
                         (new Tbody())
                             ->id('pageslist')
@@ -152,41 +148,41 @@ class ListingPostsMini extends Listing
                         ->href(App::postTypes()->get($this->rs->post_type)->adminUrl($this->rs->post_id))
                         ->title(Html::escapeHTML($this->rs->getURL()))
                         ->text(Html::escapeHTML(trim(Html::clean($this->rs->post_title)))),
-                ])
-            ->render(),
+                ]),
+
             'date' => (new Td())
                 ->class(['nowrap', 'count'])
                 ->items([
                     (new Timestamp(Date::dt2str(__('%Y-%m-%d %H:%M'), $this->rs->post_dt)))
                         ->datetime(Date::iso8601((int) strtotime($this->rs->post_dt), App::auth()->getInfo('user_tz'))),
-                ])
-            ->render(),
+                ]),
+
             'author' => (new Td())
                 ->class('nowrap')
-                ->text($this->rs->user_id)
-            ->render(),
+                ->text($this->rs->user_id),
+
             'status' => (new Td())
                 ->class(['nowrap', 'status'])
                 ->separator(' ')
                 ->items([
                     App::status()->post()->image((int) $this->rs->post_status),
                     ... $status,
-                ])
-            ->render(),
+                ]),
         ];
 
+        /**
+         * @var ArrayObject<string, mixed>
+         */
         $cols = new ArrayObject($cols);
-        # --BEHAVIOR-- adminPostMiniListValueV2 -- MetaRecord, ArrayObject
+        # --BEHAVIOR-- adminPostMiniListValueV2 -- MetaRecord, ArrayObject<string, mixed>
         App::behavior()->callBehavior('adminPostMiniListValueV2', $this->rs, $cols);
 
         // Cope with optional columns
-        $this->userColumns('posts', $cols);
+        $this->userColumns('posts', $cols, true);
 
         return (new Tr())
             ->id('p' . $this->rs->post_id)
             ->class($post_classes)
-            ->items([
-                (new Text(null, implode('', iterator_to_array($cols)))),
-            ]);
+            ->items($cols);
     }
 }

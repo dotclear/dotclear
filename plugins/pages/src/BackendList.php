@@ -72,16 +72,13 @@ class BackendList extends Listing
                 ->scope('col')
                 ->colspan(3)
                 ->class('first')
-                ->text(__('Title'))
-            ->render(),
+                ->text(__('Title')),
             'date' => (new Th())
                 ->scope('col')
-                ->text(__('Date'))
-            ->render(),
+                ->text(__('Date')),
             'author' => (new Th())
                 ->scope('col')
-                ->text(__('Author'))
-            ->render(),
+                ->text(__('Author')),
             'comments' => (new Th())
                 ->scope('col')
                 ->items([
@@ -93,8 +90,7 @@ class BackendList extends Listing
                         ->alt(__('Comments')),
                     (new Span(__('Comments')))
                         ->class('hidden'),
-                ])
-            ->render(),
+                ]),
             'trackbacks' => (new Th())
                 ->scope('col')
                 ->items([
@@ -106,20 +102,17 @@ class BackendList extends Listing
                         ->alt(__('Trackbacks')),
                     (new Span(__('Trackbacks')))
                         ->class('hidden'),
-                ])
-            ->render(),
+                ]),
             'status' => (new Th())
                 ->scope('col')
-                ->text(__('Status'))
-            ->render(),
+                ->text(__('Status')),
         ];
 
         if ($include_type) {
             $cols = array_merge($cols, [
                 'type' => (new Th())
                     ->scope('col')
-                    ->text(__('Type'))
-                ->render(),
+                    ->text(__('Type')),
             ]);
         }
 
@@ -128,7 +121,7 @@ class BackendList extends Listing
         App::behavior()->callBehavior('adminPagesListHeaderV2', $this->rs, $cols);
 
         // Cope with optional columns
-        $this->userColumns('pages', $cols);
+        $this->userColumns('pages', $cols, true);
 
         // Prepare listing
         $lines = [];
@@ -157,9 +150,7 @@ class BackendList extends Listing
                         (new Thead())
                             ->rows([
                                 (new Tr())
-                                    ->items([
-                                        (new Text(null, implode('', iterator_to_array($cols)))),
-                                    ]),
+                                    ->items(iterator_to_array($cols)),
                             ]),
                         (new Tbody())
                             ->id('pageslist')
@@ -267,8 +258,7 @@ class BackendList extends Listing
                         ->value($count + 1)
                         ->class('position')
                         ->title(sprintf(__('position of %s'), Html::escapeHTML($this->rs->post_title))),
-                ])
-            ->render(),
+                ]),
             'check' => (new Td())
                 ->class('nowrap')
                 ->items([
@@ -276,41 +266,34 @@ class BackendList extends Listing
                         ->value($this->rs->post_id)
                         ->disabled(!$this->rs->isEditable())
                         ->title(__('Select this page')),
-                ])
-            ->render(),
+                ]),
             'title' => (new Td())
                 ->class('maximal')
                 ->items([
                     (new Link())
                         ->href(App::postTypes()->get($this->rs->post_type)->adminUrl($this->rs->post_id))
                         ->text(Html::escapeHTML($this->rs->post_title)),
-                ])
-            ->render(),
+                ]),
             'date' => (new Td())
                 ->class(['nowrap', 'count'])
                 ->items([
                     (new Timestamp(Date::dt2str(__('%Y-%m-%d %H:%M'), $this->rs->post_dt)))
                         ->datetime(Date::iso8601((int) strtotime($this->rs->post_dt), App::auth()->getInfo('user_tz'))),
-                ])
-            ->render(),
+                ]),
             'author' => (new Td())
                 ->class('nowrap')
-                ->text($this->rs->user_id)
-            ->render(),
+                ->text($this->rs->user_id),
             'comments' => (new Td())
                 ->class(['nowrap', 'count', 'entry-comments-count'])
                 ->text($this->rs->nb_comment)
-                ->extra((bool) $this->rs->post_open_comment ? '' : 'aria-details="' . __('Comments closed') . '"')
-            ->render(),
+                ->extra((bool) $this->rs->post_open_comment ? '' : 'aria-details="' . __('Comments closed') . '"'),
             'trackbacks' => (new Td())
                 ->class(['nowrap', 'count', 'entry-trackbacks-count'])
                 ->text($this->rs->nb_trackback)
-                ->extra((bool) $this->rs->post_open_tb ? '' : 'aria-details="' . __('Trackbacks closed') . '"')
-            ->render(),
+                ->extra((bool) $this->rs->post_open_tb ? '' : 'aria-details="' . __('Trackbacks closed') . '"'),
             'status' => (new Td())
                 ->class(['nowrap', 'status'])
-                ->text($img_status . ' ' . $selected . ' ' . $protected . ' ' . $attach)
-            ->render(),
+                ->text($img_status . ' ' . $selected . ' ' . $protected . ' ' . $attach),
         ];
 
         if ($include_type) {
@@ -320,8 +303,7 @@ class BackendList extends Listing
                     ->separator(' ')
                     ->items([
                         App::postTypes()->image($this->rs->post_type),
-                    ])
-                ->render(),
+                    ]),
             ]);
         }
 
@@ -330,13 +312,11 @@ class BackendList extends Listing
         App::behavior()->callBehavior('adminPagesListValueV2', $this->rs, $cols);
 
         // Cope with optional columns
-        $this->userColumns('pages', $cols);
+        $this->userColumns('pages', $cols, true);
 
         return (new Tr())
             ->id('p' . $this->rs->post_id)
             ->class($post_classes)
-            ->items([
-                (new Text(null, implode('', iterator_to_array($cols)))),
-            ]);
+            ->items(iterator_to_array($cols));
     }
 }

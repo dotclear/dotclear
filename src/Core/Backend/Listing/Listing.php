@@ -19,6 +19,7 @@ namespace Dotclear\Core\Backend\Listing;
 use ArrayObject;
 use Dotclear\Core\Backend\UserPref;
 use Dotclear\Database\MetaRecord;
+use Dotclear\Helper\Html\Form\Component;
 use Dotclear\Helper\Html\Form\Img;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Html;
@@ -67,12 +68,22 @@ class Listing
      * will be removed if user set so via UserPref::getUserColumns.
      * Each column having a key name and having some value (mixed).
      *
-     * @param      string                                               $type   The type
-     * @param      array<string, mixed>|ArrayObject<string, mixed>      $cols   The columns
+     * If $component is true then all column's value will be converted to Component if already not (as Text)
+     *
+     * @param      string                                               $type       The type
+     * @param      array<string, mixed>|ArrayObject<string, mixed>      $cols       The columns
+     * @param      bool                                                 $component  Convert column's value to Component if necessary
      */
-    public function userColumns(string $type, array|ArrayObject $cols): void
+    public function userColumns(string $type, array|ArrayObject $cols, bool $component = false): void
     {
         UserPref::getUserColumns($type, $cols);
+        if ($component) {
+            foreach ($cols as &$value) {
+                if (!$value instanceof Component) {
+                    $value = new Text(null, (string) $value);
+                }
+            }
+        }
     }
 
     /**

@@ -65,52 +65,45 @@ class ListingUsers extends Listing
                 ->colspan(2)
                 ->scope('col')
                 ->class('first')
-                ->text(__('Username'))
-            ->render(),
+                ->text(__('Username')),
 
             'first_name' => (new Th())
                 ->scope('col')
-                ->text(__('First Name'))
-            ->render(),
+                ->text(__('First Name')),
 
             'last_name' => (new Th())
                 ->scope('col')
-                ->text(__('Last Name'))
-            ->render(),
+                ->text(__('Last Name')),
 
             'display_name' => (new Th())
                 ->scope('col')
-                ->text(__('Display name'))
-            ->render(),
+                ->text(__('Display name')),
 
             'entries' => (new Th())
                 ->scope('col')
                 ->class('nowrap')
-                ->text(__('No. of entries'))
-            ->render(),
+                ->text(__('No. of entries')),
+
             'status' => (new Th())
                 ->scope('col')
-                ->text(__('Status'))
-            ->render(),
+                ->text(__('Status')),
         ];
 
         /**
-         * @var ArrayObject<string, string>
+         * @var ArrayObject<string, mixed>
          */
         $cols = new ArrayObject($cols);
 
-        # --BEHAVIOR-- adminUserListHeaderV2 -- MetaRecord, ArrayObject<string, string>
+        # --BEHAVIOR-- adminUserListHeaderV2 -- MetaRecord, ArrayObject<string, mixed>
         App::behavior()->callBehavior('adminUserListHeaderV2', $this->rs, $cols);
 
         // Cope with optional columns
-        $this->userColumns('users', $cols);
+        $this->userColumns('users', $cols, true);
 
         // Prepare listing
         $lines = [
             (new Tr())
-                ->items([
-                    (new Text(null, implode('', iterator_to_array($cols)))),
-                ]),
+                ->items($cols),
         ];
         while ($this->rs->fetch()) {
             $lines[] = $this->userLine();
@@ -174,8 +167,7 @@ class ListingUsers extends Listing
                     (new Hidden(['nb_post[]'], (string) $this->rs->nb_post)),
                     (new Checkbox(['users[]']))
                         ->value($this->rs->user_id),
-                ])
-            ->render(),
+                ]),
 
             'username' => (new Td())
                 ->class('maximal')
@@ -183,23 +175,19 @@ class ListingUsers extends Listing
                     (new Link())
                         ->href(App::backend()->url()->get('admin.user', ['id' => $this->rs->user_id]))
                         ->text(Html::escapeHTML($this->rs->user_id)),
-                ])
-            ->render(),
+                ]),
 
             'first_name' => (new Td())
                 ->class('nowrap')
-                ->text(Html::escapeHTML($this->rs->user_firstname))
-            ->render(),
+                ->text(Html::escapeHTML($this->rs->user_firstname)),
 
             'last_name' => (new Td())
                 ->class('nowrap')
-                ->text(Html::escapeHTML($this->rs->user_name))
-            ->render(),
+                ->text(Html::escapeHTML($this->rs->user_name)),
 
             'display_name' => (new Td())
                 ->class('nowrap')
-                ->text(Html::escapeHTML($this->rs->user_displayname))
-            ->render(),
+                ->text(Html::escapeHTML($this->rs->user_displayname)),
 
             'entries' => (new Td())
                 ->class(['nowrap', 'count'])
@@ -207,29 +195,29 @@ class ListingUsers extends Listing
                     (new Link())
                         ->href(App::backend()->url()->get('admin.posts', ['user_id' => $this->rs->user_id]))
                         ->text((string) $this->rs->nb_post),
-                ])
-            ->render(),
+                ]),
+
             'status' => (new Td())
                 ->class(['nowrap', 'status'])
                 ->separator(' ')
                 ->items([
                     App::status()->user()->image((int) $this->rs->user_status),
                     ... $status,
-                ])
-            ->render(),
+                ]),
         ];
 
+        /**
+         * @var ArrayObject<string, mixed>
+         */
         $cols = new ArrayObject($cols);
-        # --BEHAVIOR-- adminUserListValueV2 -- MetaRecord, ArrayObject
+        # --BEHAVIOR-- adminUserListValueV2 -- MetaRecord, ArrayObject<string, mixed>
         App::behavior()->callBehavior('adminUserListValueV2', $this->rs, $cols);
 
         // Cope with optional columns
-        $this->userColumns('users', $cols);
+        $this->userColumns('users', $cols, true);
 
         return (new Tr())
             ->class('line')
-            ->items([
-                (new Text(null, implode('', iterator_to_array($cols)))),
-            ]);
+            ->items($cols);
     }
 }
