@@ -117,8 +117,8 @@ class BackendList extends Listing
         }
 
         $cols = new ArrayObject($cols);
-        # --BEHAVIOR-- adminPagesListHeaderV2 -- MetaRecord, ArrayObject
-        App::behavior()->callBehavior('adminPagesListHeaderV2', $this->rs, $cols);
+        # --BEHAVIOR-- adminPagesListHeaderV2 -- MetaRecord, ArrayObject<string, mixed>, bool
+        App::behavior()->callBehavior('adminPagesListHeaderV2', $this->rs, $cols, true);
 
         // Cope with optional columns
         $this->userColumns('pages', $cols, true);
@@ -308,8 +308,8 @@ class BackendList extends Listing
         }
 
         $cols = new ArrayObject($cols);
-        # --BEHAVIOR-- adminPagesListValueV2 -- MetaRecord, ArrayObject
-        App::behavior()->callBehavior('adminPagesListValueV2', $this->rs, $cols);
+        # --BEHAVIOR-- adminPagesListValueV2 -- MetaRecord, ArrayObject<string, mixed>, bool
+        App::behavior()->callBehavior('adminPagesListValueV2', $this->rs, $cols, true);
 
         // Cope with optional columns
         $this->userColumns('pages', $cols, true);

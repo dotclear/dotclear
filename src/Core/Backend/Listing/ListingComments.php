@@ -149,8 +149,8 @@ class ListingComments extends Listing
          */
         $cols = new ArrayObject($cols);
 
-        # --BEHAVIOR-- adminCommentListHeaderV2 -- MetaRecord, ArrayObject<string, mixed>
-        App::behavior()->callBehavior('adminCommentListHeaderV2', $this->rs, $cols);
+        # --BEHAVIOR-- adminCommentListHeaderV2 -- MetaRecord, ArrayObject<string, mixed>, bool
+        App::behavior()->callBehavior('adminCommentListHeaderV2', $this->rs, $cols, true);
 
         // Cope with optional columns
         $this->userColumns('comments', $cols, true);
@@ -299,8 +299,8 @@ class ListingComments extends Listing
          * @var ArrayObject<string, mixed>
          */
         $cols = new ArrayObject($cols);
-        # --BEHAVIOR-- adminCommentListValueV2 -- MetaRecord, ArrayObject<string, mixed>
-        App::behavior()->callBehavior('adminCommentListValueV2', $this->rs, $cols);
+        # --BEHAVIOR-- adminCommentListValueV2 -- MetaRecord, ArrayObject<string, mixed>, bool
+        App::behavior()->callBehavior('adminCommentListValueV2', $this->rs, $cols, true);
 
         // Cope with optional columns
         $this->userColumns('comments', $cols, true);

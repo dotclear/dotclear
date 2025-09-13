@@ -79,8 +79,8 @@ class ListingPostsMini extends Listing
          */
         $cols = new ArrayObject($cols);
 
-        # --BEHAVIOR-- adminPostMiniListHeaderV2 -- MetaRecord, ArrayObject<string, mixed>
-        App::behavior()->callBehavior('adminPostMiniListHeaderV2', $this->rs, $cols);
+        # --BEHAVIOR-- adminPostMiniListHeaderV2 -- MetaRecord, ArrayObject<string, mixed>, bool
+        App::behavior()->callBehavior('adminPostMiniListHeaderV2', $this->rs, $cols, true);
 
         // Cope with optional columns
         $this->userColumns('posts', $cols, true);
@@ -174,8 +174,8 @@ class ListingPostsMini extends Listing
          * @var ArrayObject<string, mixed>
          */
         $cols = new ArrayObject($cols);
-        # --BEHAVIOR-- adminPostMiniListValueV2 -- MetaRecord, ArrayObject<string, mixed>
-        App::behavior()->callBehavior('adminPostMiniListValueV2', $this->rs, $cols);
+        # --BEHAVIOR-- adminPostMiniListValueV2 -- MetaRecord, ArrayObject<string, mixed>, bool
+        App::behavior()->callBehavior('adminPostMiniListValueV2', $this->rs, $cols, true);
 
         // Cope with optional columns
         $this->userColumns('posts', $cols, true);

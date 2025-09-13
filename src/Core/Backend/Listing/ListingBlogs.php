@@ -107,8 +107,8 @@ class ListingBlogs extends Listing
          */
         $cols = new ArrayObject($cols);
 
-        # --BEHAVIOR-- adminBlogListHeaderV2 -- MetaRecord, ArrayObject<string, mixed>
-        App::behavior()->callBehavior('adminBlogListHeaderV2', $this->rs, $cols);
+        # --BEHAVIOR-- adminBlogListHeaderV2 -- MetaRecord, ArrayObject<string, mixed>, bool
+        App::behavior()->callBehavior('adminBlogListHeaderV2', $this->rs, $cols, true);
 
         // Cope with optional columns
         $this->userColumns('blogs', $cols, true);
@@ -232,8 +232,8 @@ class ListingBlogs extends Listing
          * @var ArrayObject<string, mixed>
          */
         $cols = new ArrayObject($cols);
-        # --BEHAVIOR-- adminBlogListValueV2 -- MetaRecord, ArrayObject
-        App::behavior()->callBehavior('adminBlogListValueV2', $this->rs, $cols);
+        # --BEHAVIOR-- adminBlogListValueV2 -- MetaRecord, ArrayObject<string, mixed>, bool
+        App::behavior()->callBehavior('adminBlogListValueV2', $this->rs, $cols, true);
 
         // Cope with optional columns
         $this->userColumns('blogs', $cols, true);

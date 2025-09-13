@@ -94,8 +94,8 @@ class ListingUsers extends Listing
          */
         $cols = new ArrayObject($cols);
 
-        # --BEHAVIOR-- adminUserListHeaderV2 -- MetaRecord, ArrayObject<string, mixed>
-        App::behavior()->callBehavior('adminUserListHeaderV2', $this->rs, $cols);
+        # --BEHAVIOR-- adminUserListHeaderV2 -- MetaRecord, ArrayObject<string, mixed>, bool
+        App::behavior()->callBehavior('adminUserListHeaderV2', $this->rs, $cols, true);
 
         // Cope with optional columns
         $this->userColumns('users', $cols, true);
@@ -210,8 +210,8 @@ class ListingUsers extends Listing
          * @var ArrayObject<string, mixed>
          */
         $cols = new ArrayObject($cols);
-        # --BEHAVIOR-- adminUserListValueV2 -- MetaRecord, ArrayObject<string, mixed>
-        App::behavior()->callBehavior('adminUserListValueV2', $this->rs, $cols);
+        # --BEHAVIOR-- adminUserListValueV2 -- MetaRecord, ArrayObject<string, mixed>, bool
+        App::behavior()->callBehavior('adminUserListValueV2', $this->rs, $cols, true);
 
         // Cope with optional columns
         $this->userColumns('users', $cols, true);
