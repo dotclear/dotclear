@@ -42,11 +42,12 @@ interface CredentialInterface
     /**
      * Get credentials.
      *
-     * @param      array<string, mixed>|ArrayObject<string, mixed>  $params      The parameters
+     * @param      array<string, mixed>|ArrayObject<string, mixed>  $params         The parameters
+     * @param      bool                                             $count_only     Count only
      *
      * @return     MetaRecord  The users.
      */
-    public function getCredentials(array|ArrayObject $params = []): MetaRecord;
+    public function getCredentials(array|ArrayObject $params = [], bool $count_only = false): MetaRecord;
 
     /**
      * Set user credential.
