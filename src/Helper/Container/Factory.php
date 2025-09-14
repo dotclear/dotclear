@@ -21,26 +21,27 @@ namespace Dotclear\Helper\Container;
 class Factory
 {
     /**
+     * Factories statistics.
+     *
+     * Globals for all factories using this class.
+     *
+     * @var     array<string, array<string, array<string, string>>>     $statistics
+     */
+    private static array $statistics = [
+        'factory' => [
+            //'container_id' => ['service' => 'callback'],
+        ],
+        'container' => [
+            //'container_id' => ['service' => 'callback'],
+        ],
+    ];
+
+    /**
      * The factory services stack.
      *
      * @var     array<string,string|callable>   $stack
      */
     private array $stack = [];
-
-    /**
-     * The factories statistics.
-     *
-     * This fill statistics for all containers using this factory class.
-     *
-     * @var     array<string, array<string, mixed>>  $stats
-     */
-    private static array $stats = [
-        '*' => ['count' => 0],
-        //'container_id' => [
-        //    'factory' => ['service_id' => 'service_callback']
-        //    'default' => ['service_id' => 'service_callback']
-        //],
-    ];
 
     /**
      * Constructor.
@@ -65,7 +66,7 @@ class Factory
     {
         if ($this->rewritable || !array_key_exists($service, $this->stack)) {
             $this->stack[$service] = $callback;
-            self::$stats[$this->id][$from_factory ? 'factory' : 'default'][$service] = is_string($callback) ? $callback : 'closure';
+            self::$statistics[$from_factory ? 'factory' : 'container'][$this->id][$service] = is_string($callback) ? $callback : 'closure';
         }
     }
 
@@ -106,23 +107,12 @@ class Factory
     }
 
     /**
-     * Increment service call count.
-     */
-    public function increment(string $service): void
-    {
-        self::$stats[$this->id]['count'][$service] = (self::$stats[$this->id]['count'][$service] ?? 0) + 1;
-        ++self::$stats['*']['count'];
-    }
-
-    /**
      * Get factories statistics.
      *
-     * Returns staticstics of all containers using this factory class.
-     *
-     * @return  array<string, array<string, mixed>>
+     * @return  array<string, array<string, array<string, string>>>
      */
-    public static function getStats(): array
+    public static function getStatistics(): array
     {
-        return self::$stats;
+        return self::$statistics;
     }
 }
