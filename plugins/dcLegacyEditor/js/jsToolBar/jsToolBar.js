@@ -282,6 +282,7 @@ class jsButton {
     button.setAttribute('type', 'button');
     if (this.className) button.className = this.className;
     button.title = this.title;
+    button.id = 'jstb_' + (Math.random() + 1).toString(36).substring(5);
     if (this.accesskey) button.accessKey = this.accesskey;
     if (this.shortkey) {
       if (this.shortkey_name) button.title += ` (CTRL+${this.shortkey_name})`;
@@ -333,7 +334,7 @@ class jsButton {
 // jsSpace
 class jsSpace {
   constructor(id) {
-    this.id = id || null;
+    this.id = id || 'jsts_' + (Math.random() + 1).toString(36).substring(5);
     this.width = null;
   }
 
@@ -368,6 +369,7 @@ class jsCombo {
     const select = document.createElement('select');
     if (this.className) select.className = this.className;
     select.title = this.title;
+    select.id = 'jstc_' + (Math.random() + 1).toString(36).substring(5);
 
     for (const o in this.options) {
       const option = document.createElement('option');
