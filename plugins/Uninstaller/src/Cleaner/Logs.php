@@ -56,6 +56,7 @@ class Logs extends CleanerParent
         return [
             'deprecated',
             'maintenance',
+            'store',
         ];
     }
 
