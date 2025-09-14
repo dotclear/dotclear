@@ -197,27 +197,16 @@ class Container implements ContainerInterface
         return [];
     }
 
-    /**
-     * Get containers requests count.
-     */
     public static function getRequestsCount(): int
     {
         return self::$stats['*']['get'];
     }
 
-    /**
-     * Get containers loads count.
-     */
     public static function getLoadsCount(): int
     {
         return self::$stats['*']['create'];
     }
 
-    /**
-     * Get containers services requests count.
-     *
-     * @return  array<string, int>
-     */
     public static function getServicesCount(): array
     {
         return self::$stats['service'];

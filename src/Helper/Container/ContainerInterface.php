@@ -58,4 +58,21 @@ interface ContainerInterface
      * @return  array<string,string|callable>   The stack
      */
     public function dump(): array;
+
+    /**
+     * Get containers requests count.
+     */
+    public static function getRequestsCount(): int;
+
+    /**
+     * Get containers loads count.
+     */
+    public static function getLoadsCount(): int;
+
+    /**
+     * Get containers services requests count.
+     *
+     * @return  array<string, int>
+     */
+    public static function getServicesCount(): array;
 }
