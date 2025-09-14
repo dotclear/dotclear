@@ -70,6 +70,7 @@ class Tables extends CleanerParent
             'log',
             'media',
             'meta',
+            'notice',
             'permissions',
             'ping',
             'post',
