@@ -23,6 +23,21 @@ namespace Dotclear\Helper\Container;
 class Container implements ContainerInterface
 {
     /**
+     * Containers statistics.
+     *
+     * Globals for all containers using this class.
+     *
+     * @var     array<string, array<string, int>>   $stats
+     */
+    private static array $stats = [
+        '*' => [
+            'create' => 0,
+            'get'    => 0,
+        ],
+        //'container_id' => ['service_id' => int],
+    ];
+
+    /**
      * Stack of loaded services.
      *
      * @var    array<string,mixed>  $services
@@ -64,15 +79,19 @@ class Container implements ContainerInterface
      */
     public function get(string $id, ?bool $reload = false, ...$args)
     {
-        $this->factory->increment($id); // staticstics
+        self::$stats[$this->factory->id][$id] = (int) (self::$stats[$this->factory->id][$id] ?? 0) +1;
 
         // Service is already instanciated
         if ($reload === false && array_key_exists($id, $this->services)) {
+            ++self::$stats['*']['get'];
+
             return $this->services[$id];
         }
 
         // Know service
         if ($this->has($id)) {
+            ++self::$stats['*']['create'];
+
             $service = $this->factory->get($id);
 
             $resolve = is_callable($service) ?
@@ -176,5 +195,20 @@ class Container implements ContainerInterface
     protected function getDefaultServices(): array
     {
         return [];
+    }
+
+    public static function getRequestsCount(): int
+    {
+        return self::$stats['*']['get'];
+    }
+
+    public static function getLoadsCount(): int
+    {
+        return self::$stats['*']['create'];
+    }
+
+    public static function getServicesCount(): array
+    {
+        return self::$stats['service'];
     }
 }

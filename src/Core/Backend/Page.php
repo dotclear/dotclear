@@ -14,7 +14,7 @@ namespace Dotclear\Core\Backend;
 use ArrayObject;
 use Autoloader;
 use Dotclear\App;
-use Dotclear\Helper\Container\Factory;
+use Dotclear\Helper\Container\Container;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Form\Btn;
@@ -1037,7 +1037,9 @@ class Page
         $items[] = (new Para())
             ->items([
                 (new Text(null, 'Factories: requests = ')),
-                (new Strong((string) Factory::getStats()['*']['count'])),
+                (new Strong((string) Container::getRequestsCount())),
+                (new Text(null, ' - loads = ')),
+                (new Strong((string) Container::getLoadsCount())),
             ]);
 
         return (new Div())
