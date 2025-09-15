@@ -43,7 +43,6 @@ class Fault
      */
     public function __construct(Throwable $exception)
     {
-        
         try {
             // We may need l10n __() function (should be already loaded but hey)
             L10n::bootstrap();
@@ -60,7 +59,7 @@ class Fault
         // Stop in CLI mode
         if (PHP_SAPI === 'cli') {
             echo $label . ' (' . $code . ")\n";
-            exit;
+            dotclear_exit(1);
         }
 
         // Load custom error file if any
@@ -172,55 +171,51 @@ class Fault
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW">
-  <meta name="GOOGLEBOT" content="NOSNIPPET">
-  <title><?= $vendor ?> - Error</title>
-  <style media="screen" type="text/css">
-  <!--
-  body {
-    font: 62.5%/1.5em "DejaVu Sans","Lucida Grande","Lucida Sans Unicode",Arial,sans-serif;
-    color : #000;
-    background : #B2B2B2;
-    margin : 0;
-    padding : 0;
-    line-height: 2em;
-  }
-  #content {
-      margin: 10px 25%;
-      padding: 1px 1em 2em;
-      background: #ECECEC;
-      font-size: 1.4em;
-  }
-  a, a:link, a:visited {
-    color : #137BBB;
-    text-decoration : none;
-    border-bottom : 1px dotted #C44D58;
-  }
-  h1 {
-    color: #137BBB;
-    font-size: 2.5em;
-    font-weight: normal;
-  }
-
-  h2 {
-    color: #C44D58;
-    font-size: 1.5em;
-  }
-  -->
-</style>
+    <meta charset="UTF-8">
+    <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW">
+    <meta name="GOOGLEBOT" content="NOSNIPPET">
+    <title><?= $vendor ?> - Error</title>
+    <style media="screen" type="text/css">
+        body {
+            font: 62.5%/1.5em "DejaVu Sans","Lucida Grande","Lucida Sans Unicode",Arial,sans-serif;
+            color : #000;
+            background : #B2B2B2;
+            margin : 0;
+            padding : 0;
+            line-height: 2em;
+        }
+        #content {
+            margin: 10px 25%;
+            padding: 1px 1em 2em;
+            background: #ECECEC;
+            font-size: 1.4em;
+        }
+        a, a:link, a:visited {
+            color : #137BBB;
+            text-decoration : none;
+            border-bottom : 1px dotted #C44D58;
+        }
+        h1 {
+            color: #137BBB;
+            font-size: 2.5em;
+            font-weight: normal;
+        }
+        h2 {
+            color: #C44D58;
+            font-size: 1.5em;
+        }
+    </style>
 </head>
-
 <body>
-<div id="content">
-<h1><?= $vendor ?></h1>
-<h2><?= $code ?> : <?= $label ?></h2>
-<?= $message ?>
-<pre><?= $trace ?></pre>
-</div>
+    <div id="content">
+        <h1><?= $vendor ?></h1>
+        <h2><?= $code ?> : <?= $label ?></h2>
+        <?= $message ?>
+        <pre><?= $trace ?></pre>
+    </div>
 </body>
 </html>
         <?php
-        exit;
+        dotclear_exit();
     }
 }

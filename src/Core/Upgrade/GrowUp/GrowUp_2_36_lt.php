@@ -30,6 +30,7 @@ class GrowUp_2_36_lt
                 'locales/he/core_core_*.html',
                 'locales/uk/core_core_*.html',
                 'src/Config.php',
+                'src/Fault.php',
                 'src/Core/Connection.php',
                 'src/Core/Frontend/Session.php',
                 'src/Core/Frontend/Url.php',
