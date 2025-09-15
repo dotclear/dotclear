@@ -144,34 +144,46 @@ class jsToolBar {
     this.toolNodes = {}; // vide les raccourcis DOM/**/
 
     // Draw toolbar elements
-    let b;
+    let element;
     let tool;
     let newTool;
-    let previous = 'space';
+    let group;
+    const groupTemplate = new DOMParser().parseFromString(`<div class="jstGroup"></div>`, 'text/html').body.firstChild;
 
+    // Create a first group of elements
+    group = groupTemplate.cloneNode(true);
     for (const i in this.elements) {
-      b = this.elements[i];
+      element = this.elements[i];
 
       const disabled =
-        b.type === undefined ||
-        b.type === '' ||
-        (b.disabled !== undefined && b.disabled) ||
-        (b.context !== undefined && b.context != null && b.context !== this.context);
+        element.type === undefined ||
+        element.type === '' ||
+        (element.disabled !== undefined && element.disabled) ||
+        (element.context !== undefined && element.context != null && element.context !== this.context);
 
-      if (!disabled && typeof this[b.type] === 'function') {
-        tool = this[b.type](i);
+      if (!disabled && typeof this[element.type] === 'function') {
+        tool = this[element.type](i);
         if (tool) {
-          // Don't display first space in toolbar or if another space following a first one
-          if (b.type !== 'space' || b.type !== previous) {
-            newTool = tool.draw();
-            previous = b.type;
+          if (element.type !== 'space') newTool = tool.draw();
+          else {
+            newTool = false;
+            // Check if current group is not empty and if then add it to toolbar
+            if (group.childElementCount > 0) this.toolbar.appendChild(group);
+            // Then crate a new group
+            group = groupTemplate.cloneNode(true);
           }
         }
         if (newTool) {
           this.toolNodes[i] = newTool; //mémorise l'accès DOM pour usage éventuel ultérieur
-          this.toolbar.appendChild(newTool);
+          group.appendChild(newTool);
         }
       }
+    }
+    // Check if last group is not empty and if then add it to toolbar
+    if (group.childElementCount > 0) this.toolbar.appendChild(group);
+    // Final cleanup, probably not necessary but who knows?
+    for (const element of this.toolbar.children) {
+      if (element.classList.contains('jstGroup') && element.childElementCount === 0) element.remove();
     }
   }
 

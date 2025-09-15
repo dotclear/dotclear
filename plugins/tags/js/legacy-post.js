@@ -2,7 +2,7 @@
 'use strict';
 
 // Toolbar button for tags
-jsToolBar.prototype.elements.tagSpace = {
+jsToolBar.prototype.elements.tagSpaceBefore = {
   type: 'space',
   format: {
     wysiwyg: true,
@@ -18,6 +18,16 @@ jsToolBar.prototype.elements.tag = {
   shortkey: 'KeyT',
   shortkey_name: 'T',
   fn: {},
+};
+
+jsToolBar.prototype.elements.tagSpaceAfter = {
+  type: 'space',
+  format: {
+    wysiwyg: true,
+    wiki: true,
+    xhtml: true,
+    markdown: true,
+  },
 };
 
 dotclear.mergeDeep(jsToolBar.prototype.elements, dotclear.getData('legacy_editor_tags'));

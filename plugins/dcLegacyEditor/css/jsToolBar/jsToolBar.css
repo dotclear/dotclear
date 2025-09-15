@@ -31,19 +31,36 @@ body.rtl .jstEditor iframe {
   color: var(--body-color);
   background-color: var(--body-background);
   box-sizing: border-box;
-  padding: 0.25em;
   border: 1px solid;
+  padding: 0.25em;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-content: center;
   justify-content: flex-start;
   align-items: center;
-  gap: 0.125em;
+  row-gap: 0.125em;
+  column-gap: 0.25em;
+}
+.jstGroup {
+  box-sizing: border-box;
+  padding: 0.125em;
+  border: 1px solid var(--entry-sb-spacer);
+  border-radius: 3px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.25em;
 }
 .jstElements select,
 .jstElements button {
   vertical-align: middle;
+}
+.jstElements select {
+  border-radius: 3px;
 }
 .jstElements button {
   width: 2.8rem;
