@@ -10,7 +10,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
-use Dotclear\Fault;
 use Dotclear\Helper\Container\Factories;
 use Dotclear\Helper\Crypt;
 use Dotclear\Helper\File\Files;

@@ -8,7 +8,7 @@
  */
 declare(strict_types=1);
 
-namespace Dotclear;
+namespace Dotclear\Core;
 
 use Dotclear\Helper\L10n;
 use Throwable;

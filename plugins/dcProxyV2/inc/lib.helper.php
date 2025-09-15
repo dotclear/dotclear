@@ -13,8 +13,8 @@
 
 use Dotclear\App;
 use Dotclear\Core\Backend\Helper;
+use Dotclear\Core\Fault;
 use Dotclear\Exception\AppException;
-use Dotclear\Fault;
 
 /**
  * Load locales.

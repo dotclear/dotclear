@@ -17,6 +17,7 @@ namespace Dotclear;
 
 use Autoloader;
 use Dotclear\Core\Core;
+use Dotclear\Core\Fault;
 use Dotclear\Exception\AppException;
 use Throwable;
 
