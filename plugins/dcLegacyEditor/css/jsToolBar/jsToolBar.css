@@ -54,6 +54,9 @@ body.rtl .jstEditor iframe {
   justify-content: flex-start;
   align-items: center;
   gap: 0.25em;
+  select:only-child {
+    border: none;
+  }
 }
 .jstElements select,
 .jstElements button {
