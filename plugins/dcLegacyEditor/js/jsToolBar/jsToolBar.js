@@ -147,11 +147,12 @@ class jsToolBar {
     let element;
     let tool;
     let newTool;
-    let group;
+    let currentGroup;
     const groupTemplate = new DOMParser().parseFromString(`<div class="jstGroup"></div>`, 'text/html').body.firstChild;
+    const groups = [];
 
     // Create a first group of elements
-    group = groupTemplate.cloneNode(true);
+    currentGroup = groupTemplate.cloneNode(true);
     for (const i in this.elements) {
       element = this.elements[i];
 
@@ -162,28 +163,55 @@ class jsToolBar {
         (element.context !== undefined && element.context != null && element.context !== this.context);
 
       if (!disabled && typeof this[element.type] === 'function') {
+        const groupName = element?.group;
         tool = this[element.type](i);
         if (tool) {
-          if (element.type !== 'space') newTool = tool.draw();
-          else {
+          if (element.type !== 'space') {
+            newTool = tool.draw();
+          } else {
             newTool = false;
-            // Check if current group is not empty and if then add it to toolbar
-            if (group.childElementCount > 0) this.toolbar.appendChild(group);
+            // Check if current group is not empty and if then add it to the list of groups
+            if (currentGroup.childElementCount > 0) groups.push(currentGroup);
             // Then crate a new group
-            group = groupTemplate.cloneNode(true);
+            currentGroup = groupTemplate.cloneNode(true);
           }
         }
         if (newTool) {
-          this.toolNodes[i] = newTool; //mémorise l'accès DOM pour usage éventuel ultérieur
-          group.appendChild(newTool);
+          this.toolNodes[i] = newTool; //mémorise l'accès DOM pour usage éventuel ultérieur ???
+
+          // Search if a group with the same group name already exist
+          for (const group of groups) {
+            if (group.getAttribute('name') === 'jstg_' + groupName) {
+              // Group found, add tool to it
+              group.appendChild(newTool);
+              newTool = false;
+              break;
+            }
+          }
+
+          // If gid not found in existing group, add to the current group
+          if (newTool) {
+            // Check if the current group already have a name and it's the same as the element
+            if (currentGroup.getAttribute('name') !== null && currentGroup.getAttribute('name') !== 'jstg_' + groupName) {
+              // Need to put element in another new group, store the current one
+              groups.push(currentGroup);
+              // Then crate a new group
+              currentGroup = groupTemplate.cloneNode(true);
+            }
+            currentGroup.appendChild(newTool);
+            if (groupName !== undefined && groupName !== '' && currentGroup.getAttribute('name') === null)
+              currentGroup.setAttribute('name', 'jstg_' + groupName);
+          }
         }
       }
     }
-    // Check if last group is not empty and if then add it to toolbar
-    if (group.childElementCount > 0) this.toolbar.appendChild(group);
-    // Final cleanup, probably not necessary but who knows?
-    for (const element of this.toolbar.children) {
-      if (element.classList.contains('jstGroup') && element.childElementCount === 0) element.remove();
+
+    // Check if last group is not empty and if then add it to the list of groups
+    if (currentGroup.childElementCount > 0) groups.push(currentGroup);
+
+    // Add all non empty group to toolbar
+    for (const group of groups) {
+      if (group.childElementCount > 0) this.toolbar.appendChild(group);
     }
   }
 
@@ -506,8 +534,20 @@ class jsDialog {
 }
 
 // Elements definition ------------------------------------
+
+// group names used:
+//  - header: block format
+//  - format: inline formatting
+//  - br: new line (soft)
+//  - block: lists, pre, code, blockquote, …
+//  - link: internal or external
+//  - media: all type of media
+//  - metadata: metadata management (tags, …)
+//  - editor: editor interface (preview, …)
+
 // block format (paragraph, headers)
 jsToolBar.prototype.elements.blocks = {
+  group: 'header',
   type: 'combo',
   title: 'block format',
   options: {
@@ -554,18 +594,9 @@ jsToolBar.prototype.elements.blocks = {
   },
 };
 
-// spacer
-jsToolBar.prototype.elements.space0 = {
-  type: 'space',
-  format: {
-    wysiwyg: true,
-    wiki: true,
-    xhtml: true,
-  },
-};
-
 // strong
 jsToolBar.prototype.elements.strong = {
+  group: 'format',
   type: 'button',
   title: 'Strong emphasis',
   shortkey: 'KeyB',
@@ -582,6 +613,7 @@ jsToolBar.prototype.elements.strong = {
 
 // em
 jsToolBar.prototype.elements.em = {
+  group: 'format',
   type: 'button',
   title: 'Emphasis',
   shortkey: 'KeyI',
@@ -598,6 +630,7 @@ jsToolBar.prototype.elements.em = {
 
 // ins
 jsToolBar.prototype.elements.ins = {
+  group: 'format',
   type: 'button',
   title: 'Inserted',
   shortkey: 'KeyU',
@@ -614,6 +647,7 @@ jsToolBar.prototype.elements.ins = {
 
 // del
 jsToolBar.prototype.elements.del = {
+  group: 'format',
   type: 'button',
   title: 'Deleted',
   shortkey: 'KeyD',
@@ -630,6 +664,7 @@ jsToolBar.prototype.elements.del = {
 
 // quote
 jsToolBar.prototype.elements.quote = {
+  group: 'format',
   type: 'button',
   title: 'Inline quote',
   fn: {
@@ -699,6 +734,7 @@ jsToolBar.prototype.elements.quote = {
 
 // code
 jsToolBar.prototype.elements.code = {
+  group: 'format',
   type: 'button',
   title: 'Code',
   fn: {
@@ -713,6 +749,7 @@ jsToolBar.prototype.elements.code = {
 
 // code
 jsToolBar.prototype.elements.mark = {
+  group: 'format',
   type: 'button',
   title: 'Mark',
   fn: {
@@ -725,18 +762,9 @@ jsToolBar.prototype.elements.mark = {
   },
 };
 
-// spacer
-jsToolBar.prototype.elements.space1 = {
-  type: 'space',
-  format: {
-    wysiwyg: true,
-    wiki: true,
-    xhtml: true,
-  },
-};
-
 // br
 jsToolBar.prototype.elements.br = {
+  group: 'br',
   type: 'button',
   title: 'Line break',
   fn: {
@@ -749,18 +777,9 @@ jsToolBar.prototype.elements.br = {
   },
 };
 
-// spacer
-jsToolBar.prototype.elements.space2 = {
-  type: 'space',
-  format: {
-    wysiwyg: true,
-    wiki: true,
-    xhtml: true,
-  },
-};
-
 // blockquote
 jsToolBar.prototype.elements.blockquote = {
+  group: 'block',
   type: 'button',
   title: 'Blockquote',
   fn: {
@@ -775,6 +794,7 @@ jsToolBar.prototype.elements.blockquote = {
 
 // pre
 jsToolBar.prototype.elements.pre = {
+  group: 'block',
   type: 'button',
   title: 'Preformated text',
   fn: {
@@ -789,6 +809,7 @@ jsToolBar.prototype.elements.pre = {
 
 // ul
 jsToolBar.prototype.elements.ul = {
+  group: 'block',
   type: 'button',
   title: 'Unordered list',
   fn: {
@@ -803,6 +824,7 @@ jsToolBar.prototype.elements.ul = {
 
 // ol
 jsToolBar.prototype.elements.ol = {
+  group: 'block',
   type: 'button',
   title: 'Ordered list',
   fn: {
@@ -815,18 +837,9 @@ jsToolBar.prototype.elements.ol = {
   },
 };
 
-// spacer
-jsToolBar.prototype.elements.space3 = {
-  type: 'space',
-  format: {
-    wysiwyg: true,
-    wiki: true,
-    xhtml: true,
-  },
-};
-
 // link
 jsToolBar.prototype.elements.link = {
+  group: 'link',
   type: 'button',
   title: 'Link',
   fn: {},
@@ -884,6 +897,7 @@ jsToolBar.prototype.elements.link.fn.wiki = function () {
 
 // img
 jsToolBar.prototype.elements.img = {
+  group: 'media',
   type: 'button',
   title: 'External image',
   src_prompt: 'Please give image URL:',
@@ -905,18 +919,9 @@ jsToolBar.prototype.elements.img.fn.wiki = function () {
   }
 };
 
-// spacer
-jsToolBar.prototype.elements.space4 = {
-  type: 'space',
-  format: {
-    wysiwyg: false,
-    wiki: true,
-    xhtml: false,
-  },
-};
-
 // Preview
 jsToolBar.prototype.elements.preview = {
+  group: 'editor',
   type: 'button',
   title: 'Preview',
   shortkey: 'KeyP',
@@ -944,15 +949,5 @@ jsToolBar.prototype.elements.preview = {
         { wiki: this.textarea.value },
       );
     },
-  },
-};
-
-// spacer
-jsToolBar.prototype.elements.space5 = {
-  type: 'space',
-  format: {
-    wysiwyg: false,
-    wiki: true,
-    xhtml: false,
   },
 };

@@ -165,6 +165,7 @@ jsToolBar.prototype.getAncestor = function () {
 /* Image selector
 -------------------------------------------------------- */
 jsToolBar.prototype.elements.img_select = {
+  group: 'media',
   type: 'button',
   title: 'Image chooser',
   accesskey: 'm',
@@ -404,6 +405,7 @@ jsToolBar.prototype.elements.flv_insert.fncall.wysiwyg = () => {
 /* Posts selector
 -------------------------------------------------------- */
 jsToolBar.prototype.elements.post_link = {
+  group: 'link',
   type: 'button',
   title: 'Link to an entry',
   shortkey: 'KeyE',
@@ -430,14 +432,4 @@ jsToolBar.prototype.elements.post_link.fn.xhtml = function () {
 };
 jsToolBar.prototype.elements.post_link.fn.wysiwyg = function () {
   this.elements.post_link.popup.call(this);
-};
-
-// Last space element
-jsToolBar.prototype.elements.space3 = {
-  type: 'space',
-  format: {
-    wysiwyg: true,
-    wiki: true,
-    xhtml: true,
-  },
 };

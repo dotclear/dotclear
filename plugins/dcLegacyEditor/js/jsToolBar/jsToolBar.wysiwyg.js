@@ -760,6 +760,7 @@ jsToolBar.prototype.elements.link.fn.wysiwyg = function () {
 
 // Remove format and Toggle
 jsToolBar.prototype.elements.removeFormat = {
+  group: 'format',
   type: 'button',
   title: 'Remove text formating',
   fn: {},

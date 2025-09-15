@@ -53,7 +53,7 @@ body.rtl .jstEditor iframe {
   align-content: center;
   justify-content: flex-start;
   align-items: center;
-  gap: 0.25em;
+  gap: 0.125em;
   select:only-child {
     border: none;
   }
