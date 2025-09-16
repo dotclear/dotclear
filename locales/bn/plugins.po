@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-01 12:51+0200\n"
-"PO-Revision-Date: 2025-09-01 10:55\n"
+"POT-Creation-Date: 2025-09-16 10:56+0200\n"
+"PO-Revision-Date: 2025-09-16 09:03\n"
 "Last-Translator: \n"
 "Language-Team: Bengali\n"
 "Language: bn_BD\n"
@@ -17,11 +17,11 @@ msgstr ""
 "X-Crowdin-File: /master/locales/_pot/plugins.pot\n"
 "X-Crowdin-File-ID: 264\n"
 
-#: plugins/Uninstaller/src/Backend.php:47
+#: plugins/Uninstaller/src/Backend.php:49
 msgid "Uninstall"
 msgstr "ইনস্টল করা হবে"
 
-#: plugins/Uninstaller/src/Backend.php:105
+#: plugins/Uninstaller/src/Backend.php:107
 msgid "Plugin has been successfully uninstalled."
 msgstr "প্লাগ-ইন সফলভাবে ইনস্টল করা হয়েছে."
 
@@ -403,41 +403,41 @@ msgstr "অজানা ক্লিনার \"%s\""
 msgid "Uninstaller can't remove itself"
 msgstr "আনইনস্টলার নিজেকে সরাতে পারছে না"
 
-#: plugins/Uninstaller/src/Manage.php:63
+#: plugins/Uninstaller/src/Manage.php:65
 msgid "Unknown module id to uninstall"
 msgstr "অইনস্টল করার জন্য অজানা মডিউল id"
 
-#: plugins/Uninstaller/src/Manage.php:71
+#: plugins/Uninstaller/src/Manage.php:73
 msgid "There are no uninstall actions for this module"
 msgstr "এই মডিউলের জন্য কোনো ইনস্টল করা কাজ নেই"
 
-#: plugins/Uninstaller/src/Manage.php:96
+#: plugins/Uninstaller/src/Manage.php:98
 msgid "Uninstall action successfuly excecuted"
 msgstr "ইনস্টল করা অ্যাকশন সাফল্যের অদ্ভুত"
 
-#: plugins/Uninstaller/src/Manage.php:99
+#: plugins/Uninstaller/src/Manage.php:101
 msgid "No uninstall action done"
 msgstr "কোনো ইনস্টল করা হয়নি"
 
-#: plugins/Uninstaller/src/Manage.php:145
+#: plugins/Uninstaller/src/Manage.php:147
 msgid "Perform selected actions"
 msgstr "নির্বাচিত কাজগুলো পারফর্ম করো"
 
-#: plugins/Uninstaller/src/Manage.php:160
+#: plugins/Uninstaller/src/Manage.php:162
 msgid "Are you sure you perform these ations?"
 msgstr "আপনি কি নিশ্চিত আপনি এই ations পরিবেশন করবেন?"
 
-#: plugins/Uninstaller/src/Manage.php:176
+#: plugins/Uninstaller/src/Manage.php:178
 #, php-format
 msgid "Uninstall plugin \"%s\""
 msgstr "প্লাগইন \"%s\" আনইনস্টল করুন"
 
-#: plugins/Uninstaller/src/Manage.php:176
+#: plugins/Uninstaller/src/Manage.php:178
 #, php-format
 msgid "Uninstall theme \"%s\""
 msgstr "থিম \"%s\" আনইনস্টল করুন"
 
-#: plugins/Uninstaller/src/Manage.php:177
+#: plugins/Uninstaller/src/Manage.php:179
 #, php-format
 msgid "The module \"%1$s\" version %2$s offers advanced uninstall process:"
 msgstr "\"%1$s\" সংস্করণ %2$s মডিউলটি উন্নত আনইনস্টল প্রক্রিয়া প্রদান করে:"
@@ -446,30 +446,30 @@ msgstr "\"%1$s\" সংস্করণ %2$s মডিউলটি উন্ন�
 msgid "Cope with old core classes (< 2.26)"
 msgstr "পুরনো কোর ক্লাস (< 2.26)"
 
-#: plugins/_fake_plugin/_fake_l10n.php:8 plugins/antispam/src/Backend.php:30
+#: plugins/_fake_plugin/_fake_l10n.php:8 plugins/antispam/src/Backend.php:32
 msgid "Generic antispam plugin for Dotclear"
 msgstr "Dotclear এর জন্য সাধারণ অ্যান্টিস্প্যাম প্লাগ-ইন"
 
-#: plugins/_fake_plugin/_fake_l10n.php:9 plugins/akismet/src/Prepend.php:27
+#: plugins/_fake_plugin/_fake_l10n.php:9 plugins/akismet/src/Prepend.php:29
 msgid "Akismet interface for Dotclear"
 msgstr "Dotclear এর জন্য Akismet ইন্টারফেস"
 
 #: plugins/_fake_plugin/_fake_l10n.php:10
-#: plugins/fairTrackbacks/src/Prepend.php:27
+#: plugins/fairTrackbacks/src/Prepend.php:29
 msgid "Trackback validity check"
 msgstr "ট্র্যাকব্যাক বৈধতা পরীক্ষা"
 
 #: plugins/_fake_plugin/_fake_l10n.php:11
-#: plugins/attachments/src/Backend.php:26
+#: plugins/attachments/src/Backend.php:28
 msgid "Manage post attachments"
 msgstr "পোস্ট অ্যাটাচমেন্ট পরিচালনা করুন"
 
-#: plugins/_fake_plugin/_fake_l10n.php:12 plugins/pages/src/Backend.php:29
+#: plugins/_fake_plugin/_fake_l10n.php:12 plugins/pages/src/Backend.php:31
 msgid "Serve entries as simple web pages"
 msgstr "সহজ ওয়েব পেজ হিসাবে সার্ভ এন্ট্রি"
 
 #: plugins/_fake_plugin/_fake_l10n.php:13
-#: plugins/aboutConfig/src/Backend.php:26
+#: plugins/aboutConfig/src/Backend.php:28
 msgid "Manage every blog configuration directive"
 msgstr "প্রতিটি ব্লগ কনফিগারেশন ডিরেক্টিভ পরিচালনা করুন"
 
@@ -478,56 +478,56 @@ msgid "Uninstall cleanly plugins and themes"
 msgstr "পরিষ্কারভাবে প্লাগইন এবং থিমগুলি আনইনস্টল করুন"
 
 #: plugins/_fake_plugin/_fake_l10n.php:15
-#: plugins/dcLegacyEditor/src/Backend.php:27
-#: plugins/dcLegacyEditor/src/Manage.php:73
+#: plugins/dcLegacyEditor/src/Backend.php:29
+#: plugins/dcLegacyEditor/src/Manage.php:75
 msgid "Dotclear editor"
 msgstr "ডটক্লিয়ার সম্পাদক"
 
 #: plugins/_fake_plugin/_fake_l10n.php:16
-#: plugins/themeEditor/src/Backend.php:26
+#: plugins/themeEditor/src/Backend.php:28
 msgid "Theme Editor"
 msgstr "থিম সম্পাদক"
 
-#: plugins/_fake_plugin/_fake_l10n.php:17 plugins/simpleMenu/src/Backend.php:27
+#: plugins/_fake_plugin/_fake_l10n.php:17 plugins/simpleMenu/src/Backend.php:29
 msgid "Simple menu for Dotclear"
 msgstr "Dotclear এর জন্য সহজ মেনু"
 
 #: plugins/_fake_plugin/_fake_l10n.php:18
-#: plugins/importExport/src/Backend.php:28
+#: plugins/importExport/src/Backend.php:30
 msgid "Import and Export your blog"
 msgstr "আপনার ব্লগ ইম্পোর্ট এবং এক্সপোর্ট করুন"
 
-#: plugins/_fake_plugin/_fake_l10n.php:19 plugins/userPref/src/Backend.php:26
+#: plugins/_fake_plugin/_fake_l10n.php:19 plugins/userPref/src/Backend.php:28
 msgid "Manage every user preference directive"
 msgstr "প্রতি ব্যবহারকারীর পছন্দ নির্দেশক পরিচালনা করুন"
 
-#: plugins/_fake_plugin/_fake_l10n.php:20 plugins/dcCKEditor/src/Backend.php:26
-#: plugins/dcCKEditor/src/Manage.php:170
+#: plugins/_fake_plugin/_fake_l10n.php:20 plugins/dcCKEditor/src/Backend.php:28
+#: plugins/dcCKEditor/src/Manage.php:172
 msgid "CKEditor"
 msgstr "CKEditor"
 
 #: plugins/_fake_plugin/_fake_l10n.php:21
-#: plugins/maintenance/src/Backend.php:26
+#: plugins/maintenance/src/Backend.php:28
 msgid "Maintain your installation"
 msgstr "আপনার ইনস্টলেশন টেনে নিন"
 
-#: plugins/_fake_plugin/_fake_l10n.php:22 plugins/breadcrumb/src/Backend.php:26
+#: plugins/_fake_plugin/_fake_l10n.php:22 plugins/breadcrumb/src/Backend.php:28
 msgid "Breadcrumb for Dotclear"
 msgstr "Dotclear এর জন্য Breadcrumb"
 
-#: plugins/_fake_plugin/_fake_l10n.php:23 plugins/blogroll/src/Backend.php:27
+#: plugins/_fake_plugin/_fake_l10n.php:23 plugins/blogroll/src/Backend.php:29
 msgid "Manage your blogroll"
 msgstr "আপনার ব্লগলের পরিচালনা করুন"
 
-#: plugins/_fake_plugin/_fake_l10n.php:24 plugins/pings/src/Backend.php:28
+#: plugins/_fake_plugin/_fake_l10n.php:24 plugins/pings/src/Backend.php:30
 msgid "Ping services"
 msgstr "পিং সার্ভিস"
 
-#: plugins/_fake_plugin/_fake_l10n.php:25 plugins/tags/src/Backend.php:26
+#: plugins/_fake_plugin/_fake_l10n.php:25 plugins/tags/src/Backend.php:28
 msgid "Tags for posts"
 msgstr "পোস্টের জন্য ট্যাগ"
 
-#: plugins/_fake_plugin/_fake_l10n.php:26 plugins/widgets/src/Backend.php:28
+#: plugins/_fake_plugin/_fake_l10n.php:26 plugins/widgets/src/Backend.php:30
 msgid "Widgets for your blog sidebars"
 msgstr "আপনার ব্লগ সাইবার জন্য উইজেট"
 
@@ -591,22 +591,22 @@ msgstr "ব্লগলের তালিকা"
 msgid "Tags cloud"
 msgstr "ট্যাগ ক্লাউড"
 
-#: plugins/aboutConfig/src/Backend.php:25
+#: plugins/aboutConfig/src/Backend.php:27
 msgid "about:config"
 msgstr "সম্পর্কিত: কনফিগ"
 
-#: plugins/aboutConfig/src/Manage.php:89 plugins/aboutConfig/src/Manage.php:109
+#: plugins/aboutConfig/src/Manage.php:92 plugins/aboutConfig/src/Manage.php:112
 msgid "Configuration successfully updated"
 msgstr "কনফিগারেশন সফলভাবে আপডেট করা হয়েছে"
 
-#: plugins/aboutConfig/src/Manage.php:149
-#: plugins/aboutConfig/src/Manage.php:151
+#: plugins/aboutConfig/src/Manage.php:152
+#: plugins/aboutConfig/src/Manage.php:154
 #, php-format
 msgid "Settings for %s"
 msgstr "%s-এর জন্য সেটিংস"
 
-#: plugins/aboutConfig/src/Manage.php:159
-#: plugins/aboutConfig/src/Manage.php:161
+#: plugins/aboutConfig/src/Manage.php:162
+#: plugins/aboutConfig/src/Manage.php:164
 msgid "Global settings"
 msgstr "গ্লোবাল সেটিংস"
 
@@ -622,13 +622,13 @@ msgstr "পরিচয় নির্ধারণ করা হচ্ছে"
 msgid "Value"
 msgstr "ভ্যালু"
 
-#: plugins/aboutConfig/src/Manage.php:314 plugins/userPref/src/Manage.php:312
-msgid "no"
-msgstr "না"
-
-#: plugins/aboutConfig/src/Manage.php:314 plugins/userPref/src/Manage.php:312
+#: plugins/aboutConfig/src/Manage.php:315 plugins/userPref/src/Manage.php:313
 msgid "yes"
 msgstr "হ্যাঁ"
+
+#: plugins/aboutConfig/src/Manage.php:316 plugins/userPref/src/Manage.php:314
+msgid "no"
+msgstr "না"
 
 #: plugins/akismet/src/AntispamFilterAkismet.php:80
 msgid "Akismet spam filter"
@@ -663,30 +663,30 @@ msgstr "Akismet API কী:"
 msgid "Get your own API key"
 msgstr "আপনার এপিআই কী (API) নাও"
 
-#: plugins/akismet/src/Prepend.php:26
+#: plugins/akismet/src/Prepend.php:28
 msgid "Akismet"
 msgstr "Akismet"
 
-#: plugins/antispam/src/Antispam.php:147
+#: plugins/antispam/src/Antispam.php:139
 msgid "This comment is a spam:"
 msgstr "এই মন্তব্যটি একটি স্প্যাম:"
 
-#: plugins/antispam/src/Antispam.php:163 plugins/antispam/src/Rest.php:27
+#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:27
 #, php-format
 msgid "(including %d spam comment)"
 msgstr "(%dটি স্প্যাম মন্তব্য সহ)"
 
-#: plugins/antispam/src/Antispam.php:163 plugins/antispam/src/Rest.php:27
+#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:27
 #, php-format
 msgid "(including %d spam comments)"
 msgstr "(%dটি স্প্যাম মন্তব্য সহ)"
 
-#: plugins/antispam/src/Backend.php:29
+#: plugins/antispam/src/Backend.php:31
 msgid "Antispam"
 msgstr "এন্টিস্প্যাম"
 
 #: plugins/antispam/src/BackendBehaviors.php:56
-#: plugins/antispam/src/Manage.php:224
+#: plugins/antispam/src/Manage.php:226
 #, php-format
 msgid "All spam comments older than %s day(s) will be automatically deleted."
 msgstr "%s দিন(গুলির) চেয়ে পুরানো সমস্ত স্প্যাম মন্তব্য স্বয়ংক্রিয়ভাবে মোছা হবে।"
@@ -779,7 +779,7 @@ msgstr "একটি IP ঠিকানা যুক্ত করুন:"
 #: plugins/antispam/src/Filters/Ip.php:274
 #: plugins/antispam/src/Filters/IpV6.php:273
 #: plugins/antispam/src/Filters/Words.php:292
-#: plugins/widgets/src/Manage.php:322
+#: plugins/widgets/src/Manage.php:324
 msgid "Add"
 msgstr "যোগ করুন"
 
@@ -882,96 +882,96 @@ msgstr "স্প্যাম"
 msgid "Ham"
 msgstr "হ্যাম"
 
-#: plugins/antispam/src/Manage.php:72
+#: plugins/antispam/src/Manage.php:74
 msgid "Filter does not exist."
 msgstr "ফিল্টার বিদ্যমান নেই."
 
-#: plugins/antispam/src/Manage.php:76
+#: plugins/antispam/src/Manage.php:78
 msgid "Filter has no user interface."
 msgstr "ফিল্টার ব্যবহারকারীর ইন্টারফেস নেই."
 
-#: plugins/antispam/src/Manage.php:137 plugins/antispam/src/Manage.php:270
+#: plugins/antispam/src/Manage.php:139 plugins/antispam/src/Manage.php:272
 msgid "Filters configuration has been successfully saved."
 msgstr "ফিল্টার কনফিগারেশন সফলভাবে সংরক্ষণ করা হয়েছে."
 
-#: plugins/antispam/src/Manage.php:154
+#: plugins/antispam/src/Manage.php:156
 #, php-format
 msgid "%s configuration"
 msgstr "%s কনফিগারেশন"
 
-#: plugins/antispam/src/Manage.php:175
+#: plugins/antispam/src/Manage.php:177
 #, php-format
 msgid "%s filter configuration"
 msgstr "%s ফিল্টার কনফিগারেশন"
 
-#: plugins/antispam/src/Manage.php:182
+#: plugins/antispam/src/Manage.php:184
 msgid "Back to filters list"
 msgstr "ফিল্টার তালিকায় ফিরে যাও"
 
-#: plugins/antispam/src/Manage.php:229
+#: plugins/antispam/src/Manage.php:231
 #, php-format
 msgid "You can modify this duration in the %s"
 msgstr "আপনি %s-এ এই সময়কাল সংশোধন করতে পারেন"
 
-#: plugins/antispam/src/Manage.php:238
+#: plugins/antispam/src/Manage.php:240
 msgid "Information"
 msgstr "তথ্য"
 
-#: plugins/antispam/src/Manage.php:249
+#: plugins/antispam/src/Manage.php:251
 msgid "Junk comments:"
 msgstr "জাঙ্ক মন্তব্যসমূহ:"
 
-#: plugins/antispam/src/Manage.php:255
+#: plugins/antispam/src/Manage.php:257
 msgid "Published comments:"
 msgstr "প্রকাশিত মন্তব্যসমূহ:"
 
-#: plugins/antispam/src/Manage.php:279 plugins/antispam/src/Manage.php:282
-#: plugins/antispam/src/Manage.php:286
+#: plugins/antispam/src/Manage.php:281 plugins/antispam/src/Manage.php:284
+#: plugins/antispam/src/Manage.php:288
 msgid "Filter configuration"
 msgstr "ফিল্টার কনফিগারেশন"
 
-#: plugins/antispam/src/Manage.php:302 plugins/blogroll/src/Manage.php:306
+#: plugins/antispam/src/Manage.php:304 plugins/blogroll/src/Manage.php:308
 msgid "position"
 msgstr "অবস্থান"
 
-#: plugins/antispam/src/Manage.php:309 plugins/antispam/src/Manage.php:343
+#: plugins/antispam/src/Manage.php:311 plugins/antispam/src/Manage.php:345
 msgid "Active"
 msgstr "সক্রিয়"
 
-#: plugins/antispam/src/Manage.php:316 plugins/antispam/src/Manage.php:344
+#: plugins/antispam/src/Manage.php:318 plugins/antispam/src/Manage.php:346
 msgid "Auto Del."
 msgstr "অটো ডেল."
 
-#: plugins/antispam/src/Manage.php:337
+#: plugins/antispam/src/Manage.php:339
 msgid "Available spam filters"
 msgstr "বিদ্যমান স্প্যাম ফিল্টার"
 
-#: plugins/antispam/src/Manage.php:342
+#: plugins/antispam/src/Manage.php:344
 #: plugins/pages/src/BackendDefaultActions.php:74
 msgid "Order"
 msgstr "অর্ডার"
 
-#: plugins/antispam/src/Manage.php:345
+#: plugins/antispam/src/Manage.php:347
 msgid "Filter name"
 msgstr "ফিল্টার নাম"
 
-#: plugins/antispam/src/Manage.php:372
+#: plugins/antispam/src/Manage.php:374
 msgid "Syndication"
 msgstr "Syndication"
 
-#: plugins/antispam/src/Manage.php:375
+#: plugins/antispam/src/Manage.php:377
 msgid "Junk comments RSS feed"
 msgstr "আরএসএস ফিডে জংক মন্তব্য করেছে"
 
-#: plugins/antispam/src/Manage.php:378
+#: plugins/antispam/src/Manage.php:380
 msgid "Published comments RSS feed"
 msgstr "প্রকাশ করা মন্তব্যের আরএসএস ফিড"
 
-#: plugins/antispam/src/SpamFilter.php:93
+#: plugins/antispam/src/SpamFilter.php:95
 msgid "No description"
 msgstr "কোনো বর্ণনা নেই"
 
-#: plugins/antispam/src/SpamFilter.php:151
+#: plugins/antispam/src/SpamFilter.php:153
 #, php-format
 msgid "Filtered by %1$s (%2$s)"
 msgstr "Filtered by %1$s (%2$s)"
@@ -980,7 +980,7 @@ msgstr "Filtered by %1$s (%2$s)"
 msgid "Unknown filter."
 msgstr "অজানা ফিল্টার."
 
-#: plugins/attachments/src/Backend.php:25
+#: plugins/attachments/src/Backend.php:27
 msgid "attachments"
 msgstr "অ্যাটাচমেন্ট"
 
@@ -1037,11 +1037,11 @@ msgid_plural "%d links have been successfully deleted"
 msgstr[0] "%dটি লিঙ্ক সফলভাবে মুছে ফেলা হয়েছে।"
 msgstr[1] "%dটি লিঙ্ক সফলভাবে মুছে ফেলা হয়েছে।"
 
-#: plugins/blogroll/src/Backend.php:26
+#: plugins/blogroll/src/Backend.php:28
 msgid "Blogroll"
 msgstr "Blogroll"
 
-#: plugins/blogroll/src/Backend.php:38
+#: plugins/blogroll/src/Backend.php:40
 msgid "manage blogroll"
 msgstr "ব্লগলের ব্যবস্থাপনা"
 
@@ -1061,217 +1061,217 @@ msgstr "আপনার লিঙ্কের স্থিতি পরিবর
 msgid "You are not allowed to delete links"
 msgstr "আপনার লিঙ্ক মুছে ফেলার অনুমতি নেই।"
 
-#: plugins/blogroll/src/Manage.php:114 plugins/blogroll/src/Manage.php:617
+#: plugins/blogroll/src/Manage.php:116 plugins/blogroll/src/Manage.php:619
 msgid "Nothing to import"
 msgstr "ইম্পোর্ট করার কিছু নেই"
 
-#: plugins/blogroll/src/Manage.php:137
+#: plugins/blogroll/src/Manage.php:139
 msgid "links have been successfully imported."
 msgstr "লিংক সফলভাবে আমদানো হয়েছে."
 
-#: plugins/blogroll/src/Manage.php:144
+#: plugins/blogroll/src/Manage.php:146
 msgid "Import operation cancelled."
 msgstr "অপারেশন বাতিল করা হয়েছে."
 
-#: plugins/blogroll/src/Manage.php:160
+#: plugins/blogroll/src/Manage.php:162
 msgid "Link has been successfully created."
 msgstr "লিংক সফলভাবে তৈরি করা হয়েছে."
 
-#: plugins/blogroll/src/Manage.php:176
+#: plugins/blogroll/src/Manage.php:178
 msgid "category has been successfully created."
 msgstr "শ্রেণীবিভাগ সফলভাবে তৈরি করা হয়েছে."
 
-#: plugins/blogroll/src/Manage.php:209
+#: plugins/blogroll/src/Manage.php:211
 msgid "Items order has been successfully updated"
 msgstr "আইটেম আদেশটি সফলভাবে হালনাগাদ করা হয়েছে"
 
-#: plugins/blogroll/src/Manage.php:275
+#: plugins/blogroll/src/Manage.php:277
 msgid "Are you sure you want to delete selected links?"
 msgstr "আপনি কি নির্বাচিত লিংকগুলো মুছে ফেলতে চান?"
 
-#: plugins/blogroll/src/Manage.php:313
+#: plugins/blogroll/src/Manage.php:315
 msgid "select this link"
 msgstr "এই লিঙ্ক নির্বাচন করুন"
 
-#: plugins/blogroll/src/Manage.php:373
+#: plugins/blogroll/src/Manage.php:375
 msgid "Lang"
 msgstr "ল্যাংCity name (optional,"
 
-#: plugins/blogroll/src/Manage.php:421
+#: plugins/blogroll/src/Manage.php:423
 msgid "Selected links action:"
 msgstr "নির্বাচিত লিঙ্কগুলির ক্রিয়া:"
 
-#: plugins/blogroll/src/Manage.php:441
+#: plugins/blogroll/src/Manage.php:443
 msgid "The link list is empty"
 msgstr "লিংক লিস্ট খালি"
 
-#: plugins/blogroll/src/Manage.php:464
+#: plugins/blogroll/src/Manage.php:466
 msgid "Add a new link"
 msgstr "একটি নতুন লিংক যোগ করুন"
 
-#: plugins/blogroll/src/Manage.php:515 plugins/blogroll/src/Manage.php:565
-#: plugins/blogroll/src/ManageEdit.php:224
-#: plugins/blogroll/src/ManageEdit.php:296
+#: plugins/blogroll/src/Manage.php:517 plugins/blogroll/src/Manage.php:567
+#: plugins/blogroll/src/ManageEdit.php:226
+#: plugins/blogroll/src/ManageEdit.php:298
 msgid "Link status"
 msgstr "লিঙ্কের অবস্থা"
 
-#: plugins/blogroll/src/Manage.php:534
+#: plugins/blogroll/src/Manage.php:536
 msgid "Add a category"
 msgstr "একটি শ্রেণী যোগ করুন"
 
-#: plugins/blogroll/src/Manage.php:588 plugins/blogroll/src/Manage.php:680
-#: plugins/blogroll/src/Manage.php:687
+#: plugins/blogroll/src/Manage.php:590 plugins/blogroll/src/Manage.php:682
+#: plugins/blogroll/src/Manage.php:689
 msgid "Import links"
 msgstr "লিঙ্ক ইম্পোর্ট করুন"
 
-#: plugins/blogroll/src/Manage.php:597
+#: plugins/blogroll/src/Manage.php:599
 msgid "OPML or XBEL File:"
 msgstr "OPML অথবা XBEL ফাইল:"
 
-#: plugins/blogroll/src/Manage.php:607 plugins/blogroll/src/Manage.php:672
-#: plugins/importExport/src/Manage.php:130
+#: plugins/blogroll/src/Manage.php:609 plugins/blogroll/src/Manage.php:674
+#: plugins/importExport/src/Manage.php:132
 #: plugins/importExport/src/ModuleImportFeed.php:239
-#: plugins/importExport/src/ModuleImportFlat.php:245
-#: plugins/importExport/src/ModuleImportFlat.php:307
+#: plugins/importExport/src/ModuleImportFlat.php:250
+#: plugins/importExport/src/ModuleImportFlat.php:312
 msgid "Import"
 msgstr "ইম্পোর্ট"
 
-#: plugins/blogroll/src/ManageEdit.php:71
+#: plugins/blogroll/src/ManageEdit.php:73
 msgid "No such link or title"
 msgstr "কোন লিঙ্ক বা শিরোনাম নেই"
 
-#: plugins/blogroll/src/ManageEdit.php:131
+#: plugins/blogroll/src/ManageEdit.php:133
 msgid "Link has been successfully updated"
 msgstr "লিংক সফলভাবে হালনাগাদ করা হয়েছে"
 
-#: plugins/blogroll/src/ManageEdit.php:148
+#: plugins/blogroll/src/ManageEdit.php:150
 msgid "Category has been successfully updated"
 msgstr "শ্রেণীবিভাগ সফলভাবে হালনাগাদ করা হয়েছে"
 
-#: plugins/blogroll/src/ManageEdit.php:181
+#: plugins/blogroll/src/ManageEdit.php:183
 #: plugins/dcCKEditor/src/BackendBehaviors.php:62
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:221
 msgid "Link"
 msgstr "লিঙ্ক"
 
-#: plugins/blogroll/src/ManageEdit.php:188
+#: plugins/blogroll/src/ManageEdit.php:190
 msgid "Return to blogroll"
 msgstr "Blogroll ফিরে যাও"
 
-#: plugins/blogroll/src/ManageEdit.php:199
+#: plugins/blogroll/src/ManageEdit.php:201
 msgid "Edit category"
 msgstr "শ্রেণীবিভাগ"
 
-#: plugins/blogroll/src/ManageEdit.php:243
+#: plugins/blogroll/src/ManageEdit.php:245
 msgid "Edit link"
 msgstr "লিংক সম্পাদন করুন"
 
-#: plugins/blogroll/src/ManageEdit.php:302
+#: plugins/blogroll/src/ManageEdit.php:304
 msgid "XFN information"
 msgstr "XFN তথ্য"
 
-#: plugins/blogroll/src/ManageEdit.php:306
+#: plugins/blogroll/src/ManageEdit.php:308
 #, php-format
 msgid "More information on <a href=\"%s\">Wikipedia</a> website"
 msgstr "<a href=\"%s\">উইকিপিডিয়া</a> ওয়েবসাইট সম্পর্কে আরও তথ্য"
 
-#: plugins/blogroll/src/ManageEdit.php:312
+#: plugins/blogroll/src/ManageEdit.php:314
 msgid "_xfn_Me"
 msgstr "_xfn_মি"
 
-#: plugins/blogroll/src/ManageEdit.php:316
+#: plugins/blogroll/src/ManageEdit.php:318
 msgid "_xfn_Another link for myself"
 msgstr "নিজের জন্য xfn_আরেকটি লিঙ্ক (_x)"
 
-#: plugins/blogroll/src/ManageEdit.php:320
+#: plugins/blogroll/src/ManageEdit.php:322
 msgid "_xfn_Friendship"
 msgstr "_xfn_বন্ধুত্ব"
 
-#: plugins/blogroll/src/ManageEdit.php:324
+#: plugins/blogroll/src/ManageEdit.php:326
 msgid "_xfn_Contact"
 msgstr "এক্সএফএন_পরিচিতি (_C)"
 
-#: plugins/blogroll/src/ManageEdit.php:327
+#: plugins/blogroll/src/ManageEdit.php:329
 msgid "_xfn_Acquaintance"
 msgstr "_xfn_Acquaintance"
 
-#: plugins/blogroll/src/ManageEdit.php:330
+#: plugins/blogroll/src/ManageEdit.php:332
 msgid "_xfn_Friend"
 msgstr "Xfn_ফ্রেন্ড (_F)"
 
-#: plugins/blogroll/src/ManageEdit.php:340
+#: plugins/blogroll/src/ManageEdit.php:342
 msgid "_xfn_Physical"
 msgstr "_xfn_Physical"
 
-#: plugins/blogroll/src/ManageEdit.php:344
+#: plugins/blogroll/src/ManageEdit.php:346
 msgid "_xfn_Met"
 msgstr "Xfn_Met (_M)"
 
-#: plugins/blogroll/src/ManageEdit.php:348
+#: plugins/blogroll/src/ManageEdit.php:350
 msgid "_xfn_Professional"
 msgstr "_xfn_व्यवसायिक"
 
-#: plugins/blogroll/src/ManageEdit.php:352
+#: plugins/blogroll/src/ManageEdit.php:354
 msgid "_xfn_Co-worker"
 msgstr "Xfn_Co-কর্মী (_C)"
 
-#: plugins/blogroll/src/ManageEdit.php:355
+#: plugins/blogroll/src/ManageEdit.php:357
 msgid "_xfn_Colleague"
 msgstr "Xfn_Colleague (_C)"
 
-#: plugins/blogroll/src/ManageEdit.php:359
+#: plugins/blogroll/src/ManageEdit.php:361
 msgid "_xfn_Geographical"
 msgstr "_xfn_ভৌগোলিক"
 
-#: plugins/blogroll/src/ManageEdit.php:363
+#: plugins/blogroll/src/ManageEdit.php:365
 msgid "_xfn_Co-resident"
 msgstr "Xfn_Co-বাসিন্দা (_C)"
 
-#: plugins/blogroll/src/ManageEdit.php:366
+#: plugins/blogroll/src/ManageEdit.php:368
 msgid "_xfn_Neighbor"
 msgstr "_xfn_Neighbor"
 
-#: plugins/blogroll/src/ManageEdit.php:376
+#: plugins/blogroll/src/ManageEdit.php:378
 msgid "_xfn_Family"
 msgstr "_xfn_ফ্যামিলি"
 
-#: plugins/blogroll/src/ManageEdit.php:380
+#: plugins/blogroll/src/ManageEdit.php:382
 msgid "_xfn_Child"
 msgstr "_xfn_Child"
 
-#: plugins/blogroll/src/ManageEdit.php:383
+#: plugins/blogroll/src/ManageEdit.php:385
 msgid "_xfn_Parent"
 msgstr "_xfn_Parent"
 
-#: plugins/blogroll/src/ManageEdit.php:386
+#: plugins/blogroll/src/ManageEdit.php:388
 msgid "_xfn_Sibling"
 msgstr "Xfn_Sibling"
 
-#: plugins/blogroll/src/ManageEdit.php:389
+#: plugins/blogroll/src/ManageEdit.php:391
 msgid "_xfn_Spouse"
 msgstr "Xfn_Spouse (_S)"
 
-#: plugins/blogroll/src/ManageEdit.php:392
+#: plugins/blogroll/src/ManageEdit.php:394
 msgid "_xfn_Kin"
 msgstr "Xfn_Kin (_x)"
 
-#: plugins/blogroll/src/ManageEdit.php:402
+#: plugins/blogroll/src/ManageEdit.php:404
 msgid "_xfn_Romantic"
 msgstr "_xfn_রোমান্টিক"
 
-#: plugins/blogroll/src/ManageEdit.php:406
+#: plugins/blogroll/src/ManageEdit.php:408
 msgid "_xfn_Muse"
 msgstr "Xfn_Muse (_x)"
 
-#: plugins/blogroll/src/ManageEdit.php:409
+#: plugins/blogroll/src/ManageEdit.php:411
 msgid "_xfn_Crush"
 msgstr "Xfn_ক্রাশ (_C)"
 
-#: plugins/blogroll/src/ManageEdit.php:412
+#: plugins/blogroll/src/ManageEdit.php:414
 msgid "_xfn_Date"
 msgstr "Xfn_তারিখ (_D)"
 
-#: plugins/blogroll/src/ManageEdit.php:415
+#: plugins/blogroll/src/ManageEdit.php:417
 msgid "_xfn_Sweetheart"
 msgstr "Xfn_Sweetheart (_x)"
 
@@ -1288,7 +1288,7 @@ msgstr "ফাইলটি XML ফরম্যাটে নেই।"
 msgid "All categories"
 msgstr "সব ক্যাটাগরি"
 
-#: plugins/breadcrumb/src/Backend.php:25
+#: plugins/breadcrumb/src/Backend.php:27
 msgid "Breadcrumb"
 msgstr "Breadcrumb"
 
@@ -1319,7 +1319,7 @@ msgstr "একটি &lt;p id=\"breadcrumb\"&gt; মধ্যে ব্রেড
 #: plugins/breadcrumb/src/FrontendTemplate.php:193
 #: plugins/breadcrumb/src/FrontendTemplate.php:205
 #: plugins/breadcrumb/src/FrontendTemplate.php:211
-#: plugins/simpleMenu/src/Manage.php:147 plugins/simpleMenu/src/Manage.php:260
+#: plugins/simpleMenu/src/Manage.php:149 plugins/simpleMenu/src/Manage.php:263
 #: plugins/widgets/src/Widgets.php:296
 msgid "Home"
 msgstr "হোম"
@@ -1334,13 +1334,13 @@ msgstr "পৃষ্ঠা %d"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:155
 #: plugins/breadcrumb/src/FrontendTemplate.php:158
-#: plugins/simpleMenu/src/Manage.php:287 plugins/widgets/src/Widgets.php:324
+#: plugins/simpleMenu/src/Manage.php:290 plugins/widgets/src/Widgets.php:324
 msgid "Archives"
 msgstr "আর্কাইভ"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:174
 #: plugins/breadcrumb/src/FrontendTemplate.php:181
-#: plugins/simpleMenu/src/Manage.php:131 plugins/simpleMenu/src/Manage.php:307
+#: plugins/simpleMenu/src/Manage.php:133 plugins/simpleMenu/src/Manage.php:310
 #: plugins/tags/src/Widgets.php:57
 msgid "All tags"
 msgstr "সব ট্যাগ"
@@ -1365,12 +1365,12 @@ msgstr "নকল l10n ফাইল তৈরি করতে ব্যর্থ
 msgid "Generate a php file that contents strings to translate that are not be done with core tools."
 msgstr "একটি php ফাইল তৈরি করুন যা অনুবাদ করার জন্য স্ট্রিং করা হয় যা কোর টুল দিয়ে করা যায়না."
 
-#: plugins/dcCKEditor/src/Backend.php:25
+#: plugins/dcCKEditor/src/Backend.php:27
 msgid "dcCKEditor"
 msgstr "CKEditor"
 
-#: plugins/dcCKEditor/src/Backend.php:41
-#: plugins/dcLegacyEditor/src/Backend.php:46
+#: plugins/dcCKEditor/src/Backend.php:43
+#: plugins/dcLegacyEditor/src/Backend.php:48
 msgid "HTML"
 msgstr "HTML"
 
@@ -1408,99 +1408,99 @@ msgstr "URL ক্ষেত্র ফাঁকা হতে পারে না.
 msgid "Open the media"
 msgstr "মিডিয়া খুলুন"
 
-#: plugins/dcCKEditor/src/Manage.php:149
-#: plugins/dcLegacyEditor/src/Manage.php:56
+#: plugins/dcCKEditor/src/Manage.php:151
+#: plugins/dcLegacyEditor/src/Manage.php:58
 msgid "The configuration has been updated."
 msgstr "কনফিগারেশন হালনাগাদ করা হয়েছে."
 
-#: plugins/dcCKEditor/src/Manage.php:179
-#: plugins/dcLegacyEditor/src/Manage.php:82
+#: plugins/dcCKEditor/src/Manage.php:181
+#: plugins/dcLegacyEditor/src/Manage.php:84
 msgid "Plugin activation"
 msgstr "প্লাগ-ইন সক্রিয়"
 
-#: plugins/dcCKEditor/src/Manage.php:185
+#: plugins/dcCKEditor/src/Manage.php:187
 msgid "Enable CKEditor plugin"
 msgstr "CKEditor প্লাগইন সক্রিয় করুন"
 
-#: plugins/dcCKEditor/src/Manage.php:198
+#: plugins/dcCKEditor/src/Manage.php:200
 msgid "Add alignment buttons"
 msgstr "সংকেত বাটন যোগ করো"
 
-#: plugins/dcCKEditor/src/Manage.php:204
+#: plugins/dcCKEditor/src/Manage.php:206
 msgid "Add lists buttons"
 msgstr "তালিকা বাটন যোগ করো"
 
-#: plugins/dcCKEditor/src/Manage.php:210
+#: plugins/dcCKEditor/src/Manage.php:212
 msgid "Add text color button"
 msgstr "টেক্সট রং বাটন যোগ করো"
 
-#: plugins/dcCKEditor/src/Manage.php:216
+#: plugins/dcCKEditor/src/Manage.php:218
 msgid "Add background text color button"
 msgstr "পটভূমির টেক্সট রং বাটন যোগ করো"
 
-#: plugins/dcCKEditor/src/Manage.php:219
+#: plugins/dcCKEditor/src/Manage.php:221
 msgid "Custom colors list:"
 msgstr "স্বনির্ধারিত রং তালিকা:"
 
-#: plugins/dcCKEditor/src/Manage.php:233
+#: plugins/dcCKEditor/src/Manage.php:235
 msgid "Add colors without # separated by a comma."
 msgstr "একটি কমা দ্বারা বিভাজন করা ছাড়া রং যোগ করো."
 
-#: plugins/dcCKEditor/src/Manage.php:238
+#: plugins/dcCKEditor/src/Manage.php:240
 msgid "Leave empty to use the default palette:"
 msgstr "ডিফল্ট প্যালেট ব্যবহার করার জন্য ফাঁকা রাখো:"
 
-#: plugins/dcCKEditor/src/Manage.php:244
+#: plugins/dcCKEditor/src/Manage.php:246
 msgid "Example of custom color list:"
 msgstr "স্বনির্বাচিত রঙের তালিকা:"
 
-#: plugins/dcCKEditor/src/Manage.php:252
+#: plugins/dcCKEditor/src/Manage.php:254
 msgid "Colors per row in palette:"
 msgstr "প্যালেটে প্রতি সারিতে রং:"
 
-#: plugins/dcCKEditor/src/Manage.php:256
+#: plugins/dcCKEditor/src/Manage.php:258
 msgid "Valid range: 4 to 16"
 msgstr "বৈধ সীমা: ৪ থেকে ১৬"
 
-#: plugins/dcCKEditor/src/Manage.php:261
+#: plugins/dcCKEditor/src/Manage.php:263
 msgid "Add collapse button"
 msgstr "পতন বাটন যোগ করো"
 
-#: plugins/dcCKEditor/src/Manage.php:267
+#: plugins/dcCKEditor/src/Manage.php:269
 msgid "Add format selection"
 msgstr "ফরম্যাট নির্বাচন যোগ করো"
 
-#: plugins/dcCKEditor/src/Manage.php:270
+#: plugins/dcCKEditor/src/Manage.php:272
 msgid "Custom formats"
 msgstr "স্বনির্ধারিত বিন্যাস"
 
-#: plugins/dcCKEditor/src/Manage.php:284
+#: plugins/dcCKEditor/src/Manage.php:286
 msgid "Default formats are p;h1;h2;h3;h4;h5;h6;pre;address"
 msgstr "ডিফল্ট বিন্যাস p; h1; h2; h3; h4; h5; h6; pre; address"
 
-#: plugins/dcCKEditor/src/Manage.php:290
+#: plugins/dcCKEditor/src/Manage.php:292
 msgid "Add table button"
 msgstr "টেবিল বোতাম যোগ করো"
 
-#: plugins/dcCKEditor/src/Manage.php:296
+#: plugins/dcCKEditor/src/Manage.php:298
 msgid "Add clipboard buttons"
 msgstr "ক্লিপবোর্ড বাটন যোগ করো"
 
-#: plugins/dcCKEditor/src/Manage.php:300
+#: plugins/dcCKEditor/src/Manage.php:302
 msgid "Copy, Paste, Paste Text, Paste from Word"
 msgstr "অনুলিপি, পেস্ট, পেস্ট টেক্সট, শব্দ থেকে পেস্ট করুন"
 
-#: plugins/dcCKEditor/src/Manage.php:305
+#: plugins/dcCKEditor/src/Manage.php:307
 msgid "Add undo/redo buttons"
 msgstr "বাতিল/রিডো বোতাম যোগ করো"
 
-#: plugins/dcCKEditor/src/Manage.php:311
+#: plugins/dcCKEditor/src/Manage.php:313
 msgid "Disables the built-in spell checker if the browser provides one"
 msgstr "ব্রাউজার যদি একটি সরবরাহ করে তবে বুলট-ইন বানান পরীক্ষক নিষ্ক্রিয় করা হবে"
 
-#: plugins/dcCKEditor/src/Manage.php:321
-#: plugins/dcLegacyEditor/src/Manage.php:111
-#: plugins/simpleMenu/src/Manage.php:761
+#: plugins/dcCKEditor/src/Manage.php:323
+#: plugins/dcLegacyEditor/src/Manage.php:113
+#: plugins/simpleMenu/src/Manage.php:764
 msgid "Save configuration"
 msgstr "কনফিগারেশন সংরক্ষণ করুন"
 
@@ -1508,11 +1508,11 @@ msgstr "কনফিগারেশন সংরক্ষণ করুন"
 msgid "Note(s)"
 msgstr "নোট (s)"
 
-#: plugins/dcLegacyEditor/src/Backend.php:26
+#: plugins/dcLegacyEditor/src/Backend.php:28
 msgid "dcLegacyEditor"
 msgstr "ডটক্লিয়ার সম্পাদক"
 
-#: plugins/dcLegacyEditor/src/Backend.php:50
+#: plugins/dcLegacyEditor/src/Backend.php:52
 msgid "Dotclear wiki"
 msgstr "Dotclear wiki"
 
@@ -1626,11 +1626,11 @@ msgstr "ভাষা?"
 msgid "Remove text formating"
 msgstr "টেক্সট ফর্ম্যাটিং অপসারণ করো"
 
-#: plugins/dcLegacyEditor/src/Manage.php:88
+#: plugins/dcLegacyEditor/src/Manage.php:90
 msgid "Enable standard editor plugin"
 msgstr "স্ট্যান্ডার্ড সম্পাদক প্লাগইন সক্রিয় করুন"
 
-#: plugins/dcLegacyEditor/src/Manage.php:101
+#: plugins/dcLegacyEditor/src/Manage.php:103
 msgid "Adjust height of input area during editing"
 msgstr "সম্পাদনার সময় ইনপুট এলাকার উচ্চতা সামঞ্জস্য করুন"
 
@@ -1638,11 +1638,11 @@ msgstr "সম্পাদনার সময় ইনপুট এলাকা
 msgid "Checks trackback source for a link to the post"
 msgstr "পোস্টের লিঙ্কের জন্য ট্র্যাকব্যাক উৎস পরীক্ষা করুন"
 
-#: plugins/fairTrackbacks/src/Prepend.php:26
+#: plugins/fairTrackbacks/src/Prepend.php:28
 msgid "Fair Trackbacks"
 msgstr "মেলা ট্র্যাকব্যাক"
 
-#: plugins/importExport/src/Backend.php:27
+#: plugins/importExport/src/Backend.php:29
 msgid "Import / Export"
 msgstr "আমদ/এক্সপোর্ট করুন"
 
@@ -1684,37 +1684,37 @@ msgstr "ফাইল একটি DotClear ব্যাক-আপ নয়."
 msgid "File is not a single blog export."
 msgstr "ফাইল একক ব্লগ রপ্তানি নয়."
 
-#: plugins/importExport/src/FlatImportV2.php:291
-#: plugins/importExport/src/FlatImportV2.php:345
+#: plugins/importExport/src/FlatImportV2.php:294
+#: plugins/importExport/src/FlatImportV2.php:353
 #, php-format
 msgid "Error raised at line %s"
 msgstr "%s লাইনে ত্রুটি উত্থাপিত হয়েছে"
 
-#: plugins/importExport/src/FlatImportV2.php:300
+#: plugins/importExport/src/FlatImportV2.php:305
 msgid "File is not a full export."
 msgstr "ফাইল সম্পূর্ণ রপ্তানি নয়."
 
-#: plugins/importExport/src/FlatImportV2.php:756
+#: plugins/importExport/src/FlatImportV2.php:766
 #, php-format
 msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
 msgstr "ব্যাকআপ ফাইলের %2$s লাইনে \"%1$s\" রেকর্ডে \"%3$s\"-এর ID মিলছে না।"
 
-#: plugins/importExport/src/Manage.php:90
-#: plugins/maintenance/src/Manage.php:199
+#: plugins/importExport/src/Manage.php:92
+#: plugins/maintenance/src/Manage.php:202
 msgid "Please wait..."
 msgstr "অনুগ্রহ করে অপেক্ষা করুন ..."
 
-#: plugins/importExport/src/Manage.php:136
+#: plugins/importExport/src/Manage.php:138
 msgid "Export"
 msgstr "রপ্তানি করো"
 
-#: plugins/importExport/src/Manage.php:141
+#: plugins/importExport/src/Manage.php:143
 #, php-format
 msgid "Export functions are in the page %s."
 msgstr "রপ্তানীর কার্যকারিতাগুলি %s পৃষ্ঠায় রয়েছে।"
 
-#: plugins/importExport/src/Manage.php:144
-#: plugins/maintenance/src/Backend.php:25
+#: plugins/importExport/src/Manage.php:146
+#: plugins/maintenance/src/Backend.php:27
 #: plugins/maintenance/src/BackendBehaviors.php:221
 msgid "Maintenance"
 msgstr "রক্ষণাবেক্ষণ"
@@ -1751,99 +1751,99 @@ msgstr "ফাইল পাওয়া যায়না."
 msgid "Failed to compress export file."
 msgstr "রপ্তানি ফাইল কম্প্রেস করতে ব্যর্থ."
 
-#: plugins/importExport/src/ModuleImportDc1.php:84
+#: plugins/importExport/src/ModuleImportDc1.php:85
 msgid "Dotclear 1.2 import"
 msgstr "Dotclear 1.2 ইম্পোর্ট"
 
-#: plugins/importExport/src/ModuleImportDc1.php:85
+#: plugins/importExport/src/ModuleImportDc1.php:86
 msgid "Import a Dotclear 1.2 installation into your current blog."
 msgstr "আপনার বর্তমান ব্লগে একটি Dotclear 1.2 ইনস্টল ইম্পোর্ট করুন."
 
-#: plugins/importExport/src/ModuleImportDc1.php:204
+#: plugins/importExport/src/ModuleImportDc1.php:217
 #, php-format
 msgid "Import the content of a Dotclear 1.2's blog in the current blog: %s."
 msgstr "বর্তমান ব্লগে একটি ডটক্লিয়ার 1.2-এর ব্লগের বিষয়বস্তু আমদানি করুন: %s."
 
-#: plugins/importExport/src/ModuleImportDc1.php:212
-#: plugins/importExport/src/ModuleImportWp.php:241
+#: plugins/importExport/src/ModuleImportDc1.php:225
+#: plugins/importExport/src/ModuleImportWp.php:253
 msgid "Please note that this process will empty your categories, blogroll, entries and comments on the current blog."
 msgstr "অনুগ্রহপূর্বক লক্ষ করুন যে, এই প্রক্রিয়াটি বর্তমান ব্লগে আপনার শ্রেণীবিভাগ, ব্লগকৃত, এন্ট্রি এবং মন্তব্য খালি করবে."
 
-#: plugins/importExport/src/ModuleImportDc1.php:219
+#: plugins/importExport/src/ModuleImportDc1.php:232
 msgid "We first need some information about your old Dotclear 1.2 installation."
 msgstr "আপনার পুরনো ডটস্পট ১.২ ইনস্টলেশন সম্পর্কে আমাদের প্রথমে কিছু তথ্য দরকার."
 
-#: plugins/importExport/src/ModuleImportDc1.php:226
+#: plugins/importExport/src/ModuleImportDc1.php:239
 msgid "Database driver:"
 msgstr "ডাটাবেস ড্রাইভার:"
 
-#: plugins/importExport/src/ModuleImportDc1.php:268
-#: plugins/importExport/src/ModuleImportWp.php:290
+#: plugins/importExport/src/ModuleImportDc1.php:281
+#: plugins/importExport/src/ModuleImportWp.php:302
 msgid "Entries import options"
 msgstr "এন্ট্রি ইম্পোর্ট অপশন"
 
-#: plugins/importExport/src/ModuleImportDc1.php:273
-#: plugins/importExport/src/ModuleImportWp.php:335
+#: plugins/importExport/src/ModuleImportDc1.php:286
+#: plugins/importExport/src/ModuleImportWp.php:347
 msgid "Number of entries to import at once:"
 msgstr "একসময় আমদনের জন্য এন্ট্রির সংখ্যা:"
 
-#: plugins/importExport/src/ModuleImportDc1.php:279
-#: plugins/importExport/src/ModuleImportWp.php:360
+#: plugins/importExport/src/ModuleImportDc1.php:292
+#: plugins/importExport/src/ModuleImportWp.php:372
 msgid "General information"
 msgstr "সাধারণ তথ্য"
 
-#: plugins/importExport/src/ModuleImportDc1.php:279
-#: plugins/importExport/src/ModuleImportWp.php:360
+#: plugins/importExport/src/ModuleImportDc1.php:292
+#: plugins/importExport/src/ModuleImportWp.php:372
 msgid "Import my blog now"
 msgstr "এখন আমার ব্লগ ইম্পোর্ট করুন"
 
-#: plugins/importExport/src/ModuleImportDc1.php:286
-#: plugins/importExport/src/ModuleImportWp.php:367
+#: plugins/importExport/src/ModuleImportDc1.php:299
+#: plugins/importExport/src/ModuleImportWp.php:379
 msgid "Importing users"
 msgstr "ব্যবহারকারীদের ইম্পোর্ট করা হচ্ছে"
 
-#: plugins/importExport/src/ModuleImportDc1.php:293
-#: plugins/importExport/src/ModuleImportWp.php:374
+#: plugins/importExport/src/ModuleImportDc1.php:306
+#: plugins/importExport/src/ModuleImportWp.php:386
 msgid "Importing categories"
 msgstr "শ্রেণীবিভাগ আমদানি করা হচ্ছে"
 
-#: plugins/importExport/src/ModuleImportDc1.php:300
-#: plugins/importExport/src/ModuleImportWp.php:381
+#: plugins/importExport/src/ModuleImportDc1.php:313
+#: plugins/importExport/src/ModuleImportWp.php:393
 msgid "Importing blogroll"
 msgstr "ইম্পোর্ট করা ব্লু"
 
-#: plugins/importExport/src/ModuleImportDc1.php:307
-#: plugins/importExport/src/ModuleImportWp.php:388
+#: plugins/importExport/src/ModuleImportDc1.php:320
+#: plugins/importExport/src/ModuleImportWp.php:400
 #, php-format
 msgid "Importing entries from %d to %d / %d"
 msgstr "%d থেকে %d/%d-এ এন্ট্রিগুলি আমদানি করা হচ্ছে"
 
-#: plugins/importExport/src/ModuleImportDc1.php:322
-#: plugins/importExport/src/ModuleImportWp.php:403
+#: plugins/importExport/src/ModuleImportDc1.php:335
+#: plugins/importExport/src/ModuleImportWp.php:415
 msgid "Please read carefully"
 msgstr "দয়া করে সাবধানে পড়ুন"
 
-#: plugins/importExport/src/ModuleImportDc1.php:324
-#: plugins/importExport/src/ModuleImportWp.php:406
+#: plugins/importExport/src/ModuleImportDc1.php:337
+#: plugins/importExport/src/ModuleImportWp.php:418
 msgid "Every newly imported user has received a random password and will need to ask for a new one by following the \"I forgot my password\" link on the login page (Their registered email address has to be valid.)"
 msgstr "প্রত্যেক নতুন আমদ্যকৃত ব্যবহারকারী একটি এলোমেলো পাসওয়ার্ড পেয়েছে এবং \"আমি আমার পাসওয়ার্ড ভুলে গেছি\" লগইন পৃষ্ঠার লিংক (তাদের নিবন্ধিত ইমেইল ঠিকানা বৈধ হতে হবে) অনুসরণ করে নতুন একটি নতুন পাসওয়ার্ড জানতে হবে."
 
-#: plugins/importExport/src/ModuleImportDc1.php:326
+#: plugins/importExport/src/ModuleImportDc1.php:339
 #, php-format
 msgid "Please note that Dotclear 2 has a new URL layout. You can avoid broken links by installing <a href=\"%s\">DC1 redirect</a> plugin and activate it in your blog configuration."
 msgstr "দয়া করে নোট করুন যে ডটক্লিয়ার 2 এর একটি নতুন ইউআরএল লেআউট রয়েছে। আপনি <a href=\"%s\">DC1 পুনর্নির্দেশ প্লাগইন ইনস্টল করে ভাঙা লিঙ্কগুলি এড়াতে পারেন</a> এবং এটি আপনার ব্লগ কনফিগারেশনে সক্রিয় করতে পারেন।"
 
-#: plugins/importExport/src/ModuleImportDc1.php:349
-#: plugins/importExport/src/ModuleImportWp.php:428
+#: plugins/importExport/src/ModuleImportDc1.php:362
+#: plugins/importExport/src/ModuleImportWp.php:440
 msgid "next step"
 msgstr "পরবর্তী ধাপ"
 
-#: plugins/importExport/src/ModuleImportDc1.php:367
-#: plugins/importExport/src/ModuleImportWp.php:446
+#: plugins/importExport/src/ModuleImportDc1.php:380
+#: plugins/importExport/src/ModuleImportWp.php:458
 msgid "Depending on the size of your blog, it could take a few minutes."
 msgstr "আপনার ব্লগের সাইজের উপর নির্ভর করে কয়েক মিনিট সময় লাগবে."
 
-#: plugins/importExport/src/ModuleImportDc1.php:395
+#: plugins/importExport/src/ModuleImportDc1.php:408
 msgid "Dotclear tables not found"
 msgstr "Dotclear tables পাওয়া যায়না"
 
@@ -1869,7 +1869,7 @@ msgid "No items in feed."
 msgstr "খাবারের কোন আইটেম নেই."
 
 #: plugins/importExport/src/ModuleImportFeed.php:215
-#: plugins/importExport/src/ModuleImportFlat.php:190
+#: plugins/importExport/src/ModuleImportFlat.php:191
 msgid "Content successfully imported."
 msgstr "কনটেন্ট সফলভাবে আমদিত হয়েছে."
 
@@ -1883,64 +1883,64 @@ msgstr "বর্তমান ব্লগটিতে একটি ফিড �
 msgid "Feed URL:"
 msgstr "ফিড ইউ-আর-এল:"
 
-#: plugins/importExport/src/ModuleImportFlat.php:52
+#: plugins/importExport/src/ModuleImportFlat.php:53
 msgid "Flat file import"
 msgstr "ফ্ল্যাট ফাইল ইম্পোর্ট"
 
-#: plugins/importExport/src/ModuleImportFlat.php:53
+#: plugins/importExport/src/ModuleImportFlat.php:54
 msgid "Imports a blog or a full Dotclear installation from flat file."
 msgstr "ফ্ল্যাট ফাইল থেকে একটি ব্লগ অথবা সম্পূর্ণ Dotclear ইনস্টলেশন ইম্পোর্ট করা হবে."
 
-#: plugins/importExport/src/ModuleImportFlat.php:185
+#: plugins/importExport/src/ModuleImportFlat.php:186
 msgid "Single blog successfully imported."
 msgstr "একক ব্লগ সফলভাবে ইম্পোর্ট করা হয়েছে."
 
-#: plugins/importExport/src/ModuleImportFlat.php:201
+#: plugins/importExport/src/ModuleImportFlat.php:206
 msgid "Are you sure you want to import a full backup file?"
 msgstr "আপনি কি সম্পূর্ণ ব্যাকআপ ফাইল ইম্পোর্ট করতে চান?"
 
-#: plugins/importExport/src/ModuleImportFlat.php:211
+#: plugins/importExport/src/ModuleImportFlat.php:216
 msgid "Single blog"
 msgstr "একক ব্লগ"
 
-#: plugins/importExport/src/ModuleImportFlat.php:216
+#: plugins/importExport/src/ModuleImportFlat.php:221
 #, php-format
 msgid "This will import a single blog backup as new content in the current blog: <strong>%s</strong>."
 msgstr "এটি বর্তমান ব্লগে নতুন বিষয়বস্তু হিসেবে একটি ব্লগ অনুরক্ষণ আমদানি করবে: <strong>%s</strong>."
 
-#: plugins/importExport/src/ModuleImportFlat.php:223
-#: plugins/importExport/src/ModuleImportFlat.php:270
+#: plugins/importExport/src/ModuleImportFlat.php:228
+#: plugins/importExport/src/ModuleImportFlat.php:275
 msgid "Upload a backup file"
 msgstr "একটি ব্যাকআপ ফাইল আপলোড করো"
 
-#: plugins/importExport/src/ModuleImportFlat.php:224
-#: plugins/importExport/src/ModuleImportFlat.php:271
+#: plugins/importExport/src/ModuleImportFlat.php:229
+#: plugins/importExport/src/ModuleImportFlat.php:276
 #, php-format
 msgid "maximum size %s"
 msgstr "সর্বাধিক আকার %s"
 
-#: plugins/importExport/src/ModuleImportFlat.php:236
-#: plugins/importExport/src/ModuleImportFlat.php:283
+#: plugins/importExport/src/ModuleImportFlat.php:241
+#: plugins/importExport/src/ModuleImportFlat.php:288
 msgid "or pick up a local file in your public directory"
 msgstr "অথবা আপনার পাবলিক ডিরেক্টরিতে একটি স্থানীয় ফাইল বেছে নিন"
 
-#: plugins/importExport/src/ModuleImportFlat.php:258
+#: plugins/importExport/src/ModuleImportFlat.php:263
 msgid "Multiple blogs"
 msgstr "একাধিক ব্লগ"
 
-#: plugins/importExport/src/ModuleImportFlat.php:265
+#: plugins/importExport/src/ModuleImportFlat.php:270
 msgid "This will reset all the content of your database, except users."
 msgstr "এটি ব্যবহারকারীদের ব্যতীত আপনার ডাটাবেসের সমস্ত বিষয়বস্তু রিসেট করবে."
 
-#: plugins/importExport/src/ModuleImportFlat.php:396
+#: plugins/importExport/src/ModuleImportFlat.php:401
 msgid "Another file with same name exists."
 msgstr "একই নামের আরেকটি ফাইল রয়েছে."
 
-#: plugins/importExport/src/ModuleImportFlat.php:404
+#: plugins/importExport/src/ModuleImportFlat.php:409
 msgid "Failed to extract backup file."
 msgstr "ব্যাকআপ ফাইল বের করতে ব্যর্থ."
 
-#: plugins/importExport/src/ModuleImportFlat.php:416
+#: plugins/importExport/src/ModuleImportFlat.php:421
 msgid "No backup in compressed file."
 msgstr "সংকুচিত ফাইলে কোন ব্যাকআপ নেই."
 
@@ -1952,56 +1952,56 @@ msgstr "WordPress ইম্পোর্ট"
 msgid "Import a WordPress installation into your current blog."
 msgstr "আপনার বর্তমান ব্লগে একটি ওয়ার্ডপ্রেস ইনস্টলেশন ইম্পোর্ট করুন."
 
-#: plugins/importExport/src/ModuleImportWp.php:233
+#: plugins/importExport/src/ModuleImportWp.php:245
 #, php-format
 msgid "This will import your WordPress content as new content in the current blog: %s."
 msgstr "এটি আপনার ওয়ার্ডপ্রেস সামগ্রী বর্তমান ব্লগে নতুন সামগ্রী হিসাবে আমদানি করবে: %s."
 
-#: plugins/importExport/src/ModuleImportWp.php:248
+#: plugins/importExport/src/ModuleImportWp.php:260
 msgid "We first need some information about your old WordPress installation."
 msgstr "আপনার পুরনো ওয়ার্ডপ্রেস ইনস্টলেশন সম্পর্কে আমাদের প্রথমে কিছু তথ্য দরকার."
 
-#: plugins/importExport/src/ModuleImportWp.php:298
+#: plugins/importExport/src/ModuleImportWp.php:310
 msgid "WordPress and Dotclear's handling of categories are quite different. You can assign several categories to a single post in WordPress. In the Dotclear world, we see it more like \"One category, several tags.\" Therefore Dotclear can only import one category per post and will chose the lowest numbered one. If you want to keep a trace of every category, you can import them as tags, with an optional prefix."
 msgstr "ওয়ার্ডপ্রেস ও ডটক্লিয়ার হ্যান্ডলিং ক্যাটাগরিগুলো বেশ ভিন্ন. ওয়ার্ডপ্রেসের একটি পোস্টে আপনি বেশ কয়েকটি বিভাগে স্বাক্ষর করতে পারেন. ডটক্লিষ্ট জগতে আমরা দেখতে পাচ্ছি \"এক শ্রেণীর, বেশ কিছু ট্যাগ\". সুতরাং ডটক্লিষ্ট শুধুমাত্র একটি পোস্ট প্রতি পোস্ট ইম্পোর্ট করতে পারে এবং সর্বনিম্ন সংখ্যাকে বেছে নেবে. যদি আপনি প্রতি শ্রেণীবিভাগের একটি ট্রেস রাখতে চান, আপনি তাদের ট্যাগ হিসেবে ইম্পোর্ট করতে পারেন, একটি ঐচ্ছিক উপসর্গ দিয়ে."
 
-#: plugins/importExport/src/ModuleImportWp.php:300
+#: plugins/importExport/src/ModuleImportWp.php:312
 msgid "On the other hand, in WordPress, a post can not be uncategorized, and a default installation has a first category labelised <i>\"Uncategorized\"</i>. If you did not change that category, you can just ignore it while importing your blog, as Dotclear allows you to actually keep your posts uncategorized."
 msgstr "অন্যদিকে, ওয়ার্ডপ্রেসে, একটি পোস্টকে শ্রেণীবিভাগ করা যায় না, এবং একটি ডিফল্ট ইনস্টলেশনে একটি প্রথম বিভাগ লেবেলযুক্ত <i>\"অশ্রেণীভুক্ত\"</i> থাকে। আপনি যদি সেই বিভাগটি পরিবর্তন না করে থাকেন, তবে আপনি আপনার ব্লগ আমদানি করার সময় এটিকে উপেক্ষা করতে পারেন, কারণ ডটক্লিয়ার আপনাকে আপনার পোস্টগুলিকে শ্রেণীবিহীন রাখতে দেয়।"
 
-#: plugins/importExport/src/ModuleImportWp.php:309
+#: plugins/importExport/src/ModuleImportWp.php:321
 msgid "Ignore the first category:"
 msgstr "প্রথম শ্রেণীতে অগ্রাহ্য করুন:"
 
-#: plugins/importExport/src/ModuleImportWp.php:315
+#: plugins/importExport/src/ModuleImportWp.php:327
 msgid "Import lowest numbered category on posts:"
 msgstr "পোস্টে সর্বনিম্ন সংখ্যাটি ইম্পোর্ট করুন:"
 
-#: plugins/importExport/src/ModuleImportWp.php:321
+#: plugins/importExport/src/ModuleImportWp.php:333
 msgid "Import all categories as tags:"
 msgstr "সকল শ্রেণীবিভাগ ট্যাগ হিসেবে ইম্পোর্ট করুন:"
 
-#: plugins/importExport/src/ModuleImportWp.php:329
+#: plugins/importExport/src/ModuleImportWp.php:341
 msgid "Prefix such tags with:"
 msgstr "এই ধরনের ট্যাগ ব্যবহার করে:"
 
-#: plugins/importExport/src/ModuleImportWp.php:339
+#: plugins/importExport/src/ModuleImportWp.php:351
 msgid "Content filters"
 msgstr "বিষয়বস্তু ফিল্টার"
 
-#: plugins/importExport/src/ModuleImportWp.php:341
+#: plugins/importExport/src/ModuleImportWp.php:353
 msgid "You may want to process your post and/or comment content with the following filters."
 msgstr "আপনি নিম্নলিখিত ফিল্টারের সাথে আপনার পোস্ট এবং/অথবা মন্তব্য কন্টেন্ট প্রক্রিয়া করতে চাইতে পারেন."
 
-#: plugins/importExport/src/ModuleImportWp.php:347
+#: plugins/importExport/src/ModuleImportWp.php:359
 msgid "Post content formatter:"
 msgstr "পোস্ট বিষয়বস্তু ফর্ম্যাটার:"
 
-#: plugins/importExport/src/ModuleImportWp.php:354
+#: plugins/importExport/src/ModuleImportWp.php:366
 msgid "Comment content formatter:"
 msgstr "কমেন্ট কনটেন্ট ফর্ম্যাটার:"
 
-#: plugins/importExport/src/ModuleImportWp.php:474
+#: plugins/importExport/src/ModuleImportWp.php:486
 msgid "WordPress tables not found"
 msgstr "ওয়ার্ডপ্রেস টেবিল পাওয়া যায়না"
 
@@ -2073,12 +2073,12 @@ msgstr[0] "চালানোর জন্য একটি কাজ"
 msgstr[1] "কার্যকর করার জন্য %sটি কাজ"
 
 #: plugins/maintenance/src/BackendBehaviors.php:203
-#: plugins/maintenance/src/Manage.php:305
+#: plugins/maintenance/src/Manage.php:308
 msgid "This task has never been executed."
 msgstr "এই কাজটি কখনোই কার্যকর করা হয়নি."
 
 #: plugins/maintenance/src/BackendBehaviors.php:206
-#: plugins/maintenance/src/Manage.php:308
+#: plugins/maintenance/src/Manage.php:311
 #, php-format
 msgid "Last execution of this task was on %s."
 msgstr "এই কাজটির শেষ সম্পাদনা %s-এ হয়েছিল।"
@@ -2110,107 +2110,107 @@ msgstr "কাজ চালানো যায়নি."
 msgid "Task successfully executed."
 msgstr "কাজ সফলভাবে কার্যকর করা হয়েছে."
 
-#: plugins/maintenance/src/Manage.php:135
+#: plugins/maintenance/src/Manage.php:138
 msgid "Maintenance plugin has been successfully configured."
 msgstr "রক্ষণাবেক্ষণ প্লাগ-ইন সফলভাবে কনফিগার করা হয়েছে."
 
-#: plugins/maintenance/src/Manage.php:153
+#: plugins/maintenance/src/Manage.php:156
 msgid "System settings have been saved."
 msgstr "সিস্টেম সেটিংস সংরক্ষণ করা হয়েছে."
 
-#: plugins/maintenance/src/Manage.php:158
+#: plugins/maintenance/src/Manage.php:161
 msgid "All blog's Content-Security-Policy settings have been reset to default."
 msgstr "সকল ব্লগের কন্টেন্ট-সিকিউরিটি-পলিসি সেটিংস ডিফারেন্সে রিসেট করা হয়েছে."
 
-#: plugins/maintenance/src/Manage.php:180
+#: plugins/maintenance/src/Manage.php:183
 msgid "Every week"
 msgstr "প্রতি সপ্তাহে"
 
-#: plugins/maintenance/src/Manage.php:181
+#: plugins/maintenance/src/Manage.php:184
 msgid "Every two weeks"
 msgstr "প্রতি দুই সপ্তাহ"
 
-#: plugins/maintenance/src/Manage.php:182
+#: plugins/maintenance/src/Manage.php:185
 msgid "Every month"
 msgstr "প্রতি মাসে"
 
-#: plugins/maintenance/src/Manage.php:183
+#: plugins/maintenance/src/Manage.php:186
 msgid "Every two months"
 msgstr "প্রতি দুই মাস"
 
-#: plugins/maintenance/src/Manage.php:216
+#: plugins/maintenance/src/Manage.php:219
 msgid "You have not sufficient permissions to view this page."
 msgstr "এই পাতাটি দেখার জন্য আপনার পর্যাপ্ত অনুমতি নেই."
 
-#: plugins/maintenance/src/Manage.php:305
-#: plugins/maintenance/src/Manage.php:311
+#: plugins/maintenance/src/Manage.php:308
+#: plugins/maintenance/src/Manage.php:314
 msgid "You should execute it now."
 msgstr "আপনি এটা এখনই চালাতে হবে."
 
-#: plugins/maintenance/src/Manage.php:347
-#: plugins/maintenance/src/Manage.php:381
+#: plugins/maintenance/src/Manage.php:350
+#: plugins/maintenance/src/Manage.php:384
 msgid "Execute task"
 msgstr "কর্ম সনাক্ত করা হবে"
 
-#: plugins/maintenance/src/Manage.php:352
+#: plugins/maintenance/src/Manage.php:355
 msgid "This may take a very long time."
 msgstr "এটি অনেক সময় লেগেই নিতে পারে."
 
-#: plugins/maintenance/src/Manage.php:419
-#: plugins/maintenance/src/Manage.php:421
+#: plugins/maintenance/src/Manage.php:422
+#: plugins/maintenance/src/Manage.php:424
 msgid "Alert settings"
 msgstr "অ্যালার্ট সেটিংস"
 
-#: plugins/maintenance/src/Manage.php:427
+#: plugins/maintenance/src/Manage.php:430
 msgid "Activation"
 msgstr "সক্রিয়"
 
-#: plugins/maintenance/src/Manage.php:433
+#: plugins/maintenance/src/Manage.php:436
 msgid "Display alert messages on late tasks"
 msgstr "শেষের কাজগুলো সম্পর্কে সতর্ক বার্তা প্রদর্শন করা হবে"
 
-#: plugins/maintenance/src/Manage.php:438
+#: plugins/maintenance/src/Manage.php:441
 #, php-format
 msgid "You can place list of late tasks on your %s."
 msgstr "আপনি আপনার %s-এ দেরী কাজগুলির তালিকা রাখতে পারেন।"
 
-#: plugins/maintenance/src/Manage.php:443
+#: plugins/maintenance/src/Manage.php:446
 msgid "Frequency"
 msgstr "Frequency"
 
-#: plugins/maintenance/src/Manage.php:451
+#: plugins/maintenance/src/Manage.php:454
 msgid "Use one recall time for all tasks"
 msgstr "সমস্ত কাজের জন্য একটি স্মরণ করার সময় ব্যবহার করুন"
 
-#: plugins/maintenance/src/Manage.php:461
+#: plugins/maintenance/src/Manage.php:464
 msgid "Recall time for all tasks:"
 msgstr "সকল কাজের জন্য সময় গ্রহণ করা হবে:"
 
-#: plugins/maintenance/src/Manage.php:470
+#: plugins/maintenance/src/Manage.php:473
 msgid "Use one recall time per task"
 msgstr "প্রতি কাজের সময় একটি স্মরণ করার সময় ব্যবহার করা হবে"
 
-#: plugins/maintenance/src/Manage.php:501
+#: plugins/maintenance/src/Manage.php:504
 msgid "Content-Security-Policy"
 msgstr "বিষয়বস্তু-নিরাপত্তা-নীতি"
 
-#: plugins/maintenance/src/Manage.php:513
+#: plugins/maintenance/src/Manage.php:516
 msgid "Enable Content-Security-Policy system"
 msgstr "বিষয়বস্তু-নিরাপত্তা-পলিসি ব্যবস্থা সক্রিয় করুন"
 
-#: plugins/maintenance/src/Manage.php:519
+#: plugins/maintenance/src/Manage.php:522
 msgid "Enable Content-Security-Policy report only"
 msgstr "বিষয়বস্তু-নিরাপত্তা-পলিসি প্রতিবেদন সক্রিয় করো"
 
-#: plugins/maintenance/src/Manage.php:529
+#: plugins/maintenance/src/Manage.php:532
 msgid "Enable Content-Security-Policy system by default"
 msgstr "ডিফল্ট দ্বারা বিষয়বস্তু-নিরাপত্তা-পলিসি ব্যবস্থা সক্রিয় করা হবে"
 
-#: plugins/maintenance/src/Manage.php:535
+#: plugins/maintenance/src/Manage.php:538
 msgid "Enable Content-Security-Policy report only by default"
 msgstr "কনটেন্ট-সিকিউরিটি-পলিসি রিপোর্ট শুধুমাত্র ডিফল্ট দ্বারা সক্রিয় করা হবে"
 
-#: plugins/maintenance/src/Manage.php:541
+#: plugins/maintenance/src/Manage.php:544
 msgid "Also apply these settings to all blogs"
 msgstr "সব ব্লগের জন্য এই সেটিংস প্রয়োগ করা হবে"
 
@@ -2385,26 +2385,26 @@ msgstr "বর্তমান ব্লগের সক্রিয় থিম �
 msgid "It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file."
 msgstr "কোন পরিবর্তন বা আপডেট করার আগে সক্রিয় থিম ব্যাক করার জন্য এটি উপযোগী হতে পারে. এই কম্প্রেস থীম ফোল্ডার একক জিপ ফাইলে."
 
-#: plugins/pages/src/Backend.php:47
+#: plugins/pages/src/Backend.php:49
 msgid "manage pages"
 msgstr "পৃষ্ঠা পরিচালনা করুন"
 
-#: plugins/pages/src/Backend.php:78
+#: plugins/pages/src/Backend.php:80
 msgid "pages per page"
 msgstr "প্রতি পৃষ্ঠায় পৃষ্ঠা"
 
-#: plugins/pages/src/Backend.php:101
+#: plugins/pages/src/Backend.php:103
 #, php-format
 msgid "%d page"
 msgstr "%dটি পৃষ্ঠা"
 
-#: plugins/pages/src/Backend.php:101
+#: plugins/pages/src/Backend.php:103
 #, php-format
 msgid "%d pages"
 msgstr "%d পৃষ্ঠা"
 
-#: plugins/pages/src/Backend.php:108 plugins/pages/src/Manage.php:148
-#: plugins/pages/src/ManagePage.php:108 plugins/pages/src/ManagePage.php:856
+#: plugins/pages/src/Backend.php:110 plugins/pages/src/Manage.php:150
+#: plugins/pages/src/ManagePage.php:110 plugins/pages/src/ManagePage.php:858
 msgid "New page"
 msgstr "নতুন পৃষ্ঠা"
 
@@ -2417,7 +2417,7 @@ msgid "Back to pages list"
 msgstr "পৃষ্ঠা তালিকায় ফিরে যাও"
 
 #: plugins/pages/src/BackendDefaultActions.php:119
-#: plugins/pages/src/Manage.php:139
+#: plugins/pages/src/Manage.php:141
 msgid "Selected pages have been successfully reordered."
 msgstr "নির্বাচিত পাতাগুলো সফলভাবে পুনরায় অর্ডার করা হয়েছে."
 
@@ -2425,112 +2425,112 @@ msgstr "নির্বাচিত পাতাগুলো সফলভাব�
 msgid "No page"
 msgstr "কোনো পৃষ্ঠা নেই"
 
-#: plugins/pages/src/BackendList.php:179 plugins/pages/src/BackendList.php:248
+#: plugins/pages/src/BackendList.php:170 plugins/pages/src/BackendList.php:239
 msgid "Hidden"
 msgstr "লুকানো"
 
-#: plugins/pages/src/BackendList.php:278
+#: plugins/pages/src/BackendList.php:268
 msgid "Select this page"
 msgstr "এই পৃষ্ঠা বেছে নিন"
 
-#: plugins/pages/src/Frontend.php:36
+#: plugins/pages/src/Frontend.php:38
 msgid "Published on"
 msgstr "প্রকাশিত হয়েছে"
 
-#: plugins/pages/src/Frontend.php:37
+#: plugins/pages/src/Frontend.php:39
 msgid "This page's comments feed"
 msgstr "এই পাতার মন্তব্যের খাপ"
 
-#: plugins/pages/src/Install.php:49
+#: plugins/pages/src/Install.php:51
 msgid "My first page"
 msgstr "আমার প্রথম পৃষ্ঠা"
 
-#: plugins/pages/src/Install.php:50
+#: plugins/pages/src/Install.php:52
 msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
 msgstr "এটা আপনার প্রথম পৃষ্ঠা. যখন আপনি ব্লগ করতে প্রস্তুত, সম্পাদনা বা মুছে ফেলার জন্য লগ ইন করুন."
 
-#: plugins/pages/src/Manage.php:121
+#: plugins/pages/src/Manage.php:123
 msgid "Are you sure you want to delete selected pages?"
 msgstr "আপনি কি নির্বাচিত পৃষ্ঠা মুছে ফেলতে চান?"
 
-#: plugins/pages/src/Manage.php:135
+#: plugins/pages/src/Manage.php:137
 msgid "Selected pages have been successfully updated."
 msgstr "নির্বাচিত পাতাগুলো সফলভাবে হালনাগাদ করা হয়েছে."
 
-#: plugins/pages/src/Manage.php:137
+#: plugins/pages/src/Manage.php:139
 msgid "Selected pages have been successfully deleted."
 msgstr "নির্বাচিত পাতাগুলো সফলভাবে মুছে ফেলা হয়েছে."
 
-#: plugins/pages/src/Manage.php:171
+#: plugins/pages/src/Manage.php:173
 msgid "Selected pages action:"
 msgstr "নির্বাচিত পৃষ্ঠা কর্ম:"
 
-#: plugins/pages/src/Manage.php:177
+#: plugins/pages/src/Manage.php:179
 msgid "To rearrange pages order, change number at the begining of the line, then click on “Save pages order” button."
 msgstr "পৃষ্ঠা শৃঙ্খলা পুনঃবিন্যাস করার জন্য, লাইনের শুরুর দিকে সংখ্যাকে পরিবর্তন করুন, তারপর \"সংরক্ষণ পাতার আদেশ\" বাটনে ক্লিক করুন."
 
-#: plugins/pages/src/Manage.php:180
+#: plugins/pages/src/Manage.php:182
 msgid "To rearrange pages order, move items by drag and drop, then click on “Save pages order” button."
 msgstr "পৃষ্ঠার শৃঙ্খলা পুনঃবিন্যাস করার জন্য, ড্র্যাগ এবং ড্রপ দ্বারা আইটেম সরাতে, তারপর \"সংরক্ষণ পাতার ক্রম\" বাটনে ক্লিক করুন."
 
-#: plugins/pages/src/Manage.php:187
+#: plugins/pages/src/Manage.php:189
 msgid "Save pages order"
 msgstr "পৃষ্ঠার ক্রম সংরক্ষণ করুন"
 
-#: plugins/pages/src/ManagePage.php:168
+#: plugins/pages/src/ManagePage.php:170
 msgid "This page does not exist."
 msgstr "এই পৃষ্ঠাটি বিদ্যমান নেই."
 
-#: plugins/pages/src/ManagePage.php:189 plugins/pages/src/ManagePage.php:856
-#: plugins/pages/src/ManagePage.php:877
+#: plugins/pages/src/ManagePage.php:191 plugins/pages/src/ManagePage.php:858
+#: plugins/pages/src/ManagePage.php:879
 msgid "Edit page"
 msgstr "পৃষ্ঠা সম্পাদন করুন"
 
-#: plugins/pages/src/ManagePage.php:434
+#: plugins/pages/src/ManagePage.php:436
 msgid "Don't forget to validate your HTML conversion by saving your post."
 msgstr "আপনার পোস্ট সংরক্ষণ করে আপনার এইচটিএমএল রূপান্তর বৈধতা দিতে ভুলবেন না."
 
-#: plugins/pages/src/ManagePage.php:498
+#: plugins/pages/src/ManagePage.php:500
 msgid "Are you sure you want to delete this page?"
 msgstr "আপনি কি এই পৃষ্ঠা মুছে ফেলতে চান?"
 
-#: plugins/pages/src/ManagePage.php:527
+#: plugins/pages/src/ManagePage.php:529
 msgid "Page has been successfully updated."
 msgstr "পৃষ্ঠা সফলভাবে হালনাগাদ করা হয়েছে."
 
-#: plugins/pages/src/ManagePage.php:529
+#: plugins/pages/src/ManagePage.php:531
 msgid "Page has been successfully created."
 msgstr "পৃষ্ঠা সফলভাবে তৈরি করা হয়েছে."
 
-#: plugins/pages/src/ManagePage.php:543
+#: plugins/pages/src/ManagePage.php:545
 msgid "Go to this page on the site"
 msgstr "এই সাইটে এই পৃষ্ঠায় যান"
 
-#: plugins/pages/src/ManagePage.php:585
+#: plugins/pages/src/ManagePage.php:587
 msgid "Page status"
 msgstr "পৃষ্ঠার অবস্থা"
 
-#: plugins/pages/src/ManagePage.php:602
+#: plugins/pages/src/ManagePage.php:604
 msgid "Page language"
 msgstr "পৃষ্ঠা ভাষা"
 
-#: plugins/pages/src/ManagePage.php:631 plugins/pages/src/Widgets.php:41
+#: plugins/pages/src/ManagePage.php:633 plugins/pages/src/Widgets.php:41
 msgid "Page position"
 msgstr "পৃষ্ঠার অবস্থান"
 
-#: plugins/pages/src/ManagePage.php:682
+#: plugins/pages/src/ManagePage.php:684
 msgid "Hide in widget Pages"
 msgstr "উইজেট পেজে আড়াল করো"
 
-#: plugins/pages/src/ManagePage.php:708
+#: plugins/pages/src/ManagePage.php:710
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "সতর্কবাণী: আপনি যদি ইউআরএল আস্তে আস্তে সেট করেন, তবে এটি অন্য পাতার সাথে দ্বন্দ্ব হতে পারে."
 
-#: plugins/pages/src/ManagePage.php:747
+#: plugins/pages/src/ManagePage.php:749
 msgid "Introduction to the page."
 msgstr "পৃষ্ঠার ভূমিকা."
 
-#: plugins/pages/src/ManagePage.php:1126
+#: plugins/pages/src/ManagePage.php:1128
 msgid "Select this comment"
 msgstr "এই মন্তব্যটি বেছে নিন"
 
@@ -2542,43 +2542,43 @@ msgstr "পৃষ্ঠার শিরোনাম"
 msgid "Publication date"
 msgstr "প্রকাশনা তারিখ"
 
-#: plugins/pings/src/Backend.php:27 plugins/pings/src/BackendBehaviors.php:64
+#: plugins/pings/src/Backend.php:29 plugins/pings/src/BackendBehaviors.php:64
 msgid "Pings"
 msgstr "Pings"
 
-#: plugins/pings/src/Manage.php:80
+#: plugins/pings/src/Manage.php:82
 msgid "Settings have been successfully updated."
 msgstr "সেটিংস সফলভাবে হালনাগাদ করা হয়েছে."
 
-#: plugins/pings/src/Manage.php:98
+#: plugins/pings/src/Manage.php:100
 msgid "Pings configuration"
 msgstr "Pings কনফিগারেশন"
 
-#: plugins/pings/src/Manage.php:112
+#: plugins/pings/src/Manage.php:114
 msgid "Error"
 msgstr "ত্রুটি"
 
-#: plugins/pings/src/Manage.php:164
+#: plugins/pings/src/Manage.php:166
 msgid "Service name:"
 msgstr "সার্ভিস নাম:"
 
-#: plugins/pings/src/Manage.php:165
+#: plugins/pings/src/Manage.php:167
 msgid "Service URI:"
 msgstr "সার্ভিস URI:"
 
-#: plugins/pings/src/Manage.php:180
+#: plugins/pings/src/Manage.php:182
 msgid "Activate pings extension"
 msgstr "সক্রিয় করা pings এক্সটেনশন"
 
-#: plugins/pings/src/Manage.php:186
+#: plugins/pings/src/Manage.php:188
 msgid "Auto pings all services on first publication of entry (current blog only)"
 msgstr "এন্ট্রি (বর্তমান ব্লগ) প্রথম প্রকাশনার জন্য সকল সেবা স্বয়ংক্রিয়ভাবে পিছে."
 
-#: plugins/pings/src/Manage.php:193
+#: plugins/pings/src/Manage.php:195
 msgid "Test ping services"
 msgstr "টেস্ট পিং সার্ভিস"
 
-#: plugins/simpleMenu/src/Backend.php:26 plugins/simpleMenu/src/Manage.php:72
+#: plugins/simpleMenu/src/Backend.php:28 plugins/simpleMenu/src/Manage.php:74
 #: plugins/simpleMenu/src/Widgets.php:29
 msgid "Simple menu"
 msgstr "সহজ মেনু"
@@ -2591,185 +2591,185 @@ msgstr "সক্রিয় পৃষ্ঠা"
 msgid "active page"
 msgstr "সক্রিয় পৃষ্ঠা"
 
-#: plugins/simpleMenu/src/Manage.php:97
+#: plugins/simpleMenu/src/Manage.php:99
 msgid "All months"
 msgstr "সব মাস"
 
-#: plugins/simpleMenu/src/Manage.php:160
+#: plugins/simpleMenu/src/Manage.php:162
 msgid "Archive"
 msgstr "আর্কাইভ"
 
-#: plugins/simpleMenu/src/Manage.php:163
+#: plugins/simpleMenu/src/Manage.php:165
 msgid "Page"
 msgstr "পৃষ্ঠা"
 
-#: plugins/simpleMenu/src/Manage.php:166 plugins/tags/src/Backend.php:25
+#: plugins/simpleMenu/src/Manage.php:168 plugins/tags/src/Backend.php:27
 #: plugins/tags/src/Widgets.php:33
 msgid "Tags"
 msgstr "ট্যাগ"
 
-#: plugins/simpleMenu/src/Manage.php:173
+#: plugins/simpleMenu/src/Manage.php:175
 msgid "User defined"
 msgstr "ব্যবহারকারী নির্ধারিত"
 
-#: plugins/simpleMenu/src/Manage.php:214
+#: plugins/simpleMenu/src/Manage.php:216
 msgid "Configuration successfully updated."
 msgstr "কনফিগারেশন সফলভাবে হালনাগাদ করা হয়েছে"
 
-#: plugins/simpleMenu/src/Manage.php:255 plugins/simpleMenu/src/Manage.php:677
-#: plugins/simpleMenu/src/Manage.php:797
+#: plugins/simpleMenu/src/Manage.php:258 plugins/simpleMenu/src/Manage.php:680
+#: plugins/simpleMenu/src/Manage.php:800
 msgid "Label"
 msgstr "লেবেল"
 
-#: plugins/simpleMenu/src/Manage.php:261
+#: plugins/simpleMenu/src/Manage.php:264
 msgid "Home page"
 msgstr "হোম পেজ"
 
-#: plugins/simpleMenu/src/Manage.php:261 plugins/simpleMenu/src/Manage.php:266
+#: plugins/simpleMenu/src/Manage.php:264 plugins/simpleMenu/src/Manage.php:269
 #: plugins/widgets/src/Widgets.php:305 plugins/widgets/src/Widgets.php:315
 msgid "Recent posts"
 msgstr "সাম্প্রতিক পোস্টগুলো"
 
-#: plugins/simpleMenu/src/Manage.php:273
+#: plugins/simpleMenu/src/Manage.php:276
 #, php-format
 msgid "Switch to %s language"
 msgstr "%s ভাষায় স্যুইচ করুন"
 
-#: plugins/simpleMenu/src/Manage.php:280
+#: plugins/simpleMenu/src/Manage.php:283
 msgid "Recent Posts from this category"
 msgstr "এই শ্রেণীর সাম্প্রতিক পোস্টগুলো"
 
-#: plugins/simpleMenu/src/Manage.php:292
+#: plugins/simpleMenu/src/Manage.php:295
 #, php-format
 msgid "Posts from %s"
 msgstr "%s-এর পোস্টগুলি"
 
-#: plugins/simpleMenu/src/Manage.php:312
+#: plugins/simpleMenu/src/Manage.php:315
 #, php-format
 msgid "Recent posts for %s tag"
 msgstr "%s ট্যাগের জন্য সাম্প্রতিক পোস্টগুলি"
 
-#: plugins/simpleMenu/src/Manage.php:372
+#: plugins/simpleMenu/src/Manage.php:375
 msgid "Menu item has been successfully added."
 msgstr "মেনু আইটেম সফলভাবে যোগ করা হয়েছে."
 
-#: plugins/simpleMenu/src/Manage.php:377
+#: plugins/simpleMenu/src/Manage.php:380
 msgid "Label and URL of menu item are mandatory."
 msgstr "মেনু আইটেমের লেবেল এবং ইউআরএল বাধ্যতামূলক."
 
-#: plugins/simpleMenu/src/Manage.php:410
+#: plugins/simpleMenu/src/Manage.php:413
 msgid "Menu items have been successfully removed."
 msgstr "মেনু আইটেম সফলভাবে অপসারণ করা হয়েছে."
 
-#: plugins/simpleMenu/src/Manage.php:413
+#: plugins/simpleMenu/src/Manage.php:416
 msgid "No menu items selected."
 msgstr "কোনো মেনু আইটেম নির্বাচন করা হয়নি."
 
-#: plugins/simpleMenu/src/Manage.php:425
+#: plugins/simpleMenu/src/Manage.php:428
 msgid "Label is mandatory."
 msgstr "লেবেল বাধ্যতামূলক."
 
-#: plugins/simpleMenu/src/Manage.php:430
+#: plugins/simpleMenu/src/Manage.php:433
 msgid "URL is mandatory."
 msgstr "ইউআরএল বাধ্যতামূলক."
 
-#: plugins/simpleMenu/src/Manage.php:475
+#: plugins/simpleMenu/src/Manage.php:478
 msgid "Menu items have been successfully updated."
 msgstr "মেনু আইটেম সফলভাবে হালনাগাদ করা হয়েছে."
 
-#: plugins/simpleMenu/src/Manage.php:502
+#: plugins/simpleMenu/src/Manage.php:505
 msgid "Are you sure you want to remove selected menu items?"
 msgstr "আপনি কি নির্বাচিত মেনু আইটেম অপসারণ করতে চান?"
 
-#: plugins/simpleMenu/src/Manage.php:511
+#: plugins/simpleMenu/src/Manage.php:514
 msgid "Step #1"
 msgstr "স্টেপ #1"
 
-#: plugins/simpleMenu/src/Manage.php:516 plugins/simpleMenu/src/Manage.php:521
+#: plugins/simpleMenu/src/Manage.php:519 plugins/simpleMenu/src/Manage.php:524
 msgid "Step #2"
 msgstr "স্টেপ #2"
 
-#: plugins/simpleMenu/src/Manage.php:521
+#: plugins/simpleMenu/src/Manage.php:524
 msgid "Step #3"
 msgstr "স্টেপ #3"
 
-#: plugins/simpleMenu/src/Manage.php:530
+#: plugins/simpleMenu/src/Manage.php:533
 msgid "Add item"
 msgstr "বস্তু যোগ করো"
 
-#: plugins/simpleMenu/src/Manage.php:561
+#: plugins/simpleMenu/src/Manage.php:564
 msgid "Select type"
 msgstr "ধরন বেছে নিন"
 
-#: plugins/simpleMenu/src/Manage.php:568
+#: plugins/simpleMenu/src/Manage.php:571
 msgid "Type of item menu:"
 msgstr "আইটেম মেনু:"
 
-#: plugins/simpleMenu/src/Manage.php:574 plugins/simpleMenu/src/Manage.php:641
+#: plugins/simpleMenu/src/Manage.php:577 plugins/simpleMenu/src/Manage.php:644
 msgid "Continue..."
 msgstr "চালিয়ে যাও ..."
 
-#: plugins/simpleMenu/src/Manage.php:597
+#: plugins/simpleMenu/src/Manage.php:600
 msgid "Select language:"
 msgstr "ভাষা বেছে নিন:"
 
-#: plugins/simpleMenu/src/Manage.php:603
+#: plugins/simpleMenu/src/Manage.php:606
 msgid "Select category:"
 msgstr "শ্রেণীবিভাগ নির্বাচন করুন:"
 
-#: plugins/simpleMenu/src/Manage.php:609
+#: plugins/simpleMenu/src/Manage.php:612
 msgid "Select month (if necessary):"
 msgstr "মাস নির্বাচন করুন (যদি প্রয়োজন হয়):"
 
-#: plugins/simpleMenu/src/Manage.php:615
+#: plugins/simpleMenu/src/Manage.php:618
 msgid "Select page:"
 msgstr "পৃষ্ঠা বেছে নিন:"
 
-#: plugins/simpleMenu/src/Manage.php:621
+#: plugins/simpleMenu/src/Manage.php:624
 msgid "Select tag (if necessary):"
 msgstr "ট্যাগ (যদি প্রয়োজন হয়) বেছে নিন:"
 
-#: plugins/simpleMenu/src/Manage.php:682
+#: plugins/simpleMenu/src/Manage.php:685
 msgid "Label of item menu:"
 msgstr "আইটেম মেনুর লেবেল:"
 
-#: plugins/simpleMenu/src/Manage.php:696
+#: plugins/simpleMenu/src/Manage.php:699
 msgid "Description of item menu:"
 msgstr "আইটেম মেনুর বর্ণনা:"
 
-#: plugins/simpleMenu/src/Manage.php:711
+#: plugins/simpleMenu/src/Manage.php:714
 msgid "URL of item menu:"
 msgstr "আইটেম মেনু-এর URL:"
 
-#: plugins/simpleMenu/src/Manage.php:721 plugins/simpleMenu/src/Manage.php:800
+#: plugins/simpleMenu/src/Manage.php:724 plugins/simpleMenu/src/Manage.php:803
 msgid "Open URL on a new tab"
 msgstr "নতুন ট্যাব-এ URL খুলুন"
 
-#: plugins/simpleMenu/src/Manage.php:729
+#: plugins/simpleMenu/src/Manage.php:732
 msgid "Add this item"
 msgstr "এই আইটেম যোগ করো"
 
-#: plugins/simpleMenu/src/Manage.php:755
+#: plugins/simpleMenu/src/Manage.php:758
 msgid "Enable simple menu for this blog"
 msgstr "এই ব্লগের জন্য সরল মেনু সক্রিয় করুন"
 
-#: plugins/simpleMenu/src/Manage.php:778
+#: plugins/simpleMenu/src/Manage.php:781
 msgid "Add an item"
 msgstr "একটি বস্তু যোগ করো"
 
-#: plugins/simpleMenu/src/Manage.php:896
+#: plugins/simpleMenu/src/Manage.php:899
 msgid "Menu items list"
 msgstr "মেনু আইটেম তালিকা"
 
-#: plugins/simpleMenu/src/Manage.php:923
+#: plugins/simpleMenu/src/Manage.php:926
 msgid "Delete selected menu items"
 msgstr "নির্বাচিত মেনু মুছে ফেলুন"
 
-#: plugins/simpleMenu/src/Manage.php:932
+#: plugins/simpleMenu/src/Manage.php:935
 msgid "Update menu"
 msgstr "মেনু আপডেট করো"
 
-#: plugins/simpleMenu/src/Manage.php:942
+#: plugins/simpleMenu/src/Manage.php:945
 msgid "No menu items so far."
 msgstr "এখন পর্যন্ত কোনো মেনু আইটেম নেই."
 
@@ -2793,90 +2793,90 @@ msgstr "লিংকে ডিসবাজ করা হয়েছে এবং �
 msgid "Not displayed nor used"
 msgstr "প্রদর্শিত বা ব্যবহার করা হয়নি"
 
-#: plugins/tags/src/BackendBehaviors.php:63
-#: plugins/tags/src/BackendBehaviors.php:75
-#: plugins/tags/src/FrontendUrl.php:105 plugins/tags/src/ManagePosts.php:155
+#: plugins/tags/src/BackendBehaviors.php:64
+#: plugins/tags/src/BackendBehaviors.php:76
+#: plugins/tags/src/FrontendUrl.php:105 plugins/tags/src/ManagePosts.php:157
 msgid "Tag"
 msgstr "ট্যাগ"
 
-#: plugins/tags/src/BackendBehaviors.php:238
+#: plugins/tags/src/BackendBehaviors.php:239
 msgid "Add tags"
 msgstr "ট্যাগ যোগ করো"
 
-#: plugins/tags/src/BackendBehaviors.php:247
+#: plugins/tags/src/BackendBehaviors.php:248
 msgid "Remove tags"
 msgstr "ট্যাগ অপসারণ করো"
 
-#: plugins/tags/src/BackendBehaviors.php:282
+#: plugins/tags/src/BackendBehaviors.php:283
 msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
 msgstr[0] "নির্বাচিত এন্ট্রিতে ট্যাগ সফলভাবে যোগ করা হয়েছে"
 msgstr[1] "নির্বাচিত এন্ট্রিতে ট্যাগ সফলভাবে যোগ করা হয়েছে"
 
-#: plugins/tags/src/BackendBehaviors.php:295
-#: plugins/tags/src/BackendBehaviors.php:450
+#: plugins/tags/src/BackendBehaviors.php:296
+#: plugins/tags/src/BackendBehaviors.php:451
 msgid "Are you sure you want to remove this tag?"
 msgstr "আপনি কি এই ট্যাগ অপসারণ করতে চান?"
 
-#: plugins/tags/src/BackendBehaviors.php:296
-#: plugins/tags/src/BackendBehaviors.php:451
+#: plugins/tags/src/BackendBehaviors.php:297
+#: plugins/tags/src/BackendBehaviors.php:452
 msgid "Add a tag to this entry"
 msgstr "এই এন্ট্রিতে একটি ট্যাগ যোগ করুন"
 
-#: plugins/tags/src/BackendBehaviors.php:297
-#: plugins/tags/src/BackendBehaviors.php:452
+#: plugins/tags/src/BackendBehaviors.php:298
+#: plugins/tags/src/BackendBehaviors.php:453
 msgid "Choose from list"
 msgstr "তালিকা থেকে বেছে নিন"
 
-#: plugins/tags/src/BackendBehaviors.php:298
-#: plugins/tags/src/BackendBehaviors.php:453
+#: plugins/tags/src/BackendBehaviors.php:299
+#: plugins/tags/src/BackendBehaviors.php:454
 msgid "all"
 msgstr "সব"
 
-#: plugins/tags/src/BackendBehaviors.php:299
-#: plugins/tags/src/BackendBehaviors.php:454
+#: plugins/tags/src/BackendBehaviors.php:300
+#: plugins/tags/src/BackendBehaviors.php:455
 msgid "Enter tags separated by comma"
 msgstr "কমা দ্বারা পৃথক ট্যাগ লিখুন"
 
-#: plugins/tags/src/BackendBehaviors.php:307
+#: plugins/tags/src/BackendBehaviors.php:308
 msgid "Add tags to this selection"
 msgstr "এই নির্বাচন থেকে ট্যাগ যোগ করো"
 
-#: plugins/tags/src/BackendBehaviors.php:325
+#: plugins/tags/src/BackendBehaviors.php:326
 msgid "Tags to add:"
 msgstr "যোগ করার জন্য ট্যাগ:"
 
-#: plugins/tags/src/BackendBehaviors.php:364
+#: plugins/tags/src/BackendBehaviors.php:365
 msgid "Tag has been successfully removed from selected entries"
 msgid_plural "Tags have been successfully removed from selected entries"
 msgstr[0] "নির্বাচিত এন্ট্রি থেকে ট্যাগ সফলভাবে মুছে ফেলা হয়েছে"
 msgstr[1] "নির্বাচিত এন্ট্রি থেকে ট্যাগ সফলভাবে মুছে ফেলা হয়েছে"
 
-#: plugins/tags/src/BackendBehaviors.php:387
+#: plugins/tags/src/BackendBehaviors.php:388
 msgid "No tags for selected entries"
 msgstr "নির্বাচিত এন্ট্রির জন্য কোনো ট্যাগ নেই"
 
-#: plugins/tags/src/BackendBehaviors.php:394
+#: plugins/tags/src/BackendBehaviors.php:395
 msgid "Remove selected tags from this selection"
 msgstr "এই নির্বাচন থেকে নির্বাচিত ট্যাগ মুছে ফেলো"
 
-#: plugins/tags/src/BackendBehaviors.php:421
+#: plugins/tags/src/BackendBehaviors.php:422
 msgid "Following tags have been found in selected entries:"
 msgstr "নির্বাচিত এন্ট্রির মধ্যে ট্যাগ অনুসরণ করা হয়েছে:"
 
-#: plugins/tags/src/BackendBehaviors.php:430
+#: plugins/tags/src/BackendBehaviors.php:431
 msgid "Remove"
 msgstr "অপসারণ"
 
-#: plugins/tags/src/BackendBehaviors.php:493
+#: plugins/tags/src/BackendBehaviors.php:494
 msgid "Tags list format:"
 msgstr "ট্যাগ তালিকার বিন্যাস:"
 
-#: plugins/tags/src/BackendBehaviors.php:496
+#: plugins/tags/src/BackendBehaviors.php:497
 msgid "Short"
 msgstr "সংক্ষিপ্ত"
 
-#: plugins/tags/src/BackendBehaviors.php:497
+#: plugins/tags/src/BackendBehaviors.php:498
 msgid "Extended"
 msgstr "এক্সটেন্ডেড"
 
@@ -2888,44 +2888,44 @@ msgstr "এই ট্যাগের মন্তব্যের এটম ফ�
 msgid "This tag's entries Atom feed"
 msgstr "এই ট্যাগের এন্ট্রি এটম ফিড"
 
-#: plugins/tags/src/Manage.php:119
+#: plugins/tags/src/Manage.php:121
 msgid "entries"
 msgstr "এন্ট্রি"
 
-#: plugins/tags/src/Manage.php:119
+#: plugins/tags/src/Manage.php:121
 msgid "entry"
 msgstr "এন্ট্রি"
 
-#: plugins/tags/src/Manage.php:150
+#: plugins/tags/src/Manage.php:152
 msgid "No tags on this blog."
 msgstr "এই ব্লগে কোন ট্যাগ নেই."
 
-#: plugins/tags/src/ManagePosts.php:94
+#: plugins/tags/src/ManagePosts.php:96
 msgid "Tag has been successfully renamed"
 msgstr "ট্যাগ সফলভাবে নামকরণ করা হয়েছে"
 
-#: plugins/tags/src/ManagePosts.php:113
+#: plugins/tags/src/ManagePosts.php:115
 msgid "Tag has been successfully removed"
 msgstr "ট্যাগ সফলভাবে অপসারণ করা হয়েছে"
 
-#: plugins/tags/src/ManagePosts.php:144
+#: plugins/tags/src/ManagePosts.php:146
 #, php-format
 msgid "Are you sure you want to remove tag: “%s”?"
 msgstr "আপনি কি নিশ্চিত যে আপনি \"%s\" ট্যাগটি অপসারণ করতে চান?"
 
-#: plugins/tags/src/ManagePosts.php:159
+#: plugins/tags/src/ManagePosts.php:161
 msgid "Back to tags list"
 msgstr "ট্যাগ তালিকায় ফিরে যাও"
 
-#: plugins/tags/src/ManagePosts.php:174
+#: plugins/tags/src/ManagePosts.php:176
 msgid "Delete this tag"
 msgstr "এই ট্যাগ মুছে ফেলুন"
 
-#: plugins/tags/src/ManagePosts.php:196
+#: plugins/tags/src/ManagePosts.php:198
 msgid "Rename:"
 msgstr "পুনঃনামকরণ:"
 
-#: plugins/tags/src/ManagePosts.php:207
+#: plugins/tags/src/ManagePosts.php:209
 msgid "List of entries with this tag"
 msgstr "এই ট্যাগের সাথে এন্ট্রির তালিকা"
 
@@ -2953,119 +2953,119 @@ msgstr "এন্ট্রি এন্ট্রি"
 msgid "Link to all tags:"
 msgstr "সব ট্যাগের লিঙ্ক:"
 
-#: plugins/themeEditor/src/Backend.php:25
+#: plugins/themeEditor/src/Backend.php:27
 msgid "themeEditor"
 msgstr "ThemeEditor"
 
-#: plugins/themeEditor/src/BackendBehaviors.php:45
-#: plugins/themeEditor/src/Manage.php:194
-#: plugins/themeEditor/src/Manage.php:201
+#: plugins/themeEditor/src/BackendBehaviors.php:46
+#: plugins/themeEditor/src/Manage.php:196
+#: plugins/themeEditor/src/Manage.php:203
 msgid "Edit theme files"
 msgstr "থিম ফাইল সম্পাদনা করুন"
 
-#: plugins/themeEditor/src/BackendBehaviors.php:105
+#: plugins/themeEditor/src/BackendBehaviors.php:106
 msgid "Syntax highlighting"
 msgstr "সিনট্যাক্স হাইলাইট"
 
-#: plugins/themeEditor/src/BackendBehaviors.php:117
+#: plugins/themeEditor/src/BackendBehaviors.php:118
 msgid "Syntax highlighting in theme editor"
 msgstr "থিম সম্পাদকের মধ্যে সিনট্যাক্স হাইলাইট করা হচ্ছে"
 
-#: plugins/themeEditor/src/Manage.php:99
+#: plugins/themeEditor/src/Manage.php:101
 msgid "The theme update has been locked."
 msgstr "থিম আপডেট লক করা হয়েছে."
 
-#: plugins/themeEditor/src/Manage.php:107
+#: plugins/themeEditor/src/Manage.php:109
 msgid "The theme update has been unocked."
 msgstr "থিম আপডেট খোলা হয়েছে."
 
-#: plugins/themeEditor/src/Manage.php:130
+#: plugins/themeEditor/src/Manage.php:132
 msgid "The file has been reset."
 msgstr "ফাইলটি রিসেট করা হয়েছে."
 
-#: plugins/themeEditor/src/Manage.php:163
+#: plugins/themeEditor/src/Manage.php:165
 msgid "Lock update"
 msgstr "লক আপডেট"
 
-#: plugins/themeEditor/src/Manage.php:163
+#: plugins/themeEditor/src/Manage.php:165
 msgid "Unlock update"
 msgstr "আপডেট আনলক করো"
 
-#: plugins/themeEditor/src/Manage.php:168
+#: plugins/themeEditor/src/Manage.php:170
 msgid "Lock theme update disables theme update, but allows theme files to be modified."
 msgstr "লক থিম আপডেট থিম আপডেট অক্ষম করে, কিন্তু থিম ফাইলগুলিকে সংশোধন করার অনুমতি দেয়৷"
 
-#: plugins/themeEditor/src/Manage.php:174
+#: plugins/themeEditor/src/Manage.php:176
 msgid "The theme editor is in development mode, theme files will be overwritten!"
 msgstr "থিম এডিটরটি ডেভেলপমেন্ট মোডে আছে, থিম ফাইলগুলি ওভাররাইট করা হবে!"
 
-#: plugins/themeEditor/src/Manage.php:182
+#: plugins/themeEditor/src/Manage.php:184
 msgid "Saving document..."
 msgstr "নথি সংরক্ষণ করা হচ্ছে ..."
 
-#: plugins/themeEditor/src/Manage.php:183
+#: plugins/themeEditor/src/Manage.php:185
 msgid "Document saved"
 msgstr "নথি সংরক্ষণ করা হয়েছে"
 
-#: plugins/themeEditor/src/Manage.php:184
+#: plugins/themeEditor/src/Manage.php:186
 msgid "An error occurred:"
 msgstr "একটি ত্রুটি ঘটেছে:"
 
-#: plugins/themeEditor/src/Manage.php:185
+#: plugins/themeEditor/src/Manage.php:187
 msgid "Are you sure you want to reset this file?"
 msgstr "আপনি কি নিশ্চিত আপনি এই ফাইলটি রিসেট করতে চান?"
 
-#: plugins/themeEditor/src/Manage.php:209
+#: plugins/themeEditor/src/Manage.php:211
 #, php-format
 msgid "Your current theme on this blog is \"%s\"."
 msgstr "এই ব্লগে আপনার বর্তমান থিম হল \"%s\"।"
 
-#: plugins/themeEditor/src/Manage.php:219
+#: plugins/themeEditor/src/Manage.php:221
 msgid "Please select a file to edit."
 msgstr "অনুগ্রহ করে সম্পাদনার জন্য একটি ফাইল নির্বাচন করুন."
 
-#: plugins/themeEditor/src/Manage.php:227
+#: plugins/themeEditor/src/Manage.php:229
 msgid "Reset"
 msgstr "রিসেট"
 
-#: plugins/themeEditor/src/Manage.php:236
+#: plugins/themeEditor/src/Manage.php:238
 msgid "File editor"
 msgstr "ফাইল সম্পাদক"
 
-#: plugins/themeEditor/src/Manage.php:245
+#: plugins/themeEditor/src/Manage.php:247
 #, php-format
 msgid "Editing file %s"
 msgstr "Editing file %s"
 
-#: plugins/themeEditor/src/Manage.php:261
+#: plugins/themeEditor/src/Manage.php:263
 msgid "If you use <code>url(...)</code> in your CSS files, be sure to use <code>url(index.php?tf=...)</code> to correctly load theme resources (imported CSS, images, etc.), except for URL types in the form <code>data:image</code>.<br>Example: do <code>@import url(index.php?tf=css/layout.css);</code> instead of <code>@import url(css/layout.css);</code>."
 msgstr "যদি আপনি আপনার CSS ফাইলগুলিতে <code>url(...)</code> ব্যবহার করেন, তাহলে <code>data:image</code> ফর্মে URL প্রকারগুলি ছাড়া, থিম রিসোর্সগুলি (আমদানিকৃত CSS, ছবি ইত্যাদি) সঠিকভাবে লোড করতে <code>url(index.php?tf=...)</code> ব্যবহার করতে ভুলবেন না।<br>উদাহরণ: <code>@import url(css/layout.css);</code> এর পরিবর্তে <code>@import url(index.php?tf=css/layout.css);</code> করুন।"
 
-#: plugins/themeEditor/src/Manage.php:266
+#: plugins/themeEditor/src/Manage.php:268
 msgid "This file is not overloadable. Please check your var folder permissions."
 msgstr "এই ফাইলটি ওভারলোডযোগ্য নয়। অনুগ্রহ করে আপনার var ফোল্ডারের অনুমতিগুলি পরীক্ষা করুন।"
 
-#: plugins/themeEditor/src/Manage.php:269
+#: plugins/themeEditor/src/Manage.php:271
 msgid "This theme is too old to be modified. Please check if an update is available."
 msgstr "এই থিমটি পরিবর্তন করার জন্য অনেক পুরনো। অনুগ্রহ করে কোন আপডেট পাওয়া যাচ্ছে কিনা তা পরীক্ষা করুন।"
 
-#: plugins/themeEditor/src/Manage.php:288
+#: plugins/themeEditor/src/Manage.php:290
 msgid "Templates files"
 msgstr "টেমপ্লেট ফাইল"
 
-#: plugins/themeEditor/src/Manage.php:293
+#: plugins/themeEditor/src/Manage.php:295
 msgid "CSS files"
 msgstr "CSS ফাইল"
 
-#: plugins/themeEditor/src/Manage.php:298
+#: plugins/themeEditor/src/Manage.php:300
 msgid "JavaScript files"
 msgstr "জাভাস্ক্রিপ্ট ফাইল"
 
-#: plugins/themeEditor/src/Manage.php:303
+#: plugins/themeEditor/src/Manage.php:305
 msgid "Locales files"
 msgstr "স্থানীয় ফাইল"
 
-#: plugins/themeEditor/src/Manage.php:308
+#: plugins/themeEditor/src/Manage.php:310
 msgid "PHP files"
 msgstr "PHP ফাইল"
 
@@ -3111,143 +3111,143 @@ msgstr "%s ফাইলটি লিখতে অক্ষম। দয়া �
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "%s ফাইলটি মুছতে অক্ষম। দয়া করে আপনার থিম ফাইল এবং ফোল্ডারের অনুমতিগুলি পরীক্ষা করুন।"
 
-#: plugins/userPref/src/Backend.php:25
+#: plugins/userPref/src/Backend.php:27
 msgid "user:preferences"
 msgstr "ব্যবহারকারী: পছন্দসমূহ"
 
-#: plugins/userPref/src/Manage.php:88 plugins/userPref/src/Manage.php:107
+#: plugins/userPref/src/Manage.php:91 plugins/userPref/src/Manage.php:110
 msgid "Preferences successfully updated"
 msgstr "পছন্দসমূহ সফলভাবে হালনাগাদ করা হয়েছে"
 
-#: plugins/userPref/src/Manage.php:157 plugins/userPref/src/Manage.php:159
+#: plugins/userPref/src/Manage.php:160 plugins/userPref/src/Manage.php:162
 msgid "Global preferences"
 msgstr "গ্লোবাল পছন্দ"
 
-#: plugins/widgets/src/Backend.php:51
+#: plugins/widgets/src/Backend.php:53
 msgid "Widget's textareas"
 msgstr "উইজেটের পাঠ্যক্ষেত্র"
 
-#: plugins/widgets/src/Install.php:35
+#: plugins/widgets/src/Install.php:37
 msgid "Unable to initialize default widgets."
 msgstr "ডিফল্ট উইজেট আরম্ভ করতে ব্যর্থ."
 
-#: plugins/widgets/src/Manage.php:79
+#: plugins/widgets/src/Manage.php:81
 msgid "navigation"
 msgstr "নেভিগেশন"
 
-#: plugins/widgets/src/Manage.php:80
+#: plugins/widgets/src/Manage.php:82
 msgid "extra"
 msgstr "অতিরিক্ত"
 
-#: plugins/widgets/src/Manage.php:81
+#: plugins/widgets/src/Manage.php:83
 msgid "custom"
 msgstr "স্বনির্ধারিত"
 
-#: plugins/widgets/src/Manage.php:217
+#: plugins/widgets/src/Manage.php:219
 msgid "Sidebars and their widgets have been saved."
 msgstr "সাইডবার এবং তাদের উইজেট সংরক্ষণ করা হয়েছে."
 
-#: plugins/widgets/src/Manage.php:231
+#: plugins/widgets/src/Manage.php:233
 msgid "Sidebars have been resetting."
 msgstr "সাইডবার রিসেট করা হয়েছে."
 
-#: plugins/widgets/src/Manage.php:260
+#: plugins/widgets/src/Manage.php:262
 msgid "Are you sure you want to reset sidebars?"
 msgstr "আপনি কি নিশ্চিত আপনি sidebars রিসেট করতে চান?"
 
-#: plugins/widgets/src/Manage.php:261 plugins/widgets/src/Manage.php:391
+#: plugins/widgets/src/Manage.php:263 plugins/widgets/src/Manage.php:393
 msgid "Temporarily display the action buttons for each widget"
 msgstr "প্রতিটি উইজেটের জন্য ক্রিয়াকলাপ বোতামগুলি অস্থায়ীভাবে প্রদর্শন করুন"
 
-#: plugins/widgets/src/Manage.php:262
+#: plugins/widgets/src/Manage.php:264
 msgid "Hide the action buttons for each widget"
 msgstr "প্রতিটি উইজেটের জন্য ক্রিয়াকলাপ বোতামগুলি লুকান"
 
-#: plugins/widgets/src/Manage.php:309 plugins/widgets/src/Manage.php:490
+#: plugins/widgets/src/Manage.php:311 plugins/widgets/src/Manage.php:492
 msgid "order"
 msgstr "অর্ডার"
 
-#: plugins/widgets/src/Manage.php:321
+#: plugins/widgets/src/Manage.php:323
 msgid "Append to:"
 msgstr "এর জন্য যোগ করো:"
 
-#: plugins/widgets/src/Manage.php:340
+#: plugins/widgets/src/Manage.php:342
 msgid "Available widgets"
 msgstr "বিদ্যমান উইজেট"
 
-#: plugins/widgets/src/Manage.php:342
+#: plugins/widgets/src/Manage.php:344
 msgid "Drag widgets from this list to one of the sidebars, for add."
 msgstr "এই তালিকা থেকে উইজেটকে একটি সিডিয়ারদের মধ্যে ড্রাগ করুন, যোগ করার জন্য."
 
-#: plugins/widgets/src/Manage.php:350
+#: plugins/widgets/src/Manage.php:352
 msgid "Add widgets to sidebars"
 msgstr "উইজেটকে sidebars যোগ করুন"
 
-#: plugins/widgets/src/Manage.php:365
+#: plugins/widgets/src/Manage.php:367
 msgid "Navigation sidebar"
 msgstr "ন্যাভিগেশন সাইডবার"
 
-#: plugins/widgets/src/Manage.php:372
+#: plugins/widgets/src/Manage.php:374
 msgid "Extra sidebar"
 msgstr "অতিরিক্ত সাইডবার"
 
-#: plugins/widgets/src/Manage.php:379
+#: plugins/widgets/src/Manage.php:381
 msgid "Custom sidebar"
 msgstr "স্বনির্ধারিত সাইডবার"
 
-#: plugins/widgets/src/Manage.php:386
+#: plugins/widgets/src/Manage.php:388
 msgid "Update sidebars"
 msgstr "আপডেট sidebars"
 
-#: plugins/widgets/src/Manage.php:388
+#: plugins/widgets/src/Manage.php:390
 msgid "Reset sidebars"
 msgstr "Sidebars রিসেট করো"
 
-#: plugins/widgets/src/Manage.php:401
+#: plugins/widgets/src/Manage.php:403
 msgid "No setting for this widget"
 msgstr "এই উইজেটটির জন্য কোনো স্থাপনা নেই"
 
-#: plugins/widgets/src/Manage.php:407
+#: plugins/widgets/src/Manage.php:409
 msgid "boolean"
 msgstr "বুলিয়ান"
 
-#: plugins/widgets/src/Manage.php:407 plugins/widgets/src/Manage.php:412
+#: plugins/widgets/src/Manage.php:409 plugins/widgets/src/Manage.php:414
 msgid "possible values:"
 msgstr "সম্ভাব্য মান:"
 
-#: plugins/widgets/src/Manage.php:411
+#: plugins/widgets/src/Manage.php:413
 msgid "empty string"
 msgstr "ফাঁকা স্ট্রিং"
 
-#: plugins/widgets/src/Manage.php:412
+#: plugins/widgets/src/Manage.php:414
 msgid "listitem"
 msgstr "Listitem"
 
-#: plugins/widgets/src/Manage.php:418
+#: plugins/widgets/src/Manage.php:420
 msgid "string"
 msgstr "স্ট্রিং"
 
-#: plugins/widgets/src/Manage.php:438
+#: plugins/widgets/src/Manage.php:440
 msgid "Widget ID:"
 msgstr "উইজেট আইডি:"
 
-#: plugins/widgets/src/Manage.php:502 plugins/widgets/src/Manage.php:503
+#: plugins/widgets/src/Manage.php:504 plugins/widgets/src/Manage.php:505
 msgid "Up the widget"
 msgstr "উইজেটটি উপরে"
 
-#: plugins/widgets/src/Manage.php:507 plugins/widgets/src/Manage.php:508
+#: plugins/widgets/src/Manage.php:509 plugins/widgets/src/Manage.php:510
 msgid "Down the widget"
 msgstr "উইজেট ডাউন করো"
 
-#: plugins/widgets/src/Manage.php:511 plugins/widgets/src/Manage.php:512
+#: plugins/widgets/src/Manage.php:513 plugins/widgets/src/Manage.php:514
 msgid "Remove the widget"
 msgstr "উইজেট মুছে ফেলো"
 
-#: plugins/widgets/src/Manage.php:536
+#: plugins/widgets/src/Manage.php:538
 msgid "No widget as far."
 msgstr "এখন পর্যন্ত কোন উইজেট নেই."
 
-#: plugins/widgets/src/Manage.php:545
+#: plugins/widgets/src/Manage.php:547
 msgid "Drag widgets here to remove."
 msgstr "মুছে ফেলার জন্য এখানে উইজেট আঁকা হবে."
 
@@ -3339,49 +3339,49 @@ msgstr "শেষ মন্তব্য"
 msgid "Comments limit:"
 msgstr "মন্তব্য সীমা:"
 
-#: plugins/widgets/src/Widgets.php:552
+#: plugins/widgets/src/Widgets.php:565
 #, php-format
 msgid "This blog's entries %s feed"
 msgstr "এই ব্লগের এন্ট্রি %s ফিড"
 
-#: plugins/widgets/src/Widgets.php:553
+#: plugins/widgets/src/Widgets.php:566
 #, php-format
 msgid "This blog's comments %s feed"
 msgstr "এই ব্লগের মন্তব্য %s ফিড"
 
-#: plugins/widgets/src/Widgets.php:566
+#: plugins/widgets/src/Widgets.php:579
 msgid "Entries feed"
 msgstr "এন্ট্রি ফিড"
 
-#: plugins/widgets/src/Widgets.php:576
+#: plugins/widgets/src/Widgets.php:589
 msgid "Comments feed"
 msgstr "Comments ফিড"
 
-#: plugins/widgets/src/WidgetsElement.php:548
+#: plugins/widgets/src/WidgetsElement.php:547
 msgid "Title (optional)"
 msgstr "নাম (ঐচ্ছিক)"
 
-#: plugins/widgets/src/WidgetsElement.php:559
+#: plugins/widgets/src/WidgetsElement.php:558
 msgid "All pages"
 msgstr "সকল পৃষ্ঠা"
 
-#: plugins/widgets/src/WidgetsElement.php:560
+#: plugins/widgets/src/WidgetsElement.php:559
 msgid "Home page only"
 msgstr "শুধু হোমপেজ"
 
-#: plugins/widgets/src/WidgetsElement.php:561
+#: plugins/widgets/src/WidgetsElement.php:560
 msgid "Except on home page"
 msgstr "বাড়ির পাতায় ছাড়া"
 
-#: plugins/widgets/src/WidgetsElement.php:569
+#: plugins/widgets/src/WidgetsElement.php:568
 msgid "Display on:"
 msgstr "ডিসপ্লে:"
 
-#: plugins/widgets/src/WidgetsElement.php:595
+#: plugins/widgets/src/WidgetsElement.php:594
 msgid "Content only"
 msgstr "শুধুমাত্র বিষয়বস্তু"
 
-#: plugins/widgets/src/WidgetsElement.php:605
+#: plugins/widgets/src/WidgetsElement.php:604
 msgid "CSS class:"
 msgstr "সি এস এস ক্লাস:"
 
