@@ -163,13 +163,13 @@ class jsToolBar {
         (element.context !== undefined && element.context != null && element.context !== this.context);
 
       if (!disabled && typeof this[element.type] === 'function') {
+        newTool = false;
         const groupName = element?.group;
         tool = this[element.type](i);
         if (tool) {
           if (element.type !== 'space') {
             newTool = tool.draw();
           } else {
-            newTool = false;
             // Check if current group is not empty and if then add it to the list of groups
             if (currentGroup.childElementCount > 0) groups.push(currentGroup);
             // Then crate a new group
