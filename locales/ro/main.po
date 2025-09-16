@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-16 10:49+0200\n"
-"PO-Revision-Date: 2025-09-16 09:01\n"
+"PO-Revision-Date: 2025-09-16 09:37\n"
 "Last-Translator: \n"
 "Language-Team: Romanian\n"
 "Language: ro_RO\n"
@@ -1878,7 +1878,7 @@ msgstr "Data publicării a fost modificată. Resetați numele de bază al intră
 
 #: src/Core/Backend/Page.php:1325
 msgid "The publication title has changed. Reset the base name of the entry URL?"
-msgstr ""
+msgstr "Titlul publicației s-a schimbat. Resetați numele de bază al URL-ului de intrare?"
 
 #: src/Core/Backend/Page.php:1327
 msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences."
@@ -2466,11 +2466,11 @@ msgstr "Niciun mesaj de notificare"
 #: src/Core/Task.php:128
 #, php-format
 msgid "Unable to initialize utility %s"
-msgstr ""
+msgstr "Imposibilitatea de a inițializa utilitarul %s"
 
 #: src/Core/Task.php:247
 msgid "Utility not initialized"
-msgstr ""
+msgstr "Utilitarul nu este inițializat"
 
 #: src/Core/Trackback.php:101
 #, php-format
@@ -3038,7 +3038,7 @@ msgstr "Autentificare cu doi factori"
 #: src/Helper/Process/AbstractUtility.php:72
 #, php-format
 msgid "Unable to get process %s"
-msgstr ""
+msgstr "Imposibilitatea de a obține procesul %s"
 
 #: src/Helper/Stack/Statuses.php:315 src/Process/Backend/Comment.php:333
 #: src/Process/Backend/User.php:411
