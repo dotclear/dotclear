@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-01 12:51+0200\n"
-"PO-Revision-Date: 2025-09-01 10:55\n"
+"POT-Creation-Date: 2025-09-16 10:56+0200\n"
+"PO-Revision-Date: 2025-09-16 09:03\n"
 "Last-Translator: \n"
 "Language-Team: Japanese\n"
 "Language: ja_JP\n"
@@ -17,11 +17,11 @@ msgstr ""
 "X-Crowdin-File: /master/locales/_pot/plugins.pot\n"
 "X-Crowdin-File-ID: 264\n"
 
-#: plugins/Uninstaller/src/Backend.php:47
+#: plugins/Uninstaller/src/Backend.php:49
 msgid "Uninstall"
 msgstr "アンインストール"
 
-#: plugins/Uninstaller/src/Backend.php:105
+#: plugins/Uninstaller/src/Backend.php:107
 msgid "Plugin has been successfully uninstalled."
 msgstr "プラグインは正常にアンインストールされました。"
 
@@ -403,41 +403,41 @@ msgstr "未知のクリーナー \"%s\""
 msgid "Uninstaller can't remove itself"
 msgstr "アンインストーラが自身を削除できない"
 
-#: plugins/Uninstaller/src/Manage.php:63
+#: plugins/Uninstaller/src/Manage.php:65
 msgid "Unknown module id to uninstall"
 msgstr "アンインストールするモジュールIDが不明"
 
-#: plugins/Uninstaller/src/Manage.php:71
+#: plugins/Uninstaller/src/Manage.php:73
 msgid "There are no uninstall actions for this module"
 msgstr "このモジュールにはアンインストールアクションはありません。"
 
-#: plugins/Uninstaller/src/Manage.php:96
+#: plugins/Uninstaller/src/Manage.php:98
 msgid "Uninstall action successfuly excecuted"
 msgstr "アンインストールアクションは正常に終了しました。"
 
-#: plugins/Uninstaller/src/Manage.php:99
+#: plugins/Uninstaller/src/Manage.php:101
 msgid "No uninstall action done"
 msgstr "アンインストールを行わない"
 
-#: plugins/Uninstaller/src/Manage.php:145
+#: plugins/Uninstaller/src/Manage.php:147
 msgid "Perform selected actions"
 msgstr "選択したアクションを実行する"
 
-#: plugins/Uninstaller/src/Manage.php:160
+#: plugins/Uninstaller/src/Manage.php:162
 msgid "Are you sure you perform these ations?"
 msgstr "本当にこれらを実行しているのか？"
 
-#: plugins/Uninstaller/src/Manage.php:176
+#: plugins/Uninstaller/src/Manage.php:178
 #, php-format
 msgid "Uninstall plugin \"%s\""
 msgstr "プラグインのアンインストール \"%s\""
 
-#: plugins/Uninstaller/src/Manage.php:176
+#: plugins/Uninstaller/src/Manage.php:178
 #, php-format
 msgid "Uninstall theme \"%s\""
 msgstr "テーマのアンインストール \"%s\""
 
-#: plugins/Uninstaller/src/Manage.php:177
+#: plugins/Uninstaller/src/Manage.php:179
 #, php-format
 msgid "The module \"%1$s\" version %2$s offers advanced uninstall process:"
 msgstr "モジュール \"%1$s\" バージョン %2$s は、高度なアンインストールプロセスを提供します："
@@ -446,30 +446,30 @@ msgstr "モジュール \"%1$s\" バージョン %2$s は、高度なアンイ�
 msgid "Cope with old core classes (< 2.26)"
 msgstr "古いコアクラスに対応 (< 2.26)"
 
-#: plugins/_fake_plugin/_fake_l10n.php:8 plugins/antispam/src/Backend.php:30
+#: plugins/_fake_plugin/_fake_l10n.php:8 plugins/antispam/src/Backend.php:32
 msgid "Generic antispam plugin for Dotclear"
 msgstr "Dotclear 用の汎用アンチスパムプラグイン"
 
-#: plugins/_fake_plugin/_fake_l10n.php:9 plugins/akismet/src/Prepend.php:27
+#: plugins/_fake_plugin/_fake_l10n.php:9 plugins/akismet/src/Prepend.php:29
 msgid "Akismet interface for Dotclear"
 msgstr "Dotclear 用の Akismet インターフェイス"
 
 #: plugins/_fake_plugin/_fake_l10n.php:10
-#: plugins/fairTrackbacks/src/Prepend.php:27
+#: plugins/fairTrackbacks/src/Prepend.php:29
 msgid "Trackback validity check"
 msgstr "トラックバックの有効性チェック"
 
 #: plugins/_fake_plugin/_fake_l10n.php:11
-#: plugins/attachments/src/Backend.php:26
+#: plugins/attachments/src/Backend.php:28
 msgid "Manage post attachments"
 msgstr "投稿の添付ファイルを管理"
 
-#: plugins/_fake_plugin/_fake_l10n.php:12 plugins/pages/src/Backend.php:29
+#: plugins/_fake_plugin/_fake_l10n.php:12 plugins/pages/src/Backend.php:31
 msgid "Serve entries as simple web pages"
 msgstr "単純な Web ページとしてエントリを提供します"
 
 #: plugins/_fake_plugin/_fake_l10n.php:13
-#: plugins/aboutConfig/src/Backend.php:26
+#: plugins/aboutConfig/src/Backend.php:28
 msgid "Manage every blog configuration directive"
 msgstr "すべてのブログ設定ディレクティブを管理"
 
@@ -478,56 +478,56 @@ msgid "Uninstall cleanly plugins and themes"
 msgstr "プラグインとテーマをクリーンにアンインストール"
 
 #: plugins/_fake_plugin/_fake_l10n.php:15
-#: plugins/dcLegacyEditor/src/Backend.php:27
-#: plugins/dcLegacyEditor/src/Manage.php:73
+#: plugins/dcLegacyEditor/src/Backend.php:29
+#: plugins/dcLegacyEditor/src/Manage.php:75
 msgid "Dotclear editor"
 msgstr "Dotclearエディター"
 
 #: plugins/_fake_plugin/_fake_l10n.php:16
-#: plugins/themeEditor/src/Backend.php:26
+#: plugins/themeEditor/src/Backend.php:28
 msgid "Theme Editor"
 msgstr "テーマエディタ"
 
-#: plugins/_fake_plugin/_fake_l10n.php:17 plugins/simpleMenu/src/Backend.php:27
+#: plugins/_fake_plugin/_fake_l10n.php:17 plugins/simpleMenu/src/Backend.php:29
 msgid "Simple menu for Dotclear"
 msgstr "Dotclear 用のシンプルメニュー"
 
 #: plugins/_fake_plugin/_fake_l10n.php:18
-#: plugins/importExport/src/Backend.php:28
+#: plugins/importExport/src/Backend.php:30
 msgid "Import and Export your blog"
 msgstr "ブログのインポートとエクスポート"
 
-#: plugins/_fake_plugin/_fake_l10n.php:19 plugins/userPref/src/Backend.php:26
+#: plugins/_fake_plugin/_fake_l10n.php:19 plugins/userPref/src/Backend.php:28
 msgid "Manage every user preference directive"
 msgstr "すべてのユーザ設定ディレクティブを管理"
 
-#: plugins/_fake_plugin/_fake_l10n.php:20 plugins/dcCKEditor/src/Backend.php:26
-#: plugins/dcCKEditor/src/Manage.php:170
+#: plugins/_fake_plugin/_fake_l10n.php:20 plugins/dcCKEditor/src/Backend.php:28
+#: plugins/dcCKEditor/src/Manage.php:172
 msgid "CKEditor"
 msgstr "CKEditor"
 
 #: plugins/_fake_plugin/_fake_l10n.php:21
-#: plugins/maintenance/src/Backend.php:26
+#: plugins/maintenance/src/Backend.php:28
 msgid "Maintain your installation"
 msgstr "インストールを維持する"
 
-#: plugins/_fake_plugin/_fake_l10n.php:22 plugins/breadcrumb/src/Backend.php:26
+#: plugins/_fake_plugin/_fake_l10n.php:22 plugins/breadcrumb/src/Backend.php:28
 msgid "Breadcrumb for Dotclear"
 msgstr "Dotclear 用のパンくずリスト"
 
-#: plugins/_fake_plugin/_fake_l10n.php:23 plugins/blogroll/src/Backend.php:27
+#: plugins/_fake_plugin/_fake_l10n.php:23 plugins/blogroll/src/Backend.php:29
 msgid "Manage your blogroll"
 msgstr "ブログロールの管理"
 
-#: plugins/_fake_plugin/_fake_l10n.php:24 plugins/pings/src/Backend.php:28
+#: plugins/_fake_plugin/_fake_l10n.php:24 plugins/pings/src/Backend.php:30
 msgid "Ping services"
 msgstr "Ping サービス"
 
-#: plugins/_fake_plugin/_fake_l10n.php:25 plugins/tags/src/Backend.php:26
+#: plugins/_fake_plugin/_fake_l10n.php:25 plugins/tags/src/Backend.php:28
 msgid "Tags for posts"
 msgstr "投稿用タグ"
 
-#: plugins/_fake_plugin/_fake_l10n.php:26 plugins/widgets/src/Backend.php:28
+#: plugins/_fake_plugin/_fake_l10n.php:26 plugins/widgets/src/Backend.php:30
 msgid "Widgets for your blog sidebars"
 msgstr "ブログサイドバーのウィジェット"
 
@@ -591,22 +591,22 @@ msgstr "ブログリスト"
 msgid "Tags cloud"
 msgstr "タグクラウド"
 
-#: plugins/aboutConfig/src/Backend.php:25
+#: plugins/aboutConfig/src/Backend.php:27
 msgid "about:config"
 msgstr "about:config"
 
-#: plugins/aboutConfig/src/Manage.php:89 plugins/aboutConfig/src/Manage.php:109
+#: plugins/aboutConfig/src/Manage.php:92 plugins/aboutConfig/src/Manage.php:112
 msgid "Configuration successfully updated"
 msgstr "設定は正常に更新されました"
 
-#: plugins/aboutConfig/src/Manage.php:149
-#: plugins/aboutConfig/src/Manage.php:151
+#: plugins/aboutConfig/src/Manage.php:152
+#: plugins/aboutConfig/src/Manage.php:154
 #, php-format
 msgid "Settings for %s"
 msgstr "%s の設定"
 
-#: plugins/aboutConfig/src/Manage.php:159
-#: plugins/aboutConfig/src/Manage.php:161
+#: plugins/aboutConfig/src/Manage.php:162
+#: plugins/aboutConfig/src/Manage.php:164
 msgid "Global settings"
 msgstr "グローバル設定"
 
@@ -622,13 +622,13 @@ msgstr "設定 ID"
 msgid "Value"
 msgstr "値"
 
-#: plugins/aboutConfig/src/Manage.php:314 plugins/userPref/src/Manage.php:312
-msgid "no"
-msgstr "いいえ"
-
-#: plugins/aboutConfig/src/Manage.php:314 plugins/userPref/src/Manage.php:312
+#: plugins/aboutConfig/src/Manage.php:315 plugins/userPref/src/Manage.php:313
 msgid "yes"
 msgstr "はい"
+
+#: plugins/aboutConfig/src/Manage.php:316 plugins/userPref/src/Manage.php:314
+msgid "no"
+msgstr "いいえ"
 
 #: plugins/akismet/src/AntispamFilterAkismet.php:80
 msgid "Akismet spam filter"
@@ -663,30 +663,30 @@ msgstr "Akismet APIキー："
 msgid "Get your own API key"
 msgstr "あなた自身のAPIキーを取得"
 
-#: plugins/akismet/src/Prepend.php:26
+#: plugins/akismet/src/Prepend.php:28
 msgid "Akismet"
 msgstr "Akismet"
 
-#: plugins/antispam/src/Antispam.php:147
+#: plugins/antispam/src/Antispam.php:139
 msgid "This comment is a spam:"
 msgstr "このコメントはスパムです："
 
-#: plugins/antispam/src/Antispam.php:163 plugins/antispam/src/Rest.php:27
+#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:27
 #, php-format
 msgid "(including %d spam comment)"
 msgstr "（%d のスパムコメントを含む）"
 
-#: plugins/antispam/src/Antispam.php:163 plugins/antispam/src/Rest.php:27
+#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:27
 #, php-format
 msgid "(including %d spam comments)"
 msgstr "（%d のスパムコメントを含む）"
 
-#: plugins/antispam/src/Backend.php:29
+#: plugins/antispam/src/Backend.php:31
 msgid "Antispam"
 msgstr "アンチスパム"
 
 #: plugins/antispam/src/BackendBehaviors.php:56
-#: plugins/antispam/src/Manage.php:224
+#: plugins/antispam/src/Manage.php:226
 #, php-format
 msgid "All spam comments older than %s day(s) will be automatically deleted."
 msgstr "%s 日を経過したすべてのスパムコメントは自動的に削除されます。"
@@ -779,7 +779,7 @@ msgstr "IPアドレスを追加する："
 #: plugins/antispam/src/Filters/Ip.php:274
 #: plugins/antispam/src/Filters/IpV6.php:273
 #: plugins/antispam/src/Filters/Words.php:292
-#: plugins/widgets/src/Manage.php:322
+#: plugins/widgets/src/Manage.php:324
 msgid "Add"
 msgstr "追加"
 
@@ -882,96 +882,96 @@ msgstr "スパム"
 msgid "Ham"
 msgstr "非スパム"
 
-#: plugins/antispam/src/Manage.php:72
+#: plugins/antispam/src/Manage.php:74
 msgid "Filter does not exist."
 msgstr "フィルタが存在しません。"
 
-#: plugins/antispam/src/Manage.php:76
+#: plugins/antispam/src/Manage.php:78
 msgid "Filter has no user interface."
 msgstr "このフィルタにはユーザインターフェイスがありません。"
 
-#: plugins/antispam/src/Manage.php:137 plugins/antispam/src/Manage.php:270
+#: plugins/antispam/src/Manage.php:139 plugins/antispam/src/Manage.php:272
 msgid "Filters configuration has been successfully saved."
 msgstr "フィルタの設定は正常に保存されました。"
 
-#: plugins/antispam/src/Manage.php:154
+#: plugins/antispam/src/Manage.php:156
 #, php-format
 msgid "%s configuration"
 msgstr "%s の設定"
 
-#: plugins/antispam/src/Manage.php:175
+#: plugins/antispam/src/Manage.php:177
 #, php-format
 msgid "%s filter configuration"
 msgstr "%s フィルター設定"
 
-#: plugins/antispam/src/Manage.php:182
+#: plugins/antispam/src/Manage.php:184
 msgid "Back to filters list"
 msgstr "フィルタリストに戻る"
 
-#: plugins/antispam/src/Manage.php:229
+#: plugins/antispam/src/Manage.php:231
 #, php-format
 msgid "You can modify this duration in the %s"
 msgstr "この期間は %s で変更できます"
 
-#: plugins/antispam/src/Manage.php:238
+#: plugins/antispam/src/Manage.php:240
 msgid "Information"
 msgstr "情報"
 
-#: plugins/antispam/src/Manage.php:249
+#: plugins/antispam/src/Manage.php:251
 msgid "Junk comments:"
 msgstr "ジャンクコメント："
 
-#: plugins/antispam/src/Manage.php:255
+#: plugins/antispam/src/Manage.php:257
 msgid "Published comments:"
 msgstr "掲載済みコメント："
 
-#: plugins/antispam/src/Manage.php:279 plugins/antispam/src/Manage.php:282
-#: plugins/antispam/src/Manage.php:286
+#: plugins/antispam/src/Manage.php:281 plugins/antispam/src/Manage.php:284
+#: plugins/antispam/src/Manage.php:288
 msgid "Filter configuration"
 msgstr "フィルタの設定"
 
-#: plugins/antispam/src/Manage.php:302 plugins/blogroll/src/Manage.php:306
+#: plugins/antispam/src/Manage.php:304 plugins/blogroll/src/Manage.php:308
 msgid "position"
 msgstr "位置"
 
-#: plugins/antispam/src/Manage.php:309 plugins/antispam/src/Manage.php:343
+#: plugins/antispam/src/Manage.php:311 plugins/antispam/src/Manage.php:345
 msgid "Active"
 msgstr "有効"
 
-#: plugins/antispam/src/Manage.php:316 plugins/antispam/src/Manage.php:344
+#: plugins/antispam/src/Manage.php:318 plugins/antispam/src/Manage.php:346
 msgid "Auto Del."
 msgstr "自動削除"
 
-#: plugins/antispam/src/Manage.php:337
+#: plugins/antispam/src/Manage.php:339
 msgid "Available spam filters"
 msgstr "利用可能なスパムフィルタ"
 
-#: plugins/antispam/src/Manage.php:342
+#: plugins/antispam/src/Manage.php:344
 #: plugins/pages/src/BackendDefaultActions.php:74
 msgid "Order"
 msgstr "並び順"
 
-#: plugins/antispam/src/Manage.php:345
+#: plugins/antispam/src/Manage.php:347
 msgid "Filter name"
 msgstr "フィルタ名"
 
-#: plugins/antispam/src/Manage.php:372
+#: plugins/antispam/src/Manage.php:374
 msgid "Syndication"
 msgstr "シンジケート"
 
-#: plugins/antispam/src/Manage.php:375
+#: plugins/antispam/src/Manage.php:377
 msgid "Junk comments RSS feed"
 msgstr "ジャンクコメントのRSSフィード"
 
-#: plugins/antispam/src/Manage.php:378
+#: plugins/antispam/src/Manage.php:380
 msgid "Published comments RSS feed"
 msgstr "掲載済みコメントのRSSフィード"
 
-#: plugins/antispam/src/SpamFilter.php:93
+#: plugins/antispam/src/SpamFilter.php:95
 msgid "No description"
 msgstr "説明はありません"
 
-#: plugins/antispam/src/SpamFilter.php:151
+#: plugins/antispam/src/SpamFilter.php:153
 #, php-format
 msgid "Filtered by %1$s (%2$s)"
 msgstr "%1$s によってフィルタされました（%2$s）"
@@ -980,7 +980,7 @@ msgstr "%1$s によってフィルタされました（%2$s）"
 msgid "Unknown filter."
 msgstr "不明なフィルタです。"
 
-#: plugins/attachments/src/Backend.php:25
+#: plugins/attachments/src/Backend.php:27
 msgid "attachments"
 msgstr "添付ファイル"
 
@@ -1035,11 +1035,11 @@ msgid "%d link has been successfully deleted"
 msgid_plural "%d links have been successfully deleted"
 msgstr[0] "%d リンクは正常に削除されました"
 
-#: plugins/blogroll/src/Backend.php:26
+#: plugins/blogroll/src/Backend.php:28
 msgid "Blogroll"
 msgstr "ブログロール"
 
-#: plugins/blogroll/src/Backend.php:38
+#: plugins/blogroll/src/Backend.php:40
 msgid "manage blogroll"
 msgstr "ブログロールの管理"
 
@@ -1059,217 +1059,217 @@ msgstr "リンクステータスを変更することはできません。"
 msgid "You are not allowed to delete links"
 msgstr "リンクの削除は許可されていません"
 
-#: plugins/blogroll/src/Manage.php:114 plugins/blogroll/src/Manage.php:617
+#: plugins/blogroll/src/Manage.php:116 plugins/blogroll/src/Manage.php:619
 msgid "Nothing to import"
 msgstr "インポートするものがありません"
 
-#: plugins/blogroll/src/Manage.php:137
+#: plugins/blogroll/src/Manage.php:139
 msgid "links have been successfully imported."
 msgstr "リンクは正常にインポートされました。"
 
-#: plugins/blogroll/src/Manage.php:144
+#: plugins/blogroll/src/Manage.php:146
 msgid "Import operation cancelled."
 msgstr "インポート操作はキャンセルされました。"
 
-#: plugins/blogroll/src/Manage.php:160
+#: plugins/blogroll/src/Manage.php:162
 msgid "Link has been successfully created."
 msgstr "リンクは正常に作成されました。"
 
-#: plugins/blogroll/src/Manage.php:176
+#: plugins/blogroll/src/Manage.php:178
 msgid "category has been successfully created."
 msgstr "カテゴリは正常に作成されました。"
 
-#: plugins/blogroll/src/Manage.php:209
+#: plugins/blogroll/src/Manage.php:211
 msgid "Items order has been successfully updated"
 msgstr "アイテムの並び順は正常に更新されました"
 
-#: plugins/blogroll/src/Manage.php:275
+#: plugins/blogroll/src/Manage.php:277
 msgid "Are you sure you want to delete selected links?"
 msgstr "本当に、選択されたリンクを削除してもよろしいですか？"
 
-#: plugins/blogroll/src/Manage.php:313
+#: plugins/blogroll/src/Manage.php:315
 msgid "select this link"
 msgstr "このリンクを選択"
 
-#: plugins/blogroll/src/Manage.php:373
+#: plugins/blogroll/src/Manage.php:375
 msgid "Lang"
 msgstr "言語"
 
-#: plugins/blogroll/src/Manage.php:421
+#: plugins/blogroll/src/Manage.php:423
 msgid "Selected links action:"
 msgstr "厳選リンクアクション："
 
-#: plugins/blogroll/src/Manage.php:441
+#: plugins/blogroll/src/Manage.php:443
 msgid "The link list is empty"
 msgstr "リンクリストは空です"
 
-#: plugins/blogroll/src/Manage.php:464
+#: plugins/blogroll/src/Manage.php:466
 msgid "Add a new link"
 msgstr "新しいリンクを追加"
 
-#: plugins/blogroll/src/Manage.php:515 plugins/blogroll/src/Manage.php:565
-#: plugins/blogroll/src/ManageEdit.php:224
-#: plugins/blogroll/src/ManageEdit.php:296
+#: plugins/blogroll/src/Manage.php:517 plugins/blogroll/src/Manage.php:567
+#: plugins/blogroll/src/ManageEdit.php:226
+#: plugins/blogroll/src/ManageEdit.php:298
 msgid "Link status"
 msgstr "リンク状況"
 
-#: plugins/blogroll/src/Manage.php:534
+#: plugins/blogroll/src/Manage.php:536
 msgid "Add a category"
 msgstr "カテゴリの追加"
 
-#: plugins/blogroll/src/Manage.php:588 plugins/blogroll/src/Manage.php:680
-#: plugins/blogroll/src/Manage.php:687
+#: plugins/blogroll/src/Manage.php:590 plugins/blogroll/src/Manage.php:682
+#: plugins/blogroll/src/Manage.php:689
 msgid "Import links"
 msgstr "リンクのインポート"
 
-#: plugins/blogroll/src/Manage.php:597
+#: plugins/blogroll/src/Manage.php:599
 msgid "OPML or XBEL File:"
 msgstr "OPML/XBELファイル："
 
-#: plugins/blogroll/src/Manage.php:607 plugins/blogroll/src/Manage.php:672
-#: plugins/importExport/src/Manage.php:130
+#: plugins/blogroll/src/Manage.php:609 plugins/blogroll/src/Manage.php:674
+#: plugins/importExport/src/Manage.php:132
 #: plugins/importExport/src/ModuleImportFeed.php:239
-#: plugins/importExport/src/ModuleImportFlat.php:245
-#: plugins/importExport/src/ModuleImportFlat.php:307
+#: plugins/importExport/src/ModuleImportFlat.php:250
+#: plugins/importExport/src/ModuleImportFlat.php:312
 msgid "Import"
 msgstr "インポート"
 
-#: plugins/blogroll/src/ManageEdit.php:71
+#: plugins/blogroll/src/ManageEdit.php:73
 msgid "No such link or title"
 msgstr "指定されたリンクやタイトルはありません"
 
-#: plugins/blogroll/src/ManageEdit.php:131
+#: plugins/blogroll/src/ManageEdit.php:133
 msgid "Link has been successfully updated"
 msgstr "リンクは正常に更新されました"
 
-#: plugins/blogroll/src/ManageEdit.php:148
+#: plugins/blogroll/src/ManageEdit.php:150
 msgid "Category has been successfully updated"
 msgstr "カテゴリは正常に更新されました"
 
-#: plugins/blogroll/src/ManageEdit.php:181
+#: plugins/blogroll/src/ManageEdit.php:183
 #: plugins/dcCKEditor/src/BackendBehaviors.php:62
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:221
 msgid "Link"
 msgstr "リンク"
 
-#: plugins/blogroll/src/ManageEdit.php:188
+#: plugins/blogroll/src/ManageEdit.php:190
 msgid "Return to blogroll"
 msgstr "ブログロールへ戻る"
 
-#: plugins/blogroll/src/ManageEdit.php:199
+#: plugins/blogroll/src/ManageEdit.php:201
 msgid "Edit category"
 msgstr "カテゴリの編集"
 
-#: plugins/blogroll/src/ManageEdit.php:243
+#: plugins/blogroll/src/ManageEdit.php:245
 msgid "Edit link"
 msgstr "リンクの編集"
 
-#: plugins/blogroll/src/ManageEdit.php:302
+#: plugins/blogroll/src/ManageEdit.php:304
 msgid "XFN information"
 msgstr "XFN情報"
 
-#: plugins/blogroll/src/ManageEdit.php:306
+#: plugins/blogroll/src/ManageEdit.php:308
 #, php-format
 msgid "More information on <a href=\"%s\">Wikipedia</a> website"
 msgstr "詳細は<a href=\"%s\">ウィキペディア</a>"
 
-#: plugins/blogroll/src/ManageEdit.php:312
+#: plugins/blogroll/src/ManageEdit.php:314
 msgid "_xfn_Me"
 msgstr "自分"
 
-#: plugins/blogroll/src/ManageEdit.php:316
+#: plugins/blogroll/src/ManageEdit.php:318
 msgid "_xfn_Another link for myself"
 msgstr "自分自身への別のリンク"
 
-#: plugins/blogroll/src/ManageEdit.php:320
+#: plugins/blogroll/src/ManageEdit.php:322
 msgid "_xfn_Friendship"
 msgstr "友情"
 
-#: plugins/blogroll/src/ManageEdit.php:324
+#: plugins/blogroll/src/ManageEdit.php:326
 msgid "_xfn_Contact"
 msgstr "連絡方法を知っている人"
 
-#: plugins/blogroll/src/ManageEdit.php:327
+#: plugins/blogroll/src/ManageEdit.php:329
 msgid "_xfn_Acquaintance"
 msgstr "面識はあるが親密ではない人"
 
-#: plugins/blogroll/src/ManageEdit.php:330
+#: plugins/blogroll/src/ManageEdit.php:332
 msgid "_xfn_Friend"
 msgstr "友人"
 
-#: plugins/blogroll/src/ManageEdit.php:340
+#: plugins/blogroll/src/ManageEdit.php:342
 msgid "_xfn_Physical"
 msgstr "面識"
 
-#: plugins/blogroll/src/ManageEdit.php:344
+#: plugins/blogroll/src/ManageEdit.php:346
 msgid "_xfn_Met"
 msgstr "会ったことがある"
 
-#: plugins/blogroll/src/ManageEdit.php:348
+#: plugins/blogroll/src/ManageEdit.php:350
 msgid "_xfn_Professional"
 msgstr "職業"
 
-#: plugins/blogroll/src/ManageEdit.php:352
+#: plugins/blogroll/src/ManageEdit.php:354
 msgid "_xfn_Co-worker"
 msgstr "同僚・同じ組織で働く人"
 
-#: plugins/blogroll/src/ManageEdit.php:355
+#: plugins/blogroll/src/ManageEdit.php:357
 msgid "_xfn_Colleague"
 msgstr "研究・活動の分野が同じ人"
 
-#: plugins/blogroll/src/ManageEdit.php:359
+#: plugins/blogroll/src/ManageEdit.php:361
 msgid "_xfn_Geographical"
 msgstr "地理"
 
-#: plugins/blogroll/src/ManageEdit.php:363
+#: plugins/blogroll/src/ManageEdit.php:365
 msgid "_xfn_Co-resident"
 msgstr "同居人"
 
-#: plugins/blogroll/src/ManageEdit.php:366
+#: plugins/blogroll/src/ManageEdit.php:368
 msgid "_xfn_Neighbor"
 msgstr "隣人（ごく近所）"
 
-#: plugins/blogroll/src/ManageEdit.php:376
+#: plugins/blogroll/src/ManageEdit.php:378
 msgid "_xfn_Family"
 msgstr "家族"
 
-#: plugins/blogroll/src/ManageEdit.php:380
+#: plugins/blogroll/src/ManageEdit.php:382
 msgid "_xfn_Child"
 msgstr "子供"
 
-#: plugins/blogroll/src/ManageEdit.php:383
+#: plugins/blogroll/src/ManageEdit.php:385
 msgid "_xfn_Parent"
 msgstr "親"
 
-#: plugins/blogroll/src/ManageEdit.php:386
+#: plugins/blogroll/src/ManageEdit.php:388
 msgid "_xfn_Sibling"
 msgstr "兄弟・姉妹"
 
-#: plugins/blogroll/src/ManageEdit.php:389
+#: plugins/blogroll/src/ManageEdit.php:391
 msgid "_xfn_Spouse"
 msgstr "配偶者"
 
-#: plugins/blogroll/src/ManageEdit.php:392
+#: plugins/blogroll/src/ManageEdit.php:394
 msgid "_xfn_Kin"
 msgstr "血縁者"
 
-#: plugins/blogroll/src/ManageEdit.php:402
+#: plugins/blogroll/src/ManageEdit.php:404
 msgid "_xfn_Romantic"
 msgstr "恋愛"
 
-#: plugins/blogroll/src/ManageEdit.php:406
+#: plugins/blogroll/src/ManageEdit.php:408
 msgid "_xfn_Muse"
 msgstr "気になる人"
 
-#: plugins/blogroll/src/ManageEdit.php:409
+#: plugins/blogroll/src/ManageEdit.php:411
 msgid "_xfn_Crush"
 msgstr "片思いの人"
 
-#: plugins/blogroll/src/ManageEdit.php:412
+#: plugins/blogroll/src/ManageEdit.php:414
 msgid "_xfn_Date"
 msgstr "デートする人"
 
-#: plugins/blogroll/src/ManageEdit.php:415
+#: plugins/blogroll/src/ManageEdit.php:417
 msgid "_xfn_Sweetheart"
 msgstr "恋人"
 
@@ -1286,7 +1286,7 @@ msgstr "ファイルはXMLフォーマットではありません。"
 msgid "All categories"
 msgstr "すべてのカテゴリ"
 
-#: plugins/breadcrumb/src/Backend.php:25
+#: plugins/breadcrumb/src/Backend.php:27
 msgid "Breadcrumb"
 msgstr "パンくずリスト"
 
@@ -1317,7 +1317,7 @@ msgstr "&lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; タグにパンくずをカプ�
 #: plugins/breadcrumb/src/FrontendTemplate.php:193
 #: plugins/breadcrumb/src/FrontendTemplate.php:205
 #: plugins/breadcrumb/src/FrontendTemplate.php:211
-#: plugins/simpleMenu/src/Manage.php:147 plugins/simpleMenu/src/Manage.php:260
+#: plugins/simpleMenu/src/Manage.php:149 plugins/simpleMenu/src/Manage.php:263
 #: plugins/widgets/src/Widgets.php:296
 msgid "Home"
 msgstr "ホーム"
@@ -1332,13 +1332,13 @@ msgstr "%d ページ"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:155
 #: plugins/breadcrumb/src/FrontendTemplate.php:158
-#: plugins/simpleMenu/src/Manage.php:287 plugins/widgets/src/Widgets.php:324
+#: plugins/simpleMenu/src/Manage.php:290 plugins/widgets/src/Widgets.php:324
 msgid "Archives"
 msgstr "アーカイブ"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:174
 #: plugins/breadcrumb/src/FrontendTemplate.php:181
-#: plugins/simpleMenu/src/Manage.php:131 plugins/simpleMenu/src/Manage.php:307
+#: plugins/simpleMenu/src/Manage.php:133 plugins/simpleMenu/src/Manage.php:310
 #: plugins/tags/src/Widgets.php:57
 msgid "All tags"
 msgstr "すべてのタグ"
@@ -1363,12 +1363,12 @@ msgstr "偽のL10nファイルを生成できませんでした。"
 msgid "Generate a php file that contents strings to translate that are not be done with core tools."
 msgstr "コアツールでは行われない文字列を変換するPHPファイルを生成します。"
 
-#: plugins/dcCKEditor/src/Backend.php:25
+#: plugins/dcCKEditor/src/Backend.php:27
 msgid "dcCKEditor"
 msgstr "CKEditor"
 
-#: plugins/dcCKEditor/src/Backend.php:41
-#: plugins/dcLegacyEditor/src/Backend.php:46
+#: plugins/dcCKEditor/src/Backend.php:43
+#: plugins/dcLegacyEditor/src/Backend.php:48
 msgid "HTML"
 msgstr "HTML"
 
@@ -1406,99 +1406,99 @@ msgstr "URL フィールドは空にできません。"
 msgid "Open the media"
 msgstr "メディアを開く"
 
-#: plugins/dcCKEditor/src/Manage.php:149
-#: plugins/dcLegacyEditor/src/Manage.php:56
+#: plugins/dcCKEditor/src/Manage.php:151
+#: plugins/dcLegacyEditor/src/Manage.php:58
 msgid "The configuration has been updated."
 msgstr "設定を更新しました。"
 
-#: plugins/dcCKEditor/src/Manage.php:179
-#: plugins/dcLegacyEditor/src/Manage.php:82
+#: plugins/dcCKEditor/src/Manage.php:181
+#: plugins/dcLegacyEditor/src/Manage.php:84
 msgid "Plugin activation"
 msgstr "プラグインの有効化"
 
-#: plugins/dcCKEditor/src/Manage.php:185
+#: plugins/dcCKEditor/src/Manage.php:187
 msgid "Enable CKEditor plugin"
 msgstr "CKEditorプラグインを有効にする"
 
-#: plugins/dcCKEditor/src/Manage.php:198
+#: plugins/dcCKEditor/src/Manage.php:200
 msgid "Add alignment buttons"
 msgstr "配置ボタンを追加"
 
-#: plugins/dcCKEditor/src/Manage.php:204
+#: plugins/dcCKEditor/src/Manage.php:206
 msgid "Add lists buttons"
 msgstr "リストボタンを追加"
 
-#: plugins/dcCKEditor/src/Manage.php:210
+#: plugins/dcCKEditor/src/Manage.php:212
 msgid "Add text color button"
 msgstr "テキストの色ボタンを追加"
 
-#: plugins/dcCKEditor/src/Manage.php:216
+#: plugins/dcCKEditor/src/Manage.php:218
 msgid "Add background text color button"
 msgstr "背景テキストの色ボタンを追加"
 
-#: plugins/dcCKEditor/src/Manage.php:219
+#: plugins/dcCKEditor/src/Manage.php:221
 msgid "Custom colors list:"
 msgstr "カスタムカラーリスト:"
 
-#: plugins/dcCKEditor/src/Manage.php:233
+#: plugins/dcCKEditor/src/Manage.php:235
 msgid "Add colors without # separated by a comma."
 msgstr "コンマで区切られた#のない色を追加します。"
 
-#: plugins/dcCKEditor/src/Manage.php:238
+#: plugins/dcCKEditor/src/Manage.php:240
 msgid "Leave empty to use the default palette:"
 msgstr "既定のパレットを使用するには空のままにしてください:"
 
-#: plugins/dcCKEditor/src/Manage.php:244
+#: plugins/dcCKEditor/src/Manage.php:246
 msgid "Example of custom color list:"
 msgstr "カスタムカラーリストの例:"
 
-#: plugins/dcCKEditor/src/Manage.php:252
+#: plugins/dcCKEditor/src/Manage.php:254
 msgid "Colors per row in palette:"
 msgstr "パレット内の行ごとの色:"
 
-#: plugins/dcCKEditor/src/Manage.php:256
+#: plugins/dcCKEditor/src/Manage.php:258
 msgid "Valid range: 4 to 16"
 msgstr "有効範囲：4～16"
 
-#: plugins/dcCKEditor/src/Manage.php:261
+#: plugins/dcCKEditor/src/Manage.php:263
 msgid "Add collapse button"
 msgstr "折りたたみボタンを追加"
 
-#: plugins/dcCKEditor/src/Manage.php:267
+#: plugins/dcCKEditor/src/Manage.php:269
 msgid "Add format selection"
 msgstr "書式選択を追加"
 
-#: plugins/dcCKEditor/src/Manage.php:270
+#: plugins/dcCKEditor/src/Manage.php:272
 msgid "Custom formats"
 msgstr "カスタムフォーマット"
 
-#: plugins/dcCKEditor/src/Manage.php:284
+#: plugins/dcCKEditor/src/Manage.php:286
 msgid "Default formats are p;h1;h2;h3;h4;h5;h6;pre;address"
 msgstr "既定の形式は p;h1;h2;h3;h4;h5;h6;pre;address"
 
-#: plugins/dcCKEditor/src/Manage.php:290
+#: plugins/dcCKEditor/src/Manage.php:292
 msgid "Add table button"
 msgstr "テーブルボタンを追加"
 
-#: plugins/dcCKEditor/src/Manage.php:296
+#: plugins/dcCKEditor/src/Manage.php:298
 msgid "Add clipboard buttons"
 msgstr "クリップボードボタンを追加"
 
-#: plugins/dcCKEditor/src/Manage.php:300
+#: plugins/dcCKEditor/src/Manage.php:302
 msgid "Copy, Paste, Paste Text, Paste from Word"
 msgstr "コピー、貼り付け、テキストを貼り付け、Wordから貼り付け"
 
-#: plugins/dcCKEditor/src/Manage.php:305
+#: plugins/dcCKEditor/src/Manage.php:307
 msgid "Add undo/redo buttons"
 msgstr "元に戻す/やり直しボタンを追加"
 
-#: plugins/dcCKEditor/src/Manage.php:311
+#: plugins/dcCKEditor/src/Manage.php:313
 msgid "Disables the built-in spell checker if the browser provides one"
 msgstr "ブラウザーが提供するスペルチェッカーを無効にします"
 
-#: plugins/dcCKEditor/src/Manage.php:321
-#: plugins/dcLegacyEditor/src/Manage.php:111
-#: plugins/simpleMenu/src/Manage.php:761
+#: plugins/dcCKEditor/src/Manage.php:323
+#: plugins/dcLegacyEditor/src/Manage.php:113
+#: plugins/simpleMenu/src/Manage.php:764
 msgid "Save configuration"
 msgstr "設定を保存"
 
@@ -1506,11 +1506,11 @@ msgstr "設定を保存"
 msgid "Note(s)"
 msgstr "メモ"
 
-#: plugins/dcLegacyEditor/src/Backend.php:26
+#: plugins/dcLegacyEditor/src/Backend.php:28
 msgid "dcLegacyEditor"
 msgstr "Dotclearエディター"
 
-#: plugins/dcLegacyEditor/src/Backend.php:50
+#: plugins/dcLegacyEditor/src/Backend.php:52
 msgid "Dotclear wiki"
 msgstr "Dotclear Wiki"
 
@@ -1624,11 +1624,11 @@ msgstr "言語？"
 msgid "Remove text formating"
 msgstr "テキスト書式を削除"
 
-#: plugins/dcLegacyEditor/src/Manage.php:88
+#: plugins/dcLegacyEditor/src/Manage.php:90
 msgid "Enable standard editor plugin"
 msgstr "標準エディタ・プラグインを有効にする"
 
-#: plugins/dcLegacyEditor/src/Manage.php:101
+#: plugins/dcLegacyEditor/src/Manage.php:103
 msgid "Adjust height of input area during editing"
 msgstr "編集中に入力領域の高さを調整する"
 
@@ -1636,11 +1636,11 @@ msgstr "編集中に入力領域の高さを調整する"
 msgid "Checks trackback source for a link to the post"
 msgstr "投稿へリンクしているかトラックバック元をチェックします"
 
-#: plugins/fairTrackbacks/src/Prepend.php:26
+#: plugins/fairTrackbacks/src/Prepend.php:28
 msgid "Fair Trackbacks"
 msgstr "公正なトラックバック"
 
-#: plugins/importExport/src/Backend.php:27
+#: plugins/importExport/src/Backend.php:29
 msgid "Import / Export"
 msgstr "インポート / エクスポート"
 
@@ -1682,37 +1682,37 @@ msgstr "ファイルはDotClearのバックアップではありません。"
 msgid "File is not a single blog export."
 msgstr "ファイルは単独のブログをエクスポートしたものではありません。"
 
-#: plugins/importExport/src/FlatImportV2.php:291
-#: plugins/importExport/src/FlatImportV2.php:345
+#: plugins/importExport/src/FlatImportV2.php:294
+#: plugins/importExport/src/FlatImportV2.php:353
 #, php-format
 msgid "Error raised at line %s"
 msgstr "%s 行目でエラーが発生しました"
 
-#: plugins/importExport/src/FlatImportV2.php:300
+#: plugins/importExport/src/FlatImportV2.php:305
 msgid "File is not a full export."
 msgstr "ファイルは完全なエクスポートではありません。"
 
-#: plugins/importExport/src/FlatImportV2.php:756
+#: plugins/importExport/src/FlatImportV2.php:766
 #, php-format
 msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
 msgstr "\"%3$s\"のIDがバックアップファイルの行%1$s\" %2$s \"に一致しません。"
 
-#: plugins/importExport/src/Manage.php:90
-#: plugins/maintenance/src/Manage.php:199
+#: plugins/importExport/src/Manage.php:92
+#: plugins/maintenance/src/Manage.php:202
 msgid "Please wait..."
 msgstr "しばらくお待ちください..."
 
-#: plugins/importExport/src/Manage.php:136
+#: plugins/importExport/src/Manage.php:138
 msgid "Export"
 msgstr "エクスポート"
 
-#: plugins/importExport/src/Manage.php:141
+#: plugins/importExport/src/Manage.php:143
 #, php-format
 msgid "Export functions are in the page %s."
 msgstr "エクスポート機能はページ %s にあります。"
 
-#: plugins/importExport/src/Manage.php:144
-#: plugins/maintenance/src/Backend.php:25
+#: plugins/importExport/src/Manage.php:146
+#: plugins/maintenance/src/Backend.php:27
 #: plugins/maintenance/src/BackendBehaviors.php:221
 msgid "Maintenance"
 msgstr "メンテナンス"
@@ -1749,99 +1749,99 @@ msgstr "エクスポートファイルが見つかりませんでした。"
 msgid "Failed to compress export file."
 msgstr "エクスポートファイルの圧縮に失敗しました。"
 
-#: plugins/importExport/src/ModuleImportDc1.php:84
+#: plugins/importExport/src/ModuleImportDc1.php:85
 msgid "Dotclear 1.2 import"
 msgstr "Dotclear 1.2 のインポート"
 
-#: plugins/importExport/src/ModuleImportDc1.php:85
+#: plugins/importExport/src/ModuleImportDc1.php:86
 msgid "Import a Dotclear 1.2 installation into your current blog."
 msgstr "現在のブログへ Dotclear 1.2 インストールをインポートします。"
 
-#: plugins/importExport/src/ModuleImportDc1.php:204
+#: plugins/importExport/src/ModuleImportDc1.php:217
 #, php-format
 msgid "Import the content of a Dotclear 1.2's blog in the current blog: %s."
 msgstr "Dotclear 1.2のブログの内容を現在のブログにインポートします: %s."
 
-#: plugins/importExport/src/ModuleImportDc1.php:212
-#: plugins/importExport/src/ModuleImportWp.php:241
+#: plugins/importExport/src/ModuleImportDc1.php:225
+#: plugins/importExport/src/ModuleImportWp.php:253
 msgid "Please note that this process will empty your categories, blogroll, entries and comments on the current blog."
 msgstr "この処理が現在のブログのカテゴリ、ブログロール、エントリ、コメントを空にすることに注意してください。"
 
-#: plugins/importExport/src/ModuleImportDc1.php:219
+#: plugins/importExport/src/ModuleImportDc1.php:232
 msgid "We first need some information about your old Dotclear 1.2 installation."
 msgstr "はじめに、古い Dotclear 1.2 インストールに関するいくつかの情報が必要です。"
 
-#: plugins/importExport/src/ModuleImportDc1.php:226
+#: plugins/importExport/src/ModuleImportDc1.php:239
 msgid "Database driver:"
 msgstr "データベースドライバ:"
 
-#: plugins/importExport/src/ModuleImportDc1.php:268
-#: plugins/importExport/src/ModuleImportWp.php:290
+#: plugins/importExport/src/ModuleImportDc1.php:281
+#: plugins/importExport/src/ModuleImportWp.php:302
 msgid "Entries import options"
 msgstr "エントリのインポートオプション"
 
-#: plugins/importExport/src/ModuleImportDc1.php:273
-#: plugins/importExport/src/ModuleImportWp.php:335
+#: plugins/importExport/src/ModuleImportDc1.php:286
+#: plugins/importExport/src/ModuleImportWp.php:347
 msgid "Number of entries to import at once:"
 msgstr "一度にインポートするエントリ数："
 
-#: plugins/importExport/src/ModuleImportDc1.php:279
-#: plugins/importExport/src/ModuleImportWp.php:360
+#: plugins/importExport/src/ModuleImportDc1.php:292
+#: plugins/importExport/src/ModuleImportWp.php:372
 msgid "General information"
 msgstr "全般の情報"
 
-#: plugins/importExport/src/ModuleImportDc1.php:279
-#: plugins/importExport/src/ModuleImportWp.php:360
+#: plugins/importExport/src/ModuleImportDc1.php:292
+#: plugins/importExport/src/ModuleImportWp.php:372
 msgid "Import my blog now"
 msgstr "ブログをインポート"
 
-#: plugins/importExport/src/ModuleImportDc1.php:286
-#: plugins/importExport/src/ModuleImportWp.php:367
+#: plugins/importExport/src/ModuleImportDc1.php:299
+#: plugins/importExport/src/ModuleImportWp.php:379
 msgid "Importing users"
 msgstr "ユーザをインポート中"
 
-#: plugins/importExport/src/ModuleImportDc1.php:293
-#: plugins/importExport/src/ModuleImportWp.php:374
+#: plugins/importExport/src/ModuleImportDc1.php:306
+#: plugins/importExport/src/ModuleImportWp.php:386
 msgid "Importing categories"
 msgstr "カテゴリをインポート中"
 
-#: plugins/importExport/src/ModuleImportDc1.php:300
-#: plugins/importExport/src/ModuleImportWp.php:381
+#: plugins/importExport/src/ModuleImportDc1.php:313
+#: plugins/importExport/src/ModuleImportWp.php:393
 msgid "Importing blogroll"
 msgstr "ブログロールをインポート中"
 
-#: plugins/importExport/src/ModuleImportDc1.php:307
-#: plugins/importExport/src/ModuleImportWp.php:388
+#: plugins/importExport/src/ModuleImportDc1.php:320
+#: plugins/importExport/src/ModuleImportWp.php:400
 #, php-format
 msgid "Importing entries from %d to %d / %d"
 msgstr "%d から %d / %d までのエントリをインポートしています"
 
-#: plugins/importExport/src/ModuleImportDc1.php:322
-#: plugins/importExport/src/ModuleImportWp.php:403
+#: plugins/importExport/src/ModuleImportDc1.php:335
+#: plugins/importExport/src/ModuleImportWp.php:415
 msgid "Please read carefully"
 msgstr "注意深くお読みください"
 
-#: plugins/importExport/src/ModuleImportDc1.php:324
-#: plugins/importExport/src/ModuleImportWp.php:406
+#: plugins/importExport/src/ModuleImportDc1.php:337
+#: plugins/importExport/src/ModuleImportWp.php:418
 msgid "Every newly imported user has received a random password and will need to ask for a new one by following the \"I forgot my password\" link on the login page (Their registered email address has to be valid.)"
 msgstr "新たにインポートされたすべてのユーザはランダムなパスワードを受け取っており、ログインページの「パスワードの再発行」リンクから新しいパスワードを要求する必要があります（ユーザの登録済みメールアドレスは有効でなければなりません）。"
 
-#: plugins/importExport/src/ModuleImportDc1.php:326
+#: plugins/importExport/src/ModuleImportDc1.php:339
 #, php-format
 msgid "Please note that Dotclear 2 has a new URL layout. You can avoid broken links by installing <a href=\"%s\">DC1 redirect</a> plugin and activate it in your blog configuration."
 msgstr "Dotclear 2 が新しいURLレイアウトを持っていることに注意してください。 <a href=\"%s\">DC1 redirect</a> プラグインをインストールし、ブログの設定で有効化することにより、リンク切れを回避することができます。"
 
-#: plugins/importExport/src/ModuleImportDc1.php:349
-#: plugins/importExport/src/ModuleImportWp.php:428
+#: plugins/importExport/src/ModuleImportDc1.php:362
+#: plugins/importExport/src/ModuleImportWp.php:440
 msgid "next step"
 msgstr "次のステップ"
 
-#: plugins/importExport/src/ModuleImportDc1.php:367
-#: plugins/importExport/src/ModuleImportWp.php:446
+#: plugins/importExport/src/ModuleImportDc1.php:380
+#: plugins/importExport/src/ModuleImportWp.php:458
 msgid "Depending on the size of your blog, it could take a few minutes."
 msgstr "インポートするブログのサイズによっては、処理に数分間かかることがあります。"
 
-#: plugins/importExport/src/ModuleImportDc1.php:395
+#: plugins/importExport/src/ModuleImportDc1.php:408
 msgid "Dotclear tables not found"
 msgstr "Dotclearのテーブルが見つかりませんでした"
 
@@ -1867,7 +1867,7 @@ msgid "No items in feed."
 msgstr "フィードにアイテムがありません。"
 
 #: plugins/importExport/src/ModuleImportFeed.php:215
-#: plugins/importExport/src/ModuleImportFlat.php:190
+#: plugins/importExport/src/ModuleImportFlat.php:191
 msgid "Content successfully imported."
 msgstr "内容は正常にインポートされました。"
 
@@ -1881,64 +1881,64 @@ msgstr "現在のブログにフィードコンテンツを追加します: <str
 msgid "Feed URL:"
 msgstr "フィードURL："
 
-#: plugins/importExport/src/ModuleImportFlat.php:52
+#: plugins/importExport/src/ModuleImportFlat.php:53
 msgid "Flat file import"
 msgstr "フラットファイルのインポート"
 
-#: plugins/importExport/src/ModuleImportFlat.php:53
+#: plugins/importExport/src/ModuleImportFlat.php:54
 msgid "Imports a blog or a full Dotclear installation from flat file."
 msgstr "ブログまたは完全なDotclearインストールをフラットファイルからインポートします。"
 
-#: plugins/importExport/src/ModuleImportFlat.php:185
+#: plugins/importExport/src/ModuleImportFlat.php:186
 msgid "Single blog successfully imported."
 msgstr "単独ブログは正常にインポートされました。"
 
-#: plugins/importExport/src/ModuleImportFlat.php:201
+#: plugins/importExport/src/ModuleImportFlat.php:206
 msgid "Are you sure you want to import a full backup file?"
 msgstr "本当に、完全なバックアップファイルをインポートしてもよろしいですか？"
 
-#: plugins/importExport/src/ModuleImportFlat.php:211
+#: plugins/importExport/src/ModuleImportFlat.php:216
 msgid "Single blog"
 msgstr "単一ブログ"
 
-#: plugins/importExport/src/ModuleImportFlat.php:216
+#: plugins/importExport/src/ModuleImportFlat.php:221
 #, php-format
 msgid "This will import a single blog backup as new content in the current blog: <strong>%s</strong>."
 msgstr "これは単独ブログのバックアップを、現在のブログ「%s」の新しいコンテンツとしてインポートします。"
 
-#: plugins/importExport/src/ModuleImportFlat.php:223
-#: plugins/importExport/src/ModuleImportFlat.php:270
+#: plugins/importExport/src/ModuleImportFlat.php:228
+#: plugins/importExport/src/ModuleImportFlat.php:275
 msgid "Upload a backup file"
 msgstr "バックアップファイルのアップロード"
 
-#: plugins/importExport/src/ModuleImportFlat.php:224
-#: plugins/importExport/src/ModuleImportFlat.php:271
+#: plugins/importExport/src/ModuleImportFlat.php:229
+#: plugins/importExport/src/ModuleImportFlat.php:276
 #, php-format
 msgid "maximum size %s"
 msgstr "最大サイズ %s"
 
-#: plugins/importExport/src/ModuleImportFlat.php:236
-#: plugins/importExport/src/ModuleImportFlat.php:283
+#: plugins/importExport/src/ModuleImportFlat.php:241
+#: plugins/importExport/src/ModuleImportFlat.php:288
 msgid "or pick up a local file in your public directory"
 msgstr "または、パブリックディレクトリのローカルファイルを選択"
 
-#: plugins/importExport/src/ModuleImportFlat.php:258
+#: plugins/importExport/src/ModuleImportFlat.php:263
 msgid "Multiple blogs"
 msgstr "複数のブログ"
 
-#: plugins/importExport/src/ModuleImportFlat.php:265
+#: plugins/importExport/src/ModuleImportFlat.php:270
 msgid "This will reset all the content of your database, except users."
 msgstr "ユーザー以外のデータベースのすべてのコンテンツがリセットされます。"
 
-#: plugins/importExport/src/ModuleImportFlat.php:396
+#: plugins/importExport/src/ModuleImportFlat.php:401
 msgid "Another file with same name exists."
 msgstr "同じ名前の別のファイルが存在します。"
 
-#: plugins/importExport/src/ModuleImportFlat.php:404
+#: plugins/importExport/src/ModuleImportFlat.php:409
 msgid "Failed to extract backup file."
 msgstr "バックアップファイルの抽出に失敗しました。"
 
-#: plugins/importExport/src/ModuleImportFlat.php:416
+#: plugins/importExport/src/ModuleImportFlat.php:421
 msgid "No backup in compressed file."
 msgstr "圧縮ファイルにバックアップはありません。"
 
@@ -1950,56 +1950,56 @@ msgstr "WordPress のインポート"
 msgid "Import a WordPress installation into your current blog."
 msgstr "現在のブログへ WordPress インストールをインポートします。"
 
-#: plugins/importExport/src/ModuleImportWp.php:233
+#: plugins/importExport/src/ModuleImportWp.php:245
 #, php-format
 msgid "This will import your WordPress content as new content in the current blog: %s."
 msgstr "これは WordPress のコンテンツを、現在のブログ「%s」へ新しいコンテンツとしてインポートします。"
 
-#: plugins/importExport/src/ModuleImportWp.php:248
+#: plugins/importExport/src/ModuleImportWp.php:260
 msgid "We first need some information about your old WordPress installation."
 msgstr "はじめに、古い WordPress インストールに関するいくつかの情報が必要です。"
 
-#: plugins/importExport/src/ModuleImportWp.php:298
+#: plugins/importExport/src/ModuleImportWp.php:310
 msgid "WordPress and Dotclear's handling of categories are quite different. You can assign several categories to a single post in WordPress. In the Dotclear world, we see it more like \"One category, several tags.\" Therefore Dotclear can only import one category per post and will chose the lowest numbered one. If you want to keep a trace of every category, you can import them as tags, with an optional prefix."
 msgstr "WordPress と Dotclear のカテゴリの処理は全く異なります。 WordPress では、1つの投稿にいくつかのカテゴリを割り当てることができますが、Dotclear の世界では、むしろ「1つのカテゴリ、いくつかのタグ」のように考えます。 従って Dotclear は、投稿ごとに1つのカテゴリ（最も低い番号のもの）のみがインポートできます。 すべてのカテゴリの痕跡を保持したい場合、任意のプレフィックスと共に、それらをタグとしてインポートすることができます。"
 
-#: plugins/importExport/src/ModuleImportWp.php:300
+#: plugins/importExport/src/ModuleImportWp.php:312
 msgid "On the other hand, in WordPress, a post can not be uncategorized, and a default installation has a first category labelised <i>\"Uncategorized\"</i>. If you did not change that category, you can just ignore it while importing your blog, as Dotclear allows you to actually keep your posts uncategorized."
 msgstr "一方、WordPressの場合、投稿のカテゴリ分けを解除することはできず、デフォルトのインストールでは最初のカテゴリが<i>「未分類</i>」となっています。もしこのカテゴリーを変更しないのであれば、ブログのインポート時にこのカテゴリーを無視することができます。"
 
-#: plugins/importExport/src/ModuleImportWp.php:309
+#: plugins/importExport/src/ModuleImportWp.php:321
 msgid "Ignore the first category:"
 msgstr "最初のカテゴリを無視："
 
-#: plugins/importExport/src/ModuleImportWp.php:315
+#: plugins/importExport/src/ModuleImportWp.php:327
 msgid "Import lowest numbered category on posts:"
 msgstr "投稿で最も低い番号付けされたカテゴリをインポート："
 
-#: plugins/importExport/src/ModuleImportWp.php:321
+#: plugins/importExport/src/ModuleImportWp.php:333
 msgid "Import all categories as tags:"
 msgstr "すべてのカテゴリをタグとしてインポート："
 
-#: plugins/importExport/src/ModuleImportWp.php:329
+#: plugins/importExport/src/ModuleImportWp.php:341
 msgid "Prefix such tags with:"
 msgstr "タグに付加するプレフィックス："
 
-#: plugins/importExport/src/ModuleImportWp.php:339
+#: plugins/importExport/src/ModuleImportWp.php:351
 msgid "Content filters"
 msgstr "コンテンツフィルター"
 
-#: plugins/importExport/src/ModuleImportWp.php:341
+#: plugins/importExport/src/ModuleImportWp.php:353
 msgid "You may want to process your post and/or comment content with the following filters."
 msgstr "投稿やコメントの内容を以下のフィルタで処理したい場合があります。"
 
-#: plugins/importExport/src/ModuleImportWp.php:347
+#: plugins/importExport/src/ModuleImportWp.php:359
 msgid "Post content formatter:"
 msgstr "投稿コンテンツのフォーマット:"
 
-#: plugins/importExport/src/ModuleImportWp.php:354
+#: plugins/importExport/src/ModuleImportWp.php:366
 msgid "Comment content formatter:"
 msgstr "コメントコンテンツフォーマット:"
 
-#: plugins/importExport/src/ModuleImportWp.php:474
+#: plugins/importExport/src/ModuleImportWp.php:486
 msgid "WordPress tables not found"
 msgstr "WordPress テーブルが見つかりませんでした"
 
@@ -2069,12 +2069,12 @@ msgid_plural "%s tasks to execute"
 msgstr[0] "実行するタスク %s"
 
 #: plugins/maintenance/src/BackendBehaviors.php:203
-#: plugins/maintenance/src/Manage.php:305
+#: plugins/maintenance/src/Manage.php:308
 msgid "This task has never been executed."
 msgstr "このタスクは実行されていません。"
 
 #: plugins/maintenance/src/BackendBehaviors.php:206
-#: plugins/maintenance/src/Manage.php:308
+#: plugins/maintenance/src/Manage.php:311
 #, php-format
 msgid "Last execution of this task was on %s."
 msgstr "このタスクの最後の実行は %s でした。"
@@ -2105,107 +2105,107 @@ msgstr "タスクの実行に失敗しました。"
 msgid "Task successfully executed."
 msgstr "タスクが実行されました。"
 
-#: plugins/maintenance/src/Manage.php:135
+#: plugins/maintenance/src/Manage.php:138
 msgid "Maintenance plugin has been successfully configured."
 msgstr "メンテナンスプラグインが正常に設定されました。"
 
-#: plugins/maintenance/src/Manage.php:153
+#: plugins/maintenance/src/Manage.php:156
 msgid "System settings have been saved."
 msgstr "システム設定を保存しました。"
 
-#: plugins/maintenance/src/Manage.php:158
+#: plugins/maintenance/src/Manage.php:161
 msgid "All blog's Content-Security-Policy settings have been reset to default."
 msgstr "すべてのブログの Content-Security-Policy 設定がデフォルトにリセットされました。"
 
-#: plugins/maintenance/src/Manage.php:180
+#: plugins/maintenance/src/Manage.php:183
 msgid "Every week"
 msgstr "毎週"
 
-#: plugins/maintenance/src/Manage.php:181
+#: plugins/maintenance/src/Manage.php:184
 msgid "Every two weeks"
 msgstr "2週間ごと"
 
-#: plugins/maintenance/src/Manage.php:182
+#: plugins/maintenance/src/Manage.php:185
 msgid "Every month"
 msgstr "毎月"
 
-#: plugins/maintenance/src/Manage.php:183
+#: plugins/maintenance/src/Manage.php:186
 msgid "Every two months"
 msgstr "2ヶ月ごと"
 
-#: plugins/maintenance/src/Manage.php:216
+#: plugins/maintenance/src/Manage.php:219
 msgid "You have not sufficient permissions to view this page."
 msgstr "このページを表示する権限がありません。"
 
-#: plugins/maintenance/src/Manage.php:305
-#: plugins/maintenance/src/Manage.php:311
+#: plugins/maintenance/src/Manage.php:308
+#: plugins/maintenance/src/Manage.php:314
 msgid "You should execute it now."
 msgstr "今それを実行するべきです。"
 
-#: plugins/maintenance/src/Manage.php:347
-#: plugins/maintenance/src/Manage.php:381
+#: plugins/maintenance/src/Manage.php:350
+#: plugins/maintenance/src/Manage.php:384
 msgid "Execute task"
 msgstr "タスクを実行"
 
-#: plugins/maintenance/src/Manage.php:352
+#: plugins/maintenance/src/Manage.php:355
 msgid "This may take a very long time."
 msgstr "これは非常に長い時間がかかることがあります。"
 
-#: plugins/maintenance/src/Manage.php:419
-#: plugins/maintenance/src/Manage.php:421
+#: plugins/maintenance/src/Manage.php:422
+#: plugins/maintenance/src/Manage.php:424
 msgid "Alert settings"
 msgstr "アラートの設定"
 
-#: plugins/maintenance/src/Manage.php:427
+#: plugins/maintenance/src/Manage.php:430
 msgid "Activation"
 msgstr "有効化"
 
-#: plugins/maintenance/src/Manage.php:433
+#: plugins/maintenance/src/Manage.php:436
 msgid "Display alert messages on late tasks"
 msgstr "遅延タスクにアラートメッセージを表示する"
 
-#: plugins/maintenance/src/Manage.php:438
+#: plugins/maintenance/src/Manage.php:441
 #, php-format
 msgid "You can place list of late tasks on your %s."
 msgstr "あなたの %s に遅れたタスクのリストを置くことができます。"
 
-#: plugins/maintenance/src/Manage.php:443
+#: plugins/maintenance/src/Manage.php:446
 msgid "Frequency"
 msgstr "利息支払回数"
 
-#: plugins/maintenance/src/Manage.php:451
+#: plugins/maintenance/src/Manage.php:454
 msgid "Use one recall time for all tasks"
 msgstr "すべてのタスクに1回のリコール時間を使用する"
 
-#: plugins/maintenance/src/Manage.php:461
+#: plugins/maintenance/src/Manage.php:464
 msgid "Recall time for all tasks:"
 msgstr "すべてのタスクの時間を思い出してください:"
 
-#: plugins/maintenance/src/Manage.php:470
+#: plugins/maintenance/src/Manage.php:473
 msgid "Use one recall time per task"
 msgstr "タスクごとに1回のリコール回数を使用"
 
-#: plugins/maintenance/src/Manage.php:501
+#: plugins/maintenance/src/Manage.php:504
 msgid "Content-Security-Policy"
 msgstr "Content-Security-Policy"
 
-#: plugins/maintenance/src/Manage.php:513
+#: plugins/maintenance/src/Manage.php:516
 msgid "Enable Content-Security-Policy system"
 msgstr "Content-Security-Policy システムを有効にする"
 
-#: plugins/maintenance/src/Manage.php:519
+#: plugins/maintenance/src/Manage.php:522
 msgid "Enable Content-Security-Policy report only"
 msgstr "Content-Security-Policy レポートのみ有効にする"
 
-#: plugins/maintenance/src/Manage.php:529
+#: plugins/maintenance/src/Manage.php:532
 msgid "Enable Content-Security-Policy system by default"
 msgstr "デフォルトでContent-Security-Policy システムを有効にする"
 
-#: plugins/maintenance/src/Manage.php:535
+#: plugins/maintenance/src/Manage.php:538
 msgid "Enable Content-Security-Policy report only by default"
 msgstr "Content-Security-Policy レポートのみデフォルトで有効にする"
 
-#: plugins/maintenance/src/Manage.php:541
+#: plugins/maintenance/src/Manage.php:544
 msgid "Also apply these settings to all blogs"
 msgstr "これらの設定をすべてのブログにも適用します"
 
@@ -2380,26 +2380,26 @@ msgstr "現在のブログのアクティブなテーマをダウンロード"
 msgid "It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file."
 msgstr "変更または更新する前にアクティブなテーマをバックアップすると便利です。このテーマフォルダを単一のzipファイルに圧縮します。"
 
-#: plugins/pages/src/Backend.php:47
+#: plugins/pages/src/Backend.php:49
 msgid "manage pages"
 msgstr "ページの管理"
 
-#: plugins/pages/src/Backend.php:78
+#: plugins/pages/src/Backend.php:80
 msgid "pages per page"
 msgstr "ページ"
 
-#: plugins/pages/src/Backend.php:101
+#: plugins/pages/src/Backend.php:103
 #, php-format
 msgid "%d page"
 msgstr "%d ページ"
 
-#: plugins/pages/src/Backend.php:101
+#: plugins/pages/src/Backend.php:103
 #, php-format
 msgid "%d pages"
 msgstr "%d ページ"
 
-#: plugins/pages/src/Backend.php:108 plugins/pages/src/Manage.php:148
-#: plugins/pages/src/ManagePage.php:108 plugins/pages/src/ManagePage.php:856
+#: plugins/pages/src/Backend.php:110 plugins/pages/src/Manage.php:150
+#: plugins/pages/src/ManagePage.php:110 plugins/pages/src/ManagePage.php:858
 msgid "New page"
 msgstr "新しいページ"
 
@@ -2412,7 +2412,7 @@ msgid "Back to pages list"
 msgstr "ページ一覧に戻る"
 
 #: plugins/pages/src/BackendDefaultActions.php:119
-#: plugins/pages/src/Manage.php:139
+#: plugins/pages/src/Manage.php:141
 msgid "Selected pages have been successfully reordered."
 msgstr "選択したページの順序が正常に変更されました。"
 
@@ -2420,112 +2420,112 @@ msgstr "選択したページの順序が正常に変更されました。"
 msgid "No page"
 msgstr "ページはありません"
 
-#: plugins/pages/src/BackendList.php:179 plugins/pages/src/BackendList.php:248
+#: plugins/pages/src/BackendList.php:170 plugins/pages/src/BackendList.php:239
 msgid "Hidden"
 msgstr "Hidden"
 
-#: plugins/pages/src/BackendList.php:278
+#: plugins/pages/src/BackendList.php:268
 msgid "Select this page"
 msgstr "このページを選択"
 
-#: plugins/pages/src/Frontend.php:36
+#: plugins/pages/src/Frontend.php:38
 msgid "Published on"
 msgstr "掲載の日時"
 
-#: plugins/pages/src/Frontend.php:37
+#: plugins/pages/src/Frontend.php:39
 msgid "This page's comments feed"
 msgstr "このページのコメントのフィード"
 
-#: plugins/pages/src/Install.php:49
+#: plugins/pages/src/Install.php:51
 msgid "My first page"
 msgstr "私の最初のページ"
 
-#: plugins/pages/src/Install.php:50
+#: plugins/pages/src/Install.php:52
 msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
 msgstr "これはあなたの最初のページです。ブログの準備ができたら、ログインして編集または削除してください。"
 
-#: plugins/pages/src/Manage.php:121
+#: plugins/pages/src/Manage.php:123
 msgid "Are you sure you want to delete selected pages?"
 msgstr "本当に、選択されたページを削除してもよろしいですか？"
 
-#: plugins/pages/src/Manage.php:135
+#: plugins/pages/src/Manage.php:137
 msgid "Selected pages have been successfully updated."
 msgstr "選択したページが正常に更新されました。"
 
-#: plugins/pages/src/Manage.php:137
+#: plugins/pages/src/Manage.php:139
 msgid "Selected pages have been successfully deleted."
 msgstr "選択したページが正常に削除されました。"
 
-#: plugins/pages/src/Manage.php:171
+#: plugins/pages/src/Manage.php:173
 msgid "Selected pages action:"
 msgstr "選択されたページに実行："
 
-#: plugins/pages/src/Manage.php:177
+#: plugins/pages/src/Manage.php:179
 msgid "To rearrange pages order, change number at the begining of the line, then click on “Save pages order” button."
 msgstr "ページ順序を変更するには、行頭に番号を変更し、「ページ順序を保存」ボタンをクリックします。"
 
-#: plugins/pages/src/Manage.php:180
+#: plugins/pages/src/Manage.php:182
 msgid "To rearrange pages order, move items by drag and drop, then click on “Save pages order” button."
 msgstr "ページ順序を変更するには、ドラッグアンドドロップでアイテムを移動し、「ページ順序を保存」ボタンをクリックします。"
 
-#: plugins/pages/src/Manage.php:187
+#: plugins/pages/src/Manage.php:189
 msgid "Save pages order"
 msgstr "ページの順序を保存"
 
-#: plugins/pages/src/ManagePage.php:168
+#: plugins/pages/src/ManagePage.php:170
 msgid "This page does not exist."
 msgstr "このページは存在しません。"
 
-#: plugins/pages/src/ManagePage.php:189 plugins/pages/src/ManagePage.php:856
-#: plugins/pages/src/ManagePage.php:877
+#: plugins/pages/src/ManagePage.php:191 plugins/pages/src/ManagePage.php:858
+#: plugins/pages/src/ManagePage.php:879
 msgid "Edit page"
 msgstr "ページの編集"
 
-#: plugins/pages/src/ManagePage.php:434
+#: plugins/pages/src/ManagePage.php:436
 msgid "Don't forget to validate your HTML conversion by saving your post."
 msgstr "投稿を保存してHTML変換を検証することを忘れないでください。"
 
-#: plugins/pages/src/ManagePage.php:498
+#: plugins/pages/src/ManagePage.php:500
 msgid "Are you sure you want to delete this page?"
 msgstr "本当に、このページを削除してもよろしいですか？"
 
-#: plugins/pages/src/ManagePage.php:527
+#: plugins/pages/src/ManagePage.php:529
 msgid "Page has been successfully updated."
 msgstr "ページは正常に更新されました。"
 
-#: plugins/pages/src/ManagePage.php:529
+#: plugins/pages/src/ManagePage.php:531
 msgid "Page has been successfully created."
 msgstr "ページは正常に作成されました。"
 
-#: plugins/pages/src/ManagePage.php:543
+#: plugins/pages/src/ManagePage.php:545
 msgid "Go to this page on the site"
 msgstr "サイトのこのページに移動"
 
-#: plugins/pages/src/ManagePage.php:585
+#: plugins/pages/src/ManagePage.php:587
 msgid "Page status"
 msgstr "ページの状態："
 
-#: plugins/pages/src/ManagePage.php:602
+#: plugins/pages/src/ManagePage.php:604
 msgid "Page language"
 msgstr "ページ言語"
 
-#: plugins/pages/src/ManagePage.php:631 plugins/pages/src/Widgets.php:41
+#: plugins/pages/src/ManagePage.php:633 plugins/pages/src/Widgets.php:41
 msgid "Page position"
 msgstr "ページの位置"
 
-#: plugins/pages/src/ManagePage.php:682
+#: plugins/pages/src/ManagePage.php:684
 msgid "Hide in widget Pages"
 msgstr "ウィジェットページで非表示"
 
-#: plugins/pages/src/ManagePage.php:708
+#: plugins/pages/src/ManagePage.php:710
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "警告： URLを手作業で設定した場合、別のページと衝突する可能性があります。"
 
-#: plugins/pages/src/ManagePage.php:747
+#: plugins/pages/src/ManagePage.php:749
 msgid "Introduction to the page."
 msgstr "ページの紹介"
 
-#: plugins/pages/src/ManagePage.php:1126
+#: plugins/pages/src/ManagePage.php:1128
 msgid "Select this comment"
 msgstr "このコメントを選択"
 
@@ -2537,43 +2537,43 @@ msgstr "ページのタイトル"
 msgid "Publication date"
 msgstr "掲載の日付"
 
-#: plugins/pings/src/Backend.php:27 plugins/pings/src/BackendBehaviors.php:64
+#: plugins/pings/src/Backend.php:29 plugins/pings/src/BackendBehaviors.php:64
 msgid "Pings"
 msgstr "Ping"
 
-#: plugins/pings/src/Manage.php:80
+#: plugins/pings/src/Manage.php:82
 msgid "Settings have been successfully updated."
 msgstr "設定は正常に更新されました。"
 
-#: plugins/pings/src/Manage.php:98
+#: plugins/pings/src/Manage.php:100
 msgid "Pings configuration"
 msgstr "Pingの設定"
 
-#: plugins/pings/src/Manage.php:112
+#: plugins/pings/src/Manage.php:114
 msgid "Error"
 msgstr "エラー"
 
-#: plugins/pings/src/Manage.php:164
+#: plugins/pings/src/Manage.php:166
 msgid "Service name:"
 msgstr "サービス名："
 
-#: plugins/pings/src/Manage.php:165
+#: plugins/pings/src/Manage.php:167
 msgid "Service URI:"
 msgstr "サービスのURI："
 
-#: plugins/pings/src/Manage.php:180
+#: plugins/pings/src/Manage.php:182
 msgid "Activate pings extension"
 msgstr "Pingエクステンションの有効化"
 
-#: plugins/pings/src/Manage.php:186
+#: plugins/pings/src/Manage.php:188
 msgid "Auto pings all services on first publication of entry (current blog only)"
 msgstr "最初の公開時にすべてのサービスを自動的にpingします (現在のブログのみ)"
 
-#: plugins/pings/src/Manage.php:193
+#: plugins/pings/src/Manage.php:195
 msgid "Test ping services"
 msgstr "Pingサービスのテスト"
 
-#: plugins/simpleMenu/src/Backend.php:26 plugins/simpleMenu/src/Manage.php:72
+#: plugins/simpleMenu/src/Backend.php:28 plugins/simpleMenu/src/Manage.php:74
 #: plugins/simpleMenu/src/Widgets.php:29
 msgid "Simple menu"
 msgstr "シンプルメニュー"
@@ -2586,185 +2586,185 @@ msgstr "アクティブなページ"
 msgid "active page"
 msgstr "アクティブなページ"
 
-#: plugins/simpleMenu/src/Manage.php:97
+#: plugins/simpleMenu/src/Manage.php:99
 msgid "All months"
 msgstr "全月"
 
-#: plugins/simpleMenu/src/Manage.php:160
+#: plugins/simpleMenu/src/Manage.php:162
 msgid "Archive"
 msgstr "アーカイブ"
 
-#: plugins/simpleMenu/src/Manage.php:163
+#: plugins/simpleMenu/src/Manage.php:165
 msgid "Page"
 msgstr "ページ"
 
-#: plugins/simpleMenu/src/Manage.php:166 plugins/tags/src/Backend.php:25
+#: plugins/simpleMenu/src/Manage.php:168 plugins/tags/src/Backend.php:27
 #: plugins/tags/src/Widgets.php:33
 msgid "Tags"
 msgstr "タグ"
 
-#: plugins/simpleMenu/src/Manage.php:173
+#: plugins/simpleMenu/src/Manage.php:175
 msgid "User defined"
 msgstr "ユーザー定義"
 
-#: plugins/simpleMenu/src/Manage.php:214
+#: plugins/simpleMenu/src/Manage.php:216
 msgid "Configuration successfully updated."
 msgstr "設定を更新しました。"
 
-#: plugins/simpleMenu/src/Manage.php:255 plugins/simpleMenu/src/Manage.php:677
-#: plugins/simpleMenu/src/Manage.php:797
+#: plugins/simpleMenu/src/Manage.php:258 plugins/simpleMenu/src/Manage.php:680
+#: plugins/simpleMenu/src/Manage.php:800
 msgid "Label"
 msgstr "ラベル"
 
-#: plugins/simpleMenu/src/Manage.php:261
+#: plugins/simpleMenu/src/Manage.php:264
 msgid "Home page"
 msgstr "ホームページ"
 
-#: plugins/simpleMenu/src/Manage.php:261 plugins/simpleMenu/src/Manage.php:266
+#: plugins/simpleMenu/src/Manage.php:264 plugins/simpleMenu/src/Manage.php:269
 #: plugins/widgets/src/Widgets.php:305 plugins/widgets/src/Widgets.php:315
 msgid "Recent posts"
 msgstr "最近の投稿"
 
-#: plugins/simpleMenu/src/Manage.php:273
+#: plugins/simpleMenu/src/Manage.php:276
 #, php-format
 msgid "Switch to %s language"
 msgstr "%s 言語に切り替える"
 
-#: plugins/simpleMenu/src/Manage.php:280
+#: plugins/simpleMenu/src/Manage.php:283
 msgid "Recent Posts from this category"
 msgstr "このカテゴリからの最近の投稿"
 
-#: plugins/simpleMenu/src/Manage.php:292
+#: plugins/simpleMenu/src/Manage.php:295
 #, php-format
 msgid "Posts from %s"
 msgstr "%s からの投稿"
 
-#: plugins/simpleMenu/src/Manage.php:312
+#: plugins/simpleMenu/src/Manage.php:315
 #, php-format
 msgid "Recent posts for %s tag"
 msgstr "%s タグの最近の投稿"
 
-#: plugins/simpleMenu/src/Manage.php:372
+#: plugins/simpleMenu/src/Manage.php:375
 msgid "Menu item has been successfully added."
 msgstr "メニューアイテムが正常に追加されました。"
 
-#: plugins/simpleMenu/src/Manage.php:377
+#: plugins/simpleMenu/src/Manage.php:380
 msgid "Label and URL of menu item are mandatory."
 msgstr "メニュー項目のラベルとURLは必須です。"
 
-#: plugins/simpleMenu/src/Manage.php:410
+#: plugins/simpleMenu/src/Manage.php:413
 msgid "Menu items have been successfully removed."
 msgstr "メニューアイテムは正常に削除されました。"
 
-#: plugins/simpleMenu/src/Manage.php:413
+#: plugins/simpleMenu/src/Manage.php:416
 msgid "No menu items selected."
 msgstr "メニューアイテムが選択されていません。"
 
-#: plugins/simpleMenu/src/Manage.php:425
+#: plugins/simpleMenu/src/Manage.php:428
 msgid "Label is mandatory."
 msgstr "ラベルは必須です。"
 
-#: plugins/simpleMenu/src/Manage.php:430
+#: plugins/simpleMenu/src/Manage.php:433
 msgid "URL is mandatory."
 msgstr "URLは必須です。"
 
-#: plugins/simpleMenu/src/Manage.php:475
+#: plugins/simpleMenu/src/Manage.php:478
 msgid "Menu items have been successfully updated."
 msgstr "メニューアイテムが正常に更新されました。"
 
-#: plugins/simpleMenu/src/Manage.php:502
+#: plugins/simpleMenu/src/Manage.php:505
 msgid "Are you sure you want to remove selected menu items?"
 msgstr "選択したメニューアイテムを削除してもよろしいですか？"
 
-#: plugins/simpleMenu/src/Manage.php:511
+#: plugins/simpleMenu/src/Manage.php:514
 msgid "Step #1"
 msgstr "ステップ#1"
 
-#: plugins/simpleMenu/src/Manage.php:516 plugins/simpleMenu/src/Manage.php:521
+#: plugins/simpleMenu/src/Manage.php:519 plugins/simpleMenu/src/Manage.php:524
 msgid "Step #2"
 msgstr "ステップ #2"
 
-#: plugins/simpleMenu/src/Manage.php:521
+#: plugins/simpleMenu/src/Manage.php:524
 msgid "Step #3"
 msgstr "ステップ #3"
 
-#: plugins/simpleMenu/src/Manage.php:530
+#: plugins/simpleMenu/src/Manage.php:533
 msgid "Add item"
 msgstr "アイテムを追加"
 
-#: plugins/simpleMenu/src/Manage.php:561
+#: plugins/simpleMenu/src/Manage.php:564
 msgid "Select type"
 msgstr "種類を選択"
 
-#: plugins/simpleMenu/src/Manage.php:568
+#: plugins/simpleMenu/src/Manage.php:571
 msgid "Type of item menu:"
 msgstr "アイテムメニューの種類:"
 
-#: plugins/simpleMenu/src/Manage.php:574 plugins/simpleMenu/src/Manage.php:641
+#: plugins/simpleMenu/src/Manage.php:577 plugins/simpleMenu/src/Manage.php:644
 msgid "Continue..."
 msgstr "続ける..."
 
-#: plugins/simpleMenu/src/Manage.php:597
+#: plugins/simpleMenu/src/Manage.php:600
 msgid "Select language:"
 msgstr "言語を選択:"
 
-#: plugins/simpleMenu/src/Manage.php:603
+#: plugins/simpleMenu/src/Manage.php:606
 msgid "Select category:"
 msgstr "カテゴリを選択:"
 
-#: plugins/simpleMenu/src/Manage.php:609
+#: plugins/simpleMenu/src/Manage.php:612
 msgid "Select month (if necessary):"
 msgstr "月を選択してください (必要な場合):"
 
-#: plugins/simpleMenu/src/Manage.php:615
+#: plugins/simpleMenu/src/Manage.php:618
 msgid "Select page:"
 msgstr "ページを選択:"
 
-#: plugins/simpleMenu/src/Manage.php:621
+#: plugins/simpleMenu/src/Manage.php:624
 msgid "Select tag (if necessary):"
 msgstr "タグを選択(必要な場合):"
 
-#: plugins/simpleMenu/src/Manage.php:682
+#: plugins/simpleMenu/src/Manage.php:685
 msgid "Label of item menu:"
 msgstr "アイテムメニューのラベル:"
 
-#: plugins/simpleMenu/src/Manage.php:696
+#: plugins/simpleMenu/src/Manage.php:699
 msgid "Description of item menu:"
 msgstr "アイテムメニューの説明:"
 
-#: plugins/simpleMenu/src/Manage.php:711
+#: plugins/simpleMenu/src/Manage.php:714
 msgid "URL of item menu:"
 msgstr "アイテムメニューの URL :"
 
-#: plugins/simpleMenu/src/Manage.php:721 plugins/simpleMenu/src/Manage.php:800
+#: plugins/simpleMenu/src/Manage.php:724 plugins/simpleMenu/src/Manage.php:803
 msgid "Open URL on a new tab"
 msgstr "新しいタブでURLを開く"
 
-#: plugins/simpleMenu/src/Manage.php:729
+#: plugins/simpleMenu/src/Manage.php:732
 msgid "Add this item"
 msgstr "このアイテムを追加"
 
-#: plugins/simpleMenu/src/Manage.php:755
+#: plugins/simpleMenu/src/Manage.php:758
 msgid "Enable simple menu for this blog"
 msgstr "このブログのシンプルメニューを有効にする"
 
-#: plugins/simpleMenu/src/Manage.php:778
+#: plugins/simpleMenu/src/Manage.php:781
 msgid "Add an item"
 msgstr "アイテムを追加"
 
-#: plugins/simpleMenu/src/Manage.php:896
+#: plugins/simpleMenu/src/Manage.php:899
 msgid "Menu items list"
 msgstr "メニューアイテムリスト"
 
-#: plugins/simpleMenu/src/Manage.php:923
+#: plugins/simpleMenu/src/Manage.php:926
 msgid "Delete selected menu items"
 msgstr "選択したメニュー項目を削除"
 
-#: plugins/simpleMenu/src/Manage.php:932
+#: plugins/simpleMenu/src/Manage.php:935
 msgid "Update menu"
 msgstr "メニューを更新"
 
-#: plugins/simpleMenu/src/Manage.php:942
+#: plugins/simpleMenu/src/Manage.php:945
 msgid "No menu items so far."
 msgstr "メニューアイテムがありません。"
 
@@ -2788,88 +2788,88 @@ msgstr "リンクに表示され、タイトルとして使用"
 msgid "Not displayed nor used"
 msgstr "表示または使用されていません"
 
-#: plugins/tags/src/BackendBehaviors.php:63
-#: plugins/tags/src/BackendBehaviors.php:75
-#: plugins/tags/src/FrontendUrl.php:105 plugins/tags/src/ManagePosts.php:155
+#: plugins/tags/src/BackendBehaviors.php:64
+#: plugins/tags/src/BackendBehaviors.php:76
+#: plugins/tags/src/FrontendUrl.php:105 plugins/tags/src/ManagePosts.php:157
 msgid "Tag"
 msgstr "タグ"
 
-#: plugins/tags/src/BackendBehaviors.php:238
+#: plugins/tags/src/BackendBehaviors.php:239
 msgid "Add tags"
 msgstr "タグを追加"
 
-#: plugins/tags/src/BackendBehaviors.php:247
+#: plugins/tags/src/BackendBehaviors.php:248
 msgid "Remove tags"
 msgstr "タグを削除"
 
-#: plugins/tags/src/BackendBehaviors.php:282
+#: plugins/tags/src/BackendBehaviors.php:283
 msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
 msgstr[0] "選択した項目にタグが正常に追加されました"
 
-#: plugins/tags/src/BackendBehaviors.php:295
-#: plugins/tags/src/BackendBehaviors.php:450
+#: plugins/tags/src/BackendBehaviors.php:296
+#: plugins/tags/src/BackendBehaviors.php:451
 msgid "Are you sure you want to remove this tag?"
 msgstr "このタグを削除してもよろしいですか？"
 
-#: plugins/tags/src/BackendBehaviors.php:296
-#: plugins/tags/src/BackendBehaviors.php:451
+#: plugins/tags/src/BackendBehaviors.php:297
+#: plugins/tags/src/BackendBehaviors.php:452
 msgid "Add a tag to this entry"
 msgstr "このエントリにタグを追加"
 
-#: plugins/tags/src/BackendBehaviors.php:297
-#: plugins/tags/src/BackendBehaviors.php:452
+#: plugins/tags/src/BackendBehaviors.php:298
+#: plugins/tags/src/BackendBehaviors.php:453
 msgid "Choose from list"
 msgstr "リストから選択"
 
-#: plugins/tags/src/BackendBehaviors.php:298
-#: plugins/tags/src/BackendBehaviors.php:453
+#: plugins/tags/src/BackendBehaviors.php:299
+#: plugins/tags/src/BackendBehaviors.php:454
 msgid "all"
 msgstr "すべて"
 
-#: plugins/tags/src/BackendBehaviors.php:299
-#: plugins/tags/src/BackendBehaviors.php:454
+#: plugins/tags/src/BackendBehaviors.php:300
+#: plugins/tags/src/BackendBehaviors.php:455
 msgid "Enter tags separated by comma"
 msgstr "タグをカンマで区切って入力してください"
 
-#: plugins/tags/src/BackendBehaviors.php:307
+#: plugins/tags/src/BackendBehaviors.php:308
 msgid "Add tags to this selection"
 msgstr "この選択にタグを追加"
 
-#: plugins/tags/src/BackendBehaviors.php:325
+#: plugins/tags/src/BackendBehaviors.php:326
 msgid "Tags to add:"
 msgstr "追加するタグ："
 
-#: plugins/tags/src/BackendBehaviors.php:364
+#: plugins/tags/src/BackendBehaviors.php:365
 msgid "Tag has been successfully removed from selected entries"
 msgid_plural "Tags have been successfully removed from selected entries"
 msgstr[0] "選択したエントリからタグが削除されました"
 
-#: plugins/tags/src/BackendBehaviors.php:387
+#: plugins/tags/src/BackendBehaviors.php:388
 msgid "No tags for selected entries"
 msgstr "選択されたエントリにはタグがありません"
 
-#: plugins/tags/src/BackendBehaviors.php:394
+#: plugins/tags/src/BackendBehaviors.php:395
 msgid "Remove selected tags from this selection"
 msgstr "この選択から選択したタグを削除"
 
-#: plugins/tags/src/BackendBehaviors.php:421
+#: plugins/tags/src/BackendBehaviors.php:422
 msgid "Following tags have been found in selected entries:"
 msgstr "以下のタグが選択されたエントリで見つかりました："
 
-#: plugins/tags/src/BackendBehaviors.php:430
+#: plugins/tags/src/BackendBehaviors.php:431
 msgid "Remove"
 msgstr "削除"
 
-#: plugins/tags/src/BackendBehaviors.php:493
+#: plugins/tags/src/BackendBehaviors.php:494
 msgid "Tags list format:"
 msgstr "タグリストのフォーマット:"
 
-#: plugins/tags/src/BackendBehaviors.php:496
+#: plugins/tags/src/BackendBehaviors.php:497
 msgid "Short"
 msgstr "Short"
 
-#: plugins/tags/src/BackendBehaviors.php:497
+#: plugins/tags/src/BackendBehaviors.php:498
 msgid "Extended"
 msgstr "拡張"
 
@@ -2881,44 +2881,44 @@ msgstr "このタグのコメントのAtomフィード"
 msgid "This tag's entries Atom feed"
 msgstr "このタグのエントリのAtomフィード"
 
-#: plugins/tags/src/Manage.php:119
+#: plugins/tags/src/Manage.php:121
 msgid "entries"
 msgstr "エントリ"
 
-#: plugins/tags/src/Manage.php:119
+#: plugins/tags/src/Manage.php:121
 msgid "entry"
 msgstr "項目"
 
-#: plugins/tags/src/Manage.php:150
+#: plugins/tags/src/Manage.php:152
 msgid "No tags on this blog."
 msgstr "このブログでのタグはありません。"
 
-#: plugins/tags/src/ManagePosts.php:94
+#: plugins/tags/src/ManagePosts.php:96
 msgid "Tag has been successfully renamed"
 msgstr "タグの名前は正常に変更されました"
 
-#: plugins/tags/src/ManagePosts.php:113
+#: plugins/tags/src/ManagePosts.php:115
 msgid "Tag has been successfully removed"
 msgstr "タグは正常に削除されました"
 
-#: plugins/tags/src/ManagePosts.php:144
+#: plugins/tags/src/ManagePosts.php:146
 #, php-format
 msgid "Are you sure you want to remove tag: “%s”?"
 msgstr "タグを削除してもよろしいですか：“%s”？"
 
-#: plugins/tags/src/ManagePosts.php:159
+#: plugins/tags/src/ManagePosts.php:161
 msgid "Back to tags list"
 msgstr "タグ一覧に戻る"
 
-#: plugins/tags/src/ManagePosts.php:174
+#: plugins/tags/src/ManagePosts.php:176
 msgid "Delete this tag"
 msgstr "このタグを削除"
 
-#: plugins/tags/src/ManagePosts.php:196
+#: plugins/tags/src/ManagePosts.php:198
 msgid "Rename:"
 msgstr "改名する："
 
-#: plugins/tags/src/ManagePosts.php:207
+#: plugins/tags/src/ManagePosts.php:209
 msgid "List of entries with this tag"
 msgstr "List of entries with this tag"
 
@@ -2946,119 +2946,119 @@ msgstr "古い項目"
 msgid "Link to all tags:"
 msgstr "すべてのタグへのリンク:"
 
-#: plugins/themeEditor/src/Backend.php:25
+#: plugins/themeEditor/src/Backend.php:27
 msgid "themeEditor"
 msgstr "themeEditor"
 
-#: plugins/themeEditor/src/BackendBehaviors.php:45
-#: plugins/themeEditor/src/Manage.php:194
-#: plugins/themeEditor/src/Manage.php:201
+#: plugins/themeEditor/src/BackendBehaviors.php:46
+#: plugins/themeEditor/src/Manage.php:196
+#: plugins/themeEditor/src/Manage.php:203
 msgid "Edit theme files"
 msgstr "テーマファイルを編集"
 
-#: plugins/themeEditor/src/BackendBehaviors.php:105
+#: plugins/themeEditor/src/BackendBehaviors.php:106
 msgid "Syntax highlighting"
 msgstr "構文の強調表示"
 
-#: plugins/themeEditor/src/BackendBehaviors.php:117
+#: plugins/themeEditor/src/BackendBehaviors.php:118
 msgid "Syntax highlighting in theme editor"
 msgstr "テーマエディタでシンタックスハイライト表示"
 
-#: plugins/themeEditor/src/Manage.php:99
+#: plugins/themeEditor/src/Manage.php:101
 msgid "The theme update has been locked."
 msgstr "テーマの更新がロックされました。"
 
-#: plugins/themeEditor/src/Manage.php:107
+#: plugins/themeEditor/src/Manage.php:109
 msgid "The theme update has been unocked."
 msgstr "テーマの更新を非表示にしました。"
 
-#: plugins/themeEditor/src/Manage.php:130
+#: plugins/themeEditor/src/Manage.php:132
 msgid "The file has been reset."
 msgstr "ファイルがリセットされました。"
 
-#: plugins/themeEditor/src/Manage.php:163
+#: plugins/themeEditor/src/Manage.php:165
 msgid "Lock update"
 msgstr "更新をロック"
 
-#: plugins/themeEditor/src/Manage.php:163
+#: plugins/themeEditor/src/Manage.php:165
 msgid "Unlock update"
 msgstr "アップデートのロックを解除"
 
-#: plugins/themeEditor/src/Manage.php:168
+#: plugins/themeEditor/src/Manage.php:170
 msgid "Lock theme update disables theme update, but allows theme files to be modified."
 msgstr "テーマ更新のロックはテーマ更新を無効にしますが、テーマファイルの変更は許可します。"
 
-#: plugins/themeEditor/src/Manage.php:174
+#: plugins/themeEditor/src/Manage.php:176
 msgid "The theme editor is in development mode, theme files will be overwritten!"
 msgstr "テーマエディターは開発モードになっており、テーマファイルは上書きされます！"
 
-#: plugins/themeEditor/src/Manage.php:182
+#: plugins/themeEditor/src/Manage.php:184
 msgid "Saving document..."
 msgstr "ドキュメントの保存中..."
 
-#: plugins/themeEditor/src/Manage.php:183
+#: plugins/themeEditor/src/Manage.php:185
 msgid "Document saved"
 msgstr "ドキュメントは保存されました"
 
-#: plugins/themeEditor/src/Manage.php:184
+#: plugins/themeEditor/src/Manage.php:186
 msgid "An error occurred:"
 msgstr "エラーが発生しました："
 
-#: plugins/themeEditor/src/Manage.php:185
+#: plugins/themeEditor/src/Manage.php:187
 msgid "Are you sure you want to reset this file?"
 msgstr "このファイルをリセットしてもよろしいですか？"
 
-#: plugins/themeEditor/src/Manage.php:209
+#: plugins/themeEditor/src/Manage.php:211
 #, php-format
 msgid "Your current theme on this blog is \"%s\"."
 msgstr "このブログの現在のテーマは \"%s\" です。"
 
-#: plugins/themeEditor/src/Manage.php:219
+#: plugins/themeEditor/src/Manage.php:221
 msgid "Please select a file to edit."
 msgstr "編集したいファイルを選択してください。"
 
-#: plugins/themeEditor/src/Manage.php:227
+#: plugins/themeEditor/src/Manage.php:229
 msgid "Reset"
 msgstr "Reset"
 
-#: plugins/themeEditor/src/Manage.php:236
+#: plugins/themeEditor/src/Manage.php:238
 msgid "File editor"
 msgstr "ファイルエディタ"
 
-#: plugins/themeEditor/src/Manage.php:245
+#: plugins/themeEditor/src/Manage.php:247
 #, php-format
 msgid "Editing file %s"
 msgstr "ファイル %s の編集"
 
-#: plugins/themeEditor/src/Manage.php:261
+#: plugins/themeEditor/src/Manage.php:263
 msgid "If you use <code>url(...)</code> in your CSS files, be sure to use <code>url(index.php?tf=...)</code> to correctly load theme resources (imported CSS, images, etc.), except for URL types in the form <code>data:image</code>.<br>Example: do <code>@import url(index.php?tf=css/layout.css);</code> instead of <code>@import url(css/layout.css);</code>."
 msgstr "CSS ファイルで <code>url(...)</code> を使用する場合は、<code>data:image</code> 形式の URL タイプを除き、テーマ リソース (インポートされた CSS、画像など) を正しく読み込むために必ず <code>url(index.php?tf=...)</code> を使用してください。<br>例: <code>@import url(css/layout.css);</code> ではなく、<code>@import url(index.php?tf=css/layout.css);</code> を使用します。"
 
-#: plugins/themeEditor/src/Manage.php:266
+#: plugins/themeEditor/src/Manage.php:268
 msgid "This file is not overloadable. Please check your var folder permissions."
 msgstr "このファイルはオーバーロードできません。var フォルダのパーミッションを確認してください。"
 
-#: plugins/themeEditor/src/Manage.php:269
+#: plugins/themeEditor/src/Manage.php:271
 msgid "This theme is too old to be modified. Please check if an update is available."
 msgstr "このテーマは古すぎて修正できません。アップデートがあるかどうかご確認ください。"
 
-#: plugins/themeEditor/src/Manage.php:288
+#: plugins/themeEditor/src/Manage.php:290
 msgid "Templates files"
 msgstr "テンプレートファイル"
 
-#: plugins/themeEditor/src/Manage.php:293
+#: plugins/themeEditor/src/Manage.php:295
 msgid "CSS files"
 msgstr "CSSファイル"
 
-#: plugins/themeEditor/src/Manage.php:298
+#: plugins/themeEditor/src/Manage.php:300
 msgid "JavaScript files"
 msgstr "JavaScriptファイル"
 
-#: plugins/themeEditor/src/Manage.php:303
+#: plugins/themeEditor/src/Manage.php:305
 msgid "Locales files"
 msgstr "ロケールファイル"
 
-#: plugins/themeEditor/src/Manage.php:308
+#: plugins/themeEditor/src/Manage.php:310
 msgid "PHP files"
 msgstr "PHPファイル"
 
@@ -3104,143 +3104,143 @@ msgstr "ファイル %s に書き込むことができません。 テーマの�
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "ファイルを削除できません %s.テーマのファイルとフォルダのパーミッションを確認してください。"
 
-#: plugins/userPref/src/Backend.php:25
+#: plugins/userPref/src/Backend.php:27
 msgid "user:preferences"
 msgstr "ユーザー:設定"
 
-#: plugins/userPref/src/Manage.php:88 plugins/userPref/src/Manage.php:107
+#: plugins/userPref/src/Manage.php:91 plugins/userPref/src/Manage.php:110
 msgid "Preferences successfully updated"
 msgstr "設定が正常に更新されました"
 
-#: plugins/userPref/src/Manage.php:157 plugins/userPref/src/Manage.php:159
+#: plugins/userPref/src/Manage.php:160 plugins/userPref/src/Manage.php:162
 msgid "Global preferences"
 msgstr "グローバル設定"
 
-#: plugins/widgets/src/Backend.php:51
+#: plugins/widgets/src/Backend.php:53
 msgid "Widget's textareas"
 msgstr "ウィジェットのテキストエリア"
 
-#: plugins/widgets/src/Install.php:35
+#: plugins/widgets/src/Install.php:37
 msgid "Unable to initialize default widgets."
 msgstr "デフォルトウィジェットを初期化できません。"
 
-#: plugins/widgets/src/Manage.php:79
+#: plugins/widgets/src/Manage.php:81
 msgid "navigation"
 msgstr "ナビゲーション"
 
-#: plugins/widgets/src/Manage.php:80
+#: plugins/widgets/src/Manage.php:82
 msgid "extra"
 msgstr "拡張"
 
-#: plugins/widgets/src/Manage.php:81
+#: plugins/widgets/src/Manage.php:83
 msgid "custom"
 msgstr "カスタム"
 
-#: plugins/widgets/src/Manage.php:217
+#: plugins/widgets/src/Manage.php:219
 msgid "Sidebars and their widgets have been saved."
 msgstr "サイドバーとウィジェットが保存されました。"
 
-#: plugins/widgets/src/Manage.php:231
+#: plugins/widgets/src/Manage.php:233
 msgid "Sidebars have been resetting."
 msgstr "サイドバーがリセットされています。"
 
-#: plugins/widgets/src/Manage.php:260
+#: plugins/widgets/src/Manage.php:262
 msgid "Are you sure you want to reset sidebars?"
 msgstr "本当に、サイドバーをリセットしてもよろしいですか？"
 
-#: plugins/widgets/src/Manage.php:261 plugins/widgets/src/Manage.php:391
+#: plugins/widgets/src/Manage.php:263 plugins/widgets/src/Manage.php:393
 msgid "Temporarily display the action buttons for each widget"
 msgstr "各ウィジェットのアクションボタンを一時的に表示する"
 
-#: plugins/widgets/src/Manage.php:262
+#: plugins/widgets/src/Manage.php:264
 msgid "Hide the action buttons for each widget"
 msgstr "各ウィジェットのアクションボタンを隠す"
 
-#: plugins/widgets/src/Manage.php:309 plugins/widgets/src/Manage.php:490
+#: plugins/widgets/src/Manage.php:311 plugins/widgets/src/Manage.php:492
 msgid "order"
 msgstr "並び順"
 
-#: plugins/widgets/src/Manage.php:321
+#: plugins/widgets/src/Manage.php:323
 msgid "Append to:"
 msgstr "付加先："
 
-#: plugins/widgets/src/Manage.php:340
+#: plugins/widgets/src/Manage.php:342
 msgid "Available widgets"
 msgstr "利用可能なウィジェット"
 
-#: plugins/widgets/src/Manage.php:342
+#: plugins/widgets/src/Manage.php:344
 msgid "Drag widgets from this list to one of the sidebars, for add."
 msgstr "ウィジェットをこのリストからいずれかのサイドバーにドラッグして追加します。"
 
-#: plugins/widgets/src/Manage.php:350
+#: plugins/widgets/src/Manage.php:352
 msgid "Add widgets to sidebars"
 msgstr "サイドバーにウィジェットを追加"
 
-#: plugins/widgets/src/Manage.php:365
+#: plugins/widgets/src/Manage.php:367
 msgid "Navigation sidebar"
 msgstr "ナビゲーションサイドバー"
 
-#: plugins/widgets/src/Manage.php:372
+#: plugins/widgets/src/Manage.php:374
 msgid "Extra sidebar"
 msgstr "拡張サイドバー"
 
-#: plugins/widgets/src/Manage.php:379
+#: plugins/widgets/src/Manage.php:381
 msgid "Custom sidebar"
 msgstr "カスタムサイドバー"
 
-#: plugins/widgets/src/Manage.php:386
+#: plugins/widgets/src/Manage.php:388
 msgid "Update sidebars"
 msgstr "サイドバーを更新"
 
-#: plugins/widgets/src/Manage.php:388
+#: plugins/widgets/src/Manage.php:390
 msgid "Reset sidebars"
 msgstr "サイドバーをリセット"
 
-#: plugins/widgets/src/Manage.php:401
+#: plugins/widgets/src/Manage.php:403
 msgid "No setting for this widget"
 msgstr "このウィジェットに設定はありません"
 
-#: plugins/widgets/src/Manage.php:407
+#: plugins/widgets/src/Manage.php:409
 msgid "boolean"
 msgstr "boolean"
 
-#: plugins/widgets/src/Manage.php:407 plugins/widgets/src/Manage.php:412
+#: plugins/widgets/src/Manage.php:409 plugins/widgets/src/Manage.php:414
 msgid "possible values:"
 msgstr "可能な値:"
 
-#: plugins/widgets/src/Manage.php:411
+#: plugins/widgets/src/Manage.php:413
 msgid "empty string"
 msgstr "空の文字列"
 
-#: plugins/widgets/src/Manage.php:412
+#: plugins/widgets/src/Manage.php:414
 msgid "listitem"
 msgstr "listitem"
 
-#: plugins/widgets/src/Manage.php:418
+#: plugins/widgets/src/Manage.php:420
 msgid "string"
 msgstr "文字列"
 
-#: plugins/widgets/src/Manage.php:438
+#: plugins/widgets/src/Manage.php:440
 msgid "Widget ID:"
 msgstr "ウィジェット ID："
 
-#: plugins/widgets/src/Manage.php:502 plugins/widgets/src/Manage.php:503
+#: plugins/widgets/src/Manage.php:504 plugins/widgets/src/Manage.php:505
 msgid "Up the widget"
 msgstr "ウィジェットを上へ"
 
-#: plugins/widgets/src/Manage.php:507 plugins/widgets/src/Manage.php:508
+#: plugins/widgets/src/Manage.php:509 plugins/widgets/src/Manage.php:510
 msgid "Down the widget"
 msgstr "ウィジェットを下へ"
 
-#: plugins/widgets/src/Manage.php:511 plugins/widgets/src/Manage.php:512
+#: plugins/widgets/src/Manage.php:513 plugins/widgets/src/Manage.php:514
 msgid "Remove the widget"
 msgstr "ウィジェットを削除"
 
-#: plugins/widgets/src/Manage.php:536
+#: plugins/widgets/src/Manage.php:538
 msgid "No widget as far."
 msgstr "ウィジェットがありません。"
 
-#: plugins/widgets/src/Manage.php:545
+#: plugins/widgets/src/Manage.php:547
 msgid "Drag widgets here to remove."
 msgstr "削除するにはここにウィジェットをドラッグしてください。"
 
@@ -3332,49 +3332,49 @@ msgstr "最終コメント"
 msgid "Comments limit:"
 msgstr "コメントの制限："
 
-#: plugins/widgets/src/Widgets.php:552
+#: plugins/widgets/src/Widgets.php:565
 #, php-format
 msgid "This blog's entries %s feed"
 msgstr "このブログのエントリ %s のフィード"
 
-#: plugins/widgets/src/Widgets.php:553
+#: plugins/widgets/src/Widgets.php:566
 #, php-format
 msgid "This blog's comments %s feed"
 msgstr "このブログのコメント %s のフィード"
 
-#: plugins/widgets/src/Widgets.php:566
+#: plugins/widgets/src/Widgets.php:579
 msgid "Entries feed"
 msgstr "エントリのフィード"
 
-#: plugins/widgets/src/Widgets.php:576
+#: plugins/widgets/src/Widgets.php:589
 msgid "Comments feed"
 msgstr "コメントのフィード"
 
-#: plugins/widgets/src/WidgetsElement.php:548
+#: plugins/widgets/src/WidgetsElement.php:547
 msgid "Title (optional)"
 msgstr "タイトル (オプション)"
 
-#: plugins/widgets/src/WidgetsElement.php:559
+#: plugins/widgets/src/WidgetsElement.php:558
 msgid "All pages"
 msgstr "すべてのページ"
 
-#: plugins/widgets/src/WidgetsElement.php:560
+#: plugins/widgets/src/WidgetsElement.php:559
 msgid "Home page only"
 msgstr "ホームページのみ"
 
-#: plugins/widgets/src/WidgetsElement.php:561
+#: plugins/widgets/src/WidgetsElement.php:560
 msgid "Except on home page"
 msgstr "ホームページ以外の場合"
 
-#: plugins/widgets/src/WidgetsElement.php:569
+#: plugins/widgets/src/WidgetsElement.php:568
 msgid "Display on:"
 msgstr "表示先："
 
-#: plugins/widgets/src/WidgetsElement.php:595
+#: plugins/widgets/src/WidgetsElement.php:594
 msgid "Content only"
 msgstr "コンテンツのみ"
 
-#: plugins/widgets/src/WidgetsElement.php:605
+#: plugins/widgets/src/WidgetsElement.php:604
 msgid "CSS class:"
 msgstr "CSS クラス:"
 
