@@ -67,24 +67,42 @@ dotclear.ready(() => {
   dtField.classList.add('today_helper');
   button.addEventListener('click', dtTodayHelper);
 
-  // Check if entry date change
+  // Check if entry date or title change
   const post_options = dotclear.getData('post_options');
-  if (post_options?.entryurl_dt) {
+  const urlTitle = document.querySelector('#post_title');
+  if (post_options?.entryurl_dt || urlTitle) {
     const urlEntry = document.querySelector('#post_url');
     const urlStatus = document.querySelector('#post_status');
     if (urlEntry && urlStatus?.value !== '1') {
       // Only not already published entry
-      const dtValue = dtField.value.slice(0, 10); // Keep only date (ignoring time)
-      const askReset = (event) => {
-        if (event.target.value.slice(0, 10) !== dtValue && urlEntry.value !== '') {
-          // Date has changed and entry URL is not empty, ask for reset
-          if (window.confirm(dotclear.msg.dtchange_reseturl)) urlEntry.value = '';
-        }
-      };
-      dtField.addEventListener('blur', (event) => askReset(event));
-      dtField.addEventListener('keypress', (/** @type {KeyboardEvent} */ event) => {
-        if (event?.key === 'Enter') dtField.blur();
-      });
+      if (post_options?.entryurl_dt) {
+        // Date field management
+        const askResetDt = (event) => {
+          if (event.target.value.slice(0, 10) !== dtValue && urlEntry.value !== '') {
+            // Date has changed and entry URL is not empty, ask for reset
+            if (window.confirm(dotclear.msg.dtchange_reseturl)) urlEntry.value = '';
+          }
+        };
+        const dtValue = dtField.value.slice(0, 10); // Keep only date (ignoring time)
+        dtField.addEventListener('blur', (event) => askResetDt(event));
+        dtField.addEventListener('keypress', (/** @type {KeyboardEvent} */ event) => {
+          if (event?.key === 'Enter') dtField.blur();
+        });
+      }
+      // Title field management
+      if (urlTitle) {
+        const askResetTitle = (event) => {
+          if (event.target.value !== titleValue && urlEntry.value !== '') {
+            // Title has changed and entry URL is not empty, ask for reset
+            if (window.confirm(dotclear.msg.titlechange_reseturl)) urlEntry.value = '';
+          }
+        };
+        const titleValue = urlTitle.value;
+        urlTitle.addEventListener('blur', (event) => askResetTitle(event));
+        urlTitle.addEventListener('keypress', (/** @type {KeyboardEvent} */ event) => {
+          if (event?.key === 'Enter') urlTitle.blur();
+        });
+      }
     }
   }
 
