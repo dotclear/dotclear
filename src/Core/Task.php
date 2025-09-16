@@ -18,6 +18,7 @@ use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Process\AbstractUtility;
 use Dotclear\Helper\Process\TraitProcess;
+use Dotclear\Exception\AppException;
 use Dotclear\Exception\ContextException;
 use Dotclear\Exception\ProcessException;
 use Dotclear\Interface\Core\TaskInterface;
@@ -146,8 +147,27 @@ class Task implements TaskInterface
             Http::trimRequest();
 
             try {
+                // Check database connection
+                $this->core->db()->con();
+            } catch (Throwable $e) {
+                // Give a pretty message for this one
+                throw new AppException($e->getMessage(), (int) $e->getCode(), new AppException(
+                    sprintf(
+                        __('<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can\'t contact the database server at "<em>%1$s</em>". This could mean your ' .
+                        'host\'s database server is down.</p><ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you\'re unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href="%2$s">Dotclear Support Forums</a>.</p>'),
+                        $this->core->config()->dbHost() ?: 'localhost',
+                        'https://matrix.to/#/#dotclear:matrix.org'
+                    ),
+                    (int) $e->getCode(),
+                    $e
+                ));
+            }
+
+            try {
                 // deprecated since 2.23, use App:: instead
                 $GLOBALS['core'] = new dcCore();
+            } catch (AppException $e) {
+                throw $e;
             } catch (Throwable) {
                 throw new ProcessException(
                     $this->checkContext('BACKEND') ?
