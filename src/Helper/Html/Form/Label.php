@@ -19,10 +19,10 @@ namespace Dotclear\Helper\Html\Form;
  * @method      $this prefix(string $prefix)
  * @method      $this suffix(string $suffix)
  *
- * @property    string $for
- * @property    string $text
- * @property    string $prefix
- * @property    string $suffix
+ * @property    ?string $for
+ * @property    ?string $text
+ * @property    ?string $prefix
+ * @property    ?string $suffix
  */
 class Label extends Component
 {

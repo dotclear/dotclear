@@ -19,8 +19,8 @@ namespace Dotclear\Helper\Html\Form;
  * @method      $this items(Iterable<int|string, Component> $items)
  *
  * @property    string $format
- * @property    Iterable<int|string, Component> $cols
- * @property    Iterable<int|string, Component> $items
+ * @property    null|Iterable<int|string, Component> $cols
+ * @property    null|Iterable<int|string, Component> $items
  */
 class Tr extends Component
 {

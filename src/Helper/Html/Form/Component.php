@@ -63,50 +63,50 @@ use Dotclear\App;
  * @method      $this format(string $format)
  * @method      $this separator(string $separator)
  *
- * @property    string $accesskey
- * @property    string $autocapitalize
- * @property    string $autocomplete
- * @property    string $autocorrect
- * @property    bool $autofocus
- * @property    bool $checked
- * @property    string|array<string> $class
- * @property    bool $contenteditable
- * @property    array<string, string> $data
+ * @property    ?string $accesskey
+ * @property    ?string $autocapitalize
+ * @property    ?string $autocomplete
+ * @property    ?string $autocorrect
+ * @property    ?bool $autofocus
+ * @property    ?bool $checked
+ * @property    null|string|array<string> $class
+ * @property    ?bool $contenteditable
+ * @property    null|array<string, string> $data
  * @property    null|string|int|float $default
- * @property    string $dir
- * @property    bool $disabled
- * @property    string $enterkeyhint
- * @property    string|array<string> $extra
- * @property    string $form
- * @property    string $id
- * @property    bool $inert
- * @property    string $inputmode
- * @property    Label $label
- * @property    string $lang
- * @property    string $list
+ * @property    ?string $dir
+ * @property    ?bool $disabled
+ * @property    ?string $enterkeyhint
+ * @property    null|string|array<string> $extra
+ * @property    ?string $form
+ * @property    ?string $id
+ * @property    ?bool $inert
+ * @property    ?string $inputmode
+ * @property    ?Label $label
+ * @property    ?string $lang
+ * @property    ?string $list
  * @property    null|int|float|string $max
- * @property    int $maxlength
+ * @property    ?int $maxlength
  * @property    null|int|float|string $min
- * @property    string $name
- * @property    string $pattern
- * @property    string $placeholder
- * @property    bool $popover
- * @property    bool $readonly
- * @property    bool $required
- * @property    string $role
- * @property    int $size
- * @property    bool $spellcheck
- * @property    string $step
- * @property    int $tabindex
- * @property    string $title
- * @property    bool $translate
- * @property    string $type
- * @property    string|int|float $value
+ * @property    ?string $name
+ * @property    ?string $pattern
+ * @property    ?string $placeholder
+ * @property    ?bool $popover
+ * @property    ?bool $readonly
+ * @property    ?bool $required
+ * @property    ?string $role
+ * @property    ?int $size
+ * @property    ?bool $spellcheck
+ * @property    ?string $step
+ * @property    ?int $tabindex
+ * @property    ?string $title
+ * @property    ?bool $translate
+ * @property    ?string $type
+ * @property    null|string|int|float $value
  * // Used only for components with childs (items and/or fields for form and fieldset):
- * @property    Iterable<Component> $fields Form or Fieldset component only
- * @property    Iterable<Component> $items
- * @property    string $format
- * @property    string $separator
+ * @property    null|Iterable<Component> $fields Form or Fieldset component only
+ * @property    null|Iterable<Component> $items
+ * @property    ?string $format
+ * @property    ?string $separator
  *
  * @psalm-no-seal-properties
  * @psalm-no-seal-methods
@@ -315,7 +315,7 @@ abstract class Component
     {
         if ($label instanceof Label) {
             $this->label($label);
-            $label->for($this->id);
+            $label->for($this->id ?? '');
             if ($position !== null) {
                 $label->setPosition($position);
             }

@@ -21,12 +21,12 @@ namespace Dotclear\Helper\Html\Form;
  * @method      $this download(bool|string $download)
  * @method      $this items(Iterable<int|string, Component> $items)
  *
- * @property    string $href
- * @property    string $text
- * @property    string $format
- * @property    string $separator
- * @property    bool|string $download
- * @property    Iterable<int|string, Component> $items
+ * @property    ?string $href
+ * @property    ?string $text
+ * @property    ?string $format
+ * @property    ?string $separator
+ * @property    null|bool|string $download
+ * @property    null|Iterable<int|string, Component> $items
  */
 class Link extends Component
 {

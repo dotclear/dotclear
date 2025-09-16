@@ -18,9 +18,9 @@ namespace Dotclear\Helper\Html\Form;
  * @method      $this popovertargetaction(string $popovertargetaction)
  * @method      $this text(string $text)
  *
- * @property    string $popovertarget
- * @property    string $popovertargetaction (hide, show, toggle = default)
- * @property    string $text
+ * @property    ?string $popovertarget
+ * @property    ?string $popovertargetaction (hide, show, toggle = default)
+ * @property    ?string $text
  */
 class Btn extends Component
 {

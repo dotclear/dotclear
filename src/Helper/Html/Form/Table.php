@@ -20,11 +20,11 @@ namespace Dotclear\Helper\Html\Form;
  * @method      $this tfoot(Tfoot $tfoot)
  * @method      $this items(Iterable<int|string, Component> $items)
  *
- * @property    Caption $caption
- * @property    Thead $thead
- * @property    Tbody $tbody
- * @property    Tfoot $tfoot
- * @property    Iterable<int|string, Component> $items
+ * @property    ?Caption $caption
+ * @property    ?Thead $thead
+ * @property    ?Tbody $tbody
+ * @property    ?Tfoot $tfoot
+ * @property    null|Iterable<int|string, Component> $items
  */
 class Table extends Component
 {

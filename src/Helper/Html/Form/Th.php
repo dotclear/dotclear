@@ -24,15 +24,15 @@ namespace Dotclear\Helper\Html\Form;
  * @method      $this format(string $format)
  * @method      $this items(Iterable<int|string, Component> $items)
  *
- * @property    int $colspan
- * @property    int $rowspan
- * @property    string $headers
- * @property    string $scope
- * @property    string $abbr
- * @property    string $text
- * @property    string $separator
- * @property    string $format
- * @property    Iterable<int|string, Component> $items
+ * @property    ?int $colspan
+ * @property    ?int $rowspan
+ * @property    ?string $headers
+ * @property    ?string $scope
+ * @property    ?string $abbr
+ * @property    ?string $text
+ * @property    ?string $separator
+ * @property    ?string $format
+ * @property    null|Iterable<int|string, Component> $items
  */
 class Th extends Component
 {

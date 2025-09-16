@@ -20,11 +20,11 @@ namespace Dotclear\Helper\Html\Form;
  * @method      $this separator(string $separator)
  * @method      $this open(bool $open)
  *
- * @property    Summary $summary
- * @property    Iterable<int|string, Component> $items
- * @property    string $format
- * @property    string $separator
- * @property    bool $open
+ * @property    ?Summary $summary
+ * @property    null|Iterable<int|string, Component> $items
+ * @property    ?string $format
+ * @property    ?string $separator
+ * @property    ?bool $open
  */
 class Details extends Component
 {

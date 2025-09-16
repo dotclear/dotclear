@@ -19,10 +19,10 @@ namespace Dotclear\Helper\Html\Form;
  * @method      $this format(string $format)
  * @method      $this separator(string $separator)
  *
- * @property    string $text
- * @property    Iterable<int|string, Component> $items
- * @property    string $format
- * @property    string $separator
+ * @property    ?string $text
+ * @property    null|Iterable<int|string, Component> $items
+ * @property    ?string $format
+ * @property    ?string $separator
  */
 class Note extends Component
 {

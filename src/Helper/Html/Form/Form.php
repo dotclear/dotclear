@@ -22,11 +22,11 @@ namespace Dotclear\Helper\Html\Form;
  * @method      $this enctype(string $enctype)
  *
  * @property    null|string $action
- * @property    string $method
- * @property    Iterable<int|string, Component> $fields
- * @property    Iterable<int|string, Component> $items
- * @property    string $separator
- * @property    string $enctype
+ * @property    ?string $method
+ * @property    null|Iterable<int|string, Component> $fields
+ * @property    null|Iterable<int|string, Component> $items
+ * @property    ?string $separator
+ * @property    ?string $enctype
  */
 class Form extends Component
 {

@@ -19,10 +19,10 @@ namespace Dotclear\Helper\Html\Form;
  * @method      $this height(int $height)
  * @method      $this width(int $width)
  *
- * @property    string $src
- * @property    string $alt
- * @property    int $height
- * @property    int $width
+ * @property    ?string $src
+ * @property    ?string $alt
+ * @property    ?int $height
+ * @property    ?int $width
  */
 class Image extends Input
 {

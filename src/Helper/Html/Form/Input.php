@@ -17,8 +17,8 @@ namespace Dotclear\Helper\Html\Form;
  * @method      $this popovertarget(string $popovertarget)
  * @method      $this popovertargetaction(string $popovertargetaction)
  *
- * @property    string $popovertarget
- * @property    string $popovertargetaction (hide, show, toggle = default)
+ * @property    ?string $popovertarget
+ * @property    ?string $popovertargetaction (hide, show, toggle = default)
  */
 class Input extends Component
 {

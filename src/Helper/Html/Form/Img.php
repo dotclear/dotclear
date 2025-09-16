@@ -22,13 +22,13 @@ namespace Dotclear\Helper\Html\Form;
  * @method      $this srcset(string $srcset)
  * @method      $this width(int $width)
  *
- * @property    string $src
- * @property    string $alt
- * @property    int $height
- * @property    string $loading
- * @property    string $sizes
- * @property    string $srcset
- * @property    int $width
+ * @property    ?string $src
+ * @property    ?string $alt
+ * @property    ?int $height
+ * @property    ?string $loading
+ * @property    ?string $sizes
+ * @property    ?string $srcset
+ * @property    ?int $width
  */
 class Img extends Component
 {

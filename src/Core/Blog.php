@@ -1926,7 +1926,7 @@ class Blog implements BlogInterface
         }
 
         # Words list
-        if ($cur->post_title !== null && $cur->post_excerpt_xhtml !== null) {
+        if ($cur->post_excerpt_xhtml !== null) {
             $words = $cur->post_title . ' ' .
                 $cur->post_excerpt_xhtml . ' ' .
                 $cur->post_content_xhtml;

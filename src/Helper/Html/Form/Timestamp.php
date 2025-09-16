@@ -17,8 +17,8 @@ namespace Dotclear\Helper\Html\Form;
  * @method      $this datetime(string $datetime)
  * @method      $this text(string $text)
  *
- * @property    string $datetime
- * @property    string $text
+ * @property    ?string $datetime
+ * @property    ?string $text
  */
 class Timestamp extends Component
 {

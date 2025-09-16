@@ -16,7 +16,7 @@ namespace Dotclear\Helper\Html\Form;
  *
  * @method      $this text(string $text)
  *
- * @property    string $text
+ * @property    ?string $text
  */
 class Summary extends Component
 {

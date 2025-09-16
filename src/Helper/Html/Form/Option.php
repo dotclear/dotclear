@@ -17,8 +17,8 @@ namespace Dotclear\Helper\Html\Form;
  * @method      $this text(string $text)
  * @method      $this selected(bool $selected)
  *
- * @property    string $text
- * @property    bool   $selected
+ * @property    ?string $text
+ * @property    ?bool   $selected
  */
 class Option extends Component
 {

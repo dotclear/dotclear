@@ -17,8 +17,8 @@ namespace Dotclear\Helper\Html\Form;
  * @method      $this cols(int $cols)
  * @method      $this rows(int $rows)
  *
- * @property    int $cols
- * @property    int $rows
+ * @property    ?int $cols
+ * @property    ?int $rows
  */
 class Textarea extends Component
 {

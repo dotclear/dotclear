@@ -16,7 +16,7 @@ namespace Dotclear\Helper\Html\Form;
  *
  * @method      $this items(array<array-key, Component|string|array<array-key, Component|string>>|Iterable<array-key, Component|string|array<array-key, Component|string>> $items)
  *
- * @property    array<array-key, Component|string|array<array-key, Component|string>>|Iterable<array-key, Component|string|array<array-key, Component|string>> $items
+ * @property    null|array<array-key, Component|string|array<array-key, Component|string>>|Iterable<array-key, Component|string|array<array-key, Component|string>> $items
  */
 class Select extends Component
 {

@@ -16,7 +16,7 @@ namespace Dotclear\Helper\Html\Form;
  *
  * @method      $this legend(Legend $legend)
  *
- * @property    Legend $legend
+ * @property    ?Legend $legend
  */
 class Fieldset extends Component
 {

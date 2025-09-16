@@ -20,11 +20,11 @@ namespace Dotclear\Helper\Html\Form;
  * @method      $this start(string $start)
  * @method      $this reversed(bool $reversed)
  *
- * @property    string $separator
- * @property    Iterable<int|string, Component> $items
- * @property    string $format
- * @property    string $start
- * @property    bool $reversed
+ * @property    ?string $separator
+ * @property    null|Iterable<int|string, Component> $items
+ * @property    ?string $format
+ * @property    ?string $start
+ * @property    ?bool $reversed
  */
 class Ol extends Component
 {

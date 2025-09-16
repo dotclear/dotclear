@@ -29,22 +29,22 @@ class XmlRpc extends IntrospectionServer
     /**
      * Debug mode
      */
-    private bool $debug = false;
+    private bool $debug = false;    // @phpstan-ignore-line
 
     /**
      * Debug file log
      */
-    private readonly string $debug_file;
+    private readonly string $debug_file;        // @phpstan-ignore-line
 
     /**
      * Trace arguments
      */
-    private bool $trace_args = true;
+    private bool $trace_args = true;    // @phpstan-ignore-line
 
     /**
      * Trace response
      */
-    private bool $trace_response = true;
+    private bool $trace_response = true;        // @phpstan-ignore-line
 
     /**
      * Constructs a new instance.
@@ -104,13 +104,13 @@ class XmlRpc extends IntrospectionServer
      * @param   mixed   $args           The arguments
      * @param   mixed   $rsp            The response
      */
-    private function debugTrace(string $methodname, $args, $rsp): void
+    private function debugTrace(string $methodname, $args, $rsp): void      // @phpstan-ignore-line
     {
-        if (!$this->debug) {
+        if (!$this->debug) {        // @phpstan-ignore-line
             return;
         }
 
-        if (($fp = @fopen($this->debug_file, 'a')) !== false) {
+        if (($fp = @fopen($this->debug_file, 'a')) !== false) {         // @phpstan-ignore-line
             fwrite($fp, '[' . date('r') . ']' . ' ' . $methodname);
 
             if ($this->trace_args) {
@@ -132,6 +132,8 @@ class XmlRpc extends IntrospectionServer
      * Sets the blog.
      *
      * @throws  Exception
+     *
+     * @return  true
      */
     private function setBlog(): bool
     {

@@ -18,9 +18,9 @@ namespace Dotclear\Helper\Html\Form;
  * @method      $this rows(Iterable<int|string, Component> $rows)
  * @method      $this items(Iterable<int|string, Component> $items)
  *
- * @property    string $format
- * @property    Iterable<int|string, Component> $rows
- * @property    Iterable<int|string, Component> $items
+ * @property    ?string $format
+ * @property    null|Iterable<int|string, Component> $rows
+ * @property    null|Iterable<int|string, Component> $items
  */
 class Tfoot extends Component
 {

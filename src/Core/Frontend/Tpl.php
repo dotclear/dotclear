@@ -470,13 +470,13 @@ class Tpl extends Template
                     $sort  = $matches[1];
                     $order = $matches[2];
                 }
-                if (array_key_exists($sort, $default_alias[$table])) {
-                    $res[] = $default_alias[$table][$sort] . ' ' . $order;
+                if ($table && array_key_exists($sort, $default_alias[$table])) {
+                    $res[] = $default_alias[$table][$sort] . ' ' . $order;      // @phpstan-ignore-line offsetAccess.notFound
                 }
             }
         }
 
-        if ($res === []) {
+        if ($table && $res === []) {
             $res[] = $default_alias[$table]['date'] . ' ' . $default_order;
         }
 
