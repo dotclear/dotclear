@@ -157,6 +157,7 @@ class Config implements ConfigInterface
      * @param   string  $dotclear_root  Dotclear root directory path
      */
     public function __construct(
+        protected Core $core,
         private readonly string $dotclear_root
     ) {
         // From php
@@ -478,10 +479,10 @@ class Config implements ConfigInterface
         }
         $this->csp_report_file = (string) DC_CSP_LOGFILE;
 
-        // Set config for Exception handler
-        Fault::$debug_mode  = $this->debugMode();
-        Fault::$error_file  = $this->errorFile();
-        Fault::$vendor_name = $this->vendorName();
+        // Set config for Dotclear Exception handler
+        $this->core->fault()->setDebugMode($this->debugMode());
+        $this->core->fault()->setErrorFile($this->errorFile());
+        $this->core->fault()->setVendorName($this->vendorName());
 
         // No release file
         if ($this->dotclearVersion() === '') {

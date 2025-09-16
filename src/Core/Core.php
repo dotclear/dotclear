@@ -37,6 +37,7 @@ use Dotclear\Interface\Core\CredentialInterface;
 use Dotclear\Interface\Core\DatabaseInterface;
 use Dotclear\Interface\Core\DeprecatedInterface;
 use Dotclear\Interface\Core\ErrorInterface;
+use Dotclear\Interface\Core\FaultInterface;
 use Dotclear\Interface\Core\FileServerInterface;
 use Dotclear\Interface\Core\FilterInterface;
 use Dotclear\Interface\Core\FormaterInterface;
@@ -133,6 +134,7 @@ class Core extends Container
             DatabaseInterface::class        => Database::class,
             DeprecatedInterface::class      => Deprecated::class,
             ErrorInterface::class           => Error::class,
+            FaultInterface::class           => Fault::class,
             FileServerInterface::class      => FileServer::class,
             FilterInterface::class          => Filter::class,
             FormaterInterface::class        => Formater::class,
@@ -274,7 +276,7 @@ class Core extends Container
      */
     public static function config(): ConfigInterface
     {
-        return self::$instance->get(ConfigInterface::class, false, self::$instance->dotclear_root);
+        return self::$instance->get(ConfigInterface::class, false, dotclear_root: self::$instance->dotclear_root);
     }
 
     /**
@@ -321,6 +323,17 @@ class Core extends Container
     public static function error(): ErrorInterface
     {
         return self::$instance->get(ErrorInterface::class);
+    }
+
+    /**
+     * PHP Exception handler.
+     *
+     * @see     Calls core container service Dotclear\Interface\Core\FaultInterface
+     * @see     Uses default core service Dotclear\Core\Fault
+     */
+    public static function fault(): FaultInterface
+    {
+        return self::$instance->get(FaultInterface::class, false);
     }
 
     /**

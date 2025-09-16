@@ -67,14 +67,11 @@ final class App extends Core
         // Start tick
         define('DC_START_TIME', microtime(true));
 
-        // Set exception handler
-        Fault::setExceptionHandler();
-
         try {
             // Run application
             parent::__construct(dirname(__DIR__));
 
-            if (self::config()->hasConfig()) {
+            if ($this->config()->hasConfig()) {
                 try {
                     // Run database connection
                     $this->db()->con();
