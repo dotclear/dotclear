@@ -56,15 +56,15 @@ class jsToolBar {
         // Set the height to 0 in case of it has to be shrinked
         el.style.height = 0;
 
-        let calc_max = max;
-        if (calc_max === 0) {
+        let calculatedMax = max;
+        if (calculatedMax === 0) {
           // No max limit = keep toolbar visible as far as possible
-          calc_max = window.innerHeight - 100; // Removing approximative usual height of toolbar
+          calculatedMax = window.innerHeight - 100; // Removing approximative usual height of toolbar
         }
 
         // Set the correct height
         // el.scrollHeight is the full height of the content, not just the visible part
-        el.style.height = `${Math.min(calc_max, Math.max(min, el.scrollHeight + diff))}px`;
+        el.style.height = `${Math.min(calculatedMax, Math.max(min, el.scrollHeight + diff))}px`;
       };
       this.textarea.addEventListener('input', () =>
         this.debounceFunction(this.adjustHeight(this.textarea, this.dynamic.min, this.dynamic.max), 300),
@@ -89,7 +89,7 @@ class jsToolBar {
   button(toolName) {
     const tool = this.elements[toolName];
     if (typeof tool.fn[this.mode] !== 'function') return null;
-    const b = new jsButton(
+    const button = new jsButton(
       tool.title,
       tool.fn[this.mode],
       this,
@@ -99,12 +99,12 @@ class jsToolBar {
       tool.shortkey_name,
     );
     if (tool.icon !== undefined) {
-      b.icon = tool.icon;
+      button.icon = tool.icon;
       if (tool.icon_dark !== undefined) {
-        b.icon_dark = tool.icon_dark;
+        button.icon_dark = tool.icon_dark;
       }
     }
-    return b;
+    return button;
   }
 
   space(toolName) {
@@ -153,8 +153,8 @@ class jsToolBar {
 
     // Create a first group of elements
     currentGroup = groupTemplate.cloneNode(true);
-    for (const i in this.elements) {
-      element = this.elements[i];
+    for (const name in this.elements) {
+      element = this.elements[name];
 
       const disabled =
         element.type === undefined ||
@@ -165,7 +165,7 @@ class jsToolBar {
       if (!disabled && typeof this[element.type] === 'function') {
         newTool = false;
         const groupName = element?.group;
-        tool = this[element.type](i);
+        tool = this[element.type](name);
         if (tool) {
           if (element.type !== 'space') {
             newTool = tool.draw();
@@ -177,11 +177,11 @@ class jsToolBar {
           }
         }
         if (newTool) {
-          this.toolNodes[i] = newTool; //mémorise l'accès DOM pour usage éventuel ultérieur ???
+          this.toolNodes[name] = newTool; //mémorise l'accès DOM pour usage éventuel ultérieur ???
 
           // Search if a group with the same group name already exist
           for (const group of groups) {
-            if (group.getAttribute('name') === 'jstg_' + groupName) {
+            if (group.getAttribute('name') === `jstg_${groupName}`) {
               // Group found, add tool to it
               group.appendChild(newTool);
               newTool = false;
@@ -192,7 +192,7 @@ class jsToolBar {
           // If gid not found in existing group, add to the current group
           if (newTool) {
             // Check if the current group already have a name and it's the same as the element
-            if (currentGroup.getAttribute('name') !== null && currentGroup.getAttribute('name') !== 'jstg_' + groupName) {
+            if (currentGroup.getAttribute('name') !== null && currentGroup.getAttribute('name') !== `jstg_${groupName}`) {
               // Need to put element in another new group, store the current one
               groups.push(currentGroup);
               // Then crate a new group
@@ -200,7 +200,7 @@ class jsToolBar {
             }
             currentGroup.appendChild(newTool);
             if (groupName !== undefined && groupName !== '' && currentGroup.getAttribute('name') === null)
-              currentGroup.setAttribute('name', 'jstg_' + groupName);
+              currentGroup.setAttribute('name', `jstg_${groupName}`);
           }
         }
       }
@@ -224,13 +224,12 @@ class jsToolBar {
   }
 
   getCurrentSelection() {
-    let sel = '';
     if (typeof document.selection !== 'undefined') {
-      sel = document.selection.createRange().text;
+      return document.selection.createRange().text;
     } else if (typeof this.textarea.setSelectionRange !== 'undefined') {
-      sel = this.textarea.value.substring(this.textarea.selectionStart, this.textarea.selectionEnd);
+      return this.textarea.value.substring(this.textarea.selectionStart, this.textarea.selectionEnd);
     }
-    return sel;
+    return '';
   }
 
   encloseSelection(prefix = '', suffix = '', fn = null) {
@@ -252,11 +251,11 @@ class jsToolBar {
       sel = this.textarea.value.substring(start, end);
     }
 
-    let clean_suffix = suffix;
+    let cleanSuffix = suffix;
     if (sel.match(/ $/)) {
       // exclude ending space char, if any
       sel = sel.substring(0, sel.length - 1);
-      clean_suffix = `${clean_suffix} `;
+      cleanSuffix = `${cleanSuffix} `;
     }
 
     if (typeof fn === 'function') {
@@ -265,7 +264,7 @@ class jsToolBar {
       res = sel || '';
     }
 
-    subst = prefix + res + clean_suffix;
+    subst = prefix + res + cleanSuffix;
 
     if (typeof document.selection !== 'undefined') {
       document.selection.createRange().text = subst;
@@ -322,7 +321,7 @@ class jsButton {
     button.setAttribute('type', 'button');
     if (this.className) button.className = this.className;
     button.title = this.title;
-    button.id = 'jstb_' + (Math.random() + 1).toString(36).substring(5);
+    button.id = `jstb_${(Math.random() + 1).toString(36).substring(5)}`;
     if (this.accesskey) button.accessKey = this.accesskey;
     if (this.shortkey) {
       if (this.shortkey_name) button.title += ` (CTRL+${this.shortkey_name})`;
@@ -338,20 +337,20 @@ class jsButton {
     }
     // Icons (light or light/dark)
     if (this.icon !== undefined) {
-      const img_light = document.createElement('img');
-      img_light.setAttribute('src', this.icon);
-      img_light.setAttribute('alt', this.title);
+      const iconLight = document.createElement('img');
+      iconLight.setAttribute('src', this.icon);
+      iconLight.setAttribute('alt', this.title);
       if (this.icon_dark === undefined) {
         // Add contrast
-        button.appendChild(img_light);
+        button.appendChild(iconLight);
       } else {
-        img_light.classList.add('light-only');
-        button.appendChild(img_light);
-        const img_dark = document.createElement('img');
-        img_dark.setAttribute('src', this.icon_dark);
-        img_dark.setAttribute('alt', this.title);
-        img_dark.classList.add('dark-only');
-        button.appendChild(img_dark);
+        iconLight.classList.add('light-only');
+        button.appendChild(iconLight);
+        const iconDark = document.createElement('img');
+        iconDark.setAttribute('src', this.icon_dark);
+        iconDark.setAttribute('alt', this.title);
+        iconDark.classList.add('dark-only');
+        button.appendChild(iconDark);
       }
     }
     // Title
@@ -374,7 +373,7 @@ class jsButton {
 // jsSpace
 class jsSpace {
   constructor(id) {
-    this.id = id || 'jsts_' + (Math.random() + 1).toString(36).substring(5);
+    this.id = id || `jsts_${(Math.random() + 1).toString(36).substring(5)}`;
     this.width = null;
   }
 
@@ -409,13 +408,13 @@ class jsCombo {
     const select = document.createElement('select');
     if (this.className) select.className = this.className;
     select.title = this.title;
-    select.id = 'jstc_' + (Math.random() + 1).toString(36).substring(5);
+    select.id = `jstc_${(Math.random() + 1).toString(36).substring(5)}`;
 
-    for (const o in this.options) {
-      const option = document.createElement('option');
-      option.value = o;
-      option.appendChild(document.createTextNode(this.options[o]));
-      select.appendChild(option);
+    for (const option in this.options) {
+      const optionElement = document.createElement('option');
+      optionElement.value = option;
+      optionElement.appendChild(document.createTextNode(this.options[option]));
+      select.appendChild(optionElement);
     }
 
     const This = this;
@@ -451,7 +450,7 @@ class jsDialog {
 
     // 1. Create dialog HTML
     const template = document.createElement('template');
-    const fields_html = this.fields.map((field) => `<p class="field">${field.html}</p>`).join('');
+    const fieldsHtml = this.fields.map((field) => `<p class="field">${field.html}</p>`).join('');
     const html = (strings, ...values) =>
       strings.reduce(
         (accumulator, currentValue, currentIndex) => accumulator + currentValue + (values[currentIndex] ?? ''),
@@ -462,7 +461,7 @@ class jsDialog {
       <dialog class="jstDialog">
         ${title}
         <form method="dialog">
-          ${fields_html}
+          ${fieldsHtml}
           <p class="form-buttons">
             <button name="cancel" class="reset">${this.cancel_label}</button>
             <button type="submit" name="confirm" class="submit">${this.confirm_label}</button>
@@ -670,32 +669,32 @@ jsToolBar.prototype.elements.quote = {
   fn: {
     async wiki() {
       await this.elements.quote.prompt.call(this, (response) => {
-        let end_tag = '';
+        let endTag = '';
         if (response.lang) {
-          end_tag = `${end_tag}|${response.lang}`;
+          endTag = `${endTag}|${response.lang}`;
         }
         if (response.cite) {
           if (!response.lang) {
-            end_tag = `${end_tag}|`;
+            endTag = `${endTag}|`;
           }
-          end_tag = `${end_tag}|${response.cite}`;
+          endTag = `${endTag}|${response.cite}`;
         }
-        end_tag = `${end_tag}}}`;
-        this.encloseSelection('{{', end_tag);
+        endTag = `${endTag}}}`;
+        this.encloseSelection('{{', endTag);
       });
     },
     async xhtml() {
       await this.elements.quote.prompt.call(this, (response) => {
-        let start_tag = '<q';
+        let startTag = '<q';
         if (response.cite) {
-          start_tag = `${start_tag} cite="${response.cite}"`;
+          startTag = `${startTag} cite="${response.cite}"`;
         }
         if (response.lang) {
-          start_tag = `${start_tag} lang="${response.lang}"`;
+          startTag = `${startTag} lang="${response.lang}"`;
         }
-        start_tag = `${start_tag}>`;
+        startTag = `${startTag}>`;
 
-        this.encloseSelection(start_tag, '</q>');
+        this.encloseSelection(startTag, '</q>');
       });
     },
   },
