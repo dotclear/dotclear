@@ -69,18 +69,18 @@ dotclear.ready(() => {
 
   // Check if entry date or title change
   const post_options = dotclear.getData('post_options');
-  const urlTitle = document.querySelector('#post_title');
-  if (post_options?.entryurl_dt || urlTitle) {
-    const urlEntry = document.querySelector('#post_url');
-    const urlStatus = document.querySelector('#post_status');
-    if (urlEntry && urlStatus?.value !== '1') {
+  if (post_options?.entryurl_dt || post_options?.entryurl_title) {
+    const titleField = document.querySelector('#post_title');
+    const urlField = document.querySelector('#post_url');
+    const statusField = document.querySelector('#post_status');
+    if (urlField && statusField?.value !== '1') {
       // Only not already published entry
       if (post_options?.entryurl_dt) {
         // Date field management
         const askResetDt = (event) => {
-          if (event.target.value.slice(0, 10) !== dtValue && urlEntry.value !== '') {
+          if (event.target.value.slice(0, 10) !== dtValue && urlField.value !== '') {
             // Date has changed and entry URL is not empty, ask for reset
-            if (window.confirm(dotclear.msg.dtchange_reseturl)) urlEntry.value = '';
+            if (window.confirm(dotclear.msg.dtchange_reseturl)) urlField.value = '';
           }
         };
         const dtValue = dtField.value.slice(0, 10); // Keep only date (ignoring time)
@@ -90,17 +90,17 @@ dotclear.ready(() => {
         });
       }
       // Title field management
-      if (urlTitle) {
+      if (post_options?.entryurl_title) {
         const askResetTitle = (event) => {
-          if (event.target.value !== titleValue && urlEntry.value !== '') {
+          if (event.target.value !== titleValue && urlField.value !== '') {
             // Title has changed and entry URL is not empty, ask for reset
-            if (window.confirm(dotclear.msg.titlechange_reseturl)) urlEntry.value = '';
+            if (window.confirm(dotclear.msg.titlechange_reseturl)) urlField.value = '';
           }
         };
-        const titleValue = urlTitle.value;
-        urlTitle.addEventListener('blur', (event) => askResetTitle(event));
-        urlTitle.addEventListener('keypress', (/** @type {KeyboardEvent} */ event) => {
-          if (event?.key === 'Enter') urlTitle.blur();
+        const titleValue = titleField.value;
+        titleField.addEventListener('blur', (event) => askResetTitle(event));
+        titleField.addEventListener('keypress', (/** @type {KeyboardEvent} */ event) => {
+          if (event?.key === 'Enter') titleField.blur();
         });
       }
     }

@@ -575,12 +575,18 @@ class Post
         // Check if entry URL basename use year, month or date
         $check_dt = preg_match('/{[y|m|d]}/', (string) App::blog()->settings()->system->post_url_format);
 
+        // Check if entry URL basename use title
+        $check_title = preg_match('/{t}/', (string) App::blog()->settings()->system->post_url_format);
+
         Page::open(
             App::backend()->page_title . ' - ' . __('Posts'),
             Page::jsModal() .
             Page::jsMetaEditor() .
             $admin_post_behavior .
-            Page::jsJson('post_options', ['entryurl_dt' => $check_dt]) .
+            Page::jsJson('post_options', [
+                'entryurl_dt'    => $check_dt,
+                'entryurl_title' => $check_title,
+            ]) .
             Page::jsLoad('js/_post.js') .
             Page::jsLoad('js/_trackbacks.js') .
             Page::jsConfirmClose('entry-form', 'comment-form') .
