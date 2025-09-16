@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-01 12:51+0200\n"
-"PO-Revision-Date: 2025-09-01 10:55\n"
+"POT-Creation-Date: 2025-09-16 10:56+0200\n"
+"PO-Revision-Date: 2025-09-16 09:03\n"
 "Last-Translator: \n"
 "Language-Team: Romanian\n"
 "Language: ro_RO\n"
@@ -17,11 +17,11 @@ msgstr ""
 "X-Crowdin-File: /master/locales/_pot/plugins.pot\n"
 "X-Crowdin-File-ID: 264\n"
 
-#: plugins/Uninstaller/src/Backend.php:47
+#: plugins/Uninstaller/src/Backend.php:49
 msgid "Uninstall"
 msgstr "Dezinstalați"
 
-#: plugins/Uninstaller/src/Backend.php:105
+#: plugins/Uninstaller/src/Backend.php:107
 msgid "Plugin has been successfully uninstalled."
 msgstr "Plugin-ul a fost dezinstalat cu succes."
 
@@ -403,41 +403,41 @@ msgstr "Unknown cleaner \"%s\""
 msgid "Uninstaller can't remove itself"
 msgstr "Uninstaller nu se poate elimina singur"
 
-#: plugins/Uninstaller/src/Manage.php:63
+#: plugins/Uninstaller/src/Manage.php:65
 msgid "Unknown module id to uninstall"
 msgstr "Id de modul necunoscut pentru dezinstalare"
 
-#: plugins/Uninstaller/src/Manage.php:71
+#: plugins/Uninstaller/src/Manage.php:73
 msgid "There are no uninstall actions for this module"
 msgstr "Nu există acțiuni de dezinstalare pentru acest modul."
 
-#: plugins/Uninstaller/src/Manage.php:96
+#: plugins/Uninstaller/src/Manage.php:98
 msgid "Uninstall action successfuly excecuted"
 msgstr "Acțiunea de dezinstalare a fost executată cu succes"
 
-#: plugins/Uninstaller/src/Manage.php:99
+#: plugins/Uninstaller/src/Manage.php:101
 msgid "No uninstall action done"
 msgstr "Nu s-a efectuat nicio acțiune de dezinstalare"
 
-#: plugins/Uninstaller/src/Manage.php:145
+#: plugins/Uninstaller/src/Manage.php:147
 msgid "Perform selected actions"
 msgstr "Efectuarea acțiunilor selectate"
 
-#: plugins/Uninstaller/src/Manage.php:160
+#: plugins/Uninstaller/src/Manage.php:162
 msgid "Are you sure you perform these ations?"
 msgstr "Sunteți sigur că efectuați aceste operații?"
 
-#: plugins/Uninstaller/src/Manage.php:176
+#: plugins/Uninstaller/src/Manage.php:178
 #, php-format
 msgid "Uninstall plugin \"%s\""
 msgstr "Dezinstalare plugin \"%s\""
 
-#: plugins/Uninstaller/src/Manage.php:176
+#: plugins/Uninstaller/src/Manage.php:178
 #, php-format
 msgid "Uninstall theme \"%s\""
 msgstr "Dezinstalați tema \"%s\""
 
-#: plugins/Uninstaller/src/Manage.php:177
+#: plugins/Uninstaller/src/Manage.php:179
 #, php-format
 msgid "The module \"%1$s\" version %2$s offers advanced uninstall process:"
 msgstr "Modulul \"%1$s\" versiunea %2$s oferă un proces avansat de dezinstalare:"
@@ -446,30 +446,30 @@ msgstr "Modulul \"%1$s\" versiunea %2$s oferă un proces avansat de dezinstalare
 msgid "Cope with old core classes (< 2.26)"
 msgstr "Copie cu clasele vechi de bază (< 2.26)"
 
-#: plugins/_fake_plugin/_fake_l10n.php:8 plugins/antispam/src/Backend.php:30
+#: plugins/_fake_plugin/_fake_l10n.php:8 plugins/antispam/src/Backend.php:32
 msgid "Generic antispam plugin for Dotclear"
 msgstr "Plugin generic antispam pentru Dotclear"
 
-#: plugins/_fake_plugin/_fake_l10n.php:9 plugins/akismet/src/Prepend.php:27
+#: plugins/_fake_plugin/_fake_l10n.php:9 plugins/akismet/src/Prepend.php:29
 msgid "Akismet interface for Dotclear"
 msgstr "Interfață Akismet pentru Dotclear"
 
 #: plugins/_fake_plugin/_fake_l10n.php:10
-#: plugins/fairTrackbacks/src/Prepend.php:27
+#: plugins/fairTrackbacks/src/Prepend.php:29
 msgid "Trackback validity check"
 msgstr "Verificare validitate Trackback"
 
 #: plugins/_fake_plugin/_fake_l10n.php:11
-#: plugins/attachments/src/Backend.php:26
+#: plugins/attachments/src/Backend.php:28
 msgid "Manage post attachments"
 msgstr "Gestionează atașamentele postărilor"
 
-#: plugins/_fake_plugin/_fake_l10n.php:12 plugins/pages/src/Backend.php:29
+#: plugins/_fake_plugin/_fake_l10n.php:12 plugins/pages/src/Backend.php:31
 msgid "Serve entries as simple web pages"
 msgstr "Intrări pe server ca pagini web simple"
 
 #: plugins/_fake_plugin/_fake_l10n.php:13
-#: plugins/aboutConfig/src/Backend.php:26
+#: plugins/aboutConfig/src/Backend.php:28
 msgid "Manage every blog configuration directive"
 msgstr "Gestionează fiecare directivă de configurare a blogului"
 
@@ -478,56 +478,56 @@ msgid "Uninstall cleanly plugins and themes"
 msgstr "Dezinstalarea curată a plugin-urilor și temelor"
 
 #: plugins/_fake_plugin/_fake_l10n.php:15
-#: plugins/dcLegacyEditor/src/Backend.php:27
-#: plugins/dcLegacyEditor/src/Manage.php:73
+#: plugins/dcLegacyEditor/src/Backend.php:29
+#: plugins/dcLegacyEditor/src/Manage.php:75
 msgid "Dotclear editor"
 msgstr "Editorul Dotclear"
 
 #: plugins/_fake_plugin/_fake_l10n.php:16
-#: plugins/themeEditor/src/Backend.php:26
+#: plugins/themeEditor/src/Backend.php:28
 msgid "Theme Editor"
 msgstr "Editor de teme"
 
-#: plugins/_fake_plugin/_fake_l10n.php:17 plugins/simpleMenu/src/Backend.php:27
+#: plugins/_fake_plugin/_fake_l10n.php:17 plugins/simpleMenu/src/Backend.php:29
 msgid "Simple menu for Dotclear"
 msgstr "Meniu simplu pentru Dotclear"
 
 #: plugins/_fake_plugin/_fake_l10n.php:18
-#: plugins/importExport/src/Backend.php:28
+#: plugins/importExport/src/Backend.php:30
 msgid "Import and Export your blog"
 msgstr "Importă și Exportă blogul tău"
 
-#: plugins/_fake_plugin/_fake_l10n.php:19 plugins/userPref/src/Backend.php:26
+#: plugins/_fake_plugin/_fake_l10n.php:19 plugins/userPref/src/Backend.php:28
 msgid "Manage every user preference directive"
 msgstr "Gestionați fiecare directivă preferință utilizator"
 
-#: plugins/_fake_plugin/_fake_l10n.php:20 plugins/dcCKEditor/src/Backend.php:26
-#: plugins/dcCKEditor/src/Manage.php:170
+#: plugins/_fake_plugin/_fake_l10n.php:20 plugins/dcCKEditor/src/Backend.php:28
+#: plugins/dcCKEditor/src/Manage.php:172
 msgid "CKEditor"
 msgstr "CKEditor"
 
 #: plugins/_fake_plugin/_fake_l10n.php:21
-#: plugins/maintenance/src/Backend.php:26
+#: plugins/maintenance/src/Backend.php:28
 msgid "Maintain your installation"
 msgstr "Menține instalarea"
 
-#: plugins/_fake_plugin/_fake_l10n.php:22 plugins/breadcrumb/src/Backend.php:26
+#: plugins/_fake_plugin/_fake_l10n.php:22 plugins/breadcrumb/src/Backend.php:28
 msgid "Breadcrumb for Dotclear"
 msgstr "Breadcrumb pentru Dotclear"
 
-#: plugins/_fake_plugin/_fake_l10n.php:23 plugins/blogroll/src/Backend.php:27
+#: plugins/_fake_plugin/_fake_l10n.php:23 plugins/blogroll/src/Backend.php:29
 msgid "Manage your blogroll"
 msgstr "Administreaza-ti blogroll"
 
-#: plugins/_fake_plugin/_fake_l10n.php:24 plugins/pings/src/Backend.php:28
+#: plugins/_fake_plugin/_fake_l10n.php:24 plugins/pings/src/Backend.php:30
 msgid "Ping services"
 msgstr "Servicii de ping"
 
-#: plugins/_fake_plugin/_fake_l10n.php:25 plugins/tags/src/Backend.php:26
+#: plugins/_fake_plugin/_fake_l10n.php:25 plugins/tags/src/Backend.php:28
 msgid "Tags for posts"
 msgstr "Etichete pentru postări"
 
-#: plugins/_fake_plugin/_fake_l10n.php:26 plugins/widgets/src/Backend.php:28
+#: plugins/_fake_plugin/_fake_l10n.php:26 plugins/widgets/src/Backend.php:30
 msgid "Widgets for your blog sidebars"
 msgstr "Widget-uri pentru sidebar-urile de blog"
 
@@ -591,22 +591,22 @@ msgstr "Lista Blogroll"
 msgid "Tags cloud"
 msgstr "Nor etichete"
 
-#: plugins/aboutConfig/src/Backend.php:25
+#: plugins/aboutConfig/src/Backend.php:27
 msgid "about:config"
 msgstr "despre:config"
 
-#: plugins/aboutConfig/src/Manage.php:89 plugins/aboutConfig/src/Manage.php:109
+#: plugins/aboutConfig/src/Manage.php:92 plugins/aboutConfig/src/Manage.php:112
 msgid "Configuration successfully updated"
 msgstr "Configurație actualizată cu succes"
 
-#: plugins/aboutConfig/src/Manage.php:149
-#: plugins/aboutConfig/src/Manage.php:151
+#: plugins/aboutConfig/src/Manage.php:152
+#: plugins/aboutConfig/src/Manage.php:154
 #, php-format
 msgid "Settings for %s"
 msgstr "Setări pentru %s"
 
-#: plugins/aboutConfig/src/Manage.php:159
-#: plugins/aboutConfig/src/Manage.php:161
+#: plugins/aboutConfig/src/Manage.php:162
+#: plugins/aboutConfig/src/Manage.php:164
 msgid "Global settings"
 msgstr "Setări globale"
 
@@ -622,13 +622,13 @@ msgstr "Setare ID"
 msgid "Value"
 msgstr "Valoare"
 
-#: plugins/aboutConfig/src/Manage.php:314 plugins/userPref/src/Manage.php:312
-msgid "no"
-msgstr "nu"
-
-#: plugins/aboutConfig/src/Manage.php:314 plugins/userPref/src/Manage.php:312
+#: plugins/aboutConfig/src/Manage.php:315 plugins/userPref/src/Manage.php:313
 msgid "yes"
 msgstr "da"
+
+#: plugins/aboutConfig/src/Manage.php:316 plugins/userPref/src/Manage.php:314
+msgid "no"
+msgstr "nu"
 
 #: plugins/akismet/src/AntispamFilterAkismet.php:80
 msgid "Akismet spam filter"
@@ -663,30 +663,30 @@ msgstr "Cheie API de Akismet"
 msgid "Get your own API key"
 msgstr "Obțineți-vă propia cheie API"
 
-#: plugins/akismet/src/Prepend.php:26
+#: plugins/akismet/src/Prepend.php:28
 msgid "Akismet"
 msgstr "Akismet"
 
-#: plugins/antispam/src/Antispam.php:147
+#: plugins/antispam/src/Antispam.php:139
 msgid "This comment is a spam:"
 msgstr "Acest comentariu este spam:"
 
-#: plugins/antispam/src/Antispam.php:163 plugins/antispam/src/Rest.php:27
+#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:27
 #, php-format
 msgid "(including %d spam comment)"
 msgstr "(incluzând %d comentariu spam)"
 
-#: plugins/antispam/src/Antispam.php:163 plugins/antispam/src/Rest.php:27
+#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:27
 #, php-format
 msgid "(including %d spam comments)"
 msgstr "(incluzând %d comentarii spam)"
 
-#: plugins/antispam/src/Backend.php:29
+#: plugins/antispam/src/Backend.php:31
 msgid "Antispam"
 msgstr "Antispam"
 
 #: plugins/antispam/src/BackendBehaviors.php:56
-#: plugins/antispam/src/Manage.php:224
+#: plugins/antispam/src/Manage.php:226
 #, php-format
 msgid "All spam comments older than %s day(s) will be automatically deleted."
 msgstr "Toate comentariile spam mai vechi de %s zile vor fi șterse automat."
@@ -779,7 +779,7 @@ msgstr "Adăugați o adresă IP:"
 #: plugins/antispam/src/Filters/Ip.php:274
 #: plugins/antispam/src/Filters/IpV6.php:273
 #: plugins/antispam/src/Filters/Words.php:292
-#: plugins/widgets/src/Manage.php:322
+#: plugins/widgets/src/Manage.php:324
 msgid "Add"
 msgstr "Inserare"
 
@@ -882,96 +882,96 @@ msgstr "Spam"
 msgid "Ham"
 msgstr "Ham"
 
-#: plugins/antispam/src/Manage.php:72
+#: plugins/antispam/src/Manage.php:74
 msgid "Filter does not exist."
 msgstr "Filtru nu există"
 
-#: plugins/antispam/src/Manage.php:76
+#: plugins/antispam/src/Manage.php:78
 msgid "Filter has no user interface."
 msgstr "Filtru nu are interfață de utilizator."
 
-#: plugins/antispam/src/Manage.php:137 plugins/antispam/src/Manage.php:270
+#: plugins/antispam/src/Manage.php:139 plugins/antispam/src/Manage.php:272
 msgid "Filters configuration has been successfully saved."
 msgstr "Configurația filtrelor a fost salvată."
 
-#: plugins/antispam/src/Manage.php:154
+#: plugins/antispam/src/Manage.php:156
 #, php-format
 msgid "%s configuration"
 msgstr "configuratia %s"
 
-#: plugins/antispam/src/Manage.php:175
+#: plugins/antispam/src/Manage.php:177
 #, php-format
 msgid "%s filter configuration"
 msgstr "Configurare filtru %s"
 
-#: plugins/antispam/src/Manage.php:182
+#: plugins/antispam/src/Manage.php:184
 msgid "Back to filters list"
 msgstr "Înapoi la lista de filtre"
 
-#: plugins/antispam/src/Manage.php:229
+#: plugins/antispam/src/Manage.php:231
 #, php-format
 msgid "You can modify this duration in the %s"
 msgstr "Puteți modifica această durată în %s"
 
-#: plugins/antispam/src/Manage.php:238
+#: plugins/antispam/src/Manage.php:240
 msgid "Information"
 msgstr "Informații"
 
-#: plugins/antispam/src/Manage.php:249
+#: plugins/antispam/src/Manage.php:251
 msgid "Junk comments:"
 msgstr "Comentarii junk:"
 
-#: plugins/antispam/src/Manage.php:255
+#: plugins/antispam/src/Manage.php:257
 msgid "Published comments:"
 msgstr "Comentarii publicate:"
 
-#: plugins/antispam/src/Manage.php:279 plugins/antispam/src/Manage.php:282
-#: plugins/antispam/src/Manage.php:286
+#: plugins/antispam/src/Manage.php:281 plugins/antispam/src/Manage.php:284
+#: plugins/antispam/src/Manage.php:288
 msgid "Filter configuration"
 msgstr "Configurare filtru"
 
-#: plugins/antispam/src/Manage.php:302 plugins/blogroll/src/Manage.php:306
+#: plugins/antispam/src/Manage.php:304 plugins/blogroll/src/Manage.php:308
 msgid "position"
 msgstr "poziţie"
 
-#: plugins/antispam/src/Manage.php:309 plugins/antispam/src/Manage.php:343
+#: plugins/antispam/src/Manage.php:311 plugins/antispam/src/Manage.php:345
 msgid "Active"
 msgstr "Activ"
 
-#: plugins/antispam/src/Manage.php:316 plugins/antispam/src/Manage.php:344
+#: plugins/antispam/src/Manage.php:318 plugins/antispam/src/Manage.php:346
 msgid "Auto Del."
 msgstr "Ștergere auto."
 
-#: plugins/antispam/src/Manage.php:337
+#: plugins/antispam/src/Manage.php:339
 msgid "Available spam filters"
 msgstr "Filtre de spam disponibile."
 
-#: plugins/antispam/src/Manage.php:342
+#: plugins/antispam/src/Manage.php:344
 #: plugins/pages/src/BackendDefaultActions.php:74
 msgid "Order"
 msgstr "Comandă"
 
-#: plugins/antispam/src/Manage.php:345
+#: plugins/antispam/src/Manage.php:347
 msgid "Filter name"
 msgstr "Nume filtru"
 
-#: plugins/antispam/src/Manage.php:372
+#: plugins/antispam/src/Manage.php:374
 msgid "Syndication"
 msgstr "Abonare distribuită (syndication)"
 
-#: plugins/antispam/src/Manage.php:375
+#: plugins/antispam/src/Manage.php:377
 msgid "Junk comments RSS feed"
 msgstr "Abonare RSS de comentarii junk"
 
-#: plugins/antispam/src/Manage.php:378
+#: plugins/antispam/src/Manage.php:380
 msgid "Published comments RSS feed"
 msgstr "Abonare RSS de comentarii publicate"
 
-#: plugins/antispam/src/SpamFilter.php:93
+#: plugins/antispam/src/SpamFilter.php:95
 msgid "No description"
 msgstr "Fără descriere"
 
-#: plugins/antispam/src/SpamFilter.php:151
+#: plugins/antispam/src/SpamFilter.php:153
 #, php-format
 msgid "Filtered by %1$s (%2$s)"
 msgstr "Filtrat de %1$s (%2$s)"
@@ -980,7 +980,7 @@ msgstr "Filtrat de %1$s (%2$s)"
 msgid "Unknown filter."
 msgstr "Filtru necunoscut"
 
-#: plugins/attachments/src/Backend.php:25
+#: plugins/attachments/src/Backend.php:27
 msgid "attachments"
 msgstr "atașamente"
 
@@ -1039,11 +1039,11 @@ msgstr[0] "%d link-ul a fost șters cu succes"
 msgstr[1] "%d link-ul a fost șters cu succes"
 msgstr[2] "%d legăturile au fost șterse cu succes"
 
-#: plugins/blogroll/src/Backend.php:26
+#: plugins/blogroll/src/Backend.php:28
 msgid "Blogroll"
 msgstr "Îngheţare"
 
-#: plugins/blogroll/src/Backend.php:38
+#: plugins/blogroll/src/Backend.php:40
 msgid "manage blogroll"
 msgstr "administrare blogroll"
 
@@ -1063,217 +1063,217 @@ msgstr "Nu vi se permite să modificați statutul linkului"
 msgid "You are not allowed to delete links"
 msgstr "Nu aveți voie să ștergeți linkuri"
 
-#: plugins/blogroll/src/Manage.php:114 plugins/blogroll/src/Manage.php:617
+#: plugins/blogroll/src/Manage.php:116 plugins/blogroll/src/Manage.php:619
 msgid "Nothing to import"
 msgstr "Nimic a se importa"
 
-#: plugins/blogroll/src/Manage.php:137
+#: plugins/blogroll/src/Manage.php:139
 msgid "links have been successfully imported."
 msgstr "legături au fost importate."
 
-#: plugins/blogroll/src/Manage.php:144
+#: plugins/blogroll/src/Manage.php:146
 msgid "Import operation cancelled."
 msgstr "Execuția de import a fost anulată."
 
-#: plugins/blogroll/src/Manage.php:160
+#: plugins/blogroll/src/Manage.php:162
 msgid "Link has been successfully created."
 msgstr "Legătura a fost creată."
 
-#: plugins/blogroll/src/Manage.php:176
+#: plugins/blogroll/src/Manage.php:178
 msgid "category has been successfully created."
 msgstr "categoria a fost creată."
 
-#: plugins/blogroll/src/Manage.php:209
+#: plugins/blogroll/src/Manage.php:211
 msgid "Items order has been successfully updated"
 msgstr "Lista de elements a fost actualizată"
 
-#: plugins/blogroll/src/Manage.php:275
+#: plugins/blogroll/src/Manage.php:277
 msgid "Are you sure you want to delete selected links?"
 msgstr "Sunteţi sigur că doriţi să ştergeţi link-urile selectate?"
 
-#: plugins/blogroll/src/Manage.php:313
+#: plugins/blogroll/src/Manage.php:315
 msgid "select this link"
 msgstr "selectează acest link"
 
-#: plugins/blogroll/src/Manage.php:373
+#: plugins/blogroll/src/Manage.php:375
 msgid "Lang"
 msgstr "Limbă"
 
-#: plugins/blogroll/src/Manage.php:421
+#: plugins/blogroll/src/Manage.php:423
 msgid "Selected links action:"
 msgstr "Link-uri selectate acțiune:"
 
-#: plugins/blogroll/src/Manage.php:441
+#: plugins/blogroll/src/Manage.php:443
 msgid "The link list is empty"
 msgstr "Lista de legături este goală"
 
-#: plugins/blogroll/src/Manage.php:464
+#: plugins/blogroll/src/Manage.php:466
 msgid "Add a new link"
 msgstr "Adaugă o nouă legătură"
 
-#: plugins/blogroll/src/Manage.php:515 plugins/blogroll/src/Manage.php:565
-#: plugins/blogroll/src/ManageEdit.php:224
-#: plugins/blogroll/src/ManageEdit.php:296
+#: plugins/blogroll/src/Manage.php:517 plugins/blogroll/src/Manage.php:567
+#: plugins/blogroll/src/ManageEdit.php:226
+#: plugins/blogroll/src/ManageEdit.php:298
 msgid "Link status"
 msgstr "Starea legăturii"
 
-#: plugins/blogroll/src/Manage.php:534
+#: plugins/blogroll/src/Manage.php:536
 msgid "Add a category"
 msgstr "Adaugă o categorie"
 
-#: plugins/blogroll/src/Manage.php:588 plugins/blogroll/src/Manage.php:680
-#: plugins/blogroll/src/Manage.php:687
+#: plugins/blogroll/src/Manage.php:590 plugins/blogroll/src/Manage.php:682
+#: plugins/blogroll/src/Manage.php:689
 msgid "Import links"
 msgstr "Importă legături"
 
-#: plugins/blogroll/src/Manage.php:597
+#: plugins/blogroll/src/Manage.php:599
 msgid "OPML or XBEL File:"
 msgstr "Fișier OPML sau XBEL:"
 
-#: plugins/blogroll/src/Manage.php:607 plugins/blogroll/src/Manage.php:672
-#: plugins/importExport/src/Manage.php:130
+#: plugins/blogroll/src/Manage.php:609 plugins/blogroll/src/Manage.php:674
+#: plugins/importExport/src/Manage.php:132
 #: plugins/importExport/src/ModuleImportFeed.php:239
-#: plugins/importExport/src/ModuleImportFlat.php:245
-#: plugins/importExport/src/ModuleImportFlat.php:307
+#: plugins/importExport/src/ModuleImportFlat.php:250
+#: plugins/importExport/src/ModuleImportFlat.php:312
 msgid "Import"
 msgstr "Importă"
 
-#: plugins/blogroll/src/ManageEdit.php:71
+#: plugins/blogroll/src/ManageEdit.php:73
 msgid "No such link or title"
 msgstr "Nu există legătura/titlul"
 
-#: plugins/blogroll/src/ManageEdit.php:131
+#: plugins/blogroll/src/ManageEdit.php:133
 msgid "Link has been successfully updated"
 msgstr "Legătura a fost actualizată cu succes"
 
-#: plugins/blogroll/src/ManageEdit.php:148
+#: plugins/blogroll/src/ManageEdit.php:150
 msgid "Category has been successfully updated"
 msgstr "Categoria a fost actualizată cu succes"
 
-#: plugins/blogroll/src/ManageEdit.php:181
+#: plugins/blogroll/src/ManageEdit.php:183
 #: plugins/dcCKEditor/src/BackendBehaviors.php:62
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:221
 msgid "Link"
 msgstr "Link-ul"
 
-#: plugins/blogroll/src/ManageEdit.php:188
+#: plugins/blogroll/src/ManageEdit.php:190
 msgid "Return to blogroll"
 msgstr "Înapoi la blogroll"
 
-#: plugins/blogroll/src/ManageEdit.php:199
+#: plugins/blogroll/src/ManageEdit.php:201
 msgid "Edit category"
 msgstr "Editează categoria"
 
-#: plugins/blogroll/src/ManageEdit.php:243
+#: plugins/blogroll/src/ManageEdit.php:245
 msgid "Edit link"
 msgstr "Modifică legătura"
 
-#: plugins/blogroll/src/ManageEdit.php:302
+#: plugins/blogroll/src/ManageEdit.php:304
 msgid "XFN information"
 msgstr "Informații XFN"
 
-#: plugins/blogroll/src/ManageEdit.php:306
+#: plugins/blogroll/src/ManageEdit.php:308
 #, php-format
 msgid "More information on <a href=\"%s\">Wikipedia</a> website"
 msgstr "Mai multe informații pe site-ul <a href=\"%s\">Wikipedia</a>"
 
-#: plugins/blogroll/src/ManageEdit.php:312
+#: plugins/blogroll/src/ManageEdit.php:314
 msgid "_xfn_Me"
 msgstr "_xfn"
 
-#: plugins/blogroll/src/ManageEdit.php:316
+#: plugins/blogroll/src/ManageEdit.php:318
 msgid "_xfn_Another link for myself"
 msgstr "_xfn_Alt link pentru mine"
 
-#: plugins/blogroll/src/ManageEdit.php:320
+#: plugins/blogroll/src/ManageEdit.php:322
 msgid "_xfn_Friendship"
 msgstr "_xfn_Friendship"
 
-#: plugins/blogroll/src/ManageEdit.php:324
+#: plugins/blogroll/src/ManageEdit.php:326
 msgid "_xfn_Contact"
 msgstr "_xfn_Contact"
 
-#: plugins/blogroll/src/ManageEdit.php:327
+#: plugins/blogroll/src/ManageEdit.php:329
 msgid "_xfn_Acquaintance"
 msgstr "_xfn_Achiziție"
 
-#: plugins/blogroll/src/ManageEdit.php:330
+#: plugins/blogroll/src/ManageEdit.php:332
 msgid "_xfn_Friend"
 msgstr "_xfn_prieten"
 
-#: plugins/blogroll/src/ManageEdit.php:340
+#: plugins/blogroll/src/ManageEdit.php:342
 msgid "_xfn_Physical"
 msgstr "_xfn_Fizic"
 
-#: plugins/blogroll/src/ManageEdit.php:344
+#: plugins/blogroll/src/ManageEdit.php:346
 msgid "_xfn_Met"
 msgstr "_xfn_Met"
 
-#: plugins/blogroll/src/ManageEdit.php:348
+#: plugins/blogroll/src/ManageEdit.php:350
 msgid "_xfn_Professional"
 msgstr "_xfn_Professional"
 
-#: plugins/blogroll/src/ManageEdit.php:352
+#: plugins/blogroll/src/ManageEdit.php:354
 msgid "_xfn_Co-worker"
 msgstr "_xfn_Co-worker"
 
-#: plugins/blogroll/src/ManageEdit.php:355
+#: plugins/blogroll/src/ManageEdit.php:357
 msgid "_xfn_Colleague"
 msgstr "_xfn_Coleg"
 
-#: plugins/blogroll/src/ManageEdit.php:359
+#: plugins/blogroll/src/ManageEdit.php:361
 msgid "_xfn_Geographical"
 msgstr "_xfn_geografic"
 
-#: plugins/blogroll/src/ManageEdit.php:363
+#: plugins/blogroll/src/ManageEdit.php:365
 msgid "_xfn_Co-resident"
 msgstr "_xfn_Colaborator"
 
-#: plugins/blogroll/src/ManageEdit.php:366
+#: plugins/blogroll/src/ManageEdit.php:368
 msgid "_xfn_Neighbor"
 msgstr "_x"
 
-#: plugins/blogroll/src/ManageEdit.php:376
+#: plugins/blogroll/src/ManageEdit.php:378
 msgid "_xfn_Family"
 msgstr "_xfn_familie"
 
-#: plugins/blogroll/src/ManageEdit.php:380
+#: plugins/blogroll/src/ManageEdit.php:382
 msgid "_xfn_Child"
 msgstr "_xfn_Copil"
 
-#: plugins/blogroll/src/ManageEdit.php:383
+#: plugins/blogroll/src/ManageEdit.php:385
 msgid "_xfn_Parent"
 msgstr "_xfn_Părinte"
 
-#: plugins/blogroll/src/ManageEdit.php:386
+#: plugins/blogroll/src/ManageEdit.php:388
 msgid "_xfn_Sibling"
 msgstr "_xfn_Sibling"
 
-#: plugins/blogroll/src/ManageEdit.php:389
+#: plugins/blogroll/src/ManageEdit.php:391
 msgid "_xfn_Spouse"
 msgstr "_xfn_Spouse"
 
-#: plugins/blogroll/src/ManageEdit.php:392
+#: plugins/blogroll/src/ManageEdit.php:394
 msgid "_xfn_Kin"
 msgstr "Kin"
 
-#: plugins/blogroll/src/ManageEdit.php:402
+#: plugins/blogroll/src/ManageEdit.php:404
 msgid "_xfn_Romantic"
 msgstr "_xfn_romantic"
 
-#: plugins/blogroll/src/ManageEdit.php:406
+#: plugins/blogroll/src/ManageEdit.php:408
 msgid "_xfn_Muse"
 msgstr "_xfn_Muse"
 
-#: plugins/blogroll/src/ManageEdit.php:409
+#: plugins/blogroll/src/ManageEdit.php:411
 msgid "_xfn_Crush"
 msgstr "_xfn_Cruce"
 
-#: plugins/blogroll/src/ManageEdit.php:412
+#: plugins/blogroll/src/ManageEdit.php:414
 msgid "_xfn_Date"
 msgstr "xfn_Dată"
 
-#: plugins/blogroll/src/ManageEdit.php:415
+#: plugins/blogroll/src/ManageEdit.php:417
 msgid "_xfn_Sweetheart"
 msgstr "_xfn_Verificare"
 
@@ -1290,7 +1290,7 @@ msgstr "Fișierul nu este XML."
 msgid "All categories"
 msgstr "Toate categoriile"
 
-#: plugins/breadcrumb/src/Backend.php:25
+#: plugins/breadcrumb/src/Backend.php:27
 msgid "Breadcrumb"
 msgstr "Breadcrumb"
 
@@ -1321,7 +1321,7 @@ msgstr "Nu încapsulați breadcrumb într-o etichetă &lt;p id=\"breadcrumb\"&gt
 #: plugins/breadcrumb/src/FrontendTemplate.php:193
 #: plugins/breadcrumb/src/FrontendTemplate.php:205
 #: plugins/breadcrumb/src/FrontendTemplate.php:211
-#: plugins/simpleMenu/src/Manage.php:147 plugins/simpleMenu/src/Manage.php:260
+#: plugins/simpleMenu/src/Manage.php:149 plugins/simpleMenu/src/Manage.php:263
 #: plugins/widgets/src/Widgets.php:296
 msgid "Home"
 msgstr "Acasă"
@@ -1336,13 +1336,13 @@ msgstr "pagina %d"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:155
 #: plugins/breadcrumb/src/FrontendTemplate.php:158
-#: plugins/simpleMenu/src/Manage.php:287 plugins/widgets/src/Widgets.php:324
+#: plugins/simpleMenu/src/Manage.php:290 plugins/widgets/src/Widgets.php:324
 msgid "Archives"
 msgstr "Arhive"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:174
 #: plugins/breadcrumb/src/FrontendTemplate.php:181
-#: plugins/simpleMenu/src/Manage.php:131 plugins/simpleMenu/src/Manage.php:307
+#: plugins/simpleMenu/src/Manage.php:133 plugins/simpleMenu/src/Manage.php:310
 #: plugins/tags/src/Widgets.php:57
 msgid "All tags"
 msgstr "Toate etichetele"
@@ -1367,12 +1367,12 @@ msgstr "Nu s-a putut genera fișierul fake l10n."
 msgid "Generate a php file that contents strings to translate that are not be done with core tools."
 msgstr "Genereaza un fisier php ca sirurile de continut sa fie traduse care nu sunt facute cu uneltele de nucleu."
 
-#: plugins/dcCKEditor/src/Backend.php:25
+#: plugins/dcCKEditor/src/Backend.php:27
 msgid "dcCKEditor"
 msgstr "CKEditor"
 
-#: plugins/dcCKEditor/src/Backend.php:41
-#: plugins/dcLegacyEditor/src/Backend.php:46
+#: plugins/dcCKEditor/src/Backend.php:43
+#: plugins/dcLegacyEditor/src/Backend.php:48
 msgid "HTML"
 msgstr "HTML"
 
@@ -1410,99 +1410,99 @@ msgstr "Câmpul URL nu poate fi gol."
 msgid "Open the media"
 msgstr "Deschideți suportul media"
 
-#: plugins/dcCKEditor/src/Manage.php:149
-#: plugins/dcLegacyEditor/src/Manage.php:56
+#: plugins/dcCKEditor/src/Manage.php:151
+#: plugins/dcLegacyEditor/src/Manage.php:58
 msgid "The configuration has been updated."
 msgstr "Configurația a fost actualizată."
 
-#: plugins/dcCKEditor/src/Manage.php:179
-#: plugins/dcLegacyEditor/src/Manage.php:82
+#: plugins/dcCKEditor/src/Manage.php:181
+#: plugins/dcLegacyEditor/src/Manage.php:84
 msgid "Plugin activation"
 msgstr "Activare plugin"
 
-#: plugins/dcCKEditor/src/Manage.php:185
+#: plugins/dcCKEditor/src/Manage.php:187
 msgid "Enable CKEditor plugin"
 msgstr "Activați pluginul CKEditor"
 
-#: plugins/dcCKEditor/src/Manage.php:198
+#: plugins/dcCKEditor/src/Manage.php:200
 msgid "Add alignment buttons"
 msgstr "Adaugă butoane de aliniere"
 
-#: plugins/dcCKEditor/src/Manage.php:204
+#: plugins/dcCKEditor/src/Manage.php:206
 msgid "Add lists buttons"
 msgstr "Adaugă butoane liste"
 
-#: plugins/dcCKEditor/src/Manage.php:210
+#: plugins/dcCKEditor/src/Manage.php:212
 msgid "Add text color button"
 msgstr "Buton culoare text"
 
-#: plugins/dcCKEditor/src/Manage.php:216
+#: plugins/dcCKEditor/src/Manage.php:218
 msgid "Add background text color button"
 msgstr "Adaugă buton culoare text fundal"
 
-#: plugins/dcCKEditor/src/Manage.php:219
+#: plugins/dcCKEditor/src/Manage.php:221
 msgid "Custom colors list:"
 msgstr "Listă culori personalizate:"
 
-#: plugins/dcCKEditor/src/Manage.php:233
+#: plugins/dcCKEditor/src/Manage.php:235
 msgid "Add colors without # separated by a comma."
 msgstr "Adaugă culori fără # separate prin virgulă."
 
-#: plugins/dcCKEditor/src/Manage.php:238
+#: plugins/dcCKEditor/src/Manage.php:240
 msgid "Leave empty to use the default palette:"
 msgstr "Lăsați gol pentru a utiliza paleta implicită:"
 
-#: plugins/dcCKEditor/src/Manage.php:244
+#: plugins/dcCKEditor/src/Manage.php:246
 msgid "Example of custom color list:"
 msgstr "Exemplu de listă de culori personalizate:"
 
-#: plugins/dcCKEditor/src/Manage.php:252
+#: plugins/dcCKEditor/src/Manage.php:254
 msgid "Colors per row in palette:"
 msgstr "Culori pe rând în paletă:"
 
-#: plugins/dcCKEditor/src/Manage.php:256
+#: plugins/dcCKEditor/src/Manage.php:258
 msgid "Valid range: 4 to 16"
 msgstr "Interval valabil: 4 până la 16"
 
-#: plugins/dcCKEditor/src/Manage.php:261
+#: plugins/dcCKEditor/src/Manage.php:263
 msgid "Add collapse button"
 msgstr "Adaugă buton de colaps"
 
-#: plugins/dcCKEditor/src/Manage.php:267
+#: plugins/dcCKEditor/src/Manage.php:269
 msgid "Add format selection"
 msgstr "Adauga format selectie"
 
-#: plugins/dcCKEditor/src/Manage.php:270
+#: plugins/dcCKEditor/src/Manage.php:272
 msgid "Custom formats"
 msgstr "Formate personalizate"
 
-#: plugins/dcCKEditor/src/Manage.php:284
+#: plugins/dcCKEditor/src/Manage.php:286
 msgid "Default formats are p;h1;h2;h3;h4;h5;h6;pre;address"
 msgstr "Formatele standard sunt p;h1;h2;h3;h4;h5;h6;pre;adresa"
 
-#: plugins/dcCKEditor/src/Manage.php:290
+#: plugins/dcCKEditor/src/Manage.php:292
 msgid "Add table button"
 msgstr "Buton de adăugare tabel"
 
-#: plugins/dcCKEditor/src/Manage.php:296
+#: plugins/dcCKEditor/src/Manage.php:298
 msgid "Add clipboard buttons"
 msgstr "Adaugă butoane clipboard"
 
-#: plugins/dcCKEditor/src/Manage.php:300
+#: plugins/dcCKEditor/src/Manage.php:302
 msgid "Copy, Paste, Paste Text, Paste from Word"
 msgstr "Copie, Lipește, Lipește textul, Lipește din Word"
 
-#: plugins/dcCKEditor/src/Manage.php:305
+#: plugins/dcCKEditor/src/Manage.php:307
 msgid "Add undo/redo buttons"
 msgstr "Adaugă butoane anulare/redo"
 
-#: plugins/dcCKEditor/src/Manage.php:311
+#: plugins/dcCKEditor/src/Manage.php:313
 msgid "Disables the built-in spell checker if the browser provides one"
 msgstr "Dezactivează verificatorul încorporat al ortografiei dacă browser-ul oferă unul"
 
-#: plugins/dcCKEditor/src/Manage.php:321
-#: plugins/dcLegacyEditor/src/Manage.php:111
-#: plugins/simpleMenu/src/Manage.php:761
+#: plugins/dcCKEditor/src/Manage.php:323
+#: plugins/dcLegacyEditor/src/Manage.php:113
+#: plugins/simpleMenu/src/Manage.php:764
 msgid "Save configuration"
 msgstr "Salvează configurația"
 
@@ -1510,11 +1510,11 @@ msgstr "Salvează configurația"
 msgid "Note(s)"
 msgstr "Notă(e)"
 
-#: plugins/dcLegacyEditor/src/Backend.php:26
+#: plugins/dcLegacyEditor/src/Backend.php:28
 msgid "dcLegacyEditor"
 msgstr "Editorul Dotclear"
 
-#: plugins/dcLegacyEditor/src/Backend.php:50
+#: plugins/dcLegacyEditor/src/Backend.php:52
 msgid "Dotclear wiki"
 msgstr "Dotclear wiki"
 
@@ -1628,11 +1628,11 @@ msgstr "Limbă?"
 msgid "Remove text formating"
 msgstr "Elimină formatarea textului"
 
-#: plugins/dcLegacyEditor/src/Manage.php:88
+#: plugins/dcLegacyEditor/src/Manage.php:90
 msgid "Enable standard editor plugin"
 msgstr "Activați plugin-ul editorului standard"
 
-#: plugins/dcLegacyEditor/src/Manage.php:101
+#: plugins/dcLegacyEditor/src/Manage.php:103
 msgid "Adjust height of input area during editing"
 msgstr "Reglarea înălțimii zonei de intrare în timpul editării"
 
@@ -1640,11 +1640,11 @@ msgstr "Reglarea înălțimii zonei de intrare în timpul editării"
 msgid "Checks trackback source for a link to the post"
 msgstr "Verifică sursa trackback-ului pentru un link către postare"
 
-#: plugins/fairTrackbacks/src/Prepend.php:26
+#: plugins/fairTrackbacks/src/Prepend.php:28
 msgid "Fair Trackbacks"
 msgstr "Trackback-uri corecte"
 
-#: plugins/importExport/src/Backend.php:27
+#: plugins/importExport/src/Backend.php:29
 msgid "Import / Export"
 msgstr "Importă / Exportă"
 
@@ -1686,37 +1686,37 @@ msgstr "Fişierul nu este o copie de rezervă DotClear"
 msgid "File is not a single blog export."
 msgstr "Fișierul nu este un singur export de blog."
 
-#: plugins/importExport/src/FlatImportV2.php:291
-#: plugins/importExport/src/FlatImportV2.php:345
+#: plugins/importExport/src/FlatImportV2.php:294
+#: plugins/importExport/src/FlatImportV2.php:353
 #, php-format
 msgid "Error raised at line %s"
 msgstr "Eroare ridicată la linia %s"
 
-#: plugins/importExport/src/FlatImportV2.php:300
+#: plugins/importExport/src/FlatImportV2.php:305
 msgid "File is not a full export."
 msgstr "Fișierul nu este un export complet."
 
-#: plugins/importExport/src/FlatImportV2.php:756
+#: plugins/importExport/src/FlatImportV2.php:766
 #, php-format
 msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
 msgstr "ID-ul \"%3$s\" nu se potriveşte cu înregistrarea \"%1$s\" la linia %2$s din fişierul de backup de rezervă."
 
-#: plugins/importExport/src/Manage.php:90
-#: plugins/maintenance/src/Manage.php:199
+#: plugins/importExport/src/Manage.php:92
+#: plugins/maintenance/src/Manage.php:202
 msgid "Please wait..."
 msgstr "Vă rugăm așteptați..."
 
-#: plugins/importExport/src/Manage.php:136
+#: plugins/importExport/src/Manage.php:138
 msgid "Export"
 msgstr "Exportă"
 
-#: plugins/importExport/src/Manage.php:141
+#: plugins/importExport/src/Manage.php:143
 #, php-format
 msgid "Export functions are in the page %s."
 msgstr "Funcţiile de export sunt în pagina %s."
 
-#: plugins/importExport/src/Manage.php:144
-#: plugins/maintenance/src/Backend.php:25
+#: plugins/importExport/src/Manage.php:146
+#: plugins/maintenance/src/Backend.php:27
 #: plugins/maintenance/src/BackendBehaviors.php:221
 msgid "Maintenance"
 msgstr "Mentenanţă"
@@ -1753,99 +1753,99 @@ msgstr "Fișierul export nu a fost găsit."
 msgid "Failed to compress export file."
 msgstr "Nu s-a reușit comprimarea fișierului de export."
 
-#: plugins/importExport/src/ModuleImportDc1.php:84
+#: plugins/importExport/src/ModuleImportDc1.php:85
 msgid "Dotclear 1.2 import"
 msgstr "Import Dotclear 1.2"
 
-#: plugins/importExport/src/ModuleImportDc1.php:85
+#: plugins/importExport/src/ModuleImportDc1.php:86
 msgid "Import a Dotclear 1.2 installation into your current blog."
 msgstr "Importă o instalare Dotclear 1.2 în blogul tău curent."
 
-#: plugins/importExport/src/ModuleImportDc1.php:204
+#: plugins/importExport/src/ModuleImportDc1.php:217
 #, php-format
 msgid "Import the content of a Dotclear 1.2's blog in the current blog: %s."
 msgstr "Importă conținutul unui blog Dotclear 1.2 în blog-ul curent: %s."
 
-#: plugins/importExport/src/ModuleImportDc1.php:212
-#: plugins/importExport/src/ModuleImportWp.php:241
+#: plugins/importExport/src/ModuleImportDc1.php:225
+#: plugins/importExport/src/ModuleImportWp.php:253
 msgid "Please note that this process will empty your categories, blogroll, entries and comments on the current blog."
 msgstr "Te rugăm să reții că acest proces va goli categoriile tale, blogroll, intrările și comentariile de pe blogul curent."
 
-#: plugins/importExport/src/ModuleImportDc1.php:219
+#: plugins/importExport/src/ModuleImportDc1.php:232
 msgid "We first need some information about your old Dotclear 1.2 installation."
 msgstr "Mai întâi avem nevoie de câteva informaţii despre vechea instalare Dotclear 1.2."
 
-#: plugins/importExport/src/ModuleImportDc1.php:226
+#: plugins/importExport/src/ModuleImportDc1.php:239
 msgid "Database driver:"
 msgstr "Șofer bază de date:"
 
-#: plugins/importExport/src/ModuleImportDc1.php:268
-#: plugins/importExport/src/ModuleImportWp.php:290
+#: plugins/importExport/src/ModuleImportDc1.php:281
+#: plugins/importExport/src/ModuleImportWp.php:302
 msgid "Entries import options"
 msgstr "Opţiuni de import intrări"
 
-#: plugins/importExport/src/ModuleImportDc1.php:273
-#: plugins/importExport/src/ModuleImportWp.php:335
+#: plugins/importExport/src/ModuleImportDc1.php:286
+#: plugins/importExport/src/ModuleImportWp.php:347
 msgid "Number of entries to import at once:"
 msgstr "Numărul intrărilor de importat simultan:"
 
-#: plugins/importExport/src/ModuleImportDc1.php:279
-#: plugins/importExport/src/ModuleImportWp.php:360
+#: plugins/importExport/src/ModuleImportDc1.php:292
+#: plugins/importExport/src/ModuleImportWp.php:372
 msgid "General information"
 msgstr "Informaţii generale"
 
-#: plugins/importExport/src/ModuleImportDc1.php:279
-#: plugins/importExport/src/ModuleImportWp.php:360
+#: plugins/importExport/src/ModuleImportDc1.php:292
+#: plugins/importExport/src/ModuleImportWp.php:372
 msgid "Import my blog now"
 msgstr "Importă blog-ul acum"
 
-#: plugins/importExport/src/ModuleImportDc1.php:286
-#: plugins/importExport/src/ModuleImportWp.php:367
+#: plugins/importExport/src/ModuleImportDc1.php:299
+#: plugins/importExport/src/ModuleImportWp.php:379
 msgid "Importing users"
 msgstr "Importă utilizatori"
 
-#: plugins/importExport/src/ModuleImportDc1.php:293
-#: plugins/importExport/src/ModuleImportWp.php:374
+#: plugins/importExport/src/ModuleImportDc1.php:306
+#: plugins/importExport/src/ModuleImportWp.php:386
 msgid "Importing categories"
 msgstr "Importul categoriilor"
 
-#: plugins/importExport/src/ModuleImportDc1.php:300
-#: plugins/importExport/src/ModuleImportWp.php:381
+#: plugins/importExport/src/ModuleImportDc1.php:313
+#: plugins/importExport/src/ModuleImportWp.php:393
 msgid "Importing blogroll"
 msgstr "Importare blogroll"
 
-#: plugins/importExport/src/ModuleImportDc1.php:307
-#: plugins/importExport/src/ModuleImportWp.php:388
+#: plugins/importExport/src/ModuleImportDc1.php:320
+#: plugins/importExport/src/ModuleImportWp.php:400
 #, php-format
 msgid "Importing entries from %d to %d / %d"
 msgstr "Se importă intrări din %d la %d / %d"
 
-#: plugins/importExport/src/ModuleImportDc1.php:322
-#: plugins/importExport/src/ModuleImportWp.php:403
+#: plugins/importExport/src/ModuleImportDc1.php:335
+#: plugins/importExport/src/ModuleImportWp.php:415
 msgid "Please read carefully"
 msgstr "Vă rugăm să citiţi cu atenţie"
 
-#: plugins/importExport/src/ModuleImportDc1.php:324
-#: plugins/importExport/src/ModuleImportWp.php:406
+#: plugins/importExport/src/ModuleImportDc1.php:337
+#: plugins/importExport/src/ModuleImportWp.php:418
 msgid "Every newly imported user has received a random password and will need to ask for a new one by following the \"I forgot my password\" link on the login page (Their registered email address has to be valid.)"
 msgstr "Fiecare utilizator nou importat a primit o parolă aleatorie şi va trebui să ceară una nouă urmând link-ul \"Mi-am uitat parola\" de pe pagina de autentificare (Adresa de e-mail înregistrată trebuie să fie validă.)"
 
-#: plugins/importExport/src/ModuleImportDc1.php:326
+#: plugins/importExport/src/ModuleImportDc1.php:339
 #, php-format
 msgid "Please note that Dotclear 2 has a new URL layout. You can avoid broken links by installing <a href=\"%s\">DC1 redirect</a> plugin and activate it in your blog configuration."
 msgstr "Vă rugăm să reţineţi că Dotclear 2 are un nou aspect de URL-uri. Puteți evita link-urile defecte instalând <a href=\"%s\">redirecționare DC1</a> plugin-ul și activați-l în configurarea blogului dvs."
 
-#: plugins/importExport/src/ModuleImportDc1.php:349
-#: plugins/importExport/src/ModuleImportWp.php:428
+#: plugins/importExport/src/ModuleImportDc1.php:362
+#: plugins/importExport/src/ModuleImportWp.php:440
 msgid "next step"
 msgstr "pasul următor"
 
-#: plugins/importExport/src/ModuleImportDc1.php:367
-#: plugins/importExport/src/ModuleImportWp.php:446
+#: plugins/importExport/src/ModuleImportDc1.php:380
+#: plugins/importExport/src/ModuleImportWp.php:458
 msgid "Depending on the size of your blog, it could take a few minutes."
 msgstr "În funcție de dimensiunea blogului tău, ar putea dura câteva minute."
 
-#: plugins/importExport/src/ModuleImportDc1.php:395
+#: plugins/importExport/src/ModuleImportDc1.php:408
 msgid "Dotclear tables not found"
 msgstr "Tabele Dotclear nu au fost găsite"
 
@@ -1871,7 +1871,7 @@ msgid "No items in feed."
 msgstr "Niciun articol în flux."
 
 #: plugins/importExport/src/ModuleImportFeed.php:215
-#: plugins/importExport/src/ModuleImportFlat.php:190
+#: plugins/importExport/src/ModuleImportFlat.php:191
 msgid "Content successfully imported."
 msgstr "Conținut importat cu succes."
 
@@ -1885,64 +1885,64 @@ msgstr "Adaugă conținut feed la blog-ul curent: <strong>%s</strong>."
 msgid "Feed URL:"
 msgstr "URL flux:"
 
-#: plugins/importExport/src/ModuleImportFlat.php:52
+#: plugins/importExport/src/ModuleImportFlat.php:53
 msgid "Flat file import"
 msgstr "Fişier fix importat"
 
-#: plugins/importExport/src/ModuleImportFlat.php:53
+#: plugins/importExport/src/ModuleImportFlat.php:54
 msgid "Imports a blog or a full Dotclear installation from flat file."
 msgstr "Importați un blog sau o instalare Dotclear completă din fișier plat."
 
-#: plugins/importExport/src/ModuleImportFlat.php:185
+#: plugins/importExport/src/ModuleImportFlat.php:186
 msgid "Single blog successfully imported."
 msgstr "Singurul blog importat cu succes."
 
-#: plugins/importExport/src/ModuleImportFlat.php:201
+#: plugins/importExport/src/ModuleImportFlat.php:206
 msgid "Are you sure you want to import a full backup file?"
 msgstr "Sunteţi sigur că doriţi să importaţi un fişier de backup complet?"
 
-#: plugins/importExport/src/ModuleImportFlat.php:211
+#: plugins/importExport/src/ModuleImportFlat.php:216
 msgid "Single blog"
 msgstr "Blog unic"
 
-#: plugins/importExport/src/ModuleImportFlat.php:216
+#: plugins/importExport/src/ModuleImportFlat.php:221
 #, php-format
 msgid "This will import a single blog backup as new content in the current blog: <strong>%s</strong>."
 msgstr "Acest lucru va importa o singură copie de rezervă pe blog ca conținut nou în blog-ul curent: <strong>%s</strong>."
 
-#: plugins/importExport/src/ModuleImportFlat.php:223
-#: plugins/importExport/src/ModuleImportFlat.php:270
+#: plugins/importExport/src/ModuleImportFlat.php:228
+#: plugins/importExport/src/ModuleImportFlat.php:275
 msgid "Upload a backup file"
 msgstr "Incarca un fisier de backup"
 
-#: plugins/importExport/src/ModuleImportFlat.php:224
-#: plugins/importExport/src/ModuleImportFlat.php:271
+#: plugins/importExport/src/ModuleImportFlat.php:229
+#: plugins/importExport/src/ModuleImportFlat.php:276
 #, php-format
 msgid "maximum size %s"
 msgstr "dimensiunea maximă %s"
 
-#: plugins/importExport/src/ModuleImportFlat.php:236
-#: plugins/importExport/src/ModuleImportFlat.php:283
+#: plugins/importExport/src/ModuleImportFlat.php:241
+#: plugins/importExport/src/ModuleImportFlat.php:288
 msgid "or pick up a local file in your public directory"
 msgstr "sau alegeți un fișier local în directorul public"
 
-#: plugins/importExport/src/ModuleImportFlat.php:258
+#: plugins/importExport/src/ModuleImportFlat.php:263
 msgid "Multiple blogs"
 msgstr "Mai multe bloguri"
 
-#: plugins/importExport/src/ModuleImportFlat.php:265
+#: plugins/importExport/src/ModuleImportFlat.php:270
 msgid "This will reset all the content of your database, except users."
 msgstr "Aceasta va reseta tot conţinutul bazei de date, cu excepţia utilizatorilor."
 
-#: plugins/importExport/src/ModuleImportFlat.php:396
+#: plugins/importExport/src/ModuleImportFlat.php:401
 msgid "Another file with same name exists."
 msgstr "Există un alt fișier cu același nume."
 
-#: plugins/importExport/src/ModuleImportFlat.php:404
+#: plugins/importExport/src/ModuleImportFlat.php:409
 msgid "Failed to extract backup file."
 msgstr "Extragerea fișierului de backup a eșuat."
 
-#: plugins/importExport/src/ModuleImportFlat.php:416
+#: plugins/importExport/src/ModuleImportFlat.php:421
 msgid "No backup in compressed file."
 msgstr "Nicio copie de rezervă în fișierul comprimat."
 
@@ -1954,56 +1954,56 @@ msgstr "Import WordPress"
 msgid "Import a WordPress installation into your current blog."
 msgstr "Importați o instalare WordPress în blogul curent."
 
-#: plugins/importExport/src/ModuleImportWp.php:233
+#: plugins/importExport/src/ModuleImportWp.php:245
 #, php-format
 msgid "This will import your WordPress content as new content in the current blog: %s."
 msgstr "Aceasta va importa continutul tau WordPress ca un nou continut in blog-ul curent: %s."
 
-#: plugins/importExport/src/ModuleImportWp.php:248
+#: plugins/importExport/src/ModuleImportWp.php:260
 msgid "We first need some information about your old WordPress installation."
 msgstr "Mai întâi avem nevoie de câteva informaţii despre vechea instalare WordPress."
 
-#: plugins/importExport/src/ModuleImportWp.php:298
+#: plugins/importExport/src/ModuleImportWp.php:310
 msgid "WordPress and Dotclear's handling of categories are quite different. You can assign several categories to a single post in WordPress. In the Dotclear world, we see it more like \"One category, several tags.\" Therefore Dotclear can only import one category per post and will chose the lowest numbered one. If you want to keep a trace of every category, you can import them as tags, with an optional prefix."
 msgstr "Managementul categoriilor WordPress şi Dotclear. Puteţi atribui mai multe categorii unui singur post în WordPress. În lumea Dotclear o vedem mai degrabă ca \"O categorie, mai multe etichete. Prin urmare, Dotclear poate importa doar o categorie per post şi va alege cea mai mică numerotată. Dacă doriţi să păstraţi o urmă din fiecare categorie, le puteţi importa ca etichete, cu un prefix opţional."
 
-#: plugins/importExport/src/ModuleImportWp.php:300
+#: plugins/importExport/src/ModuleImportWp.php:312
 msgid "On the other hand, in WordPress, a post can not be uncategorized, and a default installation has a first category labelised <i>\"Uncategorized\"</i>. If you did not change that category, you can just ignore it while importing your blog, as Dotclear allows you to actually keep your posts uncategorized."
 msgstr "Pe de altă parte, în WordPress, o postare nu poate fi necategorizată, iar o instalare implicită are o primă categorie etichetată <i>\"Uncategorized\"</i>. Dacă nu ați schimbat această categorie, puteți să o ignorați în timpul importării blogului dumneavoastră, deoarece Dotclear vă permite să păstrați posturile necategorizate."
 
-#: plugins/importExport/src/ModuleImportWp.php:309
+#: plugins/importExport/src/ModuleImportWp.php:321
 msgid "Ignore the first category:"
 msgstr "Ignoră prima categorie:"
 
-#: plugins/importExport/src/ModuleImportWp.php:315
+#: plugins/importExport/src/ModuleImportWp.php:327
 msgid "Import lowest numbered category on posts:"
 msgstr "Importă cea mai mică categorie numerotată pe postări:"
 
-#: plugins/importExport/src/ModuleImportWp.php:321
+#: plugins/importExport/src/ModuleImportWp.php:333
 msgid "Import all categories as tags:"
 msgstr "Importă toate categoriile ca etichete:"
 
-#: plugins/importExport/src/ModuleImportWp.php:329
+#: plugins/importExport/src/ModuleImportWp.php:341
 msgid "Prefix such tags with:"
 msgstr "Prefixează aceste etichete cu:"
 
-#: plugins/importExport/src/ModuleImportWp.php:339
+#: plugins/importExport/src/ModuleImportWp.php:351
 msgid "Content filters"
 msgstr "Filtre de conținut"
 
-#: plugins/importExport/src/ModuleImportWp.php:341
+#: plugins/importExport/src/ModuleImportWp.php:353
 msgid "You may want to process your post and/or comment content with the following filters."
 msgstr "S-ar putea să doriţi să procesaţi conţinutul postării şi/sau comentariului cu următoarele filtre."
 
-#: plugins/importExport/src/ModuleImportWp.php:347
+#: plugins/importExport/src/ModuleImportWp.php:359
 msgid "Post content formatter:"
 msgstr "Format conținut postare:"
 
-#: plugins/importExport/src/ModuleImportWp.php:354
+#: plugins/importExport/src/ModuleImportWp.php:366
 msgid "Comment content formatter:"
 msgstr "Conținut formator comentariu:"
 
-#: plugins/importExport/src/ModuleImportWp.php:474
+#: plugins/importExport/src/ModuleImportWp.php:486
 msgid "WordPress tables not found"
 msgstr "Tabele WordPress nu au fost gasite"
 
@@ -2077,12 +2077,12 @@ msgstr[1] "%s sarcini de executat"
 msgstr[2] "%s sarcini de executat"
 
 #: plugins/maintenance/src/BackendBehaviors.php:203
-#: plugins/maintenance/src/Manage.php:305
+#: plugins/maintenance/src/Manage.php:308
 msgid "This task has never been executed."
 msgstr "Această sarcină nu a fost niciodată executată."
 
 #: plugins/maintenance/src/BackendBehaviors.php:206
-#: plugins/maintenance/src/Manage.php:308
+#: plugins/maintenance/src/Manage.php:311
 #, php-format
 msgid "Last execution of this task was on %s."
 msgstr "Ultima execuție a acestei sarcini a fost pe %s."
@@ -2115,107 +2115,107 @@ msgstr "Nu s-a putut executa sarcina."
 msgid "Task successfully executed."
 msgstr "Sarcină executată cu succes."
 
-#: plugins/maintenance/src/Manage.php:135
+#: plugins/maintenance/src/Manage.php:138
 msgid "Maintenance plugin has been successfully configured."
 msgstr "Plugin-ul de întreţinere a fost configurat cu succes."
 
-#: plugins/maintenance/src/Manage.php:153
+#: plugins/maintenance/src/Manage.php:156
 msgid "System settings have been saved."
 msgstr "Setările de sistem au fost salvate."
 
-#: plugins/maintenance/src/Manage.php:158
+#: plugins/maintenance/src/Manage.php:161
 msgid "All blog's Content-Security-Policy settings have been reset to default."
 msgstr "Toate setările pentru Content-Securitate-Policy ale blogului au fost resetate la valorile implicite."
 
-#: plugins/maintenance/src/Manage.php:180
+#: plugins/maintenance/src/Manage.php:183
 msgid "Every week"
 msgstr "În fiecare săptămână"
 
-#: plugins/maintenance/src/Manage.php:181
+#: plugins/maintenance/src/Manage.php:184
 msgid "Every two weeks"
 msgstr "La fiecare două săptămâni"
 
-#: plugins/maintenance/src/Manage.php:182
+#: plugins/maintenance/src/Manage.php:185
 msgid "Every month"
 msgstr "În fiecare lună"
 
-#: plugins/maintenance/src/Manage.php:183
+#: plugins/maintenance/src/Manage.php:186
 msgid "Every two months"
 msgstr "La fiecare două luni"
 
-#: plugins/maintenance/src/Manage.php:216
+#: plugins/maintenance/src/Manage.php:219
 msgid "You have not sufficient permissions to view this page."
 msgstr "Nu aveți permisiuni suficiente pentru a vizualiza această pagină."
 
-#: plugins/maintenance/src/Manage.php:305
-#: plugins/maintenance/src/Manage.php:311
+#: plugins/maintenance/src/Manage.php:308
+#: plugins/maintenance/src/Manage.php:314
 msgid "You should execute it now."
 msgstr "Ar trebui să o executați acum."
 
-#: plugins/maintenance/src/Manage.php:347
-#: plugins/maintenance/src/Manage.php:381
+#: plugins/maintenance/src/Manage.php:350
+#: plugins/maintenance/src/Manage.php:384
 msgid "Execute task"
 msgstr "Execută sarcina"
 
-#: plugins/maintenance/src/Manage.php:352
+#: plugins/maintenance/src/Manage.php:355
 msgid "This may take a very long time."
 msgstr "Acest lucru poate dura foarte mult timp."
 
-#: plugins/maintenance/src/Manage.php:419
-#: plugins/maintenance/src/Manage.php:421
+#: plugins/maintenance/src/Manage.php:422
+#: plugins/maintenance/src/Manage.php:424
 msgid "Alert settings"
 msgstr "Setări alertă"
 
-#: plugins/maintenance/src/Manage.php:427
+#: plugins/maintenance/src/Manage.php:430
 msgid "Activation"
 msgstr "Activare"
 
-#: plugins/maintenance/src/Manage.php:433
+#: plugins/maintenance/src/Manage.php:436
 msgid "Display alert messages on late tasks"
 msgstr "Afişează mesajele de alertă la sarcinile tardive"
 
-#: plugins/maintenance/src/Manage.php:438
+#: plugins/maintenance/src/Manage.php:441
 #, php-format
 msgid "You can place list of late tasks on your %s."
 msgstr "Poți plasa o listă de sarcini întârziate pe %s tău."
 
-#: plugins/maintenance/src/Manage.php:443
+#: plugins/maintenance/src/Manage.php:446
 msgid "Frequency"
 msgstr "Frecvenţă"
 
-#: plugins/maintenance/src/Manage.php:451
+#: plugins/maintenance/src/Manage.php:454
 msgid "Use one recall time for all tasks"
 msgstr "Folosește o rechemare de timp pentru toate sarcinile"
 
-#: plugins/maintenance/src/Manage.php:461
+#: plugins/maintenance/src/Manage.php:464
 msgid "Recall time for all tasks:"
 msgstr "Timp de rechemare pentru toate sarcinile:"
 
-#: plugins/maintenance/src/Manage.php:470
+#: plugins/maintenance/src/Manage.php:473
 msgid "Use one recall time per task"
 msgstr "Utilizați o oră de rechemare pe sarcină"
 
-#: plugins/maintenance/src/Manage.php:501
+#: plugins/maintenance/src/Manage.php:504
 msgid "Content-Security-Policy"
 msgstr "Politică de securitate-conținut"
 
-#: plugins/maintenance/src/Manage.php:513
+#: plugins/maintenance/src/Manage.php:516
 msgid "Enable Content-Security-Policy system"
 msgstr "Activare sistem Content-Securitate-Policy"
 
-#: plugins/maintenance/src/Manage.php:519
+#: plugins/maintenance/src/Manage.php:522
 msgid "Enable Content-Security-Policy report only"
 msgstr "Activează doar raportul Content-Securitate-Politică"
 
-#: plugins/maintenance/src/Manage.php:529
+#: plugins/maintenance/src/Manage.php:532
 msgid "Enable Content-Security-Policy system by default"
 msgstr "Activează implicit sistemul Content-Securitate-Policy"
 
-#: plugins/maintenance/src/Manage.php:535
+#: plugins/maintenance/src/Manage.php:538
 msgid "Enable Content-Security-Policy report only by default"
 msgstr "Activează raportul Content-Securitate-Politică doar în mod implicit"
 
-#: plugins/maintenance/src/Manage.php:541
+#: plugins/maintenance/src/Manage.php:544
 msgid "Also apply these settings to all blogs"
 msgstr "Aplică aceste setări la toate blogurile"
 
@@ -2390,26 +2390,26 @@ msgstr "Descarcă tema activă a blog-ului curent"
 msgid "It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file."
 msgstr "Poate fi util să se facă o copie de rezervă a temei active înainte de orice modificare sau actualizare. Această comprimă dosarul Temei într-un singur fişier zip."
 
-#: plugins/pages/src/Backend.php:47
+#: plugins/pages/src/Backend.php:49
 msgid "manage pages"
 msgstr "gestionează pagini"
 
-#: plugins/pages/src/Backend.php:78
+#: plugins/pages/src/Backend.php:80
 msgid "pages per page"
 msgstr "pagini pe pagină"
 
-#: plugins/pages/src/Backend.php:101
+#: plugins/pages/src/Backend.php:103
 #, php-format
 msgid "%d page"
 msgstr "%d pagină"
 
-#: plugins/pages/src/Backend.php:101
+#: plugins/pages/src/Backend.php:103
 #, php-format
 msgid "%d pages"
 msgstr "%d pagini"
 
-#: plugins/pages/src/Backend.php:108 plugins/pages/src/Manage.php:148
-#: plugins/pages/src/ManagePage.php:108 plugins/pages/src/ManagePage.php:856
+#: plugins/pages/src/Backend.php:110 plugins/pages/src/Manage.php:150
+#: plugins/pages/src/ManagePage.php:110 plugins/pages/src/ManagePage.php:858
 msgid "New page"
 msgstr "Pagină nouă"
 
@@ -2422,7 +2422,7 @@ msgid "Back to pages list"
 msgstr "Înapoi la lista de pagini"
 
 #: plugins/pages/src/BackendDefaultActions.php:119
-#: plugins/pages/src/Manage.php:139
+#: plugins/pages/src/Manage.php:141
 msgid "Selected pages have been successfully reordered."
 msgstr "Paginile selectate au fost reordonate cu succes."
 
@@ -2430,112 +2430,112 @@ msgstr "Paginile selectate au fost reordonate cu succes."
 msgid "No page"
 msgstr "Nici o pagină"
 
-#: plugins/pages/src/BackendList.php:179 plugins/pages/src/BackendList.php:248
+#: plugins/pages/src/BackendList.php:170 plugins/pages/src/BackendList.php:239
 msgid "Hidden"
 msgstr "Hidden"
 
-#: plugins/pages/src/BackendList.php:278
+#: plugins/pages/src/BackendList.php:268
 msgid "Select this page"
 msgstr "Selectaţi această pagină"
 
-#: plugins/pages/src/Frontend.php:36
+#: plugins/pages/src/Frontend.php:38
 msgid "Published on"
 msgstr "Publicat pe"
 
-#: plugins/pages/src/Frontend.php:37
+#: plugins/pages/src/Frontend.php:39
 msgid "This page's comments feed"
 msgstr "Comentariile acestei pagini sunt afisate"
 
-#: plugins/pages/src/Install.php:49
+#: plugins/pages/src/Install.php:51
 msgid "My first page"
 msgstr "Prima mea pagină"
 
-#: plugins/pages/src/Install.php:50
+#: plugins/pages/src/Install.php:52
 msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
 msgstr "Aceasta este prima ta pagină. Când ești gata să blog, autentifică-te pentru a o edita sau șterge."
 
-#: plugins/pages/src/Manage.php:121
+#: plugins/pages/src/Manage.php:123
 msgid "Are you sure you want to delete selected pages?"
 msgstr "Sunteţi sigur că doriţi să ştergeţi paginile selectate?"
 
-#: plugins/pages/src/Manage.php:135
+#: plugins/pages/src/Manage.php:137
 msgid "Selected pages have been successfully updated."
 msgstr "Paginile selectate au fost actualizate cu succes."
 
-#: plugins/pages/src/Manage.php:137
+#: plugins/pages/src/Manage.php:139
 msgid "Selected pages have been successfully deleted."
 msgstr "Paginile selectate au fost șterse cu succes."
 
-#: plugins/pages/src/Manage.php:171
+#: plugins/pages/src/Manage.php:173
 msgid "Selected pages action:"
 msgstr "Acțiune pagini selectate:"
 
-#: plugins/pages/src/Manage.php:177
+#: plugins/pages/src/Manage.php:179
 msgid "To rearrange pages order, change number at the begining of the line, then click on “Save pages order” button."
 msgstr "Pentru a rearanja ordinea paginii, schimbați numărul de la începutul liniei, apoi faceți clic pe butonul \"Salvați ordinea paginii\"."
 
-#: plugins/pages/src/Manage.php:180
+#: plugins/pages/src/Manage.php:182
 msgid "To rearrange pages order, move items by drag and drop, then click on “Save pages order” button."
 msgstr "Pentru a rearanja ordinea paginii, muta elementele prin tragere si plasare, apoi apasa butonul \"Salveaza ordinea paginii\"."
 
-#: plugins/pages/src/Manage.php:187
+#: plugins/pages/src/Manage.php:189
 msgid "Save pages order"
 msgstr "Salvează ordinea paginilor"
 
-#: plugins/pages/src/ManagePage.php:168
+#: plugins/pages/src/ManagePage.php:170
 msgid "This page does not exist."
 msgstr "Această pagină nu există."
 
-#: plugins/pages/src/ManagePage.php:189 plugins/pages/src/ManagePage.php:856
-#: plugins/pages/src/ManagePage.php:877
+#: plugins/pages/src/ManagePage.php:191 plugins/pages/src/ManagePage.php:858
+#: plugins/pages/src/ManagePage.php:879
 msgid "Edit page"
 msgstr "Editare pagină"
 
-#: plugins/pages/src/ManagePage.php:434
+#: plugins/pages/src/ManagePage.php:436
 msgid "Don't forget to validate your HTML conversion by saving your post."
 msgstr "Nu uita să validezi conversia ta HTML salvând postarea."
 
-#: plugins/pages/src/ManagePage.php:498
+#: plugins/pages/src/ManagePage.php:500
 msgid "Are you sure you want to delete this page?"
 msgstr "Sunteţi sigur că doriţi să ştergeţi această pagină?"
 
-#: plugins/pages/src/ManagePage.php:527
+#: plugins/pages/src/ManagePage.php:529
 msgid "Page has been successfully updated."
 msgstr "Pagina a fost actualizată cu succes."
 
-#: plugins/pages/src/ManagePage.php:529
+#: plugins/pages/src/ManagePage.php:531
 msgid "Page has been successfully created."
 msgstr "Pagina a fost creată cu succes."
 
-#: plugins/pages/src/ManagePage.php:543
+#: plugins/pages/src/ManagePage.php:545
 msgid "Go to this page on the site"
 msgstr "Mergeți la această pagină de pe site"
 
-#: plugins/pages/src/ManagePage.php:585
+#: plugins/pages/src/ManagePage.php:587
 msgid "Page status"
 msgstr "Starea paginii"
 
-#: plugins/pages/src/ManagePage.php:602
+#: plugins/pages/src/ManagePage.php:604
 msgid "Page language"
 msgstr "Limba paginii"
 
-#: plugins/pages/src/ManagePage.php:631 plugins/pages/src/Widgets.php:41
+#: plugins/pages/src/ManagePage.php:633 plugins/pages/src/Widgets.php:41
 msgid "Page position"
 msgstr "Poziţia paginii"
 
-#: plugins/pages/src/ManagePage.php:682
+#: plugins/pages/src/ManagePage.php:684
 msgid "Hide in widget Pages"
 msgstr "Ascunde paginile widget-ului"
 
-#: plugins/pages/src/ManagePage.php:708
+#: plugins/pages/src/ManagePage.php:710
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "Avertisment: Dacă setați manual URL-ul, acesta poate intra în conflict cu o altă pagină."
 
-#: plugins/pages/src/ManagePage.php:747
+#: plugins/pages/src/ManagePage.php:749
 msgid "Introduction to the page."
 msgstr "Introducere în pagină."
 
-#: plugins/pages/src/ManagePage.php:1126
+#: plugins/pages/src/ManagePage.php:1128
 msgid "Select this comment"
 msgstr "Selectează acest comentariu"
 
@@ -2547,43 +2547,43 @@ msgstr "Titlul paginii"
 msgid "Publication date"
 msgstr "Data publicării"
 
-#: plugins/pings/src/Backend.php:27 plugins/pings/src/BackendBehaviors.php:64
+#: plugins/pings/src/Backend.php:29 plugins/pings/src/BackendBehaviors.php:64
 msgid "Pings"
 msgstr "Ping-uri"
 
-#: plugins/pings/src/Manage.php:80
+#: plugins/pings/src/Manage.php:82
 msgid "Settings have been successfully updated."
 msgstr "Setările au fost actualizate cu succes."
 
-#: plugins/pings/src/Manage.php:98
+#: plugins/pings/src/Manage.php:100
 msgid "Pings configuration"
 msgstr "Configurare ping-uri"
 
-#: plugins/pings/src/Manage.php:112
+#: plugins/pings/src/Manage.php:114
 msgid "Error"
 msgstr "Eroare"
 
-#: plugins/pings/src/Manage.php:164
+#: plugins/pings/src/Manage.php:166
 msgid "Service name:"
 msgstr "Nume serviciu:"
 
-#: plugins/pings/src/Manage.php:165
+#: plugins/pings/src/Manage.php:167
 msgid "Service URI:"
 msgstr "Service URI:"
 
-#: plugins/pings/src/Manage.php:180
+#: plugins/pings/src/Manage.php:182
 msgid "Activate pings extension"
 msgstr "Activează extensia pings"
 
-#: plugins/pings/src/Manage.php:186
+#: plugins/pings/src/Manage.php:188
 msgid "Auto pings all services on first publication of entry (current blog only)"
 msgstr "Auto pings all services on first publication of entry (current blog only)"
 
-#: plugins/pings/src/Manage.php:193
+#: plugins/pings/src/Manage.php:195
 msgid "Test ping services"
 msgstr "Servicii de testare ping"
 
-#: plugins/simpleMenu/src/Backend.php:26 plugins/simpleMenu/src/Manage.php:72
+#: plugins/simpleMenu/src/Backend.php:28 plugins/simpleMenu/src/Manage.php:74
 #: plugins/simpleMenu/src/Widgets.php:29
 msgid "Simple menu"
 msgstr "Meniu simplu"
@@ -2596,185 +2596,185 @@ msgstr "Pagină activă"
 msgid "active page"
 msgstr "pagină activă"
 
-#: plugins/simpleMenu/src/Manage.php:97
+#: plugins/simpleMenu/src/Manage.php:99
 msgid "All months"
 msgstr "Toate lunile"
 
-#: plugins/simpleMenu/src/Manage.php:160
+#: plugins/simpleMenu/src/Manage.php:162
 msgid "Archive"
 msgstr "Arhivează"
 
-#: plugins/simpleMenu/src/Manage.php:163
+#: plugins/simpleMenu/src/Manage.php:165
 msgid "Page"
 msgstr "Pagină"
 
-#: plugins/simpleMenu/src/Manage.php:166 plugins/tags/src/Backend.php:25
+#: plugins/simpleMenu/src/Manage.php:168 plugins/tags/src/Backend.php:27
 #: plugins/tags/src/Widgets.php:33
 msgid "Tags"
 msgstr "Etichete"
 
-#: plugins/simpleMenu/src/Manage.php:173
+#: plugins/simpleMenu/src/Manage.php:175
 msgid "User defined"
 msgstr "Definit de utilizator"
 
-#: plugins/simpleMenu/src/Manage.php:214
+#: plugins/simpleMenu/src/Manage.php:216
 msgid "Configuration successfully updated."
 msgstr "Configuratie actualizata cu succes."
 
-#: plugins/simpleMenu/src/Manage.php:255 plugins/simpleMenu/src/Manage.php:677
-#: plugins/simpleMenu/src/Manage.php:797
+#: plugins/simpleMenu/src/Manage.php:258 plugins/simpleMenu/src/Manage.php:680
+#: plugins/simpleMenu/src/Manage.php:800
 msgid "Label"
 msgstr "Etichetă"
 
-#: plugins/simpleMenu/src/Manage.php:261
+#: plugins/simpleMenu/src/Manage.php:264
 msgid "Home page"
 msgstr "Pagina principală"
 
-#: plugins/simpleMenu/src/Manage.php:261 plugins/simpleMenu/src/Manage.php:266
+#: plugins/simpleMenu/src/Manage.php:264 plugins/simpleMenu/src/Manage.php:269
 #: plugins/widgets/src/Widgets.php:305 plugins/widgets/src/Widgets.php:315
 msgid "Recent posts"
 msgstr "Postări recente"
 
-#: plugins/simpleMenu/src/Manage.php:273
+#: plugins/simpleMenu/src/Manage.php:276
 #, php-format
 msgid "Switch to %s language"
 msgstr "Comută la limba %s"
 
-#: plugins/simpleMenu/src/Manage.php:280
+#: plugins/simpleMenu/src/Manage.php:283
 msgid "Recent Posts from this category"
 msgstr "Postări recente din această categorie"
 
-#: plugins/simpleMenu/src/Manage.php:292
+#: plugins/simpleMenu/src/Manage.php:295
 #, php-format
 msgid "Posts from %s"
 msgstr "Postări de la %s"
 
-#: plugins/simpleMenu/src/Manage.php:312
+#: plugins/simpleMenu/src/Manage.php:315
 #, php-format
 msgid "Recent posts for %s tag"
 msgstr "Postări recente pentru eticheta %s"
 
-#: plugins/simpleMenu/src/Manage.php:372
+#: plugins/simpleMenu/src/Manage.php:375
 msgid "Menu item has been successfully added."
 msgstr "Elementul de meniu a fost adăugat cu succes."
 
-#: plugins/simpleMenu/src/Manage.php:377
+#: plugins/simpleMenu/src/Manage.php:380
 msgid "Label and URL of menu item are mandatory."
 msgstr "Eticheta și adresa URL ale elementului de meniu sunt obligatorii."
 
-#: plugins/simpleMenu/src/Manage.php:410
+#: plugins/simpleMenu/src/Manage.php:413
 msgid "Menu items have been successfully removed."
 msgstr "Elementele de meniu au fost șterse cu succes."
 
-#: plugins/simpleMenu/src/Manage.php:413
+#: plugins/simpleMenu/src/Manage.php:416
 msgid "No menu items selected."
 msgstr "Niciun element de meniu selectat."
 
-#: plugins/simpleMenu/src/Manage.php:425
+#: plugins/simpleMenu/src/Manage.php:428
 msgid "Label is mandatory."
 msgstr "Eticheta este obligatorie."
 
-#: plugins/simpleMenu/src/Manage.php:430
+#: plugins/simpleMenu/src/Manage.php:433
 msgid "URL is mandatory."
 msgstr "URL-ul este obligatoriu."
 
-#: plugins/simpleMenu/src/Manage.php:475
+#: plugins/simpleMenu/src/Manage.php:478
 msgid "Menu items have been successfully updated."
 msgstr "Elementele de meniu au fost actualizate cu succes."
 
-#: plugins/simpleMenu/src/Manage.php:502
+#: plugins/simpleMenu/src/Manage.php:505
 msgid "Are you sure you want to remove selected menu items?"
 msgstr "Sunteţi sigur că doriţi să ştergeţi elementele de meniu selectate?"
 
-#: plugins/simpleMenu/src/Manage.php:511
+#: plugins/simpleMenu/src/Manage.php:514
 msgid "Step #1"
 msgstr "Pasul #1"
 
-#: plugins/simpleMenu/src/Manage.php:516 plugins/simpleMenu/src/Manage.php:521
+#: plugins/simpleMenu/src/Manage.php:519 plugins/simpleMenu/src/Manage.php:524
 msgid "Step #2"
 msgstr "Pasul #2"
 
-#: plugins/simpleMenu/src/Manage.php:521
+#: plugins/simpleMenu/src/Manage.php:524
 msgid "Step #3"
 msgstr "Pasul #3"
 
-#: plugins/simpleMenu/src/Manage.php:530
+#: plugins/simpleMenu/src/Manage.php:533
 msgid "Add item"
 msgstr "Adăugare articol"
 
-#: plugins/simpleMenu/src/Manage.php:561
+#: plugins/simpleMenu/src/Manage.php:564
 msgid "Select type"
 msgstr "Selectaţi tipul"
 
-#: plugins/simpleMenu/src/Manage.php:568
+#: plugins/simpleMenu/src/Manage.php:571
 msgid "Type of item menu:"
 msgstr "Tipul meniului elementului:"
 
-#: plugins/simpleMenu/src/Manage.php:574 plugins/simpleMenu/src/Manage.php:641
+#: plugins/simpleMenu/src/Manage.php:577 plugins/simpleMenu/src/Manage.php:644
 msgid "Continue..."
 msgstr "Continuă..."
 
-#: plugins/simpleMenu/src/Manage.php:597
+#: plugins/simpleMenu/src/Manage.php:600
 msgid "Select language:"
 msgstr "Selectați limba:"
 
-#: plugins/simpleMenu/src/Manage.php:603
+#: plugins/simpleMenu/src/Manage.php:606
 msgid "Select category:"
 msgstr "Selectați categoria:"
 
-#: plugins/simpleMenu/src/Manage.php:609
+#: plugins/simpleMenu/src/Manage.php:612
 msgid "Select month (if necessary):"
 msgstr "Selectați luna (dacă este necesar):"
 
-#: plugins/simpleMenu/src/Manage.php:615
+#: plugins/simpleMenu/src/Manage.php:618
 msgid "Select page:"
 msgstr "Selectați pagina:"
 
-#: plugins/simpleMenu/src/Manage.php:621
+#: plugins/simpleMenu/src/Manage.php:624
 msgid "Select tag (if necessary):"
 msgstr "Selectați eticheta (dacă este necesar):"
 
-#: plugins/simpleMenu/src/Manage.php:682
+#: plugins/simpleMenu/src/Manage.php:685
 msgid "Label of item menu:"
 msgstr "Eticheta meniului elementului:"
 
-#: plugins/simpleMenu/src/Manage.php:696
+#: plugins/simpleMenu/src/Manage.php:699
 msgid "Description of item menu:"
 msgstr "Descrierea meniului articolului:"
 
-#: plugins/simpleMenu/src/Manage.php:711
+#: plugins/simpleMenu/src/Manage.php:714
 msgid "URL of item menu:"
 msgstr "URL-ul meniului produsului:"
 
-#: plugins/simpleMenu/src/Manage.php:721 plugins/simpleMenu/src/Manage.php:800
+#: plugins/simpleMenu/src/Manage.php:724 plugins/simpleMenu/src/Manage.php:803
 msgid "Open URL on a new tab"
 msgstr "Deschide URL-ul într-o filă nouă"
 
-#: plugins/simpleMenu/src/Manage.php:729
+#: plugins/simpleMenu/src/Manage.php:732
 msgid "Add this item"
 msgstr "Adaugă acest element"
 
-#: plugins/simpleMenu/src/Manage.php:755
+#: plugins/simpleMenu/src/Manage.php:758
 msgid "Enable simple menu for this blog"
 msgstr "Activează meniul simplu pentru acest blog"
 
-#: plugins/simpleMenu/src/Manage.php:778
+#: plugins/simpleMenu/src/Manage.php:781
 msgid "Add an item"
 msgstr "Adaugă un element"
 
-#: plugins/simpleMenu/src/Manage.php:896
+#: plugins/simpleMenu/src/Manage.php:899
 msgid "Menu items list"
 msgstr "Listă elemente meniu"
 
-#: plugins/simpleMenu/src/Manage.php:923
+#: plugins/simpleMenu/src/Manage.php:926
 msgid "Delete selected menu items"
 msgstr "Ștergeți elementele de meniu selectate"
 
-#: plugins/simpleMenu/src/Manage.php:932
+#: plugins/simpleMenu/src/Manage.php:935
 msgid "Update menu"
 msgstr "Actualizare meniu"
 
-#: plugins/simpleMenu/src/Manage.php:942
+#: plugins/simpleMenu/src/Manage.php:945
 msgid "No menu items so far."
 msgstr "Nici un element de meniu până acum."
 
@@ -2798,92 +2798,92 @@ msgstr "Afișat în link și folosit ca titlu"
 msgid "Not displayed nor used"
 msgstr "Nu este afișat sau folosit"
 
-#: plugins/tags/src/BackendBehaviors.php:63
-#: plugins/tags/src/BackendBehaviors.php:75
-#: plugins/tags/src/FrontendUrl.php:105 plugins/tags/src/ManagePosts.php:155
+#: plugins/tags/src/BackendBehaviors.php:64
+#: plugins/tags/src/BackendBehaviors.php:76
+#: plugins/tags/src/FrontendUrl.php:105 plugins/tags/src/ManagePosts.php:157
 msgid "Tag"
 msgstr "Etichetă"
 
-#: plugins/tags/src/BackendBehaviors.php:238
+#: plugins/tags/src/BackendBehaviors.php:239
 msgid "Add tags"
 msgstr "Adaugă etichete"
 
-#: plugins/tags/src/BackendBehaviors.php:247
+#: plugins/tags/src/BackendBehaviors.php:248
 msgid "Remove tags"
 msgstr "Elimină etichetele"
 
-#: plugins/tags/src/BackendBehaviors.php:282
+#: plugins/tags/src/BackendBehaviors.php:283
 msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
 msgstr[0] "Eticheta a fost adăugată cu succes la intrările selectate"
 msgstr[1] "Etichetele au fost adăugate cu succes la intrările selectate"
 msgstr[2] "Etichetele au fost adăugate cu succes la intrările selectate"
 
-#: plugins/tags/src/BackendBehaviors.php:295
-#: plugins/tags/src/BackendBehaviors.php:450
+#: plugins/tags/src/BackendBehaviors.php:296
+#: plugins/tags/src/BackendBehaviors.php:451
 msgid "Are you sure you want to remove this tag?"
 msgstr "Ești sigur că vrei să ștergi această etichetă?"
 
-#: plugins/tags/src/BackendBehaviors.php:296
-#: plugins/tags/src/BackendBehaviors.php:451
+#: plugins/tags/src/BackendBehaviors.php:297
+#: plugins/tags/src/BackendBehaviors.php:452
 msgid "Add a tag to this entry"
 msgstr "Adaugă o etichetă la această intrare"
 
-#: plugins/tags/src/BackendBehaviors.php:297
-#: plugins/tags/src/BackendBehaviors.php:452
+#: plugins/tags/src/BackendBehaviors.php:298
+#: plugins/tags/src/BackendBehaviors.php:453
 msgid "Choose from list"
 msgstr "Alege din listă"
 
-#: plugins/tags/src/BackendBehaviors.php:298
-#: plugins/tags/src/BackendBehaviors.php:453
+#: plugins/tags/src/BackendBehaviors.php:299
+#: plugins/tags/src/BackendBehaviors.php:454
 msgid "all"
 msgstr "toate"
 
-#: plugins/tags/src/BackendBehaviors.php:299
-#: plugins/tags/src/BackendBehaviors.php:454
+#: plugins/tags/src/BackendBehaviors.php:300
+#: plugins/tags/src/BackendBehaviors.php:455
 msgid "Enter tags separated by comma"
 msgstr "Introduceți etichetele separate prin virgulă"
 
-#: plugins/tags/src/BackendBehaviors.php:307
+#: plugins/tags/src/BackendBehaviors.php:308
 msgid "Add tags to this selection"
 msgstr "Adaugă etichete la această selecție"
 
-#: plugins/tags/src/BackendBehaviors.php:325
+#: plugins/tags/src/BackendBehaviors.php:326
 msgid "Tags to add:"
 msgstr "Etichete de adăugat:"
 
-#: plugins/tags/src/BackendBehaviors.php:364
+#: plugins/tags/src/BackendBehaviors.php:365
 msgid "Tag has been successfully removed from selected entries"
 msgid_plural "Tags have been successfully removed from selected entries"
 msgstr[0] "Eticheta a fost eliminată cu succes din intrările selectate"
 msgstr[1] "Etichetele au fost șterse cu succes din intrările selectate"
 msgstr[2] "Etichetele au fost șterse cu succes din intrările selectate"
 
-#: plugins/tags/src/BackendBehaviors.php:387
+#: plugins/tags/src/BackendBehaviors.php:388
 msgid "No tags for selected entries"
 msgstr "Nici o etichetă pentru intrările selectate"
 
-#: plugins/tags/src/BackendBehaviors.php:394
+#: plugins/tags/src/BackendBehaviors.php:395
 msgid "Remove selected tags from this selection"
 msgstr "Elimină etichetele selectate din această selecţie"
 
-#: plugins/tags/src/BackendBehaviors.php:421
+#: plugins/tags/src/BackendBehaviors.php:422
 msgid "Following tags have been found in selected entries:"
 msgstr "Următoarele etichete au fost găsite în intrările selectate:"
 
-#: plugins/tags/src/BackendBehaviors.php:430
+#: plugins/tags/src/BackendBehaviors.php:431
 msgid "Remove"
 msgstr "Eliminați"
 
-#: plugins/tags/src/BackendBehaviors.php:493
+#: plugins/tags/src/BackendBehaviors.php:494
 msgid "Tags list format:"
 msgstr "Format listă etichete:"
 
-#: plugins/tags/src/BackendBehaviors.php:496
+#: plugins/tags/src/BackendBehaviors.php:497
 msgid "Short"
 msgstr "Scurt"
 
-#: plugins/tags/src/BackendBehaviors.php:497
+#: plugins/tags/src/BackendBehaviors.php:498
 msgid "Extended"
 msgstr "Extins"
 
@@ -2895,44 +2895,44 @@ msgstr "Feed de comentarii al acestei etichete"
 msgid "This tag's entries Atom feed"
 msgstr "Flux Atom al intrărilor acestei etichete"
 
-#: plugins/tags/src/Manage.php:119
+#: plugins/tags/src/Manage.php:121
 msgid "entries"
 msgstr "intrări"
 
-#: plugins/tags/src/Manage.php:119
+#: plugins/tags/src/Manage.php:121
 msgid "entry"
 msgstr "intrare"
 
-#: plugins/tags/src/Manage.php:150
+#: plugins/tags/src/Manage.php:152
 msgid "No tags on this blog."
 msgstr "Nici o etichetă pe acest blog."
 
-#: plugins/tags/src/ManagePosts.php:94
+#: plugins/tags/src/ManagePosts.php:96
 msgid "Tag has been successfully renamed"
 msgstr "Eticheta a fost redenumită cu succes"
 
-#: plugins/tags/src/ManagePosts.php:113
+#: plugins/tags/src/ManagePosts.php:115
 msgid "Tag has been successfully removed"
 msgstr "Eticheta a fost ștearsă cu succes"
 
-#: plugins/tags/src/ManagePosts.php:144
+#: plugins/tags/src/ManagePosts.php:146
 #, php-format
 msgid "Are you sure you want to remove tag: “%s”?"
 msgstr "Sunteţi sigur că doriţi să ştergeţi eticheta: „%s”?"
 
-#: plugins/tags/src/ManagePosts.php:159
+#: plugins/tags/src/ManagePosts.php:161
 msgid "Back to tags list"
 msgstr "Înapoi la lista de etichete"
 
-#: plugins/tags/src/ManagePosts.php:174
+#: plugins/tags/src/ManagePosts.php:176
 msgid "Delete this tag"
 msgstr "Șterge această etichetă"
 
-#: plugins/tags/src/ManagePosts.php:196
+#: plugins/tags/src/ManagePosts.php:198
 msgid "Rename:"
 msgstr "Redenumiți:"
 
-#: plugins/tags/src/ManagePosts.php:207
+#: plugins/tags/src/ManagePosts.php:209
 msgid "List of entries with this tag"
 msgstr "Lista de intrări cu această etichetă"
 
@@ -2960,119 +2960,119 @@ msgstr "Cea mai veche intrare"
 msgid "Link to all tags:"
 msgstr "Link către toate etichetele:"
 
-#: plugins/themeEditor/src/Backend.php:25
+#: plugins/themeEditor/src/Backend.php:27
 msgid "themeEditor"
 msgstr "temeEditor"
 
-#: plugins/themeEditor/src/BackendBehaviors.php:45
-#: plugins/themeEditor/src/Manage.php:194
-#: plugins/themeEditor/src/Manage.php:201
+#: plugins/themeEditor/src/BackendBehaviors.php:46
+#: plugins/themeEditor/src/Manage.php:196
+#: plugins/themeEditor/src/Manage.php:203
 msgid "Edit theme files"
 msgstr "Editare fișiere temă"
 
-#: plugins/themeEditor/src/BackendBehaviors.php:105
+#: plugins/themeEditor/src/BackendBehaviors.php:106
 msgid "Syntax highlighting"
 msgstr "Evidențiere sintaxă"
 
-#: plugins/themeEditor/src/BackendBehaviors.php:117
+#: plugins/themeEditor/src/BackendBehaviors.php:118
 msgid "Syntax highlighting in theme editor"
 msgstr "Evidențierea sintaxei în editorul temei"
 
-#: plugins/themeEditor/src/Manage.php:99
+#: plugins/themeEditor/src/Manage.php:101
 msgid "The theme update has been locked."
 msgstr "Actualizarea temei a fost blocată."
 
-#: plugins/themeEditor/src/Manage.php:107
+#: plugins/themeEditor/src/Manage.php:109
 msgid "The theme update has been unocked."
 msgstr "Actualizarea temei a fost dezocked."
 
-#: plugins/themeEditor/src/Manage.php:130
+#: plugins/themeEditor/src/Manage.php:132
 msgid "The file has been reset."
 msgstr "Fișierul a fost resetat."
 
-#: plugins/themeEditor/src/Manage.php:163
+#: plugins/themeEditor/src/Manage.php:165
 msgid "Lock update"
 msgstr "Blocare actualizare"
 
-#: plugins/themeEditor/src/Manage.php:163
+#: plugins/themeEditor/src/Manage.php:165
 msgid "Unlock update"
 msgstr "Deblocare actualizare"
 
-#: plugins/themeEditor/src/Manage.php:168
+#: plugins/themeEditor/src/Manage.php:170
 msgid "Lock theme update disables theme update, but allows theme files to be modified."
 msgstr "Blocarea actualizării temei dezactivează actualizarea temei, dar permite modificarea fișierelor temei."
 
-#: plugins/themeEditor/src/Manage.php:174
+#: plugins/themeEditor/src/Manage.php:176
 msgid "The theme editor is in development mode, theme files will be overwritten!"
 msgstr "Editorul temei este în modul de dezvoltare, fișierele temei vor fi suprascrise!"
 
-#: plugins/themeEditor/src/Manage.php:182
+#: plugins/themeEditor/src/Manage.php:184
 msgid "Saving document..."
 msgstr "Se salvează documentul..."
 
-#: plugins/themeEditor/src/Manage.php:183
+#: plugins/themeEditor/src/Manage.php:185
 msgid "Document saved"
 msgstr "Document salvat"
 
-#: plugins/themeEditor/src/Manage.php:184
+#: plugins/themeEditor/src/Manage.php:186
 msgid "An error occurred:"
 msgstr "A apărut o eroare:"
 
-#: plugins/themeEditor/src/Manage.php:185
+#: plugins/themeEditor/src/Manage.php:187
 msgid "Are you sure you want to reset this file?"
 msgstr "Sunteţi sigur că doriţi să resetaţi acest fişier?"
 
-#: plugins/themeEditor/src/Manage.php:209
+#: plugins/themeEditor/src/Manage.php:211
 #, php-format
 msgid "Your current theme on this blog is \"%s\"."
 msgstr "Tema ta curenta pe acest blog este \"%s\"."
 
-#: plugins/themeEditor/src/Manage.php:219
+#: plugins/themeEditor/src/Manage.php:221
 msgid "Please select a file to edit."
 msgstr "Vă rugăm să selectaţi un fişier de editat."
 
-#: plugins/themeEditor/src/Manage.php:227
+#: plugins/themeEditor/src/Manage.php:229
 msgid "Reset"
 msgstr "Reset"
 
-#: plugins/themeEditor/src/Manage.php:236
+#: plugins/themeEditor/src/Manage.php:238
 msgid "File editor"
 msgstr "Editor de fișiere"
 
-#: plugins/themeEditor/src/Manage.php:245
+#: plugins/themeEditor/src/Manage.php:247
 #, php-format
 msgid "Editing file %s"
 msgstr "Editare fișier %s"
 
-#: plugins/themeEditor/src/Manage.php:261
+#: plugins/themeEditor/src/Manage.php:263
 msgid "If you use <code>url(...)</code> in your CSS files, be sure to use <code>url(index.php?tf=...)</code> to correctly load theme resources (imported CSS, images, etc.), except for URL types in the form <code>data:image</code>.<br>Example: do <code>@import url(index.php?tf=css/layout.css);</code> instead of <code>@import url(css/layout.css);</code>."
 msgstr "Dacă utilizați <code>url(...)</code> în fișierele CSS, asigurați-vă că utilizați <code>url(index.php?tf=...)</code> pentru a încărca corect resursele temei (CSS importate, imagini etc.), cu excepția tipurilor de URL sub forma <code>data:image</code>.<br>Exemplu: faceți <code>@import url(index.php?tf=css/layout.css);</code> în loc de <code>@import url(css/layout.css);</code>."
 
-#: plugins/themeEditor/src/Manage.php:266
+#: plugins/themeEditor/src/Manage.php:268
 msgid "This file is not overloadable. Please check your var folder permissions."
 msgstr "Acest fișier nu este supraîncărcabil. Vă rugăm să verificați permisiunile folderului var."
 
-#: plugins/themeEditor/src/Manage.php:269
+#: plugins/themeEditor/src/Manage.php:271
 msgid "This theme is too old to be modified. Please check if an update is available."
 msgstr "Această temă este prea veche pentru a fi modificată. Vă rugăm să verificați dacă este disponibilă o actualizare."
 
-#: plugins/themeEditor/src/Manage.php:288
+#: plugins/themeEditor/src/Manage.php:290
 msgid "Templates files"
 msgstr "Fișiere șabloane"
 
-#: plugins/themeEditor/src/Manage.php:293
+#: plugins/themeEditor/src/Manage.php:295
 msgid "CSS files"
 msgstr "CSS files"
 
-#: plugins/themeEditor/src/Manage.php:298
+#: plugins/themeEditor/src/Manage.php:300
 msgid "JavaScript files"
 msgstr "Fișiere JavaScript"
 
-#: plugins/themeEditor/src/Manage.php:303
+#: plugins/themeEditor/src/Manage.php:305
 msgid "Locales files"
 msgstr "Fișiere locale"
 
-#: plugins/themeEditor/src/Manage.php:308
+#: plugins/themeEditor/src/Manage.php:310
 msgid "PHP files"
 msgstr "Fișiere PHP"
 
@@ -3118,143 +3118,143 @@ msgstr "Nu se poate scrie fișierul %s. Vă rugăm să verificați permisiunile 
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "Nu se poate șterge fișierul %s. Vă rugăm să verificați permisiunile fișierelor și folderelor temei."
 
-#: plugins/userPref/src/Backend.php:25
+#: plugins/userPref/src/Backend.php:27
 msgid "user:preferences"
 msgstr "utilizator:preferințe"
 
-#: plugins/userPref/src/Manage.php:88 plugins/userPref/src/Manage.php:107
+#: plugins/userPref/src/Manage.php:91 plugins/userPref/src/Manage.php:110
 msgid "Preferences successfully updated"
 msgstr "Preferințe actualizate cu succes"
 
-#: plugins/userPref/src/Manage.php:157 plugins/userPref/src/Manage.php:159
+#: plugins/userPref/src/Manage.php:160 plugins/userPref/src/Manage.php:162
 msgid "Global preferences"
 msgstr "Preferințe globale"
 
-#: plugins/widgets/src/Backend.php:51
+#: plugins/widgets/src/Backend.php:53
 msgid "Widget's textareas"
 msgstr "Zonele de text widget"
 
-#: plugins/widgets/src/Install.php:35
+#: plugins/widgets/src/Install.php:37
 msgid "Unable to initialize default widgets."
 msgstr "Imposibil de inițializat widget-urile implicite."
 
-#: plugins/widgets/src/Manage.php:79
+#: plugins/widgets/src/Manage.php:81
 msgid "navigation"
 msgstr "navigation"
 
-#: plugins/widgets/src/Manage.php:80
+#: plugins/widgets/src/Manage.php:82
 msgid "extra"
 msgstr "extra"
 
-#: plugins/widgets/src/Manage.php:81
+#: plugins/widgets/src/Manage.php:83
 msgid "custom"
 msgstr "personalizat"
 
-#: plugins/widgets/src/Manage.php:217
+#: plugins/widgets/src/Manage.php:219
 msgid "Sidebars and their widgets have been saved."
 msgstr "Sidebar-urile și widget-urile lor au fost salvate."
 
-#: plugins/widgets/src/Manage.php:231
+#: plugins/widgets/src/Manage.php:233
 msgid "Sidebars have been resetting."
 msgstr "Sidebarurile au fost reinstalate."
 
-#: plugins/widgets/src/Manage.php:260
+#: plugins/widgets/src/Manage.php:262
 msgid "Are you sure you want to reset sidebars?"
 msgstr "Ești sigur că vrei să resetezi sidebar-urile?"
 
-#: plugins/widgets/src/Manage.php:261 plugins/widgets/src/Manage.php:391
+#: plugins/widgets/src/Manage.php:263 plugins/widgets/src/Manage.php:393
 msgid "Temporarily display the action buttons for each widget"
 msgstr "Afișați temporar butoanele de acțiune pentru fiecare widget"
 
-#: plugins/widgets/src/Manage.php:262
+#: plugins/widgets/src/Manage.php:264
 msgid "Hide the action buttons for each widget"
 msgstr "Ascundeți butoanele de acțiune pentru fiecare widget"
 
-#: plugins/widgets/src/Manage.php:309 plugins/widgets/src/Manage.php:490
+#: plugins/widgets/src/Manage.php:311 plugins/widgets/src/Manage.php:492
 msgid "order"
 msgstr "comandă"
 
-#: plugins/widgets/src/Manage.php:321
+#: plugins/widgets/src/Manage.php:323
 msgid "Append to:"
 msgstr "Adaugă la:"
 
-#: plugins/widgets/src/Manage.php:340
+#: plugins/widgets/src/Manage.php:342
 msgid "Available widgets"
 msgstr "Widget-uri disponibile"
 
-#: plugins/widgets/src/Manage.php:342
+#: plugins/widgets/src/Manage.php:344
 msgid "Drag widgets from this list to one of the sidebars, for add."
 msgstr "Trage widget-uri din această listă într-una dintre sidebars, pentru adăugare."
 
-#: plugins/widgets/src/Manage.php:350
+#: plugins/widgets/src/Manage.php:352
 msgid "Add widgets to sidebars"
 msgstr "Adăugați widget-uri în bara laterală"
 
-#: plugins/widgets/src/Manage.php:365
+#: plugins/widgets/src/Manage.php:367
 msgid "Navigation sidebar"
 msgstr "Navigation sidebar"
 
-#: plugins/widgets/src/Manage.php:372
+#: plugins/widgets/src/Manage.php:374
 msgid "Extra sidebar"
 msgstr "Extra sidebar"
 
-#: plugins/widgets/src/Manage.php:379
+#: plugins/widgets/src/Manage.php:381
 msgid "Custom sidebar"
 msgstr "Bară laterală personalizată"
 
-#: plugins/widgets/src/Manage.php:386
+#: plugins/widgets/src/Manage.php:388
 msgid "Update sidebars"
 msgstr "Actualizează bara laterală"
 
-#: plugins/widgets/src/Manage.php:388
+#: plugins/widgets/src/Manage.php:390
 msgid "Reset sidebars"
 msgstr "Resetează bara laterală"
 
-#: plugins/widgets/src/Manage.php:401
+#: plugins/widgets/src/Manage.php:403
 msgid "No setting for this widget"
 msgstr "Nicio setare pentru acest widget"
 
-#: plugins/widgets/src/Manage.php:407
+#: plugins/widgets/src/Manage.php:409
 msgid "boolean"
 msgstr "boolean"
 
-#: plugins/widgets/src/Manage.php:407 plugins/widgets/src/Manage.php:412
+#: plugins/widgets/src/Manage.php:409 plugins/widgets/src/Manage.php:414
 msgid "possible values:"
 msgstr "valorile posibile:"
 
-#: plugins/widgets/src/Manage.php:411
+#: plugins/widgets/src/Manage.php:413
 msgid "empty string"
 msgstr "şir gol"
 
-#: plugins/widgets/src/Manage.php:412
+#: plugins/widgets/src/Manage.php:414
 msgid "listitem"
 msgstr "listă"
 
-#: plugins/widgets/src/Manage.php:418
+#: plugins/widgets/src/Manage.php:420
 msgid "string"
 msgstr "şir"
 
-#: plugins/widgets/src/Manage.php:438
+#: plugins/widgets/src/Manage.php:440
 msgid "Widget ID:"
 msgstr "ID widget:"
 
-#: plugins/widgets/src/Manage.php:502 plugins/widgets/src/Manage.php:503
+#: plugins/widgets/src/Manage.php:504 plugins/widgets/src/Manage.php:505
 msgid "Up the widget"
 msgstr "Sus widget"
 
-#: plugins/widgets/src/Manage.php:507 plugins/widgets/src/Manage.php:508
+#: plugins/widgets/src/Manage.php:509 plugins/widgets/src/Manage.php:510
 msgid "Down the widget"
 msgstr "Jos widget"
 
-#: plugins/widgets/src/Manage.php:511 plugins/widgets/src/Manage.php:512
+#: plugins/widgets/src/Manage.php:513 plugins/widgets/src/Manage.php:514
 msgid "Remove the widget"
 msgstr "Elimină widget-ul"
 
-#: plugins/widgets/src/Manage.php:536
+#: plugins/widgets/src/Manage.php:538
 msgid "No widget as far."
 msgstr "Niciun widget ca până acum."
 
-#: plugins/widgets/src/Manage.php:545
+#: plugins/widgets/src/Manage.php:547
 msgid "Drag widgets here to remove."
 msgstr "Trageți widget-urile aici pentru a elimina."
 
@@ -3346,49 +3346,49 @@ msgstr "Ultimele comentarii"
 msgid "Comments limit:"
 msgstr "Limita comentariilor:"
 
-#: plugins/widgets/src/Widgets.php:552
+#: plugins/widgets/src/Widgets.php:565
 #, php-format
 msgid "This blog's entries %s feed"
 msgstr "Intrările acestui blog %s feed"
 
-#: plugins/widgets/src/Widgets.php:553
+#: plugins/widgets/src/Widgets.php:566
 #, php-format
 msgid "This blog's comments %s feed"
 msgstr "Comentariile acestui blog %s flux"
 
-#: plugins/widgets/src/Widgets.php:566
+#: plugins/widgets/src/Widgets.php:579
 msgid "Entries feed"
 msgstr "Flux intrări"
 
-#: plugins/widgets/src/Widgets.php:576
+#: plugins/widgets/src/Widgets.php:589
 msgid "Comments feed"
 msgstr "Feed de comentarii"
 
-#: plugins/widgets/src/WidgetsElement.php:548
+#: plugins/widgets/src/WidgetsElement.php:547
 msgid "Title (optional)"
 msgstr "Titlu (opţional)"
 
-#: plugins/widgets/src/WidgetsElement.php:559
+#: plugins/widgets/src/WidgetsElement.php:558
 msgid "All pages"
 msgstr "Toate paginile"
 
-#: plugins/widgets/src/WidgetsElement.php:560
+#: plugins/widgets/src/WidgetsElement.php:559
 msgid "Home page only"
 msgstr "Doar pagina de start"
 
-#: plugins/widgets/src/WidgetsElement.php:561
+#: plugins/widgets/src/WidgetsElement.php:560
 msgid "Except on home page"
 msgstr "Cu excepția paginii principale"
 
-#: plugins/widgets/src/WidgetsElement.php:569
+#: plugins/widgets/src/WidgetsElement.php:568
 msgid "Display on:"
 msgstr "Afișaj pe:"
 
-#: plugins/widgets/src/WidgetsElement.php:595
+#: plugins/widgets/src/WidgetsElement.php:594
 msgid "Content only"
 msgstr "Doar conținut"
 
-#: plugins/widgets/src/WidgetsElement.php:605
+#: plugins/widgets/src/WidgetsElement.php:604
 msgid "CSS class:"
 msgstr "Clasa CSS:"
 

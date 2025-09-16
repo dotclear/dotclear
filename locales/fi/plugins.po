@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-01 12:51+0200\n"
-"PO-Revision-Date: 2025-09-01 10:55\n"
+"POT-Creation-Date: 2025-09-16 10:56+0200\n"
+"PO-Revision-Date: 2025-09-16 09:03\n"
 "Last-Translator: \n"
 "Language-Team: Finnish\n"
 "Language: fi_FI\n"
@@ -17,11 +17,11 @@ msgstr ""
 "X-Crowdin-File: /master/locales/_pot/plugins.pot\n"
 "X-Crowdin-File-ID: 264\n"
 
-#: plugins/Uninstaller/src/Backend.php:47
+#: plugins/Uninstaller/src/Backend.php:49
 msgid "Uninstall"
 msgstr "Poista"
 
-#: plugins/Uninstaller/src/Backend.php:105
+#: plugins/Uninstaller/src/Backend.php:107
 msgid "Plugin has been successfully uninstalled."
 msgstr "Liitännäinen on onnistuneesti poistettu."
 
@@ -403,41 +403,41 @@ msgstr "Tuntematon puhdistusaine \"%s\""
 msgid "Uninstaller can't remove itself"
 msgstr "Poistaja ei voi poistaa itseään"
 
-#: plugins/Uninstaller/src/Manage.php:63
+#: plugins/Uninstaller/src/Manage.php:65
 msgid "Unknown module id to uninstall"
 msgstr "Tuntematon moduulin tunniste poistettavaksi"
 
-#: plugins/Uninstaller/src/Manage.php:71
+#: plugins/Uninstaller/src/Manage.php:73
 msgid "There are no uninstall actions for this module"
 msgstr "Tälle moduulille ei ole asennuksen poistotoimia"
 
-#: plugins/Uninstaller/src/Manage.php:96
+#: plugins/Uninstaller/src/Manage.php:98
 msgid "Uninstall action successfuly excecuted"
 msgstr "Asennuksen poisto suoritettu onnistuneesti"
 
-#: plugins/Uninstaller/src/Manage.php:99
+#: plugins/Uninstaller/src/Manage.php:101
 msgid "No uninstall action done"
 msgstr "Asennuksen poistotoimia ei ole tehty"
 
-#: plugins/Uninstaller/src/Manage.php:145
+#: plugins/Uninstaller/src/Manage.php:147
 msgid "Perform selected actions"
 msgstr "Suorita valitut toiminnot"
 
-#: plugins/Uninstaller/src/Manage.php:160
+#: plugins/Uninstaller/src/Manage.php:162
 msgid "Are you sure you perform these ations?"
 msgstr "Oletko varma, että suoritat nämä toimenpiteet?"
 
-#: plugins/Uninstaller/src/Manage.php:176
+#: plugins/Uninstaller/src/Manage.php:178
 #, php-format
 msgid "Uninstall plugin \"%s\""
 msgstr "Poista plugin \"%s\""
 
-#: plugins/Uninstaller/src/Manage.php:176
+#: plugins/Uninstaller/src/Manage.php:178
 #, php-format
 msgid "Uninstall theme \"%s\""
 msgstr "Poista teema \"%s\""
 
-#: plugins/Uninstaller/src/Manage.php:177
+#: plugins/Uninstaller/src/Manage.php:179
 #, php-format
 msgid "The module \"%1$s\" version %2$s offers advanced uninstall process:"
 msgstr "Moduuli \"%1$s\" versio %2$s tarjoaa kehittyneen poistoprosessin:"
@@ -446,30 +446,30 @@ msgstr "Moduuli \"%1$s\" versio %2$s tarjoaa kehittyneen poistoprosessin:"
 msgid "Cope with old core classes (< 2.26)"
 msgstr "Selviytyminen vanhoista perusluokista (< 2.26)"
 
-#: plugins/_fake_plugin/_fake_l10n.php:8 plugins/antispam/src/Backend.php:30
+#: plugins/_fake_plugin/_fake_l10n.php:8 plugins/antispam/src/Backend.php:32
 msgid "Generic antispam plugin for Dotclear"
 msgstr "Spämmäyksenesto-osa Dotclearia varten"
 
-#: plugins/_fake_plugin/_fake_l10n.php:9 plugins/akismet/src/Prepend.php:27
+#: plugins/_fake_plugin/_fake_l10n.php:9 plugins/akismet/src/Prepend.php:29
 msgid "Akismet interface for Dotclear"
 msgstr "Akismet-liittymä Dotclearia varten"
 
 #: plugins/_fake_plugin/_fake_l10n.php:10
-#: plugins/fairTrackbacks/src/Prepend.php:27
+#: plugins/fairTrackbacks/src/Prepend.php:29
 msgid "Trackback validity check"
 msgstr "Takaisinviittausten oikeellisuustarkistus"
 
 #: plugins/_fake_plugin/_fake_l10n.php:11
-#: plugins/attachments/src/Backend.php:26
+#: plugins/attachments/src/Backend.php:28
 msgid "Manage post attachments"
 msgstr "Merkintöjen liitetiedostojen hallinta"
 
-#: plugins/_fake_plugin/_fake_l10n.php:12 plugins/pages/src/Backend.php:29
+#: plugins/_fake_plugin/_fake_l10n.php:12 plugins/pages/src/Backend.php:31
 msgid "Serve entries as simple web pages"
 msgstr "Julkaise blogimerkintöjä normaaleina verkkosivuina"
 
 #: plugins/_fake_plugin/_fake_l10n.php:13
-#: plugins/aboutConfig/src/Backend.php:26
+#: plugins/aboutConfig/src/Backend.php:28
 msgid "Manage every blog configuration directive"
 msgstr "Kaikkien blogiasetusten hallinta"
 
@@ -478,56 +478,56 @@ msgid "Uninstall cleanly plugins and themes"
 msgstr "Poista siististi liitännäiset ja teemat"
 
 #: plugins/_fake_plugin/_fake_l10n.php:15
-#: plugins/dcLegacyEditor/src/Backend.php:27
-#: plugins/dcLegacyEditor/src/Manage.php:73
+#: plugins/dcLegacyEditor/src/Backend.php:29
+#: plugins/dcLegacyEditor/src/Manage.php:75
 msgid "Dotclear editor"
 msgstr "Dotclear-editori"
 
 #: plugins/_fake_plugin/_fake_l10n.php:16
-#: plugins/themeEditor/src/Backend.php:26
+#: plugins/themeEditor/src/Backend.php:28
 msgid "Theme Editor"
 msgstr "Teemanmuokkaus"
 
-#: plugins/_fake_plugin/_fake_l10n.php:17 plugins/simpleMenu/src/Backend.php:27
+#: plugins/_fake_plugin/_fake_l10n.php:17 plugins/simpleMenu/src/Backend.php:29
 msgid "Simple menu for Dotclear"
 msgstr "Yksinkertainen Dotclear-valikko"
 
 #: plugins/_fake_plugin/_fake_l10n.php:18
-#: plugins/importExport/src/Backend.php:28
+#: plugins/importExport/src/Backend.php:30
 msgid "Import and Export your blog"
 msgstr "Tuo ja vie blogisi"
 
-#: plugins/_fake_plugin/_fake_l10n.php:19 plugins/userPref/src/Backend.php:26
+#: plugins/_fake_plugin/_fake_l10n.php:19 plugins/userPref/src/Backend.php:28
 msgid "Manage every user preference directive"
 msgstr "Kaikkien käyttäjäasetusten hallinta"
 
-#: plugins/_fake_plugin/_fake_l10n.php:20 plugins/dcCKEditor/src/Backend.php:26
-#: plugins/dcCKEditor/src/Manage.php:170
+#: plugins/_fake_plugin/_fake_l10n.php:20 plugins/dcCKEditor/src/Backend.php:28
+#: plugins/dcCKEditor/src/Manage.php:172
 msgid "CKEditor"
 msgstr "CKEditor"
 
 #: plugins/_fake_plugin/_fake_l10n.php:21
-#: plugins/maintenance/src/Backend.php:26
+#: plugins/maintenance/src/Backend.php:28
 msgid "Maintain your installation"
 msgstr "Ylläpidä asennustasi"
 
-#: plugins/_fake_plugin/_fake_l10n.php:22 plugins/breadcrumb/src/Backend.php:26
+#: plugins/_fake_plugin/_fake_l10n.php:22 plugins/breadcrumb/src/Backend.php:28
 msgid "Breadcrumb for Dotclear"
 msgstr "Dotclearin leivänmurut"
 
-#: plugins/_fake_plugin/_fake_l10n.php:23 plugins/blogroll/src/Backend.php:27
+#: plugins/_fake_plugin/_fake_l10n.php:23 plugins/blogroll/src/Backend.php:29
 msgid "Manage your blogroll"
 msgstr "Blogroll-linkkilistan ylläpito"
 
-#: plugins/_fake_plugin/_fake_l10n.php:24 plugins/pings/src/Backend.php:28
+#: plugins/_fake_plugin/_fake_l10n.php:24 plugins/pings/src/Backend.php:30
 msgid "Ping services"
 msgstr "Ping-palvelut"
 
-#: plugins/_fake_plugin/_fake_l10n.php:25 plugins/tags/src/Backend.php:26
+#: plugins/_fake_plugin/_fake_l10n.php:25 plugins/tags/src/Backend.php:28
 msgid "Tags for posts"
 msgstr "Blogimerkintöjen avainsanat"
 
-#: plugins/_fake_plugin/_fake_l10n.php:26 plugins/widgets/src/Backend.php:28
+#: plugins/_fake_plugin/_fake_l10n.php:26 plugins/widgets/src/Backend.php:30
 msgid "Widgets for your blog sidebars"
 msgstr "Blogin sivupalkkivimpaimet"
 
@@ -591,22 +591,22 @@ msgstr "Blogroll-linkkiluettelo"
 msgid "Tags cloud"
 msgstr "Avainsanapilvi"
 
-#: plugins/aboutConfig/src/Backend.php:25
+#: plugins/aboutConfig/src/Backend.php:27
 msgid "about:config"
 msgstr "about:config"
 
-#: plugins/aboutConfig/src/Manage.php:89 plugins/aboutConfig/src/Manage.php:109
+#: plugins/aboutConfig/src/Manage.php:92 plugins/aboutConfig/src/Manage.php:112
 msgid "Configuration successfully updated"
 msgstr "Asetukset päivitetty"
 
-#: plugins/aboutConfig/src/Manage.php:149
-#: plugins/aboutConfig/src/Manage.php:151
+#: plugins/aboutConfig/src/Manage.php:152
+#: plugins/aboutConfig/src/Manage.php:154
 #, php-format
 msgid "Settings for %s"
 msgstr "%s-asetukset"
 
-#: plugins/aboutConfig/src/Manage.php:159
-#: plugins/aboutConfig/src/Manage.php:161
+#: plugins/aboutConfig/src/Manage.php:162
+#: plugins/aboutConfig/src/Manage.php:164
 msgid "Global settings"
 msgstr "Yleiset asetukset"
 
@@ -622,13 +622,13 @@ msgstr "Asetuksen tunniste"
 msgid "Value"
 msgstr "Arvo"
 
-#: plugins/aboutConfig/src/Manage.php:314 plugins/userPref/src/Manage.php:312
-msgid "no"
-msgstr "ei"
-
-#: plugins/aboutConfig/src/Manage.php:314 plugins/userPref/src/Manage.php:312
+#: plugins/aboutConfig/src/Manage.php:315 plugins/userPref/src/Manage.php:313
 msgid "yes"
 msgstr "kyllä"
+
+#: plugins/aboutConfig/src/Manage.php:316 plugins/userPref/src/Manage.php:314
+msgid "no"
+msgstr "ei"
 
 #: plugins/akismet/src/AntispamFilterAkismet.php:80
 msgid "Akismet spam filter"
@@ -663,30 +663,30 @@ msgstr "Akismetin API-avain:"
 msgid "Get your own API key"
 msgstr "Hanki oma API-avain"
 
-#: plugins/akismet/src/Prepend.php:26
+#: plugins/akismet/src/Prepend.php:28
 msgid "Akismet"
 msgstr "Akismet"
 
-#: plugins/antispam/src/Antispam.php:147
+#: plugins/antispam/src/Antispam.php:139
 msgid "This comment is a spam:"
 msgstr "Tämä kommentti on spämmi:"
 
-#: plugins/antispam/src/Antispam.php:163 plugins/antispam/src/Rest.php:27
+#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:27
 #, php-format
 msgid "(including %d spam comment)"
 msgstr "(joista %d spämmikommentti)"
 
-#: plugins/antispam/src/Antispam.php:163 plugins/antispam/src/Rest.php:27
+#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:27
 #, php-format
 msgid "(including %d spam comments)"
 msgstr "(joista %d spämmikommenttia)"
 
-#: plugins/antispam/src/Backend.php:29
+#: plugins/antispam/src/Backend.php:31
 msgid "Antispam"
 msgstr "Spämmäyksenesto"
 
 #: plugins/antispam/src/BackendBehaviors.php:56
-#: plugins/antispam/src/Manage.php:224
+#: plugins/antispam/src/Manage.php:226
 #, php-format
 msgid "All spam comments older than %s day(s) will be automatically deleted."
 msgstr "Kaikki %s päivää vanhemmat spämmikommentit poistetaan automaattisesti."
@@ -779,7 +779,7 @@ msgstr "Lisää IP-osoite:"
 #: plugins/antispam/src/Filters/Ip.php:274
 #: plugins/antispam/src/Filters/IpV6.php:273
 #: plugins/antispam/src/Filters/Words.php:292
-#: plugins/widgets/src/Manage.php:322
+#: plugins/widgets/src/Manage.php:324
 msgid "Add"
 msgstr "Lisää"
 
@@ -882,96 +882,96 @@ msgstr "Spämmi"
 msgid "Ham"
 msgstr "Ehta tavara"
 
-#: plugins/antispam/src/Manage.php:72
+#: plugins/antispam/src/Manage.php:74
 msgid "Filter does not exist."
 msgstr "Suodatinta ei ole."
 
-#: plugins/antispam/src/Manage.php:76
+#: plugins/antispam/src/Manage.php:78
 msgid "Filter has no user interface."
 msgstr "Suodattimella ei ole käyttöliittymää."
 
-#: plugins/antispam/src/Manage.php:137 plugins/antispam/src/Manage.php:270
+#: plugins/antispam/src/Manage.php:139 plugins/antispam/src/Manage.php:272
 msgid "Filters configuration has been successfully saved."
 msgstr "Suodattimien asetukset on talletettu."
 
-#: plugins/antispam/src/Manage.php:154
+#: plugins/antispam/src/Manage.php:156
 #, php-format
 msgid "%s configuration"
 msgstr "%s:n asetukset"
 
-#: plugins/antispam/src/Manage.php:175
+#: plugins/antispam/src/Manage.php:177
 #, php-format
 msgid "%s filter configuration"
 msgstr "%s-suodattimen asetukset"
 
-#: plugins/antispam/src/Manage.php:182
+#: plugins/antispam/src/Manage.php:184
 msgid "Back to filters list"
 msgstr "Paluu suodattimien luetteloon"
 
-#: plugins/antispam/src/Manage.php:229
+#: plugins/antispam/src/Manage.php:231
 #, php-format
 msgid "You can modify this duration in the %s"
 msgstr "Voit muuttaa tätä kestoaikaa täältä: %s"
 
-#: plugins/antispam/src/Manage.php:238
+#: plugins/antispam/src/Manage.php:240
 msgid "Information"
 msgstr "Tietoja"
 
-#: plugins/antispam/src/Manage.php:249
+#: plugins/antispam/src/Manage.php:251
 msgid "Junk comments:"
 msgstr "Roskakommentit:"
 
-#: plugins/antispam/src/Manage.php:255
+#: plugins/antispam/src/Manage.php:257
 msgid "Published comments:"
 msgstr "Julkaistut kommentit:"
 
-#: plugins/antispam/src/Manage.php:279 plugins/antispam/src/Manage.php:282
-#: plugins/antispam/src/Manage.php:286
+#: plugins/antispam/src/Manage.php:281 plugins/antispam/src/Manage.php:284
+#: plugins/antispam/src/Manage.php:288
 msgid "Filter configuration"
 msgstr "Suodattimen asetukset"
 
-#: plugins/antispam/src/Manage.php:302 plugins/blogroll/src/Manage.php:306
+#: plugins/antispam/src/Manage.php:304 plugins/blogroll/src/Manage.php:308
 msgid "position"
 msgstr "paikka"
 
-#: plugins/antispam/src/Manage.php:309 plugins/antispam/src/Manage.php:343
+#: plugins/antispam/src/Manage.php:311 plugins/antispam/src/Manage.php:345
 msgid "Active"
 msgstr "Käytössä"
 
-#: plugins/antispam/src/Manage.php:316 plugins/antispam/src/Manage.php:344
+#: plugins/antispam/src/Manage.php:318 plugins/antispam/src/Manage.php:346
 msgid "Auto Del."
 msgstr "Autom.  poisto"
 
-#: plugins/antispam/src/Manage.php:337
+#: plugins/antispam/src/Manage.php:339
 msgid "Available spam filters"
 msgstr "Tarjolla olevat spämmisuodattimet"
 
-#: plugins/antispam/src/Manage.php:342
+#: plugins/antispam/src/Manage.php:344
 #: plugins/pages/src/BackendDefaultActions.php:74
 msgid "Order"
 msgstr "Järjestys"
 
-#: plugins/antispam/src/Manage.php:345
+#: plugins/antispam/src/Manage.php:347
 msgid "Filter name"
 msgstr "Suodattimen nimi"
 
-#: plugins/antispam/src/Manage.php:372
+#: plugins/antispam/src/Manage.php:374
 msgid "Syndication"
 msgstr "Syndikointi"
 
-#: plugins/antispam/src/Manage.php:375
+#: plugins/antispam/src/Manage.php:377
 msgid "Junk comments RSS feed"
 msgstr "Roskakommenttien RSS-syöte"
 
-#: plugins/antispam/src/Manage.php:378
+#: plugins/antispam/src/Manage.php:380
 msgid "Published comments RSS feed"
 msgstr "Julkaistujen kommenttien RSS-syöte"
 
-#: plugins/antispam/src/SpamFilter.php:93
+#: plugins/antispam/src/SpamFilter.php:95
 msgid "No description"
 msgstr "Ei kuvausta"
 
-#: plugins/antispam/src/SpamFilter.php:151
+#: plugins/antispam/src/SpamFilter.php:153
 #, php-format
 msgid "Filtered by %1$s (%2$s)"
 msgstr "Suodattimena %1$s (%2$s)"
@@ -980,7 +980,7 @@ msgstr "Suodattimena %1$s (%2$s)"
 msgid "Unknown filter."
 msgstr "Tuntematon suodatin"
 
-#: plugins/attachments/src/Backend.php:25
+#: plugins/attachments/src/Backend.php:27
 msgid "attachments"
 msgstr "liitteet"
 
@@ -1037,11 +1037,11 @@ msgid_plural "%d links have been successfully deleted"
 msgstr[0] "%d linkki on onnistuneesti poistettu"
 msgstr[1] "%d linkit on onnistuneesti poistettu"
 
-#: plugins/blogroll/src/Backend.php:26
+#: plugins/blogroll/src/Backend.php:28
 msgid "Blogroll"
 msgstr "Blogroll-linkkiluettelo"
 
-#: plugins/blogroll/src/Backend.php:38
+#: plugins/blogroll/src/Backend.php:40
 msgid "manage blogroll"
 msgstr "Hallinnoi blogrollia"
 
@@ -1061,217 +1061,217 @@ msgstr "Et saa muuttaa linkin tilaa"
 msgid "You are not allowed to delete links"
 msgstr "Et saa poistaa linkkejä"
 
-#: plugins/blogroll/src/Manage.php:114 plugins/blogroll/src/Manage.php:617
+#: plugins/blogroll/src/Manage.php:116 plugins/blogroll/src/Manage.php:619
 msgid "Nothing to import"
 msgstr "Ei tuotavaa"
 
-#: plugins/blogroll/src/Manage.php:137
+#: plugins/blogroll/src/Manage.php:139
 msgid "links have been successfully imported."
 msgstr "Linkit on tuotu."
 
-#: plugins/blogroll/src/Manage.php:144
+#: plugins/blogroll/src/Manage.php:146
 msgid "Import operation cancelled."
 msgstr "Tuonti peruutettu."
 
-#: plugins/blogroll/src/Manage.php:160
+#: plugins/blogroll/src/Manage.php:162
 msgid "Link has been successfully created."
 msgstr "Linkki on luotu."
 
-#: plugins/blogroll/src/Manage.php:176
+#: plugins/blogroll/src/Manage.php:178
 msgid "category has been successfully created."
 msgstr "Luokka on luotu."
 
-#: plugins/blogroll/src/Manage.php:209
+#: plugins/blogroll/src/Manage.php:211
 msgid "Items order has been successfully updated"
 msgstr "Kohtien järjestys on päivitetty."
 
-#: plugins/blogroll/src/Manage.php:275
+#: plugins/blogroll/src/Manage.php:277
 msgid "Are you sure you want to delete selected links?"
 msgstr "Oletko varma, että haluat poistaa valitut linkit?"
 
-#: plugins/blogroll/src/Manage.php:313
+#: plugins/blogroll/src/Manage.php:315
 msgid "select this link"
 msgstr "valitse tämä linkki"
 
-#: plugins/blogroll/src/Manage.php:373
+#: plugins/blogroll/src/Manage.php:375
 msgid "Lang"
 msgstr "Kieli"
 
-#: plugins/blogroll/src/Manage.php:421
+#: plugins/blogroll/src/Manage.php:423
 msgid "Selected links action:"
 msgstr "Valitut linkit toiminta:"
 
-#: plugins/blogroll/src/Manage.php:441
+#: plugins/blogroll/src/Manage.php:443
 msgid "The link list is empty"
 msgstr "Linkkiluettelo on tyhjä"
 
-#: plugins/blogroll/src/Manage.php:464
+#: plugins/blogroll/src/Manage.php:466
 msgid "Add a new link"
 msgstr "Lisää uusi linkki"
 
-#: plugins/blogroll/src/Manage.php:515 plugins/blogroll/src/Manage.php:565
-#: plugins/blogroll/src/ManageEdit.php:224
-#: plugins/blogroll/src/ManageEdit.php:296
+#: plugins/blogroll/src/Manage.php:517 plugins/blogroll/src/Manage.php:567
+#: plugins/blogroll/src/ManageEdit.php:226
+#: plugins/blogroll/src/ManageEdit.php:298
 msgid "Link status"
 msgstr "Linkin tila"
 
-#: plugins/blogroll/src/Manage.php:534
+#: plugins/blogroll/src/Manage.php:536
 msgid "Add a category"
 msgstr "Lisää luokka"
 
-#: plugins/blogroll/src/Manage.php:588 plugins/blogroll/src/Manage.php:680
-#: plugins/blogroll/src/Manage.php:687
+#: plugins/blogroll/src/Manage.php:590 plugins/blogroll/src/Manage.php:682
+#: plugins/blogroll/src/Manage.php:689
 msgid "Import links"
 msgstr "Tuo linkkejä"
 
-#: plugins/blogroll/src/Manage.php:597
+#: plugins/blogroll/src/Manage.php:599
 msgid "OPML or XBEL File:"
 msgstr "OPML- tai XBEL-tiedosto:"
 
-#: plugins/blogroll/src/Manage.php:607 plugins/blogroll/src/Manage.php:672
-#: plugins/importExport/src/Manage.php:130
+#: plugins/blogroll/src/Manage.php:609 plugins/blogroll/src/Manage.php:674
+#: plugins/importExport/src/Manage.php:132
 #: plugins/importExport/src/ModuleImportFeed.php:239
-#: plugins/importExport/src/ModuleImportFlat.php:245
-#: plugins/importExport/src/ModuleImportFlat.php:307
+#: plugins/importExport/src/ModuleImportFlat.php:250
+#: plugins/importExport/src/ModuleImportFlat.php:312
 msgid "Import"
 msgstr "Tuo"
 
-#: plugins/blogroll/src/ManageEdit.php:71
+#: plugins/blogroll/src/ManageEdit.php:73
 msgid "No such link or title"
 msgstr "Ei kyseistä linkkiä tai otsikkoa"
 
-#: plugins/blogroll/src/ManageEdit.php:131
+#: plugins/blogroll/src/ManageEdit.php:133
 msgid "Link has been successfully updated"
 msgstr "Linkki on päivitetty"
 
-#: plugins/blogroll/src/ManageEdit.php:148
+#: plugins/blogroll/src/ManageEdit.php:150
 msgid "Category has been successfully updated"
 msgstr "Luokka on päivitetty"
 
-#: plugins/blogroll/src/ManageEdit.php:181
+#: plugins/blogroll/src/ManageEdit.php:183
 #: plugins/dcCKEditor/src/BackendBehaviors.php:62
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:221
 msgid "Link"
 msgstr "Linkki"
 
-#: plugins/blogroll/src/ManageEdit.php:188
+#: plugins/blogroll/src/ManageEdit.php:190
 msgid "Return to blogroll"
 msgstr "Paluu blogroll-luetteloon"
 
-#: plugins/blogroll/src/ManageEdit.php:199
+#: plugins/blogroll/src/ManageEdit.php:201
 msgid "Edit category"
 msgstr "Muokkaa luokkaa"
 
-#: plugins/blogroll/src/ManageEdit.php:243
+#: plugins/blogroll/src/ManageEdit.php:245
 msgid "Edit link"
 msgstr "Muokkaa linkkiä"
 
-#: plugins/blogroll/src/ManageEdit.php:302
+#: plugins/blogroll/src/ManageEdit.php:304
 msgid "XFN information"
 msgstr "XFN-tiedot"
 
-#: plugins/blogroll/src/ManageEdit.php:306
+#: plugins/blogroll/src/ManageEdit.php:308
 #, php-format
 msgid "More information on <a href=\"%s\">Wikipedia</a> website"
 msgstr "Lisätietoja <a href=\"%s\">Wikipedian</a> verkkosivustolla"
 
-#: plugins/blogroll/src/ManageEdit.php:312
+#: plugins/blogroll/src/ManageEdit.php:314
 msgid "_xfn_Me"
 msgstr "_xfn_Me"
 
-#: plugins/blogroll/src/ManageEdit.php:316
+#: plugins/blogroll/src/ManageEdit.php:318
 msgid "_xfn_Another link for myself"
 msgstr "_xfn_Another link for myself"
 
-#: plugins/blogroll/src/ManageEdit.php:320
+#: plugins/blogroll/src/ManageEdit.php:322
 msgid "_xfn_Friendship"
 msgstr "_xfn_Friendship"
 
-#: plugins/blogroll/src/ManageEdit.php:324
+#: plugins/blogroll/src/ManageEdit.php:326
 msgid "_xfn_Contact"
 msgstr "_xfn_Contact"
 
-#: plugins/blogroll/src/ManageEdit.php:327
+#: plugins/blogroll/src/ManageEdit.php:329
 msgid "_xfn_Acquaintance"
 msgstr "_xfn_Acquaintance"
 
-#: plugins/blogroll/src/ManageEdit.php:330
+#: plugins/blogroll/src/ManageEdit.php:332
 msgid "_xfn_Friend"
 msgstr "_xfn_Friend"
 
-#: plugins/blogroll/src/ManageEdit.php:340
+#: plugins/blogroll/src/ManageEdit.php:342
 msgid "_xfn_Physical"
 msgstr "_xfn_Physical"
 
-#: plugins/blogroll/src/ManageEdit.php:344
+#: plugins/blogroll/src/ManageEdit.php:346
 msgid "_xfn_Met"
 msgstr "_xfn_Met"
 
-#: plugins/blogroll/src/ManageEdit.php:348
+#: plugins/blogroll/src/ManageEdit.php:350
 msgid "_xfn_Professional"
 msgstr "_xfn_Professional"
 
-#: plugins/blogroll/src/ManageEdit.php:352
+#: plugins/blogroll/src/ManageEdit.php:354
 msgid "_xfn_Co-worker"
 msgstr "_xfn_Co-worker"
 
-#: plugins/blogroll/src/ManageEdit.php:355
+#: plugins/blogroll/src/ManageEdit.php:357
 msgid "_xfn_Colleague"
 msgstr "_xfn_Colleague"
 
-#: plugins/blogroll/src/ManageEdit.php:359
+#: plugins/blogroll/src/ManageEdit.php:361
 msgid "_xfn_Geographical"
 msgstr "_xfn_Geographical"
 
-#: plugins/blogroll/src/ManageEdit.php:363
+#: plugins/blogroll/src/ManageEdit.php:365
 msgid "_xfn_Co-resident"
 msgstr "_xfn_Co-resident"
 
-#: plugins/blogroll/src/ManageEdit.php:366
+#: plugins/blogroll/src/ManageEdit.php:368
 msgid "_xfn_Neighbor"
 msgstr "_xfn_Neighbor"
 
-#: plugins/blogroll/src/ManageEdit.php:376
+#: plugins/blogroll/src/ManageEdit.php:378
 msgid "_xfn_Family"
 msgstr "_xfn_Family"
 
-#: plugins/blogroll/src/ManageEdit.php:380
+#: plugins/blogroll/src/ManageEdit.php:382
 msgid "_xfn_Child"
 msgstr "_xfn_Child"
 
-#: plugins/blogroll/src/ManageEdit.php:383
+#: plugins/blogroll/src/ManageEdit.php:385
 msgid "_xfn_Parent"
 msgstr "_xfn_Parent"
 
-#: plugins/blogroll/src/ManageEdit.php:386
+#: plugins/blogroll/src/ManageEdit.php:388
 msgid "_xfn_Sibling"
 msgstr "_xfn_Sibling"
 
-#: plugins/blogroll/src/ManageEdit.php:389
+#: plugins/blogroll/src/ManageEdit.php:391
 msgid "_xfn_Spouse"
 msgstr "_xfn_Spouse"
 
-#: plugins/blogroll/src/ManageEdit.php:392
+#: plugins/blogroll/src/ManageEdit.php:394
 msgid "_xfn_Kin"
 msgstr "_xfn_Kin"
 
-#: plugins/blogroll/src/ManageEdit.php:402
+#: plugins/blogroll/src/ManageEdit.php:404
 msgid "_xfn_Romantic"
 msgstr "_xfn_Romantic"
 
-#: plugins/blogroll/src/ManageEdit.php:406
+#: plugins/blogroll/src/ManageEdit.php:408
 msgid "_xfn_Muse"
 msgstr "_xfn_Muse"
 
-#: plugins/blogroll/src/ManageEdit.php:409
+#: plugins/blogroll/src/ManageEdit.php:411
 msgid "_xfn_Crush"
 msgstr "_xfn_Crush"
 
-#: plugins/blogroll/src/ManageEdit.php:412
+#: plugins/blogroll/src/ManageEdit.php:414
 msgid "_xfn_Date"
 msgstr "_xfn_Date"
 
-#: plugins/blogroll/src/ManageEdit.php:415
+#: plugins/blogroll/src/ManageEdit.php:417
 msgid "_xfn_Sweetheart"
 msgstr "_xfn_Sweetheart"
 
@@ -1288,7 +1288,7 @@ msgstr "Tiedosto ei ole XML-muodossa."
 msgid "All categories"
 msgstr "Kaikki luokat"
 
-#: plugins/breadcrumb/src/Backend.php:25
+#: plugins/breadcrumb/src/Backend.php:27
 msgid "Breadcrumb"
 msgstr "Leivänmurut"
 
@@ -1319,7 +1319,7 @@ msgstr "Älä upota leivänmurua &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; -koodi
 #: plugins/breadcrumb/src/FrontendTemplate.php:193
 #: plugins/breadcrumb/src/FrontendTemplate.php:205
 #: plugins/breadcrumb/src/FrontendTemplate.php:211
-#: plugins/simpleMenu/src/Manage.php:147 plugins/simpleMenu/src/Manage.php:260
+#: plugins/simpleMenu/src/Manage.php:149 plugins/simpleMenu/src/Manage.php:263
 #: plugins/widgets/src/Widgets.php:296
 msgid "Home"
 msgstr "Etusivu"
@@ -1334,13 +1334,13 @@ msgstr "sivu %d"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:155
 #: plugins/breadcrumb/src/FrontendTemplate.php:158
-#: plugins/simpleMenu/src/Manage.php:287 plugins/widgets/src/Widgets.php:324
+#: plugins/simpleMenu/src/Manage.php:290 plugins/widgets/src/Widgets.php:324
 msgid "Archives"
 msgstr "Arkistot"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:174
 #: plugins/breadcrumb/src/FrontendTemplate.php:181
-#: plugins/simpleMenu/src/Manage.php:131 plugins/simpleMenu/src/Manage.php:307
+#: plugins/simpleMenu/src/Manage.php:133 plugins/simpleMenu/src/Manage.php:310
 #: plugins/tags/src/Widgets.php:57
 msgid "All tags"
 msgstr "Kaikki avainsanat"
@@ -1365,12 +1365,12 @@ msgstr "Väärennetyn l10n-tiedoston luominen epäonnistui."
 msgid "Generate a php file that contents strings to translate that are not be done with core tools."
 msgstr "Luo php-tiedosto, joka sisältää merkkijonoja kääntää, joita ei voida tehdä ydintyökalujen avulla."
 
-#: plugins/dcCKEditor/src/Backend.php:25
+#: plugins/dcCKEditor/src/Backend.php:27
 msgid "dcCKEditor"
 msgstr "dcCKEditor"
 
-#: plugins/dcCKEditor/src/Backend.php:41
-#: plugins/dcLegacyEditor/src/Backend.php:46
+#: plugins/dcCKEditor/src/Backend.php:43
+#: plugins/dcLegacyEditor/src/Backend.php:48
 msgid "HTML"
 msgstr "HTML"
 
@@ -1408,99 +1408,99 @@ msgstr "URL-kenttä ei voi olla tyhjä"
 msgid "Open the media"
 msgstr "Avaa media"
 
-#: plugins/dcCKEditor/src/Manage.php:149
-#: plugins/dcLegacyEditor/src/Manage.php:56
+#: plugins/dcCKEditor/src/Manage.php:151
+#: plugins/dcLegacyEditor/src/Manage.php:58
 msgid "The configuration has been updated."
 msgstr "Asetukset on päivitetty."
 
-#: plugins/dcCKEditor/src/Manage.php:179
-#: plugins/dcLegacyEditor/src/Manage.php:82
+#: plugins/dcCKEditor/src/Manage.php:181
+#: plugins/dcLegacyEditor/src/Manage.php:84
 msgid "Plugin activation"
 msgstr "Liitännäisen käyttöönotto"
 
-#: plugins/dcCKEditor/src/Manage.php:185
+#: plugins/dcCKEditor/src/Manage.php:187
 msgid "Enable CKEditor plugin"
 msgstr "Ota CKEditor-lisäosa käyttöön"
 
-#: plugins/dcCKEditor/src/Manage.php:198
+#: plugins/dcCKEditor/src/Manage.php:200
 msgid "Add alignment buttons"
 msgstr "Lisää kohdistusnapit"
 
-#: plugins/dcCKEditor/src/Manage.php:204
+#: plugins/dcCKEditor/src/Manage.php:206
 msgid "Add lists buttons"
 msgstr "Lisää luettelonapit"
 
-#: plugins/dcCKEditor/src/Manage.php:210
+#: plugins/dcCKEditor/src/Manage.php:212
 msgid "Add text color button"
 msgstr "Lisää tekstivärin nappi"
 
-#: plugins/dcCKEditor/src/Manage.php:216
+#: plugins/dcCKEditor/src/Manage.php:218
 msgid "Add background text color button"
 msgstr "Lisää taustatekstivärin nappi"
 
-#: plugins/dcCKEditor/src/Manage.php:219
+#: plugins/dcCKEditor/src/Manage.php:221
 msgid "Custom colors list:"
 msgstr "Mukautettujen värien luettelo:"
 
-#: plugins/dcCKEditor/src/Manage.php:233
+#: plugins/dcCKEditor/src/Manage.php:235
 msgid "Add colors without # separated by a comma."
 msgstr "Lisää värit ilman #-merkkiä tai välilyöntiä pilkulla eroteltuina"
 
-#: plugins/dcCKEditor/src/Manage.php:238
+#: plugins/dcCKEditor/src/Manage.php:240
 msgid "Leave empty to use the default palette:"
 msgstr "Jätä tyhjäksi käyttääksesi oletuspalettia:"
 
-#: plugins/dcCKEditor/src/Manage.php:244
+#: plugins/dcCKEditor/src/Manage.php:246
 msgid "Example of custom color list:"
 msgstr "Esimerkki mukautettujen värien luettelosta"
 
-#: plugins/dcCKEditor/src/Manage.php:252
+#: plugins/dcCKEditor/src/Manage.php:254
 msgid "Colors per row in palette:"
 msgstr "Värit riveittäin paletissa:"
 
-#: plugins/dcCKEditor/src/Manage.php:256
+#: plugins/dcCKEditor/src/Manage.php:258
 msgid "Valid range: 4 to 16"
 msgstr "Voimassa oleva alue: 4-16"
 
-#: plugins/dcCKEditor/src/Manage.php:261
+#: plugins/dcCKEditor/src/Manage.php:263
 msgid "Add collapse button"
 msgstr "Lisää kutista-nappi"
 
-#: plugins/dcCKEditor/src/Manage.php:267
+#: plugins/dcCKEditor/src/Manage.php:269
 msgid "Add format selection"
 msgstr "Lisää muotoilunvalinta"
 
-#: plugins/dcCKEditor/src/Manage.php:270
+#: plugins/dcCKEditor/src/Manage.php:272
 msgid "Custom formats"
 msgstr "Mukautetut muotoilut"
 
-#: plugins/dcCKEditor/src/Manage.php:284
+#: plugins/dcCKEditor/src/Manage.php:286
 msgid "Default formats are p;h1;h2;h3;h4;h5;h6;pre;address"
 msgstr "Oletusmuotoilut ovat: p;h1;h2;h3;h4;h5;h6;pre;address"
 
-#: plugins/dcCKEditor/src/Manage.php:290
+#: plugins/dcCKEditor/src/Manage.php:292
 msgid "Add table button"
 msgstr "Lisää taulukkonappi"
 
-#: plugins/dcCKEditor/src/Manage.php:296
+#: plugins/dcCKEditor/src/Manage.php:298
 msgid "Add clipboard buttons"
 msgstr "Lisää leiketaulunapit"
 
-#: plugins/dcCKEditor/src/Manage.php:300
+#: plugins/dcCKEditor/src/Manage.php:302
 msgid "Copy, Paste, Paste Text, Paste from Word"
 msgstr "Kopioi, Liitä, Liitä tekstinä, Liitä Wordistä"
 
-#: plugins/dcCKEditor/src/Manage.php:305
+#: plugins/dcCKEditor/src/Manage.php:307
 msgid "Add undo/redo buttons"
 msgstr "Lisää peru/toista -napit"
 
-#: plugins/dcCKEditor/src/Manage.php:311
+#: plugins/dcCKEditor/src/Manage.php:313
 msgid "Disables the built-in spell checker if the browser provides one"
 msgstr "Poista sisäänrakennettu oikeinkirjoituksentarkistaja käytöstä (mikäli selaimessa on sellainen)"
 
-#: plugins/dcCKEditor/src/Manage.php:321
-#: plugins/dcLegacyEditor/src/Manage.php:111
-#: plugins/simpleMenu/src/Manage.php:761
+#: plugins/dcCKEditor/src/Manage.php:323
+#: plugins/dcLegacyEditor/src/Manage.php:113
+#: plugins/simpleMenu/src/Manage.php:764
 msgid "Save configuration"
 msgstr "Tallenna asetukset"
 
@@ -1508,11 +1508,11 @@ msgstr "Tallenna asetukset"
 msgid "Note(s)"
 msgstr "Huomautukset"
 
-#: plugins/dcLegacyEditor/src/Backend.php:26
+#: plugins/dcLegacyEditor/src/Backend.php:28
 msgid "dcLegacyEditor"
 msgstr "Perinteinen Dotclear-editori"
 
-#: plugins/dcLegacyEditor/src/Backend.php:50
+#: plugins/dcLegacyEditor/src/Backend.php:52
 msgid "Dotclear wiki"
 msgstr "Dotclear wiki"
 
@@ -1626,11 +1626,11 @@ msgstr "Kieli?"
 msgid "Remove text formating"
 msgstr "Poista tekstinmuotoilu"
 
-#: plugins/dcLegacyEditor/src/Manage.php:88
+#: plugins/dcLegacyEditor/src/Manage.php:90
 msgid "Enable standard editor plugin"
 msgstr "Ota vakioeditorin lisäosa käyttöön"
 
-#: plugins/dcLegacyEditor/src/Manage.php:101
+#: plugins/dcLegacyEditor/src/Manage.php:103
 msgid "Adjust height of input area during editing"
 msgstr "Säädä syöttöalueen korkeutta muokkauksen aikana"
 
@@ -1638,11 +1638,11 @@ msgstr "Säädä syöttöalueen korkeutta muokkauksen aikana"
 msgid "Checks trackback source for a link to the post"
 msgstr "Tarkistaa, onko takaisinviittauksen lähdekoodissa linkki blogimerkintään"
 
-#: plugins/fairTrackbacks/src/Prepend.php:26
+#: plugins/fairTrackbacks/src/Prepend.php:28
 msgid "Fair Trackbacks"
 msgstr "Oikeudenmukaiset Trackbackit"
 
-#: plugins/importExport/src/Backend.php:27
+#: plugins/importExport/src/Backend.php:29
 msgid "Import / Export"
 msgstr "Tuonti / vienti"
 
@@ -1684,37 +1684,37 @@ msgstr "Tiedosto ei ole Dotclear-varmistus."
 msgid "File is not a single blog export."
 msgstr "Tiedosto ei ole yksittäisen blogin vienti."
 
-#: plugins/importExport/src/FlatImportV2.php:291
-#: plugins/importExport/src/FlatImportV2.php:345
+#: plugins/importExport/src/FlatImportV2.php:294
+#: plugins/importExport/src/FlatImportV2.php:353
 #, php-format
 msgid "Error raised at line %s"
 msgstr "Virhe rivillä %s"
 
-#: plugins/importExport/src/FlatImportV2.php:300
+#: plugins/importExport/src/FlatImportV2.php:305
 msgid "File is not a full export."
 msgstr "Tiedosto ei ole kokonainen vienti."
 
-#: plugins/importExport/src/FlatImportV2.php:756
+#: plugins/importExport/src/FlatImportV2.php:766
 #, php-format
 msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
 msgstr "\"%3$s\":n tunniste ei täsmää tietueen \"%1$s\" osalta varmistustiedoston rivillä %2$s."
 
-#: plugins/importExport/src/Manage.php:90
-#: plugins/maintenance/src/Manage.php:199
+#: plugins/importExport/src/Manage.php:92
+#: plugins/maintenance/src/Manage.php:202
 msgid "Please wait..."
 msgstr "Odota…"
 
-#: plugins/importExport/src/Manage.php:136
+#: plugins/importExport/src/Manage.php:138
 msgid "Export"
 msgstr "Vienti"
 
-#: plugins/importExport/src/Manage.php:141
+#: plugins/importExport/src/Manage.php:143
 #, php-format
 msgid "Export functions are in the page %s."
 msgstr "Vientifunktiot ovat sivulla %s."
 
-#: plugins/importExport/src/Manage.php:144
-#: plugins/maintenance/src/Backend.php:25
+#: plugins/importExport/src/Manage.php:146
+#: plugins/maintenance/src/Backend.php:27
 #: plugins/maintenance/src/BackendBehaviors.php:221
 msgid "Maintenance"
 msgstr "Ylläpito"
@@ -1751,99 +1751,99 @@ msgstr "Vientitiedostoa ei löytynyt."
 msgid "Failed to compress export file."
 msgstr "Vientitiedoston pakkaus epäonnistui."
 
-#: plugins/importExport/src/ModuleImportDc1.php:84
+#: plugins/importExport/src/ModuleImportDc1.php:85
 msgid "Dotclear 1.2 import"
 msgstr "Tuonti Dotclear-versiosta 1.2"
 
-#: plugins/importExport/src/ModuleImportDc1.php:85
+#: plugins/importExport/src/ModuleImportDc1.php:86
 msgid "Import a Dotclear 1.2 installation into your current blog."
 msgstr "Tuo Dotclear 1.2 -asennus tähän blogiisi."
 
-#: plugins/importExport/src/ModuleImportDc1.php:204
+#: plugins/importExport/src/ModuleImportDc1.php:217
 #, php-format
 msgid "Import the content of a Dotclear 1.2's blog in the current blog: %s."
 msgstr "Tuo Dotclear 1.2 -asennuksen uutena sisältönä tähän blogiin: %s."
 
-#: plugins/importExport/src/ModuleImportDc1.php:212
-#: plugins/importExport/src/ModuleImportWp.php:241
+#: plugins/importExport/src/ModuleImportDc1.php:225
+#: plugins/importExport/src/ModuleImportWp.php:253
 msgid "Please note that this process will empty your categories, blogroll, entries and comments on the current blog."
 msgstr "Huomaa, että tämä tyhjentää olemassaolevat tämän blogin luokkasi, blogroll-linkkilistasi, blogimerkintäsi ja kommenttisi."
 
-#: plugins/importExport/src/ModuleImportDc1.php:219
+#: plugins/importExport/src/ModuleImportDc1.php:232
 msgid "We first need some information about your old Dotclear 1.2 installation."
 msgstr "Ennen tuontia tarvitaan joitain tietoja vanhasta Dotclear 1.2 -asennuksestasi."
 
-#: plugins/importExport/src/ModuleImportDc1.php:226
+#: plugins/importExport/src/ModuleImportDc1.php:239
 msgid "Database driver:"
 msgstr "Tietokantaohjain:"
 
-#: plugins/importExport/src/ModuleImportDc1.php:268
-#: plugins/importExport/src/ModuleImportWp.php:290
+#: plugins/importExport/src/ModuleImportDc1.php:281
+#: plugins/importExport/src/ModuleImportWp.php:302
 msgid "Entries import options"
 msgstr "Blogimerkintöjen tuontivaihtoehdot"
 
-#: plugins/importExport/src/ModuleImportDc1.php:273
-#: plugins/importExport/src/ModuleImportWp.php:335
+#: plugins/importExport/src/ModuleImportDc1.php:286
+#: plugins/importExport/src/ModuleImportWp.php:347
 msgid "Number of entries to import at once:"
 msgstr "Kerralla tuotavien blogimerkintöjen lukumäärä:"
 
-#: plugins/importExport/src/ModuleImportDc1.php:279
-#: plugins/importExport/src/ModuleImportWp.php:360
+#: plugins/importExport/src/ModuleImportDc1.php:292
+#: plugins/importExport/src/ModuleImportWp.php:372
 msgid "General information"
 msgstr "Yleistä"
 
-#: plugins/importExport/src/ModuleImportDc1.php:279
-#: plugins/importExport/src/ModuleImportWp.php:360
+#: plugins/importExport/src/ModuleImportDc1.php:292
+#: plugins/importExport/src/ModuleImportWp.php:372
 msgid "Import my blog now"
 msgstr "Tuo blogini nyt"
 
-#: plugins/importExport/src/ModuleImportDc1.php:286
-#: plugins/importExport/src/ModuleImportWp.php:367
+#: plugins/importExport/src/ModuleImportDc1.php:299
+#: plugins/importExport/src/ModuleImportWp.php:379
 msgid "Importing users"
 msgstr "Tuodaan käyttäjiä"
 
-#: plugins/importExport/src/ModuleImportDc1.php:293
-#: plugins/importExport/src/ModuleImportWp.php:374
+#: plugins/importExport/src/ModuleImportDc1.php:306
+#: plugins/importExport/src/ModuleImportWp.php:386
 msgid "Importing categories"
 msgstr "Tuodaan luokkia"
 
-#: plugins/importExport/src/ModuleImportDc1.php:300
-#: plugins/importExport/src/ModuleImportWp.php:381
+#: plugins/importExport/src/ModuleImportDc1.php:313
+#: plugins/importExport/src/ModuleImportWp.php:393
 msgid "Importing blogroll"
 msgstr "Tuodaan blogroll-linkkiluettelo"
 
-#: plugins/importExport/src/ModuleImportDc1.php:307
-#: plugins/importExport/src/ModuleImportWp.php:388
+#: plugins/importExport/src/ModuleImportDc1.php:320
+#: plugins/importExport/src/ModuleImportWp.php:400
 #, php-format
 msgid "Importing entries from %d to %d / %d"
 msgstr "Tuodaan merkintöjä %d - %d / %d"
 
-#: plugins/importExport/src/ModuleImportDc1.php:322
-#: plugins/importExport/src/ModuleImportWp.php:403
+#: plugins/importExport/src/ModuleImportDc1.php:335
+#: plugins/importExport/src/ModuleImportWp.php:415
 msgid "Please read carefully"
 msgstr "Lue huolellisesti"
 
-#: plugins/importExport/src/ModuleImportDc1.php:324
-#: plugins/importExport/src/ModuleImportWp.php:406
+#: plugins/importExport/src/ModuleImportDc1.php:337
+#: plugins/importExport/src/ModuleImportWp.php:418
 msgid "Every newly imported user has received a random password and will need to ask for a new one by following the \"I forgot my password\" link on the login page (Their registered email address has to be valid.)"
 msgstr "Jokainen juuri tuotu käyttäjä on saanut satunnaisen salasanan ja joutuu pyytämään uutta seuraamalla \"Unohdin sanasanani\" -linkkiä kirjautumissivulla (edellyttää sitä, että rekisteröity sähköpostiosoite on voimassa)."
 
-#: plugins/importExport/src/ModuleImportDc1.php:326
+#: plugins/importExport/src/ModuleImportDc1.php:339
 #, php-format
 msgid "Please note that Dotclear 2 has a new URL layout. You can avoid broken links by installing <a href=\"%s\">DC1 redirect</a> plugin and activate it in your blog configuration."
 msgstr "Huomaa, että Dotclear 2:ssa on uusi verkko-osoitteiden muodostamistapa. Voit välttyä rikki menneiltä linkeiltä asentamalla <a href=\"%s\">DC1 redirect -liitännäisen</a> ja ottamalla sen käyttöön blogisi asetuksissa."
 
-#: plugins/importExport/src/ModuleImportDc1.php:349
-#: plugins/importExport/src/ModuleImportWp.php:428
+#: plugins/importExport/src/ModuleImportDc1.php:362
+#: plugins/importExport/src/ModuleImportWp.php:440
 msgid "next step"
 msgstr "seuraava vaihe"
 
-#: plugins/importExport/src/ModuleImportDc1.php:367
-#: plugins/importExport/src/ModuleImportWp.php:446
+#: plugins/importExport/src/ModuleImportDc1.php:380
+#: plugins/importExport/src/ModuleImportWp.php:458
 msgid "Depending on the size of your blog, it could take a few minutes."
 msgstr "Riippuen blogisi koosta operaatio voi kestää jonkin aikaa."
 
-#: plugins/importExport/src/ModuleImportDc1.php:395
+#: plugins/importExport/src/ModuleImportDc1.php:408
 msgid "Dotclear tables not found"
 msgstr "Dotclear-tauluja ei löydetty"
 
@@ -1869,7 +1869,7 @@ msgid "No items in feed."
 msgstr "Syötteessä ei mitään."
 
 #: plugins/importExport/src/ModuleImportFeed.php:215
-#: plugins/importExport/src/ModuleImportFlat.php:190
+#: plugins/importExport/src/ModuleImportFlat.php:191
 msgid "Content successfully imported."
 msgstr "Sisällön tuonti onnistui."
 
@@ -1883,64 +1883,64 @@ msgstr "Lisää syötteen sisältö nykyiseen blogiisi: <strong>%s</strong>."
 msgid "Feed URL:"
 msgstr "Syötteen verkko-osoite:"
 
-#: plugins/importExport/src/ModuleImportFlat.php:52
+#: plugins/importExport/src/ModuleImportFlat.php:53
 msgid "Flat file import"
 msgstr "Tuonti tekstitietokantatiedostosta"
 
-#: plugins/importExport/src/ModuleImportFlat.php:53
+#: plugins/importExport/src/ModuleImportFlat.php:54
 msgid "Imports a blog or a full Dotclear installation from flat file."
 msgstr "Tuo blogin tai kokonaisen Dotclear-asennuksen tekstimuotoisesta tietokantatiedostosta."
 
-#: plugins/importExport/src/ModuleImportFlat.php:185
+#: plugins/importExport/src/ModuleImportFlat.php:186
 msgid "Single blog successfully imported."
 msgstr "Yksittäinen blogi tuotu."
 
-#: plugins/importExport/src/ModuleImportFlat.php:201
+#: plugins/importExport/src/ModuleImportFlat.php:206
 msgid "Are you sure you want to import a full backup file?"
 msgstr "Oletko varma, että haluat tuoda kokonaisen varmistustiedoston?"
 
-#: plugins/importExport/src/ModuleImportFlat.php:211
+#: plugins/importExport/src/ModuleImportFlat.php:216
 msgid "Single blog"
 msgstr "Yksittäinen blogi"
 
-#: plugins/importExport/src/ModuleImportFlat.php:216
+#: plugins/importExport/src/ModuleImportFlat.php:221
 #, php-format
 msgid "This will import a single blog backup as new content in the current blog: <strong>%s</strong>."
 msgstr "Tämä tuo yksittäisen blogin varmistuksen uutena sisältönä tähän blogiin: <strong>%s</strong>."
 
-#: plugins/importExport/src/ModuleImportFlat.php:223
-#: plugins/importExport/src/ModuleImportFlat.php:270
+#: plugins/importExport/src/ModuleImportFlat.php:228
+#: plugins/importExport/src/ModuleImportFlat.php:275
 msgid "Upload a backup file"
 msgstr "Lataa varmistustiedosto palvelimelle"
 
-#: plugins/importExport/src/ModuleImportFlat.php:224
-#: plugins/importExport/src/ModuleImportFlat.php:271
+#: plugins/importExport/src/ModuleImportFlat.php:229
+#: plugins/importExport/src/ModuleImportFlat.php:276
 #, php-format
 msgid "maximum size %s"
 msgstr "koko enintään %s"
 
-#: plugins/importExport/src/ModuleImportFlat.php:236
-#: plugins/importExport/src/ModuleImportFlat.php:283
+#: plugins/importExport/src/ModuleImportFlat.php:241
+#: plugins/importExport/src/ModuleImportFlat.php:288
 msgid "or pick up a local file in your public directory"
 msgstr "tai valitse paikallinen tiedosto omasta hakemistostasi"
 
-#: plugins/importExport/src/ModuleImportFlat.php:258
+#: plugins/importExport/src/ModuleImportFlat.php:263
 msgid "Multiple blogs"
 msgstr "Kaikki blogit"
 
-#: plugins/importExport/src/ModuleImportFlat.php:265
+#: plugins/importExport/src/ModuleImportFlat.php:270
 msgid "This will reset all the content of your database, except users."
 msgstr "Varoitus: tämä nollaa kaiken tietokantasi sisällön, paitsi käyttäjät."
 
-#: plugins/importExport/src/ModuleImportFlat.php:396
+#: plugins/importExport/src/ModuleImportFlat.php:401
 msgid "Another file with same name exists."
 msgstr "Toisella tiedostolla on jo sama nimi."
 
-#: plugins/importExport/src/ModuleImportFlat.php:404
+#: plugins/importExport/src/ModuleImportFlat.php:409
 msgid "Failed to extract backup file."
 msgstr "Varmistustiedostoa ei saatu purettua."
 
-#: plugins/importExport/src/ModuleImportFlat.php:416
+#: plugins/importExport/src/ModuleImportFlat.php:421
 msgid "No backup in compressed file."
 msgstr "Pakatussa tiedostossa ei ole varmistusta."
 
@@ -1952,56 +1952,56 @@ msgstr "WordPress-tuonti"
 msgid "Import a WordPress installation into your current blog."
 msgstr "Tuo WordPress-asennuksesi tähän blogiin."
 
-#: plugins/importExport/src/ModuleImportWp.php:233
+#: plugins/importExport/src/ModuleImportWp.php:245
 #, php-format
 msgid "This will import your WordPress content as new content in the current blog: %s."
 msgstr "Tämä tuo WordPress-sisältösi uutena sisältönä tähän blogiin: %s."
 
-#: plugins/importExport/src/ModuleImportWp.php:248
+#: plugins/importExport/src/ModuleImportWp.php:260
 msgid "We first need some information about your old WordPress installation."
 msgstr "Joitain tietoja aiemmasta WordPress-asennuksestasi tarvitaan ensiksi."
 
-#: plugins/importExport/src/ModuleImportWp.php:298
+#: plugins/importExport/src/ModuleImportWp.php:310
 msgid "WordPress and Dotclear's handling of categories are quite different. You can assign several categories to a single post in WordPress. In the Dotclear world, we see it more like \"One category, several tags.\" Therefore Dotclear can only import one category per post and will chose the lowest numbered one. If you want to keep a trace of every category, you can import them as tags, with an optional prefix."
 msgstr "WordPressin ja Dotclearin luokat toimivat eri tavalla. Voit kiinnittää useita luokkia yhteen blogimerkintään WordPressissä. Dotclearin tapa on \"yksi luokka, monta avainsanaa\". Näin ollen Dotclear voi tuoda vain yhden luokan blogimerkintää kohti. Dotclear valitsee sen, jonka numero on pienin. Jos haluat säilyttää muutkin luokat, voit tuoda ne avainsanoina, varustettuna valinnaisella etuliitteellä."
 
-#: plugins/importExport/src/ModuleImportWp.php:300
+#: plugins/importExport/src/ModuleImportWp.php:312
 msgid "On the other hand, in WordPress, a post can not be uncategorized, and a default installation has a first category labelised <i>\"Uncategorized\"</i>. If you did not change that category, you can just ignore it while importing your blog, as Dotclear allows you to actually keep your posts uncategorized."
 msgstr "Toisaalta WordPressissä viestiä ei voi olla luokittelematta, ja oletusasennuksessa on ensimmäinen luokka <i>\"Uncategorized</i>\". Jos et ole muuttanut tuota luokkaa, voit jättää sen huomiotta blogiasi tuodessasi, sillä Dotclearin avulla voit itse asiassa pitää postauksesi luokittelemattomina."
 
-#: plugins/importExport/src/ModuleImportWp.php:309
+#: plugins/importExport/src/ModuleImportWp.php:321
 msgid "Ignore the first category:"
 msgstr "Jätä ensimmäinen luokka huomiotta:"
 
-#: plugins/importExport/src/ModuleImportWp.php:315
+#: plugins/importExport/src/ModuleImportWp.php:327
 msgid "Import lowest numbered category on posts:"
 msgstr "Tuo alimmalla numerolla oleva luokka merkintöjen mukana:"
 
-#: plugins/importExport/src/ModuleImportWp.php:321
+#: plugins/importExport/src/ModuleImportWp.php:333
 msgid "Import all categories as tags:"
 msgstr "Tuo kaikki luokat avainsanoina:"
 
-#: plugins/importExport/src/ModuleImportWp.php:329
+#: plugins/importExport/src/ModuleImportWp.php:341
 msgid "Prefix such tags with:"
 msgstr "Pane ko. avainsanoihin etuliite:"
 
-#: plugins/importExport/src/ModuleImportWp.php:339
+#: plugins/importExport/src/ModuleImportWp.php:351
 msgid "Content filters"
 msgstr "Sisältösuodattimet"
 
-#: plugins/importExport/src/ModuleImportWp.php:341
+#: plugins/importExport/src/ModuleImportWp.php:353
 msgid "You may want to process your post and/or comment content with the following filters."
 msgstr "Voit haluta käsitellä merkintöjesi ja/tai kommenttiesi sisältöä seuraavilla suodattimilla."
 
-#: plugins/importExport/src/ModuleImportWp.php:347
+#: plugins/importExport/src/ModuleImportWp.php:359
 msgid "Post content formatter:"
 msgstr "Merkintöjen sisällön muotoilija:"
 
-#: plugins/importExport/src/ModuleImportWp.php:354
+#: plugins/importExport/src/ModuleImportWp.php:366
 msgid "Comment content formatter:"
 msgstr "Kommenttien sisällön muotoilija:"
 
-#: plugins/importExport/src/ModuleImportWp.php:474
+#: plugins/importExport/src/ModuleImportWp.php:486
 msgid "WordPress tables not found"
 msgstr "WordPress-tauluja ei löytynyt"
 
@@ -2073,12 +2073,12 @@ msgstr[0] "Yksi tehtävä suoritettavana"
 msgstr[1] "%s tehtävää suoritettavana"
 
 #: plugins/maintenance/src/BackendBehaviors.php:203
-#: plugins/maintenance/src/Manage.php:305
+#: plugins/maintenance/src/Manage.php:308
 msgid "This task has never been executed."
 msgstr "Tätä tehtävää ei vielä ole suoritettu."
 
 #: plugins/maintenance/src/BackendBehaviors.php:206
-#: plugins/maintenance/src/Manage.php:308
+#: plugins/maintenance/src/Manage.php:311
 #, php-format
 msgid "Last execution of this task was on %s."
 msgstr "Tämän tehtävän viimeisin suorituspäivä oli %s."
@@ -2110,107 +2110,107 @@ msgstr "Tehtävän suoritus epäonnistui."
 msgid "Task successfully executed."
 msgstr "Tehtävä suoritettu."
 
-#: plugins/maintenance/src/Manage.php:135
+#: plugins/maintenance/src/Manage.php:138
 msgid "Maintenance plugin has been successfully configured."
 msgstr "Ylläpitoliitännäisen asetukset on annettu."
 
-#: plugins/maintenance/src/Manage.php:153
+#: plugins/maintenance/src/Manage.php:156
 msgid "System settings have been saved."
 msgstr "Asetukset on päivitetty."
 
-#: plugins/maintenance/src/Manage.php:158
+#: plugins/maintenance/src/Manage.php:161
 msgid "All blog's Content-Security-Policy settings have been reset to default."
 msgstr "Kaikkien blogien sisällön turvallisuusohjeistuksen asetukset on asetettu oletusarvoihin."
 
-#: plugins/maintenance/src/Manage.php:180
+#: plugins/maintenance/src/Manage.php:183
 msgid "Every week"
 msgstr "Joka viikko"
 
-#: plugins/maintenance/src/Manage.php:181
+#: plugins/maintenance/src/Manage.php:184
 msgid "Every two weeks"
 msgstr "Joka toinen viikko"
 
-#: plugins/maintenance/src/Manage.php:182
+#: plugins/maintenance/src/Manage.php:185
 msgid "Every month"
 msgstr "Joka kuukausi"
 
-#: plugins/maintenance/src/Manage.php:183
+#: plugins/maintenance/src/Manage.php:186
 msgid "Every two months"
 msgstr "Joka toinen kuukausi"
 
-#: plugins/maintenance/src/Manage.php:216
+#: plugins/maintenance/src/Manage.php:219
 msgid "You have not sufficient permissions to view this page."
 msgstr "Käyttöoikeutesi eivät riitä tämän sivun tarkastelemiseen."
 
-#: plugins/maintenance/src/Manage.php:305
-#: plugins/maintenance/src/Manage.php:311
+#: plugins/maintenance/src/Manage.php:308
+#: plugins/maintenance/src/Manage.php:314
 msgid "You should execute it now."
 msgstr "Toimenpide pitäisi suorittaa nyt."
 
-#: plugins/maintenance/src/Manage.php:347
-#: plugins/maintenance/src/Manage.php:381
+#: plugins/maintenance/src/Manage.php:350
+#: plugins/maintenance/src/Manage.php:384
 msgid "Execute task"
 msgstr "Suorita toimi"
 
-#: plugins/maintenance/src/Manage.php:352
+#: plugins/maintenance/src/Manage.php:355
 msgid "This may take a very long time."
 msgstr "Tämä voi kestää jonkin aikaa."
 
-#: plugins/maintenance/src/Manage.php:419
-#: plugins/maintenance/src/Manage.php:421
+#: plugins/maintenance/src/Manage.php:422
+#: plugins/maintenance/src/Manage.php:424
 msgid "Alert settings"
 msgstr "Hälytysasetukset"
 
-#: plugins/maintenance/src/Manage.php:427
+#: plugins/maintenance/src/Manage.php:430
 msgid "Activation"
 msgstr "Käyttöönotto"
 
-#: plugins/maintenance/src/Manage.php:433
+#: plugins/maintenance/src/Manage.php:436
 msgid "Display alert messages on late tasks"
 msgstr "Näytä hälytyksiä rästiin jääneistä toimista"
 
-#: plugins/maintenance/src/Manage.php:438
+#: plugins/maintenance/src/Manage.php:441
 #, php-format
 msgid "You can place list of late tasks on your %s."
 msgstr "%s on myös mahdollinen rästiin jääneiden toimenpiteiden luettelon sijaintipaikka."
 
-#: plugins/maintenance/src/Manage.php:443
+#: plugins/maintenance/src/Manage.php:446
 msgid "Frequency"
 msgstr "Hälytysten aikaväli"
 
-#: plugins/maintenance/src/Manage.php:451
+#: plugins/maintenance/src/Manage.php:454
 msgid "Use one recall time for all tasks"
 msgstr "Sama muistutusaika kaikille tehtäville"
 
-#: plugins/maintenance/src/Manage.php:461
+#: plugins/maintenance/src/Manage.php:464
 msgid "Recall time for all tasks:"
 msgstr "Muistuta kaikista tehtävistä:"
 
-#: plugins/maintenance/src/Manage.php:470
+#: plugins/maintenance/src/Manage.php:473
 msgid "Use one recall time per task"
 msgstr "Tehtäväkohtainen muistutusaika eri tehtäville"
 
-#: plugins/maintenance/src/Manage.php:501
+#: plugins/maintenance/src/Manage.php:504
 msgid "Content-Security-Policy"
 msgstr "Sisällön turvallisuusohjeistus"
 
-#: plugins/maintenance/src/Manage.php:513
+#: plugins/maintenance/src/Manage.php:516
 msgid "Enable Content-Security-Policy system"
 msgstr "Käytä sisällön turvallisuusohjeistusjärjestelmää"
 
-#: plugins/maintenance/src/Manage.php:519
+#: plugins/maintenance/src/Manage.php:522
 msgid "Enable Content-Security-Policy report only"
 msgstr "Luo vain sisällön turvallisuusohjeistusraportteja"
 
-#: plugins/maintenance/src/Manage.php:529
+#: plugins/maintenance/src/Manage.php:532
 msgid "Enable Content-Security-Policy system by default"
 msgstr "Käytä oletusarvoisesti sisällön turvallisuusohjeistusta"
 
-#: plugins/maintenance/src/Manage.php:535
+#: plugins/maintenance/src/Manage.php:538
 msgid "Enable Content-Security-Policy report only by default"
 msgstr "Luo oletusarvoisesti vain sisällön turvallisuusohjeistusraportteja"
 
-#: plugins/maintenance/src/Manage.php:541
+#: plugins/maintenance/src/Manage.php:544
 msgid "Also apply these settings to all blogs"
 msgstr "Sovella näitä asetuksia kaikkiin blogeihin"
 
@@ -2385,26 +2385,26 @@ msgstr "Lataa tämän blogin käytössä oleva teema kotikoneellesi"
 msgid "It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file."
 msgstr "Blogissa käytetyn teeman varmistaminen voi olla hyvä idea ennen muutoksia tai päivityksiä. Tämä toiminto pakkaa teemakansion zip-tiedostoksi."
 
-#: plugins/pages/src/Backend.php:47
+#: plugins/pages/src/Backend.php:49
 msgid "manage pages"
 msgstr "sivujen hallinta"
 
-#: plugins/pages/src/Backend.php:78
+#: plugins/pages/src/Backend.php:80
 msgid "pages per page"
 msgstr "sivua per sivu"
 
-#: plugins/pages/src/Backend.php:101
+#: plugins/pages/src/Backend.php:103
 #, php-format
 msgid "%d page"
 msgstr "%d sivu"
 
-#: plugins/pages/src/Backend.php:101
+#: plugins/pages/src/Backend.php:103
 #, php-format
 msgid "%d pages"
 msgstr "%d sivua"
 
-#: plugins/pages/src/Backend.php:108 plugins/pages/src/Manage.php:148
-#: plugins/pages/src/ManagePage.php:108 plugins/pages/src/ManagePage.php:856
+#: plugins/pages/src/Backend.php:110 plugins/pages/src/Manage.php:150
+#: plugins/pages/src/ManagePage.php:110 plugins/pages/src/ManagePage.php:858
 msgid "New page"
 msgstr "Uusi sivu"
 
@@ -2417,7 +2417,7 @@ msgid "Back to pages list"
 msgstr "Paluu sivuluetteloon"
 
 #: plugins/pages/src/BackendDefaultActions.php:119
-#: plugins/pages/src/Manage.php:139
+#: plugins/pages/src/Manage.php:141
 msgid "Selected pages have been successfully reordered."
 msgstr "Valituttujen sivujen järjestys on muutettu."
 
@@ -2425,112 +2425,112 @@ msgstr "Valituttujen sivujen järjestys on muutettu."
 msgid "No page"
 msgstr "Ei sivuja"
 
-#: plugins/pages/src/BackendList.php:179 plugins/pages/src/BackendList.php:248
+#: plugins/pages/src/BackendList.php:170 plugins/pages/src/BackendList.php:239
 msgid "Hidden"
 msgstr "Piilotettu"
 
-#: plugins/pages/src/BackendList.php:278
+#: plugins/pages/src/BackendList.php:268
 msgid "Select this page"
 msgstr "Valitse tämä sivu"
 
-#: plugins/pages/src/Frontend.php:36
+#: plugins/pages/src/Frontend.php:38
 msgid "Published on"
 msgstr "Julkaistu"
 
-#: plugins/pages/src/Frontend.php:37
+#: plugins/pages/src/Frontend.php:39
 msgid "This page's comments feed"
 msgstr "Tämän sivun kommenttisyöte"
 
-#: plugins/pages/src/Install.php:49
+#: plugins/pages/src/Install.php:51
 msgid "My first page"
 msgstr "Ensimmäinen sivuni"
 
-#: plugins/pages/src/Install.php:50
+#: plugins/pages/src/Install.php:52
 msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
 msgstr "Tämä on esimerkkisivusi. Kun olet valmis aloittamaan bloggaamisen, kirjaudu sisään ja muokkaa tai poista tämä sivu."
 
-#: plugins/pages/src/Manage.php:121
+#: plugins/pages/src/Manage.php:123
 msgid "Are you sure you want to delete selected pages?"
 msgstr "Oletko varma, että haluat poistaa valitut sivut?"
 
-#: plugins/pages/src/Manage.php:135
+#: plugins/pages/src/Manage.php:137
 msgid "Selected pages have been successfully updated."
 msgstr "Valitut sivut on päivitetty."
 
-#: plugins/pages/src/Manage.php:137
+#: plugins/pages/src/Manage.php:139
 msgid "Selected pages have been successfully deleted."
 msgstr "Valitut sivut on poistettu."
 
-#: plugins/pages/src/Manage.php:171
+#: plugins/pages/src/Manage.php:173
 msgid "Selected pages action:"
 msgstr "Valituttuihin sivuihin kohdistuva toimi:"
 
-#: plugins/pages/src/Manage.php:177
+#: plugins/pages/src/Manage.php:179
 msgid "To rearrange pages order, change number at the begining of the line, then click on “Save pages order” button."
 msgstr "Sivujärjestyksen muuttamiseksi vaihda numeroa rivin edessä ja paina \"Tallenna sivujärjestys\" -nappia."
 
-#: plugins/pages/src/Manage.php:180
+#: plugins/pages/src/Manage.php:182
 msgid "To rearrange pages order, move items by drag and drop, then click on “Save pages order” button."
 msgstr "Sivujärjestyksen muuttamiseksi vedä ja pudota sivut haluamillesi paikoille ja paina \"Tallenna sivujärjestys\" -nappia."
 
-#: plugins/pages/src/Manage.php:187
+#: plugins/pages/src/Manage.php:189
 msgid "Save pages order"
 msgstr "Tallenna sivujärjestys"
 
-#: plugins/pages/src/ManagePage.php:168
+#: plugins/pages/src/ManagePage.php:170
 msgid "This page does not exist."
 msgstr "Tätä sivua ei ole."
 
-#: plugins/pages/src/ManagePage.php:189 plugins/pages/src/ManagePage.php:856
-#: plugins/pages/src/ManagePage.php:877
+#: plugins/pages/src/ManagePage.php:191 plugins/pages/src/ManagePage.php:858
+#: plugins/pages/src/ManagePage.php:879
 msgid "Edit page"
 msgstr "Muokkaa sivua"
 
-#: plugins/pages/src/ManagePage.php:434
+#: plugins/pages/src/ManagePage.php:436
 msgid "Don't forget to validate your HTML conversion by saving your post."
 msgstr "Älä unohda validoida HTML-muunnosta tallentamalla viestisi."
 
-#: plugins/pages/src/ManagePage.php:498
+#: plugins/pages/src/ManagePage.php:500
 msgid "Are you sure you want to delete this page?"
 msgstr "Oletko varma, että haluat poistaa tämän sivun?"
 
-#: plugins/pages/src/ManagePage.php:527
+#: plugins/pages/src/ManagePage.php:529
 msgid "Page has been successfully updated."
 msgstr "Sivu on päivitetty."
 
-#: plugins/pages/src/ManagePage.php:529
+#: plugins/pages/src/ManagePage.php:531
 msgid "Page has been successfully created."
 msgstr "Sivu on luotu."
 
-#: plugins/pages/src/ManagePage.php:543
+#: plugins/pages/src/ManagePage.php:545
 msgid "Go to this page on the site"
 msgstr "Avaa tämä sivu selaimessa"
 
-#: plugins/pages/src/ManagePage.php:585
+#: plugins/pages/src/ManagePage.php:587
 msgid "Page status"
 msgstr "Sivun tila"
 
-#: plugins/pages/src/ManagePage.php:602
+#: plugins/pages/src/ManagePage.php:604
 msgid "Page language"
 msgstr "Sivun kieli"
 
-#: plugins/pages/src/ManagePage.php:631 plugins/pages/src/Widgets.php:41
+#: plugins/pages/src/ManagePage.php:633 plugins/pages/src/Widgets.php:41
 msgid "Page position"
 msgstr "Sivun sijainti"
 
-#: plugins/pages/src/ManagePage.php:682
+#: plugins/pages/src/ManagePage.php:684
 msgid "Hide in widget Pages"
 msgstr "Piilota sivu-vimpaimessa"
 
-#: plugins/pages/src/ManagePage.php:708
+#: plugins/pages/src/ManagePage.php:710
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "Varoitus: Jos asetat verkko-osoitteen itse käsin, se voi olla ristiriidassa toisen jo olemassaolevan sivun kanssa."
 
-#: plugins/pages/src/ManagePage.php:747
+#: plugins/pages/src/ManagePage.php:749
 msgid "Introduction to the page."
 msgstr "Johdatus sivuun."
 
-#: plugins/pages/src/ManagePage.php:1126
+#: plugins/pages/src/ManagePage.php:1128
 msgid "Select this comment"
 msgstr "Valitse tämä kommentti"
 
@@ -2542,43 +2542,43 @@ msgstr "Sivun otsikko"
 msgid "Publication date"
 msgstr "Julkaisupäivä"
 
-#: plugins/pings/src/Backend.php:27 plugins/pings/src/BackendBehaviors.php:64
+#: plugins/pings/src/Backend.php:29 plugins/pings/src/BackendBehaviors.php:64
 msgid "Pings"
 msgstr "Ping-viestit"
 
-#: plugins/pings/src/Manage.php:80
+#: plugins/pings/src/Manage.php:82
 msgid "Settings have been successfully updated."
 msgstr "Asetukset on päivitetty."
 
-#: plugins/pings/src/Manage.php:98
+#: plugins/pings/src/Manage.php:100
 msgid "Pings configuration"
 msgstr "Ping-viestiasetukset"
 
-#: plugins/pings/src/Manage.php:112
+#: plugins/pings/src/Manage.php:114
 msgid "Error"
 msgstr "Virhe"
 
-#: plugins/pings/src/Manage.php:164
+#: plugins/pings/src/Manage.php:166
 msgid "Service name:"
 msgstr "Palvelun nimi:"
 
-#: plugins/pings/src/Manage.php:165
+#: plugins/pings/src/Manage.php:167
 msgid "Service URI:"
 msgstr "Palvelun URI:"
 
-#: plugins/pings/src/Manage.php:180
+#: plugins/pings/src/Manage.php:182
 msgid "Activate pings extension"
 msgstr "Ota ping-liitännäinen käyttöön"
 
-#: plugins/pings/src/Manage.php:186
+#: plugins/pings/src/Manage.php:188
 msgid "Auto pings all services on first publication of entry (current blog only)"
 msgstr "Lähetä ping-viestejä kaikille palveluille, kun blogimerkintä julkaistaan ensi kerran (vain tämä blogi)"
 
-#: plugins/pings/src/Manage.php:193
+#: plugins/pings/src/Manage.php:195
 msgid "Test ping services"
 msgstr "Testaa ping-palvelut"
 
-#: plugins/simpleMenu/src/Backend.php:26 plugins/simpleMenu/src/Manage.php:72
+#: plugins/simpleMenu/src/Backend.php:28 plugins/simpleMenu/src/Manage.php:74
 #: plugins/simpleMenu/src/Widgets.php:29
 msgid "Simple menu"
 msgstr "Yksinkertainen valikko"
@@ -2591,185 +2591,185 @@ msgstr "Käytössä"
 msgid "active page"
 msgstr "Uusi sivu"
 
-#: plugins/simpleMenu/src/Manage.php:97
+#: plugins/simpleMenu/src/Manage.php:99
 msgid "All months"
 msgstr "Kaikki kuukaudet"
 
-#: plugins/simpleMenu/src/Manage.php:160
+#: plugins/simpleMenu/src/Manage.php:162
 msgid "Archive"
 msgstr "Arkisto"
 
-#: plugins/simpleMenu/src/Manage.php:163
+#: plugins/simpleMenu/src/Manage.php:165
 msgid "Page"
 msgstr "Sivu"
 
-#: plugins/simpleMenu/src/Manage.php:166 plugins/tags/src/Backend.php:25
+#: plugins/simpleMenu/src/Manage.php:168 plugins/tags/src/Backend.php:27
 #: plugins/tags/src/Widgets.php:33
 msgid "Tags"
 msgstr "Avainsanat"
 
-#: plugins/simpleMenu/src/Manage.php:173
+#: plugins/simpleMenu/src/Manage.php:175
 msgid "User defined"
 msgstr "Käyttäjän määrittelemä"
 
-#: plugins/simpleMenu/src/Manage.php:214
+#: plugins/simpleMenu/src/Manage.php:216
 msgid "Configuration successfully updated."
 msgstr "Asetukset päivitetty."
 
-#: plugins/simpleMenu/src/Manage.php:255 plugins/simpleMenu/src/Manage.php:677
-#: plugins/simpleMenu/src/Manage.php:797
+#: plugins/simpleMenu/src/Manage.php:258 plugins/simpleMenu/src/Manage.php:680
+#: plugins/simpleMenu/src/Manage.php:800
 msgid "Label"
 msgstr "Otsake"
 
-#: plugins/simpleMenu/src/Manage.php:261
+#: plugins/simpleMenu/src/Manage.php:264
 msgid "Home page"
 msgstr "Vain etusivulla"
 
-#: plugins/simpleMenu/src/Manage.php:261 plugins/simpleMenu/src/Manage.php:266
+#: plugins/simpleMenu/src/Manage.php:264 plugins/simpleMenu/src/Manage.php:269
 #: plugins/widgets/src/Widgets.php:305 plugins/widgets/src/Widgets.php:315
 msgid "Recent posts"
 msgstr "Viimeisimmät merkinnät"
 
-#: plugins/simpleMenu/src/Manage.php:273
+#: plugins/simpleMenu/src/Manage.php:276
 #, php-format
 msgid "Switch to %s language"
 msgstr "Vaihda kieleen %s"
 
-#: plugins/simpleMenu/src/Manage.php:280
+#: plugins/simpleMenu/src/Manage.php:283
 msgid "Recent Posts from this category"
 msgstr "Viimeisimmät merkinnät tässä luokassa"
 
-#: plugins/simpleMenu/src/Manage.php:292
+#: plugins/simpleMenu/src/Manage.php:295
 #, php-format
 msgid "Posts from %s"
 msgstr "%s:n blogimerkinnät"
 
-#: plugins/simpleMenu/src/Manage.php:312
+#: plugins/simpleMenu/src/Manage.php:315
 #, php-format
 msgid "Recent posts for %s tag"
 msgstr "Viimeisimmät blogimerkinnät avainsanalla %s"
 
-#: plugins/simpleMenu/src/Manage.php:372
+#: plugins/simpleMenu/src/Manage.php:375
 msgid "Menu item has been successfully added."
 msgstr "Valikon kohta on lisätty."
 
-#: plugins/simpleMenu/src/Manage.php:377
+#: plugins/simpleMenu/src/Manage.php:380
 msgid "Label and URL of menu item are mandatory."
 msgstr "Valikon kohdan otsake ja URL ovat pakollisia."
 
-#: plugins/simpleMenu/src/Manage.php:410
+#: plugins/simpleMenu/src/Manage.php:413
 msgid "Menu items have been successfully removed."
 msgstr "Valikon kohta(kohdat) on poistettu."
 
-#: plugins/simpleMenu/src/Manage.php:413
+#: plugins/simpleMenu/src/Manage.php:416
 msgid "No menu items selected."
 msgstr "Ei valittuja valikon kohtia."
 
-#: plugins/simpleMenu/src/Manage.php:425
+#: plugins/simpleMenu/src/Manage.php:428
 msgid "Label is mandatory."
 msgstr "Otsake on pakollinen."
 
-#: plugins/simpleMenu/src/Manage.php:430
+#: plugins/simpleMenu/src/Manage.php:433
 msgid "URL is mandatory."
 msgstr "URL on pakollinen."
 
-#: plugins/simpleMenu/src/Manage.php:475
+#: plugins/simpleMenu/src/Manage.php:478
 msgid "Menu items have been successfully updated."
 msgstr "Valikon kohta(kohdat) on päivitetty."
 
-#: plugins/simpleMenu/src/Manage.php:502
+#: plugins/simpleMenu/src/Manage.php:505
 msgid "Are you sure you want to remove selected menu items?"
 msgstr "Oletko varma, että haluat poistaa valitut valikon kohdat?"
 
-#: plugins/simpleMenu/src/Manage.php:511
+#: plugins/simpleMenu/src/Manage.php:514
 msgid "Step #1"
 msgstr "Vaihe 1"
 
-#: plugins/simpleMenu/src/Manage.php:516 plugins/simpleMenu/src/Manage.php:521
+#: plugins/simpleMenu/src/Manage.php:519 plugins/simpleMenu/src/Manage.php:524
 msgid "Step #2"
 msgstr "Vaihe 2"
 
-#: plugins/simpleMenu/src/Manage.php:521
+#: plugins/simpleMenu/src/Manage.php:524
 msgid "Step #3"
 msgstr "Vaihe 3"
 
-#: plugins/simpleMenu/src/Manage.php:530
+#: plugins/simpleMenu/src/Manage.php:533
 msgid "Add item"
 msgstr "Lisää kohta"
 
-#: plugins/simpleMenu/src/Manage.php:561
+#: plugins/simpleMenu/src/Manage.php:564
 msgid "Select type"
 msgstr "Valitse tyyppi"
 
-#: plugins/simpleMenu/src/Manage.php:568
+#: plugins/simpleMenu/src/Manage.php:571
 msgid "Type of item menu:"
 msgstr "Valikon kohdan tyyppi:"
 
-#: plugins/simpleMenu/src/Manage.php:574 plugins/simpleMenu/src/Manage.php:641
+#: plugins/simpleMenu/src/Manage.php:577 plugins/simpleMenu/src/Manage.php:644
 msgid "Continue..."
 msgstr "Jatka…"
 
-#: plugins/simpleMenu/src/Manage.php:597
+#: plugins/simpleMenu/src/Manage.php:600
 msgid "Select language:"
 msgstr "Valitse kieli:"
 
-#: plugins/simpleMenu/src/Manage.php:603
+#: plugins/simpleMenu/src/Manage.php:606
 msgid "Select category:"
 msgstr "Valitse luokka:"
 
-#: plugins/simpleMenu/src/Manage.php:609
+#: plugins/simpleMenu/src/Manage.php:612
 msgid "Select month (if necessary):"
 msgstr "Valitse kuukausi (jos tarpeen):"
 
-#: plugins/simpleMenu/src/Manage.php:615
+#: plugins/simpleMenu/src/Manage.php:618
 msgid "Select page:"
 msgstr "Valitse sivu:"
 
-#: plugins/simpleMenu/src/Manage.php:621
+#: plugins/simpleMenu/src/Manage.php:624
 msgid "Select tag (if necessary):"
 msgstr "Valitse avainsana (jos tarpeen) :"
 
-#: plugins/simpleMenu/src/Manage.php:682
+#: plugins/simpleMenu/src/Manage.php:685
 msgid "Label of item menu:"
 msgstr "Valikon kohdan otsake:"
 
-#: plugins/simpleMenu/src/Manage.php:696
+#: plugins/simpleMenu/src/Manage.php:699
 msgid "Description of item menu:"
 msgstr "Valikon kohdan kuvaus:"
 
-#: plugins/simpleMenu/src/Manage.php:711
+#: plugins/simpleMenu/src/Manage.php:714
 msgid "URL of item menu:"
 msgstr "Valikon kohdan URL:"
 
-#: plugins/simpleMenu/src/Manage.php:721 plugins/simpleMenu/src/Manage.php:800
+#: plugins/simpleMenu/src/Manage.php:724 plugins/simpleMenu/src/Manage.php:803
 msgid "Open URL on a new tab"
 msgstr "Avaa URL uuteen välilehteen"
 
-#: plugins/simpleMenu/src/Manage.php:729
+#: plugins/simpleMenu/src/Manage.php:732
 msgid "Add this item"
 msgstr "Lisää tämä kohta"
 
-#: plugins/simpleMenu/src/Manage.php:755
+#: plugins/simpleMenu/src/Manage.php:758
 msgid "Enable simple menu for this blog"
 msgstr "Ota yksinkertainen valikko käyttöön tässä blogissa"
 
-#: plugins/simpleMenu/src/Manage.php:778
+#: plugins/simpleMenu/src/Manage.php:781
 msgid "Add an item"
 msgstr "Lisää kohta"
 
-#: plugins/simpleMenu/src/Manage.php:896
+#: plugins/simpleMenu/src/Manage.php:899
 msgid "Menu items list"
 msgstr "Valikon kohtien luettelo"
 
-#: plugins/simpleMenu/src/Manage.php:923
+#: plugins/simpleMenu/src/Manage.php:926
 msgid "Delete selected menu items"
 msgstr "Poista valitut valikon kohdat"
 
-#: plugins/simpleMenu/src/Manage.php:932
+#: plugins/simpleMenu/src/Manage.php:935
 msgid "Update menu"
 msgstr "Päivitä valikko"
 
-#: plugins/simpleMenu/src/Manage.php:942
+#: plugins/simpleMenu/src/Manage.php:945
 msgid "No menu items so far."
 msgstr "Valikon kohdat puuttuvat vielä."
 
@@ -2793,90 +2793,90 @@ msgstr "Näytetään linkissä ja käytetään linkin otsikkona"
 msgid "Not displayed nor used"
 msgstr "Ei näytetä eikä käytetä"
 
-#: plugins/tags/src/BackendBehaviors.php:63
-#: plugins/tags/src/BackendBehaviors.php:75
-#: plugins/tags/src/FrontendUrl.php:105 plugins/tags/src/ManagePosts.php:155
+#: plugins/tags/src/BackendBehaviors.php:64
+#: plugins/tags/src/BackendBehaviors.php:76
+#: plugins/tags/src/FrontendUrl.php:105 plugins/tags/src/ManagePosts.php:157
 msgid "Tag"
 msgstr "Avainsana"
 
-#: plugins/tags/src/BackendBehaviors.php:238
+#: plugins/tags/src/BackendBehaviors.php:239
 msgid "Add tags"
 msgstr "Lisää avainsanoja"
 
-#: plugins/tags/src/BackendBehaviors.php:247
+#: plugins/tags/src/BackendBehaviors.php:248
 msgid "Remove tags"
 msgstr "Poista avainsanoja"
 
-#: plugins/tags/src/BackendBehaviors.php:282
+#: plugins/tags/src/BackendBehaviors.php:283
 msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
 msgstr[0] "Avainsana on lisätty valittuihin blogimerkintöihin"
 msgstr[1] "Avainsanat on lisätty valittuihin blogimerkintöihin"
 
-#: plugins/tags/src/BackendBehaviors.php:295
-#: plugins/tags/src/BackendBehaviors.php:450
+#: plugins/tags/src/BackendBehaviors.php:296
+#: plugins/tags/src/BackendBehaviors.php:451
 msgid "Are you sure you want to remove this tag?"
 msgstr "Oletko varma, että haluat poistaa tämän avainsanan?"
 
-#: plugins/tags/src/BackendBehaviors.php:296
-#: plugins/tags/src/BackendBehaviors.php:451
+#: plugins/tags/src/BackendBehaviors.php:297
+#: plugins/tags/src/BackendBehaviors.php:452
 msgid "Add a tag to this entry"
 msgstr "Lisää avainsana tähän blogimerkintään"
 
-#: plugins/tags/src/BackendBehaviors.php:297
-#: plugins/tags/src/BackendBehaviors.php:452
+#: plugins/tags/src/BackendBehaviors.php:298
+#: plugins/tags/src/BackendBehaviors.php:453
 msgid "Choose from list"
 msgstr "Valitse luettelosta"
 
-#: plugins/tags/src/BackendBehaviors.php:298
-#: plugins/tags/src/BackendBehaviors.php:453
+#: plugins/tags/src/BackendBehaviors.php:299
+#: plugins/tags/src/BackendBehaviors.php:454
 msgid "all"
 msgstr "kaikki"
 
-#: plugins/tags/src/BackendBehaviors.php:299
-#: plugins/tags/src/BackendBehaviors.php:454
+#: plugins/tags/src/BackendBehaviors.php:300
+#: plugins/tags/src/BackendBehaviors.php:455
 msgid "Enter tags separated by comma"
 msgstr "Syötä avainsanat pilkulla eroteltuina"
 
-#: plugins/tags/src/BackendBehaviors.php:307
+#: plugins/tags/src/BackendBehaviors.php:308
 msgid "Add tags to this selection"
 msgstr "Lisää avainsanat tähän valintaan"
 
-#: plugins/tags/src/BackendBehaviors.php:325
+#: plugins/tags/src/BackendBehaviors.php:326
 msgid "Tags to add:"
 msgstr "Lisättäviä avainsanoja:"
 
-#: plugins/tags/src/BackendBehaviors.php:364
+#: plugins/tags/src/BackendBehaviors.php:365
 msgid "Tag has been successfully removed from selected entries"
 msgid_plural "Tags have been successfully removed from selected entries"
 msgstr[0] "Avainsana on poistettu valituista blogimerkinnöistä"
 msgstr[1] "Avainsanat on poistettu valituista blogimerkinnöistä"
 
-#: plugins/tags/src/BackendBehaviors.php:387
+#: plugins/tags/src/BackendBehaviors.php:388
 msgid "No tags for selected entries"
 msgstr "Ei avainsanoja valituissa blogimerkinnöissä"
 
-#: plugins/tags/src/BackendBehaviors.php:394
+#: plugins/tags/src/BackendBehaviors.php:395
 msgid "Remove selected tags from this selection"
 msgstr "Poista valitut avainsanat valinnasta"
 
-#: plugins/tags/src/BackendBehaviors.php:421
+#: plugins/tags/src/BackendBehaviors.php:422
 msgid "Following tags have been found in selected entries:"
 msgstr "Seuraavat avainsanat ovat löytyneet valituista blogimerkinnöistä:"
 
-#: plugins/tags/src/BackendBehaviors.php:430
+#: plugins/tags/src/BackendBehaviors.php:431
 msgid "Remove"
 msgstr "Poista"
 
-#: plugins/tags/src/BackendBehaviors.php:493
+#: plugins/tags/src/BackendBehaviors.php:494
 msgid "Tags list format:"
 msgstr "Avainsanaluettelon muoto:"
 
-#: plugins/tags/src/BackendBehaviors.php:496
+#: plugins/tags/src/BackendBehaviors.php:497
 msgid "Short"
 msgstr "Lyhyt"
 
-#: plugins/tags/src/BackendBehaviors.php:497
+#: plugins/tags/src/BackendBehaviors.php:498
 msgid "Extended"
 msgstr "Laajempi"
 
@@ -2888,44 +2888,44 @@ msgstr "Tämän avainsanan kommenttien Atom-syöte"
 msgid "This tag's entries Atom feed"
 msgstr "Tämän avainsanan blogimerkintöjen Atom-syöte"
 
-#: plugins/tags/src/Manage.php:119
+#: plugins/tags/src/Manage.php:121
 msgid "entries"
 msgstr "blogimerkintää"
 
-#: plugins/tags/src/Manage.php:119
+#: plugins/tags/src/Manage.php:121
 msgid "entry"
 msgstr "blogimerkintä"
 
-#: plugins/tags/src/Manage.php:150
+#: plugins/tags/src/Manage.php:152
 msgid "No tags on this blog."
 msgstr "Tähän blogiin ei ole liitetty avainsanoja."
 
-#: plugins/tags/src/ManagePosts.php:94
+#: plugins/tags/src/ManagePosts.php:96
 msgid "Tag has been successfully renamed"
 msgstr "Avainsanan nimi on vaihdettu"
 
-#: plugins/tags/src/ManagePosts.php:113
+#: plugins/tags/src/ManagePosts.php:115
 msgid "Tag has been successfully removed"
 msgstr "Avainsana on poistettu"
 
-#: plugins/tags/src/ManagePosts.php:144
+#: plugins/tags/src/ManagePosts.php:146
 #, php-format
 msgid "Are you sure you want to remove tag: “%s”?"
 msgstr "Oletko varma, että haluat poistaa avainsanan “%s”?"
 
-#: plugins/tags/src/ManagePosts.php:159
+#: plugins/tags/src/ManagePosts.php:161
 msgid "Back to tags list"
 msgstr "Paluu avainsanaluetteloon"
 
-#: plugins/tags/src/ManagePosts.php:174
+#: plugins/tags/src/ManagePosts.php:176
 msgid "Delete this tag"
 msgstr "Poista tämä avainsana"
 
-#: plugins/tags/src/ManagePosts.php:196
+#: plugins/tags/src/ManagePosts.php:198
 msgid "Rename:"
 msgstr "Nimeä uudelleen:"
 
-#: plugins/tags/src/ManagePosts.php:207
+#: plugins/tags/src/ManagePosts.php:209
 msgid "List of entries with this tag"
 msgstr "Luettelo merkinnöistä, joissa on tämä tunniste"
 
@@ -2953,119 +2953,119 @@ msgstr "Vanhin merkintä"
 msgid "Link to all tags:"
 msgstr "Linkki kaikkiin avainsanoihin:"
 
-#: plugins/themeEditor/src/Backend.php:25
+#: plugins/themeEditor/src/Backend.php:27
 msgid "themeEditor"
 msgstr "themeEditor"
 
-#: plugins/themeEditor/src/BackendBehaviors.php:45
-#: plugins/themeEditor/src/Manage.php:194
-#: plugins/themeEditor/src/Manage.php:201
+#: plugins/themeEditor/src/BackendBehaviors.php:46
+#: plugins/themeEditor/src/Manage.php:196
+#: plugins/themeEditor/src/Manage.php:203
 msgid "Edit theme files"
 msgstr "Muokkaa teematiedostoja"
 
-#: plugins/themeEditor/src/BackendBehaviors.php:105
+#: plugins/themeEditor/src/BackendBehaviors.php:106
 msgid "Syntax highlighting"
 msgstr "Teemojen muokkausohjelman syntaksiväritys"
 
-#: plugins/themeEditor/src/BackendBehaviors.php:117
+#: plugins/themeEditor/src/BackendBehaviors.php:118
 msgid "Syntax highlighting in theme editor"
 msgstr "Teemojen muokkausohjelman syntaksiväritys"
 
-#: plugins/themeEditor/src/Manage.php:99
+#: plugins/themeEditor/src/Manage.php:101
 msgid "The theme update has been locked."
 msgstr "Teemapäivitys on lukittu."
 
-#: plugins/themeEditor/src/Manage.php:107
+#: plugins/themeEditor/src/Manage.php:109
 msgid "The theme update has been unocked."
 msgstr "Teemapäivitys on vapautettu."
 
-#: plugins/themeEditor/src/Manage.php:130
+#: plugins/themeEditor/src/Manage.php:132
 msgid "The file has been reset."
 msgstr "Tiedosto on palautettu alkuarvoihin."
 
-#: plugins/themeEditor/src/Manage.php:163
+#: plugins/themeEditor/src/Manage.php:165
 msgid "Lock update"
 msgstr "Lukituksen päivitys"
 
-#: plugins/themeEditor/src/Manage.php:163
+#: plugins/themeEditor/src/Manage.php:165
 msgid "Unlock update"
 msgstr "Avaa lukituksen päivitys"
 
-#: plugins/themeEditor/src/Manage.php:168
+#: plugins/themeEditor/src/Manage.php:170
 msgid "Lock theme update disables theme update, but allows theme files to be modified."
 msgstr "Lukitse teemapäivitys poistaa teemapäivityksen käytöstä, mutta sallii teematiedostojen muokkaamisen."
 
-#: plugins/themeEditor/src/Manage.php:174
+#: plugins/themeEditor/src/Manage.php:176
 msgid "The theme editor is in development mode, theme files will be overwritten!"
 msgstr "Teemaeditori on kehitystilassa, teematiedostot ylikirjoitetaan!"
 
-#: plugins/themeEditor/src/Manage.php:182
+#: plugins/themeEditor/src/Manage.php:184
 msgid "Saving document..."
 msgstr "Asiakirjan tallennus käynnissä…"
 
-#: plugins/themeEditor/src/Manage.php:183
+#: plugins/themeEditor/src/Manage.php:185
 msgid "Document saved"
 msgstr "Asiakirja tallennettu"
 
-#: plugins/themeEditor/src/Manage.php:184
+#: plugins/themeEditor/src/Manage.php:186
 msgid "An error occurred:"
 msgstr "Tapahtui virhe:"
 
-#: plugins/themeEditor/src/Manage.php:185
+#: plugins/themeEditor/src/Manage.php:187
 msgid "Are you sure you want to reset this file?"
 msgstr "Oletko varma, että haluat palauttaa tämän tiedoston alkuarvoihin?"
 
-#: plugins/themeEditor/src/Manage.php:209
+#: plugins/themeEditor/src/Manage.php:211
 #, php-format
 msgid "Your current theme on this blog is \"%s\"."
 msgstr "Käytät tässä blogissa nyt teemaa \"%s\"."
 
-#: plugins/themeEditor/src/Manage.php:219
+#: plugins/themeEditor/src/Manage.php:221
 msgid "Please select a file to edit."
 msgstr "Valitse muokattava tiedosto."
 
-#: plugins/themeEditor/src/Manage.php:227
+#: plugins/themeEditor/src/Manage.php:229
 msgid "Reset"
 msgstr "Palauta alkuarvoihin"
 
-#: plugins/themeEditor/src/Manage.php:236
+#: plugins/themeEditor/src/Manage.php:238
 msgid "File editor"
 msgstr "Tiedostonmuokkain"
 
-#: plugins/themeEditor/src/Manage.php:245
+#: plugins/themeEditor/src/Manage.php:247
 #, php-format
 msgid "Editing file %s"
 msgstr "Muokataan tiedostoa %s"
 
-#: plugins/themeEditor/src/Manage.php:261
+#: plugins/themeEditor/src/Manage.php:263
 msgid "If you use <code>url(...)</code> in your CSS files, be sure to use <code>url(index.php?tf=...)</code> to correctly load theme resources (imported CSS, images, etc.), except for URL types in the form <code>data:image</code>.<br>Example: do <code>@import url(index.php?tf=css/layout.css);</code> instead of <code>@import url(css/layout.css);</code>."
 msgstr "Jos käytät <code>url(...)</code> CSS-tiedostoissa, muista käyttää <code>url(index.php?tf=...)</code>, jotta teeman resurssit (tuodut CSS:t, kuvat jne.) ladataan oikein, lukuun ottamatta URL-tyyppejä muodossa <code>data:image</code>.<br>Esimerkki: tee <code>@import url(index.php?tf=css/layout.css);</code> eikä <code>@import url(css/layout.css);</code>."
 
-#: plugins/themeEditor/src/Manage.php:266
+#: plugins/themeEditor/src/Manage.php:268
 msgid "This file is not overloadable. Please check your var folder permissions."
 msgstr "Tämä tiedosto ei ole ylikuormitettavissa. Tarkista var-kansion käyttöoikeudet."
 
-#: plugins/themeEditor/src/Manage.php:269
+#: plugins/themeEditor/src/Manage.php:271
 msgid "This theme is too old to be modified. Please check if an update is available."
 msgstr "Tämä teema on liian vanha muutettavaksi. Tarkista, onko päivitys saatavilla."
 
-#: plugins/themeEditor/src/Manage.php:288
+#: plugins/themeEditor/src/Manage.php:290
 msgid "Templates files"
 msgstr "Mallitiedostot"
 
-#: plugins/themeEditor/src/Manage.php:293
+#: plugins/themeEditor/src/Manage.php:295
 msgid "CSS files"
 msgstr "CSS-tiedostot"
 
-#: plugins/themeEditor/src/Manage.php:298
+#: plugins/themeEditor/src/Manage.php:300
 msgid "JavaScript files"
 msgstr "JavaScript-tiedostot"
 
-#: plugins/themeEditor/src/Manage.php:303
+#: plugins/themeEditor/src/Manage.php:305
 msgid "Locales files"
 msgstr "Lokalisointitiedostot"
 
-#: plugins/themeEditor/src/Manage.php:308
+#: plugins/themeEditor/src/Manage.php:310
 msgid "PHP files"
 msgstr "CSS-tiedostot"
 
@@ -3111,143 +3111,143 @@ msgstr "Tiedostoa %s ei saatu kirjoitettua. Tarkista teematiedostojesi ja -kansi
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "Tiedostoa %s ei saatu poistettua. Tarkista teematiedostojesi ja -kansioidesi käyttöoikeudet."
 
-#: plugins/userPref/src/Backend.php:25
+#: plugins/userPref/src/Backend.php:27
 msgid "user:preferences"
 msgstr "user:preferences"
 
-#: plugins/userPref/src/Manage.php:88 plugins/userPref/src/Manage.php:107
+#: plugins/userPref/src/Manage.php:91 plugins/userPref/src/Manage.php:110
 msgid "Preferences successfully updated"
 msgstr "Käyttäjän asetukset päivitetty"
 
-#: plugins/userPref/src/Manage.php:157 plugins/userPref/src/Manage.php:159
+#: plugins/userPref/src/Manage.php:160 plugins/userPref/src/Manage.php:162
 msgid "Global preferences"
 msgstr "Yleiset asetukset "
 
-#: plugins/widgets/src/Backend.php:51
+#: plugins/widgets/src/Backend.php:53
 msgid "Widget's textareas"
 msgstr "Tekstialuevimpaimet"
 
-#: plugins/widgets/src/Install.php:35
+#: plugins/widgets/src/Install.php:37
 msgid "Unable to initialize default widgets."
 msgstr "Oletuswidgettien alustaminen ei onnistu."
 
-#: plugins/widgets/src/Manage.php:79
+#: plugins/widgets/src/Manage.php:81
 msgid "navigation"
 msgstr "Navigointipaneeli"
 
-#: plugins/widgets/src/Manage.php:80
+#: plugins/widgets/src/Manage.php:82
 msgid "extra"
 msgstr "Lisäpaneeli"
 
-#: plugins/widgets/src/Manage.php:81
+#: plugins/widgets/src/Manage.php:83
 msgid "custom"
 msgstr "Mukautettu paneeli"
 
-#: plugins/widgets/src/Manage.php:217
+#: plugins/widgets/src/Manage.php:219
 msgid "Sidebars and their widgets have been saved."
 msgstr "Eri käyttöpaneelit ja niiden vimpaimet on tallennettu."
 
-#: plugins/widgets/src/Manage.php:231
+#: plugins/widgets/src/Manage.php:233
 msgid "Sidebars have been resetting."
 msgstr "Käyttöpaneelit on palautettu alkuarvoihin."
 
-#: plugins/widgets/src/Manage.php:260
+#: plugins/widgets/src/Manage.php:262
 msgid "Are you sure you want to reset sidebars?"
 msgstr "Oletko varma, että haluat palauttaa käyttöpaneelit alkuarvoihinsa?"
 
-#: plugins/widgets/src/Manage.php:261 plugins/widgets/src/Manage.php:391
+#: plugins/widgets/src/Manage.php:263 plugins/widgets/src/Manage.php:393
 msgid "Temporarily display the action buttons for each widget"
 msgstr "Näytä tilapäisesti kunkin widgetin toimintopainikkeet"
 
-#: plugins/widgets/src/Manage.php:262
+#: plugins/widgets/src/Manage.php:264
 msgid "Hide the action buttons for each widget"
 msgstr "Piilota kunkin widgetin toimintopainikkeet"
 
-#: plugins/widgets/src/Manage.php:309 plugins/widgets/src/Manage.php:490
+#: plugins/widgets/src/Manage.php:311 plugins/widgets/src/Manage.php:492
 msgid "order"
 msgstr "järjestys"
 
-#: plugins/widgets/src/Manage.php:321
+#: plugins/widgets/src/Manage.php:323
 msgid "Append to:"
 msgstr "Liitä loppuun:"
 
-#: plugins/widgets/src/Manage.php:340
+#: plugins/widgets/src/Manage.php:342
 msgid "Available widgets"
 msgstr "Tarjolla olevat vimpaimet"
 
-#: plugins/widgets/src/Manage.php:342
+#: plugins/widgets/src/Manage.php:344
 msgid "Drag widgets from this list to one of the sidebars, for add."
 msgstr "Vedä vimpain tästä luettelosta johonkin käyttöpaneeleista ja pudota se lisätäksesi se sinne."
 
-#: plugins/widgets/src/Manage.php:350
+#: plugins/widgets/src/Manage.php:352
 msgid "Add widgets to sidebars"
 msgstr "Lisää vimpaimia käyttöpaneeleihin"
 
-#: plugins/widgets/src/Manage.php:365
+#: plugins/widgets/src/Manage.php:367
 msgid "Navigation sidebar"
 msgstr "Navigointipaneeli"
 
-#: plugins/widgets/src/Manage.php:372
+#: plugins/widgets/src/Manage.php:374
 msgid "Extra sidebar"
 msgstr "Lisäpaneeli"
 
-#: plugins/widgets/src/Manage.php:379
+#: plugins/widgets/src/Manage.php:381
 msgid "Custom sidebar"
 msgstr "Mukautettu paneeli"
 
-#: plugins/widgets/src/Manage.php:386
+#: plugins/widgets/src/Manage.php:388
 msgid "Update sidebars"
 msgstr "Päivitä käyttöpaneelit"
 
-#: plugins/widgets/src/Manage.php:388
+#: plugins/widgets/src/Manage.php:390
 msgid "Reset sidebars"
 msgstr "Palauta käyttöpaneelit alkuarvoihinsa"
 
-#: plugins/widgets/src/Manage.php:401
+#: plugins/widgets/src/Manage.php:403
 msgid "No setting for this widget"
 msgstr "Tällä vimpaimella ei asetusta"
 
-#: plugins/widgets/src/Manage.php:407
+#: plugins/widgets/src/Manage.php:409
 msgid "boolean"
 msgstr "Boolen arvo"
 
-#: plugins/widgets/src/Manage.php:407 plugins/widgets/src/Manage.php:412
+#: plugins/widgets/src/Manage.php:409 plugins/widgets/src/Manage.php:414
 msgid "possible values:"
 msgstr "mahdolliset arvot:"
 
-#: plugins/widgets/src/Manage.php:411
+#: plugins/widgets/src/Manage.php:413
 msgid "empty string"
 msgstr "tyhjä merkkijono"
 
-#: plugins/widgets/src/Manage.php:412
+#: plugins/widgets/src/Manage.php:414
 msgid "listitem"
 msgstr "listaelementti"
 
-#: plugins/widgets/src/Manage.php:418
+#: plugins/widgets/src/Manage.php:420
 msgid "string"
 msgstr "merkkijono"
 
-#: plugins/widgets/src/Manage.php:438
+#: plugins/widgets/src/Manage.php:440
 msgid "Widget ID:"
 msgstr "Vimpaimen tunniste:"
 
-#: plugins/widgets/src/Manage.php:502 plugins/widgets/src/Manage.php:503
+#: plugins/widgets/src/Manage.php:504 plugins/widgets/src/Manage.php:505
 msgid "Up the widget"
 msgstr "Vimpain ylös"
 
-#: plugins/widgets/src/Manage.php:507 plugins/widgets/src/Manage.php:508
+#: plugins/widgets/src/Manage.php:509 plugins/widgets/src/Manage.php:510
 msgid "Down the widget"
 msgstr "Vimpain alas"
 
-#: plugins/widgets/src/Manage.php:511 plugins/widgets/src/Manage.php:512
+#: plugins/widgets/src/Manage.php:513 plugins/widgets/src/Manage.php:514
 msgid "Remove the widget"
 msgstr "Poista vimpain"
 
-#: plugins/widgets/src/Manage.php:536
+#: plugins/widgets/src/Manage.php:538
 msgid "No widget as far."
 msgstr "Ei vielä vimpaimia."
 
-#: plugins/widgets/src/Manage.php:545
+#: plugins/widgets/src/Manage.php:547
 msgid "Drag widgets here to remove."
 msgstr "Vedä vimpaimet tähän poistaaksesi."
 
@@ -3339,49 +3339,49 @@ msgstr "Viimeisimmät kommentit"
 msgid "Comments limit:"
 msgstr "Kommenttien lukumäärän yläraja:"
 
-#: plugins/widgets/src/Widgets.php:552
+#: plugins/widgets/src/Widgets.php:565
 #, php-format
 msgid "This blog's entries %s feed"
 msgstr "Tämän blogin merkintöjen %s-syöte"
 
-#: plugins/widgets/src/Widgets.php:553
+#: plugins/widgets/src/Widgets.php:566
 #, php-format
 msgid "This blog's comments %s feed"
 msgstr "Tämän blogin kommenttien %s-syöte"
 
-#: plugins/widgets/src/Widgets.php:566
+#: plugins/widgets/src/Widgets.php:579
 msgid "Entries feed"
 msgstr "Blogimerkintöjen syöte"
 
-#: plugins/widgets/src/Widgets.php:576
+#: plugins/widgets/src/Widgets.php:589
 msgid "Comments feed"
 msgstr "Kommenttien syöte"
 
-#: plugins/widgets/src/WidgetsElement.php:548
+#: plugins/widgets/src/WidgetsElement.php:547
 msgid "Title (optional)"
 msgstr "Otsikko (valinnainen)"
 
-#: plugins/widgets/src/WidgetsElement.php:559
+#: plugins/widgets/src/WidgetsElement.php:558
 msgid "All pages"
 msgstr "Kaikilla sivuilla"
 
-#: plugins/widgets/src/WidgetsElement.php:560
+#: plugins/widgets/src/WidgetsElement.php:559
 msgid "Home page only"
 msgstr "Vain etusivulla"
 
-#: plugins/widgets/src/WidgetsElement.php:561
+#: plugins/widgets/src/WidgetsElement.php:560
 msgid "Except on home page"
 msgstr "Muualla paitsi etusivulla"
 
-#: plugins/widgets/src/WidgetsElement.php:569
+#: plugins/widgets/src/WidgetsElement.php:568
 msgid "Display on:"
 msgstr "Näytetään:"
 
-#: plugins/widgets/src/WidgetsElement.php:595
+#: plugins/widgets/src/WidgetsElement.php:594
 msgid "Content only"
 msgstr "Vain sisältö (ilman ympäröivää laatikkoa)"
 
-#: plugins/widgets/src/WidgetsElement.php:605
+#: plugins/widgets/src/WidgetsElement.php:604
 msgid "CSS class:"
 msgstr "Lisä-CSS-luokka ympäröivää laatikkoa varten:"
 

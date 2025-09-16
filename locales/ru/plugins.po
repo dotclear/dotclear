@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-01 12:51+0200\n"
-"PO-Revision-Date: 2025-09-01 10:55\n"
+"POT-Creation-Date: 2025-09-16 10:56+0200\n"
+"PO-Revision-Date: 2025-09-16 09:03\n"
 "Last-Translator: \n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -17,11 +17,11 @@ msgstr ""
 "X-Crowdin-File: /master/locales/_pot/plugins.pot\n"
 "X-Crowdin-File-ID: 264\n"
 
-#: plugins/Uninstaller/src/Backend.php:47
+#: plugins/Uninstaller/src/Backend.php:49
 msgid "Uninstall"
 msgstr "Удалить"
 
-#: plugins/Uninstaller/src/Backend.php:105
+#: plugins/Uninstaller/src/Backend.php:107
 msgid "Plugin has been successfully uninstalled."
 msgstr "Плагин успешно деинсталлирован."
 
@@ -403,41 +403,41 @@ msgstr "Неизвестный чистильщик \"%s\""
 msgid "Uninstaller can't remove itself"
 msgstr "Деинсталлятор не может удалить себя"
 
-#: plugins/Uninstaller/src/Manage.php:63
+#: plugins/Uninstaller/src/Manage.php:65
 msgid "Unknown module id to uninstall"
 msgstr "Неизвестный идентификатор модуля для деинсталляции"
 
-#: plugins/Uninstaller/src/Manage.php:71
+#: plugins/Uninstaller/src/Manage.php:73
 msgid "There are no uninstall actions for this module"
 msgstr "Для данного модуля не предусмотрено действий по удалению"
 
-#: plugins/Uninstaller/src/Manage.php:96
+#: plugins/Uninstaller/src/Manage.php:98
 msgid "Uninstall action successfuly excecuted"
 msgstr "Действие по удалению успешно выполнено"
 
-#: plugins/Uninstaller/src/Manage.php:99
+#: plugins/Uninstaller/src/Manage.php:101
 msgid "No uninstall action done"
 msgstr "Действия по удалению не выполняются"
 
-#: plugins/Uninstaller/src/Manage.php:145
+#: plugins/Uninstaller/src/Manage.php:147
 msgid "Perform selected actions"
 msgstr "Выполнение выбранных действий"
 
-#: plugins/Uninstaller/src/Manage.php:160
+#: plugins/Uninstaller/src/Manage.php:162
 msgid "Are you sure you perform these ations?"
 msgstr "Уверены ли вы, что выполняете эти действия?"
 
-#: plugins/Uninstaller/src/Manage.php:176
+#: plugins/Uninstaller/src/Manage.php:178
 #, php-format
 msgid "Uninstall plugin \"%s\""
 msgstr "Деинсталляция плагина \"%s\""
 
-#: plugins/Uninstaller/src/Manage.php:176
+#: plugins/Uninstaller/src/Manage.php:178
 #, php-format
 msgid "Uninstall theme \"%s\""
 msgstr "Деинсталлировать тему \"%s\""
 
-#: plugins/Uninstaller/src/Manage.php:177
+#: plugins/Uninstaller/src/Manage.php:179
 #, php-format
 msgid "The module \"%1$s\" version %2$s offers advanced uninstall process:"
 msgstr "Модуль \"%1$s\" версии %2$s предлагает расширенный процесс деинсталляции:"
@@ -446,30 +446,30 @@ msgstr "Модуль \"%1$s\" версии %2$s предлагает расши�
 msgid "Cope with old core classes (< 2.26)"
 msgstr "Сфера охвата старыми базовыми классами (< 2.26)"
 
-#: plugins/_fake_plugin/_fake_l10n.php:8 plugins/antispam/src/Backend.php:30
+#: plugins/_fake_plugin/_fake_l10n.php:8 plugins/antispam/src/Backend.php:32
 msgid "Generic antispam plugin for Dotclear"
 msgstr "Универсальный антиспам плагин для Dotclear"
 
-#: plugins/_fake_plugin/_fake_l10n.php:9 plugins/akismet/src/Prepend.php:27
+#: plugins/_fake_plugin/_fake_l10n.php:9 plugins/akismet/src/Prepend.php:29
 msgid "Akismet interface for Dotclear"
 msgstr "Akismet интерфейс для точной очистки"
 
 #: plugins/_fake_plugin/_fake_l10n.php:10
-#: plugins/fairTrackbacks/src/Prepend.php:27
+#: plugins/fairTrackbacks/src/Prepend.php:29
 msgid "Trackback validity check"
 msgstr "Проверка Trackback на действительность"
 
 #: plugins/_fake_plugin/_fake_l10n.php:11
-#: plugins/attachments/src/Backend.php:26
+#: plugins/attachments/src/Backend.php:28
 msgid "Manage post attachments"
 msgstr "Управление вложениями"
 
-#: plugins/_fake_plugin/_fake_l10n.php:12 plugins/pages/src/Backend.php:29
+#: plugins/_fake_plugin/_fake_l10n.php:12 plugins/pages/src/Backend.php:31
 msgid "Serve entries as simple web pages"
 msgstr "Работайте записями как простые веб-страницы"
 
 #: plugins/_fake_plugin/_fake_l10n.php:13
-#: plugins/aboutConfig/src/Backend.php:26
+#: plugins/aboutConfig/src/Backend.php:28
 msgid "Manage every blog configuration directive"
 msgstr "Управление каждой директивой настройки блога"
 
@@ -478,56 +478,56 @@ msgid "Uninstall cleanly plugins and themes"
 msgstr "Чистое удаление плагинов и тем"
 
 #: plugins/_fake_plugin/_fake_l10n.php:15
-#: plugins/dcLegacyEditor/src/Backend.php:27
-#: plugins/dcLegacyEditor/src/Manage.php:73
+#: plugins/dcLegacyEditor/src/Backend.php:29
+#: plugins/dcLegacyEditor/src/Manage.php:75
 msgid "Dotclear editor"
 msgstr "Редактор Dotclear"
 
 #: plugins/_fake_plugin/_fake_l10n.php:16
-#: plugins/themeEditor/src/Backend.php:26
+#: plugins/themeEditor/src/Backend.php:28
 msgid "Theme Editor"
 msgstr "Редактор тем"
 
-#: plugins/_fake_plugin/_fake_l10n.php:17 plugins/simpleMenu/src/Backend.php:27
+#: plugins/_fake_plugin/_fake_l10n.php:17 plugins/simpleMenu/src/Backend.php:29
 msgid "Simple menu for Dotclear"
 msgstr "Простое меню для Dotclear"
 
 #: plugins/_fake_plugin/_fake_l10n.php:18
-#: plugins/importExport/src/Backend.php:28
+#: plugins/importExport/src/Backend.php:30
 msgid "Import and Export your blog"
 msgstr "Импортировать и экспортировать свой блог"
 
-#: plugins/_fake_plugin/_fake_l10n.php:19 plugins/userPref/src/Backend.php:26
+#: plugins/_fake_plugin/_fake_l10n.php:19 plugins/userPref/src/Backend.php:28
 msgid "Manage every user preference directive"
 msgstr "Управление директивой настройки каждого пользователя"
 
-#: plugins/_fake_plugin/_fake_l10n.php:20 plugins/dcCKEditor/src/Backend.php:26
-#: plugins/dcCKEditor/src/Manage.php:170
+#: plugins/_fake_plugin/_fake_l10n.php:20 plugins/dcCKEditor/src/Backend.php:28
+#: plugins/dcCKEditor/src/Manage.php:172
 msgid "CKEditor"
 msgstr "CKEditor"
 
 #: plugins/_fake_plugin/_fake_l10n.php:21
-#: plugins/maintenance/src/Backend.php:26
+#: plugins/maintenance/src/Backend.php:28
 msgid "Maintain your installation"
 msgstr "Управлять установкой"
 
-#: plugins/_fake_plugin/_fake_l10n.php:22 plugins/breadcrumb/src/Backend.php:26
+#: plugins/_fake_plugin/_fake_l10n.php:22 plugins/breadcrumb/src/Backend.php:28
 msgid "Breadcrumb for Dotclear"
 msgstr "Навигация для точной очистки"
 
-#: plugins/_fake_plugin/_fake_l10n.php:23 plugins/blogroll/src/Backend.php:27
+#: plugins/_fake_plugin/_fake_l10n.php:23 plugins/blogroll/src/Backend.php:29
 msgid "Manage your blogroll"
 msgstr "Управление блогом"
 
-#: plugins/_fake_plugin/_fake_l10n.php:24 plugins/pings/src/Backend.php:28
+#: plugins/_fake_plugin/_fake_l10n.php:24 plugins/pings/src/Backend.php:30
 msgid "Ping services"
 msgstr "Пинг сервисов"
 
-#: plugins/_fake_plugin/_fake_l10n.php:25 plugins/tags/src/Backend.php:26
+#: plugins/_fake_plugin/_fake_l10n.php:25 plugins/tags/src/Backend.php:28
 msgid "Tags for posts"
 msgstr "Теги для сообщений"
 
-#: plugins/_fake_plugin/_fake_l10n.php:26 plugins/widgets/src/Backend.php:28
+#: plugins/_fake_plugin/_fake_l10n.php:26 plugins/widgets/src/Backend.php:30
 msgid "Widgets for your blog sidebars"
 msgstr "Виджеты для боковой панели вашего блога"
 
@@ -591,22 +591,22 @@ msgstr "Список блогов"
 msgid "Tags cloud"
 msgstr "Облако тегов"
 
-#: plugins/aboutConfig/src/Backend.php:25
+#: plugins/aboutConfig/src/Backend.php:27
 msgid "about:config"
 msgstr "about:config"
 
-#: plugins/aboutConfig/src/Manage.php:89 plugins/aboutConfig/src/Manage.php:109
+#: plugins/aboutConfig/src/Manage.php:92 plugins/aboutConfig/src/Manage.php:112
 msgid "Configuration successfully updated"
 msgstr "Конфигурация успешно обновлена"
 
-#: plugins/aboutConfig/src/Manage.php:149
-#: plugins/aboutConfig/src/Manage.php:151
+#: plugins/aboutConfig/src/Manage.php:152
+#: plugins/aboutConfig/src/Manage.php:154
 #, php-format
 msgid "Settings for %s"
 msgstr "Настройки для %s"
 
-#: plugins/aboutConfig/src/Manage.php:159
-#: plugins/aboutConfig/src/Manage.php:161
+#: plugins/aboutConfig/src/Manage.php:162
+#: plugins/aboutConfig/src/Manage.php:164
 msgid "Global settings"
 msgstr "Глобальные настройки"
 
@@ -622,13 +622,13 @@ msgstr "Параметр ID"
 msgid "Value"
 msgstr "Значение"
 
-#: plugins/aboutConfig/src/Manage.php:314 plugins/userPref/src/Manage.php:312
-msgid "no"
-msgstr "нет"
-
-#: plugins/aboutConfig/src/Manage.php:314 plugins/userPref/src/Manage.php:312
+#: plugins/aboutConfig/src/Manage.php:315 plugins/userPref/src/Manage.php:313
 msgid "yes"
 msgstr "да"
+
+#: plugins/aboutConfig/src/Manage.php:316 plugins/userPref/src/Manage.php:314
+msgid "no"
+msgstr "нет"
 
 #: plugins/akismet/src/AntispamFilterAkismet.php:80
 msgid "Akismet spam filter"
@@ -663,30 +663,30 @@ msgstr "API ключ Akismet:"
 msgid "Get your own API key"
 msgstr "Получите свой API ключ Akismet"
 
-#: plugins/akismet/src/Prepend.php:26
+#: plugins/akismet/src/Prepend.php:28
 msgid "Akismet"
 msgstr "Akismet"
 
-#: plugins/antispam/src/Antispam.php:147
+#: plugins/antispam/src/Antispam.php:139
 msgid "This comment is a spam:"
 msgstr "Этот комментарий является спамом:"
 
-#: plugins/antispam/src/Antispam.php:163 plugins/antispam/src/Rest.php:27
+#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:27
 #, php-format
 msgid "(including %d spam comment)"
 msgstr "(включая %d спам комментариев)"
 
-#: plugins/antispam/src/Antispam.php:163 plugins/antispam/src/Rest.php:27
+#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:27
 #, php-format
 msgid "(including %d spam comments)"
 msgstr "(включая %d спам комментариев)"
 
-#: plugins/antispam/src/Backend.php:29
+#: plugins/antispam/src/Backend.php:31
 msgid "Antispam"
 msgstr "Антиспам"
 
 #: plugins/antispam/src/BackendBehaviors.php:56
-#: plugins/antispam/src/Manage.php:224
+#: plugins/antispam/src/Manage.php:226
 #, php-format
 msgid "All spam comments older than %s day(s) will be automatically deleted."
 msgstr "Все спам комментарии старше чем %s дней будут удалены автоматически."
@@ -779,7 +779,7 @@ msgstr "Добавьте IP-адрес:"
 #: plugins/antispam/src/Filters/Ip.php:274
 #: plugins/antispam/src/Filters/IpV6.php:273
 #: plugins/antispam/src/Filters/Words.php:292
-#: plugins/widgets/src/Manage.php:322
+#: plugins/widgets/src/Manage.php:324
 msgid "Add"
 msgstr "Добавить"
 
@@ -882,96 +882,96 @@ msgstr "Спам"
 msgid "Ham"
 msgstr "Не спам"
 
-#: plugins/antispam/src/Manage.php:72
+#: plugins/antispam/src/Manage.php:74
 msgid "Filter does not exist."
 msgstr "Фильтр не существует."
 
-#: plugins/antispam/src/Manage.php:76
+#: plugins/antispam/src/Manage.php:78
 msgid "Filter has no user interface."
 msgstr "Фильтр не имеет пользовательского интерфейса."
 
-#: plugins/antispam/src/Manage.php:137 plugins/antispam/src/Manage.php:270
+#: plugins/antispam/src/Manage.php:139 plugins/antispam/src/Manage.php:272
 msgid "Filters configuration has been successfully saved."
 msgstr "Конфигурация фильтров успешно сохранена."
 
-#: plugins/antispam/src/Manage.php:154
+#: plugins/antispam/src/Manage.php:156
 #, php-format
 msgid "%s configuration"
 msgstr "%s конфигурация"
 
-#: plugins/antispam/src/Manage.php:175
+#: plugins/antispam/src/Manage.php:177
 #, php-format
 msgid "%s filter configuration"
 msgstr "Конфигурация фильтра %s"
 
-#: plugins/antispam/src/Manage.php:182
+#: plugins/antispam/src/Manage.php:184
 msgid "Back to filters list"
 msgstr "Вернуться к списку фильтров"
 
-#: plugins/antispam/src/Manage.php:229
+#: plugins/antispam/src/Manage.php:231
 #, php-format
 msgid "You can modify this duration in the %s"
 msgstr "Вы можете изменить эту длительность в %s"
 
-#: plugins/antispam/src/Manage.php:238
+#: plugins/antispam/src/Manage.php:240
 msgid "Information"
 msgstr "Информация"
 
-#: plugins/antispam/src/Manage.php:249
+#: plugins/antispam/src/Manage.php:251
 msgid "Junk comments:"
 msgstr "Спам комментарии:"
 
-#: plugins/antispam/src/Manage.php:255
+#: plugins/antispam/src/Manage.php:257
 msgid "Published comments:"
 msgstr "Опубликованные комментарии:"
 
-#: plugins/antispam/src/Manage.php:279 plugins/antispam/src/Manage.php:282
-#: plugins/antispam/src/Manage.php:286
+#: plugins/antispam/src/Manage.php:281 plugins/antispam/src/Manage.php:284
+#: plugins/antispam/src/Manage.php:288
 msgid "Filter configuration"
 msgstr "Конфигурация фильтра"
 
-#: plugins/antispam/src/Manage.php:302 plugins/blogroll/src/Manage.php:306
+#: plugins/antispam/src/Manage.php:304 plugins/blogroll/src/Manage.php:308
 msgid "position"
 msgstr "позиция"
 
-#: plugins/antispam/src/Manage.php:309 plugins/antispam/src/Manage.php:343
+#: plugins/antispam/src/Manage.php:311 plugins/antispam/src/Manage.php:345
 msgid "Active"
 msgstr "Активный"
 
-#: plugins/antispam/src/Manage.php:316 plugins/antispam/src/Manage.php:344
+#: plugins/antispam/src/Manage.php:318 plugins/antispam/src/Manage.php:346
 msgid "Auto Del."
 msgstr "Авто удаление"
 
-#: plugins/antispam/src/Manage.php:337
+#: plugins/antispam/src/Manage.php:339
 msgid "Available spam filters"
 msgstr "Доступные спам фильтры"
 
-#: plugins/antispam/src/Manage.php:342
+#: plugins/antispam/src/Manage.php:344
 #: plugins/pages/src/BackendDefaultActions.php:74
 msgid "Order"
 msgstr "Порядок"
 
-#: plugins/antispam/src/Manage.php:345
+#: plugins/antispam/src/Manage.php:347
 msgid "Filter name"
 msgstr "Имя фильтра"
 
-#: plugins/antispam/src/Manage.php:372
+#: plugins/antispam/src/Manage.php:374
 msgid "Syndication"
 msgstr "Ленты новостей"
 
-#: plugins/antispam/src/Manage.php:375
+#: plugins/antispam/src/Manage.php:377
 msgid "Junk comments RSS feed"
 msgstr "RSS спам комментариев"
 
-#: plugins/antispam/src/Manage.php:378
+#: plugins/antispam/src/Manage.php:380
 msgid "Published comments RSS feed"
 msgstr "RSS опубликованных комментариев"
 
-#: plugins/antispam/src/SpamFilter.php:93
+#: plugins/antispam/src/SpamFilter.php:95
 msgid "No description"
 msgstr "Нет описания"
 
-#: plugins/antispam/src/SpamFilter.php:151
+#: plugins/antispam/src/SpamFilter.php:153
 #, php-format
 msgid "Filtered by %1$s (%2$s)"
 msgstr "Отфильтровано по %1$s (%2$s)"
@@ -980,7 +980,7 @@ msgstr "Отфильтровано по %1$s (%2$s)"
 msgid "Unknown filter."
 msgstr "Неизвестный фильтр"
 
-#: plugins/attachments/src/Backend.php:25
+#: plugins/attachments/src/Backend.php:27
 msgid "attachments"
 msgstr "вложения"
 
@@ -1041,11 +1041,11 @@ msgstr[1] "%d ссылка была успешно удалена"
 msgstr[2] "%d ссылка была успешно удалена"
 msgstr[3] "%d ссылки были успешно удалены"
 
-#: plugins/blogroll/src/Backend.php:26
+#: plugins/blogroll/src/Backend.php:28
 msgid "Blogroll"
 msgstr "Ссылки"
 
-#: plugins/blogroll/src/Backend.php:38
+#: plugins/blogroll/src/Backend.php:40
 msgid "manage blogroll"
 msgstr "управление ссылками"
 
@@ -1065,217 +1065,217 @@ msgstr "Вам запрещено изменять статус ссылки"
 msgid "You are not allowed to delete links"
 msgstr "Вам запрещено удалять ссылки"
 
-#: plugins/blogroll/src/Manage.php:114 plugins/blogroll/src/Manage.php:617
+#: plugins/blogroll/src/Manage.php:116 plugins/blogroll/src/Manage.php:619
 msgid "Nothing to import"
 msgstr "Нечего импортировать"
 
-#: plugins/blogroll/src/Manage.php:137
+#: plugins/blogroll/src/Manage.php:139
 msgid "links have been successfully imported."
 msgstr "Ссылки были успешно импортированы."
 
-#: plugins/blogroll/src/Manage.php:144
+#: plugins/blogroll/src/Manage.php:146
 msgid "Import operation cancelled."
 msgstr "Импортирование отменено."
 
-#: plugins/blogroll/src/Manage.php:160
+#: plugins/blogroll/src/Manage.php:162
 msgid "Link has been successfully created."
 msgstr "Ссылка успешно создана."
 
-#: plugins/blogroll/src/Manage.php:176
+#: plugins/blogroll/src/Manage.php:178
 msgid "category has been successfully created."
 msgstr "Категория успешно обновлена."
 
-#: plugins/blogroll/src/Manage.php:209
+#: plugins/blogroll/src/Manage.php:211
 msgid "Items order has been successfully updated"
 msgstr "Порядок элементов успешно обновлен"
 
-#: plugins/blogroll/src/Manage.php:275
+#: plugins/blogroll/src/Manage.php:277
 msgid "Are you sure you want to delete selected links?"
 msgstr "Вы уверены, что хотите удалить выбранные ссылки?"
 
-#: plugins/blogroll/src/Manage.php:313
+#: plugins/blogroll/src/Manage.php:315
 msgid "select this link"
 msgstr "выбрать эту ссылку"
 
-#: plugins/blogroll/src/Manage.php:373
+#: plugins/blogroll/src/Manage.php:375
 msgid "Lang"
 msgstr "Язык"
 
-#: plugins/blogroll/src/Manage.php:421
+#: plugins/blogroll/src/Manage.php:423
 msgid "Selected links action:"
 msgstr "Избранные ссылки действия:"
 
-#: plugins/blogroll/src/Manage.php:441
+#: plugins/blogroll/src/Manage.php:443
 msgid "The link list is empty"
 msgstr "Список ссылок пуст"
 
-#: plugins/blogroll/src/Manage.php:464
+#: plugins/blogroll/src/Manage.php:466
 msgid "Add a new link"
 msgstr "Добавить новую ссылку"
 
-#: plugins/blogroll/src/Manage.php:515 plugins/blogroll/src/Manage.php:565
-#: plugins/blogroll/src/ManageEdit.php:224
-#: plugins/blogroll/src/ManageEdit.php:296
+#: plugins/blogroll/src/Manage.php:517 plugins/blogroll/src/Manage.php:567
+#: plugins/blogroll/src/ManageEdit.php:226
+#: plugins/blogroll/src/ManageEdit.php:298
 msgid "Link status"
 msgstr "Статус ссылки"
 
-#: plugins/blogroll/src/Manage.php:534
+#: plugins/blogroll/src/Manage.php:536
 msgid "Add a category"
 msgstr "Добавить категорию"
 
-#: plugins/blogroll/src/Manage.php:588 plugins/blogroll/src/Manage.php:680
-#: plugins/blogroll/src/Manage.php:687
+#: plugins/blogroll/src/Manage.php:590 plugins/blogroll/src/Manage.php:682
+#: plugins/blogroll/src/Manage.php:689
 msgid "Import links"
 msgstr "Импортировать ссылки"
 
-#: plugins/blogroll/src/Manage.php:597
+#: plugins/blogroll/src/Manage.php:599
 msgid "OPML or XBEL File:"
 msgstr "OPML или XBEL файл:"
 
-#: plugins/blogroll/src/Manage.php:607 plugins/blogroll/src/Manage.php:672
-#: plugins/importExport/src/Manage.php:130
+#: plugins/blogroll/src/Manage.php:609 plugins/blogroll/src/Manage.php:674
+#: plugins/importExport/src/Manage.php:132
 #: plugins/importExport/src/ModuleImportFeed.php:239
-#: plugins/importExport/src/ModuleImportFlat.php:245
-#: plugins/importExport/src/ModuleImportFlat.php:307
+#: plugins/importExport/src/ModuleImportFlat.php:250
+#: plugins/importExport/src/ModuleImportFlat.php:312
 msgid "Import"
 msgstr "Импортировать"
 
-#: plugins/blogroll/src/ManageEdit.php:71
+#: plugins/blogroll/src/ManageEdit.php:73
 msgid "No such link or title"
 msgstr "Нет такой ссылки ли заголовка"
 
-#: plugins/blogroll/src/ManageEdit.php:131
+#: plugins/blogroll/src/ManageEdit.php:133
 msgid "Link has been successfully updated"
 msgstr "Ссылка была успешно обновлена"
 
-#: plugins/blogroll/src/ManageEdit.php:148
+#: plugins/blogroll/src/ManageEdit.php:150
 msgid "Category has been successfully updated"
 msgstr "Категория была успешно удалена"
 
-#: plugins/blogroll/src/ManageEdit.php:181
+#: plugins/blogroll/src/ManageEdit.php:183
 #: plugins/dcCKEditor/src/BackendBehaviors.php:62
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:221
 msgid "Link"
 msgstr "Ссылка"
 
-#: plugins/blogroll/src/ManageEdit.php:188
+#: plugins/blogroll/src/ManageEdit.php:190
 msgid "Return to blogroll"
 msgstr "Вернуться в блогролл"
 
-#: plugins/blogroll/src/ManageEdit.php:199
+#: plugins/blogroll/src/ManageEdit.php:201
 msgid "Edit category"
 msgstr "Редактировать категорию"
 
-#: plugins/blogroll/src/ManageEdit.php:243
+#: plugins/blogroll/src/ManageEdit.php:245
 msgid "Edit link"
 msgstr "Редактировать ссылку"
 
-#: plugins/blogroll/src/ManageEdit.php:302
+#: plugins/blogroll/src/ManageEdit.php:304
 msgid "XFN information"
 msgstr "Информация о XFN"
 
-#: plugins/blogroll/src/ManageEdit.php:306
+#: plugins/blogroll/src/ManageEdit.php:308
 #, php-format
 msgid "More information on <a href=\"%s\">Wikipedia</a> website"
 msgstr "Дополнительная информация на сайте <a href=\"%s\">Википедии</a>"
 
-#: plugins/blogroll/src/ManageEdit.php:312
+#: plugins/blogroll/src/ManageEdit.php:314
 msgid "_xfn_Me"
 msgstr "Мне"
 
-#: plugins/blogroll/src/ManageEdit.php:316
+#: plugins/blogroll/src/ManageEdit.php:318
 msgid "_xfn_Another link for myself"
 msgstr "Другую ссылку для меня"
 
-#: plugins/blogroll/src/ManageEdit.php:320
+#: plugins/blogroll/src/ManageEdit.php:322
 msgid "_xfn_Friendship"
 msgstr "Дружба"
 
-#: plugins/blogroll/src/ManageEdit.php:324
+#: plugins/blogroll/src/ManageEdit.php:326
 msgid "_xfn_Contact"
 msgstr "Контакт"
 
-#: plugins/blogroll/src/ManageEdit.php:327
+#: plugins/blogroll/src/ManageEdit.php:329
 msgid "_xfn_Acquaintance"
 msgstr "Знакомство"
 
-#: plugins/blogroll/src/ManageEdit.php:330
+#: plugins/blogroll/src/ManageEdit.php:332
 msgid "_xfn_Friend"
 msgstr "Друг(подруга)"
 
-#: plugins/blogroll/src/ManageEdit.php:340
+#: plugins/blogroll/src/ManageEdit.php:342
 msgid "_xfn_Physical"
 msgstr "Материальный"
 
-#: plugins/blogroll/src/ManageEdit.php:344
+#: plugins/blogroll/src/ManageEdit.php:346
 msgid "_xfn_Met"
 msgstr "Встретить"
 
-#: plugins/blogroll/src/ManageEdit.php:348
+#: plugins/blogroll/src/ManageEdit.php:350
 msgid "_xfn_Professional"
 msgstr "Профессионал"
 
-#: plugins/blogroll/src/ManageEdit.php:352
+#: plugins/blogroll/src/ManageEdit.php:354
 msgid "_xfn_Co-worker"
 msgstr "Товарищ по работе"
 
-#: plugins/blogroll/src/ManageEdit.php:355
+#: plugins/blogroll/src/ManageEdit.php:357
 msgid "_xfn_Colleague"
 msgstr "Коллега"
 
-#: plugins/blogroll/src/ManageEdit.php:359
+#: plugins/blogroll/src/ManageEdit.php:361
 msgid "_xfn_Geographical"
 msgstr "Георгафический"
 
-#: plugins/blogroll/src/ManageEdit.php:363
+#: plugins/blogroll/src/ManageEdit.php:365
 msgid "_xfn_Co-resident"
 msgstr "Сожитель"
 
-#: plugins/blogroll/src/ManageEdit.php:366
+#: plugins/blogroll/src/ManageEdit.php:368
 msgid "_xfn_Neighbor"
 msgstr "Сосед"
 
-#: plugins/blogroll/src/ManageEdit.php:376
+#: plugins/blogroll/src/ManageEdit.php:378
 msgid "_xfn_Family"
 msgstr "Семья"
 
-#: plugins/blogroll/src/ManageEdit.php:380
+#: plugins/blogroll/src/ManageEdit.php:382
 msgid "_xfn_Child"
 msgstr "Ребенок"
 
-#: plugins/blogroll/src/ManageEdit.php:383
+#: plugins/blogroll/src/ManageEdit.php:385
 msgid "_xfn_Parent"
 msgstr "Родитель"
 
-#: plugins/blogroll/src/ManageEdit.php:386
+#: plugins/blogroll/src/ManageEdit.php:388
 msgid "_xfn_Sibling"
 msgstr "Брат/Сестра"
 
-#: plugins/blogroll/src/ManageEdit.php:389
+#: plugins/blogroll/src/ManageEdit.php:391
 msgid "_xfn_Spouse"
 msgstr "Супруг/Супруга"
 
-#: plugins/blogroll/src/ManageEdit.php:392
+#: plugins/blogroll/src/ManageEdit.php:394
 msgid "_xfn_Kin"
 msgstr "Семья"
 
-#: plugins/blogroll/src/ManageEdit.php:402
+#: plugins/blogroll/src/ManageEdit.php:404
 msgid "_xfn_Romantic"
 msgstr "Романтика"
 
-#: plugins/blogroll/src/ManageEdit.php:406
+#: plugins/blogroll/src/ManageEdit.php:408
 msgid "_xfn_Muse"
 msgstr "Муза"
 
-#: plugins/blogroll/src/ManageEdit.php:409
+#: plugins/blogroll/src/ManageEdit.php:411
 msgid "_xfn_Crush"
 msgstr "Страсть"
 
-#: plugins/blogroll/src/ManageEdit.php:412
+#: plugins/blogroll/src/ManageEdit.php:414
 msgid "_xfn_Date"
 msgstr "Свидание"
 
-#: plugins/blogroll/src/ManageEdit.php:415
+#: plugins/blogroll/src/ManageEdit.php:417
 msgid "_xfn_Sweetheart"
 msgstr "Подруга"
 
@@ -1292,7 +1292,7 @@ msgstr "Файл не в формате XML."
 msgid "All categories"
 msgstr "Все категории"
 
-#: plugins/breadcrumb/src/Backend.php:25
+#: plugins/breadcrumb/src/Backend.php:27
 msgid "Breadcrumb"
 msgstr "Навигация"
 
@@ -1323,7 +1323,7 @@ msgstr "Не инкапсулировать навигацию в &lt;p id=\"bre
 #: plugins/breadcrumb/src/FrontendTemplate.php:193
 #: plugins/breadcrumb/src/FrontendTemplate.php:205
 #: plugins/breadcrumb/src/FrontendTemplate.php:211
-#: plugins/simpleMenu/src/Manage.php:147 plugins/simpleMenu/src/Manage.php:260
+#: plugins/simpleMenu/src/Manage.php:149 plugins/simpleMenu/src/Manage.php:263
 #: plugins/widgets/src/Widgets.php:296
 msgid "Home"
 msgstr "Домой"
@@ -1338,13 +1338,13 @@ msgstr "страница %d"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:155
 #: plugins/breadcrumb/src/FrontendTemplate.php:158
-#: plugins/simpleMenu/src/Manage.php:287 plugins/widgets/src/Widgets.php:324
+#: plugins/simpleMenu/src/Manage.php:290 plugins/widgets/src/Widgets.php:324
 msgid "Archives"
 msgstr "Архивы"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:174
 #: plugins/breadcrumb/src/FrontendTemplate.php:181
-#: plugins/simpleMenu/src/Manage.php:131 plugins/simpleMenu/src/Manage.php:307
+#: plugins/simpleMenu/src/Manage.php:133 plugins/simpleMenu/src/Manage.php:310
 #: plugins/tags/src/Widgets.php:57
 msgid "All tags"
 msgstr "Все теги"
@@ -1369,12 +1369,12 @@ msgstr "Не удалось сгенерировать поддельный фа
 msgid "Generate a php file that contents strings to translate that are not be done with core tools."
 msgstr "Генерируйте php файл, который содержит строки для перевода, которые не выполняются с помощью основных инструментов."
 
-#: plugins/dcCKEditor/src/Backend.php:25
+#: plugins/dcCKEditor/src/Backend.php:27
 msgid "dcCKEditor"
 msgstr "CKEditor"
 
-#: plugins/dcCKEditor/src/Backend.php:41
-#: plugins/dcLegacyEditor/src/Backend.php:46
+#: plugins/dcCKEditor/src/Backend.php:43
+#: plugins/dcLegacyEditor/src/Backend.php:48
 msgid "HTML"
 msgstr "HTML"
 
@@ -1412,99 +1412,99 @@ msgstr "Поле URL не может быть пустым."
 msgid "Open the media"
 msgstr "Откройте носитель"
 
-#: plugins/dcCKEditor/src/Manage.php:149
-#: plugins/dcLegacyEditor/src/Manage.php:56
+#: plugins/dcCKEditor/src/Manage.php:151
+#: plugins/dcLegacyEditor/src/Manage.php:58
 msgid "The configuration has been updated."
 msgstr "Конфигурация обновлена."
 
-#: plugins/dcCKEditor/src/Manage.php:179
-#: plugins/dcLegacyEditor/src/Manage.php:82
+#: plugins/dcCKEditor/src/Manage.php:181
+#: plugins/dcLegacyEditor/src/Manage.php:84
 msgid "Plugin activation"
 msgstr "Активация плагина"
 
-#: plugins/dcCKEditor/src/Manage.php:185
+#: plugins/dcCKEditor/src/Manage.php:187
 msgid "Enable CKEditor plugin"
 msgstr "Включите плагин CKEditor"
 
-#: plugins/dcCKEditor/src/Manage.php:198
+#: plugins/dcCKEditor/src/Manage.php:200
 msgid "Add alignment buttons"
 msgstr "Добавить кнопки выравнивания"
 
-#: plugins/dcCKEditor/src/Manage.php:204
+#: plugins/dcCKEditor/src/Manage.php:206
 msgid "Add lists buttons"
 msgstr "Добавить кнопки списков"
 
-#: plugins/dcCKEditor/src/Manage.php:210
+#: plugins/dcCKEditor/src/Manage.php:212
 msgid "Add text color button"
 msgstr "Добавить цветовую кнопку"
 
-#: plugins/dcCKEditor/src/Manage.php:216
+#: plugins/dcCKEditor/src/Manage.php:218
 msgid "Add background text color button"
 msgstr "Добавить цветовую кнопку фона"
 
-#: plugins/dcCKEditor/src/Manage.php:219
+#: plugins/dcCKEditor/src/Manage.php:221
 msgid "Custom colors list:"
 msgstr "Пользовательский список цветов:"
 
-#: plugins/dcCKEditor/src/Manage.php:233
+#: plugins/dcCKEditor/src/Manage.php:235
 msgid "Add colors without # separated by a comma."
 msgstr "Добавить цвета без # разделенные запятыми."
 
-#: plugins/dcCKEditor/src/Manage.php:238
+#: plugins/dcCKEditor/src/Manage.php:240
 msgid "Leave empty to use the default palette:"
 msgstr "Оставьте пустым для использования палитры по умолчанию:"
 
-#: plugins/dcCKEditor/src/Manage.php:244
+#: plugins/dcCKEditor/src/Manage.php:246
 msgid "Example of custom color list:"
 msgstr "Пример пользовательского списка цветов:"
 
-#: plugins/dcCKEditor/src/Manage.php:252
+#: plugins/dcCKEditor/src/Manage.php:254
 msgid "Colors per row in palette:"
 msgstr "Цвета в палитре:"
 
-#: plugins/dcCKEditor/src/Manage.php:256
+#: plugins/dcCKEditor/src/Manage.php:258
 msgid "Valid range: 4 to 16"
 msgstr "Действительный диапазон: от 4 до 16"
 
-#: plugins/dcCKEditor/src/Manage.php:261
+#: plugins/dcCKEditor/src/Manage.php:263
 msgid "Add collapse button"
 msgstr "Добавить кнопку сворачивать"
 
-#: plugins/dcCKEditor/src/Manage.php:267
+#: plugins/dcCKEditor/src/Manage.php:269
 msgid "Add format selection"
 msgstr "Добавить выбор формата"
 
-#: plugins/dcCKEditor/src/Manage.php:270
+#: plugins/dcCKEditor/src/Manage.php:272
 msgid "Custom formats"
 msgstr "Пользовательские форматы"
 
-#: plugins/dcCKEditor/src/Manage.php:284
+#: plugins/dcCKEditor/src/Manage.php:286
 msgid "Default formats are p;h1;h2;h3;h4;h5;h6;pre;address"
 msgstr "Формат p;h1;h2;h3;h4;h5;h6;pre;address"
 
-#: plugins/dcCKEditor/src/Manage.php:290
+#: plugins/dcCKEditor/src/Manage.php:292
 msgid "Add table button"
 msgstr "Добавить кнопку таблицы"
 
-#: plugins/dcCKEditor/src/Manage.php:296
+#: plugins/dcCKEditor/src/Manage.php:298
 msgid "Add clipboard buttons"
 msgstr "Добавить кнопки буфера обмена"
 
-#: plugins/dcCKEditor/src/Manage.php:300
+#: plugins/dcCKEditor/src/Manage.php:302
 msgid "Copy, Paste, Paste Text, Paste from Word"
 msgstr "Копировать, вставить, вставить текст, вставить из слова"
 
-#: plugins/dcCKEditor/src/Manage.php:305
+#: plugins/dcCKEditor/src/Manage.php:307
 msgid "Add undo/redo buttons"
 msgstr "Добавить кнопки отмены/повтора"
 
-#: plugins/dcCKEditor/src/Manage.php:311
+#: plugins/dcCKEditor/src/Manage.php:313
 msgid "Disables the built-in spell checker if the browser provides one"
 msgstr "Отключает встроенную проверку орфографии, если браузер предоставляет одну"
 
-#: plugins/dcCKEditor/src/Manage.php:321
-#: plugins/dcLegacyEditor/src/Manage.php:111
-#: plugins/simpleMenu/src/Manage.php:761
+#: plugins/dcCKEditor/src/Manage.php:323
+#: plugins/dcLegacyEditor/src/Manage.php:113
+#: plugins/simpleMenu/src/Manage.php:764
 msgid "Save configuration"
 msgstr "Сохранить конфигурацию"
 
@@ -1512,11 +1512,11 @@ msgstr "Сохранить конфигурацию"
 msgid "Note(s)"
 msgstr "Примечания"
 
-#: plugins/dcLegacyEditor/src/Backend.php:26
+#: plugins/dcLegacyEditor/src/Backend.php:28
 msgid "dcLegacyEditor"
 msgstr "Редактор Dotclear"
 
-#: plugins/dcLegacyEditor/src/Backend.php:50
+#: plugins/dcLegacyEditor/src/Backend.php:52
 msgid "Dotclear wiki"
 msgstr "Точечная вики"
 
@@ -1630,11 +1630,11 @@ msgstr "Язык?"
 msgid "Remove text formating"
 msgstr "Удалить формацию текста"
 
-#: plugins/dcLegacyEditor/src/Manage.php:88
+#: plugins/dcLegacyEditor/src/Manage.php:90
 msgid "Enable standard editor plugin"
 msgstr "Включите стандартный плагин редактора"
 
-#: plugins/dcLegacyEditor/src/Manage.php:101
+#: plugins/dcLegacyEditor/src/Manage.php:103
 msgid "Adjust height of input area during editing"
 msgstr "Регулировка высоты области ввода при редактировании"
 
@@ -1642,11 +1642,11 @@ msgstr "Регулировка высоты области ввода при р�
 msgid "Checks trackback source for a link to the post"
 msgstr "Проверить источник пинга на наличие ссылки на пост"
 
-#: plugins/fairTrackbacks/src/Prepend.php:26
+#: plugins/fairTrackbacks/src/Prepend.php:28
 msgid "Fair Trackbacks"
 msgstr "Справедливые обратные ссылки"
 
-#: plugins/importExport/src/Backend.php:27
+#: plugins/importExport/src/Backend.php:29
 msgid "Import / Export"
 msgstr "Импорт / Экспорт"
 
@@ -1688,37 +1688,37 @@ msgstr "Файл не является резервной копией DotClear.
 msgid "File is not a single blog export."
 msgstr "Файл не является файлом экспотра блога."
 
-#: plugins/importExport/src/FlatImportV2.php:291
-#: plugins/importExport/src/FlatImportV2.php:345
+#: plugins/importExport/src/FlatImportV2.php:294
+#: plugins/importExport/src/FlatImportV2.php:353
 #, php-format
 msgid "Error raised at line %s"
 msgstr "Ошибка в строке %s"
 
-#: plugins/importExport/src/FlatImportV2.php:300
+#: plugins/importExport/src/FlatImportV2.php:305
 msgid "File is not a full export."
 msgstr "Файл не является полным экспортом."
 
-#: plugins/importExport/src/FlatImportV2.php:756
+#: plugins/importExport/src/FlatImportV2.php:766
 #, php-format
 msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
 msgstr "ID \"%3$s\" не соответствует записи \"%1$s\" в строке %2$s файла резервной копии."
 
-#: plugins/importExport/src/Manage.php:90
-#: plugins/maintenance/src/Manage.php:199
+#: plugins/importExport/src/Manage.php:92
+#: plugins/maintenance/src/Manage.php:202
 msgid "Please wait..."
 msgstr "Пожалуйста подождите..."
 
-#: plugins/importExport/src/Manage.php:136
+#: plugins/importExport/src/Manage.php:138
 msgid "Export"
 msgstr "Экспорт"
 
-#: plugins/importExport/src/Manage.php:141
+#: plugins/importExport/src/Manage.php:143
 #, php-format
 msgid "Export functions are in the page %s."
 msgstr "Функции экспорта находятся на странице %s."
 
-#: plugins/importExport/src/Manage.php:144
-#: plugins/maintenance/src/Backend.php:25
+#: plugins/importExport/src/Manage.php:146
+#: plugins/maintenance/src/Backend.php:27
 #: plugins/maintenance/src/BackendBehaviors.php:221
 msgid "Maintenance"
 msgstr "Поддержка"
@@ -1755,99 +1755,99 @@ msgstr "Экспортируемый файл не найден."
 msgid "Failed to compress export file."
 msgstr "Ошибка сжатия экспортируемого файла."
 
-#: plugins/importExport/src/ModuleImportDc1.php:84
+#: plugins/importExport/src/ModuleImportDc1.php:85
 msgid "Dotclear 1.2 import"
 msgstr "Импорт Dotclear 1.2"
 
-#: plugins/importExport/src/ModuleImportDc1.php:85
+#: plugins/importExport/src/ModuleImportDc1.php:86
 msgid "Import a Dotclear 1.2 installation into your current blog."
 msgstr "Импортировать установку Dotclear 1.2 в ваш текущий блог."
 
-#: plugins/importExport/src/ModuleImportDc1.php:204
+#: plugins/importExport/src/ModuleImportDc1.php:217
 #, php-format
 msgid "Import the content of a Dotclear 1.2's blog in the current blog: %s."
 msgstr "Импорт содержимого блога Dotclear 1.2 в текущем блоге: %s."
 
-#: plugins/importExport/src/ModuleImportDc1.php:212
-#: plugins/importExport/src/ModuleImportWp.php:241
+#: plugins/importExport/src/ModuleImportDc1.php:225
+#: plugins/importExport/src/ModuleImportWp.php:253
 msgid "Please note that this process will empty your categories, blogroll, entries and comments on the current blog."
 msgstr "Заметьте, что этот процесс очистит все категории, ссылки, записи и комментарии текущего блога."
 
-#: plugins/importExport/src/ModuleImportDc1.php:219
+#: plugins/importExport/src/ModuleImportDc1.php:232
 msgid "We first need some information about your old Dotclear 1.2 installation."
 msgstr "Сначала, нам нужна информация о вашей старой установке Dotclear 1.2."
 
-#: plugins/importExport/src/ModuleImportDc1.php:226
+#: plugins/importExport/src/ModuleImportDc1.php:239
 msgid "Database driver:"
 msgstr "Драйвер базы данных:"
 
-#: plugins/importExport/src/ModuleImportDc1.php:268
-#: plugins/importExport/src/ModuleImportWp.php:290
+#: plugins/importExport/src/ModuleImportDc1.php:281
+#: plugins/importExport/src/ModuleImportWp.php:302
 msgid "Entries import options"
 msgstr "Опции импорта записей"
 
-#: plugins/importExport/src/ModuleImportDc1.php:273
-#: plugins/importExport/src/ModuleImportWp.php:335
+#: plugins/importExport/src/ModuleImportDc1.php:286
+#: plugins/importExport/src/ModuleImportWp.php:347
 msgid "Number of entries to import at once:"
 msgstr "Количество записей для одновременного импорта:"
 
-#: plugins/importExport/src/ModuleImportDc1.php:279
-#: plugins/importExport/src/ModuleImportWp.php:360
+#: plugins/importExport/src/ModuleImportDc1.php:292
+#: plugins/importExport/src/ModuleImportWp.php:372
 msgid "General information"
 msgstr "Общая информация"
 
-#: plugins/importExport/src/ModuleImportDc1.php:279
-#: plugins/importExport/src/ModuleImportWp.php:360
+#: plugins/importExport/src/ModuleImportDc1.php:292
+#: plugins/importExport/src/ModuleImportWp.php:372
 msgid "Import my blog now"
 msgstr "Импортировать мой блог"
 
-#: plugins/importExport/src/ModuleImportDc1.php:286
-#: plugins/importExport/src/ModuleImportWp.php:367
+#: plugins/importExport/src/ModuleImportDc1.php:299
+#: plugins/importExport/src/ModuleImportWp.php:379
 msgid "Importing users"
 msgstr "Импортировать пользователей"
 
-#: plugins/importExport/src/ModuleImportDc1.php:293
-#: plugins/importExport/src/ModuleImportWp.php:374
+#: plugins/importExport/src/ModuleImportDc1.php:306
+#: plugins/importExport/src/ModuleImportWp.php:386
 msgid "Importing categories"
 msgstr "Импортировать категории"
 
-#: plugins/importExport/src/ModuleImportDc1.php:300
-#: plugins/importExport/src/ModuleImportWp.php:381
+#: plugins/importExport/src/ModuleImportDc1.php:313
+#: plugins/importExport/src/ModuleImportWp.php:393
 msgid "Importing blogroll"
 msgstr "Импортировать ссылки"
 
-#: plugins/importExport/src/ModuleImportDc1.php:307
-#: plugins/importExport/src/ModuleImportWp.php:388
+#: plugins/importExport/src/ModuleImportDc1.php:320
+#: plugins/importExport/src/ModuleImportWp.php:400
 #, php-format
 msgid "Importing entries from %d to %d / %d"
 msgstr "Импортировать записи от %d до %d / %d"
 
-#: plugins/importExport/src/ModuleImportDc1.php:322
-#: plugins/importExport/src/ModuleImportWp.php:403
+#: plugins/importExport/src/ModuleImportDc1.php:335
+#: plugins/importExport/src/ModuleImportWp.php:415
 msgid "Please read carefully"
 msgstr "Пожалуйста прочитайте внимательно"
 
-#: plugins/importExport/src/ModuleImportDc1.php:324
-#: plugins/importExport/src/ModuleImportWp.php:406
+#: plugins/importExport/src/ModuleImportDc1.php:337
+#: plugins/importExport/src/ModuleImportWp.php:418
 msgid "Every newly imported user has received a random password and will need to ask for a new one by following the \"I forgot my password\" link on the login page (Their registered email address has to be valid.)"
 msgstr "Каждый новый импортированный пользователь получил пароль и для получения нового нужно нажать на ссылку \"Я забыл пароль\" на форме логина (зарегистрированный email адрес должен быть действительным)."
 
-#: plugins/importExport/src/ModuleImportDc1.php:326
+#: plugins/importExport/src/ModuleImportDc1.php:339
 #, php-format
 msgid "Please note that Dotclear 2 has a new URL layout. You can avoid broken links by installing <a href=\"%s\">DC1 redirect</a> plugin and activate it in your blog configuration."
 msgstr "Пожалуйста обратите внимание, что Dotclear 2 имеет новый формат URL. Вы можете избежать неверных ссылок установив плагин< href=\"%s\">DC1 redirect</a> и активировав его в вашем блоге."
 
-#: plugins/importExport/src/ModuleImportDc1.php:349
-#: plugins/importExport/src/ModuleImportWp.php:428
+#: plugins/importExport/src/ModuleImportDc1.php:362
+#: plugins/importExport/src/ModuleImportWp.php:440
 msgid "next step"
 msgstr "следующий шаг"
 
-#: plugins/importExport/src/ModuleImportDc1.php:367
-#: plugins/importExport/src/ModuleImportWp.php:446
+#: plugins/importExport/src/ModuleImportDc1.php:380
+#: plugins/importExport/src/ModuleImportWp.php:458
 msgid "Depending on the size of your blog, it could take a few minutes."
 msgstr "В зависимости от размера вашего блога, это может занять несколько минут."
 
-#: plugins/importExport/src/ModuleImportDc1.php:395
+#: plugins/importExport/src/ModuleImportDc1.php:408
 msgid "Dotclear tables not found"
 msgstr "Таблицы Dotclear не найдены"
 
@@ -1873,7 +1873,7 @@ msgid "No items in feed."
 msgstr "Нет элементов в ленте новостей."
 
 #: plugins/importExport/src/ModuleImportFeed.php:215
-#: plugins/importExport/src/ModuleImportFlat.php:190
+#: plugins/importExport/src/ModuleImportFlat.php:191
 msgid "Content successfully imported."
 msgstr "Содержимое успешно импортировано."
 
@@ -1887,64 +1887,64 @@ msgstr "Добавить содержимое ленты в текущий бл�
 msgid "Feed URL:"
 msgstr "URL ленты новостей:"
 
-#: plugins/importExport/src/ModuleImportFlat.php:52
+#: plugins/importExport/src/ModuleImportFlat.php:53
 msgid "Flat file import"
 msgstr "Импортировать текстовый файл"
 
-#: plugins/importExport/src/ModuleImportFlat.php:53
+#: plugins/importExport/src/ModuleImportFlat.php:54
 msgid "Imports a blog or a full Dotclear installation from flat file."
 msgstr "Импортировать блог или полную установку Dotclear из текстового файла."
 
-#: plugins/importExport/src/ModuleImportFlat.php:185
+#: plugins/importExport/src/ModuleImportFlat.php:186
 msgid "Single blog successfully imported."
 msgstr "Блог успешно импортирован."
 
-#: plugins/importExport/src/ModuleImportFlat.php:201
+#: plugins/importExport/src/ModuleImportFlat.php:206
 msgid "Are you sure you want to import a full backup file?"
 msgstr "Вы уверены, что хотите импортировать резервный файл?"
 
-#: plugins/importExport/src/ModuleImportFlat.php:211
+#: plugins/importExport/src/ModuleImportFlat.php:216
 msgid "Single blog"
 msgstr "Один блог"
 
-#: plugins/importExport/src/ModuleImportFlat.php:216
+#: plugins/importExport/src/ModuleImportFlat.php:221
 #, php-format
 msgid "This will import a single blog backup as new content in the current blog: <strong>%s</strong>."
 msgstr "Это импортирует резервный файл одного блога как новое содержимое в текущий блог: %s."
 
-#: plugins/importExport/src/ModuleImportFlat.php:223
-#: plugins/importExport/src/ModuleImportFlat.php:270
+#: plugins/importExport/src/ModuleImportFlat.php:228
+#: plugins/importExport/src/ModuleImportFlat.php:275
 msgid "Upload a backup file"
 msgstr "Загрузить резервный файл"
 
-#: plugins/importExport/src/ModuleImportFlat.php:224
-#: plugins/importExport/src/ModuleImportFlat.php:271
+#: plugins/importExport/src/ModuleImportFlat.php:229
+#: plugins/importExport/src/ModuleImportFlat.php:276
 #, php-format
 msgid "maximum size %s"
 msgstr "максимальный размер %s"
 
-#: plugins/importExport/src/ModuleImportFlat.php:236
-#: plugins/importExport/src/ModuleImportFlat.php:283
+#: plugins/importExport/src/ModuleImportFlat.php:241
+#: plugins/importExport/src/ModuleImportFlat.php:288
 msgid "or pick up a local file in your public directory"
 msgstr "или укажите на локальный файл в общедоступной директории"
 
-#: plugins/importExport/src/ModuleImportFlat.php:258
+#: plugins/importExport/src/ModuleImportFlat.php:263
 msgid "Multiple blogs"
 msgstr "Несколько блогов"
 
-#: plugins/importExport/src/ModuleImportFlat.php:265
+#: plugins/importExport/src/ModuleImportFlat.php:270
 msgid "This will reset all the content of your database, except users."
 msgstr "Это сбросит все содержимое вашей базы данных, кроме пользователей."
 
-#: plugins/importExport/src/ModuleImportFlat.php:396
+#: plugins/importExport/src/ModuleImportFlat.php:401
 msgid "Another file with same name exists."
 msgstr "Уже существует другой файл с таким же именем."
 
-#: plugins/importExport/src/ModuleImportFlat.php:404
+#: plugins/importExport/src/ModuleImportFlat.php:409
 msgid "Failed to extract backup file."
 msgstr "Не удалось извлечь файл резервной копии."
 
-#: plugins/importExport/src/ModuleImportFlat.php:416
+#: plugins/importExport/src/ModuleImportFlat.php:421
 msgid "No backup in compressed file."
 msgstr "В сжатом файле нет резервной копии."
 
@@ -1956,56 +1956,56 @@ msgstr "Импортировать WordPress"
 msgid "Import a WordPress installation into your current blog."
 msgstr "Импортировать блог WordPress в ваш текущий блог."
 
-#: plugins/importExport/src/ModuleImportWp.php:233
+#: plugins/importExport/src/ModuleImportWp.php:245
 #, php-format
 msgid "This will import your WordPress content as new content in the current blog: %s."
 msgstr "Это импортирует содержимое блога WordPress как новое содержимое в ваш текущий блог: %s."
 
-#: plugins/importExport/src/ModuleImportWp.php:248
+#: plugins/importExport/src/ModuleImportWp.php:260
 msgid "We first need some information about your old WordPress installation."
 msgstr "Сначала нам нужно получить некоторую информацию о вашем старом блоге WordPress."
 
-#: plugins/importExport/src/ModuleImportWp.php:298
+#: plugins/importExport/src/ModuleImportWp.php:310
 msgid "WordPress and Dotclear's handling of categories are quite different. You can assign several categories to a single post in WordPress. In the Dotclear world, we see it more like \"One category, several tags.\" Therefore Dotclear can only import one category per post and will chose the lowest numbered one. If you want to keep a trace of every category, you can import them as tags, with an optional prefix."
 msgstr "WordPress и Dotclear по разному работают с категориями. Вы можете назначить несколько разных категорий к записи в WordPress. В Dotclear все подчиняется правилу \"Одна категоиря, несколько тегов\". Следовательно Dotclear может импортировать только одну категорию на одну запись, и в этом случае выбирается первая созданная категория. Если вы хотите сохранить информацию о категориях, вы можете выполнить их импорт в виде тегов с возможностью добавления префикса."
 
-#: plugins/importExport/src/ModuleImportWp.php:300
+#: plugins/importExport/src/ModuleImportWp.php:312
 msgid "On the other hand, in WordPress, a post can not be uncategorized, and a default installation has a first category labelised <i>\"Uncategorized\"</i>. If you did not change that category, you can just ignore it while importing your blog, as Dotclear allows you to actually keep your posts uncategorized."
 msgstr "С другой стороны, в WordPress пост не может быть некатегоризированным, а в установке по умолчанию первая категория обозначена как <i>\"Uncategorized\"</i>. Если вы не меняли эту категорию, то можете просто проигнорировать ее при импорте блога, так как Dotclear позволяет вам фактически оставить ваши посты без категории."
 
-#: plugins/importExport/src/ModuleImportWp.php:309
+#: plugins/importExport/src/ModuleImportWp.php:321
 msgid "Ignore the first category:"
 msgstr "Игнорировать первую категорию:"
 
-#: plugins/importExport/src/ModuleImportWp.php:315
+#: plugins/importExport/src/ModuleImportWp.php:327
 msgid "Import lowest numbered category on posts:"
 msgstr "Импортировать самую старую категорию на записи:"
 
-#: plugins/importExport/src/ModuleImportWp.php:321
+#: plugins/importExport/src/ModuleImportWp.php:333
 msgid "Import all categories as tags:"
 msgstr "Импортировать все категории как теги:"
 
-#: plugins/importExport/src/ModuleImportWp.php:329
+#: plugins/importExport/src/ModuleImportWp.php:341
 msgid "Prefix such tags with:"
 msgstr "Добавить префикс к тегам:"
 
-#: plugins/importExport/src/ModuleImportWp.php:339
+#: plugins/importExport/src/ModuleImportWp.php:351
 msgid "Content filters"
 msgstr "Фильтры содержания"
 
-#: plugins/importExport/src/ModuleImportWp.php:341
+#: plugins/importExport/src/ModuleImportWp.php:353
 msgid "You may want to process your post and/or comment content with the following filters."
 msgstr "Вы можете обработать ваш пост и/или содержимое комментария с помощью следующих фильтров."
 
-#: plugins/importExport/src/ModuleImportWp.php:347
+#: plugins/importExport/src/ModuleImportWp.php:359
 msgid "Post content formatter:"
 msgstr "Форматтер содержимого постов:"
 
-#: plugins/importExport/src/ModuleImportWp.php:354
+#: plugins/importExport/src/ModuleImportWp.php:366
 msgid "Comment content formatter:"
 msgstr "Форматтер содержания комментариев:"
 
-#: plugins/importExport/src/ModuleImportWp.php:474
+#: plugins/importExport/src/ModuleImportWp.php:486
 msgid "WordPress tables not found"
 msgstr "Таблицы WordPress не найдены"
 
@@ -2081,12 +2081,12 @@ msgstr[2] "%s задач для выполнения"
 msgstr[3] "%s задач для выполнения"
 
 #: plugins/maintenance/src/BackendBehaviors.php:203
-#: plugins/maintenance/src/Manage.php:305
+#: plugins/maintenance/src/Manage.php:308
 msgid "This task has never been executed."
 msgstr "Эта задача никогда не выполнялась."
 
 #: plugins/maintenance/src/BackendBehaviors.php:206
-#: plugins/maintenance/src/Manage.php:308
+#: plugins/maintenance/src/Manage.php:311
 #, php-format
 msgid "Last execution of this task was on %s."
 msgstr "Последнее выполнение этой задачи было %s."
@@ -2120,107 +2120,107 @@ msgstr "Не удалось выполнить задачу."
 msgid "Task successfully executed."
 msgstr "Задача успешно выполнена."
 
-#: plugins/maintenance/src/Manage.php:135
+#: plugins/maintenance/src/Manage.php:138
 msgid "Maintenance plugin has been successfully configured."
 msgstr "Плагин обслуживания был успешно настроен."
 
-#: plugins/maintenance/src/Manage.php:153
+#: plugins/maintenance/src/Manage.php:156
 msgid "System settings have been saved."
 msgstr "Системные настройки сохранены."
 
-#: plugins/maintenance/src/Manage.php:158
+#: plugins/maintenance/src/Manage.php:161
 msgid "All blog's Content-Security-Policy settings have been reset to default."
 msgstr "Все настройки Content-Security-Policy были сброшены по умолчанию."
 
-#: plugins/maintenance/src/Manage.php:180
+#: plugins/maintenance/src/Manage.php:183
 msgid "Every week"
 msgstr "Каждую неделю"
 
-#: plugins/maintenance/src/Manage.php:181
+#: plugins/maintenance/src/Manage.php:184
 msgid "Every two weeks"
 msgstr "Каждые две недели"
 
-#: plugins/maintenance/src/Manage.php:182
+#: plugins/maintenance/src/Manage.php:185
 msgid "Every month"
 msgstr "Каждый месяц"
 
-#: plugins/maintenance/src/Manage.php:183
+#: plugins/maintenance/src/Manage.php:186
 msgid "Every two months"
 msgstr "Каждые два месяца"
 
-#: plugins/maintenance/src/Manage.php:216
+#: plugins/maintenance/src/Manage.php:219
 msgid "You have not sufficient permissions to view this page."
 msgstr "У вас недостаточно прав для просмотра этой страницы."
 
-#: plugins/maintenance/src/Manage.php:305
-#: plugins/maintenance/src/Manage.php:311
+#: plugins/maintenance/src/Manage.php:308
+#: plugins/maintenance/src/Manage.php:314
 msgid "You should execute it now."
 msgstr "Вы должны выполнить это сейчас."
 
-#: plugins/maintenance/src/Manage.php:347
-#: plugins/maintenance/src/Manage.php:381
+#: plugins/maintenance/src/Manage.php:350
+#: plugins/maintenance/src/Manage.php:384
 msgid "Execute task"
 msgstr "Выполнить задачу"
 
-#: plugins/maintenance/src/Manage.php:352
+#: plugins/maintenance/src/Manage.php:355
 msgid "This may take a very long time."
 msgstr "Это может занять очень много времени."
 
-#: plugins/maintenance/src/Manage.php:419
-#: plugins/maintenance/src/Manage.php:421
+#: plugins/maintenance/src/Manage.php:422
+#: plugins/maintenance/src/Manage.php:424
 msgid "Alert settings"
 msgstr "Настройки оповещений"
 
-#: plugins/maintenance/src/Manage.php:427
+#: plugins/maintenance/src/Manage.php:430
 msgid "Activation"
 msgstr "Активация"
 
-#: plugins/maintenance/src/Manage.php:433
+#: plugins/maintenance/src/Manage.php:436
 msgid "Display alert messages on late tasks"
 msgstr "Отображение предупреждений о поздних задачах"
 
-#: plugins/maintenance/src/Manage.php:438
+#: plugins/maintenance/src/Manage.php:441
 #, php-format
 msgid "You can place list of late tasks on your %s."
 msgstr "Вы можете поместить список поздних задач на ваш %s."
 
-#: plugins/maintenance/src/Manage.php:443
+#: plugins/maintenance/src/Manage.php:446
 msgid "Frequency"
 msgstr "Частота"
 
-#: plugins/maintenance/src/Manage.php:451
+#: plugins/maintenance/src/Manage.php:454
 msgid "Use one recall time for all tasks"
 msgstr "Использовать одно время для всех задач"
 
-#: plugins/maintenance/src/Manage.php:461
+#: plugins/maintenance/src/Manage.php:464
 msgid "Recall time for all tasks:"
 msgstr "Время отзыва для всех задач:"
 
-#: plugins/maintenance/src/Manage.php:470
+#: plugins/maintenance/src/Manage.php:473
 msgid "Use one recall time per task"
 msgstr "Использовать одно время напоминания за задачу"
 
-#: plugins/maintenance/src/Manage.php:501
+#: plugins/maintenance/src/Manage.php:504
 msgid "Content-Security-Policy"
 msgstr "Содержание - Политика безопасности"
 
-#: plugins/maintenance/src/Manage.php:513
+#: plugins/maintenance/src/Manage.php:516
 msgid "Enable Content-Security-Policy system"
 msgstr "Включить систему контент-безопасности"
 
-#: plugins/maintenance/src/Manage.php:519
+#: plugins/maintenance/src/Manage.php:522
 msgid "Enable Content-Security-Policy report only"
 msgstr "Включить только отчёт по вопросам безопасности"
 
-#: plugins/maintenance/src/Manage.php:529
+#: plugins/maintenance/src/Manage.php:532
 msgid "Enable Content-Security-Policy system by default"
 msgstr "Включить систему Content-Security-Policy по умолчанию"
 
-#: plugins/maintenance/src/Manage.php:535
+#: plugins/maintenance/src/Manage.php:538
 msgid "Enable Content-Security-Policy report only by default"
 msgstr "Включить отчёт Content-Security-Policy только по умолчанию"
 
-#: plugins/maintenance/src/Manage.php:541
+#: plugins/maintenance/src/Manage.php:544
 msgid "Also apply these settings to all blogs"
 msgstr "Также применить эти настройки ко всем блогам"
 
@@ -2395,26 +2395,26 @@ msgstr "Загрузить активную тему для текущего б�
 msgid "It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file."
 msgstr "Это может быть полезно для резервного копирования активной темы перед любым изменением или обновлением. Это сжатие папки темы в один zip-файл."
 
-#: plugins/pages/src/Backend.php:47
+#: plugins/pages/src/Backend.php:49
 msgid "manage pages"
 msgstr "управление страницами"
 
-#: plugins/pages/src/Backend.php:78
+#: plugins/pages/src/Backend.php:80
 msgid "pages per page"
 msgstr "страниц на страницу"
 
-#: plugins/pages/src/Backend.php:101
+#: plugins/pages/src/Backend.php:103
 #, php-format
 msgid "%d page"
 msgstr "%d страница"
 
-#: plugins/pages/src/Backend.php:101
+#: plugins/pages/src/Backend.php:103
 #, php-format
 msgid "%d pages"
 msgstr "%d страниц"
 
-#: plugins/pages/src/Backend.php:108 plugins/pages/src/Manage.php:148
-#: plugins/pages/src/ManagePage.php:108 plugins/pages/src/ManagePage.php:856
+#: plugins/pages/src/Backend.php:110 plugins/pages/src/Manage.php:150
+#: plugins/pages/src/ManagePage.php:110 plugins/pages/src/ManagePage.php:858
 msgid "New page"
 msgstr "Новая страница"
 
@@ -2427,7 +2427,7 @@ msgid "Back to pages list"
 msgstr "Вернуться к списку страниц"
 
 #: plugins/pages/src/BackendDefaultActions.php:119
-#: plugins/pages/src/Manage.php:139
+#: plugins/pages/src/Manage.php:141
 msgid "Selected pages have been successfully reordered."
 msgstr "Выбранные страницы были успешно сортированы."
 
@@ -2435,112 +2435,112 @@ msgstr "Выбранные страницы были успешно сортир
 msgid "No page"
 msgstr "Нет страниц"
 
-#: plugins/pages/src/BackendList.php:179 plugins/pages/src/BackendList.php:248
+#: plugins/pages/src/BackendList.php:170 plugins/pages/src/BackendList.php:239
 msgid "Hidden"
 msgstr "Hidden"
 
-#: plugins/pages/src/BackendList.php:278
+#: plugins/pages/src/BackendList.php:268
 msgid "Select this page"
 msgstr "Выбрать эту страницу"
 
-#: plugins/pages/src/Frontend.php:36
+#: plugins/pages/src/Frontend.php:38
 msgid "Published on"
 msgstr "Опубликовано"
 
-#: plugins/pages/src/Frontend.php:37
+#: plugins/pages/src/Frontend.php:39
 msgid "This page's comments feed"
 msgstr "Лента новостей к комментариям этой страницы"
 
-#: plugins/pages/src/Install.php:49
+#: plugins/pages/src/Install.php:51
 msgid "My first page"
 msgstr "Моя первая страница"
 
-#: plugins/pages/src/Install.php:50
+#: plugins/pages/src/Install.php:52
 msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
 msgstr "Это ваша первая страница. Когда вы будете готовы блог, войдите в систему, чтобы редактировать или удалить его."
 
-#: plugins/pages/src/Manage.php:121
+#: plugins/pages/src/Manage.php:123
 msgid "Are you sure you want to delete selected pages?"
 msgstr "Вы уверены, что хотите удалить выбранные страницы?"
 
-#: plugins/pages/src/Manage.php:135
+#: plugins/pages/src/Manage.php:137
 msgid "Selected pages have been successfully updated."
 msgstr "Выбранные страницы были успешно обновлены."
 
-#: plugins/pages/src/Manage.php:137
+#: plugins/pages/src/Manage.php:139
 msgid "Selected pages have been successfully deleted."
 msgstr "Выбранные страницы были успешно удалены."
 
-#: plugins/pages/src/Manage.php:171
+#: plugins/pages/src/Manage.php:173
 msgid "Selected pages action:"
 msgstr "Действия над выбранными страницами:"
 
-#: plugins/pages/src/Manage.php:177
+#: plugins/pages/src/Manage.php:179
 msgid "To rearrange pages order, change number at the begining of the line, then click on “Save pages order” button."
 msgstr "Чтобы изменить порядок сортировки страниц, измените число в начале строки, затем нажмите кнопку «Сохранить порядок страниц»."
 
-#: plugins/pages/src/Manage.php:180
+#: plugins/pages/src/Manage.php:182
 msgid "To rearrange pages order, move items by drag and drop, then click on “Save pages order” button."
 msgstr "Для изменения порядка страниц, переместите элементы путем перетаскивания и удалите их, затем нажмите кнопку «Сохранить порядок страниц»."
 
-#: plugins/pages/src/Manage.php:187
+#: plugins/pages/src/Manage.php:189
 msgid "Save pages order"
 msgstr "Сохранить порядок страниц"
 
-#: plugins/pages/src/ManagePage.php:168
+#: plugins/pages/src/ManagePage.php:170
 msgid "This page does not exist."
 msgstr "Эта страница не существует."
 
-#: plugins/pages/src/ManagePage.php:189 plugins/pages/src/ManagePage.php:856
-#: plugins/pages/src/ManagePage.php:877
+#: plugins/pages/src/ManagePage.php:191 plugins/pages/src/ManagePage.php:858
+#: plugins/pages/src/ManagePage.php:879
 msgid "Edit page"
 msgstr "Редактировать страницу"
 
-#: plugins/pages/src/ManagePage.php:434
+#: plugins/pages/src/ManagePage.php:436
 msgid "Don't forget to validate your HTML conversion by saving your post."
 msgstr "Не забудьте проверить вашу преобразование HTML, сохранив ваш пост."
 
-#: plugins/pages/src/ManagePage.php:498
+#: plugins/pages/src/ManagePage.php:500
 msgid "Are you sure you want to delete this page?"
 msgstr "Вы уверены, что хотите удалить эту страницу?"
 
-#: plugins/pages/src/ManagePage.php:527
+#: plugins/pages/src/ManagePage.php:529
 msgid "Page has been successfully updated."
 msgstr "Страница успешно обновлена."
 
-#: plugins/pages/src/ManagePage.php:529
+#: plugins/pages/src/ManagePage.php:531
 msgid "Page has been successfully created."
 msgstr "Страница успешно создана."
 
-#: plugins/pages/src/ManagePage.php:543
+#: plugins/pages/src/ManagePage.php:545
 msgid "Go to this page on the site"
 msgstr "Перейти на эту страницу на сайте"
 
-#: plugins/pages/src/ManagePage.php:585
+#: plugins/pages/src/ManagePage.php:587
 msgid "Page status"
 msgstr "Статус страницы:"
 
-#: plugins/pages/src/ManagePage.php:602
+#: plugins/pages/src/ManagePage.php:604
 msgid "Page language"
 msgstr "Язык страницы"
 
-#: plugins/pages/src/ManagePage.php:631 plugins/pages/src/Widgets.php:41
+#: plugins/pages/src/ManagePage.php:633 plugins/pages/src/Widgets.php:41
 msgid "Page position"
 msgstr "Позиция страницы"
 
-#: plugins/pages/src/ManagePage.php:682
+#: plugins/pages/src/ManagePage.php:684
 msgid "Hide in widget Pages"
 msgstr "Скрыть в страницах виджетов"
 
-#: plugins/pages/src/ManagePage.php:708
+#: plugins/pages/src/ManagePage.php:710
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "Внимание: если вы вводите URL вручную, это может вызвать конфликт с другой страницей."
 
-#: plugins/pages/src/ManagePage.php:747
+#: plugins/pages/src/ManagePage.php:749
 msgid "Introduction to the page."
 msgstr "Введение на эту страницу."
 
-#: plugins/pages/src/ManagePage.php:1126
+#: plugins/pages/src/ManagePage.php:1128
 msgid "Select this comment"
 msgstr "Выберите этот комментарий"
 
@@ -2552,43 +2552,43 @@ msgstr "Заголовок страницы"
 msgid "Publication date"
 msgstr "Дата публикации"
 
-#: plugins/pings/src/Backend.php:27 plugins/pings/src/BackendBehaviors.php:64
+#: plugins/pings/src/Backend.php:29 plugins/pings/src/BackendBehaviors.php:64
 msgid "Pings"
 msgstr "Пинги"
 
-#: plugins/pings/src/Manage.php:80
+#: plugins/pings/src/Manage.php:82
 msgid "Settings have been successfully updated."
 msgstr "Настройки успешно обновлены."
 
-#: plugins/pings/src/Manage.php:98
+#: plugins/pings/src/Manage.php:100
 msgid "Pings configuration"
 msgstr "Конфигурация пингов"
 
-#: plugins/pings/src/Manage.php:112
+#: plugins/pings/src/Manage.php:114
 msgid "Error"
 msgstr "Ошибка"
 
-#: plugins/pings/src/Manage.php:164
+#: plugins/pings/src/Manage.php:166
 msgid "Service name:"
 msgstr "Название сервиса:"
 
-#: plugins/pings/src/Manage.php:165
+#: plugins/pings/src/Manage.php:167
 msgid "Service URI:"
 msgstr "URI сервиса:"
 
-#: plugins/pings/src/Manage.php:180
+#: plugins/pings/src/Manage.php:182
 msgid "Activate pings extension"
 msgstr "Активировать модуль пингов."
 
-#: plugins/pings/src/Manage.php:186
+#: plugins/pings/src/Manage.php:188
 msgid "Auto pings all services on first publication of entry (current blog only)"
 msgstr "Авто пинг все сервисы при первой публикации записи (только для текущего блога)"
 
-#: plugins/pings/src/Manage.php:193
+#: plugins/pings/src/Manage.php:195
 msgid "Test ping services"
 msgstr "Протестировать сервис пингов"
 
-#: plugins/simpleMenu/src/Backend.php:26 plugins/simpleMenu/src/Manage.php:72
+#: plugins/simpleMenu/src/Backend.php:28 plugins/simpleMenu/src/Manage.php:74
 #: plugins/simpleMenu/src/Widgets.php:29
 msgid "Simple menu"
 msgstr "Простое меню"
@@ -2601,185 +2601,185 @@ msgstr "Активная страница"
 msgid "active page"
 msgstr "активная страница"
 
-#: plugins/simpleMenu/src/Manage.php:97
+#: plugins/simpleMenu/src/Manage.php:99
 msgid "All months"
 msgstr "Все месяцы"
 
-#: plugins/simpleMenu/src/Manage.php:160
+#: plugins/simpleMenu/src/Manage.php:162
 msgid "Archive"
 msgstr "Архивировать"
 
-#: plugins/simpleMenu/src/Manage.php:163
+#: plugins/simpleMenu/src/Manage.php:165
 msgid "Page"
 msgstr "Страница"
 
-#: plugins/simpleMenu/src/Manage.php:166 plugins/tags/src/Backend.php:25
+#: plugins/simpleMenu/src/Manage.php:168 plugins/tags/src/Backend.php:27
 #: plugins/tags/src/Widgets.php:33
 msgid "Tags"
 msgstr "Теги"
 
-#: plugins/simpleMenu/src/Manage.php:173
+#: plugins/simpleMenu/src/Manage.php:175
 msgid "User defined"
 msgstr "Пользователь определен"
 
-#: plugins/simpleMenu/src/Manage.php:214
+#: plugins/simpleMenu/src/Manage.php:216
 msgid "Configuration successfully updated."
 msgstr "Конфигурация успешно обновлена."
 
-#: plugins/simpleMenu/src/Manage.php:255 plugins/simpleMenu/src/Manage.php:677
-#: plugins/simpleMenu/src/Manage.php:797
+#: plugins/simpleMenu/src/Manage.php:258 plugins/simpleMenu/src/Manage.php:680
+#: plugins/simpleMenu/src/Manage.php:800
 msgid "Label"
 msgstr "Метка"
 
-#: plugins/simpleMenu/src/Manage.php:261
+#: plugins/simpleMenu/src/Manage.php:264
 msgid "Home page"
 msgstr "Главная страница"
 
-#: plugins/simpleMenu/src/Manage.php:261 plugins/simpleMenu/src/Manage.php:266
+#: plugins/simpleMenu/src/Manage.php:264 plugins/simpleMenu/src/Manage.php:269
 #: plugins/widgets/src/Widgets.php:305 plugins/widgets/src/Widgets.php:315
 msgid "Recent posts"
 msgstr "Последние записи"
 
-#: plugins/simpleMenu/src/Manage.php:273
+#: plugins/simpleMenu/src/Manage.php:276
 #, php-format
 msgid "Switch to %s language"
 msgstr "Переключиться на %s язык"
 
-#: plugins/simpleMenu/src/Manage.php:280
+#: plugins/simpleMenu/src/Manage.php:283
 msgid "Recent Posts from this category"
 msgstr "Последние сообщения из этой категории"
 
-#: plugins/simpleMenu/src/Manage.php:292
+#: plugins/simpleMenu/src/Manage.php:295
 #, php-format
 msgid "Posts from %s"
 msgstr "Сообщения от %s"
 
-#: plugins/simpleMenu/src/Manage.php:312
+#: plugins/simpleMenu/src/Manage.php:315
 #, php-format
 msgid "Recent posts for %s tag"
 msgstr "Последние сообщения для тегов %s"
 
-#: plugins/simpleMenu/src/Manage.php:372
+#: plugins/simpleMenu/src/Manage.php:375
 msgid "Menu item has been successfully added."
 msgstr "Пункт меню успешно добавлен."
 
-#: plugins/simpleMenu/src/Manage.php:377
+#: plugins/simpleMenu/src/Manage.php:380
 msgid "Label and URL of menu item are mandatory."
 msgstr "Ярлык и URL пункта меню обязательны."
 
-#: plugins/simpleMenu/src/Manage.php:410
+#: plugins/simpleMenu/src/Manage.php:413
 msgid "Menu items have been successfully removed."
 msgstr "Пункты меню были успешно удалены."
 
-#: plugins/simpleMenu/src/Manage.php:413
+#: plugins/simpleMenu/src/Manage.php:416
 msgid "No menu items selected."
 msgstr "Не выбрано ни одного пункта."
 
-#: plugins/simpleMenu/src/Manage.php:425
+#: plugins/simpleMenu/src/Manage.php:428
 msgid "Label is mandatory."
 msgstr "Ярлык является обязательным."
 
-#: plugins/simpleMenu/src/Manage.php:430
+#: plugins/simpleMenu/src/Manage.php:433
 msgid "URL is mandatory."
 msgstr "URL является обязательным."
 
-#: plugins/simpleMenu/src/Manage.php:475
+#: plugins/simpleMenu/src/Manage.php:478
 msgid "Menu items have been successfully updated."
 msgstr "Пункты меню были успешно обновлены."
 
-#: plugins/simpleMenu/src/Manage.php:502
+#: plugins/simpleMenu/src/Manage.php:505
 msgid "Are you sure you want to remove selected menu items?"
 msgstr "Вы уверены, что хотите удалить выбранные пункты меню?"
 
-#: plugins/simpleMenu/src/Manage.php:511
+#: plugins/simpleMenu/src/Manage.php:514
 msgid "Step #1"
 msgstr "Шаг #1"
 
-#: plugins/simpleMenu/src/Manage.php:516 plugins/simpleMenu/src/Manage.php:521
+#: plugins/simpleMenu/src/Manage.php:519 plugins/simpleMenu/src/Manage.php:524
 msgid "Step #2"
 msgstr "Шаг #2"
 
-#: plugins/simpleMenu/src/Manage.php:521
+#: plugins/simpleMenu/src/Manage.php:524
 msgid "Step #3"
 msgstr "Шаг #3"
 
-#: plugins/simpleMenu/src/Manage.php:530
+#: plugins/simpleMenu/src/Manage.php:533
 msgid "Add item"
 msgstr "Добавить элемент"
 
-#: plugins/simpleMenu/src/Manage.php:561
+#: plugins/simpleMenu/src/Manage.php:564
 msgid "Select type"
 msgstr "Выберите тип"
 
-#: plugins/simpleMenu/src/Manage.php:568
+#: plugins/simpleMenu/src/Manage.php:571
 msgid "Type of item menu:"
 msgstr "Тип меню элемента:"
 
-#: plugins/simpleMenu/src/Manage.php:574 plugins/simpleMenu/src/Manage.php:641
+#: plugins/simpleMenu/src/Manage.php:577 plugins/simpleMenu/src/Manage.php:644
 msgid "Continue..."
 msgstr "Продолжить..."
 
-#: plugins/simpleMenu/src/Manage.php:597
+#: plugins/simpleMenu/src/Manage.php:600
 msgid "Select language:"
 msgstr "Выберите язык:"
 
-#: plugins/simpleMenu/src/Manage.php:603
+#: plugins/simpleMenu/src/Manage.php:606
 msgid "Select category:"
 msgstr "Выберите категорию:"
 
-#: plugins/simpleMenu/src/Manage.php:609
+#: plugins/simpleMenu/src/Manage.php:612
 msgid "Select month (if necessary):"
 msgstr "Выберите месяц (если необходимо):"
 
-#: plugins/simpleMenu/src/Manage.php:615
+#: plugins/simpleMenu/src/Manage.php:618
 msgid "Select page:"
 msgstr "Выберите страницу:"
 
-#: plugins/simpleMenu/src/Manage.php:621
+#: plugins/simpleMenu/src/Manage.php:624
 msgid "Select tag (if necessary):"
 msgstr "Выберите тег (если необходимо):"
 
-#: plugins/simpleMenu/src/Manage.php:682
+#: plugins/simpleMenu/src/Manage.php:685
 msgid "Label of item menu:"
 msgstr "Метка меню элемента:"
 
-#: plugins/simpleMenu/src/Manage.php:696
+#: plugins/simpleMenu/src/Manage.php:699
 msgid "Description of item menu:"
 msgstr "Описание пункта меню:"
 
-#: plugins/simpleMenu/src/Manage.php:711
+#: plugins/simpleMenu/src/Manage.php:714
 msgid "URL of item menu:"
 msgstr "URL меню элементов:"
 
-#: plugins/simpleMenu/src/Manage.php:721 plugins/simpleMenu/src/Manage.php:800
+#: plugins/simpleMenu/src/Manage.php:724 plugins/simpleMenu/src/Manage.php:803
 msgid "Open URL on a new tab"
 msgstr "Открыть URL на новой вкладке"
 
-#: plugins/simpleMenu/src/Manage.php:729
+#: plugins/simpleMenu/src/Manage.php:732
 msgid "Add this item"
 msgstr "Добавить этот элемент"
 
-#: plugins/simpleMenu/src/Manage.php:755
+#: plugins/simpleMenu/src/Manage.php:758
 msgid "Enable simple menu for this blog"
 msgstr "Включить простое меню для этого блога"
 
-#: plugins/simpleMenu/src/Manage.php:778
+#: plugins/simpleMenu/src/Manage.php:781
 msgid "Add an item"
 msgstr "Добавить элемент"
 
-#: plugins/simpleMenu/src/Manage.php:896
+#: plugins/simpleMenu/src/Manage.php:899
 msgid "Menu items list"
 msgstr "Список пунктов меню"
 
-#: plugins/simpleMenu/src/Manage.php:923
+#: plugins/simpleMenu/src/Manage.php:926
 msgid "Delete selected menu items"
 msgstr "Удалить выбранные пункты меню"
 
-#: plugins/simpleMenu/src/Manage.php:932
+#: plugins/simpleMenu/src/Manage.php:935
 msgid "Update menu"
 msgstr "Меню обновления"
 
-#: plugins/simpleMenu/src/Manage.php:942
+#: plugins/simpleMenu/src/Manage.php:945
 msgid "No menu items so far."
 msgstr "Пока нет пунктов меню."
 
@@ -2803,21 +2803,21 @@ msgstr "Отображение в ссылке и используется в к
 msgid "Not displayed nor used"
 msgstr "Не отображается и не используется"
 
-#: plugins/tags/src/BackendBehaviors.php:63
-#: plugins/tags/src/BackendBehaviors.php:75
-#: plugins/tags/src/FrontendUrl.php:105 plugins/tags/src/ManagePosts.php:155
+#: plugins/tags/src/BackendBehaviors.php:64
+#: plugins/tags/src/BackendBehaviors.php:76
+#: plugins/tags/src/FrontendUrl.php:105 plugins/tags/src/ManagePosts.php:157
 msgid "Tag"
 msgstr "Тег"
 
-#: plugins/tags/src/BackendBehaviors.php:238
+#: plugins/tags/src/BackendBehaviors.php:239
 msgid "Add tags"
 msgstr "добавить теги"
 
-#: plugins/tags/src/BackendBehaviors.php:247
+#: plugins/tags/src/BackendBehaviors.php:248
 msgid "Remove tags"
 msgstr "удалить теги"
 
-#: plugins/tags/src/BackendBehaviors.php:282
+#: plugins/tags/src/BackendBehaviors.php:283
 msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
 msgstr[0] "Тег был успешно добавлен к выбранным записям"
@@ -2825,40 +2825,40 @@ msgstr[1] "Теги были успешно добавлены в выбранн
 msgstr[2] "Теги были успешно добавлены в выбранные записи"
 msgstr[3] "Теги были успешно добавлены в выбранные записи"
 
-#: plugins/tags/src/BackendBehaviors.php:295
-#: plugins/tags/src/BackendBehaviors.php:450
+#: plugins/tags/src/BackendBehaviors.php:296
+#: plugins/tags/src/BackendBehaviors.php:451
 msgid "Are you sure you want to remove this tag?"
 msgstr "Вы уверены, что хотите удалить этот тег?"
 
-#: plugins/tags/src/BackendBehaviors.php:296
-#: plugins/tags/src/BackendBehaviors.php:451
+#: plugins/tags/src/BackendBehaviors.php:297
+#: plugins/tags/src/BackendBehaviors.php:452
 msgid "Add a tag to this entry"
 msgstr "Добавить тег к этой записи"
 
-#: plugins/tags/src/BackendBehaviors.php:297
-#: plugins/tags/src/BackendBehaviors.php:452
+#: plugins/tags/src/BackendBehaviors.php:298
+#: plugins/tags/src/BackendBehaviors.php:453
 msgid "Choose from list"
 msgstr "Выбрать из списка"
 
-#: plugins/tags/src/BackendBehaviors.php:298
-#: plugins/tags/src/BackendBehaviors.php:453
+#: plugins/tags/src/BackendBehaviors.php:299
+#: plugins/tags/src/BackendBehaviors.php:454
 msgid "all"
 msgstr "все"
 
-#: plugins/tags/src/BackendBehaviors.php:299
-#: plugins/tags/src/BackendBehaviors.php:454
+#: plugins/tags/src/BackendBehaviors.php:300
+#: plugins/tags/src/BackendBehaviors.php:455
 msgid "Enter tags separated by comma"
 msgstr "Введите теги, разделяя запятыми"
 
-#: plugins/tags/src/BackendBehaviors.php:307
+#: plugins/tags/src/BackendBehaviors.php:308
 msgid "Add tags to this selection"
 msgstr "Добавить теги к этому выделению"
 
-#: plugins/tags/src/BackendBehaviors.php:325
+#: plugins/tags/src/BackendBehaviors.php:326
 msgid "Tags to add:"
 msgstr "Теги для добавления:"
 
-#: plugins/tags/src/BackendBehaviors.php:364
+#: plugins/tags/src/BackendBehaviors.php:365
 msgid "Tag has been successfully removed from selected entries"
 msgid_plural "Tags have been successfully removed from selected entries"
 msgstr[0] "Тег был успешно удален из выбранных записей"
@@ -2866,31 +2866,31 @@ msgstr[1] "Теги были успешно удалены из выбранны
 msgstr[2] "Теги были успешно удалены из выбранных записей"
 msgstr[3] "Теги были успешно удалены из выбранных записей"
 
-#: plugins/tags/src/BackendBehaviors.php:387
+#: plugins/tags/src/BackendBehaviors.php:388
 msgid "No tags for selected entries"
 msgstr "Нет тегов для выбранных записей"
 
-#: plugins/tags/src/BackendBehaviors.php:394
+#: plugins/tags/src/BackendBehaviors.php:395
 msgid "Remove selected tags from this selection"
 msgstr "Удалить выбранные теги из этого выделения"
 
-#: plugins/tags/src/BackendBehaviors.php:421
+#: plugins/tags/src/BackendBehaviors.php:422
 msgid "Following tags have been found in selected entries:"
 msgstr "Следующие теги  были найдены в выбранных записях:"
 
-#: plugins/tags/src/BackendBehaviors.php:430
+#: plugins/tags/src/BackendBehaviors.php:431
 msgid "Remove"
 msgstr "Удалить"
 
-#: plugins/tags/src/BackendBehaviors.php:493
+#: plugins/tags/src/BackendBehaviors.php:494
 msgid "Tags list format:"
 msgstr "Формат списка тегов:"
 
-#: plugins/tags/src/BackendBehaviors.php:496
+#: plugins/tags/src/BackendBehaviors.php:497
 msgid "Short"
 msgstr "Короткий"
 
-#: plugins/tags/src/BackendBehaviors.php:497
+#: plugins/tags/src/BackendBehaviors.php:498
 msgid "Extended"
 msgstr "Расширенный"
 
@@ -2902,44 +2902,44 @@ msgstr "Лента новостей Atom для комментариев это�
 msgid "This tag's entries Atom feed"
 msgstr "Лента новостей Atom записей с этим тегом"
 
-#: plugins/tags/src/Manage.php:119
+#: plugins/tags/src/Manage.php:121
 msgid "entries"
 msgstr "записи"
 
-#: plugins/tags/src/Manage.php:119
+#: plugins/tags/src/Manage.php:121
 msgid "entry"
 msgstr "публикация"
 
-#: plugins/tags/src/Manage.php:150
+#: plugins/tags/src/Manage.php:152
 msgid "No tags on this blog."
 msgstr "Нет тегов в этом блоге"
 
-#: plugins/tags/src/ManagePosts.php:94
+#: plugins/tags/src/ManagePosts.php:96
 msgid "Tag has been successfully renamed"
 msgstr "Тег был успешно переименован"
 
-#: plugins/tags/src/ManagePosts.php:113
+#: plugins/tags/src/ManagePosts.php:115
 msgid "Tag has been successfully removed"
 msgstr "Тег успешно удален"
 
-#: plugins/tags/src/ManagePosts.php:144
+#: plugins/tags/src/ManagePosts.php:146
 #, php-format
 msgid "Are you sure you want to remove tag: “%s”?"
 msgstr "Вы уверены, что хотите удалить тег: «%s»?"
 
-#: plugins/tags/src/ManagePosts.php:159
+#: plugins/tags/src/ManagePosts.php:161
 msgid "Back to tags list"
 msgstr "Вернуться к списку тегов"
 
-#: plugins/tags/src/ManagePosts.php:174
+#: plugins/tags/src/ManagePosts.php:176
 msgid "Delete this tag"
 msgstr "Удалить этот тег"
 
-#: plugins/tags/src/ManagePosts.php:196
+#: plugins/tags/src/ManagePosts.php:198
 msgid "Rename:"
 msgstr "Переименовать:"
 
-#: plugins/tags/src/ManagePosts.php:207
+#: plugins/tags/src/ManagePosts.php:209
 msgid "List of entries with this tag"
 msgstr "Список записей с этим тегом"
 
@@ -2967,119 +2967,119 @@ msgstr "Старые записи"
 msgid "Link to all tags:"
 msgstr "Ссылка на все теги"
 
-#: plugins/themeEditor/src/Backend.php:25
+#: plugins/themeEditor/src/Backend.php:27
 msgid "themeEditor"
 msgstr "редактор тем"
 
-#: plugins/themeEditor/src/BackendBehaviors.php:45
-#: plugins/themeEditor/src/Manage.php:194
-#: plugins/themeEditor/src/Manage.php:201
+#: plugins/themeEditor/src/BackendBehaviors.php:46
+#: plugins/themeEditor/src/Manage.php:196
+#: plugins/themeEditor/src/Manage.php:203
 msgid "Edit theme files"
 msgstr "Редактировать файлы темы"
 
-#: plugins/themeEditor/src/BackendBehaviors.php:105
+#: plugins/themeEditor/src/BackendBehaviors.php:106
 msgid "Syntax highlighting"
 msgstr "Подсветка синтаксиса"
 
-#: plugins/themeEditor/src/BackendBehaviors.php:117
+#: plugins/themeEditor/src/BackendBehaviors.php:118
 msgid "Syntax highlighting in theme editor"
 msgstr "Подсветка синтаксиса в редакторе тем"
 
-#: plugins/themeEditor/src/Manage.php:99
+#: plugins/themeEditor/src/Manage.php:101
 msgid "The theme update has been locked."
 msgstr "Обновление темы было заблокировано."
 
-#: plugins/themeEditor/src/Manage.php:107
+#: plugins/themeEditor/src/Manage.php:109
 msgid "The theme update has been unocked."
 msgstr "Обновление темы было отстыковано."
 
-#: plugins/themeEditor/src/Manage.php:130
+#: plugins/themeEditor/src/Manage.php:132
 msgid "The file has been reset."
 msgstr "Файл был сброшен."
 
-#: plugins/themeEditor/src/Manage.php:163
+#: plugins/themeEditor/src/Manage.php:165
 msgid "Lock update"
 msgstr "Заблокировать обновление"
 
-#: plugins/themeEditor/src/Manage.php:163
+#: plugins/themeEditor/src/Manage.php:165
 msgid "Unlock update"
 msgstr "Разблокировать обновление"
 
-#: plugins/themeEditor/src/Manage.php:168
+#: plugins/themeEditor/src/Manage.php:170
 msgid "Lock theme update disables theme update, but allows theme files to be modified."
 msgstr "Блокировка обновления темы отключает обновление темы, но позволяет изменять файлы темы."
 
-#: plugins/themeEditor/src/Manage.php:174
+#: plugins/themeEditor/src/Manage.php:176
 msgid "The theme editor is in development mode, theme files will be overwritten!"
 msgstr "Редактор темы находится в режиме разработки, файлы темы будут перезаписаны!"
 
-#: plugins/themeEditor/src/Manage.php:182
+#: plugins/themeEditor/src/Manage.php:184
 msgid "Saving document..."
 msgstr "Сохранение документа..."
 
-#: plugins/themeEditor/src/Manage.php:183
+#: plugins/themeEditor/src/Manage.php:185
 msgid "Document saved"
 msgstr "Документ сохранен"
 
-#: plugins/themeEditor/src/Manage.php:184
+#: plugins/themeEditor/src/Manage.php:186
 msgid "An error occurred:"
 msgstr "Произошла ошибка:"
 
-#: plugins/themeEditor/src/Manage.php:185
+#: plugins/themeEditor/src/Manage.php:187
 msgid "Are you sure you want to reset this file?"
 msgstr "Вы уверены, что хотите сбросить этот файл?"
 
-#: plugins/themeEditor/src/Manage.php:209
+#: plugins/themeEditor/src/Manage.php:211
 #, php-format
 msgid "Your current theme on this blog is \"%s\"."
 msgstr "Текущая тема блога \"%s\"."
 
-#: plugins/themeEditor/src/Manage.php:219
+#: plugins/themeEditor/src/Manage.php:221
 msgid "Please select a file to edit."
 msgstr "Выберите файл для редактирования."
 
-#: plugins/themeEditor/src/Manage.php:227
+#: plugins/themeEditor/src/Manage.php:229
 msgid "Reset"
 msgstr "Reset"
 
-#: plugins/themeEditor/src/Manage.php:236
+#: plugins/themeEditor/src/Manage.php:238
 msgid "File editor"
 msgstr "Редактор файлов"
 
-#: plugins/themeEditor/src/Manage.php:245
+#: plugins/themeEditor/src/Manage.php:247
 #, php-format
 msgid "Editing file %s"
 msgstr "Редактирования файла %s"
 
-#: plugins/themeEditor/src/Manage.php:261
+#: plugins/themeEditor/src/Manage.php:263
 msgid "If you use <code>url(...)</code> in your CSS files, be sure to use <code>url(index.php?tf=...)</code> to correctly load theme resources (imported CSS, images, etc.), except for URL types in the form <code>data:image</code>.<br>Example: do <code>@import url(index.php?tf=css/layout.css);</code> instead of <code>@import url(css/layout.css);</code>."
 msgstr "Если вы используете <code>url(...)</code> в файлах CSS, обязательно используйте <code>url(index.php?tf=...)</code> для корректной загрузки ресурсов темы (импортированных CSS, изображений и т. д.), за исключением типов URL в форме <code>data:image</code>.<br>Пример: сделайте <code>@import url(index.php?tf=css/layout.css);</code> вместо <code>@import url(css/layout.css);</code>."
 
-#: plugins/themeEditor/src/Manage.php:266
+#: plugins/themeEditor/src/Manage.php:268
 msgid "This file is not overloadable. Please check your var folder permissions."
 msgstr "Этот файл не может быть перегружен. Проверьте права доступа к папке var."
 
-#: plugins/themeEditor/src/Manage.php:269
+#: plugins/themeEditor/src/Manage.php:271
 msgid "This theme is too old to be modified. Please check if an update is available."
 msgstr "Эта тема слишком устарела, чтобы ее можно было изменить. Пожалуйста, проверьте, доступно ли обновление."
 
-#: plugins/themeEditor/src/Manage.php:288
+#: plugins/themeEditor/src/Manage.php:290
 msgid "Templates files"
 msgstr "Файлы шаблонов"
 
-#: plugins/themeEditor/src/Manage.php:293
+#: plugins/themeEditor/src/Manage.php:295
 msgid "CSS files"
 msgstr "CSS файлы"
 
-#: plugins/themeEditor/src/Manage.php:298
+#: plugins/themeEditor/src/Manage.php:300
 msgid "JavaScript files"
 msgstr "JavaScript файлы"
 
-#: plugins/themeEditor/src/Manage.php:303
+#: plugins/themeEditor/src/Manage.php:305
 msgid "Locales files"
 msgstr "Файлы локалей"
 
-#: plugins/themeEditor/src/Manage.php:308
+#: plugins/themeEditor/src/Manage.php:310
 msgid "PHP files"
 msgstr "PHP-файлы"
 
@@ -3125,143 +3125,143 @@ msgstr "Невозможно выполнить запись в файл %s. П�
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "Невозможно удалить файл %s. Проверьте, пожалуйста, права доступа к файлам и папкам темы."
 
-#: plugins/userPref/src/Backend.php:25
+#: plugins/userPref/src/Backend.php:27
 msgid "user:preferences"
 msgstr "пользователь:предпочтения"
 
-#: plugins/userPref/src/Manage.php:88 plugins/userPref/src/Manage.php:107
+#: plugins/userPref/src/Manage.php:91 plugins/userPref/src/Manage.php:110
 msgid "Preferences successfully updated"
 msgstr "Настройки успешно обновлены"
 
-#: plugins/userPref/src/Manage.php:157 plugins/userPref/src/Manage.php:159
+#: plugins/userPref/src/Manage.php:160 plugins/userPref/src/Manage.php:162
 msgid "Global preferences"
 msgstr "Глобальные настройки"
 
-#: plugins/widgets/src/Backend.php:51
+#: plugins/widgets/src/Backend.php:53
 msgid "Widget's textareas"
 msgstr "Тексты виджета"
 
-#: plugins/widgets/src/Install.php:35
+#: plugins/widgets/src/Install.php:37
 msgid "Unable to initialize default widgets."
 msgstr "Невозможно инициализировать виджеты по умолчанию."
 
-#: plugins/widgets/src/Manage.php:79
+#: plugins/widgets/src/Manage.php:81
 msgid "navigation"
 msgstr "навигация"
 
-#: plugins/widgets/src/Manage.php:80
+#: plugins/widgets/src/Manage.php:82
 msgid "extra"
 msgstr "экстра"
 
-#: plugins/widgets/src/Manage.php:81
+#: plugins/widgets/src/Manage.php:83
 msgid "custom"
 msgstr "пользовательский"
 
-#: plugins/widgets/src/Manage.php:217
+#: plugins/widgets/src/Manage.php:219
 msgid "Sidebars and their widgets have been saved."
 msgstr "Боковые панели и их виджеты были сохранены."
 
-#: plugins/widgets/src/Manage.php:231
+#: plugins/widgets/src/Manage.php:233
 msgid "Sidebars have been resetting."
 msgstr "Боковые панели сброшены."
 
-#: plugins/widgets/src/Manage.php:260
+#: plugins/widgets/src/Manage.php:262
 msgid "Are you sure you want to reset sidebars?"
 msgstr "Вы уверены, что хотите переустановить сайдбар?"
 
-#: plugins/widgets/src/Manage.php:261 plugins/widgets/src/Manage.php:391
+#: plugins/widgets/src/Manage.php:263 plugins/widgets/src/Manage.php:393
 msgid "Temporarily display the action buttons for each widget"
 msgstr "Временно отобразите кнопки действий для каждого виджета"
 
-#: plugins/widgets/src/Manage.php:262
+#: plugins/widgets/src/Manage.php:264
 msgid "Hide the action buttons for each widget"
 msgstr "Скрыть кнопки действий для каждого виджета"
 
-#: plugins/widgets/src/Manage.php:309 plugins/widgets/src/Manage.php:490
+#: plugins/widgets/src/Manage.php:311 plugins/widgets/src/Manage.php:492
 msgid "order"
 msgstr "порядок"
 
-#: plugins/widgets/src/Manage.php:321
+#: plugins/widgets/src/Manage.php:323
 msgid "Append to:"
 msgstr "Добавить к:"
 
-#: plugins/widgets/src/Manage.php:340
+#: plugins/widgets/src/Manage.php:342
 msgid "Available widgets"
 msgstr "Доступные виджеты"
 
-#: plugins/widgets/src/Manage.php:342
+#: plugins/widgets/src/Manage.php:344
 msgid "Drag widgets from this list to one of the sidebars, for add."
 msgstr "Перетащите виджеты из этого списка в одну из боковых панелей для добавления."
 
-#: plugins/widgets/src/Manage.php:350
+#: plugins/widgets/src/Manage.php:352
 msgid "Add widgets to sidebars"
 msgstr "Добавить виджеты в боковые панели"
 
-#: plugins/widgets/src/Manage.php:365
+#: plugins/widgets/src/Manage.php:367
 msgid "Navigation sidebar"
 msgstr "Сайдбар для навигации"
 
-#: plugins/widgets/src/Manage.php:372
+#: plugins/widgets/src/Manage.php:374
 msgid "Extra sidebar"
 msgstr "Экстра сайдбар"
 
-#: plugins/widgets/src/Manage.php:379
+#: plugins/widgets/src/Manage.php:381
 msgid "Custom sidebar"
 msgstr "Пользовательская боковая панель"
 
-#: plugins/widgets/src/Manage.php:386
+#: plugins/widgets/src/Manage.php:388
 msgid "Update sidebars"
 msgstr "Обновить сайдбары"
 
-#: plugins/widgets/src/Manage.php:388
+#: plugins/widgets/src/Manage.php:390
 msgid "Reset sidebars"
 msgstr "Переустановить сайдбары"
 
-#: plugins/widgets/src/Manage.php:401
+#: plugins/widgets/src/Manage.php:403
 msgid "No setting for this widget"
 msgstr "Нет настроек для этого виджета"
 
-#: plugins/widgets/src/Manage.php:407
+#: plugins/widgets/src/Manage.php:409
 msgid "boolean"
 msgstr "boolean"
 
-#: plugins/widgets/src/Manage.php:407 plugins/widgets/src/Manage.php:412
+#: plugins/widgets/src/Manage.php:409 plugins/widgets/src/Manage.php:414
 msgid "possible values:"
 msgstr "возможные значения:"
 
-#: plugins/widgets/src/Manage.php:411
+#: plugins/widgets/src/Manage.php:413
 msgid "empty string"
 msgstr "пустая строка"
 
-#: plugins/widgets/src/Manage.php:412
+#: plugins/widgets/src/Manage.php:414
 msgid "listitem"
 msgstr "листиум"
 
-#: plugins/widgets/src/Manage.php:418
+#: plugins/widgets/src/Manage.php:420
 msgid "string"
 msgstr "строка"
 
-#: plugins/widgets/src/Manage.php:438
+#: plugins/widgets/src/Manage.php:440
 msgid "Widget ID:"
 msgstr "ID виджета:"
 
-#: plugins/widgets/src/Manage.php:502 plugins/widgets/src/Manage.php:503
+#: plugins/widgets/src/Manage.php:504 plugins/widgets/src/Manage.php:505
 msgid "Up the widget"
 msgstr "Вверх виджета"
 
-#: plugins/widgets/src/Manage.php:507 plugins/widgets/src/Manage.php:508
+#: plugins/widgets/src/Manage.php:509 plugins/widgets/src/Manage.php:510
 msgid "Down the widget"
 msgstr "Вниз виджет"
 
-#: plugins/widgets/src/Manage.php:511 plugins/widgets/src/Manage.php:512
+#: plugins/widgets/src/Manage.php:513 plugins/widgets/src/Manage.php:514
 msgid "Remove the widget"
 msgstr "Удалить виджет"
 
-#: plugins/widgets/src/Manage.php:536
+#: plugins/widgets/src/Manage.php:538
 msgid "No widget as far."
 msgstr "Пока нет виджетов."
 
-#: plugins/widgets/src/Manage.php:545
+#: plugins/widgets/src/Manage.php:547
 msgid "Drag widgets here to remove."
 msgstr "Перетащите виджеты сюда, чтобы удалить."
 
@@ -3353,49 +3353,49 @@ msgstr "Последние комментарии"
 msgid "Comments limit:"
 msgstr "Максимальное количество комментариев:"
 
-#: plugins/widgets/src/Widgets.php:552
+#: plugins/widgets/src/Widgets.php:565
 #, php-format
 msgid "This blog's entries %s feed"
 msgstr "Лента новостей %s записей блога"
 
-#: plugins/widgets/src/Widgets.php:553
+#: plugins/widgets/src/Widgets.php:566
 #, php-format
 msgid "This blog's comments %s feed"
 msgstr "Лента новостей %s комментариев блога"
 
-#: plugins/widgets/src/Widgets.php:566
+#: plugins/widgets/src/Widgets.php:579
 msgid "Entries feed"
 msgstr "RSS записей"
 
-#: plugins/widgets/src/Widgets.php:576
+#: plugins/widgets/src/Widgets.php:589
 msgid "Comments feed"
 msgstr "RSS комментариев"
 
-#: plugins/widgets/src/WidgetsElement.php:548
+#: plugins/widgets/src/WidgetsElement.php:547
 msgid "Title (optional)"
 msgstr "Заголовок (необязательно)"
 
-#: plugins/widgets/src/WidgetsElement.php:559
+#: plugins/widgets/src/WidgetsElement.php:558
 msgid "All pages"
 msgstr "Все страницы"
 
-#: plugins/widgets/src/WidgetsElement.php:560
+#: plugins/widgets/src/WidgetsElement.php:559
 msgid "Home page only"
 msgstr "Долько домашняя страница"
 
-#: plugins/widgets/src/WidgetsElement.php:561
+#: plugins/widgets/src/WidgetsElement.php:560
 msgid "Except on home page"
 msgstr "За исключением домашней страницы"
 
-#: plugins/widgets/src/WidgetsElement.php:569
+#: plugins/widgets/src/WidgetsElement.php:568
 msgid "Display on:"
 msgstr "Отобразить в:"
 
-#: plugins/widgets/src/WidgetsElement.php:595
+#: plugins/widgets/src/WidgetsElement.php:594
 msgid "Content only"
 msgstr "Только контент"
 
-#: plugins/widgets/src/WidgetsElement.php:605
+#: plugins/widgets/src/WidgetsElement.php:604
 msgid "CSS class:"
 msgstr "CSS класс:"
 
