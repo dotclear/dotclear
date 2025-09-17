@@ -47,6 +47,19 @@ class Fault implements FaultInterface
     public function __construct()
     {
         $this->setExceptionHandler();
+
+        register_shutdown_function(function () {
+            if (self::$watchdog) {
+                restore_exception_handler();
+            }
+        });
+    }
+
+    public function __destruct()
+    {
+        if (self::$watchdog) {
+            restore_exception_handler();
+        }
     }
 
     public function exception(string $message = '', int $code = 0, ?Throwable $previous = null): AppException
