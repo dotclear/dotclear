@@ -8,6 +8,16 @@ use PHPUnit\Framework\TestCase;
 
 class BtnTest extends TestCase
 {
+    /**
+     * PHPUnit warns about the testWithText() test, saying: Test code or tested code did not remove its own exception handlers
+     * Follow advice given here (https://github.com/laravel/framework/issues/49502#issuecomment-2948464945) to avoid this.
+     */
+    public function tearDown(): void
+    {
+        parent::tearDown();
+        restore_exception_handler();
+    }
+
     public function test(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Btn(null, 'My Btn');
