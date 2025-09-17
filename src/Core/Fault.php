@@ -27,7 +27,7 @@ class Fault implements FaultInterface
     /**
      * Handler watchdog.
      */
-    private static bool $watchdog;
+    private static bool $watchdog = false;
 
     /**
      * The debug mode.
@@ -72,16 +72,16 @@ class Fault implements FaultInterface
     public function setExceptionHandler(): bool
     {
         // Do not set twice the handler
-        if (isset(self::$watchdog)) {
+        if (self::$watchdog) {
             return false;
         }
 
         // Set exception handler
         if (set_exception_handler($this->handler(...)) !== null) {
             // Keep previously defined exception handler if any
-           restore_exception_handler();
+            restore_exception_handler();
 
-           return false;
+            return false;
         }
 
         return self::$watchdog = true;

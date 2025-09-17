@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -19,20 +20,20 @@ use Throwable;
  */
 interface FaultInterface
 {
-	/**
-	 * Get an application exception instance.
-	 *
-	 * @param 	string 			$message 	The exception message
-	 * @param	int 			$code 		The exception code
-	 * @param 	null|Throwable 	$previous 	The previous Exception
-	 *
-	 * @return 	AppException 	The application exception instance
-	 */
-	public function exception(string $message = '', int $code = 0, ?Throwable $previous = null): AppException;
+    /**
+     * Get an application exception instance.
+     *
+     * @param 	string 			$message 	The exception message
+     * @param	int 			$code 		The exception code
+     * @param 	null|Throwable 	$previous 	The previous Exception
+     *
+     * @return 	AppException 	The application exception instance
+     */
+    public function exception(string $message = '', int $code = 0, ?Throwable $previous = null): AppException;
 
-	/**
-	 * Set exception handler debut mode.
-	 */
+    /**
+     * Set exception handler debut mode.
+     */
     public function setDebugMode(bool $debug_mode): void;
 
     /**

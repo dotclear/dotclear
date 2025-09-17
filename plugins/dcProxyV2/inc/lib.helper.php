@@ -83,5 +83,5 @@ function addMenuItem(string $section, string $desc, string $adminurl, $icon, $pe
  */
 function __error(string $summary, string $message, int $code = 0): void
 {
-    new Fault(new AppException($summary, $code, new AppException($message, $code)));
+    throw (new Fault())->exception($summary, $code, new AppException($message, $code));
 }
