@@ -161,7 +161,7 @@ class ModuleExportFlat extends Module
             }
 
             // Flat export
-            if (App::session()->get('export_filezip') != '') {
+            if (!App::session()->get('export_filezip')) {
                 header('Content-Disposition: attachment;filename=' . App::session()->get('export_filename'));
                 header('Content-Type: text/plain; charset=UTF-8');
                 readfile(App::session()->get('export_file'));

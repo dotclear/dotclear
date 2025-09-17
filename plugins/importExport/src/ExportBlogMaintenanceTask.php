@@ -105,6 +105,7 @@ class ExportBlogMaintenanceTask extends MaintenanceTask
             ]),
             (new Para())->items([
                 (new Checkbox('file_zip'))
+                ->value(1)
                 ->label(new Label(__('Compress file'), Label::INSIDE_LABEL_AFTER)),
             ]),
             (new Para())->items([
