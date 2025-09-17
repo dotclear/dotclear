@@ -55,7 +55,7 @@ final class App extends Core
      * new Dotclear\App(Utility, Process);
      * ```
      *
-     * utility and process MUST extend Dotclear::Core::Process.
+     * utility and process MUST use Dotclear::Helper::Process::TraitProcess.
      *
      * Supported utilities are Backend, Frontend, Install, Upgrade (CLI)
      *
@@ -67,39 +67,17 @@ final class App extends Core
         // Start tick
         define('DC_START_TIME', microtime(true));
 
-        // Set exception handler
-        Fault::setExceptionHandler();
-
         try {
-            // Run application
+            // Load application services
             parent::__construct(dirname(__DIR__));
-
-            if (self::config()->hasConfig()) {
-                try {
-                    // Run database connection
-                    $this->db()->con();
-                } catch (Throwable $e) {
-                    // Give a pretty message for this one
-                    throw new AppException($e->getMessage(), (int) $e->getCode(), new AppException(
-                        sprintf(
-                            __('<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can\'t contact the database server at "<em>%1$s</em>". This could mean your ' .
-                            'host\'s database server is down.</p><ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you\'re unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href="%2$s">Dotclear Support Forums</a>.</p>'),
-                            $this->config()->dbHost() ?: 'localhost',
-                            'https://matrix.to/#/#dotclear:matrix.org'
-                        ),
-                        (int) $e->getCode(),
-                        $e
-                    ));
-                }
-            }
 
             // Run task
             $this->task()->run($utility, $process);
         } catch (AppException $e) {
-            // Throw application exception as is. See Dotclear.Fault handler.
+            // Throw application exception as is. See Dotclear.Core.Fault handler.
             throw $e;
         } catch (Throwable $e) {
-            // Throw uncaught exception as application exception. See Dotclear.Fault handler.
+            // Throw uncaught exception as application exception. See Dotclear.Core.Fault handler.
             throw new AppException('Site temporarily unavailable', (int) $e->getCode(), $e);
         }
 

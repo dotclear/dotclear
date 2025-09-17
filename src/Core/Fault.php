@@ -10,7 +10,9 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
+use Dotclear\Exception\AppException;
 use Dotclear\Helper\L10n;
+use Dotclear\Interface\Core\FaultInterface;
 use Throwable;
 
 /**
@@ -18,30 +20,79 @@ use Throwable;
  *
  * @since   2.27, errors code returns on 3 digits
  * as some servers (ie Nginx) do not support HTTP1.0 code on 2 digits.
+ * @since   2.36, Fault is a core service
  */
-class Fault
+class Fault implements FaultInterface
 {
+    /**
+     * Handler watchdog.
+     */
+    private static bool $watchdog;
+
     /**
      * The debug mode.
      */
-    public static bool $debug_mode = false;
+    protected bool $debug_mode = false;
 
     /**
      * The custom error file.
      */
-    public static string $error_file = '';
+    protected string $error_file = '';
 
     /**
      * The vendor name.
      */
-    public static string $vendor_name = '';
+    protected string $vendor_name = 'Dotclear';
+
+    public function __construct()
+    {
+        $this->setExceptionHandler();
+    }
+
+    public function exception(string $message = '', int $code = 0, ?Throwable $previous = null): AppException
+    {
+        return new AppException($message, $code, $previous);
+    }
+
+    public function setDebugMode(bool $debug_mode): void
+    {
+        $this->debug_mode = $debug_mode;
+    }
+
+    public function setErrorFile(string $error_file): void
+    {
+        $this->error_file = $error_file;
+    }
+
+    public function setVendorName(string $vendor_name): void
+    {
+        $this->vendor_name = $vendor_name;
+    }
+
+    public function setExceptionHandler(): bool
+    {
+        // Do not set twice the handler
+        if (isset(self::$watchdog)) {
+            return false;
+        }
+
+        // Set exception handler
+        if (set_exception_handler($this->handler(...)) !== null) {
+            // Keep previously defined exception handler if any
+           restore_exception_handler();
+
+           return false;
+        }
+
+        return self::$watchdog = true;
+    }
 
     /**
-     * Constructor parse throwable exception or error.
+     * Exception handler.
      *
      * @param   Throwable   $exception  The exception
      */
-    public function __construct(Throwable $exception)
+    protected function handler(Throwable $exception): void
     {
         try {
             // We may need l10n __() function (should be already loaded but hey)
@@ -52,9 +103,9 @@ class Fault
 
         // Parse some Exception values. And try to translate them even if they are already translated.
         $code    = $exception->getCode() ?: 500;
-        $label   = htmlspecialchars(strip_tags(self::trans($exception->getMessage()))) ?: self::trans('Site temporarily unavailable');
-        $message = nl2br(self::trans($exception->getPrevious() instanceof Throwable ? $exception->getPrevious()->getMessage() : $exception->getMessage()));
-        $trace   = self::$debug_mode ? htmlspecialchars(self::trace($exception)) : '';
+        $label   = htmlspecialchars(strip_tags($this->trans($exception->getMessage()))) ?: $this->trans('Site temporarily unavailable');
+        $message = nl2br($this->trans($exception->getPrevious() instanceof Throwable ? $exception->getPrevious()->getMessage() : $exception->getMessage()));
+        $trace   = $this->debug_mode ? htmlspecialchars($this->trace($exception)) : '';
 
         // Stop in CLI mode
         if (PHP_SAPI === 'cli') {
@@ -63,18 +114,18 @@ class Fault
         }
 
         // Load custom error file if any
-        if (self::$error_file !== '' && is_file(self::$error_file)) {
-            include self::$error_file;
+        if ($this->error_file !== '' && is_file($this->error_file)) {
+            include $this->error_file;
         }
 
         // Render HTTP page
-        self::render((int) $code, $label, $message, $trace);
+        $this->render((int) $code, $label, $message, $trace);
     }
 
     /**
      * Try to translate message.
      */
-    protected static function trans(string $str): string
+    protected function trans(string $str): string
     {
         try {
             return function_exists('\__') ? __($str) : $str;
@@ -84,42 +135,25 @@ class Fault
     }
 
     /**
-     * Set exception handler.
-     *
-     * Set Fault as exception handler if another one is not set.
-     */
-    public static function setExceptionHandler(): void
-    {
-        // Set exception handler
-        if (set_exception_handler(function (Throwable $exception): void { new self($exception); }) !== null) {
-            // Keep previously defined exception handler if any
-            restore_exception_handler();
-        }
-    }
-
-    /**
      * Provide a Java style exception trace.
      *
      * Inspired from PHP online manuel comment at
      * https://www.php.net/manual/fr/exception.gettraceasstring.php#114980
      *
-     * @param   Throwable           $exception  The exception
-     * @param   string[]            $seen       Internal loop
+     * @param   Throwable   $exception  The exception
+     * @param   bool        $loop       Internal loop
      *
      * @return  string  The formated trace
      */
-    public static function trace(Throwable $exception, ?array $seen = null): string
+    protected function trace(Throwable $exception, bool $loop = false): string
     {
-        $starter = $seen ? 'Caused by: ' : '';
-        $result  = [];
-        if (!$seen) {
-            $seen = [];
-        }
+        $starter  = $loop ? 'Caused by: ' : '';
         $trace    = $exception->getTrace();
         $prev     = $exception->getPrevious();
         $result[] = sprintf('%s%s: %s', $starter, $exception::class, $exception->getMessage());
         $file     = $exception->getFile();
         $line     = $exception->getLine();
+
         while (true) {
             $result[] = sprintf(
                 ' at %s%s%s (%s%s%s)',
@@ -130,7 +164,6 @@ class Fault
                 $line === null ? '' : ':',
                 $line ?? ''
             );
-            $seen[] = "$file:$line";
             if ($trace === []) {
                 break;
             }
@@ -140,7 +173,7 @@ class Fault
         }
         $result = implode("\n", $result);
         if ($prev instanceof Throwable) {
-            $result .= "\n" . self::trace($prev, $seen);
+            $result .= "\n" . $this->trace($prev, true);
         }
 
         return $result;
@@ -154,14 +187,14 @@ class Fault
      * @param   string  $message    The exception message
      * @param   string  $trace      THe xecption trace
      */
-    public static function render(int $code, string $label, string $message, string $trace = ''): never
+    protected function render(int $code, string $label, string $message, string $trace = ''): never
     {
         // Try to remove any previous buffer without notice
         if (ob_get_length()) {
             ob_clean();
         }
 
-        $vendor = htmlspecialchars(self::$vendor_name ?: 'Dotclear');
+        $vendor = htmlspecialchars($this->vendor_name);
 
         // HTTP header
         header('Content-Type: text/html; charset=utf-8');

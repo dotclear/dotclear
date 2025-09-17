@@ -157,6 +157,7 @@ class Config implements ConfigInterface
      * @param   string  $dotclear_root  Dotclear root directory path
      */
     public function __construct(
+        protected Core $core,
         private readonly string $dotclear_root
     ) {
         // From php
@@ -224,20 +225,22 @@ class Config implements ConfigInterface
         unset($detected_languages, $language);
 
         // Constants that can be used in config.php file
-        define('DC_ROOT', $this->dotclearRoot());
-        define('CLI_MODE', $this->cliMode());
-        define('DC_VERSION', $this->dotclearVersion());
-        define('DC_NAME', $this->dotclearName());
-        define('DC_RC_PATH', $this->configPath());
-        define('DC_DIGESTS', $this->digestsRoot());
-        define('DC_L10N_ROOT', $this->l10nRoot());
-        define('DC_L10N_UPDATE_URL', $this->l10nUpdateUrl());
-        define('DC_DISTRIB_PLUGINS', $this->distributedPlugins());
-        define('DC_DISTRIB_THEMES', $this->distributedThemes());
-        define('DC_DEFAULT_THEME', $this->defaultTheme());
-        define('DC_DEFAULT_TPLSET', $this->defaultTplset());
-        define('DC_DEFAULT_JQUERY', $this->defaultJQuery());
-        define('DC_MAX_UPLOAD_SIZE', $this->maxUploadSize());
+        if (!defined('DC_ROOT')) {
+            define('DC_ROOT', $this->dotclearRoot());
+            define('CLI_MODE', $this->cliMode());
+            define('DC_VERSION', $this->dotclearVersion());
+            define('DC_NAME', $this->dotclearName());
+            define('DC_RC_PATH', $this->configPath());
+            define('DC_DIGESTS', $this->digestsRoot());
+            define('DC_L10N_ROOT', $this->l10nRoot());
+            define('DC_L10N_UPDATE_URL', $this->l10nUpdateUrl());
+            define('DC_DISTRIB_PLUGINS', $this->distributedPlugins());
+            define('DC_DISTRIB_THEMES', $this->distributedThemes());
+            define('DC_DEFAULT_THEME', $this->defaultTheme());
+            define('DC_DEFAULT_TPLSET', $this->defaultTplset());
+            define('DC_DEFAULT_JQUERY', $this->defaultJQuery());
+            define('DC_MAX_UPLOAD_SIZE', $this->maxUploadSize());
+        }
 
         // Load config file
         if ($this->hasConfig()) {
@@ -246,12 +249,12 @@ class Config implements ConfigInterface
                 class_alias(Path::class, 'path');
             }
 
-            require $this->configPath();
+            require_once $this->configPath();
         }
 
         // Load oauth file if exists
         if ($this->hasOauth2()) {
-            require $this->oauth2Path();
+            require_once $this->oauth2Path();
         }
 
         // Constants that can be set in config.php file
@@ -476,10 +479,10 @@ class Config implements ConfigInterface
         }
         $this->csp_report_file = (string) DC_CSP_LOGFILE;
 
-        // Set config for Exception handler
-        Fault::$debug_mode  = $this->debugMode();
-        Fault::$error_file  = $this->errorFile();
-        Fault::$vendor_name = $this->vendorName();
+        // Set config for Dotclear Exception handler
+        $this->core->fault()->setDebugMode($this->debugMode());
+        $this->core->fault()->setErrorFile($this->errorFile());
+        $this->core->fault()->setVendorName($this->vendorName());
 
         // No release file
         if ($this->dotclearVersion() === '') {
