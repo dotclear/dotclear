@@ -48,7 +48,7 @@ class Fault implements FaultInterface
     {
         $this->setExceptionHandler();
 
-        register_shutdown_function(function () {
+        register_shutdown_function(function (): void {
             if (self::$watchdog) {
                 restore_exception_handler();
             }
