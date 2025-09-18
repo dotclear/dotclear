@@ -67,11 +67,17 @@ final class App extends Core
         define('DC_START_TIME', microtime(true));
 
         try {
+            ob_start();
+
             // Load application services
             parent::__construct(dirname(__DIR__));
 
             // Run task
             $this->task()->run($utility, $process);
+
+            if (ob_get_length()) {
+                ob_end_flush();
+            }
         } catch (AppException $e) {
             // Throw application exception as is. See Dotclear.Core.Fault handler.
             throw $e;

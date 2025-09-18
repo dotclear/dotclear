@@ -203,8 +203,8 @@ class Fault implements FaultInterface
     protected function render(int $code, string $label, string $message, string $trace = ''): never
     {
         // Try to remove any previous buffer without notice
-        if (ob_get_length()) {
-            ob_clean();
+        while (ob_get_level() > 0) {
+            ob_end_clean();
         }
 
         $vendor = htmlspecialchars($this->vendor_name);
