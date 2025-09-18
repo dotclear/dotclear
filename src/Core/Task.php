@@ -65,6 +65,9 @@ class Task implements TaskInterface
 
     public function run(string $utility, string $process): void
     {
+        // Set Exception handler
+        $this->core->fault();
+
         // watchdog
         if (self::$watchdog) {
             throw new ContextException(__('Application can not be started twice.'));
@@ -76,7 +79,12 @@ class Task implements TaskInterface
         mb_internal_encoding('UTF-8');
 
         // Initialize lang definition
-        L10n::init();
+        try {
+            // We need l10n __() function as some exceptions are thrown with translated message
+            L10n::init();
+        } catch (Throwable $e) {
+            throw new ContextException('Unabled to initialize localisation.');
+        }
 
         // We set default timezone to avoid warning
         Date::setTZ('UTC');

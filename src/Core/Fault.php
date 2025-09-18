@@ -11,7 +11,6 @@ declare(strict_types=1);
 namespace Dotclear\Core;
 
 use Dotclear\Exception\AppException;
-use Dotclear\Helper\L10n;
 use Dotclear\Interface\Core\FaultInterface;
 use Throwable;
 
@@ -107,13 +106,6 @@ class Fault implements FaultInterface
      */
     protected function handler(Throwable $exception): void
     {
-        try {
-            // We may need l10n __() function (should be already loaded but hey)
-            L10n::bootstrap();
-        } catch (Throwable) {
-            // Continue even if L10n is broken
-        }
-
         // Parse some Exception values. And try to translate them even if they are already translated.
         $code    = $exception->getCode() ?: 500;
         $label   = $this->trans($exception->getPrevious() instanceof Throwable ? $exception->getMessage() : (new ($exception::class)())->getMessage());
@@ -142,8 +134,29 @@ class Fault implements FaultInterface
      */
     protected function trans(string $str): string
     {
+        if (!function_exists('\__')) {
+            return $str;
+        }
+
         try {
-            return function_exists('\__') ? __($str) : $str;
+            // Exceptions l10n
+            __('Application can not be started twice.'); // Core and Task
+            __('Site temporarily unavailable'); // AppException
+            __('Bad Request'); // BadRequestException
+            __('Blog handling error'); // BlogException
+            __('Application configuration error'); // ConfigException
+            __('Conflict'); // ConflictException
+            __('Application context error'); // ContextException
+            __('Database connection error'); // DatabaseException
+            __('Not Found'); // NotFoundException
+            __('Precondition Failed'); // PreconditionException
+            __('Application process error'); // ProcessException
+            __('Session handling error'); // SessionException
+            __('Template handling error'); // TemplateException
+            __('Unauthorized'); // UnauthorizedException
+            __('Internal Server Error'); // InternalServerException
+
+            return __($str);
         } catch (Throwable) {
             return $str;
         }
