@@ -28,8 +28,8 @@ use Dotclear\Helper\Date;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Image\ImageMeta;
 use Dotclear\Helper\File\Image\ImageTools;
-use Dotclear\Helper\File\Manager;
 use Dotclear\Helper\File\MediaFile;
+use Dotclear\Helper\File\MediaManager;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\File\Zip\Unzip;
 use Dotclear\Helper\Html\Html;
@@ -46,7 +46,7 @@ use Throwable;
  * @since   2.28, container services have been added to constructor
  * @since   2.36, constructor arguments has been replaced by Core instance
  */
-class Media extends Manager implements MediaInterface
+class Media extends MediaManager implements MediaInterface
 {
     /**
      * Media table name
@@ -786,7 +786,7 @@ class Media extends Manager implements MediaInterface
 
         $this->dir['files'] = $f_res;
         foreach ($this->dir['dirs'] as $v) {
-            $v->media_icon = sprintf($this->icon_img, ($v->parent ? 'folder-up' : 'folder')); // @phpstan-ignore-line it's really a MediaFile
+            $v->media_icon = sprintf($this->icon_img, ($v->parent ? 'folder-up' : 'folder'));
         }
 
         # Check files that don't exist in database and create them
@@ -1664,8 +1664,7 @@ class Media extends Manager implements MediaInterface
         // - or the current media title si equal to the filename
         // then use it instead for media title
 
-        /* @phpstan-ignore-next-line */
-        if ($meta['Title'] && ($cur->media_title === '' || $cur->media_title !== '' && $cur->media_title === basename((string) $cur->media_file))) {
+        if ($meta['Title'] && ($cur->media_title === '' || $cur->media_title === basename((string) $cur->media_file))) {
             $c->media_title = $meta['Title'];
         }
 
