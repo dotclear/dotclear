@@ -70,7 +70,7 @@ class Task implements TaskInterface
 
         // watchdog
         if (self::$watchdog) {
-            throw new ContextException(__('Application can not be started twice.'));
+            throw new ContextException('Application can not be started twice.');
         }
         self::$watchdog = true;
 
