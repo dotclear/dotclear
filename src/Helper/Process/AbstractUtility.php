@@ -16,7 +16,6 @@ use Dotclear\Helper\TraitDynamicProperties;
 use Dotclear\Helper\Container\Container;
 use Dotclear\Helper\Container\Factory;
 use ReflectionClass;
-use ReflectionException;
 
 /**
  * @brief   Utility class structure.

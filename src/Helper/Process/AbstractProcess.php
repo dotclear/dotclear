@@ -14,7 +14,7 @@ namespace Dotclear\Helper\Process;
 /**
  * @brief   Process class structure.
  *
- * You should use trait TraitProcess intead of class AbstractProcess.
+ * You should use trait TraitProcess instead of class AbstractProcess.
  */
 abstract class AbstractProcess
 {
