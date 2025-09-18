@@ -116,8 +116,10 @@ class Fault implements FaultInterface
 
         // Parse some Exception values. And try to translate them even if they are already translated.
         $code    = $exception->getCode() ?: 500;
-        $label   = htmlspecialchars(strip_tags($this->trans($exception->getMessage()))) ?: $this->trans('Site temporarily unavailable');
-        $message = nl2br($this->trans($exception->getPrevious() instanceof Throwable ? $exception->getPrevious()->getMessage() : $exception->getMessage()));
+        $label   = $this->trans($exception->getPrevious() instanceof Throwable ? $exception->getMessage() : (new ($exception::class)())->getMessage());
+        $label   = htmlspecialchars(strip_tags($label)) ?: $this->trans('Site temporarily unavailable');
+        $message = $this->trans($exception->getPrevious() instanceof Throwable ? $exception->getPrevious()->getMessage() : $exception->getMessage());
+        $message = nl2br($message);
         $trace   = $this->debug_mode ? htmlspecialchars($this->trace($exception)) : '';
 
         // Stop in CLI mode
