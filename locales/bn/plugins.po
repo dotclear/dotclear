@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-16 10:56+0200\n"
-"PO-Revision-Date: 2025-09-16 09:03\n"
+"POT-Creation-Date: 2025-09-18 15:15+0200\n"
+"PO-Revision-Date: 2025-09-18 13:20\n"
 "Last-Translator: \n"
 "Language-Team: Bengali\n"
 "Language: bn_BD\n"
@@ -1655,8 +1655,8 @@ msgstr "ডাটাবেজ রপ্তানি"
 msgid "Download database of current blog"
 msgstr "বর্তমান ব্লগের ডাটাবেজ ডাউনলোড করুন"
 
-#: plugins/importExport/src/ExportBlogMaintenanceTask.php:108
-#: plugins/importExport/src/ExportFullMaintenanceTask.php:107
+#: plugins/importExport/src/ExportBlogMaintenanceTask.php:109
+#: plugins/importExport/src/ExportFullMaintenanceTask.php:108
 msgid "Compress file"
 msgstr "ফাইল কম্প্রেস করো"
 
