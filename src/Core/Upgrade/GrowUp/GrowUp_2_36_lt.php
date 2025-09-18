@@ -39,6 +39,7 @@ class GrowUp_2_36_lt
                 'src/Database/InterfaceHandler.php',
                 'src/Database/InterfaceSchema.php',
                 'src/Database/Session.php',
+                'src/Exception/AbstractException.php',
                 'src/Exception/ExceptionEnum.php',
                 'src/FileServer.php',
                 'src/Interface/ConfigInterface.php',

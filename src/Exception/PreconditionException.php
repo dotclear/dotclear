@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Exception;
 
+use Throwable;
+
 /**
  * @brief   Post form precondition Exception.
  *
