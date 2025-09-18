@@ -39,6 +39,7 @@ class GrowUp_2_36_lt
                 'src/Database/InterfaceHandler.php',
                 'src/Database/InterfaceSchema.php',
                 'src/Database/Session.php',
+                'src/Exception/ExceptionEnum.php',
                 'src/FileServer.php',
                 'src/Interface/ConfigInterface.php',
                 'src/Interface/Core/ConnectionInterface.php',
@@ -57,6 +58,7 @@ class GrowUp_2_36_lt
             [
                 'plugins/antispam/locales/lb',
                 'src/Database/Driver',
+                'src/Interface/Exception',
 
                 // Dev only -- TO BE REMOVED BEFORE 2.36 RELEASE - WERE NOT IN 2.35
                 'src/Schema/Database/Sqlite',

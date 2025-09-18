@@ -18,4 +18,8 @@ namespace Dotclear\Exception;
  */
 class NotFoundException extends BadRequestException
 {
+    public function __construct(string $message = 'Not found', int $code = 404, ?Throwable $previous = null)
+    {
+        parent::__construct($message, $code, $previous);
+    }
 }

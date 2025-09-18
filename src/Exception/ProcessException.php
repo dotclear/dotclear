@@ -18,4 +18,8 @@ namespace Dotclear\Exception;
  */
 class ProcessException extends InternalServerException
 {
+    public function __construct(string $message = 'Application process error', int $code = 552, ?Throwable $previous = null)
+    {
+        parent::__construct($message, $code, $previous);
+    }
 }

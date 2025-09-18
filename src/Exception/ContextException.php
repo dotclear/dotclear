@@ -18,4 +18,8 @@ namespace Dotclear\Exception;
  */
 class ContextException extends InternalServerException
 {
+    public function __construct(string $message = 'Application context error', int $code = 553, ?Throwable $previous = null)
+    {
+        parent::__construct($message, $code, $previous);
+    }
 }

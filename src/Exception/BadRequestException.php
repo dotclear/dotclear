@@ -18,6 +18,10 @@ namespace Dotclear\Exception;
  *
  * @since   2.28
  */
-class BadRequestException extends AbstractException
+class BadRequestException extends AppException
 {
+    public function __construct(string $message = 'Bad Request', int $code = 400, ?Throwable $previous = null)
+    {
+        parent::__construct($message, $code, $previous);
+    }
 }

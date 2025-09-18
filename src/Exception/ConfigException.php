@@ -18,4 +18,8 @@ namespace Dotclear\Exception;
  */
 class ConfigException extends InternalServerException
 {
+    public function __construct(string $message = 'Application configuration error', int $code = 551, ?Throwable $previous = null)
+    {
+        parent::__construct($message, $code, $previous);
+    }
 }

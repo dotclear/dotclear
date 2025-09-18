@@ -16,4 +16,8 @@ namespace Dotclear\Exception;
  */
 class PreconditionException extends BadRequestException
 {
+    public function __construct(string $message = 'Precondition Failed', int $code = 412, ?Throwable $previous = null)
+    {
+        parent::__construct($message, $code, $previous);
+    }
 }

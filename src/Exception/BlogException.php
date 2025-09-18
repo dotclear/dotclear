@@ -18,4 +18,8 @@ namespace Dotclear\Exception;
  */
 class BlogException extends InternalServerException
 {
+    public function __construct(string $message = 'Blog handling error', int $code = 570, ?Throwable $previous = null)
+    {
+        parent::__construct($message, $code, $previous);
+    }
 }
