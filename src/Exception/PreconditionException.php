@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Exception;
 
+use Throwable;
+
 /**
  * @brief   Post form precondition Exception.
  *
@@ -16,4 +18,8 @@ namespace Dotclear\Exception;
  */
 class PreconditionException extends BadRequestException
 {
+    public function __construct(string $message = 'Precondition Failed', int $code = 412, ?Throwable $previous = null)
+    {
+        parent::__construct($message, $code, $previous);
+    }
 }

@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Exception;
 
+use Throwable;
+
 /**
  * @brief   Database connection handling Exception.
  *
@@ -18,4 +20,8 @@ namespace Dotclear\Exception;
  */
 class DatabaseException extends InternalServerException
 {
+    public function __construct(string $message = 'Database connection error', int $code = 560, ?Throwable $previous = null)
+    {
+        parent::__construct($message, $code, $previous);
+    }
 }

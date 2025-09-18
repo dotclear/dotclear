@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Exception;
 
+use Throwable;
+
 /**
  * @brief   Session handling Exception.
  *
@@ -18,4 +20,8 @@ namespace Dotclear\Exception;
  */
 class SessionException extends InternalServerException
 {
+    public function __construct(string $message = 'Session handling error', int $code = 561, ?Throwable $previous = null)
+    {
+        parent::__construct($message, $code, $previous);
+    }
 }

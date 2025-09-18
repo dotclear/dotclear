@@ -23,11 +23,11 @@ interface FaultInterface
     /**
      * Get an application exception instance.
      *
-     * @param 	string 			$message 	The exception message
-     * @param	int 			$code 		The exception code
-     * @param 	null|Throwable 	$previous 	The previous Exception
+     * @param   string          $message    The exception message
+     * @param   int             $code       The exception code
+     * @param   null|Throwable  $previous   The previous Exception
      *
-     * @return 	AppException 	The application exception instance
+     * @return  AppException    The application exception instance
      */
     public function exception(string $message = '', int $code = 0, ?Throwable $previous = null): AppException;
 
@@ -49,7 +49,7 @@ interface FaultInterface
     /**
      * Set Dotclear Exception handler.
      *
-     * @return 	bool 	True if it is set from this call
+     * @return  bool    True if it is set from this call
      */
     public function setExceptionHandler(): bool;
 }

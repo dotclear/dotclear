@@ -164,7 +164,7 @@ class Utility extends AbstractUtility
         try {
             return $this->get(Tpl::class, false, App::config()->cacheRoot(), 'App::frontend()->template()');
         } catch (Throwable $e) {
-            throw new TemplateException(__('Can\'t create template files.'), TemplateException::code(), $e);
+            throw new TemplateException(__('Can\'t create template files.'), 571, $e);
         }
     }
 
@@ -379,7 +379,7 @@ class Utility extends AbstractUtility
             # --BEHAVIOR-- publicAfterDocument --
             App::behavior()->callBehavior('publicAfterDocumentV2');
         } catch (Throwable $e) {
-            throw new TemplateException(__('Something went wrong while loading template file for your blog.'), TemplateException::code(), $e);
+            throw new TemplateException(__('Something went wrong while loading template file for your blog.'), 571, $e);
         }
 
         // Do not try to execute a process added to the URL.

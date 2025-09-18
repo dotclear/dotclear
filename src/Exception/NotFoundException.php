@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Exception;
 
+use Throwable;
+
 /**
  * @brief   Not found exception.
  *
@@ -18,4 +20,8 @@ namespace Dotclear\Exception;
  */
 class NotFoundException extends BadRequestException
 {
+    public function __construct(string $message = 'Not found', int $code = 404, ?Throwable $previous = null)
+    {
+        parent::__construct($message, $code, $previous);
+    }
 }

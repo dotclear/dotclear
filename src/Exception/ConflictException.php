@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Exception;
 
+use Throwable;
+
 /**
  * @brief   Conflict Exception.
  *
@@ -18,4 +20,8 @@ namespace Dotclear\Exception;
  */
 class ConflictException extends BadRequestException
 {
+    public function __construct(string $message = 'Conflict', int $code = 409, ?Throwable $previous = null)
+    {
+        parent::__construct($message, $code, $previous);
+    }
 }

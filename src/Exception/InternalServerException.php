@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Exception;
 
+use Throwable;
+
 /**
  * @brief   Internal server Exception.
  *
@@ -16,6 +18,10 @@ namespace Dotclear\Exception;
  *
  * @since   2.28
  */
-class InternalServerException extends AbstractException
+class InternalServerException extends AppException
 {
+    public function __construct(string $message = 'Internal Server Error', int $code = 500, ?Throwable $previous = null)
+    {
+        parent::__construct($message, $code, $previous);
+    }
 }

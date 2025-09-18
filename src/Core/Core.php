@@ -110,7 +110,7 @@ class Core extends Container
     ) {
         // Singleton mode
         if (isset(self::$instance)) {
-            throw new ContextException(__('Application can not be started twice.'));
+            throw new ContextException('Application can not be started twice.');
         }
 
         parent::__construct(Factories::getFactory(static::CONTAINER_ID));

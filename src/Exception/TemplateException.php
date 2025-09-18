@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Exception;
 
+use Throwable;
+
 /**
  * @brief   Template handling Exception.
  *
@@ -18,4 +20,8 @@ namespace Dotclear\Exception;
  */
 class TemplateException extends InternalServerException
 {
+    public function __construct(string $message = 'Template handling error', int $code = 571, ?Throwable $previous = null)
+    {
+        parent::__construct($message, $code, $previous);
+    }
 }
