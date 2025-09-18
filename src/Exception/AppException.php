@@ -10,7 +10,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Exception;
 
-use Dotclear\Interface\Exception\AppExceptionInterface;
 use Exception;
 use Throwable;
 

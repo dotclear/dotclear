@@ -67,6 +67,7 @@ final class App extends Core
         define('DC_START_TIME', microtime(true));
 
         try {
+            // Start output capture
             ob_start();
 
             // Load application services
@@ -75,9 +76,8 @@ final class App extends Core
             // Run task
             $this->task()->run($utility, $process);
 
-            if (ob_get_length()) {
-                ob_end_flush();
-            }
+            // End output capture
+            ob_end_flush();
         } catch (AppException $e) {
             // Throw application exception as is. See Dotclear.Core.Fault handler.
             throw $e;
