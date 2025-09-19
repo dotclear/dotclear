@@ -198,6 +198,16 @@ class FileServer implements FileServerInterface
         if ($blogId) {
             // Load blog
             $this->core->blog()->loadFromBlog($blogId);
+
+            // Load plugins as they could hack theme files
+            try {
+                $this->core->plugins()->loadModules($this->core->config()->pluginsRoot(), 'public', $this->core->lang()->getLang());
+            } catch (Throwable $e) {
+                if ($this->debug) {
+                    throw $e;
+                }
+            }
+
             $theme = $this->core->blog()->settings()->system->theme;
             if ($theme) {
                 // Get current theme path
