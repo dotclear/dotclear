@@ -32,6 +32,19 @@ interface CacheInterface
      */
     public function emptyDotclearVersionsCache(): void;
 
+
+    /**
+     * Avoid browser cache usage.
+     */
+    public function setAvoidCache(bool $avoid): void;
+
+    /**
+     * Check if browser cache usage is avoid.
+     *
+     * @return  bool    True if browser cache usage is avoid
+     */
+    public function isAvoidCache(): bool;
+
     /**
      * Reset files list.
      */

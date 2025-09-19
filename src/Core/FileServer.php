@@ -198,6 +198,16 @@ class FileServer implements FileServerInterface
         if ($blogId) {
             // Load blog
             $this->core->blog()->loadFromBlog($blogId);
+
+            // Load plugins as they could hack theme files
+            try {
+                $this->core->plugins()->loadModules($this->core->config()->pluginsRoot(), 'public', $this->core->lang()->getLang());
+            } catch (Throwable $e) {
+                if ($this->debug) {
+                    throw $e;
+                }
+            }
+
             $theme = $this->core->blog()->settings()->system->theme;
             if ($theme) {
                 // Get current theme path
@@ -306,13 +316,19 @@ class FileServer implements FileServerInterface
         $this->findMinified();
 
         // serve file
-        Http::$cache_max_age = $this->debug && in_array($this->extension, self::DEFAULT_NOCACHE) ? 0 : self::$cache_ttl;
+        if ($this->debug && in_array($this->extension, self::DEFAULT_NOCACHE)
+            || $this->core->cache()->isAvoidCache()
+        ) {
+            Http::$cache_max_age = 0;
+        } else {
+            Http::$cache_max_age = self::$cache_ttl;
 
-        $mod_files = [
-            $this->file ?? '',
-            ...get_included_files(),
-        ];
-        Http::cache($mod_files);
+            $mod_files = [
+                $this->file ?? '',
+                ...get_included_files(),
+            ];
+            Http::cache($mod_files);
+        }
 
         header('Content-Type: ' . Files::getMimeType((string) $this->file));
         readfile((string) $this->file);
