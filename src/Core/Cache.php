@@ -33,6 +33,11 @@ class Cache extends HttpCacheStack implements CacheInterface
     protected string $cache_dir;
 
     /**
+     * Try to avoid browser cache.
+     */
+    protected bool $avoid_cache = false;
+
+    /**
      * Constructs a new instance.
      *
      * @param   Core    $core   The core container
@@ -61,5 +66,15 @@ class Cache extends HttpCacheStack implements CacheInterface
         if (is_dir($this->cache_dir . DIRECTORY_SEPARATOR . Update::CACHE_FOLDER)) {
             Files::deltree($this->cache_dir . DIRECTORY_SEPARATOR . Update::CACHE_FOLDER);
         }
+    }
+
+    public function setAvoidCache(bool $avoid): void
+    {
+        $this->avoid_cache = true;
+    }
+
+    public function isAvoidCache(): bool
+    {
+        return $this->avoid_cache;
     }
 }

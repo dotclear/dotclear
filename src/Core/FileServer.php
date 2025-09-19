@@ -316,13 +316,19 @@ class FileServer implements FileServerInterface
         $this->findMinified();
 
         // serve file
-        Http::$cache_max_age = $this->debug && in_array($this->extension, self::DEFAULT_NOCACHE) ? 0 : self::$cache_ttl;
+        if ($this->debug && in_array($this->extension, self::DEFAULT_NOCACHE)
+            || $this->core->cache()->isAvoidCache()
+        ) {
+            Http::$cache_max_age = 0;
+        } else {
+            Http::$cache_max_age = self::$cache_ttl;
 
-        $mod_files = [
-            $this->file ?? '',
-            ...get_included_files(),
-        ];
-        Http::cache($mod_files);
+            $mod_files = [
+                $this->file ?? '',
+                ...get_included_files(),
+            ];
+            Http::cache($mod_files);
+        }
 
         header('Content-Type: ' . Files::getMimeType((string) $this->file));
         readfile((string) $this->file);
