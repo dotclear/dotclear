@@ -29,10 +29,12 @@ class Frontend
     {
         if (self::status()) {
             App::behavior()->addBehavior('publicHeadContent', function (): void {
-                echo
-                '<link rel="stylesheet" type="text/css" href="' .
-                App::blog()->settings()->system->public_url . DIRECTORY_SEPARATOR . My::id() . '.css' .
-                '" media="screen">' . "\n";
+                if (App::blog()->settings()->system->theme === My::id()) {
+                    echo
+                    '<link rel="stylesheet" type="text/css" href="' .
+                    App::blog()->settings()->system->public_url . DIRECTORY_SEPARATOR . My::id() . '.css' .
+                    '" media="screen">' . "\n";
+                }
             });
         }
 
