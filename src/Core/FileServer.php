@@ -14,6 +14,7 @@ use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Interface\Core\FileServerInterface;
+use Throwable;
 
 /**
  * @brief   The helper to serve file.

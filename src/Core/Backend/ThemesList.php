@@ -377,26 +377,24 @@ class ThemesList extends ModulesList
             if (in_array('select', $actions)) {
                 $submits[] = (new Submit(['select[' . Html::escapeHTML($id) . ']'], __('Use this one')))->render();
             }
-            if (in_array('try', $actions)) {
-                if (!(bool) $define->get('overload')) {
-                    $preview_url = App::blog()->url() . App::url()->getURLFor('try', App::auth()->userID() . '/' . Http::browserUID(App::config()->masterKey() . App::auth()->userID() . App::auth()->cryptLegacy((string) App::auth()->userID())) . '/' . $id);
+            if (in_array('try', $actions) && !(bool) $define->get('overload')) {
+                $preview_url = App::blog()->url() . App::url()->getURLFor('try', App::auth()->userID() . '/' . Http::browserUID(App::config()->masterKey() . App::auth()->userID() . App::auth()->cryptLegacy((string) App::auth()->userID())) . '/' . $id);
 
-                    // Prevent browser caching on preview
-                    $preview_url .= (parse_url($preview_url, PHP_URL_QUERY) ? '&' : '?') . 'rand=' . md5((string) random_int(0, mt_getrandmax()));
+                // Prevent browser caching on preview
+                $preview_url .= (parse_url($preview_url, PHP_URL_QUERY) ? '&' : '?') . 'rand=' . md5((string) random_int(0, mt_getrandmax()));
 
-                    $blank_preview = App::auth()->prefs()->interface->blank_preview;
+                $blank_preview = App::auth()->prefs()->interface->blank_preview;
 
-                    $preview_class  = $blank_preview ? '' : 'modal';
-                    $preview_target = $blank_preview ? 'target="_blank"' : '';
+                $preview_class  = $blank_preview ? '' : 'modal';
+                $preview_target = $blank_preview ? 'target="_blank"' : '';
 
-                    $submits[] = (new Link())
-                        ->href($preview_url)
-                        ->class(array_filter(['button', 'theme-preview', $preview_class]))
-                        ->accesskey('p')
-                        ->text(__('Preview'))
-                        ->extra($preview_target)
-                        ->render();
-                }
+                $submits[] = (new Link())
+                    ->href($preview_url)
+                    ->class(array_filter(['button', 'theme-preview', $preview_class]))
+                    ->accesskey('p')
+                    ->text(__('Preview'))
+                    ->extra($preview_target)
+                    ->render();
             }
         } else {
             // Currently selected theme
