@@ -32,7 +32,6 @@ interface CacheInterface
      */
     public function emptyDotclearVersionsCache(): void;
 
-
     /**
      * Avoid browser cache usage.
      */

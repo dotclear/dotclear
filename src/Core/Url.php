@@ -765,6 +765,9 @@ class Url extends UrlHandler implements UrlInterface
                 App::frontend()->template()->use_cache = false;
                 // Reset HTTP cache
                 App::cache()->resetTimes();
+                // Avoid using browser cache
+                App::cache()->setAvoidCache(true);
+
                 if (App::config()->adminUrl() !== '') {
                     App::frontend()->context()->xframeoption = App::config()->adminUrl();
                 }
