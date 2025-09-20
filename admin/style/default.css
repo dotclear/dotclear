@@ -338,6 +338,13 @@ html body.dark-mode {
   /* forces dark color-scheme */
   color-scheme: dark;
   /* Hide light stuff */
+}
+html.dark .light-only, html[data-theme=dark] .light-only,
+html body.dark-mode .light-only {
+  display: none !important;
+}
+html.dark, html[data-theme=dark],
+html body.dark-mode {
   --outgoing-link-filter: 100%;
   --index-icon-contrast: 130%;
   --mark-attach-filter: hue-rotate(260deg) saturate(100) saturate(0.2) brightness(220%);
@@ -345,10 +352,6 @@ html body.dark-mode {
   --mark-pending-filter: brightness(2);
   --mark-locked-filter: brightness(2);
   --toolbar-btn-filter: contrast(130%) brightness(1.5);
-}
-html.dark .light-only, html[data-theme=dark] .light-only,
-html body.dark-mode .light-only {
-  display: none !important;
 }
 
 /* Colors */
@@ -1586,7 +1589,7 @@ input:not([type=file]):invalid:not(:focus):not(:required) {
 }
 
 textarea {
-  padding: 2px 0;
+  padding: 0.5em;
 }
 textarea.maximal {
   resize: vertical;

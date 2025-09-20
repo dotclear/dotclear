@@ -1,19 +1,19 @@
 input:is(
-    [type='text'],
-    [type='search'],
-    [type='color'],
-    [type='email'],
-    [type='url'],
-    [type='datetime-local'],
-    [type='date'],
-    [type='time'],
-    [type='file'],
-    [type='number'],
-    [type='password'],
-    [type='submit'],
-    [type='button'],
-    [type='reset']
-  ),
+  [type='text'],
+  [type='search'],
+  [type='color'],
+  [type='email'],
+  [type='url'],
+  [type='datetime-local'],
+  [type='date'],
+  [type='time'],
+  [type='file'],
+  [type='number'],
+  [type='password'],
+  [type='submit'],
+  [type='button'],
+  [type='reset']
+),
 a.button,
 button,
 textarea,
@@ -74,17 +74,17 @@ fieldset {
 }
 
 input:is(
-    [type='text'],
-    [type='search'],
-    [type='color'],
-    [type='email'],
-    [type='url'],
-    [type='datetime-local'],
-    [type='date'],
-    [type='time'],
-    [type='file'],
-    [type='number']
-  ),
+  [type='text'],
+  [type='search'],
+  [type='color'],
+  [type='email'],
+  [type='url'],
+  [type='datetime-local'],
+  [type='date'],
+  [type='time'],
+  [type='file'],
+  [type='number']
+),
 textarea {
   font-family: var(--sans-serif-input);
   font-size: 100%;
@@ -100,18 +100,18 @@ label .maximal,
 }
 
 input:is(
-    [type='text'],
-    [type='search'],
-    [type='password'],
-    [type='color'],
-    [type='email'],
-    [type='url'],
-    [type='datetime-local'],
-    [type='date'],
-    [type='time'],
-    [type='file'],
-    [type='number']
-  ),
+  [type='text'],
+  [type='search'],
+  [type='password'],
+  [type='color'],
+  [type='email'],
+  [type='url'],
+  [type='datetime-local'],
+  [type='date'],
+  [type='time'],
+  [type='file'],
+  [type='number']
+),
 textarea,
 input:not([type='file']):invalid,
 input:not([type='file']):invalid:placeholder-shown {
@@ -144,7 +144,7 @@ input:not([type='file']):invalid:not(:focus):not(:required) {
 }
 
 textarea {
-  padding: 2px 0;
+  padding: 0.5em;
 
   &.maximal {
     resize: vertical;
@@ -158,17 +158,17 @@ textarea {
 }
 
 input:is(
-    [type='text'],
-    [type='search'],
-    [type='color'],
-    [type='email'],
-    [type='url'],
-    [type='datetime-local'],
-    [type='date'],
-    [type='time'],
-    [type='number'],
-    [type='password']
-  ),
+  [type='text'],
+  [type='search'],
+  [type='color'],
+  [type='email'],
+  [type='url'],
+  [type='datetime-local'],
+  [type='date'],
+  [type='time'],
+  [type='number'],
+  [type='password']
+),
 textarea {
   margin-right: 0.3em;
 }
