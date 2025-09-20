@@ -319,8 +319,12 @@ class Url extends UrlHandler implements UrlInterface
                 if (App::blog()->settings()->system->nb_post_for_home !== null) {
                     App::frontend()->context()->nb_entry_first_page = App::blog()->settings()->system->nb_post_for_home;
                 }
-                self::serveDocument('home.html');
-                App::blog()->publishScheduledEntries();
+                if (App::frontend()->theme_preview) {
+                    self::serveDocument('home.html', http_cache:false, http_etag:false);
+                } else {
+                    self::serveDocument('home.html');
+                    App::blog()->publishScheduledEntries();
+                }
             } else {
                 self::search();
             }
@@ -714,36 +718,35 @@ class Url extends UrlHandler implements UrlInterface
                 // The user has no access to the theme preview.
                 self::p404();
             } else {
-                $current = App::blog()->settings()->system->theme;
+                $current  = App::blog()->settings()->system->theme;
+                $tplcache = App::blog()->settings()->system->tpl_use_cache;
 
                 // Switch to theme to try
                 App::blog()->settings()->system->set('theme', $theme);
-                App::frontend()->theme = $theme;
+                App::frontend()->theme         = $theme;
+                App::frontend()->theme_preview = true;
 
                 // Simulate Utility\Frontend::process() for theme preview
                 // ------------------------------------------------------
-                App::frontend()->parent_theme = App::themes()->moduleInfo(App::frontend()->theme, 'parent');
+                App::frontend()->parent_theme = App::themes()->moduleInfo($theme, 'parent');
                 // Loading _public.php file for selected theme
-                App::themes()->loadNsFile(App::frontend()->theme, 'public');
+                App::themes()->loadNsFile($theme, 'public');
                 // Loading translations for selected theme
                 if (is_string(App::frontend()->parent_theme) && App::frontend()->parent_theme !== '') {
                     App::themes()->loadModuleL10N(App::frontend()->parent_theme, App::lang()->getLang(), 'main');
                 }
-                App::themes()->loadModuleL10N(App::frontend()->theme, App::lang()->getLang(), 'main');
+                App::themes()->loadModuleL10N($theme, App::lang()->getLang(), 'main');
                 // --BEHAVIOR-- publicPrepend --
                 App::behavior()->callBehavior('publicPrependV2');
-                // Prepare the HTTP cache thing
-                App::cache()->resetFiles();
-                App::cache()->addFiles(get_included_files());
                 // Get template paths (custom > theme > parent theme > template set)
                 $tpl_path = [
-                    App::config()->varRoot() . '/themes/' . App::blog()->id() . '/' . App::frontend()->theme . '/tpl',
-                    App::blog()->themesPath() . '/' . App::frontend()->theme . '/tpl',
+                    App::config()->varRoot() . '/themes/' . App::blog()->id() . '/' . $theme . '/tpl',
+                    App::blog()->themesPath() . '/' . $theme . '/tpl',
                 ];
                 if (App::frontend()->parent_theme) {
                     $tpl_path[] = App::blog()->themesPath() . '/' . App::frontend()->parent_theme . '/tpl';
                 }
-                $tplset = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'tplset');
+                $tplset = App::themes()->moduleInfo($theme, 'tplset');
                 $dir    = implode(DIRECTORY_SEPARATOR, [App::config()->dotclearRoot(), 'inc', 'public', App::frontend()::TPL_ROOT, $tplset]);
                 if (!empty($tplset) && is_dir($dir)) {
                     App::frontend()->template()->setPath(
@@ -757,14 +760,14 @@ class Url extends UrlHandler implements UrlInterface
                         App::frontend()->template()->getPath()
                     );
                 }
-                // Do not use overloading capability
-                App::frontend()->theme_overload = false;
                 // ------------------------------------------------------
 
                 // Don't use template cache
+                App::blog()->settings()->system->set('tpl_use_cache', false);
                 App::frontend()->template()->use_cache = false;
                 // Reset HTTP cache
                 App::cache()->resetTimes();
+                App::frontend()->context()->http_cache = false;
                 // Avoid using browser cache
                 App::cache()->setAvoidCache(true);
 
@@ -776,7 +779,11 @@ class Url extends UrlHandler implements UrlInterface
                 self::home(null);
 
                 // And finally back to current theme
+                // Warning: from here subsequent request will be done on real theme, not previewed one
+                // It will prevent index.php?tf= working succesfully with the previewed thema.
                 App::blog()->settings()->system->set('theme', $current);
+                App::blog()->settings()->system->set('tpl_use_cache', $tplcache);
+                App::frontend()->theme_preview = false;
             }
         }
     }

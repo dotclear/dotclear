@@ -153,7 +153,7 @@ class FileServer implements FileServerInterface
         $paths = array_reverse(explode(PATH_SEPARATOR, $this->core->config()->pluginsRoot()));
 
         foreach ($paths as $path) {
-            $file = Path::real($path . '/' . $this->resource);
+            $file = Path::real($path . DIRECTORY_SEPARATOR . $this->resource);
 
             if ($file !== false && $this->setFile($file)) {
                 return;
@@ -212,21 +212,21 @@ class FileServer implements FileServerInterface
             $theme = $this->core->blog()->settings()->system->theme;
             if ($theme) {
                 // Get current theme path
-                $dir_theme = Path::real($this->core->blog()->themesPath() . '/' . $theme);
+                $dir_theme = Path::real($this->core->blog()->themesPath() . DIRECTORY_SEPARATOR . $theme);
                 if ($dir_theme) {
                     $paths[] = $dir_theme;
 
                     // Get current parent theme path if any
                     $parent_theme = $this->core->themes()->moduleInfo($theme, 'parent');
                     if ($parent_theme) {
-                        $dir_parent_theme = Path::real($this->core->blog()->themesPath() . '/' . $parent_theme);
+                        $dir_parent_theme = Path::real($this->core->blog()->themesPath() . DIRECTORY_SEPARATOR . $parent_theme);
                         if ($dir_parent_theme) {
                             $paths[] = $dir_parent_theme;
                         }
                     }
 
                     // Check if there is a overloaded path for current theme
-                    $custom_theme = Path::real($this->core->config()->varRoot() . '/themes/' . $blogId . '/' . $theme);
+                    $custom_theme = Path::real($this->core->config()->varRoot() . DIRECTORY_SEPARATOR . 'themes' . DIRECTORY_SEPARATOR . $blogId . DIRECTORY_SEPARATOR . $theme);
 
                     if ($custom_theme) {
                         // Set custom path at first (custom > theme > parent > core)
@@ -236,8 +236,9 @@ class FileServer implements FileServerInterface
             }
         }
 
+        $resource = (str_starts_with($this->resource, DIRECTORY_SEPARATOR) ? '' : DIRECTORY_SEPARATOR) . $this->resource;
         foreach ($paths as $path) {
-            $file = Path::real($path . '/' . $this->resource);
+            $file = Path::real($path . $resource);
             if ($file !== false && $this->setFile($file)) {
                 return;
             }
@@ -264,7 +265,7 @@ class FileServer implements FileServerInterface
      */
     protected function findVarFile(): void
     {
-        $file = Path::real($this->core->config()->varRoot() . '/' . $this->resource);
+        $file = Path::real($this->core->config()->varRoot() . DIRECTORY_SEPARATOR . $this->resource);
 
         if ($file !== false) {
             $this->setFile($file);

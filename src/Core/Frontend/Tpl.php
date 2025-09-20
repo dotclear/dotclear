@@ -1005,7 +1005,7 @@ class Tpl extends Template
     {
         return '<?= ' . sprintf(
             $this->getFilters($attr),
-            'App::frontend()->theme_overload ? ' .
+            'App::frontend()->theme_overload || App::frontend()->theme_preview ? ' .
             'App::blog()->getTF(\'\', false)' . ' : ' .
             'App::blog()->settings()->system->themes_url . "/" . App::blog()->settings()->system->theme'
         ) . ' ?>';
@@ -1028,7 +1028,7 @@ class Tpl extends Template
 
         return '<?= ' . sprintf(
             $this->getFilters($attr),
-            'App::frontend()->theme_overload ? ' .
+            'App::frontend()->theme_overload || App::frontend()->theme_preview ? ' .
             'App::blog()->getTF(\'\', false) : ' .
             'App::blog()->settings()->system->themes_url . "/" . (' . "$parent" . ' ? ' . "$parent" . ' : App::blog()->settings()->system->theme)'
         ) . ' ?>';
