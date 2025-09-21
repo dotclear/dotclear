@@ -139,6 +139,7 @@ class Utility extends AbstractUtility
             Notices::class     => Notices::class,
             Page::class        => Page::class,
             Resources::class   => Resources::class,
+            ThemeConfig::class => ThemeConfig::class,
             ThemesList::class  => ThemesList::class,
             Url::class         => Url::class,
             UserPref::class    => UserPref::class,
@@ -254,6 +255,14 @@ class Utility extends AbstractUtility
     public function resources(): Resources
     {
         return $this->get(Resources::class);
+    }
+
+    /**
+     * Get backend theme config helper instance.
+     */
+    public function themeConfig(): ThemeConfig
+    {
+        return $this->get(ThemeConfig::class);
     }
 
     /**
