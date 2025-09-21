@@ -126,15 +126,16 @@ class Utility extends AbstractUtility
     public function getDefaultServices(): array
     {
         return [
-            Combos::class    => Combos::class,
-            Favorites::class => Favorites::class,
-            Helper::class    => Helper::class,
-            Menus::class     => Menus::class,
-            Notices::class   => Notices::class,
-            Page::class      => Page::class,
-            Resources::class => Resources::class,
-            Url::class       => Url::class,
-            UserPref::class  => UserPref::class,
+            Combos::class      => Combos::class,
+            Favorites::class   => Favorites::class,
+            Helper::class      => Helper::class,
+            Menus::class       => Menus::class,
+            ModulesList::class => ModulesList::class,
+            Notices::class     => Notices::class,
+            Page::class        => Page::class,
+            Resources::class   => Resources::class,
+            Url::class         => Url::class,
+            UserPref::class    => UserPref::class,
         ];
     }
 
@@ -168,6 +169,21 @@ class Utility extends AbstractUtility
     public function menus(): Menus
     {
         return $this->get(Menus::class);
+    }
+
+    /**
+     * Get backend modules list instance.
+     */
+    public function modulesList(): ModulesList
+    {
+        return $this->get(
+            ModulesList::class, // service
+            false,              // reload
+            modules: App::plugins(),
+            modules_root: App::config()->pluginsRoot(),
+            xml_url: App::blog()->settings()->get('system')->get('store_plugin_url'),
+            force: empty($_GET['nocache']) ? null : true
+        );
     }
 
     /**

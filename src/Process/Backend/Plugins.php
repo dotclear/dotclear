@@ -13,7 +13,6 @@ namespace Dotclear\Process\Backend;
 
 use ArrayObject;
 use Dotclear\App;
-use Dotclear\Core\Backend\ModulesList;
 use Dotclear\Helper\Html\Form\Capture;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
@@ -40,17 +39,12 @@ class Plugins
 
     public static function init(): bool
     {
-        // -- Page helper --
-        App::backend()->list = new ModulesList(
-            App::plugins(),
-            App::config()->pluginsRoot(),
-            App::blog()->settings()->system->store_plugin_url,
-            empty($_GET['nocache']) ? null : true
-        );
+        // backward compat
+        App::backend()->list = App::backend()->modulesList();
 
-        ModulesList::$allow_multi_install = App::config()->allowMultiModules();
+        App::backend()->modulesList()::$allow_multi_install = App::config()->allowMultiModules();
         // deprecated since 2.26
-        ModulesList::$distributed_modules = explode(',', App::config()->distributedPlugins());
+        App::backend()->modulesList()::$distributed_modules = explode(',', App::config()->distributedPlugins());
 
         $disabled = App::plugins()->disableDepModules();
         if ($disabled !== []) {
@@ -72,7 +66,7 @@ class Plugins
             dotclear_exit();
         }
 
-        if (App::backend()->list->setConfiguration()) {
+        if (App::backend()->modulesList()->setConfiguration()) {
             // -- Display module configuration page --
             self::renderConfig();
 
@@ -84,7 +78,7 @@ class Plugins
 
         # -- Execute actions --
         try {
-            App::backend()->list->doActions();
+            App::backend()->modulesList()->doActions();
         } catch (Exception $e) {
             App::error()->add($e->getMessage());
         }
@@ -129,7 +123,7 @@ class Plugins
         if (!empty(App::backend()->plugins_install['success'])) {
             $success = [];
             foreach (App::backend()->plugins_install['success'] as $k => $v) {
-                $info      = implode(' - ', App::backend()->list->getSettingsUrls($k, true));
+                $info      = implode(' - ', App::backend()->modulesList()->getSettingsUrls($k, true));
                 $success[] = $k . ($info !== '' ? ' → ' . $info : '');
             }
             App::backend()->notices()->success(
@@ -178,8 +172,8 @@ class Plugins
         $parts = [];
 
         # Activated modules
-        $defines = App::backend()->list->modules->getDefines(
-            ['state' => App::backend()->list->modules->safeMode() ? ModuleDefine::STATE_SOFT_DISABLED : ModuleDefine::STATE_ENABLED]
+        $defines = App::backend()->modulesList()->modules->getDefines(
+            ['state' => App::backend()->modulesList()->modules->safeMode() ? ModuleDefine::STATE_SOFT_DISABLED : ModuleDefine::STATE_ENABLED]
         );
         if (!empty($defines)) {
             $parts[] = (new Set())
@@ -187,12 +181,12 @@ class Plugins
                     (new Text(
                         'h3',
                         (App::auth()->isSuperAdmin() ? __('Activated plugins') : __('Installed plugins')) .
-                        (App::backend()->list->modules->safeMode() ? ' ' . __('(in normal mode)') : '')
+                        (App::backend()->modulesList()->modules->safeMode() ? ' ' . __('(in normal mode)') : '')
                     )),
                     (new Note())
                         ->class('more-info')
                         ->text(__('You can configure and manage installed plugins from this list.')),
-                    (new Capture(App::backend()->list
+                    (new Capture(App::backend()->modulesList()
                         ->setList('plugin-activate')
                         ->setTab('plugins')
                         ->setDefines($defines)
@@ -207,7 +201,7 @@ class Plugins
 
         # Deactivated modules
         if (App::auth()->isSuperAdmin()) {
-            $defines = App::backend()->list->modules->getDefines(['state' => ModuleDefine::STATE_HARD_DISABLED]);
+            $defines = App::backend()->modulesList()->modules->getDefines(['state' => ModuleDefine::STATE_HARD_DISABLED]);
             if (!empty($defines)) {
                 $parts[] = (new Set())
                     ->items([
@@ -218,7 +212,7 @@ class Plugins
                         (new Note())
                             ->class('more-info')
                             ->text(__('Deactivated plugins are installed but not usable. You can activate them from here.')),
-                        (new Capture(App::backend()->list
+                        (new Capture(App::backend()->modulesList()
                             ->setList('plugin-deactivate')
                             ->setTab('plugins')
                             ->setDefines($defines)
@@ -248,7 +242,7 @@ class Plugins
             }
 
             // Updated modules from repo
-            $defines = App::backend()->list->store->getDefines(true);
+            $defines = App::backend()->modulesList()->store->getDefines(true);
 
             $tmp = new ArrayObject($defines);
 
@@ -266,7 +260,7 @@ class Plugins
                 $parts[] = (new Note())
                     ->text(sprintf(__('There is one plugin update available:', 'There are %s plugin updates available:', count($defines)), count($defines)));
 
-                $parts[] = (new Capture(App::backend()->list
+                $parts[] = (new Capture(App::backend()->modulesList()
                     ->setList('plugin-update')
                     ->setTab('update')
                     ->setDefines($defines)
@@ -288,7 +282,7 @@ class Plugins
                 ->items([
                     (new Text('h3', __('Update plugins'))),
                     (new Form('force-checking'))
-                        ->action(App::backend()->list->getURL('', true, 'update'))
+                        ->action(App::backend()->modulesList()->getURL('', true, 'update'))
                         ->method('get')
                         ->fields([
                             (new Para())
@@ -302,13 +296,13 @@ class Plugins
                 ]);
         }
 
-        if (App::auth()->isSuperAdmin() && App::backend()->list->isWritablePath()) {
+        if (App::auth()->isSuperAdmin() && App::backend()->modulesList()->isWritablePath()) {
             # New modules from repo
-            $search  = App::backend()->list->getSearch();
-            $defines = $search ? App::backend()->list->store->searchDefines($search) : App::backend()->list->store->getDefines();
+            $search  = App::backend()->modulesList()->getSearch();
+            $defines = $search ? App::backend()->modulesList()->store->searchDefines($search) : App::backend()->modulesList()->store->getDefines();
 
             if (!empty($search) || !empty($defines)) {
-                App::backend()->list
+                App::backend()->modulesList()
                     ->setList('plugin-new')
                     ->setTab('new')
                     ->setDefines($defines);
@@ -318,11 +312,11 @@ class Plugins
                     ->class('multi-part')
                     ->items([
                         (new Text('h3', __('Add plugins from repository'))),
-                        (new Capture(App::backend()->list
+                        (new Capture(App::backend()->modulesList()
                             ->displaySearch(...))),
-                        (new Capture(App::backend()->list
+                        (new Capture(App::backend()->modulesList()
                             ->displayIndex(...))),
-                        (new Capture(App::backend()->list
+                        (new Capture(App::backend()->modulesList()
                             ->displayModules(...), [
                                 // cols
                                 ['expander', 'name', 'score', 'version', 'desc', 'deps'],
@@ -346,7 +340,7 @@ class Plugins
                     (new Note())
                         ->class('more-info')
                         ->text(__('You can install plugins by uploading or downloading zip files.')),
-                    (new Capture(App::backend()->list->displayManualForm(...))),
+                    (new Capture(App::backend()->modulesList()->displayManualForm(...))),
                 ]);
         }
 
@@ -358,7 +352,7 @@ class Plugins
         ->render();
 
         # -- Notice for super admin --
-        if (App::auth()->isSuperAdmin() && !App::backend()->list->isWritablePath()) {
+        if (App::auth()->isSuperAdmin() && !App::backend()->modulesList()->isWritablePath()) {
             echo (new Note())
                 ->class('warning')
                 ->text(__('Some functions are disabled, please give write access to your plugins directory to enable them.'))
@@ -375,13 +369,13 @@ class Plugins
     public static function renderConfig(): void
     {
         // Get content before page headers
-        $include = App::backend()->list->includeConfiguration();
+        $include = App::backend()->modulesList()->includeConfiguration();
         if ($include) {
             include $include;
         }
 
         // Gather content
-        App::backend()->list->getConfiguration();
+        App::backend()->modulesList()->getConfiguration();
 
         // Display page
         App::backend()->page()->open(
@@ -392,14 +386,14 @@ class Plugins
             App::backend()->page()->breadcrumb(
                 [
                     Html::escapeHTML(App::blog()->name())                                 => '',
-                    __('Plugins management')                                              => App::backend()->list->getURL('', false),
+                    __('Plugins management')                                              => App::backend()->modulesList()->getURL('', false),
                     (new Span(__('Plugin configuration')))->class('page-title')->render() => '',
                 ]
             )
         );
 
         // Display previously gathered content
-        App::backend()->list->displayConfiguration();
+        App::backend()->modulesList()->displayConfiguration();
 
         if (!App::backend()->resources()->context()) {
             App::backend()->page()->helpBlock('core_plugins_conf');

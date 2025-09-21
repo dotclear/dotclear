@@ -13,7 +13,6 @@ namespace Dotclear\Process\Backend;
 
 use ArrayObject;
 use Dotclear\App;
-use Dotclear\Core\Backend\ModulesList;
 use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Form\Date;
 use Dotclear\Helper\Html\Form\Details;
@@ -339,7 +338,7 @@ class Home
         if (!empty(App::backend()->plugins_install['success'])) {
             $success = [];
             foreach (App::backend()->plugins_install['success'] as $k => $v) {
-                $info      = implode(' - ', ModulesList::getSettingsUrls($k, true));
+                $info      = implode(' - ', App::backend()->modulesList()->getSettingsUrls($k, true));
                 $success[] = $k . ($info !== '' ? ' → ' . $info : '');
             }
 

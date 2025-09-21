@@ -12,7 +12,6 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
-use Dotclear\Core\Backend\ModulesList;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Li;
 use Dotclear\Helper\Html\Form\Link;
@@ -117,7 +116,7 @@ class Settings
         foreach ($plugins as $plugin) {
             $id       = $plugin->getId();
             $name     = $plugin->get('name');
-            $settings = ModulesList::getSettingsUrls($id, true, keys: true, url_only: true);
+            $settings = App::backend()->modulesList()->getSettingsUrls($id, true, keys: true, url_only: true);
             if ($settings !== []) {
                 if ($name !== $id) {
                     $cols['description'] = true;
@@ -151,7 +150,7 @@ class Settings
         foreach ($plugins as $plugin) {
             $id       = $plugin->getId();
             $name     = $plugin->get('name');
-            $settings = ModulesList::getSettingsUrls($id, true, keys: true, url_only: true);
+            $settings = App::backend()->modulesList()->getSettingsUrls($id, true, keys: true, url_only: true);
             if ($settings !== [] || in_array($id, $widgets)) {
                 $rows[] = (new Tr())
                     ->class('line')
