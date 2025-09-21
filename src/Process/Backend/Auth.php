@@ -122,7 +122,7 @@ class Auth
         }
 
         // Set oAuth2 redirect URL
-        App::backend()->auth()->oauth(App::config()->adminUrl() . App::backend()->url()->get('admin.auth'));
+        App::backend()->auth()->oauth2(App::config()->adminUrl() . App::backend()->url()->get('admin.auth'));
 
         // 2fa verification
         App::backend()->verify_code = App::backend()->auth()->otp() !== false && isset($_POST['user_code']) && isset($_POST['login_data']);
