@@ -15,7 +15,6 @@ use ArrayObject;
 use Dotclear\App;
 use Dotclear\Core\Backend\Auth\OAuth2Client;
 use Dotclear\Core\Backend\Auth\OAuth2Store;
-use Dotclear\Core\Backend\Auth\WebAuthn;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Capture;
@@ -74,18 +73,9 @@ class UserPreferences
 
         if (App::config()->authPasswordOnly()) {
             App::backend()->oauth2   = null;
-            App::backend()->webauthn = null;
         } else {
             if (App::backend()->auth()->otp() !== false) {
                 App::backend()->auth()->otp()->setUser((string) App::auth()->userID());
-            }
-
-            // Create webauthn instance
-            try {
-                App::backend()->webauthn = new WebAuthn();
-            } catch (Exception $e) {
-                App::backend()->webauthn = null;
-                App::error()->add($e->getMessage());
             }
 
             // Create oAuth2 client instance
@@ -249,9 +239,9 @@ class UserPreferences
         }
 
         // webauthn action
-        if (App::backend()->webauthn !== null && !empty($_POST['webauthn'])) {
+        if (App::backend()->auth()->webauthn() !== false && !empty($_POST['webauthn'])) {
             // process webauhtn key deletion
-            App::backend()->webauthn->store()->delCredential(base64_decode((string) key($_POST['webauthn'])));
+            App::backend()->auth()->webauthn()->store()->delCredential(base64_decode((string) key($_POST['webauthn'])));
 
             App::backend()->notices()->addSuccessNotice(__('Passkey successfully deleted.'));
             App::backend()->url()->redirect('admin.user.preferences', [], '#user-profile');
@@ -694,15 +684,15 @@ class UserPreferences
 
         // webauthn (passkey) configuration
         $webauthn_items = [];
-        if (App::backend()->webauthn !== null) {
-            $webauthn_creds = App::backend()->webauthn->store()->getCredentials('', (string) App::auth()->userID());
+        if (App::backend()->auth()->webauthn() !== false) {
+            $webauthn_creds = App::backend()->auth()->webauthn()->store()->getCredentials('', (string) App::auth()->userID());
 
             foreach ($webauthn_creds as $webauthn_cred) {
                 $webauthn_items[] = (new Li())
                     ->separator(' ')
                     ->items([
                         (new Text('', Html::escapeHTML($webauthn_cred->label() ?: __('unlabeled key'))))
-                            ->title(App::backend()->webauthn->provider()->getProvider($webauthn_cred->UUID())),
+                            ->title(App::backend()->auth()->webauthn()->provider()->getProvider($webauthn_cred->UUID())),
                         (new Text('', sprintf(__('valid on %s'), $webauthn_cred->rpId())))
                             ->title(Date::dt2str(__('%Y-%m-%d %H:%M'), $webauthn_cred->createDate())),
                         (new Submit(['webauthn[' . base64_encode((string) $webauthn_cred->credentialId()) . ']'], __('Delete')))
@@ -885,7 +875,7 @@ class UserPreferences
                             ->separator('')
                             ->items($otp_items),
                         // wenauthn
-                        App::backend()->webauthn === null ? new None() : (new Fieldset('user_options_webauthn'))
+                        App::backend()->auth()->webauthn() === false ? new None() : (new Fieldset('user_options_webauthn'))
                             ->legend(new Legend(__('Authentication keys')))
                             ->separator('')
                             ->items([

@@ -14,7 +14,6 @@ namespace Dotclear\Process\Backend;
 use Dotclear\App;
 use Dotclear\Core\Backend\Auth\OAuth2Client;
 use Dotclear\Core\Backend\Auth\OAuth2Store;
-use Dotclear\Core\Backend\Auth\WebAuthn;
 use Dotclear\Core\Upgrade\Upgrade;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
@@ -127,20 +126,12 @@ class Auth
         // Disable exotic authentication
         if (App::config()->authPasswordOnly()) {
             App::backend()->oauth2   = null;
-            App::backend()->webauthn = null;
         } else {
             // Create oAuth2 client instance
             try {
                 App::backend()->oauth2 = App::backend()->safe_mode ? null : new OAuth2Client(
                     new OAuth2Store(App::config()->adminUrl() . App::backend()->url()->get('admin.auth'))
                 );
-            } catch (Exception) { // silently fail
-                App::backend()->oauth2 = null;
-            }
-
-            // Create webauthn instance
-            try {
-                App::backend()->webauthn = App::backend()->safe_mode ? null : new WebAuthn();
             } catch (Exception) { // silently fail
                 App::backend()->oauth2 = null;
             }
@@ -678,7 +669,7 @@ class Auth
                                 (new Submit('login', __('log in')))
                                     ->class('login'),
                             ]),
-                        App::backend()->webauthn === null ? new None() : (new Para('webauthn_action'))
+                        App::backend()->auth()->webauthn() === false ? new None() : (new Para('webauthn_action'))
                             ->class('hidden-if-no-js')
                             ->items([
                                 (new Button(['webauthn_button'], __('Sign in with a passkey')))

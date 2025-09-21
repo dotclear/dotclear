@@ -13,6 +13,7 @@ namespace Dotclear\Core\Backend;
 
 use Dotclear\App;
 use Dotclear\Core\Backend\Auth\Otp;
+use Dotclear\Core\Backend\Auth\WebAuthn;
 use Dotclear\Helper\Container\Container;
 use Dotclear\Helper\Container\Factory;
 use Throwable;
@@ -35,14 +36,24 @@ class Auth extends Container
     public function getDefaultServices(): array
     {
         return [
-            Otp::class => Otp::class,
+            Otp::class      => Otp::class,
+            WebAuthn::class => WebAuthn::class,
         ];
     }
 
     public function otp(): false|Otp
     {
         try {
-            return App::config()->authPasswordOnly() ? false : $this->get(Otp::class);
+            return App::backend()->safe_mode || App::config()->authPasswordOnly() ? false : $this->get(Otp::class);
+        } catch (Throwable) { // silently fail
+            return false;
+        }
+    }
+
+    public function webauthn(): false|WebAuthn
+    {
+        try {
+            return App::backend()->safe_mode || App::config()->authPasswordOnly() ? false : $this->get(WebAuthn::class);
         } catch (Throwable) { // silently fail
             return false;
         }

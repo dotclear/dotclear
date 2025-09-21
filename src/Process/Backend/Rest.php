@@ -13,7 +13,6 @@ namespace Dotclear\Process\Backend;
 
 use ArrayObject;
 use Dotclear\App;
-use Dotclear\Core\Backend\Auth\WebAuthn;
 use Dotclear\Core\Upgrade\Update;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\File\File;
@@ -966,20 +965,22 @@ class Rest
             throw new Exception('unknown user id');
         }
 
-        $webauthn = new WebAuthn();
+        if (App::backend()->auth()->webauthn() === false) {
+            throw new Exception('Can not use WebAuthn authentication');
+        }
 
         switch ($post['step'] ?? '') {
             case 'prepare':
                 return [
                     'message'   => 'ok',
-                    'arguments' => $webauthn->prepareCreate(),
+                    'arguments' => App::backend()->auth()->webauthn()->prepareCreate(),
                 ];
 
             case 'process':
-                $webauthn->processCreate(
-                    $webauthn->store()->decodeValue($post['client'] ?? ''),
-                    $webauthn->store()->decodeValue($post['attestation'] ?? ''),
-                    $webauthn->store()->decodeValue($post['transports'] ?? ''),
+                App::backend()->auth()->webauthn()->processCreate(
+                    App::backend()->auth()->webauthn()->store()->decodeValue($post['client'] ?? ''),
+                    App::backend()->auth()->webauthn()->store()->decodeValue($post['attestation'] ?? ''),
+                    App::backend()->auth()->webauthn()->store()->decodeValue($post['transports'] ?? ''),
                     $post['label'] ?? ''
                 );
 
@@ -1006,22 +1007,24 @@ class Rest
             throw new Exception('user allready logged in');
         }
 
-        $webauthn = new WebAuthn();
+        if (App::backend()->auth()->webauthn() === false) {
+            throw new Exception('Can not use WebAuthn authentication');
+        }
 
         switch ($post['step'] ?? '') {
             case 'prepare':
                 return [
                     'message'   => 'ok',
-                    'arguments' => $webauthn->prepareGet(),
+                    'arguments' => App::backend()->auth()->webauthn()->prepareGet(),
                 ];
 
             case 'process':
-                $data = $webauthn->processGet(
-                    $webauthn->store()->decodeValue($post['id'] ?? ''),
-                    $webauthn->store()->decodeValue($post['client'] ?? ''),
-                    $webauthn->store()->decodeValue($post['authenticator'] ?? ''),
-                    $webauthn->store()->decodeValue($post['signature'] ?? ''),
-                    $webauthn->store()->decodeValue($post['user'] ?? '')
+                $data = App::backend()->auth()->webauthn()->processGet(
+                    App::backend()->auth()->webauthn()->store()->decodeValue($post['id'] ?? ''),
+                    App::backend()->auth()->webauthn()->store()->decodeValue($post['client'] ?? ''),
+                    App::backend()->auth()->webauthn()->store()->decodeValue($post['authenticator'] ?? ''),
+                    App::backend()->auth()->webauthn()->store()->decodeValue($post['signature'] ?? ''),
+                    App::backend()->auth()->webauthn()->store()->decodeValue($post['user'] ?? '')
                 );
 
                 if ($data !== ''
