@@ -100,7 +100,7 @@ class Media
         }
 
         # User last and fav dirs
-        if (App::backend()->mediaPage()->showLast()) {
+        if (App::backend()->mediaPage()->showLast() > 0) {
             if (!empty($_GET['fav']) && App::backend()->mediaPage()->updateFav(rtrim((string) App::backend()->mediaPage()->d, '/'), $_GET['fav'] == 'n')) {
                 App::backend()->url()->redirect('admin.media', App::backend()->mediaPage()->values());
             }
@@ -323,7 +323,7 @@ class Media
         // Recent media folders
         $recent_folders      = new None();
         $recent_folders_list = [];
-        if (App::backend()->mediaPage()->showLast()) {
+        if (App::backend()->mediaPage()->showLast() > 0) {
             $fav_url      = '';
             $fav_img      = '';
             $fav_img_dark = '';

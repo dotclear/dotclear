@@ -186,16 +186,16 @@ class BlogTheme
         $defines = App::backend()->themesList()->modules->getDefines(
             ['state' => App::backend()->themesList()->modules->safeMode() ? ModuleDefine::STATE_SOFT_DISABLED : ModuleDefine::STATE_ENABLED]
         );
-        if (!empty($defines)) {
+        if ($defines !== []) {
             $list = fn () => App::backend()->themesList()
                 ->setList('theme-activate')
                 ->setTab('themes')
                 ->setDefines($defines)
-                ->displayModules(
+                ->displayModulesFinal(
                     // cols
                     ['sshot', 'distrib', 'name', 'config', 'desc', 'tplset', 'author', 'version', 'date', 'parent'],
                     // actions
-                    ['select', 'behavior', 'deactivate', 'clone', 'delete']
+                    ['select', 'behavior', 'deactivate', 'clone', 'delete'],
                 );
 
             $parts[] = (new Div('themes'))
@@ -212,16 +212,16 @@ class BlogTheme
 
         // Deactivated modules
         $defines = App::backend()->themesList()->modules->getDefines(['state' => ModuleDefine::STATE_HARD_DISABLED]);
-        if (!empty($defines)) {
+        if ($defines !== []) {
             $list = fn () => App::backend()->themesList()
                 ->setList('theme-deactivate')
                 ->setTab('themes')
                 ->setDefines($defines)
-                ->displayModules(
+                ->displayModulesFinal(
                     // cols
                     ['sshot', 'name', 'distrib', 'desc', 'tplset', 'author', 'version'],
                     // actions
-                    ['activate', 'delete']
+                    ['activate', 'delete'],
                 );
 
             $parts[] = (new Div('deactivate'))
@@ -267,7 +267,7 @@ class BlogTheme
                 ->setList('theme-update')
                 ->setTab('themes')
                 ->setDefines($defines)
-                ->displayModules(
+                ->displayModulesFinal(
                     // cols
                     ['checkbox', 'name', 'sshot', 'desc', 'tplset', 'author', 'version', 'current_version', 'repository', 'parent'],
                     // actions
@@ -321,14 +321,14 @@ class BlogTheme
             $search  = App::backend()->themesList()->getSearch();
             $defines = $search ? App::backend()->themesList()->store->searchDefines($search) : App::backend()->themesList()->store->getDefines();
 
-            if (!empty($search) || !empty($defines)) {
+            if ($defines !== []) {
                 $list = fn () => App::backend()->themesList()
                     ->setList('theme-new')
                     ->setTab('new')
                     ->setDefines($defines)
                     ->displaySearch()
                     ->displayIndex()
-                    ->displayModules(
+                    ->displayModulesFinal(
                         // cols
                         ['expander', 'sshot', 'name', 'score', 'config', 'desc', 'tplset', 'author', 'version', 'parent', 'details', 'support'],
                         // actions
@@ -353,7 +353,7 @@ class BlogTheme
             }
 
             // Add a new theme
-            $list = fn () => App::backend()->themesList()->displayManualForm();
+            $list = fn () => App::backend()->themesList()->displayManualFormFinal();
 
             $parts[] = (new Div('addtheme'))
                 ->title(__('Install or upgrade manually'))

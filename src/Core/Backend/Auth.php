@@ -48,7 +48,7 @@ class Auth extends Container
      */
     public function isAllowed(): bool
     {
-        return App::backend()->safe_mode !== true && App::config()->authPasswordOnly() !== true;
+        return App::backend()->safe_mode !== true && !App::config()->authPasswordOnly();
     }
 
     /**

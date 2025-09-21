@@ -694,7 +694,7 @@ class Auth
                             $oauth2_service::getId(),
                             App::config()->adminUrl() . App::backend()->url()->get('admin.auth')
                         );
-                        if ($link !== null) {
+                        if (!is_null($link)) {
                             $oauth2_items[] = (new Para())
                                 ->class('wide-button')
                                 ->items([$link]);

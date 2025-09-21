@@ -1180,6 +1180,14 @@ class ModulesList
     }
 
     /**
+     * Same as displayModules(...) but without returning object instance
+     */
+    public function displayModulesFinal(array $cols = ['name', 'version', 'desc'], array $actions = [], bool $nav_limit = false): void
+    {
+        $this->displayModules($cols, $actions, $nav_limit);
+    }
+
+    /**
      * Get settings URLs if any
      *
      * @param   string  $id         Module ID
@@ -1827,6 +1835,14 @@ class ModulesList
         ->render();
 
         return $this;
+    }
+
+    /**
+     * Same as displayManualForm but without returning object instance
+     */
+    public function displayManualFormFinal(): void
+    {
+        $this->displayManualForm();
     }
 
     ///@}

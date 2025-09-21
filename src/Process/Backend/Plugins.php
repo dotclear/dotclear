@@ -175,7 +175,7 @@ class Plugins
         $defines = App::backend()->modulesList()->modules->getDefines(
             ['state' => App::backend()->modulesList()->modules->safeMode() ? ModuleDefine::STATE_SOFT_DISABLED : ModuleDefine::STATE_ENABLED]
         );
-        if (!empty($defines)) {
+        if ($defines !== []) {
             $parts[] = (new Set())
                 ->items([
                     (new Text(
@@ -202,7 +202,7 @@ class Plugins
         # Deactivated modules
         if (App::auth()->isSuperAdmin()) {
             $defines = App::backend()->modulesList()->modules->getDefines(['state' => ModuleDefine::STATE_HARD_DISABLED]);
-            if (!empty($defines)) {
+            if ($defines !== []) {
                 $parts[] = (new Set())
                     ->items([
                         (new Text(
@@ -301,7 +301,7 @@ class Plugins
             $search  = App::backend()->modulesList()->getSearch();
             $defines = $search ? App::backend()->modulesList()->store->searchDefines($search) : App::backend()->modulesList()->store->getDefines();
 
-            if (!empty($search) || !empty($defines)) {
+            if ($defines !== []) {
                 App::backend()->modulesList()
                     ->setList('plugin-new')
                     ->setTab('new')

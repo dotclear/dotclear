@@ -713,7 +713,7 @@ class UserPreferences
                     true
                 );
 
-                if ($oauth_link !== null) {
+                if (!is_null($oauth_link)) {
                     $oauth2_div  = [];
                     $oauth2_user = App::backend()->auth()->oauth2()->store()->getLocalUser($oauth2_service::getId());
                     if ($oauth2_user->isConfigured()) {
