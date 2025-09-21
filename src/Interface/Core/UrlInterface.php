@@ -236,13 +236,6 @@ interface UrlInterface
     public static function preview(?string $args): void;
 
     /**
-     * Output the Theme preview page
-     *
-     * @param      null|string  $args   The arguments
-     */
-    public static function try(?string $args): void;
-
-    /**
      * Output the Feed page
      *
      * @param      null|string  $args   The arguments

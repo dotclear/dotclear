@@ -203,7 +203,7 @@ class BlogTheme
                     // cols
                     ['sshot', 'distrib', 'name', 'config', 'desc', 'tplset', 'author', 'version', 'date', 'parent'],
                     // actions
-                    ['select', 'behavior', 'deactivate', 'clone', 'delete', 'try']
+                    ['select', 'behavior', 'deactivate', 'clone', 'delete']
                 );
 
             $parts[] = (new Div('themes'))
@@ -229,7 +229,7 @@ class BlogTheme
                     // cols
                     ['sshot', 'name', 'distrib', 'desc', 'tplset', 'author', 'version'],
                     // actions
-                    ['activate', 'delete', 'try']
+                    ['activate', 'delete']
                 );
 
             $parts[] = (new Div('deactivate'))

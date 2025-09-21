@@ -78,11 +78,6 @@ class Utility extends AbstractUtility
     public bool $theme_overload;
 
     /**
-     * Is in theme preview mode?
-     */
-    public bool $theme_preview = false;
-
-    /**
      * Smilies definitions
      *
      * @var array<string, string>    $smilies

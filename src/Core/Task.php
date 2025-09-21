@@ -203,7 +203,6 @@ class Task implements TaskInterface
             $this->core->url()->register('preview', 'preview', '^preview/(.+)$', $this->core->url()::preview(...));
             $this->core->url()->register('category', 'category', '^category/(.+)$', $this->core->url()::category(...));
             $this->core->url()->register('archive', 'archive', '^archive(/.+)?$', $this->core->url()::archive(...));
-            $this->core->url()->register('try', 'try', '^try/(.+)$', $this->core->url()::try(...));
 
             $this->core->url()->register('feed', 'feed', '^feed/(.+)$', $this->core->url()::feed(...));
             $this->core->url()->register('trackback', 'trackback', '^trackback/(.+)$', $this->core->url()::trackback(...));
