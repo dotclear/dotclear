@@ -17,7 +17,6 @@ use Dotclear\Core\Backend\Auth\OAuth2Client;
 use Dotclear\Core\Backend\Auth\OAuth2Store;
 use Dotclear\Core\Backend\Auth\Otp;
 use Dotclear\Core\Backend\Auth\WebAuthn;
-use Dotclear\Core\Backend\UserPref;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Capture;
@@ -217,10 +216,10 @@ class UserPreferences
         App::backend()->rte = $rte;
 
         // Get default colums (admin lists)
-        App::backend()->cols = UserPref::getUserColumns();
+        App::backend()->cols = App::backend()->userPref()->getUserColumns();
 
         // Get default sortby, order, nbperpage (admin lists)
-        App::backend()->sorts = UserPref::getUserFilters();
+        App::backend()->sorts = App::backend()->userPref()->getUserFilters();
 
         App::backend()->order_combo = [
             __('Descending') => 'desc',

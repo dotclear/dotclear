@@ -134,6 +134,7 @@ class Utility extends AbstractUtility
             Page::class      => Page::class,
             Resources::class => Resources::class,
             Url::class       => Url::class,
+            UserPref::class  => UserPref::class,
         ];
     }
 
@@ -199,6 +200,14 @@ class Utility extends AbstractUtility
     public function url(): Url
     {
         return $this->get(Url::class);
+    }
+
+    /**
+     * Get backend user preferences instance.
+     */
+    public function userPref(): UserPref
+    {
+        return $this->get(UserPref::class);
     }
 
     public static function init(): bool

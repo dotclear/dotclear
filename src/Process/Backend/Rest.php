@@ -14,7 +14,6 @@ namespace Dotclear\Process\Backend;
 use ArrayObject;
 use Dotclear\App;
 use Dotclear\Core\Backend\Auth\WebAuthn;
-use Dotclear\Core\Backend\UserPref;
 use Dotclear\Core\Upgrade\Update;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\File\File;
@@ -924,7 +923,7 @@ class Rest
             throw new Exception('No list name');
         }
 
-        $sorts = UserPref::getUserFilters();
+        $sorts = App::backend()->userPref()->getUserFilters();
 
         if (!isset($sorts[$post['id']])) {
             throw new Exception('List name invalid');

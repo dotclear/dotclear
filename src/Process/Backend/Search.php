@@ -16,7 +16,6 @@ use Dotclear\Core\Backend\Action\ActionsComments;
 use Dotclear\Core\Backend\Action\ActionsPosts;
 use Dotclear\Core\Backend\Listing\ListingComments;
 use Dotclear\Core\Backend\Listing\ListingPosts;
-use Dotclear\Core\Backend\UserPref;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Fieldset;
@@ -132,7 +131,7 @@ class Search
         }
 
         App::backend()->page = empty($_GET['page']) ? 1 : max(1, (int) $_GET['page']);
-        App::backend()->nb   = UserPref::getUserFilters('search', 'nb');
+        App::backend()->nb   = App::backend()->userPref()->getUserFilters('search', 'nb');
         if (!empty($_GET['nb']) && (int) $_GET['nb'] > 0) {
             App::backend()->nb = (int) $_GET['nb'];
         }
