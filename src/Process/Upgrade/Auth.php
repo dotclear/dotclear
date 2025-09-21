@@ -12,9 +12,6 @@ declare(strict_types=1);
 namespace Dotclear\Process\Upgrade;
 
 use Dotclear\App;
-use Dotclear\Core\Upgrade\Otp;
-use Dotclear\Core\Upgrade\Page;
-use Dotclear\Core\Upgrade\Upgrade;
 use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Fieldset;
@@ -52,7 +49,6 @@ class Auth
     private static ?string $err      = null;
     private static ?string $msg      = null;
 
-    private static ?Otp $otp           = null;
     private static bool $verify_code   = false;
     private static bool $require_2fa   = false;
     private static ?string $login_data = null;
@@ -96,7 +92,7 @@ class Auth
         // Auto upgrade
         if ((count($_GET) === 1 && $_POST === [])) {
             try {
-                if (($changes = Upgrade::dotclearUpgrade()) !== false) {
+                if (($changes = App::upgrade()->upgrade()->dotclearUpgrade()) !== false) {
                     self::$msg = __('Dotclear has been upgraded.') . '<!-- ' . $changes . ' -->';
                 }
             } catch (Exception $e) {
@@ -109,27 +105,15 @@ class Auth
             App::rest()->enableRestServer(true);
         }
 
-        // Disable otp authentication
-        if (App::config()->authPasswordOnly()) {
-            self::$otp = null;
-        } else {
-            // Create otp instance
-            try {
-                self::$otp = new Otp();
-            } catch (Exception) { // silently fail
-                self::$otp = null;
-            }
-        }
-
         // 2fa verification
-        self::$verify_code = self::$otp instanceof Otp && isset($_POST['user_code']) && isset($_POST['login_data']);
+        self::$verify_code = App::upgrade()->otp() !== null && isset($_POST['user_code']) && isset($_POST['login_data']);
 
         return self::status(true);
     }
 
     public static function process(): bool
     {
-        if (self::$otp instanceof Otp && self::$verify_code) {
+        if (App::upgrade()->otp() !== null && self::$verify_code) {
             //Check 2fa code
 
             $tmp_data = explode('/', (string) $_POST['login_data']);
@@ -162,7 +146,7 @@ class Auth
 
             // Check user permissions
             $check_perms = $check_user  && App::auth()->isSuperAdmin();
-            $check_code  = $check_perms && self::$otp->setUser((string) self::$user_id)->verifyCode($_POST['user_code']);
+            $check_code  = $check_perms && App::upgrade()->otp()->setUser((string) self::$user_id)->verifyCode($_POST['user_code']);
 
             if ($check_code) {
                 App::session()->set('sess_user_id', self::$user_id);
@@ -214,7 +198,7 @@ class Auth
                 // User may log-in
 
                 // Check if user need 2fa
-                self::$require_2fa = self::$otp instanceof Otp && self::$otp->setUser(self::$user_id)->isVerified();
+                self::$require_2fa = App::upgrade()->otp() !== null && App::upgrade()->otp()->setUser(self::$user_id)->isVerified();
 
                 if (self::$require_2fa) {
                     // Required 2fa authentication. Skip normal login and go to 2fa form
@@ -300,7 +284,7 @@ class Auth
             // User-defined authentication form
 
             $fields[] = new Text('', $user_defined_auth_form(self::$user_id));
-        } elseif (self::$otp instanceof Otp && self::$require_2fa) {
+        } elseif (App::upgrade()->otp() !== null && self::$require_2fa) {
             // 2FA verification
             $fields[] = (new Set())
                 ->items([
@@ -313,7 +297,7 @@ class Auth
                                     (new Input('user_code'))
                                         ->label((new Label(__('Enter code:'), Label::IL_TF)))
                                         ->size(20)
-                                        ->maxlength(self::$otp->getDigits())
+                                        ->maxlength(App::upgrade()->otp()->getDigits())
                                         ->default('')
                                         ->translate(false)
                                         ->autocomplete('one-time-code')
@@ -399,14 +383,14 @@ class Auth
         '  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">' . "\n" .
         '  <link rel="stylesheet" href="style/default.css" type="text/css" media="screen">' .
 
-        Page::jsCommon() .
-        Page::jsJson('pwstrength', [
+        App::upgrade()->page()->jsCommon() .
+        App::upgrade()->page()->jsJson('pwstrength', [
             'min' => sprintf(__('Password strength: %s'), __('weak')),
             'avg' => sprintf(__('Password strength: %s'), __('medium')),
             'max' => sprintf(__('Password strength: %s'), __('strong')),
         ]) .
-        Page::jsLoad('js/pwstrength.js') .
-        Page::jsLoad('js/_auth.js') .
+        App::upgrade()->page()->jsLoad('js/pwstrength.js') .
+        App::upgrade()->page()->jsLoad('js/_auth.js') .
 
         '</head>' . "\n" .
         '<body id="dotclear-admin" class="auth">' . "\n" .

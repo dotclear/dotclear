@@ -12,21 +12,17 @@ declare(strict_types=1);
 namespace Dotclear\Process\Upgrade;
 
 use Dotclear\App;
-use Dotclear\Core\Upgrade\Page;
-use Dotclear\Core\Upgrade\Update;
-use Dotclear\Helper\Html\Form\{
-    Div,
-    Form,
-    Hidden,
-    Li,
-    Link,
-    Note,
-    Para,
-    Strong,
-    Submit,
-    Text,
-    Ul
-};
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Li;
+use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Strong;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\Ul;
 use Dotclear\Helper\Process\TraitProcess;
 use Exception;
 
@@ -39,7 +35,6 @@ class Upgrade
 {
     use TraitProcess;
 
-    private static Update $updater;
     private static bool|string $new_ver = false;
     private static string $zip_file     = '';
     private static string $version_info = '';
@@ -48,14 +43,14 @@ class Upgrade
 
     public static function init(): bool
     {
-        Page::checkSuper();
+        App::upgrade()->page()->checkSuper();
 
         // Check backup path existence
         if (!is_dir(App::config()->backupRoot())) {
-            Page::open(
+            App::upgrade()->page()->open(
                 __('Dotclear update'),
                 '',
-                Page::breadcrumb(
+                App::upgrade()->page()->breadcrumb(
                     [
                         __('Dotclear update') => '',
                         __('Update')          => '',
@@ -71,16 +66,16 @@ class Upgrade
                 ])
                 ->render();
 
-            Page::helpBlock('core_upgrade');
-            Page::close();
+            App::upgrade()->page()->helpBlock('core_upgrade');
+            App::upgrade()->page()->close();
             dotclear_exit();
         }
 
         if (!is_readable(App::config()->digestsRoot())) {
-            Page::open(
+            App::upgrade()->page()->open(
                 __('Dotclear update'),
                 '',
-                Page::breadcrumb(
+                App::upgrade()->page()->breadcrumb(
                     [
                         __('Dotclear update') => '',
                         __('Update')          => '',
@@ -96,23 +91,22 @@ class Upgrade
                 ])
                 ->render();
 
-            Page::helpBlock('core_upgrade');
-            Page::close();
+            App::upgrade()->page()->helpBlock('core_upgrade');
+            App::upgrade()->page()->close();
             dotclear_exit();
         }
 
-        self::$updater = new Update(App::config()->coreUpdateUrl(), 'dotclear', App::config()->coreUpdateCanal(), App::config()->cacheRoot() . DIRECTORY_SEPARATOR . Update::CACHE_FOLDER);
-        self::$new_ver = self::$updater->check(App::config()->dotclearVersion(), !empty($_GET['nocache']));
+        self::$new_ver = App::upgrade()->update()->check(App::config()->dotclearVersion(), !empty($_GET['nocache']));
 
         if (self::$new_ver) {
-            self::$zip_file       = App::config()->backupRoot() . '/' . basename((string) self::$updater->getFileURL());
-            self::$version_info   = (string) self::$updater->getInfoURL();
-            self::$update_warning = self::$updater->getWarning();
+            self::$zip_file       = App::config()->backupRoot() . '/' . basename((string) App::upgrade()->update()->getFileURL());
+            self::$version_info   = (string) App::upgrade()->update()->getInfoURL();
+            self::$update_warning = App::upgrade()->update()->getWarning();
         }
 
         # Hide "update me" message
         if (!empty($_GET['hide_msg'])) {
-            self::$updater->setNotify(false);
+            App::upgrade()->update()->setNotify(false);
             App::upgrade()->url()->redirect('upgrade.home');
         }
 
@@ -127,17 +121,17 @@ class Upgrade
         # Upgrade process
         if (self::$new_ver && self::$step) {
             try {
-                self::$updater->setForcedFiles('inc/digests');
+                App::upgrade()->update()->setForcedFiles('inc/digests');
 
                 switch (self::$step) {
                     case 'check':
-                        self::$updater->checkIntegrity(App::config()->dotclearRoot() . '/inc/digests', App::config()->dotclearRoot());
+                        App::upgrade()->update()->checkIntegrity(App::config()->dotclearRoot() . '/inc/digests', App::config()->dotclearRoot());
                         App::upgrade()->url()->redirect('upgrade.upgrade', ['step' => 'download']);
 
                         break;
                     case 'download':
-                        self::$updater->download(self::$zip_file);
-                        if (!self::$updater->checkDownload(self::$zip_file)) {
+                        App::upgrade()->update()->download(self::$zip_file);
+                        if (!App::upgrade()->update()->checkDownload(self::$zip_file)) {
                             throw new Exception(
                                 sprintf(
                                     __('Downloaded Dotclear archive seems to be corrupted. Try <a %s>download it</a> again.'),
@@ -154,7 +148,7 @@ class Upgrade
 
                         break;
                     case 'backup':
-                        self::$updater->backup(
+                        App::upgrade()->update()->backup(
                             self::$zip_file,
                             'dotclear/inc/digests',
                             App::config()->dotclearRoot(),
@@ -165,7 +159,7 @@ class Upgrade
 
                         break;
                     case 'unzip':
-                        self::$updater->performUpgrade(
+                        App::upgrade()->update()->performUpgrade(
                             self::$zip_file,
                             'dotclear/inc/digests',
                             'dotclear',
@@ -181,24 +175,24 @@ class Upgrade
             } catch (Exception $e) {
                 $msg = $e->getMessage();
 
-                if ($e->getCode() == Update::ERR_FILES_CHANGED) {
+                if ($e->getCode() == App::upgrade()->update()::ERR_FILES_CHANGED) {
                     $msg = sprintf(
                         __('The following files of your Dotclear installation have been modified so we won\'t try to update your installation. Please try to <a href="%s">update manually</a>.'),
                         'https://dotclear.org/download'
                     );
-                } elseif ($e->getCode() == Update::ERR_FILES_UNREADABLE) {
+                } elseif ($e->getCode() == App::upgrade()->update()::ERR_FILES_UNREADABLE) {
                     $msg = sprintf(
                         __('The following files of your Dotclear installation are not readable. Please fix this or try to make a backup file named %s manually.'),
                         (new Strong('backup-' . App::config()->dotclearVersion() . '.zip'))->render()
                     );
-                } elseif ($e->getCode() == Update::ERR_FILES_UNWRITALBE) {
+                } elseif ($e->getCode() == App::upgrade()->update()::ERR_FILES_UNWRITALBE) {
                     $msg = sprintf(
                         __('The following files of your Dotclear installation cannot be written. Please fix this or try to <a href="%s">update manually</a>.'),
                         'https://dotclear.org/download'
                     );
                 }
 
-                if (($bad_files = self::$updater->getBadFiles()) !== []) {
+                if (($bad_files = App::upgrade()->update()->getBadFiles()) !== []) {
                     $msg .= (new Ul())
                         ->items(array_map(
                             fn (string $bad_file): Li => (new Li())
@@ -273,9 +267,9 @@ class Upgrade
                             : (new Text()),
                     ]);
 
-                if (version_compare(phpversion(), (string) self::$updater->getPHPVersion()) < 0) {
+                if (version_compare(phpversion(), (string) App::upgrade()->update()->getPHPVersion()) < 0) {
                     $items[] = (new Note())
-                        ->text(sprintf(__('PHP version is %1$s (%2$s or earlier needed).'), phpversion(), self::$updater->getPHPVersion()))
+                        ->text(sprintf(__('PHP version is %1$s (%2$s or earlier needed).'), phpversion(), App::upgrade()->update()->getPHPVersion()))
                         ->class('warning-msg');
                 } else {
                     $items[] = (new Form('updcheck'))
@@ -315,10 +309,10 @@ class Upgrade
                 ]);
         }
 
-        Page::open(
+        App::upgrade()->page()->open(
             __('Dotclear update'),
-            self::$step === '' ? Page::jsLoad('js/_update.js') : '',
-            Page::breadcrumb(
+            self::$step === '' ? App::upgrade()->page()->jsLoad('js/_update.js') : '',
+            App::upgrade()->page()->breadcrumb(
                 [
                     __('Dotclear update') => '',
                     __('Update')          => '',
@@ -337,7 +331,7 @@ class Upgrade
                 ->render();
         }
 
-        Page::helpBlock('core_upgrade');
-        Page::close();
+        App::upgrade()->page()->helpBlock('core_upgrade');
+        App::upgrade()->page()->close();
     }
 }

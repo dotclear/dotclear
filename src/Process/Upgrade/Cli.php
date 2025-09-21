@@ -12,7 +12,6 @@ namespace Dotclear\Process\Upgrade;
 
 use Dotclear\App;
 use Dotclear\Helper\Process\TraitProcess;
-use Dotclear\Core\Upgrade\Upgrade;
 use Dotclear\Exception\ProcessException;
 use Throwable;
 
@@ -45,7 +44,7 @@ class Cli
             App::db()->con()->begin();
 
             try {
-                $changes = (int) Upgrade::dotclearUpgrade();
+                $changes = (int) App::upgrade()->upgrade()->dotclearUpgrade();
             } catch (Throwable $e) {
                 App::db()->con()->rollback();
 

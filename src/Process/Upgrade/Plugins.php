@@ -12,29 +12,23 @@ declare(strict_types=1);
 namespace Dotclear\Process\Upgrade;
 
 use Dotclear\App;
-use Dotclear\Core\Upgrade\NextStore;
-use Dotclear\Core\Upgrade\Notices;
-use Dotclear\Core\Upgrade\Page;
-use Dotclear\Core\Upgrade\PluginsList;
-use Dotclear\Helper\Html\Form\{
-    Caption,
-    Capture,
-    Div,
-    Form,
-    Hidden,
-    Img,
-    Li,
-    Note,
-    Para,
-    Set,
-    Submit,
-    Table,
-    Td,
-    Text,
-    Th,
-    Tr,
-    Ul
-};
+use Dotclear\Helper\Html\Form\Caption;
+use Dotclear\Helper\Html\Form\Capture;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Img;
+use Dotclear\Helper\Html\Form\Li;
+use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Set;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Table;
+use Dotclear\Helper\Html\Form\Td;
+use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\Th;
+use Dotclear\Helper\Html\Form\Tr;
+use Dotclear\Helper\Html\Form\Ul;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Module\ModuleDefine;
@@ -51,8 +45,6 @@ class Plugins
 {
     use TraitProcess;
 
-    private static PluginsList $plugins_list;
-
     /**
      * @var     array<int, ModuleDefine>    $next_store
      */
@@ -65,7 +57,7 @@ class Plugins
 
     public static function init(): bool
     {
-        Page::checkSuper();
+        App::upgrade()->page()->checkSuper();
 
         // Load modules in safe mode
         App::plugins()->safeMode(true);
@@ -76,25 +68,17 @@ class Plugins
             App::error()->add(__('Some plugins could not be loaded.'));
         }
 
-        // -- Page helper --
-        self::$plugins_list = new PluginsList(
-            App::plugins(),
-            App::config()->pluginsRoot(),
-            App::blog()->settings()->system->store_plugin_url,
-            empty($_GET['nocache']) ? null : true
-        );
-
-        PluginsList::$allow_multi_install = App::config()->allowMultiModules();
+        App::upgrade()->pluginsList()::$allow_multi_install = App::config()->allowMultiModules();
 
         # -- Execute actions --
         try {
-            self::$plugins_list->doActions();
+            App::upgrade()->pluginsList()->doActions();
         } catch (Throwable $e) {
             App::error()->add($e->getMessage());
         }
 
         if (!empty($_POST['nextstorecheck'])) {
-            self::$next_store = (new NextStore(App::plugins(), (string) App::blog()->settings()->get('system')->get('store_plugin_url'), true))->getDefines(true);
+            self::$next_store = App::upgrade()->nextStore()->getDefines(true);
         }
 
         return self::status(true);
@@ -116,10 +100,10 @@ class Plugins
                 if (!empty(self::$plugins_install['success'])) {
                     $success = [];
                     foreach (array_keys(self::$plugins_install['success']) as $k) {
-                        $info      = implode(' - ', self::$plugins_list->getSettingsUrls($k, true));
+                        $info      = implode(' - ', App::upgrade()->pluginsList()->getSettingsUrls($k, true));
                         $success[] = $k . ($info !== '' ? ' → ' . $info : '');
                     }
-                    Notices::success(
+                    App::upgrade()->notices()->success(
                         (new Div())
                             ->items([
                                 (new Note())
@@ -141,7 +125,7 @@ class Plugins
                         $failure[] = $k . ' (' . $v . ')';
                     }
 
-                    Notices::error(
+                    App::upgrade()->notices()->error(
                         (new Div())
                             ->items([
                                 (new Note())
@@ -161,11 +145,11 @@ class Plugins
         }
 
         if (null == App::blog()->settings()->system->store_plugin_url) {
-            Notices::addMessageNotice(__('Official plugins repository could not be updated as there is no URL set in configuration.'));
+            App::upgrade()->notices()->addMessageNotice(__('Official plugins repository could not be updated as there is no URL set in configuration.'));
         }
 
         if (!App::error()->flag() && !empty($_GET['nocache'])) {
-            Notices::addSuccessNotice(__('Manual checking of plugins update done successfully.'));
+            App::upgrade()->notices()->addSuccessNotice(__('Manual checking of plugins update done successfully.'));
         }
 
         return true;
@@ -174,15 +158,15 @@ class Plugins
     public static function render(): void
     {
         // -- Page header --
-        Page::open(
+        App::upgrade()->page()->open(
             __('Plugins management'),
             (
                 empty($_GET['nocache']) && empty($_GET['showupdate']) ?
-                Page::jsJson('module_update_url', App::upgrade()->url()->get('upgrade.plugins', ['showupdate' => 1]) . '#update') : ''
+                App::upgrade()->page()->jsJson('module_update_url', App::upgrade()->url()->get('upgrade.plugins', ['showupdate' => 1]) . '#update') : ''
             ) .
-            Page::jsLoad('js/_plugins.js') .
-            Page::jsPageTabs(),
-            Page::breadcrumb(
+            App::upgrade()->page()->jsLoad('js/_plugins.js') .
+            App::upgrade()->page()->jsPageTabs(),
+            App::upgrade()->page()->breadcrumb(
                 [
                     __('Dotclear update')    => '',
                     __('Plugins management') => '',
@@ -197,8 +181,8 @@ class Plugins
         $parts = [];
 
         # Activated modules
-        $defines = self::$plugins_list->modules->getDefines(
-            ['state' => self::$plugins_list->modules->safeMode() ? ModuleDefine::STATE_SOFT_DISABLED : ModuleDefine::STATE_ENABLED]
+        $defines = App::upgrade()->pluginsList()->modules->getDefines(
+            ['state' => App::upgrade()->pluginsList()->modules->safeMode() ? ModuleDefine::STATE_SOFT_DISABLED : ModuleDefine::STATE_ENABLED]
         );
         if ($defines !== []) {
             $parts[] = (new Set())
@@ -210,7 +194,7 @@ class Plugins
                     (new Note())
                         ->class('more-info')
                         ->text(__('You can configure and manage installed plugins from this list.')),
-                    (new Capture(self::$plugins_list
+                    (new Capture(App::upgrade()->pluginsList()
                         ->setList('plugin-activate')
                         ->setTab('plugins')
                         ->setDefines($defines)
@@ -224,7 +208,7 @@ class Plugins
         }
 
         # Deactivated modules
-        $defines = self::$plugins_list->modules->getDefines(['state' => ModuleDefine::STATE_HARD_DISABLED]);
+        $defines = App::upgrade()->pluginsList()->modules->getDefines(['state' => ModuleDefine::STATE_HARD_DISABLED]);
         if ($defines !== []) {
             $parts[] = (new Set())
                 ->items([
@@ -235,7 +219,7 @@ class Plugins
                     (new Note())
                         ->class('more-info')
                         ->text(__('Deactivated plugins are installed but not usable. You can activate them from here.')),
-                    (new Capture(self::$plugins_list
+                    (new Capture(App::upgrade()->pluginsList()
                         ->setList('plugin-deactivate')
                         ->setTab('plugins')
                         ->setDefines($defines)
@@ -254,7 +238,7 @@ class Plugins
             ->items($parts);
 
         // Updated modules from repo
-        $defines = self::$plugins_list->store->getDefines(true);
+        $defines = App::upgrade()->pluginsList()->store->getDefines(true);
         $updates = $defines === [] ? '' : sprintf(' (%s)', count($defines));
 
         $parts = [];
@@ -265,7 +249,7 @@ class Plugins
             $parts[] = (new Note())
                 ->text(sprintf(__('There is one plugin update available:', 'There are %s plugin updates available:', count($defines)), count($defines)));
 
-            $parts[] = (new Capture(self::$plugins_list
+            $parts[] = (new Capture(App::upgrade()->pluginsList()
                 ->setList('plugin-update')
                 ->setTab('update')
                 ->setDefines($defines)
@@ -287,7 +271,7 @@ class Plugins
             ->items([
                 (new Text('h3', __('Update plugins'))),
                 (new Form('force-checking'))
-                    ->action(self::$plugins_list->getURL('', true, 'update'))
+                    ->action(App::upgrade()->pluginsList()->getURL('', true, 'update'))
                     ->method('get')
                     ->fields([
                         (new Para())
@@ -301,15 +285,15 @@ class Plugins
             ]);
 
         // Check all Modules except from ditrib
-        $multi_parts[] = self::nextStoreList(self::$plugins_list, explode(',', App::config()->distributedPlugins()), App::upgrade()->url()->get('upgrade.plugins'));
+        $multi_parts[] = self::nextStoreList(explode(',', App::config()->distributedPlugins()), App::upgrade()->url()->get('upgrade.plugins'));
 
-        if (self::$plugins_list->isWritablePath()) {
+        if (App::upgrade()->pluginsList()->isWritablePath()) {
             # New modules from repo
-            $search  = self::$plugins_list->getSearch();
-            $defines = $search ? self::$plugins_list->store->searchDefines($search) : self::$plugins_list->store->getDefines();
+            $search  = App::upgrade()->pluginsList()->getSearch();
+            $defines = $search ? App::upgrade()->pluginsList()->store->searchDefines($search) : App::upgrade()->pluginsList()->store->getDefines();
 
             if ($search !== null && $search !== '' || $defines !== []) {
-                self::$plugins_list
+                App::upgrade()->pluginsList()
                     ->setList('plugin-new')
                     ->setTab('new')
                     ->setDefines($defines);
@@ -319,11 +303,11 @@ class Plugins
                     ->class('multi-part')
                     ->items([
                         (new Text('h3', __('Add plugins from repository'))),
-                        (new Capture(self::$plugins_list
+                        (new Capture(App::upgrade()->pluginsList()
                             ->displaySearch(...))),
-                        (new Capture(self::$plugins_list
+                        (new Capture(App::upgrade()->pluginsList()
                             ->displayIndex(...))),
-                        (new Capture(self::$plugins_list
+                        (new Capture(App::upgrade()->pluginsList()
                             ->displayModules(...), [
                                 // cols
                                 ['expander', 'name', 'score', 'version', 'desc', 'deps'],
@@ -347,7 +331,7 @@ class Plugins
                     (new Note())
                         ->class('more-info')
                         ->text(__('You can install plugins by uploading or downloading zip files.')),
-                    (new Capture(self::$plugins_list->displayManualForm(...))),
+                    (new Capture(App::upgrade()->pluginsList()->displayManualForm(...))),
                 ]);
         }
 
@@ -356,23 +340,24 @@ class Plugins
         ->render();
 
         # -- Notice for super admin --
-        if (!self::$plugins_list->isWritablePath()) {
+        if (!App::upgrade()->pluginsList()->isWritablePath()) {
             echo (new Note())
                 ->class('warning')
                 ->text(__('Some functions are disabled, please give write access to your plugins directory to enable them.'))
             ->render();
         }
 
-        Page::helpBlock('core_plugins');
-        Page::close();
+        App::upgrade()->page()->helpBlock('core_plugins');
+        App::upgrade()->page()->close();
     }
 
     /**
      * @param   array<int, string>  $excludes
      */
-    protected static function nextStoreList(PluginsList $plugins, array $excludes, string $page_url): Div
+    protected static function nextStoreList(array $excludes, string $page_url): Div
     {
-        $list = [];
+        $plugins = App::upgrade()->pluginsList();
+        $list    = [];
         // Check ALL modules
         foreach ($plugins->modules->getDefines() as $module) {
             if (is_a($module, ModuleDefine::class) && !in_array($module->getId(), $excludes)) {

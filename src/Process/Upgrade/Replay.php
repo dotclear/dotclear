@@ -12,19 +12,14 @@ declare(strict_types=1);
 namespace Dotclear\Process\Upgrade;
 
 use Dotclear\App;
-use Dotclear\Core\Upgrade\Notices;
-use Dotclear\Core\Upgrade\Page;
-use Dotclear\Core\Upgrade\Upgrade;
-use Dotclear\Helper\Html\Form\{
-    Div,
-    Form,
-    Label,
-    Note,
-    Option,
-    Para,
-    Select,
-    Submit
-};
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Option;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Select;
+use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Process\TraitProcess;
 use Exception;
 
@@ -46,7 +41,7 @@ class Replay
 
     public static function init(): bool
     {
-        Page::checkSuper();
+        App::upgrade()->page()->checkSuper();
 
         return self::status(true);
     }
@@ -54,16 +49,16 @@ class Replay
     public static function process(): bool
     {
         $versions = [];
-        foreach (array_reverse(Upgrade::getGrowUpVersions()) as $version) {
+        foreach (array_reverse(App::upgrade()->upgrade()->getGrowUpVersions()) as $version) {
             $versions[] = new Option($version['version'], $version['version']);
         }
         self::$versions = $versions;
 
         if (!empty($_POST['replay_version'])) {
             try {
-                Upgrade::growUp($_POST['replay_version']);
+                App::upgrade()->upgrade()->growUp($_POST['replay_version']);
 
-                Notices::addSuccessNotice(sprintf(__('Grow up from version %s successfully replayed.'), $_POST['replay_version']));
+                App::upgrade()->notices()->addSuccessNotice(sprintf(__('Grow up from version %s successfully replayed.'), $_POST['replay_version']));
                 App::upgrade()->url()->redirect('upgrade.replay');
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
@@ -75,10 +70,10 @@ class Replay
 
     public static function render(): void
     {
-        Page::open(
+        App::upgrade()->page()->open(
             __('Replay'),
             '',
-            Page::breadcrumb(
+            App::upgrade()->page()->breadcrumb(
                 [
                     __('Dotclear update')       => '',
                     __('Replay update actions') => '',
@@ -113,6 +108,6 @@ class Replay
             ])
             ->render();
 
-        Page::close();
+        App::upgrade()->page()->close();
     }
 }

@@ -12,19 +12,16 @@ declare(strict_types=1);
 namespace Dotclear\Process\Upgrade;
 
 use Dotclear\App;
-use Dotclear\Core\Upgrade\Page;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Img;
+use Dotclear\Helper\Html\Form\Li;
+use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Span;
+use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\Ul;
 use Dotclear\Helper\Process\TraitProcess;
-use Dotclear\Helper\Html\Form\{
-    Div,
-    Img,
-    Li,
-    Link,
-    Note,
-    Para,
-    Span,
-    Text,
-    Ul
-};
 
 /**
  * @brief   Upgrade process home page.
@@ -37,7 +34,7 @@ class Home
 
     public static function init(): bool
     {
-        Page::checkSuper();
+        App::upgrade()->page()->checkSuper();
 
         return self::status(true);
     }
@@ -139,11 +136,11 @@ class Home
                 ]);
         }
 
-        Page::open(
+        App::upgrade()->page()->open(
             __('Dashboard'),
-            Page::jsLoad('js/_upgrade.js') .
-            Page::jsAdsBlockCheck(),
-            Page::breadcrumb(
+            App::upgrade()->page()->jsLoad('js/_upgrade.js') .
+            App::upgrade()->page()->jsAdsBlockCheck(),
+            App::upgrade()->page()->breadcrumb(
                 [
                     __('Dotclear update') => '',
                 ],
@@ -176,6 +173,6 @@ class Home
             ])
             ->render();
 
-        Page::close();
+        App::upgrade()->page()->close();
     }
 }

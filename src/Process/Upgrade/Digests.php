@@ -12,26 +12,22 @@ declare(strict_types=1);
 namespace Dotclear\Process\Upgrade;
 
 use Dotclear\App;
-use Dotclear\Core\Upgrade\Notices;
-use Dotclear\Core\Upgrade\Page;
-use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Helper\File\Zip\Zip;
-use Dotclear\Helper\Html\Form\{
-    Checkbox,
-    Div,
-    Form,
-    Hidden,
-    Label,
-    Li,
-    Link,
-    None,
-    Note,
-    Para,
-    Submit,
-    Text,
-    Ul
-};
+use Dotclear\Helper\Html\Form\Checkbox;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Li;
+use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\None;
+use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\Ul;
 use Dotclear\Helper\L10n;
+use Dotclear\Helper\Process\TraitProcess;
 use Exception;
 
 /**
@@ -65,7 +61,7 @@ class Digests
 
     public static function init(): bool
     {
-        Page::checkSuper();
+        App::upgrade()->page()->checkSuper();
 
         return self::status(true);
     }
@@ -109,14 +105,14 @@ class Digests
         // Mesasges
         if (isset($_POST['override'])) {
             if (self::$zip_name === '') {
-                Notices::addSuccessNotice(__('The updates have been performed.'));
+                App::upgrade()->notices()->addSuccessNotice(__('The updates have been performed.'));
             }
         } elseif (isset($_POST['disclaimer_ok'])) {
             if (count(self::$changes['changed']) == 0 && count(self::$changes['removed']) == 0) {
-                Notices::addWarningNotice(__('No changed filed have been found, nothing to do!'));
+                App::upgrade()->notices()->addWarningNotice(__('No changed filed have been found, nothing to do!'));
             }
         } elseif (file_exists(self::$path_backup)) {
-            Notices::addErrorNotice(__('This tool has already been run once.'));
+            App::upgrade()->notices()->addErrorNotice(__('This tool has already been run once.'));
         }
 
         return true;
@@ -136,10 +132,10 @@ class Digests
             }
         }
 
-        Page::open(
+        App::upgrade()->page()->open(
             __('Files'),
             '',
-            Page::breadcrumb(
+            App::upgrade()->page()->breadcrumb(
                 [
                     __('Dotclear update') => '',
                     __('Corrupted files') => '',
@@ -148,7 +144,7 @@ class Digests
         );
 
         if (App::error()->flag()) {
-            Page::close();
+            App::upgrade()->page()->close();
 
             return;
         }
@@ -285,7 +281,7 @@ class Digests
                 ->render();
         }
 
-        Page::close();
+        App::upgrade()->page()->close();
     }
 
     /**

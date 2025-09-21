@@ -11,17 +11,13 @@ declare(strict_types=1);
 namespace Dotclear\Process\Upgrade;
 
 use Dotclear\App;
-use Dotclear\Core\Upgrade\Notices;
-use Dotclear\Core\Upgrade\Page;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Process\TraitProcess;
-use Dotclear\Helper\Html\Form\{
-    Div,
-    Form,
-    Note,
-    Para,
-    Submit,
-    Text
-};
 use Exception;
 
 /**
@@ -35,7 +31,7 @@ class Cache
 
     public static function init(): bool
     {
-        Page::checkSuper();
+        App::upgrade()->page()->checkSuper();
 
         return self::status(true);
     }
@@ -45,17 +41,17 @@ class Cache
         try {
             if (!empty($_POST['cleartplcache'])) {
                 App::cache()->emptyTemplatesCache();
-                Notices::addSuccessNotice(__('Templates cache directory emptied.'));
+                App::upgrade()->notices()->addSuccessNotice(__('Templates cache directory emptied.'));
                 App::upgrade()->url()->redirect('upgrade.cache');
             }
             if (!empty($_POST['clearrepocache'])) {
                 App::cache()->emptyModulesStoreCache();
-                Notices::addSuccessNotice(__('Repositories cache directory emptied.'));
+                App::upgrade()->notices()->addSuccessNotice(__('Repositories cache directory emptied.'));
                 App::upgrade()->url()->redirect('upgrade.cache');
             }
             if (!empty($_POST['clearversionscache'])) {
                 App::cache()->emptyDotclearVersionsCache();
-                Notices::addSuccessNotice(__('Dotclear versions cache directory emptied.'));
+                App::upgrade()->notices()->addSuccessNotice(__('Dotclear versions cache directory emptied.'));
                 App::upgrade()->url()->redirect('upgrade.cache');
             }
         } catch (Exception $e) {
@@ -67,10 +63,10 @@ class Cache
 
     public static function render(): void
     {
-        Page::open(
+        App::upgrade()->page()->open(
             __('Cache'),
             '',
-            Page::breadcrumb(
+            App::upgrade()->page()->breadcrumb(
                 [
                     __('Dotclear update')  => '',
                     __('Cache management') => '',
@@ -105,6 +101,6 @@ class Cache
             ])
             ->render();
 
-        Page::close();
+        App::upgrade()->page()->close();
     }
 }
