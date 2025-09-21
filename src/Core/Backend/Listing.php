@@ -18,6 +18,7 @@ use Dotclear\Core\Backend\Listing\ListingMedia;
 use Dotclear\Core\Backend\Listing\ListingPosts;
 use Dotclear\Core\Backend\Listing\ListingPostsMini;
 use Dotclear\Core\Backend\Listing\ListingUsers;
+use Dotclear\Core\Backend\Listing\Pager;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Container\Container;
 use Dotclear\Helper\Container\Factory;
@@ -46,6 +47,7 @@ class Listing extends Container
             ListingPosts::class     => ListingPosts::class,
             ListingPostsMini::class => ListingPostsMini::class,
             ListingUsers::class     => ListingUsers::class,
+            Pager::class            => Pager::class,
         ];
     }
 
@@ -107,5 +109,22 @@ class Listing extends Container
     public function users(MetaRecord $rs, mixed $rs_count): ListingUsers
     {
         return $this->get(ListingUsers::class, true, rs: $rs, rs_count: $rs_count);
+    }
+
+    /**
+     * Ge backend pager instance.
+     *
+     * New instance is returned on each call.
+     */
+    public function pager(int $current_page, int $nb_elements, int $nb_per_page = 10, int $nb_pages_per_group = 10): Pager
+    {
+        return $this->get(
+            Pager::class, // service
+            true,         // reload
+            current_page: $current_page,
+            nb_elements: $nb_elements,
+            nb_per_page: $nb_per_page,
+            nb_pages_per_group: $nb_pages_per_group
+        );
     }
 }
