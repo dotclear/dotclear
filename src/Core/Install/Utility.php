@@ -43,7 +43,7 @@ class Utility extends AbstractUtility
     {
         return [
             Favorites::class => Favorites::class,
-            Page::class      => Page::Class,
+            Page::class      => Page::class,
             Utils::class     => Utils::class,
         ];
     }
