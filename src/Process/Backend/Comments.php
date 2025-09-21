@@ -12,8 +12,6 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
-use Dotclear\Core\Backend\Action\ActionsComments;
-use Dotclear\Core\Backend\Listing\ListingComments;
 use Dotclear\Helper\Html\Form\Capture;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
@@ -92,7 +90,7 @@ class Comments
             App::backend()->default_action = 'delete';
         }
 
-        App::backend()->comments_actions_page = new ActionsComments(App::backend()->url()->get('admin.comments'));
+        App::backend()->comments_actions_page = App::backend()->action()->comments(App::backend()->url()->get('admin.comments'));
 
         if (App::backend()->comments_actions_page->process()) {
             return self::status(false);
@@ -106,7 +104,7 @@ class Comments
             $comments = App::blog()->getComments($params);
             $counter  = App::blog()->getComments($params, true);
 
-            App::backend()->comment_list = new ListingComments($comments, $counter->f(0));
+            App::backend()->comment_list = App::backend()->listing()->comments($comments, $counter->f(0));
         } catch (Exception $e) {
             App::error()->add($e->getMessage());
         }

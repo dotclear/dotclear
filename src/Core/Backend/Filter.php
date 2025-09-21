@@ -21,7 +21,7 @@ use Dotclear\Helper\Container\Container;
 use Dotclear\Helper\Container\Factory;
 
 /**
- * @brief   Admin auth helpers library
+ * @brief   Admin list filter helpers library
  *
  * @since   2.36
  */
@@ -46,26 +46,41 @@ class Filter extends Container
         ];
     }
 
+    /**
+     * Get backend blogs list filters helper instance.
+     */
     public function blogs(): FilterBlogs
     {
         return $this->get(FilterBlogs::class);
     }
 
+    /**
+     * Get backend comments list filters helper instance.
+     */
     public function comments(): FilterComments
     {
         return $this->get(FilterComments::class);
     }
 
+    /**
+     * Get backend media list filters helper instance.
+     */
     public function media(): FilterMedia
     {
         return $this->get(FilterMedia::class);
     }
 
+    /**
+     * Get backend posts list filters helper instance.
+     */
     public function posts(): FilterPosts
     {
         return $this->get(FilterPosts::class);
     }
 
+    /**
+     * Get backend users list filters helper instance.
+     */
     public function users(): FilterUsers
     {
         return $this->get(FilterUsers::class);

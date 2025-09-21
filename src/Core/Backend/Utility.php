@@ -126,11 +126,13 @@ class Utility extends AbstractUtility
     public function getDefaultServices(): array
     {
         return [
+            Action::class      => Action::class,
             Auth::class        => Auth::class,
             Combos::class      => Combos::class,
             Favorites::class   => Favorites::class,
             Filter::class      => Filter::class,
             Helper::class      => Helper::class,
+            Listing::class     => Listing::class,
             MediaPage::class   => MediaPage::class,
             Menus::class       => Menus::class,
             ModulesList::class => ModulesList::class,
@@ -141,6 +143,14 @@ class Utility extends AbstractUtility
             Url::class         => Url::class,
             UserPref::class    => UserPref::class,
         ];
+    }
+
+    /**
+     * Get backend list action instance.
+     */
+    public function action(): Action
+    {
+        return $this->get(Action::class);
     }
 
     /**
@@ -181,6 +191,14 @@ class Utility extends AbstractUtility
     public function favorites(): Favorites
     {
         return $this->get(Favorites::class);
+    }
+
+    /**
+     * Get backend listing instance.
+     */
+    public function listing(): Listing
+    {
+        return $this->get(Listing::class);
     }
 
     /**

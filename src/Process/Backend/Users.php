@@ -13,7 +13,6 @@ namespace Dotclear\Process\Backend;
 
 use ArrayObject;
 use Dotclear\App;
-use Dotclear\Core\Backend\Listing\ListingUsers;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Hidden;
@@ -90,7 +89,7 @@ class Users
                 $rsStatic = $rsStatic->toStatic();
                 $rsStatic->lexicalSort(App::backend()->filter()->users()->sortby, App::backend()->filter()->users()->order);
             }
-            App::backend()->user_list = new ListingUsers($rsStatic, $counter->f(0));
+            App::backend()->user_list = App::backend()->listing()->users($rsStatic, $counter->f(0));
         } catch (Exception $e) {
             App::error()->add($e->getMessage());
         }

@@ -12,10 +12,6 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
-use Dotclear\Core\Backend\Action\ActionsComments;
-use Dotclear\Core\Backend\Action\ActionsPosts;
-use Dotclear\Core\Backend\Listing\ListingComments;
-use Dotclear\Core\Backend\Listing\ListingPosts;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Fieldset;
@@ -50,14 +46,14 @@ class Search
     /**
      * List of related entries
      *
-     * @var null|ListingPosts|ListingComments   $list
+     * @var null|\Dotclear\Core\Backend\Listing\ListingPosts|\Dotclear\Core\Backend\Listing\ListingComments   $list
      */
     protected static $list;
 
     /**
      * Available actions on entries
      *
-     * @var null|ActionsPosts|ActionsComments   $actions
+     * @var null|\Dotclear\Core\Backend\Action\ActionsPosts|\Dotclear\Core\Backend\Action\ActionsComments   $actions
      */
     protected static $actions;
 
@@ -268,8 +264,8 @@ class Search
 
         try {
             self::$count     = (int) App::blog()->getPosts($params, true)->f(0);
-            self::$list      = new ListingPosts(App::blog()->getPosts($params), self::$count);
-            self::$actions   = new ActionsPosts(App::backend()->url()->get('admin.search'), $args);
+            self::$list      = App::backend()->listing()->posts(App::blog()->getPosts($params), self::$count);
+            self::$actions   = App::backend()->action()->posts(App::backend()->url()->get('admin.search'), $args);
             self::$performed = self::$actions->process();
         } catch (Exception $e) {
             App::error()->add($e->getMessage());
@@ -356,8 +352,8 @@ class Search
 
         try {
             self::$count     = (int) App::blog()->getComments($params, true)->f(0);
-            self::$list      = new ListingComments(App::blog()->getComments($params), self::$count);
-            self::$actions   = new ActionsComments(App::backend()->url()->get('admin.search'), $args);
+            self::$list      = App::backend()->listing()->comments(App::blog()->getComments($params), self::$count);
+            self::$actions   = App::backend()->action()->comments(App::backend()->url()->get('admin.search'), $args);
             self::$performed = self::$actions->process();
         } catch (Exception $e) {
             App::error()->add($e->getMessage());

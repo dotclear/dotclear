@@ -12,7 +12,6 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
-use Dotclear\Core\Backend\Listing\ListingMedia;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\File\Zip\Zip;
@@ -524,7 +523,7 @@ class Media
         }
 
         $rs         = App::backend()->mediaPage()->getDirsRecord();
-        $media_list = new ListingMedia($rs, $rs->count());
+        $media_list = App::backend()->listing()->media($rs, $rs->count());
 
         // add file mode into the filter box
         $filter = (new Para())

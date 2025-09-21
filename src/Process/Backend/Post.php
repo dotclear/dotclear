@@ -13,7 +13,6 @@ namespace Dotclear\Process\Backend;
 
 use ArrayObject;
 use Dotclear\App;
-use Dotclear\Core\Backend\Action\ActionsComments;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Button;
@@ -236,7 +235,7 @@ class Post
         }
         $anchor = isset($_REQUEST['section']) && $_REQUEST['section'] == 'trackbacks' ? 'trackbacks' : 'comments';
 
-        App::backend()->comments_actions_page = new ActionsComments(
+        App::backend()->comments_actions_page = App::backend()->action()->comments(
             App::backend()->url()->get('admin.post'),
             [
                 'id'            => App::backend()->post_id,

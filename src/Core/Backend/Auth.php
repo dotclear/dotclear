@@ -20,7 +20,7 @@ use Dotclear\Helper\Container\Factory;
 use Throwable;
 
 /**
- * @brief   Admin auth helpers library
+ * @brief   Admin exotic authentication helpers library
  *
  * @since   2.36
  */
@@ -51,6 +51,9 @@ class Auth extends Container
         return App::backend()->safe_mode !== true && App::config()->authPasswordOnly() !== true;
     }
 
+    /**
+     * Get backend otp authentication helper instance.
+     */
     public function otp(): false|Otp
     {
         try {
@@ -60,6 +63,9 @@ class Auth extends Container
         }
     }
 
+    /**
+     * Get backend webauthn authentication helper instance.
+     */
     public function webauthn(): false|WebAuthn
     {
         try {
@@ -69,6 +75,9 @@ class Auth extends Container
         }
     }
 
+    /**
+     * Get backend oauth2 authentication helper instance.
+     */
     public function oauth2(string $redirect_url = ''): false|OAuth2Client
     {
         try {

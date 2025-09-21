@@ -12,8 +12,6 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
-use Dotclear\Core\Backend\Action\ActionsPosts;
-use Dotclear\Core\Backend\Listing\ListingPosts;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Label;
@@ -42,7 +40,7 @@ class Posts
 
         // Actions
         // -------
-        App::backend()->posts_actions_page = new ActionsPosts(App::backend()->url()->get('admin.posts'));
+        App::backend()->posts_actions_page = App::backend()->action()->posts(App::backend()->url()->get('admin.posts'));
         if (App::backend()->posts_actions_page->process()) {
             return self::status(false);
         }
@@ -79,7 +77,7 @@ class Posts
             $posts   = App::blog()->getPosts($params);
             $counter = App::blog()->getPosts($params, true);
 
-            App::backend()->post_list = new ListingPosts($posts, $counter->f(0));
+            App::backend()->post_list = App::backend()->listing()->posts($posts, $counter->f(0));
         } catch (Exception $e) {
             App::error()->add($e->getMessage());
         }

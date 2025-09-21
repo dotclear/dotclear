@@ -13,8 +13,6 @@ namespace Dotclear\Process\Backend;
 
 use ArrayObject;
 use Dotclear\App;
-use Dotclear\Core\Backend\Action\ActionsBlogs;
-use Dotclear\Core\Backend\Listing\ListingBlogs;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Label;
@@ -46,7 +44,7 @@ class Blogs
         -------------------------------------------------------- */
         App::backend()->blogs_actions_page = null;
         if (App::auth()->isSuperAdmin()) {
-            App::backend()->blogs_actions_page = new ActionsBlogs(App::backend()->url()->get('admin.blogs'));
+            App::backend()->blogs_actions_page = App::backend()->action()->blogs(App::backend()->url()->get('admin.blogs'));
             if (App::backend()->blogs_actions_page->process()) {
                 return false;
             }
@@ -78,7 +76,7 @@ class Blogs
                 $rsStatic = $rsStatic->toStatic();
                 $rsStatic->lexicalSort((App::backend()->filter()->blogs()->sortby == 'UPPER(blog_name)' ? 'blog_name' : 'blog_id'), App::backend()->filter()->blogs()->order);
             }
-            App::backend()->blog_list = new ListingBlogs($rs, $counter->f(0));
+            App::backend()->blog_list = App::backend()->listing()->blogs($rs, (int) $counter->f(0));
         } catch (Exception $e) {
             App::error()->add($e->getMessage());
         }

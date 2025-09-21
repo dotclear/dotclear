@@ -12,7 +12,6 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
-use Dotclear\Core\Backend\Listing\ListingPostsMini;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Capture;
 use Dotclear\Helper\Html\Form\Div;
@@ -86,12 +85,12 @@ class PostsPopup
 
     public static function render(): void
     {
-        $post_list = null;
+        $post_list = false;
 
         try {
             $posts     = App::blog()->getPosts(App::backend()->params);
             $counter   = App::blog()->getPosts(App::backend()->params, true);
-            $post_list = new ListingPostsMini($posts, $counter->f(0));
+            $post_list = App::backend()->listing()->postsMini($posts, $counter->f(0));
         } catch (Exception $e) {
             App::error()->add($e->getMessage());
         }
@@ -146,7 +145,7 @@ class PostsPopup
                     ]),
                 (new Div('form-entries'))   // I know it's not a form but we just need the ID
                     ->items([
-                        $post_list instanceof ListingPostsMini ?
+                        $post_list !== false ?
                         (new Capture($post_list->display(...), [App::backend()->page, App::backend()->nb_per_page])) :
                         (new None()),
                     ]),
