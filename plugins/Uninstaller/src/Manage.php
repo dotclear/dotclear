@@ -11,22 +11,16 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\Uninstaller;
 
 use Dotclear\App;
+use Dotclear\Helper\Html\Form\Checkbox;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Process\TraitProcess;
-use Dotclear\Core\Backend\{
-    Notices,
-    Page
-};
-use Dotclear\Helper\Html\Form\{
-    Checkbox,
-    Div,
-    Form,
-    Label,
-    Link,
-    Note,
-    Para,
-    Submit,
-    Text
-};
 use Dotclear\Module\ModuleDefine;
 use Exception;
 
@@ -96,9 +90,9 @@ class Manage
             // list success actions
             if ($done !== []) {
                 array_unshift($done, __('Uninstall action successfuly excecuted'));
-                Notices::addSuccessNotice(implode('<br>', $done));
+                App::backend()->notices()->addSuccessNotice(implode('<br>', $done));
             } else {
-                Notices::addWarningNotice(__('No uninstall action done'));
+                App::backend()->notices()->addWarningNotice(__('No uninstall action done'));
             }
             self::doRedirect();
         } catch (Exception $e) {
@@ -157,9 +151,9 @@ class Manage
             ]);
 
         // display form
-        Page::openModule(
+        App::backend()->page()->openModule(
             My::name(),
-            Page::jsJson('uninstaller', ['confirm_uninstall' => __('Are you sure you perform these ations?')]) .
+            App::backend()->page()->jsJson('uninstaller', ['confirm_uninstall' => __('Are you sure you perform these ations?')]) .
             My::jsLoad('manage') .
 
             # --BEHAVIOR-- UninstallerHeader
@@ -167,11 +161,11 @@ class Manage
         );
 
         echo
-        Page::breadcrumb([
+        App::backend()->page()->breadcrumb([
             __('System') => '',
             My::name()   => '',
         ]) .
-        Notices::getNotices() .
+        App::backend()->notices()->getNotices() .
 
         (new Div())
             ->items([
@@ -184,7 +178,7 @@ class Manage
             ])
             ->render();
 
-        Page::closeModule();
+        App::backend()->page()->closeModule();
     }
 
     private static function getType(): string

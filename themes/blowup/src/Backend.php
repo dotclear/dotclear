@@ -10,7 +10,6 @@
 namespace Dotclear\Theme\blowup;
 
 use Dotclear\App;
-use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\Process\TraitProcess;
 
 /**
@@ -34,7 +33,7 @@ class Backend
 
         App::behavior()->addBehavior('adminPageHTMLHead', function (): string {
             echo "\n" . '<!-- Header directives for Blowup configuration -->' . "\n" .
-            Page::jsJson('blowup', [
+            App::backend()->page()->jsJson('blowup', [
                 'blowup_public_url' => Blowup::imagesURL(),
                 'blowup_theme_url'  => Blowup::themeURL(),
                 'msg'               => [
@@ -43,7 +42,7 @@ class Backend
                     'predefined_style_title' => __('Choose a predefined style'),
                 ],
             ]) .
-            Page::jsLoad(Blowup::themeURL() . '/js/config.js');
+            App::backend()->page()->jsLoad(Blowup::themeURL() . '/js/config.js');
 
             return '';
         });

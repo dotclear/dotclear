@@ -9,7 +9,6 @@
 
 namespace Dotclear\Theme\customCSS;
 
-use Dotclear\Core\Backend\Page;
 use Dotclear\App;
 use Dotclear\Helper\Process\TraitProcess;
 
@@ -43,7 +42,7 @@ class Backend
             }
 
             if (App::auth()->prefs()->interface->colorsyntax) {
-                echo Page::jsLoadCodeMirror(App::auth()->prefs()->interface->colorsyntax_theme);
+                echo App::backend()->page()->jsLoadCodeMirror(App::auth()->prefs()->interface->colorsyntax_theme);
             }
 
             return '';

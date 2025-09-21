@@ -10,14 +10,12 @@
 namespace Dotclear\Theme\customCSS;
 
 use Dotclear\App;
-use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Backend\Page;
-use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Form\Label;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Textarea;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Process\TraitProcess;
 use Exception;
 
 /**
@@ -82,7 +80,7 @@ class Config
                     fclose($fp);
                 }
 
-                Notices::addSuccessNotice(__('Style sheet upgraded.'));
+                App::backend()->notices()->addSuccessNotice(__('Style sheet upgraded.'));
                 App::backend()->url()->redirect('admin.blog.theme', ['conf' => '1']);
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
@@ -116,7 +114,7 @@ class Config
 
         if (App::auth()->prefs()->interface->colorsyntax) {
             echo
-            Page::jsRunCodeMirror(
+            App::backend()->page()->jsRunCodeMirror(
                 [
                     [
                         'name'  => 'editor_css',

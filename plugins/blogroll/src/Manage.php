@@ -10,12 +10,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\blogroll;
 
-use Exception;
-use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Backend\Page;
 use Dotclear\App;
-use Dotclear\Core\Backend\Combos;
-use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Checkbox;
@@ -43,8 +38,10 @@ use Dotclear\Helper\Html\Form\Thead;
 use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Html\Form\Url;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Plugin\blogroll\Action\ActionsLinks;
 use Dotclear\Plugin\blogroll\Status\Link as StatusLink;
+use Exception;
 
 /**
  * @brief   The module manage blogrolls process.
@@ -136,7 +133,7 @@ class Manage
                 }
             }
 
-            Notices::addSuccessNotice(__('links have been successfully imported.'));
+            App::backend()->notices()->addSuccessNotice(__('links have been successfully imported.'));
             My::redirect();
         }
 
@@ -159,7 +156,7 @@ class Manage
             try {
                 App::backend()->blogroll->addLink(App::backend()->link_title, App::backend()->link_href, App::backend()->link_desc, App::backend()->link_lang, '', App::backend()->link_status);
 
-                Notices::addSuccessNotice(__('Link has been successfully created.'));
+                App::backend()->notices()->addSuccessNotice(__('Link has been successfully created.'));
                 My::redirect();
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
@@ -175,7 +172,7 @@ class Manage
 
             try {
                 App::backend()->blogroll->addCategory(App::backend()->cat_title, App::backend()->link_status);
-                Notices::addSuccessNotice(__('category has been successfully created.'));
+                App::backend()->notices()->addSuccessNotice(__('category has been successfully created.'));
                 My::redirect();
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
@@ -208,7 +205,7 @@ class Manage
             }
 
             if (!App::error()->flag()) {
-                Notices::addSuccessNotice(__('Items order has been successfully updated'));
+                App::backend()->notices()->addSuccessNotice(__('Items order has been successfully updated'));
                 My::redirect();
             }
         }
@@ -253,7 +250,7 @@ class Manage
 
         // Languages combo
         $links      = App::backend()->blogroll->getLangs(['order' => 'asc']);
-        $lang_combo = Combos::getLangsCombo($links, true);
+        $lang_combo = App::backend()->combos()->getLangsCombo($links, true);
 
         // Status combo
         App::backend()->status_combo = App::backend()->statuses->combo();
@@ -267,26 +264,26 @@ class Manage
             App::error()->add($e->getMessage());
         }
 
-        $head = Page::jsConfirmClose('links-form', 'add-link-form', 'add-category-form');
+        $head = App::backend()->page()->jsConfirmClose('links-form', 'add-link-form', 'add-category-form');
         if (!App::auth()->prefs()->accessibility->nodragdrop) {
-            $head .= Page::jsLoad('js/jquery/jquery-ui.custom.js') .
-                Page::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
+            $head .= App::backend()->page()->jsLoad('js/jquery/jquery-ui.custom.js') .
+                App::backend()->page()->jsLoad('js/jquery/jquery.ui.touch-punch.js') .
                 My::jsLoad('dragndrop');
         }
-        $head .= Page::jsPageTabs(App::backend()->default_tab);
-        $head .= Page::jsJson('blogroll', ['confirm_links_delete' => __('Are you sure you want to delete selected links?')]) .
+        $head .= App::backend()->page()->jsPageTabs(App::backend()->default_tab);
+        $head .= App::backend()->page()->jsJson('blogroll', ['confirm_links_delete' => __('Are you sure you want to delete selected links?')]) .
             My::jsLoad('blogroll');
 
-        Page::openModule(My::name(), $head);
+        App::backend()->page()->openModule(My::name(), $head);
 
         echo
-        Page::breadcrumb(
+        App::backend()->page()->breadcrumb(
             [
                 Html::escapeHTML(App::blog()->name()) => '',
                 My::name()                            => '',
             ]
         ) .
-        Notices::getNotices();
+        App::backend()->notices()->getNotices();
 
         $img = (new Img('images/%2$s'))
             ->alt('%1$s')
@@ -692,8 +689,8 @@ class Manage
             ])
         ->render();
 
-        Page::helpBlock(My::id());
+        App::backend()->page()->helpBlock(My::id());
 
-        Page::closeModule();
+        App::backend()->page()->closeModule();
     }
 }

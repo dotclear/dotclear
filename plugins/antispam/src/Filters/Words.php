@@ -10,7 +10,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\antispam\Filters;
 
-use Dotclear\Core\Backend\Notices;
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
@@ -147,7 +146,7 @@ class Words extends SpamFilter
         if (!empty($_POST['createlist'])) {
             try {
                 $this->defaultWordsList();
-                Notices::addSuccessNotice(__('Words have been successfully added.'));
+                App::backend()->notices()->addSuccessNotice(__('Words have been successfully added.'));
                 Http::redirect($url);
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
@@ -160,7 +159,7 @@ class Words extends SpamFilter
 
             try {
                 $this->addRule($_POST['swa'], $globalsw);
-                Notices::addSuccessNotice(__('Word has been successfully added.'));
+                App::backend()->notices()->addSuccessNotice(__('Word has been successfully added.'));
                 Http::redirect($url);
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
@@ -171,7 +170,7 @@ class Words extends SpamFilter
         if (!empty($_POST['swd']) && is_array($_POST['swd'])) {
             try {
                 $this->removeRule($_POST['swd']);
-                Notices::addSuccessNotice(__('Words have been successfully removed.'));
+                App::backend()->notices()->addSuccessNotice(__('Words have been successfully removed.'));
                 Http::redirect($url);
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());

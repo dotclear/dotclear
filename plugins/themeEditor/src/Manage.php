@@ -12,10 +12,6 @@ namespace Dotclear\Plugin\themeEditor;
 
 use ArrayObject;
 use Dotclear\App;
-use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Backend\Page;
-use Dotclear\Core\Backend\ThemesList;
-use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Fieldset;
 use Dotclear\Helper\Html\Form\Form;
@@ -31,6 +27,7 @@ use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Textarea;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Process\TraitProcess;
 use Exception;
 
 /**
@@ -65,7 +62,7 @@ class Manage
         App::backend()->user_ui_colorsyntax_theme = App::auth()->prefs()->interface->colorsyntax_theme;
 
         # Loading themes // deprecated since 2.26
-        ThemesList::$distributed_modules = explode(',', App::config()->distributedThemes());
+        App::backend()->themesList()::$distributed_modules = explode(',', App::config()->distributedThemes());
 
         if (App::themes()->isEmpty()) {
             App::themes()->loadModules(App::blog()->themesPath(), 'admin', App::lang()->getLang());
@@ -98,7 +95,7 @@ class Manage
                 && is_string(App::backend()->theme->get('root'))
             ) {
                 file_put_contents(App::backend()->theme->get('root') . DIRECTORY_SEPARATOR . App::themes()::MODULE_FILE_LOCKED, '');
-                Notices::addSuccessNotice(__('The theme update has been locked.'));
+                App::backend()->notices()->addSuccessNotice(__('The theme update has been locked.'));
             }
             if (App::auth()->isSuperAdmin()
                 && !empty($_POST['unlock'])
@@ -106,7 +103,7 @@ class Manage
                 && file_exists(App::backend()->theme->get('root') . DIRECTORY_SEPARATOR . App::themes()::MODULE_FILE_LOCKED)
             ) {
                 unlink(App::backend()->theme->get('root') . DIRECTORY_SEPARATOR . App::themes()::MODULE_FILE_LOCKED);
-                Notices::addSuccessNotice(__('The theme update has been unocked.'));
+                App::backend()->notices()->addSuccessNotice(__('The theme update has been unocked.'));
             }
 
             if (!empty($_POST['write'])) {
@@ -129,7 +126,7 @@ class Manage
                     (string) App::backend()->file['type'],
                     (string) App::backend()->file['f']
                 );
-                Notices::addSuccessNotice(__('The file has been reset.'));
+                App::backend()->notices()->addSuccessNotice(__('The file has been reset.'));
                 My::redirect([  // @phpstan-ignore-line
                     (string) App::backend()->file['type'] => (string) App::backend()->file['f'],
                 ]);
@@ -173,37 +170,37 @@ class Manage
             (new None());
 
         if (App::backend()->editor?->devMode() && App::themes()->isOverloadable(App::blog()->settings()->system->theme)) {
-            Notices::addWarningNotice(__('The theme editor is in development mode, theme files will be overwritten!'));
+            App::backend()->notices()->addWarningNotice(__('The theme editor is in development mode, theme files will be overwritten!'));
         }
 
         $head = '';
         if (App::backend()->user_ui_colorsyntax) {
-            $head .= Page::jsJson('dotclear_colorsyntax', ['colorsyntax' => App::backend()->user_ui_colorsyntax]);
+            $head .= App::backend()->page()->jsJson('dotclear_colorsyntax', ['colorsyntax' => App::backend()->user_ui_colorsyntax]);
         }
-        $head .= Page::jsJson('theme_editor_msg', [
+        $head .= App::backend()->page()->jsJson('theme_editor_msg', [
             'saving_document'    => __('Saving document...'),
             'document_saved'     => __('Document saved'),
             'error_occurred'     => __('An error occurred:'),
             'confirm_reset_file' => __('Are you sure you want to reset this file?'),
         ]) .
             My::jsLoad('script') .
-            Page::jsConfirmClose('file-form');
+            App::backend()->page()->jsConfirmClose('file-form');
         if (App::backend()->user_ui_colorsyntax) {
-            $head .= Page::jsLoadCodeMirror(App::backend()->user_ui_colorsyntax_theme);
+            $head .= App::backend()->page()->jsLoadCodeMirror(App::backend()->user_ui_colorsyntax_theme);
         }
         $head .= My::cssLoad('style');
 
-        Page::openModule(__('Edit theme files'), $head);
+        App::backend()->page()->openModule(__('Edit theme files'), $head);
 
         echo
-        Page::breadcrumb(
+        App::backend()->page()->breadcrumb(
             [
                 Html::escapeHTML(App::blog()->name()) => '',
                 __('Blog appearance')                 => App::backend()->url()->get('admin.blog.theme'),
                 __('Edit theme files')                => '',
             ]
         ) .
-        Notices::getNotices();
+        App::backend()->notices()->getNotices();
 
         echo (new Para())
             ->items([
@@ -273,7 +270,7 @@ class Manage
                     ]),
                 $lock_form,
                 App::backend()->user_ui_colorsyntax ?
-                    (new Text(null, Page::jsJson('theme_editor_mode', ['mode' => $editorMode]) . My::jsLoad('mode') . Page::jsRunCodeMirror('editor', 'file_content', 'dotclear', App::backend()->user_ui_colorsyntax_theme))) :
+                    (new Text(null, App::backend()->page()->jsJson('theme_editor_mode', ['mode' => $editorMode]) . My::jsLoad('mode') . App::backend()->page()->jsRunCodeMirror('editor', 'file_content', 'dotclear', App::backend()->user_ui_colorsyntax_theme))) :
                     (new None()),
             ];
         }
@@ -316,9 +313,9 @@ class Manage
             ])
         ->render();
 
-        Page::helpBlock(My::id());
+        App::backend()->page()->helpBlock(My::id());
 
-        Page::closeModule();
+        App::backend()->page()->closeModule();
     }
 
     private static function getEditorMode(): string

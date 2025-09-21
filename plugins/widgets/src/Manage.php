@@ -11,9 +11,6 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\widgets;
 
 use Dotclear\App;
-use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Backend\Page;
-use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Dd;
 use Dotclear\Helper\Html\Form\Div;
@@ -36,6 +33,7 @@ use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Ul;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Process\TraitProcess;
 use Exception;
 use stdClass;
 use UnhandledMatchError;
@@ -216,7 +214,7 @@ class Manage
 
                 App::blog()->triggerBlog();
 
-                Notices::addSuccessNotice(__('Sidebars and their widgets have been saved.'));
+                App::backend()->notices()->addSuccessNotice(__('Sidebars and their widgets have been saved.'));
                 My::redirect();
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
@@ -230,7 +228,7 @@ class Manage
 
                 App::blog()->triggerBlog();
 
-                Notices::addSuccessNotice(__('Sidebars have been resetting.'));
+                App::backend()->notices()->addSuccessNotice(__('Sidebars have been resetting.'));
                 My::redirect();
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
@@ -254,9 +252,9 @@ class Manage
         }
 
         $head = My::cssLoad('style') .
-            Page::jsLoad('js/jquery/jquery-ui.custom.js') .
-            Page::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
-            Page::jsJson('widgets', [
+            App::backend()->page()->jsLoad('js/jquery/jquery-ui.custom.js') .
+            App::backend()->page()->jsLoad('js/jquery/jquery.ui.touch-punch.js') .
+            App::backend()->page()->jsJson('widgets', [
                 'widget_noeditor' => ($rte_flag ? 0 : 1),
                 'msg'             => [
                     'confirm_widgets_reset' => __('Are you sure you want to reset sidebars?'),
@@ -280,12 +278,12 @@ class Manage
                 'xhtml'
             );
         }
-        $head .= Page::jsConfirmClose('sidebarsWidgets');
+        $head .= App::backend()->page()->jsConfirmClose('sidebarsWidgets');
 
-        Page::openModule(My::name(), $head);
+        App::backend()->page()->openModule(My::name(), $head);
 
         echo
-        Page::breadcrumb(
+        App::backend()->page()->breadcrumb(
             [
                 Html::escapeHTML(App::blog()->name()) => '',
                 My::name()                            => '',
@@ -293,7 +291,7 @@ class Manage
         );
 
         echo
-        Notices::getNotices();
+        App::backend()->notices()->getNotices();
 
         // All widgets (chooser)
         $j     = 0;
@@ -451,9 +449,9 @@ class Manage
             ->items($elements)
         ->render();
 
-        Page::helpBlock(My::id(), $widget_elements);
+        App::backend()->page()->helpBlock(My::id(), $widget_elements);
 
-        Page::closeModule();
+        App::backend()->page()->closeModule();
     }
 
     /**

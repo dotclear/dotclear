@@ -10,12 +10,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\blogroll;
 
-use Exception;
 use Dotclear\App;
-use Dotclear\Core\Backend\Combos;
-use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Backend\Page;
-use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Form\Div;
@@ -37,7 +32,9 @@ use Dotclear\Helper\Html\Form\Th;
 use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Html\Form\Url;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Plugin\blogroll\Status\Link as StatusLink;
+use Exception;
 
 /**
  * @brief   The module manage blogroll process.
@@ -130,7 +127,7 @@ class ManageEdit
                     trim((string) App::backend()->link_xfn),
                     App::backend()->link_status,
                 );
-                Notices::addSuccessNotice(__('Link has been successfully updated'));
+                App::backend()->notices()->addSuccessNotice(__('Link has been successfully updated'));
                 My::redirect([
                     'edit' => 1,    // Used by Manage
                     'id'   => App::backend()->id,
@@ -147,7 +144,7 @@ class ManageEdit
 
             try {
                 App::backend()->blogroll->updateCategory(App::backend()->id, App::backend()->link_desc);
-                Notices::addSuccessNotice(__('Category has been successfully updated'));
+                App::backend()->notices()->addSuccessNotice(__('Category has been successfully updated'));
                 My::redirect([
                     'edit' => 1,    // Used by Manage
                     'id'   => App::backend()->id,
@@ -164,26 +161,26 @@ class ManageEdit
     {
         // Languages combo
         $links      = App::backend()->blogroll->getLangs(['order' => 'asc']);
-        $lang_combo = Combos::getLangsCombo($links, true);
+        $lang_combo = App::backend()->combos()->getLangsCombo($links, true);
 
-        $head = Page::jsConfirmClose('blogroll_cat', 'blogroll_link');
+        $head = App::backend()->page()->jsConfirmClose('blogroll_cat', 'blogroll_link');
 
         // Status combo
         App::backend()->status_combo = App::backend()->statuses->combo();
 
         $img_status = App::backend()->statuses->image((int) App::backend()->link_status)->render();
 
-        Page::openModule(My::name(), $head);
+        App::backend()->page()->openModule(My::name(), $head);
 
         echo
-        Page::breadcrumb(
+        App::backend()->page()->breadcrumb(
             [
                 Html::escapeHTML(App::blog()->name())                      => '',
                 My::name()                                                 => App::backend()->getPageURL(),
                 (App::backend()->rs->is_cat ? __('Category') : __('Link')) => '',
             ]
         ) .
-        Notices::getNotices();
+        App::backend()->notices()->getNotices();
 
         echo
             (new Para())->items([
@@ -434,6 +431,6 @@ class ManageEdit
             }
         }
 
-        Page::closeModule();
+        App::backend()->page()->closeModule();
     }
 }

@@ -11,9 +11,6 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\dcCKEditor;
 
 use Dotclear\App;
-use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Backend\Page;
-use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Form\Fieldset;
@@ -28,6 +25,7 @@ use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Textarea;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Process\TraitProcess;
 use Exception;
 
 /**
@@ -148,7 +146,7 @@ class Manage
                     My::settings()->put('disable_native_spellchecker', App::backend()->editor_cke_disable_native_spellchecker, 'boolean');
                 }
 
-                Notices::addSuccessNotice(__('The configuration has been updated.'));
+                App::backend()->notices()->addSuccessNotice(__('The configuration has been updated.'));
                 My::redirect();
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
@@ -164,14 +162,14 @@ class Manage
             return;
         }
 
-        Page::openModule(My::name());
+        App::backend()->page()->openModule(My::name());
 
         echo
-        Page::breadcrumb([
+        App::backend()->page()->breadcrumb([
             __('Plugins')  => '',
             __('CKEditor') => '',
         ]) .
-        Notices::getNotices();
+        App::backend()->notices()->getNotices();
 
         if (App::backend()->editor_is_admin) {
             $fields = [];
@@ -333,8 +331,8 @@ class Manage
             ->render();
         }
 
-        Page::helpBlock(My::id());
+        App::backend()->page()->helpBlock(My::id());
 
-        Page::closeModule();
+        App::backend()->page()->closeModule();
     }
 }

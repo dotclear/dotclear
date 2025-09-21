@@ -12,7 +12,6 @@ namespace Dotclear\Plugin\pages;
 
 use ArrayObject;
 use Dotclear\App;
-use Dotclear\Core\Backend\Listing\Pager;
 use Dotclear\Core\Backend\Listing\Listing;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Checkbox;
@@ -59,7 +58,7 @@ class BackendList extends Listing
             return;
         }
 
-        $pager   = (new Pager($page, (int) $this->rs_count, $nb_per_page, 10))->getLinks();
+        $pager   = App::backend()->listing()->pager($page, (int) $this->rs_count, $nb_per_page, 10)->getLinks();
         $entries = [];
         if (isset($_REQUEST['entries'])) {
             foreach ($_REQUEST['entries'] as $v) {

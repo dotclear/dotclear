@@ -10,8 +10,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\antispam;
 
-use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Backend\Page;
 use Dotclear\App;
 use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Helper\Date;
@@ -89,7 +87,7 @@ class Manage
 
                 Antispam::delAllSpam($ts);
 
-                Notices::addSuccessNotice(__('Spam comments have been successfully deleted.'));
+                App::backend()->notices()->addSuccessNotice(__('Spam comments have been successfully deleted.'));
                 My::redirect();
             }
 
@@ -136,7 +134,7 @@ class Manage
 
                 Antispam::$filters->saveFilterOpts($filters_opt);
 
-                Notices::addSuccessNotice(__('Filters configuration has been successfully saved.'));
+                App::backend()->notices()->addSuccessNotice(__('Filters configuration has been successfully saved.'));
                 My::redirect();
             }
         } catch (Exception $e) {
@@ -156,28 +154,28 @@ class Manage
             sprintf(__('%s configuration'), App::backend()->filter->name) . ' - ' :
             '' . App::backend()->page_name);
 
-        $head = Page::jsPageTabs(App::backend()->default_tab);
+        $head = App::backend()->page()->jsPageTabs(App::backend()->default_tab);
         if (!App::auth()->prefs()->accessibility->nodragdrop) {
-            $head .= Page::jsLoad('js/jquery/jquery-ui.custom.js') .
-                Page::jsLoad('js/jquery/jquery.ui.touch-punch.js');
+            $head .= App::backend()->page()->jsLoad('js/jquery/jquery-ui.custom.js') .
+                App::backend()->page()->jsLoad('js/jquery/jquery.ui.touch-punch.js');
         }
-        $head .= Page::jsJson('antispam', ['confirm_spam_delete' => __('Are you sure you want to delete all spams?')]) .
+        $head .= App::backend()->page()->jsJson('antispam', ['confirm_spam_delete' => __('Are you sure you want to delete all spams?')]) .
             My::jsLoad('antispam') .
             My::cssLoad('style');
 
-        Page::openModule($title, $head);
+        App::backend()->page()->openModule($title, $head);
 
         if (App::backend()->filter_gui !== false) {
             // Display filter GUI
             echo
-            Page::breadcrumb(
+            App::backend()->page()->breadcrumb(
                 [
                     __('Plugins')                                                        => '',
                     App::backend()->page_name                                            => App::backend()->getPageURL(),
                     sprintf(__('%s filter configuration'), App::backend()->filter->name) => '',
                 ]
             ) .
-            Notices::getNotices();
+            App::backend()->notices()->getNotices();
 
             echo (new Para())
                 ->items([
@@ -189,18 +187,18 @@ class Manage
             App::backend()->filter_gui;
 
             if (App::backend()->filter->help) {
-                Page::helpBlock(App::backend()->filter->help);
+                App::backend()->page()->helpBlock(App::backend()->filter->help);
             }
         } else {
             // Display list of filters
             echo
-            Page::breadcrumb(
+            App::backend()->page()->breadcrumb(
                 [
                     __('Plugins')             => '',
                     App::backend()->page_name => '',
                 ]
             ) .
-            Notices::getNotices();
+            App::backend()->notices()->getNotices();
 
             // Information
             $spam_count      = Antispam::countSpam();
@@ -269,7 +267,7 @@ class Manage
 
             // Filters
             if (!empty($_GET['upd'])) {
-                Notices::success(__('Filters configuration has been successfully saved.'));
+                App::backend()->notices()->success(__('Filters configuration has been successfully saved.'));
             }
 
             $rows = [];
@@ -384,9 +382,9 @@ class Manage
                 ->render();
             }
 
-            Page::helpBlock('antispam', 'antispam-filters');
+            App::backend()->page()->helpBlock('antispam', 'antispam-filters');
         }
 
-        Page::closeModule();
+        App::backend()->page()->closeModule();
     }
 }

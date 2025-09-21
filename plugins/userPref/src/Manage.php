@@ -11,9 +11,6 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\userPref;
 
 use Dotclear\App;
-use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Backend\Page;
-use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Decimal;
 use Dotclear\Helper\Html\Form\Details;
@@ -37,6 +34,7 @@ use Dotclear\Helper\Html\Form\Th;
 use Dotclear\Helper\Html\Form\Thead;
 use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Process\TraitProcess;
 use Exception;
 
 /**
@@ -88,7 +86,7 @@ class Manage
                     }
                 }
 
-                Notices::addSuccessNotice(__('Preferences successfully updated'));
+                App::backend()->notices()->addSuccessNotice(__('Preferences successfully updated'));
                 My::redirect();
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
@@ -107,7 +105,7 @@ class Manage
                     }
                 }
 
-                Notices::addSuccessNotice(__('Preferences successfully updated'));
+                App::backend()->notices()->addSuccessNotice(__('Preferences successfully updated'));
                 My::redirect([
                     'part' => 'global',
                 ]);
@@ -128,21 +126,21 @@ class Manage
             return;
         }
 
-        Page::openModule(
+        App::backend()->page()->openModule(
             My::name(),
-            Page::jsPageTabs(App::backend()->part) .
+            App::backend()->page()->jsPageTabs(App::backend()->part) .
             My::jsLoad('index')
         );
 
         echo
-        Page::breadcrumb(
+        App::backend()->page()->breadcrumb(
             [
                 __('System')                            => '',
                 Html::escapeHTML(App::auth()->userID()) => '',
                 My::name()                              => '',
             ]
         ) .
-        Notices::getNotices();
+        App::backend()->notices()->getNotices();
 
         echo
         (new Div('local'))
@@ -164,9 +162,9 @@ class Manage
             ])
         ->render();
 
-        Page::helpBlock(My::id());
+        App::backend()->page()->helpBlock(My::id());
 
-        Page::closeModule();
+        App::backend()->page()->closeModule();
     }
 
     /**

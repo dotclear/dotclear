@@ -11,7 +11,6 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\importExport;
 
 use Exception;
-use Dotclear\Core\Backend\Notices;
 use Dotclear\App;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Form;
@@ -212,7 +211,7 @@ class ModuleImportFeed extends Module
     public function gui(): void
     {
         if ($this->status) {
-            Notices::success(__('Content successfully imported.'));
+            App::backend()->notices()->success(__('Content successfully imported.'));
         }
 
         echo (new Form('ie-form'))

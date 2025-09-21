@@ -12,7 +12,6 @@ namespace Dotclear\Plugin\pages;
 
 use Dotclear\App;
 use Dotclear\Core\Backend\Action\ActionsPosts;
-use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\Html\Form\Link;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Html;
@@ -47,7 +46,7 @@ class BackendActions extends ActionsPosts
     {
         App::error()->add($e->getMessage());
         $this->beginPage(
-            Page::breadcrumb(
+            App::backend()->page()->breadcrumb(
                 [
                     Html::escapeHTML(App::blog()->name()) => '',
                     __('Pages')                           => $this->getRedirection(true),
@@ -60,9 +59,9 @@ class BackendActions extends ActionsPosts
 
     public function beginPage(string $breadcrumb = '', string $head = ''): void
     {
-        Page::openModule(
+        App::backend()->page()->openModule(
             __('Pages'),
-            Page::jsLoad('js/_posts_actions.js') .
+            App::backend()->page()->jsLoad('js/_posts_actions.js') .
             $head
         );
         echo
@@ -80,7 +79,7 @@ class BackendActions extends ActionsPosts
 
     public function endPage(): void
     {
-        Page::closeModule();
+        App::backend()->page()->closeModule();
     }
 
     /**

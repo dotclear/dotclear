@@ -11,8 +11,6 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\aboutConfig;
 
 use Dotclear\App;
-use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Decimal;
@@ -89,7 +87,7 @@ class Manage
                     App::blog()->triggerBlog();
                 }
 
-                Notices::addSuccessNotice(__('Configuration successfully updated'));
+                App::backend()->notices()->addSuccessNotice(__('Configuration successfully updated'));
                 My::redirect();
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
@@ -109,7 +107,7 @@ class Manage
                     App::blog()->triggerBlog();
                 }
 
-                Notices::addSuccessNotice(__('Configuration successfully updated'));
+                App::backend()->notices()->addSuccessNotice(__('Configuration successfully updated'));
                 My::redirect([
                     'part' => 'global',
                 ]);
@@ -130,21 +128,21 @@ class Manage
             return;
         }
 
-        Page::openModule(
+        App::backend()->page()->openModule(
             My::name(),
-            Page::jsPageTabs(App::backend()->part) .
+            App::backend()->page()->jsPageTabs(App::backend()->part) .
             My::jsLoad('index')
         );
 
         echo
-        Page::breadcrumb(
+        App::backend()->page()->breadcrumb(
             [
                 __('System')                          => '',
                 Html::escapeHTML(App::blog()->name()) => '',
                 My::name()                            => '',
             ]
         ) .
-        Notices::getNotices();
+        App::backend()->notices()->getNotices();
 
         echo
         (new Div('local'))
@@ -166,9 +164,9 @@ class Manage
             ])
         ->render();
 
-        Page::helpBlock(My::id());
+        App::backend()->page()->helpBlock(My::id());
 
-        Page::closeModule();
+        App::backend()->page()->closeModule();
     }
 
     /**

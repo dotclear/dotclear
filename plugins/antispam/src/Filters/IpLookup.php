@@ -10,7 +10,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\antispam\Filters;
 
-use Dotclear\Core\Backend\Notices;
 use Dotclear\App;
 use Dotclear\Helper\Html\Form\Fieldset;
 use Dotclear\Helper\Html\Form\Form;
@@ -141,7 +140,7 @@ class IpLookup extends SpamFilter
         if (isset($_POST['bls'])) {
             try {
                 App::blog()->settings()->antispam->put('antispam_dnsbls', $_POST['bls'], 'string', 'Antispam DNSBL servers', true, false);
-                Notices::addSuccessNotice(__('The list of DNSBL servers has been succesfully updated.'));
+                App::backend()->notices()->addSuccessNotice(__('The list of DNSBL servers has been succesfully updated.'));
                 Http::redirect($url);
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());

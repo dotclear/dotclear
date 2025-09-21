@@ -10,9 +10,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\themeEditor;
 
-use Exception;
 use Dotclear\App;
-use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Fieldset;
@@ -24,6 +22,7 @@ use Dotclear\Helper\Html\Form\Option;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Select;
 use Dotclear\Helper\Html\Form\Text;
+use Exception;
 
 /**
  * @brief   The module backend behaviors.
@@ -76,7 +75,7 @@ class BackendBehaviors
         // Add fieldset for plugin options
         $current_theme = App::auth()->prefs()->interface->colorsyntax_theme ?? 'default';
 
-        $themes_list  = Page::getCodeMirrorThemes();
+        $themes_list  = App::backend()->page()->getCodeMirrorThemes();
         $themes_combo = [
             new Option(__('Default'), ''),
             ... array_map(fn (string $value): Option => new Option($value, $value), $themes_list),
@@ -95,11 +94,11 @@ const fahrenheit = (celsius * 1.8) + 32
 console.log(`${celsius} degree celsius is equal to ${fahrenheit} degree fahrenheit.`);
 </textarea>';
 
-        $codemirror = Page::jsLoadCodeMirror('', false, ['javascript']);
+        $codemirror = App::backend()->page()->jsLoadCodeMirror('', false, ['javascript']);
         if ($current_theme !== 'default') {
-            $codemirror .= Page::cssLoad('js/codemirror/theme/' . $current_theme . '.css');
+            $codemirror .= App::backend()->page()->cssLoad('js/codemirror/theme/' . $current_theme . '.css');
         }
-        $codemirror .= Page::jsJson('theme_editor_current', ['theme' => $current_theme]) . My::jsLoad('theme');
+        $codemirror .= App::backend()->page()->jsJson('theme_editor_current', ['theme' => $current_theme]) . My::jsLoad('theme');
 
         echo (new Fieldset())
             ->id('themeEditor_prefs')

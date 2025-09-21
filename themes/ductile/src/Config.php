@@ -10,10 +10,6 @@
 namespace Dotclear\Theme\ductile;
 
 use Dotclear\App;
-use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Backend\Page;
-use Dotclear\Core\Backend\ThemeConfig;
-use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\Html\Form\Caption;
 use Dotclear\Helper\Html\Form\Checkbox;
@@ -39,6 +35,7 @@ use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Html\Form\Url;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
+use Dotclear\Helper\Process\TraitProcess;
 use Exception;
 
 /**
@@ -326,26 +323,26 @@ class Config
                 $ductile_user['alternate_webfont_api']    = $_POST['alternate_webfont_api'];
 
                 $ductile_user['blog_title_w'] = (int) !empty($_POST['blog_title_w']);
-                $ductile_user['blog_title_s'] = ThemeConfig::adjustFontSize($_POST['blog_title_s']);
-                $ductile_user['blog_title_c'] = ThemeConfig::adjustColor($_POST['blog_title_c']);
+                $ductile_user['blog_title_s'] = App::backend()->themeConfig()->adjustFontSize($_POST['blog_title_s']);
+                $ductile_user['blog_title_c'] = App::backend()->themeConfig()->adjustColor($_POST['blog_title_c']);
 
                 $ductile_user['post_title_w'] = (int) !empty($_POST['post_title_w']);
-                $ductile_user['post_title_s'] = ThemeConfig::adjustFontSize($_POST['post_title_s']);
-                $ductile_user['post_title_c'] = ThemeConfig::adjustColor($_POST['post_title_c']);
+                $ductile_user['post_title_s'] = App::backend()->themeConfig()->adjustFontSize($_POST['post_title_s']);
+                $ductile_user['post_title_c'] = App::backend()->themeConfig()->adjustColor($_POST['post_title_c']);
 
                 $ductile_user['post_link_w']   = (int) !empty($_POST['post_link_w']);
-                $ductile_user['post_link_v_c'] = ThemeConfig::adjustColor($_POST['post_link_v_c']);
-                $ductile_user['post_link_f_c'] = ThemeConfig::adjustColor($_POST['post_link_f_c']);
+                $ductile_user['post_link_v_c'] = App::backend()->themeConfig()->adjustColor($_POST['post_link_v_c']);
+                $ductile_user['post_link_f_c'] = App::backend()->themeConfig()->adjustColor($_POST['post_link_f_c']);
 
-                $ductile_user['post_simple_title_c'] = ThemeConfig::adjustColor($_POST['post_simple_title_c']);
+                $ductile_user['post_simple_title_c'] = App::backend()->themeConfig()->adjustColor($_POST['post_simple_title_c']);
 
                 $ductile_user['blog_title_w_m'] = (int) !empty($_POST['blog_title_w_m']);
-                $ductile_user['blog_title_s_m'] = ThemeConfig::adjustFontSize($_POST['blog_title_s_m']);
-                $ductile_user['blog_title_c_m'] = ThemeConfig::adjustColor($_POST['blog_title_c_m']);
+                $ductile_user['blog_title_s_m'] = App::backend()->themeConfig()->adjustFontSize($_POST['blog_title_s_m']);
+                $ductile_user['blog_title_c_m'] = App::backend()->themeConfig()->adjustColor($_POST['blog_title_c_m']);
 
                 $ductile_user['post_title_w_m'] = (int) !empty($_POST['post_title_w_m']);
-                $ductile_user['post_title_s_m'] = ThemeConfig::adjustFontSize($_POST['post_title_s_m']);
-                $ductile_user['post_title_c_m'] = ThemeConfig::adjustColor($_POST['post_title_c_m']);
+                $ductile_user['post_title_s_m'] = App::backend()->themeConfig()->adjustFontSize($_POST['post_title_s_m']);
+                $ductile_user['post_title_c_m'] = App::backend()->themeConfig()->adjustColor($_POST['post_title_c_m']);
 
                 App::backend()->ductile_user = $ductile_user;
 
@@ -361,7 +358,7 @@ class Config
                 // Template cache reset
                 App::cache()->emptyTemplatesCache();
 
-                Notices::addSuccessNotice(__('Theme configuration upgraded.'));
+                App::backend()->notices()->addSuccessNotice(__('Theme configuration upgraded.'));
                 App::backend()->url()->redirect('admin.blog.theme', ['conf' => '1']);
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
@@ -671,7 +668,7 @@ class Config
                                     ->items([
                                         (new Color('blog_title_c', App::backend()->ductile_user['blog_title_c']))
                                             ->label((new Label(__('Color:'), Label::OL_TF))
-                                                ->suffix(ThemeConfig::contrastRatio(
+                                                ->suffix(App::backend()->themeConfig()->contrastRatio(
                                                     App::backend()->ductile_user['blog_title_c'],
                                                     '#ffffff',
                                                     (empty(App::backend()->ductile_user['blog_title_s']) ? '2em' : App::backend()->ductile_user['blog_title_s']),
@@ -703,7 +700,7 @@ class Config
                                     ->items([
                                         (new Color('post_title_c', App::backend()->ductile_user['post_title_c']))
                                             ->label((new Label(__('Color:'), Label::OL_TF))
-                                                ->suffix(ThemeConfig::contrastRatio(
+                                                ->suffix(App::backend()->themeConfig()->contrastRatio(
                                                     App::backend()->ductile_user['post_title_c'],
                                                     '#ffffff',
                                                     (empty(App::backend()->ductile_user['post_title_s']) ? '2.5em' : App::backend()->ductile_user['post_title_s']),
@@ -718,7 +715,7 @@ class Config
                     ->items([
                         (new Color('post_simple_title_c', App::backend()->ductile_user['post_simple_title_c']))
                             ->label((new Label(__('Color:'), Label::OL_TF))
-                                ->suffix(ThemeConfig::contrastRatio(
+                                ->suffix(App::backend()->themeConfig()->contrastRatio(
                                     App::backend()->ductile_user['post_simple_title_c'],
                                     '#ffffff',
                                     '1.1em',    // H5 minimum size
@@ -738,7 +735,7 @@ class Config
                     ->items([
                         (new Color('post_link_v_c', App::backend()->ductile_user['post_link_v_c']))
                             ->label((new Label(__('Normal and visited links color:'), Label::OL_TF))
-                                ->suffix(ThemeConfig::contrastRatio(
+                                ->suffix(App::backend()->themeConfig()->contrastRatio(
                                     App::backend()->ductile_user['post_link_v_c'],
                                     '#ffffff',
                                     '1em',
@@ -750,7 +747,7 @@ class Config
                     ->items([
                         (new Color('post_link_f_c', App::backend()->ductile_user['post_link_f_c']))
                             ->label((new Label(__('Active, hover and focus links color:'), Label::OL_TF))
-                                ->suffix(ThemeConfig::contrastRatio(
+                                ->suffix(App::backend()->themeConfig()->contrastRatio(
                                     App::backend()->ductile_user['post_link_f_c'],
                                     '#ebebee',
                                     '1em',
@@ -786,7 +783,7 @@ class Config
                                     ->items([
                                         (new Color('blog_title_c_m', App::backend()->ductile_user['blog_title_c_m']))
                                             ->label((new Label(__('Color:'), Label::OL_TF))
-                                                ->suffix(ThemeConfig::contrastRatio(
+                                                ->suffix(App::backend()->themeConfig()->contrastRatio(
                                                     App::backend()->ductile_user['blog_title_c_m'],
                                                     '#d7d7dc',
                                                     empty(App::backend()->ductile_user['blog_title_s_m']) ? '1.8em' : App::backend()->ductile_user['blog_title_s_m'],
@@ -819,7 +816,7 @@ class Config
                                     ->items([
                                         (new Color('post_title_c_m', App::backend()->ductile_user['post_title_c_m']))
                                             ->label((new Label(__('Color:'), Label::OL_TF))
-                                                ->suffix(ThemeConfig::contrastRatio(
+                                                ->suffix(App::backend()->themeConfig()->contrastRatio(
                                                     App::backend()->ductile_user['post_title_c_m'],
                                                     '#ffffff',
                                                     empty(App::backend()->ductile_user['post_title_s_m']) ? '1.8em' : App::backend()->ductile_user['post_title_s_m'],
@@ -832,6 +829,6 @@ class Config
             ])
         ->render();
 
-        Page::helpBlock('ductile');
+        App::backend()->page()->helpBlock('ductile');
     }
 }

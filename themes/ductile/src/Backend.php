@@ -9,7 +9,6 @@
 
 namespace Dotclear\Theme\ductile;
 
-use Dotclear\Core\Backend\Page;
 use Dotclear\App;
 use Dotclear\Helper\Process\TraitProcess;
 
@@ -45,8 +44,8 @@ class Backend
             echo "\n" . '<!-- Header directives for Ductile configuration -->' . "\n";
             if (!App::auth()->prefs()->accessibility->nodragdrop) {
                 echo
-                Page::jsLoad('js/jquery/jquery-ui.custom.js') .
-                Page::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
+                App::backend()->page()->jsLoad('js/jquery/jquery-ui.custom.js') .
+                App::backend()->page()->jsLoad('js/jquery/jquery.ui.touch-punch.js') .
                 My::jsLoad('admin.js');
             }
         });

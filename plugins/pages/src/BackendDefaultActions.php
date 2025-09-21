@@ -13,7 +13,6 @@ namespace Dotclear\Plugin\pages;
 use ArrayObject;
 use Dotclear\App;
 use Dotclear\Core\Backend\Action\ActionsPostsDefault;
-use Dotclear\Core\Backend\Notices;
 use Dotclear\Database\Statement\UpdateStatement;
 use Exception;
 
@@ -116,7 +115,7 @@ class BackendDefaultActions
             App::blog()->triggerBlog();
         }
 
-        Notices::addSuccessNotice(__('Selected pages have been successfully reordered.'));
+        App::backend()->notices()->addSuccessNotice(__('Selected pages have been successfully reordered.'));
         $ap->redirect(false);
     }
 }

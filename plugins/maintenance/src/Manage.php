@@ -10,10 +10,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\maintenance;
 
-use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Backend\Page;
 use Dotclear\App;
-use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Checkbox;
@@ -34,6 +31,7 @@ use Dotclear\Helper\Html\Form\Strong;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Process\TraitProcess;
 use Exception;
 
 /**
@@ -94,7 +92,7 @@ class Manage
                 if (true === App::backend()->code) {
                     App::backend()->maintenance->setLog(App::backend()->task->id());
 
-                    Notices::addSuccessNotice(App::backend()->task->success());
+                    App::backend()->notices()->addSuccessNotice(App::backend()->task->success());
                     My::redirect(['task' => App::backend()->task->id(), 'tab' => App::backend()->tab], '#' . App::backend()->tab);
                 }
             } catch (Exception $e) {
@@ -135,7 +133,7 @@ class Manage
                     );
                 }
 
-                Notices::addSuccessNotice(__('Maintenance plugin has been successfully configured.'));
+                App::backend()->notices()->addSuccessNotice(__('Maintenance plugin has been successfully configured.'));
                 My::redirect(['tab' => App::backend()->tab], '#' . App::backend()->tab);
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
@@ -153,12 +151,12 @@ class Manage
                 App::blog()->settings()->system->put('csp_admin_on', !empty($_POST['system_csp']));
                 App::blog()->settings()->system->put('csp_admin_report_only', !empty($_POST['system_csp_report_only']));
 
-                Notices::addSuccessNotice(__('System settings have been saved.'));
+                App::backend()->notices()->addSuccessNotice(__('System settings have been saved.'));
 
                 if (!empty($_POST['system_csp_reset'])) {
                     App::blog()->settings()->system->dropEvery('csp_admin_on');
                     App::blog()->settings()->system->dropEvery('csp_admin_report_only');
-                    Notices::addSuccessNotice(__('All blog\'s Content-Security-Policy settings have been reset to default.'));
+                    App::backend()->notices()->addSuccessNotice(__('All blog\'s Content-Security-Policy settings have been reset to default.'));
                 }
 
                 My::redirect(['tab' => App::backend()->tab], '#' . App::backend()->tab);
@@ -195,30 +193,30 @@ class Manage
 
         // Display page
 
-        $head = Page::jsPageTabs(App::backend()->tab) .
+        $head = App::backend()->page()->jsPageTabs(App::backend()->tab) .
             My::jsLoad('settings') .
             My::cssLoad('style');
         if (App::backend()->task && App::backend()->task->ajax()) {
-            $head .= Page::jsJson('maintenance', ['wait' => __('Please wait...')]) .
+            $head .= App::backend()->page()->jsJson('maintenance', ['wait' => __('Please wait...')]) .
                 My::jsLoad('dc.maintenance');
         }
         $head .= App::backend()->maintenance->getHeaders();
 
-        Page::openModule(My::name(), $head);
+        App::backend()->page()->openModule(My::name(), $head);
 
         // Check if there is something to display according to user permissions
         if (empty(App::backend()->tasks)) {
             echo
-            Page::breadcrumb(
+            App::backend()->page()->breadcrumb(
                 [
                     __('Plugins') => '',
                     My::name()    => '',
                 ]
             );
 
-            Notices::warning(__('You have not sufficient permissions to view this page.'), false);
+            App::backend()->notices()->warning(__('You have not sufficient permissions to view this page.'), false);
 
-            Page::closeModule();
+            App::backend()->page()->closeModule();
 
             return;
         }
@@ -226,14 +224,14 @@ class Manage
         if (App::backend()->task && ($res = App::backend()->task->step()) !== null) {
             // Page title
             echo
-            Page::breadcrumb(
+            App::backend()->page()->breadcrumb(
                 [
                     __('Plugins')                                                           => '',
                     '<a href="' . App::backend()->getPageURL() . '">' . My::name() . '</a>' => '',
                     Html::escapeHTML(App::backend()->task->name())                          => '',
                 ]
             ) .
-            Notices::getNotices();
+            App::backend()->notices()->getNotices();
 
             // Content
             if (str_starts_with((string) $res, '<')) {
@@ -280,13 +278,13 @@ class Manage
             // Page title
 
             echo
-            Page::breadcrumb(
+            App::backend()->page()->breadcrumb(
                 [
                     __('Plugins') => '',
                     My::name()    => '',
                 ]
             ) .
-            Notices::getNotices();
+            App::backend()->notices()->getNotices();
 
             // Simple task (with only a button to start it)
             foreach (App::backend()->maintenance->getTabs() as $tab_obj) {
@@ -561,8 +559,8 @@ class Manage
             }
         }
 
-        Page::helpBlock('maintenance', 'maintenancetasks');
+        App::backend()->page()->helpBlock('maintenance', 'maintenancetasks');
 
-        Page::closeModule();
+        App::backend()->page()->closeModule();
     }
 }

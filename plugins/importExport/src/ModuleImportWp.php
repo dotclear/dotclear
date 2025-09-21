@@ -12,8 +12,6 @@ namespace Dotclear\Plugin\importExport;
 
 use ArrayObject;
 use Dotclear\App;
-use Dotclear\Core\Backend\Combos;
-use Dotclear\Core\Backend\Notices;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Crypt;
 use Dotclear\Helper\Html\Form\Checkbox;
@@ -125,7 +123,7 @@ class ModuleImportWp extends Module
             $this->writeVars();
         }
 
-        $this->formaters = Combos::getFormatersCombo();
+        $this->formaters = App::backend()->combos()->getFormatersCombo();
     }
 
     protected function readVars(): void
@@ -467,7 +465,7 @@ class ModuleImportWp extends Module
      */
     protected function error(Exception $e): void
     {
-        Notices::error('<strong>' . __('Errors:') . '</strong>' . '<p>' . $e->getMessage() . '</p>', false, false);
+        App::backend()->notices()->error('<strong>' . __('Errors:') . '</strong>' . '<p>' . $e->getMessage() . '</p>', false, false);
     }
 
     /**
