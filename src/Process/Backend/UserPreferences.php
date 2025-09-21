@@ -19,7 +19,6 @@ use Dotclear\Core\Backend\Auth\Otp;
 use Dotclear\Core\Backend\Auth\WebAuthn;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Helper;
-use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\UserPref;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Button;
@@ -247,7 +246,7 @@ class UserPreferences
                 if (!App::backend()->otp->verifyCode($_POST['otp_verify_code'])) {
                     App::error()->add(__('Two factors authentication verification failed.'));
                 } else {
-                    Notices::addSuccessNotice(__('Two factors authentication verification succeeded.'));
+                    App::backend()->notices()->addSuccessNotice(__('Two factors authentication verification succeeded.'));
                 }
             }
             if (!empty($_POST['otp_delete']) || !empty($_POST['otp_regenerate'])) {
@@ -255,7 +254,7 @@ class UserPreferences
                 App::backend()->otp->delCredential();
                 App::backend()->otp->setUser(App::auth()->userID()); // reload info
 
-                Notices::addSuccessNotice(__('Two factors authentication secret regenerated.'));
+                App::backend()->notices()->addSuccessNotice(__('Two factors authentication secret regenerated.'));
             }
         }
 
@@ -264,7 +263,7 @@ class UserPreferences
             // process webauhtn key deletion
             App::backend()->webauthn->store()->delCredential(base64_decode((string) key($_POST['webauthn'])));
 
-            Notices::addSuccessNotice(__('Passkey successfully deleted.'));
+            App::backend()->notices()->addSuccessNotice(__('Passkey successfully deleted.'));
             App::backend()->url()->redirect('admin.user.preferences', [], '#user-profile');
         }
 
@@ -329,7 +328,7 @@ class UserPreferences
                 # --BEHAVIOR-- adminAfterUserUpdate -- Cursor, string
                 App::behavior()->callBehavior('adminAfterUserProfileUpdate', $cur, App::auth()->userID());
 
-                Notices::addSuccessNotice(__('Personal information has been successfully updated.'));
+                App::backend()->notices()->addSuccessNotice(__('Personal information has been successfully updated.'));
 
                 App::backend()->url()->redirect('admin.user.preferences');
             } catch (Exception $e) {
@@ -447,7 +446,7 @@ class UserPreferences
                 # --BEHAVIOR-- adminAfterUserOptionsUpdate -- Cursor, string
                 App::behavior()->callBehavior('adminAfterUserOptionsUpdate', $cur, App::auth()->userID());
 
-                Notices::addSuccessNotice(__('Personal options has been successfully updated.'));
+                App::backend()->notices()->addSuccessNotice(__('Personal options has been successfully updated.'));
                 App::backend()->url()->redirect('admin.user.preferences', [], '#user-options');
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
@@ -475,7 +474,7 @@ class UserPreferences
                 # --BEHAVIOR-- adminAfterUserOptionsUpdate -- string
                 App::behavior()->callBehavior('adminAfterDashboardOptionsUpdate', App::auth()->userID());
 
-                Notices::addSuccessNotice(__('Dashboard options has been successfully updated.'));
+                App::backend()->notices()->addSuccessNotice(__('Dashboard options has been successfully updated.'));
                 App::backend()->url()->redirect('admin.user.preferences', [], '#user-favorites');
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
@@ -498,7 +497,7 @@ class UserPreferences
                 App::backend()->favorites()->setFavoriteIDs($user_favs, false);
 
                 if (!App::error()->flag()) {
-                    Notices::addSuccessNotice(__('Favorites have been successfully added.'));
+                    App::backend()->notices()->addSuccessNotice(__('Favorites have been successfully added.'));
                     App::backend()->url()->redirect('admin.user.preferences', [], '#user-favorites');
                 }
             } catch (Exception $e) {
@@ -524,7 +523,7 @@ class UserPreferences
                 }
                 App::backend()->favorites()->setFavoriteIDs(array_keys($user_fav_ids), false);
                 if (!App::error()->flag()) {
-                    Notices::addSuccessNotice(__('Favorites have been successfully removed.'));
+                    App::backend()->notices()->addSuccessNotice(__('Favorites have been successfully removed.'));
                     App::backend()->url()->redirect('admin.user.preferences', [], '#user-favorites');
                 }
             } catch (Exception $e) {
@@ -554,7 +553,7 @@ class UserPreferences
             }
             App::backend()->favorites()->setFavoriteIDs($order, false);    // @phpstan-ignore-line : $order is array<string>
             if (!App::error()->flag()) {
-                Notices::addSuccessNotice(__('Favorites have been successfully updated.'));
+                App::backend()->notices()->addSuccessNotice(__('Favorites have been successfully updated.'));
                 App::backend()->url()->redirect('admin.user.preferences', [], '#user-favorites');
             }
         }
@@ -566,7 +565,7 @@ class UserPreferences
             App::backend()->favorites()->setFavoriteIDs($user_favs, true);
 
             if (!App::error()->flag()) {
-                Notices::addSuccessNotice(__('Default favorites have been successfully updated.'));
+                App::backend()->notices()->addSuccessNotice(__('Default favorites have been successfully updated.'));
                 App::backend()->url()->redirect('admin.user.preferences', [], '#user-favorites');
             }
         }
@@ -580,7 +579,7 @@ class UserPreferences
             App::auth()->prefs()->dashboard->drop('boxes_contents_order');
 
             if (!App::error()->flag()) {
-                Notices::addSuccessNotice(__('Dashboard items order have been successfully reset.'));
+                App::backend()->notices()->addSuccessNotice(__('Dashboard items order have been successfully reset.'));
                 App::backend()->url()->redirect('admin.user.preferences', [], '#user-favorites');
             }
         }

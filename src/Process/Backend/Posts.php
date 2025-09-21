@@ -15,7 +15,6 @@ use Dotclear\App;
 use Dotclear\Core\Backend\Action\ActionsPosts;
 use Dotclear\Core\Backend\Filter\FilterPosts;
 use Dotclear\Core\Backend\Listing\ListingPosts;
-use Dotclear\Core\Backend\Notices;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Label;
@@ -102,9 +101,9 @@ class Posts
             )
         );
         if (!empty($_GET['upd'])) {
-            Notices::success(__('Selected entries have been successfully updated.'));
+            App::backend()->notices()->success(__('Selected entries have been successfully updated.'));
         } elseif (!empty($_GET['del'])) {
-            Notices::success(__('Selected entries have been successfully deleted.'));
+            App::backend()->notices()->success(__('Selected entries have been successfully deleted.'));
         }
         if (!App::error()->flag()) {
             echo (new Para())

@@ -128,6 +128,7 @@ class Utility extends AbstractUtility
         return [
             Favorites::class => Favorites::class,
             Menus::class     => Menus::class,
+            Notices::class   => Notices::class,
             Page::class      => Page::class,
             Resources::class => Resources::class,
             Url::class       => Url::class,
@@ -148,6 +149,14 @@ class Utility extends AbstractUtility
     public function menus(): Menus
     {
         return $this->get(Menus::class);
+    }
+
+    /**
+     * Get backend notices instance.
+     */
+    public function notices(): Notices
+    {
+        return $this->get(Notices::class);
     }
 
     /**

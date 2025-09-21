@@ -11,7 +11,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Process\Backend;
 
-use Dotclear\Core\Backend\Notices;
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Form\Button;
@@ -71,7 +70,7 @@ class BlogDel
             } else {
                 try {
                     App::blogs()->delBlog(App::backend()->blog_id);
-                    Notices::addSuccessNotice(sprintf(__('Blog "%s" successfully deleted'), Html::escapeHTML(App::backend()->blog_name)));
+                    App::backend()->notices()->addSuccessNotice(sprintf(__('Blog "%s" successfully deleted'), Html::escapeHTML(App::backend()->blog_name)));
 
                     App::backend()->url()->redirect('admin.blogs');
                 } catch (Exception $e) {
@@ -102,7 +101,7 @@ class BlogDel
                 __('You are about to delete the blog %s. Every entry, comment and category will be deleted.'),
                 '<strong>' . App::backend()->blog_id . ' (' . App::backend()->blog_name . ')</strong>'
             );
-            Notices::warning($msg, false, true);
+            App::backend()->notices()->warning($msg, false, true);
 
             echo
             // Legend

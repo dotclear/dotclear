@@ -12,7 +12,6 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
-use Dotclear\Core\Backend\Notices;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Form\Div;
@@ -121,7 +120,7 @@ class UsersActions
                             }
                         }
                         if (!App::error()->flag()) {
-                            Notices::addSuccessNotice(__('User has been successfully enabled.'));
+                            App::backend()->notices()->addSuccessNotice(__('User has been successfully enabled.'));
                             Http::redirect(App::backend()->redir);
                         }
 
@@ -146,7 +145,7 @@ class UsersActions
                             }
                         }
                         if (!App::error()->flag()) {
-                            Notices::addSuccessNotice(__('User has been successfully deleted.'));
+                            App::backend()->notices()->addSuccessNotice(__('User has been successfully deleted.'));
                             Http::redirect(App::backend()->redir);
                         }
 
@@ -171,7 +170,7 @@ class UsersActions
                     }
                 }
                 if (!App::error()->flag()) {
-                    Notices::addSuccessNotice(__('User has been successfully deleted.'));
+                    App::backend()->notices()->addSuccessNotice(__('User has been successfully deleted.'));
                     Http::redirect(App::backend()->redir);
                 }
             }
@@ -202,7 +201,7 @@ class UsersActions
                     App::error()->add($e->getMessage());
                 }
                 if (!App::error()->flag()) {
-                    Notices::addSuccessNotice(__('User has been successfully updated.'));
+                    App::backend()->notices()->addSuccessNotice(__('User has been successfully updated.'));
                     Http::redirect(App::backend()->redir);
                 }
             }

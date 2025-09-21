@@ -13,7 +13,6 @@ namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
 use Dotclear\Core\Backend\Combos;
-use Dotclear\Core\Backend\Notices;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Button;
@@ -107,7 +106,7 @@ class Comment
                 # --BEHAVIOR-- adminAfterCommentCreate -- Cursor, string|int
                 App::behavior()->callBehavior('adminAfterCommentCreate', $cur, App::backend()->comment_id);
 
-                Notices::addSuccessNotice(__('Comment has been successfully created.'));
+                App::backend()->notices()->addSuccessNotice(__('Comment has been successfully created.'));
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
             }
@@ -141,7 +140,7 @@ class Comment
                     App::backend()->comment_spam_status = App::backend()->rs->comment_spam_status;
                     //
                 } else {
-                    Notices::addErrorNotice('This comment does not exist.');
+                    App::backend()->notices()->addErrorNotice('This comment does not exist.');
                     App::backend()->url()->redirect('admin.comments');
                 }
             } catch (Exception $e) {
@@ -199,7 +198,7 @@ class Comment
                     # --BEHAVIOR-- adminAfterCommentUpdate -- Cursor, string|int
                     App::behavior()->callBehavior('adminAfterCommentUpdate', $cur, App::backend()->comment_id);
 
-                    Notices::addSuccessNotice(__('Comment has been successfully updated.'));
+                    App::backend()->notices()->addSuccessNotice(__('Comment has been successfully updated.'));
                     App::backend()->url()->redirect('admin.comment', ['id' => App::backend()->comment_id]);
                 } catch (Exception $e) {
                     App::error()->add($e->getMessage());
@@ -215,7 +214,7 @@ class Comment
 
                     App::blog()->delComment(App::backend()->comment_id);
 
-                    Notices::addSuccessNotice(__('Comment has been successfully deleted.'));
+                    App::backend()->notices()->addSuccessNotice(__('Comment has been successfully deleted.'));
                     Http::redirect(App::postTypes()->get(App::backend()->rs->post_type)->adminUrl(App::backend()->rs->post_id, false, ['co' => 1]));
                 } catch (Exception $e) {
                     App::error()->add($e->getMessage());
@@ -255,7 +254,7 @@ class Comment
 
         if (App::backend()->comment_id) {
             if (!empty($_GET['upd'])) {
-                Notices::success(__('Comment has been successfully updated.'));
+                App::backend()->notices()->success(__('Comment has been successfully updated.'));
             }
 
             echo (new Form('comment-form'))

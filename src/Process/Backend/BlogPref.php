@@ -13,7 +13,6 @@ namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
 use Dotclear\Core\Backend\Combos;
-use Dotclear\Core\Backend\Notices;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Capture;
@@ -415,7 +414,7 @@ class BlogPref
                 if (App::auth()->isSuperAdmin() && in_array($_POST['url_scan'], App::backend()->url_scan_combo)) {
                     App::backend()->blog_settings->system->put('url_scan', $_POST['url_scan']);
                 }
-                Notices::addSuccessNotice(__('Blog has been successfully updated.'));
+                App::backend()->notices()->addSuccessNotice(__('Blog has been successfully updated.'));
 
                 Http::redirect(sprintf(App::backend()->redir, App::backend()->blog_id));
             } catch (Exception $e) {
@@ -486,11 +485,11 @@ class BlogPref
 
         if (App::backend()->blog_id) {
             if (!empty($_GET['add'])) {
-                Notices::success(__('Blog has been successfully created.'));
+                App::backend()->notices()->success(__('Blog has been successfully created.'));
             }
 
             if (!empty($_GET['upd'])) {
-                Notices::success(__('Blog has been successfully updated.'));
+                App::backend()->notices()->success(__('Blog has been successfully updated.'));
             }
 
             // Prepare tabs' content

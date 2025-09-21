@@ -12,7 +12,6 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
-use Dotclear\Core\Backend\Notices;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Zip\Unzip;
 use Dotclear\Helper\Html\Form\Div;
@@ -102,7 +101,7 @@ class Langs
                     throw new Exception(__('Permissions to delete language denied.'));
                 }
 
-                Notices::addSuccessNotice(__('Language has been successfully deleted.'));
+                App::backend()->notices()->addSuccessNotice(__('Language has been successfully deleted.'));
                 App::backend()->url()->redirect('admin.langs');
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
@@ -144,9 +143,9 @@ class Langs
                 }
 
                 if ($ret_code === self::LANG_UPDATED) {
-                    Notices::addSuccessNotice(__('Language has been successfully upgraded'));
+                    App::backend()->notices()->addSuccessNotice(__('Language has been successfully upgraded'));
                 } else {
-                    Notices::addSuccessNotice(__('Language has been successfully installed.'));
+                    App::backend()->notices()->addSuccessNotice(__('Language has been successfully installed.'));
                 }
                 App::backend()->url()->redirect('admin.langs');
             } catch (Exception $e) {
@@ -177,9 +176,9 @@ class Langs
                 }
 
                 if ($ret_code === self::LANG_UPDATED) {
-                    Notices::addSuccessNotice(__('Language has been successfully upgraded'));
+                    App::backend()->notices()->addSuccessNotice(__('Language has been successfully upgraded'));
                 } else {
-                    Notices::addSuccessNotice(__('Language has been successfully installed.'));
+                    App::backend()->notices()->addSuccessNotice(__('Language has been successfully installed.'));
                 }
                 App::backend()->url()->redirect('admin.langs');
             } catch (Exception $e) {

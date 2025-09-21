@@ -14,7 +14,6 @@ namespace Dotclear\Process\Backend;
 use ArrayObject;
 use Dotclear\App;
 use Dotclear\Core\Backend\Combos;
-use Dotclear\Core\Backend\Notices;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Capture;
@@ -205,7 +204,7 @@ class User
                         App::session()->destroy();
                     }
 
-                    Notices::addSuccessNotice(__('User has been successfully updated.'));
+                    App::backend()->notices()->addSuccessNotice(__('User has been successfully updated.'));
                     App::backend()->url()->redirect('admin.user', ['id' => $new_id]);
                 } else {
                     // Add user
@@ -235,13 +234,13 @@ class User
                     # --BEHAVIOR-- adminAfterUserCreate -- Cursor, string
                     App::behavior()->callBehavior('adminAfterUserCreate', $cur, $new_id);
 
-                    Notices::addSuccessNotice(__('User has been successfully created.'));
+                    App::backend()->notices()->addSuccessNotice(__('User has been successfully created.'));
 
                     if (!$cur->user_super) {
-                        Notices::addWarningNotice(__('User has no permission, he will not be able to login yet. See below to add some.'));
+                        App::backend()->notices()->addWarningNotice(__('User has no permission, he will not be able to login yet. See below to add some.'));
                     }
                     if (App::status()->user()->isRestricted((int) $cur->user_status)) {
-                        Notices::addWarningNotice(__('User is disabled, he will not be able to login yet.'));
+                        App::backend()->notices()->addWarningNotice(__('User is disabled, he will not be able to login yet.'));
                     }
                     if (!empty($_POST['saveplus'])) {
                         App::backend()->url()->redirect('admin.user');
@@ -281,11 +280,11 @@ class User
         );
 
         if (!empty($_GET['upd'])) {
-            Notices::success(__('User has been successfully updated.'));
+            App::backend()->notices()->success(__('User has been successfully updated.'));
         }
 
         if (!empty($_GET['add'])) {
-            Notices::success(__('User has been successfully created.'));
+            App::backend()->notices()->success(__('User has been successfully created.'));
         }
 
         $super_disabled = App::backend()->user_super && App::backend()->user_id === App::auth()->userID();

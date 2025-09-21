@@ -14,7 +14,6 @@ namespace Dotclear\Process\Backend;
 use ArrayObject;
 use Dotclear\App;
 use Dotclear\Core\Backend\ModulesList;
-use Dotclear\Core\Backend\Notices;
 use Dotclear\Helper\Html\Form\Capture;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
@@ -55,7 +54,7 @@ class Plugins
 
         $disabled = App::plugins()->disableDepModules();
         if ($disabled !== []) {
-            Notices::addWarningNotice(
+            App::backend()->notices()->addWarningNotice(
                 (new Div())
                     ->items([
                         (new Note())
@@ -133,7 +132,7 @@ class Plugins
                 $info      = implode(' - ', App::backend()->list->getSettingsUrls($k, true));
                 $success[] = $k . ($info !== '' ? ' → ' . $info : '');
             }
-            Notices::success(
+            App::backend()->notices()->success(
                 (new Div())
                     ->items([
                         (new Note())
@@ -155,7 +154,7 @@ class Plugins
                 $failure[] = $k . ' (' . $v . ')';
             }
 
-            Notices::error(
+            App::backend()->notices()->error(
                 (new Div())
                     ->items([
                         (new Note())
@@ -241,11 +240,11 @@ class Plugins
         // Updatable modules
         if (App::auth()->isSuperAdmin()) {
             if (null == App::blog()->settings()->system->store_plugin_url) {
-                Notices::message(__('Official repository could not be updated as there is no URL set in configuration.'));
+                App::backend()->notices()->message(__('Official repository could not be updated as there is no URL set in configuration.'));
             }
 
             if (!App::error()->flag() && !empty($_GET['nocache'])) {
-                Notices::success(__('Manual checking of plugins update done successfully.'));
+                App::backend()->notices()->success(__('Manual checking of plugins update done successfully.'));
             }
 
             // Updated modules from repo

@@ -15,7 +15,6 @@ use Dotclear\App;
 use Dotclear\Core\Backend\Action\ActionsComments;
 use Dotclear\Core\Backend\Filter\FilterComments;
 use Dotclear\Core\Backend\Listing\ListingComments;
-use Dotclear\Core\Backend\Notices;
 use Dotclear\Helper\Html\Form\Capture;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
@@ -137,14 +136,14 @@ class Comments
             )
         );
         if (!empty($_GET['upd'])) {
-            Notices::success(__('Selected comments have been successfully updated.'));
+            App::backend()->notices()->success(__('Selected comments have been successfully updated.'));
         } elseif (!empty($_GET['del'])) {
-            Notices::success(__('Selected comments have been successfully deleted.'));
+            App::backend()->notices()->success(__('Selected comments have been successfully deleted.'));
         }
 
         if (!App::error()->flag()) {
             if (App::session()->get('comments_del_spam') != '') {
-                Notices::message(__('Spam comments have been successfully deleted.'));
+                App::backend()->notices()->message(__('Spam comments have been successfully deleted.'));
                 App::session()->unset('comments_del_spam');
             }
 

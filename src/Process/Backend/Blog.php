@@ -12,7 +12,6 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
-use Dotclear\Core\Backend\Notices;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Input;
@@ -76,7 +75,7 @@ class Blog
 
                 # --BEHAVIOR-- adminAfterBlogCreate -- Cursor, string, BlogSettingsInterface
                 App::behavior()->callBehavior('adminAfterBlogCreate', $cur, App::backend()->blog_id, $blog_settings);
-                Notices::addSuccessNotice(sprintf(__('Blog "%s" successfully created'), Html::escapeHTML($cur->blog_name)));
+                App::backend()->notices()->addSuccessNotice(sprintf(__('Blog "%s" successfully created'), Html::escapeHTML($cur->blog_name)));
                 App::backend()->url()->redirect('admin.blog', ['id' => $cur->blog_id]);
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());

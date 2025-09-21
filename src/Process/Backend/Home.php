@@ -16,7 +16,6 @@ use Dotclear\App;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Helper;
 use Dotclear\Core\Backend\ModulesList;
-use Dotclear\Core\Backend\Notices;
 use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Form\Date;
 use Dotclear\Helper\Html\Form\Details;
@@ -72,7 +71,7 @@ class Home
 
         $disabled = App::plugins()->disableDepModules();
         if ($disabled !== []) {
-            Notices::addWarningNotice(
+            App::backend()->notices()->addWarningNotice(
                 (new Div())
                     ->items([
                         (new Note())
@@ -137,7 +136,7 @@ class Home
             try {
                 App::auth()->prefs()->dashboard->put('donation_date', $_POST['donation-date'], UserWorkspaceInterface::WS_STRING, 'last donation date');
 
-                Notices::addSuccessNotice(__('Your last donation date has been saved.'));
+                App::backend()->notices()->addSuccessNotice(__('Your last donation date has been saved.'));
                 App::backend()->url()->redirect('admin.home');
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
@@ -264,13 +263,13 @@ class Home
         }
 
         if (App::blog()->status() === App::status()->blog()::OFFLINE) {
-            Notices::message(__('This blog is offline'), false);
+            App::backend()->notices()->message(__('This blog is offline'), false);
         } elseif (App::blog()->status() === App::status()->blog()::REMOVED) {
-            Notices::message(__('This blog is removed'), false);
+            App::backend()->notices()->message(__('This blog is removed'), false);
         }
 
         if (App::config()->adminUrl() === '') {
-            Notices::message(
+            App::backend()->notices()->message(
                 sprintf(
                     __('%s is not defined, you should edit your configuration file.'),
                     'DC_ADMIN_URL'
@@ -285,7 +284,7 @@ class Home
         }
 
         if (App::config()->adminMailfrom() === 'dotclear@local') {
-            Notices::message(
+            App::backend()->notices()->message(
                 sprintf(
                     __('%s is not defined, you should edit your configuration file.'),
                     'DC_ADMIN_MAILFROM'
@@ -321,7 +320,7 @@ class Home
 
         // Error list
         if ($err !== []) {
-            Notices::error(
+            App::backend()->notices()->error(
                 (new Div())
                     ->items([
                         (new Note())
@@ -346,7 +345,7 @@ class Home
                 $success[] = $k . ($info !== '' ? ' → ' . $info : '');
             }
 
-            Notices::success(
+            App::backend()->notices()->success(
                 (new Div())
                     ->items([
                         (new Note())
@@ -368,7 +367,7 @@ class Home
                 $failure[] = $k . ' (' . $v . ')';
             }
 
-            Notices::error(
+            App::backend()->notices()->error(
                 (new Div())
                     ->items([
                         (new Note())
@@ -389,7 +388,7 @@ class Home
         if (App::auth()->isSuperAdmin()) {
             $list = App::plugins()->getErrors();
             if ($list !== []) {
-                Notices::error(
+                App::backend()->notices()->error(
                     (new Div())
                         ->items([
                             (new Note())

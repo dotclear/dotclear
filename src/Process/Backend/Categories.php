@@ -13,7 +13,6 @@ namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
 use Dotclear\Core\Backend\Combos;
-use Dotclear\Core\Backend\Notices;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
@@ -61,7 +60,7 @@ class Categories
             // Check if category to delete exists
             $rs = App::blog()->getCategory($cat_id);
             if ($rs->isEmpty()) {
-                Notices::addErrorNotice(__('This category does not exist.'));
+                App::backend()->notices()->addErrorNotice(__('This category does not exist.'));
                 App::backend()->url()->redirect('admin.categories');
             } else {
                 $name = $rs->cat_title;
@@ -70,7 +69,7 @@ class Categories
             try {
                 // Delete category
                 App::blog()->delCategory($cat_id);
-                Notices::addSuccessNotice(sprintf(
+                App::backend()->notices()->addSuccessNotice(sprintf(
                     __('The category "%s" has been successfully deleted.'),
                     Html::escapeHTML($name)
                 ));
@@ -100,7 +99,7 @@ class Categories
                 if ($mov_cat != $cat_id) {
                     App::blog()->changePostsCategory($cat_id, $mov_cat);
                 }
-                Notices::addSuccessNotice(sprintf(
+                App::backend()->notices()->addSuccessNotice(sprintf(
                     __('The entries have been successfully moved to category "%s"'),
                     Html::escapeHTML($name)
                 ));
@@ -118,7 +117,7 @@ class Categories
                     App::blog()->updCategoryPosition((int) $category->item_id, (int) $category->left, (int) $category->right);
                 }
             }
-            Notices::addSuccessNotice(__('Categories have been successfully reordered.'));
+            App::backend()->notices()->addSuccessNotice(__('Categories have been successfully reordered.'));
             App::backend()->url()->redirect('admin.categories');
         }
 
@@ -126,7 +125,7 @@ class Categories
             // Reset order
             try {
                 App::blog()->resetCategoriesOrder();
-                Notices::addSuccessNotice(__('Categories order has been successfully reset.'));
+                App::backend()->notices()->addSuccessNotice(__('Categories order has been successfully reset.'));
                 App::backend()->url()->redirect('admin.categories');
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
@@ -166,13 +165,13 @@ class Categories
         );
 
         if (!empty($_GET['del'])) {
-            Notices::success(__('The category has been successfully removed.'));
+            App::backend()->notices()->success(__('The category has been successfully removed.'));
         }
         if (!empty($_GET['reord'])) {
-            Notices::success(__('Categories have been successfully reordered.'));
+            App::backend()->notices()->success(__('Categories have been successfully reordered.'));
         }
         if (!empty($_GET['move'])) {
-            Notices::success(__('Entries have been successfully moved to the category you choose.'));
+            App::backend()->notices()->success(__('Entries have been successfully moved to the category you choose.'));
         }
 
         App::backend()->categories_combo = Combos::getCategoriesCombo($rs);

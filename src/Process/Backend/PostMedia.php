@@ -12,7 +12,6 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
-use Dotclear\Core\Backend\Notices;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Hidden;
 use Dotclear\Helper\Html\Form\Para;
@@ -87,7 +86,7 @@ class PostMedia
             if (!empty($_POST['remove'])) {
                 $pm->removePostMedia(App::backend()->post_id, App::backend()->media_id, App::backend()->link_type);
 
-                Notices::addSuccessNotice(__('Attachment has been successfully removed.'));
+                App::backend()->notices()->addSuccessNotice(__('Attachment has been successfully removed.'));
                 Http::redirect(App::postTypes()->get($rs->post_type)->adminUrl(App::backend()->post_id, false));
             } elseif (isset($_POST['post_id'])) {
                 Http::redirect(App::postTypes()->get($rs->post_type)->adminUrl(App::backend()->post_id, false));

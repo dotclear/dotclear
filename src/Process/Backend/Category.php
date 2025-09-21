@@ -13,7 +13,6 @@ namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
 use Dotclear\Core\Backend\Combos;
-use Dotclear\Core\Backend\Notices;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Div;
@@ -131,7 +130,7 @@ class Category
             if (App::backend()->cat_parent != $new_parent) {
                 try {
                     App::blog()->setCategoryParent(App::backend()->cat_id, $new_parent);
-                    Notices::addSuccessNotice(__('The category has been successfully moved'));
+                    App::backend()->notices()->addSuccessNotice(__('The category has been successfully moved'));
                     App::backend()->url()->redirect('admin.categories');
                 } catch (Exception $e) {
                     App::error()->add($e->getMessage());
@@ -143,7 +142,7 @@ class Category
             // Changing sibling
             try {
                 App::blog()->setCategoryPosition(App::backend()->cat_id, (int) $_POST['cat_sibling'], $_POST['cat_move']);
-                Notices::addSuccessNotice(__('The category has been successfully moved'));
+                App::backend()->notices()->addSuccessNotice(__('The category has been successfully moved'));
                 App::backend()->url()->redirect('admin.categories');
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
@@ -176,7 +175,7 @@ class Category
                     # --BEHAVIOR-- adminAfterCategoryUpdate -- Cursor, string|int
                     App::behavior()->callBehavior('adminAfterCategoryUpdate', $cur, App::backend()->cat_id);
 
-                    Notices::addSuccessNotice(__('The category has been successfully updated.'));
+                    App::backend()->notices()->addSuccessNotice(__('The category has been successfully updated.'));
 
                     App::backend()->url()->redirect('admin.category', ['id' => $_POST['id']]);
                 } else {
@@ -190,7 +189,7 @@ class Category
                     # --BEHAVIOR-- adminAfterCategoryCreate -- Cursor, string
                     App::behavior()->callBehavior('adminAfterCategoryCreate', $cur, $id);
 
-                    Notices::addSuccessNotice(sprintf(
+                    App::backend()->notices()->addSuccessNotice(sprintf(
                         __('The category "%s" has been successfully created.'),
                         Html::escapeHTML($cur->cat_title)
                     ));
@@ -236,7 +235,7 @@ class Category
         );
 
         if (!empty($_GET['upd'])) {
-            Notices::success(__('Category has been successfully updated.'));
+            App::backend()->notices()->success(__('Category has been successfully updated.'));
         }
 
         echo (new Form('category-form'))

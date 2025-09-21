@@ -13,7 +13,6 @@ namespace Dotclear\Process\Backend;
 
 use ArrayObject;
 use Dotclear\App;
-use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\ThemesList;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
@@ -71,7 +70,7 @@ class BlogTheme
                 ->items(array_map(fn (string $item) => (new Li())->text($item), $disabled))
             ->render();
 
-            Notices::addWarningNotice(
+            App::backend()->notices()->addWarningNotice(
                 __('The following themes have been disabled :') . $list,
                 ['divtag' => true, 'with_ts' => false]
             );
@@ -247,14 +246,14 @@ class BlogTheme
         if (App::auth()->isSuperAdmin()) {
             $messages = '';
             if (!App::blog()->settings()->system->store_theme_url) {
-                $messages .= Notices::message(
+                $messages .= App::backend()->notices()->message(
                     __('Official repository could not be updated as there is no URL set in configuration.'),
                     echo: false
                 );
             }
 
             if (!App::error()->flag() && !empty($_GET['nocache'])) {
-                $messages .= Notices::success(
+                $messages .= App::backend()->notices()->success(
                     __('Manual checking of themes update done successfully.'),
                     echo: false
                 );

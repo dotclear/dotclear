@@ -15,7 +15,6 @@ use ArrayObject;
 use Dotclear\App;
 use Dotclear\Core\Backend\Action\ActionsComments;
 use Dotclear\Core\Backend\Combos;
-use Dotclear\Core\Backend\Notices;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Button;
@@ -165,7 +164,7 @@ class Post
             App::backend()->post = App::blog()->getPosts($params);
 
             if (App::backend()->post->isEmpty()) {
-                Notices::addErrorNotice('This entry does not exist.');
+                App::backend()->notices()->addErrorNotice('This entry does not exist.');
                 App::backend()->url()->redirect('admin.posts');
             } else {
                 App::backend()->post_id            = App::backend()->post->post_id;
@@ -291,7 +290,7 @@ class Post
                 }
 
                 if (!App::error()->flag()) {
-                    Notices::addSuccessNotice(__('All pings sent.'));
+                    App::backend()->notices()->addSuccessNotice(__('All pings sent.'));
                     App::backend()->url()->redirect(
                         'admin.post',
                         ['id' => App::backend()->post_id, 'tb' => '1']
@@ -445,7 +444,7 @@ class Post
 
                     # --BEHAVIOR-- adminAfterPostUpdate -- Cursor, int
                     App::behavior()->callBehavior('adminAfterPostUpdate', $cur, (int) App::backend()->post_id);
-                    Notices::addSuccessNotice(sprintf(__('The post "%s" has been successfully updated'), Html::escapeHTML(trim(Html::clean($cur->post_title)))));
+                    App::backend()->notices()->addSuccessNotice(sprintf(__('The post "%s" has been successfully updated'), Html::escapeHTML(trim(Html::clean($cur->post_title)))));
                     App::backend()->url()->redirect(
                         'admin.post',
                         ['id' => App::backend()->post_id]
@@ -465,7 +464,7 @@ class Post
                     # --BEHAVIOR-- adminAfterPostCreate -- Cursor, int
                     App::behavior()->callBehavior('adminAfterPostCreate', $cur, $return_id);
 
-                    Notices::addSuccessNotice(__('Entry has been successfully created.'));
+                    App::backend()->notices()->addSuccessNotice(__('Entry has been successfully created.'));
                     App::backend()->url()->redirect(
                         'admin.post',
                         ['id' => $return_id]
@@ -502,7 +501,7 @@ class Post
             App::backend()->post_content = App::backend()->post_content_xhtml;
             App::backend()->post_format  = 'xhtml';
 
-            Notices::addMessageNotice(__('Don\'t forget to validate your XHTML conversion by saving your post.'));
+            App::backend()->notices()->addMessageNotice(__('Don\'t forget to validate your XHTML conversion by saving your post.'));
         }
 
         // 3rd party conversion
@@ -521,7 +520,7 @@ class Post
                 App::backend()->post_content = $params['content'];
                 App::backend()->post_format  = $params['format'];
 
-                Notices::addMessageNotice($msg);
+                App::backend()->notices()->addMessageNotice($msg);
             }
         }
 
@@ -606,20 +605,20 @@ class Post
         );
 
         if (!empty($_GET['upd'])) {
-            Notices::success(__('Entry has been successfully updated.'));
+            App::backend()->notices()->success(__('Entry has been successfully updated.'));
         } elseif (!empty($_GET['crea'])) {
-            Notices::success(__('Entry has been successfully created.'));
+            App::backend()->notices()->success(__('Entry has been successfully created.'));
         } elseif (!empty($_GET['attached'])) {
-            Notices::success(__('File has been successfully attached.'));
+            App::backend()->notices()->success(__('File has been successfully attached.'));
         } elseif (!empty($_GET['rmattach'])) {
-            Notices::success(__('Attachment has been successfully removed.'));
+            App::backend()->notices()->success(__('Attachment has been successfully removed.'));
         }
 
         if (!empty($_GET['creaco'])) {
-            Notices::success(__('Comment has been successfully created.'));
+            App::backend()->notices()->success(__('Comment has been successfully created.'));
         }
         if (!empty($_GET['tbsent'])) {
-            Notices::success(__('All pings sent.'));
+            App::backend()->notices()->success(__('All pings sent.'));
         }
 
         if (App::backend()->post_id && !App::status()->post()->isRestricted((int) App::backend()->post->post_status)) {

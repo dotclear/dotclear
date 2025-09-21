@@ -14,7 +14,6 @@ namespace Dotclear\Process\Backend;
 use Dotclear\App;
 use Dotclear\Core\Backend\Listing\ListingMedia;
 use Dotclear\Core\Backend\MediaPage;
-use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Filter\FilterMedia;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
@@ -115,14 +114,14 @@ class Media
             $nd = Files::tidyFileName($_POST['newdir']);
             if (array_filter(App::backend()->page->getDirs('files'), fn ($i): bool => ($i->basename === $nd)) || array_filter(App::backend()->page->getDirs('dirs'), fn ($i): bool => ($i->basename === $nd))
             ) {
-                Notices::addWarningNotice(sprintf(
+                App::backend()->notices()->addWarningNotice(sprintf(
                     __('Directory or file "%s" already exists.'),
                     Html::escapeHTML($nd)
                 ));
             } else {
                 try {
                     App::media()->makeDir($_POST['newdir']);
-                    Notices::addSuccessNotice(sprintf(
+                    App::backend()->notices()->addSuccessNotice(sprintf(
                         __('Directory "%s" has been successfully created.'),
                         Html::escapeHTML($nd)
                     ));
@@ -177,7 +176,7 @@ class Media
 
                 App::media()->uploadFile($upfile['tmp_name'], $upfile['name'], false, $f_title, (bool) $f_private);
 
-                Notices::addSuccessNotice(__('Files have been successfully uploaded.'));
+                App::backend()->notices()->addSuccessNotice(__('Files have been successfully uploaded.'));
                 App::backend()->url()->redirect('admin.media', App::backend()->page->values());
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
@@ -203,7 +202,7 @@ class Media
                     App::media()->chdir($currentDir);
                 }
 
-                Notices::addSuccessNotice(
+                App::backend()->notices()->addSuccessNotice(
                     sprintf(
                         __(
                             'Successfully delete one media.',
@@ -251,7 +250,7 @@ class Media
                     App::backend()->page->updateFav(App::backend()->page->d . '/' . Path::clean($_POST['remove']), true);
                 }
 
-                Notices::addSuccessNotice($msg);
+                App::backend()->notices()->addSuccessNotice($msg);
                 App::backend()->url()->redirect('admin.media', App::backend()->page->values());
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
@@ -263,7 +262,7 @@ class Media
             try {
                 App::media()->rebuildThumbnails(App::backend()->page->d);
 
-                Notices::addSuccessNotice(
+                App::backend()->notices()->addSuccessNotice(
                     sprintf(
                         __('Directory "%s" has been successfully completed.'),
                         Html::escapeHTML(App::backend()->page->d)
@@ -280,7 +279,7 @@ class Media
             try {
                 App::media()->rebuildThumbnails(App::backend()->page->d, false, true);
 
-                Notices::addSuccessNotice(
+                App::backend()->notices()->addSuccessNotice(
                     sprintf(
                         __('Directory "%s" has been successfully rebuild.'),
                         Html::escapeHTML(App::backend()->page->d)
@@ -417,11 +416,11 @@ class Media
 
         if (App::backend()->page->popup) {
             echo
-            Notices::getNotices();
+            App::backend()->notices()->getNotices();
         }
 
         if (!App::backend()->page->mediaWritable() && !App::error()->flag()) {
-            Notices::warning(__('You do not have sufficient permissions to write to this folder.'));
+            App::backend()->notices()->warning(__('You do not have sufficient permissions to write to this folder.'));
         }
 
         if (!App::backend()->page->getDirs()) {

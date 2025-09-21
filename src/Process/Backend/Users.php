@@ -15,7 +15,6 @@ use ArrayObject;
 use Dotclear\App;
 use Dotclear\Core\Backend\Filter\FilterUsers;
 use Dotclear\Core\Backend\Listing\ListingUsers;
-use Dotclear\Core\Backend\Notices;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Hidden;
@@ -115,10 +114,10 @@ class Users
 
         if (!App::error()->flag()) {
             if (!empty($_GET['del'])) {
-                Notices::message(__('User has been successfully removed.'));
+                App::backend()->notices()->message(__('User has been successfully removed.'));
             }
             if (!empty($_GET['upd'])) {
-                Notices::message(__('The permissions have been successfully updated.'));
+                App::backend()->notices()->message(__('The permissions have been successfully updated.'));
             }
 
             echo (new Para())
