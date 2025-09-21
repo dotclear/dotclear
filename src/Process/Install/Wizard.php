@@ -9,7 +9,6 @@
 namespace Dotclear\Process\Install;
 
 use Dotclear\App;
-use Dotclear\Core\Install\Utils;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Form\Div;
@@ -189,7 +188,7 @@ class Wizard
 
                 # Checks system capabilites
                 $_e = [];
-                if (!Utils::check($con, $_e)) {
+                if (!App::install()->utils()->check($con, $_e)) {
                     throw new Exception(
                         (new Set())
                         ->items([

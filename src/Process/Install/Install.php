@@ -10,9 +10,6 @@ namespace Dotclear\Process\Install;
 
 use DateTimeZone;
 use Dotclear\App;
-use Dotclear\Core\Backend\Page;
-use Dotclear\Core\Backend\Favorites;
-use Dotclear\Core\Install\Utils;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Email;
 use Dotclear\Helper\Html\Form\Fieldset;
@@ -144,7 +141,7 @@ class Install
 
         # Check system capabilites
         $_e = [];
-        if (!Utils::check(App::db()->con(), $_e)) {
+        if (!App::install()->utils()->check(App::db()->con(), $_e)) {
             self::$can_install = false;
             self::$err         = '<p>' . __('Dotclear cannot be installed.') . '</p><ul><li>' . implode('</li><li>', $_e) . '</li></ul>';
         }
@@ -366,9 +363,8 @@ class Install
                 App::auth()->prefs()->interface->put('enhanceduploader', true, 'boolean', '', false, true);
 
                 # Add default favorites
-                $favs      = new Favorites();
                 $init_favs = ['posts', 'new_post', 'newpage', 'comments', 'categories', 'media', 'blog_theme', 'widgets', 'simpleMenu', 'prefs', 'help'];
-                $favs->setFavoriteIDs($init_favs, true);
+                App::install()->favorites()->setFavoriteIDs($init_favs, true);
 
                 self::$step = 1;
             } catch (Exception $e) {
@@ -419,16 +415,16 @@ class Install
     private static function renderHeader(): void
     {
         echo
-        Page::jsLoad('../js/prepend.js') .
-        Page::jsJson('pwstrength', [
+        App::install()->page()->jsLoad('../js/prepend.js') .
+        App::install()->page()->jsJson('pwstrength', [
             'min' => sprintf(__('Password strength: %s'), __('weak')),
             'avg' => sprintf(__('Password strength: %s'), __('medium')),
             'max' => sprintf(__('Password strength: %s'), __('strong')),
         ]) .
-        Page::jsLoad('../js/pwstrength.js') .
-        Page::jsLoad('../js/jquery/jquery.js') .
-        Page::jsJson('install_show', __('show')) .
-        Page::jsLoad('../js/_install.js');
+        App::install()->page()->jsLoad('../js/pwstrength.js') .
+        App::install()->page()->jsLoad('../js/jquery/jquery.js') .
+        App::install()->page()->jsJson('install_show', __('show')) .
+        App::install()->page()->jsLoad('../js/_install.js');
     }
 
     /**
