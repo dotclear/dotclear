@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend;
 
 use Dotclear\App;
+use Dotclear\Core\Backend\Auth\OAuth2Client;
 use Dotclear\Core\Backend\Auth\Otp;
 use Dotclear\Core\Backend\Auth\WebAuthn;
 use Dotclear\Helper\Container\Container;
@@ -36,15 +37,24 @@ class Auth extends Container
     public function getDefaultServices(): array
     {
         return [
-            Otp::class      => Otp::class,
-            WebAuthn::class => WebAuthn::class,
+            OAuth2Client::class => OAuth2Client::class,
+            Otp::class          => Otp::class,
+            WebAuthn::class     => WebAuthn::class,
         ];
+    }
+
+    /**
+     * Check if exotic authentication is allowed.
+     */
+    public function isAllowed(): bool
+    {
+        return App::backend()->safe_mode !== true && App::config()->authPasswordOnly() !== true;
     }
 
     public function otp(): false|Otp
     {
         try {
-            return App::backend()->safe_mode || App::config()->authPasswordOnly() ? false : $this->get(Otp::class);
+            return $this->isAllowed() ? $this->get(Otp::class) : false;
         } catch (Throwable) { // silently fail
             return false;
         }
@@ -53,7 +63,16 @@ class Auth extends Container
     public function webauthn(): false|WebAuthn
     {
         try {
-            return App::backend()->safe_mode || App::config()->authPasswordOnly() ? false : $this->get(WebAuthn::class);
+            return $this->isAllowed() ? $this->get(WebAuthn::class) : false;
+        } catch (Throwable) { // silently fail
+            return false;
+        }
+    }
+
+    public function oauth2(string $redirect_url = ''): false|OAuth2Client
+    {
+        try {
+            return $this->isAllowed() ? $this->get(OAuth2Client::class, false, redirect_url: $redirect_url) : false;
         } catch (Throwable) { // silently fail
             return false;
         }

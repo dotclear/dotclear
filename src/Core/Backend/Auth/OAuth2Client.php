@@ -25,6 +25,11 @@ use Exception;
  */
 class OAuth2Client extends Client
 {
+    public function __construct(string $redirect_url = '')
+    {
+        parent::__construct(new OAuth2Store($redirect_url));
+    }
+
     protected function getDefaultServices(): array
     {
         return [

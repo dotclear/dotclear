@@ -13,8 +13,6 @@ namespace Dotclear\Process\Backend;
 
 use ArrayObject;
 use Dotclear\App;
-use Dotclear\Core\Backend\Auth\OAuth2Client;
-use Dotclear\Core\Backend\Auth\OAuth2Store;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Capture;
@@ -71,22 +69,12 @@ class UserPreferences
 
         App::backend()->page_title = __('My preferences');
 
-        if (App::config()->authPasswordOnly()) {
-            App::backend()->oauth2   = null;
-        } else {
-            if (App::backend()->auth()->otp() !== false) {
-                App::backend()->auth()->otp()->setUser((string) App::auth()->userID());
-            }
+        // Set oAuth2 redirect URL
+        App::backend()->auth()->oauth2(App::config()->adminUrl() . App::backend()->url()->get('admin.user.preferences'));
 
-            // Create oAuth2 client instance
-            try {
-                App::backend()->oauth2 = new OAuth2Client(
-                    new OAuth2Store(App::config()->adminUrl() . App::backend()->url()->get('admin.user.preferences'))
-                );
-            } catch (Exception $e) {
-                App::backend()->oauth2 = null;
-                App::error()->add($e->getMessage());
-            }
+        if (App::backend()->auth()->otp() !== false) {
+            // Set otp user
+            App::backend()->auth()->otp()->setUser((string) App::auth()->userID());
         }
 
         App::backend()->user_name        = App::auth()->getInfo('user_name');
@@ -248,9 +236,9 @@ class UserPreferences
         }
 
         // oauth2 action
-        if (App::backend()->oauth2 !== null) {
+        if (App::backend()->auth()->oauth2() !== false) {
             // process oAuth2 client action
-            App::backend()->oauth2->requestAction((string) App::auth()->userID());
+            App::backend()->auth()->oauth2()->requestAction((string) App::auth()->userID());
         }
 
         if (isset($_POST['user_name']) && isset($_POST['user-form-submit'])) {
@@ -708,17 +696,17 @@ class UserPreferences
 
         // Oauth2 client configuration
         $oauth2_items = [];
-        if (App::backend()->oauth2 !== null) {
-            foreach (App::backend()->oauth2->services()->getProviders() as $oauth2_service) {
+        if (App::backend()->auth()->oauth2() !== false) {
+            foreach (App::backend()->auth()->oauth2()->services()->getProviders() as $oauth2_service) {
                 // Check service
-                if (App::backend()->oauth2->services()->hasDisabledProvider($oauth2_service::getId())
-                    || !App::backend()->oauth2->store()->hasConsumer($oauth2_service::getId())
+                if (App::backend()->auth()->oauth2()->services()->hasDisabledProvider($oauth2_service::getId())
+                    || !App::backend()->auth()->oauth2()->store()->hasConsumer($oauth2_service::getId())
                 ) {
                     continue;
                 }
 
                 // Get auth button
-                $oauth_link = App::backend()->oauth2->getActionButton(
+                $oauth_link = App::backend()->auth()->oauth2()->getActionButton(
                     (string) App::auth()->userID(),
                     $oauth2_service::getId(),
                     App::backend()->url()->get('admin.user.preferences') . '#user-profile.user_options_oauth2',
@@ -727,7 +715,7 @@ class UserPreferences
 
                 if ($oauth_link !== null) {
                     $oauth2_div  = [];
-                    $oauth2_user = App::backend()->oauth2->store()->getLocalUser($oauth2_service::getId());
+                    $oauth2_user = App::backend()->auth()->oauth2()->store()->getLocalUser($oauth2_service::getId());
                     if ($oauth2_user->isConfigured()) {
                         $oauth2_div[] = (new Div())
                             ->items([

@@ -12,8 +12,6 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
-use Dotclear\Core\Backend\Auth\OAuth2Client;
-use Dotclear\Core\Backend\Auth\OAuth2Store;
 use Dotclear\Core\Upgrade\Upgrade;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
@@ -123,19 +121,8 @@ class Auth
             App::rest()->enableRestServer(true);
         }
 
-        // Disable exotic authentication
-        if (App::config()->authPasswordOnly()) {
-            App::backend()->oauth2   = null;
-        } else {
-            // Create oAuth2 client instance
-            try {
-                App::backend()->oauth2 = App::backend()->safe_mode ? null : new OAuth2Client(
-                    new OAuth2Store(App::config()->adminUrl() . App::backend()->url()->get('admin.auth'))
-                );
-            } catch (Exception) { // silently fail
-                App::backend()->oauth2 = null;
-            }
-        }
+        // Set oAuth2 redirect URL
+        App::backend()->auth()->oauth(App::config()->adminUrl() . App::backend()->url()->get('admin.auth'));
 
         // 2fa verification
         App::backend()->verify_code = App::backend()->auth()->otp() !== false && isset($_POST['user_code']) && isset($_POST['login_data']);
@@ -147,8 +134,8 @@ class Auth
     public static function process(): bool
     {
         // process oAuth2 client action
-        if (App::backend()->oauth2 !== null) {
-            App::backend()->oauth2->requestAction((string) App::auth()->userID());
+        if (App::backend()->auth()->oauth2() !== false) {
+            App::backend()->auth()->oauth2()->requestAction((string) App::auth()->userID());
         }
 
         $headers = [];
@@ -694,15 +681,15 @@ class Auth
                 $parts[] = $fieldset;
 
                 // Oauth2 client buttons
-                if (App::backend()->oauth2 !== null) {
+                if (App::backend()->auth()->oauth2() !== false) {
                     $oauth2_items = [];
-                    foreach (App::backend()->oauth2->services()->getProviders() as $oauth2_service) {
-                        if (App::backend()->oauth2->services()->hasDisabledProvider($oauth2_service::getId())
-                            || !App::backend()->oauth2->store()->hasConsumer($oauth2_service::getId())
+                    foreach (App::backend()->auth()->oauth2()->services()->getProviders() as $oauth2_service) {
+                        if (App::backend()->auth()->oauth2()->services()->hasDisabledProvider($oauth2_service::getId())
+                            || !App::backend()->auth()->oauth2()->store()->hasConsumer($oauth2_service::getId())
                         ) {
                             continue;
                         }
-                        $link = App::backend()->oauth2->getActionButton(
+                        $link = App::backend()->auth()->oauth2()->getActionButton(
                             '',
                             $oauth2_service::getId(),
                             App::config()->adminUrl() . App::backend()->url()->get('admin.auth')
