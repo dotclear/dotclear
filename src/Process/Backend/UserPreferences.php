@@ -17,7 +17,6 @@ use Dotclear\Core\Backend\Auth\OAuth2Client;
 use Dotclear\Core\Backend\Auth\OAuth2Store;
 use Dotclear\Core\Backend\Auth\Otp;
 use Dotclear\Core\Backend\Auth\WebAuthn;
-use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Helper;
 use Dotclear\Core\Backend\UserPref;
 use Dotclear\Helper\Date;
@@ -197,7 +196,7 @@ class UserPreferences
         }
 
         // Language codes
-        App::backend()->lang_combo = Combos::getAdminLangsCombo();
+        App::backend()->lang_combo = App::backend()->combos()->getAdminLangsCombo();
 
         // Get 3rd parts HTML editor flags
         $rte = [

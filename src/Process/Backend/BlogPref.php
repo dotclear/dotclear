@@ -12,7 +12,6 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
-use Dotclear\Core\Backend\Combos;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Capture;
@@ -115,7 +114,7 @@ class BlogPref
         }
 
         // Language codes
-        App::backend()->lang_combo = Combos::getAdminLangsCombo();
+        App::backend()->lang_combo = App::backend()->combos()->getAdminLangsCombo();
 
         // Status combo
         App::backend()->status_combo = App::status()->blog()->combo();

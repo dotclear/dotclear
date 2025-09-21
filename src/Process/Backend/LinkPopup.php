@@ -12,7 +12,6 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
-use Dotclear\Core\Backend\Combos;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Input;
@@ -53,7 +52,7 @@ class LinkPopup
         }
 
         // Languages combo
-        App::backend()->lang_combo = Combos::getLangsCombo(
+        App::backend()->lang_combo = App::backend()->combos()->getLangsCombo(
             App::blog()->getLangs([
                 'order_by' => 'nb_post',
                 'order'    => 'desc',

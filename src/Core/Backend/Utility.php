@@ -126,6 +126,7 @@ class Utility extends AbstractUtility
     public function getDefaultServices(): array
     {
         return [
+            Combos::class    => Combos::class,
             Favorites::class => Favorites::class,
             Menus::class     => Menus::class,
             Notices::class   => Notices::class,
@@ -133,6 +134,14 @@ class Utility extends AbstractUtility
             Resources::class => Resources::class,
             Url::class       => Url::class,
         ];
+    }
+
+    /**
+     * Get backend combos instance.
+     */
+    public function combos(): Combos
+    {
+        return $this->get(Combos::class);
     }
 
     /**

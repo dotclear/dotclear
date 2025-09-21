@@ -13,7 +13,6 @@ namespace Dotclear\Process\Backend;
 
 use ArrayObject;
 use Dotclear\App;
-use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Helper;
 use Dotclear\Core\Backend\ModulesList;
 use Dotclear\Helper\Html\Form\Checkbox;
@@ -567,7 +566,7 @@ class Home
     protected static function quickEntry(): string
     {
         // Get categories
-        $categories_combo = Combos::getCategoriesCombo(
+        $categories_combo = App::backend()->combos()->getCategoriesCombo(
             App::blog()->getCategories([])
         );
 

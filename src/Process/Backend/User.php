@@ -13,7 +13,6 @@ namespace Dotclear\Process\Backend;
 
 use ArrayObject;
 use Dotclear\App;
-use Dotclear\Core\Backend\Combos;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Capture;
@@ -77,13 +76,13 @@ class User
         App::backend()->user_profile_urls  = '';
 
         # Formaters combo
-        App::backend()->formaters_combo = Combos::getFormatersCombo();
+        App::backend()->formaters_combo = App::backend()->combos()->getFormatersCombo();
 
         # Posts status combo !
         App::backend()->status_combo = App::status()->post()->combo();
 
         # Language codes
-        App::backend()->lang_combo = Combos::getAdminLangsCombo();
+        App::backend()->lang_combo = App::backend()->combos()->getAdminLangsCombo();
 
         # Get user if we have an ID
         if (!empty($_REQUEST['id'])) {

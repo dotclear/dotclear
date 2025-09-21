@@ -12,7 +12,6 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
-use Dotclear\Core\Backend\Combos;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Button;
@@ -72,7 +71,7 @@ class Comment
         App::backend()->comment_editor = App::auth()->getOption('editor');
 
         // Status combo
-        App::backend()->status_combo = Combos::getCommentStatusesCombo();
+        App::backend()->status_combo = App::backend()->combos()->getCommentStatusesCombo();
 
         return self::status(true);
     }

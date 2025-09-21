@@ -12,7 +12,6 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
-use Dotclear\Core\Backend\Combos;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Div;
@@ -263,7 +262,7 @@ class Category
                     (new Para())
                         ->items([
                             (new Select('new_cat_parent'))
-                                ->items(Combos::getCategoriesCombo(App::blog()->getCategories()))
+                                ->items(App::backend()->combos()->getCategoriesCombo(App::blog()->getCategories()))
                                 ->default(empty($_POST['new_cat_parent']) ? '' : $_POST['new_cat_parent'])
                                 ->label(new Label(__('Parent:'), Label::IL_TF)),
                         ]),

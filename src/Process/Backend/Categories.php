@@ -12,7 +12,6 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
-use Dotclear\Core\Backend\Combos;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
@@ -174,7 +173,7 @@ class Categories
             App::backend()->notices()->success(__('Entries have been successfully moved to the category you choose.'));
         }
 
-        App::backend()->categories_combo = Combos::getCategoriesCombo($rs);
+        App::backend()->categories_combo = App::backend()->combos()->getCategoriesCombo($rs);
 
         echo (new Para())
             ->class('new-stuff')

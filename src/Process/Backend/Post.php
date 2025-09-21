@@ -14,7 +14,6 @@ namespace Dotclear\Process\Backend;
 use ArrayObject;
 use Dotclear\App;
 use Dotclear\Core\Backend\Action\ActionsComments;
-use Dotclear\Core\Backend\Combos;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Button;
@@ -120,7 +119,7 @@ class Post
         }
 
         # Getting categories
-        App::backend()->categories_combo = Combos::getCategoriesCombo(
+        App::backend()->categories_combo = App::backend()->combos()->getCategoriesCombo(
             App::blog()->getCategories()
         );
 
@@ -137,7 +136,7 @@ class Post
         App::backend()->available_formats = $available_formats;
 
         // Languages combo
-        App::backend()->lang_combo = Combos::getLangsCombo(
+        App::backend()->lang_combo = App::backend()->combos()->getLangsCombo(
             App::blog()->getLangs([
                 'order_by' => 'nb_post',
                 'order'    => 'desc',
@@ -476,7 +475,7 @@ class Post
         }
 
         // Getting categories (a new category may have been created during process)
-        App::backend()->categories_combo = Combos::getCategoriesCombo(
+        App::backend()->categories_combo = App::backend()->combos()->getCategoriesCombo(
             App::blog()->getCategories()
         );
 
