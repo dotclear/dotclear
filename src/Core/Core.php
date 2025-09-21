@@ -622,6 +622,16 @@ class Core extends Container
     }
 
     /**
+     * Install Utility.
+     *
+     * @see     Dotclear\Core\Install\Utility
+     */
+    public static function install(): Install
+    {
+        return self::$instance->get(Install::class);
+    }
+
+    /**
      * Upgrade Utility.
      *
      * @see     Dotclear\Core\Upgrade\Utility

@@ -19,6 +19,8 @@ declare(strict_types=1);
 namespace Dotclear\Core\Install;
 
 use Dotclear\App;
+use Dotclear\Core\Backend\Page;
+use Dotclear\Core\Backend\Favorites;
 use Dotclear\Helper\Process\AbstractUtility;
 use Dotclear\Process\Install\Install;
 use Dotclear\Process\Install\Wizard;
@@ -36,6 +38,30 @@ class Utility extends AbstractUtility
         Install::class,
         Wizard::class,
     ];
+
+    protected function getDefaultServices(): array
+    {
+        return [
+            Favorites::class => Favorites::class,
+            Page::class      => Page::Class,
+            Utils::class     => Utils::class,
+        ];
+    }
+
+    public function favorites(): Favorites
+    {
+        return $this->get(Favorites::class);
+    }
+
+    public function page(): Page
+    {
+        return $this->get(Page::class);
+    }
+
+    public function utils(): Utils
+    {
+        return $this->get(Utils::class);
+    }
 
     public static function process(): bool
     {
