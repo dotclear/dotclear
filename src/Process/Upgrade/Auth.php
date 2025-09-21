@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace Dotclear\Process\Upgrade;
 
 use Dotclear\App;
+use Dotclear\Core\Upgrade\Otp;
 use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Fieldset;
@@ -106,14 +107,14 @@ class Auth
         }
 
         // 2fa verification
-        self::$verify_code = App::upgrade()->otp() !== null && isset($_POST['user_code']) && isset($_POST['login_data']);
+        self::$verify_code = App::upgrade()->otp() instanceof Otp && isset($_POST['user_code']) && isset($_POST['login_data']);
 
         return self::status(true);
     }
 
     public static function process(): bool
     {
-        if (App::upgrade()->otp() !== null && self::$verify_code) {
+        if (App::upgrade()->otp() instanceof Otp && self::$verify_code) {
             //Check 2fa code
 
             $tmp_data = explode('/', (string) $_POST['login_data']);
@@ -198,7 +199,7 @@ class Auth
                 // User may log-in
 
                 // Check if user need 2fa
-                self::$require_2fa = App::upgrade()->otp() !== null && App::upgrade()->otp()->setUser(self::$user_id)->isVerified();
+                self::$require_2fa = App::upgrade()->otp() instanceof Otp && App::upgrade()->otp()->setUser(self::$user_id)->isVerified();
 
                 if (self::$require_2fa) {
                     // Required 2fa authentication. Skip normal login and go to 2fa form
@@ -284,7 +285,7 @@ class Auth
             // User-defined authentication form
 
             $fields[] = new Text('', $user_defined_auth_form(self::$user_id));
-        } elseif (App::upgrade()->otp() !== null && self::$require_2fa) {
+        } elseif (App::upgrade()->otp() instanceof Otp && self::$require_2fa) {
             // 2FA verification
             $fields[] = (new Set())
                 ->items([
