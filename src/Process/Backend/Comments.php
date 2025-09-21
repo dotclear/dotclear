@@ -13,7 +13,6 @@ namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
 use Dotclear\Core\Backend\Action\ActionsComments;
-use Dotclear\Core\Backend\Filter\FilterComments;
 use Dotclear\Core\Backend\Listing\ListingComments;
 use Dotclear\Helper\Html\Form\Capture;
 use Dotclear\Helper\Html\Form\Div;
@@ -57,10 +56,10 @@ class Comments
 
         // Filters
 
-        App::backend()->comment_filter = new FilterComments();
+        App::backend()->comment_filter = App::backend()->filter()->comments(); // Backward compatibility
 
         // get list params
-        $params = App::backend()->comment_filter->params();
+        $params = App::backend()->filter()->comments()->params();
 
         // lexical sort
         $sortby_lex = [
@@ -73,12 +72,12 @@ class Comments
         # --BEHAVIOR-- adminCommentsSortbyLexCombo -- array<int,array<string,string>>
         App::behavior()->callBehavior('adminCommentsSortbyLexCombo', [&$sortby_lex]);
 
-        $params['order'] = (array_key_exists(App::backend()->comment_filter->sortby, $sortby_lex) ?
-            App::db()->con()->lexFields($sortby_lex[App::backend()->comment_filter->sortby]) :
-            App::backend()->comment_filter->sortby) . ' ' . App::backend()->comment_filter->order;
+        $params['order'] = (array_key_exists(App::backend()->filter()->comments()->sortby, $sortby_lex) ?
+            App::db()->con()->lexFields($sortby_lex[App::backend()->filter()->comments()->sortby]) :
+            App::backend()->filter()->comments()->sortby) . ' ' . App::backend()->filter()->comments()->order;
 
         // default filter ? do not display spam
-        if (!App::backend()->comment_filter->show() && App::backend()->comment_filter->status == '') {
+        if (!App::backend()->filter()->comments()->show() && App::backend()->filter()->comments()->status == '') {
             $params['comment_status_not'] = App::status()->comment()::JUNK;
         }
         $params['no_content'] = true;
@@ -89,7 +88,7 @@ class Comments
         if (App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_DELETE,
             App::auth()::PERMISSION_CONTENT_ADMIN,
-        ]), App::blog()->id()) && App::backend()->comment_filter->status == -2) {
+        ]), App::blog()->id()) && App::backend()->filter()->comments()->status == -2) {
             App::backend()->default_action = 'delete';
         }
 
@@ -127,7 +126,7 @@ class Comments
 
         App::backend()->page()->open(
             __('Comments and trackbacks'),
-            App::backend()->page()->jsLoad('js/_comments.js') . App::backend()->comment_filter->js(App::backend()->url()->get('admin.comments')),
+            App::backend()->page()->jsLoad('js/_comments.js') . App::backend()->filter()->comments()->js(App::backend()->url()->get('admin.comments')),
             App::backend()->page()->breadcrumb(
                 [
                     Html::escapeHTML(App::blog()->name()) => '',
@@ -149,7 +148,7 @@ class Comments
 
             $spam_count = App::blog()->getComments(['comment_status' => App::status()->comment()::JUNK], true)->f(0);
             if ($spam_count > 0) {
-                if (!App::backend()->comment_filter->show() || (App::backend()->comment_filter->status != -2)) {
+                if (!App::backend()->filter()->comments()->show() || (App::backend()->filter()->comments()->status != -2)) {
                     if ($spam_count == 1) {
                         $count = (new Para())
                             ->class('form-buttons')
@@ -193,7 +192,7 @@ class Comments
                 ->render();
             }
 
-            App::backend()->comment_filter->display('admin.comments');
+            App::backend()->filter()->comments()->display('admin.comments');
 
             // Show comments
 
@@ -217,18 +216,18 @@ class Comments
                                         ->label(new Label(__('Selected comments action:'), Label::IL_TF)),
                                     App::nonce()->formNonce(),
                                     (new Submit('do-action', __('ok'))),
-                                    ...App::backend()->url()->hiddenFormFields('admin.comments', App::backend()->comment_filter->values(true)),
+                                    ...App::backend()->url()->hiddenFormFields('admin.comments', App::backend()->filter()->comments()->values(true)),
                                 ]),
                         ]),
                 ])
             ->render();
 
             App::backend()->comment_list->display(
-                App::backend()->comment_filter->page,
-                App::backend()->comment_filter->nb,
+                App::backend()->filter()->comments()->page,
+                App::backend()->filter()->comments()->nb,
                 $form,
-                App::backend()->comment_filter->show(),
-                (App::backend()->comment_filter->show() || (App::backend()->comment_filter->status == -2)),
+                App::backend()->filter()->comments()->show(),
+                (App::backend()->filter()->comments()->show() || (App::backend()->filter()->comments()->status == -2)),
                 $show_ip
             );
         }

@@ -14,7 +14,6 @@ namespace Dotclear\Process\Backend;
 use ArrayObject;
 use Dotclear\App;
 use Dotclear\Core\Backend\Action\ActionsBlogs;
-use Dotclear\Core\Backend\Filter\FilterBlogs;
 use Dotclear\Core\Backend\Listing\ListingBlogs;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
@@ -55,10 +54,10 @@ class Blogs
 
         /* Filters
         -------------------------------------------------------- */
-        App::backend()->blog_filter = new FilterBlogs();
+        App::backend()->blog_filter = App::backend()->filter()->blogs(); // Backward compatibility
 
         // get list params
-        $params = App::backend()->blog_filter->params();
+        $params = App::backend()->filter()->blogs()->params();
 
         /* List
         -------------------------------------------------------- */
@@ -73,11 +72,11 @@ class Blogs
             $counter  = App::blogs()->getBlogs($params, true);
             $rs       = App::blogs()->getBlogs($params);
             $rsStatic = $rs->toStatic();
-            if ((App::backend()->blog_filter->sortby != 'blog_upddt') && (App::backend()->blog_filter->sortby != 'blog_status')) {
+            if ((App::backend()->filter()->blogs()->sortby != 'blog_upddt') && (App::backend()->filter()->blogs()->sortby != 'blog_status')) {
                 // Sort blog list using lexical order if necessary
                 $rsStatic->extend(User::class);
                 $rsStatic = $rsStatic->toStatic();
-                $rsStatic->lexicalSort((App::backend()->blog_filter->sortby == 'UPPER(blog_name)' ? 'blog_name' : 'blog_id'), App::backend()->blog_filter->order);
+                $rsStatic->lexicalSort((App::backend()->filter()->blogs()->sortby == 'UPPER(blog_name)' ? 'blog_name' : 'blog_id'), App::backend()->filter()->blogs()->order);
             }
             App::backend()->blog_list = new ListingBlogs($rs, $counter->f(0));
         } catch (Exception $e) {
@@ -96,7 +95,7 @@ class Blogs
 
         App::backend()->page()->open(
             __('List of blogs'),
-            App::backend()->page()->jsLoad('js/_blogs.js') . App::backend()->blog_filter->js(App::backend()->url()->get('admin.blogs')),
+            App::backend()->page()->jsLoad('js/_blogs.js') . App::backend()->filter()->blogs()->js(App::backend()->url()->get('admin.blogs')),
             App::backend()->page()->breadcrumb(
                 [
                     __('System')        => '',
@@ -119,7 +118,7 @@ class Blogs
                     ->render();
             }
 
-            App::backend()->blog_filter->display('admin.blogs');
+            App::backend()->filter()->blogs()->display('admin.blogs');
 
             // Show blogs
             $form = null;
@@ -165,15 +164,15 @@ class Blogs
                                         ->class('classic')
                                     ),
                             ]),
-                            ...App::backend()->url()->hiddenFormFields('admin.blogs', App::backend()->blog_filter->values(true)),
+                            ...App::backend()->url()->hiddenFormFields('admin.blogs', App::backend()->filter()->blogs()->values(true)),
                         ]);
             }
 
             App::backend()->blog_list->display(
-                App::backend()->blog_filter->page,
-                App::backend()->blog_filter->nb,
+                App::backend()->filter()->blogs()->page,
+                App::backend()->filter()->blogs()->nb,
                 App::auth()->isSuperAdmin() ? $form->render() : '%s',
-                App::backend()->blog_filter->show()
+                App::backend()->filter()->blogs()->show()
             );
         }
 

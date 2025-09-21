@@ -129,6 +129,7 @@ class Utility extends AbstractUtility
             Auth::class        => Auth::class,
             Combos::class      => Combos::class,
             Favorites::class   => Favorites::class,
+            Filter::class      => Filter::class,
             Helper::class      => Helper::class,
             MediaPage::class   => MediaPage::class,
             Menus::class       => Menus::class,
@@ -164,6 +165,14 @@ class Utility extends AbstractUtility
     public function helper(): Helper
     {
         return $this->get(Helper::class);
+    }
+
+    /**
+     * Get backend list filter instance.
+     */
+    public function filter(): Filter
+    {
+        return $this->get(Filter::class);
     }
 
     /**

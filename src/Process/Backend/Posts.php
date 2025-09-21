@@ -13,7 +13,6 @@ namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
 use Dotclear\Core\Backend\Action\ActionsPosts;
-use Dotclear\Core\Backend\Filter\FilterPosts;
 use Dotclear\Core\Backend\Listing\ListingPosts;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
@@ -50,10 +49,10 @@ class Posts
 
         // Filters
         // -------
-        App::backend()->post_filter = new FilterPosts();
+        App::backend()->post_filter = App::backend()->filter()->posts(); // Backward compatibility
 
         // get list params
-        $params = App::backend()->post_filter->params();
+        $params = App::backend()->filter()->posts()->params();
 
         // lexical sort
         $sortby_lex = [
@@ -66,9 +65,9 @@ class Posts
         # --BEHAVIOR-- adminPostsSortbyLexCombo -- array<int,array<string,string>>
         App::behavior()->callBehavior('adminPostsSortbyLexCombo', [&$sortby_lex]);
 
-        $params['order'] = (array_key_exists(App::backend()->post_filter->sortby, $sortby_lex) ?
-            App::db()->con()->lexFields($sortby_lex[App::backend()->post_filter->sortby]) :
-            App::backend()->post_filter->sortby) . ' ' . App::backend()->post_filter->order;
+        $params['order'] = (array_key_exists(App::backend()->filter()->posts()->sortby, $sortby_lex) ?
+            App::db()->con()->lexFields($sortby_lex[App::backend()->filter()->posts()->sortby]) :
+            App::backend()->filter()->posts()->sortby) . ' ' . App::backend()->filter()->posts()->order;
 
         $params['no_content'] = true;
 
@@ -92,7 +91,7 @@ class Posts
     {
         App::backend()->page()->open(
             __('Posts'),
-            App::backend()->page()->jsLoad('js/_posts_list.js') . App::backend()->post_filter->js(App::backend()->url()->get('admin.posts')),
+            App::backend()->page()->jsLoad('js/_posts_list.js') . App::backend()->filter()->posts()->js(App::backend()->url()->get('admin.posts')),
             App::backend()->page()->breadcrumb(
                 [
                     Html::escapeHTML(App::blog()->name()) => '',
@@ -117,7 +116,7 @@ class Posts
             ->render();
 
             # filters
-            App::backend()->post_filter->display('admin.posts');
+            App::backend()->filter()->posts()->display('admin.posts');
 
             # Show posts
             $combo = App::backend()->posts_actions_page->getCombo();
@@ -140,7 +139,7 @@ class Posts
                                         (new Submit('do-action', __('ok')))
                                             ->disabled(true),
                                         App::nonce()->formNonce(),
-                                        ... App::backend()->url()->hiddenFormFields('admin.posts', App::backend()->post_filter->values()),
+                                        ... App::backend()->url()->hiddenFormFields('admin.posts', App::backend()->filter()->posts()->values()),
                                     ]),
                             ]),
                     ])
@@ -151,10 +150,10 @@ class Posts
             }
 
             App::backend()->post_list->display(
-                App::backend()->post_filter->page,
-                App::backend()->post_filter->nb,
+                App::backend()->filter()->posts()->page,
+                App::backend()->filter()->posts()->nb,
                 $block,
-                App::backend()->post_filter->show()
+                App::backend()->filter()->posts()->show()
             );
         }
 
