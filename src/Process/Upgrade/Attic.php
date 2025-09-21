@@ -12,24 +12,20 @@ declare(strict_types=1);
 namespace Dotclear\Process\Upgrade;
 
 use Dotclear\App;
-use Dotclear\Core\Upgrade\Page;
-use Dotclear\Core\Upgrade\UpdateAttic;
-use Dotclear\Helper\Html\Form\{
-    Div,
-    Form,
-    Hidden,
-    Label,
-    Link,
-    Note,
-    Para,
-    Radio,
-    Strong,
-    Submit,
-    Table,
-    Td,
-    Text,
-    Tr
-};
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Radio;
+use Dotclear\Helper\Html\Form\Strong;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Table;
+use Dotclear\Helper\Html\Form\Td;
+use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Process\TraitProcess;
 use Exception;
@@ -60,21 +56,16 @@ class Attic
      */
     private static array $releases = [];
 
-    /**
-     * The attic updater instance.
-     */
-    private static UpdateAttic $updater;
-
     public static function init(): bool
     {
-        Page::checkSuper();
+        App::upgrade()->page()->checkSuper();
 
         // Check backup path existence
         if (!is_dir(App::config()->backupRoot())) {
-            Page::open(
+            App::upgrade()->page()->open(
                 __('Dotclear update'),
                 '',
-                Page::breadcrumb(
+                App::upgrade()->page()->breadcrumb(
                     [
                         __('Dotclear update') => '',
                         __('Attic')           => '',
@@ -90,16 +81,16 @@ class Attic
                 ])
                 ->render();
 
-            Page::helpBlock('core_upgrade');
-            Page::close();
+            App::upgrade()->page()->helpBlock('core_upgrade');
+            App::upgrade()->page()->close();
             dotclear_exit();
         }
 
         if (!is_readable(App::config()->digestsRoot())) {
-            Page::open(
+            App::upgrade()->page()->open(
                 __('Dotclear update'),
                 '',
-                Page::breadcrumb(
+                App::upgrade()->page()->breadcrumb(
                     [
                         __('Dotclear update') => '',
                         __('Attic')           => '',
@@ -115,8 +106,8 @@ class Attic
                 ])
                 ->render();
 
-            Page::helpBlock('core_upgrade');
-            Page::close();
+            App::upgrade()->page()->helpBlock('core_upgrade');
+            App::upgrade()->page()->close();
             dotclear_exit();
         }
 
@@ -126,35 +117,34 @@ class Attic
     public static function process(): bool
     {
         self::$step    = !empty($_REQUEST['step']) && in_array($_REQUEST['step'], ['confirm', 'check', 'download', 'backup', 'unzip']) ? $_REQUEST['step'] : '';
-        self::$updater = new UpdateAttic(App::config()->coreAtticUrl(), App::config()->cacheRoot() . DIRECTORY_SEPARATOR . UpdateAttic::CACHE_FOLDER);
-        self::$updater->check(App::config()->dotclearVersion(), !empty($_GET['nocache']));
+        App::upgrade()->updateAttic()->check(App::config()->dotclearVersion(), !empty($_GET['nocache']));
         if (!empty($_REQUEST['version'])) {
-            self::$zip_file = self::$updater->selectVersion($_REQUEST['version']);
+            self::$zip_file = App::upgrade()->updateAttic()->selectVersion($_REQUEST['version']);
         }
 
-        if (!self::$updater->getVersion() || self::$step === '') {
+        if (!App::upgrade()->updateAttic()->getVersion() || self::$step === '') {
             self::$step     = '';
-            self::$releases = self::$updater->getReleases(App::config()->dotclearVersion());
+            self::$releases = App::upgrade()->updateAttic()->getReleases(App::config()->dotclearVersion());
 
             return true;
         }
 
         try {
-            self::$updater->setForcedFiles('inc/digests');
+            App::upgrade()->updateAttic()->setForcedFiles('inc/digests');
 
             // No redirect avec each step as we need selected version in a POST form
             switch (self::$step) {
                 case 'check':
-                    self::$updater->checkIntegrity(App::config()->dotclearRoot() . '/inc/digests', App::config()->dotclearRoot());
+                    App::upgrade()->updateAttic()->checkIntegrity(App::config()->dotclearRoot() . '/inc/digests', App::config()->dotclearRoot());
 
                     break;
                 case 'download':
-                    self::$updater->download(self::$zip_file);
-                    if (!self::$updater->checkDownload(self::$zip_file)) {
+                    App::upgrade()->updateAttic()->download(self::$zip_file);
+                    if (!App::upgrade()->updateAttic()->checkDownload(self::$zip_file)) {
                         throw new Exception(
                             sprintf(
                                 __('Downloaded Dotclear archive seems to be corrupted. Try <a %s>download it</a> again.'),
-                                'href="' . App::upgrade()->url()->get('upgrade.attic', ['step' => 'download', 'version' => (string) self::$updater->getVersion()]) . '"'
+                                'href="' . App::upgrade()->url()->get('upgrade.attic', ['step' => 'download', 'version' => (string) App::upgrade()->updateAttic()->getVersion()]) . '"'
                             ) .
                             ' ' .
                             sprintf(
@@ -164,11 +154,11 @@ class Attic
                         );
                     }
 
-                    App::upgrade()->url()->redirect('upgrade.attic', ['step' => 'backup', 'version' => (string) self::$updater->getVersion()]);
+                    App::upgrade()->url()->redirect('upgrade.attic', ['step' => 'backup', 'version' => (string) App::upgrade()->updateAttic()->getVersion()]);
 
                     break;
                 case 'backup':
-                    self::$updater->backup(
+                    App::upgrade()->updateAttic()->backup(
                         self::$zip_file,
                         'dotclear/inc/digests',
                         App::config()->dotclearRoot(),
@@ -176,11 +166,11 @@ class Attic
                         App::config()->backupRoot() . '/backup-' . App::config()->dotclearVersion() . '.zip'
                     );
 
-                    App::upgrade()->url()->redirect('upgrade.attic', ['step' => 'unzip', 'version' => (string) self::$updater->getVersion()]);
+                    App::upgrade()->url()->redirect('upgrade.attic', ['step' => 'unzip', 'version' => (string) App::upgrade()->updateAttic()->getVersion()]);
 
                     break;
                 case 'unzip':
-                    self::$updater->performUpgrade(
+                    App::upgrade()->updateAttic()->performUpgrade(
                         self::$zip_file,
                         'dotclear/inc/digests',
                         'dotclear',
@@ -196,7 +186,7 @@ class Attic
         } catch (Exception $e) {
             $msg = $e->getMessage();
 
-            if ($e->getCode() == self::$updater::ERR_FILES_CHANGED) {
+            if ($e->getCode() == App::upgrade()->updateAttic()::ERR_FILES_CHANGED) {
                 $msg = sprintf(
                     __('The following files of your Dotclear installation have been modified so we won\'t try to update your installation. Please try to <a href="%s">update manually</a>.'),
                     'https://dotclear.org/download'
@@ -206,19 +196,19 @@ class Attic
                     __('(<a href="%s">You can bypass this warning by updating installation disgets file</a>).'),
                     App::upgrade()->url()->get('upgrade.digests')
                 );
-            } elseif ($e->getCode() == self::$updater::ERR_FILES_UNREADABLE) {
+            } elseif ($e->getCode() == App::upgrade()->updateAttic()::ERR_FILES_UNREADABLE) {
                 $msg = sprintf(
                     __('The following files of your Dotclear installation are not readable. Please fix this or try to make a backup file named %s manually.'),
                     '<strong>backup-' . App::config()->dotclearVersion() . '.zip</strong>'
                 );
-            } elseif ($e->getCode() == self::$updater::ERR_FILES_UNWRITALBE) {
+            } elseif ($e->getCode() == App::upgrade()->updateAttic()::ERR_FILES_UNWRITALBE) {
                 $msg = sprintf(
                     __('The following files of your Dotclear installation cannot be written. Please fix this or try to <a href="%s">update manually</a>.'),
                     'https://dotclear.org/download'
                 );
             }
 
-            if (($bad_files = self::$updater->getBadFiles()) !== []) {
+            if (($bad_files = App::upgrade()->updateAttic()->getBadFiles()) !== []) {
                 $msg .= '<ul><li><strong>' . implode('</strong></li><li><strong>', $bad_files) . '</strong></li></ul>';
             }
 
@@ -325,10 +315,10 @@ class Attic
                 ->method('post')
                 ->action(App::upgrade()->url()->get('upgrade.attic'))
                 ->fields([
-                    (new Note())->text(sprintf(__('Are you sure to update to version %s?'), Html::escapeHTML((string) self::$updater->getVersion()))),
+                    (new Note())->text(sprintf(__('Are you sure to update to version %s?'), Html::escapeHTML((string) App::upgrade()->updateAttic()->getVersion()))),
                     (new Para())
                         ->items([
-                            (new Hidden(['version'], Html::escapeHTML((string) self::$updater->getVersion()))),
+                            (new Hidden(['version'], Html::escapeHTML((string) App::upgrade()->updateAttic()->getVersion()))),
                             (new Hidden(['step'], 'download')),
                             App::nonce()->formNonce(),
                             (new Submit(['submit'], __('Update Dotclear'))),
@@ -350,10 +340,10 @@ class Attic
                 ]);
         }
 
-        Page::open(
+        App::upgrade()->page()->open(
             __('Dotclear update'),
             '',
-            Page::breadcrumb(
+            App::upgrade()->page()->breadcrumb(
                 [
                     __('Dotclear update') => '',
                     __('Attic')           => '',
@@ -372,6 +362,6 @@ class Attic
                 ->render();
         }
 
-        Page::close();
+        App::upgrade()->page()->close();
     }
 }

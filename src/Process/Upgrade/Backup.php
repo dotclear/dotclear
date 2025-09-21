@@ -12,26 +12,22 @@ declare(strict_types=1);
 namespace Dotclear\Process\Upgrade;
 
 use Dotclear\App;
-use Dotclear\Core\Upgrade\Notices;
-use Dotclear\Core\Upgrade\Page;
-use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Zip\Unzip;
-use Dotclear\Helper\Html\Form\{
-    Div,
-    Form,
-    Label,
-    Note,
-    Para,
-    Radio,
-    Strong,
-    Submit,
-    Table,
-    Td,
-    Text,
-    Tr
-};
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Radio;
+use Dotclear\Helper\Html\Form\Strong;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Table;
+use Dotclear\Helper\Html\Form\Td;
+use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Process\TraitProcess;
 use Exception;
 
 /**
@@ -52,14 +48,14 @@ class Backup
 
     public static function init(): bool
     {
-        Page::checkSuper();
+        App::upgrade()->page()->checkSuper();
 
         // Check backup path existence
         if (!is_dir(App::config()->backupRoot())) {
-            Page::open(
+            App::upgrade()->page()->open(
                 __('Dotclear update'),
                 '',
-                Page::breadcrumb(
+                App::upgrade()->page()->breadcrumb(
                     [
                         __('Dotclear update')     => '',
                         __('Backups and restore') => '',
@@ -75,7 +71,7 @@ class Backup
                 ])
                 ->render();
 
-            Page::close();
+            App::upgrade()->page()->close();
             dotclear_exit();
         }
 
@@ -110,7 +106,7 @@ class Backup
                 }
             }
             if ($done) {
-                Notices::addSuccessNotice(__('Backup deleted.'));
+                App::upgrade()->notices()->addSuccessNotice(__('Backup deleted.'));
             }
             App::upgrade()->url()->redirect('upgrade.backup');
         }
@@ -124,7 +120,7 @@ class Backup
                     if (!@unlink(App::config()->backupRoot() . '/' . $b_file)) {
                         throw new Exception(sprintf(__('Unable to delete file %s'), Html::escapeHTML($b_file)));
                     }
-                    Notices::addSuccessNotice(__('Backup deleted.'));
+                    App::upgrade()->notices()->addSuccessNotice(__('Backup deleted.'));
                     App::upgrade()->url()->redirect('upgrade.backup');
                 }
 
@@ -132,7 +128,7 @@ class Backup
                     $zip = new Unzip(App::config()->backupRoot() . '/' . $b_file);
                     $zip->unzipAll(App::config()->backupRoot() . '/');
                     @unlink(App::config()->backupRoot() . '/' . $b_file);
-                    Notices::addSuccessNotice(__('Backup restored.'));
+                    App::upgrade()->notices()->addSuccessNotice(__('Backup restored.'));
                     App::upgrade()->url()->redirect('upgrade.backup');
                 }
             } catch (Exception $e) {
@@ -209,10 +205,10 @@ class Backup
                 ]);
         }
 
-        Page::open(
+        App::upgrade()->page()->open(
             __('Backups'),
-            Page::jsLoad('js/_backup.js'),
-            Page::breadcrumb(
+            App::upgrade()->page()->jsLoad('js/_backup.js'),
+            App::upgrade()->page()->breadcrumb(
                 [
                     __('Dotclear update')     => '',
                     __('Backups and restore') => '',
@@ -229,7 +225,7 @@ class Backup
             ])
             ->render();
 
-        Page::helpBlock('core_backup');
-        Page::close();
+        App::upgrade()->page()->helpBlock('core_backup');
+        App::upgrade()->page()->close();
     }
 }

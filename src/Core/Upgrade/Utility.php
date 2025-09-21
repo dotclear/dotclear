@@ -24,6 +24,7 @@ use Dotclear\Exception\ContextException;
 use Dotclear\Exception\PreconditionException;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Process\AbstractUtility;
+use Throwable;
 
 /**
  * @brief   Utility class for upgrade context.
@@ -90,26 +91,22 @@ class Utility extends AbstractUtility
     public function getDefaultServices(): array
     {
         return [
-            Menus::class     => Menus::class,
-            Resources::class => Resources::class,
-            Url::class       => Url::class,
+            Menus::class       => Menus::class,
+            NextStore::class   => NextStore::class,
+            Notices::class     => Notices::class,
+            Otp::class         => Otp::class,
+            Page::class        => Page::class,
+            PluginsList::class => PluginsList::class,
+            Resources::class   => Resources::class,
+            Update::class      => Update::class,
+            UpdateAttic::class => UpdateAttic::class,
+            Upgrade::class     => Upgrade::class,
+            Url::class         => Url::class,
         ];
     }
 
     /**
-     * Get upgrade Url instance.
-     *
-     * @return  Url     The upgrade URL handler
-     */
-    public function url(): Url
-    {
-        return $this->get(Url::class);
-    }
-
-    /**
      * Get upgrade menus instance.
-     *
-     * @return  Menus   The menu
      */
     public function menus(): Menus
     {
@@ -117,13 +114,113 @@ class Utility extends AbstractUtility
     }
 
     /**
+     * Get upgrade next store instance.
+     */
+    public function nextStore(): NextStore
+    {
+        return $this->get(
+            /* service */ NextStore::class,
+            /* reload */ false,
+            modules: App::plugins(),
+            xml_url: (string) App::blog()->settings()->get('system')->get('store_plugin_url'),
+            force: true,
+            use_host_cache: true
+        );
+    }
+
+    /**
+     * Get upgrade notices helper instance.
+     */
+    public function notices(): Notices
+    {
+        return $this->get(Notices::class);
+    }
+
+    /**
+     * Get upgrade otp helper instance.
+     */
+    public function otp(): ?Otp
+    {
+        try {
+            return App::config()->authPasswordOnly() ? null : $this->get(Otp::class);
+        } catch (Throwable) { // silently fail
+            return null;
+        }
+    }
+
+    /**
+     * Get upgrade page helper instance.
+     */
+    public function page(): Page
+    {
+        return $this->get(Page::class);
+    }
+
+    /**
+     * Get upgrade plugins list instance.
+     */
+    public function pluginsList(): PluginsList
+    {
+        return $this->get(
+            /* service */ PluginsList::class,
+            /* reload */ false,
+            modules: App::plugins(),
+            modules_root: App::config()->pluginsRoot(),
+            xml_url: App::blog()->settings()->system->store_plugin_url,
+            force: empty($_GET['nocache']) ? null : true
+        );
+    }
+
+    /**
      * Get upgrade resources instance.
-     *
-     * @return  Resources   The menu
      */
     public function resources(): Resources
     {
         return $this->get(Resources::class);
+    }
+
+    /**
+     * Get upgrade update instance.
+     */
+    public function update(): Update
+    {
+        return $this->get(
+            /* service */ Update::class,
+            /* reload */ false,
+            url: App::config()->coreUpdateUrl(),
+            subject: 'dotclear',
+            version: App::config()->coreUpdateCanal(),
+            cache_dir: App::config()->cacheRoot() . DIRECTORY_SEPARATOR . Update::CACHE_FOLDER
+        );
+    }
+
+    /**
+     * Get upgrade update attic instance.
+     */
+    public function updateAttic(): UpdateAttic
+    {
+        return $this->get(
+            /* service */ UpdateAttic::class,
+            /* reload */ false,
+            url: App::config()->coreAtticUrl(),
+            cache_dir: App::config()->cacheRoot() . DIRECTORY_SEPARATOR . UpdateAttic::CACHE_FOLDER
+        );
+    }
+
+    /**
+     * Get upgrade upgrade helper instance.
+     */
+    public function upgrade(): Upgrade
+    {
+        return $this->get(Upgrade::class);
+    }
+
+    /**
+     * Get upgrade Url instance.
+     */
+    public function url(): Url
+    {
+        return $this->get(Url::class);
     }
 
     public static function init(): bool

@@ -13,35 +13,31 @@ namespace Dotclear\Process\Upgrade;
 
 use stdClass;
 use Dotclear\App;
-use Dotclear\Core\Upgrade\Notices;
-use Dotclear\Core\Upgrade\Page;
-use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Zip\Unzip;
-use Dotclear\Helper\Html\Form\{
-    Div,
-    File,
-    Form,
-    Hidden,
-    Label,
-    Note,
-    Option,
-    Para,
-    Password,
-    Select,
-    Span,
-    Strong,
-    Submit,
-    Table,
-    Td,
-    Th,
-    Text,
-    Tr
-};
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\File;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Option;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Password;
+use Dotclear\Helper\Html\Form\Select;
+use Dotclear\Helper\Html\Form\Span;
+use Dotclear\Helper\Html\Form\Strong;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Table;
+use Dotclear\Helper\Html\Form\Td;
+use Dotclear\Helper\Html\Form\Th;
+use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Feed\Reader;
 use Dotclear\Helper\Network\HttpClient;
+use Dotclear\Helper\Process\TraitProcess;
 use Exception;
 
 /**
@@ -71,7 +67,7 @@ class Langs
 
     public static function init(): bool
     {
-        Page::checkSuper();
+        App::upgrade()->page()->checkSuper();
 
         self::$is_writable = is_dir(App::config()->l10nRoot()) && is_writable(App::config()->l10nRoot());
         self::$iso_codes   = L10n::getISOcodes();
@@ -153,7 +149,7 @@ class Langs
                     throw new Exception(__('Permissions to delete language denied.'));
                 }
 
-                Notices::addSuccessNotice(__('Language has been successfully deleted.'));
+                App::upgrade()->notices()->addSuccessNotice(__('Language has been successfully deleted.'));
                 App::upgrade()->url()->redirect('upgrade.langs');
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
@@ -195,9 +191,9 @@ class Langs
 
                 @unlink($dest);
                 if ($ret_code === self::LANG_UPDATED) {
-                    Notices::addSuccessNotice(__('Language has been successfully upgraded'));
+                    App::upgrade()->notices()->addSuccessNotice(__('Language has been successfully upgraded'));
                 } else {
-                    Notices::addSuccessNotice(__('Language has been successfully installed.'));
+                    App::upgrade()->notices()->addSuccessNotice(__('Language has been successfully installed.'));
                 }
                 App::upgrade()->url()->redirect('upgrade.langs');
             } catch (Exception $e) {
@@ -228,9 +224,9 @@ class Langs
 
                 @unlink($dest);
                 if ($ret_code === self::LANG_UPDATED) {
-                    Notices::addSuccessNotice(__('Language has been successfully upgraded'));
+                    App::upgrade()->notices()->addSuccessNotice(__('Language has been successfully upgraded'));
                 } else {
-                    Notices::addSuccessNotice(__('Language has been successfully installed.'));
+                    App::upgrade()->notices()->addSuccessNotice(__('Language has been successfully installed.'));
                 }
                 App::upgrade()->url()->redirect('upgrade.langs');
             } catch (Exception $e) {
@@ -239,15 +235,15 @@ class Langs
         }
 
         if (!empty($_GET['removed'])) {
-            Notices::addSuccessNotice(__('Language has been successfully deleted.'));
+            App::upgrade()->notices()->addSuccessNotice(__('Language has been successfully deleted.'));
         }
 
         if (!empty($_GET['added'])) {
-            Notices::addSuccessNotice(($_GET['added'] == 2 ? __('Language has been successfully upgraded') : __('Language has been successfully installed.')));
+            App::upgrade()->notices()->addSuccessNotice(($_GET['added'] == 2 ? __('Language has been successfully upgraded') : __('Language has been successfully installed.')));
         }
 
         if (!self::$is_writable) {
-            Notices::addWarningNotice(sprintf(
+            App::upgrade()->notices()->addWarningNotice(sprintf(
                 __('You can install or remove a language by adding or removing the relevant directory in your %s folder.'),
                 '<strong>locales</strong>'
             ));
@@ -260,10 +256,10 @@ class Langs
     {
         $items = [];
 
-        Page::open(
+        App::upgrade()->page()->open(
             __('Languages management'),
-            Page::jsLoad('js/_langs.js'),
-            Page::breadcrumb(
+            App::upgrade()->page()->jsLoad('js/_langs.js'),
+            App::upgrade()->page()->breadcrumb(
                 [
                     __('Dotclear update')      => '',
                     __('Languages management') => '',
@@ -458,7 +454,7 @@ class Langs
             ])
             ->render();
 
-        Page::helpBlock('core_langs');
-        Page::close();
+        App::upgrade()->page()->helpBlock('core_langs');
+        App::upgrade()->page()->close();
     }
 }
