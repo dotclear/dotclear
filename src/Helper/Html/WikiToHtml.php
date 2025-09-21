@@ -532,7 +532,7 @@ class WikiToHtml
         }
 
         # On ajoute les notes
-        if ($this->foot_notes !== []) {
+        if (count($this->foot_notes) > 0) {
             $html_notes  = '';
             $note_number = 0;
             foreach ($this->foot_notes as $k => $v) {

@@ -164,7 +164,7 @@ class Auth
                     // Code verification failed
 
                     self::$err = __('Code verification failed');
-                } elseif (!$check_perms) {
+                } elseif (!App::auth()->isSuperAdmin()) {
                     // Insufficient permissions
 
                     self::$err = __('Insufficient permissions');
