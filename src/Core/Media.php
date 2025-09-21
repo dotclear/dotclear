@@ -1622,7 +1622,7 @@ class Media extends MediaManager implements MediaInterface
         $p     = Path::info($f);
         $thumb = sprintf(
             $this->getThumbnailFilePattern($p['extension']),
-            '',
+            $p['dirname'],
             $p['base'],
             '%s'
         );
