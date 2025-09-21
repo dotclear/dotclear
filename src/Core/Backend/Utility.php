@@ -134,6 +134,7 @@ class Utility extends AbstractUtility
             Notices::class     => Notices::class,
             Page::class        => Page::class,
             Resources::class   => Resources::class,
+            ThemesList::class  => ThemesList::class,
             Url::class         => Url::class,
             UserPref::class    => UserPref::class,
         ];
@@ -208,6 +209,21 @@ class Utility extends AbstractUtility
     public function resources(): Resources
     {
         return $this->get(Resources::class);
+    }
+
+    /**
+     * Get backend modules list instance.
+     */
+    public function themesList(): ThemesList
+    {
+        return $this->get(
+            ThemesList::class, // service
+            false,              // reload
+            modules: App::themes(),
+            modules_root: App::blog()->themesPath(),
+            xml_url: App::blog()->settings()->get('system')->get('store_theme_url'),
+            force: empty($_GET['nocache']) ? null : true
+        );
     }
 
     /**
