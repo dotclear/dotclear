@@ -17,7 +17,6 @@ use Dotclear\Core\Backend\Auth\OAuth2Store;
 use Dotclear\Core\Backend\Auth\Otp;
 use Dotclear\Core\Backend\Auth\WebAuthn;
 use Dotclear\Core\Backend\Page;
-use Dotclear\Core\Upgrade\Upgrade;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
@@ -93,7 +92,8 @@ class Auth
         // Auto upgrade, keep it for backward compatibility. (now on Dotclear\Process\Upgrade\Auth)
         if ((count($_GET) == 1 && $_POST === []) || App::backend()->safe_mode) {
             try {
-                if (($changes = Upgrade::dotclearUpgrade()) !== false) {
+                App::task()->addContext('UPGRADE');
+                if (($changes = App::upgrade()->upgrade()->dotclearUpgrade()) !== false) {
                     App::backend()->msg = __('Dotclear has been upgraded.') . '<!-- ' . $changes . ' -->';
                 }
             } catch (Exception $e) {
