@@ -119,8 +119,8 @@ class Utility extends AbstractUtility
     public function nextStore(): NextStore
     {
         return $this->get(
-            /* service */ NextStore::class,
-            /* reload */ false,
+            NextStore::class,   // service
+            false,              // reload
             modules: App::plugins(),
             xml_url: (string) App::blog()->settings()->get('system')->get('store_plugin_url'),
             force: true,
@@ -139,12 +139,12 @@ class Utility extends AbstractUtility
     /**
      * Get upgrade otp helper instance.
      */
-    public function otp(): ?Otp
+    public function otp(): false|Otp
     {
         try {
-            return App::config()->authPasswordOnly() ? null : $this->get(Otp::class);
+            return App::config()->authPasswordOnly() ? false : $this->get(Otp::class);
         } catch (Throwable) { // silently fail
-            return null;
+            return false;
         }
     }
 
@@ -162,8 +162,8 @@ class Utility extends AbstractUtility
     public function pluginsList(): PluginsList
     {
         return $this->get(
-            /* service */ PluginsList::class,
-            /* reload */ false,
+            PluginsList::class, // service
+            false,              // reload
             modules: App::plugins(),
             modules_root: App::config()->pluginsRoot(),
             xml_url: App::blog()->settings()->system->store_plugin_url,
@@ -185,8 +185,8 @@ class Utility extends AbstractUtility
     public function update(): Update
     {
         return $this->get(
-            /* service */ Update::class,
-            /* reload */ false,
+            Update::class,  // service
+            false,          // reload
             url: App::config()->coreUpdateUrl(),
             subject: 'dotclear',
             version: App::config()->coreUpdateCanal(),
@@ -200,8 +200,8 @@ class Utility extends AbstractUtility
     public function updateAttic(): UpdateAttic
     {
         return $this->get(
-            /* service */ UpdateAttic::class,
-            /* reload */ false,
+            UpdateAttic::class, // service
+            false,              // reload
             url: App::config()->coreAtticUrl(),
             cache_dir: App::config()->cacheRoot() . DIRECTORY_SEPARATOR . UpdateAttic::CACHE_FOLDER
         );
