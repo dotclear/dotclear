@@ -13,7 +13,6 @@ namespace Dotclear\Process\Backend;
 
 use ArrayObject;
 use Dotclear\App;
-use Dotclear\Core\Backend\Helper;
 use Dotclear\Core\Backend\ModulesList;
 use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Form\Date;
@@ -518,7 +517,7 @@ class Home
                                 (new Link('icon-process-' . $id . '-fav'))
                                     ->href($info[1])
                                     ->items([
-                                        (new Text(null, Helper::adminIcon($info[2]))),
+                                        (new Text(null, App::backend()->helper()->adminIcon($info[2]))),
                                         (new Single('br')),
                                         (new Span($info[0]))
                                             ->class('db-icon-title'),

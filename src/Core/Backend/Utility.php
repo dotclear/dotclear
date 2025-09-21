@@ -128,6 +128,7 @@ class Utility extends AbstractUtility
         return [
             Combos::class    => Combos::class,
             Favorites::class => Favorites::class,
+            Helper::class    => Helper::class,
             Menus::class     => Menus::class,
             Notices::class   => Notices::class,
             Page::class      => Page::class,
@@ -142,6 +143,14 @@ class Utility extends AbstractUtility
     public function combos(): Combos
     {
         return $this->get(Combos::class);
+    }
+
+    /**
+     * Get backend helper instance.
+     */
+    public function helper(): Helper
+    {
+        return $this->get(Helper::class);
     }
 
     /**

@@ -17,7 +17,6 @@ use Dotclear\Core\Backend\Auth\OAuth2Client;
 use Dotclear\Core\Backend\Auth\OAuth2Store;
 use Dotclear\Core\Backend\Auth\Otp;
 use Dotclear\Core\Backend\Auth\WebAuthn;
-use Dotclear\Core\Backend\Helper;
 use Dotclear\Core\Backend\UserPref;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Button;
@@ -1240,8 +1239,8 @@ class UserPreferences
                 // User favorites only
                 $count++;
 
-                $icon = $fav->smallIcon() ? Helper::adminIcon($fav->smallIcon()) : $id;
-                $zoom = $fav->largeIcon() ? Helper::adminIcon($fav->largeIcon(), false) : '';
+                $icon = $fav->smallIcon() ? App::backend()->helper()->adminIcon($fav->smallIcon()) : $id;
+                $zoom = $fav->largeIcon() ? App::backend()->helper()->adminIcon($fav->largeIcon(), false) : '';
                 if ($zoom !== '') {
                     $icon .= ' ' . (new Span($zoom))->class('zoom')->render();
                 }
@@ -1316,8 +1315,8 @@ class UserPreferences
         $other_favorites_items = [];
         foreach ($avail_fav as $k => $fav) {
             $count++;
-            $icon = Helper::adminIcon($fav->smallIcon());
-            $zoom = Helper::adminIcon($fav->largeIcon(), false);
+            $icon = App::backend()->helper()->adminIcon($fav->smallIcon());
+            $zoom = App::backend()->helper()->adminIcon($fav->largeIcon(), false);
             if ($zoom !== '') {
                 $icon .= ' ' . (new Span($zoom))->class('zoom')->render();
             }
