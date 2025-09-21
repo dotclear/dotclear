@@ -14,8 +14,7 @@ namespace Dotclear\Process\Backend;
 use Dotclear\App;
 use Dotclear\Core\Backend\Auth\OAuth2Client;
 use Dotclear\Core\Backend\Auth\OAuth2Store;
-use Dotclear\Core\Backend\Auth\Otp;
-use Dotclear\Core\Backend\Auth\WebAuthn;;
+use Dotclear\Core\Backend\Auth\WebAuthn;
 use Dotclear\Core\Upgrade\Upgrade;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
@@ -129,7 +128,6 @@ class Auth
         if (App::config()->authPasswordOnly()) {
             App::backend()->oauth2   = null;
             App::backend()->webauthn = null;
-            App::backend()->otp      = null;
         } else {
             // Create oAuth2 client instance
             try {
@@ -146,17 +144,10 @@ class Auth
             } catch (Exception) { // silently fail
                 App::backend()->oauth2 = null;
             }
-
-            // Create otp instance
-            try {
-                App::backend()->otp = new Otp();
-            } catch (Exception) { // silently fail
-                App::backend()->otp = null;
-            }
         }
 
         // 2fa verification
-        App::backend()->verify_code = App::backend()->otp instanceof Otp && isset($_POST['user_code']) && isset($_POST['login_data']);
+        App::backend()->verify_code = App::backend()->auth()->otp() !== false && isset($_POST['user_code']) && isset($_POST['login_data']);
         App::backend()->require_2fa = false;
 
         return self::status(true);
@@ -189,7 +180,7 @@ class Auth
                 App::backend()->msg = sprintf(__('The e-mail was sent successfully to %s.'), App::backend()->user_email);
 
                 // message saying that 2fa authentication be be removed
-                if (App::backend()->otp !== null && App::backend()->otp->setUser(App::backend()->user_id)->isVerified()) {
+                if (App::backend()->auth()->otp() !== false && App::backend()->auth()->otp()->setUser(App::backend()->user_id)->isVerified()) {
                     App::backend()->msg .= ' ' . __('This removes two factors authentication.');
                 }
             } catch (Exception $e) {
@@ -210,8 +201,8 @@ class Auth
                 App::backend()->msg = __('Your new password is in your mailbox.');
 
                 // Remove 2fa authentication on password change
-                if (App::backend()->otp !== null && App::backend()->otp->setUser($recover_res['user_id'])->isVerified()) {
-                    App::backend()->otp->delCredential();
+                if (App::backend()->auth()->otp() !== false && App::backend()->auth()->otp()->setUser($recover_res['user_id'])->isVerified()) {
+                    App::backend()->auth()->otp()->delCredential();
                 }
             } catch (Exception $e) {
                 App::backend()->err = $e->getMessage();
@@ -315,7 +306,7 @@ class Auth
                     throw new Exception();
                 }
 
-                if (!App::backend()->otp->setUser(App::backend()->user_id)->verifyCode($_POST['user_code'])) {
+                if (App::backend()->auth()->otp() !== false && !App::backend()->auth()->otp()->setUser(App::backend()->user_id)->verifyCode($_POST['user_code'])) {
                     throw new Exception(__('Code validation failed.'));
                 }
 
@@ -373,7 +364,7 @@ class Auth
                 // User may log-in
 
                 // Check if user need 2fa
-                App::backend()->require_2fa = App::backend()->otp !== null && App::backend()->otp->setUser(App::backend()->user_id)->isVerified();
+                App::backend()->require_2fa = App::backend()->auth()->otp() !== false && App::backend()->auth()->otp()->setUser(App::backend()->user_id)->isVerified();
 
                 if (App::backend()->require_2fa) {
                     // Required 2fa authentication. Skip normal login and go to 2fa form
@@ -597,7 +588,7 @@ class Auth
                             (new Hidden('login_data', App::backend()->login_data)),
                         ]),
                 ]);
-        } elseif (App::backend()->require_2fa && App::backend()->user_id !== null) {
+        } elseif (App::backend()->auth()->otp() !== false && App::backend()->require_2fa && App::backend()->user_id !== null) {
             // 2FA verification
             $parts[] = (new Set())
                 ->items([
@@ -610,7 +601,7 @@ class Auth
                                     (new Input('user_code'))
                                         ->label((new Label(__('Enter code:'), Label::IL_TF)))
                                         ->size(20)
-                                        ->maxlength(App::backend()->otp->getDigits())
+                                        ->maxlength(App::backend()->auth()->otp()->getDigits())
                                         ->default('')
                                         ->translate(false)
                                         ->autocomplete('one-time-code')

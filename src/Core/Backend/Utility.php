@@ -126,6 +126,7 @@ class Utility extends AbstractUtility
     public function getDefaultServices(): array
     {
         return [
+            Auth::class        => Auth::class,
             Combos::class      => Combos::class,
             Favorites::class   => Favorites::class,
             Helper::class      => Helper::class,
@@ -139,6 +140,14 @@ class Utility extends AbstractUtility
             Url::class         => Url::class,
             UserPref::class    => UserPref::class,
         ];
+    }
+
+    /**
+     * Get backend auth helpers instance.
+     */
+    public function auth(): Auth
+    {
+        return $this->get(Auth::class);
     }
 
     /**

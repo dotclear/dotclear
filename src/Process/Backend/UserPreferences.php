@@ -15,7 +15,6 @@ use ArrayObject;
 use Dotclear\App;
 use Dotclear\Core\Backend\Auth\OAuth2Client;
 use Dotclear\Core\Backend\Auth\OAuth2Store;
-use Dotclear\Core\Backend\Auth\Otp;
 use Dotclear\Core\Backend\Auth\WebAuthn;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Button;
@@ -76,15 +75,9 @@ class UserPreferences
         if (App::config()->authPasswordOnly()) {
             App::backend()->oauth2   = null;
             App::backend()->webauthn = null;
-            App::backend()->otp      = null;
         } else {
-            // Create otp instance
-            try {
-                App::backend()->otp = new Otp();
-                App::backend()->otp->setUser((string) App::auth()->userID());
-            } catch (Exception $e) {
-                App::backend()->otp = null;
-                App::error()->add($e->getMessage());
+            if (App::backend()->auth()->otp() !== false) {
+                App::backend()->auth()->otp()->setUser((string) App::auth()->userID());
             }
 
             // Create webauthn instance
@@ -237,10 +230,10 @@ class UserPreferences
     public static function process(): bool
     {
         // otp action
-        if (App::backend()->otp !== null) {
+        if (App::backend()->auth()->otp() !== false) {
             if (!empty($_POST['otp_verify_submit']) && !empty($_POST['otp_verify_code'])) {
                 // verify code
-                if (!App::backend()->otp->verifyCode($_POST['otp_verify_code'])) {
+                if (!App::backend()->auth()->otp()->verifyCode($_POST['otp_verify_code'])) {
                     App::error()->add(__('Two factors authentication verification failed.'));
                 } else {
                     App::backend()->notices()->addSuccessNotice(__('Two factors authentication verification succeeded.'));
@@ -248,8 +241,8 @@ class UserPreferences
             }
             if (!empty($_POST['otp_delete']) || !empty($_POST['otp_regenerate'])) {
                 // delete credential
-                App::backend()->otp->delCredential();
-                App::backend()->otp->setUser(App::auth()->userID()); // reload info
+                App::backend()->auth()->otp()->delCredential();
+                App::backend()->auth()->otp()->setUser((string) App::auth()->userID()); // reload info
 
                 App::backend()->notices()->addSuccessNotice(__('Two factors authentication secret regenerated.'));
             }
@@ -660,8 +653,8 @@ class UserPreferences
 
         // otp (2fa) configuration
         $otp_items = [];
-        if (App::backend()->otp !== null) {
-            if (App::backend()->otp->isVerified()) {
+        if (App::backend()->auth()->otp() !== false) {
+            if (App::backend()->auth()->otp()->isVerified()) {
                 $otp_items = [
                     (new Text('p', __('Your account is registered to two factors authentication.'))),
                     (new Submit(['otp_delete'], __('Disable two factors authentication')))
@@ -671,13 +664,13 @@ class UserPreferences
                 $otp_items = [
                     (new Text('p', __('Scan this QR code with your authentication application:'))),
                     (new Para())
-                        ->items([App::backend()->otp->getQrCodeImageHtml()]),
+                        ->items([App::backend()->auth()->otp()->getQrCodeImageHtml()]),
                     (new Para())
                         ->items([
                             (new Input('otp_secret'))
                                 ->size(80)
                                 ->maxlength(255)
-                                ->value(App::backend()->otp->getSecret())
+                                ->value(App::backend()->auth()->otp()->getSecret())
                                 ->disabled(true)
                                 //->extra('aria-describedby="otp_verify_secret_help')
                                 ->label(new Label(__('Or enter this secret into your authentication application:'), Label::OL_TF)),
@@ -688,7 +681,7 @@ class UserPreferences
                         ->items([
                             (new Input('otp_verify_code'))
                                 ->size(10)
-                                ->maxlength(App::backend()->otp->getDigits())
+                                ->maxlength(App::backend()->auth()->otp()->getDigits())
                                 ->value('')
                                 //->extra('aria-describedby="otp_verify_code_help')
                                 ->label(new Label(__('Enter verification code:'), Label::OL_TF)),
@@ -887,7 +880,7 @@ class UserPreferences
                         $pass_change,
 
                         // otp
-                        App::backend()->otp === null ? new None() : (new Fieldset('user_options_otp'))
+                        App::backend()->auth()->otp() === false ? new None() : (new Fieldset('user_options_otp'))
                             ->legend(new Legend(__('Two factors authentication')))
                             ->separator('')
                             ->items($otp_items),
