@@ -12,11 +12,6 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
-use Dotclear\Core\Backend\Action\ActionsPosts;
-use Dotclear\Core\Backend\Filter\FilterPosts;
-use Dotclear\Core\Backend\Listing\ListingPosts;
-use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Label;
@@ -38,24 +33,24 @@ class Posts
 
     public static function init(): bool
     {
-        Page::check(App::auth()->makePermissions([
+        App::backend()->page()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_USAGE,
             App::auth()::PERMISSION_CONTENT_ADMIN,
         ]));
 
         // Actions
         // -------
-        App::backend()->posts_actions_page = new ActionsPosts(App::backend()->url()->get('admin.posts'));
+        App::backend()->posts_actions_page = App::backend()->action()->posts(App::backend()->url()->get('admin.posts'));
         if (App::backend()->posts_actions_page->process()) {
             return self::status(false);
         }
 
         // Filters
         // -------
-        App::backend()->post_filter = new FilterPosts();
+        App::backend()->post_filter = App::backend()->filter()->posts(); // Backward compatibility
 
         // get list params
-        $params = App::backend()->post_filter->params();
+        $params = App::backend()->filter()->posts()->params();
 
         // lexical sort
         $sortby_lex = [
@@ -68,9 +63,9 @@ class Posts
         # --BEHAVIOR-- adminPostsSortbyLexCombo -- array<int,array<string,string>>
         App::behavior()->callBehavior('adminPostsSortbyLexCombo', [&$sortby_lex]);
 
-        $params['order'] = (array_key_exists(App::backend()->post_filter->sortby, $sortby_lex) ?
-            App::db()->con()->lexFields($sortby_lex[App::backend()->post_filter->sortby]) :
-            App::backend()->post_filter->sortby) . ' ' . App::backend()->post_filter->order;
+        $params['order'] = (array_key_exists(App::backend()->filter()->posts()->sortby, $sortby_lex) ?
+            App::db()->con()->lexFields($sortby_lex[App::backend()->filter()->posts()->sortby]) :
+            App::backend()->filter()->posts()->sortby) . ' ' . App::backend()->filter()->posts()->order;
 
         $params['no_content'] = true;
 
@@ -82,7 +77,7 @@ class Posts
             $posts   = App::blog()->getPosts($params);
             $counter = App::blog()->getPosts($params, true);
 
-            App::backend()->post_list = new ListingPosts($posts, $counter->f(0));
+            App::backend()->post_list = App::backend()->listing()->posts($posts, $counter->f(0));
         } catch (Exception $e) {
             App::error()->add($e->getMessage());
         }
@@ -92,10 +87,10 @@ class Posts
 
     public static function render(): void
     {
-        Page::open(
+        App::backend()->page()->open(
             __('Posts'),
-            Page::jsLoad('js/_posts_list.js') . App::backend()->post_filter->js(App::backend()->url()->get('admin.posts')),
-            Page::breadcrumb(
+            App::backend()->page()->jsLoad('js/_posts_list.js') . App::backend()->filter()->posts()->js(App::backend()->url()->get('admin.posts')),
+            App::backend()->page()->breadcrumb(
                 [
                     Html::escapeHTML(App::blog()->name()) => '',
                     __('Posts')                           => '',
@@ -103,9 +98,9 @@ class Posts
             )
         );
         if (!empty($_GET['upd'])) {
-            Notices::success(__('Selected entries have been successfully updated.'));
+            App::backend()->notices()->success(__('Selected entries have been successfully updated.'));
         } elseif (!empty($_GET['del'])) {
-            Notices::success(__('Selected entries have been successfully deleted.'));
+            App::backend()->notices()->success(__('Selected entries have been successfully deleted.'));
         }
         if (!App::error()->flag()) {
             echo (new Para())
@@ -119,7 +114,7 @@ class Posts
             ->render();
 
             # filters
-            App::backend()->post_filter->display('admin.posts');
+            App::backend()->filter()->posts()->display('admin.posts');
 
             # Show posts
             $combo = App::backend()->posts_actions_page->getCombo();
@@ -142,7 +137,7 @@ class Posts
                                         (new Submit('do-action', __('ok')))
                                             ->disabled(true),
                                         App::nonce()->formNonce(),
-                                        ... App::backend()->url()->hiddenFormFields('admin.posts', App::backend()->post_filter->values()),
+                                        ... App::backend()->url()->hiddenFormFields('admin.posts', App::backend()->filter()->posts()->values()),
                                     ]),
                             ]),
                     ])
@@ -153,14 +148,14 @@ class Posts
             }
 
             App::backend()->post_list->display(
-                App::backend()->post_filter->page,
-                App::backend()->post_filter->nb,
+                App::backend()->filter()->posts()->page,
+                App::backend()->filter()->posts()->nb,
                 $block,
-                App::backend()->post_filter->show()
+                App::backend()->filter()->posts()->show()
             );
         }
 
-        Page::helpBlock('core_posts');
-        Page::close();
+        App::backend()->page()->helpBlock('core_posts');
+        App::backend()->page()->close();
     }
 }

@@ -13,11 +13,6 @@ namespace Dotclear\Process\Backend;
 
 use ArrayObject;
 use Dotclear\App;
-use Dotclear\Core\Backend\Combos;
-use Dotclear\Core\Backend\Helper;
-use Dotclear\Core\Backend\ModulesList;
-use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Form\Date;
 use Dotclear\Helper\Html\Form\Details;
@@ -66,14 +61,14 @@ class Home
             }
         }
 
-        Page::check(App::auth()->makePermissions([
+        App::backend()->page()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_USAGE,
             App::auth()::PERMISSION_CONTENT_ADMIN,
         ]));
 
         $disabled = App::plugins()->disableDepModules();
         if ($disabled !== []) {
-            Notices::addWarningNotice(
+            App::backend()->notices()->addWarningNotice(
                 (new Div())
                     ->items([
                         (new Note())
@@ -138,7 +133,7 @@ class Home
             try {
                 App::auth()->prefs()->dashboard->put('donation_date', $_POST['donation-date'], UserWorkspaceInterface::WS_STRING, 'last donation date');
 
-                Notices::addSuccessNotice(__('Your last donation date has been saved.'));
+                App::backend()->notices()->addSuccessNotice(__('Your last donation date has been saved.'));
                 App::backend()->url()->redirect('admin.home');
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
@@ -206,7 +201,7 @@ class Home
                     $admin_post_behavior = App::behavior()->callBehavior('adminPostEditor', $post_editor[$post_format], 'quickentry', ['#post_content'], $post_format);
                 }
             }
-            $quickentry = Page::jsJson('dotclear_quickentry', [
+            $quickentry = App::backend()->page()->jsJson('dotclear_quickentry', [
                 'post_published' => App::status()->post()::PUBLISHED,
                 'post_pending'   => App::status()->post()::PENDING,
             ]);
@@ -220,7 +215,7 @@ class Home
                 'dragndrop_off' => __('Dashboard area\'s drag and drop is disabled'),
                 'dragndrop_on'  => __('Dashboard area\'s drag and drop is enabled'),
             ];
-            $dragndrop_head = Page::jsJson('dotclear_dragndrop', $dragndrop_msg);
+            $dragndrop_head = App::backend()->page()->jsJson('dotclear_dragndrop', $dragndrop_msg);
             $dragndrop_icon = '<svg aria-hidden="true" focusable="false" class="dragndrop-svg"><use xlink:href="images/dragndrop.svg#mask"></use></svg>' .
                 (new Span($dragndrop_msg['dragndrop_off']))
                     ->id('dragndrop-label')
@@ -233,19 +228,19 @@ class Home
             ->render();
         }
 
-        Page::open(
+        App::backend()->page()->open(
             __('Dashboard'),
-            Page::jsLoad('js/jquery/jquery-ui.custom.js') .
-            Page::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
+            App::backend()->page()->jsLoad('js/jquery/jquery-ui.custom.js') .
+            App::backend()->page()->jsLoad('js/jquery/jquery.ui.touch-punch.js') .
             $quickentry .
-            Page::jsLoad('js/_index.js') .
+            App::backend()->page()->jsLoad('js/_index.js') .
             $dragndrop_head .
             $admin_post_behavior .
-            Page::jsAdsBlockCheck() .
+            App::backend()->page()->jsAdsBlockCheck() .
 
             # --BEHAVIOR-- adminDashboardHeaders --
             App::behavior()->callBehavior('adminDashboardHeaders'),
-            Page::breadcrumb(
+            App::backend()->page()->breadcrumb(
                 [
                     __('Dashboard') . ' : ' . '<span class="blog-title">' . Html::escapeHTML(App::blog()->name()) . '</span>' => '',
                 ],
@@ -265,13 +260,13 @@ class Home
         }
 
         if (App::blog()->status() === App::status()->blog()::OFFLINE) {
-            Notices::message(__('This blog is offline'), false);
+            App::backend()->notices()->message(__('This blog is offline'), false);
         } elseif (App::blog()->status() === App::status()->blog()::REMOVED) {
-            Notices::message(__('This blog is removed'), false);
+            App::backend()->notices()->message(__('This blog is removed'), false);
         }
 
         if (App::config()->adminUrl() === '') {
-            Notices::message(
+            App::backend()->notices()->message(
                 sprintf(
                     __('%s is not defined, you should edit your configuration file.'),
                     'DC_ADMIN_URL'
@@ -286,7 +281,7 @@ class Home
         }
 
         if (App::config()->adminMailfrom() === 'dotclear@local') {
-            Notices::message(
+            App::backend()->notices()->message(
                 sprintf(
                     __('%s is not defined, you should edit your configuration file.'),
                     'DC_ADMIN_MAILFROM'
@@ -322,7 +317,7 @@ class Home
 
         // Error list
         if ($err !== []) {
-            Notices::error(
+            App::backend()->notices()->error(
                 (new Div())
                     ->items([
                         (new Note())
@@ -343,11 +338,11 @@ class Home
         if (!empty(App::backend()->plugins_install['success'])) {
             $success = [];
             foreach (App::backend()->plugins_install['success'] as $k => $v) {
-                $info      = implode(' - ', ModulesList::getSettingsUrls($k, true));
+                $info      = implode(' - ', App::backend()->modulesList()->getSettingsUrls($k, true));
                 $success[] = $k . ($info !== '' ? ' → ' . $info : '');
             }
 
-            Notices::success(
+            App::backend()->notices()->success(
                 (new Div())
                     ->items([
                         (new Note())
@@ -369,7 +364,7 @@ class Home
                 $failure[] = $k . ' (' . $v . ')';
             }
 
-            Notices::error(
+            App::backend()->notices()->error(
                 (new Div())
                     ->items([
                         (new Note())
@@ -390,7 +385,7 @@ class Home
         if (App::auth()->isSuperAdmin()) {
             $list = App::plugins()->getErrors();
             if ($list !== []) {
-                Notices::error(
+                App::backend()->notices()->error(
                     (new Div())
                         ->items([
                             (new Note())
@@ -521,7 +516,7 @@ class Home
                                 (new Link('icon-process-' . $id . '-fav'))
                                     ->href($info[1])
                                     ->items([
-                                        (new Text(null, Helper::adminIcon($info[2]))),
+                                        (new Text(null, App::backend()->helper()->adminIcon($info[2]))),
                                         (new Single('br')),
                                         (new Span($info[0]))
                                             ->class('db-icon-title'),
@@ -557,8 +552,8 @@ class Home
 
         echo $dragndrop . '<div id="dashboard-main">' . $dashboardMain . '</div>';
 
-        Page::helpBlock('core_dashboard');
-        Page::close();
+        App::backend()->page()->helpBlock('core_dashboard');
+        App::backend()->page()->close();
     }
 
     // Helpers
@@ -569,7 +564,7 @@ class Home
     protected static function quickEntry(): string
     {
         // Get categories
-        $categories_combo = Combos::getCategoriesCombo(
+        $categories_combo = App::backend()->combos()->getCategoriesCombo(
             App::blog()->getCategories([])
         );
 

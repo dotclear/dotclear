@@ -11,8 +11,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Process\Backend;
 
-use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Backend\Page;
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Form\Button;
@@ -36,7 +34,7 @@ class BlogDel
 
     public static function init(): bool
     {
-        Page::checkSuper();
+        App::backend()->page()->checkSuper();
 
         App::backend()->blog_id   = '';
         App::backend()->blog_name = '';
@@ -72,7 +70,7 @@ class BlogDel
             } else {
                 try {
                     App::blogs()->delBlog(App::backend()->blog_id);
-                    Notices::addSuccessNotice(sprintf(__('Blog "%s" successfully deleted'), Html::escapeHTML(App::backend()->blog_name)));
+                    App::backend()->notices()->addSuccessNotice(sprintf(__('Blog "%s" successfully deleted'), Html::escapeHTML(App::backend()->blog_name)));
 
                     App::backend()->url()->redirect('admin.blogs');
                 } catch (Exception $e) {
@@ -86,10 +84,10 @@ class BlogDel
 
     public static function render(): void
     {
-        Page::open(
+        App::backend()->page()->open(
             __('Delete a blog'),
             '',
-            Page::breadcrumb(
+            App::backend()->page()->breadcrumb(
                 [
                     __('System')        => '',
                     __('Blogs')         => App::backend()->url()->get('admin.blogs'),
@@ -103,7 +101,7 @@ class BlogDel
                 __('You are about to delete the blog %s. Every entry, comment and category will be deleted.'),
                 '<strong>' . App::backend()->blog_id . ' (' . App::backend()->blog_name . ')</strong>'
             );
-            Notices::warning($msg, false, true);
+            App::backend()->notices()->warning($msg, false, true);
 
             echo
             // Legend
@@ -143,6 +141,6 @@ class BlogDel
             ])->render();
         }
 
-        Page::close();
+        App::backend()->page()->close();
     }
 }

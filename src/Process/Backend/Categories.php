@@ -12,9 +12,6 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
-use Dotclear\Core\Backend\Combos;
-use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Backend\Page;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
@@ -44,7 +41,7 @@ class Categories
 
     public static function init(): bool
     {
-        Page::check(App::auth()->makePermissions([
+        App::backend()->page()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_CATEGORIES,
         ]));
 
@@ -62,7 +59,7 @@ class Categories
             // Check if category to delete exists
             $rs = App::blog()->getCategory($cat_id);
             if ($rs->isEmpty()) {
-                Notices::addErrorNotice(__('This category does not exist.'));
+                App::backend()->notices()->addErrorNotice(__('This category does not exist.'));
                 App::backend()->url()->redirect('admin.categories');
             } else {
                 $name = $rs->cat_title;
@@ -71,7 +68,7 @@ class Categories
             try {
                 // Delete category
                 App::blog()->delCategory($cat_id);
-                Notices::addSuccessNotice(sprintf(
+                App::backend()->notices()->addSuccessNotice(sprintf(
                     __('The category "%s" has been successfully deleted.'),
                     Html::escapeHTML($name)
                 ));
@@ -101,7 +98,7 @@ class Categories
                 if ($mov_cat != $cat_id) {
                     App::blog()->changePostsCategory($cat_id, $mov_cat);
                 }
-                Notices::addSuccessNotice(sprintf(
+                App::backend()->notices()->addSuccessNotice(sprintf(
                     __('The entries have been successfully moved to category "%s"'),
                     Html::escapeHTML($name)
                 ));
@@ -119,7 +116,7 @@ class Categories
                     App::blog()->updCategoryPosition((int) $category->item_id, (int) $category->left, (int) $category->right);
                 }
             }
-            Notices::addSuccessNotice(__('Categories have been successfully reordered.'));
+            App::backend()->notices()->addSuccessNotice(__('Categories have been successfully reordered.'));
             App::backend()->url()->redirect('admin.categories');
         }
 
@@ -127,7 +124,7 @@ class Categories
             // Reset order
             try {
                 App::blog()->resetCategoriesOrder();
-                Notices::addSuccessNotice(__('Categories order has been successfully reset.'));
+                App::backend()->notices()->addSuccessNotice(__('Categories order has been successfully reset.'));
                 App::backend()->url()->redirect('admin.categories');
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
@@ -148,17 +145,17 @@ class Categories
                 App::auth()::PERMISSION_CATEGORIES,
             ]), App::blog()->id())
             && $rs->count() > 1) {
-            $starting_script .= Page::jsLoad('js/jquery/jquery-ui.custom.js');
-            $starting_script .= Page::jsLoad('js/jquery/jquery.ui.touch-punch.js');
-            $starting_script .= Page::jsLoad('js/jquery/jquery.mjs.nestedSortable.js');
+            $starting_script .= App::backend()->page()->jsLoad('js/jquery/jquery-ui.custom.js');
+            $starting_script .= App::backend()->page()->jsLoad('js/jquery/jquery.ui.touch-punch.js');
+            $starting_script .= App::backend()->page()->jsLoad('js/jquery/jquery.mjs.nestedSortable.js');
         }
-        $starting_script .= Page::jsConfirmClose('form-categories');
-        $starting_script .= Page::jsLoad('js/_categories.js');
+        $starting_script .= App::backend()->page()->jsConfirmClose('form-categories');
+        $starting_script .= App::backend()->page()->jsLoad('js/_categories.js');
 
-        Page::open(
+        App::backend()->page()->open(
             __('Categories'),
             $starting_script,
-            Page::breadcrumb(
+            App::backend()->page()->breadcrumb(
                 [
                     Html::escapeHTML(App::blog()->name()) => '',
                     __('Categories')                      => '',
@@ -167,16 +164,16 @@ class Categories
         );
 
         if (!empty($_GET['del'])) {
-            Notices::success(__('The category has been successfully removed.'));
+            App::backend()->notices()->success(__('The category has been successfully removed.'));
         }
         if (!empty($_GET['reord'])) {
-            Notices::success(__('Categories have been successfully reordered.'));
+            App::backend()->notices()->success(__('Categories have been successfully reordered.'));
         }
         if (!empty($_GET['move'])) {
-            Notices::success(__('Entries have been successfully moved to the category you choose.'));
+            App::backend()->notices()->success(__('Entries have been successfully moved to the category you choose.'));
         }
 
-        App::backend()->categories_combo = Combos::getCategoriesCombo($rs);
+        App::backend()->categories_combo = App::backend()->combos()->getCategoriesCombo($rs);
 
         echo (new Para())
             ->class('new-stuff')
@@ -255,8 +252,8 @@ class Categories
             ->items($parts)
         ->render();
 
-        Page::helpBlock('core_categories');
-        Page::close();
+        App::backend()->page()->helpBlock('core_categories');
+        App::backend()->page()->close();
     }
 
     /**

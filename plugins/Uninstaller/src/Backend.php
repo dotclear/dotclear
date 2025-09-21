@@ -13,7 +13,6 @@ namespace Dotclear\Plugin\Uninstaller;
 use Dotclear\App;
 use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Core\Backend\ModulesList;
-use Dotclear\Core\Backend\Notices;
 use Dotclear\Module\ModuleDefine;
 use Exception;
 
@@ -105,7 +104,7 @@ class Backend
             // If direct actions are made, do not execute dotclear delete action.
             if ($done !== []) {
                 array_unshift($done, __('Plugin has been successfully uninstalled.'));
-                Notices::addSuccessNotice(implode('<br>', $done));
+                App::backend()->notices()->addSuccessNotice(implode('<br>', $done));
                 if ($define->get('type') == 'theme') {
                     App::backend()->url()->redirect(name: 'admin.blog.theme', suffix: '#themes');
                 } else {

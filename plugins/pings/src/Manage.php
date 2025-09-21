@@ -9,10 +9,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\pings;
 
-use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Backend\Page;
 use Dotclear\App;
-use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Form\Form;
@@ -33,6 +30,7 @@ use Dotclear\Helper\Html\Form\Thead;
 use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Html\Form\Url;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Process\TraitProcess;
 use Exception;
 
 /**
@@ -79,7 +77,7 @@ class Manage
                 // Settings for current blog only
                 My::settings()->put('pings_auto', !empty($_POST['pings_auto']), null, null, true, false);
 
-                Notices::addSuccessNotice(__('Settings have been successfully updated.'));
+                App::backend()->notices()->addSuccessNotice(__('Settings have been successfully updated.'));
                 My::redirect();
             }
         } catch (Exception $e) {
@@ -91,10 +89,10 @@ class Manage
 
     public static function render(): void
     {
-        Page::openModule(My::name());
+        App::backend()->page()->openModule(My::name());
 
         echo
-        Page::breadcrumb(
+        App::backend()->page()->breadcrumb(
             [
                 __('Plugins')             => '',
                 __('Pings configuration') => '',
@@ -206,8 +204,8 @@ class Manage
             ])
         ->render();
 
-        Page::helpBlock(My::id());
+        App::backend()->page()->helpBlock(My::id());
 
-        Page::closeModule();
+        App::backend()->page()->closeModule();
     }
 }

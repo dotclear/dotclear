@@ -13,10 +13,6 @@ namespace Dotclear\Process\Backend;
 
 use ArrayObject;
 use Dotclear\App;
-use Dotclear\Core\Backend\Action\ActionsComments;
-use Dotclear\Core\Backend\Combos;
-use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Backend\Page;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Button;
@@ -69,7 +65,7 @@ class Post
     public static function init(): bool
     {
         $params = [];
-        Page::check(App::auth()->makePermissions([
+        App::backend()->page()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_USAGE,
             App::auth()::PERMISSION_CONTENT_ADMIN,
         ]));
@@ -122,7 +118,7 @@ class Post
         }
 
         # Getting categories
-        App::backend()->categories_combo = Combos::getCategoriesCombo(
+        App::backend()->categories_combo = App::backend()->combos()->getCategoriesCombo(
             App::blog()->getCategories()
         );
 
@@ -139,7 +135,7 @@ class Post
         App::backend()->available_formats = $available_formats;
 
         // Languages combo
-        App::backend()->lang_combo = Combos::getLangsCombo(
+        App::backend()->lang_combo = App::backend()->combos()->getLangsCombo(
             App::blog()->getLangs([
                 'order_by' => 'nb_post',
                 'order'    => 'desc',
@@ -166,7 +162,7 @@ class Post
             App::backend()->post = App::blog()->getPosts($params);
 
             if (App::backend()->post->isEmpty()) {
-                Notices::addErrorNotice('This entry does not exist.');
+                App::backend()->notices()->addErrorNotice('This entry does not exist.');
                 App::backend()->url()->redirect('admin.posts');
             } else {
                 App::backend()->post_id            = App::backend()->post->post_id;
@@ -239,7 +235,7 @@ class Post
         }
         $anchor = isset($_REQUEST['section']) && $_REQUEST['section'] == 'trackbacks' ? 'trackbacks' : 'comments';
 
-        App::backend()->comments_actions_page = new ActionsComments(
+        App::backend()->comments_actions_page = App::backend()->action()->comments(
             App::backend()->url()->get('admin.post'),
             [
                 'id'            => App::backend()->post_id,
@@ -292,7 +288,7 @@ class Post
                 }
 
                 if (!App::error()->flag()) {
-                    Notices::addSuccessNotice(__('All pings sent.'));
+                    App::backend()->notices()->addSuccessNotice(__('All pings sent.'));
                     App::backend()->url()->redirect(
                         'admin.post',
                         ['id' => App::backend()->post_id, 'tb' => '1']
@@ -446,7 +442,7 @@ class Post
 
                     # --BEHAVIOR-- adminAfterPostUpdate -- Cursor, int
                     App::behavior()->callBehavior('adminAfterPostUpdate', $cur, (int) App::backend()->post_id);
-                    Notices::addSuccessNotice(sprintf(__('The post "%s" has been successfully updated'), Html::escapeHTML(trim(Html::clean($cur->post_title)))));
+                    App::backend()->notices()->addSuccessNotice(sprintf(__('The post "%s" has been successfully updated'), Html::escapeHTML(trim(Html::clean($cur->post_title)))));
                     App::backend()->url()->redirect(
                         'admin.post',
                         ['id' => App::backend()->post_id]
@@ -466,7 +462,7 @@ class Post
                     # --BEHAVIOR-- adminAfterPostCreate -- Cursor, int
                     App::behavior()->callBehavior('adminAfterPostCreate', $cur, $return_id);
 
-                    Notices::addSuccessNotice(__('Entry has been successfully created.'));
+                    App::backend()->notices()->addSuccessNotice(__('Entry has been successfully created.'));
                     App::backend()->url()->redirect(
                         'admin.post',
                         ['id' => $return_id]
@@ -478,7 +474,7 @@ class Post
         }
 
         // Getting categories (a new category may have been created during process)
-        App::backend()->categories_combo = Combos::getCategoriesCombo(
+        App::backend()->categories_combo = App::backend()->combos()->getCategoriesCombo(
             App::blog()->getCategories()
         );
 
@@ -503,7 +499,7 @@ class Post
             App::backend()->post_content = App::backend()->post_content_xhtml;
             App::backend()->post_format  = 'xhtml';
 
-            Notices::addMessageNotice(__('Don\'t forget to validate your XHTML conversion by saving your post.'));
+            App::backend()->notices()->addMessageNotice(__('Don\'t forget to validate your XHTML conversion by saving your post.'));
         }
 
         // 3rd party conversion
@@ -522,7 +518,7 @@ class Post
                 App::backend()->post_content = $params['content'];
                 App::backend()->post_format  = $params['format'];
 
-                Notices::addMessageNotice($msg);
+                App::backend()->notices()->addMessageNotice($msg);
             }
         }
 
@@ -578,23 +574,23 @@ class Post
         // Check if entry URL basename use title
         $check_title = preg_match('/{t}/', (string) App::blog()->settings()->system->post_url_format);
 
-        Page::open(
+        App::backend()->page()->open(
             App::backend()->page_title . ' - ' . __('Posts'),
-            Page::jsModal() .
-            Page::jsMetaEditor() .
+            App::backend()->page()->jsModal() .
+            App::backend()->page()->jsMetaEditor() .
             $admin_post_behavior .
-            Page::jsJson('post_options', [
+            App::backend()->page()->jsJson('post_options', [
                 'entryurl_dt'    => $check_dt,
                 'entryurl_title' => $check_title,
             ]) .
-            Page::jsLoad('js/_post.js') .
-            Page::jsLoad('js/_trackbacks.js') .
-            Page::jsConfirmClose('entry-form', 'comment-form') .
+            App::backend()->page()->jsLoad('js/_post.js') .
+            App::backend()->page()->jsLoad('js/_trackbacks.js') .
+            App::backend()->page()->jsConfirmClose('entry-form', 'comment-form') .
             # --BEHAVIOR-- adminPostHeaders --
             App::behavior()->callBehavior('adminPostHeaders') .
-            Page::jsPageTabs(App::backend()->default_tab) .
+            App::backend()->page()->jsPageTabs(App::backend()->default_tab) .
             App::backend()->next_headlink . "\n" . App::backend()->prev_headlink,
-            Page::breadcrumb(
+            App::backend()->page()->breadcrumb(
                 [
                     Html::escapeHTML(App::blog()->name()) => '',
                     __('Posts')                           => App::backend()->url()->get('admin.posts'),
@@ -607,20 +603,20 @@ class Post
         );
 
         if (!empty($_GET['upd'])) {
-            Notices::success(__('Entry has been successfully updated.'));
+            App::backend()->notices()->success(__('Entry has been successfully updated.'));
         } elseif (!empty($_GET['crea'])) {
-            Notices::success(__('Entry has been successfully created.'));
+            App::backend()->notices()->success(__('Entry has been successfully created.'));
         } elseif (!empty($_GET['attached'])) {
-            Notices::success(__('File has been successfully attached.'));
+            App::backend()->notices()->success(__('File has been successfully attached.'));
         } elseif (!empty($_GET['rmattach'])) {
-            Notices::success(__('Attachment has been successfully removed.'));
+            App::backend()->notices()->success(__('Attachment has been successfully removed.'));
         }
 
         if (!empty($_GET['creaco'])) {
-            Notices::success(__('Comment has been successfully created.'));
+            App::backend()->notices()->success(__('Comment has been successfully created.'));
         }
         if (!empty($_GET['tbsent'])) {
-            Notices::success(__('All pings sent.'));
+            App::backend()->notices()->success(__('All pings sent.'));
         }
 
         if (App::backend()->post_id && !App::status()->post()->isRestricted((int) App::backend()->post->post_status)) {
@@ -655,8 +651,8 @@ class Post
 
         // Exit if we cannot view page
         if (!App::backend()->can_view_page) {
-            Page::helpBlock('core_post');
-            Page::close();
+            App::backend()->page()->helpBlock('core_post');
+            App::backend()->page()->close();
             dotclear_exit();
         }
 
@@ -1275,8 +1271,8 @@ class Post
             ->render();
         }
 
-        Page::helpBlock('core_post', 'core_trackbacks', 'core_wiki');
-        Page::close();
+        App::backend()->page()->helpBlock('core_post', 'core_trackbacks', 'core_wiki');
+        App::backend()->page()->close();
     }
 
     /**

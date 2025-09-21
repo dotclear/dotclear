@@ -12,7 +12,6 @@ namespace Dotclear\Plugin\importExport;
 
 use ArrayObject;
 use Dotclear\App;
-use Dotclear\Core\Backend\Notices;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Crypt;
 use Dotclear\Helper\Html\Form\Div;
@@ -389,7 +388,7 @@ class ModuleImportDc1 extends Module
      */
     protected function error(Exception $e): void
     {
-        Notices::error('<strong>' . __('Errors:') . '</strong>' . '<p>' . $e->getMessage() . '</p>', false, false);
+        App::backend()->notices()->error('<strong>' . __('Errors:') . '</strong>' . '<p>' . $e->getMessage() . '</p>', false, false);
     }
 
     /**

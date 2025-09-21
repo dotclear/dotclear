@@ -13,8 +13,6 @@ namespace Dotclear\Plugin\maintenance;
 use ArrayObject;
 use Dotclear\App;
 use Dotclear\Core\Backend\Favorites;
-use Dotclear\Core\Backend\Helper;
-use Dotclear\Core\Backend\Notices;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Form\Dd;
@@ -90,7 +88,7 @@ class BackendBehaviors
             }
 
             if ($count > 0) {
-                Notices::warning(sprintf(
+                App::backend()->notices()->warning(sprintf(
                     __(
                         'One <a href="%2$s">maintenance task</a> to execute.',
                         '%1$s <a href="%2$s">maintenance tasks</a> to execute.',
@@ -218,7 +216,7 @@ class BackendBehaviors
             (new Div('maintenance-expired'))
                 ->class(['box', 'small'])
                 ->items([
-                    (new Text('h3', Helper::adminIcon(My::icons(), true, '', '', 'icon-small') . ' ' . __('Maintenance'))),
+                    (new Text('h3', App::backend()->helper()->adminIcon(My::icons(), true, '', '', 'icon-small') . ' ' . __('Maintenance'))),
                     (new Note())
                         ->class(['warning', 'no-margin'])
                         ->text(sprintf(__('There is a task to execute.', 'There are %s tasks to execute.', count($lines)), count($lines))),

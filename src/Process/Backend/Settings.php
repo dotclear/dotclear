@@ -12,8 +12,6 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
-use Dotclear\Core\Backend\ModulesList;
-use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Li;
 use Dotclear\Helper\Html\Form\Link;
@@ -53,12 +51,12 @@ class Settings
     public static function render(): void
     {
         // -- Page header --
-        Page::open(
+        App::backend()->page()->open(
             __('Plugins settings'),
-            Page::jsLoad('js/_settings.js') .
+            App::backend()->page()->jsLoad('js/_settings.js') .
             # --BEHAVIOR-- settingsHeaders
             App::behavior()->callBehavior('settingsHeaders'),
-            Page::breadcrumb(
+            App::backend()->page()->breadcrumb(
                 [
                     __('System')           => '',
                     __('Plugins settings') => '',
@@ -118,7 +116,7 @@ class Settings
         foreach ($plugins as $plugin) {
             $id       = $plugin->getId();
             $name     = $plugin->get('name');
-            $settings = ModulesList::getSettingsUrls($id, true, keys: true, url_only: true);
+            $settings = App::backend()->modulesList()->getSettingsUrls($id, true, keys: true, url_only: true);
             if ($settings !== []) {
                 if ($name !== $id) {
                     $cols['description'] = true;
@@ -152,7 +150,7 @@ class Settings
         foreach ($plugins as $plugin) {
             $id       = $plugin->getId();
             $name     = $plugin->get('name');
-            $settings = ModulesList::getSettingsUrls($id, true, keys: true, url_only: true);
+            $settings = App::backend()->modulesList()->getSettingsUrls($id, true, keys: true, url_only: true);
             if ($settings !== [] || in_array($id, $widgets)) {
                 $rows[] = (new Tr())
                     ->class('line')
@@ -307,7 +305,7 @@ class Settings
             ])
         ->render();
 
-        Page::helpBlock('core_settings');
-        Page::close();
+        App::backend()->page()->helpBlock('core_settings');
+        App::backend()->page()->close();
     }
 }

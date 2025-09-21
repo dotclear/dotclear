@@ -12,8 +12,6 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
-use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Backend\Page;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\File\Files;
@@ -62,7 +60,7 @@ class MediaItem
 
     public static function init(): bool
     {
-        Page::check(App::auth()->makePermissions([
+        App::backend()->page()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_MEDIA,
             App::auth()::PERMISSION_MEDIA_ADMIN,
         ]));
@@ -121,13 +119,13 @@ class MediaItem
         }
 
         if (App::backend()->popup !== 0) {
-            App::backend()->open_function  = Page::openPopup(...);
-            App::backend()->close_function = Page::closePopup(...);
+            App::backend()->open_function  = App::backend()->page()->openPopup(...);
+            App::backend()->close_function = App::backend()->page()->closePopup(...);
         } else {
-            App::backend()->open_function  = Page::open(...);
+            App::backend()->open_function  = App::backend()->page()->open(...);
             App::backend()->close_function = function (): void {
-                Page::helpBlock('core_media');
-                Page::close();
+                App::backend()->page()->helpBlock('core_media');
+                App::backend()->page()->close();
             };
         }
 
@@ -179,7 +177,7 @@ class MediaItem
                 Files::uploadStatus($_FILES['upfile']);
                 App::media()->uploadFile($_FILES['upfile']['tmp_name'], App::backend()->file->basename, true, null, false);
 
-                Notices::addSuccessNotice(__('File has been successfully updated.'));
+                App::backend()->notices()->addSuccessNotice(__('File has been successfully updated.'));
                 App::backend()->url()->redirect('admin.media.item', App::backend()->page_url_params);
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
@@ -241,7 +239,7 @@ class MediaItem
             try {
                 App::media()->updateFile(App::backend()->file, $newFile);
 
-                Notices::addSuccessNotice(__('File has been successfully updated.'));
+                App::backend()->notices()->addSuccessNotice(__('File has been successfully updated.'));
                 App::backend()->page_url_params = array_merge(
                     App::backend()->page_url_params,
                     ['tab' => 'media-details-tab']
@@ -258,7 +256,7 @@ class MediaItem
             try {
                 App::media()->mediaFireRecreateEvent(App::backend()->file);
 
-                Notices::addSuccessNotice(__('Thumbnails have been successfully updated.'));
+                App::backend()->notices()->addSuccessNotice(__('Thumbnails have been successfully updated.'));
                 App::backend()->page_url_params = array_merge(
                     App::backend()->page_url_params,
                     ['tab' => 'media-details-tab']
@@ -275,7 +273,7 @@ class MediaItem
             try {
                 $unzip_dir = App::media()->inflateZipFile(App::backend()->file, $_POST['inflate_mode'] == 'new');
 
-                Notices::addSuccessNotice(__('Zip file has been successfully extracted.'));
+                App::backend()->notices()->addSuccessNotice(__('Zip file has been successfully extracted.'));
                 App::backend()->media_page_url_params = array_merge(
                     App::backend()->media_page_url_params,
                     ['d' => $unzip_dir]
@@ -305,7 +303,7 @@ class MediaItem
                 App::blog()->settings()->system->put('media_img_default_legend', $_POST['pref_legend']);
             }
 
-            Notices::addSuccessNotice(__('Default media insertion settings have been successfully updated.'));
+            App::backend()->notices()->addSuccessNotice(__('Default media insertion settings have been successfully updated.'));
             App::backend()->url()->redirect('admin.media.item', App::backend()->page_url_params);
         }
 
@@ -331,7 +329,7 @@ class MediaItem
 
             $local = App::media()->getRoot() . '/' . dirname((string) App::backend()->file->relname) . '/' . '.mediadef.json';
             if (file_put_contents($local, json_encode($prefs, JSON_PRETTY_PRINT))) {
-                Notices::addSuccessNotice(__('Media insertion settings have been successfully registered for this folder.'));
+                App::backend()->notices()->addSuccessNotice(__('Media insertion settings have been successfully registered for this folder.'));
             }
             App::backend()->url()->redirect('admin.media.item', App::backend()->page_url_params);
         }
@@ -342,7 +340,7 @@ class MediaItem
             $local      = App::media()->getRoot() . '/' . dirname((string) App::backend()->file->relname) . '/' . '.mediadef';
             $local_json = $local . '.json';
             if ((file_exists($local) && unlink($local)) || (file_exists($local_json) && unlink($local_json))) {
-                Notices::addSuccessNotice(__('Media insertion settings have been successfully removed for this folder.'));
+                App::backend()->notices()->addSuccessNotice(__('Media insertion settings have been successfully removed for this folder.'));
             }
             App::backend()->url()->redirect('admin.media.item', App::backend()->page_url_params);
         }
@@ -387,9 +385,9 @@ class MediaItem
 
         // Display page
 
-        $starting_scripts = Page::jsModal() .
-            Page::jsLoad('js/_media_item.js') .
-            Page::jsConfirmClose('change-properties-form');
+        $starting_scripts = App::backend()->page()->jsModal() .
+            App::backend()->page()->jsLoad('js/_media_item.js') .
+            App::backend()->page()->jsConfirmClose('change-properties-form');
 
         if (App::backend()->popup && App::backend()->plugin_id !== '') {
             # --BEHAVIOR-- adminPopupMedia -- string
@@ -406,8 +404,8 @@ class MediaItem
             App::backend()->open_function,
             __('Media manager'),
             $starting_scripts .
-            (App::backend()->popup ? Page::jsPageTabs(App::backend()->tab) : ''),
-            Page::breadcrumb(
+            (App::backend()->popup ? App::backend()->page()->jsPageTabs(App::backend()->tab) : ''),
+            App::backend()->page()->breadcrumb(
                 [
                     Html::escapeHTML(App::blog()->name()) => '',
                     __('Media manager')                   => $home_url,
@@ -422,7 +420,7 @@ class MediaItem
 
         if (App::backend()->popup) {
             // Display notices
-            echo Notices::getNotices();
+            echo App::backend()->notices()->getNotices();
         }
 
         if (App::backend()->file === null) {
@@ -431,13 +429,13 @@ class MediaItem
         }
 
         if (!empty($_GET['fupd']) || !empty($_GET['fupl'])) {
-            Notices::success(__('File has been successfully updated.'));
+            App::backend()->notices()->success(__('File has been successfully updated.'));
         }
         if (!empty($_GET['thumbupd'])) {
-            Notices::success(__('Thumbnails have been successfully updated.'));
+            App::backend()->notices()->success(__('Thumbnails have been successfully updated.'));
         }
         if (!empty($_GET['blogprefupd'])) {
-            Notices::success(__('Default media insertion settings have been successfully updated.'));
+            App::backend()->notices()->success(__('Default media insertion settings have been successfully updated.'));
         }
 
         // Get major file type (first part of mime type)

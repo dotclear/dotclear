@@ -13,7 +13,6 @@ namespace Dotclear\Plugin\blogroll\Action;
 use ArrayObject;
 use Dotclear\App;
 use Dotclear\Core\Backend\Action\Actions;
-use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\Html\Form\Link;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Html;
@@ -63,13 +62,13 @@ class ActionsLinks extends Actions
     public function beginPage(string $breadcrumb = '', string $head = ''): void
     {
         if ($this->in_plugin) {
-            Page::openModule(
+            App::backend()->page()->openModule(
                 __('Links'),
                 $head
             );
             echo $breadcrumb;
         } else {
-            Page::open(
+            App::backend()->page()->open(
                 __('Links'),
                 $head,
                 $breadcrumb
@@ -91,9 +90,9 @@ class ActionsLinks extends Actions
     public function endPage(): void
     {
         if ($this->in_plugin) {
-            Page::closeModule();
+            App::backend()->page()->closeModule();
         } else {
-            Page::close();
+            App::backend()->page()->close();
         }
     }
 
@@ -104,7 +103,7 @@ class ActionsLinks extends Actions
     {
         App::error()->add($e->getMessage());
         $this->beginPage(
-            Page::breadcrumb(
+            App::backend()->page()->breadcrumb(
                 [
                     Html::escapeHTML(App::blog()->name()) => '',
                     $this->getCallerTitle()               => $this->getRedirection(true),

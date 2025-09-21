@@ -12,12 +12,6 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
-use Dotclear\Core\Backend\Action\ActionsComments;
-use Dotclear\Core\Backend\Action\ActionsPosts;
-use Dotclear\Core\Backend\Listing\ListingComments;
-use Dotclear\Core\Backend\Listing\ListingPosts;
-use Dotclear\Core\Backend\Page;
-use Dotclear\Core\Backend\UserPref;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Fieldset;
@@ -52,14 +46,14 @@ class Search
     /**
      * List of related entries
      *
-     * @var null|ListingPosts|ListingComments   $list
+     * @var null|\Dotclear\Core\Backend\Listing\ListingPosts|\Dotclear\Core\Backend\Listing\ListingComments   $list
      */
     protected static $list;
 
     /**
      * Available actions on entries
      *
-     * @var null|ActionsPosts|ActionsComments   $actions
+     * @var null|\Dotclear\Core\Backend\Action\ActionsPosts|\Dotclear\Core\Backend\Action\ActionsComments   $actions
      */
     protected static $actions;
 
@@ -70,7 +64,7 @@ class Search
 
     public static function init(): bool
     {
-        Page::check(App::auth()->makePermissions([
+        App::backend()->page()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_USAGE,
             App::auth()::PERMISSION_CONTENT_ADMIN,
         ]));
@@ -133,7 +127,7 @@ class Search
         }
 
         App::backend()->page = empty($_GET['page']) ? 1 : max(1, (int) $_GET['page']);
-        App::backend()->nb   = UserPref::getUserFilters('search', 'nb');
+        App::backend()->nb   = App::backend()->userPref()->getUserFilters('search', 'nb');
         if (!empty($_GET['nb']) && (int) $_GET['nb'] > 0) {
             App::backend()->nb = (int) $_GET['nb'];
         }
@@ -156,10 +150,10 @@ class Search
             }
         }
 
-        Page::open(
+        App::backend()->page()->open(
             __('Search'),
             $starting_scripts,
-            Page::breadcrumb(
+            App::backend()->page()->breadcrumb(
                 [
                     Html::escapeHTML(App::blog()->name()) => '',
                     __('Search')                          => '',
@@ -214,8 +208,8 @@ class Search
             echo $res ?: '<p>' . __('No results found') . '</p>';
         }
 
-        Page::helpBlock('core_search');
-        Page::close();
+        App::backend()->page()->helpBlock('core_search');
+        App::backend()->page()->close();
     }
 
     /**
@@ -241,9 +235,9 @@ class Search
     public static function pageHead(array $args): string
     {
         if ($args['qtype'] == 'p') {
-            return Page::jsLoad('js/_posts_list.js');
+            return App::backend()->page()->jsLoad('js/_posts_list.js');
         } elseif ($args['qtype'] == 'c') {
-            return Page::jsLoad('js/_comments.js');
+            return App::backend()->page()->jsLoad('js/_comments.js');
         }
 
         return '';
@@ -270,8 +264,8 @@ class Search
 
         try {
             self::$count     = (int) App::blog()->getPosts($params, true)->f(0);
-            self::$list      = new ListingPosts(App::blog()->getPosts($params), self::$count);
-            self::$actions   = new ActionsPosts(App::backend()->url()->get('admin.search'), $args);
+            self::$list      = App::backend()->listing()->posts(App::blog()->getPosts($params), self::$count);
+            self::$actions   = App::backend()->action()->posts(App::backend()->url()->get('admin.search'), $args);
             self::$performed = self::$actions->process();
         } catch (Exception $e) {
             App::error()->add($e->getMessage());
@@ -358,8 +352,8 @@ class Search
 
         try {
             self::$count     = (int) App::blog()->getComments($params, true)->f(0);
-            self::$list      = new ListingComments(App::blog()->getComments($params), self::$count);
-            self::$actions   = new ActionsComments(App::backend()->url()->get('admin.search'), $args);
+            self::$list      = App::backend()->listing()->comments(App::blog()->getComments($params), self::$count);
+            self::$actions   = App::backend()->action()->comments(App::backend()->url()->get('admin.search'), $args);
             self::$performed = self::$actions->process();
         } catch (Exception $e) {
             App::error()->add($e->getMessage());

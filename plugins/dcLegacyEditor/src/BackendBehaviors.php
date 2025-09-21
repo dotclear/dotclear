@@ -12,7 +12,6 @@ namespace Dotclear\Plugin\dcLegacyEditor;
 
 use ArrayObject;
 use Dotclear\App;
-use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\Html\Form\Label;
 use Dotclear\Helper\Html\Form\Option;
 use Dotclear\Helper\Html\Form\Select;
@@ -56,7 +55,7 @@ class BackendBehaviors
 
         return
         self::jsToolBar() .
-        Page::jsJson('legacy_editor_ctx', $js) .
+        App::backend()->page()->jsJson('legacy_editor_ctx', $js) .
         My::jsLoad('_post_editor');
     }
 
@@ -288,7 +287,7 @@ class BackendBehaviors
             $js['elements']['img_select']['disabled'] = true;
         }
 
-        $res = Page::jsJson('legacy_editor', $js) .
+        $res = App::backend()->page()->jsJson('legacy_editor', $js) .
         My::cssLoad('jsToolBar/jsToolBar') .
         My::jsLoad('jsToolBar/jsToolBar');
 

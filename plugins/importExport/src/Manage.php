@@ -11,11 +11,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\importExport;
 
 use ArrayObject;
-use Exception;
-use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Backend\Page;
 use Dotclear\App;
-use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Helper\Html\Form\Dd;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Dl;
@@ -25,6 +21,8 @@ use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Set;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Process\TraitProcess;
+use Exception;
 
 /**
  * @brief   The module manage process.
@@ -86,23 +84,23 @@ class Manage
             return;
         }
 
-        Page::openModule(
+        App::backend()->page()->openModule(
             My::name(),
             My::cssLoad('style') .
-            Page::jsJson('ie_msg', ['please_wait' => __('Please wait...')]) .
+            App::backend()->page()->jsJson('ie_msg', ['please_wait' => __('Please wait...')]) .
             My::jsLoad('script')
         );
 
         if (App::backend()->type && App::backend()->module !== null) {
             echo
-            Page::breadcrumb(
+            App::backend()->page()->breadcrumb(
                 [
                     __('Plugins')                                  => '',
                     My::name()                                     => App::backend()->getPageURL(),
                     Html::escapeHTML(App::backend()->module->name) => '',
                 ]
             ) .
-            Notices::getNotices();
+            App::backend()->notices()->getNotices();
 
             echo (new Div('ie-gui'))->items([
                 (new Text(null, App::backend()->module->gui())),
@@ -110,13 +108,13 @@ class Manage
             ->render();
         } else {
             echo
-            Page::breadcrumb(
+            App::backend()->page()->breadcrumb(
                 [
                     __('Plugins') => '',
                     My::name()    => '',
                 ]
             ) .
-            Notices::getNotices();
+            App::backend()->notices()->getNotices();
 
             $list = [];
             foreach (App::backend()->modules['import'] as $id) {
@@ -151,8 +149,8 @@ class Manage
             ->render();
         }
 
-        Page::helpBlock('import');
+        App::backend()->page()->helpBlock('import');
 
-        Page::closeModule();
+        App::backend()->page()->closeModule();
     }
 }

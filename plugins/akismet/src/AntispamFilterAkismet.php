@@ -10,7 +10,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\akismet;
 
-use Dotclear\Core\Backend\Notices;
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Form\Fieldset;
@@ -204,7 +203,7 @@ class AntispamFilterAkismet extends SpamFilter
 
                 My::settings()->put('ak_key', $ak_key, 'string');
 
-                Notices::addSuccessNotice(__('Filter configuration have been successfully saved.'));
+                App::backend()->notices()->addSuccessNotice(__('Filter configuration have been successfully saved.'));
                 Http::redirect($url);
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
@@ -220,7 +219,7 @@ class AntispamFilterAkismet extends SpamFilter
             }
         }
 
-        $res = Notices::getNotices();
+        $res = App::backend()->notices()->getNotices();
 
         $verified = [];
         if ($ak_verified !== null) {

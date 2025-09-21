@@ -12,9 +12,6 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
-use Dotclear\Core\Backend\Combos;
-use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Backend\Page;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Div;
@@ -46,7 +43,7 @@ class Category
 
     public static function init(): bool
     {
-        Page::check(App::auth()->makePermissions([
+        App::backend()->page()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_CATEGORIES,
         ]));
 
@@ -132,7 +129,7 @@ class Category
             if (App::backend()->cat_parent != $new_parent) {
                 try {
                     App::blog()->setCategoryParent(App::backend()->cat_id, $new_parent);
-                    Notices::addSuccessNotice(__('The category has been successfully moved'));
+                    App::backend()->notices()->addSuccessNotice(__('The category has been successfully moved'));
                     App::backend()->url()->redirect('admin.categories');
                 } catch (Exception $e) {
                     App::error()->add($e->getMessage());
@@ -144,7 +141,7 @@ class Category
             // Changing sibling
             try {
                 App::blog()->setCategoryPosition(App::backend()->cat_id, (int) $_POST['cat_sibling'], $_POST['cat_move']);
-                Notices::addSuccessNotice(__('The category has been successfully moved'));
+                App::backend()->notices()->addSuccessNotice(__('The category has been successfully moved'));
                 App::backend()->url()->redirect('admin.categories');
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
@@ -177,7 +174,7 @@ class Category
                     # --BEHAVIOR-- adminAfterCategoryUpdate -- Cursor, string|int
                     App::behavior()->callBehavior('adminAfterCategoryUpdate', $cur, App::backend()->cat_id);
 
-                    Notices::addSuccessNotice(__('The category has been successfully updated.'));
+                    App::backend()->notices()->addSuccessNotice(__('The category has been successfully updated.'));
 
                     App::backend()->url()->redirect('admin.category', ['id' => $_POST['id']]);
                 } else {
@@ -191,7 +188,7 @@ class Category
                     # --BEHAVIOR-- adminAfterCategoryCreate -- Cursor, string
                     App::behavior()->callBehavior('adminAfterCategoryCreate', $cur, $id);
 
-                    Notices::addSuccessNotice(sprintf(
+                    App::backend()->notices()->addSuccessNotice(sprintf(
                         __('The category "%s" has been successfully created.'),
                         Html::escapeHTML($cur->cat_title)
                     ));
@@ -227,17 +224,17 @@ class Category
             $rte_flag = $rte_flags['cat_descr'];
         }
 
-        Page::open(
+        App::backend()->page()->open(
             $title,
-            Page::jsConfirmClose('category-form') .
-            Page::jsLoad('js/_category.js') .
+            App::backend()->page()->jsConfirmClose('category-form') .
+            App::backend()->page()->jsLoad('js/_category.js') .
             # --BEHAVIOR-- adminPostEditor -- string, string, string, array<int,string>, string
             ($rte_flag ? App::behavior()->callBehavior('adminPostEditor', $category_editor['xhtml'], 'category', ['#cat_desc'], 'xhtml') : ''),
-            Page::breadcrumb($elements)
+            App::backend()->page()->breadcrumb($elements)
         );
 
         if (!empty($_GET['upd'])) {
-            Notices::success(__('Category has been successfully updated.'));
+            App::backend()->notices()->success(__('Category has been successfully updated.'));
         }
 
         echo (new Form('category-form'))
@@ -265,7 +262,7 @@ class Category
                     (new Para())
                         ->items([
                             (new Select('new_cat_parent'))
-                                ->items(Combos::getCategoriesCombo(App::blog()->getCategories()))
+                                ->items(App::backend()->combos()->getCategoriesCombo(App::blog()->getCategories()))
                                 ->default(empty($_POST['new_cat_parent']) ? '' : $_POST['new_cat_parent'])
                                 ->label(new Label(__('Parent:'), Label::IL_TF)),
                         ]),
@@ -390,7 +387,7 @@ class Category
             ->render();
         }
 
-        Page::helpBlock('core_category');
-        Page::close();
+        App::backend()->page()->helpBlock('core_category');
+        App::backend()->page()->close();
     }
 }

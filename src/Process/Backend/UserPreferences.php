@@ -13,15 +13,6 @@ namespace Dotclear\Process\Backend;
 
 use ArrayObject;
 use Dotclear\App;
-use Dotclear\Core\Backend\Auth\OAuth2Client;
-use Dotclear\Core\Backend\Auth\OAuth2Store;
-use Dotclear\Core\Backend\Auth\Otp;
-use Dotclear\Core\Backend\Auth\WebAuthn;
-use Dotclear\Core\Backend\Combos;
-use Dotclear\Core\Backend\Helper;
-use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Backend\Page;
-use Dotclear\Core\Backend\UserPref;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Capture;
@@ -71,44 +62,19 @@ class UserPreferences
 
     public static function init(): bool
     {
-        Page::check(App::auth()->makePermissions([
+        App::backend()->page()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_USAGE,
             App::auth()::PERMISSION_CONTENT_ADMIN,
         ]));
 
         App::backend()->page_title = __('My preferences');
 
-        if (App::config()->authPasswordOnly()) {
-            App::backend()->oauth2   = null;
-            App::backend()->webauthn = null;
-            App::backend()->otp      = null;
-        } else {
-            // Create otp instance
-            try {
-                App::backend()->otp = new Otp();
-                App::backend()->otp->setUser((string) App::auth()->userID());
-            } catch (Exception $e) {
-                App::backend()->otp = null;
-                App::error()->add($e->getMessage());
-            }
+        // Set oAuth2 redirect URL
+        App::backend()->auth()->oauth2(App::config()->adminUrl() . App::backend()->url()->get('admin.user.preferences'));
 
-            // Create webauthn instance
-            try {
-                App::backend()->webauthn = new WebAuthn();
-            } catch (Exception $e) {
-                App::backend()->webauthn = null;
-                App::error()->add($e->getMessage());
-            }
-
-            // Create oAuth2 client instance
-            try {
-                App::backend()->oauth2 = new OAuth2Client(
-                    new OAuth2Store(App::config()->adminUrl() . App::backend()->url()->get('admin.user.preferences'))
-                );
-            } catch (Exception $e) {
-                App::backend()->oauth2 = null;
-                App::error()->add($e->getMessage());
-            }
+        if (App::backend()->auth()->otp() !== false) {
+            // Set otp user
+            App::backend()->auth()->otp()->setUser((string) App::auth()->userID());
         }
 
         App::backend()->user_name        = App::auth()->getInfo('user_name');
@@ -199,7 +165,7 @@ class UserPreferences
         }
 
         // Language codes
-        App::backend()->lang_combo = Combos::getAdminLangsCombo();
+        App::backend()->lang_combo = App::backend()->combos()->getAdminLangsCombo();
 
         // Get 3rd parts HTML editor flags
         $rte = [
@@ -221,10 +187,10 @@ class UserPreferences
         App::backend()->rte = $rte;
 
         // Get default colums (admin lists)
-        App::backend()->cols = UserPref::getUserColumns();
+        App::backend()->cols = App::backend()->userPref()->getUserColumns();
 
         // Get default sortby, order, nbperpage (admin lists)
-        App::backend()->sorts = UserPref::getUserFilters();
+        App::backend()->sorts = App::backend()->userPref()->getUserFilters();
 
         App::backend()->order_combo = [
             __('Descending') => 'desc',
@@ -242,37 +208,37 @@ class UserPreferences
     public static function process(): bool
     {
         // otp action
-        if (App::backend()->otp !== null) {
+        if (App::backend()->auth()->otp() !== false) {
             if (!empty($_POST['otp_verify_submit']) && !empty($_POST['otp_verify_code'])) {
                 // verify code
-                if (!App::backend()->otp->verifyCode($_POST['otp_verify_code'])) {
+                if (!App::backend()->auth()->otp()->verifyCode($_POST['otp_verify_code'])) {
                     App::error()->add(__('Two factors authentication verification failed.'));
                 } else {
-                    Notices::addSuccessNotice(__('Two factors authentication verification succeeded.'));
+                    App::backend()->notices()->addSuccessNotice(__('Two factors authentication verification succeeded.'));
                 }
             }
             if (!empty($_POST['otp_delete']) || !empty($_POST['otp_regenerate'])) {
                 // delete credential
-                App::backend()->otp->delCredential();
-                App::backend()->otp->setUser(App::auth()->userID()); // reload info
+                App::backend()->auth()->otp()->delCredential();
+                App::backend()->auth()->otp()->setUser((string) App::auth()->userID()); // reload info
 
-                Notices::addSuccessNotice(__('Two factors authentication secret regenerated.'));
+                App::backend()->notices()->addSuccessNotice(__('Two factors authentication secret regenerated.'));
             }
         }
 
         // webauthn action
-        if (App::backend()->webauthn !== null && !empty($_POST['webauthn'])) {
+        if (App::backend()->auth()->webauthn() !== false && !empty($_POST['webauthn'])) {
             // process webauhtn key deletion
-            App::backend()->webauthn->store()->delCredential(base64_decode((string) key($_POST['webauthn'])));
+            App::backend()->auth()->webauthn()->store()->delCredential(base64_decode((string) key($_POST['webauthn'])));
 
-            Notices::addSuccessNotice(__('Passkey successfully deleted.'));
+            App::backend()->notices()->addSuccessNotice(__('Passkey successfully deleted.'));
             App::backend()->url()->redirect('admin.user.preferences', [], '#user-profile');
         }
 
         // oauth2 action
-        if (App::backend()->oauth2 !== null) {
+        if (App::backend()->auth()->oauth2() !== false) {
             // process oAuth2 client action
-            App::backend()->oauth2->requestAction((string) App::auth()->userID());
+            App::backend()->auth()->oauth2()->requestAction((string) App::auth()->userID());
         }
 
         if (isset($_POST['user_name']) && isset($_POST['user-form-submit'])) {
@@ -330,7 +296,7 @@ class UserPreferences
                 # --BEHAVIOR-- adminAfterUserUpdate -- Cursor, string
                 App::behavior()->callBehavior('adminAfterUserProfileUpdate', $cur, App::auth()->userID());
 
-                Notices::addSuccessNotice(__('Personal information has been successfully updated.'));
+                App::backend()->notices()->addSuccessNotice(__('Personal information has been successfully updated.'));
 
                 App::backend()->url()->redirect('admin.user.preferences');
             } catch (Exception $e) {
@@ -448,7 +414,7 @@ class UserPreferences
                 # --BEHAVIOR-- adminAfterUserOptionsUpdate -- Cursor, string
                 App::behavior()->callBehavior('adminAfterUserOptionsUpdate', $cur, App::auth()->userID());
 
-                Notices::addSuccessNotice(__('Personal options has been successfully updated.'));
+                App::backend()->notices()->addSuccessNotice(__('Personal options has been successfully updated.'));
                 App::backend()->url()->redirect('admin.user.preferences', [], '#user-options');
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
@@ -476,7 +442,7 @@ class UserPreferences
                 # --BEHAVIOR-- adminAfterUserOptionsUpdate -- string
                 App::behavior()->callBehavior('adminAfterDashboardOptionsUpdate', App::auth()->userID());
 
-                Notices::addSuccessNotice(__('Dashboard options has been successfully updated.'));
+                App::backend()->notices()->addSuccessNotice(__('Dashboard options has been successfully updated.'));
                 App::backend()->url()->redirect('admin.user.preferences', [], '#user-favorites');
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
@@ -499,7 +465,7 @@ class UserPreferences
                 App::backend()->favorites()->setFavoriteIDs($user_favs, false);
 
                 if (!App::error()->flag()) {
-                    Notices::addSuccessNotice(__('Favorites have been successfully added.'));
+                    App::backend()->notices()->addSuccessNotice(__('Favorites have been successfully added.'));
                     App::backend()->url()->redirect('admin.user.preferences', [], '#user-favorites');
                 }
             } catch (Exception $e) {
@@ -525,7 +491,7 @@ class UserPreferences
                 }
                 App::backend()->favorites()->setFavoriteIDs(array_keys($user_fav_ids), false);
                 if (!App::error()->flag()) {
-                    Notices::addSuccessNotice(__('Favorites have been successfully removed.'));
+                    App::backend()->notices()->addSuccessNotice(__('Favorites have been successfully removed.'));
                     App::backend()->url()->redirect('admin.user.preferences', [], '#user-favorites');
                 }
             } catch (Exception $e) {
@@ -555,7 +521,7 @@ class UserPreferences
             }
             App::backend()->favorites()->setFavoriteIDs($order, false);    // @phpstan-ignore-line : $order is array<string>
             if (!App::error()->flag()) {
-                Notices::addSuccessNotice(__('Favorites have been successfully updated.'));
+                App::backend()->notices()->addSuccessNotice(__('Favorites have been successfully updated.'));
                 App::backend()->url()->redirect('admin.user.preferences', [], '#user-favorites');
             }
         }
@@ -567,7 +533,7 @@ class UserPreferences
             App::backend()->favorites()->setFavoriteIDs($user_favs, true);
 
             if (!App::error()->flag()) {
-                Notices::addSuccessNotice(__('Default favorites have been successfully updated.'));
+                App::backend()->notices()->addSuccessNotice(__('Default favorites have been successfully updated.'));
                 App::backend()->url()->redirect('admin.user.preferences', [], '#user-favorites');
             }
         }
@@ -581,7 +547,7 @@ class UserPreferences
             App::auth()->prefs()->dashboard->drop('boxes_contents_order');
 
             if (!App::error()->flag()) {
-                Notices::addSuccessNotice(__('Dashboard items order have been successfully reset.'));
+                App::backend()->notices()->addSuccessNotice(__('Dashboard items order have been successfully reset.'));
                 App::backend()->url()->redirect('admin.user.preferences', [], '#user-favorites');
             }
         }
@@ -591,29 +557,29 @@ class UserPreferences
 
     public static function render(): void
     {
-        Page::open(
+        App::backend()->page()->open(
             App::backend()->page_title,
-            (App::backend()->user_acc_nodragdrop ? '' : Page::jsLoad('js/_preferences-dragdrop.js')) .
-            Page::jsLoad('js/jquery/jquery-ui.custom.js') .
-            Page::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
-            Page::jsJson('pwstrength', [
+            (App::backend()->user_acc_nodragdrop ? '' : App::backend()->page()->jsLoad('js/_preferences-dragdrop.js')) .
+            App::backend()->page()->jsLoad('js/jquery/jquery-ui.custom.js') .
+            App::backend()->page()->jsLoad('js/jquery/jquery.ui.touch-punch.js') .
+            App::backend()->page()->jsJson('pwstrength', [
                 'min' => sprintf(__('Password strength: %s'), __('weak')),
                 'avg' => sprintf(__('Password strength: %s'), __('medium')),
                 'max' => sprintf(__('Password strength: %s'), __('strong')),
             ]) .
-            Page::jsLoad('js/pwstrength.js') .
-            Page::jsJson('userprefs', [
+            App::backend()->page()->jsLoad('js/pwstrength.js') .
+            App::backend()->page()->jsJson('userprefs', [
                 'remove'       => __('Are you sure you want to remove selected favorites?'),
                 'passkeylabel' => __('Enter a name for this key:'),
             ]) .
-            Page::jsLoad('js/_preferences.js') .
-            Page::jsPageTabs(App::backend()->tab) .
-            Page::jsConfirmClose('user-form', 'opts-forms', 'favs-form', 'db-forms') .
-            Page::jsAdsBlockCheck() .
+            App::backend()->page()->jsLoad('js/_preferences.js') .
+            App::backend()->page()->jsPageTabs(App::backend()->tab) .
+            App::backend()->page()->jsConfirmClose('user-form', 'opts-forms', 'favs-form', 'db-forms') .
+            App::backend()->page()->jsAdsBlockCheck() .
 
             # --BEHAVIOR-- adminPreferencesHeaders --
             App::behavior()->callBehavior('adminPreferencesHeaders'),
-            Page::breadcrumb(
+            App::backend()->page()->breadcrumb(
                 [
                     Html::escapeHTML(App::auth()->userID()) => '',
                     App::backend()->page_title              => '',
@@ -665,8 +631,8 @@ class UserPreferences
 
         // otp (2fa) configuration
         $otp_items = [];
-        if (App::backend()->otp !== null) {
-            if (App::backend()->otp->isVerified()) {
+        if (App::backend()->auth()->otp() !== false) {
+            if (App::backend()->auth()->otp()->isVerified()) {
                 $otp_items = [
                     (new Text('p', __('Your account is registered to two factors authentication.'))),
                     (new Submit(['otp_delete'], __('Disable two factors authentication')))
@@ -676,13 +642,13 @@ class UserPreferences
                 $otp_items = [
                     (new Text('p', __('Scan this QR code with your authentication application:'))),
                     (new Para())
-                        ->items([App::backend()->otp->getQrCodeImageHtml()]),
+                        ->items([App::backend()->auth()->otp()->getQrCodeImageHtml()]),
                     (new Para())
                         ->items([
                             (new Input('otp_secret'))
                                 ->size(80)
                                 ->maxlength(255)
-                                ->value(App::backend()->otp->getSecret())
+                                ->value(App::backend()->auth()->otp()->getSecret())
                                 ->disabled(true)
                                 //->extra('aria-describedby="otp_verify_secret_help')
                                 ->label(new Label(__('Or enter this secret into your authentication application:'), Label::OL_TF)),
@@ -693,7 +659,7 @@ class UserPreferences
                         ->items([
                             (new Input('otp_verify_code'))
                                 ->size(10)
-                                ->maxlength(App::backend()->otp->getDigits())
+                                ->maxlength(App::backend()->auth()->otp()->getDigits())
                                 ->value('')
                                 //->extra('aria-describedby="otp_verify_code_help')
                                 ->label(new Label(__('Enter verification code:'), Label::OL_TF)),
@@ -706,15 +672,15 @@ class UserPreferences
 
         // webauthn (passkey) configuration
         $webauthn_items = [];
-        if (App::backend()->webauthn !== null) {
-            $webauthn_creds = App::backend()->webauthn->store()->getCredentials('', (string) App::auth()->userID());
+        if (App::backend()->auth()->webauthn() !== false) {
+            $webauthn_creds = App::backend()->auth()->webauthn()->store()->getCredentials('', (string) App::auth()->userID());
 
             foreach ($webauthn_creds as $webauthn_cred) {
                 $webauthn_items[] = (new Li())
                     ->separator(' ')
                     ->items([
                         (new Text('', Html::escapeHTML($webauthn_cred->label() ?: __('unlabeled key'))))
-                            ->title(App::backend()->webauthn->provider()->getProvider($webauthn_cred->UUID())),
+                            ->title(App::backend()->auth()->webauthn()->provider()->getProvider($webauthn_cred->UUID())),
                         (new Text('', sprintf(__('valid on %s'), $webauthn_cred->rpId())))
                             ->title(Date::dt2str(__('%Y-%m-%d %H:%M'), $webauthn_cred->createDate())),
                         (new Submit(['webauthn[' . base64_encode((string) $webauthn_cred->credentialId()) . ']'], __('Delete')))
@@ -730,17 +696,17 @@ class UserPreferences
 
         // Oauth2 client configuration
         $oauth2_items = [];
-        if (App::backend()->oauth2 !== null) {
-            foreach (App::backend()->oauth2->services()->getProviders() as $oauth2_service) {
+        if (App::backend()->auth()->oauth2() !== false) {
+            foreach (App::backend()->auth()->oauth2()->services()->getProviders() as $oauth2_service) {
                 // Check service
-                if (App::backend()->oauth2->services()->hasDisabledProvider($oauth2_service::getId())
-                    || !App::backend()->oauth2->store()->hasConsumer($oauth2_service::getId())
+                if (App::backend()->auth()->oauth2()->services()->hasDisabledProvider($oauth2_service::getId())
+                    || !App::backend()->auth()->oauth2()->store()->hasConsumer($oauth2_service::getId())
                 ) {
                     continue;
                 }
 
                 // Get auth button
-                $oauth_link = App::backend()->oauth2->getActionButton(
+                $oauth_link = App::backend()->auth()->oauth2()->getActionButton(
                     (string) App::auth()->userID(),
                     $oauth2_service::getId(),
                     App::backend()->url()->get('admin.user.preferences') . '#user-profile.user_options_oauth2',
@@ -749,7 +715,7 @@ class UserPreferences
 
                 if ($oauth_link !== null) {
                     $oauth2_div  = [];
-                    $oauth2_user = App::backend()->oauth2->store()->getLocalUser($oauth2_service::getId());
+                    $oauth2_user = App::backend()->auth()->oauth2()->store()->getLocalUser($oauth2_service::getId());
                     if ($oauth2_user->isConfigured()) {
                         $oauth2_div[] = (new Div())
                             ->items([
@@ -892,12 +858,12 @@ class UserPreferences
                         $pass_change,
 
                         // otp
-                        App::backend()->otp === null ? new None() : (new Fieldset('user_options_otp'))
+                        App::backend()->auth()->otp() === false ? new None() : (new Fieldset('user_options_otp'))
                             ->legend(new Legend(__('Two factors authentication')))
                             ->separator('')
                             ->items($otp_items),
                         // wenauthn
-                        App::backend()->webauthn === null ? new None() : (new Fieldset('user_options_webauthn'))
+                        App::backend()->auth()->webauthn() === false ? new None() : (new Fieldset('user_options_webauthn'))
                             ->legend(new Legend(__('Authentication keys')))
                             ->separator('')
                             ->items([
@@ -1243,8 +1209,8 @@ class UserPreferences
                 // User favorites only
                 $count++;
 
-                $icon = $fav->smallIcon() ? Helper::adminIcon($fav->smallIcon()) : $id;
-                $zoom = $fav->largeIcon() ? Helper::adminIcon($fav->largeIcon(), false) : '';
+                $icon = $fav->smallIcon() ? App::backend()->helper()->adminIcon($fav->smallIcon()) : $id;
+                $zoom = $fav->largeIcon() ? App::backend()->helper()->adminIcon($fav->largeIcon(), false) : '';
                 if ($zoom !== '') {
                     $icon .= ' ' . (new Span($zoom))->class('zoom')->render();
                 }
@@ -1319,8 +1285,8 @@ class UserPreferences
         $other_favorites_items = [];
         foreach ($avail_fav as $k => $fav) {
             $count++;
-            $icon = Helper::adminIcon($fav->smallIcon());
-            $zoom = Helper::adminIcon($fav->largeIcon(), false);
+            $icon = App::backend()->helper()->adminIcon($fav->smallIcon());
+            $zoom = App::backend()->helper()->adminIcon($fav->largeIcon(), false);
             if ($zoom !== '') {
                 $icon .= ' ' . (new Span($zoom))->class('zoom')->render();
             }
@@ -1470,7 +1436,7 @@ class UserPreferences
             ])
         ->render();
 
-        Page::helpBlock('core_user_pref');
-        Page::close();
+        App::backend()->page()->helpBlock('core_user_pref');
+        App::backend()->page()->close();
     }
 }

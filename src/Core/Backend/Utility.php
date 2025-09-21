@@ -126,27 +126,68 @@ class Utility extends AbstractUtility
     public function getDefaultServices(): array
     {
         return [
-            Favorites::class => Favorites::class,
-            Menus::class     => Menus::class,
-            Resources::class => Resources::class,
-            Url::class       => Url::class,
+            Action::class      => Action::class,
+            Auth::class        => Auth::class,
+            Combos::class      => Combos::class,
+            Favorites::class   => Favorites::class,
+            Filter::class      => Filter::class,
+            Helper::class      => Helper::class,
+            Listing::class     => Listing::class,
+            MediaPage::class   => MediaPage::class,
+            Menus::class       => Menus::class,
+            ModulesList::class => ModulesList::class,
+            Notices::class     => Notices::class,
+            Page::class        => Page::class,
+            Resources::class   => Resources::class,
+            ThemeConfig::class => ThemeConfig::class,
+            ThemesList::class  => ThemesList::class,
+            Url::class         => Url::class,
+            UserPref::class    => UserPref::class,
         ];
     }
 
     /**
-     * Get backend Url instance.
-     *
-     * @return  Url     The backend URL handler
+     * Get backend list action instance.
      */
-    public function url(): Url
+    public function action(): Action
     {
-        return $this->get(Url::class);
+        return $this->get(Action::class);
+    }
+
+    /**
+     * Get backend auth helpers instance.
+     */
+    public function auth(): Auth
+    {
+        return $this->get(Auth::class);
+    }
+
+    /**
+     * Get backend combos instance.
+     */
+    public function combos(): Combos
+    {
+        return $this->get(Combos::class);
+    }
+
+    /**
+     * Get backend helper instance.
+     */
+    public function helper(): Helper
+    {
+        return $this->get(Helper::class);
+    }
+
+    /**
+     * Get backend list filter instance.
+     */
+    public function filter(): Filter
+    {
+        return $this->get(Filter::class);
     }
 
     /**
      * Get backend favorites instance.
-     *
-     * @return  Favorites   The favorites
      */
     public function favorites(): Favorites
     {
@@ -154,9 +195,23 @@ class Utility extends AbstractUtility
     }
 
     /**
+     * Get backend listing instance.
+     */
+    public function listing(): Listing
+    {
+        return $this->get(Listing::class);
+    }
+
+    /**
+     * Get backend media page instance.
+     */
+    public function mediaPage(): MediaPage
+    {
+        return $this->get(MediaPage::class);
+    }
+
+    /**
      * Get backend menus instance.
-     *
-     * @return  Menus   The menu
      */
     public function menus(): Menus
     {
@@ -164,13 +219,81 @@ class Utility extends AbstractUtility
     }
 
     /**
+     * Get backend modules list instance.
+     */
+    public function modulesList(): ModulesList
+    {
+        return $this->get(
+            ModulesList::class, // service
+            false,              // reload
+            modules: App::plugins(),
+            modules_root: App::config()->pluginsRoot(),
+            xml_url: App::blog()->settings()->get('system')->get('store_plugin_url'),
+            force: empty($_GET['nocache']) ? null : true
+        );
+    }
+
+    /**
+     * Get backend notices instance.
+     */
+    public function notices(): Notices
+    {
+        return $this->get(Notices::class);
+    }
+
+    /**
+     * Get backend page instance.
+     */
+    public function page(): Page
+    {
+        return $this->get(Page::class);
+    }
+
+    /**
      * Get backend resources instance.
-     *
-     * @return  Resources   The menu
      */
     public function resources(): Resources
     {
         return $this->get(Resources::class);
+    }
+
+    /**
+     * Get backend theme config helper instance.
+     */
+    public function themeConfig(): ThemeConfig
+    {
+        return $this->get(ThemeConfig::class);
+    }
+
+    /**
+     * Get backend themes list instance.
+     */
+    public function themesList(): ThemesList
+    {
+        return $this->get(
+            ThemesList::class, // service
+            false,              // reload
+            modules: App::themes(),
+            modules_root: App::blog()->themesPath(),
+            xml_url: App::blog()->settings()->get('system')->get('store_theme_url'),
+            force: empty($_GET['nocache']) ? null : true
+        );
+    }
+
+    /**
+     * Get backend Url instance.
+     */
+    public function url(): Url
+    {
+        return $this->get(Url::class);
+    }
+
+    /**
+     * Get backend user preferences instance.
+     */
+    public function userPref(): UserPref
+    {
+        return $this->get(UserPref::class);
     }
 
     public static function init(): bool

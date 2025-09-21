@@ -13,9 +13,6 @@ namespace Dotclear\Process\Backend;
 
 use ArrayObject;
 use Dotclear\App;
-use Dotclear\Core\Backend\Combos;
-use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Capture;
@@ -56,7 +53,7 @@ class User
 
     public static function init(): bool
     {
-        Page::checkSuper();
+        App::backend()->page()->checkSuper();
 
         App::backend()->page_title = __('New user');
 
@@ -79,13 +76,13 @@ class User
         App::backend()->user_profile_urls  = '';
 
         # Formaters combo
-        App::backend()->formaters_combo = Combos::getFormatersCombo();
+        App::backend()->formaters_combo = App::backend()->combos()->getFormatersCombo();
 
         # Posts status combo !
         App::backend()->status_combo = App::status()->post()->combo();
 
         # Language codes
-        App::backend()->lang_combo = Combos::getAdminLangsCombo();
+        App::backend()->lang_combo = App::backend()->combos()->getAdminLangsCombo();
 
         # Get user if we have an ID
         if (!empty($_REQUEST['id'])) {
@@ -206,7 +203,7 @@ class User
                         App::session()->destroy();
                     }
 
-                    Notices::addSuccessNotice(__('User has been successfully updated.'));
+                    App::backend()->notices()->addSuccessNotice(__('User has been successfully updated.'));
                     App::backend()->url()->redirect('admin.user', ['id' => $new_id]);
                 } else {
                     // Add user
@@ -236,13 +233,13 @@ class User
                     # --BEHAVIOR-- adminAfterUserCreate -- Cursor, string
                     App::behavior()->callBehavior('adminAfterUserCreate', $cur, $new_id);
 
-                    Notices::addSuccessNotice(__('User has been successfully created.'));
+                    App::backend()->notices()->addSuccessNotice(__('User has been successfully created.'));
 
                     if (!$cur->user_super) {
-                        Notices::addWarningNotice(__('User has no permission, he will not be able to login yet. See below to add some.'));
+                        App::backend()->notices()->addWarningNotice(__('User has no permission, he will not be able to login yet. See below to add some.'));
                     }
                     if (App::status()->user()->isRestricted((int) $cur->user_status)) {
-                        Notices::addWarningNotice(__('User is disabled, he will not be able to login yet.'));
+                        App::backend()->notices()->addWarningNotice(__('User is disabled, he will not be able to login yet.'));
                     }
                     if (!empty($_POST['saveplus'])) {
                         App::backend()->url()->redirect('admin.user');
@@ -260,19 +257,19 @@ class User
 
     public static function render(): void
     {
-        Page::open(
+        App::backend()->page()->open(
             App::backend()->page_title,
-            Page::jsConfirmClose('user-form') .
-            Page::jsJson('pwstrength', [
+            App::backend()->page()->jsConfirmClose('user-form') .
+            App::backend()->page()->jsJson('pwstrength', [
                 'min' => sprintf(__('Password strength: %s'), __('weak')),
                 'avg' => sprintf(__('Password strength: %s'), __('medium')),
                 'max' => sprintf(__('Password strength: %s'), __('strong')),
             ]) .
-            Page::jsLoad('js/pwstrength.js') .
-            Page::jsLoad('js/_user.js') .
+            App::backend()->page()->jsLoad('js/pwstrength.js') .
+            App::backend()->page()->jsLoad('js/_user.js') .
             # --BEHAVIOR-- adminUserHeaders --
             App::behavior()->callBehavior('adminUserHeaders'),
-            Page::breadcrumb(
+            App::backend()->page()->breadcrumb(
                 [
                     __('System')               => '',
                     __('Users')                => App::backend()->url()->get('admin.users'),
@@ -282,11 +279,11 @@ class User
         );
 
         if (!empty($_GET['upd'])) {
-            Notices::success(__('User has been successfully updated.'));
+            App::backend()->notices()->success(__('User has been successfully updated.'));
         }
 
         if (!empty($_GET['add'])) {
-            Notices::success(__('User has been successfully created.'));
+            App::backend()->notices()->success(__('User has been successfully created.'));
         }
 
         $super_disabled = App::backend()->user_super && App::backend()->user_id === App::auth()->userID();
@@ -689,7 +686,7 @@ class User
             ->render();
         }
 
-        Page::helpBlock('core_user');
-        Page::close();
+        App::backend()->page()->helpBlock('core_user');
+        App::backend()->page()->close();
     }
 }

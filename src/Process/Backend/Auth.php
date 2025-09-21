@@ -12,11 +12,6 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
-use Dotclear\Core\Backend\Auth\OAuth2Client;
-use Dotclear\Core\Backend\Auth\OAuth2Store;
-use Dotclear\Core\Backend\Auth\Otp;
-use Dotclear\Core\Backend\Auth\WebAuthn;
-use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
@@ -126,38 +121,11 @@ class Auth
             App::rest()->enableRestServer(true);
         }
 
-        // Disable exotic authentication
-        if (App::config()->authPasswordOnly()) {
-            App::backend()->oauth2   = null;
-            App::backend()->webauthn = null;
-            App::backend()->otp      = null;
-        } else {
-            // Create oAuth2 client instance
-            try {
-                App::backend()->oauth2 = App::backend()->safe_mode ? null : new OAuth2Client(
-                    new OAuth2Store(App::config()->adminUrl() . App::backend()->url()->get('admin.auth'))
-                );
-            } catch (Exception) { // silently fail
-                App::backend()->oauth2 = null;
-            }
-
-            // Create webauthn instance
-            try {
-                App::backend()->webauthn = App::backend()->safe_mode ? null : new WebAuthn();
-            } catch (Exception) { // silently fail
-                App::backend()->oauth2 = null;
-            }
-
-            // Create otp instance
-            try {
-                App::backend()->otp = new Otp();
-            } catch (Exception) { // silently fail
-                App::backend()->otp = null;
-            }
-        }
+        // Set oAuth2 redirect URL
+        App::backend()->auth()->oauth2(App::config()->adminUrl() . App::backend()->url()->get('admin.auth'));
 
         // 2fa verification
-        App::backend()->verify_code = App::backend()->otp instanceof Otp && isset($_POST['user_code']) && isset($_POST['login_data']);
+        App::backend()->verify_code = App::backend()->auth()->otp() !== false && isset($_POST['user_code']) && isset($_POST['login_data']);
         App::backend()->require_2fa = false;
 
         return self::status(true);
@@ -166,8 +134,8 @@ class Auth
     public static function process(): bool
     {
         // process oAuth2 client action
-        if (App::backend()->oauth2 !== null) {
-            App::backend()->oauth2->requestAction((string) App::auth()->userID());
+        if (App::backend()->auth()->oauth2() !== false) {
+            App::backend()->auth()->oauth2()->requestAction((string) App::auth()->userID());
         }
 
         $headers = [];
@@ -190,7 +158,7 @@ class Auth
                 App::backend()->msg = sprintf(__('The e-mail was sent successfully to %s.'), App::backend()->user_email);
 
                 // message saying that 2fa authentication be be removed
-                if (App::backend()->otp !== null && App::backend()->otp->setUser(App::backend()->user_id)->isVerified()) {
+                if (App::backend()->auth()->otp() !== false && App::backend()->auth()->otp()->setUser(App::backend()->user_id)->isVerified()) {
                     App::backend()->msg .= ' ' . __('This removes two factors authentication.');
                 }
             } catch (Exception $e) {
@@ -211,8 +179,8 @@ class Auth
                 App::backend()->msg = __('Your new password is in your mailbox.');
 
                 // Remove 2fa authentication on password change
-                if (App::backend()->otp !== null && App::backend()->otp->setUser($recover_res['user_id'])->isVerified()) {
-                    App::backend()->otp->delCredential();
+                if (App::backend()->auth()->otp() !== false && App::backend()->auth()->otp()->setUser($recover_res['user_id'])->isVerified()) {
+                    App::backend()->auth()->otp()->delCredential();
                 }
             } catch (Exception $e) {
                 App::backend()->err = $e->getMessage();
@@ -316,7 +284,7 @@ class Auth
                     throw new Exception();
                 }
 
-                if (!App::backend()->otp->setUser(App::backend()->user_id)->verifyCode($_POST['user_code'])) {
+                if (App::backend()->auth()->otp() !== false && !App::backend()->auth()->otp()->setUser(App::backend()->user_id)->verifyCode($_POST['user_code'])) {
                     throw new Exception(__('Code validation failed.'));
                 }
 
@@ -374,7 +342,7 @@ class Auth
                 // User may log-in
 
                 // Check if user need 2fa
-                App::backend()->require_2fa = App::backend()->otp !== null && App::backend()->otp->setUser(App::backend()->user_id)->isVerified();
+                App::backend()->require_2fa = App::backend()->auth()->otp() !== false && App::backend()->auth()->otp()->setUser(App::backend()->user_id)->isVerified();
 
                 if (App::backend()->require_2fa) {
                     // Required 2fa authentication. Skip normal login and go to 2fa form
@@ -468,19 +436,19 @@ class Auth
             '<link rel="stylesheet" href="style/default.css" type="text/css" media="screen">';
 
         echo
-        $buffer . Page::jsCommon();
+        $buffer . App::backend()->page()->jsCommon();
 
         # --BEHAVIOR-- loginPageHTMLHead --
         App::behavior()->callBehavior('loginPageHTMLHead');
 
         echo
-        Page::jsJson('pwstrength', [
+        App::backend()->page()->jsJson('pwstrength', [
             'min' => sprintf(__('Password strength: %s'), __('weak')),
             'avg' => sprintf(__('Password strength: %s'), __('medium')),
             'max' => sprintf(__('Password strength: %s'), __('strong')),
         ]) .
-        Page::jsLoad('js/pwstrength.js') .
-        Page::jsLoad('js/_auth.js') .
+        App::backend()->page()->jsLoad('js/pwstrength.js') .
+        App::backend()->page()->jsLoad('js/_auth.js') .
         '</head>';
 
         // Body part
@@ -598,7 +566,7 @@ class Auth
                             (new Hidden('login_data', App::backend()->login_data)),
                         ]),
                 ]);
-        } elseif (App::backend()->require_2fa && App::backend()->user_id !== null) {
+        } elseif (App::backend()->auth()->otp() !== false && App::backend()->require_2fa && App::backend()->user_id !== null) {
             // 2FA verification
             $parts[] = (new Set())
                 ->items([
@@ -611,7 +579,7 @@ class Auth
                                     (new Input('user_code'))
                                         ->label((new Label(__('Enter code:'), Label::IL_TF)))
                                         ->size(20)
-                                        ->maxlength(App::backend()->otp->getDigits())
+                                        ->maxlength(App::backend()->auth()->otp()->getDigits())
                                         ->default('')
                                         ->translate(false)
                                         ->autocomplete('one-time-code')
@@ -688,7 +656,7 @@ class Auth
                                 (new Submit('login', __('log in')))
                                     ->class('login'),
                             ]),
-                        App::backend()->webauthn === null ? new None() : (new Para('webauthn_action'))
+                        App::backend()->auth()->webauthn() === false ? new None() : (new Para('webauthn_action'))
                             ->class('hidden-if-no-js')
                             ->items([
                                 (new Button(['webauthn_button'], __('Sign in with a passkey')))
@@ -713,15 +681,15 @@ class Auth
                 $parts[] = $fieldset;
 
                 // Oauth2 client buttons
-                if (App::backend()->oauth2 !== null) {
+                if (App::backend()->auth()->oauth2() !== false) {
                     $oauth2_items = [];
-                    foreach (App::backend()->oauth2->services()->getProviders() as $oauth2_service) {
-                        if (App::backend()->oauth2->services()->hasDisabledProvider($oauth2_service::getId())
-                            || !App::backend()->oauth2->store()->hasConsumer($oauth2_service::getId())
+                    foreach (App::backend()->auth()->oauth2()->services()->getProviders() as $oauth2_service) {
+                        if (App::backend()->auth()->oauth2()->services()->hasDisabledProvider($oauth2_service::getId())
+                            || !App::backend()->auth()->oauth2()->store()->hasConsumer($oauth2_service::getId())
                         ) {
                             continue;
                         }
-                        $link = App::backend()->oauth2->getActionButton(
+                        $link = App::backend()->auth()->oauth2()->getActionButton(
                             '',
                             $oauth2_service::getId(),
                             App::config()->adminUrl() . App::backend()->url()->get('admin.auth')

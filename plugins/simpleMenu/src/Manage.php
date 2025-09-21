@@ -12,10 +12,6 @@ namespace Dotclear\Plugin\simpleMenu;
 
 use ArrayObject;
 use Dotclear\App;
-use Dotclear\Core\Backend\Combos;
-use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Backend\Page;
-use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Caption;
 use Dotclear\Helper\Html\Form\Checkbox;
@@ -42,6 +38,7 @@ use Dotclear\Helper\Html\Form\Th;
 use Dotclear\Helper\Html\Form\Thead;
 use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Process\TraitProcess;
 use Exception;
 
 /**
@@ -79,7 +76,7 @@ class Manage
         # Liste des catégories
         $categories_label                = [];
         $rs                              = App::blog()->getCategories(['post_type' => 'post']);
-        App::backend()->categories_combo = Combos::getCategoriesCombo($rs, false, true);
+        App::backend()->categories_combo = App::backend()->combos()->getCategoriesCombo($rs, false, true);
         $rs->moveStart();
         while ($rs->fetch()) {
             $categories_label[$rs->cat_url] = Html::escapeHTML($rs->cat_title);
@@ -87,7 +84,7 @@ class Manage
         App::backend()->categories_label = $categories_label;
 
         # Liste des langues utilisées
-        App::backend()->langs_combo = Combos::getLangsCombo(
+        App::backend()->langs_combo = App::backend()->combos()->getLangsCombo(
             App::blog()->getLangs([
                 'order' => 'asc',
             ])
@@ -97,7 +94,7 @@ class Manage
         $rs                          = App::blog()->getDates(['type' => 'month']);
         App::backend()->months_combo = array_merge(
             [__('All months') => '-'],
-            Combos::getDatesCombo($rs)
+            App::backend()->combos()->getDatesCombo($rs)
         );
 
         App::backend()->first_year = App::backend()->last_year = 0;
@@ -213,7 +210,7 @@ class Manage
                 App::blog()->triggerBlog();
 
                 // All done successfully, return to menu items list
-                Notices::addSuccessNotice(__('Configuration successfully updated.'));
+                App::backend()->notices()->addSuccessNotice(__('Configuration successfully updated.'));
                 My::redirect();
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
@@ -372,12 +369,12 @@ class Manage
                                 App::blog()->triggerBlog();
 
                                 // All done successfully, return to menu items list
-                                Notices::addSuccessNotice(__('Menu item has been successfully added.'));
+                                App::backend()->notices()->addSuccessNotice(__('Menu item has been successfully added.'));
                                 My::redirect();
                             } else {
                                 App::backend()->step              = self::STEP_ATTRIBUTES;
                                 App::backend()->item_select_label = App::backend()->item_label;
-                                Notices::addErrorNotice(__('Label and URL of menu item are mandatory.'));
+                                App::backend()->notices()->addErrorNotice(__('Label and URL of menu item are mandatory.'));
                             }
                         } catch (Exception $e) {
                             App::error()->add($e->getMessage());
@@ -410,7 +407,7 @@ class Manage
                             App::blog()->triggerBlog();
 
                             // All done successfully, return to menu items list
-                            Notices::addSuccessNotice(__('Menu items have been successfully removed.'));
+                            App::backend()->notices()->addSuccessNotice(__('Menu items have been successfully removed.'));
                             My::redirect();
                         } else {
                             throw new Exception(__('No menu items selected.'));
@@ -475,7 +472,7 @@ class Manage
                         App::blog()->triggerBlog();
 
                         // All done successfully, return to menu items list
-                        Notices::addSuccessNotice(__('Menu items have been successfully updated.'));
+                        App::backend()->notices()->addSuccessNotice(__('Menu items have been successfully updated.'));
                         My::redirect();
                     } catch (Exception $e) {
                         App::error()->add($e->getMessage());
@@ -498,14 +495,14 @@ class Manage
 
         $head = '';
         if (!App::auth()->prefs()->accessibility->nodragdrop) {
-            $head .= Page::jsLoad('js/jquery/jquery-ui.custom.js') .
-                Page::jsLoad('js/jquery/jquery.ui.touch-punch.js');
+            $head .= App::backend()->page()->jsLoad('js/jquery/jquery-ui.custom.js') .
+                App::backend()->page()->jsLoad('js/jquery/jquery.ui.touch-punch.js');
         }
         $head .= My::jsLoad('simplemenu') .
-            Page::jsJson('simplemenu', ['confirm_items_delete' => __('Are you sure you want to remove selected menu items?')]) .
-            Page::jsConfirmClose('settings', 'menuitemsappend', 'additem', 'menuitems');
+            App::backend()->page()->jsJson('simplemenu', ['confirm_items_delete' => __('Are you sure you want to remove selected menu items?')]) .
+            App::backend()->page()->jsConfirmClose('settings', 'menuitemsappend', 'additem', 'menuitems');
 
-        Page::openModule(App::backend()->page_title, $head);
+        App::backend()->page()->openModule(App::backend()->page_title, $head);
 
         $step_label = '';
         if (App::backend()->step) {
@@ -526,7 +523,7 @@ class Manage
                     break;
             }
             echo
-            Page::breadcrumb(
+            App::backend()->page()->breadcrumb(
                 [
                     Html::escapeHTML(App::blog()->name()) => '',
                     App::backend()->page_title            => App::backend()->getPageURL(),
@@ -537,16 +534,16 @@ class Manage
                     'hl_pos' => -2,
                 ]
             ) .
-            Notices::getNotices();
+            App::backend()->notices()->getNotices();
         } else {
             echo
-            Page::breadcrumb(
+            App::backend()->page()->breadcrumb(
                 [
                     Html::escapeHTML(App::blog()->name()) => '',
                     App::backend()->page_title            => '',
                 ]
             ) .
-            Notices::getNotices();
+            App::backend()->notices()->getNotices();
         }
 
         if (App::backend()->step !== self::STEP_LIST) {
@@ -946,8 +943,8 @@ class Manage
             ->render();
         }
 
-        Page::helpBlock('simpleMenu');
+        App::backend()->page()->helpBlock('simpleMenu');
 
-        Page::closeModule();
+        App::backend()->page()->closeModule();
     }
 }

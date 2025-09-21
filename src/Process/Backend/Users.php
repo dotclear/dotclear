@@ -13,10 +13,6 @@ namespace Dotclear\Process\Backend;
 
 use ArrayObject;
 use Dotclear\App;
-use Dotclear\Core\Backend\Filter\FilterUsers;
-use Dotclear\Core\Backend\Listing\ListingUsers;
-use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Hidden;
@@ -39,7 +35,7 @@ class Users
 
     public static function init(): bool
     {
-        Page::checkSuper();
+        App::backend()->page()->checkSuper();
 
         // Actions
         $combo_action = [
@@ -54,10 +50,10 @@ class Users
         App::backend()->combo_action = $combo_action;
 
         // Filters
-        App::backend()->user_filter = new FilterUsers();
+        App::backend()->user_filter = App::backend()->filter()->users(); // Backward compatibility
 
         // get list params
-        $params = App::backend()->user_filter->params();
+        $params = App::backend()->filter()->users()->params();
 
         // lexical sort
         $sortby_lex = [
@@ -71,9 +67,9 @@ class Users
         # --BEHAVIOR-- adminUsersSortbyLexCombo -- array<int,array<string,string>>
         App::behavior()->callBehavior('adminUsersSortbyLexCombo', [& $sortby_lex]);
 
-        $params['order'] = (array_key_exists(App::backend()->user_filter->sortby, $sortby_lex) ?
-            App::db()->con()->lexFields($sortby_lex[App::backend()->user_filter->sortby]) :
-            App::backend()->user_filter->sortby) . ' ' . App::backend()->user_filter->order;
+        $params['order'] = (array_key_exists(App::backend()->filter()->users()->sortby, $sortby_lex) ?
+            App::db()->con()->lexFields($sortby_lex[App::backend()->filter()->users()->sortby]) :
+            App::backend()->filter()->users()->sortby) . ' ' . App::backend()->filter()->users()->order;
 
         // List
         App::backend()->user_list = null;
@@ -87,13 +83,13 @@ class Users
             $rs       = App::users()->getUsers($params);
             $counter  = App::users()->getUsers($params, true);
             $rsStatic = $rs->toStatic();
-            if (App::backend()->user_filter->sortby != 'nb_post') {
+            if (App::backend()->filter()->users()->sortby != 'nb_post') {
                 // Sort user list using lexical order if necessary
                 $rsStatic->extend(User::class);
                 $rsStatic = $rsStatic->toStatic();
-                $rsStatic->lexicalSort(App::backend()->user_filter->sortby, App::backend()->user_filter->order);
+                $rsStatic->lexicalSort(App::backend()->filter()->users()->sortby, App::backend()->filter()->users()->order);
             }
-            App::backend()->user_list = new ListingUsers($rsStatic, $counter->f(0));
+            App::backend()->user_list = App::backend()->listing()->users($rsStatic, $counter->f(0));
         } catch (Exception $e) {
             App::error()->add($e->getMessage());
         }
@@ -103,10 +99,10 @@ class Users
 
     public static function render(): void
     {
-        Page::open(
+        App::backend()->page()->open(
             __('Users'),
-            Page::jsLoad('js/_users.js') . App::backend()->user_filter->js(App::backend()->url()->get('admin.users')),
-            Page::breadcrumb(
+            App::backend()->page()->jsLoad('js/_users.js') . App::backend()->filter()->users()->js(App::backend()->url()->get('admin.users')),
+            App::backend()->page()->breadcrumb(
                 [
                     __('System') => '',
                     __('Users')  => '',
@@ -116,10 +112,10 @@ class Users
 
         if (!App::error()->flag()) {
             if (!empty($_GET['del'])) {
-                Notices::message(__('User has been successfully removed.'));
+                App::backend()->notices()->message(__('User has been successfully removed.'));
             }
             if (!empty($_GET['upd'])) {
-                Notices::message(__('The permissions have been successfully updated.'));
+                App::backend()->notices()->message(__('The permissions have been successfully updated.'));
             }
 
             echo (new Para())
@@ -132,12 +128,12 @@ class Users
                 ])
             ->render();
 
-            App::backend()->user_filter->display('admin.users');
+            App::backend()->filter()->users()->display('admin.users');
 
             // Show users
             App::backend()->user_list->display(
-                App::backend()->user_filter->page,
-                App::backend()->user_filter->nb,
+                App::backend()->filter()->users()->page,
+                App::backend()->filter()->users()->nb,
                 (new Form('form-users'))
                     ->action(App::backend()->url()->get('admin.user.actions'))
                     ->method('post')
@@ -162,17 +158,17 @@ class Users
                                      App::nonce()->formNonce(),
                                      (new Submit('do-action'))
                                          ->value(__('ok')),
-                                     ...App::backend()->url()->hiddenFormFields('admin.user.actions', App::backend()->user_filter->values(true)),
+                                     ...App::backend()->url()->hiddenFormFields('admin.user.actions', App::backend()->filter()->users()->values(true)),
                                      (new Hidden(['redir_label'], __('Back to users list'))),
 
                                  ]),
                              ]),
                     ])
                     ->render(),
-                App::backend()->user_filter->show()
+                App::backend()->filter()->users()->show()
             );
         }
-        Page::helpBlock('core_users');
-        Page::close();
+        App::backend()->page()->helpBlock('core_users');
+        App::backend()->page()->close();
     }
 }

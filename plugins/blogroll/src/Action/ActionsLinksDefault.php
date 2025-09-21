@@ -11,7 +11,6 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\blogroll\Action;
 
 use Dotclear\App;
-use Dotclear\Core\Backend\Notices;
 use Dotclear\Plugin\blogroll\Blogroll;
 use Dotclear\Plugin\blogroll\Status\Link;
 use Exception;
@@ -71,7 +70,7 @@ class ActionsLinksDefault
         // Set status of remaining entries
         (new Blogroll(App::blog()))->updLinksStatus($ids, $status);
 
-        Notices::addSuccessNotice(
+        App::backend()->notices()->addSuccessNotice(
             sprintf(
                 __(
                     '%d link has been successfully updated to status : "%s"',
@@ -110,7 +109,7 @@ class ActionsLinksDefault
         // Delete selected entries
         (new Blogroll(App::blog()))->delLinks($ids);
 
-        Notices::addSuccessNotice(
+        App::backend()->notices()->addSuccessNotice(
             sprintf(
                 __(
                     '%d link has been successfully deleted',

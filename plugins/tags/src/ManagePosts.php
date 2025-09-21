@@ -10,11 +10,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\tags;
 
-use Dotclear\Core\Backend\Listing\ListingPosts;
-use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Backend\Page;
 use Dotclear\App;
-use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Input;
@@ -24,6 +20,7 @@ use Dotclear\Helper\Html\Form\Select;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Process\TraitProcess;
 use Exception;
 
 /**
@@ -69,7 +66,7 @@ class ManagePosts
         try {
             App::backend()->posts     = App::meta()->getPostsByMeta($params);
             $counter                  = App::meta()->getPostsByMeta($params, true);
-            App::backend()->post_list = new ListingPosts(App::backend()->posts, $counter->f(0));
+            App::backend()->post_list = App::backend()->listing()->posts(App::backend()->posts, $counter->f(0));
         } catch (Exception $e) {
             App::error()->add($e->getMessage());
         }
@@ -93,7 +90,7 @@ class ManagePosts
 
             try {
                 if (App::meta()->updateMeta(App::backend()->tag, $new_id, 'tag')) {
-                    Notices::addSuccessNotice(__('Tag has been successfully renamed'));
+                    App::backend()->notices()->addSuccessNotice(__('Tag has been successfully renamed'));
                     My::redirect([
                         'm'   => 'tag_posts',
                         'tag' => $new_id,
@@ -112,7 +109,7 @@ class ManagePosts
 
             try {
                 App::meta()->delMeta(App::backend()->tag, 'tag');
-                Notices::addSuccessNotice(__('Tag has been successfully removed'));
+                App::backend()->notices()->addSuccessNotice(__('Tag has been successfully removed'));
                 My::redirect([
                     'm' => 'tags',
                 ]);
@@ -138,26 +135,26 @@ class ManagePosts
 
         $this_url = App::backend()->getPageURL() . '&amp;m=tag_posts&amp;tag=' . rawurlencode(App::backend()->tag);
 
-        Page::openModule(
+        App::backend()->page()->openModule(
             My::name(),
             My::cssLoad('style') .
-            Page::jsLoad('js/_posts_list.js') .
-            Page::jsJson('posts_tags_msg', [
+            App::backend()->page()->jsLoad('js/_posts_list.js') .
+            App::backend()->page()->jsJson('posts_tags_msg', [
                 'confirm_tag_delete' => sprintf(__('Are you sure you want to remove tag: “%s”?'), Html::escapeHTML(App::backend()->tag)),
             ]) .
             My::jsLoad('posts') .
-            Page::jsConfirmClose('tag_rename')
+            App::backend()->page()->jsConfirmClose('tag_rename')
         );
 
         echo
-        Page::breadcrumb(
+        App::backend()->page()->breadcrumb(
             [
                 Html::escapeHTML(App::blog()->name())                                      => '',
                 My::name()                                                                 => App::backend()->getPageURL() . '&amp;m=tags',
                 __('Tag') . ' &ldquo;' . Html::escapeHTML(App::backend()->tag) . '&rdquo;' => '',
             ]
         ) .
-        Notices::getNotices() .
+        App::backend()->notices()->getNotices() .
         '<p><a class="back" href="' . App::backend()->getPageURL() . '&amp;m=tags">' . __('Back to tags list') . '</a></p>';
 
         if (!App::error()->flag()) {
@@ -248,7 +245,7 @@ class ManagePosts
             }
         }
 
-        Page::helpBlock('tag_posts');
-        Page::closeModule();
+        App::backend()->page()->helpBlock('tag_posts');
+        App::backend()->page()->closeModule();
     }
 }

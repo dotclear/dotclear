@@ -10,7 +10,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\antispam\Filters;
 
-use Dotclear\Core\Backend\Notices;
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
@@ -150,7 +149,7 @@ class Ip extends SpamFilter
                 $global = !empty($_POST['globalip']) && App::auth()->isSuperAdmin();
 
                 $this->addIP($ip_type, $_POST['addip'], $global);
-                Notices::addSuccessNotice(__('IP address has been successfully added.'));
+                App::backend()->notices()->addSuccessNotice(__('IP address has been successfully added.'));
                 Http::redirect($url . '&ip_type=' . $ip_type);
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
@@ -161,7 +160,7 @@ class Ip extends SpamFilter
         if (!empty($_POST['delip']) && is_array($_POST['delip'])) {
             try {
                 $this->removeRule($_POST['delip']);
-                Notices::addSuccessNotice(__('IP addresses have been successfully removed.'));
+                App::backend()->notices()->addSuccessNotice(__('IP addresses have been successfully removed.'));
                 Http::redirect($url . '&ip_type=' . $ip_type);
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());

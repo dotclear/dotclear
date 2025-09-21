@@ -10,10 +10,6 @@
 namespace Dotclear\Theme\blowup;
 
 use Dotclear\App;
-use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Backend\Page;
-use Dotclear\Core\Backend\ThemeConfig;
-use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Form\Color;
@@ -32,6 +28,7 @@ use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Textarea;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
+use Dotclear\Helper\Process\TraitProcess;
 use Exception;
 
 /**
@@ -148,9 +145,9 @@ class Config
                 $blowup_user = App::backend()->blowup_user;
 
                 $blowup_user['body_txt_f']       = $_POST['body_txt_f'];
-                $blowup_user['body_txt_s']       = ThemeConfig::adjustFontSize($_POST['body_txt_s']);
-                $blowup_user['body_txt_c']       = ThemeConfig::adjustColor($_POST['body_txt_c']);
-                $blowup_user['body_line_height'] = ThemeConfig::adjustFontSize($_POST['body_line_height']);
+                $blowup_user['body_txt_s']       = App::backend()->themeConfig()->adjustFontSize($_POST['body_txt_s']);
+                $blowup_user['body_txt_c']       = App::backend()->themeConfig()->adjustColor($_POST['body_txt_c']);
+                $blowup_user['body_line_height'] = App::backend()->themeConfig()->adjustFontSize($_POST['body_line_height']);
 
                 $blowup_user['blog_title_hide'] = (int) !empty($_POST['blog_title_hide']);
                 $update_blog_title              = !$blowup_user['blog_title_hide'] && (
@@ -159,47 +156,47 @@ class Config
 
                 if ($update_blog_title) {
                     $blowup_user['blog_title_f'] = $_POST['blog_title_f'];
-                    $blowup_user['blog_title_s'] = ThemeConfig::adjustFontSize($_POST['blog_title_s']);
-                    $blowup_user['blog_title_c'] = ThemeConfig::adjustColor($_POST['blog_title_c']);
+                    $blowup_user['blog_title_s'] = App::backend()->themeConfig()->adjustFontSize($_POST['blog_title_s']);
+                    $blowup_user['blog_title_c'] = App::backend()->themeConfig()->adjustColor($_POST['blog_title_c']);
                     $blowup_user['blog_title_a'] = preg_match('/^(left|center|right)$/', ($_POST['blog_title_a'] ?? '')) ? $_POST['blog_title_a'] : null;
-                    $blowup_user['blog_title_p'] = ThemeConfig::adjustPosition($_POST['blog_title_p']);
+                    $blowup_user['blog_title_p'] = App::backend()->themeConfig()->adjustPosition($_POST['blog_title_p']);
                 }
 
-                $blowup_user['body_link_c']   = ThemeConfig::adjustColor($_POST['body_link_c']);
-                $blowup_user['body_link_f_c'] = ThemeConfig::adjustColor($_POST['body_link_f_c']);
-                $blowup_user['body_link_v_c'] = ThemeConfig::adjustColor($_POST['body_link_v_c']);
+                $blowup_user['body_link_c']   = App::backend()->themeConfig()->adjustColor($_POST['body_link_c']);
+                $blowup_user['body_link_f_c'] = App::backend()->themeConfig()->adjustColor($_POST['body_link_f_c']);
+                $blowup_user['body_link_v_c'] = App::backend()->themeConfig()->adjustColor($_POST['body_link_v_c']);
 
                 $blowup_user['sidebar_text_f']   = ($_POST['sidebar_text_f'] ?? null);
-                $blowup_user['sidebar_text_s']   = ThemeConfig::adjustFontSize($_POST['sidebar_text_s']);
-                $blowup_user['sidebar_text_c']   = ThemeConfig::adjustColor($_POST['sidebar_text_c']);
+                $blowup_user['sidebar_text_s']   = App::backend()->themeConfig()->adjustFontSize($_POST['sidebar_text_s']);
+                $blowup_user['sidebar_text_c']   = App::backend()->themeConfig()->adjustColor($_POST['sidebar_text_c']);
                 $blowup_user['sidebar_title_f']  = ($_POST['sidebar_title_f'] ?? null);
-                $blowup_user['sidebar_title_s']  = ThemeConfig::adjustFontSize($_POST['sidebar_title_s']);
-                $blowup_user['sidebar_title_c']  = ThemeConfig::adjustColor($_POST['sidebar_title_c']);
+                $blowup_user['sidebar_title_s']  = App::backend()->themeConfig()->adjustFontSize($_POST['sidebar_title_s']);
+                $blowup_user['sidebar_title_c']  = App::backend()->themeConfig()->adjustColor($_POST['sidebar_title_c']);
                 $blowup_user['sidebar_title2_f'] = ($_POST['sidebar_title2_f'] ?? null);
-                $blowup_user['sidebar_title2_s'] = ThemeConfig::adjustFontSize($_POST['sidebar_title2_s']);
-                $blowup_user['sidebar_title2_c'] = ThemeConfig::adjustColor($_POST['sidebar_title2_c']);
-                $blowup_user['sidebar_line_c']   = ThemeConfig::adjustColor($_POST['sidebar_line_c']);
-                $blowup_user['sidebar_link_c']   = ThemeConfig::adjustColor($_POST['sidebar_link_c']);
-                $blowup_user['sidebar_link_f_c'] = ThemeConfig::adjustColor($_POST['sidebar_link_f_c']);
-                $blowup_user['sidebar_link_v_c'] = ThemeConfig::adjustColor($_POST['sidebar_link_v_c']);
+                $blowup_user['sidebar_title2_s'] = App::backend()->themeConfig()->adjustFontSize($_POST['sidebar_title2_s']);
+                $blowup_user['sidebar_title2_c'] = App::backend()->themeConfig()->adjustColor($_POST['sidebar_title2_c']);
+                $blowup_user['sidebar_line_c']   = App::backend()->themeConfig()->adjustColor($_POST['sidebar_line_c']);
+                $blowup_user['sidebar_link_c']   = App::backend()->themeConfig()->adjustColor($_POST['sidebar_link_c']);
+                $blowup_user['sidebar_link_f_c'] = App::backend()->themeConfig()->adjustColor($_POST['sidebar_link_f_c']);
+                $blowup_user['sidebar_link_v_c'] = App::backend()->themeConfig()->adjustColor($_POST['sidebar_link_v_c']);
 
                 $blowup_user['sidebar_position'] = ($_POST['sidebar_position'] ?? '') == 'left' ? 'left' : null;
 
                 $blowup_user['date_title_f'] = ($_POST['date_title_f'] ?? null);
-                $blowup_user['date_title_s'] = ThemeConfig::adjustFontSize($_POST['date_title_s']);
-                $blowup_user['date_title_c'] = ThemeConfig::adjustColor($_POST['date_title_c']);
+                $blowup_user['date_title_s'] = App::backend()->themeConfig()->adjustFontSize($_POST['date_title_s']);
+                $blowup_user['date_title_c'] = App::backend()->themeConfig()->adjustColor($_POST['date_title_c']);
 
                 $blowup_user['post_title_f']     = ($_POST['post_title_f'] ?? null);
-                $blowup_user['post_title_s']     = ThemeConfig::adjustFontSize($_POST['post_title_s']);
-                $blowup_user['post_title_c']     = ThemeConfig::adjustColor($_POST['post_title_c']);
-                $blowup_user['post_comment_c']   = ThemeConfig::adjustColor($_POST['post_comment_c']);
-                $blowup_user['post_commentmy_c'] = ThemeConfig::adjustColor($_POST['post_commentmy_c']);
+                $blowup_user['post_title_s']     = App::backend()->themeConfig()->adjustFontSize($_POST['post_title_s']);
+                $blowup_user['post_title_c']     = App::backend()->themeConfig()->adjustColor($_POST['post_title_c']);
+                $blowup_user['post_comment_c']   = App::backend()->themeConfig()->adjustColor($_POST['post_comment_c']);
+                $blowup_user['post_commentmy_c'] = App::backend()->themeConfig()->adjustColor($_POST['post_commentmy_c']);
 
                 $blowup_user['footer_f']    = ($_POST['footer_f'] ?? null);
-                $blowup_user['footer_s']    = ThemeConfig::adjustFontSize($_POST['footer_s']);
-                $blowup_user['footer_c']    = ThemeConfig::adjustColor($_POST['footer_c']);
-                $blowup_user['footer_l_c']  = ThemeConfig::adjustColor($_POST['footer_l_c']);
-                $blowup_user['footer_bg_c'] = ThemeConfig::adjustColor($_POST['footer_bg_c']);
+                $blowup_user['footer_s']    = App::backend()->themeConfig()->adjustFontSize($_POST['footer_s']);
+                $blowup_user['footer_c']    = App::backend()->themeConfig()->adjustColor($_POST['footer_c']);
+                $blowup_user['footer_l_c']  = App::backend()->themeConfig()->adjustColor($_POST['footer_l_c']);
+                $blowup_user['footer_bg_c'] = App::backend()->themeConfig()->adjustColor($_POST['footer_bg_c']);
 
                 $blowup_user['extra_css'] = (string) ($_POST['extra_css'] ?? '');
 
@@ -220,15 +217,15 @@ class Config
                         $_POST['top_image'] :
                         'default';
 
-                    $blowup_user['body_bg_c'] = ThemeConfig::adjustColor($_POST['body_bg_c']);
+                    $blowup_user['body_bg_c'] = App::backend()->themeConfig()->adjustColor($_POST['body_bg_c']);
                     $blowup_user['body_bg_g'] = in_array(($_POST['body_bg_g'] ?? ''), App::backend()->gradient_types) ?
                         $_POST['body_bg_g'] :
                         '';
 
-                    $blowup_user['post_comment_bg_c']   = ThemeConfig::adjustColor($_POST['post_comment_bg_c']);
-                    $blowup_user['post_commentmy_bg_c'] = ThemeConfig::adjustColor($_POST['post_commentmy_bg_c']);
+                    $blowup_user['post_comment_bg_c']   = App::backend()->themeConfig()->adjustColor($_POST['post_comment_bg_c']);
+                    $blowup_user['post_commentmy_bg_c'] = App::backend()->themeConfig()->adjustColor($_POST['post_commentmy_bg_c']);
 
-                    $blowup_user['prelude_c'] = ThemeConfig::adjustColor($_POST['prelude_c']);
+                    $blowup_user['prelude_c'] = App::backend()->themeConfig()->adjustColor($_POST['prelude_c']);
 
                     Blowup::createImages($blowup_user, $uploaded);
                 }
@@ -242,7 +239,7 @@ class Config
 
                 App::backend()->blowup_user = $blowup_user;
 
-                Notices::addSuccessNotice(__('Theme configuration has been successfully updated.'));
+                App::backend()->notices()->addSuccessNotice(__('Theme configuration has been successfully updated.'));
                 App::backend()->url()->redirect('admin.blog.theme', ['conf' => '1']);
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
@@ -719,6 +716,6 @@ class Config
             ])
         ->render();
 
-        Page::helpBlock('blowupConfig');
+        App::backend()->page()->helpBlock('blowupConfig');
     }
 }

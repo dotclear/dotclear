@@ -14,8 +14,6 @@ use ArrayObject;
 use Dotclear\App;
 use Dotclear\Core\Backend\Action\ActionsPosts;
 use Dotclear\Core\Backend\Favorites;
-use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Backend\Page;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Form\Checkbox;
@@ -59,7 +57,7 @@ class BackendBehaviors
         if ($editor === 'dcLegacyEditor') {
             // dcLegacyEditor
             return
-            Page::jsJson('legacy_editor_tags', [
+            App::backend()->page()->jsJson('legacy_editor_tags', [
                 'tag' => [
                     'title'     => __('Tag'),
                     'icon'      => My::fileURL('/img/tag-add.svg'),
@@ -72,7 +70,7 @@ class BackendBehaviors
 
         // dcCKEditor
         return
-        Page::jsJson('ck_editor_tags', [
+        App::backend()->page()->jsJson('ck_editor_tags', [
             'tag_title' => __('Tag'),
             'tag_url'   => $tag_url,
         ]);
@@ -278,7 +276,7 @@ class BackendBehaviors
                     }
                 }
             }
-            Notices::addSuccessNotice(
+            App::backend()->notices()->addSuccessNotice(
                 __(
                     'Tag has been successfully added to selected entries',
                     'Tags have been successfully added to selected entries',
@@ -301,16 +299,16 @@ class BackendBehaviors
             ];
 
             $ap->beginPage(
-                Page::breadcrumb(
+                App::backend()->page()->breadcrumb(
                     [
                         Html::escapeHTML(App::blog()->name()) => '',
                         __('Entries')                         => $ap->getRedirection(true),
                         __('Add tags to this selection')      => '',
                     ]
                 ),
-                Page::jsMetaEditor() .
-                Page::jsJson('editor_tags_options', $editor_tags_options) .
-                Page::jsLoad('js/jquery/jquery.autocomplete.js') .
+                App::backend()->page()->jsMetaEditor() .
+                App::backend()->page()->jsJson('editor_tags_options', $editor_tags_options) .
+                App::backend()->page()->jsLoad('js/jquery/jquery.autocomplete.js') .
                 My::jsLoad('posts_actions') .
                 My::cssLoad('style')
             );
@@ -360,7 +358,7 @@ class BackendBehaviors
                     $meta->delPostMeta($posts->post_id, 'tag', $v);
                 }
             }
-            Notices::addSuccessNotice(
+            App::backend()->notices()->addSuccessNotice(
                 __(
                     'Tag has been successfully removed from selected entries',
                     'Tags have been successfully removed from selected entries',
@@ -388,7 +386,7 @@ class BackendBehaviors
                 throw new Exception(__('No tags for selected entries'));
             }
             $ap->beginPage(
-                Page::breadcrumb(
+                App::backend()->page()->breadcrumb(
                     [
                         Html::escapeHTML(App::blog()->name())          => '',
                         __('Entries')                                  => App::backend()->url()->get('admin.posts'),
@@ -456,8 +454,8 @@ class BackendBehaviors
         ];
 
         return
-        Page::jsJson('editor_tags_options', $editor_tags_options) .
-        Page::jsLoad('js/jquery/jquery.autocomplete.js') .
+        App::backend()->page()->jsJson('editor_tags_options', $editor_tags_options) .
+        App::backend()->page()->jsLoad('js/jquery/jquery.autocomplete.js') .
         My::jsLoad('post') .
         My::cssLoad('style');
     }

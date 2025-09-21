@@ -10,10 +10,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\dcLegacyEditor;
 
-use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Backend\Page;
 use Dotclear\App;
-use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Form\Fieldset;
@@ -22,6 +19,7 @@ use Dotclear\Helper\Html\Form\Label;
 use Dotclear\Helper\Html\Form\Legend;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Process\TraitProcess;
 use Exception;
 
 /**
@@ -55,7 +53,7 @@ class Manage
                 App::backend()->editor_std_dynamic = !empty($_POST['dclegacyeditor_dynamic']);
                 My::settings()->put('dynamic', App::backend()->editor_std_dynamic, 'boolean');
 
-                Notices::addSuccessNotice(__('The configuration has been updated.'));
+                App::backend()->notices()->addSuccessNotice(__('The configuration has been updated.'));
                 My::redirect();
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
@@ -67,14 +65,14 @@ class Manage
 
     public static function render(): void
     {
-        Page::openModule(My::name());
+        App::backend()->page()->openModule(My::name());
 
         echo
-        Page::breadcrumb([
+        App::backend()->page()->breadcrumb([
             __('Plugins')         => '',
             __('Dotclear editor') => '',
         ]) .
-        Notices::getNotices();
+        App::backend()->notices()->getNotices();
 
         if (App::backend()->editor_is_admin) {
             $fields = [];
@@ -122,8 +120,8 @@ class Manage
             ->render();
         }
 
-        Page::helpBlock(My::id());
+        App::backend()->page()->helpBlock(My::id());
 
-        Page::closeModule();
+        App::backend()->page()->closeModule();
     }
 }

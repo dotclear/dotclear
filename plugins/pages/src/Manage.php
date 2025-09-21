@@ -11,10 +11,6 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\pages;
 
 use Dotclear\App;
-use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Backend\Page;
-use Dotclear\Core\Backend\UserPref;
-use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
@@ -27,6 +23,7 @@ use Dotclear\Helper\Html\Form\Select;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Process\TraitProcess;
 use Exception;
 
 /**
@@ -61,7 +58,7 @@ class Manage
         ];
 
         App::backend()->page        = empty($_GET['page']) ? 1 : max(1, (int) $_GET['page']);
-        App::backend()->nb_per_page = UserPref::getUserFilters('pages', 'nb');
+        App::backend()->nb_per_page = App::backend()->userPref()->getUserFilters('pages', 'nb');
 
         if (!empty($_GET['nb']) && (int) $_GET['nb'] > 0) {
             App::backend()->nb_per_page = (int) $_GET['nb'];
@@ -113,32 +110,32 @@ class Manage
 
         $head = '';
         if (!App::auth()->prefs()->accessibility->nodragdrop) {
-            $head = Page::jsLoad('js/jquery/jquery-ui.custom.js') .
-            Page::jsLoad('js/jquery/jquery.ui.touch-punch.js');
+            $head = App::backend()->page()->jsLoad('js/jquery/jquery-ui.custom.js') .
+            App::backend()->page()->jsLoad('js/jquery/jquery.ui.touch-punch.js');
         }
 
-        Page::openModule(
+        App::backend()->page()->openModule(
             __('Pages'),
             $head .
-            Page::jsJson('pages_list', ['confirm_delete_posts' => __('Are you sure you want to delete selected pages?')]) .
+            App::backend()->page()->jsJson('pages_list', ['confirm_delete_posts' => __('Are you sure you want to delete selected pages?')]) .
             My::jsLoad('list')
         );
 
         echo
-        Page::breadcrumb(
+        App::backend()->page()->breadcrumb(
             [
                 Html::escapeHTML(App::blog()->name()) => '',
                 My::name()                            => '',
             ]
         ) .
-        Notices::getNotices();
+        App::backend()->notices()->getNotices();
 
         if (!empty($_GET['upd'])) {
-            Notices::success(__('Selected pages have been successfully updated.'));
+            App::backend()->notices()->success(__('Selected pages have been successfully updated.'));
         } elseif (!empty($_GET['del'])) {
-            Notices::success(__('Selected pages have been successfully deleted.'));
+            App::backend()->notices()->success(__('Selected pages have been successfully deleted.'));
         } elseif (!empty($_GET['reo'])) {
-            Notices::success(__('Selected pages have been successfully reordered.'));
+            App::backend()->notices()->success(__('Selected pages have been successfully reordered.'));
         }
 
         echo (new Para())
@@ -193,8 +190,8 @@ class Manage
                 ->render()
             );
         }
-        Page::helpBlock(My::id());
+        App::backend()->page()->helpBlock(My::id());
 
-        Page::closeModule();
+        App::backend()->page()->closeModule();
     }
 }

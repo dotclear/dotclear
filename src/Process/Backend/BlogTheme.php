@@ -13,9 +13,6 @@ namespace Dotclear\Process\Backend;
 
 use ArrayObject;
 use Dotclear\App;
-use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Backend\Page;
-use Dotclear\Core\Backend\ThemesList;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Form\Capture;
@@ -46,7 +43,7 @@ class BlogTheme
 
     public static function init(): bool
     {
-        Page::check(App::auth()->makePermissions([
+        App::backend()->page()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_ADMIN,
         ]));
 
@@ -55,15 +52,10 @@ class BlogTheme
             App::themes()->loadModules(App::blog()->themesPath(), 'admin', App::lang()->getLang());
         }
 
-        // Page helper
-        App::backend()->list = new ThemesList(
-            App::themes(),
-            App::blog()->themesPath(),
-            App::blog()->settings()->system->store_theme_url,
-            empty($_GET['nocache']) ? null : true
-        );
+        // Backward compatibility
+        App::backend()->list = App::backend()->themesList();
         // deprecated since 2.26
-        ThemesList::$distributed_modules = explode(',', App::config()->distributedThemes());
+        App::backend()->themesList()::$distributed_modules = explode(',', App::config()->distributedThemes());
 
         $disabled = App::themes()->disableDepModules();
 
@@ -72,7 +64,7 @@ class BlogTheme
                 ->items(array_map(fn (string $item) => (new Li())->text($item), $disabled))
             ->render();
 
-            Notices::addWarningNotice(
+            App::backend()->notices()->addWarningNotice(
                 __('The following themes have been disabled :') . $list,
                 ['divtag' => true, 'with_ts' => false]
             );
@@ -81,30 +73,30 @@ class BlogTheme
             dotclear_exit();
         }
 
-        if (App::backend()->list->setConfiguration(App::blog()->settings()->system->theme)) {
+        if (App::backend()->themesList()->setConfiguration(App::blog()->settings()->system->theme)) {
             // Display module configuration page
 
             // Get content before page headers
-            $include = App::backend()->list->includeConfiguration();
+            $include = App::backend()->themesList()->includeConfiguration();
             if ($include) {
                 include $include;
             }
 
             // Gather content
-            App::backend()->list->getConfiguration();
+            App::backend()->themesList()->getConfiguration();
 
             // Display page
-            Page::open(
+            App::backend()->page()->open(
                 __('Blog appearance'),
-                Page::jsPageTabs() .
+                App::backend()->page()->jsPageTabs() .
 
                 # --BEHAVIOR-- themesToolsHeaders -- bool
                 App::behavior()->callBehavior('themesToolsHeadersV2', true),
-                Page::breadcrumb(
+                App::backend()->page()->breadcrumb(
                     [
                         // Active links
                         Html::escapeHTML(App::blog()->name()) => '',
-                        __('Blog appearance')                 => App::backend()->list->getURL('', false),
+                        __('Blog appearance')                 => App::backend()->themesList()->getURL('', false),
                         // inactive link
                         (new Span(__('Theme configuration')))->class('page-title')->render() => '',
                     ]
@@ -112,13 +104,13 @@ class BlogTheme
             );
 
             // Display previously gathered content
-            App::backend()->list->displayConfiguration();
+            App::backend()->themesList()->displayConfiguration();
 
             if (!App::backend()->resources()->context()) {
                 // Help sidebar has not been loaded by theme configuration
-                Page::helpBlock('core_blog_theme_conf');
+                App::backend()->page()->helpBlock('core_blog_theme_conf');
             }
-            Page::close();
+            App::backend()->page()->close();
 
             // Stop reading code here
             return self::status(false);
@@ -126,7 +118,7 @@ class BlogTheme
 
         // Execute actions
         try {
-            App::backend()->list->doActions();
+            App::backend()->themesList()->doActions();
         } catch (Exception $e) {
             App::error()->add($e->getMessage());
         }
@@ -167,19 +159,19 @@ class BlogTheme
     public static function render(): void
     {
         // Page header
-        Page::open(
+        App::backend()->page()->open(
             __('Themes management'),
             (
                 empty($_GET['nocache']) && empty($_GET['showupdate']) ?
-                Page::jsJson('module_update_url', App::backend()->url()->get('admin.blog.theme', ['showupdate' => 1]) . '#update') : ''
+                App::backend()->page()->jsJson('module_update_url', App::backend()->url()->get('admin.blog.theme', ['showupdate' => 1]) . '#update') : ''
             ) .
-            Page::jsModal() .
-            Page::jsLoad('js/_blog_theme.js') .
-            Page::jsPageTabs() .
+            App::backend()->page()->jsModal() .
+            App::backend()->page()->jsLoad('js/_blog_theme.js') .
+            App::backend()->page()->jsPageTabs() .
 
             # --BEHAVIOR-- themesToolsHeaders -- bool
             App::behavior()->callBehavior('themesToolsHeadersV2', false),
-            Page::breadcrumb(
+            App::backend()->page()->breadcrumb(
                 [
                     Html::escapeHTML(App::blog()->name())                            => '',
                     (new Span(__('Blog appearance')))->class('page-title')->render() => '',
@@ -191,11 +183,11 @@ class BlogTheme
         $parts = [];
 
         // Activated themes
-        $defines = App::backend()->list->modules->getDefines(
-            ['state' => App::backend()->list->modules->safeMode() ? ModuleDefine::STATE_SOFT_DISABLED : ModuleDefine::STATE_ENABLED]
+        $defines = App::backend()->themesList()->modules->getDefines(
+            ['state' => App::backend()->themesList()->modules->safeMode() ? ModuleDefine::STATE_SOFT_DISABLED : ModuleDefine::STATE_ENABLED]
         );
         if (!empty($defines)) {
-            $list = fn () => App::backend()->list
+            $list = fn () => App::backend()->themesList()
                 ->setList('theme-activate')
                 ->setTab('themes')
                 ->setDefines($defines)
@@ -210,7 +202,7 @@ class BlogTheme
                 ->class('multi-part')
                 ->title(__('Installed themes'))
                 ->items([
-                    (new Text('h3', (App::auth()->isSuperAdmin() ? __('Activated themes') : __('Installed themes')) . (App::backend()->list->modules->safeMode() ? ' ' . __('(in normal mode)') : ''))),
+                    (new Text('h3', (App::auth()->isSuperAdmin() ? __('Activated themes') : __('Installed themes')) . (App::backend()->themesList()->modules->safeMode() ? ' ' . __('(in normal mode)') : ''))),
                     (new Note())
                         ->class('more-info')
                         ->text(__('You can configure and manage installed themes from this list.')),
@@ -219,9 +211,9 @@ class BlogTheme
         }
 
         // Deactivated modules
-        $defines = App::backend()->list->modules->getDefines(['state' => ModuleDefine::STATE_HARD_DISABLED]);
+        $defines = App::backend()->themesList()->modules->getDefines(['state' => ModuleDefine::STATE_HARD_DISABLED]);
         if (!empty($defines)) {
-            $list = fn () => App::backend()->list
+            $list = fn () => App::backend()->themesList()
                 ->setList('theme-deactivate')
                 ->setTab('themes')
                 ->setDefines($defines)
@@ -248,21 +240,21 @@ class BlogTheme
         if (App::auth()->isSuperAdmin()) {
             $messages = '';
             if (!App::blog()->settings()->system->store_theme_url) {
-                $messages .= Notices::message(
+                $messages .= App::backend()->notices()->message(
                     __('Official repository could not be updated as there is no URL set in configuration.'),
                     echo: false
                 );
             }
 
             if (!App::error()->flag() && !empty($_GET['nocache'])) {
-                $messages .= Notices::success(
+                $messages .= App::backend()->notices()->success(
                     __('Manual checking of themes update done successfully.'),
                     echo: false
                 );
             }
 
             // Updated themes from repo
-            $defines = App::backend()->list->store->getDefines(true);
+            $defines = App::backend()->themesList()->store->getDefines(true);
             $tmp     = new ArrayObject($defines);
 
             # --BEHAVIOR-- afterCheckStoreUpdate -- string, ArrayObject<int, ModuleDefine>
@@ -271,7 +263,7 @@ class BlogTheme
             $defines = $tmp->getArrayCopy();
             $updates = empty($defines) ? '' : sprintf(' (%s)', count($defines));
 
-            $list = fn () => App::backend()->list
+            $list = fn () => App::backend()->themesList()
                 ->setList('theme-update')
                 ->setTab('themes')
                 ->setDefines($defines)
@@ -288,7 +280,7 @@ class BlogTheme
                 ->items([
                     $messages !== '' ? (new Text(null, $messages)) : (new None()),
                     (new Form('force-checking'))
-                        ->action(App::backend()->list->getURL('', true, 'update'))
+                        ->action(App::backend()->themesList()->getURL('', true, 'update'))
                         ->method('get')
                         ->fields([
                             (new Para())
@@ -324,13 +316,13 @@ class BlogTheme
                 ]);
         }
 
-        if (App::auth()->isSuperAdmin() && App::backend()->list->isWritablePath()) {
+        if (App::auth()->isSuperAdmin() && App::backend()->themesList()->isWritablePath()) {
             // New modules from repo
-            $search  = App::backend()->list->getSearch();
-            $defines = $search ? App::backend()->list->store->searchDefines($search) : App::backend()->list->store->getDefines();
+            $search  = App::backend()->themesList()->getSearch();
+            $defines = $search ? App::backend()->themesList()->store->searchDefines($search) : App::backend()->themesList()->store->getDefines();
 
             if (!empty($search) || !empty($defines)) {
-                $list = fn () => App::backend()->list
+                $list = fn () => App::backend()->themesList()
                     ->setList('theme-new')
                     ->setTab('new')
                     ->setDefines($defines)
@@ -361,7 +353,7 @@ class BlogTheme
             }
 
             // Add a new theme
-            $list = fn () => App::backend()->list->displayManualForm();
+            $list = fn () => App::backend()->themesList()->displayManualForm();
 
             $parts[] = (new Div('addtheme'))
                 ->title(__('Install or upgrade manually'))
@@ -383,14 +375,14 @@ class BlogTheme
         App::behavior()->callBehavior('themesToolsTabsV2');
 
         // Notice for super admin
-        if (App::auth()->isSuperAdmin() && !App::backend()->list->isWritablePath()) {
+        if (App::auth()->isSuperAdmin() && !App::backend()->themesList()->isWritablePath()) {
             echo (new Note())
                 ->class('warning')
                 ->text(__('Some functions are disabled, please give write access to your themes directory to enable them.'))
             ->render();
         }
 
-        Page::helpBlock('core_blog_theme');
-        Page::close();
+        App::backend()->page()->helpBlock('core_blog_theme');
+        App::backend()->page()->close();
     }
 }

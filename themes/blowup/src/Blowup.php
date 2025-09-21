@@ -10,7 +10,6 @@
 namespace Dotclear\Theme\blowup;
 
 use Dotclear\App;
-use Dotclear\Core\Backend\ThemeConfig;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\Html\Form\Optgroup;
 use Dotclear\Helper\Html\Form\Option;
@@ -151,7 +150,7 @@ class Blowup
      */
     public static function cssPath(): string
     {
-        return ThemeConfig::cssPath(self::$css_folder);
+        return App::backend()->themeConfig()->cssPath(self::$css_folder);
     }
 
     /**
@@ -159,7 +158,7 @@ class Blowup
      */
     public static function cssURL(): string
     {
-        return ThemeConfig::cssURL(self::$css_folder);
+        return App::backend()->themeConfig()->cssURL(self::$css_folder);
     }
 
     /**
@@ -169,7 +168,7 @@ class Blowup
      */
     public static function canWriteCss(bool $create = false): bool
     {
-        return ThemeConfig::canWriteCss(self::$css_folder, $create);
+        return App::backend()->themeConfig()->canWriteCss(self::$css_folder, $create);
     }
 
     /**
@@ -182,7 +181,7 @@ class Blowup
      */
     protected static function backgroundImg(array &$css, string $selector, bool $value, string $image): void
     {
-        ThemeConfig::backgroundImg(self::$img_folder, $css, $selector, $value, $image);
+        App::backend()->themeConfig()->backgroundImg(self::$img_folder, $css, $selector, $value, $image);
     }
 
     /**
@@ -193,7 +192,7 @@ class Blowup
      */
     private static function writeCss(string $theme, string $css): void
     {
-        ThemeConfig::writeCss(self::$css_folder, $theme, $css);
+        App::backend()->themeConfig()->writeCss(self::$css_folder, $theme, $css);
     }
 
     /**
@@ -203,7 +202,7 @@ class Blowup
      */
     public static function dropCss(string $theme): void
     {
-        ThemeConfig::dropCss(self::$css_folder, $theme);
+        App::backend()->themeConfig()->dropCss(self::$css_folder, $theme);
     }
 
     /**
@@ -211,7 +210,7 @@ class Blowup
      */
     public static function publicCssUrlHelper(): string
     {
-        $ret = ThemeConfig::publicCssUrlHelper(self::$css_folder);
+        $ret = App::backend()->themeConfig()->publicCssUrlHelper(self::$css_folder);
 
         return is_string($ret) ? $ret : '';
     }
@@ -221,7 +220,7 @@ class Blowup
      */
     public static function imagesPath(): string|bool
     {
-        return ThemeConfig::imagesPath(self::$img_folder);
+        return App::backend()->themeConfig()->imagesPath(self::$img_folder);
     }
 
     /**
@@ -229,7 +228,7 @@ class Blowup
      */
     public static function imagesURL(): string
     {
-        return ThemeConfig::imagesURL(self::$img_folder);
+        return App::backend()->themeConfig()->imagesURL(self::$img_folder);
     }
 
     /**
@@ -239,7 +238,7 @@ class Blowup
      */
     public static function canWriteImages(bool $create = false): bool
     {
-        return ThemeConfig::canWriteImages(self::$img_folder, $create);
+        return App::backend()->themeConfig()->canWriteImages(self::$img_folder, $create);
     }
 
     /**
@@ -249,7 +248,7 @@ class Blowup
      */
     public static function uploadImage(array $f): string
     {
-        return ThemeConfig::uploadImage(self::$img_folder, $f, 800);
+        return App::backend()->themeConfig()->uploadImage(self::$img_folder, $f, 800);
     }
 
     /**
@@ -259,7 +258,7 @@ class Blowup
      */
     public static function dropImage(string $img): void
     {
-        ThemeConfig::dropImage(self::$img_folder, $img);
+        App::backend()->themeConfig()->dropImage(self::$img_folder, $img);
     }
 
     /**
@@ -287,19 +286,19 @@ class Blowup
 
         /* Properties
         ---------------------------------------------- */
-        ThemeConfig::prop($css, 'body', 'background-color', $s['body_bg_c']);
+        App::backend()->themeConfig()->prop($css, 'body', 'background-color', $s['body_bg_c']);
 
-        ThemeConfig::prop($css, 'body', 'color', $s['body_txt_c']);
-        ThemeConfig::prop($css, '.post-tags li a:link, .post-tags li a:visited, .post-info-co a:link, .post-info-co a:visited', 'color', $s['body_txt_c']);
-        ThemeConfig::prop($css, '#page', 'font-size', $s['body_txt_s']);
-        ThemeConfig::prop($css, 'body', 'font-family', self::fontDef($s['body_txt_f']));
+        App::backend()->themeConfig()->prop($css, 'body', 'color', $s['body_txt_c']);
+        App::backend()->themeConfig()->prop($css, '.post-tags li a:link, .post-tags li a:visited, .post-info-co a:link, .post-info-co a:visited', 'color', $s['body_txt_c']);
+        App::backend()->themeConfig()->prop($css, '#page', 'font-size', $s['body_txt_s']);
+        App::backend()->themeConfig()->prop($css, 'body', 'font-family', self::fontDef($s['body_txt_f']));
 
-        ThemeConfig::prop($css, '.post-content, .post-excerpt, #comments dd, #pings dd, dd.comment-preview', 'line-height', $s['body_line_height']);
+        App::backend()->themeConfig()->prop($css, '.post-content, .post-excerpt, #comments dd, #pings dd, dd.comment-preview', 'line-height', $s['body_line_height']);
 
         if (!$s['blog_title_hide']) {
-            ThemeConfig::prop($css, '#top h1 a', 'color', $s['blog_title_c']);
-            ThemeConfig::prop($css, '#top h1', 'font-size', $s['blog_title_s']);
-            ThemeConfig::prop($css, '#top h1', 'font-family', self::fontDef($s['blog_title_f']));
+            App::backend()->themeConfig()->prop($css, '#top h1 a', 'color', $s['blog_title_c']);
+            App::backend()->themeConfig()->prop($css, '#top h1', 'font-size', $s['blog_title_s']);
+            App::backend()->themeConfig()->prop($css, '#top h1', 'font-family', self::fontDef($s['blog_title_f']));
 
             if ($s['blog_title_a'] == 'right' || $s['blog_title_a'] == 'left') {
                 $css['#top h1'][$s['blog_title_a']] = '0px';
@@ -315,73 +314,73 @@ class Blowup
                 }
             }
         } else {
-            ThemeConfig::prop($css, '#top h1 span', 'text-indent', '-5000px');
-            ThemeConfig::prop($css, '#top h1', 'top', '0px');
+            App::backend()->themeConfig()->prop($css, '#top h1 span', 'text-indent', '-5000px');
+            App::backend()->themeConfig()->prop($css, '#top h1', 'top', '0px');
             $css['#top h1 a'] = [
                 'display' => 'block',
                 'height'  => $s['top_height'] ? ($s['top_height'] - 10) . 'px' : '120px',
                 'width'   => '800px',
             ];
         }
-        ThemeConfig::prop($css, '#top', 'height', $s['top_height']);
+        App::backend()->themeConfig()->prop($css, '#top', 'height', $s['top_height']);
 
-        ThemeConfig::prop($css, '.day-date', 'color', $s['date_title_c']);
-        ThemeConfig::prop($css, '.day-date', 'font-family', self::fontDef($s['date_title_f']));
-        ThemeConfig::prop($css, '.day-date', 'font-size', $s['date_title_s']);
+        App::backend()->themeConfig()->prop($css, '.day-date', 'color', $s['date_title_c']);
+        App::backend()->themeConfig()->prop($css, '.day-date', 'font-family', self::fontDef($s['date_title_f']));
+        App::backend()->themeConfig()->prop($css, '.day-date', 'font-size', $s['date_title_s']);
 
-        ThemeConfig::prop($css, 'a', 'color', $s['body_link_c']);
-        ThemeConfig::prop($css, 'a:visited', 'color', $s['body_link_v_c']);
-        ThemeConfig::prop($css, 'a:hover, a:focus, a:active', 'color', $s['body_link_f_c']);
+        App::backend()->themeConfig()->prop($css, 'a', 'color', $s['body_link_c']);
+        App::backend()->themeConfig()->prop($css, 'a:visited', 'color', $s['body_link_v_c']);
+        App::backend()->themeConfig()->prop($css, 'a:hover, a:focus, a:active', 'color', $s['body_link_f_c']);
 
-        ThemeConfig::prop($css, '#comment-form input, #comment-form textarea', 'color', $s['body_link_c']);
-        ThemeConfig::prop($css, '#comment-form input.preview', 'color', $s['body_link_c']);
-        ThemeConfig::prop($css, '#comment-form input.preview:hover', 'background', $s['body_link_f_c']);
-        ThemeConfig::prop($css, '#comment-form input.preview:hover', 'border-color', $s['body_link_f_c']);
-        ThemeConfig::prop($css, '#comment-form input.submit', 'color', $s['body_link_c']);
-        ThemeConfig::prop($css, '#comment-form input.submit:hover', 'background', $s['body_link_f_c']);
-        ThemeConfig::prop($css, '#comment-form input.submit:hover', 'border-color', $s['body_link_f_c']);
+        App::backend()->themeConfig()->prop($css, '#comment-form input, #comment-form textarea', 'color', $s['body_link_c']);
+        App::backend()->themeConfig()->prop($css, '#comment-form input.preview', 'color', $s['body_link_c']);
+        App::backend()->themeConfig()->prop($css, '#comment-form input.preview:hover', 'background', $s['body_link_f_c']);
+        App::backend()->themeConfig()->prop($css, '#comment-form input.preview:hover', 'border-color', $s['body_link_f_c']);
+        App::backend()->themeConfig()->prop($css, '#comment-form input.submit', 'color', $s['body_link_c']);
+        App::backend()->themeConfig()->prop($css, '#comment-form input.submit:hover', 'background', $s['body_link_f_c']);
+        App::backend()->themeConfig()->prop($css, '#comment-form input.submit:hover', 'border-color', $s['body_link_f_c']);
 
-        ThemeConfig::prop($css, '#sidebar', 'font-family', self::fontDef($s['sidebar_text_f']));
-        ThemeConfig::prop($css, '#sidebar', 'font-size', $s['sidebar_text_s']);
-        ThemeConfig::prop($css, '#sidebar', 'color', $s['sidebar_text_c']);
+        App::backend()->themeConfig()->prop($css, '#sidebar', 'font-family', self::fontDef($s['sidebar_text_f']));
+        App::backend()->themeConfig()->prop($css, '#sidebar', 'font-size', $s['sidebar_text_s']);
+        App::backend()->themeConfig()->prop($css, '#sidebar', 'color', $s['sidebar_text_c']);
 
-        ThemeConfig::prop($css, '#sidebar h2', 'font-family', self::fontDef($s['sidebar_title_f']));
-        ThemeConfig::prop($css, '#sidebar h2', 'font-size', $s['sidebar_title_s']);
-        ThemeConfig::prop($css, '#sidebar h2', 'color', $s['sidebar_title_c']);
+        App::backend()->themeConfig()->prop($css, '#sidebar h2', 'font-family', self::fontDef($s['sidebar_title_f']));
+        App::backend()->themeConfig()->prop($css, '#sidebar h2', 'font-size', $s['sidebar_title_s']);
+        App::backend()->themeConfig()->prop($css, '#sidebar h2', 'color', $s['sidebar_title_c']);
 
-        ThemeConfig::prop($css, '#sidebar h3', 'font-family', self::fontDef($s['sidebar_title2_f']));
-        ThemeConfig::prop($css, '#sidebar h3', 'font-size', $s['sidebar_title2_s']);
-        ThemeConfig::prop($css, '#sidebar h3', 'color', $s['sidebar_title2_c']);
+        App::backend()->themeConfig()->prop($css, '#sidebar h3', 'font-family', self::fontDef($s['sidebar_title2_f']));
+        App::backend()->themeConfig()->prop($css, '#sidebar h3', 'font-size', $s['sidebar_title2_s']);
+        App::backend()->themeConfig()->prop($css, '#sidebar h3', 'color', $s['sidebar_title2_c']);
 
-        ThemeConfig::prop($css, '#sidebar ul', 'border-top-color', $s['sidebar_line_c']);
-        ThemeConfig::prop($css, '#sidebar li', 'border-bottom-color', $s['sidebar_line_c']);
-        ThemeConfig::prop($css, '#topnav ul', 'border-bottom-color', $s['sidebar_line_c']);
+        App::backend()->themeConfig()->prop($css, '#sidebar ul', 'border-top-color', $s['sidebar_line_c']);
+        App::backend()->themeConfig()->prop($css, '#sidebar li', 'border-bottom-color', $s['sidebar_line_c']);
+        App::backend()->themeConfig()->prop($css, '#topnav ul', 'border-bottom-color', $s['sidebar_line_c']);
 
-        ThemeConfig::prop($css, '#sidebar li a', 'color', $s['sidebar_link_c']);
-        ThemeConfig::prop($css, '#sidebar li a:visited', 'color', $s['sidebar_link_v_c']);
-        ThemeConfig::prop($css, '#sidebar li a:hover, #sidebar li a:focus, #sidebar li a:active', 'color', $s['sidebar_link_f_c']);
-        ThemeConfig::prop($css, '#search input', 'color', $s['sidebar_link_c']);
-        ThemeConfig::prop($css, '#search .submit', 'color', $s['sidebar_link_c']);
-        ThemeConfig::prop($css, '#search .submit:hover', 'background', $s['sidebar_link_f_c']);
-        ThemeConfig::prop($css, '#search .submit:hover', 'border-color', $s['sidebar_link_f_c']);
+        App::backend()->themeConfig()->prop($css, '#sidebar li a', 'color', $s['sidebar_link_c']);
+        App::backend()->themeConfig()->prop($css, '#sidebar li a:visited', 'color', $s['sidebar_link_v_c']);
+        App::backend()->themeConfig()->prop($css, '#sidebar li a:hover, #sidebar li a:focus, #sidebar li a:active', 'color', $s['sidebar_link_f_c']);
+        App::backend()->themeConfig()->prop($css, '#search input', 'color', $s['sidebar_link_c']);
+        App::backend()->themeConfig()->prop($css, '#search .submit', 'color', $s['sidebar_link_c']);
+        App::backend()->themeConfig()->prop($css, '#search .submit:hover', 'background', $s['sidebar_link_f_c']);
+        App::backend()->themeConfig()->prop($css, '#search .submit:hover', 'border-color', $s['sidebar_link_f_c']);
 
-        ThemeConfig::prop($css, '.post-title', 'color', $s['post_title_c']);
-        ThemeConfig::prop($css, '.post-title a, .post-title a:visited', 'color', $s['post_title_c']);
-        ThemeConfig::prop($css, '.post-title', 'font-family', self::fontDef($s['post_title_f']));
-        ThemeConfig::prop($css, '.post-title', 'font-size', $s['post_title_s']);
+        App::backend()->themeConfig()->prop($css, '.post-title', 'color', $s['post_title_c']);
+        App::backend()->themeConfig()->prop($css, '.post-title a, .post-title a:visited', 'color', $s['post_title_c']);
+        App::backend()->themeConfig()->prop($css, '.post-title', 'font-family', self::fontDef($s['post_title_f']));
+        App::backend()->themeConfig()->prop($css, '.post-title', 'font-size', $s['post_title_s']);
 
-        ThemeConfig::prop($css, '#comments dd', 'background-color', $s['post_comment_bg_c']);
-        ThemeConfig::prop($css, '#comments dd', 'color', $s['post_comment_c']);
-        ThemeConfig::prop($css, '#comments dd.me', 'background-color', $s['post_commentmy_bg_c']);
-        ThemeConfig::prop($css, '#comments dd.me', 'color', $s['post_commentmy_c']);
+        App::backend()->themeConfig()->prop($css, '#comments dd', 'background-color', $s['post_comment_bg_c']);
+        App::backend()->themeConfig()->prop($css, '#comments dd', 'color', $s['post_comment_c']);
+        App::backend()->themeConfig()->prop($css, '#comments dd.me', 'background-color', $s['post_commentmy_bg_c']);
+        App::backend()->themeConfig()->prop($css, '#comments dd.me', 'color', $s['post_commentmy_c']);
 
-        ThemeConfig::prop($css, '#prelude, #prelude a', 'color', $s['prelude_c']);
+        App::backend()->themeConfig()->prop($css, '#prelude, #prelude a', 'color', $s['prelude_c']);
 
-        ThemeConfig::prop($css, '#footer p', 'background-color', $s['footer_bg_c']);
-        ThemeConfig::prop($css, '#footer p', 'color', $s['footer_c']);
-        ThemeConfig::prop($css, '#footer p', 'font-size', $s['footer_s']);
-        ThemeConfig::prop($css, '#footer p', 'font-family', self::fontDef($s['footer_f']));
-        ThemeConfig::prop($css, '#footer p a', 'color', $s['footer_l_c']);
+        App::backend()->themeConfig()->prop($css, '#footer p', 'background-color', $s['footer_bg_c']);
+        App::backend()->themeConfig()->prop($css, '#footer p', 'color', $s['footer_c']);
+        App::backend()->themeConfig()->prop($css, '#footer p', 'font-size', $s['footer_s']);
+        App::backend()->themeConfig()->prop($css, '#footer p', 'font-family', self::fontDef($s['footer_f']));
+        App::backend()->themeConfig()->prop($css, '#footer p a', 'color', $s['footer_l_c']);
 
         /* Images
         ------------------------------------------------------ */
@@ -484,9 +483,9 @@ class Blowup
         self::dropImage(basename($comment_t));
         self::dropImage(basename($comment_b));
 
-        $body_color    = ThemeConfig::adjustColor($body_color);
-        $prelude_color = ThemeConfig::adjustColor($prelude_color);
-        $comment_color = ThemeConfig::adjustColor($comment_color);
+        $body_color    = App::backend()->themeConfig()->adjustColor($body_color);
+        $prelude_color = App::backend()->themeConfig()->adjustColor($prelude_color);
+        $comment_color = App::backend()->themeConfig()->adjustColor($comment_color);
 
         $d_body_bg = false;
 

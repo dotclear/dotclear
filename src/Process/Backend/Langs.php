@@ -12,8 +12,6 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
-use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Zip\Unzip;
 use Dotclear\Helper\Html\Form\Div;
@@ -59,7 +57,7 @@ class Langs
 
     public static function init(): bool
     {
-        Page::checkSuper();
+        App::backend()->page()->checkSuper();
 
         App::backend()->is_writable = is_dir(App::config()->l10nRoot()) && is_writable(App::config()->l10nRoot());
         App::backend()->iso_codes   = L10n::getISOcodes();
@@ -103,7 +101,7 @@ class Langs
                     throw new Exception(__('Permissions to delete language denied.'));
                 }
 
-                Notices::addSuccessNotice(__('Language has been successfully deleted.'));
+                App::backend()->notices()->addSuccessNotice(__('Language has been successfully deleted.'));
                 App::backend()->url()->redirect('admin.langs');
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
@@ -145,9 +143,9 @@ class Langs
                 }
 
                 if ($ret_code === self::LANG_UPDATED) {
-                    Notices::addSuccessNotice(__('Language has been successfully upgraded'));
+                    App::backend()->notices()->addSuccessNotice(__('Language has been successfully upgraded'));
                 } else {
-                    Notices::addSuccessNotice(__('Language has been successfully installed.'));
+                    App::backend()->notices()->addSuccessNotice(__('Language has been successfully installed.'));
                 }
                 App::backend()->url()->redirect('admin.langs');
             } catch (Exception $e) {
@@ -178,9 +176,9 @@ class Langs
                 }
 
                 if ($ret_code === self::LANG_UPDATED) {
-                    Notices::addSuccessNotice(__('Language has been successfully upgraded'));
+                    App::backend()->notices()->addSuccessNotice(__('Language has been successfully upgraded'));
                 } else {
-                    Notices::addSuccessNotice(__('Language has been successfully installed.'));
+                    App::backend()->notices()->addSuccessNotice(__('Language has been successfully installed.'));
                 }
                 App::backend()->url()->redirect('admin.langs');
             } catch (Exception $e) {
@@ -242,10 +240,10 @@ class Langs
 
         // Display
 
-        Page::open(
+        App::backend()->page()->open(
             __('Languages management'),
-            Page::jsLoad('js/_langs.js'),
-            Page::breadcrumb(
+            App::backend()->page()->jsLoad('js/_langs.js'),
+            App::backend()->page()->breadcrumb(
                 [
                     __('System')               => '',
                     __('Languages management') => '',
@@ -417,8 +415,8 @@ class Langs
             ->items($parts)
         ->render();
 
-        Page::helpBlock('core_langs');
-        Page::close();
+        App::backend()->page()->helpBlock('core_langs');
+        App::backend()->page()->close();
     }
 
     /**

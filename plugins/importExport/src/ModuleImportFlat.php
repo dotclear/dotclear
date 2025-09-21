@@ -10,8 +10,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\importExport;
 
-use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Backend\Page;
 use Dotclear\App;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
@@ -183,12 +181,12 @@ class ModuleImportFlat extends Module
     public function gui(): void
     {
         if ($this->status === 'single') {
-            Notices::success(__('Single blog successfully imported.'));
+            App::backend()->notices()->success(__('Single blog successfully imported.'));
 
             return;
         }
         if ($this->status === 'full') {
-            Notices::success(__('Content successfully imported.'));
+            App::backend()->notices()->success(__('Content successfully imported.'));
 
             return;
         }
@@ -201,7 +199,7 @@ class ModuleImportFlat extends Module
         $has_files = (bool) (count($public_files) - 1);
 
         echo
-        Page::jsJson(
+        App::backend()->page()->jsJson(
             'ie_import_flat_msg',
             ['confirm_full_import' => __('Are you sure you want to import a full backup file?')]
         ) .
