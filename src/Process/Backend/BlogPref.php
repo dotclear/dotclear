@@ -186,10 +186,10 @@ class BlogPref
                 App::backend()->media_img_title_pattern = $old_img_title_combo[App::backend()->media_img_title_pattern];
             } else {
                 // Add custom pattern to combo
-                App::backend()->img_title_combo = [
-                    ...App::backend()->img_title_combo,
-                    Html::escapeHTML(App::backend()->media_img_title_pattern) => Html::escapeHTML(App::backend()->media_img_title_pattern),
-                ];
+                App::backend()->img_title_combo = array_merge(
+                    App::backend()->img_title_combo,
+                    [Html::escapeHTML(App::backend()->media_img_title_pattern) => Html::escapeHTML(App::backend()->media_img_title_pattern)]
+                );
             }
         }
 
@@ -1267,7 +1267,8 @@ class BlogPref
 
                 // Prepare user list
                 foreach (App::backend()->blog_users as $k => $v) {
-                    if ((is_countable($v['p']) ? count($v['p']) : 0) > 0) {
+                    // Check if user has at least one permission or is superadmin
+                    if (count($v['p']) > 0 || $v['super']) {
                         // User email
                         $mail = $v['email'] ?
                             (new Link())
@@ -1299,7 +1300,11 @@ class BlogPref
                                         ->class('form-note'),
                                 ]);
                         } else {
-                            foreach (array_keys($v['p']) as $p) {
+                            /**
+                             * @var array<string, bool> $user_permissions (see Auth::parsePermissions())
+                             */
+                            $user_permissions = $v['p'];
+                            foreach (array_keys($user_permissions) as $p) {
                                 $perm = (new Li());
                                 if ($p === 'admin') {
                                     $super = (new Set())

@@ -13,7 +13,6 @@ namespace Dotclear\Process\Backend;
 
 use ArrayObject;
 use Dotclear\App;
-use Dotclear\Core\Upgrade\Update;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\File\File;
 use Dotclear\Helper\Html\Form\Dd;
@@ -215,13 +214,13 @@ class Rest
         ];
 
         if (App::auth()->isSuperAdmin() && !App::config()->coreNotUpdate() && is_readable(App::config()->digestsRoot()) && !App::auth()->prefs()->dashboard->nodcupdate) {
-            $updater      = new Update(App::config()->coreUpdateUrl(), 'dotclear', App::config()->coreUpdateCanal(), App::config()->cacheRoot() . DIRECTORY_SEPARATOR . Update::CACHE_FOLDER);
-            $new_v        = $updater->check(App::config()->dotclearVersion(), false);
-            $version_info = $new_v ? $updater->getInfoURL() : '';
+            App::task()->addContext('UPGRADE');
+            $new_v        = App::upgrade()->update()->check(App::config()->dotclearVersion(), false);
+            $version_info = $new_v ? App::upgrade()->update()->getInfoURL() : '';
 
-            if ($updater->getNotify() && $new_v) {
+            if (App::upgrade()->update()->getNotify() && $new_v) {
                 // Check PHP version required
-                if (version_compare(phpversion(), (string) $updater->getPHPVersion()) >= 0) {
+                if (version_compare(phpversion(), (string) App::upgrade()->update()->getPHPVersion()) >= 0) {
                     $ret = (new Div('ajax-update'))
                         ->class('dc-update')
                         ->items([
@@ -254,7 +253,7 @@ class Rest
                         ->class('info')
                         ->text(sprintf(
                             __('A new version of Dotclear is available but needs PHP version ≥ %1$s, your\'s is currently %2$s'),
-                            $updater->getPHPVersion(),
+                            App::upgrade()->update()->getPHPVersion(),
                             phpversion()
                         ))
                     ->render();
