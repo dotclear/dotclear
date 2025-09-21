@@ -73,12 +73,16 @@ class Utility extends AbstractUtility
             throw new ContextException('Application is not in upgrade context.');
         }
 
-        // configure upgrade session
-        App::session()->configure(
-            cookie_name: App::config()->sessionName(),
-            cookie_secure: App::config()->adminSsl(),
-            ttl: App::config()->sessionTtl()
-        );
+        if (App::task()->checkContext('BACKEND') && App::session()->exists()) {
+            // Opening a Upgrade context inside a Backend one, nothing more to do
+        } else {
+            // configure upgrade session
+            App::session()->configure(
+                cookie_name: App::config()->sessionName(),
+                cookie_secure: App::config()->adminSsl(),
+                ttl: App::config()->sessionTtl()
+            );
+        }
 
         // HTTP/1.1
         header('Expires: Mon, 13 Aug 2003 07:48:00 GMT');
