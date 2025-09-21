@@ -13,7 +13,6 @@ namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
 use Dotclear\Core\Backend\ModulesList;
-use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Li;
 use Dotclear\Helper\Html\Form\Link;
@@ -53,12 +52,12 @@ class Settings
     public static function render(): void
     {
         // -- Page header --
-        Page::open(
+        App::backend()->page()->open(
             __('Plugins settings'),
-            Page::jsLoad('js/_settings.js') .
+            App::backend()->page()->jsLoad('js/_settings.js') .
             # --BEHAVIOR-- settingsHeaders
             App::behavior()->callBehavior('settingsHeaders'),
-            Page::breadcrumb(
+            App::backend()->page()->breadcrumb(
                 [
                     __('System')           => '',
                     __('Plugins settings') => '',
@@ -307,7 +306,7 @@ class Settings
             ])
         ->render();
 
-        Page::helpBlock('core_settings');
-        Page::close();
+        App::backend()->page()->helpBlock('core_settings');
+        App::backend()->page()->close();
     }
 }

@@ -17,7 +17,6 @@ use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Helper;
 use Dotclear\Core\Backend\ModulesList;
 use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Form\Date;
 use Dotclear\Helper\Html\Form\Details;
@@ -66,7 +65,7 @@ class Home
             }
         }
 
-        Page::check(App::auth()->makePermissions([
+        App::backend()->page()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_USAGE,
             App::auth()::PERMISSION_CONTENT_ADMIN,
         ]));
@@ -206,7 +205,7 @@ class Home
                     $admin_post_behavior = App::behavior()->callBehavior('adminPostEditor', $post_editor[$post_format], 'quickentry', ['#post_content'], $post_format);
                 }
             }
-            $quickentry = Page::jsJson('dotclear_quickentry', [
+            $quickentry = App::backend()->page()->jsJson('dotclear_quickentry', [
                 'post_published' => App::status()->post()::PUBLISHED,
                 'post_pending'   => App::status()->post()::PENDING,
             ]);
@@ -220,7 +219,7 @@ class Home
                 'dragndrop_off' => __('Dashboard area\'s drag and drop is disabled'),
                 'dragndrop_on'  => __('Dashboard area\'s drag and drop is enabled'),
             ];
-            $dragndrop_head = Page::jsJson('dotclear_dragndrop', $dragndrop_msg);
+            $dragndrop_head = App::backend()->page()->jsJson('dotclear_dragndrop', $dragndrop_msg);
             $dragndrop_icon = '<svg aria-hidden="true" focusable="false" class="dragndrop-svg"><use xlink:href="images/dragndrop.svg#mask"></use></svg>' .
                 (new Span($dragndrop_msg['dragndrop_off']))
                     ->id('dragndrop-label')
@@ -233,19 +232,19 @@ class Home
             ->render();
         }
 
-        Page::open(
+        App::backend()->page()->open(
             __('Dashboard'),
-            Page::jsLoad('js/jquery/jquery-ui.custom.js') .
-            Page::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
+            App::backend()->page()->jsLoad('js/jquery/jquery-ui.custom.js') .
+            App::backend()->page()->jsLoad('js/jquery/jquery.ui.touch-punch.js') .
             $quickentry .
-            Page::jsLoad('js/_index.js') .
+            App::backend()->page()->jsLoad('js/_index.js') .
             $dragndrop_head .
             $admin_post_behavior .
-            Page::jsAdsBlockCheck() .
+            App::backend()->page()->jsAdsBlockCheck() .
 
             # --BEHAVIOR-- adminDashboardHeaders --
             App::behavior()->callBehavior('adminDashboardHeaders'),
-            Page::breadcrumb(
+            App::backend()->page()->breadcrumb(
                 [
                     __('Dashboard') . ' : ' . '<span class="blog-title">' . Html::escapeHTML(App::blog()->name()) . '</span>' => '',
                 ],
@@ -557,8 +556,8 @@ class Home
 
         echo $dragndrop . '<div id="dashboard-main">' . $dashboardMain . '</div>';
 
-        Page::helpBlock('core_dashboard');
-        Page::close();
+        App::backend()->page()->helpBlock('core_dashboard');
+        App::backend()->page()->close();
     }
 
     // Helpers

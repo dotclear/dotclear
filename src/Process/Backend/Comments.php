@@ -16,7 +16,6 @@ use Dotclear\Core\Backend\Action\ActionsComments;
 use Dotclear\Core\Backend\Filter\FilterComments;
 use Dotclear\Core\Backend\Listing\ListingComments;
 use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\Html\Form\Capture;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
@@ -40,7 +39,7 @@ class Comments
 
     public static function init(): bool
     {
-        Page::check(App::auth()->makePermissions([
+        App::backend()->page()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_USAGE,
             App::auth()::PERMISSION_CONTENT_ADMIN,
         ]));
@@ -127,10 +126,10 @@ class Comments
             App::blog()->id()
         );
 
-        Page::open(
+        App::backend()->page()->open(
             __('Comments and trackbacks'),
-            Page::jsLoad('js/_comments.js') . App::backend()->comment_filter->js(App::backend()->url()->get('admin.comments')),
-            Page::breadcrumb(
+            App::backend()->page()->jsLoad('js/_comments.js') . App::backend()->comment_filter->js(App::backend()->url()->get('admin.comments')),
+            App::backend()->page()->breadcrumb(
                 [
                     Html::escapeHTML(App::blog()->name()) => '',
                     __('Comments and trackbacks')         => '',
@@ -235,7 +234,7 @@ class Comments
             );
         }
 
-        Page::helpBlock('core_comments');
-        Page::close();
+        App::backend()->page()->helpBlock('core_comments');
+        App::backend()->page()->close();
     }
 }

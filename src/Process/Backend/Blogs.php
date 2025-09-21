@@ -16,7 +16,6 @@ use Dotclear\App;
 use Dotclear\Core\Backend\Action\ActionsBlogs;
 use Dotclear\Core\Backend\Filter\FilterBlogs;
 use Dotclear\Core\Backend\Listing\ListingBlogs;
-use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Label;
@@ -39,7 +38,7 @@ class Blogs
 
     public static function init(): bool
     {
-        Page::check(App::auth()->makePermissions([
+        App::backend()->page()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_USAGE,
             App::auth()::PERMISSION_CONTENT_ADMIN,
         ]));
@@ -95,10 +94,10 @@ class Blogs
             throw new Exception('Application is not in administrative context.', 500);
         }
 
-        Page::open(
+        App::backend()->page()->open(
             __('List of blogs'),
-            Page::jsLoad('js/_blogs.js') . App::backend()->blog_filter->js(App::backend()->url()->get('admin.blogs')),
-            Page::breadcrumb(
+            App::backend()->page()->jsLoad('js/_blogs.js') . App::backend()->blog_filter->js(App::backend()->url()->get('admin.blogs')),
+            App::backend()->page()->breadcrumb(
                 [
                     __('System')        => '',
                     __('List of blogs') => '',
@@ -178,7 +177,7 @@ class Blogs
             );
         }
 
-        Page::helpBlock('core_blogs');
-        Page::close();
+        App::backend()->page()->helpBlock('core_blogs');
+        App::backend()->page()->close();
     }
 }

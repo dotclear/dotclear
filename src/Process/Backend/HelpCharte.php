@@ -11,7 +11,6 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
-use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Process\TraitProcess;
 
@@ -24,7 +23,7 @@ class HelpCharte
      */
     public static function init(): bool
     {
-        Page::check(
+        App::backend()->page()->check(
             App::auth()->makePermissions([
                 App::auth()::PERMISSION_USAGE,
                 App::auth()::PERMISSION_CONTENT_ADMIN,
@@ -78,7 +77,7 @@ class HelpCharte
   <link rel="icon" type="image/png" href="images/favicon96-login.png">
 <?php
             echo
-            Page::cssLoad('style/default.css') . // Set some JSON data
+            App::backend()->page()->cssLoad('style/default.css') . // Set some JSON data
             Html::jsJson('dotclear_init', self::getJS());
         ?>
   <script src="js/jquery/jquery.js"></script>

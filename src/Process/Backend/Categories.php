@@ -14,7 +14,6 @@ namespace Dotclear\Process\Backend;
 use Dotclear\App;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Backend\Page;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
@@ -44,7 +43,7 @@ class Categories
 
     public static function init(): bool
     {
-        Page::check(App::auth()->makePermissions([
+        App::backend()->page()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_CATEGORIES,
         ]));
 
@@ -148,17 +147,17 @@ class Categories
                 App::auth()::PERMISSION_CATEGORIES,
             ]), App::blog()->id())
             && $rs->count() > 1) {
-            $starting_script .= Page::jsLoad('js/jquery/jquery-ui.custom.js');
-            $starting_script .= Page::jsLoad('js/jquery/jquery.ui.touch-punch.js');
-            $starting_script .= Page::jsLoad('js/jquery/jquery.mjs.nestedSortable.js');
+            $starting_script .= App::backend()->page()->jsLoad('js/jquery/jquery-ui.custom.js');
+            $starting_script .= App::backend()->page()->jsLoad('js/jquery/jquery.ui.touch-punch.js');
+            $starting_script .= App::backend()->page()->jsLoad('js/jquery/jquery.mjs.nestedSortable.js');
         }
-        $starting_script .= Page::jsConfirmClose('form-categories');
-        $starting_script .= Page::jsLoad('js/_categories.js');
+        $starting_script .= App::backend()->page()->jsConfirmClose('form-categories');
+        $starting_script .= App::backend()->page()->jsLoad('js/_categories.js');
 
-        Page::open(
+        App::backend()->page()->open(
             __('Categories'),
             $starting_script,
-            Page::breadcrumb(
+            App::backend()->page()->breadcrumb(
                 [
                     Html::escapeHTML(App::blog()->name()) => '',
                     __('Categories')                      => '',
@@ -255,8 +254,8 @@ class Categories
             ->items($parts)
         ->render();
 
-        Page::helpBlock('core_categories');
-        Page::close();
+        App::backend()->page()->helpBlock('core_categories');
+        App::backend()->page()->close();
     }
 
     /**

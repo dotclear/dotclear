@@ -13,7 +13,6 @@ namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
 use Dotclear\Core\Backend\Listing\ListingPostsMini;
-use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Capture;
 use Dotclear\Helper\Html\Form\Div;
@@ -40,7 +39,7 @@ class PostsPopup
 
     public static function init(): bool
     {
-        Page::check(App::auth()->makePermissions([
+        App::backend()->page()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_USAGE,
             App::auth()::PERMISSION_CONTENT_ADMIN,
         ]));
@@ -97,10 +96,10 @@ class PostsPopup
             App::error()->add($e->getMessage());
         }
 
-        Page::openPopup(
+        App::backend()->page()->openPopup(
             __('Add a link to an entry'),
-            Page::jsLoad('js/_posts_list.js') .
-            Page::jsLoad('js/_popup_posts.js') .
+            App::backend()->page()->jsLoad('js/_posts_list.js') .
+            App::backend()->page()->jsLoad('js/_popup_posts.js') .
             App::behavior()->callBehavior('adminPopupPosts', App::backend()->plugin_id)
         );
 
@@ -158,6 +157,6 @@ class PostsPopup
             ])
         ->render();
 
-        Page::closePopup();
+        App::backend()->page()->closePopup();
     }
 }

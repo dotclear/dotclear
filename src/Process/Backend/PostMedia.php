@@ -13,7 +13,6 @@ namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
 use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Hidden;
 use Dotclear\Helper\Html\Form\Para;
@@ -33,7 +32,7 @@ class PostMedia
 
     public static function init(): bool
     {
-        Page::check(App::auth()->makePermissions([
+        App::backend()->page()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_USAGE,
             App::auth()::PERMISSION_CONTENT_ADMIN,
         ]));
@@ -95,7 +94,7 @@ class PostMedia
             }
 
             if (!empty($_GET['remove'])) {
-                Page::open(__('Remove attachment'));
+                App::backend()->page()->open(__('Remove attachment'));
 
                 echo (new Text('h2', ' &rsaquo; ' . (new Span(__('confirm removal')))->class('page-title')->render()))
                 ->render();
@@ -121,7 +120,7 @@ class PostMedia
                 ])
                 ->render();
 
-                Page::close();
+                App::backend()->page()->close();
                 dotclear_exit();
             }
         }

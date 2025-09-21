@@ -15,8 +15,7 @@ use Dotclear\App;
 use Dotclear\Core\Backend\Auth\OAuth2Client;
 use Dotclear\Core\Backend\Auth\OAuth2Store;
 use Dotclear\Core\Backend\Auth\Otp;
-use Dotclear\Core\Backend\Auth\WebAuthn;
-use Dotclear\Core\Backend\Page;
+use Dotclear\Core\Backend\Auth\WebAuthn;;
 use Dotclear\Core\Upgrade\Upgrade;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
@@ -468,19 +467,19 @@ class Auth
             '<link rel="stylesheet" href="style/default.css" type="text/css" media="screen">';
 
         echo
-        $buffer . Page::jsCommon();
+        $buffer . App::backend()->page()->jsCommon();
 
         # --BEHAVIOR-- loginPageHTMLHead --
         App::behavior()->callBehavior('loginPageHTMLHead');
 
         echo
-        Page::jsJson('pwstrength', [
+        App::backend()->page()->jsJson('pwstrength', [
             'min' => sprintf(__('Password strength: %s'), __('weak')),
             'avg' => sprintf(__('Password strength: %s'), __('medium')),
             'max' => sprintf(__('Password strength: %s'), __('strong')),
         ]) .
-        Page::jsLoad('js/pwstrength.js') .
-        Page::jsLoad('js/_auth.js') .
+        App::backend()->page()->jsLoad('js/pwstrength.js') .
+        App::backend()->page()->jsLoad('js/_auth.js') .
         '</head>';
 
         // Body part

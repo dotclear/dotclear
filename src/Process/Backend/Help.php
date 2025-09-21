@@ -12,7 +12,6 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
-use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Process\TraitProcess;
 
@@ -25,7 +24,7 @@ class Help
 
     public static function init(): bool
     {
-        Page::check(App::auth()->makePermissions([
+        App::backend()->page()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_USAGE,
             App::auth()::PERMISSION_CONTENT_ADMIN,
         ]));
@@ -105,23 +104,23 @@ class Help
         }
 
         if ($content_array['title'] !== '') {
-            $breadcrumb = Page::breadcrumb(
+            $breadcrumb = App::backend()->page()->breadcrumb(
                 [
                     __('Global help')       => App::backend()->url()->get('admin.help'),
                     $content_array['title'] => '',
                 ]
             );
         } else {
-            $breadcrumb = Page::breadcrumb(
+            $breadcrumb = App::backend()->page()->breadcrumb(
                 [
                     __('Global help') => '',
                 ]
             );
         }
 
-        Page::open(
+        App::backend()->page()->open(
             __('Global help'),
-            Page::jsPageTabs('first-step'),
+            App::backend()->page()->jsPageTabs('first-step'),
             $breadcrumb
         );
 
@@ -130,6 +129,6 @@ class Help
         // Prevents global help link display
         App::backend()->resources()->context(true);
 
-        Page::close();
+        App::backend()->page()->close();
     }
 }

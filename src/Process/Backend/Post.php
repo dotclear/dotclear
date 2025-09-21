@@ -16,7 +16,6 @@ use Dotclear\App;
 use Dotclear\Core\Backend\Action\ActionsComments;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Backend\Page;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Button;
@@ -69,7 +68,7 @@ class Post
     public static function init(): bool
     {
         $params = [];
-        Page::check(App::auth()->makePermissions([
+        App::backend()->page()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_USAGE,
             App::auth()::PERMISSION_CONTENT_ADMIN,
         ]));
@@ -578,23 +577,23 @@ class Post
         // Check if entry URL basename use title
         $check_title = preg_match('/{t}/', (string) App::blog()->settings()->system->post_url_format);
 
-        Page::open(
+        App::backend()->page()->open(
             App::backend()->page_title . ' - ' . __('Posts'),
-            Page::jsModal() .
-            Page::jsMetaEditor() .
+            App::backend()->page()->jsModal() .
+            App::backend()->page()->jsMetaEditor() .
             $admin_post_behavior .
-            Page::jsJson('post_options', [
+            App::backend()->page()->jsJson('post_options', [
                 'entryurl_dt'    => $check_dt,
                 'entryurl_title' => $check_title,
             ]) .
-            Page::jsLoad('js/_post.js') .
-            Page::jsLoad('js/_trackbacks.js') .
-            Page::jsConfirmClose('entry-form', 'comment-form') .
+            App::backend()->page()->jsLoad('js/_post.js') .
+            App::backend()->page()->jsLoad('js/_trackbacks.js') .
+            App::backend()->page()->jsConfirmClose('entry-form', 'comment-form') .
             # --BEHAVIOR-- adminPostHeaders --
             App::behavior()->callBehavior('adminPostHeaders') .
-            Page::jsPageTabs(App::backend()->default_tab) .
+            App::backend()->page()->jsPageTabs(App::backend()->default_tab) .
             App::backend()->next_headlink . "\n" . App::backend()->prev_headlink,
-            Page::breadcrumb(
+            App::backend()->page()->breadcrumb(
                 [
                     Html::escapeHTML(App::blog()->name()) => '',
                     __('Posts')                           => App::backend()->url()->get('admin.posts'),
@@ -655,8 +654,8 @@ class Post
 
         // Exit if we cannot view page
         if (!App::backend()->can_view_page) {
-            Page::helpBlock('core_post');
-            Page::close();
+            App::backend()->page()->helpBlock('core_post');
+            App::backend()->page()->close();
             dotclear_exit();
         }
 
@@ -1275,8 +1274,8 @@ class Post
             ->render();
         }
 
-        Page::helpBlock('core_post', 'core_trackbacks', 'core_wiki');
-        Page::close();
+        App::backend()->page()->helpBlock('core_post', 'core_trackbacks', 'core_wiki');
+        App::backend()->page()->close();
     }
 
     /**

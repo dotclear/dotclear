@@ -14,7 +14,6 @@ namespace Dotclear\Process\Backend;
 use ArrayObject;
 use Dotclear\App;
 use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Backend\ThemesList;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
@@ -46,7 +45,7 @@ class BlogTheme
 
     public static function init(): bool
     {
-        Page::check(App::auth()->makePermissions([
+        App::backend()->page()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_ADMIN,
         ]));
 
@@ -94,13 +93,13 @@ class BlogTheme
             App::backend()->list->getConfiguration();
 
             // Display page
-            Page::open(
+            App::backend()->page()->open(
                 __('Blog appearance'),
-                Page::jsPageTabs() .
+                App::backend()->page()->jsPageTabs() .
 
                 # --BEHAVIOR-- themesToolsHeaders -- bool
                 App::behavior()->callBehavior('themesToolsHeadersV2', true),
-                Page::breadcrumb(
+                App::backend()->page()->breadcrumb(
                     [
                         // Active links
                         Html::escapeHTML(App::blog()->name()) => '',
@@ -116,9 +115,9 @@ class BlogTheme
 
             if (!App::backend()->resources()->context()) {
                 // Help sidebar has not been loaded by theme configuration
-                Page::helpBlock('core_blog_theme_conf');
+                App::backend()->page()->helpBlock('core_blog_theme_conf');
             }
-            Page::close();
+            App::backend()->page()->close();
 
             // Stop reading code here
             return self::status(false);
@@ -167,19 +166,19 @@ class BlogTheme
     public static function render(): void
     {
         // Page header
-        Page::open(
+        App::backend()->page()->open(
             __('Themes management'),
             (
                 empty($_GET['nocache']) && empty($_GET['showupdate']) ?
-                Page::jsJson('module_update_url', App::backend()->url()->get('admin.blog.theme', ['showupdate' => 1]) . '#update') : ''
+                App::backend()->page()->jsJson('module_update_url', App::backend()->url()->get('admin.blog.theme', ['showupdate' => 1]) . '#update') : ''
             ) .
-            Page::jsModal() .
-            Page::jsLoad('js/_blog_theme.js') .
-            Page::jsPageTabs() .
+            App::backend()->page()->jsModal() .
+            App::backend()->page()->jsLoad('js/_blog_theme.js') .
+            App::backend()->page()->jsPageTabs() .
 
             # --BEHAVIOR-- themesToolsHeaders -- bool
             App::behavior()->callBehavior('themesToolsHeadersV2', false),
-            Page::breadcrumb(
+            App::backend()->page()->breadcrumb(
                 [
                     Html::escapeHTML(App::blog()->name())                            => '',
                     (new Span(__('Blog appearance')))->class('page-title')->render() => '',
@@ -390,7 +389,7 @@ class BlogTheme
             ->render();
         }
 
-        Page::helpBlock('core_blog_theme');
-        Page::close();
+        App::backend()->page()->helpBlock('core_blog_theme');
+        App::backend()->page()->close();
     }
 }

@@ -14,7 +14,6 @@ namespace Dotclear\Process\Backend;
 use Dotclear\App;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Backend\Page;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Div;
@@ -46,7 +45,7 @@ class Category
 
     public static function init(): bool
     {
-        Page::check(App::auth()->makePermissions([
+        App::backend()->page()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_CATEGORIES,
         ]));
 
@@ -227,13 +226,13 @@ class Category
             $rte_flag = $rte_flags['cat_descr'];
         }
 
-        Page::open(
+        App::backend()->page()->open(
             $title,
-            Page::jsConfirmClose('category-form') .
-            Page::jsLoad('js/_category.js') .
+            App::backend()->page()->jsConfirmClose('category-form') .
+            App::backend()->page()->jsLoad('js/_category.js') .
             # --BEHAVIOR-- adminPostEditor -- string, string, string, array<int,string>, string
             ($rte_flag ? App::behavior()->callBehavior('adminPostEditor', $category_editor['xhtml'], 'category', ['#cat_desc'], 'xhtml') : ''),
-            Page::breadcrumb($elements)
+            App::backend()->page()->breadcrumb($elements)
         );
 
         if (!empty($_GET['upd'])) {
@@ -390,7 +389,7 @@ class Category
             ->render();
         }
 
-        Page::helpBlock('core_category');
-        Page::close();
+        App::backend()->page()->helpBlock('core_category');
+        App::backend()->page()->close();
     }
 }

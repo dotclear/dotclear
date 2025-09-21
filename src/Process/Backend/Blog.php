@@ -13,7 +13,6 @@ namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
 use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Input;
@@ -37,7 +36,7 @@ class Blog
 
     public static function init(): bool
     {
-        Page::checkSuper();
+        App::backend()->page()->checkSuper();
 
         App::backend()->blog_id   = '';
         App::backend()->blog_url  = '';
@@ -93,10 +92,10 @@ class Blog
             App::backend()->edit_blog_mode = true;
             App::task()->loadProcess((new \ReflectionClass(BlogPref::class))->getShortName());
         } else {
-            Page::open(
+            App::backend()->page()->open(
                 __('New blog'),
-                Page::jsConfirmClose('blog-form'),
-                Page::breadcrumb(
+                App::backend()->page()->jsConfirmClose('blog-form'),
+                App::backend()->page()->breadcrumb(
                     [
                         __('System')   => '',
                         __('Blogs')    => App::backend()->url()->get('admin.blogs'),
@@ -202,8 +201,8 @@ class Blog
 
                 ])->render();
 
-            Page::helpBlock('core_blog_new');
-            Page::close();
+            App::backend()->page()->helpBlock('core_blog_new');
+            App::backend()->page()->close();
         }
     }
 }

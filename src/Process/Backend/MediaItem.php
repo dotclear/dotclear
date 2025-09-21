@@ -13,7 +13,6 @@ namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
 use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Backend\Page;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\File\Files;
@@ -62,7 +61,7 @@ class MediaItem
 
     public static function init(): bool
     {
-        Page::check(App::auth()->makePermissions([
+        App::backend()->page()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_MEDIA,
             App::auth()::PERMISSION_MEDIA_ADMIN,
         ]));
@@ -121,13 +120,13 @@ class MediaItem
         }
 
         if (App::backend()->popup !== 0) {
-            App::backend()->open_function  = Page::openPopup(...);
-            App::backend()->close_function = Page::closePopup(...);
+            App::backend()->open_function  = App::backend()->page()->openPopup(...);
+            App::backend()->close_function = App::backend()->page()->closePopup(...);
         } else {
-            App::backend()->open_function  = Page::open(...);
+            App::backend()->open_function  = App::backend()->page()->open(...);
             App::backend()->close_function = function (): void {
-                Page::helpBlock('core_media');
-                Page::close();
+                App::backend()->page()->helpBlock('core_media');
+                App::backend()->page()->close();
             };
         }
 
@@ -387,9 +386,9 @@ class MediaItem
 
         // Display page
 
-        $starting_scripts = Page::jsModal() .
-            Page::jsLoad('js/_media_item.js') .
-            Page::jsConfirmClose('change-properties-form');
+        $starting_scripts = App::backend()->page()->jsModal() .
+            App::backend()->page()->jsLoad('js/_media_item.js') .
+            App::backend()->page()->jsConfirmClose('change-properties-form');
 
         if (App::backend()->popup && App::backend()->plugin_id !== '') {
             # --BEHAVIOR-- adminPopupMedia -- string
@@ -406,8 +405,8 @@ class MediaItem
             App::backend()->open_function,
             __('Media manager'),
             $starting_scripts .
-            (App::backend()->popup ? Page::jsPageTabs(App::backend()->tab) : ''),
-            Page::breadcrumb(
+            (App::backend()->popup ? App::backend()->page()->jsPageTabs(App::backend()->tab) : ''),
+            App::backend()->page()->breadcrumb(
                 [
                     Html::escapeHTML(App::blog()->name()) => '',
                     __('Media manager')                   => $home_url,

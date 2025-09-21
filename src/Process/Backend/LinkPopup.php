@@ -13,7 +13,6 @@ namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
 use Dotclear\Core\Backend\Combos;
-use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Input;
@@ -38,7 +37,7 @@ class LinkPopup
 
     public static function init(): bool
     {
-        Page::check(App::auth()->makePermissions([
+        App::backend()->page()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_USAGE,
             App::auth()::PERMISSION_CONTENT_ADMIN,
         ]));
@@ -68,9 +67,9 @@ class LinkPopup
     public static function render(): void
     {
         # --BEHAVIOR-- adminPopupLink -- string
-        Page::openPopup(
+        App::backend()->page()->openPopup(
             __('Add a link'),
-            Page::jsLoad('js/_popup_link.js') . App::behavior()->callBehavior('adminPopupLink', App::backend()->plugin_id)
+            App::backend()->page()->jsLoad('js/_popup_link.js') . App::behavior()->callBehavior('adminPopupLink', App::backend()->plugin_id)
         );
 
         echo (new Set())
@@ -120,6 +119,6 @@ class LinkPopup
             ])
         ->render();
 
-        Page::closePopup();
+        App::backend()->page()->closePopup();
     }
 }

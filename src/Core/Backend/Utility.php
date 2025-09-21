@@ -128,25 +128,14 @@ class Utility extends AbstractUtility
         return [
             Favorites::class => Favorites::class,
             Menus::class     => Menus::class,
+            Page::class      => Page::class,
             Resources::class => Resources::class,
             Url::class       => Url::class,
         ];
     }
 
     /**
-     * Get backend Url instance.
-     *
-     * @return  Url     The backend URL handler
-     */
-    public function url(): Url
-    {
-        return $this->get(Url::class);
-    }
-
-    /**
      * Get backend favorites instance.
-     *
-     * @return  Favorites   The favorites
      */
     public function favorites(): Favorites
     {
@@ -155,8 +144,6 @@ class Utility extends AbstractUtility
 
     /**
      * Get backend menus instance.
-     *
-     * @return  Menus   The menu
      */
     public function menus(): Menus
     {
@@ -164,13 +151,27 @@ class Utility extends AbstractUtility
     }
 
     /**
+     * Get backend page instance.
+     */
+    public function page(): Page
+    {
+        return $this->get(Page::class);
+    }
+
+    /**
      * Get backend resources instance.
-     *
-     * @return  Resources   The menu
      */
     public function resources(): Resources
     {
         return $this->get(Resources::class);
+    }
+
+    /**
+     * Get backend Url instance.
+     */
+    public function url(): Url
+    {
+        return $this->get(Url::class);
     }
 
     public static function init(): bool

@@ -15,7 +15,6 @@ use Dotclear\App;
 use Dotclear\Core\Backend\Listing\ListingMedia;
 use Dotclear\Core\Backend\MediaPage;
 use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Backend\Filter\FilterMedia;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
@@ -57,7 +56,7 @@ class Media
 
     public static function init(): bool
     {
-        Page::check(App::auth()->makePermissions([
+        App::backend()->page()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_MEDIA,
             App::auth()::PERMISSION_MEDIA_ADMIN,
         ]));
@@ -409,11 +408,11 @@ class Media
 
         App::backend()->page->openPage(
             App::backend()->page->breadcrumb(),
-            Page::jsModal() .
+            App::backend()->page()->jsModal() .
             App::backend()->page->js(App::backend()->url()->get('admin.media', array_diff_key(App::backend()->page->values(), App::backend()->page->values(false, true)), '&')) .
-            Page::jsLoad('js/_media.js') .
+            App::backend()->page()->jsLoad('js/_media.js') .
             $starting_scripts .
-            (App::backend()->page->mediaWritable() ? Page::jsUpload() : '')
+            (App::backend()->page->mediaWritable() ? App::backend()->page()->jsUpload() : '')
         );
 
         if (App::backend()->page->popup) {

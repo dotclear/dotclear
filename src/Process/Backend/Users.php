@@ -16,7 +16,6 @@ use Dotclear\App;
 use Dotclear\Core\Backend\Filter\FilterUsers;
 use Dotclear\Core\Backend\Listing\ListingUsers;
 use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Hidden;
@@ -39,7 +38,7 @@ class Users
 
     public static function init(): bool
     {
-        Page::checkSuper();
+        App::backend()->page()->checkSuper();
 
         // Actions
         $combo_action = [
@@ -103,10 +102,10 @@ class Users
 
     public static function render(): void
     {
-        Page::open(
+        App::backend()->page()->open(
             __('Users'),
-            Page::jsLoad('js/_users.js') . App::backend()->user_filter->js(App::backend()->url()->get('admin.users')),
-            Page::breadcrumb(
+            App::backend()->page()->jsLoad('js/_users.js') . App::backend()->user_filter->js(App::backend()->url()->get('admin.users')),
+            App::backend()->page()->breadcrumb(
                 [
                     __('System') => '',
                     __('Users')  => '',
@@ -172,7 +171,7 @@ class Users
                 App::backend()->user_filter->show()
             );
         }
-        Page::helpBlock('core_users');
-        Page::close();
+        App::backend()->page()->helpBlock('core_users');
+        App::backend()->page()->close();
     }
 }

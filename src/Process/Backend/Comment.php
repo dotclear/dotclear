@@ -14,7 +14,6 @@ namespace Dotclear\Process\Backend;
 use Dotclear\App;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Backend\Page;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Button;
@@ -49,7 +48,7 @@ class Comment
 
     public static function init(): bool
     {
-        Page::check(App::auth()->makePermissions([
+        App::backend()->page()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_USAGE,
             App::auth()::PERMISSION_CONTENT_ADMIN,
         ]));
@@ -243,15 +242,15 @@ class Comment
         $breadcrumb[Html::escapeHTML(App::backend()->post_title)] = App::postTypes()->get(App::backend()->post_type)->adminUrl(App::backend()->post_id);
         $breadcrumb[__('Edit comment')]                           = '';
 
-        Page::open(
+        App::backend()->page()->open(
             __('Edit comment'),
-            Page::jsConfirmClose('comment-form') .
-            Page::jsLoad('js/_comment.js') .
+            App::backend()->page()->jsConfirmClose('comment-form') .
+            App::backend()->page()->jsLoad('js/_comment.js') .
             # --BEHAVIOR-- adminPostEditor -- string, string, array<int,string>, string
             App::behavior()->callBehavior('adminPostEditor', App::backend()->comment_editor['xhtml'], 'comment', ['#comment_content'], 'xhtml') .
             # --BEHAVIOR-- adminCommentHeaders --
             App::behavior()->callBehavior('adminCommentHeaders'),
-            Page::breadcrumb($breadcrumb)
+            App::backend()->page()->breadcrumb($breadcrumb)
         );
 
         if (App::backend()->comment_id) {
@@ -362,7 +361,7 @@ class Comment
             ->render();
         }
 
-        Page::helpBlock('core_comments');
-        Page::close();
+        App::backend()->page()->helpBlock('core_comments');
+        App::backend()->page()->close();
     }
 }

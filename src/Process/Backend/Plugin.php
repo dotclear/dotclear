@@ -13,7 +13,6 @@ namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
 use Dotclear\Core\Backend\ModulesList;
-use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\Html\Form\Note;
 use Dotclear\Helper\Html\Form\Set;
 use Dotclear\Helper\Network\Http;
@@ -29,7 +28,7 @@ class Plugin
 
     public static function init(): bool
     {
-        Page::check(App::auth()->makePermissions([
+        App::backend()->page()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_USAGE,
             App::auth()::PERMISSION_CONTENT_ADMIN,
         ]));
@@ -44,11 +43,11 @@ class Plugin
         $popup  = !empty($_REQUEST['popup']);
 
         if ($popup) {
-            $open_function  = Page::openPopup(...);
-            $close_function = Page::closePopup(...);
+            $open_function  = App::backend()->page()->openPopup(...);
+            $close_function = App::backend()->page()->closePopup(...);
         } else {
-            $open_function  = Page::open(...);
-            $close_function = Page::close(...);
+            $open_function  = App::backend()->page()->open(...);
+            $close_function = App::backend()->page()->close(...);
         }
 
         $res = '';
@@ -140,7 +139,7 @@ class Plugin
             $open_function(
                 __('Plugin not found'),
                 '',
-                Page::breadcrumb(
+                App::backend()->page()->breadcrumb(
                     [
                         __('System')           => '',
                         __('Plugin not found') => '',

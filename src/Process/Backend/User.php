@@ -15,7 +15,6 @@ use ArrayObject;
 use Dotclear\App;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Capture;
@@ -56,7 +55,7 @@ class User
 
     public static function init(): bool
     {
-        Page::checkSuper();
+        App::backend()->page()->checkSuper();
 
         App::backend()->page_title = __('New user');
 
@@ -260,19 +259,19 @@ class User
 
     public static function render(): void
     {
-        Page::open(
+        App::backend()->page()->open(
             App::backend()->page_title,
-            Page::jsConfirmClose('user-form') .
-            Page::jsJson('pwstrength', [
+            App::backend()->page()->jsConfirmClose('user-form') .
+            App::backend()->page()->jsJson('pwstrength', [
                 'min' => sprintf(__('Password strength: %s'), __('weak')),
                 'avg' => sprintf(__('Password strength: %s'), __('medium')),
                 'max' => sprintf(__('Password strength: %s'), __('strong')),
             ]) .
-            Page::jsLoad('js/pwstrength.js') .
-            Page::jsLoad('js/_user.js') .
+            App::backend()->page()->jsLoad('js/pwstrength.js') .
+            App::backend()->page()->jsLoad('js/_user.js') .
             # --BEHAVIOR-- adminUserHeaders --
             App::behavior()->callBehavior('adminUserHeaders'),
-            Page::breadcrumb(
+            App::backend()->page()->breadcrumb(
                 [
                     __('System')               => '',
                     __('Users')                => App::backend()->url()->get('admin.users'),
@@ -689,7 +688,7 @@ class User
             ->render();
         }
 
-        Page::helpBlock('core_user');
-        Page::close();
+        App::backend()->page()->helpBlock('core_user');
+        App::backend()->page()->close();
     }
 }

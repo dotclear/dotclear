@@ -15,7 +15,6 @@ use ArrayObject;
 use Dotclear\App;
 use Dotclear\Core\Backend\ModulesList;
 use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\Html\Form\Capture;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
@@ -82,7 +81,7 @@ class Plugins
             return self::status(false);
         }
 
-        Page::checkSuper();
+        App::backend()->page()->checkSuper();
 
         # -- Execute actions --
         try {
@@ -108,18 +107,18 @@ class Plugins
     public static function render(): void
     {
         // -- Page header --
-        Page::open(
+        App::backend()->page()->open(
             __('Plugins management'),
             (
                 empty($_GET['nocache']) && empty($_GET['showupdate']) ?
-                Page::jsJson('module_update_url', App::backend()->url()->get('admin.plugins', ['showupdate' => 1]) . '#update') : ''
+                App::backend()->page()->jsJson('module_update_url', App::backend()->url()->get('admin.plugins', ['showupdate' => 1]) . '#update') : ''
             ) .
-            Page::jsLoad('js/_plugins.js') .
-            Page::jsPageTabs() .
+            App::backend()->page()->jsLoad('js/_plugins.js') .
+            App::backend()->page()->jsPageTabs() .
 
             # --BEHAVIOR-- pluginsToolsHeaders -- bool
             App::behavior()->callBehavior('pluginsToolsHeadersV2', false),
-            Page::breadcrumb(
+            App::backend()->page()->breadcrumb(
                 [
                     __('System')             => '',
                     __('Plugins management') => '',
@@ -367,8 +366,8 @@ class Plugins
             ->render();
         }
 
-        Page::helpBlock('core_plugins');
-        Page::close();
+        App::backend()->page()->helpBlock('core_plugins');
+        App::backend()->page()->close();
     }
 
     /**
@@ -386,12 +385,12 @@ class Plugins
         App::backend()->list->getConfiguration();
 
         // Display page
-        Page::open(
+        App::backend()->page()->open(
             __('Plugins management'),
 
             # --BEHAVIOR-- pluginsToolsHeaders -- bool
             App::behavior()->callBehavior('pluginsToolsHeadersV2', true),
-            Page::breadcrumb(
+            App::backend()->page()->breadcrumb(
                 [
                     Html::escapeHTML(App::blog()->name())                                 => '',
                     __('Plugins management')                                              => App::backend()->list->getURL('', false),
@@ -404,8 +403,8 @@ class Plugins
         App::backend()->list->displayConfiguration();
 
         if (!App::backend()->resources()->context()) {
-            Page::helpBlock('core_plugins_conf');
+            App::backend()->page()->helpBlock('core_plugins_conf');
         }
-        Page::close();
+        App::backend()->page()->close();
     }
 }

@@ -13,7 +13,6 @@ namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
 use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Backend\Page;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Form\Div;
@@ -52,7 +51,7 @@ class UsersActions
 
     public static function init(): bool
     {
-        Page::checkSuper();
+        App::backend()->page()->checkSuper();
 
         $users = [];
         if (!empty($_POST['users']) && is_array($_POST['users'])) {
@@ -215,7 +214,7 @@ class UsersActions
     public static function render(): void
     {
         if (!empty(App::backend()->users) && empty(App::backend()->blogs) && App::backend()->action == 'blogs') {
-            $breadcrumb = Page::breadcrumb(
+            $breadcrumb = App::backend()->page()->breadcrumb(
                 [
                     __('System')      => '',
                     __('Users')       => App::backend()->url()->get('admin.users'),
@@ -223,7 +222,7 @@ class UsersActions
                 ]
             );
         } else {
-            $breadcrumb = Page::breadcrumb(
+            $breadcrumb = App::backend()->page()->breadcrumb(
                 [
                     __('System')  => '',
                     __('Users')   => App::backend()->url()->get('admin.users'),
@@ -232,16 +231,16 @@ class UsersActions
             );
         }
 
-        Page::open(
+        App::backend()->page()->open(
             __('Users'),
-            Page::jsLoad('js/_users_actions.js') .
+            App::backend()->page()->jsLoad('js/_users_actions.js') .
             # --BEHAVIOR-- adminUsersActionsHeaders --
             App::behavior()->callBehavior('adminUsersActionsHeaders'),
             $breadcrumb
         );
 
         if (App::backend()->action === null) {
-            Page::close();
+            App::backend()->page()->close();
             dotclear_exit();
         }
 
@@ -520,7 +519,7 @@ class UsersActions
             ->render();
         }
 
-        Page::helpBlock('core_users');
-        Page::close();
+        App::backend()->page()->helpBlock('core_users');
+        App::backend()->page()->close();
     }
 }

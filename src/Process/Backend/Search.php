@@ -16,7 +16,6 @@ use Dotclear\Core\Backend\Action\ActionsComments;
 use Dotclear\Core\Backend\Action\ActionsPosts;
 use Dotclear\Core\Backend\Listing\ListingComments;
 use Dotclear\Core\Backend\Listing\ListingPosts;
-use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Backend\UserPref;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Div;
@@ -70,7 +69,7 @@ class Search
 
     public static function init(): bool
     {
-        Page::check(App::auth()->makePermissions([
+        App::backend()->page()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_USAGE,
             App::auth()::PERMISSION_CONTENT_ADMIN,
         ]));
@@ -156,10 +155,10 @@ class Search
             }
         }
 
-        Page::open(
+        App::backend()->page()->open(
             __('Search'),
             $starting_scripts,
-            Page::breadcrumb(
+            App::backend()->page()->breadcrumb(
                 [
                     Html::escapeHTML(App::blog()->name()) => '',
                     __('Search')                          => '',
@@ -214,8 +213,8 @@ class Search
             echo $res ?: '<p>' . __('No results found') . '</p>';
         }
 
-        Page::helpBlock('core_search');
-        Page::close();
+        App::backend()->page()->helpBlock('core_search');
+        App::backend()->page()->close();
     }
 
     /**
@@ -241,9 +240,9 @@ class Search
     public static function pageHead(array $args): string
     {
         if ($args['qtype'] == 'p') {
-            return Page::jsLoad('js/_posts_list.js');
+            return App::backend()->page()->jsLoad('js/_posts_list.js');
         } elseif ($args['qtype'] == 'c') {
-            return Page::jsLoad('js/_comments.js');
+            return App::backend()->page()->jsLoad('js/_comments.js');
         }
 
         return '';

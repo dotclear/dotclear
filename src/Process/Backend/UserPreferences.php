@@ -20,7 +20,6 @@ use Dotclear\Core\Backend\Auth\WebAuthn;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Helper;
 use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Backend\UserPref;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Button;
@@ -71,7 +70,7 @@ class UserPreferences
 
     public static function init(): bool
     {
-        Page::check(App::auth()->makePermissions([
+        App::backend()->page()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_USAGE,
             App::auth()::PERMISSION_CONTENT_ADMIN,
         ]));
@@ -591,29 +590,29 @@ class UserPreferences
 
     public static function render(): void
     {
-        Page::open(
+        App::backend()->page()->open(
             App::backend()->page_title,
-            (App::backend()->user_acc_nodragdrop ? '' : Page::jsLoad('js/_preferences-dragdrop.js')) .
-            Page::jsLoad('js/jquery/jquery-ui.custom.js') .
-            Page::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
-            Page::jsJson('pwstrength', [
+            (App::backend()->user_acc_nodragdrop ? '' : App::backend()->page()->jsLoad('js/_preferences-dragdrop.js')) .
+            App::backend()->page()->jsLoad('js/jquery/jquery-ui.custom.js') .
+            App::backend()->page()->jsLoad('js/jquery/jquery.ui.touch-punch.js') .
+            App::backend()->page()->jsJson('pwstrength', [
                 'min' => sprintf(__('Password strength: %s'), __('weak')),
                 'avg' => sprintf(__('Password strength: %s'), __('medium')),
                 'max' => sprintf(__('Password strength: %s'), __('strong')),
             ]) .
-            Page::jsLoad('js/pwstrength.js') .
-            Page::jsJson('userprefs', [
+            App::backend()->page()->jsLoad('js/pwstrength.js') .
+            App::backend()->page()->jsJson('userprefs', [
                 'remove'       => __('Are you sure you want to remove selected favorites?'),
                 'passkeylabel' => __('Enter a name for this key:'),
             ]) .
-            Page::jsLoad('js/_preferences.js') .
-            Page::jsPageTabs(App::backend()->tab) .
-            Page::jsConfirmClose('user-form', 'opts-forms', 'favs-form', 'db-forms') .
-            Page::jsAdsBlockCheck() .
+            App::backend()->page()->jsLoad('js/_preferences.js') .
+            App::backend()->page()->jsPageTabs(App::backend()->tab) .
+            App::backend()->page()->jsConfirmClose('user-form', 'opts-forms', 'favs-form', 'db-forms') .
+            App::backend()->page()->jsAdsBlockCheck() .
 
             # --BEHAVIOR-- adminPreferencesHeaders --
             App::behavior()->callBehavior('adminPreferencesHeaders'),
-            Page::breadcrumb(
+            App::backend()->page()->breadcrumb(
                 [
                     Html::escapeHTML(App::auth()->userID()) => '',
                     App::backend()->page_title              => '',
@@ -1470,7 +1469,7 @@ class UserPreferences
             ])
         ->render();
 
-        Page::helpBlock('core_user_pref');
-        Page::close();
+        App::backend()->page()->helpBlock('core_user_pref');
+        App::backend()->page()->close();
     }
 }

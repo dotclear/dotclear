@@ -14,7 +14,6 @@ namespace Dotclear\Process\Backend;
 use Dotclear\App;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Capture;
@@ -69,7 +68,7 @@ class BlogPref
          */
         App::backend()->standalone = !(App::backend()->edit_blog_mode ?? false);
         if (App::backend()->standalone) {
-            Page::check(App::auth()->makePermissions([
+            App::backend()->page()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_ADMIN,
             ]));
 
@@ -83,7 +82,7 @@ class BlogPref
             App::backend()->action = App::backend()->url()->get('admin.blog.pref');
             App::backend()->redir  = App::backend()->url()->get('admin.blog.pref');
         } else {
-            Page::checkSuper();
+            App::backend()->page()->checkSuper();
 
             App::backend()->blog_id       = false;
             App::backend()->blog_status   = App::status()->blog()::OFFLINE;
@@ -431,14 +430,14 @@ class BlogPref
     {
         // Display
         if (App::backend()->standalone) {
-            $breadcrumb = Page::breadcrumb(
+            $breadcrumb = App::backend()->page()->breadcrumb(
                 [
                     Html::escapeHTML(App::backend()->blog_name) => '',
                     __('Blog settings')                         => '',
                 ]
             );
         } else {
-            $breadcrumb = Page::breadcrumb(
+            $breadcrumb = App::backend()->page()->breadcrumb(
                 [
                     __('System')                                                              => '',
                     __('Blogs')                                                               => App::backend()->url()->get('admin.blogs'),
@@ -454,9 +453,9 @@ class BlogPref
             $rte_flag = $rte_flags['blog_descr'];
         }
 
-        Page::open(
+        App::backend()->page()->open(
             __('Blog settings'),
-            Page::jsJson(
+            App::backend()->page()->jsJson(
                 'blog_pref',
                 [
                     'url' => [
@@ -473,15 +472,15 @@ class BlogPref
                     ],
                 ]
             ) .
-            Page::jsConfirmClose('blog-form') .
+            App::backend()->page()->jsConfirmClose('blog-form') .
             # --BEHAVIOR-- adminPostEditor -- string, string, string, array<int,string>, string
             ($rte_flag ? App::behavior()->callBehavior('adminPostEditor', $desc_editor['xhtml'], 'blog_desc', ['#blog_desc'], 'xhtml') : '') .
-            Page::jsLoad('js/_blog_pref.js') .
+            App::backend()->page()->jsLoad('js/_blog_pref.js') .
 
             # --BEHAVIOR-- adminBlogPreferencesHeaders --
             App::behavior()->callBehavior('adminBlogPreferencesHeaders') .
 
-            Page::jsPageTabs(),
+            App::backend()->page()->jsPageTabs(),
             $breadcrumb
         );
 
@@ -1399,7 +1398,7 @@ class BlogPref
             ->render();
         }
 
-        Page::helpBlock('core_blog_pref');
-        Page::close();
+        App::backend()->page()->helpBlock('core_blog_pref');
+        App::backend()->page()->close();
     }
 }

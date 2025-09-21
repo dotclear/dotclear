@@ -16,7 +16,6 @@ use Dotclear\Core\Backend\Action\ActionsPosts;
 use Dotclear\Core\Backend\Filter\FilterPosts;
 use Dotclear\Core\Backend\Listing\ListingPosts;
 use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Label;
@@ -38,7 +37,7 @@ class Posts
 
     public static function init(): bool
     {
-        Page::check(App::auth()->makePermissions([
+        App::backend()->page()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_USAGE,
             App::auth()::PERMISSION_CONTENT_ADMIN,
         ]));
@@ -92,10 +91,10 @@ class Posts
 
     public static function render(): void
     {
-        Page::open(
+        App::backend()->page()->open(
             __('Posts'),
-            Page::jsLoad('js/_posts_list.js') . App::backend()->post_filter->js(App::backend()->url()->get('admin.posts')),
-            Page::breadcrumb(
+            App::backend()->page()->jsLoad('js/_posts_list.js') . App::backend()->post_filter->js(App::backend()->url()->get('admin.posts')),
+            App::backend()->page()->breadcrumb(
                 [
                     Html::escapeHTML(App::blog()->name()) => '',
                     __('Posts')                           => '',
@@ -160,7 +159,7 @@ class Posts
             );
         }
 
-        Page::helpBlock('core_posts');
-        Page::close();
+        App::backend()->page()->helpBlock('core_posts');
+        App::backend()->page()->close();
     }
 }
