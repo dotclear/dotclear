@@ -13,7 +13,6 @@ namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
 use Dotclear\Core\Backend\Listing\ListingMedia;
-use Dotclear\Core\Backend\MediaPage;
 use Dotclear\Core\Backend\Filter\FilterMedia;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
@@ -60,7 +59,8 @@ class Media
             App::auth()::PERMISSION_MEDIA_ADMIN,
         ]));
 
-        App::backend()->page = new MediaPage();
+        // Backward compatibility
+        App::backend()->page = App::backend()->mediaPage();
 
         return self::status(true);
     }
@@ -72,7 +72,7 @@ class Media
             App::auth()::PERMISSION_MEDIA_ADMIN,
         ]), App::blog()->id())) {
             try {
-                if (str_starts_with((string) realpath(App::media()->getRoot() . '/' . App::backend()->page->d), (string) realpath(App::media()->getRoot()))) {
+                if (str_starts_with((string) realpath(App::media()->getRoot() . '/' . App::backend()->mediaPage()->d), (string) realpath(App::media()->getRoot()))) {
                     // Media folder or one of it's sub-folder(s)
                     @set_time_limit(300);
                     $fp  = fopen('php://output', 'wb');
@@ -85,15 +85,15 @@ class Media
                     $zip->addExclusion('/(^|\/)' . $pattern_prefix . '(.*?)_(' . $thumb_sizes . ')\.(jpg|jpeg|png|webp|avif)$/');
                     $zip->addExclusion('#(^|/)(__MACOSX|\.svn|\.hg.*|\.git.*|\.DS_Store|\.directory|Thumbs\.db)(/|$)#');
 
-                    $zip->addDirectory(App::media()->getRoot() . '/' . App::backend()->page->d, '', true);
-                    header('Content-Disposition: attachment;filename=' . date('Y-m-d') . '-' . App::blog()->id() . '-' . (App::backend()->page->d ?: 'media') . '.zip');
+                    $zip->addDirectory(App::media()->getRoot() . '/' . App::backend()->mediaPage()->d, '', true);
+                    header('Content-Disposition: attachment;filename=' . date('Y-m-d') . '-' . App::blog()->id() . '-' . (App::backend()->mediaPage()->d ?: 'media') . '.zip');
                     header('Content-Type: application/x-zip');
                     $zip->write();
                     unset($zip);
                     dotclear_exit();
                 }
-                App::backend()->page->d = null;
-                App::media()->chdir(App::backend()->page->d);
+                App::backend()->mediaPage()->d = null;
+                App::media()->chdir(App::backend()->mediaPage()->d);
 
                 throw new Exception(__('Not a valid directory'));
             } catch (Exception $e) {
@@ -102,17 +102,17 @@ class Media
         }
 
         # User last and fav dirs
-        if (App::backend()->page->showLast()) {
-            if (!empty($_GET['fav']) && App::backend()->page->updateFav(rtrim((string) App::backend()->page->d, '/'), $_GET['fav'] == 'n')) {
-                App::backend()->url()->redirect('admin.media', App::backend()->page->values());
+        if (App::backend()->mediaPage()->showLast()) {
+            if (!empty($_GET['fav']) && App::backend()->mediaPage()->updateFav(rtrim((string) App::backend()->mediaPage()->d, '/'), $_GET['fav'] == 'n')) {
+                App::backend()->url()->redirect('admin.media', App::backend()->mediaPage()->values());
             }
-            App::backend()->page->updateLast(rtrim((string) App::backend()->page->d, '/'));
+            App::backend()->mediaPage()->updateLast(rtrim((string) App::backend()->mediaPage()->d, '/'));
         }
 
         # New directory
-        if (App::backend()->page->getDirs() && !empty($_POST['newdir'])) {
+        if (App::backend()->mediaPage()->getDirs() && !empty($_POST['newdir'])) {
             $nd = Files::tidyFileName($_POST['newdir']);
-            if (array_filter(App::backend()->page->getDirs('files'), fn ($i): bool => ($i->basename === $nd)) || array_filter(App::backend()->page->getDirs('dirs'), fn ($i): bool => ($i->basename === $nd))
+            if (array_filter((array) App::backend()->mediaPage()->getDirs('files'), fn ($i): bool => ($i->basename === $nd)) || array_filter((array) App::backend()->mediaPage()->getDirs('dirs'), fn ($i): bool => ($i->basename === $nd))
             ) {
                 App::backend()->notices()->addWarningNotice(sprintf(
                     __('Directory or file "%s" already exists.'),
@@ -125,7 +125,7 @@ class Media
                         __('Directory "%s" has been successfully created.'),
                         Html::escapeHTML($nd)
                     ));
-                    App::backend()->url()->redirect('admin.media', App::backend()->page->values());
+                    App::backend()->url()->redirect('admin.media', App::backend()->mediaPage()->values());
                 } catch (Exception $e) {
                     App::error()->add($e->getMessage());
                 }
@@ -133,7 +133,7 @@ class Media
         }
 
         # Adding a file
-        if (App::backend()->page->getDirs() && !empty($_FILES['upfile'])) {
+        if (App::backend()->mediaPage()->getDirs() && !empty($_FILES['upfile'])) {
             // only one file per request : @see option singleFileUploads in admin/js/jsUpload/jquery.fileupload
             $upfile = [
                 'name'      => $_FILES['upfile']['name'][0],
@@ -155,7 +155,7 @@ class Media
                     $message['files'][] = [
                         'name' => $upfile['name'],
                         'size' => $upfile['size'],
-                        'html' => App::backend()->page->mediaLine($new_file_id),
+                        'html' => App::backend()->mediaPage()->mediaLine($new_file_id),
                     ];
                 } catch (Exception $e) {
                     $message['files'][] = [
@@ -177,16 +177,16 @@ class Media
                 App::media()->uploadFile($upfile['tmp_name'], $upfile['name'], false, $f_title, (bool) $f_private);
 
                 App::backend()->notices()->addSuccessNotice(__('Files have been successfully uploaded.'));
-                App::backend()->url()->redirect('admin.media', App::backend()->page->values());
+                App::backend()->url()->redirect('admin.media', App::backend()->mediaPage()->values());
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
             }
         }
 
         # Removing items
-        if (App::backend()->page->getDirs() && !empty($_POST['medias']) && !empty($_POST['delete_medias'])) {
+        if (App::backend()->mediaPage()->getDirs() && !empty($_POST['medias']) && !empty($_POST['delete_medias'])) {
             try {
-                $currentDir    = App::backend()->page->d;
+                $currentDir    = App::backend()->mediaPage()->d;
                 $search_filter = isset($_POST['q']) && $_POST['q'] !== '';
                 if ($search_filter) {
                     // In search mode, medias contain full paths (relative to media main folder), so go back to main folder
@@ -212,19 +212,19 @@ class Media
                         is_countable($_POST['medias']) ? count($_POST['medias']) : 0
                     )
                 );
-                App::backend()->url()->redirect('admin.media', App::backend()->page->values());
+                App::backend()->url()->redirect('admin.media', App::backend()->mediaPage()->values());
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
             }
         }
 
         # Removing item from popup only
-        if (App::backend()->page->getDirs() && !empty($_POST['rmyes']) && !empty($_POST['remove'])) {
+        if (App::backend()->mediaPage()->getDirs() && !empty($_POST['rmyes']) && !empty($_POST['remove'])) {
             $_POST['remove'] = rawurldecode((string) $_POST['remove']);
             $forget          = false;
 
             try {
-                $currentDir    = App::backend()->page->d;
+                $currentDir    = App::backend()->mediaPage()->d;
                 $search_filter = isset($_POST['q']) && $_POST['q'] !== '';
                 if ($search_filter) {
                     // In search mode, medias contain full paths (relative to media main folder), so go back to main folder
@@ -246,54 +246,54 @@ class Media
                 }
 
                 if ($forget) {
-                    App::backend()->page->updateLast(App::backend()->page->d . '/' . Path::clean($_POST['remove']), true);
-                    App::backend()->page->updateFav(App::backend()->page->d . '/' . Path::clean($_POST['remove']), true);
+                    App::backend()->mediaPage()->updateLast(App::backend()->mediaPage()->d . '/' . Path::clean($_POST['remove']), true);
+                    App::backend()->mediaPage()->updateFav(App::backend()->mediaPage()->d . '/' . Path::clean($_POST['remove']), true);
                 }
 
                 App::backend()->notices()->addSuccessNotice($msg);
-                App::backend()->url()->redirect('admin.media', App::backend()->page->values());
+                App::backend()->url()->redirect('admin.media', App::backend()->mediaPage()->values());
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
             }
         }
 
         # Build missing directory thumbnails
-        if (App::backend()->page->getDirs() && App::auth()->isSuperAdmin() && !empty($_POST['complete'])) {
+        if (App::backend()->mediaPage()->getDirs() && App::auth()->isSuperAdmin() && !empty($_POST['complete'])) {
             try {
-                App::media()->rebuildThumbnails(App::backend()->page->d);
+                App::media()->rebuildThumbnails(App::backend()->mediaPage()->d);
 
                 App::backend()->notices()->addSuccessNotice(
                     sprintf(
                         __('Directory "%s" has been successfully completed.'),
-                        Html::escapeHTML(App::backend()->page->d)
+                        Html::escapeHTML(App::backend()->mediaPage()->d)
                     )
                 );
-                App::backend()->url()->redirect('admin.media', App::backend()->page->values());
+                App::backend()->url()->redirect('admin.media', App::backend()->mediaPage()->values());
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
             }
         }
 
         # Rebuild all directory thumbnails
-        if (App::backend()->page->getDirs() && App::auth()->isSuperAdmin() && !empty($_POST['rebuild'])) {
+        if (App::backend()->mediaPage()->getDirs() && App::auth()->isSuperAdmin() && !empty($_POST['rebuild'])) {
             try {
-                App::media()->rebuildThumbnails(App::backend()->page->d, false, true);
+                App::media()->rebuildThumbnails(App::backend()->mediaPage()->d, false, true);
 
                 App::backend()->notices()->addSuccessNotice(
                     sprintf(
                         __('Directory "%s" has been successfully rebuild.'),
-                        Html::escapeHTML(App::backend()->page->d)
+                        Html::escapeHTML(App::backend()->mediaPage()->d)
                     )
                 );
-                App::backend()->url()->redirect('admin.media', App::backend()->page->values());
+                App::backend()->url()->redirect('admin.media', App::backend()->mediaPage()->values());
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
             }
         }
 
         # DISPLAY confirm page for rmdir & rmfile
-        if (App::backend()->page->getDirs() && !empty($_GET['remove']) && empty($_GET['noconfirm'])) {
-            App::backend()->page->openPage(App::backend()->page->breadcrumb([__('confirm removal') => '']));
+        if (App::backend()->mediaPage()->getDirs() && !empty($_GET['remove']) && empty($_GET['noconfirm'])) {
+            App::backend()->mediaPage()->openPage(App::backend()->mediaPage()->breadcrumb([__('confirm removal') => '']));
 
             echo (new Form('frm-remove'))
                 ->method('post')
@@ -306,14 +306,14 @@ class Media
                         ->items([
                             (new Submit('cancel', __('Cancel'))),
                             (new Submit('rmyes', __('Yes'))),
-                            ... App::backend()->url()->hiddenFormFields('admin.media', App::backend()->page->values()),
+                            ... App::backend()->url()->hiddenFormFields('admin.media', App::backend()->mediaPage()->values()),
                             App::nonce()->formNonce(),
                             (new Hidden('remove', Html::escapeHTML($_GET['remove']))),
                         ]),
                 ])
             ->render();
 
-            App::backend()->page->closePage();
+            App::backend()->mediaPage()->closePage();
             dotclear_exit();
         }
 
@@ -325,19 +325,19 @@ class Media
         // Recent media folders
         $recent_folders      = new None();
         $recent_folders_list = [];
-        if (App::backend()->page->showLast()) {
+        if (App::backend()->mediaPage()->showLast()) {
             $fav_url      = '';
             $fav_img      = '';
             $fav_img_dark = '';
             $fav_alt      = '';
             // Favorites directories
-            $fav_dirs = App::backend()->page->getFav();
+            $fav_dirs = App::backend()->mediaPage()->getFav();
             foreach ($fav_dirs as $ld) {
                 // Add favorites dirs on top of combo
-                $ld_params             = App::backend()->page->values();
+                $ld_params             = App::backend()->mediaPage()->values();
                 $ld_params['d']        = $ld;
                 $ld_params['q']        = ''; // Reset search
-                $is_current            = ($ld === rtrim((string) App::backend()->page->d, '/'));
+                $is_current            = ($ld === rtrim((string) App::backend()->mediaPage()->d, '/'));
                 $recent_folders_list[] = (new Option('/' . $ld, urldecode(App::backend()->url()->get('admin.media', $ld_params))))
                     ->selected($is_current);
                 if ($is_current) {
@@ -356,13 +356,13 @@ class Media
                     ->disabled(true);
             }
             // Recent directories
-            $last_dirs = App::backend()->page->getlast();
+            $last_dirs = App::backend()->mediaPage()->getLast();
             foreach ($last_dirs as $ld) {
                 if (!in_array($ld, $fav_dirs)) {
-                    $ld_params             = App::backend()->page->values();
+                    $ld_params             = App::backend()->mediaPage()->values();
                     $ld_params['d']        = $ld;
                     $ld_params['q']        = ''; // Reset search
-                    $is_current            = ($ld === rtrim((string) App::backend()->page->d, '/'));
+                    $is_current            = ($ld === rtrim((string) App::backend()->mediaPage()->d, '/'));
                     $recent_folders_list[] = (new Option('/' . $ld, urldecode(App::backend()->url()->get('admin.media', $ld_params))))
                         ->selected($is_current);
                     if ($is_current) {
@@ -382,7 +382,7 @@ class Media
                     ->items([
                         (new Select('switchfolder'))
                             ->items($recent_folders_list)
-                            ->default(rtrim((string) App::backend()->page->d, '/'))
+                            ->default(rtrim((string) App::backend()->mediaPage()->d, '/'))
                             ->label(new Label(__('Goto recent folder:'), Label::OL_TF)),
                         (new Link('media-fav-dir'))
                             ->href($fav_url)
@@ -400,45 +400,45 @@ class Media
         }
 
         $starting_scripts = '';
-        if (App::backend()->page->popup && (App::backend()->page->plugin_id !== '')) {
+        if (App::backend()->mediaPage()->popup && (App::backend()->mediaPage()->plugin_id !== '')) {
             # --BEHAVIOR-- adminPopupMediaManager -- string
-            $starting_scripts .= App::behavior()->callBehavior('adminPopupMediaManager', App::backend()->page->plugin_id);
+            $starting_scripts .= App::behavior()->callBehavior('adminPopupMediaManager', App::backend()->mediaPage()->plugin_id);
         }
 
-        App::backend()->page->openPage(
-            App::backend()->page->breadcrumb(),
+        App::backend()->mediaPage()->openPage(
+            App::backend()->mediaPage()->breadcrumb(),
             App::backend()->page()->jsModal() .
-            App::backend()->page->js(App::backend()->url()->get('admin.media', array_diff_key(App::backend()->page->values(), App::backend()->page->values(false, true)), '&')) .
+            App::backend()->mediaPage()->js(App::backend()->url()->get('admin.media', array_diff_key(App::backend()->mediaPage()->values(), App::backend()->mediaPage()->values(false, true)), '&')) .
             App::backend()->page()->jsLoad('js/_media.js') .
             $starting_scripts .
-            (App::backend()->page->mediaWritable() ? App::backend()->page()->jsUpload() : '')
+            (App::backend()->mediaPage()->mediaWritable() ? App::backend()->page()->jsUpload() : '')
         );
 
-        if (App::backend()->page->popup) {
+        if (App::backend()->mediaPage()->popup) {
             echo
             App::backend()->notices()->getNotices();
         }
 
-        if (!App::backend()->page->mediaWritable() && !App::error()->flag()) {
+        if (!App::backend()->mediaPage()->mediaWritable() && !App::error()->flag()) {
             App::backend()->notices()->warning(__('You do not have sufficient permissions to write to this folder.'));
         }
 
-        if (!App::backend()->page->getDirs()) {
-            App::backend()->page->closePage();
+        if (!App::backend()->mediaPage()->getDirs()) {
+            App::backend()->mediaPage()->closePage();
             dotclear_exit();
         }
 
-        if (App::backend()->page->select) {
+        if (App::backend()->mediaPage()->select) {
             // Select mode (popup or not)
             echo (new Div())
-                ->class([App::backend()->page->popup ? 'form-note' : '', 'info', 'attach-media'])
+                ->class([App::backend()->mediaPage()->popup ? 'form-note' : '', 'info', 'attach-media'])
                 ->items([
                     (new Para())
                         ->class(['form-buttons', 'is-a-phrase'])
                         ->items([
                             (new Text(
                                 null,
-                                App::backend()->page->select == 1 ?
+                                App::backend()->mediaPage()->select == 1 ?
                                 sprintf(
                                     __('Select a file by clicking on %s'),
                                     (new Img('images/plus.svg'))->alt(__('Select this file'))->render()
@@ -448,7 +448,7 @@ class Media
                                     __('Choose selected medias')
                                 )
                             )),
-                            (App::backend()->page->mediaWritable() ?
+                            (App::backend()->mediaPage()->mediaWritable() ?
                                 (new Set())
                                     ->items([
                                         (new Text(null, __('or'))),
@@ -461,10 +461,10 @@ class Media
                 ])
             ->render();
         } else {
-            if (App::backend()->page->post_id) {
+            if (App::backend()->mediaPage()->post_id) {
                 $post_link = (new Link())
-                    ->href(App::postTypes()->get(App::backend()->page->getPostType())->adminUrl(App::backend()->page->post_id))
-                    ->text(Html::escapeHTML(App::backend()->page->getPostTitle()))
+                    ->href(App::postTypes()->get(App::backend()->mediaPage()->getPostType())->adminUrl(App::backend()->mediaPage()->post_id))
+                    ->text(Html::escapeHTML(App::backend()->mediaPage()->getPostTitle()))
                 ->render();
                 echo (new Div())
                     ->class(['form-note', 'info', 'attach-media'])
@@ -482,7 +482,7 @@ class Media
                                         (new Img('images/plus.svg'))->alt(__('Attach this file to entry'))->render()
                                     )
                                 )),
-                                (App::backend()->page->mediaWritable() ?
+                                (App::backend()->mediaPage()->mediaWritable() ?
                                     (new Set())
                                         ->items([
                                             (new Text(null, __('or'))),
@@ -495,7 +495,7 @@ class Media
                     ])
                 ->render();
             }
-            if (App::backend()->page->popup) {
+            if (App::backend()->mediaPage()->popup) {
                 echo (new Div())
                     ->class(['form-note', 'info', 'attach-media'])
                     ->items([
@@ -509,7 +509,7 @@ class Media
                                         (new Img('images/plus.svg'))->alt(__('Insert this file into entry'))->render()
                                     )
                                 )),
-                                (App::backend()->page->mediaWritable() ?
+                                (App::backend()->mediaPage()->mediaWritable() ?
                                     (new Set())
                                         ->items([
                                             (new Text(null, __('or'))),
@@ -524,7 +524,7 @@ class Media
             }
         }
 
-        $rs         = App::backend()->page->getDirsRecord();
+        $rs         = App::backend()->mediaPage()->getDirsRecord();
         $media_list = new ListingMedia($rs, $rs->count());
 
         // add file mode into the filter box
@@ -534,49 +534,49 @@ class Media
                     ->class('media-file-mode')
                     ->items([
                         (new Link())
-                            ->href(App::backend()->url()->get('admin.media', array_merge(App::backend()->page->values(), ['file_mode' => FilterMedia::MODE_GRID])))
+                            ->href(App::backend()->url()->get('admin.media', array_merge(App::backend()->mediaPage()->values(), ['file_mode' => FilterMedia::MODE_GRID])))
                             ->title(__('Grid display mode'))
                             ->items([
                                 (new Img('images/grid.svg'))
-                                    ->class(['light-only', (App::backend()->page->file_mode === FilterMedia::MODE_GRID ? '' : ' disabled')])
+                                    ->class(['light-only', (App::backend()->mediaPage()->file_mode === FilterMedia::MODE_GRID ? '' : ' disabled')])
                                     ->alt(__('Grid display mode')),
                                 (new Img('images/grid-dark.svg'))
-                                    ->class(['dark-only', (App::backend()->page->file_mode === FilterMedia::MODE_GRID ? '' : ' disabled')])
+                                    ->class(['dark-only', (App::backend()->mediaPage()->file_mode === FilterMedia::MODE_GRID ? '' : ' disabled')])
                                     ->alt(__('Grid display mode')),
                             ]),
                         (new Link())
-                            ->href(App::backend()->url()->get('admin.media', array_merge(App::backend()->page->values(), ['file_mode' => FilterMedia::MODE_LIST])))
+                            ->href(App::backend()->url()->get('admin.media', array_merge(App::backend()->mediaPage()->values(), ['file_mode' => FilterMedia::MODE_LIST])))
                             ->title(__('List display mode'))
                             ->items([
                                 (new Img('images/list.svg'))
-                                    ->class(['light-only', (App::backend()->page->file_mode === FilterMedia::MODE_LIST ? '' : ' disabled')])
+                                    ->class(['light-only', (App::backend()->mediaPage()->file_mode === FilterMedia::MODE_LIST ? '' : ' disabled')])
                                     ->alt(__('List display mode')),
                                 (new Img('images/list-dark.svg'))
-                                    ->class(['dark-only', (App::backend()->page->file_mode === FilterMedia::MODE_LIST ? '' : ' disabled')])
+                                    ->class(['dark-only', (App::backend()->mediaPage()->file_mode === FilterMedia::MODE_LIST ? '' : ' disabled')])
                                     ->alt(__('List display mode')),
                             ]),
                     ]),
             ])
         ->render();
-        App::backend()->page->add((new Filter('file_mode'))->value(App::backend()->page->file_mode)->html($filter, false));
+        App::backend()->mediaPage()->add((new Filter('file_mode'))->value(App::backend()->mediaPage()->file_mode)->html($filter, false));
 
         $actions = (new None());
-        if (!App::backend()->page->popup || App::backend()->page->select > 1) {
+        if (!App::backend()->mediaPage()->popup || App::backend()->mediaPage()->select > 1) {
             // Checkboxes and action
             $actions = (new Div())
                 ->class([
-                    App::backend()->page->popup ? '' : 'medias-delete',
-                    App::backend()->page->select > 1 ? 'medias-select' : '',
+                    App::backend()->mediaPage()->popup ? '' : 'medias-delete',
+                    App::backend()->mediaPage()->select > 1 ? 'medias-select' : '',
                 ])
                 ->items([
                     (new Para())->class('checkboxes-helpers'),
                     (new Para())
                         ->class('form-buttons')
                         ->items([
-                            App::backend()->page->select > 1 ?
+                            App::backend()->mediaPage()->select > 1 ?
                                 (new Submit('select_medias', __('Choose selected medias')))->class('select') :
                                 (new None()),
-                            App::backend()->page->popup ?
+                            App::backend()->mediaPage()->popup ?
                                 (new None()) :
                                 (new Submit('delete_medias', __('Remove selected medias')))->class('delete'),
                         ]),
@@ -596,7 +596,7 @@ class Media
                     ->class('hidden')
                     ->items([
                         App::nonce()->formNonce(),
-                        ... App::backend()->url()->hiddenFormFields('admin.media', App::backend()->page->values()),
+                        ... App::backend()->url()->hiddenFormFields('admin.media', App::backend()->mediaPage()->values()),
                     ]),
                 $actions,
             ])
@@ -604,7 +604,7 @@ class Media
 
         // remove form filters from hidden fields
         $form_filters_hidden_fields = array_diff_key(
-            App::backend()->page->values(),
+            App::backend()->mediaPage()->values(),
             ['nb' => '', 'order' => '', 'sortby' => '', 'q' => '', 'file_type' => '']
         );
 
@@ -615,13 +615,13 @@ class Media
                 $recent_folders,
                 (new Capture(
                     // display filter
-                    App::backend()->page->display(...),
+                    App::backend()->mediaPage()->display(...),
                     ['admin.media', App::backend()->url()->getHiddenFormFields('admin.media', $form_filters_hidden_fields)]
                 )),
                 (new Capture(
                     // display list
                     $media_list->display(...),
-                    [App::backend()->page, $form, App::backend()->page->hasQuery()]
+                    [App::backend()->mediaPage(), $form, App::backend()->mediaPage()->hasQuery()]
                 )),
             ])
         ->render();
@@ -629,11 +629,11 @@ class Media
         // Other tools
         $tools = [];
 
-        if ((!App::backend()->page->hasQuery()) && (App::backend()->page->mediaWritable() || App::backend()->page->mediaArchivable())) {
+        if ((!App::backend()->mediaPage()->hasQuery()) && (App::backend()->mediaPage()->mediaWritable() || App::backend()->mediaPage()->mediaArchivable())) {
             $dirtools = [];
 
             // Create directory
-            if (App::backend()->page->mediaWritable()) {
+            if (App::backend()->mediaPage()->mediaWritable()) {
                 $dirtools[] = (new Form('newdir-form'))
                     ->method('post')
                     ->action(App::backend()->url()->getBase('admin.media'))
@@ -653,14 +653,14 @@ class Media
                                     ->items([
                                         App::nonce()->formNonce(),
                                         (new Submit('newdir-submit', __('Create'))),
-                                        ... App::backend()->url()->hiddenFormFields('admin.media', App::backend()->page->values()),
+                                        ... App::backend()->url()->hiddenFormFields('admin.media', App::backend()->mediaPage()->values()),
                                     ]),
                             ]),
                     ]);
             }
 
             // Rebuild directory (complete / force)
-            if (App::auth()->isSuperAdmin() && !App::backend()->page->popup && App::backend()->page->mediaWritable()) {
+            if (App::auth()->isSuperAdmin() && !App::backend()->mediaPage()->popup && App::backend()->mediaPage()->mediaWritable()) {
                 $dirtools[] = (new Form('rebuild-form'))
                     ->method('post')
                     ->action(App::backend()->url()->getBase('admin.media'))
@@ -672,7 +672,7 @@ class Media
                                     ->items([
                                         App::nonce()->formNonce(),
                                         (new Submit('rebuild-submit', __('Build'))),
-                                        ... App::backend()->url()->hiddenFormFields('admin.media', array_merge(App::backend()->page->values(), ['complete' => 1])),
+                                        ... App::backend()->url()->hiddenFormFields('admin.media', array_merge(App::backend()->mediaPage()->values(), ['complete' => 1])),
                                     ]),
                             ]),
                     ]);
@@ -687,7 +687,7 @@ class Media
                                     ->items([
                                         App::nonce()->formNonce(),
                                         (new Submit('force-rebuild-submit', __('Force rebuild'))),
-                                        ... App::backend()->url()->hiddenFormFields('admin.media', array_merge(App::backend()->page->values(), ['rebuild' => 1])),
+                                        ... App::backend()->url()->hiddenFormFields('admin.media', array_merge(App::backend()->mediaPage()->values(), ['rebuild' => 1])),
                                     ]),
                                 (new Note())
                                     ->class(['warning', 'form-note'])
@@ -697,15 +697,15 @@ class Media
             }
 
             // Get zip directory
-            if (App::backend()->page->mediaArchivable() && !App::backend()->page->popup) {
+            if (App::backend()->mediaPage()->mediaArchivable() && !App::backend()->mediaPage()->popup) {
                 $dirtools[] = (new Fieldset())
-                    ->legend(new Legend(sprintf(__('Backup content of %s'), (App::backend()->page->d == '' ? '“' . __('Media manager') . '”' : '“' . App::backend()->page->d . '”'))))
+                    ->legend(new Legend(sprintf(__('Backup content of %s'), (App::backend()->mediaPage()->d == '' ? '“' . __('Media manager') . '”' : '“' . App::backend()->mediaPage()->d . '”'))))
                     ->fields([
                         (new Para())
                             ->items([
                                 (new Link('zip-submit'))
                                     ->class(['button', 'submit'])
-                                    ->href(App::backend()->url()->get('admin.media', array_merge(App::backend()->page->values(), ['zipdl' => 1])))
+                                    ->href(App::backend()->url()->get('admin.media', array_merge(App::backend()->mediaPage()->values(), ['zipdl' => 1])))
                                     ->text(__('Download zip file')),
                             ]),
                     ]);
@@ -718,12 +718,12 @@ class Media
             }
         }
 
-        if (!App::backend()->page->hasQuery() && App::backend()->page->mediaWritable()) {
+        if (!App::backend()->mediaPage()->hasQuery() && App::backend()->mediaPage()->mediaWritable()) {
             $tools[] = (new Div())
                 ->class(['two-boxes', 'even', 'fieldset'])
                 ->items([
                     (new Div())
-                        ->class(App::backend()->page->showUploader() ? 'enhanced_uploader' : '')
+                        ->class(App::backend()->mediaPage()->showUploader() ? 'enhanced_uploader' : '')
                         ->items([
                             (new Text('h4', __('Add files'))),
                             (new Note())
@@ -731,7 +731,7 @@ class Media
                                 ->text(__('Please take care to publish media that you own and that are not protected by copyright.')),
                             (new Form('fileupload'))
                                 ->method('post')
-                                ->action(Html::escapeURL(App::backend()->url()->get('admin.media', App::backend()->page->values())))
+                                ->action(Html::escapeURL(App::backend()->url()->get('admin.media', App::backend()->mediaPage()->values())))
                                 ->enctype('multipart/form-data')
                                 ->extra('aria-disabled="false"')
                                 ->fields([
@@ -759,10 +759,10 @@ class Media
                                                         ->class(['button', 'choose_files']),
                                                     (new File(['upfile[]', 'upfile']))
                                                         ->data([
-                                                            'url' => Html::escapeURL(App::backend()->url()->get('admin.media', App::backend()->page->values())),
+                                                            'url' => Html::escapeURL(App::backend()->url()->get('admin.media', App::backend()->mediaPage()->values())),
                                                         ])
                                                         ->extra([
-                                                            App::backend()->page->showUploader() ? ' multiple="mutiple"' : '',
+                                                            App::backend()->mediaPage()->showUploader() ? ' multiple="mutiple"' : '',
                                                         ]),
                                                 ]),
                                             (new Note())
@@ -784,7 +784,7 @@ class Media
                                                         ->label(new Label(__('Private'), Label::IL_FT)),
                                                 ]),
                                             (
-                                                App::backend()->page->showUploader() ?
+                                                App::backend()->mediaPage()->showUploader() ?
                                                 (new None()) :
                                                 (new Para())
                                                     ->class(['one-file', 'form-help', 'info'])
@@ -816,7 +816,7 @@ class Media
                                         ->items([
                                             (new Hidden(['MAX_FILE_SIZE'], (string) App::config()->maxUploadSize())),
                                             App::nonce()->formNonce(),
-                                            ... App::backend()->url()->hiddenFormFields('admin.media', App::backend()->page->values()),
+                                            ... App::backend()->url()->hiddenFormFields('admin.media', App::backend()->mediaPage()->values()),
                                         ]),
                                 ]),
                         ]),
@@ -827,7 +827,7 @@ class Media
             echo (new Div())
                 ->class('vertical-separator')
                 ->items([
-                    (new Text('h3', sprintf(__('In %s:'), (App::backend()->page->d == '' ? '“' . __('Media manager') . '”' : '“' . App::backend()->page->d . '”'))))
+                    (new Text('h3', sprintf(__('In %s:'), (App::backend()->mediaPage()->d == '' ? '“' . __('Media manager') . '”' : '“' . App::backend()->mediaPage()->d . '”'))))
                         ->class('out-of-screen-if-js'),
                     ... $tools,
                 ])
@@ -837,20 +837,20 @@ class Media
         // Empty remove form (for javascript actions)
         echo (new Form('media-remove-hide'))
             ->method('post')
-            ->action(Html::escapeURL(App::backend()->url()->get('admin.media', App::backend()->page->values())))
+            ->action(Html::escapeURL(App::backend()->url()->get('admin.media', App::backend()->mediaPage()->values())))
             ->class('hidden')
             ->fields([
                 (new Div())
                     ->items([
                         (new Hidden('rmyes', '1')),
                         (new Hidden('remove', '')),
-                        ... App::backend()->url()->hiddenFormFields('admin.media', App::backend()->page->values()),
+                        ... App::backend()->url()->hiddenFormFields('admin.media', App::backend()->mediaPage()->values()),
                         App::nonce()->formNonce(),
                     ]),
             ])
         ->render();
 
-        if (!App::backend()->page->popup) {
+        if (!App::backend()->mediaPage()->popup) {
             echo (new Note())
                 ->class('info')
                 ->text(sprintf(
@@ -873,6 +873,6 @@ class Media
             ->render();
         }
 
-        App::backend()->page->closePage();
+        App::backend()->mediaPage()->closePage();
     }
 }

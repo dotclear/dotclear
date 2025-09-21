@@ -129,6 +129,7 @@ class Utility extends AbstractUtility
             Combos::class      => Combos::class,
             Favorites::class   => Favorites::class,
             Helper::class      => Helper::class,
+            MediaPage::class   => MediaPage::class,
             Menus::class       => Menus::class,
             ModulesList::class => ModulesList::class,
             Notices::class     => Notices::class,
@@ -162,6 +163,14 @@ class Utility extends AbstractUtility
     public function favorites(): Favorites
     {
         return $this->get(Favorites::class);
+    }
+
+    /**
+     * Get backend media page instance.
+     */
+    public function mediaPage(): MediaPage
+    {
+        return $this->get(MediaPage::class);
     }
 
     /**
@@ -212,7 +221,7 @@ class Utility extends AbstractUtility
     }
 
     /**
-     * Get backend modules list instance.
+     * Get backend themes list instance.
      */
     public function themesList(): ThemesList
     {
