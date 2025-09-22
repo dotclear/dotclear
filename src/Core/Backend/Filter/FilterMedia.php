@@ -127,12 +127,13 @@ class FilterMedia extends Filters
     protected function getDirFilter(): Filter
     {
         $get = $_REQUEST['d'] ?? App::auth()->prefs()->interface->media_manager_dir ?? null;
+
+        // Remove previous current dir from user pref
+        App::auth()->prefs()->interface->drop('media_manager_dir');
+
         if ($get) {
             // Store current dir in user pref
             App::auth()->prefs()->interface->put('media_manager_dir', $get, 'string');
-        } else {
-            // Remove current dir from user pref
-            App::auth()->prefs()->interface->drop('media_manager_dir');
         }
 
         return new Filter('d', $get);
@@ -141,12 +142,14 @@ class FilterMedia extends Filters
     protected function getFileModeFilter(): Filter
     {
         $get = $_REQUEST['file_mode'] ?? $get = App::auth()->prefs()->interface->media_file_mode ?? null;
+
+        // Remove previous current view from user pref
+        App::auth()->prefs()->interface->drop('media_file_mode');
+
         if ($get) {
             // Store current view in user pref
             App::auth()->prefs()->interface->put('media_file_mode', $get, 'string');
         } else {
-            // Remove current view from user pref
-            App::auth()->prefs()->interface->drop('media_file_mode');
             $get = self::MODE_GRID;
         }
 
