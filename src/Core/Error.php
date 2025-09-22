@@ -11,7 +11,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
-use Dotclear\Core\Backend\Notices; // deprecated
+use Dotclear\App;   // deprecated see toHTML() method below
 use Dotclear\Interface\Core\ErrorInterface;
 
 /**
@@ -84,7 +84,7 @@ class Error implements ErrorInterface
 
         if ($this->flag) {
             foreach ($this->stack as $msg) {
-                $res .= Notices::error($msg, true, false, false);
+                $res .= App::backend()->notices()->error($msg, true, false, false);
             }
             if ($reset) {
                 $this->reset();

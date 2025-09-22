@@ -431,7 +431,7 @@ class Page
         }
 
         // Display notices and errors
-        echo Notices::getNotices();
+        echo App::backend()->notices()->getNotices();
     }
 
     /**
@@ -643,7 +643,7 @@ class Page
         echo $breadcrumb;
 
         // Display notices and errors
-        echo Notices::getNotices();
+        echo App::backend()->notices()->getNotices();
     }
 
     /**
@@ -699,79 +699,79 @@ class Page
     /**
      * Get current notices
      *
-     * @deprecated since 2.27, use Notices::getNotices() instead
+     * @deprecated since 2.27, use App::backend()->notices()->getNotices() instead
      */
     public static function notices(): string
     {
-        App::deprecated()->set('Notices::getNotices()', '2.27');
+        App::deprecated()->set('App::backend()->notices()->getNotices()', '2.27');
 
-        return Notices::getNotices();
+        return App::backend()->notices()->getNotices();
     }
 
     /**
      * Adds a message notice.
      *
-     * @deprecated since 2.27, use Notices::addMessageNotice() instead
+     * @deprecated since 2.27, use App::backend()->notices()->addMessageNotice() instead
      *
      * @param      string                   $message  The message
      * @param      array<string, mixed>     $options  The options
      */
     public static function addMessageNotice(string $message, array $options = []): void
     {
-        App::deprecated()->set('Notices::addNotices()', '2.27');
+        App::deprecated()->set('App::backend()->notices()->addNotices()', '2.27');
 
-        Notices::addNotice(Notices::NOTICE_MESSAGE, $message, $options);
+        App::backend()->notices()->addNotice(App::backend()->notices()::NOTICE_MESSAGE, $message, $options);
     }
 
     /**
      * Adds a success notice.
      *
-     * @deprecated since 2.27, use Notices::addSuccessNotice() instead
+     * @deprecated since 2.27, use App::backend()->notices()->addSuccessNotice() instead
      *
      * @param      string                   $message  The message
      * @param      array<string, mixed>     $options  The options
      */
     public static function addSuccessNotice(string $message, array $options = []): void
     {
-        App::deprecated()->set('Notices::addNotices()', '2.27');
+        App::deprecated()->set('App::backend()->notices()->addNotices()', '2.27');
 
-        Notices::addNotice(Notices::NOTICE_SUCCESS, $message, $options);
+        App::backend()->notices()->addNotice(App::backend()->notices()::NOTICE_SUCCESS, $message, $options);
     }
 
     /**
      * Adds a warning notice.
      *
-     * @deprecated since 2.27, use Notices::addWarningNotice() instead
+     * @deprecated since 2.27, use App::backend()->notices()->addWarningNotice() instead
      *
      * @param      string                   $message  The message
      * @param      array<string, mixed>     $options  The options
      */
     public static function addWarningNotice(string $message, array $options = []): void
     {
-        App::deprecated()->set('Notices::addNotices()', '2.27');
+        App::deprecated()->set('App::backend()->notices()->addNotices()', '2.27');
 
-        Notices::addNotice(Notices::NOTICE_WARNING, $message, $options);
+        App::backend()->notices()->addNotice(App::backend()->notices()::NOTICE_WARNING, $message, $options);
     }
 
     /**
      * Adds an error notice.
      *
-     * @deprecated since 2.27, use Notices::addErrorNotice() instead
+     * @deprecated since 2.27, use App::backend()->notices()->addErrorNotice() instead
      *
      * @param      string                   $message  The message
      * @param      array<string, mixed>     $options  The options
      */
     public static function addErrorNotice(string $message, array $options = []): void
     {
-        App::deprecated()->set('Notices::addNotices()', '2.27');
+        App::deprecated()->set('App::backend()->notices()->addNotices()', '2.27');
 
-        Notices::addNotice(Notices::NOTICE_ERROR, $message, $options);
+        App::backend()->notices()->addNotice(App::backend()->notices()::NOTICE_ERROR, $message, $options);
     }
 
     /**
      * Return/display a notice.
      *
-     * @deprecated since 2.27, use Notices::message() instead
+     * @deprecated since 2.27, use App::backend()->notices()->message() instead
      *
      * @param      string  $msg        The message
      * @param      bool    $timestamp  Include the timestamp
@@ -783,15 +783,15 @@ class Page
      */
     public static function message(string $msg, bool $timestamp = true, bool $div = false, bool $echo = true, ?string $class = null): string
     {
-        App::deprecated()->set('Notices::message()', '2.27');
+        App::deprecated()->set('App::backend()->notices()->message()', '2.27');
 
-        return Notices::message($msg, $timestamp, $div, $echo, $class);
+        return App::backend()->notices()->message($msg, $timestamp, $div, $echo, $class);
     }
 
     /**
      * Return/display a success notice.
      *
-     * @deprecated since 2.27, use Notices::success() instead
+     * @deprecated since 2.27, use App::backend()->notices()->success() instead
      *
      * @param      string  $msg        The message
      * @param      bool    $timestamp  Include the timestamp
@@ -802,15 +802,15 @@ class Page
      */
     public static function success(string $msg, bool $timestamp = true, bool $div = false, bool $echo = true): string
     {
-        App::deprecated()->set('Notices::success()', '2.27');
+        App::deprecated()->set('App::backend()->notices()->success()', '2.27');
 
-        return Notices::success($msg, $timestamp, $div, $echo);
+        return App::backend()->notices()->success($msg, $timestamp, $div, $echo);
     }
 
     /**
      * Return/display a warning notice.
      *
-     * @deprecated since 2.27, use Notices::warning() instead
+     * @deprecated since 2.27, use App::backend()->notices()->warning() instead
      *
      * @param      string  $msg        The message
      * @param      bool    $timestamp  Include the timestamp
@@ -821,15 +821,15 @@ class Page
      */
     public static function warning(string $msg, bool $timestamp = true, bool $div = false, bool $echo = true): string
     {
-        App::deprecated()->set('Notices::warning()', '2.27');
+        App::deprecated()->set('App::backend()->notices()->warning()', '2.27');
 
-        return Notices::warning($msg, $timestamp, $div, $echo);
+        return App::backend()->notices()->warning($msg, $timestamp, $div, $echo);
     }
 
     /**
      * Return/display a error notice.
      *
-     * @deprecated since 2.27, use Notices::error() instead
+     * @deprecated since 2.27, use App::backend()->notices()->error() instead
      *
      * @param      string  $msg        The message
      * @param      bool    $timestamp  Include the timestamp
@@ -840,9 +840,9 @@ class Page
      */
     public static function error(string $msg, bool $timestamp = true, bool $div = false, bool $echo = true): string
     {
-        App::deprecated()->set('Notices::error()', '2.27');
+        App::deprecated()->set('App::backend()->notices()->error()', '2.27');
 
-        return Notices::error($msg, $timestamp, $div, $echo);
+        return App::backend()->notices()->error($msg, $timestamp, $div, $echo);
     }
 
     /**
@@ -1716,14 +1716,14 @@ class Page
     /**
      * return a javascript variable definition line code
      *
-     * @deprecated  since 2.15, use Page::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript instead
+     * @deprecated  since 2.15, use App::backend()->page()->jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript instead
      *
      * @param      string        $name       variable name
      * @param      mixed         $value      value
      */
     public static function jsVar(string $name, mixed $value): string
     {
-        App::deprecated()->set('Page::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript', '2.15');
+        App::deprecated()->set('App::backend()->page()->jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript', '2.15');
 
         return $name . " = '" . Html::escapeJS((string) $value) . "';\n";
     }
@@ -1731,7 +1731,7 @@ class Page
     /**
      * return a list of javascript variables définitions code
      *
-     * @deprecated since 2.15, use Page::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript intead
+     * @deprecated since 2.15, use App::backend()->page()->jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript intead
      *
      * @param      array<string, mixed>  $vars   The variables
      *
@@ -1739,7 +1739,7 @@ class Page
      */
     public static function jsVars(array $vars): string
     {
-        App::deprecated()->set('Page::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript', '2.15');
+        App::deprecated()->set('App::backend()->page()->jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript', '2.15');
 
         $ret = '<script>' . "\n";
         foreach ($vars as $var => $value) {

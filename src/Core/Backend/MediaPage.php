@@ -360,9 +360,9 @@ class MediaPage extends FilterMedia
     public function openPage(string $breadcrumb, string $header = ''): void
     {
         if ($this->popup) {
-            Page::openPopup(__('Media manager'), $header, $breadcrumb);
+            App::backend()->page()->openPopup(__('Media manager'), $header, $breadcrumb);
         } else {
-            Page::open(__('Media manager'), $header, $breadcrumb);
+            App::backend()->page()->open(__('Media manager'), $header, $breadcrumb);
         }
     }
 
@@ -372,10 +372,10 @@ class MediaPage extends FilterMedia
     public function closePage(): void
     {
         if ($this->popup) {
-            Page::closePopup();
+            App::backend()->page()->closePopup();
         } else {
-            Page::helpBlock('core_media');
-            Page::close();
+            App::backend()->page()->helpBlock('core_media');
+            App::backend()->page()->close();
         }
     }
 
@@ -420,6 +420,6 @@ class MediaPage extends FilterMedia
             'home_link' => !$this->popup,
         ];
 
-        return Page::breadcrumb(array_merge($elements, $element), array_merge($options, $option));
+        return App::backend()->page()->breadcrumb(array_merge($elements, $element), array_merge($options, $option));
     }
 }

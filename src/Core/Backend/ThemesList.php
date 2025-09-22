@@ -473,7 +473,7 @@ class ThemesList extends ModulesList
                 // Empty theme (and theme's parent if any) template cache
                 $this->emptyThemeTemplatesCache();
 
-                Notices::addSuccessNotice(sprintf(__('Theme %s has been successfully selected.'), Html::escapeHTML($define->get('name'))));
+                App::backend()->notices()->addSuccessNotice(sprintf(__('Theme %s has been successfully selected.'), Html::escapeHTML($define->get('name'))));
                 Http::redirect($this->getURL('', true, 'themes'));
             }
         } else {
@@ -508,7 +508,7 @@ class ThemesList extends ModulesList
                     throw new Exception(__('No such theme.'));
                 }
 
-                Notices::addSuccessNotice(
+                App::backend()->notices()->addSuccessNotice(
                     __('Theme has been successfully activated.', 'Themes have been successuflly activated.', $count)
                 );
                 Http::redirect($this->getURL());
@@ -547,9 +547,9 @@ class ThemesList extends ModulesList
                 }
 
                 if ($failed) {
-                    Notices::addWarningNotice(__('Some themes have not been deactivated.'));
+                    App::backend()->notices()->addWarningNotice(__('Some themes have not been deactivated.'));
                 } else {
-                    Notices::addSuccessNotice(
+                    App::backend()->notices()->addSuccessNotice(
                         __('Theme has been successfully deactivated.', 'Themes have been successuflly deactivated.', $count)
                     );
                 }
@@ -581,7 +581,7 @@ class ThemesList extends ModulesList
                     throw new Exception(__('No such theme.'));
                 }
 
-                Notices::addSuccessNotice(
+                App::backend()->notices()->addSuccessNotice(
                     __('Theme has been successfully cloned.', 'Themes have been successuflly cloned.', $count)
                 );
                 Http::redirect($this->getURL());
@@ -620,9 +620,9 @@ class ThemesList extends ModulesList
                 } elseif ($count === 0) {
                     throw new Exception(__('No such theme.'));
                 } elseif ($failed) {
-                    Notices::addWarningNotice(__('Some themes have not been delete.'));
+                    App::backend()->notices()->addWarningNotice(__('Some themes have not been delete.'));
                 } else {
-                    Notices::addSuccessNotice(
+                    App::backend()->notices()->addSuccessNotice(
                         __('Theme has been successfully deleted.', 'Themes have been successuflly deleted.', $count)
                     );
                 }
@@ -655,7 +655,7 @@ class ThemesList extends ModulesList
                     throw new Exception(__('No such theme.'));
                 }
 
-                Notices::addSuccessNotice(
+                App::backend()->notices()->addSuccessNotice(
                     __('Theme has been successfully installed.', 'Themes have been successfully installed.', $count)
                 );
                 Http::redirect($this->getURL());
@@ -694,11 +694,11 @@ class ThemesList extends ModulesList
                 $tab = $count === count($defines) ? 'themes' : 'update';
 
                 if ($count !== 0) {
-                    Notices::addSuccessNotice(
+                    App::backend()->notices()->addSuccessNotice(
                         __('Theme has been successfully updated.', 'Themes have been successfully updated.', $count)
                     );
                 } elseif ($locked !== []) {
-                    Notices::addWarningNotice(
+                    App::backend()->notices()->addWarningNotice(
                         sprintf(__('Following themes updates are locked: %s'), implode(', ', $locked))
                     );
                 } else {
@@ -735,7 +735,7 @@ class ThemesList extends ModulesList
                 # --BEHAVIOR-- themeAfterAdd --
                 App::behavior()->callBehavior('themeAfterAdd', null);
 
-                Notices::addSuccessNotice(
+                App::backend()->notices()->addSuccessNotice(
                     $ret_code === $this->modules::PACKAGE_UPDATED ?
                     __('The theme has been successfully updated.') :
                     __('The theme has been successfully installed.')

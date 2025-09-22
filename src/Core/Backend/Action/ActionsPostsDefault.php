@@ -13,9 +13,6 @@ namespace Dotclear\Core\Backend\Action;
 
 use ArrayObject;
 use Dotclear\App;
-use Dotclear\Core\Backend\Combos;
-use Dotclear\Core\Backend\Notices;
-use Dotclear\Core\Backend\Page;
 use Dotclear\Database\Statement\UpdateStatement;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
@@ -145,7 +142,7 @@ class ActionsPostsDefault
         // Set status of remaining entries
         App::blog()->updPostsStatus($ids, $status);
 
-        Notices::addSuccessNotice(
+        App::backend()->notices()->addSuccessNotice(
             sprintf(
                 __(
                     '%d entry has been successfully updated to status : "%s"',
@@ -183,7 +180,7 @@ class ActionsPostsDefault
             // Set first publication flag of entries
             App::blog()->updPostsFirstPub($ids, $status);
 
-            Notices::addSuccessNotice(
+            App::backend()->notices()->addSuccessNotice(
                 sprintf(
                     __(
                         '%d entry has been successfully updated as: "%s"',
@@ -215,7 +212,7 @@ class ActionsPostsDefault
         $action = $ap->getAction();
         App::blog()->updPostsSelected($ids, $action === 'selected');
         if ($action == 'selected') {
-            Notices::addSuccessNotice(
+            App::backend()->notices()->addSuccessNotice(
                 sprintf(
                     __(
                         '%d entry has been successfully marked as selected',
@@ -226,7 +223,7 @@ class ActionsPostsDefault
                 )
             );
         } else {
-            Notices::addSuccessNotice(
+            App::backend()->notices()->addSuccessNotice(
                 sprintf(
                     __(
                         '%d entry has been successfully marked as unselected',
@@ -263,7 +260,7 @@ class ActionsPostsDefault
         App::behavior()->callBehavior('adminBeforePostsDelete', $ids);
 
         App::blog()->delPosts($ids);
-        Notices::addSuccessNotice(
+        App::backend()->notices()->addSuccessNotice(
             sprintf(
                 __(
                     '%d entry has been successfully deleted',
@@ -316,7 +313,7 @@ class ActionsPostsDefault
             if ($new_cat_id !== 0) {
                 $title = App::blog()->getCategory($new_cat_id)->cat_title;
             }
-            Notices::addSuccessNotice(
+            App::backend()->notices()->addSuccessNotice(
                 sprintf(
                     __(
                         '%d entry has been successfully moved to category "%s"',
@@ -331,7 +328,7 @@ class ActionsPostsDefault
             $ap->redirect(true);
         } else {
             $ap->beginPage(
-                Page::breadcrumb(
+                App::backend()->page()->breadcrumb(
                     [
                         Html::escapeHTML(App::blog()->name())    => '',
                         $ap->getCallerTitle()                    => $ap->getRedirection(true),
@@ -341,7 +338,7 @@ class ActionsPostsDefault
             );
             # categories list
             # Getting categories
-            $categories_combo = Combos::getCategoriesCombo(
+            $categories_combo = App::backend()->combos()->getCategoriesCombo(
                 App::blog()->getCategories()
             );
 
@@ -434,7 +431,7 @@ class ActionsPostsDefault
                 ->where('post_id ' . $sql->in($ids))
                 ->update($cur);
 
-            Notices::addSuccessNotice(
+            App::backend()->notices()->addSuccessNotice(
                 sprintf(
                     __(
                         '%d entry has been successfully set to user "%s"',
@@ -466,14 +463,14 @@ class ActionsPostsDefault
                 }
             }
             $ap->beginPage(
-                Page::breadcrumb(
+                App::backend()->page()->breadcrumb(
                     [
                         Html::escapeHTML(App::blog()->name())  => '',
                         $ap->getCallerTitle()                  => $ap->getRedirection(true),
                         __('Change author for this selection') => '', ]
                 ),
-                Page::jsLoad('js/jquery/jquery.autocomplete.js') .
-                Page::jsJson('users_list', $usersList)
+                App::backend()->page()->jsLoad('js/jquery/jquery.autocomplete.js') .
+                App::backend()->page()->jsJson('users_list', $usersList)
             );
 
             echo (new Form('dochangepostauthor'))
@@ -530,7 +527,7 @@ class ActionsPostsDefault
                 ->where('post_id ' . $sql->in($ids))
                 ->update($cur);
 
-            Notices::addSuccessNotice(
+            App::backend()->notices()->addSuccessNotice(
                 sprintf(
                     __(
                         '%d entry has been successfully set to language "%s"',
@@ -544,7 +541,7 @@ class ActionsPostsDefault
             $ap->redirect(true);
         } else {
             $ap->beginPage(
-                Page::breadcrumb(
+                App::backend()->page()->breadcrumb(
                     [
                         Html::escapeHTML(App::blog()->name())    => '',
                         $ap->getCallerTitle()                    => $ap->getRedirection(true),
@@ -553,7 +550,7 @@ class ActionsPostsDefault
                 )
             );
             // Prepare languages combo
-            $lang_combo = Combos::getLangsCombo(
+            $lang_combo = App::backend()->combos()->getLangsCombo(
                 App::blog()->getLangs([
                     'order_by' => 'nb_post',
                     'order'    => 'desc',

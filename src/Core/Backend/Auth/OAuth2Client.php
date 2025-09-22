@@ -11,7 +11,6 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend\Auth;
 
 use Dotclear\App;
-use Dotclear\Core\Backend\Helper;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\OAuth2\Client\{ Client, Provider };
 use Dotclear\Schema\OAuth2\{ Auth0Connect, GithubConnect, GoogleConnect, Lwa, SlackConnect };
@@ -83,6 +82,6 @@ class OAuth2Client extends Client
 
     public function getProviderLogo(Provider $provider): string
     {
-        return Helper::adminIcon($provider::getIcon() ?: '', true, '', '', 'icon-mini');
+        return App::backend()->helper()->adminIcon($provider::getIcon() ?: '', true, '', '', 'icon-mini');
     }
 }

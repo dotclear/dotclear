@@ -12,7 +12,6 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend\Action;
 
 use Dotclear\App;
-use Dotclear\Core\Backend\Notices;
 use Dotclear\Database\Statement\UpdateStatement;
 use Exception;
 
@@ -79,7 +78,7 @@ class ActionsBlogsDefault
             App::users()->removeUsersDefaultBlogs($ids);
         }
 
-        Notices::addSuccessNotice(__('Selected blogs have been successfully updated.'));
+        App::backend()->notices()->addSuccessNotice(__('Selected blogs have been successfully updated.'));
         $ap->redirect(true);
     }
 
@@ -108,7 +107,7 @@ class ActionsBlogsDefault
         $checked_ids = [];
         foreach ($ids as $id) {
             if ($id === App::blog()->id()) {
-                Notices::addWarningNotice(__('The current blog cannot be deleted.'));
+                App::backend()->notices()->addWarningNotice(__('The current blog cannot be deleted.'));
             } else {
                 $checked_ids[] = $id;
             }
@@ -122,7 +121,7 @@ class ActionsBlogsDefault
                 App::blogs()->delBlog($id);
             }
 
-            Notices::addSuccessNotice(
+            App::backend()->notices()->addSuccessNotice(
                 sprintf(
                     __(
                         '%d blog has been successfully deleted',

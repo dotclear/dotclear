@@ -13,7 +13,6 @@ namespace Dotclear\Core\Backend\Action;
 
 use ArrayObject;
 use Dotclear\App;
-use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Form\Link;
 use Dotclear\Helper\Html\Form\Para;
@@ -69,16 +68,16 @@ class ActionsComments extends Actions
     public function beginPage(string $breadcrumb = '', string $head = ''): void
     {
         if ($this->in_plugin) {
-            Page::openModule(
+            App::backend()->page()->openModule(
                 __('Comments'),
-                Page::jsLoad('js/_comments_actions.js') .
+                App::backend()->page()->jsLoad('js/_comments_actions.js') .
                 $head
             );
             echo $breadcrumb;
         } else {
-            Page::open(
+            App::backend()->page()->open(
                 __('Comments'),
-                Page::jsLoad('js/_comments_actions.js') .
+                App::backend()->page()->jsLoad('js/_comments_actions.js') .
                 $head,
                 $breadcrumb
             );
@@ -99,9 +98,9 @@ class ActionsComments extends Actions
     public function endPage(): void
     {
         if ($this->in_plugin) {
-            Page::closeModule();
+            App::backend()->page()->closeModule();
         } else {
-            Page::close();
+            App::backend()->page()->close();
         }
     }
 
@@ -112,7 +111,7 @@ class ActionsComments extends Actions
     {
         App::error()->add($e->getMessage());
         $this->beginPage(
-            Page::breadcrumb(
+            App::backend()->page()->breadcrumb(
                 [
                     Html::escapeHTML(App::blog()->name()) => '',
                     __('Comments')                        => App::backend()->url()->get('admin.comments'),

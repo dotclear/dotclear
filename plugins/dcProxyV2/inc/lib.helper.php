@@ -12,7 +12,6 @@
  */
 
 use Dotclear\App;
-use Dotclear\Core\Backend\Helper;
 use Dotclear\Core\Fault;
 use Dotclear\Exception\AppException;
 
@@ -23,7 +22,7 @@ use Dotclear\Exception\AppException;
  */
 function dc_load_locales(): void
 {
-    Helper::loadLocales();
+    App::backend()->helper()->loadLocales();
 }
 
 /**
@@ -51,7 +50,7 @@ function dc_admin_icon_url(string $img): string
  */
 function dc_admin_icon_theme($img, bool $fallback = true, string $alt = '', string $title = '', string $class = ''): string
 {
-    return Helper::adminIcon($img, $fallback, $alt, $title, $class);
+    return App::backend()->helper()->adminIcon($img, $fallback, $alt, $title, $class);
 }
 
 /**

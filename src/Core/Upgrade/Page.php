@@ -240,7 +240,7 @@ class Page extends BackendPage
         echo $breadcrumb;
 
         // Display notices and errors
-        echo Notices::getNotices();
+        echo App::upgrade()->notices()->getNotices();
     }
 
     /**

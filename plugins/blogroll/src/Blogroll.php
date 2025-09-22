@@ -115,7 +115,7 @@ class Blogroll
      */
     public function getLangs(array $params = []): MetaRecord
     {
-        // Use post_lang as an alias of link_lang to be able to use the backend Combos::getLangsCombo() function
+        // Use post_lang as an alias of link_lang to be able to use the backend App::backend()->combos()->getLangsCombo() function
         $sql = new SelectStatement();
         $sql
             ->columns([

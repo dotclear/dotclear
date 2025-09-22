@@ -17,7 +17,6 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend\Listing;
 
 use ArrayObject;
-use Dotclear\Core\Backend\UserPref;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Form\Component;
 use Dotclear\Helper\Html\Form\Img;
@@ -65,7 +64,7 @@ class Listing
      * Get user defined columns
      *
      * The $cols paramters should be populate with all possible columns and then unwanted columns
-     * will be removed if user set so via UserPref::getUserColumns.
+     * will be removed if user set so via App::backend()->userPref()->getUserColumns.
      * Each column having a key name and having some value (mixed).
      *
      * If $component is true then all column's value will be converted to Component if already not (as Text)
@@ -76,7 +75,7 @@ class Listing
      */
     public function userColumns(string $type, array|ArrayObject $cols, bool $component = false): void
     {
-        UserPref::getUserColumns($type, $cols);
+        App::backend()->userPref()->getUserColumns($type, $cols);
         if ($component) {
             foreach ($cols as &$value) {
                 if (!$value instanceof Component) {

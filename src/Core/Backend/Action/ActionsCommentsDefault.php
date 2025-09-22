@@ -12,7 +12,6 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend\Action;
 
 use Dotclear\App;
-use Dotclear\Core\Backend\Notices;
 use Dotclear\Plugin\antispam\Filters\Ip as dcFilterIP;
 use Dotclear\Plugin\antispam\Filters\IpV6 as dcFilterIPv6;
 use Exception;
@@ -93,7 +92,7 @@ class ActionsCommentsDefault
 
         App::blog()->updCommentsStatus($ids, $status);
 
-        Notices::addSuccessNotice(__('Selected comments have been successfully updated.'));
+        App::backend()->notices()->addSuccessNotice(__('Selected comments have been successfully updated.'));
         $ap->redirect(true);
     }
 
@@ -121,7 +120,7 @@ class ActionsCommentsDefault
 
         App::blog()->delComments($ids);
 
-        Notices::addSuccessNotice(__('Selected comments have been successfully deleted.'));
+        App::backend()->notices()->addSuccessNotice(__('Selected comments have been successfully deleted.'));
         $ap->redirect(false);
     }
 
@@ -168,7 +167,7 @@ class ActionsCommentsDefault
             }
 
             if ($count !== 0) {
-                Notices::addSuccessNotice(__('IP addresses for selected comments have been blocklisted.'));
+                App::backend()->notices()->addSuccessNotice(__('IP addresses for selected comments have been blocklisted.'));
             }
         }
         $ap->redirect(true);

@@ -13,7 +13,6 @@ namespace Dotclear\Core\Backend\Action;
 
 use ArrayObject;
 use Dotclear\App;
-use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\Html\Form\Link;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Html;
@@ -62,16 +61,16 @@ class ActionsPosts extends Actions
     public function beginPage(string $breadcrumb = '', string $head = ''): void
     {
         if ($this->in_plugin) {
-            Page::openModule(
+            App::backend()->page()->openModule(
                 __('Posts'),
-                Page::jsLoad('js/_posts_actions.js') .
+                App::backend()->page()->jsLoad('js/_posts_actions.js') .
                 $head
             );
             echo $breadcrumb;
         } else {
-            Page::open(
+            App::backend()->page()->open(
                 __('Posts'),
-                Page::jsLoad('js/_posts_actions.js') .
+                App::backend()->page()->jsLoad('js/_posts_actions.js') .
                 $head,
                 $breadcrumb
             );
@@ -92,9 +91,9 @@ class ActionsPosts extends Actions
     public function endPage(): void
     {
         if ($this->in_plugin) {
-            Page::closeModule();
+            App::backend()->page()->closeModule();
         } else {
-            Page::close();
+            App::backend()->page()->close();
         }
     }
 
@@ -105,7 +104,7 @@ class ActionsPosts extends Actions
     {
         App::error()->add($e->getMessage());
         $this->beginPage(
-            Page::breadcrumb(
+            App::backend()->page()->breadcrumb(
                 [
                     Html::escapeHTML(App::blog()->name()) => '',
                     $this->getCallerTitle()               => $this->getRedirection(true),

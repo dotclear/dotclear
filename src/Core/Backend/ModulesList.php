@@ -901,24 +901,24 @@ class ModulesList
                 $default_icon = false;
 
                 if (file_exists($define->get('root') . DIRECTORY_SEPARATOR . 'icon.svg')) {
-                    $icon = Page::getPF($id . '/icon.svg');
+                    $icon = App::backend()->page()->getPF($id . '/icon.svg');
                 } elseif (file_exists($define->get('root') . DIRECTORY_SEPARATOR . 'icon.png')) {
-                    $icon = Page::getPF($id . '/icon.png');
+                    $icon = App::backend()->page()->getPF($id . '/icon.png');
                 } else {
                     $icon         = 'images/module.svg';
                     $default_icon = true;
                 }
                 if (file_exists($define->get('root') . DIRECTORY_SEPARATOR . 'icon-dark.svg')) {
-                    $icon = [$icon, Page::getPF($id . '/icon-dark.svg')];
+                    $icon = [$icon, App::backend()->page()->getPF($id . '/icon-dark.svg')];
                 } elseif (file_exists($define->get('root') . DIRECTORY_SEPARATOR . 'icon-dark.png')) {
-                    $icon = [$icon, Page::getPF($id . '/icon-dark.png')];
+                    $icon = [$icon, App::backend()->page()->getPF($id . '/icon-dark.png')];
                 } elseif ($default_icon) {
                     $icon = [$icon, 'images/module-dark.svg'];
                 }
 
                 $data[] = (new Td())
                     ->class(['module-icon', 'nowrap'])
-                    ->text(Helper::adminIcon($icon, false, Html::escapeHTML($id), Html::escapeHTML($id)));
+                    ->text(App::backend()->helper()->adminIcon($icon, false, Html::escapeHTML($id), Html::escapeHTML($id)));
             }
 
             $tds++;
@@ -1181,6 +1181,10 @@ class ModulesList
 
     /**
      * Same as displayModules(...) but without returning object instance
+     *
+     * @param    array<string>      $cols         List of columns (module field) to display
+     * @param    array<string>      $actions      List of predefined actions to show on form
+     * @param    bool               $nav_limit    Limit list to previously selected index
      */
     public function displayModulesFinal(array $cols = ['name', 'version', 'desc'], array $actions = [], bool $nav_limit = false): void
     {
@@ -1474,7 +1478,7 @@ class ModulesList
     /**
      * Execute POST action.
      *
-     * Set a notice on success through Notices::addSuccessNotice
+     * Set a notice on success through App::backend()->notices()->addSuccessNotice
      *
      * @throws    Exception    Module not find or command failed
      */
@@ -1521,9 +1525,9 @@ class ModulesList
             if (!$count && $failed) {
                 throw new Exception(__("You don't have permissions to delete this plugin."));
             } elseif ($failed) {
-                Notices::addWarningNotice(__('Some plugins have not been delete.'));
+                App::backend()->notices()->addWarningNotice(__('Some plugins have not been delete.'));
             } else {
-                Notices::addSuccessNotice(
+                App::backend()->notices()->addSuccessNotice(
                     __('Plugin has been successfully deleted.', 'Plugins have been successuflly deleted.', $count)
                 );
             }
@@ -1556,7 +1560,7 @@ class ModulesList
                 throw new Exception(__('No such plugin.'));
             }
 
-            Notices::addSuccessNotice(
+            App::backend()->notices()->addSuccessNotice(
                 __('Plugin has been successfully installed.', 'Plugins have been successfully installed.', $count)
             );
             Http::redirect($this->getURL());
@@ -1587,7 +1591,7 @@ class ModulesList
                 throw new Exception(__('No such plugin.'));
             }
 
-            Notices::addSuccessNotice(
+            App::backend()->notices()->addSuccessNotice(
                 __('Plugin has been successfully activated.', 'Plugins have been successuflly activated.', $count)
             );
             Http::redirect($this->getURL());
@@ -1626,9 +1630,9 @@ class ModulesList
             }
 
             if ($failed) {
-                Notices::addWarningNotice(__('Some plugins have not been deactivated.'));
+                App::backend()->notices()->addWarningNotice(__('Some plugins have not been deactivated.'));
             } else {
-                Notices::addSuccessNotice(
+                App::backend()->notices()->addSuccessNotice(
                     __('Plugin has been successfully deactivated.', 'Plugins have been successuflly deactivated.', $count)
                 );
             }
@@ -1675,11 +1679,11 @@ class ModulesList
             $tab = $count === count($defines) ? 'plugins' : 'update';
 
             if ($count !== 0) {
-                Notices::addSuccessNotice(
+                App::backend()->notices()->addSuccessNotice(
                     __('Plugin has been successfully updated.', 'Plugins have been successfully updated.', $count)
                 );
             } elseif ($locked !== []) {
-                Notices::addWarningNotice(
+                App::backend()->notices()->addWarningNotice(
                     sprintf(__('Following plugins updates are locked: %s'), implode(', ', $locked))
                 );
             } else {
@@ -1716,7 +1720,7 @@ class ModulesList
             # --BEHAVIOR-- moduleAfterAdd --
             App::behavior()->callBehavior('pluginAfterAdd', null);
 
-            Notices::addSuccessNotice(
+            App::backend()->notices()->addSuccessNotice(
                 $ret_code === $this->modules::PACKAGE_UPDATED ?
                 __('The plugin has been successfully updated.') :
                 __('The plugin has been successfully installed.')

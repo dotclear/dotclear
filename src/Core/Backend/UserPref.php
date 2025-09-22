@@ -166,7 +166,7 @@ class UserPref
         if (App::auth()->isSuperAdmin()) {
             $users = [
                 __('Users'),
-                Combos::getUsersSortbyCombo(),
+                App::backend()->combos()->getUsersSortbyCombo(),
                 'user_id',
                 'asc',
                 [__('users per page'), $nb_per_page(App::auth()->prefs()->interface->nb_users_per_page)],
@@ -176,21 +176,21 @@ class UserPref
         return [
             'posts' => [
                 __('Posts'),
-                Combos::getPostsSortbyCombo(),
+                App::backend()->combos()->getPostsSortbyCombo(),
                 'post_dt',
                 'desc',
                 [__('posts per page'), $nb_per_page(App::auth()->prefs()->interface->nb_posts_per_page)],
             ],
             'comments' => [
                 __('Comments'),
-                Combos::getCommentsSortbyCombo(),
+                App::backend()->combos()->getCommentsSortbyCombo(),
                 'comment_dt',
                 'desc',
                 [__('comments per page'), $nb_per_page(App::auth()->prefs()->interface->nb_comments_per_page)],
             ],
             'blogs' => [
                 __('Blogs'),
-                Combos::getBlogsSortbyCombo(),
+                App::backend()->combos()->getBlogsSortbyCombo(),
                 'blog_upddt',
                 'desc',
                 [__('blogs per page'), $nb_per_page(App::auth()->prefs()->interface->nb_blogs_per_page)],

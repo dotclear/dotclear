@@ -152,7 +152,7 @@ class Menu
         // Menu link
         $link = (new Link())
             ->href($url)
-            ->text(Helper::adminIcon($img) . $title);
+            ->text(App::backend()->helper()->adminIcon($img) . $title);
         if ($id) {
             $link->id('menu-process-' . $id);
         }

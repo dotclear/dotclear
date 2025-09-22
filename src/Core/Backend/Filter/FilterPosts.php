@@ -13,7 +13,6 @@ namespace Dotclear\Core\Backend\Filter;
 
 use ArrayObject;
 use Dotclear\App;
-use Dotclear\Core\Backend\Combos;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Stack\Filter;
 use Exception;
@@ -83,7 +82,7 @@ class FilterPosts extends Filters
             return null;
         }
 
-        $combo = Combos::getUsersCombo($users);
+        $combo = App::backend()->combos()->getUsersCombo($users);
         App::lexical()->lexicalKeySort($combo, App::lexical()::ADMIN_LOCALE);
 
         return (new Filter('user_id'))
@@ -248,7 +247,7 @@ class FilterPosts extends Filters
             ->param('post_month', fn ($f): string => substr((string) $f[0], 4, 2))
             ->param('post_year', fn ($f): string => substr((string) $f[0], 0, 4))
             ->title(__('Month:'))
-            ->options(['-' => '', ...Combos::getDatesCombo($dates)]);
+            ->options(['-' => '', ...App::backend()->combos()->getDatesCombo($dates)]);
     }
 
     /**
@@ -277,7 +276,7 @@ class FilterPosts extends Filters
         return (new Filter('lang'))
             ->param('post_lang')
             ->title(__('Lang:'))
-            ->options(['-' => '', ...Combos::getLangsCombo($langs, false)]);
+            ->options(['-' => '', ...App::backend()->combos()->getLangsCombo($langs, false)]);
     }
 
     /**

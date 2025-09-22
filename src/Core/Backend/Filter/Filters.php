@@ -12,9 +12,6 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend\Filter;
 
 use Dotclear\App;
-use Dotclear\Core\Backend\Combos;
-use Dotclear\Core\Backend\UserPref;
-use Dotclear\Core\Backend\Page;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Hidden;
@@ -80,7 +77,7 @@ class Filters
      */
     public function userOptions(?string $option = null)
     {
-        return UserPref::getUserFilters($this->type, $option);
+        return App::backend()->userPref()->getUserFilters($this->type, $option);
     }
 
     /**
@@ -88,7 +85,7 @@ class Filters
      */
     protected function parseOptions(): void
     {
-        $options = UserPref::getUserFilters($this->type);
+        $options = App::backend()->userPref()->getUserFilters($this->type);
         if (!empty($options)) {
             $this->has_user_pref = true;
         }
@@ -107,10 +104,10 @@ class Filters
         }
         if (!empty($options[3])) {
             $this->filters['order'] = new Filter('order', $this->userOptions('order'));
-            $this->filters['order']->options(Combos::getOrderCombo());
+            $this->filters['order']->options(App::backend()->combos()->getOrderCombo());
 
             if (!empty($_GET['order'])
-                && in_array($_GET['order'], Combos::getOrderCombo(), true)
+                && in_array($_GET['order'], App::backend()->combos()->getOrderCombo(), true)
                 && $_GET['order'] != $this->userOptions('order')
             ) {
                 $this->show(true);
@@ -310,9 +307,9 @@ class Filters
      */
     public function js(string $reset_url = ''): string
     {
-        $var = $reset_url === '' ? '' : Page::jsJson('filter_reset_url', $reset_url);
+        $var = $reset_url === '' ? '' : App::backend()->page()->jsJson('filter_reset_url', $reset_url);
 
-        return $var . Page::jsFilterControl($this->show());
+        return $var . App::backend()->page()->jsFilterControl($this->show());
     }
 
     /**

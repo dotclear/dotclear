@@ -284,7 +284,7 @@ class Favorites
      */
     public function appendMenuSection(Menus $menu): void
     {
-        $menu->prependSection(Menus::MENU_FAVORITES, new Menu('favorites-menu', __('My favorites')));
+        $menu->prependSection(App::backend()->menus()::MENU_FAVORITES, new Menu('favorites-menu', __('My favorites')));
     }
 
     /**
@@ -296,7 +296,7 @@ class Favorites
     public function appendMenu(Menus $menu): void
     {
         foreach ($this->user_favorites as $favorite_id => $favorite) {
-            $menu[Menus::MENU_FAVORITES]?->addItem(
+            $menu[App::backend()->menus()::MENU_FAVORITES]?->addItem(
                 $favorite->title() ?? '',
                 $favorite->url()   ?? '',
                 $favorite->smallIcon(),

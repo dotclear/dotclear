@@ -208,7 +208,7 @@ class PluginsList extends ModulesList
     /**
      * Execute POST action.
      *
-     * Set a notice on success through Notices::addSuccessNotice
+     * Set a notice on success through App::upgrade()->notices()->addSuccessNotice
      *
      * @throws  Exception   Module not find or command failed
      */
@@ -249,9 +249,9 @@ class PluginsList extends ModulesList
             if (!$count && $failed) {
                 throw new Exception(__("You don't have permissions to delete this plugin."));
             } elseif ($failed) {
-                Notices::addWarningNotice(__('Some plugins have not been delete.'));
+                App::upgrade()->notices()->addWarningNotice(__('Some plugins have not been delete.'));
             } else {
-                Notices::addSuccessNotice(
+                App::upgrade()->notices()->addSuccessNotice(
                     __('Plugin has been successfully deleted.', 'Plugins have been successuflly deleted.', $count)
                 );
             }
@@ -278,7 +278,7 @@ class PluginsList extends ModulesList
                 throw new Exception(__('No such plugin.'));
             }
 
-            Notices::addSuccessNotice(
+            App::upgrade()->notices()->addSuccessNotice(
                 __('Plugin has been successfully installed.', 'Plugins have been successfully installed.', $count)
             );
             Http::redirect($this->getURL('do_install', parametric: false));
@@ -303,7 +303,7 @@ class PluginsList extends ModulesList
                 throw new Exception(__('No such plugin.'));
             }
 
-            Notices::addSuccessNotice(
+            App::upgrade()->notices()->addSuccessNotice(
                 __('Plugin has been successfully activated.', 'Plugins have been successuflly activated.', $count)
             );
             Http::redirect($this->getURL());
@@ -336,9 +336,9 @@ class PluginsList extends ModulesList
             }
 
             if ($failed) {
-                Notices::addWarningNotice(__('Some plugins have not been deactivated.'));
+                App::upgrade()->notices()->addWarningNotice(__('Some plugins have not been deactivated.'));
             } else {
-                Notices::addSuccessNotice(
+                App::upgrade()->notices()->addSuccessNotice(
                     __('Plugin has been successfully deactivated.', 'Plugins have been successuflly deactivated.', $count)
                 );
             }
@@ -378,11 +378,11 @@ class PluginsList extends ModulesList
             $tab = $count === count($defines) ? 'plugins' : 'update';
 
             if ($count !== 0) {
-                Notices::addSuccessNotice(
+                App::upgrade()->notices()->addSuccessNotice(
                     __('Plugin has been successfully updated.', 'Plugins have been successfully updated.', $count)
                 );
             } elseif ($locked !== []) {
-                Notices::addWarningNotice(
+                App::upgrade()->notices()->addWarningNotice(
                     sprintf(__('Following plugins updates are locked: %s'), implode(', ', $locked))
                 );
             } else {
@@ -413,7 +413,7 @@ class PluginsList extends ModulesList
 
             $ret_code = $this->store->install($dest);
 
-            Notices::addSuccessNotice(
+            App::upgrade()->notices()->addSuccessNotice(
                 $ret_code === $this->modules::PACKAGE_UPDATED ?
                 __('The plugin has been successfully updated.') :
                 __('The plugin has been successfully installed.')
