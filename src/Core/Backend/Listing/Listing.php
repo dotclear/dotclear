@@ -17,6 +17,7 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend\Listing;
 
 use ArrayObject;
+use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Form\Component;
 use Dotclear\Helper\Html\Form\Img;
