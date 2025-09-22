@@ -16,6 +16,7 @@ use Dotclear\Helper\Clearbricks;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
+use Dotclear\Helper\Process\AbstractSingleton;
 use Dotclear\Helper\Process\AbstractUtility;
 use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Exception\AppException;
@@ -31,13 +32,8 @@ use Throwable;
  * @since   2.28, preload events has been grouped in this class
  * @since   2.36, constructor arguments has been replaced by Core instance
  */
-class Task implements TaskInterface
+class Task extends AbstractSingleton implements TaskInterface
 {
-    /**
-     * Watchdog.
-     */
-    private static bool $watchdog = false;
-
     /**
      * The contexts in use.
      *
@@ -68,11 +64,8 @@ class Task implements TaskInterface
         // Set Exception handler
         $this->core->fault();
 
-        // watchdog
-        if (self::$watchdog) {
-            throw new ContextException('Application can not be started twice.');
-        }
-        self::$watchdog = true;
+        // Singleton watchdog
+        $this->checkSingleton();
 
         // Set encoding
         @ini_set('mbstring.substitute_character', 'none'); // discard unsupported characters

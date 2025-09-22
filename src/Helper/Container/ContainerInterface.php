@@ -28,6 +28,13 @@ interface ContainerInterface
     public const CONTAINER_ID = 'undefined';
 
     /**
+     * Container singleton mode.
+     *
+     * @var     bool    CONTAINER_SINGLETON
+     */
+    public const CONTAINER_SINGLETON = true;
+
+    /**
      * Get instance of a service.
      *
      * By default, an object is instanciated once.

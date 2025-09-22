@@ -69,9 +69,8 @@ class Utility extends AbstractUtility
      */
     public function __construct()
     {
-        if (!App::task()->checkContext('UPGRADE')) {
-            throw new ContextException('Application is not in upgrade context.');
-        }
+        // Load utility container
+        parent::__construct();
 
         if (App::task()->checkContext('BACKEND') && App::session()->exists()) {
             // Opening a Upgrade context inside a Backend one, nothing more to do
@@ -87,9 +86,6 @@ class Utility extends AbstractUtility
         // HTTP/1.1
         header('Expires: Mon, 13 Aug 2003 07:48:00 GMT');
         header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
-
-        // Load utility container
-        parent::__construct();
     }
 
     public function getDefaultServices(): array

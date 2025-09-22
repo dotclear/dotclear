@@ -101,9 +101,8 @@ class Utility extends AbstractUtility
      */
     public function __construct()
     {
-        if (!App::task()->checkContext('BACKEND')) {
-            throw new ContextException('Application is not in administrative context.');
-        }
+        // Load utility container
+        parent::__construct();
 
         // deprecated since 2.28, use App::backend() instead
         dcCore::app()->admin = $this;
@@ -122,9 +121,6 @@ class Utility extends AbstractUtility
         // HTTP/1.1
         header('Expires: Mon, 13 Aug 2003 07:48:00 GMT');
         header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
-
-        // Load utility container
-        parent::__construct();
     }
 
     public function getDefaultServices(): array

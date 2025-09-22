@@ -98,9 +98,8 @@ class Utility extends AbstractUtility
      */
     public function __construct()
     {
-        if (!App::task()->checkContext('FRONTEND')) {
-            throw new ContextException('Application is not in public context.');
-        }
+        // Load utility container
+        parent::__construct();
 
         // deprecated since 2.28, use App::frontend() instead
         dcCore::app()->public = $this;
@@ -130,9 +129,6 @@ class Utility extends AbstractUtility
                 ttl: App::config()->sessionTtl()
             );
         }
-
-        // Load utility container
-        parent::__construct();
     }
 
     public function getDefaultServices(): array

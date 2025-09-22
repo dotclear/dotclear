@@ -140,7 +140,6 @@ class Fault implements FaultInterface
 
         try {
             // Exceptions l10n
-            __('Application can not be started twice.'); // Core and Task
             __('Site temporarily unavailable'); // AppException
             __('Bad Request'); // BadRequestException
             __('Blog handling error'); // BlogException
