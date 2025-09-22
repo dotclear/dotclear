@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  * @subpackage  Upgrade
@@ -12,7 +13,6 @@ namespace Dotclear\Core\Upgrade;
 
 use ArrayObject;
 use Dotclear\App;
-use Dotclear\Core\Backend\Menu;
 
 /**
  * @brief   Utility class for Upgrade menu stack.
