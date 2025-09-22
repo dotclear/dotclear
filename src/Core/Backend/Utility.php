@@ -108,12 +108,16 @@ class Utility extends AbstractUtility
         // deprecated since 2.28, use App::backend() instead
         dcCore::app()->admin = $this;
 
-        // configure backend session
-        App::session()->configure(
-            cookie_name: App::config()->sessionName(),
-            cookie_secure: App::config()->adminSsl(),
-            ttl: App::config()->sessionTtl()
-        );
+        if (App::task()->checkContext('UPGRADE') && App::session()->exists()) {
+            // Opening a Backend context inside a Upgrade one, nothing more to do
+        } else {
+            // configure backend session
+            App::session()->configure(
+                cookie_name: App::config()->sessionName(),
+                cookie_secure: App::config()->adminSsl(),
+                ttl: App::config()->sessionTtl()
+            );
+        }
 
         // HTTP/1.1
         header('Expires: Mon, 13 Aug 2003 07:48:00 GMT');

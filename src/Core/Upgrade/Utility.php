@@ -95,7 +95,6 @@ class Utility extends AbstractUtility
     public function getDefaultServices(): array
     {
         return [
-            Helper::class      => Helper::class,
             Menus::class       => Menus::class,
             NextStore::class   => NextStore::class,
             Notices::class     => Notices::class,
@@ -108,14 +107,6 @@ class Utility extends AbstractUtility
             Upgrade::class     => Upgrade::class,
             Url::class         => Url::class,
         ];
-    }
-
-    /**
-     * Get upgrade helper instance.
-     */
-    public function helper(): Helper
-    {
-        return $this->get(Helper::class);
     }
 
     /**
