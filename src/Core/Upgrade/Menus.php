@@ -13,6 +13,7 @@ namespace Dotclear\Core\Upgrade;
 
 use ArrayObject;
 use Dotclear\App;
+use Dotclear\Core\Backend\Menu;
 
 /**
  * @brief   Utility class for Upgrade menu stack.
@@ -60,6 +61,9 @@ class Menus extends ArrayObject
         if (!App::task()->checkContext('UPGRADE') || !$this->offsetExists($section)) {
             return;
         }
+
+        // Use class from Backend
+        App::task()->addContext('BACKEND');
 
         $url     = App::upgrade()->url()->get($adminurl);
         $pattern = '@' . preg_quote($url) . ($strict ? '' : '(&.*)?') . '$@';
