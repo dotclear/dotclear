@@ -2561,7 +2561,7 @@ h1 a:link {
   right: 0;
   padding: 0 1.5em 0 30px;
   cursor: pointer;
-  color: var(--link);
+  color: var(--link-color);
   line-height: 3;
 }
 #help-button.floatable {
