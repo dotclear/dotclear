@@ -45,13 +45,4 @@ interface ErrorInterface
      * Reset errors.
      */
     public function reset(): void;
-
-    /**
-     * Returns errors stack as HTML and reset it.
-     *
-     * @deprecated since 2.28, use your own parser instead.
-     *
-     * @param   bool    $reset  True if error stack should be reset
-     */
-    public function toHTML(bool $reset = true): string;
 }

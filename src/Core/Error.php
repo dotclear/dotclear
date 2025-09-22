@@ -11,7 +11,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
-use Dotclear\App;   // deprecated see toHTML() method below
 use Dotclear\Interface\Core\ErrorInterface;
 
 /**
@@ -71,26 +70,5 @@ class Error implements ErrorInterface
     public function dump(): array
     {
         return $this->stack;
-    }
-
-    /**
-     * @deprecated since 2.28, use your own parser instead.
-     */
-    public function toHTML(bool $reset = true): string
-    {
-        $this->core->deprecated()->set('', '2.28');
-
-        $res = '';
-
-        if ($this->flag) {
-            foreach ($this->stack as $msg) {
-                $res .= App::backend()->notices()->error($msg, true, false, false);
-            }
-            if ($reset) {
-                $this->reset();
-            }
-        }
-
-        return $res;
     }
 }
