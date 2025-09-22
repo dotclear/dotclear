@@ -11,7 +11,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Core\Backend;
 
-use Dotclear\App;
 use Dotclear\Core\Backend\Filter\FilterBlogs;
 use Dotclear\Core\Backend\Filter\FilterComments;
 use Dotclear\Core\Backend\Filter\FilterMedia;

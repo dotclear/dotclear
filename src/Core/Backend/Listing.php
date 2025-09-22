@@ -11,7 +11,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Core\Backend;
 
-use Dotclear\App;
 use Dotclear\Core\Backend\Listing\ListingBlogs;
 use Dotclear\Core\Backend\Listing\ListingComments;
 use Dotclear\Core\Backend\Listing\ListingMedia;

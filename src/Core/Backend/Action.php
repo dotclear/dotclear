@@ -11,7 +11,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Core\Backend;
 
-use Dotclear\App;
 use Dotclear\Core\Backend\Action\ActionsBlogs;
 use Dotclear\Core\Backend\Action\ActionsComments;
 use Dotclear\Core\Backend\Action\ActionsPosts;
