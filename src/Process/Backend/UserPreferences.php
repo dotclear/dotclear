@@ -639,10 +639,18 @@ class UserPreferences
                         ->class('delete'),
                 ];
             } else {
+                try {
+                    $qr_code_img = App::backend()->auth()->otp()->getQrCodeImageHtml();
+                } catch (Exception) {
+                    $qr_code_img = (new Text(null, __('Unable to get QR code image, may be a connectivity issue? Try again later.')))
+                        ->class('warn');
+                }
                 $otp_items = [
                     (new Text('p', __('Scan this QR code with your authentication application:'))),
                     (new Para())
-                        ->items([App::backend()->auth()->otp()->getQrCodeImageHtml()]),
+                        ->items([
+                            $qr_code_img,
+                        ]),
                     (new Para())
                         ->items([
                             (new Input('otp_secret'))
