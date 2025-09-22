@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\Container;
 
+use Dotclear\Exception\InternalServerException;
+
 /**
  * @brief   Container exception.
  *
@@ -17,6 +19,6 @@ namespace Dotclear\Helper\Container;
  *
  * @since   2.28
  */
-class ContainerException extends \Exception implements ContainerExceptionInterface
+class ContainerException extends InternalServerException implements ContainerExceptionInterface
 {
 }

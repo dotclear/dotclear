@@ -19,7 +19,6 @@ declare(strict_types=1);
 namespace Dotclear\Core;
 
 // Container helpers
-use Dotclear\Exception\ContextException;
 use Dotclear\Helper\Container\Container;
 use Dotclear\Helper\Container\Factories;
 
@@ -87,32 +86,25 @@ use Dotclear\Core\Upgrade\Utility as Upgrade;
 class Core extends Container
 {
     /**
-     * Dotclear core container ID.
+     * Core container ID.
      *
      * @var     string  CONTAINER_ID
      */
     public const CONTAINER_ID = 'core';
 
     /**
-     * Core "singleton" instance.
+     * Core instance.
      */
     protected static Core $instance;
 
     /**
      * Constructor gets container services.
      *
-     * @throws  ContextException
-     *
      * @param   string  $dotclear_root  Dotclear root directory path
      */
     public function __construct(
         private readonly string $dotclear_root
     ) {
-        // Singleton mode
-        if (isset(self::$instance)) {
-            throw new ContextException('Application can not be started twice.');
-        }
-
         parent::__construct(Factories::getFactory(static::CONTAINER_ID));
 
         self::$instance = $this;

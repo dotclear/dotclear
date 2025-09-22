@@ -11,6 +11,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\Process;
 
+use Dotclear\App;
+use Dotclear\Exception\ContextException;
 use Dotclear\Exception\ProcessException;
 use Dotclear\Helper\TraitDynamicProperties;
 use Dotclear\Helper\Container\Container;
@@ -40,6 +42,11 @@ abstract class AbstractUtility extends Container
 
     public function __construct()
     {
+        // Check context
+        if (!App::task()->checkContext(strtoupper(static::CONTAINER_ID))) {
+            throw new ContextException(sprintf('Application is not in %s context.', static::CONTAINER_ID));
+        }
+
         // Create a non replaceable factory
         parent::__construct(new Factory(static::CONTAINER_ID, false));
 

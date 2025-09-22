@@ -15,12 +15,14 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\Container;
 
+use Dotclear\Helper\Process\AbstractSingleton;
+
 /**
  * @brief   The container helper.
  *
  * @since   2.28
  */
-class Container implements ContainerInterface
+class Container extends AbstractSingleton implements ContainerInterface
 {
     /**
      * Containers statistics.
@@ -55,7 +57,12 @@ class Container implements ContainerInterface
         protected Factory $factory
     ) {
         if ($this->factory->id !== static::CONTAINER_ID) {
-            throw new ContainerException('Container is loaded with wrong factory.', 500);
+            throw new ContainerException('Container is loaded with wrong factory.');
+        }
+
+        // Singleton watchdog
+        if (static::CONTAINER_SINGLETON) {
+            $this->checkSingleton();
         }
 
         // Add default services
