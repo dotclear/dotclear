@@ -334,7 +334,8 @@ class Media
                 // Add favorites dirs on top of combo
                 $ld_params             = App::backend()->mediaPage()->values();
                 $ld_params['d']        = $ld;
-                $ld_params['q']        = ''; // Reset search
+                $ld_params['q']        = '';    // Reset search
+                $ld_params['page']     = 1;     // Reset page
                 $is_current            = ($ld === rtrim((string) App::backend()->mediaPage()->d, '/'));
                 $recent_folders_list[] = (new Option('/' . $ld, urldecode(App::backend()->url()->get('admin.media', $ld_params))))
                     ->selected($is_current);
@@ -359,7 +360,8 @@ class Media
                 if (!in_array($ld, $fav_dirs)) {
                     $ld_params             = App::backend()->mediaPage()->values();
                     $ld_params['d']        = $ld;
-                    $ld_params['q']        = ''; // Reset search
+                    $ld_params['q']        = '';    // Reset search
+                    $ld_params['page']     = 1;     // Reset page
                     $is_current            = ($ld === rtrim((string) App::backend()->mediaPage()->d, '/'));
                     $recent_folders_list[] = (new Option('/' . $ld, urldecode(App::backend()->url()->get('admin.media', $ld_params))))
                         ->selected($is_current);

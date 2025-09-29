@@ -201,10 +201,16 @@ class ListingMedia extends Listing
 
         if ($file->d) {
             // Folder
+            $params = [
+                ...$filters->values(),
+            ];
+            if (isset($params['page'])) {
+                $params['page'] = 1;
+            }
             $link = App::backend()->url()->get(
                 'admin.media',
                 [
-                    ...$filters->values(),
+                    ...$params,
                     'd' => Html::sanitizeURL($file->relname),
                 ]
             );
