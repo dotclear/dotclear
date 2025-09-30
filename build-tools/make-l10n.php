@@ -9,6 +9,7 @@ $license_block = <<<EOF
      */
     EOF;
 
+require __DIR__ . '/../src/Interface/Helper/L10nInterface.php';
 require __DIR__ . '/../src/Helper/L10n.php';
 
 $path = (!empty($_SERVER['argv'][1])) ? $_SERVER['argv'][1] : getcwd();
