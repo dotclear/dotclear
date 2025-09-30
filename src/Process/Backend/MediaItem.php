@@ -1298,6 +1298,7 @@ class MediaItem
                 ]);
 
             if (App::backend()->file->del) {
+                $filename  = isset($_REQUEST['q']) && $_REQUEST['q'] !== '' ? App::backend()->file->relname : App::backend()->file->basename;
                 $actions[] = (new Form('delete-form'))
                     ->method('post')
                     ->action(App::backend()->url()->get('admin.media'))
@@ -1307,7 +1308,7 @@ class MediaItem
                             ->items([
                                 (new Submit('delete', __('Delete this media')))
                                     ->class('delete'),
-                                (new Hidden('remove', rawurlencode((string) App::backend()->file->basename))),
+                                (new Hidden('remove', rawurlencode((string) $filename))),
                                 (new Hidden('rmyes', '1')),
                                 ... App::backend()->url()->hiddenFormFields('admin.media', App::backend()->media_page_url_params),
                                 App::nonce()->formNonce(),
