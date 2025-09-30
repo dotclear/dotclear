@@ -13,7 +13,6 @@ namespace Dotclear\Module;
 use Autoloader;
 use Dotclear\App;
 use Dotclear\Helper\File\Files;
-use Dotclear\Helper\L10n;
 use Dotclear\Interface\Core\ThemesInterface;
 use Exception;
 
@@ -267,13 +266,13 @@ class Themes extends Modules implements ThemesInterface
         if ($lang && $module->isDefined()) {
             $template = '%s' . DIRECTORY_SEPARATOR . 'locales' . DIRECTORY_SEPARATOR . '%s' . DIRECTORY_SEPARATOR . '%s';
             $root     = $module->get('root');
-            if (L10n::set(sprintf($template, $root, $lang, $file)) === false && $lang !== 'en') {
-                L10n::set(sprintf($template, $root, 'en', $file));
+            if (App::lang()->set(sprintf($template, $root, $lang, $file)) === false && $lang !== 'en') {
+                App::lang()->set(sprintf($template, $root, 'en', $file));
             }
             // Load also custom locales if any
             $root = App::config()->varRoot() . DIRECTORY_SEPARATOR . 'themes' . DIRECTORY_SEPARATOR . $id . DIRECTORY_SEPARATOR . App::blog()->settings()->system->theme;
-            if (L10n::set(sprintf($template, $root, $lang, $file)) === false && $lang !== 'en') {
-                L10n::set(sprintf($template, $root, 'en', $file));
+            if (App::lang()->set(sprintf($template, $root, $lang, $file)) === false && $lang !== 'en') {
+                App::lang()->set(sprintf($template, $root, 'en', $file));
             }
         }
     }

@@ -14,7 +14,6 @@ namespace Dotclear\Core;
 use dcCore;
 use Dotclear\Helper\Clearbricks;
 use Dotclear\Helper\Date;
-use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Process\AbstractSingleton;
 use Dotclear\Helper\Process\AbstractUtility;
@@ -67,17 +66,8 @@ class Task extends AbstractSingleton implements TaskInterface
         // Singleton watchdog
         $this->checkSingleton();
 
-        // Set encoding
-        @ini_set('mbstring.substitute_character', 'none'); // discard unsupported characters
-        mb_internal_encoding('UTF-8');
-
         // Initialize lang definition
-        try {
-            // We need l10n __() function as some exceptions are thrown with translated message
-            L10n::init();
-        } catch (Throwable $e) {
-            throw new ContextException('Unabled to initialize localisation.');
-        }
+        $this->core->lang();
 
         // We set default timezone to avoid warning
         Date::setTZ('UTC');
@@ -138,15 +128,6 @@ class Task extends AbstractSingleton implements TaskInterface
 
         // Config file exists
         if (is_file($this->core->config()->configPath())) {
-            // Http setup
-            if ($this->core->config()->httpScheme443()) {
-                Http::$https_scheme_on_443 = true;
-            }
-            if ($this->core->config()->httpReverseProxy()) {
-                Http::$reverse_proxy = true;
-            }
-            Http::trimRequest();
-
             try {
                 // Check database connection
                 $this->core->db()->con();
@@ -184,29 +165,6 @@ class Task extends AbstractSingleton implements TaskInterface
                 }
                 unset($GLOBALS['__top_behaviors'], $b);
             }
-
-            // Register default URLs
-            $this->core->url()->registerDefault($this->core->url()::home(...));
-
-            $this->core->url()->registerError($this->core->url()::default404(...));
-
-            $this->core->url()->register('lang', '', '^([a-zA-Z]{2}(?:-[a-z]{2})?(?:/page/[0-9]+)?)$', $this->core->url()::lang(...));
-            $this->core->url()->register('posts', 'posts', '^posts(/.+)?$', $this->core->url()::home(...));
-            $this->core->url()->register('post', 'post', '^post/(.+)$', $this->core->url()::post(...));
-            $this->core->url()->register('preview', 'preview', '^preview/(.+)$', $this->core->url()::preview(...));
-            $this->core->url()->register('category', 'category', '^category/(.+)$', $this->core->url()::category(...));
-            $this->core->url()->register('archive', 'archive', '^archive(/.+)?$', $this->core->url()::archive(...));
-
-            $this->core->url()->register('feed', 'feed', '^feed/(.+)$', $this->core->url()::feed(...));
-            $this->core->url()->register('trackback', 'trackback', '^trackback/(.+)$', $this->core->url()::trackback(...));
-            $this->core->url()->register('webmention', 'webmention', '^webmention(/.+)?$', $this->core->url()::webmention(...));
-            $this->core->url()->register('xmlrpc', 'xmlrpc', '^xmlrpc/(.+)$', $this->core->url()::xmlrpc(...));
-
-            $this->core->url()->register('wp-admin', 'wp-admin', '^wp-admin(?:/(.+))?$', $this->core->url()::wpfaker(...));
-            $this->core->url()->register('wp-login', 'wp-login', '^wp-login.php(?:/(.+))?$', $this->core->url()::wpfaker(...));
-
-            // Set post type for frontend instance with harcoded backend URL (but should not be required in backend before Utility instanciated)
-            $this->core->postTypes()->set(new PostType('post', 'index.php?process=Post&id=%d', $this->core->url()->getURLFor('post', '%s'), 'Posts'));
 
             // Register local shutdown handler
             register_shutdown_function(function (): void {

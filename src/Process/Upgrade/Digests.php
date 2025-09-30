@@ -26,7 +26,6 @@ use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Ul;
-use Dotclear\Helper\L10n;
 use Dotclear\Helper\Process\TraitProcess;
 use Exception;
 
@@ -69,10 +68,10 @@ class Digests
     public static function process(): bool
     {
         self::$path_backup = implode(DIRECTORY_SEPARATOR, [App::config()->dotclearRoot(), 'inc', 'digests.bak']);
-        self::$path_helpus = (string) (L10n::getFilePath(App::config()->l10nRoot(), 'help/core_fmu_helpus.html', App::lang()->getLang()) ?:
-            L10n::getFilePath(App::config()->l10nRoot(), 'help/core_fmu_helpus.html', 'en'));
-        self::$path_disclaimer = (string) (L10n::getFilePath(App::config()->l10nRoot(), 'help/core_fmu_disclaimer.html', App::lang()->getLang()) ?:
-            L10n::getFilePath(App::config()->l10nRoot(), 'help/core_fmu_disclaimer.html', 'en'));
+        self::$path_helpus = (string) (App::lang()->getFilePath(App::config()->l10nRoot(), 'help/core_fmu_helpus.html', App::lang()->getLang()) ?:
+            App::lang()->getFilePath(App::config()->l10nRoot(), 'help/core_fmu_helpus.html', 'en'));
+        self::$path_disclaimer = (string) (App::lang()->getFilePath(App::config()->l10nRoot(), 'help/core_fmu_disclaimer.html', App::lang()->getLang()) ?:
+            App::lang()->getFilePath(App::config()->l10nRoot(), 'help/core_fmu_disclaimer.html', 'en'));
 
         if (isset($_POST['erase_backup']) && is_file(self::$path_backup)) {
             @unlink(self::$path_backup);

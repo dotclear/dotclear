@@ -38,7 +38,6 @@ use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Ul;
 use Dotclear\Helper\Html\Html;
-use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
 
 class Page
@@ -262,7 +261,7 @@ class Page
 
         echo static::cssLoad('style/default.css');
 
-        if ($rtl = (L10n::getLanguageTextDirection(App::lang()->getLang()) === 'rtl')) {
+        if ($rtl = (App::lang()->getLanguageTextDirection(App::lang()->getLang()) === 'rtl')) {
             echo static::cssLoad('style/default-rtl.css');
         }
 
@@ -594,7 +593,7 @@ class Page
 
         echo static::cssLoad('style/default.css');
 
-        if ($rtl = (L10n::getLanguageTextDirection(App::lang()->getLang()) === 'rtl')) {
+        if ($rtl = (App::lang()->getLanguageTextDirection(App::lang()->getLang()) === 'rtl')) {
             echo static::cssLoad('style/default-rtl.css');
         }
 

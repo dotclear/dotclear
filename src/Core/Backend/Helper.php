@@ -14,7 +14,6 @@ namespace Dotclear\Core\Backend;
 use Dotclear\App;
 use Dotclear\Helper\Html\Form\Img;
 use Dotclear\Helper\Html\Form\Set;
-use Dotclear\Helper\L10n;
 
 class Helper
 {
@@ -76,12 +75,12 @@ class Helper
     {
         App::lang()->setLang((string) App::auth()->getInfo('user_lang'));
 
-        if (L10n::set(App::config()->l10nRoot() . '/' . App::lang()->getLang() . '/date') === false && App::lang()->getLang() !== 'en') {
-            L10n::set(App::config()->l10nRoot() . '/en/date');
+        if (App::lang()->set(App::config()->l10nRoot() . '/' . App::lang()->getLang() . '/date') === false && App::lang()->getLang() !== 'en') {
+            App::lang()->set(App::config()->l10nRoot() . '/en/date');
         }
-        L10n::set(App::config()->l10nRoot() . '/' . App::lang()->getLang() . '/main');
-        L10n::set(App::config()->l10nRoot() . '/' . App::lang()->getLang() . '/public');
-        L10n::set(App::config()->l10nRoot() . '/' . App::lang()->getLang() . '/plugins');
+        App::lang()->set(App::config()->l10nRoot() . '/' . App::lang()->getLang() . '/main');
+        App::lang()->set(App::config()->l10nRoot() . '/' . App::lang()->getLang() . '/public');
+        App::lang()->set(App::config()->l10nRoot() . '/' . App::lang()->getLang() . '/plugins');
 
         // Set lexical lang
         App::lexical()->setLexicalLang('admin', App::lang()->getLang());

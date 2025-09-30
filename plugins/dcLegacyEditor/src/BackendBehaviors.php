@@ -16,7 +16,6 @@ use Dotclear\Helper\Html\Form\Label;
 use Dotclear\Helper\Html\Form\Option;
 use Dotclear\Helper\Html\Form\Select;
 use Dotclear\Helper\Html\Form\Url;
-use Dotclear\Helper\L10n;
 
 /**
  * @brief   The module backend behaviors.
@@ -112,7 +111,7 @@ class BackendBehaviors
         self::$loaded = true;
 
         $language_options = [];
-        $language_codes   = L10n::getISOcodes(true, true);
+        $language_codes   = App::lang()->getISOcodes(true, true);
         foreach ($language_codes as $language_name => $language_code) {
             $language_options[] = (new Option($language_name, $language_code))->lang($language_code);
         }
@@ -276,7 +275,7 @@ class BackendBehaviors
             ],
         ];
 
-        $rtl              = L10n::getLanguageTextDirection(App::lang()->getLang()) === 'rtl' ? 'direction: rtl;' : '';
+        $rtl              = App::lang()->getLanguageTextDirection(App::lang()->getLang()) === 'rtl' ? 'direction: rtl;' : '';
         $js['iframe_css'] = self::css($rtl);
         // End of tricky code
 

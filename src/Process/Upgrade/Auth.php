@@ -27,7 +27,6 @@ use Dotclear\Helper\Html\Form\Set;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Html;
-use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Process\TraitProcess;
 use Exception;
@@ -65,8 +64,8 @@ class Auth
         self::$dlang = Http::getAcceptLanguage();
         self::$dlang = (self::$dlang === '' ? 'en' : self::$dlang);
         if (self::$dlang !== 'en' && preg_match('/^[a-z]{2}(-[a-z]{2})?$/', self::$dlang)) {
-            L10n::lang(self::$dlang);
-            L10n::set(App::config()->l10nRoot() . '/' . self::$dlang . '/main');
+            App::lang()->lang(self::$dlang);
+            App::lang()->set(App::config()->l10nRoot() . '/' . self::$dlang . '/main');
         }
 
         if (!empty($_POST['user_id']) && !empty($_POST['user_pwd'])) {

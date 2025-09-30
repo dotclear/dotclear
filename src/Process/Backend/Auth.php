@@ -13,7 +13,6 @@ namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
 use Dotclear\Helper\Html\Html;
-use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Network\Mail\Mail;
 use Dotclear\Helper\Html\Form\Button;
@@ -58,8 +57,8 @@ class Auth
         App::backend()->dlang = Http::getAcceptLanguage();
         App::backend()->dlang = (App::backend()->dlang === '' ? 'en' : App::backend()->dlang);
         if (App::backend()->dlang !== 'en' && preg_match('/^[a-z]{2}(-[a-z]{2})?$/', App::backend()->dlang)) {
-            L10n::lang(App::backend()->dlang);
-            L10n::set(App::config()->l10nRoot() . '/' . App::backend()->dlang . '/main');
+            App::lang()->lang(App::backend()->dlang);
+            App::lang()->set(App::config()->l10nRoot() . '/' . App::backend()->dlang . '/main');
         }
 
         if (App::config()->adminUrl() !== '') {

@@ -30,9 +30,34 @@ class Url extends UrlHandler implements UrlInterface
      */
     public ?string $args = null;
 
+    /**
+     * Constructs a new instance.
+     *
+     * Set up default Dotclear URLs.
+     *
+     * @param   Core    $core   The core container
+     */
     public function __construct(
         protected Core $core
     ) {
+        $this->registerDefault(self::home(...));
+
+        $this->registerError(self::default404(...));
+
+        $this->register('lang', '', '^([a-zA-Z]{2}(?:-[a-z]{2})?(?:/page/[0-9]+)?)$', self::lang(...));
+        $this->register('posts', 'posts', '^posts(/.+)?$', self::home(...));
+        $this->register('post', 'post', '^post/(.+)$', self::post(...));
+        $this->register('preview', 'preview', '^preview/(.+)$', self::preview(...));
+        $this->register('category', 'category', '^category/(.+)$', self::category(...));
+        $this->register('archive', 'archive', '^archive(/.+)?$', self::archive(...));
+
+        $this->register('feed', 'feed', '^feed/(.+)$', self::feed(...));
+        $this->register('trackback', 'trackback', '^trackback/(.+)$', self::trackback(...));
+        $this->register('webmention', 'webmention', '^webmention(/.+)?$', self::webmention(...));
+        $this->register('xmlrpc', 'xmlrpc', '^xmlrpc/(.+)$', self::xmlrpc(...));
+
+        $this->register('wp-admin', 'wp-admin', '^wp-admin(?:/(.+))?$', self::wpfaker(...));
+        $this->register('wp-login', 'wp-login', '^wp-login.php(?:/(.+))?$', self::wpfaker(...));
     }
 
     /**

@@ -28,7 +28,6 @@ use Dotclear\Helper\Html\Form\Strong;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Ul;
 use Dotclear\Helper\Html\Html;
-use Dotclear\Helper\L10n;
 
 /**
  * @brief   Upgrade page helper.
@@ -107,7 +106,7 @@ class Page extends BackendPage
 
         echo self::cssLoad('style/default.css');
 
-        if ($rtl = (L10n::getLanguageTextDirection(App::lang()->getLang()) === 'rtl')) {
+        if ($rtl = (App::lang()->getLanguageTextDirection(App::lang()->getLang()) === 'rtl')) {
             echo self::cssLoad('style/default-rtl.css');
         }
 

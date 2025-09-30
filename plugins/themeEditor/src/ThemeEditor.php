@@ -21,7 +21,6 @@ use Dotclear\Helper\Html\Form\Strong;
 use Dotclear\Helper\Html\Form\Summary;
 use Dotclear\Helper\Html\Form\Ul;
 use Dotclear\Helper\Html\Html;
-use Dotclear\Helper\L10n;
 use Dotclear\Helper\Text;
 use Dotclear\Module\ModuleDefine;
 use Exception;
@@ -338,7 +337,7 @@ class ThemeEditor
 
             if ($type === 'po') {
                 // Build PHP file from PO
-                L10n::generatePhpFileFromPo(dirname($dest) . DIRECTORY_SEPARATOR . basename($dest, '.po'), $this->license_block());
+                App::lang()->generatePhpFileFromPo(dirname($dest) . DIRECTORY_SEPARATOR . basename($dest, '.po'), $this->license_block());
             }
 
             # --BEHAVIOR-- themeEditorWriteFile -- string, string
@@ -624,7 +623,7 @@ class ThemeEditor
     {
         $this->po = [];
 
-        $langs = L10n::getISOcodes(true, true);
+        $langs = App::lang()->getISOcodes(true, true);
         foreach ($langs as $v) {
             if ($this->parent_theme) {
                 $this->po = [

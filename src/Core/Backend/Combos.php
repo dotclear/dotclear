@@ -16,7 +16,6 @@ use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Option;
 use Dotclear\Helper\Html\Html;
-use Dotclear\Helper\L10n;
 
 /**
  * Admin combo library
@@ -123,7 +122,7 @@ class Combos
      */
     public static function getLangsCombo(MetaRecord $langs, bool $with_available = false): array
     {
-        $all_langs = L10n::getISOcodes(false, true);
+        $all_langs = App::lang()->getISOcodes(false, true);
         $rec_langs = [];
         while ($langs->fetch()) {
             $rec_langs[$langs->post_lang] = $all_langs[$langs->post_lang] ?? $langs->post_lang;
@@ -150,7 +149,7 @@ class Combos
     {
         $lang_combo_avail     = [];
         $lang_combo_not_avail = [];
-        $langs                = L10n::getISOcodes(true, true);
+        $langs                = App::lang()->getISOcodes(true, true);
         foreach ($langs as $k => $v) {
             $lang_avail = $v == 'en' || is_dir(App::config()->l10nRoot() . '/' . $v);
             $option     = new Option($k, $v);

@@ -37,7 +37,6 @@ use Dotclear\Helper\Html\Form\Th;
 use Dotclear\Helper\Html\Form\Thead;
 use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Html\Html;
-use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Feed\Reader;
 use Dotclear\Helper\Network\HttpClient;
 use Dotclear\Helper\Process\TraitProcess;
@@ -60,7 +59,7 @@ class Langs
         App::backend()->page()->checkSuper();
 
         App::backend()->is_writable = is_dir(App::config()->l10nRoot()) && is_writable(App::config()->l10nRoot());
-        App::backend()->iso_codes   = L10n::getISOcodes();
+        App::backend()->iso_codes   = App::lang()->getISOcodes();
 
         # Get languages list from dotclear server
         App::backend()->dc_langs = false;
