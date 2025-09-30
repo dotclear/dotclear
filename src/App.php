@@ -15,19 +15,12 @@ declare(strict_types=1);
 
 namespace Dotclear;
 
-use Autoloader;
 use Dotclear\Core\Core;
 use Dotclear\Exception\AppException;
 use Throwable;
 
-// Load Autoloader file
-require_once implode(DIRECTORY_SEPARATOR, [__DIR__, 'Autoloader.php']);
-
-// Add root folder for namespaced and autoloaded classes
-Autoloader::me()->addNamespace('Dotclear', __DIR__);
-
-// Load PHPGlobal helper
-require_once implode(DIRECTORY_SEPARATOR, [__DIR__, 'PHPGlobal.php']);
+// Load Dotclear's root functions
+require_once implode(DIRECTORY_SEPARATOR, [__DIR__, 'Functions.php']);
 
 /**
  * @brief   Application.
@@ -89,46 +82,4 @@ final class App extends Core
         // Disable doing anything after app
         dotclear_exit();
     }
-
-    /// @name Deprecated methods
-    ///@{
-    /**
-     * Application boostrap.
-     *
-     * @deprecated  Since 2.28, use new App('Utility', 'Process');
-     *
-     * @param   string  $utility    The optionnal app utility (Backend or Frontend)
-     * @param   string  $process    The optionnal app utility default process
-     */
-    public static function bootstrap(string $utility = '', string $process = ''): void
-    {
-        new self($utility, $process);
-    }
-
-    /**
-     * Read Dotclear release config.
-     *
-     * @deprecated  Since 2.28, use App:config()->release(xxx) or App:config()->yyy() instead.
-     *
-     * @param   string  $key The release key
-     *
-     * @return  string  The release value
-     */
-    public static function release(string $key): string
-    {
-        return App::config()->release($key);
-    }
-
-    /**
-     * Call Dotclear autoloader.
-     *
-     * @deprecated  Since 2.27, use Autoloader::me() instead
-     *
-     * @return  Autoloader  $autoload   The autoload instance
-     */
-    public static function autoload(): Autoloader
-    {
-        return Autoloader::me();
-    }
-    ///@}
 }

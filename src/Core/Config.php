@@ -211,8 +211,7 @@ class Config implements ConfigInterface
         $this->max_upload_size = (int) $u_max_size;
         unset($u_max_size, $p_max_size);
 
-        // We need l10n __() function and a default language if possible (for pre Utility exceptions)
-        $this->core->lang()->bootstrap();
+        // We need a default language if possible (for pre Utility exceptions)
         $detected_languages = Http::getAcceptLanguages();
         foreach ($detected_languages as $language) {
             if ($language === 'en' || $this->core->lang()->set(implode(DIRECTORY_SEPARATOR, [$this->l10nRoot(), $language, 'exception']))) {
