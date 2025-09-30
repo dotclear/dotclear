@@ -31,6 +31,20 @@ class PostTypes implements PostTypesInterface
      */
     private array $stack;
 
+    /**
+     * Constructs a new instance.
+     *
+     * Set default Dotclear post types.
+     *
+     * @param   Core    $core   The core container
+     */
+    public function __construct(
+        protected Core $core
+    ) {
+        // Set post type for frontend instance with harcoded backend URL (but should not be required in backend before Utility instanciated)
+        $this->set(new PostType('post', 'index.php?process=Post&id=%d', $this->core->url()->getURLFor('post', '%s'), 'Posts'));
+    }
+
     public function exists(string $type): bool
     {
         return isset($this->stack[$type]);

@@ -21,7 +21,6 @@ namespace Dotclear\Core\Frontend;
 use dcCore;
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
-use Dotclear\Helper\L10n;
 use Dotclear\Helper\Process\AbstractUtility;
 use Dotclear\Exception\BlogException;
 use Dotclear\Exception\ContextException;
@@ -267,11 +266,11 @@ class Utility extends AbstractUtility
         # Loading locales
         App::lang()->setLang((string) App::blog()->settings()->system->lang);
 
-        if (L10n::set(App::config()->l10nRoot() . '/' . App::lang()->getLang() . '/date') === false && App::lang()->getLang() !== 'en') {
-            L10n::set(App::config()->l10nRoot() . '/en/date');
+        if (App::lang()->set(App::config()->l10nRoot() . '/' . App::lang()->getLang() . '/date') === false && App::lang()->getLang() !== 'en') {
+            App::lang()->set(App::config()->l10nRoot() . '/en/date');
         }
-        L10n::set(App::config()->l10nRoot() . '/' . App::lang()->getLang() . '/public');
-        L10n::set(App::config()->l10nRoot() . '/' . App::lang()->getLang() . '/plugins');
+        App::lang()->set(App::config()->l10nRoot() . '/' . App::lang()->getLang() . '/public');
+        App::lang()->set(App::config()->l10nRoot() . '/' . App::lang()->getLang() . '/plugins');
 
         // Set lexical lang
         App::lexical()->setLexicalLang('public', App::lang()->getLang());

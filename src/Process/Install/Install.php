@@ -29,7 +29,6 @@ use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Ul;
 use Dotclear\Helper\Html\Html;
-use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Text as Htext;
 use Dotclear\Helper\Process\TraitProcess;
@@ -122,10 +121,10 @@ class Install
         # Loading locales for detected language
         self::$dlang = Http::getAcceptLanguage();
         if (self::$dlang !== 'en') {
-            L10n::init(self::$dlang);
-            L10n::set(App::config()->l10nRoot() . '/' . self::$dlang . '/date');
-            L10n::set(App::config()->l10nRoot() . '/' . self::$dlang . '/main');
-            L10n::set(App::config()->l10nRoot() . '/' . self::$dlang . '/plugins');
+            App::lang()->init(self::$dlang);
+            App::lang()->set(App::config()->l10nRoot() . '/' . self::$dlang . '/date');
+            App::lang()->set(App::config()->l10nRoot() . '/' . self::$dlang . '/main');
+            App::lang()->set(App::config()->l10nRoot() . '/' . self::$dlang . '/plugins');
         }
 
         if (App::config()->masterKey() === '') {

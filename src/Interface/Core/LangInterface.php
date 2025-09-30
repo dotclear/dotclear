@@ -10,12 +10,15 @@ declare(strict_types=1);
 
 namespace Dotclear\Interface\Core;
 
+use Dotclear\Interface\Helper\L10nInterface;
+
 /**
  * @brief   Lang handler interface.
  *
  * @since   2.28
+ * @since   2.36, extends L10n helper
  */
-interface LangInterface
+interface LangInterface extends L10nInterface
 {
     /**
      * The default language code.

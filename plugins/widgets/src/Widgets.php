@@ -28,7 +28,6 @@ use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Ul;
 use Dotclear\Helper\Html\Html;
-use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Feed\Reader;
 use Exception;
 
@@ -510,7 +509,7 @@ class Widgets
             return '';
         }
 
-        $langs = L10n::getISOcodes();
+        $langs = App::lang()->getISOcodes();
         $res   = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '');
 
         $lis = function (MetaRecord $rs) use ($langs) {

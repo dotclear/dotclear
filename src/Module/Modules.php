@@ -21,7 +21,6 @@ use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\File\Zip\Unzip;
 use Dotclear\Helper\Html\Html;
-use Dotclear\Helper\L10n;
 use Dotclear\Interface\Module\ModulesInterface;
 use Exception;
 
@@ -1023,8 +1022,8 @@ class Modules implements ModulesInterface
         $module = $this->getDefine($id);//, ['state' => ModuleDefine::STATE_ENABLED]);
         if ($lang && $module->isDefined()) {
             $lfile = $module->get('root') . DIRECTORY_SEPARATOR . 'locales' . DIRECTORY_SEPARATOR . '%s' . DIRECTORY_SEPARATOR . '%s';
-            if (L10n::set(sprintf($lfile, $lang, $file)) === false && $lang !== 'en') {
-                L10n::set(sprintf($lfile, 'en', $file));
+            if (App::lang()->set(sprintf($lfile, $lang, $file)) === false && $lang !== 'en') {
+                App::lang()->set(sprintf($lfile, 'en', $file));
             }
         }
     }
@@ -1042,7 +1041,7 @@ class Modules implements ModulesInterface
         }
 
         $module = $this->getDefine($id, ['state' => ModuleDefine::STATE_ENABLED]);
-        if ($lang && $module->isDefined() && ($file = L10n::getFilePath($module->get('root') . DIRECTORY_SEPARATOR . 'locales', 'resources.php', $lang))) {
+        if ($lang && $module->isDefined() && ($file = App::lang()->getFilePath($module->get('root') . DIRECTORY_SEPARATOR . 'locales', 'resources.php', $lang))) {
             $this->loadModuleFile($file, true);
         }
     }

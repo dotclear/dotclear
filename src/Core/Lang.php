@@ -20,7 +20,7 @@ use Dotclear\Interface\Core\LangInterface;
  *
  * @since   2.28, lang features have been grouped in this class
  */
-class Lang implements LangInterface
+class Lang extends L10n implements LangInterface
 {
     /**
      * The lang code.
@@ -28,6 +28,23 @@ class Lang implements LangInterface
      * @var     string  $lang
      */
     protected $lang = self::DEFAULT_LANG;
+
+    /**
+     * Constructs a new instance.
+     *
+     * Set default Dotclear string encoding.
+     *
+     * @param   Core    $core   The core container
+     */
+    public function __construct(
+        protected Core $core
+    ) {
+        // Set encoding
+        @ini_set('mbstring.substitute_character', 'none'); // discard unsupported characters
+        mb_internal_encoding('UTF-8');
+
+        $this->init();
+    }
 
     public function getLang(): string
     {
@@ -38,7 +55,7 @@ class Lang implements LangInterface
     {
         $this->lang = preg_match('/^[a-z]{2}(-[a-z]{2})?$/', $lang) ? $lang : 'en';
 
-        L10n::lang($this->lang);
+        $this->lang($this->lang);
 
         // deprecated since 2.28, use App::lang()->setLang() instead
         dcCore::app()->lang = $this->lang;

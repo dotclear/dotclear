@@ -21,7 +21,6 @@ namespace Dotclear\Core\Backend;
 use dcCore;
 use Dotclear\App;
 use Dotclear\Core\PostType;
-use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Process\AbstractUtility;
 use Dotclear\Exception\ContextException;
@@ -421,7 +420,7 @@ class Utility extends AbstractUtility
         }
 
         require implode(DIRECTORY_SEPARATOR, [App::config()->l10nRoot(), 'en', 'resources.php']);
-        if ($f = L10n::getFilePath(App::config()->l10nRoot(), '/resources.php', App::lang()->getLang())) {
+        if ($f = App::lang()->getFilePath(App::config()->l10nRoot(), '/resources.php', App::lang()->getLang())) {
             require $f;
         }
         unset($f);

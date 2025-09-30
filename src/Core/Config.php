@@ -14,7 +14,6 @@ use Dotclear\Helper\Container\Factories;
 use Dotclear\Helper\Crypt;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
-use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Exception\ConfigException;
 use Dotclear\Interface\Core\AuthInterface;
@@ -213,11 +212,11 @@ class Config implements ConfigInterface
         unset($u_max_size, $p_max_size);
 
         // We need l10n __() function and a default language if possible (for pre Utility exceptions)
-        L10n::bootstrap();
+        $this->core->lang()->bootstrap();
         $detected_languages = Http::getAcceptLanguages();
         foreach ($detected_languages as $language) {
-            if ($language === 'en' || L10n::set(implode(DIRECTORY_SEPARATOR, [$this->l10nRoot(), $language, 'exception']))) {
-                L10n::lang($language);
+            if ($language === 'en' || $this->core->lang()->set(implode(DIRECTORY_SEPARATOR, [$this->l10nRoot(), $language, 'exception']))) {
+                $this->core->lang()->lang($language);
 
                 break;
             }
@@ -538,6 +537,15 @@ class Config implements ConfigInterface
                 throw new ConfigException(sprintf(__('%s directory does not exist. Please create it.'), $this->varRoot()));
             }
         }
+
+        // Http setup
+        if ($this->httpScheme443()) {
+            Http::$https_scheme_on_443 = true;
+        }
+        if ($this->httpReverseProxy()) {
+            Http::$reverse_proxy = true;
+        }
+        Http::trimRequest();
     }
 
     public function release(string $key): string

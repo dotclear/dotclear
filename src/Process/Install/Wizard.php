@@ -29,7 +29,6 @@ use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Ul;
 use Dotclear\Helper\Html\Html;
-use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Helper\Text as Htext;
@@ -103,8 +102,8 @@ class Wizard
         // Loading locales for detected language
         $dlang = Http::getAcceptLanguage();
         if ($dlang !== 'en') {
-            L10n::init($dlang);
-            L10n::set(App::config()->dotclearRoot() . '/locales/' . $dlang . '/main');
+            App::lang()->init($dlang);
+            App::lang()->set(App::config()->dotclearRoot() . '/locales/' . $dlang . '/main');
         }
 
         if (!is_writable(dirname(App::config()->configPath()))) {

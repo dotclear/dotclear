@@ -11,7 +11,6 @@ declare(strict_types=1);
 namespace Dotclear\Module;
 
 use Dotclear\App;
-use Dotclear\Helper\L10n;
 use Dotclear\Interface\Core\BlogWorkspaceInterface;
 use Dotclear\Interface\Core\UserWorkspaceInterface;
 use Dotclear\Interface\Module\ModulesInterface;
@@ -249,7 +248,7 @@ abstract class MyModule
      */
     final public static function l10n(string $process): void
     {
-        L10n::set(implode(DIRECTORY_SEPARATOR, [self::path(), 'locales', App::lang()->getLang(), $process]));
+        App::lang()->set(implode(DIRECTORY_SEPARATOR, [self::path(), 'locales', App::lang()->getLang(), $process]));
     }
 
     /**
