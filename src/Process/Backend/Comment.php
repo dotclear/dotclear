@@ -71,7 +71,7 @@ class Comment
         App::backend()->comment_editor = App::auth()->getOption('editor');
 
         // Status combo
-        App::backend()->status_combo = App::backend()->combos()->getCommentStatusesCombo();
+        App::backend()->status_combo = App::status()->comment()->combo();
 
         return self::status(true);
     }
