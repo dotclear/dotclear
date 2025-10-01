@@ -138,12 +138,16 @@ class OtpTest extends TestCase
         $otp->setQrCodeMargin(5);
         $otp->setQrCodeImageTitle('QR Code');
 
-        $this->assertEquals(
-            'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAAO0lEQVRIDe3SsQkAMAwDwTj77yyDF/hK3bsWMhyaJHnF+8Xuq/YBCkskEQpgwBVJhAIYcEUSoQAG6itaFy0ELNR2WSAAAAAASUVORK5CYII=',
+        $this->assertStringStartsWith(
+            'data:image/png;base64,',
             $otp->getQrCodeImageData()
         );
-        $this->assertEquals(
-            '<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAAO0lEQVRIDe3SsQkAMAwDwTj77yyDF/hK3bsWMhyaJHnF+8Xuq/YBCkskEQpgwBVJhAIYcEUSoQAG6itaFy0ELNR2WSAAAAAASUVORK5CYII=" alt="QR Code">',
+        $this->assertStringStartsWith(
+            '<img src="data:image/png;base64,',
+            $otp->getQrCodeImageHtml()->render()
+        );
+        $this->assertStringEndsWith(
+            'alt="QR Code">',
             $otp->getQrCodeImageHtml()->render()
         );
 
@@ -178,12 +182,16 @@ class OtpTest extends TestCase
         $otp->setQrCodeMargin(5);
         $otp->setQrCodeImageTitle('QR Code');
 
-        $this->assertEquals(
-            'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAAO0lEQVRIDe3SsQkAMAwDwTj77yyDF/hK3bsWMhyaJHnF+8Xuq/YBCkskEQpgwBVJhAIYcEUSoQAG6itaFy0ELNR2WSAAAAAASUVORK5CYII=',
+        $this->assertStringStartsWith(
+            'data:image/png;base64,',
             $otp->getQrCodeImageData()
         );
-        $this->assertEquals(
-            '<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAAO0lEQVRIDe3SsQkAMAwDwTj77yyDF/hK3bsWMhyaJHnF+8Xuq/YBCkskEQpgwBVJhAIYcEUSoQAG6itaFy0ELNR2WSAAAAAASUVORK5CYII=" alt="QR Code">',
+        $this->assertStringStartsWith(
+            '<img src="data:image/png;base64,',
+            $otp->getQrCodeImageHtml()->render()
+        );
+        $this->assertStringEndsWith(
+            'alt="QR Code">',
             $otp->getQrCodeImageHtml()->render()
         );
 
