@@ -11,7 +11,6 @@ declare(strict_types=1);
 namespace Dotclear\Helper;
 
 use Dotclear\Helper\Html\Form\Img;
-use Dotclear\Helper\Network\HttpClient;
 use DateTimeImmutable;
 use Exception;
 
@@ -66,13 +65,6 @@ abstract class Otp
     public const SECRET_LENGTH = 32;
 
     /**
-     * The image generator service url.
-     *
-     * @var     string  QRCODE_SERVICE_URL
-     */
-    public const QRCODE_SERVICE_URL = 'https://image-charts.com/chart?';
-
-    /**
      * Base 32 dictionary.
      *
      * @var     array<string>
@@ -107,14 +99,14 @@ abstract class Otp
     protected string $qrcode_correction = 'L';
 
     /**
-     * The QR code image size.
+     * The QR code image size (in pixels).
      */
     protected int $qrcode_size = 200;
 
     /**
-     * The QR code image margin.
+     * The QR code image margin (in pixels).
      */
-    protected int $qrcode_margin = 1;
+    protected int $qrcode_margin = 10;
 
     /**
      * The QR code image title (for HTML render).
@@ -311,17 +303,17 @@ abstract class Otp
      */
     protected function queryQrCodeService(): string
     {
-        $qrcode_size = (int) ceil((float) $this->qrcode_size / 2.0);
-        $params      = [
-            'cht'  => 'qr',
-            'chs'  => sprintf('%dx%d', $qrcode_size, $qrcode_size),
-            'chld' => $this->qrcode_correction . '|' . $this->qrcode_margin,
-            'chl'  => $this->getUrl(),
-        ];
+        $qrcode = (new QRCode($this->getUrl()));
+        $qrcode->size($this->qrcode_size + 2 * $this->qrcode_margin);
+        match ($this->qrcode_correction) {
+            'L'     => $qrcode->levelLow(),
+            'M'     => $qrcode->levelMid(),
+            'Q'     => $qrcode->levelQrt(),
+            'H'     => $qrcode->levelHigh(),
+            default => $qrcode->levelAuto(),
+        };
 
-        $data = HttpClient::quickGet(static::QRCODE_SERVICE_URL . http_build_query($params));
-
-        return (string) $data;
+        return $qrcode->raw();
     }
 
     /**
