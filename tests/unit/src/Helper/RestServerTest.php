@@ -110,7 +110,7 @@ class RestServerTest extends TestCase
         mixed $param = null,
     ): bool {
         // Set function
-        if ($fn !== null) {
+        if ($fn !== null && $fn !== '') {
             $_REQUEST['f'] = $fn;
         }
 
@@ -289,7 +289,7 @@ class RestServerTest extends TestCase
         $rest = $this->prepareServer();
         $res  = '';
 
-        $ret = $this->runServer($rest, null, $res);
+        $ret = $this->runServer($rest, '', $res);
 
         $this->assertFalse(
             $ret
