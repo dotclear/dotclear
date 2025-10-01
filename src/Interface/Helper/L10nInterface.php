@@ -21,6 +21,8 @@ interface L10nInterface
     ///@{
     /**
      * Set L10n root function.
+     *
+     * Since 2.36, this should be done through Dotclear's root functions.
      */
     public static function bootstrap(): void;
 

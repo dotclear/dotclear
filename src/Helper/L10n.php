@@ -101,7 +101,7 @@ class L10n implements L10nInterface
     public static function bootstrap(): void
     {
         // May be used to have __() global function defined.
-        require_once __DIR__ . '/L10nGlobal.php';
+        require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', 'Functions.php']);
     }
 
     public static function init(?string $code = 'en'): void
