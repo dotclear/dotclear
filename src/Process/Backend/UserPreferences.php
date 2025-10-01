@@ -657,7 +657,7 @@ class UserPreferences
                                 ->size(80)
                                 ->maxlength(255)
                                 ->value(App::backend()->auth()->otp()->getSecret())
-                                ->disabled(true)
+                                ->readonly(true)
                                 //->extra('aria-describedby="otp_verify_secret_help')
                                 ->label(new Label(__('Or enter this secret into your authentication application:'), Label::OL_TF)),
                             (new Submit('otp_regenerate', __('Regenerate')))
