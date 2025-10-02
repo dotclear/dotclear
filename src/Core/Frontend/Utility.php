@@ -72,11 +72,6 @@ class Utility extends AbstractUtility
     public $parent_theme;
 
     /**
-     * Is current theme overloadable?
-     */
-    public bool $theme_overload;
-
-    /**
      * Smilies definitions
      *
      * @var array<string, string>    $smilies
@@ -358,9 +353,6 @@ class Utility extends AbstractUtility
                 App::frontend()->template()->getPath()
             );
         }
-
-        // Check if the current theme may be overload (using theme file handler, index.php?tf=...)
-        App::frontend()->theme_overload = App::themes()->isOverloadable(App::frontend()->theme);
 
         // Set URL scan mode
         App::url()->setMode(App::blog()->settings()->system->url_scan);

@@ -23,6 +23,8 @@ interface ThemesInterface extends ModulesInterface
      * Determines whether the specified theme is overloadable.
      *
      * @param      string  $id     The theme identifier
+     *
+     * @deprecated since 2.36 all themes are overloadable
      */
     public function isOverloadable(string $id): bool;
 }

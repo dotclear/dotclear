@@ -169,7 +169,7 @@ class Manage
                 ]) :
             (new None());
 
-        if (App::backend()->editor?->devMode() && App::themes()->isOverloadable(App::blog()->settings()->system->theme)) {
+        if (App::backend()->editor?->devMode()) {
             App::backend()->notices()->addWarningNotice(__('The theme editor is in development mode, theme files will be overwritten!'));
         }
 
