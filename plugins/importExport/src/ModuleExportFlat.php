@@ -19,6 +19,8 @@ use Dotclear\Plugin\blogroll\Blogroll;
 /**
  * @brief   The default export flat module handler.
  * @ingroup importExport
+ *
+ * @todo switch to SqlStatement
  */
 class ModuleExportFlat extends Module
 {

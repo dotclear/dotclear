@@ -38,6 +38,8 @@ use Exception;
 /**
  * @brief   The WP import module handler.
  * @ingroup importExport
+ *
+ * @todo switch to SqlStatement
  */
 class ModuleImportWp extends Module
 {

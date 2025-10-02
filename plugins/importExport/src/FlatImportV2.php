@@ -23,6 +23,8 @@ use UnhandledMatchError;
 /**
  * @brief   The module flat import handler.
  * @ingroup importExport
+ *
+ * @todo switch to SqlStatement
  */
 class FlatImportV2 extends FlatBackup
 {

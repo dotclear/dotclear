@@ -15,6 +15,8 @@ use Dotclear\App;
 
 /**
  * @brief   Upgrade step.
+ *
+ * @todo switch to SqlStatement
  */
 class GrowUp_2_2_alpha1_r3043_lt
 {

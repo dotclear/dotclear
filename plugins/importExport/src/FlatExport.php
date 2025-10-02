@@ -18,6 +18,8 @@ use Exception;
 /**
  * @brief   The module flat export handler.
  * @ingroup importExport
+ *
+ * @todo switch to SqlStatement
  */
 class FlatExport
 {

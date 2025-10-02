@@ -22,6 +22,8 @@ use Exception;
  *
  * This class is called from backend authentication page
  * or CLI command.
+ *
+ * @todo switch to SqlStatement
  */
 class Upgrade
 {

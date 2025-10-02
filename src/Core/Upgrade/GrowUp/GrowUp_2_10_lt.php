@@ -17,6 +17,8 @@ use Dotclear\Helper\File\Files;
 
 /**
  * @brief   Upgrade step.
+ *
+ * @todo switch to SqlStatement
  */
 class GrowUp_2_10_lt
 {

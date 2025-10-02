@@ -40,6 +40,8 @@ use Exception;
 /**
  * @brief   The DC1 import module handler.
  * @ingroup importExport
+ *
+ * @todo switch to SqlStatement
  */
 class ModuleImportDc1 extends Module
 {
