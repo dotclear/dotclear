@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * @brief       The plugin themeEditor definition
@@ -14,7 +15,7 @@
  * @copyright   AGPL-3.0
  */
 $this->registerModule(
-    'themeEditor',     // Name
+    'Theme Editor',    // Name
     'Theme Editor',    // Description
     'Olivier Meunier', // Author
     '2.0',             // Version

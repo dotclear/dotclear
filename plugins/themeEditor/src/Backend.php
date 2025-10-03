@@ -11,6 +11,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\themeEditor;
 
 use Dotclear\App;
+use Dotclear\Core\Backend\Favorites;
 use Dotclear\Helper\Process\TraitProcess;
 
 /**
@@ -37,6 +38,19 @@ class Backend
                 'adminCurrentThemeDetailsV2'   => BackendBehaviors::adminCurrentThemeDetails(...),
                 'adminBeforeUserOptionsUpdate' => BackendBehaviors::adminBeforeUserUpdate(...),
                 'adminPreferencesFormV2'       => BackendBehaviors::adminPreferencesForm(...),
+                'adminDashboardFavoritesV2'    => function (Favorites $favs): string {
+                    $favs->register(My::id(), [
+                        'title'       => My::name(),
+                        'url'         => My::manageUrl(),
+                        'small-icon'  => My::icons(),
+                        'large-icon'  => My::icons(),
+                        'permissions' => App::auth()->makePermissions([
+                            App::auth()::PERMISSION_ADMIN,
+                        ]),
+                    ]);
+
+                    return '';
+                },
             ]);
         }
 
