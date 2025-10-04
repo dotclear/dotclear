@@ -10,6 +10,7 @@ namespace Dotclear\Process\Install;
 
 use DateTimeZone;
 use Dotclear\App;
+use Dotclear\Exception\NotFoundException;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Email;
 use Dotclear\Helper\Html\Form\Fieldset;
@@ -115,7 +116,7 @@ class Install
     public static function init(): bool
     {
         if (!self::status(App::task()->checkContext('INSTALL'))) {
-            throw new Exception('Not found', 404);
+            throw new NotFoundException();
         }
 
         # Loading locales for detected language
@@ -129,20 +130,26 @@ class Install
 
         if (App::config()->masterKey() === '') {
             self::$can_install = false;
-            self::$err         = '<p>' . __('Please set a master key (DC_MASTER_KEY) in configuration file.') . '</p>';
+            self::$err         .= (new Text('p', __('Please set a master key (DC_MASTER_KEY) in configuration file.')))->render();
         }
 
         # Check if dotclear is already installed
         if (in_array(App::db()->con()->prefix() . App::blog()::POST_TABLE_NAME, App::db()->con()->schema()->getTables())) {
             self::$can_install = false;
-            self::$err         = '<p>' . __('Dotclear is already installed.') . '</p>';
+            self::$err         .= (new Text('p', __('Dotclear is already installed.')))->render();
         }
 
         # Check system capabilites
         $_e = [];
         if (!App::install()->utils()->check(App::db()->con(), $_e)) {
             self::$can_install = false;
-            self::$err         = '<p>' . __('Dotclear cannot be installed.') . '</p><ul><li>' . implode('</li><li>', $_e) . '</li></ul>';
+            self::$err         .= (new Set())
+                ->items([
+                    new Text('p', __('Dotclear cannot be installed.')),
+                    (new Ul())
+                        ->items(array_map(fn ($v): Li => (new Li())->text($v), $_e)),
+                ])
+                ->render();
         }
 
         return self::status();
@@ -151,7 +158,7 @@ class Install
     public static function process(): bool
     {
         if (!self::status()) {
-            throw new Exception('Not found', 404);
+            throw new NotFoundException();
         }
 
         if (self::$can_install && $_POST !== []) {
@@ -367,7 +374,7 @@ class Install
 
                 self::$step = 1;
             } catch (Exception $e) {
-                self::$err = $e->getMessage();
+                self::$err .= (new Text('p', $e->getMessage()))->render();
             }
         }
 
@@ -377,7 +384,7 @@ class Install
     public static function render(): void
     {
         if (!self::status()) {
-            throw new Exception('Not found', 404);
+            throw new NotFoundException();
         }
 
         header('Content-Type: text/html; charset=UTF-8');
@@ -453,7 +460,7 @@ class Install
                                 ->items([
                                     new Strong(__('Errors:')),
                                 ]),
-                            new Text('p', self::$err),
+                            new Text('', self::$err),
                         ]),
                 ]);
         }
@@ -627,7 +634,7 @@ class Install
                                         ->items([
                                             new Strong(__('Errors:')),
                                         ]),
-                                    new Text('p', self::$err),
+                                    new Text('', self::$err),
                                 ]),
                         ]),
                     new Text('p', sprintf(
