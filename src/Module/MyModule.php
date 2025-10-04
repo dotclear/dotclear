@@ -149,7 +149,7 @@ abstract class MyModule
         // else default permissions, we always check for whole module perms first
         return  static::checkCustomContext(self::MODULE) !== false && match ($context) {
             // Global module context (Beware this can be check in BACKEND, FRONTEND, INSTALL,...)
-            self::MODULE => App::config()->configPath() !== '',
+            self::MODULE => App::config()->hasConfig(),
 
             // Installation of module
             self::INSTALL => App::task()->checkContext('BACKEND')
@@ -159,13 +159,13 @@ abstract class MyModule
                     && App::version()->newerVersion(self::id(), (string) App::plugins()->getDefine(self::id())->get('version')),
 
             // Uninstallation of module
-            self::UNINSTALL => App::config()->configPath() !== ''
+            self::UNINSTALL => App::config()->hasConfig()
                     // Manageable only by super-admin
                     && App::auth()->isSuperAdmin(),
 
             // Prepend and Frontend context
             self::PREPEND,
-            self::FRONTEND => App::config()->configPath() !== '',
+            self::FRONTEND => App::config()->hasConfig(),
 
             // Backend context
             self::BACKEND => App::task()->checkContext('BACKEND')

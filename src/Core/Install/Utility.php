@@ -67,7 +67,7 @@ class Utility extends AbstractUtility
     {
         // Call utility process from here
         App::task()->loadProcess(
-            is_file(App::config()->configPath()) ?
+            App::config()->hasConfig() ?
             (new \ReflectionClass(Install::class))->getShortName() :
             (new \ReflectionClass(Wizard::class))->getShortName()
         );

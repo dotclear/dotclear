@@ -127,7 +127,7 @@ class Task extends AbstractSingleton implements TaskInterface
         $utility_response = $utility === '' ? false : $this->utility::init();
 
         // Config file exists
-        if (is_file($this->core->config()->configPath())) {
+        if ($this->core->config()->hasConfig()) {
             try {
                 // Check database connection
                 $this->core->db()->con();

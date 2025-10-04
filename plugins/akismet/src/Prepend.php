@@ -28,7 +28,7 @@ class Prepend
         __('Akismet');
         __('Akismet interface for Dotclear');
 
-        return self::status(App::config()->configPath() !== '');
+        return self::status(App::config()->hasConfig());
     }
 
     public static function process(): bool
