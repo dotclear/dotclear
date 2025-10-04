@@ -130,20 +130,26 @@ class Install
 
         if (App::config()->masterKey() === '') {
             self::$can_install = false;
-            self::$err         .= '<p>' . __('Please set a master key (DC_MASTER_KEY) in configuration file.') . '</p>';
+            self::$err         .= (new Text('p', __('Please set a master key (DC_MASTER_KEY) in configuration file.')))->render();
         }
 
         # Check if dotclear is already installed
         if (in_array(App::db()->con()->prefix() . App::blog()::POST_TABLE_NAME, App::db()->con()->schema()->getTables())) {
             self::$can_install = false;
-            self::$err         .= '<p>' . __('Dotclear is already installed.') . '</p>';
+            self::$err         .= (new Text('p', __('Dotclear is already installed.')))->render();
         }
 
         # Check system capabilites
         $_e = [];
         if (!App::install()->utils()->check(App::db()->con(), $_e)) {
             self::$can_install = false;
-            self::$err         .= '<p>' . __('Dotclear cannot be installed.') . '</p><ul><li>' . implode('</li><li>', $_e) . '</li></ul>';
+            self::$err         .= (new Set())
+                ->items([
+                    new Text('p', __('Dotclear cannot be installed.')),
+                    (new Ul())
+                        ->items(array_map(fn ($v): Li => (new Li())->text($v), $_e)),
+                ])
+                ->render();
         }
 
         return self::status();
@@ -368,7 +374,7 @@ class Install
 
                 self::$step = 1;
             } catch (Exception $e) {
-                self::$err .= $e->getMessage();
+                self::$err .= (new Text('p', $e->getMessage()))->render();
             }
         }
 
