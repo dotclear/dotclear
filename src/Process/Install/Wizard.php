@@ -95,7 +95,7 @@ class Wizard
 
     public static function init(): bool
     {
-        if (!self::status(App::task()->checkContext('INSTALL') && App::config()->configPath() !== '')) {
+        if (!self::status(App::task()->checkContext('INSTALL') && App::config()->hasConfig())) {
             throw new Exception('Not found', 404);
         }
 
@@ -275,7 +275,7 @@ class Wizard
 
     public static function render(): void
     {
-        if (App::config()->configPath() === '') {
+        if (!App::config()->hasConfig()) {
             throw new Exception('Not found', 404);
         }
 
