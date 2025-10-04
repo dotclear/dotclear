@@ -9,6 +9,7 @@
 namespace Dotclear\Process\Install;
 
 use Dotclear\App;
+use Dotclear\Exception\NotFoundException;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Form\Div;
@@ -95,8 +96,8 @@ class Wizard
 
     public static function init(): bool
     {
-        if (!self::status(App::task()->checkContext('INSTALL') && App::config()->hasConfig())) {
-            throw new Exception('Not found', 404);
+        if (!self::status(App::task()->checkContext('INSTALL') && !App::config()->hasConfig())) {
+            throw new NotFoundException();
         }
 
         // Loading locales for detected language
@@ -141,7 +142,7 @@ class Wizard
     public static function process(): bool
     {
         if (!self::status()) {
-            throw new Exception('Not found', 404);
+            throw new NotFoundException();
         }
 
         if (!self::$can_install) {
@@ -275,8 +276,8 @@ class Wizard
 
     public static function render(): void
     {
-        if (!App::config()->hasConfig()) {
-            throw new Exception('Not found', 404);
+        if (!self::status()) {
+            throw new NotFoundException();
         }
 
         header('Content-Type: text/html; charset=UTF-8');

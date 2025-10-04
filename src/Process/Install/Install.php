@@ -10,6 +10,7 @@ namespace Dotclear\Process\Install;
 
 use DateTimeZone;
 use Dotclear\App;
+use Dotclear\Exception\NotFoundException;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Email;
 use Dotclear\Helper\Html\Form\Fieldset;
@@ -115,7 +116,7 @@ class Install
     public static function init(): bool
     {
         if (!self::status(App::task()->checkContext('INSTALL'))) {
-            throw new Exception('Not found', 404);
+            throw new NotFoundException();
         }
 
         # Loading locales for detected language
@@ -151,7 +152,7 @@ class Install
     public static function process(): bool
     {
         if (!self::status()) {
-            throw new Exception('Not found', 404);
+            throw new NotFoundException();
         }
 
         if (self::$can_install && $_POST !== []) {
@@ -377,7 +378,7 @@ class Install
     public static function render(): void
     {
         if (!self::status()) {
-            throw new Exception('Not found', 404);
+            throw new NotFoundException();
         }
 
         header('Content-Type: text/html; charset=UTF-8');
