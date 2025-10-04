@@ -130,20 +130,20 @@ class Install
 
         if (App::config()->masterKey() === '') {
             self::$can_install = false;
-            self::$err         = '<p>' . __('Please set a master key (DC_MASTER_KEY) in configuration file.') . '</p>';
+            self::$err         .= '<p>' . __('Please set a master key (DC_MASTER_KEY) in configuration file.') . '</p>';
         }
 
         # Check if dotclear is already installed
         if (in_array(App::db()->con()->prefix() . App::blog()::POST_TABLE_NAME, App::db()->con()->schema()->getTables())) {
             self::$can_install = false;
-            self::$err         = '<p>' . __('Dotclear is already installed.') . '</p>';
+            self::$err         .= '<p>' . __('Dotclear is already installed.') . '</p>';
         }
 
         # Check system capabilites
         $_e = [];
         if (!App::install()->utils()->check(App::db()->con(), $_e)) {
             self::$can_install = false;
-            self::$err         = '<p>' . __('Dotclear cannot be installed.') . '</p><ul><li>' . implode('</li><li>', $_e) . '</li></ul>';
+            self::$err         .= '<p>' . __('Dotclear cannot be installed.') . '</p><ul><li>' . implode('</li><li>', $_e) . '</li></ul>';
         }
 
         return self::status();
@@ -368,7 +368,7 @@ class Install
 
                 self::$step = 1;
             } catch (Exception $e) {
-                self::$err = $e->getMessage();
+                self::$err .= $e->getMessage();
             }
         }
 
@@ -454,7 +454,7 @@ class Install
                                 ->items([
                                     new Strong(__('Errors:')),
                                 ]),
-                            new Text('p', self::$err),
+                            new Text('', self::$err),
                         ]),
                 ]);
         }
@@ -628,7 +628,7 @@ class Install
                                         ->items([
                                             new Strong(__('Errors:')),
                                         ]),
-                                    new Text('p', self::$err),
+                                    new Text('', self::$err),
                                 ]),
                         ]),
                     new Text('p', sprintf(

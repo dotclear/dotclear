@@ -9,6 +9,7 @@
 namespace Dotclear\Process\Install;
 
 use Dotclear\App;
+use Dotclear\Exception\ConfigException;
 use Dotclear\Exception\NotFoundException;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
@@ -180,16 +181,12 @@ class Wizard
                 }
 
                 # Tries to connect to database
-                try {
-                    $con = App::db()->newCon(self::$DBDRIVER, self::$DBHOST, self::$DBNAME, self::$DBUSER, self::$DBPASSWORD);
-                } catch (Exception $e) {
-                    self::throwString(__($e->getMessage()), (int) $e->getCode(), $e);
-                }
+                $con = App::db()->newCon(self::$DBDRIVER, self::$DBHOST, self::$DBNAME, self::$DBUSER, self::$DBPASSWORD);
 
                 # Checks system capabilites
                 $_e = [];
                 if (!App::install()->utils()->check($con, $_e)) {
-                    throw new Exception(
+                    throw new ConfigException(
                         (new Set())
                         ->items([
                             new Text('p', __('Dotclear cannot be installed.')),
@@ -266,8 +263,10 @@ class Wizard
 
                 $con->close();
                 Http::redirect('index.php?wiz=1');
+            } catch(ConfigException $e) {
+                self::$err .= $e->getMessage();
             } catch (Exception $e) {
-                self::$err = $e->getMessage();
+                self::$err .= (new Text('p', $e->getMessage()))->render();
             }
         }
 
@@ -475,12 +474,12 @@ class Wizard
      * @param   int             $code       The code
      * @param   null|Exception  $error      The error
      *
-     * @throws  Exception
+     * @throws  ConfigException
      *
      * @return  never
      */
     private static function throwString(string $message, int $code = 0, ?Exception $error = null): void
     {
-        throw new Exception((new Text('p', $message))->render(), $code, $error);
+        throw new ConfigException((new Text('p', $message))->render(), $code, $error);
     }
 }
