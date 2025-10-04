@@ -136,10 +136,6 @@ class FileServer implements FileServerInterface
 
         unset($_GET['pf'], $_GET['vf'], $_GET['tf']);
 
-        if (!$this->core->config()->dotclearRoot() || !$this->core->config()->pluginsRoot() || !$this->core->config()->varRoot()) {
-            self::p404();
-        }
-
         if (!in_array($this->extension, self::DEFAULT_EXTENSIONS)) {
             self::p404();
         }
