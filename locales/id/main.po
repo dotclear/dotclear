@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-22 16:33+0200\n"
-"PO-Revision-Date: 2025-09-22 16:09\n"
+"POT-Creation-Date: 2025-10-04 17:57+0200\n"
+"PO-Revision-Date: 2025-10-05 05:59\n"
 "Last-Translator: \n"
 "Language-Team: Indonesian\n"
 "Language: id_ID\n"
@@ -17,9 +17,9 @@ msgstr ""
 "X-Crowdin-File: /master/locales/_pot/main.pot\n"
 "X-Crowdin-File-ID: 262\n"
 
-#: inc/core/_fake_l10n.php:7 src/Process/Backend/Auth.php:447
+#: inc/core/_fake_l10n.php:7 src/Process/Backend/Auth.php:446
 #: src/Process/Backend/User.php:265 src/Process/Backend/UserPreferences.php:567
-#: src/Process/Install/Install.php:421 src/Process/Upgrade/Auth.php:389
+#: src/Process/Install/Install.php:427 src/Process/Upgrade/Auth.php:388
 msgid "medium"
 msgstr "sedang"
 
@@ -119,10 +119,10 @@ msgstr "Kunci tersebut tidak ada dalam database."
 
 #: src/Core/Backend/Action/Actions.php:139
 #: src/Core/Backend/Action/ActionsComments.php:158
-#: src/Core/Backend/Combos.php:256 src/Core/Backend/Listing/ListingPosts.php:78
+#: src/Core/Backend/Combos.php:255 src/Core/Backend/Listing/ListingPosts.php:78
 #: src/Core/Backend/Listing/ListingPostsMini.php:62
 #: src/Core/Backend/UserPref.php:205 src/Process/Backend/Home.php:591
-#: src/Process/Backend/MediaItem.php:1088 src/Process/Backend/Post.php:841
+#: src/Process/Backend/MediaItem.php:1090 src/Process/Backend/Post.php:841
 msgid "Title"
 msgstr "Judul"
 
@@ -150,7 +150,7 @@ msgstr "Tindakan blog"
 msgid "Blog id"
 msgstr "Id blog"
 
-#: src/Core/Backend/Action/ActionsBlogs.php:158 src/Core/Backend/Combos.php:312
+#: src/Core/Backend/Action/ActionsBlogs.php:158 src/Core/Backend/Combos.php:311
 #: src/Core/Backend/Listing/ListingBlogs.php:83
 #: src/Core/Backend/UserPref.php:77 src/Process/Backend/Blog.php:144
 #: src/Process/Backend/BlogPref.php:534
@@ -160,9 +160,9 @@ msgstr "Nama blog"
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:35
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:36
-#: src/Core/Backend/Action/ActionsPostsDefault.php:48
-#: src/Core/Backend/Combos.php:259 src/Core/Backend/Combos.php:282
-#: src/Core/Backend/Combos.php:314
+#: src/Core/Backend/Action/ActionsPostsDefault.php:47
+#: src/Core/Backend/Combos.php:258 src/Core/Backend/Combos.php:281
+#: src/Core/Backend/Combos.php:313
 #: src/Core/Backend/Listing/ListingBlogs.php:102
 #: src/Core/Backend/Listing/ListingComments.php:131
 #: src/Core/Backend/Listing/ListingPosts.php:120
@@ -179,14 +179,14 @@ msgstr "Status"
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:40
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:46
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:47
+#: src/Core/Backend/Action/ActionsPostsDefault.php:96
 #: src/Core/Backend/Action/ActionsPostsDefault.php:97
-#: src/Core/Backend/Action/ActionsPostsDefault.php:98
-#: src/Core/Backend/Listing/ListingMedia.php:308
-#: src/Core/Backend/Listing/ListingMedia.php:311
+#: src/Core/Backend/Listing/ListingMedia.php:314
+#: src/Core/Backend/Listing/ListingMedia.php:317
 #: src/Core/Backend/ModulesList.php:1361 src/Core/Upgrade/PluginsList.php:125
-#: src/Process/Backend/Comment.php:354 src/Process/Backend/Langs.php:232
+#: src/Process/Backend/Comment.php:354 src/Process/Backend/Langs.php:231
 #: src/Process/Backend/Post.php:965 src/Process/Backend/UserPreferences.php:694
-#: src/Process/Backend/Users.php:44 src/Process/Upgrade/Langs.php:298
+#: src/Process/Backend/Users.php:44 src/Process/Upgrade/Langs.php:297
 msgid "Delete"
 msgstr "Menghapus"
 
@@ -202,9 +202,9 @@ msgstr "Blog yang dipilih telah berhasil diperbarui."
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:104
 #: src/Core/Backend/ModulesList.php:1699 src/Core/Backend/ThemesList.php:714
 #: src/Core/Upgrade/PluginsList.php:398 src/Process/Backend/BlogDel.php:69
-#: src/Process/Backend/Langs.php:115 src/Process/Backend/Langs.php:160
+#: src/Process/Backend/Langs.php:114 src/Process/Backend/Langs.php:159
 #: src/Process/Backend/User.php:128 src/Process/Backend/UsersActions.php:182
-#: src/Process/Upgrade/Langs.php:163 src/Process/Upgrade/Langs.php:208
+#: src/Process/Upgrade/Langs.php:162 src/Process/Upgrade/Langs.php:207
 msgid "Password verification failed"
 msgstr "Verifikasi kata sandi gagal"
 
@@ -242,7 +242,7 @@ msgid "Comments actions"
 msgstr "Tindakan komentar"
 
 #: src/Core/Backend/Action/ActionsComments.php:156
-#: src/Core/Backend/Combos.php:258 src/Core/Backend/Combos.php:281
+#: src/Core/Backend/Combos.php:257 src/Core/Backend/Combos.php:280
 #: src/Core/Backend/Listing/ListingComments.php:123
 #: src/Core/Backend/Listing/ListingPosts.php:90
 #: src/Core/Backend/Listing/ListingPostsMini.php:70
@@ -293,199 +293,199 @@ msgstr "Kembali ke daftar entri"
 msgid "Posts actions"
 msgstr "Tindakan posting"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:57
+#: src/Core/Backend/Action/ActionsPostsDefault.php:56
 msgid "First publication"
 msgstr "Publikasi pertama"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:58
-#: src/Core/Backend/Action/ActionsPostsDefault.php:191
+#: src/Core/Backend/Action/ActionsPostsDefault.php:57
+#: src/Core/Backend/Action/ActionsPostsDefault.php:190
 msgid "Never published"
 msgstr "Tidak pernah dipublikasikan"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:59
-#: src/Core/Backend/Action/ActionsPostsDefault.php:191
+#: src/Core/Backend/Action/ActionsPostsDefault.php:58
+#: src/Core/Backend/Action/ActionsPostsDefault.php:190
 msgid "Already published"
 msgstr "Sudah diterbitkan"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:65
+#: src/Core/Backend/Action/ActionsPostsDefault.php:64
 msgid "Mark"
 msgstr "Tandai"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:66
+#: src/Core/Backend/Action/ActionsPostsDefault.php:65
 msgid "Mark as selected"
 msgstr "Tandai sebagai yang dipilih"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:67
+#: src/Core/Backend/Action/ActionsPostsDefault.php:66
 msgid "Mark as unselected"
 msgstr "Tandai sebagai tidak dipilih"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:72
-#: src/Core/Backend/Action/ActionsPostsDefault.php:78
-#: src/Core/Backend/Action/ActionsPostsDefault.php:87
+#: src/Core/Backend/Action/ActionsPostsDefault.php:71
+#: src/Core/Backend/Action/ActionsPostsDefault.php:77
+#: src/Core/Backend/Action/ActionsPostsDefault.php:86
 msgid "Change"
 msgstr "Perubahan"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:73
+#: src/Core/Backend/Action/ActionsPostsDefault.php:72
 msgid "Change category"
 msgstr "Ubah kategori"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:79
+#: src/Core/Backend/Action/ActionsPostsDefault.php:78
 msgid "Change language"
 msgstr "Mengubah bahasa"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:88
+#: src/Core/Backend/Action/ActionsPostsDefault.php:87
 msgid "Change author"
 msgstr "Ubah penulis"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:120
-#: src/Core/Backend/Action/ActionsPostsDefault.php:177
-#: src/Core/Backend/Action/ActionsPostsDefault.php:209
-#: src/Core/Backend/Action/ActionsPostsDefault.php:251
-#: src/Core/Backend/Action/ActionsPostsDefault.php:290
-#: src/Core/Backend/Action/ActionsPostsDefault.php:420
-#: src/Core/Backend/Action/ActionsPostsDefault.php:518
+#: src/Core/Backend/Action/ActionsPostsDefault.php:119
+#: src/Core/Backend/Action/ActionsPostsDefault.php:176
+#: src/Core/Backend/Action/ActionsPostsDefault.php:208
+#: src/Core/Backend/Action/ActionsPostsDefault.php:250
+#: src/Core/Backend/Action/ActionsPostsDefault.php:289
+#: src/Core/Backend/Action/ActionsPostsDefault.php:419
+#: src/Core/Backend/Action/ActionsPostsDefault.php:517
 msgid "No entry selected"
 msgstr "Tidak ada entri yang dipilih"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:139
+#: src/Core/Backend/Action/ActionsPostsDefault.php:138
 msgid "Published entries cannot be set to scheduled"
 msgstr "Entri yang dipublikasikan tidak dapat diatur ke terjadwal"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:148
+#: src/Core/Backend/Action/ActionsPostsDefault.php:147
 #, php-format
 msgid "%d entry has been successfully updated to status : \"%s\""
 msgid_plural "%d entries have been successfully updated to status : \"%s\""
 msgstr[0] "%d entri telah berhasil diperbarui ke status : \"%s\""
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:186
+#: src/Core/Backend/Action/ActionsPostsDefault.php:185
 #, php-format
 msgid "%d entry has been successfully updated as: \"%s\""
 msgid_plural "%d entries have been successfully updated as: \"%s\""
 msgstr[0] "%d entri telah berhasil diperbarui sebagai: \"%s\""
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:218
+#: src/Core/Backend/Action/ActionsPostsDefault.php:217
 #, php-format
 msgid "%d entry has been successfully marked as selected"
 msgid_plural "%d entries have been successfully marked as selected"
 msgstr[0] "%d entri telah berhasil ditandai sebagai terpilih"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:229
+#: src/Core/Backend/Action/ActionsPostsDefault.php:228
 #, php-format
 msgid "%d entry has been successfully marked as unselected"
 msgid_plural "%d entries have been successfully marked as unselected"
 msgstr[0] "%d entri telah berhasil ditandai sebagai tidak dipilih"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:266
+#: src/Core/Backend/Action/ActionsPostsDefault.php:265
 #, php-format
 msgid "%d entry has been successfully deleted"
 msgid_plural "%d entries have been successfully deleted"
 msgstr[0] "%d entri telah berhasil dihapus"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:312
-#: src/Core/Backend/Combos.php:42 src/Core/Backend/Filter/FilterPosts.php:120
+#: src/Core/Backend/Action/ActionsPostsDefault.php:311
+#: src/Core/Backend/Combos.php:41 src/Core/Backend/Filter/FilterPosts.php:120
 #: src/Core/Backend/Listing/ListingPosts.php:268
 msgid "(No cat)"
 msgstr "(Tanpa kucing)"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:319
+#: src/Core/Backend/Action/ActionsPostsDefault.php:318
 #, php-format
 msgid "%d entry has been successfully moved to category \"%s\""
 msgid_plural "%d entries have been successfully moved to category \"%s\""
 msgstr[0] "%d entri telah berhasil dipindahkan ke kategori \"%s\""
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:335
+#: src/Core/Backend/Action/ActionsPostsDefault.php:334
 msgid "Change category for this selection"
 msgstr "Ubah kategori untuk pilihan ini"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:349
+#: src/Core/Backend/Action/ActionsPostsDefault.php:348
 #: src/Core/Backend/Filter/FilterPosts.php:131 src/Process/Backend/Home.php:617
 #: src/Process/Backend/Post.php:729
 msgid "Category:"
 msgstr "Kategori:"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:363
+#: src/Core/Backend/Action/ActionsPostsDefault.php:362
 msgid "Create a new category for the post(s)"
 msgstr "Buat kategori baru untuk postingan"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:367
+#: src/Core/Backend/Action/ActionsPostsDefault.php:366
 #: src/Process/Backend/Home.php:595 src/Process/Backend/Home.php:629
-#: src/Process/Backend/Media.php:775 src/Process/Backend/MediaItem.php:1228
+#: src/Process/Backend/Media.php:777 src/Process/Backend/MediaItem.php:1230
 #: src/Process/Backend/Post.php:743 src/Process/Backend/Post.php:846
 msgid "Title:"
 msgstr "Judul:"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:376
+#: src/Core/Backend/Action/ActionsPostsDefault.php:375
 #: src/Process/Backend/Category.php:267 src/Process/Backend/Category.php:325
 #: src/Process/Backend/Home.php:636 src/Process/Backend/Post.php:750
 msgid "Parent:"
 msgstr "Orang tua:"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:391
-#: src/Core/Backend/Action/ActionsPostsDefault.php:496
-#: src/Core/Backend/Action/ActionsPostsDefault.php:580
+#: src/Core/Backend/Action/ActionsPostsDefault.php:390
+#: src/Core/Backend/Action/ActionsPostsDefault.php:495
+#: src/Core/Backend/Action/ActionsPostsDefault.php:579
 #: src/Core/Backend/ModulesList.php:1997 src/Process/Backend/BlogPref.php:1193
 #: src/Process/Backend/Category.php:297 src/Process/Backend/Category.php:336
 #: src/Process/Backend/Category.php:372 src/Process/Backend/Comment.php:349
 #: src/Process/Backend/Home.php:646 src/Process/Backend/Home.php:700
-#: src/Process/Backend/MediaItem.php:1268 src/Process/Backend/Post.php:930
+#: src/Process/Backend/MediaItem.php:1270 src/Process/Backend/Post.php:930
 #: src/Process/Backend/Post.php:1144 src/Process/Backend/User.php:554
-#: src/Process/Backend/UsersActions.php:513 src/Process/Install/Install.php:544
+#: src/Process/Backend/UsersActions.php:513 src/Process/Install/Install.php:550
 msgid "Save"
 msgstr "Simpan"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:423
+#: src/Core/Backend/Action/ActionsPostsDefault.php:422
 msgid "This user does not exist"
 msgstr "Pengguna ini tidak ada"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:437
+#: src/Core/Backend/Action/ActionsPostsDefault.php:436
 #, php-format
 msgid "%d entry has been successfully set to user \"%s\""
 msgid_plural "%d entries have been successfully set to user \"%s\""
 msgstr[0] "%d entri telah berhasil disetel ke pengguna \"%s\""
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:470
+#: src/Core/Backend/Action/ActionsPostsDefault.php:469
 msgid "Change author for this selection"
 msgstr "Ubah penulis untuk pilihan ini"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:483
+#: src/Core/Backend/Action/ActionsPostsDefault.php:482
 msgid "New author (author ID):"
 msgstr "Penulis baru (ID penulis):"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:533
+#: src/Core/Backend/Action/ActionsPostsDefault.php:532
 #, php-format
 msgid "%d entry has been successfully set to language \"%s\""
 msgid_plural "%d entries have been successfully set to language \"%s\""
 msgstr[0] "%d entri telah berhasil disetel ke bahasa \"%s\""
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:548
+#: src/Core/Backend/Action/ActionsPostsDefault.php:547
 msgid "Change language for this selection"
 msgstr "Mengubah bahasa untuk pilihan ini"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:568
+#: src/Core/Backend/Action/ActionsPostsDefault.php:567
 msgid "Entry language:"
 msgstr "Bahasa pengantar:"
 
-#: src/Core/Backend/Combos.php:134
+#: src/Core/Backend/Combos.php:133
 msgid "Most used"
 msgstr "Paling banyak digunakan"
 
-#: src/Core/Backend/Combos.php:135 src/Core/Backend/Combos.php:165
+#: src/Core/Backend/Combos.php:134 src/Core/Backend/Combos.php:164
 msgid "Available"
 msgstr "Tersedia"
 
-#: src/Core/Backend/Combos.php:165
+#: src/Core/Backend/Combos.php:164
 msgid "Other"
 msgstr "Lainnya"
 
-#: src/Core/Backend/Combos.php:242 src/Process/Backend/UserPreferences.php:196
+#: src/Core/Backend/Combos.php:241 src/Process/Backend/UserPreferences.php:196
 msgid "Descending"
 msgstr "Turun"
 
-#: src/Core/Backend/Combos.php:243 src/Process/Backend/UserPreferences.php:197
+#: src/Core/Backend/Combos.php:242 src/Process/Backend/UserPreferences.php:197
 msgid "Ascending"
 msgstr "Naik"
 
-#: src/Core/Backend/Combos.php:255 src/Core/Backend/Combos.php:278
+#: src/Core/Backend/Combos.php:254 src/Core/Backend/Combos.php:277
 #: src/Core/Backend/Listing/ListingComments.php:127
 #: src/Core/Backend/Listing/ListingMedia.php:130
 #: src/Core/Backend/Listing/ListingPosts.php:82
@@ -495,78 +495,78 @@ msgstr "Naik"
 msgid "Date"
 msgstr "Tanggal"
 
-#: src/Core/Backend/Combos.php:257 src/Core/Backend/Listing/ListingPosts.php:86
+#: src/Core/Backend/Combos.php:256 src/Core/Backend/Listing/ListingPosts.php:86
 #: src/Core/Backend/UserPref.php:44 src/Process/Backend/Post.php:721
 msgid "Category"
 msgstr "Kategori"
 
-#: src/Core/Backend/Combos.php:260 src/Core/Backend/Filter/FilterPosts.php:200
+#: src/Core/Backend/Combos.php:259 src/Core/Backend/Filter/FilterPosts.php:200
 #: src/Core/Backend/Listing/ListingPosts.php:209
 #: src/Core/Backend/Listing/ListingPosts.php:250
 #: src/Core/Backend/Listing/ListingPostsMini.php:136
 msgid "Selected"
 msgstr "Dipilih"
 
-#: src/Core/Backend/Combos.php:261
+#: src/Core/Backend/Combos.php:260
 msgid "Number of comments"
 msgstr "Jumlah komentar"
 
-#: src/Core/Backend/Combos.php:262
+#: src/Core/Backend/Combos.php:261
 msgid "Number of trackbacks"
 msgstr "Jumlah pelacakan balik"
 
-#: src/Core/Backend/Combos.php:279
+#: src/Core/Backend/Combos.php:278
 msgid "Entry title"
 msgstr "Judul entri"
 
-#: src/Core/Backend/Combos.php:280
+#: src/Core/Backend/Combos.php:279
 msgid "Entry date"
 msgstr "Tanggal masuk"
 
-#: src/Core/Backend/Combos.php:283
+#: src/Core/Backend/Combos.php:282
 #: src/Core/Backend/Listing/ListingComments.php:141
 #: src/Core/Backend/UserPref.php:57
 msgid "Spam filter"
 msgstr "Filter spam"
 
-#: src/Core/Backend/Combos.php:294
+#: src/Core/Backend/Combos.php:293
 #: src/Core/Backend/Listing/ListingComments.php:136
 #: src/Core/Backend/UserPref.php:56
 msgid "IP"
 msgstr "IP"
 
-#: src/Core/Backend/Combos.php:311 src/Core/Backend/Listing/ListingBlogs.php:98
+#: src/Core/Backend/Combos.php:310 src/Core/Backend/Listing/ListingBlogs.php:98
 #: src/Core/Backend/UserPref.php:80
 msgid "Last update"
 msgstr "Pembaruan terakhir"
 
-#: src/Core/Backend/Combos.php:313 src/Process/Backend/Blog.php:124
+#: src/Core/Backend/Combos.php:312 src/Process/Backend/Blog.php:124
 #: src/Process/Backend/BlogPref.php:1031
 #: src/Process/Backend/UsersActions.php:365
 msgid "Blog ID"
 msgstr "ID Blog"
 
-#: src/Core/Backend/Combos.php:332 src/Core/Backend/Listing/ListingUsers.php:68
-#: src/Process/Install/Install.php:520
+#: src/Core/Backend/Combos.php:331 src/Core/Backend/Listing/ListingUsers.php:68
+#: src/Process/Install/Install.php:526
 msgid "Username"
 msgstr "Nama pengguna"
 
-#: src/Core/Backend/Combos.php:333 src/Core/Backend/Listing/ListingUsers.php:76
+#: src/Core/Backend/Combos.php:332 src/Core/Backend/Listing/ListingUsers.php:76
 #: src/Core/Backend/UserPref.php:68
 msgid "Last Name"
 msgstr "Nama belakang"
 
-#: src/Core/Backend/Combos.php:334 src/Core/Backend/Listing/ListingUsers.php:72
+#: src/Core/Backend/Combos.php:333 src/Core/Backend/Listing/ListingUsers.php:72
 #: src/Core/Backend/UserPref.php:67
 msgid "First Name"
 msgstr "Nama depan"
 
-#: src/Core/Backend/Combos.php:335 src/Core/Backend/Listing/ListingUsers.php:80
+#: src/Core/Backend/Combos.php:334 src/Core/Backend/Listing/ListingUsers.php:80
 #: src/Core/Backend/UserPref.php:69
 msgid "Display name"
 msgstr "Nama tampilan"
 
-#: src/Core/Backend/Combos.php:336
+#: src/Core/Backend/Combos.php:335
 msgid "Number of entries"
 msgstr "Jumlah entri"
 
@@ -576,7 +576,7 @@ msgid "My favorites"
 msgstr "Favorit saya"
 
 #: src/Core/Backend/Favorites.php:399 src/Core/Backend/Menus.php:195
-#: src/Core/Backend/Page.php:373 src/Process/Backend/Media.php:794
+#: src/Core/Backend/Page.php:372 src/Process/Backend/Media.php:796
 #: src/Process/Backend/UserPreferences.php:70
 msgid "My preferences"
 msgstr "Preferensi saya"
@@ -615,8 +615,8 @@ msgstr "Kategori"
 #: src/Core/Backend/Favorites.php:465 src/Core/Backend/MediaPage.php:363
 #: src/Core/Backend/MediaPage.php:365 src/Core/Backend/MediaPage.php:416
 #: src/Core/Backend/Menus.php:117 src/Core/Backend/UserPref.php:200
-#: src/Process/Backend/Media.php:700 src/Process/Backend/Media.php:828
-#: src/Process/Backend/MediaItem.php:405 src/Process/Backend/MediaItem.php:411
+#: src/Process/Backend/Media.php:702 src/Process/Backend/Media.php:830
+#: src/Process/Backend/MediaItem.php:407 src/Process/Backend/MediaItem.php:413
 msgid "Media manager"
 msgstr "Manajer media"
 
@@ -655,32 +655,32 @@ msgid "Plugins settings"
 msgstr "Pengaturan plugin"
 
 #: src/Core/Backend/Favorites.php:521 src/Core/Backend/Menus.php:215
-#: src/Core/Upgrade/Utility.php:403
+#: src/Core/Upgrade/Utility.php:389
 msgid "Languages"
 msgstr "Bahasa"
 
-#: src/Core/Backend/Favorites.php:527 src/Core/Backend/Page.php:448
-#: src/Core/Backend/Page.php:449 src/Process/Backend/Help.php:109
+#: src/Core/Backend/Favorites.php:527 src/Core/Backend/Page.php:447
+#: src/Core/Backend/Page.php:448 src/Process/Backend/Help.php:109
 #: src/Process/Backend/Help.php:116 src/Process/Backend/Help.php:122
 msgid "Global help"
 msgstr "Bantuan global"
 
-#: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1270
-#: src/Process/Backend/Auth.php:514 src/Process/Backend/BlogPref.php:1369
+#: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1269
+#: src/Process/Backend/Auth.php:513 src/Process/Backend/BlogPref.php:1369
 #: src/Process/Backend/Comment.php:305 src/Process/Backend/Post.php:1113
 #: src/Process/Backend/User.php:450 src/Process/Backend/UserPreferences.php:813
-#: src/Process/Install/Install.php:502
+#: src/Process/Install/Install.php:508
 msgid "Email:"
 msgstr "Email:"
 
-#: src/Core/Backend/Filter/FilterComments.php:37 src/Core/Backend/Page.php:1269
+#: src/Core/Backend/Filter/FilterComments.php:37 src/Core/Backend/Page.php:1268
 #: src/Process/Backend/Comment.php:321 src/Process/Backend/Post.php:1122
 msgid "Web site:"
 msgstr "Situs web:"
 
 #: src/Core/Backend/Filter/FilterComments.php:58
 #: src/Core/Backend/Filter/FilterPosts.php:90
-#: src/Core/Backend/ModulesList.php:1045 src/Core/Backend/Page.php:1311
+#: src/Core/Backend/ModulesList.php:1045 src/Core/Backend/Page.php:1310
 #: src/Process/Backend/Comment.php:294
 msgid "Author:"
 msgstr "Penulis:"
@@ -699,27 +699,27 @@ msgid "Trackback"
 msgstr "Lacak balik"
 
 #: src/Core/Backend/Filter/FilterComments.php:107
-#: src/Core/Backend/Page.php:1271 src/Process/Backend/Comment.php:269
+#: src/Core/Backend/Page.php:1270 src/Process/Backend/Comment.php:269
 msgid "IP address:"
 msgstr "Alamat IP:"
 
-#: src/Core/Backend/Filter/FilterMedia.php:159
+#: src/Core/Backend/Filter/FilterMedia.php:162
 msgid "Media type:"
 msgstr "Jenis media:"
 
-#: src/Core/Backend/Filter/FilterMedia.php:162
+#: src/Core/Backend/Filter/FilterMedia.php:165
 msgid "image"
 msgstr "gambar"
 
-#: src/Core/Backend/Filter/FilterMedia.php:163
+#: src/Core/Backend/Filter/FilterMedia.php:166
 msgid "text"
 msgstr "teks"
 
-#: src/Core/Backend/Filter/FilterMedia.php:164
+#: src/Core/Backend/Filter/FilterMedia.php:167
 msgid "audio"
 msgstr "audio"
 
-#: src/Core/Backend/Filter/FilterMedia.php:165
+#: src/Core/Backend/Filter/FilterMedia.php:168
 msgid "video"
 msgstr "video"
 
@@ -727,9 +727,9 @@ msgstr "video"
 msgid "Format:"
 msgstr "Format:"
 
-#: src/Core/Backend/Filter/FilterPosts.php:179 src/Process/Backend/Auth.php:174
-#: src/Process/Backend/Auth.php:642 src/Process/Backend/User.php:362
-#: src/Process/Install/Install.php:586 src/Process/Upgrade/Auth.php:339
+#: src/Core/Backend/Filter/FilterPosts.php:179 src/Process/Backend/Auth.php:173
+#: src/Process/Backend/Auth.php:641 src/Process/Backend/User.php:362
+#: src/Process/Install/Install.php:592 src/Process/Upgrade/Auth.php:338
 msgid "Password:"
 msgstr "Kata sandi:"
 
@@ -812,7 +812,7 @@ msgstr "Menyimpan opsi saat ini"
 msgid "Display options"
 msgstr "Opsi tampilan"
 
-#: src/Core/Backend/Filter/Filters.php:422 src/Core/Backend/Page.php:1479
+#: src/Core/Backend/Filter/Filters.php:422 src/Core/Backend/Page.php:1478
 msgid "Show filters and display options"
 msgstr "Menampilkan filter dan opsi tampilan"
 
@@ -821,7 +821,7 @@ msgid "Apply filters and display options"
 msgstr "Menerapkan filter dan opsi tampilan"
 
 #: src/Core/Backend/Filter/FiltersLibrary.php:87
-#: src/Core/Backend/MediaPage.php:402 src/Core/Backend/Page.php:476
+#: src/Core/Backend/MediaPage.php:402 src/Core/Backend/Page.php:475
 msgid "Search:"
 msgstr "Cari:"
 
@@ -973,31 +973,31 @@ msgstr "Nama"
 msgid "Size"
 msgstr "Ukuran"
 
-#: src/Core/Backend/Listing/ListingMedia.php:244
-#: src/Core/Backend/Listing/ListingMedia.php:247
-#: src/Process/Backend/Media.php:442
+#: src/Core/Backend/Listing/ListingMedia.php:250
+#: src/Core/Backend/Listing/ListingMedia.php:253
+#: src/Process/Backend/Media.php:444
 msgid "Select this file"
 msgstr "Pilih file ini"
 
-#: src/Core/Backend/Listing/ListingMedia.php:270
-#: src/Core/Backend/Listing/ListingMedia.php:273
-#: src/Process/Backend/Media.php:480
+#: src/Core/Backend/Listing/ListingMedia.php:276
+#: src/Core/Backend/Listing/ListingMedia.php:279
+#: src/Process/Backend/Media.php:482
 msgid "Attach this file to entry"
 msgstr "Lampirkan file ini ke entri"
 
-#: src/Core/Backend/Listing/ListingMedia.php:281
-#: src/Core/Backend/Listing/ListingMedia.php:284
-#: src/Process/Backend/Media.php:507
+#: src/Core/Backend/Listing/ListingMedia.php:287
+#: src/Core/Backend/Listing/ListingMedia.php:290
+#: src/Process/Backend/Media.php:509
 msgid "Insert this file into entry"
 msgstr "Masukkan file ini ke dalam entri"
 
-#: src/Core/Backend/Listing/ListingMedia.php:348
-#: src/Core/Backend/Listing/ListingMedia.php:387
+#: src/Core/Backend/Listing/ListingMedia.php:354
+#: src/Core/Backend/Listing/ListingMedia.php:393
 msgid "private media"
 msgstr "media pribadi"
 
-#: src/Core/Backend/Listing/ListingMedia.php:374
-#: src/Core/Backend/Listing/ListingMedia.php:400
+#: src/Core/Backend/Listing/ListingMedia.php:380
+#: src/Core/Backend/Listing/ListingMedia.php:406
 msgid "open"
 msgstr "terbuka"
 
@@ -1127,7 +1127,7 @@ msgstr "Halaman %1$s / %2$s"
 msgid "Direct access page:"
 msgstr "Halaman akses langsung:"
 
-#: src/Core/Backend/Listing/Pager.php:193 src/Core/Backend/Page.php:171
+#: src/Core/Backend/Listing/Pager.php:193 src/Core/Backend/Page.php:170
 #: src/Process/Backend/Blogs.php:148 src/Process/Backend/Comments.php:216
 #: src/Process/Backend/Posts.php:137 src/Process/Backend/Search.php:311
 #: src/Process/Backend/Search.php:407 src/Process/Backend/Users.php:160
@@ -1148,12 +1148,12 @@ msgstr "Blog"
 msgid "System settings"
 msgstr "Pengaturan sistem"
 
-#: src/Core/Backend/Menus.php:88 src/Core/Upgrade/Utility.php:412
+#: src/Core/Backend/Menus.php:88 src/Core/Upgrade/Utility.php:398
 msgid "Plugins"
 msgstr "Plugin"
 
 #: src/Core/Backend/Menus.php:205 src/Core/Backend/ModulesList.php:1390
-#: src/Core/Upgrade/PluginsList.php:144 src/Core/Upgrade/Utility.php:376
+#: src/Core/Upgrade/PluginsList.php:144 src/Core/Upgrade/Utility.php:362
 #: src/Process/Upgrade/Upgrade.php:56 src/Process/Upgrade/Upgrade.php:81
 #: src/Process/Upgrade/Upgrade.php:318
 msgid "Update"
@@ -1167,7 +1167,7 @@ msgstr "lainnya"
 msgid "Search in repository:"
 msgstr "Cari di repositori:"
 
-#: src/Core/Backend/ModulesList.php:413 src/Core/Backend/Page.php:478
+#: src/Core/Backend/ModulesList.php:413 src/Core/Backend/Page.php:477
 msgid "OK"
 msgstr "BAIKLAH."
 
@@ -1216,7 +1216,7 @@ msgid "Current version"
 msgstr "Versi saat ini"
 
 #: src/Core/Backend/ModulesList.php:839 src/Core/Backend/ModulesList.php:1063
-#: src/Core/Backend/Page.php:1312 src/Core/Backend/ThemesList.php:230
+#: src/Core/Backend/Page.php:1311 src/Core/Backend/ThemesList.php:230
 #: src/Core/Backend/ThemesList.php:300
 msgid "Details"
 msgstr "Detail"
@@ -1225,8 +1225,8 @@ msgstr "Detail"
 msgid "Repository"
 msgstr "Repositori"
 
-#: src/Core/Backend/ModulesList.php:859 src/Process/Backend/Langs.php:288
-#: src/Process/Upgrade/Langs.php:337
+#: src/Core/Backend/ModulesList.php:859 src/Process/Backend/Langs.php:287
+#: src/Process/Upgrade/Langs.php:336
 msgid "Action"
 msgstr "Tindakan"
 
@@ -1266,7 +1266,7 @@ msgstr "Plugin dalam pengembangan"
 msgid "Release date:"
 msgstr "Tanggal rilis:"
 
-#: src/Core/Backend/ModulesList.php:1070 src/Core/Backend/Page.php:1313
+#: src/Core/Backend/ModulesList.php:1070 src/Core/Backend/Page.php:1312
 #: src/Core/Backend/ThemesList.php:236
 msgid "Support"
 msgstr "Dukungan"
@@ -1275,11 +1275,11 @@ msgstr "Dukungan"
 msgid "update locked"
 msgstr "pembaruan terkunci"
 
-#: src/Core/Backend/ModulesList.php:1115 src/Core/Backend/Page.php:1315
+#: src/Core/Backend/ModulesList.php:1115 src/Core/Backend/Page.php:1314
 msgid "Section:"
 msgstr "Bagian:"
 
-#: src/Core/Backend/ModulesList.php:1121 src/Core/Backend/Page.php:1316
+#: src/Core/Backend/ModulesList.php:1121 src/Core/Backend/Page.php:1315
 msgid "Tags:"
 msgstr "Tags:"
 
@@ -1402,8 +1402,8 @@ msgid "Following plugins updates are locked: %s"
 msgstr "Pembaruan plugin berikut ini dikunci: %s"
 
 #: src/Core/Backend/ModulesList.php:1707 src/Core/Backend/ThemesList.php:722
-#: src/Core/Upgrade/PluginsList.php:406 src/Process/Backend/Langs.php:166
-#: src/Process/Upgrade/Langs.php:214
+#: src/Core/Upgrade/PluginsList.php:406 src/Process/Backend/Langs.php:165
+#: src/Process/Upgrade/Langs.php:213
 msgid "Unable to move uploaded file."
 msgstr "Tidak dapat memindahkan file yang diunggah."
 
@@ -1415,7 +1415,7 @@ msgstr "Plugin telah berhasil diperbarui."
 msgid "The plugin has been successfully installed."
 msgstr "Plugin telah berhasil diinstal."
 
-#: src/Core/Backend/ModulesList.php:1752 src/Process/Backend/Langs.php:373
+#: src/Core/Backend/ModulesList.php:1752 src/Process/Backend/Langs.php:372
 msgid "Upload a zip file"
 msgstr "Unggah file zip"
 
@@ -1423,11 +1423,11 @@ msgstr "Unggah file zip"
 #: src/Process/Backend/Blog.php:117 src/Process/Backend/BlogPref.php:526
 #: src/Process/Backend/BlogPref.php:1023 src/Process/Backend/Category.php:247
 #: src/Process/Backend/Comment.php:283 src/Process/Backend/Home.php:583
-#: src/Process/Backend/Langs.php:326 src/Process/Backend/Langs.php:376
+#: src/Process/Backend/Langs.php:325 src/Process/Backend/Langs.php:375
 #: src/Process/Backend/LinkPopup.php:83 src/Process/Backend/Post.php:998
 #: src/Process/Backend/Post.php:1089 src/Process/Backend/User.php:321
-#: src/Process/Backend/UsersActions.php:492 src/Process/Install/Install.php:511
-#: src/Process/Install/Wizard.php:388 src/Process/Upgrade/Langs.php:405
+#: src/Process/Backend/UsersActions.php:492 src/Process/Install/Install.php:517
+#: src/Process/Install/Wizard.php:387 src/Process/Upgrade/Langs.php:404
 #, php-format
 msgid "Fields preceded by %s are mandatory."
 msgstr "Bidang yang diawali dengan %s adalah wajib."
@@ -1437,23 +1437,23 @@ msgid "Zip file path:"
 msgstr "Jalur file zip:"
 
 #: src/Core/Backend/ModulesList.php:1774 src/Core/Backend/ModulesList.php:1824
-#: src/Process/Backend/Langs.php:348 src/Process/Backend/Langs.php:397
+#: src/Process/Backend/Langs.php:347 src/Process/Backend/Langs.php:396
 #: src/Process/Backend/Post.php:809 src/Process/Backend/User.php:358
 #: src/Process/Backend/User.php:382 src/Process/Backend/User.php:547
-#: src/Process/Backend/UsersActions.php:499 src/Process/Install/Install.php:531
-#: src/Process/Install/Install.php:541 src/Process/Upgrade/Langs.php:429
+#: src/Process/Backend/UsersActions.php:499 src/Process/Install/Install.php:537
+#: src/Process/Install/Install.php:547 src/Process/Upgrade/Langs.php:428
 msgid "Password"
 msgstr "Kata sandi"
 
 #: src/Core/Backend/ModulesList.php:1777 src/Core/Backend/ModulesList.php:1827
-#: src/Process/Backend/BlogDel.php:126 src/Process/Backend/Langs.php:351
-#: src/Process/Backend/Langs.php:401 src/Process/Upgrade/Langs.php:378
-#: src/Process/Upgrade/Langs.php:384 src/Process/Upgrade/Langs.php:433
+#: src/Process/Backend/BlogDel.php:126 src/Process/Backend/Langs.php:350
+#: src/Process/Backend/Langs.php:400 src/Process/Upgrade/Langs.php:377
+#: src/Process/Upgrade/Langs.php:383 src/Process/Upgrade/Langs.php:432
 msgid "Your password:"
 msgstr "Kata sandi Anda:"
 
-#: src/Core/Backend/ModulesList.php:1785 src/Core/Backend/Page.php:1435
-#: src/Process/Backend/Media.php:807
+#: src/Core/Backend/ModulesList.php:1785 src/Core/Backend/Page.php:1434
+#: src/Process/Backend/Media.php:809
 msgid "Upload"
 msgstr "Unggah"
 
@@ -1477,8 +1477,8 @@ msgstr "ID plugin tidak dikenal"
 msgid "This plugin has no configuration file."
 msgstr "Plugin ini tidak memiliki file konfigurasi."
 
-#: src/Core/Backend/ModulesList.php:1905 src/Process/Backend/Auth.php:386
-#: src/Process/Upgrade/Auth.php:170 src/Process/Upgrade/Auth.php:231
+#: src/Core/Backend/ModulesList.php:1905 src/Process/Backend/Auth.php:385
+#: src/Process/Upgrade/Auth.php:169 src/Process/Upgrade/Auth.php:230
 msgid "Insufficient permissions"
 msgstr "Izin yang tidak mencukupi"
 
@@ -1490,7 +1490,7 @@ msgstr "Konfigurasi \"%s\""
 #: src/Core/Backend/ModulesList.php:1984 src/Process/Backend/Blog.php:197
 #: src/Process/Backend/BlogDel.php:138 src/Process/Backend/BlogPref.php:1195
 #: src/Process/Backend/Category.php:300 src/Process/Backend/Comment.php:351
-#: src/Process/Backend/Media.php:869 src/Process/Backend/MediaItem.php:1354
+#: src/Process/Backend/Media.php:871 src/Process/Backend/MediaItem.php:1357
 #: src/Process/Backend/Post.php:955 src/Process/Backend/Search.php:193
 #: src/Process/Backend/User.php:565 src/Process/Backend/UserPreferences.php:898
 #: src/Process/Backend/UserPreferences.php:1201
@@ -1498,15 +1498,15 @@ msgstr "Konfigurasi \"%s\""
 msgid "Back"
 msgstr "Kembali"
 
-#: src/Core/Backend/Notices.php:86 src/Core/Backend/Page.php:1272
-#: src/Core/Backend/Page.php:1430 src/Core/Upgrade/Notices.php:48
+#: src/Core/Backend/Notices.php:86 src/Core/Backend/Page.php:1271
+#: src/Core/Backend/Page.php:1429 src/Core/Upgrade/Notices.php:48
 #: src/Process/Backend/Home.php:324
 msgid "Error:"
 msgstr "Kesalahan:"
 
 #: src/Core/Backend/Notices.php:86 src/Core/Upgrade/Notices.php:48
-#: src/Process/Install/Install.php:455 src/Process/Install/Install.php:629
-#: src/Process/Install/Wizard.php:330 src/Process/Install/Wizard.php:357
+#: src/Process/Install/Install.php:461 src/Process/Install/Install.php:635
+#: src/Process/Install/Wizard.php:329 src/Process/Install/Wizard.php:356
 msgid "Errors:"
 msgstr "Kesalahan:"
 
@@ -1515,406 +1515,406 @@ msgid "%H:%M:%S"
 msgstr "%H:%M:%S"
 
 #: src/Core/Backend/Notices.php:258 src/Core/Backend/Notices.php:298
-#: src/Core/Backend/Notices.php:308 src/Core/Backend/Page.php:1318
+#: src/Core/Backend/Notices.php:308 src/Core/Backend/Page.php:1317
 #: src/Process/Backend/Categories.php:340 src/Process/Backend/Post.php:1057
 #: src/Process/Backend/Post.php:1189 src/Process/Backend/PostsPopup.php:121
 msgid "Ok"
 msgstr "Baiklah."
 
-#: src/Core/Backend/Page.php:149 src/Process/Backend/User.php:601
+#: src/Core/Backend/Page.php:148 src/Process/Backend/User.php:601
 #: src/Process/Backend/UsersActions.php:469
 msgid "Blog:"
 msgstr "Blog:"
 
-#: src/Core/Backend/Page.php:154
+#: src/Core/Backend/Page.php:153
 msgid "Change blog"
 msgstr "Ubah blog"
 
-#: src/Core/Backend/Page.php:169
+#: src/Core/Backend/Page.php:168
 msgid "Blogs:"
 msgstr "Blog:"
 
-#: src/Core/Backend/Page.php:313 src/Core/Upgrade/Page.php:149
+#: src/Core/Backend/Page.php:312 src/Core/Upgrade/Page.php:148
 msgid "Go to the content"
 msgstr "Pergi ke konten"
 
-#: src/Core/Backend/Page.php:317 src/Core/Upgrade/Page.php:153
+#: src/Core/Backend/Page.php:316 src/Core/Upgrade/Page.php:152
 msgid "Go to the menu"
 msgstr "Masuk ke menu"
 
-#: src/Core/Backend/Page.php:321 src/Core/Upgrade/Page.php:157
+#: src/Core/Backend/Page.php:320 src/Core/Upgrade/Page.php:156
 msgid "Go to help"
 msgstr "Pergi untuk membantu"
 
-#: src/Core/Backend/Page.php:340 src/Core/Upgrade/Page.php:175
+#: src/Core/Backend/Page.php:339 src/Core/Upgrade/Page.php:174
 #: src/Process/Backend/UserPreferences.php:1336
 #: src/Process/Backend/UserPreferences.php:1338
 msgid "My dashboard"
 msgstr "Dasbor saya"
 
-#: src/Core/Backend/Page.php:356 src/Core/Backend/Page.php:358
+#: src/Core/Backend/Page.php:355 src/Core/Backend/Page.php:357
 msgid "Go to site"
 msgstr "Pergi ke situs"
 
-#: src/Core/Backend/Page.php:381 src/Core/Upgrade/Page.php:204
+#: src/Core/Backend/Page.php:380 src/Core/Upgrade/Page.php:203
 #, php-format
 msgid "Logout %s"
 msgstr "Logout %s"
 
-#: src/Core/Backend/Page.php:402 src/Core/Upgrade/Page.php:225
+#: src/Core/Backend/Page.php:401 src/Core/Upgrade/Page.php:224
 msgid "Hide main menu"
 msgstr "Menyembunyikan menu utama"
 
-#: src/Core/Backend/Page.php:405 src/Core/Upgrade/Page.php:228
+#: src/Core/Backend/Page.php:404 src/Core/Upgrade/Page.php:227
 msgid "Show main menu"
 msgstr "Menampilkan menu utama"
 
-#: src/Core/Backend/Page.php:426
+#: src/Core/Backend/Page.php:425
 msgid "Safe mode"
 msgstr "Mode aman"
 
-#: src/Core/Backend/Page.php:428
+#: src/Core/Backend/Page.php:427
 msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities"
 msgstr "Anda berada dalam mode aman. Semua plugin telah dinonaktifkan untuk sementara. Ingatkan untuk keluar, lalu masuk lagi secara normal untuk mendapatkan kembali semua fungsi"
 
-#: src/Core/Backend/Page.php:496 src/Core/Upgrade/Page.php:261
+#: src/Core/Backend/Page.php:495 src/Core/Upgrade/Page.php:260
 #, php-format
 msgid "Thank you for using %s."
 msgstr "Terima kasih telah menggunakan %s."
 
-#: src/Core/Backend/Page.php:513 src/Core/Backend/Page.php:517
-#: src/Core/Backend/Page.php:519 src/Core/Backend/Page.php:661
-#: src/Core/Backend/Page.php:663 src/Core/Upgrade/Page.php:272
-#: src/Core/Upgrade/Page.php:276 src/Core/Upgrade/Page.php:278
+#: src/Core/Backend/Page.php:512 src/Core/Backend/Page.php:516
+#: src/Core/Backend/Page.php:518 src/Core/Backend/Page.php:660
+#: src/Core/Backend/Page.php:662 src/Core/Upgrade/Page.php:271
+#: src/Core/Upgrade/Page.php:275 src/Core/Upgrade/Page.php:277
 msgid "Page top"
 msgstr "Halaman atas"
 
-#: src/Core/Backend/Page.php:539 src/Core/Backend/Page.php:542
-#: src/Core/Upgrade/Page.php:298 src/Core/Upgrade/Page.php:301
+#: src/Core/Backend/Page.php:538 src/Core/Backend/Page.php:541
+#: src/Core/Upgrade/Page.php:297 src/Core/Upgrade/Page.php:300
 msgid "Dotclear logo"
 msgstr "Logo Dotclear"
 
-#: src/Core/Backend/Page.php:868 src/Core/Backend/Page.php:871
-#: src/Core/Upgrade/Page.php:340 src/Core/Upgrade/Page.php:343
+#: src/Core/Backend/Page.php:867 src/Core/Backend/Page.php:870
+#: src/Core/Upgrade/Page.php:339 src/Core/Upgrade/Page.php:342
 msgid "Go to dashboard"
 msgstr "Buka dasbor"
 
-#: src/Core/Backend/Page.php:1120 src/Core/Upgrade/Page.php:452
+#: src/Core/Backend/Page.php:1119 src/Core/Upgrade/Page.php:451
 msgid "Help about this page"
 msgstr "Bantuan tentang halaman ini"
 
-#: src/Core/Backend/Page.php:1130 src/Core/Upgrade/Page.php:461
+#: src/Core/Backend/Page.php:1129 src/Core/Upgrade/Page.php:460
 #, php-format
 msgid "See also %s"
 msgstr "Lihat juga %s"
 
-#: src/Core/Backend/Page.php:1133 src/Core/Upgrade/Page.php:464
+#: src/Core/Backend/Page.php:1132 src/Core/Upgrade/Page.php:463
 msgid "the global help"
 msgstr "bantuan global"
 
-#: src/Core/Backend/Page.php:1254
+#: src/Core/Backend/Page.php:1253
 msgid "uncover"
 msgstr "mengungkap"
 
-#: src/Core/Backend/Page.php:1258
+#: src/Core/Backend/Page.php:1257
 msgid "hide"
 msgstr "sembunyikan"
 
-#: src/Core/Backend/Page.php:1262
+#: src/Core/Backend/Page.php:1261
 msgid "Need help?"
 msgstr "Butuh bantuan?"
 
-#: src/Core/Backend/Page.php:1263
+#: src/Core/Backend/Page.php:1262
 msgid "new window"
 msgstr "jendela baru"
 
-#: src/Core/Backend/Page.php:1264
+#: src/Core/Backend/Page.php:1263
 msgid "Hide"
 msgstr "Sembunyikan"
 
-#: src/Core/Backend/Page.php:1265
+#: src/Core/Backend/Page.php:1264
 msgid "Select:"
 msgstr "Pilih:"
 
-#: src/Core/Backend/Page.php:1266
+#: src/Core/Backend/Page.php:1265
 msgid "No selection"
 msgstr "Tidak ada pilihan"
 
-#: src/Core/Backend/Page.php:1267
+#: src/Core/Backend/Page.php:1266
 msgid "Select all"
 msgstr "Pilih semua"
 
-#: src/Core/Backend/Page.php:1268
+#: src/Core/Backend/Page.php:1267
 msgid "Invert selection"
 msgstr "Membalikkan pilihan"
 
-#: src/Core/Backend/Page.php:1273 src/Process/Backend/Post.php:465
+#: src/Core/Backend/Page.php:1272 src/Process/Backend/Post.php:465
 #: src/Process/Backend/Post.php:608
 msgid "Entry has been successfully created."
 msgstr "Entri telah berhasil dibuat."
 
-#: src/Core/Backend/Page.php:1274
+#: src/Core/Backend/Page.php:1273
 msgid "Edit entry"
 msgstr "Edit entri"
 
-#: src/Core/Backend/Page.php:1275
+#: src/Core/Backend/Page.php:1274
 msgid "view entry"
 msgstr "lihat entri"
 
-#: src/Core/Backend/Page.php:1276
+#: src/Core/Backend/Page.php:1275
 #, php-format
 msgid "Are you sure you want to delete selected entries (%s)?"
 msgstr "Apakah Anda yakin ingin menghapus entri yang dipilih (%s)?"
 
-#: src/Core/Backend/Page.php:1277
+#: src/Core/Backend/Page.php:1276
 #, php-format
 msgid "Are you sure you want to delete selected medias (%d)?"
 msgstr "Apakah Anda yakin ingin menghapus media yang dipilih (%d)?"
 
-#: src/Core/Backend/Page.php:1278
+#: src/Core/Backend/Page.php:1277
 #, php-format
 msgid "Are you sure you want to delete selected categories (%s)?"
 msgstr "Apakah Anda yakin ingin menghapus kategori yang dipilih (%s)?"
 
-#: src/Core/Backend/Page.php:1279
+#: src/Core/Backend/Page.php:1278
 msgid "Are you sure you want to delete this entry?"
 msgstr "Apakah Anda yakin ingin menghapus entri ini?"
 
-#: src/Core/Backend/Page.php:1280
+#: src/Core/Backend/Page.php:1279
 msgid "Click here to unlock the field"
 msgstr "Klik di sini untuk membuka kunci bidang"
 
-#: src/Core/Backend/Page.php:1281
+#: src/Core/Backend/Page.php:1280
 msgid "Are you sure you want to delete all spams?"
 msgstr "Apakah Anda yakin ingin menghapus semua spam?"
 
-#: src/Core/Backend/Page.php:1282
+#: src/Core/Backend/Page.php:1281
 #, php-format
 msgid "Are you sure you want to delete selected comments (%s)?"
 msgstr "Apakah Anda yakin ingin menghapus komentar yang dipilih (%s)?"
 
-#: src/Core/Backend/Page.php:1283
+#: src/Core/Backend/Page.php:1282
 msgid "Are you sure you want to delete this comment?"
 msgstr "Apakah Anda yakin ingin menghapus komentar ini?"
 
-#: src/Core/Backend/Page.php:1284
+#: src/Core/Backend/Page.php:1283
 msgid "Users with posts cannot be deleted."
 msgstr "Pengguna dengan postingan tidak dapat dihapus."
 
-#: src/Core/Backend/Page.php:1285
+#: src/Core/Backend/Page.php:1284
 #, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
 msgstr "Apakah Anda yakin ingin menghapus pengguna yang dipilih (%s)?"
 
-#: src/Core/Backend/Page.php:1286
+#: src/Core/Backend/Page.php:1285
 #, php-format
 msgid "Are you sure you want to delete selected blogs (%s)?"
 msgstr "Apakah Anda yakin ingin menghapus blog yang dipilih (%s)?"
 
-#: src/Core/Backend/Page.php:1287
+#: src/Core/Backend/Page.php:1286
 #, php-format
 msgid "Are you sure you want to delete category \"%s\"?"
 msgstr "Apakah Anda yakin ingin menghapus kategori \"%s\"?"
 
-#: src/Core/Backend/Page.php:1288
+#: src/Core/Backend/Page.php:1287
 msgid "Are you sure you want to reorder all categories?"
 msgstr "Apakah Anda yakin ingin menyusun ulang semua kategori?"
 
-#: src/Core/Backend/Page.php:1289
+#: src/Core/Backend/Page.php:1288
 #, php-format
 msgid "Are you sure you want to remove media \"%s\"?"
 msgstr "Apakah Anda yakin ingin menghapus media \"%s\"?"
 
-#: src/Core/Backend/Page.php:1290
+#: src/Core/Backend/Page.php:1289
 #, php-format
 msgid "Are you sure you want to remove directory \"%s\"?"
 msgstr "Apakah Anda yakin ingin menghapus direktori \"%s\"?"
 
-#: src/Core/Backend/Page.php:1291
+#: src/Core/Backend/Page.php:1290
 msgid "Are you sure you want to extract archive in current directory?"
 msgstr "Apakah Anda yakin ingin mengekstrak arsip di direktori saat ini?"
 
-#: src/Core/Backend/Page.php:1292
+#: src/Core/Backend/Page.php:1291
 #, php-format
 msgid "Are you sure you want to remove attachment \"%s\"?"
 msgstr "Apakah Anda yakin ingin menghapus lampiran \"%s\"?"
 
-#: src/Core/Backend/Page.php:1293
+#: src/Core/Backend/Page.php:1292
 #, php-format
 msgid "Are you sure you want to delete \"%s\" language?"
 msgstr "Apakah Anda yakin ingin menghapus bahasa \"%s\"?"
 
-#: src/Core/Backend/Page.php:1294
+#: src/Core/Backend/Page.php:1293
 #, php-format
 msgid "Are you sure you want to delete \"%s\" plugin?"
 msgstr "Apakah Anda yakin ingin menghapus plugin \"%s\"?"
 
-#: src/Core/Backend/Page.php:1295
+#: src/Core/Backend/Page.php:1294
 msgid "Are you sure you want to delete selected plugins?"
 msgstr "Apakah Anda yakin ingin menghapus plugin yang dipilih?"
 
-#: src/Core/Backend/Page.php:1296
+#: src/Core/Backend/Page.php:1295
 msgid "Use this theme"
 msgstr "Gunakan tema ini"
 
-#: src/Core/Backend/Page.php:1297
+#: src/Core/Backend/Page.php:1296
 msgid "Remove this theme"
 msgstr "Hapus tema ini"
 
-#: src/Core/Backend/Page.php:1298
+#: src/Core/Backend/Page.php:1297
 #, php-format
 msgid "Are you sure you want to delete \"%s\" theme?"
 msgstr "Apakah Anda yakin ingin menghapus tema \"%s\"?"
 
-#: src/Core/Backend/Page.php:1299
+#: src/Core/Backend/Page.php:1298
 msgid "Are you sure you want to delete selected themes?"
 msgstr "Apakah Anda yakin ingin menghapus tema yang dipilih?"
 
-#: src/Core/Backend/Page.php:1300
+#: src/Core/Backend/Page.php:1299
 msgid "Are you sure you want to delete this backup?"
 msgstr "Apakah Anda yakin ingin menghapus cadangan ini?"
 
-#: src/Core/Backend/Page.php:1301
+#: src/Core/Backend/Page.php:1300
 msgid "Are you sure you want to revert to this backup?"
 msgstr "Apakah Anda yakin ingin kembali ke cadangan ini?"
 
-#: src/Core/Backend/Page.php:1302
+#: src/Core/Backend/Page.php:1301
 msgid "Zip file content"
 msgstr "Konten file zip"
 
-#: src/Core/Backend/Page.php:1303
+#: src/Core/Backend/Page.php:1302
 msgid "HTML markup validator"
 msgstr "Validator markup HTML"
 
-#: src/Core/Backend/Page.php:1304
+#: src/Core/Backend/Page.php:1303
 msgid "HTML content is valid."
 msgstr "Konten HTML valid."
 
-#: src/Core/Backend/Page.php:1305
+#: src/Core/Backend/Page.php:1304
 msgid "There are HTML markup errors."
 msgstr "Ada kesalahan markup HTML."
 
-#: src/Core/Backend/Page.php:1306
+#: src/Core/Backend/Page.php:1305
 msgid "Attention: an audit of a content not yet registered."
 msgstr "Perhatian: audit terhadap konten yang belum terdaftar."
 
-#: src/Core/Backend/Page.php:1307
+#: src/Core/Backend/Page.php:1306
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
 msgstr "Anda memiliki perubahan yang belum disimpan. Mengganti format posting akan menghilangkan perubahan ini. Lanjutkan saja?"
 
-#: src/Core/Backend/Page.php:1308
+#: src/Core/Backend/Page.php:1307
 msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
 msgstr "Peringatan: perubahan format posting tidak akan mengubah konten yang sudah ada. Anda harus menerapkan format baru sendiri. Bagaimana cara melanjutkannya?"
 
-#: src/Core/Backend/Page.php:1309
+#: src/Core/Backend/Page.php:1308
 msgid "Loading enhanced uploader, please wait."
 msgstr "Memuat pengunggah yang disempurnakan, harap tunggu."
 
-#: src/Core/Backend/Page.php:1314
+#: src/Core/Backend/Page.php:1313
 msgid "Help:"
 msgstr "Tolong:"
 
-#: src/Core/Backend/Page.php:1320
+#: src/Core/Backend/Page.php:1319
 msgid "Show password"
 msgstr "Tampilkan kata sandi"
 
-#: src/Core/Backend/Page.php:1321
+#: src/Core/Backend/Page.php:1320
 msgid "Hide password"
 msgstr "Sembunyikan kata sandi"
 
-#: src/Core/Backend/Page.php:1323
+#: src/Core/Backend/Page.php:1322
 msgid "Reset to now"
 msgstr "Atur ulang ke sekarang"
 
-#: src/Core/Backend/Page.php:1324
+#: src/Core/Backend/Page.php:1323
 msgid "The publication date has changed. Reset the base name of the entry URL?"
 msgstr "Tanggal publikasi telah berubah. Mengatur ulang nama dasar URL entri?"
 
-#: src/Core/Backend/Page.php:1325
+#: src/Core/Backend/Page.php:1324
 msgid "The publication title has changed. Reset the base name of the entry URL?"
 msgstr "Judul publikasi telah berubah. Mengatur ulang nama dasar URL entri?"
 
-#: src/Core/Backend/Page.php:1327
+#: src/Core/Backend/Page.php:1326
 msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences."
 msgstr "Pemblokir iklan telah terdeteksi pada dasbor Dotclear ini (Ghostery, Adblock plus, uBlock origin, …) dan dapat mengganggu beberapa fitur. Dalam hal ini Anda harus menonaktifkannya. Perhatikan bahwa deteksi ini mungkin dinonaktifkan dalam preferensi Anda."
 
-#: src/Core/Backend/Page.php:1379
+#: src/Core/Backend/Page.php:1378
 msgid "You have unsaved changes."
 msgstr "Anda memiliki perubahan yang belum disimpan."
 
-#: src/Core/Backend/Page.php:1380
+#: src/Core/Backend/Page.php:1379
 msgid "your battery charge seems low (%d%) and you have unsaved changes, you should save them."
 msgstr "daya baterai Anda tampak rendah (%d%) dan Anda memiliki perubahan yang belum disimpan, Anda harus menyimpannya."
 
-#: src/Core/Backend/Page.php:1421
+#: src/Core/Backend/Page.php:1420
 msgid "Temporarily activate enhanced uploader"
 msgstr "Mengaktifkan sementara pengunggah yang disempurnakan"
 
-#: src/Core/Backend/Page.php:1422
+#: src/Core/Backend/Page.php:1421
 msgid "Temporarily disable enhanced uploader"
 msgstr "Menonaktifkan sementara pengunggah yang disempurnakan"
 
-#: src/Core/Backend/Page.php:1426
+#: src/Core/Backend/Page.php:1425
 msgid "Limit exceeded."
 msgstr "Batas terlampaui."
 
-#: src/Core/Backend/Page.php:1427
+#: src/Core/Backend/Page.php:1426
 msgid "File size exceeds allowed limit."
 msgstr "Ukuran file melebihi batas yang diizinkan."
 
-#: src/Core/Backend/Page.php:1428
+#: src/Core/Backend/Page.php:1427
 msgid "Canceled."
 msgstr "Dibatalkan."
 
-#: src/Core/Backend/Page.php:1429
+#: src/Core/Backend/Page.php:1428
 msgid "HTTP Error:"
 msgstr "Kesalahan HTTP:"
 
-#: src/Core/Backend/Page.php:1431 src/Process/Backend/Media.php:750
+#: src/Core/Backend/Page.php:1430 src/Process/Backend/Media.php:752
 msgid "Choose file"
 msgstr "Pilih file"
 
-#: src/Core/Backend/Page.php:1432 src/Process/Backend/Media.php:756
+#: src/Core/Backend/Page.php:1431 src/Process/Backend/Media.php:758
 msgid "Choose files"
 msgstr "Memilih file"
 
-#: src/Core/Backend/Page.php:1433 src/Process/Backend/LinkPopup.php:113
-#: src/Process/Backend/Media.php:305 src/Process/Backend/MediaItem.php:510
-#: src/Process/Backend/MediaItem.php:766 src/Process/Backend/Post.php:961
+#: src/Core/Backend/Page.php:1432 src/Process/Backend/LinkPopup.php:113
+#: src/Process/Backend/Media.php:305 src/Process/Backend/MediaItem.php:512
+#: src/Process/Backend/MediaItem.php:768 src/Process/Backend/Post.php:961
 #: src/Process/Backend/PostMedia.php:113
 msgid "Cancel"
 msgstr "Batal"
 
-#: src/Core/Backend/Page.php:1434
+#: src/Core/Backend/Page.php:1433
 msgid "Clean"
 msgstr "Bersih"
 
-#: src/Core/Backend/Page.php:1436
+#: src/Core/Backend/Page.php:1435
 msgid "Send"
 msgstr "Kirim"
 
-#: src/Core/Backend/Page.php:1437
+#: src/Core/Backend/Page.php:1436
 msgid "File successfully uploaded."
 msgstr "File berhasil diunggah."
 
-#: src/Core/Backend/Page.php:1438
+#: src/Core/Backend/Page.php:1437
 msgid "No file in queue."
 msgstr "Tidak ada file dalam antrian."
 
-#: src/Core/Backend/Page.php:1439
+#: src/Core/Backend/Page.php:1438
 msgid "1 file in queue."
 msgstr "1 file dalam antrian."
 
-#: src/Core/Backend/Page.php:1440
+#: src/Core/Backend/Page.php:1439
 #, php-format
 msgid "%d files in queue."
 msgstr "%d file dalam antrian."
 
-#: src/Core/Backend/Page.php:1441
+#: src/Core/Backend/Page.php:1440
 msgid "Queue error:"
 msgstr "Kesalahan antrian:"
 
-#: src/Core/Backend/Page.php:1480
+#: src/Core/Backend/Page.php:1479
 msgid "Cancel filters and display options"
 msgstr "Membatalkan filter dan opsi tampilan"
 
@@ -2284,35 +2284,35 @@ msgstr "Tidak ada nama blog"
 msgid "No blog URL"
 msgstr "Tidak ada URL blog"
 
-#: src/Core/Frontend/Utility.php:121
+#: src/Core/Frontend/Utility.php:114
 msgid "Something went wrong while trying to read blog URL."
 msgstr "Terjadi kesalahan saat mencoba membaca URL blog."
 
-#: src/Core/Frontend/Utility.php:167
+#: src/Core/Frontend/Utility.php:157
 msgid "Can't create template files."
 msgstr "Tidak dapat membuat file template."
 
-#: src/Core/Frontend/Utility.php:200
+#: src/Core/Frontend/Utility.php:190
 msgid "Something went wrong while trying to read the database."
 msgstr "Terjadi kesalahan saat mencoba membaca database."
 
-#: src/Core/Frontend/Utility.php:205
+#: src/Core/Frontend/Utility.php:195
 msgid "Blog is not defined."
 msgstr "Blog tidak didefinisikan."
 
-#: src/Core/Frontend/Utility.php:211
+#: src/Core/Frontend/Utility.php:201
 msgid "This blog is offline. Please try again later."
 msgstr "Blog ini sedang offline. Silakan coba lagi nanti."
 
-#: src/Core/Frontend/Utility.php:317
+#: src/Core/Frontend/Utility.php:307
 msgid "This either means you removed your default theme or set a wrong theme path in your blog configuration. Please check theme_path value in about:config module or reinstall default theme. ("
 msgstr "Ini berarti Anda telah menghapus tema default atau mengatur jalur tema yang salah dalam konfigurasi blog Anda. Silakan periksa nilai theme_path di modul about:config atau instal ulang tema default. ("
 
-#: src/Core/Frontend/Utility.php:320
+#: src/Core/Frontend/Utility.php:310
 msgid "Default theme not found."
 msgstr "Tema default tidak ditemukan."
 
-#: src/Core/Frontend/Utility.php:382
+#: src/Core/Frontend/Utility.php:369
 msgid "Something went wrong while loading template file for your blog."
 msgstr "Terjadi kesalahan saat memuat file template untuk blog Anda."
 
@@ -2401,12 +2401,12 @@ msgstr "Ekstrak direktori tujuan %s yang sudah ada."
 msgid "No notice message"
 msgstr "Tidak ada pesan pemberitahuan"
 
-#: src/Core/Task.php:137
+#: src/Core/Task.php:120
 #, php-format
 msgid "Unable to initialize utility %s"
 msgstr "Tidak dapat menginisialisasi utilitas %s"
 
-#: src/Core/Task.php:274
+#: src/Core/Task.php:225
 msgid "Utility not initialized"
 msgstr "Utilitas tidak diinisialisasi"
 
@@ -2483,9 +2483,9 @@ msgstr "Tidak ada URL target yang valid yang disediakan? Coba lagi!"
 msgid "LOL!"
 msgstr "LOL!"
 
-#: src/Core/Upgrade/Menus.php:89 src/Process/Backend/Blog.php:99
+#: src/Core/Upgrade/Menus.php:93 src/Process/Backend/Blog.php:99
 #: src/Process/Backend/BlogDel.php:92 src/Process/Backend/BlogPref.php:440
-#: src/Process/Backend/Blogs.php:99 src/Process/Backend/Langs.php:248
+#: src/Process/Backend/Blogs.php:99 src/Process/Backend/Langs.php:247
 #: src/Process/Backend/Plugin.php:143 src/Process/Backend/Plugins.php:116
 #: src/Process/Backend/Settings.php:61 src/Process/Backend/User.php:274
 #: src/Process/Backend/Users.php:107 src/Process/Backend/UsersActions.php:218
@@ -2493,11 +2493,11 @@ msgstr "LOL!"
 msgid "System"
 msgstr "Sistem"
 
-#: src/Core/Upgrade/Page.php:185
+#: src/Core/Upgrade/Page.php:184
 msgid "Dotclear's update dashboard"
 msgstr "Dasbor pembaruan Dotclear"
 
-#: src/Core/Upgrade/Page.php:196
+#: src/Core/Upgrade/Page.php:195
 msgid "Go to normal dashboard"
 msgstr "Pergi ke dasbor normal"
 
@@ -2533,74 +2533,74 @@ msgstr "File yang diunduh tampaknya bukan arsip yang valid."
 msgid "Incomplete archive."
 msgstr "Arsip tidak lengkap."
 
-#: src/Core/Upgrade/Update.php:663 src/Process/Upgrade/Digests.php:300
+#: src/Core/Upgrade/Update.php:663 src/Process/Upgrade/Digests.php:299
 msgid "Unable to read digests file."
 msgstr "Tidak dapat membaca file intisari."
 
-#: src/Core/Upgrade/Update.php:691 src/Process/Upgrade/Digests.php:342
+#: src/Core/Upgrade/Update.php:691 src/Process/Upgrade/Digests.php:341
 msgid "Invalid digests file."
 msgstr "File digest tidak valid."
 
-#: src/Core/Upgrade/Upgrade.php:73
+#: src/Core/Upgrade/Upgrade.php:75
 msgid "Something went wrong with auto upgrade:"
 msgstr "Ada yang tidak beres dengan peningkatan otomatis:"
 
-#: src/Core/Upgrade/Utility.php:381 src/Process/Upgrade/Upgrade.php:328
+#: src/Core/Upgrade/Utility.php:367 src/Process/Upgrade/Upgrade.php:328
 msgid "On this page you can update dotclear to the latest release."
 msgstr "Pada halaman ini Anda dapat memperbarui dotclear ke rilis terbaru."
 
-#: src/Core/Upgrade/Utility.php:385 src/Process/Upgrade/Attic.php:71
+#: src/Core/Upgrade/Utility.php:371 src/Process/Upgrade/Attic.php:71
 #: src/Process/Upgrade/Attic.php:96 src/Process/Upgrade/Attic.php:349
 msgid "Attic"
 msgstr "Loteng"
 
-#: src/Core/Upgrade/Utility.php:390 src/Process/Upgrade/Attic.php:359
+#: src/Core/Upgrade/Utility.php:376 src/Process/Upgrade/Attic.php:359
 msgid "On this page you can update dotclear to a release between yours and latest."
 msgstr "Pada halaman ini Anda dapat memperbarui dotclear ke rilis antara milik Anda dan yang terbaru."
 
-#: src/Core/Upgrade/Utility.php:394 src/Process/Upgrade/Backup.php:209
+#: src/Core/Upgrade/Utility.php:380 src/Process/Upgrade/Backup.php:209
 msgid "Backups"
 msgstr "Cadangan"
 
-#: src/Core/Upgrade/Utility.php:399 src/Process/Upgrade/Backup.php:223
+#: src/Core/Upgrade/Utility.php:385 src/Process/Upgrade/Backup.php:223
 msgid "On this page you can revert your previous installation or delete theses files."
 msgstr "Pada halaman ini Anda dapat mengembalikan instalasi sebelumnya atau menghapus file-file tersebut."
 
-#: src/Core/Upgrade/Utility.php:408 src/Process/Backend/Langs.php:259
-#: src/Process/Upgrade/Langs.php:452
+#: src/Core/Upgrade/Utility.php:394 src/Process/Backend/Langs.php:258
+#: src/Process/Upgrade/Langs.php:451
 msgid "Here you can install, upgrade or remove languages for your Dotclear installation."
 msgstr "Di sini Anda bisa memasang, meningkatkan, atau menghapus bahasa untuk instalasi Dotclear Anda."
 
-#: src/Core/Upgrade/Utility.php:417
+#: src/Core/Upgrade/Utility.php:403
 msgid "On this page you will manage plugins."
 msgstr "Pada halaman ini Anda akan mengelola plugin."
 
-#: src/Core/Upgrade/Utility.php:421 src/Process/Upgrade/Cache.php:67
+#: src/Core/Upgrade/Utility.php:407 src/Process/Upgrade/Cache.php:67
 msgid "Cache"
 msgstr "Cache"
 
-#: src/Core/Upgrade/Utility.php:426 src/Process/Upgrade/Cache.php:83
+#: src/Core/Upgrade/Utility.php:412 src/Process/Upgrade/Cache.php:83
 msgid "On this page, you can clear templates and repositories cache."
 msgstr "Pada halaman ini, Anda dapat menghapus cache templat dan repositori."
 
-#: src/Core/Upgrade/Utility.php:430
+#: src/Core/Upgrade/Utility.php:416
 msgid "Digests"
 msgstr "Mencerna"
 
-#: src/Core/Upgrade/Utility.php:435 src/Process/Upgrade/Digests.php:156
+#: src/Core/Upgrade/Utility.php:421 src/Process/Upgrade/Digests.php:155
 msgid "On this page, you can bypass corrupted files or modified files in order to perform update."
 msgstr "Pada halaman ini, Anda dapat melewati file yang rusak atau file yang dimodifikasi untuk melakukan pembaruan."
 
-#: src/Core/Upgrade/Utility.php:439 src/Process/Upgrade/Replay.php:74
+#: src/Core/Upgrade/Utility.php:425 src/Process/Upgrade/Replay.php:74
 #: src/Process/Upgrade/Replay.php:102
 msgid "Replay"
 msgstr "Putar ulang"
 
-#: src/Core/Upgrade/Utility.php:444 src/Process/Upgrade/Replay.php:88
+#: src/Core/Upgrade/Utility.php:430 src/Process/Upgrade/Replay.php:88
 msgid "On this page, you can try to replay update action from a given version if some files remain from last update."
 msgstr "Pada halaman ini, Anda dapat mencoba memutar ulang tindakan pembaruan dari versi tertentu jika ada beberapa file yang tersisa dari pembaruan terakhir."
 
-#: src/Core/Url.php:632
+#: src/Core/Url.php:657
 msgid "You must provide a valid email address."
 msgstr "Anda harus memberikan alamat email yang valid."
 
@@ -2632,20 +2632,20 @@ msgstr "%s bukan pref id yang valid"
 msgid "No workspace specified"
 msgstr "Tidak ada ruang kerja yang ditentukan"
 
-#: src/Core/Users.php:165 src/Process/Install/Install.php:169
+#: src/Core/Users.php:165 src/Process/Install/Install.php:175
 msgid "No user ID given"
 msgstr "Tidak ada ID pengguna yang diberikan"
 
-#: src/Core/Users.php:169 src/Process/Install/Install.php:179
+#: src/Core/Users.php:169 src/Process/Install/Install.php:185
 msgid "No password given"
 msgstr "Tidak ada kata sandi yang diberikan"
 
-#: src/Core/Users.php:389 src/Process/Install/Install.php:172
+#: src/Core/Users.php:389 src/Process/Install/Install.php:178
 msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
 msgstr "User ID harus terdiri dari minimal 2 karakter yang menggunakan huruf, angka, atau simbol."
 
 #: src/Core/Users.php:398 src/Process/Backend/User.php:366
-#: src/Process/Install/Install.php:185
+#: src/Process/Install/Install.php:191
 msgid "Password must contain at least 6 characters."
 msgstr "Kata sandi harus terdiri dari setidaknya 6 karakter."
 
@@ -2969,11 +2969,11 @@ msgstr "Format respons tidak valid"
 msgid "Failed to load provider \"%s\""
 msgstr "Gagal memuat penyedia \"%s\""
 
-#: src/Helper/Otp.php:304
+#: src/Helper/Otp.php:296
 msgid "Two Factors authentication"
 msgstr "Otentikasi Dua Faktor"
 
-#: src/Helper/Process/AbstractUtility.php:71
+#: src/Helper/Process/AbstractUtility.php:78
 #, php-format
 msgid "Unable to get process %s"
 msgstr "Tidak bisa mendapatkan proses %s"
@@ -2987,78 +2987,78 @@ msgstr "Status:"
 msgid "Unknown passkey"
 msgstr "Kunci sandi tidak dikenal"
 
-#: src/Module/Modules.php:246
+#: src/Module/Modules.php:245
 #, php-format
 msgid "Module \"%1$s\" requires module \"%2$s\" which is not installed"
 msgstr "Modul \"%1$s\" membutuhkan modul \"%2$s\" yang belum terinstal"
 
-#: src/Module/Modules.php:259
+#: src/Module/Modules.php:258
 #, php-format
 msgid "Module \"%1$s\" requires \"%2$s\" version %3$s, but version %4$s is installed"
 msgstr "Modul \"%1$s\" membutuhkan versi \"%2$s\" %3$s, tetapi versi %4$s sudah diinstal"
 
-#: src/Module/Modules.php:267
+#: src/Module/Modules.php:266
 #, php-format
 msgid "Module \"%1$s\" requires module \"%2$s\" which is disabled"
 msgstr "Modul \"%1$s\" membutuhkan modul \"%2$s\" yang dinonaktifkan"
 
-#: src/Module/Modules.php:629
+#: src/Module/Modules.php:628
 #, php-format
 msgid "Module \"%1$s\" has type \"%2$s\" that mismatch required module type \"%3$s\"."
 msgstr "Modul \"%1$s\" memiliki tipe \"%2$s\" yang tidak sesuai dengan tipe modul yang dibutuhkan \"%3$s\"."
 
-#: src/Module/Modules.php:655
+#: src/Module/Modules.php:654
 #, php-format
 msgid "Module \"%1$s\" is installed twice in \"%2$s\" and \"%3$s\"."
 msgstr "Modul \"%1$s\" dipasang dua kali di \"%2$s\" dan \"%3$s\"."
 
-#: src/Module/Modules.php:729
+#: src/Module/Modules.php:728
 msgid "Empty module zip file."
 msgstr "Mengosongkan file zip modul."
 
-#: src/Module/Modules.php:736
+#: src/Module/Modules.php:735
 msgid "The zip file does not appear to be a valid Dotclear module."
 msgstr "File zip tersebut tampaknya bukan modul Dotclear yang valid."
 
-#: src/Module/Modules.php:771 src/Module/Modules.php:808
+#: src/Module/Modules.php:770 src/Module/Modules.php:807
 #, php-format
 msgid "Module is not installed: %s"
 msgstr "Modul tidak diinstal: %s"
 
-#: src/Module/Modules.php:823
+#: src/Module/Modules.php:822
 #, php-format
 msgid "Unable to upgrade \"%s\". (update locked)"
 msgstr "Tidak dapat meningkatkan \"%s\" (pembaruan terkunci)"
 
-#: src/Module/Modules.php:827
+#: src/Module/Modules.php:826
 msgid "An error occurred during module deletion."
 msgstr "Terjadi kesalahan selama penghapusan modul."
 
-#: src/Module/Modules.php:835
+#: src/Module/Modules.php:834
 #, php-format
 msgid "Unable to upgrade \"%s\". (older or same version)"
 msgstr "Tidak dapat meningkatkan \"%s\". (versi lama atau versi yang sama)"
 
-#: src/Module/Modules.php:841
+#: src/Module/Modules.php:840
 #, php-format
 msgid "Unable to read new %s file"
 msgstr "Tidak dapat membaca file %s baru"
 
-#: src/Module/Modules.php:850 src/Module/Modules.php:967
-#: src/Module/Modules.php:971
+#: src/Module/Modules.php:849 src/Module/Modules.php:966
+#: src/Module/Modules.php:970
 msgid "Cannot deactivate plugin."
 msgstr "Tidak dapat menonaktifkan plugin."
 
-#: src/Module/Modules.php:943 src/Module/Modules.php:963
-#: src/Module/Modules.php:987
+#: src/Module/Modules.php:942 src/Module/Modules.php:962
+#: src/Module/Modules.php:986
 msgid "No such module."
 msgstr "Tidak ada modul seperti itu."
 
-#: src/Module/Modules.php:947
+#: src/Module/Modules.php:946
 msgid "Cannot remove module files"
 msgstr "Tidak dapat menghapus file modul"
 
-#: src/Module/Modules.php:991 src/Module/Modules.php:995
+#: src/Module/Modules.php:990 src/Module/Modules.php:994
 msgid "Cannot activate plugin."
 msgstr "Tidak dapat mengaktifkan plugin."
 
@@ -3070,226 +3070,226 @@ msgstr "Terjadi kesalahan saat mengunduh file."
 msgid "Wrong data feed"
 msgstr "Umpan data salah"
 
-#: src/Module/Themes.php:107
+#: src/Module/Themes.php:106
 msgid "Themes folder unreachable"
 msgstr "Folder tema tidak dapat dijangkau"
 
-#: src/Module/Themes.php:111
+#: src/Module/Themes.php:110
 msgid "Themes folder unreadable"
 msgstr "Folder tema tidak dapat dibaca"
 
-#: src/Module/Themes.php:119
+#: src/Module/Themes.php:118
 #, php-format
 msgid " (copy #%s)"
 msgstr " (salin #%s)"
 
-#: src/Module/Themes.php:119
+#: src/Module/Themes.php:118
 msgid " (copy)"
 msgstr " (Salin)"
 
-#: src/Module/Themes.php:157
+#: src/Module/Themes.php:156
 msgid "Unable to modify _define.php"
 msgstr "Tidak dapat memodifikasi _define.php"
 
-#: src/Module/Themes.php:190
+#: src/Module/Themes.php:189
 msgid "Destination folder already exist"
 msgstr "Folder tujuan sudah ada"
 
-#: src/Process/Backend/Auth.php:92 src/Process/Upgrade/Auth.php:96
+#: src/Process/Backend/Auth.php:91 src/Process/Upgrade/Auth.php:95
 msgid "Dotclear has been upgraded."
 msgstr "Dotclear telah ditingkatkan."
 
-#: src/Process/Backend/Auth.php:151
+#: src/Process/Backend/Auth.php:150
 msgid "Password reset"
 msgstr "Pengaturan ulang kata sandi"
 
-#: src/Process/Backend/Auth.php:152
+#: src/Process/Backend/Auth.php:151
 msgid "Someone has requested to reset the password for the following site and username."
 msgstr "Seseorang telah meminta untuk mengatur ulang kata sandi untuk situs dan nama pengguna berikut ini."
 
-#: src/Process/Backend/Auth.php:152
+#: src/Process/Backend/Auth.php:151
 msgid "To reset your password visit the following address, otherwise just ignore this email and nothing will happen."
 msgstr "Untuk mengatur ulang kata sandi Anda, kunjungi alamat berikut, jika tidak, abaikan saja email ini dan tidak akan terjadi apa-apa."
 
-#: src/Process/Backend/Auth.php:152 src/Process/Backend/Auth.php:174
-#: src/Process/Backend/Auth.php:504 src/Process/Backend/Auth.php:632
-#: src/Process/Install/Install.php:519 src/Process/Install/Install.php:581
-#: src/Process/Upgrade/Auth.php:329
+#: src/Process/Backend/Auth.php:151 src/Process/Backend/Auth.php:173
+#: src/Process/Backend/Auth.php:503 src/Process/Backend/Auth.php:631
+#: src/Process/Install/Install.php:525 src/Process/Install/Install.php:587
+#: src/Process/Upgrade/Auth.php:328
 msgid "Username:"
 msgstr "Nama pengguna:"
 
-#: src/Process/Backend/Auth.php:158
+#: src/Process/Backend/Auth.php:157
 #, php-format
 msgid "The e-mail was sent successfully to %s."
 msgstr "Email berhasil dikirim ke %s."
 
-#: src/Process/Backend/Auth.php:162
+#: src/Process/Backend/Auth.php:161
 msgid "This removes two factors authentication."
 msgstr "Hal ini menghilangkan dua faktor autentikasi."
 
-#: src/Process/Backend/Auth.php:173
+#: src/Process/Backend/Auth.php:172
 msgid "Your new password"
 msgstr "Kata sandi baru Anda"
 
-#: src/Process/Backend/Auth.php:179
+#: src/Process/Backend/Auth.php:178
 msgid "Your new password is in your mailbox."
 msgstr "Kata sandi baru Anda ada di kotak surat Anda."
 
-#: src/Process/Backend/Auth.php:227 src/Process/Backend/User.php:159
+#: src/Process/Backend/Auth.php:226 src/Process/Backend/User.php:159
 #: src/Process/Backend/UserPreferences.php:272
-#: src/Process/Install/Install.php:182
+#: src/Process/Install/Install.php:188
 msgid "Passwords don't match"
 msgstr "Kata sandi tidak cocok"
 
-#: src/Process/Backend/Auth.php:231
+#: src/Process/Backend/Auth.php:230
 msgid "You didn't change your password."
 msgstr "Anda tidak mengubah kata sandi Anda."
 
-#: src/Process/Backend/Auth.php:288
+#: src/Process/Backend/Auth.php:287
 msgid "Code validation failed."
 msgstr "Validasi kode gagal."
 
-#: src/Process/Backend/Auth.php:332
+#: src/Process/Backend/Auth.php:331
 msgid "You have to change your password before you can login."
 msgstr "Anda harus mengubah kata sandi sebelum dapat masuk."
 
-#: src/Process/Backend/Auth.php:334
+#: src/Process/Backend/Auth.php:333
 msgid "In order to login, you have to change your password now."
 msgstr "Untuk masuk, Anda harus mengubah kata sandi Anda sekarang."
 
-#: src/Process/Backend/Auth.php:340
+#: src/Process/Backend/Auth.php:339
 msgid "Safe Mode can only be used for super administrators."
 msgstr "Safe Mode hanya dapat digunakan untuk administrator super."
 
-#: src/Process/Backend/Auth.php:390 src/Process/Upgrade/Auth.php:174
-#: src/Process/Upgrade/Auth.php:235
+#: src/Process/Backend/Auth.php:389 src/Process/Upgrade/Auth.php:173
+#: src/Process/Upgrade/Auth.php:234
 msgid "Administration session expired"
 msgstr "Sesi administrasi berakhir"
 
-#: src/Process/Backend/Auth.php:390 src/Process/Upgrade/Auth.php:174
-#: src/Process/Upgrade/Auth.php:235
+#: src/Process/Backend/Auth.php:389 src/Process/Upgrade/Auth.php:173
+#: src/Process/Upgrade/Auth.php:234
 msgid "Wrong username or password"
 msgstr "Nama pengguna atau kata sandi yang salah"
 
-#: src/Process/Backend/Auth.php:446 src/Process/Backend/Auth.php:447
-#: src/Process/Backend/Auth.php:448 src/Process/Backend/User.php:264
+#: src/Process/Backend/Auth.php:445 src/Process/Backend/Auth.php:446
+#: src/Process/Backend/Auth.php:447 src/Process/Backend/User.php:264
 #: src/Process/Backend/User.php:265 src/Process/Backend/User.php:266
 #: src/Process/Backend/UserPreferences.php:566
 #: src/Process/Backend/UserPreferences.php:567
 #: src/Process/Backend/UserPreferences.php:568
-#: src/Process/Install/Install.php:420 src/Process/Install/Install.php:421
-#: src/Process/Install/Install.php:422 src/Process/Upgrade/Auth.php:388
-#: src/Process/Upgrade/Auth.php:389 src/Process/Upgrade/Auth.php:390
+#: src/Process/Install/Install.php:426 src/Process/Install/Install.php:427
+#: src/Process/Install/Install.php:428 src/Process/Upgrade/Auth.php:387
+#: src/Process/Upgrade/Auth.php:388 src/Process/Upgrade/Auth.php:389
 #, php-format
 msgid "Password strength: %s"
 msgstr "Kekuatan kata sandi: %s"
 
-#: src/Process/Backend/Auth.php:446 src/Process/Backend/User.php:264
+#: src/Process/Backend/Auth.php:445 src/Process/Backend/User.php:264
 #: src/Process/Backend/UserPreferences.php:566
-#: src/Process/Install/Install.php:420 src/Process/Upgrade/Auth.php:388
+#: src/Process/Install/Install.php:426 src/Process/Upgrade/Auth.php:387
 msgid "weak"
 msgstr "lemah"
 
-#: src/Process/Backend/Auth.php:448 src/Process/Backend/User.php:266
+#: src/Process/Backend/Auth.php:447 src/Process/Backend/User.php:266
 #: src/Process/Backend/UserPreferences.php:568
-#: src/Process/Install/Install.php:422 src/Process/Upgrade/Auth.php:390
+#: src/Process/Install/Install.php:428 src/Process/Upgrade/Auth.php:389
 msgid "strong"
 msgstr "kuat"
 
-#: src/Process/Backend/Auth.php:491 src/Process/Backend/Auth.php:535
-#: src/Process/Backend/Auth.php:597 src/Process/Upgrade/Auth.php:315
+#: src/Process/Backend/Auth.php:490 src/Process/Backend/Auth.php:534
+#: src/Process/Backend/Auth.php:596 src/Process/Upgrade/Auth.php:314
 msgid "Back to login screen"
 msgstr "Kembali ke layar masuk"
 
-#: src/Process/Backend/Auth.php:499
+#: src/Process/Backend/Auth.php:498
 msgid "Request a new password"
 msgstr "Meminta kata sandi baru"
 
-#: src/Process/Backend/Auth.php:523
+#: src/Process/Backend/Auth.php:522
 msgid "recover"
 msgstr "memulihkan"
 
-#: src/Process/Backend/Auth.php:529 src/Process/Backend/Auth.php:720
+#: src/Process/Backend/Auth.php:528 src/Process/Backend/Auth.php:719
 msgid "Other option"
 msgstr "Pilihan lain"
 
-#: src/Process/Backend/Auth.php:542
+#: src/Process/Backend/Auth.php:541
 msgid "Change your password"
 msgstr "Mengubah kata sandi Anda"
 
-#: src/Process/Backend/Auth.php:547 src/Process/Backend/User.php:352
+#: src/Process/Backend/Auth.php:546 src/Process/Backend/User.php:352
 #: src/Process/Backend/UserPreferences.php:605
 msgid "New password:"
 msgstr "Kata sandi baru:"
 
-#: src/Process/Backend/Auth.php:557 src/Process/Backend/User.php:376
+#: src/Process/Backend/Auth.php:556 src/Process/Backend/User.php:376
 #: src/Process/Backend/User.php:385
 msgid "Confirm password:"
 msgstr "Konfirmasi kata sandi:"
 
-#: src/Process/Backend/Auth.php:565
+#: src/Process/Backend/Auth.php:564
 msgid "change"
 msgstr "perubahan"
 
-#: src/Process/Backend/Auth.php:575 src/Process/Backend/UserPreferences.php:870
-#: src/Process/Upgrade/Auth.php:293
+#: src/Process/Backend/Auth.php:574 src/Process/Backend/UserPreferences.php:870
+#: src/Process/Upgrade/Auth.php:292
 msgid "Two factors authentication"
 msgstr "Otentikasi dua faktor"
 
-#: src/Process/Backend/Auth.php:580 src/Process/Upgrade/Auth.php:298
+#: src/Process/Backend/Auth.php:579 src/Process/Upgrade/Auth.php:297
 msgid "Enter code:"
 msgstr "Masukkan kode:"
 
-#: src/Process/Backend/Auth.php:590 src/Process/Backend/UserPreferences.php:674
-#: src/Process/Upgrade/Auth.php:308
+#: src/Process/Backend/Auth.php:589 src/Process/Backend/UserPreferences.php:674
+#: src/Process/Upgrade/Auth.php:307
 msgid "Verify"
 msgstr "Verifikasi"
 
-#: src/Process/Backend/Auth.php:617
+#: src/Process/Backend/Auth.php:616
 msgid "Safe mode login"
 msgstr "Login mode aman"
 
-#: src/Process/Backend/Auth.php:620
+#: src/Process/Backend/Auth.php:619
 msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
 msgstr "Mode ini memungkinkan Anda untuk masuk tanpa mengaktifkan plugin apa pun. Ini mungkin berguna untuk mengatasi masalah kompatibilitas"
 
-#: src/Process/Backend/Auth.php:621
+#: src/Process/Backend/Auth.php:620
 msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
 msgstr "Perbarui, nonaktifkan, atau hapus plugin yang dicurigai menyebabkan masalah, lalu keluar dan masuk kembali secara normal."
 
-#: src/Process/Backend/Auth.php:652 src/Process/Upgrade/Auth.php:349
+#: src/Process/Backend/Auth.php:651 src/Process/Upgrade/Auth.php:348
 msgid "Remember my ID on this device"
 msgstr "Ingat ID saya di perangkat ini"
 
-#: src/Process/Backend/Auth.php:656 src/Process/Upgrade/Auth.php:353
+#: src/Process/Backend/Auth.php:655 src/Process/Upgrade/Auth.php:352
 msgid "log in"
 msgstr "masuk"
 
-#: src/Process/Backend/Auth.php:662
+#: src/Process/Backend/Auth.php:661
 msgid "Sign in with a passkey"
 msgstr "Masuk dengan kunci sandi"
 
-#: src/Process/Backend/Auth.php:705
+#: src/Process/Backend/Auth.php:704
 msgid "Third party applications connections"
 msgstr "Koneksi aplikasi pihak ketiga"
 
-#: src/Process/Backend/Auth.php:714 src/Process/Upgrade/Auth.php:358
+#: src/Process/Backend/Auth.php:713 src/Process/Upgrade/Auth.php:357
 msgid "You must accept cookies in order to use the private area."
 msgstr "Anda harus menerima cookie untuk menggunakan area pribadi."
 
-#: src/Process/Backend/Auth.php:726
+#: src/Process/Backend/Auth.php:725
 msgid "Get back to normal authentication"
 msgstr "Kembali ke autentikasi normal"
 
-#: src/Process/Backend/Auth.php:731
+#: src/Process/Backend/Auth.php:730
 msgid "Connection issue?"
 msgstr "Masalah koneksi?"
 
-#: src/Process/Backend/Auth.php:738
+#: src/Process/Backend/Auth.php:737
 msgid "I forgot my password"
 msgstr "Saya lupa kata sandi saya"
 
-#: src/Process/Backend/Auth.php:745
+#: src/Process/Backend/Auth.php:744
 msgid "I want to log in in safe mode"
 msgstr "Saya ingin masuk dalam mode aman"
 
@@ -3327,7 +3327,7 @@ msgstr "URL Blog:"
 msgid "Blog description:"
 msgstr "Deskripsi blog:"
 
-#: src/Process/Backend/Blog.php:195 src/Process/Backend/Media.php:653
+#: src/Process/Backend/Blog.php:195 src/Process/Backend/Media.php:655
 msgid "Create"
 msgstr "Membuat"
 
@@ -3406,7 +3406,7 @@ msgid "P"
 msgstr "P"
 
 #: src/Process/Backend/BlogPref.php:168 src/Process/Backend/BlogPref.php:1278
-#: src/Process/Backend/MediaItem.php:604 src/Process/Backend/MediaItem.php:609
+#: src/Process/Backend/MediaItem.php:606 src/Process/Backend/MediaItem.php:611
 msgid "(none)"
 msgstr "(tidak ada)"
 
@@ -3426,33 +3426,33 @@ msgstr "Deskripsi, Negara, Tanggal"
 msgid "Description, City, Country, Date"
 msgstr "Deskripsi, Kota, Negara, Tanggal"
 
-#: src/Process/Backend/BlogPref.php:202 src/Process/Backend/MediaItem.php:484
-#: src/Process/Backend/MediaItem.php:578 src/Process/Backend/MediaItem.php:847
+#: src/Process/Backend/BlogPref.php:202 src/Process/Backend/MediaItem.php:486
+#: src/Process/Backend/MediaItem.php:580 src/Process/Backend/MediaItem.php:849
 msgid "original"
 msgstr "asli"
 
 #: src/Process/Backend/BlogPref.php:213 src/Process/Backend/BlogPref.php:223
-#: src/Process/Backend/MediaItem.php:541 src/Process/Backend/MediaItem.php:597
+#: src/Process/Backend/MediaItem.php:543 src/Process/Backend/MediaItem.php:599
 msgid "None"
 msgstr "Tidak ada"
 
-#: src/Process/Backend/BlogPref.php:214 src/Process/Backend/MediaItem.php:542
+#: src/Process/Backend/BlogPref.php:214 src/Process/Backend/MediaItem.php:544
 msgid "Left"
 msgstr "Kiri"
 
-#: src/Process/Backend/BlogPref.php:215 src/Process/Backend/MediaItem.php:543
+#: src/Process/Backend/BlogPref.php:215 src/Process/Backend/MediaItem.php:545
 msgid "Right"
 msgstr "Benar."
 
-#: src/Process/Backend/BlogPref.php:216 src/Process/Backend/MediaItem.php:544
+#: src/Process/Backend/BlogPref.php:216 src/Process/Backend/MediaItem.php:546
 msgid "Center"
 msgstr "Pusat"
 
-#: src/Process/Backend/BlogPref.php:221 src/Process/Backend/MediaItem.php:590
+#: src/Process/Backend/BlogPref.php:221 src/Process/Backend/MediaItem.php:592
 msgid "Legend and alternate text"
 msgstr "Legenda dan teks alternatif"
 
-#: src/Process/Backend/BlogPref.php:222 src/Process/Backend/MediaItem.php:594
+#: src/Process/Backend/BlogPref.php:222 src/Process/Backend/MediaItem.php:596
 msgid "Alternate text"
 msgstr "Teks alternatif"
 
@@ -3777,7 +3777,7 @@ msgstr "Menyisipkan tautan ke gambar asli"
 msgid "Image legend and alternate text:"
 msgstr "Legenda gambar dan teks alternatif:"
 
-#: src/Process/Backend/BlogPref.php:970 src/Process/Backend/Media.php:858
+#: src/Process/Backend/BlogPref.php:970 src/Process/Backend/Media.php:860
 #: src/Process/Backend/Settings.php:91
 msgid "Blog parameters"
 msgstr "Parameter blog"
@@ -4147,7 +4147,7 @@ msgstr "Nama:"
 msgid "Warning: If you set the URL manually, it may conflict with another category."
 msgstr "Peringatan: Jika Anda mengatur URL secara manual, URL tersebut mungkin bertentangan dengan kategori lain."
 
-#: src/Process/Backend/Category.php:292 src/Process/Backend/MediaItem.php:1246
+#: src/Process/Backend/Category.php:292 src/Process/Backend/MediaItem.php:1248
 msgid "Description:"
 msgstr "Deskripsi:"
 
@@ -4329,12 +4329,12 @@ msgid "There is no writable root directory for the media manager. You should con
 msgstr "Tidak ada direktori root yang dapat ditulis untuk manajer media. Anda harus menghubungi administrator Anda."
 
 #: src/Process/Backend/Home.php:349 src/Process/Backend/Plugins.php:133
-#: src/Process/Install/Install.php:554 src/Process/Upgrade/Plugins.php:110
+#: src/Process/Install/Install.php:560 src/Process/Upgrade/Plugins.php:110
 msgid "Following plugins have been installed:"
 msgstr "Plugin berikut ini telah diinstal:"
 
 #: src/Process/Backend/Home.php:371 src/Process/Backend/Plugins.php:155
-#: src/Process/Install/Install.php:562 src/Process/Upgrade/Plugins.php:132
+#: src/Process/Install/Install.php:568 src/Process/Upgrade/Plugins.php:132
 msgid "Following plugins have not been installed:"
 msgstr "Plugin-pugin berikut ini belum diinstal:"
 
@@ -4407,113 +4407,113 @@ msgstr "Sebagai catatan, ini adalah tanggal donasi terakhir saya ke Dotclear:"
 msgid "Documentation and support"
 msgstr "Dokumentasi dan dukungan"
 
-#: src/Process/Backend/Langs.php:93 src/Process/Upgrade/Langs.php:141
+#: src/Process/Backend/Langs.php:92 src/Process/Upgrade/Langs.php:140
 msgid "No such installed language"
 msgstr "Tidak ada bahasa yang terinstal seperti itu"
 
-#: src/Process/Backend/Langs.php:97 src/Process/Upgrade/Langs.php:145
+#: src/Process/Backend/Langs.php:96 src/Process/Upgrade/Langs.php:144
 msgid "You can't remove English language."
 msgstr "Anda tidak dapat menghapus bahasa Inggris."
 
-#: src/Process/Backend/Langs.php:101 src/Process/Upgrade/Langs.php:149
+#: src/Process/Backend/Langs.php:100 src/Process/Upgrade/Langs.php:148
 msgid "Permissions to delete language denied."
 msgstr "Izin untuk menghapus bahasa ditolak."
 
-#: src/Process/Backend/Langs.php:104 src/Process/Upgrade/Langs.php:152
-#: src/Process/Upgrade/Langs.php:238
+#: src/Process/Backend/Langs.php:103 src/Process/Upgrade/Langs.php:151
+#: src/Process/Upgrade/Langs.php:237
 msgid "Language has been successfully deleted."
 msgstr "Bahasa telah berhasil dihapus."
 
-#: src/Process/Backend/Langs.php:121 src/Process/Upgrade/Langs.php:169
+#: src/Process/Backend/Langs.php:120 src/Process/Upgrade/Langs.php:168
 msgid "Invalid language file URL."
 msgstr "URL file bahasa tidak valid."
 
-#: src/Process/Backend/Langs.php:133 src/Process/Upgrade/Langs.php:181
+#: src/Process/Backend/Langs.php:132 src/Process/Upgrade/Langs.php:180
 msgid "Unable to make a HTTP request."
 msgstr "Tidak dapat membuat permintaan HTTP."
 
-#: src/Process/Backend/Langs.php:146 src/Process/Backend/Langs.php:179
-#: src/Process/Upgrade/Langs.php:194 src/Process/Upgrade/Langs.php:227
-#: src/Process/Upgrade/Langs.php:242
+#: src/Process/Backend/Langs.php:145 src/Process/Backend/Langs.php:178
+#: src/Process/Upgrade/Langs.php:193 src/Process/Upgrade/Langs.php:226
+#: src/Process/Upgrade/Langs.php:241
 msgid "Language has been successfully upgraded"
 msgstr "Bahasa telah berhasil ditingkatkan"
 
-#: src/Process/Backend/Langs.php:148 src/Process/Backend/Langs.php:181
-#: src/Process/Upgrade/Langs.php:196 src/Process/Upgrade/Langs.php:229
-#: src/Process/Upgrade/Langs.php:242
+#: src/Process/Backend/Langs.php:147 src/Process/Backend/Langs.php:180
+#: src/Process/Upgrade/Langs.php:195 src/Process/Upgrade/Langs.php:228
+#: src/Process/Upgrade/Langs.php:241
 msgid "Language has been successfully installed."
 msgstr "Bahasa telah berhasil diinstal."
 
-#: src/Process/Backend/Langs.php:244 src/Process/Backend/Langs.php:249
-#: src/Process/Upgrade/Langs.php:260 src/Process/Upgrade/Langs.php:265
+#: src/Process/Backend/Langs.php:243 src/Process/Backend/Langs.php:248
+#: src/Process/Upgrade/Langs.php:259 src/Process/Upgrade/Langs.php:264
 msgid "Languages management"
 msgstr "Manajemen bahasa"
 
-#: src/Process/Backend/Langs.php:262
+#: src/Process/Backend/Langs.php:261
 #, php-format
 msgid "You can change your user language in your <a href=\"%1$s\">preferences</a> or change your blog's main language in your <a href=\"%2$s\">blog settings</a>."
 msgstr "Anda dapat mengubah bahasa pengguna di <a href=\"%1$s\">preferensi</a> Anda atau mengubah bahasa utama blog Anda di <a href=\"%2$s\">pengaturan blog</a>."
 
-#: src/Process/Backend/Langs.php:266 src/Process/Upgrade/Langs.php:324
+#: src/Process/Backend/Langs.php:265 src/Process/Upgrade/Langs.php:323
 msgid "Installed languages"
 msgstr "Bahasa yang diinstal"
 
-#: src/Process/Backend/Langs.php:272
+#: src/Process/Backend/Langs.php:271
 msgid "No additional language is installed."
 msgstr "Tidak ada bahasa tambahan yang diinstal."
 
-#: src/Process/Backend/Langs.php:285 src/Process/Upgrade/Langs.php:334
+#: src/Process/Backend/Langs.php:284 src/Process/Upgrade/Langs.php:333
 msgid "Language"
 msgstr "Bahasa"
 
-#: src/Process/Backend/Langs.php:296
+#: src/Process/Backend/Langs.php:295
 msgid "Install or upgrade languages"
 msgstr "Menginstal atau meningkatkan bahasa"
 
-#: src/Process/Backend/Langs.php:300 src/Process/Upgrade/Langs.php:247
+#: src/Process/Backend/Langs.php:299 src/Process/Upgrade/Langs.php:246
 #, php-format
 msgid "You can install or remove a language by adding or removing the relevant directory in your %s folder."
 msgstr "Anda dapat menginstal atau menghapus bahasa dengan menambahkan atau menghapus direktori yang relevan di folder %s ."
 
-#: src/Process/Backend/Langs.php:323
+#: src/Process/Backend/Langs.php:322
 msgid "Available languages"
 msgstr "Bahasa yang tersedia"
 
-#: src/Process/Backend/Langs.php:328 src/Process/Upgrade/Langs.php:362
+#: src/Process/Backend/Langs.php:327 src/Process/Upgrade/Langs.php:361
 #, php-format
 msgid "You can download and install a additional language directly from Dotclear server. Proposed languages are based on your version: %s."
 msgstr "Anda dapat mengunduh dan menginstal bahasa tambahan langsung dari server Dotclear. Bahasa yang diusulkan didasarkan pada versi Anda: %s."
 
-#: src/Process/Backend/Langs.php:336 src/Process/Backend/User.php:501
-#: src/Process/Upgrade/Langs.php:368
+#: src/Process/Backend/Langs.php:335 src/Process/Backend/User.php:501
+#: src/Process/Upgrade/Langs.php:367
 msgid "Language:"
 msgstr "Bahasa:"
 
-#: src/Process/Backend/Langs.php:358 src/Process/Upgrade/Langs.php:389
+#: src/Process/Backend/Langs.php:357 src/Process/Upgrade/Langs.php:388
 msgid "Install language"
 msgstr "Instal bahasa"
 
-#: src/Process/Backend/Langs.php:378 src/Process/Upgrade/Langs.php:407
+#: src/Process/Backend/Langs.php:377 src/Process/Upgrade/Langs.php:406
 msgid "You can install languages by uploading zip files."
 msgstr "Anda dapat menginstal bahasa dengan mengunggah file zip."
 
-#: src/Process/Backend/Langs.php:385 src/Process/Upgrade/Langs.php:416
+#: src/Process/Backend/Langs.php:384 src/Process/Upgrade/Langs.php:415
 msgid "Language zip file:"
 msgstr "File zip bahasa:"
 
-#: src/Process/Backend/Langs.php:408 src/Process/Upgrade/Langs.php:443
+#: src/Process/Backend/Langs.php:407 src/Process/Upgrade/Langs.php:442
 msgid "Upload language"
 msgstr "Bahasa unggahan"
 
-#: src/Process/Backend/Langs.php:438 src/Process/Upgrade/Langs.php:113
+#: src/Process/Backend/Langs.php:437 src/Process/Upgrade/Langs.php:112
 msgid "Invalid language zip file."
 msgstr "File zip bahasa tidak valid."
 
-#: src/Process/Backend/Langs.php:442 src/Process/Upgrade/Langs.php:117
+#: src/Process/Backend/Langs.php:441 src/Process/Upgrade/Langs.php:116
 msgid "The zip file does not appear to be a valid Dotclear language pack."
 msgstr "File zip tersebut tampaknya bukan merupakan paket bahasa Dotclear yang valid."
 
-#: src/Process/Backend/Langs.php:451 src/Process/Upgrade/Langs.php:126
+#: src/Process/Backend/Langs.php:450 src/Process/Upgrade/Langs.php:125
 msgid "An error occurred during language upgrade."
 msgstr "Terjadi kesalahan selama peningkatan bahasa."
 
@@ -4533,7 +4533,7 @@ msgstr "Judul tautan:"
 msgid "Link language:"
 msgstr "Bahasa tautan:"
 
-#: src/Process/Backend/LinkPopup.php:115 src/Process/Backend/MediaItem.php:764
+#: src/Process/Backend/LinkPopup.php:115 src/Process/Backend/MediaItem.php:766
 msgid "Insert"
 msgstr "Menyisipkan"
 
@@ -4592,415 +4592,415 @@ msgstr "Apakah Anda yakin ingin menghapus %s?"
 msgid "Yes"
 msgstr "Ya."
 
-#: src/Process/Backend/Media.php:348
+#: src/Process/Backend/Media.php:349
 msgid "Remove this folder from your favorites"
 msgstr "Hapus folder ini dari favorit Anda"
 
-#: src/Process/Backend/Media.php:373
+#: src/Process/Backend/Media.php:375
 msgid "Add this folder to your favorites"
 msgstr "Tambahkan folder ini ke favorit Anda"
 
-#: src/Process/Backend/Media.php:384
+#: src/Process/Backend/Media.php:386
 msgid "Goto recent folder:"
 msgstr "Buka folder terbaru:"
 
-#: src/Process/Backend/Media.php:421
+#: src/Process/Backend/Media.php:423
 msgid "You do not have sufficient permissions to write to this folder."
 msgstr "Anda tidak memiliki izin yang cukup untuk menulis ke folder ini."
 
-#: src/Process/Backend/Media.php:441
+#: src/Process/Backend/Media.php:443
 #, php-format
 msgid "Select a file by clicking on %s"
 msgstr "Pilih file dengan mengklik %s"
 
-#: src/Process/Backend/Media.php:445
+#: src/Process/Backend/Media.php:447
 #, php-format
 msgid "Select files and click on <strong>%s</strong> button"
 msgstr "Pilih file dan klik tombol <strong>%s</strong>"
 
-#: src/Process/Backend/Media.php:446 src/Process/Backend/Media.php:575
+#: src/Process/Backend/Media.php:448 src/Process/Backend/Media.php:577
 msgid "Choose selected medias"
 msgstr "Memilih media yang dipilih"
 
-#: src/Process/Backend/Media.php:452 src/Process/Backend/Media.php:486
-#: src/Process/Backend/Media.php:513
+#: src/Process/Backend/Media.php:454 src/Process/Backend/Media.php:488
+#: src/Process/Backend/Media.php:515
 msgid "or"
 msgstr "atau"
 
-#: src/Process/Backend/Media.php:455 src/Process/Backend/Media.php:489
-#: src/Process/Backend/Media.php:516
+#: src/Process/Backend/Media.php:457 src/Process/Backend/Media.php:491
+#: src/Process/Backend/Media.php:518
 msgid "upload a new file"
 msgstr "mengunggah file baru"
 
-#: src/Process/Backend/Media.php:478
+#: src/Process/Backend/Media.php:480
 #, php-format
 msgid "Choose a file to attach to entry %1$s by clicking on %2$s"
 msgstr "Pilih file untuk dilampirkan ke entri %1$s dengan mengklik %2$s"
 
-#: src/Process/Backend/Media.php:506
+#: src/Process/Backend/Media.php:508
 #, php-format
 msgid "Choose a file to insert into entry by clicking on %s"
 msgstr "Pilih file yang akan dimasukkan ke dalam entri dengan mengklik %s"
 
-#: src/Process/Backend/Media.php:536 src/Process/Backend/Media.php:540
-#: src/Process/Backend/Media.php:543
+#: src/Process/Backend/Media.php:538 src/Process/Backend/Media.php:542
+#: src/Process/Backend/Media.php:545
 msgid "Grid display mode"
 msgstr "Mode tampilan kisi"
 
-#: src/Process/Backend/Media.php:547 src/Process/Backend/Media.php:551
-#: src/Process/Backend/Media.php:554
+#: src/Process/Backend/Media.php:549 src/Process/Backend/Media.php:553
+#: src/Process/Backend/Media.php:556
 msgid "List display mode"
 msgstr "Mode tampilan daftar"
 
-#: src/Process/Backend/Media.php:579
+#: src/Process/Backend/Media.php:581
 msgid "Remove selected medias"
 msgstr "Menghapus media yang dipilih"
 
-#: src/Process/Backend/Media.php:640
+#: src/Process/Backend/Media.php:642
 msgid "Create new directory"
 msgstr "Membuat direktori baru"
 
-#: src/Process/Backend/Media.php:647
+#: src/Process/Backend/Media.php:649
 msgid "Directory Name:"
 msgstr "Nama direktori:"
 
-#: src/Process/Backend/Media.php:667
+#: src/Process/Backend/Media.php:669
 msgid "Build missing thumbnails in directory"
 msgstr "Membuat gambar mini yang hilang dalam direktori"
 
-#: src/Process/Backend/Media.php:672
+#: src/Process/Backend/Media.php:674
 msgid "Build"
 msgstr "Membangun"
 
-#: src/Process/Backend/Media.php:682
+#: src/Process/Backend/Media.php:684
 msgid "Force rebuild all thumbnails in directory"
 msgstr "Paksa bangun ulang semua gambar mini dalam direktori"
 
-#: src/Process/Backend/Media.php:687
+#: src/Process/Backend/Media.php:689
 msgid "Force rebuild"
 msgstr "Membangun kembali kekuatan"
 
-#: src/Process/Backend/Media.php:692
+#: src/Process/Backend/Media.php:694
 msgid "Use with caution especially if there is a large numbers of media if this directory."
 msgstr "Gunakan dengan hati-hati, terutama jika terdapat sejumlah besar media jika direktori ini."
 
-#: src/Process/Backend/Media.php:700
+#: src/Process/Backend/Media.php:702
 #, php-format
 msgid "Backup content of %s"
 msgstr "Mencadangkan konten dari %s"
 
-#: src/Process/Backend/Media.php:707
+#: src/Process/Backend/Media.php:709
 msgid "Download zip file"
 msgstr "Unduh file zip"
 
-#: src/Process/Backend/Media.php:726
+#: src/Process/Backend/Media.php:728
 msgid "Add files"
 msgstr "Menambahkan file"
 
-#: src/Process/Backend/Media.php:729
+#: src/Process/Backend/Media.php:731
 msgid "Please take care to publish media that you own and that are not protected by copyright."
 msgstr "Mohon berhati-hati dalam mempublikasikan media yang Anda miliki dan tidak dilindungi oleh hak cipta."
 
-#: src/Process/Backend/Media.php:768
+#: src/Process/Backend/Media.php:770
 msgid "Maximum file size allowed:"
 msgstr "Ukuran file maksimum yang diizinkan:"
 
-#: src/Process/Backend/Media.php:782 src/Process/Backend/MediaItem.php:1259
+#: src/Process/Backend/Media.php:784 src/Process/Backend/MediaItem.php:1261
 msgid "Private"
 msgstr "Pribadi"
 
-#: src/Process/Backend/Media.php:791
+#: src/Process/Backend/Media.php:793
 msgid "To send several files at the same time, you can activate the enhanced uploader in"
 msgstr "Untuk mengirim beberapa file secara bersamaan, Anda dapat mengaktifkan pengunggah yang disempurnakan di"
 
-#: src/Process/Backend/Media.php:800
+#: src/Process/Backend/Media.php:802
 msgid "Refresh"
 msgstr "Menyegarkan"
 
-#: src/Process/Backend/Media.php:803
+#: src/Process/Backend/Media.php:805
 msgid "Clear all"
 msgstr "Hapus semua"
 
-#: src/Process/Backend/Media.php:828
+#: src/Process/Backend/Media.php:830
 #, php-format
 msgid "In %s:"
 msgstr "Dalam %s:"
 
-#: src/Process/Backend/Media.php:855
+#: src/Process/Backend/Media.php:857
 #, php-format
 msgid "Current settings for medias and images are defined in %s"
 msgstr "Pengaturan saat ini untuk media dan gambar ditentukan di %s"
 
-#: src/Process/Backend/MediaItem.php:142
+#: src/Process/Backend/MediaItem.php:144
 msgid "Not a valid file"
 msgstr "Bukan file yang valid"
 
-#: src/Process/Backend/MediaItem.php:180 src/Process/Backend/MediaItem.php:242
-#: src/Process/Backend/MediaItem.php:432
+#: src/Process/Backend/MediaItem.php:182 src/Process/Backend/MediaItem.php:244
+#: src/Process/Backend/MediaItem.php:434
 msgid "File has been successfully updated."
 msgstr "File telah berhasil diperbarui."
 
-#: src/Process/Backend/MediaItem.php:259 src/Process/Backend/MediaItem.php:435
+#: src/Process/Backend/MediaItem.php:261 src/Process/Backend/MediaItem.php:437
 msgid "Thumbnails have been successfully updated."
 msgstr "Gambar mini telah berhasil diperbarui."
 
-#: src/Process/Backend/MediaItem.php:276
+#: src/Process/Backend/MediaItem.php:278
 msgid "Zip file has been successfully extracted."
 msgstr "File zip telah berhasil diekstrak."
 
-#: src/Process/Backend/MediaItem.php:306 src/Process/Backend/MediaItem.php:438
+#: src/Process/Backend/MediaItem.php:308 src/Process/Backend/MediaItem.php:440
 msgid "Default media insertion settings have been successfully updated."
 msgstr "Pengaturan penyisipan media default telah berhasil diperbarui."
 
-#: src/Process/Backend/MediaItem.php:332
+#: src/Process/Backend/MediaItem.php:334
 msgid "Media insertion settings have been successfully registered for this folder."
 msgstr "Pengaturan penyisipan media telah berhasil didaftarkan untuk folder ini."
 
-#: src/Process/Backend/MediaItem.php:343
+#: src/Process/Backend/MediaItem.php:345
 msgid "Media insertion settings have been successfully removed for this folder."
 msgstr "Pengaturan penyisipan media telah berhasil dihapus untuk folder ini."
 
-#: src/Process/Backend/MediaItem.php:478 src/Process/Backend/MediaItem.php:572
+#: src/Process/Backend/MediaItem.php:480 src/Process/Backend/MediaItem.php:574
 msgid "Image size:"
 msgstr "Ukuran gambar:"
 
-#: src/Process/Backend/MediaItem.php:497 src/Process/Backend/MediaItem.php:499
+#: src/Process/Backend/MediaItem.php:499 src/Process/Backend/MediaItem.php:501
 msgid "Select media item"
 msgstr "Memilih item media"
 
-#: src/Process/Backend/MediaItem.php:508 src/Process/Upgrade/Attic.php:305
+#: src/Process/Backend/MediaItem.php:510 src/Process/Upgrade/Attic.php:305
 msgid "Select"
 msgstr "Pilih"
 
-#: src/Process/Backend/MediaItem.php:584
+#: src/Process/Backend/MediaItem.php:586
 msgid "Image legend and alternate text"
 msgstr "Legenda gambar dan teks alternatif"
 
-#: src/Process/Backend/MediaItem.php:601 src/Process/Backend/MediaItem.php:1097
-#: src/Process/Backend/MediaItem.php:1237
+#: src/Process/Backend/MediaItem.php:603 src/Process/Backend/MediaItem.php:1099
+#: src/Process/Backend/MediaItem.php:1239
 msgid "Alternate text:"
 msgstr "Teks alternatif:"
 
-#: src/Process/Backend/MediaItem.php:606
+#: src/Process/Backend/MediaItem.php:608
 msgid "Legend:"
 msgstr "Legenda:"
 
-#: src/Process/Backend/MediaItem.php:615
+#: src/Process/Backend/MediaItem.php:617
 msgid "Image alignment"
 msgstr "Penjajaran gambar"
 
-#: src/Process/Backend/MediaItem.php:622
+#: src/Process/Backend/MediaItem.php:624
 msgid "Image insertion"
 msgstr "Penyisipan gambar"
 
-#: src/Process/Backend/MediaItem.php:627
+#: src/Process/Backend/MediaItem.php:629
 msgid "As a single image"
 msgstr "Sebagai gambar tunggal"
 
-#: src/Process/Backend/MediaItem.php:630
+#: src/Process/Backend/MediaItem.php:632
 msgid "As a link to the original image"
 msgstr "Sebagai tautan ke gambar asli"
 
-#: src/Process/Backend/MediaItem.php:647
+#: src/Process/Backend/MediaItem.php:649
 msgid "MP3 disposition"
 msgstr "Disposisi MP3"
 
-#: src/Process/Backend/MediaItem.php:656
+#: src/Process/Backend/MediaItem.php:658
 msgid "Please note that you cannot insert mp3 files with standard editor in WYSIWYG HTML mode."
 msgstr "Harap diperhatikan bahwa Anda tidak dapat menyisipkan file mp3 dengan editor standar dalam mode HTML WYSIWYG."
 
-#: src/Process/Backend/MediaItem.php:672
+#: src/Process/Backend/MediaItem.php:674
 msgid "Video size"
 msgstr "Ukuran video"
 
-#: src/Process/Backend/MediaItem.php:676
+#: src/Process/Backend/MediaItem.php:678
 msgid "Width:"
 msgstr "Lebar:"
 
-#: src/Process/Backend/MediaItem.php:681
+#: src/Process/Backend/MediaItem.php:683
 msgid "Height:"
 msgstr "Tinggi:"
 
-#: src/Process/Backend/MediaItem.php:685
+#: src/Process/Backend/MediaItem.php:687
 msgid "A value of 0 means that the corresponding size is not included when inserting a video."
 msgstr "Nilai 0 berarti bahwa ukuran yang sesuai tidak disertakan ketika menyisipkan video."
 
-#: src/Process/Backend/MediaItem.php:690
+#: src/Process/Backend/MediaItem.php:692
 msgid "Video disposition"
 msgstr "Disposisi video"
 
-#: src/Process/Backend/MediaItem.php:700
+#: src/Process/Backend/MediaItem.php:702
 msgid "Please note that you cannot insert video files with standard editor in WYSIWYG HTML mode."
 msgstr "Harap diperhatikan bahwa Anda tidak dapat menyisipkan file video dengan editor standar dalam mode HTML WYSIWYG."
 
-#: src/Process/Backend/MediaItem.php:706
+#: src/Process/Backend/MediaItem.php:708
 msgid "Media item will be inserted as a link."
 msgstr "Item media akan disisipkan sebagai tautan."
 
-#: src/Process/Backend/MediaItem.php:727
+#: src/Process/Backend/MediaItem.php:729
 msgid "Make current settings as default"
 msgstr "Menjadikan pengaturan saat ini sebagai default"
 
-#: src/Process/Backend/MediaItem.php:728
+#: src/Process/Backend/MediaItem.php:730
 msgid "For the blog"
 msgstr "Untuk blog"
 
-#: src/Process/Backend/MediaItem.php:730
+#: src/Process/Backend/MediaItem.php:732
 msgid "For this folder only"
 msgstr "Hanya untuk folder ini"
 
-#: src/Process/Backend/MediaItem.php:742
+#: src/Process/Backend/MediaItem.php:744
 msgid "Settings exist for this folder:"
 msgstr "Tersedia pengaturan untuk folder ini:"
 
-#: src/Process/Backend/MediaItem.php:743
+#: src/Process/Backend/MediaItem.php:745
 msgid "Remove them"
 msgstr "Hapus mereka"
 
-#: src/Process/Backend/MediaItem.php:753 src/Process/Backend/MediaItem.php:755
+#: src/Process/Backend/MediaItem.php:755 src/Process/Backend/MediaItem.php:757
 msgid "Insert media item"
 msgstr "Menyisipkan item media"
 
-#: src/Process/Backend/MediaItem.php:840
+#: src/Process/Backend/MediaItem.php:842
 msgid "Available sizes:"
 msgstr "Ukuran yang tersedia:"
 
-#: src/Process/Backend/MediaItem.php:865 src/Process/Backend/MediaItem.php:939
-#: src/Process/Backend/MediaItem.php:947 src/Process/Backend/MediaItem.php:958
+#: src/Process/Backend/MediaItem.php:867 src/Process/Backend/MediaItem.php:941
+#: src/Process/Backend/MediaItem.php:949 src/Process/Backend/MediaItem.php:960
 msgid "Image width:"
 msgstr "Lebar gambar:"
 
-#: src/Process/Backend/MediaItem.php:871 src/Process/Backend/MediaItem.php:964
+#: src/Process/Backend/MediaItem.php:873 src/Process/Backend/MediaItem.php:966
 msgid "Image height:"
 msgstr "Tinggi gambar:"
 
-#: src/Process/Backend/MediaItem.php:879 src/Process/Backend/MediaItem.php:974
+#: src/Process/Backend/MediaItem.php:881 src/Process/Backend/MediaItem.php:976
 msgid "File size:"
 msgstr "Ukuran file:"
 
-#: src/Process/Backend/MediaItem.php:887 src/Process/Backend/MediaItem.php:980
+#: src/Process/Backend/MediaItem.php:889 src/Process/Backend/MediaItem.php:982
 msgid "File URL:"
 msgstr "URL file:"
 
-#: src/Process/Backend/MediaItem.php:895
+#: src/Process/Backend/MediaItem.php:897
 msgid "Thumbnail details"
 msgstr "Detail gambar kecil"
 
-#: src/Process/Backend/MediaItem.php:918
+#: src/Process/Backend/MediaItem.php:920
 msgid "File owner:"
 msgstr "Pemilik file:"
 
-#: src/Process/Backend/MediaItem.php:924
+#: src/Process/Backend/MediaItem.php:926
 msgid "File type:"
 msgstr "Jenis file:"
 
-#: src/Process/Backend/MediaItem.php:991
+#: src/Process/Backend/MediaItem.php:993
 msgid "Show entries containing this media"
 msgstr "Tampilkan entri yang berisi media ini"
 
-#: src/Process/Backend/MediaItem.php:1033
+#: src/Process/Backend/MediaItem.php:1035
 msgid "No entry seems contain this media."
 msgstr "Tampaknya tidak ada entri yang berisi media ini."
 
-#: src/Process/Backend/MediaItem.php:1063
+#: src/Process/Backend/MediaItem.php:1065
 msgid "Inside the entry"
 msgstr "Di dalam entri"
 
-#: src/Process/Backend/MediaItem.php:1070
+#: src/Process/Backend/MediaItem.php:1072
 msgid "Linked to entry"
 msgstr "Dikaitkan dengan entri"
 
-#: src/Process/Backend/MediaItem.php:1078
+#: src/Process/Backend/MediaItem.php:1080
 msgid "Entries containing this media"
 msgstr "Entri yang berisi media ini"
 
-#: src/Process/Backend/MediaItem.php:1112
+#: src/Process/Backend/MediaItem.php:1114
 msgid ":"
 msgstr ":"
 
-#: src/Process/Backend/MediaItem.php:1122
+#: src/Process/Backend/MediaItem.php:1124
 msgid "Metadata"
 msgstr "Metadata"
 
-#: src/Process/Backend/MediaItem.php:1134
-#: src/Process/Backend/MediaItem.php:1336
-#: src/Process/Backend/MediaItem.php:1345
+#: src/Process/Backend/MediaItem.php:1136
+#: src/Process/Backend/MediaItem.php:1339
+#: src/Process/Backend/MediaItem.php:1348
 msgid "Media details"
 msgstr "Detail media"
 
-#: src/Process/Backend/MediaItem.php:1152
-#: src/Process/Backend/MediaItem.php:1159
+#: src/Process/Backend/MediaItem.php:1154
+#: src/Process/Backend/MediaItem.php:1161
 msgid "Update thumbnails"
 msgstr "Perbarui gambar mini"
 
-#: src/Process/Backend/MediaItem.php:1154
+#: src/Process/Backend/MediaItem.php:1156
 msgid "This will create or update thumbnails for this image."
 msgstr "Ini akan membuat atau memperbarui gambar mini untuk gambar ini."
 
-#: src/Process/Backend/MediaItem.php:1168
-#: src/Process/Backend/MediaItem.php:1183
+#: src/Process/Backend/MediaItem.php:1170
+#: src/Process/Backend/MediaItem.php:1185
 msgid "Extract in a new directory"
 msgstr "Ekstrak di direktori baru"
 
-#: src/Process/Backend/MediaItem.php:1169
-#: src/Process/Backend/MediaItem.php:1189
+#: src/Process/Backend/MediaItem.php:1171
+#: src/Process/Backend/MediaItem.php:1191
 msgid "Extract in current directory"
 msgstr "Ekstrak di direktori saat ini"
 
-#: src/Process/Backend/MediaItem.php:1177
+#: src/Process/Backend/MediaItem.php:1179
 msgid "Extract archive"
 msgstr "Ekstrak arsip"
 
-#: src/Process/Backend/MediaItem.php:1184
+#: src/Process/Backend/MediaItem.php:1186
 msgid "This will extract archive in a new directory that should not exist yet."
 msgstr "Ini akan mengekstrak arsip di direktori baru yang seharusnya belum ada."
 
-#: src/Process/Backend/MediaItem.php:1190
+#: src/Process/Backend/MediaItem.php:1192
 msgid "This will extract archive in current directory and will overwrite existing files or directory."
 msgstr "Ini akan mengekstrak arsip dalam direktori saat ini dan akan menimpa file atau direktori yang ada."
 
-#: src/Process/Backend/MediaItem.php:1198
+#: src/Process/Backend/MediaItem.php:1200
 msgid "Extract mode:"
 msgstr "Mode ekstrak:"
 
-#: src/Process/Backend/MediaItem.php:1199
+#: src/Process/Backend/MediaItem.php:1201
 msgid "Extract"
 msgstr "Ekstrak"
 
-#: src/Process/Backend/MediaItem.php:1211
+#: src/Process/Backend/MediaItem.php:1213
 msgid "Change media properties"
 msgstr "Mengubah properti media"
 
-#: src/Process/Backend/MediaItem.php:1220
+#: src/Process/Backend/MediaItem.php:1222
 msgid "File name:"
 msgstr "Nama file:"
 
-#: src/Process/Backend/MediaItem.php:1253
+#: src/Process/Backend/MediaItem.php:1255
 msgid "File date:"
 msgstr "Tanggal berkas:"
 
-#: src/Process/Backend/MediaItem.php:1266
+#: src/Process/Backend/MediaItem.php:1268
 msgid "New directory:"
 msgstr "Direktori baru:"
 
-#: src/Process/Backend/MediaItem.php:1281
+#: src/Process/Backend/MediaItem.php:1283
 msgid "Change file"
 msgstr "Ubah file"
 
-#: src/Process/Backend/MediaItem.php:1290
+#: src/Process/Backend/MediaItem.php:1292
 msgid "Choose a file:"
 msgstr "Pilih sebuah file:"
 
-#: src/Process/Backend/MediaItem.php:1290
+#: src/Process/Backend/MediaItem.php:1292
 #, php-format
 msgid "Maximum size %s"
 msgstr "Ukuran maksimum %s"
 
-#: src/Process/Backend/MediaItem.php:1308
+#: src/Process/Backend/MediaItem.php:1311
 msgid "Delete this media"
 msgstr "Menghapus media ini"
 
-#: src/Process/Backend/MediaItem.php:1327
+#: src/Process/Backend/MediaItem.php:1330
 msgid "Updates and modifications"
 msgstr "Pembaruan dan modifikasi"
 
@@ -5528,12 +5528,12 @@ msgid "Password change required to connect"
 msgstr "Diperlukan perubahan kata sandi untuk menyambung"
 
 #: src/Process/Backend/User.php:419 src/Process/Backend/UserPreferences.php:783
-#: src/Process/Install/Install.php:494
+#: src/Process/Install/Install.php:500
 msgid "Last Name:"
 msgstr "Nama belakang:"
 
 #: src/Process/Backend/User.php:429 src/Process/Backend/UserPreferences.php:793
-#: src/Process/Install/Install.php:485
+#: src/Process/Install/Install.php:491
 msgid "First Name:"
 msgstr "Nama depan:"
 
@@ -6118,236 +6118,236 @@ msgstr "Memvalidasi izin"
 msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
 msgstr "Tetapkan kunci master (DC_MASTER_KEY) dalam file konfigurasi."
 
-#: src/Process/Install/Install.php:139 src/Process/Install/Wizard.php:205
+#: src/Process/Install/Install.php:139 src/Process/Install/Wizard.php:202
 msgid "Dotclear is already installed."
 msgstr "Dotclear sudah terpasang."
 
-#: src/Process/Install/Install.php:146 src/Process/Install/Wizard.php:195
+#: src/Process/Install/Install.php:148 src/Process/Install/Wizard.php:192
 msgid "Dotclear cannot be installed."
 msgstr "Dotclear tidak dapat diinstal."
 
-#: src/Process/Install/Install.php:175
+#: src/Process/Install/Install.php:181
 msgid "Invalid email address"
 msgstr "Alamat email tidak valid"
 
-#: src/Process/Install/Install.php:238
+#: src/Process/Install/Install.php:244
 msgid "My first blog"
 msgstr "Blog pertama saya"
 
-#: src/Process/Install/Install.php:251
+#: src/Process/Install/Install.php:257
 msgid "%A, %B %e %Y"
 msgstr "%A, %B %e %Y"
 
-#: src/Process/Install/Install.php:327
+#: src/Process/Install/Install.php:333
 msgid "Welcome to Dotclear!"
 msgstr "Selamat datang di Dotclear!"
 
-#: src/Process/Install/Install.php:328
+#: src/Process/Install/Install.php:334
 msgid "This is your first entry. When you're ready to blog, log in to edit or delete it."
 msgstr "Ini adalah entri pertama Anda. Saat Anda siap menulis blog, masuklah untuk mengedit atau menghapusnya."
 
-#: src/Process/Install/Install.php:340
+#: src/Process/Install/Install.php:346
 msgid "Dotclear Team"
 msgstr "Tim Dotclear"
 
-#: src/Process/Install/Install.php:343
+#: src/Process/Install/Install.php:349
 msgid "<p>This is a comment.</p>\n"
 "<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
 msgstr "<p>Ini adalah sebuah komentar.</p>\n"
 "<p>Untuk menghapusnya, masuk dan lihat komentar blog Anda. Kemudian Anda dapat menghapus atau mengeditnya.</p>"
 
-#: src/Process/Install/Install.php:399
+#: src/Process/Install/Install.php:405
 msgid "Dotclear Install"
 msgstr "Instal Dotclear"
 
-#: src/Process/Install/Install.php:426
+#: src/Process/Install/Install.php:432
 msgid "show"
 msgstr "menunjukkan"
 
-#: src/Process/Install/Install.php:443
+#: src/Process/Install/Install.php:449
 #, php-format
 msgid "Cache directory %s is not writable."
 msgstr "Direktori cache %s tidak dapat ditulis."
 
-#: src/Process/Install/Install.php:462
+#: src/Process/Install/Install.php:468
 msgid "Configuration file has been successfully created."
 msgstr "File konfigurasi telah berhasil dibuat."
 
-#: src/Process/Install/Install.php:469 src/Process/Install/Install.php:476
+#: src/Process/Install/Install.php:475 src/Process/Install/Install.php:482
 msgid "User information"
 msgstr "Informasi pengguna"
 
-#: src/Process/Install/Install.php:470
+#: src/Process/Install/Install.php:476
 msgid "Please provide the following information needed to create the first user."
 msgstr "Berikan informasi berikut yang diperlukan untuk membuat pengguna pertama."
 
-#: src/Process/Install/Install.php:507
+#: src/Process/Install/Install.php:513
 msgid "Username and password"
 msgstr "Nama pengguna dan kata sandi"
 
-#: src/Process/Install/Install.php:530
+#: src/Process/Install/Install.php:536
 msgid "New Password:"
 msgstr "Kata sandi baru:"
 
-#: src/Process/Install/Install.php:540
+#: src/Process/Install/Install.php:546
 msgid "Confirm Password:"
 msgstr "Konfirmasi Kata Sandi:"
 
-#: src/Process/Install/Install.php:573
+#: src/Process/Install/Install.php:579
 msgid "All done!"
 msgstr "Semua selesai!"
 
-#: src/Process/Install/Install.php:575
+#: src/Process/Install/Install.php:581
 msgid "Dotclear has been successfully installed. Here is some useful information you should keep."
 msgstr "Dotclear telah berhasil diinstal. Berikut ini adalah beberapa informasi berguna yang harus Anda simpan."
 
-#: src/Process/Install/Install.php:576
+#: src/Process/Install/Install.php:582
 msgid "Your account"
 msgstr "Akun Anda"
 
-#: src/Process/Install/Install.php:590
+#: src/Process/Install/Install.php:596
 msgid "Your blog"
 msgstr "Blog Anda"
 
-#: src/Process/Install/Install.php:595
+#: src/Process/Install/Install.php:601
 msgid "Blog address:"
 msgstr "Alamat blog:"
 
-#: src/Process/Install/Install.php:600
+#: src/Process/Install/Install.php:606
 msgid "Administration interface:"
 msgstr "Antarmuka administrasi:"
 
-#: src/Process/Install/Install.php:610
+#: src/Process/Install/Install.php:616
 msgid "Manage your blog now"
 msgstr "Kelola blog Anda sekarang"
 
-#: src/Process/Install/Install.php:620
+#: src/Process/Install/Install.php:626
 msgid "Installation can not be completed"
 msgstr "Instalasi tidak dapat diselesaikan"
 
-#: src/Process/Install/Install.php:635
+#: src/Process/Install/Install.php:641
 #, php-format
 msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"%s\">the documentation</a> to learn how to correct the problem."
 msgstr "Karena alasan tersebut, Dotclear tidak dapat diinstal. Silakan lihat <a href=\"%s\">dokumentasi</a> untuk mempelajari cara memperbaiki masalah ini."
 
-#: src/Process/Install/Install.php:643
+#: src/Process/Install/Install.php:649
 msgid "Dotclear installation"
 msgstr "Instalasi Dotclear"
 
-#: src/Process/Install/Wizard.php:114
+#: src/Process/Install/Wizard.php:115
 #, php-format
 msgid "Path <strong>%s</strong> is not writable."
 msgstr "Jalur <strong>%s</strong> tidak dapat ditulis."
 
-#: src/Process/Install/Wizard.php:116
+#: src/Process/Install/Wizard.php:117
 #, php-format
 msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"%s\">the documentation</a> to learn how to do this."
 msgstr "Wizard instalasi DotClear tidak dapat membuat file konfigurasi untuk Anda. Anda harus mengubah folder dengan benar atau membuat file <strong>config.php</strong> secara manual, silakan lihat <a href=\"%s\">dokumentasi</a> untuk mempelajari cara melakukannya."
 
-#: src/Process/Install/Wizard.php:130
+#: src/Process/Install/Wizard.php:131
 msgid "There are no supported database driver."
 msgstr "Tidak ada driver database yang didukung."
 
-#: src/Process/Install/Wizard.php:132
+#: src/Process/Install/Wizard.php:133
 #, php-format
 msgid "Dotclear installation wizard could not find database driver. You must change your PHP configuration to add a supported database handler please refer to <a href=\"%s\">the documentation</a> to learn how to do this."
 msgstr "Wizard instalasi DotClear tidak dapat menemukan driver database. Anda harus mengubah konfigurasi PHP Anda untuk menambahkan penangan basis data yang didukung, silakan lihat <a href=\"%s\">dokumentasi</a> untuk mempelajari cara melakukannya."
 
-#: src/Process/Install/Wizard.php:174
+#: src/Process/Install/Wizard.php:175
 #, php-format
 msgid "Cannot write \"%s\" directory."
 msgstr "Tidak dapat menulis direktori \"%s\"."
 
-#: src/Process/Install/Wizard.php:209
+#: src/Process/Install/Wizard.php:206
 msgid "Master email is not valid."
 msgstr "Email master tidak valid."
 
-#: src/Process/Install/Wizard.php:215
+#: src/Process/Install/Wizard.php:212
 #, php-format
 msgid "File %s does not exist."
 msgstr "File %s tidak ada."
 
-#: src/Process/Install/Wizard.php:220 src/Process/Install/Wizard.php:255
+#: src/Process/Install/Wizard.php:217 src/Process/Install/Wizard.php:252
 #, php-format
 msgid "Cannot write %s file."
 msgstr "Tidak dapat menulis file %s ."
 
-#: src/Process/Install/Wizard.php:298 src/Process/Install/Wizard.php:319
-#: src/Process/Install/Wizard.php:345
+#: src/Process/Install/Wizard.php:297 src/Process/Install/Wizard.php:318
+#: src/Process/Install/Wizard.php:344
 msgid "Dotclear installation wizard"
 msgstr "Panduan instalasi Dotclear"
 
-#: src/Process/Install/Wizard.php:335
+#: src/Process/Install/Wizard.php:334
 msgid "Dotclear can not be installed."
 msgstr "Dotclear tidak dapat diinstal."
 
-#: src/Process/Install/Wizard.php:363
+#: src/Process/Install/Wizard.php:362
 msgid "Welcome"
 msgstr "Selamat datang."
 
-#: src/Process/Install/Wizard.php:364
+#: src/Process/Install/Wizard.php:363
 msgid "To complete your Dotclear installation and start writing on your blog, we just need to know how to access your database and who you are. Just fill this two steps wizard with this information and we will be done."
 msgstr "Untuk menyelesaikan instalasi Dotclear Anda dan mulai menulis di blog Anda, kami hanya perlu mengetahui cara mengakses basis data Anda dan siapa Anda. Cukup isi wizard dua langkah ini dengan informasi ini dan kita akan selesai."
 
-#: src/Process/Install/Wizard.php:370
+#: src/Process/Install/Wizard.php:369
 msgid "Attention:"
 msgstr "Perhatian:"
 
-#: src/Process/Install/Wizard.php:372
+#: src/Process/Install/Wizard.php:371
 #, php-format
 msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"%s\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
 msgstr "wizard ini mungkin tidak berfungsi pada setiap hos. Jika tidak berfungsi untuk Anda, silakan lihat <a href=\"%s\">dokumentasi</a> untuk mempelajari cara membuat berkas <strong>config.php</strong> secara manual."
 
-#: src/Process/Install/Wizard.php:378
+#: src/Process/Install/Wizard.php:377
 msgid "System information"
 msgstr "Informasi sistem"
 
-#: src/Process/Install/Wizard.php:379
+#: src/Process/Install/Wizard.php:378
 msgid "Please provide the following information needed to create your configuration file."
 msgstr "Berikan informasi berikut yang diperlukan untuk membuat file konfigurasi Anda."
 
-#: src/Process/Install/Wizard.php:390
+#: src/Process/Install/Wizard.php:389
 msgid "Database type:"
 msgstr "Jenis basis data:"
 
-#: src/Process/Install/Wizard.php:396
+#: src/Process/Install/Wizard.php:395
 msgid "Driver"
 msgstr "Sopir"
 
-#: src/Process/Install/Wizard.php:403
+#: src/Process/Install/Wizard.php:402
 msgid "Database Host Name:"
 msgstr "Nama Host Basis Data:"
 
-#: src/Process/Install/Wizard.php:411
+#: src/Process/Install/Wizard.php:410
 msgid "Database Name:"
 msgstr "Nama Basis Data:"
 
-#: src/Process/Install/Wizard.php:419
+#: src/Process/Install/Wizard.php:418
 msgid "Database User Name:"
 msgstr "Nama Pengguna Basis Data:"
 
-#: src/Process/Install/Wizard.php:427
+#: src/Process/Install/Wizard.php:426
 msgid "Database Password:"
 msgstr "Kata Sandi Basis Data:"
 
-#: src/Process/Install/Wizard.php:435
+#: src/Process/Install/Wizard.php:434
 msgid "Prefix"
 msgstr "Awalan"
 
-#: src/Process/Install/Wizard.php:436
+#: src/Process/Install/Wizard.php:435
 msgid "Database Tables Prefix:"
 msgstr "Awalan Tabel Basis Data:"
 
-#: src/Process/Install/Wizard.php:444
+#: src/Process/Install/Wizard.php:443
 msgid "Email"
 msgstr "Email"
 
-#: src/Process/Install/Wizard.php:445
+#: src/Process/Install/Wizard.php:444
 msgid "Master Email: (used as sender for password recovery)"
 msgstr "Email Master: (digunakan sebagai pengirim untuk pemulihan kata sandi)"
 
-#: src/Process/Install/Wizard.php:447 src/Process/Upgrade/Digests.php:256
-#: src/Process/Upgrade/Digests.php:277
+#: src/Process/Install/Wizard.php:446 src/Process/Upgrade/Digests.php:255
+#: src/Process/Upgrade/Digests.php:276
 msgid "Continue"
 msgstr "Lanjutkan"
 
@@ -6356,8 +6356,8 @@ msgstr "Lanjutkan"
 #: src/Process/Upgrade/Attic.php:344 src/Process/Upgrade/Attic.php:348
 #: src/Process/Upgrade/Backup.php:56 src/Process/Upgrade/Backup.php:60
 #: src/Process/Upgrade/Backup.php:213 src/Process/Upgrade/Cache.php:71
-#: src/Process/Upgrade/Digests.php:140 src/Process/Upgrade/Home.php:145
-#: src/Process/Upgrade/Langs.php:264 src/Process/Upgrade/Plugins.php:171
+#: src/Process/Upgrade/Digests.php:139 src/Process/Upgrade/Home.php:145
+#: src/Process/Upgrade/Langs.php:263 src/Process/Upgrade/Plugins.php:171
 #: src/Process/Upgrade/Replay.php:78 src/Process/Upgrade/Upgrade.php:51
 #: src/Process/Upgrade/Upgrade.php:55 src/Process/Upgrade/Upgrade.php:76
 #: src/Process/Upgrade/Upgrade.php:80 src/Process/Upgrade/Upgrade.php:313
@@ -6440,8 +6440,8 @@ msgstr "Tidak ada informasi tambahan tentang rilis yang tercantum di sini, Anda 
 msgid "Are you sure to update to version %s?"
 msgstr "Apakah Anda yakin untuk memperbarui ke versi %s?"
 
-#: src/Process/Upgrade/Attic.php:324 src/Process/Upgrade/Digests.php:176
-#: src/Process/Upgrade/Digests.php:190 src/Process/Upgrade/Upgrade.php:286
+#: src/Process/Upgrade/Attic.php:324 src/Process/Upgrade/Digests.php:175
+#: src/Process/Upgrade/Digests.php:189 src/Process/Upgrade/Upgrade.php:286
 msgid "Update Dotclear"
 msgstr "Perbarui Dotclear"
 
@@ -6453,15 +6453,15 @@ msgstr "Selamat, Anda tinggal satu klik lagi dari akhir pembaruan."
 msgid "Finish the update."
 msgstr "Selesaikan pembaruan."
 
-#: src/Process/Upgrade/Auth.php:166
+#: src/Process/Upgrade/Auth.php:165
 msgid "Code verification failed"
 msgstr "Verifikasi kode gagal"
 
-#: src/Process/Upgrade/Auth.php:264 src/Process/Upgrade/Auth.php:381
+#: src/Process/Upgrade/Auth.php:263 src/Process/Upgrade/Auth.php:380
 msgid "Upgrade"
 msgstr "Tingkatkan"
 
-#: src/Process/Upgrade/Auth.php:365
+#: src/Process/Upgrade/Auth.php:364
 msgid "Back to normal dashboard"
 msgstr "Kembali ke dasbor normal"
 
@@ -6543,51 +6543,51 @@ msgstr "Mengosongkan direktori cache repositori"
 msgid "Empty Dotclear versions cache directory"
 msgstr "Kosongkan direktori cache versi Dotclear"
 
-#: src/Process/Upgrade/Digests.php:108
+#: src/Process/Upgrade/Digests.php:107
 msgid "The updates have been performed."
 msgstr "Pembaruan telah dilakukan."
 
-#: src/Process/Upgrade/Digests.php:112
+#: src/Process/Upgrade/Digests.php:111
 msgid "No changed filed have been found, nothing to do!"
 msgstr "Tidak ada perubahan file yang ditemukan, tidak ada yang bisa dilakukan!"
 
-#: src/Process/Upgrade/Digests.php:115
+#: src/Process/Upgrade/Digests.php:114
 msgid "This tool has already been run once."
 msgstr "Alat ini telah dijalankan satu kali."
 
-#: src/Process/Upgrade/Digests.php:136
+#: src/Process/Upgrade/Digests.php:135
 msgid "Files"
 msgstr "File"
 
-#: src/Process/Upgrade/Digests.php:141
+#: src/Process/Upgrade/Digests.php:140
 msgid "Corrupted files"
 msgstr "File yang rusak"
 
-#: src/Process/Upgrade/Digests.php:165
+#: src/Process/Upgrade/Digests.php:164
 msgid "Download backup of digests file."
 msgstr "Unduh cadangan file intisari."
 
-#: src/Process/Upgrade/Digests.php:186
+#: src/Process/Upgrade/Digests.php:185
 msgid "Digests file is up to date."
 msgstr "File digest adalah yang terbaru."
 
-#: src/Process/Upgrade/Digests.php:204
+#: src/Process/Upgrade/Digests.php:203
 msgid "The following files will have their checksum faked:"
 msgstr "File-file berikut ini akan dipalsukan checksum-nya:"
 
-#: src/Process/Upgrade/Digests.php:221
+#: src/Process/Upgrade/Digests.php:220
 msgid "The following files digests will have their checksum cleaned:"
 msgstr "File-file berikut ini akan dibersihkan checksum-nya:"
 
-#: src/Process/Upgrade/Digests.php:236
+#: src/Process/Upgrade/Digests.php:235
 msgid "Still ok to continue"
 msgstr "Masih boleh dilanjutkan"
 
-#: src/Process/Upgrade/Digests.php:252
+#: src/Process/Upgrade/Digests.php:251
 msgid "Remove the backup digest file, I want to play again"
 msgstr "Hapus file intisari cadangan, saya ingin bermain lagi"
 
-#: src/Process/Upgrade/Digests.php:273
+#: src/Process/Upgrade/Digests.php:272
 msgid "I have read and understood the disclaimer and wish to continue anyway."
 msgstr "Saya telah membaca dan memahami penafian ini dan tetap ingin melanjutkannya."
 
@@ -6647,11 +6647,11 @@ msgstr "Setelah pembaruan selesai, jangan lupa untuk memeriksa dan memperbarui t
 msgid "Before performing update you should take into account some informations listed bellow:"
 msgstr "Sebelum melakukan pembaruan, Anda harus mempertimbangkan beberapa informasi yang tercantum di bawah ini:"
 
-#: src/Process/Upgrade/Langs.php:359
+#: src/Process/Upgrade/Langs.php:358
 msgid "Install or upgrade languages from available languages"
 msgstr "Menginstal atau meningkatkan bahasa dari bahasa yang tersedia"
 
-#: src/Process/Upgrade/Langs.php:402
+#: src/Process/Upgrade/Langs.php:401
 msgid "Install or upgrade languages from an upload a zip file"
 msgstr "Menginstal atau meningkatkan bahasa dari unggahan file zip"
 
