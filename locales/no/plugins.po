@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-22 16:34+0200\n"
-"PO-Revision-Date: 2025-09-22 16:10\n"
+"POT-Creation-Date: 2025-10-05 07:56+0200\n"
+"PO-Revision-Date: 2025-10-05 06:00\n"
 "Last-Translator: \n"
 "Language-Team: Norwegian Bokmal\n"
 "Language: nb_NO\n"
@@ -484,7 +484,7 @@ msgid "Dotclear editor"
 msgstr "Dotclear-redaktør"
 
 #: plugins/_fake_plugin/_fake_l10n.php:16
-#: plugins/themeEditor/src/Backend.php:28
+#: plugins/themeEditor/src/Backend.php:29
 msgid "Theme Editor"
 msgstr "Temaredaktør"
 
@@ -551,7 +551,7 @@ msgstr "Liste over valgte oppføringer"
 msgid "List of available languages"
 msgstr "Liste over tilgjengelige språk"
 
-#: plugins/_fake_plugin/_fake_l10n.php:35 plugins/widgets/src/Widgets.php:134
+#: plugins/_fake_plugin/_fake_l10n.php:35 plugins/widgets/src/Widgets.php:133
 msgid "List of categories"
 msgstr "Liste over kategorier"
 
@@ -1150,7 +1150,7 @@ msgstr "Kategorien har blitt oppdatert"
 
 #: plugins/blogroll/src/ManageEdit.php:180
 #: plugins/dcCKEditor/src/BackendBehaviors.php:61
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:220
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:219
 msgid "Link"
 msgstr "Lenke"
 
@@ -1304,48 +1304,48 @@ msgstr "Taggen {{tpl:Breadcrumb [separator=\" &amp;rsaquo; \"]}} skal være til 
 msgid "Do not encapsulate breadcrumb in a &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; tag."
 msgstr "Ikke kapsl inn breadcrumb i en &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; tag."
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:71
-#: plugins/breadcrumb/src/FrontendTemplate.php:76
-#: plugins/breadcrumb/src/FrontendTemplate.php:83
-#: plugins/breadcrumb/src/FrontendTemplate.php:87
-#: plugins/breadcrumb/src/FrontendTemplate.php:98
-#: plugins/breadcrumb/src/FrontendTemplate.php:111
-#: plugins/breadcrumb/src/FrontendTemplate.php:127
-#: plugins/breadcrumb/src/FrontendTemplate.php:144
-#: plugins/breadcrumb/src/FrontendTemplate.php:152
-#: plugins/breadcrumb/src/FrontendTemplate.php:166
-#: plugins/breadcrumb/src/FrontendTemplate.php:173
-#: plugins/breadcrumb/src/FrontendTemplate.php:180
-#: plugins/breadcrumb/src/FrontendTemplate.php:193
-#: plugins/breadcrumb/src/FrontendTemplate.php:205
-#: plugins/breadcrumb/src/FrontendTemplate.php:211
+#: plugins/breadcrumb/src/FrontendTemplate.php:70
+#: plugins/breadcrumb/src/FrontendTemplate.php:75
+#: plugins/breadcrumb/src/FrontendTemplate.php:82
+#: plugins/breadcrumb/src/FrontendTemplate.php:86
+#: plugins/breadcrumb/src/FrontendTemplate.php:97
+#: plugins/breadcrumb/src/FrontendTemplate.php:110
+#: plugins/breadcrumb/src/FrontendTemplate.php:126
+#: plugins/breadcrumb/src/FrontendTemplate.php:143
+#: plugins/breadcrumb/src/FrontendTemplate.php:151
+#: plugins/breadcrumb/src/FrontendTemplate.php:165
+#: plugins/breadcrumb/src/FrontendTemplate.php:172
+#: plugins/breadcrumb/src/FrontendTemplate.php:179
+#: plugins/breadcrumb/src/FrontendTemplate.php:192
+#: plugins/breadcrumb/src/FrontendTemplate.php:204
+#: plugins/breadcrumb/src/FrontendTemplate.php:210
 #: plugins/simpleMenu/src/Manage.php:146 plugins/simpleMenu/src/Manage.php:260
-#: plugins/widgets/src/Widgets.php:296
+#: plugins/widgets/src/Widgets.php:295
 msgid "Home"
 msgstr "Hjem"
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:105
-#: plugins/breadcrumb/src/FrontendTemplate.php:120
-#: plugins/breadcrumb/src/FrontendTemplate.php:186
-#: plugins/breadcrumb/src/FrontendTemplate.php:198
+#: plugins/breadcrumb/src/FrontendTemplate.php:104
+#: plugins/breadcrumb/src/FrontendTemplate.php:119
+#: plugins/breadcrumb/src/FrontendTemplate.php:185
+#: plugins/breadcrumb/src/FrontendTemplate.php:197
 #, php-format
 msgid "page %d"
 msgstr "side %d"
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:155
-#: plugins/breadcrumb/src/FrontendTemplate.php:158
-#: plugins/simpleMenu/src/Manage.php:287 plugins/widgets/src/Widgets.php:324
+#: plugins/breadcrumb/src/FrontendTemplate.php:154
+#: plugins/breadcrumb/src/FrontendTemplate.php:157
+#: plugins/simpleMenu/src/Manage.php:287 plugins/widgets/src/Widgets.php:323
 msgid "Archives"
 msgstr "Arkiv"
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:174
-#: plugins/breadcrumb/src/FrontendTemplate.php:181
+#: plugins/breadcrumb/src/FrontendTemplate.php:173
+#: plugins/breadcrumb/src/FrontendTemplate.php:180
 #: plugins/simpleMenu/src/Manage.php:130 plugins/simpleMenu/src/Manage.php:307
 #: plugins/tags/src/Widgets.php:57
 msgid "All tags"
 msgstr "Alle tagger"
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:206
+#: plugins/breadcrumb/src/FrontendTemplate.php:205
 msgid "404"
 msgstr "404"
 
@@ -1375,27 +1375,27 @@ msgid "HTML"
 msgstr "HTML"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:58
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:236
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:235
 msgid "Media chooser"
 msgstr "Medievalg"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:59
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:239
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:238
 msgid "m"
 msgstr "m"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:60
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:243
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:242
 msgid "Link to an entry"
 msgstr "Lenke til en oppføring"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:62
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:223
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:222
 msgid "l"
 msgstr "l"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:63
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:229
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:228
 msgid "External image"
 msgstr "Eksternt bilde"
 
@@ -1404,7 +1404,7 @@ msgid "URL field cannot be empty."
 msgstr "URL-feltet kan ikke være tomt."
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:88
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:265
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:264
 msgid "Open the media"
 msgstr "Åpne mediet"
 
@@ -1516,113 +1516,113 @@ msgstr "dcLegacyEditor"
 msgid "Dotclear wiki"
 msgstr "Dotclear wiki"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:140
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:139
 msgid "visual"
 msgstr "visuell"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:141
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:140
 msgid "source"
 msgstr "kilde"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:142
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:141
 msgid "You can use the following shortcuts to format your text."
 msgstr "Du kan bruke følgende snarveier for å formatere teksten."
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:145
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:144
 msgid "Block format"
 msgstr "Blokkformat"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:147
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:146
 msgid "-- none --"
 msgstr "-- ingen --"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:148
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:147
 msgid "-- block format --"
 msgstr "-- blokkformat --"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:149
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:148
 msgid "Paragraph"
 msgstr "Paragraf"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:150
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:149
 msgid "Level 1 header"
 msgstr "Nivå 1-topptekst"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:151
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:150
 msgid "Level 2 header"
 msgstr "Nivå 2-topptekst"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:152
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:151
 msgid "Level 3 header"
 msgstr "Nivå 3-topptekst"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:153
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:152
 msgid "Level 4 header"
 msgstr "Topptekst på nivå 4"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:154
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:153
 msgid "Level 5 header"
 msgstr "Topptekst på nivå 5"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:155
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:154
 msgid "Level 6 header"
 msgstr "Nivå 6 topptekst"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:159
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:158
 msgid "Strong emphasis"
 msgstr "Sterk vektlegging"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:164
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:163
 msgid "Emphasis"
 msgstr "Utheving"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:169
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:168
 msgid "Inserted"
 msgstr "Satt inn"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:174
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:173
 msgid "Deleted"
 msgstr "Slettet"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:179
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:267
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:178
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:266
 msgid "Inline quote"
 msgstr "Inline sitat"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:184
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:183
 msgid "Code"
 msgstr "Kode"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:194
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:193
 msgid "Line break"
 msgstr "Linjeskift"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:199
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:198
 msgid "Blockquote"
 msgstr "Sitatblokk"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:204
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:203
 msgid "Preformated text"
 msgstr "Forhåndsformulert tekst"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:209
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:208
 msgid "Unordered list"
 msgstr "Uordnet liste"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:214
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:213
 msgid "Ordered list"
 msgstr "Ordnet liste"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:224
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:232
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:223
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:231
 msgid "URL?"
 msgstr "URL?"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:225
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:224
 msgid "Language?"
 msgstr "Språk?"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:248
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:247
 msgid "Remove text formating"
 msgstr "Fjern tekstformatering"
 
@@ -1668,33 +1668,33 @@ msgstr "Last ned database over alle blogger"
 msgid "No file to read."
 msgstr "Ingen fil å lese."
 
-#: plugins/importExport/src/FlatExport.php:47
+#: plugins/importExport/src/FlatExport.php:49
 msgid "Unable to create output file."
 msgstr "Kan ikke opprette utdatafil."
 
-#: plugins/importExport/src/FlatImportV2.php:97
+#: plugins/importExport/src/FlatImportV2.php:99
 msgid "Unable to read the DotClear backup file."
 msgstr "Kunne ikke lese DotClear-sikkerhetskopifilen."
 
-#: plugins/importExport/src/FlatImportV2.php:101
+#: plugins/importExport/src/FlatImportV2.php:103
 msgid "File is not a DotClear backup."
 msgstr "Filen er ikke en DotClear-sikkerhetskopi."
 
-#: plugins/importExport/src/FlatImportV2.php:177
+#: plugins/importExport/src/FlatImportV2.php:179
 msgid "File is not a single blog export."
 msgstr "Filen er ikke en enkelt bloggeksport."
 
-#: plugins/importExport/src/FlatImportV2.php:294
-#: plugins/importExport/src/FlatImportV2.php:353
+#: plugins/importExport/src/FlatImportV2.php:296
+#: plugins/importExport/src/FlatImportV2.php:355
 #, php-format
 msgid "Error raised at line %s"
 msgstr "Feil oppstått på linje %s"
 
-#: plugins/importExport/src/FlatImportV2.php:305
+#: plugins/importExport/src/FlatImportV2.php:307
 msgid "File is not a full export."
 msgstr "Filen er ikke en fullstendig eksport."
 
-#: plugins/importExport/src/FlatImportV2.php:766
+#: plugins/importExport/src/FlatImportV2.php:768
 #, php-format
 msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
 msgstr "ID for \"%3$s\" stemmer ikke overens med oppføringen \"%1$s\" på linje %2$s i sikkerhetskopifilen."
@@ -1735,115 +1735,115 @@ msgstr "Hvorfor blogger du ikke om dette nå?"
 msgid "visit your dashboard"
 msgstr "besøk dashbordet ditt"
 
-#: plugins/importExport/src/ModuleExportFlat.php:28
+#: plugins/importExport/src/ModuleExportFlat.php:30
 msgid "Flat file export"
 msgstr "Eksport av flat fil"
 
-#: plugins/importExport/src/ModuleExportFlat.php:29
+#: plugins/importExport/src/ModuleExportFlat.php:31
 msgid "Exports a blog or a full Dotclear installation to flat file."
 msgstr "Eksporterer en blogg eller en fullstendig Dotclear-installasjon til en flat fil."
 
-#: plugins/importExport/src/ModuleExportFlat.php:154
+#: plugins/importExport/src/ModuleExportFlat.php:156
 msgid "Export file not found."
 msgstr "Eksportfil ikke funnet."
 
-#: plugins/importExport/src/ModuleExportFlat.php:193
+#: plugins/importExport/src/ModuleExportFlat.php:195
 msgid "Failed to compress export file."
 msgstr "Kunne ikke komprimere eksportfilen."
 
-#: plugins/importExport/src/ModuleImportDc1.php:84
+#: plugins/importExport/src/ModuleImportDc1.php:86
 msgid "Dotclear 1.2 import"
 msgstr "Dotclear 1.2 import"
 
-#: plugins/importExport/src/ModuleImportDc1.php:85
+#: plugins/importExport/src/ModuleImportDc1.php:87
 msgid "Import a Dotclear 1.2 installation into your current blog."
 msgstr "Importer en Dotclear 1.2-installasjon til din nåværende blogg."
 
-#: plugins/importExport/src/ModuleImportDc1.php:216
+#: plugins/importExport/src/ModuleImportDc1.php:218
 #, php-format
 msgid "Import the content of a Dotclear 1.2's blog in the current blog: %s."
 msgstr "Importer innholdet i en Dotclear 1.2-blogg i den nåværende bloggen: %s."
 
-#: plugins/importExport/src/ModuleImportDc1.php:224
-#: plugins/importExport/src/ModuleImportWp.php:251
+#: plugins/importExport/src/ModuleImportDc1.php:226
+#: plugins/importExport/src/ModuleImportWp.php:253
 msgid "Please note that this process will empty your categories, blogroll, entries and comments on the current blog."
 msgstr "Vær oppmerksom på at denne prosessen vil tømme kategorier, bloggruller, innlegg og kommentarer på den aktuelle bloggen."
 
-#: plugins/importExport/src/ModuleImportDc1.php:231
+#: plugins/importExport/src/ModuleImportDc1.php:233
 msgid "We first need some information about your old Dotclear 1.2 installation."
 msgstr "Vi trenger først litt informasjon om din gamle Dotclear 1.2-installasjon."
 
-#: plugins/importExport/src/ModuleImportDc1.php:238
+#: plugins/importExport/src/ModuleImportDc1.php:240
 msgid "Database driver:"
 msgstr "Databasedriver:"
 
-#: plugins/importExport/src/ModuleImportDc1.php:280
-#: plugins/importExport/src/ModuleImportWp.php:300
+#: plugins/importExport/src/ModuleImportDc1.php:282
+#: plugins/importExport/src/ModuleImportWp.php:302
 msgid "Entries import options"
 msgstr "Alternativer for import av oppføringer"
 
-#: plugins/importExport/src/ModuleImportDc1.php:285
-#: plugins/importExport/src/ModuleImportWp.php:345
+#: plugins/importExport/src/ModuleImportDc1.php:287
+#: plugins/importExport/src/ModuleImportWp.php:347
 msgid "Number of entries to import at once:"
 msgstr "Antall oppføringer som skal importeres samtidig:"
 
-#: plugins/importExport/src/ModuleImportDc1.php:291
-#: plugins/importExport/src/ModuleImportWp.php:370
+#: plugins/importExport/src/ModuleImportDc1.php:293
+#: plugins/importExport/src/ModuleImportWp.php:372
 msgid "General information"
 msgstr "Generell informasjon"
 
-#: plugins/importExport/src/ModuleImportDc1.php:291
-#: plugins/importExport/src/ModuleImportWp.php:370
+#: plugins/importExport/src/ModuleImportDc1.php:293
+#: plugins/importExport/src/ModuleImportWp.php:372
 msgid "Import my blog now"
 msgstr "Importer bloggen min nå"
 
-#: plugins/importExport/src/ModuleImportDc1.php:298
-#: plugins/importExport/src/ModuleImportWp.php:377
+#: plugins/importExport/src/ModuleImportDc1.php:300
+#: plugins/importExport/src/ModuleImportWp.php:379
 msgid "Importing users"
 msgstr "Importere brukere"
 
-#: plugins/importExport/src/ModuleImportDc1.php:305
-#: plugins/importExport/src/ModuleImportWp.php:384
+#: plugins/importExport/src/ModuleImportDc1.php:307
+#: plugins/importExport/src/ModuleImportWp.php:386
 msgid "Importing categories"
 msgstr "Importere kategorier"
 
-#: plugins/importExport/src/ModuleImportDc1.php:312
-#: plugins/importExport/src/ModuleImportWp.php:391
+#: plugins/importExport/src/ModuleImportDc1.php:314
+#: plugins/importExport/src/ModuleImportWp.php:393
 msgid "Importing blogroll"
 msgstr "Importerer blogroll"
 
-#: plugins/importExport/src/ModuleImportDc1.php:319
-#: plugins/importExport/src/ModuleImportWp.php:398
+#: plugins/importExport/src/ModuleImportDc1.php:321
+#: plugins/importExport/src/ModuleImportWp.php:400
 #, php-format
 msgid "Importing entries from %d to %d / %d"
 msgstr "Importere oppføringer fra %d til %d / %d"
 
-#: plugins/importExport/src/ModuleImportDc1.php:334
-#: plugins/importExport/src/ModuleImportWp.php:413
+#: plugins/importExport/src/ModuleImportDc1.php:336
+#: plugins/importExport/src/ModuleImportWp.php:415
 msgid "Please read carefully"
 msgstr "Vennligst les nøye"
 
-#: plugins/importExport/src/ModuleImportDc1.php:336
-#: plugins/importExport/src/ModuleImportWp.php:416
+#: plugins/importExport/src/ModuleImportDc1.php:338
+#: plugins/importExport/src/ModuleImportWp.php:418
 msgid "Every newly imported user has received a random password and will need to ask for a new one by following the \"I forgot my password\" link on the login page (Their registered email address has to be valid.)"
 msgstr "Alle nyimporterte brukere har fått et tilfeldig passord og må be om et nytt passord ved å følge lenken \"Jeg har glemt passordet mitt\" på påloggingssiden (den registrerte e-postadressen må være gyldig)."
 
-#: plugins/importExport/src/ModuleImportDc1.php:338
+#: plugins/importExport/src/ModuleImportDc1.php:340
 #, php-format
 msgid "Please note that Dotclear 2 has a new URL layout. You can avoid broken links by installing <a href=\"%s\">DC1 redirect</a> plugin and activate it in your blog configuration."
 msgstr "Vær oppmerksom på at Dotclear 2 har et nytt URL-oppsett. Du kan unngå ødelagte lenker ved å installere <a href=\"%s\">DC1 redirect</a> plugin og aktivere den i bloggkonfigurasjonen."
 
-#: plugins/importExport/src/ModuleImportDc1.php:361
-#: plugins/importExport/src/ModuleImportWp.php:438
+#: plugins/importExport/src/ModuleImportDc1.php:363
+#: plugins/importExport/src/ModuleImportWp.php:440
 msgid "next step"
 msgstr "neste trinn"
 
-#: plugins/importExport/src/ModuleImportDc1.php:379
-#: plugins/importExport/src/ModuleImportWp.php:456
+#: plugins/importExport/src/ModuleImportDc1.php:381
+#: plugins/importExport/src/ModuleImportWp.php:458
 msgid "Depending on the size of your blog, it could take a few minutes."
 msgstr "Avhengig av størrelsen på bloggen din, kan det ta noen minutter."
 
-#: plugins/importExport/src/ModuleImportDc1.php:407
+#: plugins/importExport/src/ModuleImportDc1.php:409
 msgid "Dotclear tables not found"
 msgstr "Dotclear-tabeller ble ikke funnet"
 
@@ -1879,7 +1879,7 @@ msgid "Add a feed content to the current blog: <strong>%s</strong>."
 msgstr "Legg til en feed i den gjeldende bloggen: <strong>%s</strong>."
 
 #: plugins/importExport/src/ModuleImportFeed.php:231
-#: plugins/widgets/src/Widgets.php:156
+#: plugins/widgets/src/Widgets.php:155
 msgid "Feed URL:"
 msgstr "Feed URL:"
 
@@ -1944,64 +1944,64 @@ msgstr "Kunne ikke pakke ut sikkerhetskopifilen."
 msgid "No backup in compressed file."
 msgstr "Ingen sikkerhetskopi i komprimert fil."
 
-#: plugins/importExport/src/ModuleImportWp.php:109
+#: plugins/importExport/src/ModuleImportWp.php:111
 msgid "WordPress import"
 msgstr "WordPress-import"
 
-#: plugins/importExport/src/ModuleImportWp.php:110
+#: plugins/importExport/src/ModuleImportWp.php:112
 msgid "Import a WordPress installation into your current blog."
 msgstr "Importer en WordPress-installasjon til din nåværende blogg."
 
-#: plugins/importExport/src/ModuleImportWp.php:243
+#: plugins/importExport/src/ModuleImportWp.php:245
 #, php-format
 msgid "This will import your WordPress content as new content in the current blog: %s."
 msgstr "Dette vil importere WordPress-innholdet ditt som nytt innhold i den gjeldende bloggen: %s."
 
-#: plugins/importExport/src/ModuleImportWp.php:258
+#: plugins/importExport/src/ModuleImportWp.php:260
 msgid "We first need some information about your old WordPress installation."
 msgstr "Vi trenger først litt informasjon om den gamle WordPress-installasjonen din."
 
-#: plugins/importExport/src/ModuleImportWp.php:308
+#: plugins/importExport/src/ModuleImportWp.php:310
 msgid "WordPress and Dotclear's handling of categories are quite different. You can assign several categories to a single post in WordPress. In the Dotclear world, we see it more like \"One category, several tags.\" Therefore Dotclear can only import one category per post and will chose the lowest numbered one. If you want to keep a trace of every category, you can import them as tags, with an optional prefix."
 msgstr "WordPress og Dotclears håndtering av kategorier er ganske forskjellige. I WordPress kan du tilordne flere kategorier til ett og samme innlegg. I Dotclear-verdenen ser vi det mer som \"Én kategori, flere tagger\". Dotclear kan derfor bare importere én kategori per innlegg, og vil velge den lavest nummererte. Hvis du vil ha oversikt over alle kategoriene, kan du importere dem som tagger, med et valgfritt prefiks."
 
-#: plugins/importExport/src/ModuleImportWp.php:310
+#: plugins/importExport/src/ModuleImportWp.php:312
 msgid "On the other hand, in WordPress, a post can not be uncategorized, and a default installation has a first category labelised <i>\"Uncategorized\"</i>. If you did not change that category, you can just ignore it while importing your blog, as Dotclear allows you to actually keep your posts uncategorized."
 msgstr "På den annen side, i WordPress, kan et innlegg ikke være ukategorisert, og en standardinstallasjon har en første kategori merket <i>\"Uncategorized\".</i> Hvis du ikke har endret denne kategorien, kan du bare ignorere den når du importerer bloggen din, ettersom Dotclear faktisk lar deg beholde innleggene dine ukategoriserte."
 
-#: plugins/importExport/src/ModuleImportWp.php:319
+#: plugins/importExport/src/ModuleImportWp.php:321
 msgid "Ignore the first category:"
 msgstr "Ignorer den første kategorien:"
 
-#: plugins/importExport/src/ModuleImportWp.php:325
+#: plugins/importExport/src/ModuleImportWp.php:327
 msgid "Import lowest numbered category on posts:"
 msgstr "Importer laveste nummererte kategori på innlegg:"
 
-#: plugins/importExport/src/ModuleImportWp.php:331
+#: plugins/importExport/src/ModuleImportWp.php:333
 msgid "Import all categories as tags:"
 msgstr "Importer alle kategorier som tagger:"
 
-#: plugins/importExport/src/ModuleImportWp.php:339
+#: plugins/importExport/src/ModuleImportWp.php:341
 msgid "Prefix such tags with:"
 msgstr "Prefiks slike tagger med:"
 
-#: plugins/importExport/src/ModuleImportWp.php:349
+#: plugins/importExport/src/ModuleImportWp.php:351
 msgid "Content filters"
 msgstr "Innholdsfiltre"
 
-#: plugins/importExport/src/ModuleImportWp.php:351
+#: plugins/importExport/src/ModuleImportWp.php:353
 msgid "You may want to process your post and/or comment content with the following filters."
 msgstr "Det kan være lurt å behandle innleggs- og/eller kommentarinnholdet med følgende filtre."
 
-#: plugins/importExport/src/ModuleImportWp.php:357
+#: plugins/importExport/src/ModuleImportWp.php:359
 msgid "Post content formatter:"
 msgstr "Formatering av innleggsinnhold:"
 
-#: plugins/importExport/src/ModuleImportWp.php:364
+#: plugins/importExport/src/ModuleImportWp.php:366
 msgid "Comment content formatter:"
 msgstr "Formatering av kommentarinnhold:"
 
-#: plugins/importExport/src/ModuleImportWp.php:484
+#: plugins/importExport/src/ModuleImportWp.php:486
 msgid "WordPress tables not found"
 msgstr "WordPress-tabeller ble ikke funnet"
 
@@ -2626,7 +2626,7 @@ msgid "Home page"
 msgstr "Startside"
 
 #: plugins/simpleMenu/src/Manage.php:261 plugins/simpleMenu/src/Manage.php:266
-#: plugins/widgets/src/Widgets.php:305 plugins/widgets/src/Widgets.php:315
+#: plugins/widgets/src/Widgets.php:304 plugins/widgets/src/Widgets.php:314
 msgid "Recent posts"
 msgstr "Nylige innlegg"
 
@@ -2953,7 +2953,7 @@ msgstr "Eldste oppføring"
 msgid "Link to all tags:"
 msgstr "Lenke til alle tagger:"
 
-#: plugins/themeEditor/src/Backend.php:27
+#: plugins/themeEditor/src/Backend.php:28
 msgid "themeEditor"
 msgstr "themeEditor"
 
@@ -3041,72 +3041,68 @@ msgstr "Redigere fil %s"
 msgid "If you use <code>url(...)</code> in your CSS files, be sure to use <code>url(index.php?tf=...)</code> to correctly load theme resources (imported CSS, images, etc.), except for URL types in the form <code>data:image</code>.<br>Example: do <code>@import url(index.php?tf=css/layout.css);</code> instead of <code>@import url(css/layout.css);</code>."
 msgstr "Hvis du bruker <code>url(...)</code> i CSS-filene dine, må du sørge for å bruke <code>url(index.php?tf=</code>...) for å laste inn temaressurser (importert CSS, bilder osv.) på riktig måte, med unntak av URL-typer i formen <code>data:image</code>.<br>Eksempel: gjør @import url <code>(index.php?tf=css/layout</code>.css); i stedet for <code>@import url(css/layout</code>.css) <code>;</code>."
 
-#: plugins/themeEditor/src/Manage.php:265
+#: plugins/themeEditor/src/Manage.php:264
 msgid "This file is not overloadable. Please check your var folder permissions."
 msgstr "Denne filen kan ikke overbelastes. Vennligst sjekk tillatelsene til var-mappen din."
 
-#: plugins/themeEditor/src/Manage.php:268
-msgid "This theme is too old to be modified. Please check if an update is available."
-msgstr "Dette temaet er for gammelt til å bli endret. Vennligst sjekk om en oppdatering er tilgjengelig."
-
-#: plugins/themeEditor/src/Manage.php:287
+#: plugins/themeEditor/src/Manage.php:283
 msgid "Templates files"
 msgstr "Maler filer"
 
-#: plugins/themeEditor/src/Manage.php:292
+#: plugins/themeEditor/src/Manage.php:288
 msgid "CSS files"
 msgstr "CSS-filer"
 
-#: plugins/themeEditor/src/Manage.php:297
+#: plugins/themeEditor/src/Manage.php:293
 msgid "JavaScript files"
 msgstr "JavaScript-filer"
 
-#: plugins/themeEditor/src/Manage.php:302
+#: plugins/themeEditor/src/Manage.php:298
 msgid "Locales files"
 msgstr "Lokale filer"
 
-#: plugins/themeEditor/src/Manage.php:307
+#: plugins/themeEditor/src/Manage.php:303
 msgid "PHP files"
 msgstr "PHP-filer"
 
-#: plugins/themeEditor/src/ThemeEditor.php:184
+#: plugins/themeEditor/src/ThemeEditor.php:183
 msgid "No file"
 msgstr "Ingen fil"
 
-#: plugins/themeEditor/src/ThemeEditor.php:214
+#: plugins/themeEditor/src/ThemeEditor.php:213
 msgid "Customized:"
 msgstr "Tilpasset:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:222
-#: plugins/themeEditor/src/ThemeEditor.php:228
+#: plugins/themeEditor/src/ThemeEditor.php:221
+#: plugins/themeEditor/src/ThemeEditor.php:227
 msgid "From theme:"
 msgstr "Fra tema:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:239
+#: plugins/themeEditor/src/ThemeEditor.php:238
 msgid "From parent:"
 msgstr "Fra foreldrene:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:249
+#: plugins/themeEditor/src/ThemeEditor.php:248
 msgid "From template set:"
 msgstr "Fra malsettet:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:277
-#: plugins/themeEditor/src/ThemeEditor.php:313
-#: plugins/themeEditor/src/ThemeEditor.php:390
+#: plugins/themeEditor/src/ThemeEditor.php:276
+#: plugins/themeEditor/src/ThemeEditor.php:312
+#: plugins/themeEditor/src/ThemeEditor.php:389
 msgid "File does not exist."
 msgstr "Filen finnes ikke."
 
-#: plugins/themeEditor/src/ThemeEditor.php:282
+#: plugins/themeEditor/src/ThemeEditor.php:281
 #, php-format
 msgid "File %s is not readable"
 msgstr "Filen %s er ikke lesbar"
 
-#: plugins/themeEditor/src/ThemeEditor.php:350
+#: plugins/themeEditor/src/ThemeEditor.php:349
 #, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr "Kan ikke skrive filen %s. Kontroller tillatelsene for temafiler og -mapper."
 
-#: plugins/themeEditor/src/ThemeEditor.php:428
+#: plugins/themeEditor/src/ThemeEditor.php:427
 #, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "Kan ikke slette filen %s. Kontroller tillatelsene for temafiler og -mapper."
@@ -3251,109 +3247,109 @@ msgstr "Ingen widget så langt."
 msgid "Drag widgets here to remove."
 msgstr "Dra widgeter hit for å fjerne dem."
 
-#: plugins/widgets/src/Widgets.php:100
+#: plugins/widgets/src/Widgets.php:99
 msgid "Search engine"
 msgstr "Søkemotor"
 
-#: plugins/widgets/src/Widgets.php:102
+#: plugins/widgets/src/Widgets.php:101
 msgid "Placeholder (HTML5 only, optional):"
 msgstr "Plassholder (kun HTML5, valgfritt):"
 
-#: plugins/widgets/src/Widgets.php:109
+#: plugins/widgets/src/Widgets.php:108
 msgid "Navigation links"
 msgstr "Navigasjonslenker"
 
-#: plugins/widgets/src/Widgets.php:117
+#: plugins/widgets/src/Widgets.php:116
 msgid "Selected entries"
 msgstr "Utvalgte oppføringer"
 
-#: plugins/widgets/src/Widgets.php:118
+#: plugins/widgets/src/Widgets.php:117
 msgid "Best of me"
 msgstr "Det beste av meg"
 
-#: plugins/widgets/src/Widgets.php:126
+#: plugins/widgets/src/Widgets.php:125
 msgid "Blog languages"
 msgstr "Bloggspråk"
 
-#: plugins/widgets/src/Widgets.php:136
+#: plugins/widgets/src/Widgets.php:135
 msgid "With entries counts"
 msgstr "Med antall oppføringer"
 
-#: plugins/widgets/src/Widgets.php:137
+#: plugins/widgets/src/Widgets.php:136
 msgid "Include sub cats in count"
 msgstr "Inkluder underkatter i opptellingen"
 
-#: plugins/widgets/src/Widgets.php:138
+#: plugins/widgets/src/Widgets.php:137
 msgid "Include empty categories"
 msgstr "Inkluder tomme kategorier"
 
-#: plugins/widgets/src/Widgets.php:145
+#: plugins/widgets/src/Widgets.php:144
 msgid "Subscribe links"
 msgstr "Abonner på lenker"
 
-#: plugins/widgets/src/Widgets.php:146
+#: plugins/widgets/src/Widgets.php:145
 msgid "Subscribe"
 msgstr "Abonner"
 
-#: plugins/widgets/src/Widgets.php:147
+#: plugins/widgets/src/Widgets.php:146
 msgid "Feeds type:"
 msgstr "Fôrtype:"
 
-#: plugins/widgets/src/Widgets.php:154
+#: plugins/widgets/src/Widgets.php:153
 msgid "Feed reader"
 msgstr "Feed-leser"
 
-#: plugins/widgets/src/Widgets.php:155
+#: plugins/widgets/src/Widgets.php:154
 msgid "Somewhere else"
 msgstr "Et annet sted"
 
-#: plugins/widgets/src/Widgets.php:157 plugins/widgets/src/Widgets.php:185
+#: plugins/widgets/src/Widgets.php:156 plugins/widgets/src/Widgets.php:184
 msgid "Entries limit:"
 msgstr "Begrensning på antall bidrag:"
 
-#: plugins/widgets/src/Widgets.php:164
+#: plugins/widgets/src/Widgets.php:163
 msgid "Text"
 msgstr "Tekst"
 
-#: plugins/widgets/src/Widgets.php:166
+#: plugins/widgets/src/Widgets.php:165
 msgid "Text:"
 msgstr "Tekst:"
 
-#: plugins/widgets/src/Widgets.php:173
+#: plugins/widgets/src/Widgets.php:172
 msgid "Uncategorized"
 msgstr "Uncategorized"
 
-#: plugins/widgets/src/Widgets.php:177 plugins/widgets/src/Widgets.php:179
+#: plugins/widgets/src/Widgets.php:176 plugins/widgets/src/Widgets.php:178
 msgid "Last entries"
 msgstr "Siste oppføringer"
 
-#: plugins/widgets/src/Widgets.php:182
+#: plugins/widgets/src/Widgets.php:181
 msgid "Tag:"
 msgstr "Tag:"
 
-#: plugins/widgets/src/Widgets.php:194
+#: plugins/widgets/src/Widgets.php:193
 msgid "Last comments"
 msgstr "Siste kommentarer"
 
-#: plugins/widgets/src/Widgets.php:195
+#: plugins/widgets/src/Widgets.php:194
 msgid "Comments limit:"
 msgstr "Grensen for kommentarer:"
 
-#: plugins/widgets/src/Widgets.php:565
+#: plugins/widgets/src/Widgets.php:564
 #, php-format
 msgid "This blog's entries %s feed"
 msgstr "Innlegg på denne bloggen %s feed"
 
-#: plugins/widgets/src/Widgets.php:566
+#: plugins/widgets/src/Widgets.php:565
 #, php-format
 msgid "This blog's comments %s feed"
 msgstr "Denne bloggens kommentarer %s feed"
 
-#: plugins/widgets/src/Widgets.php:579
+#: plugins/widgets/src/Widgets.php:578
 msgid "Entries feed"
 msgstr "Innganger feed"
 
-#: plugins/widgets/src/Widgets.php:589
+#: plugins/widgets/src/Widgets.php:588
 msgid "Comments feed"
 msgstr "Kommentarer"
 
