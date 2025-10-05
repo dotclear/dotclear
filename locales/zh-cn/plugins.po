@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-22 16:34+0200\n"
-"PO-Revision-Date: 2025-09-22 16:10\n"
+"POT-Creation-Date: 2025-10-05 07:56+0200\n"
+"PO-Revision-Date: 2025-10-05 06:00\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -484,7 +484,7 @@ msgid "Dotclear editor"
 msgstr "Dotclear 编辑器"
 
 #: plugins/_fake_plugin/_fake_l10n.php:16
-#: plugins/themeEditor/src/Backend.php:28
+#: plugins/themeEditor/src/Backend.php:29
 msgid "Theme Editor"
 msgstr "主题编辑器"
 
@@ -551,7 +551,7 @@ msgstr "选定的条目列表"
 msgid "List of available languages"
 msgstr "可用语言列表"
 
-#: plugins/_fake_plugin/_fake_l10n.php:35 plugins/widgets/src/Widgets.php:134
+#: plugins/_fake_plugin/_fake_l10n.php:35 plugins/widgets/src/Widgets.php:133
 msgid "List of categories"
 msgstr "类别列表"
 
@@ -1148,7 +1148,7 @@ msgstr "成功更新分类目录"
 
 #: plugins/blogroll/src/ManageEdit.php:180
 #: plugins/dcCKEditor/src/BackendBehaviors.php:61
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:220
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:219
 msgid "Link"
 msgstr "链接"
 
@@ -1302,48 +1302,48 @@ msgstr "{{tpl:Breadcrumb [separator=\" &amp;rsaquo; \"]}}标签应该出现在�
 msgid "Do not encapsulate breadcrumb in a &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; tag."
 msgstr "不要将面包屑封装在 &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; 标签中。"
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:71
-#: plugins/breadcrumb/src/FrontendTemplate.php:76
-#: plugins/breadcrumb/src/FrontendTemplate.php:83
-#: plugins/breadcrumb/src/FrontendTemplate.php:87
-#: plugins/breadcrumb/src/FrontendTemplate.php:98
-#: plugins/breadcrumb/src/FrontendTemplate.php:111
-#: plugins/breadcrumb/src/FrontendTemplate.php:127
-#: plugins/breadcrumb/src/FrontendTemplate.php:144
-#: plugins/breadcrumb/src/FrontendTemplate.php:152
-#: plugins/breadcrumb/src/FrontendTemplate.php:166
-#: plugins/breadcrumb/src/FrontendTemplate.php:173
-#: plugins/breadcrumb/src/FrontendTemplate.php:180
-#: plugins/breadcrumb/src/FrontendTemplate.php:193
-#: plugins/breadcrumb/src/FrontendTemplate.php:205
-#: plugins/breadcrumb/src/FrontendTemplate.php:211
+#: plugins/breadcrumb/src/FrontendTemplate.php:70
+#: plugins/breadcrumb/src/FrontendTemplate.php:75
+#: plugins/breadcrumb/src/FrontendTemplate.php:82
+#: plugins/breadcrumb/src/FrontendTemplate.php:86
+#: plugins/breadcrumb/src/FrontendTemplate.php:97
+#: plugins/breadcrumb/src/FrontendTemplate.php:110
+#: plugins/breadcrumb/src/FrontendTemplate.php:126
+#: plugins/breadcrumb/src/FrontendTemplate.php:143
+#: plugins/breadcrumb/src/FrontendTemplate.php:151
+#: plugins/breadcrumb/src/FrontendTemplate.php:165
+#: plugins/breadcrumb/src/FrontendTemplate.php:172
+#: plugins/breadcrumb/src/FrontendTemplate.php:179
+#: plugins/breadcrumb/src/FrontendTemplate.php:192
+#: plugins/breadcrumb/src/FrontendTemplate.php:204
+#: plugins/breadcrumb/src/FrontendTemplate.php:210
 #: plugins/simpleMenu/src/Manage.php:146 plugins/simpleMenu/src/Manage.php:260
-#: plugins/widgets/src/Widgets.php:296
+#: plugins/widgets/src/Widgets.php:295
 msgid "Home"
 msgstr "主页"
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:105
-#: plugins/breadcrumb/src/FrontendTemplate.php:120
-#: plugins/breadcrumb/src/FrontendTemplate.php:186
-#: plugins/breadcrumb/src/FrontendTemplate.php:198
+#: plugins/breadcrumb/src/FrontendTemplate.php:104
+#: plugins/breadcrumb/src/FrontendTemplate.php:119
+#: plugins/breadcrumb/src/FrontendTemplate.php:185
+#: plugins/breadcrumb/src/FrontendTemplate.php:197
 #, php-format
 msgid "page %d"
 msgstr "page %d"
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:155
-#: plugins/breadcrumb/src/FrontendTemplate.php:158
-#: plugins/simpleMenu/src/Manage.php:287 plugins/widgets/src/Widgets.php:324
+#: plugins/breadcrumb/src/FrontendTemplate.php:154
+#: plugins/breadcrumb/src/FrontendTemplate.php:157
+#: plugins/simpleMenu/src/Manage.php:287 plugins/widgets/src/Widgets.php:323
 msgid "Archives"
 msgstr "归档"
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:174
-#: plugins/breadcrumb/src/FrontendTemplate.php:181
+#: plugins/breadcrumb/src/FrontendTemplate.php:173
+#: plugins/breadcrumb/src/FrontendTemplate.php:180
 #: plugins/simpleMenu/src/Manage.php:130 plugins/simpleMenu/src/Manage.php:307
 #: plugins/tags/src/Widgets.php:57
 msgid "All tags"
 msgstr "所有标签"
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:206
+#: plugins/breadcrumb/src/FrontendTemplate.php:205
 msgid "404"
 msgstr "404"
 
@@ -1373,27 +1373,27 @@ msgid "HTML"
 msgstr "HTML"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:58
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:236
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:235
 msgid "Media chooser"
 msgstr "媒体选择器"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:59
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:239
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:238
 msgid "m"
 msgstr "m"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:60
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:243
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:242
 msgid "Link to an entry"
 msgstr "链接到一个条目"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:62
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:223
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:222
 msgid "l"
 msgstr "l"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:63
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:229
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:228
 msgid "External image"
 msgstr "外部图像"
 
@@ -1402,7 +1402,7 @@ msgid "URL field cannot be empty."
 msgstr "URL字段不能为空。"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:88
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:265
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:264
 msgid "Open the media"
 msgstr "打开媒体"
 
@@ -1514,113 +1514,113 @@ msgstr "Dotclear 编辑器"
 msgid "Dotclear wiki"
 msgstr "Dotclear wiki"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:140
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:139
 msgid "visual"
 msgstr "视觉"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:141
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:140
 msgid "source"
 msgstr "来源"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:142
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:141
 msgid "You can use the following shortcuts to format your text."
 msgstr "你可以使用以下快捷键来格式化你的文本。"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:145
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:144
 msgid "Block format"
 msgstr "块状格式"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:147
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:146
 msgid "-- none --"
 msgstr "-- 无 --"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:148
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:147
 msgid "-- block format --"
 msgstr "-- 块格式 --"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:149
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:148
 msgid "Paragraph"
 msgstr "段落"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:150
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:149
 msgid "Level 1 header"
 msgstr "1级头"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:151
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:150
 msgid "Level 2 header"
 msgstr "2级头"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:152
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:151
 msgid "Level 3 header"
 msgstr "3级头"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:153
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:152
 msgid "Level 4 header"
 msgstr "4级头"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:154
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:153
 msgid "Level 5 header"
 msgstr "5级头"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:155
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:154
 msgid "Level 6 header"
 msgstr "6级头"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:159
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:158
 msgid "Strong emphasis"
 msgstr "高度重视"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:164
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:163
 msgid "Emphasis"
 msgstr "强调"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:169
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:168
 msgid "Inserted"
 msgstr "已插入"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:174
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:173
 msgid "Deleted"
 msgstr "已删除"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:179
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:267
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:178
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:266
 msgid "Inline quote"
 msgstr "内联报价"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:184
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:183
 msgid "Code"
 msgstr "编码"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:194
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:193
 msgid "Line break"
 msgstr "换行"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:199
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:198
 msgid "Blockquote"
 msgstr "块状引文"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:204
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:203
 msgid "Preformated text"
 msgstr "预先形成的文本"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:209
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:208
 msgid "Unordered list"
 msgstr "无序列表"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:214
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:213
 msgid "Ordered list"
 msgstr "有序列表"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:224
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:232
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:223
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:231
 msgid "URL?"
 msgstr "URL?"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:225
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:224
 msgid "Language?"
 msgstr "语言?"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:248
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:247
 msgid "Remove text formating"
 msgstr "移除文本格式化"
 
@@ -1666,33 +1666,33 @@ msgstr "下载所有博客的数据库"
 msgid "No file to read."
 msgstr "没有文件要读取。"
 
-#: plugins/importExport/src/FlatExport.php:47
+#: plugins/importExport/src/FlatExport.php:49
 msgid "Unable to create output file."
 msgstr "无法创建输出文件。"
 
-#: plugins/importExport/src/FlatImportV2.php:97
+#: plugins/importExport/src/FlatImportV2.php:99
 msgid "Unable to read the DotClear backup file."
 msgstr "无法读取 DotClear 备份文件。"
 
-#: plugins/importExport/src/FlatImportV2.php:101
+#: plugins/importExport/src/FlatImportV2.php:103
 msgid "File is not a DotClear backup."
 msgstr "文件不是一个 Dotclear 备份。"
 
-#: plugins/importExport/src/FlatImportV2.php:177
+#: plugins/importExport/src/FlatImportV2.php:179
 msgid "File is not a single blog export."
 msgstr "文件不是一个单一博客的导出。"
 
-#: plugins/importExport/src/FlatImportV2.php:294
-#: plugins/importExport/src/FlatImportV2.php:353
+#: plugins/importExport/src/FlatImportV2.php:296
+#: plugins/importExport/src/FlatImportV2.php:355
 #, php-format
 msgid "Error raised at line %s"
 msgstr "在第 %s行出现错误。"
 
-#: plugins/importExport/src/FlatImportV2.php:305
+#: plugins/importExport/src/FlatImportV2.php:307
 msgid "File is not a full export."
 msgstr "文件不是一个完整的导出。"
 
-#: plugins/importExport/src/FlatImportV2.php:766
+#: plugins/importExport/src/FlatImportV2.php:768
 #, php-format
 msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
 msgstr "%3$s\"的ID与备份文件中 %2$s 行的记录 \"%1$s\"不匹配。"
@@ -1733,115 +1733,115 @@ msgstr "为什么不立刻开始写博客呢？"
 msgid "visit your dashboard"
 msgstr "浏览您的控制板"
 
-#: plugins/importExport/src/ModuleExportFlat.php:28
+#: plugins/importExport/src/ModuleExportFlat.php:30
 msgid "Flat file export"
 msgstr "纯文本导出"
 
-#: plugins/importExport/src/ModuleExportFlat.php:29
+#: plugins/importExport/src/ModuleExportFlat.php:31
 msgid "Exports a blog or a full Dotclear installation to flat file."
 msgstr "导出一个博客或者整个 Dotclear 到一个纯文本文件。"
 
-#: plugins/importExport/src/ModuleExportFlat.php:154
+#: plugins/importExport/src/ModuleExportFlat.php:156
 msgid "Export file not found."
 msgstr "导出文件没有找到。"
 
-#: plugins/importExport/src/ModuleExportFlat.php:193
+#: plugins/importExport/src/ModuleExportFlat.php:195
 msgid "Failed to compress export file."
 msgstr "压缩出口文件失败。"
 
-#: plugins/importExport/src/ModuleImportDc1.php:84
+#: plugins/importExport/src/ModuleImportDc1.php:86
 msgid "Dotclear 1.2 import"
 msgstr "Dotclear 1.2 导入"
 
-#: plugins/importExport/src/ModuleImportDc1.php:85
+#: plugins/importExport/src/ModuleImportDc1.php:87
 msgid "Import a Dotclear 1.2 installation into your current blog."
 msgstr "从 Dotclear 1.2 导入到您现在的博客。"
 
-#: plugins/importExport/src/ModuleImportDc1.php:216
+#: plugins/importExport/src/ModuleImportDc1.php:218
 #, php-format
 msgid "Import the content of a Dotclear 1.2's blog in the current blog: %s."
 msgstr "在当前博客中导入Dotclear 1.2的博客内容： %s."
 
-#: plugins/importExport/src/ModuleImportDc1.php:224
-#: plugins/importExport/src/ModuleImportWp.php:251
+#: plugins/importExport/src/ModuleImportDc1.php:226
+#: plugins/importExport/src/ModuleImportWp.php:253
 msgid "Please note that this process will empty your categories, blogroll, entries and comments on the current blog."
 msgstr "请注意这个过程将会清空您当前博客的分类目录、博客链接表、文章和评论。"
 
-#: plugins/importExport/src/ModuleImportDc1.php:231
+#: plugins/importExport/src/ModuleImportDc1.php:233
 msgid "We first need some information about your old Dotclear 1.2 installation."
 msgstr "我们首先需要关于您的 Dotclear 1.2 的一些信息。"
 
-#: plugins/importExport/src/ModuleImportDc1.php:238
+#: plugins/importExport/src/ModuleImportDc1.php:240
 msgid "Database driver:"
 msgstr "数据库驱动程序："
 
-#: plugins/importExport/src/ModuleImportDc1.php:280
-#: plugins/importExport/src/ModuleImportWp.php:300
+#: plugins/importExport/src/ModuleImportDc1.php:282
+#: plugins/importExport/src/ModuleImportWp.php:302
 msgid "Entries import options"
 msgstr "文章导入选项"
 
-#: plugins/importExport/src/ModuleImportDc1.php:285
-#: plugins/importExport/src/ModuleImportWp.php:345
+#: plugins/importExport/src/ModuleImportDc1.php:287
+#: plugins/importExport/src/ModuleImportWp.php:347
 msgid "Number of entries to import at once:"
 msgstr "一次导入的文章数目："
 
-#: plugins/importExport/src/ModuleImportDc1.php:291
-#: plugins/importExport/src/ModuleImportWp.php:370
+#: plugins/importExport/src/ModuleImportDc1.php:293
+#: plugins/importExport/src/ModuleImportWp.php:372
 msgid "General information"
 msgstr "一般信息"
 
-#: plugins/importExport/src/ModuleImportDc1.php:291
-#: plugins/importExport/src/ModuleImportWp.php:370
+#: plugins/importExport/src/ModuleImportDc1.php:293
+#: plugins/importExport/src/ModuleImportWp.php:372
 msgid "Import my blog now"
 msgstr "现在导入我的博客"
 
-#: plugins/importExport/src/ModuleImportDc1.php:298
-#: plugins/importExport/src/ModuleImportWp.php:377
+#: plugins/importExport/src/ModuleImportDc1.php:300
+#: plugins/importExport/src/ModuleImportWp.php:379
 msgid "Importing users"
 msgstr "导入用户"
 
-#: plugins/importExport/src/ModuleImportDc1.php:305
-#: plugins/importExport/src/ModuleImportWp.php:384
+#: plugins/importExport/src/ModuleImportDc1.php:307
+#: plugins/importExport/src/ModuleImportWp.php:386
 msgid "Importing categories"
 msgstr "导入分类目录"
 
-#: plugins/importExport/src/ModuleImportDc1.php:312
-#: plugins/importExport/src/ModuleImportWp.php:391
+#: plugins/importExport/src/ModuleImportDc1.php:314
+#: plugins/importExport/src/ModuleImportWp.php:393
 msgid "Importing blogroll"
 msgstr "导入博客链接"
 
-#: plugins/importExport/src/ModuleImportDc1.php:319
-#: plugins/importExport/src/ModuleImportWp.php:398
+#: plugins/importExport/src/ModuleImportDc1.php:321
+#: plugins/importExport/src/ModuleImportWp.php:400
 #, php-format
 msgid "Importing entries from %d to %d / %d"
 msgstr "从 %d 导入文章到 %d/%d"
 
-#: plugins/importExport/src/ModuleImportDc1.php:334
-#: plugins/importExport/src/ModuleImportWp.php:413
+#: plugins/importExport/src/ModuleImportDc1.php:336
+#: plugins/importExport/src/ModuleImportWp.php:415
 msgid "Please read carefully"
 msgstr "请仔细阅读"
 
-#: plugins/importExport/src/ModuleImportDc1.php:336
-#: plugins/importExport/src/ModuleImportWp.php:416
+#: plugins/importExport/src/ModuleImportDc1.php:338
+#: plugins/importExport/src/ModuleImportWp.php:418
 msgid "Every newly imported user has received a random password and will need to ask for a new one by following the \"I forgot my password\" link on the login page (Their registered email address has to be valid.)"
 msgstr "每个新导入的用户已接收了一个随即密码并且需要通过登录页面“我忘记了我的密码”的链接来获取一个新的（注册的邮箱地址必须有效）。"
 
-#: plugins/importExport/src/ModuleImportDc1.php:338
+#: plugins/importExport/src/ModuleImportDc1.php:340
 #, php-format
 msgid "Please note that Dotclear 2 has a new URL layout. You can avoid broken links by installing <a href=\"%s\">DC1 redirect</a> plugin and activate it in your blog configuration."
 msgstr "请注意 Dotclear 2 有一个新的 URL 布局。您可以通过安装 <a href=\"%s\">DC1 redirect</a> 插件并在博客配置里激活它来避免损坏链接。"
 
-#: plugins/importExport/src/ModuleImportDc1.php:361
-#: plugins/importExport/src/ModuleImportWp.php:438
+#: plugins/importExport/src/ModuleImportDc1.php:363
+#: plugins/importExport/src/ModuleImportWp.php:440
 msgid "next step"
 msgstr "下一步"
 
-#: plugins/importExport/src/ModuleImportDc1.php:379
-#: plugins/importExport/src/ModuleImportWp.php:456
+#: plugins/importExport/src/ModuleImportDc1.php:381
+#: plugins/importExport/src/ModuleImportWp.php:458
 msgid "Depending on the size of your blog, it could take a few minutes."
 msgstr "根据您博客的大小而不同，这将会花费一些时间。"
 
-#: plugins/importExport/src/ModuleImportDc1.php:407
+#: plugins/importExport/src/ModuleImportDc1.php:409
 msgid "Dotclear tables not found"
 msgstr "Dotclear 表没有找到"
 
@@ -1877,7 +1877,7 @@ msgid "Add a feed content to the current blog: <strong>%s</strong>."
 msgstr "在当前的博客上添加一个feed内容： <strong>%s</strong>."
 
 #: plugins/importExport/src/ModuleImportFeed.php:231
-#: plugins/widgets/src/Widgets.php:156
+#: plugins/widgets/src/Widgets.php:155
 msgid "Feed URL:"
 msgstr "Feed URL："
 
@@ -1942,64 +1942,64 @@ msgstr "提取备份文件失败。"
 msgid "No backup in compressed file."
 msgstr "压缩文件中没有备份。"
 
-#: plugins/importExport/src/ModuleImportWp.php:109
+#: plugins/importExport/src/ModuleImportWp.php:111
 msgid "WordPress import"
 msgstr "WordPress 导入"
 
-#: plugins/importExport/src/ModuleImportWp.php:110
+#: plugins/importExport/src/ModuleImportWp.php:112
 msgid "Import a WordPress installation into your current blog."
 msgstr "从 WordPress 导入您当前博客。"
 
-#: plugins/importExport/src/ModuleImportWp.php:243
+#: plugins/importExport/src/ModuleImportWp.php:245
 #, php-format
 msgid "This will import your WordPress content as new content in the current blog: %s."
 msgstr "这将会把您的 WordPress 内容作为新内容导入到当前博客：%s。"
 
-#: plugins/importExport/src/ModuleImportWp.php:258
+#: plugins/importExport/src/ModuleImportWp.php:260
 msgid "We first need some information about your old WordPress installation."
 msgstr "我们首先需要一些关于您以前 WordPress 的一些信息。"
 
-#: plugins/importExport/src/ModuleImportWp.php:308
+#: plugins/importExport/src/ModuleImportWp.php:310
 msgid "WordPress and Dotclear's handling of categories are quite different. You can assign several categories to a single post in WordPress. In the Dotclear world, we see it more like \"One category, several tags.\" Therefore Dotclear can only import one category per post and will chose the lowest numbered one. If you want to keep a trace of every category, you can import them as tags, with an optional prefix."
 msgstr "WordPress 和 Dotclear 处理分类目录的方式很不同。WorePress 中您可以为一篇文章指定多个分类目录。而在 Dotclear 的世界中，我们更倾向于“一个分类目录，多个标签”。因此，Dotclear 对每篇文章仅能导入一个分类目录并会选择数字最低的一个。如果您希望跟踪每一个分类目录，您可以将它们导入为带有可选前缀的标签。"
 
-#: plugins/importExport/src/ModuleImportWp.php:310
+#: plugins/importExport/src/ModuleImportWp.php:312
 msgid "On the other hand, in WordPress, a post can not be uncategorized, and a default installation has a first category labelised <i>\"Uncategorized\"</i>. If you did not change that category, you can just ignore it while importing your blog, as Dotclear allows you to actually keep your posts uncategorized."
 msgstr "另一方面，在 WordPress 中，帖子不能不分类，默认安装的第一个分类是<i>\"未分类\"</i>。如果你没有更改这个类别，你可以在导入博客时忽略它，因为 Dotclear 允许你保留文章的未分类。"
 
-#: plugins/importExport/src/ModuleImportWp.php:319
+#: plugins/importExport/src/ModuleImportWp.php:321
 msgid "Ignore the first category:"
 msgstr "忽略第一个分类："
 
-#: plugins/importExport/src/ModuleImportWp.php:325
+#: plugins/importExport/src/ModuleImportWp.php:327
 msgid "Import lowest numbered category on posts:"
 msgstr "导入文章的数字最低的分类目录："
 
-#: plugins/importExport/src/ModuleImportWp.php:331
+#: plugins/importExport/src/ModuleImportWp.php:333
 msgid "Import all categories as tags:"
 msgstr "将所有分类目录导入为标签："
 
-#: plugins/importExport/src/ModuleImportWp.php:339
+#: plugins/importExport/src/ModuleImportWp.php:341
 msgid "Prefix such tags with:"
 msgstr "为这个标签指定前缀："
 
-#: plugins/importExport/src/ModuleImportWp.php:349
+#: plugins/importExport/src/ModuleImportWp.php:351
 msgid "Content filters"
 msgstr "内容过滤器"
 
-#: plugins/importExport/src/ModuleImportWp.php:351
+#: plugins/importExport/src/ModuleImportWp.php:353
 msgid "You may want to process your post and/or comment content with the following filters."
 msgstr "您或许希望使用下列过滤器处理您的文章以及／或者评论内容。"
 
-#: plugins/importExport/src/ModuleImportWp.php:357
+#: plugins/importExport/src/ModuleImportWp.php:359
 msgid "Post content formatter:"
 msgstr "文章内容格式："
 
-#: plugins/importExport/src/ModuleImportWp.php:364
+#: plugins/importExport/src/ModuleImportWp.php:366
 msgid "Comment content formatter:"
 msgstr "评论内容格式："
 
-#: plugins/importExport/src/ModuleImportWp.php:484
+#: plugins/importExport/src/ModuleImportWp.php:486
 msgid "WordPress tables not found"
 msgstr "WordPress 表没有找到"
 
@@ -2621,7 +2621,7 @@ msgid "Home page"
 msgstr "主页"
 
 #: plugins/simpleMenu/src/Manage.php:261 plugins/simpleMenu/src/Manage.php:266
-#: plugins/widgets/src/Widgets.php:305 plugins/widgets/src/Widgets.php:315
+#: plugins/widgets/src/Widgets.php:304 plugins/widgets/src/Widgets.php:314
 msgid "Recent posts"
 msgstr "最近的帖子"
 
@@ -2946,7 +2946,7 @@ msgstr "最古老的条目"
 msgid "Link to all tags:"
 msgstr "链接到所有标签："
 
-#: plugins/themeEditor/src/Backend.php:27
+#: plugins/themeEditor/src/Backend.php:28
 msgid "themeEditor"
 msgstr "主题编辑器"
 
@@ -3034,72 +3034,68 @@ msgstr "编辑文件 %s"
 msgid "If you use <code>url(...)</code> in your CSS files, be sure to use <code>url(index.php?tf=...)</code> to correctly load theme resources (imported CSS, images, etc.), except for URL types in the form <code>data:image</code>.<br>Example: do <code>@import url(index.php?tf=css/layout.css);</code> instead of <code>@import url(css/layout.css);</code>."
 msgstr "如果您在 CSS 文件中使用 <code>url(...)</code>，请确保使用 <code>url(index.php?tf=...)</code> 正确加载主题资源（导入的 CSS、图像等），<code>data:image</code> 形式的 URL 类型除外。<br>示例：执行 <code>@import url(index.php?tf=css/layout.css);</code> 而不是 <code>@import url(css/layout.css);</code>。"
 
-#: plugins/themeEditor/src/Manage.php:265
+#: plugins/themeEditor/src/Manage.php:264
 msgid "This file is not overloadable. Please check your var folder permissions."
 msgstr "此文件不可重载。请检查 var 文件夹的权限。"
 
-#: plugins/themeEditor/src/Manage.php:268
-msgid "This theme is too old to be modified. Please check if an update is available."
-msgstr "该主题已过期，无法修改。请检查是否有更新。"
-
-#: plugins/themeEditor/src/Manage.php:287
+#: plugins/themeEditor/src/Manage.php:283
 msgid "Templates files"
 msgstr "模板文件"
 
-#: plugins/themeEditor/src/Manage.php:292
+#: plugins/themeEditor/src/Manage.php:288
 msgid "CSS files"
 msgstr "CSS 文件"
 
-#: plugins/themeEditor/src/Manage.php:297
+#: plugins/themeEditor/src/Manage.php:293
 msgid "JavaScript files"
 msgstr "JavaScript 文件"
 
-#: plugins/themeEditor/src/Manage.php:302
+#: plugins/themeEditor/src/Manage.php:298
 msgid "Locales files"
 msgstr "地域文件"
 
-#: plugins/themeEditor/src/Manage.php:307
+#: plugins/themeEditor/src/Manage.php:303
 msgid "PHP files"
 msgstr "PHP文件"
 
-#: plugins/themeEditor/src/ThemeEditor.php:184
+#: plugins/themeEditor/src/ThemeEditor.php:183
 msgid "No file"
 msgstr "没有文件"
 
-#: plugins/themeEditor/src/ThemeEditor.php:214
+#: plugins/themeEditor/src/ThemeEditor.php:213
 msgid "Customized:"
 msgstr "定制："
 
-#: plugins/themeEditor/src/ThemeEditor.php:222
-#: plugins/themeEditor/src/ThemeEditor.php:228
+#: plugins/themeEditor/src/ThemeEditor.php:221
+#: plugins/themeEditor/src/ThemeEditor.php:227
 msgid "From theme:"
 msgstr "从主题："
 
-#: plugins/themeEditor/src/ThemeEditor.php:239
+#: plugins/themeEditor/src/ThemeEditor.php:238
 msgid "From parent:"
 msgstr "来自家长："
 
-#: plugins/themeEditor/src/ThemeEditor.php:249
+#: plugins/themeEditor/src/ThemeEditor.php:248
 msgid "From template set:"
 msgstr "从模板集："
 
-#: plugins/themeEditor/src/ThemeEditor.php:277
-#: plugins/themeEditor/src/ThemeEditor.php:313
-#: plugins/themeEditor/src/ThemeEditor.php:390
+#: plugins/themeEditor/src/ThemeEditor.php:276
+#: plugins/themeEditor/src/ThemeEditor.php:312
+#: plugins/themeEditor/src/ThemeEditor.php:389
 msgid "File does not exist."
 msgstr "文件不存在。"
 
-#: plugins/themeEditor/src/ThemeEditor.php:282
+#: plugins/themeEditor/src/ThemeEditor.php:281
 #, php-format
 msgid "File %s is not readable"
 msgstr "文件 %s 无法读取"
 
-#: plugins/themeEditor/src/ThemeEditor.php:350
+#: plugins/themeEditor/src/ThemeEditor.php:349
 #, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr "无法写入文件 %s。请检查您的主题文件和文件夹的权限。"
 
-#: plugins/themeEditor/src/ThemeEditor.php:428
+#: plugins/themeEditor/src/ThemeEditor.php:427
 #, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "无法删除文件 %s。请检查主题文件和文件夹的权限。"
@@ -3244,109 +3240,109 @@ msgstr "到目前为止，没有小工具。"
 msgid "Drag widgets here to remove."
 msgstr "在这里拖动小部件来移除。"
 
-#: plugins/widgets/src/Widgets.php:100
+#: plugins/widgets/src/Widgets.php:99
 msgid "Search engine"
 msgstr "搜索引擎"
 
-#: plugins/widgets/src/Widgets.php:102
+#: plugins/widgets/src/Widgets.php:101
 msgid "Placeholder (HTML5 only, optional):"
 msgstr "占位符（仅限HTML5，可选）："
 
-#: plugins/widgets/src/Widgets.php:109
+#: plugins/widgets/src/Widgets.php:108
 msgid "Navigation links"
 msgstr "导航链接"
 
-#: plugins/widgets/src/Widgets.php:117
+#: plugins/widgets/src/Widgets.php:116
 msgid "Selected entries"
 msgstr "精选的文章"
 
-#: plugins/widgets/src/Widgets.php:118
+#: plugins/widgets/src/Widgets.php:117
 msgid "Best of me"
 msgstr "我最好的文章"
 
-#: plugins/widgets/src/Widgets.php:126
+#: plugins/widgets/src/Widgets.php:125
 msgid "Blog languages"
 msgstr "博客语言"
 
-#: plugins/widgets/src/Widgets.php:136
+#: plugins/widgets/src/Widgets.php:135
 msgid "With entries counts"
 msgstr "带有文章计数"
 
-#: plugins/widgets/src/Widgets.php:137
+#: plugins/widgets/src/Widgets.php:136
 msgid "Include sub cats in count"
 msgstr "在计数中包括子猫"
 
-#: plugins/widgets/src/Widgets.php:138
+#: plugins/widgets/src/Widgets.php:137
 msgid "Include empty categories"
 msgstr "包括空的类别"
 
-#: plugins/widgets/src/Widgets.php:145
+#: plugins/widgets/src/Widgets.php:144
 msgid "Subscribe links"
 msgstr "订阅链接"
 
-#: plugins/widgets/src/Widgets.php:146
+#: plugins/widgets/src/Widgets.php:145
 msgid "Subscribe"
 msgstr "订阅"
 
-#: plugins/widgets/src/Widgets.php:147
+#: plugins/widgets/src/Widgets.php:146
 msgid "Feeds type:"
 msgstr "Feeds 类型："
 
-#: plugins/widgets/src/Widgets.php:154
+#: plugins/widgets/src/Widgets.php:153
 msgid "Feed reader"
 msgstr "Feed 读者"
 
-#: plugins/widgets/src/Widgets.php:155
+#: plugins/widgets/src/Widgets.php:154
 msgid "Somewhere else"
 msgstr "别的什么地方"
 
-#: plugins/widgets/src/Widgets.php:157 plugins/widgets/src/Widgets.php:185
+#: plugins/widgets/src/Widgets.php:156 plugins/widgets/src/Widgets.php:184
 msgid "Entries limit:"
 msgstr "文章限制："
 
-#: plugins/widgets/src/Widgets.php:164
+#: plugins/widgets/src/Widgets.php:163
 msgid "Text"
 msgstr "文本"
 
-#: plugins/widgets/src/Widgets.php:166
+#: plugins/widgets/src/Widgets.php:165
 msgid "Text:"
 msgstr "文本："
 
-#: plugins/widgets/src/Widgets.php:173
+#: plugins/widgets/src/Widgets.php:172
 msgid "Uncategorized"
 msgstr "未分类"
 
-#: plugins/widgets/src/Widgets.php:177 plugins/widgets/src/Widgets.php:179
+#: plugins/widgets/src/Widgets.php:176 plugins/widgets/src/Widgets.php:178
 msgid "Last entries"
 msgstr "最新文章"
 
-#: plugins/widgets/src/Widgets.php:182
+#: plugins/widgets/src/Widgets.php:181
 msgid "Tag:"
 msgstr "标签："
 
-#: plugins/widgets/src/Widgets.php:194
+#: plugins/widgets/src/Widgets.php:193
 msgid "Last comments"
 msgstr "最新评论"
 
-#: plugins/widgets/src/Widgets.php:195
+#: plugins/widgets/src/Widgets.php:194
 msgid "Comments limit:"
 msgstr "评论限制："
 
-#: plugins/widgets/src/Widgets.php:565
+#: plugins/widgets/src/Widgets.php:564
 #, php-format
 msgid "This blog's entries %s feed"
 msgstr "此博客的文章 %s feed"
 
-#: plugins/widgets/src/Widgets.php:566
+#: plugins/widgets/src/Widgets.php:565
 #, php-format
 msgid "This blog's comments %s feed"
 msgstr "此博客的评论 %s feed"
 
-#: plugins/widgets/src/Widgets.php:579
+#: plugins/widgets/src/Widgets.php:578
 msgid "Entries feed"
 msgstr "文章 feed"
 
-#: plugins/widgets/src/Widgets.php:589
+#: plugins/widgets/src/Widgets.php:588
 msgid "Comments feed"
 msgstr "评论 feed"
 
