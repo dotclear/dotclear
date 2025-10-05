@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-22 16:34+0200\n"
-"PO-Revision-Date: 2025-09-22 16:09\n"
+"POT-Creation-Date: 2025-10-05 07:56+0200\n"
+"PO-Revision-Date: 2025-10-05 05:59\n"
 "Last-Translator: \n"
 "Language-Team: Romanian\n"
 "Language: ro_RO\n"
@@ -484,7 +484,7 @@ msgid "Dotclear editor"
 msgstr "Editorul Dotclear"
 
 #: plugins/_fake_plugin/_fake_l10n.php:16
-#: plugins/themeEditor/src/Backend.php:28
+#: plugins/themeEditor/src/Backend.php:29
 msgid "Theme Editor"
 msgstr "Editor de teme"
 
@@ -551,7 +551,7 @@ msgstr "Lista intrărilor selectate"
 msgid "List of available languages"
 msgstr "Lista limbilor disponibile"
 
-#: plugins/_fake_plugin/_fake_l10n.php:35 plugins/widgets/src/Widgets.php:134
+#: plugins/_fake_plugin/_fake_l10n.php:35 plugins/widgets/src/Widgets.php:133
 msgid "List of categories"
 msgstr "Lista categoriilor"
 
@@ -1152,7 +1152,7 @@ msgstr "Categoria a fost actualizată cu succes"
 
 #: plugins/blogroll/src/ManageEdit.php:180
 #: plugins/dcCKEditor/src/BackendBehaviors.php:61
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:220
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:219
 msgid "Link"
 msgstr "Link-ul"
 
@@ -1306,48 +1306,48 @@ msgstr "Eticheta {{tpl:Breadcrumb [separator=\" &amp;rsaquo; \"]}} ar trebui să
 msgid "Do not encapsulate breadcrumb in a &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; tag."
 msgstr "Nu încapsulați breadcrumb într-o etichetă &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt;."
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:71
-#: plugins/breadcrumb/src/FrontendTemplate.php:76
-#: plugins/breadcrumb/src/FrontendTemplate.php:83
-#: plugins/breadcrumb/src/FrontendTemplate.php:87
-#: plugins/breadcrumb/src/FrontendTemplate.php:98
-#: plugins/breadcrumb/src/FrontendTemplate.php:111
-#: plugins/breadcrumb/src/FrontendTemplate.php:127
-#: plugins/breadcrumb/src/FrontendTemplate.php:144
-#: plugins/breadcrumb/src/FrontendTemplate.php:152
-#: plugins/breadcrumb/src/FrontendTemplate.php:166
-#: plugins/breadcrumb/src/FrontendTemplate.php:173
-#: plugins/breadcrumb/src/FrontendTemplate.php:180
-#: plugins/breadcrumb/src/FrontendTemplate.php:193
-#: plugins/breadcrumb/src/FrontendTemplate.php:205
-#: plugins/breadcrumb/src/FrontendTemplate.php:211
+#: plugins/breadcrumb/src/FrontendTemplate.php:70
+#: plugins/breadcrumb/src/FrontendTemplate.php:75
+#: plugins/breadcrumb/src/FrontendTemplate.php:82
+#: plugins/breadcrumb/src/FrontendTemplate.php:86
+#: plugins/breadcrumb/src/FrontendTemplate.php:97
+#: plugins/breadcrumb/src/FrontendTemplate.php:110
+#: plugins/breadcrumb/src/FrontendTemplate.php:126
+#: plugins/breadcrumb/src/FrontendTemplate.php:143
+#: plugins/breadcrumb/src/FrontendTemplate.php:151
+#: plugins/breadcrumb/src/FrontendTemplate.php:165
+#: plugins/breadcrumb/src/FrontendTemplate.php:172
+#: plugins/breadcrumb/src/FrontendTemplate.php:179
+#: plugins/breadcrumb/src/FrontendTemplate.php:192
+#: plugins/breadcrumb/src/FrontendTemplate.php:204
+#: plugins/breadcrumb/src/FrontendTemplate.php:210
 #: plugins/simpleMenu/src/Manage.php:146 plugins/simpleMenu/src/Manage.php:260
-#: plugins/widgets/src/Widgets.php:296
+#: plugins/widgets/src/Widgets.php:295
 msgid "Home"
 msgstr "Acasă"
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:105
-#: plugins/breadcrumb/src/FrontendTemplate.php:120
-#: plugins/breadcrumb/src/FrontendTemplate.php:186
-#: plugins/breadcrumb/src/FrontendTemplate.php:198
+#: plugins/breadcrumb/src/FrontendTemplate.php:104
+#: plugins/breadcrumb/src/FrontendTemplate.php:119
+#: plugins/breadcrumb/src/FrontendTemplate.php:185
+#: plugins/breadcrumb/src/FrontendTemplate.php:197
 #, php-format
 msgid "page %d"
 msgstr "pagina %d"
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:155
-#: plugins/breadcrumb/src/FrontendTemplate.php:158
-#: plugins/simpleMenu/src/Manage.php:287 plugins/widgets/src/Widgets.php:324
+#: plugins/breadcrumb/src/FrontendTemplate.php:154
+#: plugins/breadcrumb/src/FrontendTemplate.php:157
+#: plugins/simpleMenu/src/Manage.php:287 plugins/widgets/src/Widgets.php:323
 msgid "Archives"
 msgstr "Arhive"
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:174
-#: plugins/breadcrumb/src/FrontendTemplate.php:181
+#: plugins/breadcrumb/src/FrontendTemplate.php:173
+#: plugins/breadcrumb/src/FrontendTemplate.php:180
 #: plugins/simpleMenu/src/Manage.php:130 plugins/simpleMenu/src/Manage.php:307
 #: plugins/tags/src/Widgets.php:57
 msgid "All tags"
 msgstr "Toate etichetele"
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:206
+#: plugins/breadcrumb/src/FrontendTemplate.php:205
 msgid "404"
 msgstr "404"
 
@@ -1377,27 +1377,27 @@ msgid "HTML"
 msgstr "HTML"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:58
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:236
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:235
 msgid "Media chooser"
 msgstr "Selector media"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:59
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:239
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:238
 msgid "m"
 msgstr "m"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:60
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:243
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:242
 msgid "Link to an entry"
 msgstr "Link către o intrare"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:62
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:223
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:222
 msgid "l"
 msgstr "l"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:63
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:229
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:228
 msgid "External image"
 msgstr "Imagine externă"
 
@@ -1406,7 +1406,7 @@ msgid "URL field cannot be empty."
 msgstr "Câmpul URL nu poate fi gol."
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:88
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:265
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:264
 msgid "Open the media"
 msgstr "Deschideți suportul media"
 
@@ -1518,113 +1518,113 @@ msgstr "Editorul Dotclear"
 msgid "Dotclear wiki"
 msgstr "Dotclear wiki"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:140
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:139
 msgid "visual"
 msgstr "vedere"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:141
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:140
 msgid "source"
 msgstr "sursă"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:142
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:141
 msgid "You can use the following shortcuts to format your text."
 msgstr "Puteţi utiliza următoarele comenzi rapide pentru a formata textul."
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:145
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:144
 msgid "Block format"
 msgstr "Format bloc"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:147
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:146
 msgid "-- none --"
 msgstr "-- nici unul --"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:148
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:147
 msgid "-- block format --"
 msgstr "-- format bloc --"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:149
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:148
 msgid "Paragraph"
 msgstr "Paragraful"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:150
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:149
 msgid "Level 1 header"
 msgstr "Nivel 1 antet"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:151
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:150
 msgid "Level 2 header"
 msgstr "Nivel 2 antet"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:152
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:151
 msgid "Level 3 header"
 msgstr "Antet nivel 3"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:153
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:152
 msgid "Level 4 header"
 msgstr "Nivel 4 antet"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:154
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:153
 msgid "Level 5 header"
 msgstr "Nivel 5 antet"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:155
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:154
 msgid "Level 6 header"
 msgstr "Nivel 6 antet"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:159
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:158
 msgid "Strong emphasis"
 msgstr "Accentul puternic"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:164
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:163
 msgid "Emphasis"
 msgstr "Accentuarea"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:169
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:168
 msgid "Inserted"
 msgstr "Inserat"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:174
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:173
 msgid "Deleted"
 msgstr "Șters"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:179
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:267
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:178
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:266
 msgid "Inline quote"
 msgstr "Cotație în linie"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:184
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:183
 msgid "Code"
 msgstr "Cod"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:194
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:193
 msgid "Line break"
 msgstr "Linie pauză"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:199
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:198
 msgid "Blockquote"
 msgstr "Citate"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:204
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:203
 msgid "Preformated text"
 msgstr "Text preformat"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:209
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:208
 msgid "Unordered list"
 msgstr "Listă neordonată"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:214
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:213
 msgid "Ordered list"
 msgstr "Listă ordonată"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:224
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:232
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:223
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:231
 msgid "URL?"
 msgstr "URL?"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:225
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:224
 msgid "Language?"
 msgstr "Limbă?"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:248
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:247
 msgid "Remove text formating"
 msgstr "Elimină formatarea textului"
 
@@ -1670,33 +1670,33 @@ msgstr "Descarcă baza de date a tuturor blogurilor"
 msgid "No file to read."
 msgstr "Niciun fișier de citit."
 
-#: plugins/importExport/src/FlatExport.php:47
+#: plugins/importExport/src/FlatExport.php:49
 msgid "Unable to create output file."
 msgstr "Imposibil de creat fișierul de ieșire."
 
-#: plugins/importExport/src/FlatImportV2.php:97
+#: plugins/importExport/src/FlatImportV2.php:99
 msgid "Unable to read the DotClear backup file."
 msgstr "Nu se poate citi fișierul de backup DotClear."
 
-#: plugins/importExport/src/FlatImportV2.php:101
+#: plugins/importExport/src/FlatImportV2.php:103
 msgid "File is not a DotClear backup."
 msgstr "Fişierul nu este o copie de rezervă DotClear"
 
-#: plugins/importExport/src/FlatImportV2.php:177
+#: plugins/importExport/src/FlatImportV2.php:179
 msgid "File is not a single blog export."
 msgstr "Fișierul nu este un singur export de blog."
 
-#: plugins/importExport/src/FlatImportV2.php:294
-#: plugins/importExport/src/FlatImportV2.php:353
+#: plugins/importExport/src/FlatImportV2.php:296
+#: plugins/importExport/src/FlatImportV2.php:355
 #, php-format
 msgid "Error raised at line %s"
 msgstr "Eroare ridicată la linia %s"
 
-#: plugins/importExport/src/FlatImportV2.php:305
+#: plugins/importExport/src/FlatImportV2.php:307
 msgid "File is not a full export."
 msgstr "Fișierul nu este un export complet."
 
-#: plugins/importExport/src/FlatImportV2.php:766
+#: plugins/importExport/src/FlatImportV2.php:768
 #, php-format
 msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
 msgstr "ID-ul \"%3$s\" nu se potriveşte cu înregistrarea \"%1$s\" la linia %2$s din fişierul de backup de rezervă."
@@ -1737,115 +1737,115 @@ msgstr "De ce nu blochezi acest lucru acum?"
 msgid "visit your dashboard"
 msgstr "vizitează-ți tabloul de bord"
 
-#: plugins/importExport/src/ModuleExportFlat.php:28
+#: plugins/importExport/src/ModuleExportFlat.php:30
 msgid "Flat file export"
 msgstr "Export fișier fix"
 
-#: plugins/importExport/src/ModuleExportFlat.php:29
+#: plugins/importExport/src/ModuleExportFlat.php:31
 msgid "Exports a blog or a full Dotclear installation to flat file."
 msgstr "Exportă un blog sau o instalare Dotclear completă în fișier plat."
 
-#: plugins/importExport/src/ModuleExportFlat.php:154
+#: plugins/importExport/src/ModuleExportFlat.php:156
 msgid "Export file not found."
 msgstr "Fișierul export nu a fost găsit."
 
-#: plugins/importExport/src/ModuleExportFlat.php:193
+#: plugins/importExport/src/ModuleExportFlat.php:195
 msgid "Failed to compress export file."
 msgstr "Nu s-a reușit comprimarea fișierului de export."
 
-#: plugins/importExport/src/ModuleImportDc1.php:84
+#: plugins/importExport/src/ModuleImportDc1.php:86
 msgid "Dotclear 1.2 import"
 msgstr "Import Dotclear 1.2"
 
-#: plugins/importExport/src/ModuleImportDc1.php:85
+#: plugins/importExport/src/ModuleImportDc1.php:87
 msgid "Import a Dotclear 1.2 installation into your current blog."
 msgstr "Importă o instalare Dotclear 1.2 în blogul tău curent."
 
-#: plugins/importExport/src/ModuleImportDc1.php:216
+#: plugins/importExport/src/ModuleImportDc1.php:218
 #, php-format
 msgid "Import the content of a Dotclear 1.2's blog in the current blog: %s."
 msgstr "Importă conținutul unui blog Dotclear 1.2 în blog-ul curent: %s."
 
-#: plugins/importExport/src/ModuleImportDc1.php:224
-#: plugins/importExport/src/ModuleImportWp.php:251
+#: plugins/importExport/src/ModuleImportDc1.php:226
+#: plugins/importExport/src/ModuleImportWp.php:253
 msgid "Please note that this process will empty your categories, blogroll, entries and comments on the current blog."
 msgstr "Te rugăm să reții că acest proces va goli categoriile tale, blogroll, intrările și comentariile de pe blogul curent."
 
-#: plugins/importExport/src/ModuleImportDc1.php:231
+#: plugins/importExport/src/ModuleImportDc1.php:233
 msgid "We first need some information about your old Dotclear 1.2 installation."
 msgstr "Mai întâi avem nevoie de câteva informaţii despre vechea instalare Dotclear 1.2."
 
-#: plugins/importExport/src/ModuleImportDc1.php:238
+#: plugins/importExport/src/ModuleImportDc1.php:240
 msgid "Database driver:"
 msgstr "Șofer bază de date:"
 
-#: plugins/importExport/src/ModuleImportDc1.php:280
-#: plugins/importExport/src/ModuleImportWp.php:300
+#: plugins/importExport/src/ModuleImportDc1.php:282
+#: plugins/importExport/src/ModuleImportWp.php:302
 msgid "Entries import options"
 msgstr "Opţiuni de import intrări"
 
-#: plugins/importExport/src/ModuleImportDc1.php:285
-#: plugins/importExport/src/ModuleImportWp.php:345
+#: plugins/importExport/src/ModuleImportDc1.php:287
+#: plugins/importExport/src/ModuleImportWp.php:347
 msgid "Number of entries to import at once:"
 msgstr "Numărul intrărilor de importat simultan:"
 
-#: plugins/importExport/src/ModuleImportDc1.php:291
-#: plugins/importExport/src/ModuleImportWp.php:370
+#: plugins/importExport/src/ModuleImportDc1.php:293
+#: plugins/importExport/src/ModuleImportWp.php:372
 msgid "General information"
 msgstr "Informaţii generale"
 
-#: plugins/importExport/src/ModuleImportDc1.php:291
-#: plugins/importExport/src/ModuleImportWp.php:370
+#: plugins/importExport/src/ModuleImportDc1.php:293
+#: plugins/importExport/src/ModuleImportWp.php:372
 msgid "Import my blog now"
 msgstr "Importă blog-ul acum"
 
-#: plugins/importExport/src/ModuleImportDc1.php:298
-#: plugins/importExport/src/ModuleImportWp.php:377
+#: plugins/importExport/src/ModuleImportDc1.php:300
+#: plugins/importExport/src/ModuleImportWp.php:379
 msgid "Importing users"
 msgstr "Importă utilizatori"
 
-#: plugins/importExport/src/ModuleImportDc1.php:305
-#: plugins/importExport/src/ModuleImportWp.php:384
+#: plugins/importExport/src/ModuleImportDc1.php:307
+#: plugins/importExport/src/ModuleImportWp.php:386
 msgid "Importing categories"
 msgstr "Importul categoriilor"
 
-#: plugins/importExport/src/ModuleImportDc1.php:312
-#: plugins/importExport/src/ModuleImportWp.php:391
+#: plugins/importExport/src/ModuleImportDc1.php:314
+#: plugins/importExport/src/ModuleImportWp.php:393
 msgid "Importing blogroll"
 msgstr "Importare blogroll"
 
-#: plugins/importExport/src/ModuleImportDc1.php:319
-#: plugins/importExport/src/ModuleImportWp.php:398
+#: plugins/importExport/src/ModuleImportDc1.php:321
+#: plugins/importExport/src/ModuleImportWp.php:400
 #, php-format
 msgid "Importing entries from %d to %d / %d"
 msgstr "Se importă intrări din %d la %d / %d"
 
-#: plugins/importExport/src/ModuleImportDc1.php:334
-#: plugins/importExport/src/ModuleImportWp.php:413
+#: plugins/importExport/src/ModuleImportDc1.php:336
+#: plugins/importExport/src/ModuleImportWp.php:415
 msgid "Please read carefully"
 msgstr "Vă rugăm să citiţi cu atenţie"
 
-#: plugins/importExport/src/ModuleImportDc1.php:336
-#: plugins/importExport/src/ModuleImportWp.php:416
+#: plugins/importExport/src/ModuleImportDc1.php:338
+#: plugins/importExport/src/ModuleImportWp.php:418
 msgid "Every newly imported user has received a random password and will need to ask for a new one by following the \"I forgot my password\" link on the login page (Their registered email address has to be valid.)"
 msgstr "Fiecare utilizator nou importat a primit o parolă aleatorie şi va trebui să ceară una nouă urmând link-ul \"Mi-am uitat parola\" de pe pagina de autentificare (Adresa de e-mail înregistrată trebuie să fie validă.)"
 
-#: plugins/importExport/src/ModuleImportDc1.php:338
+#: plugins/importExport/src/ModuleImportDc1.php:340
 #, php-format
 msgid "Please note that Dotclear 2 has a new URL layout. You can avoid broken links by installing <a href=\"%s\">DC1 redirect</a> plugin and activate it in your blog configuration."
 msgstr "Vă rugăm să reţineţi că Dotclear 2 are un nou aspect de URL-uri. Puteți evita link-urile defecte instalând <a href=\"%s\">redirecționare DC1</a> plugin-ul și activați-l în configurarea blogului dvs."
 
-#: plugins/importExport/src/ModuleImportDc1.php:361
-#: plugins/importExport/src/ModuleImportWp.php:438
+#: plugins/importExport/src/ModuleImportDc1.php:363
+#: plugins/importExport/src/ModuleImportWp.php:440
 msgid "next step"
 msgstr "pasul următor"
 
-#: plugins/importExport/src/ModuleImportDc1.php:379
-#: plugins/importExport/src/ModuleImportWp.php:456
+#: plugins/importExport/src/ModuleImportDc1.php:381
+#: plugins/importExport/src/ModuleImportWp.php:458
 msgid "Depending on the size of your blog, it could take a few minutes."
 msgstr "În funcție de dimensiunea blogului tău, ar putea dura câteva minute."
 
-#: plugins/importExport/src/ModuleImportDc1.php:407
+#: plugins/importExport/src/ModuleImportDc1.php:409
 msgid "Dotclear tables not found"
 msgstr "Tabele Dotclear nu au fost găsite"
 
@@ -1881,7 +1881,7 @@ msgid "Add a feed content to the current blog: <strong>%s</strong>."
 msgstr "Adaugă conținut feed la blog-ul curent: <strong>%s</strong>."
 
 #: plugins/importExport/src/ModuleImportFeed.php:231
-#: plugins/widgets/src/Widgets.php:156
+#: plugins/widgets/src/Widgets.php:155
 msgid "Feed URL:"
 msgstr "URL flux:"
 
@@ -1946,64 +1946,64 @@ msgstr "Extragerea fișierului de backup a eșuat."
 msgid "No backup in compressed file."
 msgstr "Nicio copie de rezervă în fișierul comprimat."
 
-#: plugins/importExport/src/ModuleImportWp.php:109
+#: plugins/importExport/src/ModuleImportWp.php:111
 msgid "WordPress import"
 msgstr "Import WordPress"
 
-#: plugins/importExport/src/ModuleImportWp.php:110
+#: plugins/importExport/src/ModuleImportWp.php:112
 msgid "Import a WordPress installation into your current blog."
 msgstr "Importați o instalare WordPress în blogul curent."
 
-#: plugins/importExport/src/ModuleImportWp.php:243
+#: plugins/importExport/src/ModuleImportWp.php:245
 #, php-format
 msgid "This will import your WordPress content as new content in the current blog: %s."
 msgstr "Aceasta va importa continutul tau WordPress ca un nou continut in blog-ul curent: %s."
 
-#: plugins/importExport/src/ModuleImportWp.php:258
+#: plugins/importExport/src/ModuleImportWp.php:260
 msgid "We first need some information about your old WordPress installation."
 msgstr "Mai întâi avem nevoie de câteva informaţii despre vechea instalare WordPress."
 
-#: plugins/importExport/src/ModuleImportWp.php:308
+#: plugins/importExport/src/ModuleImportWp.php:310
 msgid "WordPress and Dotclear's handling of categories are quite different. You can assign several categories to a single post in WordPress. In the Dotclear world, we see it more like \"One category, several tags.\" Therefore Dotclear can only import one category per post and will chose the lowest numbered one. If you want to keep a trace of every category, you can import them as tags, with an optional prefix."
 msgstr "Managementul categoriilor WordPress şi Dotclear. Puteţi atribui mai multe categorii unui singur post în WordPress. În lumea Dotclear o vedem mai degrabă ca \"O categorie, mai multe etichete. Prin urmare, Dotclear poate importa doar o categorie per post şi va alege cea mai mică numerotată. Dacă doriţi să păstraţi o urmă din fiecare categorie, le puteţi importa ca etichete, cu un prefix opţional."
 
-#: plugins/importExport/src/ModuleImportWp.php:310
+#: plugins/importExport/src/ModuleImportWp.php:312
 msgid "On the other hand, in WordPress, a post can not be uncategorized, and a default installation has a first category labelised <i>\"Uncategorized\"</i>. If you did not change that category, you can just ignore it while importing your blog, as Dotclear allows you to actually keep your posts uncategorized."
 msgstr "Pe de altă parte, în WordPress, o postare nu poate fi necategorizată, iar o instalare implicită are o primă categorie etichetată <i>\"Uncategorized\"</i>. Dacă nu ați schimbat această categorie, puteți să o ignorați în timpul importării blogului dumneavoastră, deoarece Dotclear vă permite să păstrați posturile necategorizate."
 
-#: plugins/importExport/src/ModuleImportWp.php:319
+#: plugins/importExport/src/ModuleImportWp.php:321
 msgid "Ignore the first category:"
 msgstr "Ignoră prima categorie:"
 
-#: plugins/importExport/src/ModuleImportWp.php:325
+#: plugins/importExport/src/ModuleImportWp.php:327
 msgid "Import lowest numbered category on posts:"
 msgstr "Importă cea mai mică categorie numerotată pe postări:"
 
-#: plugins/importExport/src/ModuleImportWp.php:331
+#: plugins/importExport/src/ModuleImportWp.php:333
 msgid "Import all categories as tags:"
 msgstr "Importă toate categoriile ca etichete:"
 
-#: plugins/importExport/src/ModuleImportWp.php:339
+#: plugins/importExport/src/ModuleImportWp.php:341
 msgid "Prefix such tags with:"
 msgstr "Prefixează aceste etichete cu:"
 
-#: plugins/importExport/src/ModuleImportWp.php:349
+#: plugins/importExport/src/ModuleImportWp.php:351
 msgid "Content filters"
 msgstr "Filtre de conținut"
 
-#: plugins/importExport/src/ModuleImportWp.php:351
+#: plugins/importExport/src/ModuleImportWp.php:353
 msgid "You may want to process your post and/or comment content with the following filters."
 msgstr "S-ar putea să doriţi să procesaţi conţinutul postării şi/sau comentariului cu următoarele filtre."
 
-#: plugins/importExport/src/ModuleImportWp.php:357
+#: plugins/importExport/src/ModuleImportWp.php:359
 msgid "Post content formatter:"
 msgstr "Format conținut postare:"
 
-#: plugins/importExport/src/ModuleImportWp.php:364
+#: plugins/importExport/src/ModuleImportWp.php:366
 msgid "Comment content formatter:"
 msgstr "Conținut formator comentariu:"
 
-#: plugins/importExport/src/ModuleImportWp.php:484
+#: plugins/importExport/src/ModuleImportWp.php:486
 msgid "WordPress tables not found"
 msgstr "Tabele WordPress nu au fost gasite"
 
@@ -2631,7 +2631,7 @@ msgid "Home page"
 msgstr "Pagina principală"
 
 #: plugins/simpleMenu/src/Manage.php:261 plugins/simpleMenu/src/Manage.php:266
-#: plugins/widgets/src/Widgets.php:305 plugins/widgets/src/Widgets.php:315
+#: plugins/widgets/src/Widgets.php:304 plugins/widgets/src/Widgets.php:314
 msgid "Recent posts"
 msgstr "Postări recente"
 
@@ -2960,7 +2960,7 @@ msgstr "Cea mai veche intrare"
 msgid "Link to all tags:"
 msgstr "Link către toate etichetele:"
 
-#: plugins/themeEditor/src/Backend.php:27
+#: plugins/themeEditor/src/Backend.php:28
 msgid "themeEditor"
 msgstr "temeEditor"
 
@@ -3048,72 +3048,68 @@ msgstr "Editare fișier %s"
 msgid "If you use <code>url(...)</code> in your CSS files, be sure to use <code>url(index.php?tf=...)</code> to correctly load theme resources (imported CSS, images, etc.), except for URL types in the form <code>data:image</code>.<br>Example: do <code>@import url(index.php?tf=css/layout.css);</code> instead of <code>@import url(css/layout.css);</code>."
 msgstr "Dacă utilizați <code>url(...)</code> în fișierele CSS, asigurați-vă că utilizați <code>url(index.php?tf=...)</code> pentru a încărca corect resursele temei (CSS importate, imagini etc.), cu excepția tipurilor de URL sub forma <code>data:image</code>.<br>Exemplu: faceți <code>@import url(index.php?tf=css/layout.css);</code> în loc de <code>@import url(css/layout.css);</code>."
 
-#: plugins/themeEditor/src/Manage.php:265
+#: plugins/themeEditor/src/Manage.php:264
 msgid "This file is not overloadable. Please check your var folder permissions."
 msgstr "Acest fișier nu este supraîncărcabil. Vă rugăm să verificați permisiunile folderului var."
 
-#: plugins/themeEditor/src/Manage.php:268
-msgid "This theme is too old to be modified. Please check if an update is available."
-msgstr "Această temă este prea veche pentru a fi modificată. Vă rugăm să verificați dacă este disponibilă o actualizare."
-
-#: plugins/themeEditor/src/Manage.php:287
+#: plugins/themeEditor/src/Manage.php:283
 msgid "Templates files"
 msgstr "Fișiere șabloane"
 
-#: plugins/themeEditor/src/Manage.php:292
+#: plugins/themeEditor/src/Manage.php:288
 msgid "CSS files"
 msgstr "CSS files"
 
-#: plugins/themeEditor/src/Manage.php:297
+#: plugins/themeEditor/src/Manage.php:293
 msgid "JavaScript files"
 msgstr "Fișiere JavaScript"
 
-#: plugins/themeEditor/src/Manage.php:302
+#: plugins/themeEditor/src/Manage.php:298
 msgid "Locales files"
 msgstr "Fișiere locale"
 
-#: plugins/themeEditor/src/Manage.php:307
+#: plugins/themeEditor/src/Manage.php:303
 msgid "PHP files"
 msgstr "Fișiere PHP"
 
-#: plugins/themeEditor/src/ThemeEditor.php:184
+#: plugins/themeEditor/src/ThemeEditor.php:183
 msgid "No file"
 msgstr "Nici un fişier"
 
-#: plugins/themeEditor/src/ThemeEditor.php:214
+#: plugins/themeEditor/src/ThemeEditor.php:213
 msgid "Customized:"
 msgstr "Personalizat:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:222
-#: plugins/themeEditor/src/ThemeEditor.php:228
+#: plugins/themeEditor/src/ThemeEditor.php:221
+#: plugins/themeEditor/src/ThemeEditor.php:227
 msgid "From theme:"
 msgstr "Din temă:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:239
+#: plugins/themeEditor/src/ThemeEditor.php:238
 msgid "From parent:"
 msgstr "De la părinte:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:249
+#: plugins/themeEditor/src/ThemeEditor.php:248
 msgid "From template set:"
 msgstr "Din setul de șablon:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:277
-#: plugins/themeEditor/src/ThemeEditor.php:313
-#: plugins/themeEditor/src/ThemeEditor.php:390
+#: plugins/themeEditor/src/ThemeEditor.php:276
+#: plugins/themeEditor/src/ThemeEditor.php:312
+#: plugins/themeEditor/src/ThemeEditor.php:389
 msgid "File does not exist."
 msgstr "Fișierul nu există."
 
-#: plugins/themeEditor/src/ThemeEditor.php:282
+#: plugins/themeEditor/src/ThemeEditor.php:281
 #, php-format
 msgid "File %s is not readable"
 msgstr "Fișierul %s nu poate fi citit"
 
-#: plugins/themeEditor/src/ThemeEditor.php:350
+#: plugins/themeEditor/src/ThemeEditor.php:349
 #, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr "Nu se poate scrie fișierul %s. Vă rugăm să verificați permisiunile fișierelor și folderelor temei."
 
-#: plugins/themeEditor/src/ThemeEditor.php:428
+#: plugins/themeEditor/src/ThemeEditor.php:427
 #, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "Nu se poate șterge fișierul %s. Vă rugăm să verificați permisiunile fișierelor și folderelor temei."
@@ -3258,109 +3254,109 @@ msgstr "Niciun widget ca până acum."
 msgid "Drag widgets here to remove."
 msgstr "Trageți widget-urile aici pentru a elimina."
 
-#: plugins/widgets/src/Widgets.php:100
+#: plugins/widgets/src/Widgets.php:99
 msgid "Search engine"
 msgstr "Motor de căutare"
 
-#: plugins/widgets/src/Widgets.php:102
+#: plugins/widgets/src/Widgets.php:101
 msgid "Placeholder (HTML5 only, optional):"
 msgstr "Substituent (HTML5, opţional):"
 
-#: plugins/widgets/src/Widgets.php:109
+#: plugins/widgets/src/Widgets.php:108
 msgid "Navigation links"
 msgstr "Link-uri de navigare"
 
-#: plugins/widgets/src/Widgets.php:117
+#: plugins/widgets/src/Widgets.php:116
 msgid "Selected entries"
 msgstr "Intrări selectate"
 
-#: plugins/widgets/src/Widgets.php:118
+#: plugins/widgets/src/Widgets.php:117
 msgid "Best of me"
 msgstr "Cel mai bun dintre mine"
 
-#: plugins/widgets/src/Widgets.php:126
+#: plugins/widgets/src/Widgets.php:125
 msgid "Blog languages"
 msgstr "Limbi blog"
 
-#: plugins/widgets/src/Widgets.php:136
+#: plugins/widgets/src/Widgets.php:135
 msgid "With entries counts"
 msgstr "Cu numărul de intrări"
 
-#: plugins/widgets/src/Widgets.php:137
+#: plugins/widgets/src/Widgets.php:136
 msgid "Include sub cats in count"
 msgstr "Include subpisici în număr"
 
-#: plugins/widgets/src/Widgets.php:138
+#: plugins/widgets/src/Widgets.php:137
 msgid "Include empty categories"
 msgstr "Include categorii goale"
 
-#: plugins/widgets/src/Widgets.php:145
+#: plugins/widgets/src/Widgets.php:144
 msgid "Subscribe links"
 msgstr "Aboneaza-te link-uri"
 
-#: plugins/widgets/src/Widgets.php:146
+#: plugins/widgets/src/Widgets.php:145
 msgid "Subscribe"
 msgstr "Abonează-te"
 
-#: plugins/widgets/src/Widgets.php:147
+#: plugins/widgets/src/Widgets.php:146
 msgid "Feeds type:"
 msgstr "Tip flux:"
 
-#: plugins/widgets/src/Widgets.php:154
+#: plugins/widgets/src/Widgets.php:153
 msgid "Feed reader"
 msgstr "Cititor fluxuri"
 
-#: plugins/widgets/src/Widgets.php:155
+#: plugins/widgets/src/Widgets.php:154
 msgid "Somewhere else"
 msgstr "Altul undeva"
 
-#: plugins/widgets/src/Widgets.php:157 plugins/widgets/src/Widgets.php:185
+#: plugins/widgets/src/Widgets.php:156 plugins/widgets/src/Widgets.php:184
 msgid "Entries limit:"
 msgstr "Limită intrări:"
 
-#: plugins/widgets/src/Widgets.php:164
+#: plugins/widgets/src/Widgets.php:163
 msgid "Text"
 msgstr "Text"
 
-#: plugins/widgets/src/Widgets.php:166
+#: plugins/widgets/src/Widgets.php:165
 msgid "Text:"
 msgstr "Text:"
 
-#: plugins/widgets/src/Widgets.php:173
+#: plugins/widgets/src/Widgets.php:172
 msgid "Uncategorized"
 msgstr "Neclasificat"
 
-#: plugins/widgets/src/Widgets.php:177 plugins/widgets/src/Widgets.php:179
+#: plugins/widgets/src/Widgets.php:176 plugins/widgets/src/Widgets.php:178
 msgid "Last entries"
 msgstr "Ultimele intrări"
 
-#: plugins/widgets/src/Widgets.php:182
+#: plugins/widgets/src/Widgets.php:181
 msgid "Tag:"
 msgstr "Etichetă:"
 
-#: plugins/widgets/src/Widgets.php:194
+#: plugins/widgets/src/Widgets.php:193
 msgid "Last comments"
 msgstr "Ultimele comentarii"
 
-#: plugins/widgets/src/Widgets.php:195
+#: plugins/widgets/src/Widgets.php:194
 msgid "Comments limit:"
 msgstr "Limita comentariilor:"
 
-#: plugins/widgets/src/Widgets.php:565
+#: plugins/widgets/src/Widgets.php:564
 #, php-format
 msgid "This blog's entries %s feed"
 msgstr "Intrările acestui blog %s feed"
 
-#: plugins/widgets/src/Widgets.php:566
+#: plugins/widgets/src/Widgets.php:565
 #, php-format
 msgid "This blog's comments %s feed"
 msgstr "Comentariile acestui blog %s flux"
 
-#: plugins/widgets/src/Widgets.php:579
+#: plugins/widgets/src/Widgets.php:578
 msgid "Entries feed"
 msgstr "Flux intrări"
 
-#: plugins/widgets/src/Widgets.php:589
+#: plugins/widgets/src/Widgets.php:588
 msgid "Comments feed"
 msgstr "Feed de comentarii"
 
