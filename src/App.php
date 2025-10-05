@@ -82,4 +82,17 @@ final class App extends Core
         // Disable doing anything after app
         dotclear_exit();
     }
+
+    /**
+     * Application boostrap.
+     *
+     * @deprecated  Since 2.28, use new App('Utility', 'Process');
+     *
+     * @param   string  $utility    The optionnal app utility (Backend or Frontend)
+     * @param   string  $process    The optionnal app utility default process
+     */
+    public static function bootstrap(string $utility = '', string $process = ''): void
+    {
+        new self($utility, $process);
+    }
 }
