@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-22 16:34+0200\n"
-"PO-Revision-Date: 2025-09-22 16:10\n"
+"POT-Creation-Date: 2025-10-05 07:56+0200\n"
+"PO-Revision-Date: 2025-10-05 05:59\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -484,7 +484,7 @@ msgid "Dotclear editor"
 msgstr "Dotclear 편집자"
 
 #: plugins/_fake_plugin/_fake_l10n.php:16
-#: plugins/themeEditor/src/Backend.php:28
+#: plugins/themeEditor/src/Backend.php:29
 msgid "Theme Editor"
 msgstr "테마 편집기"
 
@@ -551,7 +551,7 @@ msgstr "선택한 항목 목록"
 msgid "List of available languages"
 msgstr "사용 가능한 언어 목록"
 
-#: plugins/_fake_plugin/_fake_l10n.php:35 plugins/widgets/src/Widgets.php:134
+#: plugins/_fake_plugin/_fake_l10n.php:35 plugins/widgets/src/Widgets.php:133
 msgid "List of categories"
 msgstr "카테고리 목록"
 
@@ -1148,7 +1148,7 @@ msgstr "링크분류가 성공적으로 갱신되었습니다"
 
 #: plugins/blogroll/src/ManageEdit.php:180
 #: plugins/dcCKEditor/src/BackendBehaviors.php:61
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:220
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:219
 msgid "Link"
 msgstr "링크"
 
@@ -1302,48 +1302,48 @@ msgstr "tpl:이동 경로 [구분자=\" &amp;rsaquo; \"]}} 태그가 템플릿�
 msgid "Do not encapsulate breadcrumb in a &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; tag."
 msgstr "&lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; 태그에 이동 경로를 캡슐화하지 마세요."
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:71
-#: plugins/breadcrumb/src/FrontendTemplate.php:76
-#: plugins/breadcrumb/src/FrontendTemplate.php:83
-#: plugins/breadcrumb/src/FrontendTemplate.php:87
-#: plugins/breadcrumb/src/FrontendTemplate.php:98
-#: plugins/breadcrumb/src/FrontendTemplate.php:111
-#: plugins/breadcrumb/src/FrontendTemplate.php:127
-#: plugins/breadcrumb/src/FrontendTemplate.php:144
-#: plugins/breadcrumb/src/FrontendTemplate.php:152
-#: plugins/breadcrumb/src/FrontendTemplate.php:166
-#: plugins/breadcrumb/src/FrontendTemplate.php:173
-#: plugins/breadcrumb/src/FrontendTemplate.php:180
-#: plugins/breadcrumb/src/FrontendTemplate.php:193
-#: plugins/breadcrumb/src/FrontendTemplate.php:205
-#: plugins/breadcrumb/src/FrontendTemplate.php:211
+#: plugins/breadcrumb/src/FrontendTemplate.php:70
+#: plugins/breadcrumb/src/FrontendTemplate.php:75
+#: plugins/breadcrumb/src/FrontendTemplate.php:82
+#: plugins/breadcrumb/src/FrontendTemplate.php:86
+#: plugins/breadcrumb/src/FrontendTemplate.php:97
+#: plugins/breadcrumb/src/FrontendTemplate.php:110
+#: plugins/breadcrumb/src/FrontendTemplate.php:126
+#: plugins/breadcrumb/src/FrontendTemplate.php:143
+#: plugins/breadcrumb/src/FrontendTemplate.php:151
+#: plugins/breadcrumb/src/FrontendTemplate.php:165
+#: plugins/breadcrumb/src/FrontendTemplate.php:172
+#: plugins/breadcrumb/src/FrontendTemplate.php:179
+#: plugins/breadcrumb/src/FrontendTemplate.php:192
+#: plugins/breadcrumb/src/FrontendTemplate.php:204
+#: plugins/breadcrumb/src/FrontendTemplate.php:210
 #: plugins/simpleMenu/src/Manage.php:146 plugins/simpleMenu/src/Manage.php:260
-#: plugins/widgets/src/Widgets.php:296
+#: plugins/widgets/src/Widgets.php:295
 msgid "Home"
 msgstr "시작화면"
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:105
-#: plugins/breadcrumb/src/FrontendTemplate.php:120
-#: plugins/breadcrumb/src/FrontendTemplate.php:186
-#: plugins/breadcrumb/src/FrontendTemplate.php:198
+#: plugins/breadcrumb/src/FrontendTemplate.php:104
+#: plugins/breadcrumb/src/FrontendTemplate.php:119
+#: plugins/breadcrumb/src/FrontendTemplate.php:185
+#: plugins/breadcrumb/src/FrontendTemplate.php:197
 #, php-format
 msgid "page %d"
 msgstr "페이지 %d"
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:155
-#: plugins/breadcrumb/src/FrontendTemplate.php:158
-#: plugins/simpleMenu/src/Manage.php:287 plugins/widgets/src/Widgets.php:324
+#: plugins/breadcrumb/src/FrontendTemplate.php:154
+#: plugins/breadcrumb/src/FrontendTemplate.php:157
+#: plugins/simpleMenu/src/Manage.php:287 plugins/widgets/src/Widgets.php:323
 msgid "Archives"
 msgstr "글모둠"
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:174
-#: plugins/breadcrumb/src/FrontendTemplate.php:181
+#: plugins/breadcrumb/src/FrontendTemplate.php:173
+#: plugins/breadcrumb/src/FrontendTemplate.php:180
 #: plugins/simpleMenu/src/Manage.php:130 plugins/simpleMenu/src/Manage.php:307
 #: plugins/tags/src/Widgets.php:57
 msgid "All tags"
 msgstr "모든 분류딱지"
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:206
+#: plugins/breadcrumb/src/FrontendTemplate.php:205
 msgid "404"
 msgstr "404"
 
@@ -1373,27 +1373,27 @@ msgid "HTML"
 msgstr "HTML"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:58
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:236
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:235
 msgid "Media chooser"
 msgstr "미디어 선택기"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:59
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:239
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:238
 msgid "m"
 msgstr "m"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:60
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:243
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:242
 msgid "Link to an entry"
 msgstr "항목 링크"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:62
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:223
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:222
 msgid "l"
 msgstr "l"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:63
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:229
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:228
 msgid "External image"
 msgstr "외부 이미지"
 
@@ -1402,7 +1402,7 @@ msgid "URL field cannot be empty."
 msgstr "URL 필드는 비워 둘 수 없습니다."
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:88
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:265
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:264
 msgid "Open the media"
 msgstr "미디어 열기"
 
@@ -1514,113 +1514,113 @@ msgstr "Dotclear 편집자"
 msgid "Dotclear wiki"
 msgstr "닷클리어 위키"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:140
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:139
 msgid "visual"
 msgstr "비주얼"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:141
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:140
 msgid "source"
 msgstr "출처"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:142
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:141
 msgid "You can use the following shortcuts to format your text."
 msgstr "다음 단축키를 사용하여 텍스트 서식을 지정할 수 있습니다."
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:145
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:144
 msgid "Block format"
 msgstr "블록 형식"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:147
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:146
 msgid "-- none --"
 msgstr "-- 없음"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:148
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:147
 msgid "-- block format --"
 msgstr "-- 블록 형식 --"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:149
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:148
 msgid "Paragraph"
 msgstr "단락"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:150
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:149
 msgid "Level 1 header"
 msgstr "레벨 1 헤더"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:151
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:150
 msgid "Level 2 header"
 msgstr "레벨 2 헤더"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:152
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:151
 msgid "Level 3 header"
 msgstr "레벨 3 헤더"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:153
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:152
 msgid "Level 4 header"
 msgstr "레벨 4 헤더"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:154
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:153
 msgid "Level 5 header"
 msgstr "레벨 5 헤더"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:155
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:154
 msgid "Level 6 header"
 msgstr "레벨 6 헤더"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:159
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:158
 msgid "Strong emphasis"
 msgstr "강력한 강조"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:164
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:163
 msgid "Emphasis"
 msgstr "강조"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:169
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:168
 msgid "Inserted"
 msgstr "삽입됨"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:174
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:173
 msgid "Deleted"
 msgstr "삭제됨"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:179
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:267
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:178
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:266
 msgid "Inline quote"
 msgstr "인라인 견적"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:184
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:183
 msgid "Code"
 msgstr "코드"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:194
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:193
 msgid "Line break"
 msgstr "줄 바꿈"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:199
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:198
 msgid "Blockquote"
 msgstr "블록쿼트"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:204
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:203
 msgid "Preformated text"
 msgstr "미리 작성된 텍스트"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:209
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:208
 msgid "Unordered list"
 msgstr "정렬되지 않은 목록"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:214
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:213
 msgid "Ordered list"
 msgstr "주문 목록"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:224
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:232
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:223
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:231
 msgid "URL?"
 msgstr "URL?"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:225
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:224
 msgid "Language?"
 msgstr "언어?"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:248
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:247
 msgid "Remove text formating"
 msgstr "텍스트 서식 제거"
 
@@ -1666,33 +1666,33 @@ msgstr "모든 블로그 데이터베이스 다운로드"
 msgid "No file to read."
 msgstr "읽을 파일이 없습니다."
 
-#: plugins/importExport/src/FlatExport.php:47
+#: plugins/importExport/src/FlatExport.php:49
 msgid "Unable to create output file."
 msgstr "출력 파일을 만들 수 없습니다."
 
-#: plugins/importExport/src/FlatImportV2.php:97
+#: plugins/importExport/src/FlatImportV2.php:99
 msgid "Unable to read the DotClear backup file."
 msgstr "DotClear 백업 파일을 읽을 수 없습니다."
 
-#: plugins/importExport/src/FlatImportV2.php:101
+#: plugins/importExport/src/FlatImportV2.php:103
 msgid "File is not a DotClear backup."
 msgstr "이 파일은 DotClear 백업파일이 아닙니다."
 
-#: plugins/importExport/src/FlatImportV2.php:177
+#: plugins/importExport/src/FlatImportV2.php:179
 msgid "File is not a single blog export."
 msgstr "이 파일은 단일 블로그의 내보내기 파일이 아닙니다."
 
-#: plugins/importExport/src/FlatImportV2.php:294
-#: plugins/importExport/src/FlatImportV2.php:353
+#: plugins/importExport/src/FlatImportV2.php:296
+#: plugins/importExport/src/FlatImportV2.php:355
 #, php-format
 msgid "Error raised at line %s"
 msgstr "%s줄에서 오류가 발생했습니다."
 
-#: plugins/importExport/src/FlatImportV2.php:305
+#: plugins/importExport/src/FlatImportV2.php:307
 msgid "File is not a full export."
 msgstr "이 파일은 전체 블로그의 내보내기 파일이 아닙니다."
 
-#: plugins/importExport/src/FlatImportV2.php:766
+#: plugins/importExport/src/FlatImportV2.php:768
 #, php-format
 msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
 msgstr "백업 파일의 %2$s 줄에 있는 \"%1$s\" 레코드에서 \"%3$s\" ID가 일치하지 않습니다."
@@ -1733,115 +1733,115 @@ msgstr "지금 당장 글쓰기를 하는 건 어떨까요 ?"
 msgid "visit your dashboard"
 msgstr "당신의 블로그관리화면으로 가보세요"
 
-#: plugins/importExport/src/ModuleExportFlat.php:28
+#: plugins/importExport/src/ModuleExportFlat.php:30
 msgid "Flat file export"
 msgstr "일반텍스트 파일로 내보내기"
 
-#: plugins/importExport/src/ModuleExportFlat.php:29
+#: plugins/importExport/src/ModuleExportFlat.php:31
 msgid "Exports a blog or a full Dotclear installation to flat file."
 msgstr "특정 블로그 또는 Dotclear 전체를 한 개의 일반텍스트로 내보내기."
 
-#: plugins/importExport/src/ModuleExportFlat.php:154
+#: plugins/importExport/src/ModuleExportFlat.php:156
 msgid "Export file not found."
 msgstr "내보내기 파일 없음."
 
-#: plugins/importExport/src/ModuleExportFlat.php:193
+#: plugins/importExport/src/ModuleExportFlat.php:195
 msgid "Failed to compress export file."
 msgstr "내보내기 파일을 압축하지 못했습니다."
 
-#: plugins/importExport/src/ModuleImportDc1.php:84
+#: plugins/importExport/src/ModuleImportDc1.php:86
 msgid "Dotclear 1.2 import"
 msgstr "Dotclear 1.2에서 가져오기"
 
-#: plugins/importExport/src/ModuleImportDc1.php:85
+#: plugins/importExport/src/ModuleImportDc1.php:87
 msgid "Import a Dotclear 1.2 installation into your current blog."
 msgstr "Dotclear 1.2의 블로그를 현재 블로그로 가져오기"
 
-#: plugins/importExport/src/ModuleImportDc1.php:216
+#: plugins/importExport/src/ModuleImportDc1.php:218
 #, php-format
 msgid "Import the content of a Dotclear 1.2's blog in the current blog: %s."
 msgstr "현재 블로그에서 Dotclear 1.2의 블로그 콘텐츠를 가져옵니다: %s."
 
-#: plugins/importExport/src/ModuleImportDc1.php:224
-#: plugins/importExport/src/ModuleImportWp.php:251
+#: plugins/importExport/src/ModuleImportDc1.php:226
+#: plugins/importExport/src/ModuleImportWp.php:253
 msgid "Please note that this process will empty your categories, blogroll, entries and comments on the current blog."
 msgstr "이 과정에서 현재 블로그의 분류, 링크, 글꼭지 및 댓글 등을 모두 비우게 된다는 것에 주의하세요."
 
-#: plugins/importExport/src/ModuleImportDc1.php:231
+#: plugins/importExport/src/ModuleImportDc1.php:233
 msgid "We first need some information about your old Dotclear 1.2 installation."
 msgstr "먼저, 당신이 쓰던 Dotclear 1.2 실행본에 대한 몇 가지 정보가 필요합니다."
 
-#: plugins/importExport/src/ModuleImportDc1.php:238
+#: plugins/importExport/src/ModuleImportDc1.php:240
 msgid "Database driver:"
 msgstr "데이터베이스 드라이버:"
 
-#: plugins/importExport/src/ModuleImportDc1.php:280
-#: plugins/importExport/src/ModuleImportWp.php:300
+#: plugins/importExport/src/ModuleImportDc1.php:282
+#: plugins/importExport/src/ModuleImportWp.php:302
 msgid "Entries import options"
 msgstr "글꼭지 가져오기 선택사항"
 
-#: plugins/importExport/src/ModuleImportDc1.php:285
-#: plugins/importExport/src/ModuleImportWp.php:345
+#: plugins/importExport/src/ModuleImportDc1.php:287
+#: plugins/importExport/src/ModuleImportWp.php:347
 msgid "Number of entries to import at once:"
 msgstr "한 번에 가져올 글꼭지 수 :"
 
-#: plugins/importExport/src/ModuleImportDc1.php:291
-#: plugins/importExport/src/ModuleImportWp.php:370
+#: plugins/importExport/src/ModuleImportDc1.php:293
+#: plugins/importExport/src/ModuleImportWp.php:372
 msgid "General information"
 msgstr "일반 정보"
 
-#: plugins/importExport/src/ModuleImportDc1.php:291
-#: plugins/importExport/src/ModuleImportWp.php:370
+#: plugins/importExport/src/ModuleImportDc1.php:293
+#: plugins/importExport/src/ModuleImportWp.php:372
 msgid "Import my blog now"
 msgstr "내 블로그를 지금 가져오기"
 
-#: plugins/importExport/src/ModuleImportDc1.php:298
-#: plugins/importExport/src/ModuleImportWp.php:377
+#: plugins/importExport/src/ModuleImportDc1.php:300
+#: plugins/importExport/src/ModuleImportWp.php:379
 msgid "Importing users"
 msgstr "사용자들 가져옴"
 
-#: plugins/importExport/src/ModuleImportDc1.php:305
-#: plugins/importExport/src/ModuleImportWp.php:384
+#: plugins/importExport/src/ModuleImportDc1.php:307
+#: plugins/importExport/src/ModuleImportWp.php:386
 msgid "Importing categories"
 msgstr "분류들 가져옴"
 
-#: plugins/importExport/src/ModuleImportDc1.php:312
-#: plugins/importExport/src/ModuleImportWp.php:391
+#: plugins/importExport/src/ModuleImportDc1.php:314
+#: plugins/importExport/src/ModuleImportWp.php:393
 msgid "Importing blogroll"
 msgstr "링크모음을 가져옴"
 
-#: plugins/importExport/src/ModuleImportDc1.php:319
-#: plugins/importExport/src/ModuleImportWp.php:398
+#: plugins/importExport/src/ModuleImportDc1.php:321
+#: plugins/importExport/src/ModuleImportWp.php:400
 #, php-format
 msgid "Importing entries from %d to %d / %d"
 msgstr "%d 에서 %d / %d로 항목 가져오기"
 
-#: plugins/importExport/src/ModuleImportDc1.php:334
-#: plugins/importExport/src/ModuleImportWp.php:413
+#: plugins/importExport/src/ModuleImportDc1.php:336
+#: plugins/importExport/src/ModuleImportWp.php:415
 msgid "Please read carefully"
 msgstr "주의 깊게 읽어주세요"
 
-#: plugins/importExport/src/ModuleImportDc1.php:336
-#: plugins/importExport/src/ModuleImportWp.php:416
+#: plugins/importExport/src/ModuleImportDc1.php:338
+#: plugins/importExport/src/ModuleImportWp.php:418
 msgid "Every newly imported user has received a random password and will need to ask for a new one by following the \"I forgot my password\" link on the login page (Their registered email address has to be valid.)"
 msgstr "가져오기된 모든 사용자에게 무작위 비밀번호가 부여되었습니다. 따라서 각 사용자는 사용자로긴 화면의 \"비밀번호를 잊었어요\" 링크를 이용해서 새 비밀번호를 신청해야합니다 (이 과정이 올바로 진행되려면, 사용자가 등록한 이메일주소 또한 정상이어야합니다)"
 
-#: plugins/importExport/src/ModuleImportDc1.php:338
+#: plugins/importExport/src/ModuleImportDc1.php:340
 #, php-format
 msgid "Please note that Dotclear 2 has a new URL layout. You can avoid broken links by installing <a href=\"%s\">DC1 redirect</a> plugin and activate it in your blog configuration."
 msgstr "Dotclear 2가 새로운 URL 형식을 사용한다는 점을 주의해주세요. <a href=\"%s\">DC1 redirect</a> 플러그인을 설치한 뒤, 당신의 블로그 설정화면에서 그것의 작동을 켜주면, 깨진 링크가 생기는 문제를 예방할 수 있습니다."
 
-#: plugins/importExport/src/ModuleImportDc1.php:361
-#: plugins/importExport/src/ModuleImportWp.php:438
+#: plugins/importExport/src/ModuleImportDc1.php:363
+#: plugins/importExport/src/ModuleImportWp.php:440
 msgid "next step"
 msgstr "다음 단계로"
 
-#: plugins/importExport/src/ModuleImportDc1.php:379
-#: plugins/importExport/src/ModuleImportWp.php:456
+#: plugins/importExport/src/ModuleImportDc1.php:381
+#: plugins/importExport/src/ModuleImportWp.php:458
 msgid "Depending on the size of your blog, it could take a few minutes."
 msgstr "블로그 크기에 따라, 작업이 몇 분 걸릴 수도 있습니다."
 
-#: plugins/importExport/src/ModuleImportDc1.php:407
+#: plugins/importExport/src/ModuleImportDc1.php:409
 msgid "Dotclear tables not found"
 msgstr "Dotclear 테이블이 없습니다"
 
@@ -1877,7 +1877,7 @@ msgid "Add a feed content to the current blog: <strong>%s</strong>."
 msgstr "현재 블로그에 피드 콘텐츠를 추가합니다: <strong>%s</strong>."
 
 #: plugins/importExport/src/ModuleImportFeed.php:231
-#: plugins/widgets/src/Widgets.php:156
+#: plugins/widgets/src/Widgets.php:155
 msgid "Feed URL:"
 msgstr "타래소식 주소 :"
 
@@ -1942,64 +1942,64 @@ msgstr "백업 파일을 추출하지 못했습니다."
 msgid "No backup in compressed file."
 msgstr "압축 파일로 백업하지 않습니다."
 
-#: plugins/importExport/src/ModuleImportWp.php:109
+#: plugins/importExport/src/ModuleImportWp.php:111
 msgid "WordPress import"
 msgstr "워드프레스 가져오기"
 
-#: plugins/importExport/src/ModuleImportWp.php:110
+#: plugins/importExport/src/ModuleImportWp.php:112
 msgid "Import a WordPress installation into your current blog."
 msgstr "워드프레스 설치를 현재 블로그로 가져옵니다."
 
-#: plugins/importExport/src/ModuleImportWp.php:243
+#: plugins/importExport/src/ModuleImportWp.php:245
 #, php-format
 msgid "This will import your WordPress content as new content in the current blog: %s."
 msgstr "이렇게 하면 워드프레스 콘텐츠를 현재 블로그의 새 콘텐츠로 가져옵니다: %s."
 
-#: plugins/importExport/src/ModuleImportWp.php:258
+#: plugins/importExport/src/ModuleImportWp.php:260
 msgid "We first need some information about your old WordPress installation."
 msgstr "먼저 기존 워드프레스 설치에 대한 몇 가지 정보가 필요합니다."
 
-#: plugins/importExport/src/ModuleImportWp.php:308
+#: plugins/importExport/src/ModuleImportWp.php:310
 msgid "WordPress and Dotclear's handling of categories are quite different. You can assign several categories to a single post in WordPress. In the Dotclear world, we see it more like \"One category, several tags.\" Therefore Dotclear can only import one category per post and will chose the lowest numbered one. If you want to keep a trace of every category, you can import them as tags, with an optional prefix."
 msgstr "워드프레스와 닷클리어의 카테고리 처리 방식은 상당히 다릅니다. 워드프레스에서는 하나의 글에 여러 카테고리를 지정할 수 있습니다. 닷클리어 세계에서는 \"하나의 카테고리, 여러 개의 태그\"에 더 가깝습니다. 따라서 닷클리어는 글당 하나의 카테고리만 가져올 수 있으며 번호가 가장 낮은 카테고리를 선택합니다. 모든 카테고리를 추적하려면 선택적 접두사를 사용하여 태그로 가져올 수 있습니다."
 
-#: plugins/importExport/src/ModuleImportWp.php:310
+#: plugins/importExport/src/ModuleImportWp.php:312
 msgid "On the other hand, in WordPress, a post can not be uncategorized, and a default installation has a first category labelised <i>\"Uncategorized\"</i>. If you did not change that category, you can just ignore it while importing your blog, as Dotclear allows you to actually keep your posts uncategorized."
 msgstr "반면, 워드프레스에서는 글의 분류를 해제할 수 없으며 기본 설치 시 첫 번째 카테고리는 <i>\"</i>분류되지 않음\"으로 지정됩니다. 해당 카테고리를 변경하지 않았다면 블로그를 가져오는 동안 해당 카테고리를 무시해도 되지만, 닷클리어를 사용하면 실제로 글을 분류되지 않은 상태로 유지할 수 있습니다."
 
-#: plugins/importExport/src/ModuleImportWp.php:319
+#: plugins/importExport/src/ModuleImportWp.php:321
 msgid "Ignore the first category:"
 msgstr "첫 분류 무시 :"
 
-#: plugins/importExport/src/ModuleImportWp.php:325
+#: plugins/importExport/src/ModuleImportWp.php:327
 msgid "Import lowest numbered category on posts:"
 msgstr "포스트에 지정된 분류 중 가장 오래된 분류를 가져옴 :"
 
-#: plugins/importExport/src/ModuleImportWp.php:331
+#: plugins/importExport/src/ModuleImportWp.php:333
 msgid "Import all categories as tags:"
 msgstr "모든 분류들을 분류딱지로서 가져오기 :"
 
-#: plugins/importExport/src/ModuleImportWp.php:339
+#: plugins/importExport/src/ModuleImportWp.php:341
 msgid "Prefix such tags with:"
 msgstr "가져올 분류딱지들에 다음 머리씨를 붙임 :"
 
-#: plugins/importExport/src/ModuleImportWp.php:349
+#: plugins/importExport/src/ModuleImportWp.php:351
 msgid "Content filters"
 msgstr "콘텐츠 필터"
 
-#: plugins/importExport/src/ModuleImportWp.php:351
+#: plugins/importExport/src/ModuleImportWp.php:353
 msgid "You may want to process your post and/or comment content with the following filters."
 msgstr "다음 필터를 사용하여 게시물 및/또는 댓글 콘텐츠를 처리할 수 있습니다."
 
-#: plugins/importExport/src/ModuleImportWp.php:357
+#: plugins/importExport/src/ModuleImportWp.php:359
 msgid "Post content formatter:"
 msgstr "콘텐츠 포맷을 게시합니다:"
 
-#: plugins/importExport/src/ModuleImportWp.php:364
+#: plugins/importExport/src/ModuleImportWp.php:366
 msgid "Comment content formatter:"
 msgstr "댓글 콘텐츠 서식:"
 
-#: plugins/importExport/src/ModuleImportWp.php:484
+#: plugins/importExport/src/ModuleImportWp.php:486
 msgid "WordPress tables not found"
 msgstr "워드프레스 테이블을 찾을 수 없습니다."
 
@@ -2621,7 +2621,7 @@ msgid "Home page"
 msgstr "홈 페이지"
 
 #: plugins/simpleMenu/src/Manage.php:261 plugins/simpleMenu/src/Manage.php:266
-#: plugins/widgets/src/Widgets.php:305 plugins/widgets/src/Widgets.php:315
+#: plugins/widgets/src/Widgets.php:304 plugins/widgets/src/Widgets.php:314
 msgid "Recent posts"
 msgstr "최근 게시물"
 
@@ -2946,7 +2946,7 @@ msgstr "가장 오래된 항목"
 msgid "Link to all tags:"
 msgstr "모든 태그에 링크합니다:"
 
-#: plugins/themeEditor/src/Backend.php:27
+#: plugins/themeEditor/src/Backend.php:28
 msgid "themeEditor"
 msgstr "테마 편집기"
 
@@ -3034,72 +3034,68 @@ msgstr "%s 파일 편집"
 msgid "If you use <code>url(...)</code> in your CSS files, be sure to use <code>url(index.php?tf=...)</code> to correctly load theme resources (imported CSS, images, etc.), except for URL types in the form <code>data:image</code>.<br>Example: do <code>@import url(index.php?tf=css/layout.css);</code> instead of <code>@import url(css/layout.css);</code>."
 msgstr "CSS 파일에서 <code>url(...)</code>을 사용하는 경우 테마 리소스(가져온 CSS, 이미지 등)를 올바르게 로드하려면 <code>url(index.php?tf=...)</code>를 사용해야 합니다(단, <code>data:image</code> 형식의 URL 유형은 제외).<br>예: <code>@import url(css/layout.css);</code> 대신 <code>@import url(index.php?tf=css/layout.css);</code>를 사용하세요."
 
-#: plugins/themeEditor/src/Manage.php:265
+#: plugins/themeEditor/src/Manage.php:264
 msgid "This file is not overloadable. Please check your var folder permissions."
 msgstr "이 파일은 과부하가 걸리지 않습니다. var 폴더 권한을 확인하세요."
 
-#: plugins/themeEditor/src/Manage.php:268
-msgid "This theme is too old to be modified. Please check if an update is available."
-msgstr "이 테마는 너무 오래되어 수정할 수 없습니다. 업데이트가 있는지 확인해 보세요."
-
-#: plugins/themeEditor/src/Manage.php:287
+#: plugins/themeEditor/src/Manage.php:283
 msgid "Templates files"
 msgstr "템플릿 파일들"
 
-#: plugins/themeEditor/src/Manage.php:292
+#: plugins/themeEditor/src/Manage.php:288
 msgid "CSS files"
 msgstr "CSS 파일들"
 
-#: plugins/themeEditor/src/Manage.php:297
+#: plugins/themeEditor/src/Manage.php:293
 msgid "JavaScript files"
 msgstr "자바스크립트 파일들"
 
-#: plugins/themeEditor/src/Manage.php:302
+#: plugins/themeEditor/src/Manage.php:298
 msgid "Locales files"
 msgstr "로캘 파일"
 
-#: plugins/themeEditor/src/Manage.php:307
+#: plugins/themeEditor/src/Manage.php:303
 msgid "PHP files"
 msgstr "PHP 파일"
 
-#: plugins/themeEditor/src/ThemeEditor.php:184
+#: plugins/themeEditor/src/ThemeEditor.php:183
 msgid "No file"
 msgstr "파일 없음"
 
-#: plugins/themeEditor/src/ThemeEditor.php:214
+#: plugins/themeEditor/src/ThemeEditor.php:213
 msgid "Customized:"
 msgstr "맞춤 설정:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:222
-#: plugins/themeEditor/src/ThemeEditor.php:228
+#: plugins/themeEditor/src/ThemeEditor.php:221
+#: plugins/themeEditor/src/ThemeEditor.php:227
 msgid "From theme:"
 msgstr "테마에서:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:239
+#: plugins/themeEditor/src/ThemeEditor.php:238
 msgid "From parent:"
 msgstr "부모로부터:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:249
+#: plugins/themeEditor/src/ThemeEditor.php:248
 msgid "From template set:"
 msgstr "템플릿 세트에서:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:277
-#: plugins/themeEditor/src/ThemeEditor.php:313
-#: plugins/themeEditor/src/ThemeEditor.php:390
+#: plugins/themeEditor/src/ThemeEditor.php:276
+#: plugins/themeEditor/src/ThemeEditor.php:312
+#: plugins/themeEditor/src/ThemeEditor.php:389
 msgid "File does not exist."
 msgstr "파일이 존재하지 않습니다."
 
-#: plugins/themeEditor/src/ThemeEditor.php:282
+#: plugins/themeEditor/src/ThemeEditor.php:281
 #, php-format
 msgid "File %s is not readable"
 msgstr "%s 파일을 읽을 수 없습니다."
 
-#: plugins/themeEditor/src/ThemeEditor.php:350
+#: plugins/themeEditor/src/ThemeEditor.php:349
 #, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr "%s 파일을 쓸 수 없습니다. 해당 파일 및 해당 테마 폴더에 대한 당신의 권한을 확인해주세요."
 
-#: plugins/themeEditor/src/ThemeEditor.php:428
+#: plugins/themeEditor/src/ThemeEditor.php:427
 #, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "파일을 삭제할 수 없습니다 %s. 테마 파일 및 폴더 권한을 확인하세요."
@@ -3244,109 +3240,109 @@ msgstr "아직 위젯이 없습니다."
 msgid "Drag widgets here to remove."
 msgstr "제거하려면 위젯을 여기로 끌어다 놓습니다."
 
-#: plugins/widgets/src/Widgets.php:100
+#: plugins/widgets/src/Widgets.php:99
 msgid "Search engine"
 msgstr "찾기 엔진"
 
-#: plugins/widgets/src/Widgets.php:102
+#: plugins/widgets/src/Widgets.php:101
 msgid "Placeholder (HTML5 only, optional):"
 msgstr "플레이스홀더(HTML5 전용, 선택 사항):"
 
-#: plugins/widgets/src/Widgets.php:109
+#: plugins/widgets/src/Widgets.php:108
 msgid "Navigation links"
 msgstr "시작화면/글모둠 링크"
 
-#: plugins/widgets/src/Widgets.php:117
+#: plugins/widgets/src/Widgets.php:116
 msgid "Selected entries"
 msgstr "선별 글꼭지 목록"
 
-#: plugins/widgets/src/Widgets.php:118
+#: plugins/widgets/src/Widgets.php:117
 msgid "Best of me"
 msgstr "꼭 보세요"
 
-#: plugins/widgets/src/Widgets.php:126
+#: plugins/widgets/src/Widgets.php:125
 msgid "Blog languages"
 msgstr "언어설정"
 
-#: plugins/widgets/src/Widgets.php:136
+#: plugins/widgets/src/Widgets.php:135
 msgid "With entries counts"
 msgstr "글꼭지 수 표시"
 
-#: plugins/widgets/src/Widgets.php:137
+#: plugins/widgets/src/Widgets.php:136
 msgid "Include sub cats in count"
 msgstr "개수에 하위 고양이 포함"
 
-#: plugins/widgets/src/Widgets.php:138
+#: plugins/widgets/src/Widgets.php:137
 msgid "Include empty categories"
 msgstr "빈 카테고리 포함"
 
-#: plugins/widgets/src/Widgets.php:145
+#: plugins/widgets/src/Widgets.php:144
 msgid "Subscribe links"
 msgstr "구독용 링크"
 
-#: plugins/widgets/src/Widgets.php:146
+#: plugins/widgets/src/Widgets.php:145
 msgid "Subscribe"
 msgstr "구독"
 
-#: plugins/widgets/src/Widgets.php:147
+#: plugins/widgets/src/Widgets.php:146
 msgid "Feeds type:"
 msgstr "타래소식 종류 :"
 
-#: plugins/widgets/src/Widgets.php:154
+#: plugins/widgets/src/Widgets.php:153
 msgid "Feed reader"
 msgstr "타래소식 구독기 (RSS 리더)"
 
-#: plugins/widgets/src/Widgets.php:155
+#: plugins/widgets/src/Widgets.php:154
 msgid "Somewhere else"
 msgstr "다른 곳으로"
 
-#: plugins/widgets/src/Widgets.php:157 plugins/widgets/src/Widgets.php:185
+#: plugins/widgets/src/Widgets.php:156 plugins/widgets/src/Widgets.php:184
 msgid "Entries limit:"
 msgstr "최대 글꼭지 수 :"
 
-#: plugins/widgets/src/Widgets.php:164
+#: plugins/widgets/src/Widgets.php:163
 msgid "Text"
 msgstr "알림말"
 
-#: plugins/widgets/src/Widgets.php:166
+#: plugins/widgets/src/Widgets.php:165
 msgid "Text:"
 msgstr "알림말 :"
 
-#: plugins/widgets/src/Widgets.php:173
+#: plugins/widgets/src/Widgets.php:172
 msgid "Uncategorized"
 msgstr "분류 미정"
 
-#: plugins/widgets/src/Widgets.php:177 plugins/widgets/src/Widgets.php:179
+#: plugins/widgets/src/Widgets.php:176 plugins/widgets/src/Widgets.php:178
 msgid "Last entries"
 msgstr "최근 글꼭지"
 
-#: plugins/widgets/src/Widgets.php:182
+#: plugins/widgets/src/Widgets.php:181
 msgid "Tag:"
 msgstr "분류딱지 :"
 
-#: plugins/widgets/src/Widgets.php:194
+#: plugins/widgets/src/Widgets.php:193
 msgid "Last comments"
 msgstr "최근 댓글들"
 
-#: plugins/widgets/src/Widgets.php:195
+#: plugins/widgets/src/Widgets.php:194
 msgid "Comments limit:"
 msgstr "최대 댓글 수 :"
 
-#: plugins/widgets/src/Widgets.php:565
+#: plugins/widgets/src/Widgets.php:564
 #, php-format
 msgid "This blog's entries %s feed"
 msgstr "이 블로그의 %s 글꼭지 타래소식"
 
-#: plugins/widgets/src/Widgets.php:566
+#: plugins/widgets/src/Widgets.php:565
 #, php-format
 msgid "This blog's comments %s feed"
 msgstr "이 블로그의 %s 댓글 타래소식"
 
-#: plugins/widgets/src/Widgets.php:579
+#: plugins/widgets/src/Widgets.php:578
 msgid "Entries feed"
 msgstr "글꼭지 타래소식"
 
-#: plugins/widgets/src/Widgets.php:589
+#: plugins/widgets/src/Widgets.php:588
 msgid "Comments feed"
 msgstr "댓글 타래소식"
 
