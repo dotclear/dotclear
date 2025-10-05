@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-22 16:34+0200\n"
-"PO-Revision-Date: 2025-09-22 16:10\n"
+"POT-Creation-Date: 2025-10-05 07:56+0200\n"
+"PO-Revision-Date: 2025-10-05 05:59\n"
 "Last-Translator: \n"
 "Language-Team: Japanese\n"
 "Language: ja_JP\n"
@@ -484,7 +484,7 @@ msgid "Dotclear editor"
 msgstr "Dotclearエディター"
 
 #: plugins/_fake_plugin/_fake_l10n.php:16
-#: plugins/themeEditor/src/Backend.php:28
+#: plugins/themeEditor/src/Backend.php:29
 msgid "Theme Editor"
 msgstr "テーマエディタ"
 
@@ -551,7 +551,7 @@ msgstr "List of selected entries"
 msgid "List of available languages"
 msgstr "利用可能な言語のリスト"
 
-#: plugins/_fake_plugin/_fake_l10n.php:35 plugins/widgets/src/Widgets.php:134
+#: plugins/_fake_plugin/_fake_l10n.php:35 plugins/widgets/src/Widgets.php:133
 msgid "List of categories"
 msgstr "カテゴリ一覧"
 
@@ -1148,7 +1148,7 @@ msgstr "カテゴリは正常に更新されました"
 
 #: plugins/blogroll/src/ManageEdit.php:180
 #: plugins/dcCKEditor/src/BackendBehaviors.php:61
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:220
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:219
 msgid "Link"
 msgstr "リンク"
 
@@ -1302,48 +1302,48 @@ msgstr "{{tpl:Breadcrumb[separator=\" &amp;rsaquo; \"]}} タグが存在する�
 msgid "Do not encapsulate breadcrumb in a &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; tag."
 msgstr "&lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; タグにパンくずをカプセル化しないでください。"
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:71
-#: plugins/breadcrumb/src/FrontendTemplate.php:76
-#: plugins/breadcrumb/src/FrontendTemplate.php:83
-#: plugins/breadcrumb/src/FrontendTemplate.php:87
-#: plugins/breadcrumb/src/FrontendTemplate.php:98
-#: plugins/breadcrumb/src/FrontendTemplate.php:111
-#: plugins/breadcrumb/src/FrontendTemplate.php:127
-#: plugins/breadcrumb/src/FrontendTemplate.php:144
-#: plugins/breadcrumb/src/FrontendTemplate.php:152
-#: plugins/breadcrumb/src/FrontendTemplate.php:166
-#: plugins/breadcrumb/src/FrontendTemplate.php:173
-#: plugins/breadcrumb/src/FrontendTemplate.php:180
-#: plugins/breadcrumb/src/FrontendTemplate.php:193
-#: plugins/breadcrumb/src/FrontendTemplate.php:205
-#: plugins/breadcrumb/src/FrontendTemplate.php:211
+#: plugins/breadcrumb/src/FrontendTemplate.php:70
+#: plugins/breadcrumb/src/FrontendTemplate.php:75
+#: plugins/breadcrumb/src/FrontendTemplate.php:82
+#: plugins/breadcrumb/src/FrontendTemplate.php:86
+#: plugins/breadcrumb/src/FrontendTemplate.php:97
+#: plugins/breadcrumb/src/FrontendTemplate.php:110
+#: plugins/breadcrumb/src/FrontendTemplate.php:126
+#: plugins/breadcrumb/src/FrontendTemplate.php:143
+#: plugins/breadcrumb/src/FrontendTemplate.php:151
+#: plugins/breadcrumb/src/FrontendTemplate.php:165
+#: plugins/breadcrumb/src/FrontendTemplate.php:172
+#: plugins/breadcrumb/src/FrontendTemplate.php:179
+#: plugins/breadcrumb/src/FrontendTemplate.php:192
+#: plugins/breadcrumb/src/FrontendTemplate.php:204
+#: plugins/breadcrumb/src/FrontendTemplate.php:210
 #: plugins/simpleMenu/src/Manage.php:146 plugins/simpleMenu/src/Manage.php:260
-#: plugins/widgets/src/Widgets.php:296
+#: plugins/widgets/src/Widgets.php:295
 msgid "Home"
 msgstr "ホーム"
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:105
-#: plugins/breadcrumb/src/FrontendTemplate.php:120
-#: plugins/breadcrumb/src/FrontendTemplate.php:186
-#: plugins/breadcrumb/src/FrontendTemplate.php:198
+#: plugins/breadcrumb/src/FrontendTemplate.php:104
+#: plugins/breadcrumb/src/FrontendTemplate.php:119
+#: plugins/breadcrumb/src/FrontendTemplate.php:185
+#: plugins/breadcrumb/src/FrontendTemplate.php:197
 #, php-format
 msgid "page %d"
 msgstr "%d ページ"
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:155
-#: plugins/breadcrumb/src/FrontendTemplate.php:158
-#: plugins/simpleMenu/src/Manage.php:287 plugins/widgets/src/Widgets.php:324
+#: plugins/breadcrumb/src/FrontendTemplate.php:154
+#: plugins/breadcrumb/src/FrontendTemplate.php:157
+#: plugins/simpleMenu/src/Manage.php:287 plugins/widgets/src/Widgets.php:323
 msgid "Archives"
 msgstr "アーカイブ"
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:174
-#: plugins/breadcrumb/src/FrontendTemplate.php:181
+#: plugins/breadcrumb/src/FrontendTemplate.php:173
+#: plugins/breadcrumb/src/FrontendTemplate.php:180
 #: plugins/simpleMenu/src/Manage.php:130 plugins/simpleMenu/src/Manage.php:307
 #: plugins/tags/src/Widgets.php:57
 msgid "All tags"
 msgstr "すべてのタグ"
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:206
+#: plugins/breadcrumb/src/FrontendTemplate.php:205
 msgid "404"
 msgstr "404"
 
@@ -1373,27 +1373,27 @@ msgid "HTML"
 msgstr "HTML"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:58
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:236
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:235
 msgid "Media chooser"
 msgstr "メディア選択"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:59
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:239
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:238
 msgid "m"
 msgstr "m"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:60
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:243
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:242
 msgid "Link to an entry"
 msgstr "エントリへのリンク"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:62
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:223
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:222
 msgid "l"
 msgstr "l"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:63
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:229
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:228
 msgid "External image"
 msgstr "外部画像"
 
@@ -1402,7 +1402,7 @@ msgid "URL field cannot be empty."
 msgstr "URL フィールドは空にできません。"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:88
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:265
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:264
 msgid "Open the media"
 msgstr "メディアを開く"
 
@@ -1514,113 +1514,113 @@ msgstr "Dotclearエディター"
 msgid "Dotclear wiki"
 msgstr "Dotclear Wiki"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:140
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:139
 msgid "visual"
 msgstr "視覚的な"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:141
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:140
 msgid "source"
 msgstr "ソース"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:142
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:141
 msgid "You can use the following shortcuts to format your text."
 msgstr "テキストの書式設定には、次のショートカットを使用できます。"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:145
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:144
 msgid "Block format"
 msgstr "ブロック形式"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:147
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:146
 msgid "-- none --"
 msgstr "-- なし --"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:148
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:147
 msgid "-- block format --"
 msgstr "-- ブロックフォーマット --"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:149
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:148
 msgid "Paragraph"
 msgstr "段落"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:150
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:149
 msgid "Level 1 header"
 msgstr "レベル 1 ヘッダー"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:151
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:150
 msgid "Level 2 header"
 msgstr "レベル 2 ヘッダー"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:152
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:151
 msgid "Level 3 header"
 msgstr "レベル 3 ヘッダー"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:153
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:152
 msgid "Level 4 header"
 msgstr "レベル 4 ヘッダー"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:154
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:153
 msgid "Level 5 header"
 msgstr "レベル 5 ヘッダー"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:155
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:154
 msgid "Level 6 header"
 msgstr "レベル 6 ヘッダー"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:159
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:158
 msgid "Strong emphasis"
 msgstr "強調表示"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:164
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:163
 msgid "Emphasis"
 msgstr "強調表示"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:169
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:168
 msgid "Inserted"
 msgstr "挿入された"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:174
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:173
 msgid "Deleted"
 msgstr "削除しました"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:179
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:267
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:178
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:266
 msgid "Inline quote"
 msgstr "インラインの引用"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:184
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:183
 msgid "Code"
 msgstr "コード"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:194
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:193
 msgid "Line break"
 msgstr "改行する"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:199
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:198
 msgid "Blockquote"
 msgstr "Blockquote"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:204
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:203
 msgid "Preformated text"
 msgstr "書式設定されたテキスト"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:209
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:208
 msgid "Unordered list"
 msgstr "順序なしリスト"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:214
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:213
 msgid "Ordered list"
 msgstr "順序付きリスト"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:224
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:232
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:223
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:231
 msgid "URL?"
 msgstr "URL?"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:225
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:224
 msgid "Language?"
 msgstr "言語？"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:248
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:247
 msgid "Remove text formating"
 msgstr "テキスト書式を削除"
 
@@ -1666,33 +1666,33 @@ msgstr "すべてのブログのデータベースをダウンロード"
 msgid "No file to read."
 msgstr "ファイルが読み込めません。"
 
-#: plugins/importExport/src/FlatExport.php:47
+#: plugins/importExport/src/FlatExport.php:49
 msgid "Unable to create output file."
 msgstr "出力ファイルを作成できません。"
 
-#: plugins/importExport/src/FlatImportV2.php:97
+#: plugins/importExport/src/FlatImportV2.php:99
 msgid "Unable to read the DotClear backup file."
 msgstr "DotClear バックアップファイルを読み取れません。"
 
-#: plugins/importExport/src/FlatImportV2.php:101
+#: plugins/importExport/src/FlatImportV2.php:103
 msgid "File is not a DotClear backup."
 msgstr "ファイルはDotClearのバックアップではありません。"
 
-#: plugins/importExport/src/FlatImportV2.php:177
+#: plugins/importExport/src/FlatImportV2.php:179
 msgid "File is not a single blog export."
 msgstr "ファイルは単独のブログをエクスポートしたものではありません。"
 
-#: plugins/importExport/src/FlatImportV2.php:294
-#: plugins/importExport/src/FlatImportV2.php:353
+#: plugins/importExport/src/FlatImportV2.php:296
+#: plugins/importExport/src/FlatImportV2.php:355
 #, php-format
 msgid "Error raised at line %s"
 msgstr "%s 行目でエラーが発生しました"
 
-#: plugins/importExport/src/FlatImportV2.php:305
+#: plugins/importExport/src/FlatImportV2.php:307
 msgid "File is not a full export."
 msgstr "ファイルは完全なエクスポートではありません。"
 
-#: plugins/importExport/src/FlatImportV2.php:766
+#: plugins/importExport/src/FlatImportV2.php:768
 #, php-format
 msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
 msgstr "\"%3$s\"のIDがバックアップファイルの行%1$s\" %2$s \"に一致しません。"
@@ -1733,115 +1733,115 @@ msgstr "すぐにブログしませんか？"
 msgid "visit your dashboard"
 msgstr "ダッシュボードへアクセス"
 
-#: plugins/importExport/src/ModuleExportFlat.php:28
+#: plugins/importExport/src/ModuleExportFlat.php:30
 msgid "Flat file export"
 msgstr "フラットファイルのエクスポート"
 
-#: plugins/importExport/src/ModuleExportFlat.php:29
+#: plugins/importExport/src/ModuleExportFlat.php:31
 msgid "Exports a blog or a full Dotclear installation to flat file."
 msgstr "ブログまたは完全なDotclearインストールをフラットファイルへエクスポートします。"
 
-#: plugins/importExport/src/ModuleExportFlat.php:154
+#: plugins/importExport/src/ModuleExportFlat.php:156
 msgid "Export file not found."
 msgstr "エクスポートファイルが見つかりませんでした。"
 
-#: plugins/importExport/src/ModuleExportFlat.php:193
+#: plugins/importExport/src/ModuleExportFlat.php:195
 msgid "Failed to compress export file."
 msgstr "エクスポートファイルの圧縮に失敗しました。"
 
-#: plugins/importExport/src/ModuleImportDc1.php:84
+#: plugins/importExport/src/ModuleImportDc1.php:86
 msgid "Dotclear 1.2 import"
 msgstr "Dotclear 1.2 のインポート"
 
-#: plugins/importExport/src/ModuleImportDc1.php:85
+#: plugins/importExport/src/ModuleImportDc1.php:87
 msgid "Import a Dotclear 1.2 installation into your current blog."
 msgstr "現在のブログへ Dotclear 1.2 インストールをインポートします。"
 
-#: plugins/importExport/src/ModuleImportDc1.php:216
+#: plugins/importExport/src/ModuleImportDc1.php:218
 #, php-format
 msgid "Import the content of a Dotclear 1.2's blog in the current blog: %s."
 msgstr "Dotclear 1.2のブログの内容を現在のブログにインポートします: %s."
 
-#: plugins/importExport/src/ModuleImportDc1.php:224
-#: plugins/importExport/src/ModuleImportWp.php:251
+#: plugins/importExport/src/ModuleImportDc1.php:226
+#: plugins/importExport/src/ModuleImportWp.php:253
 msgid "Please note that this process will empty your categories, blogroll, entries and comments on the current blog."
 msgstr "この処理が現在のブログのカテゴリ、ブログロール、エントリ、コメントを空にすることに注意してください。"
 
-#: plugins/importExport/src/ModuleImportDc1.php:231
+#: plugins/importExport/src/ModuleImportDc1.php:233
 msgid "We first need some information about your old Dotclear 1.2 installation."
 msgstr "はじめに、古い Dotclear 1.2 インストールに関するいくつかの情報が必要です。"
 
-#: plugins/importExport/src/ModuleImportDc1.php:238
+#: plugins/importExport/src/ModuleImportDc1.php:240
 msgid "Database driver:"
 msgstr "データベースドライバ:"
 
-#: plugins/importExport/src/ModuleImportDc1.php:280
-#: plugins/importExport/src/ModuleImportWp.php:300
+#: plugins/importExport/src/ModuleImportDc1.php:282
+#: plugins/importExport/src/ModuleImportWp.php:302
 msgid "Entries import options"
 msgstr "エントリのインポートオプション"
 
-#: plugins/importExport/src/ModuleImportDc1.php:285
-#: plugins/importExport/src/ModuleImportWp.php:345
+#: plugins/importExport/src/ModuleImportDc1.php:287
+#: plugins/importExport/src/ModuleImportWp.php:347
 msgid "Number of entries to import at once:"
 msgstr "一度にインポートするエントリ数："
 
-#: plugins/importExport/src/ModuleImportDc1.php:291
-#: plugins/importExport/src/ModuleImportWp.php:370
+#: plugins/importExport/src/ModuleImportDc1.php:293
+#: plugins/importExport/src/ModuleImportWp.php:372
 msgid "General information"
 msgstr "全般の情報"
 
-#: plugins/importExport/src/ModuleImportDc1.php:291
-#: plugins/importExport/src/ModuleImportWp.php:370
+#: plugins/importExport/src/ModuleImportDc1.php:293
+#: plugins/importExport/src/ModuleImportWp.php:372
 msgid "Import my blog now"
 msgstr "ブログをインポート"
 
-#: plugins/importExport/src/ModuleImportDc1.php:298
-#: plugins/importExport/src/ModuleImportWp.php:377
+#: plugins/importExport/src/ModuleImportDc1.php:300
+#: plugins/importExport/src/ModuleImportWp.php:379
 msgid "Importing users"
 msgstr "ユーザをインポート中"
 
-#: plugins/importExport/src/ModuleImportDc1.php:305
-#: plugins/importExport/src/ModuleImportWp.php:384
+#: plugins/importExport/src/ModuleImportDc1.php:307
+#: plugins/importExport/src/ModuleImportWp.php:386
 msgid "Importing categories"
 msgstr "カテゴリをインポート中"
 
-#: plugins/importExport/src/ModuleImportDc1.php:312
-#: plugins/importExport/src/ModuleImportWp.php:391
+#: plugins/importExport/src/ModuleImportDc1.php:314
+#: plugins/importExport/src/ModuleImportWp.php:393
 msgid "Importing blogroll"
 msgstr "ブログロールをインポート中"
 
-#: plugins/importExport/src/ModuleImportDc1.php:319
-#: plugins/importExport/src/ModuleImportWp.php:398
+#: plugins/importExport/src/ModuleImportDc1.php:321
+#: plugins/importExport/src/ModuleImportWp.php:400
 #, php-format
 msgid "Importing entries from %d to %d / %d"
 msgstr "%d から %d / %d までのエントリをインポートしています"
 
-#: plugins/importExport/src/ModuleImportDc1.php:334
-#: plugins/importExport/src/ModuleImportWp.php:413
+#: plugins/importExport/src/ModuleImportDc1.php:336
+#: plugins/importExport/src/ModuleImportWp.php:415
 msgid "Please read carefully"
 msgstr "注意深くお読みください"
 
-#: plugins/importExport/src/ModuleImportDc1.php:336
-#: plugins/importExport/src/ModuleImportWp.php:416
+#: plugins/importExport/src/ModuleImportDc1.php:338
+#: plugins/importExport/src/ModuleImportWp.php:418
 msgid "Every newly imported user has received a random password and will need to ask for a new one by following the \"I forgot my password\" link on the login page (Their registered email address has to be valid.)"
 msgstr "新たにインポートされたすべてのユーザはランダムなパスワードを受け取っており、ログインページの「パスワードの再発行」リンクから新しいパスワードを要求する必要があります（ユーザの登録済みメールアドレスは有効でなければなりません）。"
 
-#: plugins/importExport/src/ModuleImportDc1.php:338
+#: plugins/importExport/src/ModuleImportDc1.php:340
 #, php-format
 msgid "Please note that Dotclear 2 has a new URL layout. You can avoid broken links by installing <a href=\"%s\">DC1 redirect</a> plugin and activate it in your blog configuration."
 msgstr "Dotclear 2 が新しいURLレイアウトを持っていることに注意してください。 <a href=\"%s\">DC1 redirect</a> プラグインをインストールし、ブログの設定で有効化することにより、リンク切れを回避することができます。"
 
-#: plugins/importExport/src/ModuleImportDc1.php:361
-#: plugins/importExport/src/ModuleImportWp.php:438
+#: plugins/importExport/src/ModuleImportDc1.php:363
+#: plugins/importExport/src/ModuleImportWp.php:440
 msgid "next step"
 msgstr "次のステップ"
 
-#: plugins/importExport/src/ModuleImportDc1.php:379
-#: plugins/importExport/src/ModuleImportWp.php:456
+#: plugins/importExport/src/ModuleImportDc1.php:381
+#: plugins/importExport/src/ModuleImportWp.php:458
 msgid "Depending on the size of your blog, it could take a few minutes."
 msgstr "インポートするブログのサイズによっては、処理に数分間かかることがあります。"
 
-#: plugins/importExport/src/ModuleImportDc1.php:407
+#: plugins/importExport/src/ModuleImportDc1.php:409
 msgid "Dotclear tables not found"
 msgstr "Dotclearのテーブルが見つかりませんでした"
 
@@ -1877,7 +1877,7 @@ msgid "Add a feed content to the current blog: <strong>%s</strong>."
 msgstr "現在のブログにフィードコンテンツを追加します: <strong>%s</strong>."
 
 #: plugins/importExport/src/ModuleImportFeed.php:231
-#: plugins/widgets/src/Widgets.php:156
+#: plugins/widgets/src/Widgets.php:155
 msgid "Feed URL:"
 msgstr "フィードURL："
 
@@ -1942,64 +1942,64 @@ msgstr "バックアップファイルの抽出に失敗しました。"
 msgid "No backup in compressed file."
 msgstr "圧縮ファイルにバックアップはありません。"
 
-#: plugins/importExport/src/ModuleImportWp.php:109
+#: plugins/importExport/src/ModuleImportWp.php:111
 msgid "WordPress import"
 msgstr "WordPress のインポート"
 
-#: plugins/importExport/src/ModuleImportWp.php:110
+#: plugins/importExport/src/ModuleImportWp.php:112
 msgid "Import a WordPress installation into your current blog."
 msgstr "現在のブログへ WordPress インストールをインポートします。"
 
-#: plugins/importExport/src/ModuleImportWp.php:243
+#: plugins/importExport/src/ModuleImportWp.php:245
 #, php-format
 msgid "This will import your WordPress content as new content in the current blog: %s."
 msgstr "これは WordPress のコンテンツを、現在のブログ「%s」へ新しいコンテンツとしてインポートします。"
 
-#: plugins/importExport/src/ModuleImportWp.php:258
+#: plugins/importExport/src/ModuleImportWp.php:260
 msgid "We first need some information about your old WordPress installation."
 msgstr "はじめに、古い WordPress インストールに関するいくつかの情報が必要です。"
 
-#: plugins/importExport/src/ModuleImportWp.php:308
+#: plugins/importExport/src/ModuleImportWp.php:310
 msgid "WordPress and Dotclear's handling of categories are quite different. You can assign several categories to a single post in WordPress. In the Dotclear world, we see it more like \"One category, several tags.\" Therefore Dotclear can only import one category per post and will chose the lowest numbered one. If you want to keep a trace of every category, you can import them as tags, with an optional prefix."
 msgstr "WordPress と Dotclear のカテゴリの処理は全く異なります。 WordPress では、1つの投稿にいくつかのカテゴリを割り当てることができますが、Dotclear の世界では、むしろ「1つのカテゴリ、いくつかのタグ」のように考えます。 従って Dotclear は、投稿ごとに1つのカテゴリ（最も低い番号のもの）のみがインポートできます。 すべてのカテゴリの痕跡を保持したい場合、任意のプレフィックスと共に、それらをタグとしてインポートすることができます。"
 
-#: plugins/importExport/src/ModuleImportWp.php:310
+#: plugins/importExport/src/ModuleImportWp.php:312
 msgid "On the other hand, in WordPress, a post can not be uncategorized, and a default installation has a first category labelised <i>\"Uncategorized\"</i>. If you did not change that category, you can just ignore it while importing your blog, as Dotclear allows you to actually keep your posts uncategorized."
 msgstr "一方、WordPressの場合、投稿のカテゴリ分けを解除することはできず、デフォルトのインストールでは最初のカテゴリが<i>「未分類</i>」となっています。もしこのカテゴリーを変更しないのであれば、ブログのインポート時にこのカテゴリーを無視することができます。"
 
-#: plugins/importExport/src/ModuleImportWp.php:319
+#: plugins/importExport/src/ModuleImportWp.php:321
 msgid "Ignore the first category:"
 msgstr "最初のカテゴリを無視："
 
-#: plugins/importExport/src/ModuleImportWp.php:325
+#: plugins/importExport/src/ModuleImportWp.php:327
 msgid "Import lowest numbered category on posts:"
 msgstr "投稿で最も低い番号付けされたカテゴリをインポート："
 
-#: plugins/importExport/src/ModuleImportWp.php:331
+#: plugins/importExport/src/ModuleImportWp.php:333
 msgid "Import all categories as tags:"
 msgstr "すべてのカテゴリをタグとしてインポート："
 
-#: plugins/importExport/src/ModuleImportWp.php:339
+#: plugins/importExport/src/ModuleImportWp.php:341
 msgid "Prefix such tags with:"
 msgstr "タグに付加するプレフィックス："
 
-#: plugins/importExport/src/ModuleImportWp.php:349
+#: plugins/importExport/src/ModuleImportWp.php:351
 msgid "Content filters"
 msgstr "コンテンツフィルター"
 
-#: plugins/importExport/src/ModuleImportWp.php:351
+#: plugins/importExport/src/ModuleImportWp.php:353
 msgid "You may want to process your post and/or comment content with the following filters."
 msgstr "投稿やコメントの内容を以下のフィルタで処理したい場合があります。"
 
-#: plugins/importExport/src/ModuleImportWp.php:357
+#: plugins/importExport/src/ModuleImportWp.php:359
 msgid "Post content formatter:"
 msgstr "投稿コンテンツのフォーマット:"
 
-#: plugins/importExport/src/ModuleImportWp.php:364
+#: plugins/importExport/src/ModuleImportWp.php:366
 msgid "Comment content formatter:"
 msgstr "コメントコンテンツフォーマット:"
 
-#: plugins/importExport/src/ModuleImportWp.php:484
+#: plugins/importExport/src/ModuleImportWp.php:486
 msgid "WordPress tables not found"
 msgstr "WordPress テーブルが見つかりませんでした"
 
@@ -2621,7 +2621,7 @@ msgid "Home page"
 msgstr "ホームページ"
 
 #: plugins/simpleMenu/src/Manage.php:261 plugins/simpleMenu/src/Manage.php:266
-#: plugins/widgets/src/Widgets.php:305 plugins/widgets/src/Widgets.php:315
+#: plugins/widgets/src/Widgets.php:304 plugins/widgets/src/Widgets.php:314
 msgid "Recent posts"
 msgstr "最近の投稿"
 
@@ -2946,7 +2946,7 @@ msgstr "古い項目"
 msgid "Link to all tags:"
 msgstr "すべてのタグへのリンク:"
 
-#: plugins/themeEditor/src/Backend.php:27
+#: plugins/themeEditor/src/Backend.php:28
 msgid "themeEditor"
 msgstr "themeEditor"
 
@@ -3034,72 +3034,68 @@ msgstr "ファイル %s の編集"
 msgid "If you use <code>url(...)</code> in your CSS files, be sure to use <code>url(index.php?tf=...)</code> to correctly load theme resources (imported CSS, images, etc.), except for URL types in the form <code>data:image</code>.<br>Example: do <code>@import url(index.php?tf=css/layout.css);</code> instead of <code>@import url(css/layout.css);</code>."
 msgstr "CSS ファイルで <code>url(...)</code> を使用する場合は、<code>data:image</code> 形式の URL タイプを除き、テーマ リソース (インポートされた CSS、画像など) を正しく読み込むために必ず <code>url(index.php?tf=...)</code> を使用してください。<br>例: <code>@import url(css/layout.css);</code> ではなく、<code>@import url(index.php?tf=css/layout.css);</code> を使用します。"
 
-#: plugins/themeEditor/src/Manage.php:265
+#: plugins/themeEditor/src/Manage.php:264
 msgid "This file is not overloadable. Please check your var folder permissions."
 msgstr "このファイルはオーバーロードできません。var フォルダのパーミッションを確認してください。"
 
-#: plugins/themeEditor/src/Manage.php:268
-msgid "This theme is too old to be modified. Please check if an update is available."
-msgstr "このテーマは古すぎて修正できません。アップデートがあるかどうかご確認ください。"
-
-#: plugins/themeEditor/src/Manage.php:287
+#: plugins/themeEditor/src/Manage.php:283
 msgid "Templates files"
 msgstr "テンプレートファイル"
 
-#: plugins/themeEditor/src/Manage.php:292
+#: plugins/themeEditor/src/Manage.php:288
 msgid "CSS files"
 msgstr "CSSファイル"
 
-#: plugins/themeEditor/src/Manage.php:297
+#: plugins/themeEditor/src/Manage.php:293
 msgid "JavaScript files"
 msgstr "JavaScriptファイル"
 
-#: plugins/themeEditor/src/Manage.php:302
+#: plugins/themeEditor/src/Manage.php:298
 msgid "Locales files"
 msgstr "ロケールファイル"
 
-#: plugins/themeEditor/src/Manage.php:307
+#: plugins/themeEditor/src/Manage.php:303
 msgid "PHP files"
 msgstr "PHPファイル"
 
-#: plugins/themeEditor/src/ThemeEditor.php:184
+#: plugins/themeEditor/src/ThemeEditor.php:183
 msgid "No file"
 msgstr "ファイルはありません"
 
-#: plugins/themeEditor/src/ThemeEditor.php:214
+#: plugins/themeEditor/src/ThemeEditor.php:213
 msgid "Customized:"
 msgstr "カスタマイズされた："
 
-#: plugins/themeEditor/src/ThemeEditor.php:222
-#: plugins/themeEditor/src/ThemeEditor.php:228
+#: plugins/themeEditor/src/ThemeEditor.php:221
+#: plugins/themeEditor/src/ThemeEditor.php:227
 msgid "From theme:"
 msgstr "テーマから:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:239
+#: plugins/themeEditor/src/ThemeEditor.php:238
 msgid "From parent:"
 msgstr "親から:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:249
+#: plugins/themeEditor/src/ThemeEditor.php:248
 msgid "From template set:"
 msgstr "テンプレートセットから:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:277
-#: plugins/themeEditor/src/ThemeEditor.php:313
-#: plugins/themeEditor/src/ThemeEditor.php:390
+#: plugins/themeEditor/src/ThemeEditor.php:276
+#: plugins/themeEditor/src/ThemeEditor.php:312
+#: plugins/themeEditor/src/ThemeEditor.php:389
 msgid "File does not exist."
 msgstr "ファイルが存在しません。"
 
-#: plugins/themeEditor/src/ThemeEditor.php:282
+#: plugins/themeEditor/src/ThemeEditor.php:281
 #, php-format
 msgid "File %s is not readable"
 msgstr "ファイル %s は読み込み可能ではありません"
 
-#: plugins/themeEditor/src/ThemeEditor.php:350
+#: plugins/themeEditor/src/ThemeEditor.php:349
 #, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr "ファイル %s に書き込むことができません。 テーマのファイルとフォルダのパーミッションを確認してください。"
 
-#: plugins/themeEditor/src/ThemeEditor.php:428
+#: plugins/themeEditor/src/ThemeEditor.php:427
 #, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "ファイルを削除できません %s.テーマのファイルとフォルダのパーミッションを確認してください。"
@@ -3244,109 +3240,109 @@ msgstr "ウィジェットがありません。"
 msgid "Drag widgets here to remove."
 msgstr "削除するにはここにウィジェットをドラッグしてください。"
 
-#: plugins/widgets/src/Widgets.php:100
+#: plugins/widgets/src/Widgets.php:99
 msgid "Search engine"
 msgstr "検索エンジン"
 
-#: plugins/widgets/src/Widgets.php:102
+#: plugins/widgets/src/Widgets.php:101
 msgid "Placeholder (HTML5 only, optional):"
 msgstr "プレースホルダー (HTML5 のみ、オプション):"
 
-#: plugins/widgets/src/Widgets.php:109
+#: plugins/widgets/src/Widgets.php:108
 msgid "Navigation links"
 msgstr "ナビゲーションリンク"
 
-#: plugins/widgets/src/Widgets.php:117
+#: plugins/widgets/src/Widgets.php:116
 msgid "Selected entries"
 msgstr "イチ押しのエントリ"
 
-#: plugins/widgets/src/Widgets.php:118
+#: plugins/widgets/src/Widgets.php:117
 msgid "Best of me"
 msgstr "私のイチ押し"
 
-#: plugins/widgets/src/Widgets.php:126
+#: plugins/widgets/src/Widgets.php:125
 msgid "Blog languages"
 msgstr "ブログの言語"
 
-#: plugins/widgets/src/Widgets.php:136
+#: plugins/widgets/src/Widgets.php:135
 msgid "With entries counts"
 msgstr "エントリ数付き"
 
-#: plugins/widgets/src/Widgets.php:137
+#: plugins/widgets/src/Widgets.php:136
 msgid "Include sub cats in count"
 msgstr "サブ猫をカウントに含める"
 
-#: plugins/widgets/src/Widgets.php:138
+#: plugins/widgets/src/Widgets.php:137
 msgid "Include empty categories"
 msgstr "空のカテゴリを含める"
 
-#: plugins/widgets/src/Widgets.php:145
+#: plugins/widgets/src/Widgets.php:144
 msgid "Subscribe links"
 msgstr "定期受信リンク"
 
-#: plugins/widgets/src/Widgets.php:146
+#: plugins/widgets/src/Widgets.php:145
 msgid "Subscribe"
 msgstr "定期受信"
 
-#: plugins/widgets/src/Widgets.php:147
+#: plugins/widgets/src/Widgets.php:146
 msgid "Feeds type:"
 msgstr "フィードタイプ："
 
-#: plugins/widgets/src/Widgets.php:154
+#: plugins/widgets/src/Widgets.php:153
 msgid "Feed reader"
 msgstr "フィードリーダー"
 
-#: plugins/widgets/src/Widgets.php:155
+#: plugins/widgets/src/Widgets.php:154
 msgid "Somewhere else"
 msgstr "他のサイト"
 
-#: plugins/widgets/src/Widgets.php:157 plugins/widgets/src/Widgets.php:185
+#: plugins/widgets/src/Widgets.php:156 plugins/widgets/src/Widgets.php:184
 msgid "Entries limit:"
 msgstr "エントリの制限："
 
-#: plugins/widgets/src/Widgets.php:164
+#: plugins/widgets/src/Widgets.php:163
 msgid "Text"
 msgstr "テキスト"
 
-#: plugins/widgets/src/Widgets.php:166
+#: plugins/widgets/src/Widgets.php:165
 msgid "Text:"
 msgstr "テキスト："
 
-#: plugins/widgets/src/Widgets.php:173
+#: plugins/widgets/src/Widgets.php:172
 msgid "Uncategorized"
 msgstr "未分類"
 
-#: plugins/widgets/src/Widgets.php:177 plugins/widgets/src/Widgets.php:179
+#: plugins/widgets/src/Widgets.php:176 plugins/widgets/src/Widgets.php:178
 msgid "Last entries"
 msgstr "最終エントリ"
 
-#: plugins/widgets/src/Widgets.php:182
+#: plugins/widgets/src/Widgets.php:181
 msgid "Tag:"
 msgstr "タグ："
 
-#: plugins/widgets/src/Widgets.php:194
+#: plugins/widgets/src/Widgets.php:193
 msgid "Last comments"
 msgstr "最終コメント"
 
-#: plugins/widgets/src/Widgets.php:195
+#: plugins/widgets/src/Widgets.php:194
 msgid "Comments limit:"
 msgstr "コメントの制限："
 
-#: plugins/widgets/src/Widgets.php:565
+#: plugins/widgets/src/Widgets.php:564
 #, php-format
 msgid "This blog's entries %s feed"
 msgstr "このブログのエントリ %s のフィード"
 
-#: plugins/widgets/src/Widgets.php:566
+#: plugins/widgets/src/Widgets.php:565
 #, php-format
 msgid "This blog's comments %s feed"
 msgstr "このブログのコメント %s のフィード"
 
-#: plugins/widgets/src/Widgets.php:579
+#: plugins/widgets/src/Widgets.php:578
 msgid "Entries feed"
 msgstr "エントリのフィード"
 
-#: plugins/widgets/src/Widgets.php:589
+#: plugins/widgets/src/Widgets.php:588
 msgid "Comments feed"
 msgstr "コメントのフィード"
 
