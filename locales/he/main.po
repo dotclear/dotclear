@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-22 16:33+0200\n"
-"PO-Revision-Date: 2025-09-22 16:08\n"
+"POT-Creation-Date: 2025-10-04 17:57+0200\n"
+"PO-Revision-Date: 2025-10-05 05:58\n"
 "Last-Translator: \n"
 "Language-Team: Hebrew\n"
 "Language: he_IL\n"
@@ -17,9 +17,9 @@ msgstr ""
 "X-Crowdin-File: /master/locales/_pot/main.pot\n"
 "X-Crowdin-File-ID: 262\n"
 
-#: inc/core/_fake_l10n.php:7 src/Process/Backend/Auth.php:447
+#: inc/core/_fake_l10n.php:7 src/Process/Backend/Auth.php:446
 #: src/Process/Backend/User.php:265 src/Process/Backend/UserPreferences.php:567
-#: src/Process/Install/Install.php:421 src/Process/Upgrade/Auth.php:389
+#: src/Process/Install/Install.php:427 src/Process/Upgrade/Auth.php:388
 msgid "medium"
 msgstr "בינוני"
 
@@ -119,10 +119,10 @@ msgstr "המפתח אינו קיים בבסיס הנתונים."
 
 #: src/Core/Backend/Action/Actions.php:139
 #: src/Core/Backend/Action/ActionsComments.php:158
-#: src/Core/Backend/Combos.php:256 src/Core/Backend/Listing/ListingPosts.php:78
+#: src/Core/Backend/Combos.php:255 src/Core/Backend/Listing/ListingPosts.php:78
 #: src/Core/Backend/Listing/ListingPostsMini.php:62
 #: src/Core/Backend/UserPref.php:205 src/Process/Backend/Home.php:591
-#: src/Process/Backend/MediaItem.php:1088 src/Process/Backend/Post.php:841
+#: src/Process/Backend/MediaItem.php:1090 src/Process/Backend/Post.php:841
 msgid "Title"
 msgstr "כותרת"
 
@@ -150,7 +150,7 @@ msgstr "פעולות יישום הבלוגים"
 msgid "Blog id"
 msgstr "זיהוי בלוג"
 
-#: src/Core/Backend/Action/ActionsBlogs.php:158 src/Core/Backend/Combos.php:312
+#: src/Core/Backend/Action/ActionsBlogs.php:158 src/Core/Backend/Combos.php:311
 #: src/Core/Backend/Listing/ListingBlogs.php:83
 #: src/Core/Backend/UserPref.php:77 src/Process/Backend/Blog.php:144
 #: src/Process/Backend/BlogPref.php:534
@@ -160,9 +160,9 @@ msgstr "שם בלוג"
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:35
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:36
-#: src/Core/Backend/Action/ActionsPostsDefault.php:48
-#: src/Core/Backend/Combos.php:259 src/Core/Backend/Combos.php:282
-#: src/Core/Backend/Combos.php:314
+#: src/Core/Backend/Action/ActionsPostsDefault.php:47
+#: src/Core/Backend/Combos.php:258 src/Core/Backend/Combos.php:281
+#: src/Core/Backend/Combos.php:313
 #: src/Core/Backend/Listing/ListingBlogs.php:102
 #: src/Core/Backend/Listing/ListingComments.php:131
 #: src/Core/Backend/Listing/ListingPosts.php:120
@@ -179,14 +179,14 @@ msgstr "סטטוס"
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:40
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:46
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:47
+#: src/Core/Backend/Action/ActionsPostsDefault.php:96
 #: src/Core/Backend/Action/ActionsPostsDefault.php:97
-#: src/Core/Backend/Action/ActionsPostsDefault.php:98
-#: src/Core/Backend/Listing/ListingMedia.php:308
-#: src/Core/Backend/Listing/ListingMedia.php:311
+#: src/Core/Backend/Listing/ListingMedia.php:314
+#: src/Core/Backend/Listing/ListingMedia.php:317
 #: src/Core/Backend/ModulesList.php:1361 src/Core/Upgrade/PluginsList.php:125
-#: src/Process/Backend/Comment.php:354 src/Process/Backend/Langs.php:232
+#: src/Process/Backend/Comment.php:354 src/Process/Backend/Langs.php:231
 #: src/Process/Backend/Post.php:965 src/Process/Backend/UserPreferences.php:694
-#: src/Process/Backend/Users.php:44 src/Process/Upgrade/Langs.php:298
+#: src/Process/Backend/Users.php:44 src/Process/Upgrade/Langs.php:297
 msgid "Delete"
 msgstr "מחיקה"
 
@@ -202,9 +202,9 @@ msgstr "הבלוגים שנבחרו עודכנו בהצלחה."
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:104
 #: src/Core/Backend/ModulesList.php:1699 src/Core/Backend/ThemesList.php:714
 #: src/Core/Upgrade/PluginsList.php:398 src/Process/Backend/BlogDel.php:69
-#: src/Process/Backend/Langs.php:115 src/Process/Backend/Langs.php:160
+#: src/Process/Backend/Langs.php:114 src/Process/Backend/Langs.php:159
 #: src/Process/Backend/User.php:128 src/Process/Backend/UsersActions.php:182
-#: src/Process/Upgrade/Langs.php:163 src/Process/Upgrade/Langs.php:208
+#: src/Process/Upgrade/Langs.php:162 src/Process/Upgrade/Langs.php:207
 msgid "Password verification failed"
 msgstr "אימות הסיסמה נכשל."
 
@@ -245,7 +245,7 @@ msgid "Comments actions"
 msgstr "פעולות הערות"
 
 #: src/Core/Backend/Action/ActionsComments.php:156
-#: src/Core/Backend/Combos.php:258 src/Core/Backend/Combos.php:281
+#: src/Core/Backend/Combos.php:257 src/Core/Backend/Combos.php:280
 #: src/Core/Backend/Listing/ListingComments.php:123
 #: src/Core/Backend/Listing/ListingPosts.php:90
 #: src/Core/Backend/Listing/ListingPostsMini.php:70
@@ -296,65 +296,65 @@ msgstr "חזרה לרשימת ' רשומות '"
 msgid "Posts actions"
 msgstr "פעולות סקר"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:57
+#: src/Core/Backend/Action/ActionsPostsDefault.php:56
 msgid "First publication"
 msgstr "פרסום ראשון"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:58
-#: src/Core/Backend/Action/ActionsPostsDefault.php:191
+#: src/Core/Backend/Action/ActionsPostsDefault.php:57
+#: src/Core/Backend/Action/ActionsPostsDefault.php:190
 msgid "Never published"
 msgstr "מעולם לא פורסם"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:59
-#: src/Core/Backend/Action/ActionsPostsDefault.php:191
+#: src/Core/Backend/Action/ActionsPostsDefault.php:58
+#: src/Core/Backend/Action/ActionsPostsDefault.php:190
 msgid "Already published"
 msgstr "כבר פורסם"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:65
+#: src/Core/Backend/Action/ActionsPostsDefault.php:64
 msgid "Mark"
 msgstr "סימון"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:66
+#: src/Core/Backend/Action/ActionsPostsDefault.php:65
 msgid "Mark as selected"
 msgstr "סימון ' נבחר '"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:67
+#: src/Core/Backend/Action/ActionsPostsDefault.php:66
 msgid "Mark as unselected"
 msgstr "סימון ' לא נבחר '"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:72
-#: src/Core/Backend/Action/ActionsPostsDefault.php:78
-#: src/Core/Backend/Action/ActionsPostsDefault.php:87
+#: src/Core/Backend/Action/ActionsPostsDefault.php:71
+#: src/Core/Backend/Action/ActionsPostsDefault.php:77
+#: src/Core/Backend/Action/ActionsPostsDefault.php:86
 msgid "Change"
 msgstr "שינוי"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:73
+#: src/Core/Backend/Action/ActionsPostsDefault.php:72
 msgid "Change category"
 msgstr "שינוי סיווג"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:79
+#: src/Core/Backend/Action/ActionsPostsDefault.php:78
 msgid "Change language"
 msgstr "שינוי שפה"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:88
+#: src/Core/Backend/Action/ActionsPostsDefault.php:87
 msgid "Change author"
 msgstr "שינוי מחבר"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:120
-#: src/Core/Backend/Action/ActionsPostsDefault.php:177
-#: src/Core/Backend/Action/ActionsPostsDefault.php:209
-#: src/Core/Backend/Action/ActionsPostsDefault.php:251
-#: src/Core/Backend/Action/ActionsPostsDefault.php:290
-#: src/Core/Backend/Action/ActionsPostsDefault.php:420
-#: src/Core/Backend/Action/ActionsPostsDefault.php:518
+#: src/Core/Backend/Action/ActionsPostsDefault.php:119
+#: src/Core/Backend/Action/ActionsPostsDefault.php:176
+#: src/Core/Backend/Action/ActionsPostsDefault.php:208
+#: src/Core/Backend/Action/ActionsPostsDefault.php:250
+#: src/Core/Backend/Action/ActionsPostsDefault.php:289
+#: src/Core/Backend/Action/ActionsPostsDefault.php:419
+#: src/Core/Backend/Action/ActionsPostsDefault.php:517
 msgid "No entry selected"
 msgstr "לא נבחרה רשומה"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:139
+#: src/Core/Backend/Action/ActionsPostsDefault.php:138
 msgid "Published entries cannot be set to scheduled"
 msgstr "לא ניתן להגדיר את הרשומות שפורסמו ביומן."
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:148
+#: src/Core/Backend/Action/ActionsPostsDefault.php:147
 #, php-format
 msgid "%d entry has been successfully updated to status : \"%s\""
 msgid_plural "%d entries have been successfully updated to status : \"%s\""
@@ -363,7 +363,7 @@ msgstr[1] "%d רשומות עודכנו בהצלחה למצב: \"%s\""
 msgstr[2] "%d רשומות עודכנו בהצלחה למצב: \"%s\""
 msgstr[3] "%d רשומות עודכנו בהצלחה למצב: \"%s\""
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:186
+#: src/Core/Backend/Action/ActionsPostsDefault.php:185
 #, php-format
 msgid "%d entry has been successfully updated as: \"%s\""
 msgid_plural "%d entries have been successfully updated as: \"%s\""
@@ -372,7 +372,7 @@ msgstr[1] "%d רשומות עודכנו בהצלחה בתור: \"%s\""
 msgstr[2] "%d רשומות עודכנו בהצלחה בתור: \"%s\""
 msgstr[3] "%d רשומות עודכנו בהצלחה בתור: \"%s\""
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:218
+#: src/Core/Backend/Action/ActionsPostsDefault.php:217
 #, php-format
 msgid "%d entry has been successfully marked as selected"
 msgid_plural "%d entries have been successfully marked as selected"
@@ -381,7 +381,7 @@ msgstr[1] "%d רשומות סומנו בהצלחה כנבחרות"
 msgstr[2] "%d רשומות סומנו בהצלחה כנבחרות"
 msgstr[3] "%d רשומות סומנו בהצלחה כנבחרות"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:229
+#: src/Core/Backend/Action/ActionsPostsDefault.php:228
 #, php-format
 msgid "%d entry has been successfully marked as unselected"
 msgid_plural "%d entries have been successfully marked as unselected"
@@ -390,7 +390,7 @@ msgstr[1] "%d רשומות סומנו בהצלחה כביטול נבחר"
 msgstr[2] "%d רשומות סומנו בהצלחה כביטול נבחר"
 msgstr[3] "%d רשומות סומנו בהצלחה כביטול נבחר"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:266
+#: src/Core/Backend/Action/ActionsPostsDefault.php:265
 #, php-format
 msgid "%d entry has been successfully deleted"
 msgid_plural "%d entries have been successfully deleted"
@@ -399,13 +399,13 @@ msgstr[1] "%d רשומות נמחקו בהצלחה"
 msgstr[2] "%d רשומות נמחקו בהצלחה"
 msgstr[3] "%d רשומות נמחקו בהצלחה"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:312
-#: src/Core/Backend/Combos.php:42 src/Core/Backend/Filter/FilterPosts.php:120
+#: src/Core/Backend/Action/ActionsPostsDefault.php:311
+#: src/Core/Backend/Combos.php:41 src/Core/Backend/Filter/FilterPosts.php:120
 #: src/Core/Backend/Listing/ListingPosts.php:268
 msgid "(No cat)"
 msgstr "(אין חתול)"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:319
+#: src/Core/Backend/Action/ActionsPostsDefault.php:318
 #, php-format
 msgid "%d entry has been successfully moved to category \"%s\""
 msgid_plural "%d entries have been successfully moved to category \"%s\""
@@ -414,51 +414,51 @@ msgstr[1] "%d רשומות הועברו בהצלחה לסיווג \"%s\""
 msgstr[2] "%d רשומות הועברו בהצלחה לסיווג \"%s\""
 msgstr[3] "%d רשומות הועברו בהצלחה לסיווג \"%s\""
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:335
+#: src/Core/Backend/Action/ActionsPostsDefault.php:334
 msgid "Change category for this selection"
 msgstr "שינוי סיווג עבור בחירה זו"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:349
+#: src/Core/Backend/Action/ActionsPostsDefault.php:348
 #: src/Core/Backend/Filter/FilterPosts.php:131 src/Process/Backend/Home.php:617
 #: src/Process/Backend/Post.php:729
 msgid "Category:"
 msgstr "סיווג:"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:363
+#: src/Core/Backend/Action/ActionsPostsDefault.php:362
 msgid "Create a new category for the post(s)"
 msgstr "יצירת סיווג חדש עבור הפרסום."
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:367
+#: src/Core/Backend/Action/ActionsPostsDefault.php:366
 #: src/Process/Backend/Home.php:595 src/Process/Backend/Home.php:629
-#: src/Process/Backend/Media.php:775 src/Process/Backend/MediaItem.php:1228
+#: src/Process/Backend/Media.php:777 src/Process/Backend/MediaItem.php:1230
 #: src/Process/Backend/Post.php:743 src/Process/Backend/Post.php:846
 msgid "Title:"
 msgstr "כותרת:"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:376
+#: src/Core/Backend/Action/ActionsPostsDefault.php:375
 #: src/Process/Backend/Category.php:267 src/Process/Backend/Category.php:325
 #: src/Process/Backend/Home.php:636 src/Process/Backend/Post.php:750
 msgid "Parent:"
 msgstr "אב:"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:391
-#: src/Core/Backend/Action/ActionsPostsDefault.php:496
-#: src/Core/Backend/Action/ActionsPostsDefault.php:580
+#: src/Core/Backend/Action/ActionsPostsDefault.php:390
+#: src/Core/Backend/Action/ActionsPostsDefault.php:495
+#: src/Core/Backend/Action/ActionsPostsDefault.php:579
 #: src/Core/Backend/ModulesList.php:1997 src/Process/Backend/BlogPref.php:1193
 #: src/Process/Backend/Category.php:297 src/Process/Backend/Category.php:336
 #: src/Process/Backend/Category.php:372 src/Process/Backend/Comment.php:349
 #: src/Process/Backend/Home.php:646 src/Process/Backend/Home.php:700
-#: src/Process/Backend/MediaItem.php:1268 src/Process/Backend/Post.php:930
+#: src/Process/Backend/MediaItem.php:1270 src/Process/Backend/Post.php:930
 #: src/Process/Backend/Post.php:1144 src/Process/Backend/User.php:554
-#: src/Process/Backend/UsersActions.php:513 src/Process/Install/Install.php:544
+#: src/Process/Backend/UsersActions.php:513 src/Process/Install/Install.php:550
 msgid "Save"
 msgstr "שמירה"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:423
+#: src/Core/Backend/Action/ActionsPostsDefault.php:422
 msgid "This user does not exist"
 msgstr "משתמש זה אינו קיים."
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:437
+#: src/Core/Backend/Action/ActionsPostsDefault.php:436
 #, php-format
 msgid "%d entry has been successfully set to user \"%s\""
 msgid_plural "%d entries have been successfully set to user \"%s\""
@@ -467,15 +467,15 @@ msgstr[1] "%d רשומות הוגדרו בהצלחה למשתמש \"%s\""
 msgstr[2] "%d רשומות הוגדרו בהצלחה למשתמש \"%s\""
 msgstr[3] "%d רשומות הוגדרו בהצלחה למשתמש \"%s\""
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:470
+#: src/Core/Backend/Action/ActionsPostsDefault.php:469
 msgid "Change author for this selection"
 msgstr "שינוי מחבר עבור בחירה זו"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:483
+#: src/Core/Backend/Action/ActionsPostsDefault.php:482
 msgid "New author (author ID):"
 msgstr "מחבר חדש (זיהוי מחבר):"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:533
+#: src/Core/Backend/Action/ActionsPostsDefault.php:532
 #, php-format
 msgid "%d entry has been successfully set to language \"%s\""
 msgid_plural "%d entries have been successfully set to language \"%s\""
@@ -484,35 +484,35 @@ msgstr[1] "%d רשומות הוגדרו בהצלחה לשפה \"%s\""
 msgstr[2] "%d רשומות הוגדרו בהצלחה לשפה \"%s\""
 msgstr[3] "%d רשומות הוגדרו בהצלחה לשפה \"%s\""
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:548
+#: src/Core/Backend/Action/ActionsPostsDefault.php:547
 msgid "Change language for this selection"
 msgstr "שינוי השפה עבור בחירה זו"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:568
+#: src/Core/Backend/Action/ActionsPostsDefault.php:567
 msgid "Entry language:"
 msgstr "שפת Entry:"
 
-#: src/Core/Backend/Combos.php:134
+#: src/Core/Backend/Combos.php:133
 msgid "Most used"
 msgstr "רוב בשימוש"
 
-#: src/Core/Backend/Combos.php:135 src/Core/Backend/Combos.php:165
+#: src/Core/Backend/Combos.php:134 src/Core/Backend/Combos.php:164
 msgid "Available"
 msgstr "זמין"
 
-#: src/Core/Backend/Combos.php:165
+#: src/Core/Backend/Combos.php:164
 msgid "Other"
 msgstr "אחר"
 
-#: src/Core/Backend/Combos.php:242 src/Process/Backend/UserPreferences.php:196
+#: src/Core/Backend/Combos.php:241 src/Process/Backend/UserPreferences.php:196
 msgid "Descending"
 msgstr "יורד"
 
-#: src/Core/Backend/Combos.php:243 src/Process/Backend/UserPreferences.php:197
+#: src/Core/Backend/Combos.php:242 src/Process/Backend/UserPreferences.php:197
 msgid "Ascending"
 msgstr "עולה"
 
-#: src/Core/Backend/Combos.php:255 src/Core/Backend/Combos.php:278
+#: src/Core/Backend/Combos.php:254 src/Core/Backend/Combos.php:277
 #: src/Core/Backend/Listing/ListingComments.php:127
 #: src/Core/Backend/Listing/ListingMedia.php:130
 #: src/Core/Backend/Listing/ListingPosts.php:82
@@ -522,78 +522,78 @@ msgstr "עולה"
 msgid "Date"
 msgstr "תאריך"
 
-#: src/Core/Backend/Combos.php:257 src/Core/Backend/Listing/ListingPosts.php:86
+#: src/Core/Backend/Combos.php:256 src/Core/Backend/Listing/ListingPosts.php:86
 #: src/Core/Backend/UserPref.php:44 src/Process/Backend/Post.php:721
 msgid "Category"
 msgstr "קטגוריה"
 
-#: src/Core/Backend/Combos.php:260 src/Core/Backend/Filter/FilterPosts.php:200
+#: src/Core/Backend/Combos.php:259 src/Core/Backend/Filter/FilterPosts.php:200
 #: src/Core/Backend/Listing/ListingPosts.php:209
 #: src/Core/Backend/Listing/ListingPosts.php:250
 #: src/Core/Backend/Listing/ListingPostsMini.php:136
 msgid "Selected"
 msgstr "נבחר"
 
-#: src/Core/Backend/Combos.php:261
+#: src/Core/Backend/Combos.php:260
 msgid "Number of comments"
 msgstr "מספר הערות"
 
-#: src/Core/Backend/Combos.php:262
+#: src/Core/Backend/Combos.php:261
 msgid "Number of trackbacks"
 msgstr "מספר הפניות trackback"
 
-#: src/Core/Backend/Combos.php:279
+#: src/Core/Backend/Combos.php:278
 msgid "Entry title"
 msgstr "כותרת רשומה"
 
-#: src/Core/Backend/Combos.php:280
+#: src/Core/Backend/Combos.php:279
 msgid "Entry date"
 msgstr "תאריך כניסה"
 
-#: src/Core/Backend/Combos.php:283
+#: src/Core/Backend/Combos.php:282
 #: src/Core/Backend/Listing/ListingComments.php:141
 #: src/Core/Backend/UserPref.php:57
 msgid "Spam filter"
 msgstr "מסנן דואר זבל"
 
-#: src/Core/Backend/Combos.php:294
+#: src/Core/Backend/Combos.php:293
 #: src/Core/Backend/Listing/ListingComments.php:136
 #: src/Core/Backend/UserPref.php:56
 msgid "IP"
 msgstr "ייפ \" ק"
 
-#: src/Core/Backend/Combos.php:311 src/Core/Backend/Listing/ListingBlogs.php:98
+#: src/Core/Backend/Combos.php:310 src/Core/Backend/Listing/ListingBlogs.php:98
 #: src/Core/Backend/UserPref.php:80
 msgid "Last update"
 msgstr "עדכון אחרון"
 
-#: src/Core/Backend/Combos.php:313 src/Process/Backend/Blog.php:124
+#: src/Core/Backend/Combos.php:312 src/Process/Backend/Blog.php:124
 #: src/Process/Backend/BlogPref.php:1031
 #: src/Process/Backend/UsersActions.php:365
 msgid "Blog ID"
 msgstr "זיהוי בלוג"
 
-#: src/Core/Backend/Combos.php:332 src/Core/Backend/Listing/ListingUsers.php:68
-#: src/Process/Install/Install.php:520
+#: src/Core/Backend/Combos.php:331 src/Core/Backend/Listing/ListingUsers.php:68
+#: src/Process/Install/Install.php:526
 msgid "Username"
 msgstr "שם משתמש"
 
-#: src/Core/Backend/Combos.php:333 src/Core/Backend/Listing/ListingUsers.php:76
+#: src/Core/Backend/Combos.php:332 src/Core/Backend/Listing/ListingUsers.php:76
 #: src/Core/Backend/UserPref.php:68
 msgid "Last Name"
 msgstr "שם משפחה"
 
-#: src/Core/Backend/Combos.php:334 src/Core/Backend/Listing/ListingUsers.php:72
+#: src/Core/Backend/Combos.php:333 src/Core/Backend/Listing/ListingUsers.php:72
 #: src/Core/Backend/UserPref.php:67
 msgid "First Name"
 msgstr "שם פרטי"
 
-#: src/Core/Backend/Combos.php:335 src/Core/Backend/Listing/ListingUsers.php:80
+#: src/Core/Backend/Combos.php:334 src/Core/Backend/Listing/ListingUsers.php:80
 #: src/Core/Backend/UserPref.php:69
 msgid "Display name"
 msgstr "שם להצגה"
 
-#: src/Core/Backend/Combos.php:336
+#: src/Core/Backend/Combos.php:335
 msgid "Number of entries"
 msgstr "מספר הרשומות"
 
@@ -603,7 +603,7 @@ msgid "My favorites"
 msgstr "המועדפים שלי"
 
 #: src/Core/Backend/Favorites.php:399 src/Core/Backend/Menus.php:195
-#: src/Core/Backend/Page.php:373 src/Process/Backend/Media.php:794
+#: src/Core/Backend/Page.php:372 src/Process/Backend/Media.php:796
 #: src/Process/Backend/UserPreferences.php:70
 msgid "My preferences"
 msgstr "ההעדפות שלי"
@@ -648,8 +648,8 @@ msgstr "קטגוריות"
 #: src/Core/Backend/Favorites.php:465 src/Core/Backend/MediaPage.php:363
 #: src/Core/Backend/MediaPage.php:365 src/Core/Backend/MediaPage.php:416
 #: src/Core/Backend/Menus.php:117 src/Core/Backend/UserPref.php:200
-#: src/Process/Backend/Media.php:700 src/Process/Backend/Media.php:828
-#: src/Process/Backend/MediaItem.php:405 src/Process/Backend/MediaItem.php:411
+#: src/Process/Backend/Media.php:702 src/Process/Backend/Media.php:830
+#: src/Process/Backend/MediaItem.php:407 src/Process/Backend/MediaItem.php:413
 msgid "Media manager"
 msgstr "מנהל מדיה"
 
@@ -688,32 +688,32 @@ msgid "Plugins settings"
 msgstr "הגדרות תוספים"
 
 #: src/Core/Backend/Favorites.php:521 src/Core/Backend/Menus.php:215
-#: src/Core/Upgrade/Utility.php:403
+#: src/Core/Upgrade/Utility.php:389
 msgid "Languages"
 msgstr "שפות"
 
-#: src/Core/Backend/Favorites.php:527 src/Core/Backend/Page.php:448
-#: src/Core/Backend/Page.php:449 src/Process/Backend/Help.php:109
+#: src/Core/Backend/Favorites.php:527 src/Core/Backend/Page.php:447
+#: src/Core/Backend/Page.php:448 src/Process/Backend/Help.php:109
 #: src/Process/Backend/Help.php:116 src/Process/Backend/Help.php:122
 msgid "Global help"
 msgstr "עזרה גלובלית"
 
-#: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1270
-#: src/Process/Backend/Auth.php:514 src/Process/Backend/BlogPref.php:1369
+#: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1269
+#: src/Process/Backend/Auth.php:513 src/Process/Backend/BlogPref.php:1369
 #: src/Process/Backend/Comment.php:305 src/Process/Backend/Post.php:1113
 #: src/Process/Backend/User.php:450 src/Process/Backend/UserPreferences.php:813
-#: src/Process/Install/Install.php:502
+#: src/Process/Install/Install.php:508
 msgid "Email:"
 msgstr "דוא \" ל:"
 
-#: src/Core/Backend/Filter/FilterComments.php:37 src/Core/Backend/Page.php:1269
+#: src/Core/Backend/Filter/FilterComments.php:37 src/Core/Backend/Page.php:1268
 #: src/Process/Backend/Comment.php:321 src/Process/Backend/Post.php:1122
 msgid "Web site:"
 msgstr "אתר אינטרנט:"
 
 #: src/Core/Backend/Filter/FilterComments.php:58
 #: src/Core/Backend/Filter/FilterPosts.php:90
-#: src/Core/Backend/ModulesList.php:1045 src/Core/Backend/Page.php:1311
+#: src/Core/Backend/ModulesList.php:1045 src/Core/Backend/Page.php:1310
 #: src/Process/Backend/Comment.php:294
 msgid "Author:"
 msgstr "מחבר:"
@@ -732,27 +732,27 @@ msgid "Trackback"
 msgstr "Trackback"
 
 #: src/Core/Backend/Filter/FilterComments.php:107
-#: src/Core/Backend/Page.php:1271 src/Process/Backend/Comment.php:269
+#: src/Core/Backend/Page.php:1270 src/Process/Backend/Comment.php:269
 msgid "IP address:"
 msgstr "כתובת IP:"
 
-#: src/Core/Backend/Filter/FilterMedia.php:159
+#: src/Core/Backend/Filter/FilterMedia.php:162
 msgid "Media type:"
 msgstr "סוג מדיה:"
 
-#: src/Core/Backend/Filter/FilterMedia.php:162
+#: src/Core/Backend/Filter/FilterMedia.php:165
 msgid "image"
 msgstr "תמונה"
 
-#: src/Core/Backend/Filter/FilterMedia.php:163
+#: src/Core/Backend/Filter/FilterMedia.php:166
 msgid "text"
 msgstr "טקסט"
 
-#: src/Core/Backend/Filter/FilterMedia.php:164
+#: src/Core/Backend/Filter/FilterMedia.php:167
 msgid "audio"
 msgstr "שמע"
 
-#: src/Core/Backend/Filter/FilterMedia.php:165
+#: src/Core/Backend/Filter/FilterMedia.php:168
 msgid "video"
 msgstr "וידאו"
 
@@ -760,9 +760,9 @@ msgstr "וידאו"
 msgid "Format:"
 msgstr "עיצוב:"
 
-#: src/Core/Backend/Filter/FilterPosts.php:179 src/Process/Backend/Auth.php:174
-#: src/Process/Backend/Auth.php:642 src/Process/Backend/User.php:362
-#: src/Process/Install/Install.php:586 src/Process/Upgrade/Auth.php:339
+#: src/Core/Backend/Filter/FilterPosts.php:179 src/Process/Backend/Auth.php:173
+#: src/Process/Backend/Auth.php:641 src/Process/Backend/User.php:362
+#: src/Process/Install/Install.php:592 src/Process/Upgrade/Auth.php:338
 msgid "Password:"
 msgstr "סיסמה:"
 
@@ -845,7 +845,7 @@ msgstr "שמירת אפשרויות נוכחיות"
 msgid "Display options"
 msgstr "הצגת אפשרויות:"
 
-#: src/Core/Backend/Filter/Filters.php:422 src/Core/Backend/Page.php:1479
+#: src/Core/Backend/Filter/Filters.php:422 src/Core/Backend/Page.php:1478
 msgid "Show filters and display options"
 msgstr "הצגת מסננים ואפשרויות תצוגה."
 
@@ -854,7 +854,7 @@ msgid "Apply filters and display options"
 msgstr "החלת מסננים ואפשרויות תצוגה"
 
 #: src/Core/Backend/Filter/FiltersLibrary.php:87
-#: src/Core/Backend/MediaPage.php:402 src/Core/Backend/Page.php:476
+#: src/Core/Backend/MediaPage.php:402 src/Core/Backend/Page.php:475
 msgid "Search:"
 msgstr "חיפוש:"
 
@@ -1015,31 +1015,31 @@ msgstr "שם"
 msgid "Size"
 msgstr "גודל"
 
-#: src/Core/Backend/Listing/ListingMedia.php:244
-#: src/Core/Backend/Listing/ListingMedia.php:247
-#: src/Process/Backend/Media.php:442
+#: src/Core/Backend/Listing/ListingMedia.php:250
+#: src/Core/Backend/Listing/ListingMedia.php:253
+#: src/Process/Backend/Media.php:444
 msgid "Select this file"
 msgstr "בחירת קובץ זה"
 
-#: src/Core/Backend/Listing/ListingMedia.php:270
-#: src/Core/Backend/Listing/ListingMedia.php:273
-#: src/Process/Backend/Media.php:480
+#: src/Core/Backend/Listing/ListingMedia.php:276
+#: src/Core/Backend/Listing/ListingMedia.php:279
+#: src/Process/Backend/Media.php:482
 msgid "Attach this file to entry"
 msgstr "צירוף קובץ זה לרישום"
 
-#: src/Core/Backend/Listing/ListingMedia.php:281
-#: src/Core/Backend/Listing/ListingMedia.php:284
-#: src/Process/Backend/Media.php:507
+#: src/Core/Backend/Listing/ListingMedia.php:287
+#: src/Core/Backend/Listing/ListingMedia.php:290
+#: src/Process/Backend/Media.php:509
 msgid "Insert this file into entry"
 msgstr "הוספת קובץ זה לרשומה"
 
-#: src/Core/Backend/Listing/ListingMedia.php:348
-#: src/Core/Backend/Listing/ListingMedia.php:387
+#: src/Core/Backend/Listing/ListingMedia.php:354
+#: src/Core/Backend/Listing/ListingMedia.php:393
 msgid "private media"
 msgstr "מדיה פרטית"
 
-#: src/Core/Backend/Listing/ListingMedia.php:374
-#: src/Core/Backend/Listing/ListingMedia.php:400
+#: src/Core/Backend/Listing/ListingMedia.php:380
+#: src/Core/Backend/Listing/ListingMedia.php:406
 msgid "open"
 msgstr "פתוח"
 
@@ -1172,7 +1172,7 @@ msgstr "עמוד %1$s / %2$s"
 msgid "Direct access page:"
 msgstr "עמוד גישה ישירה:"
 
-#: src/Core/Backend/Listing/Pager.php:193 src/Core/Backend/Page.php:171
+#: src/Core/Backend/Listing/Pager.php:193 src/Core/Backend/Page.php:170
 #: src/Process/Backend/Blogs.php:148 src/Process/Backend/Comments.php:216
 #: src/Process/Backend/Posts.php:137 src/Process/Backend/Search.php:311
 #: src/Process/Backend/Search.php:407 src/Process/Backend/Users.php:160
@@ -1196,12 +1196,12 @@ msgstr "בלוג"
 msgid "System settings"
 msgstr "הגדרות מערכת"
 
-#: src/Core/Backend/Menus.php:88 src/Core/Upgrade/Utility.php:412
+#: src/Core/Backend/Menus.php:88 src/Core/Upgrade/Utility.php:398
 msgid "Plugins"
 msgstr "תוספים"
 
 #: src/Core/Backend/Menus.php:205 src/Core/Backend/ModulesList.php:1390
-#: src/Core/Upgrade/PluginsList.php:144 src/Core/Upgrade/Utility.php:376
+#: src/Core/Upgrade/PluginsList.php:144 src/Core/Upgrade/Utility.php:362
 #: src/Process/Upgrade/Upgrade.php:56 src/Process/Upgrade/Upgrade.php:81
 #: src/Process/Upgrade/Upgrade.php:318
 msgid "Update"
@@ -1215,7 +1215,7 @@ msgstr "אחר"
 msgid "Search in repository:"
 msgstr "חיפוש במאגר:"
 
-#: src/Core/Backend/ModulesList.php:413 src/Core/Backend/Page.php:478
+#: src/Core/Backend/ModulesList.php:413 src/Core/Backend/Page.php:477
 msgid "OK"
 msgstr "אוקי"
 
@@ -1270,7 +1270,7 @@ msgid "Current version"
 msgstr "גרסה נוכחית"
 
 #: src/Core/Backend/ModulesList.php:839 src/Core/Backend/ModulesList.php:1063
-#: src/Core/Backend/Page.php:1312 src/Core/Backend/ThemesList.php:230
+#: src/Core/Backend/Page.php:1311 src/Core/Backend/ThemesList.php:230
 #: src/Core/Backend/ThemesList.php:300
 msgid "Details"
 msgstr "פרטים"
@@ -1279,8 +1279,8 @@ msgstr "פרטים"
 msgid "Repository"
 msgstr "מאגר"
 
-#: src/Core/Backend/ModulesList.php:859 src/Process/Backend/Langs.php:288
-#: src/Process/Upgrade/Langs.php:337
+#: src/Core/Backend/ModulesList.php:859 src/Process/Backend/Langs.php:287
+#: src/Process/Upgrade/Langs.php:336
 msgid "Action"
 msgstr "פעולה"
 
@@ -1320,7 +1320,7 @@ msgstr "תוסף בפיתוח"
 msgid "Release date:"
 msgstr "תאריך יציאה:"
 
-#: src/Core/Backend/ModulesList.php:1070 src/Core/Backend/Page.php:1313
+#: src/Core/Backend/ModulesList.php:1070 src/Core/Backend/Page.php:1312
 #: src/Core/Backend/ThemesList.php:236
 msgid "Support"
 msgstr "תמיכה"
@@ -1329,11 +1329,11 @@ msgstr "תמיכה"
 msgid "update locked"
 msgstr "עדכון נעול"
 
-#: src/Core/Backend/ModulesList.php:1115 src/Core/Backend/Page.php:1315
+#: src/Core/Backend/ModulesList.php:1115 src/Core/Backend/Page.php:1314
 msgid "Section:"
 msgstr "סעיף:"
 
-#: src/Core/Backend/ModulesList.php:1121 src/Core/Backend/Page.php:1316
+#: src/Core/Backend/ModulesList.php:1121 src/Core/Backend/Page.php:1315
 msgid "Tags:"
 msgstr "תגים:"
 
@@ -1471,8 +1471,8 @@ msgid "Following plugins updates are locked: %s"
 msgstr "עדכונים בעדכוני תוספים נעולים: %s"
 
 #: src/Core/Backend/ModulesList.php:1707 src/Core/Backend/ThemesList.php:722
-#: src/Core/Upgrade/PluginsList.php:406 src/Process/Backend/Langs.php:166
-#: src/Process/Upgrade/Langs.php:214
+#: src/Core/Upgrade/PluginsList.php:406 src/Process/Backend/Langs.php:165
+#: src/Process/Upgrade/Langs.php:213
 msgid "Unable to move uploaded file."
 msgstr "לא ניתן להעביר את הקובץ שנטען."
 
@@ -1484,7 +1484,7 @@ msgstr "התוסף עודכן בהצלחה."
 msgid "The plugin has been successfully installed."
 msgstr "התוסף הותקן בהצלחה."
 
-#: src/Core/Backend/ModulesList.php:1752 src/Process/Backend/Langs.php:373
+#: src/Core/Backend/ModulesList.php:1752 src/Process/Backend/Langs.php:372
 msgid "Upload a zip file"
 msgstr "טעינת קובץ zip"
 
@@ -1492,11 +1492,11 @@ msgstr "טעינת קובץ zip"
 #: src/Process/Backend/Blog.php:117 src/Process/Backend/BlogPref.php:526
 #: src/Process/Backend/BlogPref.php:1023 src/Process/Backend/Category.php:247
 #: src/Process/Backend/Comment.php:283 src/Process/Backend/Home.php:583
-#: src/Process/Backend/Langs.php:326 src/Process/Backend/Langs.php:376
+#: src/Process/Backend/Langs.php:325 src/Process/Backend/Langs.php:375
 #: src/Process/Backend/LinkPopup.php:83 src/Process/Backend/Post.php:998
 #: src/Process/Backend/Post.php:1089 src/Process/Backend/User.php:321
-#: src/Process/Backend/UsersActions.php:492 src/Process/Install/Install.php:511
-#: src/Process/Install/Wizard.php:388 src/Process/Upgrade/Langs.php:405
+#: src/Process/Backend/UsersActions.php:492 src/Process/Install/Install.php:517
+#: src/Process/Install/Wizard.php:387 src/Process/Upgrade/Langs.php:404
 #, php-format
 msgid "Fields preceded by %s are mandatory."
 msgstr "שדות שקודם ב-%s הם חובה."
@@ -1506,23 +1506,23 @@ msgid "Zip file path:"
 msgstr "נתיב קובץ Zip:"
 
 #: src/Core/Backend/ModulesList.php:1774 src/Core/Backend/ModulesList.php:1824
-#: src/Process/Backend/Langs.php:348 src/Process/Backend/Langs.php:397
+#: src/Process/Backend/Langs.php:347 src/Process/Backend/Langs.php:396
 #: src/Process/Backend/Post.php:809 src/Process/Backend/User.php:358
 #: src/Process/Backend/User.php:382 src/Process/Backend/User.php:547
-#: src/Process/Backend/UsersActions.php:499 src/Process/Install/Install.php:531
-#: src/Process/Install/Install.php:541 src/Process/Upgrade/Langs.php:429
+#: src/Process/Backend/UsersActions.php:499 src/Process/Install/Install.php:537
+#: src/Process/Install/Install.php:547 src/Process/Upgrade/Langs.php:428
 msgid "Password"
 msgstr "סיסמה"
 
 #: src/Core/Backend/ModulesList.php:1777 src/Core/Backend/ModulesList.php:1827
-#: src/Process/Backend/BlogDel.php:126 src/Process/Backend/Langs.php:351
-#: src/Process/Backend/Langs.php:401 src/Process/Upgrade/Langs.php:378
-#: src/Process/Upgrade/Langs.php:384 src/Process/Upgrade/Langs.php:433
+#: src/Process/Backend/BlogDel.php:126 src/Process/Backend/Langs.php:350
+#: src/Process/Backend/Langs.php:400 src/Process/Upgrade/Langs.php:377
+#: src/Process/Upgrade/Langs.php:383 src/Process/Upgrade/Langs.php:432
 msgid "Your password:"
 msgstr "הסיסמה שלכם:"
 
-#: src/Core/Backend/ModulesList.php:1785 src/Core/Backend/Page.php:1435
-#: src/Process/Backend/Media.php:807
+#: src/Core/Backend/ModulesList.php:1785 src/Core/Backend/Page.php:1434
+#: src/Process/Backend/Media.php:809
 msgid "Upload"
 msgstr "טעינה"
 
@@ -1546,8 +1546,8 @@ msgstr "זיהוי תוסף לא ידוע"
 msgid "This plugin has no configuration file."
 msgstr "תוסף זה אינו כולל קובץ תצורה."
 
-#: src/Core/Backend/ModulesList.php:1905 src/Process/Backend/Auth.php:386
-#: src/Process/Upgrade/Auth.php:170 src/Process/Upgrade/Auth.php:231
+#: src/Core/Backend/ModulesList.php:1905 src/Process/Backend/Auth.php:385
+#: src/Process/Upgrade/Auth.php:169 src/Process/Upgrade/Auth.php:230
 msgid "Insufficient permissions"
 msgstr "אין הרשאות מספיקות"
 
@@ -1559,7 +1559,7 @@ msgstr "קביעת תצורה \"%s\""
 #: src/Core/Backend/ModulesList.php:1984 src/Process/Backend/Blog.php:197
 #: src/Process/Backend/BlogDel.php:138 src/Process/Backend/BlogPref.php:1195
 #: src/Process/Backend/Category.php:300 src/Process/Backend/Comment.php:351
-#: src/Process/Backend/Media.php:869 src/Process/Backend/MediaItem.php:1354
+#: src/Process/Backend/Media.php:871 src/Process/Backend/MediaItem.php:1357
 #: src/Process/Backend/Post.php:955 src/Process/Backend/Search.php:193
 #: src/Process/Backend/User.php:565 src/Process/Backend/UserPreferences.php:898
 #: src/Process/Backend/UserPreferences.php:1201
@@ -1567,15 +1567,15 @@ msgstr "קביעת תצורה \"%s\""
 msgid "Back"
 msgstr "חזרה"
 
-#: src/Core/Backend/Notices.php:86 src/Core/Backend/Page.php:1272
-#: src/Core/Backend/Page.php:1430 src/Core/Upgrade/Notices.php:48
+#: src/Core/Backend/Notices.php:86 src/Core/Backend/Page.php:1271
+#: src/Core/Backend/Page.php:1429 src/Core/Upgrade/Notices.php:48
 #: src/Process/Backend/Home.php:324
 msgid "Error:"
 msgstr "שגיאה:"
 
 #: src/Core/Backend/Notices.php:86 src/Core/Upgrade/Notices.php:48
-#: src/Process/Install/Install.php:455 src/Process/Install/Install.php:629
-#: src/Process/Install/Wizard.php:330 src/Process/Install/Wizard.php:357
+#: src/Process/Install/Install.php:461 src/Process/Install/Install.php:635
+#: src/Process/Install/Wizard.php:329 src/Process/Install/Wizard.php:356
 msgid "Errors:"
 msgstr "שגיאות:"
 
@@ -1584,406 +1584,406 @@ msgid "%H:%M:%S"
 msgstr "%H:%M:%S"
 
 #: src/Core/Backend/Notices.php:258 src/Core/Backend/Notices.php:298
-#: src/Core/Backend/Notices.php:308 src/Core/Backend/Page.php:1318
+#: src/Core/Backend/Notices.php:308 src/Core/Backend/Page.php:1317
 #: src/Process/Backend/Categories.php:340 src/Process/Backend/Post.php:1057
 #: src/Process/Backend/Post.php:1189 src/Process/Backend/PostsPopup.php:121
 msgid "Ok"
 msgstr "אוקי"
 
-#: src/Core/Backend/Page.php:149 src/Process/Backend/User.php:601
+#: src/Core/Backend/Page.php:148 src/Process/Backend/User.php:601
 #: src/Process/Backend/UsersActions.php:469
 msgid "Blog:"
 msgstr "בלוג:"
 
-#: src/Core/Backend/Page.php:154
+#: src/Core/Backend/Page.php:153
 msgid "Change blog"
 msgstr "שינוי בלוג"
 
-#: src/Core/Backend/Page.php:169
+#: src/Core/Backend/Page.php:168
 msgid "Blogs:"
 msgstr "בלוגים:"
 
-#: src/Core/Backend/Page.php:313 src/Core/Upgrade/Page.php:149
+#: src/Core/Backend/Page.php:312 src/Core/Upgrade/Page.php:148
 msgid "Go to the content"
 msgstr "מעבר לתוכן"
 
-#: src/Core/Backend/Page.php:317 src/Core/Upgrade/Page.php:153
+#: src/Core/Backend/Page.php:316 src/Core/Upgrade/Page.php:152
 msgid "Go to the menu"
 msgstr "מעבר לתפריט"
 
-#: src/Core/Backend/Page.php:321 src/Core/Upgrade/Page.php:157
+#: src/Core/Backend/Page.php:320 src/Core/Upgrade/Page.php:156
 msgid "Go to help"
 msgstr "מעבר לעזרה"
 
-#: src/Core/Backend/Page.php:340 src/Core/Upgrade/Page.php:175
+#: src/Core/Backend/Page.php:339 src/Core/Upgrade/Page.php:174
 #: src/Process/Backend/UserPreferences.php:1336
 #: src/Process/Backend/UserPreferences.php:1338
 msgid "My dashboard"
 msgstr "לוח המחוונים שלי"
 
-#: src/Core/Backend/Page.php:356 src/Core/Backend/Page.php:358
+#: src/Core/Backend/Page.php:355 src/Core/Backend/Page.php:357
 msgid "Go to site"
 msgstr "מעבר לאתר"
 
-#: src/Core/Backend/Page.php:381 src/Core/Upgrade/Page.php:204
+#: src/Core/Backend/Page.php:380 src/Core/Upgrade/Page.php:203
 #, php-format
 msgid "Logout %s"
 msgstr "התנתקות %s"
 
-#: src/Core/Backend/Page.php:402 src/Core/Upgrade/Page.php:225
+#: src/Core/Backend/Page.php:401 src/Core/Upgrade/Page.php:224
 msgid "Hide main menu"
 msgstr "הסתרת התפריט הראשי"
 
-#: src/Core/Backend/Page.php:405 src/Core/Upgrade/Page.php:228
+#: src/Core/Backend/Page.php:404 src/Core/Upgrade/Page.php:227
 msgid "Show main menu"
 msgstr "הצגת תפריט ראשי:"
 
-#: src/Core/Backend/Page.php:426
+#: src/Core/Backend/Page.php:425
 msgid "Safe mode"
 msgstr "מצב בטוח"
 
-#: src/Core/Backend/Page.php:428
+#: src/Core/Backend/Page.php:427
 msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities"
 msgstr "אתה נמצא במצב בטוח. כל התוספים מושבתים באופן זמני. תזכורת להתנתקות ולאחר מכן להתחבר שוב בדרך כלל כדי להחזיר את כל הפונקציונליות"
 
-#: src/Core/Backend/Page.php:496 src/Core/Upgrade/Page.php:261
+#: src/Core/Backend/Page.php:495 src/Core/Upgrade/Page.php:260
 #, php-format
 msgid "Thank you for using %s."
 msgstr "תודה על השימוש ב %s."
 
-#: src/Core/Backend/Page.php:513 src/Core/Backend/Page.php:517
-#: src/Core/Backend/Page.php:519 src/Core/Backend/Page.php:661
-#: src/Core/Backend/Page.php:663 src/Core/Upgrade/Page.php:272
-#: src/Core/Upgrade/Page.php:276 src/Core/Upgrade/Page.php:278
+#: src/Core/Backend/Page.php:512 src/Core/Backend/Page.php:516
+#: src/Core/Backend/Page.php:518 src/Core/Backend/Page.php:660
+#: src/Core/Backend/Page.php:662 src/Core/Upgrade/Page.php:271
+#: src/Core/Upgrade/Page.php:275 src/Core/Upgrade/Page.php:277
 msgid "Page top"
 msgstr "הדף ' הדף '"
 
-#: src/Core/Backend/Page.php:539 src/Core/Backend/Page.php:542
-#: src/Core/Upgrade/Page.php:298 src/Core/Upgrade/Page.php:301
+#: src/Core/Backend/Page.php:538 src/Core/Backend/Page.php:541
+#: src/Core/Upgrade/Page.php:297 src/Core/Upgrade/Page.php:300
 msgid "Dotclear logo"
 msgstr "לוגו של Dotclear"
 
-#: src/Core/Backend/Page.php:868 src/Core/Backend/Page.php:871
-#: src/Core/Upgrade/Page.php:340 src/Core/Upgrade/Page.php:343
+#: src/Core/Backend/Page.php:867 src/Core/Backend/Page.php:870
+#: src/Core/Upgrade/Page.php:339 src/Core/Upgrade/Page.php:342
 msgid "Go to dashboard"
 msgstr "מעבר ללוח המחוונים"
 
-#: src/Core/Backend/Page.php:1120 src/Core/Upgrade/Page.php:452
+#: src/Core/Backend/Page.php:1119 src/Core/Upgrade/Page.php:451
 msgid "Help about this page"
 msgstr "עזרה בדף זה"
 
-#: src/Core/Backend/Page.php:1130 src/Core/Upgrade/Page.php:461
+#: src/Core/Backend/Page.php:1129 src/Core/Upgrade/Page.php:460
 #, php-format
 msgid "See also %s"
 msgstr "ראה גם %s"
 
-#: src/Core/Backend/Page.php:1133 src/Core/Upgrade/Page.php:464
+#: src/Core/Backend/Page.php:1132 src/Core/Upgrade/Page.php:463
 msgid "the global help"
 msgstr "העזרה הגלובלית"
 
-#: src/Core/Backend/Page.php:1254
+#: src/Core/Backend/Page.php:1253
 msgid "uncover"
 msgstr "לחשוף"
 
-#: src/Core/Backend/Page.php:1258
+#: src/Core/Backend/Page.php:1257
 msgid "hide"
 msgstr "הסתרה"
 
-#: src/Core/Backend/Page.php:1262
+#: src/Core/Backend/Page.php:1261
 msgid "Need help?"
 msgstr "זקוקים לעזרה?"
 
-#: src/Core/Backend/Page.php:1263
+#: src/Core/Backend/Page.php:1262
 msgid "new window"
 msgstr "חלון חדש"
 
-#: src/Core/Backend/Page.php:1264
+#: src/Core/Backend/Page.php:1263
 msgid "Hide"
 msgstr "הסתרה"
 
-#: src/Core/Backend/Page.php:1265
+#: src/Core/Backend/Page.php:1264
 msgid "Select:"
 msgstr "בחירת:"
 
-#: src/Core/Backend/Page.php:1266
+#: src/Core/Backend/Page.php:1265
 msgid "No selection"
 msgstr "אין בחירה"
 
-#: src/Core/Backend/Page.php:1267
+#: src/Core/Backend/Page.php:1266
 msgid "Select all"
 msgstr "בחירת הכל"
 
-#: src/Core/Backend/Page.php:1268
+#: src/Core/Backend/Page.php:1267
 msgid "Invert selection"
 msgstr "היפוך בחירה"
 
-#: src/Core/Backend/Page.php:1273 src/Process/Backend/Post.php:465
+#: src/Core/Backend/Page.php:1272 src/Process/Backend/Post.php:465
 #: src/Process/Backend/Post.php:608
 msgid "Entry has been successfully created."
 msgstr "הרשומה נוצרה בהצלחה."
 
-#: src/Core/Backend/Page.php:1274
+#: src/Core/Backend/Page.php:1273
 msgid "Edit entry"
 msgstr "עריכת רשומה"
 
-#: src/Core/Backend/Page.php:1275
+#: src/Core/Backend/Page.php:1274
 msgid "view entry"
 msgstr "הצגת רשומה"
 
-#: src/Core/Backend/Page.php:1276
+#: src/Core/Backend/Page.php:1275
 #, php-format
 msgid "Are you sure you want to delete selected entries (%s)?"
 msgstr "האם אתם בטוחים שברצונכם למחוק את הרשומות שנבחרו (%s)?"
 
-#: src/Core/Backend/Page.php:1277
+#: src/Core/Backend/Page.php:1276
 #, php-format
 msgid "Are you sure you want to delete selected medias (%d)?"
 msgstr "האם אתם בטוחים שברצונכם למחוק את המדידות שנבחרו (%d)?"
 
-#: src/Core/Backend/Page.php:1278
+#: src/Core/Backend/Page.php:1277
 #, php-format
 msgid "Are you sure you want to delete selected categories (%s)?"
 msgstr "אתם בטוחים שברצונכם למחוק את הסיווגים הנבחרים (%s)?"
 
-#: src/Core/Backend/Page.php:1279
+#: src/Core/Backend/Page.php:1278
 msgid "Are you sure you want to delete this entry?"
 msgstr "אתם בטוחים שברצונכם למחוק רשומה זו?"
 
-#: src/Core/Backend/Page.php:1280
+#: src/Core/Backend/Page.php:1279
 msgid "Click here to unlock the field"
 msgstr "לחצו כאן כדי לשחרר את השדה."
 
-#: src/Core/Backend/Page.php:1281
+#: src/Core/Backend/Page.php:1280
 msgid "Are you sure you want to delete all spams?"
 msgstr "אתם בטוחים שברצונכם למחוק את כל הספלים?"
 
-#: src/Core/Backend/Page.php:1282
+#: src/Core/Backend/Page.php:1281
 #, php-format
 msgid "Are you sure you want to delete selected comments (%s)?"
 msgstr "האם אתם בטוחים שברצונכם למחוק את ההערות שנבחרו (%s)?"
 
-#: src/Core/Backend/Page.php:1283
+#: src/Core/Backend/Page.php:1282
 msgid "Are you sure you want to delete this comment?"
 msgstr "אתם בטוחים שברצונכם למחוק הערה זו?"
 
-#: src/Core/Backend/Page.php:1284
+#: src/Core/Backend/Page.php:1283
 msgid "Users with posts cannot be deleted."
 msgstr "לא ניתן למחוק משתמשים עם פרסומים."
 
-#: src/Core/Backend/Page.php:1285
+#: src/Core/Backend/Page.php:1284
 #, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
 msgstr "אתם בטוחים שברצונכם למחוק את המשתמשים הנבחרים (%s)?"
 
-#: src/Core/Backend/Page.php:1286
+#: src/Core/Backend/Page.php:1285
 #, php-format
 msgid "Are you sure you want to delete selected blogs (%s)?"
 msgstr "האם אתם בטוחים שברצונכם למחוק את הבלוגים שנבחרו (%s)?"
 
-#: src/Core/Backend/Page.php:1287
+#: src/Core/Backend/Page.php:1286
 #, php-format
 msgid "Are you sure you want to delete category \"%s\"?"
 msgstr "אתם בטוחים שברצונכם למחוק את הסיווג \"%s\"?"
 
-#: src/Core/Backend/Page.php:1288
+#: src/Core/Backend/Page.php:1287
 msgid "Are you sure you want to reorder all categories?"
 msgstr "אתם בטוחים שברצונכם להזמין מחדש את כל הסיווגים?"
 
-#: src/Core/Backend/Page.php:1289
+#: src/Core/Backend/Page.php:1288
 #, php-format
 msgid "Are you sure you want to remove media \"%s\"?"
 msgstr "אתם בטוחים שברצונכם לסלק את המדיה \"%s\"?"
 
-#: src/Core/Backend/Page.php:1290
+#: src/Core/Backend/Page.php:1289
 #, php-format
 msgid "Are you sure you want to remove directory \"%s\"?"
 msgstr "האם אתם בטוחים שברצונכם לסלק את המדריך \"%s\"?"
 
-#: src/Core/Backend/Page.php:1291
+#: src/Core/Backend/Page.php:1290
 msgid "Are you sure you want to extract archive in current directory?"
 msgstr "האם אתם בטוחים שברצונכם לחלץ ארכיון במדריך הנוכחי?"
 
-#: src/Core/Backend/Page.php:1292
+#: src/Core/Backend/Page.php:1291
 #, php-format
 msgid "Are you sure you want to remove attachment \"%s\"?"
 msgstr "האם אתם בטוחים שברצונכם לסלק קובץ מצורף \"%s\"?"
 
-#: src/Core/Backend/Page.php:1293
+#: src/Core/Backend/Page.php:1292
 #, php-format
 msgid "Are you sure you want to delete \"%s\" language?"
 msgstr "האם אתם בטוחים שברצונכם למחוק \"%s\" שפה?"
 
-#: src/Core/Backend/Page.php:1294
+#: src/Core/Backend/Page.php:1293
 #, php-format
 msgid "Are you sure you want to delete \"%s\" plugin?"
 msgstr "האם אתם בטוחים שברצונכם למחוק \"%s\" תוסף?"
 
-#: src/Core/Backend/Page.php:1295
+#: src/Core/Backend/Page.php:1294
 msgid "Are you sure you want to delete selected plugins?"
 msgstr "אתם בטוחים שברצונכם למחוק את התוספים שנבחרו?"
 
-#: src/Core/Backend/Page.php:1296
+#: src/Core/Backend/Page.php:1295
 msgid "Use this theme"
 msgstr "שימוש בערכת נושא זו"
 
-#: src/Core/Backend/Page.php:1297
+#: src/Core/Backend/Page.php:1296
 msgid "Remove this theme"
 msgstr "סילוק ערכה זו:"
 
-#: src/Core/Backend/Page.php:1298
+#: src/Core/Backend/Page.php:1297
 #, php-format
 msgid "Are you sure you want to delete \"%s\" theme?"
 msgstr "האם אתם בטוחים שברצונכם למחוק \"%s\" נושא?"
 
-#: src/Core/Backend/Page.php:1299
+#: src/Core/Backend/Page.php:1298
 msgid "Are you sure you want to delete selected themes?"
 msgstr "אתם בטוחים שברצונכם למחוק את הנושאים שנבחרו?"
 
-#: src/Core/Backend/Page.php:1300
+#: src/Core/Backend/Page.php:1299
 msgid "Are you sure you want to delete this backup?"
 msgstr "אתם בטוחים שברצונכם למחוק גיבוי זה?"
 
-#: src/Core/Backend/Page.php:1301
+#: src/Core/Backend/Page.php:1300
 msgid "Are you sure you want to revert to this backup?"
 msgstr "אתם בטוחים שברצונכם לחזור לגיבוי זה?"
 
-#: src/Core/Backend/Page.php:1302
+#: src/Core/Backend/Page.php:1301
 msgid "Zip file content"
 msgstr "תוכן קובץ Zip"
 
-#: src/Core/Backend/Page.php:1303
+#: src/Core/Backend/Page.php:1302
 msgid "HTML markup validator"
 msgstr "מאמת שפת HTML"
 
-#: src/Core/Backend/Page.php:1304
+#: src/Core/Backend/Page.php:1303
 msgid "HTML content is valid."
 msgstr "תוכן HTML חוקי."
 
-#: src/Core/Backend/Page.php:1305
+#: src/Core/Backend/Page.php:1304
 msgid "There are HTML markup errors."
 msgstr "יש שגיאות בשפת-HTML."
 
-#: src/Core/Backend/Page.php:1306
+#: src/Core/Backend/Page.php:1305
 msgid "Attention: an audit of a content not yet registered."
 msgstr "שימו לב: ביקורת של תוכן שעדיין לא רשומה."
 
-#: src/Core/Backend/Page.php:1307
+#: src/Core/Backend/Page.php:1306
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
 msgstr "יש לך שינויים שלא נשמרו. החלפת מבנה הפרסום תשחררו את השינויים. להמשיך בכל זאת?"
 
-#: src/Core/Backend/Page.php:1308
+#: src/Core/Backend/Page.php:1307
 msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
 msgstr "אזהרה: השינוי במבנה הפרסום לא ימיר תוכן קיים. אתה תצטרך ליישם מבנה חדש בעצמך. להמשיך בכל זאת?"
 
-#: src/Core/Backend/Page.php:1309
+#: src/Core/Backend/Page.php:1308
 msgid "Loading enhanced uploader, please wait."
 msgstr "טוען uploader משופר, נא להמתין."
 
-#: src/Core/Backend/Page.php:1314
+#: src/Core/Backend/Page.php:1313
 msgid "Help:"
 msgstr "עזרה:"
 
-#: src/Core/Backend/Page.php:1320
+#: src/Core/Backend/Page.php:1319
 msgid "Show password"
 msgstr "הצגת סיסמה"
 
-#: src/Core/Backend/Page.php:1321
+#: src/Core/Backend/Page.php:1320
 msgid "Hide password"
 msgstr "הסתרת סיסמה"
 
-#: src/Core/Backend/Page.php:1323
+#: src/Core/Backend/Page.php:1322
 msgid "Reset to now"
 msgstr "איפוס כעת"
 
-#: src/Core/Backend/Page.php:1324
+#: src/Core/Backend/Page.php:1323
 msgid "The publication date has changed. Reset the base name of the entry URL?"
 msgstr "תאריך הפרסום השתנה. לאפס את שם הבסיס של כתובת ה-URL של הערך?"
 
-#: src/Core/Backend/Page.php:1325
+#: src/Core/Backend/Page.php:1324
 msgid "The publication title has changed. Reset the base name of the entry URL?"
 msgstr "שם הפרסום השתנה. האם לאפס את שם הבסיס של כתובת ה-URL של הערך?"
 
-#: src/Core/Backend/Page.php:1327
+#: src/Core/Backend/Page.php:1326
 msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences."
 msgstr "בלוקר פרסום התגלה בלוח המחוונים Dotclear זה (Ghostery, Adblock בתוספת, מוצא uבלוק, …) וזה עלול להפריע לכמה תכונות. במקרה זה אתה צריך להשבית אותו. שימו לב, ניתן להשבית זיהוי זה בהעדפות שלכם."
 
-#: src/Core/Backend/Page.php:1379
+#: src/Core/Backend/Page.php:1378
 msgid "You have unsaved changes."
 msgstr "יש לך שינויים שלא נשמרו."
 
-#: src/Core/Backend/Page.php:1380
+#: src/Core/Backend/Page.php:1379
 msgid "your battery charge seems low (%d%) and you have unsaved changes, you should save them."
 msgstr "טעינת הסוללה נראית נמוכה (%d%) ויש לכם שינויים שלא נשמרו, עליכם לשמור אותם."
 
-#: src/Core/Backend/Page.php:1421
+#: src/Core/Backend/Page.php:1420
 msgid "Temporarily activate enhanced uploader"
 msgstr "הפעלה זמנית של uploader מוגבר"
 
-#: src/Core/Backend/Page.php:1422
+#: src/Core/Backend/Page.php:1421
 msgid "Temporarily disable enhanced uploader"
 msgstr "השבתה זמנית של תיעוב משופר"
 
-#: src/Core/Backend/Page.php:1426
+#: src/Core/Backend/Page.php:1425
 msgid "Limit exceeded."
 msgstr "חריגה ממגבלת הזמן."
 
-#: src/Core/Backend/Page.php:1427
+#: src/Core/Backend/Page.php:1426
 msgid "File size exceeds allowed limit."
 msgstr "גודל הקובץ חורג מהמגבלה המותרת."
 
-#: src/Core/Backend/Page.php:1428
+#: src/Core/Backend/Page.php:1427
 msgid "Canceled."
 msgstr "בוטל."
 
-#: src/Core/Backend/Page.php:1429
+#: src/Core/Backend/Page.php:1428
 msgid "HTTP Error:"
 msgstr "שגיאת HTTP:"
 
-#: src/Core/Backend/Page.php:1431 src/Process/Backend/Media.php:750
+#: src/Core/Backend/Page.php:1430 src/Process/Backend/Media.php:752
 msgid "Choose file"
 msgstr "בחירת קובץ"
 
-#: src/Core/Backend/Page.php:1432 src/Process/Backend/Media.php:756
+#: src/Core/Backend/Page.php:1431 src/Process/Backend/Media.php:758
 msgid "Choose files"
 msgstr "בחירת קבצים"
 
-#: src/Core/Backend/Page.php:1433 src/Process/Backend/LinkPopup.php:113
-#: src/Process/Backend/Media.php:305 src/Process/Backend/MediaItem.php:510
-#: src/Process/Backend/MediaItem.php:766 src/Process/Backend/Post.php:961
+#: src/Core/Backend/Page.php:1432 src/Process/Backend/LinkPopup.php:113
+#: src/Process/Backend/Media.php:305 src/Process/Backend/MediaItem.php:512
+#: src/Process/Backend/MediaItem.php:768 src/Process/Backend/Post.php:961
 #: src/Process/Backend/PostMedia.php:113
 msgid "Cancel"
 msgstr "ביטול"
 
-#: src/Core/Backend/Page.php:1434
+#: src/Core/Backend/Page.php:1433
 msgid "Clean"
 msgstr "ניקוי"
 
-#: src/Core/Backend/Page.php:1436
+#: src/Core/Backend/Page.php:1435
 msgid "Send"
 msgstr "שלח"
 
-#: src/Core/Backend/Page.php:1437
+#: src/Core/Backend/Page.php:1436
 msgid "File successfully uploaded."
 msgstr "הקובץ נטען בהצלחה."
 
-#: src/Core/Backend/Page.php:1438
+#: src/Core/Backend/Page.php:1437
 msgid "No file in queue."
 msgstr "אין קובץ בתור."
 
-#: src/Core/Backend/Page.php:1439
+#: src/Core/Backend/Page.php:1438
 msgid "1 file in queue."
 msgstr "קובץ 1 בתור."
 
-#: src/Core/Backend/Page.php:1440
+#: src/Core/Backend/Page.php:1439
 #, php-format
 msgid "%d files in queue."
 msgstr "%d קבצים בתור."
 
-#: src/Core/Backend/Page.php:1441
+#: src/Core/Backend/Page.php:1440
 msgid "Queue error:"
 msgstr "שגיאת תור:"
 
-#: src/Core/Backend/Page.php:1480
+#: src/Core/Backend/Page.php:1479
 msgid "Cancel filters and display options"
 msgstr "ביטול מסננים ואפשרויות תצוגה."
 
@@ -2371,35 +2371,35 @@ msgstr "אין שם בלוג"
 msgid "No blog URL"
 msgstr "אין URL של הבלוג"
 
-#: src/Core/Frontend/Utility.php:121
+#: src/Core/Frontend/Utility.php:114
 msgid "Something went wrong while trying to read blog URL."
 msgstr "משהו השתבש בעת ניסיון לקרוא את כתובת ה-URL של הבלוג."
 
-#: src/Core/Frontend/Utility.php:167
+#: src/Core/Frontend/Utility.php:157
 msgid "Can't create template files."
 msgstr "לא ניתן ליצור קובצי תבנית."
 
-#: src/Core/Frontend/Utility.php:200
+#: src/Core/Frontend/Utility.php:190
 msgid "Something went wrong while trying to read the database."
 msgstr "משהו השתבש במהלך ניסיון לקרוא את מסד הנתונים."
 
-#: src/Core/Frontend/Utility.php:205
+#: src/Core/Frontend/Utility.php:195
 msgid "Blog is not defined."
 msgstr "הבלוג אינו מוגדר."
 
-#: src/Core/Frontend/Utility.php:211
+#: src/Core/Frontend/Utility.php:201
 msgid "This blog is offline. Please try again later."
 msgstr "בלוג זה אינו מקוון. נא לנסות שוב מאוחר יותר."
 
-#: src/Core/Frontend/Utility.php:317
+#: src/Core/Frontend/Utility.php:307
 msgid "This either means you removed your default theme or set a wrong theme path in your blog configuration. Please check theme_path value in about:config module or reinstall default theme. ("
 msgstr "זה אומר שתסירו את ערכת ברירת המחדל שלכם או הגדירו נתיב נושא שגוי בתצורת הבלוג. בדקו את הערך theme_path בערך: מודול תצורה או התקנה מחדש של ערכת ברירת המחדל. ("
 
-#: src/Core/Frontend/Utility.php:320
+#: src/Core/Frontend/Utility.php:310
 msgid "Default theme not found."
 msgstr "ערכת ברירת המחדל לא נמצאה."
 
-#: src/Core/Frontend/Utility.php:382
+#: src/Core/Frontend/Utility.php:369
 msgid "Something went wrong while loading template file for your blog."
 msgstr "אירעה בעיה בזמן טעינת קובץ תבנית עבור הבלוג."
 
@@ -2488,12 +2488,12 @@ msgstr "מדריך היעד %s כבר קיים."
 msgid "No notice message"
 msgstr "אין הודעת הודעה."
 
-#: src/Core/Task.php:137
+#: src/Core/Task.php:120
 #, php-format
 msgid "Unable to initialize utility %s"
 msgstr "לא ניתן לאתחל את כלי השירות %s"
 
-#: src/Core/Task.php:274
+#: src/Core/Task.php:225
 msgid "Utility not initialized"
 msgstr "התוכנית לא הותקנה"
 
@@ -2570,9 +2570,9 @@ msgstr "לא סופק URL יעד חוקי? נסו שוב!"
 msgid "LOL!"
 msgstr "לול!"
 
-#: src/Core/Upgrade/Menus.php:89 src/Process/Backend/Blog.php:99
+#: src/Core/Upgrade/Menus.php:93 src/Process/Backend/Blog.php:99
 #: src/Process/Backend/BlogDel.php:92 src/Process/Backend/BlogPref.php:440
-#: src/Process/Backend/Blogs.php:99 src/Process/Backend/Langs.php:248
+#: src/Process/Backend/Blogs.php:99 src/Process/Backend/Langs.php:247
 #: src/Process/Backend/Plugin.php:143 src/Process/Backend/Plugins.php:116
 #: src/Process/Backend/Settings.php:61 src/Process/Backend/User.php:274
 #: src/Process/Backend/Users.php:107 src/Process/Backend/UsersActions.php:218
@@ -2580,11 +2580,11 @@ msgstr "לול!"
 msgid "System"
 msgstr "מערכת"
 
-#: src/Core/Upgrade/Page.php:185
+#: src/Core/Upgrade/Page.php:184
 msgid "Dotclear's update dashboard"
 msgstr "לוח המחוונים של העדכון של Dotclear"
 
-#: src/Core/Upgrade/Page.php:196
+#: src/Core/Upgrade/Page.php:195
 msgid "Go to normal dashboard"
 msgstr "מעבר ללוח המחוונים הרגיל"
 
@@ -2620,74 +2620,74 @@ msgstr "לא נראה שהקובץ הנטען הוא ארכיון חוקי."
 msgid "Incomplete archive."
 msgstr "ארכיון לא שלם."
 
-#: src/Core/Upgrade/Update.php:663 src/Process/Upgrade/Digests.php:300
+#: src/Core/Upgrade/Update.php:663 src/Process/Upgrade/Digests.php:299
 msgid "Unable to read digests file."
 msgstr "לא ניתן לקרוא את קובץ מערכת העיכול."
 
-#: src/Core/Upgrade/Update.php:691 src/Process/Upgrade/Digests.php:342
+#: src/Core/Upgrade/Update.php:691 src/Process/Upgrade/Digests.php:341
 msgid "Invalid digests file."
 msgstr "קובץ עיכול לא חוקי."
 
-#: src/Core/Upgrade/Upgrade.php:73
+#: src/Core/Upgrade/Upgrade.php:75
 msgid "Something went wrong with auto upgrade:"
 msgstr "אירעה בעיה בשדרוג אוטומטי:"
 
-#: src/Core/Upgrade/Utility.php:381 src/Process/Upgrade/Upgrade.php:328
+#: src/Core/Upgrade/Utility.php:367 src/Process/Upgrade/Upgrade.php:328
 msgid "On this page you can update dotclear to the latest release."
 msgstr "בדף זה תוכלו לעדכן את dotשברור לגירסה האחרונה."
 
-#: src/Core/Upgrade/Utility.php:385 src/Process/Upgrade/Attic.php:71
+#: src/Core/Upgrade/Utility.php:371 src/Process/Upgrade/Attic.php:71
 #: src/Process/Upgrade/Attic.php:96 src/Process/Upgrade/Attic.php:349
 msgid "Attic"
 msgstr "אטטי"
 
-#: src/Core/Upgrade/Utility.php:390 src/Process/Upgrade/Attic.php:359
+#: src/Core/Upgrade/Utility.php:376 src/Process/Upgrade/Attic.php:359
 msgid "On this page you can update dotclear to a release between yours and latest."
 msgstr "בדף זה תוכלו לעדכן את dotclear לגירסה בין שלכם והאחרונה."
 
-#: src/Core/Upgrade/Utility.php:394 src/Process/Upgrade/Backup.php:209
+#: src/Core/Upgrade/Utility.php:380 src/Process/Upgrade/Backup.php:209
 msgid "Backups"
 msgstr "גיבויים"
 
-#: src/Core/Upgrade/Utility.php:399 src/Process/Upgrade/Backup.php:223
+#: src/Core/Upgrade/Utility.php:385 src/Process/Upgrade/Backup.php:223
 msgid "On this page you can revert your previous installation or delete theses files."
 msgstr "בדף זה תוכלו להחזיר את ההתקנה הקודמת או למחוק את קובצי theses."
 
-#: src/Core/Upgrade/Utility.php:408 src/Process/Backend/Langs.php:259
-#: src/Process/Upgrade/Langs.php:452
+#: src/Core/Upgrade/Utility.php:394 src/Process/Backend/Langs.php:258
+#: src/Process/Upgrade/Langs.php:451
 msgid "Here you can install, upgrade or remove languages for your Dotclear installation."
 msgstr "כאן ניתן להתקין, לשדרג או לסלק שפות עבור התקנת Dotclear."
 
-#: src/Core/Upgrade/Utility.php:417
+#: src/Core/Upgrade/Utility.php:403
 msgid "On this page you will manage plugins."
 msgstr "בדף זה תוכלו לנהל תוספים."
 
-#: src/Core/Upgrade/Utility.php:421 src/Process/Upgrade/Cache.php:67
+#: src/Core/Upgrade/Utility.php:407 src/Process/Upgrade/Cache.php:67
 msgid "Cache"
 msgstr "מטמון"
 
-#: src/Core/Upgrade/Utility.php:426 src/Process/Upgrade/Cache.php:83
+#: src/Core/Upgrade/Utility.php:412 src/Process/Upgrade/Cache.php:83
 msgid "On this page, you can clear templates and repositories cache."
 msgstr "בדף זה, תוכלו לנקות תבניות ומטמון מאגרים."
 
-#: src/Core/Upgrade/Utility.php:430
+#: src/Core/Upgrade/Utility.php:416
 msgid "Digests"
 msgstr "דימות"
 
-#: src/Core/Upgrade/Utility.php:435 src/Process/Upgrade/Digests.php:156
+#: src/Core/Upgrade/Utility.php:421 src/Process/Upgrade/Digests.php:155
 msgid "On this page, you can bypass corrupted files or modified files in order to perform update."
 msgstr "בדף זה, תוכלו לעקוף קבצים פגומים או קבצים ששונו כדי לבצע עדכון."
 
-#: src/Core/Upgrade/Utility.php:439 src/Process/Upgrade/Replay.php:74
+#: src/Core/Upgrade/Utility.php:425 src/Process/Upgrade/Replay.php:74
 #: src/Process/Upgrade/Replay.php:102
 msgid "Replay"
 msgstr "הרצה חוזרת"
 
-#: src/Core/Upgrade/Utility.php:444 src/Process/Upgrade/Replay.php:88
+#: src/Core/Upgrade/Utility.php:430 src/Process/Upgrade/Replay.php:88
 msgid "On this page, you can try to replay update action from a given version if some files remain from last update."
 msgstr "בדף זה, תוכלו לנסות לבצע הרצה חוזרת של פעולת עדכון מגרסה נתונה אם חלק מהקבצים יישארו מהעדכון האחרון."
 
-#: src/Core/Url.php:632
+#: src/Core/Url.php:657
 msgid "You must provide a valid email address."
 msgstr "עליכם לספק כתובת דואל חוקית."
 
@@ -2719,20 +2719,20 @@ msgstr "%s אינו זיהוי pref חוקי"
 msgid "No workspace specified"
 msgstr "לא צוין סביבת עבודה"
 
-#: src/Core/Users.php:165 src/Process/Install/Install.php:169
+#: src/Core/Users.php:165 src/Process/Install/Install.php:175
 msgid "No user ID given"
 msgstr "לא ניתנה זיהוי משתמש"
 
-#: src/Core/Users.php:169 src/Process/Install/Install.php:179
+#: src/Core/Users.php:169 src/Process/Install/Install.php:185
 msgid "No password given"
 msgstr "לא ניתנה סיסמה"
 
-#: src/Core/Users.php:389 src/Process/Install/Install.php:172
+#: src/Core/Users.php:389 src/Process/Install/Install.php:178
 msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
 msgstr "זיהוי המשתמש חייב להכיל לפחות 2 תווים באמצעות אותיות, מספרים או סמלים."
 
 #: src/Core/Users.php:398 src/Process/Backend/User.php:366
-#: src/Process/Install/Install.php:185
+#: src/Process/Install/Install.php:191
 msgid "Password must contain at least 6 characters."
 msgstr "הסיסמה חייבת להכיל לפחות 6 תווים."
 
@@ -3056,11 +3056,11 @@ msgstr "פורמט תגובה לא חוקי"
 msgid "Failed to load provider \"%s\""
 msgstr "לא ניתן לטעון את הספק \"%s\""
 
-#: src/Helper/Otp.php:304
+#: src/Helper/Otp.php:296
 msgid "Two Factors authentication"
 msgstr "אימות דו-גורמי"
 
-#: src/Helper/Process/AbstractUtility.php:71
+#: src/Helper/Process/AbstractUtility.php:78
 #, php-format
 msgid "Unable to get process %s"
 msgstr "לא ניתן להשיג את התהליך %s"
@@ -3074,78 +3074,78 @@ msgstr "ε÷ß:"
 msgid "Unknown passkey"
 msgstr "מפתח גישה לא ידוע"
 
-#: src/Module/Modules.php:246
+#: src/Module/Modules.php:245
 #, php-format
 msgid "Module \"%1$s\" requires module \"%2$s\" which is not installed"
 msgstr "המודול \"%1$s\" דורש את המודול \"%2$s\" שאינו מותקן"
 
-#: src/Module/Modules.php:259
+#: src/Module/Modules.php:258
 #, php-format
 msgid "Module \"%1$s\" requires \"%2$s\" version %3$s, but version %4$s is installed"
 msgstr "המודול \"%1$s\" דורש את גרסה %3$s של \"%2$s\", אך גרסה %4$s מותקנת"
 
-#: src/Module/Modules.php:267
+#: src/Module/Modules.php:266
 #, php-format
 msgid "Module \"%1$s\" requires module \"%2$s\" which is disabled"
 msgstr "מודול \"%1$s\" דורש מודול \"%2$s\" אשר מושבת"
 
-#: src/Module/Modules.php:629
+#: src/Module/Modules.php:628
 #, php-format
 msgid "Module \"%1$s\" has type \"%2$s\" that mismatch required module type \"%3$s\"."
 msgstr "מודול \"%1$s\" סוג \"%2$s\" סוג מודול זה לא מתאים \"%3$s\"."
 
-#: src/Module/Modules.php:655
+#: src/Module/Modules.php:654
 #, php-format
 msgid "Module \"%1$s\" is installed twice in \"%2$s\" and \"%3$s\"."
 msgstr "מודול \"%1$s\" מותקן פעמיים ב - \"%2$s\" ו \"%3$s\"."
 
-#: src/Module/Modules.php:729
+#: src/Module/Modules.php:728
 msgid "Empty module zip file."
 msgstr "קובץ zip של מודול ריק."
 
-#: src/Module/Modules.php:736
+#: src/Module/Modules.php:735
 msgid "The zip file does not appear to be a valid Dotclear module."
 msgstr "לא נראה שקובץ ה-zip אינו מודול Dotclear חוקי."
 
-#: src/Module/Modules.php:771 src/Module/Modules.php:808
+#: src/Module/Modules.php:770 src/Module/Modules.php:807
 #, php-format
 msgid "Module is not installed: %s"
 msgstr "מודול אינו מותקן: %s"
 
-#: src/Module/Modules.php:823
+#: src/Module/Modules.php:822
 #, php-format
 msgid "Unable to upgrade \"%s\". (update locked)"
 msgstr "לא ניתן לשדרג \"%s. (עדכון נעול)"
 
-#: src/Module/Modules.php:827
+#: src/Module/Modules.php:826
 msgid "An error occurred during module deletion."
 msgstr "אירעה שגיאה במהלך מחיקת המודול."
 
-#: src/Module/Modules.php:835
+#: src/Module/Modules.php:834
 #, php-format
 msgid "Unable to upgrade \"%s\". (older or same version)"
 msgstr "לא ניתן לשדרג \"%s\". (גרסה ישנה או אותה גרסה)"
 
-#: src/Module/Modules.php:841
+#: src/Module/Modules.php:840
 #, php-format
 msgid "Unable to read new %s file"
 msgstr "לא ניתן לקרוא קובץ %s חדש"
 
-#: src/Module/Modules.php:850 src/Module/Modules.php:967
-#: src/Module/Modules.php:971
+#: src/Module/Modules.php:849 src/Module/Modules.php:966
+#: src/Module/Modules.php:970
 msgid "Cannot deactivate plugin."
 msgstr "לא ניתן להשבית את התוסף."
 
-#: src/Module/Modules.php:943 src/Module/Modules.php:963
-#: src/Module/Modules.php:987
+#: src/Module/Modules.php:942 src/Module/Modules.php:962
+#: src/Module/Modules.php:986
 msgid "No such module."
 msgstr "אין מודול כזה."
 
-#: src/Module/Modules.php:947
+#: src/Module/Modules.php:946
 msgid "Cannot remove module files"
 msgstr "לא ניתן לסלק קובצי מודול"
 
-#: src/Module/Modules.php:991 src/Module/Modules.php:995
+#: src/Module/Modules.php:990 src/Module/Modules.php:994
 msgid "Cannot activate plugin."
 msgstr "לא ניתן להפעיל את התוסף."
 
@@ -3157,226 +3157,226 @@ msgstr "אירעה שגיאה בהורדת הקובץ."
 msgid "Wrong data feed"
 msgstr "הזנת נתונים שגויה"
 
-#: src/Module/Themes.php:107
+#: src/Module/Themes.php:106
 msgid "Themes folder unreachable"
 msgstr "לא ניתן לגשת לתיקייה ' ערכות '"
 
-#: src/Module/Themes.php:111
+#: src/Module/Themes.php:110
 msgid "Themes folder unreadable"
 msgstr "תיקיית mes אינה ניתנת לקריאה"
 
-#: src/Module/Themes.php:119
+#: src/Module/Themes.php:118
 #, php-format
 msgid " (copy #%s)"
 msgstr " (העתקה #%s)"
 
-#: src/Module/Themes.php:119
+#: src/Module/Themes.php:118
 msgid " (copy)"
 msgstr " (העתקה)"
 
-#: src/Module/Themes.php:157
+#: src/Module/Themes.php:156
 msgid "Unable to modify _define.php"
 msgstr "לא ניתן לשנות את _define.php"
 
-#: src/Module/Themes.php:190
+#: src/Module/Themes.php:189
 msgid "Destination folder already exist"
 msgstr "תיקיית היעד כבר קיימת"
 
-#: src/Process/Backend/Auth.php:92 src/Process/Upgrade/Auth.php:96
+#: src/Process/Backend/Auth.php:91 src/Process/Upgrade/Auth.php:95
 msgid "Dotclear has been upgraded."
 msgstr "Dotclear שודרג."
 
-#: src/Process/Backend/Auth.php:151
+#: src/Process/Backend/Auth.php:150
 msgid "Password reset"
 msgstr "איפוס סיסמה"
 
-#: src/Process/Backend/Auth.php:152
+#: src/Process/Backend/Auth.php:151
 msgid "Someone has requested to reset the password for the following site and username."
 msgstr "מישהו ביקש לאפס את הסיסמה עבור האתר ושם המשתמש שלהלן."
 
-#: src/Process/Backend/Auth.php:152
+#: src/Process/Backend/Auth.php:151
 msgid "To reset your password visit the following address, otherwise just ignore this email and nothing will happen."
 msgstr "כדי לאפס את הסיסמה שלכם, פנו לכתובת שלהלן, אחרת פשוט התעלמו מהודעת דואל זו ושום דבר לא יקרה."
 
-#: src/Process/Backend/Auth.php:152 src/Process/Backend/Auth.php:174
-#: src/Process/Backend/Auth.php:504 src/Process/Backend/Auth.php:632
-#: src/Process/Install/Install.php:519 src/Process/Install/Install.php:581
-#: src/Process/Upgrade/Auth.php:329
+#: src/Process/Backend/Auth.php:151 src/Process/Backend/Auth.php:173
+#: src/Process/Backend/Auth.php:503 src/Process/Backend/Auth.php:631
+#: src/Process/Install/Install.php:525 src/Process/Install/Install.php:587
+#: src/Process/Upgrade/Auth.php:328
 msgid "Username:"
 msgstr "שם משתמש:"
 
-#: src/Process/Backend/Auth.php:158
+#: src/Process/Backend/Auth.php:157
 #, php-format
 msgid "The e-mail was sent successfully to %s."
 msgstr "הדואל נשלח בהצלחה ל- %s."
 
-#: src/Process/Backend/Auth.php:162
+#: src/Process/Backend/Auth.php:161
 msgid "This removes two factors authentication."
 msgstr "פעולה זו מסירה את אימות שני הגורמים."
 
-#: src/Process/Backend/Auth.php:173
+#: src/Process/Backend/Auth.php:172
 msgid "Your new password"
 msgstr "הסיסמה החדשה שלכם"
 
-#: src/Process/Backend/Auth.php:179
+#: src/Process/Backend/Auth.php:178
 msgid "Your new password is in your mailbox."
 msgstr "הסיסמה החדשה שלך היא בתיבת הדואר שלך."
 
-#: src/Process/Backend/Auth.php:227 src/Process/Backend/User.php:159
+#: src/Process/Backend/Auth.php:226 src/Process/Backend/User.php:159
 #: src/Process/Backend/UserPreferences.php:272
-#: src/Process/Install/Install.php:182
+#: src/Process/Install/Install.php:188
 msgid "Passwords don't match"
 msgstr "הסיסמאות אינן זהות."
 
-#: src/Process/Backend/Auth.php:231
+#: src/Process/Backend/Auth.php:230
 msgid "You didn't change your password."
 msgstr "לא שינית את הסיסמה שלך."
 
-#: src/Process/Backend/Auth.php:288
+#: src/Process/Backend/Auth.php:287
 msgid "Code validation failed."
 msgstr "אימות הקוד נכשל."
 
-#: src/Process/Backend/Auth.php:332
+#: src/Process/Backend/Auth.php:331
 msgid "You have to change your password before you can login."
 msgstr "עליכם לשנות את סיסמתכם לפני שתוכלו להתחבר."
 
-#: src/Process/Backend/Auth.php:334
+#: src/Process/Backend/Auth.php:333
 msgid "In order to login, you have to change your password now."
 msgstr "כדי להתחבר, עליכם לשנות את סיסמתכם כעת."
 
-#: src/Process/Backend/Auth.php:340
+#: src/Process/Backend/Auth.php:339
 msgid "Safe Mode can only be used for super administrators."
 msgstr "מצב בטוח יכול לשמש רק למנהלני על."
 
-#: src/Process/Backend/Auth.php:390 src/Process/Upgrade/Auth.php:174
-#: src/Process/Upgrade/Auth.php:235
+#: src/Process/Backend/Auth.php:389 src/Process/Upgrade/Auth.php:173
+#: src/Process/Upgrade/Auth.php:234
 msgid "Administration session expired"
 msgstr "מהלך העבודה של המנהלה פג."
 
-#: src/Process/Backend/Auth.php:390 src/Process/Upgrade/Auth.php:174
-#: src/Process/Upgrade/Auth.php:235
+#: src/Process/Backend/Auth.php:389 src/Process/Upgrade/Auth.php:173
+#: src/Process/Upgrade/Auth.php:234
 msgid "Wrong username or password"
 msgstr "שם משתמש או סיסמה שגויים."
 
-#: src/Process/Backend/Auth.php:446 src/Process/Backend/Auth.php:447
-#: src/Process/Backend/Auth.php:448 src/Process/Backend/User.php:264
+#: src/Process/Backend/Auth.php:445 src/Process/Backend/Auth.php:446
+#: src/Process/Backend/Auth.php:447 src/Process/Backend/User.php:264
 #: src/Process/Backend/User.php:265 src/Process/Backend/User.php:266
 #: src/Process/Backend/UserPreferences.php:566
 #: src/Process/Backend/UserPreferences.php:567
 #: src/Process/Backend/UserPreferences.php:568
-#: src/Process/Install/Install.php:420 src/Process/Install/Install.php:421
-#: src/Process/Install/Install.php:422 src/Process/Upgrade/Auth.php:388
-#: src/Process/Upgrade/Auth.php:389 src/Process/Upgrade/Auth.php:390
+#: src/Process/Install/Install.php:426 src/Process/Install/Install.php:427
+#: src/Process/Install/Install.php:428 src/Process/Upgrade/Auth.php:387
+#: src/Process/Upgrade/Auth.php:388 src/Process/Upgrade/Auth.php:389
 #, php-format
 msgid "Password strength: %s"
 msgstr "חוזק סיסמה: %s"
 
-#: src/Process/Backend/Auth.php:446 src/Process/Backend/User.php:264
+#: src/Process/Backend/Auth.php:445 src/Process/Backend/User.php:264
 #: src/Process/Backend/UserPreferences.php:566
-#: src/Process/Install/Install.php:420 src/Process/Upgrade/Auth.php:388
+#: src/Process/Install/Install.php:426 src/Process/Upgrade/Auth.php:387
 msgid "weak"
 msgstr "חלש"
 
-#: src/Process/Backend/Auth.php:448 src/Process/Backend/User.php:266
+#: src/Process/Backend/Auth.php:447 src/Process/Backend/User.php:266
 #: src/Process/Backend/UserPreferences.php:568
-#: src/Process/Install/Install.php:422 src/Process/Upgrade/Auth.php:390
+#: src/Process/Install/Install.php:428 src/Process/Upgrade/Auth.php:389
 msgid "strong"
 msgstr "חזק"
 
-#: src/Process/Backend/Auth.php:491 src/Process/Backend/Auth.php:535
-#: src/Process/Backend/Auth.php:597 src/Process/Upgrade/Auth.php:315
+#: src/Process/Backend/Auth.php:490 src/Process/Backend/Auth.php:534
+#: src/Process/Backend/Auth.php:596 src/Process/Upgrade/Auth.php:314
 msgid "Back to login screen"
 msgstr "חזרה למסך ההתחברות"
 
-#: src/Process/Backend/Auth.php:499
+#: src/Process/Backend/Auth.php:498
 msgid "Request a new password"
 msgstr "בקשה לסיסמה חדשה"
 
-#: src/Process/Backend/Auth.php:523
+#: src/Process/Backend/Auth.php:522
 msgid "recover"
 msgstr "התאוששות"
 
-#: src/Process/Backend/Auth.php:529 src/Process/Backend/Auth.php:720
+#: src/Process/Backend/Auth.php:528 src/Process/Backend/Auth.php:719
 msgid "Other option"
 msgstr "אפשרות אחרת"
 
-#: src/Process/Backend/Auth.php:542
+#: src/Process/Backend/Auth.php:541
 msgid "Change your password"
 msgstr "שינוי הסיסמה שלכם"
 
-#: src/Process/Backend/Auth.php:547 src/Process/Backend/User.php:352
+#: src/Process/Backend/Auth.php:546 src/Process/Backend/User.php:352
 #: src/Process/Backend/UserPreferences.php:605
 msgid "New password:"
 msgstr "סיסמה חדשה:"
 
-#: src/Process/Backend/Auth.php:557 src/Process/Backend/User.php:376
+#: src/Process/Backend/Auth.php:556 src/Process/Backend/User.php:376
 #: src/Process/Backend/User.php:385
 msgid "Confirm password:"
 msgstr "אישור סיסמה:"
 
-#: src/Process/Backend/Auth.php:565
+#: src/Process/Backend/Auth.php:564
 msgid "change"
 msgstr "שינוי"
 
-#: src/Process/Backend/Auth.php:575 src/Process/Backend/UserPreferences.php:870
-#: src/Process/Upgrade/Auth.php:293
+#: src/Process/Backend/Auth.php:574 src/Process/Backend/UserPreferences.php:870
+#: src/Process/Upgrade/Auth.php:292
 msgid "Two factors authentication"
 msgstr "אימות דו-גורמי"
 
-#: src/Process/Backend/Auth.php:580 src/Process/Upgrade/Auth.php:298
+#: src/Process/Backend/Auth.php:579 src/Process/Upgrade/Auth.php:297
 msgid "Enter code:"
 msgstr "הזן קוד:"
 
-#: src/Process/Backend/Auth.php:590 src/Process/Backend/UserPreferences.php:674
-#: src/Process/Upgrade/Auth.php:308
+#: src/Process/Backend/Auth.php:589 src/Process/Backend/UserPreferences.php:674
+#: src/Process/Upgrade/Auth.php:307
 msgid "Verify"
 msgstr "אמת"
 
-#: src/Process/Backend/Auth.php:617
+#: src/Process/Backend/Auth.php:616
 msgid "Safe mode login"
 msgstr "התחברות במצב בטוח"
 
-#: src/Process/Backend/Auth.php:620
+#: src/Process/Backend/Auth.php:619
 msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
 msgstr "מצב זה מאפשר לכם להתחבר מבלי להפעיל את התוספים שלכם. הדבר עשוי להיות שימושי לפתרון בעיות תאימות."
 
-#: src/Process/Backend/Auth.php:621
+#: src/Process/Backend/Auth.php:620
 msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
 msgstr "עדכנו, השביתו או מחקו כל תוסף חשד לסיבת בעיות, ולאחר מכן התנתקו והתחברו באופן תקין."
 
-#: src/Process/Backend/Auth.php:652 src/Process/Upgrade/Auth.php:349
+#: src/Process/Backend/Auth.php:651 src/Process/Upgrade/Auth.php:348
 msgid "Remember my ID on this device"
 msgstr "זכור את תעודת הזהות שלי במכשיר הזה."
 
-#: src/Process/Backend/Auth.php:656 src/Process/Upgrade/Auth.php:353
+#: src/Process/Backend/Auth.php:655 src/Process/Upgrade/Auth.php:352
 msgid "log in"
 msgstr "התחברות"
 
-#: src/Process/Backend/Auth.php:662
+#: src/Process/Backend/Auth.php:661
 msgid "Sign in with a passkey"
 msgstr "היכנס באמצעות מפתח גישה"
 
-#: src/Process/Backend/Auth.php:705
+#: src/Process/Backend/Auth.php:704
 msgid "Third party applications connections"
 msgstr "חיבורים ליישומים של צד שלישי"
 
-#: src/Process/Backend/Auth.php:714 src/Process/Upgrade/Auth.php:358
+#: src/Process/Backend/Auth.php:713 src/Process/Upgrade/Auth.php:357
 msgid "You must accept cookies in order to use the private area."
 msgstr "עליכם לקבל קובצי Cookie כדי להשתמש באזור הפרטי."
 
-#: src/Process/Backend/Auth.php:726
+#: src/Process/Backend/Auth.php:725
 msgid "Get back to normal authentication"
 msgstr "אחזור לאימות רגיל"
 
-#: src/Process/Backend/Auth.php:731
+#: src/Process/Backend/Auth.php:730
 msgid "Connection issue?"
 msgstr "בעיית חיבור?"
 
-#: src/Process/Backend/Auth.php:738
+#: src/Process/Backend/Auth.php:737
 msgid "I forgot my password"
 msgstr "שכחתי את הסיסמה שלי."
 
-#: src/Process/Backend/Auth.php:745
+#: src/Process/Backend/Auth.php:744
 msgid "I want to log in in safe mode"
 msgstr "ברצוני להתחבר במצב ' בטוח '"
 
@@ -3414,7 +3414,7 @@ msgstr "URL של בלוג:"
 msgid "Blog description:"
 msgstr "תיאור בלוג:"
 
-#: src/Process/Backend/Blog.php:195 src/Process/Backend/Media.php:653
+#: src/Process/Backend/Blog.php:195 src/Process/Backend/Media.php:655
 msgid "Create"
 msgstr "יצירה"
 
@@ -3493,7 +3493,7 @@ msgid "P"
 msgstr "P"
 
 #: src/Process/Backend/BlogPref.php:168 src/Process/Backend/BlogPref.php:1278
-#: src/Process/Backend/MediaItem.php:604 src/Process/Backend/MediaItem.php:609
+#: src/Process/Backend/MediaItem.php:606 src/Process/Backend/MediaItem.php:611
 msgid "(none)"
 msgstr "(ללא)"
 
@@ -3513,33 +3513,33 @@ msgstr "תיאור, מדינה, תאריך"
 msgid "Description, City, Country, Date"
 msgstr "תיאור, עיר, מדינה, תאריך"
 
-#: src/Process/Backend/BlogPref.php:202 src/Process/Backend/MediaItem.php:484
-#: src/Process/Backend/MediaItem.php:578 src/Process/Backend/MediaItem.php:847
+#: src/Process/Backend/BlogPref.php:202 src/Process/Backend/MediaItem.php:486
+#: src/Process/Backend/MediaItem.php:580 src/Process/Backend/MediaItem.php:849
 msgid "original"
 msgstr "מקורי"
 
 #: src/Process/Backend/BlogPref.php:213 src/Process/Backend/BlogPref.php:223
-#: src/Process/Backend/MediaItem.php:541 src/Process/Backend/MediaItem.php:597
+#: src/Process/Backend/MediaItem.php:543 src/Process/Backend/MediaItem.php:599
 msgid "None"
 msgstr "ללא"
 
-#: src/Process/Backend/BlogPref.php:214 src/Process/Backend/MediaItem.php:542
+#: src/Process/Backend/BlogPref.php:214 src/Process/Backend/MediaItem.php:544
 msgid "Left"
 msgstr "שמאל"
 
-#: src/Process/Backend/BlogPref.php:215 src/Process/Backend/MediaItem.php:543
+#: src/Process/Backend/BlogPref.php:215 src/Process/Backend/MediaItem.php:545
 msgid "Right"
 msgstr "ימין"
 
-#: src/Process/Backend/BlogPref.php:216 src/Process/Backend/MediaItem.php:544
+#: src/Process/Backend/BlogPref.php:216 src/Process/Backend/MediaItem.php:546
 msgid "Center"
 msgstr "מרכז"
 
-#: src/Process/Backend/BlogPref.php:221 src/Process/Backend/MediaItem.php:590
+#: src/Process/Backend/BlogPref.php:221 src/Process/Backend/MediaItem.php:592
 msgid "Legend and alternate text"
 msgstr "מקרא וטקסט חלופי"
 
-#: src/Process/Backend/BlogPref.php:222 src/Process/Backend/MediaItem.php:594
+#: src/Process/Backend/BlogPref.php:222 src/Process/Backend/MediaItem.php:596
 msgid "Alternate text"
 msgstr "טקסט חלופי"
 
@@ -3864,7 +3864,7 @@ msgstr "הוספת קישור לתמונה המקורית."
 msgid "Image legend and alternate text:"
 msgstr "מקרא תמונה ותמליל חלופי:"
 
-#: src/Process/Backend/BlogPref.php:970 src/Process/Backend/Media.php:858
+#: src/Process/Backend/BlogPref.php:970 src/Process/Backend/Media.php:860
 #: src/Process/Backend/Settings.php:91
 msgid "Blog parameters"
 msgstr "פרמטרים של בלוג"
@@ -4237,7 +4237,7 @@ msgstr "שם:"
 msgid "Warning: If you set the URL manually, it may conflict with another category."
 msgstr "אזהרה: אם תגדירו את ה-URL באופן ידני, הוא עלול להתנגש עם סיווג אחר."
 
-#: src/Process/Backend/Category.php:292 src/Process/Backend/MediaItem.php:1246
+#: src/Process/Backend/Category.php:292 src/Process/Backend/MediaItem.php:1248
 msgid "Description:"
 msgstr "תיאור:"
 
@@ -4419,12 +4419,12 @@ msgid "There is no writable root directory for the media manager. You should con
 msgstr "אין מדריך יסוד המאפשר כתיבה עבור מנהל המדיה. עליכם לפנות למנהלן."
 
 #: src/Process/Backend/Home.php:349 src/Process/Backend/Plugins.php:133
-#: src/Process/Install/Install.php:554 src/Process/Upgrade/Plugins.php:110
+#: src/Process/Install/Install.php:560 src/Process/Upgrade/Plugins.php:110
 msgid "Following plugins have been installed:"
 msgstr "תוספים הבאים הותקנו:"
 
 #: src/Process/Backend/Home.php:371 src/Process/Backend/Plugins.php:155
-#: src/Process/Install/Install.php:562 src/Process/Upgrade/Plugins.php:132
+#: src/Process/Install/Install.php:568 src/Process/Upgrade/Plugins.php:132
 msgid "Following plugins have not been installed:"
 msgstr "תוספים הבאים לא הותקנו:"
 
@@ -4497,113 +4497,113 @@ msgstr "למען הסר ספק, הנה תאריך התרומה האחרונה ש
 msgid "Documentation and support"
 msgstr "תיעוד ותמיכה"
 
-#: src/Process/Backend/Langs.php:93 src/Process/Upgrade/Langs.php:141
+#: src/Process/Backend/Langs.php:92 src/Process/Upgrade/Langs.php:140
 msgid "No such installed language"
 msgstr "אין שפה מותקנת שכזו."
 
-#: src/Process/Backend/Langs.php:97 src/Process/Upgrade/Langs.php:145
+#: src/Process/Backend/Langs.php:96 src/Process/Upgrade/Langs.php:144
 msgid "You can't remove English language."
 msgstr "אתה לא יכול להסיר את השפה האנגלית."
 
-#: src/Process/Backend/Langs.php:101 src/Process/Upgrade/Langs.php:149
+#: src/Process/Backend/Langs.php:100 src/Process/Upgrade/Langs.php:148
 msgid "Permissions to delete language denied."
 msgstr "הרשאות למחיקת שפה נמנעה."
 
-#: src/Process/Backend/Langs.php:104 src/Process/Upgrade/Langs.php:152
-#: src/Process/Upgrade/Langs.php:238
+#: src/Process/Backend/Langs.php:103 src/Process/Upgrade/Langs.php:151
+#: src/Process/Upgrade/Langs.php:237
 msgid "Language has been successfully deleted."
 msgstr "השפה נמחקה בהצלחה."
 
-#: src/Process/Backend/Langs.php:121 src/Process/Upgrade/Langs.php:169
+#: src/Process/Backend/Langs.php:120 src/Process/Upgrade/Langs.php:168
 msgid "Invalid language file URL."
 msgstr "כתובת URL לא חוקית של קובץ שפה."
 
-#: src/Process/Backend/Langs.php:133 src/Process/Upgrade/Langs.php:181
+#: src/Process/Backend/Langs.php:132 src/Process/Upgrade/Langs.php:180
 msgid "Unable to make a HTTP request."
 msgstr "לא ניתן לבצע בקשת HTTP."
 
-#: src/Process/Backend/Langs.php:146 src/Process/Backend/Langs.php:179
-#: src/Process/Upgrade/Langs.php:194 src/Process/Upgrade/Langs.php:227
-#: src/Process/Upgrade/Langs.php:242
+#: src/Process/Backend/Langs.php:145 src/Process/Backend/Langs.php:178
+#: src/Process/Upgrade/Langs.php:193 src/Process/Upgrade/Langs.php:226
+#: src/Process/Upgrade/Langs.php:241
 msgid "Language has been successfully upgraded"
 msgstr "השפה שודרגה בהצלחה."
 
-#: src/Process/Backend/Langs.php:148 src/Process/Backend/Langs.php:181
-#: src/Process/Upgrade/Langs.php:196 src/Process/Upgrade/Langs.php:229
-#: src/Process/Upgrade/Langs.php:242
+#: src/Process/Backend/Langs.php:147 src/Process/Backend/Langs.php:180
+#: src/Process/Upgrade/Langs.php:195 src/Process/Upgrade/Langs.php:228
+#: src/Process/Upgrade/Langs.php:241
 msgid "Language has been successfully installed."
 msgstr "השפה הותקנה בהצלחה."
 
-#: src/Process/Backend/Langs.php:244 src/Process/Backend/Langs.php:249
-#: src/Process/Upgrade/Langs.php:260 src/Process/Upgrade/Langs.php:265
+#: src/Process/Backend/Langs.php:243 src/Process/Backend/Langs.php:248
+#: src/Process/Upgrade/Langs.php:259 src/Process/Upgrade/Langs.php:264
 msgid "Languages management"
 msgstr "ניהול שפות"
 
-#: src/Process/Backend/Langs.php:262
+#: src/Process/Backend/Langs.php:261
 #, php-format
 msgid "You can change your user language in your <a href=\"%1$s\">preferences</a> or change your blog's main language in your <a href=\"%2$s\">blog settings</a>."
 msgstr "באפשרותך לשנות את שפת המשתמש שלך ב<a href=\"%1$s\">העדפות</a> שלך או לשנות את השפה העיקרית של הבלוג שלך ב<a href=\"%2$s\">הגדרות הבלוג</a> שלך."
 
-#: src/Process/Backend/Langs.php:266 src/Process/Upgrade/Langs.php:324
+#: src/Process/Backend/Langs.php:265 src/Process/Upgrade/Langs.php:323
 msgid "Installed languages"
 msgstr "שפות מותקנות"
 
-#: src/Process/Backend/Langs.php:272
+#: src/Process/Backend/Langs.php:271
 msgid "No additional language is installed."
 msgstr "לא מותקנת שפה נוספת."
 
-#: src/Process/Backend/Langs.php:285 src/Process/Upgrade/Langs.php:334
+#: src/Process/Backend/Langs.php:284 src/Process/Upgrade/Langs.php:333
 msgid "Language"
 msgstr "שפה"
 
-#: src/Process/Backend/Langs.php:296
+#: src/Process/Backend/Langs.php:295
 msgid "Install or upgrade languages"
 msgstr "שפות התקנה או שדרוג"
 
-#: src/Process/Backend/Langs.php:300 src/Process/Upgrade/Langs.php:247
+#: src/Process/Backend/Langs.php:299 src/Process/Upgrade/Langs.php:246
 #, php-format
 msgid "You can install or remove a language by adding or removing the relevant directory in your %s folder."
 msgstr "ניתן להתקין או לסלק שפה באמצעות הוספה או סילוק של המדריך הרלוונטי בתיקיית %s."
 
-#: src/Process/Backend/Langs.php:323
+#: src/Process/Backend/Langs.php:322
 msgid "Available languages"
 msgstr "שפות זמינות"
 
-#: src/Process/Backend/Langs.php:328 src/Process/Upgrade/Langs.php:362
+#: src/Process/Backend/Langs.php:327 src/Process/Upgrade/Langs.php:361
 #, php-format
 msgid "You can download and install a additional language directly from Dotclear server. Proposed languages are based on your version: %s."
 msgstr "ניתן להוריד ולהתקין שפה נוספת ישירות משרת Dotclear. השפות המוצעות מבוססות על הגרסה שלך: %s."
 
-#: src/Process/Backend/Langs.php:336 src/Process/Backend/User.php:501
-#: src/Process/Upgrade/Langs.php:368
+#: src/Process/Backend/Langs.php:335 src/Process/Backend/User.php:501
+#: src/Process/Upgrade/Langs.php:367
 msgid "Language:"
 msgstr "שפה:"
 
-#: src/Process/Backend/Langs.php:358 src/Process/Upgrade/Langs.php:389
+#: src/Process/Backend/Langs.php:357 src/Process/Upgrade/Langs.php:388
 msgid "Install language"
 msgstr "שפת התקנה"
 
-#: src/Process/Backend/Langs.php:378 src/Process/Upgrade/Langs.php:407
+#: src/Process/Backend/Langs.php:377 src/Process/Upgrade/Langs.php:406
 msgid "You can install languages by uploading zip files."
 msgstr "ניתן להתקין שפות באמצעות העלאת קובצי zip."
 
-#: src/Process/Backend/Langs.php:385 src/Process/Upgrade/Langs.php:416
+#: src/Process/Backend/Langs.php:384 src/Process/Upgrade/Langs.php:415
 msgid "Language zip file:"
 msgstr "קובץ zip של שפה:"
 
-#: src/Process/Backend/Langs.php:408 src/Process/Upgrade/Langs.php:443
+#: src/Process/Backend/Langs.php:407 src/Process/Upgrade/Langs.php:442
 msgid "Upload language"
 msgstr "שפת הטעינה"
 
-#: src/Process/Backend/Langs.php:438 src/Process/Upgrade/Langs.php:113
+#: src/Process/Backend/Langs.php:437 src/Process/Upgrade/Langs.php:112
 msgid "Invalid language zip file."
 msgstr "קובץ zip לא חוקי של שפה."
 
-#: src/Process/Backend/Langs.php:442 src/Process/Upgrade/Langs.php:117
+#: src/Process/Backend/Langs.php:441 src/Process/Upgrade/Langs.php:116
 msgid "The zip file does not appear to be a valid Dotclear language pack."
 msgstr "לא נראה שקובץ ה-zip אינו חבילת שפה חוקית של Dotclear."
 
-#: src/Process/Backend/Langs.php:451 src/Process/Upgrade/Langs.php:126
+#: src/Process/Backend/Langs.php:450 src/Process/Upgrade/Langs.php:125
 msgid "An error occurred during language upgrade."
 msgstr "אירעה שגיאה במהלך שדרוג השפה."
 
@@ -4623,7 +4623,7 @@ msgstr "כותרת קישור:"
 msgid "Link language:"
 msgstr "שפת קישור:"
 
-#: src/Process/Backend/LinkPopup.php:115 src/Process/Backend/MediaItem.php:764
+#: src/Process/Backend/LinkPopup.php:115 src/Process/Backend/MediaItem.php:766
 msgid "Insert"
 msgstr "הוספה"
 
@@ -4685,415 +4685,415 @@ msgstr "אתם בטוחים שברצונכם לסלק %s?"
 msgid "Yes"
 msgstr "כן"
 
-#: src/Process/Backend/Media.php:348
+#: src/Process/Backend/Media.php:349
 msgid "Remove this folder from your favorites"
 msgstr "סילוק תיקיה זו מהמועדפים שלכם."
 
-#: src/Process/Backend/Media.php:373
+#: src/Process/Backend/Media.php:375
 msgid "Add this folder to your favorites"
 msgstr "הוספת תיקיה זו למועדפים שלכם."
 
-#: src/Process/Backend/Media.php:384
+#: src/Process/Backend/Media.php:386
 msgid "Goto recent folder:"
 msgstr "תיקיה עדכנית:"
 
-#: src/Process/Backend/Media.php:421
+#: src/Process/Backend/Media.php:423
 msgid "You do not have sufficient permissions to write to this folder."
 msgstr "אין לכם הרשאות מספיקות כדי לכתוב לתיקיה זו."
 
-#: src/Process/Backend/Media.php:441
+#: src/Process/Backend/Media.php:443
 #, php-format
 msgid "Select a file by clicking on %s"
 msgstr "נא לבחור קובץ בלחיצה על %s"
 
-#: src/Process/Backend/Media.php:445
+#: src/Process/Backend/Media.php:447
 #, php-format
 msgid "Select files and click on <strong>%s</strong> button"
 msgstr "בחרו קבצים ולחצו על <strong>%sלחצן</strong>"
 
-#: src/Process/Backend/Media.php:446 src/Process/Backend/Media.php:575
+#: src/Process/Backend/Media.php:448 src/Process/Backend/Media.php:577
 msgid "Choose selected medias"
 msgstr "בחירת תיווך נבחר"
 
-#: src/Process/Backend/Media.php:452 src/Process/Backend/Media.php:486
-#: src/Process/Backend/Media.php:513
+#: src/Process/Backend/Media.php:454 src/Process/Backend/Media.php:488
+#: src/Process/Backend/Media.php:515
 msgid "or"
 msgstr "או"
 
-#: src/Process/Backend/Media.php:455 src/Process/Backend/Media.php:489
-#: src/Process/Backend/Media.php:516
+#: src/Process/Backend/Media.php:457 src/Process/Backend/Media.php:491
+#: src/Process/Backend/Media.php:518
 msgid "upload a new file"
 msgstr "טעינת קובץ חדש:"
 
-#: src/Process/Backend/Media.php:478
+#: src/Process/Backend/Media.php:480
 #, php-format
 msgid "Choose a file to attach to entry %1$s by clicking on %2$s"
 msgstr "בחרו קובץ לצירוף לרישום %1$s על-ידי לחיצה על %2$s"
 
-#: src/Process/Backend/Media.php:506
+#: src/Process/Backend/Media.php:508
 #, php-format
 msgid "Choose a file to insert into entry by clicking on %s"
 msgstr "בחרו קובץ להוספה בלחיצה על %s"
 
-#: src/Process/Backend/Media.php:536 src/Process/Backend/Media.php:540
-#: src/Process/Backend/Media.php:543
+#: src/Process/Backend/Media.php:538 src/Process/Backend/Media.php:542
+#: src/Process/Backend/Media.php:545
 msgid "Grid display mode"
 msgstr "מצב התצוגה ' סריג '"
 
-#: src/Process/Backend/Media.php:547 src/Process/Backend/Media.php:551
-#: src/Process/Backend/Media.php:554
+#: src/Process/Backend/Media.php:549 src/Process/Backend/Media.php:553
+#: src/Process/Backend/Media.php:556
 msgid "List display mode"
 msgstr "מצב התצוגה ' רשימה '"
 
-#: src/Process/Backend/Media.php:579
+#: src/Process/Backend/Media.php:581
 msgid "Remove selected medias"
 msgstr "סילוק המדיאס נבחר"
 
-#: src/Process/Backend/Media.php:640
+#: src/Process/Backend/Media.php:642
 msgid "Create new directory"
 msgstr "יצירת מדריך חדש"
 
-#: src/Process/Backend/Media.php:647
+#: src/Process/Backend/Media.php:649
 msgid "Directory Name:"
 msgstr "שם מדריך:"
 
-#: src/Process/Backend/Media.php:667
+#: src/Process/Backend/Media.php:669
 msgid "Build missing thumbnails in directory"
 msgstr "בניית תמונות ממוזערות חסרות במדריך"
 
-#: src/Process/Backend/Media.php:672
+#: src/Process/Backend/Media.php:674
 msgid "Build"
 msgstr "בנייה"
 
-#: src/Process/Backend/Media.php:682
+#: src/Process/Backend/Media.php:684
 msgid "Force rebuild all thumbnails in directory"
 msgstr "כפה בנייה מחדש של כל התמונות הממוזערות בספרייה"
 
-#: src/Process/Backend/Media.php:687
+#: src/Process/Backend/Media.php:689
 msgid "Force rebuild"
 msgstr "כוח לבנות מחדש"
 
-#: src/Process/Backend/Media.php:692
+#: src/Process/Backend/Media.php:694
 msgid "Use with caution especially if there is a large numbers of media if this directory."
 msgstr "יש להשתמש בזהירות, במיוחד אם יש מספר רב של מדיה בספרייה זו."
 
-#: src/Process/Backend/Media.php:700
+#: src/Process/Backend/Media.php:702
 #, php-format
 msgid "Backup content of %s"
 msgstr "תוכן גיבוי של %s"
 
-#: src/Process/Backend/Media.php:707
+#: src/Process/Backend/Media.php:709
 msgid "Download zip file"
 msgstr "הורדת קובץ zip"
 
-#: src/Process/Backend/Media.php:726
+#: src/Process/Backend/Media.php:728
 msgid "Add files"
 msgstr "הוספת קבצים"
 
-#: src/Process/Backend/Media.php:729
+#: src/Process/Backend/Media.php:731
 msgid "Please take care to publish media that you own and that are not protected by copyright."
 msgstr "אנא דאגו לפרסם מדיה בבעלותכם וכי אינם מוגנים על ידי זכויות יוצרים."
 
-#: src/Process/Backend/Media.php:768
+#: src/Process/Backend/Media.php:770
 msgid "Maximum file size allowed:"
 msgstr "גודל קובץ מרבי מותר:"
 
-#: src/Process/Backend/Media.php:782 src/Process/Backend/MediaItem.php:1259
+#: src/Process/Backend/Media.php:784 src/Process/Backend/MediaItem.php:1261
 msgid "Private"
 msgstr "פרטי"
 
-#: src/Process/Backend/Media.php:791
+#: src/Process/Backend/Media.php:793
 msgid "To send several files at the same time, you can activate the enhanced uploader in"
 msgstr "כדי לשלוח כמה קבצים באותו הזמן, תוכלו להפעיל את המתועב המשופר ב -"
 
-#: src/Process/Backend/Media.php:800
+#: src/Process/Backend/Media.php:802
 msgid "Refresh"
 msgstr "רענון"
 
-#: src/Process/Backend/Media.php:803
+#: src/Process/Backend/Media.php:805
 msgid "Clear all"
 msgstr "ניקוי הכל"
 
-#: src/Process/Backend/Media.php:828
+#: src/Process/Backend/Media.php:830
 #, php-format
 msgid "In %s:"
 msgstr "בשנת %s:"
 
-#: src/Process/Backend/Media.php:855
+#: src/Process/Backend/Media.php:857
 #, php-format
 msgid "Current settings for medias and images are defined in %s"
 msgstr "הגדרות נוכחיות עבור תיווך ותמונות מוגדרים ב- %s"
 
-#: src/Process/Backend/MediaItem.php:142
+#: src/Process/Backend/MediaItem.php:144
 msgid "Not a valid file"
 msgstr "לא קובץ חוקי"
 
-#: src/Process/Backend/MediaItem.php:180 src/Process/Backend/MediaItem.php:242
-#: src/Process/Backend/MediaItem.php:432
+#: src/Process/Backend/MediaItem.php:182 src/Process/Backend/MediaItem.php:244
+#: src/Process/Backend/MediaItem.php:434
 msgid "File has been successfully updated."
 msgstr "הקובץ עודכן בהצלחה."
 
-#: src/Process/Backend/MediaItem.php:259 src/Process/Backend/MediaItem.php:435
+#: src/Process/Backend/MediaItem.php:261 src/Process/Backend/MediaItem.php:437
 msgid "Thumbnails have been successfully updated."
 msgstr "תמונות ממוזערות עודכנו בהצלחה."
 
-#: src/Process/Backend/MediaItem.php:276
+#: src/Process/Backend/MediaItem.php:278
 msgid "Zip file has been successfully extracted."
 msgstr "קובץ Zip חולץ בהצלחה."
 
-#: src/Process/Backend/MediaItem.php:306 src/Process/Backend/MediaItem.php:438
+#: src/Process/Backend/MediaItem.php:308 src/Process/Backend/MediaItem.php:440
 msgid "Default media insertion settings have been successfully updated."
 msgstr "הגדרות ברירת המחדל של הוספת מדיה עודכנו בהצלחה."
 
-#: src/Process/Backend/MediaItem.php:332
+#: src/Process/Backend/MediaItem.php:334
 msgid "Media insertion settings have been successfully registered for this folder."
 msgstr "הגדרות הוספת המדיה רשומות בהצלחה עבור תיקיה זו."
 
-#: src/Process/Backend/MediaItem.php:343
+#: src/Process/Backend/MediaItem.php:345
 msgid "Media insertion settings have been successfully removed for this folder."
 msgstr "הגדרות הוספת המדיה סולקו בהצלחה עבור תיקיה זו."
 
-#: src/Process/Backend/MediaItem.php:478 src/Process/Backend/MediaItem.php:572
+#: src/Process/Backend/MediaItem.php:480 src/Process/Backend/MediaItem.php:574
 msgid "Image size:"
 msgstr "גודל תמונה:"
 
-#: src/Process/Backend/MediaItem.php:497 src/Process/Backend/MediaItem.php:499
+#: src/Process/Backend/MediaItem.php:499 src/Process/Backend/MediaItem.php:501
 msgid "Select media item"
 msgstr "בחירת פריט מדיה"
 
-#: src/Process/Backend/MediaItem.php:508 src/Process/Upgrade/Attic.php:305
+#: src/Process/Backend/MediaItem.php:510 src/Process/Upgrade/Attic.php:305
 msgid "Select"
 msgstr "בחירה"
 
-#: src/Process/Backend/MediaItem.php:584
+#: src/Process/Backend/MediaItem.php:586
 msgid "Image legend and alternate text"
 msgstr "מקרא תמונה ותמליל חלופי"
 
-#: src/Process/Backend/MediaItem.php:601 src/Process/Backend/MediaItem.php:1097
-#: src/Process/Backend/MediaItem.php:1237
+#: src/Process/Backend/MediaItem.php:603 src/Process/Backend/MediaItem.php:1099
+#: src/Process/Backend/MediaItem.php:1239
 msgid "Alternate text:"
 msgstr "תמליל חלופי:"
 
-#: src/Process/Backend/MediaItem.php:606
+#: src/Process/Backend/MediaItem.php:608
 msgid "Legend:"
 msgstr "מקרא:"
 
-#: src/Process/Backend/MediaItem.php:615
+#: src/Process/Backend/MediaItem.php:617
 msgid "Image alignment"
 msgstr "יישור תמונה"
 
-#: src/Process/Backend/MediaItem.php:622
+#: src/Process/Backend/MediaItem.php:624
 msgid "Image insertion"
 msgstr "הוספת תמונה"
 
-#: src/Process/Backend/MediaItem.php:627
+#: src/Process/Backend/MediaItem.php:629
 msgid "As a single image"
 msgstr "כתמונה בודדת"
 
-#: src/Process/Backend/MediaItem.php:630
+#: src/Process/Backend/MediaItem.php:632
 msgid "As a link to the original image"
 msgstr "כקישור לתמונה המקורית."
 
-#: src/Process/Backend/MediaItem.php:647
+#: src/Process/Backend/MediaItem.php:649
 msgid "MP3 disposition"
 msgstr "סילוק של MP3"
 
-#: src/Process/Backend/MediaItem.php:656
+#: src/Process/Backend/MediaItem.php:658
 msgid "Please note that you cannot insert mp3 files with standard editor in WYSIWYG HTML mode."
 msgstr "שים לב שאינך יכול להכניס קבצי mp3 עם עורך סטנדרטי במצב WYSIWYG HTML."
 
-#: src/Process/Backend/MediaItem.php:672
+#: src/Process/Backend/MediaItem.php:674
 msgid "Video size"
 msgstr "גודל וידאו"
 
-#: src/Process/Backend/MediaItem.php:676
+#: src/Process/Backend/MediaItem.php:678
 msgid "Width:"
 msgstr "רוחב:"
 
-#: src/Process/Backend/MediaItem.php:681
+#: src/Process/Backend/MediaItem.php:683
 msgid "Height:"
 msgstr "גובה:"
 
-#: src/Process/Backend/MediaItem.php:685
+#: src/Process/Backend/MediaItem.php:687
 msgid "A value of 0 means that the corresponding size is not included when inserting a video."
 msgstr "ערך של 0 פירושו שהגודל המתאים אינו כלול בעת הוספת סרטון."
 
-#: src/Process/Backend/MediaItem.php:690
+#: src/Process/Backend/MediaItem.php:692
 msgid "Video disposition"
 msgstr "סילוק וידאו"
 
-#: src/Process/Backend/MediaItem.php:700
+#: src/Process/Backend/MediaItem.php:702
 msgid "Please note that you cannot insert video files with standard editor in WYSIWYG HTML mode."
 msgstr "שים לב שאינך יכול להוסיף קבצי וידאו עם עורך סטנדרטי במצב WYSIWYG HTML."
 
-#: src/Process/Backend/MediaItem.php:706
+#: src/Process/Backend/MediaItem.php:708
 msgid "Media item will be inserted as a link."
 msgstr "פריט המדיה יתווסף כקישור."
 
-#: src/Process/Backend/MediaItem.php:727
+#: src/Process/Backend/MediaItem.php:729
 msgid "Make current settings as default"
 msgstr "הגדרת הגדרות נוכחיות כברירת מחדל"
 
-#: src/Process/Backend/MediaItem.php:728
+#: src/Process/Backend/MediaItem.php:730
 msgid "For the blog"
 msgstr "עבור הבלוג"
 
-#: src/Process/Backend/MediaItem.php:730
+#: src/Process/Backend/MediaItem.php:732
 msgid "For this folder only"
 msgstr "עבור תיקיה זו בלבד"
 
-#: src/Process/Backend/MediaItem.php:742
+#: src/Process/Backend/MediaItem.php:744
 msgid "Settings exist for this folder:"
 msgstr "קיימות הגדרות עבור תיקיה זו:"
 
-#: src/Process/Backend/MediaItem.php:743
+#: src/Process/Backend/MediaItem.php:745
 msgid "Remove them"
 msgstr "סלקו אותם"
 
-#: src/Process/Backend/MediaItem.php:753 src/Process/Backend/MediaItem.php:755
+#: src/Process/Backend/MediaItem.php:755 src/Process/Backend/MediaItem.php:757
 msgid "Insert media item"
 msgstr "הוספת פריט מדיה"
 
-#: src/Process/Backend/MediaItem.php:840
+#: src/Process/Backend/MediaItem.php:842
 msgid "Available sizes:"
 msgstr "גדלים זמינים:"
 
-#: src/Process/Backend/MediaItem.php:865 src/Process/Backend/MediaItem.php:939
-#: src/Process/Backend/MediaItem.php:947 src/Process/Backend/MediaItem.php:958
+#: src/Process/Backend/MediaItem.php:867 src/Process/Backend/MediaItem.php:941
+#: src/Process/Backend/MediaItem.php:949 src/Process/Backend/MediaItem.php:960
 msgid "Image width:"
 msgstr "רוחב תמונה:"
 
-#: src/Process/Backend/MediaItem.php:871 src/Process/Backend/MediaItem.php:964
+#: src/Process/Backend/MediaItem.php:873 src/Process/Backend/MediaItem.php:966
 msgid "Image height:"
 msgstr "גובה תמונה:"
 
-#: src/Process/Backend/MediaItem.php:879 src/Process/Backend/MediaItem.php:974
+#: src/Process/Backend/MediaItem.php:881 src/Process/Backend/MediaItem.php:976
 msgid "File size:"
 msgstr "גודל קובץ:"
 
-#: src/Process/Backend/MediaItem.php:887 src/Process/Backend/MediaItem.php:980
+#: src/Process/Backend/MediaItem.php:889 src/Process/Backend/MediaItem.php:982
 msgid "File URL:"
 msgstr "URL של קובץ:"
 
-#: src/Process/Backend/MediaItem.php:895
+#: src/Process/Backend/MediaItem.php:897
 msgid "Thumbnail details"
 msgstr "פרטי תמונות ממוזערות"
 
-#: src/Process/Backend/MediaItem.php:918
+#: src/Process/Backend/MediaItem.php:920
 msgid "File owner:"
 msgstr "בעלים של הקובץ:"
 
-#: src/Process/Backend/MediaItem.php:924
+#: src/Process/Backend/MediaItem.php:926
 msgid "File type:"
 msgstr "סוג קובץ:"
 
-#: src/Process/Backend/MediaItem.php:991
+#: src/Process/Backend/MediaItem.php:993
 msgid "Show entries containing this media"
 msgstr "הצגת רשומות המכילות מדיה זו"
 
-#: src/Process/Backend/MediaItem.php:1033
+#: src/Process/Backend/MediaItem.php:1035
 msgid "No entry seems contain this media."
 msgstr "לא נראה רשומה זו מכילה מדיה זו."
 
-#: src/Process/Backend/MediaItem.php:1063
+#: src/Process/Backend/MediaItem.php:1065
 msgid "Inside the entry"
 msgstr "בתוך הכניסה"
 
-#: src/Process/Backend/MediaItem.php:1070
+#: src/Process/Backend/MediaItem.php:1072
 msgid "Linked to entry"
 msgstr "מקושר לערך"
 
-#: src/Process/Backend/MediaItem.php:1078
+#: src/Process/Backend/MediaItem.php:1080
 msgid "Entries containing this media"
 msgstr "רשומות המכילות מדיה זו"
 
-#: src/Process/Backend/MediaItem.php:1112
+#: src/Process/Backend/MediaItem.php:1114
 msgid ":"
 msgstr ":"
 
-#: src/Process/Backend/MediaItem.php:1122
+#: src/Process/Backend/MediaItem.php:1124
 msgid "Metadata"
 msgstr "מטא נתונים"
 
-#: src/Process/Backend/MediaItem.php:1134
-#: src/Process/Backend/MediaItem.php:1336
-#: src/Process/Backend/MediaItem.php:1345
+#: src/Process/Backend/MediaItem.php:1136
+#: src/Process/Backend/MediaItem.php:1339
+#: src/Process/Backend/MediaItem.php:1348
 msgid "Media details"
 msgstr "פרטי מדיה"
 
-#: src/Process/Backend/MediaItem.php:1152
-#: src/Process/Backend/MediaItem.php:1159
+#: src/Process/Backend/MediaItem.php:1154
+#: src/Process/Backend/MediaItem.php:1161
 msgid "Update thumbnails"
 msgstr "עדכון תמונות ממוזערות"
 
-#: src/Process/Backend/MediaItem.php:1154
+#: src/Process/Backend/MediaItem.php:1156
 msgid "This will create or update thumbnails for this image."
 msgstr "פעולה זו תיצור או תעדכן תמונות ממוזערות עבור תמונה זו."
 
-#: src/Process/Backend/MediaItem.php:1168
-#: src/Process/Backend/MediaItem.php:1183
+#: src/Process/Backend/MediaItem.php:1170
+#: src/Process/Backend/MediaItem.php:1185
 msgid "Extract in a new directory"
 msgstr "שליפת מדריך חדש"
 
-#: src/Process/Backend/MediaItem.php:1169
-#: src/Process/Backend/MediaItem.php:1189
+#: src/Process/Backend/MediaItem.php:1171
+#: src/Process/Backend/MediaItem.php:1191
 msgid "Extract in current directory"
 msgstr "שליפת במדריך הנוכחי"
 
-#: src/Process/Backend/MediaItem.php:1177
+#: src/Process/Backend/MediaItem.php:1179
 msgid "Extract archive"
 msgstr "שליפת ארכיון"
 
-#: src/Process/Backend/MediaItem.php:1184
+#: src/Process/Backend/MediaItem.php:1186
 msgid "This will extract archive in a new directory that should not exist yet."
 msgstr "פעולה זו תחלץ ארכיון במדריך חדש שלא אמור להתקיים עדיין."
 
-#: src/Process/Backend/MediaItem.php:1190
+#: src/Process/Backend/MediaItem.php:1192
 msgid "This will extract archive in current directory and will overwrite existing files or directory."
 msgstr "פעולה זו תחלץ את הארכיון במדריך הנוכחי ויחליף קבצים או מדריכים קיימים."
 
-#: src/Process/Backend/MediaItem.php:1198
+#: src/Process/Backend/MediaItem.php:1200
 msgid "Extract mode:"
 msgstr "מצב שליפה:"
 
-#: src/Process/Backend/MediaItem.php:1199
+#: src/Process/Backend/MediaItem.php:1201
 msgid "Extract"
 msgstr "שליפת"
 
-#: src/Process/Backend/MediaItem.php:1211
+#: src/Process/Backend/MediaItem.php:1213
 msgid "Change media properties"
 msgstr "שינוי תכונות מדיה"
 
-#: src/Process/Backend/MediaItem.php:1220
+#: src/Process/Backend/MediaItem.php:1222
 msgid "File name:"
 msgstr "שם קובץ:"
 
-#: src/Process/Backend/MediaItem.php:1253
+#: src/Process/Backend/MediaItem.php:1255
 msgid "File date:"
 msgstr "תאריך קובץ:"
 
-#: src/Process/Backend/MediaItem.php:1266
+#: src/Process/Backend/MediaItem.php:1268
 msgid "New directory:"
 msgstr "מדריך חדש:"
 
-#: src/Process/Backend/MediaItem.php:1281
+#: src/Process/Backend/MediaItem.php:1283
 msgid "Change file"
 msgstr "שינוי קובץ"
 
-#: src/Process/Backend/MediaItem.php:1290
+#: src/Process/Backend/MediaItem.php:1292
 msgid "Choose a file:"
 msgstr "בחירת קובץ:"
 
-#: src/Process/Backend/MediaItem.php:1290
+#: src/Process/Backend/MediaItem.php:1292
 #, php-format
 msgid "Maximum size %s"
 msgstr "גודל מרבי %s"
 
-#: src/Process/Backend/MediaItem.php:1308
+#: src/Process/Backend/MediaItem.php:1311
 msgid "Delete this media"
 msgstr "מחיקת מדיה זו"
 
-#: src/Process/Backend/MediaItem.php:1327
+#: src/Process/Backend/MediaItem.php:1330
 msgid "Updates and modifications"
 msgstr "עדכונים ושינויים"
 
@@ -5633,12 +5633,12 @@ msgid "Password change required to connect"
 msgstr "שינוי סיסמה נדרש לחיבור"
 
 #: src/Process/Backend/User.php:419 src/Process/Backend/UserPreferences.php:783
-#: src/Process/Install/Install.php:494
+#: src/Process/Install/Install.php:500
 msgid "Last Name:"
 msgstr "שם משפחה:"
 
 #: src/Process/Backend/User.php:429 src/Process/Backend/UserPreferences.php:793
-#: src/Process/Install/Install.php:485
+#: src/Process/Install/Install.php:491
 msgid "First Name:"
 msgstr "שם פרטי:"
 
@@ -6223,236 +6223,236 @@ msgstr "תיקוף הרשאות"
 msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
 msgstr "הגדירו מפתח ראשי (DC_MASTER_KEY) בקובץ התצורה."
 
-#: src/Process/Install/Install.php:139 src/Process/Install/Wizard.php:205
+#: src/Process/Install/Install.php:139 src/Process/Install/Wizard.php:202
 msgid "Dotclear is already installed."
 msgstr "Dotclear כבר מותקן."
 
-#: src/Process/Install/Install.php:146 src/Process/Install/Wizard.php:195
+#: src/Process/Install/Install.php:148 src/Process/Install/Wizard.php:192
 msgid "Dotclear cannot be installed."
 msgstr "לא ניתן להתקין את Dotclear."
 
-#: src/Process/Install/Install.php:175
+#: src/Process/Install/Install.php:181
 msgid "Invalid email address"
 msgstr "כתובת דוא \" ל לא חוקית"
 
-#: src/Process/Install/Install.php:238
+#: src/Process/Install/Install.php:244
 msgid "My first blog"
 msgstr "הבלוג הראשון שלי"
 
-#: src/Process/Install/Install.php:251
+#: src/Process/Install/Install.php:257
 msgid "%A, %B %e %Y"
 msgstr "%A, %B %e %Y"
 
-#: src/Process/Install/Install.php:327
+#: src/Process/Install/Install.php:333
 msgid "Welcome to Dotclear!"
 msgstr "ברוך הבא ל - \"דאוטהר\"!"
 
-#: src/Process/Install/Install.php:328
+#: src/Process/Install/Install.php:334
 msgid "This is your first entry. When you're ready to blog, log in to edit or delete it."
 msgstr "זהו הרישום הראשון שלך. כשתהיו מוכנים לבלוג, התחברו לעריכה או מחקו אותה."
 
-#: src/Process/Install/Install.php:340
+#: src/Process/Install/Install.php:346
 msgid "Dotclear Team"
 msgstr "צוות ברור"
 
-#: src/Process/Install/Install.php:343
+#: src/Process/Install/Install.php:349
 msgid "<p>This is a comment.</p>\n"
 "<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
 msgstr "<p>זו הערה.</p>\n"
 "<p>כדי למחוק אותו, התחברו והציגו את הערות הבלוג שלכם. לאחר מכן תוכלו לסלק או לערוך אותו.</p>"
 
-#: src/Process/Install/Install.php:399
+#: src/Process/Install/Install.php:405
 msgid "Dotclear Install"
 msgstr "התקנת Dotclear"
 
-#: src/Process/Install/Install.php:426
+#: src/Process/Install/Install.php:432
 msgid "show"
 msgstr "הצגה"
 
-#: src/Process/Install/Install.php:443
+#: src/Process/Install/Install.php:449
 #, php-format
 msgid "Cache directory %s is not writable."
 msgstr "מדריך מטמון %s אינו מאפשר כתיבה."
 
-#: src/Process/Install/Install.php:462
+#: src/Process/Install/Install.php:468
 msgid "Configuration file has been successfully created."
 msgstr "קובץ התצורה נוצר בהצלחה."
 
-#: src/Process/Install/Install.php:469 src/Process/Install/Install.php:476
+#: src/Process/Install/Install.php:475 src/Process/Install/Install.php:482
 msgid "User information"
 msgstr "פרטי משתמש"
 
-#: src/Process/Install/Install.php:470
+#: src/Process/Install/Install.php:476
 msgid "Please provide the following information needed to create the first user."
 msgstr "ספקו את המידע שלהלן הדרוש ליצירת המשתמש הראשון."
 
-#: src/Process/Install/Install.php:507
+#: src/Process/Install/Install.php:513
 msgid "Username and password"
 msgstr "שם משתמש וסיסמה"
 
-#: src/Process/Install/Install.php:530
+#: src/Process/Install/Install.php:536
 msgid "New Password:"
 msgstr "סיסמה חדשה:"
 
-#: src/Process/Install/Install.php:540
+#: src/Process/Install/Install.php:546
 msgid "Confirm Password:"
 msgstr "אשר סיסמה:"
 
-#: src/Process/Install/Install.php:573
+#: src/Process/Install/Install.php:579
 msgid "All done!"
 msgstr "הכל בוצע!"
 
-#: src/Process/Install/Install.php:575
+#: src/Process/Install/Install.php:581
 msgid "Dotclear has been successfully installed. Here is some useful information you should keep."
 msgstr "Dotנקו הותקן בהצלחה. הנה מידע שימושי שאתה צריך לשמור."
 
-#: src/Process/Install/Install.php:576
+#: src/Process/Install/Install.php:582
 msgid "Your account"
 msgstr "חשבונך"
 
-#: src/Process/Install/Install.php:590
+#: src/Process/Install/Install.php:596
 msgid "Your blog"
 msgstr "הבלוג שלכם"
 
-#: src/Process/Install/Install.php:595
+#: src/Process/Install/Install.php:601
 msgid "Blog address:"
 msgstr "כתובת בלוג:"
 
-#: src/Process/Install/Install.php:600
+#: src/Process/Install/Install.php:606
 msgid "Administration interface:"
 msgstr "ממשק מנהלה:"
 
-#: src/Process/Install/Install.php:610
+#: src/Process/Install/Install.php:616
 msgid "Manage your blog now"
 msgstr "ניהול הבלוג כעת"
 
-#: src/Process/Install/Install.php:620
+#: src/Process/Install/Install.php:626
 msgid "Installation can not be completed"
 msgstr "לא ניתן להשלים את ההתקנה"
 
-#: src/Process/Install/Install.php:635
+#: src/Process/Install/Install.php:641
 #, php-format
 msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"%s\">the documentation</a> to learn how to correct the problem."
 msgstr "מהסיבות הנ\"ל, לא ניתן להתקין את Dotclear. אנא עיין ב<a href=\"%s\">תיעוד</a> כדי ללמוד כיצד לתקן את הבעיה."
 
-#: src/Process/Install/Install.php:643
+#: src/Process/Install/Install.php:649
 msgid "Dotclear installation"
 msgstr "התקנת Dotclear"
 
-#: src/Process/Install/Wizard.php:114
+#: src/Process/Install/Wizard.php:115
 #, php-format
 msgid "Path <strong>%s</strong> is not writable."
 msgstr "הנתיב <strong>%s</strong> אינו מאפשר כתיבה."
 
-#: src/Process/Install/Wizard.php:116
+#: src/Process/Install/Wizard.php:117
 #, php-format
 msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"%s\">the documentation</a> to learn how to do this."
 msgstr "אשף ההתקנה של Dotclear לא הצליח ליצור עבורך קובץ תצורה. עליך לשנות את התיקייה בצורה נכונה או ליצור את קובץ <strong>config.php</strong> באופן ידני. אנא עיין ב<a href=\"%s\">תיעוד</a> כדי ללמוד כיצד לעשות זאת."
 
-#: src/Process/Install/Wizard.php:130
+#: src/Process/Install/Wizard.php:131
 msgid "There are no supported database driver."
 msgstr "אין מנהל התקן נתונים נתמך."
 
-#: src/Process/Install/Wizard.php:132
+#: src/Process/Install/Wizard.php:133
 #, php-format
 msgid "Dotclear installation wizard could not find database driver. You must change your PHP configuration to add a supported database handler please refer to <a href=\"%s\">the documentation</a> to learn how to do this."
 msgstr "אשף ההתקנה של Dotclear לא הצליח למצוא את מנהל ההתקן של מסד הנתונים. עליך לשנות את תצורת ה-PHP שלך כדי להוסיף מנהל מסד נתונים נתמך. אנא עיין <a href=\"%s\">בתיעוד</a> כדי ללמוד כיצד לעשות זאת."
 
-#: src/Process/Install/Wizard.php:174
+#: src/Process/Install/Wizard.php:175
 #, php-format
 msgid "Cannot write \"%s\" directory."
 msgstr "לא ניתן לכתוב \"%s\" מדריך."
 
-#: src/Process/Install/Wizard.php:209
+#: src/Process/Install/Wizard.php:206
 msgid "Master email is not valid."
 msgstr "הדואל הראשי אינו חוקי."
 
-#: src/Process/Install/Wizard.php:215
+#: src/Process/Install/Wizard.php:212
 #, php-format
 msgid "File %s does not exist."
 msgstr "קובץ %s אינו קיים."
 
-#: src/Process/Install/Wizard.php:220 src/Process/Install/Wizard.php:255
+#: src/Process/Install/Wizard.php:217 src/Process/Install/Wizard.php:252
 #, php-format
 msgid "Cannot write %s file."
 msgstr "לא ניתן לכתוב קובץ %s."
 
-#: src/Process/Install/Wizard.php:298 src/Process/Install/Wizard.php:319
-#: src/Process/Install/Wizard.php:345
+#: src/Process/Install/Wizard.php:297 src/Process/Install/Wizard.php:318
+#: src/Process/Install/Wizard.php:344
 msgid "Dotclear installation wizard"
 msgstr "אשף התקנת Dotclear"
 
-#: src/Process/Install/Wizard.php:335
+#: src/Process/Install/Wizard.php:334
 msgid "Dotclear can not be installed."
 msgstr "לא ניתן להתקין את Dotclear."
 
-#: src/Process/Install/Wizard.php:363
+#: src/Process/Install/Wizard.php:362
 msgid "Welcome"
 msgstr "ברוכים הבאים"
 
-#: src/Process/Install/Wizard.php:364
+#: src/Process/Install/Wizard.php:363
 msgid "To complete your Dotclear installation and start writing on your blog, we just need to know how to access your database and who you are. Just fill this two steps wizard with this information and we will be done."
 msgstr "כדי להשלים את התקנת Dotclear ולהתחיל לכתוב בבלוג, אנחנו רק צריכים לדעת איך לגשת למסד הנתונים שלכם ומי אתם. רק למלא את אשף שני שלבים זה עם מידע זה ואנחנו נעשה."
 
-#: src/Process/Install/Wizard.php:370
+#: src/Process/Install/Wizard.php:369
 msgid "Attention:"
 msgstr "שימו לב:"
 
-#: src/Process/Install/Wizard.php:372
+#: src/Process/Install/Wizard.php:371
 #, php-format
 msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"%s\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
 msgstr "ייתכן שאשף זה לא יפעל בכל מחשב אחסון. אם הוא אינו פועל עבורך, עיין ב<a href=\"%s\">תיעוד</a> כדי ללמוד כיצד ליצור את קובץ <strong>config.php</strong> באופן ידני."
 
-#: src/Process/Install/Wizard.php:378
+#: src/Process/Install/Wizard.php:377
 msgid "System information"
 msgstr "מידע מערכת"
 
-#: src/Process/Install/Wizard.php:379
+#: src/Process/Install/Wizard.php:378
 msgid "Please provide the following information needed to create your configuration file."
 msgstr "ספקו את המידע שלהלן הדרוש ליצירת קובץ התצורה."
 
-#: src/Process/Install/Wizard.php:390
+#: src/Process/Install/Wizard.php:389
 msgid "Database type:"
 msgstr "סוג מסד נתונים:"
 
-#: src/Process/Install/Wizard.php:396
+#: src/Process/Install/Wizard.php:395
 msgid "Driver"
 msgstr "נהג"
 
-#: src/Process/Install/Wizard.php:403
+#: src/Process/Install/Wizard.php:402
 msgid "Database Host Name:"
 msgstr "שם מארח של מסד נתונים:"
 
-#: src/Process/Install/Wizard.php:411
+#: src/Process/Install/Wizard.php:410
 msgid "Database Name:"
 msgstr "שם מסד הנתונים:"
 
-#: src/Process/Install/Wizard.php:419
+#: src/Process/Install/Wizard.php:418
 msgid "Database User Name:"
 msgstr "שם משתמש של מסד נתונים:"
 
-#: src/Process/Install/Wizard.php:427
+#: src/Process/Install/Wizard.php:426
 msgid "Database Password:"
 msgstr "סיסמת מסד נתונים:"
 
-#: src/Process/Install/Wizard.php:435
+#: src/Process/Install/Wizard.php:434
 msgid "Prefix"
 msgstr "קידומת"
 
-#: src/Process/Install/Wizard.php:436
+#: src/Process/Install/Wizard.php:435
 msgid "Database Tables Prefix:"
 msgstr "קידומת טבלאות מסד נתונים:"
 
-#: src/Process/Install/Wizard.php:444
+#: src/Process/Install/Wizard.php:443
 msgid "Email"
 msgstr "דוא \" ל"
 
-#: src/Process/Install/Wizard.php:445
+#: src/Process/Install/Wizard.php:444
 msgid "Master Email: (used as sender for password recovery)"
 msgstr "דואל ראשי: (משמש כשולח עבור שחזור סיסמה)"
 
-#: src/Process/Install/Wizard.php:447 src/Process/Upgrade/Digests.php:256
-#: src/Process/Upgrade/Digests.php:277
+#: src/Process/Install/Wizard.php:446 src/Process/Upgrade/Digests.php:255
+#: src/Process/Upgrade/Digests.php:276
 msgid "Continue"
 msgstr "המשך"
 
@@ -6461,8 +6461,8 @@ msgstr "המשך"
 #: src/Process/Upgrade/Attic.php:344 src/Process/Upgrade/Attic.php:348
 #: src/Process/Upgrade/Backup.php:56 src/Process/Upgrade/Backup.php:60
 #: src/Process/Upgrade/Backup.php:213 src/Process/Upgrade/Cache.php:71
-#: src/Process/Upgrade/Digests.php:140 src/Process/Upgrade/Home.php:145
-#: src/Process/Upgrade/Langs.php:264 src/Process/Upgrade/Plugins.php:171
+#: src/Process/Upgrade/Digests.php:139 src/Process/Upgrade/Home.php:145
+#: src/Process/Upgrade/Langs.php:263 src/Process/Upgrade/Plugins.php:171
 #: src/Process/Upgrade/Replay.php:78 src/Process/Upgrade/Upgrade.php:51
 #: src/Process/Upgrade/Upgrade.php:55 src/Process/Upgrade/Upgrade.php:76
 #: src/Process/Upgrade/Upgrade.php:80 src/Process/Upgrade/Upgrade.php:313
@@ -6545,8 +6545,8 @@ msgstr "אין מידע על מהדורות אודות מהדורות המפור
 msgid "Are you sure to update to version %s?"
 msgstr "האם אתם בטוחים שברצונכם לעדכן לגרסה %s?"
 
-#: src/Process/Upgrade/Attic.php:324 src/Process/Upgrade/Digests.php:176
-#: src/Process/Upgrade/Digests.php:190 src/Process/Upgrade/Upgrade.php:286
+#: src/Process/Upgrade/Attic.php:324 src/Process/Upgrade/Digests.php:175
+#: src/Process/Upgrade/Digests.php:189 src/Process/Upgrade/Upgrade.php:286
 msgid "Update Dotclear"
 msgstr "עדכון Dotclear"
 
@@ -6558,15 +6558,15 @@ msgstr "מזל טוב, אתה במרחק לחיצה אחת מסוף העדכון
 msgid "Finish the update."
 msgstr "סיימו את העדכון."
 
-#: src/Process/Upgrade/Auth.php:166
+#: src/Process/Upgrade/Auth.php:165
 msgid "Code verification failed"
 msgstr "אימות הקוד נכשל"
 
-#: src/Process/Upgrade/Auth.php:264 src/Process/Upgrade/Auth.php:381
+#: src/Process/Upgrade/Auth.php:263 src/Process/Upgrade/Auth.php:380
 msgid "Upgrade"
 msgstr "שדרוג"
 
-#: src/Process/Upgrade/Auth.php:365
+#: src/Process/Upgrade/Auth.php:364
 msgid "Back to normal dashboard"
 msgstr "חזרה ללוח המחוונים הרגיל"
 
@@ -6648,51 +6648,51 @@ msgstr "מדריך מטמון של מאגרים ריקים"
 msgid "Empty Dotclear versions cache directory"
 msgstr "ספריית המטמון של גרסאות Dotclear ריקה"
 
-#: src/Process/Upgrade/Digests.php:108
+#: src/Process/Upgrade/Digests.php:107
 msgid "The updates have been performed."
 msgstr "העדכונים בוצעו."
 
-#: src/Process/Upgrade/Digests.php:112
+#: src/Process/Upgrade/Digests.php:111
 msgid "No changed filed have been found, nothing to do!"
 msgstr "לא נמצאו שינויים שהוגשו, אין מה לעשות!"
 
-#: src/Process/Upgrade/Digests.php:115
+#: src/Process/Upgrade/Digests.php:114
 msgid "This tool has already been run once."
 msgstr "כלי זה כבר רץ פעם אחת."
 
-#: src/Process/Upgrade/Digests.php:136
+#: src/Process/Upgrade/Digests.php:135
 msgid "Files"
 msgstr "קבצים"
 
-#: src/Process/Upgrade/Digests.php:141
+#: src/Process/Upgrade/Digests.php:140
 msgid "Corrupted files"
 msgstr "קובצי משובש"
 
-#: src/Process/Upgrade/Digests.php:165
+#: src/Process/Upgrade/Digests.php:164
 msgid "Download backup of digests file."
 msgstr "הורדת גיבוי של קובץ עיכול."
 
-#: src/Process/Upgrade/Digests.php:186
+#: src/Process/Upgrade/Digests.php:185
 msgid "Digests file is up to date."
 msgstr "הקובץ של Digests מעודכן."
 
-#: src/Process/Upgrade/Digests.php:204
+#: src/Process/Upgrade/Digests.php:203
 msgid "The following files will have their checksum faked:"
 msgstr "הקבצים שלהלן יזייפו את checksum:"
 
-#: src/Process/Upgrade/Digests.php:221
+#: src/Process/Upgrade/Digests.php:220
 msgid "The following files digests will have their checksum cleaned:"
 msgstr "מעכל הקבצים שלהלן ינקו את checksum:"
 
-#: src/Process/Upgrade/Digests.php:236
+#: src/Process/Upgrade/Digests.php:235
 msgid "Still ok to continue"
 msgstr "ובכל זאת בסדר להמשיך"
 
-#: src/Process/Upgrade/Digests.php:252
+#: src/Process/Upgrade/Digests.php:251
 msgid "Remove the backup digest file, I want to play again"
 msgstr "סילוק קובץ תמצית הגיבוי, ברצוני להשמיע שוב"
 
-#: src/Process/Upgrade/Digests.php:273
+#: src/Process/Upgrade/Digests.php:272
 msgid "I have read and understood the disclaimer and wish to continue anyway."
 msgstr "קראתי והבנתי את כתב הויתור וברצוני להמשיך בכל מקרה."
 
@@ -6752,11 +6752,11 @@ msgstr "לאחר סיום העדכון, אל תשכחו לבדוק ולעדכן 
 msgid "Before performing update you should take into account some informations listed bellow:"
 msgstr "לפני ביצוע העדכון, עליכם לקחת בחשבון כמה אינפורמטיביות רשומות:"
 
-#: src/Process/Upgrade/Langs.php:359
+#: src/Process/Upgrade/Langs.php:358
 msgid "Install or upgrade languages from available languages"
 msgstr "התקנה או שדרוג שפות בשפות זמינות"
 
-#: src/Process/Upgrade/Langs.php:402
+#: src/Process/Upgrade/Langs.php:401
 msgid "Install or upgrade languages from an upload a zip file"
 msgstr "התקנה או שדרוג של שפות מקובץ zip"
 
