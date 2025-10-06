@@ -116,7 +116,7 @@ class Fault implements FaultInterface
 
         // Stop in CLI mode
         if (PHP_SAPI === 'cli') {
-            echo $label . ' (' . $code . ")\n";
+            echo $message . ' (' . $code . ")\n";
             dotclear_exit(1);
         }
 
