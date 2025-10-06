@@ -105,9 +105,7 @@ class Cli
 
         if (!App::config()->hasConfig()) {
             // First step
-            if (self::$interactive) {
-                echo __('Starting first step of Dotclear installation process.'). "\n";
-            }
+            self::msgLine(__('Starting first step of Dotclear installation process.'));
 
             // Parse configuration
             $dbdriver = self::parseDbDriver();
@@ -195,18 +193,14 @@ class Cli
                 $con->close();
 
                 // Success message
-                if (self::$interactive) {
-                    echo __('First step of Dotclear installation succeed.'). "\n" .
-                        __('Re-run same script to process second step of Dotclear installation.'). "\n";
-                }
+                self::okLine(__('First step of Dotclear installation succeed.'));
+                self::msgLine(__('Re-run same script to process second step of Dotclear installation.'));
             } catch (Exception $e) {
                 throw $e;
             }
         } else {
             // Second step
-            if (self::$interactive) {
-                echo __('Starting second step of Dotclear installation process.'). "\n";
-            }
+            self::msgLine(__('Starting second step of Dotclear installation process.'));
 
             // Check current installation state
             if (App::config()->masterKey() === '') {
@@ -235,14 +229,19 @@ class Cli
             $blogurl    = self::parseBlogUrl();
 
             try {
+                self::dot(__('Processing installation'));
+
                 // Create schema
                 $_s = App::db()->structure();
+                self::dot();
 
                 // Fill database structure
                 Schema::fillStructure($_s);
+                self::dot();
 
                 // Update database
                 App::db()->structure()->synchronize($_s);
+                self::dot();
 
                 // Create user
                 $cur                 = App::db()->con()->openCursor(App::db()->con()->prefix() . App::auth()::USER_TABLE_NAME);
@@ -258,8 +257,10 @@ class Cli
                 $cur->user_upddt     = date('Y-m-d H:i:s');
                 $cur->user_options   = serialize(App::users()->userDefaults());
                 $cur->insert();
+                self::dot();
 
                 App::auth()->checkUser($ulogin);
+                self::dot();
 
                 // Create blog
                 $cur            = App::blog()->openBlogCursor();
@@ -267,16 +268,21 @@ class Cli
                 $cur->blog_url  = $blogurl . '/index.php?';
                 $cur->blog_name = __('My first blog');
                 App::blogs()->addBlog($cur);
-
+                self::dot();
                 
                 // Create global blog settings
                 App::blogs()->blogDefaults();
+                self::dot();
 
                 $blog_settings = App::blogSettings()->createFromBlog('default');
                 $blog_settings->system->put('blog_timezone', $utz);
+                self::dot();
                 $blog_settings->system->put('lang', $ulang);
+                self::dot();
                 $blog_settings->system->put('public_url', $blogurl . '/public');
+                self::dot();
                 $blog_settings->system->put('themes_url', $blogurl . '/themes');
+                self::dot();
 
                 // date and time formats
                 $formatDate   = __('%A, %B %e %Y');
@@ -292,12 +298,17 @@ class Cli
                     );
                 }
                 $blog_settings->system->put('date_format', $formatDate);
+                self::dot();
                 $blog_settings->system->put('date_formats', $date_formats, 'array', 'Date formats examples', true, true);
+                self::dot();
                 $blog_settings->system->put('time_formats', $time_formats, 'array', 'Time formats examples', true, true);
+                self::dot();
 
                 # Add repository URL for themes and plugins
                 $blog_settings->system->put('store_plugin_url', 'https://update.dotaddict.org/dc2/plugins.xml', 'string', 'Plugins XML feed location', true, true);
+                self::dot();
                 $blog_settings->system->put('store_theme_url', 'https://update.dotaddict.org/dc2/themes.xml', 'string', 'Themes XML feed location', true, true);
+                self::dot();
 
                 // CSP directive (admin part)
 
@@ -308,7 +319,9 @@ class Cli
                 $csp_suffix = str_contains(App::db()->con()->driver(), 'sqlite') ? ' 127.0.0.1' : ''; // Hack for SQlite syntax
 
                 $blog_settings->system->put('csp_admin_on', true, 'boolean', 'Send CSP header (admin)', true, true);
+                self::dot();
                 $blog_settings->system->put('csp_admin_report_only', false, 'boolean', 'CSP Report only violations (admin)', true, true);
+                self::dot();
                 $blog_settings->system->put(
                     'csp_admin_default',
                     $csp_prefix . "'self'" . $csp_suffix,
@@ -317,6 +330,7 @@ class Cli
                     true,
                     true
                 );
+                self::dot();
                 $blog_settings->system->put(
                     'csp_admin_script',
                     $csp_prefix . "'self' 'unsafe-eval'" . $csp_suffix,
@@ -325,6 +339,7 @@ class Cli
                     true,
                     true
                 );
+                self::dot();
                 $blog_settings->system->put(
                     'csp_admin_style',
                     $csp_prefix . "'self' 'unsafe-inline'" . $csp_suffix,
@@ -333,6 +348,7 @@ class Cli
                     true,
                     true
                 );
+                self::dot();
                 $blog_settings->system->put(
                     'csp_admin_img',
                     $csp_prefix . "'self' data: https://media.dotaddict.org blob:",
@@ -341,15 +357,18 @@ class Cli
                     true,
                     true
                 );
+                self::dot();
 
                 // Add Dotclear version
                 $cur          = App::version()->openVersionCursor();
                 $cur->module  = 'core';
                 $cur->version = App::config()->dotclearVersion();
                 $cur->insert();
+                self::dot();
 
                 // Create first post
                 App::blog()->loadFromBlog('default');
+                self::dot();
 
                 $cur               = App::blog()->openPostCursor();
                 $cur->user_id      = $ulogin;
@@ -363,6 +382,7 @@ class Cli
                 $cur->post_open_comment  = 1;
                 $cur->post_open_tb       = 0;
                 $post_id                 = App::blog()->addPost($cur);
+                self::dot();
 
                 // Add a comment to it
                 $cur                  = App::blog()->openCommentCursor();
@@ -374,38 +394,46 @@ class Cli
                 $cur->comment_content = __("<p>This is a comment.</p>\n<p>To delete it, log in and " .
                     "view your blog's comments. Then you might remove or edit it.</p>");
                 App::blog()->addComment($cur);
+                self::dot();
 
                 // Plugins initialization
                 App::task()->addContext('BACKEND');
                 App::plugins()->loadModules(App::config()->pluginsRoot());
                 $plugins_install = App::plugins()->installModules();
-
+                self::dot();
 
                 // Add dashboard module options
                 App::auth()->prefs()->dashboard->put('doclinks', true, 'boolean', '', false, true);
+                self::dot();
                 App::auth()->prefs()->dashboard->put('donate', true, 'boolean', '', false, true);
+                self::dot();
                 App::auth()->prefs()->dashboard->put('dcnews', true, 'boolean', '', false, true);
+                self::dot();
                 App::auth()->prefs()->dashboard->put('quickentry', true, 'boolean', '', false, true);
+                self::dot();
                 App::auth()->prefs()->dashboard->put('nodcupdate', false, 'boolean', '', false, true);
+                self::dot();
 
                 // Add accessibility options
                 App::auth()->prefs()->accessibility->put('nodragdrop', false, 'boolean', '', false, true);
+                self::dot();
 
                 // Add user interface options
                 App::auth()->prefs()->interface->put('enhanceduploader', true, 'boolean', '', false, true);
+                self::dot();
 
                 // Add default favorites
                 $init_favs = ['posts', 'new_post', 'newpage', 'comments', 'categories', 'media', 'blog_theme', 'widgets', 'simpleMenu', 'prefs', 'help'];
                 App::install()->favorites()->setFavoriteIDs($init_favs, true);
+                self::dot();
 
                 // Success message
-                if (self::$interactive) {
-                    echo __('Second step of Dotclear installation succeed.'). "\n" .
-                        sprintf(__('Go to visit "%s" to manage your blog.'), App::config()->adminUrl()) . "\n";
+                self::msgLine('');
+                self::okLine(__('Second step of Dotclear installation succeed.'));
+                self::msgLine(sprintf(__('Go to visit "%s" to manage your blog.'), App::config()->adminUrl()));
 
-                    if (!empty($plugins_install['failure'])) {
-                        echo __('Following plugins have not been installed:') . ' ' . implode(', ', array_keys($plugins_install['failure']));
-                    }
+                if (!empty($plugins_install['failure'])) {
+                    self::koLine(__('Following plugins have not been installed:') . ' ' . implode(', ', array_keys($plugins_install['failure'])));
                 }
             } catch (Exception $e) {
                 throw $e;
@@ -751,6 +779,28 @@ class Cli
         }
 
         throw new Exception($text);
+    }
+
+    /**
+     * Dot.
+     */
+    private static function dot(string $text = ''): void
+    {
+        if (self::$interactive) {
+            echo $text !== '' ? $text : '.';
+        }
+    }
+
+    /**
+     * CLI message line.
+     *
+     * @param   string  $text   The success text
+     */
+    private static function msgLine(string $text): void
+    {
+        if (self::$interactive) {
+            echo $text . "\n";
+        }
     }
 
     /**
