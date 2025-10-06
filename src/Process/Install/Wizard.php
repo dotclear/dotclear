@@ -263,7 +263,7 @@ class Wizard
 
                 $con->close();
                 Http::redirect('index.php?wiz=1');
-            } catch(ConfigException $e) {
+            } catch (ConfigException $e) {
                 self::$err .= $e->getMessage();
             } catch (Exception $e) {
                 self::$err .= (new Text('p', $e->getMessage()))->render();
