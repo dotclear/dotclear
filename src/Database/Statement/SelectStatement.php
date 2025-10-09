@@ -12,6 +12,7 @@ namespace Dotclear\Database\Statement;
 
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
+use Dotclear\Interface\Database\ConnectionInterface;
 
 /**
  * @class SelectStatement
@@ -60,10 +61,10 @@ class SelectStatement extends SqlStatement
     /**
      * Constructs a new instance.
      *
-     * @param      mixed         $con     The DB handle
-     * @param      null|string   $syntax  The syntax
+     * @param      ?ConnectionInterface     $con     The DB handle
+     * @param      null|string              $syntax  The syntax
      */
-    public function __construct($con = null, ?string $syntax = null)
+    public function __construct(?ConnectionInterface $con = null, ?string $syntax = null)
     {
         parent::__construct($con, $syntax);
     }
@@ -71,12 +72,12 @@ class SelectStatement extends SqlStatement
     /**
      * Adds JOIN clause(s) (applied on first from item only)
      *
-     * @param mixed     $c      the join clause(s)
-     * @param boolean   $reset  reset previous join(s) first
+     * @param string|string[]  $c      the join clause(s)
+     * @param boolean          $reset  reset previous join(s) first
      *
      * @return self instance, enabling to chain calls
      */
-    public function join($c, bool $reset = false): SelectStatement
+    public function join(string|array $c, bool $reset = false): SelectStatement
     {
         if ($reset) {
             $this->join = [];
@@ -93,12 +94,12 @@ class SelectStatement extends SqlStatement
     /**
      * Adds UNION clause(s)
      *
-     * @param mixed     $c      the union clause(s)
-     * @param boolean   $reset  reset previous union(s) first
+     * @param string|string[]  $c      the union clause(s)
+     * @param boolean          $reset  reset previous union(s) first
      *
      * @return self instance, enabling to chain calls
      */
-    public function union($c, bool $reset = false): SelectStatement
+    public function union(string|array $c, bool $reset = false): SelectStatement
     {
         if ($reset) {
             $this->union = [];
@@ -115,12 +116,12 @@ class SelectStatement extends SqlStatement
     /**
      * Adds HAVING clause(s)
      *
-     * @param mixed     $c      the clause(s)
-     * @param boolean   $reset  reset previous having(s) first
+     * @param string|string[]  $c      the clause(s)
+     * @param boolean          $reset  reset previous having(s) first
      *
      * @return self instance, enabling to chain calls
      */
-    public function having($c, bool $reset = false): SelectStatement
+    public function having(string|array $c, bool $reset = false): SelectStatement
     {
         if ($reset) {
             $this->having = [];
@@ -137,12 +138,12 @@ class SelectStatement extends SqlStatement
     /**
      * Adds ORDER BY clause(s)
      *
-     * @param mixed     $c      the clause(s)
-     * @param boolean   $reset  reset previous order(s) first
+     * @param string|string[]  $c      the clause(s)
+     * @param boolean          $reset  reset previous order(s) first
      *
      * @return self instance, enabling to chain calls
      */
-    public function order($c, bool $reset = false): SelectStatement
+    public function order(string|array $c, bool $reset = false): SelectStatement
     {
         if ($reset) {
             $this->order = [];
@@ -159,12 +160,12 @@ class SelectStatement extends SqlStatement
     /**
      * Adds GROUP BY clause(s)
      *
-     * @param mixed     $c      the clause(s)
-     * @param boolean   $reset  reset previous group(s) first
+     * @param string|string[]  $c      the clause(s)
+     * @param boolean          $reset  reset previous group(s) first
      *
      * @return self instance, enabling to chain calls
      */
-    public function group($c, bool $reset = false): SelectStatement
+    public function group(string|array $c, bool $reset = false): SelectStatement
     {
         if ($reset) {
             $this->group = [];
@@ -181,12 +182,12 @@ class SelectStatement extends SqlStatement
     /**
      * group() alias
      *
-     * @param mixed     $c      the clause(s)
-     * @param boolean   $reset  reset previous group(s) first
+     * @param string|string[]  $c      the clause(s)
+     * @param boolean          $reset  reset previous group(s) first
      *
      * @return self instance, enabling to chain calls
      */
-    public function groupBy($c, bool $reset = false): SelectStatement
+    public function groupBy(string|array $c, bool $reset = false): SelectStatement
     {
         return $this->group($c, $reset);
     }
@@ -194,18 +195,20 @@ class SelectStatement extends SqlStatement
     /**
      * Defines the LIMIT for select
      *
-     * @param mixed $limit (limit or [offset,limit])
+     * @param null|int|string|array{int|string, int|string} $limit (limit or [offset,limit])
      *
      * @return self instance, enabling to chain calls
      */
-    public function limit($limit): SelectStatement
+    public function limit(null|int|string|array $limit): SelectStatement
     {
         $offset = null;
         if (is_array($limit)) {
             // Keep only values
+            // @phpstan-ignore arrayValues.list
             $limit = array_values($limit);
             // If 2 values, [0] -> offset, [1] -> limit
             // If 1 value, [0] -> limit
+            // @phpstan-ignore isset.offset
             if (isset($limit[1])) {
                 $offset = $limit[0];
                 $limit  = $limit[1];
@@ -348,7 +351,7 @@ class SelectStatement extends SqlStatement
      */
     public function select(): ?MetaRecord
     {
-        if ($this->con && ($sql = $this->statement())) {
+        if ($this->con instanceof ConnectionInterface && ($sql = $this->statement())) {
             return new MetaRecord($this->con->select($sql));
         }
 

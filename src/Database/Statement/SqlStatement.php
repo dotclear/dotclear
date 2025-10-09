@@ -12,6 +12,7 @@ namespace Dotclear\Database\Statement;
 
 use Dotclear\App;
 use Dotclear\Exception\DatabaseException;
+use Dotclear\Interface\Database\ConnectionInterface;
 
 /**
  * @class SqlStatement
@@ -41,10 +42,8 @@ class SqlStatement
 
     /**
      * DB handle
-     *
-     * @var     null|\Dotclear\Interface\Database\ConnectionInterface   $con
      */
-    protected $con;
+    protected ?ConnectionInterface $con;
 
     /**
      * DB SQL syntax
@@ -96,13 +95,13 @@ class SqlStatement
     /**
      * Constructs a new instance.
      *
-     * @param      mixed         $con     The DB handle
-     * @param      null|string   $syntax  The syntax
+     * @param      ?ConnectionInterface     $con     The DB handle
+     * @param      null|string              $syntax  The syntax
      */
-    public function __construct($con = null, ?string $syntax = null)
+    public function __construct(?ConnectionInterface $con = null, ?string $syntax = null)
     {
         $this->con    = $con    ?? App::db()->con();
-        $this->syntax = $syntax ?? ($con ? $con->syntax() : App::db()->con()->syntax());
+        $this->syntax = $syntax ?? ($con instanceof ConnectionInterface ? $con->syntax() : App::db()->con()->syntax());
 
         /* @phpstan-ignore-next-line */
         $this->_AS = ($this->syntax === 'sqlite' || self::VERBOSE_SQL_ALIAS ? ' AS ' : ' ');
@@ -116,7 +115,7 @@ class SqlStatement
      * @return     mixed   property value if property exists
      */
     #[\ReturnTypeWillChange]
-    public function __get(string $property)
+    public function __get(string $property): mixed
     {
         if (property_exists($this, $property)) {
             return $this->$property;
@@ -135,7 +134,7 @@ class SqlStatement
      * @return      static    self instance, enabling to chain calls
      */
     #[\ReturnTypeWillChange]
-    public function __set(string $property, $value)
+    public function __set(string $property, mixed $value)
     {
         if (property_exists($this, $property)) {
             $this->$property = $value;
@@ -195,12 +194,12 @@ class SqlStatement
     /**
      * Adds column(s)
      *
-     * @param mixed     $c      the column(s)
-     * @param boolean   $reset  reset previous column(s) first
+     * @param null|string|string[]  $c      the column(s)
+     * @param boolean               $reset  reset previous column(s) first
      *
      * @return static    self instance, enabling to chain calls
      */
-    public function columns($c, bool $reset = false): static
+    public function columns(null|string|array $c, bool $reset = false): static
     {
         if ($reset) {
             $this->columns = [];
@@ -217,12 +216,12 @@ class SqlStatement
     /**
      * columns() alias
      *
-     * @param mixed     $c      the column(s)
-     * @param boolean   $reset  reset previous column(s) first
+     * @param null|string|string[]  $c      the column(s)
+     * @param boolean               $reset  reset previous column(s) first
      *
      * @return static    self instance, enabling to chain calls
      */
-    public function fields($c, bool $reset = false): static
+    public function fields(null|string|array $c, bool $reset = false): static
     {
         return $this->columns($c, $reset);
     }
@@ -230,12 +229,12 @@ class SqlStatement
     /**
      * columns() alias
      *
-     * @param      mixed    $c      the column(s)
-     * @param      boolean  $reset  reset previous column(s) first
+     * @param null|string|string[]  $c      the column(s)
+     * @param boolean               $reset  reset previous column(s) first
      *
      * @return static    self instance, enabling to chain calls
      */
-    public function column($c, bool $reset = false): static
+    public function column(null|string|array $c, bool $reset = false): static
     {
         return $this->columns($c, $reset);
     }
@@ -243,12 +242,12 @@ class SqlStatement
     /**
      * column() alias
      *
-     * @param      mixed    $c      the column(s)
-     * @param      boolean  $reset  reset previous column(s) first
+     * @param null|string|string[]  $c      the column(s)
+     * @param boolean               $reset  reset previous column(s) first
      *
      * @return static    self instance, enabling to chain calls
      */
-    public function field($c, bool $reset = false): static
+    public function field(null|string|array $c, bool $reset = false): static
     {
         return $this->column($c, $reset);
     }
@@ -256,13 +255,13 @@ class SqlStatement
     /**
      * Adds FROM clause(s)
      *
-     * @param mixed     $c      the from clause(s)
-     * @param boolean   $reset  reset previous from(s) first
-     * @param boolean   $first  put the from clause(s) at top of list
+     * @param null|string|string[]  $c      the from clause(s)
+     * @param boolean               $reset  reset previous from(s) first
+     * @param boolean               $first  put the from clause(s) at top of list
      *
      * @return static    self instance, enabling to chain calls
      */
-    public function from($c, bool $reset = false, bool $first = false): static
+    public function from(null|string|array $c, bool $reset = false, bool $first = false): static
     {
         $filter = fn ($v): string => trim(ltrim((string) $v, ',')); // Remove comma on beginning of clause(s)
 
@@ -287,12 +286,12 @@ class SqlStatement
     /**
      * Adds WHERE clause(s) condition (each will be AND combined in statement)
      *
-     * @param mixed     $c      the clause(s)
-     * @param boolean   $reset  reset previous where(s) first
+     * @param null|string|string[]  $c      the clause(s)
+     * @param boolean               $reset  reset previous where(s) first
      *
      * @return static    self instance, enabling to chain calls
      */
-    public function where($c, bool $reset = false): static
+    public function where(null|string|array $c, bool $reset = false): static
     {
         $filter = fn ($v): string => (string) preg_replace('/^\s*(AND|OR)\s*/i', '', (string) $v);
         if ($reset) {
@@ -312,12 +311,12 @@ class SqlStatement
     /**
      * from() alias
      *
-     * @param mixed     $c      the clause(s)
-     * @param boolean   $reset  reset previous where(s) first
+     * @param null|string|string[]  $c      the clause(s)
+     * @param boolean               $reset  reset previous where(s) first
      *
      * @return static    self instance, enabling to chain calls
      */
-    public function on($c, bool $reset = false): static
+    public function on(null|string|array $c, bool $reset = false): static
     {
         return $this->where($c, $reset);
     }
@@ -325,12 +324,12 @@ class SqlStatement
     /**
      * Adds additional WHERE clause condition(s) (including an operator at beginning)
      *
-     * @param mixed     $c      the clause(s)
-     * @param boolean   $reset  reset previous condition(s) first
+     * @param null|string|string[]  $c      the clause(s)
+     * @param boolean               $reset  reset previous condition(s) first
      *
      * @return static    self instance, enabling to chain calls
      */
-    public function cond($c, bool $reset = false): static
+    public function cond(null|string|array $c, bool $reset = false): static
     {
         if ($reset) {
             $this->cond = [];
@@ -372,12 +371,12 @@ class SqlStatement
     /**
      * Adds additional WHERE AND clause condition(s)
      *
-     * @param mixed     $c      the clause(s)
-     * @param boolean   $reset  reset previous condition(s) first
+     * @param null|string|string[]  $c      the clause(s)
+     * @param boolean               $reset  reset previous condition(s) first
      *
      * @return static    self instance, enabling to chain calls
      */
-    public function and($c, bool $reset = false): static
+    public function and(null|string|array $c, bool $reset = false): static
     {
         $c = $this->sanitizeCondition($c);
 
@@ -391,9 +390,9 @@ class SqlStatement
     /**
      * Helper to group some AND parts
      *
-     * @param      mixed  $c      the parts
+     * @param null|string|string[]  $c      the parts
      */
-    public function andGroup($c): string
+    public function andGroup(null|string|array $c): string
     {
         $c = $this->sanitizeCondition($c);
 
@@ -409,12 +408,12 @@ class SqlStatement
     /**
      * Adds additional WHERE OR clause condition(s)
      *
-     * @param mixed     $c      the clause(s)
-     * @param boolean   $reset  reset previous condition(s) first
+     * @param null|string|string[]  $c      the clause(s)
+     * @param boolean               $reset  reset previous condition(s) first
      *
      * @return static    self instance, enabling to chain calls
      */
-    public function or($c, bool $reset = false): static
+    public function or(null|string|array $c, bool $reset = false): static
     {
         if (is_array($c) && $c === []) {
             return $this;
@@ -428,9 +427,9 @@ class SqlStatement
     /**
      * Helper to group some OR parts
      *
-     * @param      mixed  $c      the parts}
+     * @param null|string|string[]  $c      the parts
      */
-    public function orGroup($c): string
+    public function orGroup(null|string|array $c): string
     {
         $c = $this->sanitizeCondition($c);
 
@@ -446,12 +445,12 @@ class SqlStatement
     /**
      * Adds generic clause(s)
      *
-     * @param mixed     $c      the clause(s)
-     * @param boolean   $reset  reset previous generic clause(s) first
+     * @param null|string|string[]  $c      the clause(s)
+     * @param boolean               $reset  reset previous generic clause(s) first
      *
      * @return static    self instance, enabling to chain calls
      */
-    public function sql($c, bool $reset = false): static
+    public function sql(null|string|array $c, bool $reset = false): static
     {
         if ($reset) {
             $this->sql = [];
@@ -474,7 +473,7 @@ class SqlStatement
      */
     public function escape(string $value): string
     {
-        if (!$this->con) {
+        if (!$this->con instanceof ConnectionInterface) {
             throw new DatabaseException('ConnectionInterface instance is missing.');
         }
 
@@ -489,7 +488,7 @@ class SqlStatement
      */
     public function quote(string $value, bool $escape = true): string
     {
-        if (!$this->con) {
+        if (!$this->con instanceof ConnectionInterface) {
             throw new DatabaseException('ConnectionInterface instance is missing.');
         }
 
@@ -518,12 +517,12 @@ class SqlStatement
     /**
      * Return an SQL IN (...) fragment
      *
-     * @param      mixed  $list         The list of values
-     * @param      string $cast         Cast given not null values to specified type
+     * @param null|string|int|array<array-key, int|string|null> $list         The list of values
+     * @param string                                            $cast         Cast given not null values to specified type
      */
-    public function in($list, string $cast = ''): string
+    public function in(null|string|int|array $list, string $cast = ''): string
     {
-        if (!$this->con) {
+        if (!$this->con instanceof ConnectionInterface) {
             throw new DatabaseException('ConnectionInterface instance is missing.');
         }
 
@@ -531,7 +530,7 @@ class SqlStatement
             switch ($cast) {
                 case 'int':
                     if (is_array($list)) {
-                        $list = array_map(fn ($v): ?int => is_null($v) ? $v : (int) $v, $list);
+                        $list = array_map(fn (int|string|null $v): ?int => is_null($v) ? $v : (int) $v, $list);
                     } else {
                         $list = is_null($list) ? null : (int) $list;
                     }
@@ -539,7 +538,7 @@ class SqlStatement
                     break;
                 case 'string':
                     if (is_array($list)) {
-                        $list = array_map(fn ($v): ?string => is_null($v) ? $v : (string) $v, $list);
+                        $list = array_map(fn (int|string|null $v): ?string => is_null($v) ? $v : (string) $v, $list);
                     } else {
                         $list = is_null($list) ? null : (string) $list;
                     }
@@ -570,7 +569,7 @@ class SqlStatement
      */
     public function dateFormat(string $field, string $pattern): string
     {
-        if (!$this->con) {
+        if (!$this->con instanceof ConnectionInterface) {
             throw new DatabaseException('ConnectionInterface instance is missing.');
         }
 

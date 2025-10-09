@@ -11,6 +11,7 @@ declare(strict_types=1);
 namespace Dotclear\Database\Statement;
 
 use Dotclear\App;
+use Dotclear\Interface\Database\ConnectionInterface;
 
 /**
  * @class DropStatement
@@ -53,7 +54,7 @@ class DropStatement extends SqlStatement
      */
     public function drop(): bool
     {
-        if ($this->con && ($sql = $this->statement())) {
+        if ($this->con instanceof ConnectionInterface && ($sql = $this->statement())) {
             return $this->con->execute($sql);
         }
 

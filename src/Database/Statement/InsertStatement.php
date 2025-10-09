@@ -11,6 +11,7 @@ declare(strict_types=1);
 namespace Dotclear\Database\Statement;
 
 use Dotclear\App;
+use Dotclear\Interface\Database\ConnectionInterface;
 
 /**
  * @class InsertStatement
@@ -27,10 +28,10 @@ class InsertStatement extends SqlStatement
     /**
      * Constructs a new instance.
      *
-     * @param      mixed         $con     The DB handle
-     * @param      null|string   $syntax  The syntax
+     * @param      ?ConnectionInterface     $con     The DB handle
+     * @param      null|string              $syntax  The syntax
      */
-    public function __construct($con = null, ?string $syntax = null)
+    public function __construct(?ConnectionInterface $con = null, ?string $syntax = null)
     {
         parent::__construct($con, $syntax);
     }
@@ -38,12 +39,12 @@ class InsertStatement extends SqlStatement
     /**
      * from() alias
      *
-     * @param mixed     $c      the into clause(s)
-     * @param boolean   $reset  reset previous into first
+     * @param null|string|string[]  $c      the into clause(s)
+     * @param boolean               $reset  reset previous into first
      *
      * @return self instance, enabling to chain calls
      */
-    public function into($c, bool $reset = false): InsertStatement
+    public function into(null|string|array $c, bool $reset = false): InsertStatement
     {
         $this->from($c, $reset);
 
@@ -58,7 +59,7 @@ class InsertStatement extends SqlStatement
      *
      * @return self instance, enabling to chain calls
      */
-    public function lines($c, bool $reset = false): InsertStatement
+    public function lines(mixed $c, bool $reset = false): InsertStatement
     {
         if ($reset) {
             $this->lines = [];
@@ -80,7 +81,7 @@ class InsertStatement extends SqlStatement
      *
      * @return self instance, enabling to chain calls
      */
-    public function line($c, bool $reset = false): InsertStatement
+    public function line(mixed $c, bool $reset = false): InsertStatement
     {
         return $this->lines([$c], $reset);
     }
@@ -168,7 +169,7 @@ class InsertStatement extends SqlStatement
      */
     public function insert(): bool
     {
-        if ($this->con && ($sql = $this->statement())) {
+        if ($this->con instanceof ConnectionInterface && ($sql = $this->statement())) {
             return $this->con->execute($sql);
         }
 
