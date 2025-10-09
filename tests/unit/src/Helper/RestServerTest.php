@@ -337,7 +337,7 @@ class RestServerTest extends TestCase
         $rest = $this->prepareServer();
         $res  = '';
 
-        $ret = $this->runServer($rest, null, $res, 'UTF-8', \Dotclear\Helper\RestServer::JSON_RESPONSE);
+        $ret = $this->runServer($rest, '', $res, 'UTF-8', \Dotclear\Helper\RestServer::JSON_RESPONSE);
 
         $this->assertFalse(
             $ret

@@ -112,7 +112,7 @@ class RestServer implements RestInterface
         $post = $_POST ?: [];
 
         if ($format === self::XML_RESPONSE) {
-            if (!isset($_REQUEST['f'])) {
+            if (!isset($_REQUEST['f']) || !$_REQUEST['f']) {
                 $this->rsp->status = 'failed';
                 $this->rsp->message('No function given');
                 $this->getXML($encoding);
@@ -147,7 +147,7 @@ class RestServer implements RestInterface
 
         // JSON_RESPONSE :
 
-        if (!isset($_REQUEST['f'])) {
+        if (!isset($_REQUEST['f']) || !$_REQUEST['f']) {
             $this->json = [
                 'success' => false,
                 'message' => 'No function given',
