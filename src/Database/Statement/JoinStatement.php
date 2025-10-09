@@ -20,10 +20,7 @@ use Dotclear\Interface\Database\ConnectionInterface;
  */
 class JoinStatement extends SqlStatement
 {
-    /**
-     * @var ?string     $type
-     */
-    protected $type;
+    protected ?string $type = null;
 
     /**
      * Constructs a new instance.
