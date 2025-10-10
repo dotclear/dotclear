@@ -236,9 +236,15 @@ class Media extends MediaManager implements MediaInterface
         $this->addFileHandler('image/avif', 'recreate', $this->imageThumbCreate(...));
 
         # Thumbnails sizes
-        $this->thumb_sizes['m'][0] = abs((int) $this->core->blog()->settings()->system->media_img_m_size);
-        $this->thumb_sizes['s'][0] = abs((int) $this->core->blog()->settings()->system->media_img_s_size);
-        $this->thumb_sizes['t'][0] = abs((int) $this->core->blog()->settings()->system->media_img_t_size);
+        if (array_key_exists('m', $this->thumb_sizes)) {
+            $this->thumb_sizes['m'][0] = abs((int) $this->core->blog()->settings()->system->media_img_m_size);
+        }
+        if (array_key_exists('s', $this->thumb_sizes)) {
+            $this->thumb_sizes['s'][0] = abs((int) $this->core->blog()->settings()->system->media_img_s_size);
+        }
+        if (array_key_exists('t', $this->thumb_sizes)) {
+            $this->thumb_sizes['t'][0] = abs((int) $this->core->blog()->settings()->system->media_img_t_size);
+        }
 
         # --BEHAVIOR-- coreMediaConstruct -- Manager -- deprecated since 2.28, as plugins are not yet loaded here
         $this->core->behavior()->callBehavior('coreMediaConstruct', $this);
@@ -252,10 +258,12 @@ class Media extends MediaManager implements MediaInterface
 
         // Set thumbnails translations
         foreach (array_keys($this->thumb_sizes) as $code) {
-            $label = $this->thumb_sizes[$code][2] ?? '';
+            if (array_key_exists($code, $this->thumb_sizes)) {
+                $label = $this->thumb_sizes[$code][2];
 
-            $this->thumb_sizes[$code][3] = $label;
-            $this->thumb_sizes[$code][2] = __($label);
+                $this->thumb_sizes[$code][3] = $label;
+                $this->thumb_sizes[$code][2] = __($label);
+            }
         }
 
         // deprecated since 2.28, use App::media() instead
