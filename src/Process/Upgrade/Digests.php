@@ -107,7 +107,7 @@ class Digests
                 App::upgrade()->notices()->addSuccessNotice(__('The updates have been performed.'));
             }
         } elseif (isset($_POST['disclaimer_ok'])) {
-            if (count(self::$changes['changed']) == 0 && count(self::$changes['removed']) == 0) {
+            if (count(self::$changes['changed']) === 0 && count(self::$changes['removed']) === 0) {
                 App::upgrade()->notices()->addWarningNotice(__('No changed filed have been found, nothing to do!'));
             }
         } elseif (file_exists(self::$path_backup)) {
@@ -177,7 +177,7 @@ class Digests
                 ])
             ->render();
         } elseif (isset($_POST['disclaimer_ok'])) {
-            if (count(self::$changes['changed']) == 0 && count(self::$changes['removed']) == 0) {
+            if (count(self::$changes['changed']) === 0 && count(self::$changes['removed']) === 0) {
                 echo (new Div())
                     ->class('fieldset')
                     ->items([
@@ -192,7 +192,7 @@ class Digests
             } else {
                 $changed       = [];
                 $block_changed = '';
-                if (count(self::$changes['changed']) != 0) {
+                if (count(self::$changes['changed']) !== 0) {
                     foreach (self::$changes['changed'] as $k => $v) {
                         $changed[] = (new Li())->text(sprintf('%s [old:%s, new:%s]', $k, $v['old'], $v['new']));
                     }
@@ -209,7 +209,7 @@ class Digests
                 }
                 $removed       = [];
                 $block_removed = '';
-                if (count(self::$changes['removed']) != 0) {
+                if (count(self::$changes['removed']) !== 0) {
                     foreach (self::$changes['removed'] as $k => $v) {
                         $removed[] = (new Li())->text((string) $k);
                     }

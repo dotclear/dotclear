@@ -94,19 +94,20 @@ class Manage
             // Update filters
             if (isset($_POST['filters_upd'])) {
                 /**
-                 * @var        array<int|string, list{0:bool, 1:int, 2:bool}>
+                 * @var        array<string, list{bool, int, bool}>
                  */
                 $filters_opt = [];
                 $i           = 0;
-                foreach (App::backend()->filters as $filter_id => $filter_id) {
-                    $filters_opt[$filter_id] = [false, $i, false];
-                    $i++;
+                foreach (array_keys(App::backend()->filters) as $filter_id) {
+                    $filters_opt[$filter_id] = [false, $i++, false];
                 }
 
                 // Enable active filters
                 if (isset($_POST['filters_active']) && is_array($_POST['filters_active'])) {
                     foreach ($_POST['filters_active'] as $filter_id) {
-                        $filters_opt[$filter_id][0] = true;
+                        if (array_key_exists($filter_id, $filters_opt)) {
+                            $filters_opt[$filter_id][0] = true;
+                        }
                     }
                 }
 
@@ -121,14 +122,18 @@ class Manage
 
                 if (isset($order)) {
                     foreach ($order as $i => $filter_id) {
-                        $filters_opt[$filter_id][1] = $i;
+                        if (array_key_exists($filter_id, $filters_opt)) {
+                            $filters_opt[$filter_id][1] = $i;
+                        }
                     }
                 }
 
                 // Set auto delete flag
                 if (isset($_POST['filters_auto_del']) && is_array($_POST['filters_auto_del'])) {
                     foreach ($_POST['filters_auto_del'] as $filter_id) {
-                        $filters_opt[$filter_id][2] = true;
+                        if (array_key_exists($filter_id, $filters_opt)) {
+                            $filters_opt[$filter_id][2] = true;
+                        }
                     }
                 }
 

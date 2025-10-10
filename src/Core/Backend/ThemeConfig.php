@@ -40,12 +40,12 @@ class ThemeConfig
         }
 
         $color = self::adjustColor($color);
-        if (($color === '') || (strlen($color) != 7)) {
+        if (($color === '') || (strlen($color) !== 7)) {
             return 0;
         }
 
         $background = self::adjustColor($background);
-        if (($background === '') || (strlen($background) != 7)) {
+        if (($background === '') || (strlen($background) !== 7)) {
             return 0;
         }
 
@@ -161,7 +161,7 @@ class ThemeConfig
         }
         $position = explode(':', $position);
 
-        return $position[0] . (count($position) == 1 ? ':0' : ':' . $position[1]);
+        return $position[0] . (count($position) === 1 ? ':0' : ':' . $position[1]);
     }
 
     /**

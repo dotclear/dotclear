@@ -760,7 +760,7 @@ class HttpClient extends Socket
      *
      * @return string|false|array<int, string>
      */
-    public function getHeader($header): array|bool|string
+    public function getHeader(string $header): array|bool|string
     {
         $header = strtolower($header);
 
@@ -1047,7 +1047,7 @@ class HttpClient extends Socket
         $client->setOutput($output);
         $client->get($path);
 
-        return $client->getStatus() == 200 ? $client->getContent() : false;
+        return $client->getStatus() === 200 ? $client->getContent() : false;
     }
 
     /**
@@ -1069,7 +1069,7 @@ class HttpClient extends Socket
         $client->setOutput($output);
         $client->post($path, $data);
 
-        return $client->getStatus() == 200 ? $client->getContent() : false;
+        return $client->getStatus() === 200 ? $client->getContent() : false;
     }
 
     /**

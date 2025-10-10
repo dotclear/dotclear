@@ -861,7 +861,7 @@ class WikiToHtml
             if ($delta > 0 && $type == $current_type && !str_starts_with($mode, (string) $current_mode)) {
                 $valid = false;
             }
-            if ($delta == 0 && $mode != $current_mode) {
+            if ($delta === 0 && $mode != $current_mode) {
                 $valid = false;
             }
             if ($delta > 1) {
@@ -1272,7 +1272,7 @@ class WikiToHtml
         $title    = '';
 
         // Only URL in data
-        if (count($data) == 1) {
+        if (count($data) === 1) {
             $url     = trim($str);
             $content = strlen($url) > 35 ? substr($url, 0, 35) . '...' : $url;
             $lang    = '';

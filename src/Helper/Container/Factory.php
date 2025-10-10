@@ -65,7 +65,7 @@ class Factory
     public function set(string $service, string|callable $callback, bool $from_factory = true): void
     {
         if ($this->rewritable || !array_key_exists($service, $this->stack)) {
-            $this->stack[$service] = $callback;
+            $this->stack[$service]                                                          = $callback;
             self::$statistics[$from_factory ? 'factory' : 'container'][$this->id][$service] = is_string($callback) ? $callback : 'closure';
         }
     }
@@ -79,7 +79,7 @@ class Factory
      *
      * @return null|string|callable     The service definiton
      */
-    public function get($service): null|string|callable
+    public function get(string $service): null|string|callable
     {
         return $this->stack[$service] ?? null;
     }

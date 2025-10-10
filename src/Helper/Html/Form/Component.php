@@ -171,7 +171,7 @@ abstract class Component
      *
      * @return     mixed   property value if property exists or null
      */
-    public function __get(string $property)
+    public function __get(string $property): mixed
     {
         return $this->properties[$property] ?? null;
     }
@@ -184,7 +184,7 @@ abstract class Component
      *
      * @return     self
      */
-    public function __set(string $property, $value)
+    public function __set(string $property, mixed $value)
     {
         $this->properties[$property] = $value;
 

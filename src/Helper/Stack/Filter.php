@@ -81,7 +81,7 @@ class Filter
      *
      * @return  mixed   Property
      */
-    public function __get(string $property)
+    public function __get(string $property): mixed
     {
         return $this->get($property);
     }
@@ -93,7 +93,7 @@ class Filter
      *
      * @return  mixed   The value
      */
-    public function get(string $property)
+    public function get(string $property): mixed
     {
         return $this->properties[$property] ?? null;
     }
@@ -106,7 +106,7 @@ class Filter
      *
      * @return  Filter  The filter instance
      */
-    public function __set(string $property, $value)
+    public function __set(string $property, mixed $value)
     {
         return $this->set($property, $value);   // @phpstan-ignore-line
     }
@@ -119,7 +119,7 @@ class Filter
      *
      * @return  Filter  The filter instance
      */
-    public function set(string $property, $value)
+    public function set(string $property, mixed $value)
     {
         if (isset($this->properties[$property]) && method_exists($this, $property)) {
             return call_user_func([$this, $property], $value);  // @phpstan-ignore-line

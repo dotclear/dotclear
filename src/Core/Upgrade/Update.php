@@ -395,7 +395,7 @@ class Update
                     $client = $http_get($url);
                 }
             }
-            if ($status != 200) {
+            if ($status !== 200) {
                 @unlink($dest);
 
                 throw new Exception();

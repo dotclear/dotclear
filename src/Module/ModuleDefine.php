@@ -316,7 +316,7 @@ class ModuleDefine
      * @param   string  $identifier     The identifier
      * @param   mixed   $value          The value
      */
-    public function __set(string $identifier, $value = null): void
+    public function __set(string $identifier, mixed $value = null): void
     {
         $this->set($identifier, $value);
     }

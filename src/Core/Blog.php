@@ -547,13 +547,13 @@ class Blog implements BlogInterface
                 $nb_total = $nb_post;
                 $stack[$rs->level] += $nb_post;
             } else {
-                $nb_total = $stack[$rs->level + 1] + $nb_post;
+                $nb_total = $stack[(int) $rs->level + 1] + $nb_post;
                 if (isset($stack[$rs->level])) {
                     $stack[$rs->level] += $nb_total;
                 } else {
                     $stack[$rs->level] = $nb_total;
                 }
-                unset($stack[$rs->level + 1]);
+                unset($stack[(int) $rs->level + 1]);
             }
 
             if ($nb_total === 0 && $without_empty) {
@@ -569,7 +569,7 @@ class Blog implements BlogInterface
             $counters['nb_post']  = $nb_post;
             $counters['nb_total'] = $nb_total;
 
-            if ($level == 0 || ($level > 0 && $level == $rs->level)) {
+            if ($level === 0 || ($level > 0 && $level == $rs->level)) {
                 array_unshift($data, $counters);
             }
         }
@@ -696,7 +696,7 @@ class Blog implements BlogInterface
         }
 
         $url = [];
-        if ($parent != 0) {
+        if ($parent !== 0) {
             $rs = $this->getCategory($parent);
             if ($rs->isEmpty()) {
                 $url = [];
@@ -1816,7 +1816,7 @@ class Blog implements BlogInterface
      *
      * @param  array<string>    $arr        filters
      */
-    private function getPostsCategoryFilter($arr, string $field = 'cat_id'): string
+    private function getPostsCategoryFilter(array $arr, string $field = 'cat_id'): string
     {
         $field = $field === 'cat_id' ? 'cat_id' : 'cat_url';
 

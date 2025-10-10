@@ -340,7 +340,7 @@ abstract class MyModule
             $find = $modules->getDefines([
                 'namespace' => '\\' . (new \ReflectionClass(static::class))->getNamespaceName(),
             ]);
-            if (count($find) != 1) {
+            if (count($find) !== 1) {
                 self::exception('Failed to find namespace from ' . static::class);
             }
 

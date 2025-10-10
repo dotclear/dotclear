@@ -141,7 +141,7 @@ class Page
         $js       = [];
 
         # List of user's blogs
-        if (App::auth()->getBlogCount() == 1 || App::auth()->getBlogCount() > $maxblogs) {
+        if (App::auth()->getBlogCount() === 1 || App::auth()->getBlogCount() > $maxblogs) {
             $blogmenu = (new Para())
                 ->separator(' ')
                 ->items([

@@ -80,8 +80,8 @@ class FrontendTemplate
         }
 
         $description = 'title';
-        if (isset($descr_type[$widget->get('description')])) {
-            $description = $descr_type[$widget->get('description')];
+        if (isset($descr_type[(int) $widget->get('description')])) {
+            $description = $descr_type[(int) $widget->get('description')];
         }
         $menu = self::displayMenu('', '', $description);
         if ($menu === '') {

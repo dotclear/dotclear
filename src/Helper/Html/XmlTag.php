@@ -61,7 +61,7 @@ class XmlTag
      *
      * @see insertAttr()
      */
-    public function __set(string $name, $value): void
+    public function __set(string $name, mixed $value): void
     {
         $this->insertAttr($name, $value);
     }

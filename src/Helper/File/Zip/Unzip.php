@@ -242,7 +242,7 @@ class Unzip
             }
         }
 
-        if ($root_files == 0 && $root_dirs == 1) {
+        if ($root_files === 0 && $root_dirs === 1) {
             return $dirs[0];
         }
 
@@ -260,7 +260,7 @@ class Unzip
             $this->getList();
         }
 
-        return count($this->compressed_list) == 0;
+        return count($this->compressed_list) === 0;
     }
 
     /**

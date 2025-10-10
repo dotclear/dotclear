@@ -165,8 +165,8 @@ class SpamFilters
     /**
      * Saves filter settings.
      *
-     * @param   array<int|string, list{0:bool, 1:int, 2:bool}>      $opts       The settings
-     * @param   bool                                                $global     True if global settings
+     * @param   array<string, list{bool, int, bool}>        $opts       The settings
+     * @param   bool                                        $global     True if global settings
      */
     public function saveFilterOpts(array $opts, bool $global = false): void
     {

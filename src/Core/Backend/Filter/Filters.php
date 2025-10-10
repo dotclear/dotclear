@@ -172,7 +172,7 @@ class Filters
      *
      * @return  mixed   The filter value
      */
-    public function __get(string $id)
+    public function __get(string $id): mixed
     {
         return $this->value($id);
     }

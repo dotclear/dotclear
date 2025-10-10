@@ -122,9 +122,9 @@ class Blowup
     /**
      * Return the font family depending on given setting
      *
-     * @param      mixed  $c    Font family setting
+     * @param      string  $c    Font family setting
      */
-    public static function fontDef($c): ?string
+    public static function fontDef(string $c): ?string
     {
         if (empty(self::$fonts_list)) {
             foreach (self::$fonts as $g) {

@@ -371,7 +371,7 @@ class Home
                             ->text(__('Following plugins have not been installed:')),
                         (new Ul())
                             ->items(
-                                array_map(fn ($item) => (new Li())->text($item), $failure)
+                                array_map(fn (string $item) => (new Li())->text($item), $failure)
                             ),
                     ])
                 ->render(),

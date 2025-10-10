@@ -268,7 +268,7 @@ class ManagePage
             } else {
                 try {
                     App::backend()->post_dt = strtotime((string) $_POST['post_dt']);
-                    if (!App::backend()->post_dt || App::backend()->post_dt == -1) {
+                    if (!App::backend()->post_dt || App::backend()->post_dt === -1) {
                         App::backend()->bad_dt = true;
 
                         throw new Exception(__('Invalid publication date'));

@@ -101,7 +101,7 @@ class LinksLookup extends SpamFilter
             $domain_elem = explode('.', $domain);
 
             $i = count($domain_elem) - 1;
-            if ($i == 0) {
+            if ($i === 0) {
                 // "domain" is 1 word long, don't check it
                 return null;
             }

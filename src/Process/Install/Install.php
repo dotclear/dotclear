@@ -469,7 +469,7 @@ class Install
                 ->class('success')
                 ->role('alert');
         }
-        if (self::$can_install && self::$step == 0) {
+        if (self::$can_install && self::$step === 0) {
             $msg[] = (new Set())
                 ->items([
                     new Text('h2', __('User information')),
@@ -550,7 +550,7 @@ class Install
                             (new Submit('install-submit', __('Save'))),
                         ]),
                 ]);
-        } elseif (self::$can_install && self::$step == 1) {
+        } elseif (self::$can_install && self::$step === 1) {
             # Plugins install messages
             $plugins_install_result = [];
             if (!empty(self::$plugins_install['success'])) {

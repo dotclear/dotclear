@@ -207,7 +207,7 @@ class Pager
         }
 
         # Previous group
-        if ($this->env_group != 1) {
+        if ($this->env_group !== 1) {
             $htmlPrevGrp = '&nbsp;<a href="' . sprintf((string) $this->page_url, $this->index_group_start - $this->nb_pages_per_group) . '">' . $this->html_prev_grp . '</a>&nbsp;';
         }
 

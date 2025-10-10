@@ -93,17 +93,12 @@ class QRCode
         return new self($data, $options);
     }
 
-    /**
-     * @param string $name
-     *
-     * @return mixed
-     */
-    public function __get($name)
+    public function __get(string $name): mixed
     {
-        if ($name == 'options') {
+        if ($name === 'options') {
             return $this->options;
         }
-        if ($name == 'data') {
+        if ($name === 'data') {
             return $this->data;
         }
         if (array_key_exists($name, $this->options)) {
@@ -116,12 +111,9 @@ class QRCode
     /**
      * Set option value with 'magic' setter
      *
-     * @param mixed $name
-     * @param mixed $value
-     *
      * @return void|$this
      */
-    public function __set($name, $value)
+    public function __set(string $name, mixed $value)
     {
         if (!array_key_exists($name, array_flip($this->available))) {
             // Silent error
@@ -547,7 +539,7 @@ class QRCode
         $ec_params     = $this->qr_ec_params[($version - 1) * 4 + $ecl];
         /* Don't cut off mid-character if exceeding capacity. */
         $max_chars = $this->qr_capacity[$version - 1][$ecl][$mode];
-        if ($mode == 3) {
+        if ($mode === 3) {
             $max_chars <<= 1;
         }
         $data = substr($data, 0, $max_chars);
@@ -638,7 +630,7 @@ class QRCode
     protected function qr_detect_version(string $data, int $mode, int $ecl): int
     {
         $length = strlen($data);
-        if ($mode == 3) {
+        if ($mode === 3) {
             $length >>= 1;
         }
         for ($v = 0; $v < 40; $v++) {
@@ -840,7 +832,7 @@ class QRCode
             if ($c1 >= 0x81 && $c1 <= 0x9F && $c2 >= 0x40 && $c2 <= 0xFC) {
                 $ch = ($c1 - 0x81) * 0xC0 + ($c2 - 0x40);
             } elseif (
-                ($c1 >= 0xE0 && $c1 <= 0xEA && $c2 >= 0x40 && $c2 <= 0xFC) || ($c1 == 0xEB && $c2 >= 0x40 && $c2 <= 0xBF)
+                ($c1 >= 0xE0 && $c1 <= 0xEA && $c2 >= 0x40 && $c2 <= 0xFC) || ($c1 === 0xEB && $c2 >= 0x40 && $c2 <= 0xBF)
             ) {
                 $ch = ($c1 - 0xC1) * 0xC0 + ($c2 - 0x40);
             } else {
@@ -1001,9 +993,9 @@ class QRCode
         /* Finder patterns. */
         for ($i = 0; $i < 8; $i++) {
             for ($j = 0; $j < 8; $j++) {
-                $m = (($i == 7 || $j == 7) ? 2 :
-                    (($i == 0 || $j == 0 || $i == 6 || $j == 6) ? 3 :
-                        (($i == 1 || $j == 1 || $i == 5 || $j == 5) ? 2 : 3)));
+                $m = (($i === 7 || $j === 7) ? 2 :
+                    (($i === 0 || $j === 0 || $i === 6 || $j === 6) ? 3 :
+                        (($i === 1 || $j === 1 || $i === 5 || $j === 5) ? 2 : 3)));
                 $matrix[$i][$j]             = $m;
                 $matrix[$size - $i - 1][$j] = $m;
                 $matrix[$i][$size - $j - 1] = $m;
@@ -1078,7 +1070,7 @@ class QRCode
                 $dir = -$dir;
                 $row += $dir;
                 $col -= 2;
-                if ($col == 6) {
+                if ($col === 6) {
                     $col--;
                 }
             }
@@ -1235,10 +1227,10 @@ class QRCode
                 $rowvalue = (($rowvalue << 1) & 0x7FF) | $rv;
                 $colvalue = (($colvalue << 1) & 0x7FF) | $cv;
             }
-            if ($rowvalue == 0x5D0 || $rowvalue == 0x5D) {
+            if ($rowvalue === 0x5D0 || $rowvalue === 0x5D) {
                 $score += 40;
             }
-            if ($colvalue == 0x5D0 || $colvalue == 0x5D) {
+            if ($colvalue === 0x5D0 || $colvalue === 0x5D) {
                 $score += 40;
             }
             for ($j = 11; $j < $size; $j++) {
@@ -1246,10 +1238,10 @@ class QRCode
                 $cv       = ($matrix[$j][$i] == 5 || $matrix[$j][$i] == 3) ? 1 : 0;
                 $rowvalue = (($rowvalue << 1) & 0x7FF) | $rv;
                 $colvalue = (($colvalue << 1) & 0x7FF) | $cv;
-                if ($rowvalue == 0x5D0 || $rowvalue == 0x5D) {
+                if ($rowvalue === 0x5D0 || $rowvalue === 0x5D) {
                     $score += 40;
                 }
-                if ($colvalue == 0x5D0 || $colvalue == 0x5D) {
+                if ($colvalue === 0x5D0 || $colvalue === 0x5D) {
                     $score += 40;
                 }
             }
@@ -1328,7 +1320,7 @@ class QRCode
             $version = $this->qr_version_info[$version - 7];
             for ($i = 0; $i < 18; $i++) {
                 $r              = $size - 9 - ($i % 3);
-                $c              = 5     - floor($i / 3);
+                $c              = (int) (5 - floor($i / 3));
                 $matrix[$r][$c] = $version[$i];
                 $matrix[$c][$r] = $version[$i];
             }

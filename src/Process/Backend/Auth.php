@@ -84,7 +84,7 @@ class Auth
         App::backend()->msg        = null;
 
         // Auto upgrade, keep it for backward compatibility. (now on Dotclear\Process\Upgrade\Auth)
-        if ((count($_GET) == 1 && $_POST === []) || App::backend()->safe_mode) {
+        if ((count($_GET) === 1 && $_POST === []) || App::backend()->safe_mode) {
             try {
                 App::task()->addContext('UPGRADE');
                 if (($changes = App::upgrade()->upgrade()->dotclearUpgrade()) !== false) {
@@ -100,7 +100,7 @@ class Auth
 
             App::backend()->user_id  = $_POST['user_id'];
             App::backend()->user_pwd = $_POST['user_pwd'];
-        } elseif (isset($_COOKIE[App::backend()::COOKIE_NAME]) && strlen((string) $_COOKIE[App::backend()::COOKIE_NAME]) == 104) {
+        } elseif (isset($_COOKIE[App::backend()::COOKIE_NAME]) && strlen((string) $_COOKIE[App::backend()::COOKIE_NAME]) === 104) {
             // If we have a remember cookie, go through auth process with user_key
 
             $user_id = substr((string) $_COOKIE[App::backend()::COOKIE_NAME], 40);
@@ -189,7 +189,7 @@ class Auth
 
             try {
                 $tmp_data = explode('/', (string) $_POST['login_data']);
-                if (count($tmp_data) != 3) {
+                if (count($tmp_data) !== 3) {
                     throw new Exception();
                 }
                 $data = [
@@ -203,7 +203,7 @@ class Auth
 
                 // Check login informations
                 $check_user = false;
-                if (strlen($data['cookie_admin']) == 104) {
+                if (strlen($data['cookie_admin']) === 104) {
                     $user_id = substr($data['cookie_admin'], 40);
                     $user_id = @unpack('a32', @pack('H*', $user_id));
                     if (is_array($user_id)) {
@@ -250,7 +250,7 @@ class Auth
             //Check 2fa code
             try {
                 $tmp_data = explode('/', (string) $_POST['login_data']);
-                if (count($tmp_data) != 4) {
+                if (count($tmp_data) !== 4) {
                     throw new Exception();
                 }
                 $data = [
@@ -265,7 +265,7 @@ class Auth
 
                 // Check login informations
                 $check_user = false;
-                if (strlen($data['cookie_admin']) == 104) {
+                if (strlen($data['cookie_admin']) === 104) {
                     $user_id = substr($data['cookie_admin'], 40);
                     $user_id = @unpack('a32', @pack('H*', $user_id));
                     if (is_array($user_id)) {

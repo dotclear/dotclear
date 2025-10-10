@@ -122,7 +122,7 @@ class Media extends MediaManager implements MediaInterface
     /**
      * Get available thumb sizes.
      *
-     * Tubmnail sizes:
+     * Default thumbnail sizes:
      * - m: medium image
      * - s: small image
      * - t: thumbnail image
@@ -130,7 +130,12 @@ class Media extends MediaManager implements MediaInterface
      *
      * @deprecated since 2.28, use self::getThumbnailCombo()
      *
-     * @var array<string, list{0:int, 1:string, 2:string, 3?:string}>  $thumb_sizes
+     * @var array<string, array{0:int, 1:string, 2:string, 3?:string}>  $thumb_sizes
+     *
+     * 0: size
+     * 1: method
+     * 2: translated label
+     * 3: english label
      */
     public array $thumb_sizes = [
         'm'  => [448, 'ratio', 'medium'],
@@ -247,8 +252,10 @@ class Media extends MediaManager implements MediaInterface
 
         // Set thumbnails translations
         foreach (array_keys($this->thumb_sizes) as $code) {
-            $this->thumb_sizes[$code][3] = $this->thumb_sizes[$code][2];
-            $this->thumb_sizes[$code][2] = __($this->thumb_sizes[$code][2]);
+            $label = $this->thumb_sizes[$code][2] ?? '';
+
+            $this->thumb_sizes[$code][3] = $label;
+            $this->thumb_sizes[$code][2] = __($label);
         }
 
         // deprecated since 2.28, use App::media() instead
@@ -1415,7 +1422,7 @@ class Media extends MediaManager implements MediaInterface
 
         $sql->delete();
 
-        if ($this->core->db()->con()->changes() == 0) {
+        if ($this->core->db()->con()->changes() === 0) {
             throw new BadRequestException(__('File does not exist in the database.'));
         }
 

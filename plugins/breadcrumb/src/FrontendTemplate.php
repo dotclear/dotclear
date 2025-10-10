@@ -112,7 +112,7 @@ class FrontendTemplate
                     while ($categories->fetch()) {
                         $breadcrumb .= $separator . '<a href="' . $blogUrl . App::url()->getURLFor('category', $categories->cat_url) . '">' . $categories->cat_title . '</a>';
                     }
-                    if ($page == 0) {
+                    if ($page === 0) {
                         $breadcrumb .= $separator . App::frontend()->context()->categories->cat_title;
                     } else {
                         $breadcrumb .= $separator . '<a href="' . $blogUrl . App::url()->getURLFor('category', App::frontend()->context()->categories->cat_url) . '">' . App::frontend()->context()->categories->cat_title . '</a>';
@@ -178,7 +178,7 @@ class FrontendTemplate
                     // Tag
                     $breadcrumb = '<a id="bc-home" href="' . $blogUrl . '">' . __('Home') . '</a>';
                     $breadcrumb .= $separator . '<a href="' . $blogUrl . App::url()->getURLFor('tags') . '">' . __('All tags') . '</a>';
-                    if ($page == 0) {
+                    if ($page === 0) {
                         $breadcrumb .= $separator . App::frontend()->context()->meta->meta_id;
                     } else {
                         $breadcrumb .= $separator . '<a href="' . $blogUrl . App::url()->getURLFor('tag', rawurlencode((string) App::frontend()->context()->meta->meta_id)) . '">' . App::frontend()->context()->meta->meta_id . '</a>';
@@ -190,7 +190,7 @@ class FrontendTemplate
                 case 'search':
                     // Search
                     $breadcrumb = '<a id="bc-home" href="' . $blogUrl . '">' . __('Home') . '</a>';
-                    if ($page == 0) {
+                    if ($page === 0) {
                         $breadcrumb .= $separator . __('Search:') . ' ' . App::frontend()->search;
                     } else {
                         $breadcrumb .= $separator . '<a href="' . $blogUrl . (str_contains($blogUrl, '?') ? '' : '?') . 'q=' . rawurlencode((string) App::frontend()->search) . '">' . __('Search:') . ' ' . App::frontend()->search . '</a>';

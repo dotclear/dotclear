@@ -86,7 +86,7 @@ class Manage
             # Filter selection
             $addw = [];
             foreach ($_POST['addw'] as $k => $v) {
-                if (($v == Widgets::WIDGETS_EXTRA || $v == Widgets::WIDGETS_NAV || $v == Widgets::WIDGETS_CUSTOM) && Widgets::$widgets->{$k} !== null) {
+                if ((in_array($v, [Widgets::WIDGETS_EXTRA, Widgets::WIDGETS_NAV, Widgets::WIDGETS_CUSTOM])) && Widgets::$widgets->{$k} !== null) {
                     $addw[$k] = $v;
                 }
             }
@@ -474,7 +474,7 @@ class Manage
         $lines = [];
         foreach ($widgets->elements() as $w) {
             $upDisabled   = $i === 0;
-            $downDisabled = $i == count($widgets->elements()) - 1;
+            $downDisabled = $i === count($widgets->elements()) - 1;
 
             $iname   = 'w[' . $pr . '][' . $i . ']';
             $offline = $w->isOffline() ? ' offline' : '';

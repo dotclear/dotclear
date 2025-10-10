@@ -154,7 +154,7 @@ class L10n implements L10nInterface
         } elseif ((self::$locales === [] || !array_key_exists($singular, self::$locales)) && is_null($count)) {
             // If no l10n translation loaded or exists
             return $singular;
-        } elseif ($plural === null || $count === null || self::$language_pluralsnumber == 1) {
+        } elseif ($plural === null || $count === null || self::$language_pluralsnumber === 1) {
             // If no $plural form or if current language has no plural form return $singular translation
             $t = empty(self::$locales[$singular]) ? $singular : self::$locales[$singular];
 

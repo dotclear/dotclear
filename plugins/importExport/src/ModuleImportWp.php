@@ -827,7 +827,7 @@ class ModuleImportWp extends Module
 
         $cur->post_format = $this->vars['post_formater'];
         $_post_content    = explode('<!--more-->', (string) $rs->post_content, 2);
-        if (count($_post_content) == 1) {
+        if (count($_post_content) === 1) {
             $cur->post_excerpt       = null;
             $cur->post_excerpt_xhtml = null;
             $cur->post_content       = Txt::cleanStr($_post_content[0]);
