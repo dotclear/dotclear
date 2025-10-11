@@ -221,7 +221,7 @@ interface AuthInterface
      *
      * @return  mixed   The function result
      */
-    public function sudo($fn, ...$args);
+    public function sudo(callable $fn, ...$args);
 
     ///@}
 

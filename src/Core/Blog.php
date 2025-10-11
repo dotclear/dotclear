@@ -2032,7 +2032,11 @@ class Blog implements BlogInterface
     {
         $url = trim((string) $url);
 
-        $dt           = (int) strtotime($post_dt);
+        $dt = (int) strtotime($post_dt);
+
+        /**
+         * @var array<string, string>
+         */
         $url_patterns = [
             '{y}'  => date('Y', $dt),
             '{m}'  => date('m', $dt),
@@ -2044,10 +2048,10 @@ class Blog implements BlogInterface
         # If URL is empty, we create a new one
         if ($url === '') {
             # Transform with format
-            $url = (string) str_replace(    // @phpstan-ignore-line
+            $url = str_replace(
                 array_keys($url_patterns),
-                array_values($url_patterns),    // @phpstan-ignore-line
-                $this->settings()->system->post_url_format
+                array_values($url_patterns),
+                (string) $this->settings()->system->post_url_format
             );
         } else {
             $url = Text::tidyURL($url);
@@ -2272,12 +2276,12 @@ class Blog implements BlogInterface
         }
 
         if (isset($params['comment_email'])) {
-            $comment_email = $sql->escape((string) str_replace('*', '%', $params['comment_email']));    // @phpstan-ignore-line
+            $comment_email = $sql->escape(str_replace('*', '%', (string) $params['comment_email']));
             $sql->and($sql->like('comment_email', $comment_email));
         }
 
         if (isset($params['comment_site'])) {
-            $comment_site = $sql->escape((string) str_replace('*', '%', $params['comment_site']));  // @phpstan-ignore-line
+            $comment_site = $sql->escape(str_replace('*', '%', (string) $params['comment_site']));
             $sql->and($sql->like('comment_site', $comment_site));
         }
 
@@ -2294,7 +2298,7 @@ class Blog implements BlogInterface
         }
 
         if (isset($params['comment_ip'])) {
-            $comment_ip = $sql->escape((string) str_replace('*', '%', $params['comment_ip']));  // @phpstan-ignore-line
+            $comment_ip = $sql->escape(str_replace('*', '%', (string) $params['comment_ip']));
             $sql->and($sql->like('comment_ip', $comment_ip));
         }
 

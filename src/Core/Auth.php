@@ -17,7 +17,6 @@ use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
 use Dotclear\Helper\Crypt;
 use Dotclear\Helper\Network\Http;
-use Dotclear\Exception\ProcessException;
 use Dotclear\Exception\BadRequestException;
 use Dotclear\Interface\Core\AuthInterface;
 use Dotclear\Interface\Core\UserPreferencesInterface;
@@ -362,12 +361,8 @@ class Auth implements AuthInterface
     /// @name Sudo
     ///@{
 
-    public function sudo($fn, ...$args)
+    public function sudo(callable $fn, ...$args)
     {
-        if (!is_callable($fn)) {    // @phpstan-ignore-line
-            throw new ProcessException(print_r($fn, true) . ' function doest not exist');
-        }
-
         if ($this->isSuperAdmin()) {
             $res = $fn(...$args);
         } else {

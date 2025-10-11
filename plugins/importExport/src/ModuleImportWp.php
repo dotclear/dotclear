@@ -814,10 +814,10 @@ class ModuleImportWp extends Module
             $cur->cat_id,
             $cur->user_id,
         ];
-        $cur->post_url = (string) str_replace(  // @phpstan-ignore-line
+        $cur->post_url = str_replace(
             $this->vars['permalink_tags'],
             $permalink_infos,
-            $rs->post_type == 'post' ? $this->vars['permalink_template'] : '%postname%'
+            $rs->post_type == 'post' ? (string) $this->vars['permalink_template'] : '%postname%'
         );
         $cur->post_url = substr($cur->post_url, 0, 255);
 

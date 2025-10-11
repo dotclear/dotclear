@@ -377,7 +377,7 @@ class Blogroll
             }
         }
 
-        return $res;    // @phpstan-ignore-line
+        return $res;
     }
 
     /**

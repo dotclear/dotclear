@@ -175,7 +175,7 @@ class ActionsBlogs extends Actions
 
         $rs = App::blogs()->getBlogs($params);
         while ($rs->fetch()) {
-            $this->entries[$rs->blog_id] = [    // @phpstan-ignore-line
+            $this->entries[$rs->blog_id] = [
                 'blog' => $rs->blog_id,
                 'name' => $rs->blog_name,
             ];

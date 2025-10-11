@@ -723,8 +723,7 @@ class ThemeEditor
         $d = dir($dir);
         if ($d !== false) {
             while (($file = $d->read()) !== false) {
-                /* @phpstan-ignore-next-line */
-                if (is_file($dir . '/' . $file) && !preg_match('/^\./', $file) && (!$ext || preg_match('/\.' . preg_quote($ext) . '$/i', $file)) && (!$model || preg_match('/^' . preg_quote($model) . '$/i', $file))) {
+                if (is_file($dir . '/' . $file) && !preg_match('/^\./', $file) && (!$ext || preg_match('/\.' . preg_quote($ext, '/') . '$/i', $file)) && (!$model || preg_match('/^' . preg_quote($model, '/') . '$/i', $file))) {
                     $extension     = Files::getExtension($file);
                     $minified_base = substr($file, 0, strlen($file) - strlen($extension) - 1);
                     // Check if it is not a minified one (which will be ignored)

@@ -175,7 +175,6 @@ class Menu
         if ($active) {
             $classes[] = 'active';
         }
-        $classes = array_filter($classes);  // @phpstan-ignore-line
         if ($classes !== []) {
             $code->class($classes);
         }
