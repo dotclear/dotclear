@@ -455,10 +455,7 @@ class MetaRecordTest extends TestCase
 
         $this->assertEquals(
             [
-                'isEditable' => [
-                    \Dotclear\Tests\Database\MetaRecordExtend::class,
-                    'isEditable',
-                ],
+                'isEditable' => \Dotclear\Tests\Database\MetaRecordExtend::isEditable(...),
             ],
             $record->extensions()
         );
@@ -780,10 +777,7 @@ class MetaRecordTest extends TestCase
 
         $this->assertEquals(
             [
-                'isEditable' => [
-                    \Dotclear\Tests\Database\MetaRecordExtend::class,
-                    'isEditable',
-                ],
+                'isEditable' => \Dotclear\Tests\Database\MetaRecordExtend::isEditable(...),
             ],
             $record->extensions()
         );

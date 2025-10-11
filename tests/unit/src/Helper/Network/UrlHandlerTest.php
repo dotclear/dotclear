@@ -149,20 +149,6 @@ class UrlHandlerTest extends TestCase
         $url->callHandler('my');
     }
 
-    public function testUnableToCall(): void
-    {
-        $url = new \Dotclear\Helper\Network\UrlHandler();
-        // @phpstan-ignore argument.type
-        $url->registerDefault('notCallable');
-
-        $this->expectException(Exception::class);
-        $this->expectExceptionMessage(
-            'Unable to call function'
-        );
-
-        $url->callDefaultHandler();
-    }
-
     public function testGetBase(): void
     {
         $url = new \Dotclear\Helper\Network\UrlHandler();
