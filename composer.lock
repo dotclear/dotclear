@@ -2080,12 +2080,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/TypeResolver.git",
-                "reference": "fb84a85e4f300d110cab3e6d58bdfde572a5eb34"
+                "reference": "b52239c5911062525d0d9b1cf604163ddf20c296"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/fb84a85e4f300d110cab3e6d58bdfde572a5eb34",
-                "reference": "fb84a85e4f300d110cab3e6d58bdfde572a5eb34",
+                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/b52239c5911062525d0d9b1cf604163ddf20c296",
+                "reference": "b52239c5911062525d0d9b1cf604163ddf20c296",
                 "shasum": ""
             },
             "require": {
@@ -2131,7 +2131,7 @@
                 "issues": "https://github.com/phpDocumentor/TypeResolver/issues",
                 "source": "https://github.com/phpDocumentor/TypeResolver/tree/1.x"
             },
-            "time": "2025-05-07T19:23:22+00:00"
+            "time": "2025-10-10T17:38:34+00:00"
         },
         {
             "name": "phpstan/phpdoc-parser",
@@ -2186,8 +2186,8 @@
             "version": "2.1.x-dev",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/422c2f8c786dc6f32b98a7be96a8364d9a4a32c0",
-                "reference": "422c2f8c786dc6f32b98a7be96a8364d9a4a32c0",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/0693e5a714e424e38d752021371c9491427e3665",
+                "reference": "0693e5a714e424e38d752021371c9491427e3665",
                 "shasum": ""
             },
             "require": {
@@ -2233,7 +2233,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-10-09T15:06:18+00:00"
+            "time": "2025-10-10T21:30:15+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -2628,12 +2628,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "be6f231d9b782065f8ecf3cc7cc56b431beadad1"
+                "reference": "dd078a080eea267dd20f1c96b31099f5897bce63"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/be6f231d9b782065f8ecf3cc7cc56b431beadad1",
-                "reference": "be6f231d9b782065f8ecf3cc7cc56b431beadad1",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/dd078a080eea267dd20f1c96b31099f5897bce63",
+                "reference": "dd078a080eea267dd20f1c96b31099f5897bce63",
                 "shasum": ""
             },
             "require": {
@@ -2725,7 +2725,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-10-09T14:10:51+00:00"
+            "time": "2025-10-11T09:55:19+00:00"
         },
         {
             "name": "psr/container",
@@ -2947,12 +2947,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "5b353f7457b9a0c63fc91ef340f5d119a40991ed"
+                "reference": "92fbeb9822a2fb8d303145ced9abdca9cd59ee3f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/5b353f7457b9a0c63fc91ef340f5d119a40991ed",
-                "reference": "5b353f7457b9a0c63fc91ef340f5d119a40991ed",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/92fbeb9822a2fb8d303145ced9abdca9cd59ee3f",
+                "reference": "92fbeb9822a2fb8d303145ced9abdca9cd59ee3f",
                 "shasum": ""
             },
             "require": {
@@ -2992,7 +2992,7 @@
             ],
             "support": {
                 "issues": "https://github.com/rectorphp/rector/issues",
-                "source": "https://github.com/rectorphp/rector/tree/2.2.2"
+                "source": "https://github.com/rectorphp/rector/tree/main"
             },
             "funding": [
                 {
@@ -3000,7 +3000,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-10-09T19:50:20+00:00"
+            "time": "2025-10-11T08:49:28+00:00"
         },
         {
             "name": "revolt/event-loop",

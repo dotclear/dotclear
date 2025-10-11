@@ -60,7 +60,7 @@ class ActionsLinksDefault
         // unknown to online
         $status = $statusLink->has((string) $ap->getAction()) ?
             $statusLink->level((string) $ap->getAction()) :
-            $statusLink::ONLINE;
+            Link::ONLINE;
 
         $ids = $ap->getIDs();
         if ($ids === []) {
