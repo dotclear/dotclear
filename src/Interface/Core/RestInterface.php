@@ -51,7 +51,7 @@ interface RestInterface
      * @param string    $name        Function name
      * @param callable  $callback    Callback function
      */
-    public function addFunction(string $name, $callback): void;
+    public function addFunction(string $name, callable $callback): void;
 
     /**
      * Main server

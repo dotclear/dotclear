@@ -56,7 +56,7 @@ trait DirTrait
         foreach ($paths as $path) {
             $dirs = Files::scandir($path);
             foreach ($dirs as $k) {
-                if (!is_string($k) || in_array($k, self::getExcluded()) || !is_dir($path . DIRECTORY_SEPARATOR . $k)) { // @phpstan-ignore-line
+                if (in_array($k, self::getExcluded()) || !is_dir($path . DIRECTORY_SEPARATOR . $k)) {
                     continue;
                 }
                 $stack[$k] = count(self::scanDir($path . DIRECTORY_SEPARATOR . $k));

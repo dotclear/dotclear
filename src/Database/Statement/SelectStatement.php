@@ -189,7 +189,7 @@ class SelectStatement extends SqlStatement
     /**
      * Defines the LIMIT for select
      *
-     * @param null|int|string|array{int|string, int|string} $limit (limit or [offset,limit])
+     * @param null|int|string|array{0:int|string, 1?:int|string} $limit (limit or [offset,limit])
      *
      * @return self instance, enabling to chain calls
      */
@@ -202,8 +202,7 @@ class SelectStatement extends SqlStatement
             $limit = array_values($limit);
             // If 2 values, [0] -> offset, [1] -> limit
             // If 1 value, [0] -> limit
-            // @phpstan-ignore isset.offset
-            if (isset($limit[1])) {
+            if (count($limit) > 1) {
                 $offset = $limit[0];
                 $limit  = $limit[1];
             } else {

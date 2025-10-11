@@ -239,7 +239,7 @@ abstract class AbstractHandler implements ConnectionInterface
     public function dateFormat(string $field, string $pattern): string
     {
         return
-        'TO_CHAR(' . $field . ',' . "'" . $this->escape($pattern) . "')";   // @phpstan-ignore-line
+        'TO_CHAR(' . $field . ',' . "'" . $this->escapeStr($pattern) . "')";
     }
 
     public function limit($arg1, ?int $arg2 = null): string

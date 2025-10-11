@@ -173,13 +173,11 @@ interface MediaInterface
      * - update: file update
      * - remove: file deletion
      *
-     * (returned type not set for backward compatibility with Helper\File\Manager)
-     *
      * @param   string      $type       The media type
      * @param   string      $event      The event
      * @param   callable    $function   The callback function
      */
-    public function addFileHandler(string $type, string $event, $function): void;
+    public function addFileHandler(string $type, string $event, callable $function): void;
 
     /**
      * Returns HTML breadCrumb for media manager navigation.

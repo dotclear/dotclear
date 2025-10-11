@@ -246,7 +246,7 @@ abstract class AbstractPdoHandler extends AbstractHandler
             while ($r = $result->fetch(PDO::FETCH_ASSOC)) {
                 $R = [];
                 foreach ($r as $k => $v) {
-                    $k     = (string) preg_replace('/^(.*)\./', '', (string) $k);    // @phpstan-ignore-line
+                    $k     = (string) preg_replace('/^(.*)\./', '', (string) $k);
                     $R[$k] = $v;
                     $R[]   = &$R[$k];
                 }

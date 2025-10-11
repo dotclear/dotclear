@@ -348,11 +348,9 @@ class Media extends MediaManager implements MediaInterface
         $this->type = $type;
     }
 
-    public function addFileHandler(string $type, string $event, $function): void
+    public function addFileHandler(string $type, string $event, callable $function): void
     {
-        if (is_callable($function)) {   // @phpstan-ignore-line waiting to put callable type in method signature for $function
-            $this->file_handler[$type][$event][] = $function;
-        }
+        $this->file_handler[$type][$event][] = $function;
     }
 
     /**

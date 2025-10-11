@@ -71,21 +71,21 @@ interface UrlInterface
      * @param      string       $representation  The representation
      * @param      callable     $handler         The handler
      */
-    public function register(string $type, string $url, string $representation, $handler): void;
+    public function register(string $type, string $url, string $representation, callable $handler): void;
 
     /**
      * Register the default URL handler
      *
      * @param      callable  $handler  The handler
      */
-    public function registerDefault($handler): void;
+    public function registerDefault(callable $handler): void;
 
     /**
      * Register an error handler (prepend at the begining of the error handler stack)
      *
      * @param      callable  $handler  The handler
      */
-    public function registerError($handler): void;
+    public function registerError(callable $handler): void;
 
     /**
      * Unregister an URL handler

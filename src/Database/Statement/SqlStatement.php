@@ -103,7 +103,7 @@ class SqlStatement
         $this->con    = $con    ?? App::db()->con();
         $this->syntax = $syntax ?? ($con instanceof ConnectionInterface ? $con->syntax() : App::db()->con()->syntax());
 
-        /* @phpstan-ignore-next-line */
+        // @phpstan-ignore booleanOr.rightAlwaysFalse
         $this->_AS = ($this->syntax === 'sqlite' || self::VERBOSE_SQL_ALIAS ? ' AS ' : ' ');
     }
 
@@ -142,7 +142,8 @@ class SqlStatement
             trigger_error('Unknown property ' . $property, E_USER_WARNING);
         }
 
-        return $this;   // @phpstan-ignore-line
+        // @phpstan-ignore return.void
+        return $this;
     }
 
     /**
@@ -298,8 +299,8 @@ class SqlStatement
             $this->where = [];
         }
         if (is_array($c)) {
-            $c           = array_map($filter, $c);  // Cope with legacy code
-            $this->where = [...$this->where, ...$c];   // @phpstan-ignore-line
+            $c           = array_map($filter, $c);      // Cope with legacy code
+            $this->where = [...$this->where, ...$c];
         } elseif (!is_null($c)) {
             $c             = $filter($c);   // Cope with legacy code
             $this->where[] = $c;

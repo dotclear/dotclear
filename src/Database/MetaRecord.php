@@ -443,7 +443,8 @@ class MetaRecord implements Iterator, Countable
     #[\ReturnTypeWillChange]
     public function current(): mixed
     {
-        return $this;   // @phpstan-ignore-line
+        // @phpstan-ignore return.type (should return mixed rather than MetaRecord instance)
+        return $this;
     }
 
     /**

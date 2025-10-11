@@ -29,22 +29,22 @@ class XmlRpc extends IntrospectionServer
     /**
      * Debug mode
      */
-    private bool $debug = false;    // @phpstan-ignore-line
+    private bool $debug = false;
 
     /**
      * Debug file log
      */
-    private readonly string $debug_file;        // @phpstan-ignore-line
+    private readonly string $debug_file;
 
     /**
      * Trace arguments
      */
-    private bool $trace_args = true;    // @phpstan-ignore-line
+    private bool $trace_args = true;
 
     /**
      * Trace response
      */
-    private bool $trace_response = true;        // @phpstan-ignore-line
+    private bool $trace_response = true;
 
     /**
      * Constructs a new instance.
@@ -98,19 +98,29 @@ class XmlRpc extends IntrospectionServer
     }
 
     /**
+     * Activate or not debug mode and trace for arguments and/or response
+     */
+    public function setDebugTrace(bool $debug = false, bool $args = false, bool $response = false): void
+    {
+        $this->debug          = $debug;
+        $this->trace_args     = $args;
+        $this->trace_response = $response;
+    }
+
+    /**
      * Trace method response.
      *
      * @param   string  $methodname     The methodname
      * @param   mixed   $args           The arguments
      * @param   mixed   $rsp            The response
      */
-    private function debugTrace(string $methodname, $args, $rsp): void      // @phpstan-ignore-line
+    private function debugTrace(string $methodname, $args, $rsp): void
     {
-        if (!$this->debug) {        // @phpstan-ignore-line
+        if (!$this->debug) {
             return;
         }
 
-        if (($fp = @fopen($this->debug_file, 'a')) !== false) {         // @phpstan-ignore-line
+        if (($fp = @fopen($this->debug_file, 'a')) !== false) {
             fwrite($fp, '[' . date('r') . ']' . ' ' . $methodname);
 
             if ($this->trace_args) {
