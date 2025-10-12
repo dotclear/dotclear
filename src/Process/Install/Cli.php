@@ -18,7 +18,6 @@ use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Helper\Text;
 use Dotclear\Schema\Schema;
 use Exception;
-use Throwable;
 
 /**
  * @brief   CLI install process.
@@ -58,20 +57,20 @@ class Cli
     public static function getArguments(): array
     {
         return [
-            'dbdriver' => __('The database driver'),
-            'dbhost' => __('The database host'),
-            'dbname' => __('The database name'),
-            'dbuser' => __('The database user'),
+            'dbdriver'   => __('The database driver'),
+            'dbhost'     => __('The database host'),
+            'dbname'     => __('The database name'),
+            'dbuser'     => __('The database user'),
             'dbpassword' => __('The database password'),
-            'dbprefix' => __('The database table prefix, can be empty for deault to _dc'),
+            'dbprefix'   => __('The database table prefix, can be empty for deault to _dc'),
             'adminemail' => __('The administration mail from'),
             'ufirstname' => __('The super administrator first name, can be empty'),
-            'ulastname' => __('The super administrator last name, can be empty'),
-            'uemail' => __('The super administrator email'),
-            'ulogin' => __('The super administrator login'),
-            'upassword' => __('The super administrator password'),
-            'adminurl' => __('The admoin dashboard URL'),
-            'blogurl' => __('The default blog URL'),
+            'ulastname'  => __('The super administrator last name, can be empty'),
+            'uemail'     => __('The super administrator email'),
+            'ulogin'     => __('The super administrator login'),
+            'upassword'  => __('The super administrator password'),
+            'adminurl'   => __('The admoin dashboard URL'),
+            'blogurl'    => __('The default blog URL'),
         ];
     }
 
