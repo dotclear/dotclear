@@ -19,7 +19,6 @@ use Dotclear\Helper\Process\AbstractSingleton;
 use Dotclear\Helper\Process\AbstractUtility;
 use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Exception\AppException;
-use Dotclear\Exception\ContextException;
 use Dotclear\Exception\ProcessException;
 use Dotclear\Interface\Core\TaskInterface;
 use ReflectionClass;
