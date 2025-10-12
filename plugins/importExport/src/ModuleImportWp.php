@@ -814,10 +814,10 @@ class ModuleImportWp extends Module
             $cur->cat_id,
             $cur->user_id,
         ];
-        $cur->post_url = (string) str_replace(  // @phpstan-ignore-line
+        $cur->post_url = str_replace(
             $this->vars['permalink_tags'],
             $permalink_infos,
-            $rs->post_type == 'post' ? $this->vars['permalink_template'] : '%postname%'
+            $rs->post_type == 'post' ? (string) $this->vars['permalink_template'] : '%postname%'
         );
         $cur->post_url = substr($cur->post_url, 0, 255);
 
@@ -827,7 +827,7 @@ class ModuleImportWp extends Module
 
         $cur->post_format = $this->vars['post_formater'];
         $_post_content    = explode('<!--more-->', (string) $rs->post_content, 2);
-        if (count($_post_content) == 1) {
+        if (count($_post_content) === 1) {
             $cur->post_excerpt       = null;
             $cur->post_excerpt_xhtml = null;
             $cur->post_content       = Txt::cleanStr($_post_content[0]);

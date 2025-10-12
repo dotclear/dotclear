@@ -311,7 +311,7 @@ class BackendBehaviors
                         }
                     }
                     if ($tasks !== []) {
-                        $desc = $group_obj->description ?: $group_obj->summary; // @phpstan-ignore-line
+                        $desc = $group_obj->description() ?? $group_obj->summary() ?? '';
 
                         $groups[] = (new Set())
                             ->items([
@@ -322,7 +322,7 @@ class BackendBehaviors
                     }
                 }
                 if ($groups !== []) {
-                    $desc = $tab_obj->description ?: $tab_obj->summary; // @phpstan-ignore-line
+                    $desc = $tab_obj->description() ?? $tab_obj->summary() ?? '';
 
                     $contents[] = (new Set())
                         ->items([

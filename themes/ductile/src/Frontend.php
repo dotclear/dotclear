@@ -103,7 +103,7 @@ class Frontend
             }
         }
 
-        if ($nb_other == 0 && $nb) {
+        if ($nb_other === 0 && $nb) {
             // Nb de billets par page défini par défaut dans le template
             $nb_other = $nb_first = $nb;
         }
@@ -259,7 +259,7 @@ class Frontend
                 $default = true;
             } else {
                 $s = array_filter($s, self::cleanStickers(...));
-                if (count($s) == 0) {
+                if (count($s) === 0) {
                     $default = true;
                 } else {
                     $count = 1;
@@ -595,9 +595,9 @@ class Frontend
     /**
      * Return CSS font family depending on given setting
      *
-     * @param      mixed   $c      Font family
+     * @param      string   $c      Font family
      */
-    protected static function fontDef($c): ?string
+    protected static function fontDef(string $c): ?string
     {
         $fonts = [
             // Theme standard

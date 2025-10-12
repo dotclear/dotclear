@@ -460,57 +460,60 @@ class HttpClient extends Socket
 
         $this->open();
         $this->debug('Connecting to ' . $this->_transport . $this->_host . ':' . $this->_port);
-        foreach ($this->write($request) as $index => $line) {   // @phpstan-ignore-line
-            if ($line !== false) {
-                // Deal with first line of returned data
-                if ($index == 0) {
-                    $line = rtrim($line, "\r\n");
-                    if (!preg_match('/HTTP\/(\\d\\.\\d)\\s*(\\d+)\\s*(.*)/', $line, $m)) {
-                        throw new Exception('Status code line invalid: ' . $line);
+        $data = $this->write($request);
+        if ($data !== false) {
+            foreach ($data as $index => $line) {
+                if ($line !== false) {
+                    // Deal with first line of returned data
+                    if ($index == 0) {
+                        $line = rtrim($line, "\r\n");
+                        if (!preg_match('/HTTP\/(\\d\\.\\d)\\s*(\\d+)\\s*(.*)/', $line, $m)) {
+                            throw new Exception('Status code line invalid: ' . $line);
+                        }
+                        $this->status        = (int) $m[2];
+                        $this->status_string = $m[3];
+                        $this->debug($line);
+
+                        continue;
                     }
-                    $this->status        = (int) $m[2];
-                    $this->status_string = $m[3];
-                    $this->debug($line);
 
-                    continue;
-                }
+                    // Read headers
+                    if ($in_headers) {
+                        $line = rtrim($line, "\r\n");
+                        if ($line === '') {
+                            $in_headers = false;
+                            $this->debug('Received Headers', $this->headers);
+                            if ($this->headers_only) {
+                                break;
+                            }
 
-                // Read headers
-                if ($in_headers) {
-                    $line = rtrim($line, "\r\n");
-                    if ($line === '') {
-                        $in_headers = false;
-                        $this->debug('Received Headers', $this->headers);
-                        if ($this->headers_only) {
-                            break;
+                            continue;
                         }
 
-                        continue;
-                    }
+                        if (!preg_match('/([^:]+):\\s*(.*)/', $line, $m)) {
+                            // Skip to the next header
+                            continue;
+                        }
+                        $key = strtolower(trim($m[1]));
+                        $val = trim($m[2]);
 
-                    if (!preg_match('/([^:]+):\\s*(.*)/', $line, $m)) {
-                        // Skip to the next header
-                        continue;
-                    }
-                    $key = strtolower(trim($m[1]));
-                    $val = trim($m[2]);
-
-                    // Deal with the possibility of multiple headers of same name
-                    if (isset($this->headers[$key])) {
-                        if (is_array($this->headers[$key])) {
-                            $this->headers[$key][] = $val;
+                        // Deal with the possibility of multiple headers of same name
+                        if (isset($this->headers[$key])) {
+                            if (is_array($this->headers[$key])) {
+                                $this->headers[$key][] = $val;
+                            } else {
+                                $this->headers[$key] = [$this->headers[$key], $val];
+                            }
                         } else {
-                            $this->headers[$key] = [$this->headers[$key], $val];
+                            $this->headers[$key] = $val;
                         }
-                    } else {
-                        $this->headers[$key] = $val;
+
+                        continue;
                     }
 
-                    continue;
+                    // We're not in the headers, so append the line to the contents
+                    $this->outputWrite($line);
                 }
-
-                // We're not in the headers, so append the line to the contents
-                $this->outputWrite($line);
             }
         }
         $this->close();
@@ -760,7 +763,7 @@ class HttpClient extends Socket
      *
      * @return string|false|array<int, string>
      */
-    public function getHeader($header): array|bool|string
+    public function getHeader(string $header): array|bool|string
     {
         $header = strtolower($header);
 
@@ -1047,7 +1050,7 @@ class HttpClient extends Socket
         $client->setOutput($output);
         $client->get($path);
 
-        return $client->getStatus() == 200 ? $client->getContent() : false;
+        return $client->getStatus() === 200 ? $client->getContent() : false;
     }
 
     /**
@@ -1069,7 +1072,7 @@ class HttpClient extends Socket
         $client->setOutput($output);
         $client->post($path, $data);
 
-        return $client->getStatus() == 200 ? $client->getContent() : false;
+        return $client->getStatus() === 200 ? $client->getContent() : false;
     }
 
     /**

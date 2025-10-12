@@ -32,7 +32,7 @@ class FlatBackup
     private ?int $line_num     = null;
 
     /**
-     * @var string[]   $replacement
+     * @var array<string, string>   $replacement
      */
     private array $replacement = [
         '/(?<!\\\\)(?>(\\\\\\\\)*+)(\\\\n)/u' => "\$1\n",
@@ -79,21 +79,20 @@ class FlatBackup
 
             return $this->getLine();
         } elseif (str_starts_with((string) $line, '"')) {
-            $line = (string) preg_replace('/^"|"$/', '', (string) $line);    // @phpstan-ignore-line
-            $line = preg_split('/(^"|","|(?<!\\\)\"$)/m', $line);
-            if ($line === false) {
+            $line  = (string) preg_replace('/^"|"$/', '', (string) $line);
+            $lines = preg_split('/(^"|","|(?<!\\\)\"$)/m', $line);
+            if ($lines === false) {
                 return false;
             }
 
-            if (count($this->line_cols) !== count($line)) {
+            $counter = count($lines);
+            if (count($this->line_cols) !== $counter) {
                 throw new Exception(sprintf('Invalid row count at line %s', $this->line_num));
             }
 
             $res = [];
-
-            $counter = count($line);
             for ($i = 0; $i < $counter; $i++) {
-                $res[$this->line_cols[$i]] = preg_replace(array_keys($this->replacement), array_values($this->replacement), $line[$i]); // @phpstan-ignore-line
+                $res[$this->line_cols[$i]] = preg_replace(array_keys($this->replacement), array_values($this->replacement), $lines[$i]);
             }
 
             return new FlatBackupItem((string) $this->line_name, $res, (int) $this->line_num);

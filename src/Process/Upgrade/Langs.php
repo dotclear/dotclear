@@ -272,7 +272,7 @@ class Langs
         $langs_list = [];
         if ($langs) {
             foreach ($langs as $lang) {
-                $check = ($lang === '.' || $lang === '..' || $lang === 'en' || !is_dir(App::config()->l10nRoot() . '/' . $lang) || !isset(self::$iso_codes[$lang]));
+                $check = (in_array($lang, ['.', '..', 'en'], true) || !is_dir(App::config()->l10nRoot() . '/' . $lang) || !isset(self::$iso_codes[$lang]));
 
                 if (!$check) {
                     $langs_list[$lang] = App::config()->l10nRoot() . '/' . $lang;

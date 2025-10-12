@@ -13,6 +13,8 @@ namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
+use Dotclear\Database\Statement\JoinStatement;
+use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\MediaFile;
@@ -53,8 +55,6 @@ use SimpleXMLElement;
 
 /**
  * @since 2.27 Before as admin/media_item.php
- *
- * @todo switch to SqlStatement
  */
 class MediaItem
 {
@@ -214,11 +214,11 @@ class MediaItem
                 if (count(App::backend()->file->media_meta) > 0) {
                     foreach (App::backend()->file->media_meta as $k => $v) {
                         if ($k === 'AltText') {
-                            $v[0]     = $alt;  // @phpstan-ignore-line
+                            $v[0]     = $alt;
                             $alt_done = true;
                         }
                         if ($k === 'Description') {
-                            $v[0]      = $desc;  // @phpstan-ignore-line
+                            $v[0]      = $desc;
                             $desc_done = true;
                         }
                     }
@@ -372,10 +372,13 @@ class MediaItem
                 if (!file_exists($local)) {
                     $local .= '.json';
                 }
-                if (file_exists($local) && $specifics = json_decode(file_get_contents($local) ?? '', true, 512, JSON_THROW_ON_ERROR)) {  // @phpstan-ignore-line
-                    foreach (array_keys($defaults) as $key) {
-                        $defaults[$key]       = $specifics[$key] ?? $defaults[$key];
-                        $defaults['mediadef'] = true;
+                if (file_exists($local)) {
+                    $content = file_get_contents($local);
+                    if ($content !== false && $specifics = json_decode($content, true, 512, JSON_THROW_ON_ERROR)) {
+                        foreach (array_keys($defaults) as $key) {
+                            $defaults[$key]       = $specifics[$key] ?? $defaults[$key];
+                            $defaults['mediadef'] = true;
+                        }
                     }
                 }
             } catch (Exception) {
@@ -851,7 +854,7 @@ class MediaItem
                 ]);
 
             if ($thumb_size !== 'o' && isset(App::backend()->file->media_thumb[$thumb_size])) {
-                $path_info  = Path::info(App::backend()->file->file);   // @phpstan-ignore-line
+                $path_info  = Path::info(App::backend()->file->file);   // @phpstan-ignore-line (undefined property object::$file)
                 $thumb_tp   = App::media()->getThumbnailFilePattern($path_info['extension']);
                 $thumb      = sprintf($thumb_tp, $path_info['dirname'], $path_info['base'], '%s');
                 $thumb_file = sprintf($thumb, $thumb_size);
@@ -993,42 +996,7 @@ class MediaItem
                         ->text(__('Show entries containing this media')),
                 ]);
         } else {
-            $relname = App::db()->con()->escapeStr(App::backend()->file->relname);
-
-            // 1st, look inside entries content
-            $params = [
-                'post_type' => '',
-                'sql'       => 'AND (' .
-                "post_content_xhtml LIKE '%" . $relname . "%' " .
-                "OR post_excerpt_xhtml LIKE '%" . $relname . "%' ",
-            ];
-
-            if (App::backend()->file->media_image) {
-                // We look for thumbnails too
-                if (preg_match('#^http(s)?://#', (string) App::blog()->settings()->system->public_url)) {
-                    $media_root = App::blog()->settings()->system->public_url;
-                } else {
-                    $media_root = App::blog()->host() . Path::clean(App::blog()->settings()->system->public_url) . '/';
-                }
-                foreach (App::backend()->file->media_thumb as $value) {
-                    $value = App::db()->con()->escapeStr((string) preg_replace('/^' . preg_quote((string) $media_root, '/') . '/', '', (string) $value));
-                    $params['sql'] .= "OR post_content_xhtml LIKE '%" . $value . "%' ";
-                    $params['sql'] .= "OR post_excerpt_xhtml LIKE '%" . $value . "%' ";
-                }
-            }
-
-            $params['sql'] .= ') ';
-
-            $rsInside = App::blog()->getPosts($params);
-
-            // 2nd, look inside entries attachments (any kind)
-            $params = [
-                'post_type' => '',
-                'join'      => 'LEFT OUTER JOIN ' . App::db()->con()->prefix() . App::postMedia()::POST_MEDIA_TABLE_NAME . ' PM ON P.post_id = PM.post_id ',
-                'sql'       => 'AND (PM.media_id = ' . (int) App::backend()->id . ')',
-            ];
-
-            $rsLinked = App::blog()->getPosts($params);
+            [$rsInside, $rsLinked] = self::findMediaInEntries(App::backend()->file);
 
             if ($rsInside->isEmpty() && $rsLinked->isEmpty()) {
                 $entries = (new Note())
@@ -1364,5 +1332,62 @@ class MediaItem
         ->render();
 
         call_user_func(App::backend()->close_function);
+    }
+
+    /**
+     * Find media in entries (in entry content and as any kind of attachment)
+     *
+     * @return array{MetaRecord, MetaRecord}
+     */
+    protected static function findMediaInEntries(MediaFile $file): array
+    {
+        $relname = $file->relname;
+
+        // 1st, look inside entries content
+        $sql  = new SelectStatement();
+        $or   = [];
+        $or[] = $sql->like('post_content_xhtml', '%' . $sql->escape($relname) . '%');
+        $or[] = $sql->like('post_excerpt_xhtml', '%' . $sql->escape($relname) . '%');
+
+        if ($file->media_image) {
+            // We look for thumbnails too
+            if (preg_match('#^http(s)?://#', (string) App::blog()->settings()->system->public_url)) {
+                $media_root = App::blog()->settings()->system->public_url;
+            } else {
+                $media_root = App::blog()->host() . Path::clean(App::blog()->settings()->system->public_url) . '/';
+            }
+            foreach ($file->media_thumb as $value) {
+                $value = (string) preg_replace('/^' . preg_quote((string) $media_root, '/') . '/', '', (string) $value);
+                $or[]  = $sql->like('post_content_xhtml', '%' . $sql->escape($value) . '%');
+                $or[]  = $sql->like('post_excerpt_xhtml', '%' . $sql->escape($value) . '%');
+            }
+        }
+
+        $params = [
+            'post_type' => '',
+            'sql'       => 'AND ' . $sql->orGroup($or),
+        ];
+
+        $rsInside = App::blog()->getPosts($params);
+
+        // 2nd, look inside entries attachments (any kind)
+        $sql   = new SelectStatement();
+        $and   = [];
+        $and[] = 'PM.media_id = ' . (int) App::backend()->id;
+
+        $join = (new JoinStatement())
+            ->left()
+            ->from($sql->as(App::db()->con()->prefix() . App::postMedia()::POST_MEDIA_TABLE_NAME, 'PM'))
+            ->on('P.post_id = PM.post_id');
+
+        $params = [
+            'post_type' => '',
+            'join'      => $join->statement(),
+            'sql'       => 'AND ' . $sql->andGroup($and),
+        ];
+
+        $rsLinked = App::blog()->getPosts($params);
+
+        return [$rsInside, $rsLinked];
     }
 }

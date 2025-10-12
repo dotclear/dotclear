@@ -105,7 +105,7 @@ class Trackback implements TrackbackInterface
         $ping_msg   = '';
 
         # Maybe a webmention
-        if (count($ping_parts) == 3) {
+        if (count($ping_parts) === 3) {
             $payload = http_build_query([
                 'source' => $post_url,
                 'target' => $ping_parts[1],

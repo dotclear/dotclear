@@ -41,7 +41,7 @@ class Ctx
      * @param      string  $name   The name
      * @param      mixed   $var    The variable
      */
-    public function __set(string $name, $var)
+    public function __set(string $name, mixed $var)
     {
         if ($var === null) {
             $this->pop($name);
@@ -59,10 +59,8 @@ class Ctx
      * Gets the last saved value of a context variable.
      *
      * @param      string  $name   The variable name
-     *
-     * @return     mixed
      */
-    public function __get(string $name)
+    public function __get(string $name): mixed
     {
         if (!isset($this->stack[$name])) {
             return null;
@@ -462,7 +460,7 @@ class Ctx
     public static function PaginationStart(): bool
     {
         if (App::frontend()->getPageNumber() !== 0) {
-            return self::PaginationPosition() == 1;
+            return self::PaginationPosition() === 1;
         }
 
         return true;

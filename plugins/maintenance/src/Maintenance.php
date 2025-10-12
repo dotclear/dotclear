@@ -292,14 +292,14 @@ class Maintenance
 
             $this->logs = [];
             while ($rs->fetch()) {
-                $this->logs[$rs->log_msg] = [   // @phpstan-ignore-line
+                $this->logs[$rs->log_msg] = [
                     'ts'   => strtotime($rs->log_dt),
                     'blog' => $rs->blog_id == App::blog()->id(),
                 ];
             }
         }
 
-        return $this->logs; // @phpstan-ignore-line
+        return $this->logs;
     }
     ///@}
 }

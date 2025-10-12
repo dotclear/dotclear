@@ -349,7 +349,7 @@ class Widgets
 
         for ($i = 0; $i < $count; $i++) {
             $category = $categories[$i];
-            $level    = $category['level'];
+            $level    = (int) $category['level'];
 
             $class = (App::url()->getType() === 'category' && App::frontend()->context()->categories instanceof MetaRecord && App::frontend()->context()->categories->cat_id == $category['cat_id']) || (App::url()->getType() === 'post' && App::frontend()->context()->posts instanceof MetaRecord && App::frontend()->context()->posts->cat_id == $category['cat_id']) ? 'category-current' : '';
 

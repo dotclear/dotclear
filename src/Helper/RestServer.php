@@ -61,11 +61,9 @@ class RestServer implements RestInterface
      * @param   string      $name     Function name
      * @param   callable    $callback   Callback function
      */
-    public function addFunction(string $name, $callback): void
+    public function addFunction(string $name, callable $callback): void
     {
-        if (is_callable($callback)) {   // @phpstan-ignore-line
-            $this->functions[$name] = $callback;
-        }
+        $this->functions[$name] = $callback;
     }
 
     /**
@@ -112,7 +110,7 @@ class RestServer implements RestInterface
         $post = $_POST ?: [];
 
         if ($format === self::XML_RESPONSE) {
-            if (!isset($_REQUEST['f'])) {
+            if (!isset($_REQUEST['f']) || !$_REQUEST['f']) {
                 $this->rsp->status = 'failed';
                 $this->rsp->message('No function given');
                 $this->getXML($encoding);
@@ -147,7 +145,7 @@ class RestServer implements RestInterface
 
         // JSON_RESPONSE :
 
-        if (!isset($_REQUEST['f'])) {
+        if (!isset($_REQUEST['f']) || !$_REQUEST['f']) {
             $this->json = [
                 'success' => false,
                 'message' => 'No function given',

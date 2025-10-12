@@ -189,7 +189,7 @@ class Blogs implements BlogsInterface
         }
 
         if (!empty($params['q'])) {
-            $params['q'] = strtolower((string) str_replace('*', '%', $params['q']));    // @phpstan-ignore-line
+            $params['q'] = strtolower(str_replace('*', '%', (string) $params['q']));
             $sql->and($sql->orGroup([
                 $sql->like('LOWER(B.blog_id)', $sql->escape($params['q'])),
                 $sql->like('LOWER(B.blog_name)', $sql->escape($params['q'])),

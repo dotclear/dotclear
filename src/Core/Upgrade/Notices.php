@@ -61,7 +61,7 @@ class Notices extends BackendNotices
         // Should retrieve static notices first, then others
         $step = 2;
         do {
-            if ($step == 2) {
+            if ($step === 2) {
                 // Static notifications
                 $params = [
                     'notice_type' => self::NOTICE_STATIC,

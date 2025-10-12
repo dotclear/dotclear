@@ -632,8 +632,10 @@ final class dcCore
      * @deprecated since 2.28, use App::behavior()->getBehaviors() or App::behavior()->getBehavior()instead
      *
      * @param      string  $behavior  The behavior
+     *
+     * @return  array<string,callable[]>|callable[]   The behaviors.
      */
-    public function getBehaviors(string $behavior = ''): array  // @phpstan-ignore-line
+    public function getBehaviors(string $behavior = ''): array
     {
         return $behavior === '' ? App::behavior()->getBehaviors() : App::behavior()->getBehavior($behavior);
     }
@@ -644,8 +646,10 @@ final class dcCore
      * @deprecated since 2.28, use App::behavior()->getBehaviors() or App::behavior()->getBehavior() instead
      *
      * @param      string  $behaviour  The behaviour
+     *
+     * @return  array<string,callable[]>|callable[]   The behaviors.
      */
-    public function getBehaviours(string $behaviour = ''): array  // @phpstan-ignore-line
+    public function getBehaviours(string $behaviour = ''): array
     {
         return $behaviour === '' ? App::behavior()->getBehaviors() : App::behavior()->getBehavior($behaviour);
     }

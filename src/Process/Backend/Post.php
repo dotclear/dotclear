@@ -258,7 +258,7 @@ class Post
 
             if (!empty($_POST['tb_urls']) && App::backend()->post_id && !App::status()->post()->isRestricted((int) App::backend()->post_status) && App::backend()->can_edit_post) {
                 App::backend()->tb_urls = $_POST['tb_urls'];
-                App::backend()->tb_urls = (string) str_replace("\r", '', App::backend()->tb_urls);  // @phpstan-ignore-line
+                App::backend()->tb_urls = str_replace("\r", '', (string) App::backend()->tb_urls);
 
                 $tb_post_title = Html::escapeHTML(trim(Html::clean(App::backend()->post_title)));
                 $tb_post_url   = App::backend()->post->getURL();
@@ -315,7 +315,7 @@ class Post
             } else {
                 try {
                     App::backend()->post_dt = strtotime((string) $_POST['post_dt']);
-                    if (!App::backend()->post_dt || App::backend()->post_dt == -1) {
+                    if (!App::backend()->post_dt || App::backend()->post_dt === -1) {
                         App::backend()->bad_dt = true;
 
                         throw new Exception(__('Invalid publication date'));

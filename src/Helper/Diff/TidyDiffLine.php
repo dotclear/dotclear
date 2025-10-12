@@ -65,10 +65,8 @@ class TidyDiffLine
      * Returns field content according to the given name, null otherwise.
      *
      * @param string    $n            Field name
-     *
-     * @return mixed
      */
-    public function __get(string $n)
+    public function __get(string $n): mixed
     {
         return $this->{$n} ?? null;
     }

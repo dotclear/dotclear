@@ -23,7 +23,8 @@ class adminGenericList extends Listing
      * @param   Dotclear\Database\MetaRecord    $rs         The record
      * @param   mixed                           $rs_count   The rs count
      */
-    public function __construct(dcCore $core, MetaRecord $rs, $rs_count)   // @phpstan-ignore-line
+    // @phpstan-ignore constructor.unusedParameter
+    public function __construct(dcCore $core, MetaRecord $rs, $rs_count)
     {
         parent::__construct($rs, $rs_count);
     }

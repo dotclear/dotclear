@@ -27,31 +27,27 @@ class Template
 
     /**
      * Use cache for compiled template files
-     *
-     * @var        bool
      */
-    public $use_cache = true;
+    public bool $use_cache = true;
 
     /**
      * Stack of node blocks callbacks
      *
      * @var        array<string, callable>
      */
-    protected $blocks = [];
+    protected array $blocks = [];
 
     /**
      * Stack of node values callbacks
      *
      * @var        array<string, callable>
      */
-    protected $values = [];
+    protected array $values = [];
 
     /**
      * Remove PHP from template file
-     *
-     * @var        bool
      */
-    protected $remove_php = true;
+    protected bool $remove_php = true;
 
     /**
      * Unknown node value callback
@@ -72,14 +68,12 @@ class Template
      *
      * @var        array<string>
      */
-    protected $tpl_path = [];
+    protected array $tpl_path = [];
 
     /**
      * Cache directory
-     *
-     * @var        string
      */
-    protected $cache_dir;
+    protected string $cache_dir;
 
     /**
      * Parent file
@@ -93,14 +87,14 @@ class Template
      *
      * @var        array<string>
      */
-    protected $compile_stack = [];
+    protected array $compile_stack = [];
 
     /**
      * Stack of parent template files
      *
      * @var        array<string>
      */
-    protected $parent_stack = [];
+    protected array $parent_stack = [];
 
     // Inclusion variables
 
@@ -109,28 +103,14 @@ class Template
      *
      * @var        array<string>
      */
-    protected static $superglobals = ['GLOBALS', '_SERVER', '_GET', '_POST', '_COOKIE', '_FILES', '_ENV', '_REQUEST', '_SESSION'];
-
-    /**
-     * Stacks of globals keys
-     *
-     * @var        array<string>
-     */
-    protected static $_k;
-
-    /**
-     * Working globals key name
-     *
-     * @var        string
-     */
-    protected static $_n;
+    protected static array $superglobals = ['GLOBALS', '_SERVER', '_GET', '_POST', '_COOKIE', '_FILES', '_ENV', '_REQUEST', '_SESSION'];
 
     /**
      * Working output buffer
      *
      * @var        string|false
      */
-    protected static $_r;
+    protected static string|bool $_r;
 
     /**
      * Constructs a new instance.
@@ -550,16 +530,18 @@ class Template
      * @param      string  $________    The template filename
      *
      * @return     string  The data.
+     *
+     * @todo Check if global variable management is still relevant (aka are we still using global vars)
      */
     public function getData(string $________): string
     {
-        self::$_k = array_keys($GLOBALS);   // @phpstan-ignore-line
-
-        foreach (self::$_k as self::$_n) {
-            if (!in_array(self::$_n, self::$superglobals)) {
-                global ${self::$_n};
+        // Cope with global variables
+        foreach (array_keys($GLOBALS) as $global_var) {
+            if (is_string($global_var) && !in_array($global_var, self::$superglobals)) {
+                global ${$global_var};
             }
         }
+
         $dest_file = $this->getFile($________);
         ob_start();
         if (ini_get('display_errors')) {
@@ -770,7 +752,7 @@ class Template
                     return $tree->compile($this) . $err;
                 }
             } else {
-                if ($tree != null) {
+                if ($tree instanceof TplNode) {
                     return $tree->compile($this) . $err;
                 }
 
@@ -867,6 +849,6 @@ class Template
             }
         }
 
-        return $res;    // @phpstan-ignore-line
+        return $res;
     }
 }

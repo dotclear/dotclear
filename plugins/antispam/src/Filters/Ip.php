@@ -301,7 +301,7 @@ class Ip extends SpamFilter
 
         $ip = ip2long($bits[0]);
 
-        if (!$ip || $ip == -1) {
+        if (!$ip || $ip === -1) {
             throw new Exception('Invalid IP address');
         }
 

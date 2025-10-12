@@ -13,6 +13,10 @@ namespace Dotclear\Core\Upgrade;
 
 use Dotclear\App;
 use Dotclear\Core\Session;
+use Dotclear\Database\MetaRecord;
+use Dotclear\Database\Statement\DeleteStatement;
+use Dotclear\Database\Statement\SelectStatement;
+use Dotclear\Database\Statement\UpdateStatement;
 use Dotclear\Helper\File\Files;
 use Dotclear\Schema\Schema;
 use Exception;
@@ -22,8 +26,6 @@ use Exception;
  *
  * This class is called from backend authentication page
  * or CLI command.
- *
- * @todo switch to SqlStatement
  */
 class Upgrade
 {
@@ -59,8 +61,11 @@ class Upgrade
                 $cleanup_sessions = self::growUp($version);
 
                 # Drop content from session table if changes or if needed (only if use Dotclear default session handler)
-                if ($changes != 0 || $cleanup_sessions) {
-                    App::db()->con()->execute('DELETE FROM ' . App::db()->con()->prefix() . Session::SESSION_TABLE_NAME);
+                if ($changes > 0 || $cleanup_sessions) {
+                    $sql = new DeleteStatement();
+                    $sql
+                        ->from(App::db()->con()->prefix() . Session::SESSION_TABLE_NAME)
+                    ->delete();
                 }
 
                 # Empty templates cache directory
@@ -174,28 +179,42 @@ class Upgrade
      */
     public static function settings2array(string $ns, string $setting): void
     {
-        $strReqSelect = 'SELECT setting_id,blog_id,setting_ns,setting_type,setting_value FROM ' . App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME . ' ' .
-            "WHERE setting_id = '%s' " .
-            "AND setting_ns = '%s' " .
-            "AND setting_type = 'string'";
-        $rs = App::db()->con()->select(sprintf($strReqSelect, $setting, $ns));
-        while ($rs->fetch()) {
-            $value = @unserialize($rs->setting_value);
-            if (!$value) {
-                $value = [];
+        $sql = new SelectStatement();
+        $rs  = $sql
+            ->columns([
+                'setting_id',
+                'blog_id',
+                'setting_ns',
+                'setting_type',
+                'setting_value',
+            ])
+            ->from(App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME)
+            ->where('setting_id =' . $sql->quote($setting))
+            ->and('setting_ns = ' . $sql->quote($ns))
+            ->and('setting_type = ' . $sql->quote('string'))
+        ->select();
+
+        if ($rs instanceof MetaRecord) {
+            while ($rs->fetch()) {
+                $value = @unserialize($rs->setting_value);
+                if (!$value) {
+                    $value = [];
+                }
+                $value = (array) $value;
+                $value = json_encode($value, JSON_THROW_ON_ERROR);
+
+                $sqlUpdate = new UpdateStatement();
+                $sqlUpdate
+                    ->from(App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME)
+                    ->sets([
+                        'setting_type = ' . $sqlUpdate->quote('array'),
+                        'setting_value = ' . $sqlUpdate->quote($value),
+                    ])
+                    ->where('setting_id =' . $sqlUpdate->quote($rs->setting_id))
+                    ->and('setting_ns = ' . $sqlUpdate->quote($rs->setting_ns))
+                    ->and((string) $rs->blog_id === '' ? $sqlUpdate->isNull('blog_id') : 'blog_id = ' . $sqlUpdate->quote($rs->blog_id))
+                ->update();
             }
-            $value = (array) $value;
-            $value = json_encode($value, JSON_THROW_ON_ERROR);
-            $rs2   = 'UPDATE ' . App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME . ' ' .
-            "SET setting_type='array', setting_value = '" . App::db()->con()->escapeStr($value) . "' " .
-            "WHERE setting_id='" . App::db()->con()->escapeStr($rs->setting_id) . "' " .
-            "AND setting_ns='" . App::db()->con()->escapeStr($rs->setting_ns) . "' ";
-            if ($rs->blog_id == '') {
-                $rs2 .= 'AND blog_id IS null';
-            } else {
-                $rs2 .= "AND blog_id = '" . App::db()->con()->escapeStr($rs->blog_id) . "'";
-            }
-            App::db()->con()->execute($rs2);
         }
     }
 
@@ -207,28 +226,42 @@ class Upgrade
      */
     public static function prefs2array(string $ws, string $pref): void
     {
-        $strReqSelect = 'SELECT pref_id,user_id,pref_ws,pref_type,pref_value FROM ' . App::db()->con()->prefix() . App::userWorkspace()::WS_TABLE_NAME . ' ' .
-            "WHERE pref_id = '%s' " .
-            "AND pref_ws = '%s' " .
-            "AND pref_type = 'string'";
-        $rs = App::db()->con()->select(sprintf($strReqSelect, $pref, $ws));
-        while ($rs->fetch()) {
-            $value = @unserialize($rs->pref_value);
-            if (!$value) {
-                $value = [];
+        $sql = new SelectStatement();
+        $rs  = $sql
+            ->columns([
+                'pref_id',
+                'user_id',
+                'pref_ws',
+                'pref_type',
+                'pref_value',
+            ])
+            ->from(App::db()->con()->prefix() . App::userWorkspace()::WS_TABLE_NAME)
+            ->where('pref_id =' . $sql->quote($pref))
+            ->and('pref_ws = ' . $sql->quote($ws))
+            ->and('pref_type = ' . $sql->quote('string'))
+        ->select();
+
+        if ($rs instanceof MetaRecord) {
+            while ($rs->fetch()) {
+                $value = @unserialize($rs->pref_value);
+                if (!$value) {
+                    $value = [];
+                }
+                $value = (array) $value;
+                $value = json_encode($value, JSON_THROW_ON_ERROR);
+
+                $sqlUpdate = new UpdateStatement();
+                $sqlUpdate
+                    ->from(App::db()->con()->prefix() . App::userWorkspace()::WS_TABLE_NAME)
+                    ->sets([
+                        'pref_type = ' . $sqlUpdate->quote('array'),
+                        'pref_value = ' . $sqlUpdate->quote($value),
+                    ])
+                    ->where('pref_id =' . $sqlUpdate->quote($rs->pref_id))
+                    ->and('pref_ws = ' . $sqlUpdate->quote($rs->pref_ws))
+                    ->and((string) $rs->user_id === '' ? $sqlUpdate->isNull('user_id') : 'user_id = ' . $sqlUpdate->quote($rs->user_id))
+                ->update();
             }
-            $value = (array) $value;
-            $value = json_encode($value, JSON_THROW_ON_ERROR);
-            $rs2   = 'UPDATE ' . App::db()->con()->prefix() . App::userWorkspace()::WS_TABLE_NAME . ' ' .
-            "SET pref_type='array', pref_value = '" . App::db()->con()->escapeStr($value) . "' " .
-            "WHERE pref_id='" . App::db()->con()->escapeStr($rs->pref_id) . "' " .
-            "AND pref_ws='" . App::db()->con()->escapeStr($rs->pref_ws) . "' ";
-            if ($rs->user_id == '') {
-                $rs2 .= 'AND user_id IS null';
-            } else {
-                $rs2 .= "AND user_id = '" . App::db()->con()->escapeStr($rs->user_id) . "'";
-            }
-            App::db()->con()->execute($rs2);
         }
     }
 

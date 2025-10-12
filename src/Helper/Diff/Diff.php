@@ -56,11 +56,11 @@ class Diff
         # Find LCS length
         for ($D = 0; $D < $cx + $cy + 1 && !$end_reached; $D++) {
             for ($k = -$D; $k <= $D; $k += 2) {
-                $x = ($k == -$D || $k != $D && $V[$k - 1] < $V[$k + 1])
+                $x = ($k === -$D || $k !== $D && $V[$k - 1] < $V[$k + 1])
                 ? $V[$k + 1] : $V[$k - 1] + 1;
                 $y = $x - $k;
 
-                while ($x < $cx && $y < $cy && $src[$x] == $dst[$y]) {
+                while ($x < $cx && $y < $cy && $src[(int) $x] == $dst[(int) $y]) {
                     $x++;
                     $y++;
                 }
@@ -91,7 +91,7 @@ class Diff
             $y++;
 
             while ($x < $cx && $y < $cy
-                            && isset($src[$x]) && isset($dst[$y]) && $src[$x] == $dst[$y]) {
+                            && isset($src[(int) $x]) && isset($dst[(int) $y]) && $src[(int) $x] == $dst[(int) $y]) {
                 $x++;
                 $y++;
             }
@@ -145,7 +145,7 @@ class Diff
             if ($x - $pos_x > 2 * $ctx || $pos_x == 0 && $x > $ctx) {
                 # Footer for current chunk
                 for ($i = 0; $buffer && $i < $ctx; $i++) {
-                    $buffer .= sprintf(self::US_CTX, $src[$pos_x + $i]);
+                    $buffer .= sprintf(self::US_CTX, $src[(int) ($pos_x + $i)]);
                 }
 
                 # Header for current chunk
@@ -165,7 +165,7 @@ class Diff
 
                 # Header for next chunk
                 for ($i = $ctx; $i > 0; $i--) {
-                    $buffer .= sprintf(self::US_CTX, $src[$pos_x - $i]);
+                    $buffer .= sprintf(self::US_CTX, $src[(int) ($pos_x - $i)]);
                     $old_lines++;
                     $new_lines++;
                 }
@@ -197,10 +197,10 @@ class Diff
         if ($buffer !== '') {
             # Footer
             for ($i = 0; $i < $ctx; $i++) {
-                if (!isset($src[$pos_x + $i])) {
+                if (!isset($src[(int) ($pos_x + $i)])) {
                     break;
                 }
-                $buffer .= sprintf(self::US_CTX, $src[$pos_x + $i]);
+                $buffer .= sprintf(self::US_CTX, $src[(int) ($pos_x + $i)]);
             }
 
             # Header for current chunk

@@ -657,14 +657,14 @@ abstract class Otp
             $base32 .= $this->base32_map[(int) base_convert(str_pad($fiveBitBinaryArray[$i], 5, '0'), 2, 10)];
             $i++;
         }
-        if ($padding && ($x = strlen($binaryString) % 40) != 0) {
-            if ($x == 8) {
+        if ($padding && ($x = strlen($binaryString) % 40) !== 0) {
+            if ($x === 8) {
                 $base32 .= str_repeat($this->base32_map[32], 6);
-            } elseif ($x == 16) {
+            } elseif ($x === 16) {
                 $base32 .= str_repeat($this->base32_map[32], 4);
-            } elseif ($x == 24) {
+            } elseif ($x === 24) {
                 $base32 .= str_repeat($this->base32_map[32], 3);
-            } elseif ($x == 32) {
+            } elseif ($x === 32) {
                 $base32 .= $this->base32_map[32];
             }
         }
@@ -712,7 +712,7 @@ abstract class Otp
             }
             $eightbits = str_split($x, 8);
             for ($z = 0; $z < count($eightbits); $z++) {
-                $binary .= (($y = chr((int) base_convert($eightbits[$z], 2, 10))) || ord($y) == 48) ? $y : '';
+                $binary .= (($y = chr((int) base_convert($eightbits[$z], 2, 10))) || ord($y) === 48) ? $y : '';
             }
         }
 

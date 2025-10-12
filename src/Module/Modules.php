@@ -126,18 +126,6 @@ class Modules implements ModulesInterface
     ];
 
     /**
-     * Superglobals array keys.
-     *
-     * @var     array<int,string>   $_k
-     */
-    protected static array $_k;
-
-    /**
-     * Superglobals key name.
-     */
-    protected static string $_n;
-
-    /**
      * Module type to work with.
      */
     protected ?string $type = null;
@@ -243,7 +231,7 @@ class Modules implements ModulesInterface
                 if (!$found->isDefined() && !isset($special[$dep[0]]) && !isset($optionals[$module->getId()][$dep[0]])) {
                     // module not present, nor php or core, nor optionnal
                     $msg = sprintf(__('Module "%1$s" requires module "%2$s" which is not installed'), $module->getId(), $dep[0]);
-                } elseif (($found->isDefined() && $found->get('state') == ModuleDefine::STATE_ENABLED || isset($special[$dep[0]])) && (count($dep) > 1) && version_compare(($special[$dep[0]] ?? $found->get('version')), $dep[1]) == -1) {
+                } elseif (($found->isDefined() && $found->get('state') == ModuleDefine::STATE_ENABLED || isset($special[$dep[0]])) && (count($dep) > 1) && version_compare(($special[$dep[0]] ?? $found->get('version')), $dep[1]) === -1) {
                     // module present and enabled, or php or core, but version missing
                     if ($dep[0] == 'php') {
                         $dep[0] = 'PHP';
@@ -615,7 +603,7 @@ class Modules implements ModulesInterface
         // try to extract dc_min for easy reading
         if (empty($this->define->get('dc_min')) && !empty($this->define->get('requires'))) {
             foreach ($this->define->get('requires') as $dep) {
-                if (is_array($dep) && count($dep) == 2 && $dep[0] == 'core') {
+                if (is_array($dep) && count($dep) === 2 && $dep[0] == 'core') {
                     $this->define->set('dc_min', $dep[1]);
                 }
             }
@@ -809,7 +797,7 @@ class Modules implements ModulesInterface
 
             $new_defines = $sandbox->getDefines();
 
-            if (count($new_defines) == 1) {
+            if (count($new_defines) === 1) {
                 // Check if module is disabled
                 $module_disabled = file_exists($destination . DIRECTORY_SEPARATOR . self::MODULE_FILE_DISABLED);
 
@@ -1284,6 +1272,8 @@ class Modules implements ModulesInterface
      * @param   bool    $catch      Should catch output to prevent hacked/corrupted modules
      *
      * @return  mixed
+     *
+     * @todo Check if global variable management is still relevant (aka are we still using global vars)
      */
     protected function loadModuleFile(string $________, bool $globals = false, bool $catch = true)
     {
@@ -1293,11 +1283,9 @@ class Modules implements ModulesInterface
 
         // Add globals
         if ($globals) {
-            self::$_k = array_keys($GLOBALS);   // @phpstan-ignore-line
-
-            foreach (self::$_k as self::$_n) {
-                if (!in_array(self::$_n, self::$superglobals)) {
-                    global ${self::$_n};
+            foreach (array_keys($GLOBALS) as $global_var) {
+                if (is_string($global_var) && !in_array($global_var, self::$superglobals)) {
+                    global ${$global_var};
                 }
             }
         }

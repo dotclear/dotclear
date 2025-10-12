@@ -99,7 +99,7 @@ class WidgetsStack
      */
     public function isEmpty(): bool
     {
-        return count($this->widgets) == 0;
+        return count($this->widgets) === 0;
     }
 
     /**
@@ -127,10 +127,8 @@ class WidgetsStack
      * Get a widget.
      *
      * @param   string  $id     The widget identifier
-     *
-     * @return  mixed
      */
-    public function __get($id)
+    public function __get(string $id): mixed
     {
         if (!isset($this->widgets[$id])) {
             return null;
@@ -143,10 +141,8 @@ class WidgetsStack
      * Gets a widget.
      *
      * @param      string  $id     The widget identifier
-     *
-     * @return     mixed
      */
-    public function get(string $id)
+    public function get(string $id): mixed
     {
         return $this->__get($id);
     }
@@ -157,7 +153,7 @@ class WidgetsStack
     public function __wakeup()
     {
         foreach ($this->widgets as $i => $w) {
-            if (!($w instanceof WidgetsElement)) {  // @phpstan-ignore-line
+            if (!($w instanceof WidgetsElement)) {  // @phpstan-ignore-line Settings may be old so it's necessary to cleanup after unserialize
                 unset($this->widgets[$i]);
             }
         }

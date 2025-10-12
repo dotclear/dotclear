@@ -136,7 +136,7 @@ class ActionsLinks extends Actions
 
         $rs = (new Blogroll(App::blog()))->getLinks($params);
         while ($rs->fetch()) {
-            $this->entries[$rs->link_id] = $rs->link_title; // @phpstan-ignore-line
+            $this->entries[$rs->link_id] = $rs->link_title;
         }
         $this->rs = $rs;
     }

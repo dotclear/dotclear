@@ -47,7 +47,7 @@ abstract class MyPlugin extends MyModule
             self::name(),
             static::manageUrl($params, '&'),
             static::icons(),
-            preg_match('/' . preg_quote(static::manageUrl([], '&')) . $scheme . '/', (string) $_SERVER['REQUEST_URI']), // @phpstan-ignore-line
+            preg_match('/' . preg_quote(static::manageUrl([], '&'), '/') . $scheme . '/', (string) $_SERVER['REQUEST_URI']),
             self::checkContext(static::MENU),
             'plugin-' . ($id ?? self::id())
         );

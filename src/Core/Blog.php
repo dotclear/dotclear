@@ -547,13 +547,13 @@ class Blog implements BlogInterface
                 $nb_total = $nb_post;
                 $stack[$rs->level] += $nb_post;
             } else {
-                $nb_total = $stack[$rs->level + 1] + $nb_post;
+                $nb_total = $stack[(int) $rs->level + 1] + $nb_post;
                 if (isset($stack[$rs->level])) {
                     $stack[$rs->level] += $nb_total;
                 } else {
                     $stack[$rs->level] = $nb_total;
                 }
-                unset($stack[$rs->level + 1]);
+                unset($stack[(int) $rs->level + 1]);
             }
 
             if ($nb_total === 0 && $without_empty) {
@@ -569,7 +569,7 @@ class Blog implements BlogInterface
             $counters['nb_post']  = $nb_post;
             $counters['nb_total'] = $nb_total;
 
-            if ($level == 0 || ($level > 0 && $level == $rs->level)) {
+            if ($level === 0 || ($level > 0 && $level == $rs->level)) {
                 array_unshift($data, $counters);
             }
         }
@@ -696,7 +696,7 @@ class Blog implements BlogInterface
         }
 
         $url = [];
-        if ($parent != 0) {
+        if ($parent !== 0) {
             $rs = $this->getCategory($parent);
             if ($rs->isEmpty()) {
                 $url = [];
@@ -1178,8 +1178,13 @@ class Blog implements BlogInterface
             # --BEHAVIOR-- coreBlogGetPosts -- MetaRecord
             $this->core->behavior()->callBehavior('coreBlogGetPosts', $rs);
 
+            /**
+             * @var array{rs:null|Record|MetaRecord, params:ArrayObject<array-key, mixed>, count_only:bool}
+             */
+            $alt = ['rs' => null, 'params' => $params, 'count_only' => $count_only];
+            $alt = new ArrayObject($alt);
+
             # --BEHAVIOR-- coreBlogAfterGetPosts -- MetaRecord, ArrayObject
-            $alt = new ArrayObject(['rs' => null, 'params' => $params, 'count_only' => $count_only]);
             $this->core->behavior()->callBehavior('coreBlogAfterGetPosts', $rs, $alt);
             if ($alt['rs']) {
                 if ($alt['rs'] instanceof Record) { // @phpstan-ignore-line
@@ -1816,7 +1821,7 @@ class Blog implements BlogInterface
      *
      * @param  array<string>    $arr        filters
      */
-    private function getPostsCategoryFilter($arr, string $field = 'cat_id'): string
+    private function getPostsCategoryFilter(array $arr, string $field = 'cat_id'): string
     {
         $field = $field === 'cat_id' ? 'cat_id' : 'cat_url';
 
@@ -2032,7 +2037,11 @@ class Blog implements BlogInterface
     {
         $url = trim((string) $url);
 
-        $dt           = (int) strtotime($post_dt);
+        $dt = (int) strtotime($post_dt);
+
+        /**
+         * @var array<string, string>
+         */
         $url_patterns = [
             '{y}'  => date('Y', $dt),
             '{m}'  => date('m', $dt),
@@ -2044,10 +2053,10 @@ class Blog implements BlogInterface
         # If URL is empty, we create a new one
         if ($url === '') {
             # Transform with format
-            $url = (string) str_replace(    // @phpstan-ignore-line
+            $url = str_replace(
                 array_keys($url_patterns),
-                array_values($url_patterns),    // @phpstan-ignore-line
-                $this->settings()->system->post_url_format
+                array_values($url_patterns),
+                (string) $this->settings()->system->post_url_format
             );
         } else {
             $url = Text::tidyURL($url);
@@ -2272,12 +2281,12 @@ class Blog implements BlogInterface
         }
 
         if (isset($params['comment_email'])) {
-            $comment_email = $sql->escape((string) str_replace('*', '%', $params['comment_email']));    // @phpstan-ignore-line
+            $comment_email = $sql->escape(str_replace('*', '%', (string) $params['comment_email']));
             $sql->and($sql->like('comment_email', $comment_email));
         }
 
         if (isset($params['comment_site'])) {
-            $comment_site = $sql->escape((string) str_replace('*', '%', $params['comment_site']));  // @phpstan-ignore-line
+            $comment_site = $sql->escape(str_replace('*', '%', (string) $params['comment_site']));
             $sql->and($sql->like('comment_site', $comment_site));
         }
 
@@ -2294,7 +2303,7 @@ class Blog implements BlogInterface
         }
 
         if (isset($params['comment_ip'])) {
-            $comment_ip = $sql->escape((string) str_replace('*', '%', $params['comment_ip']));  // @phpstan-ignore-line
+            $comment_ip = $sql->escape(str_replace('*', '%', (string) $params['comment_ip']));
             $sql->and($sql->like('comment_ip', $comment_ip));
         }
 

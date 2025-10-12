@@ -22,28 +22,28 @@ class UrlHandler
      *
      * @var array<string, array<string, mixed> >    $types
      */
-    protected $types = [];
+    protected array $types = [];
 
     /**
      * Default handler, used if requested type handler not registered
      *
-     * @var callable|null   $default_handler
+     * @var ?callable   $default_handler
+     *
+     * Note: cannot use ?callable or callable as property type so we use mixed
      */
-    protected $default_handler;
+    protected mixed $default_handler = null;
 
     /**
      * Stack of error handlers
      *
      * @var        callable[]    $error_handlers
      */
-    protected $error_handlers = [];
+    protected array $error_handlers = [];
 
     /**
      * Current handler
-     *
-     * @var        string   $type
      */
-    public $type = 'default';
+    public string $type = 'default';
 
     /**
      * Constructs a new instance.
@@ -63,7 +63,7 @@ class UrlHandler
      * @param      string       $representation  The URI representation (regex, string)
      * @param      callable     $handler         The handler
      */
-    public function register(string $type, string $url, string $representation, $handler): void
+    public function register(string $type, string $url, string $representation, callable $handler): void
     {
         $this->types[$type] = [
             'url'            => $url,
@@ -77,7 +77,7 @@ class UrlHandler
      *
      * @param      callable  $handler  The handler
      */
-    public function registerDefault($handler): void
+    public function registerDefault(callable $handler): void
     {
         $this->default_handler = $handler;
     }
@@ -87,7 +87,7 @@ class UrlHandler
      *
      * @param      callable  $handler  The handler
      */
-    public function registerError($handler): void
+    public function registerError(callable $handler): void
     {
         array_unshift($this->error_handlers, $handler);
     }
@@ -260,12 +260,8 @@ class UrlHandler
      * @param      string           $args     The arguments
      * @param      string           $type     The URL handler type
      */
-    protected function callHelper($handler, ?string $args = null, string $type = 'default'): void
+    protected function callHelper(callable $handler, ?string $args = null, string $type = 'default'): void
     {
-        if (!is_callable($handler)) {   // @phpstan-ignore-line
-            throw new Exception('Unable to call function');
-        }
-
         try {
             call_user_func($handler, $args);
         } catch (Exception $e) {

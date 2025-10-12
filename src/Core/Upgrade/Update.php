@@ -395,7 +395,7 @@ class Update
                     $client = $http_get($url);
                 }
             }
-            if ($status != 200) {
+            if ($status !== 200) {
                 @unlink($dest);
 
                 throw new Exception();
@@ -463,15 +463,21 @@ class Update
             throw new Exception(__('Downloaded file does not seem to be a valid archive.'));
         }
 
+        $zip_digests_content = (string) $zip->unzip($zip_digests);
+        if ($zip_digests_content === '') {
+            $zip->close();
+            @unlink($zip_file);
+
+            throw new Exception(__('Downloaded file does not seem to be a valid archive.'));
+        }
+
         $new_files   = [];
-        $opts        = FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES;
-        $cur_digests = file($root_digests, $opts);
-        $new_digests = explode("\n", (string) $zip->unzip($zip_digests));
-        if ($cur_digests !== false && $new_digests !== false) {     // @phpstan-ignore-line
+        $cur_digests = file($root_digests, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+        $new_digests = explode("\n", $zip_digests_content);
+        if ($cur_digests !== false) {
             $new_files = $this->getNewFiles($cur_digests, $new_digests);
         }
         $zip->close();
-        unset($opts, $cur_digests, $new_digests, $zip);
 
         $not_readable = [];
 
@@ -537,11 +543,18 @@ class Update
             throw new Exception(__('Downloaded file does not seem to be a valid archive.'));
         }
 
+        $zip_digests_content = (string) $zip->unzip($zip_digests);
+        if ($zip_digests_content === '') {
+            $zip->close();
+            @unlink($zip_file);
+
+            throw new Exception(__('Downloaded file does not seem to be a valid archive.'));
+        }
+
         $new_files   = [];
-        $opts        = FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES;
-        $cur_digests = file($root_digests, $opts);
-        $new_digests = explode("\n", (string) $zip->unzip($zip_digests));
-        if ($cur_digests !== false && $new_digests !== false) {     // @phpstan-ignore-line
+        $cur_digests = file($root_digests, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+        $new_digests = explode("\n", $zip_digests_content);
+        if ($cur_digests !== false) {
             $new_files = $this->getNewFiles($cur_digests, $new_digests);
         }
 

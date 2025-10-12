@@ -93,7 +93,7 @@ class Favorites
      *
      * @return Favorite|false   Some of the favorite properties, false if not found (or not permitted)
      */
-    public function getFavorite($id): false|Favorite
+    public function getFavorite(string $id): false|Favorite
     {
         if (!isset($this->favorites[$id])) {
             return false;

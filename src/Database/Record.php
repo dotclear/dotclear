@@ -197,10 +197,10 @@ class Record implements Iterator, Countable
             return;
         }
 
-        $c = new ReflectionClass($class);
-        foreach ($c->getMethods() as $m) {
-            if ($m->isStatic() && $m->isPublic()) {
-                $this->__extend[$m->name] = [$class, $m->name]; // @phpstan-ignore-line
+        $reflection_class = new ReflectionClass($class);
+        foreach ($reflection_class->getMethods() as $method) {
+            if ($method->isStatic() && $method->isPublic()) {
+                $this->__extend[$method->name] = $method->getClosure();
             }
         }
     }
@@ -424,7 +424,8 @@ class Record implements Iterator, Countable
     #[\ReturnTypeWillChange]
     public function current(): mixed
     {
-        return $this;   // @phpstan-ignore-line
+        // @phpstan-ignore return.type
+        return $this;
     }
 
     /**
@@ -433,7 +434,8 @@ class Record implements Iterator, Countable
     #[\ReturnTypeWillChange]
     public function key(): mixed
     {
-        return $this->index();  // @phpstan-ignore-line
+        // @phpstan-ignore return.type
+        return $this->index();
     }
     /**
      * @see Iterator::next

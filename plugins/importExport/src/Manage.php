@@ -50,9 +50,9 @@ class Manage
         App::backend()->module  = null;
 
         /**
-         * @var null|Module
+         * @var null|Module|false
          */
-        $module = $_REQUEST['module'] ?? false; // @phpstan-ignore-line
+        $module = $_REQUEST['module'] ?? false;
         if (App::backend()->type && $module && isset(App::backend()->modules[App::backend()->type]) && in_array($module, App::backend()->modules[App::backend()->type])) {
             App::backend()->module = new $module();
             App::backend()->module->init();

@@ -32,7 +32,7 @@ class SpamFilters
      *
      * @var     array<string, mixed>        $filters_opt
      */
-    private $filters_opt = [];
+    private array $filters_opt = [];
 
     /**
      * Initializes the given filters.
@@ -56,7 +56,7 @@ class SpamFilters
         }
 
         $this->setFilterOpts();
-        if (!empty($this->filters_opt)) {
+        if ($this->filters_opt !== []) {
             uasort($this->filters, fn ($a, $b): int => $a->order <=> $b->order);
         }
     }
@@ -165,8 +165,8 @@ class SpamFilters
     /**
      * Saves filter settings.
      *
-     * @param   array<int|string, list{0:bool, 1:int, 2:bool}>      $opts       The settings
-     * @param   bool                                                $global     True if global settings
+     * @param   array<string, list{bool, int, bool}>        $opts       The settings
+     * @param   bool                                        $global     True if global settings
      */
     public function saveFilterOpts(array $opts, bool $global = false): void
     {
@@ -181,12 +181,13 @@ class SpamFilters
      */
     private function setFilterOpts(): void
     {
-        if (My::settings()->antispam_filters !== null) {
-            $this->filters_opt = My::settings()->antispam_filters;
+        $filters = My::settings()->antispam_filters;
+        if ($filters !== null && is_array($filters)) {
+            $this->filters_opt = $filters;
         }
 
         // Create default options if needed
-        if (!is_array($this->filters_opt)) {    // @phpstan-ignore-line
+        if (!is_array($filters)) {
             $this->saveFilterOpts([], true);
             $this->filters_opt = [];
         }

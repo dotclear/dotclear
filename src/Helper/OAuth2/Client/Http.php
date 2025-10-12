@@ -148,7 +148,7 @@ class Http
     protected function parseHeaders(curlHandle $handler, string $header): int
     {
         $parts = explode(':', $header, 2);
-        if (count($parts) == 2) {
+        if (count($parts) === 2) {
             [$name, $value]               = $parts;
             $this->headers[trim($name)][] = trim($value);
         }

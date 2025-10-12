@@ -291,7 +291,7 @@ class Http
         }
 
         // Replace each files in array by its last modification timestamp
-        array_walk($mod_files, function (&$mod_timestamp): void {
+        array_walk($mod_files, function (string &$mod_timestamp): void {
             $mod_timestamp = filemtime($mod_timestamp);
         });
 

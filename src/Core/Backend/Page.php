@@ -141,7 +141,7 @@ class Page
         $js       = [];
 
         # List of user's blogs
-        if (App::auth()->getBlogCount() == 1 || App::auth()->getBlogCount() > $maxblogs) {
+        if (App::auth()->getBlogCount() === 1 || App::auth()->getBlogCount() > $maxblogs) {
             $blogmenu = (new Para())
                 ->separator(' ')
                 ->items([
@@ -367,7 +367,7 @@ class Page
                                 (new Link())
                                     ->class(array_filter([
                                         'smallscreen',
-                                        preg_match('/' . preg_quote(App::backend()->url()->get('admin.user.preferences')) . '(\?.*)?$/', (string) $_SERVER['REQUEST_URI']) ? ' active' : '']))  // @phpstan-ignore-line
+                                        preg_match('/' . preg_quote(App::backend()->url()->get('admin.user.preferences'), '/') . '(\?.*)?$/', (string) $_SERVER['REQUEST_URI']) ? ' active' : '']))
                                     ->href(App::backend()->url()->get('admin.user.preferences'))
                                     ->text(__('My preferences')),
                             ]),

@@ -167,7 +167,7 @@ class Media
             }
 
             try {
-                Files::uploadStatus($upfile);   // @phpstan-ignore-line
+                Files::uploadStatus($upfile);
 
                 $f_title   = (isset($_POST['upfiletitle']) ? Html::escapeHTML($_POST['upfiletitle']) : '');
                 $f_private = ($_POST['upfilepriv'] ?? false);

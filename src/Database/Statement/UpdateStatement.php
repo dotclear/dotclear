@@ -10,8 +10,9 @@ declare(strict_types=1);
 
 namespace Dotclear\Database\Statement;
 
-use Dotclear\Database\Cursor;
 use Dotclear\App;
+use Dotclear\Database\Cursor;
+use Dotclear\Interface\Database\ConnectionInterface;
 
 /**
  * @class UpdateStatement
@@ -37,10 +38,10 @@ class UpdateStatement extends SqlStatement
     /**
      * Constructs a new instance.
      *
-     * @param      mixed         $con     The DB handle
-     * @param      null|string   $syntax  The syntax
+     * @param      ?ConnectionInterface     $con     The DB handle
+     * @param      null|string              $syntax  The syntax
      */
-    public function __construct($con = null, ?string $syntax = null)
+    public function __construct(?ConnectionInterface $con = null, ?string $syntax = null)
     {
         parent::__construct($con, $syntax);
     }
@@ -48,12 +49,12 @@ class UpdateStatement extends SqlStatement
     /**
      * from() alias
      *
-     * @param mixed     $c      the reference clause(s)
-     * @param boolean   $reset  reset previous reference first
+     * @param null|string|string[]  $c      the reference clause(s)
+     * @param boolean               $reset  reset previous reference first
      *
      * @return self instance, enabling to chain calls
      */
-    public function reference($c, bool $reset = false): UpdateStatement
+    public function reference(null|string|array $c, bool $reset = false): UpdateStatement
     {
         $this->from($c, $reset);
 
@@ -63,12 +64,12 @@ class UpdateStatement extends SqlStatement
     /**
      * from() alias
      *
-     * @param mixed     $c      the reference clause(s)
-     * @param boolean   $reset  reset previous reference first
+     * @param null|string|string[]  $c      the reference clause(s)
+     * @param boolean               $reset  reset previous reference first
      *
      * @return self instance, enabling to chain calls
      */
-    public function ref($c, bool $reset = false): UpdateStatement
+    public function ref(null|string|array $c, bool $reset = false): UpdateStatement
     {
         $this->from($c, $reset);
 
@@ -83,7 +84,7 @@ class UpdateStatement extends SqlStatement
      *
      * @return self instance, enabling to chain calls
      */
-    public function set($c, bool $reset = false): UpdateStatement
+    public function set(string|array $c, bool $reset = false): UpdateStatement
     {
         if ($reset) {
             $this->sets = [];
@@ -105,7 +106,7 @@ class UpdateStatement extends SqlStatement
      *
      * @return self instance, enabling to chain calls
      */
-    public function sets($c, bool $reset = false): UpdateStatement
+    public function sets(string|array $c, bool $reset = false): UpdateStatement
     {
         return $this->set($c, $reset);
     }
@@ -118,7 +119,7 @@ class UpdateStatement extends SqlStatement
      *
      * @return self instance, enabling to chain calls
      */
-    public function value($c, bool $reset = false): UpdateStatement
+    public function value(mixed $c, bool $reset = false): UpdateStatement
     {
         if ($reset) {
             $this->values = [];
@@ -140,7 +141,7 @@ class UpdateStatement extends SqlStatement
      *
      * @return self instance, enabling to chain calls
      */
-    public function values($c, bool $reset = false): UpdateStatement
+    public function values(mixed $c, bool $reset = false): UpdateStatement
     {
         return $this->value($c, $reset);
     }
@@ -245,7 +246,7 @@ class UpdateStatement extends SqlStatement
             return $cur->update($this->whereStatement());
         }
 
-        if ($this->con && ($sql = $this->statement())) {
+        if ($this->con instanceof ConnectionInterface && ($sql = $this->statement())) {
             return $this->con->execute($sql);
         }
 

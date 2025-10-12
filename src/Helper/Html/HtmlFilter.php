@@ -262,16 +262,15 @@ class HtmlFilter
             $tidy->parseString($str, $config, 'utf8');
             $tidy->cleanRepair();
 
-            /* @phpstan-ignore-next-line */
-            $str = (string) $tidy;
+            $str = (string) $tidy->value;
 
-            $str = (string) preg_replace('#^<p>tt</p>\s?#', '', $str);  // @phpstan-ignore-line
+            $str = (string) preg_replace('#^<p>tt</p>\s?#', '', $str);
         } else {
             $str = $this->miniTidy($str);
         }
 
         # Removing open comments, open CDATA and processing instructions
-        $str = (string) preg_replace('%<!--.*?-->%msu', '', (string) $str);  // @phpstan-ignore-line
+        $str = (string) preg_replace('%<!--.*?-->%msu', '', $str);
         $str = str_replace('<!--', '', $str);
         $str = (string) preg_replace('%<!\[CDATA\[.*?\]\]>%msu', '', $str);
         $str = str_replace('<![CDATA[', '', $str);

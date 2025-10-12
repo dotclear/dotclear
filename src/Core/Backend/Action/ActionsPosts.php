@@ -145,7 +145,7 @@ class ActionsPosts extends Actions
 
         $rs = App::blog()->getPosts($params);
         while ($rs->fetch()) {
-            $this->entries[$rs->post_id] = $rs->post_title; // @phpstan-ignore-line
+            $this->entries[$rs->post_id] = $rs->post_title;
         }
         $this->rs = $rs;
     }

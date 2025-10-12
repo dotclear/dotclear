@@ -113,12 +113,15 @@ class Url extends UrlHandler implements UrlInterface
      * @param      string           $representation  The representation
      * @param      callable         $handler         The handler
      */
-    public function register(string $type, string $url, string $representation, $handler): void
+    public function register(string $type, string $url, string $representation, callable $handler): void
     {
         $url_handler = new ArrayObject([$type, $url, $representation, $handler]);
         # --BEHAVIOR-- publicRegisterURL -- ArrayObject
         $this->core->behavior()->callBehavior('publicRegisterURL', $url_handler);
-        parent::register($url_handler[0], $url_handler[1], $url_handler[2], $url_handler[3]);   // @phpstan-ignore-line
+
+        if (is_string($url_handler[0]) && is_string($url_handler[1]) && is_string($url_handler[2]) && is_callable($url_handler[3])) {
+            parent::register($url_handler[0], $url_handler[1], $url_handler[2], $url_handler[3]);
+        }
     }
 
     /**
@@ -625,7 +628,7 @@ class Url extends UrlHandler implements UrlInterface
                         # --BEHAVIOR-- publicBeforeCommentPreview -- ArrayObject
                         App::behavior()->callBehavior('publicBeforeCommentPreview', App::frontend()->context()->comment_preview);
 
-                        $content = (string) App::frontend()->context()->comment_preview['content'];
+                        $content = App::frontend()->context()->comment_preview['content'];
                         # --BEHAVIOR-- coreContentFilter -- string, array<int, array<int, string>> -- since 2.34
                         App::behavior()->callBehavior(
                             'coreContentFilter',

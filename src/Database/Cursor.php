@@ -138,7 +138,7 @@ class Cursor
      * @param   string  $name   Field name
      * @param   mixed   $value  Field value
      */
-    public function __set(string $name, $value): void
+    public function __set(string $name, mixed $value): void
     {
         $this->setField($name, $value);
     }
@@ -150,7 +150,7 @@ class Cursor
      *
      * @return  mixed   value for a field named <var>$n</var>
      */
-    public function __get(string $name)
+    public function __get(string $name): mixed
     {
         return $this->getField($name);
     }

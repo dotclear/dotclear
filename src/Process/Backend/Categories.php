@@ -275,7 +275,8 @@ class Categories
             while (!$rs->isEnd() && $rs->fetch()) {
                 if ((int) $rs->level < $level) {
                     // Back to upper level
-                    if ($rs->isEnd()) { // @phpstan-ignore-line
+                    // @phpstan-ignore if.alwaysFalse
+                    if ($rs->isEnd()) {
                         // Clear end flag of recordset
                         $rs->moveEnd();
                     }

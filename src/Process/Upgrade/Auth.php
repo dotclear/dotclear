@@ -73,7 +73,7 @@ class Auth
 
             self::$user_id  = $_POST['user_id'];
             self::$user_pwd = $_POST['user_pwd'];
-        } elseif (isset($_COOKIE[App::upgrade()::COOKIE_NAME]) && strlen((string) $_COOKIE[App::upgrade()::COOKIE_NAME]) == 104) {
+        } elseif (isset($_COOKIE[App::upgrade()::COOKIE_NAME]) && strlen((string) $_COOKIE[App::upgrade()::COOKIE_NAME]) === 104) {
             // If we have a remember cookie, go through auth process with user_key
 
             $user_id = substr((string) $_COOKIE[App::upgrade()::COOKIE_NAME], 40);
@@ -116,7 +116,7 @@ class Auth
             //Check 2fa code
 
             $tmp_data = explode('/', (string) $_POST['login_data']);
-            if (count($tmp_data) != 3) {
+            if (count($tmp_data) !== 3) {
                 throw new Exception();
             }
             $data = [
@@ -130,7 +130,7 @@ class Auth
 
             // Check login informations
             $check_user = false;
-            if (strlen($data['cookie_admin']) == 104) {
+            if (strlen($data['cookie_admin']) === 104) {
                 $user_id = substr($data['cookie_admin'], 40);
                 $user_id = @unpack('a32', @pack('H*', $user_id));
                 if (is_array($user_id)) {

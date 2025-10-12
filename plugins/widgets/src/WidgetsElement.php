@@ -284,10 +284,8 @@ class WidgetsElement
      * Gets the specified setting value.
      *
      * @param   string  $n  The setting name
-     *
-     * @return  mixed
      */
-    public function __get(string $n)
+    public function __get(string $n): mixed
     {
         return $this->get($n);
     }
@@ -296,10 +294,8 @@ class WidgetsElement
      * Gets the specified setting value.
      *
      * @param   string  $n  The setting name
-     *
-     * @return  mixed
      */
-    public function get(string $n)
+    public function get(string $n): mixed
     {
         if (isset($this->settings[$n])) {
             return $this->settings[$n]['value'];
@@ -314,7 +310,7 @@ class WidgetsElement
      * @param   string  $n  The setting name
      * @param   mixed   $v  The new value
      */
-    public function __set(string $n, $v)
+    public function __set(string $n, mixed $v)
     {
         $this->set($n, $v);
     }
@@ -325,7 +321,7 @@ class WidgetsElement
      * @param   string  $n  The setting name
      * @param   mixed   $v  The new value
      */
-    public function set(string $n, $v): void
+    public function set(string $n, mixed $v): void
     {
         if (isset($this->settings[$n])) {
             $this->settings[$n]['value'] = $v;

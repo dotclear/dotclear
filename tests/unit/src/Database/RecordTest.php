@@ -444,10 +444,7 @@ class RecordTest extends TestCase
 
         $this->assertEquals(
             [
-                'isEditable' => [
-                    \Dotclear\Tests\Database\RecordExtend::class,
-                    'isEditable',
-                ],
+                'isEditable' => \Dotclear\Tests\Database\RecordExtend::isEditable(...),
             ],
             $record->extensions()
         );

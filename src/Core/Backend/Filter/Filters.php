@@ -172,7 +172,7 @@ class Filters
      *
      * @return  mixed   The filter value
      */
-    public function __get(string $id)
+    public function __get(string $id): mixed
     {
         return $this->value($id);
     }
@@ -188,7 +188,7 @@ class Filters
     public function add($filter = null, $value = null)
     {
         # empty filter (ex: do not show form if there are no categories on a blog)
-        if (null === $filter) {
+        if (!$filter) {
             return null;
         }
 
@@ -207,7 +207,7 @@ class Filters
         }
 
         # not well formed filter or reserved id
-        if (!($filter instanceof Filter) || $filter->id == '') {    // @phpstan-ignore-line
+        if (!$filter->id) {
             return null;
         }
 

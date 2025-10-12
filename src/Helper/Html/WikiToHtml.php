@@ -400,11 +400,9 @@ class WikiToHtml
      * @param      string     $type   The type
      * @param      callable   $name   The name
      */
-    public function registerFunction(string $type, $name): void
+    public function registerFunction(string $type, callable $name): void
     {
-        if (is_callable($name)) {   // @phpstan-ignore-line
-            $this->functions[$type] = $name;
-        }
+        $this->functions[$type] = $name;
     }
 
     /**
@@ -451,7 +449,7 @@ class WikiToHtml
             # If urls are not active, escape URLs tags
             if (!$active_urls) {
                 $html = preg_replace(
-                    '%(?<!\\\\)([' . preg_quote(implode('', $this->tags['a'])) . '])%msU',  // @phpstan-ignore-line
+                    '%(?<!\\\\)([' . preg_quote(implode('', $this->tags['a']), '%') . '])%msU',
                     '\\\$1',
                     (string) $html
                 );
@@ -861,7 +859,7 @@ class WikiToHtml
             if ($delta > 0 && $type == $current_type && !str_starts_with($mode, (string) $current_mode)) {
                 $valid = false;
             }
-            if ($delta == 0 && $mode != $current_mode) {
+            if ($delta === 0 && $mode != $current_mode) {
                 $valid = false;
             }
             if ($delta > 1) {
@@ -1272,7 +1270,7 @@ class WikiToHtml
         $title    = '';
 
         // Only URL in data
-        if (count($data) == 1) {
+        if (count($data) === 1) {
             $url     = trim($str);
             $content = strlen($url) > 35 ? substr($url, 0, 35) . '...' : $url;
             $lang    = '';

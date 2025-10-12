@@ -350,7 +350,7 @@ class Schema extends AbstractSchema
 
         if ($default === null) {
             $default = 'DEFAULT NULL';
-        } elseif ($default !== false) {     // @phpstan-ignore-line
+        } elseif ($default !== false) {
             $default = 'DEFAULT ' . $default . ' ';
         } else {
             $default = '';

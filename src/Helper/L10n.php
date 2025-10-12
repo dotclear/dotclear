@@ -154,7 +154,7 @@ class L10n implements L10nInterface
         } elseif ((self::$locales === [] || !array_key_exists($singular, self::$locales)) && is_null($count)) {
             // If no l10n translation loaded or exists
             return $singular;
-        } elseif ($plural === null || $count === null || self::$language_pluralsnumber == 1) {
+        } elseif ($plural === null || $count === null || self::$language_pluralsnumber === 1) {
             // If no $plural form or if current language has no plural form return $singular translation
             $t = empty(self::$locales[$singular]) ? $singular : self::$locales[$singular];
 
@@ -256,15 +256,15 @@ class L10n implements L10nInterface
                 if (is_array($tr)) {
                     $items = [];
                     foreach ($tr as $t) {
-                        $t       = str_replace("'", "\\'", $t);
-                        $items[] = '\'' . $t . '\'';    // @phpstan-ignore-line str_replace() may return array, but not in this case
+                        $t       = str_replace("'", "\\'", (string) $t);
+                        $items[] = '\'' . $t . '\'';
                     }
                     if ($items !== []) {
                         $fcontent .= 'L10n::$locales[\'' . $vo . '\'] = [' . "\n\t" . implode(',' . "\n\t", $items) . ",\n" . '];' . "\n";
                     }
                 } else {
-                    $tr = str_replace("'", "\\'", $tr);
-                    $fcontent .= 'L10n::$locales[\'' . $vo . '\'] = \'' . $tr . '\';' . "\n";   // @phpstan-ignore-line see above
+                    $tr = str_replace("'", "\\'", (string) $tr);
+                    $fcontent .= 'L10n::$locales[\'' . $vo . '\'] = \'' . $tr . '\';' . "\n";
                 }
             }
         }
@@ -542,11 +542,11 @@ class L10n implements L10nInterface
     /**
      * Clean string from .po
      *
-     * @param      mixed   $_      The string
+     * @param      string   $_      The string
      */
-    protected static function cleanPoString($_): string
+    protected static function cleanPoString(string $_): string
     {
-        return stripslashes((string) str_replace(['\n', '\r\n'], "\n", $_));    // @phpstan-ignore-line
+        return stripslashes(str_replace(['\n', '\r\n'], "\n", $_));
     }
 
     public static function parsePluralExpression(string $expression): array
@@ -959,7 +959,7 @@ class L10n implements L10nInterface
             $r[$_[0]] = empty($_[$type]) ? $default : $_[$type];
         }
 
-        return $r;  // @phpstan-ignore-line
+        return $r;
     }
     ///@}
 }

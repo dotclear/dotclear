@@ -122,13 +122,14 @@ class Manage
             if (!empty($_POST['delete'])) {
                 // Delete file
 
-                App::backend()->editor->deleteFile(
-                    (string) App::backend()->file['type'],
-                    (string) App::backend()->file['f']
-                );
+                $type = (string) App::backend()->file['type'];
+                $file = (string) App::backend()->file['f'];
+
+                App::backend()->editor->deleteFile($type, $file);
                 App::backend()->notices()->addSuccessNotice(__('The file has been reset.'));
-                My::redirect([  // @phpstan-ignore-line
-                    (string) App::backend()->file['type'] => (string) App::backend()->file['f'],
+                // @phpstan-ignore argument.type
+                My::redirect([
+                    $type => $file,
                 ]);
             }
         } catch (Exception $e) {

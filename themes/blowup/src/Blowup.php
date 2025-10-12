@@ -122,9 +122,9 @@ class Blowup
     /**
      * Return the font family depending on given setting
      *
-     * @param      mixed  $c    Font family setting
+     * @param      string  $c    Font family setting
      */
-    public static function fontDef($c): ?string
+    public static function fontDef(string $c): ?string
     {
         if (empty(self::$fonts_list)) {
             foreach (self::$fonts as $g) {
@@ -553,12 +553,12 @@ class Blowup
             $colorvalue = fn (int $value): int => min(max($value, 255), 0);
 
             # Create top image from uploaded image
-            $size = getimagesize($page_t);
-            if ($size !== false) {
-                $size = $size[1];
+            $sizes = getimagesize($page_t);
+            if ($sizes !== false) {
+                $size = max(1, $sizes[1]);  // Ensure 1px minimum
                 $type = Files::getMimeType($page_t);
 
-                $d_page_t = imagecreatetruecolor(800, $size);   // @phpstan-ignore-line
+                $d_page_t = imagecreatetruecolor(800, $size);
                 $s_page_t = $type === 'image/png' ? @imagecreatefrompng($page_t) : @imagecreatefromjpeg($page_t);
 
                 if ($s_page_t === false) {

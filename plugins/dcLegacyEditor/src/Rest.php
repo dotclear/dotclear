@@ -43,7 +43,7 @@ class Rest
                 [&$html, 'html'],
             ]);
 
-            $ret = strlen($html) > 0;
+            $ret = $html !== '';
 
             if ($ret) {
                 $media_root = App::blog()->host();

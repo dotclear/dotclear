@@ -94,7 +94,7 @@ class TidyDiffChunk
      *
      * @return mixed
      */
-    public function getInfo($n)
+    public function getInfo(string $n)
     {
         return $this->__info[$n] ?? null;
     }
