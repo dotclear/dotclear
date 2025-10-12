@@ -169,13 +169,13 @@ class Home
         $dashboardItem     = 0;
 
         // Documentation links
-        if (App::auth()->prefs()->dashboard->doclinks && App::backend()->resources()->entries('doc') !== []) {
-            $__dashboard_items[$dashboardItem]->append(static::docLinks(App::backend()->resources()->entries('doc'))); // @phpstan-ignore-line
+        if (App::auth()->prefs()->dashboard->doclinks && App::backend()->resources()->entries('doc') !== [] && $__dashboard_items[$dashboardItem] instanceof ArrayObject) {
+            $__dashboard_items[$dashboardItem]->append(static::docLinks(App::backend()->resources()->entries('doc')));
         }
 
         // Call for donations
-        if (App::auth()->prefs()->dashboard->donate) {
-            $__dashboard_items[$dashboardItem]->append(static::donationBlock()); // @phpstan-ignore-line
+        if (App::auth()->prefs()->dashboard->donate && $__dashboard_items[$dashboardItem] instanceof ArrayObject) {
+            $__dashboard_items[$dashboardItem]->append(static::donationBlock());
         }
 
         # --BEHAVIOR-- adminDashboardItemsV2 -- ArrayObject

@@ -400,11 +400,9 @@ class WikiToHtml
      * @param      string     $type   The type
      * @param      callable   $name   The name
      */
-    public function registerFunction(string $type, $name): void
+    public function registerFunction(string $type, callable $name): void
     {
-        if (is_callable($name)) {   // @phpstan-ignore-line
-            $this->functions[$type] = $name;
-        }
+        $this->functions[$type] = $name;
     }
 
     /**
@@ -451,7 +449,7 @@ class WikiToHtml
             # If urls are not active, escape URLs tags
             if (!$active_urls) {
                 $html = preg_replace(
-                    '%(?<!\\\\)([' . preg_quote(implode('', $this->tags['a'])) . '])%msU',  // @phpstan-ignore-line
+                    '%(?<!\\\\)([' . preg_quote(implode('', $this->tags['a']), '%') . '])%msU',
                     '\\\$1',
                     (string) $html
                 );

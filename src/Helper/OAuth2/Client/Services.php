@@ -127,7 +127,6 @@ class Services
             throw new Exception\InvalidService(sprintf(__('Failed to load provider "%s"'), $consumer->get('provider')));
         }
 
-        // @phpstan-ignore-next-line
         return $provider;
     }
 

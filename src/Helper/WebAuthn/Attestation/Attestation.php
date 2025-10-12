@@ -78,7 +78,8 @@ class Attestation implements AttestationInterface
 
         // Load all services that inherit FormatBaseInterface and find whitch one match format type
         foreach ($this->webauthn->getFactory()->dump() as $interface => $service) {
-            if (is_subclass_of($service, FormatBaseInterface::class) && $service::TYPE == $this->attestation_type) { // @phpstan-ignore-line
+            // @phpstan-ignore argument.type, classConstant.notFound
+            if (is_subclass_of($service, FormatBaseInterface::class) && $service::TYPE == $this->attestation_type) {
                 $this->attestation_format = $this->webauthn->get($interface);
                 $this->attestation_format->initFormat($enc);
 

@@ -97,7 +97,8 @@ class WebAuthn extends WebAuthnContainer
 
         // Load all services that inherit OptionInterface
         foreach ($this->factory->dump() as $interface => $service) {
-            if (is_subclass_of($service, OptionInterface::class)) { // @phpstan-ignore-line
+            // @phpstan-ignore argument.type
+            if (is_subclass_of($service, OptionInterface::class)) {
                 $this->publicKey()->addOption($this->get($interface));
             }
         }

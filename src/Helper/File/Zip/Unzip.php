@@ -576,7 +576,7 @@ class Unzip
                 continue;
             }
 
-            $this->compressed_list[$filename] = $details;   // @phpstan-ignore-line
+            $this->compressed_list[$filename] = $details;
             $return                           = true;
 
             if (($stop_on_file !== false) && (strtolower($stop_on_file) === strtolower((string) $filename))) {

@@ -188,7 +188,8 @@ abstract class Component
     {
         $this->properties[$property] = $value;
 
-        return $this;   // @phpstan-ignore-line
+        // @phpstan-ignore return.void
+        return $this;
     }
 
     /**
@@ -227,7 +228,7 @@ abstract class Component
     {
         // Cope with known methods
         if (method_exists($this, $method)) {
-            return call_user_func_array([$this, $method], $arguments);  // @phpstan-ignore-line
+            return call_user_func_array($this::${$method}(...), $arguments);
         }
 
         // Unknown method
@@ -237,12 +238,12 @@ abstract class Component
                 return $this->properties[$method];
             }
 
-            return null;    // @phpstan-ignore-line
+            return null;
         }
         // Argument here, assume its a set
         $this->properties[$method] = $arguments[0];
 
-        return $this;   // @phpstan-ignore-line
+        return $this;
     }
 
     /**
@@ -439,7 +440,7 @@ abstract class Component
                 // Remove empty items in array
                 $this->{$propertyName} = array_filter($this->{$propertyName});
             }
-            if ($this->{$propertyName} === '' || $this->{$propertyName} === []) {   // @phpstan-ignore-line
+            if ($this->{$propertyName} === '' || $this->{$propertyName} === []) {
                 // Unset empty property
                 $this->{$propertyName} = null;
             }

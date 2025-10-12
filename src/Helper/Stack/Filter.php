@@ -108,7 +108,8 @@ class Filter
      */
     public function __set(string $property, mixed $value)
     {
-        return $this->set($property, $value);   // @phpstan-ignore-line
+        // @phpstan-ignore return.void
+        return $this->set($property, $value);
     }
 
     /**
@@ -122,7 +123,8 @@ class Filter
     public function set(string $property, mixed $value)
     {
         if (isset($this->properties[$property]) && method_exists($this, $property)) {
-            return call_user_func([$this, $property], $value);  // @phpstan-ignore-line
+            // @phpstan-ignore argument.type
+            return call_user_func([$this, $property], $value);
         }
 
         return $this;

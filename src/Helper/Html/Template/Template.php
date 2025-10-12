@@ -849,6 +849,6 @@ class Template
             }
         }
 
-        return $res;    // @phpstan-ignore-line
+        return $res;
     }
 }

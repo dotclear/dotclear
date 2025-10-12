@@ -117,8 +117,10 @@ class Certificates implements CertificatesInterface
         if (is_object($payload) && property_exists($payload, 'entries') && is_array($payload->entries)) {
             foreach ($payload->entries as $entry) {
                 if (is_object($entry) && property_exists($entry, 'metadataStatement') && is_object($entry->metadataStatement)) {
-                    $description                 = $entry->metadataStatement->description                 ?? null;  // @phpstan-ignore-line
-                    $attestationRootCertificates = $entry->metadataStatement->attestationRootCertificates ?? null;  // @phpstan-ignore-line
+                    // @phpstan-ignore property.notFound
+                    $description = $entry->metadataStatement->description ?? null;
+                    // @phpstan-ignore property.notFound
+                    $attestationRootCertificates = $entry->metadataStatement->attestationRootCertificates ?? null;
 
                     if ($description && $attestationRootCertificates) {
                         // create filename
