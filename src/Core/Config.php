@@ -505,11 +505,6 @@ class Config implements ConfigInterface
 
         // No config file and not in install process
         if (!$this->hasConfig()) {
-            // Do not process install on CLI mode
-            if ($this->cliMode()) {
-                throw new ConfigException(__('Dotclear is not installed or failed to load config file.'));
-            }
-
             // Stop configuration here on install wizard (App class takes the rest)
             return;
         }

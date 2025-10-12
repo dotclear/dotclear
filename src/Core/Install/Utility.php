@@ -24,6 +24,7 @@ use Dotclear\Core\Backend\Favorites;
 use Dotclear\Helper\Process\AbstractUtility;
 use Dotclear\Process\Install\Install;
 use Dotclear\Process\Install\Wizard;
+use Dotclear\Process\Install\Cli;
 
 /**
  * @brief   Utility class for install context.
@@ -37,6 +38,7 @@ class Utility extends AbstractUtility
     public const UTILITY_PROCESS = [
         Install::class,
         Wizard::class,
+        Cli::class,
     ];
 
     protected function getDefaultServices(): array
@@ -65,6 +67,13 @@ class Utility extends AbstractUtility
 
     public static function process(): bool
     {
+        if (App::config()->cliMode()) {
+            // In CLI mode process does the job
+            App::task()->loadProcess((new \ReflectionClass(Cli::class))->getShortName());
+
+            return true;
+        }
+
         // Call utility process from here
         App::task()->loadProcess(
             App::config()->hasConfig() ?
@@ -77,6 +86,11 @@ class Utility extends AbstractUtility
 
     public static function init(): bool
     {
-        return !App::config()->cliMode();
+        // We need to pass CLI argument to App::task()->run()
+        if (isset($_SERVER['argv'][1])) {
+            $_SERVER['DC_RC_PATH'] = $_SERVER['argv'][1];
+        }
+
+        return true;
     }
 }
