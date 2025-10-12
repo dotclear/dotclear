@@ -177,7 +177,7 @@ class Task extends AbstractSingleton implements TaskInterface
                 }
             });
         } elseif ($this->core->config()->cliMode()) {
-
+            // Config file does not exist, do nothing in CLI mode as we could not do redirection
         } elseif (!str_contains((string) $_SERVER['SCRIPT_FILENAME'], '\admin') && !str_contains((string) $_SERVER['SCRIPT_FILENAME'], '/admin')) {
             // Config file does not exist, go to install page
             Http::redirect(implode(DIRECTORY_SEPARATOR, ['admin', 'install', 'index.php']));
