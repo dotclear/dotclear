@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -13,7 +14,8 @@ use Dotclear\Core\Backend\Filter\Filters;
  */
 class adminGenericFilter extends Filters
 {
-    public function __construct(dcCore $core, string $type) // @phpstan-ignore-line
+    // @phpstan-ignore constructor.unusedParameter
+    public function __construct(dcCore $core, string $type)
     {
         parent::__construct($type);
     }

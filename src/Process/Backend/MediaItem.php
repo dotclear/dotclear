@@ -214,11 +214,11 @@ class MediaItem
                 if (count(App::backend()->file->media_meta) > 0) {
                     foreach (App::backend()->file->media_meta as $k => $v) {
                         if ($k === 'AltText') {
-                            $v[0]     = $alt;  // @phpstan-ignore-line
+                            $v[0]     = $alt;
                             $alt_done = true;
                         }
                         if ($k === 'Description') {
-                            $v[0]      = $desc;  // @phpstan-ignore-line
+                            $v[0]      = $desc;
                             $desc_done = true;
                         }
                     }
@@ -372,10 +372,13 @@ class MediaItem
                 if (!file_exists($local)) {
                     $local .= '.json';
                 }
-                if (file_exists($local) && $specifics = json_decode(file_get_contents($local) ?? '', true, 512, JSON_THROW_ON_ERROR)) {  // @phpstan-ignore-line
-                    foreach (array_keys($defaults) as $key) {
-                        $defaults[$key]       = $specifics[$key] ?? $defaults[$key];
-                        $defaults['mediadef'] = true;
+                if (file_exists($local)) {
+                    $content = file_get_contents($local);
+                    if ($content !== false && $specifics = json_decode($content, true, 512, JSON_THROW_ON_ERROR)) {
+                        foreach (array_keys($defaults) as $key) {
+                            $defaults[$key]       = $specifics[$key] ?? $defaults[$key];
+                            $defaults['mediadef'] = true;
+                        }
                     }
                 }
             } catch (Exception) {
@@ -851,7 +854,7 @@ class MediaItem
                 ]);
 
             if ($thumb_size !== 'o' && isset(App::backend()->file->media_thumb[$thumb_size])) {
-                $path_info  = Path::info(App::backend()->file->file);   // @phpstan-ignore-line
+                $path_info  = Path::info(App::backend()->file->file);   // @phpstan-ignore-line (undefined property object::$file)
                 $thumb_tp   = App::media()->getThumbnailFilePattern($path_info['extension']);
                 $thumb      = sprintf($thumb_tp, $path_info['dirname'], $path_info['base'], '%s');
                 $thumb_file = sprintf($thumb, $thumb_size);

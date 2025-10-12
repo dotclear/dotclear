@@ -229,9 +229,11 @@ class Handler extends AbstractHandler
     {
         if ($res instanceof mysqli_result) {
             $res->field_seek($position);
-            $finfo = $res->fetch_field();
 
-            return $finfo->name;    // @phpstan-ignore-line
+            $finfo = $res->fetch_field();
+            if ($finfo !== false) {
+                return $finfo->name;
+            }
         }
 
         return '';
@@ -249,7 +251,9 @@ class Handler extends AbstractHandler
             $res->field_seek($position);
             $finfo = $res->fetch_field();
 
-            return $this->_convert_types((string) $finfo->type); // @phpstan-ignore-line
+            if ($finfo !== false) {
+                return $this->_convert_types((string) $finfo->type);
+            }
         }
 
         return '';

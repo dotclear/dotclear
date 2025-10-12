@@ -601,7 +601,7 @@ class User
                                         (new Text(null, __('Blog:'))),
                                         (new Link())
                                             ->href(App::backend()->url()->get('admin.blog', ['id' => Html::escapeHTML($k)]))
-                                            ->text(Html::escapeHTML($v['name'])), // @phpstan-ignore-line
+                                            ->text(Html::escapeHTML($v['name'])),
                                         (new Text(null, '(' . Html::escapeHTML($k) . ')')),
                                     ]),
                                 (new Ul())

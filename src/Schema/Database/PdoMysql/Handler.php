@@ -64,9 +64,10 @@ class Handler extends AbstractPdoHandler
     {
         if ($res instanceof PDOStatement) {
             $type = $res->getColumnMeta($position)['pdo_type'] ?? '';
+            $type = (string) $type;
 
             if ($type !== '') {
-                return $this->_convert_types((string) $type); // @phpstan-ignore-line
+                return $this->_convert_types($type);
             }
         }
 

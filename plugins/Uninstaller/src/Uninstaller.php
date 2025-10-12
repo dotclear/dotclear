@@ -114,7 +114,7 @@ class Uninstaller
         $this->direct_actions = [];
 
         foreach ($modules as $module) {
-            if (!($module instanceof ModuleDefine)) {   // @phpstan-ignore-line
+            if (!($module instanceof ModuleDefine)) {   // @phpstan-ignore-line conflict with PHPDoc
                 continue;
             }
             $class = $module->get('namespace') . '\\' . self::UNINSTALL_CLASS_NAME;

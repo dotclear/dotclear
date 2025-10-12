@@ -19,7 +19,8 @@ class flatImport extends flatImportV2
     /**
      * Constructs a new instance.
      */
-    public function __construct(dcCore $core, string $file)    // @phpstan-ignore-line
+    // @phpstan-ignore constructor.unusedParameter
+    public function __construct(dcCore $core, string $file)
     {
         parent::__construct($file);
     }

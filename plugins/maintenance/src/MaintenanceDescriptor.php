@@ -90,4 +90,16 @@ class MaintenanceDescriptor
     {
         return isset($this->options[$key]);
     }
+
+    // Specialized methods to reach common options as descripion, summary, ...
+
+    public function description(): ?string
+    {
+        return $this->option('description');
+    }
+
+    public function summary(): ?string
+    {
+        return $this->option('summary');
+    }
 }

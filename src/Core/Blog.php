@@ -1178,8 +1178,13 @@ class Blog implements BlogInterface
             # --BEHAVIOR-- coreBlogGetPosts -- MetaRecord
             $this->core->behavior()->callBehavior('coreBlogGetPosts', $rs);
 
+            /**
+             * @var array{rs:null|Record|MetaRecord, params:ArrayObject<array-key, mixed>, count_only:bool}
+             */
+            $alt = ['rs' => null, 'params' => $params, 'count_only' => $count_only];
+            $alt = new ArrayObject($alt);
+
             # --BEHAVIOR-- coreBlogAfterGetPosts -- MetaRecord, ArrayObject
-            $alt = new ArrayObject(['rs' => null, 'params' => $params, 'count_only' => $count_only]);
             $this->core->behavior()->callBehavior('coreBlogAfterGetPosts', $rs, $alt);
             if ($alt['rs']) {
                 if ($alt['rs'] instanceof Record) { // @phpstan-ignore-line
