@@ -83,11 +83,6 @@
       <code><![CDATA[$this->tables[$tname]]]></code>
     </EmptyArrayAccess>
   </file>
-  <file src="src/Helper/Date.php">
-    <UndefinedMethod>
-      <code><![CDATA[setGregorianChange]]></code>
-    </UndefinedMethod>
-  </file>
   <file src="src/Helper/Diff/Diff.php">
     <InvalidOperand>
       <code><![CDATA[$m[1]]]></code>
@@ -99,20 +94,13 @@
       <code><![CDATA[!is_array($imageinfo)]]></code>
     </TypeDoesNotContainType>
   </file>
-  <file src="src/Helper/Html/HtmlFilter.php">
-    <InvalidCast>
-      <code><![CDATA[$tidy]]></code>
-    </InvalidCast>
-  </file>
   <file src="src/Helper/Html/Pager.php">
     <RedundantCast>
       <code><![CDATA[(string) $_SERVER['REQUEST_URI']]]></code>
     </RedundantCast>
   </file>
   <file src="src/Helper/Html/Template/Template.php">
-    <InvalidGlobal>
-      <code><![CDATA[global ${self::$_n};]]></code>
-    </InvalidGlobal>
+    <InvalidGlobal/>
   </file>
   <file src="src/Helper/Network/Feed/Parser.php">
     <RedundantCast>
@@ -160,14 +148,6 @@
       <code><![CDATA[is_array($_FILES['upfile']['error'])]]></code>
       <code><![CDATA[is_array($_FILES['upfile']['size'])]]></code>
     </TypeDoesNotContainType>
-  </file>
-  <file src="src/Process/Backend/MediaItem.php">
-    <RedundantCondition>
-      <code><![CDATA[file_get_contents($local)]]></code>
-    </RedundantCondition>
-    <TypeDoesNotContainNull>
-      <code><![CDATA['']]></code>
-    </TypeDoesNotContainNull>
   </file>
   <file src="src/Process/Backend/UserPreferences.php">
     <InvalidArrayOffset>

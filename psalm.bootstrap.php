@@ -35,7 +35,7 @@ $__autoload = [
 spl_autoload_register(function ($name) use ($__autoload) {if (isset($__autoload[$name])) { require_once $__autoload[$name]; }});
 
 // Load PHPGlobal helper
-require_once implode(DIRECTORY_SEPARATOR, [__DIR__, 'src', 'PHPGlobal.php']);
+require_once implode(DIRECTORY_SEPARATOR, [__DIR__, 'src', 'Functions.php']);
 
 // Ensure L10n functions exist
 require_once implode(DIRECTORY_SEPARATOR, [__DIR__, 'src', 'Helper','L10n.php']);
