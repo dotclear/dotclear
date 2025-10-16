@@ -16,8 +16,8 @@ if (typeof dotclear.data.systemFont !== 'undefined') {
 }
 // set theme mode (dark/light/…)
 dotclear.data.theme = 'light';
-if (['light', 'dark'].includes(document.documentElement.getAttribute('data-theme'))) {
-  dotclear.data.theme = document.documentElement.getAttribute('data-theme');
+if (['light', 'dark'].includes(document.documentElement.dataset?.theme)) {
+  dotclear.data.theme = document.documentElement.dataset.theme;
 } else if (window?.matchMedia('(prefers-color-scheme: dark)').matches) {
   dotclear.data.theme = 'dark';
 }
@@ -1213,7 +1213,7 @@ dotclear.ready(() => {
   // Set theme class
   body.classList.add(`${dotclear.data.theme}-mode`);
   dotclear.data.darkMode = dotclear.data.theme === 'dark' ? 1 : 0;
-  if (document.documentElement.getAttribute('data-theme') === '') {
+  if (!document.documentElement.dataset?.theme) {
     // Theme is set to automatic, keep an eye on system change
     dotclear.theme_OS = window.matchMedia('(prefers-color-scheme: dark)');
     const switchScheme = (e) => {
@@ -1256,10 +1256,10 @@ dotclear.ready(() => {
   const observer = new MutationObserver((mutations) => {
     for (const mutation of mutations) {
       let theme;
-      if (mutation.target.getAttribute('data-theme') === '') {
-        theme = window.matchMedia('(prefers-color-scheme: dark)') ? 'dark' : 'light';
+      if (!mutation.target.dataset?.theme) {
+        theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
       } else {
-        theme = mutation.target.getAttribute('data-theme');
+        theme = mutation.target.dataset.theme;
       }
       body.classList.remove(`${dotclear.data.theme}-mode`);
       dotclear.data.theme = theme;
@@ -1275,9 +1275,9 @@ dotclear.ready(() => {
   if (dotclear.debug) {
     // debug mode: double click on header switch current theme
     header.addEventListener('dblclick', (_e) => {
-      let { theme } = document.documentElement.dataset;
-      if (theme == null || theme === '') {
-        theme = window.matchMedia('(prefers-color-scheme: dark)') ? 'dark' : 'light';
+      let theme = document.documentElement.dataset?.theme;
+      if (!theme) {
+        theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
       }
       // Set new theme, the application will be cope by the mutation observer (see above)
       document.documentElement.dataset.theme = theme === 'dark' ? 'light' : 'dark';
