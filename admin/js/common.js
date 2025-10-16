@@ -18,12 +18,12 @@ if (typeof dotclear.data.systemFont !== 'undefined') {
 dotclear.data.theme = 'light';
 if (['light', 'dark'].includes(document.documentElement.dataset?.theme)) {
   dotclear.data.theme = document.documentElement.dataset.theme;
-} else if (window?.matchMedia('(prefers-color-scheme: dark)').matches) {
+} else if (globalThis?.matchMedia('(prefers-color-scheme: dark)').matches) {
   dotclear.data.theme = 'dark';
 }
 // Cope with low data requirement
 dotclear.data.lowdata = false;
-if (window?.matchMedia('(prefers-reduced-data: reduce)').matches) {
+if (globalThis?.matchMedia('(prefers-reduced-data: reduce)').matches) {
   dotclear.data.lowdata = true;
 }
 document.documentElement.style.setProperty('--dark-mode', dotclear.data.theme === 'dark' ? '1' : '0');
@@ -157,7 +157,7 @@ dotclear.acceptsKeyboardInput = (element) => {
  * @since   2.33
  */
 dotclear.confirm = (message, event = null) => {
-  if (window.confirm(message)) return true;
+  if (globalThis.confirm(message)) return true;
   event?.preventDefault();
   event?.stopPropagation();
   return false;
@@ -764,7 +764,7 @@ dotclear.postsActionsHelper = () => {
     if (this.querySelector('select[name="action"]')?.value === 'delete') {
       const nb = this.querySelectorAll('input[name="entries[]"]:checked')?.length;
       if (nb) {
-        if (window.confirm(dotclear.msg.confirm_delete_posts.replace('%s', nb))) return true;
+        if (globalThis.confirm(dotclear.msg.confirm_delete_posts.replace('%s', nb))) return true;
         event.preventDefault();
         return false;
       }
@@ -780,7 +780,7 @@ dotclear.commentsActionsHelper = () => {
     if (this.querySelector('select[name="action"]')?.value === 'delete') {
       const nb = this.querySelectorAll('input[name="comments[]"]:checked')?.length;
       if (nb) {
-        if (window.confirm(dotclear.msg.confirm_delete_comments.replace('%s', nb))) return true;
+        if (globalThis.confirm(dotclear.msg.confirm_delete_comments.replace('%s', nb))) return true;
         event.preventDefault();
         return false;
       }
@@ -807,14 +807,14 @@ dotclear.outgoingLinks = (target) => {
     ) {
       continue;
     }
-    element.title = `${element.title} (${dotclear.msg.new_window})`;
+    element.title = `${element.title} (${dotclear.msg.new_globalThis})`;
     if (!element.classList.contains('outgoing')) {
       element.innerHTML += '&nbsp;<img class="outgoing-js" src="images/outgoing-link.svg" alt="">';
       element.classList.add('outgoing');
     }
     element.addEventListener('click', (e) => {
       e.preventDefault();
-      window.open(element.href);
+      globalThis.open(element.href);
     });
   }
 };
@@ -1026,7 +1026,7 @@ dotclear.services = (
   params = {}, // Optional parameters
 ) => {
   if (dotclear.servicesOff) return;
-  const service = new URL(dotclear.servicesUri, window.location.origin + window.location.pathname);
+  const service = new URL(dotclear.servicesUri, globalThis.location.origin + globalThis.location.pathname);
   dotclear.mergeDeep(params, { f: fn, xd_check: dotclear.nonce });
   const init = { method: get ? 'GET' : 'POST' };
   // Cope with parameters
@@ -1214,7 +1214,7 @@ dotclear.ready(() => {
   dotclear.data.darkMode = dotclear.data.theme === 'dark' ? 1 : 0;
   if (!document.documentElement.dataset?.theme) {
     // Theme is set to automatic, keep an eye on system change
-    dotclear.theme_OS = window.matchMedia('(prefers-color-scheme: dark)');
+    dotclear.theme_OS = globalThis.matchMedia('(prefers-color-scheme: dark)');
     const switchScheme = (e) => {
       const theme = e.matches ? 'dark' : 'light';
       if (theme === dotclear.data.theme) {
@@ -1243,7 +1243,7 @@ dotclear.ready(() => {
   }
 
   // Accssibility flags
-  const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const mediaQuery = globalThis.matchMedia('(prefers-reduced-motion: reduce)');
   if (mediaQuery) {
     dotclear.animationisReduced = mediaQuery.matches === true;
     mediaQuery.onchange = (event) => {
@@ -1258,7 +1258,7 @@ dotclear.ready(() => {
       if (['light', 'dark'].includes(mutation.target.dataset?.theme)) {
         theme = mutation.target.dataset.theme;
       } else {
-        theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        theme = globalThis.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
       }
       body.classList.remove(`${dotclear.data.theme}-mode`);
       dotclear.data.theme = theme;
@@ -1276,7 +1276,7 @@ dotclear.ready(() => {
     header.addEventListener('dblclick', (_e) => {
       let theme = document.documentElement.dataset?.theme;
       if (!theme) {
-        theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        theme = globalThis.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
       }
       // Set new theme, the application will be cope by the mutation observer (see above)
       document.documentElement.dataset.theme = theme === 'dark' ? 'light' : 'dark';
@@ -1315,7 +1315,7 @@ dotclear.ready(() => {
       return;
     }
     event.preventDefault();
-    window.close();
+    globalThis.close();
     return false;
   });
 
@@ -1433,9 +1433,9 @@ dotclear.ready(() => {
             document.scrollingElement.scrollTop = cosParameter + cosParameter * Math.cos(scrollCount);
           }
           oldTimestamp = newTimestamp;
-          window.requestAnimationFrame(step);
+          globalThis.requestAnimationFrame(step);
         };
-        window.requestAnimationFrame(step);
+        globalThis.requestAnimationFrame(step);
       };
       scrollToTop(800);
     }
@@ -1447,7 +1447,7 @@ dotclear.ready(() => {
   if (searchinput) {
     // Intercept quick menu prefix key
     const quickMenuPrefix = dotclear.data.quickMenuPrefix || ':';
-    window.addEventListener('keyup', (event) => {
+    globalThis.addEventListener('keyup', (event) => {
       if (!document.activeElement.nodeName || dotclear.acceptsKeyboardInput(document.activeElement)) {
         return;
       }
@@ -1480,7 +1480,7 @@ dotclear.ready(() => {
   // Navigation arrow keys (left/right)
   const goprev = document.querySelector('.nav_prevnext > .prev');
   if (goprev) {
-    window.addEventListener('keyup', (e) => {
+    globalThis.addEventListener('keyup', (e) => {
       if (!document.activeElement.nodeName || dotclear.acceptsKeyboardInput(document.activeElement)) {
         return;
       }
@@ -1492,7 +1492,7 @@ dotclear.ready(() => {
   }
   const gonext = document.querySelector('.nav_prevnext > .next');
   if (gonext) {
-    window.addEventListener('keyup', (e) => {
+    globalThis.addEventListener('keyup', (e) => {
       if (!document.activeElement.nodeName || dotclear.acceptsKeyboardInput(document.activeElement)) {
         return;
       }
