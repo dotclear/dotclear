@@ -7,11 +7,11 @@ dotclear.data = dotclear.getData('dotclear_init');
 /* Set some CSS variables here
 -------------------------------------------------------- */
 // set base font-size of body (62.5% default, usually : 50% to 75%)
-if (typeof dotclear.data.htmlFontSize !== 'undefined') {
+if (dotclear.data.htmlFontSize !== 'undefined') {
   document.documentElement.style.setProperty('--html-font-size', dotclear.data.htmlFontSize);
 }
 // Back to system font if necessary
-if (typeof dotclear.data.systemFont !== 'undefined') {
+if (dotclear.data.systemFont !== 'undefined') {
   document.documentElement.style.setProperty('--dc-font', 'dotclear');
 }
 // set theme mode (dark/light/…)
@@ -524,7 +524,7 @@ dotclear.helpViewer = (selector) => {
         }
       },
       {
-        threshold: [1.0],
+        threshold: [1],
         trackVisibility: true,
         delay: 100, // Set a minimum delay between notifications
       },
@@ -718,7 +718,7 @@ dotclear.checkboxesHelpers = (area, target, checkboxes, submit) => {
     `<button type="button" class="checkbox-helper select-all">${dotclear.msg.select_all}</button>`,
   );
   btn_all.addEventListener('click', (event) => {
-    dotclear.check(target !== undefined ? target : form.querySelectorAll('input[type="checkbox"]:not(:disabled)'));
+    dotclear.check(target === undefined ? form.querySelectorAll('input[type="checkbox"]:not(:disabled)') : target);
     if (checkboxes !== undefined && submit !== undefined) {
       dotclear.condSubmit(checkboxes, submit);
     }
@@ -729,7 +729,7 @@ dotclear.checkboxesHelpers = (area, target, checkboxes, submit) => {
     `<button type="button" class="checkbox-helper select-none">${dotclear.msg.no_selection}</button>`,
   );
   btn_none.addEventListener('click', (event) => {
-    dotclear.unCheck(target !== undefined ? target : form.querySelectorAll('input[type="checkbox"]:not(:disabled)'));
+    dotclear.unCheck(target === undefined ? form.querySelectorAll('input[type="checkbox"]:not(:disabled)') : target);
     if (checkboxes !== undefined && submit !== undefined) {
       dotclear.condSubmit(checkboxes, submit);
     }
@@ -740,7 +740,7 @@ dotclear.checkboxesHelpers = (area, target, checkboxes, submit) => {
     `<button type="button" class="checkbox-helper select-reverse">${dotclear.msg.invert_sel}</button>`,
   );
   btn_invert.addEventListener('click', (event) => {
-    dotclear.toggleCheck(target !== undefined ? target : form.querySelectorAll('input[type="checkbox"]:not(:disabled)'));
+    dotclear.toggleCheck(target === undefined ? form.querySelectorAll('input[type="checkbox"]:not(:disabled)') : target);
     if (checkboxes !== undefined && submit !== undefined) {
       dotclear.condSubmit(checkboxes, submit);
     }
@@ -935,8 +935,7 @@ dotclear.badge = (elt, options = null) => {
 
   // Compose badge classes
   const classes = ['badge'];
-  classes.push(`badge-${opt.id}`);
-  classes.push(opt.inline ? 'badge-inline' : 'badge-block');
+  classes.push(`badge-${opt.id}`, opt.inline ? 'badge-inline' : 'badge-block');
   if (opt.icon) classes.push('badge-icon');
   if (opt.type) classes.push(`badge-${opt.type}`);
   if (opt.left) classes.push('badge-left');
@@ -1049,7 +1048,7 @@ dotclear.services = (
   fetch(service, init)
     .then((promise) => {
       if (!promise.ok) {
-        throw Error(promise.statusText);
+        throw new Error(promise.statusText);
       }
       // Return a promise of text representation of body -> response
       return promise.text();
@@ -1256,10 +1255,10 @@ dotclear.ready(() => {
   const observer = new MutationObserver((mutations) => {
     for (const mutation of mutations) {
       let theme;
-      if (!mutation.target.dataset?.theme) {
-        theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-      } else {
+      if (['light', 'dark'].includes(mutation.target.dataset?.theme)) {
         theme = mutation.target.dataset.theme;
+      } else {
+        theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
       }
       body.classList.remove(`${dotclear.data.theme}-mode`);
       dotclear.data.theme = theme;
@@ -1296,7 +1295,7 @@ dotclear.ready(() => {
     if (child.nodeType !== Node.COMMENT_NODE) {
       continue;
     }
-    const data = child.data.replace(/ /g, '&nbsp;').replace(/\n/g, '<br>').replace(/\n/g, '<br>');
+    const data = child.data.replaceAll(' ', '&nbsp;').replaceAll('\n', '<br>').replaceAll('\n', '<br>');
     const dcnet = document.querySelector('#footer a');
     if (!dcnet) {
       continue;
@@ -1396,7 +1395,7 @@ dotclear.ready(() => {
         }
       },
       {
-        threshold: [1.0],
+        threshold: [1],
         trackVisibility: true,
         delay: 100, // Set a minimum delay between notifications
       },
