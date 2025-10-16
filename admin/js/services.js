@@ -68,7 +68,7 @@ dotclear.getEntryContent = (postId, callback, options) => {
       post_type: opt.type,
     },
     (error) => {
-      if (opt.alert) window.alert(error);
+      if (opt.alert) globalThis.alert(error);
       callback(res);
     },
   );
@@ -142,7 +142,7 @@ dotclear.getCommentContent = (commentId, callback, options) => {
       id: commentId,
     },
     (error) => {
-      if (opt.alert) window.alert(error);
+      if (opt.alert) globalThis.alert(error);
       callback(res);
     },
   );

@@ -158,7 +158,7 @@ dotclear.confirmClose = class {
   }
 };
 
-window.addEventListener('load', () => {
+globalThis.addEventListener('load', () => {
   const confirm_close = dotclear.getData('confirm_close');
 
   dotclear.confirmClosePage = new dotclear.confirmClose(...confirm_close.forms);
@@ -188,7 +188,7 @@ window.addEventListener('load', () => {
   }
 });
 
-window.addEventListener('beforeunload', (event) => {
+globalThis.addEventListener('beforeunload', (event) => {
   if (
     !(
       dotclear.confirmClosePage !== undefined &&

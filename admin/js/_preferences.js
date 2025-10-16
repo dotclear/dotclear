@@ -67,7 +67,7 @@ dotclear.ready(() => {
           if (typeof o[k] === 'string') {
             const s = o[k];
             if (s.startsWith(pre) && s.endsWith(suf)) {
-              const b = window.atob(s.substring(pre.length, s.length - suf.length));
+              const b = globalThis.atob(s.substring(pre.length, s.length - suf.length));
               const u = new Uint8Array(b.length);
               for (let i = 0; i < b.length; i++) {
                 u[i] = b.charCodeAt(i);
@@ -112,8 +112,8 @@ dotclear.ready(() => {
                   if (processCreate.success === false) {
                     throw new Error(prepareCreate.message || 'unknown error occured');
                   }
-                  //window.alert(processCreate.message);
-                  window.location.reload();
+                  //globalThis.alert(processCreate.message);
+                  globalThis.location.reload();
                 },
                 {
                   json: 1,

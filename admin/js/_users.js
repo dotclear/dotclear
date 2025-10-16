@@ -35,7 +35,7 @@ dotclear.ready(() => {
         }
       }
       if (msg_cannot_delete) {
-        window.alert(dotclear.msg.cannot_delete_users);
+        globalThis.alert(dotclear.msg.cannot_delete_users);
       }
     }
 
@@ -49,7 +49,7 @@ dotclear.ready(() => {
     }
 
     if (action === 'deleteuser') {
-      if (window.confirm(dotclear.msg.confirm_delete_user.replace('%s', $('input[name="users[]"]:checked').length)))
+      if (globalThis.confirm(dotclear.msg.confirm_delete_user.replace('%s', $('input[name="users[]"]:checked').length)))
         return true;
       event.preventDefault();
       return false;

@@ -65,7 +65,7 @@ dotclear.ready(() => {
   // Static home URL selector helper
   const staticUrlSelector = document.getElementById('static_home_url_selector');
   staticUrlSelector?.addEventListener('click', (e) => {
-    window.open(
+    globalThis.open(
       dotclear.blog_pref.popup_posts,
       'dc_popup',
       'alwaysRaised=yes,dependent=yes,toolbar=yes,height=500,width=760,menubar=no,resizable=yes,scrollbars=yes,status=no',

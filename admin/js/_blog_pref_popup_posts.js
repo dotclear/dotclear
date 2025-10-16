@@ -10,7 +10,7 @@ dotclear.ready(() => {
   const cancel = document.getElementById('link-insert-cancel');
   if (cancel)
     cancel.addEventListener('click', () => {
-      window.close();
+      globalThis.close();
     });
 
   const entries = document.querySelectorAll('#form-entries tr>td.maximal>a');
@@ -20,7 +20,7 @@ dotclear.ready(() => {
         dotclear.base_url !== '' && url.startsWith(dotclear.base_url) ? url.substring(dotclear.base_url.length) : url;
 
       // Get entry URL
-      const main = window.opener;
+      const main = globalThis.opener;
       if (main) {
         const title = stripBaseURL(entry.getAttribute('title'));
 
@@ -32,7 +32,7 @@ dotclear.ready(() => {
         main.document.getElementById(dotclear.sibling).setAttribute('value', href);
       }
 
-      window.close();
+      globalThis.close();
     });
   }
 });

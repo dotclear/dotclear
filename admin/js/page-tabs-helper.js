@@ -66,7 +66,7 @@ dotclear.ready(() => {
      * @return     {string}  The location hash.
      */
     const getLocationHash = () => {
-      const hashParts = getHash(window.location.hash).split('.');
+      const hashParts = getHash(globalThis.location.hash).split('.');
       return hashParts[0];
     };
 
@@ -76,7 +76,7 @@ dotclear.ready(() => {
      * @return     {string}  The location subhash.
      */
     const getLocationSubhash = () => {
-      const hashParts = getHash(window.location.hash).split('.');
+      const hashParts = getHash(globalThis.location.hash).split('.');
       return hashParts[1];
     };
 
@@ -87,7 +87,7 @@ dotclear.ready(() => {
     const subhash = getLocationSubhash();
 
     if (hash) {
-      window.scrollTo(0, 0);
+      globalThis.scrollTo(0, 0);
       activeTab = hash;
     } else if (!activeTab) {
       // open first part
@@ -138,7 +138,7 @@ dotclear.ready(() => {
         partToActivate.dispatchEvent(new Event('tabload'));
       });
 
-      window.addEventListener('hashchange', () => {
+      globalThis.addEventListener('hashchange', () => {
         clickTab(getLocationHash(), options);
       });
 

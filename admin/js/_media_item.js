@@ -51,7 +51,7 @@ dotclear.ready(() => {
         },
         { id: mediaId },
         (error) => {
-          window.alert(error);
+          globalThis.alert(error);
         },
       );
       return false;
@@ -61,7 +61,7 @@ dotclear.ready(() => {
   // Confirm for inflating in current directory
   $('#file-unzip').on('submit', function (event) {
     if ($(this).find('#inflate_mode').val() === 'current') {
-      if (window.confirm(dotclear.msg.confirm_extract_current)) return true;
+      if (globalThis.confirm(dotclear.msg.confirm_extract_current)) return true;
       event.preventDefault();
       return false;
     }
@@ -71,7 +71,7 @@ dotclear.ready(() => {
   // Confirm for deleting current media
   $('#delete-form input[name="delete"]').on('click', () => {
     const m_name = $('#delete-form input[name="remove"]').val();
-    return window.confirm(dotclear.msg.confirm_delete_media.replace('%s', decodeURIComponent(m_name)));
+    return globalThis.confirm(dotclear.msg.confirm_delete_media.replace('%s', decodeURIComponent(m_name)));
   });
 
   // Get current insertion settings

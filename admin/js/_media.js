@@ -171,7 +171,7 @@ dotclear.ready(() => {
       e.preventDefault();
       return false;
     }
-    return window.confirm(dotclear.msg.confirm_delete_medias.replace('%d', count_checked));
+    return globalThis.confirm(dotclear.msg.confirm_delete_medias.replace('%d', count_checked));
   });
 
   // Preview media
@@ -211,7 +211,7 @@ dotclear.ready(() => {
         $(this).parents('div.media-folder').length === 0
           ? dotclear.msg.confirm_delete_media.replace('%s', m_name)
           : dotclear.msg.confirm_delete_directory.replace('%s', m_name);
-      if (window.confirm(m_text)) {
+      if (globalThis.confirm(m_text)) {
         const f = $('#media-remove-hide').get(0);
         f.elements.remove.value = this.href.replace(/^(.*)&remove=(.*?)(&|$)/, '$2');
         this.href = '';
@@ -225,7 +225,7 @@ dotclear.ready(() => {
   const urlmenu = document.getElementById('switchfolder');
   if (urlmenu) {
     urlmenu.onchange = function () {
-      window.location = this.options[this.selectedIndex].value;
+      globalThis.location = this.options[this.selectedIndex].value;
     };
   }
 });

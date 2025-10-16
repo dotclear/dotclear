@@ -102,7 +102,7 @@ dotclear.passwordStrength = (opts) => {
       passwordField.after(meter);
     }
     // Adjust meter size (displayed below password field)
-    meter.style.width = window.getComputedStyle(passwordField).getPropertyValue('width');
+    meter.style.width = globalThis.getComputedStyle(passwordField).getPropertyValue('width');
     passwordField.addEventListener('keyup', updateMeter);
   }
 };

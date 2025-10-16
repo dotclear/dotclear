@@ -81,7 +81,7 @@ dotclear.ready(() => {
       if (mvalues) {
         // confirm delete
         if (action === 'delete') {
-          return window.confirm(dotclear.msg.confirm_delete_plugin.replace('%s', mvalues[1]));
+          return globalThis.confirm(dotclear.msg.confirm_delete_plugin.replace('%s', mvalues[1]));
         }
       } else {
         let checked = false;
@@ -104,7 +104,7 @@ dotclear.ready(() => {
 
         // confirm delete
         if (action === 'delete') {
-          if (window.confirm(dotclear.msg.confirm_delete_plugins)) return true;
+          if (globalThis.confirm(dotclear.msg.confirm_delete_plugins)) return true;
           event.preventDefault();
           return false;
         }

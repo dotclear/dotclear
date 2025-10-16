@@ -46,11 +46,13 @@ dotclear.ready(() => {
   dotclear.adblockCheck = (msg) => {
     const ads = document.getElementById(bait_id);
     const adblocker_on =
-      ads === null || window.getComputedStyle(ads).display === 'none' || window.getComputedStyle(ads).display === 'hidden';
+      ads === null ||
+      globalThis.getComputedStyle(ads).display === 'none' ||
+      globalThis.getComputedStyle(ads).display === 'hidden';
     if (msg && adblocker_on) {
       // An adblocker has remove the pseudo advertising block or
       // An adblocker has set display property of the pseudo advertising block to none
-      window.alert(msg);
+      globalThis.alert(msg);
     }
     // Remove pseudo advertising block in page
     if (ads !== null) {

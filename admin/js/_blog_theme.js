@@ -87,7 +87,7 @@ dotclear.ready(() => {
 
           // confirm delete
           if (action === 'delete') {
-            if (window.confirm(dotclear.msg.confirm_delete_theme.replace('%s', module))) return true;
+            if (globalThis.confirm(dotclear.msg.confirm_delete_theme.replace('%s', module))) return true;
             event.preventDefault();
             return false;
           }
@@ -114,7 +114,7 @@ dotclear.ready(() => {
 
           // confirm delete
           if (action === 'delete') {
-            if (window.confirm(dotclear.msg.confirm_delete_themes)) return true;
+            if (globalThis.confirm(dotclear.msg.confirm_delete_themes)) return true;
             event.preventDefault();
             return false;
           }
@@ -124,47 +124,6 @@ dotclear.ready(() => {
       });
     }
   }
-
-  // Theme preview
-  for (const preview of document.querySelectorAll('.theme-preview')) {
-    const url = preview.href;
-    if (url) {
-      const modal = preview.classList.contains('modal');
-      // Check if admin and blog have same protocol (ie not mixed-content)
-      if (modal && window.location.protocol === url.substring(0, window.location.protocol.length)) {
-        // Open preview in a modal iframe
-        jQuery(preview).magnificPopup({
-          type: 'iframe',
-          iframe: {
-            patterns: {
-              dotclear_preview: {
-                index: url,
-                src: url,
-              },
-            },
-          },
-        });
-      } else if (modal) {
-        // If has not modal class, the preview is cope by direct link with target="blank" in HTML
-        // Open preview on antother window
-        preview.addEventListener('click', (event) => {
-          event.preventDefault();
-          window.open(event.currentTarget.href);
-        });
-      }
-    }
-  }
-
-  // Prevent history back if currently previewing Theme (with magnificPopup)
-  history.pushState(null, '', null);
-  window.addEventListener('popstate', () => {
-    if (document.querySelector('.mfp-ready')) {
-      // Prevent history back
-      history.go(1);
-      // Close current preview
-      jQuery.magnificPopup.close();
-    }
-  });
 
   dotclear.dbStoreUpdate('themes', dotclear.getData('module_update_url'));
 });

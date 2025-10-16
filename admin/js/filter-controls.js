@@ -67,10 +67,10 @@ dotclear.ready(() => {
   summary.addEventListener('click', () => {
     if (summary.classList.contains('open')) {
       if (dotclear.msg.show_filters) {
-        if (reset_url !== '?' && !window.location.href.endsWith(reset_url)) window.location.href = reset_url;
+        if (reset_url !== '?' && !globalThis.location.href.endsWith(reset_url)) globalThis.location.href = reset_url;
         return true;
       }
-      if (reset_url !== '?' && !window.location.href.endsWith(reset_url)) window.location.href = reset_url;
+      if (reset_url !== '?' && !globalThis.location.href.endsWith(reset_url)) globalThis.location.href = reset_url;
       summary.classList.remove('open');
       summary.innerText = dotclear.msg.filter_posts_list;
       return;
@@ -85,7 +85,7 @@ dotclear.ready(() => {
     dotclear.jsonServicesPost(
       'setListsOptions',
       (data) => {
-        window.alert(data.msg);
+        globalThis.alert(data.msg);
       },
       {
         id: document.getElementById('filters-options-id')?.value,
@@ -94,7 +94,7 @@ dotclear.ready(() => {
         nb: document.getElementById('nb')?.value,
       },
       (error) => {
-        window.alert(error);
+        globalThis.alert(error);
       },
     );
   });

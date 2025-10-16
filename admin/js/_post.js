@@ -80,7 +80,7 @@ dotclear.ready(() => {
         const askResetDt = (event) => {
           if (event.target.value.slice(0, 10) !== dtValue && urlField.value !== '') {
             // Date has changed and entry URL is not empty, ask for reset
-            if (window.confirm(dotclear.msg.dtchange_reseturl)) urlField.value = '';
+            if (globalThis.confirm(dotclear.msg.dtchange_reseturl)) urlField.value = '';
           }
         };
         const dtValue = dtField.value.slice(0, 10); // Keep only date (ignoring time)
@@ -94,7 +94,7 @@ dotclear.ready(() => {
         const askResetTitle = (event) => {
           if (event.target.value !== titleValue && urlField.value !== '') {
             // Title has changed and entry URL is not empty, ask for reset
-            if (window.confirm(dotclear.msg.titlechange_reseturl)) urlField.value = '';
+            if (globalThis.confirm(dotclear.msg.titlechange_reseturl)) urlField.value = '';
           }
         };
         const titleValue = titleField.value;
@@ -116,7 +116,7 @@ dotclear.ready(() => {
     const has_modal = $('#post-preview').hasClass('modal');
 
     // Check if admin and blog have same protocol (ie not mixed-content)
-    if (has_modal && window.location.protocol === preview_url.substring(0, window.location.protocol.length)) {
+    if (has_modal && globalThis.location.protocol === preview_url.substring(0, globalThis.location.protocol.length)) {
       // Open preview in a modal iframe
       $('#post-preview').magnificPopup({
         type: 'iframe',
@@ -134,13 +134,13 @@ dotclear.ready(() => {
       // Open preview on antother window
       $('#post-preview').on('click', function (e) {
         e.preventDefault();
-        window.open($(this).attr('href'));
+        globalThis.open($(this).attr('href'));
       });
     }
   }
   // Prevent history back if currently previewing Post (with magnificPopup
   history.pushState(null, null);
-  window.addEventListener('popstate', () => {
+  globalThis.addEventListener('popstate', () => {
     if (document.querySelector('.mfp-ready')) {
       // Prevent history back
       history.go(1);
@@ -154,7 +154,7 @@ dotclear.ready(() => {
     dotclear.hideLockable();
 
     // Confirm post deletion
-    $('input[name="delete"]').on('click', () => window.confirm(dotclear.msg.confirm_delete_post));
+    $('input[name="delete"]').on('click', () => globalThis.confirm(dotclear.msg.confirm_delete_post));
 
     // Hide some fields
     $('#notes-area label').toggleWithLegend($('#notes-area').children().not('label'), {
@@ -213,7 +213,7 @@ dotclear.ready(() => {
     $('a.attachment-remove').on('click', function () {
       this.href = '';
       const m_name = $(this).parents('ul').find('li:first>a').attr('title');
-      if (window.confirm(dotclear.msg.confirm_remove_attachment.replace('%s', m_name))) {
+      if (globalThis.confirm(dotclear.msg.confirm_remove_attachment.replace('%s', m_name))) {
         const f = $('#attachment-remove-hide').get(0);
         f.elements.media_id.value = this.id.substring(11);
         f.submit();

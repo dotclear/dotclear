@@ -60,7 +60,7 @@ dotclear.ready(() => {
           if (typeof o[k] === 'string') {
             const s = o[k];
             if (s.startsWith(pre) && s.endsWith(suf)) {
-              const b = window.atob(s.substring(pre.length, s.length - suf.length));
+              const b = globalThis.atob(s.substring(pre.length, s.length - suf.length));
               const u = new Uint8Array(b.length);
               for (let i = 0; i < b.length; i++) {
                 u[i] = b.charCodeAt(i);
@@ -100,11 +100,11 @@ dotclear.ready(() => {
                 (processValidate) => {
                   // error handling
                   if (processValidate.success === false) {
-                    window.alert(processValidate.message || 'failed to authenticate with passkey');
+                    globalThis.alert(processValidate.message || 'failed to authenticate with passkey');
                     //throw new Error(processValidate.message || 'webauthn: processValidate failed');
                   } else {
                     // on success, reload page to get user session from rest service
-                    window.location.reload();
+                    globalThis.location.reload();
                   }
                 },
                 {

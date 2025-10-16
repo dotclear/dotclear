@@ -61,7 +61,7 @@ dotclear.ready(() => {
 
   for (const action of document.querySelectorAll('form input[type=submit][name=delete_all_spam]')) {
     action.addEventListener('click', (event) => {
-      if (window.confirm(dotclear.msg.confirm_spam_delete)) return true;
+      if (globalThis.confirm(dotclear.msg.confirm_spam_delete)) return true;
       event.preventDefault();
       return false;
     });

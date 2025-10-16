@@ -11,7 +11,7 @@ dotclear.ready(() => {
 
   // Confirm backup deletion
   document.querySelector('#comment-form input[name="delete"]').addEventListener('click', (event) => {
-    if (window.confirm(dotclear.msg.confirm_delete_comment)) return true;
+    if (globalThis.confirm(dotclear.msg.confirm_delete_comment)) return true;
     event.preventDefault();
     return false;
   });
