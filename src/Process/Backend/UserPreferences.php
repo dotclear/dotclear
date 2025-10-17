@@ -865,6 +865,16 @@ class UserPreferences
 
                         $pass_change,
 
+                        (new Para())
+                           ->class(['clear', 'form-buttons'])
+                           ->items([
+                               App::nonce()->formNonce(),
+                               (new Submit('user-form-submit', __('Update my profile')))
+                                   ->accesskey('s'),
+                               (new Button('user-form-back', __('Back')))
+                                   ->class(['go-back', 'reset', 'hidden-if-no-js']),
+                           ]),
+
                         // otp
                         App::backend()->auth()->otp() === false ? new None() : (new Fieldset('user_options_otp'))
                             ->legend(new Legend(__('Two factors authentication')))
@@ -888,16 +898,6 @@ class UserPreferences
                             ->legend(new Legend(__('Authentication applications')))
                             ->separator('')
                             ->items($oauth2_items),
-
-                        (new Para())
-                           ->class(['clear', 'form-buttons'])
-                           ->items([
-                               App::nonce()->formNonce(),
-                               (new Submit('user-form-submit', __('Update my profile')))
-                                   ->accesskey('s'),
-                               (new Button('user-form-back', __('Back')))
-                                   ->class(['go-back', 'reset', 'hidden-if-no-js']),
-                           ]),
                     ]),
             ])
         ->render();
