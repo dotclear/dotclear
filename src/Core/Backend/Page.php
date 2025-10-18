@@ -298,8 +298,8 @@ class Page
         static::jsToggles() .
         $head;
 
-        # --BEHAVIOR-- adminPageHTMLHead
-        App::behavior()->callBehavior('adminPageHTMLHead');
+        # --BEHAVIOR-- adminPageHTMLHead -- bool true = main, false = popup
+        App::behavior()->callBehavior('adminPageHTMLHead', true);
 
         echo
         "</head>\n";
@@ -624,8 +624,8 @@ class Page
         static::jsToggles() .
             $head;
 
-        # --BEHAVIOR-- adminPageHTMLHead --
-        App::behavior()->callBehavior('adminPageHTMLHead');
+        # --BEHAVIOR-- adminPageHTMLHead -- bool true = main, false = popup
+        App::behavior()->callBehavior('adminPageHTMLHead', false);
 
         echo
         "</head>\n" .
