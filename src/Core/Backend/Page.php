@@ -553,6 +553,9 @@ class Page
             echo static::debugInfo();
         }
 
+        # --BEHAVIOR-- adminPageHTMLBody -- bool true = main, false = popup
+        App::behavior()->callBehavior('adminPageHTMLBody', true);
+
         echo
         '</body></html>';
     }
@@ -669,7 +672,12 @@ class Page
         "</main>\n" . // End of #main
         "</div>\n" .  // End of #wrapper
         $gototop->render() . "\n" .
-        '<footer id="footer" role="contentinfo"><p>&nbsp;</p></footer>' . "\n" .
+        '<footer id="footer" role="contentinfo"><p>&nbsp;</p></footer>' . "\n";
+
+        # --BEHAVIOR-- adminPageHTMLBody -- bool true = main, false = popup
+        App::behavior()->callBehavior('adminPageHTMLBody', false);
+
+        echo
         '</body></html>';
     }
 
