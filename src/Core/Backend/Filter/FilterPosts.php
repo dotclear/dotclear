@@ -11,6 +11,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Core\Backend\Filter;
 
+use Dotclear\Helper\Html\Form\Option;
+
 use ArrayObject;
 use Dotclear\App;
 use Dotclear\Helper\Html\Html;
@@ -276,7 +278,10 @@ class FilterPosts extends Filters
         return (new Filter('lang'))
             ->param('post_lang')
             ->title(__('Lang:'))
-            ->options(['-' => '', ...App::backend()->combos()->getLangsCombo($langs, false)]);
+            ->options([
+                (new Option('-', '')),
+                ...App::backend()->combos()->getLangsCombo($langs, false, true),
+            ]);
     }
 
     /**

@@ -84,11 +84,16 @@ class Manage
         App::backend()->categories_label = $categories_label;
 
         # Liste des langues utilisées
-        App::backend()->langs_combo = App::backend()->combos()->getLangsCombo(
-            App::blog()->getLangs([
-                'order' => 'asc',
-            ])
-        );
+        $langs = [];
+        $rs    = App::blog()->getLangs([
+            'order' => 'asc',
+        ]);
+        while ($rs->fetch()) {
+            $langs[] = $rs->post_lang;
+        }
+        App::backend()->langs_used = $langs;
+        $rs->moveStart();
+        App::backend()->langs_combo = App::backend()->combos()->getLangsCombo($rs, false, true);
 
         # Liste des mois d'archive
         $rs                          = App::blog()->getDates(['type' => 'month']);
@@ -149,7 +154,7 @@ class Manage
             $items['posts'] = [__('Posts'), false];
         }
 
-        if (count(App::backend()->langs_combo) > 1) {
+        if (count(App::backend()->langs_used) > 1) {
             $items['lang'] = [__('Language'), true];
         }
         if (App::backend()->categories_combo !== []) {
@@ -268,7 +273,7 @@ class Manage
 
                                 break;
                             case 'lang':
-                                App::backend()->item_select_label = array_search(App::backend()->item_select, App::backend()->langs_combo);
+                                App::backend()->item_select_label = array_search(App::backend()->item_select, App::backend()->langs_used);
                                 App::backend()->item_label        = App::backend()->item_select_label;
                                 App::backend()->item_descr        = sprintf(__('Switch to %s language'), App::backend()->item_select_label);
                                 App::backend()->item_url .= App::url()->getURLFor('lang', App::backend()->item_select);

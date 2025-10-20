@@ -161,7 +161,7 @@ class ManageEdit
     {
         // Languages combo
         $links      = App::backend()->blogroll->getLangs(['order' => 'asc']);
-        $lang_combo = App::backend()->combos()->getLangsCombo($links, true);
+        $lang_combo = App::backend()->combos()->getLangsCombo($links, true, true);
 
         $head = App::backend()->page()->jsConfirmClose('blogroll_cat', 'blogroll_link');
 

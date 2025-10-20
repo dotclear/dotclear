@@ -14,6 +14,7 @@ namespace Dotclear\Core\Backend;
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Date;
+use Dotclear\Helper\Html\Form\Optgroup;
 use Dotclear\Helper\Html\Form\Option;
 use Dotclear\Helper\Html\Html;
 
@@ -117,22 +118,40 @@ class Combos
      *
      * @param      MetaRecord  $langs           The langs
      * @param      bool        $with_available  If false, only list items from record - if true, also list available languages
+     * @param      bool        $as_component    If true, return array of OptGroup/Options rather than array of values
      *
-     * @return     array<string, mixed>   The langs combo.
+     * @return     array<string, mixed>|array<array-key, OptGroup|Option>   The langs combo.
      */
-    public static function getLangsCombo(MetaRecord $langs, bool $with_available = false): array
+    public static function getLangsCombo(MetaRecord $langs, bool $with_available = false, bool $as_component = false): array
     {
+        /**
+         * @var array<string, string> language code, language full label including code
+         */
         $all_langs = App::lang()->getISOcodes(false, true);
         $rec_langs = [];
         while ($langs->fetch()) {
             $rec_langs[$langs->post_lang] = $all_langs[$langs->post_lang] ?? $langs->post_lang;
         }
         if ($with_available) {
-            $langs_combo = [
-                ''              => '',
-                __('Most used') => array_flip($rec_langs),
-                __('Available') => array_flip(array_diff_key($all_langs, $rec_langs)),
-            ];
+            if ($as_component) {
+                $main_langs  = array_map(fn (string $code, string $label): Option => (new Option($label, $code))->lang($code), array_keys($rec_langs), array_values($rec_langs));
+                $other_langs = array_map(fn (string $code, string $label): Option => (new Option($label, $code))->lang($code), array_keys(array_diff_key($all_langs, $rec_langs)), array_values(array_diff_key($all_langs, $rec_langs)));
+                $langs_combo = [
+                    (new Option('', '')),
+                    (new Optgroup(__('Most used')))
+                        ->items($main_langs),
+                    (new Optgroup(__('Available')))
+                        ->items($other_langs),
+                ];
+            } else {
+                $langs_combo = [
+                    ''              => '',
+                    __('Most used') => array_flip($rec_langs),
+                    __('Available') => array_flip(array_diff_key($all_langs, $rec_langs)),
+                ];
+            }
+        } elseif ($as_component) {
+            $langs_combo = array_map(fn (string $code, string $label): Option => (new Option($label, $code))->lang($code), array_keys($rec_langs), array_values($rec_langs));
         } else {
             $langs_combo = array_flip($rec_langs);
         }
@@ -143,7 +162,7 @@ class Combos
     /**
      * Returns a combo containing all available and installed languages for administration pages.
      *
-     * @return     array<string, array<Option>>  The admin langs combo.
+     * @return     array<array-key, Optgroup>  The admin langs combo.
      */
     public static function getAdminLangsCombo(): array
     {
@@ -161,7 +180,12 @@ class Combos
             }
         }
 
-        return [__('Available') => $lang_combo_avail, __('Other') => $lang_combo_not_avail];
+        return [
+            (new Optgroup(__('Available')))
+                ->items($lang_combo_avail),
+            (new Optgroup(__('Other')))
+                ->items($lang_combo_not_avail),
+        ];
     }
 
     /**

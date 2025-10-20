@@ -554,7 +554,8 @@ class ActionsPostsDefault
                     'order_by' => 'nb_post',
                     'order'    => 'desc',
                 ]),
-                true    // Also show never used languages
+                true,    // Also show never used languages
+                true
             );
 
             echo (new Form('dochangepostlang'))

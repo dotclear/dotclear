@@ -148,6 +148,7 @@ class ManagePage
                 'order_by' => 'nb_post',
                 'order'    => 'desc',
             ]),
+            true,
             true
         );
 

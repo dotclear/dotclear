@@ -250,7 +250,7 @@ class Manage
 
         // Languages combo
         $links      = App::backend()->blogroll->getLangs(['order' => 'asc']);
-        $lang_combo = App::backend()->combos()->getLangsCombo($links, true);
+        $lang_combo = App::backend()->combos()->getLangsCombo($links, true, true);
 
         // Status combo
         App::backend()->status_combo = App::backend()->statuses->combo();
