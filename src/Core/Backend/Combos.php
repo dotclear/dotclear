@@ -100,12 +100,30 @@ class Combos
      * Gets the dates combo.
      *
      * @param      MetaRecord  $dates  The dates
+     * @param      bool        $as_component    If true, return array of OptGroup/Options rather than array of values
      *
-     * @return     array<string, string>   The dates combo.
+     * @return     array<string, string>|array<array-key, Option|Optgroup>   The dates combo.
      */
-    public static function getDatesCombo(MetaRecord $dates): array
+    public static function getDatesCombo(MetaRecord $dates, bool $as_component = false): array
     {
         $dt_m_combo = [];
+
+        if ($as_component) {
+            // Collect years and months
+            $years = [];
+            while ($dates->fetch()) {
+                $years[$dates->year()][$dates->month()] = $dates->ts();
+            }
+            foreach ($years as $year => $months) {
+                $dt_m_combo[] = (new Optgroup((string) $year))
+                    ->items([
+                        ... array_map(fn ($month, $ts) => (new Option(Date::str('%B %Y', $ts), $year . $month)), array_keys($months), array_values($months)),
+                    ]);
+            }
+
+            return $dt_m_combo;
+        }
+
         while ($dates->fetch()) {
             $dt_m_combo[Date::str('%B %Y', $dates->ts())] = $dates->year() . $dates->month();
         }

@@ -34,7 +34,7 @@ class Filter
     /**
      * The filter properties.
      *
-     * @var     array{'id': string, 'value': mixed, 'form': string, 'prime': bool, 'title': string, 'options': array<string, string>|array<array-key, \Dotclear\Helper\Html\Form\Optgroup|\Dotclear\Helper\Html\Form\Option>, 'html': string, 'params': array<array<int|string, mixed> >}     $properties
+     * @var     array{'id': string, 'value': mixed, 'form': string, 'prime': bool, 'title': string, 'options': array<string, string>|array<array-key, \Dotclear\Helper\Html\Form\Optgroup|\Dotclear\Helper\Html\Form\Option>, 'values': array<string, string>, 'html': string, 'params': array<array<int|string, mixed> >}     $properties
      */
     protected $properties = [
         'id'      => '',
@@ -43,6 +43,7 @@ class Filter
         'prime'   => false,
         'title'   => '',
         'options' => [],    // select options
+        'values'  => [],    // list of available values
         'html'    => '',
         'params'  => [],    // list query params (see param() method below)
     ];
@@ -181,6 +182,22 @@ class Filter
     }
 
     /**
+     * Set filter form values.
+     *
+     * If filter form is a select box, this is the select available values
+     *
+     * @param   array<mixed>    $values     The values
+     *
+     * @return  Filter  The filter instance
+     */
+    public function values(array $values): Filter
+    {
+        $this->properties['values'] = $values;
+
+        return $this;
+    }
+
+    /**
      * Set filter value.
      *
      * @param   mixed   $value  The value
@@ -261,7 +278,11 @@ class Filter
             # _GET value
             if ($this->value === null) {
                 $get = $_GET[$this->id] ?? '';
-                if ($get === '' || !in_array($get, $this->options, true)) {
+                if ($this->values === []) {
+                    // Fallback to options if no list of values was given
+                    $this->values = $this->options;
+                }
+                if ($get === '' || !in_array($get, $this->values, true)) {
                     $get = '';
                 }
                 $this->value($get);

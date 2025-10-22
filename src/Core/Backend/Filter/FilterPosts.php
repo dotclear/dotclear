@@ -249,7 +249,14 @@ class FilterPosts extends Filters
             ->param('post_month', fn ($f): string => substr((string) $f[0], 4, 2))
             ->param('post_year', fn ($f): string => substr((string) $f[0], 0, 4))
             ->title(__('Month:'))
-            ->options(['-' => '', ...App::backend()->combos()->getDatesCombo($dates)]);
+            ->values([
+                '-' => '',
+                ...App::backend()->combos()->getDatesCombo($dates),
+            ])
+            ->options([
+                (new Option('-', '')),
+                ...App::backend()->combos()->getDatesCombo($dates, true),
+            ]);
     }
 
     /**
@@ -278,9 +285,13 @@ class FilterPosts extends Filters
         return (new Filter('lang'))
             ->param('post_lang')
             ->title(__('Lang:'))
+            ->values([
+                '-' => '',
+                ... App::backend()->combos()->getLangsCombo($langs, false),
+            ])
             ->options([
                 (new Option('-', '')),
-                ...App::backend()->combos()->getLangsCombo($langs, false, true),
+                ... App::backend()->combos()->getLangsCombo($langs, false, true),
             ]);
     }
 
