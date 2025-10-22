@@ -387,9 +387,9 @@ class Blogs implements BlogsInterface
                     'Load Legacy JS library', ],
                 ['sleepmode_timeout', $this->core->blogWorkspace()::NS_INT, 31536000,
                     'Sleep mode timeout', ],
-                ['store_plugin_url', $this->core->blogWorkspace()::NS_STRING, 'https://update.dotaddict.org/dc2/plugins.xml',
+                ['store_plugin_url', $this->core->blogWorkspace()::NS_STRING, $this->core->config()->release('store_plugin_url'),
                     'Plugins XML feed location', ],
-                ['store_theme_url', $this->core->blogWorkspace()::NS_STRING, 'https://update.dotaddict.org/dc2/themes.xml',
+                ['store_theme_url', $this->core->blogWorkspace()::NS_STRING, $this->core->config()->release('store_theme_url'),
                     'Themes XML feed location', ],
             ];
         }
