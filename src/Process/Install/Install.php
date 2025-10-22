@@ -271,8 +271,8 @@ class Install
                 $blog_settings->system->put('time_formats', $time_formats, 'array', 'Time formats examples', true, true);
 
                 # Add repository URL for themes and plugins
-                $blog_settings->system->put('store_plugin_url', 'https://update.dotaddict.org/dc2/plugins.xml', 'string', 'Plugins XML feed location', true, true);
-                $blog_settings->system->put('store_theme_url', 'https://update.dotaddict.org/dc2/themes.xml', 'string', 'Themes XML feed location', true, true);
+                $blog_settings->system->put('store_plugin_url', App::config()->release('store_plugin_url'), 'string', 'Plugins XML feed location', true, true);
+                $blog_settings->system->put('store_theme_url', App::config()->release('store_theme_url'), 'string', 'Themes XML feed location', true, true);
 
                 # CSP directive (admin part)
 

@@ -300,9 +300,9 @@ class Cli
             self::dot();
 
             # Add repository URL for themes and plugins
-            $blog_settings->system->put('store_plugin_url', 'https://update.dotaddict.org/dc2/plugins.xml', 'string', 'Plugins XML feed location', true, true);
+            $blog_settings->system->put('store_plugin_url', App::config()->release('store_plugin_url'), 'string', 'Plugins XML feed location', true, true);
             self::dot();
-            $blog_settings->system->put('store_theme_url', 'https://update.dotaddict.org/dc2/themes.xml', 'string', 'Themes XML feed location', true, true);
+            $blog_settings->system->put('store_theme_url', App::config()->release('store_theme_url'), 'string', 'Themes XML feed location', true, true);
             self::dot();
 
             // CSP directive (admin part)
