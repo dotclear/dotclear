@@ -10,6 +10,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\simpleMenu;
 
+use Dotclear\Helper\Html\Form\Option;
+
 use ArrayObject;
 use Dotclear\App;
 use Dotclear\Helper\Html\Form\Button;
@@ -96,11 +98,17 @@ class Manage
         App::backend()->langs_combo = App::backend()->combos()->getLangsCombo($rs, false, true);
 
         # Liste des mois d'archive
-        $rs                          = App::blog()->getDates(['type' => 'month']);
-        App::backend()->months_combo = array_merge(
+        $rs = App::blog()->getDates([
+            'type' => 'month',
+        ]);
+        App::backend()->months_values = array_merge(
             [__('All months') => '-'],
             App::backend()->combos()->getDatesCombo($rs)
         );
+        App::backend()->months_combo = [
+            (new Option(__('All months'), '-')),
+            ... App::backend()->combos()->getDatesCombo($rs, true),
+        ];
 
         App::backend()->first_year = App::backend()->last_year = 0;
         while ($rs->fetch()) {
@@ -160,7 +168,7 @@ class Manage
         if (App::backend()->categories_combo !== []) {
             $items['category'] = [__('Category'), true];
         }
-        if (count(App::backend()->months_combo) > 1) {
+        if (count(App::backend()->months_values) > 1) {
             $items['archive'] = [__('Archive'), true];
         }
         if (App::plugins()->moduleExists('pages') && count(App::backend()->pages_combo)) {
@@ -287,7 +295,7 @@ class Manage
 
                                 break;
                             case 'archive':
-                                App::backend()->item_select_label = array_search(App::backend()->item_select, App::backend()->months_combo);
+                                App::backend()->item_select_label = array_search(App::backend()->item_select, App::backend()->months_values);
                                 if (App::backend()->item_select == '-') {
                                     App::backend()->item_label = __('Archives');
                                     App::backend()->item_descr = App::backend()->first_year . (App::backend()->first_year != App::backend()->last_year ? ' - ' . App::backend()->last_year : '');

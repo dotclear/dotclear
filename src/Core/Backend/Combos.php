@@ -117,7 +117,7 @@ class Combos
             foreach ($years as $year => $months) {
                 $dt_m_combo[] = (new Optgroup((string) $year))
                     ->items([
-                        ... array_map(fn ($month, $ts) => (new Option(Date::str('%B %Y', $ts), $year . $month)), array_keys($months), array_values($months)),
+                        ... array_map(fn (string $month, int $ts): Option => (new Option(Date::str('%B %Y', $ts), $year . $month)), array_keys($months), array_values($months)),
                     ]);
             }
 
