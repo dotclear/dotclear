@@ -17,7 +17,7 @@
   "mysql_min": "4.1",
   "pgsql_min": "8.0",
 
-  "next_php": "8.1",
+  "next_php": "8.2",
 
   "default_theme": "berlin",
   "default_tplset": "mustek",
