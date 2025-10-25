@@ -78,7 +78,7 @@ dotclear.ready(() => {
       dotclear.jsonServicesPost(
         'quickPost',
         (data) => {
-          let msg = `<p class="info">${dotclear.msg.entry_created} - <a href="post.php?id=${data.id}">${dotclear.msg.edit_entry}</a>`;
+          let msg = `<p class="info">${dotclear.msg.entry_created} - <a href="index.php?process=Post&id=${data.id}">${dotclear.msg.edit_entry}</a>`;
           if (data.status === dotclear.post_published) {
             msg += ` - <a href="${data.url}">${dotclear.msg.view_entry}</a>`;
           }

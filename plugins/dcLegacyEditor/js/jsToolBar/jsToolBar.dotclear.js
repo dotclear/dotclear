@@ -5,7 +5,7 @@
 -------------------------------------------------------- */
 jsToolBar.prototype.elements.link.data = {};
 jsToolBar.prototype.elements.link.fncall = {};
-jsToolBar.prototype.elements.link.open_url = 'index.php?process=LinkPopup&plugin_id=dcLegacyEditor';
+jsToolBar.prototype.elements.link.open_url = 'index.php?process=LinkPopup&popup=1&plugin_id=dcLegacyEditor';
 
 jsToolBar.prototype.elements.link.popup = function (args = '') {
   window.the_toolbar = this;
@@ -411,7 +411,7 @@ jsToolBar.prototype.elements.post_link = {
   shortkey: 'KeyE',
   shortkey_name: 'E',
   fn: {},
-  open_url: 'popup_posts.php?plugin_id=dcLegacyEditor',
+  open_url: 'index.php?process=PostsPopup&popup=1&plugin_id=dcLegacyEditor',
   data: {},
   popup() {
     window.the_toolbar = this;

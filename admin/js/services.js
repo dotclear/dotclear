@@ -130,7 +130,7 @@ dotclear.getCommentContent = (commentId, callback, options) => {
               <strong>${dotclear.msg.email}</strong> ${data.comment_email}`;
           if (opt.ip && dotclear.data.showIp) {
             content += `<br>
-                <strong>${dotclear.msg.ip_address}</strong> <a href="comments.php?ip=${data.comment_ip}">${data.comment_ip}</a>`;
+                <strong>${dotclear.msg.ip_address}</strong> <a href="index.php?process=Comments&ip=${data.comment_ip}">${data.comment_ip}</a>`;
           }
           content += `</p>${data.comment_spam_disp}`;
         }

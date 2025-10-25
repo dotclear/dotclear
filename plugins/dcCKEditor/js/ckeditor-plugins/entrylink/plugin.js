@@ -11,7 +11,7 @@
 
       editor.addCommand('entryLinkCommand', {
         exec(editor) {
-          $.toolbarPopup('popup_posts.php?popup=1&plugin_id=dcCKEditor', popup_params);
+          $.toolbarPopup('index.php?process=PostsPopup&popup=1&plugin_id=dcCKEditor', popup_params);
         },
       });
 
@@ -30,7 +30,7 @@
         // link to original media @see js/popup_media.js
         editor.getSelection().selectElement(element);
 
-        $.toolbarPopup('popup_posts.php?popup=1&plugin_id=dcCKEditor', popup_params);
+        $.toolbarPopup('index.php?process=PostsPopup&popup=1&plugin_id=dcCKEditor', popup_params);
         return false;
       });
     },
