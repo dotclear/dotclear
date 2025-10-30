@@ -5,9 +5,6 @@ Dotclear is an open source project. If you'd like to contribute, you can send a 
 There are many way to contribute :
 
 * Report bugs (<https://codeberg.org/Dotclear/dotclear> and <https://codeberg.org/Dotclear/dotclear/issues/new>)
-* Add documentation:
-  * <https://dotclear.org/documentation/2.0> in English
-  * <https://fr.dotclear.org/documentation/2.0> in French
 * Add/improve translations (<https://dotclear.crowdin.com/dotclear>)
 
 ## Repositories
