@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-31 10:31+0100\n"
-"PO-Revision-Date: 2025-10-31 10:45\n"
+"PO-Revision-Date: 2025-10-31 13:02\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -6154,75 +6154,75 @@ msgstr "Valider les permissions"
 
 #: src/Process/Install/Cli.php:60
 msgid "The database driver"
-msgstr ""
+msgstr "Le pilote de la base de données"
 
 #: src/Process/Install/Cli.php:61
 msgid "The database host"
-msgstr ""
+msgstr "L'hôte de la base de données"
 
 #: src/Process/Install/Cli.php:62
 msgid "The database name"
-msgstr ""
+msgstr "Le nom de la base de données"
 
 #: src/Process/Install/Cli.php:63
 msgid "The database user"
-msgstr ""
+msgstr "L'utilisateur de la base de données"
 
 #: src/Process/Install/Cli.php:64
 msgid "The database password"
-msgstr ""
+msgstr "Le mot de passe de la base de données"
 
 #: src/Process/Install/Cli.php:65
 msgid "The database table prefix, can be empty for deault to _dc"
-msgstr ""
+msgstr "Le préfixe de la table de la base de données, qui peut être vide par défaut à _dc"
 
 #: src/Process/Install/Cli.php:66
 msgid "The administration mail from"
-msgstr ""
+msgstr "Le mail d'administration de"
 
 #: src/Process/Install/Cli.php:67
 msgid "The super administrator first name, can be empty"
-msgstr ""
+msgstr "Le prénom du super administrateur, peut être vide"
 
 #: src/Process/Install/Cli.php:68
 msgid "The super administrator last name, can be empty"
-msgstr ""
+msgstr "Le nom de famille du super administrateur, peut être vide"
 
 #: src/Process/Install/Cli.php:69
 msgid "The super administrator email"
-msgstr ""
+msgstr "L'email du super administrateur"
 
 #: src/Process/Install/Cli.php:70
 msgid "The super administrator login"
-msgstr ""
+msgstr "Le login du super administrateur"
 
 #: src/Process/Install/Cli.php:71
 msgid "The super administrator password"
-msgstr ""
+msgstr "Le mot de passe du super administrateur"
 
 #: src/Process/Install/Cli.php:72
 msgid "The admin dashboard URL"
-msgstr ""
+msgstr "L'URL du tableau de bord de l'administrateur"
 
 #: src/Process/Install/Cli.php:73
 msgid "The default blog URL"
-msgstr ""
+msgstr "L'URL par défaut du blog"
 
 #: src/Process/Install/Cli.php:99
 msgid "Command line options are:"
-msgstr ""
+msgstr "Les options de la ligne de commande sont les suivantes :"
 
 #: src/Process/Install/Cli.php:100
 msgid "This help"
-msgstr ""
+msgstr "Cette aide"
 
 #: src/Process/Install/Cli.php:101
 msgid "Disable interactive mode"
-msgstr ""
+msgstr "Désactiver le mode interactif"
 
 #: src/Process/Install/Cli.php:107
 msgid "Starting first step of Dotclear installation process."
-msgstr ""
+msgstr "Début de la première étape du processus d'installation de Dotclear."
 
 #: src/Process/Install/Cli.php:137 src/Process/Install/Cli.php:208
 #: src/Process/Install/Install.php:139 src/Process/Install/Wizard.php:202
@@ -6242,15 +6242,15 @@ msgstr "Impossible d'écrire le fichier %s."
 
 #: src/Process/Install/Cli.php:195
 msgid "First step of Dotclear installation succeed."
-msgstr ""
+msgstr "Première étape de l'installation de Dotclear réussie."
 
 #: src/Process/Install/Cli.php:196
 msgid "Re-run same script to process second step of Dotclear installation."
-msgstr ""
+msgstr "Exécutez à nouveau le même script pour procéder à la deuxième étape de l'installation de Dotclear."
 
 #: src/Process/Install/Cli.php:199
 msgid "Starting second step of Dotclear installation process."
-msgstr ""
+msgstr "Démarrage de la deuxième étape du processus d'installation de Dotclear."
 
 #: src/Process/Install/Cli.php:203 src/Process/Install/Install.php:133
 msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
@@ -6258,7 +6258,7 @@ msgstr "Veuillez indiquer une clé de référence (DC_MASTER_KEY) dans le fichie
 
 #: src/Process/Install/Cli.php:227
 msgid "Processing installation"
-msgstr ""
+msgstr "Installation en cours"
 
 #: src/Process/Install/Cli.php:264 src/Process/Install/Install.php:244
 msgid "My first blog"
@@ -6288,34 +6288,34 @@ msgstr "<p>Ceci est un commentaire</p>\n"
 
 #: src/Process/Install/Cli.php:427
 msgid "Second step of Dotclear installation succeed."
-msgstr ""
+msgstr "Deuxième étape de l'installation de Dotclear réussie."
 
 #: src/Process/Install/Cli.php:428
 #, php-format
 msgid "Go to visit \"%s\" to manage your blog."
-msgstr ""
+msgstr "Rendez-vous sur \"%s\" pour gérer votre blog."
 
 #: src/Process/Install/Cli.php:444
 #, php-format
 msgid "Configure the database driver (%s):"
-msgstr ""
+msgstr "Configurez le pilote de la base de données (%s) :"
 
 #: src/Process/Install/Cli.php:449
 msgid "No database driver."
-msgstr ""
+msgstr "Pas de pilote de base de données."
 
 #: src/Process/Install/Cli.php:451
 msgid "Invalid database driver."
-msgstr ""
+msgstr "Pilote de base de données non valide."
 
 #: src/Process/Install/Cli.php:453
 #, php-format
 msgid "Database driver is set to \"%s\"."
-msgstr ""
+msgstr "Le pilote de la base de données est défini sur \"%s\"."
 
 #: src/Process/Install/Cli.php:465
 msgid "Configure the database path:"
-msgstr ""
+msgstr "Configurer le chemin d'accès à la base de données :"
 
 #: src/Process/Install/Cli.php:479 src/Process/Install/Wizard.php:175
 #, php-format
@@ -6325,190 +6325,190 @@ msgstr "Impossible d'écrire dans le répertoire \"%s\"."
 #: src/Process/Install/Cli.php:495
 #, php-format
 msgid "Database path is set to \"%s\"."
-msgstr ""
+msgstr "Le chemin d'accès à la base de données est défini sur \"%s\"."
 
 #: src/Process/Install/Cli.php:505
 msgid "Configure the database host:"
-msgstr ""
+msgstr "Configurer l'hôte de la base de données :"
 
 #: src/Process/Install/Cli.php:510
 msgid "No database host."
-msgstr ""
+msgstr "Pas d'hôte de la base de données."
 
 #: src/Process/Install/Cli.php:512
 #, php-format
 msgid "Database host is set to \"%s\"."
-msgstr ""
+msgstr "L'hôte de la base de données est défini sur \"%s\"."
 
 #: src/Process/Install/Cli.php:524
 msgid "Configure the database name:"
-msgstr ""
+msgstr "Configurez le nom de la base de données :"
 
 #: src/Process/Install/Cli.php:529
 msgid "No database name."
-msgstr ""
+msgstr "Pas de nom de base de données."
 
 #: src/Process/Install/Cli.php:531
 #, php-format
 msgid "Database name is set to \"%s\"."
-msgstr ""
+msgstr "Le nom de la base de données est défini sur \"%s\"."
 
 #: src/Process/Install/Cli.php:543
 msgid "Configure the database user: "
-msgstr ""
+msgstr "Configurer l'utilisateur de la base de données : "
 
 #: src/Process/Install/Cli.php:548
 msgid "No database user."
-msgstr ""
+msgstr "Pas d'utilisateur de la base de données."
 
 #: src/Process/Install/Cli.php:550
 #, php-format
 msgid "Database user is set to \"%s\""
-msgstr ""
+msgstr "L'utilisateur de la base de données est défini sur \"%s\""
 
 #: src/Process/Install/Cli.php:562
 msgid "Configure the database password:"
-msgstr ""
+msgstr "Configurer le mot de passe de la base de données :"
 
 #: src/Process/Install/Cli.php:567
 msgid "No database password."
-msgstr ""
+msgstr "Pas de mot de passe pour la base de données."
 
 #: src/Process/Install/Cli.php:569
 msgid "Database password is set."
-msgstr ""
+msgstr "Le mot de passe de la base de données est défini."
 
 #: src/Process/Install/Cli.php:581
 msgid "Configure the database table prefix:"
-msgstr ""
+msgstr "Configurer le préfixe de la table de la base de données :"
 
 #: src/Process/Install/Cli.php:590
 msgid "Invalid database prefix."
-msgstr ""
+msgstr "Préfixe de base de données non valide."
 
 #: src/Process/Install/Cli.php:592
 #, php-format
 msgid "Database table prefix is set to \"%s\"."
-msgstr ""
+msgstr "Le préfixe de la table de la base de données est défini sur \"%s\"."
 
 #: src/Process/Install/Cli.php:604
 msgid "Configure the administration mail from:"
-msgstr ""
+msgstr "Configurer l'email d'administration à partir de :"
 
 #: src/Process/Install/Cli.php:609
 msgid "No administration mail from."
-msgstr ""
+msgstr "Pas de mail administratif de la part de."
 
 #: src/Process/Install/Cli.php:611
 msgid "Invalid administration mail from."
-msgstr ""
+msgstr "Mail d'administration non valide."
 
 #: src/Process/Install/Cli.php:613
 #, php-format
 msgid "Administration mail from is set to \"%s\"."
-msgstr ""
+msgstr "Le mail d'administration de est défini sur \"%s\"."
 
 #: src/Process/Install/Cli.php:625
 msgid "Configure the administration full URL:"
-msgstr ""
+msgstr "Configurer l'URL complète de l'administration :"
 
 #: src/Process/Install/Cli.php:630
 msgid "No administration URL."
-msgstr ""
+msgstr "Pas d'URL d'administration."
 
 #: src/Process/Install/Cli.php:632
 msgid "Invalid administration URL."
-msgstr ""
+msgstr "URL d'administration invalide."
 
 #: src/Process/Install/Cli.php:635
 #, php-format
 msgid "Administration URL is set to \"%s\"."
-msgstr ""
+msgstr "L'URL de l'administration est définie sur \"%s\"."
 
 #: src/Process/Install/Cli.php:647
 msgid "Super administrator first name (optionnal):"
-msgstr ""
+msgstr "Prénom du super administrateur (facultatif) :"
 
 #: src/Process/Install/Cli.php:650
 #, php-format
 msgid "Super administrator first name is set to \"%s\"."
-msgstr ""
+msgstr "Le prénom du super administrateur est défini sur \"%s\"."
 
 #: src/Process/Install/Cli.php:658
 msgid "Super administrator last name (optionnal):"
-msgstr ""
+msgstr "Nom de famille du super administrateur (facultatif) :"
 
 #: src/Process/Install/Cli.php:661
 #, php-format
 msgid "Super administrator last name is set to \"%s\"."
-msgstr ""
+msgstr "Le nom de famille du super administrateur est défini sur \"%s\"."
 
 #: src/Process/Install/Cli.php:670
 msgid "Configure the super administrator mail:"
-msgstr ""
+msgstr "Configurer le courriel de super administrateur :"
 
 #: src/Process/Install/Cli.php:675
 msgid "No super administrator mail."
-msgstr ""
+msgstr "Aucun mail de super administrateur."
 
 #: src/Process/Install/Cli.php:677
 msgid "Invalid super administrator mail."
-msgstr ""
+msgstr "Mail de super administrateur invalide."
 
 #: src/Process/Install/Cli.php:679
 #, php-format
 msgid "Super administrator mail is set to \"%s\"."
-msgstr ""
+msgstr "L'adresse de messagerie du super administrateur est définie sur \"%s\"."
 
 #: src/Process/Install/Cli.php:691
 msgid "Configure the super administrator login:"
-msgstr ""
+msgstr "Configurer le login du super administrateur :"
 
 #: src/Process/Install/Cli.php:696
 msgid "No super administrator login."
-msgstr ""
+msgstr "Pas de login de super administrateur."
 
 #: src/Process/Install/Cli.php:698
 msgid "Super administrator login must contain at least 2 characters using letters, numbers or symbols."
-msgstr ""
+msgstr "Le login du super administrateur doit contenir au moins 2 caractères utilisant des lettres, des chiffres ou des symboles."
 
 #: src/Process/Install/Cli.php:700
 #, php-format
 msgid "Super administrator login is set to \"%s\"."
-msgstr ""
+msgstr "Le login du super administrateur est défini sur \"%s\"."
 
 #: src/Process/Install/Cli.php:712
 msgid "Configure the super administrator password: "
-msgstr ""
+msgstr "Configurer le mot de passe du super administrateur : "
 
 #: src/Process/Install/Cli.php:717
 msgid "No super administrator password."
-msgstr ""
+msgstr "Pas de mot de passe de super administrateur."
 
 #: src/Process/Install/Cli.php:723
 msgid "Confirm the super administrator password:"
-msgstr ""
+msgstr "Confirmez le mot de passe du super administrateur :"
 
 #: src/Process/Install/Cli.php:729
 msgid "Super administrator password is set."
-msgstr ""
+msgstr "Le mot de passe du super administrateur est défini."
 
 #: src/Process/Install/Cli.php:742
 msgid "Configure the blog full URL:"
-msgstr ""
+msgstr "Configurez l'URL complète du blog :"
 
 #: src/Process/Install/Cli.php:747
 msgid "No blog URL."
-msgstr ""
+msgstr "Pas d'URL de blog."
 
 #: src/Process/Install/Cli.php:749
 msgid "Invalid blog URL."
-msgstr ""
+msgstr "URL de blog invalide."
 
 #: src/Process/Install/Cli.php:752
 #, php-format
 msgid "Blog URL is set to \"%s\"."
-msgstr ""
+msgstr "L'URL du blog est fixée à \"%s\"."
 
 #: src/Process/Install/Install.php:148 src/Process/Install/Wizard.php:192
 msgid "Dotclear cannot be installed."
