@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-31 10:19+0100\n"
+"POT-Creation-Date: 2025-10-31 10:31+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -6203,7 +6203,7 @@ msgid "The super administrator password"
 msgstr ""
 
 #: src/Process/Install/Cli.php:72
-msgid "The admoin dashboard URL"
+msgid "The admin dashboard URL"
 msgstr ""
 
 #: src/Process/Install/Cli.php:73

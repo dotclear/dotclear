@@ -69,7 +69,7 @@ class Cli
             'uemail'     => __('The super administrator email'),
             'ulogin'     => __('The super administrator login'),
             'upassword'  => __('The super administrator password'),
-            'adminurl'   => __('The admoin dashboard URL'),
+            'adminurl'   => __('The admin dashboard URL'),
             'blogurl'    => __('The default blog URL'),
         ];
     }
