@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-31 10:31+0100\n"
-"PO-Revision-Date: 2025-10-31 10:45\n"
+"PO-Revision-Date: 2025-10-31 13:02\n"
 "Last-Translator: \n"
 "Language-Team: Finnish\n"
 "Language: fi_FI\n"
@@ -6154,75 +6154,75 @@ msgstr "Käyttöoikeuksien tarkistus"
 
 #: src/Process/Install/Cli.php:60
 msgid "The database driver"
-msgstr ""
+msgstr "Tietokantaohjain"
 
 #: src/Process/Install/Cli.php:61
 msgid "The database host"
-msgstr ""
+msgstr "Tietokannan isäntä"
 
 #: src/Process/Install/Cli.php:62
 msgid "The database name"
-msgstr ""
+msgstr "Tietokannan nimi"
 
 #: src/Process/Install/Cli.php:63
 msgid "The database user"
-msgstr ""
+msgstr "Tietokannan käyttäjä"
 
 #: src/Process/Install/Cli.php:64
 msgid "The database password"
-msgstr ""
+msgstr "Tietokannan salasana"
 
 #: src/Process/Install/Cli.php:65
 msgid "The database table prefix, can be empty for deault to _dc"
-msgstr ""
+msgstr "Tietokantataulukon etuliite, voi olla tyhjä, jos se on _dc."
 
 #: src/Process/Install/Cli.php:66
 msgid "The administration mail from"
-msgstr ""
+msgstr "Hallinnon posti osoitteesta"
 
 #: src/Process/Install/Cli.php:67
 msgid "The super administrator first name, can be empty"
-msgstr ""
+msgstr "Ylläpitäjän etunimi, voi olla tyhjä."
 
 #: src/Process/Install/Cli.php:68
 msgid "The super administrator last name, can be empty"
-msgstr ""
+msgstr "Ylläpitäjän sukunimi, voi olla tyhjä."
 
 #: src/Process/Install/Cli.php:69
 msgid "The super administrator email"
-msgstr ""
+msgstr "Ylläpitäjän sähköpostiosoite"
 
 #: src/Process/Install/Cli.php:70
 msgid "The super administrator login"
-msgstr ""
+msgstr "Ylläpitäjän käyttäjätunnus"
 
 #: src/Process/Install/Cli.php:71
 msgid "The super administrator password"
-msgstr ""
+msgstr "Ylläpitäjän salasana"
 
 #: src/Process/Install/Cli.php:72
 msgid "The admin dashboard URL"
-msgstr ""
+msgstr "Hallinnan kojelaudan URL-osoite"
 
 #: src/Process/Install/Cli.php:73
 msgid "The default blog URL"
-msgstr ""
+msgstr "Blogin oletusarvoinen URL-osoite"
 
 #: src/Process/Install/Cli.php:99
 msgid "Command line options are:"
-msgstr ""
+msgstr "Komentorivin vaihtoehdot ovat:"
 
 #: src/Process/Install/Cli.php:100
 msgid "This help"
-msgstr ""
+msgstr "Tämä apu"
 
 #: src/Process/Install/Cli.php:101
 msgid "Disable interactive mode"
-msgstr ""
+msgstr "Interaktiivisen tilan poistaminen käytöstä"
 
 #: src/Process/Install/Cli.php:107
 msgid "Starting first step of Dotclear installation process."
-msgstr ""
+msgstr "Dotclearin asennusprosessin ensimmäisen vaiheen aloittaminen."
 
 #: src/Process/Install/Cli.php:137 src/Process/Install/Cli.php:208
 #: src/Process/Install/Install.php:139 src/Process/Install/Wizard.php:202
@@ -6242,15 +6242,15 @@ msgstr "Tiedostoa %s ei saatu luotua."
 
 #: src/Process/Install/Cli.php:195
 msgid "First step of Dotclear installation succeed."
-msgstr ""
+msgstr "Dotclearin asennuksen ensimmäinen vaihe onnistuu."
 
 #: src/Process/Install/Cli.php:196
 msgid "Re-run same script to process second step of Dotclear installation."
-msgstr ""
+msgstr "Suorita sama komentosarja uudelleen Dotclearin asennuksen toista vaihetta varten."
 
 #: src/Process/Install/Cli.php:199
 msgid "Starting second step of Dotclear installation process."
-msgstr ""
+msgstr "Dotclearin asennusprosessin toisen vaiheen aloittaminen."
 
 #: src/Process/Install/Cli.php:203 src/Process/Install/Install.php:133
 msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
@@ -6258,7 +6258,7 @@ msgstr "Aseta pääavain (DC_MASTER_KEY) asetustiedostossa."
 
 #: src/Process/Install/Cli.php:227
 msgid "Processing installation"
-msgstr ""
+msgstr "Jalostusasennus"
 
 #: src/Process/Install/Cli.php:264 src/Process/Install/Install.php:244
 msgid "My first blog"
@@ -6288,34 +6288,34 @@ msgstr "<p>Tämä on esimerkkikommentti.</p>\n"
 
 #: src/Process/Install/Cli.php:427
 msgid "Second step of Dotclear installation succeed."
-msgstr ""
+msgstr "Dotclearin asennuksen toinen vaihe onnistuu."
 
 #: src/Process/Install/Cli.php:428
 #, php-format
 msgid "Go to visit \"%s\" to manage your blog."
-msgstr ""
+msgstr "Mene osoitteeseen \"%s\" ja hallinnoi blogiasi."
 
 #: src/Process/Install/Cli.php:444
 #, php-format
 msgid "Configure the database driver (%s):"
-msgstr ""
+msgstr "Määritä tietokantaohjain (%s):"
 
 #: src/Process/Install/Cli.php:449
 msgid "No database driver."
-msgstr ""
+msgstr "Ei tietokantaohjainta."
 
 #: src/Process/Install/Cli.php:451
 msgid "Invalid database driver."
-msgstr ""
+msgstr "Virheellinen tietokantaohjain."
 
 #: src/Process/Install/Cli.php:453
 #, php-format
 msgid "Database driver is set to \"%s\"."
-msgstr ""
+msgstr "Tietokanta-ajuriksi on asetettu \"%s\"."
 
 #: src/Process/Install/Cli.php:465
 msgid "Configure the database path:"
-msgstr ""
+msgstr "Määritä tietokannan polku:"
 
 #: src/Process/Install/Cli.php:479 src/Process/Install/Wizard.php:175
 #, php-format
@@ -6325,190 +6325,190 @@ msgstr "Tähän hakemistoon ei voi kirjoittaa."
 #: src/Process/Install/Cli.php:495
 #, php-format
 msgid "Database path is set to \"%s\"."
-msgstr ""
+msgstr "Tietokannan poluksi on asetettu \"%s\"."
 
 #: src/Process/Install/Cli.php:505
 msgid "Configure the database host:"
-msgstr ""
+msgstr "Määritä tietokanta-isäntä:"
 
 #: src/Process/Install/Cli.php:510
 msgid "No database host."
-msgstr ""
+msgstr "Ei tietokanta-isäntää."
 
 #: src/Process/Install/Cli.php:512
 #, php-format
 msgid "Database host is set to \"%s\"."
-msgstr ""
+msgstr "Tietokannan isännäksi on asetettu \"%s\"."
 
 #: src/Process/Install/Cli.php:524
 msgid "Configure the database name:"
-msgstr ""
+msgstr "Määritä tietokannan nimi:"
 
 #: src/Process/Install/Cli.php:529
 msgid "No database name."
-msgstr ""
+msgstr "Ei tietokannan nimeä."
 
 #: src/Process/Install/Cli.php:531
 #, php-format
 msgid "Database name is set to \"%s\"."
-msgstr ""
+msgstr "Tietokannan nimeksi on asetettu \"%s\"."
 
 #: src/Process/Install/Cli.php:543
 msgid "Configure the database user: "
-msgstr ""
+msgstr "Määritä tietokannan käyttäjä: "
 
 #: src/Process/Install/Cli.php:548
 msgid "No database user."
-msgstr ""
+msgstr "Ei tietokannan käyttäjää."
 
 #: src/Process/Install/Cli.php:550
 #, php-format
 msgid "Database user is set to \"%s\""
-msgstr ""
+msgstr "Tietokannan käyttäjäksi on asetettu \"%s\""
 
 #: src/Process/Install/Cli.php:562
 msgid "Configure the database password:"
-msgstr ""
+msgstr "Määritä tietokannan salasana:"
 
 #: src/Process/Install/Cli.php:567
 msgid "No database password."
-msgstr ""
+msgstr "Ei tietokannan salasanaa."
 
 #: src/Process/Install/Cli.php:569
 msgid "Database password is set."
-msgstr ""
+msgstr "Tietokannan salasana on asetettu."
 
 #: src/Process/Install/Cli.php:581
 msgid "Configure the database table prefix:"
-msgstr ""
+msgstr "Määritä tietokantataulukon etuliite:"
 
 #: src/Process/Install/Cli.php:590
 msgid "Invalid database prefix."
-msgstr ""
+msgstr "Virheellinen tietokannan etuliite."
 
 #: src/Process/Install/Cli.php:592
 #, php-format
 msgid "Database table prefix is set to \"%s\"."
-msgstr ""
+msgstr "Tietokantataulukon etuliitteeksi on asetettu \"%s\"."
 
 #: src/Process/Install/Cli.php:604
 msgid "Configure the administration mail from:"
-msgstr ""
+msgstr "Konfiguroi hallintasähköpostin osoite:"
 
 #: src/Process/Install/Cli.php:609
 msgid "No administration mail from."
-msgstr ""
+msgstr "Ei hallintopostia."
 
 #: src/Process/Install/Cli.php:611
 msgid "Invalid administration mail from."
-msgstr ""
+msgstr "Virheellinen hallintoposti osoitteesta."
 
 #: src/Process/Install/Cli.php:613
 #, php-format
 msgid "Administration mail from is set to \"%s\"."
-msgstr ""
+msgstr "Hallinnon postin lähettäjäksi on asetettu \"%s\"."
 
 #: src/Process/Install/Cli.php:625
 msgid "Configure the administration full URL:"
-msgstr ""
+msgstr "Määritä hallinnon täydellinen URL-osoite:"
 
 #: src/Process/Install/Cli.php:630
 msgid "No administration URL."
-msgstr ""
+msgstr "Ei hallinto-URL:ää."
 
 #: src/Process/Install/Cli.php:632
 msgid "Invalid administration URL."
-msgstr ""
+msgstr "Virheellinen hallinto-URL."
 
 #: src/Process/Install/Cli.php:635
 #, php-format
 msgid "Administration URL is set to \"%s\"."
-msgstr ""
+msgstr "Hallinnan URL-osoite on asetettu \"%s\"."
 
 #: src/Process/Install/Cli.php:647
 msgid "Super administrator first name (optionnal):"
-msgstr ""
+msgstr "Pääkäyttäjän etunimi (valinnainen):"
 
 #: src/Process/Install/Cli.php:650
 #, php-format
 msgid "Super administrator first name is set to \"%s\"."
-msgstr ""
+msgstr "Pääkäyttäjän etunimeksi on asetettu \"%s\"."
 
 #: src/Process/Install/Cli.php:658
 msgid "Super administrator last name (optionnal):"
-msgstr ""
+msgstr "Pääkäyttäjän sukunimi (valinnainen):"
 
 #: src/Process/Install/Cli.php:661
 #, php-format
 msgid "Super administrator last name is set to \"%s\"."
-msgstr ""
+msgstr "Ylläpitäjän sukunimi on asetettu muotoon \"%s\"."
 
 #: src/Process/Install/Cli.php:670
 msgid "Configure the super administrator mail:"
-msgstr ""
+msgstr "Määritä pääkäyttäjän sähköpostiosoite:"
 
 #: src/Process/Install/Cli.php:675
 msgid "No super administrator mail."
-msgstr ""
+msgstr "Ei super-administraattorin sähköpostia."
 
 #: src/Process/Install/Cli.php:677
 msgid "Invalid super administrator mail."
-msgstr ""
+msgstr "Virheellinen super administrator mail."
 
 #: src/Process/Install/Cli.php:679
 #, php-format
 msgid "Super administrator mail is set to \"%s\"."
-msgstr ""
+msgstr "Ylläpitäjän sähköpostiosoitteeksi on asetettu \"%s\"."
 
 #: src/Process/Install/Cli.php:691
 msgid "Configure the super administrator login:"
-msgstr ""
+msgstr "Määritä pääkäyttäjän käyttäjätunnus:"
 
 #: src/Process/Install/Cli.php:696
 msgid "No super administrator login."
-msgstr ""
+msgstr "Ei pääkäyttäjän kirjautumista."
 
 #: src/Process/Install/Cli.php:698
 msgid "Super administrator login must contain at least 2 characters using letters, numbers or symbols."
-msgstr ""
+msgstr "Ylläpitäjän käyttäjätunnuksen on sisällettävä vähintään 2 merkkiä kirjaimia, numeroita tai symboleja käyttäen."
 
 #: src/Process/Install/Cli.php:700
 #, php-format
 msgid "Super administrator login is set to \"%s\"."
-msgstr ""
+msgstr "Ylläpitäjän kirjautumistunnukseksi on asetettu \"%s\"."
 
 #: src/Process/Install/Cli.php:712
 msgid "Configure the super administrator password: "
-msgstr ""
+msgstr "Määritä pääkäyttäjän salasana: "
 
 #: src/Process/Install/Cli.php:717
 msgid "No super administrator password."
-msgstr ""
+msgstr "Ei pääkäyttäjän salasanaa."
 
 #: src/Process/Install/Cli.php:723
 msgid "Confirm the super administrator password:"
-msgstr ""
+msgstr "Vahvista pääkäyttäjän salasana:"
 
 #: src/Process/Install/Cli.php:729
 msgid "Super administrator password is set."
-msgstr ""
+msgstr "Ylläpitäjän salasana on asetettu."
 
 #: src/Process/Install/Cli.php:742
 msgid "Configure the blog full URL:"
-msgstr ""
+msgstr "Määritä blogin täydellinen URL-osoite:"
 
 #: src/Process/Install/Cli.php:747
 msgid "No blog URL."
-msgstr ""
+msgstr "Ei blogin URL-osoitetta."
 
 #: src/Process/Install/Cli.php:749
 msgid "Invalid blog URL."
-msgstr ""
+msgstr "Virheellinen blogin URL-osoite."
 
 #: src/Process/Install/Cli.php:752
 #, php-format
 msgid "Blog URL is set to \"%s\"."
-msgstr ""
+msgstr "Blogin URL-osoite on asetettu muotoon \"%s\"."
 
 #: src/Process/Install/Install.php:148 src/Process/Install/Wizard.php:192
 msgid "Dotclear cannot be installed."
