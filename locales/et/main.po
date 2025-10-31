@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-31 10:19+0100\n"
-"PO-Revision-Date: 2025-10-31 09:28\n"
+"POT-Creation-Date: 2025-10-31 10:31+0100\n"
+"PO-Revision-Date: 2025-10-31 10:46\n"
 "Last-Translator: \n"
 "Language-Team: Estonian\n"
 "Language: et_EE\n"
@@ -6201,7 +6201,7 @@ msgid "The super administrator password"
 msgstr ""
 
 #: src/Process/Install/Cli.php:72
-msgid "The admoin dashboard URL"
+msgid "The admin dashboard URL"
 msgstr ""
 
 #: src/Process/Install/Cli.php:73
