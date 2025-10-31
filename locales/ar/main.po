@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-31 10:31+0100\n"
-"PO-Revision-Date: 2025-10-31 10:45\n"
+"PO-Revision-Date: 2025-10-31 13:02\n"
 "Last-Translator: \n"
 "Language-Team: Arabic\n"
 "Language: ar_SA\n"
@@ -6346,23 +6346,23 @@ msgstr "عنوان URL لوحة تحكم المشرف"
 
 #: src/Process/Install/Cli.php:73
 msgid "The default blog URL"
-msgstr ""
+msgstr "عنوان URL المدونة الافتراضي"
 
 #: src/Process/Install/Cli.php:99
 msgid "Command line options are:"
-msgstr ""
+msgstr "خيارات سطر الأوامر هي:"
 
 #: src/Process/Install/Cli.php:100
 msgid "This help"
-msgstr ""
+msgstr "هذه المساعدة"
 
 #: src/Process/Install/Cli.php:101
 msgid "Disable interactive mode"
-msgstr ""
+msgstr "تعطيل الوضع التفاعلي"
 
 #: src/Process/Install/Cli.php:107
 msgid "Starting first step of Dotclear installation process."
-msgstr ""
+msgstr "بدء الخطوة الأولى من عملية تثبيت Dotclear."
 
 #: src/Process/Install/Cli.php:137 src/Process/Install/Cli.php:208
 #: src/Process/Install/Install.php:139 src/Process/Install/Wizard.php:202
@@ -6382,15 +6382,15 @@ msgstr "لا يمكن كتابة ملف %s."
 
 #: src/Process/Install/Cli.php:195
 msgid "First step of Dotclear installation succeed."
-msgstr ""
+msgstr "الخطوة الأولى من تثبيت Dotclear تنجح."
 
 #: src/Process/Install/Cli.php:196
 msgid "Re-run same script to process second step of Dotclear installation."
-msgstr ""
+msgstr "أعد تشغيل نفس البرنامج النصي لمعالجة الخطوة الثانية من تثبيت Dotclear."
 
 #: src/Process/Install/Cli.php:199
 msgid "Starting second step of Dotclear installation process."
-msgstr ""
+msgstr "بدء الخطوة الثانية من عملية تثبيت Dotclear."
 
 #: src/Process/Install/Cli.php:203 src/Process/Install/Install.php:133
 msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
@@ -6398,7 +6398,7 @@ msgstr "الرجاء تعيين مفتاح رئيسي (DC_MASTER_KEY) في مل�
 
 #: src/Process/Install/Cli.php:227
 msgid "Processing installation"
-msgstr ""
+msgstr "تركيب المعالجة"
 
 #: src/Process/Install/Cli.php:264 src/Process/Install/Install.php:244
 msgid "My first blog"
@@ -6428,34 +6428,34 @@ msgstr "<p>هذا تعليق.</p>\n"
 
 #: src/Process/Install/Cli.php:427
 msgid "Second step of Dotclear installation succeed."
-msgstr ""
+msgstr "الخطوة الثانية من تثبيت Dotclear تنجح."
 
 #: src/Process/Install/Cli.php:428
 #, php-format
 msgid "Go to visit \"%s\" to manage your blog."
-msgstr ""
+msgstr "انتقل إلى زيارة \"%s\" لإدارة مدونتك."
 
 #: src/Process/Install/Cli.php:444
 #, php-format
 msgid "Configure the database driver (%s):"
-msgstr ""
+msgstr "تكوين برنامج تشغيل قاعدة البيانات (%s):"
 
 #: src/Process/Install/Cli.php:449
 msgid "No database driver."
-msgstr ""
+msgstr "لا يوجد برنامج تشغيل قاعدة بيانات."
 
 #: src/Process/Install/Cli.php:451
 msgid "Invalid database driver."
-msgstr ""
+msgstr "برنامج تشغيل قاعدة البيانات غير صالح."
 
 #: src/Process/Install/Cli.php:453
 #, php-format
 msgid "Database driver is set to \"%s\"."
-msgstr ""
+msgstr "تم تعيين برنامج تشغيل قاعدة البيانات على \"%s\"."
 
 #: src/Process/Install/Cli.php:465
 msgid "Configure the database path:"
-msgstr ""
+msgstr "تكوين مسار قاعدة البيانات:"
 
 #: src/Process/Install/Cli.php:479 src/Process/Install/Wizard.php:175
 #, php-format
@@ -6465,190 +6465,190 @@ msgstr "لا يمكن كتابة دليل \"%s\"."
 #: src/Process/Install/Cli.php:495
 #, php-format
 msgid "Database path is set to \"%s\"."
-msgstr ""
+msgstr "تم تعيين مسار قاعدة البيانات على \"%s\"."
 
 #: src/Process/Install/Cli.php:505
 msgid "Configure the database host:"
-msgstr ""
+msgstr "تكوين مضيف قاعدة البيانات:"
 
 #: src/Process/Install/Cli.php:510
 msgid "No database host."
-msgstr ""
+msgstr "لا يوجد مضيف قاعدة بيانات."
 
 #: src/Process/Install/Cli.php:512
 #, php-format
 msgid "Database host is set to \"%s\"."
-msgstr ""
+msgstr "تم تعيين مضيف قاعدة البيانات على \"%s\"."
 
 #: src/Process/Install/Cli.php:524
 msgid "Configure the database name:"
-msgstr ""
+msgstr "تكوين اسم قاعدة البيانات:"
 
 #: src/Process/Install/Cli.php:529
 msgid "No database name."
-msgstr ""
+msgstr "لا يوجد اسم قاعدة بيانات."
 
 #: src/Process/Install/Cli.php:531
 #, php-format
 msgid "Database name is set to \"%s\"."
-msgstr ""
+msgstr "تم تعيين اسم قاعدة البيانات على \"%s\"."
 
 #: src/Process/Install/Cli.php:543
 msgid "Configure the database user: "
-msgstr ""
+msgstr "تكوين مستخدم قاعدة البيانات: "
 
 #: src/Process/Install/Cli.php:548
 msgid "No database user."
-msgstr ""
+msgstr "لا يوجد مستخدم قاعدة بيانات."
 
 #: src/Process/Install/Cli.php:550
 #, php-format
 msgid "Database user is set to \"%s\""
-msgstr ""
+msgstr "تم تعيين مستخدم قاعدة البيانات على \"%s\""
 
 #: src/Process/Install/Cli.php:562
 msgid "Configure the database password:"
-msgstr ""
+msgstr "تكوين كلمة مرور قاعدة البيانات:"
 
 #: src/Process/Install/Cli.php:567
 msgid "No database password."
-msgstr ""
+msgstr "لا توجد كلمة مرور لقاعدة البيانات."
 
 #: src/Process/Install/Cli.php:569
 msgid "Database password is set."
-msgstr ""
+msgstr "تم تعيين كلمة مرور قاعدة البيانات."
 
 #: src/Process/Install/Cli.php:581
 msgid "Configure the database table prefix:"
-msgstr ""
+msgstr "تكوين بادئة جدول قاعدة البيانات:"
 
 #: src/Process/Install/Cli.php:590
 msgid "Invalid database prefix."
-msgstr ""
+msgstr "بادئة قاعدة البيانات غير صالحة."
 
 #: src/Process/Install/Cli.php:592
 #, php-format
 msgid "Database table prefix is set to \"%s\"."
-msgstr ""
+msgstr "تم تعيين بادئة جدول قاعدة البيانات على \"%s\"."
 
 #: src/Process/Install/Cli.php:604
 msgid "Configure the administration mail from:"
-msgstr ""
+msgstr "تكوين بريد الإدارة من:"
 
 #: src/Process/Install/Cli.php:609
 msgid "No administration mail from."
-msgstr ""
+msgstr "لا يوجد بريد إداري من."
 
 #: src/Process/Install/Cli.php:611
 msgid "Invalid administration mail from."
-msgstr ""
+msgstr "بريد إداري غير صالح من."
 
 #: src/Process/Install/Cli.php:613
 #, php-format
 msgid "Administration mail from is set to \"%s\"."
-msgstr ""
+msgstr "تم تعيين بريد الإدارة من على \"%s\"."
 
 #: src/Process/Install/Cli.php:625
 msgid "Configure the administration full URL:"
-msgstr ""
+msgstr "تكوين عنوان URL الكامل للإدارة:"
 
 #: src/Process/Install/Cli.php:630
 msgid "No administration URL."
-msgstr ""
+msgstr "لا يوجد عنوان URL للإدارة."
 
 #: src/Process/Install/Cli.php:632
 msgid "Invalid administration URL."
-msgstr ""
+msgstr "عنوان URL الإدارة غير صالح."
 
 #: src/Process/Install/Cli.php:635
 #, php-format
 msgid "Administration URL is set to \"%s\"."
-msgstr ""
+msgstr "تم تعيين عنوان URL الخاص بالإدارة على \"%s\"."
 
 #: src/Process/Install/Cli.php:647
 msgid "Super administrator first name (optionnal):"
-msgstr ""
+msgstr "الاسم الأول للمسؤول الأعلى (اختياري):"
 
 #: src/Process/Install/Cli.php:650
 #, php-format
 msgid "Super administrator first name is set to \"%s\"."
-msgstr ""
+msgstr "تم تعيين الاسم الأول للمسؤول الفائق على \"%s\"."
 
 #: src/Process/Install/Cli.php:658
 msgid "Super administrator last name (optionnal):"
-msgstr ""
+msgstr "الاسم الأخير للمسؤول الأعلى (اختياري):"
 
 #: src/Process/Install/Cli.php:661
 #, php-format
 msgid "Super administrator last name is set to \"%s\"."
-msgstr ""
+msgstr "تم تعيين الاسم الأخير للمسؤول الفائق على \"%s\"."
 
 #: src/Process/Install/Cli.php:670
 msgid "Configure the super administrator mail:"
-msgstr ""
+msgstr "تكوين بريد المسؤول الفائق:"
 
 #: src/Process/Install/Cli.php:675
 msgid "No super administrator mail."
-msgstr ""
+msgstr "لا يوجد بريد المسؤول الفائق."
 
 #: src/Process/Install/Cli.php:677
 msgid "Invalid super administrator mail."
-msgstr ""
+msgstr "بريد المسؤول الفائق غير صالح."
 
 #: src/Process/Install/Cli.php:679
 #, php-format
 msgid "Super administrator mail is set to \"%s\"."
-msgstr ""
+msgstr "تم تعيين بريد المسؤول الفائق على \"%s\"."
 
 #: src/Process/Install/Cli.php:691
 msgid "Configure the super administrator login:"
-msgstr ""
+msgstr "تكوين تسجيل دخول المسؤول الفائق:"
 
 #: src/Process/Install/Cli.php:696
 msgid "No super administrator login."
-msgstr ""
+msgstr "لا يوجد تسجيل دخول المسؤول الفائق."
 
 #: src/Process/Install/Cli.php:698
 msgid "Super administrator login must contain at least 2 characters using letters, numbers or symbols."
-msgstr ""
+msgstr "يجب أن يحتوي تسجيل دخول المسؤول الفائق على حرفين على الأقل باستخدام حروف أو أرقام أو رموز."
 
 #: src/Process/Install/Cli.php:700
 #, php-format
 msgid "Super administrator login is set to \"%s\"."
-msgstr ""
+msgstr "تم تعيين تسجيل دخول المسؤول الفائق على \"%s\"."
 
 #: src/Process/Install/Cli.php:712
 msgid "Configure the super administrator password: "
-msgstr ""
+msgstr "تكوين كلمة مرور المسؤول الفائق: "
 
 #: src/Process/Install/Cli.php:717
 msgid "No super administrator password."
-msgstr ""
+msgstr "لا توجد كلمة مرور المسؤول الفائق."
 
 #: src/Process/Install/Cli.php:723
 msgid "Confirm the super administrator password:"
-msgstr ""
+msgstr "قم بتأكيد كلمة مرور المسؤول الفائق:"
 
 #: src/Process/Install/Cli.php:729
 msgid "Super administrator password is set."
-msgstr ""
+msgstr "تم تعيين كلمة مرور المسؤول الفائق."
 
 #: src/Process/Install/Cli.php:742
 msgid "Configure the blog full URL:"
-msgstr ""
+msgstr "تكوين عنوان URL الكامل للمدونة:"
 
 #: src/Process/Install/Cli.php:747
 msgid "No blog URL."
-msgstr ""
+msgstr "لا يوجد رابط مدونة."
 
 #: src/Process/Install/Cli.php:749
 msgid "Invalid blog URL."
-msgstr ""
+msgstr "عنوان URL المدونة غير صالح."
 
 #: src/Process/Install/Cli.php:752
 #, php-format
 msgid "Blog URL is set to \"%s\"."
-msgstr ""
+msgstr "تم تعيين عنوان URL للمدونة على \"%s\"."
 
 #: src/Process/Install/Install.php:148 src/Process/Install/Wizard.php:192
 msgid "Dotclear cannot be installed."
