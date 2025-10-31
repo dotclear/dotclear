@@ -26,6 +26,11 @@ use Exception;
 class Reader extends HttpClient
 {
     /**
+     * Cache file folder
+     */
+    public const CACHE_FOLDER = 'cbfeed';
+
+    /**
      * User agent
      *
      * @var        string   $user_agent
@@ -50,11 +55,6 @@ class Reader extends HttpClient
      * Cache directory path
      */
     protected ?string $cache_dir = null;
-
-    /**
-     * Cache file prefix
-     */
-    protected string $cache_file_prefix = 'cbfeed';
 
     /**
      * Cache TTL (must be a negative string value as "-30 minutes")
@@ -203,7 +203,7 @@ class Reader extends HttpClient
         $cached_file = sprintf(
             '%s/%s/%s/%s/%s.xml',
             $this->cache_dir,
-            $this->cache_file_prefix,
+            self::CACHE_FOLDER,
             substr($url_md5, 0, 2),
             substr($url_md5, 2, 2),
             $url_md5

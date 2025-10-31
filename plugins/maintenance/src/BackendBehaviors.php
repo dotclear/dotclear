@@ -59,6 +59,7 @@ class BackendBehaviors
             ->addGroup('l10n', __('Translations'), ['summary' => __('Maintain translations')])
 
             ->addTask(Task\Cache::class)
+            ->addTask(Task\CacheFeeds::class)
             ->addTask(Task\CSP::class)
             ->addTask(Task\IndexPosts::class)
             ->addTask(Task\IndexComments::class)

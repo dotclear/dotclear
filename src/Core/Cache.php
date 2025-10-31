@@ -14,6 +14,7 @@ namespace Dotclear\Core;
 use Dotclear\Core\Upgrade\Update;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\Html\Template\Template;
+use Dotclear\Helper\Network\Feed\Reader;
 use Dotclear\Helper\Network\HttpCacheStack;
 use Dotclear\Interface\Core\CacheInterface;
 use Dotclear\Module\StoreReader;
@@ -50,6 +51,13 @@ class Cache extends HttpCacheStack implements CacheInterface
     {
         if (is_dir($this->cache_dir . DIRECTORY_SEPARATOR . Template::CACHE_FOLDER)) {
             Files::deltree($this->cache_dir . DIRECTORY_SEPARATOR . Template::CACHE_FOLDER);
+        }
+    }
+
+    public function emptyFeedsCache(): void
+    {
+        if (is_dir($this->cache_dir . DIRECTORY_SEPARATOR . Reader::CACHE_FOLDER)) {
+            Files::deltree($this->cache_dir . DIRECTORY_SEPARATOR . Reader::CACHE_FOLDER);
         }
     }
 

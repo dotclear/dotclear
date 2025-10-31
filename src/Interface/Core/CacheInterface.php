@@ -23,6 +23,11 @@ interface CacheInterface
     public function emptyTemplatesCache(): void;
 
     /**
+     * Empty templates cache directory.
+     */
+    public function emptyFeedsCache(): void;
+
+    /**
      * Empty modules store cache directory.
      */
     public function emptyModulesStoreCache(): void;
