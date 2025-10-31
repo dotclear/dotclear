@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-31 10:25+0100\n"
-"PO-Revision-Date: 2025-10-31 09:28\n"
+"PO-Revision-Date: 2025-10-31 13:03\n"
 "Last-Translator: \n"
 "Language-Team: Hebrew\n"
 "Language: he_IL\n"
@@ -2251,20 +2251,20 @@ msgstr "ייתכן שיועיל לרוקן מטמון זה בעת שינוי ק�
 
 #: plugins/maintenance/src/Task/CacheFeeds.php:38
 msgid "Empty the feed cache directory"
-msgstr ""
+msgstr "רוקן את ספריית המטמון של העדכונים"
 
 #: plugins/maintenance/src/Task/CacheFeeds.php:39
 msgid "The feed cache directory has been emptied."
-msgstr ""
+msgstr "ספריית המטמון של העדכונים רוקנה."
 
 #: plugins/maintenance/src/Task/CacheFeeds.php:40
 msgid "Failed to delete the feed cache directory."
-msgstr ""
+msgstr "לא ניתן למחוק את ספריית המטמון של העדכונים."
 
 #: plugins/maintenance/src/Task/CacheFeeds.php:42
 #, php-format
 msgid "Notice : with some hosters, the feed cache cannot be emptied with this plugin. You may then have to delete the directory <strong>%s</strong> directly on the server with your FTP software."
-msgstr ""
+msgstr "הערה: בחלק מהשרתים, לא ניתן לרוקן את זיכרון המטמון של העדכונים באמצעות תוסף זה. ייתכן שתצטרך למחוק את הספרייה <strong>%s</strong> ישירות בשרת באמצעות תוכנת ה-FTP שלך."
 
 #: plugins/maintenance/src/Task/CountComments.php:39
 msgid "Count again comments and trackbacks"
