@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-31 10:25+0100\n"
-"PO-Revision-Date: 2025-10-31 09:29\n"
+"PO-Revision-Date: 2025-10-31 13:04\n"
 "Last-Translator: \n"
 "Language-Team: Bengali\n"
 "Language: bn_BD\n"
@@ -2241,20 +2241,20 @@ msgstr "একটি থিমের .html বা .css ফাইলগুলি 
 
 #: plugins/maintenance/src/Task/CacheFeeds.php:38
 msgid "Empty the feed cache directory"
-msgstr ""
+msgstr "ফিড ক্যাশে ডিরেক্টরি খালি করুন"
 
 #: plugins/maintenance/src/Task/CacheFeeds.php:39
 msgid "The feed cache directory has been emptied."
-msgstr ""
+msgstr "ফিড ক্যাশে ডিরেক্টরি খালি করা হয়েছে।"
 
 #: plugins/maintenance/src/Task/CacheFeeds.php:40
 msgid "Failed to delete the feed cache directory."
-msgstr ""
+msgstr "ফিড ক্যাশে ডিরেক্টরি মুছে ফেলা যায়নি।"
 
 #: plugins/maintenance/src/Task/CacheFeeds.php:42
 #, php-format
 msgid "Notice : with some hosters, the feed cache cannot be emptied with this plugin. You may then have to delete the directory <strong>%s</strong> directly on the server with your FTP software."
-msgstr ""
+msgstr "লক্ষ্য করুন: কিছু হোস্টারের ক্ষেত্রে, এই প্লাগইন দিয়ে ফিড ক্যাশে খালি করা যায় না। এরপর আপনাকে আপনার FTP সফ্টওয়্যার দিয়ে সার্ভারে সরাসরি <strong>%s</strong> ডিরেক্টরিটি মুছে ফেলতে হতে পারে।"
 
 #: plugins/maintenance/src/Task/CountComments.php:39
 msgid "Count again comments and trackbacks"
