@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-31 10:25+0100\n"
-"PO-Revision-Date: 2025-10-31 09:29\n"
+"PO-Revision-Date: 2025-10-31 13:03\n"
 "Last-Translator: \n"
 "Language-Team: Polish\n"
 "Language: pl_PL\n"
@@ -2251,20 +2251,20 @@ msgstr "Przydatne może być opróżnienie pamięci podręcznej podczas modyfika
 
 #: plugins/maintenance/src/Task/CacheFeeds.php:38
 msgid "Empty the feed cache directory"
-msgstr ""
+msgstr "Opróżnij katalog pamięci podręcznej kanałów"
 
 #: plugins/maintenance/src/Task/CacheFeeds.php:39
 msgid "The feed cache directory has been emptied."
-msgstr ""
+msgstr "Katalog pamięci podręcznej kanałów został opróżniony."
 
 #: plugins/maintenance/src/Task/CacheFeeds.php:40
 msgid "Failed to delete the feed cache directory."
-msgstr ""
+msgstr "Nie udało się usunąć katalogu pamięci podręcznej feed."
 
 #: plugins/maintenance/src/Task/CacheFeeds.php:42
 #, php-format
 msgid "Notice : with some hosters, the feed cache cannot be emptied with this plugin. You may then have to delete the directory <strong>%s</strong> directly on the server with your FTP software."
-msgstr ""
+msgstr "Uwaga: w przypadku niektórych hosterów pamięć podręczna kanału nie może zostać opróżniona za pomocą tej wtyczki. Może być wtedy konieczne usunięcie katalogu <strong>%s</strong> bezpośrednio na serwerze za pomocą oprogramowania FTP."
 
 #: plugins/maintenance/src/Task/CountComments.php:39
 msgid "Count again comments and trackbacks"
