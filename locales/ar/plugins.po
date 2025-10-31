@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-31 10:25+0100\n"
-"PO-Revision-Date: 2025-10-31 09:28\n"
+"PO-Revision-Date: 2025-10-31 13:03\n"
 "Last-Translator: \n"
 "Language-Team: Arabic\n"
 "Language: ar_SA\n"
@@ -2261,20 +2261,20 @@ msgstr "قد يكون من المفيد إفراغ هذا ذاكرة التخز�
 
 #: plugins/maintenance/src/Task/CacheFeeds.php:38
 msgid "Empty the feed cache directory"
-msgstr ""
+msgstr "إفراغ دليل ذاكرة التخزين المؤقت للتغذية"
 
 #: plugins/maintenance/src/Task/CacheFeeds.php:39
 msgid "The feed cache directory has been emptied."
-msgstr ""
+msgstr "تم إفراغ دليل ذاكرة التخزين المؤقت للتغذية."
 
 #: plugins/maintenance/src/Task/CacheFeeds.php:40
 msgid "Failed to delete the feed cache directory."
-msgstr ""
+msgstr "فشل في حذف دليل ذاكرة التخزين المؤقت للتغذية."
 
 #: plugins/maintenance/src/Task/CacheFeeds.php:42
 #, php-format
 msgid "Notice : with some hosters, the feed cache cannot be emptied with this plugin. You may then have to delete the directory <strong>%s</strong> directly on the server with your FTP software."
-msgstr ""
+msgstr "ملاحظة: مع بعض المضيفين، لا يمكن إفراغ ذاكرة التخزين المؤقت للخلاصة باستخدام هذه الإضافة. قد تضطر بعد ذلك إلى حذف الدليل <strong>%s</strong> مباشرة على الخادم باستخدام برنامج FTP الخاص بك."
 
 #: plugins/maintenance/src/Task/CountComments.php:39
 msgid "Count again comments and trackbacks"
