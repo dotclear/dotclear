@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-31 10:31+0100\n"
-"PO-Revision-Date: 2025-10-31 10:45\n"
+"PO-Revision-Date: 2025-10-31 13:02\n"
 "Last-Translator: \n"
 "Language-Team: Slovenian\n"
 "Language: sl_SI\n"
@@ -6224,75 +6224,75 @@ msgstr "Potrdite dovoljenja"
 
 #: src/Process/Install/Cli.php:60
 msgid "The database driver"
-msgstr ""
+msgstr "Gonilnik zbirke podatkov"
 
 #: src/Process/Install/Cli.php:61
 msgid "The database host"
-msgstr ""
+msgstr "Gostitelj zbirke podatkov"
 
 #: src/Process/Install/Cli.php:62
 msgid "The database name"
-msgstr ""
+msgstr "Ime zbirke podatkov"
 
 #: src/Process/Install/Cli.php:63
 msgid "The database user"
-msgstr ""
+msgstr "Uporabnik zbirke podatkov"
 
 #: src/Process/Install/Cli.php:64
 msgid "The database password"
-msgstr ""
+msgstr "Geslo podatkovne zbirke"
 
 #: src/Process/Install/Cli.php:65
 msgid "The database table prefix, can be empty for deault to _dc"
-msgstr ""
+msgstr "Predpona tabele podatkovne zbirke, lahko je prazna za deault do _dc"
 
 #: src/Process/Install/Cli.php:66
 msgid "The administration mail from"
-msgstr ""
+msgstr "Upravna pošta iz"
 
 #: src/Process/Install/Cli.php:67
 msgid "The super administrator first name, can be empty"
-msgstr ""
+msgstr "Prvo ime super administratorja, lahko je prazno."
 
 #: src/Process/Install/Cli.php:68
 msgid "The super administrator last name, can be empty"
-msgstr ""
+msgstr "Priimek super administratorja, lahko je prazen."
 
 #: src/Process/Install/Cli.php:69
 msgid "The super administrator email"
-msgstr ""
+msgstr "e-pošta super administratorja"
 
 #: src/Process/Install/Cli.php:70
 msgid "The super administrator login"
-msgstr ""
+msgstr "Prijava super administratorja"
 
 #: src/Process/Install/Cli.php:71
 msgid "The super administrator password"
-msgstr ""
+msgstr "Geslo super administratorja"
 
 #: src/Process/Install/Cli.php:72
 msgid "The admin dashboard URL"
-msgstr ""
+msgstr "URL upraviteljeve nadzorne plošče"
 
 #: src/Process/Install/Cli.php:73
 msgid "The default blog URL"
-msgstr ""
+msgstr "Privzet URL bloga"
 
 #: src/Process/Install/Cli.php:99
 msgid "Command line options are:"
-msgstr ""
+msgstr "Možnosti ukazne vrstice so:"
 
 #: src/Process/Install/Cli.php:100
 msgid "This help"
-msgstr ""
+msgstr "Ta pomoč"
 
 #: src/Process/Install/Cli.php:101
 msgid "Disable interactive mode"
-msgstr ""
+msgstr "Onemogočite interaktivni način"
 
 #: src/Process/Install/Cli.php:107
 msgid "Starting first step of Dotclear installation process."
-msgstr ""
+msgstr "Začetek prvega koraka postopka namestitve programa Dotclear."
 
 #: src/Process/Install/Cli.php:137 src/Process/Install/Cli.php:208
 #: src/Process/Install/Install.php:139 src/Process/Install/Wizard.php:202
@@ -6312,15 +6312,15 @@ msgstr "Ni mogoče zapisati v datoteko %s ."
 
 #: src/Process/Install/Cli.php:195
 msgid "First step of Dotclear installation succeed."
-msgstr ""
+msgstr "Prvi korak namestitve Dotclear je uspešen."
 
 #: src/Process/Install/Cli.php:196
 msgid "Re-run same script to process second step of Dotclear installation."
-msgstr ""
+msgstr "Ponovno zaženite isto skripto za obdelavo drugega koraka namestitve programa Dotclear."
 
 #: src/Process/Install/Cli.php:199
 msgid "Starting second step of Dotclear installation process."
-msgstr ""
+msgstr "Začetek drugega koraka postopka namestitve programa Dotclear."
 
 #: src/Process/Install/Cli.php:203 src/Process/Install/Install.php:133
 msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
@@ -6328,7 +6328,7 @@ msgstr "Nastavite glavni ključ (DC_MASTER_KEY) v konfiguracijski datoteki."
 
 #: src/Process/Install/Cli.php:227
 msgid "Processing installation"
-msgstr ""
+msgstr "Namestitev obdelave"
 
 #: src/Process/Install/Cli.php:264 src/Process/Install/Install.php:244
 msgid "My first blog"
@@ -6358,34 +6358,34 @@ msgstr "<p>To je komentar.</p>\n"
 
 #: src/Process/Install/Cli.php:427
 msgid "Second step of Dotclear installation succeed."
-msgstr ""
+msgstr "Drugi korak namestitve programa Dotclear je uspešen."
 
 #: src/Process/Install/Cli.php:428
 #, php-format
 msgid "Go to visit \"%s\" to manage your blog."
-msgstr ""
+msgstr "Pojdite na obisk \"%s\" za upravljanje svojega bloga."
 
 #: src/Process/Install/Cli.php:444
 #, php-format
 msgid "Configure the database driver (%s):"
-msgstr ""
+msgstr "Konfigurirajte gonilnik podatkovne zbirke (%s):"
 
 #: src/Process/Install/Cli.php:449
 msgid "No database driver."
-msgstr ""
+msgstr "Ni gonilnika podatkovne zbirke."
 
 #: src/Process/Install/Cli.php:451
 msgid "Invalid database driver."
-msgstr ""
+msgstr "Nepravilen gonilnik zbirke podatkov."
 
 #: src/Process/Install/Cli.php:453
 #, php-format
 msgid "Database driver is set to \"%s\"."
-msgstr ""
+msgstr "Gonilnik zbirke podatkov je nastavljen na \"%s\"."
 
 #: src/Process/Install/Cli.php:465
 msgid "Configure the database path:"
-msgstr ""
+msgstr "Konfigurirajte pot do zbirke podatkov:"
 
 #: src/Process/Install/Cli.php:479 src/Process/Install/Wizard.php:175
 #, php-format
@@ -6395,190 +6395,190 @@ msgstr "Ni mogoče zapisati v imenik \"%s\"."
 #: src/Process/Install/Cli.php:495
 #, php-format
 msgid "Database path is set to \"%s\"."
-msgstr ""
+msgstr "Pot do zbirke podatkov je nastavljena na \"%s\"."
 
 #: src/Process/Install/Cli.php:505
 msgid "Configure the database host:"
-msgstr ""
+msgstr "Konfigurirajte gostitelja zbirke podatkov:"
 
 #: src/Process/Install/Cli.php:510
 msgid "No database host."
-msgstr ""
+msgstr "Ni gostitelja podatkovne zbirke."
 
 #: src/Process/Install/Cli.php:512
 #, php-format
 msgid "Database host is set to \"%s\"."
-msgstr ""
+msgstr "Gostitelj zbirke podatkov je nastavljen na \"%s\"."
 
 #: src/Process/Install/Cli.php:524
 msgid "Configure the database name:"
-msgstr ""
+msgstr "Konfigurirajte ime podatkovne zbirke:"
 
 #: src/Process/Install/Cli.php:529
 msgid "No database name."
-msgstr ""
+msgstr "Ni imena podatkovne zbirke."
 
 #: src/Process/Install/Cli.php:531
 #, php-format
 msgid "Database name is set to \"%s\"."
-msgstr ""
+msgstr "Ime zbirke podatkov je nastavljeno na \"%s\"."
 
 #: src/Process/Install/Cli.php:543
 msgid "Configure the database user: "
-msgstr ""
+msgstr "Konfigurirajte uporabnika zbirke podatkov: "
 
 #: src/Process/Install/Cli.php:548
 msgid "No database user."
-msgstr ""
+msgstr "Ni uporabnika podatkovne zbirke."
 
 #: src/Process/Install/Cli.php:550
 #, php-format
 msgid "Database user is set to \"%s\""
-msgstr ""
+msgstr "Uporabnik zbirke podatkov je nastavljen na \"%s\""
 
 #: src/Process/Install/Cli.php:562
 msgid "Configure the database password:"
-msgstr ""
+msgstr "Konfigurirajte geslo podatkovne zbirke:"
 
 #: src/Process/Install/Cli.php:567
 msgid "No database password."
-msgstr ""
+msgstr "Ni gesla za podatkovno bazo."
 
 #: src/Process/Install/Cli.php:569
 msgid "Database password is set."
-msgstr ""
+msgstr "Nastavljeno je geslo podatkovne baze."
 
 #: src/Process/Install/Cli.php:581
 msgid "Configure the database table prefix:"
-msgstr ""
+msgstr "Konfigurirajte predpono tabele podatkovne zbirke:"
 
 #: src/Process/Install/Cli.php:590
 msgid "Invalid database prefix."
-msgstr ""
+msgstr "Nepravilna predpona podatkovne zbirke."
 
 #: src/Process/Install/Cli.php:592
 #, php-format
 msgid "Database table prefix is set to \"%s\"."
-msgstr ""
+msgstr "Predpona tabele podatkovne zbirke je nastavljena na \"%s\"."
 
 #: src/Process/Install/Cli.php:604
 msgid "Configure the administration mail from:"
-msgstr ""
+msgstr "Konfiguracija upravne pošte iz:"
 
 #: src/Process/Install/Cli.php:609
 msgid "No administration mail from."
-msgstr ""
+msgstr "Ni upravne pošte."
 
 #: src/Process/Install/Cli.php:611
 msgid "Invalid administration mail from."
-msgstr ""
+msgstr "Neveljavna upravna pošta od."
 
 #: src/Process/Install/Cli.php:613
 #, php-format
 msgid "Administration mail from is set to \"%s\"."
-msgstr ""
+msgstr "Pošta iz administracije je nastavljena na \"%s\"."
 
 #: src/Process/Install/Cli.php:625
 msgid "Configure the administration full URL:"
-msgstr ""
+msgstr "Konfigurirajte celoten naslov URL za upravljanje:"
 
 #: src/Process/Install/Cli.php:630
 msgid "No administration URL."
-msgstr ""
+msgstr "Ni naslova URL za upravljanje."
 
 #: src/Process/Install/Cli.php:632
 msgid "Invalid administration URL."
-msgstr ""
+msgstr "Nepravilen naslov URL za upravljanje."
 
 #: src/Process/Install/Cli.php:635
 #, php-format
 msgid "Administration URL is set to \"%s\"."
-msgstr ""
+msgstr "URL administracije je nastavljen na \"%s\"."
 
 #: src/Process/Install/Cli.php:647
 msgid "Super administrator first name (optionnal):"
-msgstr ""
+msgstr "Ime super administratorja (neobvezno):"
 
 #: src/Process/Install/Cli.php:650
 #, php-format
 msgid "Super administrator first name is set to \"%s\"."
-msgstr ""
+msgstr "Ime super administratorja je nastavljeno na \"%s\"."
 
 #: src/Process/Install/Cli.php:658
 msgid "Super administrator last name (optionnal):"
-msgstr ""
+msgstr "Priimek super administratorja (neobvezno):"
 
 #: src/Process/Install/Cli.php:661
 #, php-format
 msgid "Super administrator last name is set to \"%s\"."
-msgstr ""
+msgstr "Priimek super administratorja je nastavljen na \"%s\"."
 
 #: src/Process/Install/Cli.php:670
 msgid "Configure the super administrator mail:"
-msgstr ""
+msgstr "Konfigurirajte pošto super administratorja:"
 
 #: src/Process/Install/Cli.php:675
 msgid "No super administrator mail."
-msgstr ""
+msgstr "Brez pošte super administratorja."
 
 #: src/Process/Install/Cli.php:677
 msgid "Invalid super administrator mail."
-msgstr ""
+msgstr "Nepravilna pošta super administratorja."
 
 #: src/Process/Install/Cli.php:679
 #, php-format
 msgid "Super administrator mail is set to \"%s\"."
-msgstr ""
+msgstr "Super administrator mail je nastavljen na \"%s\"."
 
 #: src/Process/Install/Cli.php:691
 msgid "Configure the super administrator login:"
-msgstr ""
+msgstr "Konfigurirajte prijavo super administratorja:"
 
 #: src/Process/Install/Cli.php:696
 msgid "No super administrator login."
-msgstr ""
+msgstr "Ni prijave super administratorja."
 
 #: src/Process/Install/Cli.php:698
 msgid "Super administrator login must contain at least 2 characters using letters, numbers or symbols."
-msgstr ""
+msgstr "Prijava za super administratorja mora vsebovati vsaj 2 znaka s črkami, številkami ali simboli."
 
 #: src/Process/Install/Cli.php:700
 #, php-format
 msgid "Super administrator login is set to \"%s\"."
-msgstr ""
+msgstr "Prijava super administratorja je nastavljena na \"%s\"."
 
 #: src/Process/Install/Cli.php:712
 msgid "Configure the super administrator password: "
-msgstr ""
+msgstr "Konfigurirajte geslo super administratorja: "
 
 #: src/Process/Install/Cli.php:717
 msgid "No super administrator password."
-msgstr ""
+msgstr "Ni gesla super administratorja."
 
 #: src/Process/Install/Cli.php:723
 msgid "Confirm the super administrator password:"
-msgstr ""
+msgstr "Potrdite geslo super administratorja:"
 
 #: src/Process/Install/Cli.php:729
 msgid "Super administrator password is set."
-msgstr ""
+msgstr "Nastavljeno je geslo super administratorja."
 
 #: src/Process/Install/Cli.php:742
 msgid "Configure the blog full URL:"
-msgstr ""
+msgstr "Konfigurirajte celoten URL bloga:"
 
 #: src/Process/Install/Cli.php:747
 msgid "No blog URL."
-msgstr ""
+msgstr "Ni naslova URL bloga."
 
 #: src/Process/Install/Cli.php:749
 msgid "Invalid blog URL."
-msgstr ""
+msgstr "Nepravilen URL bloga."
 
 #: src/Process/Install/Cli.php:752
 #, php-format
 msgid "Blog URL is set to \"%s\"."
-msgstr ""
+msgstr "URL bloga je nastavljen na \"%s\"."
 
 #: src/Process/Install/Install.php:148 src/Process/Install/Wizard.php:192
 msgid "Dotclear cannot be installed."
