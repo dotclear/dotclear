@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-05 07:56+0200\n"
-"PO-Revision-Date: 2025-10-05 06:00\n"
+"POT-Creation-Date: 2025-10-31 10:25+0100\n"
+"PO-Revision-Date: 2025-10-31 13:04\n"
 "Last-Translator: \n"
 "Language-Team: Indonesian\n"
 "Language: id_ID\n"
@@ -686,7 +686,7 @@ msgid "Antispam"
 msgstr "Antispam"
 
 #: plugins/antispam/src/BackendBehaviors.php:56
-#: plugins/antispam/src/Manage.php:224
+#: plugins/antispam/src/Manage.php:229
 #, php-format
 msgid "All spam comments older than %s day(s) will be automatically deleted."
 msgstr "Semua komentar spam yang berusia lebih dari %s hari akan dihapus secara otomatis."
@@ -890,80 +890,80 @@ msgstr "Filter tidak ada."
 msgid "Filter has no user interface."
 msgstr "Filter tidak memiliki antarmuka pengguna."
 
-#: plugins/antispam/src/Manage.php:137 plugins/antispam/src/Manage.php:270
+#: plugins/antispam/src/Manage.php:142 plugins/antispam/src/Manage.php:275
 msgid "Filters configuration has been successfully saved."
 msgstr "Konfigurasi filter telah berhasil disimpan."
 
-#: plugins/antispam/src/Manage.php:154
+#: plugins/antispam/src/Manage.php:159
 #, php-format
 msgid "%s configuration"
 msgstr "%s konfigurasi"
 
-#: plugins/antispam/src/Manage.php:175
+#: plugins/antispam/src/Manage.php:180
 #, php-format
 msgid "%s filter configuration"
 msgstr "%s konfigurasi filter"
 
-#: plugins/antispam/src/Manage.php:182
+#: plugins/antispam/src/Manage.php:187
 msgid "Back to filters list"
 msgstr "Kembali ke daftar filter"
 
-#: plugins/antispam/src/Manage.php:229
+#: plugins/antispam/src/Manage.php:234
 #, php-format
 msgid "You can modify this duration in the %s"
 msgstr "Anda dapat mengubah durasi ini di %s"
 
-#: plugins/antispam/src/Manage.php:238
+#: plugins/antispam/src/Manage.php:243
 msgid "Information"
 msgstr "Informasi"
 
-#: plugins/antispam/src/Manage.php:249
+#: plugins/antispam/src/Manage.php:254
 msgid "Junk comments:"
 msgstr "Komentar sampah:"
 
-#: plugins/antispam/src/Manage.php:255
+#: plugins/antispam/src/Manage.php:260
 msgid "Published comments:"
 msgstr "Komentar yang dipublikasikan:"
 
-#: plugins/antispam/src/Manage.php:279 plugins/antispam/src/Manage.php:282
-#: plugins/antispam/src/Manage.php:286
+#: plugins/antispam/src/Manage.php:284 plugins/antispam/src/Manage.php:287
+#: plugins/antispam/src/Manage.php:291
 msgid "Filter configuration"
 msgstr "Konfigurasi filter"
 
-#: plugins/antispam/src/Manage.php:302 plugins/blogroll/src/Manage.php:305
+#: plugins/antispam/src/Manage.php:307 plugins/blogroll/src/Manage.php:305
 msgid "position"
 msgstr "posisi"
 
-#: plugins/antispam/src/Manage.php:309 plugins/antispam/src/Manage.php:343
+#: plugins/antispam/src/Manage.php:314 plugins/antispam/src/Manage.php:348
 msgid "Active"
 msgstr "Aktif"
 
-#: plugins/antispam/src/Manage.php:316 plugins/antispam/src/Manage.php:344
+#: plugins/antispam/src/Manage.php:321 plugins/antispam/src/Manage.php:349
 msgid "Auto Del."
 msgstr "Auto Del."
 
-#: plugins/antispam/src/Manage.php:337
+#: plugins/antispam/src/Manage.php:342
 msgid "Available spam filters"
 msgstr "Filter spam yang tersedia"
 
-#: plugins/antispam/src/Manage.php:342
+#: plugins/antispam/src/Manage.php:347
 #: plugins/pages/src/BackendDefaultActions.php:73
 msgid "Order"
 msgstr "Pesan"
 
-#: plugins/antispam/src/Manage.php:345
+#: plugins/antispam/src/Manage.php:350
 msgid "Filter name"
 msgstr "Nama filter"
 
-#: plugins/antispam/src/Manage.php:372
+#: plugins/antispam/src/Manage.php:377
 msgid "Syndication"
 msgstr "Sindikasi"
 
-#: plugins/antispam/src/Manage.php:375
+#: plugins/antispam/src/Manage.php:380
 msgid "Junk comments RSS feed"
 msgstr "Umpan RSS komentar sampah"
 
-#: plugins/antispam/src/Manage.php:378
+#: plugins/antispam/src/Manage.php:383
 msgid "Published comments RSS feed"
 msgstr "Umpan RSS komentar yang dipublikasikan"
 
@@ -1317,7 +1317,7 @@ msgstr "Jangan merangkum remah roti dalam tag &lt;p id=\"breadcrumb\"&gt;...&lt;
 #: plugins/breadcrumb/src/FrontendTemplate.php:192
 #: plugins/breadcrumb/src/FrontendTemplate.php:204
 #: plugins/breadcrumb/src/FrontendTemplate.php:210
-#: plugins/simpleMenu/src/Manage.php:146 plugins/simpleMenu/src/Manage.php:260
+#: plugins/simpleMenu/src/Manage.php:159 plugins/simpleMenu/src/Manage.php:273
 #: plugins/widgets/src/Widgets.php:295
 msgid "Home"
 msgstr "Beranda"
@@ -1332,13 +1332,13 @@ msgstr "halaman %d"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:154
 #: plugins/breadcrumb/src/FrontendTemplate.php:157
-#: plugins/simpleMenu/src/Manage.php:287 plugins/widgets/src/Widgets.php:323
+#: plugins/simpleMenu/src/Manage.php:300 plugins/widgets/src/Widgets.php:323
 msgid "Archives"
 msgstr "Arsip"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:173
 #: plugins/breadcrumb/src/FrontendTemplate.php:180
-#: plugins/simpleMenu/src/Manage.php:130 plugins/simpleMenu/src/Manage.php:307
+#: plugins/simpleMenu/src/Manage.php:143 plugins/simpleMenu/src/Manage.php:320
 #: plugins/tags/src/Widgets.php:57
 msgid "All tags"
 msgstr "Semua tag"
@@ -1498,7 +1498,7 @@ msgstr "Menonaktifkan pemeriksa ejaan bawaan jika browser menyediakannya"
 
 #: plugins/dcCKEditor/src/Manage.php:321
 #: plugins/dcLegacyEditor/src/Manage.php:111
-#: plugins/simpleMenu/src/Manage.php:761
+#: plugins/simpleMenu/src/Manage.php:774
 msgid "Save configuration"
 msgstr "Menyimpan konfigurasi"
 
@@ -1713,7 +1713,7 @@ msgstr "Fungsi ekspor ada di halaman %s."
 
 #: plugins/importExport/src/Manage.php:144
 #: plugins/maintenance/src/Backend.php:27
-#: plugins/maintenance/src/BackendBehaviors.php:219
+#: plugins/maintenance/src/BackendBehaviors.php:220
 msgid "Maintenance"
 msgstr "Pemeliharaan"
 
@@ -2055,45 +2055,45 @@ msgstr "Mempertahankan terjemahan"
 msgid "Translations"
 msgstr "Terjemahan"
 
-#: plugins/maintenance/src/BackendBehaviors.php:93
+#: plugins/maintenance/src/BackendBehaviors.php:94
 #, php-format
 msgid "One <a href=\"%2$s\">maintenance task</a> to execute."
 msgid_plural "%1$s <a href=\"%2$s\">maintenance tasks</a> to execute."
 msgstr[0] "%1$s <a href=\"%2$s\">tugas-tugas pemeliharaan</a> yang harus dilaksanakan."
 
-#: plugins/maintenance/src/BackendBehaviors.php:167
+#: plugins/maintenance/src/BackendBehaviors.php:168
 #: plugins/maintenance/src/Rest.php:83
 #, php-format
 msgid "One task to execute"
 msgid_plural "%s tasks to execute"
 msgstr[0] "%s tugas yang harus dilaksanakan"
 
-#: plugins/maintenance/src/BackendBehaviors.php:201
+#: plugins/maintenance/src/BackendBehaviors.php:202
 #: plugins/maintenance/src/Manage.php:306
 msgid "This task has never been executed."
 msgstr "Tugas ini belum pernah dilaksanakan."
 
-#: plugins/maintenance/src/BackendBehaviors.php:204
+#: plugins/maintenance/src/BackendBehaviors.php:205
 #: plugins/maintenance/src/Manage.php:309
 #, php-format
 msgid "Last execution of this task was on %s."
 msgstr "Eksekusi terakhir dari tugas ini adalah di %s."
 
-#: plugins/maintenance/src/BackendBehaviors.php:222
+#: plugins/maintenance/src/BackendBehaviors.php:223
 #, php-format
 msgid "There is a task to execute."
 msgid_plural "There are %s tasks to execute."
 msgstr[0] "Ada %s tugas yang harus dilakukan."
 
-#: plugins/maintenance/src/BackendBehaviors.php:229
+#: plugins/maintenance/src/BackendBehaviors.php:230
 msgid "Manage tasks"
 msgstr "Mengelola tugas"
 
-#: plugins/maintenance/src/BackendBehaviors.php:251
+#: plugins/maintenance/src/BackendBehaviors.php:252
 msgid "Display overdue tasks counter on maintenance dashboard icon"
 msgstr "Menampilkan penghitung tugas yang sudah lewat waktu pada ikon dasbor pemeliharaan"
 
-#: plugins/maintenance/src/BackendBehaviors.php:257
+#: plugins/maintenance/src/BackendBehaviors.php:258
 msgid "Display overdue tasks list on dashboard items"
 msgstr "Menampilkan daftar tugas yang sudah lewat jatuh tempo pada item dasbor"
 
@@ -2233,6 +2233,23 @@ msgstr "Gagal mengosongkan direktori cache template."
 #, php-format
 msgid "It may be useful to empty this cache when modifying a theme's .html or .css files (or when updating a theme or plugin). Notice : with some hosters, the templates cache cannot be emptied with this plugin. You may then have to delete the directory <strong>%s</strong> directly on the server with your FTP software."
 msgstr "Mungkin berguna untuk mengosongkan cache ini ketika memodifikasi file .html atau .css tema (atau ketika memperbarui tema atau plugin). Perhatikan: pada beberapa hoster, cache templat tidak dapat dikosongkan dengan plugin ini. Anda mungkin harus menghapus direktori <strong>%s</strong> secara langsung di server dengan perangkat lunak FTP Anda."
+
+#: plugins/maintenance/src/Task/CacheFeeds.php:38
+msgid "Empty the feed cache directory"
+msgstr "Kosongkan direktori cache feed"
+
+#: plugins/maintenance/src/Task/CacheFeeds.php:39
+msgid "The feed cache directory has been emptied."
+msgstr "Direktori cache feed telah dikosongkan."
+
+#: plugins/maintenance/src/Task/CacheFeeds.php:40
+msgid "Failed to delete the feed cache directory."
+msgstr "Gagal menghapus direktori cache feed."
+
+#: plugins/maintenance/src/Task/CacheFeeds.php:42
+#, php-format
+msgid "Notice : with some hosters, the feed cache cannot be emptied with this plugin. You may then have to delete the directory <strong>%s</strong> directly on the server with your FTP software."
+msgstr "Perhatikan: pada beberapa hoster, cache feed tidak dapat dikosongkan dengan plugin ini. Anda mungkin harus menghapus direktori <strong>%s</strong> langsung di server dengan perangkat lunak FTP Anda."
 
 #: plugins/maintenance/src/Task/CountComments.php:39
 msgid "Count again comments and trackbacks"
@@ -2399,7 +2416,7 @@ msgid "%d pages"
 msgstr "%d halaman"
 
 #: plugins/pages/src/Backend.php:110 plugins/pages/src/Manage.php:147
-#: plugins/pages/src/ManagePage.php:107 plugins/pages/src/ManagePage.php:855
+#: plugins/pages/src/ManagePage.php:107 plugins/pages/src/ManagePage.php:856
 msgid "New page"
 msgstr "Halaman baru"
 
@@ -2472,60 +2489,60 @@ msgstr "Untuk mengatur ulang urutan halaman, pindahkan item dengan menyeret dan 
 msgid "Save pages order"
 msgstr "Simpan urutan halaman"
 
-#: plugins/pages/src/ManagePage.php:167
+#: plugins/pages/src/ManagePage.php:168
 msgid "This page does not exist."
 msgstr "Halaman ini tidak ada."
 
-#: plugins/pages/src/ManagePage.php:188 plugins/pages/src/ManagePage.php:855
-#: plugins/pages/src/ManagePage.php:876
+#: plugins/pages/src/ManagePage.php:189 plugins/pages/src/ManagePage.php:856
+#: plugins/pages/src/ManagePage.php:877
 msgid "Edit page"
 msgstr "Halaman edit"
 
-#: plugins/pages/src/ManagePage.php:433
+#: plugins/pages/src/ManagePage.php:434
 msgid "Don't forget to validate your HTML conversion by saving your post."
 msgstr "Jangan lupa untuk memvalidasi konversi HTML Anda dengan menyimpan postingan Anda."
 
-#: plugins/pages/src/ManagePage.php:497
+#: plugins/pages/src/ManagePage.php:498
 msgid "Are you sure you want to delete this page?"
 msgstr "Apakah Anda yakin ingin menghapus halaman ini?"
 
-#: plugins/pages/src/ManagePage.php:526
+#: plugins/pages/src/ManagePage.php:527
 msgid "Page has been successfully updated."
 msgstr "Halaman telah berhasil diperbarui."
 
-#: plugins/pages/src/ManagePage.php:528
+#: plugins/pages/src/ManagePage.php:529
 msgid "Page has been successfully created."
 msgstr "Halaman telah berhasil dibuat."
 
-#: plugins/pages/src/ManagePage.php:542
+#: plugins/pages/src/ManagePage.php:543
 msgid "Go to this page on the site"
 msgstr "Buka halaman ini di situs"
 
-#: plugins/pages/src/ManagePage.php:584
+#: plugins/pages/src/ManagePage.php:585
 msgid "Page status"
 msgstr "Status halaman"
 
-#: plugins/pages/src/ManagePage.php:601
+#: plugins/pages/src/ManagePage.php:602
 msgid "Page language"
 msgstr "Bahasa halaman"
 
-#: plugins/pages/src/ManagePage.php:630 plugins/pages/src/Widgets.php:41
+#: plugins/pages/src/ManagePage.php:631 plugins/pages/src/Widgets.php:41
 msgid "Page position"
 msgstr "Posisi halaman"
 
-#: plugins/pages/src/ManagePage.php:681
+#: plugins/pages/src/ManagePage.php:682
 msgid "Hide in widget Pages"
 msgstr "Menyembunyikan di halaman widget"
 
-#: plugins/pages/src/ManagePage.php:707
+#: plugins/pages/src/ManagePage.php:708
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "Peringatan: Jika Anda mengatur URL secara manual, URL tersebut mungkin bertentangan dengan halaman lain."
 
-#: plugins/pages/src/ManagePage.php:746
+#: plugins/pages/src/ManagePage.php:747
 msgid "Introduction to the page."
 msgstr "Pengantar ke halaman."
 
-#: plugins/pages/src/ManagePage.php:1125
+#: plugins/pages/src/ManagePage.php:1126
 msgid "Select this comment"
 msgstr "Pilih komentar ini"
 
@@ -2573,7 +2590,7 @@ msgstr "Ping otomatis ke semua layanan pada publikasi entri pertama (hanya blog 
 msgid "Test ping services"
 msgstr "Uji layanan ping"
 
-#: plugins/simpleMenu/src/Backend.php:28 plugins/simpleMenu/src/Manage.php:71
+#: plugins/simpleMenu/src/Backend.php:28 plugins/simpleMenu/src/Manage.php:73
 #: plugins/simpleMenu/src/Widgets.php:29
 msgid "Simple menu"
 msgstr "Menu sederhana"
@@ -2586,185 +2603,185 @@ msgstr "Halaman aktif"
 msgid "active page"
 msgstr "halaman aktif"
 
-#: plugins/simpleMenu/src/Manage.php:96
+#: plugins/simpleMenu/src/Manage.php:105 plugins/simpleMenu/src/Manage.php:109
 msgid "All months"
 msgstr "Semua bulan"
 
-#: plugins/simpleMenu/src/Manage.php:159
+#: plugins/simpleMenu/src/Manage.php:172
 msgid "Archive"
 msgstr "Arsip"
 
-#: plugins/simpleMenu/src/Manage.php:162
+#: plugins/simpleMenu/src/Manage.php:175
 msgid "Page"
 msgstr "Halaman"
 
-#: plugins/simpleMenu/src/Manage.php:165 plugins/tags/src/Backend.php:27
+#: plugins/simpleMenu/src/Manage.php:178 plugins/tags/src/Backend.php:27
 #: plugins/tags/src/Widgets.php:33
 msgid "Tags"
 msgstr "Tags"
 
-#: plugins/simpleMenu/src/Manage.php:172
+#: plugins/simpleMenu/src/Manage.php:185
 msgid "User defined"
 msgstr "Ditentukan oleh pengguna"
 
-#: plugins/simpleMenu/src/Manage.php:213
+#: plugins/simpleMenu/src/Manage.php:226
 msgid "Configuration successfully updated."
 msgstr "Konfigurasi berhasil diperbarui."
 
-#: plugins/simpleMenu/src/Manage.php:255 plugins/simpleMenu/src/Manage.php:677
-#: plugins/simpleMenu/src/Manage.php:797
+#: plugins/simpleMenu/src/Manage.php:268 plugins/simpleMenu/src/Manage.php:690
+#: plugins/simpleMenu/src/Manage.php:810
 msgid "Label"
 msgstr "Label"
 
-#: plugins/simpleMenu/src/Manage.php:261
+#: plugins/simpleMenu/src/Manage.php:274
 msgid "Home page"
 msgstr "Halaman beranda"
 
-#: plugins/simpleMenu/src/Manage.php:261 plugins/simpleMenu/src/Manage.php:266
+#: plugins/simpleMenu/src/Manage.php:274 plugins/simpleMenu/src/Manage.php:279
 #: plugins/widgets/src/Widgets.php:304 plugins/widgets/src/Widgets.php:314
 msgid "Recent posts"
 msgstr "Posting terbaru"
 
-#: plugins/simpleMenu/src/Manage.php:273
+#: plugins/simpleMenu/src/Manage.php:286
 #, php-format
 msgid "Switch to %s language"
 msgstr "Beralih ke bahasa %s"
 
-#: plugins/simpleMenu/src/Manage.php:280
+#: plugins/simpleMenu/src/Manage.php:293
 msgid "Recent Posts from this category"
 msgstr "Postingan terbaru dari kategori ini"
 
-#: plugins/simpleMenu/src/Manage.php:292
+#: plugins/simpleMenu/src/Manage.php:305
 #, php-format
 msgid "Posts from %s"
 msgstr "Kiriman dari %s"
 
-#: plugins/simpleMenu/src/Manage.php:312
+#: plugins/simpleMenu/src/Manage.php:325
 #, php-format
 msgid "Recent posts for %s tag"
 msgstr "Posting terbaru untuk tag %s"
 
-#: plugins/simpleMenu/src/Manage.php:372
+#: plugins/simpleMenu/src/Manage.php:385
 msgid "Menu item has been successfully added."
 msgstr "Item menu telah berhasil ditambahkan."
 
-#: plugins/simpleMenu/src/Manage.php:377
+#: plugins/simpleMenu/src/Manage.php:390
 msgid "Label and URL of menu item are mandatory."
 msgstr "Label dan URL item menu wajib dicantumkan."
 
-#: plugins/simpleMenu/src/Manage.php:410
+#: plugins/simpleMenu/src/Manage.php:423
 msgid "Menu items have been successfully removed."
 msgstr "Item menu telah berhasil dihapus."
 
-#: plugins/simpleMenu/src/Manage.php:413
+#: plugins/simpleMenu/src/Manage.php:426
 msgid "No menu items selected."
 msgstr "Tidak ada item menu yang dipilih."
 
-#: plugins/simpleMenu/src/Manage.php:425
+#: plugins/simpleMenu/src/Manage.php:438
 msgid "Label is mandatory."
 msgstr "Label wajib dicantumkan."
 
-#: plugins/simpleMenu/src/Manage.php:430
+#: plugins/simpleMenu/src/Manage.php:443
 msgid "URL is mandatory."
 msgstr "URL wajib dicantumkan."
 
-#: plugins/simpleMenu/src/Manage.php:475
+#: plugins/simpleMenu/src/Manage.php:488
 msgid "Menu items have been successfully updated."
 msgstr "Item menu telah berhasil diperbarui."
 
-#: plugins/simpleMenu/src/Manage.php:502
+#: plugins/simpleMenu/src/Manage.php:515
 msgid "Are you sure you want to remove selected menu items?"
 msgstr "Apakah Anda yakin ingin menghapus item menu yang dipilih?"
 
-#: plugins/simpleMenu/src/Manage.php:511
+#: plugins/simpleMenu/src/Manage.php:524
 msgid "Step #1"
 msgstr "Langkah # 1"
 
-#: plugins/simpleMenu/src/Manage.php:516 plugins/simpleMenu/src/Manage.php:521
+#: plugins/simpleMenu/src/Manage.php:529 plugins/simpleMenu/src/Manage.php:534
 msgid "Step #2"
 msgstr "Langkah # 2"
 
-#: plugins/simpleMenu/src/Manage.php:521
+#: plugins/simpleMenu/src/Manage.php:534
 msgid "Step #3"
 msgstr "Langkah #3"
 
-#: plugins/simpleMenu/src/Manage.php:530
+#: plugins/simpleMenu/src/Manage.php:543
 msgid "Add item"
 msgstr "Tambahkan item"
 
-#: plugins/simpleMenu/src/Manage.php:561
+#: plugins/simpleMenu/src/Manage.php:574
 msgid "Select type"
 msgstr "Pilih jenis"
 
-#: plugins/simpleMenu/src/Manage.php:568
+#: plugins/simpleMenu/src/Manage.php:581
 msgid "Type of item menu:"
 msgstr "Jenis menu item:"
 
-#: plugins/simpleMenu/src/Manage.php:574 plugins/simpleMenu/src/Manage.php:641
+#: plugins/simpleMenu/src/Manage.php:587 plugins/simpleMenu/src/Manage.php:654
 msgid "Continue..."
 msgstr "Lanjutkan..."
 
-#: plugins/simpleMenu/src/Manage.php:597
+#: plugins/simpleMenu/src/Manage.php:610
 msgid "Select language:"
 msgstr "Pilih bahasa:"
 
-#: plugins/simpleMenu/src/Manage.php:603
+#: plugins/simpleMenu/src/Manage.php:616
 msgid "Select category:"
 msgstr "Pilih kategori:"
 
-#: plugins/simpleMenu/src/Manage.php:609
+#: plugins/simpleMenu/src/Manage.php:622
 msgid "Select month (if necessary):"
 msgstr "Pilih bulan (jika perlu):"
 
-#: plugins/simpleMenu/src/Manage.php:615
+#: plugins/simpleMenu/src/Manage.php:628
 msgid "Select page:"
 msgstr "Pilih halaman:"
 
-#: plugins/simpleMenu/src/Manage.php:621
+#: plugins/simpleMenu/src/Manage.php:634
 msgid "Select tag (if necessary):"
 msgstr "Pilih tag (jika perlu):"
 
-#: plugins/simpleMenu/src/Manage.php:682
+#: plugins/simpleMenu/src/Manage.php:695
 msgid "Label of item menu:"
 msgstr "Label menu item:"
 
-#: plugins/simpleMenu/src/Manage.php:696
+#: plugins/simpleMenu/src/Manage.php:709
 msgid "Description of item menu:"
 msgstr "Deskripsi menu item:"
 
-#: plugins/simpleMenu/src/Manage.php:711
+#: plugins/simpleMenu/src/Manage.php:724
 msgid "URL of item menu:"
 msgstr "URL menu item:"
 
-#: plugins/simpleMenu/src/Manage.php:721 plugins/simpleMenu/src/Manage.php:800
+#: plugins/simpleMenu/src/Manage.php:734 plugins/simpleMenu/src/Manage.php:813
 msgid "Open URL on a new tab"
 msgstr "Buka URL di tab baru"
 
-#: plugins/simpleMenu/src/Manage.php:729
+#: plugins/simpleMenu/src/Manage.php:742
 msgid "Add this item"
 msgstr "Tambahkan item ini"
 
-#: plugins/simpleMenu/src/Manage.php:755
+#: plugins/simpleMenu/src/Manage.php:768
 msgid "Enable simple menu for this blog"
 msgstr "Aktifkan menu sederhana untuk blog ini"
 
-#: plugins/simpleMenu/src/Manage.php:778
+#: plugins/simpleMenu/src/Manage.php:791
 msgid "Add an item"
 msgstr "Menambahkan item"
 
-#: plugins/simpleMenu/src/Manage.php:896
+#: plugins/simpleMenu/src/Manage.php:909
 msgid "Menu items list"
 msgstr "Daftar item menu"
 
-#: plugins/simpleMenu/src/Manage.php:923
+#: plugins/simpleMenu/src/Manage.php:936
 msgid "Delete selected menu items"
 msgstr "Menghapus item menu yang dipilih"
 
-#: plugins/simpleMenu/src/Manage.php:932
+#: plugins/simpleMenu/src/Manage.php:945
 msgid "Update menu"
 msgstr "Memperbarui menu"
 
-#: plugins/simpleMenu/src/Manage.php:942
+#: plugins/simpleMenu/src/Manage.php:955
 msgid "No menu items so far."
 msgstr "Sejauh ini tidak ada item menu."
 
@@ -2951,8 +2968,8 @@ msgid "themeEditor"
 msgstr "themeEditor"
 
 #: plugins/themeEditor/src/BackendBehaviors.php:45
-#: plugins/themeEditor/src/Manage.php:193
-#: plugins/themeEditor/src/Manage.php:200
+#: plugins/themeEditor/src/Manage.php:194
+#: plugins/themeEditor/src/Manage.php:201
 msgid "Edit theme files"
 msgstr "Mengedit file tema"
 
@@ -2976,85 +2993,85 @@ msgstr "Pembaruan tema telah dibuka kuncinya."
 msgid "The file has been reset."
 msgstr "File telah diatur ulang."
 
-#: plugins/themeEditor/src/Manage.php:162
+#: plugins/themeEditor/src/Manage.php:163
 msgid "Lock update"
 msgstr "Pembaruan kunci"
 
-#: plugins/themeEditor/src/Manage.php:162
+#: plugins/themeEditor/src/Manage.php:163
 msgid "Unlock update"
 msgstr "Buka kunci pembaruan"
 
-#: plugins/themeEditor/src/Manage.php:167
+#: plugins/themeEditor/src/Manage.php:168
 msgid "Lock theme update disables theme update, but allows theme files to be modified."
 msgstr "Kunci pembaruan tema menonaktifkan pembaruan tema, tetapi memungkinkan file tema dimodifikasi."
 
-#: plugins/themeEditor/src/Manage.php:173
+#: plugins/themeEditor/src/Manage.php:174
 msgid "The theme editor is in development mode, theme files will be overwritten!"
 msgstr "Editor tema dalam mode pengembangan, file tema akan ditimpa!"
 
-#: plugins/themeEditor/src/Manage.php:181
+#: plugins/themeEditor/src/Manage.php:182
 msgid "Saving document..."
 msgstr "Menyimpan dokumen..."
 
-#: plugins/themeEditor/src/Manage.php:182
+#: plugins/themeEditor/src/Manage.php:183
 msgid "Document saved"
 msgstr "Dokumen disimpan"
 
-#: plugins/themeEditor/src/Manage.php:183
+#: plugins/themeEditor/src/Manage.php:184
 msgid "An error occurred:"
 msgstr "Terjadi kesalahan:"
 
-#: plugins/themeEditor/src/Manage.php:184
+#: plugins/themeEditor/src/Manage.php:185
 msgid "Are you sure you want to reset this file?"
 msgstr "Apakah Anda yakin ingin mengatur ulang file ini?"
 
-#: plugins/themeEditor/src/Manage.php:208
+#: plugins/themeEditor/src/Manage.php:209
 #, php-format
 msgid "Your current theme on this blog is \"%s\"."
 msgstr "Tema Anda saat ini di blog ini adalah \"%s\"."
 
-#: plugins/themeEditor/src/Manage.php:218
+#: plugins/themeEditor/src/Manage.php:219
 msgid "Please select a file to edit."
 msgstr "Pilih file yang akan diedit."
 
-#: plugins/themeEditor/src/Manage.php:226
+#: plugins/themeEditor/src/Manage.php:227
 msgid "Reset"
 msgstr "Atur ulang"
 
-#: plugins/themeEditor/src/Manage.php:235
+#: plugins/themeEditor/src/Manage.php:236
 msgid "File editor"
 msgstr "Editor file"
 
-#: plugins/themeEditor/src/Manage.php:244
+#: plugins/themeEditor/src/Manage.php:245
 #, php-format
 msgid "Editing file %s"
 msgstr "Mengedit file %s"
 
-#: plugins/themeEditor/src/Manage.php:260
+#: plugins/themeEditor/src/Manage.php:261
 msgid "If you use <code>url(...)</code> in your CSS files, be sure to use <code>url(index.php?tf=...)</code> to correctly load theme resources (imported CSS, images, etc.), except for URL types in the form <code>data:image</code>.<br>Example: do <code>@import url(index.php?tf=css/layout.css);</code> instead of <code>@import url(css/layout.css);</code>."
 msgstr "Jika Anda menggunakan <code>url(...)</code> dalam berkas CSS Anda, pastikan untuk menggunakan <code>url(index.php?tf=...)</code> untuk memuat sumber daya tema dengan benar (CSS yang diimpor, gambar, dan lain-lain), kecuali untuk tipe URL dalam bentuk <code>data:image</code>.<br>Contoh: lakukan <code>@impor url(index.php?tf=css/layout.css);</code> alih-alih <code>@impor url(css/layout.css);</code>."
 
-#: plugins/themeEditor/src/Manage.php:264
+#: plugins/themeEditor/src/Manage.php:265
 msgid "This file is not overloadable. Please check your var folder permissions."
 msgstr "Berkas ini tidak dapat dimuat secara berlebihan. Silakan periksa izin folder var Anda."
 
-#: plugins/themeEditor/src/Manage.php:283
+#: plugins/themeEditor/src/Manage.php:284
 msgid "Templates files"
 msgstr "File templat"
 
-#: plugins/themeEditor/src/Manage.php:288
+#: plugins/themeEditor/src/Manage.php:289
 msgid "CSS files"
 msgstr "File CSS"
 
-#: plugins/themeEditor/src/Manage.php:293
+#: plugins/themeEditor/src/Manage.php:294
 msgid "JavaScript files"
 msgstr "File JavaScript"
 
-#: plugins/themeEditor/src/Manage.php:298
+#: plugins/themeEditor/src/Manage.php:299
 msgid "Locales files"
 msgstr "File lokal"
 
-#: plugins/themeEditor/src/Manage.php:303
+#: plugins/themeEditor/src/Manage.php:304
 msgid "PHP files"
 msgstr "File PHP"
 
@@ -3346,31 +3363,31 @@ msgstr "Memasukkan umpan"
 msgid "Comments feed"
 msgstr "Umpan komentar"
 
-#: plugins/widgets/src/WidgetsElement.php:547
+#: plugins/widgets/src/WidgetsElement.php:543
 msgid "Title (optional)"
 msgstr "Judul (opsional)"
 
-#: plugins/widgets/src/WidgetsElement.php:558
+#: plugins/widgets/src/WidgetsElement.php:554
 msgid "All pages"
 msgstr "Semua halaman"
 
-#: plugins/widgets/src/WidgetsElement.php:559
+#: plugins/widgets/src/WidgetsElement.php:555
 msgid "Home page only"
 msgstr "Halaman beranda saja"
 
-#: plugins/widgets/src/WidgetsElement.php:560
+#: plugins/widgets/src/WidgetsElement.php:556
 msgid "Except on home page"
 msgstr "Kecuali di halaman beranda"
 
-#: plugins/widgets/src/WidgetsElement.php:568
+#: plugins/widgets/src/WidgetsElement.php:564
 msgid "Display on:"
 msgstr "Layar menyala:"
 
-#: plugins/widgets/src/WidgetsElement.php:594
+#: plugins/widgets/src/WidgetsElement.php:590
 msgid "Content only"
 msgstr "Hanya konten"
 
-#: plugins/widgets/src/WidgetsElement.php:604
+#: plugins/widgets/src/WidgetsElement.php:600
 msgid "CSS class:"
 msgstr "Kelas CSS:"
 

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-05 07:56+0200\n"
-"PO-Revision-Date: 2025-10-05 06:00\n"
+"POT-Creation-Date: 2025-10-31 10:25+0100\n"
+"PO-Revision-Date: 2025-10-31 09:29\n"
 "Last-Translator: \n"
 "Language-Team: Hindi\n"
 "Language: hi_IN\n"
@@ -686,7 +686,7 @@ msgid "Antispam"
 msgstr "एंटीस्पैम"
 
 #: plugins/antispam/src/BackendBehaviors.php:56
-#: plugins/antispam/src/Manage.php:224
+#: plugins/antispam/src/Manage.php:229
 #, php-format
 msgid "All spam comments older than %s day(s) will be automatically deleted."
 msgstr "%s दिन (दिनों) से पुरानी सभी स्पैम टिप्पणियाँ स्वचालित रूप से हटा दी जाएँगी."
@@ -890,80 +890,80 @@ msgstr "फ़िल्टर मौजूद नहीं है."
 msgid "Filter has no user interface."
 msgstr "फिल्टर का कोई उपयोक्ता अंतरफलक नहीं है."
 
-#: plugins/antispam/src/Manage.php:137 plugins/antispam/src/Manage.php:270
+#: plugins/antispam/src/Manage.php:142 plugins/antispam/src/Manage.php:275
 msgid "Filters configuration has been successfully saved."
 msgstr "फ़िल्टर विन्यास सफलतापूर्वक सहेजा गया है."
 
-#: plugins/antispam/src/Manage.php:154
+#: plugins/antispam/src/Manage.php:159
 #, php-format
 msgid "%s configuration"
 msgstr "%s कॉन्फ़िगरेशन"
 
-#: plugins/antispam/src/Manage.php:175
+#: plugins/antispam/src/Manage.php:180
 #, php-format
 msgid "%s filter configuration"
 msgstr "%s फ़िल्टर कॉन्फ़िगरेशन"
 
-#: plugins/antispam/src/Manage.php:182
+#: plugins/antispam/src/Manage.php:187
 msgid "Back to filters list"
 msgstr "फिल्टर सूची में वापस जाएँ"
 
-#: plugins/antispam/src/Manage.php:229
+#: plugins/antispam/src/Manage.php:234
 #, php-format
 msgid "You can modify this duration in the %s"
 msgstr "आप इस अवधि को %s में संशोधित कर सकते हैं"
 
-#: plugins/antispam/src/Manage.php:238
+#: plugins/antispam/src/Manage.php:243
 msgid "Information"
 msgstr "सूचना"
 
-#: plugins/antispam/src/Manage.php:249
+#: plugins/antispam/src/Manage.php:254
 msgid "Junk comments:"
 msgstr "कचरा डाक टिप्पणी:"
 
-#: plugins/antispam/src/Manage.php:255
+#: plugins/antispam/src/Manage.php:260
 msgid "Published comments:"
 msgstr "प्रकाशित टिप्पणी:"
 
-#: plugins/antispam/src/Manage.php:279 plugins/antispam/src/Manage.php:282
-#: plugins/antispam/src/Manage.php:286
+#: plugins/antispam/src/Manage.php:284 plugins/antispam/src/Manage.php:287
+#: plugins/antispam/src/Manage.php:291
 msgid "Filter configuration"
 msgstr "फ़िल्टर विन्यास"
 
-#: plugins/antispam/src/Manage.php:302 plugins/blogroll/src/Manage.php:305
+#: plugins/antispam/src/Manage.php:307 plugins/blogroll/src/Manage.php:305
 msgid "position"
 msgstr "स्थिति"
 
-#: plugins/antispam/src/Manage.php:309 plugins/antispam/src/Manage.php:343
+#: plugins/antispam/src/Manage.php:314 plugins/antispam/src/Manage.php:348
 msgid "Active"
 msgstr "सक्रिय"
 
-#: plugins/antispam/src/Manage.php:316 plugins/antispam/src/Manage.php:344
+#: plugins/antispam/src/Manage.php:321 plugins/antispam/src/Manage.php:349
 msgid "Auto Del."
 msgstr "ऑटो डेला।"
 
-#: plugins/antispam/src/Manage.php:337
+#: plugins/antispam/src/Manage.php:342
 msgid "Available spam filters"
 msgstr "उपलब्ध स्पैम फिल्टर"
 
-#: plugins/antispam/src/Manage.php:342
+#: plugins/antispam/src/Manage.php:347
 #: plugins/pages/src/BackendDefaultActions.php:73
 msgid "Order"
 msgstr "आदेश"
 
-#: plugins/antispam/src/Manage.php:345
+#: plugins/antispam/src/Manage.php:350
 msgid "Filter name"
 msgstr "फ़िल्टर नाम"
 
-#: plugins/antispam/src/Manage.php:372
+#: plugins/antispam/src/Manage.php:377
 msgid "Syndication"
 msgstr "समूहन"
 
-#: plugins/antispam/src/Manage.php:375
+#: plugins/antispam/src/Manage.php:380
 msgid "Junk comments RSS feed"
 msgstr "कचरा डाक टिप्पणी आरएसएस फ़ीड"
 
-#: plugins/antispam/src/Manage.php:378
+#: plugins/antispam/src/Manage.php:383
 msgid "Published comments RSS feed"
 msgstr "प्रकाशित टिप्पणी आरएसएस फ़ीड"
 
@@ -1319,7 +1319,7 @@ msgstr "ब्रेडक्रम्ब को &lt;p id=\"breadcrumb\"&gt;...&
 #: plugins/breadcrumb/src/FrontendTemplate.php:192
 #: plugins/breadcrumb/src/FrontendTemplate.php:204
 #: plugins/breadcrumb/src/FrontendTemplate.php:210
-#: plugins/simpleMenu/src/Manage.php:146 plugins/simpleMenu/src/Manage.php:260
+#: plugins/simpleMenu/src/Manage.php:159 plugins/simpleMenu/src/Manage.php:273
 #: plugins/widgets/src/Widgets.php:295
 msgid "Home"
 msgstr "घर"
@@ -1334,13 +1334,13 @@ msgstr "पृष्ठ %d"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:154
 #: plugins/breadcrumb/src/FrontendTemplate.php:157
-#: plugins/simpleMenu/src/Manage.php:287 plugins/widgets/src/Widgets.php:323
+#: plugins/simpleMenu/src/Manage.php:300 plugins/widgets/src/Widgets.php:323
 msgid "Archives"
 msgstr "अभिलेखागार"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:173
 #: plugins/breadcrumb/src/FrontendTemplate.php:180
-#: plugins/simpleMenu/src/Manage.php:130 plugins/simpleMenu/src/Manage.php:307
+#: plugins/simpleMenu/src/Manage.php:143 plugins/simpleMenu/src/Manage.php:320
 #: plugins/tags/src/Widgets.php:57
 msgid "All tags"
 msgstr "सभी टैग"
@@ -1500,7 +1500,7 @@ msgstr "अंतर्निहित वर्तनी जाँचकर्�
 
 #: plugins/dcCKEditor/src/Manage.php:321
 #: plugins/dcLegacyEditor/src/Manage.php:111
-#: plugins/simpleMenu/src/Manage.php:761
+#: plugins/simpleMenu/src/Manage.php:774
 msgid "Save configuration"
 msgstr "कॉन्फ़िगरेशन सहेजें"
 
@@ -1715,7 +1715,7 @@ msgstr "निर्यात फ़ंक्शंस पृष्ठ %s मे
 
 #: plugins/importExport/src/Manage.php:144
 #: plugins/maintenance/src/Backend.php:27
-#: plugins/maintenance/src/BackendBehaviors.php:219
+#: plugins/maintenance/src/BackendBehaviors.php:220
 msgid "Maintenance"
 msgstr "अनुरक्षण"
 
@@ -2057,14 +2057,14 @@ msgstr "अनुवाद बनाए रखें"
 msgid "Translations"
 msgstr "अनुवाद"
 
-#: plugins/maintenance/src/BackendBehaviors.php:93
+#: plugins/maintenance/src/BackendBehaviors.php:94
 #, php-format
 msgid "One <a href=\"%2$s\">maintenance task</a> to execute."
 msgid_plural "%1$s <a href=\"%2$s\">maintenance tasks</a> to execute."
 msgstr[0] "एक <a href=\"%2$s\">रखरखाव कार्य</a> निष्पादित करने के लिए।"
 msgstr[1] "%1$s <a href=\"%2$s\">रखरखाव कार्य</a> निष्पादित करने के लिए।"
 
-#: plugins/maintenance/src/BackendBehaviors.php:167
+#: plugins/maintenance/src/BackendBehaviors.php:168
 #: plugins/maintenance/src/Rest.php:83
 #, php-format
 msgid "One task to execute"
@@ -2072,33 +2072,33 @@ msgid_plural "%s tasks to execute"
 msgstr[0] "निष्पादित करने के लिए एक कार्य"
 msgstr[1] "निष्पादित करने के लिए %s कार्य"
 
-#: plugins/maintenance/src/BackendBehaviors.php:201
+#: plugins/maintenance/src/BackendBehaviors.php:202
 #: plugins/maintenance/src/Manage.php:306
 msgid "This task has never been executed."
 msgstr "यह कार्य कभी निष्पादित नहीं किया गया है."
 
-#: plugins/maintenance/src/BackendBehaviors.php:204
+#: plugins/maintenance/src/BackendBehaviors.php:205
 #: plugins/maintenance/src/Manage.php:309
 #, php-format
 msgid "Last execution of this task was on %s."
 msgstr "इस कार्य का अंतिम निष्पादन %s पर था."
 
-#: plugins/maintenance/src/BackendBehaviors.php:222
+#: plugins/maintenance/src/BackendBehaviors.php:223
 #, php-format
 msgid "There is a task to execute."
 msgid_plural "There are %s tasks to execute."
 msgstr[0] "निष्पादित करने के लिए एक कार्य है."
 msgstr[1] "निष्पादित करने के लिए %s कार्य हैं."
 
-#: plugins/maintenance/src/BackendBehaviors.php:229
+#: plugins/maintenance/src/BackendBehaviors.php:230
 msgid "Manage tasks"
 msgstr "कार्य प्रबंधित करें"
 
-#: plugins/maintenance/src/BackendBehaviors.php:251
+#: plugins/maintenance/src/BackendBehaviors.php:252
 msgid "Display overdue tasks counter on maintenance dashboard icon"
 msgstr "रखरखाव डैशबोर्ड प्रतीक पर अतिदेय कार्य काउंटर दिखाएँ"
 
-#: plugins/maintenance/src/BackendBehaviors.php:257
+#: plugins/maintenance/src/BackendBehaviors.php:258
 msgid "Display overdue tasks list on dashboard items"
 msgstr "डैशबोर्ड मद पर अतिदेय कार्य सूची को प्रदर्शित करें"
 
@@ -2238,6 +2238,23 @@ msgstr "टेम्पलेट्स कैश निर्देशिका 
 #, php-format
 msgid "It may be useful to empty this cache when modifying a theme's .html or .css files (or when updating a theme or plugin). Notice : with some hosters, the templates cache cannot be emptied with this plugin. You may then have to delete the directory <strong>%s</strong> directly on the server with your FTP software."
 msgstr "थीम की .html या .css फ़ाइलों को संशोधित करते समय (या थीम या प्लगइन को अपडेट करते समय) इस कैश को खाली करना उपयोगी हो सकता है। ध्यान दें: कुछ होस्टर्स के साथ, इस प्लगइन के साथ टेम्पलेट कैश को खाली नहीं किया जा सकता है। फिर आपको अपने FTP सॉफ़्टवेयर के साथ सीधे सर्वर पर निर्देशिका <strong>%s</strong> को हटाना पड़ सकता है।"
+
+#: plugins/maintenance/src/Task/CacheFeeds.php:38
+msgid "Empty the feed cache directory"
+msgstr ""
+
+#: plugins/maintenance/src/Task/CacheFeeds.php:39
+msgid "The feed cache directory has been emptied."
+msgstr ""
+
+#: plugins/maintenance/src/Task/CacheFeeds.php:40
+msgid "Failed to delete the feed cache directory."
+msgstr ""
+
+#: plugins/maintenance/src/Task/CacheFeeds.php:42
+#, php-format
+msgid "Notice : with some hosters, the feed cache cannot be emptied with this plugin. You may then have to delete the directory <strong>%s</strong> directly on the server with your FTP software."
+msgstr ""
 
 #: plugins/maintenance/src/Task/CountComments.php:39
 msgid "Count again comments and trackbacks"
@@ -2404,7 +2421,7 @@ msgid "%d pages"
 msgstr "%d पृष्ठ"
 
 #: plugins/pages/src/Backend.php:110 plugins/pages/src/Manage.php:147
-#: plugins/pages/src/ManagePage.php:107 plugins/pages/src/ManagePage.php:855
+#: plugins/pages/src/ManagePage.php:107 plugins/pages/src/ManagePage.php:856
 msgid "New page"
 msgstr "नया पृष्ठ"
 
@@ -2477,60 +2494,60 @@ msgstr "पृष्ठ क्रम को फिर से व्यवस्�
 msgid "Save pages order"
 msgstr "पृष्ठ क्रम सहेजें"
 
-#: plugins/pages/src/ManagePage.php:167
+#: plugins/pages/src/ManagePage.php:168
 msgid "This page does not exist."
 msgstr "यह पृष्ठ मौजूद नहीं है."
 
-#: plugins/pages/src/ManagePage.php:188 plugins/pages/src/ManagePage.php:855
-#: plugins/pages/src/ManagePage.php:876
+#: plugins/pages/src/ManagePage.php:189 plugins/pages/src/ManagePage.php:856
+#: plugins/pages/src/ManagePage.php:877
 msgid "Edit page"
 msgstr "पृष्ठ संपादित करें"
 
-#: plugins/pages/src/ManagePage.php:433
+#: plugins/pages/src/ManagePage.php:434
 msgid "Don't forget to validate your HTML conversion by saving your post."
 msgstr "अपने पोस्ट को बचाने के द्वारा अपने HTML रूपांतरण को वैध बनाने के लिए मत भूलना."
 
-#: plugins/pages/src/ManagePage.php:497
+#: plugins/pages/src/ManagePage.php:498
 msgid "Are you sure you want to delete this page?"
 msgstr "क्या आप निश्चित हैं कि आप इस पृष्ठ को मिटाना चाहते हैं?"
 
-#: plugins/pages/src/ManagePage.php:526
+#: plugins/pages/src/ManagePage.php:527
 msgid "Page has been successfully updated."
 msgstr "पृष्ठ सफलतापूर्वक अद्यतन किया गया है."
 
-#: plugins/pages/src/ManagePage.php:528
+#: plugins/pages/src/ManagePage.php:529
 msgid "Page has been successfully created."
 msgstr "पृष्ठ सफलतापूर्वक बनाया गया है."
 
-#: plugins/pages/src/ManagePage.php:542
+#: plugins/pages/src/ManagePage.php:543
 msgid "Go to this page on the site"
 msgstr "साइट पर इस पृष्ठ पर जाएँ"
 
-#: plugins/pages/src/ManagePage.php:584
+#: plugins/pages/src/ManagePage.php:585
 msgid "Page status"
 msgstr "पृष्ठ स्थिति"
 
-#: plugins/pages/src/ManagePage.php:601
+#: plugins/pages/src/ManagePage.php:602
 msgid "Page language"
 msgstr "पृष्ठ भाषा"
 
-#: plugins/pages/src/ManagePage.php:630 plugins/pages/src/Widgets.php:41
+#: plugins/pages/src/ManagePage.php:631 plugins/pages/src/Widgets.php:41
 msgid "Page position"
 msgstr "पृष्ठ स्थिति"
 
-#: plugins/pages/src/ManagePage.php:681
+#: plugins/pages/src/ManagePage.php:682
 msgid "Hide in widget Pages"
 msgstr "विज़ेट पृष्ठों में छुपाएं"
 
-#: plugins/pages/src/ManagePage.php:707
+#: plugins/pages/src/ManagePage.php:708
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "चेतावनी: यदि आप URL को दस्ती रूप से सेट करते हैं, यह किसी अन्य पृष्ठ के साथ संघर्ष कर सकता है."
 
-#: plugins/pages/src/ManagePage.php:746
+#: plugins/pages/src/ManagePage.php:747
 msgid "Introduction to the page."
 msgstr "पृष्ठ के लिए परिचय."
 
-#: plugins/pages/src/ManagePage.php:1125
+#: plugins/pages/src/ManagePage.php:1126
 msgid "Select this comment"
 msgstr "इस टिप्पणी को चुनें"
 
@@ -2578,7 +2595,7 @@ msgstr "प्रवेश के पहले प्रकाशन पर स�
 msgid "Test ping services"
 msgstr "पिंग सेवाओं का परीक्षण"
 
-#: plugins/simpleMenu/src/Backend.php:28 plugins/simpleMenu/src/Manage.php:71
+#: plugins/simpleMenu/src/Backend.php:28 plugins/simpleMenu/src/Manage.php:73
 #: plugins/simpleMenu/src/Widgets.php:29
 msgid "Simple menu"
 msgstr "सरल मेनू"
@@ -2591,185 +2608,185 @@ msgstr "सक्रिय पृष्ठ"
 msgid "active page"
 msgstr "सक्रिय पृष्ठ"
 
-#: plugins/simpleMenu/src/Manage.php:96
+#: plugins/simpleMenu/src/Manage.php:105 plugins/simpleMenu/src/Manage.php:109
 msgid "All months"
 msgstr "सभी महीने"
 
-#: plugins/simpleMenu/src/Manage.php:159
+#: plugins/simpleMenu/src/Manage.php:172
 msgid "Archive"
 msgstr "अभिलेखागार"
 
-#: plugins/simpleMenu/src/Manage.php:162
+#: plugins/simpleMenu/src/Manage.php:175
 msgid "Page"
 msgstr "पृष्ठ"
 
-#: plugins/simpleMenu/src/Manage.php:165 plugins/tags/src/Backend.php:27
+#: plugins/simpleMenu/src/Manage.php:178 plugins/tags/src/Backend.php:27
 #: plugins/tags/src/Widgets.php:33
 msgid "Tags"
 msgstr "टैग"
 
-#: plugins/simpleMenu/src/Manage.php:172
+#: plugins/simpleMenu/src/Manage.php:185
 msgid "User defined"
 msgstr "उपयोक्ता पारिभाषित"
 
-#: plugins/simpleMenu/src/Manage.php:213
+#: plugins/simpleMenu/src/Manage.php:226
 msgid "Configuration successfully updated."
 msgstr "कॉन्फ़िगरेशन सफलतापूर्वक अद्यतन किया गया."
 
-#: plugins/simpleMenu/src/Manage.php:255 plugins/simpleMenu/src/Manage.php:677
-#: plugins/simpleMenu/src/Manage.php:797
+#: plugins/simpleMenu/src/Manage.php:268 plugins/simpleMenu/src/Manage.php:690
+#: plugins/simpleMenu/src/Manage.php:810
 msgid "Label"
 msgstr "लेबल"
 
-#: plugins/simpleMenu/src/Manage.php:261
+#: plugins/simpleMenu/src/Manage.php:274
 msgid "Home page"
 msgstr "घर पृष्ठ"
 
-#: plugins/simpleMenu/src/Manage.php:261 plugins/simpleMenu/src/Manage.php:266
+#: plugins/simpleMenu/src/Manage.php:274 plugins/simpleMenu/src/Manage.php:279
 #: plugins/widgets/src/Widgets.php:304 plugins/widgets/src/Widgets.php:314
 msgid "Recent posts"
 msgstr "हाल के डाक"
 
-#: plugins/simpleMenu/src/Manage.php:273
+#: plugins/simpleMenu/src/Manage.php:286
 #, php-format
 msgid "Switch to %s language"
 msgstr "%s भाषा पर स्विच करना"
 
-#: plugins/simpleMenu/src/Manage.php:280
+#: plugins/simpleMenu/src/Manage.php:293
 msgid "Recent Posts from this category"
 msgstr "इस श्रेणी से हाल के डाक"
 
-#: plugins/simpleMenu/src/Manage.php:292
+#: plugins/simpleMenu/src/Manage.php:305
 #, php-format
 msgid "Posts from %s"
 msgstr "%s से पोस्ट"
 
-#: plugins/simpleMenu/src/Manage.php:312
+#: plugins/simpleMenu/src/Manage.php:325
 #, php-format
 msgid "Recent posts for %s tag"
 msgstr "%s टैग के लिए हाल की पोस्ट"
 
-#: plugins/simpleMenu/src/Manage.php:372
+#: plugins/simpleMenu/src/Manage.php:385
 msgid "Menu item has been successfully added."
 msgstr "मेन्यू मद सफलतापूर्वक जोड़ा गया है."
 
-#: plugins/simpleMenu/src/Manage.php:377
+#: plugins/simpleMenu/src/Manage.php:390
 msgid "Label and URL of menu item are mandatory."
 msgstr "मेनू मद का लेबल और यूआरएल अनिवार्य है."
 
-#: plugins/simpleMenu/src/Manage.php:410
+#: plugins/simpleMenu/src/Manage.php:423
 msgid "Menu items have been successfully removed."
 msgstr "मेन्यू मद सफलतापूर्वक हटा दिया गया है."
 
-#: plugins/simpleMenu/src/Manage.php:413
+#: plugins/simpleMenu/src/Manage.php:426
 msgid "No menu items selected."
 msgstr "कोई मेनू आइटम चयनित नहीं है."
 
-#: plugins/simpleMenu/src/Manage.php:425
+#: plugins/simpleMenu/src/Manage.php:438
 msgid "Label is mandatory."
 msgstr "लेबल अनिवार्य है."
 
-#: plugins/simpleMenu/src/Manage.php:430
+#: plugins/simpleMenu/src/Manage.php:443
 msgid "URL is mandatory."
 msgstr "यूआरएल अनिवार्य है."
 
-#: plugins/simpleMenu/src/Manage.php:475
+#: plugins/simpleMenu/src/Manage.php:488
 msgid "Menu items have been successfully updated."
 msgstr "मेनू आइटम सफलतापूर्वक अद्यतन किया गया है."
 
-#: plugins/simpleMenu/src/Manage.php:502
+#: plugins/simpleMenu/src/Manage.php:515
 msgid "Are you sure you want to remove selected menu items?"
 msgstr "क्या आप निश्चित हैं कि आप चयनित मेनू आइटम को मिटाना चाहते हैं?"
 
-#: plugins/simpleMenu/src/Manage.php:511
+#: plugins/simpleMenu/src/Manage.php:524
 msgid "Step #1"
 msgstr "चरण #1"
 
-#: plugins/simpleMenu/src/Manage.php:516 plugins/simpleMenu/src/Manage.php:521
+#: plugins/simpleMenu/src/Manage.php:529 plugins/simpleMenu/src/Manage.php:534
 msgid "Step #2"
 msgstr "चरण #2"
 
-#: plugins/simpleMenu/src/Manage.php:521
+#: plugins/simpleMenu/src/Manage.php:534
 msgid "Step #3"
 msgstr "चरण #3"
 
-#: plugins/simpleMenu/src/Manage.php:530
+#: plugins/simpleMenu/src/Manage.php:543
 msgid "Add item"
 msgstr "मद जोड़ें"
 
-#: plugins/simpleMenu/src/Manage.php:561
+#: plugins/simpleMenu/src/Manage.php:574
 msgid "Select type"
 msgstr "क़िस्म चुनें"
 
-#: plugins/simpleMenu/src/Manage.php:568
+#: plugins/simpleMenu/src/Manage.php:581
 msgid "Type of item menu:"
 msgstr "आइटम मेनू का प्रकार:"
 
-#: plugins/simpleMenu/src/Manage.php:574 plugins/simpleMenu/src/Manage.php:641
+#: plugins/simpleMenu/src/Manage.php:587 plugins/simpleMenu/src/Manage.php:654
 msgid "Continue..."
 msgstr "जारी रखें ..."
 
-#: plugins/simpleMenu/src/Manage.php:597
+#: plugins/simpleMenu/src/Manage.php:610
 msgid "Select language:"
 msgstr "भाषा चुनें:"
 
-#: plugins/simpleMenu/src/Manage.php:603
+#: plugins/simpleMenu/src/Manage.php:616
 msgid "Select category:"
 msgstr "श्रेणी चुनें:"
 
-#: plugins/simpleMenu/src/Manage.php:609
+#: plugins/simpleMenu/src/Manage.php:622
 msgid "Select month (if necessary):"
 msgstr "माह चुनें (यदि आवश्यक हो):"
 
-#: plugins/simpleMenu/src/Manage.php:615
+#: plugins/simpleMenu/src/Manage.php:628
 msgid "Select page:"
 msgstr "चुनें पृष्ठ:"
 
-#: plugins/simpleMenu/src/Manage.php:621
+#: plugins/simpleMenu/src/Manage.php:634
 msgid "Select tag (if necessary):"
 msgstr "टैग का चयन करें (यदि आवश्यक हो):"
 
-#: plugins/simpleMenu/src/Manage.php:682
+#: plugins/simpleMenu/src/Manage.php:695
 msgid "Label of item menu:"
 msgstr "आइटम मेनू का लेबल:"
 
-#: plugins/simpleMenu/src/Manage.php:696
+#: plugins/simpleMenu/src/Manage.php:709
 msgid "Description of item menu:"
 msgstr "आइटम मेनू का विवरण:"
 
-#: plugins/simpleMenu/src/Manage.php:711
+#: plugins/simpleMenu/src/Manage.php:724
 msgid "URL of item menu:"
 msgstr "आइटम मेनू का यूआरएल:"
 
-#: plugins/simpleMenu/src/Manage.php:721 plugins/simpleMenu/src/Manage.php:800
+#: plugins/simpleMenu/src/Manage.php:734 plugins/simpleMenu/src/Manage.php:813
 msgid "Open URL on a new tab"
 msgstr "यूआरएल नए टैब पर खोलें"
 
-#: plugins/simpleMenu/src/Manage.php:729
+#: plugins/simpleMenu/src/Manage.php:742
 msgid "Add this item"
 msgstr "इस मद को जोड़ें"
 
-#: plugins/simpleMenu/src/Manage.php:755
+#: plugins/simpleMenu/src/Manage.php:768
 msgid "Enable simple menu for this blog"
 msgstr "इस ब्लॉग के लिए सरल मेनू सक्षम करें"
 
-#: plugins/simpleMenu/src/Manage.php:778
+#: plugins/simpleMenu/src/Manage.php:791
 msgid "Add an item"
 msgstr "एक मद जोड़ें"
 
-#: plugins/simpleMenu/src/Manage.php:896
+#: plugins/simpleMenu/src/Manage.php:909
 msgid "Menu items list"
 msgstr "मेन्यू मद सूची"
 
-#: plugins/simpleMenu/src/Manage.php:923
+#: plugins/simpleMenu/src/Manage.php:936
 msgid "Delete selected menu items"
 msgstr "चयनित मेनू मद को मिटाएँ"
 
-#: plugins/simpleMenu/src/Manage.php:932
+#: plugins/simpleMenu/src/Manage.php:945
 msgid "Update menu"
 msgstr "अद्यतन मेनू"
 
-#: plugins/simpleMenu/src/Manage.php:942
+#: plugins/simpleMenu/src/Manage.php:955
 msgid "No menu items so far."
 msgstr "अभी तक कोई मेन्यू आइटम नहीं है."
 
@@ -2958,8 +2975,8 @@ msgid "themeEditor"
 msgstr "मुख्य-संपादक"
 
 #: plugins/themeEditor/src/BackendBehaviors.php:45
-#: plugins/themeEditor/src/Manage.php:193
-#: plugins/themeEditor/src/Manage.php:200
+#: plugins/themeEditor/src/Manage.php:194
+#: plugins/themeEditor/src/Manage.php:201
 msgid "Edit theme files"
 msgstr "प्रसंग फ़ाइल संपादित करें"
 
@@ -2983,85 +3000,85 @@ msgstr "विषय अद्यतन गैर-बाधित किया �
 msgid "The file has been reset."
 msgstr "फ़ाइल रीसेट कर दिया गया है."
 
-#: plugins/themeEditor/src/Manage.php:162
+#: plugins/themeEditor/src/Manage.php:163
 msgid "Lock update"
 msgstr "तालाबंद करें"
 
-#: plugins/themeEditor/src/Manage.php:162
+#: plugins/themeEditor/src/Manage.php:163
 msgid "Unlock update"
 msgstr "अद्यतन अनलॉक करें"
 
-#: plugins/themeEditor/src/Manage.php:167
+#: plugins/themeEditor/src/Manage.php:168
 msgid "Lock theme update disables theme update, but allows theme files to be modified."
 msgstr "थीम अपडेट लॉक करने से थीम अपडेट अक्षम हो जाता है, लेकिन थीम फ़ाइलों को संशोधित करने की अनुमति मिल जाती है।"
 
-#: plugins/themeEditor/src/Manage.php:173
+#: plugins/themeEditor/src/Manage.php:174
 msgid "The theme editor is in development mode, theme files will be overwritten!"
 msgstr "थीम संपादक विकास मोड में है, थीम फ़ाइलें अधिलेखित हो जाएंगी!"
 
-#: plugins/themeEditor/src/Manage.php:181
+#: plugins/themeEditor/src/Manage.php:182
 msgid "Saving document..."
 msgstr "दस्तावेज़ सहेज रहा है ..."
 
-#: plugins/themeEditor/src/Manage.php:182
+#: plugins/themeEditor/src/Manage.php:183
 msgid "Document saved"
 msgstr "दस्तावेज़ सहेजा गया"
 
-#: plugins/themeEditor/src/Manage.php:183
+#: plugins/themeEditor/src/Manage.php:184
 msgid "An error occurred:"
 msgstr "एक त्रुटि हुईः"
 
-#: plugins/themeEditor/src/Manage.php:184
+#: plugins/themeEditor/src/Manage.php:185
 msgid "Are you sure you want to reset this file?"
 msgstr "क्या आप निश्चित हैं कि आप इस फ़ाइल को रीसेट करना चाहते हैं?"
 
-#: plugins/themeEditor/src/Manage.php:208
+#: plugins/themeEditor/src/Manage.php:209
 #, php-format
 msgid "Your current theme on this blog is \"%s\"."
 msgstr "इस ब्लॉग पर आपकी वर्तमान विषयवस्तु \"%s\" है."
 
-#: plugins/themeEditor/src/Manage.php:218
+#: plugins/themeEditor/src/Manage.php:219
 msgid "Please select a file to edit."
 msgstr "संपादन करने के लिए एक फ़ाइल का चयन करें."
 
-#: plugins/themeEditor/src/Manage.php:226
+#: plugins/themeEditor/src/Manage.php:227
 msgid "Reset"
 msgstr "रीसेट करें"
 
-#: plugins/themeEditor/src/Manage.php:235
+#: plugins/themeEditor/src/Manage.php:236
 msgid "File editor"
 msgstr "फ़ाइल संपादक"
 
-#: plugins/themeEditor/src/Manage.php:244
+#: plugins/themeEditor/src/Manage.php:245
 #, php-format
 msgid "Editing file %s"
 msgstr "फ़ाइल %s संपादित करना"
 
-#: plugins/themeEditor/src/Manage.php:260
+#: plugins/themeEditor/src/Manage.php:261
 msgid "If you use <code>url(...)</code> in your CSS files, be sure to use <code>url(index.php?tf=...)</code> to correctly load theme resources (imported CSS, images, etc.), except for URL types in the form <code>data:image</code>.<br>Example: do <code>@import url(index.php?tf=css/layout.css);</code> instead of <code>@import url(css/layout.css);</code>."
 msgstr "यदि आप अपनी CSS फ़ाइलों में <code>url(...)</code> का उपयोग करते हैं, तो <code>data:image</code> के रूप में URL प्रकारों को छोड़कर, थीम संसाधनों (आयातित CSS, चित्र, आदि) को सही ढंग से लोड करने के लिए <code>url(index.php?tf=...)</code> का उपयोग करना सुनिश्चित करें।<br>उदाहरण: <code>@import url(css/layout.css);</code> के बजाय <code>@import url(index.php?tf=css/layout.css);</code> करें।"
 
-#: plugins/themeEditor/src/Manage.php:264
+#: plugins/themeEditor/src/Manage.php:265
 msgid "This file is not overloadable. Please check your var folder permissions."
 msgstr "यह फ़ाइल ओवरलोडेबल नहीं है। कृपया अपने var फ़ोल्डर अनुमतियों की जाँच करें।"
 
-#: plugins/themeEditor/src/Manage.php:283
+#: plugins/themeEditor/src/Manage.php:284
 msgid "Templates files"
 msgstr "टैम्प्लेट्स"
 
-#: plugins/themeEditor/src/Manage.php:288
+#: plugins/themeEditor/src/Manage.php:289
 msgid "CSS files"
 msgstr "CSS फ़ाइलें"
 
-#: plugins/themeEditor/src/Manage.php:293
+#: plugins/themeEditor/src/Manage.php:294
 msgid "JavaScript files"
 msgstr "JavaScript फ़ाइलें"
 
-#: plugins/themeEditor/src/Manage.php:298
+#: plugins/themeEditor/src/Manage.php:299
 msgid "Locales files"
 msgstr "स्थानीय फ़ाइलें"
 
-#: plugins/themeEditor/src/Manage.php:303
+#: plugins/themeEditor/src/Manage.php:304
 msgid "PHP files"
 msgstr "पीएचपी फ़ाइलें"
 
@@ -3353,31 +3370,31 @@ msgstr "प्रविष्टियाँ फीड"
 msgid "Comments feed"
 msgstr "टिप्पणियाँ फीड"
 
-#: plugins/widgets/src/WidgetsElement.php:547
+#: plugins/widgets/src/WidgetsElement.php:543
 msgid "Title (optional)"
 msgstr "शीर्षक (वैकल्पिक)"
 
-#: plugins/widgets/src/WidgetsElement.php:558
+#: plugins/widgets/src/WidgetsElement.php:554
 msgid "All pages"
 msgstr "सभी पृष्ठ"
 
-#: plugins/widgets/src/WidgetsElement.php:559
+#: plugins/widgets/src/WidgetsElement.php:555
 msgid "Home page only"
 msgstr "सिर्फ घर पृष्ठ"
 
-#: plugins/widgets/src/WidgetsElement.php:560
+#: plugins/widgets/src/WidgetsElement.php:556
 msgid "Except on home page"
 msgstr "घर के पृष्ठ को छोड़कर"
 
-#: plugins/widgets/src/WidgetsElement.php:568
+#: plugins/widgets/src/WidgetsElement.php:564
 msgid "Display on:"
 msgstr "पर प्रदर्शन:"
 
-#: plugins/widgets/src/WidgetsElement.php:594
+#: plugins/widgets/src/WidgetsElement.php:590
 msgid "Content only"
 msgstr "केवल सामग्री"
 
-#: plugins/widgets/src/WidgetsElement.php:604
+#: plugins/widgets/src/WidgetsElement.php:600
 msgid "CSS class:"
 msgstr "सीएसएस वर्गः"
 

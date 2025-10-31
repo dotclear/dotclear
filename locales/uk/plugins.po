@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-05 07:56+0200\n"
-"PO-Revision-Date: 2025-10-05 05:59\n"
+"POT-Creation-Date: 2025-10-31 10:25+0100\n"
+"PO-Revision-Date: 2025-10-31 13:04\n"
 "Last-Translator: \n"
 "Language-Team: Ukrainian\n"
 "Language: uk_UA\n"
@@ -686,7 +686,7 @@ msgid "Antispam"
 msgstr "Антиспам"
 
 #: plugins/antispam/src/BackendBehaviors.php:56
-#: plugins/antispam/src/Manage.php:224
+#: plugins/antispam/src/Manage.php:229
 #, php-format
 msgid "All spam comments older than %s day(s) will be automatically deleted."
 msgstr "Усі спам-коментарі, старші за %s днів, будуть автоматично видалені."
@@ -890,80 +890,80 @@ msgstr "Фільтр не існує."
 msgid "Filter has no user interface."
 msgstr "Фільтр не має користувацького інтерфейсу."
 
-#: plugins/antispam/src/Manage.php:137 plugins/antispam/src/Manage.php:270
+#: plugins/antispam/src/Manage.php:142 plugins/antispam/src/Manage.php:275
 msgid "Filters configuration has been successfully saved."
 msgstr "Конфігурацію фільтрів успішно збережено."
 
-#: plugins/antispam/src/Manage.php:154
+#: plugins/antispam/src/Manage.php:159
 #, php-format
 msgid "%s configuration"
 msgstr "%s конфігурація"
 
-#: plugins/antispam/src/Manage.php:175
+#: plugins/antispam/src/Manage.php:180
 #, php-format
 msgid "%s filter configuration"
 msgstr "%s конфігурація фільтра"
 
-#: plugins/antispam/src/Manage.php:182
+#: plugins/antispam/src/Manage.php:187
 msgid "Back to filters list"
 msgstr "Повернутися до списку фільтрів"
 
-#: plugins/antispam/src/Manage.php:229
+#: plugins/antispam/src/Manage.php:234
 #, php-format
 msgid "You can modify this duration in the %s"
 msgstr "Ви можете змінити цю тривалість на сторінці %s"
 
-#: plugins/antispam/src/Manage.php:238
+#: plugins/antispam/src/Manage.php:243
 msgid "Information"
 msgstr "Інформація"
 
-#: plugins/antispam/src/Manage.php:249
+#: plugins/antispam/src/Manage.php:254
 msgid "Junk comments:"
 msgstr "Сміттєві коментарі:"
 
-#: plugins/antispam/src/Manage.php:255
+#: plugins/antispam/src/Manage.php:260
 msgid "Published comments:"
 msgstr "Опубліковані коментарі:"
 
-#: plugins/antispam/src/Manage.php:279 plugins/antispam/src/Manage.php:282
-#: plugins/antispam/src/Manage.php:286
+#: plugins/antispam/src/Manage.php:284 plugins/antispam/src/Manage.php:287
+#: plugins/antispam/src/Manage.php:291
 msgid "Filter configuration"
 msgstr "Конфігурація фільтра"
 
-#: plugins/antispam/src/Manage.php:302 plugins/blogroll/src/Manage.php:305
+#: plugins/antispam/src/Manage.php:307 plugins/blogroll/src/Manage.php:305
 msgid "position"
 msgstr "позиція"
 
-#: plugins/antispam/src/Manage.php:309 plugins/antispam/src/Manage.php:343
+#: plugins/antispam/src/Manage.php:314 plugins/antispam/src/Manage.php:348
 msgid "Active"
 msgstr "Активний"
 
-#: plugins/antispam/src/Manage.php:316 plugins/antispam/src/Manage.php:344
+#: plugins/antispam/src/Manage.php:321 plugins/antispam/src/Manage.php:349
 msgid "Auto Del."
 msgstr "Автозапуск."
 
-#: plugins/antispam/src/Manage.php:337
+#: plugins/antispam/src/Manage.php:342
 msgid "Available spam filters"
 msgstr "Доступні фільтри спаму"
 
-#: plugins/antispam/src/Manage.php:342
+#: plugins/antispam/src/Manage.php:347
 #: plugins/pages/src/BackendDefaultActions.php:73
 msgid "Order"
 msgstr "Порядок"
 
-#: plugins/antispam/src/Manage.php:345
+#: plugins/antispam/src/Manage.php:350
 msgid "Filter name"
 msgstr "Назва фільтра"
 
-#: plugins/antispam/src/Manage.php:372
+#: plugins/antispam/src/Manage.php:377
 msgid "Syndication"
 msgstr "Синдикація"
 
-#: plugins/antispam/src/Manage.php:375
+#: plugins/antispam/src/Manage.php:380
 msgid "Junk comments RSS feed"
 msgstr "Небажані коментарі RSS-стрічка"
 
-#: plugins/antispam/src/Manage.php:378
+#: plugins/antispam/src/Manage.php:383
 msgid "Published comments RSS feed"
 msgstr "Опубліковані коментарі RSS-стрічка"
 
@@ -1323,7 +1323,7 @@ msgstr "Не інкапсулюйте хлібну крихту в тег &lt;p 
 #: plugins/breadcrumb/src/FrontendTemplate.php:192
 #: plugins/breadcrumb/src/FrontendTemplate.php:204
 #: plugins/breadcrumb/src/FrontendTemplate.php:210
-#: plugins/simpleMenu/src/Manage.php:146 plugins/simpleMenu/src/Manage.php:260
+#: plugins/simpleMenu/src/Manage.php:159 plugins/simpleMenu/src/Manage.php:273
 #: plugins/widgets/src/Widgets.php:295
 msgid "Home"
 msgstr "Головна"
@@ -1338,13 +1338,13 @@ msgstr "сторінка %d"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:154
 #: plugins/breadcrumb/src/FrontendTemplate.php:157
-#: plugins/simpleMenu/src/Manage.php:287 plugins/widgets/src/Widgets.php:323
+#: plugins/simpleMenu/src/Manage.php:300 plugins/widgets/src/Widgets.php:323
 msgid "Archives"
 msgstr "Архіви"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:173
 #: plugins/breadcrumb/src/FrontendTemplate.php:180
-#: plugins/simpleMenu/src/Manage.php:130 plugins/simpleMenu/src/Manage.php:307
+#: plugins/simpleMenu/src/Manage.php:143 plugins/simpleMenu/src/Manage.php:320
 #: plugins/tags/src/Widgets.php:57
 msgid "All tags"
 msgstr "Всі теги"
@@ -1504,7 +1504,7 @@ msgstr "Вимикає вбудовану перевірку орфографі�
 
 #: plugins/dcCKEditor/src/Manage.php:321
 #: plugins/dcLegacyEditor/src/Manage.php:111
-#: plugins/simpleMenu/src/Manage.php:761
+#: plugins/simpleMenu/src/Manage.php:774
 msgid "Save configuration"
 msgstr "Зберегти конфігурацію"
 
@@ -1719,7 +1719,7 @@ msgstr "Функції експорту знаходяться на сторін
 
 #: plugins/importExport/src/Manage.php:144
 #: plugins/maintenance/src/Backend.php:27
-#: plugins/maintenance/src/BackendBehaviors.php:219
+#: plugins/maintenance/src/BackendBehaviors.php:220
 msgid "Maintenance"
 msgstr "Обслуговування"
 
@@ -2061,7 +2061,7 @@ msgstr "Підтримувати переклади"
 msgid "Translations"
 msgstr "Переклади"
 
-#: plugins/maintenance/src/BackendBehaviors.php:93
+#: plugins/maintenance/src/BackendBehaviors.php:94
 #, php-format
 msgid "One <a href=\"%2$s\">maintenance task</a> to execute."
 msgid_plural "%1$s <a href=\"%2$s\">maintenance tasks</a> to execute."
@@ -2070,7 +2070,7 @@ msgstr[1] "Одне <a href=\"%2$s\">завдання з технічного</a
 msgstr[2] "Одне <a href=\"%2$s\">завдання з технічного</a> обслуговування."
 msgstr[3] "%1$s <a href=\"%2$s\">завдання з технічного</a> обслуговування, які потрібно виконати."
 
-#: plugins/maintenance/src/BackendBehaviors.php:167
+#: plugins/maintenance/src/BackendBehaviors.php:168
 #: plugins/maintenance/src/Rest.php:83
 #, php-format
 msgid "One task to execute"
@@ -2080,18 +2080,18 @@ msgstr[1] "%s завдання для виконання"
 msgstr[2] "%s завдання для виконання"
 msgstr[3] "%s завдання для виконання"
 
-#: plugins/maintenance/src/BackendBehaviors.php:201
+#: plugins/maintenance/src/BackendBehaviors.php:202
 #: plugins/maintenance/src/Manage.php:306
 msgid "This task has never been executed."
 msgstr "Це завдання так і не було виконано."
 
-#: plugins/maintenance/src/BackendBehaviors.php:204
+#: plugins/maintenance/src/BackendBehaviors.php:205
 #: plugins/maintenance/src/Manage.php:309
 #, php-format
 msgid "Last execution of this task was on %s."
 msgstr "Останнє виконання цього завдання було на %s."
 
-#: plugins/maintenance/src/BackendBehaviors.php:222
+#: plugins/maintenance/src/BackendBehaviors.php:223
 #, php-format
 msgid "There is a task to execute."
 msgid_plural "There are %s tasks to execute."
@@ -2100,15 +2100,15 @@ msgstr[1] "Є %s завдання, які потрібно виконати."
 msgstr[2] "Є %s завдання, які потрібно виконати."
 msgstr[3] "Є %s завдання, які потрібно виконати."
 
-#: plugins/maintenance/src/BackendBehaviors.php:229
+#: plugins/maintenance/src/BackendBehaviors.php:230
 msgid "Manage tasks"
 msgstr "Керуйте завданнями"
 
-#: plugins/maintenance/src/BackendBehaviors.php:251
+#: plugins/maintenance/src/BackendBehaviors.php:252
 msgid "Display overdue tasks counter on maintenance dashboard icon"
 msgstr "Відображати лічильник прострочених завдань на іконці панелі технічного обслуговування"
 
-#: plugins/maintenance/src/BackendBehaviors.php:257
+#: plugins/maintenance/src/BackendBehaviors.php:258
 msgid "Display overdue tasks list on dashboard items"
 msgstr "Відображати список прострочених завдань на елементах дашборду"
 
@@ -2248,6 +2248,23 @@ msgstr "Не вдалося очистити каталог кешу шабло�
 #, php-format
 msgid "It may be useful to empty this cache when modifying a theme's .html or .css files (or when updating a theme or plugin). Notice : with some hosters, the templates cache cannot be emptied with this plugin. You may then have to delete the directory <strong>%s</strong> directly on the server with your FTP software."
 msgstr "Може бути корисно очистити цей кеш при зміні .html або .css файлів теми (або при оновленні теми або плагіна). Примітка: на деяких хостерах кеш шаблонів не може бути очищений за допомогою цього плагіна. Можливо, вам доведеться видалити директорію <strong>%s</strong> безпосередньо на сервері за допомогою вашого FTP-програми."
+
+#: plugins/maintenance/src/Task/CacheFeeds.php:38
+msgid "Empty the feed cache directory"
+msgstr "Очистіть каталог кешу стрічки"
+
+#: plugins/maintenance/src/Task/CacheFeeds.php:39
+msgid "The feed cache directory has been emptied."
+msgstr "Каталог кешу стрічки було очищено."
+
+#: plugins/maintenance/src/Task/CacheFeeds.php:40
+msgid "Failed to delete the feed cache directory."
+msgstr "Не вдалося видалити каталог кешу стрічки."
+
+#: plugins/maintenance/src/Task/CacheFeeds.php:42
+#, php-format
+msgid "Notice : with some hosters, the feed cache cannot be emptied with this plugin. You may then have to delete the directory <strong>%s</strong> directly on the server with your FTP software."
+msgstr "Примітка: на деяких хостерах кеш стрічки неможливо очистити за допомогою цього плагіна. Можливо, вам доведеться видалити каталог <strong>%s</strong> безпосередньо на сервері за допомогою вашого FTP-програми."
 
 #: plugins/maintenance/src/Task/CountComments.php:39
 msgid "Count again comments and trackbacks"
@@ -2414,7 +2431,7 @@ msgid "%d pages"
 msgstr "%d сторінок"
 
 #: plugins/pages/src/Backend.php:110 plugins/pages/src/Manage.php:147
-#: plugins/pages/src/ManagePage.php:107 plugins/pages/src/ManagePage.php:855
+#: plugins/pages/src/ManagePage.php:107 plugins/pages/src/ManagePage.php:856
 msgid "New page"
 msgstr "Нова сторінка"
 
@@ -2487,60 +2504,60 @@ msgstr "Щоб змінити порядок сторінок, переміст�
 msgid "Save pages order"
 msgstr "Зберегти порядок сторінок"
 
-#: plugins/pages/src/ManagePage.php:167
+#: plugins/pages/src/ManagePage.php:168
 msgid "This page does not exist."
 msgstr "Цієї сторінки не існує."
 
-#: plugins/pages/src/ManagePage.php:188 plugins/pages/src/ManagePage.php:855
-#: plugins/pages/src/ManagePage.php:876
+#: plugins/pages/src/ManagePage.php:189 plugins/pages/src/ManagePage.php:856
+#: plugins/pages/src/ManagePage.php:877
 msgid "Edit page"
 msgstr "Сторінка редагування"
 
-#: plugins/pages/src/ManagePage.php:433
+#: plugins/pages/src/ManagePage.php:434
 msgid "Don't forget to validate your HTML conversion by saving your post."
 msgstr "Не забудьте підтвердити конвертацію в HTML, зберігши публікацію."
 
-#: plugins/pages/src/ManagePage.php:497
+#: plugins/pages/src/ManagePage.php:498
 msgid "Are you sure you want to delete this page?"
 msgstr "Ви дійсно хочете видалити цю сторінку?"
 
-#: plugins/pages/src/ManagePage.php:526
+#: plugins/pages/src/ManagePage.php:527
 msgid "Page has been successfully updated."
 msgstr "Сторінку успішно оновлено."
 
-#: plugins/pages/src/ManagePage.php:528
+#: plugins/pages/src/ManagePage.php:529
 msgid "Page has been successfully created."
 msgstr "Сторінку успішно створено."
 
-#: plugins/pages/src/ManagePage.php:542
+#: plugins/pages/src/ManagePage.php:543
 msgid "Go to this page on the site"
 msgstr "Перейдіть на цю сторінку на сайті"
 
-#: plugins/pages/src/ManagePage.php:584
+#: plugins/pages/src/ManagePage.php:585
 msgid "Page status"
 msgstr "Статус сторінки"
 
-#: plugins/pages/src/ManagePage.php:601
+#: plugins/pages/src/ManagePage.php:602
 msgid "Page language"
 msgstr "Мова сторінки"
 
-#: plugins/pages/src/ManagePage.php:630 plugins/pages/src/Widgets.php:41
+#: plugins/pages/src/ManagePage.php:631 plugins/pages/src/Widgets.php:41
 msgid "Page position"
 msgstr "Положення сторінки"
 
-#: plugins/pages/src/ManagePage.php:681
+#: plugins/pages/src/ManagePage.php:682
 msgid "Hide in widget Pages"
 msgstr "Приховати у віджеті Сторінки"
 
-#: plugins/pages/src/ManagePage.php:707
+#: plugins/pages/src/ManagePage.php:708
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "Попередження: Якщо ви встановите URL вручну, він може конфліктувати з іншою сторінкою."
 
-#: plugins/pages/src/ManagePage.php:746
+#: plugins/pages/src/ManagePage.php:747
 msgid "Introduction to the page."
 msgstr "Вступ до сторінки."
 
-#: plugins/pages/src/ManagePage.php:1125
+#: plugins/pages/src/ManagePage.php:1126
 msgid "Select this comment"
 msgstr "Виберіть цей коментар"
 
@@ -2588,7 +2605,7 @@ msgstr "Автоматичний пінг всіх сервісів при пе�
 msgid "Test ping services"
 msgstr "Послуги тестового пінгу"
 
-#: plugins/simpleMenu/src/Backend.php:28 plugins/simpleMenu/src/Manage.php:71
+#: plugins/simpleMenu/src/Backend.php:28 plugins/simpleMenu/src/Manage.php:73
 #: plugins/simpleMenu/src/Widgets.php:29
 msgid "Simple menu"
 msgstr "Просте меню"
@@ -2601,185 +2618,185 @@ msgstr "Активна сторінка"
 msgid "active page"
 msgstr "активна сторінка"
 
-#: plugins/simpleMenu/src/Manage.php:96
+#: plugins/simpleMenu/src/Manage.php:105 plugins/simpleMenu/src/Manage.php:109
 msgid "All months"
 msgstr "Всі місяці"
 
-#: plugins/simpleMenu/src/Manage.php:159
+#: plugins/simpleMenu/src/Manage.php:172
 msgid "Archive"
 msgstr "Архів"
 
-#: plugins/simpleMenu/src/Manage.php:162
+#: plugins/simpleMenu/src/Manage.php:175
 msgid "Page"
 msgstr "Сторінка"
 
-#: plugins/simpleMenu/src/Manage.php:165 plugins/tags/src/Backend.php:27
+#: plugins/simpleMenu/src/Manage.php:178 plugins/tags/src/Backend.php:27
 #: plugins/tags/src/Widgets.php:33
 msgid "Tags"
 msgstr "Теги"
 
-#: plugins/simpleMenu/src/Manage.php:172
+#: plugins/simpleMenu/src/Manage.php:185
 msgid "User defined"
 msgstr "Визначено користувачем"
 
-#: plugins/simpleMenu/src/Manage.php:213
+#: plugins/simpleMenu/src/Manage.php:226
 msgid "Configuration successfully updated."
 msgstr "Конфігурацію успішно оновлено."
 
-#: plugins/simpleMenu/src/Manage.php:255 plugins/simpleMenu/src/Manage.php:677
-#: plugins/simpleMenu/src/Manage.php:797
+#: plugins/simpleMenu/src/Manage.php:268 plugins/simpleMenu/src/Manage.php:690
+#: plugins/simpleMenu/src/Manage.php:810
 msgid "Label"
 msgstr "Етикетка"
 
-#: plugins/simpleMenu/src/Manage.php:261
+#: plugins/simpleMenu/src/Manage.php:274
 msgid "Home page"
 msgstr "Головна сторінка"
 
-#: plugins/simpleMenu/src/Manage.php:261 plugins/simpleMenu/src/Manage.php:266
+#: plugins/simpleMenu/src/Manage.php:274 plugins/simpleMenu/src/Manage.php:279
 #: plugins/widgets/src/Widgets.php:304 plugins/widgets/src/Widgets.php:314
 msgid "Recent posts"
 msgstr "Останні публікації"
 
-#: plugins/simpleMenu/src/Manage.php:273
+#: plugins/simpleMenu/src/Manage.php:286
 #, php-format
 msgid "Switch to %s language"
 msgstr "Перейдіть на мову %s"
 
-#: plugins/simpleMenu/src/Manage.php:280
+#: plugins/simpleMenu/src/Manage.php:293
 msgid "Recent Posts from this category"
 msgstr "Останні публікації з цієї категорії"
 
-#: plugins/simpleMenu/src/Manage.php:292
+#: plugins/simpleMenu/src/Manage.php:305
 #, php-format
 msgid "Posts from %s"
 msgstr "Дописи з %s"
 
-#: plugins/simpleMenu/src/Manage.php:312
+#: plugins/simpleMenu/src/Manage.php:325
 #, php-format
 msgid "Recent posts for %s tag"
 msgstr "Останні публікації для тегу %s"
 
-#: plugins/simpleMenu/src/Manage.php:372
+#: plugins/simpleMenu/src/Manage.php:385
 msgid "Menu item has been successfully added."
 msgstr "Пункт меню успішно додано."
 
-#: plugins/simpleMenu/src/Manage.php:377
+#: plugins/simpleMenu/src/Manage.php:390
 msgid "Label and URL of menu item are mandatory."
 msgstr "Назва та URL пункту меню є обов'язковими."
 
-#: plugins/simpleMenu/src/Manage.php:410
+#: plugins/simpleMenu/src/Manage.php:423
 msgid "Menu items have been successfully removed."
 msgstr "Пункти меню успішно видалено."
 
-#: plugins/simpleMenu/src/Manage.php:413
+#: plugins/simpleMenu/src/Manage.php:426
 msgid "No menu items selected."
 msgstr "Не вибрано жодного пункту меню."
 
-#: plugins/simpleMenu/src/Manage.php:425
+#: plugins/simpleMenu/src/Manage.php:438
 msgid "Label is mandatory."
 msgstr "Етикетка обов'язкова."
 
-#: plugins/simpleMenu/src/Manage.php:430
+#: plugins/simpleMenu/src/Manage.php:443
 msgid "URL is mandatory."
 msgstr "URL-адреса обов'язкова."
 
-#: plugins/simpleMenu/src/Manage.php:475
+#: plugins/simpleMenu/src/Manage.php:488
 msgid "Menu items have been successfully updated."
 msgstr "Пункти меню успішно оновлено."
 
-#: plugins/simpleMenu/src/Manage.php:502
+#: plugins/simpleMenu/src/Manage.php:515
 msgid "Are you sure you want to remove selected menu items?"
 msgstr "Ви впевнені, що хочете видалити вибрані пункти меню?"
 
-#: plugins/simpleMenu/src/Manage.php:511
+#: plugins/simpleMenu/src/Manage.php:524
 msgid "Step #1"
 msgstr "Крок перший"
 
-#: plugins/simpleMenu/src/Manage.php:516 plugins/simpleMenu/src/Manage.php:521
+#: plugins/simpleMenu/src/Manage.php:529 plugins/simpleMenu/src/Manage.php:534
 msgid "Step #2"
 msgstr "Крок 2"
 
-#: plugins/simpleMenu/src/Manage.php:521
+#: plugins/simpleMenu/src/Manage.php:534
 msgid "Step #3"
 msgstr "Крок 3"
 
-#: plugins/simpleMenu/src/Manage.php:530
+#: plugins/simpleMenu/src/Manage.php:543
 msgid "Add item"
 msgstr "Додати елемент"
 
-#: plugins/simpleMenu/src/Manage.php:561
+#: plugins/simpleMenu/src/Manage.php:574
 msgid "Select type"
 msgstr "Виберіть тип"
 
-#: plugins/simpleMenu/src/Manage.php:568
+#: plugins/simpleMenu/src/Manage.php:581
 msgid "Type of item menu:"
 msgstr "Тип пункту меню:"
 
-#: plugins/simpleMenu/src/Manage.php:574 plugins/simpleMenu/src/Manage.php:641
+#: plugins/simpleMenu/src/Manage.php:587 plugins/simpleMenu/src/Manage.php:654
 msgid "Continue..."
 msgstr "Продовжуйте..."
 
-#: plugins/simpleMenu/src/Manage.php:597
+#: plugins/simpleMenu/src/Manage.php:610
 msgid "Select language:"
 msgstr "Виберіть мову:"
 
-#: plugins/simpleMenu/src/Manage.php:603
+#: plugins/simpleMenu/src/Manage.php:616
 msgid "Select category:"
 msgstr "Виберіть категорію:"
 
-#: plugins/simpleMenu/src/Manage.php:609
+#: plugins/simpleMenu/src/Manage.php:622
 msgid "Select month (if necessary):"
 msgstr "Виберіть місяць (якщо потрібно):"
 
-#: plugins/simpleMenu/src/Manage.php:615
+#: plugins/simpleMenu/src/Manage.php:628
 msgid "Select page:"
 msgstr "Виберіть сторінку:"
 
-#: plugins/simpleMenu/src/Manage.php:621
+#: plugins/simpleMenu/src/Manage.php:634
 msgid "Select tag (if necessary):"
 msgstr "Виберіть тег (якщо потрібно):"
 
-#: plugins/simpleMenu/src/Manage.php:682
+#: plugins/simpleMenu/src/Manage.php:695
 msgid "Label of item menu:"
 msgstr "Мітка пункту меню:"
 
-#: plugins/simpleMenu/src/Manage.php:696
+#: plugins/simpleMenu/src/Manage.php:709
 msgid "Description of item menu:"
 msgstr "Опис пункту меню:"
 
-#: plugins/simpleMenu/src/Manage.php:711
+#: plugins/simpleMenu/src/Manage.php:724
 msgid "URL of item menu:"
 msgstr "URL пункту меню:"
 
-#: plugins/simpleMenu/src/Manage.php:721 plugins/simpleMenu/src/Manage.php:800
+#: plugins/simpleMenu/src/Manage.php:734 plugins/simpleMenu/src/Manage.php:813
 msgid "Open URL on a new tab"
 msgstr "Відкрийте URL-адресу на новій вкладці"
 
-#: plugins/simpleMenu/src/Manage.php:729
+#: plugins/simpleMenu/src/Manage.php:742
 msgid "Add this item"
 msgstr "Додати цей елемент"
 
-#: plugins/simpleMenu/src/Manage.php:755
+#: plugins/simpleMenu/src/Manage.php:768
 msgid "Enable simple menu for this blog"
 msgstr "Увімкнути просте меню для цього блогу"
 
-#: plugins/simpleMenu/src/Manage.php:778
+#: plugins/simpleMenu/src/Manage.php:791
 msgid "Add an item"
 msgstr "Додати елемент"
 
-#: plugins/simpleMenu/src/Manage.php:896
+#: plugins/simpleMenu/src/Manage.php:909
 msgid "Menu items list"
 msgstr "Список пунктів меню"
 
-#: plugins/simpleMenu/src/Manage.php:923
+#: plugins/simpleMenu/src/Manage.php:936
 msgid "Delete selected menu items"
 msgstr "Видалення вибраних пунктів меню"
 
-#: plugins/simpleMenu/src/Manage.php:932
+#: plugins/simpleMenu/src/Manage.php:945
 msgid "Update menu"
 msgstr "Меню оновлення"
 
-#: plugins/simpleMenu/src/Manage.php:942
+#: plugins/simpleMenu/src/Manage.php:955
 msgid "No menu items so far."
 msgstr "Поки що немає пунктів меню."
 
@@ -2972,8 +2989,8 @@ msgid "themeEditor"
 msgstr "themeEditor"
 
 #: plugins/themeEditor/src/BackendBehaviors.php:45
-#: plugins/themeEditor/src/Manage.php:193
-#: plugins/themeEditor/src/Manage.php:200
+#: plugins/themeEditor/src/Manage.php:194
+#: plugins/themeEditor/src/Manage.php:201
 msgid "Edit theme files"
 msgstr "Редагування файлів тем"
 
@@ -2997,85 +3014,85 @@ msgstr "Оновлення теми було розблоковано."
 msgid "The file has been reset."
 msgstr "Файл було скинуто."
 
-#: plugins/themeEditor/src/Manage.php:162
+#: plugins/themeEditor/src/Manage.php:163
 msgid "Lock update"
 msgstr "Оновлення блокування"
 
-#: plugins/themeEditor/src/Manage.php:162
+#: plugins/themeEditor/src/Manage.php:163
 msgid "Unlock update"
 msgstr "Оновлення для розблокування"
 
-#: plugins/themeEditor/src/Manage.php:167
+#: plugins/themeEditor/src/Manage.php:168
 msgid "Lock theme update disables theme update, but allows theme files to be modified."
 msgstr "Заблокувати оновлення теми вимикає оновлення теми, але дозволяє змінювати файли теми."
 
-#: plugins/themeEditor/src/Manage.php:173
+#: plugins/themeEditor/src/Manage.php:174
 msgid "The theme editor is in development mode, theme files will be overwritten!"
 msgstr "Редактор тем знаходиться в режимі розробки, файли тем будуть перезаписані!"
 
-#: plugins/themeEditor/src/Manage.php:181
+#: plugins/themeEditor/src/Manage.php:182
 msgid "Saving document..."
 msgstr "Збереження документа..."
 
-#: plugins/themeEditor/src/Manage.php:182
+#: plugins/themeEditor/src/Manage.php:183
 msgid "Document saved"
 msgstr "Документ збережено"
 
-#: plugins/themeEditor/src/Manage.php:183
+#: plugins/themeEditor/src/Manage.php:184
 msgid "An error occurred:"
 msgstr "Виникла помилка:"
 
-#: plugins/themeEditor/src/Manage.php:184
+#: plugins/themeEditor/src/Manage.php:185
 msgid "Are you sure you want to reset this file?"
 msgstr "Ви впевнені, що хочете скинути цей файл?"
 
-#: plugins/themeEditor/src/Manage.php:208
+#: plugins/themeEditor/src/Manage.php:209
 #, php-format
 msgid "Your current theme on this blog is \"%s\"."
 msgstr "Ваша поточна тема в цьому блозі - \"%s\"."
 
-#: plugins/themeEditor/src/Manage.php:218
+#: plugins/themeEditor/src/Manage.php:219
 msgid "Please select a file to edit."
 msgstr "Будь ласка, виберіть файл для редагування."
 
-#: plugins/themeEditor/src/Manage.php:226
+#: plugins/themeEditor/src/Manage.php:227
 msgid "Reset"
 msgstr "Перезавантаження"
 
-#: plugins/themeEditor/src/Manage.php:235
+#: plugins/themeEditor/src/Manage.php:236
 msgid "File editor"
 msgstr "Редактор файлів"
 
-#: plugins/themeEditor/src/Manage.php:244
+#: plugins/themeEditor/src/Manage.php:245
 #, php-format
 msgid "Editing file %s"
 msgstr "Файл для редагування %s"
 
-#: plugins/themeEditor/src/Manage.php:260
+#: plugins/themeEditor/src/Manage.php:261
 msgid "If you use <code>url(...)</code> in your CSS files, be sure to use <code>url(index.php?tf=...)</code> to correctly load theme resources (imported CSS, images, etc.), except for URL types in the form <code>data:image</code>.<br>Example: do <code>@import url(index.php?tf=css/layout.css);</code> instead of <code>@import url(css/layout.css);</code>."
 msgstr "Якщо ви використовуєте <code>url(...)</code> у своїх CSS-файлах, обов'язково використовуйте <code>url(index.php?tf=...)</code> для коректного завантаження ресурсів теми (імпортованих CSS, зображень тощо), крім типів URL у вигляді <code>data:image</code>.<br>Приклад: зробіть <code>@import url(index.php?tf=css/layout.css);</code> замість <code>@import url(css/layout.css);</code>."
 
-#: plugins/themeEditor/src/Manage.php:264
+#: plugins/themeEditor/src/Manage.php:265
 msgid "This file is not overloadable. Please check your var folder permissions."
 msgstr "Цей файл не перевантажується. Будь ласка, перевірте права доступу до теки var."
 
-#: plugins/themeEditor/src/Manage.php:283
+#: plugins/themeEditor/src/Manage.php:284
 msgid "Templates files"
 msgstr "Файли шаблонів"
 
-#: plugins/themeEditor/src/Manage.php:288
+#: plugins/themeEditor/src/Manage.php:289
 msgid "CSS files"
 msgstr "Файли CSS"
 
-#: plugins/themeEditor/src/Manage.php:293
+#: plugins/themeEditor/src/Manage.php:294
 msgid "JavaScript files"
 msgstr "Файли JavaScript"
 
-#: plugins/themeEditor/src/Manage.php:298
+#: plugins/themeEditor/src/Manage.php:299
 msgid "Locales files"
 msgstr "Файли локалей"
 
-#: plugins/themeEditor/src/Manage.php:303
+#: plugins/themeEditor/src/Manage.php:304
 msgid "PHP files"
 msgstr "Файли PHP"
 
@@ -3367,31 +3384,31 @@ msgstr "Стрічка заявок"
 msgid "Comments feed"
 msgstr "Стрічка коментарів"
 
-#: plugins/widgets/src/WidgetsElement.php:547
+#: plugins/widgets/src/WidgetsElement.php:543
 msgid "Title (optional)"
 msgstr "Назва (необов'язково)"
 
-#: plugins/widgets/src/WidgetsElement.php:558
+#: plugins/widgets/src/WidgetsElement.php:554
 msgid "All pages"
 msgstr "Всі сторінки"
 
-#: plugins/widgets/src/WidgetsElement.php:559
+#: plugins/widgets/src/WidgetsElement.php:555
 msgid "Home page only"
 msgstr "Тільки головна сторінка"
 
-#: plugins/widgets/src/WidgetsElement.php:560
+#: plugins/widgets/src/WidgetsElement.php:556
 msgid "Except on home page"
 msgstr "За винятком головної сторінки"
 
-#: plugins/widgets/src/WidgetsElement.php:568
+#: plugins/widgets/src/WidgetsElement.php:564
 msgid "Display on:"
 msgstr "Дисплей увімкнено:"
 
-#: plugins/widgets/src/WidgetsElement.php:594
+#: plugins/widgets/src/WidgetsElement.php:590
 msgid "Content only"
 msgstr "Тільки вміст"
 
-#: plugins/widgets/src/WidgetsElement.php:604
+#: plugins/widgets/src/WidgetsElement.php:600
 msgid "CSS class:"
 msgstr "Клас CSS:"
 

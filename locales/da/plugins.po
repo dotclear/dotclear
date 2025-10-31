@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-05 07:56+0200\n"
-"PO-Revision-Date: 2025-10-05 05:59\n"
+"POT-Creation-Date: 2025-10-31 10:25+0100\n"
+"PO-Revision-Date: 2025-10-31 13:03\n"
 "Last-Translator: \n"
 "Language-Team: Danish\n"
 "Language: da_DK\n"
@@ -686,7 +686,7 @@ msgid "Antispam"
 msgstr "Antispam"
 
 #: plugins/antispam/src/BackendBehaviors.php:56
-#: plugins/antispam/src/Manage.php:224
+#: plugins/antispam/src/Manage.php:229
 #, php-format
 msgid "All spam comments older than %s day(s) will be automatically deleted."
 msgstr "Alle spam-kommentarer ældre end %s dag(e) vil automatisk blive slettet."
@@ -890,80 +890,80 @@ msgstr "Filteret findes ikke."
 msgid "Filter has no user interface."
 msgstr "Filteret har ingen brugergrænseflade."
 
-#: plugins/antispam/src/Manage.php:137 plugins/antispam/src/Manage.php:270
+#: plugins/antispam/src/Manage.php:142 plugins/antispam/src/Manage.php:275
 msgid "Filters configuration has been successfully saved."
 msgstr "Filtre konfiguration er blevet gemt."
 
-#: plugins/antispam/src/Manage.php:154
+#: plugins/antispam/src/Manage.php:159
 #, php-format
 msgid "%s configuration"
 msgstr "%s konfiguration"
 
-#: plugins/antispam/src/Manage.php:175
+#: plugins/antispam/src/Manage.php:180
 #, php-format
 msgid "%s filter configuration"
 msgstr "%s filterkonfiguration"
 
-#: plugins/antispam/src/Manage.php:182
+#: plugins/antispam/src/Manage.php:187
 msgid "Back to filters list"
 msgstr "Tilbage til filterliste"
 
-#: plugins/antispam/src/Manage.php:229
+#: plugins/antispam/src/Manage.php:234
 #, php-format
 msgid "You can modify this duration in the %s"
 msgstr "Du kan ændre denne varighed i %s"
 
-#: plugins/antispam/src/Manage.php:238
+#: plugins/antispam/src/Manage.php:243
 msgid "Information"
 msgstr "Information"
 
-#: plugins/antispam/src/Manage.php:249
+#: plugins/antispam/src/Manage.php:254
 msgid "Junk comments:"
 msgstr "Junk kommentarer:"
 
-#: plugins/antispam/src/Manage.php:255
+#: plugins/antispam/src/Manage.php:260
 msgid "Published comments:"
 msgstr "Offentliggjorte kommentarer:"
 
-#: plugins/antispam/src/Manage.php:279 plugins/antispam/src/Manage.php:282
-#: plugins/antispam/src/Manage.php:286
+#: plugins/antispam/src/Manage.php:284 plugins/antispam/src/Manage.php:287
+#: plugins/antispam/src/Manage.php:291
 msgid "Filter configuration"
 msgstr "Filtrer konfiguration"
 
-#: plugins/antispam/src/Manage.php:302 plugins/blogroll/src/Manage.php:305
+#: plugins/antispam/src/Manage.php:307 plugins/blogroll/src/Manage.php:305
 msgid "position"
 msgstr "position"
 
-#: plugins/antispam/src/Manage.php:309 plugins/antispam/src/Manage.php:343
+#: plugins/antispam/src/Manage.php:314 plugins/antispam/src/Manage.php:348
 msgid "Active"
 msgstr "Aktiv"
 
-#: plugins/antispam/src/Manage.php:316 plugins/antispam/src/Manage.php:344
+#: plugins/antispam/src/Manage.php:321 plugins/antispam/src/Manage.php:349
 msgid "Auto Del."
 msgstr "Auto Del."
 
-#: plugins/antispam/src/Manage.php:337
+#: plugins/antispam/src/Manage.php:342
 msgid "Available spam filters"
 msgstr "Tilgængelige spamfiltre"
 
-#: plugins/antispam/src/Manage.php:342
+#: plugins/antispam/src/Manage.php:347
 #: plugins/pages/src/BackendDefaultActions.php:73
 msgid "Order"
 msgstr "Ordre"
 
-#: plugins/antispam/src/Manage.php:345
+#: plugins/antispam/src/Manage.php:350
 msgid "Filter name"
 msgstr "Filtrer navn"
 
-#: plugins/antispam/src/Manage.php:372
+#: plugins/antispam/src/Manage.php:377
 msgid "Syndication"
 msgstr "Syndikering"
 
-#: plugins/antispam/src/Manage.php:375
+#: plugins/antispam/src/Manage.php:380
 msgid "Junk comments RSS feed"
 msgstr "Junk kommentarer RSS feed"
 
-#: plugins/antispam/src/Manage.php:378
+#: plugins/antispam/src/Manage.php:383
 msgid "Published comments RSS feed"
 msgstr "Publicerede kommentarer RSS feed"
 
@@ -1319,7 +1319,7 @@ msgstr "Må ikke indkapsle brødkrumme i et &lt;p id=\"breadcrumb\"&gt;...&lt;/p
 #: plugins/breadcrumb/src/FrontendTemplate.php:192
 #: plugins/breadcrumb/src/FrontendTemplate.php:204
 #: plugins/breadcrumb/src/FrontendTemplate.php:210
-#: plugins/simpleMenu/src/Manage.php:146 plugins/simpleMenu/src/Manage.php:260
+#: plugins/simpleMenu/src/Manage.php:159 plugins/simpleMenu/src/Manage.php:273
 #: plugins/widgets/src/Widgets.php:295
 msgid "Home"
 msgstr "Hjem"
@@ -1334,13 +1334,13 @@ msgstr "side %d"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:154
 #: plugins/breadcrumb/src/FrontendTemplate.php:157
-#: plugins/simpleMenu/src/Manage.php:287 plugins/widgets/src/Widgets.php:323
+#: plugins/simpleMenu/src/Manage.php:300 plugins/widgets/src/Widgets.php:323
 msgid "Archives"
 msgstr "Arkiver"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:173
 #: plugins/breadcrumb/src/FrontendTemplate.php:180
-#: plugins/simpleMenu/src/Manage.php:130 plugins/simpleMenu/src/Manage.php:307
+#: plugins/simpleMenu/src/Manage.php:143 plugins/simpleMenu/src/Manage.php:320
 #: plugins/tags/src/Widgets.php:57
 msgid "All tags"
 msgstr "Alle tags"
@@ -1500,7 +1500,7 @@ msgstr "Deaktiverer den indbyggede stavekontrol, hvis browseren giver en"
 
 #: plugins/dcCKEditor/src/Manage.php:321
 #: plugins/dcLegacyEditor/src/Manage.php:111
-#: plugins/simpleMenu/src/Manage.php:761
+#: plugins/simpleMenu/src/Manage.php:774
 msgid "Save configuration"
 msgstr "Gem konfiguration"
 
@@ -1715,7 +1715,7 @@ msgstr "Eksporter funktioner er på siden %s."
 
 #: plugins/importExport/src/Manage.php:144
 #: plugins/maintenance/src/Backend.php:27
-#: plugins/maintenance/src/BackendBehaviors.php:219
+#: plugins/maintenance/src/BackendBehaviors.php:220
 msgid "Maintenance"
 msgstr "Vedligeholdelse"
 
@@ -2057,14 +2057,14 @@ msgstr "Behold oversættelser"
 msgid "Translations"
 msgstr "Oversættelser"
 
-#: plugins/maintenance/src/BackendBehaviors.php:93
+#: plugins/maintenance/src/BackendBehaviors.php:94
 #, php-format
 msgid "One <a href=\"%2$s\">maintenance task</a> to execute."
 msgid_plural "%1$s <a href=\"%2$s\">maintenance tasks</a> to execute."
 msgstr[0] "En <a href=\"%2$s\">vedligeholdelsesopgave</a>, der skal udføres."
 msgstr[1] "%1$s <a href=\"%2$s\">vedligeholdelsesopgaver</a>, der skal udføres."
 
-#: plugins/maintenance/src/BackendBehaviors.php:167
+#: plugins/maintenance/src/BackendBehaviors.php:168
 #: plugins/maintenance/src/Rest.php:83
 #, php-format
 msgid "One task to execute"
@@ -2072,33 +2072,33 @@ msgid_plural "%s tasks to execute"
 msgstr[0] "En opgave at udføre"
 msgstr[1] "%s opgaver at udføre"
 
-#: plugins/maintenance/src/BackendBehaviors.php:201
+#: plugins/maintenance/src/BackendBehaviors.php:202
 #: plugins/maintenance/src/Manage.php:306
 msgid "This task has never been executed."
 msgstr "Denne opgave er aldrig blevet udført."
 
-#: plugins/maintenance/src/BackendBehaviors.php:204
+#: plugins/maintenance/src/BackendBehaviors.php:205
 #: plugins/maintenance/src/Manage.php:309
 #, php-format
 msgid "Last execution of this task was on %s."
 msgstr "Sidste udførelse af denne opgave var d. %s."
 
-#: plugins/maintenance/src/BackendBehaviors.php:222
+#: plugins/maintenance/src/BackendBehaviors.php:223
 #, php-format
 msgid "There is a task to execute."
 msgid_plural "There are %s tasks to execute."
 msgstr[0] "Der er en opgave at udføre."
 msgstr[1] "Der er %s opgaver at udføre."
 
-#: plugins/maintenance/src/BackendBehaviors.php:229
+#: plugins/maintenance/src/BackendBehaviors.php:230
 msgid "Manage tasks"
 msgstr "Håndtér opgaver"
 
-#: plugins/maintenance/src/BackendBehaviors.php:251
+#: plugins/maintenance/src/BackendBehaviors.php:252
 msgid "Display overdue tasks counter on maintenance dashboard icon"
 msgstr "Vis forsinkede opgaver tæller på vedligeholdelse dashboard ikon"
 
-#: plugins/maintenance/src/BackendBehaviors.php:257
+#: plugins/maintenance/src/BackendBehaviors.php:258
 msgid "Display overdue tasks list on dashboard items"
 msgstr "Vis liste over forfaldne opgaver på dashboard elementer"
 
@@ -2238,6 +2238,23 @@ msgstr "Kunne ikke tømme skabeloner cache mappe."
 #, php-format
 msgid "It may be useful to empty this cache when modifying a theme's .html or .css files (or when updating a theme or plugin). Notice : with some hosters, the templates cache cannot be emptied with this plugin. You may then have to delete the directory <strong>%s</strong> directly on the server with your FTP software."
 msgstr "Det kan være nyttigt at tømme denne cache, når du ændrer et temas .html eller .css filer (eller når du opdaterer et tema eller plugin). Bemærk : med nogle hosters, kan skabelonens cache ikke tømmes med dette plugin. Du skal muligvis slette mappen <strong>%s</strong> direkte på serveren med din FTP-software."
+
+#: plugins/maintenance/src/Task/CacheFeeds.php:38
+msgid "Empty the feed cache directory"
+msgstr "Tøm feed-cache-biblioteket"
+
+#: plugins/maintenance/src/Task/CacheFeeds.php:39
+msgid "The feed cache directory has been emptied."
+msgstr "Feed-cachebiblioteket er blevet tømt."
+
+#: plugins/maintenance/src/Task/CacheFeeds.php:40
+msgid "Failed to delete the feed cache directory."
+msgstr "Det lykkedes ikke at slette feed-cachebiblioteket."
+
+#: plugins/maintenance/src/Task/CacheFeeds.php:42
+#, php-format
+msgid "Notice : with some hosters, the feed cache cannot be emptied with this plugin. You may then have to delete the directory <strong>%s</strong> directly on the server with your FTP software."
+msgstr "Bemærk: Hos nogle hostere kan feed-cachen ikke tømmes med dette plugin. Du kan så blive nødt til at slette mappen <strong>%s</strong> direkte på serveren med din FTP-software."
 
 #: plugins/maintenance/src/Task/CountComments.php:39
 msgid "Count again comments and trackbacks"
@@ -2404,7 +2421,7 @@ msgid "%d pages"
 msgstr "%d sider"
 
 #: plugins/pages/src/Backend.php:110 plugins/pages/src/Manage.php:147
-#: plugins/pages/src/ManagePage.php:107 plugins/pages/src/ManagePage.php:855
+#: plugins/pages/src/ManagePage.php:107 plugins/pages/src/ManagePage.php:856
 msgid "New page"
 msgstr "Ny side"
 
@@ -2477,60 +2494,60 @@ msgstr "For at omarrangere siders rækkefølge, flyt elementer ved træk og slip
 msgid "Save pages order"
 msgstr "Gem siders rækkefølge"
 
-#: plugins/pages/src/ManagePage.php:167
+#: plugins/pages/src/ManagePage.php:168
 msgid "This page does not exist."
 msgstr "Denne side findes ikke."
 
-#: plugins/pages/src/ManagePage.php:188 plugins/pages/src/ManagePage.php:855
-#: plugins/pages/src/ManagePage.php:876
+#: plugins/pages/src/ManagePage.php:189 plugins/pages/src/ManagePage.php:856
+#: plugins/pages/src/ManagePage.php:877
 msgid "Edit page"
 msgstr "Rediger side"
 
-#: plugins/pages/src/ManagePage.php:433
+#: plugins/pages/src/ManagePage.php:434
 msgid "Don't forget to validate your HTML conversion by saving your post."
 msgstr "Glem ikke at validere din HTML-konvertering ved at gemme dit indlæg."
 
-#: plugins/pages/src/ManagePage.php:497
+#: plugins/pages/src/ManagePage.php:498
 msgid "Are you sure you want to delete this page?"
 msgstr "Er du sikker på du vil slette denne side?"
 
-#: plugins/pages/src/ManagePage.php:526
+#: plugins/pages/src/ManagePage.php:527
 msgid "Page has been successfully updated."
 msgstr "Siden er blevet opdateret."
 
-#: plugins/pages/src/ManagePage.php:528
+#: plugins/pages/src/ManagePage.php:529
 msgid "Page has been successfully created."
 msgstr "Siden er blevet oprettet."
 
-#: plugins/pages/src/ManagePage.php:542
+#: plugins/pages/src/ManagePage.php:543
 msgid "Go to this page on the site"
 msgstr "Gå til denne side på webstedet"
 
-#: plugins/pages/src/ManagePage.php:584
+#: plugins/pages/src/ManagePage.php:585
 msgid "Page status"
 msgstr "Side status"
 
-#: plugins/pages/src/ManagePage.php:601
+#: plugins/pages/src/ManagePage.php:602
 msgid "Page language"
 msgstr "Side sprog"
 
-#: plugins/pages/src/ManagePage.php:630 plugins/pages/src/Widgets.php:41
+#: plugins/pages/src/ManagePage.php:631 plugins/pages/src/Widgets.php:41
 msgid "Page position"
 msgstr "Side position"
 
-#: plugins/pages/src/ManagePage.php:681
+#: plugins/pages/src/ManagePage.php:682
 msgid "Hide in widget Pages"
 msgstr "Skjul i widget sider"
 
-#: plugins/pages/src/ManagePage.php:707
+#: plugins/pages/src/ManagePage.php:708
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "Advarsel: Hvis du angiver URL'en manuelt, kan det være i strid med en anden side."
 
-#: plugins/pages/src/ManagePage.php:746
+#: plugins/pages/src/ManagePage.php:747
 msgid "Introduction to the page."
 msgstr "Introduktion til siden."
 
-#: plugins/pages/src/ManagePage.php:1125
+#: plugins/pages/src/ManagePage.php:1126
 msgid "Select this comment"
 msgstr "Vælg denne kommentar"
 
@@ -2578,7 +2595,7 @@ msgstr "Auto pings alle tjenester ved første offentliggørelse af post (kun nuv
 msgid "Test ping services"
 msgstr "Test ping services"
 
-#: plugins/simpleMenu/src/Backend.php:28 plugins/simpleMenu/src/Manage.php:71
+#: plugins/simpleMenu/src/Backend.php:28 plugins/simpleMenu/src/Manage.php:73
 #: plugins/simpleMenu/src/Widgets.php:29
 msgid "Simple menu"
 msgstr "Simpel menu"
@@ -2591,185 +2608,185 @@ msgstr "Aktiv side"
 msgid "active page"
 msgstr "aktiv side"
 
-#: plugins/simpleMenu/src/Manage.php:96
+#: plugins/simpleMenu/src/Manage.php:105 plugins/simpleMenu/src/Manage.php:109
 msgid "All months"
 msgstr "Alle måneder"
 
-#: plugins/simpleMenu/src/Manage.php:159
+#: plugins/simpleMenu/src/Manage.php:172
 msgid "Archive"
 msgstr "Arkiv"
 
-#: plugins/simpleMenu/src/Manage.php:162
+#: plugins/simpleMenu/src/Manage.php:175
 msgid "Page"
 msgstr "Side"
 
-#: plugins/simpleMenu/src/Manage.php:165 plugins/tags/src/Backend.php:27
+#: plugins/simpleMenu/src/Manage.php:178 plugins/tags/src/Backend.php:27
 #: plugins/tags/src/Widgets.php:33
 msgid "Tags"
 msgstr "Mærker"
 
-#: plugins/simpleMenu/src/Manage.php:172
+#: plugins/simpleMenu/src/Manage.php:185
 msgid "User defined"
 msgstr "Bruger defineret"
 
-#: plugins/simpleMenu/src/Manage.php:213
+#: plugins/simpleMenu/src/Manage.php:226
 msgid "Configuration successfully updated."
 msgstr "Konfigurationen blev opdateret."
 
-#: plugins/simpleMenu/src/Manage.php:255 plugins/simpleMenu/src/Manage.php:677
-#: plugins/simpleMenu/src/Manage.php:797
+#: plugins/simpleMenu/src/Manage.php:268 plugins/simpleMenu/src/Manage.php:690
+#: plugins/simpleMenu/src/Manage.php:810
 msgid "Label"
 msgstr "Etiket"
 
-#: plugins/simpleMenu/src/Manage.php:261
+#: plugins/simpleMenu/src/Manage.php:274
 msgid "Home page"
 msgstr "Hjemmeside"
 
-#: plugins/simpleMenu/src/Manage.php:261 plugins/simpleMenu/src/Manage.php:266
+#: plugins/simpleMenu/src/Manage.php:274 plugins/simpleMenu/src/Manage.php:279
 #: plugins/widgets/src/Widgets.php:304 plugins/widgets/src/Widgets.php:314
 msgid "Recent posts"
 msgstr "Seneste indlæg"
 
-#: plugins/simpleMenu/src/Manage.php:273
+#: plugins/simpleMenu/src/Manage.php:286
 #, php-format
 msgid "Switch to %s language"
 msgstr "Skift til %s sprog"
 
-#: plugins/simpleMenu/src/Manage.php:280
+#: plugins/simpleMenu/src/Manage.php:293
 msgid "Recent Posts from this category"
 msgstr "Seneste indlæg fra denne kategori"
 
-#: plugins/simpleMenu/src/Manage.php:292
+#: plugins/simpleMenu/src/Manage.php:305
 #, php-format
 msgid "Posts from %s"
 msgstr "Indlæg fra %s"
 
-#: plugins/simpleMenu/src/Manage.php:312
+#: plugins/simpleMenu/src/Manage.php:325
 #, php-format
 msgid "Recent posts for %s tag"
 msgstr "Seneste indlæg for %s tag"
 
-#: plugins/simpleMenu/src/Manage.php:372
+#: plugins/simpleMenu/src/Manage.php:385
 msgid "Menu item has been successfully added."
 msgstr "Menupunktet er blevet tilføjet."
 
-#: plugins/simpleMenu/src/Manage.php:377
+#: plugins/simpleMenu/src/Manage.php:390
 msgid "Label and URL of menu item are mandatory."
 msgstr "Etiket og URL for menupunktet er obligatorisk."
 
-#: plugins/simpleMenu/src/Manage.php:410
+#: plugins/simpleMenu/src/Manage.php:423
 msgid "Menu items have been successfully removed."
 msgstr "Menupunkter er blevet fjernet."
 
-#: plugins/simpleMenu/src/Manage.php:413
+#: plugins/simpleMenu/src/Manage.php:426
 msgid "No menu items selected."
 msgstr "Ingen menupunkter valgt."
 
-#: plugins/simpleMenu/src/Manage.php:425
+#: plugins/simpleMenu/src/Manage.php:438
 msgid "Label is mandatory."
 msgstr "Etiket er obligatorisk."
 
-#: plugins/simpleMenu/src/Manage.php:430
+#: plugins/simpleMenu/src/Manage.php:443
 msgid "URL is mandatory."
 msgstr "URL er obligatorisk."
 
-#: plugins/simpleMenu/src/Manage.php:475
+#: plugins/simpleMenu/src/Manage.php:488
 msgid "Menu items have been successfully updated."
 msgstr "Menupunkter er blevet opdateret."
 
-#: plugins/simpleMenu/src/Manage.php:502
+#: plugins/simpleMenu/src/Manage.php:515
 msgid "Are you sure you want to remove selected menu items?"
 msgstr "Er du sikker på du vil fjerne valgte menupunkter?"
 
-#: plugins/simpleMenu/src/Manage.php:511
+#: plugins/simpleMenu/src/Manage.php:524
 msgid "Step #1"
 msgstr "Trin #1"
 
-#: plugins/simpleMenu/src/Manage.php:516 plugins/simpleMenu/src/Manage.php:521
+#: plugins/simpleMenu/src/Manage.php:529 plugins/simpleMenu/src/Manage.php:534
 msgid "Step #2"
 msgstr "Trin #2"
 
-#: plugins/simpleMenu/src/Manage.php:521
+#: plugins/simpleMenu/src/Manage.php:534
 msgid "Step #3"
 msgstr "Trin #3"
 
-#: plugins/simpleMenu/src/Manage.php:530
+#: plugins/simpleMenu/src/Manage.php:543
 msgid "Add item"
 msgstr "Tilføj element"
 
-#: plugins/simpleMenu/src/Manage.php:561
+#: plugins/simpleMenu/src/Manage.php:574
 msgid "Select type"
 msgstr "Vælg type"
 
-#: plugins/simpleMenu/src/Manage.php:568
+#: plugins/simpleMenu/src/Manage.php:581
 msgid "Type of item menu:"
 msgstr "Type af element menu:"
 
-#: plugins/simpleMenu/src/Manage.php:574 plugins/simpleMenu/src/Manage.php:641
+#: plugins/simpleMenu/src/Manage.php:587 plugins/simpleMenu/src/Manage.php:654
 msgid "Continue..."
 msgstr "Fortsæt..."
 
-#: plugins/simpleMenu/src/Manage.php:597
+#: plugins/simpleMenu/src/Manage.php:610
 msgid "Select language:"
 msgstr "Vælg sprog:"
 
-#: plugins/simpleMenu/src/Manage.php:603
+#: plugins/simpleMenu/src/Manage.php:616
 msgid "Select category:"
 msgstr "Vælg kategori:"
 
-#: plugins/simpleMenu/src/Manage.php:609
+#: plugins/simpleMenu/src/Manage.php:622
 msgid "Select month (if necessary):"
 msgstr "Vælg måned (om nødvendigt):"
 
-#: plugins/simpleMenu/src/Manage.php:615
+#: plugins/simpleMenu/src/Manage.php:628
 msgid "Select page:"
 msgstr "Vælg side:"
 
-#: plugins/simpleMenu/src/Manage.php:621
+#: plugins/simpleMenu/src/Manage.php:634
 msgid "Select tag (if necessary):"
 msgstr "Vælg tag (om nødvendigt):"
 
-#: plugins/simpleMenu/src/Manage.php:682
+#: plugins/simpleMenu/src/Manage.php:695
 msgid "Label of item menu:"
 msgstr "Etiket på element menu:"
 
-#: plugins/simpleMenu/src/Manage.php:696
+#: plugins/simpleMenu/src/Manage.php:709
 msgid "Description of item menu:"
 msgstr "Beskrivelse af menuen:"
 
-#: plugins/simpleMenu/src/Manage.php:711
+#: plugins/simpleMenu/src/Manage.php:724
 msgid "URL of item menu:"
 msgstr "URL til element menu:"
 
-#: plugins/simpleMenu/src/Manage.php:721 plugins/simpleMenu/src/Manage.php:800
+#: plugins/simpleMenu/src/Manage.php:734 plugins/simpleMenu/src/Manage.php:813
 msgid "Open URL on a new tab"
 msgstr "Åbn URL på en ny fane"
 
-#: plugins/simpleMenu/src/Manage.php:729
+#: plugins/simpleMenu/src/Manage.php:742
 msgid "Add this item"
 msgstr "Tilføj dette element"
 
-#: plugins/simpleMenu/src/Manage.php:755
+#: plugins/simpleMenu/src/Manage.php:768
 msgid "Enable simple menu for this blog"
 msgstr "Aktiver simpel menu for denne blog"
 
-#: plugins/simpleMenu/src/Manage.php:778
+#: plugins/simpleMenu/src/Manage.php:791
 msgid "Add an item"
 msgstr "Tilføj et element"
 
-#: plugins/simpleMenu/src/Manage.php:896
+#: plugins/simpleMenu/src/Manage.php:909
 msgid "Menu items list"
 msgstr "Menupunktliste"
 
-#: plugins/simpleMenu/src/Manage.php:923
+#: plugins/simpleMenu/src/Manage.php:936
 msgid "Delete selected menu items"
 msgstr "Slet valgte menupunkter"
 
-#: plugins/simpleMenu/src/Manage.php:932
+#: plugins/simpleMenu/src/Manage.php:945
 msgid "Update menu"
 msgstr "Opdater menu"
 
-#: plugins/simpleMenu/src/Manage.php:942
+#: plugins/simpleMenu/src/Manage.php:955
 msgid "No menu items so far."
 msgstr "Ingen menupunkter indtil videre."
 
@@ -2958,8 +2975,8 @@ msgid "themeEditor"
 msgstr "temeEditor"
 
 #: plugins/themeEditor/src/BackendBehaviors.php:45
-#: plugins/themeEditor/src/Manage.php:193
-#: plugins/themeEditor/src/Manage.php:200
+#: plugins/themeEditor/src/Manage.php:194
+#: plugins/themeEditor/src/Manage.php:201
 msgid "Edit theme files"
 msgstr "Rediger temafiler"
 
@@ -2983,85 +3000,85 @@ msgstr "Temaopdateringen er blevet afbrudt."
 msgid "The file has been reset."
 msgstr "Filen er blevet nulstillet."
 
-#: plugins/themeEditor/src/Manage.php:162
+#: plugins/themeEditor/src/Manage.php:163
 msgid "Lock update"
 msgstr "Lås opdatering"
 
-#: plugins/themeEditor/src/Manage.php:162
+#: plugins/themeEditor/src/Manage.php:163
 msgid "Unlock update"
 msgstr "Oplås opdatering"
 
-#: plugins/themeEditor/src/Manage.php:167
+#: plugins/themeEditor/src/Manage.php:168
 msgid "Lock theme update disables theme update, but allows theme files to be modified."
 msgstr "Lås temaopdatering deaktiverer temaopdatering, men gør det muligt at ændre temafiler."
 
-#: plugins/themeEditor/src/Manage.php:173
+#: plugins/themeEditor/src/Manage.php:174
 msgid "The theme editor is in development mode, theme files will be overwritten!"
 msgstr "Temaeditoren er i udviklingstilstand, og temafiler vil blive overskrevet!"
 
-#: plugins/themeEditor/src/Manage.php:181
+#: plugins/themeEditor/src/Manage.php:182
 msgid "Saving document..."
 msgstr "Gemmer dokument..."
 
-#: plugins/themeEditor/src/Manage.php:182
+#: plugins/themeEditor/src/Manage.php:183
 msgid "Document saved"
 msgstr "Dokument gemt"
 
-#: plugins/themeEditor/src/Manage.php:183
+#: plugins/themeEditor/src/Manage.php:184
 msgid "An error occurred:"
 msgstr "Der opstod en fejl:"
 
-#: plugins/themeEditor/src/Manage.php:184
+#: plugins/themeEditor/src/Manage.php:185
 msgid "Are you sure you want to reset this file?"
 msgstr "Er du sikker på, at du vil nulstille denne fil?"
 
-#: plugins/themeEditor/src/Manage.php:208
+#: plugins/themeEditor/src/Manage.php:209
 #, php-format
 msgid "Your current theme on this blog is \"%s\"."
 msgstr "Dit nuværende tema på denne blog er \"%s\"."
 
-#: plugins/themeEditor/src/Manage.php:218
+#: plugins/themeEditor/src/Manage.php:219
 msgid "Please select a file to edit."
 msgstr "Vælg venligst en fil, der skal redigeres."
 
-#: plugins/themeEditor/src/Manage.php:226
+#: plugins/themeEditor/src/Manage.php:227
 msgid "Reset"
 msgstr "Reset"
 
-#: plugins/themeEditor/src/Manage.php:235
+#: plugins/themeEditor/src/Manage.php:236
 msgid "File editor"
 msgstr "Fil editor"
 
-#: plugins/themeEditor/src/Manage.php:244
+#: plugins/themeEditor/src/Manage.php:245
 #, php-format
 msgid "Editing file %s"
 msgstr "Redigerer fil %s"
 
-#: plugins/themeEditor/src/Manage.php:260
+#: plugins/themeEditor/src/Manage.php:261
 msgid "If you use <code>url(...)</code> in your CSS files, be sure to use <code>url(index.php?tf=...)</code> to correctly load theme resources (imported CSS, images, etc.), except for URL types in the form <code>data:image</code>.<br>Example: do <code>@import url(index.php?tf=css/layout.css);</code> instead of <code>@import url(css/layout.css);</code>."
 msgstr "Hvis du bruger <code>url(...)</code> i dine CSS-filer, skal du sørge for at bruge <code>url(index.php?tf=...)</code> for at indlæse temaressourcer korrekt (importeret CSS, billeder osv.), undtagen URL-typer i formatet <code>data:image</code>.<br>Eksempel: Udfør <code>@import url(index.php?tf=css/layout.css);</code> i stedet for <code>@import url(css/layout.css);</code>."
 
-#: plugins/themeEditor/src/Manage.php:264
+#: plugins/themeEditor/src/Manage.php:265
 msgid "This file is not overloadable. Please check your var folder permissions."
 msgstr "Denne fil kan ikke overbelastes. Tjek venligst tilladelserne til din var-mappe."
 
-#: plugins/themeEditor/src/Manage.php:283
+#: plugins/themeEditor/src/Manage.php:284
 msgid "Templates files"
 msgstr "Skabeloner filer"
 
-#: plugins/themeEditor/src/Manage.php:288
+#: plugins/themeEditor/src/Manage.php:289
 msgid "CSS files"
 msgstr "CSS files"
 
-#: plugins/themeEditor/src/Manage.php:293
+#: plugins/themeEditor/src/Manage.php:294
 msgid "JavaScript files"
 msgstr "JavaScript filer"
 
-#: plugins/themeEditor/src/Manage.php:298
+#: plugins/themeEditor/src/Manage.php:299
 msgid "Locales files"
 msgstr "Landestandarder filer"
 
-#: plugins/themeEditor/src/Manage.php:303
+#: plugins/themeEditor/src/Manage.php:304
 msgid "PHP files"
 msgstr "PHP filer"
 
@@ -3353,31 +3370,31 @@ msgstr "Indgange feed"
 msgid "Comments feed"
 msgstr "Kommentarer feed"
 
-#: plugins/widgets/src/WidgetsElement.php:547
+#: plugins/widgets/src/WidgetsElement.php:543
 msgid "Title (optional)"
 msgstr "Titel (valgfrit)"
 
-#: plugins/widgets/src/WidgetsElement.php:558
+#: plugins/widgets/src/WidgetsElement.php:554
 msgid "All pages"
 msgstr "Alle sider"
 
-#: plugins/widgets/src/WidgetsElement.php:559
+#: plugins/widgets/src/WidgetsElement.php:555
 msgid "Home page only"
 msgstr "Kun startside"
 
-#: plugins/widgets/src/WidgetsElement.php:560
+#: plugins/widgets/src/WidgetsElement.php:556
 msgid "Except on home page"
 msgstr "Undtagen på startsiden"
 
-#: plugins/widgets/src/WidgetsElement.php:568
+#: plugins/widgets/src/WidgetsElement.php:564
 msgid "Display on:"
 msgstr "Vis på:"
 
-#: plugins/widgets/src/WidgetsElement.php:594
+#: plugins/widgets/src/WidgetsElement.php:590
 msgid "Content only"
 msgstr "Kun indhold"
 
-#: plugins/widgets/src/WidgetsElement.php:604
+#: plugins/widgets/src/WidgetsElement.php:600
 msgid "CSS class:"
 msgstr "CSS klasse:"
 

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-04 17:57+0200\n"
-"PO-Revision-Date: 2025-10-05 05:59\n"
+"POT-Creation-Date: 2025-10-31 10:31+0100\n"
+"PO-Revision-Date: 2025-10-31 13:03\n"
 "Last-Translator: \n"
 "Language-Team: Bengali\n"
 "Language: bn_BD\n"
@@ -40,7 +40,7 @@ msgstr "Progname"
 #: src/Core/Backend/Action/ActionsPosts.php:72
 #: src/Core/Backend/Favorites.php:416 src/Core/Backend/Menus.php:168
 #: src/Core/Backend/UserPref.php:41 src/Core/Backend/UserPref.php:178
-#: src/Process/Backend/Post.php:578 src/Process/Backend/Post.php:596
+#: src/Process/Backend/Post.php:579 src/Process/Backend/Post.php:597
 #: src/Process/Backend/Posts.php:91 src/Process/Backend/Posts.php:96
 msgid "Posts"
 msgstr "পোস্টগুলো"
@@ -77,52 +77,52 @@ msgstr "SQLite (PDO)"
 msgid "PostgreSQL (PDO)"
 msgstr "PostgreSQL (PDO)"
 
-#: src/Core/Auth.php:122
+#: src/Core/Auth.php:121
 msgid "administrator"
 msgstr "প্রশাসক"
 
-#: src/Core/Auth.php:123
+#: src/Core/Auth.php:122
 msgid "manage all entries and comments"
 msgstr "সব এন্ট্রি এবং মন্তব্য পরিচালনা করুন"
 
-#: src/Core/Auth.php:124
+#: src/Core/Auth.php:123
 msgid "manage their own entries and comments"
 msgstr "তাদের নিজস্ব এন্ট্রি এবং মন্তব্য পরিচালনা করুন"
 
-#: src/Core/Auth.php:125
+#: src/Core/Auth.php:124
 msgid "publish entries and comments"
 msgstr "এন্ট্রি এবং মন্তব্য প্রকাশ"
 
-#: src/Core/Auth.php:126
+#: src/Core/Auth.php:125
 msgid "delete entries and comments"
 msgstr "এন্ট্রি এবং মন্তব্য মুছে ফেলো"
 
-#: src/Core/Auth.php:127
+#: src/Core/Auth.php:126
 msgid "manage categories"
 msgstr "শ্রেণীবিভাগ পরিচালনা করুন"
 
-#: src/Core/Auth.php:128
+#: src/Core/Auth.php:127
 msgid "manage all media items"
 msgstr "সকল মিডিয়া আইটেম পরিচালনা করুন"
 
-#: src/Core/Auth.php:129
+#: src/Core/Auth.php:128
 msgid "manage their own media items"
 msgstr "নিজস্ব মিডিয়া আইটেম পরিচালনা করুন"
 
-#: src/Core/Auth.php:557
+#: src/Core/Auth.php:552
 msgid "That user does not exist in the database."
 msgstr "এই ব্যবহারকারীর ডাটাবেসে উপস্থিত নেই."
 
-#: src/Core/Auth.php:584
+#: src/Core/Auth.php:579
 msgid "That key does not exist in the database."
 msgstr "এই চাবি ডাটাবেসে নেই."
 
 #: src/Core/Backend/Action/Actions.php:139
 #: src/Core/Backend/Action/ActionsComments.php:158
-#: src/Core/Backend/Combos.php:255 src/Core/Backend/Listing/ListingPosts.php:78
+#: src/Core/Backend/Combos.php:297 src/Core/Backend/Listing/ListingPosts.php:78
 #: src/Core/Backend/Listing/ListingPostsMini.php:62
 #: src/Core/Backend/UserPref.php:205 src/Process/Backend/Home.php:591
-#: src/Process/Backend/MediaItem.php:1090 src/Process/Backend/Post.php:841
+#: src/Process/Backend/MediaItem.php:1058 src/Process/Backend/Post.php:842
 msgid "Title"
 msgstr "টাইটেল"
 
@@ -150,7 +150,7 @@ msgstr "ব্লগের কাজ"
 msgid "Blog id"
 msgstr "ব্লগ আইডি"
 
-#: src/Core/Backend/Action/ActionsBlogs.php:158 src/Core/Backend/Combos.php:311
+#: src/Core/Backend/Action/ActionsBlogs.php:158 src/Core/Backend/Combos.php:353
 #: src/Core/Backend/Listing/ListingBlogs.php:83
 #: src/Core/Backend/UserPref.php:77 src/Process/Backend/Blog.php:144
 #: src/Process/Backend/BlogPref.php:534
@@ -161,16 +161,16 @@ msgstr "ব্লগের নাম"
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:35
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:36
 #: src/Core/Backend/Action/ActionsPostsDefault.php:47
-#: src/Core/Backend/Combos.php:258 src/Core/Backend/Combos.php:281
-#: src/Core/Backend/Combos.php:313
+#: src/Core/Backend/Combos.php:300 src/Core/Backend/Combos.php:323
+#: src/Core/Backend/Combos.php:355
 #: src/Core/Backend/Listing/ListingBlogs.php:102
 #: src/Core/Backend/Listing/ListingComments.php:131
 #: src/Core/Backend/Listing/ListingPosts.php:120
 #: src/Core/Backend/Listing/ListingPostsMini.php:74
 #: src/Core/Backend/Listing/ListingUsers.php:89
 #: src/Core/Backend/UserPref.php:55 src/Core/Backend/UserPref.php:71
-#: src/Core/Backend/UserPref.php:81 src/Process/Backend/Post.php:664
-#: src/Process/Backend/Post.php:1390 src/Process/Backend/Users.php:43
+#: src/Core/Backend/UserPref.php:81 src/Process/Backend/Post.php:665
+#: src/Process/Backend/Post.php:1391 src/Process/Backend/Users.php:43
 #: src/Process/Backend/UsersActions.php:377
 msgid "Status"
 msgstr "অবস্থা"
@@ -185,7 +185,7 @@ msgstr "অবস্থা"
 #: src/Core/Backend/Listing/ListingMedia.php:317
 #: src/Core/Backend/ModulesList.php:1361 src/Core/Upgrade/PluginsList.php:125
 #: src/Process/Backend/Comment.php:354 src/Process/Backend/Langs.php:231
-#: src/Process/Backend/Post.php:965 src/Process/Backend/UserPreferences.php:694
+#: src/Process/Backend/Post.php:966 src/Process/Backend/UserPreferences.php:694
 #: src/Process/Backend/Users.php:44 src/Process/Upgrade/Langs.php:297
 msgid "Delete"
 msgstr "মুছে ফেলুন"
@@ -229,8 +229,8 @@ msgstr[1] "%dটি ব্লগ সফলভাবে মোছা হয়ে
 #: src/Core/Backend/Listing/ListingPosts.php:100
 #: src/Core/Backend/Listing/ListingPosts.php:101 src/Core/Backend/Menus.php:155
 #: src/Core/Backend/UserPref.php:46 src/Core/Backend/UserPref.php:51
-#: src/Core/Backend/UserPref.php:185 src/Process/Backend/Post.php:1038
-#: src/Process/Backend/Post.php:1065
+#: src/Core/Backend/UserPref.php:185 src/Process/Backend/Post.php:1039
+#: src/Process/Backend/Post.php:1066
 msgid "Comments"
 msgstr "মন্তব্য"
 
@@ -243,13 +243,13 @@ msgid "Comments actions"
 msgstr "মন্তব্যের কাজ"
 
 #: src/Core/Backend/Action/ActionsComments.php:156
-#: src/Core/Backend/Combos.php:257 src/Core/Backend/Combos.php:280
+#: src/Core/Backend/Combos.php:299 src/Core/Backend/Combos.php:322
 #: src/Core/Backend/Listing/ListingComments.php:123
 #: src/Core/Backend/Listing/ListingPosts.php:90
 #: src/Core/Backend/Listing/ListingPostsMini.php:70
 #: src/Core/Backend/UserPref.php:45 src/Core/Backend/UserPref.php:54
-#: src/Process/Backend/Comment.php:291 src/Process/Backend/Post.php:1100
-#: src/Process/Backend/Post.php:1381
+#: src/Process/Backend/Comment.php:291 src/Process/Backend/Post.php:1101
+#: src/Process/Backend/Post.php:1382
 msgid "Author"
 msgstr "লেখক"
 
@@ -262,7 +262,7 @@ msgid "Blocklist IP (global)"
 msgstr "Blocklist IP (বৈশ্বিক)"
 
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:68
-#: src/Process/Backend/Post.php:1387
+#: src/Process/Backend/Post.php:1388
 msgid "IP address"
 msgstr "IP এড্রেস"
 
@@ -388,7 +388,7 @@ msgstr[0] "%dটি এন্ট্রি সফলভাবে মোছা হ
 msgstr[1] "%dটি এন্ট্রি সফলভাবে মোছা হয়েছে"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:311
-#: src/Core/Backend/Combos.php:41 src/Core/Backend/Filter/FilterPosts.php:120
+#: src/Core/Backend/Combos.php:42 src/Core/Backend/Filter/FilterPosts.php:122
 #: src/Core/Backend/Listing/ListingPosts.php:268
 msgid "(No cat)"
 msgstr "(বিড়াল না)"
@@ -405,8 +405,8 @@ msgid "Change category for this selection"
 msgstr "এই নির্বাচনের জন্য শ্রেণীবিভাগ পরিবর্তন করুন"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:348
-#: src/Core/Backend/Filter/FilterPosts.php:131 src/Process/Backend/Home.php:617
-#: src/Process/Backend/Post.php:729
+#: src/Core/Backend/Filter/FilterPosts.php:133 src/Process/Backend/Home.php:617
+#: src/Process/Backend/Post.php:730
 msgid "Category:"
 msgstr "ক্যাটাগরি:"
 
@@ -416,26 +416,26 @@ msgstr "পোস্টের জন্য একটি নতুন বিভ�
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:366
 #: src/Process/Backend/Home.php:595 src/Process/Backend/Home.php:629
-#: src/Process/Backend/Media.php:777 src/Process/Backend/MediaItem.php:1230
-#: src/Process/Backend/Post.php:743 src/Process/Backend/Post.php:846
+#: src/Process/Backend/Media.php:777 src/Process/Backend/MediaItem.php:1198
+#: src/Process/Backend/Post.php:744 src/Process/Backend/Post.php:847
 msgid "Title:"
 msgstr "টাইটেল:"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:375
 #: src/Process/Backend/Category.php:267 src/Process/Backend/Category.php:325
-#: src/Process/Backend/Home.php:636 src/Process/Backend/Post.php:750
+#: src/Process/Backend/Home.php:636 src/Process/Backend/Post.php:751
 msgid "Parent:"
 msgstr "প্যারেন্ট:"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:390
 #: src/Core/Backend/Action/ActionsPostsDefault.php:495
-#: src/Core/Backend/Action/ActionsPostsDefault.php:579
+#: src/Core/Backend/Action/ActionsPostsDefault.php:580
 #: src/Core/Backend/ModulesList.php:1997 src/Process/Backend/BlogPref.php:1193
 #: src/Process/Backend/Category.php:297 src/Process/Backend/Category.php:336
 #: src/Process/Backend/Category.php:372 src/Process/Backend/Comment.php:349
 #: src/Process/Backend/Home.php:646 src/Process/Backend/Home.php:700
-#: src/Process/Backend/MediaItem.php:1270 src/Process/Backend/Post.php:930
-#: src/Process/Backend/Post.php:1144 src/Process/Backend/User.php:554
+#: src/Process/Backend/MediaItem.php:1238 src/Process/Backend/Post.php:931
+#: src/Process/Backend/Post.php:1145 src/Process/Backend/User.php:554
 #: src/Process/Backend/UsersActions.php:513 src/Process/Install/Install.php:550
 msgid "Save"
 msgstr "সংরক্ষণ করুন"
@@ -470,112 +470,113 @@ msgstr[1] "%dটি এন্ট্রি সফলভাবে \"%s\" ভাষ
 msgid "Change language for this selection"
 msgstr "এই নির্বাচনের জন্য ভাষা পরিবর্তন করুন"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:567
+#: src/Core/Backend/Action/ActionsPostsDefault.php:568
 msgid "Entry language:"
 msgstr "এনট্রি ভাষা:"
 
-#: src/Core/Backend/Combos.php:133
+#: src/Core/Backend/Combos.php:159 src/Core/Backend/Combos.php:167
 msgid "Most used"
 msgstr "সর্বাধিক ব্যবহৃত"
 
-#: src/Core/Backend/Combos.php:134 src/Core/Backend/Combos.php:164
+#: src/Core/Backend/Combos.php:161 src/Core/Backend/Combos.php:168
+#: src/Core/Backend/Combos.php:202
 msgid "Available"
 msgstr "উপস্থিত"
 
-#: src/Core/Backend/Combos.php:164
+#: src/Core/Backend/Combos.php:204
 msgid "Other"
 msgstr "অন্যান্য"
 
-#: src/Core/Backend/Combos.php:241 src/Process/Backend/UserPreferences.php:196
+#: src/Core/Backend/Combos.php:283 src/Process/Backend/UserPreferences.php:196
 msgid "Descending"
 msgstr "বড় থেকে ছোট"
 
-#: src/Core/Backend/Combos.php:242 src/Process/Backend/UserPreferences.php:197
+#: src/Core/Backend/Combos.php:284 src/Process/Backend/UserPreferences.php:197
 msgid "Ascending"
 msgstr "ছোট থেকে বড়"
 
-#: src/Core/Backend/Combos.php:254 src/Core/Backend/Combos.php:277
+#: src/Core/Backend/Combos.php:296 src/Core/Backend/Combos.php:319
 #: src/Core/Backend/Listing/ListingComments.php:127
 #: src/Core/Backend/Listing/ListingMedia.php:130
 #: src/Core/Backend/Listing/ListingPosts.php:82
 #: src/Core/Backend/Listing/ListingPostsMini.php:66
 #: src/Core/Backend/UserPref.php:43 src/Core/Backend/UserPref.php:53
-#: src/Core/Backend/UserPref.php:203 src/Process/Backend/Post.php:1383
+#: src/Core/Backend/UserPref.php:203 src/Process/Backend/Post.php:1384
 msgid "Date"
 msgstr "তারিখ"
 
-#: src/Core/Backend/Combos.php:256 src/Core/Backend/Listing/ListingPosts.php:86
-#: src/Core/Backend/UserPref.php:44 src/Process/Backend/Post.php:721
+#: src/Core/Backend/Combos.php:298 src/Core/Backend/Listing/ListingPosts.php:86
+#: src/Core/Backend/UserPref.php:44 src/Process/Backend/Post.php:722
 msgid "Category"
 msgstr "ক্যাটাগরি"
 
-#: src/Core/Backend/Combos.php:259 src/Core/Backend/Filter/FilterPosts.php:200
+#: src/Core/Backend/Combos.php:301 src/Core/Backend/Filter/FilterPosts.php:202
 #: src/Core/Backend/Listing/ListingPosts.php:209
 #: src/Core/Backend/Listing/ListingPosts.php:250
 #: src/Core/Backend/Listing/ListingPostsMini.php:136
 msgid "Selected"
 msgstr "নির্বাচিত"
 
-#: src/Core/Backend/Combos.php:260
+#: src/Core/Backend/Combos.php:302
 msgid "Number of comments"
 msgstr "মন্তব্যের সংখ্যা"
 
-#: src/Core/Backend/Combos.php:261
+#: src/Core/Backend/Combos.php:303
 msgid "Number of trackbacks"
 msgstr "ট্রাকব্যাকের সংখ্যা"
 
-#: src/Core/Backend/Combos.php:278
+#: src/Core/Backend/Combos.php:320
 msgid "Entry title"
 msgstr "এন্ট্রির টাইটেল"
 
-#: src/Core/Backend/Combos.php:279
+#: src/Core/Backend/Combos.php:321
 msgid "Entry date"
 msgstr "এন্ট্রি তারিখ"
 
-#: src/Core/Backend/Combos.php:282
+#: src/Core/Backend/Combos.php:324
 #: src/Core/Backend/Listing/ListingComments.php:141
 #: src/Core/Backend/UserPref.php:57
 msgid "Spam filter"
 msgstr "স্প্যাম ফিল্টার"
 
-#: src/Core/Backend/Combos.php:293
+#: src/Core/Backend/Combos.php:335
 #: src/Core/Backend/Listing/ListingComments.php:136
 #: src/Core/Backend/UserPref.php:56
 msgid "IP"
 msgstr "IP"
 
-#: src/Core/Backend/Combos.php:310 src/Core/Backend/Listing/ListingBlogs.php:98
+#: src/Core/Backend/Combos.php:352 src/Core/Backend/Listing/ListingBlogs.php:98
 #: src/Core/Backend/UserPref.php:80
 msgid "Last update"
 msgstr "সর্বশেষ আপডেট"
 
-#: src/Core/Backend/Combos.php:312 src/Process/Backend/Blog.php:124
+#: src/Core/Backend/Combos.php:354 src/Process/Backend/Blog.php:124
 #: src/Process/Backend/BlogPref.php:1031
 #: src/Process/Backend/UsersActions.php:365
 msgid "Blog ID"
 msgstr "ব্লগ আইডি"
 
-#: src/Core/Backend/Combos.php:331 src/Core/Backend/Listing/ListingUsers.php:68
+#: src/Core/Backend/Combos.php:373 src/Core/Backend/Listing/ListingUsers.php:68
 #: src/Process/Install/Install.php:526
 msgid "Username"
 msgstr "Username"
 
-#: src/Core/Backend/Combos.php:332 src/Core/Backend/Listing/ListingUsers.php:76
+#: src/Core/Backend/Combos.php:374 src/Core/Backend/Listing/ListingUsers.php:76
 #: src/Core/Backend/UserPref.php:68
 msgid "Last Name"
 msgstr "শেষ নাম"
 
-#: src/Core/Backend/Combos.php:333 src/Core/Backend/Listing/ListingUsers.php:72
+#: src/Core/Backend/Combos.php:375 src/Core/Backend/Listing/ListingUsers.php:72
 #: src/Core/Backend/UserPref.php:67
 msgid "First Name"
 msgstr "প্রথম নাম"
 
-#: src/Core/Backend/Combos.php:334 src/Core/Backend/Listing/ListingUsers.php:80
+#: src/Core/Backend/Combos.php:376 src/Core/Backend/Listing/ListingUsers.php:80
 #: src/Core/Backend/UserPref.php:69
 msgid "Display name"
 msgstr "ডিসপ্লে নাম"
 
-#: src/Core/Backend/Combos.php:335
+#: src/Core/Backend/Combos.php:377
 msgid "Number of entries"
 msgstr "এন্ট্রির সংখ্যা"
 
@@ -592,7 +593,7 @@ msgstr "আমার পছন্দসমূহ"
 
 #: src/Core/Backend/Favorites.php:405 src/Core/Backend/Menus.php:181
 #: src/Process/Backend/Home.php:580 src/Process/Backend/Post.php:94
-#: src/Process/Backend/Post.php:973 src/Process/Backend/Posts.php:112
+#: src/Process/Backend/Post.php:974 src/Process/Backend/Posts.php:112
 msgid "New post"
 msgstr "নতুন এন্ট্রি"
 
@@ -627,7 +628,7 @@ msgstr "ক্যাটাগরিসমূহ"
 #: src/Core/Backend/MediaPage.php:365 src/Core/Backend/MediaPage.php:416
 #: src/Core/Backend/Menus.php:117 src/Core/Backend/UserPref.php:200
 #: src/Process/Backend/Media.php:702 src/Process/Backend/Media.php:830
-#: src/Process/Backend/MediaItem.php:407 src/Process/Backend/MediaItem.php:413
+#: src/Process/Backend/MediaItem.php:410 src/Process/Backend/MediaItem.php:416
 msgid "Media manager"
 msgstr "মিডিয়া ম্যানেজার"
 
@@ -676,22 +677,22 @@ msgstr "ভাষাসমূহ"
 msgid "Global help"
 msgstr "গ্লোবাল সহায়তা"
 
-#: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1269
+#: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1277
 #: src/Process/Backend/Auth.php:513 src/Process/Backend/BlogPref.php:1369
-#: src/Process/Backend/Comment.php:305 src/Process/Backend/Post.php:1113
+#: src/Process/Backend/Comment.php:305 src/Process/Backend/Post.php:1114
 #: src/Process/Backend/User.php:450 src/Process/Backend/UserPreferences.php:813
 #: src/Process/Install/Install.php:508
 msgid "Email:"
 msgstr "ইমেইল:"
 
-#: src/Core/Backend/Filter/FilterComments.php:37 src/Core/Backend/Page.php:1268
-#: src/Process/Backend/Comment.php:321 src/Process/Backend/Post.php:1122
+#: src/Core/Backend/Filter/FilterComments.php:37 src/Core/Backend/Page.php:1276
+#: src/Process/Backend/Comment.php:321 src/Process/Backend/Post.php:1123
 msgid "Web site:"
 msgstr "ওয়েব সাইট:"
 
 #: src/Core/Backend/Filter/FilterComments.php:58
-#: src/Core/Backend/Filter/FilterPosts.php:90
-#: src/Core/Backend/ModulesList.php:1045 src/Core/Backend/Page.php:1310
+#: src/Core/Backend/Filter/FilterPosts.php:92
+#: src/Core/Backend/ModulesList.php:1045 src/Core/Backend/Page.php:1318
 #: src/Process/Backend/Comment.php:294
 msgid "Author:"
 msgstr "লেখক:"
@@ -701,7 +702,7 @@ msgid "Type:"
 msgstr "ধরণ:"
 
 #: src/Core/Backend/Filter/FilterComments.php:73
-#: src/Process/Backend/Post.php:1132 src/Process/Backend/Post.php:1135
+#: src/Process/Backend/Post.php:1133 src/Process/Backend/Post.php:1136
 msgid "Comment"
 msgstr "মন্তব্য"
 
@@ -710,7 +711,7 @@ msgid "Trackback"
 msgstr "ট্র্যাকব্যাক"
 
 #: src/Core/Backend/Filter/FilterComments.php:107
-#: src/Core/Backend/Page.php:1270 src/Process/Backend/Comment.php:269
+#: src/Core/Backend/Page.php:1278 src/Process/Backend/Comment.php:269
 msgid "IP address:"
 msgstr "IP এড্রেস:"
 
@@ -734,67 +735,67 @@ msgstr "অডিও"
 msgid "video"
 msgstr "ভিডিও"
 
-#: src/Core/Backend/Filter/FilterPosts.php:165
+#: src/Core/Backend/Filter/FilterPosts.php:167
 msgid "Format:"
 msgstr "ফরম্যাট:"
 
-#: src/Core/Backend/Filter/FilterPosts.php:179 src/Process/Backend/Auth.php:173
+#: src/Core/Backend/Filter/FilterPosts.php:181 src/Process/Backend/Auth.php:173
 #: src/Process/Backend/Auth.php:641 src/Process/Backend/User.php:362
 #: src/Process/Install/Install.php:592 src/Process/Upgrade/Auth.php:338
 msgid "Password:"
 msgstr "পাসওয়ার্ড:"
 
-#: src/Core/Backend/Filter/FilterPosts.php:182
+#: src/Core/Backend/Filter/FilterPosts.php:184
 msgid "With password"
 msgstr "পাসওয়ার্ড দিয়ে"
 
-#: src/Core/Backend/Filter/FilterPosts.php:183
+#: src/Core/Backend/Filter/FilterPosts.php:185
 msgid "Without password"
 msgstr "পাসওয়ার্ড ছাড়া"
 
-#: src/Core/Backend/Filter/FilterPosts.php:197
+#: src/Core/Backend/Filter/FilterPosts.php:199
 msgid "Selected:"
 msgstr "নির্বাচিত:"
 
-#: src/Core/Backend/Filter/FilterPosts.php:201
+#: src/Core/Backend/Filter/FilterPosts.php:203
 msgid "Not selected"
 msgstr "নির্বাচিত নয়"
 
-#: src/Core/Backend/Filter/FilterPosts.php:215
+#: src/Core/Backend/Filter/FilterPosts.php:217
 msgid "Attachments:"
 msgstr "সংযুক:"
 
-#: src/Core/Backend/Filter/FilterPosts.php:218
+#: src/Core/Backend/Filter/FilterPosts.php:220
 msgid "With attachments"
 msgstr "অ্যাটাচমেন্ট দিয়ে"
 
-#: src/Core/Backend/Filter/FilterPosts.php:219
+#: src/Core/Backend/Filter/FilterPosts.php:221
 msgid "Without attachments"
 msgstr "অ্যাটাচমেন্ট ছাড়া"
 
-#: src/Core/Backend/Filter/FilterPosts.php:249
+#: src/Core/Backend/Filter/FilterPosts.php:251
 msgid "Month:"
 msgstr "মাস:"
 
-#: src/Core/Backend/Filter/FilterPosts.php:278
+#: src/Core/Backend/Filter/FilterPosts.php:287
 msgid "Lang:"
 msgstr "ভাষা:"
 
-#: src/Core/Backend/Filter/FilterPosts.php:291
+#: src/Core/Backend/Filter/FilterPosts.php:307
 msgid "Comments:"
 msgstr "মন্তব্য:"
 
-#: src/Core/Backend/Filter/FilterPosts.php:294
-#: src/Core/Backend/Filter/FilterPosts.php:311
+#: src/Core/Backend/Filter/FilterPosts.php:310
+#: src/Core/Backend/Filter/FilterPosts.php:327
 msgid "Opened"
 msgstr "খোলা হয়েছে"
 
-#: src/Core/Backend/Filter/FilterPosts.php:295
-#: src/Core/Backend/Filter/FilterPosts.php:312
+#: src/Core/Backend/Filter/FilterPosts.php:311
+#: src/Core/Backend/Filter/FilterPosts.php:328
 msgid "Closed"
 msgstr "বন্ধ করা হয়েছে"
 
-#: src/Core/Backend/Filter/FilterPosts.php:308
+#: src/Core/Backend/Filter/FilterPosts.php:324
 msgid "Trackbacks:"
 msgstr "ট্র্যাকব্যাক:"
 
@@ -823,7 +824,7 @@ msgstr "বর্তমান অপশন সংরক্ষণ করুন"
 msgid "Display options"
 msgstr "ডিসপ্লে অপশন"
 
-#: src/Core/Backend/Filter/Filters.php:422 src/Core/Backend/Page.php:1478
+#: src/Core/Backend/Filter/Filters.php:422 src/Core/Backend/Page.php:1486
 msgid "Show filters and display options"
 msgstr "ফিল্টার ও ডিসপ্লে অপশন প্রদর্শন করা হবে"
 
@@ -855,7 +856,7 @@ msgstr "কোন ব্লগ ফিল্টার ম্যাচ খেল�
 
 #: src/Core/Backend/Listing/ListingBlogs.php:88
 #: src/Core/Backend/ModulesList.php:1811 src/Core/Backend/UserPref.php:78
-#: src/Process/Backend/LinkPopup.php:90
+#: src/Process/Backend/LinkPopup.php:91
 #: src/Process/Backend/UsersActions.php:371
 msgid "URL"
 msgstr "CITY NAME (OPTIONAL,"
@@ -880,7 +881,7 @@ msgstr "ব্লগের তালিকা"
 #: src/Core/Backend/Listing/ListingComments.php:178
 #: src/Core/Backend/Listing/ListingPosts.php:204
 #: src/Core/Backend/Listing/ListingUsers.php:130
-#: src/Process/Backend/Post.php:1406
+#: src/Process/Backend/Post.php:1407
 msgid "Legend: "
 msgstr "লেজেন্ড: "
 
@@ -900,7 +901,7 @@ msgid "Switch to blog %s"
 msgstr "%s ব্লগে স্যুইচ করুন"
 
 #: src/Core/Backend/Listing/ListingComments.php:57
-#: src/Process/Backend/Comment.php:151 src/Process/Backend/Post.php:1042
+#: src/Process/Backend/Comment.php:151 src/Process/Backend/Post.php:1043
 msgid "No comments"
 msgstr "শূণ্য মন্তব্য"
 
@@ -947,7 +948,7 @@ msgstr "ট্র্যাকব্যাক"
 
 #: src/Core/Backend/Listing/ListingComments.php:235
 #: src/Core/Backend/Listing/ListingComments.php:238
-#: src/Process/Backend/Post.php:1367 src/Process/Backend/Post.php:1392
+#: src/Process/Backend/Post.php:1368 src/Process/Backend/Post.php:1393
 msgid "Edit"
 msgstr "সম্পাদনা"
 
@@ -1027,8 +1028,8 @@ msgstr "কোন এন্ট্রি ফিল্টার নয়"
 #: src/Core/Backend/Listing/ListingPosts.php:110
 #: src/Core/Backend/Listing/ListingPosts.php:113
 #: src/Core/Backend/Listing/ListingPosts.php:114
-#: src/Core/Backend/UserPref.php:47 src/Process/Backend/Post.php:1170
-#: src/Process/Backend/Post.php:1218
+#: src/Core/Backend/UserPref.php:47 src/Process/Backend/Post.php:1171
+#: src/Process/Backend/Post.php:1219
 msgid "Trackbacks"
 msgstr "ট্র্যাকব্যাক"
 
@@ -1234,7 +1235,7 @@ msgid "Current version"
 msgstr "বর্তমান সংস্করণ"
 
 #: src/Core/Backend/ModulesList.php:839 src/Core/Backend/ModulesList.php:1063
-#: src/Core/Backend/Page.php:1311 src/Core/Backend/ThemesList.php:230
+#: src/Core/Backend/Page.php:1319 src/Core/Backend/ThemesList.php:230
 #: src/Core/Backend/ThemesList.php:300
 msgid "Details"
 msgstr "বিবরণ"
@@ -1284,7 +1285,7 @@ msgstr "উন্নয়নের প্লাগ-ইন"
 msgid "Release date:"
 msgstr "মুক্তির তারিখ:"
 
-#: src/Core/Backend/ModulesList.php:1070 src/Core/Backend/Page.php:1312
+#: src/Core/Backend/ModulesList.php:1070 src/Core/Backend/Page.php:1320
 #: src/Core/Backend/ThemesList.php:236
 msgid "Support"
 msgstr "সহায়তা"
@@ -1293,11 +1294,11 @@ msgstr "সহায়তা"
 msgid "update locked"
 msgstr "হালনাগাদ করা হচ্ছে"
 
-#: src/Core/Backend/ModulesList.php:1115 src/Core/Backend/Page.php:1314
+#: src/Core/Backend/ModulesList.php:1115 src/Core/Backend/Page.php:1322
 msgid "Section:"
 msgstr "সেকশন:"
 
-#: src/Core/Backend/ModulesList.php:1121 src/Core/Backend/Page.php:1315
+#: src/Core/Backend/ModulesList.php:1121 src/Core/Backend/Page.php:1323
 msgid "Tags:"
 msgstr "ট্যাগ:"
 
@@ -1447,8 +1448,8 @@ msgstr "Zip ফাইল আপলোড করুন"
 #: src/Process/Backend/BlogPref.php:1023 src/Process/Backend/Category.php:247
 #: src/Process/Backend/Comment.php:283 src/Process/Backend/Home.php:583
 #: src/Process/Backend/Langs.php:325 src/Process/Backend/Langs.php:375
-#: src/Process/Backend/LinkPopup.php:83 src/Process/Backend/Post.php:998
-#: src/Process/Backend/Post.php:1089 src/Process/Backend/User.php:321
+#: src/Process/Backend/LinkPopup.php:84 src/Process/Backend/Post.php:999
+#: src/Process/Backend/Post.php:1090 src/Process/Backend/User.php:321
 #: src/Process/Backend/UsersActions.php:492 src/Process/Install/Install.php:517
 #: src/Process/Install/Wizard.php:387 src/Process/Upgrade/Langs.php:404
 #, php-format
@@ -1461,7 +1462,7 @@ msgstr "জিপ ফাইল পাথ:"
 
 #: src/Core/Backend/ModulesList.php:1774 src/Core/Backend/ModulesList.php:1824
 #: src/Process/Backend/Langs.php:347 src/Process/Backend/Langs.php:396
-#: src/Process/Backend/Post.php:809 src/Process/Backend/User.php:358
+#: src/Process/Backend/Post.php:810 src/Process/Backend/User.php:358
 #: src/Process/Backend/User.php:382 src/Process/Backend/User.php:547
 #: src/Process/Backend/UsersActions.php:499 src/Process/Install/Install.php:537
 #: src/Process/Install/Install.php:547 src/Process/Upgrade/Langs.php:428
@@ -1475,7 +1476,7 @@ msgstr "পাসওয়ার্ড"
 msgid "Your password:"
 msgstr "আপনার পাসওয়ার্ড:"
 
-#: src/Core/Backend/ModulesList.php:1785 src/Core/Backend/Page.php:1434
+#: src/Core/Backend/ModulesList.php:1785 src/Core/Backend/Page.php:1442
 #: src/Process/Backend/Media.php:809
 msgid "Upload"
 msgstr "আপলোড"
@@ -1513,16 +1514,16 @@ msgstr "\"%s\" কনফিগার করুন"
 #: src/Core/Backend/ModulesList.php:1984 src/Process/Backend/Blog.php:197
 #: src/Process/Backend/BlogDel.php:138 src/Process/Backend/BlogPref.php:1195
 #: src/Process/Backend/Category.php:300 src/Process/Backend/Comment.php:351
-#: src/Process/Backend/Media.php:871 src/Process/Backend/MediaItem.php:1357
-#: src/Process/Backend/Post.php:955 src/Process/Backend/Search.php:193
-#: src/Process/Backend/User.php:565 src/Process/Backend/UserPreferences.php:898
+#: src/Process/Backend/Media.php:871 src/Process/Backend/MediaItem.php:1325
+#: src/Process/Backend/Post.php:956 src/Process/Backend/Search.php:193
+#: src/Process/Backend/User.php:565 src/Process/Backend/UserPreferences.php:874
 #: src/Process/Backend/UserPreferences.php:1201
 #: src/Process/Backend/UserPreferences.php:1427
 msgid "Back"
 msgstr "ব্যাক"
 
-#: src/Core/Backend/Notices.php:86 src/Core/Backend/Page.php:1271
-#: src/Core/Backend/Page.php:1429 src/Core/Upgrade/Notices.php:48
+#: src/Core/Backend/Notices.php:86 src/Core/Backend/Page.php:1279
+#: src/Core/Backend/Page.php:1437 src/Core/Upgrade/Notices.php:48
 #: src/Process/Backend/Home.php:324
 msgid "Error:"
 msgstr "ত্রুটি:"
@@ -1538,9 +1539,9 @@ msgid "%H:%M:%S"
 msgstr "%H:%M:%S"
 
 #: src/Core/Backend/Notices.php:258 src/Core/Backend/Notices.php:298
-#: src/Core/Backend/Notices.php:308 src/Core/Backend/Page.php:1317
-#: src/Process/Backend/Categories.php:340 src/Process/Backend/Post.php:1057
-#: src/Process/Backend/Post.php:1189 src/Process/Backend/PostsPopup.php:121
+#: src/Core/Backend/Notices.php:308 src/Core/Backend/Page.php:1325
+#: src/Process/Backend/Categories.php:341 src/Process/Backend/Post.php:1058
+#: src/Process/Backend/Post.php:1190 src/Process/Backend/PostsPopup.php:121
 msgid "Ok"
 msgstr "Ok"
 
@@ -1606,8 +1607,8 @@ msgid "Thank you for using %s."
 msgstr "%s ব্যবহার করার জন্য ধন্যবাদ।"
 
 #: src/Core/Backend/Page.php:512 src/Core/Backend/Page.php:516
-#: src/Core/Backend/Page.php:518 src/Core/Backend/Page.php:660
-#: src/Core/Backend/Page.php:662 src/Core/Upgrade/Page.php:271
+#: src/Core/Backend/Page.php:518 src/Core/Backend/Page.php:663
+#: src/Core/Backend/Page.php:665 src/Core/Upgrade/Page.php:271
 #: src/Core/Upgrade/Page.php:275 src/Core/Upgrade/Page.php:277
 msgid "Page top"
 msgstr "পৃষ্ঠা শীর্ষক"
@@ -1617,327 +1618,327 @@ msgstr "পৃষ্ঠা শীর্ষক"
 msgid "Dotclear logo"
 msgstr "Dotclear লোগো"
 
-#: src/Core/Backend/Page.php:867 src/Core/Backend/Page.php:870
+#: src/Core/Backend/Page.php:875 src/Core/Backend/Page.php:878
 #: src/Core/Upgrade/Page.php:339 src/Core/Upgrade/Page.php:342
 msgid "Go to dashboard"
 msgstr "ড্যাশবোর্ডে যাও"
 
-#: src/Core/Backend/Page.php:1119 src/Core/Upgrade/Page.php:451
+#: src/Core/Backend/Page.php:1127 src/Core/Upgrade/Page.php:451
 msgid "Help about this page"
 msgstr "এই পৃষ্ঠায় সাহায্য করুন"
 
-#: src/Core/Backend/Page.php:1129 src/Core/Upgrade/Page.php:460
+#: src/Core/Backend/Page.php:1137 src/Core/Upgrade/Page.php:460
 #, php-format
 msgid "See also %s"
 msgstr "%s আরও দেখুন"
 
-#: src/Core/Backend/Page.php:1132 src/Core/Upgrade/Page.php:463
+#: src/Core/Backend/Page.php:1140 src/Core/Upgrade/Page.php:463
 msgid "the global help"
 msgstr "বৈশ্বিক সাহায্য"
 
-#: src/Core/Backend/Page.php:1253
+#: src/Core/Backend/Page.php:1261
 msgid "uncover"
 msgstr "দেখাও"
 
-#: src/Core/Backend/Page.php:1257
+#: src/Core/Backend/Page.php:1265
 msgid "hide"
 msgstr "লুকাও"
 
-#: src/Core/Backend/Page.php:1261
+#: src/Core/Backend/Page.php:1269
 msgid "Need help?"
 msgstr "সাহায্য দরকার?"
 
-#: src/Core/Backend/Page.php:1262
+#: src/Core/Backend/Page.php:1270
 msgid "new window"
 msgstr "নতুন উইন্ডো"
 
-#: src/Core/Backend/Page.php:1263
+#: src/Core/Backend/Page.php:1271
 msgid "Hide"
 msgstr "আড়াল করো"
 
-#: src/Core/Backend/Page.php:1264
+#: src/Core/Backend/Page.php:1272
 msgid "Select:"
 msgstr "নির্বাচন করুন:"
 
-#: src/Core/Backend/Page.php:1265
+#: src/Core/Backend/Page.php:1273
 msgid "No selection"
 msgstr "কোনো নির্বাচন নেই"
 
-#: src/Core/Backend/Page.php:1266
+#: src/Core/Backend/Page.php:1274
 msgid "Select all"
 msgstr "সব নির্বাচন করুন"
 
-#: src/Core/Backend/Page.php:1267
+#: src/Core/Backend/Page.php:1275
 msgid "Invert selection"
 msgstr "Select-action"
 
-#: src/Core/Backend/Page.php:1272 src/Process/Backend/Post.php:465
-#: src/Process/Backend/Post.php:608
+#: src/Core/Backend/Page.php:1280 src/Process/Backend/Post.php:466
+#: src/Process/Backend/Post.php:609
 msgid "Entry has been successfully created."
 msgstr "এন্ট্রি সফলভাবে তৈরি করা হয়েছে."
 
-#: src/Core/Backend/Page.php:1273
+#: src/Core/Backend/Page.php:1281
 msgid "Edit entry"
 msgstr "এন্ট্রি সম্পাদন করো"
 
-#: src/Core/Backend/Page.php:1274
+#: src/Core/Backend/Page.php:1282
 msgid "view entry"
 msgstr "এন্ট্রি দেখাও"
 
-#: src/Core/Backend/Page.php:1275
+#: src/Core/Backend/Page.php:1283
 #, php-format
 msgid "Are you sure you want to delete selected entries (%s)?"
 msgstr "আপনি কি নিশ্চিত যে আপনি নির্বাচিত এন্ট্রিগুলি (%s) মুছে ফেলতে চান?"
 
-#: src/Core/Backend/Page.php:1276
+#: src/Core/Backend/Page.php:1284
 #, php-format
 msgid "Are you sure you want to delete selected medias (%d)?"
 msgstr "আপনি কি নিশ্চিত যে আপনি নির্বাচিত মিডিয়াগুলো (%d) মুছে ফেলতে চান?"
 
-#: src/Core/Backend/Page.php:1277
+#: src/Core/Backend/Page.php:1285
 #, php-format
 msgid "Are you sure you want to delete selected categories (%s)?"
 msgstr "আপনি কি নিশ্চিত যে আপনি নির্বাচিত বিভাগগুলি (%s) মুছে ফেলতে চান?"
 
-#: src/Core/Backend/Page.php:1278
+#: src/Core/Backend/Page.php:1286
 msgid "Are you sure you want to delete this entry?"
 msgstr "আপনি কি এই এন্ট্রি মুছে ফেলতে চান?"
 
-#: src/Core/Backend/Page.php:1279
+#: src/Core/Backend/Page.php:1287
 msgid "Click here to unlock the field"
 msgstr "মাঠ আনলক করতে এখানে ক্লিক করুন"
 
-#: src/Core/Backend/Page.php:1280
+#: src/Core/Backend/Page.php:1288
 msgid "Are you sure you want to delete all spams?"
 msgstr "আপনি কি নিশ্চিত আপনি সমস্ত স্প্যাম মুছে ফেলতে চান?"
 
-#: src/Core/Backend/Page.php:1281
+#: src/Core/Backend/Page.php:1289
 #, php-format
 msgid "Are you sure you want to delete selected comments (%s)?"
 msgstr "আপনি কি নিশ্চিত যে আপনি নির্বাচিত মন্তব্যগুলো (%s) মুছে ফেলতে চান?"
 
-#: src/Core/Backend/Page.php:1282
+#: src/Core/Backend/Page.php:1290
 msgid "Are you sure you want to delete this comment?"
 msgstr "আপনি কি এই মন্তব্যটি মুছে ফেলতে চান?"
 
-#: src/Core/Backend/Page.php:1283
+#: src/Core/Backend/Page.php:1291
 msgid "Users with posts cannot be deleted."
 msgstr "পোস্টসহ ব্যবহারকারীদের মুছে ফেলা যাবে না."
 
-#: src/Core/Backend/Page.php:1284
+#: src/Core/Backend/Page.php:1292
 #, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
 msgstr "আপনি কি নিশ্চিত যে আপনি নির্বাচিত ব্যবহারকারীদের (%s) মুছে ফেলতে চান?"
 
-#: src/Core/Backend/Page.php:1285
+#: src/Core/Backend/Page.php:1293
 #, php-format
 msgid "Are you sure you want to delete selected blogs (%s)?"
 msgstr "আপনি কি নিশ্চিত যে আপনি নির্বাচিত ব্লগগুলি (%s) মুছে ফেলতে চান?"
 
-#: src/Core/Backend/Page.php:1286
+#: src/Core/Backend/Page.php:1294
 #, php-format
 msgid "Are you sure you want to delete category \"%s\"?"
 msgstr "আপনি কি নিশ্চিত যে আপনি \"%s\" শ্রেণীবিভাগটি মুছে ফেলতে চান?"
 
-#: src/Core/Backend/Page.php:1287
+#: src/Core/Backend/Page.php:1295
 msgid "Are you sure you want to reorder all categories?"
 msgstr "আপনি কি নিশ্চিত আপনি সকল শ্রেনীবিন্যাস পুনরায় অর্ডার করতে চান?"
 
-#: src/Core/Backend/Page.php:1288
+#: src/Core/Backend/Page.php:1296
 #, php-format
 msgid "Are you sure you want to remove media \"%s\"?"
 msgstr "আপনি কি নিশ্চিত যে আপনি মিডিয়া \"%s\" অপসারণ করতে চান?"
 
-#: src/Core/Backend/Page.php:1289
+#: src/Core/Backend/Page.php:1297
 #, php-format
 msgid "Are you sure you want to remove directory \"%s\"?"
 msgstr "আপনি কি নিশ্চিত যে আপনি \"%s\" নির্দেশিকা অপসারণ করতে চান?"
 
-#: src/Core/Backend/Page.php:1290
+#: src/Core/Backend/Page.php:1298
 msgid "Are you sure you want to extract archive in current directory?"
 msgstr "আপনি কি বর্তমান ডিরেক্টরিতে আর্কাইভ বের করতে চান?"
 
-#: src/Core/Backend/Page.php:1291
+#: src/Core/Backend/Page.php:1299
 #, php-format
 msgid "Are you sure you want to remove attachment \"%s\"?"
 msgstr "আপনি কি নিশ্চিত যে আপনি সংযুক্তি \"%s\" অপসারণ করতে চান?"
 
-#: src/Core/Backend/Page.php:1292
+#: src/Core/Backend/Page.php:1300
 #, php-format
 msgid "Are you sure you want to delete \"%s\" language?"
 msgstr "আপনি কি নিশ্চিত যে আপনি \"%s\" ভাষা মুছে ফেলতে চান?"
 
-#: src/Core/Backend/Page.php:1293
+#: src/Core/Backend/Page.php:1301
 #, php-format
 msgid "Are you sure you want to delete \"%s\" plugin?"
 msgstr "আপনি কি নিশ্চিত যে আপনি \"%s\" প্লাগ-ইন মুছে ফেলতে চান?"
 
-#: src/Core/Backend/Page.php:1294
+#: src/Core/Backend/Page.php:1302
 msgid "Are you sure you want to delete selected plugins?"
 msgstr "আপনি কি নির্বাচিত প্লাগ-ইন মুছে ফেলতে চান?"
 
-#: src/Core/Backend/Page.php:1295
+#: src/Core/Backend/Page.php:1303
 msgid "Use this theme"
 msgstr "এই থিম ব্যবহার করো"
 
-#: src/Core/Backend/Page.php:1296
+#: src/Core/Backend/Page.php:1304
 msgid "Remove this theme"
 msgstr "এই থিম সরিয়ে ফেলো"
 
-#: src/Core/Backend/Page.php:1297
+#: src/Core/Backend/Page.php:1305
 #, php-format
 msgid "Are you sure you want to delete \"%s\" theme?"
 msgstr "আপনি কি নিশ্চিত যে আপনি \"%s\" থিমটি মুছে ফেলতে চান?"
 
-#: src/Core/Backend/Page.php:1298
+#: src/Core/Backend/Page.php:1306
 msgid "Are you sure you want to delete selected themes?"
 msgstr "আপনি কি নির্বাচিত থিম মুছে ফেলতে চান?"
 
-#: src/Core/Backend/Page.php:1299
+#: src/Core/Backend/Page.php:1307
 msgid "Are you sure you want to delete this backup?"
 msgstr "আপনি কি নিশ্চিত আপনি এই ব্যাকআপ মুছে ফেলতে চান?"
 
-#: src/Core/Backend/Page.php:1300
+#: src/Core/Backend/Page.php:1308
 msgid "Are you sure you want to revert to this backup?"
 msgstr "আপনি কি নিশ্চিত যে আপনি এই ব্যাকআপ প্রত্যাবর্তন করতে চান?"
 
-#: src/Core/Backend/Page.php:1301
+#: src/Core/Backend/Page.php:1309
 msgid "Zip file content"
 msgstr "জিপ ফাইল বিষয়বস্তু"
 
-#: src/Core/Backend/Page.php:1302
+#: src/Core/Backend/Page.php:1310
 msgid "HTML markup validator"
 msgstr "HTML মার্কআপ বৈধতা"
 
-#: src/Core/Backend/Page.php:1303
+#: src/Core/Backend/Page.php:1311
 msgid "HTML content is valid."
 msgstr "HTML বিষয়বস্তু বৈধ."
 
-#: src/Core/Backend/Page.php:1304
+#: src/Core/Backend/Page.php:1312
 msgid "There are HTML markup errors."
 msgstr "এইচ-টি-এম-এল মার্কআপ ত্রুটি আছে."
 
-#: src/Core/Backend/Page.php:1305
+#: src/Core/Backend/Page.php:1313
 msgid "Attention: an audit of a content not yet registered."
 msgstr "দৃষ্টি আকর্ষন: একটি বিষয়বস্তুর একটি হিসাব এখনো নিবন্ধিত হয়নি."
 
-#: src/Core/Backend/Page.php:1306
+#: src/Core/Backend/Page.php:1314
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
 msgstr "আপনার অসংরক্ষিত পরিবর্তন আছে. সুইচ পোস্ট ফরম্যাট এই পরিবর্তনগুলো হারিয়ে যাবে. যাই হোক না কেন?"
 
-#: src/Core/Backend/Page.php:1307
+#: src/Core/Backend/Page.php:1315
 msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
 msgstr "সতর্কীকরণ: পোস্ট ফরম্যাট পরিবর্তন বিদ্যমান বিষয়বস্তুকে রূপান্তর করবে না. আপনি নিজেই নতুন ফরম্যাট প্রয়োগ করতে হবে. যাই হোক না কেন?"
 
-#: src/Core/Backend/Page.php:1308
+#: src/Core/Backend/Page.php:1316
 msgid "Loading enhanced uploader, please wait."
 msgstr "বর্ধিত আপলোডার লোড করা হচ্ছে, অনুগ্রহ করে অপেক্ষা করুন."
 
-#: src/Core/Backend/Page.php:1313
+#: src/Core/Backend/Page.php:1321
 msgid "Help:"
 msgstr "সহায়তা:"
 
-#: src/Core/Backend/Page.php:1319
+#: src/Core/Backend/Page.php:1327
 msgid "Show password"
 msgstr "পাসওয়ার্ড দেখাও"
 
-#: src/Core/Backend/Page.php:1320
+#: src/Core/Backend/Page.php:1328
 msgid "Hide password"
 msgstr "পাসওয়ার্ড আড়াল করো"
 
-#: src/Core/Backend/Page.php:1322
+#: src/Core/Backend/Page.php:1330
 msgid "Reset to now"
 msgstr "এখন রিসেট করো"
 
-#: src/Core/Backend/Page.php:1323
+#: src/Core/Backend/Page.php:1331
 msgid "The publication date has changed. Reset the base name of the entry URL?"
 msgstr "প্রকাশনার তারিখ পরিবর্তন হয়েছে। এন্ট্রি URL এর মূল নামটি পুনরায় সেট করবেন?"
 
-#: src/Core/Backend/Page.php:1324
+#: src/Core/Backend/Page.php:1332
 msgid "The publication title has changed. Reset the base name of the entry URL?"
 msgstr "প্রকাশনার শিরোনাম পরিবর্তন করা হয়েছে। এন্ট্রি URL এর মূল নামটি পুনরায় সেট করবেন?"
 
-#: src/Core/Backend/Page.php:1326
+#: src/Core/Backend/Page.php:1334
 msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences."
 msgstr "এই Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) এ একটি অ্যাড ব্লকার সনাক্ত করা হয়েছে এবং এটি কিছু বৈশিষ্ট্যের সাথে হস্তক্ষেপ করতে পারে. এই ক্ষেত্রে আপনি এটি নিষ্কাশন করতে পারেন. উল্লেখ্য, আপনার পছন্দের ক্ষেত্রে এই সনাক্তকরণ নিষ্ক্রিয় হতে পারে."
 
-#: src/Core/Backend/Page.php:1378
+#: src/Core/Backend/Page.php:1386
 msgid "You have unsaved changes."
 msgstr "আপনার অসংরক্ষিত পরিবর্তন আছে."
 
-#: src/Core/Backend/Page.php:1379
+#: src/Core/Backend/Page.php:1387
 msgid "your battery charge seems low (%d%) and you have unsaved changes, you should save them."
 msgstr "আপনার ব্যাটারির চার্জ স্বল্প (%d%) বলে মনে হচ্ছে এবং আপনার অসংরক্ষিত পরিবর্তনগুলি রয়েছে, আপনার সেগুলি সংরক্ষণ করা উচিত।"
 
-#: src/Core/Backend/Page.php:1420
+#: src/Core/Backend/Page.php:1428
 msgid "Temporarily activate enhanced uploader"
 msgstr "সাময়িকভাবে বর্ধিত আপলোডার সক্রিয় করা হবে"
 
-#: src/Core/Backend/Page.php:1421
+#: src/Core/Backend/Page.php:1429
 msgid "Temporarily disable enhanced uploader"
 msgstr "সাময়িকভাবে বর্ধিত আপলোডারName"
 
-#: src/Core/Backend/Page.php:1425
+#: src/Core/Backend/Page.php:1433
 msgid "Limit exceeded."
 msgstr "সীমা অতিক্রম করে."
 
-#: src/Core/Backend/Page.php:1426
+#: src/Core/Backend/Page.php:1434
 msgid "File size exceeds allowed limit."
 msgstr "ফাইলের আকার সীমা অতিক্রম করে."
 
-#: src/Core/Backend/Page.php:1427
+#: src/Core/Backend/Page.php:1435
 msgid "Canceled."
 msgstr "বাতিল করা হয়েছে."
 
-#: src/Core/Backend/Page.php:1428
+#: src/Core/Backend/Page.php:1436
 msgid "HTTP Error:"
 msgstr "HTTP ত্রুটি:"
 
-#: src/Core/Backend/Page.php:1430 src/Process/Backend/Media.php:752
+#: src/Core/Backend/Page.php:1438 src/Process/Backend/Media.php:752
 msgid "Choose file"
 msgstr "ফাইল নির্বাচন করুন"
 
-#: src/Core/Backend/Page.php:1431 src/Process/Backend/Media.php:758
+#: src/Core/Backend/Page.php:1439 src/Process/Backend/Media.php:758
 msgid "Choose files"
 msgstr "ফাইল নির্বাচন করুন"
 
-#: src/Core/Backend/Page.php:1432 src/Process/Backend/LinkPopup.php:113
-#: src/Process/Backend/Media.php:305 src/Process/Backend/MediaItem.php:512
-#: src/Process/Backend/MediaItem.php:768 src/Process/Backend/Post.php:961
+#: src/Core/Backend/Page.php:1440 src/Process/Backend/LinkPopup.php:114
+#: src/Process/Backend/Media.php:305 src/Process/Backend/MediaItem.php:515
+#: src/Process/Backend/MediaItem.php:771 src/Process/Backend/Post.php:962
 #: src/Process/Backend/PostMedia.php:113
 msgid "Cancel"
 msgstr "বাতিল"
 
-#: src/Core/Backend/Page.php:1433
+#: src/Core/Backend/Page.php:1441
 msgid "Clean"
 msgstr "ক্লিন"
 
-#: src/Core/Backend/Page.php:1435
+#: src/Core/Backend/Page.php:1443
 msgid "Send"
 msgstr "প্রেরণ"
 
-#: src/Core/Backend/Page.php:1436
+#: src/Core/Backend/Page.php:1444
 msgid "File successfully uploaded."
 msgstr "ফাইলটি সফলভাবে আপলোড করা হয়েছে."
 
-#: src/Core/Backend/Page.php:1437
+#: src/Core/Backend/Page.php:1445
 msgid "No file in queue."
 msgstr "লাইনে কোন ফাইল নেই."
 
-#: src/Core/Backend/Page.php:1438
+#: src/Core/Backend/Page.php:1446
 msgid "1 file in queue."
 msgstr "লাইনে ১ ফাইল."
 
-#: src/Core/Backend/Page.php:1439
+#: src/Core/Backend/Page.php:1447
 #, php-format
 msgid "%d files in queue."
 msgstr "সারিতে %dটি ফাইল।"
 
-#: src/Core/Backend/Page.php:1440
+#: src/Core/Backend/Page.php:1448
 msgid "Queue error:"
 msgstr "ত্রুটি:"
 
-#: src/Core/Backend/Page.php:1479
+#: src/Core/Backend/Page.php:1487
 msgid "Cancel filters and display options"
 msgstr "ফিল্টার এবং ডিসপ্লে অপশন বাতিল করুন"
 
@@ -2182,88 +2183,88 @@ msgstr "আপনি একটি ক্যাটাগরি শিরোনা
 msgid "You must provide a category URL"
 msgstr "আপনাকে একটি ক্যাটাগরী ইউ-আর-এল প্রদান করতে হবে"
 
-#: src/Core/Blog.php:1369
+#: src/Core/Blog.php:1374
 msgid "You are not allowed to create an entry"
 msgstr "আপনি একটি এন্ট্রি তৈরি করার অনুমতি নেই"
 
-#: src/Core/Blog.php:1429
+#: src/Core/Blog.php:1434
 msgid "You are not allowed to update entries"
 msgstr "এন্ট্রি আপডেট করার অনুমতি নেই"
 
-#: src/Core/Blog.php:1435 src/Core/Blog.php:1679
+#: src/Core/Blog.php:1440 src/Core/Blog.php:1684
 msgid "No such entry ID"
 msgstr "কোনো এন্ট্রি আইডি নেই"
 
-#: src/Core/Blog.php:1469
+#: src/Core/Blog.php:1474
 msgid "You are not allowed to edit this entry"
 msgstr "এই এন্ট্রি সম্পাদনা করার অনুমতি নেই"
 
-#: src/Core/Blog.php:1497 src/Core/Blog.php:1532 src/Core/Meta.php:139
+#: src/Core/Blog.php:1502 src/Core/Blog.php:1537 src/Core/Meta.php:139
 #: src/Core/Meta.php:156
 msgid "You are not allowed to change this entry status"
 msgstr "এই এন্ট্রি স্ট্যাটাস পরিবর্তন করার অনুমতি নেই"
 
-#: src/Core/Blog.php:1571 src/Core/Blog.php:1609
+#: src/Core/Blog.php:1576 src/Core/Blog.php:1614
 msgid "You are not allowed to change this entry category"
 msgstr "এই এন্ট্রি বিভাগটি পরিবর্তন করার অনুমতি নেই"
 
-#: src/Core/Blog.php:1642
+#: src/Core/Blog.php:1647
 msgid "You are not allowed to change entries category"
 msgstr "এন্ট্রি শ্রেণীতে পরিবর্তন করার অনুমতি নেই"
 
-#: src/Core/Blog.php:1673
+#: src/Core/Blog.php:1678
 msgid "You are not allowed to delete entries"
 msgstr "এন্ট্রি মুছে ফেলার অনুমতি নেই"
 
-#: src/Core/Blog.php:1907
+#: src/Core/Blog.php:1912
 msgid "No entry title"
 msgstr "এন্ট্রির কোনো টাইটেল নেই"
 
-#: src/Core/Blog.php:1911 src/Core/Blog.php:1925
+#: src/Core/Blog.php:1916 src/Core/Blog.php:1930
 msgid "No entry content"
 msgstr "এন্ট্রির কোনো কন্টেন্ট নেই"
 
-#: src/Core/Blog.php:1991
+#: src/Core/Blog.php:1996
 msgid "Notes"
 msgstr "নোট"
 
-#: src/Core/Blog.php:1993
+#: src/Core/Blog.php:1998
 msgid "Note"
 msgstr "নোট"
 
-#: src/Core/Blog.php:2104
+#: src/Core/Blog.php:2113
 msgid "Empty entry URL"
 msgstr "ফাঁকা এন্ট্রি ইউ-আর-এল"
 
-#: src/Core/Blog.php:2415
+#: src/Core/Blog.php:2424
 msgid "You are not allowed to update comments"
 msgstr "আপনি কোন মন্তব্য আপডেট করতে পারবেন না"
 
-#: src/Core/Blog.php:2421 src/Core/Blog.php:2427 src/Core/Blog.php:2532
+#: src/Core/Blog.php:2430 src/Core/Blog.php:2436 src/Core/Blog.php:2541
 msgid "No such comment ID"
 msgstr "এই ধরনের কোন মন্তব্য নেই"
 
-#: src/Core/Blog.php:2434
+#: src/Core/Blog.php:2443
 msgid "You are not allowed to update this comment"
 msgstr "এই মন্তব্যের আপডেট করার অনুমতি নেই"
 
-#: src/Core/Blog.php:2485
+#: src/Core/Blog.php:2494
 msgid "You are not allowed to change this comment's status"
 msgstr "এই মন্তব্যের অবস্থা পরিবর্তন করার অনুমতি নেই"
 
-#: src/Core/Blog.php:2526 src/Core/Blog.php:2580
+#: src/Core/Blog.php:2535 src/Core/Blog.php:2589
 msgid "You are not allowed to delete comments"
 msgstr "আপনি মন্তব্য মুছে ফেলার অনুমতি নেই"
 
-#: src/Core/Blog.php:2615
+#: src/Core/Blog.php:2624
 msgid "You must provide a comment"
 msgstr "আপনি একটি মন্তব্য প্রদান করতে হবে"
 
-#: src/Core/Blog.php:2619
+#: src/Core/Blog.php:2628
 msgid "You must provide an author name"
 msgstr "আপনি একটি লেখকের নাম প্রদান করতে হবে"
 
-#: src/Core/Blog.php:2623
+#: src/Core/Blog.php:2632
 msgid "Email address is not valid."
 msgstr "ই-মেইল ঠিকানা বৈধ নয়."
 
@@ -2392,36 +2393,36 @@ msgstr "PostgreSQL সংস্করণ হল %s (%s বা পূর্বে
 msgid "No log message"
 msgstr "কোনো লগ-বার্তা নেই"
 
-#: src/Core/Media.php:161
+#: src/Core/Media.php:166
 msgid "No blog defined."
 msgstr "কোন ব্লগ সংজ্ঞায়িত হয়নি."
 
-#: src/Core/Media.php:1059 src/Core/Media.php:1090
+#: src/Core/Media.php:1072 src/Core/Media.php:1103
 msgid "You are not a super administrator."
 msgstr "আপনি একজন সুপার প্রশাসক না."
 
-#: src/Core/Media.php:1193 src/Core/Media.php:1287 src/Core/Media.php:1355
-#: src/Core/Media.php:1377 src/Core/Media.php:1399
+#: src/Core/Media.php:1206 src/Core/Media.php:1300 src/Core/Media.php:1368
+#: src/Core/Media.php:1390 src/Core/Media.php:1412
 msgid "Permission denied."
 msgstr "অনুমতি প্রত্যাখ্যাত হয়েছে."
 
-#: src/Core/Media.php:1300
+#: src/Core/Media.php:1313
 msgid "You are not the file owner."
 msgstr "তুমি ফাইল মালিক না."
 
-#: src/Core/Media.php:1315
+#: src/Core/Media.php:1328
 msgid "This file is not allowed."
 msgstr "এই ফাইলটি অনুমোদিত নয়."
 
-#: src/Core/Media.php:1319
+#: src/Core/Media.php:1332
 msgid "New file already exists."
 msgstr "নতুন ফাইল ইতিমধ্যেই বিদ্যমান."
 
-#: src/Core/Media.php:1419
+#: src/Core/Media.php:1432
 msgid "File does not exist in the database."
 msgstr "ডাটাবেসে ফাইল নেই."
 
-#: src/Core/Media.php:1468
+#: src/Core/Media.php:1481
 #, php-format
 msgid "Extract destination directory %s already exists."
 msgstr "নিষ্কাশন গন্তব্য ডিরেক্টরি %s ইতিমধ্যে বিদ্যমান।"
@@ -2430,12 +2431,12 @@ msgstr "নিষ্কাশন গন্তব্য ডিরেক্টর�
 msgid "No notice message"
 msgstr "কোনো নোটিশ বার্তা নেই"
 
-#: src/Core/Task.php:120
+#: src/Core/Task.php:119
 #, php-format
 msgid "Unable to initialize utility %s"
 msgstr "%s ইউটিলিটি আরম্ভ করতে অক্ষম"
 
-#: src/Core/Task.php:225
+#: src/Core/Task.php:226
 msgid "Utility not initialized"
 msgstr "ইউটিলিটি আরম্ভ করা হয়নি"
 
@@ -2546,31 +2547,32 @@ msgstr "রুট ডিরেক্টরি লিখনযোগ্য নয়
 msgid "An error occurred while downloading archive."
 msgstr "আর্কাইভ ডাউনলোড করার সময় ত্রুটি দেখা দিয়েছে."
 
-#: src/Core/Upgrade/Update.php:434 src/Core/Upgrade/Update.php:523
+#: src/Core/Upgrade/Update.php:434 src/Core/Upgrade/Update.php:529
 msgid "Archive not found."
 msgstr "আর্কাইভ পাওয়া যায়না."
 
-#: src/Core/Upgrade/Update.php:440 src/Core/Upgrade/Update.php:529
+#: src/Core/Upgrade/Update.php:440 src/Core/Upgrade/Update.php:535
 msgid "Unable to read current digests file."
 msgstr "বর্তমান ডাইজেস্ট ফাইল পড়তে ব্যর্থ."
 
-#: src/Core/Upgrade/Update.php:463 src/Core/Upgrade/Update.php:537
+#: src/Core/Upgrade/Update.php:463 src/Core/Upgrade/Update.php:471
+#: src/Core/Upgrade/Update.php:543 src/Core/Upgrade/Update.php:551
 msgid "Downloaded file does not seem to be a valid archive."
 msgstr "ডাউনলোড করা ফাইল বৈধ আর্কাইভ বলে মনে হচ্ছে না."
 
-#: src/Core/Upgrade/Update.php:563
+#: src/Core/Upgrade/Update.php:576
 msgid "Incomplete archive."
 msgstr "অসম্পূর্ণ আর্কাইভ."
 
-#: src/Core/Upgrade/Update.php:663 src/Process/Upgrade/Digests.php:299
+#: src/Core/Upgrade/Update.php:676 src/Process/Upgrade/Digests.php:299
 msgid "Unable to read digests file."
 msgstr "ডাইজেস্ট ফাইল পড়া যায়নি."
 
-#: src/Core/Upgrade/Update.php:691 src/Process/Upgrade/Digests.php:341
+#: src/Core/Upgrade/Update.php:704 src/Process/Upgrade/Digests.php:341
 msgid "Invalid digests file."
 msgstr "অকার্যকর ডাইজেস্ট ফাইল."
 
-#: src/Core/Upgrade/Upgrade.php:75
+#: src/Core/Upgrade/Upgrade.php:80
 msgid "Something went wrong with auto upgrade:"
 msgstr "অটো আপগ্রেড নিয়ে কিছু সমস্যা হয়েছে:"
 
@@ -2629,7 +2631,7 @@ msgstr "রিপ্লে"
 msgid "On this page, you can try to replay update action from a given version if some files remain from last update."
 msgstr "এই পৃষ্ঠায়, যদি সর্বশেষ আপডেট থেকে কিছু ফাইল থেকে যায় তবে আপনি প্রদত্ত সংস্করণ থেকে আপডেট ক্রিয়াটি পুনরায় প্লে করার চেষ্টা করতে পারেন।"
 
-#: src/Core/Url.php:657
+#: src/Core/Url.php:660
 msgid "You must provide a valid email address."
 msgstr "আপনাকে অবশ্যই একটি বৈধ ইমেইল এড্রেস দিতে হবে।"
 
@@ -2674,7 +2676,7 @@ msgid "User ID must contain at least 2 characters using letters, numbers or symb
 msgstr "ইউজার আইডিতে কমপক্ষে ২টি অক্ষর থাকতে হবে, যাতে বর্ণ, সংখ্যা বা সিম্বল থাকতে পারবে।"
 
 #: src/Core/Users.php:398 src/Process/Backend/User.php:366
-#: src/Process/Install/Install.php:191
+#: src/Process/Install/Cli.php:719 src/Process/Install/Install.php:191
 msgid "Password must contain at least 6 characters."
 msgstr "পাসওয়ার্ডে কমপক্ষে ৬টি অক্ষর থাকতে হবে।"
 
@@ -2682,31 +2684,31 @@ msgstr "পাসওয়ার্ডে কমপক্ষে ৬টি অক
 msgid "Invalid user language code"
 msgstr "অবৈধ ব্যবহারকারীর ভাষা কোড"
 
-#: src/Database/Statement/DeleteStatement.php:34
+#: src/Database/Statement/DeleteStatement.php:35
 msgid "SQL DELETE requires a FROM source"
 msgstr "SQL DELETE একটি FROM উৎস আবশ্যক"
 
-#: src/Database/Statement/DropStatement.php:34
+#: src/Database/Statement/DropStatement.php:35
 msgid "SQL DROP TABLE requires a FROM source"
 msgstr "SQL DROP TABLE একটি FROM উৎস আবশ্যক"
 
-#: src/Database/Statement/InsertStatement.php:130
+#: src/Database/Statement/InsertStatement.php:131
 msgid "SQL INSERT requires an INTO source"
 msgstr "SQL INSERT একটি INTO উৎস আবশ্যক"
 
-#: src/Database/Statement/JoinStatement.php:93
+#: src/Database/Statement/JoinStatement.php:91
 msgid "SQL JOIN requires a FROM source"
 msgstr "SQL JOIN একটি FROM উৎস আবশ্যক"
 
-#: src/Database/Statement/SelectStatement.php:262
+#: src/Database/Statement/SelectStatement.php:258
 msgid "SQL SELECT requires a FROM source"
 msgstr "SQL SELECT একটি FROM উৎস আবশ্যক"
 
-#: src/Database/Statement/TruncateStatement.php:34
+#: src/Database/Statement/TruncateStatement.php:35
 msgid "SQL TRUNCATE TABLE requires a FROM source"
 msgstr "SQL TRUNCATE TABLE একটি FROM উৎস আবশ্যক"
 
-#: src/Database/Statement/UpdateStatement.php:201
+#: src/Database/Statement/UpdateStatement.php:202
 msgid "SQL UPDATE requires a FROM source"
 msgstr "SQL UPDATE একটি FROM উৎস আবশ্যক"
 
@@ -2900,18 +2902,18 @@ msgstr "ডিরেক্টরি পড়া যাচ্ছে না"
 msgid "Unable to write ZIP archive"
 msgstr "ZIP আর্কাইভ লিখতে অক্ষম"
 
-#: src/Helper/Html/Template/Template.php:678
-#: src/Helper/Html/Template/Template.php:728
+#: src/Helper/Html/Template/Template.php:660
+#: src/Helper/Html/Template/Template.php:710
 #, php-format
 msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
 msgstr "ব্লক <tpl:%s>-এর জন্য ক্লোজিং ট্যাগ খুঁজে পাওয়া যায়নি। বিষয়বস্তু উপেক্ষা করা হয়েছে।"
 
-#: src/Helper/Html/Template/Template.php:685
+#: src/Helper/Html/Template/Template.php:667
 #, php-format
 msgid "Unexpected closing tag </tpl:%s> found."
 msgstr "অপ্রত্যাশিত বন্ধ হওয়া ট্যাগ </tpl:%s> খুঁজে পাওয়া গেছে।"
 
-#: src/Helper/Html/Template/Template.php:735
+#: src/Helper/Html/Template/Template.php:717
 msgid "WARNING: the following errors have been found while parsing template file :"
 msgstr "সতর্কীকরণ: টেম্পলেট ফাইল পার্স করার সময় নিম্নলিখিত ত্রুটি পাওয়া গেছে:"
 
@@ -3016,78 +3018,78 @@ msgstr "অবস্থা:"
 msgid "Unknown passkey"
 msgstr "অজানা পাসকি"
 
-#: src/Module/Modules.php:245
+#: src/Module/Modules.php:233
 #, php-format
 msgid "Module \"%1$s\" requires module \"%2$s\" which is not installed"
 msgstr "\"%1$s\" মডিউলের জন্য \"%2$s\" মডিউল প্রয়োজন যা ইনস্টল করা নেই।"
 
-#: src/Module/Modules.php:258
+#: src/Module/Modules.php:246
 #, php-format
 msgid "Module \"%1$s\" requires \"%2$s\" version %3$s, but version %4$s is installed"
 msgstr "\"%1$s\" মডিউলের জন্য \"%2$s\" সংস্করণ %3$s প্রয়োজন, কিন্তু %4$s সংস্করণটি ইনস্টল করা আছে।"
 
-#: src/Module/Modules.php:266
+#: src/Module/Modules.php:254
 #, php-format
 msgid "Module \"%1$s\" requires module \"%2$s\" which is disabled"
 msgstr "\"%1$s\" মডিউলের জন্য \"%2$s\" মডিউল প্রয়োজন যা নিষ্ক্রিয় করা আছে।"
 
-#: src/Module/Modules.php:628
+#: src/Module/Modules.php:616
 #, php-format
 msgid "Module \"%1$s\" has type \"%2$s\" that mismatch required module type \"%3$s\"."
 msgstr "মডিউল \"%1$s\" এর \"%2$s\" টাইপ আছে যা প্রয়োজনীয় মডিউল প্রকার \"%3$s\" এর সাথে মেলে না।"
 
-#: src/Module/Modules.php:654
+#: src/Module/Modules.php:642
 #, php-format
 msgid "Module \"%1$s\" is installed twice in \"%2$s\" and \"%3$s\"."
 msgstr "মডিউল \"%1$s\" \"%2$s\" এবং \"%3$s\"-এ দুইবার ইনস্টল করা হয়েছে।"
 
-#: src/Module/Modules.php:728
+#: src/Module/Modules.php:716
 msgid "Empty module zip file."
 msgstr "ফাঁকা মডিউল জিপ ফাইল."
 
-#: src/Module/Modules.php:735
+#: src/Module/Modules.php:723
 msgid "The zip file does not appear to be a valid Dotclear module."
 msgstr "জিপ ফাইল একটি বৈধ Dotclear মডিউল হতে দেখা যায়না."
 
-#: src/Module/Modules.php:770 src/Module/Modules.php:807
+#: src/Module/Modules.php:758 src/Module/Modules.php:795
 #, php-format
 msgid "Module is not installed: %s"
 msgstr "মডিউল ইনস্টল করা নেই: %s"
 
-#: src/Module/Modules.php:822
+#: src/Module/Modules.php:810
 #, php-format
 msgid "Unable to upgrade \"%s\". (update locked)"
 msgstr "আপগ্রেড করতে অক্ষম \"%s\"."
 
-#: src/Module/Modules.php:826
+#: src/Module/Modules.php:814
 msgid "An error occurred during module deletion."
 msgstr "মডিউল বিলম্বের সময় ত্রুটি দেখা দিয়েছে."
 
-#: src/Module/Modules.php:834
+#: src/Module/Modules.php:822
 #, php-format
 msgid "Unable to upgrade \"%s\". (older or same version)"
 msgstr "আপগ্রেড করতে অক্ষম \"%s\". (পুরাতন বা একই সংস্করণ)"
 
-#: src/Module/Modules.php:840
+#: src/Module/Modules.php:828
 #, php-format
 msgid "Unable to read new %s file"
 msgstr "নতুন %s ফাইল পড়তে অক্ষম"
 
-#: src/Module/Modules.php:849 src/Module/Modules.php:966
-#: src/Module/Modules.php:970
+#: src/Module/Modules.php:837 src/Module/Modules.php:954
+#: src/Module/Modules.php:958
 msgid "Cannot deactivate plugin."
 msgstr "প্লাগিন নিষ্ক্রিয় করা যাচ্ছে না."
 
-#: src/Module/Modules.php:942 src/Module/Modules.php:962
-#: src/Module/Modules.php:986
+#: src/Module/Modules.php:930 src/Module/Modules.php:950
+#: src/Module/Modules.php:974
 msgid "No such module."
 msgstr "কোন মডিউল নেই."
 
-#: src/Module/Modules.php:946
+#: src/Module/Modules.php:934
 msgid "Cannot remove module files"
 msgstr "মডিউল ফাইল অপসারণ করা যাচ্ছে না"
 
-#: src/Module/Modules.php:990 src/Module/Modules.php:994
+#: src/Module/Modules.php:978 src/Module/Modules.php:982
 msgid "Cannot activate plugin."
 msgstr "প্লাগ-ইন সক্রিয় করা যাচ্ছে না."
 
@@ -3165,7 +3167,7 @@ msgid "Your new password is in your mailbox."
 msgstr "আপনার নতুন পাসওয়ার্ড আপনার মেইলবক্সে পাঠিয়ে দেয়া হয়েছে।"
 
 #: src/Process/Backend/Auth.php:226 src/Process/Backend/User.php:159
-#: src/Process/Backend/UserPreferences.php:272
+#: src/Process/Backend/UserPreferences.php:272 src/Process/Install/Cli.php:727
 #: src/Process/Install/Install.php:188
 msgid "Passwords don't match"
 msgstr "দুটো পাসওয়ার্ডে অমিল রয়েছে"
@@ -3260,7 +3262,7 @@ msgstr "আবার পাসওয়ার্ড:"
 msgid "change"
 msgstr "পরিবর্তন করুন"
 
-#: src/Process/Backend/Auth.php:574 src/Process/Backend/UserPreferences.php:870
+#: src/Process/Backend/Auth.php:574 src/Process/Backend/UserPreferences.php:880
 #: src/Process/Upgrade/Auth.php:292
 msgid "Two factors authentication"
 msgstr "দুটি বিষয়ের প্রমাণীকরণ"
@@ -3435,7 +3437,7 @@ msgid "P"
 msgstr "পি."
 
 #: src/Process/Backend/BlogPref.php:168 src/Process/Backend/BlogPref.php:1278
-#: src/Process/Backend/MediaItem.php:606 src/Process/Backend/MediaItem.php:611
+#: src/Process/Backend/MediaItem.php:609 src/Process/Backend/MediaItem.php:614
 msgid "(none)"
 msgstr "(কোনটাই)"
 
@@ -3455,33 +3457,33 @@ msgstr "বর্ণনা, দেশ, তারিখ"
 msgid "Description, City, Country, Date"
 msgstr "বর্ণনা, শহর, দেশ, তারিখ"
 
-#: src/Process/Backend/BlogPref.php:202 src/Process/Backend/MediaItem.php:486
-#: src/Process/Backend/MediaItem.php:580 src/Process/Backend/MediaItem.php:849
+#: src/Process/Backend/BlogPref.php:202 src/Process/Backend/MediaItem.php:489
+#: src/Process/Backend/MediaItem.php:583 src/Process/Backend/MediaItem.php:852
 msgid "original"
 msgstr "আসল"
 
 #: src/Process/Backend/BlogPref.php:213 src/Process/Backend/BlogPref.php:223
-#: src/Process/Backend/MediaItem.php:543 src/Process/Backend/MediaItem.php:599
+#: src/Process/Backend/MediaItem.php:546 src/Process/Backend/MediaItem.php:602
 msgid "None"
 msgstr "কোনটাই নয়"
 
-#: src/Process/Backend/BlogPref.php:214 src/Process/Backend/MediaItem.php:544
+#: src/Process/Backend/BlogPref.php:214 src/Process/Backend/MediaItem.php:547
 msgid "Left"
 msgstr "বামে"
 
-#: src/Process/Backend/BlogPref.php:215 src/Process/Backend/MediaItem.php:545
+#: src/Process/Backend/BlogPref.php:215 src/Process/Backend/MediaItem.php:548
 msgid "Right"
 msgstr "ডানে"
 
-#: src/Process/Backend/BlogPref.php:216 src/Process/Backend/MediaItem.php:546
+#: src/Process/Backend/BlogPref.php:216 src/Process/Backend/MediaItem.php:549
 msgid "Center"
 msgstr "মাঝে"
 
-#: src/Process/Backend/BlogPref.php:221 src/Process/Backend/MediaItem.php:592
+#: src/Process/Backend/BlogPref.php:221 src/Process/Backend/MediaItem.php:595
 msgid "Legend and alternate text"
 msgstr "কিংবদন্তি এবং বিকল্প পাঠ্য"
 
-#: src/Process/Backend/BlogPref.php:222 src/Process/Backend/MediaItem.php:596
+#: src/Process/Backend/BlogPref.php:222 src/Process/Backend/MediaItem.php:599
 msgid "Alternate text"
 msgstr "বিকল্প লেখা"
 
@@ -3560,7 +3562,7 @@ msgid "Blog details"
 msgstr "ব্লগের বিবরণ"
 
 #: src/Process/Backend/BlogPref.php:535 src/Process/Backend/BlogPref.php:1032
-#: src/Process/Backend/BlogPref.php:1053 src/Process/Backend/Post.php:851
+#: src/Process/Backend/BlogPref.php:1053 src/Process/Backend/Post.php:852
 msgid "Required field"
 msgstr "আবশ্যক ক্ষেত্র"
 
@@ -3589,7 +3591,7 @@ msgstr "কপিরাইট নোটিস:"
 msgid "Comments and trackbacks"
 msgstr "মন্তব্য এবং ট্র্যাকব্যাকসমূহ"
 
-#: src/Process/Backend/BlogPref.php:618 src/Process/Backend/Post.php:767
+#: src/Process/Backend/BlogPref.php:618 src/Process/Backend/Post.php:768
 msgid "Accept comments"
 msgstr "মন্তব্য গ্রহণ করুন"
 
@@ -3617,7 +3619,7 @@ msgstr "মন্তব্যের জন্য উইকি সিনট্য
 msgid "Preview of comment before submit is not mandatory"
 msgstr "জমা দেবার আগে মন্তব্যের প্রাকদর্শন বাধ্যতামূলক নয়"
 
-#: src/Process/Backend/BlogPref.php:657 src/Process/Backend/Post.php:784
+#: src/Process/Backend/BlogPref.php:657 src/Process/Backend/Post.php:785
 msgid "Accept trackbacks"
 msgstr "ট্র্যাকব্যাক গ্রহণ করুন"
 
@@ -4117,30 +4119,30 @@ msgstr "শ্রেণীবিভাগ সংরক্ষণ করুন"
 msgid "Reorder all categories on the top level"
 msgstr "উপরের স্তরে সকল শ্রেণীবিভাগ নির্দেশ করা হবে"
 
-#: src/Process/Backend/Categories.php:319
+#: src/Process/Backend/Categories.php:320
 #, php-format
 msgid "%d entries"
 msgstr "%d টি এন্ট্রি"
 
-#: src/Process/Backend/Categories.php:319
+#: src/Process/Backend/Categories.php:320
 #, php-format
 msgid "%d entry"
 msgstr "%dটি এন্ট্রি"
 
-#: src/Process/Backend/Categories.php:320
+#: src/Process/Backend/Categories.php:321
 msgid "total:"
 msgstr "মোট:"
 
-#: src/Process/Backend/Categories.php:325 src/Process/Backend/Category.php:278
+#: src/Process/Backend/Categories.php:326 src/Process/Backend/Category.php:278
 #: src/Process/Backend/User.php:475 src/Process/Backend/UserPreferences.php:835
 msgid "URL:"
 msgstr "URL:"
 
-#: src/Process/Backend/Categories.php:339
+#: src/Process/Backend/Categories.php:340
 msgid "Move entries to"
 msgstr "এন্ট্রি সরিয়ে নিন"
 
-#: src/Process/Backend/Categories.php:347
+#: src/Process/Backend/Categories.php:348
 msgid "Delete category"
 msgstr "শ্রেণীবিভাগ মুছে ফেলুন"
 
@@ -4169,7 +4171,7 @@ msgstr "ক্যাটাগরি সফলভাবে আপডেট কর
 msgid "Category information"
 msgstr "ক্যাটাগরির তথ্য"
 
-#: src/Process/Backend/Category.php:258 src/Process/Backend/Post.php:1102
+#: src/Process/Backend/Category.php:258 src/Process/Backend/Post.php:1103
 msgid "Name:"
 msgstr "নাম:"
 
@@ -4177,7 +4179,7 @@ msgstr "নাম:"
 msgid "Warning: If you set the URL manually, it may conflict with another category."
 msgstr "মনে রাখুন: আপনি যদি নিজে URL সেট করে দেন, তাহলে সেটা অন্য ক্যাটাগরির সাথে সমস্যা হতে পারে।"
 
-#: src/Process/Backend/Category.php:292 src/Process/Backend/MediaItem.php:1248
+#: src/Process/Backend/Category.php:292 src/Process/Backend/MediaItem.php:1216
 msgid "Description:"
 msgstr "বিবরণ:"
 
@@ -4213,7 +4215,7 @@ msgstr "এই ক্যাটাগরিকে সরিয়ে নিন"
 msgid "Entry does not exist."
 msgstr "এই এন্ট্রিটি নেই।"
 
-#: src/Process/Backend/Comment.php:108 src/Process/Backend/Post.php:616
+#: src/Process/Backend/Comment.php:108 src/Process/Backend/Post.php:617
 msgid "Comment has been successfully created."
 msgstr "মন্তব্য সফলভাবে তৈরি করা হয়েছে."
 
@@ -4292,7 +4294,7 @@ msgstr "সেগুলো দেখাও।"
 msgid "Delete all spams"
 msgstr "সব স্প্যাম মুছে ফেলুন"
 
-#: src/Process/Backend/Comments.php:214 src/Process/Backend/Post.php:1053
+#: src/Process/Backend/Comments.php:214 src/Process/Backend/Post.php:1054
 #: src/Process/Backend/Search.php:406
 msgid "Selected comments action:"
 msgstr "নির্বাচিত মন্তব্য:"
@@ -4364,7 +4366,8 @@ msgid "Following plugins have been installed:"
 msgstr "নিচের প্লাগইনগুলো ইন্সটল করা হয়েছে:"
 
 #: src/Process/Backend/Home.php:371 src/Process/Backend/Plugins.php:155
-#: src/Process/Install/Install.php:568 src/Process/Upgrade/Plugins.php:132
+#: src/Process/Install/Cli.php:431 src/Process/Install/Install.php:568
+#: src/Process/Upgrade/Plugins.php:132
 msgid "Following plugins have not been installed:"
 msgstr "নিচের প্লাগইনগুলো ইন্সটল করা হয় নি:"
 
@@ -4376,15 +4379,15 @@ msgstr "নিম্নোক্ত প্লাগ-ইন দ্বারা �
 msgid "Quick post"
 msgstr "দ্রুত এন্ট্রি"
 
-#: src/Process/Backend/Home.php:604 src/Process/Backend/Post.php:883
+#: src/Process/Backend/Home.php:604 src/Process/Backend/Post.php:884
 msgid "Content:"
 msgstr "কন্টেন্ট:"
 
-#: src/Process/Backend/Home.php:610 src/Process/Backend/Post.php:880
+#: src/Process/Backend/Home.php:610 src/Process/Backend/Post.php:881
 msgid "Content"
 msgstr "বিষয়বস্তু"
 
-#: src/Process/Backend/Home.php:621 src/Process/Backend/Post.php:734
+#: src/Process/Backend/Home.php:621 src/Process/Backend/Post.php:735
 msgid "Add a new category"
 msgstr "নতুন ক্যাটাগরি তৈরি করুন"
 
@@ -4547,23 +4550,23 @@ msgstr "Zip ফাইলটি বৈধ ডটক্লিয়ার ল্�
 msgid "An error occurred during language upgrade."
 msgstr "ভাষা আপগ্রেড করার সময় এরর দেখা দিয়েছে।"
 
-#: src/Process/Backend/LinkPopup.php:70 src/Process/Backend/LinkPopup.php:76
+#: src/Process/Backend/LinkPopup.php:71 src/Process/Backend/LinkPopup.php:77
 msgid "Add a link"
 msgstr "লিংক যোগ করুন"
 
-#: src/Process/Backend/LinkPopup.php:92
+#: src/Process/Backend/LinkPopup.php:93
 msgid "Link URL:"
 msgstr "লিংক URL:"
 
-#: src/Process/Backend/LinkPopup.php:100
+#: src/Process/Backend/LinkPopup.php:101
 msgid "Link title:"
 msgstr "লিঙ্ক শিরোনাম:"
 
-#: src/Process/Backend/LinkPopup.php:108
+#: src/Process/Backend/LinkPopup.php:109
 msgid "Link language:"
 msgstr "লিংক ভাষা:"
 
-#: src/Process/Backend/LinkPopup.php:115 src/Process/Backend/MediaItem.php:766
+#: src/Process/Backend/LinkPopup.php:116 src/Process/Backend/MediaItem.php:769
 msgid "Insert"
 msgstr "লাগান"
 
@@ -4736,7 +4739,7 @@ msgstr "অনুগ্রহ করে প্রচার মাধ্যমক
 msgid "Maximum file size allowed:"
 msgstr "সর্বোচ্চ ফাইল মাপ অনুমোদিত:"
 
-#: src/Process/Backend/Media.php:784 src/Process/Backend/MediaItem.php:1261
+#: src/Process/Backend/Media.php:784 src/Process/Backend/MediaItem.php:1229
 msgid "Private"
 msgstr "প্রাইভেট"
 
@@ -4767,11 +4770,11 @@ msgid "Not a valid file"
 msgstr "ফাইলটি বৈধ নয়"
 
 #: src/Process/Backend/MediaItem.php:182 src/Process/Backend/MediaItem.php:244
-#: src/Process/Backend/MediaItem.php:434
+#: src/Process/Backend/MediaItem.php:437
 msgid "File has been successfully updated."
 msgstr "ফাইলটি সফলভাবে আপডেট করা হয়েছে।"
 
-#: src/Process/Backend/MediaItem.php:261 src/Process/Backend/MediaItem.php:437
+#: src/Process/Backend/MediaItem.php:261 src/Process/Backend/MediaItem.php:440
 msgid "Thumbnails have been successfully updated."
 msgstr "থাম্বনেইলসমূহ সফলভাবে আপডেট করা হয়েছে।"
 
@@ -4779,7 +4782,7 @@ msgstr "থাম্বনেইলসমূহ সফলভাবে আপড�
 msgid "Zip file has been successfully extracted."
 msgstr "Zip ফাইল সফলভাবে এক্সট্রাক্ট করা হয়েছে।"
 
-#: src/Process/Backend/MediaItem.php:308 src/Process/Backend/MediaItem.php:440
+#: src/Process/Backend/MediaItem.php:308 src/Process/Backend/MediaItem.php:443
 msgid "Default media insertion settings have been successfully updated."
 msgstr "ডিফল্ট মিডিয়া ইনসার্শন সেটিংস সফলভাবে হালনাগাদ করা হয়েছে."
 
@@ -4791,247 +4794,247 @@ msgstr "এই ফোল্ডারের জন্য মিডিয়া ই�
 msgid "Media insertion settings have been successfully removed for this folder."
 msgstr "এই ফোল্ডারের জন্য মিডিয়া ইনসার্শন সেটিংস সফলভাবে মুছে ফেলা হয়েছে."
 
-#: src/Process/Backend/MediaItem.php:480 src/Process/Backend/MediaItem.php:574
+#: src/Process/Backend/MediaItem.php:483 src/Process/Backend/MediaItem.php:577
 msgid "Image size:"
 msgstr "ইমেজ সাইজ:"
 
-#: src/Process/Backend/MediaItem.php:499 src/Process/Backend/MediaItem.php:501
+#: src/Process/Backend/MediaItem.php:502 src/Process/Backend/MediaItem.php:504
 msgid "Select media item"
 msgstr "মিডিয়া আইটেম নির্বাচন করুন"
 
-#: src/Process/Backend/MediaItem.php:510 src/Process/Upgrade/Attic.php:305
+#: src/Process/Backend/MediaItem.php:513 src/Process/Upgrade/Attic.php:305
 msgid "Select"
 msgstr "নির্বাচন করুন"
 
-#: src/Process/Backend/MediaItem.php:586
+#: src/Process/Backend/MediaItem.php:589
 msgid "Image legend and alternate text"
 msgstr "চিত্রের কিংবদন্তি এবং বিকল্প পাঠ্য"
 
-#: src/Process/Backend/MediaItem.php:603 src/Process/Backend/MediaItem.php:1099
-#: src/Process/Backend/MediaItem.php:1239
+#: src/Process/Backend/MediaItem.php:606 src/Process/Backend/MediaItem.php:1067
+#: src/Process/Backend/MediaItem.php:1207
 msgid "Alternate text:"
 msgstr "বিকল্প পাঠ্য:"
 
-#: src/Process/Backend/MediaItem.php:608
+#: src/Process/Backend/MediaItem.php:611
 msgid "Legend:"
 msgstr "কিংবদন্তি:"
 
-#: src/Process/Backend/MediaItem.php:617
+#: src/Process/Backend/MediaItem.php:620
 msgid "Image alignment"
 msgstr "ছবির অ্যালগমেন্ট"
 
-#: src/Process/Backend/MediaItem.php:624
+#: src/Process/Backend/MediaItem.php:627
 msgid "Image insertion"
 msgstr "ছবি নেয়া"
 
-#: src/Process/Backend/MediaItem.php:629
+#: src/Process/Backend/MediaItem.php:632
 msgid "As a single image"
 msgstr "একক ছবি হিসেবে"
 
-#: src/Process/Backend/MediaItem.php:632
+#: src/Process/Backend/MediaItem.php:635
 msgid "As a link to the original image"
 msgstr "মূল ছবির লিংক হিসেবে"
 
-#: src/Process/Backend/MediaItem.php:649
+#: src/Process/Backend/MediaItem.php:652
 msgid "MP3 disposition"
 msgstr "MP3 disposition"
 
-#: src/Process/Backend/MediaItem.php:658
+#: src/Process/Backend/MediaItem.php:661
 msgid "Please note that you cannot insert mp3 files with standard editor in WYSIWYG HTML mode."
 msgstr "দয়া করে মনে রাখবেন যে আপনি WYSIWYG HTML মোডে স্ট্যান্ডার্ড এডিটরের সাথে mp3 ফাইল সন্নিবেশ করতে পারবেন না।"
 
-#: src/Process/Backend/MediaItem.php:674
+#: src/Process/Backend/MediaItem.php:677
 msgid "Video size"
 msgstr "ভিডিও সাইজ"
 
-#: src/Process/Backend/MediaItem.php:678
+#: src/Process/Backend/MediaItem.php:681
 msgid "Width:"
 msgstr "দৈর্ঘ্য:"
 
-#: src/Process/Backend/MediaItem.php:683
+#: src/Process/Backend/MediaItem.php:686
 msgid "Height:"
 msgstr "প্রস্থ:"
 
-#: src/Process/Backend/MediaItem.php:687
+#: src/Process/Backend/MediaItem.php:690
 msgid "A value of 0 means that the corresponding size is not included when inserting a video."
 msgstr "০ মান মানে হল ভিডিও সন্নিবেশ করার সময় সংশ্লিষ্ট আকার অন্তর্ভুক্ত করা হয় না।"
 
-#: src/Process/Backend/MediaItem.php:692
+#: src/Process/Backend/MediaItem.php:695
 msgid "Video disposition"
 msgstr "ভিডিও ডিসপজিশন"
 
-#: src/Process/Backend/MediaItem.php:702
+#: src/Process/Backend/MediaItem.php:705
 msgid "Please note that you cannot insert video files with standard editor in WYSIWYG HTML mode."
 msgstr "দয়া করে মনে রাখবেন যে আপনি WYSIWYG HTML মোডে স্ট্যান্ডার্ড সম্পাদক সহ ভিডিও ফাইলগুলি সন্নিবেশ করতে পারবেন না।"
 
-#: src/Process/Backend/MediaItem.php:708
+#: src/Process/Backend/MediaItem.php:711
 msgid "Media item will be inserted as a link."
 msgstr "মিডিয়া আইটেমটি লিংক হিসেবে লাগানো হবে।"
 
-#: src/Process/Backend/MediaItem.php:729
+#: src/Process/Backend/MediaItem.php:732
 msgid "Make current settings as default"
 msgstr "বর্তমান বৈশিষ্ট্যাবলী ডিফল্ট হিসেবে তৈরি করো"
 
-#: src/Process/Backend/MediaItem.php:730
+#: src/Process/Backend/MediaItem.php:733
 msgid "For the blog"
 msgstr "ব্লগের জন্য"
 
-#: src/Process/Backend/MediaItem.php:732
+#: src/Process/Backend/MediaItem.php:735
 msgid "For this folder only"
 msgstr "শুধুমাত্র এই ফোল্ডারের জন্য"
 
-#: src/Process/Backend/MediaItem.php:744
+#: src/Process/Backend/MediaItem.php:747
 msgid "Settings exist for this folder:"
 msgstr "এই ফোল্ডারের জন্য বৈশিষ্ট্য বিদ্যমান:"
 
-#: src/Process/Backend/MediaItem.php:745
+#: src/Process/Backend/MediaItem.php:748
 msgid "Remove them"
 msgstr "তাদের অপসারণ করো"
 
-#: src/Process/Backend/MediaItem.php:755 src/Process/Backend/MediaItem.php:757
+#: src/Process/Backend/MediaItem.php:758 src/Process/Backend/MediaItem.php:760
 msgid "Insert media item"
 msgstr "মিডিয়া আইটেম লাগান"
 
-#: src/Process/Backend/MediaItem.php:842
+#: src/Process/Backend/MediaItem.php:845
 msgid "Available sizes:"
 msgstr "বিদ্যমান মাপ:"
 
-#: src/Process/Backend/MediaItem.php:867 src/Process/Backend/MediaItem.php:941
-#: src/Process/Backend/MediaItem.php:949 src/Process/Backend/MediaItem.php:960
+#: src/Process/Backend/MediaItem.php:870 src/Process/Backend/MediaItem.php:944
+#: src/Process/Backend/MediaItem.php:952 src/Process/Backend/MediaItem.php:963
 msgid "Image width:"
 msgstr "ছবির প্রস্থ:"
 
-#: src/Process/Backend/MediaItem.php:873 src/Process/Backend/MediaItem.php:966
+#: src/Process/Backend/MediaItem.php:876 src/Process/Backend/MediaItem.php:969
 msgid "Image height:"
 msgstr "ছবির উচ্চতা:"
 
-#: src/Process/Backend/MediaItem.php:881 src/Process/Backend/MediaItem.php:976
+#: src/Process/Backend/MediaItem.php:884 src/Process/Backend/MediaItem.php:979
 msgid "File size:"
 msgstr "ফাইল সাইজ:"
 
-#: src/Process/Backend/MediaItem.php:889 src/Process/Backend/MediaItem.php:982
+#: src/Process/Backend/MediaItem.php:892 src/Process/Backend/MediaItem.php:985
 msgid "File URL:"
 msgstr "ফাইল URL:"
 
-#: src/Process/Backend/MediaItem.php:897
+#: src/Process/Backend/MediaItem.php:900
 msgid "Thumbnail details"
 msgstr "থাম্বনেইল বিবরণ"
 
-#: src/Process/Backend/MediaItem.php:920
+#: src/Process/Backend/MediaItem.php:923
 msgid "File owner:"
 msgstr "ফাইলের মালিক:"
 
-#: src/Process/Backend/MediaItem.php:926
+#: src/Process/Backend/MediaItem.php:929
 msgid "File type:"
 msgstr "ফাইলের ধরণ:"
 
-#: src/Process/Backend/MediaItem.php:993
+#: src/Process/Backend/MediaItem.php:996
 msgid "Show entries containing this media"
 msgstr "যেসব এন্ট্রিতে এই মিডিয়াটি আছে সেগুলো দেখাও"
 
-#: src/Process/Backend/MediaItem.php:1035
+#: src/Process/Backend/MediaItem.php:1003
 msgid "No entry seems contain this media."
 msgstr "এই মিডিয়াটি কোনো এন্ট্রিতে নেই।"
 
-#: src/Process/Backend/MediaItem.php:1065
+#: src/Process/Backend/MediaItem.php:1033
 msgid "Inside the entry"
 msgstr "প্রবেশের ভিতরে"
 
-#: src/Process/Backend/MediaItem.php:1072
+#: src/Process/Backend/MediaItem.php:1040
 msgid "Linked to entry"
 msgstr "এন্ট্রির সাথে লিঙ্ক করা হয়েছে"
 
-#: src/Process/Backend/MediaItem.php:1080
+#: src/Process/Backend/MediaItem.php:1048
 msgid "Entries containing this media"
 msgstr "যেসব এন্ট্রিতে এই মিডিয়া আছে"
 
-#: src/Process/Backend/MediaItem.php:1114
+#: src/Process/Backend/MediaItem.php:1082
 msgid ":"
 msgstr ":"
 
-#: src/Process/Backend/MediaItem.php:1124
+#: src/Process/Backend/MediaItem.php:1092
 msgid "Metadata"
 msgstr "মেটাডেটা"
 
-#: src/Process/Backend/MediaItem.php:1136
-#: src/Process/Backend/MediaItem.php:1339
-#: src/Process/Backend/MediaItem.php:1348
+#: src/Process/Backend/MediaItem.php:1104
+#: src/Process/Backend/MediaItem.php:1307
+#: src/Process/Backend/MediaItem.php:1316
 msgid "Media details"
 msgstr "মিডিয়ার বিবরণ"
 
-#: src/Process/Backend/MediaItem.php:1154
-#: src/Process/Backend/MediaItem.php:1161
+#: src/Process/Backend/MediaItem.php:1122
+#: src/Process/Backend/MediaItem.php:1129
 msgid "Update thumbnails"
 msgstr "আপডেট থাম্বনেইল"
 
-#: src/Process/Backend/MediaItem.php:1156
+#: src/Process/Backend/MediaItem.php:1124
 msgid "This will create or update thumbnails for this image."
 msgstr "এটি এই ছবির জন্য থাম্বনেইল তৈরি বা হালনাগাদ করা হবে."
 
-#: src/Process/Backend/MediaItem.php:1170
-#: src/Process/Backend/MediaItem.php:1185
+#: src/Process/Backend/MediaItem.php:1138
+#: src/Process/Backend/MediaItem.php:1153
 msgid "Extract in a new directory"
 msgstr "নতুন ডিরেক্টরিতে সম্প্রসারণ করা হবে"
 
-#: src/Process/Backend/MediaItem.php:1171
-#: src/Process/Backend/MediaItem.php:1191
+#: src/Process/Backend/MediaItem.php:1139
+#: src/Process/Backend/MediaItem.php:1159
 msgid "Extract in current directory"
 msgstr "বর্তমান ডিরেক্টরিতে সম্প্রসারণ করা হবে"
 
-#: src/Process/Backend/MediaItem.php:1179
+#: src/Process/Backend/MediaItem.php:1147
 msgid "Extract archive"
 msgstr "আর্কাইভ সম্প্রসারণ করা হবে"
 
-#: src/Process/Backend/MediaItem.php:1186
+#: src/Process/Backend/MediaItem.php:1154
 msgid "This will extract archive in a new directory that should not exist yet."
 msgstr "এটি একটি নতুন ডিরেক্টরিতে আর্কাইভ বের করবে যা এখনো বিদ্যমান নয়."
 
-#: src/Process/Backend/MediaItem.php:1192
+#: src/Process/Backend/MediaItem.php:1160
 msgid "This will extract archive in current directory and will overwrite existing files or directory."
 msgstr "এটি বর্তমান ডিরেক্টরিতে আর্কাইভ বের করবে এবং বিদ্যমান ফাইল অথবা ডিরেক্টরি লিখবে."
 
-#: src/Process/Backend/MediaItem.php:1200
+#: src/Process/Backend/MediaItem.php:1168
 msgid "Extract mode:"
 msgstr "সম্প্রসারণ মোড:"
 
-#: src/Process/Backend/MediaItem.php:1201
+#: src/Process/Backend/MediaItem.php:1169
 msgid "Extract"
 msgstr "সম্প্রসারণ"
 
-#: src/Process/Backend/MediaItem.php:1213
+#: src/Process/Backend/MediaItem.php:1181
 msgid "Change media properties"
 msgstr "মিডিয়া প্রোপার্টিজ পরিবর্তন"
 
-#: src/Process/Backend/MediaItem.php:1222
+#: src/Process/Backend/MediaItem.php:1190
 msgid "File name:"
 msgstr "ফাইলের নাম:"
 
-#: src/Process/Backend/MediaItem.php:1255
+#: src/Process/Backend/MediaItem.php:1223
 msgid "File date:"
 msgstr "ফাইলের তারিখ:"
 
-#: src/Process/Backend/MediaItem.php:1268
+#: src/Process/Backend/MediaItem.php:1236
 msgid "New directory:"
 msgstr "নতুন ডিরেক্টরি:"
 
-#: src/Process/Backend/MediaItem.php:1283
+#: src/Process/Backend/MediaItem.php:1251
 msgid "Change file"
 msgstr "ফাইল পরিবর্তন করুন"
 
-#: src/Process/Backend/MediaItem.php:1292
+#: src/Process/Backend/MediaItem.php:1260
 msgid "Choose a file:"
 msgstr "একটি ফাইল নির্বাচন করুন:"
 
-#: src/Process/Backend/MediaItem.php:1292
+#: src/Process/Backend/MediaItem.php:1260
 #, php-format
 msgid "Maximum size %s"
 msgstr "সর্বোচ্চ সাইজ %s"
 
-#: src/Process/Backend/MediaItem.php:1311
+#: src/Process/Backend/MediaItem.php:1279
 msgid "Delete this media"
 msgstr "এই মিডিয়া মুছে ফেলুন"
 
-#: src/Process/Backend/MediaItem.php:1330
+#: src/Process/Backend/MediaItem.php:1298
 msgid "Updates and modifications"
 msgstr "আপডেট ও পরিবর্তন"
 
@@ -5120,177 +5123,177 @@ msgstr "কিছু ফাংশন নিষ্ক্রিয় করা হ�
 msgid "Plugin configuration"
 msgstr "প্লাগইন কনফিগারেশন"
 
-#: src/Process/Backend/Post.php:158 src/Process/Backend/Post.php:973
-#: src/Process/Backend/Post.php:994
+#: src/Process/Backend/Post.php:159 src/Process/Backend/Post.php:974
+#: src/Process/Backend/Post.php:995
 msgid "Edit post"
 msgstr "পোস্ট সম্পাদনা করুন"
 
-#: src/Process/Backend/Post.php:198
+#: src/Process/Backend/Post.php:199
 msgid "Next post"
 msgstr "পরবর্তী পোস্ট"
 
-#: src/Process/Backend/Post.php:214
+#: src/Process/Backend/Post.php:215
 msgid "Previous post"
 msgstr "পূর্ববর্তী পোস্ট"
 
-#: src/Process/Backend/Post.php:291 src/Process/Backend/Post.php:619
+#: src/Process/Backend/Post.php:292 src/Process/Backend/Post.php:620
 msgid "All pings sent."
 msgstr "সব পিংস পাঠানো হয়েছে."
 
-#: src/Process/Backend/Post.php:321
+#: src/Process/Backend/Post.php:322
 msgid "Invalid publication date"
 msgstr "অবৈধ প্রকাশনা তারিখ"
 
-#: src/Process/Backend/Post.php:445
+#: src/Process/Backend/Post.php:446
 #, php-format
 msgid "The post \"%s\" has been successfully updated"
 msgstr "\"%s\" পোস্টটি সফলভাবে আপডেট করা হয়েছে"
 
-#: src/Process/Backend/Post.php:502
+#: src/Process/Backend/Post.php:503
 msgid "Don't forget to validate your XHTML conversion by saving your post."
 msgstr "আপনার পোস্ট সংরক্ষণ করে আপনার XHTML রূপান্তর বৈধতা দিতে ভুলবেন না."
 
-#: src/Process/Backend/Post.php:606
+#: src/Process/Backend/Post.php:607
 msgid "Entry has been successfully updated."
 msgstr "এন্ট্রি সফলভাবে হালনাগাদ করা হয়েছে."
 
-#: src/Process/Backend/Post.php:610
+#: src/Process/Backend/Post.php:611
 msgid "File has been successfully attached."
 msgstr "ফাইল সফলভাবে সংযুক্ত করা হয়েছে."
 
-#: src/Process/Backend/Post.php:612 src/Process/Backend/PostMedia.php:89
+#: src/Process/Backend/Post.php:613 src/Process/Backend/PostMedia.php:89
 msgid "Attachment has been successfully removed."
 msgstr "সংযুক্তি সফলভাবে অপসারণ করা হয়েছে."
 
-#: src/Process/Backend/Post.php:629
+#: src/Process/Backend/Post.php:630
 msgid "Go to this entry on the site"
 msgstr "এই সাইটে প্রবেশ করতে যান"
 
-#: src/Process/Backend/Post.php:671
+#: src/Process/Backend/Post.php:672
 msgid "Entry status"
 msgstr "এন্ট্রি অবস্থা"
 
-#: src/Process/Backend/Post.php:679
+#: src/Process/Backend/Post.php:680
 msgid "Publication date and hour"
 msgstr "প্রকাশনা তারিখ এবং ঘন্টা"
 
-#: src/Process/Backend/Post.php:688
+#: src/Process/Backend/Post.php:689
 msgid "Entry language"
 msgstr "ভাষার প্রচেষ্টা"
 
-#: src/Process/Backend/Post.php:696
+#: src/Process/Backend/Post.php:697
 msgid "Text formatting"
 msgstr "টেক্সট ফরম্যাটিং"
 
-#: src/Process/Backend/Post.php:703
+#: src/Process/Backend/Post.php:704
 msgid "Convert to HTML"
 msgstr "HTML-এ কনভার্ট"
 
-#: src/Process/Backend/Post.php:711
+#: src/Process/Backend/Post.php:712
 msgid "Filing"
 msgstr "ফিল্ডিং"
 
-#: src/Process/Backend/Post.php:716
+#: src/Process/Backend/Post.php:717
 msgid "Selected entry"
 msgstr "নির্বাচিত प्रविष्टि"
 
-#: src/Process/Backend/Post.php:760 src/Process/Backend/User.php:493
+#: src/Process/Backend/Post.php:761 src/Process/Backend/User.php:493
 msgid "Options"
 msgstr "অপশন"
 
-#: src/Process/Backend/Post.php:763
+#: src/Process/Backend/Post.php:764
 msgid "Comments and trackbacks list"
 msgstr "Comments and trackbacks list"
 
-#: src/Process/Backend/Post.php:776
+#: src/Process/Backend/Post.php:777
 msgid "Warning: Comments are no longer accepted for this entry."
 msgstr "সতর্কতা: এই এন্ট্রির জন্য আর মন্তব্য গ্রহণযোগ্য নয়।"
 
-#: src/Process/Backend/Post.php:780
+#: src/Process/Backend/Post.php:781
 msgid "Comments are not accepted on this blog so far."
 msgstr "এই ব্লগের মন্তব্যগুলো এখন পর্যন্ত গৃহীত নয়."
 
-#: src/Process/Backend/Post.php:793
+#: src/Process/Backend/Post.php:794
 msgid "Warning: Trackbacks are no longer accepted for this entry."
 msgstr "সতর্কতা: এই এন্ট্রির জন্য ট্র্যাকব্যাক আর গ্রহণযোগ্য নয়।"
 
-#: src/Process/Backend/Post.php:797
+#: src/Process/Backend/Post.php:798
 msgid "Trackbacks are not accepted on this blog so far."
 msgstr "এই ব্লগে ট্র্যাকব্যাক গ্রহন করা হয় না."
 
-#: src/Process/Backend/Post.php:821
+#: src/Process/Backend/Post.php:822
 msgid "Edit basename"
 msgstr "নাম সম্পাদনা করো"
 
-#: src/Process/Backend/Post.php:825
+#: src/Process/Backend/Post.php:826
 msgid "Warning: If you set the URL manually, it may conflict with another entry."
 msgstr "সতর্কবাণী: আপনি যদি ইউআরএল ম্যানুয়ালে স্থাপন করেন, তাহলে অন্য কোন এন্ট্রির সাথে সংঘর্ষ হতে পারে."
 
-#: src/Process/Backend/Post.php:864
+#: src/Process/Backend/Post.php:865
 msgid "Excerpt:"
 msgstr "Excerpt:"
 
-#: src/Process/Backend/Post.php:864
+#: src/Process/Backend/Post.php:865
 msgid "Introduction to the post."
 msgstr "পোস্টের ভূমিকা."
 
-#: src/Process/Backend/Post.php:900
+#: src/Process/Backend/Post.php:901
 msgid "Personal notes:"
 msgstr "ব্যক্তিগত নোট:"
 
-#: src/Process/Backend/Post.php:900
+#: src/Process/Backend/Post.php:901
 msgid "Unpublished notes."
 msgstr "অপ্রকাশিত নোট."
 
-#: src/Process/Backend/Post.php:954
+#: src/Process/Backend/Post.php:955
 msgid "Preview"
 msgstr "প্রাকদর্শন"
 
-#: src/Process/Backend/Post.php:1070 src/Process/Backend/Post.php:1085
+#: src/Process/Backend/Post.php:1071 src/Process/Backend/Post.php:1086
 msgid "Add a comment"
 msgstr "মন্তব্য যোগ করুন"
 
-#: src/Process/Backend/Post.php:1174
+#: src/Process/Backend/Post.php:1175
 msgid "No trackback"
 msgstr "শূণ্য ট্র্যাকব্যাক"
 
-#: src/Process/Backend/Post.php:1185
+#: src/Process/Backend/Post.php:1186
 msgid "Selected trackbacks action:"
 msgstr "নির্বাচিত ট্রাকব্যাক অ্যাকশন:"
 
-#: src/Process/Backend/Post.php:1208
+#: src/Process/Backend/Post.php:1209
 msgid "Previously sent pings"
 msgstr "আগে পাঠানো pings"
 
-#: src/Process/Backend/Post.php:1234 src/Process/Backend/Post.php:1256
+#: src/Process/Backend/Post.php:1235 src/Process/Backend/Post.php:1257
 msgid "Ping blogs"
 msgstr "পিং ব্লগ"
 
-#: src/Process/Backend/Post.php:1242
+#: src/Process/Backend/Post.php:1243
 msgid "URLs to ping:"
 msgstr "পিং করার জন্য ইউ-আর-এল:"
 
-#: src/Process/Backend/Post.php:1250
+#: src/Process/Backend/Post.php:1251
 msgid "Excerpt to send:"
 msgstr "পাঠানোর জন্য প্রসারিত:"
 
-#: src/Process/Backend/Post.php:1263
+#: src/Process/Backend/Post.php:1264
 msgid "Auto discover ping URLs"
 msgstr "ইউ-আর-এল-কে অটো আবিস্কার করা হবে"
 
-#: src/Process/Backend/Post.php:1332
+#: src/Process/Backend/Post.php:1333
 msgid "select this comment"
 msgstr "এই মন্তব্যটি নির্বাচন করুন"
 
-#: src/Process/Backend/Post.php:1332
+#: src/Process/Backend/Post.php:1333
 msgid "select this trackback"
 msgstr "এই ট্র্যাকব্যাক নির্বাচন করুন"
 
-#: src/Process/Backend/Post.php:1363
+#: src/Process/Backend/Post.php:1364
 msgid "Edit this comment"
 msgstr "এই মন্তব্য এডিট করুন"
 
-#: src/Process/Backend/Post.php:1363
+#: src/Process/Backend/Post.php:1364
 msgid "Edit this trackback"
 msgstr "এই ট্র্যাকব্যাকটি সম্পাদনা করুন"
 
@@ -5847,21 +5850,21 @@ msgstr "আমার ইন্টারফেসের ভাষা:"
 msgid "My timezone:"
 msgstr "আমার সময়সীমা:"
 
-#: src/Process/Backend/UserPreferences.php:875
+#: src/Process/Backend/UserPreferences.php:872
+msgid "Update my profile"
+msgstr "আমার প্রোফাইল আপডেট করুন"
+
+#: src/Process/Backend/UserPreferences.php:885
 msgid "Authentication keys"
 msgstr "প্রমাণীকরণ কী"
 
-#: src/Process/Backend/UserPreferences.php:882
+#: src/Process/Backend/UserPreferences.php:892
 msgid "Register a new key"
 msgstr "একটি নতুন কী নিবন্ধন করুন"
 
-#: src/Process/Backend/UserPreferences.php:888
+#: src/Process/Backend/UserPreferences.php:898
 msgid "Authentication applications"
 msgstr "প্রমাণীকরণ অ্যাপ্লিকেশন"
-
-#: src/Process/Backend/UserPreferences.php:896
-msgid "Update my profile"
-msgstr "আমার প্রোফাইল আপডেট করুন"
 
 #: src/Process/Backend/UserPreferences.php:965
 msgid "List"
@@ -6149,13 +6152,363 @@ msgstr "আপনি %s ব্যবহারকারীদের জন্য 
 msgid "Validate permissions"
 msgstr "বৈধ অনুমতি"
 
-#: src/Process/Install/Install.php:133
-msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
-msgstr "অনুগ্রহ করে একটি মাস্টার কী (DC_MASTER_KEY) কনফিগারেশন ফাইলে নির্ধারণ করুন."
+#: src/Process/Install/Cli.php:60
+msgid "The database driver"
+msgstr "ডাটাবেস ড্রাইভার"
 
+#: src/Process/Install/Cli.php:61
+msgid "The database host"
+msgstr "ডাটাবেস হোস্ট"
+
+#: src/Process/Install/Cli.php:62
+msgid "The database name"
+msgstr "ডাটাবেসের নাম"
+
+#: src/Process/Install/Cli.php:63
+msgid "The database user"
+msgstr "ডাটাবেস ব্যবহারকারী"
+
+#: src/Process/Install/Cli.php:64
+msgid "The database password"
+msgstr "ডাটাবেস পাসওয়ার্ড"
+
+#: src/Process/Install/Cli.php:65
+msgid "The database table prefix, can be empty for deault to _dc"
+msgstr "ডাটাবেস টেবিলের উপসর্গ, ডিফল্ট _dc এর জন্য খালি থাকতে পারে"
+
+#: src/Process/Install/Cli.php:66
+msgid "The administration mail from"
+msgstr "প্রশাসনের মেইল ​​থেকে"
+
+#: src/Process/Install/Cli.php:67
+msgid "The super administrator first name, can be empty"
+msgstr "সুপার অ্যাডমিনিস্ট্রেটরের প্রথম নামটি খালি থাকতে পারে"
+
+#: src/Process/Install/Cli.php:68
+msgid "The super administrator last name, can be empty"
+msgstr "সুপার অ্যাডমিনিস্ট্রেটরের পদবি খালি থাকতে পারে"
+
+#: src/Process/Install/Cli.php:69
+msgid "The super administrator email"
+msgstr "সুপার অ্যাডমিনিস্ট্রেটরের ইমেল"
+
+#: src/Process/Install/Cli.php:70
+msgid "The super administrator login"
+msgstr "সুপার অ্যাডমিনিস্ট্রেটর লগইন"
+
+#: src/Process/Install/Cli.php:71
+msgid "The super administrator password"
+msgstr "সুপার অ্যাডমিনিস্ট্রেটর পাসওয়ার্ড"
+
+#: src/Process/Install/Cli.php:72
+msgid "The admin dashboard URL"
+msgstr "অ্যাডমিন ড্যাশবোর্ডের URL"
+
+#: src/Process/Install/Cli.php:73
+msgid "The default blog URL"
+msgstr "ডিফল্ট ব্লগ URL"
+
+#: src/Process/Install/Cli.php:99
+msgid "Command line options are:"
+msgstr "কমান্ড লাইন বিকল্পগুলি হল:"
+
+#: src/Process/Install/Cli.php:100
+msgid "This help"
+msgstr "এই সাহায্য"
+
+#: src/Process/Install/Cli.php:101
+msgid "Disable interactive mode"
+msgstr "ইন্টারেক্টিভ মোড অক্ষম করুন"
+
+#: src/Process/Install/Cli.php:107
+msgid "Starting first step of Dotclear installation process."
+msgstr "ডটক্লিয়ার ইনস্টলেশন প্রক্রিয়ার প্রথম ধাপ শুরু হচ্ছে।"
+
+#: src/Process/Install/Cli.php:137 src/Process/Install/Cli.php:208
 #: src/Process/Install/Install.php:139 src/Process/Install/Wizard.php:202
 msgid "Dotclear is already installed."
 msgstr "Dotclear ইতিমধ্যেই ইন্সটল করা আছে।"
+
+#: src/Process/Install/Cli.php:143 src/Process/Install/Wizard.php:212
+#, php-format
+msgid "File %s does not exist."
+msgstr "%s ফাইলটি নেই।"
+
+#: src/Process/Install/Cli.php:148 src/Process/Install/Cli.php:180
+#: src/Process/Install/Wizard.php:217 src/Process/Install/Wizard.php:252
+#, php-format
+msgid "Cannot write %s file."
+msgstr "%s ফাইল লেখা যাচ্ছে না।"
+
+#: src/Process/Install/Cli.php:195
+msgid "First step of Dotclear installation succeed."
+msgstr "ডটক্লিয়ার ইনস্টলেশনের প্রথম ধাপ সফল।"
+
+#: src/Process/Install/Cli.php:196
+msgid "Re-run same script to process second step of Dotclear installation."
+msgstr "ডটক্লিয়ার ইনস্টলেশনের দ্বিতীয় ধাপ প্রক্রিয়া করার জন্য একই স্ক্রিপ্টটি পুনরায় চালান।"
+
+#: src/Process/Install/Cli.php:199
+msgid "Starting second step of Dotclear installation process."
+msgstr "ডটক্লিয়ার ইনস্টলেশন প্রক্রিয়ার দ্বিতীয় ধাপ শুরু হচ্ছে।"
+
+#: src/Process/Install/Cli.php:203 src/Process/Install/Install.php:133
+msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
+msgstr "অনুগ্রহ করে একটি মাস্টার কী (DC_MASTER_KEY) কনফিগারেশন ফাইলে নির্ধারণ করুন."
+
+#: src/Process/Install/Cli.php:227
+msgid "Processing installation"
+msgstr "ইনস্টলেশন প্রক্রিয়াজাতকরণ"
+
+#: src/Process/Install/Cli.php:264 src/Process/Install/Install.php:244
+msgid "My first blog"
+msgstr "আমার প্রথম ব্লগ"
+
+#: src/Process/Install/Cli.php:283 src/Process/Install/Install.php:257
+msgid "%A, %B %e %Y"
+msgstr "%A, %B %e %Y"
+
+#: src/Process/Install/Cli.php:372 src/Process/Install/Install.php:333
+msgid "Welcome to Dotclear!"
+msgstr "ডটক্লিয়ারে স্বাগতম!"
+
+#: src/Process/Install/Cli.php:373 src/Process/Install/Install.php:334
+msgid "This is your first entry. When you're ready to blog, log in to edit or delete it."
+msgstr "এটি আপনার প্রথম এন্ট্রি। আপনি ব্লগ লেখার জন্য প্রস্তুত হলে, লগইন করে এটিকে এডিট করতে বা মুছে ফেলতে পারবেন।"
+
+#: src/Process/Install/Cli.php:386 src/Process/Install/Install.php:346
+msgid "Dotclear Team"
+msgstr "ডটক্লিয়ার টিম"
+
+#: src/Process/Install/Cli.php:389 src/Process/Install/Install.php:349
+msgid "<p>This is a comment.</p>\n"
+"<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
+msgstr "<p>এটি একটি মন্তব্য।</p>\n"
+"<p>এটি মুছতে হলে, লগইন করুন এবং ব্লগের মন্তব্য দেখুন। তারপর আপনি মন্তব্যটি মুছে ফেলতে বা এডিট করতে পারবেন।</p>"
+
+#: src/Process/Install/Cli.php:427
+msgid "Second step of Dotclear installation succeed."
+msgstr "ডটক্লিয়ার ইনস্টলেশনের দ্বিতীয় ধাপ সফল।"
+
+#: src/Process/Install/Cli.php:428
+#, php-format
+msgid "Go to visit \"%s\" to manage your blog."
+msgstr "আপনার ব্লগ পরিচালনা করতে \"%s\" এ যান।"
+
+#: src/Process/Install/Cli.php:444
+#, php-format
+msgid "Configure the database driver (%s):"
+msgstr "ডাটাবেস ড্রাইভার (%s) কনফিগার করুন:"
+
+#: src/Process/Install/Cli.php:449
+msgid "No database driver."
+msgstr "কোন ডাটাবেস ড্রাইভার নেই।"
+
+#: src/Process/Install/Cli.php:451
+msgid "Invalid database driver."
+msgstr "অবৈধ ডাটাবেস ড্রাইভার।"
+
+#: src/Process/Install/Cli.php:453
+#, php-format
+msgid "Database driver is set to \"%s\"."
+msgstr "ডাটাবেস ড্রাইভার \"%s\" তে সেট করা আছে।"
+
+#: src/Process/Install/Cli.php:465
+msgid "Configure the database path:"
+msgstr "ডাটাবেস পাথ কনফিগার করুন:"
+
+#: src/Process/Install/Cli.php:479 src/Process/Install/Wizard.php:175
+#, php-format
+msgid "Cannot write \"%s\" directory."
+msgstr "\"%s\" নির্দেশিকা লেখা সম্ভব নয়।"
+
+#: src/Process/Install/Cli.php:495
+#, php-format
+msgid "Database path is set to \"%s\"."
+msgstr "ডাটাবেস পাথ \"%s\" তে সেট করা আছে।"
+
+#: src/Process/Install/Cli.php:505
+msgid "Configure the database host:"
+msgstr "ডাটাবেস হোস্ট কনফিগার করুন:"
+
+#: src/Process/Install/Cli.php:510
+msgid "No database host."
+msgstr "কোনও ডাটাবেস হোস্ট নেই।"
+
+#: src/Process/Install/Cli.php:512
+#, php-format
+msgid "Database host is set to \"%s\"."
+msgstr "ডাটাবেস হোস্ট \"%s\" তে সেট করা আছে।"
+
+#: src/Process/Install/Cli.php:524
+msgid "Configure the database name:"
+msgstr "ডাটাবেসের নাম কনফিগার করুন:"
+
+#: src/Process/Install/Cli.php:529
+msgid "No database name."
+msgstr "কোন ডাটাবেসের নাম নেই।"
+
+#: src/Process/Install/Cli.php:531
+#, php-format
+msgid "Database name is set to \"%s\"."
+msgstr "ডাটাবেসের নাম \"%s\" তে সেট করা আছে।"
+
+#: src/Process/Install/Cli.php:543
+msgid "Configure the database user: "
+msgstr "ডাটাবেস ব্যবহারকারী কনফিগার করুন:"
+
+#: src/Process/Install/Cli.php:548
+msgid "No database user."
+msgstr "কোনও ডাটাবেস ব্যবহারকারী নেই।"
+
+#: src/Process/Install/Cli.php:550
+#, php-format
+msgid "Database user is set to \"%s\""
+msgstr "ডাটাবেস ব্যবহারকারী \"%s\" তে সেট করা আছে।"
+
+#: src/Process/Install/Cli.php:562
+msgid "Configure the database password:"
+msgstr "ডাটাবেস পাসওয়ার্ড কনফিগার করুন:"
+
+#: src/Process/Install/Cli.php:567
+msgid "No database password."
+msgstr "কোনও ডাটাবেস পাসওয়ার্ড নেই।"
+
+#: src/Process/Install/Cli.php:569
+msgid "Database password is set."
+msgstr "ডাটাবেস পাসওয়ার্ড সেট করা হয়েছে।"
+
+#: src/Process/Install/Cli.php:581
+msgid "Configure the database table prefix:"
+msgstr "ডাটাবেস টেবিল প্রিফিক্স কনফিগার করুন:"
+
+#: src/Process/Install/Cli.php:590
+msgid "Invalid database prefix."
+msgstr "অবৈধ ডাটাবেস প্রিফিক্স।"
+
+#: src/Process/Install/Cli.php:592
+#, php-format
+msgid "Database table prefix is set to \"%s\"."
+msgstr "ডাটাবেস টেবিলের প্রিফিক্স \"%s\" তে সেট করা আছে।"
+
+#: src/Process/Install/Cli.php:604
+msgid "Configure the administration mail from:"
+msgstr "প্রশাসনিক মেইল ​​কনফিগার করুন:"
+
+#: src/Process/Install/Cli.php:609
+msgid "No administration mail from."
+msgstr "প্রশাসনের কোন মেইল ​​নেই।"
+
+#: src/Process/Install/Cli.php:611
+msgid "Invalid administration mail from."
+msgstr "অবৈধ প্রশাসনিক মেইল।"
+
+#: src/Process/Install/Cli.php:613
+#, php-format
+msgid "Administration mail from is set to \"%s\"."
+msgstr "থেকে প্রশাসনিক মেইল ​​\"%s\" তে সেট করা আছে।"
+
+#: src/Process/Install/Cli.php:625
+msgid "Configure the administration full URL:"
+msgstr "প্রশাসনের সম্পূর্ণ URL কনফিগার করুন:"
+
+#: src/Process/Install/Cli.php:630
+msgid "No administration URL."
+msgstr "কোনও প্রশাসনিক URL নেই।"
+
+#: src/Process/Install/Cli.php:632
+msgid "Invalid administration URL."
+msgstr "অবৈধ প্রশাসনিক URL।"
+
+#: src/Process/Install/Cli.php:635
+#, php-format
+msgid "Administration URL is set to \"%s\"."
+msgstr "প্রশাসনিক URL \"%s\" তে সেট করা আছে।"
+
+#: src/Process/Install/Cli.php:647
+msgid "Super administrator first name (optionnal):"
+msgstr "সুপার অ্যাডমিনিস্ট্রেটরের প্রথম নাম (ঐচ্ছিক):"
+
+#: src/Process/Install/Cli.php:650
+#, php-format
+msgid "Super administrator first name is set to \"%s\"."
+msgstr "সুপার অ্যাডমিনিস্ট্রেটরের প্রথম নাম \"%s\" হিসেবে সেট করা আছে।"
+
+#: src/Process/Install/Cli.php:658
+msgid "Super administrator last name (optionnal):"
+msgstr "সুপার অ্যাডমিনিস্ট্রেটরের পদবি (ঐচ্ছিক):"
+
+#: src/Process/Install/Cli.php:661
+#, php-format
+msgid "Super administrator last name is set to \"%s\"."
+msgstr "সুপার অ্যাডমিনিস্ট্রেটরের পদবি \"%s\" হিসেবে সেট করা আছে।"
+
+#: src/Process/Install/Cli.php:670
+msgid "Configure the super administrator mail:"
+msgstr "সুপার অ্যাডমিনিস্ট্রেটর মেইল ​​কনফিগার করুন:"
+
+#: src/Process/Install/Cli.php:675
+msgid "No super administrator mail."
+msgstr "কোনও সুপার অ্যাডমিনিস্ট্রেটর মেইল ​​নেই।"
+
+#: src/Process/Install/Cli.php:677
+msgid "Invalid super administrator mail."
+msgstr "অবৈধ সুপার অ্যাডমিনিস্ট্রেটর মেইল।"
+
+#: src/Process/Install/Cli.php:679
+#, php-format
+msgid "Super administrator mail is set to \"%s\"."
+msgstr "সুপার অ্যাডমিনিস্ট্রেটর মেইল ​​\"%s\" তে সেট করা আছে।"
+
+#: src/Process/Install/Cli.php:691
+msgid "Configure the super administrator login:"
+msgstr "সুপার অ্যাডমিনিস্ট্রেটর লগইন কনফিগার করুন:"
+
+#: src/Process/Install/Cli.php:696
+msgid "No super administrator login."
+msgstr "কোনও সুপার অ্যাডমিনিস্ট্রেটর লগইন নেই।"
+
+#: src/Process/Install/Cli.php:698
+msgid "Super administrator login must contain at least 2 characters using letters, numbers or symbols."
+msgstr "সুপার অ্যাডমিনিস্ট্রেটর লগইনে অক্ষর, সংখ্যা বা প্রতীক ব্যবহার করে কমপক্ষে ২টি অক্ষর থাকতে হবে।"
+
+#: src/Process/Install/Cli.php:700
+#, php-format
+msgid "Super administrator login is set to \"%s\"."
+msgstr "সুপার অ্যাডমিনিস্ট্রেটর লগইন \"%s\" তে সেট করা আছে।"
+
+#: src/Process/Install/Cli.php:712
+msgid "Configure the super administrator password: "
+msgstr "সুপার অ্যাডমিনিস্ট্রেটর লগইন \"%s\" তে সেট করা আছে।"
+
+#: src/Process/Install/Cli.php:717
+msgid "No super administrator password."
+msgstr "কোনও সুপার অ্যাডমিনিস্ট্রেটর পাসওয়ার্ড নেই।"
+
+#: src/Process/Install/Cli.php:723
+msgid "Confirm the super administrator password:"
+msgstr "সুপার অ্যাডমিনিস্ট্রেটর পাসওয়ার্ড নিশ্চিত করুন:"
+
+#: src/Process/Install/Cli.php:729
+msgid "Super administrator password is set."
+msgstr "সুপার অ্যাডমিনিস্ট্রেটর পাসওয়ার্ড সেট করা আছে।"
+
+#: src/Process/Install/Cli.php:742
+msgid "Configure the blog full URL:"
+msgstr "ব্লগের সম্পূর্ণ URL কনফিগার করুন:"
+
+#: src/Process/Install/Cli.php:747
+msgid "No blog URL."
+msgstr "কোনও ব্লগ URL নেই।"
+
+#: src/Process/Install/Cli.php:749
+msgid "Invalid blog URL."
+msgstr "ব্লগের URLটি অবৈধ।"
+
+#: src/Process/Install/Cli.php:752
+#, php-format
+msgid "Blog URL is set to \"%s\"."
+msgstr "ব্লগের URL \"%s\" তে সেট করা আছে।"
 
 #: src/Process/Install/Install.php:148 src/Process/Install/Wizard.php:192
 msgid "Dotclear cannot be installed."
@@ -6164,32 +6517,6 @@ msgstr "Dotclear ইন্সটল করা সম্ভব নয়।"
 #: src/Process/Install/Install.php:181
 msgid "Invalid email address"
 msgstr "অবৈধ ইমেইল এড্রেস"
-
-#: src/Process/Install/Install.php:244
-msgid "My first blog"
-msgstr "আমার প্রথম ব্লগ"
-
-#: src/Process/Install/Install.php:257
-msgid "%A, %B %e %Y"
-msgstr "%A, %B %e %Y"
-
-#: src/Process/Install/Install.php:333
-msgid "Welcome to Dotclear!"
-msgstr "ডটক্লিয়ারে স্বাগতম!"
-
-#: src/Process/Install/Install.php:334
-msgid "This is your first entry. When you're ready to blog, log in to edit or delete it."
-msgstr "এটি আপনার প্রথম এন্ট্রি। আপনি ব্লগ লেখার জন্য প্রস্তুত হলে, লগইন করে এটিকে এডিট করতে বা মুছে ফেলতে পারবেন।"
-
-#: src/Process/Install/Install.php:346
-msgid "Dotclear Team"
-msgstr "ডটক্লিয়ার টিম"
-
-#: src/Process/Install/Install.php:349
-msgid "<p>This is a comment.</p>\n"
-"<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
-msgstr "<p>এটি একটি মন্তব্য।</p>\n"
-"<p>এটি মুছতে হলে, লগইন করুন এবং ব্লগের মন্তব্য দেখুন। তারপর আপনি মন্তব্যটি মুছে ফেলতে বা এডিট করতে পারবেন।</p>"
 
 #: src/Process/Install/Install.php:405
 msgid "Dotclear Install"
@@ -6288,24 +6615,9 @@ msgstr "কোনও সমর্থিত ডাটাবেস ড্রাই
 msgid "Dotclear installation wizard could not find database driver. You must change your PHP configuration to add a supported database handler please refer to <a href=\"%s\">the documentation</a> to learn how to do this."
 msgstr "ডটক্লিয়ার ইনস্টলেশন উইজার্ড ডাটাবেস ড্রাইভার খুঁজে পায়নি। একটি সমর্থিত ডাটাবেস হ্যান্ডলার যোগ করার জন্য আপনাকে আপনার PHP কনফিগারেশন পরিবর্তন করতে হবে। এটি কীভাবে করবেন তা জানতে দয়া করে <a href=\"%s\">ডকুমেন্টেশন</a> দেখুন।"
 
-#: src/Process/Install/Wizard.php:175
-#, php-format
-msgid "Cannot write \"%s\" directory."
-msgstr "\"%s\" নির্দেশিকা লেখা সম্ভব নয়।"
-
 #: src/Process/Install/Wizard.php:206
 msgid "Master email is not valid."
 msgstr "মাস্টার ইমেইল বৈধ নয়."
-
-#: src/Process/Install/Wizard.php:212
-#, php-format
-msgid "File %s does not exist."
-msgstr "%s ফাইলটি নেই।"
-
-#: src/Process/Install/Wizard.php:217 src/Process/Install/Wizard.php:252
-#, php-format
-msgid "Cannot write %s file."
-msgstr "%s ফাইল লেখা যাচ্ছে না।"
 
 #: src/Process/Install/Wizard.php:297 src/Process/Install/Wizard.php:318
 #: src/Process/Install/Wizard.php:344

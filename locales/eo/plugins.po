@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-05 07:56+0200\n"
-"PO-Revision-Date: 2025-10-05 06:00\n"
+"POT-Creation-Date: 2025-10-31 10:25+0100\n"
+"PO-Revision-Date: 2025-10-31 09:29\n"
 "Last-Translator: \n"
 "Language-Team: Esperanto\n"
 "Language: eo_UY\n"
@@ -686,7 +686,7 @@ msgid "Antispam"
 msgstr "Kontraŭspamo"
 
 #: plugins/antispam/src/BackendBehaviors.php:56
-#: plugins/antispam/src/Manage.php:224
+#: plugins/antispam/src/Manage.php:229
 #, php-format
 msgid "All spam comments older than %s day(s) will be automatically deleted."
 msgstr "Ĉiuj spamkomentoj pli aĝaj ol %s tago(j) estos aŭtomate forigitaj."
@@ -890,80 +890,80 @@ msgstr "Filtrilo ne ekzistas."
 msgid "Filter has no user interface."
 msgstr "Filtrilo ne havas uzantinterfacon."
 
-#: plugins/antispam/src/Manage.php:137 plugins/antispam/src/Manage.php:270
+#: plugins/antispam/src/Manage.php:142 plugins/antispam/src/Manage.php:275
 msgid "Filters configuration has been successfully saved."
 msgstr "Filtrila agordo estis sukcese konservita."
 
-#: plugins/antispam/src/Manage.php:154
+#: plugins/antispam/src/Manage.php:159
 #, php-format
 msgid "%s configuration"
 msgstr "%s agordo"
 
-#: plugins/antispam/src/Manage.php:175
+#: plugins/antispam/src/Manage.php:180
 #, php-format
 msgid "%s filter configuration"
 msgstr "%s filtrila agordo"
 
-#: plugins/antispam/src/Manage.php:182
+#: plugins/antispam/src/Manage.php:187
 msgid "Back to filters list"
 msgstr "Reen al listo de filtriloj"
 
-#: plugins/antispam/src/Manage.php:229
+#: plugins/antispam/src/Manage.php:234
 #, php-format
 msgid "You can modify this duration in the %s"
 msgstr "Vi povas modifi ĉi tiun daŭron en la %s"
 
-#: plugins/antispam/src/Manage.php:238
+#: plugins/antispam/src/Manage.php:243
 msgid "Information"
 msgstr "Informoj"
 
-#: plugins/antispam/src/Manage.php:249
+#: plugins/antispam/src/Manage.php:254
 msgid "Junk comments:"
 msgstr "Rubokomentoj:"
 
-#: plugins/antispam/src/Manage.php:255
+#: plugins/antispam/src/Manage.php:260
 msgid "Published comments:"
 msgstr "Publikigitaj komentoj:"
 
-#: plugins/antispam/src/Manage.php:279 plugins/antispam/src/Manage.php:282
-#: plugins/antispam/src/Manage.php:286
+#: plugins/antispam/src/Manage.php:284 plugins/antispam/src/Manage.php:287
+#: plugins/antispam/src/Manage.php:291
 msgid "Filter configuration"
 msgstr "Filtrila agordo"
 
-#: plugins/antispam/src/Manage.php:302 plugins/blogroll/src/Manage.php:305
+#: plugins/antispam/src/Manage.php:307 plugins/blogroll/src/Manage.php:305
 msgid "position"
 msgstr "pozicio"
 
-#: plugins/antispam/src/Manage.php:309 plugins/antispam/src/Manage.php:343
+#: plugins/antispam/src/Manage.php:314 plugins/antispam/src/Manage.php:348
 msgid "Active"
 msgstr "Aktiva"
 
-#: plugins/antispam/src/Manage.php:316 plugins/antispam/src/Manage.php:344
+#: plugins/antispam/src/Manage.php:321 plugins/antispam/src/Manage.php:349
 msgid "Auto Del."
 msgstr "Aŭtomata Del."
 
-#: plugins/antispam/src/Manage.php:337
+#: plugins/antispam/src/Manage.php:342
 msgid "Available spam filters"
 msgstr "Disponeblaj spam-filtriloj"
 
-#: plugins/antispam/src/Manage.php:342
+#: plugins/antispam/src/Manage.php:347
 #: plugins/pages/src/BackendDefaultActions.php:73
 msgid "Order"
 msgstr "Ordo"
 
-#: plugins/antispam/src/Manage.php:345
+#: plugins/antispam/src/Manage.php:350
 msgid "Filter name"
 msgstr "Nomo de filtrilo"
 
-#: plugins/antispam/src/Manage.php:372
+#: plugins/antispam/src/Manage.php:377
 msgid "Syndication"
 msgstr "Sindikiĝo"
 
-#: plugins/antispam/src/Manage.php:375
+#: plugins/antispam/src/Manage.php:380
 msgid "Junk comments RSS feed"
 msgstr "Rubokomentoj RSS-fluo"
 
-#: plugins/antispam/src/Manage.php:378
+#: plugins/antispam/src/Manage.php:383
 msgid "Published comments RSS feed"
 msgstr "Publikitaj komentoj RSS-fluo"
 
@@ -1319,7 +1319,7 @@ msgstr "Ne enkapsuligu panpeceton en &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; et
 #: plugins/breadcrumb/src/FrontendTemplate.php:192
 #: plugins/breadcrumb/src/FrontendTemplate.php:204
 #: plugins/breadcrumb/src/FrontendTemplate.php:210
-#: plugins/simpleMenu/src/Manage.php:146 plugins/simpleMenu/src/Manage.php:260
+#: plugins/simpleMenu/src/Manage.php:159 plugins/simpleMenu/src/Manage.php:273
 #: plugins/widgets/src/Widgets.php:295
 msgid "Home"
 msgstr "Hejmo"
@@ -1334,13 +1334,13 @@ msgstr "paĝo %d"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:154
 #: plugins/breadcrumb/src/FrontendTemplate.php:157
-#: plugins/simpleMenu/src/Manage.php:287 plugins/widgets/src/Widgets.php:323
+#: plugins/simpleMenu/src/Manage.php:300 plugins/widgets/src/Widgets.php:323
 msgid "Archives"
 msgstr "Arkivoj"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:173
 #: plugins/breadcrumb/src/FrontendTemplate.php:180
-#: plugins/simpleMenu/src/Manage.php:130 plugins/simpleMenu/src/Manage.php:307
+#: plugins/simpleMenu/src/Manage.php:143 plugins/simpleMenu/src/Manage.php:320
 #: plugins/tags/src/Widgets.php:57
 msgid "All tags"
 msgstr "Ĉiuj etikedoj"
@@ -1500,7 +1500,7 @@ msgstr "Malebligas la enkonstruitan literumilon se la retumilo disponigas tian"
 
 #: plugins/dcCKEditor/src/Manage.php:321
 #: plugins/dcLegacyEditor/src/Manage.php:111
-#: plugins/simpleMenu/src/Manage.php:761
+#: plugins/simpleMenu/src/Manage.php:774
 msgid "Save configuration"
 msgstr "Konservu agordon"
 
@@ -1715,7 +1715,7 @@ msgstr "Eksportfunkcioj estas en la paĝo %s."
 
 #: plugins/importExport/src/Manage.php:144
 #: plugins/maintenance/src/Backend.php:27
-#: plugins/maintenance/src/BackendBehaviors.php:219
+#: plugins/maintenance/src/BackendBehaviors.php:220
 msgid "Maintenance"
 msgstr "Prizorgado"
 
@@ -2057,14 +2057,14 @@ msgstr "Konservu tradukojn"
 msgid "Translations"
 msgstr "Tradukoj"
 
-#: plugins/maintenance/src/BackendBehaviors.php:93
+#: plugins/maintenance/src/BackendBehaviors.php:94
 #, php-format
 msgid "One <a href=\"%2$s\">maintenance task</a> to execute."
 msgid_plural "%1$s <a href=\"%2$s\">maintenance tasks</a> to execute."
 msgstr[0] "Unu <a href=\"%2$s\">prizorgada tasko</a> plenumenda."
 msgstr[1] "%1$s <a href=\"%2$s\">prizorgadaj taskoj</a> plenumendaj."
 
-#: plugins/maintenance/src/BackendBehaviors.php:167
+#: plugins/maintenance/src/BackendBehaviors.php:168
 #: plugins/maintenance/src/Rest.php:83
 #, php-format
 msgid "One task to execute"
@@ -2072,33 +2072,33 @@ msgid_plural "%s tasks to execute"
 msgstr[0] "Unu tasko por plenumi"
 msgstr[1] "%s taskoj por plenumi"
 
-#: plugins/maintenance/src/BackendBehaviors.php:201
+#: plugins/maintenance/src/BackendBehaviors.php:202
 #: plugins/maintenance/src/Manage.php:306
 msgid "This task has never been executed."
 msgstr "Ĉi tiu tasko neniam estis plenumita."
 
-#: plugins/maintenance/src/BackendBehaviors.php:204
+#: plugins/maintenance/src/BackendBehaviors.php:205
 #: plugins/maintenance/src/Manage.php:309
 #, php-format
 msgid "Last execution of this task was on %s."
 msgstr "La lasta plenumo de ĉi tiu tasko estis je %s."
 
-#: plugins/maintenance/src/BackendBehaviors.php:222
+#: plugins/maintenance/src/BackendBehaviors.php:223
 #, php-format
 msgid "There is a task to execute."
 msgid_plural "There are %s tasks to execute."
 msgstr[0] "Estas tasko por plenumi."
 msgstr[1] "Estas %s taskoj por plenumi."
 
-#: plugins/maintenance/src/BackendBehaviors.php:229
+#: plugins/maintenance/src/BackendBehaviors.php:230
 msgid "Manage tasks"
 msgstr "Administri taskojn"
 
-#: plugins/maintenance/src/BackendBehaviors.php:251
+#: plugins/maintenance/src/BackendBehaviors.php:252
 msgid "Display overdue tasks counter on maintenance dashboard icon"
 msgstr "Montru nombrilon de posttempaj taskoj sur prizorga instrumentpanelo-ikono"
 
-#: plugins/maintenance/src/BackendBehaviors.php:257
+#: plugins/maintenance/src/BackendBehaviors.php:258
 msgid "Display overdue tasks list on dashboard items"
 msgstr "Montru liston de posttempaj taskoj sur instrumenttabulo-eroj"
 
@@ -2238,6 +2238,23 @@ msgstr "Malsukcesis malplenigi ŝablonojn kaŝmemordosierujon."
 #, php-format
 msgid "It may be useful to empty this cache when modifying a theme's .html or .css files (or when updating a theme or plugin). Notice : with some hosters, the templates cache cannot be emptied with this plugin. You may then have to delete the directory <strong>%s</strong> directly on the server with your FTP software."
 msgstr "Povas esti utile malplenigi ĉi tiun kaŝmemoron kiam oni modifas la dosierojn .html aŭ .css de temo (aŭ kiam oni ĝisdatigas temon aŭ kromprogramon). Rimarko : ĉe iuj gastigantoj, la ŝablonoj-kaŝmemoro ne povas esti malplenigita per ĉi tiu kromaĵo. Vi tiam eble devos forigi la dosierujon <strong>%s</strong> rekte sur la servilo per via FTP-programaro."
+
+#: plugins/maintenance/src/Task/CacheFeeds.php:38
+msgid "Empty the feed cache directory"
+msgstr ""
+
+#: plugins/maintenance/src/Task/CacheFeeds.php:39
+msgid "The feed cache directory has been emptied."
+msgstr ""
+
+#: plugins/maintenance/src/Task/CacheFeeds.php:40
+msgid "Failed to delete the feed cache directory."
+msgstr ""
+
+#: plugins/maintenance/src/Task/CacheFeeds.php:42
+#, php-format
+msgid "Notice : with some hosters, the feed cache cannot be emptied with this plugin. You may then have to delete the directory <strong>%s</strong> directly on the server with your FTP software."
+msgstr ""
 
 #: plugins/maintenance/src/Task/CountComments.php:39
 msgid "Count again comments and trackbacks"
@@ -2404,7 +2421,7 @@ msgid "%d pages"
 msgstr "%d paĝoj"
 
 #: plugins/pages/src/Backend.php:110 plugins/pages/src/Manage.php:147
-#: plugins/pages/src/ManagePage.php:107 plugins/pages/src/ManagePage.php:855
+#: plugins/pages/src/ManagePage.php:107 plugins/pages/src/ManagePage.php:856
 msgid "New page"
 msgstr "Nova paĝo"
 
@@ -2477,60 +2494,60 @@ msgstr "Por rearanĝi paĝojn, movu erojn per trenado kaj faligo, tiam alklaku l
 msgid "Save pages order"
 msgstr "Konservu paĝojn ordon"
 
-#: plugins/pages/src/ManagePage.php:167
+#: plugins/pages/src/ManagePage.php:168
 msgid "This page does not exist."
 msgstr "Ĉi tiu paĝo ne ekzistas."
 
-#: plugins/pages/src/ManagePage.php:188 plugins/pages/src/ManagePage.php:855
-#: plugins/pages/src/ManagePage.php:876
+#: plugins/pages/src/ManagePage.php:189 plugins/pages/src/ManagePage.php:856
+#: plugins/pages/src/ManagePage.php:877
 msgid "Edit page"
 msgstr "Redakti paĝon"
 
-#: plugins/pages/src/ManagePage.php:433
+#: plugins/pages/src/ManagePage.php:434
 msgid "Don't forget to validate your HTML conversion by saving your post."
 msgstr "Ne forgesu validigi vian HTML-konverton konservante vian afiŝon."
 
-#: plugins/pages/src/ManagePage.php:497
+#: plugins/pages/src/ManagePage.php:498
 msgid "Are you sure you want to delete this page?"
 msgstr "Ĉu vi certas, ke vi volas forigi ĉi tiun paĝon?"
 
-#: plugins/pages/src/ManagePage.php:526
+#: plugins/pages/src/ManagePage.php:527
 msgid "Page has been successfully updated."
 msgstr "Paĝo estis sukcese ĝisdatigita."
 
-#: plugins/pages/src/ManagePage.php:528
+#: plugins/pages/src/ManagePage.php:529
 msgid "Page has been successfully created."
 msgstr "Paĝo estas sukcese kreita."
 
-#: plugins/pages/src/ManagePage.php:542
+#: plugins/pages/src/ManagePage.php:543
 msgid "Go to this page on the site"
 msgstr "Iru al ĉi tiu paĝo en la retejo"
 
-#: plugins/pages/src/ManagePage.php:584
+#: plugins/pages/src/ManagePage.php:585
 msgid "Page status"
 msgstr "Paĝa stato"
 
-#: plugins/pages/src/ManagePage.php:601
+#: plugins/pages/src/ManagePage.php:602
 msgid "Page language"
 msgstr "Paĝa lingvo"
 
-#: plugins/pages/src/ManagePage.php:630 plugins/pages/src/Widgets.php:41
+#: plugins/pages/src/ManagePage.php:631 plugins/pages/src/Widgets.php:41
 msgid "Page position"
 msgstr "Paĝa pozicio"
 
-#: plugins/pages/src/ManagePage.php:681
+#: plugins/pages/src/ManagePage.php:682
 msgid "Hide in widget Pages"
 msgstr "Kaŝi en fenestraĵoj Paĝoj"
 
-#: plugins/pages/src/ManagePage.php:707
+#: plugins/pages/src/ManagePage.php:708
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "Averto: Se vi agordas la URL permane, ĝi povas konflikti kun alia paĝo."
 
-#: plugins/pages/src/ManagePage.php:746
+#: plugins/pages/src/ManagePage.php:747
 msgid "Introduction to the page."
 msgstr "Enkonduko al la paĝo."
 
-#: plugins/pages/src/ManagePage.php:1125
+#: plugins/pages/src/ManagePage.php:1126
 msgid "Select this comment"
 msgstr "Elektu ĉi tiun komenton"
 
@@ -2578,7 +2595,7 @@ msgstr "Aŭtomate pingas ĉiujn servojn ĉe la unua publikigo de eniro (nur nuna
 msgid "Test ping services"
 msgstr "Provu ping servojn"
 
-#: plugins/simpleMenu/src/Backend.php:28 plugins/simpleMenu/src/Manage.php:71
+#: plugins/simpleMenu/src/Backend.php:28 plugins/simpleMenu/src/Manage.php:73
 #: plugins/simpleMenu/src/Widgets.php:29
 msgid "Simple menu"
 msgstr "Simpla menuo"
@@ -2591,185 +2608,185 @@ msgstr "Aktiva paĝo"
 msgid "active page"
 msgstr "aktiva paĝo"
 
-#: plugins/simpleMenu/src/Manage.php:96
+#: plugins/simpleMenu/src/Manage.php:105 plugins/simpleMenu/src/Manage.php:109
 msgid "All months"
 msgstr "Ĉiuj monatoj"
 
-#: plugins/simpleMenu/src/Manage.php:159
+#: plugins/simpleMenu/src/Manage.php:172
 msgid "Archive"
 msgstr "Arkivo"
 
-#: plugins/simpleMenu/src/Manage.php:162
+#: plugins/simpleMenu/src/Manage.php:175
 msgid "Page"
 msgstr "Paĝo"
 
-#: plugins/simpleMenu/src/Manage.php:165 plugins/tags/src/Backend.php:27
+#: plugins/simpleMenu/src/Manage.php:178 plugins/tags/src/Backend.php:27
 #: plugins/tags/src/Widgets.php:33
 msgid "Tags"
 msgstr "Etikedoj"
 
-#: plugins/simpleMenu/src/Manage.php:172
+#: plugins/simpleMenu/src/Manage.php:185
 msgid "User defined"
 msgstr "Uzanto difinita"
 
-#: plugins/simpleMenu/src/Manage.php:213
+#: plugins/simpleMenu/src/Manage.php:226
 msgid "Configuration successfully updated."
 msgstr "Agordo sukcese ĝisdatigita."
 
-#: plugins/simpleMenu/src/Manage.php:255 plugins/simpleMenu/src/Manage.php:677
-#: plugins/simpleMenu/src/Manage.php:797
+#: plugins/simpleMenu/src/Manage.php:268 plugins/simpleMenu/src/Manage.php:690
+#: plugins/simpleMenu/src/Manage.php:810
 msgid "Label"
 msgstr "Etikedo"
 
-#: plugins/simpleMenu/src/Manage.php:261
+#: plugins/simpleMenu/src/Manage.php:274
 msgid "Home page"
 msgstr "Hejmpaĝo"
 
-#: plugins/simpleMenu/src/Manage.php:261 plugins/simpleMenu/src/Manage.php:266
+#: plugins/simpleMenu/src/Manage.php:274 plugins/simpleMenu/src/Manage.php:279
 #: plugins/widgets/src/Widgets.php:304 plugins/widgets/src/Widgets.php:314
 msgid "Recent posts"
 msgstr "Freŝaj Afiŝoj"
 
-#: plugins/simpleMenu/src/Manage.php:273
+#: plugins/simpleMenu/src/Manage.php:286
 #, php-format
 msgid "Switch to %s language"
 msgstr "Ŝanĝu al %s lingvo"
 
-#: plugins/simpleMenu/src/Manage.php:280
+#: plugins/simpleMenu/src/Manage.php:293
 msgid "Recent Posts from this category"
 msgstr "Lastaj Afiŝoj de ĉi tiu kategorio"
 
-#: plugins/simpleMenu/src/Manage.php:292
+#: plugins/simpleMenu/src/Manage.php:305
 #, php-format
 msgid "Posts from %s"
 msgstr "Afiŝoj de %s"
 
-#: plugins/simpleMenu/src/Manage.php:312
+#: plugins/simpleMenu/src/Manage.php:325
 #, php-format
 msgid "Recent posts for %s tag"
 msgstr "Lastaj afiŝoj por etikedo %s"
 
-#: plugins/simpleMenu/src/Manage.php:372
+#: plugins/simpleMenu/src/Manage.php:385
 msgid "Menu item has been successfully added."
 msgstr "Menuero estis sukcese aldonita."
 
-#: plugins/simpleMenu/src/Manage.php:377
+#: plugins/simpleMenu/src/Manage.php:390
 msgid "Label and URL of menu item are mandatory."
 msgstr "Etikedo kaj URL de menuero estas devigaj."
 
-#: plugins/simpleMenu/src/Manage.php:410
+#: plugins/simpleMenu/src/Manage.php:423
 msgid "Menu items have been successfully removed."
 msgstr "Menueroj estis sukcese forigitaj."
 
-#: plugins/simpleMenu/src/Manage.php:413
+#: plugins/simpleMenu/src/Manage.php:426
 msgid "No menu items selected."
 msgstr "Neniuj menueroj elektitaj."
 
-#: plugins/simpleMenu/src/Manage.php:425
+#: plugins/simpleMenu/src/Manage.php:438
 msgid "Label is mandatory."
 msgstr "Etikedo estas deviga."
 
-#: plugins/simpleMenu/src/Manage.php:430
+#: plugins/simpleMenu/src/Manage.php:443
 msgid "URL is mandatory."
 msgstr "URL estas deviga."
 
-#: plugins/simpleMenu/src/Manage.php:475
+#: plugins/simpleMenu/src/Manage.php:488
 msgid "Menu items have been successfully updated."
 msgstr "Menueroj estis sukcese ĝisdatigitaj."
 
-#: plugins/simpleMenu/src/Manage.php:502
+#: plugins/simpleMenu/src/Manage.php:515
 msgid "Are you sure you want to remove selected menu items?"
 msgstr "Ĉu vi certas, ke vi volas forigi elektitajn menuerojn?"
 
-#: plugins/simpleMenu/src/Manage.php:511
+#: plugins/simpleMenu/src/Manage.php:524
 msgid "Step #1"
 msgstr "Paŝo 1"
 
-#: plugins/simpleMenu/src/Manage.php:516 plugins/simpleMenu/src/Manage.php:521
+#: plugins/simpleMenu/src/Manage.php:529 plugins/simpleMenu/src/Manage.php:534
 msgid "Step #2"
 msgstr "Paŝo #2"
 
-#: plugins/simpleMenu/src/Manage.php:521
+#: plugins/simpleMenu/src/Manage.php:534
 msgid "Step #3"
 msgstr "Paŝo #3"
 
-#: plugins/simpleMenu/src/Manage.php:530
+#: plugins/simpleMenu/src/Manage.php:543
 msgid "Add item"
 msgstr "Aldonu objekton"
 
-#: plugins/simpleMenu/src/Manage.php:561
+#: plugins/simpleMenu/src/Manage.php:574
 msgid "Select type"
 msgstr "Elektu tipon"
 
-#: plugins/simpleMenu/src/Manage.php:568
+#: plugins/simpleMenu/src/Manage.php:581
 msgid "Type of item menu:"
 msgstr "Tipo de menuo:"
 
-#: plugins/simpleMenu/src/Manage.php:574 plugins/simpleMenu/src/Manage.php:641
+#: plugins/simpleMenu/src/Manage.php:587 plugins/simpleMenu/src/Manage.php:654
 msgid "Continue..."
 msgstr "Daŭrigu..."
 
-#: plugins/simpleMenu/src/Manage.php:597
+#: plugins/simpleMenu/src/Manage.php:610
 msgid "Select language:"
 msgstr "Elektu lingvon:"
 
-#: plugins/simpleMenu/src/Manage.php:603
+#: plugins/simpleMenu/src/Manage.php:616
 msgid "Select category:"
 msgstr "Elektu kategorion:"
 
-#: plugins/simpleMenu/src/Manage.php:609
+#: plugins/simpleMenu/src/Manage.php:622
 msgid "Select month (if necessary):"
 msgstr "Elektu monaton (se necese):"
 
-#: plugins/simpleMenu/src/Manage.php:615
+#: plugins/simpleMenu/src/Manage.php:628
 msgid "Select page:"
 msgstr "Elektu paĝon:"
 
-#: plugins/simpleMenu/src/Manage.php:621
+#: plugins/simpleMenu/src/Manage.php:634
 msgid "Select tag (if necessary):"
 msgstr "Elektu etikedon (se necese):"
 
-#: plugins/simpleMenu/src/Manage.php:682
+#: plugins/simpleMenu/src/Manage.php:695
 msgid "Label of item menu:"
 msgstr "Etikedo de menuo:"
 
-#: plugins/simpleMenu/src/Manage.php:696
+#: plugins/simpleMenu/src/Manage.php:709
 msgid "Description of item menu:"
 msgstr "Priskribo de la menuo:"
 
-#: plugins/simpleMenu/src/Manage.php:711
+#: plugins/simpleMenu/src/Manage.php:724
 msgid "URL of item menu:"
 msgstr "URL de la menuo:"
 
-#: plugins/simpleMenu/src/Manage.php:721 plugins/simpleMenu/src/Manage.php:800
+#: plugins/simpleMenu/src/Manage.php:734 plugins/simpleMenu/src/Manage.php:813
 msgid "Open URL on a new tab"
 msgstr "Malfermu URL sur nova langeto"
 
-#: plugins/simpleMenu/src/Manage.php:729
+#: plugins/simpleMenu/src/Manage.php:742
 msgid "Add this item"
 msgstr "Aldonu ĉi tiun eron"
 
-#: plugins/simpleMenu/src/Manage.php:755
+#: plugins/simpleMenu/src/Manage.php:768
 msgid "Enable simple menu for this blog"
 msgstr "Ebligu simplan menuon por ĉi tiu blogo"
 
-#: plugins/simpleMenu/src/Manage.php:778
+#: plugins/simpleMenu/src/Manage.php:791
 msgid "Add an item"
 msgstr "Aldonu eron"
 
-#: plugins/simpleMenu/src/Manage.php:896
+#: plugins/simpleMenu/src/Manage.php:909
 msgid "Menu items list"
 msgstr "Listo de menueroj"
 
-#: plugins/simpleMenu/src/Manage.php:923
+#: plugins/simpleMenu/src/Manage.php:936
 msgid "Delete selected menu items"
 msgstr "Forigu elektitajn menuerojn"
 
-#: plugins/simpleMenu/src/Manage.php:932
+#: plugins/simpleMenu/src/Manage.php:945
 msgid "Update menu"
 msgstr "Ĝisdatigu menuon"
 
-#: plugins/simpleMenu/src/Manage.php:942
+#: plugins/simpleMenu/src/Manage.php:955
 msgid "No menu items so far."
 msgstr "Neniuj menueroj ĝis nun."
 
@@ -2958,8 +2975,8 @@ msgid "themeEditor"
 msgstr "temoRedaktilo"
 
 #: plugins/themeEditor/src/BackendBehaviors.php:45
-#: plugins/themeEditor/src/Manage.php:193
-#: plugins/themeEditor/src/Manage.php:200
+#: plugins/themeEditor/src/Manage.php:194
+#: plugins/themeEditor/src/Manage.php:201
 msgid "Edit theme files"
 msgstr "Redaktu temodosierojn"
 
@@ -2983,85 +3000,85 @@ msgstr "La ĝisdatigo de la temo estis malŝlosita."
 msgid "The file has been reset."
 msgstr "La dosiero estis rekomencigita."
 
-#: plugins/themeEditor/src/Manage.php:162
+#: plugins/themeEditor/src/Manage.php:163
 msgid "Lock update"
 msgstr "Ŝlosu ĝisdatigon"
 
-#: plugins/themeEditor/src/Manage.php:162
+#: plugins/themeEditor/src/Manage.php:163
 msgid "Unlock update"
 msgstr "Malŝlosu ĝisdatigon"
 
-#: plugins/themeEditor/src/Manage.php:167
+#: plugins/themeEditor/src/Manage.php:168
 msgid "Lock theme update disables theme update, but allows theme files to be modified."
 msgstr "Ŝlosi etoĝisdatigon malŝaltas temo-ĝisdatigo, sed permesas modifi etodosierojn."
 
-#: plugins/themeEditor/src/Manage.php:173
+#: plugins/themeEditor/src/Manage.php:174
 msgid "The theme editor is in development mode, theme files will be overwritten!"
 msgstr "La temredaktilo estas en disvolva reĝimo, la temdosieroj estos anstataŭigitaj!"
 
-#: plugins/themeEditor/src/Manage.php:181
+#: plugins/themeEditor/src/Manage.php:182
 msgid "Saving document..."
 msgstr "Konservante dokumenton..."
 
-#: plugins/themeEditor/src/Manage.php:182
+#: plugins/themeEditor/src/Manage.php:183
 msgid "Document saved"
 msgstr "Dokumento konservita"
 
-#: plugins/themeEditor/src/Manage.php:183
+#: plugins/themeEditor/src/Manage.php:184
 msgid "An error occurred:"
 msgstr "Eraro okazis:"
 
-#: plugins/themeEditor/src/Manage.php:184
+#: plugins/themeEditor/src/Manage.php:185
 msgid "Are you sure you want to reset this file?"
 msgstr "Ĉu vi certas, ke vi volas restarigi ĉi tiun dosieron?"
 
-#: plugins/themeEditor/src/Manage.php:208
+#: plugins/themeEditor/src/Manage.php:209
 #, php-format
 msgid "Your current theme on this blog is \"%s\"."
 msgstr "Via nuna temo en ĉi tiu blogo estas \"%s\"."
 
-#: plugins/themeEditor/src/Manage.php:218
+#: plugins/themeEditor/src/Manage.php:219
 msgid "Please select a file to edit."
 msgstr "Bonvolu elekti dosieron por redakti."
 
-#: plugins/themeEditor/src/Manage.php:226
+#: plugins/themeEditor/src/Manage.php:227
 msgid "Reset"
 msgstr "Restarigi"
 
-#: plugins/themeEditor/src/Manage.php:235
+#: plugins/themeEditor/src/Manage.php:236
 msgid "File editor"
 msgstr "Dosierredaktilo"
 
-#: plugins/themeEditor/src/Manage.php:244
+#: plugins/themeEditor/src/Manage.php:245
 #, php-format
 msgid "Editing file %s"
 msgstr "Redaktante dosieron %s"
 
-#: plugins/themeEditor/src/Manage.php:260
+#: plugins/themeEditor/src/Manage.php:261
 msgid "If you use <code>url(...)</code> in your CSS files, be sure to use <code>url(index.php?tf=...)</code> to correctly load theme resources (imported CSS, images, etc.), except for URL types in the form <code>data:image</code>.<br>Example: do <code>@import url(index.php?tf=css/layout.css);</code> instead of <code>@import url(css/layout.css);</code>."
 msgstr "Se vi uzas <code>url(...)</code> en viaj CSS-dosieroj, nepre uzu <code>url(index.php?tf=...)</code> por ĝuste ŝargi temajn rimedojn (importitan CSS, bildojn, ktp.), krom URL-tipoj en la formo <code>data:image</code>.<br>Ekzemplo: faru <code>@import url(index.php?tf=css/layout.css);</code> anstataŭ <code>@import url(css/layout.css);</code>."
 
-#: plugins/themeEditor/src/Manage.php:264
+#: plugins/themeEditor/src/Manage.php:265
 msgid "This file is not overloadable. Please check your var folder permissions."
 msgstr "Ĉi tiu dosiero ne estas troŝarĝebla. Bonvolu kontroli la permesojn de via dosierujo \"var\"."
 
-#: plugins/themeEditor/src/Manage.php:283
+#: plugins/themeEditor/src/Manage.php:284
 msgid "Templates files"
 msgstr "Dosieroj de ŝablonoj"
 
-#: plugins/themeEditor/src/Manage.php:288
+#: plugins/themeEditor/src/Manage.php:289
 msgid "CSS files"
 msgstr "CSS dosieroj"
 
-#: plugins/themeEditor/src/Manage.php:293
+#: plugins/themeEditor/src/Manage.php:294
 msgid "JavaScript files"
 msgstr "JavaScript dosieroj"
 
-#: plugins/themeEditor/src/Manage.php:298
+#: plugins/themeEditor/src/Manage.php:299
 msgid "Locales files"
 msgstr "Lokaj dosieroj"
 
-#: plugins/themeEditor/src/Manage.php:303
+#: plugins/themeEditor/src/Manage.php:304
 msgid "PHP files"
 msgstr "PHP-dosieroj"
 
@@ -3353,31 +3370,31 @@ msgstr "Enskriboj nutras"
 msgid "Comments feed"
 msgstr "Fluo de komentoj"
 
-#: plugins/widgets/src/WidgetsElement.php:547
+#: plugins/widgets/src/WidgetsElement.php:543
 msgid "Title (optional)"
 msgstr "Titolo (laŭvola)"
 
-#: plugins/widgets/src/WidgetsElement.php:558
+#: plugins/widgets/src/WidgetsElement.php:554
 msgid "All pages"
 msgstr "Ĉiuj paĝoj"
 
-#: plugins/widgets/src/WidgetsElement.php:559
+#: plugins/widgets/src/WidgetsElement.php:555
 msgid "Home page only"
 msgstr "Hejmpaĝo nur"
 
-#: plugins/widgets/src/WidgetsElement.php:560
+#: plugins/widgets/src/WidgetsElement.php:556
 msgid "Except on home page"
 msgstr "Krom sur la ĉefpaĝo"
 
-#: plugins/widgets/src/WidgetsElement.php:568
+#: plugins/widgets/src/WidgetsElement.php:564
 msgid "Display on:"
 msgstr "Montru sur:"
 
-#: plugins/widgets/src/WidgetsElement.php:594
+#: plugins/widgets/src/WidgetsElement.php:590
 msgid "Content only"
 msgstr "Nur enhavo"
 
-#: plugins/widgets/src/WidgetsElement.php:604
+#: plugins/widgets/src/WidgetsElement.php:600
 msgid "CSS class:"
 msgstr "CSS-klaso:"
 
