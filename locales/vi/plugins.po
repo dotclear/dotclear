@@ -1,0 +1,3393 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-10-31 10:25+0100\n"
+"PO-Revision-Date: 2025-11-01 14:49\n"
+"Last-Translator: \n"
+"Language-Team: Vietnamese\n"
+"Language: vi_VN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Crowdin-Project: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"X-Crowdin-Project-ID: 2\n"
+"X-Crowdin-Language: vi\n"
+"X-Crowdin-File: /master/locales/_pot/plugins.pot\n"
+"X-Crowdin-File-ID: 264\n"
+
+#: plugins/Uninstaller/src/Backend.php:48
+msgid "Uninstall"
+msgstr "Gỡ cài đặt"
+
+#: plugins/Uninstaller/src/Backend.php:106
+msgid "Plugin has been successfully uninstalled."
+msgstr "Plugin đã được gỡ cài đặt thành công."
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:38
+msgid "Folders from cache directory"
+msgstr "Thư mục từ thư mục bộ nhớ đệm"
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:43
+#, php-format
+msgid "delete \"%s\" cache directory"
+msgstr "Xóa thư mục bộ nhớ cache \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:44
+#, php-format
+msgid "\"%s\" cache directory deleted"
+msgstr "\"%s\" thư mục cache đã bị xóa."
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:45
+#, php-format
+msgid "Failed to delete \"%s\" cache directory"
+msgstr "Không thể xóa thư mục bộ nhớ đệm \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:46
+msgid "delete selected cache directories"
+msgstr "Xóa các thư mục bộ nhớ đệm đã chọn"
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:52
+#, php-format
+msgid "empty \"%s\" cache directory"
+msgstr "Xóa thư mục bộ nhớ đệm \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:53
+#, php-format
+msgid "\"%s\" cache directory emptied"
+msgstr "\"%s\" thư mục cache đã được xóa sạch."
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:54
+#, php-format
+msgid "Failed to empty \"%s\" cache directory"
+msgstr "Không thể xóa thư mục bộ nhớ đệm \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Caches.php:55
+msgid "empty selected cache directories"
+msgstr "Xóa các thư mục bộ nhớ đệm đã chọn"
+
+#: plugins/Uninstaller/src/Cleaner/Logs.php:38
+msgid "Logs"
+msgstr "Nhật ký"
+
+#: plugins/Uninstaller/src/Cleaner/Logs.php:39
+msgid "Logs in Dotclear logs table"
+msgstr "Nhật ký trong bảng nhật ký Dotclear"
+
+#: plugins/Uninstaller/src/Cleaner/Logs.php:44
+#, php-format
+msgid "delete \"%s\" logs table"
+msgstr "Xóa bảng nhật ký \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Logs.php:45
+#, php-format
+msgid "\"%s\" logs table deleted"
+msgstr "\"%s\" Bảng nhật ký đã bị xóa"
+
+#: plugins/Uninstaller/src/Cleaner/Logs.php:46
+#, php-format
+msgid "Failed to delete \"%s\" logs table"
+msgstr "Không thể xóa bảng nhật ký \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Logs.php:47
+msgid "delete selected logs tables"
+msgstr "Xóa các bảng nhật ký đã chọn"
+
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:37
+msgid "Folders from plugins directories"
+msgstr "Thư mục từ các thư mục plugin"
+
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:42
+#, php-format
+msgid "delete \"%s\" plugin files and directories"
+msgstr "Xóa các tệp và thư mục của plugin \"%s\"."
+
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:43
+#, php-format
+msgid "\"%s\" plugin files and directories deleted"
+msgstr "Các tệp và thư mục của plugin \"%s\" đã bị xóa."
+
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:44
+#, php-format
+msgid "Failed to delete \"%s\" plugin files and directories"
+msgstr "Không thể xóa các tệp và thư mục của plugin \"%s\"."
+
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:45
+msgid "delete selected plugins files and directories"
+msgstr "Xóa các tệp và thư mục của các plugin đã chọn."
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:38
+msgid "Preferences"
+msgstr "Tùy chọn"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:39
+msgid "Users preferences workspaces"
+msgstr "Cài đặt không gian làm việc của người dùng"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:44
+#, php-format
+msgid "delete \"%s\" global preferences workspace"
+msgstr "Xóa \"%s\" khỏi không gian làm việc tùy chọn toàn cầu."
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:45
+#, php-format
+msgid "\"%s\" global preferences workspace deleted"
+msgstr "\"%s\" - Không gian làm việc cài đặt toàn cầu đã bị xóa."
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:46
+#, php-format
+msgid "Failed to delete \"%s\" global preferences workspace"
+msgstr "Không thể xóa \"%s\" khỏi không gian làm việc cài đặt toàn cầu."
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:47
+msgid "delete selected global preferences workspaces"
+msgstr "Xóa các tùy chọn toàn cầu đã chọn trong không gian làm việc."
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:53
+#, php-format
+msgid "delete \"%s\" users preferences workspace"
+msgstr "Xóa \"%s\" khỏi cài đặt người dùng và không gian làm việc."
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:54
+#, php-format
+msgid "\"%s\" users preferences workspace deleted"
+msgstr "\"%s\" - Ưu tiên của người dùng trong không gian làm việc đã bị xóa."
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:55
+#, php-format
+msgid "Failed to delete \"%s\" users preferences workspace"
+msgstr "Không thể xóa \"%s\" - Không gian làm việc tùy chọn của người dùng"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:56
+msgid "delete selected users preferences workspaces"
+msgstr "Xóa các tùy chọn và không gian làm việc của người dùng đã chọn."
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:62
+#, php-format
+msgid "delete \"%s\" preferences workspace"
+msgstr "Xóa \"%s\" khỏi không gian làm việc của Preferences."
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:63
+#, php-format
+msgid "\"%s\" preferences workspace deleted"
+msgstr "\"%s\" đã xóa không gian làm việc tùy chọn."
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:64
+#, php-format
+msgid "Failed to delete \"%s\" preferences workspace"
+msgstr "Không thể xóa \"%s\" khỏi không gian làm việc tùy chọn."
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:65
+msgid "delete selected preferences workspaces"
+msgstr "Xóa các tùy chọn và không gian làm việc đã chọn"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:71
+msgid "delete related preferences"
+msgstr "Xóa các tùy chọn liên quan"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:72
+msgid "related preferences deleted"
+msgstr "Các tùy chọn liên quan đã bị xóa"
+
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:73
+msgid "Failed to delete related preferences"
+msgstr "Không thể xóa các tùy chọn liên quan."
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:39
+msgid "Namespaces registered in dcSettings"
+msgstr "Các không gian tên được đăng ký trong dcSettings"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:44
+#, php-format
+msgid "delete \"%s\" global settings namespace"
+msgstr "Xóa \"%s\" khỏi không gian tên cài đặt toàn cầu."
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:45
+#, php-format
+msgid "\"%s\" global settings namespace deleted"
+msgstr "\"%s\" không gian tên cài đặt toàn cầu đã bị xóa."
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:46
+#, php-format
+msgid "Failed to delete \"%s\" global settings namespace"
+msgstr "Không thể xóa không gian tên cài đặt toàn cục \"%s\"."
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:47
+msgid "delete selected global settings namespaces"
+msgstr "Xóa các không gian tên cài đặt toàn cầu đã chọn"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:53
+#, php-format
+msgid "delete \"%s\" blog settings namespace"
+msgstr "Xóa \"%s\" khỏi không gian tên cài đặt blog."
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:54
+#, php-format
+msgid "\"%s\" blog settings namespace deleted"
+msgstr "\"%s\" - Không gian tên cài đặt blog đã bị xóa."
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:55
+#, php-format
+msgid "Failed to delete \"%s\" blog settings namespace"
+msgstr "Không thể xóa không gian tên cài đặt blog \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:56
+msgid "delete selected blog settings namespaces"
+msgstr "Xóa các không gian tên cài đặt blog đã chọn"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:62
+#, php-format
+msgid "delete \"%s\" settings namespace"
+msgstr "Xóa không gian tên \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:63
+#, php-format
+msgid "\"%s\" settings namespace deleted"
+msgstr "\"%s\" không gian tên cài đặt đã bị xóa."
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:64
+#, php-format
+msgid "Failed to delete \"%s\" settings namespace"
+msgstr "Không thể xóa không gian tên cài đặt \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:65
+msgid "delete selected settings namespaces"
+msgstr "Xóa các không gian tên cài đặt đã chọn"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:71
+msgid "delete related settings"
+msgstr "Xóa các cài đặt liên quan"
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:72
+msgid "related settings deleted"
+msgstr "Các cài đặt liên quan đã bị xóa."
+
+#: plugins/Uninstaller/src/Cleaner/Settings.php:73
+msgid "Failed to delete related settings"
+msgstr "Không thể xóa các cài đặt liên quan."
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:38
+msgid "Tables"
+msgstr "Bảng"
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:39
+msgid "All database tables of Dotclear"
+msgstr "Tất cả các bảng cơ sở dữ liệu của Dotclear"
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:44
+#, php-format
+msgid "delete \"%s\" table"
+msgstr "Xóa bảng \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:45
+#, php-format
+msgid "\"%s\" table deleted"
+msgstr "Bảng \"%s\" đã bị xóa."
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:46
+#, php-format
+msgid "Failed to delete \"%s\" table"
+msgstr "Không thể xóa bảng \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:47
+msgid "delete selected tables"
+msgstr "Xóa các bảng đã chọn"
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:53
+#, php-format
+msgid "empty \"%s\" table"
+msgstr "Xóa bảng \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:54
+#, php-format
+msgid "\"%s\" table emptied"
+msgstr "Bảng \"%s\" đã được xóa sạch."
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:55
+#, php-format
+msgid "Failed to empty \"%s\" table"
+msgstr "Không thể xóa bảng \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Tables.php:56
+msgid "empty selected tables"
+msgstr "Xóa các bảng đã chọn"
+
+#: plugins/Uninstaller/src/Cleaner/Themes.php:36
+msgid "Themes"
+msgstr "Chủ đề"
+
+#: plugins/Uninstaller/src/Cleaner/Themes.php:37
+msgid "Folders from blog themes directory"
+msgstr "Thư mục từ thư mục chủ đề blog"
+
+#: plugins/Uninstaller/src/Cleaner/Themes.php:42
+#, php-format
+msgid "delete \"%s\" theme files and directories"
+msgstr "Xóa các tệp và thư mục chủ đề \"%s\"."
+
+#: plugins/Uninstaller/src/Cleaner/Themes.php:43
+#, php-format
+msgid "\"%s\" theme files and directories deleted"
+msgstr "Các tệp và thư mục chủ đề \"%s\" đã bị xóa."
+
+#: plugins/Uninstaller/src/Cleaner/Themes.php:44
+#, php-format
+msgid "Failed to delete \"%s\" theme files and directories"
+msgstr "Không thể xóa các tệp và thư mục chủ đề \"%s\"."
+
+#: plugins/Uninstaller/src/Cleaner/Themes.php:45
+msgid "delete selected themes files and directories"
+msgstr "Xóa các tệp và thư mục chủ đề đã chọn."
+
+#: plugins/Uninstaller/src/Cleaner/Vars.php:37
+msgid "Var"
+msgstr "Var"
+
+#: plugins/Uninstaller/src/Cleaner/Vars.php:38
+msgid "Folders from Dotclear VAR directory"
+msgstr "Thư mục từ thư mục Dotclear VAR"
+
+#: plugins/Uninstaller/src/Cleaner/Vars.php:43
+#, php-format
+msgid "delete \"%s\" var directory"
+msgstr "Xóa \"%s\" var directory"
+
+#: plugins/Uninstaller/src/Cleaner/Vars.php:44
+#, php-format
+msgid "\"%s\" var directory deleted"
+msgstr "\"%s\" thư mục đã bị xóa"
+
+#: plugins/Uninstaller/src/Cleaner/Vars.php:45
+#, php-format
+msgid "Failed to delete \"%s\" var directory"
+msgstr "Không thể xóa thư mục \"%s\""
+
+#: plugins/Uninstaller/src/Cleaner/Vars.php:46
+msgid "delete selected var directories"
+msgstr "Xóa các thư mục biến đã chọn"
+
+#: plugins/Uninstaller/src/Cleaner/Versions.php:36
+msgid "Versions"
+msgstr "Phiên bản"
+
+#: plugins/Uninstaller/src/Cleaner/Versions.php:37
+msgid "Versions registered in table \"version\" of Dotclear"
+msgstr "Các phiên bản được đăng ký trong bảng \"version\" của Dotclear"
+
+#: plugins/Uninstaller/src/Cleaner/Versions.php:42
+#, php-format
+msgid "delete \"%s\" version number"
+msgstr "Xóa \"%s\" số phiên bản"
+
+#: plugins/Uninstaller/src/Cleaner/Versions.php:43
+#, php-format
+msgid "\"%s\" version number deleted"
+msgstr "\"%s\" Số phiên bản đã bị xóa"
+
+#: plugins/Uninstaller/src/Cleaner/Versions.php:44
+#, php-format
+msgid "Failed to delete \"%s\" version number"
+msgstr "Không thể xóa \"%s\" số phiên bản"
+
+#: plugins/Uninstaller/src/Cleaner/Versions.php:45
+msgid "delete selected versions numbers"
+msgstr "Xóa các số phiên bản đã chọn"
+
+#: plugins/Uninstaller/src/CleanersStack.php:112
+#, php-format
+msgid "Unknown cleaner \"%s\""
+msgstr "Chất tẩy rửa không rõ nguồn gốc \"%s\""
+
+#: plugins/Uninstaller/src/CleanersStack.php:115
+msgid "Uninstaller can't remove itself"
+msgstr "Trình gỡ cài đặt không thể tự gỡ bỏ chính nó."
+
+#: plugins/Uninstaller/src/Manage.php:59
+msgid "Unknown module id to uninstall"
+msgstr "ID mô-đun không xác định để gỡ cài đặt"
+
+#: plugins/Uninstaller/src/Manage.php:67
+msgid "There are no uninstall actions for this module"
+msgstr "Không có thao tác gỡ cài đặt cho mô-đun này."
+
+#: plugins/Uninstaller/src/Manage.php:92
+msgid "Uninstall action successfuly excecuted"
+msgstr "Hành động gỡ cài đặt đã được thực hiện thành công."
+
+#: plugins/Uninstaller/src/Manage.php:95
+msgid "No uninstall action done"
+msgstr "Không có thao tác gỡ cài đặt nào được thực hiện."
+
+#: plugins/Uninstaller/src/Manage.php:141
+msgid "Perform selected actions"
+msgstr "Thực hiện các hành động đã chọn"
+
+#: plugins/Uninstaller/src/Manage.php:156
+msgid "Are you sure you perform these ations?"
+msgstr "Bạn có chắc chắn rằng bạn đã thực hiện các thao tác này không?"
+
+#: plugins/Uninstaller/src/Manage.php:172
+#, php-format
+msgid "Uninstall plugin \"%s\""
+msgstr "Gỡ cài đặt plugin \"%s\""
+
+#: plugins/Uninstaller/src/Manage.php:172
+#, php-format
+msgid "Uninstall theme \"%s\""
+msgstr "Gỡ cài đặt chủ đề \"%s\""
+
+#: plugins/Uninstaller/src/Manage.php:173
+#, php-format
+msgid "The module \"%1$s\" version %2$s offers advanced uninstall process:"
+msgstr "Module \"%1$s\" phiên bản %2$s cung cấp quy trình gỡ cài đặt nâng cao:"
+
+#: plugins/_fake_plugin/_fake_l10n.php:7
+msgid "Cope with old core classes (< 2.26)"
+msgstr "Xử lý các lớp lõi cũ (< 2.26)"
+
+#: plugins/_fake_plugin/_fake_l10n.php:8 plugins/antispam/src/Backend.php:32
+msgid "Generic antispam plugin for Dotclear"
+msgstr "Plugin chống spam chung cho Dotclear"
+
+#: plugins/_fake_plugin/_fake_l10n.php:9 plugins/akismet/src/Prepend.php:29
+msgid "Akismet interface for Dotclear"
+msgstr "Giao diện Akismet cho Dotclear"
+
+#: plugins/_fake_plugin/_fake_l10n.php:10
+#: plugins/fairTrackbacks/src/Prepend.php:29
+msgid "Trackback validity check"
+msgstr "Kiểm tra tính hợp lệ của Trackback"
+
+#: plugins/_fake_plugin/_fake_l10n.php:11
+#: plugins/attachments/src/Backend.php:28
+msgid "Manage post attachments"
+msgstr "Quản lý tệp đính kèm bài đăng"
+
+#: plugins/_fake_plugin/_fake_l10n.php:12 plugins/pages/src/Backend.php:31
+msgid "Serve entries as simple web pages"
+msgstr "Hiển thị các mục dưới dạng trang web đơn giản"
+
+#: plugins/_fake_plugin/_fake_l10n.php:13
+#: plugins/aboutConfig/src/Backend.php:28
+msgid "Manage every blog configuration directive"
+msgstr "Quản lý mọi chỉ thị cấu hình blog"
+
+#: plugins/_fake_plugin/_fake_l10n.php:14
+msgid "Uninstall cleanly plugins and themes"
+msgstr "Gỡ cài đặt sạch sẽ các plugin và chủ đề."
+
+#: plugins/_fake_plugin/_fake_l10n.php:15
+#: plugins/dcLegacyEditor/src/Backend.php:29
+#: plugins/dcLegacyEditor/src/Manage.php:73
+msgid "Dotclear editor"
+msgstr "Trình soạn thảo Dotclear"
+
+#: plugins/_fake_plugin/_fake_l10n.php:16
+#: plugins/themeEditor/src/Backend.php:29
+msgid "Theme Editor"
+msgstr "Trình chỉnh sửa chủ đề"
+
+#: plugins/_fake_plugin/_fake_l10n.php:17 plugins/simpleMenu/src/Backend.php:29
+msgid "Simple menu for Dotclear"
+msgstr "Thực đơn đơn giản cho Dotclear"
+
+#: plugins/_fake_plugin/_fake_l10n.php:18
+#: plugins/importExport/src/Backend.php:30
+msgid "Import and Export your blog"
+msgstr "Nhập và Xuất blog của bạn"
+
+#: plugins/_fake_plugin/_fake_l10n.php:19 plugins/userPref/src/Backend.php:28
+msgid "Manage every user preference directive"
+msgstr "Quản lý mọi chỉ thị về tùy chọn người dùng"
+
+#: plugins/_fake_plugin/_fake_l10n.php:20 plugins/dcCKEditor/src/Backend.php:28
+#: plugins/dcCKEditor/src/Manage.php:170
+msgid "CKEditor"
+msgstr "CKEditor"
+
+#: plugins/_fake_plugin/_fake_l10n.php:21
+#: plugins/maintenance/src/Backend.php:28
+msgid "Maintain your installation"
+msgstr "Bảo trì hệ thống của bạn"
+
+#: plugins/_fake_plugin/_fake_l10n.php:22 plugins/breadcrumb/src/Backend.php:28
+msgid "Breadcrumb for Dotclear"
+msgstr "Dấu vết điều hướng cho Dotclear"
+
+#: plugins/_fake_plugin/_fake_l10n.php:23 plugins/blogroll/src/Backend.php:29
+msgid "Manage your blogroll"
+msgstr "Quản lý danh sách blog của bạn"
+
+#: plugins/_fake_plugin/_fake_l10n.php:24 plugins/pings/src/Backend.php:30
+msgid "Ping services"
+msgstr "Dịch vụ Ping"
+
+#: plugins/_fake_plugin/_fake_l10n.php:25 plugins/tags/src/Backend.php:28
+msgid "Tags for posts"
+msgstr "Thẻ cho bài viết"
+
+#: plugins/_fake_plugin/_fake_l10n.php:26 plugins/widgets/src/Backend.php:30
+msgid "Widgets for your blog sidebars"
+msgstr "Các tiện ích cho thanh bên của blog của bạn"
+
+#: plugins/_fake_plugin/_fake_l10n.php:27
+msgid "Cope with function/method footprint V1 (< 2.24, 2.25)"
+msgstr "Xử lý dấu vết chức năng/phương thức V1 (< 2.24, 2.25)"
+
+#: plugins/_fake_plugin/_fake_l10n.php:31
+msgid "Search engine form"
+msgstr "Biểu mẫu công cụ tìm kiếm"
+
+#: plugins/_fake_plugin/_fake_l10n.php:32
+msgid "List of navigation links"
+msgstr "Danh sách các liên kết điều hướng"
+
+#: plugins/_fake_plugin/_fake_l10n.php:33
+msgid "List of selected entries"
+msgstr "Danh sách các mục được chọn"
+
+#: plugins/_fake_plugin/_fake_l10n.php:34
+msgid "List of available languages"
+msgstr "Danh sách các ngôn ngữ có sẵn"
+
+#: plugins/_fake_plugin/_fake_l10n.php:35 plugins/widgets/src/Widgets.php:133
+msgid "List of categories"
+msgstr "Danh sách các danh mục"
+
+#: plugins/_fake_plugin/_fake_l10n.php:36
+msgid "Feed subscription links (RSS or Atom)"
+msgstr "Liên kết đăng ký nguồn cấp dữ liệu (RSS hoặc Atom)"
+
+#: plugins/_fake_plugin/_fake_l10n.php:37
+msgid "List of last entries from feed (RSS or Atom)"
+msgstr "Danh sách các bài viết mới nhất từ nguồn cấp dữ liệu (RSS hoặc Atom)"
+
+#: plugins/_fake_plugin/_fake_l10n.php:38
+msgid "Simple text"
+msgstr "Văn bản đơn giản"
+
+#: plugins/_fake_plugin/_fake_l10n.php:39
+msgid "List of last entries published"
+msgstr "Danh sách các bài viết mới nhất đã được đăng"
+
+#: plugins/_fake_plugin/_fake_l10n.php:40
+msgid "List of last comments published"
+msgstr "Danh sách các bình luận mới nhất đã được đăng"
+
+#: plugins/_fake_plugin/_fake_l10n.php:41
+msgid "List of published pages"
+msgstr "Danh sách các trang đã được xuất bản"
+
+#: plugins/_fake_plugin/_fake_l10n.php:42
+msgid "List of simple menu items"
+msgstr "Danh sách các món ăn đơn giản"
+
+#: plugins/_fake_plugin/_fake_l10n.php:43
+msgid "Blogroll list"
+msgstr "Danh sách blogroll"
+
+#: plugins/_fake_plugin/_fake_l10n.php:44
+msgid "Tags cloud"
+msgstr "Đám mây thẻ"
+
+#: plugins/aboutConfig/src/Backend.php:27
+msgid "about:config"
+msgstr "về:config"
+
+#: plugins/aboutConfig/src/Manage.php:90 plugins/aboutConfig/src/Manage.php:110
+msgid "Configuration successfully updated"
+msgstr "Cấu hình đã được cập nhật thành công."
+
+#: plugins/aboutConfig/src/Manage.php:150
+#: plugins/aboutConfig/src/Manage.php:152
+#, php-format
+msgid "Settings for %s"
+msgstr "Cài đặt cho %s"
+
+#: plugins/aboutConfig/src/Manage.php:160
+#: plugins/aboutConfig/src/Manage.php:162
+msgid "Global settings"
+msgstr "Cài đặt toàn cầu"
+
+#: plugins/aboutConfig/src/Manage.php:224 plugins/userPref/src/Manage.php:222
+msgid "Goto:"
+msgstr "Đi đến:"
+
+#: plugins/aboutConfig/src/Manage.php:251 plugins/userPref/src/Manage.php:249
+msgid "Setting ID"
+msgstr "ID cài đặt"
+
+#: plugins/aboutConfig/src/Manage.php:252 plugins/userPref/src/Manage.php:250
+msgid "Value"
+msgstr "Giá trị"
+
+#: plugins/aboutConfig/src/Manage.php:313 plugins/userPref/src/Manage.php:311
+msgid "yes"
+msgstr "Có"
+
+#: plugins/aboutConfig/src/Manage.php:314 plugins/userPref/src/Manage.php:312
+msgid "no"
+msgstr "Không"
+
+#: plugins/akismet/src/AntispamFilterAkismet.php:79
+msgid "Akismet spam filter"
+msgstr "Bộ lọc spam Akismet"
+
+#: plugins/akismet/src/AntispamFilterAkismet.php:92
+#, php-format
+msgid "Filtered by %s."
+msgstr "Lọc theo %s."
+
+#: plugins/akismet/src/AntispamFilterAkismet.php:206
+msgid "Filter configuration have been successfully saved."
+msgstr "Cấu hình bộ lọc đã được lưu thành công."
+
+#: plugins/akismet/src/AntispamFilterAkismet.php:228
+msgid "API key verified"
+msgstr "Khóa API đã được xác minh"
+
+#: plugins/akismet/src/AntispamFilterAkismet.php:231
+msgid "API key not verified"
+msgstr "Khóa API chưa được xác minh"
+
+#: plugins/akismet/src/AntispamFilterAkismet.php:249
+msgid "Akismet API key"
+msgstr "Khóa API Akismet"
+
+#: plugins/akismet/src/AntispamFilterAkismet.php:252
+msgid "Akismet API key:"
+msgstr "Khóa API Akismet:"
+
+#: plugins/akismet/src/AntispamFilterAkismet.php:262
+msgid "Get your own API key"
+msgstr "Nhận khóa API của riêng bạn"
+
+#: plugins/akismet/src/Prepend.php:28
+msgid "Akismet"
+msgstr "Akismet"
+
+#: plugins/antispam/src/Antispam.php:139
+msgid "This comment is a spam:"
+msgstr "Bình luận này là spam:"
+
+#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:27
+#, php-format
+msgid "(including %d spam comment)"
+msgstr "(bao gồm bình luận spam từ %d)"
+
+#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:27
+#, php-format
+msgid "(including %d spam comments)"
+msgstr "(bao gồm các bình luận spam từ %d)"
+
+#: plugins/antispam/src/Backend.php:31
+msgid "Antispam"
+msgstr "Chống spam"
+
+#: plugins/antispam/src/BackendBehaviors.php:56
+#: plugins/antispam/src/Manage.php:229
+#, php-format
+msgid "All spam comments older than %s day(s) will be automatically deleted."
+msgstr "Tất cả các bình luận spam cũ hơn %s ngày sẽ bị xóa tự động."
+
+#: plugins/antispam/src/BackendBehaviors.php:59
+#, php-format
+msgid "You can modify this duration in the %s."
+msgstr "Bạn có thể điều chỉnh thời lượng này trong tệp ` %s`."
+
+#: plugins/antispam/src/BackendBehaviors.php:87
+msgid "Moderate only spam comments/trackbacks"
+msgstr "Chỉ cho phép bình luận/trackback không spam."
+
+#: plugins/antispam/src/BackendBehaviors.php:91
+msgid "If comments and/or trackbacks are moderated (see blog settings above), messages recognized  by one of the active spam filters as not being spam will be published immediately."
+msgstr "Nếu bình luận và/hoặc trackback được kiểm duyệt (xem cài đặt blog ở trên), các tin nhắn được một trong các bộ lọc spam hoạt động nhận diện là không phải spam sẽ được đăng tải ngay lập tức."
+
+#: plugins/antispam/src/BackendBehaviors.php:95
+msgid "Delete junk comments older than"
+msgstr "Xóa các bình luận rác cũ hơn"
+
+#: plugins/antispam/src/BackendBehaviors.php:99
+msgid "Set -1 to disabled this feature ; recommended delay is 7 days."
+msgstr "Đặt giá trị -1 để vô hiệu hóa tính năng này ; thời gian trì hoãn được khuyến nghị là 7 ngày."
+
+#: plugins/antispam/src/BackendBehaviors.php:103
+msgid "Set spam filters."
+msgstr "Cài đặt bộ lọc spam."
+
+#: plugins/antispam/src/Filters/Ip.php:80
+msgid "IP Blocklist / Allowlist Filter"
+msgstr "Danh sách chặn IP / Danh sách cho phép IP"
+
+#: plugins/antispam/src/Filters/Ip.php:93
+#: plugins/antispam/src/Filters/IpV6.php:93
+#, php-format
+msgid "Filtered by %1$s with rule %2$s."
+msgstr "Được lọc bởi %1$s với quy tắc %2$s."
+
+#: plugins/antispam/src/Filters/Ip.php:152
+#: plugins/antispam/src/Filters/IpV6.php:152
+msgid "IP address has been successfully added."
+msgstr "Địa chỉ IP đã được thêm thành công."
+
+#: plugins/antispam/src/Filters/Ip.php:163
+#: plugins/antispam/src/Filters/IpV6.php:163
+msgid "IP addresses have been successfully removed."
+msgstr "Địa chỉ IP đã được xóa thành công."
+
+#: plugins/antispam/src/Filters/Ip.php:172
+#: plugins/antispam/src/Filters/IpV6.php:172
+msgid "Blocklist"
+msgstr "Danh sách chặn"
+
+#: plugins/antispam/src/Filters/Ip.php:173
+#: plugins/antispam/src/Filters/IpV6.php:173
+msgid "Allowlist"
+msgstr "Danh sách cho phép"
+
+#: plugins/antispam/src/Filters/Ip.php:188
+#: plugins/antispam/src/Filters/IpV6.php:188
+msgid "No IP address in list."
+msgstr "Không có địa chỉ IP trong danh sách."
+
+#: plugins/antispam/src/Filters/Ip.php:217
+#: plugins/antispam/src/Filters/IpV6.php:216
+msgid "Local IPs (used only for this blog)"
+msgstr "Địa chỉ IP cục bộ (chỉ được sử dụng cho blog này)"
+
+#: plugins/antispam/src/Filters/Ip.php:225
+#: plugins/antispam/src/Filters/IpV6.php:224
+msgid "Global IPs (used for all blogs)"
+msgstr "Địa chỉ IP toàn cầu (sử dụng cho tất cả các blog)"
+
+#: plugins/antispam/src/Filters/Ip.php:236
+#: plugins/antispam/src/Filters/IpV6.php:235
+msgid "IP list"
+msgstr "Danh sách địa chỉ IP"
+
+#: plugins/antispam/src/Filters/Ip.php:252
+#: plugins/antispam/src/Filters/IpV6.php:251
+msgid "Global IP (used for all blogs)"
+msgstr "Địa chỉ IP toàn cầu (sử dụng cho tất cả các blog)"
+
+#: plugins/antispam/src/Filters/Ip.php:269
+#: plugins/antispam/src/Filters/IpV6.php:268
+msgid "Add an IP address:"
+msgstr "Thêm địa chỉ IP:"
+
+#: plugins/antispam/src/Filters/Ip.php:273
+#: plugins/antispam/src/Filters/IpV6.php:272
+#: plugins/antispam/src/Filters/Words.php:291
+#: plugins/widgets/src/Manage.php:322
+msgid "Add"
+msgstr "Thêm"
+
+#: plugins/antispam/src/Filters/IpLookup.php:74
+msgid "Checks sender IP address against DNSBL servers"
+msgstr "Kiểm tra địa chỉ IP của người gửi với các máy chủ DNSBL."
+
+#: plugins/antispam/src/Filters/IpLookup.php:87
+#: plugins/antispam/src/Filters/LinksLookup.php:64
+#, php-format
+msgid "Filtered by %1$s with server %2$s."
+msgstr "Được lọc bởi %1$s với máy chủ %2$s."
+
+#: plugins/antispam/src/Filters/IpLookup.php:143
+msgid "The list of DNSBL servers has been succesfully updated."
+msgstr "Danh sách các máy chủ DNSBL đã được cập nhật thành công."
+
+#: plugins/antispam/src/Filters/IpLookup.php:156
+msgid "IP Lookup servers"
+msgstr "Máy chủ tra cứu địa chỉ IP"
+
+#: plugins/antispam/src/Filters/IpLookup.php:161
+msgid "Add here a coma separated list of servers."
+msgstr "Thêm vào đây danh sách các máy chủ được phân tách bằng dấu phẩy."
+
+#: plugins/antispam/src/Filters/IpV6.php:80
+msgid "IP v6 Blocklist / Allowlist Filter"
+msgstr "Danh sách chặn / Danh sách cho phép IPv6"
+
+#: plugins/antispam/src/Filters/LinksLookup.php:51
+msgid "Checks links in comments against surbl.org"
+msgstr "Kiểm tra các liên kết trong bình luận so với surbl.org"
+
+#: plugins/antispam/src/Filters/Words.php:81
+msgid "Words Blocklist"
+msgstr "Danh sách từ bị chặn"
+
+#: plugins/antispam/src/Filters/Words.php:94
+#, php-format
+msgid "Filtered by %1$s with word %2$s."
+msgstr "Lọc theo %1$s với từ khóa %2$s."
+
+#: plugins/antispam/src/Filters/Words.php:149
+msgid "Words have been successfully added."
+msgstr "Các từ đã được thêm thành công."
+
+#: plugins/antispam/src/Filters/Words.php:162
+msgid "Word has been successfully added."
+msgstr "Từ đã được thêm thành công."
+
+#: plugins/antispam/src/Filters/Words.php:173
+msgid "Words have been successfully removed."
+msgstr "Các từ đã được xóa thành công."
+
+#: plugins/antispam/src/Filters/Words.php:195
+msgid "No word in list."
+msgstr "Không có từ nào trong danh sách."
+
+#: plugins/antispam/src/Filters/Words.php:223
+msgid "Local words (used only for this blog)"
+msgstr "Từ địa phương (chỉ được sử dụng cho blog này)"
+
+#: plugins/antispam/src/Filters/Words.php:231
+msgid "Global words (used for all blogs)"
+msgstr "Từ khóa toàn cầu (sử dụng cho tất cả các blog)"
+
+#: plugins/antispam/src/Filters/Words.php:242
+msgid "List of bad words"
+msgstr "Danh sách từ ngữ không phù hợp"
+
+#: plugins/antispam/src/Filters/Words.php:247
+msgid "Delete selected words"
+msgstr "Xóa các từ đã chọn"
+
+#: plugins/antispam/src/Filters/Words.php:257
+msgid "Global word (used for all blogs)"
+msgstr "Từ khóa chung (sử dụng cho tất cả các blog)"
+
+#: plugins/antispam/src/Filters/Words.php:267
+msgid "Create default wordlist"
+msgstr "Tạo danh sách từ mặc định"
+
+#: plugins/antispam/src/Filters/Words.php:288
+msgid "Add a word:"
+msgstr "Thêm một từ:"
+
+#: plugins/antispam/src/Filters/Words.php:353
+msgid "This word exists"
+msgstr "Từ này tồn tại."
+
+#: plugins/antispam/src/FrontendUrl.php:61
+msgid "Spam moderation"
+msgstr "Quản lý spam"
+
+#: plugins/antispam/src/FrontendUrl.php:65
+msgid "Spam"
+msgstr "Thư rác"
+
+#: plugins/antispam/src/FrontendUrl.php:69
+msgid "Ham"
+msgstr "Thịt xông khói"
+
+#: plugins/antispam/src/Manage.php:72
+msgid "Filter does not exist."
+msgstr "Bộ lọc không tồn tại."
+
+#: plugins/antispam/src/Manage.php:76
+msgid "Filter has no user interface."
+msgstr "Bộ lọc không có giao diện người dùng."
+
+#: plugins/antispam/src/Manage.php:142 plugins/antispam/src/Manage.php:275
+msgid "Filters configuration has been successfully saved."
+msgstr "Cấu hình bộ lọc đã được lưu thành công."
+
+#: plugins/antispam/src/Manage.php:159
+#, php-format
+msgid "%s configuration"
+msgstr "%s cấu hình"
+
+#: plugins/antispam/src/Manage.php:180
+#, php-format
+msgid "%s filter configuration"
+msgstr "%s Cấu hình bộ lọc"
+
+#: plugins/antispam/src/Manage.php:187
+msgid "Back to filters list"
+msgstr "Trở lại danh sách bộ lọc"
+
+#: plugins/antispam/src/Manage.php:234
+#, php-format
+msgid "You can modify this duration in the %s"
+msgstr "Bạn có thể điều chỉnh thời gian này trong %s"
+
+#: plugins/antispam/src/Manage.php:243
+msgid "Information"
+msgstr "Thông tin"
+
+#: plugins/antispam/src/Manage.php:254
+msgid "Junk comments:"
+msgstr "Bình luận rác:"
+
+#: plugins/antispam/src/Manage.php:260
+msgid "Published comments:"
+msgstr "Bình luận đã được đăng:"
+
+#: plugins/antispam/src/Manage.php:284 plugins/antispam/src/Manage.php:287
+#: plugins/antispam/src/Manage.php:291
+msgid "Filter configuration"
+msgstr "Cấu hình bộ lọc"
+
+#: plugins/antispam/src/Manage.php:307 plugins/blogroll/src/Manage.php:305
+msgid "position"
+msgstr "vị trí"
+
+#: plugins/antispam/src/Manage.php:314 plugins/antispam/src/Manage.php:348
+msgid "Active"
+msgstr "Hoạt động"
+
+#: plugins/antispam/src/Manage.php:321 plugins/antispam/src/Manage.php:349
+msgid "Auto Del."
+msgstr "Tự động xóa."
+
+#: plugins/antispam/src/Manage.php:342
+msgid "Available spam filters"
+msgstr "Các bộ lọc spam có sẵn"
+
+#: plugins/antispam/src/Manage.php:347
+#: plugins/pages/src/BackendDefaultActions.php:73
+msgid "Order"
+msgstr "Đặt hàng"
+
+#: plugins/antispam/src/Manage.php:350
+msgid "Filter name"
+msgstr "Tên bộ lọc"
+
+#: plugins/antispam/src/Manage.php:377
+msgid "Syndication"
+msgstr "Phát sóng chung"
+
+#: plugins/antispam/src/Manage.php:380
+msgid "Junk comments RSS feed"
+msgstr "Dòng tin RSS về các bình luận rác"
+
+#: plugins/antispam/src/Manage.php:383
+msgid "Published comments RSS feed"
+msgstr "Danh sách bình luận đã đăng RSS"
+
+#: plugins/antispam/src/SpamFilter.php:95
+msgid "No description"
+msgstr "Không có mô tả"
+
+#: plugins/antispam/src/SpamFilter.php:153
+#, php-format
+msgid "Filtered by %1$s (%2$s)"
+msgstr "Lọc theo %1$s (%2$s)"
+
+#: plugins/antispam/src/SpamFilters.php:158
+msgid "Unknown filter."
+msgstr "Bộ lọc không xác định."
+
+#: plugins/attachments/src/Backend.php:27
+msgid "attachments"
+msgstr "Phụ lục"
+
+#: plugins/attachments/src/BackendBehaviors.php:97
+msgid "remove"
+msgstr "Xóa"
+
+#: plugins/attachments/src/BackendBehaviors.php:107
+msgid "No attachment."
+msgstr "Không có tệp đính kèm."
+
+#: plugins/attachments/src/BackendBehaviors.php:112
+#, php-format
+msgid "Attachments (%d)"
+msgstr "Phụ lục (%d)"
+
+#: plugins/attachments/src/BackendBehaviors.php:121
+msgid "Add files to this entry"
+msgstr "Thêm tệp vào mục này"
+
+#: plugins/attachments/src/BackendBehaviors.php:130
+msgid "You must save the entry before adding an attachment."
+msgstr "Bạn phải lưu mục nhập trước khi thêm tệp đính kèm."
+
+#: plugins/blogroll/src/Action/ActionsLinks.php:66
+#: plugins/blogroll/src/Action/ActionsLinks.php:72
+#: plugins/blogroll/src/Widgets.php:48
+msgid "Links"
+msgstr "Liên kết"
+
+#: plugins/blogroll/src/Action/ActionsLinks.php:82
+msgid "Back to links list"
+msgstr "Trở lại danh sách liên kết"
+
+#: plugins/blogroll/src/Action/ActionsLinks.php:110
+msgid "Links actions"
+msgstr "Các hành động liên kết"
+
+#: plugins/blogroll/src/Action/ActionsLinksDefault.php:76
+#, php-format
+msgid "%d link has been successfully updated to status : \"%s\""
+msgid_plural "%d links have been successfully updated to status : \"%s\""
+msgstr[0] "%d Các liên kết đã được cập nhật thành công sang trạng thái: \"%s\""
+
+#: plugins/blogroll/src/Action/ActionsLinksDefault.php:98
+msgid "No link selected"
+msgstr "Không có liên kết nào được chọn."
+
+#: plugins/blogroll/src/Action/ActionsLinksDefault.php:115
+#, php-format
+msgid "%d link has been successfully deleted"
+msgid_plural "%d links have been successfully deleted"
+msgstr[0] "%d Các liên kết đã được xóa thành công."
+
+#: plugins/blogroll/src/Backend.php:28
+msgid "Blogroll"
+msgstr "Danh sách blog"
+
+#: plugins/blogroll/src/Backend.php:40
+msgid "manage blogroll"
+msgstr "Quản lý danh sách blog"
+
+#: plugins/blogroll/src/Blogroll.php:176 plugins/blogroll/src/Blogroll.php:220
+msgid "You must provide a link title"
+msgstr "Bạn phải cung cấp tiêu đề liên kết."
+
+#: plugins/blogroll/src/Blogroll.php:180 plugins/blogroll/src/Blogroll.php:224
+msgid "You must provide a link URL"
+msgstr "Bạn phải cung cấp một liên kết URL."
+
+#: plugins/blogroll/src/Blogroll.php:421
+msgid "You are not allowed to change link status"
+msgstr "Bạn không được phép thay đổi trạng thái liên kết."
+
+#: plugins/blogroll/src/Blogroll.php:454
+msgid "You are not allowed to delete links"
+msgstr "Bạn không được phép xóa các liên kết."
+
+#: plugins/blogroll/src/Manage.php:113 plugins/blogroll/src/Manage.php:616
+msgid "Nothing to import"
+msgstr "Không có gì để nhập khẩu."
+
+#: plugins/blogroll/src/Manage.php:136
+msgid "links have been successfully imported."
+msgstr "Các liên kết đã được nhập thành công."
+
+#: plugins/blogroll/src/Manage.php:143
+msgid "Import operation cancelled."
+msgstr "Hoạt động nhập khẩu đã bị hủy."
+
+#: plugins/blogroll/src/Manage.php:159
+msgid "Link has been successfully created."
+msgstr "Liên kết đã được tạo thành công."
+
+#: plugins/blogroll/src/Manage.php:175
+msgid "category has been successfully created."
+msgstr "Danh mục đã được tạo thành công."
+
+#: plugins/blogroll/src/Manage.php:208
+msgid "Items order has been successfully updated"
+msgstr "Đơn hàng đã được cập nhật thành công."
+
+#: plugins/blogroll/src/Manage.php:274
+msgid "Are you sure you want to delete selected links?"
+msgstr "Bạn có chắc chắn muốn xóa các liên kết đã chọn không?"
+
+#: plugins/blogroll/src/Manage.php:312
+msgid "select this link"
+msgstr "Chọn liên kết này"
+
+#: plugins/blogroll/src/Manage.php:372
+msgid "Lang"
+msgstr "Lang"
+
+#: plugins/blogroll/src/Manage.php:420
+msgid "Selected links action:"
+msgstr "Hành động chọn liên kết:"
+
+#: plugins/blogroll/src/Manage.php:440
+msgid "The link list is empty"
+msgstr "Danh sách liên kết trống."
+
+#: plugins/blogroll/src/Manage.php:463
+msgid "Add a new link"
+msgstr "Thêm một liên kết mới"
+
+#: plugins/blogroll/src/Manage.php:514 plugins/blogroll/src/Manage.php:564
+#: plugins/blogroll/src/ManageEdit.php:223
+#: plugins/blogroll/src/ManageEdit.php:295
+msgid "Link status"
+msgstr "Trạng thái liên kết"
+
+#: plugins/blogroll/src/Manage.php:533
+msgid "Add a category"
+msgstr "Thêm một danh mục"
+
+#: plugins/blogroll/src/Manage.php:587 plugins/blogroll/src/Manage.php:679
+#: plugins/blogroll/src/Manage.php:686
+msgid "Import links"
+msgstr "Nhập liên kết"
+
+#: plugins/blogroll/src/Manage.php:596
+msgid "OPML or XBEL File:"
+msgstr "Tệp OPML hoặc XBEL:"
+
+#: plugins/blogroll/src/Manage.php:606 plugins/blogroll/src/Manage.php:671
+#: plugins/importExport/src/Manage.php:130
+#: plugins/importExport/src/ModuleImportFeed.php:238
+#: plugins/importExport/src/ModuleImportFlat.php:248
+#: plugins/importExport/src/ModuleImportFlat.php:310
+msgid "Import"
+msgstr "Nhập khẩu"
+
+#: plugins/blogroll/src/ManageEdit.php:70
+msgid "No such link or title"
+msgstr "Không có liên kết hoặc tiêu đề như vậy."
+
+#: plugins/blogroll/src/ManageEdit.php:130
+msgid "Link has been successfully updated"
+msgstr "Liên kết đã được cập nhật thành công."
+
+#: plugins/blogroll/src/ManageEdit.php:147
+msgid "Category has been successfully updated"
+msgstr "Danh mục đã được cập nhật thành công."
+
+#: plugins/blogroll/src/ManageEdit.php:180
+#: plugins/dcCKEditor/src/BackendBehaviors.php:61
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:219
+msgid "Link"
+msgstr "Liên kết"
+
+#: plugins/blogroll/src/ManageEdit.php:187
+msgid "Return to blogroll"
+msgstr "Trở lại danh sách blog"
+
+#: plugins/blogroll/src/ManageEdit.php:198
+msgid "Edit category"
+msgstr "Chỉnh sửa danh mục"
+
+#: plugins/blogroll/src/ManageEdit.php:242
+msgid "Edit link"
+msgstr "Chỉnh sửa liên kết"
+
+#: plugins/blogroll/src/ManageEdit.php:301
+msgid "XFN information"
+msgstr "Thông tin XFN"
+
+#: plugins/blogroll/src/ManageEdit.php:305
+#, php-format
+msgid "More information on <a href=\"%s\">Wikipedia</a> website"
+msgstr "Thông tin chi tiết trên trang web <a href=\"%s\">Wikipedia</a>"
+
+#: plugins/blogroll/src/ManageEdit.php:311
+msgid "_xfn_Me"
+msgstr "_xfn_Me"
+
+#: plugins/blogroll/src/ManageEdit.php:315
+msgid "_xfn_Another link for myself"
+msgstr "_xfn_Một liên kết khác cho bản thân tôi"
+
+#: plugins/blogroll/src/ManageEdit.php:319
+msgid "_xfn_Friendship"
+msgstr "_xfn_Tình bạn"
+
+#: plugins/blogroll/src/ManageEdit.php:323
+msgid "_xfn_Contact"
+msgstr "_xfn_Liên hệ"
+
+#: plugins/blogroll/src/ManageEdit.php:326
+msgid "_xfn_Acquaintance"
+msgstr "_xfn_Người quen"
+
+#: plugins/blogroll/src/ManageEdit.php:329
+msgid "_xfn_Friend"
+msgstr "_xfn_Bạn bè"
+
+#: plugins/blogroll/src/ManageEdit.php:339
+msgid "_xfn_Physical"
+msgstr "_xfn_Vật lý"
+
+#: plugins/blogroll/src/ManageEdit.php:343
+msgid "_xfn_Met"
+msgstr "_xfn_Met"
+
+#: plugins/blogroll/src/ManageEdit.php:347
+msgid "_xfn_Professional"
+msgstr "_xfn_Chuyên nghiệp"
+
+#: plugins/blogroll/src/ManageEdit.php:351
+msgid "_xfn_Co-worker"
+msgstr "_xfn_Đồng nghiệp"
+
+#: plugins/blogroll/src/ManageEdit.php:354
+msgid "_xfn_Colleague"
+msgstr "_xfn_Đồng nghiệp"
+
+#: plugins/blogroll/src/ManageEdit.php:358
+msgid "_xfn_Geographical"
+msgstr "_xfn_Địa lý"
+
+#: plugins/blogroll/src/ManageEdit.php:362
+msgid "_xfn_Co-resident"
+msgstr "_xfn_Cư trú chung"
+
+#: plugins/blogroll/src/ManageEdit.php:365
+msgid "_xfn_Neighbor"
+msgstr "_xfn_Hàng xóm"
+
+#: plugins/blogroll/src/ManageEdit.php:375
+msgid "_xfn_Family"
+msgstr "_xfn_Gia đình"
+
+#: plugins/blogroll/src/ManageEdit.php:379
+msgid "_xfn_Child"
+msgstr "_xfn_Con"
+
+#: plugins/blogroll/src/ManageEdit.php:382
+msgid "_xfn_Parent"
+msgstr "_xfn_Cha"
+
+#: plugins/blogroll/src/ManageEdit.php:385
+msgid "_xfn_Sibling"
+msgstr "_xfn_Anh em"
+
+#: plugins/blogroll/src/ManageEdit.php:388
+msgid "_xfn_Spouse"
+msgstr "_xfn_Vợ/chồng"
+
+#: plugins/blogroll/src/ManageEdit.php:391
+msgid "_xfn_Kin"
+msgstr "_xfn_Kin"
+
+#: plugins/blogroll/src/ManageEdit.php:401
+msgid "_xfn_Romantic"
+msgstr "_xfn_Tình cảm"
+
+#: plugins/blogroll/src/ManageEdit.php:405
+msgid "_xfn_Muse"
+msgstr "_xfn_Muse"
+
+#: plugins/blogroll/src/ManageEdit.php:408
+msgid "_xfn_Crush"
+msgstr "_xfn_Crush"
+
+#: plugins/blogroll/src/ManageEdit.php:411
+msgid "_xfn_Date"
+msgstr "_xfn_Ngày"
+
+#: plugins/blogroll/src/ManageEdit.php:414
+msgid "_xfn_Sweetheart"
+msgstr "_xfn_Người yêu dấu"
+
+#: plugins/blogroll/src/UtilsImport.php:38
+msgid "You need to provide a XBEL or OPML file."
+msgstr "Bạn cần cung cấp tệp XBEL hoặc OPML."
+
+#: plugins/blogroll/src/UtilsImport.php:55
+#: plugins/blogroll/src/UtilsImport.php:99
+msgid "File is not in XML format."
+msgstr "Tệp không ở định dạng XML."
+
+#: plugins/blogroll/src/Widgets.php:39
+msgid "All categories"
+msgstr "Tất cả các danh mục"
+
+#: plugins/breadcrumb/src/Backend.php:27
+msgid "Breadcrumb"
+msgstr "Dấu vết"
+
+#: plugins/breadcrumb/src/BackendBehaviors.php:40
+msgid "Enable breadcrumb for this blog"
+msgstr "Bật chức năng breadcrumb cho blog này"
+
+#: plugins/breadcrumb/src/BackendBehaviors.php:44
+msgid "The {{tpl:Breadcrumb [separator=\" &amp;rsaquo; \"]}} tag should be present (or inserted if not) in the template."
+msgstr "Thẻ {{tpl:Breadcrumb [separator=\" &amp;rsaquo; \"]}} phải có mặt (hoặc được chèn vào nếu không có) trong mẫu."
+
+#: plugins/breadcrumb/src/BackendBehaviors.php:49
+msgid "Do not encapsulate breadcrumb in a &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; tag."
+msgstr "Không nên bao bọc breadcrumb trong thẻ ` &lt;`. `p id=\"breadcrumb\"` `&gt;...` `&lt;` `/p` `&gt;`."
+
+#: plugins/breadcrumb/src/FrontendTemplate.php:70
+#: plugins/breadcrumb/src/FrontendTemplate.php:75
+#: plugins/breadcrumb/src/FrontendTemplate.php:82
+#: plugins/breadcrumb/src/FrontendTemplate.php:86
+#: plugins/breadcrumb/src/FrontendTemplate.php:97
+#: plugins/breadcrumb/src/FrontendTemplate.php:110
+#: plugins/breadcrumb/src/FrontendTemplate.php:126
+#: plugins/breadcrumb/src/FrontendTemplate.php:143
+#: plugins/breadcrumb/src/FrontendTemplate.php:151
+#: plugins/breadcrumb/src/FrontendTemplate.php:165
+#: plugins/breadcrumb/src/FrontendTemplate.php:172
+#: plugins/breadcrumb/src/FrontendTemplate.php:179
+#: plugins/breadcrumb/src/FrontendTemplate.php:192
+#: plugins/breadcrumb/src/FrontendTemplate.php:204
+#: plugins/breadcrumb/src/FrontendTemplate.php:210
+#: plugins/simpleMenu/src/Manage.php:159 plugins/simpleMenu/src/Manage.php:273
+#: plugins/widgets/src/Widgets.php:295
+msgid "Home"
+msgstr "Trang chủ"
+
+#: plugins/breadcrumb/src/FrontendTemplate.php:104
+#: plugins/breadcrumb/src/FrontendTemplate.php:119
+#: plugins/breadcrumb/src/FrontendTemplate.php:185
+#: plugins/breadcrumb/src/FrontendTemplate.php:197
+#, php-format
+msgid "page %d"
+msgstr "Trang %d"
+
+#: plugins/breadcrumb/src/FrontendTemplate.php:154
+#: plugins/breadcrumb/src/FrontendTemplate.php:157
+#: plugins/simpleMenu/src/Manage.php:300 plugins/widgets/src/Widgets.php:323
+msgid "Archives"
+msgstr "Lưu trữ"
+
+#: plugins/breadcrumb/src/FrontendTemplate.php:173
+#: plugins/breadcrumb/src/FrontendTemplate.php:180
+#: plugins/simpleMenu/src/Manage.php:143 plugins/simpleMenu/src/Manage.php:320
+#: plugins/tags/src/Widgets.php:57
+msgid "All tags"
+msgstr "Tất cả thẻ"
+
+#: plugins/breadcrumb/src/FrontendTemplate.php:205
+msgid "404"
+msgstr "404"
+
+#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:37
+msgid "Generate fake l10n"
+msgstr "Tạo bản dịch giả cho l10n"
+
+#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:38
+msgid "fake l10n file generated."
+msgstr "Tệp l10n giả mạo đã được tạo."
+
+#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:39
+msgid "Failed to generate fake l10n file."
+msgstr "Không thể tạo tệp l10n giả."
+
+#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:40
+msgid "Generate a php file that contents strings to translate that are not be done with core tools."
+msgstr "Tạo một tệp PHP chứa các chuỗi văn bản cần dịch mà không thể thực hiện bằng các công cụ tích hợp sẵn."
+
+#: plugins/dcCKEditor/src/Backend.php:27
+msgid "dcCKEditor"
+msgstr "dcCKEditor"
+
+#: plugins/dcCKEditor/src/Backend.php:43
+#: plugins/dcLegacyEditor/src/Backend.php:48
+msgid "HTML"
+msgstr "HTML"
+
+#: plugins/dcCKEditor/src/BackendBehaviors.php:58
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:235
+msgid "Media chooser"
+msgstr "Trình chọn phương tiện"
+
+#: plugins/dcCKEditor/src/BackendBehaviors.php:59
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:238
+msgid "m"
+msgstr "m"
+
+#: plugins/dcCKEditor/src/BackendBehaviors.php:60
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:242
+msgid "Link to an entry"
+msgstr "Liên kết đến một mục"
+
+#: plugins/dcCKEditor/src/BackendBehaviors.php:62
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:222
+msgid "l"
+msgstr "l"
+
+#: plugins/dcCKEditor/src/BackendBehaviors.php:63
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:228
+msgid "External image"
+msgstr "Hình ảnh bên ngoài"
+
+#: plugins/dcCKEditor/src/BackendBehaviors.php:64
+msgid "URL field cannot be empty."
+msgstr "Trường URL không được để trống."
+
+#: plugins/dcCKEditor/src/BackendBehaviors.php:88
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:264
+msgid "Open the media"
+msgstr "Mở phương tiện truyền thông"
+
+#: plugins/dcCKEditor/src/Manage.php:149
+#: plugins/dcLegacyEditor/src/Manage.php:56
+msgid "The configuration has been updated."
+msgstr "Cấu hình đã được cập nhật."
+
+#: plugins/dcCKEditor/src/Manage.php:179
+#: plugins/dcLegacyEditor/src/Manage.php:82
+msgid "Plugin activation"
+msgstr "Kích hoạt plugin"
+
+#: plugins/dcCKEditor/src/Manage.php:185
+msgid "Enable CKEditor plugin"
+msgstr "Kích hoạt plugin CKEditor"
+
+#: plugins/dcCKEditor/src/Manage.php:198
+msgid "Add alignment buttons"
+msgstr "Thêm nút căn chỉnh"
+
+#: plugins/dcCKEditor/src/Manage.php:204
+msgid "Add lists buttons"
+msgstr "Thêm nút danh sách"
+
+#: plugins/dcCKEditor/src/Manage.php:210
+msgid "Add text color button"
+msgstr "Nút thay đổi màu văn bản"
+
+#: plugins/dcCKEditor/src/Manage.php:216
+msgid "Add background text color button"
+msgstr "Thêm nút thay đổi màu nền văn bản"
+
+#: plugins/dcCKEditor/src/Manage.php:219
+msgid "Custom colors list:"
+msgstr "Danh sách màu tùy chỉnh:"
+
+#: plugins/dcCKEditor/src/Manage.php:233
+msgid "Add colors without # separated by a comma."
+msgstr "Thêm màu sắc mà không cần sử dụng dấu #, các màu được phân tách bằng dấu phẩy."
+
+#: plugins/dcCKEditor/src/Manage.php:238
+msgid "Leave empty to use the default palette:"
+msgstr "Để trống để sử dụng bảng màu mặc định:"
+
+#: plugins/dcCKEditor/src/Manage.php:244
+msgid "Example of custom color list:"
+msgstr "Ví dụ về danh sách màu tùy chỉnh:"
+
+#: plugins/dcCKEditor/src/Manage.php:252
+msgid "Colors per row in palette:"
+msgstr "Số màu trên mỗi hàng trong bảng màu:"
+
+#: plugins/dcCKEditor/src/Manage.php:256
+msgid "Valid range: 4 to 16"
+msgstr "Phạm vi hợp lệ: Từ 4 đến 16"
+
+#: plugins/dcCKEditor/src/Manage.php:261
+msgid "Add collapse button"
+msgstr "Thêm nút thu gọn"
+
+#: plugins/dcCKEditor/src/Manage.php:267
+msgid "Add format selection"
+msgstr "Thêm tùy chọn định dạng"
+
+#: plugins/dcCKEditor/src/Manage.php:270
+msgid "Custom formats"
+msgstr "Định dạng tùy chỉnh"
+
+#: plugins/dcCKEditor/src/Manage.php:284
+msgid "Default formats are p;h1;h2;h3;h4;h5;h6;pre;address"
+msgstr "Các định dạng mặc định là p;h1;h2;h3;h4;h5;h6;pre;address"
+
+#: plugins/dcCKEditor/src/Manage.php:290
+msgid "Add table button"
+msgstr "Nút Thêm bảng"
+
+#: plugins/dcCKEditor/src/Manage.php:296
+msgid "Add clipboard buttons"
+msgstr "Thêm nút sao chép vào khay nhớ tạm"
+
+#: plugins/dcCKEditor/src/Manage.php:300
+msgid "Copy, Paste, Paste Text, Paste from Word"
+msgstr "Sao chép, Dán, Dán văn bản, Dán từ Word"
+
+#: plugins/dcCKEditor/src/Manage.php:305
+msgid "Add undo/redo buttons"
+msgstr "Thêm nút Undo/Redo"
+
+#: plugins/dcCKEditor/src/Manage.php:311
+msgid "Disables the built-in spell checker if the browser provides one"
+msgstr "Tắt trình kiểm tra chính tả tích hợp nếu trình duyệt có cung cấp tính năng này."
+
+#: plugins/dcCKEditor/src/Manage.php:321
+#: plugins/dcLegacyEditor/src/Manage.php:111
+#: plugins/simpleMenu/src/Manage.php:774
+msgid "Save configuration"
+msgstr "Lưu cấu hình"
+
+#: plugins/dcCKEditor/src/ManagePostConfig.php:136
+msgid "Note(s)"
+msgstr "Ghi chú"
+
+#: plugins/dcLegacyEditor/src/Backend.php:28
+msgid "dcLegacyEditor"
+msgstr "dcLegacyEditor"
+
+#: plugins/dcLegacyEditor/src/Backend.php:52
+msgid "Dotclear wiki"
+msgstr "Dotclear wiki"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:139
+msgid "visual"
+msgstr "hình ảnh"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:140
+msgid "source"
+msgstr "nguồn"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:141
+msgid "You can use the following shortcuts to format your text."
+msgstr "Bạn có thể sử dụng các phím tắt sau để định dạng văn bản của mình."
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:144
+msgid "Block format"
+msgstr "Định dạng khối"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:146
+msgid "-- none --"
+msgstr "-- không có --"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:147
+msgid "-- block format --"
+msgstr "-- định dạng khối --"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:148
+msgid "Paragraph"
+msgstr "Đoạn văn"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:149
+msgid "Level 1 header"
+msgstr "Tiêu đề cấp 1"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:150
+msgid "Level 2 header"
+msgstr "Tiêu đề cấp 2"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:151
+msgid "Level 3 header"
+msgstr "Tiêu đề cấp 3"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:152
+msgid "Level 4 header"
+msgstr "Tiêu đề cấp 4"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:153
+msgid "Level 5 header"
+msgstr "Tiêu đề cấp 5"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:154
+msgid "Level 6 header"
+msgstr "Tiêu đề cấp 6"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:158
+msgid "Strong emphasis"
+msgstr "Điểm nhấn mạnh mẽ"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:163
+msgid "Emphasis"
+msgstr "Nhấn mạnh"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:168
+msgid "Inserted"
+msgstr "Được chèn vào"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:173
+msgid "Deleted"
+msgstr "Đã xóa"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:178
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:266
+msgid "Inline quote"
+msgstr "Trích dẫn trong dòng"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:183
+msgid "Code"
+msgstr "Mã"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:193
+msgid "Line break"
+msgstr "Dòng mới"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:198
+msgid "Blockquote"
+msgstr "Trích dẫn"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:203
+msgid "Preformated text"
+msgstr "Văn bản đã được định dạng sẵn"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:208
+msgid "Unordered list"
+msgstr "Danh sách không có thứ tự"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:213
+msgid "Ordered list"
+msgstr "Danh sách có thứ tự"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:223
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:231
+msgid "URL?"
+msgstr "URL?"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:224
+msgid "Language?"
+msgstr "Ngôn ngữ?"
+
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:247
+msgid "Remove text formating"
+msgstr "Xóa định dạng văn bản"
+
+#: plugins/dcLegacyEditor/src/Manage.php:88
+msgid "Enable standard editor plugin"
+msgstr "Kích hoạt plugin trình soạn thảo tiêu chuẩn"
+
+#: plugins/dcLegacyEditor/src/Manage.php:101
+msgid "Adjust height of input area during editing"
+msgstr "Điều chỉnh chiều cao của khu vực nhập liệu trong quá trình chỉnh sửa."
+
+#: plugins/fairTrackbacks/src/AntispamFilterFairTrackbacks.php:54
+msgid "Checks trackback source for a link to the post"
+msgstr "Kiểm tra nguồn trackback để tìm liên kết đến bài viết."
+
+#: plugins/fairTrackbacks/src/Prepend.php:28
+msgid "Fair Trackbacks"
+msgstr "Liên kết ngược công bằng"
+
+#: plugins/importExport/src/Backend.php:29
+msgid "Import / Export"
+msgstr "Nhập khẩu / Xuất khẩu"
+
+#: plugins/importExport/src/ExportBlogMaintenanceTask.php:43
+#: plugins/importExport/src/ExportFullMaintenanceTask.php:42
+msgid "Database export"
+msgstr "Xuất cơ sở dữ liệu"
+
+#: plugins/importExport/src/ExportBlogMaintenanceTask.php:44
+msgid "Download database of current blog"
+msgstr "Tải xuống cơ sở dữ liệu của blog hiện tại"
+
+#: plugins/importExport/src/ExportBlogMaintenanceTask.php:109
+#: plugins/importExport/src/ExportFullMaintenanceTask.php:108
+msgid "Compress file"
+msgstr "Nén tệp"
+
+#: plugins/importExport/src/ExportFullMaintenanceTask.php:43
+msgid "Download database of all blogs"
+msgstr "Tải xuống cơ sở dữ liệu của tất cả các blog"
+
+#: plugins/importExport/src/FlatBackup.php:50
+msgid "No file to read."
+msgstr "Không có tệp để đọc."
+
+#: plugins/importExport/src/FlatExport.php:49
+msgid "Unable to create output file."
+msgstr "Không thể tạo tệp đầu ra."
+
+#: plugins/importExport/src/FlatImportV2.php:99
+msgid "Unable to read the DotClear backup file."
+msgstr "Không thể đọc tệp sao lưu DotClear."
+
+#: plugins/importExport/src/FlatImportV2.php:103
+msgid "File is not a DotClear backup."
+msgstr "Tệp này không phải là bản sao lưu DotClear."
+
+#: plugins/importExport/src/FlatImportV2.php:179
+msgid "File is not a single blog export."
+msgstr "Tệp này không phải là bản xuất khẩu blog duy nhất."
+
+#: plugins/importExport/src/FlatImportV2.php:296
+#: plugins/importExport/src/FlatImportV2.php:355
+#, php-format
+msgid "Error raised at line %s"
+msgstr "Lỗi xảy ra tại dòng %s"
+
+#: plugins/importExport/src/FlatImportV2.php:307
+msgid "File is not a full export."
+msgstr "Tệp không phải là bản xuất đầy đủ."
+
+#: plugins/importExport/src/FlatImportV2.php:768
+#, php-format
+msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
+msgstr "ID của \"%3$s\" không khớp với bản ghi \"%1$s\" tại dòng \" %2$s \" trong tệp sao lưu."
+
+#: plugins/importExport/src/Manage.php:90
+#: plugins/maintenance/src/Manage.php:200
+msgid "Please wait..."
+msgstr "Vui lòng chờ..."
+
+#: plugins/importExport/src/Manage.php:136
+msgid "Export"
+msgstr "Xuất khẩu"
+
+#: plugins/importExport/src/Manage.php:141
+#, php-format
+msgid "Export functions are in the page %s."
+msgstr "Các hàm xuất được định nghĩa trong trang %s."
+
+#: plugins/importExport/src/Manage.php:144
+#: plugins/maintenance/src/Backend.php:27
+#: plugins/maintenance/src/BackendBehaviors.php:220
+msgid "Maintenance"
+msgstr "Bảo trì"
+
+#: plugins/importExport/src/Module.php:157
+msgid "Congratulation!"
+msgstr "Chúc mừng!"
+
+#: plugins/importExport/src/Module.php:161
+msgid "Your blog has been successfully imported. Welcome on Dotclear 2!"
+msgstr "Blog của bạn đã được nhập thành công. Chào mừng đến với Dotclear 2!"
+
+#: plugins/importExport/src/Module.php:168
+msgid "Why don't you blog this now?"
+msgstr "Tại sao bạn không viết blog về điều này ngay bây giờ?"
+
+#: plugins/importExport/src/Module.php:176
+msgid "visit your dashboard"
+msgstr "Truy cập bảng điều khiển của bạn"
+
+#: plugins/importExport/src/ModuleExportFlat.php:30
+msgid "Flat file export"
+msgstr "Xuất tệp phẳng"
+
+#: plugins/importExport/src/ModuleExportFlat.php:31
+msgid "Exports a blog or a full Dotclear installation to flat file."
+msgstr "Xuất khẩu một blog hoặc toàn bộ cài đặt Dotclear sang tệp tin tĩnh."
+
+#: plugins/importExport/src/ModuleExportFlat.php:156
+msgid "Export file not found."
+msgstr "Tệp xuất không tìm thấy."
+
+#: plugins/importExport/src/ModuleExportFlat.php:195
+msgid "Failed to compress export file."
+msgstr "Không thể nén tệp xuất."
+
+#: plugins/importExport/src/ModuleImportDc1.php:86
+msgid "Dotclear 1.2 import"
+msgstr "Nhập khẩu Dotclear 1.2"
+
+#: plugins/importExport/src/ModuleImportDc1.php:87
+msgid "Import a Dotclear 1.2 installation into your current blog."
+msgstr "Nhập khẩu bản cài đặt Dotclear 1.2 vào blog hiện tại của bạn."
+
+#: plugins/importExport/src/ModuleImportDc1.php:218
+#, php-format
+msgid "Import the content of a Dotclear 1.2's blog in the current blog: %s."
+msgstr "Nhập nội dung của blog Dotclear 1.2 vào blog hiện tại: %s."
+
+#: plugins/importExport/src/ModuleImportDc1.php:226
+#: plugins/importExport/src/ModuleImportWp.php:253
+msgid "Please note that this process will empty your categories, blogroll, entries and comments on the current blog."
+msgstr "Lưu ý rằng quá trình này sẽ xóa sạch các danh mục, danh sách blog, bài viết và bình luận trên blog hiện tại của bạn."
+
+#: plugins/importExport/src/ModuleImportDc1.php:233
+msgid "We first need some information about your old Dotclear 1.2 installation."
+msgstr "Chúng tôi cần một số thông tin về bản cài đặt Dotclear 1.2 cũ của bạn."
+
+#: plugins/importExport/src/ModuleImportDc1.php:240
+msgid "Database driver:"
+msgstr "Trình điều khiển cơ sở dữ liệu:"
+
+#: plugins/importExport/src/ModuleImportDc1.php:282
+#: plugins/importExport/src/ModuleImportWp.php:302
+msgid "Entries import options"
+msgstr "Tùy chọn nhập dữ liệu"
+
+#: plugins/importExport/src/ModuleImportDc1.php:287
+#: plugins/importExport/src/ModuleImportWp.php:347
+msgid "Number of entries to import at once:"
+msgstr "Số lượng mục cần nhập cùng lúc:"
+
+#: plugins/importExport/src/ModuleImportDc1.php:293
+#: plugins/importExport/src/ModuleImportWp.php:372
+msgid "General information"
+msgstr "Thông tin chung"
+
+#: plugins/importExport/src/ModuleImportDc1.php:293
+#: plugins/importExport/src/ModuleImportWp.php:372
+msgid "Import my blog now"
+msgstr "Nhập blog của tôi ngay bây giờ"
+
+#: plugins/importExport/src/ModuleImportDc1.php:300
+#: plugins/importExport/src/ModuleImportWp.php:379
+msgid "Importing users"
+msgstr "Nhập khẩu người dùng"
+
+#: plugins/importExport/src/ModuleImportDc1.php:307
+#: plugins/importExport/src/ModuleImportWp.php:386
+msgid "Importing categories"
+msgstr "Nhập khẩu các danh mục"
+
+#: plugins/importExport/src/ModuleImportDc1.php:314
+#: plugins/importExport/src/ModuleImportWp.php:393
+msgid "Importing blogroll"
+msgstr "Nhập danh sách blog"
+
+#: plugins/importExport/src/ModuleImportDc1.php:321
+#: plugins/importExport/src/ModuleImportWp.php:400
+#, php-format
+msgid "Importing entries from %d to %d / %d"
+msgstr "Nhập các mục từ %d vào %d / %d"
+
+#: plugins/importExport/src/ModuleImportDc1.php:336
+#: plugins/importExport/src/ModuleImportWp.php:415
+msgid "Please read carefully"
+msgstr "Xin vui lòng đọc kỹ."
+
+#: plugins/importExport/src/ModuleImportDc1.php:338
+#: plugins/importExport/src/ModuleImportWp.php:418
+msgid "Every newly imported user has received a random password and will need to ask for a new one by following the \"I forgot my password\" link on the login page (Their registered email address has to be valid.)"
+msgstr "Mỗi người dùng mới được nhập khẩu sẽ nhận được một mật khẩu ngẫu nhiên và cần yêu cầu mật khẩu mới bằng cách nhấp vào liên kết \"Tôi đã quên mật khẩu\" trên trang đăng nhập (Địa chỉ email đã đăng ký của họ phải hợp lệ.)"
+
+#: plugins/importExport/src/ModuleImportDc1.php:340
+#, php-format
+msgid "Please note that Dotclear 2 has a new URL layout. You can avoid broken links by installing <a href=\"%s\">DC1 redirect</a> plugin and activate it in your blog configuration."
+msgstr "Lưu ý rằng Dotclear 2 có cấu trúc URL mới. Bạn có thể tránh các liên kết bị hỏng bằng cách cài đặt plugin <a href=\"%s\">chuyển hướng DC1</a> và kích hoạt nó trong cấu hình blog của bạn."
+
+#: plugins/importExport/src/ModuleImportDc1.php:363
+#: plugins/importExport/src/ModuleImportWp.php:440
+msgid "next step"
+msgstr "Bước tiếp theo"
+
+#: plugins/importExport/src/ModuleImportDc1.php:381
+#: plugins/importExport/src/ModuleImportWp.php:458
+msgid "Depending on the size of your blog, it could take a few minutes."
+msgstr "Tùy thuộc vào kích thước của blog của bạn, quá trình này có thể mất vài phút."
+
+#: plugins/importExport/src/ModuleImportDc1.php:409
+msgid "Dotclear tables not found"
+msgstr "Bảng Dotclear không được tìm thấy"
+
+#: plugins/importExport/src/ModuleImportFeed.php:125
+msgid "RSS or Atom feed import"
+msgstr "Nhập khẩu nguồn cấp dữ liệu RSS hoặc Atom"
+
+#: plugins/importExport/src/ModuleImportFeed.php:126
+msgid "Add a feed content to the blog."
+msgstr "Thêm nội dung bài viết vào blog."
+
+#: plugins/importExport/src/ModuleImportFeed.php:148
+#: plugins/importExport/src/ModuleImportFeed.php:154
+#: plugins/importExport/src/ModuleImportFeed.php:163
+#: plugins/importExport/src/ModuleImportFeed.php:167
+#: plugins/importExport/src/ModuleImportFeed.php:171
+#: plugins/importExport/src/ModuleImportFeed.php:177
+msgid "Cannot retrieve feed URL."
+msgstr "Không thể lấy URL nguồn cấp dữ liệu."
+
+#: plugins/importExport/src/ModuleImportFeed.php:180
+msgid "No items in feed."
+msgstr "Không có mục nào trong nguồn cấp dữ liệu."
+
+#: plugins/importExport/src/ModuleImportFeed.php:214
+#: plugins/importExport/src/ModuleImportFlat.php:189
+msgid "Content successfully imported."
+msgstr "Nội dung đã được nhập thành công."
+
+#: plugins/importExport/src/ModuleImportFeed.php:223
+#, php-format
+msgid "Add a feed content to the current blog: <strong>%s</strong>."
+msgstr "Thêm nội dung bài viết vào blog hiện tại: <strong>%s</strong>."
+
+#: plugins/importExport/src/ModuleImportFeed.php:231
+#: plugins/widgets/src/Widgets.php:155
+msgid "Feed URL:"
+msgstr "Đường dẫn nguồn cấp dữ liệu:"
+
+#: plugins/importExport/src/ModuleImportFlat.php:51
+msgid "Flat file import"
+msgstr "Nhập tệp tin phẳng"
+
+#: plugins/importExport/src/ModuleImportFlat.php:52
+msgid "Imports a blog or a full Dotclear installation from flat file."
+msgstr "Nhập khẩu một blog hoặc toàn bộ cài đặt Dotclear từ tệp tin tĩnh."
+
+#: plugins/importExport/src/ModuleImportFlat.php:184
+msgid "Single blog successfully imported."
+msgstr "Bài viết blog đã được nhập thành công."
+
+#: plugins/importExport/src/ModuleImportFlat.php:204
+msgid "Are you sure you want to import a full backup file?"
+msgstr "Bạn có chắc chắn muốn nhập tệp sao lưu đầy đủ không?"
+
+#: plugins/importExport/src/ModuleImportFlat.php:214
+msgid "Single blog"
+msgstr "Bài viết trên blog"
+
+#: plugins/importExport/src/ModuleImportFlat.php:219
+#, php-format
+msgid "This will import a single blog backup as new content in the current blog: <strong>%s</strong>."
+msgstr "Điều này sẽ nhập bản sao lưu blog duy nhất dưới dạng nội dung mới trong blog hiện tại: <strong>%s</strong>."
+
+#: plugins/importExport/src/ModuleImportFlat.php:226
+#: plugins/importExport/src/ModuleImportFlat.php:273
+msgid "Upload a backup file"
+msgstr "Tải lên tệp sao lưu"
+
+#: plugins/importExport/src/ModuleImportFlat.php:227
+#: plugins/importExport/src/ModuleImportFlat.php:274
+#, php-format
+msgid "maximum size %s"
+msgstr "Kích thước tối đa %s"
+
+#: plugins/importExport/src/ModuleImportFlat.php:239
+#: plugins/importExport/src/ModuleImportFlat.php:286
+msgid "or pick up a local file in your public directory"
+msgstr "hoặc chọn một tệp tin cục bộ trong thư mục công khai của bạn"
+
+#: plugins/importExport/src/ModuleImportFlat.php:261
+msgid "Multiple blogs"
+msgstr "Nhiều blog"
+
+#: plugins/importExport/src/ModuleImportFlat.php:268
+msgid "This will reset all the content of your database, except users."
+msgstr "Điều này sẽ xóa toàn bộ nội dung của cơ sở dữ liệu của bạn, trừ người dùng."
+
+#: plugins/importExport/src/ModuleImportFlat.php:399
+msgid "Another file with same name exists."
+msgstr "Có một tệp tin khác có cùng tên đã tồn tại."
+
+#: plugins/importExport/src/ModuleImportFlat.php:407
+msgid "Failed to extract backup file."
+msgstr "Không thể trích xuất tệp sao lưu."
+
+#: plugins/importExport/src/ModuleImportFlat.php:419
+msgid "No backup in compressed file."
+msgstr "Không có bản sao lưu trong tệp nén."
+
+#: plugins/importExport/src/ModuleImportWp.php:111
+msgid "WordPress import"
+msgstr "Nhập dữ liệu WordPress"
+
+#: plugins/importExport/src/ModuleImportWp.php:112
+msgid "Import a WordPress installation into your current blog."
+msgstr "Nhập một bản cài đặt WordPress vào blog hiện tại của bạn."
+
+#: plugins/importExport/src/ModuleImportWp.php:245
+#, php-format
+msgid "This will import your WordPress content as new content in the current blog: %s."
+msgstr "Điều này sẽ nhập nội dung WordPress của bạn thành nội dung mới trong blog hiện tại: %s."
+
+#: plugins/importExport/src/ModuleImportWp.php:260
+msgid "We first need some information about your old WordPress installation."
+msgstr "Chúng tôi cần một số thông tin về cài đặt WordPress cũ của bạn."
+
+#: plugins/importExport/src/ModuleImportWp.php:310
+msgid "WordPress and Dotclear's handling of categories are quite different. You can assign several categories to a single post in WordPress. In the Dotclear world, we see it more like \"One category, several tags.\" Therefore Dotclear can only import one category per post and will chose the lowest numbered one. If you want to keep a trace of every category, you can import them as tags, with an optional prefix."
+msgstr "Cách xử lý danh mục của WordPress và Dotclear có sự khác biệt đáng kể. Trong WordPress, bạn có thể gán nhiều danh mục cho một bài viết duy nhất. Trong hệ thống Dotclear, chúng ta xem xét điều này theo hướng \"Một danh mục, nhiều thẻ\". Do đó, Dotclear chỉ có thể nhập một danh mục cho mỗi bài viết và sẽ chọn danh mục có số thứ tự thấp nhất. Nếu bạn muốn giữ lại thông tin về mọi danh mục, bạn có thể nhập chúng dưới dạng thẻ, kèm theo tiền tố tùy chọn."
+
+#: plugins/importExport/src/ModuleImportWp.php:312
+msgid "On the other hand, in WordPress, a post can not be uncategorized, and a default installation has a first category labelised <i>\"Uncategorized\"</i>. If you did not change that category, you can just ignore it while importing your blog, as Dotclear allows you to actually keep your posts uncategorized."
+msgstr "Mặt khác, trong WordPress, một bài viết không thể không được phân loại, và cài đặt mặc định có một danh mục đầu tiên được đặt tên <i> là \"Uncategorized\"</i>. Nếu bạn không thay đổi danh mục đó, bạn có thể bỏ qua nó khi nhập blog của mình, vì Dotclear cho phép bạn thực sự giữ các bài viết của mình không được phân loại."
+
+#: plugins/importExport/src/ModuleImportWp.php:321
+msgid "Ignore the first category:"
+msgstr "Bỏ qua danh mục đầu tiên:"
+
+#: plugins/importExport/src/ModuleImportWp.php:327
+msgid "Import lowest numbered category on posts:"
+msgstr "Nhập danh mục có số thứ tự thấp nhất vào bài viết:"
+
+#: plugins/importExport/src/ModuleImportWp.php:333
+msgid "Import all categories as tags:"
+msgstr "Nhập tất cả các danh mục dưới dạng thẻ:"
+
+#: plugins/importExport/src/ModuleImportWp.php:341
+msgid "Prefix such tags with:"
+msgstr "Đặt tiền tố cho các thẻ này bằng:"
+
+#: plugins/importExport/src/ModuleImportWp.php:351
+msgid "Content filters"
+msgstr "Bộ lọc nội dung"
+
+#: plugins/importExport/src/ModuleImportWp.php:353
+msgid "You may want to process your post and/or comment content with the following filters."
+msgstr "Bạn có thể muốn xử lý nội dung bài đăng và/hoặc bình luận của mình bằng các bộ lọc sau đây."
+
+#: plugins/importExport/src/ModuleImportWp.php:359
+msgid "Post content formatter:"
+msgstr "Trình định dạng nội dung bài đăng:"
+
+#: plugins/importExport/src/ModuleImportWp.php:366
+msgid "Comment content formatter:"
+msgstr "Trình định dạng nội dung bình luận:"
+
+#: plugins/importExport/src/ModuleImportWp.php:486
+msgid "WordPress tables not found"
+msgstr "Bảng WordPress không được tìm thấy"
+
+#: plugins/maintenance/src/BackendBehaviors.php:48
+msgid "Servicing"
+msgstr "Dịch vụ"
+
+#: plugins/maintenance/src/BackendBehaviors.php:48
+msgid "Tools to maintain the performance of your blogs."
+msgstr "Các công cụ để duy trì hiệu suất của blog của bạn."
+
+#: plugins/maintenance/src/BackendBehaviors.php:49
+msgid "Backup"
+msgstr "Sao lưu"
+
+#: plugins/maintenance/src/BackendBehaviors.php:49
+msgid "Tools to back up your content."
+msgstr "Công cụ để sao lưu nội dung của bạn."
+
+#: plugins/maintenance/src/BackendBehaviors.php:50
+msgid "Development"
+msgstr "Phát triển"
+
+#: plugins/maintenance/src/BackendBehaviors.php:50
+msgid "Tools to assist in development of plugins, themes and core."
+msgstr "Công cụ hỗ trợ phát triển plugin, giao diện và lõi hệ thống."
+
+#: plugins/maintenance/src/BackendBehaviors.php:52
+msgid "Optimize"
+msgstr "Tối ưu hóa"
+
+#: plugins/maintenance/src/BackendBehaviors.php:53
+msgid "Count and index"
+msgstr "Đếm và lập chỉ mục"
+
+#: plugins/maintenance/src/BackendBehaviors.php:54
+msgid "Purge"
+msgstr "Xóa sạch"
+
+#: plugins/maintenance/src/BackendBehaviors.php:56
+msgid "Current blog"
+msgstr "Bài viết hiện tại"
+
+#: plugins/maintenance/src/BackendBehaviors.php:57
+msgid "All blogs"
+msgstr "Tất cả các blog"
+
+#: plugins/maintenance/src/BackendBehaviors.php:59
+msgid "Maintain translations"
+msgstr "Bảo trì bản dịch"
+
+#: plugins/maintenance/src/BackendBehaviors.php:59
+msgid "Translations"
+msgstr "Dịch thuật"
+
+#: plugins/maintenance/src/BackendBehaviors.php:94
+#, php-format
+msgid "One <a href=\"%2$s\">maintenance task</a> to execute."
+msgid_plural "%1$s <a href=\"%2$s\">maintenance tasks</a> to execute."
+msgstr[0] "%1$s <a href=\"%2$s\">Các tác vụ bảo trì</a> cần thực hiện."
+
+#: plugins/maintenance/src/BackendBehaviors.php:168
+#: plugins/maintenance/src/Rest.php:83
+#, php-format
+msgid "One task to execute"
+msgid_plural "%s tasks to execute"
+msgstr[0] "%s Các tác vụ cần thực hiện"
+
+#: plugins/maintenance/src/BackendBehaviors.php:202
+#: plugins/maintenance/src/Manage.php:306
+msgid "This task has never been executed."
+msgstr "Nhiệm vụ này chưa bao giờ được thực hiện."
+
+#: plugins/maintenance/src/BackendBehaviors.php:205
+#: plugins/maintenance/src/Manage.php:309
+#, php-format
+msgid "Last execution of this task was on %s."
+msgstr "Lần thực thi gần nhất của tác vụ này là vào ngày %s."
+
+#: plugins/maintenance/src/BackendBehaviors.php:223
+#, php-format
+msgid "There is a task to execute."
+msgid_plural "There are %s tasks to execute."
+msgstr[0] "Có các tác vụ sau cần thực thi: %s"
+
+#: plugins/maintenance/src/BackendBehaviors.php:230
+msgid "Manage tasks"
+msgstr "Quản lý tác vụ"
+
+#: plugins/maintenance/src/BackendBehaviors.php:252
+msgid "Display overdue tasks counter on maintenance dashboard icon"
+msgstr "Hiển thị số lượng tác vụ quá hạn trên biểu tượng bảng điều khiển bảo trì."
+
+#: plugins/maintenance/src/BackendBehaviors.php:258
+msgid "Display overdue tasks list on dashboard items"
+msgstr "Hiển thị danh sách các tác vụ quá hạn trên các mục trên bảng điều khiển."
+
+#: plugins/maintenance/src/MaintenanceTask.php:135
+msgid "Failed to execute task."
+msgstr "Không thể thực thi tác vụ."
+
+#: plugins/maintenance/src/MaintenanceTask.php:138
+msgid "Task successfully executed."
+msgstr "Thao tác đã được thực hiện thành công."
+
+#: plugins/maintenance/src/Manage.php:136
+msgid "Maintenance plugin has been successfully configured."
+msgstr "Plugin bảo trì đã được cấu hình thành công."
+
+#: plugins/maintenance/src/Manage.php:154
+msgid "System settings have been saved."
+msgstr "Cài đặt hệ thống đã được lưu."
+
+#: plugins/maintenance/src/Manage.php:159
+msgid "All blog's Content-Security-Policy settings have been reset to default."
+msgstr "Tất cả các thiết lập Chính sách Bảo mật Nội dung (Content-Security-Policy) của blog đã được đặt lại về mặc định."
+
+#: plugins/maintenance/src/Manage.php:181
+msgid "Every week"
+msgstr "Mỗi tuần"
+
+#: plugins/maintenance/src/Manage.php:182
+msgid "Every two weeks"
+msgstr "Mỗi hai tuần"
+
+#: plugins/maintenance/src/Manage.php:183
+msgid "Every month"
+msgstr "Mỗi tháng"
+
+#: plugins/maintenance/src/Manage.php:184
+msgid "Every two months"
+msgstr "Mỗi hai tháng"
+
+#: plugins/maintenance/src/Manage.php:217
+msgid "You have not sufficient permissions to view this page."
+msgstr "Bạn không có quyền truy cập đủ để xem trang này."
+
+#: plugins/maintenance/src/Manage.php:306
+#: plugins/maintenance/src/Manage.php:312
+msgid "You should execute it now."
+msgstr "Bạn nên thực hiện nó ngay bây giờ."
+
+#: plugins/maintenance/src/Manage.php:348
+#: plugins/maintenance/src/Manage.php:382
+msgid "Execute task"
+msgstr "Thực hiện tác vụ"
+
+#: plugins/maintenance/src/Manage.php:353
+msgid "This may take a very long time."
+msgstr "Điều này có thể mất rất nhiều thời gian."
+
+#: plugins/maintenance/src/Manage.php:420
+#: plugins/maintenance/src/Manage.php:422
+msgid "Alert settings"
+msgstr "Cài đặt cảnh báo"
+
+#: plugins/maintenance/src/Manage.php:428
+msgid "Activation"
+msgstr "Kích hoạt"
+
+#: plugins/maintenance/src/Manage.php:434
+msgid "Display alert messages on late tasks"
+msgstr "Hiển thị thông báo cảnh báo cho các tác vụ trễ hạn."
+
+#: plugins/maintenance/src/Manage.php:439
+#, php-format
+msgid "You can place list of late tasks on your %s."
+msgstr "Bạn có thể đặt danh sách các tác vụ trễ trên trang web của mình tại %s."
+
+#: plugins/maintenance/src/Manage.php:444
+msgid "Frequency"
+msgstr "Tần số"
+
+#: plugins/maintenance/src/Manage.php:452
+msgid "Use one recall time for all tasks"
+msgstr "Sử dụng một khoảng thời gian hồi phục cho tất cả các tác vụ."
+
+#: plugins/maintenance/src/Manage.php:462
+msgid "Recall time for all tasks:"
+msgstr "Thời gian hoàn thành cho tất cả các tác vụ:"
+
+#: plugins/maintenance/src/Manage.php:471
+msgid "Use one recall time per task"
+msgstr "Sử dụng một lần gọi lại cho mỗi tác vụ."
+
+#: plugins/maintenance/src/Manage.php:502
+msgid "Content-Security-Policy"
+msgstr "Chính sách bảo mật nội dung"
+
+#: plugins/maintenance/src/Manage.php:514
+msgid "Enable Content-Security-Policy system"
+msgstr "Kích hoạt hệ thống Chính sách Bảo mật Nội dung (Content-Security-Policy)"
+
+#: plugins/maintenance/src/Manage.php:520
+msgid "Enable Content-Security-Policy report only"
+msgstr "Bật chế độ báo cáo chính sách bảo mật nội dung (Content-Security-Policy)"
+
+#: plugins/maintenance/src/Manage.php:530
+msgid "Enable Content-Security-Policy system by default"
+msgstr "Kích hoạt hệ thống Chính sách Bảo mật Nội dung (Content-Security-Policy) theo mặc định."
+
+#: plugins/maintenance/src/Manage.php:536
+msgid "Enable Content-Security-Policy report only by default"
+msgstr "Bật chế độ chỉ báo cáo Content-Security-Policy theo mặc định."
+
+#: plugins/maintenance/src/Manage.php:542
+msgid "Also apply these settings to all blogs"
+msgstr "Áp dụng các cài đặt này cho tất cả các blog."
+
+#: plugins/maintenance/src/Task/CSP.php:38
+msgid "Delete the Content-Security-Policy report file"
+msgstr "Xóa tệp báo cáo Chính sách Bảo mật Nội dung (Content-Security-Policy)"
+
+#: plugins/maintenance/src/Task/CSP.php:39
+msgid "Content-Security-Policy report file has been deleted."
+msgstr "Tệp báo cáo Chính sách Bảo mật Nội dung (Content-Security-Policy) đã bị xóa."
+
+#: plugins/maintenance/src/Task/CSP.php:40
+msgid "Failed to delete the Content-Security-Policy report file."
+msgstr "Không thể xóa tệp báo cáo Chính sách Bảo mật Nội dung (Content-Security-Policy)."
+
+#: plugins/maintenance/src/Task/CSP.php:42
+msgid "Remove the Content-Security-Policy report file."
+msgstr "Xóa tệp báo cáo Chính sách Bảo mật Nội dung (Content-Security-Policy)."
+
+#: plugins/maintenance/src/Task/Cache.php:40
+msgid "Failed to empty templates cache directory."
+msgstr "Không thể xóa thư mục bộ nhớ đệm mẫu."
+
+#: plugins/maintenance/src/Task/Cache.php:42
+#, php-format
+msgid "It may be useful to empty this cache when modifying a theme's .html or .css files (or when updating a theme or plugin). Notice : with some hosters, the templates cache cannot be emptied with this plugin. You may then have to delete the directory <strong>%s</strong> directly on the server with your FTP software."
+msgstr "Có thể hữu ích khi xóa bộ nhớ cache này khi chỉnh sửa các tệp .html hoặc .css của chủ đề (hoặc khi cập nhật chủ đề hoặc plugin). Lưu ý: Với một số nhà cung cấp dịch vụ lưu trữ, bộ nhớ cache của mẫu không thể được xóa bằng plugin này. Trong trường hợp đó, bạn có thể phải xóa thư mục <strong>%s</strong> trực tiếp trên máy chủ bằng phần mềm FTP của bạn."
+
+#: plugins/maintenance/src/Task/CacheFeeds.php:38
+msgid "Empty the feed cache directory"
+msgstr "Xóa thư mục bộ nhớ đệm nguồn cấp dữ liệu"
+
+#: plugins/maintenance/src/Task/CacheFeeds.php:39
+msgid "The feed cache directory has been emptied."
+msgstr "Thư mục bộ nhớ đệm nguồn cấp dữ liệu đã được xóa sạch."
+
+#: plugins/maintenance/src/Task/CacheFeeds.php:40
+msgid "Failed to delete the feed cache directory."
+msgstr "Không thể xóa thư mục bộ nhớ đệm nguồn cấp dữ liệu."
+
+#: plugins/maintenance/src/Task/CacheFeeds.php:42
+#, php-format
+msgid "Notice : with some hosters, the feed cache cannot be emptied with this plugin. You may then have to delete the directory <strong>%s</strong> directly on the server with your FTP software."
+msgstr "Lưu ý: Với một số nhà cung cấp dịch vụ lưu trữ, bộ nhớ đệm nguồn cấp dữ liệu không thể được xóa bằng plugin này. Trong trường hợp đó, bạn có thể phải xóa thư mục <strong>%s</strong> trực tiếp trên máy chủ bằng phần mềm FTP của bạn."
+
+#: plugins/maintenance/src/Task/CountComments.php:39
+msgid "Count again comments and trackbacks"
+msgstr "Đếm lại số bình luận và trackback"
+
+#: plugins/maintenance/src/Task/CountComments.php:40
+msgid "Comments and trackback counted."
+msgstr "Số lượng bình luận và trackback đã được tính."
+
+#: plugins/maintenance/src/Task/CountComments.php:41
+msgid "Failed to count comments and trackbacks."
+msgstr "Không thể đếm số bình luận và trackback."
+
+#: plugins/maintenance/src/Task/CountComments.php:43
+msgid "Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating from dotclear 1 to dotclear 2)."
+msgstr "Đếm lại số lượng bình luận và trackback cho phép kiểm tra số lượng chính xác của chúng. Quy trình này có thể hữu ích khi nhập dữ liệu từ một nền tảng blog khác (hoặc khi chuyển đổi từ dotclear 1 sang dotclear 2)."
+
+#: plugins/maintenance/src/Task/IndexComments.php:55
+#: plugins/maintenance/src/Task/IndexPosts.php:55
+msgid "Search engine index"
+msgstr "Chỉ mục công cụ tìm kiếm"
+
+#: plugins/maintenance/src/Task/IndexComments.php:56
+msgid "Index all comments for search engine"
+msgstr "Chỉ mục tất cả các bình luận cho công cụ tìm kiếm"
+
+#: plugins/maintenance/src/Task/IndexComments.php:57
+#: plugins/maintenance/src/Task/IndexPosts.php:57
+#: plugins/maintenance/src/Task/SynchPostMeta.php:57
+msgid "Next"
+msgstr "Tiếp theo"
+
+#: plugins/maintenance/src/Task/IndexComments.php:58
+#, php-format
+msgid "Indexing comments %1$d to %2$d of %3$d."
+msgstr "Chỉ mục bình luận %1$d đến %2$d của %3$d."
+
+#: plugins/maintenance/src/Task/IndexComments.php:59
+msgid "Comments indexing done."
+msgstr "Chỉ mục bình luận đã hoàn tất."
+
+#: plugins/maintenance/src/Task/IndexComments.php:60
+msgid "Failed to index comments."
+msgstr "Không thể lập chỉ mục cho các bình luận."
+
+#: plugins/maintenance/src/Task/IndexComments.php:62
+msgid "Index all comments and trackbacks in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
+msgstr "Chỉ mục tất cả các bình luận và trackback trong chỉ mục của công cụ tìm kiếm. Quy trình này là cần thiết sau khi nhập nội dung vào blog của bạn để sử dụng công cụ tìm kiếm nội bộ trên các trang công khai và riêng tư."
+
+#: plugins/maintenance/src/Task/IndexPosts.php:56
+msgid "Index all entries for search engine"
+msgstr "Chỉ mục tất cả các mục cho công cụ tìm kiếm"
+
+#: plugins/maintenance/src/Task/IndexPosts.php:58
+#, php-format
+msgid "Indexing entries %1$d to %2$d of %3$d."
+msgstr "Chỉ mục các mục từ %1$d đến %2$d của %3$d."
+
+#: plugins/maintenance/src/Task/IndexPosts.php:59
+msgid "Entries indexing done."
+msgstr "Chỉ mục các mục đã hoàn thành."
+
+#: plugins/maintenance/src/Task/IndexPosts.php:60
+msgid "Failed to index entries."
+msgstr "Không thể lập chỉ mục các mục."
+
+#: plugins/maintenance/src/Task/IndexPosts.php:62
+msgid "Index all entries in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
+msgstr "Chỉ mục tất cả các mục trong chỉ mục của công cụ tìm kiếm. Quy trình này là cần thiết sau khi nhập nội dung vào blog của bạn để sử dụng công cụ tìm kiếm nội bộ trên các trang công khai và riêng tư."
+
+#: plugins/maintenance/src/Task/Logs.php:43
+msgid "Delete all logs"
+msgstr "Xóa tất cả nhật ký"
+
+#: plugins/maintenance/src/Task/Logs.php:44
+msgid "Logs deleted."
+msgstr "Nhật ký đã bị xóa."
+
+#: plugins/maintenance/src/Task/Logs.php:45
+msgid "Failed to delete logs."
+msgstr "Không thể xóa nhật ký."
+
+#: plugins/maintenance/src/Task/Logs.php:47
+msgid "Logs record all activity and connection to your blog history. Unless you need to keep this history, consider deleting these logs from time to time."
+msgstr "Nhật ký ghi lại tất cả hoạt động và kết nối đến lịch sử blog của bạn. Trừ khi bạn cần giữ lại lịch sử này, hãy cân nhắc xóa các nhật ký này định kỳ."
+
+#: plugins/maintenance/src/Task/SynchPostMeta.php:55
+msgid "Entries metadata"
+msgstr "Thông tin metadata của các mục nhập"
+
+#: plugins/maintenance/src/Task/SynchPostMeta.php:56
+msgid "Synchronize entries metadata"
+msgstr "Đồng bộ hóa metadata của các mục nhập"
+
+#: plugins/maintenance/src/Task/SynchPostMeta.php:58
+#, php-format
+msgid "Synchronizing metadata of entries %1$d to %2$d of %3$d."
+msgstr "Đồng bộ hóa metadata của các mục từ %1$d đến %2$d của %3$d."
+
+#: plugins/maintenance/src/Task/SynchPostMeta.php:59
+msgid "Entries metadata synchronize done."
+msgstr "Dữ liệu metadata của các mục đã được đồng bộ hóa."
+
+#: plugins/maintenance/src/Task/SynchPostMeta.php:60
+msgid "Failed to synchronize entries metadata."
+msgstr "Không thể đồng bộ hóa metadata của các mục."
+
+#: plugins/maintenance/src/Task/SynchPostMeta.php:62
+msgid "Synchronize all entries metadata could be useful after importing content in your blog or do bad operation on database tables."
+msgstr "Đồng bộ hóa metadata của tất cả các mục có thể hữu ích sau khi nhập nội dung vào blog của bạn hoặc thực hiện các thao tác không đúng trên các bảng cơ sở dữ liệu."
+
+#: plugins/maintenance/src/Task/Vacuum.php:37
+msgid "Optimise database"
+msgstr "Tối ưu hóa cơ sở dữ liệu"
+
+#: plugins/maintenance/src/Task/Vacuum.php:38
+msgid "optimize tables"
+msgstr "Tối ưu hóa bảng"
+
+#: plugins/maintenance/src/Task/Vacuum.php:39
+msgid "Optimization successful."
+msgstr "Quá trình tối ưu hóa đã thành công."
+
+#: plugins/maintenance/src/Task/Vacuum.php:40
+msgid "Failed to optimize tables."
+msgstr "Không thể tối ưu hóa bảng."
+
+#: plugins/maintenance/src/Task/Vacuum.php:42
+msgid "After numerous delete or update operations on Dotclear's database, it gets fragmented. Optimizing will allow to defragment it. It has no incidence on your data's integrity. It is recommended to optimize before any blog export."
+msgstr "Sau nhiều lần thực hiện các thao tác xóa hoặc cập nhật trên cơ sở dữ liệu của Dotclear, cơ sở dữ liệu sẽ bị phân mảnh. Việc tối ưu hóa sẽ giúp khắc phục tình trạng này. Quá trình này không ảnh hưởng đến tính toàn vẹn của dữ liệu. Nên thực hiện tối ưu hóa trước khi xuất blog."
+
+#: plugins/maintenance/src/Task/ZipMedia.php:53
+msgid "Download media folder of current blog"
+msgstr "Tải xuống thư mục phương tiện của blog hiện tại"
+
+#: plugins/maintenance/src/Task/ZipMedia.php:55
+msgid "It may be useful to backup your media folder. This compress all content of media folder into a single zip file. Notice : with some hosters, the media folder cannot be compressed with this plugin if it is too big."
+msgstr "Có thể hữu ích khi sao lưu thư mục phương tiện của bạn. Tính năng này sẽ nén toàn bộ nội dung của thư mục phương tiện thành một tệp ZIP duy nhất. Lưu ý: Với một số nhà cung cấp dịch vụ lưu trữ, thư mục phương tiện không thể được nén bằng plugin này nếu nó quá lớn."
+
+#: plugins/maintenance/src/Task/ZipTheme.php:54
+msgid "Download active theme of current blog"
+msgstr "Tải xuống chủ đề đang hoạt động của blog hiện tại"
+
+#: plugins/maintenance/src/Task/ZipTheme.php:56
+msgid "It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file."
+msgstr "Nên sao lưu chủ đề đang hoạt động trước khi thực hiện bất kỳ thay đổi hoặc cập nhật nào. Điều này sẽ nén thư mục chủ đề thành một tệp ZIP duy nhất."
+
+#: plugins/pages/src/Backend.php:49
+msgid "manage pages"
+msgstr "Quản lý trang"
+
+#: plugins/pages/src/Backend.php:80
+msgid "pages per page"
+msgstr "số trang trên mỗi trang"
+
+#: plugins/pages/src/Backend.php:103
+#, php-format
+msgid "%d page"
+msgstr "%d trang"
+
+#: plugins/pages/src/Backend.php:103
+#, php-format
+msgid "%d pages"
+msgstr "%d trang"
+
+#: plugins/pages/src/Backend.php:110 plugins/pages/src/Manage.php:147
+#: plugins/pages/src/ManagePage.php:107 plugins/pages/src/ManagePage.php:856
+msgid "New page"
+msgstr "Trang mới"
+
+#: plugins/pages/src/BackendActions.php:53
+msgid "Pages actions"
+msgstr "Các thao tác trên trang"
+
+#: plugins/pages/src/BackendActions.php:75
+msgid "Back to pages list"
+msgstr "Trở lại danh sách trang"
+
+#: plugins/pages/src/BackendDefaultActions.php:118
+#: plugins/pages/src/Manage.php:138
+msgid "Selected pages have been successfully reordered."
+msgstr "Các trang đã được chọn đã được sắp xếp lại thành công."
+
+#: plugins/pages/src/BackendList.php:54
+msgid "No page"
+msgstr "Không có trang"
+
+#: plugins/pages/src/BackendList.php:169 plugins/pages/src/BackendList.php:238
+msgid "Hidden"
+msgstr "Ẩn"
+
+#: plugins/pages/src/BackendList.php:267
+msgid "Select this page"
+msgstr "Chọn trang này"
+
+#: plugins/pages/src/Frontend.php:38
+msgid "Published on"
+msgstr "Được xuất bản vào"
+
+#: plugins/pages/src/Frontend.php:39
+msgid "This page's comments feed"
+msgstr "Dòng bình luận của trang này"
+
+#: plugins/pages/src/Install.php:51
+msgid "My first page"
+msgstr "Trang đầu tiên của tôi"
+
+#: plugins/pages/src/Install.php:52
+msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
+msgstr "Đây là trang đầu tiên của bạn. Khi bạn sẵn sàng viết blog, hãy đăng nhập để chỉnh sửa hoặc xóa trang này."
+
+#: plugins/pages/src/Manage.php:120
+msgid "Are you sure you want to delete selected pages?"
+msgstr "Bạn có chắc chắn muốn xóa các trang đã chọn không?"
+
+#: plugins/pages/src/Manage.php:134
+msgid "Selected pages have been successfully updated."
+msgstr "Các trang đã được chọn đã được cập nhật thành công."
+
+#: plugins/pages/src/Manage.php:136
+msgid "Selected pages have been successfully deleted."
+msgstr "Các trang đã được chọn đã được xóa thành công."
+
+#: plugins/pages/src/Manage.php:170
+msgid "Selected pages action:"
+msgstr "Hành động trên các trang đã chọn:"
+
+#: plugins/pages/src/Manage.php:176
+msgid "To rearrange pages order, change number at the begining of the line, then click on “Save pages order” button."
+msgstr "Để sắp xếp lại thứ tự các trang, hãy thay đổi số ở đầu dòng, sau đó nhấp vào nút “Lưu thứ tự trang”."
+
+#: plugins/pages/src/Manage.php:179
+msgid "To rearrange pages order, move items by drag and drop, then click on “Save pages order” button."
+msgstr "Để sắp xếp lại thứ tự các trang, hãy di chuyển các mục bằng cách kéo và thả, sau đó nhấp vào nút “Lưu thứ tự trang”."
+
+#: plugins/pages/src/Manage.php:186
+msgid "Save pages order"
+msgstr "Lưu thứ tự các trang"
+
+#: plugins/pages/src/ManagePage.php:168
+msgid "This page does not exist."
+msgstr "Trang này không tồn tại."
+
+#: plugins/pages/src/ManagePage.php:189 plugins/pages/src/ManagePage.php:856
+#: plugins/pages/src/ManagePage.php:877
+msgid "Edit page"
+msgstr "Chỉnh sửa trang"
+
+#: plugins/pages/src/ManagePage.php:434
+msgid "Don't forget to validate your HTML conversion by saving your post."
+msgstr "Đừng quên kiểm tra lại việc chuyển đổi HTML của bạn bằng cách lưu bài viết."
+
+#: plugins/pages/src/ManagePage.php:498
+msgid "Are you sure you want to delete this page?"
+msgstr "Bạn có chắc chắn muốn xóa trang này không?"
+
+#: plugins/pages/src/ManagePage.php:527
+msgid "Page has been successfully updated."
+msgstr "Trang đã được cập nhật thành công."
+
+#: plugins/pages/src/ManagePage.php:529
+msgid "Page has been successfully created."
+msgstr "Trang đã được tạo thành công."
+
+#: plugins/pages/src/ManagePage.php:543
+msgid "Go to this page on the site"
+msgstr "Truy cập trang này trên trang web."
+
+#: plugins/pages/src/ManagePage.php:585
+msgid "Page status"
+msgstr "Trạng thái trang"
+
+#: plugins/pages/src/ManagePage.php:602
+msgid "Page language"
+msgstr "Ngôn ngữ trang"
+
+#: plugins/pages/src/ManagePage.php:631 plugins/pages/src/Widgets.php:41
+msgid "Page position"
+msgstr "Vị trí trang"
+
+#: plugins/pages/src/ManagePage.php:682
+msgid "Hide in widget Pages"
+msgstr "Ẩn trong widget Trang"
+
+#: plugins/pages/src/ManagePage.php:708
+msgid "Warning: If you set the URL manually, it may conflict with another page."
+msgstr "Cảnh báo: Nếu bạn thiết lập URL thủ công, nó có thể gây xung đột với một trang khác."
+
+#: plugins/pages/src/ManagePage.php:747
+msgid "Introduction to the page."
+msgstr "Giới thiệu về trang."
+
+#: plugins/pages/src/ManagePage.php:1126
+msgid "Select this comment"
+msgstr "Chọn bình luận này"
+
+#: plugins/pages/src/Widgets.php:40
+msgid "Page title"
+msgstr "Tiêu đề trang"
+
+#: plugins/pages/src/Widgets.php:42
+msgid "Publication date"
+msgstr "Ngày xuất bản"
+
+#: plugins/pings/src/Backend.php:29 plugins/pings/src/BackendBehaviors.php:64
+msgid "Pings"
+msgstr "Pings"
+
+#: plugins/pings/src/Manage.php:80
+msgid "Settings have been successfully updated."
+msgstr "Cài đặt đã được cập nhật thành công."
+
+#: plugins/pings/src/Manage.php:98
+msgid "Pings configuration"
+msgstr "Cấu hình Pings"
+
+#: plugins/pings/src/Manage.php:112
+msgid "Error"
+msgstr "Lỗi"
+
+#: plugins/pings/src/Manage.php:164
+msgid "Service name:"
+msgstr "Tên dịch vụ:"
+
+#: plugins/pings/src/Manage.php:165
+msgid "Service URI:"
+msgstr "URI dịch vụ:"
+
+#: plugins/pings/src/Manage.php:180
+msgid "Activate pings extension"
+msgstr "Kích hoạt tiện ích mở rộng ping"
+
+#: plugins/pings/src/Manage.php:186
+msgid "Auto pings all services on first publication of entry (current blog only)"
+msgstr "Tự động gửi ping đến tất cả các dịch vụ khi bài viết được đăng lần đầu tiên (chỉ áp dụng cho blog hiện tại)"
+
+#: plugins/pings/src/Manage.php:193
+msgid "Test ping services"
+msgstr "Kiểm tra dịch vụ ping"
+
+#: plugins/simpleMenu/src/Backend.php:28 plugins/simpleMenu/src/Manage.php:73
+#: plugins/simpleMenu/src/Widgets.php:29
+msgid "Simple menu"
+msgstr "Thực đơn đơn giản"
+
+#: plugins/simpleMenu/src/FrontendTemplate.php:164
+msgid "Active page"
+msgstr "Trang đang hoạt động"
+
+#: plugins/simpleMenu/src/FrontendTemplate.php:164
+msgid "active page"
+msgstr "trang đang hoạt động"
+
+#: plugins/simpleMenu/src/Manage.php:105 plugins/simpleMenu/src/Manage.php:109
+msgid "All months"
+msgstr "Tất cả các tháng"
+
+#: plugins/simpleMenu/src/Manage.php:172
+msgid "Archive"
+msgstr "Lưu trữ"
+
+#: plugins/simpleMenu/src/Manage.php:175
+msgid "Page"
+msgstr "Trang"
+
+#: plugins/simpleMenu/src/Manage.php:178 plugins/tags/src/Backend.php:27
+#: plugins/tags/src/Widgets.php:33
+msgid "Tags"
+msgstr "Thẻ"
+
+#: plugins/simpleMenu/src/Manage.php:185
+msgid "User defined"
+msgstr "Do người dùng định nghĩa"
+
+#: plugins/simpleMenu/src/Manage.php:226
+msgid "Configuration successfully updated."
+msgstr "Cấu hình đã được cập nhật thành công."
+
+#: plugins/simpleMenu/src/Manage.php:268 plugins/simpleMenu/src/Manage.php:690
+#: plugins/simpleMenu/src/Manage.php:810
+msgid "Label"
+msgstr "Nhãn"
+
+#: plugins/simpleMenu/src/Manage.php:274
+msgid "Home page"
+msgstr "Trang chủ"
+
+#: plugins/simpleMenu/src/Manage.php:274 plugins/simpleMenu/src/Manage.php:279
+#: plugins/widgets/src/Widgets.php:304 plugins/widgets/src/Widgets.php:314
+msgid "Recent posts"
+msgstr "Bài viết gần đây"
+
+#: plugins/simpleMenu/src/Manage.php:286
+#, php-format
+msgid "Switch to %s language"
+msgstr "Chuyển sang ngôn ngữ %s"
+
+#: plugins/simpleMenu/src/Manage.php:293
+msgid "Recent Posts from this category"
+msgstr "Bài viết gần đây từ danh mục này"
+
+#: plugins/simpleMenu/src/Manage.php:305
+#, php-format
+msgid "Posts from %s"
+msgstr "Bài viết từ %s"
+
+#: plugins/simpleMenu/src/Manage.php:325
+#, php-format
+msgid "Recent posts for %s tag"
+msgstr "Bài viết gần đây cho thẻ %s"
+
+#: plugins/simpleMenu/src/Manage.php:385
+msgid "Menu item has been successfully added."
+msgstr "Mục menu đã được thêm thành công."
+
+#: plugins/simpleMenu/src/Manage.php:390
+msgid "Label and URL of menu item are mandatory."
+msgstr "Tên và URL của mục menu là bắt buộc."
+
+#: plugins/simpleMenu/src/Manage.php:423
+msgid "Menu items have been successfully removed."
+msgstr "Các mục trong menu đã được xóa thành công."
+
+#: plugins/simpleMenu/src/Manage.php:426
+msgid "No menu items selected."
+msgstr "Không có mục nào trong menu được chọn."
+
+#: plugins/simpleMenu/src/Manage.php:438
+msgid "Label is mandatory."
+msgstr "Nhãn là bắt buộc."
+
+#: plugins/simpleMenu/src/Manage.php:443
+msgid "URL is mandatory."
+msgstr "URL là bắt buộc."
+
+#: plugins/simpleMenu/src/Manage.php:488
+msgid "Menu items have been successfully updated."
+msgstr "Các mục trong menu đã được cập nhật thành công."
+
+#: plugins/simpleMenu/src/Manage.php:515
+msgid "Are you sure you want to remove selected menu items?"
+msgstr "Bạn có chắc chắn muốn xóa các mục menu đã chọn không?"
+
+#: plugins/simpleMenu/src/Manage.php:524
+msgid "Step #1"
+msgstr "Bước #1"
+
+#: plugins/simpleMenu/src/Manage.php:529 plugins/simpleMenu/src/Manage.php:534
+msgid "Step #2"
+msgstr "Bước #2"
+
+#: plugins/simpleMenu/src/Manage.php:534
+msgid "Step #3"
+msgstr "Bước #3"
+
+#: plugins/simpleMenu/src/Manage.php:543
+msgid "Add item"
+msgstr "Thêm mục"
+
+#: plugins/simpleMenu/src/Manage.php:574
+msgid "Select type"
+msgstr "Chọn loại"
+
+#: plugins/simpleMenu/src/Manage.php:581
+msgid "Type of item menu:"
+msgstr "Loại menu mục:"
+
+#: plugins/simpleMenu/src/Manage.php:587 plugins/simpleMenu/src/Manage.php:654
+msgid "Continue..."
+msgstr "Tiếp tục..."
+
+#: plugins/simpleMenu/src/Manage.php:610
+msgid "Select language:"
+msgstr "Chọn ngôn ngữ:"
+
+#: plugins/simpleMenu/src/Manage.php:616
+msgid "Select category:"
+msgstr "Chọn danh mục:"
+
+#: plugins/simpleMenu/src/Manage.php:622
+msgid "Select month (if necessary):"
+msgstr "Chọn tháng (nếu cần thiết):"
+
+#: plugins/simpleMenu/src/Manage.php:628
+msgid "Select page:"
+msgstr "Chọn trang:"
+
+#: plugins/simpleMenu/src/Manage.php:634
+msgid "Select tag (if necessary):"
+msgstr "Chọn thẻ (nếu cần thiết):"
+
+#: plugins/simpleMenu/src/Manage.php:695
+msgid "Label of item menu:"
+msgstr "Nhãn của menu mục:"
+
+#: plugins/simpleMenu/src/Manage.php:709
+msgid "Description of item menu:"
+msgstr "Mô tả menu sản phẩm:"
+
+#: plugins/simpleMenu/src/Manage.php:724
+msgid "URL of item menu:"
+msgstr "URL của menu mục:"
+
+#: plugins/simpleMenu/src/Manage.php:734 plugins/simpleMenu/src/Manage.php:813
+msgid "Open URL on a new tab"
+msgstr "Mở URL trong tab mới"
+
+#: plugins/simpleMenu/src/Manage.php:742
+msgid "Add this item"
+msgstr "Thêm mục này"
+
+#: plugins/simpleMenu/src/Manage.php:768
+msgid "Enable simple menu for this blog"
+msgstr "Bật menu đơn giản cho blog này"
+
+#: plugins/simpleMenu/src/Manage.php:791
+msgid "Add an item"
+msgstr "Thêm một mục"
+
+#: plugins/simpleMenu/src/Manage.php:909
+msgid "Menu items list"
+msgstr "Danh sách các mục trong menu"
+
+#: plugins/simpleMenu/src/Manage.php:936
+msgid "Delete selected menu items"
+msgstr "Xóa các mục menu đã chọn"
+
+#: plugins/simpleMenu/src/Manage.php:945
+msgid "Update menu"
+msgstr "Cập nhật menu"
+
+#: plugins/simpleMenu/src/Manage.php:955
+msgid "No menu items so far."
+msgstr "Chưa có mục nào trong menu."
+
+#: plugins/simpleMenu/src/Widgets.php:33
+msgid "Item description"
+msgstr "Mô tả sản phẩm"
+
+#: plugins/simpleMenu/src/Widgets.php:37
+msgid "Displayed in link"
+msgstr "Hiển thị trong liên kết"
+
+#: plugins/simpleMenu/src/Widgets.php:38
+msgid "Used as link title"
+msgstr "Được sử dụng làm tiêu đề liên kết"
+
+#: plugins/simpleMenu/src/Widgets.php:39
+msgid "Displayed in link and used as title"
+msgstr "Hiển thị trong liên kết và được sử dụng làm tiêu đề"
+
+#: plugins/simpleMenu/src/Widgets.php:40
+msgid "Not displayed nor used"
+msgstr "Không hiển thị cũng như không sử dụng."
+
+#: plugins/tags/src/BackendBehaviors.php:62
+#: plugins/tags/src/BackendBehaviors.php:74
+#: plugins/tags/src/FrontendUrl.php:105 plugins/tags/src/ManagePosts.php:154
+msgid "Tag"
+msgstr "Thẻ"
+
+#: plugins/tags/src/BackendBehaviors.php:237
+msgid "Add tags"
+msgstr "Thêm thẻ"
+
+#: plugins/tags/src/BackendBehaviors.php:246
+msgid "Remove tags"
+msgstr "Xóa thẻ"
+
+#: plugins/tags/src/BackendBehaviors.php:281
+msgid "Tag has been successfully added to selected entries"
+msgid_plural "Tags have been successfully added to selected entries"
+msgstr[0] "Thẻ đã được thêm thành công vào các mục đã chọn."
+
+#: plugins/tags/src/BackendBehaviors.php:294
+#: plugins/tags/src/BackendBehaviors.php:449
+msgid "Are you sure you want to remove this tag?"
+msgstr "Bạn có chắc chắn muốn xóa thẻ này không?"
+
+#: plugins/tags/src/BackendBehaviors.php:295
+#: plugins/tags/src/BackendBehaviors.php:450
+msgid "Add a tag to this entry"
+msgstr "Thêm thẻ vào mục này"
+
+#: plugins/tags/src/BackendBehaviors.php:296
+#: plugins/tags/src/BackendBehaviors.php:451
+msgid "Choose from list"
+msgstr "Chọn từ danh sách"
+
+#: plugins/tags/src/BackendBehaviors.php:297
+#: plugins/tags/src/BackendBehaviors.php:452
+msgid "all"
+msgstr "tất cả"
+
+#: plugins/tags/src/BackendBehaviors.php:298
+#: plugins/tags/src/BackendBehaviors.php:453
+msgid "Enter tags separated by comma"
+msgstr "Nhập các thẻ cách nhau bằng dấu phẩy."
+
+#: plugins/tags/src/BackendBehaviors.php:306
+msgid "Add tags to this selection"
+msgstr "Thêm thẻ vào lựa chọn này"
+
+#: plugins/tags/src/BackendBehaviors.php:324
+msgid "Tags to add:"
+msgstr "Thẻ cần thêm:"
+
+#: plugins/tags/src/BackendBehaviors.php:363
+msgid "Tag has been successfully removed from selected entries"
+msgid_plural "Tags have been successfully removed from selected entries"
+msgstr[0] "Thẻ đã được gỡ bỏ thành công khỏi các mục đã chọn."
+
+#: plugins/tags/src/BackendBehaviors.php:386
+msgid "No tags for selected entries"
+msgstr "Không có thẻ cho các mục đã chọn"
+
+#: plugins/tags/src/BackendBehaviors.php:393
+msgid "Remove selected tags from this selection"
+msgstr "Xóa các thẻ đã chọn khỏi lựa chọn này"
+
+#: plugins/tags/src/BackendBehaviors.php:420
+msgid "Following tags have been found in selected entries:"
+msgstr "Các thẻ sau đây đã được tìm thấy trong các mục đã chọn:"
+
+#: plugins/tags/src/BackendBehaviors.php:429
+msgid "Remove"
+msgstr "Xóa"
+
+#: plugins/tags/src/BackendBehaviors.php:492
+msgid "Tags list format:"
+msgstr "Danh sách thẻ theo định dạng:"
+
+#: plugins/tags/src/BackendBehaviors.php:495
+msgid "Short"
+msgstr "Ngắn"
+
+#: plugins/tags/src/BackendBehaviors.php:496
+msgid "Extended"
+msgstr "Mở rộng"
+
+#: plugins/tags/src/FrontendBehaviors.php:30
+msgid "This tag's comments Atom feed"
+msgstr "Dòng bình luận của thẻ này dưới dạng nguồn cấp dữ liệu Atom"
+
+#: plugins/tags/src/FrontendBehaviors.php:31
+msgid "This tag's entries Atom feed"
+msgstr "Danh sách các mục của thẻ này dưới dạng nguồn cấp dữ liệu Atom"
+
+#: plugins/tags/src/Manage.php:119
+msgid "entries"
+msgstr "các mục"
+
+#: plugins/tags/src/Manage.php:119
+msgid "entry"
+msgstr "nhập"
+
+#: plugins/tags/src/Manage.php:150
+msgid "No tags on this blog."
+msgstr "Không có thẻ nào trên blog này."
+
+#: plugins/tags/src/ManagePosts.php:93
+msgid "Tag has been successfully renamed"
+msgstr "Thẻ đã được đổi tên thành công."
+
+#: plugins/tags/src/ManagePosts.php:112
+msgid "Tag has been successfully removed"
+msgstr "Thẻ đã được gỡ bỏ thành công."
+
+#: plugins/tags/src/ManagePosts.php:143
+#, php-format
+msgid "Are you sure you want to remove tag: “%s”?"
+msgstr "Bạn có chắc chắn muốn xóa thẻ: “%s” không?"
+
+#: plugins/tags/src/ManagePosts.php:158
+msgid "Back to tags list"
+msgstr "Trở lại danh sách thẻ"
+
+#: plugins/tags/src/ManagePosts.php:173
+msgid "Delete this tag"
+msgstr "Xóa thẻ này"
+
+#: plugins/tags/src/ManagePosts.php:195
+msgid "Rename:"
+msgstr "Đổi tên:"
+
+#: plugins/tags/src/ManagePosts.php:206
+msgid "List of entries with this tag"
+msgstr "Danh sách các mục có thẻ này"
+
+#: plugins/tags/src/Widgets.php:34
+msgid "Limit (empty means no limit):"
+msgstr "Giới hạn (trống có nghĩa là không có giới hạn):"
+
+#: plugins/tags/src/Widgets.php:41
+msgid "Tag name"
+msgstr "Tên thẻ"
+
+#: plugins/tags/src/Widgets.php:42
+msgid "Entries count"
+msgstr "Số lượng bài dự thi"
+
+#: plugins/tags/src/Widgets.php:43
+msgid "Newest entry"
+msgstr "Bài viết mới nhất"
+
+#: plugins/tags/src/Widgets.php:44
+msgid "Oldest entry"
+msgstr "Bài viết cũ nhất"
+
+#: plugins/tags/src/Widgets.php:57
+msgid "Link to all tags:"
+msgstr "Liên kết đến tất cả các thẻ:"
+
+#: plugins/themeEditor/src/Backend.php:28
+msgid "themeEditor"
+msgstr "Trình chỉnh sửa chủ đề"
+
+#: plugins/themeEditor/src/BackendBehaviors.php:45
+#: plugins/themeEditor/src/Manage.php:194
+#: plugins/themeEditor/src/Manage.php:201
+msgid "Edit theme files"
+msgstr "Chỉnh sửa các tệp chủ đề"
+
+#: plugins/themeEditor/src/BackendBehaviors.php:105
+msgid "Syntax highlighting"
+msgstr "Tô màu cú pháp"
+
+#: plugins/themeEditor/src/BackendBehaviors.php:117
+msgid "Syntax highlighting in theme editor"
+msgstr "Tô màu cú pháp trong trình chỉnh sửa chủ đề"
+
+#: plugins/themeEditor/src/Manage.php:98
+msgid "The theme update has been locked."
+msgstr "Cập nhật chủ đề đã bị khóa."
+
+#: plugins/themeEditor/src/Manage.php:106
+msgid "The theme update has been unocked."
+msgstr "Bản cập nhật chủ đề đã được mở khóa."
+
+#: plugins/themeEditor/src/Manage.php:129
+msgid "The file has been reset."
+msgstr "Tệp đã được đặt lại."
+
+#: plugins/themeEditor/src/Manage.php:163
+msgid "Lock update"
+msgstr "Cập nhật khóa"
+
+#: plugins/themeEditor/src/Manage.php:163
+msgid "Unlock update"
+msgstr "Mở khóa bản cập nhật"
+
+#: plugins/themeEditor/src/Manage.php:168
+msgid "Lock theme update disables theme update, but allows theme files to be modified."
+msgstr "Cập nhật chủ đề bị vô hiệu hóa, nhưng cho phép sửa đổi các tệp chủ đề."
+
+#: plugins/themeEditor/src/Manage.php:174
+msgid "The theme editor is in development mode, theme files will be overwritten!"
+msgstr "Trình chỉnh sửa chủ đề đang ở chế độ phát triển, các tệp chủ đề sẽ bị ghi đè!"
+
+#: plugins/themeEditor/src/Manage.php:182
+msgid "Saving document..."
+msgstr "Đang lưu tài liệu..."
+
+#: plugins/themeEditor/src/Manage.php:183
+msgid "Document saved"
+msgstr "Tài liệu đã được lưu."
+
+#: plugins/themeEditor/src/Manage.php:184
+msgid "An error occurred:"
+msgstr "Đã xảy ra lỗi:"
+
+#: plugins/themeEditor/src/Manage.php:185
+msgid "Are you sure you want to reset this file?"
+msgstr "Bạn có chắc chắn muốn đặt lại tệp này không?"
+
+#: plugins/themeEditor/src/Manage.php:209
+#, php-format
+msgid "Your current theme on this blog is \"%s\"."
+msgstr "Chủ đề hiện tại của blog này là \"%s\"."
+
+#: plugins/themeEditor/src/Manage.php:219
+msgid "Please select a file to edit."
+msgstr "Vui lòng chọn một tệp để chỉnh sửa."
+
+#: plugins/themeEditor/src/Manage.php:227
+msgid "Reset"
+msgstr "Đặt lại"
+
+#: plugins/themeEditor/src/Manage.php:236
+msgid "File editor"
+msgstr "Trình chỉnh sửa tệp"
+
+#: plugins/themeEditor/src/Manage.php:245
+#, php-format
+msgid "Editing file %s"
+msgstr "Chỉnh sửa tệp %s"
+
+#: plugins/themeEditor/src/Manage.php:261
+msgid "If you use <code>url(...)</code> in your CSS files, be sure to use <code>url(index.php?tf=...)</code> to correctly load theme resources (imported CSS, images, etc.), except for URL types in the form <code>data:image</code>.<br>Example: do <code>@import url(index.php?tf=css/layout.css);</code> instead of <code>@import url(css/layout.css);</code>."
+msgstr "Nếu bạn sử dụng <code>url(...)</code> trong các tệp CSS của mình, hãy đảm bảo sử dụng <code>url(index.php?tf=...)</code> để tải đúng các tài nguyên chủ đề (CSS được nhập, hình ảnh, v.v.), trừ các loại URL có dạng <code>data:image</code>.<br>Ví dụ: sử dụng <code>@import url(index.php?tf=css/layout.css);</code> thay vì <code>@import url(css/layout.css);</code>."
+
+#: plugins/themeEditor/src/Manage.php:265
+msgid "This file is not overloadable. Please check your var folder permissions."
+msgstr "Tệp này không thể được ghi đè. Vui lòng kiểm tra quyền truy cập của thư mục var."
+
+#: plugins/themeEditor/src/Manage.php:284
+msgid "Templates files"
+msgstr "Tệp mẫu"
+
+#: plugins/themeEditor/src/Manage.php:289
+msgid "CSS files"
+msgstr "Tệp CSS"
+
+#: plugins/themeEditor/src/Manage.php:294
+msgid "JavaScript files"
+msgstr "Tệp JavaScript"
+
+#: plugins/themeEditor/src/Manage.php:299
+msgid "Locales files"
+msgstr "Tệp Locales"
+
+#: plugins/themeEditor/src/Manage.php:304
+msgid "PHP files"
+msgstr "Tệp PHP"
+
+#: plugins/themeEditor/src/ThemeEditor.php:183
+msgid "No file"
+msgstr "Không có tệp"
+
+#: plugins/themeEditor/src/ThemeEditor.php:213
+msgid "Customized:"
+msgstr "Tùy chỉnh:"
+
+#: plugins/themeEditor/src/ThemeEditor.php:221
+#: plugins/themeEditor/src/ThemeEditor.php:227
+msgid "From theme:"
+msgstr "Từ chủ đề:"
+
+#: plugins/themeEditor/src/ThemeEditor.php:238
+msgid "From parent:"
+msgstr "Từ phụ huynh:"
+
+#: plugins/themeEditor/src/ThemeEditor.php:248
+msgid "From template set:"
+msgstr "Từ bộ mẫu:"
+
+#: plugins/themeEditor/src/ThemeEditor.php:276
+#: plugins/themeEditor/src/ThemeEditor.php:312
+#: plugins/themeEditor/src/ThemeEditor.php:389
+msgid "File does not exist."
+msgstr "Tệp không tồn tại."
+
+#: plugins/themeEditor/src/ThemeEditor.php:281
+#, php-format
+msgid "File %s is not readable"
+msgstr "Tệp ` %s ` không thể đọc được."
+
+#: plugins/themeEditor/src/ThemeEditor.php:349
+#, php-format
+msgid "Unable to write file %s. Please check your theme files and folders permissions."
+msgstr "Không thể ghi tệp %s. Vui lòng kiểm tra quyền truy cập của các tệp và thư mục chủ đề."
+
+#: plugins/themeEditor/src/ThemeEditor.php:427
+#, php-format
+msgid "Unable to delete file %s. Please check your theme files and folders permissions."
+msgstr "Không thể xóa tệp %s. Vui lòng kiểm tra quyền truy cập của các tệp và thư mục chủ đề."
+
+#: plugins/userPref/src/Backend.php:27
+msgid "user:preferences"
+msgstr "Người dùng: Cài đặt"
+
+#: plugins/userPref/src/Manage.php:89 plugins/userPref/src/Manage.php:108
+msgid "Preferences successfully updated"
+msgstr "Cài đặt đã được cập nhật thành công."
+
+#: plugins/userPref/src/Manage.php:158 plugins/userPref/src/Manage.php:160
+msgid "Global preferences"
+msgstr "Ưu tiên toàn cầu"
+
+#: plugins/widgets/src/Backend.php:53
+msgid "Widget's textareas"
+msgstr "Các ô nhập văn bản của widget"
+
+#: plugins/widgets/src/Install.php:37
+msgid "Unable to initialize default widgets."
+msgstr "Không thể khởi tạo các widget mặc định."
+
+#: plugins/widgets/src/Manage.php:79
+msgid "navigation"
+msgstr "điều hướng"
+
+#: plugins/widgets/src/Manage.php:80
+msgid "extra"
+msgstr "thêm"
+
+#: plugins/widgets/src/Manage.php:81
+msgid "custom"
+msgstr "tùy chỉnh"
+
+#: plugins/widgets/src/Manage.php:217
+msgid "Sidebars and their widgets have been saved."
+msgstr "Các thanh bên và các tiện ích của chúng đã được lưu trữ."
+
+#: plugins/widgets/src/Manage.php:231
+msgid "Sidebars have been resetting."
+msgstr "Các thanh bên đã được đặt lại."
+
+#: plugins/widgets/src/Manage.php:260
+msgid "Are you sure you want to reset sidebars?"
+msgstr "Bạn có chắc chắn muốn đặt lại thanh bên không?"
+
+#: plugins/widgets/src/Manage.php:261 plugins/widgets/src/Manage.php:391
+msgid "Temporarily display the action buttons for each widget"
+msgstr "Hiển thị tạm thời các nút hành động cho từng widget."
+
+#: plugins/widgets/src/Manage.php:262
+msgid "Hide the action buttons for each widget"
+msgstr "Ẩn các nút hành động cho từng widget"
+
+#: plugins/widgets/src/Manage.php:309 plugins/widgets/src/Manage.php:490
+msgid "order"
+msgstr "đặt hàng"
+
+#: plugins/widgets/src/Manage.php:321
+msgid "Append to:"
+msgstr "Thêm vào:"
+
+#: plugins/widgets/src/Manage.php:340
+msgid "Available widgets"
+msgstr "Các widget có sẵn"
+
+#: plugins/widgets/src/Manage.php:342
+msgid "Drag widgets from this list to one of the sidebars, for add."
+msgstr "Kéo các widget từ danh sách này vào một trong các thanh bên để thêm."
+
+#: plugins/widgets/src/Manage.php:350
+msgid "Add widgets to sidebars"
+msgstr "Thêm các widget vào thanh bên"
+
+#: plugins/widgets/src/Manage.php:365
+msgid "Navigation sidebar"
+msgstr "Thanh điều hướng bên"
+
+#: plugins/widgets/src/Manage.php:372
+msgid "Extra sidebar"
+msgstr "Cột bên ngoài"
+
+#: plugins/widgets/src/Manage.php:379
+msgid "Custom sidebar"
+msgstr "Thanh bên tùy chỉnh"
+
+#: plugins/widgets/src/Manage.php:386
+msgid "Update sidebars"
+msgstr "Cập nhật thanh bên"
+
+#: plugins/widgets/src/Manage.php:388
+msgid "Reset sidebars"
+msgstr "Đặt lại thanh bên"
+
+#: plugins/widgets/src/Manage.php:401
+msgid "No setting for this widget"
+msgstr "Không có tùy chọn cài đặt cho widget này."
+
+#: plugins/widgets/src/Manage.php:407
+msgid "boolean"
+msgstr "boolean"
+
+#: plugins/widgets/src/Manage.php:407 plugins/widgets/src/Manage.php:412
+msgid "possible values:"
+msgstr "Các giá trị có thể:"
+
+#: plugins/widgets/src/Manage.php:411
+msgid "empty string"
+msgstr "chuỗi rỗng"
+
+#: plugins/widgets/src/Manage.php:412
+msgid "listitem"
+msgstr "mục danh sách"
+
+#: plugins/widgets/src/Manage.php:418
+msgid "string"
+msgstr "chuỗi"
+
+#: plugins/widgets/src/Manage.php:438
+msgid "Widget ID:"
+msgstr "ID widget:"
+
+#: plugins/widgets/src/Manage.php:502 plugins/widgets/src/Manage.php:503
+msgid "Up the widget"
+msgstr "Nâng cấp widget"
+
+#: plugins/widgets/src/Manage.php:507 plugins/widgets/src/Manage.php:508
+msgid "Down the widget"
+msgstr "Xuống widget"
+
+#: plugins/widgets/src/Manage.php:511 plugins/widgets/src/Manage.php:512
+msgid "Remove the widget"
+msgstr "Xóa widget"
+
+#: plugins/widgets/src/Manage.php:536
+msgid "No widget as far."
+msgstr "Chưa có widget nào cho đến nay."
+
+#: plugins/widgets/src/Manage.php:545
+msgid "Drag widgets here to remove."
+msgstr "Kéo các widget đến đây để xóa."
+
+#: plugins/widgets/src/Widgets.php:99
+msgid "Search engine"
+msgstr "Công cụ tìm kiếm"
+
+#: plugins/widgets/src/Widgets.php:101
+msgid "Placeholder (HTML5 only, optional):"
+msgstr "Placeholder (chỉ hỗ trợ HTML5, tùy chọn):"
+
+#: plugins/widgets/src/Widgets.php:108
+msgid "Navigation links"
+msgstr "Liên kết điều hướng"
+
+#: plugins/widgets/src/Widgets.php:116
+msgid "Selected entries"
+msgstr "Các mục được chọn"
+
+#: plugins/widgets/src/Widgets.php:117
+msgid "Best of me"
+msgstr "Tốt nhất của tôi"
+
+#: plugins/widgets/src/Widgets.php:125
+msgid "Blog languages"
+msgstr "Ngôn ngữ blog"
+
+#: plugins/widgets/src/Widgets.php:135
+msgid "With entries counts"
+msgstr "Với số lượng mục nhập"
+
+#: plugins/widgets/src/Widgets.php:136
+msgid "Include sub cats in count"
+msgstr "Bảo gồm các loại con trong số lượng"
+
+#: plugins/widgets/src/Widgets.php:137
+msgid "Include empty categories"
+msgstr "Bao gồm các danh mục trống"
+
+#: plugins/widgets/src/Widgets.php:144
+msgid "Subscribe links"
+msgstr "Liên kết đăng ký"
+
+#: plugins/widgets/src/Widgets.php:145
+msgid "Subscribe"
+msgstr "Đăng ký"
+
+#: plugins/widgets/src/Widgets.php:146
+msgid "Feeds type:"
+msgstr "Loại nguồn cấp dữ liệu:"
+
+#: plugins/widgets/src/Widgets.php:153
+msgid "Feed reader"
+msgstr "Trình đọc tin RSS"
+
+#: plugins/widgets/src/Widgets.php:154
+msgid "Somewhere else"
+msgstr "Ở đâu đó khác"
+
+#: plugins/widgets/src/Widgets.php:156 plugins/widgets/src/Widgets.php:184
+msgid "Entries limit:"
+msgstr "Giới hạn số lượng bài dự thi:"
+
+#: plugins/widgets/src/Widgets.php:163
+msgid "Text"
+msgstr "Văn bản"
+
+#: plugins/widgets/src/Widgets.php:165
+msgid "Text:"
+msgstr "Văn bản:"
+
+#: plugins/widgets/src/Widgets.php:172
+msgid "Uncategorized"
+msgstr "Chưa phân loại"
+
+#: plugins/widgets/src/Widgets.php:176 plugins/widgets/src/Widgets.php:178
+msgid "Last entries"
+msgstr "Các mục nhập cuối cùng"
+
+#: plugins/widgets/src/Widgets.php:181
+msgid "Tag:"
+msgstr "Thẻ:"
+
+#: plugins/widgets/src/Widgets.php:193
+msgid "Last comments"
+msgstr "Những bình luận gần đây"
+
+#: plugins/widgets/src/Widgets.php:194
+msgid "Comments limit:"
+msgstr "Giới hạn bình luận:"
+
+#: plugins/widgets/src/Widgets.php:564
+#, php-format
+msgid "This blog's entries %s feed"
+msgstr "Các bài viết trên blog này %s feed"
+
+#: plugins/widgets/src/Widgets.php:565
+#, php-format
+msgid "This blog's comments %s feed"
+msgstr "Phần bình luận của blog này %s feed"
+
+#: plugins/widgets/src/Widgets.php:578
+msgid "Entries feed"
+msgstr "Danh sách bài viết"
+
+#: plugins/widgets/src/Widgets.php:588
+msgid "Comments feed"
+msgstr "Dòng bình luận"
+
+#: plugins/widgets/src/WidgetsElement.php:543
+msgid "Title (optional)"
+msgstr "Tiêu đề (tùy chọn)"
+
+#: plugins/widgets/src/WidgetsElement.php:554
+msgid "All pages"
+msgstr "Tất cả các trang"
+
+#: plugins/widgets/src/WidgetsElement.php:555
+msgid "Home page only"
+msgstr "Trang chủ duy nhất"
+
+#: plugins/widgets/src/WidgetsElement.php:556
+msgid "Except on home page"
+msgstr "Trừ trang chủ"
+
+#: plugins/widgets/src/WidgetsElement.php:564
+msgid "Display on:"
+msgstr "Hiển thị trên:"
+
+#: plugins/widgets/src/WidgetsElement.php:590
+msgid "Content only"
+msgstr "Nội dung duy nhất"
+
+#: plugins/widgets/src/WidgetsElement.php:600
+msgid "CSS class:"
+msgstr "Lớp CSS:"
+

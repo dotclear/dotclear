@@ -1,0 +1,148 @@
+<html>
+
+<head>
+  <title>Cài đặt blog</title>
+</head>
+
+<body>
+  <h4>Chi tiết blog</h4>
+  <dl>
+    <dt>ID Blog</dt>
+    <dd>Mã định danh duy nhất của blog. Bắt buộc, chỉ có thể được sửa đổi bởi quản trị viên cấp cao.</dd>
+    <dt>Tên blog</dt>
+    <dd>Tên của blog, bắt buộc. Tên này có thể được thay đổi bất cứ lúc nào mà không ảnh hưởng đến hoạt động của blog.</dd>
+    <dt>Địa chỉ URL của blog</dt>
+    <dd>Đường dẫn đầy đủ của blog. Bắt buộc, chỉ có thể được sửa đổi bởi quản trị viên cấp cao.</dd>
+    <dt>Phương pháp quét URL</dt>
+    <dd>Xác định cách đọc URL. PATH_INFO được khuyến nghị, QUERY_STRING phải được sử dụng nếu PATH_INFO không hoạt động. Khi sử dụng chế độ PATH_INFO, URL blog phải kết thúc bằng dấu "/" và khi sử dụng QUERY_STRING, nó phải kết thúc bằng dấu "?".</dd>
+    <dt>Tình trạng blog</dt>
+    <dd>
+      <ul>
+        <li><strong>Trực tuyến:</strong> Blog mở cửa cho khách truy cập.</li>
+        <li><strong>Trạng thái offline:</strong> Blog đóng cửa đối với khách truy cập nhưng mở cửa cho các tác giả.</li>
+        <li><strong>Đã gỡ bỏ:</strong> Blog đã đóng cửa đối với cả người truy cập và tác giả, chỉ mở cửa cho các quản trị viên cấp cao.</li>
+      </ul>
+    </dd>
+    <dt>Mô tả blog</dt>
+    <dd>Ở đây, bạn có thể nhập bất kỳ mô tả nào bạn muốn cho blog của mình. Đây là một đoạn văn bản đơn giản, không có định dạng.</dd>
+  </dl>
+  <h4>Cấu hình blog</h4>
+  <dl>
+    <dt>Tên biên tập viên blog</dt>
+    <dd>Tên của người chịu trách nhiệm về blog. Đó có thể là chủ sở hữu hoặc nhà xuất bản (nếu có). Thông tin này sẽ được hiển thị trong nguồn cấp dữ liệu của blog.</dd>
+    <dt>Ngôn ngữ mặc định</dt>
+    <dd>Ngôn ngữ của giao diện blog. Nếu ngôn ngữ này nằm trong số các ngôn ngữ có sẵn, giao diện sẽ được dịch sang ngôn ngữ đó. Nếu không, giao diện sẽ mặc định hiển thị bằng tiếng Anh.</dd>
+    <dt>Múi giờ blog</dt>
+    <dd>Xác định múi giờ sẽ được sử dụng cho bình luận và trackback.</dd>
+    <dt>Thông báo bản quyền</dt>
+    <dd>Lưu ý về quyền sao chép và phân phối nội dung blog.</dd>
+    <dt>Định dạng URL bài viết mới</dt>
+    <dd>Danh sách thả xuống để chọn định dạng URL.</dd>
+    <dt>Thẻ HTML cho tiêu đề của các ghi chú trên blog</dt>
+    <dd>Danh sách thả xuống để chọn thẻ HTML.</dd>
+    <dt>Giao diện XML/RPC</dt>
+    <dd>Cho phép các ứng dụng bên ngoài tương tác với blog của bạn thông qua giao thức XML/RPC. Sau khi kích hoạt, các thông số cần thiết để cấu hình trong các ứng dụng bên ngoài sẽ được hiển thị.</dd>
+  </dl>
+  <h4>Bình luận và liên kết ngược</h4>
+  <dl>
+    <dt>Chấp nhận bình luận</dt>
+    <dd>Cho phép bình luận trên blog trên toàn cầu. Ưu tiên hơn cài đặt cho từng bài viết.</dd>
+    <dt>Nhận xét trung lập</dt>
+    <dd>Với tùy chọn này, các bình luận sẽ chỉ được đăng sau khi được biên tập viên phê duyệt.</dd>
+    <dt>Giữ phần bình luận mở trong X ngày.</dt>
+    <dd>Số ngày mà phần bình luận sẽ được mở sau khi bài viết được đăng. Khi để trống, phần bình luận sẽ được mở vô thời hạn.</dd>
+    <dt>Cú pháp Wiki cho bình luận</dt>
+    <dd>Cho phép sử dụng một phần của cú pháp wiki trong các bình luận.</dd>
+    <dt>Chấp nhận trackbacks</dt>
+    <dd>Cho phép nhận trackbacks trên blog trên toàn cầu. Ưu tiên hơn cài đặt cho từng bài viết.</dd>
+    <dt>Liên kết ngược vừa phải</dt>
+    <dd>Với tùy chọn này, các trackback sẽ chỉ được đăng sau khi được sự đồng ý của biên tập viên.</dd>
+    <dt>Giữ tính năng trackback mở trong X ngày.</dt>
+    <dd>Số ngày mà trackbacks sẽ được mở sau khi bài viết được đăng. Khi để trống, trackbacks sẽ được giữ mở vô thời hạn.</dd>
+    <dt>Thêm thuộc tính "nofollow" vào các liên kết bình luận và trackback.</dt>
+    <dd>Thêm thuộc tính vào các liên kết trong bình luận và trackback, hướng dẫn các bot tìm kiếm không theo dõi chúng. Tính năng chống spam này vẫn chưa chứng minh được giá trị của nó.</dd>
+  </dl>
+  <h4>Giới thiệu blog</h4>
+  <dl>
+    <dt>Định dạng ngày</dt>
+    <dd>Xác định định dạng ngày cho các bài đăng trên blog. Xem phần "Tham khảo định dạng" bên dưới để biết thêm thông tin. Bạn có thể sử dụng danh sách thả xuống để nhanh chóng chọn một mẫu có sẵn.</dd>
+    <dt>Định dạng thời gian</dt>
+    <dd>Xác định định dạng thời gian cho các bài đăng trên blog. Xem phần "Tham khảo định dạng" bên dưới để biết thêm thông tin. Bạn có thể sử dụng danh sách thả xuống để nhanh chóng chọn một mẫu có sẵn.</dd>
+    <dt>Hiển thị biểu tượng cảm xúc trên các bài đăng và bình luận</dt>
+    <dd>Chuyển đổi các chuỗi ký tự như :-) hoặc ;-) thành hình ảnh.</dd>
+    <dt>Hiển thị X mục trên mỗi trang</dt>
+    <dd>Sẽ hiển thị X bài viết trên trang chủ blog cũng như trong các danh mục khác nhau.</dd>
+    <dt>Hiển thị X mục mỗi nguồn cấp dữ liệu</dt>
+    <dd>Sẽ hiển thị X bài viết trong nguồn cấp dữ liệu blog.</dd>
+    <dt>Hiển thị X bình luận cho mỗi nguồn tin</dt>
+    <dd>Sẽ hiển thị X bình luận trong nguồn cấp dữ liệu bình luận của blog.</dd>
+    <dt>Cắt ngắn nguồn cấp dữ liệu</dt>
+    <dd>Tùy chọn này chỉ cung cấp tóm tắt từ các bài đăng trên blog trong các nguồn cấp dữ liệu.</dd>
+    <dt>Hiển thị các danh mục con trên trang danh mục và nguồn cấp dữ liệu bài viết của danh mục.</dt>
+    <dd>Khi tùy chọn này được kích hoạt, các bài đăng trong các danh mục con sẽ được hiển thị trên các trang danh mục cha cũng như trong các nguồn cấp dữ liệu của chúng.</dd>
+  </dl>
+  <h4>Phương tiện truyền thông và hình ảnh</h4>
+  <dl>
+    <dt>Kích thước hình ảnh được tạo (đơn vị pixel)</dt>
+    <dd>Khi bạn thêm một hình ảnh vào trình quản lý phương tiện, các kích thước khác sẽ được tạo tự động. Tại đây, bạn có thể định nghĩa kích thước của cạnh dài nhất (chiều rộng hoặc chiều cao) cho từng loại hình ảnh được tạo ra. Nếu bạn để trống một trường, trình quản lý phương tiện sẽ không tạo ra hình thu nhỏ tương ứng.</dd>
+    <dt>Thuộc tính chèn hình ảnh mặc định</dt>
+    <dd>Các thiết lập đã chọn sẽ được áp dụng cho tất cả các hình ảnh mới được thêm vào trình quản lý phương tiện.</dd>
+    <dt>Tiêu đề hình ảnh được chèn</dt>
+    <dd>Chọn định dạng của thẻ "title" được áp dụng cho hình ảnh của bạn, dựa trên thông tin được trích xuất từ metadata của hình ảnh.</dd>
+    <dt>Sử dụng ngày phát hành gốc của phương tiện truyền thông nếu có thể.</dt>
+    <dd>Khi tùy chọn này được kích hoạt, nếu metadata của hình ảnh chứa ngày tháng, nó sẽ được sử dụng. Nếu không, ngày tải lên sẽ được sử dụng.</dd>
+    <dt>Kích thước của hình ảnh được chèn</dt>
+    <dd>Xác định kích thước mặc định được sử dụng khi chèn hình ảnh vào bài viết trên blog.</dd>
+    <dt>Căn chỉnh hình ảnh</dt>
+    <dd>Xác định kiểu căn chỉnh mặc định được sử dụng khi chèn hình ảnh vào bài viết trên blog.</dd>
+    <dt>Chèn liên kết đến hình ảnh gốc</dt>
+    <dd>Khi tùy chọn này được kích hoạt, các hình ảnh được chèn vào bài viết blog sẽ có thể nhấp chuột và dẫn đến hình ảnh gốc có kích thước ban đầu.</dd>
+  </dl>
+  <h4>Chính sách về các robot tìm kiếm</h4>
+  <p>Tại đây, bạn có thể chọn xem có muốn các công cụ tìm kiếm web lập chỉ mục và/hoặc lưu trữ các trang web của bạn hay không. Chọn tùy chọn cuối cùng nếu bạn không muốn người khác có thể tìm thấy blog của bạn thông qua công cụ tìm kiếm web.</p>
+  <h4>Chống spam</h4>
+  <p>Bạn có thể thiết lập số ngày sau đó các bình luận rác sẽ được tự động xóa. Để vô hiệu hóa tính năng này, hãy để trống trường đó (hoặc nhập 0).</p>
+  <h4>Người dùng</h4>
+  <p>Danh sách người dùng của blog này cùng với quyền hạn của họ.</p>
+  <h3>Tham chiếu định dạng</h3>
+  <p>Một số trường có thể được cấu hình để định dạng ngày và giờ theo nhu cầu của bạn. Dưới đây là tham khảo:</p>
+  <ul>
+    <li><strong>%aNgày trong tuần (</strong> <strong> theo</strong> địa phương).</li>
+    <li><strong>%ANgày</strong> <strong> trong</strong> tuần <strong> (theo giờ</strong> địa phương).</li>
+    <li><strong>%bTên tháng</strong> <strong> viết tắt</strong> (địa phương).</li>
+    <li><strong>%BTên tháng</strong> <strong> đầy đủ</strong> (theo địa phương).</li>
+    <li><strong>%cHiển thị ngày và giờ địa phương</strong> <strong> mặc định.</strong></li>
+    <li><strong>%CThế kỷ (</strong> năm, chia cho 100 và làm tròn lên giữa 00 và 99)</li>
+    <li><strong>%dNgày tháng</strong> <strong> theo số</strong> (từ 01 đến 31)</li>
+    <li><strong>%D: Tương tự</strong> như %m/%d/%y</li>
+    <li><strong>%eNgày tháng</strong> <strong> theo số</strong> (từ 1 đến 31)</li>
+    <li><strong>%g: Tương tự</strong> như %G, 2 chữ số.</li>
+    <li><strong>%GNăm</strong> có 4 chữ số, theo số tuần (xem %V). Định dạng và giá trị tương tự như %Y, trừ trường hợp số tuần thuộc năm trước hoặc năm sau, thì sẽ sử dụng năm hiện tại thay thế.</li>
+    <li><strong>%h: Tương tự</strong> như %b</li>
+    <li><strong>%HGiờ</strong> <strong> kỹ thuật số</strong> trong ngày, chế độ 24H (từ 00 đến 23)</li>
+    <li><strong>%IGiờ</strong> <strong> kỹ thuật số</strong> trong ngày, chế độ 12H (từ 01 đến 12)</li>
+    <li><strong>%jNgày</strong> trong năm, dạng số (từ 001 đến 366)</li>
+    <li><strong>%mTháng</strong>, số (từ 1 đến 12)</li>
+    <li><strong>%MPhút,</strong> kỹ thuật số</li>
+    <li><strong>%nKý tự</strong> <strong> xuống dòng</strong></li>
+    <li><strong>%pHoặc</strong> `am' hoặc `pm', tùy thuộc vào thời gian tuyệt đối hoặc tùy thuộc vào cài đặt địa phương.</li>
+    <li><strong>%rGiờ</strong>, định dạng sáng và chiều</li>
+    <li><strong>%RGi</strong> ờ, định dạng 24h</li>
+    <li><strong>%SGiây,</strong> kỹ thuật số</li>
+    <li><strong>%tKý tự</strong> <strong> tab</strong></li>
+    <li><strong>%TThời gian</strong> hiện tại (giống như %H:%M:%S)</li>
+    <li><strong>%uNgày</strong> trong tuần, số, từ 1 đến 7. (1 tương ứng với thứ Hai)</li>
+    <li><strong>%UTuần</strong> thứ, với Chủ nhật đầu tiên của năm là ngày đầu tiên của tuần đầu tiên.</li>
+    <li><strong>%VSố</strong> tuần được định nghĩa theo tiêu chuẩn ISO 8601:1988, dạng số, từ 01 đến 53. Tuần 1 là tuần đầu tiên có hơn 4 ngày trong năm hiện tại, với thứ Hai là ngày đầu tiên. (Sử dụng %G hoặc %g để tra cứu các yếu tố năm tương ứng với số tuần của mốc thời gian được xem xét.)</li>
+    <li><strong>%WSố</strong> tuần trong năm, với thứ Hai đầu tiên của năm là ngày bắt đầu của tuần đầu tiên<strong>.</strong></li>
+    <li><strong>%wNgày</strong> trong tuần, số 0 tương ứng với Chủ nhật<strong>.</strong></li>
+    <li><strong>%xĐịnh dạng</strong> <strong> ưa thích</strong> cho ngày mà không có giờ<strong>.</strong></li>
+    <li><strong>%XĐịnh dạng</strong> <strong> ưa thích</strong> cho thời gian mà không có ngày<strong>.</strong></li>
+    <li><strong>%yNăm</strong>, hai chữ số (từ 00 đến 99)</li>
+    <li><strong>%YNăm</strong>, bốn chữ số</li>
+    <li><strong>%Z </strong> <strong> hoặc %z: Múi giờ</strong>, tên hoặc viết tắt</li>
+    <li><strong>%%:</strong> Ký tự `%' nguyên văn</li>
+  </ul>
+</body>
+
+</html>

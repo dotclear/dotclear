@@ -1,0 +1,382 @@
+<html>
+
+<head>
+  <title></title> <!-- Leave the title empty -->
+</head>
+
+<body>
+  <div class="multi-part legible" id="first-step" title="ขั้นตอนแรก">
+    <h3>การค้นหาอินเทอร์เฟซ</h3>
+    <div class="fieldset">
+      <h4>ขั้นตอนแรก</h4>
+      <p>นอกเหนือจากหน้าช่วยเหลือทั่วโลกแล้ว หน้าการจัดการหลายหน้ายังมีหน้าช่วยเหลือออนไลน์ หาก javascript เปิดใช้งานอยู่ในเบราว์เซอร์ของคุณ
+        คุณสามารถดูหน้าช่วยเหลือออนไลน์ได้ที่ตำแหน่งด้านบนขวาของหน้า โดยคลิกที่ลิงก์<img src="images/menu/help.svg" alt="" style="width: 14px; vertical-align: middle;"> <strong>ต้องการความช่วยเหลือหรือไม่?</strong>หาก Javascript ถูกปิดใช้งาน หน้าช่วยเหลือจะแสดงที่ด้านล่างของหน้า</p>
+    </div>
+    <p>แต่ละหน้าการจัดการจะแสดงหัวข้อด้านบน เมนูหลัก และส่วนท้ายเดียวกัน<em>(ลำดับที่แสดงที่นี่คือสิ่งที่แสดงบนหน้าจอคอมพิวเตอร์ สำหรับอุปกรณ์มือถือหรือแท็บเล็ต อาจแตกต่างกันไปตามพื้นที่ที่มีอยู่)</em></p>
+    <h4 class="pretty-title">หัวข้อหลัก</h4>
+    <p>หัวข้อหลักประกอบด้วยสามส่วน:</p>
+    <h5 class="as_h4">โลโก้</h5>
+    <p>โดยค่าเริ่มต้น โลโก้นี้คือโลโก้ของ Dotclear และเชื่อมโยงไปยังหน้าเข้าสู่ระบบของผู้ดูแลระบบ อย่างไรก็ตาม ผู้จัดการแพลตฟอร์ม
+      สามารถเลือกโลโก้อื่นและเปลี่ยนเส้นทางไปยังที่อื่นได้ (โดยทั่วไปคือหน้าเข้าสู่ระบบของบริการ)</p>
+    <h5 class="as_h4">บล็อก</h5>
+    <p>องค์ประกอบแรกที่พบหลังจากโลโก้จะแสดงบล็อก<em>ที่กำลังใช้งานอยู่</em>นั่นคือบล็อกที่คุณกำลังดำเนินการอยู่ หากการติดตั้ง
+      ของคุณประกอบด้วยบล็อกหลายบล็อก ข้อมูลเหล่านี้จะแสดงในเมนูคอมโบ ซึ่งช่วยให้คุณสลับไปยังบล็อกอื่นได้</p>
+    <p>ลิงก์ที่อยู่ถัดจากชื่อบล็อกจะเปิดบล็อกปัจจุบันของคุณในหน้าต่างอื่นหรือแท็บอื่น</p>
+    <h5 class="as_h4">ผู้ใช้</h5>
+    <p>ลิงก์ "<em>แดชบอร์ดของฉัน</em>" จะพาคุณกลับไปยังหน้าหลักสำหรับการจัดการบล็อก</p>
+    <p>ลิงก์ "<em>การตั้งค่าของฉัน</em>" นำคุณไปยังหน้าที่คุณสามารถแก้ไขข้อมูลส่วนตัวของคุณ ตั้งค่าแดชบอร์ด และเลือกอินเตอร์เฟซและตัวเลือกการแก้ไขของคุณได้</p>
+    <p>น่าแปลกใจที่ลิงก์ "<em>Disconnect [ชื่อผู้ใช้ของคุณ]</em>" จะตัดการเชื่อมต่อคุณจากการจัดการบล็อกของคุณ (ที่ Dotclear's เราเป็นแชมป์ด้านความสะดวกในการใช้งาน!)</p>
+    <h4 class="pretty-title">เมนูหลัก</h4>
+    <p>เมนูหลักตั้งอยู่ทางด้านซ้ายของหน้าจอ สามารถยุบเมนูได้โดยคลิกที่ขอบด้านขวาของเมนู (และสามารถขยายเมนูกลับได้โดยคลิกที่ขอบด้านขวาอีกครั้ง)</p>
+    <p>มันนำไปสู่หน้าการจัดการที่แตกต่างกัน ตามสิทธิ์ของคุณในบล็อกปัจจุบัน ประกอบด้วยสี่บล็อก:</p>
+    <ul>
+      <li><strong>รายการโปรดของฉันจะแสดง</strong>หน้าที่คุณได้เลือกเป็นรายการโปรด<em>ในแท็บการตั้งค่าของฉัน/แดชบอร์ดของฉัน</em>หากคุณยังไม่ได้เลือกอะไรเป็นรายการโปรด รายการนี้จะประกอบด้วยชุดค่าเริ่มต้นของ Dotclear หรือชุดที่ผู้จัดการแพลตฟอร์มได้กำหนดไว้ หากคุณไม่ต้องการแสดงบล็อกนี้ คุณสามารถยกเลิกการเลือกช่องทำเครื่องหมายที่ตรงกันในตัวเลือกแดชบอร์ดของคุณได้</li>
+      <li><strong>บล็อกแสดงรายการ</strong>หน้าทั้งหมดที่ช่วยให้สามารถป้อนข้อมูลและตั้งค่าบล็อกปัจจุบันได้ ตั้งแต่การแก้ไขรายการ การจัดการสื่อ การเลือกหน้าตาของบล็อก หรือพารามิเตอร์อื่น ๆ<br>
+        <em>        หากคุณไม่มีสิทธิ์ผู้ดูแลระบบบนบล็อกปัจจุบัน จะไม่มีบล็อกอื่น ๆ ปรากฏอยู่ใต้บล็อกนี้ในเมนูหลัก</em></li>
+      <li><strong>ลิงก์การตั้งค่าระบบจะนำไปยังหน้า</strong>ต่าง ๆ ที่ให้คุณจัดการการติดตั้ง Dotclear: การจัดการบล็อก, ผู้ใช้และภาษาที่ใช้งานได้, การติดตั้งปลั๊กอิน, การตั้งค่าระบบ หากคุณมีสิทธิ์ในหลายบล็อก แต่ไม่มีสิทธิ์ผู้ดูแลระบบสูงสุด คุณจะเห็นเฉพาะรายการ<em>บล็อก</em>เท่านั้น</li>
+      <li><strong>ปลั๊กอินช่วยให้</strong>คุณสามารถตั้งค่าปลั๊กอินที่ติดตั้งไว้ได้ หากการตั้งค่าของปลั๊กอินมีผลกระทบต่อบล็อกเพียงบล็อกเดียวในแต่ละครั้ง หน้าการจัดการของปลั๊กอินนั้นจะสามารถเข้าถึง<em>ได้จากบล็อกบล็อกของบล็อกนั้น</em>ๆ แต่หากการตั้งค่าของปลั๊กอินมีผลกระทบต่อการติดตั้งทั้งหมด ปลั๊กอินนั้นจะอยู่ที่นี่ และจะสามารถเข้าถึงได้เฉพาะผู้ใช้ที่มีสิทธิ์เป็นผู้ดูแลระบบระดับสูงเท่านั้น</li>
+    </ul>
+    <h4 class="pretty-title">ส่วนท้าย</h4>
+    <p>เวอร์ชันฟรีของ Dotclear จะมอบให้แก่ผู้ใช้ทุกคนที่สามารถค้นพบความลับที่ซ่อนอยู่ในส่วนท้ายของเว็บไซต์</p>
+    <h3>ความช่วยเหลือสำหรับผู้เริ่มต้นที่ยอดเยี่ยม</h3>
+    <p>หากคุณไม่คุ้นเคยกับบล็อก เราขอแนะนำให้คุณดูเอกสารของเรา (สารบัญทั้งหมดมีอยู่ในแท<strong>็บเอกสารของหน้านี้</strong>) รวมถึงบทเรียนต่างๆ เช่น:
+      <ul>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/beginners">การเขียนครั้งแรกของฉัน, ทีละขั้นตอน</a></li>
+      </ul>
+      <p><a href="https://dotclear.org/forum/">ฟอรัม Dotclear</a>เป็นสถานที่ที่เปิดกว้างและเป็นมิตร ไม่มี<em>คำถามใดที่ถือว่าโง่</em> อย่าลังเลที่จะเข้าร่วมหากคุณต้องการความช่วยเหลือ และทำไมไม่ลองช่วยเหลือผู้อื่นบ้างเพื่อเป็นการตอบแทน</p>
+      <p class="info">เราพยายามอย่างเต็มที่ที่จะใช้คำศัพท์ที่เข้าใจง่ายโดยไม่ต้องมีความรู้เฉพาะทาง อย่างไรก็ตาม หากเราใช้คำศัพท์ทางเทคนิค คุณอาจพบคำจำกัดความของ<a href="https://dotclear.org/documentation/glossary">คำนั้นในอภิธานศัพท์</a>ของเอกสารออนไลน์ของเรา</p>
+  </div>
+  <div class="multi-part" id="users-doc" title="คู่มือผู้ใช้">
+    <h3>คู่มือผู้ใช้</h3>
+    <div class="three-boxes">
+      <h4 class="pretty-title">การจัดการเนื้อหา</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/usage/entries">รายการ</a>
+          <ul>
+            <li>การสร้างและการแก้ไข</li>
+            <li>รายละเอียดการเข้าร่วม</li>
+            <li>การกระทำที่เกี่ยวข้องกับการเข้า</li>
+            <li>ความคิดเห็นและการติดตามกลับ</li>
+            <li>การจัดการรายการแบบกลุ่ม</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/comments-trackbacks">ความคิดเห็นและการติดตามกลับ</a>
+          <ul>
+            <li>ติดตามผล</li>
+            <li>การจัดการ</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/categories">หมวดหมู่</a>
+          <ul>
+            <li>การสร้างหมวดหมู่</li>
+            <li>การแก้ไขหมวดหมู่</li>
+            <li>การลบหมวดหมู่</li>
+            <li>การทำซ้ำรายการหมวดหมู่</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/tags">แท็ก (คำค้นหา)</a>
+          <ul>
+            <li>เพิ่มแท็ก</li>
+            <li>การจัดการแท็ก</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/media">สื่อและไฟล์แนบ</a>
+          <ul>
+            <li>การสร้างไดเรกทอรีย่อย</li>
+            <li>เพิ่มไฟล์</li>
+            <li>ดาวน์โหลดไฟล์ซิปของไดเรกทอรีปัจจุบัน</li>
+            <li>การเปลี่ยนแปลงข้อมูลการเติมในไฟล์</li>
+            <li>การเพิ่มไฟล์โดยตรง</li>
+            <li>ประเภทไฟล์พิเศษ</li>
+            <li>เอกสารแนบ</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/widgets">เมนูเนื้อหาบล็อก (วิดเจ็ต)</a>
+          <ul>
+            <li>แถบนำทาง, แถบด้านข้างเพิ่มเติม</li>
+            <li>วิดเจ็ตเริ่มต้น</li>
+            <li>เพิ่ม/ลบวิดเจ็ต</li>
+            <li>ตัวเลือกวิดเจ็ต</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/blogroll">บล็อกโรล</a>
+          <ul>
+            <li>บล็อกโรล</li>
+            <li>การเพิ่มลิงก์</li>
+            <li>เพิ่มหมวดหมู่</li>
+            <li>XFN</li>
+            <li>นำเข้าลิงก์จากไฟล์ OPML หรือ XBEL</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="three-boxes">
+      <h4 class="pretty-title">การตั้งค่าและการปรับแต่ง</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/usage/blog-parameters">การตั้งค่าบล็อก</a>
+          <ul>
+            <li>รายละเอียดบล็อก</li>
+            <li>การตั้งค่าบล็อก</li>
+            <li>ความคิดเห็นและการติดตามกลับ</li>
+            <li>การนำเสนอบล็อก</li>
+            <li>สื่อและรูปภาพ</li>
+            <li>นโยบายหุ่นยนต์เครื่องมือค้นหา</li>
+            <li>แอนตี้สแปม</li>
+            <li>ไลท์บ็อกซ์</li>
+            <li>บันทึก</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/user-preferences">ความชอบของผู้ใช้</a>
+          <ul>
+            <li>โปรไฟล์ของฉัน</li>
+            <li>ตัวเลือกของฉัน</li>
+            <li>แดชบอร์ดของฉัน</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/themes">การปรากฏตัวในบล็อก</a>
+          <ul>
+            <li>เลือกธีม</li>
+            <li>ติดตั้งธีม</li>
+            <li>ปรับแต่งธีม</li>
+            <li>ตัวแก้ไขธีม</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="three-boxes fieldset">
+      <h4 class="smart-title">เอกสารอ่านเพิ่มเติม</h4>
+      <h5>คำศัพท์</h5>
+      <ul>
+        <li><a href="https://dotclear.org/documentation/glossary">คำลึกลับทั้งหมดที่ใช้บนเว็บและใน Dotclear</a></li>
+      </ul>
+      <h5>รูปแบบอินพุต</h5>
+      <ul>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes">ไวยากรณ์วิกิและเทียบเท่า HTML</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes#to-go-further">เพื่อก้าวไปข้างหน้า</a></li>
+      </ul>
+      <h5>การสมัครสมาชิก (RSS, Atom...)</h5>
+      <ul>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds">นั่นอะไร?</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-make-it-available-on-my-blog">ฉันจะนำสิ่งนี้ไปแสดงบนบล็อกของฉันได้อย่างไร?</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-suscribe-to-a-feed">ฉันจะสมัครรับฟีดได้อย่างไร?</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#to-go-further">เพื่อก้าวไปข้างหน้า</a></li>
+      </ul>
+      <h4 class="smart-title">ช่วยเหลือ</h4>
+      <ul>
+        <li><a href="https://dotclear.org/forum">ฟอรัม Dotclear</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/faq">คำถามที่พบบ่อย</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="multi-part" id="admin-doc" title="เอกสารสำหรับผู้ดูแลระบบ">
+    <h3>เอกสารสำหรับผู้ดูแลระบบ</h3>
+    <div class="three-boxes">
+      <h4 class="pretty-title">การติดตั้งและการอัปเดต</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/admin/install">การติดตั้ง</a>
+          <ul>
+            <li>ข้อกำหนดเบื้องต้น</li>
+            <li>การติดตั้งอัตโนมัติ</li>
+            <li>การติดตั้งมาตรฐาน</li>
+            <li>ติดตั้งโดยใช้ตัวช่วยสร้าง</li>
+            <li>ติดตั้งจากไฟล์ config.php</li>
+            <li>การติดตั้งเสร็จสมบูรณ์</li>
+            <li>ขั้นตอนต่อไป</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/upgrade">อัปเดต</a>
+          <ul>
+            <li>การเตรียมตัวสำหรับการอัปเดต</li>
+            <li>การอัปเกรดอัตโนมัติ</li>
+            <li>การอัปเดตโปรแกรม</li>
+            <li>การปรับปรุงฐานข้อมูล</li>
+            <li>ภาคผนวก: การอัปเดตสำเนา mercurial</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/config">ไฟล์การกำหนดค่า (config.php) พารามิเตอร์</a>
+          <ul>
+            <li>บทนำ</li>
+            <li>พารามิเตอร์</li>
+            <li>การเพิ่มข้อมูลลงในไฟล์</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/1-to-2">การอัปเกรดจาก Dotclear 1.2 เป็น Dotclear 2</a>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/migrate">การย้ายจากซอฟต์แวร์บล็อกอื่นไปยัง Dotclear</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/local-install">การติดตั้งในเครื่อง</a>
+          <ul>
+            <li>หน้าต่าง</li>
+            <li>Mac OS X</li>
+            <li>ลินุกซ์</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/install/iis">การติดตั้ง Dotclear บน IIS7</a></li>
+      </ul>
+      <h5>การจัดเก็บเอกสารแนบ</h5>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/hosting">โฮสติ้ง</a>
+        </li>
+      </ul>
+    </div>
+    <div class="three-boxes">
+      <h4 class="pretty-title">การบริหาร</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/admin/users">การจัดการผู้ใช้</a>
+          <ul>
+            <li>รายชื่อผู้ใช้ที่มีอยู่</li>
+            <li>การสร้างผู้ใช้</li>
+            <li>การแก้ไขผู้ใช้</li>
+            <li>สิทธิ์การใช้งานของผู้ใช้</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/clean-install">การติดตั้งแบบสะอาด</a>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/multiblog">การติดตั้งมัลติบล็อก</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/plugins">การจัดการปลั๊กอิน</a>
+          <ul>
+            <li>การติดตั้งปลั๊กอิน</li>
+            <li>การกำหนดค่าปลั๊กอิน</li>
+            <li>การลบปลั๊กอิน</li>
+            <li>การอัปเดตปลั๊กอิน</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/themes/blowup">ธีมเริ่มต้น Blowup</a>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/themes">ธีมบล็อก</a>
+          <ul>
+            <li>การเลือกธีม</li>
+            <li>การติดตั้งธีม</li>
+            <li>การปรับแต่งธีม</li>
+            <li>ตัวแก้ไขธีม</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/aboutconfig">การกำหนดค่าขั้นสูง</a></li>
+      </ul>
+    </div>
+    <div class="three-boxes">
+      <h4 class="pretty-title">การบำรุงรักษา</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/admin/backup">สำรองและกู้คืน</a>
+          <ul>
+            <li>นำเข้า/ส่งออก</li>
+            <li>ไฟล์</li>
+            <li>ฐานข้อมูล</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/antispam">ตัวกรองความคิดเห็นสแปม</a>
+          <ul>
+            <li>การจัดระเบียบตัวกรอง</li>
+            <li>การกำหนดค่าตัวกรอง</li>
+          </ul>
+        </li>
+      </ul>
+      <div class="fieldset vertical-separator">
+        <h4 class="smart-title">ช่วยเหลือ</h4>
+        <ul>
+          <li><a href="https://dotclear.org/forum">ฟอรัม Dotclear</a></li>
+          <li><a href="https://dotclear.org/documentation/2.0/faq#administration">คำถามที่พบบ่อย (ผู้ดูแลระบบ)</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="multi-part" id="guide-dev" title="เอกสารสำหรับนักพัฒนา">
+    <h3>ทรัพยากรสำหรับนักพัฒนาและนักออกแบบ</h3>
+    <div class="three-boxes first-child">
+      <h4 class="pretty-title">ออกแบบ &amp; ธีม</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/resources/themes">หัวข้อ</a>
+          <ul>
+            <li>คู่มือผู้ใช้สำหรับธีม</li>
+            <li>แท็กแม่แบบ</li>
+            <li>ภาคผนวก</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/themes/inheritance">การสืบทอดธีม</a>
+          <ul>
+            <li>หลักการ</li>
+            <li>ข้อจำกัด</li>
+            <li>ตั้งค่า</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/themes/tags">แท็กแม่แบบ</a>
+          <ul>
+            <li>ทั่วไป / สิ่งอำนวยความสะดวก</li>
+            <li>บล็อก</li>
+            <li>รายการ</li>
+            <li>การแบ่งหน้าของรายการ</li>
+            <li>ความคิดเห็น</li>
+            <li>แสดงตัวอย่างความคิดเห็น</li>
+            <li>การส่งสัญญาณปิง</li>
+            <li>เอกสารแนบ</li>
+            <li>หมวดหมู่</li>
+            <li>แท็ก</li>
+            <li>เอกสารเก่า</li>
+            <li>ภาษา</li>
+            <li>ระบบ</li>
+            <li>วิดเจ็ต</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="three-boxes first-child">
+      <h4 class="pretty-title">รหัส &amp; ปลั๊กอิน</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/resources/tpl">การสร้างแท็ก tpl สำหรับปลั๊กอินหรือธีม</a>
+          <ul>
+            <li>บทนำ</li>
+            <li>คุณค่า</li>
+            <li>บล็อกคำแนะนำ</li>
+            <li>การสาธิตอิทธิพลของแคชเทมเพลต</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/plugins">ปลั๊กอิน</a>
+          <ul>
+            <li>การเขียนปลั๊กอิน</li>
+            <li>ภาคผนวก</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/plugins/help">การสร้างความช่วยเหลือตามบริบทของปลั๊กอิน</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/authentication">การยืนยันตัวตนจากภายนอก</a>
+          <ul>
+            <li>บทนำ</li>
+            <li>คลาสการยืนยันตัวตนใหม่</li>
+            <li>สถานการณ์</li>
+            <li>การสมัคร</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/xml-rpc">อินเตอร์เฟซ XML/RPC</a></li>
+        <li><a href="https://dev.dotclear.org/code/2/">เอกสารประกอบ API</a></li>
+      </ul>
+    </div>
+    <div class="three-boxes">
+      <h4 class="pretty-title">การสนับสนุน &amp; สนับสนุน</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/resources/contribute">มีส่วนร่วม</a>
+          <ul>
+            <li>แก้ไขเอกสารนี้</li>
+            <li>แบ่งปันผลงานของคุณ</li>
+            <li>รายงานข้อบกพร่องหรือเสนอคุณสมบัติใหม่</li>
+            <li>การแปลให้เหมาะกับท้องถิ่น</li>
+          </ul>
+        </li>
+        <li><a href="https://git.dotclear.org/dev/dotclear">แหล่งเก็บโค้ดต้นฉบับของ Dotclear</a></li>
+        <li><a href="https://dotclear.org/forum">ฟอรัม Dotclear</a></li>
+      </ul>
+      <div class="fieldset">
+        <h4 class="smart-title">อนุสัญญา</h4>
+        <ul>
+          <li><a href="https://dotclear.org/documentation/2.0/resources/coding-standards">มาตรฐานการเขียนโค้ด</a></li>
+          <li><a href="index.php?process=HelpCharte">หน้าการจัดการแผนภูมิ</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="multi-part legible" id="a11y-ergo" title="การเข้าถึงได้และการออกแบบตามหลักการยศาสตร์">
+    <h3>การเข้าถึงได้และการออกแบบตามหลักการยศาสตร์</h3>
+    <p>อินเทอร์เฟซของ Dotclear ตอบสนองเกณฑ์<a href="http://www.w3.org/TR/WCAG20/">WCAG 2.0</a>เกือบทั้งหมด เรากำลังดำเนินการเพื่อให้ Dotclear เข้ากันได้กับแนวทาง<a href="http://www.w3.org/TR/ATAG20/">ATAG 2.0</a></p>
+    <p>การเข้าถึงได้และการออกแบบตามหลักการยศาสตร์เป็นหนึ่งในความกังวลหลักของเรา เราดำเนินการวิเคราะห์อย่างสม่ำเสมอด้วยความช่วยเหลือจากผู้เชี่ยวชาญ และจัดหาการแก้ไขและการปรับปรุงอย่างต่อเนื่อง</p>
+    <p>คุณสามารถช่วยเราได้<a href="https://git.dotclear.org/dev/dotclear/issues">โดยการเปิดตั๋ว</a>หรือเข้าร่วม<a href="https://dotclear.org/forum/">ในฟอรัม</a> คุณยังสามารถเข้าร่วมการทดสอบผู้ใช้หรือเข้าร่วมทีมของเราได้อีกด้วย!</p>
+  </div>
+</body>
+
+</html>
