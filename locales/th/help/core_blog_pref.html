@@ -1,147 +1,147 @@
 <html>
 
 <head>
-  <title>Blog settings</title>
+  <title>การตั้งค่าบล็อก</title>
 </head>
 
 <body>
-  <h4>Blog details</h4>
+  <h4>รายละเอียดบล็อก</h4>
   <dl>
-    <dt>Blog ID</dt>
-    <dd>Unique ID of the blog. Mandatory, can only be modified by a super administrator.</dd>
-    <dt>Blog name</dt>
-    <dd>Name of the blog, mandatory. It can be modified at any time without any impact on the blog operation.</dd>
-    <dt>Blog URL</dt>
-    <dd>Full blog URL. Mandatory, can only be modified by a super administrator.</dd>
-    <dt>URL scan method</dt>
-    <dd>Defines the way the URL is read. PATH_INFO is recommended, QUERY_STRING has to be used if PATH_INFO does not work. Using PATH_INFO mode, the blog URL must end with a "/" and using QUERY_STRING, it must end with an "?".</dd>
-    <dt>Blog status</dt>
+    <dt>รหัสบล็อก</dt>
+    <dd>รหัสประจำตัวของบล็อก. จำเป็น, สามารถแก้ไขได้เพียงผู้ดูแลระบบระดับสูง.</dd>
+    <dt>ชื่อบล็อก</dt>
+    <dd>ชื่อบล็อก, จำเป็น. สามารถแก้ไขได้ตลอดเวลาโดยไม่กระทบต่อการดำเนินงานของบล็อก.</dd>
+    <dt>URL ของบล็อก</dt>
+    <dd>URL บล็อกเต็ม. จำเป็น, สามารถแก้ไขได้เพียงผู้ดูแลระบบระดับสูง.</dd>
+    <dt>วิธีการสแกน URL</dt>
+    <dd>กำหนดวิธีการอ่าน URL โดยแนะนำให้ใช้ PATH_INFO หาก PATH_INFO ไม่ทำงาน ให้ใช้ QUERY_STRING แทน เมื่อใช้โหมด PATH_INFO URL ของบล็อกจะต้องลงท้ายด้วย "/" และเมื่อใช้ QUERY_STRING จะต้องลงท้ายด้วย "?"</dd>
+    <dt>สถานะบล็อก</dt>
     <dd>
       <ul>
-        <li><strong>Online:</strong> Blog open to visitors.</li>
-        <li><strong>Offline:</strong> Blog closed to visitors but open to writers.</li>
-        <li><strong>Removed:</strong> Blog closed to both visitors and writers, open only to super administrators.</li>
+        <li><strong>ออนไลน์:</strong>บล็อกเปิดให้ผู้เข้าชมเข้าชมได้</li>
+        <li><strong>ออฟไลน์:</strong>บล็อกปิดให้บริการแก่ผู้เยี่ยมชม แต่เปิดให้ผู้เขียนสามารถใช้งานได้</li>
+        <li><strong>ลบ:</strong>บล็อกปิดให้บริการทั้งผู้เยี่ยมชมและผู้เขียน เปิดให้บริการเฉพาะผู้ดูแลระบบระดับสูงเท่านั้น</li>
       </ul>
     </dd>
-    <dt>Blog description</dt>
-    <dd>Here you can put any description you want for your blog. This is a simple text, without any formatting.</dd>
+    <dt>คำอธิบายบล็อก</dt>
+    <dd>ที่นี่คุณสามารถใส่คำอธิบายใดก็ได้ที่คุณต้องการสำหรับบล็อกของคุณ นี่คือข้อความธรรมดา ไม่มีการจัดรูปแบบใดๆ</dd>
   </dl>
-  <h4>Blog configuration</h4>
+  <h4>การตั้งค่าบล็อก</h4>
   <dl>
-    <dt>Blog editor's name</dt>
-    <dd>Name of the person responsible for the blog. It may be the owner or the publisher if there is one. This information will be displayed in the blog feed.</dd>
-    <dt>Default language</dt>
-    <dd>Language of the blog interface. Either this language is amongst the avalaible ones, and the interface will be translated, or it is not, and the interface will be in English by default.</dd>
-    <dt>Blog timezone</dt>
-    <dd>Defines the timezone that will be used for comments and trackbacks.</dd>
-    <dt>Copyright notice</dt>
-    <dd>Note about the reproduction rights for the blog.</dd>
-    <dt>New post URL format</dt>
-    <dd>Dropdown list to select the URL format.</dd>
-    <dt>HTML tag for the title of the notes on the blog</dt>
-    <dd>Dropdown list to select an HTML tag.</dd>
-    <dt>XML/RPC interface</dt>
-    <dd>Allows external clients to interact with your blog via the XML/RPC protocol. After activation the required parameters to be set in your external clients are displayed.</dd>
+    <dt>ชื่อบรรณาธิการบล็อก</dt>
+    <dd>ชื่อของบุคคลที่รับผิดชอบบล็อก อาจเป็นเจ้าของหรือผู้จัดพิมพ์หากมี ข้อมูลนี้จะแสดงในฟีดบล็อก</dd>
+    <dt>ภาษาเริ่มต้น</dt>
+    <dd>ภาษาของอินเตอร์เฟซบล็อก. หากภาษาของคุณอยู่ในตัวเลือกที่มีให้, อินเตอร์เฟซจะถูกแปล, หรือหากไม่มี, อินเตอร์เฟซจะเป็นภาษาอังกฤษโดยค่าเริ่มต้น.</dd>
+    <dt>เขตเวลาของบล็อก</dt>
+    <dd>กำหนดเขตเวลาที่จะใช้สำหรับความคิดเห็นและการติดตามกลับ</dd>
+    <dt>ประกาศลิขสิทธิ์</dt>
+    <dd>หมายเหตุเกี่ยวกับสิทธิ์ในการทำซ้ำสำหรับบล็อก</dd>
+    <dt>รูปแบบ URL โพสต์ใหม่</dt>
+    <dd>รายการแบบดรอปดาวน์เพื่อเลือกรูปแบบ URL</dd>
+    <dt>แท็ก HTML สำหรับชื่อของบันทึกบนบล็อก</dt>
+    <dd>รายการแบบดรอปดาวน์เพื่อเลือกแท็ก HTML</dd>
+    <dt>อินเตอร์เฟซ XML/RPC</dt>
+    <dd>อนุญาตให้ลูกค้าภายนอกโต้ตอบกับบล็อกของคุณผ่านโปรโตคอล XML/RPC หลังจากเปิดใช้งานแล้ว พารามิเตอร์ที่จำเป็นสำหรับการตั้งค่าในลูกค้าภายนอกของคุณจะแสดงขึ้น</dd>
   </dl>
-  <h4>Comments and trackbacks</h4>
+  <h4>ความคิดเห็นและการติดตามกลับ</h4>
   <dl>
-    <dt>Accept comments</dt>
-    <dd>Globally accepts comments on the blog. Takes precedence over the per post setting.</dd>
-    <dt>Moderate comments</dt>
-    <dd>With this option, comments will be published only after editor's agreement.</dd>
-    <dt>Leave comments open for X days</dt>
-    <dd>The number of days during wich comments will be open after the post publication. When empty, the comments will be kept open indefinitly.</dd>
-    <dt>Wiki syntax for comments</dt>
-    <dd>Allows a subset of the wiki syntax to be used in comments.</dd>
-    <dt>Accept trackbacks</dt>
-    <dd>Globally accepts trackbacks on the blog. Takes precedence over the per post setting.</dd>
-    <dt>Moderate trackbacks</dt>
-    <dd>With this option, trackbacks will be published only after editor's agreement.</dd>
-    <dt>Leave trackbacks open for X days</dt>
-    <dd>The number of days during wich trackbacks will be open after the post publication. When empty, the trackbacks will be kept open indefinitly.</dd>
-    <dt>Add "nofollow" relation on comments and trackbacks links</dt>
-    <dd>Adds an attribute on links in comments and trackbacks, instructing the search bots not to follow them. This antispam features has yet to prove its value.</dd>
+    <dt>ยอมรับความคิดเห็น</dt>
+    <dd>เปิดรับความคิดเห็นจากทั่วโลกบนบล็อก การตั้งค่านี้มีความสำคัญเหนือกว่าการตั้งค่าต่อโพสต์</dd>
+    <dt>ความคิดเห็นปานกลาง</dt>
+    <dd>ด้วยตัวเลือกนี้ ความคิดเห็นจะถูกเผยแพร่เฉพาะเมื่อได้รับการเห็นชอบจากบรรณาธิการเท่านั้น</dd>
+    <dt>เปิดความคิดเห็นเป็นเวลา X วัน</dt>
+    <dd>จำนวนวันที่ความคิดเห็นจะเปิดให้แสดงความคิดเห็นได้หลังจากโพสต์เผยแพร่ เมื่อเว้นว่างไว้ ความคิดเห็นจะเปิดให้แสดงความคิดเห็นได้ไม่มีกำหนด</dd>
+    <dt>ไวยากรณ์วิกิสำหรับความคิดเห็น</dt>
+    <dd>อนุญาตให้ใช้ชุดย่อยของไวยากรณ์วิกิในความคิดเห็น</dd>
+    <dt>ยอมรับการติดตามกลับ</dt>
+    <dd>ยอมรับการติดตามกลับ (trackbacks) ในบล็อกทั่วโลก การตั้งค่านี้มีผลเหนือกว่าการตั้งค่าต่อโพสต์</dd>
+    <dt>การติดตามกลับแบบปานกลาง</dt>
+    <dd>ด้วยตัวเลือกนี้, trackbacks จะถูกเผยแพร่เพียงครั้งเดียวหลังจากได้รับการอนุมัติจากบรรณาธิการ.</dd>
+    <dt>เปิดการติดตามกลับเป็นเวลา X วัน</dt>
+    <dd>จำนวนวันที่การติดตามกลับจะเปิดอยู่หลังจากการเผยแพร่โพสต์ เมื่อว่างเปล่า การติดตามกลับจะเปิดไว้อย่างไม่มีกำหนด</dd>
+    <dt>เพิ่มความสัมพันธ์ "nofollow" ในลิงก์ความคิดเห็นและลิงก์ติดตามกลับ</dt>
+    <dd>เพิ่มแอตทริบิวต์บนลิงก์ในความคิดเห็นและแทร็กแบ็ก เพื่อสั่งให้บอทค้นหาไม่ติดตามลิงก์เหล่านั้น คุณลักษณะป้องกันสแปมนี้ยังไม่ได้พิสูจน์คุณค่าของมัน</dd>
   </dl>
-  <h4>Blog presentation</h4>
+  <h4>การนำเสนอบล็อก</h4>
   <dl>
-    <dt>Date format</dt>
-    <dd>Defines the date format for the blog posts. See the "Format reference" section below for more information. You can use the dropdown list to quickly select a pre-existing pattern.</dd>
-    <dt>Time format</dt>
-    <dd>Defines the time format for the blog posts. See the "Format reference" section below for more information. You can use the dropdown list to quickly select a pre-existing pattern.</dd>
-    <dt>Display smilies on entries and comments</dt>
-    <dd>Turns some strings like :-) or ;-) into pictures.</dd>
-    <dt>Display X entries per page</dt>
-    <dd>Will display X entries on the blog main page as well as in the different categories.</dd>
-    <dt>Display X entries per feed</dt>
-    <dd>Will display X entries in the blog feeds.</dd>
-    <dt>Display X comments per feed</dt>
-    <dd>Will display X comments in the blog comments feeds.</dd>
-    <dt>Truncate feeds</dt>
-    <dd>This option will only provide an abstract from the blog posts in the feeds.</dd>
-    <dt>Include sub-categories in category page and category posts feed</dt>
-    <dd>When this option is activated, posts in sub-categories will be displayed in the parent categories pages as well as in their feeds.</dd>
+    <dt>รูปแบบวันที่</dt>
+    <dd>กำหนดรูปแบบวันที่สำหรับโพสต์บล็อก ดูส่วน "อ้างอิงรูปแบบ" ด้านล่างสำหรับข้อมูลเพิ่มเติม คุณสามารถใช้รายการแบบเลื่อนลงเพื่อเลือกแบบที่มีอยู่เดิมได้อย่างรวดเร็ว</dd>
+    <dt>รูปแบบเวลา</dt>
+    <dd>กำหนดรูปแบบเวลาสำหรับโพสต์บล็อก ดูส่วน "อ้างอิงรูปแบบ" ด้านล่างสำหรับข้อมูลเพิ่มเติม คุณสามารถใช้รายการแบบเลื่อนลงเพื่อเลือกแบบที่มีอยู่เดิมได้อย่างรวดเร็ว</dd>
+    <dt>แสดงสัญลักษณ์อารมณ์บนรายการและความคิดเห็น</dt>
+    <dd>เปลี่ยนข้อความบางประเภท เช่น :-) หรือ ;-) ให้กลายเป็นรูปภาพ</dd>
+    <dt>แสดง X รายการต่อหน้า</dt>
+    <dd>จะแสดงรายการ X รายการบนหน้าหลักของบล็อกรวมถึงในหมวดหมู่ต่างๆ</dd>
+    <dt>แสดงรายการ X รายการต่อฟีด</dt>
+    <dd>จะแสดง X รายการในฟีดบล็อก</dd>
+    <dt>แสดงความคิดเห็น X ต่อฟีด</dt>
+    <dd>จะแสดงความคิดเห็น X ข้อความในฟีดความคิดเห็นของบล็อก</dd>
+    <dt>ตัดข้อมูลฟีด</dt>
+    <dd>ตัวเลือกนี้จะให้เฉพาะบทคัดย่อจากบทความในบล็อกที่อยู่ในฟีดเท่านั้น</dd>
+    <dt>รวมหมวดหมู่ย่อยในหน้าหมวดหมู่และฟีดโพสต์หมวดหมู่</dt>
+    <dd>เมื่อตัวเลือกนี้ถูกเปิดใช้งาน โพสต์ในหมวดหมู่ย่อยจะแสดงในหน้าหมวดหมู่หลักและในฟีดของพวกเขาด้วย</dd>
   </dl>
-  <h4>Media and images</h4>
+  <h4>สื่อและรูปภาพ</h4>
   <dl>
-    <dt>Generated image sizes (in pixels)</dt>
-    <dd>When you add an image in the media manager, other sizes are automatically generated. Here you can define the dimension of the longest size (width or heigth) of each type of generated images. If you leave one field empty, the media manager will not create the corresponding miniature.</dd>
-    <dt>Default image insertion attributes</dt>
-    <dd>The selected settings will apply on all the new images added to the media manager.</dd>
-    <dt>Inserted image title</dt>
-    <dd>Select the format of the "title" tags applied to your images, based on information retrieved from the images metadata.</dd>
-    <dt>Use original media date if possible</dt>
-    <dd>When this option is activated, if the image metadata contains a date, it will be used. If not, the upload date will be used.</dd>
-    <dt>Size of inserted image</dt>
-    <dd>Defines the default size used when inserting an image in a blog post.</dd>
-    <dt>Image alignment</dt>
-    <dd>Defines the default alignment used when inserting an image in a blog post.</dd>
-    <dt>Insert a link to the original image</dt>
-    <dd>When this option is activated, the pictures inserted in a blog post will be clickable and point to the original-sized picture.</dd>
+    <dt>ขนาดภาพที่สร้างขึ้น (เป็นพิกเซล)</dt>
+    <dd>เมื่อคุณเพิ่มรูปภาพในตัวจัดการสื่อ ขนาดอื่น ๆ จะถูกสร้างขึ้นโดยอัตโนมัติ ที่นี่คุณสามารถกำหนดขนาดของด้านที่ยาวที่สุด (ความกว้างหรือความสูง) ของแต่ละประเภทของรูปภาพที่สร้างขึ้นได้ หากคุณเว้นช่องใดช่องหนึ่งว่างไว้ ตัวจัดการสื่อจะไม่สร้างภาพขนาดย่อที่สอดคล้องกัน</dd>
+    <dt>คุณสมบัติการแทรกภาพเริ่มต้น</dt>
+    <dd>การตั้งค่าที่เลือกไว้จะถูกนำไปใช้กับภาพใหม่ทั้งหมดที่เพิ่มเข้ามาในผู้จัดการสื่อ</dd>
+    <dt>แทรกรูปภาพ</dt>
+    <dd>เลือกแบบฟอร์มของแท็ก "title" ที่ใช้กับรูปภาพของคุณ โดยอิงจากข้อมูลที่ดึงมาจากเมตาดาต้าของรูปภาพ</dd>
+    <dt>ใช้วันที่สื่อต้นฉบับหากเป็นไปได้</dt>
+    <dd>เมื่อตัวเลือกนี้ถูกเปิดใช้งาน หากข้อมูลเมตาของภาพมีวันที่อยู่ จะถูกนำมาใช้ หากไม่มี จะใช้วันที่อัปโหลดแทน</dd>
+    <dt>ขนาดของภาพที่แทรก</dt>
+    <dd>กำหนดขนาดเริ่มต้นที่ใช้เมื่อแทรกภาพในโพสต์บล็อก</dd>
+    <dt>การจัดตำแหน่งภาพ</dt>
+    <dd>กำหนดการจัดตำแหน่งเริ่มต้นที่ใช้เมื่อแทรกภาพในโพสต์บล็อก</dd>
+    <dt>แทรก ลิงก์ไปยังภาพต้นฉบับ</dt>
+    <dd>เมื่อตัวเลือกนี้ถูกเปิดใช้งาน รูปภาพที่แทรกในโพสต์บล็อกจะสามารถคลิกได้และจะนำทางไปยังรูปภาพขนาดต้นฉบับ</dd>
   </dl>
-  <h4>Search engines robots policy</h4>
-  <p>Here you can indicate if you want Web search engines to index and/or archive your pages or not. Select the last option if you do not want people to be able to find your blog using a Web search engine.</p>
-  <h4>Antispam</h4>
-  <p>You can set the number of days after which you want the junk comments to be automatically deleted. Leave that field blank (or put 0) to deactivate this feature.</p>
-  <h4>Users</h4>
-  <p>Lists this blog's users as well as their permissions.</p>
-  <h3>Format reference</h3>
-  <p>Some fields can be configured to format the date and time to your needs. Here is a reference:</p>
+  <h4>นโยบายเกี่ยวกับหุ่นยนต์ของเครื่องมือค้นหา</h4>
+  <p>ที่นี่คุณสามารถระบุได้ว่าคุณต้องการให้เครื่องมือค้นหาเว็บจัดทำดัชนีและ/หรือเก็บถาวรหน้าเว็บของคุณหรือไม่ เลือกตัวเลือกสุดท้ายหากคุณไม่ต้องการให้ผู้อื่นค้นหาบล็อกของคุณโดยใช้เครื่องมือค้นหาเว็บ</p>
+  <h4>แอนตี้สแปม</h4>
+  <p>คุณสามารถตั้งค่าจำนวนวันที่ต้องการให้ระบบลบความคิดเห็นขยะโดยอัตโนมัติหลังจากนั้นได้ ปล่อยช่องนี้ว่างไว้ (หรือใส่ 0) เพื่อปิดการใช้งานฟีเจอร์นี้</p>
+  <h4>ผู้ใช้</h4>
+  <p>แสดงรายชื่อผู้ใช้ของบล็อกนี้รวมถึงสิทธิ์การเข้าถึงของพวกเขา</p>
+  <h3>รูปแบบการอ้างอิง</h3>
+  <p>บางฟิลด์สามารถตั้งค่าเพื่อจัดรูปแบบวันที่และเวลาตามความต้องการของคุณได้ นี่คือข้อมูลอ้างอิง:</p>
   <ul>
-    <li><strong>%a:</strong> Abreviated week day (local).</li>
-    <li><strong>%A:</strong> Complete week day (local).</li>
-    <li><strong>%b:</strong> Abbreviated month name (local).</li>
-    <li><strong>%B:</strong> Complete month name (local).</li>
-    <li><strong>%c:</strong> Default local date and time display.</li>
-    <li><strong>%C:</strong> Century (the year, divided by 100 and round up beetween 00 and 99)</li>
-    <li><strong>%d:</strong> Numeric month day (from 01 to 31)</li>
-    <li><strong>%D:</strong> Identical to %m/%d/%y</li>
-    <li><strong>%e:</strong> Numeric month day (from 1 to 31)</li>
-    <li><strong>%g:</strong> Identical to %G, 2 digits.</li>
-    <li><strong>%G:</strong> The year on 4 digits, according to the week number (cf. %V). Format and value identical to %Y, except that if the number of the week belongs to the preceding or following year, the current year will be used instead.</li>
-    <li><strong>%h:</strong> Identical to %b</li>
-    <li><strong>%H:</strong> Digital hour of the day, 24H mode (from 00 to 23)</li>
-    <li><strong>%I:</strong> Digital hour of the day, 12H mode (from 01 to 12)</li>
-    <li><strong>%j:</strong> Day of the year, digital (from 001 to 366)</li>
-    <li><strong>%m:</strong> Month, digital (from 1 à 12)</li>
-    <li><strong>%M:</strong> Minute, digital</li>
-    <li><strong>%n:</strong> Newline character</li>
-    <li><strong>%p:</strong> Either `am' or `pm', according to the absolute time, or depending of the local settings.</li>
-    <li><strong>%r:</strong> The hour, a.m. and p.m. format</li>
-    <li><strong>%R:</strong> The hour, 24h format</li>
-    <li><strong>%S:</strong> Seconds, digital</li>
-    <li><strong>%t:</strong> Tab character</li>
-    <li><strong>%T:</strong> The current time (identical to %H:%M:%S)</li>
-    <li><strong>%u:</strong> Day week, digit, from 1 to 7. (1 stands for monday)</li>
-    <li><strong>%U:</strong> Week number, the first Sunday of the year being the first day of the first week.</li>
-    <li><strong>%V:</strong> The week number as defined in ISO 8601:1988, digital, from 01 to 53. The week 1 is the first week with more than 4 days in the current year, whose Monday is the first day. (Use %G or %g for the year elements corresponding to the number of the week for the considered timestamp.)</li>
-    <li><strong>%W:</strong> Number of the week in the year, the first Monday of the year being the start of the first week</li>
-    <li><strong>%w:</strong> Day of the week, digital, 0 stands for sunday</li>
-    <li><strong>%x:</strong> Prefered format for the date without the time</li>
-    <li><strong>%X:</strong> Prefered format for the time without the date</li>
-    <li><strong>%y:</strong> The year, two digits (from 00 to 99)</li>
-    <li><strong>%Y:</strong> The year, four digits</li>
-    <li><strong>%Z or %z:</strong> Timezone, name or abbreviation</li>
-    <li><strong>%%:</strong> A litteral `%' character</li>
+    <li><strong>%a:</strong>วันในสัปดาห์<strong> ย่อ</strong>(ท้องถิ่น)</li>
+    <li><strong>%A:</strong>วันในสัปดาห์<strong> ที่สมบูรณ์</strong>(ตามเวลาท้องถิ่น)</li>
+    <li><strong>%b: ชื่อเดือนย่อ</strong>(ท้องถิ่น)</li>
+    <li><strong>%B:</strong>ชื่อเดือน<strong> เต็ม</strong>(ท้องถิ่น)</li>
+    <li><strong>%c:</strong>การแสดงวันที่และเวลา<strong> ท้องถิ่นเริ่มต้น</strong></li>
+    <li><strong>%C: ศตวรรษ</strong>(ปี, หารด้วย 100 แล้วปัดขึ้นระหว่าง 00 ถึง 99)</li>
+    <li><strong>%d: ตัวเลขแสดงวันที่</strong>(ตั้งแต่ 01 ถึง 31)</li>
+    <li><strong>%D: เหมือนกับ</strong> %m/%d/%y</li>
+    <li><strong>%e: ตัวเลขแสดงวันที่</strong>(ตั้งแต่ 1 ถึง 31)</li>
+    <li><strong>%g: เหมือนกับ</strong> %G, 2 หลัก</li>
+    <li><strong>%G: ปีที่แสดงด้วยตัวเลข</strong>4 หลัก ตามหมายเลขสัปดาห์ (ดูเพิ่มเติมที่ %V) รูปแบบและค่าเหมือนกับ %Yทุกประการ ยกเว้นว่าหากหมายเลขสัปดาห์อยู่ในปีถัดไปหรือก่อนหน้า ระบบจะใช้ปีปัจจุบันแทน</li>
+    <li><strong>%h: เหมือนกับ</strong> %b</li>
+    <li><strong>%H: ชั่วโมงในรูปแบบดิจิทัลของวัน</strong>, โหมด 24 ชั่วโมง (ตั้งแต่ 00 ถึง 23)</li>
+    <li><strong>%I: ชั่วโมงแบบดิจิทัล</strong>ของวัน, โหมด 12 ชั่วโมง (ตั้งแต่ 01 ถึง 12)</li>
+    <li><strong>%j: วันที่ของปี</strong>, แบบดิจิทัล (ตั้งแต่ 001 ถึง 366)</li>
+    <li><strong>%m: เดือน</strong>, แบบดิจิทัล (ตั้งแต่ 1 ถึง 12)</li>
+    <li><strong>%M: นาฬิกา</strong>, ดิจิตอล</li>
+    <li><strong>%n:</strong>ตัวอักขระ<strong> ขึ้นบรรทัดใหม่</strong></li>
+    <li><strong>%p: ใช้</strong>`am' หรือ `pm' ตามเวลาจริง หรือขึ้นอยู่กับค่าการตั้งค่าท้องถิ่น</li>
+    <li><strong>%r: ชั่วโมง</strong>, รูปแบบ a.m. และ p.m.</li>
+    <li><strong>%R: ชั่วโมง</strong>, รูปแบบ 24 ชั่วโมง</li>
+    <li><strong>%S: วินาที</strong>, ดิจิตอล</li>
+    <li><strong>%t: แท็บ</strong></li>
+    <li><strong>%T: เวลาปัจจุบัน</strong>(เหมือนกับ %H:%M:%S)</li>
+    <li><strong>%u: วันในสัปดาห์</strong>, ตัวเลข, ตั้งแต่ 1 ถึง 7. (1 แทนวันจันทร์)</li>
+    <li><strong>%U: หมายเลขสัปดาห์</strong>โดยวันอาทิตย์แรกของปีถือเป็นวันแรกของสัปดาห์แรก</li>
+    <li><strong>%V: หมายเลขสัปดาห์ตามที่กำหนดใน</strong>ISO 8601:1988<strong> เป็นตัวเลข</strong>ตั้งแต่ 01 ถึง 53 สัปดาห์ที่ 1 คือสัปดาห์แรกที่มีมากกว่า 4 วันในปีปัจจุบัน ซึ่งวันจันทร์เป็นวันแรก (ใช้ %G หรือ %g สำหรับองค์ประกอบปีที่เกี่ยวข้องกับหมายเลขสัปดาห์สำหรับเวลาที่พิจารณา)</li>
+    <li><strong>%W: หมายเลข</strong>ของสัปดาห์ในปี โดยวันจันทร์แรกของปีถือเป็นสัปดาห์แรก</li>
+    <li><strong>%w: วัน</strong>ในสัปดาห์, แบบดิจิทัล, 0 แทนวันอาทิตย์</li>
+    <li><strong>%x: รูปแบบที่ต้องการ</strong>สำหรับวันที่ โดยไม่รวมเวลา</li>
+    <li><strong>%X: รูปแบบที่ต้องการ</strong>สำหรับเวลาโดยไม่มีวันที่</li>
+    <li><strong>%y: ปี</strong>, สองหลัก (ตั้งแต่ 00 ถึง 99)</li>
+    <li><strong>%Y: ปี</strong>, สี่หลัก</li>
+    <li><strong>%Z </strong> <strong> หรือ %z: เขตเวลา</strong>, ชื่อหรือตัวย่อ</li>
+    <li><strong>%%:</strong>ตัวอักษร '%' ตามตัวอักษร</li>
   </ul>
 </body>
 
