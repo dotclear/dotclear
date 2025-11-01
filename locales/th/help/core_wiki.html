@@ -1,71 +1,71 @@
 <html>
 
 <head>
-  <title>Wiki syntax reference</title>
+  <title>อ้างอิงไวยากรณ์วิกิ</title>
 </head>
 
 <body>
-  <h4>Wiki syntax reference</h4>
-  <p>The Wiki syntax is a way to enhance your text with a minimal set of tags studied to cover the basic needs (titles, paragraphs, quotes, lists...).</p>
+  <h4>อ้างอิงไวยากรณ์วิกิ</h4>
+  <p>ไวยากรณ์วิกิเป็นวิธีในการเพิ่มประสิทธิภาพให้กับข้อความของคุณด้วยชุดแท็กที่เรียบง่าย ซึ่งได้รับการออกแบบมาเพื่อตอบสนองความต้องการพื้นฐาน (เช่น หัวข้อ ย่อหน้า คำพูดอ้างอิง รายการ ฯลฯ)</p>
   <dl>
-    <dt>Block elements</dt>
+    <dt>องค์ประกอบบล็อก</dt>
     <dd>
       <ul>
-        <li>Leave an empty line between two similar blocks.</li>
-        <li><strong>Paragraph:</strong> Free text, ended by an empty line if another paragraph is to follow.</li>
-        <li><strong>Title:</strong> <code>!!! title</code>, <code>!! title</code> or <code>! title</code>, allowing you to use three different levels of heading.</li>
-        <li><strong>Horizontal line:</strong> <code>----</code></li>
-        <li><strong>Lists:</strong> Start each line with <code>*</code> or <code>#</code> for unnumbered or numbered lists respectively. List imbrication is done by mixing list markers this way:
+        <li>เว้นบรรทัดว่างระหว่างบล็อกที่คล้ายกันสองบล็อก</li>
+        <li><strong>ย่อหน้า:</strong>ข้อความอิสระ จบด้วยบรรทัดว่างหากมีย่อหน้าอื่นตามมา</li>
+        <li><strong>หัวข้อ:</strong> <code>!!! หัวข้อ</code>,<code>!! หัวข้อ</code>หรือ<code>! หัวข้อ</code>, ช่วยให้คุณใช้ระดับหัวข้อได้สามระดับ</li>
+        <li><strong>เส้นแนวนอน:</strong> <code>----</code></li>
+        <li><strong>รายการ:</strong>เริ่มแต่ละบรรทัดด้วย<code>*</code>หรือ<code>#</code>สำหรับรายการที่ไม่มีการลำดับหรือมีการลำดับตามลำดับตามลำดับตามลำดับตามลำดับตามลำดับตามลำดับตามลำดับตามลำดับตามลำดับตามลำดับตามลำดับตามลำดับตามลำดับตามลำดับตามลำดับตามลำดับตามลำดับตามลำดับตามลำดับตามลำดับตามลำดับตามลำดับตามลำดับตามลำดับตามลำดับตามลำดับตามลำดับตาม
           <pre>
-    <code>*</code> item 1
-    <code>**</code> item 1.1
-    <code>*</code> item 2
-    <code>*#</code> item 2.1
+    <code>*</code> รายการที่ 1
+    <code>    **</code>รายการที่ 1.1
+    <code>    *</code>รายการที่ 2
+    <code>    *#</code>รายการที่ 2.1
   ...
   </pre>
         </li>
-        <li><strong>Definition lists:</strong> Start each line with <code>=</code> for the term to define and with <code>:</code> for the definition of the term.
+        <li><strong>รายการคำนิยาม:</strong>เริ่มแต่ละบรรทัดด้วย<code>=</code>สำหรับคำที่ต้องการนิยาม และด้วย<code>:</code>สำหรับคำนิยามของคำนั้น
           <pre>
-  <code>=</code> term
-  <code>:</code> description of the term
+  <code>=</code> คำศัพท์
+  <code>:</code>คำอธิบายของคำศัพท์
   </pre>
         </li>
-        <li><strong>Preformatted text:</strong> Each line must start with a space.</li>
-        <li><strong>Block quote:</strong> Each line must start with a <code>&gt;</code>.</li>
-        <li><strong>Side block:</strong> Each line must start with a <code>)</code>.</li>
+        <li><strong>ข้อความที่จัดรูปแบบไว้ล่วงหน้า:</strong>แต่ละบรรทัดต้องเริ่มต้นด้วยช่องว่าง</li>
+        <li><strong>บล็อกคำพูด:</strong>แต่ละบรรทัดต้องเริ่มต้นด้วย <code>&gt;</code>.</li>
+        <li><strong>บล็อกด้านข้าง:</strong>แต่ละบรรทัดต้องเริ่มต้นด้วย<code>)</code>.</li>
       </ul>
     </dd>
-    <dt>Formatting tags</dt>
+    <dt>แท็กการจัดรูปแบบ</dt>
     <dd>
       <ul>
-        <li><strong>Emphasis:</strong> Two quotes <code>''text''</code></li>
-        <li><strong>Strong emphasis:</strong> Two underscores <code>__text__</code></li>
-        <li><strong>Highlighted:</strong> Two double quotes <code>""text""</code></li>
-        <li><strong>New line:</strong> <code>%%%</code></li>
-        <li><strong>Insertion:</strong> Two plusses <code>++text++</code></li>
-        <li><strong>Deletion:</strong> Two minuses <code>--text--</code></li>
-        <li><strong>Link:</strong> <code>[url]</code>, <code>[name|url]</code>, <code>[name|url|language]</code> or <code>[name|url|language|title]</code></li>
-        <li><strong>Image:</strong><code>((url|alternative text))</code>, <code>((url|alternative text|position))</code> or <code>((url|alternative text|position|long description))</code>.<br>The position can be either L (left), R (right) or C (centered).</li>
-        <li><strong>Anchor:</strong> <code>~anchor~</code></li>
-        <li><strong>Acronym:</strong> <code>??acronym|title??</code></li>
-        <li><strong>Inline HTML:</strong> Two backquotes <code>``HTML code``</code></li>
-        <li><strong>Inline quote:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> or <code>{{quote|language|url}}</code></li>
-        <li><strong>Code:</strong> <code>@@code@@</code></li>
-        <li><strong>Footnotes:</strong> <code>$$footnote$$</code></li>
-        <li><strong>Superscript</strong>&nbsp;: <code>^superscript^</code></li>
-        <li><strong>Subscript</strong>&nbsp;: <code>,,subscript,,</code></li>
+        <li><strong>เน้น:</strong>คำพูดสองคำ<code>"ข้อความ"</code></li>
+        <li><strong>เน้นย้ำ:</strong>สองขีดล่าง <code>__text__</code></li>
+        <li><strong>ไฮไลต์:</strong>สองเครื่องหมายคำพูด<code>""ข้อความ""</code></li>
+        <li><strong>บรรทัดใหม่:</strong> <code>%%%</code></li>
+        <li><strong>แทรก:</strong>สองบวก<code>++text++</code></li>
+        <li><strong>การลบ:</strong>สองเครื่องหมายลบ<code>--ข้อความ--</code></li>
+        <li><strong>ลิงก์:</strong> <code>[url]</code>,<code>[ชื่อ|url]</code>,<code>[ชื่อ|url|ภาษา]</code>หรือ<code>[ชื่อ|url|ภาษา|ชื่อเรื่อง]</code></li>
+        <li><strong>ภาพ:</strong><code>((url|ข้อความทางเลือก))</code>,<code>((url|ข้อความทางเลือก|ตำแหน่ง))</code>หรือ<code>((url|ข้อความทางเลือก|ตำแหน่ง|คำอธิบายยาว))</code>.<br>ตำแหน่งสามารถเป็น L (ซ้าย), R (ขวา) หรือ C (กลาง).</li>
+        <li><strong>ผู้ประกาศข่าว:</strong> <code>~สมอ~</code></li>
+        <li><strong>คำย่อ:</strong> <code>??ตัวย่อ|ชื่อเรื่อง??</code></li>
+        <li><strong>HTML แบบฝัง:</strong>สองเครื่องหมายอัญประกาศย้อนกลับ<code>``โค้ด HTML``</code></li>
+        <li><strong>อ้างอิงในข้อความ</strong>: <code>{{quote}}</code>, <code>{{quote|language}}</code>หรือ <code>{{quote|language|url}}</code></li>
+        <li><strong>รหัส:</strong> <code>@@code@@</code></li>
+        <li><strong>เชิงอรรถ:</strong> <code>$footnote$</code></li>
+        <li><strong>ตัวพิมพ์ยกสูง</strong>&nbsp;:<code>^superscript^</code></li>
+        <li><strong>ตัวอักษรตัวเล็ก</strong>&nbsp;:<code>,,ตัวอักษรตัวเล็ก,,</code></li>
       </ul>
     </dd>
-    <dt>Unformatted text</dt>
-    <dd>If you don't want one formatting character to be interpreted as such, add a
-      <code>\</code> just before it. For instance:
-      <code>\[Text in brackets without being a link\]</code>
+    <dt>ข้อความที่ยังไม่ได้จัดรูปแบบ</dt>
+    <dd>หากคุณไม่ต้องการให้อักขระการจัดรูปแบบหนึ่งถูกตีความว่าเป็นตัวนั้น ให้เพิ่ม
+      <code>      \</code>ไว้ก่อนหน้าอักขระนั้น ตัวอย่างเช่น:
+      <code>      \[ข้อความในวงเล็บที่ไม่เป็นลิงก์\]</code>
     </dd>
-    <dt>HTML code</dt>
-    <dd>Even if you chose the Wiki syntax, you may sometimes need a more powerful formatting, i.e. HTML syntax. Do it the following way:
+    <dt>โค้ด HTML</dt>
+    <dd>แม้ว่าคุณจะเลือกไวยากรณ์ของ Wiki แล้วก็ตาม คุณอาจต้องการการจัดรูปแบบที่ทรงพลังมากขึ้นในบางครั้ง นั่นคือ ไวยากรณ์ HTML ให้ทำตามวิธีต่อไปนี้:
       <pre>
 ///html
-&lt;p style="color:red"&gt;my text in red&lt;/p&gt;
+&lt;p style="color:red"&gt;ข้อความของฉันเป็นสีแดง&lt;/p&gt;
 ///
 </pre>
     </dd>
