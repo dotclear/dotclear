@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-02 15:12+0200\n"
-"PO-Revision-Date: 2025-11-01 13:21\n"
+"PO-Revision-Date: 2025-11-01 14:50\n"
 "Last-Translator: \n"
 "Language-Team: Vietnamese\n"
 "Language: vi_VN\n"
@@ -19,235 +19,235 @@ msgstr ""
 
 #: themes/ductile/src/Config.php:55
 msgid "Full"
-msgstr ""
+msgstr "Đầy đủ"
 
 #: themes/ductile/src/Config.php:68
 msgid "Home (first page)"
-msgstr ""
+msgstr "Trang chủ (trang đầu tiên)"
 
 #: themes/ductile/src/Config.php:69
 msgid "Home (other pages)"
-msgstr ""
+msgstr "Trang chủ (các trang khác)"
 
 #: themes/ductile/src/Config.php:70
 msgid "Entries for a category"
-msgstr ""
+msgstr "Các mục trong một danh mục"
 
 #: themes/ductile/src/Config.php:71
 msgid "Entries for a tag"
-msgstr ""
+msgstr "Các mục cho thẻ"
 
 #: themes/ductile/src/Config.php:72
 msgid "Search result entries"
-msgstr ""
+msgstr "Các mục kết quả tìm kiếm"
 
 #: themes/ductile/src/Config.php:73
 msgid "Month archive entries"
-msgstr ""
+msgstr "Các bài viết trong tháng"
 
 #: themes/ductile/src/Config.php:78
 msgid "Ductile primary"
-msgstr ""
+msgstr "Dẻo dai ban đầu"
 
 #: themes/ductile/src/Config.php:79
 msgid "Ductile secondary"
-msgstr ""
+msgstr "Dẻo dai thứ cấp"
 
 #: themes/ductile/src/Config.php:80
 msgid "Times New Roman"
-msgstr ""
+msgstr "Times New Roman"
 
 #: themes/ductile/src/Config.php:81
 msgid "Georgia"
-msgstr ""
+msgstr "Georgia"
 
 #: themes/ductile/src/Config.php:82
 msgid "Garamond"
-msgstr ""
+msgstr "Garamond"
 
 #: themes/ductile/src/Config.php:83
 msgid "Helvetica/Arial"
-msgstr ""
+msgstr "Helvetica/Arial"
 
 #: themes/ductile/src/Config.php:84
 msgid "Verdana"
-msgstr ""
+msgstr "Verdana"
 
 #: themes/ductile/src/Config.php:85
 msgid "Trebuchet MS"
-msgstr ""
+msgstr "Trebuchet MS"
 
 #: themes/ductile/src/Config.php:86
 msgid "Impact"
-msgstr ""
+msgstr "Tác động"
 
 #: themes/ductile/src/Config.php:87
 msgid "Monospace"
-msgstr ""
+msgstr "Phông chữ cố định"
 
 #: themes/ductile/src/Config.php:91
 msgid "none"
-msgstr ""
+msgstr "Không có"
 
 #: themes/ductile/src/Config.php:92
 msgid "javascript (Adobe)"
-msgstr ""
+msgstr "JavaScript (Adobe)"
 
 #: themes/ductile/src/Config.php:93
 msgid "stylesheet (Google)"
-msgstr ""
+msgstr "Bảng kiểu (Google)"
 
 #: themes/ductile/src/Config.php:340
 msgid "Theme configuration upgraded."
-msgstr ""
+msgstr "Cấu hình chủ đề đã được nâng cấp."
 
 #: themes/ductile/src/Config.php:361
 msgid "Font family"
-msgstr ""
+msgstr "Gia đình phông chữ"
 
 #: themes/ductile/src/Config.php:377
 msgid "Header"
-msgstr ""
+msgstr "Tiêu đề"
 
 #: themes/ductile/src/Config.php:378
 msgid "Hide blog description:"
-msgstr ""
+msgstr "Ẩn mô tả blog:"
 
 #: themes/ductile/src/Config.php:381
 msgid "Logo URL:"
-msgstr ""
+msgstr "Đường dẫn URL logo:"
 
 #: themes/ductile/src/Config.php:388
 #, php-format
 msgid "To configure the top menu go to the <a href=\"%s\">Simple Menu administration page</a>."
-msgstr ""
+msgstr "Để cấu hình menu trên cùng, hãy truy cập <a href=\"%s\">trang quản trị Simple Menu</a>."
 
 #: themes/ductile/src/Config.php:395
 msgid "Stickers"
-msgstr ""
+msgstr "Nhãn dán"
 
 #: themes/ductile/src/Config.php:397
 msgid "Stickers (footer)"
-msgstr ""
+msgstr "Nhãn dán (chân trang)"
 
 #: themes/ductile/src/Config.php:401
 msgid "Image"
-msgstr ""
+msgstr "Hình ảnh"
 
 #: themes/ductile/src/Config.php:429
 msgid "Entries list types and limits"
-msgstr ""
+msgstr "Danh sách các loại và giới hạn"
 
 #: themes/ductile/src/Config.php:430
 msgid "Entries lists"
-msgstr ""
+msgstr "Danh sách các mục"
 
 #: themes/ductile/src/Config.php:433
 msgid "Context"
-msgstr ""
+msgstr "Bối cảnh"
 
 #: themes/ductile/src/Config.php:434
 msgid "Entries list type"
-msgstr ""
+msgstr "Danh sách các mục"
 
 #: themes/ductile/src/Config.php:465
 msgid "Miscellaneous options"
-msgstr ""
+msgstr "Các tùy chọn khác"
 
 #: themes/ductile/src/Config.php:466
 msgid "Comment preview is not mandatory:"
-msgstr ""
+msgstr "Xem trước bình luận không bắt buộc:"
 
 #: themes/ductile/src/Config.php:479
 msgid "Presentation"
-msgstr ""
+msgstr "Bài thuyết trình"
 
 #: themes/ductile/src/Config.php:483
 msgid "General settings"
-msgstr ""
+msgstr "Cài đặt chung"
 
 #: themes/ductile/src/Config.php:485
 msgid "Fonts"
-msgstr ""
+msgstr "Phông chữ"
 
 #: themes/ductile/src/Config.php:489
 msgid "Main text"
-msgstr ""
+msgstr "Nội dung chính"
 
 #: themes/ductile/src/Config.php:490
 msgid "Main font:"
-msgstr ""
+msgstr "Phông chữ chính:"
 
 #: themes/ductile/src/Config.php:494 themes/ductile/src/Config.php:511
 msgid "Set to Default to use a webfont."
-msgstr ""
+msgstr "Đặt mặc định để sử dụng phông chữ web."
 
 #: themes/ductile/src/Config.php:495 themes/ductile/src/Config.php:512
 msgid "Webfont family:"
-msgstr ""
+msgstr "Gia đình phông chữ web:"
 
 #: themes/ductile/src/Config.php:497 themes/ductile/src/Config.php:514
 msgid "Webfont URL:"
-msgstr ""
+msgstr "Đường dẫn URL phông chữ web:"
 
 #: themes/ductile/src/Config.php:499 themes/ductile/src/Config.php:516
 msgid "Webfont API:"
-msgstr ""
+msgstr "Giao diện lập trình ứng dụng (API) cho phông chữ web:"
 
 #: themes/ductile/src/Config.php:506
 msgid "Secondary text"
-msgstr ""
+msgstr "Văn bản phụ"
 
 #: themes/ductile/src/Config.php:507
 msgid "Secondary font:"
-msgstr ""
+msgstr "Phông chữ phụ:"
 
 #: themes/ductile/src/Config.php:522
 msgid "Titles"
-msgstr ""
+msgstr "Tiêu đề"
 
 #: themes/ductile/src/Config.php:526 themes/ductile/src/Config.php:605
 msgid "Blog title"
-msgstr ""
+msgstr "Tiêu đề blog"
 
 #: themes/ductile/src/Config.php:527 themes/ductile/src/Config.php:547
 #: themes/ductile/src/Config.php:578 themes/ductile/src/Config.php:606
 #: themes/ductile/src/Config.php:625
 msgid "In bold:"
-msgstr ""
+msgstr "In đậm:"
 
 #: themes/ductile/src/Config.php:530 themes/ductile/src/Config.php:550
 #: themes/ductile/src/Config.php:609 themes/ductile/src/Config.php:628
 msgid "Font size (in em by default):"
-msgstr ""
+msgstr "Kích thước phông chữ (mặc định là em):"
 
 #: themes/ductile/src/Config.php:533 themes/ductile/src/Config.php:553
 #: themes/ductile/src/Config.php:567 themes/ductile/src/Config.php:612
 #: themes/ductile/src/Config.php:631
 msgid "Color:"
-msgstr ""
+msgstr "Màu sắc:"
 
 #: themes/ductile/src/Config.php:546 themes/ductile/src/Config.php:624
 msgid "Post title"
-msgstr ""
+msgstr "Tiêu đề bài đăng"
 
 #: themes/ductile/src/Config.php:566
 msgid "Titles without link"
-msgstr ""
+msgstr "Tiêu đề không có liên kết"
 
 #: themes/ductile/src/Config.php:577
 msgid "Inside posts links"
-msgstr ""
+msgstr "Bài viết bên trong chứa các liên kết"
 
 #: themes/ductile/src/Config.php:581
 msgid "Normal and visited links color:"
-msgstr ""
+msgstr "Màu của các liên kết bình thường và đã truy cập:"
 
 #: themes/ductile/src/Config.php:591
 msgid "Active, hover and focus links color:"
-msgstr ""
+msgstr "Màu của các liên kết khi đang hoạt động, di chuột qua và tập trung:"
 
 #: themes/ductile/src/Config.php:601
 msgid "Mobile specific settings"
-msgstr ""
+msgstr "Cài đặt dành riêng cho thiết bị di động"
 
