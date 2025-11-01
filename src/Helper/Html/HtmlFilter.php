@@ -244,6 +244,7 @@ class HtmlFilter
     {
         if ($use_tidy && extension_loaded('tidy') && class_exists('tidy')) {
             $config = [
+                'custom-tags'                 => 'blocklevel, empty, inline, pre',
                 'doctype'                     => 'strict',
                 'drop-proprietary-attributes' => true,
                 'escape-cdata'                => true,
