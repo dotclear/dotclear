@@ -1,71 +1,71 @@
 <html>
 
 <head>
-  <title>Wiki syntax reference</title>
+  <title>Tham khảo cú pháp Wiki</title>
 </head>
 
 <body>
-  <h4>Wiki syntax reference</h4>
-  <p>The Wiki syntax is a way to enhance your text with a minimal set of tags studied to cover the basic needs (titles, paragraphs, quotes, lists...).</p>
+  <h4>Tham khảo cú pháp Wiki</h4>
+  <p>Cú pháp Wiki là một cách để làm phong phú nội dung văn bản của bạn bằng một bộ thẻ tối thiểu được thiết kế để đáp ứng các nhu cầu cơ bản (tiêu đề, đoạn văn, trích dẫn, danh sách...).</p>
   <dl>
-    <dt>Block elements</dt>
+    <dt>Các phần tử khối</dt>
     <dd>
       <ul>
-        <li>Leave an empty line between two similar blocks.</li>
-        <li><strong>Paragraph:</strong> Free text, ended by an empty line if another paragraph is to follow.</li>
-        <li><strong>Title:</strong> <code>!!! title</code>, <code>!! title</code> or <code>! title</code>, allowing you to use three different levels of heading.</li>
-        <li><strong>Horizontal line:</strong> <code>----</code></li>
-        <li><strong>Lists:</strong> Start each line with <code>*</code> or <code>#</code> for unnumbered or numbered lists respectively. List imbrication is done by mixing list markers this way:
+        <li>Để một dòng trống giữa hai khối tương tự.</li>
+        <li><strong>Đoạn văn:</strong> Văn bản tự do, kết thúc bằng một dòng trống nếu có đoạn văn khác tiếp theo.</li>
+        <li><strong>Tiêu đề:</strong> <code>!!! Tiêu đề</code>, <code>!! Tiêu đề</code> hoặc <code>! Tiêu đề</code>, cho phép bạn sử dụng ba cấp độ tiêu đề khác nhau.</li>
+        <li><strong>Dòng ngang:</strong> <code>----</code></li>
+        <li><strong>Danh sách:</strong> Bắt đầu mỗi dòng bằng <code>*</code> hoặc <code>#</code> tương ứng cho danh sách không đánh số hoặc danh sách đánh số. Việc lồng danh sách được thực hiện bằng cách kết hợp các ký hiệu danh sách như sau:
           <pre>
-    <code>*</code> item 1
-    <code>**</code> item 1.1
-    <code>*</code> item 2
-    <code>*#</code> item 2.1
+    <code>*</code> Mục 1
+    <code>    **</code> Mục 1.1
+    <code>    *</code> Mục 2
+    <code>    *#</code> Mục 2.1
   ...
   </pre>
         </li>
-        <li><strong>Definition lists:</strong> Start each line with <code>=</code> for the term to define and with <code>:</code> for the definition of the term.
+        <li><strong>Danh sách định nghĩa:</strong> Bắt đầu mỗi dòng bằng <code> dấu =</code> cho thuật ngữ cần định nghĩa và bằng dấu <code>:</code> cho định nghĩa của thuật ngữ đó.
           <pre>
-  <code>=</code> term
-  <code>:</code> description of the term
+  <code>=</code> Thuật ngữ
+  <code>:</code> Mô tả về thuật ngữ
   </pre>
         </li>
-        <li><strong>Preformatted text:</strong> Each line must start with a space.</li>
-        <li><strong>Block quote:</strong> Each line must start with a <code>&gt;</code>.</li>
-        <li><strong>Side block:</strong> Each line must start with a <code>)</code>.</li>
+        <li><strong>Văn bản đã định dạng sẵn:</strong> Mỗi dòng phải bắt đầu bằng một khoảng trống.</li>
+        <li><strong>Trích dẫn:</strong> Mỗi dòng phải bắt đầu bằng một <code>&gt;</code>.</li>
+        <li><strong>Khối bên:</strong> Mỗi dòng phải bắt đầu bằng dấu <code>)</code>.</li>
       </ul>
     </dd>
-    <dt>Formatting tags</dt>
+    <dt>Thẻ định dạng</dt>
     <dd>
       <ul>
-        <li><strong>Emphasis:</strong> Two quotes <code>''text''</code></li>
-        <li><strong>Strong emphasis:</strong> Two underscores <code>__text__</code></li>
-        <li><strong>Highlighted:</strong> Two double quotes <code>""text""</code></li>
-        <li><strong>New line:</strong> <code>%%%</code></li>
-        <li><strong>Insertion:</strong> Two plusses <code>++text++</code></li>
-        <li><strong>Deletion:</strong> Two minuses <code>--text--</code></li>
-        <li><strong>Link:</strong> <code>[url]</code>, <code>[name|url]</code>, <code>[name|url|language]</code> or <code>[name|url|language|title]</code></li>
-        <li><strong>Image:</strong><code>((url|alternative text))</code>, <code>((url|alternative text|position))</code> or <code>((url|alternative text|position|long description))</code>.<br>The position can be either L (left), R (right) or C (centered).</li>
-        <li><strong>Anchor:</strong> <code>~anchor~</code></li>
-        <li><strong>Acronym:</strong> <code>??acronym|title??</code></li>
-        <li><strong>Inline HTML:</strong> Two backquotes <code>``HTML code``</code></li>
-        <li><strong>Inline quote:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> or <code>{{quote|language|url}}</code></li>
-        <li><strong>Code:</strong> <code>@@code@@</code></li>
-        <li><strong>Footnotes:</strong> <code>$$footnote$$</code></li>
-        <li><strong>Superscript</strong>&nbsp;: <code>^superscript^</code></li>
-        <li><strong>Subscript</strong>&nbsp;: <code>,,subscript,,</code></li>
+        <li><strong>Nhấn mạnh:</strong> Hai trích dẫn <code>"text"</code></li>
+        <li><strong>Nhấn mạnh mạnh mẽ:</strong> Hai gạch dưới <code>__text__</code></li>
+        <li><strong>Được đánh dấu:</strong> Hai dấu ngoặc kép <code>""text""</code></li>
+        <li><strong>Dòng mới:</strong> <code>%%%</code></li>
+        <li><strong>Chèn:</strong> Hai dấu cộng <code>++text++</code></li>
+        <li><strong>Xóa:</strong> Hai dấu trừ <code>--text--</code></li>
+        <li><strong>Liên kết:</strong> <code>[url]</code>, <code>[tên|url]</code>, <code>[tên|url|ngôn ngữ]</code> hoặc <code>[tên|url|ngôn ngữ|tiêu đề]</code></li>
+        <li><strong>Hình ảnh:</strong><code>((url|văn bản thay thế))</code>, <code>((url|văn bản thay thế|vị trí))</code> hoặc <code>((url|văn bản thay thế|vị trí|mô tả chi tiết))</code>.<br>Vị trí có thể là L (trái), R (phải) hoặc C (giữa).</li>
+        <li><strong>Điểm neo:</strong> <code>~anchor~</code></li>
+        <li><strong>Từ viết tắt:</strong> <code>??viết tắt|tiêu đề??</code></li>
+        <li><strong>HTML trong dòng:</strong> Hai dấu nháy ngược <code>``Mã HTML``</code></li>
+        <li><strong>Trích dẫn trong văn bản</strong>: <code>{{quote}}</code>, <code>{{quote|language}}</code> hoặc <code>{{quote|language|url}}</code></li>
+        <li><strong>Mã:</strong> <code>@@code@@</code></li>
+        <li><strong>Chú thích:</strong> <code>$$footnote$$</code></li>
+        <li><strong>Chỉ số trên</strong> (&nbsp;): <code>^chỉ số trên^</code></li>
+        <li><strong>Chỉ số dưới</strong>&nbsp;: <code>,,chỉ số dưới,,</code></li>
       </ul>
     </dd>
-    <dt>Unformatted text</dt>
-    <dd>If you don't want one formatting character to be interpreted as such, add a
-      <code>\</code> just before it. For instance:
-      <code>\[Text in brackets without being a link\]</code>
+    <dt>Văn bản không định dạng</dt>
+    <dd>
+      Nếu bạn không muốn một ký tự định dạng được hiểu là ký tự định dạng, hãy thêm một ký tự thoát <code>`\`</code> ngay trước nó. Ví dụ:
+      <code>      \[Text in brackets without being a link\]</code>
     </dd>
-    <dt>HTML code</dt>
-    <dd>Even if you chose the Wiki syntax, you may sometimes need a more powerful formatting, i.e. HTML syntax. Do it the following way:
+    <dt>Mã HTML</dt>
+    <dd>Ngay cả khi bạn đã chọn cú pháp Wiki, đôi khi bạn vẫn cần một cú pháp định dạng mạnh mẽ hơn, tức là cú pháp HTML. Hãy thực hiện theo cách sau:
       <pre>
 ///html
-&lt;p style="color:red"&gt;my text in red&lt;/p&gt;
+&lt;p style="color:red"&gt;Văn bản của tôi màu đỏ&lt;/p&gt;
 ///
 </pre>
     </dd>
