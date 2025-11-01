@@ -1,45 +1,45 @@
 <html>
 
 <head>
-  <title>Users</title>
+  <title>ผู้ใช้</title>
 </head>
 
 <body>
-  <p>This page lists all the users on the system.</p>
-  <p>To add (or modify) users' permissions, your password will be required in the <strong>Your password</strong> field.</p>
-  <h4>Users list filter</h4>
+  <p>หน้านี้แสดงรายชื่อผู้ใช้ทั้งหมดในระบบ</p>
+  <p>เพื่อเพิ่ม (หรือแก้ไข) สิทธิ์ของผู้ใช้ คุณจะต้องป้อนรหัสผ่านของคุณในช่อง<strong>รหัสผ่านของคุณ</strong></p>
+  <h4>ผู้ใช้รายการตัวกรอง</h4>
   <dl>
-    <dt>Search</dt>
-    <dd>Search is based on the user ID. The <strong>*</strong> wildcard can be used to look only for a part of the user ID.</dd>
-    <dt>Order by</dt>
-    <dd>The users list can be ordered by their <em>ID</em>, their <em>Last Name</em>, their <em>First Name</em>, their <em>Display Name</em> (nickname) or the <em>Number of Entries</em> they created.</dd>
-    <dt>Sort</dt>
-    <dd>Indicates the sorting method that will be applied to the result list (<em>Ascending</em> or <em>Descending</em>).</dd>
-    <dt>Users per page</dt>
-    <dd>Sets the number of users displayed in each page of the result list.</dd>
+    <dt>ค้นหา</dt>
+    <dd>การค้นหาขึ้นอยู่กับหมายเลขผู้ใช้ สามารถใช้สัญลักษณ์แทน<strong>*</strong>เพื่อค้นหาเฉพาะส่วนหนึ่งของหมายเลขผู้ใช้ได้</dd>
+    <dt>เรียงลำดับโดย</dt>
+    <dd>รายการผู้ใช้สามารถเรียงลำดับ<em>ได้ตามหมายเลขประจำตัว</em>,<em>นามสกุล</em>,<em>ชื่อ</em>,<em>ชื่อที่แสดง</em>(ชื่อเล่น)<em>หรือจำนวนรายการที่</em>ผู้ใช้สร้างขึ้น</dd>
+    <dt>จัดเรียง</dt>
+    <dd>ระบุวิธีการเรียงลำดับที่จะใช้กับรายการผลลัพธ์ (<em>เรียงจากน้อยไปมาก</em> <em>หรือเรียงจากมากไปน้อย</em>)</dd>
+    <dt>ผู้ใช้ต่อหน้า</dt>
+    <dd>ตั้งค่าจำนวนผู้ใช้ที่จะแสดงในแต่ละหน้าของรายการผลลัพธ์</dd>
   </dl>
-  <h4>Users batch actions</h4>
-  <p>It is possible to make a batch of actions on several users at one time.</p>
+  <h4>ผู้ใช้ดำเนินการแบบกลุ่ม</h4>
+  <p>สามารถดำเนินการชุดหนึ่งกับผู้ใช้หลายคนพร้อมกันได้</p>
   <ul>
-    <li><strong>Set permissions:</strong> Set permissions for one or more blog(s).</li>
-    <li><strong>Delete:</strong> Remove the selected user(s) from the system. A user who created entries cannot be deleted.</li>
+    <li><strong>ตั้งค่าสิทธิ์:</strong>ตั้งค่าสิทธิ์สำหรับบล็อกหนึ่งหรือหลายบล็อก</li>
+    <li><strong>ลบ:</strong>ลบผู้ใช้ที่เลือกออกจากระบบ ผู้ใช้ที่สร้างรายการไว้ไม่สามารถลบได้</li>
   </ul>
-  <p>If you decide to set users' permissions, you will be redirected to a new page listing the blogs available on your system. Check the blogs you want to set the permissions on, and press <strong>Set permissions</strong>.</p>
-  <h4>Users permissions</h4>
-  <p>For each blog, you can set the following permissions:</p>
+  <p>หากคุณตัดสินใจที่จะกำหนดสิทธิ์ของผู้ใช้ คุณจะถูกลิงก์ไปยังหน้าใหม่ซึ่งแสดงรายการบล็อกที่มีอยู่ในระบบของคุณ ให้ตรวจสอบบล็อกที่คุณต้องการกำหนดสิทธิ์ และกดปุ่ม<strong>'กำหนดสิทธิ์'</strong></p>
+  <h4>สิทธิ์การใช้งานของผู้ใช้</h4>
+  <p>สำหรับแต่ละบล็อก คุณสามารถตั้งค่าสิทธิ์การเข้าถึงดังต่อไปนี้:</p>
   <ul>
-    <li><strong>Administrator:</strong> Can administrate the blog entirely.</li>
-    <li><strong>Manage their own entries and comments:</strong> The user can create entries and manage the comments on entries he created.</li>
-    <li><strong>Publish entries and comments:</strong> The user can modify the publication status of his own entries and of his entries' comments.</li>
-    <li><strong>Delete entries and comments:</strong> The user can delete his own entries as well as his entries' comments.</li>
-    <li><strong>Manage all entries and comments:</strong> The user can manage all the entries of this blog, no matter if he's the author or not.</li>
-    <li><strong>Manage categories:</strong> The user can create, modify and delete categories.</li>
-    <li><strong>Manage their own media items:</strong> The user can add media items and modifye or delete his own media.</li>
-    <li><strong>Manage all media items:</strong> The user can manage the media items from any user.</li>
-    <li><strong>Manage pages:</strong> The user can add and modify pages.</li>
-    <li><strong>Manage blogroll:</strong> The user can manage the blogroll of the current blog.</li>
+    <li><strong>ผู้ดูแลระบบ:</strong>สามารถจัดการบล็อกได้อย่างสมบูรณ์</li>
+    <li><strong>จัดการรายการและความคิดเห็นของตนเอง:</strong>ผู้ใช้สามารถสร้างรายการและจัดการความคิดเห็นในรายการที่ตนเองสร้างขึ้นได้</li>
+    <li><strong>เผยแพร่รายการและความคิดเห็น:</strong>ผู้ใช้สามารถแก้ไขสถานะการเผยแพร่ของรายการและความคิดเห็นของตนเองได้</li>
+    <li><strong>ลบรายการและความคิดเห็น:</strong>ผู้ใช้สามารถลบรายการของตนเองและความคิดเห็นในรายการของตนเองได้</li>
+    <li><strong>จัดการรายการและความคิดเห็นทั้งหมด:</strong>ผู้ใช้สามารถจัดการรายการทั้งหมดของบล็อกนี้ได้ ไม่ว่าเขาจะเป็นผู้เขียนหรือไม่ก็ตาม</li>
+    <li><strong>จัดการหมวดหมู่:</strong>ผู้ใช้สามารถสร้าง แก้ไข และลบหมวดหมู่ได้</li>
+    <li><strong>จัดการรายการสื่อของตนเอง:</strong>ผู้ใช้สามารถเพิ่มรายการสื่อและแก้ไขหรือลบสื่อของตนเองได้</li>
+    <li><strong>จัดการรายการสื่อทั้งหมด:</strong>ผู้ใช้สามารถจัดการรายการสื่อจากผู้ใช้ใดก็ได้</li>
+    <li><strong>จัดการหน้า:</strong>ผู้ใช้สามารถเพิ่มและแก้ไขหน้าได้</li>
+    <li><strong>จัดการบล็อกโรล:</strong>ผู้ใช้สามารถจัดการบล็อกโรลของบล็อกปัจจุบันได้</li>
   </ul>
-  <p>The <strong>Super administrator</strong> status is set in the user profile.</p>
+  <p>สถานะ<strong>ผู้ดูแลระบบระดับสูง</strong>ถูกตั้งค่าในโปรไฟล์ผู้ใช้</p>
 </body>
 
 </html>
