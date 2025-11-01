@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-04-15 16:27+0200\n"
-"PO-Revision-Date: 2025-11-01 13:22\n"
+"PO-Revision-Date: 2025-11-01 14:49\n"
 "Last-Translator: \n"
 "Language-Team: Thai\n"
 "MIME-Version: 1.0\n"
@@ -18,119 +18,119 @@ msgstr ""
 "Language: th_TH\n"
 
 msgid "%Y-%m-%d %H:%M"
-msgstr ""
+msgstr "%Y-%m-%d %H:%M"
 
 msgid "_Jan"
-msgstr ""
+msgstr "_มกราคม"
 
 msgid "_Feb"
-msgstr ""
+msgstr "_ก.พ."
 
 msgid "_Mar"
-msgstr ""
+msgstr "_มีนาคม"
 
 msgid "_Apr"
-msgstr ""
+msgstr "_เมษายน"
 
 msgid "_May"
-msgstr ""
+msgstr "_เดือนพฤษภาคม"
 
 msgid "_Jun"
-msgstr ""
+msgstr "_มิถุนายน"
 
 msgid "_Jul"
-msgstr ""
+msgstr "_ก.ค."
 
 msgid "_Aug"
-msgstr ""
+msgstr "_สิงหาคม"
 
 msgid "_Sep"
-msgstr ""
+msgstr "_ก.ย."
 
 msgid "_Oct"
-msgstr ""
+msgstr "_ต.ค."
 
 msgid "_Nov"
-msgstr ""
+msgstr "_พฤศจิกายน"
 
 msgid "_Dec"
-msgstr ""
+msgstr "_เดือน"
 
 msgid "January"
-msgstr ""
+msgstr "มกราคม"
 
 msgid "February"
-msgstr ""
+msgstr "กุมภาพันธ์"
 
 msgid "March"
-msgstr ""
+msgstr "มีนาคม"
 
 msgid "April"
-msgstr ""
+msgstr "เมษายน"
 
 msgid "May"
-msgstr ""
+msgstr "เดือนพฤษภาคม"
 
 msgid "June"
-msgstr ""
+msgstr "มิถุนายน"
 
 msgid "July"
-msgstr ""
+msgstr "กรกฎาคม"
 
 msgid "August"
-msgstr ""
+msgstr "สิงหาคม"
 
 msgid "September"
-msgstr ""
+msgstr "กันยายน"
 
 msgid "October"
-msgstr ""
+msgstr "ตุลาคม"
 
 msgid "November"
-msgstr ""
+msgstr "พฤศจิกายน"
 
 msgid "December"
-msgstr ""
+msgstr "ธันวาคม"
 
 msgid "_Mon"
-msgstr ""
+msgstr "_Mon"
 
 msgid "_Tue"
-msgstr ""
+msgstr "_อังคาร"
 
 msgid "_Wed"
-msgstr ""
+msgstr "_วันพุธ"
 
 msgid "_Thu"
-msgstr ""
+msgstr "_พฤ"
 
 msgid "_Fri"
-msgstr ""
+msgstr "_ศุกร์"
 
 msgid "_Sat"
-msgstr ""
+msgstr "_วันเสาร์"
 
 msgid "_Sun"
-msgstr ""
+msgstr "_ดวงอาทิตย์"
 
 msgid "Monday"
-msgstr ""
+msgstr "วันจันทร์"
 
 msgid "Tuesday"
-msgstr ""
+msgstr "วันอังคาร"
 
 msgid "Wednesday"
-msgstr ""
+msgstr "วันพุธ"
 
 msgid "Thursday"
-msgstr ""
+msgstr "วันพฤหัสบดี"
 
 msgid "Friday"
-msgstr ""
+msgstr "วันศุกร์"
 
 msgid "Saturday"
-msgstr ""
+msgstr "วันเสาร์"
 
 msgid "Sunday"
-msgstr ""
+msgstr "วันอาทิตย์"
 
