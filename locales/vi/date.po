@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-04-15 16:27+0200\n"
-"PO-Revision-Date: 2025-11-01 13:20\n"
+"PO-Revision-Date: 2025-11-01 14:49\n"
 "Last-Translator: \n"
 "Language-Team: Vietnamese\n"
 "MIME-Version: 1.0\n"
@@ -18,119 +18,119 @@ msgstr ""
 "Language: vi_VN\n"
 
 msgid "%Y-%m-%d %H:%M"
-msgstr ""
+msgstr "%Y-%m-%d %H:%M"
 
 msgid "_Jan"
-msgstr ""
+msgstr "_Tháng Giêng"
 
 msgid "_Feb"
-msgstr ""
+msgstr "_Tháng Hai"
 
 msgid "_Mar"
-msgstr ""
+msgstr "_Mar"
 
 msgid "_Apr"
-msgstr ""
+msgstr "_Tháng Tư"
 
 msgid "_May"
-msgstr ""
+msgstr "_Tháng Năm"
 
 msgid "_Jun"
-msgstr ""
+msgstr "_Jun"
 
 msgid "_Jul"
-msgstr ""
+msgstr "_Tháng Bảy"
 
 msgid "_Aug"
-msgstr ""
+msgstr "_Tháng Tám"
 
 msgid "_Sep"
-msgstr ""
+msgstr "_Tháng Chín"
 
 msgid "_Oct"
-msgstr ""
+msgstr "_Tháng Mười"
 
 msgid "_Nov"
-msgstr ""
+msgstr "_Tháng Mười Một"
 
 msgid "_Dec"
-msgstr ""
+msgstr "_Tháng 12"
 
 msgid "January"
-msgstr ""
+msgstr "Tháng Giêng"
 
 msgid "February"
-msgstr ""
+msgstr "Tháng Hai"
 
 msgid "March"
-msgstr ""
+msgstr "Tháng Ba"
 
 msgid "April"
-msgstr ""
+msgstr "Tháng Tư"
 
 msgid "May"
-msgstr ""
+msgstr "Tháng Năm"
 
 msgid "June"
-msgstr ""
+msgstr "Tháng Sáu"
 
 msgid "July"
-msgstr ""
+msgstr "Tháng Bảy"
 
 msgid "August"
-msgstr ""
+msgstr "Tháng Tám"
 
 msgid "September"
-msgstr ""
+msgstr "Tháng Chín"
 
 msgid "October"
-msgstr ""
+msgstr "Tháng Mười"
 
 msgid "November"
-msgstr ""
+msgstr "Tháng Mười Một"
 
 msgid "December"
-msgstr ""
+msgstr "Tháng Mười Hai"
 
 msgid "_Mon"
-msgstr ""
+msgstr "_Thứ Hai"
 
 msgid "_Tue"
-msgstr ""
+msgstr "_Thứ Ba"
 
 msgid "_Wed"
-msgstr ""
+msgstr "_Thứ Tư"
 
 msgid "_Thu"
-msgstr ""
+msgstr "_Thu"
 
 msgid "_Fri"
-msgstr ""
+msgstr "_Thứ Sáu"
 
 msgid "_Sat"
-msgstr ""
+msgstr "_Thứ Bảy"
 
 msgid "_Sun"
-msgstr ""
+msgstr "_Mặt trời"
 
 msgid "Monday"
-msgstr ""
+msgstr "Thứ Hai"
 
 msgid "Tuesday"
-msgstr ""
+msgstr "Thứ Ba"
 
 msgid "Wednesday"
-msgstr ""
+msgstr "Thứ Tư"
 
 msgid "Thursday"
-msgstr ""
+msgstr "Thứ Năm"
 
 msgid "Friday"
-msgstr ""
+msgstr "Thứ Sáu"
 
 msgid "Saturday"
-msgstr ""
+msgstr "Thứ Bảy"
 
 msgid "Sunday"
-msgstr ""
+msgstr "Chủ nhật"
 
