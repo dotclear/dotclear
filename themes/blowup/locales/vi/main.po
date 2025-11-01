@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-21 08:26+0100\n"
-"PO-Revision-Date: 2025-11-01 13:21\n"
+"PO-Revision-Date: 2025-11-01 14:50\n"
 "Last-Translator: \n"
 "Language-Team: Vietnamese\n"
 "Language: vi_VN\n"
@@ -19,29 +19,29 @@ msgstr ""
 
 #: themes/blowup/src/Backend.php:38
 msgid "Predefined styles"
-msgstr ""
+msgstr "Các kiểu định sẵn"
 
 #: themes/blowup/src/Backend.php:39
 msgid "Apply code"
-msgstr ""
+msgstr "Áp dụng mã"
 
 #: themes/blowup/src/Backend.php:40
 msgid "Choose a predefined style"
-msgstr ""
+msgstr "Chọn một phong cách có sẵn"
 
 #: themes/blowup/src/Blowup.php:108
 msgid "default"
-msgstr ""
+msgstr "mặc định"
 
 #: themes/blowup/src/Blowup.php:434
 msgid "Unable to create css file."
-msgstr ""
+msgstr "Không thể tạo tệp CSS."
 
 #: themes/blowup/src/Blowup.php:476
 msgid "Unable to create images."
-msgstr ""
+msgstr "Không thể tạo hình ảnh."
 
 #: themes/blowup/src/Blowup.php:580
 msgid "Unable to open image."
-msgstr ""
+msgstr "Không thể mở hình ảnh."
 
