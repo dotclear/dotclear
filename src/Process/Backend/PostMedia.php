@@ -83,13 +83,15 @@ class PostMedia
         if ((App::backend()->post_id && App::backend()->media_id) || App::error()->flag()) {
             // Remove a media from entry
 
-            if (!empty($_POST['remove'])) {
-                $pm->removePostMedia(App::backend()->post_id, App::backend()->media_id, App::backend()->link_type);
+            if (App::backend()->post_id && App::backend()->media_id) {
+                if (!empty($_POST['remove'])) {
+                    $pm->removePostMedia(App::backend()->post_id, App::backend()->media_id, App::backend()->link_type);
 
-                App::backend()->notices()->addSuccessNotice(__('Attachment has been successfully removed.'));
-                Http::redirect(App::postTypes()->get($rs->post_type)->adminUrl(App::backend()->post_id, false));
-            } elseif (isset($_POST['post_id'])) {
-                Http::redirect(App::postTypes()->get($rs->post_type)->adminUrl(App::backend()->post_id, false));
+                    App::backend()->notices()->addSuccessNotice(__('Attachment has been successfully removed.'));
+                    Http::redirect(App::postTypes()->get($rs->post_type)->adminUrl(App::backend()->post_id, false));
+                } elseif (isset($_POST['post_id'])) {
+                    Http::redirect(App::postTypes()->get($rs->post_type)->adminUrl(App::backend()->post_id, false));
+                }
             }
 
             if (!empty($_GET['remove'])) {
