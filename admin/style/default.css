@@ -4697,7 +4697,8 @@ p.clear.vertical-separator {
 }
 
 .grid {
-  background: url("grid.png") repeat 0 0;
+  background: url("grid.svg") repeat 0 0;
+  background-size: 10px;
   background-color: transparent;
 }
 

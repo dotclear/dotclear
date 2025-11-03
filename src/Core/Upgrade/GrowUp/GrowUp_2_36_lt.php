@@ -26,6 +26,7 @@ class GrowUp_2_36_lt
         Upgrade::houseCleaning(
             // Files
             [
+                'admin/style/grid.png',
                 'locales/ar/core_core_*.html',
                 'locales/el/core_core_*.html',
                 'locales/he/core_core_*.html',

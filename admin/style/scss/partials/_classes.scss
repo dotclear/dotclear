@@ -458,7 +458,8 @@ p.clear.vertical-separator {
 
 // Used by blowup config to display background behind the selected top image which may have transparent areas
 .grid {
-  background: url('grid.png') repeat 0 0;
+  background: url('grid.svg') repeat 0 0;
+  background-size: 10px;
   background-color: transparent;
 }
 
