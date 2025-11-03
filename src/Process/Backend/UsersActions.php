@@ -245,7 +245,7 @@ class UsersActions
 
         $hiddens = [];
         foreach (App::backend()->users as $u) {
-            $hiddens[] = (new Hidden(['users[]'], $u));
+            $hiddens[] = (new Hidden(['users[]'], (string) $u));
         }
 
         if (isset($_POST['redir']) && !str_contains((string) $_POST['redir'], '://')) {
@@ -470,7 +470,7 @@ class UsersActions
                                 (new Link())
                                     ->href(App::backend()->url()->get('admin.blog', ['id' => Html::escapeHTML($b)]))
                                     ->text(Html::escapeHTML($b)),
-                                (new Hidden(['blogs[]'], $b)),
+                                (new Hidden(['blogs[]'], (string) $b)),
                             ]),
                         ... $permissions,
                         ... $unknowns,

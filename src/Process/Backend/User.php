@@ -557,10 +557,10 @@ class User
                             (new None()) :
                             (new Submit('saveplus', __('Save and create another'))),
                         App::backend()->user_id ?
-                            (new Hidden('id', App::backend()->user_id)) :
+                            (new Hidden('id', (string) App::backend()->user_id)) :
                             (new None()),
                         $super_disabled ?
-                            (new Hidden(['user_super'], App::backend()->user_super)) :
+                            (new Hidden(['user_super'], (string) App::backend()->user_super)) :
                             (new None()),
                         (new Button('go-back', __('Back')))
                             ->class(['go-back', 'reset', 'hidden-if-no-js']),
@@ -616,8 +616,8 @@ class User
                                             ->class('reset'),
                                         (new Hidden(['redir'], App::backend()->url()->get('admin.user', ['id' => App::backend()->user_id]))),
                                         (new Hidden(['action'], 'perms')),
-                                        (new Hidden(['users[]'], App::backend()->user_id)),
-                                        (new Hidden(['blogs[]'], $k)),
+                                        (new Hidden(['users[]'], (string) App::backend()->user_id)),
+                                        (new Hidden(['blogs[]'], (string) $k)),
                                         App::nonce()->formNonce(),
                                     ]),
                             ]);

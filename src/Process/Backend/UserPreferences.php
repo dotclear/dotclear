@@ -1228,7 +1228,7 @@ class UserPreferences
                         (new Number(['order[' . $id . ']'], 1, count($user_fav), $count))
                             ->class('position')
                             ->title(sprintf(__('position of %s'), $title)),
-                        (new Hidden(['dynorder[]', 'dynorder-' . $id . ''], $id)),
+                        (new Hidden(['dynorder[]', 'dynorder-' . $id . ''], (string) $id)),
                         (new Checkbox(['remove[]', 'fuk-' . $id]))
                             ->value($id)
                             ->label((new Label(__($title), Label::IL_FT))->prefix($icon)),

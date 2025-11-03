@@ -1053,7 +1053,7 @@ class Post
                                 ->items($combo_action)
                                 ->label(new Label(__('Selected comments action:'), Label::OL_TF)),
                             (new Hidden('section', 'comments')),
-                            (new Hidden('id', App::backend()->post_id)),
+                            (new Hidden('id', (string) App::backend()->post_id)),
                             App::nonce()->formNonce(),
                             (new Submit('do-action-comm', __('Ok'))),
                         ]),
@@ -1185,7 +1185,7 @@ class Post
                                 ->items($combo_action)
                                 ->label(new Label(__('Selected trackbacks action:'), Label::OL_TF)),
                             (new Hidden('section', 'trackbacks')),
-                            (new Hidden('id', App::backend()->post_id)),
+                            (new Hidden('id', (string) App::backend()->post_id)),
                             App::nonce()->formNonce(),
                             (new Submit('do-action-comm', __('Ok'))),
                         ]),

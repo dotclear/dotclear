@@ -344,7 +344,7 @@ class Comment
                     (new Para())
                         ->class('form-buttons')
                         ->items([
-                            (new Hidden('id', App::backend()->comment_id)),
+                            (new Hidden('id', (string) App::backend()->comment_id)),
                             App::nonce()->formNonce(),
                             (new Submit('update', __('Save')))
                                 ->accesskey('s'),
