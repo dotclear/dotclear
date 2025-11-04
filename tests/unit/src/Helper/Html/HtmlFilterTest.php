@@ -118,7 +118,7 @@ class HtmlFilterTest extends TestCase
 
         $this->assertSame(
             // Without Tidy
-            '<custom-html-element>test</custom-html-element>',
+            '',
             $filter->apply('<custom-html-element>test</custom-html-element>', false)
         );
     }
