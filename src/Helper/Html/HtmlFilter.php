@@ -244,9 +244,10 @@ class HtmlFilter
     {
         if ($use_tidy && extension_loaded('tidy') && class_exists('tidy')) {
             $config = [
-                'custom-tags'                 => 'blocklevel, empty, inline, pre',
+                'custom-tags'                 => 1,
                 'doctype'                     => 'strict',
-                'drop-proprietary-attributes' => true,
+                'drop-empty-elements'         => false,
+                'drop-proprietary-attributes' => false,
                 'escape-cdata'                => true,
                 'indent'                      => false,
                 'join-classes'                => false,
@@ -257,15 +258,11 @@ class HtmlFilter
                 'wrap'                        => 80,
             ];
 
-            $str = '<p>tt</p>' . $str; // Fixes a big issue
-
             $tidy = new \tidy();
             $tidy->parseString($str, $config, 'utf8');
             $tidy->cleanRepair();
 
             $str = (string) $tidy->value;
-
-            $str = (string) preg_replace('#^<p>tt</p>\s?#', '', $str);
         } else {
             $str = $this->miniTidy($str);
         }

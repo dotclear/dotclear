@@ -102,6 +102,27 @@ class HtmlFilterTest extends TestCase
         }
     }
 
+    public function testTidyCustomTags(): void
+    {
+        $filter = new \Dotclear\Helper\Html\HtmlFilter();
+
+        if (extension_loaded('tidy') && class_exists('tidy')) {
+            // With Tidy
+            $this->assertSame(
+                // Waiting for this issue to be fixed: https://github.com/php/php-src/issues/20374
+                //'<custom-html-element>test</custom-html-element>',
+                'test',
+                $filter->apply('<custom-html-element>test</custom-html-element>')
+            );
+        }
+
+        $this->assertSame(
+            // Without Tidy
+            '<custom-html-element>test</custom-html-element>',
+            $filter->apply('<custom-html-element>test</custom-html-element>', false)
+        );
+    }
+
     public function testSimple(): void
     {
         $filter = new \Dotclear\Helper\Html\HtmlFilter();
