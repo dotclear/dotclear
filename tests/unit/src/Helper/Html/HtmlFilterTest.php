@@ -109,8 +109,6 @@ class HtmlFilterTest extends TestCase
         if (extension_loaded('tidy') && class_exists('tidy')) {
             // With Tidy
             $this->assertSame(
-                // Waiting for this issue to be fixed: https://github.com/php/php-src/issues/20374
-                //'<custom-html-element>test</custom-html-element>',
                 'test',
                 $filter->apply('<custom-html-element>test</custom-html-element>')
             );
