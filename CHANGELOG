@@ -1,3 +1,73 @@
+Dotclear 2.36 - 2025-11-13
+===========================================================
+* 🐘 PHP 8.1+ is required, PHP 8.2, 8.3 and 8.4 compliance
+* Breaking change: Media::getFSDir() has been removed
+* Breaking change: Add a MediaFile file descriptor (extends File class)
+* Breaking change: File class no longer allow dynamic properties
+* Breaking change: ThemeConfig::cleanCSS method has been removed
+* Breaking change: dcCore instance parameter is no longer provided by Rest server
+* Breaking change: dcCore::app()->spamfilters is no longer taken into account
+* Breaking change: The deprecated Error::toHTML() method has been removed
+* Core: Unlock theme modification even for old ones (overload attribute in _define.php of themes is no longer used)
+* Core: Add Webauthn (Passkeys), oAuth2 support (to be configured in inc/oauth2.php, an example is provided in inc/oauth2.php.in)
+* Core: Frontend session is now supported
+* Core: Add a dotclear_exit() proxy function (loaded by App) for exit()/die()
+* Core: Add PDO drivers for mysql and pgsql and rename sqlite
+* Core: Allow load and forget a service, useful for example to open a secondary connection of a DB
+* Core: Add DB method to get a connection on the fly
+* Core: Set session TTL to 20 hours rather than 2, it's better for accessibility
+* Core: Allow opening a Frontend context during Backend one, using the same session
+* Core: Sanitize sqlStatement given conditions (or, and, groups)
+* Core: Add a boolean 3rd parameter to Listing::userColumns() to transform if necessary, all columns' value to Component if already not (as Text)
+* Core: Let's be gentle with old installations, but not too old, so welcome back the deprecated bootstrap() method to App ;-)
+* Core: Add CLI mode for installation
+* Core: Add adminPageHTMLBody behavior (called just before closing body)
+* Core: Move hard coded store URLs to release file
+* Core: Bump minimum required PHP version to 8.2 for future releases (after 2.36)
+* Core: Add a maintenance task to empty feeds cache folder
+* UX/UI: For entries with closed comments or closed trackbacks, display comments/trackbacks counters with a specific color (aria-details added if necessary).
+* UX/UI: Add comments/trackbacks status information for post and page
+* UX/UI: Review entry link toolbar icon (standard Editor and CKEditor)
+* UX/UI: Plugin with setting link(s): remove hr and add a vertical separation (blank)
+* UX/UI: Enforce visibility of informative/warning message from media listing (no results from filter, empty folder)
+* UX/UI: Add unique id (if not given) of all toolbar's element
+* UX/UI: Add group management for standard Editor toolbar elements (spacers are no longer needed)
+* UX/UI: Entry edition page: Ask to reset the url base if title has changed and if entry is not published (only if title is used in entry URL format)
+* UX/UI: Add some padding to textarea (2px is not enough, the cursor was difficult to see at the beginning of a line)
+* UX/UI: Theme preview have been removed
+* UX/UI: User preferences: show a warning message if QR code image cannot be provided
+* UX/UI: Allow using theme editor as a favorite, use a better name
+* UX/UI: Differentiates list of options (used in HTML) and list of values for select filters, group months by year for posts filter
+* UX/UI: Groups months by year for menu simple archive item
+* UX/UI: Replace grid.png by grid.svg (was the last PNG image in admin)
+* Theme: Berlin, use CSS grid for widgets layout (with 2 or 3 columns)
+* Theme: Review management of widget title/subtitle formats
+* Fix: Link color in warning message on dark scheme
+* Fix: Fix link color in warning message on dark scheme
+* Fix: Page plugin, use the correct editor for HTML after conversion
+* Fix: Cope with search filter when deleting item in media insertion popup
+* Fix: CKEditor: allow insertion of link (direct/entry) on empty selection
+* Fix: All editors: Use entry title as link text if current selection is empty
+* Fix: Ensure storing integer value in post_limit, post_offset and post_count properties when importing from Wordpress
+* Fix: Fix progress bar progression in import/export plugin, and autosubmit JS script
+* Fix: Allow entry preview for non admin users
+* Fix: Flat export without check zip format
+* Fix: Do not insert custom CSS stylesheet if the current theme is not customCSS (frontend)
+* Fix: Thumbnails deletion on search media delete action
+* Fix: Isolate upgrade dependencies classes (Menu and Helper)
+* Fix: CSS variable name for #help-button color
+* Fix: Ensure that some transient user preferences (media_manager_dir, media_file_mode) are not already stored in DB before adding them
+* Fix: Media manager, back to first page when changing directory (fav, last or sub-directory)
+* Fix: Cope with media item deletion from search results
+* Fix: Take care of empty value for given REST function
+* Fix: Use process way for admin URLs set by JS (and ensure popup=1 is set when opening a popup)
+* Fix: Avoid removing media from post if no IDs given
+* Dev: Switch from Atoum to PHPUnit for unit tests
+* Dev: Add a development mode to theme editor (if set then the editor will behave as before overloading system, directly editing themes files). This mode may be set via a themeEditorDevMode behavior callback
+* Dev: Temporary removal of links to the documentation (until the new server is operational) in CONTRIBUTING.md
+* Locales: Norwegian (bokmål), Thai and Vietnamese languages added
+* Locales: Bengali, Catalan, Esperanto, Spanish (Argentina),Basque,Hindi,Croatian,Occitan,Serbian,Telugu removed
+
 Dotclear 2.35 - 2025-08-13
 ===========================================================
 * 🐘 PHP 8.1+ is required, PHP 8.2, 8.3 and 8.4 compliance
