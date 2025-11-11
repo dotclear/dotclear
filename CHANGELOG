@@ -9,7 +9,7 @@ Dotclear 2.36 - 2025-11-13
 * Breaking change: dcCore::app()->spamfilters is no longer taken into account
 * Breaking change: The deprecated Error::toHTML() method has been removed
 * Core: Unlock theme modification even for old ones (overload attribute in _define.php of themes is no longer used)
-* Core: Add Webauthn (Passkeys), oAuth2 support (to be configured in inc/oauth2.php, an example is provided in inc/oauth2.php.in)
+* Core: Add Webauthn (Passkeys), OTP and oAuth2 support (to be configured in inc/oauth2.php, an example is provided in inc/oauth2.php.in), a new table credential will be added to the DB
 * Core: Frontend session is now supported
 * Core: Add a dotclear_exit() proxy function (loaded by App) for exit()/die()
 * Core: Add PDO drivers for mysql and pgsql and rename sqlite
@@ -26,6 +26,7 @@ Dotclear 2.36 - 2025-11-13
 * Core: Bump minimum required PHP version to 8.2 for future releases (after 2.36)
 * Core: Add a maintenance task to empty feeds cache folder
 * UX/UI: For entries with closed comments or closed trackbacks, display comments/trackbacks counters with a specific color (aria-details added if necessary).
+* Core: Add download attribute to Html/Form/Link (a)
 * UX/UI: Add comments/trackbacks status information for post and page
 * UX/UI: Review entry link toolbar icon (standard Editor and CKEditor)
 * UX/UI: Plugin with setting link(s): remove hr and add a vertical separation (blank)
