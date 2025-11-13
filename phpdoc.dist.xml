@@ -5,7 +5,7 @@
     <output>doc/api</output>
     <cache>doc/cache</cache>
   </paths>
-  <version number="2.35">
+  <version number="2.36">
     <api>
       <default-package-name>Dotclear</default-package-name>
       <source dsn=".">
