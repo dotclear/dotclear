@@ -623,6 +623,7 @@ class Media extends MediaManager implements MediaInterface
         }
 
         return match ($this->file_sort) {
+            'dir-asc'    => $this->core->lexical()->lexicalCompare($a->relname, $b->relname, $this->core->lexical()::ADMIN_LOCALE),
             'title-asc'  => $this->core->lexical()->lexicalCompare($a->media_title, $b->media_title, $this->core->lexical()::ADMIN_LOCALE),
             'title-desc' => $this->core->lexical()->lexicalCompare($b->media_title, $a->media_title, $this->core->lexical()::ADMIN_LOCALE),
             'size-asc'   => $a->size     <=> $b->size,
@@ -819,6 +820,19 @@ class Media extends MediaManager implements MediaInterface
                     $this->dir['files'][] = $gf;
                 }
             }
+        }
+
+        // Sort directories if requested
+        if ($sort_dirs) {
+            $file_sort       = $this->file_sort;
+            $this->file_sort = 'dir-asc';  // Force sort order for folders on their relname (asc)
+
+            try {
+                usort($this->dir['dirs'], $this->sortFileHandler(...));
+            } catch (Throwable) {
+                // Ignore exceptions
+            }
+            $this->file_sort = $file_sort;
         }
 
         // Finally sort final list of files (not sorted before, see above parent::getDir(...))
