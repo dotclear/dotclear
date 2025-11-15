@@ -449,8 +449,16 @@ class Manage
                                 'label'       => $_POST['items_label'][$i],
                                 'descr'       => $_POST['items_descr'][$i],
                                 'url'         => $_POST['items_url'][$i],
-                                'targetBlank' => !empty($_POST['items_targetBlank' . $i]),
+                                'targetBlank' => false,
                             ];
+                        }
+                        // Get target blank options
+                        if (isset($_POST['items_targetBlank']) && is_array($_POST['items_targetBlank'])) {
+                            for ($i = 0; $i < count($_POST['items_targetBlank']); $i++) {
+                                $index                       = (int) $_POST['items_targetBlank'][$i];
+                                $id                          = (int) $_POST['items_id'][$index];
+                                $newmenu[$id]['targetBlank'] = true;
+                            }
                         }
                         $menu = $newmenu;
 
@@ -475,6 +483,7 @@ class Manage
                                         'label' => $menu[$k]['label'],
                                         'descr' => $menu[$k]['descr'],
                                         'url'   => $menu[$k]['url'], ];
+                                        'targetBlank' => $menu[$k]['targetBlank'],
                                 }
                                 $menu = $newmenu;
                             }
@@ -874,8 +883,9 @@ class Manage
                         (new Td())
                             ->class('nowrap')
                             ->items([
-                                (new Checkbox('items_targetBlank' . $i, $targetBlank))
-                                    ->value('blank'),
+                                (new Checkbox(['items_targetBlank[]', 'imtb-' . $i], $targetBlank))
+                                    ->value($i),
+                                (new Hidden(['items_id[]', 'imid-' . $i], (string) $i)),
                             ]),
                     ];
                 } else {
