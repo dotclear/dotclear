@@ -463,7 +463,8 @@ class Manage
                         }
                         // Get target blank options
                         if (isset($_POST['items_targetBlank']) && is_array($_POST['items_targetBlank'])) {
-                            for ($i = 0; $i < count($_POST['items_targetBlank']); $i++) {
+                            $counter = count($_POST['items_targetBlank']);
+                            for ($i = 0; $i < $counter; $i++) {
                                 $index                       = (int) $_POST['items_targetBlank'][$i];
                                 $id                          = (int) $_POST['items_id'][$index];
                                 $newmenu[$id]['targetBlank'] = true;
@@ -489,11 +490,11 @@ class Manage
                                 $newmenu = [];
                                 foreach ($order as $k) {
                                     $newmenu[] = [
-                                        'label'       => $menu[$k]['label'],
-                                        'descr'       => $menu[$k]['descr'],
-                                        'url'         => $menu[$k]['url'],
+                                        'label'       => $menu[$k]['label'] ?? '',
+                                        'descr'       => $menu[$k]['descr'] ?? '',
+                                        'url'         => $menu[$k]['url']   ?? '',
                                         'targetBlank' => $menu[$k]['targetBlank'],
-                                        'data'        => $menu[$k]['data'],
+                                        'data'        => $menu[$k]['data'] ?? '',
                                     ];
                                 }
                                 $menu = $newmenu;
