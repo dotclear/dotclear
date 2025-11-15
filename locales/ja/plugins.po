@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-15 11:29+0100\n"
-"PO-Revision-Date: 2025-11-15 10:32\n"
+"PO-Revision-Date: 2025-11-15 10:57\n"
 "Last-Translator: \n"
 "Language-Team: Japanese\n"
 "Language: ja_JP\n"
@@ -2759,7 +2759,7 @@ msgstr "新しいタブでURLを開く"
 
 #: plugins/simpleMenu/src/Manage.php:763
 msgid "Custom data of item menu:"
-msgstr ""
+msgstr "アイテムメニューのカスタムデータ："
 
 #: plugins/simpleMenu/src/Manage.php:771
 msgid "Add this item"
@@ -2775,7 +2775,7 @@ msgstr "アイテムを追加"
 
 #: plugins/simpleMenu/src/Manage.php:843
 msgid "Custom data"
-msgstr ""
+msgstr "カスタムデータ"
 
 #: plugins/simpleMenu/src/Manage.php:951
 msgid "Menu items list"
