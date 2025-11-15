@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-15 11:29+0100\n"
-"PO-Revision-Date: 2025-11-15 10:32\n"
+"PO-Revision-Date: 2025-11-15 10:58\n"
 "Last-Translator: \n"
 "Language-Team: Portuguese\n"
 "Language: pt_PT\n"
@@ -2764,7 +2764,7 @@ msgstr "Abrir URL em uma nova aba"
 
 #: plugins/simpleMenu/src/Manage.php:763
 msgid "Custom data of item menu:"
-msgstr ""
+msgstr "Dados personalizados do menu de itens:"
 
 #: plugins/simpleMenu/src/Manage.php:771
 msgid "Add this item"
@@ -2780,7 +2780,7 @@ msgstr "Adicionar um item"
 
 #: plugins/simpleMenu/src/Manage.php:843
 msgid "Custom data"
-msgstr ""
+msgstr "Dados personalizados"
 
 #: plugins/simpleMenu/src/Manage.php:951
 msgid "Menu items list"
