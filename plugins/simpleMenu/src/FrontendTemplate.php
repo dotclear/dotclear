@@ -166,6 +166,8 @@ class FrontendTemplate
 
                 $label = Html::escapeHTML($m['label']);
 
+                $data = $m['data'] ?? '';
+
                 $item = new ArrayObject([
                     'url'    => $href,   // URL
                     'label'  => $label,  // <a> link label
@@ -173,6 +175,7 @@ class FrontendTemplate
                     'span'   => $span,   // description (will be displayed after <a> link and before the </a>)
                     'active' => $active, // status (true/false)
                     'class'  => '',      // additional <li> class (optional)
+                    'data'   => $data,   // Custom data (data-menuitem attribute of link)
                 ]);
 
                 # --BEHAVIOR-- publicSimpleMenuItem -- int, ArrayObject
@@ -187,7 +190,9 @@ class FrontendTemplate
 
                     '<a href="' . $item['url'] . '"' .
                     (empty($item['title']) ? '' : ' title="' . $item['label'] . ' - ' . $item['title'] . '"') .
-                    (($targetBlank) ? ' target="_blank" rel="noopener noreferrer"' : '') . '>' .
+                    (($targetBlank) ? ' target="_blank" rel="noopener noreferrer"' : '') .
+                    (empty($item['data']) ? '' : ' data-menuitem="' . $item['data'] . '"') .
+                    '>' .
 
                     '<span class="simple-menu-label">' . $item['label'] . '</span>' . $item['span'] .
 

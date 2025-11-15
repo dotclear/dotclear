@@ -209,6 +209,7 @@ class Manage
         App::backend()->item_descr        = '';
         App::backend()->item_url          = '';
         App::backend()->item_type_label   = '';
+        App::backend()->item_data         = '';
 
         $item_targetBlank = false;
 
@@ -235,7 +236,12 @@ class Manage
             App::backend()->item_label  = $_POST['item_label']  ?? '';
             App::backend()->item_descr  = $_POST['item_descr']  ?? '';
             App::backend()->item_url    = $_POST['item_url']    ?? '';
+            App::backend()->item_data   = $_POST['item_data']   ?? '';
             $item_targetBlank           = isset($_POST['item_targetBlank']) && !empty($_POST['item_targetBlank']);
+
+            # Cleanup
+            App::backend()->item_data = Html::clean(App::backend()->item_data);
+
             # Traitement
             App::backend()->step = (empty($_GET['add']) ? self::STEP_LIST : (int) $_GET['add']);
             if ((App::backend()->step > self::STEP_ADD) || (App::backend()->step < self::STEP_LIST)) {
@@ -375,6 +381,7 @@ class Manage
                                     'descr'       => App::backend()->item_descr,
                                     'url'         => App::backend()->item_url,
                                     'targetBlank' => $item_targetBlank,
+                                    'data'        => Html::clean(App::backend()->item_data),
                                 ];
 
                                 // Save menu in blog settings
@@ -411,6 +418,7 @@ class Manage
                                         'descr'       => $v['descr'],
                                         'url'         => $v['url'],
                                         'targetBlank' => $v['targetBlank'],
+                                        'data'        => $v['data'],
                                     ];
                                 }
                             }
@@ -450,6 +458,7 @@ class Manage
                                 'descr'       => $_POST['items_descr'][$i],
                                 'url'         => $_POST['items_url'][$i],
                                 'targetBlank' => false,
+                                'data'        => Html::clean($_POST['items_data'][$i]),
                             ];
                         }
                         // Get target blank options
@@ -480,10 +489,12 @@ class Manage
                                 $newmenu = [];
                                 foreach ($order as $k) {
                                     $newmenu[] = [
-                                        'label' => $menu[$k]['label'],
-                                        'descr' => $menu[$k]['descr'],
-                                        'url'   => $menu[$k]['url'], ];
+                                        'label'       => $menu[$k]['label'],
+                                        'descr'       => $menu[$k]['descr'],
+                                        'url'         => $menu[$k]['url'],
                                         'targetBlank' => $menu[$k]['targetBlank'],
+                                        'data'        => $menu[$k]['data'],
+                                    ];
                                 }
                                 $menu = $newmenu;
                             }
@@ -743,6 +754,15 @@ class Manage
                                                 ->label(new Label(__('Open URL on a new tab'), Label::OL_FT)),
                                         ]),
                                     (new Para())
+                                        ->class('field')
+                                        ->items([
+                                            (new Input('item_data'))
+                                                ->size(40)
+                                                ->maxlength(255)
+                                                ->value(App::backend()->item_data)
+                                                ->label(new Label(__('Custom data of item menu:'), Label::OL_TF)),
+                                        ]),
+                                    (new Para())
                                         ->class('form-buttons')
                                         ->items([
                                             ...My::hiddenFields(),
@@ -820,6 +840,7 @@ class Manage
                 (new Th())->scope('col')->text(__('Description')),
                 (new Th())->scope('col')->text(__('URL')),
                 (new Th())->scope('col')->text(__('Open URL on a new tab')),
+                (new Th())->scope('col')->text(__('Custom data')),
             ]);
 
             $rows  = [];
@@ -887,6 +908,14 @@ class Manage
                                     ->value($i),
                                 (new Hidden(['items_id[]', 'imid-' . $i], (string) $i)),
                             ]),
+                        (new Td())
+                            ->class('nowrap')
+                            ->items([
+                                (new Input(['items_data[]', 'imdata-' . $i]))
+                                    ->size(30)
+                                    ->maxlength(255)
+                                    ->value(Html::escapeHTML($m['data'])),
+                            ]),
                     ];
                 } else {
                     $cols = [
@@ -902,6 +931,9 @@ class Manage
                         (new Td())
                             ->class('nowrap')
                             ->text($targetBlankStr),
+                        (new Td())
+                            ->class('nowrap')
+                            ->text(Html::escapeHTML($m['data'])),
                     ];
                 }
 
