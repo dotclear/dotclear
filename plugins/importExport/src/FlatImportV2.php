@@ -762,12 +762,12 @@ class FlatImportV2 extends FlatBackup
         }
     }
 
-    private function throwIdError(string $name, string $line, string $related): mixed
+    private function throwIdError(string $name, int $line, string $related): mixed
     {
         throw new Exception(sprintf(
             __('ID of "%3$s" does not match on record "%1$s" at line %2$s of backup file.'),
             Html::escapeHTML($name),
-            Html::escapeHTML($line),
+            Html::escapeHTML((string) $line),
             Html::escapeHTML($related)
         ));
     }
