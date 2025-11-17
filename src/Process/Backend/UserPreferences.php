@@ -357,7 +357,7 @@ class UserPreferences
                 App::auth()->prefs()->interface->put('media_fav_dirs', [], 'array', null, false);
                 App::auth()->prefs()->interface->put('nocheckadblocker', !empty($_POST['user_ui_nocheckadblocker']), 'boolean');
                 App::auth()->prefs()->interface->put('quickmenuprefix', $_POST['user_ui_quickmenuprefix'], 'string');
-                App::auth()->prefs()->interface->put('stickymenu', $_POST['user_ui_stickymenu'], 'boolean');
+                App::auth()->prefs()->interface->put('stickymenu', !empty($_POST['user_ui_stickymenu']), 'boolean');
 
                 // Update user columns (lists)
                 $cu = [];
