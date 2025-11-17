@@ -346,7 +346,7 @@ class Files
                 }
             }
         } else {
-            if (@mkdir($name) === false) {
+            if (!is_dir($name) && @mkdir($name) === false) {
                 throw new Exception(__('Unable to create directory.'));
             }
             self::inheritChmod($name);
