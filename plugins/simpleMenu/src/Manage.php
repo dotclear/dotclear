@@ -418,7 +418,7 @@ class Manage
                                         'descr'       => $v['descr'],
                                         'url'         => $v['url'],
                                         'targetBlank' => $v['targetBlank'],
-                                        'data'        => $v['data'],
+                                        'data'        => $v['data'] ?? '',
                                     ];
                                 }
                             }
@@ -915,7 +915,7 @@ class Manage
                                 (new Input(['items_data[]', 'imdata-' . $i]))
                                     ->size(30)
                                     ->maxlength(255)
-                                    ->value(Html::escapeHTML($m['data'])),
+                                    ->value(Html::escapeHTML($m['data'] ?? '')),
                             ]),
                     ];
                 } else {
@@ -934,7 +934,7 @@ class Manage
                             ->text($targetBlankStr),
                         (new Td())
                             ->class('nowrap')
-                            ->text(Html::escapeHTML($m['data'])),
+                            ->text(Html::escapeHTML($m['data'] ?? '')),
                     ];
                 }
 
