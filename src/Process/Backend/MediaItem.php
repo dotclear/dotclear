@@ -1280,6 +1280,7 @@ class MediaItem
                                     ->class('delete'),
                                 (new Hidden('remove', rawurlencode((string) $filename))),
                                 (new Hidden('rmyes', '1')),
+                                (new Hidden('q', $_REQUEST['q'] ?? '')),
                                 ... App::backend()->url()->hiddenFormFields('admin.media', App::backend()->media_page_url_params),
                                 App::nonce()->formNonce(),
                             ]),
