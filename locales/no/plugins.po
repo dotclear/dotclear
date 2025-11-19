@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-15 11:29+0100\n"
-"PO-Revision-Date: 2025-11-15 10:58\n"
+"POT-Creation-Date: 2025-11-19 10:20+0100\n"
+"PO-Revision-Date: 2025-11-19 09:25\n"
 "Last-Translator: \n"
 "Language-Team: Norwegian Bokmal\n"
 "Language: nb_NO\n"
@@ -1500,7 +1500,7 @@ msgstr "Deaktiverer den innebygde stavekontrollen hvis nettleseren har en slik"
 
 #: plugins/dcCKEditor/src/Manage.php:321
 #: plugins/dcLegacyEditor/src/Manage.php:111
-#: plugins/simpleMenu/src/Manage.php:803
+#: plugins/simpleMenu/src/Manage.php:804
 msgid "Save configuration"
 msgstr "Lagre konfigurasjon"
 
@@ -2633,8 +2633,8 @@ msgstr "Brukerdefinert"
 msgid "Configuration successfully updated."
 msgstr "Konfigurasjonen er vellykket oppdatert."
 
-#: plugins/simpleMenu/src/Manage.php:274 plugins/simpleMenu/src/Manage.php:710
-#: plugins/simpleMenu/src/Manage.php:839
+#: plugins/simpleMenu/src/Manage.php:274 plugins/simpleMenu/src/Manage.php:711
+#: plugins/simpleMenu/src/Manage.php:840
 msgid "Label"
 msgstr "Etikett"
 
@@ -2690,111 +2690,111 @@ msgstr "Merking er obligatorisk."
 msgid "URL is mandatory."
 msgstr "URL er obligatorisk."
 
-#: plugins/simpleMenu/src/Manage.php:508
+#: plugins/simpleMenu/src/Manage.php:509
 msgid "Menu items have been successfully updated."
 msgstr "Menyelementene har blitt oppdatert."
 
-#: plugins/simpleMenu/src/Manage.php:535
+#: plugins/simpleMenu/src/Manage.php:536
 msgid "Are you sure you want to remove selected menu items?"
 msgstr "Er du sikker på at du vil fjerne valgte menyelementer?"
 
-#: plugins/simpleMenu/src/Manage.php:544
+#: plugins/simpleMenu/src/Manage.php:545
 msgid "Step #1"
 msgstr "Trinn 1"
 
-#: plugins/simpleMenu/src/Manage.php:549 plugins/simpleMenu/src/Manage.php:554
+#: plugins/simpleMenu/src/Manage.php:550 plugins/simpleMenu/src/Manage.php:555
 msgid "Step #2"
 msgstr "Trinn 2"
 
-#: plugins/simpleMenu/src/Manage.php:554
+#: plugins/simpleMenu/src/Manage.php:555
 msgid "Step #3"
 msgstr "Trinn 3"
 
-#: plugins/simpleMenu/src/Manage.php:563
+#: plugins/simpleMenu/src/Manage.php:564
 msgid "Add item"
 msgstr "Legg til vare"
 
-#: plugins/simpleMenu/src/Manage.php:594
+#: plugins/simpleMenu/src/Manage.php:595
 msgid "Select type"
 msgstr "Velg type"
 
-#: plugins/simpleMenu/src/Manage.php:601
+#: plugins/simpleMenu/src/Manage.php:602
 msgid "Type of item menu:"
 msgstr "Type elementmeny:"
 
-#: plugins/simpleMenu/src/Manage.php:607 plugins/simpleMenu/src/Manage.php:674
+#: plugins/simpleMenu/src/Manage.php:608 plugins/simpleMenu/src/Manage.php:675
 msgid "Continue..."
 msgstr "Fortsett..."
 
-#: plugins/simpleMenu/src/Manage.php:630
+#: plugins/simpleMenu/src/Manage.php:631
 msgid "Select language:"
 msgstr "Velg språk:"
 
-#: plugins/simpleMenu/src/Manage.php:636
+#: plugins/simpleMenu/src/Manage.php:637
 msgid "Select category:"
 msgstr "Velg kategori:"
 
-#: plugins/simpleMenu/src/Manage.php:642
+#: plugins/simpleMenu/src/Manage.php:643
 msgid "Select month (if necessary):"
 msgstr "Velg måned (om nødvendig):"
 
-#: plugins/simpleMenu/src/Manage.php:648
+#: plugins/simpleMenu/src/Manage.php:649
 msgid "Select page:"
 msgstr "Velg side:"
 
-#: plugins/simpleMenu/src/Manage.php:654
+#: plugins/simpleMenu/src/Manage.php:655
 msgid "Select tag (if necessary):"
 msgstr "Velg tagg (om nødvendig):"
 
-#: plugins/simpleMenu/src/Manage.php:715
+#: plugins/simpleMenu/src/Manage.php:716
 msgid "Label of item menu:"
 msgstr "Etikett for elementmeny:"
 
-#: plugins/simpleMenu/src/Manage.php:729
+#: plugins/simpleMenu/src/Manage.php:730
 msgid "Description of item menu:"
 msgstr "Beskrivelse av menyen:"
 
-#: plugins/simpleMenu/src/Manage.php:744
+#: plugins/simpleMenu/src/Manage.php:745
 msgid "URL of item menu:"
 msgstr "URL-adressen til elementmenyen:"
 
-#: plugins/simpleMenu/src/Manage.php:754 plugins/simpleMenu/src/Manage.php:842
+#: plugins/simpleMenu/src/Manage.php:755 plugins/simpleMenu/src/Manage.php:843
 msgid "Open URL on a new tab"
 msgstr "Åpne URL i en ny fane"
 
-#: plugins/simpleMenu/src/Manage.php:763
+#: plugins/simpleMenu/src/Manage.php:764
 msgid "Custom data of item menu:"
 msgstr "Egendefinerte data for elementmenyen:"
 
-#: plugins/simpleMenu/src/Manage.php:771
+#: plugins/simpleMenu/src/Manage.php:772
 msgid "Add this item"
 msgstr "Legg til denne varen"
 
-#: plugins/simpleMenu/src/Manage.php:797
+#: plugins/simpleMenu/src/Manage.php:798
 msgid "Enable simple menu for this blog"
 msgstr "Aktiver enkel meny for denne bloggen"
 
-#: plugins/simpleMenu/src/Manage.php:820
+#: plugins/simpleMenu/src/Manage.php:821
 msgid "Add an item"
 msgstr "Legg til et element"
 
-#: plugins/simpleMenu/src/Manage.php:843
+#: plugins/simpleMenu/src/Manage.php:844
 msgid "Custom data"
 msgstr "Tilpassede data"
 
-#: plugins/simpleMenu/src/Manage.php:951
+#: plugins/simpleMenu/src/Manage.php:952
 msgid "Menu items list"
 msgstr "Liste over menyelementer"
 
-#: plugins/simpleMenu/src/Manage.php:978
+#: plugins/simpleMenu/src/Manage.php:979
 msgid "Delete selected menu items"
 msgstr "Slett valgte menyelementer"
 
-#: plugins/simpleMenu/src/Manage.php:987
+#: plugins/simpleMenu/src/Manage.php:988
 msgid "Update menu"
 msgstr "Oppdater menyen"
 
-#: plugins/simpleMenu/src/Manage.php:997
+#: plugins/simpleMenu/src/Manage.php:998
 msgid "No menu items so far."
 msgstr "Ingen menypunkter så langt."
 
