@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-31 10:31+0100\n"
-"PO-Revision-Date: 2025-10-31 13:02\n"
+"POT-Creation-Date: 2025-11-19 10:18+0100\n"
+"PO-Revision-Date: 2025-11-19 09:49\n"
 "Last-Translator: \n"
 "Language-Team: Slovak\n"
 "Language: sk_SK\n"
@@ -1951,7 +1951,7 @@ msgstr "Vyberte súbory"
 #: src/Core/Backend/Page.php:1440 src/Process/Backend/LinkPopup.php:114
 #: src/Process/Backend/Media.php:305 src/Process/Backend/MediaItem.php:515
 #: src/Process/Backend/MediaItem.php:771 src/Process/Backend/Post.php:962
-#: src/Process/Backend/PostMedia.php:113
+#: src/Process/Backend/PostMedia.php:115
 msgid "Cancel"
 msgstr "Zrušiť"
 
@@ -2455,32 +2455,32 @@ msgstr "Žiadna správa denníka"
 msgid "No blog defined."
 msgstr "Nie je definovaný žiadny blog."
 
-#: src/Core/Media.php:1072 src/Core/Media.php:1103
+#: src/Core/Media.php:1086 src/Core/Media.php:1117
 msgid "You are not a super administrator."
 msgstr "Nie ste supersprávca."
 
-#: src/Core/Media.php:1206 src/Core/Media.php:1300 src/Core/Media.php:1368
-#: src/Core/Media.php:1390 src/Core/Media.php:1412
+#: src/Core/Media.php:1220 src/Core/Media.php:1314 src/Core/Media.php:1382
+#: src/Core/Media.php:1404 src/Core/Media.php:1426
 msgid "Permission denied."
 msgstr "Prístup zamietnutý."
 
-#: src/Core/Media.php:1313
+#: src/Core/Media.php:1327
 msgid "You are not the file owner."
 msgstr "Nie ste vlastníkom súboru."
 
-#: src/Core/Media.php:1328
+#: src/Core/Media.php:1342
 msgid "This file is not allowed."
 msgstr "Tento súbor nie je povolený."
 
-#: src/Core/Media.php:1332
+#: src/Core/Media.php:1346
 msgid "New file already exists."
 msgstr "Nový súbor už existuje."
 
-#: src/Core/Media.php:1432
+#: src/Core/Media.php:1446
 msgid "File does not exist in the database."
 msgstr "Súbor v databáze neexistuje."
 
-#: src/Core/Media.php:1481
+#: src/Core/Media.php:1495
 #, php-format
 msgid "Extract destination directory %s already exists."
 msgstr "Cieľový adresár extrahovania %s už existuje."
@@ -3058,7 +3058,7 @@ msgstr "Neplatný formát odpovede"
 msgid "Failed to load provider \"%s\""
 msgstr "Nepodarilo sa načítať poskytovateľa \"%s\""
 
-#: src/Helper/Otp.php:296
+#: src/Helper/Otp.php:301
 msgid "Two Factors authentication"
 msgstr "Overenie dvoch faktorov"
 
@@ -4675,7 +4675,7 @@ msgstr "Adresár \"%s\" bol úspešne dokončený."
 msgid "Directory \"%s\" has been successfully rebuild."
 msgstr "Adresár \"%s\" bol úspešne obnovený."
 
-#: src/Process/Backend/Media.php:294 src/Process/Backend/PostMedia.php:98
+#: src/Process/Backend/Media.php:294 src/Process/Backend/PostMedia.php:100
 msgid "confirm removal"
 msgstr "potvrďte odstránenie"
 
@@ -4684,7 +4684,7 @@ msgstr "potvrďte odstránenie"
 msgid "Are you sure you want to remove %s?"
 msgstr "Naozaj chcete odstrániť %s?"
 
-#: src/Process/Backend/Media.php:306 src/Process/Backend/PostMedia.php:114
+#: src/Process/Backend/Media.php:306 src/Process/Backend/PostMedia.php:116
 msgid "Yes"
 msgstr "Áno"
 
@@ -5225,7 +5225,7 @@ msgstr "Záznam bol úspešne aktualizovaný."
 msgid "File has been successfully attached."
 msgstr "Súbor bol úspešne pripojený."
 
-#: src/Process/Backend/Post.php:613 src/Process/Backend/PostMedia.php:89
+#: src/Process/Backend/Post.php:613 src/Process/Backend/PostMedia.php:90
 msgid "Attachment has been successfully removed."
 msgstr "Príloha bola úspešne odstránená."
 
@@ -5365,11 +5365,11 @@ msgstr "Upraviť tento trackback"
 msgid "This attachment does not exist"
 msgstr "Táto príloha neexistuje"
 
-#: src/Process/Backend/PostMedia.php:96
+#: src/Process/Backend/PostMedia.php:98
 msgid "Remove attachment"
 msgstr "Odstráňte prílohu"
 
-#: src/Process/Backend/PostMedia.php:108
+#: src/Process/Backend/PostMedia.php:110
 msgid "Are you sure you want to remove this attachment?"
 msgstr "Naozaj chcete odstrániť túto prílohu?"
 
@@ -5871,8 +5871,8 @@ msgid "Disable two factors authentication"
 msgstr "Zakázanie dvojfaktorového overovania"
 
 #: src/Process/Backend/UserPreferences.php:645
-msgid "Unable to get QR code image, may be a connectivity issue? Try again later."
-msgstr "Nie je možné získať obrázok QR kódu, môže to byť problém s pripojením? Skúste to neskôr."
+msgid "Unable to create the QR code image, please use the secret below."
+msgstr "Ak sa vám nepodarí vytvoriť obrázok QR kódu, použite nižšie uvedenú tajničku."
 
 #: src/Process/Backend/UserPreferences.php:649
 msgid "Scan this QR code with your authentication application:"

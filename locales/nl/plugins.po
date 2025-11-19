@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-15 11:29+0100\n"
-"PO-Revision-Date: 2025-11-15 10:57\n"
+"POT-Creation-Date: 2025-11-19 10:20+0100\n"
+"PO-Revision-Date: 2025-11-19 09:24\n"
 "Last-Translator: \n"
 "Language-Team: Dutch\n"
 "Language: nl_NL\n"
@@ -1500,7 +1500,7 @@ msgstr "Schakelt de ingebouwde spellingscontrole uit als de browser die biedt"
 
 #: plugins/dcCKEditor/src/Manage.php:321
 #: plugins/dcLegacyEditor/src/Manage.php:111
-#: plugins/simpleMenu/src/Manage.php:803
+#: plugins/simpleMenu/src/Manage.php:804
 msgid "Save configuration"
 msgstr "Configuratie opslaan"
 
@@ -2633,8 +2633,8 @@ msgstr "Door gebruiker gedefinieerd"
 msgid "Configuration successfully updated."
 msgstr "Configuratie succesvol bijgewerkt."
 
-#: plugins/simpleMenu/src/Manage.php:274 plugins/simpleMenu/src/Manage.php:710
-#: plugins/simpleMenu/src/Manage.php:839
+#: plugins/simpleMenu/src/Manage.php:274 plugins/simpleMenu/src/Manage.php:711
+#: plugins/simpleMenu/src/Manage.php:840
 msgid "Label"
 msgstr "Label"
 
@@ -2690,111 +2690,111 @@ msgstr "Label is verplicht."
 msgid "URL is mandatory."
 msgstr "URL is verplicht."
 
-#: plugins/simpleMenu/src/Manage.php:508
+#: plugins/simpleMenu/src/Manage.php:509
 msgid "Menu items have been successfully updated."
 msgstr "Menu-items zijn succesvol bijgewerkt."
 
-#: plugins/simpleMenu/src/Manage.php:535
+#: plugins/simpleMenu/src/Manage.php:536
 msgid "Are you sure you want to remove selected menu items?"
 msgstr "Weet je zeker dat je geselecteerde menu-items wilt verwijderen?"
 
-#: plugins/simpleMenu/src/Manage.php:544
+#: plugins/simpleMenu/src/Manage.php:545
 msgid "Step #1"
 msgstr "Stap #1"
 
-#: plugins/simpleMenu/src/Manage.php:549 plugins/simpleMenu/src/Manage.php:554
+#: plugins/simpleMenu/src/Manage.php:550 plugins/simpleMenu/src/Manage.php:555
 msgid "Step #2"
 msgstr "Stap #2"
 
-#: plugins/simpleMenu/src/Manage.php:554
+#: plugins/simpleMenu/src/Manage.php:555
 msgid "Step #3"
 msgstr "Stap #3"
 
-#: plugins/simpleMenu/src/Manage.php:563
+#: plugins/simpleMenu/src/Manage.php:564
 msgid "Add item"
 msgstr "Item toevoegen"
 
-#: plugins/simpleMenu/src/Manage.php:594
+#: plugins/simpleMenu/src/Manage.php:595
 msgid "Select type"
 msgstr "Selecteer type"
 
-#: plugins/simpleMenu/src/Manage.php:601
+#: plugins/simpleMenu/src/Manage.php:602
 msgid "Type of item menu:"
 msgstr "Type itemmenu:"
 
-#: plugins/simpleMenu/src/Manage.php:607 plugins/simpleMenu/src/Manage.php:674
+#: plugins/simpleMenu/src/Manage.php:608 plugins/simpleMenu/src/Manage.php:675
 msgid "Continue..."
 msgstr "Ga door..."
 
-#: plugins/simpleMenu/src/Manage.php:630
+#: plugins/simpleMenu/src/Manage.php:631
 msgid "Select language:"
 msgstr "Selecteer taal:"
 
-#: plugins/simpleMenu/src/Manage.php:636
+#: plugins/simpleMenu/src/Manage.php:637
 msgid "Select category:"
 msgstr "Selecteer categorie:"
 
-#: plugins/simpleMenu/src/Manage.php:642
+#: plugins/simpleMenu/src/Manage.php:643
 msgid "Select month (if necessary):"
 msgstr "Selecteer maand (indien nodig):"
 
-#: plugins/simpleMenu/src/Manage.php:648
+#: plugins/simpleMenu/src/Manage.php:649
 msgid "Select page:"
 msgstr "Selecteer pagina:"
 
-#: plugins/simpleMenu/src/Manage.php:654
+#: plugins/simpleMenu/src/Manage.php:655
 msgid "Select tag (if necessary):"
 msgstr "Selecteer een tag (indien nodig):"
 
-#: plugins/simpleMenu/src/Manage.php:715
+#: plugins/simpleMenu/src/Manage.php:716
 msgid "Label of item menu:"
 msgstr "Label van itemmenu:"
 
-#: plugins/simpleMenu/src/Manage.php:729
+#: plugins/simpleMenu/src/Manage.php:730
 msgid "Description of item menu:"
 msgstr "Beschrijving van itemmenu:"
 
-#: plugins/simpleMenu/src/Manage.php:744
+#: plugins/simpleMenu/src/Manage.php:745
 msgid "URL of item menu:"
 msgstr "URL van itemmenu:"
 
-#: plugins/simpleMenu/src/Manage.php:754 plugins/simpleMenu/src/Manage.php:842
+#: plugins/simpleMenu/src/Manage.php:755 plugins/simpleMenu/src/Manage.php:843
 msgid "Open URL on a new tab"
 msgstr "URL openen op een nieuw tabblad"
 
-#: plugins/simpleMenu/src/Manage.php:763
+#: plugins/simpleMenu/src/Manage.php:764
 msgid "Custom data of item menu:"
 msgstr "Aangepaste gegevens van itemmenu:"
 
-#: plugins/simpleMenu/src/Manage.php:771
+#: plugins/simpleMenu/src/Manage.php:772
 msgid "Add this item"
 msgstr "Dit item toevoegen"
 
-#: plugins/simpleMenu/src/Manage.php:797
+#: plugins/simpleMenu/src/Manage.php:798
 msgid "Enable simple menu for this blog"
 msgstr "Eenvoudig menu inschakelen voor deze blog"
 
-#: plugins/simpleMenu/src/Manage.php:820
+#: plugins/simpleMenu/src/Manage.php:821
 msgid "Add an item"
 msgstr "Een item toevoegen"
 
-#: plugins/simpleMenu/src/Manage.php:843
+#: plugins/simpleMenu/src/Manage.php:844
 msgid "Custom data"
 msgstr "Aangepaste gegevens"
 
-#: plugins/simpleMenu/src/Manage.php:951
+#: plugins/simpleMenu/src/Manage.php:952
 msgid "Menu items list"
 msgstr "Lijst met menu-items"
 
-#: plugins/simpleMenu/src/Manage.php:978
+#: plugins/simpleMenu/src/Manage.php:979
 msgid "Delete selected menu items"
 msgstr "Geselecteerde menu-items verwijderen"
 
-#: plugins/simpleMenu/src/Manage.php:987
+#: plugins/simpleMenu/src/Manage.php:988
 msgid "Update menu"
 msgstr "Menu bijwerken"
 
-#: plugins/simpleMenu/src/Manage.php:997
+#: plugins/simpleMenu/src/Manage.php:998
 msgid "No menu items so far."
 msgstr "Tot nu toe geen menu-items."
 

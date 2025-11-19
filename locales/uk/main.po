@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-31 10:31+0100\n"
-"PO-Revision-Date: 2025-10-31 13:03\n"
+"POT-Creation-Date: 2025-11-19 10:18+0100\n"
+"PO-Revision-Date: 2025-11-19 09:49\n"
 "Last-Translator: \n"
 "Language-Team: Ukrainian\n"
 "Language: uk_UA\n"
@@ -1951,7 +1951,7 @@ msgstr "Виберіть файли"
 #: src/Core/Backend/Page.php:1440 src/Process/Backend/LinkPopup.php:114
 #: src/Process/Backend/Media.php:305 src/Process/Backend/MediaItem.php:515
 #: src/Process/Backend/MediaItem.php:771 src/Process/Backend/Post.php:962
-#: src/Process/Backend/PostMedia.php:113
+#: src/Process/Backend/PostMedia.php:115
 msgid "Cancel"
 msgstr "Скасувати"
 
@@ -2455,32 +2455,32 @@ msgstr "Немає повідомлення в журналі"
 msgid "No blog defined."
 msgstr "Блог не визначено."
 
-#: src/Core/Media.php:1072 src/Core/Media.php:1103
+#: src/Core/Media.php:1086 src/Core/Media.php:1117
 msgid "You are not a super administrator."
 msgstr "Ви не супер-адміністратор."
 
-#: src/Core/Media.php:1206 src/Core/Media.php:1300 src/Core/Media.php:1368
-#: src/Core/Media.php:1390 src/Core/Media.php:1412
+#: src/Core/Media.php:1220 src/Core/Media.php:1314 src/Core/Media.php:1382
+#: src/Core/Media.php:1404 src/Core/Media.php:1426
 msgid "Permission denied."
 msgstr "У дозволі відмовлено."
 
-#: src/Core/Media.php:1313
+#: src/Core/Media.php:1327
 msgid "You are not the file owner."
 msgstr "Ви не є власником файлу."
 
-#: src/Core/Media.php:1328
+#: src/Core/Media.php:1342
 msgid "This file is not allowed."
 msgstr "Цей файл не дозволено."
 
-#: src/Core/Media.php:1332
+#: src/Core/Media.php:1346
 msgid "New file already exists."
 msgstr "Новий файл вже існує."
 
-#: src/Core/Media.php:1432
+#: src/Core/Media.php:1446
 msgid "File does not exist in the database."
 msgstr "Файл не існує в базі даних."
 
-#: src/Core/Media.php:1481
+#: src/Core/Media.php:1495
 #, php-format
 msgid "Extract destination directory %s already exists."
 msgstr "Каталог призначення розпакування %s вже існує."
@@ -3058,7 +3058,7 @@ msgstr "Неправильний формат відповіді"
 msgid "Failed to load provider \"%s\""
 msgstr "Не вдалося завантажити провайдера \"%s\""
 
-#: src/Helper/Otp.php:296
+#: src/Helper/Otp.php:301
 msgid "Two Factors authentication"
 msgstr "Двофакторна автентифікація"
 
@@ -4675,7 +4675,7 @@ msgstr "Каталог \"%s\" успішно завершено."
 msgid "Directory \"%s\" has been successfully rebuild."
 msgstr "Каталог \"%s\" успішно відновлено."
 
-#: src/Process/Backend/Media.php:294 src/Process/Backend/PostMedia.php:98
+#: src/Process/Backend/Media.php:294 src/Process/Backend/PostMedia.php:100
 msgid "confirm removal"
 msgstr "підтвердити видалення"
 
@@ -4684,7 +4684,7 @@ msgstr "підтвердити видалення"
 msgid "Are you sure you want to remove %s?"
 msgstr "Ви дійсно хочете видалити %s?"
 
-#: src/Process/Backend/Media.php:306 src/Process/Backend/PostMedia.php:114
+#: src/Process/Backend/Media.php:306 src/Process/Backend/PostMedia.php:116
 msgid "Yes"
 msgstr "Так."
 
@@ -5225,7 +5225,7 @@ msgstr "Запис успішно оновлено."
 msgid "File has been successfully attached."
 msgstr "Файл успішно приєднано."
 
-#: src/Process/Backend/Post.php:613 src/Process/Backend/PostMedia.php:89
+#: src/Process/Backend/Post.php:613 src/Process/Backend/PostMedia.php:90
 msgid "Attachment has been successfully removed."
 msgstr "Вкладення успішно видалено."
 
@@ -5365,11 +5365,11 @@ msgstr "Відредагуйте цей трекбек"
 msgid "This attachment does not exist"
 msgstr "Такого вкладення не існує"
 
-#: src/Process/Backend/PostMedia.php:96
+#: src/Process/Backend/PostMedia.php:98
 msgid "Remove attachment"
 msgstr "Зніміть вкладення"
 
-#: src/Process/Backend/PostMedia.php:108
+#: src/Process/Backend/PostMedia.php:110
 msgid "Are you sure you want to remove this attachment?"
 msgstr "Ви впевнені, що хочете видалити цей вкладення?"
 
@@ -5871,8 +5871,8 @@ msgid "Disable two factors authentication"
 msgstr "Вимкнути двофакторну автентифікацію"
 
 #: src/Process/Backend/UserPreferences.php:645
-msgid "Unable to get QR code image, may be a connectivity issue? Try again later."
-msgstr "Не вдається отримати зображення QR-коду, можливо, проблема зі з'єднанням? Спробуйте пізніше."
+msgid "Unable to create the QR code image, please use the secret below."
+msgstr "Якщо ви не можете створити зображення QR-коду, скористайтеся секретом нижче."
 
 #: src/Process/Backend/UserPreferences.php:649
 msgid "Scan this QR code with your authentication application:"

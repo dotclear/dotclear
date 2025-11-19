@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-31 10:31+0100\n"
-"PO-Revision-Date: 2025-10-31 13:02\n"
+"POT-Creation-Date: 2025-11-19 10:18+0100\n"
+"PO-Revision-Date: 2025-11-19 09:49\n"
 "Last-Translator: \n"
 "Language-Team: Portuguese\n"
 "Language: pt_PT\n"
@@ -1905,7 +1905,7 @@ msgstr "Escolha os ficheiros"
 #: src/Core/Backend/Page.php:1440 src/Process/Backend/LinkPopup.php:114
 #: src/Process/Backend/Media.php:305 src/Process/Backend/MediaItem.php:515
 #: src/Process/Backend/MediaItem.php:771 src/Process/Backend/Post.php:962
-#: src/Process/Backend/PostMedia.php:113
+#: src/Process/Backend/PostMedia.php:115
 msgid "Cancel"
 msgstr "cancelar"
 
@@ -2397,32 +2397,32 @@ msgstr "Nenhuma mensagem de log"
 msgid "No blog defined."
 msgstr "Nenhum blog definido."
 
-#: src/Core/Media.php:1072 src/Core/Media.php:1103
+#: src/Core/Media.php:1086 src/Core/Media.php:1117
 msgid "You are not a super administrator."
 msgstr "Não é super-administrador."
 
-#: src/Core/Media.php:1206 src/Core/Media.php:1300 src/Core/Media.php:1368
-#: src/Core/Media.php:1390 src/Core/Media.php:1412
+#: src/Core/Media.php:1220 src/Core/Media.php:1314 src/Core/Media.php:1382
+#: src/Core/Media.php:1404 src/Core/Media.php:1426
 msgid "Permission denied."
 msgstr "Permissão recusada."
 
-#: src/Core/Media.php:1313
+#: src/Core/Media.php:1327
 msgid "You are not the file owner."
 msgstr "Você não é o dono do ficheiro."
 
-#: src/Core/Media.php:1328
+#: src/Core/Media.php:1342
 msgid "This file is not allowed."
 msgstr "Este arquivo não é permitido."
 
-#: src/Core/Media.php:1332
+#: src/Core/Media.php:1346
 msgid "New file already exists."
 msgstr "O novo ficheiro já existe."
 
-#: src/Core/Media.php:1432
+#: src/Core/Media.php:1446
 msgid "File does not exist in the database."
 msgstr "O ficheiro não existe na base de dados."
 
-#: src/Core/Media.php:1481
+#: src/Core/Media.php:1495
 #, php-format
 msgid "Extract destination directory %s already exists."
 msgstr "A pasta %s já existe."
@@ -3000,7 +3000,7 @@ msgstr "Formato de resposta inválido"
 msgid "Failed to load provider \"%s\""
 msgstr "Falha ao carregar o fornecedor \"%s\""
 
-#: src/Helper/Otp.php:296
+#: src/Helper/Otp.php:301
 msgid "Two Factors authentication"
 msgstr "Autenticação de dois factores"
 
@@ -4613,7 +4613,7 @@ msgstr "Diretório \"%s\" foi concluído com sucesso."
 msgid "Directory \"%s\" has been successfully rebuild."
 msgstr "O diretório \"%s\" foi reconstruído com êxito."
 
-#: src/Process/Backend/Media.php:294 src/Process/Backend/PostMedia.php:98
+#: src/Process/Backend/Media.php:294 src/Process/Backend/PostMedia.php:100
 msgid "confirm removal"
 msgstr "confirme remover"
 
@@ -4622,7 +4622,7 @@ msgstr "confirme remover"
 msgid "Are you sure you want to remove %s?"
 msgstr "Tem a certeza que quer remover %s?"
 
-#: src/Process/Backend/Media.php:306 src/Process/Backend/PostMedia.php:114
+#: src/Process/Backend/Media.php:306 src/Process/Backend/PostMedia.php:116
 msgid "Yes"
 msgstr "sim"
 
@@ -5161,7 +5161,7 @@ msgstr "A entrada foi actualizada com sucesso."
 msgid "File has been successfully attached."
 msgstr "O ficheiro foi anexado com sucesso."
 
-#: src/Process/Backend/Post.php:613 src/Process/Backend/PostMedia.php:89
+#: src/Process/Backend/Post.php:613 src/Process/Backend/PostMedia.php:90
 msgid "Attachment has been successfully removed."
 msgstr "O anexo foi removido com sucesso."
 
@@ -5301,11 +5301,11 @@ msgstr "Editar este trackback"
 msgid "This attachment does not exist"
 msgstr "Este anexo não existe."
 
-#: src/Process/Backend/PostMedia.php:96
+#: src/Process/Backend/PostMedia.php:98
 msgid "Remove attachment"
 msgstr "Suprimir anexo"
 
-#: src/Process/Backend/PostMedia.php:108
+#: src/Process/Backend/PostMedia.php:110
 msgid "Are you sure you want to remove this attachment?"
 msgstr "Tem certeza de que deseja remover este anexo?"
 
@@ -5801,8 +5801,8 @@ msgid "Disable two factors authentication"
 msgstr "Desativar a autenticação de dois factores"
 
 #: src/Process/Backend/UserPreferences.php:645
-msgid "Unable to get QR code image, may be a connectivity issue? Try again later."
-msgstr "Não é possível obter a imagem do código QR, poderá ser um problema de conetividade? Tente novamente mais tarde."
+msgid "Unable to create the QR code image, please use the secret below."
+msgstr "Se não for possível criar a imagem do código QR, utilize o segredo abaixo."
 
 #: src/Process/Backend/UserPreferences.php:649
 msgid "Scan this QR code with your authentication application:"

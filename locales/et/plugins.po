@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-15 11:29+0100\n"
-"PO-Revision-Date: 2025-11-15 10:58\n"
+"POT-Creation-Date: 2025-11-19 10:20+0100\n"
+"PO-Revision-Date: 2025-11-19 09:25\n"
 "Last-Translator: \n"
 "Language-Team: Estonian\n"
 "Language: et_EE\n"
@@ -1500,7 +1500,7 @@ msgstr "Lülitab sisseehitatud õigekirjakontrolli välja, kui brauser seda paku
 
 #: plugins/dcCKEditor/src/Manage.php:321
 #: plugins/dcLegacyEditor/src/Manage.php:111
-#: plugins/simpleMenu/src/Manage.php:803
+#: plugins/simpleMenu/src/Manage.php:804
 msgid "Save configuration"
 msgstr "Konfigureerimise salvestamine"
 
@@ -2633,8 +2633,8 @@ msgstr "Kasutaja määratletud"
 msgid "Configuration successfully updated."
 msgstr "Konfiguratsioon on edukalt uuendatud."
 
-#: plugins/simpleMenu/src/Manage.php:274 plugins/simpleMenu/src/Manage.php:710
-#: plugins/simpleMenu/src/Manage.php:839
+#: plugins/simpleMenu/src/Manage.php:274 plugins/simpleMenu/src/Manage.php:711
+#: plugins/simpleMenu/src/Manage.php:840
 msgid "Label"
 msgstr "Silt"
 
@@ -2690,111 +2690,111 @@ msgstr "Märgistus on kohustuslik."
 msgid "URL is mandatory."
 msgstr "URL on kohustuslik."
 
-#: plugins/simpleMenu/src/Manage.php:508
+#: plugins/simpleMenu/src/Manage.php:509
 msgid "Menu items have been successfully updated."
 msgstr "Menüüpunktid on edukalt uuendatud."
 
-#: plugins/simpleMenu/src/Manage.php:535
+#: plugins/simpleMenu/src/Manage.php:536
 msgid "Are you sure you want to remove selected menu items?"
 msgstr "Kas olete kindel, et soovite valitud menüüpunktid eemaldada?"
 
-#: plugins/simpleMenu/src/Manage.php:544
+#: plugins/simpleMenu/src/Manage.php:545
 msgid "Step #1"
 msgstr "Samm nr 1"
 
-#: plugins/simpleMenu/src/Manage.php:549 plugins/simpleMenu/src/Manage.php:554
+#: plugins/simpleMenu/src/Manage.php:550 plugins/simpleMenu/src/Manage.php:555
 msgid "Step #2"
 msgstr "Etapp #2"
 
-#: plugins/simpleMenu/src/Manage.php:554
+#: plugins/simpleMenu/src/Manage.php:555
 msgid "Step #3"
 msgstr "Etapp nr 3"
 
-#: plugins/simpleMenu/src/Manage.php:563
+#: plugins/simpleMenu/src/Manage.php:564
 msgid "Add item"
 msgstr "Lisa toode"
 
-#: plugins/simpleMenu/src/Manage.php:594
+#: plugins/simpleMenu/src/Manage.php:595
 msgid "Select type"
 msgstr "Valige tüüp"
 
-#: plugins/simpleMenu/src/Manage.php:601
+#: plugins/simpleMenu/src/Manage.php:602
 msgid "Type of item menu:"
 msgstr "Elementide menüü tüüp:"
 
-#: plugins/simpleMenu/src/Manage.php:607 plugins/simpleMenu/src/Manage.php:674
+#: plugins/simpleMenu/src/Manage.php:608 plugins/simpleMenu/src/Manage.php:675
 msgid "Continue..."
 msgstr "Jätka..."
 
-#: plugins/simpleMenu/src/Manage.php:630
+#: plugins/simpleMenu/src/Manage.php:631
 msgid "Select language:"
 msgstr "Valige keel:"
 
-#: plugins/simpleMenu/src/Manage.php:636
+#: plugins/simpleMenu/src/Manage.php:637
 msgid "Select category:"
 msgstr "Valige kategooria:"
 
-#: plugins/simpleMenu/src/Manage.php:642
+#: plugins/simpleMenu/src/Manage.php:643
 msgid "Select month (if necessary):"
 msgstr "Valige kuu (vajaduse korral):"
 
-#: plugins/simpleMenu/src/Manage.php:648
+#: plugins/simpleMenu/src/Manage.php:649
 msgid "Select page:"
 msgstr "Valige lehekülg:"
 
-#: plugins/simpleMenu/src/Manage.php:654
+#: plugins/simpleMenu/src/Manage.php:655
 msgid "Select tag (if necessary):"
 msgstr "Valige silt (vajaduse korral):"
 
-#: plugins/simpleMenu/src/Manage.php:715
+#: plugins/simpleMenu/src/Manage.php:716
 msgid "Label of item menu:"
 msgstr "Elemendi menüü silt:"
 
-#: plugins/simpleMenu/src/Manage.php:729
+#: plugins/simpleMenu/src/Manage.php:730
 msgid "Description of item menu:"
 msgstr "Kirjeldus menüüst:"
 
-#: plugins/simpleMenu/src/Manage.php:744
+#: plugins/simpleMenu/src/Manage.php:745
 msgid "URL of item menu:"
 msgstr "Elemendi menüü URL:"
 
-#: plugins/simpleMenu/src/Manage.php:754 plugins/simpleMenu/src/Manage.php:842
+#: plugins/simpleMenu/src/Manage.php:755 plugins/simpleMenu/src/Manage.php:843
 msgid "Open URL on a new tab"
 msgstr "Ava URL uues vahekaardis"
 
-#: plugins/simpleMenu/src/Manage.php:763
+#: plugins/simpleMenu/src/Manage.php:764
 msgid "Custom data of item menu:"
 msgstr "Elemendi menüü kohandatud andmed:"
 
-#: plugins/simpleMenu/src/Manage.php:771
+#: plugins/simpleMenu/src/Manage.php:772
 msgid "Add this item"
 msgstr "Lisa see toode"
 
-#: plugins/simpleMenu/src/Manage.php:797
+#: plugins/simpleMenu/src/Manage.php:798
 msgid "Enable simple menu for this blog"
 msgstr "Võimaldage selle blogi jaoks lihtne menüü"
 
-#: plugins/simpleMenu/src/Manage.php:820
+#: plugins/simpleMenu/src/Manage.php:821
 msgid "Add an item"
 msgstr "Lisa objekt"
 
-#: plugins/simpleMenu/src/Manage.php:843
+#: plugins/simpleMenu/src/Manage.php:844
 msgid "Custom data"
 msgstr "Kohandatud andmed"
 
-#: plugins/simpleMenu/src/Manage.php:951
+#: plugins/simpleMenu/src/Manage.php:952
 msgid "Menu items list"
 msgstr "Menüüpunktide nimekiri"
 
-#: plugins/simpleMenu/src/Manage.php:978
+#: plugins/simpleMenu/src/Manage.php:979
 msgid "Delete selected menu items"
 msgstr "Valitud menüüpunktide kustutamine"
 
-#: plugins/simpleMenu/src/Manage.php:987
+#: plugins/simpleMenu/src/Manage.php:988
 msgid "Update menu"
 msgstr "Menüü uuendamine"
 
-#: plugins/simpleMenu/src/Manage.php:997
+#: plugins/simpleMenu/src/Manage.php:998
 msgid "No menu items so far."
 msgstr "Seni ei ole menüüst ühtegi toodet."
 

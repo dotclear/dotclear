@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-15 11:29+0100\n"
-"PO-Revision-Date: 2025-11-15 10:58\n"
+"POT-Creation-Date: 2025-11-19 10:20+0100\n"
+"PO-Revision-Date: 2025-11-19 09:25\n"
 "Last-Translator: \n"
 "Language-Team: Latvian\n"
 "Language: lv_LV\n"
@@ -1502,7 +1502,7 @@ msgstr "Atspējo iebūvēto pareizrakstības pārbaudītāju, ja pārlūkprogram
 
 #: plugins/dcCKEditor/src/Manage.php:321
 #: plugins/dcLegacyEditor/src/Manage.php:111
-#: plugins/simpleMenu/src/Manage.php:803
+#: plugins/simpleMenu/src/Manage.php:804
 msgid "Save configuration"
 msgstr "Saglabāt konfigurāciju"
 
@@ -2638,8 +2638,8 @@ msgstr "Lietotājs definēts"
 msgid "Configuration successfully updated."
 msgstr "Konfigurācija veiksmīgi atjaunināta."
 
-#: plugins/simpleMenu/src/Manage.php:274 plugins/simpleMenu/src/Manage.php:710
-#: plugins/simpleMenu/src/Manage.php:839
+#: plugins/simpleMenu/src/Manage.php:274 plugins/simpleMenu/src/Manage.php:711
+#: plugins/simpleMenu/src/Manage.php:840
 msgid "Label"
 msgstr "Etiķete"
 
@@ -2695,111 +2695,111 @@ msgstr "Etiķete ir obligāta."
 msgid "URL is mandatory."
 msgstr "URL ir obligāts."
 
-#: plugins/simpleMenu/src/Manage.php:508
+#: plugins/simpleMenu/src/Manage.php:509
 msgid "Menu items have been successfully updated."
 msgstr "Izvēlnes vienumi ir veiksmīgi atjaunināti."
 
-#: plugins/simpleMenu/src/Manage.php:535
+#: plugins/simpleMenu/src/Manage.php:536
 msgid "Are you sure you want to remove selected menu items?"
 msgstr "Vai tiešām vēlaties noņemt atlasītos izvēlnes vienumus?"
 
-#: plugins/simpleMenu/src/Manage.php:544
+#: plugins/simpleMenu/src/Manage.php:545
 msgid "Step #1"
 msgstr "1. darbība"
 
-#: plugins/simpleMenu/src/Manage.php:549 plugins/simpleMenu/src/Manage.php:554
+#: plugins/simpleMenu/src/Manage.php:550 plugins/simpleMenu/src/Manage.php:555
 msgid "Step #2"
 msgstr "2. darbība"
 
-#: plugins/simpleMenu/src/Manage.php:554
+#: plugins/simpleMenu/src/Manage.php:555
 msgid "Step #3"
 msgstr "3. darbība"
 
-#: plugins/simpleMenu/src/Manage.php:563
+#: plugins/simpleMenu/src/Manage.php:564
 msgid "Add item"
 msgstr "Pievienot vienumu"
 
-#: plugins/simpleMenu/src/Manage.php:594
+#: plugins/simpleMenu/src/Manage.php:595
 msgid "Select type"
 msgstr "Izvēlieties tipu"
 
-#: plugins/simpleMenu/src/Manage.php:601
+#: plugins/simpleMenu/src/Manage.php:602
 msgid "Type of item menu:"
 msgstr "Vienuma izvēlnes veids:"
 
-#: plugins/simpleMenu/src/Manage.php:607 plugins/simpleMenu/src/Manage.php:674
+#: plugins/simpleMenu/src/Manage.php:608 plugins/simpleMenu/src/Manage.php:675
 msgid "Continue..."
 msgstr "Turpināt..."
 
-#: plugins/simpleMenu/src/Manage.php:630
+#: plugins/simpleMenu/src/Manage.php:631
 msgid "Select language:"
 msgstr "Izvēlēties valodu:"
 
-#: plugins/simpleMenu/src/Manage.php:636
+#: plugins/simpleMenu/src/Manage.php:637
 msgid "Select category:"
 msgstr "Izvēlieties kategoriju:"
 
-#: plugins/simpleMenu/src/Manage.php:642
+#: plugins/simpleMenu/src/Manage.php:643
 msgid "Select month (if necessary):"
 msgstr "Izvēlieties mēnesi (ja nepieciešams):"
 
-#: plugins/simpleMenu/src/Manage.php:648
+#: plugins/simpleMenu/src/Manage.php:649
 msgid "Select page:"
 msgstr "Izvēlieties lapu:"
 
-#: plugins/simpleMenu/src/Manage.php:654
+#: plugins/simpleMenu/src/Manage.php:655
 msgid "Select tag (if necessary):"
 msgstr "Izvēlieties tagu (ja nepieciešams):"
 
-#: plugins/simpleMenu/src/Manage.php:715
+#: plugins/simpleMenu/src/Manage.php:716
 msgid "Label of item menu:"
 msgstr "Vienuma izvēlnes etiķete:"
 
-#: plugins/simpleMenu/src/Manage.php:729
+#: plugins/simpleMenu/src/Manage.php:730
 msgid "Description of item menu:"
 msgstr "Vienuma izvēlnes apraksts:"
 
-#: plugins/simpleMenu/src/Manage.php:744
+#: plugins/simpleMenu/src/Manage.php:745
 msgid "URL of item menu:"
 msgstr "Vienuma izvēlnes URL:"
 
-#: plugins/simpleMenu/src/Manage.php:754 plugins/simpleMenu/src/Manage.php:842
+#: plugins/simpleMenu/src/Manage.php:755 plugins/simpleMenu/src/Manage.php:843
 msgid "Open URL on a new tab"
 msgstr "Atveriet URL jaunā cilnē"
 
-#: plugins/simpleMenu/src/Manage.php:763
+#: plugins/simpleMenu/src/Manage.php:764
 msgid "Custom data of item menu:"
 msgstr "Elementa izvēlnes pielāgotie dati:"
 
-#: plugins/simpleMenu/src/Manage.php:771
+#: plugins/simpleMenu/src/Manage.php:772
 msgid "Add this item"
 msgstr "Pievienojiet šo vienumu"
 
-#: plugins/simpleMenu/src/Manage.php:797
+#: plugins/simpleMenu/src/Manage.php:798
 msgid "Enable simple menu for this blog"
 msgstr "Iespējot vienkāršu izvēlni šim emuāram"
 
-#: plugins/simpleMenu/src/Manage.php:820
+#: plugins/simpleMenu/src/Manage.php:821
 msgid "Add an item"
 msgstr "Pievienojiet vienumu"
 
-#: plugins/simpleMenu/src/Manage.php:843
+#: plugins/simpleMenu/src/Manage.php:844
 msgid "Custom data"
 msgstr "Pielāgotie dati"
 
-#: plugins/simpleMenu/src/Manage.php:951
+#: plugins/simpleMenu/src/Manage.php:952
 msgid "Menu items list"
 msgstr "Izvēlnes vienumu saraksts"
 
-#: plugins/simpleMenu/src/Manage.php:978
+#: plugins/simpleMenu/src/Manage.php:979
 msgid "Delete selected menu items"
 msgstr "Dzēst atlasītos izvēlnes vienumus"
 
-#: plugins/simpleMenu/src/Manage.php:987
+#: plugins/simpleMenu/src/Manage.php:988
 msgid "Update menu"
 msgstr "Atjaunināšanas izvēlne"
 
-#: plugins/simpleMenu/src/Manage.php:997
+#: plugins/simpleMenu/src/Manage.php:998
 msgid "No menu items so far."
 msgstr "Pagaidām nav neviena izvēlnes vienuma."
 

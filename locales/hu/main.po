@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-31 10:31+0100\n"
-"PO-Revision-Date: 2025-10-31 13:02\n"
+"POT-Creation-Date: 2025-11-19 10:18+0100\n"
+"PO-Revision-Date: 2025-11-19 09:49\n"
 "Last-Translator: \n"
 "Language-Team: Hungarian\n"
 "Language: hu_HU\n"
@@ -1905,7 +1905,7 @@ msgstr "Válassz fájlokat"
 #: src/Core/Backend/Page.php:1440 src/Process/Backend/LinkPopup.php:114
 #: src/Process/Backend/Media.php:305 src/Process/Backend/MediaItem.php:515
 #: src/Process/Backend/MediaItem.php:771 src/Process/Backend/Post.php:962
-#: src/Process/Backend/PostMedia.php:113
+#: src/Process/Backend/PostMedia.php:115
 msgid "Cancel"
 msgstr "vissza"
 
@@ -2397,32 +2397,32 @@ msgstr "Nincs naplóüzenet"
 msgid "No blog defined."
 msgstr "Nincs definiált blog."
 
-#: src/Core/Media.php:1072 src/Core/Media.php:1103
+#: src/Core/Media.php:1086 src/Core/Media.php:1117
 msgid "You are not a super administrator."
 msgstr "Nem vagy szuper adminisztrátor."
 
-#: src/Core/Media.php:1206 src/Core/Media.php:1300 src/Core/Media.php:1368
-#: src/Core/Media.php:1390 src/Core/Media.php:1412
+#: src/Core/Media.php:1220 src/Core/Media.php:1314 src/Core/Media.php:1382
+#: src/Core/Media.php:1404 src/Core/Media.php:1426
 msgid "Permission denied."
 msgstr "Hozzáférés megtagadva."
 
-#: src/Core/Media.php:1313
+#: src/Core/Media.php:1327
 msgid "You are not the file owner."
 msgstr "Nem te vagy a fájl tulajdonosa."
 
-#: src/Core/Media.php:1328
+#: src/Core/Media.php:1342
 msgid "This file is not allowed."
 msgstr "Ez a fájl nem engedélyezett."
 
-#: src/Core/Media.php:1332
+#: src/Core/Media.php:1346
 msgid "New file already exists."
 msgstr "Az új fájl már létezik."
 
-#: src/Core/Media.php:1432
+#: src/Core/Media.php:1446
 msgid "File does not exist in the database."
 msgstr "A fájl nincs az adatbázisban."
 
-#: src/Core/Media.php:1481
+#: src/Core/Media.php:1495
 #, php-format
 msgid "Extract destination directory %s already exists."
 msgstr "A(z) %s célmappa már létezik."
@@ -3000,7 +3000,7 @@ msgstr "Érvénytelen válaszformátum"
 msgid "Failed to load provider \"%s\""
 msgstr "Nem sikerült betölteni a szolgáltatót \"%s\""
 
-#: src/Helper/Otp.php:296
+#: src/Helper/Otp.php:301
 msgid "Two Factors authentication"
 msgstr "Kétfaktoros hitelesítés"
 
@@ -4613,7 +4613,7 @@ msgstr "A \"%s\" könyvtár sikeresen befejeződött."
 msgid "Directory \"%s\" has been successfully rebuild."
 msgstr "A \"%s\" könyvtárat sikeresen újraépítettük."
 
-#: src/Process/Backend/Media.php:294 src/Process/Backend/PostMedia.php:98
+#: src/Process/Backend/Media.php:294 src/Process/Backend/PostMedia.php:100
 msgid "confirm removal"
 msgstr "törlés megerősítése"
 
@@ -4622,7 +4622,7 @@ msgstr "törlés megerősítése"
 msgid "Are you sure you want to remove %s?"
 msgstr "Biztosan szeretnéd a %s-t törölni?"
 
-#: src/Process/Backend/Media.php:306 src/Process/Backend/PostMedia.php:114
+#: src/Process/Backend/Media.php:306 src/Process/Backend/PostMedia.php:116
 msgid "Yes"
 msgstr "igen"
 
@@ -5161,7 +5161,7 @@ msgstr "A bejegyzést frissítettem."
 msgid "File has been successfully attached."
 msgstr "A fájlt hozzácsatoltam."
 
-#: src/Process/Backend/Post.php:613 src/Process/Backend/PostMedia.php:89
+#: src/Process/Backend/Post.php:613 src/Process/Backend/PostMedia.php:90
 msgid "Attachment has been successfully removed."
 msgstr "A csatolmányt eltávolítottam."
 
@@ -5301,11 +5301,11 @@ msgstr "Szerkeszd ezt a trackbacket"
 msgid "This attachment does not exist"
 msgstr "Ez a csatolt fájl nem létezik"
 
-#: src/Process/Backend/PostMedia.php:96
+#: src/Process/Backend/PostMedia.php:98
 msgid "Remove attachment"
 msgstr "Csatolmány törlése"
 
-#: src/Process/Backend/PostMedia.php:108
+#: src/Process/Backend/PostMedia.php:110
 msgid "Are you sure you want to remove this attachment?"
 msgstr "Biztosan törölni szeretnéd?"
 
@@ -5801,8 +5801,8 @@ msgid "Disable two factors authentication"
 msgstr "Kétfaktoros hitelesítés kikapcsolása"
 
 #: src/Process/Backend/UserPreferences.php:645
-msgid "Unable to get QR code image, may be a connectivity issue? Try again later."
-msgstr "Nem tudok QR-kód képet kapni, lehet, hogy kapcsolódási probléma? Próbálja meg később újra."
+msgid "Unable to create the QR code image, please use the secret below."
+msgstr "Ha nem tudja létrehozni a QR-kód képét, kérjük, használja az alábbi titkot."
 
 #: src/Process/Backend/UserPreferences.php:649
 msgid "Scan this QR code with your authentication application:"
