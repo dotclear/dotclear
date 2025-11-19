@@ -293,6 +293,11 @@ abstract class Otp
      */
     public function getQrCodeImageHtml(): Img
     {
+        if (!function_exists('imagecreatetruecolor')) {
+            // Assume that GD image library is not installed or enabled
+            throw new Exception();
+        }
+
         return (new Img($this->getQrCodeImageData()))->alt($this->qrcode_title ?: __('Two Factors authentication'));
     }
 

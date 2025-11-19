@@ -642,7 +642,7 @@ class UserPreferences
                 try {
                     $qr_code_img = App::backend()->auth()->otp()->getQrCodeImageHtml();
                 } catch (Exception) {
-                    $qr_code_img = (new Text(null, __('Unable to get QR code image, may be a connectivity issue? Try again later.')))
+                    $qr_code_img = (new Text(null, __('Unable to create the QR code image, please use the secret below.')))
                         ->class('warn');
                 }
                 $otp_items = [
