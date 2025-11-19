@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-15 11:29+0100\n"
-"PO-Revision-Date: 2025-11-15 10:57\n"
+"POT-Creation-Date: 2025-11-19 10:20+0100\n"
+"PO-Revision-Date: 2025-11-19 09:24\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -1498,7 +1498,7 @@ msgstr "브라우저에서 맞춤법 검사기를 제공하는 경우 내장 맞
 
 #: plugins/dcCKEditor/src/Manage.php:321
 #: plugins/dcLegacyEditor/src/Manage.php:111
-#: plugins/simpleMenu/src/Manage.php:803
+#: plugins/simpleMenu/src/Manage.php:804
 msgid "Save configuration"
 msgstr "구성 저장"
 
@@ -2628,8 +2628,8 @@ msgstr "사용자 정의"
 msgid "Configuration successfully updated."
 msgstr "구성이 성공적으로 업데이트되었습니다."
 
-#: plugins/simpleMenu/src/Manage.php:274 plugins/simpleMenu/src/Manage.php:710
-#: plugins/simpleMenu/src/Manage.php:839
+#: plugins/simpleMenu/src/Manage.php:274 plugins/simpleMenu/src/Manage.php:711
+#: plugins/simpleMenu/src/Manage.php:840
 msgid "Label"
 msgstr "라벨"
 
@@ -2685,111 +2685,111 @@ msgstr "라벨은 필수입니다."
 msgid "URL is mandatory."
 msgstr "URL은 필수 입력 사항입니다."
 
-#: plugins/simpleMenu/src/Manage.php:508
+#: plugins/simpleMenu/src/Manage.php:509
 msgid "Menu items have been successfully updated."
 msgstr "메뉴 항목이 성공적으로 업데이트되었습니다."
 
-#: plugins/simpleMenu/src/Manage.php:535
+#: plugins/simpleMenu/src/Manage.php:536
 msgid "Are you sure you want to remove selected menu items?"
 msgstr "선택한 메뉴 항목을 제거하시겠습니까?"
 
-#: plugins/simpleMenu/src/Manage.php:544
+#: plugins/simpleMenu/src/Manage.php:545
 msgid "Step #1"
 msgstr "1단계"
 
-#: plugins/simpleMenu/src/Manage.php:549 plugins/simpleMenu/src/Manage.php:554
+#: plugins/simpleMenu/src/Manage.php:550 plugins/simpleMenu/src/Manage.php:555
 msgid "Step #2"
 msgstr "2단계"
 
-#: plugins/simpleMenu/src/Manage.php:554
+#: plugins/simpleMenu/src/Manage.php:555
 msgid "Step #3"
 msgstr "3단계"
 
-#: plugins/simpleMenu/src/Manage.php:563
+#: plugins/simpleMenu/src/Manage.php:564
 msgid "Add item"
 msgstr "항목 추가"
 
-#: plugins/simpleMenu/src/Manage.php:594
+#: plugins/simpleMenu/src/Manage.php:595
 msgid "Select type"
 msgstr "유형 선택"
 
-#: plugins/simpleMenu/src/Manage.php:601
+#: plugins/simpleMenu/src/Manage.php:602
 msgid "Type of item menu:"
 msgstr "항목 메뉴 유형입니다:"
 
-#: plugins/simpleMenu/src/Manage.php:607 plugins/simpleMenu/src/Manage.php:674
+#: plugins/simpleMenu/src/Manage.php:608 plugins/simpleMenu/src/Manage.php:675
 msgid "Continue..."
 msgstr "계속하기..."
 
-#: plugins/simpleMenu/src/Manage.php:630
+#: plugins/simpleMenu/src/Manage.php:631
 msgid "Select language:"
 msgstr "언어를 선택합니다:"
 
-#: plugins/simpleMenu/src/Manage.php:636
+#: plugins/simpleMenu/src/Manage.php:637
 msgid "Select category:"
 msgstr "카테고리를 선택합니다:"
 
-#: plugins/simpleMenu/src/Manage.php:642
+#: plugins/simpleMenu/src/Manage.php:643
 msgid "Select month (if necessary):"
 msgstr "월을 선택합니다(필요한 경우):"
 
-#: plugins/simpleMenu/src/Manage.php:648
+#: plugins/simpleMenu/src/Manage.php:649
 msgid "Select page:"
 msgstr "페이지를 선택합니다:"
 
-#: plugins/simpleMenu/src/Manage.php:654
+#: plugins/simpleMenu/src/Manage.php:655
 msgid "Select tag (if necessary):"
 msgstr "태그를 선택합니다(필요한 경우):"
 
-#: plugins/simpleMenu/src/Manage.php:715
+#: plugins/simpleMenu/src/Manage.php:716
 msgid "Label of item menu:"
 msgstr "항목 메뉴의 레이블입니다:"
 
-#: plugins/simpleMenu/src/Manage.php:729
+#: plugins/simpleMenu/src/Manage.php:730
 msgid "Description of item menu:"
 msgstr "항목 메뉴에 대한 설명입니다:"
 
-#: plugins/simpleMenu/src/Manage.php:744
+#: plugins/simpleMenu/src/Manage.php:745
 msgid "URL of item menu:"
 msgstr "항목 메뉴의 URL입니다:"
 
-#: plugins/simpleMenu/src/Manage.php:754 plugins/simpleMenu/src/Manage.php:842
+#: plugins/simpleMenu/src/Manage.php:755 plugins/simpleMenu/src/Manage.php:843
 msgid "Open URL on a new tab"
 msgstr "새 탭에서 URL 열기"
 
-#: plugins/simpleMenu/src/Manage.php:763
+#: plugins/simpleMenu/src/Manage.php:764
 msgid "Custom data of item menu:"
 msgstr "항목 메뉴의 사용자 지정 데이터:"
 
-#: plugins/simpleMenu/src/Manage.php:771
+#: plugins/simpleMenu/src/Manage.php:772
 msgid "Add this item"
 msgstr "이 항목 추가"
 
-#: plugins/simpleMenu/src/Manage.php:797
+#: plugins/simpleMenu/src/Manage.php:798
 msgid "Enable simple menu for this blog"
 msgstr "이 블로그에 간편 메뉴 사용"
 
-#: plugins/simpleMenu/src/Manage.php:820
+#: plugins/simpleMenu/src/Manage.php:821
 msgid "Add an item"
 msgstr "항목 추가"
 
-#: plugins/simpleMenu/src/Manage.php:843
+#: plugins/simpleMenu/src/Manage.php:844
 msgid "Custom data"
 msgstr "사용자 지정 데이터"
 
-#: plugins/simpleMenu/src/Manage.php:951
+#: plugins/simpleMenu/src/Manage.php:952
 msgid "Menu items list"
 msgstr "메뉴 항목 목록"
 
-#: plugins/simpleMenu/src/Manage.php:978
+#: plugins/simpleMenu/src/Manage.php:979
 msgid "Delete selected menu items"
 msgstr "선택한 메뉴 항목 삭제"
 
-#: plugins/simpleMenu/src/Manage.php:987
+#: plugins/simpleMenu/src/Manage.php:988
 msgid "Update menu"
 msgstr "업데이트 메뉴"
 
-#: plugins/simpleMenu/src/Manage.php:997
+#: plugins/simpleMenu/src/Manage.php:998
 msgid "No menu items so far."
 msgstr "아직 메뉴 항목이 없습니다."
 
