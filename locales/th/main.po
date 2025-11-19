@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-31 10:31+0100\n"
-"PO-Revision-Date: 2025-11-01 14:49\n"
+"POT-Creation-Date: 2025-11-19 10:18+0100\n"
+"PO-Revision-Date: 2025-11-19 09:46\n"
 "Last-Translator: \n"
 "Language-Team: Thai\n"
 "Language: th_TH\n"
@@ -1882,7 +1882,7 @@ msgstr "เลือกไฟล์"
 #: src/Core/Backend/Page.php:1440 src/Process/Backend/LinkPopup.php:114
 #: src/Process/Backend/Media.php:305 src/Process/Backend/MediaItem.php:515
 #: src/Process/Backend/MediaItem.php:771 src/Process/Backend/Post.php:962
-#: src/Process/Backend/PostMedia.php:113
+#: src/Process/Backend/PostMedia.php:115
 msgid "Cancel"
 msgstr "ยกเลิก"
 
@@ -2368,32 +2368,32 @@ msgstr "ไม่มีข้อความบันทึก"
 msgid "No blog defined."
 msgstr "ยังไม่ได้กำหนดบล็อก"
 
-#: src/Core/Media.php:1072 src/Core/Media.php:1103
+#: src/Core/Media.php:1086 src/Core/Media.php:1117
 msgid "You are not a super administrator."
 msgstr "คุณไม่ใช่ผู้ดูแลระบบระดับสูง"
 
-#: src/Core/Media.php:1206 src/Core/Media.php:1300 src/Core/Media.php:1368
-#: src/Core/Media.php:1390 src/Core/Media.php:1412
+#: src/Core/Media.php:1220 src/Core/Media.php:1314 src/Core/Media.php:1382
+#: src/Core/Media.php:1404 src/Core/Media.php:1426
 msgid "Permission denied."
 msgstr "ไม่อนุญาต"
 
-#: src/Core/Media.php:1313
+#: src/Core/Media.php:1327
 msgid "You are not the file owner."
 msgstr "คุณไม่ใช่เจ้าของไฟล์"
 
-#: src/Core/Media.php:1328
+#: src/Core/Media.php:1342
 msgid "This file is not allowed."
 msgstr "ไฟล์นี้ไม่อนุญาตให้ใช้"
 
-#: src/Core/Media.php:1332
+#: src/Core/Media.php:1346
 msgid "New file already exists."
 msgstr "ไฟล์ใหม่มีอยู่แล้ว"
 
-#: src/Core/Media.php:1432
+#: src/Core/Media.php:1446
 msgid "File does not exist in the database."
 msgstr "ไฟล์ไม่มีอยู่ในฐานข้อมูล"
 
-#: src/Core/Media.php:1481
+#: src/Core/Media.php:1495
 #, php-format
 msgid "Extract destination directory %s already exists."
 msgstr "ไดเรกทอรีปลายทางสำหรับการสกัด %s มีอยู่แล้ว"
@@ -2971,7 +2971,7 @@ msgstr "รูปแบบการตอบกลับไม่ถูกต้
 msgid "Failed to load provider \"%s\""
 msgstr "ไม่สามารถโหลดผู้ให้บริการ \"%s\""
 
-#: src/Helper/Otp.php:296
+#: src/Helper/Otp.php:301
 msgid "Two Factors authentication"
 msgstr "การยืนยันตัวตนแบบสองปัจจัย"
 
@@ -4582,7 +4582,7 @@ msgstr "ไดเรกทอรี \"%s\" ได้ดำเนินการ�
 msgid "Directory \"%s\" has been successfully rebuild."
 msgstr "ไดเรกทอรี \"%s\" ได้รับการสร้างใหม่เรียบร้อยแล้ว"
 
-#: src/Process/Backend/Media.php:294 src/Process/Backend/PostMedia.php:98
+#: src/Process/Backend/Media.php:294 src/Process/Backend/PostMedia.php:100
 msgid "confirm removal"
 msgstr "ยืนยันการลบ"
 
@@ -4591,7 +4591,7 @@ msgstr "ยืนยันการลบ"
 msgid "Are you sure you want to remove %s?"
 msgstr "คุณแน่ใจหรือไม่ว่าคุณต้องการลบ %s"
 
-#: src/Process/Backend/Media.php:306 src/Process/Backend/PostMedia.php:114
+#: src/Process/Backend/Media.php:306 src/Process/Backend/PostMedia.php:116
 msgid "Yes"
 msgstr "ใช่"
 
@@ -5129,7 +5129,7 @@ msgstr "การอัปเดตข้อมูลการเข้าใช
 msgid "File has been successfully attached."
 msgstr "ไฟล์ได้ถูกแนบเรียบร้อยแล้ว"
 
-#: src/Process/Backend/Post.php:613 src/Process/Backend/PostMedia.php:89
+#: src/Process/Backend/Post.php:613 src/Process/Backend/PostMedia.php:90
 msgid "Attachment has been successfully removed."
 msgstr "การแนบไฟล์ถูกนำออกเรียบร้อยแล้ว"
 
@@ -5269,11 +5269,11 @@ msgstr "แก้ไขการติดตามกลับนี้"
 msgid "This attachment does not exist"
 msgstr "ไฟล์แนบนี้ไม่มีอยู่"
 
-#: src/Process/Backend/PostMedia.php:96
+#: src/Process/Backend/PostMedia.php:98
 msgid "Remove attachment"
 msgstr "ลบไฟล์แนบ"
 
-#: src/Process/Backend/PostMedia.php:108
+#: src/Process/Backend/PostMedia.php:110
 msgid "Are you sure you want to remove this attachment?"
 msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบไฟล์แนบนี้?"
 
@@ -5766,8 +5766,8 @@ msgid "Disable two factors authentication"
 msgstr "ปิดการยืนยันตัวตนแบบสองขั้นตอน"
 
 #: src/Process/Backend/UserPreferences.php:645
-msgid "Unable to get QR code image, may be a connectivity issue? Try again later."
-msgstr "ไม่สามารถรับภาพ QR code ได้ อาจมีปัญหาการเชื่อมต่อ? ลองอีกครั้งในภายหลัง"
+msgid "Unable to create the QR code image, please use the secret below."
+msgstr "ไม่สามารถสร้างภาพรหัส QR ได้ กรุณาใช้รหัสลับด้านล่างนี้"
 
 #: src/Process/Backend/UserPreferences.php:649
 msgid "Scan this QR code with your authentication application:"
