@@ -115,7 +115,7 @@ class Manage
                     ->class(['nowrap', 'count'])
                     ->separator(' ')
                     ->items([
-                        (new Strong(App::backend()->tags->count)),
+                        (new Strong((string) App::backend()->tags->count)),
                         (new Text(null, (int) App::backend()->tags->count === 1 ? __('entry') : __('entries'))),
                     ]),
             ]);
