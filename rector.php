@@ -4,10 +4,10 @@
  * This file implements rector.
  *
  * Run:
- * rector process --dry-run --verbose --memory-limit=8G
+ * rector process --dry-run --memory-limit=8G
  *
  * Or:
- * rector process --clear-cache --dry-run --verbose --memory-limit=8G
+ * rector process --clear-cache --dry-run --memory-limit=8G
  *
  * @author     Franck
  * @since      2023

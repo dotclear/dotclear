@@ -125,7 +125,7 @@ bin/phpstan analyse --memory-limit=-1
 And :
 
 ```sh
-bin/rector process --dry-run --verbose --memory-limit=8G
+bin/rector process --dry-run --memory-limit=8G
 ```
 
 And also:
