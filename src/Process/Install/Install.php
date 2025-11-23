@@ -567,7 +567,7 @@ class Install
                     ->items([
                         (new Text('', __('Following plugins have not been installed:'))),
                         (new Ul())->items(array_map(
-                            fn ($k, $v): Li => (new Li())->text(sprintf('%s (%s)', $k, $v)),
+                            fn (string $k, $v): Li => (new Li())->text(sprintf('%s (%s)', $k, $v)),
                             array_keys(self::$plugins_install['failure']),
                             array_values(self::$plugins_install['failure'])
                         )),

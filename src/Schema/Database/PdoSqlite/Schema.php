@@ -462,7 +462,7 @@ class Schema extends AbstractSchema
     public function db_alter_field(string $table, string $name, string $type, ?int $len, bool $null, $default): void
     {
         $type = $this->udt2dbt($type, $len, $default);
-        if ($type !== 'integer' && $type !== 'text' && $type !== 'timestamp') {
+        if (!in_array($type, ['integer', 'text', 'timestamp'], true)) {
             throw new DatabaseException('SQLite fields cannot be changed.');
         }
     }

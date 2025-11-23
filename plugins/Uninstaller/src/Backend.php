@@ -58,9 +58,9 @@ class Backend
                 self::moduleBeforeDelete($define);
             },
             // add js to hide delete button when uninstaller exists
-            'pluginsToolsHeadersV2' => fn (): string => self::modulesToolsHeader(),
+            'pluginsToolsHeadersV2' => self::modulesToolsHeader(...),
             // add js to hide delete button when uninstaller exists
-            'themesToolsHeadersV2' => fn (): string => self::modulesToolsHeader(),
+            'themesToolsHeadersV2' => self::modulesToolsHeader(...),
         ]);
 
         return true;

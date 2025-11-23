@@ -340,7 +340,7 @@ class Auth implements AuthInterface
         }
 
         // Check every requested permission
-        $permissions = array_map('trim', explode(',', (string) $permissions));
+        $permissions = array_map(trim(...), explode(',', (string) $permissions));
         foreach ($permissions as $permission) {
             if (isset($user_permissions[$permission])) {
                 // One of the requested permission is granted for this user on given blog

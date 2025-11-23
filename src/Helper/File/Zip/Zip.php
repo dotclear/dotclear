@@ -184,7 +184,7 @@ class Zip
             $D = dir($dir);
             if ($D !== false) {
                 while (($e = $D->read()) !== false) {
-                    if ($e == '.' || $e == '..') {
+                    if ($e === '.' || $e === '..') {
                         continue;
                     }
 

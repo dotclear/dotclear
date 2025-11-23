@@ -245,7 +245,7 @@ class BlogWorkspace implements BlogWorkspaceInterface
             } else {
                 $type = self::NS_STRING;
             }
-        } elseif ($type !== self::NS_BOOL && $type !== self::NS_INT && $type !== self::NS_FLOAT && $type !== self::NS_ARRAY) {
+        } elseif (!in_array($type, [self::NS_BOOL, self::NS_INT, self::NS_FLOAT, self::NS_ARRAY], true)) {
             $type = self::NS_STRING;
         }
 

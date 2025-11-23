@@ -305,7 +305,7 @@ class Schema extends AbstractSchema
 
     public function db_create_primary(string $table, string $name, array $fields): void
     {
-        $c = array_map(fn (string $field): string => $this->con->escapeSystem($field), $fields);
+        $c = array_map($this->con->escapeSystem(...), $fields);
 
         $sql = 'ALTER TABLE ' . $this->con->escapeSystem($table) . ' ' .
         'ADD CONSTRAINT PRIMARY KEY (' . implode(',', $c) . ') ';
@@ -315,7 +315,7 @@ class Schema extends AbstractSchema
 
     public function db_create_unique(string $table, string $name, array $fields): void
     {
-        $c = array_map(fn (string $field): string => $this->con->escapeSystem($field), $fields);
+        $c = array_map($this->con->escapeSystem(...), $fields);
 
         $sql = 'ALTER TABLE ' . $this->con->escapeSystem($table) . ' ' .
         'ADD CONSTRAINT UNIQUE KEY ' . $this->con->escapeSystem($name) . ' ' .
@@ -326,7 +326,7 @@ class Schema extends AbstractSchema
 
     public function db_create_index(string $table, string $name, string $type, array $fields): void
     {
-        $c = array_map(fn (string $field): string => $this->con->escapeSystem($field), $fields);
+        $c = array_map($this->con->escapeSystem(...), $fields);
 
         $sql = 'ALTER TABLE ' . $this->con->escapeSystem($table) . ' ' .
         'ADD INDEX ' . $this->con->escapeSystem($name) . ' USING ' . $type . ' ' .
@@ -337,8 +337,8 @@ class Schema extends AbstractSchema
 
     public function db_create_reference(string $name, string $table, array $fields, string $foreign_table, array $foreign_fields, $update, $delete): void
     {
-        $c = array_map(fn (string $field): string => $this->con->escapeSystem($field), $fields);
-        $p = array_map(fn (string $field): string => $this->con->escapeSystem($field), $foreign_fields);
+        $c = array_map($this->con->escapeSystem(...), $fields);
+        $p = array_map($this->con->escapeSystem(...), $foreign_fields);
 
         $sql = 'ALTER TABLE ' . $this->con->escapeSystem($table) . ' ' .
         'ADD CONSTRAINT ' . $name . ' FOREIGN KEY ' .
@@ -376,7 +376,7 @@ class Schema extends AbstractSchema
 
     public function db_alter_primary(string $table, string $name, string $newname, array $fields): void
     {
-        $c = array_map(fn (string $field): string => $this->con->escapeSystem($field), $fields);
+        $c = array_map($this->con->escapeSystem(...), $fields);
 
         $sql = 'ALTER TABLE ' . $this->con->escapeSystem($table) . ' ' .
         'DROP PRIMARY KEY, ADD PRIMARY KEY ' .
@@ -387,7 +387,7 @@ class Schema extends AbstractSchema
 
     public function db_alter_unique(string $table, string $name, string $newname, array $fields): void
     {
-        $c = array_map(fn (string $field): string => $this->con->escapeSystem($field), $fields);
+        $c = array_map($this->con->escapeSystem(...), $fields);
 
         $sql = 'ALTER TABLE ' . $this->con->escapeSystem($table) . ' ' .
         'DROP INDEX ' . $this->con->escapeSystem($name) . ', ' .
@@ -399,7 +399,7 @@ class Schema extends AbstractSchema
 
     public function db_alter_index(string $table, string $name, string $newname, string $type, array $fields): void
     {
-        $c = array_map(fn (string $field): string => $this->con->escapeSystem($field), $fields);
+        $c = array_map($this->con->escapeSystem(...), $fields);
 
         $sql = 'ALTER TABLE ' . $this->con->escapeSystem($table) . ' ' .
         'DROP INDEX ' . $this->con->escapeSystem($name) . ', ' .

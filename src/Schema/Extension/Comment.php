@@ -287,10 +287,10 @@ class Comment
     {
         $user_prefs         = App::userPreferences()->createFromUser((string) $rs->user_id, 'profile');
         $user_profile_mails = $user_prefs->profile->mails ?
-            array_map('trim', explode(',', (string) $user_prefs->profile->mails)) :
+            array_map(trim(...), explode(',', (string) $user_prefs->profile->mails)) :
             [];
         $user_profile_urls = $user_prefs->profile->urls ?
-            array_map('trim', explode(',', (string) $user_prefs->profile->urls)) :
+            array_map(trim(...), explode(',', (string) $user_prefs->profile->urls)) :
             [];
 
         return
@@ -330,10 +330,10 @@ class Comment
                 // 2nd check on secondary emails/sites
                 $user_prefs         = App::userPreferences()->createFromUser((string) $rsAll->user_id, 'profile');
                 $user_profile_mails = $user_prefs->profile->mails ?
-                    array_map('trim', explode(',', (string) $user_prefs->profile->mails)) :
+                    array_map(trim(...), explode(',', (string) $user_prefs->profile->mails)) :
                     [];
                 $user_profile_urls = $user_prefs->profile->urls ?
-                    array_map('trim', explode(',', (string) $user_prefs->profile->urls)) :
+                    array_map(trim(...), explode(',', (string) $user_prefs->profile->urls)) :
                     [];
 
                 if (($rs->comment_email == $rsAll->user_email || in_array($rs->comment_email, $user_profile_mails)) && ($rs->comment_site == $rsAll->user_url || in_array($rs->comment_site, $user_profile_urls))) {

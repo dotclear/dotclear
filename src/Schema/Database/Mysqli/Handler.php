@@ -412,7 +412,7 @@ class Handler extends AbstractHandler
             if (is_string($v)) {
                 $res[] = sprintf($fmt, $v);
             } elseif (is_array($v)) {
-                $res = array_map(fn ($i): string => sprintf($fmt, $i), $v);
+                $res = array_map(fn (string $i): string => sprintf($fmt, $i), $v);
             }
         }
 

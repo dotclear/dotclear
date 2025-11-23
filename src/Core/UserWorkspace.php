@@ -34,7 +34,7 @@ use Throwable;
  *      label:string,
  *      global:bool
  * }
- * 
+ *
  * @psalm-no-seal-properties
  */
 class UserWorkspace implements UserWorkspaceInterface
@@ -248,7 +248,7 @@ class UserWorkspace implements UserWorkspaceInterface
             } else {
                 $type = self::WS_STRING;
             }
-        } elseif ($type !== self::WS_BOOL && $type !== self::WS_INT && $type !== self::WS_FLOAT && $type !== self::WS_ARRAY) {
+        } elseif (!in_array($type, [self::WS_BOOL, self::WS_INT, self::WS_FLOAT, self::WS_ARRAY], true)) {
             $type = self::WS_STRING;
         }
 

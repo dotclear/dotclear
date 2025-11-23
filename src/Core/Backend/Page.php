@@ -1602,7 +1602,7 @@ class Page
         $themes_root = implode(DIRECTORY_SEPARATOR, [__DIR__,  '..', '..', '..', 'admin', 'js','codemirror','theme']);
         if (is_dir($themes_root) && is_readable($themes_root) && ($d = @dir($themes_root)) !== false) {
             while (($entry = $d->read()) !== false) {
-                if ($entry != '.' && $entry != '..' && !str_starts_with($entry, '.') && is_readable($themes_root . '/' . $entry)) {
+                if ($entry !== '.' && $entry !== '..' && !str_starts_with($entry, '.') && is_readable($themes_root . '/' . $entry)) {
                     $themes[] = substr($entry, 0, -4); // remove .css extension
                 }
             }

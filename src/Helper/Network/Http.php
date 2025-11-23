@@ -268,7 +268,7 @@ class Http
 
             // sort list based on value
             arsort($accepted_languages, SORT_NUMERIC);
-            $accepted_languages = array_map('strtolower', array_keys($accepted_languages));
+            $accepted_languages = array_map(strtolower(...), array_keys($accepted_languages));
         }
 
         return $accepted_languages;

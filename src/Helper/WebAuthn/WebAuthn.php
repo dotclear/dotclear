@@ -70,7 +70,7 @@ class WebAuthn extends WebAuthnContainer
         }
 
         // OpenSSL SHA256 not supported
-        if (!in_array('SHA256', array_map('\strtoupper', openssl_get_md_methods()))) {
+        if (!in_array('SHA256', array_map(strtoupper(...), openssl_get_md_methods()))) {
             $check = false;
         }
 

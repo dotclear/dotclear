@@ -170,7 +170,7 @@ class Update
             $path   = '';
             $status = 0;
 
-            $http_get = function ($http_url) use (&$status, $path): false|HttpClient {
+            $http_get = function (string $http_url) use (&$status, $path): false|HttpClient {
                 $client = HttpClient::initClient($http_url, $path);
                 if ($client !== false) {
                     $client->setTimeout(App::config()->queryTimeout());
@@ -370,7 +370,7 @@ class Update
             $path   = '';
             $status = 0;
 
-            $http_get = function ($http_url) use (&$status, $dest, $path): false|HttpClient {
+            $http_get = function (string $http_url) use (&$status, $dest, $path): false|HttpClient {
                 $client = HttpClient::initClient($http_url, $path);
                 if ($client !== false) {
                     $client->setTimeout(App::config()->queryTimeout());

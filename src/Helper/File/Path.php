@@ -120,7 +120,7 @@ class Path
     public static function reduce(array $elements, string $separator = DIRECTORY_SEPARATOR): string
     {
         // Flattened all elements in list
-        $flatten = function (array $list) {
+        $flatten = function (array $list): array {
             $new = [];
             array_walk_recursive($list, function ($array) use (&$new): void { $new[] = $array; });
 

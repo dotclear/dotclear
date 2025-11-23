@@ -145,7 +145,7 @@ trait DirTrait
             return false;
         }
         while (($entryname = $d->read()) !== false) {
-            if ($entryname != '.' && $entryname != '..') {
+            if ($entryname !== '.' && $entryname !== '..') {
                 if (is_dir($path . DIRECTORY_SEPARATOR . $entryname)) {
                     if (!self::delTree($path . DIRECTORY_SEPARATOR . $entryname)) {
                         return false;

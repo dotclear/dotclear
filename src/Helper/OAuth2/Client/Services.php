@@ -21,11 +21,6 @@ use Throwable;
 class Services
 {
     /**
-     * Http request instance.
-     */
-    protected Http $http;
-
-    /**
      * Providers id/classname.
      *
      * @var     array<string, string>   $providers
@@ -46,9 +41,8 @@ class Services
      *
      * @param   null|Http   $http   The HTTP requester instance
      */
-    public function __construct(?Http $http = null)
+    public function __construct(protected ?Http $http = new Http())
     {
-        $this->http = $http ?? new Http();
     }
 
     /**

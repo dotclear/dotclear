@@ -143,6 +143,6 @@ class Value
      */
     protected function isStruct(array $array): bool
     {
-        return array_filter(array_keys($array), 'is_string') !== [];
+        return array_filter(array_keys($array), is_string(...)) !== [];
     }
 }

@@ -213,7 +213,7 @@ class ImageTools
                     return true;
                 case 'gif':
                     header('Content-type: image/gif');
-                    imagegif($this->res, null);
+                    imagegif($this->res);
 
                     return true;
                 case 'webp':

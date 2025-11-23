@@ -186,10 +186,10 @@ class User
                     // Sanitize list of secondary mails and urls if any
                     $mails = $urls = '';
                     if (!empty($_POST['user_profile_mails'])) {
-                        $mails = implode(',', array_filter(filter_var_array(array_map('trim', explode(',', (string) $_POST['user_profile_mails'])), FILTER_VALIDATE_EMAIL)));
+                        $mails = implode(',', array_filter(filter_var_array(array_map(trim(...), explode(',', (string) $_POST['user_profile_mails'])), FILTER_VALIDATE_EMAIL)));
                     }
                     if (!empty($_POST['user_profile_urls'])) {
-                        $urls = implode(',', array_filter(filter_var_array(array_map('trim', explode(',', (string) $_POST['user_profile_urls'])), FILTER_VALIDATE_URL)));
+                        $urls = implode(',', array_filter(filter_var_array(array_map(trim(...), explode(',', (string) $_POST['user_profile_urls'])), FILTER_VALIDATE_URL)));
                     }
 
                     $user_prefs = App::userPreferences()->createFromUser($new_id, 'profile');
@@ -221,10 +221,10 @@ class User
                     // Sanitize list of secondary mails and urls if any
                     $mails = $urls = '';
                     if (!empty($_POST['user_profile_mails'])) {
-                        $mails = implode(',', array_filter(filter_var_array(array_map('trim', explode(',', (string) $_POST['user_profile_mails'])), FILTER_VALIDATE_EMAIL)));
+                        $mails = implode(',', array_filter(filter_var_array(array_map(trim(...), explode(',', (string) $_POST['user_profile_mails'])), FILTER_VALIDATE_EMAIL)));
                     }
                     if (!empty($_POST['user_profile_urls'])) {
-                        $urls = implode(',', array_filter(filter_var_array(array_map('trim', explode(',', (string) $_POST['user_profile_urls'])), FILTER_VALIDATE_URL)));
+                        $urls = implode(',', array_filter(filter_var_array(array_map(trim(...), explode(',', (string) $_POST['user_profile_urls'])), FILTER_VALIDATE_URL)));
                     }
                     $user_prefs = App::userPreferences()->createFromUser($new_id, 'profile');
                     $user_prefs->profile->put('mails', $mails, 'string');

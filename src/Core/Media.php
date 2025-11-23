@@ -1503,7 +1503,7 @@ class Media extends MediaManager implements MediaInterface
         $zip->close();
 
         // Clean-up all extracted filenames
-        $clean = function ($name) {
+        $clean = function (string $name) {
             $n = Text::deaccent($name);
             $n = (string) preg_replace('/^[.]/u', '', $n);
 

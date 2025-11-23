@@ -523,7 +523,7 @@ class Ctx
         ];
 
         $getPolicies = function (string $setting) use ($policies): array {
-            $list = array_map(fn (string $item): string => trim($item), explode(',', $setting));
+            $list = array_map(trim(...), explode(',', $setting));
 
             /**
              * @var array<string, bool>

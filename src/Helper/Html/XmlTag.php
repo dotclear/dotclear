@@ -129,7 +129,7 @@ class XmlTag
         if ($node instanceof self) {
             $this->_nodes[] = $node;
         } elseif (is_array($node)) {
-            $child = new self(null);
+            $child = new self();
             foreach ($node as $tag => $n) {
                 $child->insertNode(new self($tag, $n));
             }

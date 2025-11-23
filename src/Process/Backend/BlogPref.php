@@ -235,7 +235,7 @@ class BlogPref
         $stack       = [__('Default') . ' (' . App::config()->defaultJQuery() . ')' => ''];
         if (is_dir($jquery_root) && is_readable($jquery_root) && ($d = @dir($jquery_root)) !== false) {
             while (($entry = $d->read()) !== false) {
-                if ($entry != '.' && $entry != '..' && !str_starts_with($entry, '.') && is_dir($jquery_root . '/' . $entry) && $entry != App::config()->defaultJQuery()) {
+                if ($entry !== '.' && $entry !== '..' && !str_starts_with($entry, '.') && is_dir($jquery_root . '/' . $entry) && $entry !== App::config()->defaultJQuery()) {
                     $stack[$entry] = $entry;
                 }
             }

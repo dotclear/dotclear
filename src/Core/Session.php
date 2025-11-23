@@ -137,7 +137,7 @@ class Session implements SessionInterface
         $_SESSION = [];
         session_unset();
         session_destroy();
-        call_user_func_array('setcookie', $this->getCookieParameters(false, -600));
+        call_user_func_array(setcookie(...), $this->getCookieParameters(false, -600));
     }
 
     public function getCookieParameters($value = null, int $expire = 0): array
