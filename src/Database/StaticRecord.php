@@ -203,6 +203,10 @@ class StaticRecord extends Record
      */
     private function sortCallback(array $a, array $b): int
     {
+        if (is_null($this->__sortfield)) {
+            return 0;
+        }
+
         $a = $a[$this->__sortfield];
         $b = $b[$this->__sortfield];
 

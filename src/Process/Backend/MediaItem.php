@@ -186,7 +186,7 @@ class MediaItem
             }
         }
 
-        if (App::backend()->file && !empty($_POST['media_file']) && App::backend()->file->editable && App::backend()->is_media_writable) {
+        if (App::backend()->file instanceof MediaFile && !empty($_POST['media_file']) && App::backend()->file->editable && App::backend()->is_media_writable) {
             // Update file
 
             $newFile = clone App::backend()->file;
@@ -201,7 +201,7 @@ class MediaItem
                 $newFile->relname = $newFile->basename;
             }
             $newFile->media_title = Html::escapeHTML($_POST['media_title']);
-            $newFile->media_dt    = strtotime((string) $_POST['media_dt']);
+            $newFile->media_dt    = (int) strtotime((string) $_POST['media_dt']);
             $newFile->media_dtstr = $_POST['media_dt'];
             $newFile->media_priv  = !empty($_POST['media_private']);
 
@@ -231,8 +231,9 @@ class MediaItem
                 }
             } else {
                 // Create meta and add values
-                App::backend()->file->media_meta = simplexml_load_string('<meta></meta>');
-                if (App::backend()->file->media_meta) {
+                $meta = simplexml_load_string('<meta></meta>');
+                if ($meta instanceof SimpleXMLElement) {
+                    App::backend()->file->media_meta = $meta;
                     App::backend()->file->media_meta->addChild('Description', $desc);
                     App::backend()->file->media_meta->addChild('AltText', $alt);
                 }

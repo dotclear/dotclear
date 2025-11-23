@@ -1836,16 +1836,18 @@ class Blog implements BlogInterface
                 $id   = array_shift($args);
                 $args = array_flip($args);
 
-                if (isset($args['not'])) {
-                    $not[$id] = 1;
-                }
-                if (isset($args['sub'])) {
-                    $sub[$id] = 1;
-                }
-                if ($field === 'cat_id') {
-                    $queries[$id] = preg_match('/^null$/i', (string) $id) ? 'P.cat_id IS NULL' : 'P.cat_id = ' . (int) $id;
-                } else {
-                    $queries[$id] = "C.cat_url = '" . $this->core->db()->con()->escapeStr((string) $id) . "' ";
+                if (!is_null($id)) {
+                    if (isset($args['not'])) {
+                        $not[$id] = 1;
+                    }
+                    if (isset($args['sub'])) {
+                        $sub[$id] = 1;
+                    }
+                    if ($field === 'cat_id') {
+                        $queries[$id] = preg_match('/^null$/i', (string) $id) ? 'P.cat_id IS NULL' : 'P.cat_id = ' . (int) $id;
+                    } else {
+                        $queries[$id] = "C.cat_url = '" . $this->core->db()->con()->escapeStr((string) $id) . "' ";
+                    }
                 }
             }
         }

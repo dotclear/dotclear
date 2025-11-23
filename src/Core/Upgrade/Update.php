@@ -392,7 +392,7 @@ class Update
                 if (isset($url_parts['scheme']) && $url_parts['scheme'] === 'https') {
                     // Replace https by http in url
                     $url    = preg_replace('/^https(?=:\/\/)/i', 'http', $url);
-                    $client = $http_get($url);
+                    $client = $http_get((string) $url);
                 }
             }
             if ($status !== 200) {

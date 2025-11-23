@@ -184,7 +184,9 @@ class WidgetsStack
                     $w->{$sid} = $s;
                 }
 
-                $result->append($w);
+                if ($w instanceof WidgetsElement) {
+                    $result->append($w);
+                }
             }
         }
 

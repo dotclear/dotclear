@@ -394,6 +394,10 @@ class Auth implements AuthInterface
 
     public function getPermissions(?string $blog_id)
     {
+        if (is_null($blog_id)) {
+            return false;
+        }
+
         if (isset($this->user_blogs[$blog_id])) {
             return $this->user_blogs[$blog_id];
         }
@@ -404,7 +408,7 @@ class Auth implements AuthInterface
             $sql
                 ->column('blog_id')
                 ->from($this->core->db()->con()->prefix() . $this->core->blog()::BLOG_TABLE_NAME)
-                ->where('blog_id = ' . $sql->quote((string) $blog_id));
+                ->where('blog_id = ' . $sql->quote($blog_id));
 
             $rs = $sql->select();
 
@@ -418,7 +422,7 @@ class Auth implements AuthInterface
             ->column('permissions')
             ->from($this->perm_table)
             ->where('user_id = ' . $sql->quote($this->userID()))
-            ->and('blog_id = ' . $sql->quote((string) $blog_id))
+            ->and('blog_id = ' . $sql->quote($blog_id))
             ->and($sql->isNotNull('permissions'));
 
         $rs                         = $sql->select();
