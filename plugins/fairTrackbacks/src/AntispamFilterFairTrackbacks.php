@@ -60,6 +60,8 @@ class AntispamFilterFairTrackbacks extends SpamFilter
      * If it returns true or false, execution of next filters will be stoped.
      * If should return nothing to let next filters apply.
      *
+     * Note: for trackbacks, the exception raised will be used by the service processing the request
+     *
      * @param   string  $type       The comment type (comment / trackback)
      * @param   string  $author     The comment author
      * @param   string  $email      The comment author email
@@ -69,10 +71,10 @@ class AntispamFilterFairTrackbacks extends SpamFilter
      * @param   int     $post_id    The comment post_id
      * @param   string  $status     The comment status
      */
-    public function isSpam(string $type, ?string $author, ?string $email, ?string $site, ?string $ip, ?string $content, ?int $post_id, string &$status): void
+    public function isSpam(string $type, ?string $author, ?string $email, ?string $site, ?string $ip, ?string $content, ?int $post_id, string &$status): ?bool
     {
         if ($type !== 'trackback') {
-            return;
+            return null;
         }
 
         try {
@@ -129,5 +131,7 @@ class AntispamFilterFairTrackbacks extends SpamFilter
         } catch (Exception) {
             throw new Exception('Trackback not allowed for this URL.');
         }
+
+        return null;
     }
 }
