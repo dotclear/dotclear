@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c4a6915b848797420099cbfa79781e6b",
+    "content-hash": "50bc2210eca2fcec5f8b6c406d5e2bd6",
     "packages": [],
     "packages-dev": [
         {
@@ -2084,12 +2084,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/TypeResolver.git",
-                "reference": "92a98ada2b93d9b201a613cb5a33584dde25f195"
+                "reference": "8fb2f28986479589be23cdf08622174e6348460a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/92a98ada2b93d9b201a613cb5a33584dde25f195",
-                "reference": "92a98ada2b93d9b201a613cb5a33584dde25f195",
+                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/8fb2f28986479589be23cdf08622174e6348460a",
+                "reference": "8fb2f28986479589be23cdf08622174e6348460a",
                 "shasum": ""
             },
             "require": {
@@ -2135,7 +2135,7 @@
                 "issues": "https://github.com/phpDocumentor/TypeResolver/issues",
                 "source": "https://github.com/phpDocumentor/TypeResolver/tree/1.x"
             },
-            "time": "2025-11-21T15:09:14+00:00"
+            "time": "2025-11-25T21:31:54+00:00"
         },
         {
             "name": "phpstan/phpdoc-parser",
@@ -2190,8 +2190,8 @@
             "version": "2.1.x-dev",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/c68fb9abbe275c8cce6fcbe4f536eeda50c50d13",
-                "reference": "c68fb9abbe275c8cce6fcbe4f536eeda50c50d13",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/43e80998da35b6764e1cc60b81675f9e699a516e",
+                "reference": "43e80998da35b6764e1cc60b81675f9e699a516e",
                 "shasum": ""
             },
             "require": {
@@ -2237,7 +2237,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-11-23T14:24:52+00:00"
+            "time": "2025-11-26T10:11:34+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -2245,12 +2245,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "c1a9f74abe86a1a45f92264bf4604916045b30f9"
+                "reference": "00adcbb41ded982115d4c00bf5b69012671dec44"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/c1a9f74abe86a1a45f92264bf4604916045b30f9",
-                "reference": "c1a9f74abe86a1a45f92264bf4604916045b30f9",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/00adcbb41ded982115d4c00bf5b69012671dec44",
+                "reference": "00adcbb41ded982115d4c00bf5b69012671dec44",
                 "shasum": ""
             },
             "require": {
@@ -2327,7 +2327,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-11-21T07:23:38+00:00"
+            "time": "2025-11-26T12:27:16+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -2559,12 +2559,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-timer.git",
-                "reference": "6e392b79f23b813fa3ebdc33f3de8e8f68820353"
+                "reference": "b338ea7568ab01538d8c30ab1594137966aa3747"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-timer/zipball/6e392b79f23b813fa3ebdc33f3de8e8f68820353",
-                "reference": "6e392b79f23b813fa3ebdc33f3de8e8f68820353",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-timer/zipball/b338ea7568ab01538d8c30ab1594137966aa3747",
+                "reference": "b338ea7568ab01538d8c30ab1594137966aa3747",
                 "shasum": ""
             },
             "require": {
@@ -2624,7 +2624,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-09-26T12:07:45+00:00"
+            "time": "2025-11-25T08:00:07+00:00"
         },
         {
             "name": "phpunit/phpunit",
@@ -2951,12 +2951,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "5f9e050e73e7df028d1fcafbaa7031b3aa73dbd8"
+                "reference": "98a9eeccb9adf0569b5bd87474c3dc94d856572b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/5f9e050e73e7df028d1fcafbaa7031b3aa73dbd8",
-                "reference": "5f9e050e73e7df028d1fcafbaa7031b3aa73dbd8",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/98a9eeccb9adf0569b5bd87474c3dc94d856572b",
+                "reference": "98a9eeccb9adf0569b5bd87474c3dc94d856572b",
                 "shasum": ""
             },
             "require": {
@@ -3004,7 +3004,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-11-23T10:10:04+00:00"
+            "time": "2025-11-26T11:15:11+00:00"
         },
         {
             "name": "revolt/event-loop",
@@ -5260,7 +5260,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=8.1.0"
+        "php": ">=8.2.0"
     },
     "platform-dev": {},
     "plugin-api-version": "2.9.0"
