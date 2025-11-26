@@ -13,7 +13,7 @@
   "store_plugin_url": "https://update.dotaddict.org/dc2/plugins.xml",
   "store_theme_url": "https://update.dotaddict.org/dc2/themes.xml",
 
-  "php_min": "8.1",
+  "php_min": "8.2",
   "mysql_min": "4.1",
   "pgsql_min": "8.0",
 
