@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-27 14:00+0100\n"
-"PO-Revision-Date: 2025-11-27 13:06\n"
+"PO-Revision-Date: 2025-11-27 13:42\n"
 "Last-Translator: \n"
 "Language-Team: Japanese\n"
 "Language: ja_JP\n"
@@ -5892,11 +5892,11 @@ msgstr "フォントサイズ:"
 
 #: src/Process/Backend/UserPreferences.php:1072
 msgid "Use dynamic letter spacing"
-msgstr ""
+msgstr "ダイナミックな文字間隔の使用"
 
 #: src/Process/Backend/UserPreferences.php:1076
 msgid "If checked, the larger the font size in interface texts, the smaller the space between characters will be, and vice versa."
-msgstr ""
+msgstr "チェックした場合、インターフェースのテキストのフォントサイズを大きくすると、文字と文字の間のスペースが小さくなり、逆に小さくすると、文字と文字の間のスペースが小さくなる。"
 
 #: src/Process/Backend/UserPreferences.php:1081
 msgid "Use operating system font"
