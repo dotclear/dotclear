@@ -106,14 +106,15 @@ class UserPreferences
 
         App::backend()->user_acc_nodragdrop = App::auth()->prefs()->accessibility->nodragdrop;
 
-        App::backend()->user_ui_theme            = App::auth()->prefs()->interface->theme;
-        App::backend()->user_ui_enhanceduploader = App::auth()->prefs()->interface->enhanceduploader;
-        App::backend()->user_ui_blank_preview    = App::auth()->prefs()->interface->blank_preview;
-        App::backend()->user_ui_hidemoreinfo     = App::auth()->prefs()->interface->hidemoreinfo;
-        App::backend()->user_ui_hidehelpbutton   = App::auth()->prefs()->interface->hidehelpbutton;
-        App::backend()->user_ui_htmlfontsize     = App::auth()->prefs()->interface->htmlfontsize;
-        App::backend()->user_ui_systemfont       = App::auth()->prefs()->interface->systemfont;
-        App::backend()->user_ui_hide_std_favicon = false;
+        App::backend()->user_ui_theme                = App::auth()->prefs()->interface->theme;
+        App::backend()->user_ui_enhanceduploader     = App::auth()->prefs()->interface->enhanceduploader;
+        App::backend()->user_ui_blank_preview        = App::auth()->prefs()->interface->blank_preview;
+        App::backend()->user_ui_hidemoreinfo         = App::auth()->prefs()->interface->hidemoreinfo;
+        App::backend()->user_ui_hidehelpbutton       = App::auth()->prefs()->interface->hidehelpbutton;
+        App::backend()->user_ui_htmlfontsize         = App::auth()->prefs()->interface->htmlfontsize;
+        App::backend()->user_ui_dynamicletterspacing = App::auth()->prefs()->interface->dynamicletterspacing;
+        App::backend()->user_ui_systemfont           = App::auth()->prefs()->interface->systemfont;
+        App::backend()->user_ui_hide_std_favicon     = false;
         if (App::auth()->isSuperAdmin()) {
             App::backend()->user_ui_hide_std_favicon = App::auth()->prefs()->interface->hide_std_favicon;
         }
@@ -347,6 +348,7 @@ class UserPreferences
                 App::auth()->prefs()->interface->put('hidemoreinfo', !empty($_POST['user_ui_hidemoreinfo']), 'boolean');
                 App::auth()->prefs()->interface->put('hidehelpbutton', !empty($_POST['user_ui_hidehelpbutton']), 'boolean');
                 App::auth()->prefs()->interface->put('htmlfontsize', $_POST['user_ui_htmlfontsize'], 'string');
+                App::auth()->prefs()->interface->put('dynamicletterspacing', !empty($_POST['user_ui_dynamicletterspacing']), 'boolean');
                 App::auth()->prefs()->interface->put('systemfont', !empty($_POST['user_ui_systemfont']), 'boolean');
                 if (App::auth()->isSuperAdmin()) {
                     # Applied to all users
@@ -1063,6 +1065,15 @@ class UserPreferences
                                             ->default(App::backend()->user_ui_htmlfontsize)
                                             ->label(new Label(__('Font size:'), Label::IL_TF)),
                                     ]),
+                                (new Para())
+                                    ->items([
+                                        (new Checkbox('user_ui_dynamicletterspacing', App::backend()->user_ui_dynamicletterspacing))
+                                            ->value(1)
+                                            ->label(new Label(__('Use dynamic letter spacing'), Label::IL_FT)),
+                                    ]),
+                                (new Note('user_user_ui_dynamicletterspacing_help'))
+                                    ->class(['form-note', 'clear'])
+                                    ->text(__('If checked, the larger the font size in interface texts, the smaller the space between characters will be, and vice versa.')),
                                 (new Para())
                                     ->items([
                                         (new Checkbox('user_ui_systemfont', App::backend()->user_ui_systemfont))

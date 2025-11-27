@@ -10,6 +10,13 @@ html {
     /* forces dark color-scheme */
     color-scheme: dark;
   }
+
+  &.dynamic-letter-spacing {
+    * {
+      /* See clamp values in _config.scss */
+      letter-spacing: clamp(-0.05em, calc((1em - 1rem) / -10), 0em);
+    }
+  }
 }
 
 .cke_editable {

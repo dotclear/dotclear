@@ -302,8 +302,9 @@ h6 {
   --dc-font: Atkinson-Hyperlegible;
   --sans-serif: var(--dc-font), system-ui, sans-serif;
   --sans-serif-input: inherit;
-  --monospace: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas, "DejaVu Sans Mono", monospace;
+  --monospace: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
   --html-font-size: 62.5%;
+  --dynamic-letter-spacing: clamp(-0.05em, calc((1em - 1rem) / -10), 0em);
   --body-font-size: 1.4rem;
   --collapser-width: 5px;
   --collapser-width-focus: calc(var(--collapser-width) * 3);
@@ -615,6 +616,9 @@ html body.dark-mode {
 html {
   font-size: var(--html-font-size);
   scrollbar-color: var(--scroll) transparent;
+}
+html.dynamic-letter-spacing * {
+  letter-spacing: var(--dynamic-letter-spacing);
 }
 
 :not(html) {

@@ -4,6 +4,12 @@
 html {
   font-size: var(--html-font-size); // html font-size for modern browsers
   scrollbar-color: var(--scroll) transparent;
+
+  &.dynamic-letter-spacing {
+    * {
+      letter-spacing: var(--dynamic-letter-spacing);
+    }
+  }
 }
 :not(html) {
   scrollbar-color: initial;

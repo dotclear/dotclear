@@ -6,12 +6,16 @@ dotclear.data = dotclear.getData('dotclear_init');
 
 /* Set some CSS variables here
 -------------------------------------------------------- */
-// set base font-size of body (62.5% default, usually : 50% to 75%)
-if (typeof dotclear.data.htmlFontSize !== 'undefined') {
+// Set base font-size of body (62.5% default, usually : 50% to 75%)
+if (dotclear.data.htmlFontSize !== undefined) {
   document.documentElement.style.setProperty('--html-font-size', dotclear.data.htmlFontSize);
 }
+// Set dynamic letter spacing if requested
+if (dotclear.data?.dynamicLetterSpacing) {
+  document.documentElement.classList.add('dynamic-letter-spacing');
+}
 // Back to system font if necessary
-if (typeof dotclear.data.systemFont !== 'undefined') {
+if (dotclear.data.systemFont !== undefined) {
   document.documentElement.style.setProperty('--dc-font', 'dotclear');
 }
 // set theme mode (dark/light/…)

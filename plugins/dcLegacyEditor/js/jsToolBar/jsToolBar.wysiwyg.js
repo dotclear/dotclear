@@ -149,6 +149,9 @@ jsToolBar.prototype.initWindow = function () {
     if (dotclear?.data?.htmlFontSize) {
       doc.documentElement.style.setProperty('--html-font-size', dotclear.data.htmlFontSize);
     }
+    if (dotclear?.data?.dynamicLetterSpacing) {
+      doc.documentElement.classList.add('dynamic-letter-spacing');
+    }
 
     // Set lang if set for the textarea
     if (This.textarea.lang) {

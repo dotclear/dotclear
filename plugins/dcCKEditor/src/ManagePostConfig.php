@@ -240,6 +240,9 @@ class ManagePostConfig
                   e.editor.document.\$.documentElement.style.setProperty('--html-font-size', dotclear.data.htmlFontSize);
                   e.editor.document.\$.querySelector('body').style.setProperty('font-size', 'calc(var(--html-font-size) * 1.4)');
                 }
+                if (dotclear?.data?.dynamicLetterSpacing) {
+                  e.editor.document.\$.documentElement.classList.add('dynamic-letter-spacing');
+                }
 
                 e.editor.document.\$.querySelector('body').classList.add(dotclear.data.darkMode ? 'dark-mode' : 'light-mode');
 

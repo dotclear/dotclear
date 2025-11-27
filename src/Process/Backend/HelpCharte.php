@@ -32,8 +32,9 @@ class HelpCharte
 
         App::backend()->data_theme = App::auth()->prefs()->interface->theme;
         App::backend()->js         = [
-            'htmlFontSize' => App::auth()->prefs()->interface->htmlfontsize,
-            'debug'        => App::config()->debugMode(),
+            'htmlFontSize'         => App::auth()->prefs()->interface->htmlfontsize,
+            'dynamicLetterSpacing' => App::auth()->prefs()->interface->dynamicletterspacing ?? false,
+            'debug'                => App::config()->debugMode(),
         ];
 
         return self::status(true);

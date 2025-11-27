@@ -40,6 +40,9 @@ $laptop-screen: 82em;
   // May be superseed by user pref (typically from 50% to 75%, default 62.5%)
   --html-font-size: 62.5%; // Basically 10px (16px ⁄x 0.625) — Must be in %
 
+  // Dynamic letter spacing
+  --dynamic-letter-spacing: clamp(-0.05em, calc((1em - 1rem) / -10), 0em);
+
   --body-font-size: 1.4rem;
 
   // collapser widths

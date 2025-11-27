@@ -118,6 +118,9 @@ class Page extends BackendPage
         if (App::auth()->prefs()->interface->htmlfontsize) {
             $js['htmlFontSize'] = App::auth()->prefs()->interface->htmlfontsize;
         }
+        if (App::auth()->prefs()->interface->dynamicletterspacing) {
+            $js['dynamicLetterSpacing'] = true;
+        }
         if (App::auth()->prefs()->interface->systemfont) {
             $js['systemFont'] = true;
         }
