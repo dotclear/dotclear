@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-19 10:18+0100\n"
-"PO-Revision-Date: 2025-11-19 09:49\n"
+"POT-Creation-Date: 2025-11-27 14:00+0100\n"
+"PO-Revision-Date: 2025-11-27 13:06\n"
 "Last-Translator: \n"
 "Language-Team: Arabic\n"
 "Language: ar_SA\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Crowdin-File-ID: 262\n"
 
 #: inc/core/_fake_l10n.php:7 src/Process/Backend/Auth.php:446
-#: src/Process/Backend/User.php:265 src/Process/Backend/UserPreferences.php:567
+#: src/Process/Backend/User.php:265 src/Process/Backend/UserPreferences.php:569
 #: src/Process/Install/Install.php:427 src/Process/Upgrade/Auth.php:388
 msgid "medium"
 msgstr "متوسطه"
@@ -109,11 +109,11 @@ msgstr "إدارة جميع عناصر الوسائط"
 msgid "manage their own media items"
 msgstr "إدارة عناصر وسائل الإعلام الخاصة بهم"
 
-#: src/Core/Auth.php:552
+#: src/Core/Auth.php:556
 msgid "That user does not exist in the database."
 msgstr "هذا المستخدم غير موجود في قاعدة البيانات."
 
-#: src/Core/Auth.php:579
+#: src/Core/Auth.php:583
 msgid "That key does not exist in the database."
 msgstr "وهذا المفتاح غير موجود في قاعدة البيانات."
 
@@ -122,7 +122,7 @@ msgstr "وهذا المفتاح غير موجود في قاعدة البيانا
 #: src/Core/Backend/Combos.php:297 src/Core/Backend/Listing/ListingPosts.php:78
 #: src/Core/Backend/Listing/ListingPostsMini.php:62
 #: src/Core/Backend/UserPref.php:205 src/Process/Backend/Home.php:591
-#: src/Process/Backend/MediaItem.php:1058 src/Process/Backend/Post.php:842
+#: src/Process/Backend/MediaItem.php:1059 src/Process/Backend/Post.php:842
 msgid "Title"
 msgstr "العنوان"
 
@@ -185,7 +185,7 @@ msgstr "الحالة"
 #: src/Core/Backend/Listing/ListingMedia.php:317
 #: src/Core/Backend/ModulesList.php:1361 src/Core/Upgrade/PluginsList.php:125
 #: src/Process/Backend/Comment.php:354 src/Process/Backend/Langs.php:231
-#: src/Process/Backend/Post.php:966 src/Process/Backend/UserPreferences.php:694
+#: src/Process/Backend/Post.php:966 src/Process/Backend/UserPreferences.php:696
 #: src/Process/Backend/Users.php:44 src/Process/Upgrade/Langs.php:297
 msgid "Delete"
 msgstr "حذف"
@@ -444,7 +444,7 @@ msgstr "إنشاء فئة جديدة للمنشور (المشاركات)"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:366
 #: src/Process/Backend/Home.php:595 src/Process/Backend/Home.php:629
-#: src/Process/Backend/Media.php:777 src/Process/Backend/MediaItem.php:1198
+#: src/Process/Backend/Media.php:777 src/Process/Backend/MediaItem.php:1199
 #: src/Process/Backend/Post.php:744 src/Process/Backend/Post.php:847
 msgid "Title:"
 msgstr "العنوان:"
@@ -462,7 +462,7 @@ msgstr "الأصل:"
 #: src/Process/Backend/Category.php:297 src/Process/Backend/Category.php:336
 #: src/Process/Backend/Category.php:372 src/Process/Backend/Comment.php:349
 #: src/Process/Backend/Home.php:646 src/Process/Backend/Home.php:700
-#: src/Process/Backend/MediaItem.php:1238 src/Process/Backend/Post.php:931
+#: src/Process/Backend/MediaItem.php:1239 src/Process/Backend/Post.php:931
 #: src/Process/Backend/Post.php:1145 src/Process/Backend/User.php:554
 #: src/Process/Backend/UsersActions.php:513 src/Process/Install/Install.php:550
 msgid "Save"
@@ -523,11 +523,11 @@ msgstr "متوفر"
 msgid "Other"
 msgstr "اخرى"
 
-#: src/Core/Backend/Combos.php:283 src/Process/Backend/UserPreferences.php:196
+#: src/Core/Backend/Combos.php:283 src/Process/Backend/UserPreferences.php:197
 msgid "Descending"
 msgstr "تنازلي"
 
-#: src/Core/Backend/Combos.php:284 src/Process/Backend/UserPreferences.php:197
+#: src/Core/Backend/Combos.php:284 src/Process/Backend/UserPreferences.php:198
 msgid "Ascending"
 msgstr "تصاعدي"
 
@@ -617,12 +617,12 @@ msgid "Number of entries"
 msgstr "عدد المواد"
 
 #: src/Core/Backend/Favorites.php:287
-#: src/Process/Backend/UserPreferences.php:1346
+#: src/Process/Backend/UserPreferences.php:1357
 msgid "My favorites"
 msgstr "مفضلاتي"
 
 #: src/Core/Backend/Favorites.php:399 src/Core/Backend/Menus.php:195
-#: src/Core/Backend/Page.php:372 src/Process/Backend/Media.php:796
+#: src/Core/Backend/Page.php:375 src/Process/Backend/Media.php:796
 #: src/Process/Backend/UserPreferences.php:70
 msgid "My preferences"
 msgstr "تفضيلاتي"
@@ -672,7 +672,7 @@ msgstr "الفئات"
 #: src/Core/Backend/MediaPage.php:365 src/Core/Backend/MediaPage.php:416
 #: src/Core/Backend/Menus.php:117 src/Core/Backend/UserPref.php:200
 #: src/Process/Backend/Media.php:702 src/Process/Backend/Media.php:830
-#: src/Process/Backend/MediaItem.php:410 src/Process/Backend/MediaItem.php:416
+#: src/Process/Backend/MediaItem.php:411 src/Process/Backend/MediaItem.php:417
 msgid "Media manager"
 msgstr "مدير الوسائط"
 
@@ -715,28 +715,28 @@ msgstr "إعدادات المكونات الإضافية"
 msgid "Languages"
 msgstr "اللغات"
 
-#: src/Core/Backend/Favorites.php:527 src/Core/Backend/Page.php:447
-#: src/Core/Backend/Page.php:448 src/Process/Backend/Help.php:109
+#: src/Core/Backend/Favorites.php:527 src/Core/Backend/Page.php:450
+#: src/Core/Backend/Page.php:451 src/Process/Backend/Help.php:109
 #: src/Process/Backend/Help.php:116 src/Process/Backend/Help.php:122
 msgid "Global help"
 msgstr "المساعدة العالمية"
 
-#: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1277
+#: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1283
 #: src/Process/Backend/Auth.php:513 src/Process/Backend/BlogPref.php:1369
 #: src/Process/Backend/Comment.php:305 src/Process/Backend/Post.php:1114
-#: src/Process/Backend/User.php:450 src/Process/Backend/UserPreferences.php:813
+#: src/Process/Backend/User.php:450 src/Process/Backend/UserPreferences.php:815
 #: src/Process/Install/Install.php:508
 msgid "Email:"
 msgstr "Email:"
 
-#: src/Core/Backend/Filter/FilterComments.php:37 src/Core/Backend/Page.php:1276
+#: src/Core/Backend/Filter/FilterComments.php:37 src/Core/Backend/Page.php:1282
 #: src/Process/Backend/Comment.php:321 src/Process/Backend/Post.php:1123
 msgid "Web site:"
 msgstr "Web site:"
 
 #: src/Core/Backend/Filter/FilterComments.php:58
 #: src/Core/Backend/Filter/FilterPosts.php:92
-#: src/Core/Backend/ModulesList.php:1045 src/Core/Backend/Page.php:1318
+#: src/Core/Backend/ModulesList.php:1045 src/Core/Backend/Page.php:1324
 #: src/Process/Backend/Comment.php:294
 msgid "Author:"
 msgstr "المؤلف:"
@@ -755,7 +755,7 @@ msgid "Trackback"
 msgstr "المسار"
 
 #: src/Core/Backend/Filter/FilterComments.php:107
-#: src/Core/Backend/Page.php:1278 src/Process/Backend/Comment.php:269
+#: src/Core/Backend/Page.php:1284 src/Process/Backend/Comment.php:269
 msgid "IP address:"
 msgstr "عنوان IP:"
 
@@ -856,7 +856,7 @@ msgid "Sort:"
 msgstr "الفرز:"
 
 #: src/Core/Backend/Filter/Filters.php:390
-#: src/Process/Backend/UserPreferences.php:971
+#: src/Process/Backend/UserPreferences.php:973
 msgid "Show"
 msgstr "إظهار"
 
@@ -868,7 +868,7 @@ msgstr "حفظ الخيارات الحالية"
 msgid "Display options"
 msgstr "عرض الخيارات"
 
-#: src/Core/Backend/Filter/Filters.php:422 src/Core/Backend/Page.php:1486
+#: src/Core/Backend/Filter/Filters.php:422 src/Core/Backend/Page.php:1492
 msgid "Show filters and display options"
 msgstr "إظهار الفلاتر وخيارات العرض"
 
@@ -877,7 +877,7 @@ msgid "Apply filters and display options"
 msgstr "تطبيق الفلاتر وخيارات العرض"
 
 #: src/Core/Backend/Filter/FiltersLibrary.php:87
-#: src/Core/Backend/MediaPage.php:402 src/Core/Backend/Page.php:475
+#: src/Core/Backend/MediaPage.php:402 src/Core/Backend/Page.php:478
 msgid "Search:"
 msgstr "البحث:"
 
@@ -1248,7 +1248,7 @@ msgstr "اخرى"
 msgid "Search in repository:"
 msgstr "البحث في المستودع:"
 
-#: src/Core/Backend/ModulesList.php:413 src/Core/Backend/Page.php:477
+#: src/Core/Backend/ModulesList.php:413 src/Core/Backend/Page.php:480
 msgid "OK"
 msgstr "حسناً"
 
@@ -1307,7 +1307,7 @@ msgid "Current version"
 msgstr "الإصدار الحالي"
 
 #: src/Core/Backend/ModulesList.php:839 src/Core/Backend/ModulesList.php:1063
-#: src/Core/Backend/Page.php:1319 src/Core/Backend/ThemesList.php:230
+#: src/Core/Backend/Page.php:1325 src/Core/Backend/ThemesList.php:230
 #: src/Core/Backend/ThemesList.php:300
 msgid "Details"
 msgstr "التفاصيل"
@@ -1357,7 +1357,7 @@ msgstr "إضافة في التطوير"
 msgid "Release date:"
 msgstr "تاريخ الإصدار:"
 
-#: src/Core/Backend/ModulesList.php:1070 src/Core/Backend/Page.php:1320
+#: src/Core/Backend/ModulesList.php:1070 src/Core/Backend/Page.php:1326
 #: src/Core/Backend/ThemesList.php:236
 msgid "Support"
 msgstr "الدعم"
@@ -1366,11 +1366,11 @@ msgstr "الدعم"
 msgid "update locked"
 msgstr "التحديث مقفل"
 
-#: src/Core/Backend/ModulesList.php:1115 src/Core/Backend/Page.php:1322
+#: src/Core/Backend/ModulesList.php:1115 src/Core/Backend/Page.php:1328
 msgid "Section:"
 msgstr "القسم:"
 
-#: src/Core/Backend/ModulesList.php:1121 src/Core/Backend/Page.php:1323
+#: src/Core/Backend/ModulesList.php:1121 src/Core/Backend/Page.php:1329
 msgid "Tags:"
 msgstr "العلامات:"
 
@@ -1568,7 +1568,7 @@ msgstr "كلمة المرور"
 msgid "Your password:"
 msgstr "كلمة المرور الخاصة بك:"
 
-#: src/Core/Backend/ModulesList.php:1785 src/Core/Backend/Page.php:1442
+#: src/Core/Backend/ModulesList.php:1785 src/Core/Backend/Page.php:1448
 #: src/Process/Backend/Media.php:809
 msgid "Upload"
 msgstr "تحميل"
@@ -1606,16 +1606,16 @@ msgstr "تكوين \"%s\""
 #: src/Core/Backend/ModulesList.php:1984 src/Process/Backend/Blog.php:197
 #: src/Process/Backend/BlogDel.php:138 src/Process/Backend/BlogPref.php:1195
 #: src/Process/Backend/Category.php:300 src/Process/Backend/Comment.php:351
-#: src/Process/Backend/Media.php:871 src/Process/Backend/MediaItem.php:1325
+#: src/Process/Backend/Media.php:871 src/Process/Backend/MediaItem.php:1327
 #: src/Process/Backend/Post.php:956 src/Process/Backend/Search.php:193
-#: src/Process/Backend/User.php:565 src/Process/Backend/UserPreferences.php:874
-#: src/Process/Backend/UserPreferences.php:1201
-#: src/Process/Backend/UserPreferences.php:1427
+#: src/Process/Backend/User.php:565 src/Process/Backend/UserPreferences.php:876
+#: src/Process/Backend/UserPreferences.php:1212
+#: src/Process/Backend/UserPreferences.php:1438
 msgid "Back"
 msgstr "الرجوع"
 
-#: src/Core/Backend/Notices.php:86 src/Core/Backend/Page.php:1279
-#: src/Core/Backend/Page.php:1437 src/Core/Upgrade/Notices.php:48
+#: src/Core/Backend/Notices.php:86 src/Core/Backend/Page.php:1285
+#: src/Core/Backend/Page.php:1443 src/Core/Upgrade/Notices.php:48
 #: src/Process/Backend/Home.php:324
 msgid "Error:"
 msgstr "خطأ:"
@@ -1631,7 +1631,7 @@ msgid "%H:%M:%S"
 msgstr "%H:%M:%S"
 
 #: src/Core/Backend/Notices.php:258 src/Core/Backend/Notices.php:298
-#: src/Core/Backend/Notices.php:308 src/Core/Backend/Page.php:1325
+#: src/Core/Backend/Notices.php:308 src/Core/Backend/Page.php:1331
 #: src/Process/Backend/Categories.php:341 src/Process/Backend/Post.php:1058
 #: src/Process/Backend/Post.php:1190 src/Process/Backend/PostsPopup.php:121
 msgid "Ok"
@@ -1650,387 +1650,387 @@ msgstr "تغيير المدونة"
 msgid "Blogs:"
 msgstr "المدونة:"
 
-#: src/Core/Backend/Page.php:312 src/Core/Upgrade/Page.php:148
+#: src/Core/Backend/Page.php:315 src/Core/Upgrade/Page.php:151
 msgid "Go to the content"
 msgstr "الذهاب إلى المحتوى"
 
-#: src/Core/Backend/Page.php:316 src/Core/Upgrade/Page.php:152
+#: src/Core/Backend/Page.php:319 src/Core/Upgrade/Page.php:155
 msgid "Go to the menu"
 msgstr "الذهاب إلى القائمة"
 
-#: src/Core/Backend/Page.php:320 src/Core/Upgrade/Page.php:156
+#: src/Core/Backend/Page.php:323 src/Core/Upgrade/Page.php:159
 msgid "Go to help"
 msgstr "اذهب إلى المساعدة"
 
-#: src/Core/Backend/Page.php:339 src/Core/Upgrade/Page.php:174
-#: src/Process/Backend/UserPreferences.php:1336
-#: src/Process/Backend/UserPreferences.php:1338
+#: src/Core/Backend/Page.php:342 src/Core/Upgrade/Page.php:177
+#: src/Process/Backend/UserPreferences.php:1347
+#: src/Process/Backend/UserPreferences.php:1349
 msgid "My dashboard"
 msgstr "لوحة التحكم"
 
-#: src/Core/Backend/Page.php:355 src/Core/Backend/Page.php:357
+#: src/Core/Backend/Page.php:358 src/Core/Backend/Page.php:360
 msgid "Go to site"
 msgstr "الذهاب إلى الموقع"
 
-#: src/Core/Backend/Page.php:380 src/Core/Upgrade/Page.php:203
+#: src/Core/Backend/Page.php:383 src/Core/Upgrade/Page.php:206
 #, php-format
 msgid "Logout %s"
 msgstr "تسجيل الخروج %s"
 
-#: src/Core/Backend/Page.php:401 src/Core/Upgrade/Page.php:224
+#: src/Core/Backend/Page.php:404 src/Core/Upgrade/Page.php:227
 msgid "Hide main menu"
 msgstr "إخفاء القائمة الرئيسية"
 
-#: src/Core/Backend/Page.php:404 src/Core/Upgrade/Page.php:227
+#: src/Core/Backend/Page.php:407 src/Core/Upgrade/Page.php:230
 msgid "Show main menu"
 msgstr "إظهار القائمة الرئيسية"
 
-#: src/Core/Backend/Page.php:425
+#: src/Core/Backend/Page.php:428
 msgid "Safe mode"
 msgstr "الوضع الآمن"
 
-#: src/Core/Backend/Page.php:427
+#: src/Core/Backend/Page.php:430
 msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities"
 msgstr "أنت في وضع آمن. تم تعطيل جميع الإضافات مؤقتا. تذكر بتسجيل الخروج ثم قم بتسجيل الدخول مرة أخرى عادة لاستعادة جميع الوظائف"
 
-#: src/Core/Backend/Page.php:495 src/Core/Upgrade/Page.php:260
+#: src/Core/Backend/Page.php:498 src/Core/Upgrade/Page.php:263
 #, php-format
 msgid "Thank you for using %s."
 msgstr "شكرا لك على استخدام %s."
 
-#: src/Core/Backend/Page.php:512 src/Core/Backend/Page.php:516
-#: src/Core/Backend/Page.php:518 src/Core/Backend/Page.php:663
-#: src/Core/Backend/Page.php:665 src/Core/Upgrade/Page.php:271
-#: src/Core/Upgrade/Page.php:275 src/Core/Upgrade/Page.php:277
+#: src/Core/Backend/Page.php:515 src/Core/Backend/Page.php:519
+#: src/Core/Backend/Page.php:521 src/Core/Backend/Page.php:669
+#: src/Core/Backend/Page.php:671 src/Core/Upgrade/Page.php:274
+#: src/Core/Upgrade/Page.php:278 src/Core/Upgrade/Page.php:280
 msgid "Page top"
 msgstr "أعلى الصفحة"
 
-#: src/Core/Backend/Page.php:538 src/Core/Backend/Page.php:541
-#: src/Core/Upgrade/Page.php:297 src/Core/Upgrade/Page.php:300
+#: src/Core/Backend/Page.php:541 src/Core/Backend/Page.php:544
+#: src/Core/Upgrade/Page.php:300 src/Core/Upgrade/Page.php:303
 msgid "Dotclear logo"
 msgstr "شعار Dotclear"
 
-#: src/Core/Backend/Page.php:875 src/Core/Backend/Page.php:878
-#: src/Core/Upgrade/Page.php:339 src/Core/Upgrade/Page.php:342
+#: src/Core/Backend/Page.php:881 src/Core/Backend/Page.php:884
+#: src/Core/Upgrade/Page.php:342 src/Core/Upgrade/Page.php:345
 msgid "Go to dashboard"
 msgstr "الذهاب إلى لوحة التحكم"
 
-#: src/Core/Backend/Page.php:1127 src/Core/Upgrade/Page.php:451
+#: src/Core/Backend/Page.php:1133 src/Core/Upgrade/Page.php:454
 msgid "Help about this page"
 msgstr "مساعدة حول هذه الصفحة"
 
-#: src/Core/Backend/Page.php:1137 src/Core/Upgrade/Page.php:460
+#: src/Core/Backend/Page.php:1143 src/Core/Upgrade/Page.php:463
 #, php-format
 msgid "See also %s"
 msgstr "انظر أيضا %s"
 
-#: src/Core/Backend/Page.php:1140 src/Core/Upgrade/Page.php:463
+#: src/Core/Backend/Page.php:1146 src/Core/Upgrade/Page.php:466
 msgid "the global help"
 msgstr "المساعدة العالمية"
 
-#: src/Core/Backend/Page.php:1261
+#: src/Core/Backend/Page.php:1267
 msgid "uncover"
 msgstr "إلغاء"
 
-#: src/Core/Backend/Page.php:1265
+#: src/Core/Backend/Page.php:1271
 msgid "hide"
 msgstr "إخفاء"
 
-#: src/Core/Backend/Page.php:1269
+#: src/Core/Backend/Page.php:1275
 msgid "Need help?"
 msgstr "بحاجة إلى مساعدة؟"
 
-#: src/Core/Backend/Page.php:1270
+#: src/Core/Backend/Page.php:1276
 msgid "new window"
 msgstr "نافذة جديدة"
 
-#: src/Core/Backend/Page.php:1271
+#: src/Core/Backend/Page.php:1277
 msgid "Hide"
 msgstr "إخفاء"
 
-#: src/Core/Backend/Page.php:1272
+#: src/Core/Backend/Page.php:1278
 msgid "Select:"
 msgstr "اختيار:"
 
-#: src/Core/Backend/Page.php:1273
+#: src/Core/Backend/Page.php:1279
 msgid "No selection"
 msgstr "لا يوجد تحديد"
 
-#: src/Core/Backend/Page.php:1274
+#: src/Core/Backend/Page.php:1280
 msgid "Select all"
 msgstr "حدد الكل"
 
-#: src/Core/Backend/Page.php:1275
+#: src/Core/Backend/Page.php:1281
 msgid "Invert selection"
 msgstr "عكس التحديد"
 
-#: src/Core/Backend/Page.php:1280 src/Process/Backend/Post.php:466
+#: src/Core/Backend/Page.php:1286 src/Process/Backend/Post.php:466
 #: src/Process/Backend/Post.php:609
 msgid "Entry has been successfully created."
 msgstr "تم إنشاء الإدخال بنجاح."
 
-#: src/Core/Backend/Page.php:1281
+#: src/Core/Backend/Page.php:1287
 msgid "Edit entry"
 msgstr "تعديل الإدخال"
 
-#: src/Core/Backend/Page.php:1282
+#: src/Core/Backend/Page.php:1288
 msgid "view entry"
 msgstr "عرض الإدخال"
 
-#: src/Core/Backend/Page.php:1283
+#: src/Core/Backend/Page.php:1289
 #, php-format
 msgid "Are you sure you want to delete selected entries (%s)?"
 msgstr "هل أنت متأكد من أنك تريد حذف المواد المحددة (%s)؟"
 
-#: src/Core/Backend/Page.php:1284
+#: src/Core/Backend/Page.php:1290
 #, php-format
 msgid "Are you sure you want to delete selected medias (%d)?"
 msgstr "هل أنت متأكد من أنك تريد حذف الوسائط المحددة (%d)؟"
 
-#: src/Core/Backend/Page.php:1285
+#: src/Core/Backend/Page.php:1291
 #, php-format
 msgid "Are you sure you want to delete selected categories (%s)?"
 msgstr "هل أنت متأكد من أنك تريد حذف الفئات المحددة (%s)؟"
 
-#: src/Core/Backend/Page.php:1286
+#: src/Core/Backend/Page.php:1292
 msgid "Are you sure you want to delete this entry?"
 msgstr "هل أنت متأكد من أنك تريد حذف هذا الإدخال؟"
 
-#: src/Core/Backend/Page.php:1287
+#: src/Core/Backend/Page.php:1293
 msgid "Click here to unlock the field"
 msgstr "انقر هنا لفتح الحقل"
 
-#: src/Core/Backend/Page.php:1288
+#: src/Core/Backend/Page.php:1294
 msgid "Are you sure you want to delete all spams?"
 msgstr "هل أنت متأكد من أنك تريد حذف جميع الرسائل غير المرغوب فيها؟"
 
-#: src/Core/Backend/Page.php:1289
+#: src/Core/Backend/Page.php:1295
 #, php-format
 msgid "Are you sure you want to delete selected comments (%s)?"
 msgstr "هل أنت متأكد من أنك تريد حذف التعليقات المحددة (%s)؟"
 
-#: src/Core/Backend/Page.php:1290
+#: src/Core/Backend/Page.php:1296
 msgid "Are you sure you want to delete this comment?"
 msgstr "هل أنت متأكد من أنك تريد حذف هذا التعليق؟"
 
-#: src/Core/Backend/Page.php:1291
+#: src/Core/Backend/Page.php:1297
 msgid "Users with posts cannot be deleted."
 msgstr "لا يمكن حذف المستخدمين الذين لديهم مشاركات."
 
-#: src/Core/Backend/Page.php:1292
+#: src/Core/Backend/Page.php:1298
 #, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
 msgstr "هل أنت متأكد من أنك تريد حذف المستخدمين المحددين (%s)؟"
 
-#: src/Core/Backend/Page.php:1293
+#: src/Core/Backend/Page.php:1299
 #, php-format
 msgid "Are you sure you want to delete selected blogs (%s)?"
 msgstr "هل أنت متأكد من أنك تريد حذف المدونات المحددة (%s)؟"
 
-#: src/Core/Backend/Page.php:1294
+#: src/Core/Backend/Page.php:1300
 #, php-format
 msgid "Are you sure you want to delete category \"%s\"?"
 msgstr "هل أنت متأكد من أنك تريد حذف الفئة%s\"؟"
 
-#: src/Core/Backend/Page.php:1295
+#: src/Core/Backend/Page.php:1301
 msgid "Are you sure you want to reorder all categories?"
 msgstr "هل أنت متأكد من أنك تريد إعادة ترتيب جميع الفئات؟"
 
-#: src/Core/Backend/Page.php:1296
+#: src/Core/Backend/Page.php:1302
 #, php-format
 msgid "Are you sure you want to remove media \"%s\"?"
 msgstr "هل أنت متأكد من أنك تريد إزالة الوسائط\"%s\"؟"
 
-#: src/Core/Backend/Page.php:1297
+#: src/Core/Backend/Page.php:1303
 #, php-format
 msgid "Are you sure you want to remove directory \"%s\"?"
 msgstr "هل أنت متأكد من أنك تريد إزالة الدليل\"%s\"؟"
 
-#: src/Core/Backend/Page.php:1298
+#: src/Core/Backend/Page.php:1304
 msgid "Are you sure you want to extract archive in current directory?"
 msgstr "هل أنت متأكد من أنك تريد استخراج الأرشيف في الدليل الحالي؟"
 
-#: src/Core/Backend/Page.php:1299
+#: src/Core/Backend/Page.php:1305
 #, php-format
 msgid "Are you sure you want to remove attachment \"%s\"?"
 msgstr "هل أنت متأكد من أنك تريد إزالة المرفق\"%s\"؟"
 
-#: src/Core/Backend/Page.php:1300
+#: src/Core/Backend/Page.php:1306
 #, php-format
 msgid "Are you sure you want to delete \"%s\" language?"
 msgstr "هل أنت متأكد من أنك تريد حذف لغة \"%s\"؟"
 
-#: src/Core/Backend/Page.php:1301
+#: src/Core/Backend/Page.php:1307
 #, php-format
 msgid "Are you sure you want to delete \"%s\" plugin?"
 msgstr "هل أنت متأكد من رغبتك في حذف \"%s\" إضافة؟"
 
-#: src/Core/Backend/Page.php:1302
+#: src/Core/Backend/Page.php:1308
 msgid "Are you sure you want to delete selected plugins?"
 msgstr "هل أنت متأكد من أنك تريد حذف الإضافات المحددة؟"
 
-#: src/Core/Backend/Page.php:1303
+#: src/Core/Backend/Page.php:1309
 msgid "Use this theme"
 msgstr "استخدم هذا الموضوع"
 
-#: src/Core/Backend/Page.php:1304
+#: src/Core/Backend/Page.php:1310
 msgid "Remove this theme"
 msgstr "إزالة هذا الموضوع"
 
-#: src/Core/Backend/Page.php:1305
+#: src/Core/Backend/Page.php:1311
 #, php-format
 msgid "Are you sure you want to delete \"%s\" theme?"
 msgstr "هل أنت متأكد من أنك تريد حذف \"%s\" السمة ؟"
 
-#: src/Core/Backend/Page.php:1306
+#: src/Core/Backend/Page.php:1312
 msgid "Are you sure you want to delete selected themes?"
 msgstr "هل أنت متأكد من أنك تريد حذف المواضيع المحددة؟"
 
-#: src/Core/Backend/Page.php:1307
+#: src/Core/Backend/Page.php:1313
 msgid "Are you sure you want to delete this backup?"
 msgstr "هل أنت متأكد من أنك تريد حذف هذه النسخة الاحتياطية؟"
 
-#: src/Core/Backend/Page.php:1308
+#: src/Core/Backend/Page.php:1314
 msgid "Are you sure you want to revert to this backup?"
 msgstr "هل أنت متأكد من أنك تريد العودة إلى هذه النسخة الاحتياطية؟"
 
-#: src/Core/Backend/Page.php:1309
+#: src/Core/Backend/Page.php:1315
 msgid "Zip file content"
 msgstr "محتوى الملف المضغوط"
 
-#: src/Core/Backend/Page.php:1310
+#: src/Core/Backend/Page.php:1316
 msgid "HTML markup validator"
 msgstr "HTML markup validator"
 
-#: src/Core/Backend/Page.php:1311
+#: src/Core/Backend/Page.php:1317
 msgid "HTML content is valid."
 msgstr "محتوى HTML صالح."
 
-#: src/Core/Backend/Page.php:1312
+#: src/Core/Backend/Page.php:1318
 msgid "There are HTML markup errors."
 msgstr "هناك أخطاء في ترميز HTML."
 
-#: src/Core/Backend/Page.php:1313
+#: src/Core/Backend/Page.php:1319
 msgid "Attention: an audit of a content not yet registered."
 msgstr "انتباه: مراجعة لمحتوى لم يسجل بعد."
 
-#: src/Core/Backend/Page.php:1314
+#: src/Core/Backend/Page.php:1320
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
 msgstr "لديك تغييرات غير محفوظة. تبديل تنسيق المشاركة سوف يخفف من هذه التغييرات. هل تريد المتابعة على أية حال؟"
 
-#: src/Core/Backend/Page.php:1315
+#: src/Core/Backend/Page.php:1321
 msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
 msgstr "تحذير: تغيير تنسيق المشاركة لن يقوم بتحويل المحتوى الموجود. سوف تحتاج إلى تطبيق تنسيق جديد بنفسك. هل تريد المتابعة على أي حال؟"
 
-#: src/Core/Backend/Page.php:1316
+#: src/Core/Backend/Page.php:1322
 msgid "Loading enhanced uploader, please wait."
 msgstr "تحميل التحميل المحسن، الرجاء الانتظار."
 
-#: src/Core/Backend/Page.php:1321
+#: src/Core/Backend/Page.php:1327
 msgid "Help:"
 msgstr "المساعدة:"
 
-#: src/Core/Backend/Page.php:1327
+#: src/Core/Backend/Page.php:1333
 msgid "Show password"
 msgstr "إظهار كلمة المرور"
 
-#: src/Core/Backend/Page.php:1328
+#: src/Core/Backend/Page.php:1334
 msgid "Hide password"
 msgstr "إخفاء كلمة المرور"
 
-#: src/Core/Backend/Page.php:1330
+#: src/Core/Backend/Page.php:1336
 msgid "Reset to now"
 msgstr "إعادة تعيين الآن"
 
-#: src/Core/Backend/Page.php:1331
+#: src/Core/Backend/Page.php:1337
 msgid "The publication date has changed. Reset the base name of the entry URL?"
 msgstr "تم تغيير تاريخ النشر. هل تمت إعادة تعيين الاسم الأساسي لعنوان URL الخاص بالإدخال؟"
 
-#: src/Core/Backend/Page.php:1332
+#: src/Core/Backend/Page.php:1338
 msgid "The publication title has changed. Reset the base name of the entry URL?"
 msgstr "تم تغيير عنوان المنشور. هل تمت إعادة تعيين الاسم الأساسي لعنوان URL الخاص بالإدخال؟"
 
-#: src/Core/Backend/Page.php:1334
+#: src/Core/Backend/Page.php:1340
 msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences."
 msgstr "تم اكتشاف مانع إعلانات على لوحة التحكم هذه (المستشفى، آدبلوك بلس، أصل uBlock …) وقد يتداخل مع بعض الميزات. في هذه الحالة يجب عليك تعطيلها. لاحظ أن هذا الكشف قد يكون معطلا في تفضيلاتك."
 
-#: src/Core/Backend/Page.php:1386
+#: src/Core/Backend/Page.php:1392
 msgid "You have unsaved changes."
 msgstr "لديك تغييرات غير محفوظة."
 
-#: src/Core/Backend/Page.php:1387
+#: src/Core/Backend/Page.php:1393
 msgid "your battery charge seems low (%d%) and you have unsaved changes, you should save them."
 msgstr "شحن البطارية الخاص بك يبدو منخفضاً (%d%) ولديك تغييرات غير محفوظة، يجب عليك حفظها."
 
-#: src/Core/Backend/Page.php:1428
+#: src/Core/Backend/Page.php:1434
 msgid "Temporarily activate enhanced uploader"
 msgstr "تفعيل التحميل المحسن مؤقتاً"
 
-#: src/Core/Backend/Page.php:1429
+#: src/Core/Backend/Page.php:1435
 msgid "Temporarily disable enhanced uploader"
 msgstr "تعطيل التحميل المحسن مؤقتاً"
 
-#: src/Core/Backend/Page.php:1433
+#: src/Core/Backend/Page.php:1439
 msgid "Limit exceeded."
 msgstr "تجاوز الحد."
 
-#: src/Core/Backend/Page.php:1434
+#: src/Core/Backend/Page.php:1440
 msgid "File size exceeds allowed limit."
 msgstr "حجم الملف يتجاوز الحد المسموح به."
 
-#: src/Core/Backend/Page.php:1435
+#: src/Core/Backend/Page.php:1441
 msgid "Canceled."
 msgstr "ملغاة."
 
-#: src/Core/Backend/Page.php:1436
+#: src/Core/Backend/Page.php:1442
 msgid "HTTP Error:"
 msgstr "خطأ HTTP:"
 
-#: src/Core/Backend/Page.php:1438 src/Process/Backend/Media.php:752
+#: src/Core/Backend/Page.php:1444 src/Process/Backend/Media.php:752
 msgid "Choose file"
 msgstr "اختر ملف"
 
-#: src/Core/Backend/Page.php:1439 src/Process/Backend/Media.php:758
+#: src/Core/Backend/Page.php:1445 src/Process/Backend/Media.php:758
 msgid "Choose files"
 msgstr "اختر الملفات"
 
-#: src/Core/Backend/Page.php:1440 src/Process/Backend/LinkPopup.php:114
-#: src/Process/Backend/Media.php:305 src/Process/Backend/MediaItem.php:515
-#: src/Process/Backend/MediaItem.php:771 src/Process/Backend/Post.php:962
+#: src/Core/Backend/Page.php:1446 src/Process/Backend/LinkPopup.php:114
+#: src/Process/Backend/Media.php:305 src/Process/Backend/MediaItem.php:516
+#: src/Process/Backend/MediaItem.php:772 src/Process/Backend/Post.php:962
 #: src/Process/Backend/PostMedia.php:115
 msgid "Cancel"
 msgstr "إلغاء"
 
-#: src/Core/Backend/Page.php:1441
+#: src/Core/Backend/Page.php:1447
 msgid "Clean"
 msgstr "تنظيف"
 
-#: src/Core/Backend/Page.php:1443
+#: src/Core/Backend/Page.php:1449
 msgid "Send"
 msgstr "إرسال"
 
-#: src/Core/Backend/Page.php:1444
+#: src/Core/Backend/Page.php:1450
 msgid "File successfully uploaded."
 msgstr "تم تحميل الملف بنجاح."
 
-#: src/Core/Backend/Page.php:1445
+#: src/Core/Backend/Page.php:1451
 msgid "No file in queue."
 msgstr "لا يوجد ملف في قائمة الانتظار."
 
-#: src/Core/Backend/Page.php:1446
+#: src/Core/Backend/Page.php:1452
 msgid "1 file in queue."
 msgstr "ملف واحد في قائمة الانتظار."
 
-#: src/Core/Backend/Page.php:1447
+#: src/Core/Backend/Page.php:1453
 #, php-format
 msgid "%d files in queue."
 msgstr "%d ملفات في قائمة الانتظار."
 
-#: src/Core/Backend/Page.php:1448
+#: src/Core/Backend/Page.php:1454
 msgid "Queue error:"
 msgstr "خطأ في قائمة الانتظار:"
 
-#: src/Core/Backend/Page.php:1487
+#: src/Core/Backend/Page.php:1493
 msgid "Cancel filters and display options"
 msgstr "إلغاء الفلاتر وخيارات العرض"
 
@@ -2332,55 +2332,55 @@ msgstr "غير مسموح لك بتغيير فئة المواد"
 msgid "You are not allowed to delete entries"
 msgstr "غير مسموح لك بحذف المواد"
 
-#: src/Core/Blog.php:1912
+#: src/Core/Blog.php:1914
 msgid "No entry title"
 msgstr "لا يوجد عنوان إدخال"
 
-#: src/Core/Blog.php:1916 src/Core/Blog.php:1930
+#: src/Core/Blog.php:1918 src/Core/Blog.php:1932
 msgid "No entry content"
 msgstr "لا يوجد محتوى للدخول"
 
-#: src/Core/Blog.php:1996
+#: src/Core/Blog.php:1998
 msgid "Notes"
 msgstr "الحواشي"
 
-#: src/Core/Blog.php:1998
+#: src/Core/Blog.php:2000
 msgid "Note"
 msgstr "ملاحظة"
 
-#: src/Core/Blog.php:2113
+#: src/Core/Blog.php:2115
 msgid "Empty entry URL"
 msgstr "رابط إدخال فارغ"
 
-#: src/Core/Blog.php:2424
+#: src/Core/Blog.php:2426
 msgid "You are not allowed to update comments"
 msgstr "غير مسموح لك بتحديث التعليقات"
 
-#: src/Core/Blog.php:2430 src/Core/Blog.php:2436 src/Core/Blog.php:2541
+#: src/Core/Blog.php:2432 src/Core/Blog.php:2438 src/Core/Blog.php:2543
 msgid "No such comment ID"
 msgstr "لا يوجد معرف مثل هذا التعليق"
 
-#: src/Core/Blog.php:2443
+#: src/Core/Blog.php:2445
 msgid "You are not allowed to update this comment"
 msgstr "غير مسموح لك بتحديث هذا التعليق"
 
-#: src/Core/Blog.php:2494
+#: src/Core/Blog.php:2496
 msgid "You are not allowed to change this comment's status"
 msgstr "غير مسموح لك بتغيير حالة هذا التعليق"
 
-#: src/Core/Blog.php:2535 src/Core/Blog.php:2589
+#: src/Core/Blog.php:2537 src/Core/Blog.php:2591
 msgid "You are not allowed to delete comments"
 msgstr "غير مسموح لك بحذف التعليقات"
 
-#: src/Core/Blog.php:2624
+#: src/Core/Blog.php:2626
 msgid "You must provide a comment"
 msgstr "يجب عليك تقديم تعليق"
 
-#: src/Core/Blog.php:2628
+#: src/Core/Blog.php:2630
 msgid "You must provide an author name"
 msgstr "يجب عليك تقديم اسم المؤلف"
 
-#: src/Core/Blog.php:2632
+#: src/Core/Blog.php:2634
 msgid "Email address is not valid."
 msgstr "عنوان البريد الإلكتروني غير صالح."
 
@@ -2639,11 +2639,11 @@ msgstr "جميل!"
 msgid "System"
 msgstr "النظام"
 
-#: src/Core/Upgrade/Page.php:184
+#: src/Core/Upgrade/Page.php:187
 msgid "Dotclear's update dashboard"
 msgstr "واجهة تعامل تعديل Dotالوضوح"
 
-#: src/Core/Upgrade/Page.php:195
+#: src/Core/Upgrade/Page.php:198
 msgid "Go to normal dashboard"
 msgstr "اذهب الى الاستعراض البياني العادي"
 
@@ -3110,8 +3110,8 @@ msgstr "محتوى استجابة غير صالح"
 msgid "Invalid response format"
 msgstr "تنسيق استجابة غير صالح"
 
-#: src/Helper/OAuth2/Client/Services.php:118
-#: src/Helper/OAuth2/Client/Services.php:127
+#: src/Helper/OAuth2/Client/Services.php:112
+#: src/Helper/OAuth2/Client/Services.php:121
 #, php-format
 msgid "Failed to load provider \"%s\""
 msgstr "فشل تحميل الموفر \"%s\""
@@ -3283,7 +3283,7 @@ msgid "Your new password is in your mailbox."
 msgstr "كلمة المرور الجديدة الخاصة بك موجودة في صندوق البريد الخاص بك."
 
 #: src/Process/Backend/Auth.php:226 src/Process/Backend/User.php:159
-#: src/Process/Backend/UserPreferences.php:272 src/Process/Install/Cli.php:727
+#: src/Process/Backend/UserPreferences.php:273 src/Process/Install/Cli.php:727
 #: src/Process/Install/Install.php:188
 msgid "Passwords don't match"
 msgstr "كلمات المرور غير متطابقة"
@@ -3321,9 +3321,9 @@ msgstr "اسم المستخدم أو كلمة المرور خاطئة"
 #: src/Process/Backend/Auth.php:445 src/Process/Backend/Auth.php:446
 #: src/Process/Backend/Auth.php:447 src/Process/Backend/User.php:264
 #: src/Process/Backend/User.php:265 src/Process/Backend/User.php:266
-#: src/Process/Backend/UserPreferences.php:566
-#: src/Process/Backend/UserPreferences.php:567
 #: src/Process/Backend/UserPreferences.php:568
+#: src/Process/Backend/UserPreferences.php:569
+#: src/Process/Backend/UserPreferences.php:570
 #: src/Process/Install/Install.php:426 src/Process/Install/Install.php:427
 #: src/Process/Install/Install.php:428 src/Process/Upgrade/Auth.php:387
 #: src/Process/Upgrade/Auth.php:388 src/Process/Upgrade/Auth.php:389
@@ -3332,13 +3332,13 @@ msgid "Password strength: %s"
 msgstr "قوة كلمة المرور: %s"
 
 #: src/Process/Backend/Auth.php:445 src/Process/Backend/User.php:264
-#: src/Process/Backend/UserPreferences.php:566
+#: src/Process/Backend/UserPreferences.php:568
 #: src/Process/Install/Install.php:426 src/Process/Upgrade/Auth.php:387
 msgid "weak"
 msgstr "ضعيف"
 
 #: src/Process/Backend/Auth.php:447 src/Process/Backend/User.php:266
-#: src/Process/Backend/UserPreferences.php:568
+#: src/Process/Backend/UserPreferences.php:570
 #: src/Process/Install/Install.php:428 src/Process/Upgrade/Auth.php:389
 msgid "strong"
 msgstr "قوي"
@@ -3365,7 +3365,7 @@ msgid "Change your password"
 msgstr "تغيير كلمة المرور"
 
 #: src/Process/Backend/Auth.php:546 src/Process/Backend/User.php:352
-#: src/Process/Backend/UserPreferences.php:605
+#: src/Process/Backend/UserPreferences.php:607
 msgid "New password:"
 msgstr "كلمة المرور الجديدة:"
 
@@ -3378,7 +3378,7 @@ msgstr "تأكيد كلمة المرور:"
 msgid "change"
 msgstr "تغيير"
 
-#: src/Process/Backend/Auth.php:574 src/Process/Backend/UserPreferences.php:880
+#: src/Process/Backend/Auth.php:574 src/Process/Backend/UserPreferences.php:882
 #: src/Process/Upgrade/Auth.php:292
 msgid "Two factors authentication"
 msgstr "عاملان للمصادقة"
@@ -3387,7 +3387,7 @@ msgstr "عاملان للمصادقة"
 msgid "Enter code:"
 msgstr "أدخل الرمز:"
 
-#: src/Process/Backend/Auth.php:589 src/Process/Backend/UserPreferences.php:674
+#: src/Process/Backend/Auth.php:589 src/Process/Backend/UserPreferences.php:676
 #: src/Process/Upgrade/Auth.php:307
 msgid "Verify"
 msgstr "تحقق"
@@ -3553,7 +3553,7 @@ msgid "P"
 msgstr "ب"
 
 #: src/Process/Backend/BlogPref.php:168 src/Process/Backend/BlogPref.php:1278
-#: src/Process/Backend/MediaItem.php:609 src/Process/Backend/MediaItem.php:614
+#: src/Process/Backend/MediaItem.php:610 src/Process/Backend/MediaItem.php:615
 msgid "(none)"
 msgstr "(لا شيء)"
 
@@ -3573,33 +3573,33 @@ msgstr "الوصف والبلد والتاريخ"
 msgid "Description, City, Country, Date"
 msgstr "الوصف, المدينة, البلد, التاريخ"
 
-#: src/Process/Backend/BlogPref.php:202 src/Process/Backend/MediaItem.php:489
-#: src/Process/Backend/MediaItem.php:583 src/Process/Backend/MediaItem.php:852
+#: src/Process/Backend/BlogPref.php:202 src/Process/Backend/MediaItem.php:490
+#: src/Process/Backend/MediaItem.php:584 src/Process/Backend/MediaItem.php:853
 msgid "original"
 msgstr "الأصلي"
 
 #: src/Process/Backend/BlogPref.php:213 src/Process/Backend/BlogPref.php:223
-#: src/Process/Backend/MediaItem.php:546 src/Process/Backend/MediaItem.php:602
+#: src/Process/Backend/MediaItem.php:547 src/Process/Backend/MediaItem.php:603
 msgid "None"
 msgstr "لا"
 
-#: src/Process/Backend/BlogPref.php:214 src/Process/Backend/MediaItem.php:547
+#: src/Process/Backend/BlogPref.php:214 src/Process/Backend/MediaItem.php:548
 msgid "Left"
 msgstr "اليسار"
 
-#: src/Process/Backend/BlogPref.php:215 src/Process/Backend/MediaItem.php:548
+#: src/Process/Backend/BlogPref.php:215 src/Process/Backend/MediaItem.php:549
 msgid "Right"
 msgstr "يمين"
 
-#: src/Process/Backend/BlogPref.php:216 src/Process/Backend/MediaItem.php:549
+#: src/Process/Backend/BlogPref.php:216 src/Process/Backend/MediaItem.php:550
 msgid "Center"
 msgstr "الوسط"
 
-#: src/Process/Backend/BlogPref.php:221 src/Process/Backend/MediaItem.php:595
+#: src/Process/Backend/BlogPref.php:221 src/Process/Backend/MediaItem.php:596
 msgid "Legend and alternate text"
 msgstr "الأسطورة والنص البديل"
 
-#: src/Process/Backend/BlogPref.php:222 src/Process/Backend/MediaItem.php:599
+#: src/Process/Backend/BlogPref.php:222 src/Process/Backend/MediaItem.php:600
 msgid "Alternate text"
 msgstr "نص بديل"
 
@@ -3616,7 +3616,7 @@ msgid "I would like to prevent search engines and archivers from indexing or arc
 msgstr "أود أن أمنع محركات البحث والمحفوظات من فهرسة أو حفظ محتوى مدونتي."
 
 #: src/Process/Backend/BlogPref.php:235
-#: src/Process/Backend/UserPreferences.php:158
+#: src/Process/Backend/UserPreferences.php:159
 msgid "Default"
 msgstr "الافتراضي"
 
@@ -4254,7 +4254,7 @@ msgid "total:"
 msgstr "المجموع:"
 
 #: src/Process/Backend/Categories.php:326 src/Process/Backend/Category.php:278
-#: src/Process/Backend/User.php:475 src/Process/Backend/UserPreferences.php:835
+#: src/Process/Backend/User.php:475 src/Process/Backend/UserPreferences.php:837
 msgid "URL:"
 msgstr "الرابط:"
 
@@ -4299,7 +4299,7 @@ msgstr "الاسم:"
 msgid "Warning: If you set the URL manually, it may conflict with another category."
 msgstr "تحذير: إذا قمت بتعيين عنوان URL يدوياً، قد يتعارض مع فئة أخرى."
 
-#: src/Process/Backend/Category.php:292 src/Process/Backend/MediaItem.php:1216
+#: src/Process/Backend/Category.php:292 src/Process/Backend/MediaItem.php:1217
 msgid "Description:"
 msgstr "وصف:"
 
@@ -4686,7 +4686,7 @@ msgstr "عنوان الرابط:"
 msgid "Link language:"
 msgstr "لغة الرابط:"
 
-#: src/Process/Backend/LinkPopup.php:116 src/Process/Backend/MediaItem.php:769
+#: src/Process/Backend/LinkPopup.php:116 src/Process/Backend/MediaItem.php:770
 msgid "Insert"
 msgstr "Insert"
 
@@ -4863,7 +4863,7 @@ msgstr "يرجى الاهتمام بنشر الوسائط التي تملكها 
 msgid "Maximum file size allowed:"
 msgstr "الحد الأقصى لحجم الملف المسموح به:"
 
-#: src/Process/Backend/Media.php:784 src/Process/Backend/MediaItem.php:1229
+#: src/Process/Backend/Media.php:784 src/Process/Backend/MediaItem.php:1230
 msgid "Private"
 msgstr "خاص"
 
@@ -4893,272 +4893,272 @@ msgstr "يتم تحديد الإعدادات الحالية للوسائط وا�
 msgid "Not a valid file"
 msgstr "ملف غير صالح"
 
-#: src/Process/Backend/MediaItem.php:182 src/Process/Backend/MediaItem.php:244
-#: src/Process/Backend/MediaItem.php:437
+#: src/Process/Backend/MediaItem.php:182 src/Process/Backend/MediaItem.php:245
+#: src/Process/Backend/MediaItem.php:438
 msgid "File has been successfully updated."
 msgstr "تم تحديث الملف بنجاح."
 
-#: src/Process/Backend/MediaItem.php:261 src/Process/Backend/MediaItem.php:440
+#: src/Process/Backend/MediaItem.php:262 src/Process/Backend/MediaItem.php:441
 msgid "Thumbnails have been successfully updated."
 msgstr "تم تحديث الصور المصغرة بنجاح."
 
-#: src/Process/Backend/MediaItem.php:278
+#: src/Process/Backend/MediaItem.php:279
 msgid "Zip file has been successfully extracted."
 msgstr "تم استخراج ملف Zip بنجاح."
 
-#: src/Process/Backend/MediaItem.php:308 src/Process/Backend/MediaItem.php:443
+#: src/Process/Backend/MediaItem.php:309 src/Process/Backend/MediaItem.php:444
 msgid "Default media insertion settings have been successfully updated."
 msgstr "تم تحديث إعدادات إدخال الوسائط الافتراضية بنجاح."
 
-#: src/Process/Backend/MediaItem.php:334
+#: src/Process/Backend/MediaItem.php:335
 msgid "Media insertion settings have been successfully registered for this folder."
 msgstr "تم تسجيل إعدادات إدخال الوسائط بنجاح لهذا المجلد."
 
-#: src/Process/Backend/MediaItem.php:345
+#: src/Process/Backend/MediaItem.php:346
 msgid "Media insertion settings have been successfully removed for this folder."
 msgstr "تم بنجاح إزالة إعدادات إدخال الوسائط لهذا المجلد."
 
-#: src/Process/Backend/MediaItem.php:483 src/Process/Backend/MediaItem.php:577
+#: src/Process/Backend/MediaItem.php:484 src/Process/Backend/MediaItem.php:578
 msgid "Image size:"
 msgstr "حجم الصورة:"
 
-#: src/Process/Backend/MediaItem.php:502 src/Process/Backend/MediaItem.php:504
+#: src/Process/Backend/MediaItem.php:503 src/Process/Backend/MediaItem.php:505
 msgid "Select media item"
 msgstr "حدد عنصر الوسائط"
 
-#: src/Process/Backend/MediaItem.php:513 src/Process/Upgrade/Attic.php:305
+#: src/Process/Backend/MediaItem.php:514 src/Process/Upgrade/Attic.php:305
 msgid "Select"
 msgstr "حدد"
 
-#: src/Process/Backend/MediaItem.php:589
+#: src/Process/Backend/MediaItem.php:590
 msgid "Image legend and alternate text"
 msgstr "وسيلة ايضاح الصورة والنص البديل"
 
-#: src/Process/Backend/MediaItem.php:606 src/Process/Backend/MediaItem.php:1067
-#: src/Process/Backend/MediaItem.php:1207
+#: src/Process/Backend/MediaItem.php:607 src/Process/Backend/MediaItem.php:1068
+#: src/Process/Backend/MediaItem.php:1208
 msgid "Alternate text:"
 msgstr "النص البديل :"
 
-#: src/Process/Backend/MediaItem.php:611
+#: src/Process/Backend/MediaItem.php:612
 msgid "Legend:"
 msgstr "اسطوري:"
 
-#: src/Process/Backend/MediaItem.php:620
+#: src/Process/Backend/MediaItem.php:621
 msgid "Image alignment"
 msgstr "محاذاة الصورة"
 
-#: src/Process/Backend/MediaItem.php:627
+#: src/Process/Backend/MediaItem.php:628
 msgid "Image insertion"
 msgstr "إدراج صورة"
 
-#: src/Process/Backend/MediaItem.php:632
+#: src/Process/Backend/MediaItem.php:633
 msgid "As a single image"
 msgstr "كصورة واحدة"
 
-#: src/Process/Backend/MediaItem.php:635
+#: src/Process/Backend/MediaItem.php:636
 msgid "As a link to the original image"
 msgstr "كرابط للصورة الأصلية"
 
-#: src/Process/Backend/MediaItem.php:652
+#: src/Process/Backend/MediaItem.php:653
 msgid "MP3 disposition"
 msgstr "تصريف MP3"
 
-#: src/Process/Backend/MediaItem.php:661
+#: src/Process/Backend/MediaItem.php:662
 msgid "Please note that you cannot insert mp3 files with standard editor in WYSIWYG HTML mode."
 msgstr "يرجى ملاحظة أنه لا يمكنك إدراج ملفات mp3 باستخدام المحرر القياسي في وضع WYSIWYG HTML."
 
-#: src/Process/Backend/MediaItem.php:677
+#: src/Process/Backend/MediaItem.php:678
 msgid "Video size"
 msgstr "حجم الفيديو"
 
-#: src/Process/Backend/MediaItem.php:681
+#: src/Process/Backend/MediaItem.php:682
 msgid "Width:"
 msgstr "العرض:"
 
-#: src/Process/Backend/MediaItem.php:686
+#: src/Process/Backend/MediaItem.php:687
 msgid "Height:"
 msgstr "الارتفاع:"
 
-#: src/Process/Backend/MediaItem.php:690
+#: src/Process/Backend/MediaItem.php:691
 msgid "A value of 0 means that the corresponding size is not included when inserting a video."
 msgstr "تعني القيمة 0 عدم تضمين الحجم المقابل عند إدراج مقطع فيديو."
 
-#: src/Process/Backend/MediaItem.php:695
+#: src/Process/Backend/MediaItem.php:696
 msgid "Video disposition"
 msgstr "عرض الفيديو"
 
-#: src/Process/Backend/MediaItem.php:705
+#: src/Process/Backend/MediaItem.php:706
 msgid "Please note that you cannot insert video files with standard editor in WYSIWYG HTML mode."
 msgstr "يرجى ملاحظة أنه لا يمكنك إدراج ملفات الفيديو باستخدام المحرر القياسي في وضع WYSIWYG HTML."
 
-#: src/Process/Backend/MediaItem.php:711
+#: src/Process/Backend/MediaItem.php:712
 msgid "Media item will be inserted as a link."
 msgstr "سيتم إدراج عنصر الوسائط كوصل."
 
-#: src/Process/Backend/MediaItem.php:732
+#: src/Process/Backend/MediaItem.php:733
 msgid "Make current settings as default"
 msgstr "جعل الإعدادات الحالية افتراضية"
 
-#: src/Process/Backend/MediaItem.php:733
+#: src/Process/Backend/MediaItem.php:734
 msgid "For the blog"
 msgstr "للمدوّنة"
 
-#: src/Process/Backend/MediaItem.php:735
+#: src/Process/Backend/MediaItem.php:736
 msgid "For this folder only"
 msgstr "لهذا المجلد فقط"
 
-#: src/Process/Backend/MediaItem.php:747
+#: src/Process/Backend/MediaItem.php:748
 msgid "Settings exist for this folder:"
 msgstr "توجد إعدادات لهذا المجلد:"
 
-#: src/Process/Backend/MediaItem.php:748
+#: src/Process/Backend/MediaItem.php:749
 msgid "Remove them"
 msgstr "إزالتها"
 
-#: src/Process/Backend/MediaItem.php:758 src/Process/Backend/MediaItem.php:760
+#: src/Process/Backend/MediaItem.php:759 src/Process/Backend/MediaItem.php:761
 msgid "Insert media item"
 msgstr "إدراج عنصر الوسائط"
 
-#: src/Process/Backend/MediaItem.php:845
+#: src/Process/Backend/MediaItem.php:846
 msgid "Available sizes:"
 msgstr "الأحجام المتاحة:"
 
-#: src/Process/Backend/MediaItem.php:870 src/Process/Backend/MediaItem.php:944
-#: src/Process/Backend/MediaItem.php:952 src/Process/Backend/MediaItem.php:963
+#: src/Process/Backend/MediaItem.php:871 src/Process/Backend/MediaItem.php:945
+#: src/Process/Backend/MediaItem.php:953 src/Process/Backend/MediaItem.php:964
 msgid "Image width:"
 msgstr "عرض الصورة:"
 
-#: src/Process/Backend/MediaItem.php:876 src/Process/Backend/MediaItem.php:969
+#: src/Process/Backend/MediaItem.php:877 src/Process/Backend/MediaItem.php:970
 msgid "Image height:"
 msgstr "ارتفاع الصورة:"
 
-#: src/Process/Backend/MediaItem.php:884 src/Process/Backend/MediaItem.php:979
+#: src/Process/Backend/MediaItem.php:885 src/Process/Backend/MediaItem.php:980
 msgid "File size:"
 msgstr "حجم الملف:"
 
-#: src/Process/Backend/MediaItem.php:892 src/Process/Backend/MediaItem.php:985
+#: src/Process/Backend/MediaItem.php:893 src/Process/Backend/MediaItem.php:986
 msgid "File URL:"
 msgstr "رابط الملف:"
 
-#: src/Process/Backend/MediaItem.php:900
+#: src/Process/Backend/MediaItem.php:901
 msgid "Thumbnail details"
 msgstr "Thumbnail details"
 
-#: src/Process/Backend/MediaItem.php:923
+#: src/Process/Backend/MediaItem.php:924
 msgid "File owner:"
 msgstr "مالك الملف:"
 
-#: src/Process/Backend/MediaItem.php:929
+#: src/Process/Backend/MediaItem.php:930
 msgid "File type:"
 msgstr "نوع الملف:"
 
-#: src/Process/Backend/MediaItem.php:996
+#: src/Process/Backend/MediaItem.php:997
 msgid "Show entries containing this media"
 msgstr "إظهار المواد التي تحتوي على هذه الوسائط"
 
-#: src/Process/Backend/MediaItem.php:1003
+#: src/Process/Backend/MediaItem.php:1004
 msgid "No entry seems contain this media."
 msgstr "لا يبدو أن أي إدخال يحتوي على هذه الوسائط."
 
-#: src/Process/Backend/MediaItem.php:1033
+#: src/Process/Backend/MediaItem.php:1034
 msgid "Inside the entry"
 msgstr "داخل المدخل"
 
-#: src/Process/Backend/MediaItem.php:1040
+#: src/Process/Backend/MediaItem.php:1041
 msgid "Linked to entry"
 msgstr "مرتبط بالدخول"
 
-#: src/Process/Backend/MediaItem.php:1048
+#: src/Process/Backend/MediaItem.php:1049
 msgid "Entries containing this media"
 msgstr "المدخلات التي تحتوي على هذه الوسائط"
 
-#: src/Process/Backend/MediaItem.php:1082
+#: src/Process/Backend/MediaItem.php:1083
 msgid ":"
 msgstr ":"
 
-#: src/Process/Backend/MediaItem.php:1092
+#: src/Process/Backend/MediaItem.php:1093
 msgid "Metadata"
 msgstr "البيانات الوصفية"
 
-#: src/Process/Backend/MediaItem.php:1104
-#: src/Process/Backend/MediaItem.php:1307
-#: src/Process/Backend/MediaItem.php:1316
+#: src/Process/Backend/MediaItem.php:1105
+#: src/Process/Backend/MediaItem.php:1309
+#: src/Process/Backend/MediaItem.php:1318
 msgid "Media details"
 msgstr "تفاصيل الوسائط"
 
-#: src/Process/Backend/MediaItem.php:1122
-#: src/Process/Backend/MediaItem.php:1129
+#: src/Process/Backend/MediaItem.php:1123
+#: src/Process/Backend/MediaItem.php:1130
 msgid "Update thumbnails"
 msgstr "تحديث الصور المصغرة"
 
-#: src/Process/Backend/MediaItem.php:1124
+#: src/Process/Backend/MediaItem.php:1125
 msgid "This will create or update thumbnails for this image."
 msgstr "سيؤدي هذا إلى إنشاء أو تحديث الصور المصغرة لهذه الصورة."
 
-#: src/Process/Backend/MediaItem.php:1138
-#: src/Process/Backend/MediaItem.php:1153
+#: src/Process/Backend/MediaItem.php:1139
+#: src/Process/Backend/MediaItem.php:1154
 msgid "Extract in a new directory"
 msgstr "استخراج في دليل جديد"
 
-#: src/Process/Backend/MediaItem.php:1139
-#: src/Process/Backend/MediaItem.php:1159
+#: src/Process/Backend/MediaItem.php:1140
+#: src/Process/Backend/MediaItem.php:1160
 msgid "Extract in current directory"
 msgstr "استخراج في الدليل الحالي"
 
-#: src/Process/Backend/MediaItem.php:1147
+#: src/Process/Backend/MediaItem.php:1148
 msgid "Extract archive"
 msgstr "استخراج الأرشيف"
 
-#: src/Process/Backend/MediaItem.php:1154
+#: src/Process/Backend/MediaItem.php:1155
 msgid "This will extract archive in a new directory that should not exist yet."
 msgstr "سيؤدي هذا إلى استخراج الأرشيف في دليل جديد لا ينبغي أن يكون موجودا بعد."
 
-#: src/Process/Backend/MediaItem.php:1160
+#: src/Process/Backend/MediaItem.php:1161
 msgid "This will extract archive in current directory and will overwrite existing files or directory."
 msgstr "هذا سوف يستخرج الأرشيف في الدليل الحالي وسوف يستبدل الملفات أو الدليل الموجود."
 
-#: src/Process/Backend/MediaItem.php:1168
+#: src/Process/Backend/MediaItem.php:1169
 msgid "Extract mode:"
 msgstr "وضع الاستخراج:"
 
-#: src/Process/Backend/MediaItem.php:1169
+#: src/Process/Backend/MediaItem.php:1170
 msgid "Extract"
 msgstr "استخراج"
 
-#: src/Process/Backend/MediaItem.php:1181
+#: src/Process/Backend/MediaItem.php:1182
 msgid "Change media properties"
 msgstr "تغيير خصائص الوسائط"
 
-#: src/Process/Backend/MediaItem.php:1190
+#: src/Process/Backend/MediaItem.php:1191
 msgid "File name:"
 msgstr "اسم الملف:"
 
-#: src/Process/Backend/MediaItem.php:1223
+#: src/Process/Backend/MediaItem.php:1224
 msgid "File date:"
 msgstr "تاريخ الملف:"
 
-#: src/Process/Backend/MediaItem.php:1236
+#: src/Process/Backend/MediaItem.php:1237
 msgid "New directory:"
 msgstr "دليل جديد:"
 
-#: src/Process/Backend/MediaItem.php:1251
+#: src/Process/Backend/MediaItem.php:1252
 msgid "Change file"
 msgstr "تغيير الملف"
 
-#: src/Process/Backend/MediaItem.php:1260
+#: src/Process/Backend/MediaItem.php:1261
 msgid "Choose a file:"
 msgstr "اختر ملف:"
 
-#: src/Process/Backend/MediaItem.php:1260
+#: src/Process/Backend/MediaItem.php:1261
 #, php-format
 msgid "Maximum size %s"
 msgstr "الحد الأقصى للحجم %s"
 
-#: src/Process/Backend/MediaItem.php:1279
+#: src/Process/Backend/MediaItem.php:1280
 msgid "Delete this media"
 msgstr "حذف هذه الوسائط"
 
-#: src/Process/Backend/MediaItem.php:1298
+#: src/Process/Backend/MediaItem.php:1300
 msgid "Updates and modifications"
 msgstr "التحديثات والتعديلات"
 
@@ -5705,17 +5705,17 @@ msgstr "تحذير:"
 msgid "Password change required to connect"
 msgstr "تغيير كلمة المرور مطلوب للاتصال"
 
-#: src/Process/Backend/User.php:419 src/Process/Backend/UserPreferences.php:783
+#: src/Process/Backend/User.php:419 src/Process/Backend/UserPreferences.php:785
 #: src/Process/Install/Install.php:500
 msgid "Last Name:"
 msgstr "اسم العائلة:"
 
-#: src/Process/Backend/User.php:429 src/Process/Backend/UserPreferences.php:793
+#: src/Process/Backend/User.php:429 src/Process/Backend/UserPreferences.php:795
 #: src/Process/Install/Install.php:491
 msgid "First Name:"
 msgstr "الاسم الأول:"
 
-#: src/Process/Backend/User.php:439 src/Process/Backend/UserPreferences.php:803
+#: src/Process/Backend/User.php:439 src/Process/Backend/UserPreferences.php:805
 msgid "Display name:"
 msgstr "اسم العرض:"
 
@@ -5723,24 +5723,24 @@ msgstr "اسم العرض:"
 msgid "Mandatory for password recovering procedure."
 msgstr "إلزامية إجراء استرداد كلمة المرور."
 
-#: src/Process/Backend/User.php:462 src/Process/Backend/UserPreferences.php:822
+#: src/Process/Backend/User.php:462 src/Process/Backend/UserPreferences.php:824
 msgid "Alternate emails (comma separated list):"
 msgstr "رسائل البريد الإلكتروني البديلة (قائمة مفصولة بفواصل):"
 
-#: src/Process/Backend/User.php:466 src/Process/Backend/UserPreferences.php:826
+#: src/Process/Backend/User.php:466 src/Process/Backend/UserPreferences.php:828
 msgid "Invalid emails will be automatically removed from list."
 msgstr "سيتم إزالة رسائل البريد الإلكتروني غير صالحة تلقائياً من القائمة."
 
-#: src/Process/Backend/User.php:484 src/Process/Backend/UserPreferences.php:844
+#: src/Process/Backend/User.php:484 src/Process/Backend/UserPreferences.php:846
 msgid "Alternate URLs (comma separated list):"
 msgstr "عناوين URL بديلة (قائمة مفصولة بفواصل):"
 
-#: src/Process/Backend/User.php:488 src/Process/Backend/UserPreferences.php:848
+#: src/Process/Backend/User.php:488 src/Process/Backend/UserPreferences.php:850
 msgid "Invalid URLs will be automatically removed from list."
 msgstr "سيتم إزالة عناوين URL غير صالحة تلقائياً من القائمة."
 
 #: src/Process/Backend/User.php:494
-#: src/Process/Backend/UserPreferences.php:1016
+#: src/Process/Backend/UserPreferences.php:1018
 msgid "Interface"
 msgstr "واجهة"
 
@@ -5749,22 +5749,22 @@ msgid "Timezone:"
 msgstr "Timezone:"
 
 #: src/Process/Backend/User.php:510
-#: src/Process/Backend/UserPreferences.php:1140
+#: src/Process/Backend/UserPreferences.php:1151
 msgid "Edition"
 msgstr "الطبعة"
 
 #: src/Process/Backend/User.php:516
-#: src/Process/Backend/UserPreferences.php:1152
+#: src/Process/Backend/UserPreferences.php:1163
 msgid "Preferred format:"
 msgstr "التنسيق المفضل:"
 
 #: src/Process/Backend/User.php:523
-#: src/Process/Backend/UserPreferences.php:1160
+#: src/Process/Backend/UserPreferences.php:1171
 msgid "Default entry status:"
 msgstr "حالة القيد الافتراضية:"
 
 #: src/Process/Backend/User.php:528
-#: src/Process/Backend/UserPreferences.php:1166
+#: src/Process/Backend/UserPreferences.php:1177
 msgid "Entry edit field height:"
 msgstr "تعديل ارتفاع حقل الإدخال:"
 
@@ -5814,418 +5814,426 @@ msgstr "قائمة الوظائف"
 msgid "List of comments"
 msgstr "قائمة التعليقات"
 
-#: src/Process/Backend/UserPreferences.php:149
+#: src/Process/Backend/UserPreferences.php:150
 msgid "Light"
 msgstr "فاتح"
 
-#: src/Process/Backend/UserPreferences.php:150
+#: src/Process/Backend/UserPreferences.php:151
 msgid "Dark"
 msgstr "داكن"
 
-#: src/Process/Backend/UserPreferences.php:151
+#: src/Process/Backend/UserPreferences.php:152
 msgid "Automatic"
 msgstr "تلقائي"
 
-#: src/Process/Backend/UserPreferences.php:156
+#: src/Process/Backend/UserPreferences.php:157
 msgid "Smallest"
 msgstr "أصغر"
 
-#: src/Process/Backend/UserPreferences.php:157
+#: src/Process/Backend/UserPreferences.php:158
 msgid "Smaller"
 msgstr "أصغر"
 
-#: src/Process/Backend/UserPreferences.php:159
+#: src/Process/Backend/UserPreferences.php:160
 msgid "Larger"
 msgstr "أكبر"
 
-#: src/Process/Backend/UserPreferences.php:160
+#: src/Process/Backend/UserPreferences.php:161
 msgid "Largest"
 msgstr "أكبر"
 
-#: src/Process/Backend/UserPreferences.php:172
+#: src/Process/Backend/UserPreferences.php:173
 msgid "Blog description (in blog parameters)"
 msgstr "وصف المدونة (في معلمات المدونة)"
 
-#: src/Process/Backend/UserPreferences.php:173
+#: src/Process/Backend/UserPreferences.php:174
 msgid "Category description"
 msgstr "وصف الفئة"
 
-#: src/Process/Backend/UserPreferences.php:215
+#: src/Process/Backend/UserPreferences.php:216
 msgid "Two factors authentication verification failed."
 msgstr "فشل التحقق من المصادقة على عاملين."
 
-#: src/Process/Backend/UserPreferences.php:217
+#: src/Process/Backend/UserPreferences.php:218
 msgid "Two factors authentication verification succeeded."
 msgstr "نجحت عملية التحقق من المصادقة على عاملين."
 
-#: src/Process/Backend/UserPreferences.php:225
+#: src/Process/Backend/UserPreferences.php:226
 msgid "Two factors authentication secret regenerated."
 msgstr "عاملان للمصادقة السرية المتجددة."
 
-#: src/Process/Backend/UserPreferences.php:234
+#: src/Process/Backend/UserPreferences.php:235
 msgid "Passkey successfully deleted."
 msgstr "تم حذف مفتاح المرور بنجاح."
 
-#: src/Process/Backend/UserPreferences.php:251
-#: src/Process/Backend/UserPreferences.php:268
+#: src/Process/Backend/UserPreferences.php:252
+#: src/Process/Backend/UserPreferences.php:269
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "إذا كنت ترغب في تغيير بريدك الإلكتروني أو كلمة المرور الخاصة بك، يجب عليك توفير كلمة المرور الحالية."
 
-#: src/Process/Backend/UserPreferences.php:299
+#: src/Process/Backend/UserPreferences.php:300
 msgid "Personal information has been successfully updated."
 msgstr "تم تحديث المعلومات الشخصية بنجاح."
 
-#: src/Process/Backend/UserPreferences.php:417
+#: src/Process/Backend/UserPreferences.php:419
 msgid "Personal options has been successfully updated."
 msgstr "تم تحديث الخيارات الشخصية بنجاح."
 
-#: src/Process/Backend/UserPreferences.php:445
+#: src/Process/Backend/UserPreferences.php:447
 msgid "Dashboard options has been successfully updated."
 msgstr "تم تحديث خيارات لوحة التحكم بنجاح."
 
-#: src/Process/Backend/UserPreferences.php:457
-#: src/Process/Backend/UserPreferences.php:481
+#: src/Process/Backend/UserPreferences.php:459
+#: src/Process/Backend/UserPreferences.php:483
 msgid "No favorite selected"
 msgstr "لم يتم تحديد المفضلة"
 
-#: src/Process/Backend/UserPreferences.php:468
+#: src/Process/Backend/UserPreferences.php:470
 msgid "Favorites have been successfully added."
 msgstr "تم إضافة المفضلة بنجاح."
 
-#: src/Process/Backend/UserPreferences.php:494
+#: src/Process/Backend/UserPreferences.php:496
 msgid "Favorites have been successfully removed."
 msgstr "تم إزالة المفضلة بنجاح."
 
-#: src/Process/Backend/UserPreferences.php:524
+#: src/Process/Backend/UserPreferences.php:526
 msgid "Favorites have been successfully updated."
 msgstr "تم تحديث المفضلة بنجاح."
 
-#: src/Process/Backend/UserPreferences.php:536
+#: src/Process/Backend/UserPreferences.php:538
 msgid "Default favorites have been successfully updated."
 msgstr "تم تحديث المفضلة الافتراضية بنجاح."
 
-#: src/Process/Backend/UserPreferences.php:550
+#: src/Process/Backend/UserPreferences.php:552
 msgid "Dashboard items order have been successfully reset."
 msgstr "تم إعادة تعيين طلب عناصر لوحة التحكم بنجاح."
 
-#: src/Process/Backend/UserPreferences.php:572
+#: src/Process/Backend/UserPreferences.php:574
 msgid "Are you sure you want to remove selected favorites?"
 msgstr "هل أنت متأكد من أنك تريد إزالة المفضلة المحددة؟"
 
-#: src/Process/Backend/UserPreferences.php:573
+#: src/Process/Backend/UserPreferences.php:575
 msgid "Enter a name for this key:"
 msgstr "أدخل اسماً لهذا المفتاح:"
 
-#: src/Process/Backend/UserPreferences.php:595
+#: src/Process/Backend/UserPreferences.php:597
 msgid "Change my password"
 msgstr "تغيير كلمة المرور"
 
-#: src/Process/Backend/UserPreferences.php:614
+#: src/Process/Backend/UserPreferences.php:616
 msgid "Confirm new password:"
 msgstr "تأكيد كلمة المرور الجديدة:"
 
-#: src/Process/Backend/UserPreferences.php:624
+#: src/Process/Backend/UserPreferences.php:626
 msgid "Your current password:"
 msgstr "كلمة المرور الحالية:"
 
-#: src/Process/Backend/UserPreferences.php:628
+#: src/Process/Backend/UserPreferences.php:630
 msgid "If you have changed your email or password you must provide your current password to save these modifications."
 msgstr "إذا قمت بتغيير بريدك الإلكتروني أو كلمة المرور الخاصة بك، يجب عليك توفير كلمة المرور الحالية لحفظ هذه التعديلات."
 
-#: src/Process/Backend/UserPreferences.php:637
+#: src/Process/Backend/UserPreferences.php:639
 msgid "Your account is registered to two factors authentication."
 msgstr "حسابك مسجّل في مصادقة ذات عاملين."
 
-#: src/Process/Backend/UserPreferences.php:638
+#: src/Process/Backend/UserPreferences.php:640
 msgid "Disable two factors authentication"
 msgstr "تعطيل المصادقة بعاملين اثنين"
 
-#: src/Process/Backend/UserPreferences.php:645
+#: src/Process/Backend/UserPreferences.php:647
 msgid "Unable to create the QR code image, please use the secret below."
 msgstr "تعذّر إنشاء صورة رمز الاستجابة السريّة، يُرجى استخدام السر أدناه."
 
-#: src/Process/Backend/UserPreferences.php:649
+#: src/Process/Backend/UserPreferences.php:651
 msgid "Scan this QR code with your authentication application:"
 msgstr "امسح رمز الاستجابة السريعة هذا باستخدام تطبيق المصادقة الخاص بك:"
 
-#: src/Process/Backend/UserPreferences.php:662
+#: src/Process/Backend/UserPreferences.php:664
 msgid "Or enter this secret into your authentication application:"
 msgstr "أو أدخل هذا السر في تطبيق المصادقة الخاص بك:"
 
-#: src/Process/Backend/UserPreferences.php:663
+#: src/Process/Backend/UserPreferences.php:665
 msgid "Regenerate"
 msgstr "تجديد"
 
-#: src/Process/Backend/UserPreferences.php:673
+#: src/Process/Backend/UserPreferences.php:675
 msgid "Enter verification code:"
 msgstr "أدخل رمز التحقق:"
 
-#: src/Process/Backend/UserPreferences.php:690
+#: src/Process/Backend/UserPreferences.php:692
 msgid "unlabeled key"
 msgstr "مفتاح غير موسوم"
 
-#: src/Process/Backend/UserPreferences.php:692
+#: src/Process/Backend/UserPreferences.php:694
 #, php-format
 msgid "valid on %s"
 msgstr "صالح على %s"
 
-#: src/Process/Backend/UserPreferences.php:701
+#: src/Process/Backend/UserPreferences.php:703
 msgid "You have no registered key yet."
 msgstr "ليس لديك مفتاح مسجل حتى الآن."
 
-#: src/Process/Backend/UserPreferences.php:741
+#: src/Process/Backend/UserPreferences.php:743
 msgid "Linked to account:"
 msgstr "مرتبط بحساب:"
 
-#: src/Process/Backend/UserPreferences.php:768
 #: src/Process/Backend/UserPreferences.php:770
+#: src/Process/Backend/UserPreferences.php:772
 msgid "My profile"
 msgstr "ملفي الشخصي"
 
-#: src/Process/Backend/UserPreferences.php:855
+#: src/Process/Backend/UserPreferences.php:857
 msgid "Language for my interface:"
 msgstr "لغة الواجهة الخاصة بي:"
 
-#: src/Process/Backend/UserPreferences.php:863
+#: src/Process/Backend/UserPreferences.php:865
 msgid "My timezone:"
 msgstr "منطقتي الزمنية:"
 
-#: src/Process/Backend/UserPreferences.php:872
+#: src/Process/Backend/UserPreferences.php:874
 msgid "Update my profile"
 msgstr "تحديث ملفي الشخصي"
 
-#: src/Process/Backend/UserPreferences.php:885
+#: src/Process/Backend/UserPreferences.php:887
 msgid "Authentication keys"
 msgstr "مفاتيح الإشارة"
 
-#: src/Process/Backend/UserPreferences.php:892
+#: src/Process/Backend/UserPreferences.php:894
 msgid "Register a new key"
 msgstr "تسجيل مفتاح جديد"
 
-#: src/Process/Backend/UserPreferences.php:898
+#: src/Process/Backend/UserPreferences.php:900
 msgid "Authentication applications"
 msgstr "تطبيقات التوثيق"
 
-#: src/Process/Backend/UserPreferences.php:965
+#: src/Process/Backend/UserPreferences.php:967
 msgid "List"
 msgstr "القائمة"
 
-#: src/Process/Backend/UserPreferences.php:967
+#: src/Process/Backend/UserPreferences.php:969
 msgid "Order by"
 msgstr "الترتيب حسب"
 
-#: src/Process/Backend/UserPreferences.php:969
+#: src/Process/Backend/UserPreferences.php:971
 msgid "Sort"
 msgstr "فرز"
 
-#: src/Process/Backend/UserPreferences.php:982
+#: src/Process/Backend/UserPreferences.php:984
 #, php-format
 msgid "Preferred editor for %s:"
 msgstr "المحرر المفضل ل %s:"
 
-#: src/Process/Backend/UserPreferences.php:987
+#: src/Process/Backend/UserPreferences.php:989
 msgid "Choose an editor"
 msgstr "اختر محرراً"
 
-#: src/Process/Backend/UserPreferences.php:1008
-#: src/Process/Backend/UserPreferences.php:1014
+#: src/Process/Backend/UserPreferences.php:1010
+#: src/Process/Backend/UserPreferences.php:1016
 msgid "My options"
 msgstr "خياراتي"
 
-#: src/Process/Backend/UserPreferences.php:1023
+#: src/Process/Backend/UserPreferences.php:1025
 msgid "Theme:"
 msgstr "السمة:"
 
-#: src/Process/Backend/UserPreferences.php:1029
+#: src/Process/Backend/UserPreferences.php:1031
 msgid "Activate enhanced uploader in media manager"
 msgstr "تفعيل المحمّل المحسّن في إدارة الوسائط"
 
-#: src/Process/Backend/UserPreferences.php:1035
+#: src/Process/Backend/UserPreferences.php:1037
 msgid "Preview the entry being edited in a blank window or tab (depending on your browser settings)."
 msgstr "معاينة المادة التي يتم تحريرها في نافذة فارغة أو علامة تبويب (اعتمادًا على إعدادات المتصفح الخاص بك)."
 
-#: src/Process/Backend/UserPreferences.php:1042
+#: src/Process/Backend/UserPreferences.php:1044
 msgid "Disable javascript powered drag and drop for ordering items"
 msgstr "تعطيل السحب والإسقاط بواسطة جافا سكريبت لطلب العناصر"
 
-#: src/Process/Backend/UserPreferences.php:1046
+#: src/Process/Backend/UserPreferences.php:1048
 msgid "If checked, numeric fields will allow to type the elements' ordering number."
 msgstr "إذا تم تحديده، ستسمح الحقول الرقمية بكتابة رقم طلب العناصر."
 
-#: src/Process/Backend/UserPreferences.php:1051
+#: src/Process/Backend/UserPreferences.php:1053
 msgid "Hide all secondary information and notes"
 msgstr "إخفاء جميع المعلومات والملاحظات الثانوية"
 
-#: src/Process/Backend/UserPreferences.php:1057
+#: src/Process/Backend/UserPreferences.php:1059
 msgid "Hide help button"
 msgstr "إخفاء زر المساعدة"
 
-#: src/Process/Backend/UserPreferences.php:1064
+#: src/Process/Backend/UserPreferences.php:1066
 msgid "Font size:"
 msgstr "حجم الخط:"
 
-#: src/Process/Backend/UserPreferences.php:1070
+#: src/Process/Backend/UserPreferences.php:1072
+msgid "Use dynamic letter spacing"
+msgstr ""
+
+#: src/Process/Backend/UserPreferences.php:1076
+msgid "If checked, the larger the font size in interface texts, the smaller the space between characters will be, and vice versa."
+msgstr ""
+
+#: src/Process/Backend/UserPreferences.php:1081
 msgid "Use operating system font"
 msgstr "استخدام خط نظام التشغيل"
 
-#: src/Process/Backend/UserPreferences.php:1076
+#: src/Process/Backend/UserPreferences.php:1087
 msgid "Number of recent folders proposed in media manager:"
 msgstr "عدد المجلدات الحديثة المقترحة في إدارة الوسائط:"
 
-#: src/Process/Backend/UserPreferences.php:1080
+#: src/Process/Backend/UserPreferences.php:1091
 msgid "Set to 0 (zero) to ignore, displayed only if Javascript is enabled in your browser."
 msgstr "قم بالتعيين على 0 (صفر) للتجاهل، ولا يتم عرضها إلا إذا تم تمكين Javascript في متصفحك."
 
-#: src/Process/Backend/UserPreferences.php:1087
+#: src/Process/Backend/UserPreferences.php:1098
 msgid "Do not use standard favicon"
 msgstr "لا تستخدم favicon القياسية"
 
-#: src/Process/Backend/UserPreferences.php:1088
+#: src/Process/Backend/UserPreferences.php:1099
 msgid "This will be applied for all users"
 msgstr "سيتم تطبيق هذا على جميع المستخدمين"
 
-#: src/Process/Backend/UserPreferences.php:1098
+#: src/Process/Backend/UserPreferences.php:1109
 msgid "Disable Ad-blocker check"
 msgstr "تعطيل التحقق من مانع الإعلانات"
 
-#: src/Process/Backend/UserPreferences.php:1102
+#: src/Process/Backend/UserPreferences.php:1113
 msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
 msgstr "بعض مانعي الإعلانات (Ghostery, Adblock plus, uBloc Origin …) قد يتداخل مع بعض الميزات مثل إدخال رابط أو وسائط في إدخالات مع محرر CK؛ في هذه الحالة يجب عليك تعطيله من أجل تثبيت الـ Dotclear (الحزمة فقط). لاحظ أن Dotclear لا يضيف تعقب تشغيل الإعلانات في الخلفية."
 
-#: src/Process/Backend/UserPreferences.php:1105
+#: src/Process/Backend/UserPreferences.php:1116
 msgid "Note also that deactivating this detection of ad blockers will not deactivate the installed ad blockers. Dotclear cannot interfere with the operation of browser extensions!"
 msgstr "لاحظ أيضًا أن إلغاء تنشيط هذا الكشف عن أدوات منع الإعلانات لن يؤدي إلى إلغاء تنشيط أدوات منع الإعلانات المثبتة. لا يمكن أن يتداخل Dotclear مع تشغيل ملحقات المتصفح!"
 
-#: src/Process/Backend/UserPreferences.php:1113
+#: src/Process/Backend/UserPreferences.php:1124
 msgid "Quick menu character:"
 msgstr "طابع القائمة السريعة:"
 
-#: src/Process/Backend/UserPreferences.php:1117
+#: src/Process/Backend/UserPreferences.php:1128
 msgid "Leave empty to use the default character <kbd>:</kbd>"
 msgstr "اتركه فارغًا لاستخدام الحرف الافتراضي <kbd>:</kbd>"
 
-#: src/Process/Backend/UserPreferences.php:1122
+#: src/Process/Backend/UserPreferences.php:1133
 msgid "Keep the main menu at the top of the page as much as possible"
 msgstr "احتفظ بالقائمة الرئيسية في أعلى الصفحة قدر الإمكان"
 
-#: src/Process/Backend/UserPreferences.php:1126
+#: src/Process/Backend/UserPreferences.php:1137
 msgid "Optional columns displayed in lists"
 msgstr "الأعمدة الاختيارية المعروضة في القوائم"
 
-#: src/Process/Backend/UserPreferences.php:1129
+#: src/Process/Backend/UserPreferences.php:1140
 msgid "Options for lists"
 msgstr "خيارات للقوائم"
 
-#: src/Process/Backend/UserPreferences.php:1135
+#: src/Process/Backend/UserPreferences.php:1146
 msgid "Apply filters on the fly"
 msgstr "تطبيق عوامل التصفية على الطائرة"
 
-#: src/Process/Backend/UserPreferences.php:1172
+#: src/Process/Backend/UserPreferences.php:1183
 msgid "Enable WYSIWYG mode"
 msgstr "تمكين وضع WYSIWYG"
 
-#: src/Process/Backend/UserPreferences.php:1178
+#: src/Process/Backend/UserPreferences.php:1189
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr "عرض شريط أدوات المحرر في الجزء السفلي من النص (إن أمكن)"
 
-#: src/Process/Backend/UserPreferences.php:1184
+#: src/Process/Backend/UserPreferences.php:1195
 msgid "Use HTML editor for:"
 msgstr "استخدام محرر HTML لـ:"
 
-#: src/Process/Backend/UserPreferences.php:1188
+#: src/Process/Backend/UserPreferences.php:1199
 msgid "Other options"
 msgstr "خيارات أخرى"
 
-#: src/Process/Backend/UserPreferences.php:1199
+#: src/Process/Backend/UserPreferences.php:1210
 msgid "Save my options"
 msgstr "حفظ خياراتي"
 
-#: src/Process/Backend/UserPreferences.php:1230
+#: src/Process/Backend/UserPreferences.php:1241
 #, php-format
 msgid "position of %s"
 msgstr "موضع %s"
 
-#: src/Process/Backend/UserPreferences.php:1253
+#: src/Process/Backend/UserPreferences.php:1264
 msgid "Save order"
 msgstr "حفظ الطلب"
 
-#: src/Process/Backend/UserPreferences.php:1254
+#: src/Process/Backend/UserPreferences.php:1265
 msgid "Delete selected favorites"
 msgstr "حذف المفضلة المحددة"
 
-#: src/Process/Backend/UserPreferences.php:1261
+#: src/Process/Backend/UserPreferences.php:1272
 msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
 msgstr "إذا كنت مسؤول خارق، فيمكنك تحديد هذه المجموعة من المفضلات التي سيتم استخدامها بشكل افتراضي على جميع مدونات هذا التثبيت."
 
-#: src/Process/Backend/UserPreferences.php:1264
+#: src/Process/Backend/UserPreferences.php:1275
 msgid "Define as default favorites"
 msgstr "تعريف كمفضلة افتراضية"
 
-#: src/Process/Backend/UserPreferences.php:1273
+#: src/Process/Backend/UserPreferences.php:1284
 msgid "Currently no personal favorites."
 msgstr "حاليا لا يوجد مفضلة شخصية."
 
-#: src/Process/Backend/UserPreferences.php:1312
+#: src/Process/Backend/UserPreferences.php:1323
 msgid "(default favorite)"
 msgstr "(المفضل الافتراضي)"
 
-#: src/Process/Backend/UserPreferences.php:1327
+#: src/Process/Backend/UserPreferences.php:1338
 msgid "Add to my favorites"
 msgstr "أضف إلى مفضلاتي"
 
-#: src/Process/Backend/UserPreferences.php:1351
+#: src/Process/Backend/UserPreferences.php:1362
 msgid "Other available favorites"
 msgstr "المفضلة المتاحة الأخرى"
 
-#: src/Process/Backend/UserPreferences.php:1363
+#: src/Process/Backend/UserPreferences.php:1374
 msgid "Menu"
 msgstr "القائمة"
 
-#: src/Process/Backend/UserPreferences.php:1369
+#: src/Process/Backend/UserPreferences.php:1380
 msgid "Display favorites at the top of the menu"
 msgstr "عرض المفضلة في الجزء العلوي من القائمة"
 
-#: src/Process/Backend/UserPreferences.php:1373
+#: src/Process/Backend/UserPreferences.php:1384
 msgid "Dashboard icons"
 msgstr "أيقونات لوحة التحكم"
 
-#: src/Process/Backend/UserPreferences.php:1379
+#: src/Process/Backend/UserPreferences.php:1390
 msgid "Display dashboard icons"
 msgstr "عرض أيقونات لوحة التحكم"
 
-#: src/Process/Backend/UserPreferences.php:1383
+#: src/Process/Backend/UserPreferences.php:1394
 msgid "Dashboard modules"
 msgstr "وحدات لوحة التحكم"
 
-#: src/Process/Backend/UserPreferences.php:1389
+#: src/Process/Backend/UserPreferences.php:1400
 msgid "Display documentation links"
 msgstr "عرض روابط المستندات"
 
-#: src/Process/Backend/UserPreferences.php:1395
+#: src/Process/Backend/UserPreferences.php:1406
 msgid "Display donate links"
 msgstr "عرض روابط التبرع"
 
-#: src/Process/Backend/UserPreferences.php:1401
+#: src/Process/Backend/UserPreferences.php:1412
 msgid "Display Dotclear news"
 msgstr "عرض أخبار Dotclear"
 
-#: src/Process/Backend/UserPreferences.php:1407
+#: src/Process/Backend/UserPreferences.php:1418
 msgid "Display quick entry form"
 msgstr "عرض نموذج الإدخال السريع"
 
-#: src/Process/Backend/UserPreferences.php:1412
+#: src/Process/Backend/UserPreferences.php:1423
 msgid "Do not display Dotclear updates"
 msgstr "عدم عرض تحديثات Dotlear"
 
-#: src/Process/Backend/UserPreferences.php:1425
+#: src/Process/Backend/UserPreferences.php:1436
 msgid "Save my dashboard options"
 msgstr "حفظ خيارات لوحة التحكم الخاصة بي"
 
-#: src/Process/Backend/UserPreferences.php:1438
+#: src/Process/Backend/UserPreferences.php:1449
 msgid "Dashboard items order"
 msgstr "ترتيب عناصر لوحة التحكم"
 
-#: src/Process/Backend/UserPreferences.php:1441
+#: src/Process/Backend/UserPreferences.php:1452
 msgid "Reset dashboard items order"
 msgstr "إعادة تعيين عناصر لوحة التحكم"
 
