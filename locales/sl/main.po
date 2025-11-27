@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-19 10:18+0100\n"
-"PO-Revision-Date: 2025-11-19 09:49\n"
+"POT-Creation-Date: 2025-11-27 14:00+0100\n"
+"PO-Revision-Date: 2025-11-27 13:42\n"
 "Last-Translator: \n"
 "Language-Team: Slovenian\n"
 "Language: sl_SI\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Crowdin-File-ID: 262\n"
 
 #: inc/core/_fake_l10n.php:7 src/Process/Backend/Auth.php:446
-#: src/Process/Backend/User.php:265 src/Process/Backend/UserPreferences.php:567
+#: src/Process/Backend/User.php:265 src/Process/Backend/UserPreferences.php:569
 #: src/Process/Install/Install.php:427 src/Process/Upgrade/Auth.php:388
 msgid "medium"
 msgstr "srednje"
@@ -109,11 +109,11 @@ msgstr "upravljanje vseh medijskih elementov"
 msgid "manage their own media items"
 msgstr "upravljajo svoje lastne medijske elemente"
 
-#: src/Core/Auth.php:552
+#: src/Core/Auth.php:556
 msgid "That user does not exist in the database."
 msgstr "Ta uporabnik ne obstaja v bazi podatkov."
 
-#: src/Core/Auth.php:579
+#: src/Core/Auth.php:583
 msgid "That key does not exist in the database."
 msgstr "Ta ključ ne obstaja v bazi podatkov."
 
@@ -122,7 +122,7 @@ msgstr "Ta ključ ne obstaja v bazi podatkov."
 #: src/Core/Backend/Combos.php:297 src/Core/Backend/Listing/ListingPosts.php:78
 #: src/Core/Backend/Listing/ListingPostsMini.php:62
 #: src/Core/Backend/UserPref.php:205 src/Process/Backend/Home.php:591
-#: src/Process/Backend/MediaItem.php:1058 src/Process/Backend/Post.php:842
+#: src/Process/Backend/MediaItem.php:1059 src/Process/Backend/Post.php:842
 msgid "Title"
 msgstr "Naslov"
 
@@ -185,7 +185,7 @@ msgstr "Stanje"
 #: src/Core/Backend/Listing/ListingMedia.php:317
 #: src/Core/Backend/ModulesList.php:1361 src/Core/Upgrade/PluginsList.php:125
 #: src/Process/Backend/Comment.php:354 src/Process/Backend/Langs.php:231
-#: src/Process/Backend/Post.php:966 src/Process/Backend/UserPreferences.php:694
+#: src/Process/Backend/Post.php:966 src/Process/Backend/UserPreferences.php:696
 #: src/Process/Backend/Users.php:44 src/Process/Upgrade/Langs.php:297
 msgid "Delete"
 msgstr "Izbriši"
@@ -430,7 +430,7 @@ msgstr "Ustvari novo kategorijo za objave(e)"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:366
 #: src/Process/Backend/Home.php:595 src/Process/Backend/Home.php:629
-#: src/Process/Backend/Media.php:777 src/Process/Backend/MediaItem.php:1198
+#: src/Process/Backend/Media.php:777 src/Process/Backend/MediaItem.php:1199
 #: src/Process/Backend/Post.php:744 src/Process/Backend/Post.php:847
 msgid "Title:"
 msgstr "Naslov:"
@@ -448,7 +448,7 @@ msgstr "Starš:"
 #: src/Process/Backend/Category.php:297 src/Process/Backend/Category.php:336
 #: src/Process/Backend/Category.php:372 src/Process/Backend/Comment.php:349
 #: src/Process/Backend/Home.php:646 src/Process/Backend/Home.php:700
-#: src/Process/Backend/MediaItem.php:1238 src/Process/Backend/Post.php:931
+#: src/Process/Backend/MediaItem.php:1239 src/Process/Backend/Post.php:931
 #: src/Process/Backend/Post.php:1145 src/Process/Backend/User.php:554
 #: src/Process/Backend/UsersActions.php:513 src/Process/Install/Install.php:550
 msgid "Save"
@@ -505,11 +505,11 @@ msgstr "Na voljo"
 msgid "Other"
 msgstr "drugo"
 
-#: src/Core/Backend/Combos.php:283 src/Process/Backend/UserPreferences.php:196
+#: src/Core/Backend/Combos.php:283 src/Process/Backend/UserPreferences.php:197
 msgid "Descending"
 msgstr "Sestopanje"
 
-#: src/Core/Backend/Combos.php:284 src/Process/Backend/UserPreferences.php:197
+#: src/Core/Backend/Combos.php:284 src/Process/Backend/UserPreferences.php:198
 msgid "Ascending"
 msgstr "Naraščajoče"
 
@@ -599,12 +599,12 @@ msgid "Number of entries"
 msgstr "Število vnosov"
 
 #: src/Core/Backend/Favorites.php:287
-#: src/Process/Backend/UserPreferences.php:1346
+#: src/Process/Backend/UserPreferences.php:1357
 msgid "My favorites"
 msgstr "Moji najljubši"
 
 #: src/Core/Backend/Favorites.php:399 src/Core/Backend/Menus.php:195
-#: src/Core/Backend/Page.php:372 src/Process/Backend/Media.php:796
+#: src/Core/Backend/Page.php:375 src/Process/Backend/Media.php:796
 #: src/Process/Backend/UserPreferences.php:70
 msgid "My preferences"
 msgstr "Moje nastavitve"
@@ -650,7 +650,7 @@ msgstr "kategorije"
 #: src/Core/Backend/MediaPage.php:365 src/Core/Backend/MediaPage.php:416
 #: src/Core/Backend/Menus.php:117 src/Core/Backend/UserPref.php:200
 #: src/Process/Backend/Media.php:702 src/Process/Backend/Media.php:830
-#: src/Process/Backend/MediaItem.php:410 src/Process/Backend/MediaItem.php:416
+#: src/Process/Backend/MediaItem.php:411 src/Process/Backend/MediaItem.php:417
 msgid "Media manager"
 msgstr "Medijski menedžer"
 
@@ -693,28 +693,28 @@ msgstr "Nastavitve vtičnikov"
 msgid "Languages"
 msgstr "Jeziki"
 
-#: src/Core/Backend/Favorites.php:527 src/Core/Backend/Page.php:447
-#: src/Core/Backend/Page.php:448 src/Process/Backend/Help.php:109
+#: src/Core/Backend/Favorites.php:527 src/Core/Backend/Page.php:450
+#: src/Core/Backend/Page.php:451 src/Process/Backend/Help.php:109
 #: src/Process/Backend/Help.php:116 src/Process/Backend/Help.php:122
 msgid "Global help"
 msgstr "Globalna pomoč"
 
-#: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1277
+#: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1283
 #: src/Process/Backend/Auth.php:513 src/Process/Backend/BlogPref.php:1369
 #: src/Process/Backend/Comment.php:305 src/Process/Backend/Post.php:1114
-#: src/Process/Backend/User.php:450 src/Process/Backend/UserPreferences.php:813
+#: src/Process/Backend/User.php:450 src/Process/Backend/UserPreferences.php:815
 #: src/Process/Install/Install.php:508
 msgid "Email:"
 msgstr "E-naslov:"
 
-#: src/Core/Backend/Filter/FilterComments.php:37 src/Core/Backend/Page.php:1276
+#: src/Core/Backend/Filter/FilterComments.php:37 src/Core/Backend/Page.php:1282
 #: src/Process/Backend/Comment.php:321 src/Process/Backend/Post.php:1123
 msgid "Web site:"
 msgstr "Spletna stran:"
 
 #: src/Core/Backend/Filter/FilterComments.php:58
 #: src/Core/Backend/Filter/FilterPosts.php:92
-#: src/Core/Backend/ModulesList.php:1045 src/Core/Backend/Page.php:1318
+#: src/Core/Backend/ModulesList.php:1045 src/Core/Backend/Page.php:1324
 #: src/Process/Backend/Comment.php:294
 msgid "Author:"
 msgstr "Avtor:"
@@ -733,7 +733,7 @@ msgid "Trackback"
 msgstr "Izslediti"
 
 #: src/Core/Backend/Filter/FilterComments.php:107
-#: src/Core/Backend/Page.php:1278 src/Process/Backend/Comment.php:269
+#: src/Core/Backend/Page.php:1284 src/Process/Backend/Comment.php:269
 msgid "IP address:"
 msgstr "IP naslov:"
 
@@ -834,7 +834,7 @@ msgid "Sort:"
 msgstr "Razvrsti:"
 
 #: src/Core/Backend/Filter/Filters.php:390
-#: src/Process/Backend/UserPreferences.php:971
+#: src/Process/Backend/UserPreferences.php:973
 msgid "Show"
 msgstr "Prikaži"
 
@@ -846,7 +846,7 @@ msgstr "Shrani trenutne možnosti"
 msgid "Display options"
 msgstr "Možnosti prikaza"
 
-#: src/Core/Backend/Filter/Filters.php:422 src/Core/Backend/Page.php:1486
+#: src/Core/Backend/Filter/Filters.php:422 src/Core/Backend/Page.php:1492
 msgid "Show filters and display options"
 msgstr "Prikaži filtre in možnosti prikaza"
 
@@ -855,7 +855,7 @@ msgid "Apply filters and display options"
 msgstr "Uporabite filtre in možnosti prikaza"
 
 #: src/Core/Backend/Filter/FiltersLibrary.php:87
-#: src/Core/Backend/MediaPage.php:402 src/Core/Backend/Page.php:475
+#: src/Core/Backend/MediaPage.php:402 src/Core/Backend/Page.php:478
 msgid "Search:"
 msgstr "Iskanje:"
 
@@ -1216,7 +1216,7 @@ msgstr "drugo"
 msgid "Search in repository:"
 msgstr "Išči v skladišču:"
 
-#: src/Core/Backend/ModulesList.php:413 src/Core/Backend/Page.php:477
+#: src/Core/Backend/ModulesList.php:413 src/Core/Backend/Page.php:480
 msgid "OK"
 msgstr "v redu"
 
@@ -1271,7 +1271,7 @@ msgid "Current version"
 msgstr "Trenutna verzija"
 
 #: src/Core/Backend/ModulesList.php:839 src/Core/Backend/ModulesList.php:1063
-#: src/Core/Backend/Page.php:1319 src/Core/Backend/ThemesList.php:230
+#: src/Core/Backend/Page.php:1325 src/Core/Backend/ThemesList.php:230
 #: src/Core/Backend/ThemesList.php:300
 msgid "Details"
 msgstr "Podrobnosti"
@@ -1321,7 +1321,7 @@ msgstr "Vtičnik v razvoju"
 msgid "Release date:"
 msgstr "Datum izida:"
 
-#: src/Core/Backend/ModulesList.php:1070 src/Core/Backend/Page.php:1320
+#: src/Core/Backend/ModulesList.php:1070 src/Core/Backend/Page.php:1326
 #: src/Core/Backend/ThemesList.php:236
 msgid "Support"
 msgstr "Podpora"
@@ -1330,11 +1330,11 @@ msgstr "Podpora"
 msgid "update locked"
 msgstr "posodobitev zaklenjena"
 
-#: src/Core/Backend/ModulesList.php:1115 src/Core/Backend/Page.php:1322
+#: src/Core/Backend/ModulesList.php:1115 src/Core/Backend/Page.php:1328
 msgid "Section:"
 msgstr "razdelek:"
 
-#: src/Core/Backend/ModulesList.php:1121 src/Core/Backend/Page.php:1323
+#: src/Core/Backend/ModulesList.php:1121 src/Core/Backend/Page.php:1329
 msgid "Tags:"
 msgstr "Oznake:"
 
@@ -1522,7 +1522,7 @@ msgstr "Geslo"
 msgid "Your password:"
 msgstr "Vaše geslo:"
 
-#: src/Core/Backend/ModulesList.php:1785 src/Core/Backend/Page.php:1442
+#: src/Core/Backend/ModulesList.php:1785 src/Core/Backend/Page.php:1448
 #: src/Process/Backend/Media.php:809
 msgid "Upload"
 msgstr "Naloži"
@@ -1560,16 +1560,16 @@ msgstr "Konfiguriraj \"%s\""
 #: src/Core/Backend/ModulesList.php:1984 src/Process/Backend/Blog.php:197
 #: src/Process/Backend/BlogDel.php:138 src/Process/Backend/BlogPref.php:1195
 #: src/Process/Backend/Category.php:300 src/Process/Backend/Comment.php:351
-#: src/Process/Backend/Media.php:871 src/Process/Backend/MediaItem.php:1325
+#: src/Process/Backend/Media.php:871 src/Process/Backend/MediaItem.php:1327
 #: src/Process/Backend/Post.php:956 src/Process/Backend/Search.php:193
-#: src/Process/Backend/User.php:565 src/Process/Backend/UserPreferences.php:874
-#: src/Process/Backend/UserPreferences.php:1201
-#: src/Process/Backend/UserPreferences.php:1427
+#: src/Process/Backend/User.php:565 src/Process/Backend/UserPreferences.php:876
+#: src/Process/Backend/UserPreferences.php:1212
+#: src/Process/Backend/UserPreferences.php:1438
 msgid "Back"
 msgstr "Nazaj"
 
-#: src/Core/Backend/Notices.php:86 src/Core/Backend/Page.php:1279
-#: src/Core/Backend/Page.php:1437 src/Core/Upgrade/Notices.php:48
+#: src/Core/Backend/Notices.php:86 src/Core/Backend/Page.php:1285
+#: src/Core/Backend/Page.php:1443 src/Core/Upgrade/Notices.php:48
 #: src/Process/Backend/Home.php:324
 msgid "Error:"
 msgstr "Napaka:"
@@ -1585,7 +1585,7 @@ msgid "%H:%M:%S"
 msgstr "%H:%M:%S"
 
 #: src/Core/Backend/Notices.php:258 src/Core/Backend/Notices.php:298
-#: src/Core/Backend/Notices.php:308 src/Core/Backend/Page.php:1325
+#: src/Core/Backend/Notices.php:308 src/Core/Backend/Page.php:1331
 #: src/Process/Backend/Categories.php:341 src/Process/Backend/Post.php:1058
 #: src/Process/Backend/Post.php:1190 src/Process/Backend/PostsPopup.php:121
 msgid "Ok"
@@ -1604,387 +1604,387 @@ msgstr "Spremeni blog"
 msgid "Blogs:"
 msgstr "Blogi:"
 
-#: src/Core/Backend/Page.php:312 src/Core/Upgrade/Page.php:148
+#: src/Core/Backend/Page.php:315 src/Core/Upgrade/Page.php:151
 msgid "Go to the content"
 msgstr "Pojdite na vsebino"
 
-#: src/Core/Backend/Page.php:316 src/Core/Upgrade/Page.php:152
+#: src/Core/Backend/Page.php:319 src/Core/Upgrade/Page.php:155
 msgid "Go to the menu"
 msgstr "Pojdite v meni"
 
-#: src/Core/Backend/Page.php:320 src/Core/Upgrade/Page.php:156
+#: src/Core/Backend/Page.php:323 src/Core/Upgrade/Page.php:159
 msgid "Go to help"
 msgstr "Pojdi pomagat"
 
-#: src/Core/Backend/Page.php:339 src/Core/Upgrade/Page.php:174
-#: src/Process/Backend/UserPreferences.php:1336
-#: src/Process/Backend/UserPreferences.php:1338
+#: src/Core/Backend/Page.php:342 src/Core/Upgrade/Page.php:177
+#: src/Process/Backend/UserPreferences.php:1347
+#: src/Process/Backend/UserPreferences.php:1349
 msgid "My dashboard"
 msgstr "Moja nadzorna plošča"
 
-#: src/Core/Backend/Page.php:355 src/Core/Backend/Page.php:357
+#: src/Core/Backend/Page.php:358 src/Core/Backend/Page.php:360
 msgid "Go to site"
 msgstr "Pojdi na stran"
 
-#: src/Core/Backend/Page.php:380 src/Core/Upgrade/Page.php:203
+#: src/Core/Backend/Page.php:383 src/Core/Upgrade/Page.php:206
 #, php-format
 msgid "Logout %s"
 msgstr "Odjava %s"
 
-#: src/Core/Backend/Page.php:401 src/Core/Upgrade/Page.php:224
+#: src/Core/Backend/Page.php:404 src/Core/Upgrade/Page.php:227
 msgid "Hide main menu"
 msgstr "Skrij glavni meni"
 
-#: src/Core/Backend/Page.php:404 src/Core/Upgrade/Page.php:227
+#: src/Core/Backend/Page.php:407 src/Core/Upgrade/Page.php:230
 msgid "Show main menu"
 msgstr "Pokaži glavni meni"
 
-#: src/Core/Backend/Page.php:425
+#: src/Core/Backend/Page.php:428
 msgid "Safe mode"
 msgstr "Varni način"
 
-#: src/Core/Backend/Page.php:427
+#: src/Core/Backend/Page.php:430
 msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities"
 msgstr "Ste v varnem načinu. Vsi vtičniki so bili začasno onemogočeni. Opomni, da se odjavite, nato pa se znova prijavite na običajen način, da obnovite vse funkcije"
 
-#: src/Core/Backend/Page.php:495 src/Core/Upgrade/Page.php:260
+#: src/Core/Backend/Page.php:498 src/Core/Upgrade/Page.php:263
 #, php-format
 msgid "Thank you for using %s."
 msgstr "Hvala za uporabo %s."
 
-#: src/Core/Backend/Page.php:512 src/Core/Backend/Page.php:516
-#: src/Core/Backend/Page.php:518 src/Core/Backend/Page.php:663
-#: src/Core/Backend/Page.php:665 src/Core/Upgrade/Page.php:271
-#: src/Core/Upgrade/Page.php:275 src/Core/Upgrade/Page.php:277
+#: src/Core/Backend/Page.php:515 src/Core/Backend/Page.php:519
+#: src/Core/Backend/Page.php:521 src/Core/Backend/Page.php:669
+#: src/Core/Backend/Page.php:671 src/Core/Upgrade/Page.php:274
+#: src/Core/Upgrade/Page.php:278 src/Core/Upgrade/Page.php:280
 msgid "Page top"
 msgstr "Vrh strani"
 
-#: src/Core/Backend/Page.php:538 src/Core/Backend/Page.php:541
-#: src/Core/Upgrade/Page.php:297 src/Core/Upgrade/Page.php:300
+#: src/Core/Backend/Page.php:541 src/Core/Backend/Page.php:544
+#: src/Core/Upgrade/Page.php:300 src/Core/Upgrade/Page.php:303
 msgid "Dotclear logo"
 msgstr "Logotip Dotclear"
 
-#: src/Core/Backend/Page.php:875 src/Core/Backend/Page.php:878
-#: src/Core/Upgrade/Page.php:339 src/Core/Upgrade/Page.php:342
+#: src/Core/Backend/Page.php:881 src/Core/Backend/Page.php:884
+#: src/Core/Upgrade/Page.php:342 src/Core/Upgrade/Page.php:345
 msgid "Go to dashboard"
 msgstr "Pojdi na nadzorno ploščo"
 
-#: src/Core/Backend/Page.php:1127 src/Core/Upgrade/Page.php:451
+#: src/Core/Backend/Page.php:1133 src/Core/Upgrade/Page.php:454
 msgid "Help about this page"
 msgstr "Pomoč glede te strani"
 
-#: src/Core/Backend/Page.php:1137 src/Core/Upgrade/Page.php:460
+#: src/Core/Backend/Page.php:1143 src/Core/Upgrade/Page.php:463
 #, php-format
 msgid "See also %s"
 msgstr "Glej tudi %s"
 
-#: src/Core/Backend/Page.php:1140 src/Core/Upgrade/Page.php:463
+#: src/Core/Backend/Page.php:1146 src/Core/Upgrade/Page.php:466
 msgid "the global help"
 msgstr "globalna pomoč"
 
-#: src/Core/Backend/Page.php:1261
+#: src/Core/Backend/Page.php:1267
 msgid "uncover"
 msgstr "odkriti"
 
-#: src/Core/Backend/Page.php:1265
+#: src/Core/Backend/Page.php:1271
 msgid "hide"
 msgstr "skriti"
 
-#: src/Core/Backend/Page.php:1269
+#: src/Core/Backend/Page.php:1275
 msgid "Need help?"
 msgstr "Rabim pomoč?"
 
-#: src/Core/Backend/Page.php:1270
+#: src/Core/Backend/Page.php:1276
 msgid "new window"
 msgstr "novo okno"
 
-#: src/Core/Backend/Page.php:1271
+#: src/Core/Backend/Page.php:1277
 msgid "Hide"
 msgstr "Skrij se"
 
-#: src/Core/Backend/Page.php:1272
+#: src/Core/Backend/Page.php:1278
 msgid "Select:"
 msgstr "izberite:"
 
-#: src/Core/Backend/Page.php:1273
+#: src/Core/Backend/Page.php:1279
 msgid "No selection"
 msgstr "Brez izbire"
 
-#: src/Core/Backend/Page.php:1274
+#: src/Core/Backend/Page.php:1280
 msgid "Select all"
 msgstr "Izberi vse"
 
-#: src/Core/Backend/Page.php:1275
+#: src/Core/Backend/Page.php:1281
 msgid "Invert selection"
 msgstr "Obrni izbor"
 
-#: src/Core/Backend/Page.php:1280 src/Process/Backend/Post.php:466
+#: src/Core/Backend/Page.php:1286 src/Process/Backend/Post.php:466
 #: src/Process/Backend/Post.php:609
 msgid "Entry has been successfully created."
 msgstr "Vnos je bil uspešno ustvarjen."
 
-#: src/Core/Backend/Page.php:1281
+#: src/Core/Backend/Page.php:1287
 msgid "Edit entry"
 msgstr "Uredi vnos"
 
-#: src/Core/Backend/Page.php:1282
+#: src/Core/Backend/Page.php:1288
 msgid "view entry"
 msgstr "ogled vnosa"
 
-#: src/Core/Backend/Page.php:1283
+#: src/Core/Backend/Page.php:1289
 #, php-format
 msgid "Are you sure you want to delete selected entries (%s)?"
 msgstr "Ali ste prepričani, da želite izbrisati izbrane vnose (%s)?"
 
-#: src/Core/Backend/Page.php:1284
+#: src/Core/Backend/Page.php:1290
 #, php-format
 msgid "Are you sure you want to delete selected medias (%d)?"
 msgstr "Ali ste prepričani, da želite izbrisati izbrane medije (%d)?"
 
-#: src/Core/Backend/Page.php:1285
+#: src/Core/Backend/Page.php:1291
 #, php-format
 msgid "Are you sure you want to delete selected categories (%s)?"
 msgstr "Ali ste prepričani, da želite izbrisati izbrane kategorije (%s)?"
 
-#: src/Core/Backend/Page.php:1286
+#: src/Core/Backend/Page.php:1292
 msgid "Are you sure you want to delete this entry?"
 msgstr "Ali ste prepričani, da želite izbrisati ta vnos?"
 
-#: src/Core/Backend/Page.php:1287
+#: src/Core/Backend/Page.php:1293
 msgid "Click here to unlock the field"
 msgstr "Kliknite tukaj, da odklenete polje"
 
-#: src/Core/Backend/Page.php:1288
+#: src/Core/Backend/Page.php:1294
 msgid "Are you sure you want to delete all spams?"
 msgstr "Ali ste prepričani, da želite izbrisati vso vsiljeno pošto?"
 
-#: src/Core/Backend/Page.php:1289
+#: src/Core/Backend/Page.php:1295
 #, php-format
 msgid "Are you sure you want to delete selected comments (%s)?"
 msgstr "Ali ste prepričani, da želite izbrisati izbrane komentarje (%s)?"
 
-#: src/Core/Backend/Page.php:1290
+#: src/Core/Backend/Page.php:1296
 msgid "Are you sure you want to delete this comment?"
 msgstr "Ali ste prepričani, da želite izbrisati ta komentar?"
 
-#: src/Core/Backend/Page.php:1291
+#: src/Core/Backend/Page.php:1297
 msgid "Users with posts cannot be deleted."
 msgstr "Uporabnikov z objavami ni mogoče izbrisati."
 
-#: src/Core/Backend/Page.php:1292
+#: src/Core/Backend/Page.php:1298
 #, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
 msgstr "Ali ste prepričani, da želite izbrisati izbrane uporabnike (%s)?"
 
-#: src/Core/Backend/Page.php:1293
+#: src/Core/Backend/Page.php:1299
 #, php-format
 msgid "Are you sure you want to delete selected blogs (%s)?"
 msgstr "Ali ste prepričani, da želite izbrisati izbrane bloge (%s)?"
 
-#: src/Core/Backend/Page.php:1294
+#: src/Core/Backend/Page.php:1300
 #, php-format
 msgid "Are you sure you want to delete category \"%s\"?"
 msgstr "Ali ste prepričani, da želite izbrisati kategorijo »%s«?"
 
-#: src/Core/Backend/Page.php:1295
+#: src/Core/Backend/Page.php:1301
 msgid "Are you sure you want to reorder all categories?"
 msgstr "Ali ste prepričani, da želite preurediti vse kategorije?"
 
-#: src/Core/Backend/Page.php:1296
+#: src/Core/Backend/Page.php:1302
 #, php-format
 msgid "Are you sure you want to remove media \"%s\"?"
 msgstr "Ali ste prepričani, da želite odstraniti predstavnost »%s«?"
 
-#: src/Core/Backend/Page.php:1297
+#: src/Core/Backend/Page.php:1303
 #, php-format
 msgid "Are you sure you want to remove directory \"%s\"?"
 msgstr "Ali ste prepričani, da želite odstraniti imenik »%s«?"
 
-#: src/Core/Backend/Page.php:1298
+#: src/Core/Backend/Page.php:1304
 msgid "Are you sure you want to extract archive in current directory?"
 msgstr "Ali ste prepričani, da želite ekstrahirati arhiv v trenutnem imeniku?"
 
-#: src/Core/Backend/Page.php:1299
+#: src/Core/Backend/Page.php:1305
 #, php-format
 msgid "Are you sure you want to remove attachment \"%s\"?"
 msgstr "Ali ste prepričani, da želite odstraniti prilogo »%s«?"
 
-#: src/Core/Backend/Page.php:1300
+#: src/Core/Backend/Page.php:1306
 #, php-format
 msgid "Are you sure you want to delete \"%s\" language?"
 msgstr "Ali ste prepričani, da želite izbrisati jezik »%s«?"
 
-#: src/Core/Backend/Page.php:1301
+#: src/Core/Backend/Page.php:1307
 #, php-format
 msgid "Are you sure you want to delete \"%s\" plugin?"
 msgstr "Ali ste prepričani, da želite izbrisati vtičnik »%s«?"
 
-#: src/Core/Backend/Page.php:1302
+#: src/Core/Backend/Page.php:1308
 msgid "Are you sure you want to delete selected plugins?"
 msgstr "Ali ste prepričani, da želite izbrisati izbrane vtičnike?"
 
-#: src/Core/Backend/Page.php:1303
+#: src/Core/Backend/Page.php:1309
 msgid "Use this theme"
 msgstr "Uporabite to temo"
 
-#: src/Core/Backend/Page.php:1304
+#: src/Core/Backend/Page.php:1310
 msgid "Remove this theme"
 msgstr "Odstrani to temo"
 
-#: src/Core/Backend/Page.php:1305
+#: src/Core/Backend/Page.php:1311
 #, php-format
 msgid "Are you sure you want to delete \"%s\" theme?"
 msgstr "Ali ste prepričani, da želite izbrisati temo »%s«?"
 
-#: src/Core/Backend/Page.php:1306
+#: src/Core/Backend/Page.php:1312
 msgid "Are you sure you want to delete selected themes?"
 msgstr "Ali ste prepričani, da želite izbrisati izbrane teme?"
 
-#: src/Core/Backend/Page.php:1307
+#: src/Core/Backend/Page.php:1313
 msgid "Are you sure you want to delete this backup?"
 msgstr "Ali ste prepričani, da želite izbrisati to varnostno kopijo?"
 
-#: src/Core/Backend/Page.php:1308
+#: src/Core/Backend/Page.php:1314
 msgid "Are you sure you want to revert to this backup?"
 msgstr "Ali ste prepričani, da želite povrniti to varnostno kopijo?"
 
-#: src/Core/Backend/Page.php:1309
+#: src/Core/Backend/Page.php:1315
 msgid "Zip file content"
 msgstr "Vsebina datoteke zip"
 
-#: src/Core/Backend/Page.php:1310
+#: src/Core/Backend/Page.php:1316
 msgid "HTML markup validator"
 msgstr "Preverjevalnik oznak HTML"
 
-#: src/Core/Backend/Page.php:1311
+#: src/Core/Backend/Page.php:1317
 msgid "HTML content is valid."
 msgstr "Vsebina HTML je veljavna."
 
-#: src/Core/Backend/Page.php:1312
+#: src/Core/Backend/Page.php:1318
 msgid "There are HTML markup errors."
 msgstr "Obstajajo napake pri označevanju HTML."
 
-#: src/Core/Backend/Page.php:1313
+#: src/Core/Backend/Page.php:1319
 msgid "Attention: an audit of a content not yet registered."
 msgstr "Pozor: revizija vsebine, ki še ni registrirana."
 
-#: src/Core/Backend/Page.php:1314
+#: src/Core/Backend/Page.php:1320
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
 msgstr "Imate neshranjene spremembe. Sprememba oblike objave bo izgubila te spremembe. Ali vseeno nadaljujem?"
 
-#: src/Core/Backend/Page.php:1315
+#: src/Core/Backend/Page.php:1321
 msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
 msgstr "Opozorilo: sprememba oblike objave ne bo pretvorila obstoječe vsebine. Novo obliko boste morali uporabiti sami. Ali vseeno nadaljujem?"
 
-#: src/Core/Backend/Page.php:1316
+#: src/Core/Backend/Page.php:1322
 msgid "Loading enhanced uploader, please wait."
 msgstr "Nalaganje izboljšanega programa za nalaganje, počakajte."
 
-#: src/Core/Backend/Page.php:1321
+#: src/Core/Backend/Page.php:1327
 msgid "Help:"
 msgstr "pomoč:"
 
-#: src/Core/Backend/Page.php:1327
+#: src/Core/Backend/Page.php:1333
 msgid "Show password"
 msgstr "Pokaži geslo"
 
-#: src/Core/Backend/Page.php:1328
+#: src/Core/Backend/Page.php:1334
 msgid "Hide password"
 msgstr "Skrij geslo"
 
-#: src/Core/Backend/Page.php:1330
+#: src/Core/Backend/Page.php:1336
 msgid "Reset to now"
 msgstr "Ponastavi na zdaj"
 
-#: src/Core/Backend/Page.php:1331
+#: src/Core/Backend/Page.php:1337
 msgid "The publication date has changed. Reset the base name of the entry URL?"
 msgstr "Datum objave se je spremenil. Ponastavite osnovno ime URL vnosa?"
 
-#: src/Core/Backend/Page.php:1332
+#: src/Core/Backend/Page.php:1338
 msgid "The publication title has changed. Reset the base name of the entry URL?"
 msgstr "Naslov publikacije se je spremenil. Ponastavite osnovno ime naslova URL vnosa?"
 
-#: src/Core/Backend/Page.php:1334
+#: src/Core/Backend/Page.php:1340
 msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences."
 msgstr "Na tej nadzorni plošči Dotclear (Ghostery, Adblock plus, uBlock origin, …) je bil zaznan blokator oglasov, ki lahko moti nekatere funkcije. V tem primeru ga morate onemogočiti. Upoštevajte, da je to zaznavanje morda onemogočeno v vaših nastavitvah."
 
-#: src/Core/Backend/Page.php:1386
+#: src/Core/Backend/Page.php:1392
 msgid "You have unsaved changes."
 msgstr "Imate neshranjene spremembe."
 
-#: src/Core/Backend/Page.php:1387
+#: src/Core/Backend/Page.php:1393
 msgid "your battery charge seems low (%d%) and you have unsaved changes, you should save them."
 msgstr "vaša baterija se zdi nizka (%d%) in imate neshranjene spremembe, shranite jih."
 
-#: src/Core/Backend/Page.php:1428
+#: src/Core/Backend/Page.php:1434
 msgid "Temporarily activate enhanced uploader"
 msgstr "Začasno aktiviraj napredni program za nalaganje"
 
-#: src/Core/Backend/Page.php:1429
+#: src/Core/Backend/Page.php:1435
 msgid "Temporarily disable enhanced uploader"
 msgstr "Začasno onemogoči napredni program za nalaganje"
 
-#: src/Core/Backend/Page.php:1433
+#: src/Core/Backend/Page.php:1439
 msgid "Limit exceeded."
 msgstr "Omejitev presežena."
 
-#: src/Core/Backend/Page.php:1434
+#: src/Core/Backend/Page.php:1440
 msgid "File size exceeds allowed limit."
 msgstr "Velikost datoteke presega dovoljeno omejitev."
 
-#: src/Core/Backend/Page.php:1435
+#: src/Core/Backend/Page.php:1441
 msgid "Canceled."
 msgstr "Prekinjeno."
 
-#: src/Core/Backend/Page.php:1436
+#: src/Core/Backend/Page.php:1442
 msgid "HTTP Error:"
 msgstr "Napaka HTTP:"
 
-#: src/Core/Backend/Page.php:1438 src/Process/Backend/Media.php:752
+#: src/Core/Backend/Page.php:1444 src/Process/Backend/Media.php:752
 msgid "Choose file"
 msgstr "Izberite datoteko"
 
-#: src/Core/Backend/Page.php:1439 src/Process/Backend/Media.php:758
+#: src/Core/Backend/Page.php:1445 src/Process/Backend/Media.php:758
 msgid "Choose files"
 msgstr "Izberite datoteke"
 
-#: src/Core/Backend/Page.php:1440 src/Process/Backend/LinkPopup.php:114
-#: src/Process/Backend/Media.php:305 src/Process/Backend/MediaItem.php:515
-#: src/Process/Backend/MediaItem.php:771 src/Process/Backend/Post.php:962
+#: src/Core/Backend/Page.php:1446 src/Process/Backend/LinkPopup.php:114
+#: src/Process/Backend/Media.php:305 src/Process/Backend/MediaItem.php:516
+#: src/Process/Backend/MediaItem.php:772 src/Process/Backend/Post.php:962
 #: src/Process/Backend/PostMedia.php:115
 msgid "Cancel"
 msgstr "Prekliči"
 
-#: src/Core/Backend/Page.php:1441
+#: src/Core/Backend/Page.php:1447
 msgid "Clean"
 msgstr "čisto"
 
-#: src/Core/Backend/Page.php:1443
+#: src/Core/Backend/Page.php:1449
 msgid "Send"
 msgstr "Pošlji"
 
-#: src/Core/Backend/Page.php:1444
+#: src/Core/Backend/Page.php:1450
 msgid "File successfully uploaded."
 msgstr "Datoteka je bila uspešno naložena."
 
-#: src/Core/Backend/Page.php:1445
+#: src/Core/Backend/Page.php:1451
 msgid "No file in queue."
 msgstr "Ni datoteke v čakalni vrsti."
 
-#: src/Core/Backend/Page.php:1446
+#: src/Core/Backend/Page.php:1452
 msgid "1 file in queue."
 msgstr "1 datoteka v čakalni vrsti."
 
-#: src/Core/Backend/Page.php:1447
+#: src/Core/Backend/Page.php:1453
 #, php-format
 msgid "%d files in queue."
 msgstr "%d datotek v čakalni vrsti."
 
-#: src/Core/Backend/Page.php:1448
+#: src/Core/Backend/Page.php:1454
 msgid "Queue error:"
 msgstr "Napaka čakalne vrste:"
 
-#: src/Core/Backend/Page.php:1487
+#: src/Core/Backend/Page.php:1493
 msgid "Cancel filters and display options"
 msgstr "Prekliči filtre in možnosti prikaza"
 
@@ -2274,55 +2274,55 @@ msgstr "Ni vam dovoljeno spreminjati kategorije vnosov"
 msgid "You are not allowed to delete entries"
 msgstr "Nimate dovoljenja za brisanje vnosov"
 
-#: src/Core/Blog.php:1912
+#: src/Core/Blog.php:1914
 msgid "No entry title"
 msgstr "Brez naslova vnosa"
 
-#: src/Core/Blog.php:1916 src/Core/Blog.php:1930
+#: src/Core/Blog.php:1918 src/Core/Blog.php:1932
 msgid "No entry content"
 msgstr "Brez vstopne vsebine"
 
-#: src/Core/Blog.php:1996
+#: src/Core/Blog.php:1998
 msgid "Notes"
 msgstr "Opombe"
 
-#: src/Core/Blog.php:1998
+#: src/Core/Blog.php:2000
 msgid "Note"
 msgstr "Opomba"
 
-#: src/Core/Blog.php:2113
+#: src/Core/Blog.php:2115
 msgid "Empty entry URL"
 msgstr "URL prazen vnos"
 
-#: src/Core/Blog.php:2424
+#: src/Core/Blog.php:2426
 msgid "You are not allowed to update comments"
 msgstr "Nimate dovoljenja za posodabljanje komentarjev"
 
-#: src/Core/Blog.php:2430 src/Core/Blog.php:2436 src/Core/Blog.php:2541
+#: src/Core/Blog.php:2432 src/Core/Blog.php:2438 src/Core/Blog.php:2543
 msgid "No such comment ID"
 msgstr "Ni takega ID-ja komentarja"
 
-#: src/Core/Blog.php:2443
+#: src/Core/Blog.php:2445
 msgid "You are not allowed to update this comment"
 msgstr "Nimate dovoljenja za posodobitev tega komentarja"
 
-#: src/Core/Blog.php:2494
+#: src/Core/Blog.php:2496
 msgid "You are not allowed to change this comment's status"
 msgstr "Nimate dovoljenja za spreminjanje statusa tega komentarja"
 
-#: src/Core/Blog.php:2535 src/Core/Blog.php:2589
+#: src/Core/Blog.php:2537 src/Core/Blog.php:2591
 msgid "You are not allowed to delete comments"
 msgstr "Nimate dovoljenja za brisanje komentarjev"
 
-#: src/Core/Blog.php:2624
+#: src/Core/Blog.php:2626
 msgid "You must provide a comment"
 msgstr "Navesti morate komentar"
 
-#: src/Core/Blog.php:2628
+#: src/Core/Blog.php:2630
 msgid "You must provide an author name"
 msgstr "Navesti morate ime avtorja"
 
-#: src/Core/Blog.php:2632
+#: src/Core/Blog.php:2634
 msgid "Email address is not valid."
 msgstr "E-poštni naslov ni veljaven."
 
@@ -2581,11 +2581,11 @@ msgstr "LOL!"
 msgid "System"
 msgstr "Sistem"
 
-#: src/Core/Upgrade/Page.php:184
+#: src/Core/Upgrade/Page.php:187
 msgid "Dotclear's update dashboard"
 msgstr "Nadzorna plošča za posodobitve podjetja Dotclear"
 
-#: src/Core/Upgrade/Page.php:195
+#: src/Core/Upgrade/Page.php:198
 msgid "Go to normal dashboard"
 msgstr "Pojdite na običajno nadzorno ploščo"
 
@@ -3052,8 +3052,8 @@ msgstr "Neveljavna vsebina odziva"
 msgid "Invalid response format"
 msgstr "Nepravilna oblika odziva"
 
-#: src/Helper/OAuth2/Client/Services.php:118
-#: src/Helper/OAuth2/Client/Services.php:127
+#: src/Helper/OAuth2/Client/Services.php:112
+#: src/Helper/OAuth2/Client/Services.php:121
 #, php-format
 msgid "Failed to load provider \"%s\""
 msgstr "Ni uspelo naložiti ponudnika \"%s\""
@@ -3225,7 +3225,7 @@ msgid "Your new password is in your mailbox."
 msgstr "Vaše novo geslo je v vašem nabiralniku."
 
 #: src/Process/Backend/Auth.php:226 src/Process/Backend/User.php:159
-#: src/Process/Backend/UserPreferences.php:272 src/Process/Install/Cli.php:727
+#: src/Process/Backend/UserPreferences.php:273 src/Process/Install/Cli.php:727
 #: src/Process/Install/Install.php:188
 msgid "Passwords don't match"
 msgstr "Gesli se ne ujemata"
@@ -3263,9 +3263,9 @@ msgstr "Napačno uporabniško ime ali geslo"
 #: src/Process/Backend/Auth.php:445 src/Process/Backend/Auth.php:446
 #: src/Process/Backend/Auth.php:447 src/Process/Backend/User.php:264
 #: src/Process/Backend/User.php:265 src/Process/Backend/User.php:266
-#: src/Process/Backend/UserPreferences.php:566
-#: src/Process/Backend/UserPreferences.php:567
 #: src/Process/Backend/UserPreferences.php:568
+#: src/Process/Backend/UserPreferences.php:569
+#: src/Process/Backend/UserPreferences.php:570
 #: src/Process/Install/Install.php:426 src/Process/Install/Install.php:427
 #: src/Process/Install/Install.php:428 src/Process/Upgrade/Auth.php:387
 #: src/Process/Upgrade/Auth.php:388 src/Process/Upgrade/Auth.php:389
@@ -3274,13 +3274,13 @@ msgid "Password strength: %s"
 msgstr "Moč gesla: %s"
 
 #: src/Process/Backend/Auth.php:445 src/Process/Backend/User.php:264
-#: src/Process/Backend/UserPreferences.php:566
+#: src/Process/Backend/UserPreferences.php:568
 #: src/Process/Install/Install.php:426 src/Process/Upgrade/Auth.php:387
 msgid "weak"
 msgstr "šibka"
 
 #: src/Process/Backend/Auth.php:447 src/Process/Backend/User.php:266
-#: src/Process/Backend/UserPreferences.php:568
+#: src/Process/Backend/UserPreferences.php:570
 #: src/Process/Install/Install.php:428 src/Process/Upgrade/Auth.php:389
 msgid "strong"
 msgstr "močan"
@@ -3307,7 +3307,7 @@ msgid "Change your password"
 msgstr "Zamenjajte geslo"
 
 #: src/Process/Backend/Auth.php:546 src/Process/Backend/User.php:352
-#: src/Process/Backend/UserPreferences.php:605
+#: src/Process/Backend/UserPreferences.php:607
 msgid "New password:"
 msgstr "Novo geslo:"
 
@@ -3320,7 +3320,7 @@ msgstr "Potrdi geslo:"
 msgid "change"
 msgstr "sprememba"
 
-#: src/Process/Backend/Auth.php:574 src/Process/Backend/UserPreferences.php:880
+#: src/Process/Backend/Auth.php:574 src/Process/Backend/UserPreferences.php:882
 #: src/Process/Upgrade/Auth.php:292
 msgid "Two factors authentication"
 msgstr "Preverjanje pristnosti z dvema dejavnikoma"
@@ -3329,7 +3329,7 @@ msgstr "Preverjanje pristnosti z dvema dejavnikoma"
 msgid "Enter code:"
 msgstr "Vnesite kodo:"
 
-#: src/Process/Backend/Auth.php:589 src/Process/Backend/UserPreferences.php:674
+#: src/Process/Backend/Auth.php:589 src/Process/Backend/UserPreferences.php:676
 #: src/Process/Upgrade/Auth.php:307
 msgid "Verify"
 msgstr "Preveri"
@@ -3495,7 +3495,7 @@ msgid "P"
 msgstr "p"
 
 #: src/Process/Backend/BlogPref.php:168 src/Process/Backend/BlogPref.php:1278
-#: src/Process/Backend/MediaItem.php:609 src/Process/Backend/MediaItem.php:614
+#: src/Process/Backend/MediaItem.php:610 src/Process/Backend/MediaItem.php:615
 msgid "(none)"
 msgstr "(brez)"
 
@@ -3515,33 +3515,33 @@ msgstr "Opis, država, datum"
 msgid "Description, City, Country, Date"
 msgstr "Opis, mesto, država, datum"
 
-#: src/Process/Backend/BlogPref.php:202 src/Process/Backend/MediaItem.php:489
-#: src/Process/Backend/MediaItem.php:583 src/Process/Backend/MediaItem.php:852
+#: src/Process/Backend/BlogPref.php:202 src/Process/Backend/MediaItem.php:490
+#: src/Process/Backend/MediaItem.php:584 src/Process/Backend/MediaItem.php:853
 msgid "original"
 msgstr "original"
 
 #: src/Process/Backend/BlogPref.php:213 src/Process/Backend/BlogPref.php:223
-#: src/Process/Backend/MediaItem.php:546 src/Process/Backend/MediaItem.php:602
+#: src/Process/Backend/MediaItem.php:547 src/Process/Backend/MediaItem.php:603
 msgid "None"
 msgstr "Noben"
 
-#: src/Process/Backend/BlogPref.php:214 src/Process/Backend/MediaItem.php:547
+#: src/Process/Backend/BlogPref.php:214 src/Process/Backend/MediaItem.php:548
 msgid "Left"
 msgstr "levo"
 
-#: src/Process/Backend/BlogPref.php:215 src/Process/Backend/MediaItem.php:548
+#: src/Process/Backend/BlogPref.php:215 src/Process/Backend/MediaItem.php:549
 msgid "Right"
 msgstr "Prav"
 
-#: src/Process/Backend/BlogPref.php:216 src/Process/Backend/MediaItem.php:549
+#: src/Process/Backend/BlogPref.php:216 src/Process/Backend/MediaItem.php:550
 msgid "Center"
 msgstr "Center"
 
-#: src/Process/Backend/BlogPref.php:221 src/Process/Backend/MediaItem.php:595
+#: src/Process/Backend/BlogPref.php:221 src/Process/Backend/MediaItem.php:596
 msgid "Legend and alternate text"
 msgstr "Legenda in nadomestno besedilo"
 
-#: src/Process/Backend/BlogPref.php:222 src/Process/Backend/MediaItem.php:599
+#: src/Process/Backend/BlogPref.php:222 src/Process/Backend/MediaItem.php:600
 msgid "Alternate text"
 msgstr "Nadomestno besedilo"
 
@@ -3558,7 +3558,7 @@ msgid "I would like to prevent search engines and archivers from indexing or arc
 msgstr "Iskalnikom in arhivarjem želim preprečiti, da bi indeksirali ali arhivirali vsebino mojega bloga."
 
 #: src/Process/Backend/BlogPref.php:235
-#: src/Process/Backend/UserPreferences.php:158
+#: src/Process/Backend/UserPreferences.php:159
 msgid "Default"
 msgstr "Privzeto"
 
@@ -4194,7 +4194,7 @@ msgid "total:"
 msgstr "skupaj:"
 
 #: src/Process/Backend/Categories.php:326 src/Process/Backend/Category.php:278
-#: src/Process/Backend/User.php:475 src/Process/Backend/UserPreferences.php:835
+#: src/Process/Backend/User.php:475 src/Process/Backend/UserPreferences.php:837
 msgid "URL:"
 msgstr "URL:"
 
@@ -4239,7 +4239,7 @@ msgstr "ime:"
 msgid "Warning: If you set the URL manually, it may conflict with another category."
 msgstr "Opozorilo: če URL nastavite ročno, je lahko v nasprotju z drugo kategorijo."
 
-#: src/Process/Backend/Category.php:292 src/Process/Backend/MediaItem.php:1216
+#: src/Process/Backend/Category.php:292 src/Process/Backend/MediaItem.php:1217
 msgid "Description:"
 msgstr "Opis:"
 
@@ -4626,7 +4626,7 @@ msgstr "Naslov povezave:"
 msgid "Link language:"
 msgstr "Jezik povezave:"
 
-#: src/Process/Backend/LinkPopup.php:116 src/Process/Backend/MediaItem.php:769
+#: src/Process/Backend/LinkPopup.php:116 src/Process/Backend/MediaItem.php:770
 msgid "Insert"
 msgstr "Vstavi"
 
@@ -4801,7 +4801,7 @@ msgstr "Prosimo, da pazite na objavo medijev, ki so v vaši lasti in niso avtors
 msgid "Maximum file size allowed:"
 msgstr "Največja dovoljena velikost datoteke:"
 
-#: src/Process/Backend/Media.php:784 src/Process/Backend/MediaItem.php:1229
+#: src/Process/Backend/Media.php:784 src/Process/Backend/MediaItem.php:1230
 msgid "Private"
 msgstr "Zasebno"
 
@@ -4831,272 +4831,272 @@ msgstr "Trenutne nastavitve za medije in slike so določene v %s"
 msgid "Not a valid file"
 msgstr "Ni veljavna datoteka"
 
-#: src/Process/Backend/MediaItem.php:182 src/Process/Backend/MediaItem.php:244
-#: src/Process/Backend/MediaItem.php:437
+#: src/Process/Backend/MediaItem.php:182 src/Process/Backend/MediaItem.php:245
+#: src/Process/Backend/MediaItem.php:438
 msgid "File has been successfully updated."
 msgstr "Datoteka je bila uspešno posodobljena."
 
-#: src/Process/Backend/MediaItem.php:261 src/Process/Backend/MediaItem.php:440
+#: src/Process/Backend/MediaItem.php:262 src/Process/Backend/MediaItem.php:441
 msgid "Thumbnails have been successfully updated."
 msgstr "Sličice so bile uspešno posodobljene."
 
-#: src/Process/Backend/MediaItem.php:278
+#: src/Process/Backend/MediaItem.php:279
 msgid "Zip file has been successfully extracted."
 msgstr "Datoteka zip je bila uspešno ekstrahirana."
 
-#: src/Process/Backend/MediaItem.php:308 src/Process/Backend/MediaItem.php:443
+#: src/Process/Backend/MediaItem.php:309 src/Process/Backend/MediaItem.php:444
 msgid "Default media insertion settings have been successfully updated."
 msgstr "Privzete nastavitve vstavljanja medijev so bile uspešno posodobljene."
 
-#: src/Process/Backend/MediaItem.php:334
+#: src/Process/Backend/MediaItem.php:335
 msgid "Media insertion settings have been successfully registered for this folder."
 msgstr "Nastavitve vstavljanja medijev so bile uspešno registrirane za to mapo."
 
-#: src/Process/Backend/MediaItem.php:345
+#: src/Process/Backend/MediaItem.php:346
 msgid "Media insertion settings have been successfully removed for this folder."
 msgstr "Nastavitve vstavljanja medijev so bile uspešno odstranjene za to mapo."
 
-#: src/Process/Backend/MediaItem.php:483 src/Process/Backend/MediaItem.php:577
+#: src/Process/Backend/MediaItem.php:484 src/Process/Backend/MediaItem.php:578
 msgid "Image size:"
 msgstr "Velikost slike:"
 
-#: src/Process/Backend/MediaItem.php:502 src/Process/Backend/MediaItem.php:504
+#: src/Process/Backend/MediaItem.php:503 src/Process/Backend/MediaItem.php:505
 msgid "Select media item"
 msgstr "Izberite medijski element"
 
-#: src/Process/Backend/MediaItem.php:513 src/Process/Upgrade/Attic.php:305
+#: src/Process/Backend/MediaItem.php:514 src/Process/Upgrade/Attic.php:305
 msgid "Select"
 msgstr "Izberite"
 
-#: src/Process/Backend/MediaItem.php:589
+#: src/Process/Backend/MediaItem.php:590
 msgid "Image legend and alternate text"
 msgstr "Legenda slike in nadomestno besedilo"
 
-#: src/Process/Backend/MediaItem.php:606 src/Process/Backend/MediaItem.php:1067
-#: src/Process/Backend/MediaItem.php:1207
+#: src/Process/Backend/MediaItem.php:607 src/Process/Backend/MediaItem.php:1068
+#: src/Process/Backend/MediaItem.php:1208
 msgid "Alternate text:"
 msgstr "Nadomestno besedilo:"
 
-#: src/Process/Backend/MediaItem.php:611
+#: src/Process/Backend/MediaItem.php:612
 msgid "Legend:"
 msgstr "Legenda:"
 
-#: src/Process/Backend/MediaItem.php:620
+#: src/Process/Backend/MediaItem.php:621
 msgid "Image alignment"
 msgstr "Poravnava slike"
 
-#: src/Process/Backend/MediaItem.php:627
+#: src/Process/Backend/MediaItem.php:628
 msgid "Image insertion"
 msgstr "Vstavljanje slike"
 
-#: src/Process/Backend/MediaItem.php:632
+#: src/Process/Backend/MediaItem.php:633
 msgid "As a single image"
 msgstr "Kot ena slika"
 
-#: src/Process/Backend/MediaItem.php:635
+#: src/Process/Backend/MediaItem.php:636
 msgid "As a link to the original image"
 msgstr "Kot povezava do originalne slike"
 
-#: src/Process/Backend/MediaItem.php:652
+#: src/Process/Backend/MediaItem.php:653
 msgid "MP3 disposition"
 msgstr "MP3 dispozicija"
 
-#: src/Process/Backend/MediaItem.php:661
+#: src/Process/Backend/MediaItem.php:662
 msgid "Please note that you cannot insert mp3 files with standard editor in WYSIWYG HTML mode."
 msgstr "Upoštevajte, da datotek mp3 ne morete vstaviti s standardnim urejevalnikom v načinu WYSIWYG HTML."
 
-#: src/Process/Backend/MediaItem.php:677
+#: src/Process/Backend/MediaItem.php:678
 msgid "Video size"
 msgstr "Velikost videa"
 
-#: src/Process/Backend/MediaItem.php:681
+#: src/Process/Backend/MediaItem.php:682
 msgid "Width:"
 msgstr "Premer:"
 
-#: src/Process/Backend/MediaItem.php:686
+#: src/Process/Backend/MediaItem.php:687
 msgid "Height:"
 msgstr "Višina:"
 
-#: src/Process/Backend/MediaItem.php:690
+#: src/Process/Backend/MediaItem.php:691
 msgid "A value of 0 means that the corresponding size is not included when inserting a video."
 msgstr "Vrednost 0 pomeni, da ustrezna velikost pri vstavljanju videoposnetka ni vključena."
 
-#: src/Process/Backend/MediaItem.php:695
+#: src/Process/Backend/MediaItem.php:696
 msgid "Video disposition"
 msgstr "Videoposnetek"
 
-#: src/Process/Backend/MediaItem.php:705
+#: src/Process/Backend/MediaItem.php:706
 msgid "Please note that you cannot insert video files with standard editor in WYSIWYG HTML mode."
 msgstr "Upoštevajte, da video datotek ne morete vstaviti s standardnim urejevalnikom v načinu WYSIWYG HTML."
 
-#: src/Process/Backend/MediaItem.php:711
+#: src/Process/Backend/MediaItem.php:712
 msgid "Media item will be inserted as a link."
 msgstr "Medijski element bo vstavljen kot povezava."
 
-#: src/Process/Backend/MediaItem.php:732
+#: src/Process/Backend/MediaItem.php:733
 msgid "Make current settings as default"
 msgstr "Naj bodo trenutne nastavitve privzete"
 
-#: src/Process/Backend/MediaItem.php:733
+#: src/Process/Backend/MediaItem.php:734
 msgid "For the blog"
 msgstr "Za blog"
 
-#: src/Process/Backend/MediaItem.php:735
+#: src/Process/Backend/MediaItem.php:736
 msgid "For this folder only"
 msgstr "Samo za to mapo"
 
-#: src/Process/Backend/MediaItem.php:747
+#: src/Process/Backend/MediaItem.php:748
 msgid "Settings exist for this folder:"
 msgstr "Za to mapo obstajajo nastavitve:"
 
-#: src/Process/Backend/MediaItem.php:748
+#: src/Process/Backend/MediaItem.php:749
 msgid "Remove them"
 msgstr "Odstranite jih"
 
-#: src/Process/Backend/MediaItem.php:758 src/Process/Backend/MediaItem.php:760
+#: src/Process/Backend/MediaItem.php:759 src/Process/Backend/MediaItem.php:761
 msgid "Insert media item"
 msgstr "Vstavite medijski element"
 
-#: src/Process/Backend/MediaItem.php:845
+#: src/Process/Backend/MediaItem.php:846
 msgid "Available sizes:"
 msgstr "Razpoložljive velikosti:"
 
-#: src/Process/Backend/MediaItem.php:870 src/Process/Backend/MediaItem.php:944
-#: src/Process/Backend/MediaItem.php:952 src/Process/Backend/MediaItem.php:963
+#: src/Process/Backend/MediaItem.php:871 src/Process/Backend/MediaItem.php:945
+#: src/Process/Backend/MediaItem.php:953 src/Process/Backend/MediaItem.php:964
 msgid "Image width:"
 msgstr "Širina slike:"
 
-#: src/Process/Backend/MediaItem.php:876 src/Process/Backend/MediaItem.php:969
+#: src/Process/Backend/MediaItem.php:877 src/Process/Backend/MediaItem.php:970
 msgid "Image height:"
 msgstr "Višina slike:"
 
-#: src/Process/Backend/MediaItem.php:884 src/Process/Backend/MediaItem.php:979
+#: src/Process/Backend/MediaItem.php:885 src/Process/Backend/MediaItem.php:980
 msgid "File size:"
 msgstr "Velikost datoteke:"
 
-#: src/Process/Backend/MediaItem.php:892 src/Process/Backend/MediaItem.php:985
+#: src/Process/Backend/MediaItem.php:893 src/Process/Backend/MediaItem.php:986
 msgid "File URL:"
 msgstr "URL datoteke:"
 
-#: src/Process/Backend/MediaItem.php:900
+#: src/Process/Backend/MediaItem.php:901
 msgid "Thumbnail details"
 msgstr "Podrobnosti sličic"
 
-#: src/Process/Backend/MediaItem.php:923
+#: src/Process/Backend/MediaItem.php:924
 msgid "File owner:"
 msgstr "Lastnik datoteke:"
 
-#: src/Process/Backend/MediaItem.php:929
+#: src/Process/Backend/MediaItem.php:930
 msgid "File type:"
 msgstr "Vrsta datoteke:"
 
-#: src/Process/Backend/MediaItem.php:996
+#: src/Process/Backend/MediaItem.php:997
 msgid "Show entries containing this media"
 msgstr "Prikaži vnose, ki vsebujejo ta medij"
 
-#: src/Process/Backend/MediaItem.php:1003
+#: src/Process/Backend/MediaItem.php:1004
 msgid "No entry seems contain this media."
 msgstr "Zdi se, da noben vnos ne vsebuje tega medija."
 
-#: src/Process/Backend/MediaItem.php:1033
+#: src/Process/Backend/MediaItem.php:1034
 msgid "Inside the entry"
 msgstr "Notranjost vhoda"
 
-#: src/Process/Backend/MediaItem.php:1040
+#: src/Process/Backend/MediaItem.php:1041
 msgid "Linked to entry"
 msgstr "Povezano z vnosom"
 
-#: src/Process/Backend/MediaItem.php:1048
+#: src/Process/Backend/MediaItem.php:1049
 msgid "Entries containing this media"
 msgstr "Vnosi, ki vsebujejo ta medij"
 
-#: src/Process/Backend/MediaItem.php:1082
+#: src/Process/Backend/MediaItem.php:1083
 msgid ":"
 msgstr ":"
 
-#: src/Process/Backend/MediaItem.php:1092
+#: src/Process/Backend/MediaItem.php:1093
 msgid "Metadata"
 msgstr "Metapodatki"
 
-#: src/Process/Backend/MediaItem.php:1104
-#: src/Process/Backend/MediaItem.php:1307
-#: src/Process/Backend/MediaItem.php:1316
+#: src/Process/Backend/MediaItem.php:1105
+#: src/Process/Backend/MediaItem.php:1309
+#: src/Process/Backend/MediaItem.php:1318
 msgid "Media details"
 msgstr "Podrobnosti o medijih"
 
-#: src/Process/Backend/MediaItem.php:1122
-#: src/Process/Backend/MediaItem.php:1129
+#: src/Process/Backend/MediaItem.php:1123
+#: src/Process/Backend/MediaItem.php:1130
 msgid "Update thumbnails"
 msgstr "Posodobite sličice"
 
-#: src/Process/Backend/MediaItem.php:1124
+#: src/Process/Backend/MediaItem.php:1125
 msgid "This will create or update thumbnails for this image."
 msgstr "S tem boste ustvarili ali posodobili sličice za to sliko."
 
-#: src/Process/Backend/MediaItem.php:1138
-#: src/Process/Backend/MediaItem.php:1153
+#: src/Process/Backend/MediaItem.php:1139
+#: src/Process/Backend/MediaItem.php:1154
 msgid "Extract in a new directory"
 msgstr "Izvlecite v nov imenik"
 
-#: src/Process/Backend/MediaItem.php:1139
-#: src/Process/Backend/MediaItem.php:1159
+#: src/Process/Backend/MediaItem.php:1140
+#: src/Process/Backend/MediaItem.php:1160
 msgid "Extract in current directory"
 msgstr "Razširi v trenutni imenik"
 
-#: src/Process/Backend/MediaItem.php:1147
+#: src/Process/Backend/MediaItem.php:1148
 msgid "Extract archive"
 msgstr "Izvlecite arhiv"
 
-#: src/Process/Backend/MediaItem.php:1154
+#: src/Process/Backend/MediaItem.php:1155
 msgid "This will extract archive in a new directory that should not exist yet."
 msgstr "To bo ekstrahiralo arhiv v nov imenik, ki še ne bi smel obstajati."
 
-#: src/Process/Backend/MediaItem.php:1160
+#: src/Process/Backend/MediaItem.php:1161
 msgid "This will extract archive in current directory and will overwrite existing files or directory."
 msgstr "To bo ekstrahiralo arhiv v trenutnem imeniku in prepisalo obstoječe datoteke ali imenik."
 
-#: src/Process/Backend/MediaItem.php:1168
+#: src/Process/Backend/MediaItem.php:1169
 msgid "Extract mode:"
 msgstr "Način ekstrahiranja:"
 
-#: src/Process/Backend/MediaItem.php:1169
+#: src/Process/Backend/MediaItem.php:1170
 msgid "Extract"
 msgstr "Izvleček"
 
-#: src/Process/Backend/MediaItem.php:1181
+#: src/Process/Backend/MediaItem.php:1182
 msgid "Change media properties"
 msgstr "Spremenite lastnosti medija"
 
-#: src/Process/Backend/MediaItem.php:1190
+#: src/Process/Backend/MediaItem.php:1191
 msgid "File name:"
 msgstr "Ime datoteke:"
 
-#: src/Process/Backend/MediaItem.php:1223
+#: src/Process/Backend/MediaItem.php:1224
 msgid "File date:"
 msgstr "Datum datoteke:"
 
-#: src/Process/Backend/MediaItem.php:1236
+#: src/Process/Backend/MediaItem.php:1237
 msgid "New directory:"
 msgstr "Nov imenik:"
 
-#: src/Process/Backend/MediaItem.php:1251
+#: src/Process/Backend/MediaItem.php:1252
 msgid "Change file"
 msgstr "Spremeni datoteko"
 
-#: src/Process/Backend/MediaItem.php:1260
+#: src/Process/Backend/MediaItem.php:1261
 msgid "Choose a file:"
 msgstr "Izberite datoteko:"
 
-#: src/Process/Backend/MediaItem.php:1260
+#: src/Process/Backend/MediaItem.php:1261
 #, php-format
 msgid "Maximum size %s"
 msgstr "Največja velikost %s"
 
-#: src/Process/Backend/MediaItem.php:1279
+#: src/Process/Backend/MediaItem.php:1280
 msgid "Delete this media"
 msgstr "Izbriši ta medij"
 
-#: src/Process/Backend/MediaItem.php:1298
+#: src/Process/Backend/MediaItem.php:1300
 msgid "Updates and modifications"
 msgstr "Posodobitve in spremembe"
 
@@ -5635,17 +5635,17 @@ msgstr "Opozorilo:"
 msgid "Password change required to connect"
 msgstr "Za povezavo je potrebna sprememba gesla"
 
-#: src/Process/Backend/User.php:419 src/Process/Backend/UserPreferences.php:783
+#: src/Process/Backend/User.php:419 src/Process/Backend/UserPreferences.php:785
 #: src/Process/Install/Install.php:500
 msgid "Last Name:"
 msgstr "Priimek:"
 
-#: src/Process/Backend/User.php:429 src/Process/Backend/UserPreferences.php:793
+#: src/Process/Backend/User.php:429 src/Process/Backend/UserPreferences.php:795
 #: src/Process/Install/Install.php:491
 msgid "First Name:"
 msgstr "Ime:"
 
-#: src/Process/Backend/User.php:439 src/Process/Backend/UserPreferences.php:803
+#: src/Process/Backend/User.php:439 src/Process/Backend/UserPreferences.php:805
 msgid "Display name:"
 msgstr "Prikazno ime:"
 
@@ -5653,24 +5653,24 @@ msgstr "Prikazno ime:"
 msgid "Mandatory for password recovering procedure."
 msgstr "Obvezno za postopek obnovitve gesla."
 
-#: src/Process/Backend/User.php:462 src/Process/Backend/UserPreferences.php:822
+#: src/Process/Backend/User.php:462 src/Process/Backend/UserPreferences.php:824
 msgid "Alternate emails (comma separated list):"
 msgstr "Nadomestni e-poštni naslovi (seznam ločen z vejicami):"
 
-#: src/Process/Backend/User.php:466 src/Process/Backend/UserPreferences.php:826
+#: src/Process/Backend/User.php:466 src/Process/Backend/UserPreferences.php:828
 msgid "Invalid emails will be automatically removed from list."
 msgstr "Neveljavni e-poštni naslovi bodo samodejno odstranjeni s seznama."
 
-#: src/Process/Backend/User.php:484 src/Process/Backend/UserPreferences.php:844
+#: src/Process/Backend/User.php:484 src/Process/Backend/UserPreferences.php:846
 msgid "Alternate URLs (comma separated list):"
 msgstr "Nadomestni URL-ji (seznam ločen z vejicami):"
 
-#: src/Process/Backend/User.php:488 src/Process/Backend/UserPreferences.php:848
+#: src/Process/Backend/User.php:488 src/Process/Backend/UserPreferences.php:850
 msgid "Invalid URLs will be automatically removed from list."
 msgstr "Neveljavni URL-ji bodo samodejno odstranjeni s seznama."
 
 #: src/Process/Backend/User.php:494
-#: src/Process/Backend/UserPreferences.php:1016
+#: src/Process/Backend/UserPreferences.php:1018
 msgid "Interface"
 msgstr "Vmesnik"
 
@@ -5679,22 +5679,22 @@ msgid "Timezone:"
 msgstr "Časovni pas:"
 
 #: src/Process/Backend/User.php:510
-#: src/Process/Backend/UserPreferences.php:1140
+#: src/Process/Backend/UserPreferences.php:1151
 msgid "Edition"
 msgstr "Izdaja"
 
 #: src/Process/Backend/User.php:516
-#: src/Process/Backend/UserPreferences.php:1152
+#: src/Process/Backend/UserPreferences.php:1163
 msgid "Preferred format:"
 msgstr "Prednostna oblika:"
 
 #: src/Process/Backend/User.php:523
-#: src/Process/Backend/UserPreferences.php:1160
+#: src/Process/Backend/UserPreferences.php:1171
 msgid "Default entry status:"
 msgstr "Privzeto stanje vnosa:"
 
 #: src/Process/Backend/User.php:528
-#: src/Process/Backend/UserPreferences.php:1166
+#: src/Process/Backend/UserPreferences.php:1177
 msgid "Entry edit field height:"
 msgstr "Višina polja za urejanje vnosa:"
 
@@ -5744,418 +5744,426 @@ msgstr "Seznam objav"
 msgid "List of comments"
 msgstr "Seznam komentarjev"
 
-#: src/Process/Backend/UserPreferences.php:149
+#: src/Process/Backend/UserPreferences.php:150
 msgid "Light"
 msgstr "Svetloba"
 
-#: src/Process/Backend/UserPreferences.php:150
+#: src/Process/Backend/UserPreferences.php:151
 msgid "Dark"
 msgstr "Temno"
 
-#: src/Process/Backend/UserPreferences.php:151
+#: src/Process/Backend/UserPreferences.php:152
 msgid "Automatic"
 msgstr "Samodejno"
 
-#: src/Process/Backend/UserPreferences.php:156
+#: src/Process/Backend/UserPreferences.php:157
 msgid "Smallest"
 msgstr "Najmanjši"
 
-#: src/Process/Backend/UserPreferences.php:157
+#: src/Process/Backend/UserPreferences.php:158
 msgid "Smaller"
 msgstr "Manjša"
 
-#: src/Process/Backend/UserPreferences.php:159
+#: src/Process/Backend/UserPreferences.php:160
 msgid "Larger"
 msgstr "Večje"
 
-#: src/Process/Backend/UserPreferences.php:160
+#: src/Process/Backend/UserPreferences.php:161
 msgid "Largest"
 msgstr "Največji"
 
-#: src/Process/Backend/UserPreferences.php:172
+#: src/Process/Backend/UserPreferences.php:173
 msgid "Blog description (in blog parameters)"
 msgstr "Opis bloga (v parametrih bloga)"
 
-#: src/Process/Backend/UserPreferences.php:173
+#: src/Process/Backend/UserPreferences.php:174
 msgid "Category description"
 msgstr "Opis kategorije"
 
-#: src/Process/Backend/UserPreferences.php:215
+#: src/Process/Backend/UserPreferences.php:216
 msgid "Two factors authentication verification failed."
 msgstr "Preverjanje avtentikacije z dvema dejavnikoma ni uspelo."
 
-#: src/Process/Backend/UserPreferences.php:217
+#: src/Process/Backend/UserPreferences.php:218
 msgid "Two factors authentication verification succeeded."
 msgstr "Preverjanje avtentikacije z dvema dejavnikoma je bilo uspešno."
 
-#: src/Process/Backend/UserPreferences.php:225
+#: src/Process/Backend/UserPreferences.php:226
 msgid "Two factors authentication secret regenerated."
 msgstr "Regenerirana skrivnost preverjanja pristnosti z dvema dejavnikoma."
 
-#: src/Process/Backend/UserPreferences.php:234
+#: src/Process/Backend/UserPreferences.php:235
 msgid "Passkey successfully deleted."
 msgstr "Passkey je bil uspešno izbrisan."
 
-#: src/Process/Backend/UserPreferences.php:251
-#: src/Process/Backend/UserPreferences.php:268
+#: src/Process/Backend/UserPreferences.php:252
+#: src/Process/Backend/UserPreferences.php:269
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "Če želite spremeniti svoj e-poštni naslov ali geslo, morate vnesti svoje trenutno geslo."
 
-#: src/Process/Backend/UserPreferences.php:299
+#: src/Process/Backend/UserPreferences.php:300
 msgid "Personal information has been successfully updated."
 msgstr "Osebni podatki so bili uspešno posodobljeni."
 
-#: src/Process/Backend/UserPreferences.php:417
+#: src/Process/Backend/UserPreferences.php:419
 msgid "Personal options has been successfully updated."
 msgstr "Osebne možnosti so bile uspešno posodobljene."
 
-#: src/Process/Backend/UserPreferences.php:445
+#: src/Process/Backend/UserPreferences.php:447
 msgid "Dashboard options has been successfully updated."
 msgstr "Možnosti nadzorne plošče so bile uspešno posodobljene."
 
-#: src/Process/Backend/UserPreferences.php:457
-#: src/Process/Backend/UserPreferences.php:481
+#: src/Process/Backend/UserPreferences.php:459
+#: src/Process/Backend/UserPreferences.php:483
 msgid "No favorite selected"
 msgstr "Ni izbranih priljubljenih"
 
-#: src/Process/Backend/UserPreferences.php:468
+#: src/Process/Backend/UserPreferences.php:470
 msgid "Favorites have been successfully added."
 msgstr "Priljubljene so bile uspešno dodane."
 
-#: src/Process/Backend/UserPreferences.php:494
+#: src/Process/Backend/UserPreferences.php:496
 msgid "Favorites have been successfully removed."
 msgstr "Priljubljene so bile uspešno odstranjene."
 
-#: src/Process/Backend/UserPreferences.php:524
+#: src/Process/Backend/UserPreferences.php:526
 msgid "Favorites have been successfully updated."
 msgstr "Priljubljene so bile uspešno posodobljene."
 
-#: src/Process/Backend/UserPreferences.php:536
+#: src/Process/Backend/UserPreferences.php:538
 msgid "Default favorites have been successfully updated."
 msgstr "Privzeti priljubljeni so bili uspešno posodobljeni."
 
-#: src/Process/Backend/UserPreferences.php:550
+#: src/Process/Backend/UserPreferences.php:552
 msgid "Dashboard items order have been successfully reset."
 msgstr "Vrstni red elementov nadzorne plošče je bil uspešno ponastavljen."
 
-#: src/Process/Backend/UserPreferences.php:572
+#: src/Process/Backend/UserPreferences.php:574
 msgid "Are you sure you want to remove selected favorites?"
 msgstr "Ali ste prepričani, da želite odstraniti izbrane priljubljene?"
 
-#: src/Process/Backend/UserPreferences.php:573
+#: src/Process/Backend/UserPreferences.php:575
 msgid "Enter a name for this key:"
 msgstr "Vnesite ime za ta ključ:"
 
-#: src/Process/Backend/UserPreferences.php:595
+#: src/Process/Backend/UserPreferences.php:597
 msgid "Change my password"
 msgstr "Spremeni moje geslo"
 
-#: src/Process/Backend/UserPreferences.php:614
+#: src/Process/Backend/UserPreferences.php:616
 msgid "Confirm new password:"
 msgstr "Potrdite novo geslo:"
 
-#: src/Process/Backend/UserPreferences.php:624
+#: src/Process/Backend/UserPreferences.php:626
 msgid "Your current password:"
 msgstr "Vaše trenutno geslo:"
 
-#: src/Process/Backend/UserPreferences.php:628
+#: src/Process/Backend/UserPreferences.php:630
 msgid "If you have changed your email or password you must provide your current password to save these modifications."
 msgstr "Če ste spremenili svoj e-poštni naslov ali geslo, morate vnesti svoje trenutno geslo, da shranite te spremembe."
 
-#: src/Process/Backend/UserPreferences.php:637
+#: src/Process/Backend/UserPreferences.php:639
 msgid "Your account is registered to two factors authentication."
 msgstr "Vaš račun je registriran za preverjanje pristnosti z dvema dejavnikoma."
 
-#: src/Process/Backend/UserPreferences.php:638
+#: src/Process/Backend/UserPreferences.php:640
 msgid "Disable two factors authentication"
 msgstr "Onemogočite preverjanje pristnosti z dvema dejavnikoma"
 
-#: src/Process/Backend/UserPreferences.php:645
+#: src/Process/Backend/UserPreferences.php:647
 msgid "Unable to create the QR code image, please use the secret below."
 msgstr "Če ne morete ustvariti slike kode QR, uporabite spodnjo skrivnost."
 
-#: src/Process/Backend/UserPreferences.php:649
+#: src/Process/Backend/UserPreferences.php:651
 msgid "Scan this QR code with your authentication application:"
 msgstr "To kodo QR skenirajte z aplikacijo za preverjanje pristnosti:"
 
-#: src/Process/Backend/UserPreferences.php:662
+#: src/Process/Backend/UserPreferences.php:664
 msgid "Or enter this secret into your authentication application:"
 msgstr "To skrivnost vnesite v aplikacijo za preverjanje pristnosti:"
 
-#: src/Process/Backend/UserPreferences.php:663
+#: src/Process/Backend/UserPreferences.php:665
 msgid "Regenerate"
 msgstr "Regeneracija"
 
-#: src/Process/Backend/UserPreferences.php:673
+#: src/Process/Backend/UserPreferences.php:675
 msgid "Enter verification code:"
 msgstr "Vnesite kodo za preverjanje:"
 
-#: src/Process/Backend/UserPreferences.php:690
+#: src/Process/Backend/UserPreferences.php:692
 msgid "unlabeled key"
 msgstr "neoznačen ključ"
 
-#: src/Process/Backend/UserPreferences.php:692
+#: src/Process/Backend/UserPreferences.php:694
 #, php-format
 msgid "valid on %s"
 msgstr "velja na spletni strani %s"
 
-#: src/Process/Backend/UserPreferences.php:701
+#: src/Process/Backend/UserPreferences.php:703
 msgid "You have no registered key yet."
 msgstr "Nimate še nobenega registriranega ključa."
 
-#: src/Process/Backend/UserPreferences.php:741
+#: src/Process/Backend/UserPreferences.php:743
 msgid "Linked to account:"
 msgstr "Povezano z računom:"
 
-#: src/Process/Backend/UserPreferences.php:768
 #: src/Process/Backend/UserPreferences.php:770
+#: src/Process/Backend/UserPreferences.php:772
 msgid "My profile"
 msgstr "Moj profil"
 
-#: src/Process/Backend/UserPreferences.php:855
+#: src/Process/Backend/UserPreferences.php:857
 msgid "Language for my interface:"
 msgstr "Jezik za moj vmesnik:"
 
-#: src/Process/Backend/UserPreferences.php:863
+#: src/Process/Backend/UserPreferences.php:865
 msgid "My timezone:"
 msgstr "Moj časovni pas:"
 
-#: src/Process/Backend/UserPreferences.php:872
+#: src/Process/Backend/UserPreferences.php:874
 msgid "Update my profile"
 msgstr "Posodobi moj profil"
 
-#: src/Process/Backend/UserPreferences.php:885
+#: src/Process/Backend/UserPreferences.php:887
 msgid "Authentication keys"
 msgstr "Ključi za preverjanje pristnosti"
 
-#: src/Process/Backend/UserPreferences.php:892
+#: src/Process/Backend/UserPreferences.php:894
 msgid "Register a new key"
 msgstr "Registracija novega ključa"
 
-#: src/Process/Backend/UserPreferences.php:898
+#: src/Process/Backend/UserPreferences.php:900
 msgid "Authentication applications"
 msgstr "Aplikacije za preverjanje pristnosti"
 
-#: src/Process/Backend/UserPreferences.php:965
+#: src/Process/Backend/UserPreferences.php:967
 msgid "List"
 msgstr "Seznam"
 
-#: src/Process/Backend/UserPreferences.php:967
+#: src/Process/Backend/UserPreferences.php:969
 msgid "Order by"
 msgstr "Naroči po"
 
-#: src/Process/Backend/UserPreferences.php:969
+#: src/Process/Backend/UserPreferences.php:971
 msgid "Sort"
 msgstr "Razvrsti"
 
-#: src/Process/Backend/UserPreferences.php:982
+#: src/Process/Backend/UserPreferences.php:984
 #, php-format
 msgid "Preferred editor for %s:"
 msgstr "Prednostni urejevalnik za %s:"
 
-#: src/Process/Backend/UserPreferences.php:987
+#: src/Process/Backend/UserPreferences.php:989
 msgid "Choose an editor"
 msgstr "Izberite urejevalnik"
 
-#: src/Process/Backend/UserPreferences.php:1008
-#: src/Process/Backend/UserPreferences.php:1014
+#: src/Process/Backend/UserPreferences.php:1010
+#: src/Process/Backend/UserPreferences.php:1016
 msgid "My options"
 msgstr "Moje možnosti"
 
-#: src/Process/Backend/UserPreferences.php:1023
+#: src/Process/Backend/UserPreferences.php:1025
 msgid "Theme:"
 msgstr "Tema:"
 
-#: src/Process/Backend/UserPreferences.php:1029
+#: src/Process/Backend/UserPreferences.php:1031
 msgid "Activate enhanced uploader in media manager"
 msgstr "Aktivirajte izboljšano orodje za nalaganje v upravitelju medijev"
 
-#: src/Process/Backend/UserPreferences.php:1035
+#: src/Process/Backend/UserPreferences.php:1037
 msgid "Preview the entry being edited in a blank window or tab (depending on your browser settings)."
 msgstr "Oglejte si vnos, ki ga urejate, v praznem oknu ali zavihku (odvisno od nastavitev brskalnika)."
 
-#: src/Process/Backend/UserPreferences.php:1042
+#: src/Process/Backend/UserPreferences.php:1044
 msgid "Disable javascript powered drag and drop for ordering items"
 msgstr "Onemogoči povleci in spusti, ki uporablja javascript, za naročanje artiklov"
 
-#: src/Process/Backend/UserPreferences.php:1046
+#: src/Process/Backend/UserPreferences.php:1048
 msgid "If checked, numeric fields will allow to type the elements' ordering number."
 msgstr "Če je označeno, bodo številska polja omogočala vnos vrstne številke elementov."
 
-#: src/Process/Backend/UserPreferences.php:1051
+#: src/Process/Backend/UserPreferences.php:1053
 msgid "Hide all secondary information and notes"
 msgstr "Skrij vse sekundarne informacije in opombe"
 
-#: src/Process/Backend/UserPreferences.php:1057
+#: src/Process/Backend/UserPreferences.php:1059
 msgid "Hide help button"
 msgstr "Skrij gumb za pomoč"
 
-#: src/Process/Backend/UserPreferences.php:1064
+#: src/Process/Backend/UserPreferences.php:1066
 msgid "Font size:"
 msgstr "Velikost pisave:"
 
-#: src/Process/Backend/UserPreferences.php:1070
+#: src/Process/Backend/UserPreferences.php:1072
+msgid "Use dynamic letter spacing"
+msgstr "Uporaba dinamičnega razmika med črkami"
+
+#: src/Process/Backend/UserPreferences.php:1076
+msgid "If checked, the larger the font size in interface texts, the smaller the space between characters will be, and vice versa."
+msgstr "Če je ta možnost označena, bo velikost pisave v besedilih vmesnika tem večja, čim manjši bo razmik med znaki, in obratno."
+
+#: src/Process/Backend/UserPreferences.php:1081
 msgid "Use operating system font"
 msgstr "Uporabite pisavo operacijskega sistema"
 
-#: src/Process/Backend/UserPreferences.php:1076
+#: src/Process/Backend/UserPreferences.php:1087
 msgid "Number of recent folders proposed in media manager:"
 msgstr "Število nedavno predlaganih map v upravitelju medijev:"
 
-#: src/Process/Backend/UserPreferences.php:1080
+#: src/Process/Backend/UserPreferences.php:1091
 msgid "Set to 0 (zero) to ignore, displayed only if Javascript is enabled in your browser."
 msgstr "Nastavite na 0 (nič), da se ne upošteva, prikaže se le, če je v brskalniku omogočen Javascript."
 
-#: src/Process/Backend/UserPreferences.php:1087
+#: src/Process/Backend/UserPreferences.php:1098
 msgid "Do not use standard favicon"
 msgstr "Ne uporabljajte standardne favicon"
 
-#: src/Process/Backend/UserPreferences.php:1088
+#: src/Process/Backend/UserPreferences.php:1099
 msgid "This will be applied for all users"
 msgstr "To bo veljalo za vse uporabnike"
 
-#: src/Process/Backend/UserPreferences.php:1098
+#: src/Process/Backend/UserPreferences.php:1109
 msgid "Disable Ad-blocker check"
 msgstr "Onemogoči preverjanje zaviralca oglasov"
 
-#: src/Process/Backend/UserPreferences.php:1102
+#: src/Process/Backend/UserPreferences.php:1113
 msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
 msgstr "Nekateri zaviralci oglasov (Ghostery, Adblock plus, uBloc origin, …) lahko motijo nekatere funkcije, kot je vstavljanje povezave ali predstavnosti v vnose s CKEditorjem; v tem primeru ga morate onemogočiti za to namestitev Dotclear (samo backend). Upoštevajte, da Dotclear ne dodaja oglasov ali sledilnikov v ozadju."
 
-#: src/Process/Backend/UserPreferences.php:1105
+#: src/Process/Backend/UserPreferences.php:1116
 msgid "Note also that deactivating this detection of ad blockers will not deactivate the installed ad blockers. Dotclear cannot interfere with the operation of browser extensions!"
 msgstr "Upoštevajte tudi, da deaktivacija tega zaznavanja blokatorjev oglasov ne bo deaktivirala nameščenih blokatorjev oglasov. Dotclear ne more motiti delovanja razširitev brskalnika!"
 
-#: src/Process/Backend/UserPreferences.php:1113
+#: src/Process/Backend/UserPreferences.php:1124
 msgid "Quick menu character:"
 msgstr "Znak hitrega menija:"
 
-#: src/Process/Backend/UserPreferences.php:1117
+#: src/Process/Backend/UserPreferences.php:1128
 msgid "Leave empty to use the default character <kbd>:</kbd>"
 msgstr "Pustite prazno za uporabo privzetega znaka <kbd>:</kbd>"
 
-#: src/Process/Backend/UserPreferences.php:1122
+#: src/Process/Backend/UserPreferences.php:1133
 msgid "Keep the main menu at the top of the page as much as possible"
 msgstr "Glavni meni naj bo čim bolj na vrhu strani"
 
-#: src/Process/Backend/UserPreferences.php:1126
+#: src/Process/Backend/UserPreferences.php:1137
 msgid "Optional columns displayed in lists"
 msgstr "Izbirni stolpci, prikazani na seznamih"
 
-#: src/Process/Backend/UserPreferences.php:1129
+#: src/Process/Backend/UserPreferences.php:1140
 msgid "Options for lists"
 msgstr "Možnosti za sezname"
 
-#: src/Process/Backend/UserPreferences.php:1135
+#: src/Process/Backend/UserPreferences.php:1146
 msgid "Apply filters on the fly"
 msgstr "Uporabite filtre sproti"
 
-#: src/Process/Backend/UserPreferences.php:1172
+#: src/Process/Backend/UserPreferences.php:1183
 msgid "Enable WYSIWYG mode"
 msgstr "Omogoči način WYSIWYG"
 
-#: src/Process/Backend/UserPreferences.php:1178
+#: src/Process/Backend/UserPreferences.php:1189
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr "Prikaži orodno vrstico urejevalnika na dnu besedilnega polja (če je mogoče)"
 
-#: src/Process/Backend/UserPreferences.php:1184
+#: src/Process/Backend/UserPreferences.php:1195
 msgid "Use HTML editor for:"
 msgstr "Uporabite urejevalnik HTML za:"
 
-#: src/Process/Backend/UserPreferences.php:1188
+#: src/Process/Backend/UserPreferences.php:1199
 msgid "Other options"
 msgstr "Druge možnosti"
 
-#: src/Process/Backend/UserPreferences.php:1199
+#: src/Process/Backend/UserPreferences.php:1210
 msgid "Save my options"
 msgstr "Shrani moje možnosti"
 
-#: src/Process/Backend/UserPreferences.php:1230
+#: src/Process/Backend/UserPreferences.php:1241
 #, php-format
 msgid "position of %s"
 msgstr "položaj %s"
 
-#: src/Process/Backend/UserPreferences.php:1253
+#: src/Process/Backend/UserPreferences.php:1264
 msgid "Save order"
 msgstr "Shrani naročilo"
 
-#: src/Process/Backend/UserPreferences.php:1254
+#: src/Process/Backend/UserPreferences.php:1265
 msgid "Delete selected favorites"
 msgstr "Izbriši izbrane priljubljene"
 
-#: src/Process/Backend/UserPreferences.php:1261
+#: src/Process/Backend/UserPreferences.php:1272
 msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
 msgstr "Če ste superskrbnik, lahko določite ta niz priljubljenih, ki se privzeto uporablja v vseh spletnih dnevnikih te namestitve."
 
-#: src/Process/Backend/UserPreferences.php:1264
+#: src/Process/Backend/UserPreferences.php:1275
 msgid "Define as default favorites"
 msgstr "Določite kot privzete priljubljene"
 
-#: src/Process/Backend/UserPreferences.php:1273
+#: src/Process/Backend/UserPreferences.php:1284
 msgid "Currently no personal favorites."
 msgstr "Trenutno ni osebnih priljubljenih."
 
-#: src/Process/Backend/UserPreferences.php:1312
+#: src/Process/Backend/UserPreferences.php:1323
 msgid "(default favorite)"
 msgstr "(privzeta priljubljena)"
 
-#: src/Process/Backend/UserPreferences.php:1327
+#: src/Process/Backend/UserPreferences.php:1338
 msgid "Add to my favorites"
 msgstr "Dodaj med moje priljubljene"
 
-#: src/Process/Backend/UserPreferences.php:1351
+#: src/Process/Backend/UserPreferences.php:1362
 msgid "Other available favorites"
 msgstr "Drugi razpoložljivi priljubljeni"
 
-#: src/Process/Backend/UserPreferences.php:1363
+#: src/Process/Backend/UserPreferences.php:1374
 msgid "Menu"
 msgstr "meni"
 
-#: src/Process/Backend/UserPreferences.php:1369
+#: src/Process/Backend/UserPreferences.php:1380
 msgid "Display favorites at the top of the menu"
 msgstr "Prikaži priljubljene na vrhu menija"
 
-#: src/Process/Backend/UserPreferences.php:1373
+#: src/Process/Backend/UserPreferences.php:1384
 msgid "Dashboard icons"
 msgstr "Ikone na nadzorni plošči"
 
-#: src/Process/Backend/UserPreferences.php:1379
+#: src/Process/Backend/UserPreferences.php:1390
 msgid "Display dashboard icons"
 msgstr "Prikaz ikon na nadzorni plošči"
 
-#: src/Process/Backend/UserPreferences.php:1383
+#: src/Process/Backend/UserPreferences.php:1394
 msgid "Dashboard modules"
 msgstr "Moduli armaturne plošče"
 
-#: src/Process/Backend/UserPreferences.php:1389
+#: src/Process/Backend/UserPreferences.php:1400
 msgid "Display documentation links"
 msgstr "Prikaz povezav do dokumentacije"
 
-#: src/Process/Backend/UserPreferences.php:1395
+#: src/Process/Backend/UserPreferences.php:1406
 msgid "Display donate links"
 msgstr "Prikaži povezave za donacije"
 
-#: src/Process/Backend/UserPreferences.php:1401
+#: src/Process/Backend/UserPreferences.php:1412
 msgid "Display Dotclear news"
 msgstr "Prikaz novic Dotclear"
 
-#: src/Process/Backend/UserPreferences.php:1407
+#: src/Process/Backend/UserPreferences.php:1418
 msgid "Display quick entry form"
 msgstr "Prikaži obrazec za hitri vnos"
 
-#: src/Process/Backend/UserPreferences.php:1412
+#: src/Process/Backend/UserPreferences.php:1423
 msgid "Do not display Dotclear updates"
 msgstr "Ne prikaži posodobitev Dotclear"
 
-#: src/Process/Backend/UserPreferences.php:1425
+#: src/Process/Backend/UserPreferences.php:1436
 msgid "Save my dashboard options"
 msgstr "Shrani moje možnosti nadzorne plošče"
 
-#: src/Process/Backend/UserPreferences.php:1438
+#: src/Process/Backend/UserPreferences.php:1449
 msgid "Dashboard items order"
 msgstr "Vrstni red elementov na nadzorni plošči"
 
-#: src/Process/Backend/UserPreferences.php:1441
+#: src/Process/Backend/UserPreferences.php:1452
 msgid "Reset dashboard items order"
 msgstr "Ponastavi vrstni red elementov na nadzorni plošči"
 

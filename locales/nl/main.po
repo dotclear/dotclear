@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-19 10:18+0100\n"
-"PO-Revision-Date: 2025-11-19 09:49\n"
+"POT-Creation-Date: 2025-11-27 14:00+0100\n"
+"PO-Revision-Date: 2025-11-27 13:42\n"
 "Last-Translator: \n"
 "Language-Team: Dutch\n"
 "Language: nl_NL\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Crowdin-File-ID: 262\n"
 
 #: inc/core/_fake_l10n.php:7 src/Process/Backend/Auth.php:446
-#: src/Process/Backend/User.php:265 src/Process/Backend/UserPreferences.php:567
+#: src/Process/Backend/User.php:265 src/Process/Backend/UserPreferences.php:569
 #: src/Process/Install/Install.php:427 src/Process/Upgrade/Auth.php:388
 msgid "medium"
 msgstr "medium"
@@ -109,11 +109,11 @@ msgstr "alle media-items beheren"
 msgid "manage their own media items"
 msgstr "hun eigen media-items beheren"
 
-#: src/Core/Auth.php:552
+#: src/Core/Auth.php:556
 msgid "That user does not exist in the database."
 msgstr "Die gebruiker bestaat niet in de database."
 
-#: src/Core/Auth.php:579
+#: src/Core/Auth.php:583
 msgid "That key does not exist in the database."
 msgstr "Die sleutel bestaat niet in de database."
 
@@ -122,7 +122,7 @@ msgstr "Die sleutel bestaat niet in de database."
 #: src/Core/Backend/Combos.php:297 src/Core/Backend/Listing/ListingPosts.php:78
 #: src/Core/Backend/Listing/ListingPostsMini.php:62
 #: src/Core/Backend/UserPref.php:205 src/Process/Backend/Home.php:591
-#: src/Process/Backend/MediaItem.php:1058 src/Process/Backend/Post.php:842
+#: src/Process/Backend/MediaItem.php:1059 src/Process/Backend/Post.php:842
 msgid "Title"
 msgstr "Titel"
 
@@ -185,7 +185,7 @@ msgstr "Status"
 #: src/Core/Backend/Listing/ListingMedia.php:317
 #: src/Core/Backend/ModulesList.php:1361 src/Core/Upgrade/PluginsList.php:125
 #: src/Process/Backend/Comment.php:354 src/Process/Backend/Langs.php:231
-#: src/Process/Backend/Post.php:966 src/Process/Backend/UserPreferences.php:694
+#: src/Process/Backend/Post.php:966 src/Process/Backend/UserPreferences.php:696
 #: src/Process/Backend/Users.php:44 src/Process/Upgrade/Langs.php:297
 msgid "Delete"
 msgstr "Verwijder"
@@ -416,7 +416,7 @@ msgstr "Maak een nieuwe categorie voor de post(s)"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:366
 #: src/Process/Backend/Home.php:595 src/Process/Backend/Home.php:629
-#: src/Process/Backend/Media.php:777 src/Process/Backend/MediaItem.php:1198
+#: src/Process/Backend/Media.php:777 src/Process/Backend/MediaItem.php:1199
 #: src/Process/Backend/Post.php:744 src/Process/Backend/Post.php:847
 msgid "Title:"
 msgstr "Titel:"
@@ -434,7 +434,7 @@ msgstr "Ouder:"
 #: src/Process/Backend/Category.php:297 src/Process/Backend/Category.php:336
 #: src/Process/Backend/Category.php:372 src/Process/Backend/Comment.php:349
 #: src/Process/Backend/Home.php:646 src/Process/Backend/Home.php:700
-#: src/Process/Backend/MediaItem.php:1238 src/Process/Backend/Post.php:931
+#: src/Process/Backend/MediaItem.php:1239 src/Process/Backend/Post.php:931
 #: src/Process/Backend/Post.php:1145 src/Process/Backend/User.php:554
 #: src/Process/Backend/UsersActions.php:513 src/Process/Install/Install.php:550
 msgid "Save"
@@ -487,11 +487,11 @@ msgstr "Beschikbaar"
 msgid "Other"
 msgstr "Andere"
 
-#: src/Core/Backend/Combos.php:283 src/Process/Backend/UserPreferences.php:196
+#: src/Core/Backend/Combos.php:283 src/Process/Backend/UserPreferences.php:197
 msgid "Descending"
 msgstr "Aflopend"
 
-#: src/Core/Backend/Combos.php:284 src/Process/Backend/UserPreferences.php:197
+#: src/Core/Backend/Combos.php:284 src/Process/Backend/UserPreferences.php:198
 msgid "Ascending"
 msgstr "Oplopend"
 
@@ -581,12 +581,12 @@ msgid "Number of entries"
 msgstr "Aantal inzendingen"
 
 #: src/Core/Backend/Favorites.php:287
-#: src/Process/Backend/UserPreferences.php:1346
+#: src/Process/Backend/UserPreferences.php:1357
 msgid "My favorites"
 msgstr "Mijn favorieten"
 
 #: src/Core/Backend/Favorites.php:399 src/Core/Backend/Menus.php:195
-#: src/Core/Backend/Page.php:372 src/Process/Backend/Media.php:796
+#: src/Core/Backend/Page.php:375 src/Process/Backend/Media.php:796
 #: src/Process/Backend/UserPreferences.php:70
 msgid "My preferences"
 msgstr "Mijn voorkeuren"
@@ -628,7 +628,7 @@ msgstr "Categorieën"
 #: src/Core/Backend/MediaPage.php:365 src/Core/Backend/MediaPage.php:416
 #: src/Core/Backend/Menus.php:117 src/Core/Backend/UserPref.php:200
 #: src/Process/Backend/Media.php:702 src/Process/Backend/Media.php:830
-#: src/Process/Backend/MediaItem.php:410 src/Process/Backend/MediaItem.php:416
+#: src/Process/Backend/MediaItem.php:411 src/Process/Backend/MediaItem.php:417
 msgid "Media manager"
 msgstr "Media manager"
 
@@ -671,28 +671,28 @@ msgstr "Plugins instellingen"
 msgid "Languages"
 msgstr "Talen"
 
-#: src/Core/Backend/Favorites.php:527 src/Core/Backend/Page.php:447
-#: src/Core/Backend/Page.php:448 src/Process/Backend/Help.php:109
+#: src/Core/Backend/Favorites.php:527 src/Core/Backend/Page.php:450
+#: src/Core/Backend/Page.php:451 src/Process/Backend/Help.php:109
 #: src/Process/Backend/Help.php:116 src/Process/Backend/Help.php:122
 msgid "Global help"
 msgstr "Wereldwijde hulp"
 
-#: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1277
+#: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1283
 #: src/Process/Backend/Auth.php:513 src/Process/Backend/BlogPref.php:1369
 #: src/Process/Backend/Comment.php:305 src/Process/Backend/Post.php:1114
-#: src/Process/Backend/User.php:450 src/Process/Backend/UserPreferences.php:813
+#: src/Process/Backend/User.php:450 src/Process/Backend/UserPreferences.php:815
 #: src/Process/Install/Install.php:508
 msgid "Email:"
 msgstr "E-mail:"
 
-#: src/Core/Backend/Filter/FilterComments.php:37 src/Core/Backend/Page.php:1276
+#: src/Core/Backend/Filter/FilterComments.php:37 src/Core/Backend/Page.php:1282
 #: src/Process/Backend/Comment.php:321 src/Process/Backend/Post.php:1123
 msgid "Web site:"
 msgstr "Website:"
 
 #: src/Core/Backend/Filter/FilterComments.php:58
 #: src/Core/Backend/Filter/FilterPosts.php:92
-#: src/Core/Backend/ModulesList.php:1045 src/Core/Backend/Page.php:1318
+#: src/Core/Backend/ModulesList.php:1045 src/Core/Backend/Page.php:1324
 #: src/Process/Backend/Comment.php:294
 msgid "Author:"
 msgstr "Auteur:"
@@ -711,7 +711,7 @@ msgid "Trackback"
 msgstr "Trackback"
 
 #: src/Core/Backend/Filter/FilterComments.php:107
-#: src/Core/Backend/Page.php:1278 src/Process/Backend/Comment.php:269
+#: src/Core/Backend/Page.php:1284 src/Process/Backend/Comment.php:269
 msgid "IP address:"
 msgstr "IP-adres:"
 
@@ -812,7 +812,7 @@ msgid "Sort:"
 msgstr "Sorteren:"
 
 #: src/Core/Backend/Filter/Filters.php:390
-#: src/Process/Backend/UserPreferences.php:971
+#: src/Process/Backend/UserPreferences.php:973
 msgid "Show"
 msgstr "Toon"
 
@@ -824,7 +824,7 @@ msgstr "Huidige opties opslaan"
 msgid "Display options"
 msgstr "Weergaveopties"
 
-#: src/Core/Backend/Filter/Filters.php:422 src/Core/Backend/Page.php:1486
+#: src/Core/Backend/Filter/Filters.php:422 src/Core/Backend/Page.php:1492
 msgid "Show filters and display options"
 msgstr "Filters en weergaveopties tonen"
 
@@ -833,7 +833,7 @@ msgid "Apply filters and display options"
 msgstr "Filters en weergaveopties toepassen"
 
 #: src/Core/Backend/Filter/FiltersLibrary.php:87
-#: src/Core/Backend/MediaPage.php:402 src/Core/Backend/Page.php:475
+#: src/Core/Backend/MediaPage.php:402 src/Core/Backend/Page.php:478
 msgid "Search:"
 msgstr "Zoeken:"
 
@@ -1184,7 +1184,7 @@ msgstr "andere"
 msgid "Search in repository:"
 msgstr "Zoeken in archief:"
 
-#: src/Core/Backend/ModulesList.php:413 src/Core/Backend/Page.php:477
+#: src/Core/Backend/ModulesList.php:413 src/Core/Backend/Page.php:480
 msgid "OK"
 msgstr "OK"
 
@@ -1235,7 +1235,7 @@ msgid "Current version"
 msgstr "Huidige versie"
 
 #: src/Core/Backend/ModulesList.php:839 src/Core/Backend/ModulesList.php:1063
-#: src/Core/Backend/Page.php:1319 src/Core/Backend/ThemesList.php:230
+#: src/Core/Backend/Page.php:1325 src/Core/Backend/ThemesList.php:230
 #: src/Core/Backend/ThemesList.php:300
 msgid "Details"
 msgstr "Details"
@@ -1285,7 +1285,7 @@ msgstr "Plugin in ontwikkeling"
 msgid "Release date:"
 msgstr "Verschijningsdatum:"
 
-#: src/Core/Backend/ModulesList.php:1070 src/Core/Backend/Page.php:1320
+#: src/Core/Backend/ModulesList.php:1070 src/Core/Backend/Page.php:1326
 #: src/Core/Backend/ThemesList.php:236
 msgid "Support"
 msgstr "Ondersteuning"
@@ -1294,11 +1294,11 @@ msgstr "Ondersteuning"
 msgid "update locked"
 msgstr "update vergrendeld"
 
-#: src/Core/Backend/ModulesList.php:1115 src/Core/Backend/Page.php:1322
+#: src/Core/Backend/ModulesList.php:1115 src/Core/Backend/Page.php:1328
 msgid "Section:"
 msgstr "Sectie:"
 
-#: src/Core/Backend/ModulesList.php:1121 src/Core/Backend/Page.php:1323
+#: src/Core/Backend/ModulesList.php:1121 src/Core/Backend/Page.php:1329
 msgid "Tags:"
 msgstr "Tags:"
 
@@ -1476,7 +1476,7 @@ msgstr "Wachtwoord"
 msgid "Your password:"
 msgstr "Je wachtwoord:"
 
-#: src/Core/Backend/ModulesList.php:1785 src/Core/Backend/Page.php:1442
+#: src/Core/Backend/ModulesList.php:1785 src/Core/Backend/Page.php:1448
 #: src/Process/Backend/Media.php:809
 msgid "Upload"
 msgstr "uploaden"
@@ -1514,16 +1514,16 @@ msgstr "Configureren \"%s\""
 #: src/Core/Backend/ModulesList.php:1984 src/Process/Backend/Blog.php:197
 #: src/Process/Backend/BlogDel.php:138 src/Process/Backend/BlogPref.php:1195
 #: src/Process/Backend/Category.php:300 src/Process/Backend/Comment.php:351
-#: src/Process/Backend/Media.php:871 src/Process/Backend/MediaItem.php:1325
+#: src/Process/Backend/Media.php:871 src/Process/Backend/MediaItem.php:1327
 #: src/Process/Backend/Post.php:956 src/Process/Backend/Search.php:193
-#: src/Process/Backend/User.php:565 src/Process/Backend/UserPreferences.php:874
-#: src/Process/Backend/UserPreferences.php:1201
-#: src/Process/Backend/UserPreferences.php:1427
+#: src/Process/Backend/User.php:565 src/Process/Backend/UserPreferences.php:876
+#: src/Process/Backend/UserPreferences.php:1212
+#: src/Process/Backend/UserPreferences.php:1438
 msgid "Back"
 msgstr "Terug"
 
-#: src/Core/Backend/Notices.php:86 src/Core/Backend/Page.php:1279
-#: src/Core/Backend/Page.php:1437 src/Core/Upgrade/Notices.php:48
+#: src/Core/Backend/Notices.php:86 src/Core/Backend/Page.php:1285
+#: src/Core/Backend/Page.php:1443 src/Core/Upgrade/Notices.php:48
 #: src/Process/Backend/Home.php:324
 msgid "Error:"
 msgstr "Fout:"
@@ -1539,7 +1539,7 @@ msgid "%H:%M:%S"
 msgstr "%H:%M:%S"
 
 #: src/Core/Backend/Notices.php:258 src/Core/Backend/Notices.php:298
-#: src/Core/Backend/Notices.php:308 src/Core/Backend/Page.php:1325
+#: src/Core/Backend/Notices.php:308 src/Core/Backend/Page.php:1331
 #: src/Process/Backend/Categories.php:341 src/Process/Backend/Post.php:1058
 #: src/Process/Backend/Post.php:1190 src/Process/Backend/PostsPopup.php:121
 msgid "Ok"
@@ -1558,387 +1558,387 @@ msgstr "Blog veranderen"
 msgid "Blogs:"
 msgstr "Blogs:"
 
-#: src/Core/Backend/Page.php:312 src/Core/Upgrade/Page.php:148
+#: src/Core/Backend/Page.php:315 src/Core/Upgrade/Page.php:151
 msgid "Go to the content"
 msgstr "Ga naar de inhoud"
 
-#: src/Core/Backend/Page.php:316 src/Core/Upgrade/Page.php:152
+#: src/Core/Backend/Page.php:319 src/Core/Upgrade/Page.php:155
 msgid "Go to the menu"
 msgstr "Ga naar het menu"
 
-#: src/Core/Backend/Page.php:320 src/Core/Upgrade/Page.php:156
+#: src/Core/Backend/Page.php:323 src/Core/Upgrade/Page.php:159
 msgid "Go to help"
 msgstr "Ga naar hulp"
 
-#: src/Core/Backend/Page.php:339 src/Core/Upgrade/Page.php:174
-#: src/Process/Backend/UserPreferences.php:1336
-#: src/Process/Backend/UserPreferences.php:1338
+#: src/Core/Backend/Page.php:342 src/Core/Upgrade/Page.php:177
+#: src/Process/Backend/UserPreferences.php:1347
+#: src/Process/Backend/UserPreferences.php:1349
 msgid "My dashboard"
 msgstr "Mijn dashboard"
 
-#: src/Core/Backend/Page.php:355 src/Core/Backend/Page.php:357
+#: src/Core/Backend/Page.php:358 src/Core/Backend/Page.php:360
 msgid "Go to site"
 msgstr "Ga naar site"
 
-#: src/Core/Backend/Page.php:380 src/Core/Upgrade/Page.php:203
+#: src/Core/Backend/Page.php:383 src/Core/Upgrade/Page.php:206
 #, php-format
 msgid "Logout %s"
 msgstr "Afmelden %s"
 
-#: src/Core/Backend/Page.php:401 src/Core/Upgrade/Page.php:224
+#: src/Core/Backend/Page.php:404 src/Core/Upgrade/Page.php:227
 msgid "Hide main menu"
 msgstr "Verberg hoofdmenu"
 
-#: src/Core/Backend/Page.php:404 src/Core/Upgrade/Page.php:227
+#: src/Core/Backend/Page.php:407 src/Core/Upgrade/Page.php:230
 msgid "Show main menu"
 msgstr "Hoofdmenu weergeven"
 
-#: src/Core/Backend/Page.php:425
+#: src/Core/Backend/Page.php:428
 msgid "Safe mode"
 msgstr "Veilige modus"
 
-#: src/Core/Backend/Page.php:427
+#: src/Core/Backend/Page.php:430
 msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities"
 msgstr "U bevindt zich in de veilige modus. Alle plugins zijn tijdelijk uitgeschakeld. Herinner me eraan uit te loggen en dan weer normaal in te loggen om alle functionaliteiten terug te krijgen."
 
-#: src/Core/Backend/Page.php:495 src/Core/Upgrade/Page.php:260
+#: src/Core/Backend/Page.php:498 src/Core/Upgrade/Page.php:263
 #, php-format
 msgid "Thank you for using %s."
 msgstr "Bedankt voor het gebruik van %s."
 
-#: src/Core/Backend/Page.php:512 src/Core/Backend/Page.php:516
-#: src/Core/Backend/Page.php:518 src/Core/Backend/Page.php:663
-#: src/Core/Backend/Page.php:665 src/Core/Upgrade/Page.php:271
-#: src/Core/Upgrade/Page.php:275 src/Core/Upgrade/Page.php:277
+#: src/Core/Backend/Page.php:515 src/Core/Backend/Page.php:519
+#: src/Core/Backend/Page.php:521 src/Core/Backend/Page.php:669
+#: src/Core/Backend/Page.php:671 src/Core/Upgrade/Page.php:274
+#: src/Core/Upgrade/Page.php:278 src/Core/Upgrade/Page.php:280
 msgid "Page top"
 msgstr "Begin pagina"
 
-#: src/Core/Backend/Page.php:538 src/Core/Backend/Page.php:541
-#: src/Core/Upgrade/Page.php:297 src/Core/Upgrade/Page.php:300
+#: src/Core/Backend/Page.php:541 src/Core/Backend/Page.php:544
+#: src/Core/Upgrade/Page.php:300 src/Core/Upgrade/Page.php:303
 msgid "Dotclear logo"
 msgstr "Dotclear logo"
 
-#: src/Core/Backend/Page.php:875 src/Core/Backend/Page.php:878
-#: src/Core/Upgrade/Page.php:339 src/Core/Upgrade/Page.php:342
+#: src/Core/Backend/Page.php:881 src/Core/Backend/Page.php:884
+#: src/Core/Upgrade/Page.php:342 src/Core/Upgrade/Page.php:345
 msgid "Go to dashboard"
 msgstr "Ga naar het dashboard"
 
-#: src/Core/Backend/Page.php:1127 src/Core/Upgrade/Page.php:451
+#: src/Core/Backend/Page.php:1133 src/Core/Upgrade/Page.php:454
 msgid "Help about this page"
 msgstr "Help over deze pagina"
 
-#: src/Core/Backend/Page.php:1137 src/Core/Upgrade/Page.php:460
+#: src/Core/Backend/Page.php:1143 src/Core/Upgrade/Page.php:463
 #, php-format
 msgid "See also %s"
 msgstr "Zie ook %s"
 
-#: src/Core/Backend/Page.php:1140 src/Core/Upgrade/Page.php:463
+#: src/Core/Backend/Page.php:1146 src/Core/Upgrade/Page.php:466
 msgid "the global help"
 msgstr "de wereldwijde hulp"
 
-#: src/Core/Backend/Page.php:1261
+#: src/Core/Backend/Page.php:1267
 msgid "uncover"
 msgstr "ontdekken"
 
-#: src/Core/Backend/Page.php:1265
+#: src/Core/Backend/Page.php:1271
 msgid "hide"
 msgstr "verbergen"
 
-#: src/Core/Backend/Page.php:1269
+#: src/Core/Backend/Page.php:1275
 msgid "Need help?"
 msgstr "Hulp nodig?"
 
-#: src/Core/Backend/Page.php:1270
+#: src/Core/Backend/Page.php:1276
 msgid "new window"
 msgstr "nieuw venster"
 
-#: src/Core/Backend/Page.php:1271
+#: src/Core/Backend/Page.php:1277
 msgid "Hide"
 msgstr "Verberg"
 
-#: src/Core/Backend/Page.php:1272
+#: src/Core/Backend/Page.php:1278
 msgid "Select:"
 msgstr "Selecteer:"
 
-#: src/Core/Backend/Page.php:1273
+#: src/Core/Backend/Page.php:1279
 msgid "No selection"
 msgstr "Geen selectie"
 
-#: src/Core/Backend/Page.php:1274
+#: src/Core/Backend/Page.php:1280
 msgid "Select all"
 msgstr "Alles selecteren"
 
-#: src/Core/Backend/Page.php:1275
+#: src/Core/Backend/Page.php:1281
 msgid "Invert selection"
 msgstr "Selectie omkeren"
 
-#: src/Core/Backend/Page.php:1280 src/Process/Backend/Post.php:466
+#: src/Core/Backend/Page.php:1286 src/Process/Backend/Post.php:466
 #: src/Process/Backend/Post.php:609
 msgid "Entry has been successfully created."
 msgstr "Entry is succesvol aangemaakt."
 
-#: src/Core/Backend/Page.php:1281
+#: src/Core/Backend/Page.php:1287
 msgid "Edit entry"
 msgstr "Bericht bewerken"
 
-#: src/Core/Backend/Page.php:1282
+#: src/Core/Backend/Page.php:1288
 msgid "view entry"
 msgstr "inzending bekijken"
 
-#: src/Core/Backend/Page.php:1283
+#: src/Core/Backend/Page.php:1289
 #, php-format
 msgid "Are you sure you want to delete selected entries (%s)?"
 msgstr "Weet je zeker dat je geselecteerde items wilt verwijderen (%s)?"
 
-#: src/Core/Backend/Page.php:1284
+#: src/Core/Backend/Page.php:1290
 #, php-format
 msgid "Are you sure you want to delete selected medias (%d)?"
 msgstr "Weet je zeker dat je geselecteerde media wilt verwijderen (%d)?"
 
-#: src/Core/Backend/Page.php:1285
+#: src/Core/Backend/Page.php:1291
 #, php-format
 msgid "Are you sure you want to delete selected categories (%s)?"
 msgstr "Weet je zeker dat je geselecteerde categorieën wilt verwijderen (%s)?"
 
-#: src/Core/Backend/Page.php:1286
+#: src/Core/Backend/Page.php:1292
 msgid "Are you sure you want to delete this entry?"
 msgstr "Weet je zeker dat je dit item wilt verwijderen?"
 
-#: src/Core/Backend/Page.php:1287
+#: src/Core/Backend/Page.php:1293
 msgid "Click here to unlock the field"
 msgstr "Klik hier om het veld te ontgrendelen"
 
-#: src/Core/Backend/Page.php:1288
+#: src/Core/Backend/Page.php:1294
 msgid "Are you sure you want to delete all spams?"
 msgstr "Weet je zeker dat je alle spam wilt verwijderen?"
 
-#: src/Core/Backend/Page.php:1289
+#: src/Core/Backend/Page.php:1295
 #, php-format
 msgid "Are you sure you want to delete selected comments (%s)?"
 msgstr "Weet je zeker dat je geselecteerde opmerkingen wilt verwijderen (%s)?"
 
-#: src/Core/Backend/Page.php:1290
+#: src/Core/Backend/Page.php:1296
 msgid "Are you sure you want to delete this comment?"
 msgstr "Weet je zeker dat je deze opmerking wilt verwijderen?"
 
-#: src/Core/Backend/Page.php:1291
+#: src/Core/Backend/Page.php:1297
 msgid "Users with posts cannot be deleted."
 msgstr "Gebruikers met berichten kunnen niet worden verwijderd."
 
-#: src/Core/Backend/Page.php:1292
+#: src/Core/Backend/Page.php:1298
 #, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
 msgstr "Weet je zeker dat je geselecteerde gebruikers wilt verwijderen (%s)?"
 
-#: src/Core/Backend/Page.php:1293
+#: src/Core/Backend/Page.php:1299
 #, php-format
 msgid "Are you sure you want to delete selected blogs (%s)?"
 msgstr "Weet je zeker dat je geselecteerde blogs wilt verwijderen (%s)?"
 
-#: src/Core/Backend/Page.php:1294
+#: src/Core/Backend/Page.php:1300
 #, php-format
 msgid "Are you sure you want to delete category \"%s\"?"
 msgstr "Weet je zeker dat je categorie \"%s\" wilt verwijderen?"
 
-#: src/Core/Backend/Page.php:1295
+#: src/Core/Backend/Page.php:1301
 msgid "Are you sure you want to reorder all categories?"
 msgstr "Weet je zeker dat je alle categorieën opnieuw wilt ordenen?"
 
-#: src/Core/Backend/Page.php:1296
+#: src/Core/Backend/Page.php:1302
 #, php-format
 msgid "Are you sure you want to remove media \"%s\"?"
 msgstr "Weet je zeker dat je media \"%s\" wilt verwijderen?"
 
-#: src/Core/Backend/Page.php:1297
+#: src/Core/Backend/Page.php:1303
 #, php-format
 msgid "Are you sure you want to remove directory \"%s\"?"
 msgstr "Weet je zeker dat je directory \"%s\" wilt verwijderen?"
 
-#: src/Core/Backend/Page.php:1298
+#: src/Core/Backend/Page.php:1304
 msgid "Are you sure you want to extract archive in current directory?"
 msgstr "Weet je zeker dat je het archief wilt uitpakken in de huidige map?"
 
-#: src/Core/Backend/Page.php:1299
+#: src/Core/Backend/Page.php:1305
 #, php-format
 msgid "Are you sure you want to remove attachment \"%s\"?"
 msgstr "Weet je zeker dat je bijlage \"%s\" wilt verwijderen?"
 
-#: src/Core/Backend/Page.php:1300
+#: src/Core/Backend/Page.php:1306
 #, php-format
 msgid "Are you sure you want to delete \"%s\" language?"
 msgstr "Weet je zeker dat je de taal \"%s\" wilt verwijderen?"
 
-#: src/Core/Backend/Page.php:1301
+#: src/Core/Backend/Page.php:1307
 #, php-format
 msgid "Are you sure you want to delete \"%s\" plugin?"
 msgstr "Weet je zeker dat je de plugin \"%s\" wilt verwijderen?"
 
-#: src/Core/Backend/Page.php:1302
+#: src/Core/Backend/Page.php:1308
 msgid "Are you sure you want to delete selected plugins?"
 msgstr "Weet je zeker dat je de geselecteerde plugins wilt verwijderen?"
 
-#: src/Core/Backend/Page.php:1303
+#: src/Core/Backend/Page.php:1309
 msgid "Use this theme"
 msgstr "Gebruik dit thema"
 
-#: src/Core/Backend/Page.php:1304
+#: src/Core/Backend/Page.php:1310
 msgid "Remove this theme"
 msgstr "Dit thema verwijderen"
 
-#: src/Core/Backend/Page.php:1305
+#: src/Core/Backend/Page.php:1311
 #, php-format
 msgid "Are you sure you want to delete \"%s\" theme?"
 msgstr "Weet je zeker dat je het thema \"%s\" wilt verwijderen?"
 
-#: src/Core/Backend/Page.php:1306
+#: src/Core/Backend/Page.php:1312
 msgid "Are you sure you want to delete selected themes?"
 msgstr "Weet je zeker dat je geselecteerde thema's wilt verwijderen?"
 
-#: src/Core/Backend/Page.php:1307
+#: src/Core/Backend/Page.php:1313
 msgid "Are you sure you want to delete this backup?"
 msgstr "Weet je zeker dat je deze back-up wilt verwijderen?"
 
-#: src/Core/Backend/Page.php:1308
+#: src/Core/Backend/Page.php:1314
 msgid "Are you sure you want to revert to this backup?"
 msgstr "Weet je zeker dat je terug wilt naar deze back-up?"
 
-#: src/Core/Backend/Page.php:1309
+#: src/Core/Backend/Page.php:1315
 msgid "Zip file content"
 msgstr "Inhoud zip-bestand"
 
-#: src/Core/Backend/Page.php:1310
+#: src/Core/Backend/Page.php:1316
 msgid "HTML markup validator"
 msgstr "HTML-opmaak validator"
 
-#: src/Core/Backend/Page.php:1311
+#: src/Core/Backend/Page.php:1317
 msgid "HTML content is valid."
 msgstr "HTML-inhoud is geldig."
 
-#: src/Core/Backend/Page.php:1312
+#: src/Core/Backend/Page.php:1318
 msgid "There are HTML markup errors."
 msgstr "Er zijn HTML-opmaakfouten."
 
-#: src/Core/Backend/Page.php:1313
+#: src/Core/Backend/Page.php:1319
 msgid "Attention: an audit of a content not yet registered."
 msgstr "Let op: een audit van een nog niet geregistreerde inhoud."
 
-#: src/Core/Backend/Page.php:1314
+#: src/Core/Backend/Page.php:1320
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
 msgstr "Je hebt niet-opgeslagen wijzigingen. Als je van postformaat verandert, gaan deze wijzigingen verloren. Toch doorgaan?"
 
-#: src/Core/Backend/Page.php:1315
+#: src/Core/Backend/Page.php:1321
 msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
 msgstr "Waarschuwing: bij het wijzigen van de opmaak wordt bestaande inhoud niet geconverteerd. Je moet het nieuwe formaat zelf toepassen. Toch doorgaan?"
 
-#: src/Core/Backend/Page.php:1316
+#: src/Core/Backend/Page.php:1322
 msgid "Loading enhanced uploader, please wait."
 msgstr "Verbeterde uploader wordt geladen, even geduld."
 
-#: src/Core/Backend/Page.php:1321
+#: src/Core/Backend/Page.php:1327
 msgid "Help:"
 msgstr "Help:"
 
-#: src/Core/Backend/Page.php:1327
+#: src/Core/Backend/Page.php:1333
 msgid "Show password"
 msgstr "Wachtwoord tonen"
 
-#: src/Core/Backend/Page.php:1328
+#: src/Core/Backend/Page.php:1334
 msgid "Hide password"
 msgstr "Verberg wachtwoord"
 
-#: src/Core/Backend/Page.php:1330
+#: src/Core/Backend/Page.php:1336
 msgid "Reset to now"
 msgstr "Terugzetten naar nu"
 
-#: src/Core/Backend/Page.php:1331
+#: src/Core/Backend/Page.php:1337
 msgid "The publication date has changed. Reset the base name of the entry URL?"
 msgstr "De publicatiedatum is gewijzigd. De basisnaam van de URL opnieuw instellen?"
 
-#: src/Core/Backend/Page.php:1332
+#: src/Core/Backend/Page.php:1338
 msgid "The publication title has changed. Reset the base name of the entry URL?"
 msgstr "De titel van de publicatie is veranderd. De basisnaam van de URL opnieuw instellen?"
 
-#: src/Core/Backend/Page.php:1334
+#: src/Core/Backend/Page.php:1340
 msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences."
 msgstr "Er is een ad blocker gedetecteerd op dit Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) en het kan sommige functies verstoren. In dit geval moet u deze uitschakelen. Merk op dat deze detectie kan worden uitgeschakeld in uw voorkeuren."
 
-#: src/Core/Backend/Page.php:1386
+#: src/Core/Backend/Page.php:1392
 msgid "You have unsaved changes."
 msgstr "Je hebt niet-opgeslagen wijzigingen."
 
-#: src/Core/Backend/Page.php:1387
+#: src/Core/Backend/Page.php:1393
 msgid "your battery charge seems low (%d%) and you have unsaved changes, you should save them."
 msgstr "de lading van je batterij laag lijkt (%d%) en je niet-opgeslagen wijzigingen hebt, moet je deze opslaan."
 
-#: src/Core/Backend/Page.php:1428
+#: src/Core/Backend/Page.php:1434
 msgid "Temporarily activate enhanced uploader"
 msgstr "Tijdelijk verbeterde uploader activeren"
 
-#: src/Core/Backend/Page.php:1429
+#: src/Core/Backend/Page.php:1435
 msgid "Temporarily disable enhanced uploader"
 msgstr "Verbeterde uploader tijdelijk uitschakelen"
 
-#: src/Core/Backend/Page.php:1433
+#: src/Core/Backend/Page.php:1439
 msgid "Limit exceeded."
 msgstr "Limiet overschreden."
 
-#: src/Core/Backend/Page.php:1434
+#: src/Core/Backend/Page.php:1440
 msgid "File size exceeds allowed limit."
 msgstr "Bestandsgrootte overschrijdt toegestane limiet."
 
-#: src/Core/Backend/Page.php:1435
+#: src/Core/Backend/Page.php:1441
 msgid "Canceled."
 msgstr "Geannuleerd."
 
-#: src/Core/Backend/Page.php:1436
+#: src/Core/Backend/Page.php:1442
 msgid "HTTP Error:"
 msgstr "HTTP-fout:"
 
-#: src/Core/Backend/Page.php:1438 src/Process/Backend/Media.php:752
+#: src/Core/Backend/Page.php:1444 src/Process/Backend/Media.php:752
 msgid "Choose file"
 msgstr "Kies bestand"
 
-#: src/Core/Backend/Page.php:1439 src/Process/Backend/Media.php:758
+#: src/Core/Backend/Page.php:1445 src/Process/Backend/Media.php:758
 msgid "Choose files"
 msgstr "Bestanden kiezen"
 
-#: src/Core/Backend/Page.php:1440 src/Process/Backend/LinkPopup.php:114
-#: src/Process/Backend/Media.php:305 src/Process/Backend/MediaItem.php:515
-#: src/Process/Backend/MediaItem.php:771 src/Process/Backend/Post.php:962
+#: src/Core/Backend/Page.php:1446 src/Process/Backend/LinkPopup.php:114
+#: src/Process/Backend/Media.php:305 src/Process/Backend/MediaItem.php:516
+#: src/Process/Backend/MediaItem.php:772 src/Process/Backend/Post.php:962
 #: src/Process/Backend/PostMedia.php:115
 msgid "Cancel"
 msgstr "Annuleren"
 
-#: src/Core/Backend/Page.php:1441
+#: src/Core/Backend/Page.php:1447
 msgid "Clean"
 msgstr "Schoon"
 
-#: src/Core/Backend/Page.php:1443
+#: src/Core/Backend/Page.php:1449
 msgid "Send"
 msgstr "Stuur"
 
-#: src/Core/Backend/Page.php:1444
+#: src/Core/Backend/Page.php:1450
 msgid "File successfully uploaded."
 msgstr "Bestand succesvol geüpload."
 
-#: src/Core/Backend/Page.php:1445
+#: src/Core/Backend/Page.php:1451
 msgid "No file in queue."
 msgstr "Geen bestand in wachtrij."
 
-#: src/Core/Backend/Page.php:1446
+#: src/Core/Backend/Page.php:1452
 msgid "1 file in queue."
 msgstr "1 bestand in wachtrij."
 
-#: src/Core/Backend/Page.php:1447
+#: src/Core/Backend/Page.php:1453
 #, php-format
 msgid "%d files in queue."
 msgstr "%d bestanden in de wachtrij."
 
-#: src/Core/Backend/Page.php:1448
+#: src/Core/Backend/Page.php:1454
 msgid "Queue error:"
 msgstr "Fout in wachtrij:"
 
-#: src/Core/Backend/Page.php:1487
+#: src/Core/Backend/Page.php:1493
 msgid "Cancel filters and display options"
 msgstr "Filters en weergaveopties annuleren"
 
@@ -2216,55 +2216,55 @@ msgstr "Het is niet toegestaan om van categorie te veranderen"
 msgid "You are not allowed to delete entries"
 msgstr "U mag geen items verwijderen"
 
-#: src/Core/Blog.php:1912
+#: src/Core/Blog.php:1914
 msgid "No entry title"
 msgstr "Geen titel"
 
-#: src/Core/Blog.php:1916 src/Core/Blog.php:1930
+#: src/Core/Blog.php:1918 src/Core/Blog.php:1932
 msgid "No entry content"
 msgstr "Geen inhoud"
 
-#: src/Core/Blog.php:1996
+#: src/Core/Blog.php:1998
 msgid "Notes"
 msgstr "Opmerkingen"
 
-#: src/Core/Blog.php:1998
+#: src/Core/Blog.php:2000
 msgid "Note"
 msgstr "Opmerking"
 
-#: src/Core/Blog.php:2113
+#: src/Core/Blog.php:2115
 msgid "Empty entry URL"
 msgstr "URL voor lege invoer"
 
-#: src/Core/Blog.php:2424
+#: src/Core/Blog.php:2426
 msgid "You are not allowed to update comments"
 msgstr "Het is niet toegestaan om reacties bij te werken"
 
-#: src/Core/Blog.php:2430 src/Core/Blog.php:2436 src/Core/Blog.php:2541
+#: src/Core/Blog.php:2432 src/Core/Blog.php:2438 src/Core/Blog.php:2543
 msgid "No such comment ID"
 msgstr "Geen commentaar-ID"
 
-#: src/Core/Blog.php:2443
+#: src/Core/Blog.php:2445
 msgid "You are not allowed to update this comment"
 msgstr "Je mag deze opmerking niet bijwerken"
 
-#: src/Core/Blog.php:2494
+#: src/Core/Blog.php:2496
 msgid "You are not allowed to change this comment's status"
 msgstr "Je mag de status van deze opmerking niet wijzigen"
 
-#: src/Core/Blog.php:2535 src/Core/Blog.php:2589
+#: src/Core/Blog.php:2537 src/Core/Blog.php:2591
 msgid "You are not allowed to delete comments"
 msgstr "Je mag geen reacties verwijderen"
 
-#: src/Core/Blog.php:2624
+#: src/Core/Blog.php:2626
 msgid "You must provide a comment"
 msgstr "Je moet een opmerking geven"
 
-#: src/Core/Blog.php:2628
+#: src/Core/Blog.php:2630
 msgid "You must provide an author name"
 msgstr "Je moet een auteursnaam opgeven"
 
-#: src/Core/Blog.php:2632
+#: src/Core/Blog.php:2634
 msgid "Email address is not valid."
 msgstr "E-mailadres is ongeldig."
 
@@ -2523,11 +2523,11 @@ msgstr "LOL!"
 msgid "System"
 msgstr "Systeem"
 
-#: src/Core/Upgrade/Page.php:184
+#: src/Core/Upgrade/Page.php:187
 msgid "Dotclear's update dashboard"
 msgstr "Dotclear's update dashboard"
 
-#: src/Core/Upgrade/Page.php:195
+#: src/Core/Upgrade/Page.php:198
 msgid "Go to normal dashboard"
 msgstr "Ga naar het normale dashboard"
 
@@ -2994,8 +2994,8 @@ msgstr "Ongeldige antwoordinhoud"
 msgid "Invalid response format"
 msgstr "Ongeldig antwoordformaat"
 
-#: src/Helper/OAuth2/Client/Services.php:118
-#: src/Helper/OAuth2/Client/Services.php:127
+#: src/Helper/OAuth2/Client/Services.php:112
+#: src/Helper/OAuth2/Client/Services.php:121
 #, php-format
 msgid "Failed to load provider \"%s\""
 msgstr "Provider \"%s\" kon niet worden geladen"
@@ -3167,7 +3167,7 @@ msgid "Your new password is in your mailbox."
 msgstr "Je nieuwe wachtwoord zit in je mailbox."
 
 #: src/Process/Backend/Auth.php:226 src/Process/Backend/User.php:159
-#: src/Process/Backend/UserPreferences.php:272 src/Process/Install/Cli.php:727
+#: src/Process/Backend/UserPreferences.php:273 src/Process/Install/Cli.php:727
 #: src/Process/Install/Install.php:188
 msgid "Passwords don't match"
 msgstr "Wachtwoorden komen niet overeen"
@@ -3205,9 +3205,9 @@ msgstr "Verkeerde gebruikersnaam of wachtwoord"
 #: src/Process/Backend/Auth.php:445 src/Process/Backend/Auth.php:446
 #: src/Process/Backend/Auth.php:447 src/Process/Backend/User.php:264
 #: src/Process/Backend/User.php:265 src/Process/Backend/User.php:266
-#: src/Process/Backend/UserPreferences.php:566
-#: src/Process/Backend/UserPreferences.php:567
 #: src/Process/Backend/UserPreferences.php:568
+#: src/Process/Backend/UserPreferences.php:569
+#: src/Process/Backend/UserPreferences.php:570
 #: src/Process/Install/Install.php:426 src/Process/Install/Install.php:427
 #: src/Process/Install/Install.php:428 src/Process/Upgrade/Auth.php:387
 #: src/Process/Upgrade/Auth.php:388 src/Process/Upgrade/Auth.php:389
@@ -3216,13 +3216,13 @@ msgid "Password strength: %s"
 msgstr "Wachtwoordsterkte: %s"
 
 #: src/Process/Backend/Auth.php:445 src/Process/Backend/User.php:264
-#: src/Process/Backend/UserPreferences.php:566
+#: src/Process/Backend/UserPreferences.php:568
 #: src/Process/Install/Install.php:426 src/Process/Upgrade/Auth.php:387
 msgid "weak"
 msgstr "zwak"
 
 #: src/Process/Backend/Auth.php:447 src/Process/Backend/User.php:266
-#: src/Process/Backend/UserPreferences.php:568
+#: src/Process/Backend/UserPreferences.php:570
 #: src/Process/Install/Install.php:428 src/Process/Upgrade/Auth.php:389
 msgid "strong"
 msgstr "sterk"
@@ -3249,7 +3249,7 @@ msgid "Change your password"
 msgstr "Wijzig je wachtwoord"
 
 #: src/Process/Backend/Auth.php:546 src/Process/Backend/User.php:352
-#: src/Process/Backend/UserPreferences.php:605
+#: src/Process/Backend/UserPreferences.php:607
 msgid "New password:"
 msgstr "Nieuw wachtwoord:"
 
@@ -3262,7 +3262,7 @@ msgstr "Wachtwoord bevestigen:"
 msgid "change"
 msgstr "veranderen"
 
-#: src/Process/Backend/Auth.php:574 src/Process/Backend/UserPreferences.php:880
+#: src/Process/Backend/Auth.php:574 src/Process/Backend/UserPreferences.php:882
 #: src/Process/Upgrade/Auth.php:292
 msgid "Two factors authentication"
 msgstr "Verificatie met twee factoren"
@@ -3271,7 +3271,7 @@ msgstr "Verificatie met twee factoren"
 msgid "Enter code:"
 msgstr "Voer code in:"
 
-#: src/Process/Backend/Auth.php:589 src/Process/Backend/UserPreferences.php:674
+#: src/Process/Backend/Auth.php:589 src/Process/Backend/UserPreferences.php:676
 #: src/Process/Upgrade/Auth.php:307
 msgid "Verify"
 msgstr "Controleer"
@@ -3437,7 +3437,7 @@ msgid "P"
 msgstr "P"
 
 #: src/Process/Backend/BlogPref.php:168 src/Process/Backend/BlogPref.php:1278
-#: src/Process/Backend/MediaItem.php:609 src/Process/Backend/MediaItem.php:614
+#: src/Process/Backend/MediaItem.php:610 src/Process/Backend/MediaItem.php:615
 msgid "(none)"
 msgstr "(geen)"
 
@@ -3457,33 +3457,33 @@ msgstr "Beschrijving, Land, Datum"
 msgid "Description, City, Country, Date"
 msgstr "Beschrijving, Stad, Land, Datum"
 
-#: src/Process/Backend/BlogPref.php:202 src/Process/Backend/MediaItem.php:489
-#: src/Process/Backend/MediaItem.php:583 src/Process/Backend/MediaItem.php:852
+#: src/Process/Backend/BlogPref.php:202 src/Process/Backend/MediaItem.php:490
+#: src/Process/Backend/MediaItem.php:584 src/Process/Backend/MediaItem.php:853
 msgid "original"
 msgstr "origineel"
 
 #: src/Process/Backend/BlogPref.php:213 src/Process/Backend/BlogPref.php:223
-#: src/Process/Backend/MediaItem.php:546 src/Process/Backend/MediaItem.php:602
+#: src/Process/Backend/MediaItem.php:547 src/Process/Backend/MediaItem.php:603
 msgid "None"
 msgstr "Geen"
 
-#: src/Process/Backend/BlogPref.php:214 src/Process/Backend/MediaItem.php:547
+#: src/Process/Backend/BlogPref.php:214 src/Process/Backend/MediaItem.php:548
 msgid "Left"
 msgstr "Links"
 
-#: src/Process/Backend/BlogPref.php:215 src/Process/Backend/MediaItem.php:548
+#: src/Process/Backend/BlogPref.php:215 src/Process/Backend/MediaItem.php:549
 msgid "Right"
 msgstr "Rechts"
 
-#: src/Process/Backend/BlogPref.php:216 src/Process/Backend/MediaItem.php:549
+#: src/Process/Backend/BlogPref.php:216 src/Process/Backend/MediaItem.php:550
 msgid "Center"
 msgstr "Midden"
 
-#: src/Process/Backend/BlogPref.php:221 src/Process/Backend/MediaItem.php:595
+#: src/Process/Backend/BlogPref.php:221 src/Process/Backend/MediaItem.php:596
 msgid "Legend and alternate text"
 msgstr "Legenda en alternatieve tekst"
 
-#: src/Process/Backend/BlogPref.php:222 src/Process/Backend/MediaItem.php:599
+#: src/Process/Backend/BlogPref.php:222 src/Process/Backend/MediaItem.php:600
 msgid "Alternate text"
 msgstr "Alternatieve tekst"
 
@@ -3500,7 +3500,7 @@ msgid "I would like to prevent search engines and archivers from indexing or arc
 msgstr "Ik wil voorkomen dat zoekmachines en archivarissen de inhoud van mijn blog indexeren of archiveren."
 
 #: src/Process/Backend/BlogPref.php:235
-#: src/Process/Backend/UserPreferences.php:158
+#: src/Process/Backend/UserPreferences.php:159
 msgid "Default"
 msgstr "Standaard"
 
@@ -4134,7 +4134,7 @@ msgid "total:"
 msgstr "totaal:"
 
 #: src/Process/Backend/Categories.php:326 src/Process/Backend/Category.php:278
-#: src/Process/Backend/User.php:475 src/Process/Backend/UserPreferences.php:835
+#: src/Process/Backend/User.php:475 src/Process/Backend/UserPreferences.php:837
 msgid "URL:"
 msgstr "URL:"
 
@@ -4179,7 +4179,7 @@ msgstr "Naam:"
 msgid "Warning: If you set the URL manually, it may conflict with another category."
 msgstr "Waarschuwing: Als je de URL handmatig instelt, kan deze conflicteren met een andere categorie."
 
-#: src/Process/Backend/Category.php:292 src/Process/Backend/MediaItem.php:1216
+#: src/Process/Backend/Category.php:292 src/Process/Backend/MediaItem.php:1217
 msgid "Description:"
 msgstr "Beschrijving:"
 
@@ -4566,7 +4566,7 @@ msgstr "Linktitel:"
 msgid "Link language:"
 msgstr "Taal koppelen:"
 
-#: src/Process/Backend/LinkPopup.php:116 src/Process/Backend/MediaItem.php:769
+#: src/Process/Backend/LinkPopup.php:116 src/Process/Backend/MediaItem.php:770
 msgid "Insert"
 msgstr "Invoegen"
 
@@ -4739,7 +4739,7 @@ msgstr "Zorg ervoor dat u media publiceert waarvan u de eigenaar bent en die nie
 msgid "Maximum file size allowed:"
 msgstr "Maximaal toegestane bestandsgrootte:"
 
-#: src/Process/Backend/Media.php:784 src/Process/Backend/MediaItem.php:1229
+#: src/Process/Backend/Media.php:784 src/Process/Backend/MediaItem.php:1230
 msgid "Private"
 msgstr "Privé"
 
@@ -4769,272 +4769,272 @@ msgstr "De huidige instellingen voor media en afbeeldingen zijn gedefinieerd in 
 msgid "Not a valid file"
 msgstr "Geen geldig bestand"
 
-#: src/Process/Backend/MediaItem.php:182 src/Process/Backend/MediaItem.php:244
-#: src/Process/Backend/MediaItem.php:437
+#: src/Process/Backend/MediaItem.php:182 src/Process/Backend/MediaItem.php:245
+#: src/Process/Backend/MediaItem.php:438
 msgid "File has been successfully updated."
 msgstr "Bestand is succesvol bijgewerkt."
 
-#: src/Process/Backend/MediaItem.php:261 src/Process/Backend/MediaItem.php:440
+#: src/Process/Backend/MediaItem.php:262 src/Process/Backend/MediaItem.php:441
 msgid "Thumbnails have been successfully updated."
 msgstr "De miniaturen zijn bijgewerkt."
 
-#: src/Process/Backend/MediaItem.php:278
+#: src/Process/Backend/MediaItem.php:279
 msgid "Zip file has been successfully extracted."
 msgstr "Zip-bestand is succesvol uitgepakt."
 
-#: src/Process/Backend/MediaItem.php:308 src/Process/Backend/MediaItem.php:443
+#: src/Process/Backend/MediaItem.php:309 src/Process/Backend/MediaItem.php:444
 msgid "Default media insertion settings have been successfully updated."
 msgstr "De standaardinstellingen voor het invoegen van media zijn met succes bijgewerkt."
 
-#: src/Process/Backend/MediaItem.php:334
+#: src/Process/Backend/MediaItem.php:335
 msgid "Media insertion settings have been successfully registered for this folder."
 msgstr "De instellingen voor het invoegen van media zijn met succes geregistreerd voor deze map."
 
-#: src/Process/Backend/MediaItem.php:345
+#: src/Process/Backend/MediaItem.php:346
 msgid "Media insertion settings have been successfully removed for this folder."
 msgstr "De instellingen voor het invoegen van media zijn succesvol verwijderd voor deze map."
 
-#: src/Process/Backend/MediaItem.php:483 src/Process/Backend/MediaItem.php:577
+#: src/Process/Backend/MediaItem.php:484 src/Process/Backend/MediaItem.php:578
 msgid "Image size:"
 msgstr "Afbeeldingsformaat:"
 
-#: src/Process/Backend/MediaItem.php:502 src/Process/Backend/MediaItem.php:504
+#: src/Process/Backend/MediaItem.php:503 src/Process/Backend/MediaItem.php:505
 msgid "Select media item"
 msgstr "Selecteer media-item"
 
-#: src/Process/Backend/MediaItem.php:513 src/Process/Upgrade/Attic.php:305
+#: src/Process/Backend/MediaItem.php:514 src/Process/Upgrade/Attic.php:305
 msgid "Select"
 msgstr "Selecteer"
 
-#: src/Process/Backend/MediaItem.php:589
+#: src/Process/Backend/MediaItem.php:590
 msgid "Image legend and alternate text"
 msgstr "Afbeeldingslegenda en alternatieve tekst"
 
-#: src/Process/Backend/MediaItem.php:606 src/Process/Backend/MediaItem.php:1067
-#: src/Process/Backend/MediaItem.php:1207
+#: src/Process/Backend/MediaItem.php:607 src/Process/Backend/MediaItem.php:1068
+#: src/Process/Backend/MediaItem.php:1208
 msgid "Alternate text:"
 msgstr "Andere tekst:"
 
-#: src/Process/Backend/MediaItem.php:611
+#: src/Process/Backend/MediaItem.php:612
 msgid "Legend:"
 msgstr "Legende:"
 
-#: src/Process/Backend/MediaItem.php:620
+#: src/Process/Backend/MediaItem.php:621
 msgid "Image alignment"
 msgstr "Afbeelding uitlijnen"
 
-#: src/Process/Backend/MediaItem.php:627
+#: src/Process/Backend/MediaItem.php:628
 msgid "Image insertion"
 msgstr "Afbeelding invoegen"
 
-#: src/Process/Backend/MediaItem.php:632
+#: src/Process/Backend/MediaItem.php:633
 msgid "As a single image"
 msgstr "Als een enkele afbeelding"
 
-#: src/Process/Backend/MediaItem.php:635
+#: src/Process/Backend/MediaItem.php:636
 msgid "As a link to the original image"
 msgstr "Als link naar de originele afbeelding"
 
-#: src/Process/Backend/MediaItem.php:652
+#: src/Process/Backend/MediaItem.php:653
 msgid "MP3 disposition"
 msgstr "MP3 beschikking"
 
-#: src/Process/Backend/MediaItem.php:661
+#: src/Process/Backend/MediaItem.php:662
 msgid "Please note that you cannot insert mp3 files with standard editor in WYSIWYG HTML mode."
 msgstr "Let op: je kunt geen mp3-bestanden invoegen met de standaardeditor in de WYSIWYG HTML-modus."
 
-#: src/Process/Backend/MediaItem.php:677
+#: src/Process/Backend/MediaItem.php:678
 msgid "Video size"
 msgstr "Videogrootte"
 
-#: src/Process/Backend/MediaItem.php:681
+#: src/Process/Backend/MediaItem.php:682
 msgid "Width:"
 msgstr "Breedte:"
 
-#: src/Process/Backend/MediaItem.php:686
+#: src/Process/Backend/MediaItem.php:687
 msgid "Height:"
 msgstr "Hoogte:"
 
-#: src/Process/Backend/MediaItem.php:690
+#: src/Process/Backend/MediaItem.php:691
 msgid "A value of 0 means that the corresponding size is not included when inserting a video."
 msgstr "Een waarde van 0 betekent dat de overeenkomstige grootte niet wordt meegenomen bij het invoegen van een video."
 
-#: src/Process/Backend/MediaItem.php:695
+#: src/Process/Backend/MediaItem.php:696
 msgid "Video disposition"
 msgstr "Video dispositie"
 
-#: src/Process/Backend/MediaItem.php:705
+#: src/Process/Backend/MediaItem.php:706
 msgid "Please note that you cannot insert video files with standard editor in WYSIWYG HTML mode."
 msgstr "Houd er rekening mee dat je geen videobestanden kunt invoegen met de standaardeditor in de WYSIWYG HTML-modus."
 
-#: src/Process/Backend/MediaItem.php:711
+#: src/Process/Backend/MediaItem.php:712
 msgid "Media item will be inserted as a link."
 msgstr "Het media-item wordt ingevoegd als link."
 
-#: src/Process/Backend/MediaItem.php:732
+#: src/Process/Backend/MediaItem.php:733
 msgid "Make current settings as default"
 msgstr "Huidige instellingen als standaard instellen"
 
-#: src/Process/Backend/MediaItem.php:733
+#: src/Process/Backend/MediaItem.php:734
 msgid "For the blog"
 msgstr "Voor de blog"
 
-#: src/Process/Backend/MediaItem.php:735
+#: src/Process/Backend/MediaItem.php:736
 msgid "For this folder only"
 msgstr "Alleen voor deze map"
 
-#: src/Process/Backend/MediaItem.php:747
+#: src/Process/Backend/MediaItem.php:748
 msgid "Settings exist for this folder:"
 msgstr "Er bestaan instellingen voor deze map:"
 
-#: src/Process/Backend/MediaItem.php:748
+#: src/Process/Backend/MediaItem.php:749
 msgid "Remove them"
 msgstr "Verwijder ze"
 
-#: src/Process/Backend/MediaItem.php:758 src/Process/Backend/MediaItem.php:760
+#: src/Process/Backend/MediaItem.php:759 src/Process/Backend/MediaItem.php:761
 msgid "Insert media item"
 msgstr "Media-item invoegen"
 
-#: src/Process/Backend/MediaItem.php:845
+#: src/Process/Backend/MediaItem.php:846
 msgid "Available sizes:"
 msgstr "Beschikbare maten:"
 
-#: src/Process/Backend/MediaItem.php:870 src/Process/Backend/MediaItem.php:944
-#: src/Process/Backend/MediaItem.php:952 src/Process/Backend/MediaItem.php:963
+#: src/Process/Backend/MediaItem.php:871 src/Process/Backend/MediaItem.php:945
+#: src/Process/Backend/MediaItem.php:953 src/Process/Backend/MediaItem.php:964
 msgid "Image width:"
 msgstr "Breedte afbeelding:"
 
-#: src/Process/Backend/MediaItem.php:876 src/Process/Backend/MediaItem.php:969
+#: src/Process/Backend/MediaItem.php:877 src/Process/Backend/MediaItem.php:970
 msgid "Image height:"
 msgstr "Hoogte afbeelding:"
 
-#: src/Process/Backend/MediaItem.php:884 src/Process/Backend/MediaItem.php:979
+#: src/Process/Backend/MediaItem.php:885 src/Process/Backend/MediaItem.php:980
 msgid "File size:"
 msgstr "Bestandsgrootte:"
 
-#: src/Process/Backend/MediaItem.php:892 src/Process/Backend/MediaItem.php:985
+#: src/Process/Backend/MediaItem.php:893 src/Process/Backend/MediaItem.php:986
 msgid "File URL:"
 msgstr "Bestands-URL:"
 
-#: src/Process/Backend/MediaItem.php:900
+#: src/Process/Backend/MediaItem.php:901
 msgid "Thumbnail details"
 msgstr "Details miniatuur"
 
-#: src/Process/Backend/MediaItem.php:923
+#: src/Process/Backend/MediaItem.php:924
 msgid "File owner:"
 msgstr "Eigenaar bestand:"
 
-#: src/Process/Backend/MediaItem.php:929
+#: src/Process/Backend/MediaItem.php:930
 msgid "File type:"
 msgstr "Type bestand:"
 
-#: src/Process/Backend/MediaItem.php:996
+#: src/Process/Backend/MediaItem.php:997
 msgid "Show entries containing this media"
 msgstr "Laat items zien die deze media bevatten"
 
-#: src/Process/Backend/MediaItem.php:1003
+#: src/Process/Backend/MediaItem.php:1004
 msgid "No entry seems contain this media."
 msgstr "Geen enkel item lijkt deze media te bevatten."
 
-#: src/Process/Backend/MediaItem.php:1033
+#: src/Process/Backend/MediaItem.php:1034
 msgid "Inside the entry"
 msgstr "Binnen de invoer"
 
-#: src/Process/Backend/MediaItem.php:1040
+#: src/Process/Backend/MediaItem.php:1041
 msgid "Linked to entry"
 msgstr "Gekoppeld aan invoer"
 
-#: src/Process/Backend/MediaItem.php:1048
+#: src/Process/Backend/MediaItem.php:1049
 msgid "Entries containing this media"
 msgstr "Inzendingen met deze media"
 
-#: src/Process/Backend/MediaItem.php:1082
+#: src/Process/Backend/MediaItem.php:1083
 msgid ":"
 msgstr ":"
 
-#: src/Process/Backend/MediaItem.php:1092
+#: src/Process/Backend/MediaItem.php:1093
 msgid "Metadata"
 msgstr "Metagegevens"
 
-#: src/Process/Backend/MediaItem.php:1104
-#: src/Process/Backend/MediaItem.php:1307
-#: src/Process/Backend/MediaItem.php:1316
+#: src/Process/Backend/MediaItem.php:1105
+#: src/Process/Backend/MediaItem.php:1309
+#: src/Process/Backend/MediaItem.php:1318
 msgid "Media details"
 msgstr "Media details"
 
-#: src/Process/Backend/MediaItem.php:1122
-#: src/Process/Backend/MediaItem.php:1129
+#: src/Process/Backend/MediaItem.php:1123
+#: src/Process/Backend/MediaItem.php:1130
 msgid "Update thumbnails"
 msgstr "Miniaturen bijwerken"
 
-#: src/Process/Backend/MediaItem.php:1124
+#: src/Process/Backend/MediaItem.php:1125
 msgid "This will create or update thumbnails for this image."
 msgstr "Hiermee worden miniaturen voor deze afbeelding gemaakt of bijgewerkt."
 
-#: src/Process/Backend/MediaItem.php:1138
-#: src/Process/Backend/MediaItem.php:1153
+#: src/Process/Backend/MediaItem.php:1139
+#: src/Process/Backend/MediaItem.php:1154
 msgid "Extract in a new directory"
 msgstr "Uitpakken in een nieuwe map"
 
-#: src/Process/Backend/MediaItem.php:1139
-#: src/Process/Backend/MediaItem.php:1159
+#: src/Process/Backend/MediaItem.php:1140
+#: src/Process/Backend/MediaItem.php:1160
 msgid "Extract in current directory"
 msgstr "Uitpakken in huidige map"
 
-#: src/Process/Backend/MediaItem.php:1147
+#: src/Process/Backend/MediaItem.php:1148
 msgid "Extract archive"
 msgstr "Archief uitpakken"
 
-#: src/Process/Backend/MediaItem.php:1154
+#: src/Process/Backend/MediaItem.php:1155
 msgid "This will extract archive in a new directory that should not exist yet."
 msgstr "Dit zal het archief uitpakken in een nieuwe map die nog niet zou moeten bestaan."
 
-#: src/Process/Backend/MediaItem.php:1160
+#: src/Process/Backend/MediaItem.php:1161
 msgid "This will extract archive in current directory and will overwrite existing files or directory."
 msgstr "Dit pakt het archief uit in de huidige map en overschrijft bestaande bestanden of mappen."
 
-#: src/Process/Backend/MediaItem.php:1168
+#: src/Process/Backend/MediaItem.php:1169
 msgid "Extract mode:"
 msgstr "Extractmodus:"
 
-#: src/Process/Backend/MediaItem.php:1169
+#: src/Process/Backend/MediaItem.php:1170
 msgid "Extract"
 msgstr "Uittreksel"
 
-#: src/Process/Backend/MediaItem.php:1181
+#: src/Process/Backend/MediaItem.php:1182
 msgid "Change media properties"
 msgstr "Media-eigenschappen wijzigen"
 
-#: src/Process/Backend/MediaItem.php:1190
+#: src/Process/Backend/MediaItem.php:1191
 msgid "File name:"
 msgstr "Bestandsnaam:"
 
-#: src/Process/Backend/MediaItem.php:1223
+#: src/Process/Backend/MediaItem.php:1224
 msgid "File date:"
 msgstr "Datum bestand:"
 
-#: src/Process/Backend/MediaItem.php:1236
+#: src/Process/Backend/MediaItem.php:1237
 msgid "New directory:"
 msgstr "Nieuwe map:"
 
-#: src/Process/Backend/MediaItem.php:1251
+#: src/Process/Backend/MediaItem.php:1252
 msgid "Change file"
 msgstr "Bestand wijzigen"
 
-#: src/Process/Backend/MediaItem.php:1260
+#: src/Process/Backend/MediaItem.php:1261
 msgid "Choose a file:"
 msgstr "Kies een bestand:"
 
-#: src/Process/Backend/MediaItem.php:1260
+#: src/Process/Backend/MediaItem.php:1261
 #, php-format
 msgid "Maximum size %s"
 msgstr "Maximale grootte %s"
 
-#: src/Process/Backend/MediaItem.php:1279
+#: src/Process/Backend/MediaItem.php:1280
 msgid "Delete this media"
 msgstr "Verwijder deze media"
 
-#: src/Process/Backend/MediaItem.php:1298
+#: src/Process/Backend/MediaItem.php:1300
 msgid "Updates and modifications"
 msgstr "Updates en wijzigingen"
 
@@ -5565,17 +5565,17 @@ msgstr "Waarschuwing:"
 msgid "Password change required to connect"
 msgstr "Wachtwoordwijziging vereist om verbinding te maken"
 
-#: src/Process/Backend/User.php:419 src/Process/Backend/UserPreferences.php:783
+#: src/Process/Backend/User.php:419 src/Process/Backend/UserPreferences.php:785
 #: src/Process/Install/Install.php:500
 msgid "Last Name:"
 msgstr "Achternaam:"
 
-#: src/Process/Backend/User.php:429 src/Process/Backend/UserPreferences.php:793
+#: src/Process/Backend/User.php:429 src/Process/Backend/UserPreferences.php:795
 #: src/Process/Install/Install.php:491
 msgid "First Name:"
 msgstr "Voornaam:"
 
-#: src/Process/Backend/User.php:439 src/Process/Backend/UserPreferences.php:803
+#: src/Process/Backend/User.php:439 src/Process/Backend/UserPreferences.php:805
 msgid "Display name:"
 msgstr "Naam weergeven:"
 
@@ -5583,24 +5583,24 @@ msgstr "Naam weergeven:"
 msgid "Mandatory for password recovering procedure."
 msgstr "Verplicht voor het herstellen van wachtwoorden."
 
-#: src/Process/Backend/User.php:462 src/Process/Backend/UserPreferences.php:822
+#: src/Process/Backend/User.php:462 src/Process/Backend/UserPreferences.php:824
 msgid "Alternate emails (comma separated list):"
 msgstr "Alternatieve e-mails (lijst met komma's):"
 
-#: src/Process/Backend/User.php:466 src/Process/Backend/UserPreferences.php:826
+#: src/Process/Backend/User.php:466 src/Process/Backend/UserPreferences.php:828
 msgid "Invalid emails will be automatically removed from list."
 msgstr "Ongeldige e-mails worden automatisch uit de lijst verwijderd."
 
-#: src/Process/Backend/User.php:484 src/Process/Backend/UserPreferences.php:844
+#: src/Process/Backend/User.php:484 src/Process/Backend/UserPreferences.php:846
 msgid "Alternate URLs (comma separated list):"
 msgstr "Alternatieve URL's (door komma's gescheiden lijst):"
 
-#: src/Process/Backend/User.php:488 src/Process/Backend/UserPreferences.php:848
+#: src/Process/Backend/User.php:488 src/Process/Backend/UserPreferences.php:850
 msgid "Invalid URLs will be automatically removed from list."
 msgstr "Ongeldige URL's worden automatisch verwijderd uit de lijst."
 
 #: src/Process/Backend/User.php:494
-#: src/Process/Backend/UserPreferences.php:1016
+#: src/Process/Backend/UserPreferences.php:1018
 msgid "Interface"
 msgstr "Interface"
 
@@ -5609,22 +5609,22 @@ msgid "Timezone:"
 msgstr "Tijdzone:"
 
 #: src/Process/Backend/User.php:510
-#: src/Process/Backend/UserPreferences.php:1140
+#: src/Process/Backend/UserPreferences.php:1151
 msgid "Edition"
 msgstr "Editie"
 
 #: src/Process/Backend/User.php:516
-#: src/Process/Backend/UserPreferences.php:1152
+#: src/Process/Backend/UserPreferences.php:1163
 msgid "Preferred format:"
 msgstr "Aanbevolen formaat:"
 
 #: src/Process/Backend/User.php:523
-#: src/Process/Backend/UserPreferences.php:1160
+#: src/Process/Backend/UserPreferences.php:1171
 msgid "Default entry status:"
 msgstr "Standaard ingangsstatus:"
 
 #: src/Process/Backend/User.php:528
-#: src/Process/Backend/UserPreferences.php:1166
+#: src/Process/Backend/UserPreferences.php:1177
 msgid "Entry edit field height:"
 msgstr "Hoogte invoerveld bewerken:"
 
@@ -5674,418 +5674,426 @@ msgstr "Lijst met berichten"
 msgid "List of comments"
 msgstr "Lijst met opmerkingen"
 
-#: src/Process/Backend/UserPreferences.php:149
+#: src/Process/Backend/UserPreferences.php:150
 msgid "Light"
 msgstr "Licht"
 
-#: src/Process/Backend/UserPreferences.php:150
+#: src/Process/Backend/UserPreferences.php:151
 msgid "Dark"
 msgstr "Donker"
 
-#: src/Process/Backend/UserPreferences.php:151
+#: src/Process/Backend/UserPreferences.php:152
 msgid "Automatic"
 msgstr "Automatisch"
 
-#: src/Process/Backend/UserPreferences.php:156
+#: src/Process/Backend/UserPreferences.php:157
 msgid "Smallest"
 msgstr "Kleinste"
 
-#: src/Process/Backend/UserPreferences.php:157
+#: src/Process/Backend/UserPreferences.php:158
 msgid "Smaller"
 msgstr "Kleiner"
 
-#: src/Process/Backend/UserPreferences.php:159
+#: src/Process/Backend/UserPreferences.php:160
 msgid "Larger"
 msgstr "Groter"
 
-#: src/Process/Backend/UserPreferences.php:160
+#: src/Process/Backend/UserPreferences.php:161
 msgid "Largest"
 msgstr "Grootste"
 
-#: src/Process/Backend/UserPreferences.php:172
+#: src/Process/Backend/UserPreferences.php:173
 msgid "Blog description (in blog parameters)"
 msgstr "Blogbeschrijving (in blogparameters)"
 
-#: src/Process/Backend/UserPreferences.php:173
+#: src/Process/Backend/UserPreferences.php:174
 msgid "Category description"
 msgstr "Categorie beschrijving"
 
-#: src/Process/Backend/UserPreferences.php:215
+#: src/Process/Backend/UserPreferences.php:216
 msgid "Two factors authentication verification failed."
 msgstr "Verificatie met twee verificatiefactoren mislukt."
 
-#: src/Process/Backend/UserPreferences.php:217
+#: src/Process/Backend/UserPreferences.php:218
 msgid "Two factors authentication verification succeeded."
 msgstr "Verificatie met twee verificatiefactoren is gelukt."
 
-#: src/Process/Backend/UserPreferences.php:225
+#: src/Process/Backend/UserPreferences.php:226
 msgid "Two factors authentication secret regenerated."
 msgstr "Authenticatiegeheim met twee factoren geregenereerd."
 
-#: src/Process/Backend/UserPreferences.php:234
+#: src/Process/Backend/UserPreferences.php:235
 msgid "Passkey successfully deleted."
 msgstr "Passkey succesvol verwijderd."
 
-#: src/Process/Backend/UserPreferences.php:251
-#: src/Process/Backend/UserPreferences.php:268
+#: src/Process/Backend/UserPreferences.php:252
+#: src/Process/Backend/UserPreferences.php:269
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "Als u uw e-mailadres of wachtwoord wilt wijzigen, moet u uw huidige wachtwoord opgeven."
 
-#: src/Process/Backend/UserPreferences.php:299
+#: src/Process/Backend/UserPreferences.php:300
 msgid "Personal information has been successfully updated."
 msgstr "Persoonlijke gegevens zijn succesvol bijgewerkt."
 
-#: src/Process/Backend/UserPreferences.php:417
+#: src/Process/Backend/UserPreferences.php:419
 msgid "Personal options has been successfully updated."
 msgstr "Persoonlijke opties is succesvol bijgewerkt."
 
-#: src/Process/Backend/UserPreferences.php:445
+#: src/Process/Backend/UserPreferences.php:447
 msgid "Dashboard options has been successfully updated."
 msgstr "Dashboardopties is met succes bijgewerkt."
 
-#: src/Process/Backend/UserPreferences.php:457
-#: src/Process/Backend/UserPreferences.php:481
+#: src/Process/Backend/UserPreferences.php:459
+#: src/Process/Backend/UserPreferences.php:483
 msgid "No favorite selected"
 msgstr "Geen favoriet geselecteerd"
 
-#: src/Process/Backend/UserPreferences.php:468
+#: src/Process/Backend/UserPreferences.php:470
 msgid "Favorites have been successfully added."
 msgstr "Favorieten zijn toegevoegd."
 
-#: src/Process/Backend/UserPreferences.php:494
+#: src/Process/Backend/UserPreferences.php:496
 msgid "Favorites have been successfully removed."
 msgstr "Favorieten zijn succesvol verwijderd."
 
-#: src/Process/Backend/UserPreferences.php:524
+#: src/Process/Backend/UserPreferences.php:526
 msgid "Favorites have been successfully updated."
 msgstr "Favorieten zijn succesvol bijgewerkt."
 
-#: src/Process/Backend/UserPreferences.php:536
+#: src/Process/Backend/UserPreferences.php:538
 msgid "Default favorites have been successfully updated."
 msgstr "De standaardfavorieten zijn met succes bijgewerkt."
 
-#: src/Process/Backend/UserPreferences.php:550
+#: src/Process/Backend/UserPreferences.php:552
 msgid "Dashboard items order have been successfully reset."
 msgstr "De volgorde van Dashboard-items is met succes gereset."
 
-#: src/Process/Backend/UserPreferences.php:572
+#: src/Process/Backend/UserPreferences.php:574
 msgid "Are you sure you want to remove selected favorites?"
 msgstr "Weet u zeker dat u geselecteerde favorieten wilt verwijderen?"
 
-#: src/Process/Backend/UserPreferences.php:573
+#: src/Process/Backend/UserPreferences.php:575
 msgid "Enter a name for this key:"
 msgstr "Voer een naam in voor deze sleutel:"
 
-#: src/Process/Backend/UserPreferences.php:595
+#: src/Process/Backend/UserPreferences.php:597
 msgid "Change my password"
 msgstr "Mijn wachtwoord wijzigen"
 
-#: src/Process/Backend/UserPreferences.php:614
+#: src/Process/Backend/UserPreferences.php:616
 msgid "Confirm new password:"
 msgstr "Nieuw wachtwoord bevestigen:"
 
-#: src/Process/Backend/UserPreferences.php:624
+#: src/Process/Backend/UserPreferences.php:626
 msgid "Your current password:"
 msgstr "Je huidige wachtwoord:"
 
-#: src/Process/Backend/UserPreferences.php:628
+#: src/Process/Backend/UserPreferences.php:630
 msgid "If you have changed your email or password you must provide your current password to save these modifications."
 msgstr "Als u uw e-mailadres of wachtwoord hebt gewijzigd, moet u uw huidige wachtwoord opgeven om deze wijzigingen op te slaan."
 
-#: src/Process/Backend/UserPreferences.php:637
+#: src/Process/Backend/UserPreferences.php:639
 msgid "Your account is registered to two factors authentication."
 msgstr "Uw account is geregistreerd voor verificatie met twee factoren."
 
-#: src/Process/Backend/UserPreferences.php:638
+#: src/Process/Backend/UserPreferences.php:640
 msgid "Disable two factors authentication"
 msgstr "Verificatie met twee factoren uitschakelen"
 
-#: src/Process/Backend/UserPreferences.php:645
+#: src/Process/Backend/UserPreferences.php:647
 msgid "Unable to create the QR code image, please use the secret below."
 msgstr "Als je de QR code niet kunt maken, gebruik dan het onderstaande geheim."
 
-#: src/Process/Backend/UserPreferences.php:649
+#: src/Process/Backend/UserPreferences.php:651
 msgid "Scan this QR code with your authentication application:"
 msgstr "Scan deze QR-code met je verificatietoepassing:"
 
-#: src/Process/Backend/UserPreferences.php:662
+#: src/Process/Backend/UserPreferences.php:664
 msgid "Or enter this secret into your authentication application:"
 msgstr "Of voer dit geheim in uw authenticatietoepassing in:"
 
-#: src/Process/Backend/UserPreferences.php:663
+#: src/Process/Backend/UserPreferences.php:665
 msgid "Regenerate"
 msgstr "Regenereer"
 
-#: src/Process/Backend/UserPreferences.php:673
+#: src/Process/Backend/UserPreferences.php:675
 msgid "Enter verification code:"
 msgstr "Verificatiecode invoeren:"
 
-#: src/Process/Backend/UserPreferences.php:690
+#: src/Process/Backend/UserPreferences.php:692
 msgid "unlabeled key"
 msgstr "ongelabelde sleutel"
 
-#: src/Process/Backend/UserPreferences.php:692
+#: src/Process/Backend/UserPreferences.php:694
 #, php-format
 msgid "valid on %s"
 msgstr "geldig op %s"
 
-#: src/Process/Backend/UserPreferences.php:701
+#: src/Process/Backend/UserPreferences.php:703
 msgid "You have no registered key yet."
 msgstr "Je hebt nog geen geregistreerde sleutel."
 
-#: src/Process/Backend/UserPreferences.php:741
+#: src/Process/Backend/UserPreferences.php:743
 msgid "Linked to account:"
 msgstr "Gekoppeld aan account:"
 
-#: src/Process/Backend/UserPreferences.php:768
 #: src/Process/Backend/UserPreferences.php:770
+#: src/Process/Backend/UserPreferences.php:772
 msgid "My profile"
 msgstr "Mijn profiel"
 
-#: src/Process/Backend/UserPreferences.php:855
+#: src/Process/Backend/UserPreferences.php:857
 msgid "Language for my interface:"
 msgstr "Taal voor mijn interface:"
 
-#: src/Process/Backend/UserPreferences.php:863
+#: src/Process/Backend/UserPreferences.php:865
 msgid "My timezone:"
 msgstr "Mijn tijdzone:"
 
-#: src/Process/Backend/UserPreferences.php:872
+#: src/Process/Backend/UserPreferences.php:874
 msgid "Update my profile"
 msgstr "Mijn profiel bijwerken"
 
-#: src/Process/Backend/UserPreferences.php:885
+#: src/Process/Backend/UserPreferences.php:887
 msgid "Authentication keys"
 msgstr "Authenticatiesleutels"
 
-#: src/Process/Backend/UserPreferences.php:892
+#: src/Process/Backend/UserPreferences.php:894
 msgid "Register a new key"
 msgstr "Een nieuwe sleutel registreren"
 
-#: src/Process/Backend/UserPreferences.php:898
+#: src/Process/Backend/UserPreferences.php:900
 msgid "Authentication applications"
 msgstr "Authenticatietoepassingen"
 
-#: src/Process/Backend/UserPreferences.php:965
+#: src/Process/Backend/UserPreferences.php:967
 msgid "List"
 msgstr "Lijst"
 
-#: src/Process/Backend/UserPreferences.php:967
+#: src/Process/Backend/UserPreferences.php:969
 msgid "Order by"
 msgstr "Bestel door"
 
-#: src/Process/Backend/UserPreferences.php:969
+#: src/Process/Backend/UserPreferences.php:971
 msgid "Sort"
 msgstr "Sorteer"
 
-#: src/Process/Backend/UserPreferences.php:982
+#: src/Process/Backend/UserPreferences.php:984
 #, php-format
 msgid "Preferred editor for %s:"
 msgstr "Voorkeurseditor voor %s:"
 
-#: src/Process/Backend/UserPreferences.php:987
+#: src/Process/Backend/UserPreferences.php:989
 msgid "Choose an editor"
 msgstr "Kies een redacteur"
 
-#: src/Process/Backend/UserPreferences.php:1008
-#: src/Process/Backend/UserPreferences.php:1014
+#: src/Process/Backend/UserPreferences.php:1010
+#: src/Process/Backend/UserPreferences.php:1016
 msgid "My options"
 msgstr "Mijn opties"
 
-#: src/Process/Backend/UserPreferences.php:1023
+#: src/Process/Backend/UserPreferences.php:1025
 msgid "Theme:"
 msgstr "Thema:"
 
-#: src/Process/Backend/UserPreferences.php:1029
+#: src/Process/Backend/UserPreferences.php:1031
 msgid "Activate enhanced uploader in media manager"
 msgstr "Verbeterde uploader activeren in mediabeheerder"
 
-#: src/Process/Backend/UserPreferences.php:1035
+#: src/Process/Backend/UserPreferences.php:1037
 msgid "Preview the entry being edited in a blank window or tab (depending on your browser settings)."
 msgstr "Bekijk het item dat wordt bewerkt in een leeg venster of tabblad (afhankelijk van de instellingen van je browser)."
 
-#: src/Process/Backend/UserPreferences.php:1042
+#: src/Process/Backend/UserPreferences.php:1044
 msgid "Disable javascript powered drag and drop for ordering items"
 msgstr "Slepen en neerzetten met javascript voor bestelitems uitschakelen"
 
-#: src/Process/Backend/UserPreferences.php:1046
+#: src/Process/Backend/UserPreferences.php:1048
 msgid "If checked, numeric fields will allow to type the elements' ordering number."
 msgstr "Als deze optie is aangevinkt, kunt u in numerieke velden het volgnummer van de elementen invoeren."
 
-#: src/Process/Backend/UserPreferences.php:1051
+#: src/Process/Backend/UserPreferences.php:1053
 msgid "Hide all secondary information and notes"
 msgstr "Verberg alle secundaire informatie en notities"
 
-#: src/Process/Backend/UserPreferences.php:1057
+#: src/Process/Backend/UserPreferences.php:1059
 msgid "Hide help button"
 msgstr "Helpknop verbergen"
 
-#: src/Process/Backend/UserPreferences.php:1064
+#: src/Process/Backend/UserPreferences.php:1066
 msgid "Font size:"
 msgstr "Lettergrootte:"
 
-#: src/Process/Backend/UserPreferences.php:1070
+#: src/Process/Backend/UserPreferences.php:1072
+msgid "Use dynamic letter spacing"
+msgstr "Dynamische letterafstand gebruiken"
+
+#: src/Process/Backend/UserPreferences.php:1076
+msgid "If checked, the larger the font size in interface texts, the smaller the space between characters will be, and vice versa."
+msgstr "Als deze optie is aangevinkt, wordt de ruimte tussen tekens kleiner naarmate de lettergrootte in interfaceteksten groter is en vice versa."
+
+#: src/Process/Backend/UserPreferences.php:1081
 msgid "Use operating system font"
 msgstr "Gebruik het lettertype van het besturingssysteem"
 
-#: src/Process/Backend/UserPreferences.php:1076
+#: src/Process/Backend/UserPreferences.php:1087
 msgid "Number of recent folders proposed in media manager:"
 msgstr "Aantal recente mappen voorgesteld in mediabeheerder:"
 
-#: src/Process/Backend/UserPreferences.php:1080
+#: src/Process/Backend/UserPreferences.php:1091
 msgid "Set to 0 (zero) to ignore, displayed only if Javascript is enabled in your browser."
 msgstr "Stel in op 0 (nul) om te negeren, wordt alleen weergegeven als Javascript is ingeschakeld in je browser."
 
-#: src/Process/Backend/UserPreferences.php:1087
+#: src/Process/Backend/UserPreferences.php:1098
 msgid "Do not use standard favicon"
 msgstr "Gebruik geen standaard favicon"
 
-#: src/Process/Backend/UserPreferences.php:1088
+#: src/Process/Backend/UserPreferences.php:1099
 msgid "This will be applied for all users"
 msgstr "Dit wordt toegepast op alle gebruikers"
 
-#: src/Process/Backend/UserPreferences.php:1098
+#: src/Process/Backend/UserPreferences.php:1109
 msgid "Disable Ad-blocker check"
 msgstr "Ad-blocker controle uitschakelen"
 
-#: src/Process/Backend/UserPreferences.php:1102
+#: src/Process/Backend/UserPreferences.php:1113
 msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
 msgstr "Sommige ad-blockers (Ghostery, Adblock plus, uBloc origin, …) kunnen interfereren met sommige functies zoals het invoegen van links of media in vermeldingen met CKEditor; in dit geval moet u deze uitschakelen voor deze Dotclear installatie (alleen backend). Merk op dat Dotclear geen advertenties of trackers toevoegt in de backend."
 
-#: src/Process/Backend/UserPreferences.php:1105
+#: src/Process/Backend/UserPreferences.php:1116
 msgid "Note also that deactivating this detection of ad blockers will not deactivate the installed ad blockers. Dotclear cannot interfere with the operation of browser extensions!"
 msgstr "Merk ook op dat het deactiveren van deze detectie van ad blockers niet de geïnstalleerde ad blockers zal deactiveren. Dotclear kan de werking van browser extensies niet verstoren!"
 
-#: src/Process/Backend/UserPreferences.php:1113
+#: src/Process/Backend/UserPreferences.php:1124
 msgid "Quick menu character:"
 msgstr "Snelmenuteken:"
 
-#: src/Process/Backend/UserPreferences.php:1117
+#: src/Process/Backend/UserPreferences.php:1128
 msgid "Leave empty to use the default character <kbd>:</kbd>"
 msgstr "Leeg laten om het standaardteken te gebruiken <kbd>:</kbd>"
 
-#: src/Process/Backend/UserPreferences.php:1122
+#: src/Process/Backend/UserPreferences.php:1133
 msgid "Keep the main menu at the top of the page as much as possible"
 msgstr "Houd het hoofdmenu zoveel mogelijk bovenaan de pagina"
 
-#: src/Process/Backend/UserPreferences.php:1126
+#: src/Process/Backend/UserPreferences.php:1137
 msgid "Optional columns displayed in lists"
 msgstr "Optionele kolommen die worden weergegeven in lijsten"
 
-#: src/Process/Backend/UserPreferences.php:1129
+#: src/Process/Backend/UserPreferences.php:1140
 msgid "Options for lists"
 msgstr "Opties voor lijsten"
 
-#: src/Process/Backend/UserPreferences.php:1135
+#: src/Process/Backend/UserPreferences.php:1146
 msgid "Apply filters on the fly"
 msgstr "On the fly filters toepassen"
 
-#: src/Process/Backend/UserPreferences.php:1172
+#: src/Process/Backend/UserPreferences.php:1183
 msgid "Enable WYSIWYG mode"
 msgstr "WYSIWYG-modus inschakelen"
 
-#: src/Process/Backend/UserPreferences.php:1178
+#: src/Process/Backend/UserPreferences.php:1189
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr "Toon de werkbalk van de editor onderaan het tekstgebied (indien mogelijk)"
 
-#: src/Process/Backend/UserPreferences.php:1184
+#: src/Process/Backend/UserPreferences.php:1195
 msgid "Use HTML editor for:"
 msgstr "Gebruik HTML-editor voor:"
 
-#: src/Process/Backend/UserPreferences.php:1188
+#: src/Process/Backend/UserPreferences.php:1199
 msgid "Other options"
 msgstr "Andere opties"
 
-#: src/Process/Backend/UserPreferences.php:1199
+#: src/Process/Backend/UserPreferences.php:1210
 msgid "Save my options"
 msgstr "Mijn opties opslaan"
 
-#: src/Process/Backend/UserPreferences.php:1230
+#: src/Process/Backend/UserPreferences.php:1241
 #, php-format
 msgid "position of %s"
 msgstr "positie van %s"
 
-#: src/Process/Backend/UserPreferences.php:1253
+#: src/Process/Backend/UserPreferences.php:1264
 msgid "Save order"
 msgstr "Bestelling opslaan"
 
-#: src/Process/Backend/UserPreferences.php:1254
+#: src/Process/Backend/UserPreferences.php:1265
 msgid "Delete selected favorites"
 msgstr "Geselecteerde favorieten verwijderen"
 
-#: src/Process/Backend/UserPreferences.php:1261
+#: src/Process/Backend/UserPreferences.php:1272
 msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
 msgstr "Als u een superbeheerder bent, kunt u deze set favorieten definiëren om standaard te gebruiken op alle blogs van deze installatie."
 
-#: src/Process/Backend/UserPreferences.php:1264
+#: src/Process/Backend/UserPreferences.php:1275
 msgid "Define as default favorites"
 msgstr "Definieer als standaard favorieten"
 
-#: src/Process/Backend/UserPreferences.php:1273
+#: src/Process/Backend/UserPreferences.php:1284
 msgid "Currently no personal favorites."
 msgstr "Momenteel geen persoonlijke favorieten."
 
-#: src/Process/Backend/UserPreferences.php:1312
+#: src/Process/Backend/UserPreferences.php:1323
 msgid "(default favorite)"
 msgstr "(standaard favoriet)"
 
-#: src/Process/Backend/UserPreferences.php:1327
+#: src/Process/Backend/UserPreferences.php:1338
 msgid "Add to my favorites"
 msgstr "Toevoegen aan mijn favorieten"
 
-#: src/Process/Backend/UserPreferences.php:1351
+#: src/Process/Backend/UserPreferences.php:1362
 msgid "Other available favorites"
 msgstr "Andere beschikbare favorieten"
 
-#: src/Process/Backend/UserPreferences.php:1363
+#: src/Process/Backend/UserPreferences.php:1374
 msgid "Menu"
 msgstr "Menu"
 
-#: src/Process/Backend/UserPreferences.php:1369
+#: src/Process/Backend/UserPreferences.php:1380
 msgid "Display favorites at the top of the menu"
 msgstr "Favorieten bovenaan het menu weergeven"
 
-#: src/Process/Backend/UserPreferences.php:1373
+#: src/Process/Backend/UserPreferences.php:1384
 msgid "Dashboard icons"
 msgstr "Dashboardpictogrammen"
 
-#: src/Process/Backend/UserPreferences.php:1379
+#: src/Process/Backend/UserPreferences.php:1390
 msgid "Display dashboard icons"
 msgstr "Dashboardpictogrammen weergeven"
 
-#: src/Process/Backend/UserPreferences.php:1383
+#: src/Process/Backend/UserPreferences.php:1394
 msgid "Dashboard modules"
 msgstr "Dashboardmodules"
 
-#: src/Process/Backend/UserPreferences.php:1389
+#: src/Process/Backend/UserPreferences.php:1400
 msgid "Display documentation links"
 msgstr "Documentatielinks weergeven"
 
-#: src/Process/Backend/UserPreferences.php:1395
+#: src/Process/Backend/UserPreferences.php:1406
 msgid "Display donate links"
 msgstr "Links voor doneren weergeven"
 
-#: src/Process/Backend/UserPreferences.php:1401
+#: src/Process/Backend/UserPreferences.php:1412
 msgid "Display Dotclear news"
 msgstr "Dotclear nieuws weergeven"
 
-#: src/Process/Backend/UserPreferences.php:1407
+#: src/Process/Backend/UserPreferences.php:1418
 msgid "Display quick entry form"
 msgstr "Snel invoerformulier weergeven"
 
-#: src/Process/Backend/UserPreferences.php:1412
+#: src/Process/Backend/UserPreferences.php:1423
 msgid "Do not display Dotclear updates"
 msgstr "Dotclear updates niet weergeven"
 
-#: src/Process/Backend/UserPreferences.php:1425
+#: src/Process/Backend/UserPreferences.php:1436
 msgid "Save my dashboard options"
 msgstr "Mijn dashboardopties opslaan"
 
-#: src/Process/Backend/UserPreferences.php:1438
+#: src/Process/Backend/UserPreferences.php:1449
 msgid "Dashboard items order"
 msgstr "Volgorde dashboarditems"
 
-#: src/Process/Backend/UserPreferences.php:1441
+#: src/Process/Backend/UserPreferences.php:1452
 msgid "Reset dashboard items order"
 msgstr "De volgorde van dashboardonderdelen opnieuw instellen"
 
