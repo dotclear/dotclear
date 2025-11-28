@@ -182,8 +182,6 @@ class Message
             throw new Exception('XML Parser Error. ' . $e, $c);
         }
 
-        xml_parser_free($this->_parser);
-
         # Grab the error messages, if any
         if ($this->messageType == 'fault') {
             $this->faultCode   = (int) $this->params[0]['faultCode'];

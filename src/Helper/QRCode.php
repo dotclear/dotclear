@@ -353,7 +353,6 @@ class QRCode
         imagepng($image);
         $image_data = (string) ob_get_contents();
         ob_end_clean();
-        imagedestroy($image);
 
         return $image_data;
     }

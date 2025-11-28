@@ -83,7 +83,6 @@ class Certificates implements CertificatesInterface
             curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
             curl_setopt($ch, CURLOPT_USERAGENT, 'dotclear.org - Dotclear webauthn');
             $raw = curl_exec($ch);
-            curl_close($ch);
         } else {
             $raw = file_get_contents($url);
         }

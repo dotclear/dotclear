@@ -31,7 +31,7 @@ return RectorConfig::configure()
     // PHP sets
     ->withPhpSets()
     ->withSets([
-        LevelSetList::UP_TO_PHP_84,
+        LevelSetList::UP_TO_PHP_85,
     ])
     // Prepared sets
     ->withPreparedSets(

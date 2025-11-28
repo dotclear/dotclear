@@ -59,16 +59,6 @@ class Http
     }
 
     /**
-     * Destruct curl handler.
-     */
-    public function __destruct()
-    {
-        if ($this->handler !== false) {
-            curl_close($this->handler);
-        }
-    }
-
-    /**
      * Make a request.
      *
      * @param   string|array<string, mixed>     $parameters     The parameters

@@ -52,10 +52,6 @@ class ImageTools
      */
     public function close(): void
     {
-        if (!empty($this->res)) {
-            imagedestroy($this->res);
-        }
-
         if ($this->memory_limit) {
             ini_set('memory_limit', $this->memory_limit);
         }
@@ -394,7 +390,6 @@ class ImageTools
                 // Copy and resize (with resampling) from source to destination
                 imagecopyresampled($dest, $this->res, 0, 0, $offset_width, $offset_height, $computed_width, $computed_height, $crop_width, $crop_height);
 
-                imagedestroy($this->res);
                 $this->res = $dest;
             }
         }
