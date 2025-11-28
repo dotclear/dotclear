@@ -17,6 +17,7 @@ declare(strict_types=1);
 
 use Rector\Caching\ValueObject\Storage\FileCacheStorage;
 use Rector\Config\RectorConfig;
+use Rector\Renaming\Rector\MethodCall\RenameMethodRector;
 use Rector\Set\ValueObject\LevelSetList;
 
 return RectorConfig::configure()
@@ -55,5 +56,17 @@ return RectorConfig::configure()
 
         // specify a path that works locally as well as on CI job runners
         cacheDirectory: '/tmp/dotclear/core/rector'
-    );
+    )
+    ->withSkip([
+        RenameMethodRector::class => [
+            /* src/Schema/Database/PdoSqlite/Handler.php:44
+                -        $handle->sqliteCreateFunction('now', $this->now(...), 0);
+                +        $handle->createFunction('now', $this->now(...), 0);
+                ...
+                -            if (!$handle->sqliteCreateCollation('utf8_unicode_ci', $this->utf8_unicode_ci->compare(...))) {
+                +            if (!$handle->createCollation('utf8_unicode_ci', $this->utf8_unicode_ci->compare(...))) {
+            */
+            __DIR__ . '/src/Schema/Database/PdoSqlite/Handler.php',
+        ],
+    ])
 ;
