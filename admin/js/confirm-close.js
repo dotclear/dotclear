@@ -2,12 +2,13 @@
 'use strict';
 
 dotclear.confirmClose = class {
+  // Init properties
+  prompt = 'You have unsaved changes.';
+  forms_id = [];
+  forms = [];
+  form_submit = false;
+
   constructor(...args) {
-    // Init properties
-    this.prompt = 'You have unsaved changes.';
-    this.forms_id = [];
-    this.forms = [];
-    this.form_submit = false;
     // Add given forms
     if (args.length > 0) {
       for (const argument of args) {
@@ -19,18 +20,19 @@ dotclear.confirmClose = class {
   getCurrentForms() {
     // Store current form's element's values
 
-    const eltRef = (e) => (e.id != undefined && e.id != '' ? e.id : e.name);
+    const eltRef = (e) => (e.id !== undefined && e.id !== '' ? e.id : e.name);
 
     const formsInPage = this.getForms();
     this.forms = [];
     for (const form of formsInPage) {
       const tmpForm = [];
-      for (let form_item = 0; form_item < form.elements.length; form_item++) {
-        const form_item_value = this.getFormElementValue(form[form_item]);
-        if (form_item_value !== undefined) {
-          tmpForm[eltRef(form[form_item])] = form_item_value;
+      if (form?.elements)
+        for (let form_item = 0; form_item < form.elements.length; form_item++) {
+          const form_item_value = this.getFormElementValue(form[form_item]);
+          if (form_item_value !== undefined) {
+            tmpForm[eltRef(form[form_item])] = form_item_value;
+          }
         }
-      }
       // Loop on form iframes
       const iframes = form.getElementsByTagName('iframe');
       if (iframes !== undefined) {
@@ -42,7 +44,9 @@ dotclear.confirmClose = class {
       }
       this.forms.push(tmpForm);
 
-      form.addEventListener('submit', () => (this.form_submit = true));
+      form.addEventListener('submit', () => {
+        this.form_submit = true;
+      });
     }
   }
 
@@ -50,19 +54,19 @@ dotclear.confirmClose = class {
     // Compare current form's element's values to their original values
     // Return false if any difference, else true
 
-    if (this.forms.length == 0) {
+    if (this.forms.length === 0) {
       return true;
     }
 
     const formMatch = (current, source) =>
       Object.keys(current).every(
-        (key) => !source.hasOwnProperty(key) || (source.hasOwnProperty(key) && source[key] === current[key]),
+        (key) => !Object.hasOwn(source, key) || (Object.hasOwn(source, key) && source[key] === current[key]),
       );
-    const eltRef = (e) => (e.id != undefined && e.id != '' ? e.id : e.name);
+    const eltRef = (e) => (e.id !== undefined && e.id !== '' ? e.id : e.name);
     const formFirstDiff = (current, source) => {
       let diff = '<none>';
       Object.keys(current).every((key) => {
-        if (source.hasOwnProperty(key) && current[key] !== source[key]) {
+        if (Object.hasOwn(source, key) && current[key] !== source[key]) {
           diff = `Key = [${key}] - Original = [${source[key]}] - Current = [${current[key]}]`;
           return false;
         }
@@ -116,7 +120,7 @@ dotclear.confirmClose = class {
       const res = [];
       for (const form_id of this.forms_id) {
         const f = document.getElementById(form_id);
-        if (f != undefined) {
+        if (f) {
           res.push(f);
         }
       }
@@ -154,7 +158,7 @@ dotclear.confirmClose = class {
       // Ignore password element
       return null;
     }
-    return e.value !== undefined ? e.value : null;
+    return e.value === undefined ? null : e.value;
   }
 };
 
@@ -202,5 +206,4 @@ globalThis.addEventListener('beforeunload', (event) => {
     console.log('Confirmation before exiting is required.');
   }
   event.preventDefault(); // HTML5 specification
-  event.returnValue = ''; // Google Chrome requires returnValue to be set.
 });
