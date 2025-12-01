@@ -22,6 +22,15 @@
   position: relative;
 }
 
+html.dirty {
+  #header {
+    border-bottom-color: var(--header-border-dirty);
+  }
+  #collapser {
+    background-color: var(--collapser-background-dirty);
+  }
+}
+
 body.safe-mode #header {
   border-bottom-color: var(--header-border-safe);
 }

@@ -368,6 +368,7 @@ html body.dark-mode {
   --header-border: light-dark(#a2cbe9, #9ac123);
   --header-border-alt: light-dark(#323232, #303236);
   --header-border-safe: light-dark(#ffd478, #ffd478);
+  --header-border-dirty: light-dark(#ff7878, #f783b3);
   --header-link-border: light-dark(#868686, #82878f);
   --header-active-color: light-dark(#d33800, #fff);
   --header-active-background: light-dark(#f3f3f3, #82878f);
@@ -396,7 +397,8 @@ html body.dark-mode {
   --footer-background: var(--body-background);
   --footer-border: light-dark(#caced2, #caced2);
   --collapser-focus: light-dark(#3a539b, #9ac123);
-  --collapser-background: light-dark(#a2cbe9, #9ac123);
+  --collapser-background: var(--header-border);
+  --collapser-background-dirty: var(--header-border-dirty);
   --popup-title-color: light-dark(#fff, #dcdee0);
   --popup-title-background: light-dark(#3a539b, #565a60);
   --breadcrumb-background: var(--body-background);
@@ -725,6 +727,13 @@ h6 {
   width: 100%;
   min-height: 3em;
   position: relative;
+}
+
+html.dirty #header {
+  border-bottom-color: var(--header-border-dirty);
+}
+html.dirty #collapser {
+  background-color: var(--collapser-background-dirty);
 }
 
 body.safe-mode #header {

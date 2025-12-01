@@ -190,6 +190,24 @@ globalThis.addEventListener('load', () => {
     // Add monitor to detect low battery
     dotclear.confirmClosePage.monitor = setInterval(checkBattery, 60 * 5 * 1000);
   }
+
+  const checkDirty = () => {
+    //  Add/remove .dirty class/data attribute to document if at least one of monitored forms is dirty
+    const target = document.documentElement;
+    if (
+      dotclear.confirmClosePage !== undefined &&
+      !dotclear.confirmClosePage.form_submit &&
+      !dotclear.confirmClosePage.compareForms()
+    ) {
+      target.classList.add('dirty');
+      target.dataset.dirty = '1';
+    } else {
+      target.classList.remove('dirty');
+      target.dataset.dirty = '';
+    }
+  };
+  // Add monitor to detect dirty forms every 5 seconds
+  dotclear.confirmClosePage.dirty = setInterval(checkDirty, 5 * 1000);
 });
 
 globalThis.addEventListener('beforeunload', (event) => {
