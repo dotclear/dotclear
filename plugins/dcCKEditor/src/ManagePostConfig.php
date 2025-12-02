@@ -260,6 +260,7 @@ class ManagePostConfig
                 });
 
                 const ta = document.getElementById(e.editor.name);
+                e.editor.document.\$.querySelector('body').id = ta.id !== undefined ? `cke_\${ta.id}` : `cke_\${Date.now()}`;
                 if (ta !== undefined && ta.lang && e.editor.config.contentsLanguage !== ta.lang) {
                   e.editor.config.contentsLanguage = ta.lang;
                 }

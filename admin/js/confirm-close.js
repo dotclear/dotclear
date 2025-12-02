@@ -169,7 +169,8 @@ globalThis.addEventListener('load', () => {
   dotclear.confirmClosePage.prompt = confirm_close.prompt;
   dotclear.confirmClosePage.lowbattery = confirm_close.lowbattery;
 
-  dotclear.confirmClosePage.getCurrentForms();
+  // Wait one second to let CKEditor loading its instances if any
+  setTimeout(() => dotclear.confirmClosePage.getCurrentForms(), 1000);
 
   if (navigator.getBattery) {
     const checkBattery = () => {
