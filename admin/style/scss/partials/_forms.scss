@@ -197,16 +197,13 @@ input[type='file'] {
 input[type='color'] {
   width: 3em;
   height: 1.5em;
-  border-radius: 0;
   padding: 0;
-  &.readonly,
-  &[readonly],
-  &[aria-readonly='true'] {
-    border-radius: 0;
-  }
-  // Remove Safari padding inside color selector:
-  &::-webkit-color-swatch-wrapper {
+  // Remove Safari/Firefox/Chrome padding and border inside color selector (shadow DOM):
+  &::-webkit-color-swatch-wrapper,
+  &::-webkit-color-swatch,
+  div {
     padding: 0;
+    border: none;
   }
 }
 
