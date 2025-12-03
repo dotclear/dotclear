@@ -83,7 +83,7 @@ class StructureTest extends TestCase
         // @phpstan-ignore argument.type
         $reflection          = new ReflectionClass($schemaClass);
         $reflection_property = $reflection->getProperty('con');
-        $reflection_property->setAccessible(true);
+        // $reflection_property->setAccessible(true); not necessary since PHP 8.1
         $reflection_property->setValue($mock, $con);
 
         // Update $con->schema()
