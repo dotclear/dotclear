@@ -205,6 +205,10 @@ input[type='color'] {
     padding: 0;
     border: none;
   }
+  &::-moz-color-swatch {
+    padding: 0;
+    border: none;
+  }
 }
 
 /* readonly */

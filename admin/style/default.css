@@ -1656,6 +1656,10 @@ input[type=color] div {
   padding: 0;
   border: none;
 }
+input[type=color]::-moz-color-swatch {
+  padding: 0;
+  border: none;
+}
 
 /* readonly */
 input.readonly, input[readonly], input[aria-readonly=true],
