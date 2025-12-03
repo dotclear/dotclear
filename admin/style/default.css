@@ -1647,8 +1647,16 @@ input[type=file] {
 }
 
 input[type=color] {
-  width: 4em;
-  height: 3em;
+  width: 3em;
+  height: 1.5em;
+  border-radius: 0;
+  padding: 0;
+}
+input[type=color].readonly, input[type=color][readonly], input[type=color][aria-readonly=true] {
+  border-radius: 0;
+}
+input[type=color]::-webkit-color-swatch-wrapper {
+  padding: 0;
 }
 
 /* readonly */
