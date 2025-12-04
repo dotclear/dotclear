@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-27 14:00+0100\n"
-"PO-Revision-Date: 2025-11-27 13:42\n"
+"POT-Creation-Date: 2025-12-04 12:46+0100\n"
+"PO-Revision-Date: 2025-12-04 11:55\n"
 "Last-Translator: \n"
 "Language-Team: Czech\n"
 "Language: cs_CZ\n"
@@ -641,8 +641,8 @@ msgid "Search"
 msgstr "Hledání"
 
 #: src/Core/Backend/Favorites.php:456 src/Core/Backend/Menus.php:130
-#: src/Process/Backend/Categories.php:156
-#: src/Process/Backend/Categories.php:161 src/Process/Backend/Category.php:211
+#: src/Process/Backend/Categories.php:167
+#: src/Process/Backend/Categories.php:172 src/Process/Backend/Category.php:211
 msgid "Categories"
 msgstr "Kategorie"
 
@@ -1586,7 +1586,7 @@ msgstr "%H:%M:%S"
 
 #: src/Core/Backend/Notices.php:258 src/Core/Backend/Notices.php:298
 #: src/Core/Backend/Notices.php:308 src/Core/Backend/Page.php:1331
-#: src/Process/Backend/Categories.php:341 src/Process/Backend/Post.php:1058
+#: src/Process/Backend/Categories.php:378 src/Process/Backend/Post.php:1058
 #: src/Process/Backend/Post.php:1190 src/Process/Backend/PostsPopup.php:121
 msgid "Ok"
 msgstr "Ok"
@@ -2873,7 +2873,7 @@ msgstr "Soubor nelze uzamknout"
 msgid "File cannot be removed."
 msgstr "Soubor nelze odstranit."
 
-#: src/Helper/File/Image/ImageTools.php:179
+#: src/Helper/File/Image/ImageTools.php:175
 msgid "Not enough memory to open image."
 msgstr "Nedostatek paměti prootevření obrázku."
 
@@ -4124,85 +4124,97 @@ msgstr "Akce vybraných blogů:"
 msgid "Please give your password to confirm blog(s) deletion:"
 msgstr "Zadejte prosím své heslo pro potvrzení odstranění blogů:"
 
-#: src/Process/Backend/Categories.php:62
+#: src/Process/Backend/Categories.php:63
 msgid "This category does not exist."
 msgstr "Tato kategorie neexistuje."
 
-#: src/Process/Backend/Categories.php:72
+#: src/Process/Backend/Categories.php:73
 #, php-format
 msgid "The category \"%s\" has been successfully deleted."
 msgstr "Kategorie \"%s\" byla úspěšně odstraněna."
 
-#: src/Process/Backend/Categories.php:93
+#: src/Process/Backend/Categories.php:94
 msgid "Category where to move entries does not exist"
 msgstr "Kategorie, kde položky neexistují."
 
-#: src/Process/Backend/Categories.php:102
+#: src/Process/Backend/Categories.php:103
 #, php-format
 msgid "The entries have been successfully moved to category \"%s\""
 msgstr "Položky byly úspěšně přesunuty do kategorie \"%s\""
 
-#: src/Process/Backend/Categories.php:119
-#: src/Process/Backend/Categories.php:170
+#: src/Process/Backend/Categories.php:118
+msgid "The opening/closing of feedbacks for categories have been successfully saved."
+msgstr ""
+
+#: src/Process/Backend/Categories.php:130
+#: src/Process/Backend/Categories.php:181
 msgid "Categories have been successfully reordered."
 msgstr "Pořadí kategorií bylo úspěšně aktualizováno."
 
-#: src/Process/Backend/Categories.php:127
+#: src/Process/Backend/Categories.php:138
 msgid "Categories order has been successfully reset."
 msgstr "Řazení kategorií bylo úspěšně obnoveno."
 
-#: src/Process/Backend/Categories.php:167
+#: src/Process/Backend/Categories.php:178
 msgid "The category has been successfully removed."
 msgstr "Kategorie byla úspěšně odstraněna."
 
-#: src/Process/Backend/Categories.php:173
+#: src/Process/Backend/Categories.php:184
 msgid "Entries have been successfully moved to the category you choose."
 msgstr "Položky byly úspěšně přesunuty do kategorie, kterou vyberete."
 
-#: src/Process/Backend/Categories.php:184 src/Process/Backend/Category.php:207
+#: src/Process/Backend/Categories.php:195 src/Process/Backend/Category.php:207
 msgid "New category"
 msgstr "Nová kategorie"
 
-#: src/Process/Backend/Categories.php:192
+#: src/Process/Backend/Categories.php:203
 msgid "No category so far."
 msgstr "Zatím žádná kategorie."
 
-#: src/Process/Backend/Categories.php:210
+#: src/Process/Backend/Categories.php:220
+msgid "Save the opening/closing of feedbacks"
+msgstr ""
+
+#: src/Process/Backend/Categories.php:231
 msgid "To rearrange categories order, move items by drag and drop, then click on “Save categories order” button."
 msgstr "Chcete-li změnit pořadí kategorií, přesuňte položky přetažením a pádem, pak klikněte na tlačítko \"Uložit pořadí kategorií\"."
 
-#: src/Process/Backend/Categories.php:219
+#: src/Process/Backend/Categories.php:240
 msgid "Save categories order"
 msgstr "Uložit objednávku kategorií"
 
-#: src/Process/Backend/Categories.php:226
+#: src/Process/Backend/Categories.php:250
 msgid "Reorder all categories on the top level"
 msgstr "Změnit pořadí všech kategorií na nejvyšší úrovni"
 
-#: src/Process/Backend/Categories.php:320
+#: src/Process/Backend/Categories.php:348
+msgid "Disable feedbacks"
+msgstr ""
+
+#: src/Process/Backend/Categories.php:357
 #, php-format
 msgid "%d entries"
 msgstr "%d článků"
 
-#: src/Process/Backend/Categories.php:320
+#: src/Process/Backend/Categories.php:357
 #, php-format
 msgid "%d entry"
 msgstr "%d položka"
 
-#: src/Process/Backend/Categories.php:321
+#: src/Process/Backend/Categories.php:358
 msgid "total:"
 msgstr "celkem:"
 
-#: src/Process/Backend/Categories.php:326 src/Process/Backend/Category.php:278
+#: src/Process/Backend/Categories.php:363 src/Process/Backend/Category.php:278
 #: src/Process/Backend/User.php:475 src/Process/Backend/UserPreferences.php:837
 msgid "URL:"
 msgstr "URL:"
 
-#: src/Process/Backend/Categories.php:340
+#: src/Process/Backend/Categories.php:377
 msgid "Move entries to"
 msgstr "Přesunout položky do"
 
-#: src/Process/Backend/Categories.php:348
+#: src/Process/Backend/Categories.php:385
 msgid "Delete category"
 msgstr "Odstranit kategorii"
 
