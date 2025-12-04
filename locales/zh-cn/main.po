@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-27 14:00+0100\n"
-"PO-Revision-Date: 2025-11-27 13:42\n"
+"POT-Creation-Date: 2025-12-04 12:46+0100\n"
+"PO-Revision-Date: 2025-12-04 12:24\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -608,8 +608,8 @@ msgid "Search"
 msgstr "搜索"
 
 #: src/Core/Backend/Favorites.php:456 src/Core/Backend/Menus.php:130
-#: src/Process/Backend/Categories.php:156
-#: src/Process/Backend/Categories.php:161 src/Process/Backend/Category.php:211
+#: src/Process/Backend/Categories.php:167
+#: src/Process/Backend/Categories.php:172 src/Process/Backend/Category.php:211
 msgid "Categories"
 msgstr "分类目录"
 
@@ -1517,7 +1517,7 @@ msgstr "%H:%M:%S"
 
 #: src/Core/Backend/Notices.php:258 src/Core/Backend/Notices.php:298
 #: src/Core/Backend/Notices.php:308 src/Core/Backend/Page.php:1331
-#: src/Process/Backend/Categories.php:341 src/Process/Backend/Post.php:1058
+#: src/Process/Backend/Categories.php:378 src/Process/Backend/Post.php:1058
 #: src/Process/Backend/Post.php:1190 src/Process/Backend/PostsPopup.php:121
 msgid "Ok"
 msgstr "好的"
@@ -2786,7 +2786,7 @@ msgstr "无法锁定文件"
 msgid "File cannot be removed."
 msgstr "文件无法被移除。"
 
-#: src/Helper/File/Image/ImageTools.php:179
+#: src/Helper/File/Image/ImageTools.php:175
 msgid "Not enough memory to open image."
 msgstr "没有足够的空间打开图片。"
 
@@ -4034,85 +4034,97 @@ msgstr "选定的博客行动："
 msgid "Please give your password to confirm blog(s) deletion:"
 msgstr "请给出你的密码以确认博客的删除："
 
-#: src/Process/Backend/Categories.php:62
+#: src/Process/Backend/Categories.php:63
 msgid "This category does not exist."
 msgstr "这个分类目录不存在。"
 
-#: src/Process/Backend/Categories.php:72
+#: src/Process/Backend/Categories.php:73
 #, php-format
 msgid "The category \"%s\" has been successfully deleted."
 msgstr "类别 \"%s\" 已被成功删除。"
 
-#: src/Process/Backend/Categories.php:93
+#: src/Process/Backend/Categories.php:94
 msgid "Category where to move entries does not exist"
 msgstr "不存在要移动条目的类别"
 
-#: src/Process/Backend/Categories.php:102
+#: src/Process/Backend/Categories.php:103
 #, php-format
 msgid "The entries have been successfully moved to category \"%s\""
 msgstr "条目已成功转移到类别 \"%s\""
 
-#: src/Process/Backend/Categories.php:119
-#: src/Process/Backend/Categories.php:170
+#: src/Process/Backend/Categories.php:118
+msgid "The opening/closing of feedbacks for categories have been successfully saved."
+msgstr "类别反馈的打开/关闭已成功保存。"
+
+#: src/Process/Backend/Categories.php:130
+#: src/Process/Backend/Categories.php:181
 msgid "Categories have been successfully reordered."
 msgstr "成功重新排序分类目录。"
 
-#: src/Process/Backend/Categories.php:127
+#: src/Process/Backend/Categories.php:138
 msgid "Categories order has been successfully reset."
 msgstr "分类订单已被成功重置。"
 
-#: src/Process/Backend/Categories.php:167
+#: src/Process/Backend/Categories.php:178
 msgid "The category has been successfully removed."
 msgstr "该类别已被成功删除。"
 
-#: src/Process/Backend/Categories.php:173
+#: src/Process/Backend/Categories.php:184
 msgid "Entries have been successfully moved to the category you choose."
 msgstr "参赛作品已成功转移到您选择的类别。"
 
-#: src/Process/Backend/Categories.php:184 src/Process/Backend/Category.php:207
+#: src/Process/Backend/Categories.php:195 src/Process/Backend/Category.php:207
 msgid "New category"
 msgstr "新分类目录"
 
-#: src/Process/Backend/Categories.php:192
+#: src/Process/Backend/Categories.php:203
 msgid "No category so far."
 msgstr "还没有分类目录。"
 
-#: src/Process/Backend/Categories.php:210
+#: src/Process/Backend/Categories.php:220
+msgid "Save the opening/closing of feedbacks"
+msgstr "保存打开/关闭反馈"
+
+#: src/Process/Backend/Categories.php:231
 msgid "To rearrange categories order, move items by drag and drop, then click on “Save categories order” button."
 msgstr "要重新安排类别顺序，通过拖放移动项目，然后点击 \"保存类别顺序 \"按钮。"
 
-#: src/Process/Backend/Categories.php:219
+#: src/Process/Backend/Categories.php:240
 msgid "Save categories order"
 msgstr "保存类别订单"
 
-#: src/Process/Backend/Categories.php:226
+#: src/Process/Backend/Categories.php:250
 msgid "Reorder all categories on the top level"
 msgstr "在顶层对所有类别重新排序"
 
-#: src/Process/Backend/Categories.php:320
+#: src/Process/Backend/Categories.php:348
+msgid "Disable feedbacks"
+msgstr "禁用反馈"
+
+#: src/Process/Backend/Categories.php:357
 #, php-format
 msgid "%d entries"
 msgstr "%d 篇文章"
 
-#: src/Process/Backend/Categories.php:320
+#: src/Process/Backend/Categories.php:357
 #, php-format
 msgid "%d entry"
 msgstr "%d 入职"
 
-#: src/Process/Backend/Categories.php:321
+#: src/Process/Backend/Categories.php:358
 msgid "total:"
 msgstr "总共："
 
-#: src/Process/Backend/Categories.php:326 src/Process/Backend/Category.php:278
+#: src/Process/Backend/Categories.php:363 src/Process/Backend/Category.php:278
 #: src/Process/Backend/User.php:475 src/Process/Backend/UserPreferences.php:837
 msgid "URL:"
 msgstr "URL："
 
-#: src/Process/Backend/Categories.php:340
+#: src/Process/Backend/Categories.php:377
 msgid "Move entries to"
 msgstr "将条目移至"
 
-#: src/Process/Backend/Categories.php:348
+#: src/Process/Backend/Categories.php:385
 msgid "Delete category"
 msgstr "删除类别"
 

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-27 14:00+0100\n"
-"PO-Revision-Date: 2025-11-27 13:42\n"
+"POT-Creation-Date: 2025-12-04 12:46+0100\n"
+"PO-Revision-Date: 2025-12-04 12:24\n"
 "Last-Translator: \n"
 "Language-Team: Portuguese\n"
 "Language: pt_PT\n"
@@ -619,8 +619,8 @@ msgid "Search"
 msgstr "Pesquisa"
 
 #: src/Core/Backend/Favorites.php:456 src/Core/Backend/Menus.php:130
-#: src/Process/Backend/Categories.php:156
-#: src/Process/Backend/Categories.php:161 src/Process/Backend/Category.php:211
+#: src/Process/Backend/Categories.php:167
+#: src/Process/Backend/Categories.php:172 src/Process/Backend/Category.php:211
 msgid "Categories"
 msgstr "Categorias"
 
@@ -1540,7 +1540,7 @@ msgstr "%H:%M:%S"
 
 #: src/Core/Backend/Notices.php:258 src/Core/Backend/Notices.php:298
 #: src/Core/Backend/Notices.php:308 src/Core/Backend/Page.php:1331
-#: src/Process/Backend/Categories.php:341 src/Process/Backend/Post.php:1058
+#: src/Process/Backend/Categories.php:378 src/Process/Backend/Post.php:1058
 #: src/Process/Backend/Post.php:1190 src/Process/Backend/PostsPopup.php:121
 msgid "Ok"
 msgstr "OK"
@@ -2815,7 +2815,7 @@ msgstr "Impossível bloquear arquivo"
 msgid "File cannot be removed."
 msgstr "O ficheiro não pode ser removido."
 
-#: src/Helper/File/Image/ImageTools.php:179
+#: src/Helper/File/Image/ImageTools.php:175
 msgid "Not enough memory to open image."
 msgstr "Memória insuficiente para abrir a imagem."
 
@@ -4064,85 +4064,97 @@ msgstr "Ação de blogs selecionados:"
 msgid "Please give your password to confirm blog(s) deletion:"
 msgstr "Por favor, informe sua senha para confirmar a exclusão do(s) blog(s):"
 
-#: src/Process/Backend/Categories.php:62
+#: src/Process/Backend/Categories.php:63
 msgid "This category does not exist."
 msgstr "Esta categoria não existe."
 
-#: src/Process/Backend/Categories.php:72
+#: src/Process/Backend/Categories.php:73
 #, php-format
 msgid "The category \"%s\" has been successfully deleted."
 msgstr "A categoria \"%s\" foi excluída com sucesso."
 
-#: src/Process/Backend/Categories.php:93
+#: src/Process/Backend/Categories.php:94
 msgid "Category where to move entries does not exist"
 msgstr "Categoria onde mover entradas não existe"
 
-#: src/Process/Backend/Categories.php:102
+#: src/Process/Backend/Categories.php:103
 #, php-format
 msgid "The entries have been successfully moved to category \"%s\""
 msgstr "As entradas foram movidas com sucesso para a categoria \"%s\""
 
-#: src/Process/Backend/Categories.php:119
-#: src/Process/Backend/Categories.php:170
+#: src/Process/Backend/Categories.php:118
+msgid "The opening/closing of feedbacks for categories have been successfully saved."
+msgstr "A abertura/fecho de feedbacks para categorias foi guardada com sucesso."
+
+#: src/Process/Backend/Categories.php:130
+#: src/Process/Backend/Categories.php:181
 msgid "Categories have been successfully reordered."
 msgstr "As categorias foram reordenadas com sucesso."
 
-#: src/Process/Backend/Categories.php:127
+#: src/Process/Backend/Categories.php:138
 msgid "Categories order has been successfully reset."
 msgstr "A ordem das categorias foi redefinida com sucesso."
 
-#: src/Process/Backend/Categories.php:167
+#: src/Process/Backend/Categories.php:178
 msgid "The category has been successfully removed."
 msgstr "A categoria foi removida com sucesso."
 
-#: src/Process/Backend/Categories.php:173
+#: src/Process/Backend/Categories.php:184
 msgid "Entries have been successfully moved to the category you choose."
 msgstr "As entradas foram movidas com sucesso para a categoria escolhida."
 
-#: src/Process/Backend/Categories.php:184 src/Process/Backend/Category.php:207
+#: src/Process/Backend/Categories.php:195 src/Process/Backend/Category.php:207
 msgid "New category"
 msgstr "Nova categoria"
 
-#: src/Process/Backend/Categories.php:192
+#: src/Process/Backend/Categories.php:203
 msgid "No category so far."
 msgstr "Nenhuma categoria ainda."
 
-#: src/Process/Backend/Categories.php:210
+#: src/Process/Backend/Categories.php:220
+msgid "Save the opening/closing of feedbacks"
+msgstr "Guardar a abertura/fecho de feedbacks"
+
+#: src/Process/Backend/Categories.php:231
 msgid "To rearrange categories order, move items by drag and drop, then click on “Save categories order” button."
 msgstr "Para reorganizar a ordem de categorias, mova os itens arrastando e soltando, em seguida, clique no botão \"Salvar ordem de categorias\"."
 
-#: src/Process/Backend/Categories.php:219
+#: src/Process/Backend/Categories.php:240
 msgid "Save categories order"
 msgstr "Salvar ordem de categorias"
 
-#: src/Process/Backend/Categories.php:226
+#: src/Process/Backend/Categories.php:250
 msgid "Reorder all categories on the top level"
 msgstr "Reordenar todas as categorias no nível superior"
 
-#: src/Process/Backend/Categories.php:320
+#: src/Process/Backend/Categories.php:348
+msgid "Disable feedbacks"
+msgstr "Desativar feedbacks"
+
+#: src/Process/Backend/Categories.php:357
 #, php-format
 msgid "%d entries"
 msgstr "%d entradas"
 
-#: src/Process/Backend/Categories.php:320
+#: src/Process/Backend/Categories.php:357
 #, php-format
 msgid "%d entry"
 msgstr "%d entrada"
 
-#: src/Process/Backend/Categories.php:321
+#: src/Process/Backend/Categories.php:358
 msgid "total:"
 msgstr "total:"
 
-#: src/Process/Backend/Categories.php:326 src/Process/Backend/Category.php:278
+#: src/Process/Backend/Categories.php:363 src/Process/Backend/Category.php:278
 #: src/Process/Backend/User.php:475 src/Process/Backend/UserPreferences.php:837
 msgid "URL:"
 msgstr "URL:"
 
-#: src/Process/Backend/Categories.php:340
+#: src/Process/Backend/Categories.php:377
 msgid "Move entries to"
 msgstr "Mover entradas para"
 
-#: src/Process/Backend/Categories.php:348
+#: src/Process/Backend/Categories.php:385
 msgid "Delete category"
 msgstr "Apagar categoria"
 
