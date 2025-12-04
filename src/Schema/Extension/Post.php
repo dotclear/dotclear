@@ -127,6 +127,11 @@ class Post
      */
     public static function commentsActive(MetaRecord $rs): bool
     {
+        // Check if feedback is open/close for the blog
+        if (!App::blog()->settings()->system->allow_comments) {
+            return false;
+        }
+
         // Check if feedback is open/close for the category
         if ($rs->cat_id) {
             $cats_no_feedback = app::blog()->settings()->system->cats_no_feedback;
@@ -135,10 +140,7 @@ class Post
             }
         }
 
-        return
-        App::blog()->settings()->system->allow_comments
-            && $rs->post_open_comment
-            && (App::blog()->settings()->system->comments_ttl == 0 || time() - (App::blog()->settings()->system->comments_ttl * 86400) < $rs->getTS());
+        return $rs->post_open_comment && (App::blog()->settings()->system->comments_ttl == 0 || time() - (App::blog()->settings()->system->comments_ttl * 86400) < $rs->getTS());
     }
 
     /**
@@ -148,6 +150,11 @@ class Post
      */
     public static function trackbacksActive(MetaRecord $rs): bool
     {
+        // Check if feedback is open/close for the blog
+        if (!App::blog()->settings()->system->allow_comments) {
+            return false;
+        }
+
         // Check if feedback is open/close for the category
         if ($rs->cat_id) {
             $cats_no_feedback = app::blog()->settings()->system->cats_no_feedback;
@@ -156,10 +163,7 @@ class Post
             }
         }
 
-        return
-        App::blog()->settings()->system->allow_trackbacks
-            && $rs->post_open_tb
-            && (App::blog()->settings()->system->trackbacks_ttl == 0 || time() - (App::blog()->settings()->system->trackbacks_ttl * 86400) < $rs->getTS());
+        return $rs->post_open_tb && (App::blog()->settings()->system->trackbacks_ttl == 0 || time() - (App::blog()->settings()->system->trackbacks_ttl * 86400) < $rs->getTS());
     }
 
     /**
