@@ -3616,6 +3616,9 @@ On adapte largeur et hauteur en fonction
   gap: 0.5em;
   align-items: center;
 }
+.cat-line .cat-feedback label {
+  gap: 0;
+}
 .cat-line .cat-title a {
   font-weight: bold;
 }

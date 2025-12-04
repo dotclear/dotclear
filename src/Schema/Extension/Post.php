@@ -127,6 +127,14 @@ class Post
      */
     public static function commentsActive(MetaRecord $rs): bool
     {
+        // Check if feedback is open/close for the category
+        if ($rs->cat_id) {
+            $cats_no_feedback = app::blog()->settings()->system->cats_no_feedback;
+            if ($cats_no_feedback && is_array($cats_no_feedback) && in_array((int) $rs->cat_id, $cats_no_feedback, true)) {
+                return false;
+            }
+        }
+
         return
         App::blog()->settings()->system->allow_comments
             && $rs->post_open_comment
@@ -140,6 +148,14 @@ class Post
      */
     public static function trackbacksActive(MetaRecord $rs): bool
     {
+        // Check if feedback is open/close for the category
+        if ($rs->cat_id) {
+            $cats_no_feedback = app::blog()->settings()->system->cats_no_feedback;
+            if ($cats_no_feedback && is_array($cats_no_feedback) && in_array((int) $rs->cat_id, $cats_no_feedback, true)) {
+                return false;
+            }
+        }
+
         return
         App::blog()->settings()->system->allow_trackbacks
             && $rs->post_open_tb

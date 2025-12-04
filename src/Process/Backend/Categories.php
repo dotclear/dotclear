@@ -13,6 +13,7 @@ namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
+use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Hidden;
@@ -106,6 +107,16 @@ class Categories
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
             }
+        }
+
+        if (!empty($_POST['save_feedback'])) {
+            // Update feedback opening/closing for each category
+            $no_feedbacks     = $_POST['cat_no_feedback'] ?? [];
+            $cats_no_feedback = array_keys($no_feedbacks);
+            App::blog()->settings()->system->put('cats_no_feedback', $cats_no_feedback, App::blogWorkspace()::NS_ARRAY);
+
+            App::backend()->notices()->addSuccessNotice(__('The opening/closing of feedbacks for categories have been successfully saved.'));
+            App::backend()->url()->redirect('admin.categories');
         }
 
         if (!empty($_POST['save_order']) && !empty($_POST['categories_order'])) {
@@ -203,6 +214,16 @@ class Categories
 
             if (App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_CATEGORIES,
+            ]), App::blog()->id())) {
+                $actions[] = (new Set())
+                    ->items([
+                        (new Submit('save_feedback', __('Save the opening/closing of feedbacks'))),
+                        (new Hidden(['process'], 'Categories')),
+                    ]);
+            }
+
+            if (App::auth()->check(App::auth()->makePermissions([
+                App::auth()::PERMISSION_CATEGORIES,
             ]), App::blog()->id()) && $rs->count() > 1) {
                 if (!App::auth()->prefs()->accessibility->nodragdrop) {
                     $message = (new Note())
@@ -221,12 +242,16 @@ class Categories
                     ]);
             }
 
-            $actions[] = (new Set())
-                ->items([
-                    (new Submit(['reset'], __('Reorder all categories on the top level')))
-                        ->class('reset'),
-                    (new Hidden(['process'], 'Categories')),
-                ]);
+            if (App::auth()->check(App::auth()->makePermissions([
+                App::auth()::PERMISSION_CATEGORIES,
+            ]), App::blog()->id())) {
+                $actions[] = (new Set())
+                    ->items([
+                        (new Submit(['reset'], __('Reorder all categories on the top level')))
+                            ->class('reset'),
+                        (new Hidden(['process'], 'Categories')),
+                    ]);
+            }
 
             $action = (new Div())
                 ->items([
@@ -301,6 +326,9 @@ class Categories
      */
     private static function categorieLine(MetaRecord $rs): Li
     {
+        $cats_no_feedback = app::blog()->settings()->system->cats_no_feedback;
+        $cat_no_feedback  = ($cats_no_feedback && is_array($cats_no_feedback) && in_array((int) $rs->cat_id, $cats_no_feedback, true));
+
         // Category info
         $category = (new Set())
             ->items([
@@ -312,6 +340,15 @@ class Categories
                             ->text(Html::escapeHTML($rs->cat_title)),
                     ]),
                 (new Para())
+                    ->class(['cat-feedback'])
+                    ->items([
+                        (new Checkbox(['cat_no_feedback[' . $rs->cat_id . ']'], $cat_no_feedback))
+                            ->value(1)
+                            ->label(
+                                new Label(__('Disable feedbacks'), Label::IL_FT)
+                            ),
+                    ]),
+                (new Para())
                     ->class(['cat-nb-posts'])
                     ->items([
                         (new Text(null, '(')),
@@ -321,7 +358,7 @@ class Categories
                         (new Text(null, ', ' . __('total:') . ' ' . $rs->nb_total . ')')),
                     ]),
                 (new Para())
-                    ->class(['cat_url', 'form-buttons'])
+                    ->class(['cat-url', 'form-buttons'])
                     ->items([
                         (new Text(null, __('URL:'))),
                         (new Text('code', Html::escapeHTML($rs->cat_url))),
