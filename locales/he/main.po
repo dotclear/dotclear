@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-04 12:46+0100\n"
-"PO-Revision-Date: 2025-12-04 11:55\n"
+"PO-Revision-Date: 2025-12-04 12:24\n"
 "Last-Translator: \n"
 "Language-Team: Hebrew\n"
 "Language: he_IL\n"
@@ -4144,7 +4144,7 @@ msgstr "הרשומות הועברו בהצלחה לקטגוריה \"%s\""
 
 #: src/Process/Backend/Categories.php:118
 msgid "The opening/closing of feedbacks for categories have been successfully saved."
-msgstr ""
+msgstr "פתיחת/סגירת המשובים עבור הקטגוריות נשמרה בהצלחה."
 
 #: src/Process/Backend/Categories.php:130
 #: src/Process/Backend/Categories.php:181
@@ -4173,7 +4173,7 @@ msgstr "אין קטגוריה עד כה."
 
 #: src/Process/Backend/Categories.php:220
 msgid "Save the opening/closing of feedbacks"
-msgstr ""
+msgstr "שמור את פתיחת/סגירת המשובים"
 
 #: src/Process/Backend/Categories.php:231
 msgid "To rearrange categories order, move items by drag and drop, then click on “Save categories order” button."
@@ -4189,7 +4189,7 @@ msgstr "שינוי סדר כל הקטגוריות ברמה העליונה"
 
 #: src/Process/Backend/Categories.php:348
 msgid "Disable feedbacks"
-msgstr ""
+msgstr "השבת משובים"
 
 #: src/Process/Backend/Categories.php:357
 #, php-format
