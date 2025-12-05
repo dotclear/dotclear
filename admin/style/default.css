@@ -1147,6 +1147,9 @@ body.dark-mode.upgrade-mode :is(.collapse-mm, .expand-mm) {
     width: 100%;
     margin: 0;
   }
+  .hide-mm #main-menu {
+    display: block;
+  }
   #main-menu a {
     display: block;
     width: 100%;
