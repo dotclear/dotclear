@@ -162,7 +162,8 @@ class Manage
         $head = App::backend()->page()->jsPageTabs(App::backend()->default_tab);
         if (!App::auth()->prefs()->accessibility->nodragdrop) {
             $head .= App::backend()->page()->jsLoad('js/jquery/jquery-ui.custom.js') .
-                App::backend()->page()->jsLoad('js/jquery/jquery.ui.touch-punch.js');
+                App::backend()->page()->jsLoad('js/jquery/jquery.ui.touch-punch.js') .
+                My::jsLoad('dragndrop');
         }
         $head .= App::backend()->page()->jsJson('antispam', ['confirm_spam_delete' => __('Are you sure you want to delete all spams?')]) .
             My::jsLoad('antispam') .
