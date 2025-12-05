@@ -1,9 +1,9 @@
 // ----------------- CONFIG ------------------- //
 
 // Screen sizes (up to) - used in mediaqueries
-$mobile-screen: 43em;
-$tablet-screen: 62em;
-$laptop-screen: 82em;
+$mobile-screen: 600px;
+$tablet-screen: 1024px;
+$laptop-screen: 1280px;
 
 // Local fonts
 @font-face {
