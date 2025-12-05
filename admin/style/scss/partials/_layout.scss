@@ -503,6 +503,10 @@ body.dark-mode.upgrade-mode {
   }
 
   #main-menu {
+    .hide-mm & {
+      display: block;
+    }
+
     a {
       display: block;
       width: 100%;
