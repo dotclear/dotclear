@@ -444,15 +444,41 @@ class TextTest extends TestCase
         );
     }
 
-    public function testUtf8badFind(): void
+    /**
+     * @return array<array<string, bool|int>>
+     */
+    public static function dataProviderUtf8badFind(): array
     {
-        $this->assertFalse(
-            \Dotclear\Helper\Text::utf8badFind('Étrange et curieux/=À vous !')
-        );
-        $this->assertEquals(
-            12,
-            \Dotclear\Helper\Text::utf8badFind('Étrange et ' . chr(0xE0A0BF) . ' curieux/=À vous' . chr(0xC280) . ' !')
-        );
+        return [
+            // false
+            ['', false],
+            ['hello world', false],
+            ['€', false],
+            ["\u{1F600}", false],
+            ['こんにちは', false],
+            // error position
+            [hex2bin('FF'), 0],
+            [hex2bin('C080'), 0],
+            ['A' . hex2bin('C080') . 'B', 1],
+            ['€' . hex2bin('FF'), 3],
+            ['ASCII' . '你' . hex2bin('FF') . 'tail', 8],
+            ['ASCII' . mb_convert_encoding('你', 'UTF-8', 'UTF-8') . hex2bin('FF') . 'tail', 8],
+            [hex2bin('E228A1'), 0],
+            [str_repeat('x', 100) . '漢字', false],
+        ];
+    }
+
+    #[DataProvider('dataProviderUtf8badFind')]
+    public function testUtf8badFind(string $input, mixed $expected): void
+    {
+        $result = \Dotclear\Helper\Text::utf8badFind($input);
+
+        if ($expected === false) {
+            $this->assertFalse($result);
+        } else {
+            // s'assurer du type int pour comparaison stricte
+            $this->assertSame($expected, $result);
+        }
     }
 
     public function testCleanUTF8(): void
@@ -462,8 +488,8 @@ class TextTest extends TestCase
             \Dotclear\Helper\Text::cleanUTF8('Étrange et curieux/=À vous !')
         );
         $this->assertEquals(
-            'Étrange et ? curieux/=À vous? !',
-            \Dotclear\Helper\Text::cleanUTF8('Étrange et ' . chr(0xE0A0BF) . ' curieux/=À vous' . chr(0xC280) . ' !')
+            'Étrange et ? curieux/=À vous !',
+            \Dotclear\Helper\Text::cleanUTF8('Étrange et ' . hex2bin('FF') . ' curieux/=À vous !')
         );
     }
 
