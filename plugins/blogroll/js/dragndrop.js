@@ -4,7 +4,7 @@
 dotclear.ready(() => {
   // DOM ready and content loaded
 
-  $('#links-list').sortable();
+  $('#links-list').sortable({ handle: '.handle' });
   $('#links-form').on('submit', () => {
     const order = [];
     $('#links-list tr td input.position').each(function () {

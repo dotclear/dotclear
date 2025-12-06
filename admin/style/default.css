@@ -2827,10 +2827,10 @@ td.expand td {
   cursor: move;
   background-image: url(drag.svg);
   background-repeat: no-repeat;
-  background-position: 0% 50%;
+  background-position: 0.5em 50%;
   background-color: transparent;
   background-size: 1.4em;
-  padding-left: 1.4em;
+  padding-left: 2.4em;
 }
 body.dark-mode .handler {
   background-image: url(drag-dark.svg);

@@ -9,7 +9,7 @@ dotclear.ready(() => {
     return;
   }
 
-  filters_list.sortable();
+  filters_list.sortable({ handle: '.handle' });
   for (const element of document.querySelectorAll('#filters-list tr td input.position')) {
     element.style.display = 'none';
   }

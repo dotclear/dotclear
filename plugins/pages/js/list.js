@@ -76,6 +76,7 @@ dotclear.ready(() => {
           $(this).val(i + 1);
         });
       },
+      handle: '.handle',
     });
     $('#pageslist tr td input.position').hide();
     $('#pageslist tr td.handle').addClass('handler');

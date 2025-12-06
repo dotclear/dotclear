@@ -4,7 +4,7 @@
 dotclear.ready(() => {
   // DOM ready and content loaded
 
-  $('#stickerslist').sortable();
+  $('#stickerslist').sortable({ handle: '.handle' });
   for (const element of document.querySelectorAll('#stickerslist tr td input.position')) {
     element.style.display = 'none';
   }

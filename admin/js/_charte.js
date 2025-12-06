@@ -5,7 +5,7 @@ dotclear.ready(() => {
   // DOM ready and content loaded
 
   dotclear.pageTabs('two-boxes');
-  $('#pageslist').sortable();
+  $('#pageslist').sortable({ handle: '.handle' });
   for (const element of document.querySelectorAll('#pageslist tr td input.position')) {
     element.style.display = 'none';
   }
