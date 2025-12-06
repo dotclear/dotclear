@@ -373,7 +373,7 @@ class Blogroll
 
         foreach ($rs->rows() as $v) {
             if (!$v['is_cat']) {
-                $res[$v['cat_title']][] = $v;
+                $res[(string) $v['cat_title']][] = $v;
             }
         }
 
