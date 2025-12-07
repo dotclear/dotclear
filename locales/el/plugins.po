@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-27 14:03+0100\n"
-"PO-Revision-Date: 2025-11-27 13:07\n"
+"POT-Creation-Date: 2025-12-07 11:24+0100\n"
+"PO-Revision-Date: 2025-12-07 10:27\n"
 "Last-Translator: \n"
 "Language-Team: Greek\n"
 "Language: el_GR\n"
@@ -686,7 +686,7 @@ msgid "Antispam"
 msgstr "Antispam"
 
 #: plugins/antispam/src/BackendBehaviors.php:56
-#: plugins/antispam/src/Manage.php:229
+#: plugins/antispam/src/Manage.php:230
 #, php-format
 msgid "All spam comments older than %s day(s) will be automatically deleted."
 msgstr "Όλα τα σχόλια spam παλαιότερα από %s ημέρες θα διαγραφούν αυτόματα."
@@ -890,7 +890,7 @@ msgstr "Το φίλτρο δεν υπάρχει."
 msgid "Filter has no user interface."
 msgstr "Το φίλτρο δεν έχει διεπαφή χρήστη."
 
-#: plugins/antispam/src/Manage.php:142 plugins/antispam/src/Manage.php:275
+#: plugins/antispam/src/Manage.php:142 plugins/antispam/src/Manage.php:276
 msgid "Filters configuration has been successfully saved."
 msgstr "Οι ρυθμίσεις των φίλτρων αποθηκεύτηκαν επιτυχώς."
 
@@ -899,71 +899,71 @@ msgstr "Οι ρυθμίσεις των φίλτρων αποθηκεύτηκαν
 msgid "%s configuration"
 msgstr "%s ρύθμιση παραμέτρων"
 
-#: plugins/antispam/src/Manage.php:180
+#: plugins/antispam/src/Manage.php:181
 #, php-format
 msgid "%s filter configuration"
 msgstr "ρύθμιση παραμέτρων φίλτρου %s"
 
-#: plugins/antispam/src/Manage.php:187
+#: plugins/antispam/src/Manage.php:188
 msgid "Back to filters list"
 msgstr "Πίσω στη λίστα φίλτρων"
 
-#: plugins/antispam/src/Manage.php:234
+#: plugins/antispam/src/Manage.php:235
 #, php-format
 msgid "You can modify this duration in the %s"
 msgstr "Μπορείτε να τροποποιήσετε αυτή τη διάρκεια στο %s"
 
-#: plugins/antispam/src/Manage.php:243
+#: plugins/antispam/src/Manage.php:244
 msgid "Information"
 msgstr "Πληροφορίες"
 
-#: plugins/antispam/src/Manage.php:254
+#: plugins/antispam/src/Manage.php:255
 msgid "Junk comments:"
 msgstr "Ανεπιθύμητα σχόλια:"
 
-#: plugins/antispam/src/Manage.php:260
+#: plugins/antispam/src/Manage.php:261
 msgid "Published comments:"
 msgstr "Δημοσιευμένα σχόλια:"
 
-#: plugins/antispam/src/Manage.php:284 plugins/antispam/src/Manage.php:287
-#: plugins/antispam/src/Manage.php:291
+#: plugins/antispam/src/Manage.php:285 plugins/antispam/src/Manage.php:288
+#: plugins/antispam/src/Manage.php:292
 msgid "Filter configuration"
 msgstr "Ρύθμιση παραμέτρων φίλτρου"
 
-#: plugins/antispam/src/Manage.php:307 plugins/blogroll/src/Manage.php:305
+#: plugins/antispam/src/Manage.php:308 plugins/blogroll/src/Manage.php:305
 msgid "position"
 msgstr "θέση"
 
-#: plugins/antispam/src/Manage.php:314 plugins/antispam/src/Manage.php:348
+#: plugins/antispam/src/Manage.php:315 plugins/antispam/src/Manage.php:349
 msgid "Active"
 msgstr "Ενεργό"
 
-#: plugins/antispam/src/Manage.php:321 plugins/antispam/src/Manage.php:349
+#: plugins/antispam/src/Manage.php:322 plugins/antispam/src/Manage.php:350
 msgid "Auto Del."
 msgstr "Auto Del."
 
-#: plugins/antispam/src/Manage.php:342
+#: plugins/antispam/src/Manage.php:343
 msgid "Available spam filters"
 msgstr "Διαθέσιμα φίλτρα spam"
 
-#: plugins/antispam/src/Manage.php:347
+#: plugins/antispam/src/Manage.php:348
 #: plugins/pages/src/BackendDefaultActions.php:73
 msgid "Order"
 msgstr "Σειρά"
 
-#: plugins/antispam/src/Manage.php:350
+#: plugins/antispam/src/Manage.php:351
 msgid "Filter name"
 msgstr "Όνομα φίλτρου"
 
-#: plugins/antispam/src/Manage.php:377
+#: plugins/antispam/src/Manage.php:378
 msgid "Syndication"
 msgstr "Κοινοποίηση"
 
-#: plugins/antispam/src/Manage.php:380
+#: plugins/antispam/src/Manage.php:381
 msgid "Junk comments RSS feed"
 msgstr "Ανεπιθύμητα σχόλια RSS feed"
 
-#: plugins/antispam/src/Manage.php:383
+#: plugins/antispam/src/Manage.php:384
 msgid "Published comments RSS feed"
 msgstr "Δημοσιευμένα σχόλια RSS feed"
 
