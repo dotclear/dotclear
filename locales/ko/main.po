@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-07 11:19+0100\n"
-"PO-Revision-Date: 2025-12-07 10:26\n"
+"PO-Revision-Date: 2025-12-07 10:48\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -6040,7 +6040,7 @@ msgstr "대시보드 아이콘 표시"
 
 #: src/Process/Backend/UserPreferences.php:1400
 msgid "Use a dense layout of dashboard icons"
-msgstr ""
+msgstr "대시보드 아이콘의 조밀한 레이아웃 사용"
 
 #: src/Process/Backend/UserPreferences.php:1404
 msgid "Dashboard modules"
@@ -6068,7 +6068,7 @@ msgstr "도트클리어 업데이트 표시 안 함"
 
 #: src/Process/Backend/UserPreferences.php:1441
 msgid "Use a dense layout of dashboard boxes"
-msgstr ""
+msgstr "밀집된 블랙박스 레이아웃 사용"
 
 #: src/Process/Backend/UserPreferences.php:1454
 msgid "Save my dashboard options"
