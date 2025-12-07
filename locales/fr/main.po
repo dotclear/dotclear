@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-07 11:19+0100\n"
-"PO-Revision-Date: 2025-12-07 10:26\n"
+"PO-Revision-Date: 2025-12-07 10:48\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -6075,7 +6075,7 @@ msgstr "Afficher les icônes du tableau de bord"
 
 #: src/Process/Backend/UserPreferences.php:1400
 msgid "Use a dense layout of dashboard icons"
-msgstr ""
+msgstr "Utiliser une disposition dense des icônes du tableau de bord"
 
 #: src/Process/Backend/UserPreferences.php:1404
 msgid "Dashboard modules"
@@ -6103,7 +6103,7 @@ msgstr "Ne pas afficher les mises à jour de Dotclear"
 
 #: src/Process/Backend/UserPreferences.php:1441
 msgid "Use a dense layout of dashboard boxes"
-msgstr ""
+msgstr "Utiliser une disposition dense des modules du tableau de bord"
 
 #: src/Process/Backend/UserPreferences.php:1454
 msgid "Save my dashboard options"
