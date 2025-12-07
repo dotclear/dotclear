@@ -233,7 +233,7 @@ dotclear.expandContent = (opts) => {
     }
   };
 
-  if (opts === undefined || opts.callback === undefined || typeof opts.callback !== 'function') {
+  if (opts?.callback === undefined || typeof opts.callback !== 'function') {
     return;
   }
   if (opts.line !== undefined) {
