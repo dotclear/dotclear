@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-07 11:19+0100\n"
-"PO-Revision-Date: 2025-12-07 10:26\n"
+"PO-Revision-Date: 2025-12-07 10:48\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
 "Language: es_ES\n"
@@ -6075,7 +6075,7 @@ msgstr "Mostrar iconos del salpicadero"
 
 #: src/Process/Backend/UserPreferences.php:1400
 msgid "Use a dense layout of dashboard icons"
-msgstr ""
+msgstr "Utiliza un diseño denso de los iconos del salpicadero"
 
 #: src/Process/Backend/UserPreferences.php:1404
 msgid "Dashboard modules"
@@ -6103,7 +6103,7 @@ msgstr "No mostrar las actualizaciones de Dotclear"
 
 #: src/Process/Backend/UserPreferences.php:1441
 msgid "Use a dense layout of dashboard boxes"
-msgstr ""
+msgstr "Utilice un diseño denso de cuadros de mando"
 
 #: src/Process/Backend/UserPreferences.php:1454
 msgid "Save my dashboard options"
