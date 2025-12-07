@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-27 14:03+0100\n"
-"PO-Revision-Date: 2025-11-27 13:30\n"
+"POT-Creation-Date: 2025-12-07 11:24+0100\n"
+"PO-Revision-Date: 2025-12-07 10:46\n"
 "Last-Translator: \n"
 "Language-Team: Vietnamese\n"
 "Language: vi_VN\n"
@@ -686,7 +686,7 @@ msgid "Antispam"
 msgstr "Chống spam"
 
 #: plugins/antispam/src/BackendBehaviors.php:56
-#: plugins/antispam/src/Manage.php:229
+#: plugins/antispam/src/Manage.php:230
 #, php-format
 msgid "All spam comments older than %s day(s) will be automatically deleted."
 msgstr "Tất cả các bình luận spam cũ hơn %s ngày sẽ bị xóa tự động."
@@ -890,7 +890,7 @@ msgstr "Bộ lọc không tồn tại."
 msgid "Filter has no user interface."
 msgstr "Bộ lọc không có giao diện người dùng."
 
-#: plugins/antispam/src/Manage.php:142 plugins/antispam/src/Manage.php:275
+#: plugins/antispam/src/Manage.php:142 plugins/antispam/src/Manage.php:276
 msgid "Filters configuration has been successfully saved."
 msgstr "Cấu hình bộ lọc đã được lưu thành công."
 
@@ -899,71 +899,71 @@ msgstr "Cấu hình bộ lọc đã được lưu thành công."
 msgid "%s configuration"
 msgstr "%s cấu hình"
 
-#: plugins/antispam/src/Manage.php:180
+#: plugins/antispam/src/Manage.php:181
 #, php-format
 msgid "%s filter configuration"
 msgstr "%s Cấu hình bộ lọc"
 
-#: plugins/antispam/src/Manage.php:187
+#: plugins/antispam/src/Manage.php:188
 msgid "Back to filters list"
 msgstr "Trở lại danh sách bộ lọc"
 
-#: plugins/antispam/src/Manage.php:234
+#: plugins/antispam/src/Manage.php:235
 #, php-format
 msgid "You can modify this duration in the %s"
 msgstr "Bạn có thể điều chỉnh thời gian này trong %s"
 
-#: plugins/antispam/src/Manage.php:243
+#: plugins/antispam/src/Manage.php:244
 msgid "Information"
 msgstr "Thông tin"
 
-#: plugins/antispam/src/Manage.php:254
+#: plugins/antispam/src/Manage.php:255
 msgid "Junk comments:"
 msgstr "Bình luận rác:"
 
-#: plugins/antispam/src/Manage.php:260
+#: plugins/antispam/src/Manage.php:261
 msgid "Published comments:"
 msgstr "Bình luận đã được đăng:"
 
-#: plugins/antispam/src/Manage.php:284 plugins/antispam/src/Manage.php:287
-#: plugins/antispam/src/Manage.php:291
+#: plugins/antispam/src/Manage.php:285 plugins/antispam/src/Manage.php:288
+#: plugins/antispam/src/Manage.php:292
 msgid "Filter configuration"
 msgstr "Cấu hình bộ lọc"
 
-#: plugins/antispam/src/Manage.php:307 plugins/blogroll/src/Manage.php:305
+#: plugins/antispam/src/Manage.php:308 plugins/blogroll/src/Manage.php:305
 msgid "position"
 msgstr "vị trí"
 
-#: plugins/antispam/src/Manage.php:314 plugins/antispam/src/Manage.php:348
+#: plugins/antispam/src/Manage.php:315 plugins/antispam/src/Manage.php:349
 msgid "Active"
 msgstr "Hoạt động"
 
-#: plugins/antispam/src/Manage.php:321 plugins/antispam/src/Manage.php:349
+#: plugins/antispam/src/Manage.php:322 plugins/antispam/src/Manage.php:350
 msgid "Auto Del."
 msgstr "Tự động xóa."
 
-#: plugins/antispam/src/Manage.php:342
+#: plugins/antispam/src/Manage.php:343
 msgid "Available spam filters"
 msgstr "Các bộ lọc spam có sẵn"
 
-#: plugins/antispam/src/Manage.php:347
+#: plugins/antispam/src/Manage.php:348
 #: plugins/pages/src/BackendDefaultActions.php:73
 msgid "Order"
 msgstr "Đặt hàng"
 
-#: plugins/antispam/src/Manage.php:350
+#: plugins/antispam/src/Manage.php:351
 msgid "Filter name"
 msgstr "Tên bộ lọc"
 
-#: plugins/antispam/src/Manage.php:377
+#: plugins/antispam/src/Manage.php:378
 msgid "Syndication"
 msgstr "Phát sóng chung"
 
-#: plugins/antispam/src/Manage.php:380
+#: plugins/antispam/src/Manage.php:381
 msgid "Junk comments RSS feed"
 msgstr "Dòng tin RSS về các bình luận rác"
 
-#: plugins/antispam/src/Manage.php:383
+#: plugins/antispam/src/Manage.php:384
 msgid "Published comments RSS feed"
 msgstr "Danh sách bình luận đã đăng RSS"
 

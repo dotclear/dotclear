@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-04 12:46+0100\n"
-"PO-Revision-Date: 2025-12-04 12:25\n"
+"POT-Creation-Date: 2025-12-07 11:19+0100\n"
+"PO-Revision-Date: 2025-12-07 10:49\n"
 "Last-Translator: \n"
 "Language-Team: Norwegian Bokmal\n"
 "Language: nb_NO\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Crowdin-File-ID: 262\n"
 
 #: inc/core/_fake_l10n.php:7 src/Process/Backend/Auth.php:446
-#: src/Process/Backend/User.php:265 src/Process/Backend/UserPreferences.php:569
+#: src/Process/Backend/User.php:265 src/Process/Backend/UserPreferences.php:573
 #: src/Process/Install/Install.php:427 src/Process/Upgrade/Auth.php:388
 msgid "medium"
 msgstr "middels"
@@ -121,7 +121,7 @@ msgstr "Denne nøkkelen finnes ikke i databasen."
 #: src/Core/Backend/Action/ActionsComments.php:158
 #: src/Core/Backend/Combos.php:297 src/Core/Backend/Listing/ListingPosts.php:78
 #: src/Core/Backend/Listing/ListingPostsMini.php:62
-#: src/Core/Backend/UserPref.php:205 src/Process/Backend/Home.php:591
+#: src/Core/Backend/UserPref.php:205 src/Process/Backend/Home.php:597
 #: src/Process/Backend/MediaItem.php:1059 src/Process/Backend/Post.php:842
 msgid "Title"
 msgstr "Tittel"
@@ -185,7 +185,7 @@ msgstr "Status"
 #: src/Core/Backend/Listing/ListingMedia.php:317
 #: src/Core/Backend/ModulesList.php:1361 src/Core/Upgrade/PluginsList.php:125
 #: src/Process/Backend/Comment.php:354 src/Process/Backend/Langs.php:231
-#: src/Process/Backend/Post.php:966 src/Process/Backend/UserPreferences.php:696
+#: src/Process/Backend/Post.php:966 src/Process/Backend/UserPreferences.php:700
 #: src/Process/Backend/Users.php:44 src/Process/Upgrade/Langs.php:297
 msgid "Delete"
 msgstr "Slett"
@@ -405,7 +405,7 @@ msgid "Change category for this selection"
 msgstr "Endre kategori for dette valget"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:348
-#: src/Core/Backend/Filter/FilterPosts.php:133 src/Process/Backend/Home.php:617
+#: src/Core/Backend/Filter/FilterPosts.php:133 src/Process/Backend/Home.php:623
 #: src/Process/Backend/Post.php:730
 msgid "Category:"
 msgstr "Kategori:"
@@ -415,7 +415,7 @@ msgid "Create a new category for the post(s)"
 msgstr "Opprett en ny kategori for innlegget/innleggene"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:366
-#: src/Process/Backend/Home.php:595 src/Process/Backend/Home.php:629
+#: src/Process/Backend/Home.php:601 src/Process/Backend/Home.php:635
 #: src/Process/Backend/Media.php:777 src/Process/Backend/MediaItem.php:1199
 #: src/Process/Backend/Post.php:744 src/Process/Backend/Post.php:847
 msgid "Title:"
@@ -423,7 +423,7 @@ msgstr "Tittel:"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:375
 #: src/Process/Backend/Category.php:267 src/Process/Backend/Category.php:325
-#: src/Process/Backend/Home.php:636 src/Process/Backend/Post.php:751
+#: src/Process/Backend/Home.php:642 src/Process/Backend/Post.php:751
 msgid "Parent:"
 msgstr "Foreldre:"
 
@@ -433,7 +433,7 @@ msgstr "Foreldre:"
 #: src/Core/Backend/ModulesList.php:1997 src/Process/Backend/BlogPref.php:1193
 #: src/Process/Backend/Category.php:297 src/Process/Backend/Category.php:336
 #: src/Process/Backend/Category.php:372 src/Process/Backend/Comment.php:349
-#: src/Process/Backend/Home.php:646 src/Process/Backend/Home.php:700
+#: src/Process/Backend/Home.php:652 src/Process/Backend/Home.php:706
 #: src/Process/Backend/MediaItem.php:1239 src/Process/Backend/Post.php:931
 #: src/Process/Backend/Post.php:1145 src/Process/Backend/User.php:554
 #: src/Process/Backend/UsersActions.php:513 src/Process/Install/Install.php:550
@@ -487,11 +487,11 @@ msgstr "Tilgjengelig"
 msgid "Other"
 msgstr "Annet"
 
-#: src/Core/Backend/Combos.php:283 src/Process/Backend/UserPreferences.php:197
+#: src/Core/Backend/Combos.php:283 src/Process/Backend/UserPreferences.php:199
 msgid "Descending"
 msgstr "Synkende"
 
-#: src/Core/Backend/Combos.php:284 src/Process/Backend/UserPreferences.php:198
+#: src/Core/Backend/Combos.php:284 src/Process/Backend/UserPreferences.php:200
 msgid "Ascending"
 msgstr "Stigende"
 
@@ -581,7 +581,7 @@ msgid "Number of entries"
 msgstr "Antall oppføringer"
 
 #: src/Core/Backend/Favorites.php:287
-#: src/Process/Backend/UserPreferences.php:1357
+#: src/Process/Backend/UserPreferences.php:1361
 msgid "My favorites"
 msgstr "Mine favoritter"
 
@@ -592,7 +592,7 @@ msgid "My preferences"
 msgstr "Mine preferanser"
 
 #: src/Core/Backend/Favorites.php:405 src/Core/Backend/Menus.php:181
-#: src/Process/Backend/Home.php:580 src/Process/Backend/Post.php:94
+#: src/Process/Backend/Home.php:586 src/Process/Backend/Post.php:94
 #: src/Process/Backend/Post.php:974 src/Process/Backend/Posts.php:112
 msgid "New post"
 msgstr "Nytt innlegg"
@@ -680,7 +680,7 @@ msgstr "Global hjelp"
 #: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1283
 #: src/Process/Backend/Auth.php:513 src/Process/Backend/BlogPref.php:1369
 #: src/Process/Backend/Comment.php:305 src/Process/Backend/Post.php:1114
-#: src/Process/Backend/User.php:450 src/Process/Backend/UserPreferences.php:815
+#: src/Process/Backend/User.php:450 src/Process/Backend/UserPreferences.php:819
 #: src/Process/Install/Install.php:508
 msgid "Email:"
 msgstr "E-post:"
@@ -812,7 +812,7 @@ msgid "Sort:"
 msgstr "Sortere:"
 
 #: src/Core/Backend/Filter/Filters.php:390
-#: src/Process/Backend/UserPreferences.php:973
+#: src/Process/Backend/UserPreferences.php:977
 msgid "Show"
 msgstr "Vis"
 
@@ -1446,7 +1446,7 @@ msgstr "Last opp en zip-fil"
 #: src/Core/Backend/ModulesList.php:1756 src/Core/Backend/ModulesList.php:1803
 #: src/Process/Backend/Blog.php:117 src/Process/Backend/BlogPref.php:526
 #: src/Process/Backend/BlogPref.php:1023 src/Process/Backend/Category.php:247
-#: src/Process/Backend/Comment.php:283 src/Process/Backend/Home.php:583
+#: src/Process/Backend/Comment.php:283 src/Process/Backend/Home.php:589
 #: src/Process/Backend/Langs.php:325 src/Process/Backend/Langs.php:375
 #: src/Process/Backend/LinkPopup.php:84 src/Process/Backend/Post.php:999
 #: src/Process/Backend/Post.php:1090 src/Process/Backend/User.php:321
@@ -1516,9 +1516,9 @@ msgstr "Konfigurer \"%s\""
 #: src/Process/Backend/Category.php:300 src/Process/Backend/Comment.php:351
 #: src/Process/Backend/Media.php:871 src/Process/Backend/MediaItem.php:1327
 #: src/Process/Backend/Post.php:956 src/Process/Backend/Search.php:193
-#: src/Process/Backend/User.php:565 src/Process/Backend/UserPreferences.php:876
-#: src/Process/Backend/UserPreferences.php:1212
-#: src/Process/Backend/UserPreferences.php:1438
+#: src/Process/Backend/User.php:565 src/Process/Backend/UserPreferences.php:880
+#: src/Process/Backend/UserPreferences.php:1216
+#: src/Process/Backend/UserPreferences.php:1456
 msgid "Back"
 msgstr "Tilbake"
 
@@ -1571,8 +1571,8 @@ msgid "Go to help"
 msgstr "Gå til hjelp"
 
 #: src/Core/Backend/Page.php:342 src/Core/Upgrade/Page.php:177
-#: src/Process/Backend/UserPreferences.php:1347
-#: src/Process/Backend/UserPreferences.php:1349
+#: src/Process/Backend/UserPreferences.php:1351
+#: src/Process/Backend/UserPreferences.php:1353
 msgid "My dashboard"
 msgstr "Dashbordet mitt"
 
@@ -3167,7 +3167,7 @@ msgid "Your new password is in your mailbox."
 msgstr "Det nye passordet ditt ligger i postkassen din."
 
 #: src/Process/Backend/Auth.php:226 src/Process/Backend/User.php:159
-#: src/Process/Backend/UserPreferences.php:273 src/Process/Install/Cli.php:727
+#: src/Process/Backend/UserPreferences.php:275 src/Process/Install/Cli.php:727
 #: src/Process/Install/Install.php:188
 msgid "Passwords don't match"
 msgstr "Passordene stemmer ikke overens"
@@ -3205,9 +3205,9 @@ msgstr "Feil brukernavn eller passord"
 #: src/Process/Backend/Auth.php:445 src/Process/Backend/Auth.php:446
 #: src/Process/Backend/Auth.php:447 src/Process/Backend/User.php:264
 #: src/Process/Backend/User.php:265 src/Process/Backend/User.php:266
-#: src/Process/Backend/UserPreferences.php:568
-#: src/Process/Backend/UserPreferences.php:569
-#: src/Process/Backend/UserPreferences.php:570
+#: src/Process/Backend/UserPreferences.php:572
+#: src/Process/Backend/UserPreferences.php:573
+#: src/Process/Backend/UserPreferences.php:574
 #: src/Process/Install/Install.php:426 src/Process/Install/Install.php:427
 #: src/Process/Install/Install.php:428 src/Process/Upgrade/Auth.php:387
 #: src/Process/Upgrade/Auth.php:388 src/Process/Upgrade/Auth.php:389
@@ -3216,13 +3216,13 @@ msgid "Password strength: %s"
 msgstr "Passordstyrke: %s"
 
 #: src/Process/Backend/Auth.php:445 src/Process/Backend/User.php:264
-#: src/Process/Backend/UserPreferences.php:568
+#: src/Process/Backend/UserPreferences.php:572
 #: src/Process/Install/Install.php:426 src/Process/Upgrade/Auth.php:387
 msgid "weak"
 msgstr "svak"
 
 #: src/Process/Backend/Auth.php:447 src/Process/Backend/User.php:266
-#: src/Process/Backend/UserPreferences.php:570
+#: src/Process/Backend/UserPreferences.php:574
 #: src/Process/Install/Install.php:428 src/Process/Upgrade/Auth.php:389
 msgid "strong"
 msgstr "sterk"
@@ -3249,7 +3249,7 @@ msgid "Change your password"
 msgstr "Endre passordet ditt"
 
 #: src/Process/Backend/Auth.php:546 src/Process/Backend/User.php:352
-#: src/Process/Backend/UserPreferences.php:607
+#: src/Process/Backend/UserPreferences.php:611
 msgid "New password:"
 msgstr "Nytt passord:"
 
@@ -3262,7 +3262,7 @@ msgstr "Bekreft passord:"
 msgid "change"
 msgstr "endring"
 
-#: src/Process/Backend/Auth.php:574 src/Process/Backend/UserPreferences.php:882
+#: src/Process/Backend/Auth.php:574 src/Process/Backend/UserPreferences.php:886
 #: src/Process/Upgrade/Auth.php:292
 msgid "Two factors authentication"
 msgstr "To-faktor autentisering"
@@ -3271,7 +3271,7 @@ msgstr "To-faktor autentisering"
 msgid "Enter code:"
 msgstr "Skriv inn koden:"
 
-#: src/Process/Backend/Auth.php:589 src/Process/Backend/UserPreferences.php:676
+#: src/Process/Backend/Auth.php:589 src/Process/Backend/UserPreferences.php:680
 #: src/Process/Upgrade/Auth.php:307
 msgid "Verify"
 msgstr "Bekreft"
@@ -3500,7 +3500,7 @@ msgid "I would like to prevent search engines and archivers from indexing or arc
 msgstr "Jeg vil gjerne forhindre at søkemotorer og arkivarer indekserer eller arkiverer innholdet på bloggen min."
 
 #: src/Process/Backend/BlogPref.php:235
-#: src/Process/Backend/UserPreferences.php:159
+#: src/Process/Backend/UserPreferences.php:161
 msgid "Default"
 msgstr "Standard"
 
@@ -4146,7 +4146,7 @@ msgid "total:"
 msgstr "totalt:"
 
 #: src/Process/Backend/Categories.php:363 src/Process/Backend/Category.php:278
-#: src/Process/Backend/User.php:475 src/Process/Backend/UserPreferences.php:837
+#: src/Process/Backend/User.php:475 src/Process/Backend/UserPreferences.php:841
 msgid "URL:"
 msgstr "URL:"
 
@@ -4387,68 +4387,68 @@ msgstr "Følgende plugins er ikke installert:"
 msgid "Errors have occured with following plugins:"
 msgstr "Det har oppstått feil med følgende plugins:"
 
-#: src/Process/Backend/Home.php:574
+#: src/Process/Backend/Home.php:580
 msgid "Quick post"
 msgstr "Rask post"
 
-#: src/Process/Backend/Home.php:604 src/Process/Backend/Post.php:884
+#: src/Process/Backend/Home.php:610 src/Process/Backend/Post.php:884
 msgid "Content:"
 msgstr "Innhold:"
 
-#: src/Process/Backend/Home.php:610 src/Process/Backend/Post.php:881
+#: src/Process/Backend/Home.php:616 src/Process/Backend/Post.php:881
 msgid "Content"
 msgstr "Innhold"
 
-#: src/Process/Backend/Home.php:621 src/Process/Backend/Post.php:735
+#: src/Process/Backend/Home.php:627 src/Process/Backend/Post.php:735
 msgid "Add a new category"
 msgstr "Legg til en ny kategori"
 
-#: src/Process/Backend/Home.php:640
+#: src/Process/Backend/Home.php:646
 msgid "This category will be created when you will save your post."
 msgstr "Denne kategorien opprettes når du lagrer innlegget ditt."
 
-#: src/Process/Backend/Home.php:648
+#: src/Process/Backend/Home.php:654
 msgid "Save and publish"
 msgstr "Lagre og publiser"
 
-#: src/Process/Backend/Home.php:670
+#: src/Process/Backend/Home.php:676
 msgid "Donate to Dotclear"
 msgstr "Gi en gave til Dotclear"
 
-#: src/Process/Backend/Home.php:672
+#: src/Process/Backend/Home.php:678
 msgid "Dotclear is not a commercial project — using Dotclear is <strong>free</strong> and <strong>always</strong> will be. If you wish to, you may contribute to Dotclear to help us cover project-related expenses."
 msgstr "Dotclear er ikke et kommersielt prosjekt - det er <strong>gratis</strong> å bruke Dotclear, og det vil det <strong>alltid</strong> være. Hvis du ønsker det, kan du bidra til Dotclear for å hjelpe oss med å dekke prosjektrelaterte utgifter."
 
-#: src/Process/Backend/Home.php:674
+#: src/Process/Backend/Home.php:680
 msgid "The collected funds will be spent as follows:"
 msgstr "De innsamlede midlene vil bli brukt på følgende måte:"
 
-#: src/Process/Backend/Home.php:678
+#: src/Process/Backend/Home.php:684
 msgid "Paying for the website hosting and translations"
 msgstr "Betale for hosting av nettstedet og oversettelser"
 
-#: src/Process/Backend/Home.php:680
+#: src/Process/Backend/Home.php:686
 msgid "Paying for the domain names"
 msgstr "Betale for domenenavnene"
 
-#: src/Process/Backend/Home.php:682
+#: src/Process/Backend/Home.php:688
 msgid "Supporting related projects such as Dotaddict.org"
 msgstr "Støtter relaterte prosjekter som Dotaddict.org"
 
-#: src/Process/Backend/Home.php:684
+#: src/Process/Backend/Home.php:690
 msgid "Cover the costs of events set up by Dotclear"
 msgstr "Dekke kostnadene ved arrangementer satt opp av Dotclear"
 
-#: src/Process/Backend/Home.php:688
+#: src/Process/Backend/Home.php:694
 #, php-format
 msgid "See <a href=\"%s\">this page</a> for more information and donation"
 msgstr "Se <a href=\"%s\">denne siden</a> for mer informasjon og donasjon"
 
-#: src/Process/Backend/Home.php:699
+#: src/Process/Backend/Home.php:705
 msgid "For the record, here is the date of my last donation to Dotclear:"
 msgstr "Her er datoen for min siste donasjon til Dotclear:"
 
-#: src/Process/Backend/Home.php:718
+#: src/Process/Backend/Home.php:724
 msgid "Documentation and support"
 msgstr "Dokumentasjon og support"
 
@@ -5577,17 +5577,17 @@ msgstr "Advarsel:"
 msgid "Password change required to connect"
 msgstr "Endring av passord kreves for å koble til"
 
-#: src/Process/Backend/User.php:419 src/Process/Backend/UserPreferences.php:785
+#: src/Process/Backend/User.php:419 src/Process/Backend/UserPreferences.php:789
 #: src/Process/Install/Install.php:500
 msgid "Last Name:"
 msgstr "Etternavn:"
 
-#: src/Process/Backend/User.php:429 src/Process/Backend/UserPreferences.php:795
+#: src/Process/Backend/User.php:429 src/Process/Backend/UserPreferences.php:799
 #: src/Process/Install/Install.php:491
 msgid "First Name:"
 msgstr "Fornavn:"
 
-#: src/Process/Backend/User.php:439 src/Process/Backend/UserPreferences.php:805
+#: src/Process/Backend/User.php:439 src/Process/Backend/UserPreferences.php:809
 msgid "Display name:"
 msgstr "Vis navn:"
 
@@ -5595,24 +5595,24 @@ msgstr "Vis navn:"
 msgid "Mandatory for password recovering procedure."
 msgstr "Obligatorisk for passordgjenopprettingsprosedyren."
 
-#: src/Process/Backend/User.php:462 src/Process/Backend/UserPreferences.php:824
+#: src/Process/Backend/User.php:462 src/Process/Backend/UserPreferences.php:828
 msgid "Alternate emails (comma separated list):"
 msgstr "Alternativ e-post (kommaseparert liste):"
 
-#: src/Process/Backend/User.php:466 src/Process/Backend/UserPreferences.php:828
+#: src/Process/Backend/User.php:466 src/Process/Backend/UserPreferences.php:832
 msgid "Invalid emails will be automatically removed from list."
 msgstr "Ugyldige e-poster blir automatisk fjernet fra listen."
 
-#: src/Process/Backend/User.php:484 src/Process/Backend/UserPreferences.php:846
+#: src/Process/Backend/User.php:484 src/Process/Backend/UserPreferences.php:850
 msgid "Alternate URLs (comma separated list):"
 msgstr "Alternative URL-adresser (kommaseparert liste):"
 
-#: src/Process/Backend/User.php:488 src/Process/Backend/UserPreferences.php:850
+#: src/Process/Backend/User.php:488 src/Process/Backend/UserPreferences.php:854
 msgid "Invalid URLs will be automatically removed from list."
 msgstr "Ugyldige nettadresser fjernes automatisk fra listen."
 
 #: src/Process/Backend/User.php:494
-#: src/Process/Backend/UserPreferences.php:1018
+#: src/Process/Backend/UserPreferences.php:1022
 msgid "Interface"
 msgstr "Grensesnitt"
 
@@ -5621,22 +5621,22 @@ msgid "Timezone:"
 msgstr "Tidssone:"
 
 #: src/Process/Backend/User.php:510
-#: src/Process/Backend/UserPreferences.php:1151
+#: src/Process/Backend/UserPreferences.php:1155
 msgid "Edition"
 msgstr "Utgave"
 
 #: src/Process/Backend/User.php:516
-#: src/Process/Backend/UserPreferences.php:1163
+#: src/Process/Backend/UserPreferences.php:1167
 msgid "Preferred format:"
 msgstr "Foretrukket format:"
 
 #: src/Process/Backend/User.php:523
-#: src/Process/Backend/UserPreferences.php:1171
+#: src/Process/Backend/UserPreferences.php:1175
 msgid "Default entry status:"
 msgstr "Standard oppføringsstatus:"
 
 #: src/Process/Backend/User.php:528
-#: src/Process/Backend/UserPreferences.php:1177
+#: src/Process/Backend/UserPreferences.php:1181
 msgid "Entry edit field height:"
 msgstr "Høyden på feltet for redigering av oppføring:"
 
@@ -5686,426 +5686,434 @@ msgstr "Liste over innlegg"
 msgid "List of comments"
 msgstr "Liste over kommentarer"
 
-#: src/Process/Backend/UserPreferences.php:150
+#: src/Process/Backend/UserPreferences.php:152
 msgid "Light"
 msgstr "Lys"
 
-#: src/Process/Backend/UserPreferences.php:151
+#: src/Process/Backend/UserPreferences.php:153
 msgid "Dark"
 msgstr "Mørk"
 
-#: src/Process/Backend/UserPreferences.php:152
+#: src/Process/Backend/UserPreferences.php:154
 msgid "Automatic"
 msgstr "Automatisk"
 
-#: src/Process/Backend/UserPreferences.php:157
+#: src/Process/Backend/UserPreferences.php:159
 msgid "Smallest"
 msgstr "Den minste"
 
-#: src/Process/Backend/UserPreferences.php:158
+#: src/Process/Backend/UserPreferences.php:160
 msgid "Smaller"
 msgstr "Mindre"
 
-#: src/Process/Backend/UserPreferences.php:160
+#: src/Process/Backend/UserPreferences.php:162
 msgid "Larger"
 msgstr "Større"
 
-#: src/Process/Backend/UserPreferences.php:161
+#: src/Process/Backend/UserPreferences.php:163
 msgid "Largest"
 msgstr "Størst"
 
-#: src/Process/Backend/UserPreferences.php:173
+#: src/Process/Backend/UserPreferences.php:175
 msgid "Blog description (in blog parameters)"
 msgstr "Bloggbeskrivelse (i bloggparametere)"
 
-#: src/Process/Backend/UserPreferences.php:174
+#: src/Process/Backend/UserPreferences.php:176
 msgid "Category description"
 msgstr "Beskrivelse av kategori"
 
-#: src/Process/Backend/UserPreferences.php:216
+#: src/Process/Backend/UserPreferences.php:218
 msgid "Two factors authentication verification failed."
 msgstr "Verifisering av tofaktorautentisering mislyktes."
 
-#: src/Process/Backend/UserPreferences.php:218
+#: src/Process/Backend/UserPreferences.php:220
 msgid "Two factors authentication verification succeeded."
 msgstr "Verifisering av tofaktorautentisering lyktes."
 
-#: src/Process/Backend/UserPreferences.php:226
+#: src/Process/Backend/UserPreferences.php:228
 msgid "Two factors authentication secret regenerated."
 msgstr "To faktorers autentiseringshemmelighet regenereres."
 
-#: src/Process/Backend/UserPreferences.php:235
+#: src/Process/Backend/UserPreferences.php:237
 msgid "Passkey successfully deleted."
 msgstr "Passordnøkkel slettet."
 
-#: src/Process/Backend/UserPreferences.php:252
-#: src/Process/Backend/UserPreferences.php:269
+#: src/Process/Backend/UserPreferences.php:254
+#: src/Process/Backend/UserPreferences.php:271
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "Hvis du vil endre e-postadressen eller passordet ditt, må du oppgi ditt nåværende passord."
 
-#: src/Process/Backend/UserPreferences.php:300
+#: src/Process/Backend/UserPreferences.php:302
 msgid "Personal information has been successfully updated."
 msgstr "Personlig informasjon har blitt oppdatert."
 
-#: src/Process/Backend/UserPreferences.php:419
+#: src/Process/Backend/UserPreferences.php:421
 msgid "Personal options has been successfully updated."
 msgstr "Personlige alternativer har blitt oppdatert."
 
-#: src/Process/Backend/UserPreferences.php:447
+#: src/Process/Backend/UserPreferences.php:451
 msgid "Dashboard options has been successfully updated."
 msgstr "Dashbordalternativer har blitt oppdatert."
 
-#: src/Process/Backend/UserPreferences.php:459
-#: src/Process/Backend/UserPreferences.php:483
+#: src/Process/Backend/UserPreferences.php:463
+#: src/Process/Backend/UserPreferences.php:487
 msgid "No favorite selected"
 msgstr "Ingen favoritt valgt"
 
-#: src/Process/Backend/UserPreferences.php:470
+#: src/Process/Backend/UserPreferences.php:474
 msgid "Favorites have been successfully added."
 msgstr "Favoritter har blitt lagt til."
 
-#: src/Process/Backend/UserPreferences.php:496
+#: src/Process/Backend/UserPreferences.php:500
 msgid "Favorites have been successfully removed."
 msgstr "Favoritter har blitt fjernet."
 
-#: src/Process/Backend/UserPreferences.php:526
+#: src/Process/Backend/UserPreferences.php:530
 msgid "Favorites have been successfully updated."
 msgstr "Favoritter har blitt oppdatert."
 
-#: src/Process/Backend/UserPreferences.php:538
+#: src/Process/Backend/UserPreferences.php:542
 msgid "Default favorites have been successfully updated."
 msgstr "Standardfavorittene har blitt oppdatert."
 
-#: src/Process/Backend/UserPreferences.php:552
+#: src/Process/Backend/UserPreferences.php:556
 msgid "Dashboard items order have been successfully reset."
 msgstr "Rekkefølgen på instrumentbordelementer har blitt tilbakestilt."
 
-#: src/Process/Backend/UserPreferences.php:574
+#: src/Process/Backend/UserPreferences.php:578
 msgid "Are you sure you want to remove selected favorites?"
 msgstr "Er du sikker på at du vil fjerne valgte favoritter?"
 
-#: src/Process/Backend/UserPreferences.php:575
+#: src/Process/Backend/UserPreferences.php:579
 msgid "Enter a name for this key:"
 msgstr "Skriv inn et navn for denne nøkkelen:"
 
-#: src/Process/Backend/UserPreferences.php:597
+#: src/Process/Backend/UserPreferences.php:601
 msgid "Change my password"
 msgstr "Endre passordet mitt"
 
-#: src/Process/Backend/UserPreferences.php:616
+#: src/Process/Backend/UserPreferences.php:620
 msgid "Confirm new password:"
 msgstr "Bekreft det nye passordet:"
 
-#: src/Process/Backend/UserPreferences.php:626
+#: src/Process/Backend/UserPreferences.php:630
 msgid "Your current password:"
 msgstr "Ditt nåværende passord:"
 
-#: src/Process/Backend/UserPreferences.php:630
+#: src/Process/Backend/UserPreferences.php:634
 msgid "If you have changed your email or password you must provide your current password to save these modifications."
 msgstr "Hvis du har endret e-postadressen eller passordet ditt, må du oppgi ditt nåværende passord for å lagre disse endringene."
 
-#: src/Process/Backend/UserPreferences.php:639
+#: src/Process/Backend/UserPreferences.php:643
 msgid "Your account is registered to two factors authentication."
 msgstr "Kontoen din er registrert for tofaktorautentisering."
 
-#: src/Process/Backend/UserPreferences.php:640
+#: src/Process/Backend/UserPreferences.php:644
 msgid "Disable two factors authentication"
 msgstr "Deaktiver tofaktorautentisering"
 
-#: src/Process/Backend/UserPreferences.php:647
+#: src/Process/Backend/UserPreferences.php:651
 msgid "Unable to create the QR code image, please use the secret below."
 msgstr "Hvis du ikke kan opprette QR-kodebildet, kan du bruke hemmeligheten nedenfor."
 
-#: src/Process/Backend/UserPreferences.php:651
+#: src/Process/Backend/UserPreferences.php:655
 msgid "Scan this QR code with your authentication application:"
 msgstr "Skann denne QR-koden med autentiseringsprogrammet ditt:"
 
-#: src/Process/Backend/UserPreferences.php:664
+#: src/Process/Backend/UserPreferences.php:668
 msgid "Or enter this secret into your authentication application:"
 msgstr "Eller skriv inn denne hemmeligheten i autentiseringsprogrammet ditt:"
 
-#: src/Process/Backend/UserPreferences.php:665
+#: src/Process/Backend/UserPreferences.php:669
 msgid "Regenerate"
 msgstr "Regenerere"
 
-#: src/Process/Backend/UserPreferences.php:675
+#: src/Process/Backend/UserPreferences.php:679
 msgid "Enter verification code:"
 msgstr "Skriv inn bekreftelseskoden:"
 
-#: src/Process/Backend/UserPreferences.php:692
+#: src/Process/Backend/UserPreferences.php:696
 msgid "unlabeled key"
 msgstr "umerket nøkkel"
 
-#: src/Process/Backend/UserPreferences.php:694
+#: src/Process/Backend/UserPreferences.php:698
 #, php-format
 msgid "valid on %s"
 msgstr "gyldig på %s"
 
-#: src/Process/Backend/UserPreferences.php:703
+#: src/Process/Backend/UserPreferences.php:707
 msgid "You have no registered key yet."
 msgstr "Du har ingen registrert nøkkel ennå."
 
-#: src/Process/Backend/UserPreferences.php:743
+#: src/Process/Backend/UserPreferences.php:747
 msgid "Linked to account:"
 msgstr "Koblet til konto:"
 
-#: src/Process/Backend/UserPreferences.php:770
-#: src/Process/Backend/UserPreferences.php:772
+#: src/Process/Backend/UserPreferences.php:774
+#: src/Process/Backend/UserPreferences.php:776
 msgid "My profile"
 msgstr "Min profil"
 
-#: src/Process/Backend/UserPreferences.php:857
+#: src/Process/Backend/UserPreferences.php:861
 msgid "Language for my interface:"
 msgstr "Språk for grensesnittet mitt:"
 
-#: src/Process/Backend/UserPreferences.php:865
+#: src/Process/Backend/UserPreferences.php:869
 msgid "My timezone:"
 msgstr "Min tidssone:"
 
-#: src/Process/Backend/UserPreferences.php:874
+#: src/Process/Backend/UserPreferences.php:878
 msgid "Update my profile"
 msgstr "Oppdater profilen min"
 
-#: src/Process/Backend/UserPreferences.php:887
+#: src/Process/Backend/UserPreferences.php:891
 msgid "Authentication keys"
 msgstr "Autentiseringsnøkler"
 
-#: src/Process/Backend/UserPreferences.php:894
+#: src/Process/Backend/UserPreferences.php:898
 msgid "Register a new key"
 msgstr "Registrer en ny nøkkel"
 
-#: src/Process/Backend/UserPreferences.php:900
+#: src/Process/Backend/UserPreferences.php:904
 msgid "Authentication applications"
 msgstr "Autentiseringsapplikasjoner"
 
-#: src/Process/Backend/UserPreferences.php:967
+#: src/Process/Backend/UserPreferences.php:971
 msgid "List"
 msgstr "Liste"
 
-#: src/Process/Backend/UserPreferences.php:969
+#: src/Process/Backend/UserPreferences.php:973
 msgid "Order by"
 msgstr "Bestill etter"
 
-#: src/Process/Backend/UserPreferences.php:971
+#: src/Process/Backend/UserPreferences.php:975
 msgid "Sort"
 msgstr "Sortere"
 
-#: src/Process/Backend/UserPreferences.php:984
+#: src/Process/Backend/UserPreferences.php:988
 #, php-format
 msgid "Preferred editor for %s:"
 msgstr "Foretrukket redaktør for %s:"
 
-#: src/Process/Backend/UserPreferences.php:989
+#: src/Process/Backend/UserPreferences.php:993
 msgid "Choose an editor"
 msgstr "Velg en redaktør"
 
-#: src/Process/Backend/UserPreferences.php:1010
-#: src/Process/Backend/UserPreferences.php:1016
+#: src/Process/Backend/UserPreferences.php:1014
+#: src/Process/Backend/UserPreferences.php:1020
 msgid "My options"
 msgstr "Mine alternativer"
 
-#: src/Process/Backend/UserPreferences.php:1025
+#: src/Process/Backend/UserPreferences.php:1029
 msgid "Theme:"
 msgstr "Tema:"
 
-#: src/Process/Backend/UserPreferences.php:1031
+#: src/Process/Backend/UserPreferences.php:1035
 msgid "Activate enhanced uploader in media manager"
 msgstr "Aktiver forbedret opplasting i mediebehandling"
 
-#: src/Process/Backend/UserPreferences.php:1037
+#: src/Process/Backend/UserPreferences.php:1041
 msgid "Preview the entry being edited in a blank window or tab (depending on your browser settings)."
 msgstr "Forhåndsvis oppføringen som redigeres i et tomt vindu eller en fane (avhengig av nettleserinnstillingene dine)."
 
-#: src/Process/Backend/UserPreferences.php:1044
+#: src/Process/Backend/UserPreferences.php:1048
 msgid "Disable javascript powered drag and drop for ordering items"
 msgstr "Deaktiver javascript-drevet dra og slipp for bestilling av varer"
 
-#: src/Process/Backend/UserPreferences.php:1048
+#: src/Process/Backend/UserPreferences.php:1052
 msgid "If checked, numeric fields will allow to type the elements' ordering number."
 msgstr "Hvis avkrysset, vil numeriske felt gjøre det mulig å skrive inn elementenes bestillingsnummer."
 
-#: src/Process/Backend/UserPreferences.php:1053
+#: src/Process/Backend/UserPreferences.php:1057
 msgid "Hide all secondary information and notes"
 msgstr "Skjul all sekundær informasjon og alle notater"
 
-#: src/Process/Backend/UserPreferences.php:1059
+#: src/Process/Backend/UserPreferences.php:1063
 msgid "Hide help button"
 msgstr "Skjul hjelp-knappen"
 
-#: src/Process/Backend/UserPreferences.php:1066
+#: src/Process/Backend/UserPreferences.php:1070
 msgid "Font size:"
 msgstr "Skriftstørrelse:"
 
-#: src/Process/Backend/UserPreferences.php:1072
+#: src/Process/Backend/UserPreferences.php:1076
 msgid "Use dynamic letter spacing"
 msgstr "Bruk dynamisk bokstavavstand"
 
-#: src/Process/Backend/UserPreferences.php:1076
+#: src/Process/Backend/UserPreferences.php:1080
 msgid "If checked, the larger the font size in interface texts, the smaller the space between characters will be, and vice versa."
 msgstr "Hvis dette alternativet er merket av, blir mellomrommet mellom tegnene mindre jo større skriftstørrelsen i grensesnittet er, og omvendt."
 
-#: src/Process/Backend/UserPreferences.php:1081
+#: src/Process/Backend/UserPreferences.php:1085
 msgid "Use operating system font"
 msgstr "Bruk operativsystemets skrifttype"
 
-#: src/Process/Backend/UserPreferences.php:1087
+#: src/Process/Backend/UserPreferences.php:1091
 msgid "Number of recent folders proposed in media manager:"
 msgstr "Antall nylig foreslåtte mapper i mediebehandling:"
 
-#: src/Process/Backend/UserPreferences.php:1091
+#: src/Process/Backend/UserPreferences.php:1095
 msgid "Set to 0 (zero) to ignore, displayed only if Javascript is enabled in your browser."
 msgstr "Sett til 0 (null) for å ignorere, vises bare hvis Javascript er aktivert i nettleseren din."
 
-#: src/Process/Backend/UserPreferences.php:1098
+#: src/Process/Backend/UserPreferences.php:1102
 msgid "Do not use standard favicon"
 msgstr "Ikke bruk standard favicon"
 
-#: src/Process/Backend/UserPreferences.php:1099
+#: src/Process/Backend/UserPreferences.php:1103
 msgid "This will be applied for all users"
 msgstr "Dette vil gjelde for alle brukere"
 
-#: src/Process/Backend/UserPreferences.php:1109
+#: src/Process/Backend/UserPreferences.php:1113
 msgid "Disable Ad-blocker check"
 msgstr "Deaktiver Ad-blocker-sjekk"
 
-#: src/Process/Backend/UserPreferences.php:1113
+#: src/Process/Backend/UserPreferences.php:1117
 msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
 msgstr "Noen annonseblokkere (Ghostery, Adblock plus, uBloc origin, …) kan forstyrre noen funksjoner som å sette inn lenker eller media i oppføringer med CKEditor; i dette tilfellet bør du deaktivere den for denne Dotclear-installasjonen (kun backend). Merk at Dotclear ikke legger til annonser eller trackere i backend."
 
-#: src/Process/Backend/UserPreferences.php:1116
+#: src/Process/Backend/UserPreferences.php:1120
 msgid "Note also that deactivating this detection of ad blockers will not deactivate the installed ad blockers. Dotclear cannot interfere with the operation of browser extensions!"
 msgstr "Merk også at deaktivering av denne oppdagelsen av annonseblokkere ikke vil deaktivere de installerte annonseblokkeringene. Dotclear kan ikke forstyrre driften av nettleserutvidelser!"
 
-#: src/Process/Backend/UserPreferences.php:1124
+#: src/Process/Backend/UserPreferences.php:1128
 msgid "Quick menu character:"
 msgstr "Hurtigmenytegn:"
 
-#: src/Process/Backend/UserPreferences.php:1128
+#: src/Process/Backend/UserPreferences.php:1132
 msgid "Leave empty to use the default character <kbd>:</kbd>"
 msgstr "La stå tom for å bruke standardtegnet <kbd>:</kbd>"
 
-#: src/Process/Backend/UserPreferences.php:1133
+#: src/Process/Backend/UserPreferences.php:1137
 msgid "Keep the main menu at the top of the page as much as possible"
 msgstr "Hold hovedmenyen øverst på siden så mye som mulig"
 
-#: src/Process/Backend/UserPreferences.php:1137
+#: src/Process/Backend/UserPreferences.php:1141
 msgid "Optional columns displayed in lists"
 msgstr "Valgfrie kolonner som vises i lister"
 
-#: src/Process/Backend/UserPreferences.php:1140
+#: src/Process/Backend/UserPreferences.php:1144
 msgid "Options for lists"
 msgstr "Alternativer for lister"
 
-#: src/Process/Backend/UserPreferences.php:1146
+#: src/Process/Backend/UserPreferences.php:1150
 msgid "Apply filters on the fly"
 msgstr "Bruk filtre i farten"
 
-#: src/Process/Backend/UserPreferences.php:1183
+#: src/Process/Backend/UserPreferences.php:1187
 msgid "Enable WYSIWYG mode"
 msgstr "Aktiver WYSIWYG-modus"
 
-#: src/Process/Backend/UserPreferences.php:1189
+#: src/Process/Backend/UserPreferences.php:1193
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr "Vis redaktørens verktøylinje nederst i tekstområdet (hvis mulig)"
 
-#: src/Process/Backend/UserPreferences.php:1195
+#: src/Process/Backend/UserPreferences.php:1199
 msgid "Use HTML editor for:"
 msgstr "Bruk HTML-editor for:"
 
-#: src/Process/Backend/UserPreferences.php:1199
+#: src/Process/Backend/UserPreferences.php:1203
 msgid "Other options"
 msgstr "Andre alternativer"
 
-#: src/Process/Backend/UserPreferences.php:1210
+#: src/Process/Backend/UserPreferences.php:1214
 msgid "Save my options"
 msgstr "Lagre alternativene mine"
 
-#: src/Process/Backend/UserPreferences.php:1241
+#: src/Process/Backend/UserPreferences.php:1245
 #, php-format
 msgid "position of %s"
 msgstr "posisjon på %s"
 
-#: src/Process/Backend/UserPreferences.php:1264
+#: src/Process/Backend/UserPreferences.php:1268
 msgid "Save order"
 msgstr "Lagre ordre"
 
-#: src/Process/Backend/UserPreferences.php:1265
+#: src/Process/Backend/UserPreferences.php:1269
 msgid "Delete selected favorites"
 msgstr "Slett valgte favoritter"
 
-#: src/Process/Backend/UserPreferences.php:1272
+#: src/Process/Backend/UserPreferences.php:1276
 msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
 msgstr "Hvis du er superadministrator, kan du definere dette settet med favoritter som skal brukes som standard på alle blogger i denne installasjonen."
 
-#: src/Process/Backend/UserPreferences.php:1275
+#: src/Process/Backend/UserPreferences.php:1279
 msgid "Define as default favorites"
 msgstr "Definer som standard favoritter"
 
-#: src/Process/Backend/UserPreferences.php:1284
+#: src/Process/Backend/UserPreferences.php:1288
 msgid "Currently no personal favorites."
 msgstr "For øyeblikket ingen personlige favoritter."
 
-#: src/Process/Backend/UserPreferences.php:1323
+#: src/Process/Backend/UserPreferences.php:1327
 msgid "(default favorite)"
 msgstr "(standard favoritt)"
 
-#: src/Process/Backend/UserPreferences.php:1338
+#: src/Process/Backend/UserPreferences.php:1342
 msgid "Add to my favorites"
 msgstr "Legg til i mine favoritter"
 
-#: src/Process/Backend/UserPreferences.php:1362
+#: src/Process/Backend/UserPreferences.php:1366
 msgid "Other available favorites"
 msgstr "Andre tilgjengelige favoritter"
 
-#: src/Process/Backend/UserPreferences.php:1374
+#: src/Process/Backend/UserPreferences.php:1378
 msgid "Menu"
 msgstr "Meny"
 
-#: src/Process/Backend/UserPreferences.php:1380
+#: src/Process/Backend/UserPreferences.php:1384
 msgid "Display favorites at the top of the menu"
 msgstr "Vis favoritter øverst i menyen"
 
-#: src/Process/Backend/UserPreferences.php:1384
+#: src/Process/Backend/UserPreferences.php:1388
 msgid "Dashboard icons"
 msgstr "Ikoner på dashbordet"
 
-#: src/Process/Backend/UserPreferences.php:1390
+#: src/Process/Backend/UserPreferences.php:1394
 msgid "Display dashboard icons"
 msgstr "Vis ikoner på dashbordet"
 
-#: src/Process/Backend/UserPreferences.php:1394
+#: src/Process/Backend/UserPreferences.php:1400
+msgid "Use a dense layout of dashboard icons"
+msgstr "Bruk en tett layout av ikoner på dashbordet"
+
+#: src/Process/Backend/UserPreferences.php:1404
 msgid "Dashboard modules"
 msgstr "Dashbord-moduler"
 
-#: src/Process/Backend/UserPreferences.php:1400
+#: src/Process/Backend/UserPreferences.php:1410
 msgid "Display documentation links"
 msgstr "Vis dokumentasjonslenker"
 
-#: src/Process/Backend/UserPreferences.php:1406
+#: src/Process/Backend/UserPreferences.php:1416
 msgid "Display donate links"
 msgstr "Vis donasjonslenker"
 
-#: src/Process/Backend/UserPreferences.php:1412
+#: src/Process/Backend/UserPreferences.php:1422
 msgid "Display Dotclear news"
 msgstr "Vis Dotclear-nyheter"
 
-#: src/Process/Backend/UserPreferences.php:1418
+#: src/Process/Backend/UserPreferences.php:1428
 msgid "Display quick entry form"
 msgstr "Vis hurtigoppføringsskjema"
 
-#: src/Process/Backend/UserPreferences.php:1423
+#: src/Process/Backend/UserPreferences.php:1435
 msgid "Do not display Dotclear updates"
 msgstr "Ikke vis Dotclear-oppdateringer"
 
-#: src/Process/Backend/UserPreferences.php:1436
+#: src/Process/Backend/UserPreferences.php:1441
+msgid "Use a dense layout of dashboard boxes"
+msgstr "Bruk et tett oppsett av dashbordbokser"
+
+#: src/Process/Backend/UserPreferences.php:1454
 msgid "Save my dashboard options"
 msgstr "Lagre mine dashbordalternativer"
 
-#: src/Process/Backend/UserPreferences.php:1449
+#: src/Process/Backend/UserPreferences.php:1467
 msgid "Dashboard items order"
 msgstr "Rekkefølgen på elementene på dashbordet"
 
-#: src/Process/Backend/UserPreferences.php:1452
+#: src/Process/Backend/UserPreferences.php:1470
 msgid "Reset dashboard items order"
 msgstr "Tilbakestill rekkefølgen på elementene på dashbordet"
 
