@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-27 14:03+0100\n"
-"PO-Revision-Date: 2025-11-27 13:07\n"
+"POT-Creation-Date: 2025-12-07 11:24+0100\n"
+"PO-Revision-Date: 2025-12-07 10:27\n"
 "Last-Translator: \n"
 "Language-Team: Bulgarian\n"
 "Language: bg_BG\n"
@@ -686,7 +686,7 @@ msgid "Antispam"
 msgstr "Антиспам"
 
 #: plugins/antispam/src/BackendBehaviors.php:56
-#: plugins/antispam/src/Manage.php:229
+#: plugins/antispam/src/Manage.php:230
 #, php-format
 msgid "All spam comments older than %s day(s) will be automatically deleted."
 msgstr "Всички спам коментари, по-стари от %s ден(и), ще бъдат автоматично изтрити."
@@ -890,7 +890,7 @@ msgstr "Филтърът не съществува."
 msgid "Filter has no user interface."
 msgstr "Филтърът няма потребителски интерфейс."
 
-#: plugins/antispam/src/Manage.php:142 plugins/antispam/src/Manage.php:275
+#: plugins/antispam/src/Manage.php:142 plugins/antispam/src/Manage.php:276
 msgid "Filters configuration has been successfully saved."
 msgstr "Конфигурацията на филтрите е запазена успешно."
 
@@ -899,71 +899,71 @@ msgstr "Конфигурацията на филтрите е запазена �
 msgid "%s configuration"
 msgstr "%s конфигурация"
 
-#: plugins/antispam/src/Manage.php:180
+#: plugins/antispam/src/Manage.php:181
 #, php-format
 msgid "%s filter configuration"
 msgstr "%s конфигурация на филтъра"
 
-#: plugins/antispam/src/Manage.php:187
+#: plugins/antispam/src/Manage.php:188
 msgid "Back to filters list"
 msgstr "Обратно към списъка с филтри"
 
-#: plugins/antispam/src/Manage.php:234
+#: plugins/antispam/src/Manage.php:235
 #, php-format
 msgid "You can modify this duration in the %s"
 msgstr "Можете да промените тази продължителност в %s"
 
-#: plugins/antispam/src/Manage.php:243
+#: plugins/antispam/src/Manage.php:244
 msgid "Information"
 msgstr "Информация"
 
-#: plugins/antispam/src/Manage.php:254
+#: plugins/antispam/src/Manage.php:255
 msgid "Junk comments:"
 msgstr "Коментари за боклуци:"
 
-#: plugins/antispam/src/Manage.php:260
+#: plugins/antispam/src/Manage.php:261
 msgid "Published comments:"
 msgstr "Публикувани коментари:"
 
-#: plugins/antispam/src/Manage.php:284 plugins/antispam/src/Manage.php:287
-#: plugins/antispam/src/Manage.php:291
+#: plugins/antispam/src/Manage.php:285 plugins/antispam/src/Manage.php:288
+#: plugins/antispam/src/Manage.php:292
 msgid "Filter configuration"
 msgstr "Конфигурация на филтъра"
 
-#: plugins/antispam/src/Manage.php:307 plugins/blogroll/src/Manage.php:305
+#: plugins/antispam/src/Manage.php:308 plugins/blogroll/src/Manage.php:305
 msgid "position"
 msgstr "позиция"
 
-#: plugins/antispam/src/Manage.php:314 plugins/antispam/src/Manage.php:348
+#: plugins/antispam/src/Manage.php:315 plugins/antispam/src/Manage.php:349
 msgid "Active"
 msgstr "Активен"
 
-#: plugins/antispam/src/Manage.php:321 plugins/antispam/src/Manage.php:349
+#: plugins/antispam/src/Manage.php:322 plugins/antispam/src/Manage.php:350
 msgid "Auto Del."
 msgstr "Auto Del."
 
-#: plugins/antispam/src/Manage.php:342
+#: plugins/antispam/src/Manage.php:343
 msgid "Available spam filters"
 msgstr "Налични филтри за спам"
 
-#: plugins/antispam/src/Manage.php:347
+#: plugins/antispam/src/Manage.php:348
 #: plugins/pages/src/BackendDefaultActions.php:73
 msgid "Order"
 msgstr "Поръчка"
 
-#: plugins/antispam/src/Manage.php:350
+#: plugins/antispam/src/Manage.php:351
 msgid "Filter name"
 msgstr "Име на филтъра"
 
-#: plugins/antispam/src/Manage.php:377
+#: plugins/antispam/src/Manage.php:378
 msgid "Syndication"
 msgstr "Синдикация"
 
-#: plugins/antispam/src/Manage.php:380
+#: plugins/antispam/src/Manage.php:381
 msgid "Junk comments RSS feed"
 msgstr "Коментари за боклука RSS емисия"
 
-#: plugins/antispam/src/Manage.php:383
+#: plugins/antispam/src/Manage.php:384
 msgid "Published comments RSS feed"
 msgstr "Публикувани коментари RSS емисия"
 
