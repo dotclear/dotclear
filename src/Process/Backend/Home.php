@@ -502,6 +502,7 @@ class Home
         if (!App::auth()->prefs()->dashboard->nofavicons) {
             // Dashboard icons
             $dashboardIcons = (new Div('icons'))
+                ->class(App::auth()->prefs()->dashboard->densefavicons ? 'dense-layout' : '')
                 ->items(
                     array_map(
                         fn (string $id, ArrayObject $info) => (new Para())
@@ -542,7 +543,12 @@ class Home
         }
 
         if ($dashboardBoxes !== '') {
-            $__dashboard_main[] = '<div id="dashboard-boxes">' . $dashboardBoxes . '</div>';
+            $__dashboard_main[] = (new Div('dashboard-boxes'))
+                ->class(App::auth()->prefs()->dashboard->denseboxes ? 'dense-layout' : '')
+                ->items([
+                    (new Text(null, $dashboardBoxes)),
+                ])
+                ->render();
         }
 
         $dashboardMain = $composeItems($main_order, $__dashboard_main, true);

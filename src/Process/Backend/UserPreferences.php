@@ -94,12 +94,14 @@ class UserPreferences
         App::backend()->user_profile_mails = App::auth()->prefs()->profile->mails;
         App::backend()->user_profile_urls  = App::auth()->prefs()->profile->urls;
 
-        App::backend()->user_dm_doclinks   = App::auth()->prefs()->dashboard->doclinks;
-        App::backend()->user_dm_donate     = App::auth()->prefs()->dashboard->donate;
-        App::backend()->user_dm_dcnews     = App::auth()->prefs()->dashboard->dcnews;
-        App::backend()->user_dm_quickentry = App::auth()->prefs()->dashboard->quickentry;
-        App::backend()->user_dm_nofavicons = App::auth()->prefs()->dashboard->nofavicons;
-        App::backend()->user_dm_nodcupdate = false;
+        App::backend()->user_dm_doclinks      = App::auth()->prefs()->dashboard->doclinks;
+        App::backend()->user_dm_donate        = App::auth()->prefs()->dashboard->donate;
+        App::backend()->user_dm_dcnews        = App::auth()->prefs()->dashboard->dcnews;
+        App::backend()->user_dm_quickentry    = App::auth()->prefs()->dashboard->quickentry;
+        App::backend()->user_dm_denseboxes    = App::auth()->prefs()->dashboard->denseboxes;
+        App::backend()->user_dm_nofavicons    = App::auth()->prefs()->dashboard->nofavicons;
+        App::backend()->user_dm_densefavicons = App::auth()->prefs()->dashboard->densefavicons;
+        App::backend()->user_dm_nodcupdate    = false;
         if (App::auth()->isSuperAdmin()) {
             App::backend()->user_dm_nodcupdate = App::auth()->prefs()->dashboard->nodcupdate;
         }
@@ -435,7 +437,9 @@ class UserPreferences
                 App::auth()->prefs()->dashboard->put('donate', !empty($_POST['user_dm_donate']), 'boolean');
                 App::auth()->prefs()->dashboard->put('dcnews', !empty($_POST['user_dm_dcnews']), 'boolean');
                 App::auth()->prefs()->dashboard->put('quickentry', !empty($_POST['user_dm_quickentry']), 'boolean');
+                App::auth()->prefs()->dashboard->put('denseboxes', !empty($_POST['user_dm_denseboxes']), 'boolean');
                 App::auth()->prefs()->dashboard->put('nofavicons', empty($_POST['user_dm_nofavicons']), 'boolean');
+                App::auth()->prefs()->dashboard->put('densefavicons', !empty($_POST['user_dm_densefavicons']), 'boolean');
                 if (App::auth()->isSuperAdmin()) {
                     App::auth()->prefs()->dashboard->put('nodcupdate', !empty($_POST['user_dm_nodcupdate']), 'boolean');
                 }
@@ -1389,6 +1393,12 @@ class UserPreferences
                                             ->value(1)
                                             ->label(new Label(__('Display dashboard icons'), Label::IL_FT)),
                                     ]),
+                                (new Para())
+                                    ->items([
+                                        (new Checkbox('user_dm_densefavicons', App::backend()->user_dm_densefavicons))
+                                            ->value(1)
+                                            ->label(new Label(__('Use a dense layout of dashboard icons'), Label::IL_FT)),
+                                    ]),
                             ]),
                         (new Fieldset())
                             ->legend(new Legend(__('Dashboard modules')))
@@ -1418,10 +1428,18 @@ class UserPreferences
                                             ->label(new Label(__('Display quick entry form'), Label::IL_FT)),
                                     ]),
                                 App::auth()->isSuperAdmin() ?
-                                    (new Checkbox('user_dm_nodcupdate', App::backend()->user_dm_nodcupdate))
-                                            ->value(1)
-                                            ->label(new Label(__('Do not display Dotclear updates'), Label::IL_FT)) :
+                                    (new Para())
+                                        ->items([
+                                            (new Checkbox('user_dm_nodcupdate', App::backend()->user_dm_nodcupdate))
+                                                ->value(1)
+                                                ->label(new Label(__('Do not display Dotclear updates'), Label::IL_FT))]) :
                                     (new None()),
+                                (new Para())
+                                    ->items([
+                                        (new Checkbox('user_dm_denseboxes', App::backend()->user_dm_denseboxes))
+                                            ->value(1)
+                                            ->label(new Label(__('Use a dense layout of dashboard boxes'), Label::IL_FT)),
+                                    ]),
                             ]),
                         (new Capture(
                             # --BEHAVIOR-- adminDashboardOptionsForm --

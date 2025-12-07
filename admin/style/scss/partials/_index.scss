@@ -25,6 +25,22 @@
     align-items: center;
   }
 
+  &.dense-layout {
+    justify-content: space-evenly;
+    margin: 1em auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
+    justify-items: center;
+
+    p {
+      width: 11em;
+      padding: 0;
+      .badge-icon {
+        right: 0.75em;
+      }
+    }
+  }
+
   a {
     &,
     &:is(:link, :visited, :hover, :focus) {
@@ -124,6 +140,10 @@
     text-align: left;
     margin: 0; // No necessary as we have gap on flex parent
   }
+
+  &.dense-layout .box {
+    flex-basis: auto;
+  }
 }
 
 :is(.db-items, .db-contents) {
@@ -193,7 +213,7 @@
 
   & + label {
     position: absolute;
-    right: 1em;
+    right: 0;
     display: inline-block;
     line-height: 1;
   }

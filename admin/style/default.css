@@ -3118,6 +3118,20 @@ span.ibw {
   justify-content: flex-start;
   align-items: center;
 }
+#icons.dense-layout {
+  justify-content: space-evenly;
+  margin: 1em auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
+  justify-items: center;
+}
+#icons.dense-layout p {
+  width: 11em;
+  padding: 0;
+}
+#icons.dense-layout p .badge-icon {
+  right: 0.75em;
+}
 #icons a, #icons a:is(:link, :visited, :hover, :focus) {
   border-bottom-width: 0;
   text-decoration: none;
@@ -3199,6 +3213,9 @@ span.ibw {
   text-align: left;
   margin: 0;
 }
+#dashboard-boxes.dense-layout .box {
+  flex-basis: auto;
+}
 
 :is(.db-items, .db-contents) {
   display: flex;
@@ -3254,7 +3271,7 @@ span.ibw {
 }
 #dragndrop + label {
   position: absolute;
-  right: 1em;
+  right: 0;
   display: inline-block;
   line-height: 1;
 }
