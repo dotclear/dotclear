@@ -321,9 +321,8 @@ class Manage
                                     ->value($fid)
                                     ->title(__('Auto Del.')),
                             ]),
-                        (new Th())
+                        (new Td())
                             ->class('nowrap')
-                            ->scope('row')
                             ->text($f->name),
                         (new Td())
                             ->class('maximal')
@@ -349,7 +348,8 @@ class Manage
                                     (new Th())->text(__('Active')),
                                     (new Th())->text(__('Auto Del.')),
                                     (new Th())->class('nowrap')->text(__('Filter name')),
-                                    (new Th())->colspan(2)->text(__('Description')),
+                                    (new Th())->text(__('Description')),
+                                    (new Th())->text(__('Settings')),
                                 ]))
                                 ->tbody((new Tbody('filters-list'))->rows($rows)),
                         ]),
