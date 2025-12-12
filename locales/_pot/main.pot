@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-07 11:19+0100\n"
+"POT-Creation-Date: 2025-12-12 16:50+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -6152,12 +6152,15 @@ msgid "You cannot disable yourself."
 msgstr ""
 
 #: src/Process/Backend/UsersActions.php:148
-#: src/Process/Backend/UsersActions.php:173
-msgid "User has been successfully deleted."
+msgid "User has been successfully disabled."
 msgstr ""
 
 #: src/Process/Backend/UsersActions.php:161
 msgid "You cannot delete yourself."
+msgstr ""
+
+#: src/Process/Backend/UsersActions.php:173
+msgid "User has been successfully deleted."
 msgstr ""
 
 #: src/Process/Backend/UsersActions.php:297

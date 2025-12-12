@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-07 11:24+0100\n"
+"POT-Creation-Date: 2025-12-12 16:52+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -934,24 +934,24 @@ msgstr ""
 msgid "position"
 msgstr ""
 
-#: plugins/antispam/src/Manage.php:315 plugins/antispam/src/Manage.php:349
+#: plugins/antispam/src/Manage.php:315 plugins/antispam/src/Manage.php:348
 msgid "Active"
 msgstr ""
 
-#: plugins/antispam/src/Manage.php:322 plugins/antispam/src/Manage.php:350
+#: plugins/antispam/src/Manage.php:322 plugins/antispam/src/Manage.php:349
 msgid "Auto Del."
 msgstr ""
 
-#: plugins/antispam/src/Manage.php:343
+#: plugins/antispam/src/Manage.php:342
 msgid "Available spam filters"
 msgstr ""
 
-#: plugins/antispam/src/Manage.php:348
+#: plugins/antispam/src/Manage.php:347
 #: plugins/pages/src/BackendDefaultActions.php:73
 msgid "Order"
 msgstr ""
 
-#: plugins/antispam/src/Manage.php:351
+#: plugins/antispam/src/Manage.php:350
 msgid "Filter name"
 msgstr ""
 
