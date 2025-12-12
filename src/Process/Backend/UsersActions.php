@@ -145,7 +145,7 @@ class UsersActions
                             }
                         }
                         if (!App::error()->flag()) {
-                            App::backend()->notices()->addSuccessNotice(__('User has been successfully deleted.'));
+                            App::backend()->notices()->addSuccessNotice(__('User has been successfully disabled.'));
                             Http::redirect(App::backend()->redir);
                         }
 
