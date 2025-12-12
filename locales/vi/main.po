@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-07 11:19+0100\n"
-"PO-Revision-Date: 2025-12-07 10:46\n"
+"POT-Creation-Date: 2025-12-12 16:50+0100\n"
+"PO-Revision-Date: 2025-12-12 16:32\n"
 "Last-Translator: \n"
 "Language-Team: Vietnamese\n"
 "Language: vi_VN\n"
@@ -6115,13 +6115,16 @@ msgid "You cannot disable yourself."
 msgstr "Bạn không thể tự vô hiệu hóa bản thân."
 
 #: src/Process/Backend/UsersActions.php:148
-#: src/Process/Backend/UsersActions.php:173
-msgid "User has been successfully deleted."
-msgstr "Người dùng đã được xóa thành công."
+msgid "User has been successfully disabled."
+msgstr "Người dùng đã được vô hiệu hóa thành công."
 
 #: src/Process/Backend/UsersActions.php:161
 msgid "You cannot delete yourself."
 msgstr "Bạn không thể xóa chính mình."
+
+#: src/Process/Backend/UsersActions.php:173
+msgid "User has been successfully deleted."
+msgstr "Người dùng đã được xóa thành công."
 
 #: src/Process/Backend/UsersActions.php:297
 #, php-format
