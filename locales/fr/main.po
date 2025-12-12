@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-07 11:19+0100\n"
-"PO-Revision-Date: 2025-12-07 10:48\n"
+"POT-Creation-Date: 2025-12-12 16:50+0100\n"
+"PO-Revision-Date: 2025-12-12 16:17\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -6150,13 +6150,16 @@ msgid "You cannot disable yourself."
 msgstr "Vous ne pouvez pas vous désactiver vous-même."
 
 #: src/Process/Backend/UsersActions.php:148
-#: src/Process/Backend/UsersActions.php:173
-msgid "User has been successfully deleted."
-msgstr "L'utilisateur·rice a été supprimé·e."
+msgid "User has been successfully disabled."
+msgstr ""
 
 #: src/Process/Backend/UsersActions.php:161
 msgid "You cannot delete yourself."
 msgstr "Vous ne pouvez pas vous supprimer vous-même."
+
+#: src/Process/Backend/UsersActions.php:173
+msgid "User has been successfully deleted."
+msgstr "L'utilisateur·rice a été supprimé·e."
 
 #: src/Process/Backend/UsersActions.php:297
 #, php-format
