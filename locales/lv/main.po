@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-12 16:50+0100\n"
-"PO-Revision-Date: 2025-12-12 16:17\n"
+"PO-Revision-Date: 2025-12-12 17:07\n"
 "Last-Translator: \n"
 "Language-Team: Latvian\n"
 "Language: lv_LV\n"
@@ -6186,7 +6186,7 @@ msgstr "Jūs nevarat sevi atspējot."
 
 #: src/Process/Backend/UsersActions.php:148
 msgid "User has been successfully disabled."
-msgstr ""
+msgstr "Lietotājs ir veiksmīgi atspējots."
 
 #: src/Process/Backend/UsersActions.php:161
 msgid "You cannot delete yourself."
