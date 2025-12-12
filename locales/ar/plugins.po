@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-07 11:24+0100\n"
-"PO-Revision-Date: 2025-12-07 10:27\n"
+"POT-Creation-Date: 2025-12-12 16:52+0100\n"
+"PO-Revision-Date: 2025-12-12 16:18\n"
 "Last-Translator: \n"
 "Language-Team: Arabic\n"
 "Language: ar_SA\n"
@@ -934,24 +934,24 @@ msgstr "تصفية التكوين"
 msgid "position"
 msgstr "الموضع"
 
-#: plugins/antispam/src/Manage.php:315 plugins/antispam/src/Manage.php:349
+#: plugins/antispam/src/Manage.php:315 plugins/antispam/src/Manage.php:348
 msgid "Active"
 msgstr "نشط"
 
-#: plugins/antispam/src/Manage.php:322 plugins/antispam/src/Manage.php:350
+#: plugins/antispam/src/Manage.php:322 plugins/antispam/src/Manage.php:349
 msgid "Auto Del."
 msgstr "Auto Del."
 
-#: plugins/antispam/src/Manage.php:343
+#: plugins/antispam/src/Manage.php:342
 msgid "Available spam filters"
 msgstr "فلاتر البريد المزعج المتوفرة"
 
-#: plugins/antispam/src/Manage.php:348
+#: plugins/antispam/src/Manage.php:347
 #: plugins/pages/src/BackendDefaultActions.php:73
 msgid "Order"
 msgstr "طلب"
 
-#: plugins/antispam/src/Manage.php:351
+#: plugins/antispam/src/Manage.php:350
 msgid "Filter name"
 msgstr "اسم الفلتر"
 
