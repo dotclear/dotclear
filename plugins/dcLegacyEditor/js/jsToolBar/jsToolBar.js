@@ -95,6 +95,7 @@ class jsToolBar {
       this,
       `jstb_${toolName}`,
       tool.accesskey,
+      tool.key,
       tool.shortkey,
       tool.shortkey_name,
     );
@@ -300,7 +301,7 @@ jsToolBar.prototype.toolbar_bottom = false;
 
 // jsButton
 class jsButton {
-  constructor(title, fn, scope, className, accesskey, shortkey, shortkey_name) {
+  constructor(title, fn, scope, className, accesskey, key, shortkey, shortkey_name) {
     this.title = title || null;
     this.fn =
       fn ||
@@ -310,6 +311,7 @@ class jsButton {
     this.scope = scope || null;
     this.className = className || null;
     this.accesskey = accesskey || null;
+    this.key = key || null;
     this.shortkey = shortkey || null; // See https://www.w3.org/TR/uievents-code/#table-key-code-alphanumeric-writing-system
     this.shortkey_name = shortkey_name || null;
   }
@@ -323,16 +325,25 @@ class jsButton {
     button.title = this.title;
     button.id = `jstb_${(Math.random() + 1).toString(36).substring(5)}`;
     if (this.accesskey) button.accessKey = this.accesskey;
-    if (this.shortkey) {
+    if (this.shortkey || this.key) {
       if (this.shortkey_name) button.title += ` (CTRL+${this.shortkey_name})`;
       this.scope.textarea.addEventListener('keydown', (event) => {
-        if (!(event.code === this.shortkey && event.ctrlKey && !event.altKey && !event.metaKey)) {
-          return;
+        let doIt = false;
+        if (this.key) {
+          if (event.key === this.key && event.ctrlKey && !event.altKey && !event.metaKey) {
+            doIt = true;
+          }
+        } else if (this.shortkey) {
+          if (event.code === this.shortkey && event.ctrlKey && !event.altKey && !event.metaKey) {
+            doIt = true;
+          }
         }
-        // Fire click
-        button.click();
-        event.preventDefault();
-        return false;
+        if (doIt) {
+          // Fire click
+          button.click();
+          event.preventDefault();
+          return false;
+        }
       });
     }
     // Icons (light or light/dark)
@@ -598,7 +609,7 @@ jsToolBar.prototype.elements.strong = {
   group: 'format',
   type: 'button',
   title: 'Strong emphasis',
-  shortkey: 'KeyB',
+  key: 'b',
   shortkey_name: 'B',
   fn: {
     wiki() {
@@ -615,7 +626,7 @@ jsToolBar.prototype.elements.em = {
   group: 'format',
   type: 'button',
   title: 'Emphasis',
-  shortkey: 'KeyI',
+  key: 'i',
   shortkey_name: 'I',
   fn: {
     wiki() {
@@ -632,7 +643,7 @@ jsToolBar.prototype.elements.ins = {
   group: 'format',
   type: 'button',
   title: 'Inserted',
-  shortkey: 'KeyU',
+  key: 'u',
   shortkey_name: 'U',
   fn: {
     wiki() {
@@ -649,7 +660,7 @@ jsToolBar.prototype.elements.del = {
   group: 'format',
   type: 'button',
   title: 'Deleted',
-  shortkey: 'KeyD',
+  key: 'd',
   shortkey_name: 'D',
   fn: {
     wiki() {
@@ -843,7 +854,7 @@ jsToolBar.prototype.elements.link = {
   title: 'Link',
   fn: {},
   accesskey: 'l',
-  shortkey: 'KeyL',
+  key: 'l',
   shortkey_name: 'L',
   href_prompt: 'Please give page URL:',
   hreflang_prompt: 'Language of this page:',
@@ -923,7 +934,7 @@ jsToolBar.prototype.elements.preview = {
   group: 'editor',
   type: 'button',
   title: 'Preview',
-  shortkey: 'KeyP',
+  key: 'p',
   shortkey_name: 'P',
   format: {
     wysiwyg: false,

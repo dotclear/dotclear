@@ -6,7 +6,7 @@ jsToolBar.prototype.elements.tag = {
   group: 'metadata',
   type: 'button',
   title: 'Keyword',
-  shortkey: 'KeyT',
+  key: 't',
   shortkey_name: 'T',
   fn: {},
 };
