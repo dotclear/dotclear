@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-14 09:29+0100\n"
-"PO-Revision-Date: 2025-12-14 08:32\n"
+"PO-Revision-Date: 2025-12-14 08:54\n"
 "Last-Translator: \n"
 "Language-Team: Polish\n"
 "Language: pl_PL\n"
@@ -5603,7 +5603,7 @@ msgstr "Nowy użytkownik"
 
 #: src/Process/Backend/User.php:206 src/Process/Backend/User.php:282
 msgid "User profile has been successfully updated."
-msgstr ""
+msgstr "Profil użytkownika został pomyślnie zaktualizowany."
 
 #: src/Process/Backend/User.php:212
 #, php-format
@@ -6214,9 +6214,9 @@ msgstr "Nie podano bloga lub użytkownika."
 msgid "User has been successfully enabled."
 msgid_plural "Users has been successfully enabled."
 msgstr[0] "Użytkownik został pomyślnie włączony."
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[1] "Użytkownik został pomyślnie włączony."
+msgstr[2] "Użytkownik został pomyślnie włączony."
+msgstr[3] "Użytkownicy zostali pomyślnie włączeni."
 
 #: src/Process/Backend/UsersActions.php:139
 msgid "You cannot disable yourself."
@@ -6226,9 +6226,9 @@ msgstr "Nie można się wyłączyć."
 msgid "User has been successfully disabled."
 msgid_plural "Users has been successfully disabled."
 msgstr[0] "Użytkownik został pomyślnie wyłączony."
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[1] "Użytkownik został pomyślnie wyłączony."
+msgstr[2] "Użytkownik został pomyślnie wyłączony."
+msgstr[3] "Użytkownicy zostali pomyślnie wyłączeni."
 
 #: src/Process/Backend/UsersActions.php:170
 msgid "You cannot delete yourself."
@@ -6238,17 +6238,17 @@ msgstr "Nie możesz usunąć siebie."
 msgid "User has been successfully deleted."
 msgid_plural "Users has been successfully deleted."
 msgstr[0] "Użytkownik został usunięty."
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[1] "Użytkownik został pomyślnie usunięty."
+msgstr[2] "Użytkownik został pomyślnie usunięty."
+msgstr[3] "Użytkownicy zostali pomyślnie usunięci."
 
 #: src/Process/Backend/UsersActions.php:218
 msgid "User has been successfully updated."
 msgid_plural "Users has been successfully updated."
 msgstr[0] "Użytkownik został pomyślnie zaktualizowany."
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[1] "Użytkownik został pomyślnie zaktualizowany."
+msgstr[2] "Użytkownik został pomyślnie zaktualizowany."
+msgstr[3] "Użytkownicy zostali pomyślnie zaktualizowani."
 
 #: src/Process/Backend/UsersActions.php:314
 #, php-format
