@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-14 09:29+0100\n"
-"PO-Revision-Date: 2025-12-14 08:32\n"
+"PO-Revision-Date: 2025-12-14 08:55\n"
 "Last-Translator: \n"
 "Language-Team: Norwegian Bokmal\n"
 "Language: nb_NO\n"
@@ -5533,7 +5533,7 @@ msgstr "Ny bruker"
 
 #: src/Process/Backend/User.php:206 src/Process/Backend/User.php:282
 msgid "User profile has been successfully updated."
-msgstr ""
+msgstr "Brukerprofilen har blitt oppdatert."
 
 #: src/Process/Backend/User.php:212
 #, php-format
@@ -6144,7 +6144,7 @@ msgstr "Ingen blogg eller bruker oppgitt."
 msgid "User has been successfully enabled."
 msgid_plural "Users has been successfully enabled."
 msgstr[0] "Brukeren har blitt aktivert."
-msgstr[1] ""
+msgstr[1] "Brukere har blitt aktivert."
 
 #: src/Process/Backend/UsersActions.php:139
 msgid "You cannot disable yourself."
@@ -6154,7 +6154,7 @@ msgstr "Du kan ikke sette deg selv ut av spill."
 msgid "User has been successfully disabled."
 msgid_plural "Users has been successfully disabled."
 msgstr[0] "Brukeren har blitt deaktivert."
-msgstr[1] ""
+msgstr[1] "Brukere har blitt deaktivert."
 
 #: src/Process/Backend/UsersActions.php:170
 msgid "You cannot delete yourself."
@@ -6164,13 +6164,13 @@ msgstr "Du kan ikke slette deg selv."
 msgid "User has been successfully deleted."
 msgid_plural "Users has been successfully deleted."
 msgstr[0] "Brukeren har blitt slettet."
-msgstr[1] ""
+msgstr[1] "Brukere har blitt slettet."
 
 #: src/Process/Backend/UsersActions.php:218
 msgid "User has been successfully updated."
 msgid_plural "Users has been successfully updated."
 msgstr[0] "Brukeren har blitt oppdatert."
-msgstr[1] ""
+msgstr[1] "Brukere har blitt oppdatert."
 
 #: src/Process/Backend/UsersActions.php:314
 #, php-format
