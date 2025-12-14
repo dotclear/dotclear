@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-14 09:29+0100\n"
-"PO-Revision-Date: 2025-12-14 08:32\n"
+"PO-Revision-Date: 2025-12-14 08:54\n"
 "Last-Translator: \n"
 "Language-Team: Danish\n"
 "Language: da_DK\n"
@@ -5533,7 +5533,7 @@ msgstr "Ny bruger"
 
 #: src/Process/Backend/User.php:206 src/Process/Backend/User.php:282
 msgid "User profile has been successfully updated."
-msgstr ""
+msgstr "Brugerprofilen er blevet opdateret."
 
 #: src/Process/Backend/User.php:212
 #, php-format
@@ -6144,7 +6144,7 @@ msgstr "Ingen blog eller bruger angivet."
 msgid "User has been successfully enabled."
 msgid_plural "Users has been successfully enabled."
 msgstr[0] "Brugeren er blevet aktiveret med succes."
-msgstr[1] ""
+msgstr[1] "Brugere er blevet aktiveret med succes."
 
 #: src/Process/Backend/UsersActions.php:139
 msgid "You cannot disable yourself."
@@ -6154,7 +6154,7 @@ msgstr "Du kan ikke gøre dig selv uarbejdsdygtig."
 msgid "User has been successfully disabled."
 msgid_plural "Users has been successfully disabled."
 msgstr[0] "Brugeren er blevet deaktiveret med succes."
-msgstr[1] ""
+msgstr[1] "Brugere er blevet deaktiveret med succes."
 
 #: src/Process/Backend/UsersActions.php:170
 msgid "You cannot delete yourself."
@@ -6164,13 +6164,13 @@ msgstr "Du kan ikke slette dig selv."
 msgid "User has been successfully deleted."
 msgid_plural "Users has been successfully deleted."
 msgstr[0] "Brugeren er blevet slettet."
-msgstr[1] ""
+msgstr[1] "Brugere er blevet slettet med succes."
 
 #: src/Process/Backend/UsersActions.php:218
 msgid "User has been successfully updated."
 msgid_plural "Users has been successfully updated."
 msgstr[0] "Brugeren er blevet opdateret."
-msgstr[1] ""
+msgstr[1] "Brugere er blevet opdateret med succes."
 
 #: src/Process/Backend/UsersActions.php:314
 #, php-format
