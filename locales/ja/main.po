@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-14 09:29+0100\n"
-"PO-Revision-Date: 2025-12-14 08:32\n"
+"PO-Revision-Date: 2025-12-14 08:54\n"
 "Last-Translator: \n"
 "Language-Team: Japanese\n"
 "Language: ja_JP\n"
@@ -5499,7 +5499,7 @@ msgstr "新規ユーザー"
 
 #: src/Process/Backend/User.php:206 src/Process/Backend/User.php:282
 msgid "User profile has been successfully updated."
-msgstr ""
+msgstr "ユーザープロファイルが正常に更新されました。"
 
 #: src/Process/Backend/User.php:212
 #, php-format
@@ -6109,7 +6109,7 @@ msgstr "ブログまたはユーザが指定されていません。"
 #: src/Process/Backend/UsersActions.php:125
 msgid "User has been successfully enabled."
 msgid_plural "Users has been successfully enabled."
-msgstr[0] ""
+msgstr[0] "ユーザーが正常に有効になりました。"
 
 #: src/Process/Backend/UsersActions.php:139
 msgid "You cannot disable yourself."
@@ -6118,7 +6118,7 @@ msgstr "自分を無力化することはできない。"
 #: src/Process/Backend/UsersActions.php:154
 msgid "User has been successfully disabled."
 msgid_plural "Users has been successfully disabled."
-msgstr[0] ""
+msgstr[0] "ユーザーは正常に無効化されました。"
 
 #: src/Process/Backend/UsersActions.php:170
 msgid "You cannot delete yourself."
@@ -6127,12 +6127,12 @@ msgstr "自分自身を削除できません。"
 #: src/Process/Backend/UsersActions.php:183
 msgid "User has been successfully deleted."
 msgid_plural "Users has been successfully deleted."
-msgstr[0] ""
+msgstr[0] "ユーザーの削除に成功しました。"
 
 #: src/Process/Backend/UsersActions.php:218
 msgid "User has been successfully updated."
 msgid_plural "Users has been successfully updated."
-msgstr[0] ""
+msgstr[0] "ユーザーは正常に更新されました。"
 
 #: src/Process/Backend/UsersActions.php:314
 #, php-format
