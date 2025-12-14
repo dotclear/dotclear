@@ -106,12 +106,12 @@ dotclear.ready(() => {
 
         const activeTabElement = tabsContainer.querySelector(`li.${options.activeClass}`);
         if (activeTabElement) {
-          activeTabElement.removeAttribute('aria-selected');
+          activeTabElement.removeAttribute('aria-current');
           activeTabElement.classList.remove(options.activeClass);
         }
 
         target.classList.add(options.activeClass);
-        target.setAttribute('aria-selected', 'true');
+        target.setAttribute('aria-current', 'true');
 
         const activeContent = document.querySelector(`.${options.contentClass}.active`);
         if (activeContent) {
