@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-14 09:29+0100\n"
-"PO-Revision-Date: 2025-12-14 08:32\n"
+"PO-Revision-Date: 2025-12-14 08:54\n"
 "Last-Translator: \n"
 "Language-Team: Czech\n"
 "Language: cs_CZ\n"
@@ -5603,7 +5603,7 @@ msgstr "Nový uživatel"
 
 #: src/Process/Backend/User.php:206 src/Process/Backend/User.php:282
 msgid "User profile has been successfully updated."
-msgstr ""
+msgstr "Profil uživatele byl úspěšně aktualizován."
 
 #: src/Process/Backend/User.php:212
 #, php-format
@@ -6214,9 +6214,9 @@ msgstr "Žádný blog nebo uživatel nepředán"
 msgid "User has been successfully enabled."
 msgid_plural "Users has been successfully enabled."
 msgstr[0] "Uživatel byl úspěšně povolen."
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[1] "Uživatel byl úspěšně povolen."
+msgstr[2] "Uživatel byl úspěšně povolen."
+msgstr[3] "Uživatelé byli úspěšně povoleni."
 
 #: src/Process/Backend/UsersActions.php:139
 msgid "You cannot disable yourself."
@@ -6226,9 +6226,9 @@ msgstr "Sami sebe nemůžete vyřadit z provozu."
 msgid "User has been successfully disabled."
 msgid_plural "Users has been successfully disabled."
 msgstr[0] "Uživatel byl úspěšně deaktivován."
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[1] "Uživatel byl úspěšně deaktivován."
+msgstr[2] "Uživatel byl úspěšně deaktivován."
+msgstr[3] "Uživatelé byli úspěšně deaktivováni."
 
 #: src/Process/Backend/UsersActions.php:170
 msgid "You cannot delete yourself."
@@ -6238,17 +6238,17 @@ msgstr "Nemůžete smazat sami sebe."
 msgid "User has been successfully deleted."
 msgid_plural "Users has been successfully deleted."
 msgstr[0] "Uživatel byl úspěšně smazán."
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[1] "Uživatel byl úspěšně odstraněn."
+msgstr[2] "Uživatel byl úspěšně odstraněn."
+msgstr[3] "Uživatelé byli úspěšně odstraněni."
 
 #: src/Process/Backend/UsersActions.php:218
 msgid "User has been successfully updated."
 msgid_plural "Users has been successfully updated."
 msgstr[0] "Uživatel byl úspěšně upraven."
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[1] "Uživatel byl úspěšně aktualizován."
+msgstr[2] "Uživatel byl úspěšně aktualizován."
+msgstr[3] "Uživatelé byli úspěšně aktualizováni."
 
 #: src/Process/Backend/UsersActions.php:314
 #, php-format
