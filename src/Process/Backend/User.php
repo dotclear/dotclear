@@ -203,7 +203,7 @@ class User
                         App::session()->destroy();
                     }
 
-                    App::backend()->notices()->addSuccessNotice(__('User has been successfully updated.'));
+                    App::backend()->notices()->addSuccessNotice(__('User profile has been successfully updated.'));
                     App::backend()->url()->redirect('admin.user', ['id' => $new_id]);
                 } else {
                     // Add user
@@ -279,7 +279,7 @@ class User
         );
 
         if (!empty($_GET['upd'])) {
-            App::backend()->notices()->success(__('User has been successfully updated.'));
+            App::backend()->notices()->success(__('User profile has been successfully updated.'));
         }
 
         if (!empty($_GET['add'])) {

@@ -60,7 +60,8 @@ class UsersActions
                 }
             }
         }
-        App::backend()->users = $users;
+        App::backend()->users       = $users;
+        App::backend()->users_count = count($users);
 
         $blogs = [];
         if (!empty($_POST['blogs']) && is_array($_POST['blogs'])) {
@@ -120,7 +121,11 @@ class UsersActions
                             }
                         }
                         if (!App::error()->flag()) {
-                            App::backend()->notices()->addSuccessNotice(__('User has been successfully enabled.'));
+                            App::backend()->notices()->addSuccessNotice(__(
+                                'User has been successfully enabled.',
+                                'Users has been successfully enabled.',
+                                App::backend()->users_count
+                            ));
                             Http::redirect(App::backend()->redir);
                         }
 
@@ -145,7 +150,11 @@ class UsersActions
                             }
                         }
                         if (!App::error()->flag()) {
-                            App::backend()->notices()->addSuccessNotice(__('User has been successfully disabled.'));
+                            App::backend()->notices()->addSuccessNotice(__(
+                                'User has been successfully disabled.',
+                                'Users has been successfully disabled.',
+                                App::backend()->users_count
+                            ));
                             Http::redirect(App::backend()->redir);
                         }
 
@@ -170,7 +179,11 @@ class UsersActions
                     }
                 }
                 if (!App::error()->flag()) {
-                    App::backend()->notices()->addSuccessNotice(__('User has been successfully deleted.'));
+                    App::backend()->notices()->addSuccessNotice(__(
+                        'User has been successfully deleted.',
+                        'Users has been successfully deleted.',
+                        App::backend()->users_count
+                    ));
                     Http::redirect(App::backend()->redir);
                 }
             }
@@ -201,7 +214,11 @@ class UsersActions
                     App::error()->add($e->getMessage());
                 }
                 if (!App::error()->flag()) {
-                    App::backend()->notices()->addSuccessNotice(__('User has been successfully updated.'));
+                    App::backend()->notices()->addSuccessNotice(__(
+                        'User has been successfully updated.',
+                        'Users has been successfully updated.',
+                        App::backend()->users_count
+                    ));
                     Http::redirect(App::backend()->redir);
                 }
             }
