@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-14 09:29+0100\n"
-"PO-Revision-Date: 2025-12-14 08:32\n"
+"PO-Revision-Date: 2025-12-14 08:54\n"
 "Last-Translator: \n"
 "Language-Team: Finnish\n"
 "Language: fi_FI\n"
@@ -5533,7 +5533,7 @@ msgstr "Uusi käyttäjä"
 
 #: src/Process/Backend/User.php:206 src/Process/Backend/User.php:282
 msgid "User profile has been successfully updated."
-msgstr ""
+msgstr "Käyttäjäprofiili on päivitetty onnistuneesti."
 
 #: src/Process/Backend/User.php:212
 #, php-format
@@ -6144,7 +6144,7 @@ msgstr "Ei annettu blogia tai käyttäjää."
 msgid "User has been successfully enabled."
 msgid_plural "Users has been successfully enabled."
 msgstr[0] "Käyttäjä on onnistuneesti otettu käyttöön."
-msgstr[1] ""
+msgstr[1] "Käyttäjät on otettu onnistuneesti käyttöön."
 
 #: src/Process/Backend/UsersActions.php:139
 msgid "You cannot disable yourself."
@@ -6154,7 +6154,7 @@ msgstr "Et voi tehdä itseäsi toimintakyvyttömäksi."
 msgid "User has been successfully disabled."
 msgid_plural "Users has been successfully disabled."
 msgstr[0] "Käyttäjä on onnistuneesti poistettu käytöstä."
-msgstr[1] ""
+msgstr[1] "Käyttäjät on onnistuneesti poistettu käytöstä."
 
 #: src/Process/Backend/UsersActions.php:170
 msgid "You cannot delete yourself."
@@ -6164,13 +6164,13 @@ msgstr "Et voi poistaa itseäsi."
 msgid "User has been successfully deleted."
 msgid_plural "Users has been successfully deleted."
 msgstr[0] "Käyttäjä on poistettu."
-msgstr[1] ""
+msgstr[1] "Käyttäjät on onnistuneesti poistettu."
 
 #: src/Process/Backend/UsersActions.php:218
 msgid "User has been successfully updated."
 msgid_plural "Users has been successfully updated."
 msgstr[0] "Käyttäjä on päivitetty"
-msgstr[1] ""
+msgstr[1] "Käyttäjät on päivitetty onnistuneesti."
 
 #: src/Process/Backend/UsersActions.php:314
 #, php-format
