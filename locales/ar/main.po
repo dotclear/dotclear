@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-14 09:29+0100\n"
-"PO-Revision-Date: 2025-12-14 08:32\n"
+"PO-Revision-Date: 2025-12-14 08:54\n"
 "Last-Translator: \n"
 "Language-Team: Arabic\n"
 "Language: ar_SA\n"
@@ -5673,7 +5673,7 @@ msgstr "مستخدم جديد"
 
 #: src/Process/Backend/User.php:206 src/Process/Backend/User.php:282
 msgid "User profile has been successfully updated."
-msgstr ""
+msgstr "تم تحديث ملف تعريف المستخدم بنجاح."
 
 #: src/Process/Backend/User.php:212
 #, php-format
@@ -6283,12 +6283,12 @@ msgstr "لا توجد مدونة أو مستخدم."
 #: src/Process/Backend/UsersActions.php:125
 msgid "User has been successfully enabled."
 msgid_plural "Users has been successfully enabled."
-msgstr[0] ""
+msgstr[0] "تم تمكين المستخدم بنجاح."
 msgstr[1] "تم تمكين المستخدم بنجاح."
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[2] "تم تمكين المستخدم بنجاح."
+msgstr[3] "تم تمكين المستخدم بنجاح."
+msgstr[4] "تم تمكين المستخدم بنجاح."
+msgstr[5] "تم تمكين المستخدمين بنجاح."
 
 #: src/Process/Backend/UsersActions.php:139
 msgid "You cannot disable yourself."
@@ -6297,12 +6297,12 @@ msgstr "لا يمكنك تعطيل نفسك."
 #: src/Process/Backend/UsersActions.php:154
 msgid "User has been successfully disabled."
 msgid_plural "Users has been successfully disabled."
-msgstr[0] ""
+msgstr[0] "تم تعطيل المستخدم بنجاح."
 msgstr[1] "تم تعطيل المستخدم بنجاح."
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[2] "تم تعطيل المستخدم بنجاح."
+msgstr[3] "تم تعطيل المستخدم بنجاح."
+msgstr[4] "تم تعطيل المستخدم بنجاح."
+msgstr[5] "تم تعطيل المستخدمين بنجاح."
 
 #: src/Process/Backend/UsersActions.php:170
 msgid "You cannot delete yourself."
@@ -6311,22 +6311,22 @@ msgstr "لا يمكنك حذف نفسك."
 #: src/Process/Backend/UsersActions.php:183
 msgid "User has been successfully deleted."
 msgid_plural "Users has been successfully deleted."
-msgstr[0] ""
+msgstr[0] "تم حذف المستخدم بنجاح."
 msgstr[1] "تم حذف المستخدم بنجاح."
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[2] "تم حذف المستخدم بنجاح."
+msgstr[3] "تم حذف المستخدم بنجاح."
+msgstr[4] "تم حذف المستخدم بنجاح."
+msgstr[5] "تم حذف المستخدمين بنجاح."
 
 #: src/Process/Backend/UsersActions.php:218
 msgid "User has been successfully updated."
 msgid_plural "Users has been successfully updated."
-msgstr[0] ""
+msgstr[0] "تم تحديث المستخدم بنجاح."
 msgstr[1] "تم تحديث المستخدم بنجاح."
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[2] "تم تحديث المستخدم بنجاح."
+msgstr[3] "تم تحديث المستخدم بنجاح."
+msgstr[4] "تم تحديث المستخدم بنجاح."
+msgstr[5] "تم تحديث المستخدمين بنجاح."
 
 #: src/Process/Backend/UsersActions.php:314
 #, php-format
