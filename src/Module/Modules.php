@@ -588,11 +588,6 @@ class Modules implements ModulesInterface
             ->set('root_writable', !is_null($this->mroot) && is_writable($this->mroot))
         ;
 
-        // dc < 2.25, module type was optionnal
-        if ($this->define->get('type') == ModuleDefine::DEFAULT_TYPE) {
-            $this->define->set('type', $this->type);
-        }
-
         // dc < 2.26, priority could be negative
         if ((int) $this->define->get('priority') < 0) {
             $this->define->set('priority', 1);
