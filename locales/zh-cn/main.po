@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-14 09:29+0100\n"
-"PO-Revision-Date: 2025-12-14 08:32\n"
+"PO-Revision-Date: 2025-12-14 08:54\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -5498,7 +5498,7 @@ msgstr "新用户"
 
 #: src/Process/Backend/User.php:206 src/Process/Backend/User.php:282
 msgid "User profile has been successfully updated."
-msgstr ""
+msgstr "用户配置文件已成功更新。"
 
 #: src/Process/Backend/User.php:212
 #, php-format
@@ -6108,7 +6108,7 @@ msgstr "没有指定博客或用户。"
 #: src/Process/Backend/UsersActions.php:125
 msgid "User has been successfully enabled."
 msgid_plural "Users has been successfully enabled."
-msgstr[0] ""
+msgstr[0] "用户已成功启用。"
 
 #: src/Process/Backend/UsersActions.php:139
 msgid "You cannot disable yourself."
@@ -6117,7 +6117,7 @@ msgstr "你不能让自己丧失能力。"
 #: src/Process/Backend/UsersActions.php:154
 msgid "User has been successfully disabled."
 msgid_plural "Users has been successfully disabled."
-msgstr[0] ""
+msgstr[0] "用户已成功禁用。"
 
 #: src/Process/Backend/UsersActions.php:170
 msgid "You cannot delete yourself."
@@ -6126,12 +6126,12 @@ msgstr "你不能删除你自己。"
 #: src/Process/Backend/UsersActions.php:183
 msgid "User has been successfully deleted."
 msgid_plural "Users has been successfully deleted."
-msgstr[0] ""
+msgstr[0] "用户已成功删除。"
 
 #: src/Process/Backend/UsersActions.php:218
 msgid "User has been successfully updated."
 msgid_plural "Users has been successfully updated."
-msgstr[0] ""
+msgstr[0] "用户已成功更新。"
 
 #: src/Process/Backend/UsersActions.php:314
 #, php-format
