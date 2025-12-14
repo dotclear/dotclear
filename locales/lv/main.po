@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-14 09:29+0100\n"
-"PO-Revision-Date: 2025-12-14 08:32\n"
+"PO-Revision-Date: 2025-12-14 08:55\n"
 "Last-Translator: \n"
 "Language-Team: Latvian\n"
 "Language: lv_LV\n"
@@ -5568,7 +5568,7 @@ msgstr "Jauns lietotājs"
 
 #: src/Process/Backend/User.php:206 src/Process/Backend/User.php:282
 msgid "User profile has been successfully updated."
-msgstr ""
+msgstr "Lietotāja profils ir veiksmīgi atjaunināts."
 
 #: src/Process/Backend/User.php:212
 #, php-format
@@ -6178,9 +6178,9 @@ msgstr "Nav norādīts neviens emuārs vai lietotājs."
 #: src/Process/Backend/UsersActions.php:125
 msgid "User has been successfully enabled."
 msgid_plural "Users has been successfully enabled."
-msgstr[0] ""
+msgstr[0] "Lietotājs ir veiksmīgi aktivizēts."
 msgstr[1] "Lietotājs ir veiksmīgi aktivizēts."
-msgstr[2] ""
+msgstr[2] "Lietotāji ir veiksmīgi aktivizēti."
 
 #: src/Process/Backend/UsersActions.php:139
 msgid "You cannot disable yourself."
@@ -6189,9 +6189,9 @@ msgstr "Jūs nevarat sevi atspējot."
 #: src/Process/Backend/UsersActions.php:154
 msgid "User has been successfully disabled."
 msgid_plural "Users has been successfully disabled."
-msgstr[0] ""
+msgstr[0] "Lietotājs ir veiksmīgi atspējots."
 msgstr[1] "Lietotājs ir veiksmīgi atspējots."
-msgstr[2] ""
+msgstr[2] "Lietotāji ir veiksmīgi atspējoti."
 
 #: src/Process/Backend/UsersActions.php:170
 msgid "You cannot delete yourself."
@@ -6200,16 +6200,16 @@ msgstr "Jūs nevarat izdzēst sevi."
 #: src/Process/Backend/UsersActions.php:183
 msgid "User has been successfully deleted."
 msgid_plural "Users has been successfully deleted."
-msgstr[0] ""
+msgstr[0] "Lietotājs ir veiksmīgi dzēsts."
 msgstr[1] "Lietotājs ir veiksmīgi izdzēsts."
-msgstr[2] ""
+msgstr[2] "Lietotāji ir veiksmīgi dzēsti."
 
 #: src/Process/Backend/UsersActions.php:218
 msgid "User has been successfully updated."
 msgid_plural "Users has been successfully updated."
-msgstr[0] ""
+msgstr[0] "Lietotājs ir veiksmīgi atjaunināts."
 msgstr[1] "Lietotājs ir veiksmīgi atjaunināts."
-msgstr[2] ""
+msgstr[2] "Lietotāji ir veiksmīgi atjaunināti."
 
 #: src/Process/Backend/UsersActions.php:314
 #, php-format
