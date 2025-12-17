@@ -642,19 +642,23 @@ class Ctx
         // Process part adapted from SmartyPants engine (J. Gruber et al.) :
 
         $tokens = self::tokenizeHTML($str);
-        $result = '';
-        $in_pre = false; // Keep track of when we're inside <pre>, <code>, ... tags.
+
+        $result    = '';
+        $pre_level = 0; // Keep track of when we're inside <pre>, <code>, ... tags.
 
         foreach ($tokens as $cur_token) {
             if ($cur_token[0] === 'tag') {
                 // Don't mess with quotes inside tags.
                 $result .= $cur_token[1];
-                if (preg_match('@<(/?)(?:pre|code|kbd|script|math)[\s>]@', $cur_token[1], $matches)) {
-                    $in_pre = $matches[1] === '/';
+                if (preg_match('@<(\/?)(?:pre|code|kbd|script|math)[\s>]@', $cur_token[1], $matches)) {
+                    $pre_level += $matches[1] === '/' ? -1 : 1;
+                    if ($pre_level < 0) {
+                        $pre_level = 0;
+                    }
                 }
             } else {
                 $text = $cur_token[1];
-                if (App::frontend()->smilies && !$in_pre) {
+                if (App::frontend()->smilies && $pre_level <= 0) {
                     // Not inside a pre/code, replace smileys
                     $text = preg_replace(
                         array_keys(App::frontend()->smilies),
