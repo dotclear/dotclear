@@ -306,13 +306,13 @@ class Ctx
     public static function remove_isolated_figcaption(string $str): string
     {
         // <figure><img …><figcaption>isolated text</figcaption></figure>
-        $ret = preg_replace('/<figure[^>]*>([\t\n\r\s]*)(<a[^>]*>)*<img[^>]*>([\t\n\r\s]*)(<\/a[^>]*>)*([\t\n\r\s]*)<figcaption[^>]*>(.*?)<\/figcaption>([\t\n\r\s]*)<\/figure>/', '', $str);
+        $ret = preg_replace('/<figure[^>]*>(\s*)(<a[^>]*>)*<img[^>]*>(\s*)(<\/a[^>]*>)*(\s*)<figcaption[^>]*>(.*?)<\/figcaption>(\s*)<\/figure>/', '', $str);
         if ($ret !== null) {
             $str = $ret;
         }
 
         // <figure><figcaption>isolated text</figcaption><audio…>…</audio></figure>
-        $ret = preg_replace('/<figure[^>]*>([\t\n\r\s]*)<figcaption[^>]*>(.*)<\/figcaption>([\t\n\r\s]*)<audio[^>]*>(([\t\n\r\s]|.)*)<\/audio>([\t\n\r\s]*)<\/figure>/', '', $str);
+        $ret = preg_replace('/<figure[^>]*>(\s*)<figcaption[^>]*>(.*)<\/figcaption>(\s*)<audio[^>]*>((\s|.)*)<\/audio>(\s*)<\/figure>/', '', $str);
         if ($ret !== null) {
             $str = $ret;
         }
@@ -616,8 +616,8 @@ class Ctx
         if ($smilies = file($f)) {
             foreach ($smilies as $smiley) {
                 $smiley = trim($smiley);
-                if (preg_match('|^([^\t\s]*)[\t\s]+(.*)$|', $smiley, $matches)) {
-                    $smiley_code = '/(\G|[\s]+|>)(' . preg_quote($matches[1], '/') . ')([\s]+|[<]|\Z)/ms';
+                if (preg_match('/^([^\s]*)\s+(.*)$/', $smiley, $matches)) {
+                    $smiley_code = '/(\G|\s+|>)(' . preg_quote($matches[1], '/') . ')(\s+|[<]|\Z)/ms';
                     $smiley_img  = '$1<img src="' . $url . $matches[2] . '" ' .
                     'alt="$2" class="smiley">$3';
                     $definitions[$smiley_code] = $smiley_img;
