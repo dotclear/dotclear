@@ -1195,7 +1195,7 @@ class Post
             $pingsSent = function (): Set|None {
                 $pings = App::backend()->tb->getPostPings((int) App::backend()->post_id);
                 if ($pings->isEmpty()) {
-                    return (new None());
+                    return new None();
                 }
 
                 $list = [];

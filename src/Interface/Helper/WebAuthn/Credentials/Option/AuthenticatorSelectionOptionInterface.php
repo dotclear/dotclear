@@ -2,7 +2,7 @@
 
 /**
  * @package     Dotclear
- *    
+ *
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
@@ -20,17 +20,17 @@ namespace Dotclear\Interface\Helper\WebAuthn\Credentials\Option;
  */
 interface AuthenticatorSelectionOptionInterface extends OptionInterface
 {
-	/**
-	 * Check if user presence was required.
-	 *
-	 * @return 	bool 	True if required
-	 */
+    /**
+     * Check if user presence was required.
+     *
+     * @return  bool    True if required
+     */
     public function requireUserPresent(): bool;
 
     /**
      * Check if user verification was required.
      *
-     * @return 	bool 	True if required
+     * @return  bool    True if required
      */
     public function requireUserVerification(): bool;
 }

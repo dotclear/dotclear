@@ -169,14 +169,14 @@ class TidyDiffChunk
                 $group[] = $line;
                 $counters[$line->type]++;
             } else {
-                if ($counters['delete'] === $counters['insert'] && count($group) > 0) {
+                if ($counters['delete'] === $counters['insert'] && $group !== []) {
                     $res[] = $group;
                 }
                 $counters['delete'] = $counters['insert'] = 0;
                 $group              = [];
             }
         }
-        if ($counters['delete'] === $counters['insert'] && count($group) > 0) {
+        if ($counters['delete'] === $counters['insert'] && $group !== []) {
             $res[] = $group;
         }
 

@@ -382,12 +382,10 @@ class StoreReader extends HttpClient
                 # Direct cache
                 self::$read_code = static::READ_FROM_CACHE;
 
-                /**
+                /*
                  * StoreParser
                  */
-                $ret = unserialize((string) file_get_contents($cached_file));
-
-                return $ret;
+                return unserialize((string) file_get_contents($cached_file));
             }
             $this->setValidator('IfModifiedSince', $ts);
         }
@@ -402,12 +400,10 @@ class StoreReader extends HttpClient
                 # Connection failed - fetched from cache
                 self::$read_code = static::READ_FROM_CACHE;
 
-                /**
+                /*
                  * StoreParser
                  */
-                $ret = unserialize((string) file_get_contents($cached_file));
-
-                return $ret;
+                return unserialize((string) file_get_contents($cached_file));
             }
 
             return false;
@@ -421,12 +417,10 @@ class StoreReader extends HttpClient
 
                 self::$read_code = static::READ_FROM_CACHE;
 
-                /**
+                /*
                  * StoreParser
                  */
-                $ret = unserialize((string) file_get_contents($cached_file));
-
-                return $ret;
+                return unserialize((string) file_get_contents($cached_file));
             case '200':
                 # Ok, parse feed
                 $modules         = new StoreParser($this->getContent());

@@ -74,7 +74,7 @@ interface FilterInterface
      * Calls HTML filter to drop bad tags and produce valid HTML output.
      *
      * If tidy extension is present.
-     * If <b>enable_html_filter</b> blog setting is false, 
+     * If <b>enable_html_filter</b> blog setting is false,
      * returns not filtered string.
      *
      * @param   string  $str     The string

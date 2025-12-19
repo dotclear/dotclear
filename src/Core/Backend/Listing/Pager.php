@@ -116,7 +116,6 @@ class Pager extends HelperPager
             unset($args['ok']);
         }
 
-        //$this->form_hidden = '';
         foreach ($args as $k => $v) {
             // Check parameter key (will prevent some forms of XSS)
             if ($k === preg_replace('`[^A-Za-z0-9_-]`', '', (string) $k)) {

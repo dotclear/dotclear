@@ -89,7 +89,7 @@ class Auth
         }
 
         // Auto upgrade
-        if ((count($_GET) === 1 && $_POST === [])) {
+        if (count($_GET) === 1 && $_POST === []) {
             try {
                 if (($changes = App::upgrade()->upgrade()->dotclearUpgrade()) !== false) {
                     self::$msg = __('Dotclear has been upgraded.') . '<!-- ' . $changes . ' -->';

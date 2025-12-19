@@ -77,7 +77,6 @@ class Certificates implements CertificatesInterface
         $url = static::FIDO_MDS_URL;
         $raw = null;
         if (function_exists('curl_init') && ($ch = curl_init($url)) !== false) {
-            $ch = curl_init($url);
             curl_setopt($ch, CURLOPT_HEADER, false);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);

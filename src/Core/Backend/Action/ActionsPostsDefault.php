@@ -455,7 +455,7 @@ class ActionsPostsDefault
                 $rs       = App::users()->getUsers($params);
                 $rsStatic = $rs->toStatic();
                 $rsStatic->extend(User::class);
-                $rsStatic = $rsStatic->toExtStatic();
+                $rsStatic = $rsStatic->toStatic();
                 $rsStatic->lexicalSort('user_id');
                 while ($rsStatic->fetch()) {
                     $usersList[] = $rsStatic->user_id;

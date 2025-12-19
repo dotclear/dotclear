@@ -672,7 +672,6 @@ class Modules implements ModulesInterface
     public function isEmpty(): bool
     {
         return $this->defines === [];
-        ;
     }
 
     /**
@@ -690,17 +689,17 @@ class Modules implements ModulesInterface
 
         $zip_root_dir = $zip->getRootDir();
         $define       = '';
-        if ($zip_root_dir != false) {
-            $target      = dirname($zip_file);
-            $destination = $target . DIRECTORY_SEPARATOR . $zip_root_dir;
-            $define      = $zip_root_dir . '/' . self::MODULE_FILE_DEFINE;
-            $init        = $zip_root_dir . '/' . self::MODULE_FILE_INIT;
-            $has_define  = $zip->hasFile($define);
-        } else {
+        if ($zip_root_dir === false) {
             $target      = dirname($zip_file) . DIRECTORY_SEPARATOR . preg_replace('/\.([^.]+)$/', '', basename($zip_file));
             $destination = $target;
             $define      = self::MODULE_FILE_DEFINE;
             $init        = self::MODULE_FILE_INIT;
+            $has_define  = $zip->hasFile($define);
+        } else {
+            $target      = dirname($zip_file);
+            $destination = $target . DIRECTORY_SEPARATOR . $zip_root_dir;
+            $define      = $zip_root_dir . '/' . self::MODULE_FILE_DEFINE;
+            $init        = $zip_root_dir . '/' . self::MODULE_FILE_INIT;
             $has_define  = $zip->hasFile($define);
         }
 
@@ -1267,8 +1266,6 @@ class Modules implements ModulesInterface
      * @param   bool    $catch      Should catch output to prevent hacked/corrupted modules
      *
      * @return  mixed
-     *
-     * @todo Check if global variable management is still relevant (aka are we still using global vars)
      */
     protected function loadModuleFile(string $________, bool $globals = false, bool $catch = true)
     {

@@ -228,7 +228,7 @@ class Themes extends Modules implements ThemesInterface
 
         // Check if there is a customized version of requested class
         $root = App::config()->varRoot() . DIRECTORY_SEPARATOR . 'themes' . DIRECTORY_SEPARATOR . App::blog()->id() . DIRECTORY_SEPARATOR . App::blog()->settings()->system->theme;
-        ;
+
         if (file_exists($root . DIRECTORY_SEPARATOR . self::MODULE_CLASS_DIR . DIRECTORY_SEPARATOR . $class . '.php')) {
             // Add supplemental source for this class
             Autoloader::me()->addNamespace($define->get('namespace'), $root . DIRECTORY_SEPARATOR . self::MODULE_CLASS_DIR, true);

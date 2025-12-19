@@ -715,7 +715,7 @@ class Rest
     public static function searchMeta(mixed $unused, array $get): XmlTag
     {
         $q = $get['q'] ?? null;
-        ;
+
         $metaType = $get['metaType'] ?? null;
 
         $sortby = $get['sortby'] ?? 'meta_type,asc';

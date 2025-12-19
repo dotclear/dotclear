@@ -2,7 +2,7 @@
 
 /**
  * @package     Dotclear
- *    
+ *
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
@@ -41,6 +41,6 @@ interface RpOptionInterface extends OptionInterface
      * We do not include hash to constructor as WebAuthn class must check requirements before.
      *
      * @return  string  The relying party hash ID
-     */ 
+     */
     public function hash(): string;
 }

@@ -33,7 +33,7 @@ class Provider implements ProviderInterface
     /**
      * The passkey providers stack.
      *
-     * @var 	array<string,string> 	stack
+     * @var     array<string,string>    stack
      */
     protected array $stack = [];
 

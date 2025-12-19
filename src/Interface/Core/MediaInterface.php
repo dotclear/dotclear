@@ -500,11 +500,4 @@ interface MediaInterface
      * @param   bool    $preload    Add preload="auto" attribute if true, else preload="none"
      */
     public static function mp3player(string $url, ?string $player = null, $args = null, bool $fallback = false, bool $preload = true): string;
-
-    /*
-     * Returns HTML code for FLV player.
-     *
-     * deprecated since 2.15, retired in 2.36
-     */
-    //public static function flvplayer(string $url, ?string $player = null, $args = null): string;
 }

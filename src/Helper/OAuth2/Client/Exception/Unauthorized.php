@@ -14,7 +14,7 @@ use Exception;
 use Throwable;
 
 /**
- * @brief 	oAuth2 client auth exception class.
+ * @brief   oAuth2 client auth exception class.
  *
  * @author  Jean-Christian Paul Denis
  * @since   2.36

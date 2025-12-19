@@ -54,8 +54,8 @@ interface CredentialInterface
      *
      * @throws  \Dotclear\Exception\BadRequestException
      *
-     * @param 	string 	$user_id 	The user ID
-     * @param 	Cursor 	$cur 		The credential Cursor
+     * @param   string  $user_id    The user ID
+     * @param   Cursor  $cur        The credential Cursor
      */
     public function setCredential(string $user_id, Cursor $cur): void;
 

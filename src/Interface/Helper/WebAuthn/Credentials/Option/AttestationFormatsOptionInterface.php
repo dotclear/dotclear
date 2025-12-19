@@ -2,7 +2,7 @@
 
 /**
  * @package     Dotclear
- *    
+ *
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
@@ -22,10 +22,10 @@ use Dotclear\Helper\WebAuthn\Type\AttestationFormatsEnum;
  */
 interface AttestationFormatsOptionInterface extends OptionInterface
 {
-	/**
-	 * Get attestation formats instances.
-	 *
-	 * @return 	AttestationFormatsEnum[] 	The allowed attestation formats
-	 */
-	public function formats(): array;
+    /**
+     * Get attestation formats instances.
+     *
+     * @return  AttestationFormatsEnum[]    The allowed attestation formats
+     */
+    public function formats(): array;
 }

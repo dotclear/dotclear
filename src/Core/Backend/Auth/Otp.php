@@ -41,7 +41,7 @@ class Otp extends OtpHelper
     public function getCredential(): void
     {
         // @phpstan-ignore-next-line Prevent error from exotic upgrades as we play on Auth page
-        if (!method_exists(App::class, 'credential') 
+        if (!method_exists(App::class, 'credential')
             || !in_array(App::db()->con()->prefix() . App::credential()::CREDENTIAL_TABLE_NAME, App::db()->con()->schema()->getTables())
         ) {
             $this->setData([]);

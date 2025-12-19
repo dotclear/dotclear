@@ -83,7 +83,7 @@ class MetaRecord implements Iterator, Countable
      */
     public function hasStatic(): bool
     {
-        return (isset($this->static));
+        return isset($this->static);
     }
 
     /**
@@ -91,7 +91,7 @@ class MetaRecord implements Iterator, Countable
      */
     public function hasDynamic(): bool
     {
-        return (isset($this->dynamic));
+        return isset($this->dynamic);
     }
 
     /**

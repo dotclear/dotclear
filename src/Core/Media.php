@@ -1483,12 +1483,12 @@ class Media extends MediaManager implements MediaInterface
 
         if ($create_dir) {
             $zip_root_dir = $zip->getRootDir();
-            if ($zip_root_dir != false) {
-                $destination = $zip_root_dir;
-                $target      = $f->dir;
-            } else {
+            if ($zip_root_dir === false) {
                 $destination = preg_replace('/\.([^.]+)$/', '', $f->basename);
                 $target      = $f->dir . '/' . $destination;
+            } else {
+                $destination = $zip_root_dir;
+                $target      = $f->dir;
             }
 
             if (is_dir($f->dir . '/' . $destination)) {

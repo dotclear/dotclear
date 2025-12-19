@@ -383,7 +383,7 @@ class Page extends BackendPage
             ->items($links);
 
         // Home and other items are separated by :
-        $breadcrumb = (new Div(null, 'h2'))
+        return (new Div(null, 'h2'))
             ->role('navigation')
             ->separator(' : ')
             ->items([
@@ -391,8 +391,6 @@ class Page extends BackendPage
                 $next,
             ])
         ->render();
-
-        return $breadcrumb;
     }
 
     /**

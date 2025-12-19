@@ -922,7 +922,7 @@ class Page
             ->items($links);
 
         // Home and other items are separated by :
-        $breadcrumb = (new Div(null, 'h2'))
+        return (new Div(null, 'h2'))
             ->role('navigation')
             ->separator(' : ')
             ->items([
@@ -930,8 +930,6 @@ class Page
                 $next,
             ])
         ->render();
-
-        return $breadcrumb;
     }
 
     /**

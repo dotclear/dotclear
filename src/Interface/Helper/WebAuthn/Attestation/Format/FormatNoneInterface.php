@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Interface\Helper\WebAuthn\Attestation\Format;
 
-use Dotclear\Helper\WebAuthn\Type\AttestationFormatsEnum;;
+use Dotclear\Helper\WebAuthn\Type\AttestationFormatsEnum;
 
 /**
  * @brief   WebAuthn no attestation format interface.

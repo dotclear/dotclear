@@ -14,7 +14,7 @@ use Exception;
 use Throwable;
 
 /**
- * @brief 	WebAuthn requirement exception class.
+ * @brief   WebAuthn requirement exception class.
  *
  * @author  Jean-Christian Paul Denis
  * @since   2.36

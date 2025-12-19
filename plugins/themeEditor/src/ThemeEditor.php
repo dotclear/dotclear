@@ -315,7 +315,7 @@ class ThemeEditor
         try {
             $dest = $this->getDestinationFile($type, $filename);
 
-            if ($dest == false) {
+            if ($dest === false) {
                 throw new Exception();
             }
 

@@ -222,10 +222,9 @@ class Text
         }
 
         if ($encoding !== 'utf-8') {
-            // $str = (string) iconv($encoding, 'UTF-8', $str);
             try {
                 $str = (string) mb_convert_encoding($str, 'UTF-8', $encoding);
-            } catch(Throwable) {
+            } catch (Throwable) {
                 $str = '';
             }
         }
