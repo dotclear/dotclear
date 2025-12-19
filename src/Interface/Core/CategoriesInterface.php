@@ -50,10 +50,11 @@ interface CategoriesInterface
      * @param   null|int        $id         The identifier
      * @param   string          $sort       The sort
      * @param   array<string>   $fields     The fields
+     * @param   null|int        $max_level  The maximum level
      *
      * @return  MetaRecord  The children.
      */
-    public function getChildren(int $start = 0, ?int $id = null, string $sort = 'asc', array $fields = []): MetaRecord;
+    public function getChildren(int $start = 0, ?int $id = null, string $sort = 'asc', array $fields = [], ?int $max_level = 0): MetaRecord;
 
     /**
      * Gets the parents.

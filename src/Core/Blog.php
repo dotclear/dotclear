@@ -527,10 +527,11 @@ class Blog implements BlogInterface
             $without_empty = !$this->core->auth()->userID(); // Get all categories if in admin display
         }
 
-        $start = isset($params['start']) ? (int) $params['start'] : 0;
-        $level = isset($params['level']) ? (int) $params['level'] : 0;
+        $start     = isset($params['start']) ? (int) $params['start'] : 0;
+        $level     = isset($params['level']) ? (int) $params['level'] : 0;
+        $max_level = isset($params['max_level']) ? (int) $params['max_level'] : 0;
 
-        $rs = $this->categories()->getChildren($start, null, 'desc');
+        $rs = $this->categories()->getChildren($start, null, 'desc', max_level: $max_level);
 
         // Get each categories total posts count
         $data          = [];

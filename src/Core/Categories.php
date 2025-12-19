@@ -74,7 +74,7 @@ class Categories implements CategoriesInterface
         return $this->core->db()->con()->openCursor($this->core->db()->con()->prefix() . self::CATEGORY_TABLE_NAME);
     }
 
-    public function getChildren(int $start = 0, ?int $id = null, string $sort = 'asc', array $fields = []): MetaRecord
+    public function getChildren(int $start = 0, ?int $id = null, string $sort = 'asc', array $fields = [], ?int $max_level = 0): MetaRecord
     {
         $fields = $this->getFields($fields, 'C2.');
 
@@ -90,6 +90,9 @@ class Categories implements CategoriesInterface
         $having = '';
         if ($id !== null) {
             $having = ' HAVING C2.' . $this->f_id . ' = ' . $id;
+        }
+        if ($max_level > 0) {
+            $having .= ' HAVING COUNT(C1.cat_id) <= ' . $max_level . ' ';
         }
 
         $sql = sprintf($sql, $from, $where, $having);
