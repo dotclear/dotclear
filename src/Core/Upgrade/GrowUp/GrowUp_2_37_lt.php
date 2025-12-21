@@ -28,6 +28,18 @@ class GrowUp_2_37_lt
             " WHERE setting_id = 'csp_admin_img' " .
             " AND setting_ns = 'system' ";
         App::db()->con()->execute($strReq);
+        // Update plugins store URL
+        $strReq = 'UPDATE ' . App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME .
+            " SET setting_value = REPLACE(setting_value, 'https://update.dotaddict.org/dc2/plugins.xml', 'https://dotclear.org/plugin/store/dcstore.xml') " .
+            " WHERE setting_id = 'store_plugin_url' " .
+            " AND setting_ns = 'system' ";
+        App::db()->con()->execute($strReq);
+        // Update themes store URL
+        $strReq = 'UPDATE ' . App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME .
+            " SET setting_value = REPLACE(setting_value, 'https://update.dotaddict.org/dc2/themes.xml', 'https://dotclear.org/theme/store/dcstore.xml') " .
+            " WHERE setting_id = 'store_theme_url' " .
+            " AND setting_ns = 'system' ";
+        App::db()->con()->execute($strReq);
 
         // A bit of housecleaning for no longer needed folders
         Upgrade::houseCleaning(
