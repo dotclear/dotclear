@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-21 09:58+0100\n"
+"POT-Creation-Date: 2025-12-21 16:14+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1109,14 +1109,16 @@ msgstr ""
 msgid "Add a new link"
 msgstr ""
 
-#: plugins/blogroll/src/Manage.php:514 plugins/blogroll/src/Manage.php:564
-#: plugins/blogroll/src/ManageEdit.php:223
-#: plugins/blogroll/src/ManageEdit.php:295
+#: plugins/blogroll/src/Manage.php:514 plugins/blogroll/src/ManageEdit.php:295
 msgid "Link status"
 msgstr ""
 
 #: plugins/blogroll/src/Manage.php:533
 msgid "Add a category"
+msgstr ""
+
+#: plugins/blogroll/src/Manage.php:564 plugins/blogroll/src/ManageEdit.php:223
+msgid "Category status"
 msgstr ""
 
 #: plugins/blogroll/src/Manage.php:587 plugins/blogroll/src/Manage.php:679

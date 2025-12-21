@@ -220,7 +220,7 @@ class ManageEdit
                             (new Select('link_status'))
                                 ->items(App::backend()->status_combo)
                                 ->default(App::backend()->link_status)
-                                ->label(new Label(__('Link status') . ' ' . $img_status, Label::OUTSIDE_LABEL_BEFORE)),
+                                ->label(new Label(__('Category status') . ' ' . $img_status, Label::OUTSIDE_LABEL_BEFORE)),
                         ]),
                         (new Para())->items([
                             ...My::hiddenFields(),

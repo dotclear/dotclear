@@ -561,7 +561,7 @@ class Manage
                             (new Select('link_status'))
                                 ->items(App::backend()->status_combo)
                                 ->default(StatusLink::ONLINE)
-                                ->label(new Label(__('Link status'), Label::OUTSIDE_LABEL_BEFORE)),
+                                ->label(new Label(__('Category status'), Label::OUTSIDE_LABEL_BEFORE)),
                         ]),
                         (new Para())
                             ->class('form-buttons')
