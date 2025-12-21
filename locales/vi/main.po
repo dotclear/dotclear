@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-14 09:29+0100\n"
-"PO-Revision-Date: 2025-12-14 08:51\n"
+"POT-Creation-Date: 2025-12-21 09:55+0100\n"
+"PO-Revision-Date: 2025-12-21 09:21\n"
 "Last-Translator: \n"
 "Language-Team: Vietnamese\n"
 "Language: vi_VN\n"
@@ -645,7 +645,7 @@ msgstr "Người dùng"
 
 #: src/Core/Backend/Favorites.php:509 src/Core/Backend/Menus.php:225
 #: src/Process/Backend/Plugins.php:104 src/Process/Backend/Plugins.php:117
-#: src/Process/Backend/Plugins.php:382 src/Process/Backend/Plugins.php:389
+#: src/Process/Backend/Plugins.php:388 src/Process/Backend/Plugins.php:395
 #: src/Process/Upgrade/Plugins.php:162 src/Process/Upgrade/Plugins.php:172
 msgid "Plugins management"
 msgstr "Quản lý plugin"
@@ -666,7 +666,7 @@ msgstr "Ngôn ngữ"
 msgid "Global help"
 msgstr "Hỗ trợ toàn cầu"
 
-#: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1283
+#: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1281
 #: src/Process/Backend/Auth.php:513 src/Process/Backend/BlogPref.php:1369
 #: src/Process/Backend/Comment.php:305 src/Process/Backend/Post.php:1114
 #: src/Process/Backend/User.php:450 src/Process/Backend/UserPreferences.php:819
@@ -674,14 +674,14 @@ msgstr "Hỗ trợ toàn cầu"
 msgid "Email:"
 msgstr "Email:"
 
-#: src/Core/Backend/Filter/FilterComments.php:37 src/Core/Backend/Page.php:1282
+#: src/Core/Backend/Filter/FilterComments.php:37 src/Core/Backend/Page.php:1280
 #: src/Process/Backend/Comment.php:321 src/Process/Backend/Post.php:1123
 msgid "Web site:"
 msgstr "Trang web:"
 
 #: src/Core/Backend/Filter/FilterComments.php:58
 #: src/Core/Backend/Filter/FilterPosts.php:92
-#: src/Core/Backend/ModulesList.php:1045 src/Core/Backend/Page.php:1324
+#: src/Core/Backend/ModulesList.php:1045 src/Core/Backend/Page.php:1322
 #: src/Process/Backend/Comment.php:294
 msgid "Author:"
 msgstr "Tác giả:"
@@ -700,7 +700,7 @@ msgid "Trackback"
 msgstr "Thông báo liên kết ngược"
 
 #: src/Core/Backend/Filter/FilterComments.php:107
-#: src/Core/Backend/Page.php:1284 src/Process/Backend/Comment.php:269
+#: src/Core/Backend/Page.php:1282 src/Process/Backend/Comment.php:269
 msgid "IP address:"
 msgstr "Địa chỉ IP:"
 
@@ -813,7 +813,7 @@ msgstr "Lưu các tùy chọn hiện tại"
 msgid "Display options"
 msgstr "Tùy chọn hiển thị"
 
-#: src/Core/Backend/Filter/Filters.php:422 src/Core/Backend/Page.php:1492
+#: src/Core/Backend/Filter/Filters.php:422 src/Core/Backend/Page.php:1490
 msgid "Show filters and display options"
 msgstr "Hiển thị bộ lọc và tùy chọn hiển thị"
 
@@ -965,7 +965,7 @@ msgstr "Số lượng mặt hàng: %d"
 
 #: src/Core/Backend/Listing/ListingMedia.php:127
 #: src/Core/Backend/ModulesList.php:809 src/Core/Backend/UserPref.php:202
-#: src/Process/Backend/Category.php:255 src/Process/Upgrade/Plugins.php:482
+#: src/Process/Backend/Category.php:255 src/Process/Upgrade/Plugins.php:488
 msgid "Name"
 msgstr "Tên"
 
@@ -1103,32 +1103,32 @@ msgstr "quản trị viên cao cấp"
 msgid "The “No. of entries” column includes all entry types (articles, pages, …) for all blogs in the installation. The link may not be relevant in some contexts"
 msgstr "Cột \"Số lượng bài viết\" bao gồm tất cả các loại bài viết (bài viết, trang, …) cho tất cả các blog trong hệ thống. Liên kết có thể không liên quan trong một số trường hợp."
 
-#: src/Core/Backend/Listing/Pager.php:153
+#: src/Core/Backend/Listing/Pager.php:152
 msgid "First page"
 msgstr "Trang đầu tiên"
 
-#: src/Core/Backend/Listing/Pager.php:161
+#: src/Core/Backend/Listing/Pager.php:160
 msgid "Previous page"
 msgstr "Trang trước"
 
-#: src/Core/Backend/Listing/Pager.php:169
+#: src/Core/Backend/Listing/Pager.php:168
 msgid "Next page"
 msgstr "Trang tiếp theo"
 
-#: src/Core/Backend/Listing/Pager.php:177
+#: src/Core/Backend/Listing/Pager.php:176
 msgid "Last page"
 msgstr "Trang cuối cùng"
 
-#: src/Core/Backend/Listing/Pager.php:184
+#: src/Core/Backend/Listing/Pager.php:183
 #, php-format
 msgid "Page %1$s / %2$s"
 msgstr "Trang %1$s / %2$s"
 
-#: src/Core/Backend/Listing/Pager.php:192
+#: src/Core/Backend/Listing/Pager.php:191
 msgid "Direct access page:"
 msgstr "Trang truy cập trực tiếp:"
 
-#: src/Core/Backend/Listing/Pager.php:193 src/Core/Backend/Page.php:170
+#: src/Core/Backend/Listing/Pager.php:192 src/Core/Backend/Page.php:170
 #: src/Process/Backend/Blogs.php:148 src/Process/Backend/Comments.php:216
 #: src/Process/Backend/Posts.php:137 src/Process/Backend/Search.php:311
 #: src/Process/Backend/Search.php:407 src/Process/Backend/Users.php:160
@@ -1212,17 +1212,17 @@ msgstr "Điểm"
 msgid "Version"
 msgstr "Phiên bản"
 
-#: src/Core/Backend/ModulesList.php:832 src/Process/Upgrade/Plugins.php:486
+#: src/Core/Backend/ModulesList.php:832 src/Process/Upgrade/Plugins.php:492
 msgid "Current version"
 msgstr "Phiên bản hiện tại"
 
 #: src/Core/Backend/ModulesList.php:839 src/Core/Backend/ModulesList.php:1063
-#: src/Core/Backend/Page.php:1325 src/Core/Backend/ThemesList.php:230
+#: src/Core/Backend/Page.php:1323 src/Core/Backend/ThemesList.php:230
 #: src/Core/Backend/ThemesList.php:300
 msgid "Details"
 msgstr "Chi tiết"
 
-#: src/Core/Backend/ModulesList.php:846 src/Process/Upgrade/Plugins.php:498
+#: src/Core/Backend/ModulesList.php:846 src/Process/Upgrade/Plugins.php:504
 msgid "Repository"
 msgstr "Kho lưu trữ"
 
@@ -1231,7 +1231,7 @@ msgstr "Kho lưu trữ"
 msgid "Action"
 msgstr "Hành động"
 
-#: src/Core/Backend/ModulesList.php:926 src/Process/Upgrade/Plugins.php:436
+#: src/Core/Backend/ModulesList.php:926 src/Process/Upgrade/Plugins.php:442
 #, php-format
 msgid " (%s)"
 msgstr " (%s)"
@@ -1246,12 +1246,12 @@ msgid "This module cannot be enabled, because of the following reasons :"
 msgstr "Module này không thể được kích hoạt do các lý do sau:"
 
 #: src/Core/Backend/ModulesList.php:1005 src/Core/Backend/ThemesList.php:215
-#: src/Process/Upgrade/Plugins.php:452
+#: src/Process/Upgrade/Plugins.php:458
 msgid "Official repository"
 msgstr "Kho lưu trữ chính thức"
 
 #: src/Core/Backend/ModulesList.php:1005 src/Core/Backend/ModulesList.php:1108
-#: src/Core/Backend/ThemesList.php:215 src/Process/Upgrade/Plugins.php:452
+#: src/Core/Backend/ThemesList.php:215 src/Process/Upgrade/Plugins.php:458
 msgid "Third-party repository"
 msgstr "Kho lưu trữ của bên thứ ba"
 
@@ -1267,7 +1267,7 @@ msgstr "Plugin đang trong quá trình phát triển"
 msgid "Release date:"
 msgstr "Ngày phát hành:"
 
-#: src/Core/Backend/ModulesList.php:1070 src/Core/Backend/Page.php:1326
+#: src/Core/Backend/ModulesList.php:1070 src/Core/Backend/Page.php:1324
 #: src/Core/Backend/ThemesList.php:236
 msgid "Support"
 msgstr "Hỗ trợ"
@@ -1276,11 +1276,11 @@ msgstr "Hỗ trợ"
 msgid "update locked"
 msgstr "Cập nhật đã bị khóa"
 
-#: src/Core/Backend/ModulesList.php:1115 src/Core/Backend/Page.php:1328
+#: src/Core/Backend/ModulesList.php:1115 src/Core/Backend/Page.php:1326
 msgid "Section:"
 msgstr "Phần:"
 
-#: src/Core/Backend/ModulesList.php:1121 src/Core/Backend/Page.php:1329
+#: src/Core/Backend/ModulesList.php:1121 src/Core/Backend/Page.php:1327
 msgid "Tags:"
 msgstr "Thẻ:"
 
@@ -1453,7 +1453,7 @@ msgstr "Mật khẩu"
 msgid "Your password:"
 msgstr "Mật khẩu của bạn:"
 
-#: src/Core/Backend/ModulesList.php:1785 src/Core/Backend/Page.php:1448
+#: src/Core/Backend/ModulesList.php:1785 src/Core/Backend/Page.php:1446
 #: src/Process/Backend/Media.php:809
 msgid "Upload"
 msgstr "Tải lên"
@@ -1499,8 +1499,8 @@ msgstr "Cấu hình \"%s\""
 msgid "Back"
 msgstr "Quay lại"
 
-#: src/Core/Backend/Notices.php:86 src/Core/Backend/Page.php:1285
-#: src/Core/Backend/Page.php:1443 src/Core/Upgrade/Notices.php:48
+#: src/Core/Backend/Notices.php:86 src/Core/Backend/Page.php:1283
+#: src/Core/Backend/Page.php:1441 src/Core/Upgrade/Notices.php:48
 #: src/Process/Backend/Home.php:324
 msgid "Error:"
 msgstr "Lỗi:"
@@ -1516,7 +1516,7 @@ msgid "%H:%M:%S"
 msgstr "%H:%M:%S"
 
 #: src/Core/Backend/Notices.php:258 src/Core/Backend/Notices.php:298
-#: src/Core/Backend/Notices.php:308 src/Core/Backend/Page.php:1331
+#: src/Core/Backend/Notices.php:308 src/Core/Backend/Page.php:1329
 #: src/Process/Backend/Categories.php:378 src/Process/Backend/Post.php:1058
 #: src/Process/Backend/Post.php:1190 src/Process/Backend/PostsPopup.php:121
 msgid "Ok"
@@ -1600,322 +1600,322 @@ msgstr "Biểu tượng Dotclear"
 msgid "Go to dashboard"
 msgstr "Đi đến bảng điều khiển"
 
-#: src/Core/Backend/Page.php:1133 src/Core/Upgrade/Page.php:454
+#: src/Core/Backend/Page.php:1131 src/Core/Upgrade/Page.php:452
 msgid "Help about this page"
 msgstr "Trợ giúp về trang này"
 
-#: src/Core/Backend/Page.php:1143 src/Core/Upgrade/Page.php:463
+#: src/Core/Backend/Page.php:1141 src/Core/Upgrade/Page.php:461
 #, php-format
 msgid "See also %s"
 msgstr "Xem thêm %s"
 
-#: src/Core/Backend/Page.php:1146 src/Core/Upgrade/Page.php:466
+#: src/Core/Backend/Page.php:1144 src/Core/Upgrade/Page.php:464
 msgid "the global help"
 msgstr "Trợ giúp toàn cầu"
 
-#: src/Core/Backend/Page.php:1267
+#: src/Core/Backend/Page.php:1265
 msgid "uncover"
 msgstr "phát hiện"
 
-#: src/Core/Backend/Page.php:1271
+#: src/Core/Backend/Page.php:1269
 msgid "hide"
 msgstr "ẩn"
 
-#: src/Core/Backend/Page.php:1275
+#: src/Core/Backend/Page.php:1273
 msgid "Need help?"
 msgstr "Cần giúp đỡ?"
 
-#: src/Core/Backend/Page.php:1276
+#: src/Core/Backend/Page.php:1274
 msgid "new window"
 msgstr "cửa sổ mới"
 
-#: src/Core/Backend/Page.php:1277
+#: src/Core/Backend/Page.php:1275
 msgid "Hide"
 msgstr "Ẩn"
 
-#: src/Core/Backend/Page.php:1278
+#: src/Core/Backend/Page.php:1276
 msgid "Select:"
 msgstr "Chọn:"
 
-#: src/Core/Backend/Page.php:1279
+#: src/Core/Backend/Page.php:1277
 msgid "No selection"
 msgstr "Không có lựa chọn"
 
-#: src/Core/Backend/Page.php:1280
+#: src/Core/Backend/Page.php:1278
 msgid "Select all"
 msgstr "Chọn tất cả"
 
-#: src/Core/Backend/Page.php:1281
+#: src/Core/Backend/Page.php:1279
 msgid "Invert selection"
 msgstr "Đảo ngược vùng chọn"
 
-#: src/Core/Backend/Page.php:1286 src/Process/Backend/Post.php:466
+#: src/Core/Backend/Page.php:1284 src/Process/Backend/Post.php:466
 #: src/Process/Backend/Post.php:609
 msgid "Entry has been successfully created."
 msgstr "Đã tạo thành công mục nhập."
 
-#: src/Core/Backend/Page.php:1287
+#: src/Core/Backend/Page.php:1285
 msgid "Edit entry"
 msgstr "Chỉnh sửa mục nhập"
 
-#: src/Core/Backend/Page.php:1288
+#: src/Core/Backend/Page.php:1286
 msgid "view entry"
 msgstr "Xem mục nhập"
 
-#: src/Core/Backend/Page.php:1289
+#: src/Core/Backend/Page.php:1287
 #, php-format
 msgid "Are you sure you want to delete selected entries (%s)?"
 msgstr "Bạn có chắc chắn muốn xóa các mục đã chọn (%s) không?"
 
-#: src/Core/Backend/Page.php:1290
+#: src/Core/Backend/Page.php:1288
 #, php-format
 msgid "Are you sure you want to delete selected medias (%d)?"
 msgstr "Bạn có chắc chắn muốn xóa các phương tiện đã chọn (%d) không?"
 
-#: src/Core/Backend/Page.php:1291
+#: src/Core/Backend/Page.php:1289
 #, php-format
 msgid "Are you sure you want to delete selected categories (%s)?"
 msgstr "Bạn có chắc chắn muốn xóa các danh mục đã chọn (%s) không?"
 
-#: src/Core/Backend/Page.php:1292
+#: src/Core/Backend/Page.php:1290
 msgid "Are you sure you want to delete this entry?"
 msgstr "Bạn có chắc chắn muốn xóa mục này không?"
 
-#: src/Core/Backend/Page.php:1293
+#: src/Core/Backend/Page.php:1291
 msgid "Click here to unlock the field"
 msgstr "Nhấp vào đây để mở khóa trường."
 
-#: src/Core/Backend/Page.php:1294
+#: src/Core/Backend/Page.php:1292
 msgid "Are you sure you want to delete all spams?"
 msgstr "Bạn có chắc chắn muốn xóa tất cả các tin nhắn rác không?"
 
-#: src/Core/Backend/Page.php:1295
+#: src/Core/Backend/Page.php:1293
 #, php-format
 msgid "Are you sure you want to delete selected comments (%s)?"
 msgstr "Bạn có chắc chắn muốn xóa các bình luận đã chọn (%s) không?"
 
-#: src/Core/Backend/Page.php:1296
+#: src/Core/Backend/Page.php:1294
 msgid "Are you sure you want to delete this comment?"
 msgstr "Bạn có chắc chắn muốn xóa bình luận này không?"
 
-#: src/Core/Backend/Page.php:1297
+#: src/Core/Backend/Page.php:1295
 msgid "Users with posts cannot be deleted."
 msgstr "Người dùng có bài đăng không thể bị xóa."
 
-#: src/Core/Backend/Page.php:1298
+#: src/Core/Backend/Page.php:1296
 #, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
 msgstr "Bạn có chắc chắn muốn xóa các người dùng đã chọn (%s) không?"
 
-#: src/Core/Backend/Page.php:1299
+#: src/Core/Backend/Page.php:1297
 #, php-format
 msgid "Are you sure you want to delete selected blogs (%s)?"
 msgstr "Bạn có chắc chắn muốn xóa các blog đã chọn (%s) không?"
 
-#: src/Core/Backend/Page.php:1300
+#: src/Core/Backend/Page.php:1298
 #, php-format
 msgid "Are you sure you want to delete category \"%s\"?"
 msgstr "Bạn có chắc chắn muốn xóa danh mục \"%s\" không?"
 
-#: src/Core/Backend/Page.php:1301
+#: src/Core/Backend/Page.php:1299
 msgid "Are you sure you want to reorder all categories?"
 msgstr "Bạn có chắc chắn muốn sắp xếp lại tất cả các danh mục không?"
 
-#: src/Core/Backend/Page.php:1302
+#: src/Core/Backend/Page.php:1300
 #, php-format
 msgid "Are you sure you want to remove media \"%s\"?"
 msgstr "Bạn có chắc chắn muốn xóa phương tiện \"%s\" không?"
 
-#: src/Core/Backend/Page.php:1303
+#: src/Core/Backend/Page.php:1301
 #, php-format
 msgid "Are you sure you want to remove directory \"%s\"?"
 msgstr "Bạn có chắc chắn muốn xóa thư mục \"%s\" không?"
 
-#: src/Core/Backend/Page.php:1304
+#: src/Core/Backend/Page.php:1302
 msgid "Are you sure you want to extract archive in current directory?"
 msgstr "Bạn có chắc chắn muốn giải nén tệp tin nén vào thư mục hiện tại không?"
 
-#: src/Core/Backend/Page.php:1305
+#: src/Core/Backend/Page.php:1303
 #, php-format
 msgid "Are you sure you want to remove attachment \"%s\"?"
 msgstr "Bạn có chắc chắn muốn xóa tệp đính kèm \"%s\" không?"
 
-#: src/Core/Backend/Page.php:1306
+#: src/Core/Backend/Page.php:1304
 #, php-format
 msgid "Are you sure you want to delete \"%s\" language?"
 msgstr "Bạn có chắc chắn muốn xóa ngôn ngữ \"%s\" không?"
 
-#: src/Core/Backend/Page.php:1307
+#: src/Core/Backend/Page.php:1305
 #, php-format
 msgid "Are you sure you want to delete \"%s\" plugin?"
 msgstr "Bạn có chắc chắn muốn xóa plugin \"%s\" không?"
 
-#: src/Core/Backend/Page.php:1308
+#: src/Core/Backend/Page.php:1306
 msgid "Are you sure you want to delete selected plugins?"
 msgstr "Bạn có chắc chắn muốn xóa các plugin đã chọn không?"
 
-#: src/Core/Backend/Page.php:1309
+#: src/Core/Backend/Page.php:1307
 msgid "Use this theme"
 msgstr "Sử dụng chủ đề này"
 
-#: src/Core/Backend/Page.php:1310
+#: src/Core/Backend/Page.php:1308
 msgid "Remove this theme"
 msgstr "Xóa chủ đề này"
 
-#: src/Core/Backend/Page.php:1311
+#: src/Core/Backend/Page.php:1309
 #, php-format
 msgid "Are you sure you want to delete \"%s\" theme?"
 msgstr "Bạn có chắc chắn muốn xóa chủ đề \"%s\" không?"
 
-#: src/Core/Backend/Page.php:1312
+#: src/Core/Backend/Page.php:1310
 msgid "Are you sure you want to delete selected themes?"
 msgstr "Bạn có chắc chắn muốn xóa các chủ đề đã chọn không?"
 
-#: src/Core/Backend/Page.php:1313
+#: src/Core/Backend/Page.php:1311
 msgid "Are you sure you want to delete this backup?"
 msgstr "Bạn có chắc chắn muốn xóa bản sao lưu này không?"
 
-#: src/Core/Backend/Page.php:1314
+#: src/Core/Backend/Page.php:1312
 msgid "Are you sure you want to revert to this backup?"
 msgstr "Bạn có chắc chắn muốn khôi phục lại bản sao lưu này không?"
 
-#: src/Core/Backend/Page.php:1315
+#: src/Core/Backend/Page.php:1313
 msgid "Zip file content"
 msgstr "Nội dung của tệp ZIP"
 
-#: src/Core/Backend/Page.php:1316
+#: src/Core/Backend/Page.php:1314
 msgid "HTML markup validator"
 msgstr "Trình kiểm tra tính hợp lệ của mã HTML"
 
-#: src/Core/Backend/Page.php:1317
+#: src/Core/Backend/Page.php:1315
 msgid "HTML content is valid."
 msgstr "Nội dung HTML hợp lệ."
 
-#: src/Core/Backend/Page.php:1318
+#: src/Core/Backend/Page.php:1316
 msgid "There are HTML markup errors."
 msgstr "Có lỗi đánh dấu HTML."
 
-#: src/Core/Backend/Page.php:1319
+#: src/Core/Backend/Page.php:1317
 msgid "Attention: an audit of a content not yet registered."
 msgstr "Lưu ý: Kiểm toán nội dung chưa được đăng ký."
 
-#: src/Core/Backend/Page.php:1320
+#: src/Core/Backend/Page.php:1318
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
 msgstr "Bạn có những thay đổi chưa được lưu. Việc chuyển đổi định dạng bài viết sẽ làm mất những thay đổi này. Bạn có muốn tiếp tục không?"
 
-#: src/Core/Backend/Page.php:1321
+#: src/Core/Backend/Page.php:1319
 msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
 msgstr "Cảnh báo: Việc thay đổi định dạng bài đăng sẽ không chuyển đổi nội dung hiện có. Bạn sẽ cần tự áp dụng định dạng mới. Tiếp tục?"
 
-#: src/Core/Backend/Page.php:1322
+#: src/Core/Backend/Page.php:1320
 msgid "Loading enhanced uploader, please wait."
 msgstr "Đang tải trình tải lên nâng cao, vui lòng chờ."
 
-#: src/Core/Backend/Page.php:1327
+#: src/Core/Backend/Page.php:1325
 msgid "Help:"
 msgstr "Trợ giúp:"
 
-#: src/Core/Backend/Page.php:1333
+#: src/Core/Backend/Page.php:1331
 msgid "Show password"
 msgstr "Hiển thị mật khẩu"
 
-#: src/Core/Backend/Page.php:1334
+#: src/Core/Backend/Page.php:1332
 msgid "Hide password"
 msgstr "Ẩn mật khẩu"
 
-#: src/Core/Backend/Page.php:1336
+#: src/Core/Backend/Page.php:1334
 msgid "Reset to now"
 msgstr "Đặt lại về thời điểm hiện tại"
 
-#: src/Core/Backend/Page.php:1337
+#: src/Core/Backend/Page.php:1335
 msgid "The publication date has changed. Reset the base name of the entry URL?"
 msgstr "Ngày phát hành đã thay đổi. Có nên đặt lại tên cơ sở của URL mục nhập không?"
 
-#: src/Core/Backend/Page.php:1338
+#: src/Core/Backend/Page.php:1336
 msgid "The publication title has changed. Reset the base name of the entry URL?"
 msgstr "Tiêu đề xuất bản đã thay đổi. Có nên đặt lại tên cơ sở của URL mục nhập không?"
 
-#: src/Core/Backend/Page.php:1340
+#: src/Core/Backend/Page.php:1338
 msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences."
 msgstr "Một trình chặn quảng cáo đã được phát hiện trên bảng điều khiển Dotclear này (Ghostery, Adblock Plus, uBlock Origin, …) và có thể gây cản trở một số tính năng. Trong trường hợp này, bạn nên tắt trình chặn quảng cáo. Lưu ý rằng tính năng phát hiện này có thể được tắt trong cài đặt của bạn."
 
-#: src/Core/Backend/Page.php:1392
+#: src/Core/Backend/Page.php:1390
 msgid "You have unsaved changes."
 msgstr "Bạn có những thay đổi chưa được lưu."
 
-#: src/Core/Backend/Page.php:1393
+#: src/Core/Backend/Page.php:1391
 msgid "your battery charge seems low (%d%) and you have unsaved changes, you should save them."
 msgstr "Pin của bạn có vẻ yếu (%d%) và bạn có những thay đổi chưa được lưu, bạn nên lưu chúng lại."
 
-#: src/Core/Backend/Page.php:1434
+#: src/Core/Backend/Page.php:1432
 msgid "Temporarily activate enhanced uploader"
 msgstr "Tạm thời kích hoạt trình tải lên nâng cao"
 
-#: src/Core/Backend/Page.php:1435
+#: src/Core/Backend/Page.php:1433
 msgid "Temporarily disable enhanced uploader"
 msgstr "Tạm thời vô hiệu hóa trình tải lên nâng cao"
 
-#: src/Core/Backend/Page.php:1439
+#: src/Core/Backend/Page.php:1437
 msgid "Limit exceeded."
 msgstr "Giới hạn đã bị vượt quá."
 
-#: src/Core/Backend/Page.php:1440
+#: src/Core/Backend/Page.php:1438
 msgid "File size exceeds allowed limit."
 msgstr "Kích thước tệp vượt quá giới hạn cho phép."
 
-#: src/Core/Backend/Page.php:1441
+#: src/Core/Backend/Page.php:1439
 msgid "Canceled."
 msgstr "Đã hủy."
 
-#: src/Core/Backend/Page.php:1442
+#: src/Core/Backend/Page.php:1440
 msgid "HTTP Error:"
 msgstr "Lỗi HTTP:"
 
-#: src/Core/Backend/Page.php:1444 src/Process/Backend/Media.php:752
+#: src/Core/Backend/Page.php:1442 src/Process/Backend/Media.php:752
 msgid "Choose file"
 msgstr "Chọn tệp"
 
-#: src/Core/Backend/Page.php:1445 src/Process/Backend/Media.php:758
+#: src/Core/Backend/Page.php:1443 src/Process/Backend/Media.php:758
 msgid "Choose files"
 msgstr "Chọn tệp"
 
-#: src/Core/Backend/Page.php:1446 src/Process/Backend/LinkPopup.php:114
+#: src/Core/Backend/Page.php:1444 src/Process/Backend/LinkPopup.php:114
 #: src/Process/Backend/Media.php:305 src/Process/Backend/MediaItem.php:516
 #: src/Process/Backend/MediaItem.php:772 src/Process/Backend/Post.php:962
 #: src/Process/Backend/PostMedia.php:115
 msgid "Cancel"
 msgstr "Hủy"
 
-#: src/Core/Backend/Page.php:1447
+#: src/Core/Backend/Page.php:1445
 msgid "Clean"
 msgstr "Sạch sẽ"
 
-#: src/Core/Backend/Page.php:1449
+#: src/Core/Backend/Page.php:1447
 msgid "Send"
 msgstr "Gửi"
 
-#: src/Core/Backend/Page.php:1450
+#: src/Core/Backend/Page.php:1448
 msgid "File successfully uploaded."
 msgstr "Tệp đã được tải lên thành công."
 
-#: src/Core/Backend/Page.php:1451
+#: src/Core/Backend/Page.php:1449
 msgid "No file in queue."
 msgstr "Không có tệp nào trong hàng đợi."
 
-#: src/Core/Backend/Page.php:1452
+#: src/Core/Backend/Page.php:1450
 msgid "1 file in queue."
 msgstr "1 tệp tin đang chờ xử lý."
 
-#: src/Core/Backend/Page.php:1453
+#: src/Core/Backend/Page.php:1451
 #, php-format
 msgid "%d files in queue."
 msgstr "%d Các tệp trong hàng đợi."
 
-#: src/Core/Backend/Page.php:1454
+#: src/Core/Backend/Page.php:1452
 msgid "Queue error:"
 msgstr "Lỗi hàng đợi:"
 
-#: src/Core/Backend/Page.php:1493
+#: src/Core/Backend/Page.php:1491
 msgid "Cancel filters and display options"
 msgstr "Hủy bỏ bộ lọc và tùy chọn hiển thị"
 
@@ -2122,120 +2122,120 @@ msgstr "Số lượng phương tiện truyền thông trên mỗi trang"
 msgid "results per page"
 msgstr "Kết quả trên mỗi trang"
 
-#: src/Core/Blog.php:695
+#: src/Core/Blog.php:696
 msgid "You are not allowed to add categories"
 msgstr "Bạn không được phép thêm các danh mục."
 
-#: src/Core/Blog.php:739
+#: src/Core/Blog.php:740
 msgid "You are not allowed to update categories"
 msgstr "Bạn không được phép cập nhật các danh mục."
 
-#: src/Core/Blog.php:796
+#: src/Core/Blog.php:797
 msgid "You are not allowed to delete categories"
 msgstr "Bạn không được phép xóa các danh mục."
 
-#: src/Core/Blog.php:809
+#: src/Core/Blog.php:810
 msgid "This category is not empty."
 msgstr "Danh mục này không trống."
 
-#: src/Core/Blog.php:822
+#: src/Core/Blog.php:823
 msgid "You are not allowed to reset categories order"
 msgstr "Bạn không được phép thay đổi thứ tự các danh mục."
 
-#: src/Core/Blog.php:891
+#: src/Core/Blog.php:892
 msgid "Empty category URL"
 msgstr "URL danh mục trống"
 
-#: src/Core/Blog.php:908
+#: src/Core/Blog.php:909
 msgid "You must provide a category title"
 msgstr "Bạn phải cung cấp tiêu đề danh mục."
 
-#: src/Core/Blog.php:918
+#: src/Core/Blog.php:919
 msgid "You must provide a category URL"
 msgstr "Bạn phải cung cấp URL của danh mục."
 
-#: src/Core/Blog.php:1374
+#: src/Core/Blog.php:1375
 msgid "You are not allowed to create an entry"
 msgstr "Bạn không được phép tạo một mục nhập."
 
-#: src/Core/Blog.php:1434
+#: src/Core/Blog.php:1435
 msgid "You are not allowed to update entries"
 msgstr "Bạn không được phép cập nhật các mục."
 
-#: src/Core/Blog.php:1440 src/Core/Blog.php:1684
+#: src/Core/Blog.php:1441 src/Core/Blog.php:1685
 msgid "No such entry ID"
 msgstr "Không có ID mục nhập như vậy."
 
-#: src/Core/Blog.php:1474
+#: src/Core/Blog.php:1475
 msgid "You are not allowed to edit this entry"
 msgstr "Bạn không được phép chỉnh sửa mục này."
 
-#: src/Core/Blog.php:1502 src/Core/Blog.php:1537 src/Core/Meta.php:139
+#: src/Core/Blog.php:1503 src/Core/Blog.php:1538 src/Core/Meta.php:139
 #: src/Core/Meta.php:156
 msgid "You are not allowed to change this entry status"
 msgstr "Bạn không được phép thay đổi trạng thái nhập cảnh này."
 
-#: src/Core/Blog.php:1576 src/Core/Blog.php:1614
+#: src/Core/Blog.php:1577 src/Core/Blog.php:1615
 msgid "You are not allowed to change this entry category"
 msgstr "Bạn không được phép thay đổi danh mục này."
 
-#: src/Core/Blog.php:1647
+#: src/Core/Blog.php:1648
 msgid "You are not allowed to change entries category"
 msgstr "Bạn không được phép thay đổi danh mục của các mục nhập."
 
-#: src/Core/Blog.php:1678
+#: src/Core/Blog.php:1679
 msgid "You are not allowed to delete entries"
 msgstr "Bạn không được phép xóa các mục."
 
-#: src/Core/Blog.php:1914
+#: src/Core/Blog.php:1915
 msgid "No entry title"
 msgstr "Không có tiêu đề"
 
-#: src/Core/Blog.php:1918 src/Core/Blog.php:1932
+#: src/Core/Blog.php:1919 src/Core/Blog.php:1933
 msgid "No entry content"
 msgstr "Không có nội dung nhập"
 
-#: src/Core/Blog.php:1998
+#: src/Core/Blog.php:1999
 msgid "Notes"
 msgstr "Ghi chú"
 
-#: src/Core/Blog.php:2000
+#: src/Core/Blog.php:2001
 msgid "Note"
 msgstr "Lưu ý"
 
-#: src/Core/Blog.php:2115
+#: src/Core/Blog.php:2116
 msgid "Empty entry URL"
 msgstr "URL trống"
 
-#: src/Core/Blog.php:2426
+#: src/Core/Blog.php:2427
 msgid "You are not allowed to update comments"
 msgstr "Bạn không được phép cập nhật bình luận."
 
-#: src/Core/Blog.php:2432 src/Core/Blog.php:2438 src/Core/Blog.php:2543
+#: src/Core/Blog.php:2433 src/Core/Blog.php:2439 src/Core/Blog.php:2544
 msgid "No such comment ID"
 msgstr "Không có ID bình luận nào như vậy."
 
-#: src/Core/Blog.php:2445
+#: src/Core/Blog.php:2446
 msgid "You are not allowed to update this comment"
 msgstr "Bạn không được phép cập nhật bình luận này."
 
-#: src/Core/Blog.php:2496
+#: src/Core/Blog.php:2497
 msgid "You are not allowed to change this comment's status"
 msgstr "Bạn không được phép thay đổi trạng thái của bình luận này."
 
-#: src/Core/Blog.php:2537 src/Core/Blog.php:2591
+#: src/Core/Blog.php:2538 src/Core/Blog.php:2592
 msgid "You are not allowed to delete comments"
 msgstr "Bạn không được phép xóa bình luận."
 
-#: src/Core/Blog.php:2626
+#: src/Core/Blog.php:2627
 msgid "You must provide a comment"
 msgstr "Bạn phải cung cấp một bình luận."
 
-#: src/Core/Blog.php:2630
+#: src/Core/Blog.php:2631
 msgid "You must provide an author name"
 msgstr "Bạn phải cung cấp tên tác giả."
 
-#: src/Core/Blog.php:2634
+#: src/Core/Blog.php:2635
 msgid "Email address is not valid."
 msgstr "Địa chỉ email không hợp lệ."
 
@@ -3004,63 +3004,63 @@ msgstr "Module \"%1$s\" yêu cầu phiên bản \"%2$s\" là %3$s, nhưng phiên
 msgid "Module \"%1$s\" requires module \"%2$s\" which is disabled"
 msgstr "Module \"%1$s\" yêu cầu module \"%2$s\", nhưng module này đã bị vô hiệu hóa."
 
-#: src/Module/Modules.php:616
+#: src/Module/Modules.php:611
 #, php-format
 msgid "Module \"%1$s\" has type \"%2$s\" that mismatch required module type \"%3$s\"."
 msgstr "Module \"%1$s\" có loại \"%2$s\", không khớp với loại module yêu cầu \"%3$s\"."
 
-#: src/Module/Modules.php:642
+#: src/Module/Modules.php:637
 #, php-format
 msgid "Module \"%1$s\" is installed twice in \"%2$s\" and \"%3$s\"."
 msgstr "Module \"%1$s\" được cài đặt hai lần trong \"%2$s\" và \"%3$s\"."
 
-#: src/Module/Modules.php:716
+#: src/Module/Modules.php:710
 msgid "Empty module zip file."
 msgstr "Tệp ZIP chứa mô-đun trống."
 
-#: src/Module/Modules.php:723
+#: src/Module/Modules.php:717
 msgid "The zip file does not appear to be a valid Dotclear module."
 msgstr "Tệp ZIP dường như không phải là mô-đun Dotclear hợp lệ."
 
-#: src/Module/Modules.php:758 src/Module/Modules.php:795
+#: src/Module/Modules.php:752 src/Module/Modules.php:789
 #, php-format
 msgid "Module is not installed: %s"
 msgstr "Module chưa được cài đặt: %s"
 
-#: src/Module/Modules.php:810
+#: src/Module/Modules.php:804
 #, php-format
 msgid "Unable to upgrade \"%s\". (update locked)"
 msgstr "Không thể nâng cấp \"%s\". (Cập nhật bị khóa)"
 
-#: src/Module/Modules.php:814
+#: src/Module/Modules.php:808
 msgid "An error occurred during module deletion."
 msgstr "Đã xảy ra lỗi trong quá trình xóa mô-đun."
 
-#: src/Module/Modules.php:822
+#: src/Module/Modules.php:816
 #, php-format
 msgid "Unable to upgrade \"%s\". (older or same version)"
 msgstr "Không thể nâng cấp \"%s\". (phiên bản cũ hơn hoặc cùng phiên bản)"
 
-#: src/Module/Modules.php:828
+#: src/Module/Modules.php:822
 #, php-format
 msgid "Unable to read new %s file"
 msgstr "Không thể đọc tệp mới %s"
 
-#: src/Module/Modules.php:837 src/Module/Modules.php:954
-#: src/Module/Modules.php:958
+#: src/Module/Modules.php:831 src/Module/Modules.php:948
+#: src/Module/Modules.php:952
 msgid "Cannot deactivate plugin."
 msgstr "Không thể vô hiệu hóa plugin."
 
-#: src/Module/Modules.php:930 src/Module/Modules.php:950
-#: src/Module/Modules.php:974
+#: src/Module/Modules.php:924 src/Module/Modules.php:944
+#: src/Module/Modules.php:968
 msgid "No such module."
 msgstr "Không tìm thấy mô-đun đó."
 
-#: src/Module/Modules.php:934
+#: src/Module/Modules.php:928
 msgid "Cannot remove module files"
 msgstr "Không thể xóa các tệp mô-đun."
 
-#: src/Module/Modules.php:978 src/Module/Modules.php:982
+#: src/Module/Modules.php:972 src/Module/Modules.php:976
 msgid "Cannot activate plugin."
 msgstr "Không thể kích hoạt plugin."
 
@@ -3982,11 +3982,9 @@ msgid_plural "There are %s theme updates available:"
 msgstr[0] "Có các bản cập nhật chủ đề sau đây có sẵn: %s"
 
 #: src/Process/Backend/BlogTheme.php:312 src/Process/Backend/BlogTheme.php:349
-#: src/Process/Backend/Plugins.php:276 src/Process/Backend/Plugins.php:330
-#: src/Process/Upgrade/Plugins.php:265 src/Process/Upgrade/Plugins.php:321
 #, php-format
-msgid "Visit %s repository, the resources center for Dotclear."
-msgstr "Truy cập kho lưu trữ %s , trung tâm tài nguyên cho Dotclear."
+msgid "Visit %s themes repository."
+msgstr "Truy cập kho chủ đề tại %s."
 
 #: src/Process/Backend/BlogTheme.php:341
 msgid "Add themes"
@@ -3996,8 +3994,8 @@ msgstr "Thêm chủ đề"
 msgid "Add themes from repository"
 msgstr "Thêm chủ đề từ kho lưu trữ"
 
-#: src/Process/Backend/BlogTheme.php:359 src/Process/Backend/Plugins.php:336
-#: src/Process/Upgrade/Plugins.php:327
+#: src/Process/Backend/BlogTheme.php:359 src/Process/Backend/Plugins.php:342
+#: src/Process/Upgrade/Plugins.php:333
 msgid "Install or upgrade manually"
 msgstr "Cài đặt hoặc nâng cấp thủ công"
 
@@ -5070,36 +5068,42 @@ msgid "There is one plugin update available:"
 msgid_plural "There are %s plugin updates available:"
 msgstr[0] "Có các bản cập nhật plugin sau đây có sẵn: %s"
 
-#: src/Process/Backend/Plugins.php:280 src/Process/Backend/Plugins.php:283
-#: src/Process/Upgrade/Plugins.php:269 src/Process/Upgrade/Plugins.php:272
+#: src/Process/Backend/Plugins.php:277 src/Process/Backend/Plugins.php:334
+#: src/Process/Upgrade/Plugins.php:266 src/Process/Upgrade/Plugins.php:325
+#, php-format
+msgid "Visit %s plugins repository."
+msgstr "Truy cập kho plugin của %s."
+
+#: src/Process/Backend/Plugins.php:283 src/Process/Backend/Plugins.php:286
+#: src/Process/Upgrade/Plugins.php:272 src/Process/Upgrade/Plugins.php:275
 msgid "Update plugins"
 msgstr "Cập nhật plugin"
 
-#: src/Process/Backend/Plugins.php:292 src/Process/Upgrade/Plugins.php:281
+#: src/Process/Backend/Plugins.php:295 src/Process/Upgrade/Plugins.php:284
 msgid "Force checking update of plugins"
 msgstr "Kiểm tra cập nhật bắt buộc cho các plugin"
 
-#: src/Process/Backend/Plugins.php:311 src/Process/Upgrade/Plugins.php:302
+#: src/Process/Backend/Plugins.php:314 src/Process/Upgrade/Plugins.php:305
 msgid "Add plugins"
 msgstr "Thêm plugin"
 
-#: src/Process/Backend/Plugins.php:314 src/Process/Upgrade/Plugins.php:305
+#: src/Process/Backend/Plugins.php:317 src/Process/Upgrade/Plugins.php:308
 msgid "Add plugins from repository"
 msgstr "Thêm plugin từ kho lưu trữ"
 
-#: src/Process/Backend/Plugins.php:339 src/Process/Upgrade/Plugins.php:330
+#: src/Process/Backend/Plugins.php:345 src/Process/Upgrade/Plugins.php:336
 msgid "Add plugins from a package"
 msgstr "Thêm các plugin từ một gói"
 
-#: src/Process/Backend/Plugins.php:342 src/Process/Upgrade/Plugins.php:333
+#: src/Process/Backend/Plugins.php:348 src/Process/Upgrade/Plugins.php:339
 msgid "You can install plugins by uploading or downloading zip files."
 msgstr "Bạn có thể cài đặt plugin bằng cách tải lên hoặc tải xuống các tệp ZIP."
 
-#: src/Process/Backend/Plugins.php:358 src/Process/Upgrade/Plugins.php:346
+#: src/Process/Backend/Plugins.php:364 src/Process/Upgrade/Plugins.php:352
 msgid "Some functions are disabled, please give write access to your plugins directory to enable them."
 msgstr "Một số chức năng đã bị vô hiệu hóa, vui lòng cấp quyền ghi cho thư mục plugin của bạn để kích hoạt chúng."
 
-#: src/Process/Backend/Plugins.php:390
+#: src/Process/Backend/Plugins.php:396
 msgid "Plugin configuration"
 msgstr "Cấu hình plugin"
 
@@ -7009,48 +7013,48 @@ msgstr "Cài đặt hoặc cập nhật ngôn ngữ bằng cách tải lên tệ
 msgid "Some plugins could not be loaded."
 msgstr "Một số plugin không thể được tải."
 
-#: src/Process/Upgrade/Plugins.php:371
+#: src/Process/Upgrade/Plugins.php:377
 msgid "There is no module to check"
 msgstr "Không có mô-đun để kiểm tra."
 
-#: src/Process/Upgrade/Plugins.php:379
+#: src/Process/Upgrade/Plugins.php:385
 msgid "Store version"
 msgstr "Phiên bản cửa hàng"
 
-#: src/Process/Upgrade/Plugins.php:381
+#: src/Process/Upgrade/Plugins.php:387
 msgid "Check stores versions"
 msgstr "Kiểm tra phiên bản của các cửa hàng"
 
-#: src/Process/Upgrade/Plugins.php:389
+#: src/Process/Upgrade/Plugins.php:395
 msgid "Check lastest stores versions"
 msgstr "Kiểm tra phiên bản mới nhất của các cửa hàng"
 
-#: src/Process/Upgrade/Plugins.php:393
+#: src/Process/Upgrade/Plugins.php:399
 #, php-format
 msgid "You can check repositories for modules written explicitly for Dotclear release greater than %s."
 msgstr "Bạn có thể kiểm tra các kho lưu trữ cho các mô-đun được viết riêng cho phiên bản Dotclear lớn hơn %s."
 
-#: src/Process/Upgrade/Plugins.php:418 src/Process/Upgrade/Plugins.php:461
+#: src/Process/Upgrade/Plugins.php:424 src/Process/Upgrade/Plugins.php:467
 msgid "No version available"
 msgstr "Không có phiên bản nào có sẵn."
 
-#: src/Process/Upgrade/Plugins.php:420
+#: src/Process/Upgrade/Plugins.php:426
 msgid "No update available"
 msgstr "Không có bản cập nhật nào có sẵn."
 
-#: src/Process/Upgrade/Plugins.php:422
+#: src/Process/Upgrade/Plugins.php:428
 msgid "Newer version available"
 msgstr "Phiên bản mới hơn có sẵn"
 
-#: src/Process/Upgrade/Plugins.php:475
+#: src/Process/Upgrade/Plugins.php:481
 msgid "Modules list"
 msgstr "Danh sách các mô-đun"
 
-#: src/Process/Upgrade/Plugins.php:490
+#: src/Process/Upgrade/Plugins.php:496
 msgid "Latest version"
 msgstr "Phiên bản mới nhất"
 
-#: src/Process/Upgrade/Plugins.php:494
+#: src/Process/Upgrade/Plugins.php:500
 msgid "Written for Dotclear"
 msgstr "Viết cho Dotclear"
 
