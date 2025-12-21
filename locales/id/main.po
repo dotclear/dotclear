@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-21 09:55+0100\n"
-"PO-Revision-Date: 2025-12-21 09:03\n"
+"PO-Revision-Date: 2025-12-21 09:29\n"
 "Last-Translator: \n"
 "Language-Team: Indonesian\n"
 "Language: id_ID\n"
@@ -3984,7 +3984,7 @@ msgstr[0] "Tersedia pembaruan tema %s:"
 #: src/Process/Backend/BlogTheme.php:312 src/Process/Backend/BlogTheme.php:349
 #, php-format
 msgid "Visit %s themes repository."
-msgstr ""
+msgstr "Kunjungi %s repositori tema."
 
 #: src/Process/Backend/BlogTheme.php:341
 msgid "Add themes"
@@ -5072,7 +5072,7 @@ msgstr[0] "Tersedia pembaruan plugin %s:"
 #: src/Process/Upgrade/Plugins.php:266 src/Process/Upgrade/Plugins.php:325
 #, php-format
 msgid "Visit %s plugins repository."
-msgstr ""
+msgstr "Kunjungi %s repositori plugin."
 
 #: src/Process/Backend/Plugins.php:283 src/Process/Backend/Plugins.php:286
 #: src/Process/Upgrade/Plugins.php:272 src/Process/Upgrade/Plugins.php:275
