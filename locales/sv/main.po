@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-14 09:29+0100\n"
-"PO-Revision-Date: 2025-12-14 08:54\n"
+"POT-Creation-Date: 2025-12-21 09:55+0100\n"
+"PO-Revision-Date: 2025-12-21 09:02\n"
 "Last-Translator: \n"
 "Language-Team: Swedish\n"
 "Language: sv_SE\n"
@@ -656,7 +656,7 @@ msgstr "Användare"
 
 #: src/Core/Backend/Favorites.php:509 src/Core/Backend/Menus.php:225
 #: src/Process/Backend/Plugins.php:104 src/Process/Backend/Plugins.php:117
-#: src/Process/Backend/Plugins.php:382 src/Process/Backend/Plugins.php:389
+#: src/Process/Backend/Plugins.php:388 src/Process/Backend/Plugins.php:395
 #: src/Process/Upgrade/Plugins.php:162 src/Process/Upgrade/Plugins.php:172
 msgid "Plugins management"
 msgstr "Hantering av plugins"
@@ -677,7 +677,7 @@ msgstr "Språk"
 msgid "Global help"
 msgstr "Global hjälp"
 
-#: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1283
+#: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1281
 #: src/Process/Backend/Auth.php:513 src/Process/Backend/BlogPref.php:1369
 #: src/Process/Backend/Comment.php:305 src/Process/Backend/Post.php:1114
 #: src/Process/Backend/User.php:450 src/Process/Backend/UserPreferences.php:819
@@ -685,14 +685,14 @@ msgstr "Global hjälp"
 msgid "Email:"
 msgstr "Email:"
 
-#: src/Core/Backend/Filter/FilterComments.php:37 src/Core/Backend/Page.php:1282
+#: src/Core/Backend/Filter/FilterComments.php:37 src/Core/Backend/Page.php:1280
 #: src/Process/Backend/Comment.php:321 src/Process/Backend/Post.php:1123
 msgid "Web site:"
 msgstr "Web site:"
 
 #: src/Core/Backend/Filter/FilterComments.php:58
 #: src/Core/Backend/Filter/FilterPosts.php:92
-#: src/Core/Backend/ModulesList.php:1045 src/Core/Backend/Page.php:1324
+#: src/Core/Backend/ModulesList.php:1045 src/Core/Backend/Page.php:1322
 #: src/Process/Backend/Comment.php:294
 msgid "Author:"
 msgstr "Författare:"
@@ -711,7 +711,7 @@ msgid "Trackback"
 msgstr "Spårning"
 
 #: src/Core/Backend/Filter/FilterComments.php:107
-#: src/Core/Backend/Page.php:1284 src/Process/Backend/Comment.php:269
+#: src/Core/Backend/Page.php:1282 src/Process/Backend/Comment.php:269
 msgid "IP address:"
 msgstr "IP-adress:"
 
@@ -824,7 +824,7 @@ msgstr "Spara aktuella alternativ"
 msgid "Display options"
 msgstr "Visa alternativ"
 
-#: src/Core/Backend/Filter/Filters.php:422 src/Core/Backend/Page.php:1492
+#: src/Core/Backend/Filter/Filters.php:422 src/Core/Backend/Page.php:1490
 msgid "Show filters and display options"
 msgstr "Visa filter och visningsalternativ"
 
@@ -979,7 +979,7 @@ msgstr "Nb av objekt: %d"
 
 #: src/Core/Backend/Listing/ListingMedia.php:127
 #: src/Core/Backend/ModulesList.php:809 src/Core/Backend/UserPref.php:202
-#: src/Process/Backend/Category.php:255 src/Process/Upgrade/Plugins.php:482
+#: src/Process/Backend/Category.php:255 src/Process/Upgrade/Plugins.php:488
 msgid "Name"
 msgstr "Namn"
 
@@ -1118,32 +1118,32 @@ msgstr "superadministratör"
 msgid "The “No. of entries” column includes all entry types (articles, pages, …) for all blogs in the installation. The link may not be relevant in some contexts"
 msgstr "Kolumnen \"Antal poster\" innehåller alla typer av poster (artiklar, sidor, …) för alla bloggar i installationen. Länken kanske inte är relevant i vissa sammanhang"
 
-#: src/Core/Backend/Listing/Pager.php:153
+#: src/Core/Backend/Listing/Pager.php:152
 msgid "First page"
 msgstr "Första sidan"
 
-#: src/Core/Backend/Listing/Pager.php:161
+#: src/Core/Backend/Listing/Pager.php:160
 msgid "Previous page"
 msgstr "Föregående sida"
 
-#: src/Core/Backend/Listing/Pager.php:169
+#: src/Core/Backend/Listing/Pager.php:168
 msgid "Next page"
 msgstr "Nästa sida"
 
-#: src/Core/Backend/Listing/Pager.php:177
+#: src/Core/Backend/Listing/Pager.php:176
 msgid "Last page"
 msgstr "Sista sidan"
 
-#: src/Core/Backend/Listing/Pager.php:184
+#: src/Core/Backend/Listing/Pager.php:183
 #, php-format
 msgid "Page %1$s / %2$s"
 msgstr "Sida %1$s / %2$s"
 
-#: src/Core/Backend/Listing/Pager.php:192
+#: src/Core/Backend/Listing/Pager.php:191
 msgid "Direct access page:"
 msgstr "Sida med direktåtkomst:"
 
-#: src/Core/Backend/Listing/Pager.php:193 src/Core/Backend/Page.php:170
+#: src/Core/Backend/Listing/Pager.php:192 src/Core/Backend/Page.php:170
 #: src/Process/Backend/Blogs.php:148 src/Process/Backend/Comments.php:216
 #: src/Process/Backend/Posts.php:137 src/Process/Backend/Search.php:311
 #: src/Process/Backend/Search.php:407 src/Process/Backend/Users.php:160
@@ -1230,17 +1230,17 @@ msgstr "Poäng"
 msgid "Version"
 msgstr "Version"
 
-#: src/Core/Backend/ModulesList.php:832 src/Process/Upgrade/Plugins.php:486
+#: src/Core/Backend/ModulesList.php:832 src/Process/Upgrade/Plugins.php:492
 msgid "Current version"
 msgstr "Nuvarande version"
 
 #: src/Core/Backend/ModulesList.php:839 src/Core/Backend/ModulesList.php:1063
-#: src/Core/Backend/Page.php:1325 src/Core/Backend/ThemesList.php:230
+#: src/Core/Backend/Page.php:1323 src/Core/Backend/ThemesList.php:230
 #: src/Core/Backend/ThemesList.php:300
 msgid "Details"
 msgstr "Detaljer"
 
-#: src/Core/Backend/ModulesList.php:846 src/Process/Upgrade/Plugins.php:498
+#: src/Core/Backend/ModulesList.php:846 src/Process/Upgrade/Plugins.php:504
 msgid "Repository"
 msgstr "Utveckling"
 
@@ -1249,7 +1249,7 @@ msgstr "Utveckling"
 msgid "Action"
 msgstr "Åtgärd"
 
-#: src/Core/Backend/ModulesList.php:926 src/Process/Upgrade/Plugins.php:436
+#: src/Core/Backend/ModulesList.php:926 src/Process/Upgrade/Plugins.php:442
 #, php-format
 msgid " (%s)"
 msgstr " (%s)"
@@ -1264,12 +1264,12 @@ msgid "This module cannot be enabled, because of the following reasons :"
 msgstr "Modulen kan inte aktiveras på grund av följande skäl:"
 
 #: src/Core/Backend/ModulesList.php:1005 src/Core/Backend/ThemesList.php:215
-#: src/Process/Upgrade/Plugins.php:452
+#: src/Process/Upgrade/Plugins.php:458
 msgid "Official repository"
 msgstr "Officiell utvecklingskatalog"
 
 #: src/Core/Backend/ModulesList.php:1005 src/Core/Backend/ModulesList.php:1108
-#: src/Core/Backend/ThemesList.php:215 src/Process/Upgrade/Plugins.php:452
+#: src/Core/Backend/ThemesList.php:215 src/Process/Upgrade/Plugins.php:458
 msgid "Third-party repository"
 msgstr "Tredjeparts utvecklingskatalog"
 
@@ -1285,7 +1285,7 @@ msgstr "Plugin i utveckling"
 msgid "Release date:"
 msgstr "Utgivningsdatum:"
 
-#: src/Core/Backend/ModulesList.php:1070 src/Core/Backend/Page.php:1326
+#: src/Core/Backend/ModulesList.php:1070 src/Core/Backend/Page.php:1324
 #: src/Core/Backend/ThemesList.php:236
 msgid "Support"
 msgstr "Stöd"
@@ -1294,11 +1294,11 @@ msgstr "Stöd"
 msgid "update locked"
 msgstr "uppdatering låst"
 
-#: src/Core/Backend/ModulesList.php:1115 src/Core/Backend/Page.php:1328
+#: src/Core/Backend/ModulesList.php:1115 src/Core/Backend/Page.php:1326
 msgid "Section:"
 msgstr "Sektion:"
 
-#: src/Core/Backend/ModulesList.php:1121 src/Core/Backend/Page.php:1329
+#: src/Core/Backend/ModulesList.php:1121 src/Core/Backend/Page.php:1327
 msgid "Tags:"
 msgstr "Taggar:"
 
@@ -1476,7 +1476,7 @@ msgstr "Lösenord"
 msgid "Your password:"
 msgstr "Ditt lösenord:"
 
-#: src/Core/Backend/ModulesList.php:1785 src/Core/Backend/Page.php:1448
+#: src/Core/Backend/ModulesList.php:1785 src/Core/Backend/Page.php:1446
 #: src/Process/Backend/Media.php:809
 msgid "Upload"
 msgstr "Ladda upp"
@@ -1522,8 +1522,8 @@ msgstr "Konfigurera \"%s\""
 msgid "Back"
 msgstr "Tillbaka"
 
-#: src/Core/Backend/Notices.php:86 src/Core/Backend/Page.php:1285
-#: src/Core/Backend/Page.php:1443 src/Core/Upgrade/Notices.php:48
+#: src/Core/Backend/Notices.php:86 src/Core/Backend/Page.php:1283
+#: src/Core/Backend/Page.php:1441 src/Core/Upgrade/Notices.php:48
 #: src/Process/Backend/Home.php:324
 msgid "Error:"
 msgstr "Fel:"
@@ -1539,7 +1539,7 @@ msgid "%H:%M:%S"
 msgstr "%H:%M:%S"
 
 #: src/Core/Backend/Notices.php:258 src/Core/Backend/Notices.php:298
-#: src/Core/Backend/Notices.php:308 src/Core/Backend/Page.php:1331
+#: src/Core/Backend/Notices.php:308 src/Core/Backend/Page.php:1329
 #: src/Process/Backend/Categories.php:378 src/Process/Backend/Post.php:1058
 #: src/Process/Backend/Post.php:1190 src/Process/Backend/PostsPopup.php:121
 msgid "Ok"
@@ -1623,322 +1623,322 @@ msgstr "Dotclear-logotypen"
 msgid "Go to dashboard"
 msgstr "Gå till instrumentpanelen"
 
-#: src/Core/Backend/Page.php:1133 src/Core/Upgrade/Page.php:454
+#: src/Core/Backend/Page.php:1131 src/Core/Upgrade/Page.php:452
 msgid "Help about this page"
 msgstr "Hjälp om denna sida"
 
-#: src/Core/Backend/Page.php:1143 src/Core/Upgrade/Page.php:463
+#: src/Core/Backend/Page.php:1141 src/Core/Upgrade/Page.php:461
 #, php-format
 msgid "See also %s"
 msgstr "Se även %s"
 
-#: src/Core/Backend/Page.php:1146 src/Core/Upgrade/Page.php:466
+#: src/Core/Backend/Page.php:1144 src/Core/Upgrade/Page.php:464
 msgid "the global help"
 msgstr "den globala hjälpen"
 
-#: src/Core/Backend/Page.php:1267
+#: src/Core/Backend/Page.php:1265
 msgid "uncover"
 msgstr "avtäcka"
 
-#: src/Core/Backend/Page.php:1271
+#: src/Core/Backend/Page.php:1269
 msgid "hide"
 msgstr "dölj"
 
-#: src/Core/Backend/Page.php:1275
+#: src/Core/Backend/Page.php:1273
 msgid "Need help?"
 msgstr "Behöver du hjälp?"
 
-#: src/Core/Backend/Page.php:1276
+#: src/Core/Backend/Page.php:1274
 msgid "new window"
 msgstr "nytt fönster"
 
-#: src/Core/Backend/Page.php:1277
+#: src/Core/Backend/Page.php:1275
 msgid "Hide"
 msgstr "Dölj"
 
-#: src/Core/Backend/Page.php:1278
+#: src/Core/Backend/Page.php:1276
 msgid "Select:"
 msgstr "Välj:"
 
-#: src/Core/Backend/Page.php:1279
+#: src/Core/Backend/Page.php:1277
 msgid "No selection"
 msgstr "Inget val"
 
-#: src/Core/Backend/Page.php:1280
+#: src/Core/Backend/Page.php:1278
 msgid "Select all"
 msgstr "Markera alla"
 
-#: src/Core/Backend/Page.php:1281
+#: src/Core/Backend/Page.php:1279
 msgid "Invert selection"
 msgstr "Invertera markering"
 
-#: src/Core/Backend/Page.php:1286 src/Process/Backend/Post.php:466
+#: src/Core/Backend/Page.php:1284 src/Process/Backend/Post.php:466
 #: src/Process/Backend/Post.php:609
 msgid "Entry has been successfully created."
 msgstr "Inlägget har skapats."
 
-#: src/Core/Backend/Page.php:1287
+#: src/Core/Backend/Page.php:1285
 msgid "Edit entry"
 msgstr "Redigera post"
 
-#: src/Core/Backend/Page.php:1288
+#: src/Core/Backend/Page.php:1286
 msgid "view entry"
 msgstr "visa post"
 
-#: src/Core/Backend/Page.php:1289
+#: src/Core/Backend/Page.php:1287
 #, php-format
 msgid "Are you sure you want to delete selected entries (%s)?"
 msgstr "Är du säker på att du vill ta bort markerade poster (%s)?"
 
-#: src/Core/Backend/Page.php:1290
+#: src/Core/Backend/Page.php:1288
 #, php-format
 msgid "Are you sure you want to delete selected medias (%d)?"
 msgstr "Är du säker på att du vill ta bort valda medier (%d)?"
 
-#: src/Core/Backend/Page.php:1291
+#: src/Core/Backend/Page.php:1289
 #, php-format
 msgid "Are you sure you want to delete selected categories (%s)?"
 msgstr "Är du säker på att du vill ta bort valda kategorier (%s)?"
 
-#: src/Core/Backend/Page.php:1292
+#: src/Core/Backend/Page.php:1290
 msgid "Are you sure you want to delete this entry?"
 msgstr "Är du säker på att du vill ta bort denna post?"
 
-#: src/Core/Backend/Page.php:1293
+#: src/Core/Backend/Page.php:1291
 msgid "Click here to unlock the field"
 msgstr "Klicka här för att låsa upp fältet"
 
-#: src/Core/Backend/Page.php:1294
+#: src/Core/Backend/Page.php:1292
 msgid "Are you sure you want to delete all spams?"
 msgstr "Är du säker på att du vill ta bort alla skräppost?"
 
-#: src/Core/Backend/Page.php:1295
+#: src/Core/Backend/Page.php:1293
 #, php-format
 msgid "Are you sure you want to delete selected comments (%s)?"
 msgstr "Är du säker på att du vill ta bort markerade kommentarer (%s)?"
 
-#: src/Core/Backend/Page.php:1296
+#: src/Core/Backend/Page.php:1294
 msgid "Are you sure you want to delete this comment?"
 msgstr "Är du säker på att du vill ta bort denna kommentar?"
 
-#: src/Core/Backend/Page.php:1297
+#: src/Core/Backend/Page.php:1295
 msgid "Users with posts cannot be deleted."
 msgstr "Användare med inlägg kan inte tas bort."
 
-#: src/Core/Backend/Page.php:1298
+#: src/Core/Backend/Page.php:1296
 #, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
 msgstr "Är du säker på att du vill ta bort valda användare (%s)?"
 
-#: src/Core/Backend/Page.php:1299
+#: src/Core/Backend/Page.php:1297
 #, php-format
 msgid "Are you sure you want to delete selected blogs (%s)?"
 msgstr "Är du säker på att du vill ta bort valda bloggar (%s)?"
 
-#: src/Core/Backend/Page.php:1300
+#: src/Core/Backend/Page.php:1298
 #, php-format
 msgid "Are you sure you want to delete category \"%s\"?"
 msgstr "Är du säker på att du vill ta bort kategorin \"%s\"?"
 
-#: src/Core/Backend/Page.php:1301
+#: src/Core/Backend/Page.php:1299
 msgid "Are you sure you want to reorder all categories?"
 msgstr "Är du säker på att du vill ordna om alla kategorier?"
 
-#: src/Core/Backend/Page.php:1302
+#: src/Core/Backend/Page.php:1300
 #, php-format
 msgid "Are you sure you want to remove media \"%s\"?"
 msgstr "Är du säker på att du vill ta bort media \"%s\"?"
 
-#: src/Core/Backend/Page.php:1303
+#: src/Core/Backend/Page.php:1301
 #, php-format
 msgid "Are you sure you want to remove directory \"%s\"?"
 msgstr "Är du säker på att du vill ta bort katalogen \"%s\"?"
 
-#: src/Core/Backend/Page.php:1304
+#: src/Core/Backend/Page.php:1302
 msgid "Are you sure you want to extract archive in current directory?"
 msgstr "Är du säker på att du vill extrahera arkiv i aktuell katalog?"
 
-#: src/Core/Backend/Page.php:1305
+#: src/Core/Backend/Page.php:1303
 #, php-format
 msgid "Are you sure you want to remove attachment \"%s\"?"
 msgstr "Är du säker på att du vill ta bort bilagan\"%s\"?"
 
-#: src/Core/Backend/Page.php:1306
+#: src/Core/Backend/Page.php:1304
 #, php-format
 msgid "Are you sure you want to delete \"%s\" language?"
 msgstr "Är du säker på att du vill ta bort \"%s\" språk?"
 
-#: src/Core/Backend/Page.php:1307
+#: src/Core/Backend/Page.php:1305
 #, php-format
 msgid "Are you sure you want to delete \"%s\" plugin?"
 msgstr "Är du säker på att du vill ta bort \"%s\" plugin?"
 
-#: src/Core/Backend/Page.php:1308
+#: src/Core/Backend/Page.php:1306
 msgid "Are you sure you want to delete selected plugins?"
 msgstr "Är du säker på att du vill ta bort valda plugins?"
 
-#: src/Core/Backend/Page.php:1309
+#: src/Core/Backend/Page.php:1307
 msgid "Use this theme"
 msgstr "Använd detta tema"
 
-#: src/Core/Backend/Page.php:1310
+#: src/Core/Backend/Page.php:1308
 msgid "Remove this theme"
 msgstr "Ta bort detta tema"
 
-#: src/Core/Backend/Page.php:1311
+#: src/Core/Backend/Page.php:1309
 #, php-format
 msgid "Are you sure you want to delete \"%s\" theme?"
 msgstr "Är du säker på att du vill ta bort \"%s\" tema?"
 
-#: src/Core/Backend/Page.php:1312
+#: src/Core/Backend/Page.php:1310
 msgid "Are you sure you want to delete selected themes?"
 msgstr "Är du säker på att du vill ta bort markerade teman?"
 
-#: src/Core/Backend/Page.php:1313
+#: src/Core/Backend/Page.php:1311
 msgid "Are you sure you want to delete this backup?"
 msgstr "Är du säker på att du vill ta bort denna säkerhetskopia?"
 
-#: src/Core/Backend/Page.php:1314
+#: src/Core/Backend/Page.php:1312
 msgid "Are you sure you want to revert to this backup?"
 msgstr "Är du säker på att du vill återgå till denna säkerhetskopia?"
 
-#: src/Core/Backend/Page.php:1315
+#: src/Core/Backend/Page.php:1313
 msgid "Zip file content"
 msgstr "Innehåll i zip-filen"
 
-#: src/Core/Backend/Page.php:1316
+#: src/Core/Backend/Page.php:1314
 msgid "HTML markup validator"
 msgstr "HTML markup validator"
 
-#: src/Core/Backend/Page.php:1317
+#: src/Core/Backend/Page.php:1315
 msgid "HTML content is valid."
 msgstr "HTML-innehållet är giltigt."
 
-#: src/Core/Backend/Page.php:1318
+#: src/Core/Backend/Page.php:1316
 msgid "There are HTML markup errors."
 msgstr "Det finns HTML-markeringsfel."
 
-#: src/Core/Backend/Page.php:1319
+#: src/Core/Backend/Page.php:1317
 msgid "Attention: an audit of a content not yet registered."
 msgstr "Uppmärksamhet: en granskning av ett innehåll som ännu inte är registrerat."
 
-#: src/Core/Backend/Page.php:1320
+#: src/Core/Backend/Page.php:1318
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
 msgstr "Du har osparade ändringar. Byt postformat kommer att förlora dessa ändringar. Fortsätt ändå?"
 
-#: src/Core/Backend/Page.php:1321
+#: src/Core/Backend/Page.php:1319
 msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
 msgstr "Varning: Ändring av postformat konverterar inte befintligt innehåll. Du måste själv tillämpa nytt format. Fortsätt ändå?"
 
-#: src/Core/Backend/Page.php:1322
+#: src/Core/Backend/Page.php:1320
 msgid "Loading enhanced uploader, please wait."
 msgstr "Laddar förbättrad uppladdare, var god vänta."
 
-#: src/Core/Backend/Page.php:1327
+#: src/Core/Backend/Page.php:1325
 msgid "Help:"
 msgstr "Hjälp:"
 
-#: src/Core/Backend/Page.php:1333
+#: src/Core/Backend/Page.php:1331
 msgid "Show password"
 msgstr "Visa lösenord"
 
-#: src/Core/Backend/Page.php:1334
+#: src/Core/Backend/Page.php:1332
 msgid "Hide password"
 msgstr "Dölj lösenord"
 
-#: src/Core/Backend/Page.php:1336
+#: src/Core/Backend/Page.php:1334
 msgid "Reset to now"
 msgstr "Återställ till nu"
 
-#: src/Core/Backend/Page.php:1337
+#: src/Core/Backend/Page.php:1335
 msgid "The publication date has changed. Reset the base name of the entry URL?"
 msgstr "Publiceringsdatumet har ändrats. Återställ basnamnet på postens URL?"
 
-#: src/Core/Backend/Page.php:1338
+#: src/Core/Backend/Page.php:1336
 msgid "The publication title has changed. Reset the base name of the entry URL?"
 msgstr "Publikationens titel har ändrats. Återställ basnamnet på postens URL?"
 
-#: src/Core/Backend/Page.php:1340
+#: src/Core/Backend/Page.php:1338
 msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences."
 msgstr "En annonsblockerare har upptäckts på den här Dotclear instrumentpanelen (Ghostery, Adblock plus, uBlock ursprung, …) och det kan störa vissa funktioner. I detta fall bör du inaktivera den. Observera att denna detektion kan inaktiveras i dina inställningar."
 
-#: src/Core/Backend/Page.php:1392
+#: src/Core/Backend/Page.php:1390
 msgid "You have unsaved changes."
 msgstr "Du har osparade ändringar."
 
-#: src/Core/Backend/Page.php:1393
+#: src/Core/Backend/Page.php:1391
 msgid "your battery charge seems low (%d%) and you have unsaved changes, you should save them."
 msgstr "din batteriladdning verkar låg (%d%) och du har osparade ändringar, du bör spara dem."
 
-#: src/Core/Backend/Page.php:1434
+#: src/Core/Backend/Page.php:1432
 msgid "Temporarily activate enhanced uploader"
 msgstr "Aktivera tillfälligt förbättrad uppladdare"
 
-#: src/Core/Backend/Page.php:1435
+#: src/Core/Backend/Page.php:1433
 msgid "Temporarily disable enhanced uploader"
 msgstr "Inaktivera tillfälligt förbättrad uppladdare"
 
-#: src/Core/Backend/Page.php:1439
+#: src/Core/Backend/Page.php:1437
 msgid "Limit exceeded."
 msgstr "Gränsen överskrids."
 
-#: src/Core/Backend/Page.php:1440
+#: src/Core/Backend/Page.php:1438
 msgid "File size exceeds allowed limit."
 msgstr "Filstorleken överskrider tillåten gräns."
 
-#: src/Core/Backend/Page.php:1441
+#: src/Core/Backend/Page.php:1439
 msgid "Canceled."
 msgstr "Avbruten."
 
-#: src/Core/Backend/Page.php:1442
+#: src/Core/Backend/Page.php:1440
 msgid "HTTP Error:"
 msgstr "HTTP fel:"
 
-#: src/Core/Backend/Page.php:1444 src/Process/Backend/Media.php:752
+#: src/Core/Backend/Page.php:1442 src/Process/Backend/Media.php:752
 msgid "Choose file"
 msgstr "Välj fil"
 
-#: src/Core/Backend/Page.php:1445 src/Process/Backend/Media.php:758
+#: src/Core/Backend/Page.php:1443 src/Process/Backend/Media.php:758
 msgid "Choose files"
 msgstr "Välj filer"
 
-#: src/Core/Backend/Page.php:1446 src/Process/Backend/LinkPopup.php:114
+#: src/Core/Backend/Page.php:1444 src/Process/Backend/LinkPopup.php:114
 #: src/Process/Backend/Media.php:305 src/Process/Backend/MediaItem.php:516
 #: src/Process/Backend/MediaItem.php:772 src/Process/Backend/Post.php:962
 #: src/Process/Backend/PostMedia.php:115
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: src/Core/Backend/Page.php:1447
+#: src/Core/Backend/Page.php:1445
 msgid "Clean"
 msgstr "Rensa"
 
-#: src/Core/Backend/Page.php:1449
+#: src/Core/Backend/Page.php:1447
 msgid "Send"
 msgstr "Skicka"
 
-#: src/Core/Backend/Page.php:1450
+#: src/Core/Backend/Page.php:1448
 msgid "File successfully uploaded."
 msgstr "Filen har laddats upp."
 
-#: src/Core/Backend/Page.php:1451
+#: src/Core/Backend/Page.php:1449
 msgid "No file in queue."
 msgstr "Ingen fil i kön."
 
-#: src/Core/Backend/Page.php:1452
+#: src/Core/Backend/Page.php:1450
 msgid "1 file in queue."
 msgstr "1 fil i kön."
 
-#: src/Core/Backend/Page.php:1453
+#: src/Core/Backend/Page.php:1451
 #, php-format
 msgid "%d files in queue."
 msgstr "%d filer i kön."
 
-#: src/Core/Backend/Page.php:1454
+#: src/Core/Backend/Page.php:1452
 msgid "Queue error:"
 msgstr "Kö fel:"
 
-#: src/Core/Backend/Page.php:1493
+#: src/Core/Backend/Page.php:1491
 msgid "Cancel filters and display options"
 msgstr "Avbryt filter och visa alternativ"
 
@@ -2151,120 +2151,120 @@ msgstr "media per sida"
 msgid "results per page"
 msgstr "resultat per sida"
 
-#: src/Core/Blog.php:695
+#: src/Core/Blog.php:696
 msgid "You are not allowed to add categories"
 msgstr "Du har inte behörighet att lägga till kategorier"
 
-#: src/Core/Blog.php:739
+#: src/Core/Blog.php:740
 msgid "You are not allowed to update categories"
 msgstr "Du har inte behörighet att uppdatera kategorier"
 
-#: src/Core/Blog.php:796
+#: src/Core/Blog.php:797
 msgid "You are not allowed to delete categories"
 msgstr "Du får inte ta bort kategorier"
 
-#: src/Core/Blog.php:809
+#: src/Core/Blog.php:810
 msgid "This category is not empty."
 msgstr "Denna kategori är inte tom."
 
-#: src/Core/Blog.php:822
+#: src/Core/Blog.php:823
 msgid "You are not allowed to reset categories order"
 msgstr "Du har inte tillåtelse att återställa kategoriordningen"
 
-#: src/Core/Blog.php:891
+#: src/Core/Blog.php:892
 msgid "Empty category URL"
 msgstr "Tom kategori-URL"
 
-#: src/Core/Blog.php:908
+#: src/Core/Blog.php:909
 msgid "You must provide a category title"
 msgstr "Du måste ange en kategorititel"
 
-#: src/Core/Blog.php:918
+#: src/Core/Blog.php:919
 msgid "You must provide a category URL"
 msgstr "Du måste ange en kategori-URL"
 
-#: src/Core/Blog.php:1374
+#: src/Core/Blog.php:1375
 msgid "You are not allowed to create an entry"
 msgstr "Du har inte behörighet att skapa en post"
 
-#: src/Core/Blog.php:1434
+#: src/Core/Blog.php:1435
 msgid "You are not allowed to update entries"
 msgstr "Du har inte behörighet att uppdatera poster"
 
-#: src/Core/Blog.php:1440 src/Core/Blog.php:1684
+#: src/Core/Blog.php:1441 src/Core/Blog.php:1685
 msgid "No such entry ID"
 msgstr "Inget sådant post-ID"
 
-#: src/Core/Blog.php:1474
+#: src/Core/Blog.php:1475
 msgid "You are not allowed to edit this entry"
 msgstr "Du har inte behörighet att redigera denna post"
 
-#: src/Core/Blog.php:1502 src/Core/Blog.php:1537 src/Core/Meta.php:139
+#: src/Core/Blog.php:1503 src/Core/Blog.php:1538 src/Core/Meta.php:139
 #: src/Core/Meta.php:156
 msgid "You are not allowed to change this entry status"
 msgstr "Du har inte behörighet att ändra denna poststatus"
 
-#: src/Core/Blog.php:1576 src/Core/Blog.php:1614
+#: src/Core/Blog.php:1577 src/Core/Blog.php:1615
 msgid "You are not allowed to change this entry category"
 msgstr "Du har inte behörighet att ändra denna postkategori"
 
-#: src/Core/Blog.php:1647
+#: src/Core/Blog.php:1648
 msgid "You are not allowed to change entries category"
 msgstr "Du har inte behörighet att ändra postkategori"
 
-#: src/Core/Blog.php:1678
+#: src/Core/Blog.php:1679
 msgid "You are not allowed to delete entries"
 msgstr "Du har inte behörighet att ta bort poster"
 
-#: src/Core/Blog.php:1914
+#: src/Core/Blog.php:1915
 msgid "No entry title"
 msgstr "Ingen post titel"
 
-#: src/Core/Blog.php:1918 src/Core/Blog.php:1932
+#: src/Core/Blog.php:1919 src/Core/Blog.php:1933
 msgid "No entry content"
 msgstr "Inget postinnehåll"
 
-#: src/Core/Blog.php:1998
+#: src/Core/Blog.php:1999
 msgid "Notes"
 msgstr "Anteckningar"
 
-#: src/Core/Blog.php:2000
+#: src/Core/Blog.php:2001
 msgid "Note"
 msgstr "Anteckning"
 
-#: src/Core/Blog.php:2115
+#: src/Core/Blog.php:2116
 msgid "Empty entry URL"
 msgstr "Tom post-URL"
 
-#: src/Core/Blog.php:2426
+#: src/Core/Blog.php:2427
 msgid "You are not allowed to update comments"
 msgstr "Du har inte behörighet att uppdatera kommentarer"
 
-#: src/Core/Blog.php:2432 src/Core/Blog.php:2438 src/Core/Blog.php:2543
+#: src/Core/Blog.php:2433 src/Core/Blog.php:2439 src/Core/Blog.php:2544
 msgid "No such comment ID"
 msgstr "Inget sådant kommentars-ID"
 
-#: src/Core/Blog.php:2445
+#: src/Core/Blog.php:2446
 msgid "You are not allowed to update this comment"
 msgstr "Du har inte behörighet att uppdatera denna kommentar"
 
-#: src/Core/Blog.php:2496
+#: src/Core/Blog.php:2497
 msgid "You are not allowed to change this comment's status"
 msgstr "Du har inte behörighet att ändra denna kommentarens status"
 
-#: src/Core/Blog.php:2537 src/Core/Blog.php:2591
+#: src/Core/Blog.php:2538 src/Core/Blog.php:2592
 msgid "You are not allowed to delete comments"
 msgstr "Du har inte behörighet att ta bort kommentarer"
 
-#: src/Core/Blog.php:2626
+#: src/Core/Blog.php:2627
 msgid "You must provide a comment"
 msgstr "Du måste ange en kommentar"
 
-#: src/Core/Blog.php:2630
+#: src/Core/Blog.php:2631
 msgid "You must provide an author name"
 msgstr "Du måste ange ett författarnamn"
 
-#: src/Core/Blog.php:2634
+#: src/Core/Blog.php:2635
 msgid "Email address is not valid."
 msgstr "E-postadressen är inte giltig."
 
@@ -3033,63 +3033,63 @@ msgstr "Modulen \"%1$s\" kräver \"%2$s\" version %3$s, men version %4$s är ins
 msgid "Module \"%1$s\" requires module \"%2$s\" which is disabled"
 msgstr "Modulen \"%1$s\" kräver modulen \"%2$s\" som är inaktiverad"
 
-#: src/Module/Modules.php:616
+#: src/Module/Modules.php:611
 #, php-format
 msgid "Module \"%1$s\" has type \"%2$s\" that mismatch required module type \"%3$s\"."
 msgstr "Modulen \"%1$s\" har typ \"%2$s\" som inte matchar obligatorisk modultyp \"%3$s\"."
 
-#: src/Module/Modules.php:642
+#: src/Module/Modules.php:637
 #, php-format
 msgid "Module \"%1$s\" is installed twice in \"%2$s\" and \"%3$s\"."
 msgstr "Modul \"%1$s\" installeras två gånger i \"%2$s\" och \"%3$s\"."
 
-#: src/Module/Modules.php:716
+#: src/Module/Modules.php:710
 msgid "Empty module zip file."
 msgstr "Tom modul zip-fil."
 
-#: src/Module/Modules.php:723
+#: src/Module/Modules.php:717
 msgid "The zip file does not appear to be a valid Dotclear module."
 msgstr "zip-filen verkar inte vara en giltig Dotclear modul."
 
-#: src/Module/Modules.php:758 src/Module/Modules.php:795
+#: src/Module/Modules.php:752 src/Module/Modules.php:789
 #, php-format
 msgid "Module is not installed: %s"
 msgstr "Modulen är inte installerad: %s"
 
-#: src/Module/Modules.php:810
+#: src/Module/Modules.php:804
 #, php-format
 msgid "Unable to upgrade \"%s\". (update locked)"
 msgstr "Det går inte att uppgradera \"%s\". (uppdateringen låst)"
 
-#: src/Module/Modules.php:814
+#: src/Module/Modules.php:808
 msgid "An error occurred during module deletion."
 msgstr "Ett fel inträffade under modulborttagning."
 
-#: src/Module/Modules.php:822
+#: src/Module/Modules.php:816
 #, php-format
 msgid "Unable to upgrade \"%s\". (older or same version)"
 msgstr "Det går inte att uppgradera \"%s\". (äldre eller samma version)"
 
-#: src/Module/Modules.php:828
+#: src/Module/Modules.php:822
 #, php-format
 msgid "Unable to read new %s file"
 msgstr "Det går inte att läsa ny %s fil"
 
-#: src/Module/Modules.php:837 src/Module/Modules.php:954
-#: src/Module/Modules.php:958
+#: src/Module/Modules.php:831 src/Module/Modules.php:948
+#: src/Module/Modules.php:952
 msgid "Cannot deactivate plugin."
 msgstr "Kan inte inaktivera plugin."
 
-#: src/Module/Modules.php:930 src/Module/Modules.php:950
-#: src/Module/Modules.php:974
+#: src/Module/Modules.php:924 src/Module/Modules.php:944
+#: src/Module/Modules.php:968
 msgid "No such module."
 msgstr "Ingen sådan modul."
 
-#: src/Module/Modules.php:934
+#: src/Module/Modules.php:928
 msgid "Cannot remove module files"
 msgstr "Kan inte ta bort modulfiler"
 
-#: src/Module/Modules.php:978 src/Module/Modules.php:982
+#: src/Module/Modules.php:972 src/Module/Modules.php:976
 msgid "Cannot activate plugin."
 msgstr "Kan inte aktivera plugin."
 
@@ -4012,11 +4012,9 @@ msgstr[0] "Det finns en temauppdatering tillgänglig:"
 msgstr[1] "Det finns %s temauppdateringar tillgängliga:"
 
 #: src/Process/Backend/BlogTheme.php:312 src/Process/Backend/BlogTheme.php:349
-#: src/Process/Backend/Plugins.php:276 src/Process/Backend/Plugins.php:330
-#: src/Process/Upgrade/Plugins.php:265 src/Process/Upgrade/Plugins.php:321
 #, php-format
-msgid "Visit %s repository, the resources center for Dotclear."
-msgstr "Besök %s utvecklingskatalog, resurscentret för Dotclear."
+msgid "Visit %s themes repository."
+msgstr ""
 
 #: src/Process/Backend/BlogTheme.php:341
 msgid "Add themes"
@@ -4026,8 +4024,8 @@ msgstr "Lägg till teman"
 msgid "Add themes from repository"
 msgstr "Lägg till teman från utvecklingskatalogen"
 
-#: src/Process/Backend/BlogTheme.php:359 src/Process/Backend/Plugins.php:336
-#: src/Process/Upgrade/Plugins.php:327
+#: src/Process/Backend/BlogTheme.php:359 src/Process/Backend/Plugins.php:342
+#: src/Process/Upgrade/Plugins.php:333
 msgid "Install or upgrade manually"
 msgstr "Installera eller uppgradera manuellt"
 
@@ -5102,36 +5100,42 @@ msgid_plural "There are %s plugin updates available:"
 msgstr[0] "Det finns en plugin-uppdatering tillgänglig:"
 msgstr[1] "Det finns %s plugin-uppdateringar tillgängliga:"
 
-#: src/Process/Backend/Plugins.php:280 src/Process/Backend/Plugins.php:283
-#: src/Process/Upgrade/Plugins.php:269 src/Process/Upgrade/Plugins.php:272
+#: src/Process/Backend/Plugins.php:277 src/Process/Backend/Plugins.php:334
+#: src/Process/Upgrade/Plugins.php:266 src/Process/Upgrade/Plugins.php:325
+#, php-format
+msgid "Visit %s plugins repository."
+msgstr ""
+
+#: src/Process/Backend/Plugins.php:283 src/Process/Backend/Plugins.php:286
+#: src/Process/Upgrade/Plugins.php:272 src/Process/Upgrade/Plugins.php:275
 msgid "Update plugins"
 msgstr "Uppdatera plugins"
 
-#: src/Process/Backend/Plugins.php:292 src/Process/Upgrade/Plugins.php:281
+#: src/Process/Backend/Plugins.php:295 src/Process/Upgrade/Plugins.php:284
 msgid "Force checking update of plugins"
 msgstr "Tvinga kontroll uppdatering av plugins"
 
-#: src/Process/Backend/Plugins.php:311 src/Process/Upgrade/Plugins.php:302
+#: src/Process/Backend/Plugins.php:314 src/Process/Upgrade/Plugins.php:305
 msgid "Add plugins"
 msgstr "Lägg till plugins"
 
-#: src/Process/Backend/Plugins.php:314 src/Process/Upgrade/Plugins.php:305
+#: src/Process/Backend/Plugins.php:317 src/Process/Upgrade/Plugins.php:308
 msgid "Add plugins from repository"
 msgstr "Lägg till plugins från utvecklingskatalogen"
 
-#: src/Process/Backend/Plugins.php:339 src/Process/Upgrade/Plugins.php:330
+#: src/Process/Backend/Plugins.php:345 src/Process/Upgrade/Plugins.php:336
 msgid "Add plugins from a package"
 msgstr "Lägg till plugins från ett paket"
 
-#: src/Process/Backend/Plugins.php:342 src/Process/Upgrade/Plugins.php:333
+#: src/Process/Backend/Plugins.php:348 src/Process/Upgrade/Plugins.php:339
 msgid "You can install plugins by uploading or downloading zip files."
 msgstr "Du kan installera plugins genom att ladda upp eller ladda ner zip-filer."
 
-#: src/Process/Backend/Plugins.php:358 src/Process/Upgrade/Plugins.php:346
+#: src/Process/Backend/Plugins.php:364 src/Process/Upgrade/Plugins.php:352
 msgid "Some functions are disabled, please give write access to your plugins directory to enable them."
 msgstr "Vissa funktioner är inaktiverade, vänligen ge skrivåtkomst till din plugins katalog för att aktivera dem."
 
-#: src/Process/Backend/Plugins.php:390
+#: src/Process/Backend/Plugins.php:396
 msgid "Plugin configuration"
 msgstr "Plugin konfiguration"
 
@@ -7048,48 +7052,48 @@ msgstr "Installera eller uppgradera språk från en uppladdad zip-fil"
 msgid "Some plugins could not be loaded."
 msgstr "Vissa plugins kunde inte laddas."
 
-#: src/Process/Upgrade/Plugins.php:371
+#: src/Process/Upgrade/Plugins.php:377
 msgid "There is no module to check"
 msgstr "Det finns ingen modul att kontrollera"
 
-#: src/Process/Upgrade/Plugins.php:379
+#: src/Process/Upgrade/Plugins.php:385
 msgid "Store version"
 msgstr "Version för butik"
 
-#: src/Process/Upgrade/Plugins.php:381
+#: src/Process/Upgrade/Plugins.php:387
 msgid "Check stores versions"
 msgstr "Kontrollera butikernas versioner"
 
-#: src/Process/Upgrade/Plugins.php:389
+#: src/Process/Upgrade/Plugins.php:395
 msgid "Check lastest stores versions"
 msgstr "Kontrollera de senaste versionerna av butikerna"
 
-#: src/Process/Upgrade/Plugins.php:393
+#: src/Process/Upgrade/Plugins.php:399
 #, php-format
 msgid "You can check repositories for modules written explicitly for Dotclear release greater than %s."
 msgstr "Du kan kontrollera om det finns moduler som uttryckligen skrivits för Dotclear-utgåvor som är större än %s."
 
-#: src/Process/Upgrade/Plugins.php:418 src/Process/Upgrade/Plugins.php:461
+#: src/Process/Upgrade/Plugins.php:424 src/Process/Upgrade/Plugins.php:467
 msgid "No version available"
 msgstr "Ingen version tillgänglig"
 
-#: src/Process/Upgrade/Plugins.php:420
+#: src/Process/Upgrade/Plugins.php:426
 msgid "No update available"
 msgstr "Ingen uppdatering tillgänglig"
 
-#: src/Process/Upgrade/Plugins.php:422
+#: src/Process/Upgrade/Plugins.php:428
 msgid "Newer version available"
 msgstr "Nyare version tillgänglig"
 
-#: src/Process/Upgrade/Plugins.php:475
+#: src/Process/Upgrade/Plugins.php:481
 msgid "Modules list"
 msgstr "Lista över moduler"
 
-#: src/Process/Upgrade/Plugins.php:490
+#: src/Process/Upgrade/Plugins.php:496
 msgid "Latest version"
 msgstr "Senaste version"
 
-#: src/Process/Upgrade/Plugins.php:494
+#: src/Process/Upgrade/Plugins.php:500
 msgid "Written for Dotclear"
 msgstr "Skrivet för Dotclear"
 
