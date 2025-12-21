@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-21 09:55+0100\n"
-"PO-Revision-Date: 2025-12-21 09:02\n"
+"PO-Revision-Date: 2025-12-21 09:29\n"
 "Last-Translator: \n"
 "Language-Team: Lithuanian\n"
 "Language: lt_LT\n"
@@ -4074,7 +4074,7 @@ msgstr[3] "Yra %s temos atnaujinimų:"
 #: src/Process/Backend/BlogTheme.php:312 src/Process/Backend/BlogTheme.php:349
 #, php-format
 msgid "Visit %s themes repository."
-msgstr ""
+msgstr "Apsilankykite %s temų saugykloje."
 
 #: src/Process/Backend/BlogTheme.php:341
 msgid "Add themes"
@@ -5168,7 +5168,7 @@ msgstr[3] "Yra %s įskiepių atnaujinimų:"
 #: src/Process/Upgrade/Plugins.php:266 src/Process/Upgrade/Plugins.php:325
 #, php-format
 msgid "Visit %s plugins repository."
-msgstr ""
+msgstr "Apsilankykite %s įskiepių saugykloje."
 
 #: src/Process/Backend/Plugins.php:283 src/Process/Backend/Plugins.php:286
 #: src/Process/Upgrade/Plugins.php:272 src/Process/Upgrade/Plugins.php:275
