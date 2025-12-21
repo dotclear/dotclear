@@ -309,8 +309,8 @@ class BlogTheme
                                 (new Note())
                                     ->class(['info', 'vertical-separator'])
                                     ->text(sprintf(
-                                        __('Visit %s repository, the resources center for Dotclear.'),
-                                        '<a href="https://themes.dotaddict.org/galerie-dc2/">Dotaddict</a>'
+                                        __('Visit %s themes repository.'),
+                                        '<a href="https://dotclear.org/theme/list">Dotclear</a>'
                                     )),
                             ]),
                 ]);
@@ -346,8 +346,8 @@ class BlogTheme
                         (new Note())
                             ->class(['info', 'vertical-separator'])
                             ->text(sprintf(
-                                __('Visit %s repository, the resources center for Dotclear.'),
-                                '<a href="https://themes.dotaddict.org/galerie-dc2/">Dotaddict</a>'
+                                __('Visit %s themes repository.'),
+                                '<a href="https://dotclear.org/theme/list">Dotclear</a>'
                             )),
                     ]);
             }

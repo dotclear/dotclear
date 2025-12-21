@@ -262,7 +262,10 @@ class Plugins
 
             $parts[] = (new Note())
                 ->class(['info', 'vertical-separator'])
-                ->text(sprintf(__('Visit %s repository, the resources center for Dotclear.'), '<a href="https://plugins.dotaddict.org/dc2/">Dotaddict</a>'));
+                ->text(sprintf(
+                    __('Visit %s plugins repository.'),
+                    '<a href="https://dotclear.org/plugin/list">Dotclear</a>'
+                ));
         }
 
         $multi_parts[] = (new Div('update'))
@@ -318,7 +321,10 @@ class Plugins
                             ])),
                         (new Note())
                             ->class(['info', 'vertical-separator'])
-                            ->text(sprintf(__('Visit %s repository, the resources center for Dotclear.'), '<a href="https://plugins.dotaddict.org/dc2/">Dotaddict</a>')),
+                            ->text(sprintf(
+                                __('Visit %s plugins repository.'),
+                                '<a href="https://dotclear.org/plugin/list">Dotclear</a>'
+                            )),
                     ]);
             }
 

@@ -346,7 +346,7 @@ class Cli
             self::dot();
             $blog_settings->system->put(
                 'csp_admin_img',
-                $csp_prefix . "'self' data: https://media.dotaddict.org blob:",
+                $csp_prefix . "'self' data: https://dotclear.org blob:",
                 'string',
                 'CSP img-src directive',
                 true,

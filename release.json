@@ -10,8 +10,8 @@
 
   "l10n_update_url": "https://services.dotclear.org/dc2.l10n/?version=%s",
 
-  "store_plugin_url": "https://update.dotaddict.org/dc2/plugins.xml",
-  "store_theme_url": "https://update.dotaddict.org/dc2/themes.xml",
+  "store_plugin_url": "https://dotclear.org/plugin/store/dcstore.xml",
+  "store_theme_url": "https://dotclear.org/theme/store/dcstore.xml",
 
   "php_min": "8.2",
   "mysql_min": "4.1",

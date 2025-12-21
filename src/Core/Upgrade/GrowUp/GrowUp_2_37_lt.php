@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Core\Upgrade\GrowUp;
 
+use Dotclear\App;
 use Dotclear\Core\Upgrade\Upgrade;
 
 /**
@@ -20,6 +21,14 @@ class GrowUp_2_37_lt
 {
     public static function init(bool $cleanup_sessions): bool
     {
+        // Switch from DotAddict to Dotclear for plugins/themes repositories
+        // Update CSP img-src default directive for media.dotaddict.org
+        $strReq = 'UPDATE ' . App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME .
+            " SET setting_value = REPLACE(setting_value, 'https://media.dotaddict.org', 'https://dotclear.org') " .
+            " WHERE setting_id = 'csp_admin_img' " .
+            " AND setting_ns = 'system' ";
+        App::db()->con()->execute($strReq);
+
         // A bit of housecleaning for no longer needed folders
         Upgrade::houseCleaning(
             // Files

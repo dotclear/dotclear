@@ -202,7 +202,7 @@ class Page
                 'default-src' => App::blog()->settings()->system->csp_admin_default ?: $csp_prefix . "'self'" . $csp_suffix,
                 'script-src'  => App::blog()->settings()->system->csp_admin_script ?: $csp_prefix . "'self' 'unsafe-eval'" . $csp_suffix,
                 'style-src'   => App::blog()->settings()->system->csp_admin_style ?: $csp_prefix . "'self' 'unsafe-inline'" . $csp_suffix,
-                'img-src'     => App::blog()->settings()->system->csp_admin_img ?: $csp_prefix . "'self' data: https://media.dotaddict.org blob:",
+                'img-src'     => App::blog()->settings()->system->csp_admin_img ?: $csp_prefix . "'self' data: https://dotclear.org blob:",
             ];
 
             # Cope with blog post preview (via public URL in iframe)
