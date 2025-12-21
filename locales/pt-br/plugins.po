@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-21 16:14+0100\n"
-"PO-Revision-Date: 2025-12-21 15:17\n"
+"PO-Revision-Date: 2025-12-21 15:39\n"
 "Last-Translator: \n"
 "Language-Team: Portuguese, Brazilian\n"
 "Language: pt_BR\n"
@@ -1119,7 +1119,7 @@ msgstr "Adicionar uma categoria"
 
 #: plugins/blogroll/src/Manage.php:564 plugins/blogroll/src/ManageEdit.php:223
 msgid "Category status"
-msgstr ""
+msgstr "Estado da categoria"
 
 #: plugins/blogroll/src/Manage.php:587 plugins/blogroll/src/Manage.php:679
 #: plugins/blogroll/src/Manage.php:686
