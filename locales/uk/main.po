@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-14 09:29+0100\n"
-"PO-Revision-Date: 2025-12-14 08:54\n"
+"POT-Creation-Date: 2025-12-21 09:55+0100\n"
+"PO-Revision-Date: 2025-12-21 09:29\n"
 "Last-Translator: \n"
 "Language-Team: Ukrainian\n"
 "Language: uk_UA\n"
@@ -678,7 +678,7 @@ msgstr "Користувачі"
 
 #: src/Core/Backend/Favorites.php:509 src/Core/Backend/Menus.php:225
 #: src/Process/Backend/Plugins.php:104 src/Process/Backend/Plugins.php:117
-#: src/Process/Backend/Plugins.php:382 src/Process/Backend/Plugins.php:389
+#: src/Process/Backend/Plugins.php:388 src/Process/Backend/Plugins.php:395
 #: src/Process/Upgrade/Plugins.php:162 src/Process/Upgrade/Plugins.php:172
 msgid "Plugins management"
 msgstr "Керування плагінами"
@@ -699,7 +699,7 @@ msgstr "Мови"
 msgid "Global help"
 msgstr "Глобальна допомога"
 
-#: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1283
+#: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1281
 #: src/Process/Backend/Auth.php:513 src/Process/Backend/BlogPref.php:1369
 #: src/Process/Backend/Comment.php:305 src/Process/Backend/Post.php:1114
 #: src/Process/Backend/User.php:450 src/Process/Backend/UserPreferences.php:819
@@ -707,14 +707,14 @@ msgstr "Глобальна допомога"
 msgid "Email:"
 msgstr "Електронна пошта:"
 
-#: src/Core/Backend/Filter/FilterComments.php:37 src/Core/Backend/Page.php:1282
+#: src/Core/Backend/Filter/FilterComments.php:37 src/Core/Backend/Page.php:1280
 #: src/Process/Backend/Comment.php:321 src/Process/Backend/Post.php:1123
 msgid "Web site:"
 msgstr "Веб-сайт:"
 
 #: src/Core/Backend/Filter/FilterComments.php:58
 #: src/Core/Backend/Filter/FilterPosts.php:92
-#: src/Core/Backend/ModulesList.php:1045 src/Core/Backend/Page.php:1324
+#: src/Core/Backend/ModulesList.php:1045 src/Core/Backend/Page.php:1322
 #: src/Process/Backend/Comment.php:294
 msgid "Author:"
 msgstr "Автор:"
@@ -733,7 +733,7 @@ msgid "Trackback"
 msgstr "Зворотній зв'язок"
 
 #: src/Core/Backend/Filter/FilterComments.php:107
-#: src/Core/Backend/Page.php:1284 src/Process/Backend/Comment.php:269
+#: src/Core/Backend/Page.php:1282 src/Process/Backend/Comment.php:269
 msgid "IP address:"
 msgstr "IP-адреса:"
 
@@ -846,7 +846,7 @@ msgstr "Зберегти поточні параметри"
 msgid "Display options"
 msgstr "Параметри відображення"
 
-#: src/Core/Backend/Filter/Filters.php:422 src/Core/Backend/Page.php:1492
+#: src/Core/Backend/Filter/Filters.php:422 src/Core/Backend/Page.php:1490
 msgid "Show filters and display options"
 msgstr "Показати фільтри та параметри відображення"
 
@@ -1007,7 +1007,7 @@ msgstr "Nb предметів: %d"
 
 #: src/Core/Backend/Listing/ListingMedia.php:127
 #: src/Core/Backend/ModulesList.php:809 src/Core/Backend/UserPref.php:202
-#: src/Process/Backend/Category.php:255 src/Process/Upgrade/Plugins.php:482
+#: src/Process/Backend/Category.php:255 src/Process/Upgrade/Plugins.php:488
 msgid "Name"
 msgstr "Ім'я"
 
@@ -1148,32 +1148,32 @@ msgstr "superadmin"
 msgid "The “No. of entries” column includes all entry types (articles, pages, …) for all blogs in the installation. The link may not be relevant in some contexts"
 msgstr "У колонці \"Кількість записів\" вказані всі типи записів (статті, сторінки, …) для всіх блогів в інсталяції. Посилання може бути не релевантним у деяких контекстах"
 
-#: src/Core/Backend/Listing/Pager.php:153
+#: src/Core/Backend/Listing/Pager.php:152
 msgid "First page"
 msgstr "Перша сторінка"
 
-#: src/Core/Backend/Listing/Pager.php:161
+#: src/Core/Backend/Listing/Pager.php:160
 msgid "Previous page"
 msgstr "Попередня сторінка"
 
-#: src/Core/Backend/Listing/Pager.php:169
+#: src/Core/Backend/Listing/Pager.php:168
 msgid "Next page"
 msgstr "Наступна сторінка"
 
-#: src/Core/Backend/Listing/Pager.php:177
+#: src/Core/Backend/Listing/Pager.php:176
 msgid "Last page"
 msgstr "Остання сторінка"
 
-#: src/Core/Backend/Listing/Pager.php:184
+#: src/Core/Backend/Listing/Pager.php:183
 #, php-format
 msgid "Page %1$s / %2$s"
 msgstr "Сторінка %1$s / %2$s"
 
-#: src/Core/Backend/Listing/Pager.php:192
+#: src/Core/Backend/Listing/Pager.php:191
 msgid "Direct access page:"
 msgstr "Сторінка прямого доступу:"
 
-#: src/Core/Backend/Listing/Pager.php:193 src/Core/Backend/Page.php:170
+#: src/Core/Backend/Listing/Pager.php:192 src/Core/Backend/Page.php:170
 #: src/Process/Backend/Blogs.php:148 src/Process/Backend/Comments.php:216
 #: src/Process/Backend/Posts.php:137 src/Process/Backend/Search.php:311
 #: src/Process/Backend/Search.php:407 src/Process/Backend/Users.php:160
@@ -1266,17 +1266,17 @@ msgstr "Оцінка"
 msgid "Version"
 msgstr "Версія"
 
-#: src/Core/Backend/ModulesList.php:832 src/Process/Upgrade/Plugins.php:486
+#: src/Core/Backend/ModulesList.php:832 src/Process/Upgrade/Plugins.php:492
 msgid "Current version"
 msgstr "Поточна версія"
 
 #: src/Core/Backend/ModulesList.php:839 src/Core/Backend/ModulesList.php:1063
-#: src/Core/Backend/Page.php:1325 src/Core/Backend/ThemesList.php:230
+#: src/Core/Backend/Page.php:1323 src/Core/Backend/ThemesList.php:230
 #: src/Core/Backend/ThemesList.php:300
 msgid "Details"
 msgstr "Деталі"
 
-#: src/Core/Backend/ModulesList.php:846 src/Process/Upgrade/Plugins.php:498
+#: src/Core/Backend/ModulesList.php:846 src/Process/Upgrade/Plugins.php:504
 msgid "Repository"
 msgstr "Репозиторій"
 
@@ -1285,7 +1285,7 @@ msgstr "Репозиторій"
 msgid "Action"
 msgstr "Дія"
 
-#: src/Core/Backend/ModulesList.php:926 src/Process/Upgrade/Plugins.php:436
+#: src/Core/Backend/ModulesList.php:926 src/Process/Upgrade/Plugins.php:442
 #, php-format
 msgid " (%s)"
 msgstr " (%s)"
@@ -1300,12 +1300,12 @@ msgid "This module cannot be enabled, because of the following reasons :"
 msgstr "Цей модуль не може бути ввімкнений з наступних причин :"
 
 #: src/Core/Backend/ModulesList.php:1005 src/Core/Backend/ThemesList.php:215
-#: src/Process/Upgrade/Plugins.php:452
+#: src/Process/Upgrade/Plugins.php:458
 msgid "Official repository"
 msgstr "Офіційний репозиторій"
 
 #: src/Core/Backend/ModulesList.php:1005 src/Core/Backend/ModulesList.php:1108
-#: src/Core/Backend/ThemesList.php:215 src/Process/Upgrade/Plugins.php:452
+#: src/Core/Backend/ThemesList.php:215 src/Process/Upgrade/Plugins.php:458
 msgid "Third-party repository"
 msgstr "Сторонній репозиторій"
 
@@ -1321,7 +1321,7 @@ msgstr "Плагін у розробці"
 msgid "Release date:"
 msgstr "Дата виходу:"
 
-#: src/Core/Backend/ModulesList.php:1070 src/Core/Backend/Page.php:1326
+#: src/Core/Backend/ModulesList.php:1070 src/Core/Backend/Page.php:1324
 #: src/Core/Backend/ThemesList.php:236
 msgid "Support"
 msgstr "Підтримка"
@@ -1330,11 +1330,11 @@ msgstr "Підтримка"
 msgid "update locked"
 msgstr "оновлення заблоковано"
 
-#: src/Core/Backend/ModulesList.php:1115 src/Core/Backend/Page.php:1328
+#: src/Core/Backend/ModulesList.php:1115 src/Core/Backend/Page.php:1326
 msgid "Section:"
 msgstr "Секція:"
 
-#: src/Core/Backend/ModulesList.php:1121 src/Core/Backend/Page.php:1329
+#: src/Core/Backend/ModulesList.php:1121 src/Core/Backend/Page.php:1327
 msgid "Tags:"
 msgstr "Мітки:"
 
@@ -1522,7 +1522,7 @@ msgstr "Пароль"
 msgid "Your password:"
 msgstr "Ваш пароль:"
 
-#: src/Core/Backend/ModulesList.php:1785 src/Core/Backend/Page.php:1448
+#: src/Core/Backend/ModulesList.php:1785 src/Core/Backend/Page.php:1446
 #: src/Process/Backend/Media.php:809
 msgid "Upload"
 msgstr "Завантажити"
@@ -1568,8 +1568,8 @@ msgstr "Налаштуйте \"%s\""
 msgid "Back"
 msgstr "Назад"
 
-#: src/Core/Backend/Notices.php:86 src/Core/Backend/Page.php:1285
-#: src/Core/Backend/Page.php:1443 src/Core/Upgrade/Notices.php:48
+#: src/Core/Backend/Notices.php:86 src/Core/Backend/Page.php:1283
+#: src/Core/Backend/Page.php:1441 src/Core/Upgrade/Notices.php:48
 #: src/Process/Backend/Home.php:324
 msgid "Error:"
 msgstr "Помилка:"
@@ -1585,7 +1585,7 @@ msgid "%H:%M:%S"
 msgstr "%H:%M:%S"
 
 #: src/Core/Backend/Notices.php:258 src/Core/Backend/Notices.php:298
-#: src/Core/Backend/Notices.php:308 src/Core/Backend/Page.php:1331
+#: src/Core/Backend/Notices.php:308 src/Core/Backend/Page.php:1329
 #: src/Process/Backend/Categories.php:378 src/Process/Backend/Post.php:1058
 #: src/Process/Backend/Post.php:1190 src/Process/Backend/PostsPopup.php:121
 msgid "Ok"
@@ -1669,322 +1669,322 @@ msgstr "Логотип Dotclear"
 msgid "Go to dashboard"
 msgstr "Перейти до інформаційної панелі"
 
-#: src/Core/Backend/Page.php:1133 src/Core/Upgrade/Page.php:454
+#: src/Core/Backend/Page.php:1131 src/Core/Upgrade/Page.php:452
 msgid "Help about this page"
 msgstr "Довідка про цю сторінку"
 
-#: src/Core/Backend/Page.php:1143 src/Core/Upgrade/Page.php:463
+#: src/Core/Backend/Page.php:1141 src/Core/Upgrade/Page.php:461
 #, php-format
 msgid "See also %s"
 msgstr "Дивіться також %s"
 
-#: src/Core/Backend/Page.php:1146 src/Core/Upgrade/Page.php:466
+#: src/Core/Backend/Page.php:1144 src/Core/Upgrade/Page.php:464
 msgid "the global help"
 msgstr "глобальна допомога"
 
-#: src/Core/Backend/Page.php:1267
+#: src/Core/Backend/Page.php:1265
 msgid "uncover"
 msgstr "розкрити"
 
-#: src/Core/Backend/Page.php:1271
+#: src/Core/Backend/Page.php:1269
 msgid "hide"
 msgstr "ховатися"
 
-#: src/Core/Backend/Page.php:1275
+#: src/Core/Backend/Page.php:1273
 msgid "Need help?"
 msgstr "Потрібна допомога?"
 
-#: src/Core/Backend/Page.php:1276
+#: src/Core/Backend/Page.php:1274
 msgid "new window"
 msgstr "нове вікно"
 
-#: src/Core/Backend/Page.php:1277
+#: src/Core/Backend/Page.php:1275
 msgid "Hide"
 msgstr "Приховати"
 
-#: src/Core/Backend/Page.php:1278
+#: src/Core/Backend/Page.php:1276
 msgid "Select:"
 msgstr "Обирай:"
 
-#: src/Core/Backend/Page.php:1279
+#: src/Core/Backend/Page.php:1277
 msgid "No selection"
 msgstr "Без вибору"
 
-#: src/Core/Backend/Page.php:1280
+#: src/Core/Backend/Page.php:1278
 msgid "Select all"
 msgstr "Вибрати все"
 
-#: src/Core/Backend/Page.php:1281
+#: src/Core/Backend/Page.php:1279
 msgid "Invert selection"
 msgstr "Інвертувати вибір"
 
-#: src/Core/Backend/Page.php:1286 src/Process/Backend/Post.php:466
+#: src/Core/Backend/Page.php:1284 src/Process/Backend/Post.php:466
 #: src/Process/Backend/Post.php:609
 msgid "Entry has been successfully created."
 msgstr "Запис успішно створено."
 
-#: src/Core/Backend/Page.php:1287
+#: src/Core/Backend/Page.php:1285
 msgid "Edit entry"
 msgstr "Редагувати запис"
 
-#: src/Core/Backend/Page.php:1288
+#: src/Core/Backend/Page.php:1286
 msgid "view entry"
 msgstr "переглянути запис"
 
-#: src/Core/Backend/Page.php:1289
+#: src/Core/Backend/Page.php:1287
 #, php-format
 msgid "Are you sure you want to delete selected entries (%s)?"
 msgstr "Ви впевнені, що хочете видалити вибрані записи (%s)?"
 
-#: src/Core/Backend/Page.php:1290
+#: src/Core/Backend/Page.php:1288
 #, php-format
 msgid "Are you sure you want to delete selected medias (%d)?"
 msgstr "Ви впевнені, що хочете видалити вибрані медіа (%d)?"
 
-#: src/Core/Backend/Page.php:1291
+#: src/Core/Backend/Page.php:1289
 #, php-format
 msgid "Are you sure you want to delete selected categories (%s)?"
 msgstr "Ви впевнені, що хочете видалити вибрані категорії (%s)?"
 
-#: src/Core/Backend/Page.php:1292
+#: src/Core/Backend/Page.php:1290
 msgid "Are you sure you want to delete this entry?"
 msgstr "Ви дійсно хочете видалити цей запис?"
 
-#: src/Core/Backend/Page.php:1293
+#: src/Core/Backend/Page.php:1291
 msgid "Click here to unlock the field"
 msgstr "Натисніть тут, щоб розблокувати поле"
 
-#: src/Core/Backend/Page.php:1294
+#: src/Core/Backend/Page.php:1292
 msgid "Are you sure you want to delete all spams?"
 msgstr "Ви впевнені, що хочете видалити весь спам?"
 
-#: src/Core/Backend/Page.php:1295
+#: src/Core/Backend/Page.php:1293
 #, php-format
 msgid "Are you sure you want to delete selected comments (%s)?"
 msgstr "Ви впевнені, що хочете видалити вибрані коментарі (%s)?"
 
-#: src/Core/Backend/Page.php:1296
+#: src/Core/Backend/Page.php:1294
 msgid "Are you sure you want to delete this comment?"
 msgstr "Ви впевнені, що хочете видалити цей коментар?"
 
-#: src/Core/Backend/Page.php:1297
+#: src/Core/Backend/Page.php:1295
 msgid "Users with posts cannot be deleted."
 msgstr "Користувачі з дописами не можуть бути видалені."
 
-#: src/Core/Backend/Page.php:1298
+#: src/Core/Backend/Page.php:1296
 #, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
 msgstr "Ви впевнені, що хочете видалити вибраних користувачів (%s)?"
 
-#: src/Core/Backend/Page.php:1299
+#: src/Core/Backend/Page.php:1297
 #, php-format
 msgid "Are you sure you want to delete selected blogs (%s)?"
 msgstr "Ви впевнені, що хочете видалити вибрані блоги (%s)?"
 
-#: src/Core/Backend/Page.php:1300
+#: src/Core/Backend/Page.php:1298
 #, php-format
 msgid "Are you sure you want to delete category \"%s\"?"
 msgstr "Ви дійсно хочете видалити категорію \"%s\"?"
 
-#: src/Core/Backend/Page.php:1301
+#: src/Core/Backend/Page.php:1299
 msgid "Are you sure you want to reorder all categories?"
 msgstr "Ви впевнені, що хочете змінити порядок всіх категорій?"
 
-#: src/Core/Backend/Page.php:1302
+#: src/Core/Backend/Page.php:1300
 #, php-format
 msgid "Are you sure you want to remove media \"%s\"?"
 msgstr "Ви дійсно хочете видалити медіа \"%s\"?"
 
-#: src/Core/Backend/Page.php:1303
+#: src/Core/Backend/Page.php:1301
 #, php-format
 msgid "Are you sure you want to remove directory \"%s\"?"
 msgstr "Ви впевнені, що хочете видалити каталог \"%s\"?"
 
-#: src/Core/Backend/Page.php:1304
+#: src/Core/Backend/Page.php:1302
 msgid "Are you sure you want to extract archive in current directory?"
 msgstr "Ви впевнені, що хочете розпакувати архів у поточний каталог?"
 
-#: src/Core/Backend/Page.php:1305
+#: src/Core/Backend/Page.php:1303
 #, php-format
 msgid "Are you sure you want to remove attachment \"%s\"?"
 msgstr "Ви дійсно хочете видалити вкладення \"%s\"?"
 
-#: src/Core/Backend/Page.php:1306
+#: src/Core/Backend/Page.php:1304
 #, php-format
 msgid "Are you sure you want to delete \"%s\" language?"
 msgstr "Ви дійсно хочете видалити мову \"%s\"?"
 
-#: src/Core/Backend/Page.php:1307
+#: src/Core/Backend/Page.php:1305
 #, php-format
 msgid "Are you sure you want to delete \"%s\" plugin?"
 msgstr "Ви дійсно хочете видалити плагін \"%s\"?"
 
-#: src/Core/Backend/Page.php:1308
+#: src/Core/Backend/Page.php:1306
 msgid "Are you sure you want to delete selected plugins?"
 msgstr "Ви впевнені, що хочете видалити вибрані плагіни?"
 
-#: src/Core/Backend/Page.php:1309
+#: src/Core/Backend/Page.php:1307
 msgid "Use this theme"
 msgstr "Використовуйте цю тему"
 
-#: src/Core/Backend/Page.php:1310
+#: src/Core/Backend/Page.php:1308
 msgid "Remove this theme"
 msgstr "Видаліть цю тему"
 
-#: src/Core/Backend/Page.php:1311
+#: src/Core/Backend/Page.php:1309
 #, php-format
 msgid "Are you sure you want to delete \"%s\" theme?"
 msgstr "Ви дійсно хочете видалити тему \"%s\"?"
 
-#: src/Core/Backend/Page.php:1312
+#: src/Core/Backend/Page.php:1310
 msgid "Are you sure you want to delete selected themes?"
 msgstr "Ви впевнені, що хочете видалити вибрані теми?"
 
-#: src/Core/Backend/Page.php:1313
+#: src/Core/Backend/Page.php:1311
 msgid "Are you sure you want to delete this backup?"
 msgstr "Ви впевнені, що хочете видалити цю резервну копію?"
 
-#: src/Core/Backend/Page.php:1314
+#: src/Core/Backend/Page.php:1312
 msgid "Are you sure you want to revert to this backup?"
 msgstr "Ви впевнені, що хочете повернутися до цієї резервної копії?"
 
-#: src/Core/Backend/Page.php:1315
+#: src/Core/Backend/Page.php:1313
 msgid "Zip file content"
 msgstr "Заархівуйте вміст файлу"
 
-#: src/Core/Backend/Page.php:1316
+#: src/Core/Backend/Page.php:1314
 msgid "HTML markup validator"
 msgstr "Валідатор HTML-розмітки"
 
-#: src/Core/Backend/Page.php:1317
+#: src/Core/Backend/Page.php:1315
 msgid "HTML content is valid."
 msgstr "HTML вміст є коректним."
 
-#: src/Core/Backend/Page.php:1318
+#: src/Core/Backend/Page.php:1316
 msgid "There are HTML markup errors."
 msgstr "Є помилки HTML-розмітки."
 
-#: src/Core/Backend/Page.php:1319
+#: src/Core/Backend/Page.php:1317
 msgid "Attention: an audit of a content not yet registered."
 msgstr "Увага: аудит ще не зареєстрованого контенту."
 
-#: src/Core/Backend/Page.php:1320
+#: src/Core/Backend/Page.php:1318
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
 msgstr "Ви маєте незбережені зміни. При зміні формату публікації ці зміни будуть втрачені. Все одно продовжувати?"
 
-#: src/Core/Backend/Page.php:1321
+#: src/Core/Backend/Page.php:1319
 msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
 msgstr "Попередження: зміна формату публікації не призведе до перетворення існуючого контенту. Вам потрібно буде застосувати новий формат самостійно. Все одно продовжувати?"
 
-#: src/Core/Backend/Page.php:1322
+#: src/Core/Backend/Page.php:1320
 msgid "Loading enhanced uploader, please wait."
 msgstr "Завантажується покращений завантажувач, будь ласка, зачекайте."
 
-#: src/Core/Backend/Page.php:1327
+#: src/Core/Backend/Page.php:1325
 msgid "Help:"
 msgstr "Допоможіть:"
 
-#: src/Core/Backend/Page.php:1333
+#: src/Core/Backend/Page.php:1331
 msgid "Show password"
 msgstr "Показати пароль"
 
-#: src/Core/Backend/Page.php:1334
+#: src/Core/Backend/Page.php:1332
 msgid "Hide password"
 msgstr "Приховати пароль"
 
-#: src/Core/Backend/Page.php:1336
+#: src/Core/Backend/Page.php:1334
 msgid "Reset to now"
 msgstr "Скинути до зараз"
 
-#: src/Core/Backend/Page.php:1337
+#: src/Core/Backend/Page.php:1335
 msgid "The publication date has changed. Reset the base name of the entry URL?"
 msgstr "Змінено дату публікації. Скинути базову назву URL-адреси запису?"
 
-#: src/Core/Backend/Page.php:1338
+#: src/Core/Backend/Page.php:1336
 msgid "The publication title has changed. Reset the base name of the entry URL?"
 msgstr "Змінено назву публікації. Скинути базову назву URL-адреси запису?"
 
-#: src/Core/Backend/Page.php:1340
+#: src/Core/Backend/Page.php:1338
 msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences."
 msgstr "На цій інформаційній панелі Dotclear виявлено блокувальник реклами (Ghostery, Adblock plus, uBlock origin, …), і він може перешкоджати роботі деяких функцій. У цьому випадку вам слід вимкнути його. Зверніть увагу, що це виявлення може бути вимкнено у ваших налаштуваннях."
 
-#: src/Core/Backend/Page.php:1392
+#: src/Core/Backend/Page.php:1390
 msgid "You have unsaved changes."
 msgstr "У вас є незбережені зміни."
 
-#: src/Core/Backend/Page.php:1393
+#: src/Core/Backend/Page.php:1391
 msgid "your battery charge seems low (%d%) and you have unsaved changes, you should save them."
 msgstr "рівень заряду акумулятора низький (%d%) і у вас є незбережені зміни, їх слід зберегти."
 
-#: src/Core/Backend/Page.php:1434
+#: src/Core/Backend/Page.php:1432
 msgid "Temporarily activate enhanced uploader"
 msgstr "Тимчасово активувати розширений завантажувач"
 
-#: src/Core/Backend/Page.php:1435
+#: src/Core/Backend/Page.php:1433
 msgid "Temporarily disable enhanced uploader"
 msgstr "Тимчасово вимкнути розширений завантажувач"
 
-#: src/Core/Backend/Page.php:1439
+#: src/Core/Backend/Page.php:1437
 msgid "Limit exceeded."
 msgstr "Ліміт перевищено."
 
-#: src/Core/Backend/Page.php:1440
+#: src/Core/Backend/Page.php:1438
 msgid "File size exceeds allowed limit."
 msgstr "Розмір файлу перевищує допустимий."
 
-#: src/Core/Backend/Page.php:1441
+#: src/Core/Backend/Page.php:1439
 msgid "Canceled."
 msgstr "Скасовано."
 
-#: src/Core/Backend/Page.php:1442
+#: src/Core/Backend/Page.php:1440
 msgid "HTTP Error:"
 msgstr "Помилка HTTP:"
 
-#: src/Core/Backend/Page.php:1444 src/Process/Backend/Media.php:752
+#: src/Core/Backend/Page.php:1442 src/Process/Backend/Media.php:752
 msgid "Choose file"
 msgstr "Виберіть файл"
 
-#: src/Core/Backend/Page.php:1445 src/Process/Backend/Media.php:758
+#: src/Core/Backend/Page.php:1443 src/Process/Backend/Media.php:758
 msgid "Choose files"
 msgstr "Виберіть файли"
 
-#: src/Core/Backend/Page.php:1446 src/Process/Backend/LinkPopup.php:114
+#: src/Core/Backend/Page.php:1444 src/Process/Backend/LinkPopup.php:114
 #: src/Process/Backend/Media.php:305 src/Process/Backend/MediaItem.php:516
 #: src/Process/Backend/MediaItem.php:772 src/Process/Backend/Post.php:962
 #: src/Process/Backend/PostMedia.php:115
 msgid "Cancel"
 msgstr "Скасувати"
 
-#: src/Core/Backend/Page.php:1447
+#: src/Core/Backend/Page.php:1445
 msgid "Clean"
 msgstr "Чистий"
 
-#: src/Core/Backend/Page.php:1449
+#: src/Core/Backend/Page.php:1447
 msgid "Send"
 msgstr "Надіслати"
 
-#: src/Core/Backend/Page.php:1450
+#: src/Core/Backend/Page.php:1448
 msgid "File successfully uploaded."
 msgstr "Файл успішно завантажено."
 
-#: src/Core/Backend/Page.php:1451
+#: src/Core/Backend/Page.php:1449
 msgid "No file in queue."
 msgstr "Немає файлів у черзі."
 
-#: src/Core/Backend/Page.php:1452
+#: src/Core/Backend/Page.php:1450
 msgid "1 file in queue."
 msgstr "1 файл у черзі."
 
-#: src/Core/Backend/Page.php:1453
+#: src/Core/Backend/Page.php:1451
 #, php-format
 msgid "%d files in queue."
 msgstr "%d файли в черзі."
 
-#: src/Core/Backend/Page.php:1454
+#: src/Core/Backend/Page.php:1452
 msgid "Queue error:"
 msgstr "Помилка в черзі:"
 
-#: src/Core/Backend/Page.php:1493
+#: src/Core/Backend/Page.php:1491
 msgid "Cancel filters and display options"
 msgstr "Скасування фільтрів і параметрів відображення"
 
@@ -2209,120 +2209,120 @@ msgstr "медіа на сторінку"
 msgid "results per page"
 msgstr "результатів на сторінці"
 
-#: src/Core/Blog.php:695
+#: src/Core/Blog.php:696
 msgid "You are not allowed to add categories"
 msgstr "Ви не маєте права додавати категорії"
 
-#: src/Core/Blog.php:739
+#: src/Core/Blog.php:740
 msgid "You are not allowed to update categories"
 msgstr "Ви не маєте права оновлювати категорії"
 
-#: src/Core/Blog.php:796
+#: src/Core/Blog.php:797
 msgid "You are not allowed to delete categories"
 msgstr "Ви не маєте права видаляти категорії"
 
-#: src/Core/Blog.php:809
+#: src/Core/Blog.php:810
 msgid "This category is not empty."
 msgstr "Ця категорія не порожня."
 
-#: src/Core/Blog.php:822
+#: src/Core/Blog.php:823
 msgid "You are not allowed to reset categories order"
 msgstr "Ви не маєте права скидати порядок категорій"
 
-#: src/Core/Blog.php:891
+#: src/Core/Blog.php:892
 msgid "Empty category URL"
 msgstr "Порожня URL-адреса категорії"
 
-#: src/Core/Blog.php:908
+#: src/Core/Blog.php:909
 msgid "You must provide a category title"
 msgstr "Ви повинні вказати назву категорії"
 
-#: src/Core/Blog.php:918
+#: src/Core/Blog.php:919
 msgid "You must provide a category URL"
 msgstr "Ви повинні вказати URL-адресу категорії"
 
-#: src/Core/Blog.php:1374
+#: src/Core/Blog.php:1375
 msgid "You are not allowed to create an entry"
 msgstr "Ви не маєте права створювати записи"
 
-#: src/Core/Blog.php:1434
+#: src/Core/Blog.php:1435
 msgid "You are not allowed to update entries"
 msgstr "Ви не маєте права оновлювати записи"
 
-#: src/Core/Blog.php:1440 src/Core/Blog.php:1684
+#: src/Core/Blog.php:1441 src/Core/Blog.php:1685
 msgid "No such entry ID"
 msgstr "Немає такого ідентифікатора запису"
 
-#: src/Core/Blog.php:1474
+#: src/Core/Blog.php:1475
 msgid "You are not allowed to edit this entry"
 msgstr "Ви не маєте права редагувати цей запис"
 
-#: src/Core/Blog.php:1502 src/Core/Blog.php:1537 src/Core/Meta.php:139
+#: src/Core/Blog.php:1503 src/Core/Blog.php:1538 src/Core/Meta.php:139
 #: src/Core/Meta.php:156
 msgid "You are not allowed to change this entry status"
 msgstr "Ви не маєте права змінювати цей статус запису"
 
-#: src/Core/Blog.php:1576 src/Core/Blog.php:1614
+#: src/Core/Blog.php:1577 src/Core/Blog.php:1615
 msgid "You are not allowed to change this entry category"
 msgstr "Ви не маєте права змінювати цю категорію заявок"
 
-#: src/Core/Blog.php:1647
+#: src/Core/Blog.php:1648
 msgid "You are not allowed to change entries category"
 msgstr "Ви не маєте права змінювати категорію заявки"
 
-#: src/Core/Blog.php:1678
+#: src/Core/Blog.php:1679
 msgid "You are not allowed to delete entries"
 msgstr "Ви не маєте права видаляти записи"
 
-#: src/Core/Blog.php:1914
+#: src/Core/Blog.php:1915
 msgid "No entry title"
 msgstr "Немає назви запису"
 
-#: src/Core/Blog.php:1918 src/Core/Blog.php:1932
+#: src/Core/Blog.php:1919 src/Core/Blog.php:1933
 msgid "No entry content"
 msgstr "Немає вмісту для входу"
 
-#: src/Core/Blog.php:1998
+#: src/Core/Blog.php:1999
 msgid "Notes"
 msgstr "Примітки"
 
-#: src/Core/Blog.php:2000
+#: src/Core/Blog.php:2001
 msgid "Note"
 msgstr "Примітка"
 
-#: src/Core/Blog.php:2115
+#: src/Core/Blog.php:2116
 msgid "Empty entry URL"
 msgstr "Порожня URL-адреса запису"
 
-#: src/Core/Blog.php:2426
+#: src/Core/Blog.php:2427
 msgid "You are not allowed to update comments"
 msgstr "Ви не маєте права оновлювати коментарі"
 
-#: src/Core/Blog.php:2432 src/Core/Blog.php:2438 src/Core/Blog.php:2543
+#: src/Core/Blog.php:2433 src/Core/Blog.php:2439 src/Core/Blog.php:2544
 msgid "No such comment ID"
 msgstr "Немає такого ідентифікатора коментаря"
 
-#: src/Core/Blog.php:2445
+#: src/Core/Blog.php:2446
 msgid "You are not allowed to update this comment"
 msgstr "Ви не маєте права оновлювати цей коментар"
 
-#: src/Core/Blog.php:2496
+#: src/Core/Blog.php:2497
 msgid "You are not allowed to change this comment's status"
 msgstr "Ви не маєте права змінювати статус цього коментаря"
 
-#: src/Core/Blog.php:2537 src/Core/Blog.php:2591
+#: src/Core/Blog.php:2538 src/Core/Blog.php:2592
 msgid "You are not allowed to delete comments"
 msgstr "Ви не маєте права видаляти коментарі"
 
-#: src/Core/Blog.php:2626
+#: src/Core/Blog.php:2627
 msgid "You must provide a comment"
 msgstr "Ви повинні надати коментар"
 
-#: src/Core/Blog.php:2630
+#: src/Core/Blog.php:2631
 msgid "You must provide an author name"
 msgstr "Ви повинні вказати ім'я автора"
 
-#: src/Core/Blog.php:2634
+#: src/Core/Blog.php:2635
 msgid "Email address is not valid."
 msgstr "Адреса електронної пошти не є дійсною."
 
@@ -3091,63 +3091,63 @@ msgstr "Модуль \"%1$s\" вимагає \"%2$s\" версії %3$s, але 
 msgid "Module \"%1$s\" requires module \"%2$s\" which is disabled"
 msgstr "Модуль \"%1$s\" вимагає модуль \"%2$s\", який відключено"
 
-#: src/Module/Modules.php:616
+#: src/Module/Modules.php:611
 #, php-format
 msgid "Module \"%1$s\" has type \"%2$s\" that mismatch required module type \"%3$s\"."
 msgstr "Модуль \"%1$s\" має тип \"%2$s\", що не відповідає необхідному типу модуля \"%3$s\"."
 
-#: src/Module/Modules.php:642
+#: src/Module/Modules.php:637
 #, php-format
 msgid "Module \"%1$s\" is installed twice in \"%2$s\" and \"%3$s\"."
 msgstr "Модуль \"%1$s\" встановлюється двічі в \"%2$s\" та \"%3$s\"."
 
-#: src/Module/Modules.php:716
+#: src/Module/Modules.php:710
 msgid "Empty module zip file."
 msgstr "Порожній zip-файл модуля."
 
-#: src/Module/Modules.php:723
+#: src/Module/Modules.php:717
 msgid "The zip file does not appear to be a valid Dotclear module."
 msgstr "Здається, що zip-файл не є дійсним модулем Dotclear."
 
-#: src/Module/Modules.php:758 src/Module/Modules.php:795
+#: src/Module/Modules.php:752 src/Module/Modules.php:789
 #, php-format
 msgid "Module is not installed: %s"
 msgstr "Модуль не встановлено: %s"
 
-#: src/Module/Modules.php:810
+#: src/Module/Modules.php:804
 #, php-format
 msgid "Unable to upgrade \"%s\". (update locked)"
 msgstr "Неможливо оновити \"%s\". (Оновлення заблоковано)"
 
-#: src/Module/Modules.php:814
+#: src/Module/Modules.php:808
 msgid "An error occurred during module deletion."
 msgstr "Під час видалення модуля сталася помилка."
 
-#: src/Module/Modules.php:822
+#: src/Module/Modules.php:816
 #, php-format
 msgid "Unable to upgrade \"%s\". (older or same version)"
 msgstr "Неможливо оновити \"%s\". (старішу або таку саму версію)"
 
-#: src/Module/Modules.php:828
+#: src/Module/Modules.php:822
 #, php-format
 msgid "Unable to read new %s file"
 msgstr "Не вдалося прочитати новий файл %s"
 
-#: src/Module/Modules.php:837 src/Module/Modules.php:954
-#: src/Module/Modules.php:958
+#: src/Module/Modules.php:831 src/Module/Modules.php:948
+#: src/Module/Modules.php:952
 msgid "Cannot deactivate plugin."
 msgstr "Не вдається деактивувати плагін."
 
-#: src/Module/Modules.php:930 src/Module/Modules.php:950
-#: src/Module/Modules.php:974
+#: src/Module/Modules.php:924 src/Module/Modules.php:944
+#: src/Module/Modules.php:968
 msgid "No such module."
 msgstr "Такого модуля немає."
 
-#: src/Module/Modules.php:934
+#: src/Module/Modules.php:928
 msgid "Cannot remove module files"
 msgstr "Не вдається видалити файли модулів"
 
-#: src/Module/Modules.php:978 src/Module/Modules.php:982
+#: src/Module/Modules.php:972 src/Module/Modules.php:976
 msgid "Cannot activate plugin."
 msgstr "Не вдається активувати плагін."
 
@@ -4072,11 +4072,9 @@ msgstr[2] "Доступно одне оновлення теми:"
 msgstr[3] "Доступні оновлення теми %s:"
 
 #: src/Process/Backend/BlogTheme.php:312 src/Process/Backend/BlogTheme.php:349
-#: src/Process/Backend/Plugins.php:276 src/Process/Backend/Plugins.php:330
-#: src/Process/Upgrade/Plugins.php:265 src/Process/Upgrade/Plugins.php:321
 #, php-format
-msgid "Visit %s repository, the resources center for Dotclear."
-msgstr "Відвідайте репозиторій %s , центр ресурсів для Dotclear."
+msgid "Visit %s themes repository."
+msgstr "Відвідайте репозиторій тем %s."
 
 #: src/Process/Backend/BlogTheme.php:341
 msgid "Add themes"
@@ -4086,8 +4084,8 @@ msgstr "Додавання тем"
 msgid "Add themes from repository"
 msgstr "Додавання тем зі сховища"
 
-#: src/Process/Backend/BlogTheme.php:359 src/Process/Backend/Plugins.php:336
-#: src/Process/Upgrade/Plugins.php:327
+#: src/Process/Backend/BlogTheme.php:359 src/Process/Backend/Plugins.php:342
+#: src/Process/Upgrade/Plugins.php:333
 msgid "Install or upgrade manually"
 msgstr "Встановити або оновити вручну"
 
@@ -5166,36 +5164,42 @@ msgstr[1] "Доступно одне оновлення плагіна:"
 msgstr[2] "Доступно одне оновлення плагіна:"
 msgstr[3] "Доступні оновлення плагіна %s:"
 
-#: src/Process/Backend/Plugins.php:280 src/Process/Backend/Plugins.php:283
-#: src/Process/Upgrade/Plugins.php:269 src/Process/Upgrade/Plugins.php:272
+#: src/Process/Backend/Plugins.php:277 src/Process/Backend/Plugins.php:334
+#: src/Process/Upgrade/Plugins.php:266 src/Process/Upgrade/Plugins.php:325
+#, php-format
+msgid "Visit %s plugins repository."
+msgstr "Відвідайте %s репозиторій плагінів."
+
+#: src/Process/Backend/Plugins.php:283 src/Process/Backend/Plugins.php:286
+#: src/Process/Upgrade/Plugins.php:272 src/Process/Upgrade/Plugins.php:275
 msgid "Update plugins"
 msgstr "Оновлення плагінів"
 
-#: src/Process/Backend/Plugins.php:292 src/Process/Upgrade/Plugins.php:281
+#: src/Process/Backend/Plugins.php:295 src/Process/Upgrade/Plugins.php:284
 msgid "Force checking update of plugins"
 msgstr "Примусова перевірка оновлення плагінів"
 
-#: src/Process/Backend/Plugins.php:311 src/Process/Upgrade/Plugins.php:302
+#: src/Process/Backend/Plugins.php:314 src/Process/Upgrade/Plugins.php:305
 msgid "Add plugins"
 msgstr "Додавання плагінів"
 
-#: src/Process/Backend/Plugins.php:314 src/Process/Upgrade/Plugins.php:305
+#: src/Process/Backend/Plugins.php:317 src/Process/Upgrade/Plugins.php:308
 msgid "Add plugins from repository"
 msgstr "Додавання плагінів зі сховища"
 
-#: src/Process/Backend/Plugins.php:339 src/Process/Upgrade/Plugins.php:330
+#: src/Process/Backend/Plugins.php:345 src/Process/Upgrade/Plugins.php:336
 msgid "Add plugins from a package"
 msgstr "Додавання плагінів з пакунка"
 
-#: src/Process/Backend/Plugins.php:342 src/Process/Upgrade/Plugins.php:333
+#: src/Process/Backend/Plugins.php:348 src/Process/Upgrade/Plugins.php:339
 msgid "You can install plugins by uploading or downloading zip files."
 msgstr "Ви можете встановити плагіни, завантаживши або викачавши zip-файли."
 
-#: src/Process/Backend/Plugins.php:358 src/Process/Upgrade/Plugins.php:346
+#: src/Process/Backend/Plugins.php:364 src/Process/Upgrade/Plugins.php:352
 msgid "Some functions are disabled, please give write access to your plugins directory to enable them."
 msgstr "Деякі функції вимкнено, будь ласка, надайте доступ на запис до каталогу плагінів, щоб увімкнути їх."
 
-#: src/Process/Backend/Plugins.php:390
+#: src/Process/Backend/Plugins.php:396
 msgid "Plugin configuration"
 msgstr "Конфігурація плагіна"
 
@@ -7126,48 +7130,48 @@ msgstr "Встановіть або оновіть мови, завантажи�
 msgid "Some plugins could not be loaded."
 msgstr "Деякі плагіни не вдалося завантажити."
 
-#: src/Process/Upgrade/Plugins.php:371
+#: src/Process/Upgrade/Plugins.php:377
 msgid "There is no module to check"
 msgstr "Немає модуля для перевірки"
 
-#: src/Process/Upgrade/Plugins.php:379
+#: src/Process/Upgrade/Plugins.php:385
 msgid "Store version"
 msgstr "Магазинна версія"
 
-#: src/Process/Upgrade/Plugins.php:381
+#: src/Process/Upgrade/Plugins.php:387
 msgid "Check stores versions"
 msgstr "Перевірте версії магазинів"
 
-#: src/Process/Upgrade/Plugins.php:389
+#: src/Process/Upgrade/Plugins.php:395
 msgid "Check lastest stores versions"
 msgstr "Перевірте останні версії магазинів"
 
-#: src/Process/Upgrade/Plugins.php:393
+#: src/Process/Upgrade/Plugins.php:399
 #, php-format
 msgid "You can check repositories for modules written explicitly for Dotclear release greater than %s."
 msgstr "Ви можете перевірити репозиторії на наявність модулів, написаних явно для версії Dotclear, більшої за %s."
 
-#: src/Process/Upgrade/Plugins.php:418 src/Process/Upgrade/Plugins.php:461
+#: src/Process/Upgrade/Plugins.php:424 src/Process/Upgrade/Plugins.php:467
 msgid "No version available"
 msgstr "Версія не доступна"
 
-#: src/Process/Upgrade/Plugins.php:420
+#: src/Process/Upgrade/Plugins.php:426
 msgid "No update available"
 msgstr "Оновлення не доступне"
 
-#: src/Process/Upgrade/Plugins.php:422
+#: src/Process/Upgrade/Plugins.php:428
 msgid "Newer version available"
 msgstr "Доступна нова версія"
 
-#: src/Process/Upgrade/Plugins.php:475
+#: src/Process/Upgrade/Plugins.php:481
 msgid "Modules list"
 msgstr "Список модулів"
 
-#: src/Process/Upgrade/Plugins.php:490
+#: src/Process/Upgrade/Plugins.php:496
 msgid "Latest version"
 msgstr "Остання версія"
 
-#: src/Process/Upgrade/Plugins.php:494
+#: src/Process/Upgrade/Plugins.php:500
 msgid "Written for Dotclear"
 msgstr "Написано для Dotclear"
 
