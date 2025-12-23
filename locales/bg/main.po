@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-21 09:55+0100\n"
-"PO-Revision-Date: 2025-12-21 09:29\n"
+"POT-Creation-Date: 2025-12-23 12:19+0100\n"
+"PO-Revision-Date: 2025-12-23 12:30\n"
 "Last-Translator: \n"
 "Language-Team: Bulgarian\n"
 "Language: bg_BG\n"
@@ -76,6 +76,26 @@ msgstr "SQLite (PDO)"
 #: inc/core/_fake_l10n.php:25
 msgid "PostgreSQL (PDO)"
 msgstr "PostgreSQL (PDO)"
+
+#: locales/en/resources.php:12
+msgid "Dotclear documentation"
+msgstr "Документация на Dotclear"
+
+#: locales/en/resources.php:13
+msgid "Dotclear presentation"
+msgstr "Представяне на Dotclear"
+
+#: locales/en/resources.php:14
+msgid "User manual"
+msgstr "Ръководство за потребителя"
+
+#: locales/en/resources.php:15
+msgid "Installation and administration guides"
+msgstr "Ръководства за инсталиране и администриране"
+
+#: locales/en/resources.php:16
+msgid "Dotclear support forum"
+msgstr "Форум за поддръжка на Dotclear"
 
 #: src/Core/Auth.php:121
 msgid "administrator"

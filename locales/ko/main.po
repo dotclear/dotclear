@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-21 09:55+0100\n"
-"PO-Revision-Date: 2025-12-21 09:29\n"
+"POT-Creation-Date: 2025-12-23 12:19+0100\n"
+"PO-Revision-Date: 2025-12-23 12:30\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -76,6 +76,26 @@ msgstr "SQLite(PDO)"
 #: inc/core/_fake_l10n.php:25
 msgid "PostgreSQL (PDO)"
 msgstr "PostgreSQL(PDO)"
+
+#: locales/en/resources.php:12
+msgid "Dotclear documentation"
+msgstr "도트클리어 문서"
+
+#: locales/en/resources.php:13
+msgid "Dotclear presentation"
+msgstr "명확한 프레젠테이션"
+
+#: locales/en/resources.php:14
+msgid "User manual"
+msgstr "사용자 설명서"
+
+#: locales/en/resources.php:15
+msgid "Installation and administration guides"
+msgstr "설치 및 관리 가이드"
+
+#: locales/en/resources.php:16
+msgid "Dotclear support forum"
+msgstr "닷클리어 지원 포럼"
 
 #: src/Core/Auth.php:121
 msgid "administrator"
