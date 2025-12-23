@@ -103,9 +103,9 @@ You can submit a pull request, or feel free to use any other way you'd prefer.
 ---
 
 [1]: https://download.dotclear.org/loader/dotclear-loader.php
-[2]: https://dotclear.org/documentation/2.0/admin/install
+[2]: https://dotclear.org/category/Documentation/Installer-et-g%C3%A9rer
 [3]: https://dotclear.org/download
-[4]: https://dotclear.org/documentation/2.0/overview/tour
-[5]: https://dotclear.org/documentation/2.0/usage
-[6]: https://dotclear.org/documentation/2.0/admin
-[7]: https://dotclear.org/documentation/2.0/resources
+[4]: https://dotclear.org/category/Documentation/D%C3%A9couvrir
+[5]: https://dotclear.org/category/Documentation/Utiliser
+[6]: https://dotclear.org/category/Documentation/Installer-et-g%C3%A9rer
+[7]: https://dotclear.org/category/Documentation/Cr%C3%A9er-et-contribuer

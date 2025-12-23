@@ -44,7 +44,7 @@ _fake_plugin
 PO_LANG=$1
 PO_MODULE=$2
 
-if [ ! -d ./inc/core ]; then
+if [ ! -d ./src ]; then
   echo "You are not on Dotclear root directory"
   exit 1
 fi
@@ -91,7 +91,7 @@ if [ -z "$PO_MODULE" ]; then
   # Create po template files
   #
   echo "Building main PO template..."
-  find ./admin ./inc ./src -name '*.php' -not -regex '.*/inc/public/.*' -print | \
+  find ./admin ./inc ./src ./locales/en -name '*.php' -not -regex '.*/inc/public/.*' -print | \
     extract_strings \
     --package-name="Dotclear 2" \
     -o locales/_pot/main.pot \

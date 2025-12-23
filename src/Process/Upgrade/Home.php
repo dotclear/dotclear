@@ -59,7 +59,7 @@ class Home
             $infos[] = (new li())->text(sprintf(__('%s is not defined, you should edit your configuration file.'), 'DC_ADMIN_URL') . ' ' .
                 sprintf(
                     __('See <a href="%s">documentation</a> for more information.'),
-                    'https://dotclear.org/documentation/2.0/admin/config'
+                    'https://dotclear.org/category/Documentation/Installer-et-g%C3%A9rer'
                 ));
         }
 
@@ -67,7 +67,7 @@ class Home
             $infos[] = (new li())->text(sprintf(__('%s is not defined, you should edit your configuration file.'), 'DC_ADMIN_MAILFROM') . ' ' .
                 sprintf(
                     __('See <a href="%s">documentation</a> for more information.'),
-                    'https://dotclear.org/documentation/2.0/admin/config'
+                    'https://dotclear.org/category/Documentation/Installer-et-g%C3%A9rer'
                 ));
         }
 

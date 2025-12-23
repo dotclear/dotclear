@@ -8,11 +8,9 @@
  * @copyright AGPL-3.0
  */
 \Dotclear\App::backend()->resources()
-    ->reset('rss_news') // remove previously set "en" rss news
-    ->set('rss_news', 'Dotclear', 'https://fr.dotclear.org/blog/feed/category/News/atom')
-    ->reset('doc') // remove previously set "en" doc
-    ->set('doc', "Accueil de l'aide Dotclear", 'https://fr.dotclear.org/documentation/2.0')
-    ->set('doc', 'Présentation de Dotclear', 'https://fr.dotclear.org/documentation/2.0/overview/tour')
-    ->set('doc', "Manuel de l'utilisateur", 'https://fr.dotclear.org/documentation/2.0/usage')
-    ->set('doc', "Guide d'installation et d'administration", 'https://fr.dotclear.org/documentation/2.0/admin')
-    ->set('doc', 'Forum de support de Dotclear', 'https://matrix.to/#/#dotclear:matrix.org');
+    ->set('rss_news', 'Dotclear', 'https://dotclear.org/feed/atom')
+    ->set('doc', __('Dotclear documentation'), 'https://dotclear.org/category/Documentation')
+    ->set('doc', __('Dotclear presentation'), 'https://dotclear.org/category/Documentation/D%C3%A9couvrir')
+    ->set('doc', __('User manual'), 'https://dotclear.org/category/Documentation/Utiliser')
+    ->set('doc', __('Installation and administration guides'), 'https://dotclear.org/category/Documentation/Installer-et-g%C3%A9rer')
+    ->set('doc', __('Dotclear support forum'), 'https://dotclear.org/forum');

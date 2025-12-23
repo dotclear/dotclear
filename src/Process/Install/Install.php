@@ -639,7 +639,7 @@ class Install
                         ]),
                     new Text('p', sprintf(
                         __('For the said reasons, Dotclear can not be installed. Please refer to <a href="%s">the documentation</a> to learn how to correct the problem.'),
-                        'https://dotclear.org/documentation/2.0/admin/install'
+                        'https://dotclear.org/category/Documentation/Installer-et-g%C3%A9rer'
                     )),
                 ]);
         }

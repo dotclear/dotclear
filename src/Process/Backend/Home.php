@@ -274,7 +274,7 @@ class Home
                 ' ' .
                 sprintf(
                     __('See <a href="%s">documentation</a> for more information.'),
-                    'https://dotclear.org/documentation/2.0/admin/config'
+                    'https://dotclear.org/category/Documentation/Installer-et-g%C3%A9rer'
                 ),
                 false
             );
@@ -289,7 +289,7 @@ class Home
                 ' ' .
                 sprintf(
                     __('See <a href="%s">documentation</a> for more information.'),
-                    'https://dotclear.org/documentation/2.0/admin/config'
+                    'https://dotclear.org/category/Documentation/Installer-et-g%C3%A9rer'
                 ),
                 false
             );

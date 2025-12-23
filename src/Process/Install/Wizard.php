@@ -115,7 +115,7 @@ class Wizard
                     (new Text('p', sprintf(__('Path <strong>%s</strong> is not writable.'), Path::real(dirname(App::config()->configPath()))))),
                     (new Text('p', sprintf(
                         __('Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href="%s">the documentation</a> to learn how to do this.'),
-                        'https://dotclear.org/documentation/2.0/admin/install'
+                        'https://dotclear.org/category/Documentation/Installer-et-g%C3%A9rer'
                     ))),
                 ])
                 ->render();
@@ -131,7 +131,7 @@ class Wizard
                     new Text('p', __('There are no supported database driver.')),
                     (new Text('p', sprintf(
                         __('Dotclear installation wizard could not find database driver. You must change your PHP configuration to add a supported database handler please refer to <a href="%s">the documentation</a> to learn how to do this.'),
-                        'https://dotclear.org/documentation/2.0/admin/install'
+                        'https://dotclear.org/category/Documentation/Installer-et-g%C3%A9rer'
                     ))),
                 ])
                 ->render();
@@ -369,7 +369,7 @@ class Wizard
                                             new Strong(__('Attention:')),
                                             (new Text('', sprintf(
                                                 __('this wizard may not function on every host. If it does not work for you, please refer to <a href="%s">the documentation</a> to learn how to create the <strong>config.php</strong> file manually.'),
-                                                'https://dotclear.org/documentation/2.0/admin/install'
+                                                'https://dotclear.org/category/Documentation/Installer-et-g%C3%A9rer'
                                             ))),
                                         ]),
                                 ]),

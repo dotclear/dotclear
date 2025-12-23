@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-21 11:01+0100\n"
+"POT-Creation-Date: 2025-12-23 12:19+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -75,6 +75,26 @@ msgstr ""
 
 #: inc/core/_fake_l10n.php:25
 msgid "PostgreSQL (PDO)"
+msgstr ""
+
+#: locales/en/resources.php:12
+msgid "Dotclear documentation"
+msgstr ""
+
+#: locales/en/resources.php:13
+msgid "Dotclear presentation"
+msgstr ""
+
+#: locales/en/resources.php:14
+msgid "User manual"
+msgstr ""
+
+#: locales/en/resources.php:15
+msgid "Installation and administration guides"
+msgstr ""
+
+#: locales/en/resources.php:16
+msgid "Dotclear support forum"
 msgstr ""
 
 #: src/Core/Auth.php:121

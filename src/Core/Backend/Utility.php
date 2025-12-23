@@ -419,9 +419,12 @@ class Utility extends AbstractUtility
             return true;
         }
 
-        require implode(DIRECTORY_SEPARATOR, [App::config()->l10nRoot(), 'en', 'resources.php']);
         if ($f = App::lang()->getFilePath(App::config()->l10nRoot(), '/resources.php', App::lang()->getLang())) {
+            // Use localized resources
             require $f;
+        } else {
+            // Use English resources
+            require implode(DIRECTORY_SEPARATOR, [App::config()->l10nRoot(), 'en', 'resources.php']);
         }
         unset($f);
 
