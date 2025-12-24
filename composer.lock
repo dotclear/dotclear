@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "50bc2210eca2fcec5f8b6c406d5e2bd6",
+    "content-hash": "d35188e597dac848ccd5983334735313",
     "packages": [],
     "packages-dev": [
         {
@@ -2019,12 +2019,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "5cee1d3dfc2d2aa6599834520911d246f656bcb8"
+                "reference": "00f1bda50f3fcf4b104b055ce4c0e7f8b669aa5f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/5cee1d3dfc2d2aa6599834520911d246f656bcb8",
-                "reference": "5cee1d3dfc2d2aa6599834520911d246f656bcb8",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/00f1bda50f3fcf4b104b055ce4c0e7f8b669aa5f",
+                "reference": "00f1bda50f3fcf4b104b055ce4c0e7f8b669aa5f",
                 "shasum": ""
             },
             "require": {
@@ -2032,8 +2032,8 @@
                 "ext-filter": "*",
                 "php": "^7.4 || ^8.0",
                 "phpdocumentor/reflection-common": "^2.2",
-                "phpdocumentor/type-resolver": "^1.7",
-                "phpstan/phpdoc-parser": "^1.7|^2.0",
+                "phpdocumentor/type-resolver": "^2.x-dev",
+                "phpstan/phpdoc-parser": "^2.0",
                 "webmozart/assert": "^1.9.1 || ^2"
             },
             "require-dev": {
@@ -2076,42 +2076,43 @@
                 "issues": "https://github.com/phpDocumentor/ReflectionDocBlock/issues",
                 "source": "https://github.com/phpDocumentor/ReflectionDocBlock/tree/5.x"
             },
-            "time": "2025-12-22T21:13:58+00:00"
+            "time": "2025-12-24T15:18:45+00:00"
         },
         {
             "name": "phpdocumentor/type-resolver",
-            "version": "1.x-dev",
+            "version": "2.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/TypeResolver.git",
-                "reference": "fb05a34cd192e7987c18c06ef47dce6c2e2ec39f"
+                "reference": "04298b7787b2c341bae25783c78c167f1901d5b9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/fb05a34cd192e7987c18c06ef47dce6c2e2ec39f",
-                "reference": "fb05a34cd192e7987c18c06ef47dce6c2e2ec39f",
+                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/04298b7787b2c341bae25783c78c167f1901d5b9",
+                "reference": "04298b7787b2c341bae25783c78c167f1901d5b9",
                 "shasum": ""
             },
             "require": {
                 "doctrine/deprecations": "^1.0",
-                "php": "^7.3 || ^8.0",
+                "php": "^7.4 || ^8.0",
                 "phpdocumentor/reflection-common": "^2.0",
-                "phpstan/phpdoc-parser": "^1.18|^2.0"
+                "phpstan/phpdoc-parser": "^2.0"
             },
             "require-dev": {
                 "ext-tokenizer": "*",
                 "phpbench/phpbench": "^1.2",
-                "phpstan/extension-installer": "^1.1",
-                "phpstan/phpstan": "^1.8",
-                "phpstan/phpstan-phpunit": "^1.1",
+                "phpstan/extension-installer": "^1.4",
+                "phpstan/phpstan": "^2.1",
+                "phpstan/phpstan-phpunit": "^2.0",
                 "phpunit/phpunit": "^9.5",
-                "rector/rector": "^0.13.9",
-                "vimeo/psalm": "^4.25"
+                "psalm/phar": "^4"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-1.x": "1.x-dev"
+                    "dev-1.x": "1.x-dev",
+                    "dev-2.x": "2.x-dev"
                 }
             },
             "autoload": {
@@ -2132,9 +2133,9 @@
             "description": "A PSR-5 based resolver of Class names, Types and Structural Element Names",
             "support": {
                 "issues": "https://github.com/phpDocumentor/TypeResolver/issues",
-                "source": "https://github.com/phpDocumentor/TypeResolver/tree/1.x"
+                "source": "https://github.com/phpDocumentor/TypeResolver/tree/2.x"
             },
-            "time": "2025-11-28T09:29:02+00:00"
+            "time": "2025-12-22T19:57:29+00:00"
         },
         {
             "name": "phpstan/phpdoc-parser",
@@ -2950,12 +2951,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "8dcb063cccf78205ca4162f73be5bccd932510bb"
+                "reference": "d0924cecd248c43fe2726fb4b8fb85a9ff18037e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/8dcb063cccf78205ca4162f73be5bccd932510bb",
-                "reference": "8dcb063cccf78205ca4162f73be5bccd932510bb",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/d0924cecd248c43fe2726fb4b8fb85a9ff18037e",
+                "reference": "d0924cecd248c43fe2726fb4b8fb85a9ff18037e",
                 "shasum": ""
             },
             "require": {
@@ -3003,7 +3004,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-12-22T16:01:26+00:00"
+            "time": "2025-12-24T09:31:43+00:00"
         },
         {
             "name": "revolt/event-loop",
