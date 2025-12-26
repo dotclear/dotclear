@@ -17,7 +17,6 @@ declare(strict_types=1);
 
 use Rector\Caching\ValueObject\Storage\FileCacheStorage;
 use Rector\Config\RectorConfig;
-use Rector\DeadCode\Rector\ClassMethod\RemoveParentDelegatingConstructorRector;
 use Rector\Renaming\Rector\MethodCall\RenameMethodRector;
 use Rector\Set\ValueObject\LevelSetList;
 
@@ -59,7 +58,6 @@ return RectorConfig::configure()
         cacheDirectory: '/tmp/dotclear/core/rector'
     )
     ->withSkip([
-        RemoveParentDelegatingConstructorRector::class, // issue: https://github.com/rectorphp/rector/issues/9571
         RenameMethodRector::class => [
             /* src/Schema/Database/PdoSqlite/Handler.php:44
                 -        $handle->sqliteCreateFunction('now', $this->now(...), 0);

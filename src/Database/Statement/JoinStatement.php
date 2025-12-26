@@ -11,7 +11,6 @@ declare(strict_types=1);
 namespace Dotclear\Database\Statement;
 
 use Dotclear\App;
-use Dotclear\Interface\Database\ConnectionInterface;
 
 /**
  * @class JoinStatement
@@ -21,17 +20,6 @@ use Dotclear\Interface\Database\ConnectionInterface;
 class JoinStatement extends SqlStatement
 {
     protected ?string $type = null;
-
-    /**
-     * Constructs a new instance.
-     *
-     * @param      ?ConnectionInterface     $con     The DB handle
-     * @param      null|string              $syntax  The syntax
-     */
-    public function __construct(?ConnectionInterface $con = null, ?string $syntax = null)
-    {
-        parent::__construct($con, $syntax);
-    }
 
     /**
      * Defines the type for join

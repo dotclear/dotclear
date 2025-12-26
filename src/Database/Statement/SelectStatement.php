@@ -53,17 +53,6 @@ class SelectStatement extends SqlStatement
     protected bool $distinct = false;
 
     /**
-     * Constructs a new instance.
-     *
-     * @param      ?ConnectionInterface     $con     The DB handle
-     * @param      null|string              $syntax  The syntax
-     */
-    public function __construct(?ConnectionInterface $con = null, ?string $syntax = null)
-    {
-        parent::__construct($con, $syntax);
-    }
-
-    /**
      * Adds JOIN clause(s) (applied on first from item only)
      *
      * @param string|string[]  $c      the join clause(s)

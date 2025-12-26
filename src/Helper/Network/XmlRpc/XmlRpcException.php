@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -18,12 +19,4 @@ use Exception;
  */
 class XmlRpcException extends Exception
 {
-    /**
-     * @param string    $message        Exception message
-     * @param int       $code           Exception code
-     */
-    public function __construct(string $message, int  $code = 0)
-    {
-        parent::__construct($message, $code);
-    }
 }

@@ -26,17 +26,6 @@ class InsertStatement extends SqlStatement
     protected array $lines = [];
 
     /**
-     * Constructs a new instance.
-     *
-     * @param      ?ConnectionInterface     $con     The DB handle
-     * @param      null|string              $syntax  The syntax
-     */
-    public function __construct(?ConnectionInterface $con = null, ?string $syntax = null)
-    {
-        parent::__construct($con, $syntax);
-    }
-
-    /**
      * from() alias
      *
      * @param null|string|string[]  $c      the into clause(s)
