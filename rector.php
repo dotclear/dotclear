@@ -38,11 +38,12 @@ return RectorConfig::configure()
     ->withPreparedSets(
         deadCode: true,
         codeQuality: true,
+        //codingStyle: true,
         typeDeclarations: true,
         privatization: true,
         //naming: true,
         instanceOf: true,
-        //earlyReturn: true,
+        earlyReturn: true,
     )
     // Configure parallel (if too much code to analyze), see https://getrector.com/documentation/troubleshooting-parallel
     ->withParallel(
