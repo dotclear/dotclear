@@ -1064,7 +1064,9 @@ class Tpl extends Template
 
         if ($rfc822) {
             return '<?= ' . sprintf($filters, Date::class . '::rfc822(App::blog()->upddt(),App::blog()->settings()->system->blog_timezone)') . ' ?>';
-        } elseif ($iso8601) {
+        }
+
+        if ($iso8601) {
             return '<?= ' . sprintf($filters, Date::class . '::iso8601(App::blog()->upddt(),App::blog()->settings()->system->blog_timezone)') . ' ?>';
         }
 
@@ -2512,7 +2514,9 @@ class Tpl extends Template
         if ($rfc822) {
             return '<?= ' .
                 sprintf($filters, "App::frontend()->context()->posts->getRFC822Date('" . $type . "')") . ' ?>';
-        } elseif ($iso8601) {
+        }
+
+        if ($iso8601) {
             return '<?= ' .
                 sprintf($filters, "App::frontend()->context()->posts->getISO8601Date('" . $type . "')") . ' ?>';
         }
@@ -3108,7 +3112,9 @@ class Tpl extends Template
 
         if ($rfc822) {
             return '<?= ' . sprintf($filters, "App::frontend()->context()->comments->getRFC822Date('" . $type . "')") . ' ?>';
-        } elseif ($iso8601) {
+        }
+
+        if ($iso8601) {
             return '<?= ' . sprintf($filters, "App::frontend()->context()->comments->getISO8601Date('" . $type . "')") . ' ?>';
         }
 
@@ -3554,7 +3560,9 @@ class Tpl extends Template
 
         if ($rfc822) {
             return '<?= ' . sprintf($filters, "App::frontend()->context()->pings->getRFC822Date('" . $type . "')") . ' ?>';
-        } elseif ($iso8601) {
+        }
+
+        if ($iso8601) {
             return '<?= ' . sprintf($filters, "App::frontend()->context()->pings->getISO8601Date('" . $type . "')") . ' ?>';
         }
 

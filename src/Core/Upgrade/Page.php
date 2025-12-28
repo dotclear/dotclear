@@ -423,7 +423,13 @@ class Page extends BackendPage
             }
 
             $file = App::upgrade()->resources()->entry('help', $arg);
-            if ($file === '' || !file_exists($file) || !is_readable($file)) {
+            if ($file === '') {
+                continue;
+            }
+            if (!file_exists($file)) {
+                continue;
+            }
+            if (!is_readable($file)) {
                 continue;
             }
 

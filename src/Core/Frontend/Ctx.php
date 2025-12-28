@@ -138,7 +138,7 @@ class Ctx
         }
 
         if ($modulo !== null) {
-            $test = $test && (($index % $modulo) === 0);
+            return $test && (($index % $modulo) === 0);
         }
 
         return $test;
@@ -314,7 +314,7 @@ class Ctx
         // <figure><figcaption>isolated text</figcaption><audio…>…</audio></figure>
         $ret = preg_replace('/<figure[^>]*>(\s*)<figcaption[^>]*>(.*)<\/figcaption>(\s*)<audio[^>]*>((\s|.)*)<\/audio>(\s*)<\/figure>/', '', $str);
         if ($ret !== null) {
-            $str = $ret;
+            return $ret;
         }
 
         return $str;
@@ -423,12 +423,10 @@ class Ctx
         $nb_posts = App::frontend()->context()->pagination->f(0);
         if ((App::url()->getType() === 'default') || (App::url()->getType() === 'default-page')) {
             // Home page (not static)
-            $nb_pages = (int) ceil(($nb_posts - App::frontend()->context()->nb_entry_first_page) / App::frontend()->context()->nb_entry_per_page + 1);
-        } else {
-            $nb_pages = (int) ceil($nb_posts / App::frontend()->context()->nb_entry_per_page);
+            return (int) ceil(($nb_posts - App::frontend()->context()->nb_entry_first_page) / App::frontend()->context()->nb_entry_per_page + 1);
         }
 
-        return $nb_pages;
+        return (int) ceil($nb_posts / App::frontend()->context()->nb_entry_per_page);
     }
 
     /**

@@ -151,10 +151,14 @@ class L10n implements L10nInterface
         if ($singular === '') {
             // If no string to translate, return no string
             return '';
-        } elseif ((self::$locales === [] || !array_key_exists($singular, self::$locales)) && is_null($count)) {
+        }
+
+        if ((self::$locales === [] || !array_key_exists($singular, self::$locales)) && is_null($count)) {
             // If no l10n translation loaded or exists
             return $singular;
-        } elseif ($plural === null || $count === null || self::$language_pluralsnumber === 1) {
+        }
+
+        if ($plural === null || $count === null || self::$language_pluralsnumber === 1) {
             // If no $plural form or if current language has no plural form return $singular translation
             $t = empty(self::$locales[$singular]) ? $singular : self::$locales[$singular];
 
@@ -169,9 +173,11 @@ class L10n implements L10nInterface
             $t = self::$locales[$plural];
 
             return is_array($t) ? $t[0] : $t;
-        } elseif (!empty(self::$locales[$singular])
-                && is_array(self::$locales[$singular])
-                && (isset(self::$locales[$singular][$i]) && self::$locales[$singular][$i] !== '')) {
+        }
+
+        if (!empty(self::$locales[$singular])
+            && is_array(self::$locales[$singular])
+            && (isset(self::$locales[$singular][$i]) && self::$locales[$singular][$i] !== '')) {
             // If it is plural and index exists in plurals translations
             return self::$locales[$singular][$i];
         }

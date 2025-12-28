@@ -50,7 +50,9 @@ class FrontendBehaviors
             "\$params['sql'] .= \"AND META.meta_type = 'tag' \";\n" .
             "\$params['sql'] .= \"AND META.meta_id = '" . App::db()->con()->escapeStr($attr['tag']) . "' \";\n" .
                 "?>\n";
-        } elseif (empty($attr['no_context']) && ($block === 'Entries' || $block === 'Comments')) {
+        }
+
+        if (empty($attr['no_context']) && ($block === 'Entries' || $block === 'Comments')) {
             return
                 '<?php if (App::frontend()->context()->exists("meta") && App::frontend()->context()->meta->rows() && (App::frontend()->context()->meta->meta_type == "tag")) { ' .
                 "if (!isset(\$params)) { \$params = []; }\n" .

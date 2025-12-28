@@ -163,13 +163,19 @@ class Modules implements ModulesInterface
             $add_it = true;
             foreach ($search as $key => $value) {
                 // check types
-                if (!is_string($key) || (is_null($current = $module->get($key)))) {
+                if (!is_string($key)) {
+                    continue;
+                }
+                if (is_null($current = $module->get($key))) {
                     continue;
                 }
                 // compare string format
                 $value  = $to_string($value);
                 $source = $to_string($current);
-                if (is_null($source) || is_null($value)) {
+                if (is_null($source)) {
+                    continue;
+                }
+                if (is_null($value)) {
                     continue;
                 }
                 if (str_starts_with($value, '!')) {
@@ -304,7 +310,10 @@ class Modules implements ModulesInterface
 
         $reason = [];
         foreach ($this->defines as $module) {
-            if (empty($module->getMissing()) || !in_array($module->get('state'), [ModuleDefine::STATE_ENABLED, ModuleDefine::STATE_SOFT_DISABLED])) {
+            if (empty($module->getMissing())) {
+                continue;
+            }
+            if (!in_array($module->get('state'), [ModuleDefine::STATE_ENABLED, ModuleDefine::STATE_SOFT_DISABLED])) {
                 continue;
             }
 
@@ -351,8 +360,13 @@ class Modules implements ModulesInterface
             if (isset($this->modules_paths[$root])) {
                 continue;
             }
-
-            if (!is_dir($root) || !is_readable($root) || ($d = @dir($root)) === false) {
+            if (!is_dir($root)) {
+                continue;
+            }
+            if (!is_readable($root)) {
+                continue;
+            }
+            if (($d = @dir($root)) === false) {
                 continue;
             }
 
@@ -802,7 +816,9 @@ class Modules implements ModulesInterface
                     unlink($zip_file);
 
                     throw new Exception(sprintf(__('Unable to upgrade "%s". (update locked)'), basename($destination)));
-                } elseif ($cur_define->isDefined() && (App::config()->devMode() || $modules->versionsCompare($new_defines[0]->get('version'), $cur_define->get('version'), '>', true))) {
+                }
+
+                if ($cur_define->isDefined() && (App::config()->devMode() || $modules->versionsCompare($new_defines[0]->get('version'), $cur_define->get('version'), '>', true))) {
                     // delete old module
                     if (!Files::deltree($destination)) {
                         throw new Exception(__('An error occurred during module deletion.'));

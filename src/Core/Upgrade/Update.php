@@ -486,7 +486,10 @@ class Update
         }
 
         foreach ($new_files as $file) {
-            if (!$file || !file_exists($root . '/' . $file)) {
+            if (!$file) {
+                continue;
+            }
+            if (!file_exists($root . '/' . $file)) {
                 continue;
             }
 

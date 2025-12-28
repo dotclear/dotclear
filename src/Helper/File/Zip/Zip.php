@@ -184,7 +184,10 @@ class Zip
             $D = dir($dir);
             if ($D !== false) {
                 while (($e = $D->read()) !== false) {
-                    if ($e === '.' || $e === '..') {
+                    if ($e === '.') {
+                        continue;
+                    }
+                    if ($e === '..') {
                         continue;
                     }
 
@@ -376,7 +379,7 @@ class Zip
             return '';
         }
         if (str_starts_with($name, '/')) {
-            $name = substr($name, 1);
+            return substr($name, 1);
         }
 
         return $name;

@@ -37,7 +37,10 @@ class GrowUp_2_6_lt_eq
         # Try to remove it
         $path = explode(PATH_SEPARATOR, App::config()->pluginsRoot());
         foreach ($path as $root) {
-            if (!is_dir($root) || !is_readable($root)) {
+            if (!is_dir($root)) {
+                continue;
+            }
+            if (!is_readable($root)) {
                 continue;
             }
             if (!str_ends_with($root, '/')) {

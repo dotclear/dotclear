@@ -436,7 +436,9 @@ class Users implements UsersInterface
             }
 
             return $user_name;
-        } elseif ($user_firstname !== null && $user_firstname !== '') {
+        }
+
+        if ($user_firstname !== null && $user_firstname !== '') {
             return $user_firstname;
         }
 

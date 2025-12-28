@@ -25,7 +25,10 @@ class GrowUp_2_5_lt_eq
         $path    = explode(PATH_SEPARATOR, App::config()->pluginsRoot());
         $default = Path::real(__DIR__ . '/../../plugins/');
         foreach ($path as $root) {
-            if (!is_dir($root) || !is_readable($root)) {
+            if (!is_dir($root)) {
+                continue;
+            }
+            if (!is_readable($root)) {
                 continue;
             }
             if (!str_ends_with($root, '/')) {

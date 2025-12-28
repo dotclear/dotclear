@@ -91,7 +91,8 @@ class ThemeConfig
                 // Check ratio
                 if ($ratio > 7 || (($ratio > 4.5) && $large)) {
                     return 'AAA';
-                } elseif ($ratio > 4.5 || (($ratio > 3) && $large)) {
+                }
+                if ($ratio > 4.5 || (($ratio > 3) && $large)) {
                     return 'AA';
                 }
             }

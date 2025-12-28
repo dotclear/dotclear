@@ -135,7 +135,10 @@ class Upgrade
         $upgrades = [];
         foreach (Files::scandir($dir) as $file) {
             // Need only growup files
-            if (!str_contains($file, $path . '_') || !str_contains($file, '.php')) {
+            if (!str_contains($file, $path . '_')) {
+                continue;
+            }
+            if (!str_contains($file, '.php')) {
                 continue;
             }
 

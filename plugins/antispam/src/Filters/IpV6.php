@@ -457,10 +457,14 @@ class IpV6 extends SpamFilter
         if (!isset($bits[1])) {
             // Only IP address
             return $ip;
-        } elseif (strpos($bits[1], ':')) {
+        }
+
+        if (strpos($bits[1], ':')) {
             // End IP address
             return $ip . '/' . $mask;
-        } elseif ($mask === '1') {
+        }
+
+        if ($mask === '1') {
             // Ignore mask
             return $ip;
         }
@@ -565,7 +569,9 @@ class IpV6 extends SpamFilter
 
         if (function_exists('gmp_init')) {
             return gmp_strval(gmp_init($bin, 2), 10);
-        } elseif (function_exists('bcadd')) {
+        }
+
+        if (function_exists('bcadd')) {
             $dec = '0';
             for ($i = 0; $i < strlen($bin); $i++) {
                 $dec = bcmul($dec, '2', 0);

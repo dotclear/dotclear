@@ -298,8 +298,10 @@ class BackendBehaviors
                 foreach ($maintenance->getGroups() as $group_obj) {
                     $tasks = [];
                     foreach ($maintenance->getTasks() as $t) {
-                        if ($t->group()  != $group_obj->id()
-                            || $t->tab() != $tab_obj->id()) {
+                        if ($t->group() != $group_obj->id()) {
+                            continue;
+                        }
+                        if ($t->tab() != $tab_obj->id()) {
                             continue;
                         }
                         $desc = $t->description() ?: '';

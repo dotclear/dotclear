@@ -256,7 +256,8 @@ class Files
     {
         if (is_file($filename)) {
             return is_writable(dirname($filename));
-        } elseif (is_dir($filename)) {
+        }
+        if (is_dir($filename)) {
             return is_writable(dirname($filename)) && count(static::scandir($filename)) <= 2;
         }
 
@@ -419,11 +420,17 @@ class Files
 
         if ($size < $kb) {
             return $size . ' B';
-        } elseif ($size < $mb) {
+        }
+
+        if ($size < $mb) {
             return (int) round($size / $kb, 2) . ' KB';
-        } elseif ($size < $gb) {
+        }
+
+        if ($size < $gb) {
             return (int) round($size / $mb, 2) . ' MB';
-        } elseif ($size < $tb) {
+        }
+
+        if ($size < $tb) {
             return (int) round($size / $gb, 2) . ' GB';
         }
 

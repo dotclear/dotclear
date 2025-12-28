@@ -74,13 +74,11 @@ class Formater implements FormaterInterface
 
     public function getFormater(string $editor_id): array
     {
-        $res = [];
-
         if (isset($this->stack[$editor_id])) {
-            $res = array_keys($this->stack[$editor_id]);
+            return array_keys($this->stack[$editor_id]);
         }
 
-        return $res;
+        return [];
     }
 
     public function getFormaters(): array

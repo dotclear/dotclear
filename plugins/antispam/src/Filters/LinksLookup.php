@@ -93,7 +93,10 @@ class LinksLookup extends SpamFilter
                 continue;
             }
             $b = parse_url($u);
-            if (!isset($b['host']) || !$b['host']) {
+            if (!isset($b['host'])) {
+                continue;
+            }
+            if ($b['host'] === '') {
                 continue;
             }
 

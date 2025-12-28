@@ -176,7 +176,7 @@ class XmlTag
         $res = sprintf($format, $this->_name, $attr, $content);
 
         if ($prolog && $this->_name) {
-            $res = '<?xml version="1.0" encoding="' . $encoding . '" ?>' . "\n" . $res;
+            return '<?xml version="1.0" encoding="' . $encoding . '" ?>' . "\n" . $res;
         }
 
         return $res;

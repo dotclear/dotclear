@@ -204,7 +204,8 @@ class Date
             $pattern = '%' . $char;
             if ($pattern === '%n') {
                 return "\n";
-            } elseif ($pattern === '%t') {
+            }
+            if ($pattern === '%t') {
                 return "\t";
             }
 

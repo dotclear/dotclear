@@ -283,7 +283,7 @@ abstract class Actions
             $ret[] = (new Hidden([$name], (string) $value));
         }
         if ($with_ids) {
-            $ret = [...$ret, ...$this->IDsHidden()];
+            return [...$ret, ...$this->IDsHidden()];
         }
 
         return $ret;

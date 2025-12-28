@@ -248,7 +248,9 @@ class PluginsList extends ModulesList
 
             if (!$count && $failed) {
                 throw new Exception(__("You don't have permissions to delete this plugin."));
-            } elseif ($failed) {
+            }
+
+            if ($failed) {
                 App::upgrade()->notices()->addWarningNotice(__('Some plugins have not been delete.'));
             } else {
                 App::upgrade()->notices()->addSuccessNotice(

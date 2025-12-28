@@ -236,7 +236,9 @@ class Search
     {
         if ($args['qtype'] == 'p') {
             return App::backend()->page()->jsLoad('js/_posts_list.js');
-        } elseif ($args['qtype'] == 'c') {
+        }
+
+        if ($args['qtype'] == 'c') {
             return App::backend()->page()->jsLoad('js/_comments.js');
         }
 

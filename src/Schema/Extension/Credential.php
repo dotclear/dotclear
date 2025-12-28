@@ -44,7 +44,7 @@ class Credential
         );
 
         if ($user === 'unknown') {
-            $user = __('unknown');
+            return __('unknown');
         }
 
         return $user;

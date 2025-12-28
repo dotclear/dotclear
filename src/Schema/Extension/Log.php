@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Core
@@ -41,7 +42,7 @@ class Log
         );
 
         if ($user === 'unknown') {
-            $user = __('unknown');
+            return __('unknown');
         }
 
         return $user;

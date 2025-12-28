@@ -347,7 +347,7 @@ class Rest
         $upd = $tmp->getArrayCopy();
 
         if (!empty($upd)) {
-            $data = [
+            return [
                 'ret'   => sprintf(__('An update is available', '%s updates are available.', count($upd)), count($upd)),
                 'new'   => $repo->hasNewUdpates(),
                 'check' => true,

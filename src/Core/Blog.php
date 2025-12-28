@@ -349,7 +349,7 @@ class Blog implements BlogInterface
     {
         $ret = $this->getQmarkURL() . 'pf=' . $pf;
         if ($strip_host) {
-            $ret = Html::stripHostURL($ret);
+            return Html::stripHostURL($ret);
         }
 
         return $ret;
@@ -359,7 +359,7 @@ class Blog implements BlogInterface
     {
         $ret = $this->getQmarkURL() . 'tf=' . $tf;
         if ($strip_host) {
-            $ret = Html::stripHostURL($ret);
+            return Html::stripHostURL($ret);
         }
 
         return $ret;
@@ -369,7 +369,7 @@ class Blog implements BlogInterface
     {
         $ret = $this->getQmarkURL() . 'vf=' . $vf;
         if ($strip_host) {
-            $ret = Html::stripHostURL($ret);
+            return Html::stripHostURL($ret);
         }
 
         return $ret;

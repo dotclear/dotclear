@@ -306,7 +306,9 @@ abstract class Client extends Container
         $user = $provider->getUser($token);
         if ($user->get('uid') == '') {
             throw new InvalidUser(__('Failed to retrieve user ID from this provider'));
-        } elseif ($user_id === '') {
+        }
+
+        if ($user_id === '') {
             $user_id = $this->store->getUser($provider->getId(), $user->get('uid'))->get('user_id');
             if (empty($user_id)) {
                 throw new InvalidUser(__('No user ID linked to this provider'));

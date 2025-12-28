@@ -292,9 +292,13 @@ class Manage
                 foreach (App::backend()->maintenance->getGroups() as $group_obj) {
                     $tasks = [];
                     foreach (App::backend()->tasks as $t) {
-                        if (!$t->id()
-                        || $t->group() != $group_obj->id()
-                        || $t->tab()   != $tab_obj->id()) {
+                        if (!$t->id()) {
+                            continue;
+                        }
+                        if ($t->group() != $group_obj->id()) {
+                            continue;
+                        }
+                        if ($t->tab() != $tab_obj->id()) {
                             continue;
                         }
 
@@ -359,7 +363,10 @@ class Manage
 
             // Advanced tasks (that required a tab)
             foreach (App::backend()->tasks as $t) {
-                if (!$t->id() || $t->group() !== null) {
+                if (!$t->id()) {
+                    continue;
+                }
+                if ($t->group() !== null) {
                     continue;
                 }
 

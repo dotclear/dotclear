@@ -239,7 +239,9 @@ class Post
     {
         if ($type === 'upddt') {
             return (int) strtotime((string) $rs->post_upddt);
-        } elseif ($type === 'creadt') {
+        }
+
+        if ($type === 'creadt') {
             return (int) strtotime((string) $rs->post_creadt);
         }
 
@@ -292,7 +294,9 @@ class Post
 
         if ($type === 'upddt') {
             return Date::dt2str($format, (string) $rs->post_upddt, (string) $rs->post_tz);
-        } elseif ($type === 'creadt') {
+        }
+
+        if ($type === 'creadt') {
             return Date::dt2str($format, (string) $rs->post_creadt, (string) $rs->post_tz);
         }
 
@@ -315,7 +319,9 @@ class Post
 
         if ($type === 'upddt') {
             return Date::dt2str($format, (string) $rs->post_upddt, (string) $rs->post_tz);
-        } elseif ($type === 'creadt') {
+        }
+
+        if ($type === 'creadt') {
             return Date::dt2str($format, (string) $rs->post_creadt, (string) $rs->post_tz);
         }
 

@@ -762,7 +762,9 @@ class Url extends UrlHandler implements UrlInterface
             self::serveDocument('rss2.xsl', 'text/xml');
 
             return;
-        } elseif (preg_match('#^(atom|rss2)/comments/(\d+)$#', (string) $args, $matches)) {
+        }
+
+        if (preg_match('#^(atom|rss2)/comments/(\d+)$#', (string) $args, $matches)) {
             // Post comments feed
             $type     = $matches[1];
             $comments = true;

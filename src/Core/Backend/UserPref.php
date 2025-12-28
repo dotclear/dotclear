@@ -257,7 +257,9 @@ class UserPref
 
         if (null === $type) {
             return self::$sorts;
-        } elseif (isset(self::$sorts[$type])) {
+        }
+
+        if (isset(self::$sorts[$type])) {
             if (null === $option) {
                 return self::$sorts[$type];
             }

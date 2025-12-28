@@ -356,7 +356,11 @@ class Template
      */
     public function tagExists(string $name): bool
     {
-        return $this->blockExists($name) || $this->valueExists($name);
+        if ($this->blockExists($name)) {
+            return true;
+        }
+
+        return $this->valueExists($name);
     }
 
     /**

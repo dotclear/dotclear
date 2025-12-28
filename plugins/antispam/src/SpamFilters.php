@@ -106,7 +106,9 @@ class SpamFilters
                 }
 
                 return true;
-            } elseif ($is_spam === false) {
+            }
+
+            if ($is_spam === false) {
                 // Not a spam, if only spams are moderated, publish it
                 if (My::settings()->moderate_only_spam && $cur->comment_status !== App::status()->comment()::PUBLISHED) {
                     $cur->comment_status = App::status()->comment()::PUBLISHED;

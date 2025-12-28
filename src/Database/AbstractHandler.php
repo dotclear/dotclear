@@ -257,9 +257,13 @@ abstract class AbstractHandler implements ConnectionInterface
     {
         if (is_null($in)) {
             return ' IN (NULL) ';
-        } elseif (is_string($in)) {
+        }
+
+        if (is_string($in)) {
             return " IN ('" . $this->escapeStr($in) . "') ";
-        } elseif (is_array($in)) {
+        }
+
+        if (is_array($in)) {
             foreach ($in as $i => $v) {
                 if (is_null($v)) {
                     $in[$i] = 'NULL';

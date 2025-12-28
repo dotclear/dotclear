@@ -78,7 +78,9 @@ class FlatBackup
             $this->line_cols = explode(',', $line);
 
             return $this->getLine();
-        } elseif (str_starts_with((string) $line, '"')) {
+        }
+
+        if (str_starts_with((string) $line, '"')) {
             $line  = (string) preg_replace('/^"|"$/', '', (string) $line);
             $lines = preg_split('/(^"|","|(?<!\\\)\"$)/m', $line);
             if ($lines === false) {

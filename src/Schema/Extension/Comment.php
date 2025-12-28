@@ -167,7 +167,7 @@ class Comment
         }
 
         if ($absolute_urls) {
-            $res = Html::absoluteURLs($res, $rs->getPostURL());
+            return Html::absoluteURLs($res, $rs->getPostURL());
         }
 
         return $res;

@@ -950,25 +950,33 @@ class WikiToHtml
 
         if ($open && $type == 'p') {
             return "\n<p" . $attr_child . '>';
-        } elseif ($open && $type == 'blockquote') {
+        }
+        if ($open && $type == 'blockquote') {
             return "\n<blockquote" . $attr_child . '><p>';
-        } elseif (($open || $mode !== $previous_mode) && $type == 'title') {
+        }
+        if (($open || $mode !== $previous_mode) && $type == 'title') {
             $fl = $this->getOpt('first_title_level');
             $fl += 3;
             $l = $fl - (int) $mode;
 
             return "\n<h" . ($l) . $attr_child . '>';
-        } elseif ($open && $type == 'pre') {
+        }
+        if ($open && $type == 'pre') {
             return "\n<pre" . $attr_child . '>';
-        } elseif ($open && $type == 'aside') {
+        }
+        if ($open && $type == 'aside') {
             return "\n<aside" . $attr_child . '><p>';
-        } elseif ($open && $type == 'details' && $mode == '0') {
+        }
+        if ($open && $type == 'details' && $mode == '0') {
             return "\n</details>";
-        } elseif ($open && $type == 'details' && $mode == '1') {
+        }
+        if ($open && $type == 'details' && $mode == '1') {
             return "\n<details" . $attr_child . '><summary>';
-        } elseif ($open && $type == 'hr') {
+        }
+        if ($open && $type == 'hr') {
             return "\n<hr" . $attr_child . '>';
-        } elseif ($type == 'list') {
+        }
+        if ($type == 'list') {
             $dl    = ($open) ? 0 : strlen((string) $previous_mode);
             $d     = strlen((string) $mode);
             $delta = $d - $dl;
@@ -994,7 +1002,8 @@ class WikiToHtml
             }
 
             return $res . '<li' . $attr_child . '>';
-        } elseif ($type == 'defl') {
+        }
+        if ($type == 'defl') {
             $res = ($previous_mode !== '=' && $previous_mode !== ':' ? '<dl' . $attr_parent . ">\n" : '');
             if ($previous_mode == '=') {
                 $res .= "</dt>\n";
@@ -1027,21 +1036,27 @@ class WikiToHtml
 
         if ($close && $previous_type == 'p') {
             return "</p>\n";
-        } elseif ($close && $previous_type == 'blockquote') {
+        }
+        if ($close && $previous_type == 'blockquote') {
             return "</p></blockquote>\n";
-        } elseif (($close || $mode !== $previous_mode) && $previous_type == 'title') {
+        }
+        if (($close || $mode !== $previous_mode) && $previous_type == 'title') {
             $fl = $this->getOpt('first_title_level');
             $fl += 3;
             $l = $fl - (int) $previous_mode;
 
             return '</h' . ($l) . ">\n";
-        } elseif ($close && $previous_type == 'pre') {
+        }
+        if ($close && $previous_type == 'pre') {
             return "</pre>\n";
-        } elseif ($close && $previous_type == 'aside') {
+        }
+        if ($close && $previous_type == 'aside') {
             return "</p></aside>\n";
-        } elseif ($close && $previous_type == 'details' && $previous_mode == '1') {
+        }
+        if ($close && $previous_type == 'details' && $previous_mode == '1') {
             return "</summary>\n";
-        } elseif ($close && $previous_type == 'list') {
+        }
+        if ($close && $previous_type == 'list') {
             $res = '';
             for ($j = 0; $j < strlen((string) $previous_mode); $j++) {
                 if (substr((string) $previous_mode, (-$j - 1), 1) === '*') {
@@ -1052,7 +1067,8 @@ class WikiToHtml
             }
 
             return $res;
-        } elseif ($close && $previous_type == 'defl') {
+        }
+        if ($close && $previous_type == 'defl') {
             $res = '';
             if ($previous_mode == '=') {
                 $res .= "</dt>\n</dl>\n";
@@ -1580,7 +1596,7 @@ class WikiToHtml
     private function protectUrls(string $str): string
     {
         if (preg_match('/^javascript:/', $str)) {
-            $str = '#';
+            return '#';
         }
 
         return $str;

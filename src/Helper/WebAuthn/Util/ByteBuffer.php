@@ -106,7 +106,8 @@ class ByteBuffer implements JsonSerializable, Serializable, ByteBufferInterface,
     {
         if (function_exists('random_bytes')) {
             return new ByteBuffer(random_bytes($length < 1 ? 32 : $length));
-        } elseif (function_exists('openssl_random_pseudo_bytes')) {
+        }
+        if (function_exists('openssl_random_pseudo_bytes')) {
             return new ByteBuffer(openssl_random_pseudo_bytes($length));
         }
 

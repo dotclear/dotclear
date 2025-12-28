@@ -489,7 +489,10 @@ class ThemesList extends ModulesList
                 $count = 0;
                 foreach ($modules as $id) {
                     $define = $this->modules->getDefine($id);
-                    if (!$define->isDefined() || $define->get('state') == ModuleDefine::STATE_ENABLED) {
+                    if (!$define->isDefined()) {
+                        continue;
+                    }
+                    if ($define->get('state') == ModuleDefine::STATE_ENABLED) {
                         continue;
                     }
 
@@ -521,7 +524,10 @@ class ThemesList extends ModulesList
                 $count  = 0;
                 foreach ($modules as $id) {
                     $define = $this->modules->getDefine($id);
-                    if (!$define->isDefined() || $define->get('state') == ModuleDefine::STATE_HARD_DISABLED) {
+                    if (!$define->isDefined()) {
+                        continue;
+                    }
+                    if ($define->get('state') == ModuleDefine::STATE_HARD_DISABLED) {
                         continue;
                     }
 
@@ -562,7 +568,10 @@ class ThemesList extends ModulesList
                 $count = 0;
                 foreach ($modules as $id) {
                     $define = $this->modules->getDefine($id);
-                    if (!$define->isDefined() || $define->get('state') != ModuleDefine::STATE_ENABLED) {
+                    if (!$define->isDefined()) {
+                        continue;
+                    }
+                    if ($define->get('state') != ModuleDefine::STATE_ENABLED) {
                         continue;
                     }
 
@@ -617,9 +626,13 @@ class ThemesList extends ModulesList
 
                 if (!$count && $failed) {
                     throw new Exception(__("You don't have permissions to delete this theme."));
-                } elseif ($count === 0) {
+                }
+
+                if ($count === 0) {
                     throw new Exception(__('No such theme.'));
-                } elseif ($failed) {
+                }
+
+                if ($failed) {
                     App::backend()->notices()->addWarningNotice(__('Some themes have not been delete.'));
                 } else {
                     App::backend()->notices()->addSuccessNotice(

@@ -418,7 +418,8 @@ class SqlStatement
     {
         if (is_array($c) && $c === []) {
             return $this;
-        } elseif (is_string($c) && $c === '') {
+        }
+        if (is_string($c) && $c === '') {
             return $this;
         }
 

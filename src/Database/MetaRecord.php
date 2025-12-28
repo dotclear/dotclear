@@ -158,7 +158,8 @@ class MetaRecord implements Iterator, Countable
     {
         if ($this->hasStatic()) {
             return $this->static->field($n);
-        } elseif ($this->hasDynamic()) {
+        }
+        if ($this->hasDynamic()) {
             return $this->dynamic->field($n);
         }
 
@@ -174,7 +175,8 @@ class MetaRecord implements Iterator, Countable
     {
         if ($this->hasStatic()) {
             return $this->static->exists($n);
-        } elseif ($this->hasDynamic()) {
+        }
+        if ($this->hasDynamic()) {
             return $this->dynamic->exists($n);
         }
 
@@ -192,7 +194,8 @@ class MetaRecord implements Iterator, Countable
     {
         if ($this->hasStatic()) {
             return $this->static->__isset($n);
-        } elseif ($this->hasDynamic()) {
+        }
+        if ($this->hasDynamic()) {
             return $this->dynamic->__isset($n);
         }
 
@@ -214,7 +217,8 @@ class MetaRecord implements Iterator, Countable
     {
         if ($this->hasStatic()) {
             $this->static->extend($class);
-        } elseif ($this->hasDynamic()) {
+        }
+        if ($this->hasDynamic()) {
             $this->dynamic->extend($class);
         }
     }
@@ -231,7 +235,7 @@ class MetaRecord implements Iterator, Countable
             $extensions = [...$extensions, ...$this->static->extensions()];
         }
         if ($this->hasDynamic()) {
-            $extensions = [...$extensions, ...$this->dynamic->extensions()];
+            return [...$extensions, ...$this->dynamic->extensions()];
         }
 
         return $extensions;
@@ -246,7 +250,8 @@ class MetaRecord implements Iterator, Countable
     {
         if ($this->hasStatic()) {
             return $this->static->index($row);
-        } elseif ($this->hasDynamic()) {
+        }
+        if ($this->hasDynamic()) {
             return $this->dynamic->index($row);
         }
 
@@ -268,7 +273,8 @@ class MetaRecord implements Iterator, Countable
     {
         if ($this->hasStatic()) {
             return $this->static->fetch();
-        } elseif ($this->hasDynamic()) {
+        }
+        if ($this->hasDynamic()) {
             return $this->dynamic->fetch();
         }
 
@@ -282,7 +288,8 @@ class MetaRecord implements Iterator, Countable
     {
         if ($this->hasStatic()) {
             return $this->static->moveStart();
-        } elseif ($this->hasDynamic()) {
+        }
+        if ($this->hasDynamic()) {
             return $this->dynamic->moveStart();
         }
 
@@ -296,7 +303,8 @@ class MetaRecord implements Iterator, Countable
     {
         if ($this->hasStatic()) {
             return $this->static->moveEnd();
-        } elseif ($this->hasDynamic()) {
+        }
+        if ($this->hasDynamic()) {
             return $this->dynamic->moveEnd();
         }
 
@@ -310,7 +318,8 @@ class MetaRecord implements Iterator, Countable
     {
         if ($this->hasStatic()) {
             return $this->static->moveNext();
-        } elseif ($this->hasDynamic()) {
+        }
+        if ($this->hasDynamic()) {
             return $this->dynamic->moveNext();
         }
 
@@ -324,7 +333,8 @@ class MetaRecord implements Iterator, Countable
     {
         if ($this->hasStatic()) {
             return $this->static->movePrev();
-        } elseif ($this->hasDynamic()) {
+        }
+        if ($this->hasDynamic()) {
             return $this->dynamic->movePrev();
         }
 
@@ -338,7 +348,8 @@ class MetaRecord implements Iterator, Countable
     {
         if ($this->hasStatic()) {
             return $this->static->isEnd();
-        } elseif ($this->hasDynamic()) {
+        }
+        if ($this->hasDynamic()) {
             return $this->dynamic->isEnd();
         }
 
@@ -352,7 +363,8 @@ class MetaRecord implements Iterator, Countable
     {
         if ($this->hasStatic()) {
             return $this->static->isStart();
-        } elseif ($this->hasDynamic()) {
+        }
+        if ($this->hasDynamic()) {
             return $this->dynamic->isStart();
         }
 
@@ -366,7 +378,8 @@ class MetaRecord implements Iterator, Countable
     {
         if ($this->hasStatic()) {
             return $this->static->isEmpty();
-        } elseif ($this->hasDynamic()) {
+        }
+        if ($this->hasDynamic()) {
             return $this->dynamic->isEmpty();
         }
 
@@ -382,7 +395,8 @@ class MetaRecord implements Iterator, Countable
     {
         if ($this->hasStatic()) {
             return $this->static->columns();
-        } elseif ($this->hasDynamic()) {
+        }
+        if ($this->hasDynamic()) {
             return $this->dynamic->columns();
         }
 
@@ -398,7 +412,8 @@ class MetaRecord implements Iterator, Countable
     {
         if ($this->hasStatic()) {
             return $this->static->rows();
-        } elseif ($this->hasDynamic()) {
+        }
+        if ($this->hasDynamic()) {
             return $this->dynamic->rows();
         }
 
@@ -412,7 +427,8 @@ class MetaRecord implements Iterator, Countable
     {
         if ($this->hasStatic()) {
             return $this->static->row();
-        } elseif ($this->hasDynamic()) {
+        }
+        if ($this->hasDynamic()) {
             return $this->dynamic->row();
         }
 
@@ -428,7 +444,8 @@ class MetaRecord implements Iterator, Countable
     {
         if ($this->hasStatic()) {
             return $this->static->count();
-        } elseif ($this->hasDynamic()) {
+        }
+        if ($this->hasDynamic()) {
             return $this->dynamic->count();
         }
 
@@ -487,7 +504,8 @@ class MetaRecord implements Iterator, Countable
     {
         if ($this->hasStatic()) {
             return $this->static->valid();
-        } elseif ($this->hasDynamic()) {
+        }
+        if ($this->hasDynamic()) {
             return $this->dynamic->valid();
         }
 

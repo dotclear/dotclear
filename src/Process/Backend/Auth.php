@@ -683,9 +683,10 @@ class Auth
                 if (App::backend()->auth()->oauth2() !== false) {
                     $oauth2_items = [];
                     foreach (App::backend()->auth()->oauth2()->services()->getProviders() as $oauth2_service) {
-                        if (App::backend()->auth()->oauth2()->services()->hasDisabledProvider($oauth2_service::getId())
-                            || !App::backend()->auth()->oauth2()->store()->hasConsumer($oauth2_service::getId())
-                        ) {
+                        if (App::backend()->auth()->oauth2()->services()->hasDisabledProvider($oauth2_service::getId())) {
+                            continue;
+                        }
+                        if (!App::backend()->auth()->oauth2()->store()->hasConsumer($oauth2_service::getId())) {
                             continue;
                         }
                         $link = App::backend()->auth()->oauth2()->getActionButton(

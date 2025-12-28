@@ -68,7 +68,13 @@ class Help
                 }
 
                 $f = App::backend()->resources()->entry('help', $v);
-                if ($f === '' || !file_exists($f) || !is_readable($f)) {
+                if ($f === '') {
+                    continue;
+                }
+                if (!file_exists($f)) {
+                    continue;
+                }
+                if (!is_readable($f)) {
                     continue;
                 }
 

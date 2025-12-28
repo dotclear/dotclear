@@ -31,7 +31,8 @@ class UtilsImport
         if (file_exists($file) && is_readable($file) && ($data = file_get_contents($file))) {
             if (preg_match('!<xbel(\s+version)?!', $data)) {
                 return self::parseXBEL($data);
-            } elseif (preg_match('!<opml(\s+version)?!', $data)) {
+            }
+            if (preg_match('!<opml(\s+version)?!', $data)) {
                 return self::parseOPML($data);
             }
 

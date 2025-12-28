@@ -713,9 +713,12 @@ class UserPreferences
         if (App::backend()->auth()->oauth2() !== false) {
             foreach (App::backend()->auth()->oauth2()->services()->getProviders() as $oauth2_service) {
                 // Check service
-                if (App::backend()->auth()->oauth2()->services()->hasDisabledProvider($oauth2_service::getId())
-                    || !App::backend()->auth()->oauth2()->store()->hasConsumer($oauth2_service::getId())
-                ) {
+                if (App::backend()->auth()->oauth2()->services()->hasDisabledProvider($oauth2_service::getId())) {
+                    continue;
+                }
+
+                // Check service
+                if (!App::backend()->auth()->oauth2()->store()->hasConsumer($oauth2_service::getId())) {
                     continue;
                 }
 

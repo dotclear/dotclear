@@ -241,7 +241,8 @@ class UrlHandler
                 $args = null;
 
                 return;
-            } elseif (preg_match('#' . $repr . '#', $part, $m)) {
+            }
+            if (preg_match('#' . $repr . '#', $part, $m)) {
                 $type = $k;
                 $args = $m[1] ?? null;
 
