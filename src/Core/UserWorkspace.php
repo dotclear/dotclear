@@ -243,10 +243,15 @@ class UserWorkspace implements UserWorkspaceInterface
                 $type = $this->local_prefs[$name]['type'];
             } elseif ($this->prefExists($name, true)) {
                 $type = $this->global_prefs[$name]['type'];
-            } elseif (is_array($value)) {
-                $type = self::WS_ARRAY;
             } else {
-                $type = self::WS_STRING;
+                // Try to detect type from given value
+                $type = match (gettype($value)) {
+                    'array'   => self::WS_ARRAY,
+                    'boolean' => self::WS_BOOL,
+                    'integer' => self::WS_INT,
+                    'double'  => self::WS_FLOAT,
+                    default   => self::WS_STRING,
+                };
             }
         } elseif (!in_array($type, [self::WS_BOOL, self::WS_INT, self::WS_FLOAT, self::WS_ARRAY], true)) {
             $type = self::WS_STRING;

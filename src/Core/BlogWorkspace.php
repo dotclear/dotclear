@@ -240,10 +240,15 @@ class BlogWorkspace implements BlogWorkspaceInterface
                 $type = $this->local_settings[$name]['type'];
             } elseif ($this->settingExists($name, true)) {
                 $type = $this->global_settings[$name]['type'];
-            } elseif (is_array($value)) {
-                $type = self::NS_ARRAY;
             } else {
-                $type = self::NS_STRING;
+                // Try to detect type from given value
+                $type = match (gettype($value)) {
+                    'array'   => self::NS_ARRAY,
+                    'boolean' => self::NS_BOOL,
+                    'integer' => self::NS_INT,
+                    'double'  => self::NS_FLOAT,
+                    default   => self::NS_STRING,
+                };
             }
         } elseif (!in_array($type, [self::NS_BOOL, self::NS_INT, self::NS_FLOAT, self::NS_ARRAY], true)) {
             $type = self::NS_STRING;
