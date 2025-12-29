@@ -47,7 +47,7 @@ require_once implode(DIRECTORY_SEPARATOR, [__DIR__, 'src', 'Helper','L10n.php'])
  * @param      string  $message  The message
  * @param      int     $code     The code
  */
-function __error(string $summary, string $message, int $code = 0)
+function __error(string $summary, string $message, int $code = 0): never
 {
     # Error codes
     # 10 : no config file
