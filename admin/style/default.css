@@ -3130,7 +3130,7 @@ span.ibw {
   padding: 0;
 }
 #icons.dense-layout p .badge-icon {
-  right: 0.75em;
+  right: 1.125em;
 }
 #icons a, #icons a:is(:link, :visited, :hover, :focus) {
   border-bottom-width: 0;
