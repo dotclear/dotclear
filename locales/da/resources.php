@@ -8,7 +8,7 @@
  * @copyright AGPL-3.0
  */
 \Dotclear\App::backend()->resources()
-    ->set('rss_news', 'Dotclear', 'https://dotclear.org/feed/atom')
+    ->set('rss_news', 'Dotclear', 'https://dotclear.org/feed/category/Actualit%C3%A9s/atom')
     ->set('doc', 'Dotclear documentation', 'https://dotclear.org/category/Documentation')
     ->set('doc', 'Dotclear presentation', 'https://dotclear.org/category/Documentation/D%C3%A9couvrir')
     ->set('doc', 'User manual', 'https://dotclear.org/category/Documentation/Utiliser')
