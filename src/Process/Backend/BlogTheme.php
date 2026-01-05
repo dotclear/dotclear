@@ -321,36 +321,34 @@ class BlogTheme
             $search  = App::backend()->themesList()->getSearch();
             $defines = $search ? App::backend()->themesList()->store->searchDefines($search) : App::backend()->themesList()->store->getDefines();
 
-            if ($defines !== []) {
-                $list = fn () => App::backend()->themesList()
-                    ->setList('theme-new')
-                    ->setTab('new')
-                    ->setDefines($defines)
-                    ->displaySearch()
-                    ->displayIndex()
-                    ->displayModulesFinal(
-                        // cols
-                        ['expander', 'sshot', 'name', 'score', 'config', 'desc', 'tplset', 'author', 'version', 'parent', 'details', 'support'],
-                        // actions
-                        ['install'],
-                        // nav limit
-                        true
-                    );
+            $list = fn () => App::backend()->themesList()
+                ->setList('theme-new')
+                ->setTab('new')
+                ->setDefines($defines)
+                ->displaySearch()
+                ->displayIndex()
+                ->displayModulesFinal(
+                    // cols
+                    ['expander', 'sshot', 'name', 'score', 'config', 'desc', 'tplset', 'author', 'version', 'parent', 'details', 'support'],
+                    // actions
+                    ['install'],
+                    // nav limit
+                    true
+                );
 
-                $parts[] = (new Div('new'))
-                    ->title(__('Add themes'))
-                    ->class('multi-part')
-                    ->items([
-                        (new Text('h3', __('Add themes from repository'))),
-                        (new Capture($list)),
-                        (new Note())
-                            ->class(['info', 'vertical-separator'])
-                            ->text(sprintf(
-                                __('Visit %s themes repository.'),
-                                '<a href="https://dotclear.org/theme/list">Dotclear</a>'
-                            )),
-                    ]);
-            }
+            $parts[] = (new Div('new'))
+                ->title(__('Add themes'))
+                ->class('multi-part')
+                ->items([
+                    (new Text('h3', __('Add themes from repository'))),
+                    (new Capture($list)),
+                    (new Note())
+                        ->class(['info', 'vertical-separator'])
+                        ->text(sprintf(
+                            __('Visit %s themes repository.'),
+                            '<a href="https://dotclear.org/theme/list">Dotclear</a>'
+                        )),
+                ]);
 
             // Add a new theme
             $list = fn () => App::backend()->themesList()->displayManualFormFinal();

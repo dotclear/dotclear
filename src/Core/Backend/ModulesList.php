@@ -412,7 +412,7 @@ class ModulesList
                                     ->label(new Label(__('Search in repository:'), Label::IL_TF)),
                                 (new Submit(['modules-search-submit'], __('OK'))),
                                 (new Hidden(['process'], is_a($this, ThemesList::class) ? 'BlogTheme' : 'Plugins')),
-                                $query ? (new Link())->class('button')->text(__('Reset search')) : (new None()),
+                                $query ? (new Link())->href($this->getURL())->class('button')->text(__('Reset search')) : (new None()),
                             ]),
                         (new Note())
                             ->class('form-note')

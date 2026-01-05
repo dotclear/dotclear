@@ -304,38 +304,36 @@ class Plugins
             $search  = App::backend()->modulesList()->getSearch();
             $defines = $search ? App::backend()->modulesList()->store->searchDefines($search) : App::backend()->modulesList()->store->getDefines();
 
-            if ($defines !== []) {
-                App::backend()->modulesList()
-                    ->setList('plugin-new')
-                    ->setTab('new')
-                    ->setDefines($defines);
+            App::backend()->modulesList()
+                ->setList('plugin-new')
+                ->setTab('new')
+                ->setDefines($defines);
 
-                $multi_parts[] = (new Div('new'))
-                    ->title(__('Add plugins'))
-                    ->class('multi-part')
-                    ->items([
-                        (new Text('h3', __('Add plugins from repository'))),
-                        (new Capture(App::backend()->modulesList()
-                            ->displaySearch(...))),
-                        (new Capture(App::backend()->modulesList()
-                            ->displayIndex(...))),
-                        (new Capture(App::backend()->modulesList()
-                            ->displayModules(...), [
-                                // cols
-                                ['expander', 'name', 'score', 'version', 'desc', 'deps'],
-                                // actions
-                                ['install'],
-                                // nav limit
-                                true,
-                            ])),
-                        (new Note())
-                            ->class(['info', 'vertical-separator'])
-                            ->text(sprintf(
-                                __('Visit %s plugins repository.'),
-                                '<a href="https://dotclear.org/plugin/list">Dotclear</a>'
-                            )),
-                    ]);
-            }
+            $multi_parts[] = (new Div('new'))
+                ->title(__('Add plugins'))
+                ->class('multi-part')
+                ->items([
+                    (new Text('h3', __('Add plugins from repository'))),
+                    (new Capture(App::backend()->modulesList()
+                        ->displaySearch(...))),
+                    (new Capture(App::backend()->modulesList()
+                        ->displayIndex(...))),
+                    (new Capture(App::backend()->modulesList()
+                        ->displayModules(...), [
+                            // cols
+                            ['expander', 'name', 'score', 'version', 'desc', 'deps'],
+                            // actions
+                            ['install'],
+                            // nav limit
+                            true,
+                        ])),
+                    (new Note())
+                        ->class(['info', 'vertical-separator'])
+                        ->text(sprintf(
+                            __('Visit %s plugins repository.'),
+                            '<a href="https://dotclear.org/plugin/list">Dotclear</a>'
+                        )),
+                ]);
 
             # Add a new plugin
             $multi_parts[] = (new Div('addplugin'))
