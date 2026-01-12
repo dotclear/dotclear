@@ -208,14 +208,6 @@ jsToolBar.prototype.addIwinEvent = (target, type, fn, scope) => {
     fn.call(scope, e);
   };
   target.addEventListener(type, myFn, true);
-  // fix memory leak
-  scope.iwin.addEventListener(
-    'unload',
-    () => {
-      target.removeEventListener(type, myFn, true);
-    },
-    true,
-  );
 };
 jsToolBar.prototype.iwinEvents = {
   block1: {
