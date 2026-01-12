@@ -1015,7 +1015,7 @@ class BlogPref
                     App::error()->add($e->getMessage());
                 }
 
-                $advanced[] = (new Fieldset())
+                $advanced[] = (new Fieldset('blog_details'))
                     ->legend(new Legend(__('Blog details')))
                     ->fields([
                         (new Note())
@@ -1067,7 +1067,7 @@ class BlogPref
             }
 
             // Blog configuration
-            $advanced[] = (new Fieldset())
+            $advanced[] = (new Fieldset('blog_config'))
                 ->legend(new Legend(__('Blog configuration')))
                 ->fields([
                     (new Para())
@@ -1106,12 +1106,12 @@ class BlogPref
                         ]);
                 }
             };
-            $advanced[] = (new Fieldset())
+            $advanced[] = (new Fieldset('blog_robots'))
                 ->legend(new Legend(__('Search engines robots policy')))
                 ->fields($policies());
 
             // AI text and data mining
-            $advanced[] = (new Fieldset())
+            $advanced[] = (new Fieldset('blog_ai'))
                 ->legend(new Legend(__('AI text and data mining')))
                 ->fields([
                     (new Para())
@@ -1123,7 +1123,7 @@ class BlogPref
                 ]);
 
             // Legacy JS library
-            $advanced[] = (new Fieldset())
+            $advanced[] = (new Fieldset('blog_legacy_js'))
                 ->legend(new Legend(__('Legacy javascript library')))
                 ->fields([
                     (new Para())
@@ -1135,7 +1135,7 @@ class BlogPref
                 ]);
 
             // jQuery
-            $advanced[] = (new Fieldset())
+            $advanced[] = (new Fieldset('blog_jquery_js'))
                 ->legend(new Legend(__('jQuery javascript library')))
                 ->fields([
                     (new Para())
@@ -1154,7 +1154,7 @@ class BlogPref
                 ]);
 
             // Blog security
-            $advanced[] = (new Fieldset())
+            $advanced[] = (new Fieldset('blog_security'))
                 ->legend((new Legend(__('Blog security'))))
                 ->fields([
                     (new Para())
