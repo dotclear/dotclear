@@ -120,5 +120,8 @@ dotclear.ready(() => {
   });
 
   // scroll comment preview if present
-  document.getElementById('pr')?.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
+  const isMotionReduced = window.matchMedia(`(prefers-reduced-motion: reduce)`)?.matches === true;
+  document
+    .getElementById('pr')
+    ?.scrollIntoView({ behavior: isMotionReduced ? 'instant' : 'smooth', block: 'center', inline: 'nearest' });
 });
