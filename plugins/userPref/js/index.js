@@ -4,11 +4,15 @@
 dotclear.ready(() => {
   // DOM ready and content loaded
 
-  const move = (selection) => {
-    window.location = selection;
+  const move = (selection, tab = '') => {
+    const prefix = tab === '' ? '#' : `#${tab}.`;
+    globalThis.location = `${prefix}${selection.replace(/^#/, '')}`;
     const block = document.getElementById(selection.substring(1));
     block.open = true;
-    block.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+    const isMotionReduced = window.matchMedia(`(prefers-reduced-motion: reduce)`)?.matches === true;
+    block.scrollIntoView({ behavior: isMotionReduced ? 'instant' : 'smooth', block: 'start', inline: 'nearest' });
+    // Give focus to the 1st focusable child
+    dotclear.setFocusInside(block, true, true);
   };
 
   // Hide submit buttons
@@ -18,8 +22,8 @@ dotclear.ready(() => {
   // Listen for selection change
   const select_g = document.getElementById('gp_nav');
   const select_l = document.getElementById('lp_nav');
-  select_g?.addEventListener('change', (event) => move(event.target.value));
-  select_l?.addEventListener('change', (event) => move(event.target.value));
+  select_g?.addEventListener('change', (event) => move(event.target.value, 'global'));
+  select_l?.addEventListener('change', (event) => move(event.target.value, 'local'));
 
   // Prepare mobile display for tables
   dotclear.responsiveCellHeaders(document.querySelector('table.prefs'), 'table.prefs', 0, true);
