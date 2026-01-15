@@ -49,6 +49,11 @@ for (const i of dotclear.getData('codemirror')) {
         // On focus, make tab add tab in editor
         cm.removeKeyMap('tabAccessibility');
       });
+      editor.on('blur', (cm) => {
+        // On leave focus, check dirty flag
+        if (cm.isClean() || cm.getValue() === elt.value) elt.classList.remove('cm_dirty');
+        else elt.classList.add('cm_dirty');
+      });
     }
   }
 }

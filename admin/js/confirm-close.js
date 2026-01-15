@@ -78,6 +78,12 @@ dotclear.confirmClose = class {
     const formsInPage = this.getForms();
     for (let form_item = 0; form_item < formsInPage.length; form_item++) {
       const form = formsInPage[form_item];
+      // Loop on form elements (Codemirror)
+      for (let form_element = 0; form_element < form.elements.length; form_element++) {
+        if (form[form_element].type === 'textarea' && form[form_element].classList.contains('cm_dirty')) {
+          return false;
+        }
+      }
       // Loop on form elements
       const tmpForm = [];
       for (let form_element = 0; form_element < form.elements.length; form_element++) {
@@ -96,12 +102,6 @@ dotclear.confirmClose = class {
         }
       }
       if (!formMatch(tmpForm, this.forms[form_item])) {
-        if (dotclear.debug) {
-          console.log('Input data modified:');
-          console.log('Current form', tmpForm);
-          console.log('Saved form', this.forms[form_item]);
-          console.log('First difference:', formFirstDiff(tmpForm, this.forms[form_item]));
-        }
         return false;
       }
     }
