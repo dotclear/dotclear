@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-17 09:40+0100\n"
-"PO-Revision-Date: 2026-01-17 08:44\n"
+"PO-Revision-Date: 2026-01-17 09:18\n"
 "Last-Translator: \n"
 "Language-Team: Czech\n"
 "Language: cs_CZ\n"
@@ -710,7 +710,7 @@ msgstr "Moderovat pouze spamové komentáře/trackbacky"
 
 #: plugins/antispam/src/BackendBehaviors.php:99
 msgid "This option is only useful if comments and/or trackbacks are moderated (see blog settings above). In this case, messages recognised  by one of the active spam filters as not being spam will be published immediately, without being moderated; only those recognised as spam will be moderated."
-msgstr ""
+msgstr "Tato možnost je užitečná pouze v případě, že jsou komentáře a/nebo zpětné odkazy moderovány (viz nastavení blogu výše). V tomto případě budou zprávy, které některý z aktivních spamových filtrů rozpozná jako nevyžádanou poštu, zveřejněny okamžitě, aniž by byly moderovány; moderovány budou pouze ty, které budou rozpoznány jako nevyžádaná pošta."
 
 #: plugins/antispam/src/BackendBehaviors.php:103
 msgid "Set spam filters."
