@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-21 16:14+0100\n"
-"PO-Revision-Date: 2025-12-21 15:39\n"
+"POT-Creation-Date: 2026-01-17 09:40+0100\n"
+"PO-Revision-Date: 2026-01-17 08:44\n"
 "Last-Translator: \n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -696,21 +696,21 @@ msgstr "Все спам комментарии старше чем %s дней �
 msgid "You can modify this duration in the %s."
 msgstr "Вы можете изменить эту продолжительность в разделе %s."
 
-#: plugins/antispam/src/BackendBehaviors.php:87
-msgid "Moderate only spam comments/trackbacks"
-msgstr "Модерируйте только спамные комментарии/отклики"
-
-#: plugins/antispam/src/BackendBehaviors.php:91
-msgid "If comments and/or trackbacks are moderated (see blog settings above), messages recognized  by one of the active spam filters as not being spam will be published immediately."
-msgstr "Если комментарии и/или трекбеки модерируются (см. настройки блога выше), сообщения, признанные одним из активных спам-фильтров не являющимися спамом, будут опубликованы немедленно."
-
-#: plugins/antispam/src/BackendBehaviors.php:95
+#: plugins/antispam/src/BackendBehaviors.php:86
 msgid "Delete junk comments older than"
 msgstr "Удалить спам комментарии старше чем"
 
-#: plugins/antispam/src/BackendBehaviors.php:99
+#: plugins/antispam/src/BackendBehaviors.php:90
 msgid "Set -1 to disabled this feature ; recommended delay is 7 days."
 msgstr "Установите -1, чтобы отключить эту функцию; рекомендуемая задержка составляет 7 дней."
+
+#: plugins/antispam/src/BackendBehaviors.php:95
+msgid "Moderate only spam comments/trackbacks"
+msgstr "Модерируйте только спамные комментарии/отклики"
+
+#: plugins/antispam/src/BackendBehaviors.php:99
+msgid "This option is only useful if comments and/or trackbacks are moderated (see blog settings above). In this case, messages recognised  by one of the active spam filters as not being spam will be published immediately, without being moderated; only those recognised as spam will be moderated."
+msgstr "Эта опция полезна только в том случае, если комментарии и/или трекбеки модерируются (см. настройки блога выше). В этом случае сообщения, распознанные одним из активных спам-фильтров как не являющиеся спамом, будут опубликованы сразу, без модерации; модерации подвергнутся только те, которые будут распознаны как спам."
 
 #: plugins/antispam/src/BackendBehaviors.php:103
 msgid "Set spam filters."
@@ -976,7 +976,7 @@ msgstr "Нет описания"
 msgid "Filtered by %1$s (%2$s)"
 msgstr "Отфильтровано по %1$s (%2$s)"
 
-#: plugins/antispam/src/SpamFilters.php:158
+#: plugins/antispam/src/SpamFilters.php:160
 msgid "Unknown filter."
 msgstr "Неизвестный фильтр"
 
@@ -1281,12 +1281,12 @@ msgstr "Свидание"
 msgid "_xfn_Sweetheart"
 msgstr "Подруга"
 
-#: plugins/blogroll/src/UtilsImport.php:38
+#: plugins/blogroll/src/UtilsImport.php:39
 msgid "You need to provide a XBEL or OPML file."
 msgstr "Необходимо предоставить XBEL или OPML файл."
 
-#: plugins/blogroll/src/UtilsImport.php:55
-#: plugins/blogroll/src/UtilsImport.php:99
+#: plugins/blogroll/src/UtilsImport.php:56
+#: plugins/blogroll/src/UtilsImport.php:100
 msgid "File is not in XML format."
 msgstr "Файл не в формате XML."
 
@@ -2083,12 +2083,12 @@ msgstr[2] "%s задач для выполнения"
 msgstr[3] "%s задач для выполнения"
 
 #: plugins/maintenance/src/BackendBehaviors.php:202
-#: plugins/maintenance/src/Manage.php:306
+#: plugins/maintenance/src/Manage.php:310
 msgid "This task has never been executed."
 msgstr "Эта задача никогда не выполнялась."
 
 #: plugins/maintenance/src/BackendBehaviors.php:205
-#: plugins/maintenance/src/Manage.php:309
+#: plugins/maintenance/src/Manage.php:313
 #, php-format
 msgid "Last execution of this task was on %s."
 msgstr "Последнее выполнение этой задачи было %s."
@@ -2154,75 +2154,75 @@ msgstr "Каждые два месяца"
 msgid "You have not sufficient permissions to view this page."
 msgstr "У вас недостаточно прав для просмотра этой страницы."
 
-#: plugins/maintenance/src/Manage.php:306
-#: plugins/maintenance/src/Manage.php:312
+#: plugins/maintenance/src/Manage.php:310
+#: plugins/maintenance/src/Manage.php:316
 msgid "You should execute it now."
 msgstr "Вы должны выполнить это сейчас."
 
-#: plugins/maintenance/src/Manage.php:348
-#: plugins/maintenance/src/Manage.php:382
+#: plugins/maintenance/src/Manage.php:352
+#: plugins/maintenance/src/Manage.php:389
 msgid "Execute task"
 msgstr "Выполнить задачу"
 
-#: plugins/maintenance/src/Manage.php:353
+#: plugins/maintenance/src/Manage.php:357
 msgid "This may take a very long time."
 msgstr "Это может занять очень много времени."
 
-#: plugins/maintenance/src/Manage.php:420
-#: plugins/maintenance/src/Manage.php:422
+#: plugins/maintenance/src/Manage.php:427
+#: plugins/maintenance/src/Manage.php:429
 msgid "Alert settings"
 msgstr "Настройки оповещений"
 
-#: plugins/maintenance/src/Manage.php:428
+#: plugins/maintenance/src/Manage.php:435
 msgid "Activation"
 msgstr "Активация"
 
-#: plugins/maintenance/src/Manage.php:434
+#: plugins/maintenance/src/Manage.php:441
 msgid "Display alert messages on late tasks"
 msgstr "Отображение предупреждений о поздних задачах"
 
-#: plugins/maintenance/src/Manage.php:439
+#: plugins/maintenance/src/Manage.php:446
 #, php-format
 msgid "You can place list of late tasks on your %s."
 msgstr "Вы можете поместить список поздних задач на ваш %s."
 
-#: plugins/maintenance/src/Manage.php:444
+#: plugins/maintenance/src/Manage.php:451
 msgid "Frequency"
 msgstr "Частота"
 
-#: plugins/maintenance/src/Manage.php:452
+#: plugins/maintenance/src/Manage.php:459
 msgid "Use one recall time for all tasks"
 msgstr "Использовать одно время для всех задач"
 
-#: plugins/maintenance/src/Manage.php:462
+#: plugins/maintenance/src/Manage.php:469
 msgid "Recall time for all tasks:"
 msgstr "Время отзыва для всех задач:"
 
-#: plugins/maintenance/src/Manage.php:471
+#: plugins/maintenance/src/Manage.php:478
 msgid "Use one recall time per task"
 msgstr "Использовать одно время напоминания за задачу"
 
-#: plugins/maintenance/src/Manage.php:502
+#: plugins/maintenance/src/Manage.php:509
 msgid "Content-Security-Policy"
 msgstr "Содержание - Политика безопасности"
 
-#: plugins/maintenance/src/Manage.php:514
+#: plugins/maintenance/src/Manage.php:521
 msgid "Enable Content-Security-Policy system"
 msgstr "Включить систему контент-безопасности"
 
-#: plugins/maintenance/src/Manage.php:520
+#: plugins/maintenance/src/Manage.php:527
 msgid "Enable Content-Security-Policy report only"
 msgstr "Включить только отчёт по вопросам безопасности"
 
-#: plugins/maintenance/src/Manage.php:530
+#: plugins/maintenance/src/Manage.php:537
 msgid "Enable Content-Security-Policy system by default"
 msgstr "Включить систему Content-Security-Policy по умолчанию"
 
-#: plugins/maintenance/src/Manage.php:536
+#: plugins/maintenance/src/Manage.php:543
 msgid "Enable Content-Security-Policy report only by default"
 msgstr "Включить отчёт Content-Security-Policy только по умолчанию"
 
-#: plugins/maintenance/src/Manage.php:542
+#: plugins/maintenance/src/Manage.php:549
 msgid "Also apply these settings to all blogs"
 msgstr "Также применить эти настройки ко всем блогам"
 
