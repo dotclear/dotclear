@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-17 09:40+0100\n"
-"PO-Revision-Date: 2026-01-17 08:44\n"
+"PO-Revision-Date: 2026-01-17 09:18\n"
 "Last-Translator: \n"
 "Language-Team: Bulgarian\n"
 "Language: bg_BG\n"
@@ -710,7 +710,7 @@ msgstr "Модериране само на спам коментари/трак�
 
 #: plugins/antispam/src/BackendBehaviors.php:99
 msgid "This option is only useful if comments and/or trackbacks are moderated (see blog settings above). In this case, messages recognised  by one of the active spam filters as not being spam will be published immediately, without being moderated; only those recognised as spam will be moderated."
-msgstr ""
+msgstr "Тази опция е полезна само ако коментарите и/или проследяванията са модерирани (вижте настройките на блога по-горе). В този случай съобщенията, разпознати от един от активните филтри за спам като не спам, ще бъдат публикувани незабавно, без да бъдат модерирани; само тези, разпознати като спам, ще бъдат модерирани."
 
 #: plugins/antispam/src/BackendBehaviors.php:103
 msgid "Set spam filters."
