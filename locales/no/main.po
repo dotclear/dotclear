@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-23 12:19+0100\n"
-"PO-Revision-Date: 2025-12-23 12:31\n"
+"POT-Creation-Date: 2026-01-12 14:40+0100\n"
+"PO-Revision-Date: 2026-01-17 08:44\n"
 "Last-Translator: \n"
 "Language-Team: Norwegian Bokmal\n"
 "Language: nb_NO\n"
@@ -220,8 +220,8 @@ msgid "Selected blogs have been successfully updated."
 msgstr "Utvalgte blogger har blitt oppdatert."
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:104
-#: src/Core/Backend/ModulesList.php:1699 src/Core/Backend/ThemesList.php:714
-#: src/Core/Upgrade/PluginsList.php:398 src/Process/Backend/BlogDel.php:69
+#: src/Core/Backend/ModulesList.php:1701 src/Core/Backend/ThemesList.php:727
+#: src/Core/Upgrade/PluginsList.php:400 src/Process/Backend/BlogDel.php:69
 #: src/Process/Backend/Langs.php:114 src/Process/Backend/Langs.php:159
 #: src/Process/Backend/User.php:128 src/Process/Backend/UsersActions.php:195
 #: src/Process/Upgrade/Langs.php:162 src/Process/Upgrade/Langs.php:207
@@ -450,7 +450,7 @@ msgstr "Foreldre:"
 #: src/Core/Backend/Action/ActionsPostsDefault.php:390
 #: src/Core/Backend/Action/ActionsPostsDefault.php:495
 #: src/Core/Backend/Action/ActionsPostsDefault.php:580
-#: src/Core/Backend/ModulesList.php:1997 src/Process/Backend/BlogPref.php:1193
+#: src/Core/Backend/ModulesList.php:1999 src/Process/Backend/BlogPref.php:1193
 #: src/Process/Backend/Category.php:297 src/Process/Backend/Category.php:336
 #: src/Process/Backend/Category.php:372 src/Process/Backend/Comment.php:349
 #: src/Process/Backend/Home.php:652 src/Process/Backend/Home.php:706
@@ -601,7 +601,7 @@ msgid "Number of entries"
 msgstr "Antall oppføringer"
 
 #: src/Core/Backend/Favorites.php:287
-#: src/Process/Backend/UserPreferences.php:1361
+#: src/Process/Backend/UserPreferences.php:1364
 msgid "My favorites"
 msgstr "Mine favoritter"
 
@@ -676,7 +676,7 @@ msgstr "Brukere"
 
 #: src/Core/Backend/Favorites.php:509 src/Core/Backend/Menus.php:225
 #: src/Process/Backend/Plugins.php:104 src/Process/Backend/Plugins.php:117
-#: src/Process/Backend/Plugins.php:388 src/Process/Backend/Plugins.php:395
+#: src/Process/Backend/Plugins.php:386 src/Process/Backend/Plugins.php:393
 #: src/Process/Upgrade/Plugins.php:162 src/Process/Upgrade/Plugins.php:172
 msgid "Plugins management"
 msgstr "Administrasjon av plugins"
@@ -692,27 +692,27 @@ msgid "Languages"
 msgstr "Språk"
 
 #: src/Core/Backend/Favorites.php:527 src/Core/Backend/Page.php:450
-#: src/Core/Backend/Page.php:451 src/Process/Backend/Help.php:109
-#: src/Process/Backend/Help.php:116 src/Process/Backend/Help.php:122
+#: src/Core/Backend/Page.php:451 src/Process/Backend/Help.php:115
+#: src/Process/Backend/Help.php:122 src/Process/Backend/Help.php:128
 msgid "Global help"
 msgstr "Global hjelp"
 
-#: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1281
+#: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1287
 #: src/Process/Backend/Auth.php:513 src/Process/Backend/BlogPref.php:1369
 #: src/Process/Backend/Comment.php:305 src/Process/Backend/Post.php:1114
-#: src/Process/Backend/User.php:450 src/Process/Backend/UserPreferences.php:819
+#: src/Process/Backend/User.php:450 src/Process/Backend/UserPreferences.php:822
 #: src/Process/Install/Install.php:508
 msgid "Email:"
 msgstr "E-post:"
 
-#: src/Core/Backend/Filter/FilterComments.php:37 src/Core/Backend/Page.php:1280
+#: src/Core/Backend/Filter/FilterComments.php:37 src/Core/Backend/Page.php:1286
 #: src/Process/Backend/Comment.php:321 src/Process/Backend/Post.php:1123
 msgid "Web site:"
 msgstr "Nettsted:"
 
 #: src/Core/Backend/Filter/FilterComments.php:58
 #: src/Core/Backend/Filter/FilterPosts.php:92
-#: src/Core/Backend/ModulesList.php:1045 src/Core/Backend/Page.php:1322
+#: src/Core/Backend/ModulesList.php:1045 src/Core/Backend/Page.php:1328
 #: src/Process/Backend/Comment.php:294
 msgid "Author:"
 msgstr "Forfatter:"
@@ -731,7 +731,7 @@ msgid "Trackback"
 msgstr "Trackback"
 
 #: src/Core/Backend/Filter/FilterComments.php:107
-#: src/Core/Backend/Page.php:1282 src/Process/Backend/Comment.php:269
+#: src/Core/Backend/Page.php:1288 src/Process/Backend/Comment.php:269
 msgid "IP address:"
 msgstr "IP-adresse:"
 
@@ -832,7 +832,7 @@ msgid "Sort:"
 msgstr "Sortere:"
 
 #: src/Core/Backend/Filter/Filters.php:390
-#: src/Process/Backend/UserPreferences.php:977
+#: src/Process/Backend/UserPreferences.php:980
 msgid "Show"
 msgstr "Vis"
 
@@ -844,7 +844,7 @@ msgstr "Lagre gjeldende alternativer"
 msgid "Display options"
 msgstr "Visningsalternativer"
 
-#: src/Core/Backend/Filter/Filters.php:422 src/Core/Backend/Page.php:1490
+#: src/Core/Backend/Filter/Filters.php:422 src/Core/Backend/Page.php:1496
 msgid "Show filters and display options"
 msgstr "Vis filtre og visningsalternativer"
 
@@ -875,7 +875,7 @@ msgid "No blog matches the filter"
 msgstr "Ingen blogg matcher filteret"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:88
-#: src/Core/Backend/ModulesList.php:1811 src/Core/Backend/UserPref.php:78
+#: src/Core/Backend/ModulesList.php:1813 src/Core/Backend/UserPref.php:78
 #: src/Process/Backend/LinkPopup.php:91
 #: src/Process/Backend/UsersActions.php:388
 msgid "URL"
@@ -1165,8 +1165,8 @@ msgstr "Direkte tilgang til siden:"
 
 #: src/Core/Backend/Listing/Pager.php:192 src/Core/Backend/Page.php:170
 #: src/Process/Backend/Blogs.php:148 src/Process/Backend/Comments.php:216
-#: src/Process/Backend/Posts.php:137 src/Process/Backend/Search.php:311
-#: src/Process/Backend/Search.php:407 src/Process/Backend/Users.php:160
+#: src/Process/Backend/Posts.php:137 src/Process/Backend/Search.php:313
+#: src/Process/Backend/Search.php:409 src/Process/Backend/Users.php:160
 msgid "ok"
 msgstr "ok"
 
@@ -1255,7 +1255,7 @@ msgid "Current version"
 msgstr "Nåværende versjon"
 
 #: src/Core/Backend/ModulesList.php:839 src/Core/Backend/ModulesList.php:1063
-#: src/Core/Backend/Page.php:1323 src/Core/Backend/ThemesList.php:230
+#: src/Core/Backend/Page.php:1329 src/Core/Backend/ThemesList.php:230
 #: src/Core/Backend/ThemesList.php:300
 msgid "Details"
 msgstr "Detaljer"
@@ -1305,7 +1305,7 @@ msgstr "Plugin under utvikling"
 msgid "Release date:"
 msgstr "Utgivelsesdato:"
 
-#: src/Core/Backend/ModulesList.php:1070 src/Core/Backend/Page.php:1324
+#: src/Core/Backend/ModulesList.php:1070 src/Core/Backend/Page.php:1330
 #: src/Core/Backend/ThemesList.php:236
 msgid "Support"
 msgstr "Støtte"
@@ -1314,11 +1314,11 @@ msgstr "Støtte"
 msgid "update locked"
 msgstr "oppdatering låst"
 
-#: src/Core/Backend/ModulesList.php:1115 src/Core/Backend/Page.php:1326
+#: src/Core/Backend/ModulesList.php:1115 src/Core/Backend/Page.php:1332
 msgid "Section:"
 msgstr "Seksjon:"
 
-#: src/Core/Backend/ModulesList.php:1121 src/Core/Backend/Page.php:1327
+#: src/Core/Backend/ModulesList.php:1121 src/Core/Backend/Page.php:1333
 msgid "Tags:"
 msgstr "Tagger:"
 
@@ -1390,11 +1390,11 @@ msgstr "Oppdater valgte plugins"
 msgid "Update all plugins from this list"
 msgstr "Oppdater alle plugins fra denne listen"
 
-#: src/Core/Backend/ModulesList.php:1506 src/Core/Backend/ModulesList.php:1560
-#: src/Core/Backend/ModulesList.php:1591 src/Core/Backend/ModulesList.php:1629
-#: src/Core/Backend/ModulesList.php:1690 src/Core/Upgrade/PluginsList.php:236
-#: src/Core/Upgrade/PluginsList.php:278 src/Core/Upgrade/PluginsList.php:303
-#: src/Core/Upgrade/PluginsList.php:335 src/Core/Upgrade/PluginsList.php:389
+#: src/Core/Backend/ModulesList.php:1506 src/Core/Backend/ModulesList.php:1562
+#: src/Core/Backend/ModulesList.php:1593 src/Core/Backend/ModulesList.php:1631
+#: src/Core/Backend/ModulesList.php:1692 src/Core/Upgrade/PluginsList.php:236
+#: src/Core/Upgrade/PluginsList.php:280 src/Core/Upgrade/PluginsList.php:305
+#: src/Core/Upgrade/PluginsList.php:337 src/Core/Upgrade/PluginsList.php:391
 msgid "No such plugin."
 msgstr "Ingen slik plugin."
 
@@ -1402,68 +1402,68 @@ msgstr "Ingen slik plugin."
 msgid "You don't have permissions to delete this plugin."
 msgstr "Du har ikke tillatelse til å slette denne plugin-modulen."
 
-#: src/Core/Backend/ModulesList.php:1528 src/Core/Upgrade/PluginsList.php:252
+#: src/Core/Backend/ModulesList.php:1530 src/Core/Upgrade/PluginsList.php:254
 msgid "Some plugins have not been delete."
 msgstr "Noen plugins har ikke blitt slettet."
 
-#: src/Core/Backend/ModulesList.php:1531 src/Core/Upgrade/PluginsList.php:255
+#: src/Core/Backend/ModulesList.php:1533 src/Core/Upgrade/PluginsList.php:257
 msgid "Plugin has been successfully deleted."
 msgid_plural "Plugins have been successuflly deleted."
 msgstr[0] "Plugin har blitt slettet."
 msgstr[1] "Plugins har blitt slettet med suksess."
 
-#: src/Core/Backend/ModulesList.php:1564 src/Core/Upgrade/PluginsList.php:282
+#: src/Core/Backend/ModulesList.php:1566 src/Core/Upgrade/PluginsList.php:284
 msgid "Plugin has been successfully installed."
 msgid_plural "Plugins have been successfully installed."
 msgstr[0] "Plugin har blitt installert."
 msgstr[1] "Plugins har blitt installert."
 
-#: src/Core/Backend/ModulesList.php:1595 src/Core/Upgrade/PluginsList.php:307
+#: src/Core/Backend/ModulesList.php:1597 src/Core/Upgrade/PluginsList.php:309
 msgid "Plugin has been successfully activated."
 msgid_plural "Plugins have been successuflly activated."
 msgstr[0] "Plugin har blitt aktivert."
 msgstr[1] "Plugins har blitt aktivert med suksess."
 
-#: src/Core/Backend/ModulesList.php:1633 src/Core/Upgrade/PluginsList.php:339
+#: src/Core/Backend/ModulesList.php:1635 src/Core/Upgrade/PluginsList.php:341
 msgid "Some plugins have not been deactivated."
 msgstr "Noen plugins har ikke blitt deaktivert."
 
-#: src/Core/Backend/ModulesList.php:1636 src/Core/Upgrade/PluginsList.php:342
+#: src/Core/Backend/ModulesList.php:1638 src/Core/Upgrade/PluginsList.php:344
 msgid "Plugin has been successfully deactivated."
 msgid_plural "Plugins have been successuflly deactivated."
 msgstr[0] "Plugin har blitt deaktivert."
 msgstr[1] "Plugins har blitt deaktivert med suksess."
 
-#: src/Core/Backend/ModulesList.php:1683 src/Core/Upgrade/PluginsList.php:382
+#: src/Core/Backend/ModulesList.php:1685 src/Core/Upgrade/PluginsList.php:384
 msgid "Plugin has been successfully updated."
 msgid_plural "Plugins have been successfully updated."
 msgstr[0] "Plugin har blitt oppdatert."
 msgstr[1] "Plugins har blitt oppdatert."
 
-#: src/Core/Backend/ModulesList.php:1687 src/Core/Upgrade/PluginsList.php:386
+#: src/Core/Backend/ModulesList.php:1689 src/Core/Upgrade/PluginsList.php:388
 #, php-format
 msgid "Following plugins updates are locked: %s"
 msgstr "Følgende plugin-oppdateringer er låst: %s"
 
-#: src/Core/Backend/ModulesList.php:1707 src/Core/Backend/ThemesList.php:722
-#: src/Core/Upgrade/PluginsList.php:406 src/Process/Backend/Langs.php:165
+#: src/Core/Backend/ModulesList.php:1709 src/Core/Backend/ThemesList.php:735
+#: src/Core/Upgrade/PluginsList.php:408 src/Process/Backend/Langs.php:165
 #: src/Process/Upgrade/Langs.php:213
 msgid "Unable to move uploaded file."
 msgstr "Kan ikke flytte opplastet fil."
 
-#: src/Core/Backend/ModulesList.php:1725 src/Core/Upgrade/PluginsList.php:418
+#: src/Core/Backend/ModulesList.php:1727 src/Core/Upgrade/PluginsList.php:420
 msgid "The plugin has been successfully updated."
 msgstr "Programtillegget har blitt oppdatert."
 
-#: src/Core/Backend/ModulesList.php:1726 src/Core/Upgrade/PluginsList.php:419
+#: src/Core/Backend/ModulesList.php:1728 src/Core/Upgrade/PluginsList.php:421
 msgid "The plugin has been successfully installed."
 msgstr "Programtillegget har blitt installert."
 
-#: src/Core/Backend/ModulesList.php:1752 src/Process/Backend/Langs.php:372
+#: src/Core/Backend/ModulesList.php:1754 src/Process/Backend/Langs.php:372
 msgid "Upload a zip file"
 msgstr "Last opp en zip-fil"
 
-#: src/Core/Backend/ModulesList.php:1756 src/Core/Backend/ModulesList.php:1803
+#: src/Core/Backend/ModulesList.php:1758 src/Core/Backend/ModulesList.php:1805
 #: src/Process/Backend/Blog.php:117 src/Process/Backend/BlogPref.php:526
 #: src/Process/Backend/BlogPref.php:1023 src/Process/Backend/Category.php:247
 #: src/Process/Backend/Comment.php:283 src/Process/Backend/Home.php:589
@@ -1476,11 +1476,11 @@ msgstr "Last opp en zip-fil"
 msgid "Fields preceded by %s are mandatory."
 msgstr "Felter som innledes med %s er obligatoriske."
 
-#: src/Core/Backend/ModulesList.php:1763
+#: src/Core/Backend/ModulesList.php:1765
 msgid "Zip file path:"
 msgstr "Stien til zip-filen:"
 
-#: src/Core/Backend/ModulesList.php:1774 src/Core/Backend/ModulesList.php:1824
+#: src/Core/Backend/ModulesList.php:1776 src/Core/Backend/ModulesList.php:1826
 #: src/Process/Backend/Langs.php:347 src/Process/Backend/Langs.php:396
 #: src/Process/Backend/Post.php:810 src/Process/Backend/User.php:358
 #: src/Process/Backend/User.php:382 src/Process/Backend/User.php:547
@@ -1489,61 +1489,61 @@ msgstr "Stien til zip-filen:"
 msgid "Password"
 msgstr "Passord"
 
-#: src/Core/Backend/ModulesList.php:1777 src/Core/Backend/ModulesList.php:1827
+#: src/Core/Backend/ModulesList.php:1779 src/Core/Backend/ModulesList.php:1829
 #: src/Process/Backend/BlogDel.php:126 src/Process/Backend/Langs.php:350
 #: src/Process/Backend/Langs.php:400 src/Process/Upgrade/Langs.php:377
 #: src/Process/Upgrade/Langs.php:383 src/Process/Upgrade/Langs.php:432
 msgid "Your password:"
 msgstr "Passordet ditt:"
 
-#: src/Core/Backend/ModulesList.php:1785 src/Core/Backend/Page.php:1446
+#: src/Core/Backend/ModulesList.php:1787 src/Core/Backend/Page.php:1452
 #: src/Process/Backend/Media.php:809
 msgid "Upload"
 msgstr "Last opp"
 
-#: src/Core/Backend/ModulesList.php:1799
+#: src/Core/Backend/ModulesList.php:1801
 msgid "Download a zip file"
 msgstr "Last ned en zip-fil"
 
-#: src/Core/Backend/ModulesList.php:1813
+#: src/Core/Backend/ModulesList.php:1815
 msgid "Zip file URL:"
 msgstr "URL for zip-fil:"
 
-#: src/Core/Backend/ModulesList.php:1835
+#: src/Core/Backend/ModulesList.php:1837
 msgid "Download"
 msgstr "Last ned"
 
-#: src/Core/Backend/ModulesList.php:1886
+#: src/Core/Backend/ModulesList.php:1888
 msgid "Unknown plugin ID"
 msgstr "Ukjent plugin-ID"
 
-#: src/Core/Backend/ModulesList.php:1897
+#: src/Core/Backend/ModulesList.php:1899
 msgid "This plugin has no configuration file."
 msgstr "Dette tillegget har ingen konfigurasjonsfil."
 
-#: src/Core/Backend/ModulesList.php:1905 src/Process/Backend/Auth.php:385
+#: src/Core/Backend/ModulesList.php:1907 src/Process/Backend/Auth.php:385
 #: src/Process/Upgrade/Auth.php:169 src/Process/Upgrade/Auth.php:230
 msgid "Insufficient permissions"
 msgstr "Utilstrekkelige tillatelser"
 
-#: src/Core/Backend/ModulesList.php:1978
+#: src/Core/Backend/ModulesList.php:1980
 #, php-format
 msgid "Configure \"%s\""
 msgstr "Konfigurer \"%s\""
 
-#: src/Core/Backend/ModulesList.php:1984 src/Process/Backend/Blog.php:197
+#: src/Core/Backend/ModulesList.php:1986 src/Process/Backend/Blog.php:197
 #: src/Process/Backend/BlogDel.php:138 src/Process/Backend/BlogPref.php:1195
 #: src/Process/Backend/Category.php:300 src/Process/Backend/Comment.php:351
 #: src/Process/Backend/Media.php:871 src/Process/Backend/MediaItem.php:1327
 #: src/Process/Backend/Post.php:956 src/Process/Backend/Search.php:193
-#: src/Process/Backend/User.php:565 src/Process/Backend/UserPreferences.php:880
-#: src/Process/Backend/UserPreferences.php:1216
-#: src/Process/Backend/UserPreferences.php:1456
+#: src/Process/Backend/User.php:565 src/Process/Backend/UserPreferences.php:883
+#: src/Process/Backend/UserPreferences.php:1219
+#: src/Process/Backend/UserPreferences.php:1459
 msgid "Back"
 msgstr "Tilbake"
 
-#: src/Core/Backend/Notices.php:86 src/Core/Backend/Page.php:1283
-#: src/Core/Backend/Page.php:1441 src/Core/Upgrade/Notices.php:48
+#: src/Core/Backend/Notices.php:86 src/Core/Backend/Page.php:1289
+#: src/Core/Backend/Page.php:1447 src/Core/Upgrade/Notices.php:48
 #: src/Process/Backend/Home.php:324
 msgid "Error:"
 msgstr "Feil:"
@@ -1559,7 +1559,7 @@ msgid "%H:%M:%S"
 msgstr "%H:%M:%S"
 
 #: src/Core/Backend/Notices.php:258 src/Core/Backend/Notices.php:298
-#: src/Core/Backend/Notices.php:308 src/Core/Backend/Page.php:1329
+#: src/Core/Backend/Notices.php:308 src/Core/Backend/Page.php:1335
 #: src/Process/Backend/Categories.php:378 src/Process/Backend/Post.php:1058
 #: src/Process/Backend/Post.php:1190 src/Process/Backend/PostsPopup.php:121
 msgid "Ok"
@@ -1591,8 +1591,8 @@ msgid "Go to help"
 msgstr "Gå til hjelp"
 
 #: src/Core/Backend/Page.php:342 src/Core/Upgrade/Page.php:177
-#: src/Process/Backend/UserPreferences.php:1351
-#: src/Process/Backend/UserPreferences.php:1353
+#: src/Process/Backend/UserPreferences.php:1354
+#: src/Process/Backend/UserPreferences.php:1356
 msgid "My dashboard"
 msgstr "Dashbordet mitt"
 
@@ -1643,368 +1643,368 @@ msgstr "Dotclear-logo"
 msgid "Go to dashboard"
 msgstr "Gå til dashbordet"
 
-#: src/Core/Backend/Page.php:1131 src/Core/Upgrade/Page.php:452
+#: src/Core/Backend/Page.php:1137 src/Core/Upgrade/Page.php:458
 msgid "Help about this page"
 msgstr "Hjelp om denne siden"
 
-#: src/Core/Backend/Page.php:1141 src/Core/Upgrade/Page.php:461
+#: src/Core/Backend/Page.php:1147 src/Core/Upgrade/Page.php:467
 #, php-format
 msgid "See also %s"
 msgstr "Se også %s"
 
-#: src/Core/Backend/Page.php:1144 src/Core/Upgrade/Page.php:464
+#: src/Core/Backend/Page.php:1150 src/Core/Upgrade/Page.php:470
 msgid "the global help"
 msgstr "den globale hjelpen"
 
-#: src/Core/Backend/Page.php:1265
+#: src/Core/Backend/Page.php:1271
 msgid "uncover"
 msgstr "avdekke"
 
-#: src/Core/Backend/Page.php:1269
+#: src/Core/Backend/Page.php:1275
 msgid "hide"
 msgstr "gjemme seg"
 
-#: src/Core/Backend/Page.php:1273
+#: src/Core/Backend/Page.php:1279
 msgid "Need help?"
 msgstr "Trenger du hjelp?"
 
-#: src/Core/Backend/Page.php:1274
+#: src/Core/Backend/Page.php:1280
 msgid "new window"
 msgstr "nytt vindu"
 
-#: src/Core/Backend/Page.php:1275
+#: src/Core/Backend/Page.php:1281
 msgid "Hide"
 msgstr "Skjul"
 
-#: src/Core/Backend/Page.php:1276
+#: src/Core/Backend/Page.php:1282
 msgid "Select:"
 msgstr "Velg:"
 
-#: src/Core/Backend/Page.php:1277
+#: src/Core/Backend/Page.php:1283
 msgid "No selection"
 msgstr "Ingen valg"
 
-#: src/Core/Backend/Page.php:1278
+#: src/Core/Backend/Page.php:1284
 msgid "Select all"
 msgstr "Velg alle"
 
-#: src/Core/Backend/Page.php:1279
+#: src/Core/Backend/Page.php:1285
 msgid "Invert selection"
 msgstr "Inverter valg"
 
-#: src/Core/Backend/Page.php:1284 src/Process/Backend/Post.php:466
+#: src/Core/Backend/Page.php:1290 src/Process/Backend/Post.php:466
 #: src/Process/Backend/Post.php:609
 msgid "Entry has been successfully created."
 msgstr "Oppføringen har blitt opprettet."
 
-#: src/Core/Backend/Page.php:1285
+#: src/Core/Backend/Page.php:1291
 msgid "Edit entry"
 msgstr "Rediger oppføring"
 
-#: src/Core/Backend/Page.php:1286
+#: src/Core/Backend/Page.php:1292
 msgid "view entry"
 msgstr "vis oppføring"
 
-#: src/Core/Backend/Page.php:1287
+#: src/Core/Backend/Page.php:1293
 #, php-format
 msgid "Are you sure you want to delete selected entries (%s)?"
 msgstr "Er du sikker på at du vil slette valgte oppføringer (%s)?"
 
-#: src/Core/Backend/Page.php:1288
+#: src/Core/Backend/Page.php:1294
 #, php-format
 msgid "Are you sure you want to delete selected medias (%d)?"
 msgstr "Er du sikker på at du vil slette utvalgte medier (%d)?"
 
-#: src/Core/Backend/Page.php:1289
+#: src/Core/Backend/Page.php:1295
 #, php-format
 msgid "Are you sure you want to delete selected categories (%s)?"
 msgstr "Er du sikker på at du vil slette valgte kategorier (%s)?"
 
-#: src/Core/Backend/Page.php:1290
+#: src/Core/Backend/Page.php:1296
 msgid "Are you sure you want to delete this entry?"
 msgstr "Er du sikker på at du vil slette denne oppføringen?"
 
-#: src/Core/Backend/Page.php:1291
+#: src/Core/Backend/Page.php:1297
 msgid "Click here to unlock the field"
 msgstr "Klikk her for å låse opp feltet"
 
-#: src/Core/Backend/Page.php:1292
+#: src/Core/Backend/Page.php:1298
 msgid "Are you sure you want to delete all spams?"
 msgstr "Er du sikker på at du vil slette all spam?"
 
-#: src/Core/Backend/Page.php:1293
+#: src/Core/Backend/Page.php:1299
 #, php-format
 msgid "Are you sure you want to delete selected comments (%s)?"
 msgstr "Er du sikker på at du vil slette utvalgte kommentarer (%s)?"
 
-#: src/Core/Backend/Page.php:1294
+#: src/Core/Backend/Page.php:1300
 msgid "Are you sure you want to delete this comment?"
 msgstr "Er du sikker på at du vil slette denne kommentaren?"
 
-#: src/Core/Backend/Page.php:1295
+#: src/Core/Backend/Page.php:1301
 msgid "Users with posts cannot be deleted."
 msgstr "Brukere med innlegg kan ikke slettes."
 
-#: src/Core/Backend/Page.php:1296
+#: src/Core/Backend/Page.php:1302
 #, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
 msgstr "Er du sikker på at du vil slette utvalgte brukere (%s)?"
 
-#: src/Core/Backend/Page.php:1297
+#: src/Core/Backend/Page.php:1303
 #, php-format
 msgid "Are you sure you want to delete selected blogs (%s)?"
 msgstr "Er du sikker på at du vil slette utvalgte blogger (%s)?"
 
-#: src/Core/Backend/Page.php:1298
+#: src/Core/Backend/Page.php:1304
 #, php-format
 msgid "Are you sure you want to delete category \"%s\"?"
 msgstr "Er du sikker på at du vil slette kategorien \"%s\"?"
 
-#: src/Core/Backend/Page.php:1299
+#: src/Core/Backend/Page.php:1305
 msgid "Are you sure you want to reorder all categories?"
 msgstr "Er du sikker på at du vil endre rekkefølgen på alle kategoriene?"
 
-#: src/Core/Backend/Page.php:1300
+#: src/Core/Backend/Page.php:1306
 #, php-format
 msgid "Are you sure you want to remove media \"%s\"?"
 msgstr "Er du sikker på at du vil fjerne media \"%s\"?"
 
-#: src/Core/Backend/Page.php:1301
+#: src/Core/Backend/Page.php:1307
 #, php-format
 msgid "Are you sure you want to remove directory \"%s\"?"
 msgstr "Er du sikker på at du vil fjerne katalogen \"%s\"?"
 
-#: src/Core/Backend/Page.php:1302
+#: src/Core/Backend/Page.php:1308
 msgid "Are you sure you want to extract archive in current directory?"
 msgstr "Er du sikker på at du vil pakke ut arkivet i gjeldende katalog?"
 
-#: src/Core/Backend/Page.php:1303
+#: src/Core/Backend/Page.php:1309
 #, php-format
 msgid "Are you sure you want to remove attachment \"%s\"?"
 msgstr "Er du sikker på at du vil fjerne vedlegget \"%s\"?"
 
-#: src/Core/Backend/Page.php:1304
+#: src/Core/Backend/Page.php:1310
 #, php-format
 msgid "Are you sure you want to delete \"%s\" language?"
 msgstr "Er du sikker på at du vil slette \"%s\" språk?"
 
-#: src/Core/Backend/Page.php:1305
+#: src/Core/Backend/Page.php:1311
 #, php-format
 msgid "Are you sure you want to delete \"%s\" plugin?"
 msgstr "Er du sikker på at du vil slette \"%s\" plugin?"
 
-#: src/Core/Backend/Page.php:1306
+#: src/Core/Backend/Page.php:1312
 msgid "Are you sure you want to delete selected plugins?"
 msgstr "Er du sikker på at du vil slette valgte plugins?"
 
-#: src/Core/Backend/Page.php:1307
+#: src/Core/Backend/Page.php:1313
 msgid "Use this theme"
 msgstr "Bruk dette temaet"
 
-#: src/Core/Backend/Page.php:1308
+#: src/Core/Backend/Page.php:1314
 msgid "Remove this theme"
 msgstr "Fjern dette temaet"
 
-#: src/Core/Backend/Page.php:1309
+#: src/Core/Backend/Page.php:1315
 #, php-format
 msgid "Are you sure you want to delete \"%s\" theme?"
 msgstr "Er du sikker på at du vil slette temaet \"%s\"?"
 
-#: src/Core/Backend/Page.php:1310
+#: src/Core/Backend/Page.php:1316
 msgid "Are you sure you want to delete selected themes?"
 msgstr "Er du sikker på at du vil slette valgte temaer?"
 
-#: src/Core/Backend/Page.php:1311
+#: src/Core/Backend/Page.php:1317
 msgid "Are you sure you want to delete this backup?"
 msgstr "Er du sikker på at du vil slette denne sikkerhetskopien?"
 
-#: src/Core/Backend/Page.php:1312
+#: src/Core/Backend/Page.php:1318
 msgid "Are you sure you want to revert to this backup?"
 msgstr "Er du sikker på at du vil gå tilbake til denne sikkerhetskopien?"
 
-#: src/Core/Backend/Page.php:1313
+#: src/Core/Backend/Page.php:1319
 msgid "Zip file content"
 msgstr "Innholdet i zip-filen"
 
-#: src/Core/Backend/Page.php:1314
+#: src/Core/Backend/Page.php:1320
 msgid "HTML markup validator"
 msgstr "HTML-markup-validator"
 
-#: src/Core/Backend/Page.php:1315
+#: src/Core/Backend/Page.php:1321
 msgid "HTML content is valid."
 msgstr "HTML-innholdet er gyldig."
 
-#: src/Core/Backend/Page.php:1316
+#: src/Core/Backend/Page.php:1322
 msgid "There are HTML markup errors."
 msgstr "Det er HTML-oppmerkingsfeil."
 
-#: src/Core/Backend/Page.php:1317
+#: src/Core/Backend/Page.php:1323
 msgid "Attention: an audit of a content not yet registered."
 msgstr "OBS: En revisjon av et innhold som ennå ikke er registrert."
 
-#: src/Core/Backend/Page.php:1318
+#: src/Core/Backend/Page.php:1324
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
 msgstr "Du har endringer som ikke er lagret. Hvis du bytter innleggsformat, vil du miste disse endringene. Fortsetter du likevel?"
 
-#: src/Core/Backend/Page.php:1319
+#: src/Core/Backend/Page.php:1325
 msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
 msgstr "Advarsel: Endring av innleggsformat vil ikke konvertere eksisterende innhold. Du må bruke det nye formatet selv. Fortsetter du likevel?"
 
-#: src/Core/Backend/Page.php:1320
+#: src/Core/Backend/Page.php:1326
 msgid "Loading enhanced uploader, please wait."
 msgstr "Laster inn forbedret opplaster, vennligst vent."
 
-#: src/Core/Backend/Page.php:1325
+#: src/Core/Backend/Page.php:1331
 msgid "Help:"
 msgstr "Hjelp meg:"
 
-#: src/Core/Backend/Page.php:1331
+#: src/Core/Backend/Page.php:1337
 msgid "Show password"
 msgstr "Vis passord"
 
-#: src/Core/Backend/Page.php:1332
+#: src/Core/Backend/Page.php:1338
 msgid "Hide password"
 msgstr "Skjul passord"
 
-#: src/Core/Backend/Page.php:1334
+#: src/Core/Backend/Page.php:1340
 msgid "Reset to now"
 msgstr "Tilbakestill til nå"
 
-#: src/Core/Backend/Page.php:1335
+#: src/Core/Backend/Page.php:1341
 msgid "The publication date has changed. Reset the base name of the entry URL?"
 msgstr "Publiseringsdatoen er endret. Tilbakestille grunnnavnet til oppføringens URL?"
 
-#: src/Core/Backend/Page.php:1336
+#: src/Core/Backend/Page.php:1342
 msgid "The publication title has changed. Reset the base name of the entry URL?"
 msgstr "Publikasjonens tittel er endret. Tilbakestille grunnnavnet til oppføringens URL?"
 
-#: src/Core/Backend/Page.php:1338
+#: src/Core/Backend/Page.php:1344
 msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences."
 msgstr "En annonseblokkering har blitt oppdaget på dette Dotclear-dashbordet (Ghostery, Adblock plus, uBlock origin, …), og den kan forstyrre enkelte funksjoner. I dette tilfellet bør du deaktivere den. Merk at denne oppdagelsen kan deaktiveres i innstillingene dine."
 
-#: src/Core/Backend/Page.php:1390
+#: src/Core/Backend/Page.php:1396
 msgid "You have unsaved changes."
 msgstr "Du har endringer som ikke er lagret."
 
-#: src/Core/Backend/Page.php:1391
+#: src/Core/Backend/Page.php:1397
 msgid "your battery charge seems low (%d%) and you have unsaved changes, you should save them."
 msgstr "batteriladingen virker lav (%d%) og du har endringer som ikke er lagret, bør du lagre dem."
 
-#: src/Core/Backend/Page.php:1432
+#: src/Core/Backend/Page.php:1438
 msgid "Temporarily activate enhanced uploader"
 msgstr "Midlertidig aktivering av forbedret opplasting"
 
-#: src/Core/Backend/Page.php:1433
+#: src/Core/Backend/Page.php:1439
 msgid "Temporarily disable enhanced uploader"
 msgstr "Midlertidig deaktivering av forbedret opplasting"
 
-#: src/Core/Backend/Page.php:1437
+#: src/Core/Backend/Page.php:1443
 msgid "Limit exceeded."
 msgstr "Grensen er overskredet."
 
-#: src/Core/Backend/Page.php:1438
+#: src/Core/Backend/Page.php:1444
 msgid "File size exceeds allowed limit."
 msgstr "Filstørrelsen overskrider den tillatte grensen."
 
-#: src/Core/Backend/Page.php:1439
+#: src/Core/Backend/Page.php:1445
 msgid "Canceled."
 msgstr "Avlyst."
 
-#: src/Core/Backend/Page.php:1440
+#: src/Core/Backend/Page.php:1446
 msgid "HTTP Error:"
 msgstr "HTTP-feil:"
 
-#: src/Core/Backend/Page.php:1442 src/Process/Backend/Media.php:752
+#: src/Core/Backend/Page.php:1448 src/Process/Backend/Media.php:752
 msgid "Choose file"
 msgstr "Velg fil"
 
-#: src/Core/Backend/Page.php:1443 src/Process/Backend/Media.php:758
+#: src/Core/Backend/Page.php:1449 src/Process/Backend/Media.php:758
 msgid "Choose files"
 msgstr "Velg filer"
 
-#: src/Core/Backend/Page.php:1444 src/Process/Backend/LinkPopup.php:114
+#: src/Core/Backend/Page.php:1450 src/Process/Backend/LinkPopup.php:114
 #: src/Process/Backend/Media.php:305 src/Process/Backend/MediaItem.php:516
 #: src/Process/Backend/MediaItem.php:772 src/Process/Backend/Post.php:962
 #: src/Process/Backend/PostMedia.php:115
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: src/Core/Backend/Page.php:1445
+#: src/Core/Backend/Page.php:1451
 msgid "Clean"
 msgstr "Ren"
 
-#: src/Core/Backend/Page.php:1447
+#: src/Core/Backend/Page.php:1453
 msgid "Send"
 msgstr "Send"
 
-#: src/Core/Backend/Page.php:1448
+#: src/Core/Backend/Page.php:1454
 msgid "File successfully uploaded."
 msgstr "Filen ble lastet opp."
 
-#: src/Core/Backend/Page.php:1449
+#: src/Core/Backend/Page.php:1455
 msgid "No file in queue."
 msgstr "Ingen fil i kø."
 
-#: src/Core/Backend/Page.php:1450
+#: src/Core/Backend/Page.php:1456
 msgid "1 file in queue."
 msgstr "1 fil i kø."
 
-#: src/Core/Backend/Page.php:1451
+#: src/Core/Backend/Page.php:1457
 #, php-format
 msgid "%d files in queue."
 msgstr "%d filer i kø."
 
-#: src/Core/Backend/Page.php:1452
+#: src/Core/Backend/Page.php:1458
 msgid "Queue error:"
 msgstr "Feil i køen:"
 
-#: src/Core/Backend/Page.php:1491
+#: src/Core/Backend/Page.php:1497
 msgid "Cancel filters and display options"
 msgstr "Avbryt filtre og visningsalternativer"
 
-#: src/Core/Backend/ThemeConfig.php:120
+#: src/Core/Backend/ThemeConfig.php:121
 #, php-format
 msgid "(%s)"
 msgstr "(%s)"
 
-#: src/Core/Backend/ThemeConfig.php:120
+#: src/Core/Backend/ThemeConfig.php:121
 #, php-format
 msgid "ratio %.1f"
 msgstr "forhold %.1f"
 
-#: src/Core/Backend/ThemeConfig.php:233 src/Core/Backend/ThemeConfig.php:387
+#: src/Core/Backend/ThemeConfig.php:234 src/Core/Backend/ThemeConfig.php:388
 msgid "The 'public' directory does not exist."
 msgstr "Katalogen \"public\" finnes ikke."
 
-#: src/Core/Backend/ThemeConfig.php:240 src/Core/Backend/ThemeConfig.php:252
-#: src/Core/Backend/ThemeConfig.php:394 src/Core/Backend/ThemeConfig.php:406
+#: src/Core/Backend/ThemeConfig.php:241 src/Core/Backend/ThemeConfig.php:253
+#: src/Core/Backend/ThemeConfig.php:395 src/Core/Backend/ThemeConfig.php:407
 #, php-format
 msgid "The '%s' directory cannot be modified."
 msgstr "Katalogen '%s' kan ikke endres."
 
-#: src/Core/Backend/ThemeConfig.php:374
+#: src/Core/Backend/ThemeConfig.php:375
 #, php-format
 msgid "The '%s' directory cannot be created."
 msgstr "Katalogen '%s' kan ikke opprettes."
 
-#: src/Core/Backend/ThemeConfig.php:380
+#: src/Core/Backend/ThemeConfig.php:381
 msgid "At least one of the following functions is not available: imagecreatetruecolor, imagepng & imagecreatefrompng."
 msgstr "Minst én av følgende funksjoner er ikke tilgjengelig: imagecreatetruecolor, imagepng og imagecreatefrompng."
 
-#: src/Core/Backend/ThemeConfig.php:426
+#: src/Core/Backend/ThemeConfig.php:427
 msgid "Unable to create images."
 msgstr "Kan ikke opprette bilder."
 
-#: src/Core/Backend/ThemeConfig.php:433
+#: src/Core/Backend/ThemeConfig.php:434
 msgid "Invalid file type."
 msgstr "Ugyldig filtype."
 
-#: src/Core/Backend/ThemeConfig.php:439 src/Helper/File/Manager.php:435
+#: src/Core/Backend/ThemeConfig.php:440 src/Helper/File/Manager.php:435
 #: src/Helper/File/Manager.php:475
 msgid "An error occurred while writing the file."
 msgstr "Det oppstod en feil under skriving av filen."
 
-#: src/Core/Backend/ThemeConfig.php:445
+#: src/Core/Backend/ThemeConfig.php:446
 #, php-format
 msgid "Uploaded image is not %s pixels wide."
 msgstr "Det opplastede bildet er ikke %s piksler bredt."
@@ -2074,10 +2074,10 @@ msgstr "Oppdater utvalgte temaer"
 msgid "Update all themes from this list"
 msgstr "Oppdater alle temaer fra denne listen"
 
-#: src/Core/Backend/ThemesList.php:467 src/Core/Backend/ThemesList.php:508
-#: src/Core/Backend/ThemesList.php:546 src/Core/Backend/ThemesList.php:581
-#: src/Core/Backend/ThemesList.php:621 src/Core/Backend/ThemesList.php:655
-#: src/Core/Backend/ThemesList.php:705
+#: src/Core/Backend/ThemesList.php:467 src/Core/Backend/ThemesList.php:511
+#: src/Core/Backend/ThemesList.php:552 src/Core/Backend/ThemesList.php:590
+#: src/Core/Backend/ThemesList.php:632 src/Core/Backend/ThemesList.php:668
+#: src/Core/Backend/ThemesList.php:718
 msgid "No such theme."
 msgstr "Ikke noe slikt tema."
 
@@ -2086,64 +2086,64 @@ msgstr "Ikke noe slikt tema."
 msgid "Theme %s has been successfully selected."
 msgstr "Tema %s har blitt valgt."
 
-#: src/Core/Backend/ThemesList.php:512
+#: src/Core/Backend/ThemesList.php:515
 msgid "Theme has been successfully activated."
 msgid_plural "Themes have been successuflly activated."
 msgstr[0] "Temaet har blitt aktivert."
 msgstr[1] "Temaene har blitt aktivert med suksess."
 
-#: src/Core/Backend/ThemesList.php:550
+#: src/Core/Backend/ThemesList.php:556
 msgid "Some themes have not been deactivated."
 msgstr "Noen temaer har ikke blitt deaktivert."
 
-#: src/Core/Backend/ThemesList.php:553
+#: src/Core/Backend/ThemesList.php:559
 msgid "Theme has been successfully deactivated."
 msgid_plural "Themes have been successuflly deactivated."
 msgstr[0] "Temaet har blitt deaktivert."
 msgstr[1] "Temaene har blitt deaktivert med suksess."
 
-#: src/Core/Backend/ThemesList.php:585
+#: src/Core/Backend/ThemesList.php:594
 msgid "Theme has been successfully cloned."
 msgid_plural "Themes have been successuflly cloned."
 msgstr[0] "Temaet har blitt vellykket klonet."
 msgstr[1] "Temaer har blitt klonet med suksess."
 
-#: src/Core/Backend/ThemesList.php:619
+#: src/Core/Backend/ThemesList.php:628
 msgid "You don't have permissions to delete this theme."
 msgstr "Du har ikke tillatelse til å slette dette temaet."
 
-#: src/Core/Backend/ThemesList.php:623
+#: src/Core/Backend/ThemesList.php:636
 msgid "Some themes have not been delete."
 msgstr "Noen temaer har ikke blitt slettet."
 
-#: src/Core/Backend/ThemesList.php:626
+#: src/Core/Backend/ThemesList.php:639
 msgid "Theme has been successfully deleted."
 msgid_plural "Themes have been successuflly deleted."
 msgstr[0] "Temaet har blitt slettet."
 msgstr[1] "Temaer har blitt slettet med suksess."
 
-#: src/Core/Backend/ThemesList.php:659
+#: src/Core/Backend/ThemesList.php:672
 msgid "Theme has been successfully installed."
 msgid_plural "Themes have been successfully installed."
 msgstr[0] "Temaet har blitt installert."
 msgstr[1] "Temaer har blitt installert."
 
-#: src/Core/Backend/ThemesList.php:698
+#: src/Core/Backend/ThemesList.php:711
 msgid "Theme has been successfully updated."
 msgid_plural "Themes have been successfully updated."
 msgstr[0] "Temaet har blitt oppdatert."
 msgstr[1] "Temaene har blitt oppdatert."
 
-#: src/Core/Backend/ThemesList.php:702
+#: src/Core/Backend/ThemesList.php:715
 #, php-format
 msgid "Following themes updates are locked: %s"
 msgstr "Følgende temaoppdateringer er låst: %s"
 
-#: src/Core/Backend/ThemesList.php:740
+#: src/Core/Backend/ThemesList.php:753
 msgid "The theme has been successfully updated."
 msgstr "Temaet har blitt oppdatert."
 
-#: src/Core/Backend/ThemesList.php:741
+#: src/Core/Backend/ThemesList.php:754
 msgid "The theme has been successfully installed."
 msgstr "Temaet har blitt installert."
 
@@ -2306,13 +2306,13 @@ msgstr "Ugyldig innstilling dcNamespace: %s"
 msgid "Unable to retrieve settings:"
 msgstr "Innstillinger kan ikke hentes:"
 
-#: src/Core/BlogWorkspace.php:223 src/Core/BlogWorkspace.php:321
+#: src/Core/BlogWorkspace.php:223 src/Core/BlogWorkspace.php:326
 #, php-format
 msgid "%s is not a valid setting id"
 msgstr "%s er ikke en gyldig innstilling id"
 
-#: src/Core/BlogWorkspace.php:313 src/Core/BlogWorkspace.php:353
-#: src/Core/BlogWorkspace.php:376 src/Core/BlogWorkspace.php:396
+#: src/Core/BlogWorkspace.php:318 src/Core/BlogWorkspace.php:358
+#: src/Core/BlogWorkspace.php:381 src/Core/BlogWorkspace.php:401
 msgid "No namespace specified"
 msgstr "Ingen navnerom spesifisert"
 
@@ -2567,28 +2567,28 @@ msgstr "Rotkatalogen er ikke skrivbar."
 msgid "An error occurred while downloading archive."
 msgstr "Det oppstod en feil under nedlasting av arkivet."
 
-#: src/Core/Upgrade/Update.php:434 src/Core/Upgrade/Update.php:529
+#: src/Core/Upgrade/Update.php:434 src/Core/Upgrade/Update.php:532
 msgid "Archive not found."
 msgstr "Arkivet ble ikke funnet."
 
-#: src/Core/Upgrade/Update.php:440 src/Core/Upgrade/Update.php:535
+#: src/Core/Upgrade/Update.php:440 src/Core/Upgrade/Update.php:538
 msgid "Unable to read current digests file."
 msgstr "Kunne ikke lese gjeldende digests-fil."
 
 #: src/Core/Upgrade/Update.php:463 src/Core/Upgrade/Update.php:471
-#: src/Core/Upgrade/Update.php:543 src/Core/Upgrade/Update.php:551
+#: src/Core/Upgrade/Update.php:546 src/Core/Upgrade/Update.php:554
 msgid "Downloaded file does not seem to be a valid archive."
 msgstr "Den nedlastede filen ser ikke ut til å være et gyldig arkiv."
 
-#: src/Core/Upgrade/Update.php:576
+#: src/Core/Upgrade/Update.php:579
 msgid "Incomplete archive."
 msgstr "Ufullstendig arkiv."
 
-#: src/Core/Upgrade/Update.php:676 src/Process/Upgrade/Digests.php:299
+#: src/Core/Upgrade/Update.php:679 src/Process/Upgrade/Digests.php:299
 msgid "Unable to read digests file."
 msgstr "Kunne ikke lese digests-filen."
 
-#: src/Core/Upgrade/Update.php:704 src/Process/Upgrade/Digests.php:341
+#: src/Core/Upgrade/Update.php:707 src/Process/Upgrade/Digests.php:341
 msgid "Invalid digests file."
 msgstr "Ugyldig digest-fil."
 
@@ -2673,13 +2673,13 @@ msgstr "Ugyldig dcWorkspace: %s"
 msgid "Unable to retrieve prefs:"
 msgstr "Kan ikke hente forhåndsinnstillinger:"
 
-#: src/Core/UserWorkspace.php:226 src/Core/UserWorkspace.php:324
+#: src/Core/UserWorkspace.php:226 src/Core/UserWorkspace.php:329
 #, php-format
 msgid "%s is not a valid pref id"
 msgstr "%s er ikke et gyldig pref-id"
 
-#: src/Core/UserWorkspace.php:316 src/Core/UserWorkspace.php:351
-#: src/Core/UserWorkspace.php:384 src/Core/UserWorkspace.php:414
+#: src/Core/UserWorkspace.php:321 src/Core/UserWorkspace.php:356
+#: src/Core/UserWorkspace.php:389 src/Core/UserWorkspace.php:419
 msgid "No workspace specified"
 msgstr "Ingen spesifisert arbeidsområde"
 
@@ -2712,15 +2712,15 @@ msgstr "SQL DELETE krever en FROM-kilde"
 msgid "SQL DROP TABLE requires a FROM source"
 msgstr "SQL DROP TABLE krever en FROM-kilde"
 
-#: src/Database/Statement/InsertStatement.php:131
+#: src/Database/Statement/InsertStatement.php:120
 msgid "SQL INSERT requires an INTO source"
 msgstr "SQL INSERT krever en INTO-kilde"
 
-#: src/Database/Statement/JoinStatement.php:91
+#: src/Database/Statement/JoinStatement.php:79
 msgid "SQL JOIN requires a FROM source"
 msgstr "SQL JOIN krever en FROM-kilde"
 
-#: src/Database/Statement/SelectStatement.php:258
+#: src/Database/Statement/SelectStatement.php:247
 msgid "SQL SELECT requires a FROM source"
 msgstr "SQL SELECT krever en FROM-kilde"
 
@@ -2728,7 +2728,7 @@ msgstr "SQL SELECT krever en FROM-kilde"
 msgid "SQL TRUNCATE TABLE requires a FROM source"
 msgstr "SQL TRUNCATE TABLE krever en FROM-kilde"
 
-#: src/Database/Statement/UpdateStatement.php:202
+#: src/Database/Statement/UpdateStatement.php:191
 msgid "SQL UPDATE requires a FROM source"
 msgstr "SQL UPDATE krever en FROM-kilde"
 
@@ -2761,76 +2761,76 @@ msgstr "Dårlig kontekst (ved sletting)"
 msgid "Invalid diff format"
 msgstr "Ugyldig diff-format"
 
-#: src/Helper/File/Files.php:350
+#: src/Helper/File/Files.php:351
 msgid "Unable to create directory."
 msgstr "Kan ikke opprette katalog."
 
-#: src/Helper/File/Files.php:393
+#: src/Helper/File/Files.php:394
 msgid "File is not writable."
 msgstr "Filen er ikke skrivbar."
 
-#: src/Helper/File/Files.php:399
+#: src/Helper/File/Files.php:400
 msgid "Unable to open file."
 msgstr "Kan ikke åpne filen."
 
-#: src/Helper/File/Files.php:465
+#: src/Helper/File/Files.php:472
 msgid "Not an uploaded file."
 msgstr "Ikke en opplastet fil."
 
-#: src/Helper/File/Files.php:474
+#: src/Helper/File/Files.php:481
 msgid "The uploaded file exceeds the maximum file size allowed."
 msgstr "Den opplastede filen overskrider den maksimalt tillatte filstørrelsen."
 
-#: src/Helper/File/Files.php:476
+#: src/Helper/File/Files.php:483
 msgid "The uploaded file was only partially uploaded."
 msgstr "Den opplastede filen ble bare delvis lastet opp."
 
-#: src/Helper/File/Files.php:478
+#: src/Helper/File/Files.php:485
 msgid "No file was uploaded."
 msgstr "Ingen fil ble lastet opp."
 
-#: src/Helper/File/Files.php:480
+#: src/Helper/File/Files.php:487
 msgid "Missing a temporary folder."
 msgstr "Mangler en midlertidig mappe."
 
-#: src/Helper/File/Files.php:482
+#: src/Helper/File/Files.php:489
 msgid "Failed to write file to disk."
 msgstr "Kunne ikke skrive fil til disk."
 
-#: src/Helper/File/Files.php:484
+#: src/Helper/File/Files.php:491
 msgid "A PHP extension stopped the file upload."
 msgstr "En PHP-utvidelse stoppet filopplastingen."
 
-#: src/Helper/File/Files.php:515
+#: src/Helper/File/Files.php:522
 #, php-format
 msgid "%s is not a directory."
 msgstr "%s ikke er en katalog."
 
-#: src/Helper/File/Files.php:566
+#: src/Helper/File/Files.php:573
 msgid "Can't get file path"
 msgstr "Kan ikke hente filbanen"
 
-#: src/Helper/File/Files.php:573
+#: src/Helper/File/Files.php:580
 msgid "Can't lock a directory"
 msgstr "Kan ikke låse en katalog"
 
-#: src/Helper/File/Files.php:585
+#: src/Helper/File/Files.php:592
 msgid "Can't call php function named flock"
 msgstr "Kan ikke kalle php-funksjon med navnet flock"
 
-#: src/Helper/File/Files.php:599
+#: src/Helper/File/Files.php:606
 msgid "Can't create file"
 msgstr "Kan ikke opprette fil"
 
-#: src/Helper/File/Files.php:608
+#: src/Helper/File/Files.php:615
 msgid "Can't open file"
 msgstr "Kan ikke åpne filen"
 
-#: src/Helper/File/Files.php:616
+#: src/Helper/File/Files.php:623
 msgid "Can't lock file"
 msgstr "Kan ikke låse filen"
 
-#: src/Helper/File/Files.php:637 src/Helper/File/Manager.php:566
+#: src/Helper/File/Files.php:644 src/Helper/File/Manager.php:566
 #: src/Helper/File/Manager.php:570
 msgid "File cannot be removed."
 msgstr "Filen kan ikke fjernes."
@@ -2898,7 +2898,7 @@ msgstr "Kunne ikke skrive destinasjonsfilen."
 msgid "Unable to write in target directory, permission denied."
 msgstr "Kan ikke skrive i målkatalogen, tillatelse nektet."
 
-#: src/Helper/File/Zip/Unzip.php:738 src/Helper/File/Zip/Zip.php:463
+#: src/Helper/File/Zip/Unzip.php:738 src/Helper/File/Zip/Zip.php:466
 msgid "Not enough memory to open file."
 msgstr "Ikke nok minne til å åpne filen."
 
@@ -2918,22 +2918,22 @@ msgstr "Katalogen finnes ikke"
 msgid "Cannot read directory"
 msgstr "Kan ikke lese katalogen"
 
-#: src/Helper/File/Zip/Zip.php:315
+#: src/Helper/File/Zip/Zip.php:318
 msgid "Unable to write ZIP archive"
 msgstr "Kan ikke skrive ZIP-arkiv"
 
-#: src/Helper/Html/Template/Template.php:660
-#: src/Helper/Html/Template/Template.php:710
+#: src/Helper/Html/Template/Template.php:664
+#: src/Helper/Html/Template/Template.php:714
 #, php-format
 msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
 msgstr "Fant ikke avsluttende tagg for blokken <tpl:%s>. Innholdet har blitt ignorert."
 
-#: src/Helper/Html/Template/Template.php:667
+#: src/Helper/Html/Template/Template.php:671
 #, php-format
 msgid "Unexpected closing tag </tpl:%s> found."
 msgstr "Uventet avsluttende tag </tpl:%s> funnet."
 
-#: src/Helper/Html/Template/Template.php:717
+#: src/Helper/Html/Template/Template.php:721
 msgid "WARNING: the following errors have been found while parsing template file :"
 msgstr "ADVARSEL: Følgende feil ble funnet under parsing av malfilen :"
 
@@ -2973,7 +2973,7 @@ msgstr "Opphev %s -tilkoblingen"
 msgid "Failed to retrieve user ID from this provider"
 msgstr "Kunne ikke hente bruker-ID fra denne leverandøren"
 
-#: src/Helper/OAuth2/Client/Client.php:312
+#: src/Helper/OAuth2/Client/Client.php:314
 msgid "No user ID linked to this provider"
 msgstr "Ingen bruker-ID knyttet til denne leverandøren"
 
@@ -3038,78 +3038,78 @@ msgstr "Status:"
 msgid "Unknown passkey"
 msgstr "Ukjent passnøkkel"
 
-#: src/Module/Modules.php:233
+#: src/Module/Modules.php:239
 #, php-format
 msgid "Module \"%1$s\" requires module \"%2$s\" which is not installed"
 msgstr "Modulen \"%1$s\" krever modulen \"%2$s\", som ikke er installert"
 
-#: src/Module/Modules.php:246
+#: src/Module/Modules.php:252
 #, php-format
 msgid "Module \"%1$s\" requires \"%2$s\" version %3$s, but version %4$s is installed"
 msgstr "Modulen \"%1$s\" krever \"%2$s\" versjon %3$s, men versjon %4$s er installert"
 
-#: src/Module/Modules.php:254
+#: src/Module/Modules.php:260
 #, php-format
 msgid "Module \"%1$s\" requires module \"%2$s\" which is disabled"
 msgstr "Modulen \"%1$s\" krever modulen \"%2$s\", som er deaktivert"
 
-#: src/Module/Modules.php:611
+#: src/Module/Modules.php:625
 #, php-format
 msgid "Module \"%1$s\" has type \"%2$s\" that mismatch required module type \"%3$s\"."
 msgstr "Modulen \"%1$s\" har typen \"%2$s\" som ikke samsvarer med den påkrevde modultypen \"%3$s\"."
 
-#: src/Module/Modules.php:637
+#: src/Module/Modules.php:651
 #, php-format
 msgid "Module \"%1$s\" is installed twice in \"%2$s\" and \"%3$s\"."
 msgstr "Modulen \"%1$s\" er installert to ganger i \"%2$s\" og \"%3$s\"."
 
-#: src/Module/Modules.php:710
+#: src/Module/Modules.php:724
 msgid "Empty module zip file."
 msgstr "Tom zip-fil for modul."
 
-#: src/Module/Modules.php:717
+#: src/Module/Modules.php:731
 msgid "The zip file does not appear to be a valid Dotclear module."
 msgstr "Zip-filen ser ikke ut til å være en gyldig Dotclear-modul."
 
-#: src/Module/Modules.php:752 src/Module/Modules.php:789
+#: src/Module/Modules.php:766 src/Module/Modules.php:803
 #, php-format
 msgid "Module is not installed: %s"
 msgstr "Modulen er ikke installert: %s"
 
-#: src/Module/Modules.php:804
+#: src/Module/Modules.php:818
 #, php-format
 msgid "Unable to upgrade \"%s\". (update locked)"
 msgstr "Kan ikke oppgradere \"%s\" (oppdatering låst)"
 
-#: src/Module/Modules.php:808
+#: src/Module/Modules.php:824
 msgid "An error occurred during module deletion."
 msgstr "Det oppstod en feil under sletting av modulen."
 
-#: src/Module/Modules.php:816
+#: src/Module/Modules.php:832
 #, php-format
 msgid "Unable to upgrade \"%s\". (older or same version)"
 msgstr "Kan ikke oppgradere \"%s\". (eldre eller samme versjon)"
 
-#: src/Module/Modules.php:822
+#: src/Module/Modules.php:838
 #, php-format
 msgid "Unable to read new %s file"
 msgstr "Kan ikke lese den nye filen %s"
 
-#: src/Module/Modules.php:831 src/Module/Modules.php:948
-#: src/Module/Modules.php:952
+#: src/Module/Modules.php:847 src/Module/Modules.php:964
+#: src/Module/Modules.php:968
 msgid "Cannot deactivate plugin."
 msgstr "Kan ikke deaktivere plugin."
 
-#: src/Module/Modules.php:924 src/Module/Modules.php:944
-#: src/Module/Modules.php:968
+#: src/Module/Modules.php:940 src/Module/Modules.php:960
+#: src/Module/Modules.php:984
 msgid "No such module."
 msgstr "Ingen slik modul."
 
-#: src/Module/Modules.php:928
+#: src/Module/Modules.php:944
 msgid "Cannot remove module files"
 msgstr "Kan ikke fjerne modulfiler"
 
-#: src/Module/Modules.php:972 src/Module/Modules.php:976
+#: src/Module/Modules.php:988 src/Module/Modules.php:992
 msgid "Cannot activate plugin."
 msgstr "Kan ikke aktivere plugin."
 
@@ -3260,7 +3260,7 @@ msgstr "Be om et nytt passord"
 msgid "recover"
 msgstr "komme seg"
 
-#: src/Process/Backend/Auth.php:528 src/Process/Backend/Auth.php:719
+#: src/Process/Backend/Auth.php:528 src/Process/Backend/Auth.php:720
 msgid "Other option"
 msgstr "Annet alternativ"
 
@@ -3282,7 +3282,7 @@ msgstr "Bekreft passord:"
 msgid "change"
 msgstr "endring"
 
-#: src/Process/Backend/Auth.php:574 src/Process/Backend/UserPreferences.php:886
+#: src/Process/Backend/Auth.php:574 src/Process/Backend/UserPreferences.php:889
 #: src/Process/Upgrade/Auth.php:292
 msgid "Two factors authentication"
 msgstr "To-faktor autentisering"
@@ -3320,27 +3320,27 @@ msgstr "logg inn"
 msgid "Sign in with a passkey"
 msgstr "Logg på med en passnøkkel"
 
-#: src/Process/Backend/Auth.php:704
+#: src/Process/Backend/Auth.php:705
 msgid "Third party applications connections"
 msgstr "Tilkoblinger til tredjepartsapplikasjoner"
 
-#: src/Process/Backend/Auth.php:713 src/Process/Upgrade/Auth.php:357
+#: src/Process/Backend/Auth.php:714 src/Process/Upgrade/Auth.php:357
 msgid "You must accept cookies in order to use the private area."
 msgstr "Du må godta informasjonskapsler for å kunne bruke det private området."
 
-#: src/Process/Backend/Auth.php:725
+#: src/Process/Backend/Auth.php:726
 msgid "Get back to normal authentication"
 msgstr "Gå tilbake til normal autentisering"
 
-#: src/Process/Backend/Auth.php:730
+#: src/Process/Backend/Auth.php:731
 msgid "Connection issue?"
 msgstr "Problem med tilkoblingen?"
 
-#: src/Process/Backend/Auth.php:737
+#: src/Process/Backend/Auth.php:738
 msgid "I forgot my password"
 msgstr "Jeg har glemt passordet mitt"
 
-#: src/Process/Backend/Auth.php:744
+#: src/Process/Backend/Auth.php:745
 msgid "I want to log in in safe mode"
 msgstr "Jeg vil logge inn i sikker modus"
 
@@ -4031,33 +4031,33 @@ msgid_plural "There are %s theme updates available:"
 msgstr[0] "Det er én temaoppdatering tilgjengelig:"
 msgstr[1] "Det finnes tilgjengelige temaoppdateringer på %s :"
 
-#: src/Process/Backend/BlogTheme.php:312 src/Process/Backend/BlogTheme.php:349
+#: src/Process/Backend/BlogTheme.php:312 src/Process/Backend/BlogTheme.php:348
 #, php-format
 msgid "Visit %s themes repository."
 msgstr "Besøk %s temadepot."
 
-#: src/Process/Backend/BlogTheme.php:341
+#: src/Process/Backend/BlogTheme.php:340
 msgid "Add themes"
 msgstr "Legg til temaer"
 
-#: src/Process/Backend/BlogTheme.php:344
+#: src/Process/Backend/BlogTheme.php:343
 msgid "Add themes from repository"
 msgstr "Legg til temaer fra repository"
 
-#: src/Process/Backend/BlogTheme.php:359 src/Process/Backend/Plugins.php:342
+#: src/Process/Backend/BlogTheme.php:357 src/Process/Backend/Plugins.php:340
 #: src/Process/Upgrade/Plugins.php:333
 msgid "Install or upgrade manually"
 msgstr "Installer eller oppgrader manuelt"
 
-#: src/Process/Backend/BlogTheme.php:362
+#: src/Process/Backend/BlogTheme.php:360
 msgid "Add themes from a package"
 msgstr "Legg til temaer fra en pakke"
 
-#: src/Process/Backend/BlogTheme.php:365
+#: src/Process/Backend/BlogTheme.php:363
 msgid "You can install themes by uploading or downloading zip files."
 msgstr "Du kan installere temaer ved å laste opp eller laste ned zip-filer."
 
-#: src/Process/Backend/BlogTheme.php:381
+#: src/Process/Backend/BlogTheme.php:379
 msgid "Some functions are disabled, please give write access to your themes directory to enable them."
 msgstr "Noen funksjoner er deaktivert, vennligst gi skrivetilgang til temakatalogen din for å aktivere dem."
 
@@ -4164,7 +4164,7 @@ msgid "total:"
 msgstr "totalt:"
 
 #: src/Process/Backend/Categories.php:363 src/Process/Backend/Category.php:278
-#: src/Process/Backend/User.php:475 src/Process/Backend/UserPreferences.php:841
+#: src/Process/Backend/User.php:475 src/Process/Backend/UserPreferences.php:844
 msgid "URL:"
 msgstr "URL:"
 
@@ -4325,7 +4325,7 @@ msgid "Delete all spams"
 msgstr "Slett all spam"
 
 #: src/Process/Backend/Comments.php:214 src/Process/Backend/Post.php:1054
-#: src/Process/Backend/Search.php:406
+#: src/Process/Backend/Search.php:408
 msgid "Selected comments action:"
 msgstr "Utvalgte kommentarer handling:"
 
@@ -5120,7 +5120,7 @@ msgid_plural "There are %s plugin updates available:"
 msgstr[0] "Det er én plugin-oppdatering tilgjengelig:"
 msgstr[1] "Det er %s plugin-oppdateringer tilgjengelig:"
 
-#: src/Process/Backend/Plugins.php:277 src/Process/Backend/Plugins.php:334
+#: src/Process/Backend/Plugins.php:277 src/Process/Backend/Plugins.php:333
 #: src/Process/Upgrade/Plugins.php:266 src/Process/Upgrade/Plugins.php:325
 #, php-format
 msgid "Visit %s plugins repository."
@@ -5135,27 +5135,27 @@ msgstr "Oppdater plugins"
 msgid "Force checking update of plugins"
 msgstr "Tvangskontroll av oppdatering av plugins"
 
-#: src/Process/Backend/Plugins.php:314 src/Process/Upgrade/Plugins.php:305
+#: src/Process/Backend/Plugins.php:313 src/Process/Upgrade/Plugins.php:305
 msgid "Add plugins"
 msgstr "Legg til plugins"
 
-#: src/Process/Backend/Plugins.php:317 src/Process/Upgrade/Plugins.php:308
+#: src/Process/Backend/Plugins.php:316 src/Process/Upgrade/Plugins.php:308
 msgid "Add plugins from repository"
 msgstr "Legg til plugins fra repository"
 
-#: src/Process/Backend/Plugins.php:345 src/Process/Upgrade/Plugins.php:336
+#: src/Process/Backend/Plugins.php:343 src/Process/Upgrade/Plugins.php:336
 msgid "Add plugins from a package"
 msgstr "Legg til programtillegg fra en pakke"
 
-#: src/Process/Backend/Plugins.php:348 src/Process/Upgrade/Plugins.php:339
+#: src/Process/Backend/Plugins.php:346 src/Process/Upgrade/Plugins.php:339
 msgid "You can install plugins by uploading or downloading zip files."
 msgstr "Du kan installere programtillegg ved å laste opp eller laste ned zip-filer."
 
-#: src/Process/Backend/Plugins.php:364 src/Process/Upgrade/Plugins.php:352
+#: src/Process/Backend/Plugins.php:362 src/Process/Upgrade/Plugins.php:352
 msgid "Some functions are disabled, please give write access to your plugins directory to enable them."
 msgstr "Noen funksjoner er deaktivert, vennligst gi skrivetilgang til plugins-katalogen for å aktivere dem."
 
-#: src/Process/Backend/Plugins.php:396
+#: src/Process/Backend/Plugins.php:394
 msgid "Plugin configuration"
 msgstr "Plugin-konfigurasjon"
 
@@ -5353,7 +5353,7 @@ msgstr "Valgte oppføringer har blitt oppdatert."
 msgid "Selected entries have been successfully deleted."
 msgstr "Valgte oppføringer har blitt slettet."
 
-#: src/Process/Backend/Posts.php:136 src/Process/Backend/Search.php:310
+#: src/Process/Backend/Posts.php:136 src/Process/Backend/Search.php:312
 msgid "Selected entries action:"
 msgstr "Utvalgte oppføringer handling:"
 
@@ -5464,14 +5464,14 @@ msgstr "Søk i oppføringer"
 msgid "Search in comments"
 msgstr "Søk i kommentarer"
 
-#: src/Process/Backend/Search.php:289
+#: src/Process/Backend/Search.php:291
 #, php-format
 msgid "one entry found"
 msgid_plural "%d entries found"
 msgstr[0] "én oppføring funnet"
 msgstr[1] "%d oppføringer funnet"
 
-#: src/Process/Backend/Search.php:377
+#: src/Process/Backend/Search.php:379
 #, php-format
 msgid "one comment found"
 msgid_plural "%d comments found"
@@ -5600,17 +5600,17 @@ msgstr "Advarsel:"
 msgid "Password change required to connect"
 msgstr "Endring av passord kreves for å koble til"
 
-#: src/Process/Backend/User.php:419 src/Process/Backend/UserPreferences.php:789
+#: src/Process/Backend/User.php:419 src/Process/Backend/UserPreferences.php:792
 #: src/Process/Install/Install.php:500
 msgid "Last Name:"
 msgstr "Etternavn:"
 
-#: src/Process/Backend/User.php:429 src/Process/Backend/UserPreferences.php:799
+#: src/Process/Backend/User.php:429 src/Process/Backend/UserPreferences.php:802
 #: src/Process/Install/Install.php:491
 msgid "First Name:"
 msgstr "Fornavn:"
 
-#: src/Process/Backend/User.php:439 src/Process/Backend/UserPreferences.php:809
+#: src/Process/Backend/User.php:439 src/Process/Backend/UserPreferences.php:812
 msgid "Display name:"
 msgstr "Vis navn:"
 
@@ -5618,24 +5618,24 @@ msgstr "Vis navn:"
 msgid "Mandatory for password recovering procedure."
 msgstr "Obligatorisk for passordgjenopprettingsprosedyren."
 
-#: src/Process/Backend/User.php:462 src/Process/Backend/UserPreferences.php:828
+#: src/Process/Backend/User.php:462 src/Process/Backend/UserPreferences.php:831
 msgid "Alternate emails (comma separated list):"
 msgstr "Alternativ e-post (kommaseparert liste):"
 
-#: src/Process/Backend/User.php:466 src/Process/Backend/UserPreferences.php:832
+#: src/Process/Backend/User.php:466 src/Process/Backend/UserPreferences.php:835
 msgid "Invalid emails will be automatically removed from list."
 msgstr "Ugyldige e-poster blir automatisk fjernet fra listen."
 
-#: src/Process/Backend/User.php:484 src/Process/Backend/UserPreferences.php:850
+#: src/Process/Backend/User.php:484 src/Process/Backend/UserPreferences.php:853
 msgid "Alternate URLs (comma separated list):"
 msgstr "Alternative URL-adresser (kommaseparert liste):"
 
-#: src/Process/Backend/User.php:488 src/Process/Backend/UserPreferences.php:854
+#: src/Process/Backend/User.php:488 src/Process/Backend/UserPreferences.php:857
 msgid "Invalid URLs will be automatically removed from list."
 msgstr "Ugyldige nettadresser fjernes automatisk fra listen."
 
 #: src/Process/Backend/User.php:494
-#: src/Process/Backend/UserPreferences.php:1022
+#: src/Process/Backend/UserPreferences.php:1025
 msgid "Interface"
 msgstr "Grensesnitt"
 
@@ -5644,22 +5644,22 @@ msgid "Timezone:"
 msgstr "Tidssone:"
 
 #: src/Process/Backend/User.php:510
-#: src/Process/Backend/UserPreferences.php:1155
+#: src/Process/Backend/UserPreferences.php:1158
 msgid "Edition"
 msgstr "Utgave"
 
 #: src/Process/Backend/User.php:516
-#: src/Process/Backend/UserPreferences.php:1167
+#: src/Process/Backend/UserPreferences.php:1170
 msgid "Preferred format:"
 msgstr "Foretrukket format:"
 
 #: src/Process/Backend/User.php:523
-#: src/Process/Backend/UserPreferences.php:1175
+#: src/Process/Backend/UserPreferences.php:1178
 msgid "Default entry status:"
 msgstr "Standard oppføringsstatus:"
 
 #: src/Process/Backend/User.php:528
-#: src/Process/Backend/UserPreferences.php:1181
+#: src/Process/Backend/UserPreferences.php:1184
 msgid "Entry edit field height:"
 msgstr "Høyden på feltet for redigering av oppføring:"
 
@@ -5868,275 +5868,275 @@ msgstr "gyldig på %s"
 msgid "You have no registered key yet."
 msgstr "Du har ingen registrert nøkkel ennå."
 
-#: src/Process/Backend/UserPreferences.php:747
+#: src/Process/Backend/UserPreferences.php:750
 msgid "Linked to account:"
 msgstr "Koblet til konto:"
 
-#: src/Process/Backend/UserPreferences.php:774
-#: src/Process/Backend/UserPreferences.php:776
+#: src/Process/Backend/UserPreferences.php:777
+#: src/Process/Backend/UserPreferences.php:779
 msgid "My profile"
 msgstr "Min profil"
 
-#: src/Process/Backend/UserPreferences.php:861
+#: src/Process/Backend/UserPreferences.php:864
 msgid "Language for my interface:"
 msgstr "Språk for grensesnittet mitt:"
 
-#: src/Process/Backend/UserPreferences.php:869
+#: src/Process/Backend/UserPreferences.php:872
 msgid "My timezone:"
 msgstr "Min tidssone:"
 
-#: src/Process/Backend/UserPreferences.php:878
+#: src/Process/Backend/UserPreferences.php:881
 msgid "Update my profile"
 msgstr "Oppdater profilen min"
 
-#: src/Process/Backend/UserPreferences.php:891
+#: src/Process/Backend/UserPreferences.php:894
 msgid "Authentication keys"
 msgstr "Autentiseringsnøkler"
 
-#: src/Process/Backend/UserPreferences.php:898
+#: src/Process/Backend/UserPreferences.php:901
 msgid "Register a new key"
 msgstr "Registrer en ny nøkkel"
 
-#: src/Process/Backend/UserPreferences.php:904
+#: src/Process/Backend/UserPreferences.php:907
 msgid "Authentication applications"
 msgstr "Autentiseringsapplikasjoner"
 
-#: src/Process/Backend/UserPreferences.php:971
+#: src/Process/Backend/UserPreferences.php:974
 msgid "List"
 msgstr "Liste"
 
-#: src/Process/Backend/UserPreferences.php:973
+#: src/Process/Backend/UserPreferences.php:976
 msgid "Order by"
 msgstr "Bestill etter"
 
-#: src/Process/Backend/UserPreferences.php:975
+#: src/Process/Backend/UserPreferences.php:978
 msgid "Sort"
 msgstr "Sortere"
 
-#: src/Process/Backend/UserPreferences.php:988
+#: src/Process/Backend/UserPreferences.php:991
 #, php-format
 msgid "Preferred editor for %s:"
 msgstr "Foretrukket redaktør for %s:"
 
-#: src/Process/Backend/UserPreferences.php:993
+#: src/Process/Backend/UserPreferences.php:996
 msgid "Choose an editor"
 msgstr "Velg en redaktør"
 
-#: src/Process/Backend/UserPreferences.php:1014
-#: src/Process/Backend/UserPreferences.php:1020
+#: src/Process/Backend/UserPreferences.php:1017
+#: src/Process/Backend/UserPreferences.php:1023
 msgid "My options"
 msgstr "Mine alternativer"
 
-#: src/Process/Backend/UserPreferences.php:1029
+#: src/Process/Backend/UserPreferences.php:1032
 msgid "Theme:"
 msgstr "Tema:"
 
-#: src/Process/Backend/UserPreferences.php:1035
+#: src/Process/Backend/UserPreferences.php:1038
 msgid "Activate enhanced uploader in media manager"
 msgstr "Aktiver forbedret opplasting i mediebehandling"
 
-#: src/Process/Backend/UserPreferences.php:1041
+#: src/Process/Backend/UserPreferences.php:1044
 msgid "Preview the entry being edited in a blank window or tab (depending on your browser settings)."
 msgstr "Forhåndsvis oppføringen som redigeres i et tomt vindu eller en fane (avhengig av nettleserinnstillingene dine)."
 
-#: src/Process/Backend/UserPreferences.php:1048
+#: src/Process/Backend/UserPreferences.php:1051
 msgid "Disable javascript powered drag and drop for ordering items"
 msgstr "Deaktiver javascript-drevet dra og slipp for bestilling av varer"
 
-#: src/Process/Backend/UserPreferences.php:1052
+#: src/Process/Backend/UserPreferences.php:1055
 msgid "If checked, numeric fields will allow to type the elements' ordering number."
 msgstr "Hvis avkrysset, vil numeriske felt gjøre det mulig å skrive inn elementenes bestillingsnummer."
 
-#: src/Process/Backend/UserPreferences.php:1057
+#: src/Process/Backend/UserPreferences.php:1060
 msgid "Hide all secondary information and notes"
 msgstr "Skjul all sekundær informasjon og alle notater"
 
-#: src/Process/Backend/UserPreferences.php:1063
+#: src/Process/Backend/UserPreferences.php:1066
 msgid "Hide help button"
 msgstr "Skjul hjelp-knappen"
 
-#: src/Process/Backend/UserPreferences.php:1070
+#: src/Process/Backend/UserPreferences.php:1073
 msgid "Font size:"
 msgstr "Skriftstørrelse:"
 
-#: src/Process/Backend/UserPreferences.php:1076
+#: src/Process/Backend/UserPreferences.php:1079
 msgid "Use dynamic letter spacing"
 msgstr "Bruk dynamisk bokstavavstand"
 
-#: src/Process/Backend/UserPreferences.php:1080
+#: src/Process/Backend/UserPreferences.php:1083
 msgid "If checked, the larger the font size in interface texts, the smaller the space between characters will be, and vice versa."
 msgstr "Hvis dette alternativet er merket av, blir mellomrommet mellom tegnene mindre jo større skriftstørrelsen i grensesnittet er, og omvendt."
 
-#: src/Process/Backend/UserPreferences.php:1085
+#: src/Process/Backend/UserPreferences.php:1088
 msgid "Use operating system font"
 msgstr "Bruk operativsystemets skrifttype"
 
-#: src/Process/Backend/UserPreferences.php:1091
+#: src/Process/Backend/UserPreferences.php:1094
 msgid "Number of recent folders proposed in media manager:"
 msgstr "Antall nylig foreslåtte mapper i mediebehandling:"
 
-#: src/Process/Backend/UserPreferences.php:1095
+#: src/Process/Backend/UserPreferences.php:1098
 msgid "Set to 0 (zero) to ignore, displayed only if Javascript is enabled in your browser."
 msgstr "Sett til 0 (null) for å ignorere, vises bare hvis Javascript er aktivert i nettleseren din."
 
-#: src/Process/Backend/UserPreferences.php:1102
+#: src/Process/Backend/UserPreferences.php:1105
 msgid "Do not use standard favicon"
 msgstr "Ikke bruk standard favicon"
 
-#: src/Process/Backend/UserPreferences.php:1103
+#: src/Process/Backend/UserPreferences.php:1106
 msgid "This will be applied for all users"
 msgstr "Dette vil gjelde for alle brukere"
 
-#: src/Process/Backend/UserPreferences.php:1113
+#: src/Process/Backend/UserPreferences.php:1116
 msgid "Disable Ad-blocker check"
 msgstr "Deaktiver Ad-blocker-sjekk"
 
-#: src/Process/Backend/UserPreferences.php:1117
+#: src/Process/Backend/UserPreferences.php:1120
 msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
 msgstr "Noen annonseblokkere (Ghostery, Adblock plus, uBloc origin, …) kan forstyrre noen funksjoner som å sette inn lenker eller media i oppføringer med CKEditor; i dette tilfellet bør du deaktivere den for denne Dotclear-installasjonen (kun backend). Merk at Dotclear ikke legger til annonser eller trackere i backend."
 
-#: src/Process/Backend/UserPreferences.php:1120
+#: src/Process/Backend/UserPreferences.php:1123
 msgid "Note also that deactivating this detection of ad blockers will not deactivate the installed ad blockers. Dotclear cannot interfere with the operation of browser extensions!"
 msgstr "Merk også at deaktivering av denne oppdagelsen av annonseblokkere ikke vil deaktivere de installerte annonseblokkeringene. Dotclear kan ikke forstyrre driften av nettleserutvidelser!"
 
-#: src/Process/Backend/UserPreferences.php:1128
+#: src/Process/Backend/UserPreferences.php:1131
 msgid "Quick menu character:"
 msgstr "Hurtigmenytegn:"
 
-#: src/Process/Backend/UserPreferences.php:1132
+#: src/Process/Backend/UserPreferences.php:1135
 msgid "Leave empty to use the default character <kbd>:</kbd>"
 msgstr "La stå tom for å bruke standardtegnet <kbd>:</kbd>"
 
-#: src/Process/Backend/UserPreferences.php:1137
+#: src/Process/Backend/UserPreferences.php:1140
 msgid "Keep the main menu at the top of the page as much as possible"
 msgstr "Hold hovedmenyen øverst på siden så mye som mulig"
 
-#: src/Process/Backend/UserPreferences.php:1141
+#: src/Process/Backend/UserPreferences.php:1144
 msgid "Optional columns displayed in lists"
 msgstr "Valgfrie kolonner som vises i lister"
 
-#: src/Process/Backend/UserPreferences.php:1144
+#: src/Process/Backend/UserPreferences.php:1147
 msgid "Options for lists"
 msgstr "Alternativer for lister"
 
-#: src/Process/Backend/UserPreferences.php:1150
+#: src/Process/Backend/UserPreferences.php:1153
 msgid "Apply filters on the fly"
 msgstr "Bruk filtre i farten"
 
-#: src/Process/Backend/UserPreferences.php:1187
+#: src/Process/Backend/UserPreferences.php:1190
 msgid "Enable WYSIWYG mode"
 msgstr "Aktiver WYSIWYG-modus"
 
-#: src/Process/Backend/UserPreferences.php:1193
+#: src/Process/Backend/UserPreferences.php:1196
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr "Vis redaktørens verktøylinje nederst i tekstområdet (hvis mulig)"
 
-#: src/Process/Backend/UserPreferences.php:1199
+#: src/Process/Backend/UserPreferences.php:1202
 msgid "Use HTML editor for:"
 msgstr "Bruk HTML-editor for:"
 
-#: src/Process/Backend/UserPreferences.php:1203
+#: src/Process/Backend/UserPreferences.php:1206
 msgid "Other options"
 msgstr "Andre alternativer"
 
-#: src/Process/Backend/UserPreferences.php:1214
+#: src/Process/Backend/UserPreferences.php:1217
 msgid "Save my options"
 msgstr "Lagre alternativene mine"
 
-#: src/Process/Backend/UserPreferences.php:1245
+#: src/Process/Backend/UserPreferences.php:1248
 #, php-format
 msgid "position of %s"
 msgstr "posisjon på %s"
 
-#: src/Process/Backend/UserPreferences.php:1268
+#: src/Process/Backend/UserPreferences.php:1271
 msgid "Save order"
 msgstr "Lagre ordre"
 
-#: src/Process/Backend/UserPreferences.php:1269
+#: src/Process/Backend/UserPreferences.php:1272
 msgid "Delete selected favorites"
 msgstr "Slett valgte favoritter"
 
-#: src/Process/Backend/UserPreferences.php:1276
+#: src/Process/Backend/UserPreferences.php:1279
 msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
 msgstr "Hvis du er superadministrator, kan du definere dette settet med favoritter som skal brukes som standard på alle blogger i denne installasjonen."
 
-#: src/Process/Backend/UserPreferences.php:1279
+#: src/Process/Backend/UserPreferences.php:1282
 msgid "Define as default favorites"
 msgstr "Definer som standard favoritter"
 
-#: src/Process/Backend/UserPreferences.php:1288
+#: src/Process/Backend/UserPreferences.php:1291
 msgid "Currently no personal favorites."
 msgstr "For øyeblikket ingen personlige favoritter."
 
-#: src/Process/Backend/UserPreferences.php:1327
+#: src/Process/Backend/UserPreferences.php:1330
 msgid "(default favorite)"
 msgstr "(standard favoritt)"
 
-#: src/Process/Backend/UserPreferences.php:1342
+#: src/Process/Backend/UserPreferences.php:1345
 msgid "Add to my favorites"
 msgstr "Legg til i mine favoritter"
 
-#: src/Process/Backend/UserPreferences.php:1366
+#: src/Process/Backend/UserPreferences.php:1369
 msgid "Other available favorites"
 msgstr "Andre tilgjengelige favoritter"
 
-#: src/Process/Backend/UserPreferences.php:1378
+#: src/Process/Backend/UserPreferences.php:1381
 msgid "Menu"
 msgstr "Meny"
 
-#: src/Process/Backend/UserPreferences.php:1384
+#: src/Process/Backend/UserPreferences.php:1387
 msgid "Display favorites at the top of the menu"
 msgstr "Vis favoritter øverst i menyen"
 
-#: src/Process/Backend/UserPreferences.php:1388
+#: src/Process/Backend/UserPreferences.php:1391
 msgid "Dashboard icons"
 msgstr "Ikoner på dashbordet"
 
-#: src/Process/Backend/UserPreferences.php:1394
+#: src/Process/Backend/UserPreferences.php:1397
 msgid "Display dashboard icons"
 msgstr "Vis ikoner på dashbordet"
 
-#: src/Process/Backend/UserPreferences.php:1400
+#: src/Process/Backend/UserPreferences.php:1403
 msgid "Use a dense layout of dashboard icons"
 msgstr "Bruk en tett layout av ikoner på dashbordet"
 
-#: src/Process/Backend/UserPreferences.php:1404
+#: src/Process/Backend/UserPreferences.php:1407
 msgid "Dashboard modules"
 msgstr "Dashbord-moduler"
 
-#: src/Process/Backend/UserPreferences.php:1410
+#: src/Process/Backend/UserPreferences.php:1413
 msgid "Display documentation links"
 msgstr "Vis dokumentasjonslenker"
 
-#: src/Process/Backend/UserPreferences.php:1416
+#: src/Process/Backend/UserPreferences.php:1419
 msgid "Display donate links"
 msgstr "Vis donasjonslenker"
 
-#: src/Process/Backend/UserPreferences.php:1422
+#: src/Process/Backend/UserPreferences.php:1425
 msgid "Display Dotclear news"
 msgstr "Vis Dotclear-nyheter"
 
-#: src/Process/Backend/UserPreferences.php:1428
+#: src/Process/Backend/UserPreferences.php:1431
 msgid "Display quick entry form"
 msgstr "Vis hurtigoppføringsskjema"
 
-#: src/Process/Backend/UserPreferences.php:1435
+#: src/Process/Backend/UserPreferences.php:1438
 msgid "Do not display Dotclear updates"
 msgstr "Ikke vis Dotclear-oppdateringer"
 
-#: src/Process/Backend/UserPreferences.php:1441
+#: src/Process/Backend/UserPreferences.php:1444
 msgid "Use a dense layout of dashboard boxes"
 msgstr "Bruk et tett oppsett av dashbordbokser"
 
-#: src/Process/Backend/UserPreferences.php:1454
+#: src/Process/Backend/UserPreferences.php:1457
 msgid "Save my dashboard options"
 msgstr "Lagre mine dashbordalternativer"
 
-#: src/Process/Backend/UserPreferences.php:1467
+#: src/Process/Backend/UserPreferences.php:1470
 msgid "Dashboard items order"
 msgstr "Rekkefølgen på elementene på dashbordet"
 
-#: src/Process/Backend/UserPreferences.php:1470
+#: src/Process/Backend/UserPreferences.php:1473
 msgid "Reset dashboard items order"
 msgstr "Tilbakestill rekkefølgen på elementene på dashbordet"
 
@@ -7152,7 +7152,7 @@ msgstr "For å oppgradere Dotclear-installasjonen klikker du bare på følgende 
 msgid "This update may potentially require some precautions, you should carefully read the information post associated with this release (see above)."
 msgstr "Denne oppdateringen kan potensielt kreve noen forholdsregler, og du bør lese informasjonsinnlegget knyttet til denne utgivelsen nøye (se ovenfor)."
 
-#: src/Schema/Extension/Credential.php:47 src/Schema/Extension/Log.php:44
+#: src/Schema/Extension/Credential.php:47 src/Schema/Extension/Log.php:45
 msgid "unknown"
 msgstr "ukjent"
 

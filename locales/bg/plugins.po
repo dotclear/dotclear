@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-21 16:14+0100\n"
-"PO-Revision-Date: 2025-12-21 15:38\n"
+"POT-Creation-Date: 2026-01-17 09:40+0100\n"
+"PO-Revision-Date: 2026-01-17 09:18\n"
 "Last-Translator: \n"
 "Language-Team: Bulgarian\n"
 "Language: bg_BG\n"
@@ -696,21 +696,21 @@ msgstr "Всички спам коментари, по-стари от %s ден
 msgid "You can modify this duration in the %s."
 msgstr "Можете да промените тази продължителност в %s."
 
-#: plugins/antispam/src/BackendBehaviors.php:87
-msgid "Moderate only spam comments/trackbacks"
-msgstr "Модериране само на спам коментари/тракове"
-
-#: plugins/antispam/src/BackendBehaviors.php:91
-msgid "If comments and/or trackbacks are moderated (see blog settings above), messages recognized  by one of the active spam filters as not being spam will be published immediately."
-msgstr "Ако коментарите и/или проследяванията са модерирани (вижте настройките на блога по-горе), съобщенията, разпознати от един от активните филтри за спам като не спам, ще бъдат публикувани незабавно."
-
-#: plugins/antispam/src/BackendBehaviors.php:95
+#: plugins/antispam/src/BackendBehaviors.php:86
 msgid "Delete junk comments older than"
 msgstr "Изтриване на ненужни коментари, по-стари от"
 
-#: plugins/antispam/src/BackendBehaviors.php:99
+#: plugins/antispam/src/BackendBehaviors.php:90
 msgid "Set -1 to disabled this feature ; recommended delay is 7 days."
 msgstr "Задайте -1, за да деактивирате тази функция; препоръчителното забавяне е 7 дни."
+
+#: plugins/antispam/src/BackendBehaviors.php:95
+msgid "Moderate only spam comments/trackbacks"
+msgstr "Модериране само на спам коментари/тракове"
+
+#: plugins/antispam/src/BackendBehaviors.php:99
+msgid "This option is only useful if comments and/or trackbacks are moderated (see blog settings above). In this case, messages recognised  by one of the active spam filters as not being spam will be published immediately, without being moderated; only those recognised as spam will be moderated."
+msgstr "Тази опция е полезна само ако коментарите и/или проследяванията са модерирани (вижте настройките на блога по-горе). В този случай съобщенията, разпознати от един от активните филтри за спам като не спам, ще бъдат публикувани незабавно, без да бъдат модерирани; само тези, разпознати като спам, ще бъдат модерирани."
 
 #: plugins/antispam/src/BackendBehaviors.php:103
 msgid "Set spam filters."
@@ -976,7 +976,7 @@ msgstr "Няма описание"
 msgid "Filtered by %1$s (%2$s)"
 msgstr "Филтрирано от %1$s (%2$s)"
 
-#: plugins/antispam/src/SpamFilters.php:158
+#: plugins/antispam/src/SpamFilters.php:160
 msgid "Unknown filter."
 msgstr "Неизвестен филтър."
 
@@ -1277,12 +1277,12 @@ msgstr "_xfn_Date"
 msgid "_xfn_Sweetheart"
 msgstr "_xfn_Sweetheart"
 
-#: plugins/blogroll/src/UtilsImport.php:38
+#: plugins/blogroll/src/UtilsImport.php:39
 msgid "You need to provide a XBEL or OPML file."
 msgstr "Трябва да предоставите файл XBEL или OPML."
 
-#: plugins/blogroll/src/UtilsImport.php:55
-#: plugins/blogroll/src/UtilsImport.php:99
+#: plugins/blogroll/src/UtilsImport.php:56
+#: plugins/blogroll/src/UtilsImport.php:100
 msgid "File is not in XML format."
 msgstr "Файлът не е във формат XML."
 
@@ -2075,12 +2075,12 @@ msgstr[0] "Изпълнение на една задача"
 msgstr[1] "%s задачи за изпълнение"
 
 #: plugins/maintenance/src/BackendBehaviors.php:202
-#: plugins/maintenance/src/Manage.php:306
+#: plugins/maintenance/src/Manage.php:310
 msgid "This task has never been executed."
 msgstr "Тази задача никога не е била изпълнявана."
 
 #: plugins/maintenance/src/BackendBehaviors.php:205
-#: plugins/maintenance/src/Manage.php:309
+#: plugins/maintenance/src/Manage.php:313
 #, php-format
 msgid "Last execution of this task was on %s."
 msgstr "Последното изпълнение на тази задача беше на %s."
@@ -2144,75 +2144,75 @@ msgstr "На всеки два месеца"
 msgid "You have not sufficient permissions to view this page."
 msgstr "Нямате достатъчно права, за да видите тази страница."
 
-#: plugins/maintenance/src/Manage.php:306
-#: plugins/maintenance/src/Manage.php:312
+#: plugins/maintenance/src/Manage.php:310
+#: plugins/maintenance/src/Manage.php:316
 msgid "You should execute it now."
 msgstr "Трябва да го изпълните сега."
 
-#: plugins/maintenance/src/Manage.php:348
-#: plugins/maintenance/src/Manage.php:382
+#: plugins/maintenance/src/Manage.php:352
+#: plugins/maintenance/src/Manage.php:389
 msgid "Execute task"
 msgstr "Изпълнение на задачата"
 
-#: plugins/maintenance/src/Manage.php:353
+#: plugins/maintenance/src/Manage.php:357
 msgid "This may take a very long time."
 msgstr "Това може да отнеме много дълго време."
 
-#: plugins/maintenance/src/Manage.php:420
-#: plugins/maintenance/src/Manage.php:422
+#: plugins/maintenance/src/Manage.php:427
+#: plugins/maintenance/src/Manage.php:429
 msgid "Alert settings"
 msgstr "Настройки на предупреждението"
 
-#: plugins/maintenance/src/Manage.php:428
+#: plugins/maintenance/src/Manage.php:435
 msgid "Activation"
 msgstr "Активиране"
 
-#: plugins/maintenance/src/Manage.php:434
+#: plugins/maintenance/src/Manage.php:441
 msgid "Display alert messages on late tasks"
 msgstr "Показване на предупредителни съобщения за закъснели задачи"
 
-#: plugins/maintenance/src/Manage.php:439
+#: plugins/maintenance/src/Manage.php:446
 #, php-format
 msgid "You can place list of late tasks on your %s."
 msgstr "Можете да поставите списък със закъснели задачи в сайта си %s."
 
-#: plugins/maintenance/src/Manage.php:444
+#: plugins/maintenance/src/Manage.php:451
 msgid "Frequency"
 msgstr "Честота"
 
-#: plugins/maintenance/src/Manage.php:452
+#: plugins/maintenance/src/Manage.php:459
 msgid "Use one recall time for all tasks"
 msgstr "Използвайте едно време за отзоваване за всички задачи"
 
-#: plugins/maintenance/src/Manage.php:462
+#: plugins/maintenance/src/Manage.php:469
 msgid "Recall time for all tasks:"
 msgstr "Време за припомняне на всички задачи:"
 
-#: plugins/maintenance/src/Manage.php:471
+#: plugins/maintenance/src/Manage.php:478
 msgid "Use one recall time per task"
 msgstr "Използвайте един път за припомняне за всяка задача"
 
-#: plugins/maintenance/src/Manage.php:502
+#: plugins/maintenance/src/Manage.php:509
 msgid "Content-Security-Policy"
 msgstr "Content-Security-Policy"
 
-#: plugins/maintenance/src/Manage.php:514
+#: plugins/maintenance/src/Manage.php:521
 msgid "Enable Content-Security-Policy system"
 msgstr "Активиране на системата Content-Security-Policy"
 
-#: plugins/maintenance/src/Manage.php:520
+#: plugins/maintenance/src/Manage.php:527
 msgid "Enable Content-Security-Policy report only"
 msgstr "Активиране само на отчет Content-Security-Policy"
 
-#: plugins/maintenance/src/Manage.php:530
+#: plugins/maintenance/src/Manage.php:537
 msgid "Enable Content-Security-Policy system by default"
 msgstr "Активиране на системата Content-Security-Policy по подразбиране"
 
-#: plugins/maintenance/src/Manage.php:536
+#: plugins/maintenance/src/Manage.php:543
 msgid "Enable Content-Security-Policy report only by default"
 msgstr "Активиране на отчета Content-Security-Policy само по подразбиране"
 
-#: plugins/maintenance/src/Manage.php:542
+#: plugins/maintenance/src/Manage.php:549
 msgid "Also apply these settings to all blogs"
 msgstr "Прилагайте тези настройки и за всички блогове"
 
