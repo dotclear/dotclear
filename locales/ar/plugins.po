@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-21 16:14+0100\n"
-"PO-Revision-Date: 2025-12-21 15:17\n"
+"POT-Creation-Date: 2026-01-17 09:40+0100\n"
+"PO-Revision-Date: 2026-01-17 08:44\n"
 "Last-Translator: \n"
 "Language-Team: Arabic\n"
 "Language: ar_SA\n"
@@ -696,21 +696,21 @@ msgstr "سيتم حذف جميع تعليقات البريد المزعج الأ
 msgid "You can modify this duration in the %s."
 msgstr "يمكنك تعديل هذه المدة في %s."
 
-#: plugins/antispam/src/BackendBehaviors.php:87
-msgid "Moderate only spam comments/trackbacks"
-msgstr "الإشراف على التعليقات/التعليقات/التعقيبات غير المرغوب فيها فقط"
-
-#: plugins/antispam/src/BackendBehaviors.php:91
-msgid "If comments and/or trackbacks are moderated (see blog settings above), messages recognized  by one of the active spam filters as not being spam will be published immediately."
-msgstr "إذا كانت التعليقات و/أو التعقيبات خاضعة للإشراف (انظر إعدادات المدونة أعلاه)، فسيتم نشر الرسائل التي يتعرف عليها أحد مرشحات الرسائل غير المرغوب فيها النشطة على أنها ليست رسائل غير مرغوب فيها على الفور."
-
-#: plugins/antispam/src/BackendBehaviors.php:95
+#: plugins/antispam/src/BackendBehaviors.php:86
 msgid "Delete junk comments older than"
 msgstr "حذف التعليقات غير المرغوب فيها الأقدم من"
 
-#: plugins/antispam/src/BackendBehaviors.php:99
+#: plugins/antispam/src/BackendBehaviors.php:90
 msgid "Set -1 to disabled this feature ; recommended delay is 7 days."
 msgstr "اضبط -1 لتعطيل هذه الميزة؛ التأخير الموصى به هو 7 أيام."
+
+#: plugins/antispam/src/BackendBehaviors.php:95
+msgid "Moderate only spam comments/trackbacks"
+msgstr "الإشراف على التعليقات/التعليقات/التعقيبات غير المرغوب فيها فقط"
+
+#: plugins/antispam/src/BackendBehaviors.php:99
+msgid "This option is only useful if comments and/or trackbacks are moderated (see blog settings above). In this case, messages recognised  by one of the active spam filters as not being spam will be published immediately, without being moderated; only those recognised as spam will be moderated."
+msgstr ""
 
 #: plugins/antispam/src/BackendBehaviors.php:103
 msgid "Set spam filters."
@@ -976,7 +976,7 @@ msgstr "لا يوجد وصف"
 msgid "Filtered by %1$s (%2$s)"
 msgstr "تصفية بواسطة %1$s (%2$s)"
 
-#: plugins/antispam/src/SpamFilters.php:158
+#: plugins/antispam/src/SpamFilters.php:160
 msgid "Unknown filter."
 msgstr "فلتر غير معروف."
 
@@ -1285,12 +1285,12 @@ msgstr "_xfn_التاريخ"
 msgid "_xfn_Sweetheart"
 msgstr "_xfn_Switheart"
 
-#: plugins/blogroll/src/UtilsImport.php:38
+#: plugins/blogroll/src/UtilsImport.php:39
 msgid "You need to provide a XBEL or OPML file."
 msgstr "تحتاج إلى توفير ملف XBEL أو OPML."
 
-#: plugins/blogroll/src/UtilsImport.php:55
-#: plugins/blogroll/src/UtilsImport.php:99
+#: plugins/blogroll/src/UtilsImport.php:56
+#: plugins/blogroll/src/UtilsImport.php:100
 msgid "File is not in XML format."
 msgstr "الملف ليس بتنسيق XML."
 
@@ -2091,12 +2091,12 @@ msgstr[4] "%s مهام لتنفيذها"
 msgstr[5] "%s مهام لتنفيذها"
 
 #: plugins/maintenance/src/BackendBehaviors.php:202
-#: plugins/maintenance/src/Manage.php:306
+#: plugins/maintenance/src/Manage.php:310
 msgid "This task has never been executed."
 msgstr "ولم يتم قط تنفيذ هذه المهمة."
 
 #: plugins/maintenance/src/BackendBehaviors.php:205
-#: plugins/maintenance/src/Manage.php:309
+#: plugins/maintenance/src/Manage.php:313
 #, php-format
 msgid "Last execution of this task was on %s."
 msgstr "آخر تنفيذ لهذه المهمة كان على %s."
@@ -2164,75 +2164,75 @@ msgstr "كل شهرين"
 msgid "You have not sufficient permissions to view this page."
 msgstr "ليس لديك الصلاحيات الكافية لعرض هذه الصفحة."
 
-#: plugins/maintenance/src/Manage.php:306
-#: plugins/maintenance/src/Manage.php:312
+#: plugins/maintenance/src/Manage.php:310
+#: plugins/maintenance/src/Manage.php:316
 msgid "You should execute it now."
 msgstr "يجب عليك تنفيذها الآن."
 
-#: plugins/maintenance/src/Manage.php:348
-#: plugins/maintenance/src/Manage.php:382
+#: plugins/maintenance/src/Manage.php:352
+#: plugins/maintenance/src/Manage.php:389
 msgid "Execute task"
 msgstr "تنفيذ المهمة"
 
-#: plugins/maintenance/src/Manage.php:353
+#: plugins/maintenance/src/Manage.php:357
 msgid "This may take a very long time."
 msgstr "وقد يستغرق ذلك وقتا طويلا جدا."
 
-#: plugins/maintenance/src/Manage.php:420
-#: plugins/maintenance/src/Manage.php:422
+#: plugins/maintenance/src/Manage.php:427
+#: plugins/maintenance/src/Manage.php:429
 msgid "Alert settings"
 msgstr "إعدادات التنبيه"
 
-#: plugins/maintenance/src/Manage.php:428
+#: plugins/maintenance/src/Manage.php:435
 msgid "Activation"
 msgstr "التفعيل"
 
-#: plugins/maintenance/src/Manage.php:434
+#: plugins/maintenance/src/Manage.php:441
 msgid "Display alert messages on late tasks"
 msgstr "عرض رسائل التنبيه على المهام المتأخرة"
 
-#: plugins/maintenance/src/Manage.php:439
+#: plugins/maintenance/src/Manage.php:446
 #, php-format
 msgid "You can place list of late tasks on your %s."
 msgstr "يمكنك وضع قائمة المهام المتأخرة على %s الخاص بك."
 
-#: plugins/maintenance/src/Manage.php:444
+#: plugins/maintenance/src/Manage.php:451
 msgid "Frequency"
 msgstr "التردد"
 
-#: plugins/maintenance/src/Manage.php:452
+#: plugins/maintenance/src/Manage.php:459
 msgid "Use one recall time for all tasks"
 msgstr "استخدام وقت استدعاء واحد لجميع المهام"
 
-#: plugins/maintenance/src/Manage.php:462
+#: plugins/maintenance/src/Manage.php:469
 msgid "Recall time for all tasks:"
 msgstr "وقت الاستدعاء لجميع المهام:"
 
-#: plugins/maintenance/src/Manage.php:471
+#: plugins/maintenance/src/Manage.php:478
 msgid "Use one recall time per task"
 msgstr "استخدام وقت استدعاء واحد لكل مهمة"
 
-#: plugins/maintenance/src/Manage.php:502
+#: plugins/maintenance/src/Manage.php:509
 msgid "Content-Security-Policy"
 msgstr "المحتوى-سياسة الأمن"
 
-#: plugins/maintenance/src/Manage.php:514
+#: plugins/maintenance/src/Manage.php:521
 msgid "Enable Content-Security-Policy system"
 msgstr "تمكين نظام سياسة المحتوى-الأمن"
 
-#: plugins/maintenance/src/Manage.php:520
+#: plugins/maintenance/src/Manage.php:527
 msgid "Enable Content-Security-Policy report only"
 msgstr "تمكين تقرير سياسة المحتوى-الأمن فقط"
 
-#: plugins/maintenance/src/Manage.php:530
+#: plugins/maintenance/src/Manage.php:537
 msgid "Enable Content-Security-Policy system by default"
 msgstr "تمكين نظام سياسة المحتوى بشكل افتراضي"
 
-#: plugins/maintenance/src/Manage.php:536
+#: plugins/maintenance/src/Manage.php:543
 msgid "Enable Content-Security-Policy report only by default"
 msgstr "تمكين تقرير سياسة المحتوى-الأمن افتراضياً فقط"
 
-#: plugins/maintenance/src/Manage.php:542
+#: plugins/maintenance/src/Manage.php:549
 msgid "Also apply these settings to all blogs"
 msgstr "تطبيق هذه الإعدادات أيضا على جميع المدونات"
 
