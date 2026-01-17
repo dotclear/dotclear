@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-17 09:40+0100\n"
-"PO-Revision-Date: 2026-01-17 08:44\n"
+"PO-Revision-Date: 2026-01-17 09:18\n"
 "Last-Translator: \n"
 "Language-Team: Finnish\n"
 "Language: fi_FI\n"
@@ -710,7 +710,7 @@ msgstr "Moderoi vain roskapostikommentit/trackbackit"
 
 #: plugins/antispam/src/BackendBehaviors.php:99
 msgid "This option is only useful if comments and/or trackbacks are moderated (see blog settings above). In this case, messages recognised  by one of the active spam filters as not being spam will be published immediately, without being moderated; only those recognised as spam will be moderated."
-msgstr ""
+msgstr "Tämä vaihtoehto on hyödyllinen vain, jos kommentit ja/tai trackbackit ovat moderoituja (katso blogin asetukset edellä). Tässä tapauksessa viestit, jotka jokin aktiivinen roskapostisuodatin tunnistaa roskapostiksi, julkaistaan välittömästi ilman moderointia; vain roskapostiksi tunnistetut viestit moderoidaan."
 
 #: plugins/antispam/src/BackendBehaviors.php:103
 msgid "Set spam filters."
