@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-23 12:19+0100\n"
-"PO-Revision-Date: 2025-12-23 12:30\n"
+"POT-Creation-Date: 2026-01-12 14:40+0100\n"
+"PO-Revision-Date: 2026-01-17 08:44\n"
 "Last-Translator: \n"
 "Language-Team: Slovak\n"
 "Language: sk_SK\n"
@@ -220,8 +220,8 @@ msgid "Selected blogs have been successfully updated."
 msgstr "Vybrané blogy boli úspešne aktualizované."
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:104
-#: src/Core/Backend/ModulesList.php:1699 src/Core/Backend/ThemesList.php:714
-#: src/Core/Upgrade/PluginsList.php:398 src/Process/Backend/BlogDel.php:69
+#: src/Core/Backend/ModulesList.php:1701 src/Core/Backend/ThemesList.php:727
+#: src/Core/Upgrade/PluginsList.php:400 src/Process/Backend/BlogDel.php:69
 #: src/Process/Backend/Langs.php:114 src/Process/Backend/Langs.php:159
 #: src/Process/Backend/User.php:128 src/Process/Backend/UsersActions.php:195
 #: src/Process/Upgrade/Langs.php:162 src/Process/Upgrade/Langs.php:207
@@ -464,7 +464,7 @@ msgstr "rodič:"
 #: src/Core/Backend/Action/ActionsPostsDefault.php:390
 #: src/Core/Backend/Action/ActionsPostsDefault.php:495
 #: src/Core/Backend/Action/ActionsPostsDefault.php:580
-#: src/Core/Backend/ModulesList.php:1997 src/Process/Backend/BlogPref.php:1193
+#: src/Core/Backend/ModulesList.php:1999 src/Process/Backend/BlogPref.php:1193
 #: src/Process/Backend/Category.php:297 src/Process/Backend/Category.php:336
 #: src/Process/Backend/Category.php:372 src/Process/Backend/Comment.php:349
 #: src/Process/Backend/Home.php:652 src/Process/Backend/Home.php:706
@@ -619,7 +619,7 @@ msgid "Number of entries"
 msgstr "Počet vstupov"
 
 #: src/Core/Backend/Favorites.php:287
-#: src/Process/Backend/UserPreferences.php:1361
+#: src/Process/Backend/UserPreferences.php:1364
 msgid "My favorites"
 msgstr "Moje obľúbené"
 
@@ -698,7 +698,7 @@ msgstr "Používatelia"
 
 #: src/Core/Backend/Favorites.php:509 src/Core/Backend/Menus.php:225
 #: src/Process/Backend/Plugins.php:104 src/Process/Backend/Plugins.php:117
-#: src/Process/Backend/Plugins.php:388 src/Process/Backend/Plugins.php:395
+#: src/Process/Backend/Plugins.php:386 src/Process/Backend/Plugins.php:393
 #: src/Process/Upgrade/Plugins.php:162 src/Process/Upgrade/Plugins.php:172
 msgid "Plugins management"
 msgstr "Správa pluginov"
@@ -714,27 +714,27 @@ msgid "Languages"
 msgstr "Jazyky"
 
 #: src/Core/Backend/Favorites.php:527 src/Core/Backend/Page.php:450
-#: src/Core/Backend/Page.php:451 src/Process/Backend/Help.php:109
-#: src/Process/Backend/Help.php:116 src/Process/Backend/Help.php:122
+#: src/Core/Backend/Page.php:451 src/Process/Backend/Help.php:115
+#: src/Process/Backend/Help.php:122 src/Process/Backend/Help.php:128
 msgid "Global help"
 msgstr "Globálna pomoc"
 
-#: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1281
+#: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1287
 #: src/Process/Backend/Auth.php:513 src/Process/Backend/BlogPref.php:1369
 #: src/Process/Backend/Comment.php:305 src/Process/Backend/Post.php:1114
-#: src/Process/Backend/User.php:450 src/Process/Backend/UserPreferences.php:819
+#: src/Process/Backend/User.php:450 src/Process/Backend/UserPreferences.php:822
 #: src/Process/Install/Install.php:508
 msgid "Email:"
 msgstr "Email:"
 
-#: src/Core/Backend/Filter/FilterComments.php:37 src/Core/Backend/Page.php:1280
+#: src/Core/Backend/Filter/FilterComments.php:37 src/Core/Backend/Page.php:1286
 #: src/Process/Backend/Comment.php:321 src/Process/Backend/Post.php:1123
 msgid "Web site:"
 msgstr "Webstránka:"
 
 #: src/Core/Backend/Filter/FilterComments.php:58
 #: src/Core/Backend/Filter/FilterPosts.php:92
-#: src/Core/Backend/ModulesList.php:1045 src/Core/Backend/Page.php:1322
+#: src/Core/Backend/ModulesList.php:1045 src/Core/Backend/Page.php:1328
 #: src/Process/Backend/Comment.php:294
 msgid "Author:"
 msgstr "autor:"
@@ -753,7 +753,7 @@ msgid "Trackback"
 msgstr "Trackback"
 
 #: src/Core/Backend/Filter/FilterComments.php:107
-#: src/Core/Backend/Page.php:1282 src/Process/Backend/Comment.php:269
+#: src/Core/Backend/Page.php:1288 src/Process/Backend/Comment.php:269
 msgid "IP address:"
 msgstr "IP adresa:"
 
@@ -854,7 +854,7 @@ msgid "Sort:"
 msgstr "Zoradiť:"
 
 #: src/Core/Backend/Filter/Filters.php:390
-#: src/Process/Backend/UserPreferences.php:977
+#: src/Process/Backend/UserPreferences.php:980
 msgid "Show"
 msgstr "Šou"
 
@@ -866,7 +866,7 @@ msgstr "Uložiť aktuálne možnosti"
 msgid "Display options"
 msgstr "Možnosti zobrazenia"
 
-#: src/Core/Backend/Filter/Filters.php:422 src/Core/Backend/Page.php:1490
+#: src/Core/Backend/Filter/Filters.php:422 src/Core/Backend/Page.php:1496
 msgid "Show filters and display options"
 msgstr "Zobraziť filtre a možnosti zobrazenia"
 
@@ -897,7 +897,7 @@ msgid "No blog matches the filter"
 msgstr "Filtru nevyhovuje žiadny blog"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:88
-#: src/Core/Backend/ModulesList.php:1811 src/Core/Backend/UserPref.php:78
+#: src/Core/Backend/ModulesList.php:1813 src/Core/Backend/UserPref.php:78
 #: src/Process/Backend/LinkPopup.php:91
 #: src/Process/Backend/UsersActions.php:388
 msgid "URL"
@@ -1195,8 +1195,8 @@ msgstr "Stránka s priamym prístupom:"
 
 #: src/Core/Backend/Listing/Pager.php:192 src/Core/Backend/Page.php:170
 #: src/Process/Backend/Blogs.php:148 src/Process/Backend/Comments.php:216
-#: src/Process/Backend/Posts.php:137 src/Process/Backend/Search.php:311
-#: src/Process/Backend/Search.php:407 src/Process/Backend/Users.php:160
+#: src/Process/Backend/Posts.php:137 src/Process/Backend/Search.php:313
+#: src/Process/Backend/Search.php:409 src/Process/Backend/Users.php:160
 msgid "ok"
 msgstr "ok"
 
@@ -1291,7 +1291,7 @@ msgid "Current version"
 msgstr "Aktuálna verzia"
 
 #: src/Core/Backend/ModulesList.php:839 src/Core/Backend/ModulesList.php:1063
-#: src/Core/Backend/Page.php:1323 src/Core/Backend/ThemesList.php:230
+#: src/Core/Backend/Page.php:1329 src/Core/Backend/ThemesList.php:230
 #: src/Core/Backend/ThemesList.php:300
 msgid "Details"
 msgstr "Podrobnosti"
@@ -1341,7 +1341,7 @@ msgstr "Plugin vo vývoji"
 msgid "Release date:"
 msgstr "Dátum vydania:"
 
-#: src/Core/Backend/ModulesList.php:1070 src/Core/Backend/Page.php:1324
+#: src/Core/Backend/ModulesList.php:1070 src/Core/Backend/Page.php:1330
 #: src/Core/Backend/ThemesList.php:236
 msgid "Support"
 msgstr "podpora"
@@ -1350,11 +1350,11 @@ msgstr "podpora"
 msgid "update locked"
 msgstr "aktualizácia zamknutá"
 
-#: src/Core/Backend/ModulesList.php:1115 src/Core/Backend/Page.php:1326
+#: src/Core/Backend/ModulesList.php:1115 src/Core/Backend/Page.php:1332
 msgid "Section:"
 msgstr "Sekcia:"
 
-#: src/Core/Backend/ModulesList.php:1121 src/Core/Backend/Page.php:1327
+#: src/Core/Backend/ModulesList.php:1121 src/Core/Backend/Page.php:1333
 msgid "Tags:"
 msgstr "Značky:"
 
@@ -1426,11 +1426,11 @@ msgstr "Aktualizujte vybrané doplnky"
 msgid "Update all plugins from this list"
 msgstr "Aktualizujte všetky doplnky z tohto zoznamu"
 
-#: src/Core/Backend/ModulesList.php:1506 src/Core/Backend/ModulesList.php:1560
-#: src/Core/Backend/ModulesList.php:1591 src/Core/Backend/ModulesList.php:1629
-#: src/Core/Backend/ModulesList.php:1690 src/Core/Upgrade/PluginsList.php:236
-#: src/Core/Upgrade/PluginsList.php:278 src/Core/Upgrade/PluginsList.php:303
-#: src/Core/Upgrade/PluginsList.php:335 src/Core/Upgrade/PluginsList.php:389
+#: src/Core/Backend/ModulesList.php:1506 src/Core/Backend/ModulesList.php:1562
+#: src/Core/Backend/ModulesList.php:1593 src/Core/Backend/ModulesList.php:1631
+#: src/Core/Backend/ModulesList.php:1692 src/Core/Upgrade/PluginsList.php:236
+#: src/Core/Upgrade/PluginsList.php:280 src/Core/Upgrade/PluginsList.php:305
+#: src/Core/Upgrade/PluginsList.php:337 src/Core/Upgrade/PluginsList.php:391
 msgid "No such plugin."
 msgstr "Žiadny takýto plugin."
 
@@ -1438,11 +1438,11 @@ msgstr "Žiadny takýto plugin."
 msgid "You don't have permissions to delete this plugin."
 msgstr "Nemáte povolenia na odstránenie tohto doplnku."
 
-#: src/Core/Backend/ModulesList.php:1528 src/Core/Upgrade/PluginsList.php:252
+#: src/Core/Backend/ModulesList.php:1530 src/Core/Upgrade/PluginsList.php:254
 msgid "Some plugins have not been delete."
 msgstr "Niektoré doplnky neboli odstránené."
 
-#: src/Core/Backend/ModulesList.php:1531 src/Core/Upgrade/PluginsList.php:255
+#: src/Core/Backend/ModulesList.php:1533 src/Core/Upgrade/PluginsList.php:257
 msgid "Plugin has been successfully deleted."
 msgid_plural "Plugins have been successuflly deleted."
 msgstr[0] "Plugin bol úspešne odstránený."
@@ -1450,7 +1450,7 @@ msgstr[1] "Pluginy boli úspešne odstránené."
 msgstr[2] "Pluginy boli úspešne odstránené."
 msgstr[3] "Pluginy boli úspešne odstránené."
 
-#: src/Core/Backend/ModulesList.php:1564 src/Core/Upgrade/PluginsList.php:282
+#: src/Core/Backend/ModulesList.php:1566 src/Core/Upgrade/PluginsList.php:284
 msgid "Plugin has been successfully installed."
 msgid_plural "Plugins have been successfully installed."
 msgstr[0] "Plugin bol úspešne nainštalovaný."
@@ -1458,7 +1458,7 @@ msgstr[1] "Pluginy boli úspešne nainštalované."
 msgstr[2] "Pluginy boli úspešne nainštalované."
 msgstr[3] "Pluginy boli úspešne nainštalované."
 
-#: src/Core/Backend/ModulesList.php:1595 src/Core/Upgrade/PluginsList.php:307
+#: src/Core/Backend/ModulesList.php:1597 src/Core/Upgrade/PluginsList.php:309
 msgid "Plugin has been successfully activated."
 msgid_plural "Plugins have been successuflly activated."
 msgstr[0] "Plugin bol úspešne aktivovaný."
@@ -1466,11 +1466,11 @@ msgstr[1] "Pluginy boli úspešne aktivované."
 msgstr[2] "Pluginy boli úspešne aktivované."
 msgstr[3] "Pluginy boli úspešne aktivované."
 
-#: src/Core/Backend/ModulesList.php:1633 src/Core/Upgrade/PluginsList.php:339
+#: src/Core/Backend/ModulesList.php:1635 src/Core/Upgrade/PluginsList.php:341
 msgid "Some plugins have not been deactivated."
 msgstr "Niektoré doplnky neboli deaktivované."
 
-#: src/Core/Backend/ModulesList.php:1636 src/Core/Upgrade/PluginsList.php:342
+#: src/Core/Backend/ModulesList.php:1638 src/Core/Upgrade/PluginsList.php:344
 msgid "Plugin has been successfully deactivated."
 msgid_plural "Plugins have been successuflly deactivated."
 msgstr[0] "Plugin bol úspešne deaktivovaný."
@@ -1478,7 +1478,7 @@ msgstr[1] "Pluginy boli úspešne deaktivované."
 msgstr[2] "Pluginy boli úspešne deaktivované."
 msgstr[3] "Pluginy boli úspešne deaktivované."
 
-#: src/Core/Backend/ModulesList.php:1683 src/Core/Upgrade/PluginsList.php:382
+#: src/Core/Backend/ModulesList.php:1685 src/Core/Upgrade/PluginsList.php:384
 msgid "Plugin has been successfully updated."
 msgid_plural "Plugins have been successfully updated."
 msgstr[0] "Plugin bol úspešne aktualizovaný."
@@ -1486,30 +1486,30 @@ msgstr[1] "Pluginy boli úspešne aktualizované."
 msgstr[2] "Pluginy boli úspešne aktualizované."
 msgstr[3] "Pluginy boli úspešne aktualizované."
 
-#: src/Core/Backend/ModulesList.php:1687 src/Core/Upgrade/PluginsList.php:386
+#: src/Core/Backend/ModulesList.php:1689 src/Core/Upgrade/PluginsList.php:388
 #, php-format
 msgid "Following plugins updates are locked: %s"
 msgstr "Nasledujúce aktualizácie doplnkov sú zamknuté: %s"
 
-#: src/Core/Backend/ModulesList.php:1707 src/Core/Backend/ThemesList.php:722
-#: src/Core/Upgrade/PluginsList.php:406 src/Process/Backend/Langs.php:165
+#: src/Core/Backend/ModulesList.php:1709 src/Core/Backend/ThemesList.php:735
+#: src/Core/Upgrade/PluginsList.php:408 src/Process/Backend/Langs.php:165
 #: src/Process/Upgrade/Langs.php:213
 msgid "Unable to move uploaded file."
 msgstr "Nie je možné presunúť nahraný súbor."
 
-#: src/Core/Backend/ModulesList.php:1725 src/Core/Upgrade/PluginsList.php:418
+#: src/Core/Backend/ModulesList.php:1727 src/Core/Upgrade/PluginsList.php:420
 msgid "The plugin has been successfully updated."
 msgstr "Plugin bol úspešne aktualizovaný."
 
-#: src/Core/Backend/ModulesList.php:1726 src/Core/Upgrade/PluginsList.php:419
+#: src/Core/Backend/ModulesList.php:1728 src/Core/Upgrade/PluginsList.php:421
 msgid "The plugin has been successfully installed."
 msgstr "Doplnok bol úspešne nainštalovaný."
 
-#: src/Core/Backend/ModulesList.php:1752 src/Process/Backend/Langs.php:372
+#: src/Core/Backend/ModulesList.php:1754 src/Process/Backend/Langs.php:372
 msgid "Upload a zip file"
 msgstr "Nahrajte súbor zip"
 
-#: src/Core/Backend/ModulesList.php:1756 src/Core/Backend/ModulesList.php:1803
+#: src/Core/Backend/ModulesList.php:1758 src/Core/Backend/ModulesList.php:1805
 #: src/Process/Backend/Blog.php:117 src/Process/Backend/BlogPref.php:526
 #: src/Process/Backend/BlogPref.php:1023 src/Process/Backend/Category.php:247
 #: src/Process/Backend/Comment.php:283 src/Process/Backend/Home.php:589
@@ -1522,11 +1522,11 @@ msgstr "Nahrajte súbor zip"
 msgid "Fields preceded by %s are mandatory."
 msgstr "Polia, pred ktorými je %s , sú povinné."
 
-#: src/Core/Backend/ModulesList.php:1763
+#: src/Core/Backend/ModulesList.php:1765
 msgid "Zip file path:"
 msgstr "Cesta k súboru zip:"
 
-#: src/Core/Backend/ModulesList.php:1774 src/Core/Backend/ModulesList.php:1824
+#: src/Core/Backend/ModulesList.php:1776 src/Core/Backend/ModulesList.php:1826
 #: src/Process/Backend/Langs.php:347 src/Process/Backend/Langs.php:396
 #: src/Process/Backend/Post.php:810 src/Process/Backend/User.php:358
 #: src/Process/Backend/User.php:382 src/Process/Backend/User.php:547
@@ -1535,61 +1535,61 @@ msgstr "Cesta k súboru zip:"
 msgid "Password"
 msgstr "heslo"
 
-#: src/Core/Backend/ModulesList.php:1777 src/Core/Backend/ModulesList.php:1827
+#: src/Core/Backend/ModulesList.php:1779 src/Core/Backend/ModulesList.php:1829
 #: src/Process/Backend/BlogDel.php:126 src/Process/Backend/Langs.php:350
 #: src/Process/Backend/Langs.php:400 src/Process/Upgrade/Langs.php:377
 #: src/Process/Upgrade/Langs.php:383 src/Process/Upgrade/Langs.php:432
 msgid "Your password:"
 msgstr "Tvoje heslo:"
 
-#: src/Core/Backend/ModulesList.php:1785 src/Core/Backend/Page.php:1446
+#: src/Core/Backend/ModulesList.php:1787 src/Core/Backend/Page.php:1452
 #: src/Process/Backend/Media.php:809
 msgid "Upload"
 msgstr "Nahrať"
 
-#: src/Core/Backend/ModulesList.php:1799
+#: src/Core/Backend/ModulesList.php:1801
 msgid "Download a zip file"
 msgstr "Stiahnite si súbor zip"
 
-#: src/Core/Backend/ModulesList.php:1813
+#: src/Core/Backend/ModulesList.php:1815
 msgid "Zip file URL:"
 msgstr "Adresa URL súboru zip:"
 
-#: src/Core/Backend/ModulesList.php:1835
+#: src/Core/Backend/ModulesList.php:1837
 msgid "Download"
 msgstr "Stiahnuť ▼"
 
-#: src/Core/Backend/ModulesList.php:1886
+#: src/Core/Backend/ModulesList.php:1888
 msgid "Unknown plugin ID"
 msgstr "Neznáme ID doplnku"
 
-#: src/Core/Backend/ModulesList.php:1897
+#: src/Core/Backend/ModulesList.php:1899
 msgid "This plugin has no configuration file."
 msgstr "Tento doplnok nemá žiadny konfiguračný súbor."
 
-#: src/Core/Backend/ModulesList.php:1905 src/Process/Backend/Auth.php:385
+#: src/Core/Backend/ModulesList.php:1907 src/Process/Backend/Auth.php:385
 #: src/Process/Upgrade/Auth.php:169 src/Process/Upgrade/Auth.php:230
 msgid "Insufficient permissions"
 msgstr "Nedostatočné povolenia"
 
-#: src/Core/Backend/ModulesList.php:1978
+#: src/Core/Backend/ModulesList.php:1980
 #, php-format
 msgid "Configure \"%s\""
 msgstr "Konfigurovať \"%s\""
 
-#: src/Core/Backend/ModulesList.php:1984 src/Process/Backend/Blog.php:197
+#: src/Core/Backend/ModulesList.php:1986 src/Process/Backend/Blog.php:197
 #: src/Process/Backend/BlogDel.php:138 src/Process/Backend/BlogPref.php:1195
 #: src/Process/Backend/Category.php:300 src/Process/Backend/Comment.php:351
 #: src/Process/Backend/Media.php:871 src/Process/Backend/MediaItem.php:1327
 #: src/Process/Backend/Post.php:956 src/Process/Backend/Search.php:193
-#: src/Process/Backend/User.php:565 src/Process/Backend/UserPreferences.php:880
-#: src/Process/Backend/UserPreferences.php:1216
-#: src/Process/Backend/UserPreferences.php:1456
+#: src/Process/Backend/User.php:565 src/Process/Backend/UserPreferences.php:883
+#: src/Process/Backend/UserPreferences.php:1219
+#: src/Process/Backend/UserPreferences.php:1459
 msgid "Back"
 msgstr "späť"
 
-#: src/Core/Backend/Notices.php:86 src/Core/Backend/Page.php:1283
-#: src/Core/Backend/Page.php:1441 src/Core/Upgrade/Notices.php:48
+#: src/Core/Backend/Notices.php:86 src/Core/Backend/Page.php:1289
+#: src/Core/Backend/Page.php:1447 src/Core/Upgrade/Notices.php:48
 #: src/Process/Backend/Home.php:324
 msgid "Error:"
 msgstr "Chyba:"
@@ -1605,7 +1605,7 @@ msgid "%H:%M:%S"
 msgstr "%H:%M:%S"
 
 #: src/Core/Backend/Notices.php:258 src/Core/Backend/Notices.php:298
-#: src/Core/Backend/Notices.php:308 src/Core/Backend/Page.php:1329
+#: src/Core/Backend/Notices.php:308 src/Core/Backend/Page.php:1335
 #: src/Process/Backend/Categories.php:378 src/Process/Backend/Post.php:1058
 #: src/Process/Backend/Post.php:1190 src/Process/Backend/PostsPopup.php:121
 msgid "Ok"
@@ -1637,8 +1637,8 @@ msgid "Go to help"
 msgstr "Choď na pomoc"
 
 #: src/Core/Backend/Page.php:342 src/Core/Upgrade/Page.php:177
-#: src/Process/Backend/UserPreferences.php:1351
-#: src/Process/Backend/UserPreferences.php:1353
+#: src/Process/Backend/UserPreferences.php:1354
+#: src/Process/Backend/UserPreferences.php:1356
 msgid "My dashboard"
 msgstr "Môj informačný panel"
 
@@ -1689,368 +1689,368 @@ msgstr "Logo Dotclear"
 msgid "Go to dashboard"
 msgstr "Prejdite na informačný panel"
 
-#: src/Core/Backend/Page.php:1131 src/Core/Upgrade/Page.php:452
+#: src/Core/Backend/Page.php:1137 src/Core/Upgrade/Page.php:458
 msgid "Help about this page"
 msgstr "Pomocník k tejto stránke"
 
-#: src/Core/Backend/Page.php:1141 src/Core/Upgrade/Page.php:461
+#: src/Core/Backend/Page.php:1147 src/Core/Upgrade/Page.php:467
 #, php-format
 msgid "See also %s"
 msgstr "Pozri tiež %s"
 
-#: src/Core/Backend/Page.php:1144 src/Core/Upgrade/Page.php:464
+#: src/Core/Backend/Page.php:1150 src/Core/Upgrade/Page.php:470
 msgid "the global help"
 msgstr "globálnu pomoc"
 
-#: src/Core/Backend/Page.php:1265
+#: src/Core/Backend/Page.php:1271
 msgid "uncover"
 msgstr "odkryť"
 
-#: src/Core/Backend/Page.php:1269
+#: src/Core/Backend/Page.php:1275
 msgid "hide"
 msgstr "skryť"
 
-#: src/Core/Backend/Page.php:1273
+#: src/Core/Backend/Page.php:1279
 msgid "Need help?"
 msgstr "Potrebujete pomoc?"
 
-#: src/Core/Backend/Page.php:1274
+#: src/Core/Backend/Page.php:1280
 msgid "new window"
 msgstr "nové okno"
 
-#: src/Core/Backend/Page.php:1275
+#: src/Core/Backend/Page.php:1281
 msgid "Hide"
 msgstr "Skryť"
 
-#: src/Core/Backend/Page.php:1276
+#: src/Core/Backend/Page.php:1282
 msgid "Select:"
 msgstr "Vyberte:"
 
-#: src/Core/Backend/Page.php:1277
+#: src/Core/Backend/Page.php:1283
 msgid "No selection"
 msgstr "Žiadny výber"
 
-#: src/Core/Backend/Page.php:1278
+#: src/Core/Backend/Page.php:1284
 msgid "Select all"
 msgstr "Vybrať všetko"
 
-#: src/Core/Backend/Page.php:1279
+#: src/Core/Backend/Page.php:1285
 msgid "Invert selection"
 msgstr "Obrátiť výber"
 
-#: src/Core/Backend/Page.php:1284 src/Process/Backend/Post.php:466
+#: src/Core/Backend/Page.php:1290 src/Process/Backend/Post.php:466
 #: src/Process/Backend/Post.php:609
 msgid "Entry has been successfully created."
 msgstr "Záznam bol úspešne vytvorený."
 
-#: src/Core/Backend/Page.php:1285
+#: src/Core/Backend/Page.php:1291
 msgid "Edit entry"
 msgstr "Upraviť záznam"
 
-#: src/Core/Backend/Page.php:1286
+#: src/Core/Backend/Page.php:1292
 msgid "view entry"
 msgstr "zobraziť záznam"
 
-#: src/Core/Backend/Page.php:1287
+#: src/Core/Backend/Page.php:1293
 #, php-format
 msgid "Are you sure you want to delete selected entries (%s)?"
 msgstr "Naozaj chcete odstrániť vybraté položky (%s)?"
 
-#: src/Core/Backend/Page.php:1288
+#: src/Core/Backend/Page.php:1294
 #, php-format
 msgid "Are you sure you want to delete selected medias (%d)?"
 msgstr "Naozaj chcete odstrániť vybraté médiá (%d)?"
 
-#: src/Core/Backend/Page.php:1289
+#: src/Core/Backend/Page.php:1295
 #, php-format
 msgid "Are you sure you want to delete selected categories (%s)?"
 msgstr "Naozaj chcete odstrániť vybraté kategórie (%s)?"
 
-#: src/Core/Backend/Page.php:1290
+#: src/Core/Backend/Page.php:1296
 msgid "Are you sure you want to delete this entry?"
 msgstr "Naozaj chcete odstrániť tento záznam?"
 
-#: src/Core/Backend/Page.php:1291
+#: src/Core/Backend/Page.php:1297
 msgid "Click here to unlock the field"
 msgstr "Kliknutím sem pole odomknete"
 
-#: src/Core/Backend/Page.php:1292
+#: src/Core/Backend/Page.php:1298
 msgid "Are you sure you want to delete all spams?"
 msgstr "Naozaj chcete odstrániť všetky spamy?"
 
-#: src/Core/Backend/Page.php:1293
+#: src/Core/Backend/Page.php:1299
 #, php-format
 msgid "Are you sure you want to delete selected comments (%s)?"
 msgstr "Naozaj chcete odstrániť vybraté komentáre (%s)?"
 
-#: src/Core/Backend/Page.php:1294
+#: src/Core/Backend/Page.php:1300
 msgid "Are you sure you want to delete this comment?"
 msgstr "Naozaj chcete odstrániť tento komentár?"
 
-#: src/Core/Backend/Page.php:1295
+#: src/Core/Backend/Page.php:1301
 msgid "Users with posts cannot be deleted."
 msgstr "Používateľov s príspevkami nemožno odstrániť."
 
-#: src/Core/Backend/Page.php:1296
+#: src/Core/Backend/Page.php:1302
 #, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
 msgstr "Naozaj chcete odstrániť vybratých používateľov (%s)?"
 
-#: src/Core/Backend/Page.php:1297
+#: src/Core/Backend/Page.php:1303
 #, php-format
 msgid "Are you sure you want to delete selected blogs (%s)?"
 msgstr "Naozaj chcete odstrániť vybraté blogy (%s)?"
 
-#: src/Core/Backend/Page.php:1298
+#: src/Core/Backend/Page.php:1304
 #, php-format
 msgid "Are you sure you want to delete category \"%s\"?"
 msgstr "Naozaj chcete odstrániť kategóriu „%s“?"
 
-#: src/Core/Backend/Page.php:1299
+#: src/Core/Backend/Page.php:1305
 msgid "Are you sure you want to reorder all categories?"
 msgstr "Naozaj chcete zmeniť poradie všetkých kategórií?"
 
-#: src/Core/Backend/Page.php:1300
+#: src/Core/Backend/Page.php:1306
 #, php-format
 msgid "Are you sure you want to remove media \"%s\"?"
 msgstr "Naozaj chcete odstrániť médium „%s“?"
 
-#: src/Core/Backend/Page.php:1301
+#: src/Core/Backend/Page.php:1307
 #, php-format
 msgid "Are you sure you want to remove directory \"%s\"?"
 msgstr "Naozaj chcete odstrániť adresár \"%s\"?"
 
-#: src/Core/Backend/Page.php:1302
+#: src/Core/Backend/Page.php:1308
 msgid "Are you sure you want to extract archive in current directory?"
 msgstr "Naozaj chcete rozbaliť archív v aktuálnom adresári?"
 
-#: src/Core/Backend/Page.php:1303
+#: src/Core/Backend/Page.php:1309
 #, php-format
 msgid "Are you sure you want to remove attachment \"%s\"?"
 msgstr "Naozaj chcete odstrániť prílohu „%s“?"
 
-#: src/Core/Backend/Page.php:1304
+#: src/Core/Backend/Page.php:1310
 #, php-format
 msgid "Are you sure you want to delete \"%s\" language?"
 msgstr "Naozaj chcete odstrániť jazyk „%s“?"
 
-#: src/Core/Backend/Page.php:1305
+#: src/Core/Backend/Page.php:1311
 #, php-format
 msgid "Are you sure you want to delete \"%s\" plugin?"
 msgstr "Naozaj chcete odstrániť doplnok „%s“?"
 
-#: src/Core/Backend/Page.php:1306
+#: src/Core/Backend/Page.php:1312
 msgid "Are you sure you want to delete selected plugins?"
 msgstr "Naozaj chcete odstrániť vybraté doplnky?"
 
-#: src/Core/Backend/Page.php:1307
+#: src/Core/Backend/Page.php:1313
 msgid "Use this theme"
 msgstr "Použite túto tému"
 
-#: src/Core/Backend/Page.php:1308
+#: src/Core/Backend/Page.php:1314
 msgid "Remove this theme"
 msgstr "Odstráňte túto tému"
 
-#: src/Core/Backend/Page.php:1309
+#: src/Core/Backend/Page.php:1315
 #, php-format
 msgid "Are you sure you want to delete \"%s\" theme?"
 msgstr "Naozaj chcete odstrániť motív „%s“?"
 
-#: src/Core/Backend/Page.php:1310
+#: src/Core/Backend/Page.php:1316
 msgid "Are you sure you want to delete selected themes?"
 msgstr "Naozaj chcete odstrániť vybraté motívy?"
 
-#: src/Core/Backend/Page.php:1311
+#: src/Core/Backend/Page.php:1317
 msgid "Are you sure you want to delete this backup?"
 msgstr "Naozaj chcete odstrániť túto zálohu?"
 
-#: src/Core/Backend/Page.php:1312
+#: src/Core/Backend/Page.php:1318
 msgid "Are you sure you want to revert to this backup?"
 msgstr "Naozaj sa chcete vrátiť k tejto zálohe?"
 
-#: src/Core/Backend/Page.php:1313
+#: src/Core/Backend/Page.php:1319
 msgid "Zip file content"
 msgstr "Obsah súboru ZIP"
 
-#: src/Core/Backend/Page.php:1314
+#: src/Core/Backend/Page.php:1320
 msgid "HTML markup validator"
 msgstr "validátor značiek HTML"
 
-#: src/Core/Backend/Page.php:1315
+#: src/Core/Backend/Page.php:1321
 msgid "HTML content is valid."
 msgstr "Obsah HTML je platný."
 
-#: src/Core/Backend/Page.php:1316
+#: src/Core/Backend/Page.php:1322
 msgid "There are HTML markup errors."
 msgstr "Vyskytli sa chyby v označovaní HTML."
 
-#: src/Core/Backend/Page.php:1317
+#: src/Core/Backend/Page.php:1323
 msgid "Attention: an audit of a content not yet registered."
 msgstr "Pozor: audit obsahu, ktorý ešte nie je zaregistrovaný."
 
-#: src/Core/Backend/Page.php:1318
+#: src/Core/Backend/Page.php:1324
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
 msgstr "Máte neuložené zmeny. Zmena formátu príspevku stratí tieto zmeny. Chcete napriek tomu pokračovať?"
 
-#: src/Core/Backend/Page.php:1319
+#: src/Core/Backend/Page.php:1325
 msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
 msgstr "Upozornenie: Zmena formátu príspevku neprevedie existujúci obsah. Nový formát budete musieť použiť sami. Chcete napriek tomu pokračovať?"
 
-#: src/Core/Backend/Page.php:1320
+#: src/Core/Backend/Page.php:1326
 msgid "Loading enhanced uploader, please wait."
 msgstr "Načítava sa vylepšený nástroj na nahrávanie, čakajte."
 
-#: src/Core/Backend/Page.php:1325
+#: src/Core/Backend/Page.php:1331
 msgid "Help:"
 msgstr "Pomoc:"
 
-#: src/Core/Backend/Page.php:1331
+#: src/Core/Backend/Page.php:1337
 msgid "Show password"
 msgstr "Ukázať heslo"
 
-#: src/Core/Backend/Page.php:1332
+#: src/Core/Backend/Page.php:1338
 msgid "Hide password"
 msgstr "Skryť heslo"
 
-#: src/Core/Backend/Page.php:1334
+#: src/Core/Backend/Page.php:1340
 msgid "Reset to now"
 msgstr "Obnoviť na teraz"
 
-#: src/Core/Backend/Page.php:1335
+#: src/Core/Backend/Page.php:1341
 msgid "The publication date has changed. Reset the base name of the entry URL?"
 msgstr "Dátum vydania sa zmenil. Obnoviť základný názov adresy URL záznamu?"
 
-#: src/Core/Backend/Page.php:1336
+#: src/Core/Backend/Page.php:1342
 msgid "The publication title has changed. Reset the base name of the entry URL?"
 msgstr "Názov publikácie sa zmenil. Obnoviť základný názov adresy URL záznamu?"
 
-#: src/Core/Backend/Page.php:1338
+#: src/Core/Backend/Page.php:1344
 msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences."
 msgstr "Na tomto informačnom paneli Dotclear bol zistený blokovač reklám (Ghostery, Adblock plus, pôvod uBlock, …) a môže rušiť niektoré funkcie. V tomto prípade by ste ho mali vypnúť. Upozorňujeme, že táto detekcia môže byť zakázaná vo vašich preferenciách."
 
-#: src/Core/Backend/Page.php:1390
+#: src/Core/Backend/Page.php:1396
 msgid "You have unsaved changes."
 msgstr "Máte neuložené zmeny."
 
-#: src/Core/Backend/Page.php:1391
+#: src/Core/Backend/Page.php:1397
 msgid "your battery charge seems low (%d%) and you have unsaved changes, you should save them."
 msgstr "vaša batéria sa zdá byť nízka (%d%) a máte neuložené zmeny, mali by ste ich uložiť."
 
-#: src/Core/Backend/Page.php:1432
+#: src/Core/Backend/Page.php:1438
 msgid "Temporarily activate enhanced uploader"
 msgstr "Dočasne aktivujte vylepšený nástroj na nahrávanie"
 
-#: src/Core/Backend/Page.php:1433
+#: src/Core/Backend/Page.php:1439
 msgid "Temporarily disable enhanced uploader"
 msgstr "Dočasne zakážte vylepšený nástroj na nahrávanie"
 
-#: src/Core/Backend/Page.php:1437
+#: src/Core/Backend/Page.php:1443
 msgid "Limit exceeded."
 msgstr "Prekročený limit."
 
-#: src/Core/Backend/Page.php:1438
+#: src/Core/Backend/Page.php:1444
 msgid "File size exceeds allowed limit."
 msgstr "Veľkosť súboru prekračuje povolený limit."
 
-#: src/Core/Backend/Page.php:1439
+#: src/Core/Backend/Page.php:1445
 msgid "Canceled."
 msgstr "Zrušené."
 
-#: src/Core/Backend/Page.php:1440
+#: src/Core/Backend/Page.php:1446
 msgid "HTTP Error:"
 msgstr "Chyba HTTP:"
 
-#: src/Core/Backend/Page.php:1442 src/Process/Backend/Media.php:752
+#: src/Core/Backend/Page.php:1448 src/Process/Backend/Media.php:752
 msgid "Choose file"
 msgstr "Vyberte súbor"
 
-#: src/Core/Backend/Page.php:1443 src/Process/Backend/Media.php:758
+#: src/Core/Backend/Page.php:1449 src/Process/Backend/Media.php:758
 msgid "Choose files"
 msgstr "Vyberte súbory"
 
-#: src/Core/Backend/Page.php:1444 src/Process/Backend/LinkPopup.php:114
+#: src/Core/Backend/Page.php:1450 src/Process/Backend/LinkPopup.php:114
 #: src/Process/Backend/Media.php:305 src/Process/Backend/MediaItem.php:516
 #: src/Process/Backend/MediaItem.php:772 src/Process/Backend/Post.php:962
 #: src/Process/Backend/PostMedia.php:115
 msgid "Cancel"
 msgstr "Zrušiť"
 
-#: src/Core/Backend/Page.php:1445
+#: src/Core/Backend/Page.php:1451
 msgid "Clean"
 msgstr "Čistý"
 
-#: src/Core/Backend/Page.php:1447
+#: src/Core/Backend/Page.php:1453
 msgid "Send"
 msgstr "Odoslať"
 
-#: src/Core/Backend/Page.php:1448
+#: src/Core/Backend/Page.php:1454
 msgid "File successfully uploaded."
 msgstr "Súbor bol úspešne odovzdaný."
 
-#: src/Core/Backend/Page.php:1449
+#: src/Core/Backend/Page.php:1455
 msgid "No file in queue."
 msgstr "Žiadny súbor v rade."
 
-#: src/Core/Backend/Page.php:1450
+#: src/Core/Backend/Page.php:1456
 msgid "1 file in queue."
 msgstr "1 súbor v poradí."
 
-#: src/Core/Backend/Page.php:1451
+#: src/Core/Backend/Page.php:1457
 #, php-format
 msgid "%d files in queue."
 msgstr "%d súborov vo fronte."
 
-#: src/Core/Backend/Page.php:1452
+#: src/Core/Backend/Page.php:1458
 msgid "Queue error:"
 msgstr "Chyba frontu:"
 
-#: src/Core/Backend/Page.php:1491
+#: src/Core/Backend/Page.php:1497
 msgid "Cancel filters and display options"
 msgstr "Zrušte filtre a možnosti zobrazenia"
 
-#: src/Core/Backend/ThemeConfig.php:120
+#: src/Core/Backend/ThemeConfig.php:121
 #, php-format
 msgid "(%s)"
 msgstr "(%s)"
 
-#: src/Core/Backend/ThemeConfig.php:120
+#: src/Core/Backend/ThemeConfig.php:121
 #, php-format
 msgid "ratio %.1f"
 msgstr "pomer %.1f"
 
-#: src/Core/Backend/ThemeConfig.php:233 src/Core/Backend/ThemeConfig.php:387
+#: src/Core/Backend/ThemeConfig.php:234 src/Core/Backend/ThemeConfig.php:388
 msgid "The 'public' directory does not exist."
 msgstr "'verejný' adresár neexistuje."
 
-#: src/Core/Backend/ThemeConfig.php:240 src/Core/Backend/ThemeConfig.php:252
-#: src/Core/Backend/ThemeConfig.php:394 src/Core/Backend/ThemeConfig.php:406
+#: src/Core/Backend/ThemeConfig.php:241 src/Core/Backend/ThemeConfig.php:253
+#: src/Core/Backend/ThemeConfig.php:395 src/Core/Backend/ThemeConfig.php:407
 #, php-format
 msgid "The '%s' directory cannot be modified."
 msgstr "Adresár '%s' nie je možné upraviť."
 
-#: src/Core/Backend/ThemeConfig.php:374
+#: src/Core/Backend/ThemeConfig.php:375
 #, php-format
 msgid "The '%s' directory cannot be created."
 msgstr "Adresár '%s' nie je možné vytvoriť."
 
-#: src/Core/Backend/ThemeConfig.php:380
+#: src/Core/Backend/ThemeConfig.php:381
 msgid "At least one of the following functions is not available: imagecreatetruecolor, imagepng & imagecreatefrompng."
 msgstr "Aspoň jedna z nasledujúcich funkcií nie je dostupná: imagecreatetruecolor, imagepng & imagecreatefrompng."
 
-#: src/Core/Backend/ThemeConfig.php:426
+#: src/Core/Backend/ThemeConfig.php:427
 msgid "Unable to create images."
 msgstr "Nie je možné vytvárať obrázky."
 
-#: src/Core/Backend/ThemeConfig.php:433
+#: src/Core/Backend/ThemeConfig.php:434
 msgid "Invalid file type."
 msgstr "Neplatný typ súboru."
 
-#: src/Core/Backend/ThemeConfig.php:439 src/Helper/File/Manager.php:435
+#: src/Core/Backend/ThemeConfig.php:440 src/Helper/File/Manager.php:435
 #: src/Helper/File/Manager.php:475
 msgid "An error occurred while writing the file."
 msgstr "Pri zapisovaní súboru sa vyskytla chyba."
 
-#: src/Core/Backend/ThemeConfig.php:445
+#: src/Core/Backend/ThemeConfig.php:446
 #, php-format
 msgid "Uploaded image is not %s pixels wide."
 msgstr "Nahraný obrázok nie je široký %s pixelov."
@@ -2120,10 +2120,10 @@ msgstr "Aktualizujte vybrané témy"
 msgid "Update all themes from this list"
 msgstr "Aktualizujte všetky motívy z tohto zoznamu"
 
-#: src/Core/Backend/ThemesList.php:467 src/Core/Backend/ThemesList.php:508
-#: src/Core/Backend/ThemesList.php:546 src/Core/Backend/ThemesList.php:581
-#: src/Core/Backend/ThemesList.php:621 src/Core/Backend/ThemesList.php:655
-#: src/Core/Backend/ThemesList.php:705
+#: src/Core/Backend/ThemesList.php:467 src/Core/Backend/ThemesList.php:511
+#: src/Core/Backend/ThemesList.php:552 src/Core/Backend/ThemesList.php:590
+#: src/Core/Backend/ThemesList.php:632 src/Core/Backend/ThemesList.php:668
+#: src/Core/Backend/ThemesList.php:718
 msgid "No such theme."
 msgstr "Žiadna taká téma."
 
@@ -2132,7 +2132,7 @@ msgstr "Žiadna taká téma."
 msgid "Theme %s has been successfully selected."
 msgstr "Téma %s bola úspešne vybratá."
 
-#: src/Core/Backend/ThemesList.php:512
+#: src/Core/Backend/ThemesList.php:515
 msgid "Theme has been successfully activated."
 msgid_plural "Themes have been successuflly activated."
 msgstr[0] "Téma bola úspešne aktivovaná."
@@ -2140,11 +2140,11 @@ msgstr[1] "Témy boli úspešne aktivované."
 msgstr[2] "Témy boli úspešne aktivované."
 msgstr[3] "Témy boli úspešne aktivované."
 
-#: src/Core/Backend/ThemesList.php:550
+#: src/Core/Backend/ThemesList.php:556
 msgid "Some themes have not been deactivated."
 msgstr "Niektoré témy neboli deaktivované."
 
-#: src/Core/Backend/ThemesList.php:553
+#: src/Core/Backend/ThemesList.php:559
 msgid "Theme has been successfully deactivated."
 msgid_plural "Themes have been successuflly deactivated."
 msgstr[0] "Téma bola úspešne deaktivovaná."
@@ -2152,7 +2152,7 @@ msgstr[1] "Témy boli úspešne deaktivované."
 msgstr[2] "Témy boli úspešne deaktivované."
 msgstr[3] "Témy boli úspešne deaktivované."
 
-#: src/Core/Backend/ThemesList.php:585
+#: src/Core/Backend/ThemesList.php:594
 msgid "Theme has been successfully cloned."
 msgid_plural "Themes have been successuflly cloned."
 msgstr[0] "Téma bola úspešne naklonovaná."
@@ -2160,15 +2160,15 @@ msgstr[1] "Témy boli úspešne naklonované."
 msgstr[2] "Témy boli úspešne naklonované."
 msgstr[3] "Témy boli úspešne naklonované."
 
-#: src/Core/Backend/ThemesList.php:619
+#: src/Core/Backend/ThemesList.php:628
 msgid "You don't have permissions to delete this theme."
 msgstr "Nemáte povolenia na odstránenie tohto motívu."
 
-#: src/Core/Backend/ThemesList.php:623
+#: src/Core/Backend/ThemesList.php:636
 msgid "Some themes have not been delete."
 msgstr "Niektoré témy neboli odstránené."
 
-#: src/Core/Backend/ThemesList.php:626
+#: src/Core/Backend/ThemesList.php:639
 msgid "Theme has been successfully deleted."
 msgid_plural "Themes have been successuflly deleted."
 msgstr[0] "Téma bola úspešne odstránená."
@@ -2176,7 +2176,7 @@ msgstr[1] "Témy boli úspešne odstránené."
 msgstr[2] "Témy boli úspešne odstránené."
 msgstr[3] "Témy boli úspešne odstránené."
 
-#: src/Core/Backend/ThemesList.php:659
+#: src/Core/Backend/ThemesList.php:672
 msgid "Theme has been successfully installed."
 msgid_plural "Themes have been successfully installed."
 msgstr[0] "Téma bola úspešne nainštalovaná."
@@ -2184,7 +2184,7 @@ msgstr[1] "Témy boli úspešne nainštalované."
 msgstr[2] "Témy boli úspešne nainštalované."
 msgstr[3] "Témy boli úspešne nainštalované."
 
-#: src/Core/Backend/ThemesList.php:698
+#: src/Core/Backend/ThemesList.php:711
 msgid "Theme has been successfully updated."
 msgid_plural "Themes have been successfully updated."
 msgstr[0] "Téma bola úspešne aktualizovaná."
@@ -2192,16 +2192,16 @@ msgstr[1] "Témy boli úspešne aktualizované."
 msgstr[2] "Témy boli úspešne aktualizované."
 msgstr[3] "Témy boli úspešne aktualizované."
 
-#: src/Core/Backend/ThemesList.php:702
+#: src/Core/Backend/ThemesList.php:715
 #, php-format
 msgid "Following themes updates are locked: %s"
 msgstr "Nasledujúce aktualizácie tém sú uzamknuté: %s"
 
-#: src/Core/Backend/ThemesList.php:740
+#: src/Core/Backend/ThemesList.php:753
 msgid "The theme has been successfully updated."
 msgstr "Téma bola úspešne aktualizovaná."
 
-#: src/Core/Backend/ThemesList.php:741
+#: src/Core/Backend/ThemesList.php:754
 msgid "The theme has been successfully installed."
 msgstr "Téma bola úspešne nainštalovaná."
 
@@ -2364,13 +2364,13 @@ msgstr "Neplatné nastavenie dcNamespace: %s"
 msgid "Unable to retrieve settings:"
 msgstr "Nie je možné načítať nastavenia:"
 
-#: src/Core/BlogWorkspace.php:223 src/Core/BlogWorkspace.php:321
+#: src/Core/BlogWorkspace.php:223 src/Core/BlogWorkspace.php:326
 #, php-format
 msgid "%s is not a valid setting id"
 msgstr "%s nie je platné ID nastavenia"
 
-#: src/Core/BlogWorkspace.php:313 src/Core/BlogWorkspace.php:353
-#: src/Core/BlogWorkspace.php:376 src/Core/BlogWorkspace.php:396
+#: src/Core/BlogWorkspace.php:318 src/Core/BlogWorkspace.php:358
+#: src/Core/BlogWorkspace.php:381 src/Core/BlogWorkspace.php:401
 msgid "No namespace specified"
 msgstr "Nie je zadaný žiadny menný priestor"
 
@@ -2625,28 +2625,28 @@ msgstr "Koreňový adresár nie je zapisovateľný."
 msgid "An error occurred while downloading archive."
 msgstr "Pri sťahovaní archívu sa vyskytla chyba."
 
-#: src/Core/Upgrade/Update.php:434 src/Core/Upgrade/Update.php:529
+#: src/Core/Upgrade/Update.php:434 src/Core/Upgrade/Update.php:532
 msgid "Archive not found."
 msgstr "Archív sa nenašiel."
 
-#: src/Core/Upgrade/Update.php:440 src/Core/Upgrade/Update.php:535
+#: src/Core/Upgrade/Update.php:440 src/Core/Upgrade/Update.php:538
 msgid "Unable to read current digests file."
 msgstr "Nie je možné prečítať aktuálny súbor súhrnov."
 
 #: src/Core/Upgrade/Update.php:463 src/Core/Upgrade/Update.php:471
-#: src/Core/Upgrade/Update.php:543 src/Core/Upgrade/Update.php:551
+#: src/Core/Upgrade/Update.php:546 src/Core/Upgrade/Update.php:554
 msgid "Downloaded file does not seem to be a valid archive."
 msgstr "Zdá sa, že stiahnutý súbor nie je platným archívom."
 
-#: src/Core/Upgrade/Update.php:576
+#: src/Core/Upgrade/Update.php:579
 msgid "Incomplete archive."
 msgstr "Neúplný archív."
 
-#: src/Core/Upgrade/Update.php:676 src/Process/Upgrade/Digests.php:299
+#: src/Core/Upgrade/Update.php:679 src/Process/Upgrade/Digests.php:299
 msgid "Unable to read digests file."
 msgstr "Nie je možné prečítať súbor súhrnov."
 
-#: src/Core/Upgrade/Update.php:704 src/Process/Upgrade/Digests.php:341
+#: src/Core/Upgrade/Update.php:707 src/Process/Upgrade/Digests.php:341
 msgid "Invalid digests file."
 msgstr "Neplatný súbor súhrnov."
 
@@ -2731,13 +2731,13 @@ msgstr "Neplatný dcWorkspace: %s"
 msgid "Unable to retrieve prefs:"
 msgstr "Nie je možné načítať predvoľby:"
 
-#: src/Core/UserWorkspace.php:226 src/Core/UserWorkspace.php:324
+#: src/Core/UserWorkspace.php:226 src/Core/UserWorkspace.php:329
 #, php-format
 msgid "%s is not a valid pref id"
 msgstr "%s nie je platné ID predvoľby"
 
-#: src/Core/UserWorkspace.php:316 src/Core/UserWorkspace.php:351
-#: src/Core/UserWorkspace.php:384 src/Core/UserWorkspace.php:414
+#: src/Core/UserWorkspace.php:321 src/Core/UserWorkspace.php:356
+#: src/Core/UserWorkspace.php:389 src/Core/UserWorkspace.php:419
 msgid "No workspace specified"
 msgstr "Nie je zadaný žiadny pracovný priestor"
 
@@ -2770,15 +2770,15 @@ msgstr "SQL DELETE vyžaduje zdroj FROM"
 msgid "SQL DROP TABLE requires a FROM source"
 msgstr "SQL DROP TABLE vyžaduje zdroj FROM"
 
-#: src/Database/Statement/InsertStatement.php:131
+#: src/Database/Statement/InsertStatement.php:120
 msgid "SQL INSERT requires an INTO source"
 msgstr "SQL INSERT vyžaduje zdroj INTO"
 
-#: src/Database/Statement/JoinStatement.php:91
+#: src/Database/Statement/JoinStatement.php:79
 msgid "SQL JOIN requires a FROM source"
 msgstr "SQL JOIN vyžaduje zdroj FROM"
 
-#: src/Database/Statement/SelectStatement.php:258
+#: src/Database/Statement/SelectStatement.php:247
 msgid "SQL SELECT requires a FROM source"
 msgstr "SQL SELECT vyžaduje zdroj FROM"
 
@@ -2786,7 +2786,7 @@ msgstr "SQL SELECT vyžaduje zdroj FROM"
 msgid "SQL TRUNCATE TABLE requires a FROM source"
 msgstr "SQL TRUNCATE TABLE vyžaduje zdroj FROM"
 
-#: src/Database/Statement/UpdateStatement.php:202
+#: src/Database/Statement/UpdateStatement.php:191
 msgid "SQL UPDATE requires a FROM source"
 msgstr "SQL UPDATE vyžaduje zdroj FROM"
 
@@ -2819,76 +2819,76 @@ msgstr "Zlý kontext (vymazané)"
 msgid "Invalid diff format"
 msgstr "Neplatný formát rozdielu"
 
-#: src/Helper/File/Files.php:350
+#: src/Helper/File/Files.php:351
 msgid "Unable to create directory."
 msgstr "Nie je možné vytvoriť adresár."
 
-#: src/Helper/File/Files.php:393
+#: src/Helper/File/Files.php:394
 msgid "File is not writable."
 msgstr "Súbor nie je zapisovateľný."
 
-#: src/Helper/File/Files.php:399
+#: src/Helper/File/Files.php:400
 msgid "Unable to open file."
 msgstr "Súbor nie je možné otvoriť."
 
-#: src/Helper/File/Files.php:465
+#: src/Helper/File/Files.php:472
 msgid "Not an uploaded file."
 msgstr "Nejde o nahraný súbor."
 
-#: src/Helper/File/Files.php:474
+#: src/Helper/File/Files.php:481
 msgid "The uploaded file exceeds the maximum file size allowed."
 msgstr "Odovzdaný súbor presahuje maximálnu povolenú veľkosť súboru."
 
-#: src/Helper/File/Files.php:476
+#: src/Helper/File/Files.php:483
 msgid "The uploaded file was only partially uploaded."
 msgstr "Odovzdaný súbor bol odovzdaný iba čiastočne."
 
-#: src/Helper/File/Files.php:478
+#: src/Helper/File/Files.php:485
 msgid "No file was uploaded."
 msgstr "Nebol odovzdaný žiadny súbor."
 
-#: src/Helper/File/Files.php:480
+#: src/Helper/File/Files.php:487
 msgid "Missing a temporary folder."
 msgstr "Chýba dočasný priečinok."
 
-#: src/Helper/File/Files.php:482
+#: src/Helper/File/Files.php:489
 msgid "Failed to write file to disk."
 msgstr "Nepodarilo sa zapísať súbor na disk."
 
-#: src/Helper/File/Files.php:484
+#: src/Helper/File/Files.php:491
 msgid "A PHP extension stopped the file upload."
 msgstr "Rozšírenie PHP zastavilo nahrávanie súboru."
 
-#: src/Helper/File/Files.php:515
+#: src/Helper/File/Files.php:522
 #, php-format
 msgid "%s is not a directory."
 msgstr "%s nie je adresár."
 
-#: src/Helper/File/Files.php:566
+#: src/Helper/File/Files.php:573
 msgid "Can't get file path"
 msgstr "Nie je možné získať cestu k súboru"
 
-#: src/Helper/File/Files.php:573
+#: src/Helper/File/Files.php:580
 msgid "Can't lock a directory"
 msgstr "Adresár sa nedá uzamknúť"
 
-#: src/Helper/File/Files.php:585
+#: src/Helper/File/Files.php:592
 msgid "Can't call php function named flock"
 msgstr "Nie je možné zavolať funkciu php s názvom flock"
 
-#: src/Helper/File/Files.php:599
+#: src/Helper/File/Files.php:606
 msgid "Can't create file"
 msgstr "Nie je možné vytvoriť súbor"
 
-#: src/Helper/File/Files.php:608
+#: src/Helper/File/Files.php:615
 msgid "Can't open file"
 msgstr "Súbor sa nedá otvoriť"
 
-#: src/Helper/File/Files.php:616
+#: src/Helper/File/Files.php:623
 msgid "Can't lock file"
 msgstr "Súbor sa nedá uzamknúť"
 
-#: src/Helper/File/Files.php:637 src/Helper/File/Manager.php:566
+#: src/Helper/File/Files.php:644 src/Helper/File/Manager.php:566
 #: src/Helper/File/Manager.php:570
 msgid "File cannot be removed."
 msgstr "Súbor nemožno odstrániť."
@@ -2956,7 +2956,7 @@ msgstr "Nie je možné zapísať cieľový súbor."
 msgid "Unable to write in target directory, permission denied."
 msgstr "Nedá sa zapisovať do cieľového adresára, povolenie bolo odmietnuté."
 
-#: src/Helper/File/Zip/Unzip.php:738 src/Helper/File/Zip/Zip.php:463
+#: src/Helper/File/Zip/Unzip.php:738 src/Helper/File/Zip/Zip.php:466
 msgid "Not enough memory to open file."
 msgstr "Nedostatok pamäte na otvorenie súboru."
 
@@ -2976,22 +2976,22 @@ msgstr "Adresár neexistuje"
 msgid "Cannot read directory"
 msgstr "Adresár sa nedá prečítať"
 
-#: src/Helper/File/Zip/Zip.php:315
+#: src/Helper/File/Zip/Zip.php:318
 msgid "Unable to write ZIP archive"
 msgstr "Nie je možné zapísať archív ZIP"
 
-#: src/Helper/Html/Template/Template.php:660
-#: src/Helper/Html/Template/Template.php:710
+#: src/Helper/Html/Template/Template.php:664
+#: src/Helper/Html/Template/Template.php:714
 #, php-format
 msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
 msgstr "Nenašla sa uzatváracia značka pre blok <tpl:%s>. Obsah bol ignorovaný."
 
-#: src/Helper/Html/Template/Template.php:667
+#: src/Helper/Html/Template/Template.php:671
 #, php-format
 msgid "Unexpected closing tag </tpl:%s> found."
 msgstr "Našla sa neočakávaná uzatváracia značka </tpl:%s> ."
 
-#: src/Helper/Html/Template/Template.php:717
+#: src/Helper/Html/Template/Template.php:721
 msgid "WARNING: the following errors have been found while parsing template file :"
 msgstr "UPOZORNENIE: Pri analýze súboru šablóny sa našli nasledujúce chyby:"
 
@@ -3031,7 +3031,7 @@ msgstr "Odvolanie pripojenia %s"
 msgid "Failed to retrieve user ID from this provider"
 msgstr "Nepodarilo sa načítať ID používateľa od tohto poskytovateľa"
 
-#: src/Helper/OAuth2/Client/Client.php:312
+#: src/Helper/OAuth2/Client/Client.php:314
 msgid "No user ID linked to this provider"
 msgstr "S týmto poskytovateľom nie je spojené žiadne ID používateľa"
 
@@ -3096,78 +3096,78 @@ msgstr "Postavenie:"
 msgid "Unknown passkey"
 msgstr "Neznámy prístupový kľúč"
 
-#: src/Module/Modules.php:233
+#: src/Module/Modules.php:239
 #, php-format
 msgid "Module \"%1$s\" requires module \"%2$s\" which is not installed"
 msgstr "Modul \"%1$s\" vyžaduje modul \"%2$s\", ktorý nie je nainštalovaný"
 
-#: src/Module/Modules.php:246
+#: src/Module/Modules.php:252
 #, php-format
 msgid "Module \"%1$s\" requires \"%2$s\" version %3$s, but version %4$s is installed"
 msgstr "Modul \"%1$s\" vyžaduje \"%2$s\" verziu %3$s, ale je nainštalovaná verzia %4$s"
 
-#: src/Module/Modules.php:254
+#: src/Module/Modules.php:260
 #, php-format
 msgid "Module \"%1$s\" requires module \"%2$s\" which is disabled"
 msgstr "Modul \"%1$s\" vyžaduje modul \"%2$s\", ktorý je vypnutý"
 
-#: src/Module/Modules.php:611
+#: src/Module/Modules.php:625
 #, php-format
 msgid "Module \"%1$s\" has type \"%2$s\" that mismatch required module type \"%3$s\"."
 msgstr "Modul \"%1$s\" má typ \"%2$s\", ktorý sa nezhoduje s požadovaným typom modulu \"%3$s\"."
 
-#: src/Module/Modules.php:637
+#: src/Module/Modules.php:651
 #, php-format
 msgid "Module \"%1$s\" is installed twice in \"%2$s\" and \"%3$s\"."
 msgstr "Modul \"%1$s\" je nainštalovaný dvakrát v \"%2$s\" a \"%3$s\"."
 
-#: src/Module/Modules.php:710
+#: src/Module/Modules.php:724
 msgid "Empty module zip file."
 msgstr "Prázdny súbor zip modulu."
 
-#: src/Module/Modules.php:717
+#: src/Module/Modules.php:731
 msgid "The zip file does not appear to be a valid Dotclear module."
 msgstr "Zdá sa, že súbor zip nie je platným modulom Dotclear."
 
-#: src/Module/Modules.php:752 src/Module/Modules.php:789
+#: src/Module/Modules.php:766 src/Module/Modules.php:803
 #, php-format
 msgid "Module is not installed: %s"
 msgstr "Modul nie je nainštalovaný: %s"
 
-#: src/Module/Modules.php:804
+#: src/Module/Modules.php:818
 #, php-format
 msgid "Unable to upgrade \"%s\". (update locked)"
 msgstr "Nie je možné aktualizovať \"%s\". (aktualizácia je uzamknutá)"
 
-#: src/Module/Modules.php:808
+#: src/Module/Modules.php:824
 msgid "An error occurred during module deletion."
 msgstr "Počas odstraňovania modulu sa vyskytla chyba."
 
-#: src/Module/Modules.php:816
+#: src/Module/Modules.php:832
 #, php-format
 msgid "Unable to upgrade \"%s\". (older or same version)"
 msgstr "Nie je možné aktualizovať \"%s\". (staršia alebo rovnaká verzia)"
 
-#: src/Module/Modules.php:822
+#: src/Module/Modules.php:838
 #, php-format
 msgid "Unable to read new %s file"
 msgstr "Nedá sa prečítať nový súbor %s"
 
-#: src/Module/Modules.php:831 src/Module/Modules.php:948
-#: src/Module/Modules.php:952
+#: src/Module/Modules.php:847 src/Module/Modules.php:964
+#: src/Module/Modules.php:968
 msgid "Cannot deactivate plugin."
 msgstr "Plugin nie je možné deaktivovať."
 
-#: src/Module/Modules.php:924 src/Module/Modules.php:944
-#: src/Module/Modules.php:968
+#: src/Module/Modules.php:940 src/Module/Modules.php:960
+#: src/Module/Modules.php:984
 msgid "No such module."
 msgstr "Žiadny takýto modul."
 
-#: src/Module/Modules.php:928
+#: src/Module/Modules.php:944
 msgid "Cannot remove module files"
 msgstr "Nie je možné odstrániť súbory modulu"
 
-#: src/Module/Modules.php:972 src/Module/Modules.php:976
+#: src/Module/Modules.php:988 src/Module/Modules.php:992
 msgid "Cannot activate plugin."
 msgstr "Nie je možné aktivovať doplnok."
 
@@ -3318,7 +3318,7 @@ msgstr "Požiadajte o nové heslo"
 msgid "recover"
 msgstr "zotaviť sa"
 
-#: src/Process/Backend/Auth.php:528 src/Process/Backend/Auth.php:719
+#: src/Process/Backend/Auth.php:528 src/Process/Backend/Auth.php:720
 msgid "Other option"
 msgstr "Iná možnosť"
 
@@ -3340,7 +3340,7 @@ msgstr "Potvrďte heslo:"
 msgid "change"
 msgstr "zmeniť"
 
-#: src/Process/Backend/Auth.php:574 src/Process/Backend/UserPreferences.php:886
+#: src/Process/Backend/Auth.php:574 src/Process/Backend/UserPreferences.php:889
 #: src/Process/Upgrade/Auth.php:292
 msgid "Two factors authentication"
 msgstr "Dvojfaktorové overovanie"
@@ -3378,27 +3378,27 @@ msgstr "Prihlásiť sa"
 msgid "Sign in with a passkey"
 msgstr "Prihlásenie pomocou prístupového kľúča"
 
-#: src/Process/Backend/Auth.php:704
+#: src/Process/Backend/Auth.php:705
 msgid "Third party applications connections"
 msgstr "Pripojenia aplikácií tretích strán"
 
-#: src/Process/Backend/Auth.php:713 src/Process/Upgrade/Auth.php:357
+#: src/Process/Backend/Auth.php:714 src/Process/Upgrade/Auth.php:357
 msgid "You must accept cookies in order to use the private area."
 msgstr "Ak chcete používať súkromnú oblasť, musíte akceptovať súbory cookie."
 
-#: src/Process/Backend/Auth.php:725
+#: src/Process/Backend/Auth.php:726
 msgid "Get back to normal authentication"
 msgstr "Vráťte sa k normálnemu overovaniu"
 
-#: src/Process/Backend/Auth.php:730
+#: src/Process/Backend/Auth.php:731
 msgid "Connection issue?"
 msgstr "Problém s pripojením?"
 
-#: src/Process/Backend/Auth.php:737
+#: src/Process/Backend/Auth.php:738
 msgid "I forgot my password"
 msgstr "Zabudol som svoje heslo"
 
-#: src/Process/Backend/Auth.php:744
+#: src/Process/Backend/Auth.php:745
 msgid "I want to log in in safe mode"
 msgstr "Chcem sa prihlásiť v núdzovom režime"
 
@@ -4091,33 +4091,33 @@ msgstr[1] "K dispozícii je %s aktualizácií tém:"
 msgstr[2] "K dispozícii je %s aktualizácií tém:"
 msgstr[3] "K dispozícii je %s aktualizácií tém:"
 
-#: src/Process/Backend/BlogTheme.php:312 src/Process/Backend/BlogTheme.php:349
+#: src/Process/Backend/BlogTheme.php:312 src/Process/Backend/BlogTheme.php:348
 #, php-format
 msgid "Visit %s themes repository."
 msgstr "Navštívte úložisko tém %s."
 
-#: src/Process/Backend/BlogTheme.php:341
+#: src/Process/Backend/BlogTheme.php:340
 msgid "Add themes"
 msgstr "Pridajte motívy"
 
-#: src/Process/Backend/BlogTheme.php:344
+#: src/Process/Backend/BlogTheme.php:343
 msgid "Add themes from repository"
 msgstr "Pridajte témy z úložiska"
 
-#: src/Process/Backend/BlogTheme.php:359 src/Process/Backend/Plugins.php:342
+#: src/Process/Backend/BlogTheme.php:357 src/Process/Backend/Plugins.php:340
 #: src/Process/Upgrade/Plugins.php:333
 msgid "Install or upgrade manually"
 msgstr "Nainštalujte alebo inovujte manuálne"
 
-#: src/Process/Backend/BlogTheme.php:362
+#: src/Process/Backend/BlogTheme.php:360
 msgid "Add themes from a package"
 msgstr "Pridajte motívy z balíka"
 
-#: src/Process/Backend/BlogTheme.php:365
+#: src/Process/Backend/BlogTheme.php:363
 msgid "You can install themes by uploading or downloading zip files."
 msgstr "Témy môžete nainštalovať nahraním alebo stiahnutím súborov zip."
 
-#: src/Process/Backend/BlogTheme.php:381
+#: src/Process/Backend/BlogTheme.php:379
 msgid "Some functions are disabled, please give write access to your themes directory to enable them."
 msgstr "Niektoré funkcie sú vypnuté, povoľte prístup k zápisu do svojho adresára tém."
 
@@ -4224,7 +4224,7 @@ msgid "total:"
 msgstr "Celkom:"
 
 #: src/Process/Backend/Categories.php:363 src/Process/Backend/Category.php:278
-#: src/Process/Backend/User.php:475 src/Process/Backend/UserPreferences.php:841
+#: src/Process/Backend/User.php:475 src/Process/Backend/UserPreferences.php:844
 msgid "URL:"
 msgstr "URL:"
 
@@ -4385,7 +4385,7 @@ msgid "Delete all spams"
 msgstr "Odstrániť všetky spamy"
 
 #: src/Process/Backend/Comments.php:214 src/Process/Backend/Post.php:1054
-#: src/Process/Backend/Search.php:406
+#: src/Process/Backend/Search.php:408
 msgid "Selected comments action:"
 msgstr "Vybraná akcia komentárov:"
 
@@ -5184,7 +5184,7 @@ msgstr[1] "K dispozícii sú %s aktualizácie doplnkov:"
 msgstr[2] "K dispozícii sú %s aktualizácie doplnkov:"
 msgstr[3] "K dispozícii sú %s aktualizácie doplnkov:"
 
-#: src/Process/Backend/Plugins.php:277 src/Process/Backend/Plugins.php:334
+#: src/Process/Backend/Plugins.php:277 src/Process/Backend/Plugins.php:333
 #: src/Process/Upgrade/Plugins.php:266 src/Process/Upgrade/Plugins.php:325
 #, php-format
 msgid "Visit %s plugins repository."
@@ -5199,27 +5199,27 @@ msgstr "Aktualizujte doplnky"
 msgid "Force checking update of plugins"
 msgstr "Vynútiť kontrolu aktualizácie doplnkov"
 
-#: src/Process/Backend/Plugins.php:314 src/Process/Upgrade/Plugins.php:305
+#: src/Process/Backend/Plugins.php:313 src/Process/Upgrade/Plugins.php:305
 msgid "Add plugins"
 msgstr "Pridajte doplnky"
 
-#: src/Process/Backend/Plugins.php:317 src/Process/Upgrade/Plugins.php:308
+#: src/Process/Backend/Plugins.php:316 src/Process/Upgrade/Plugins.php:308
 msgid "Add plugins from repository"
 msgstr "Pridajte pluginy z úložiska"
 
-#: src/Process/Backend/Plugins.php:345 src/Process/Upgrade/Plugins.php:336
+#: src/Process/Backend/Plugins.php:343 src/Process/Upgrade/Plugins.php:336
 msgid "Add plugins from a package"
 msgstr "Pridajte doplnky z balíka"
 
-#: src/Process/Backend/Plugins.php:348 src/Process/Upgrade/Plugins.php:339
+#: src/Process/Backend/Plugins.php:346 src/Process/Upgrade/Plugins.php:339
 msgid "You can install plugins by uploading or downloading zip files."
 msgstr "Doplnky môžete nainštalovať nahraním alebo stiahnutím súborov zip."
 
-#: src/Process/Backend/Plugins.php:364 src/Process/Upgrade/Plugins.php:352
+#: src/Process/Backend/Plugins.php:362 src/Process/Upgrade/Plugins.php:352
 msgid "Some functions are disabled, please give write access to your plugins directory to enable them."
 msgstr "Niektoré funkcie sú vypnuté, povoľte, prosím, prístup k zápisu do vášho adresára pluginov."
 
-#: src/Process/Backend/Plugins.php:396
+#: src/Process/Backend/Plugins.php:394
 msgid "Plugin configuration"
 msgstr "Konfigurácia pluginu"
 
@@ -5417,7 +5417,7 @@ msgstr "Vybrané položky boli úspešne aktualizované."
 msgid "Selected entries have been successfully deleted."
 msgstr "Vybrané položky boli úspešne odstránené."
 
-#: src/Process/Backend/Posts.php:136 src/Process/Backend/Search.php:310
+#: src/Process/Backend/Posts.php:136 src/Process/Backend/Search.php:312
 msgid "Selected entries action:"
 msgstr "Akcia vybratých záznamov:"
 
@@ -5530,7 +5530,7 @@ msgstr "Hľadať v záznamoch"
 msgid "Search in comments"
 msgstr "Hľadajte v komentároch"
 
-#: src/Process/Backend/Search.php:289
+#: src/Process/Backend/Search.php:291
 #, php-format
 msgid "one entry found"
 msgid_plural "%d entries found"
@@ -5539,7 +5539,7 @@ msgstr[1] "Našlo sa %d záznamov"
 msgstr[2] "Našlo sa %d záznamov"
 msgstr[3] "Našlo sa %d záznamov"
 
-#: src/Process/Backend/Search.php:377
+#: src/Process/Backend/Search.php:379
 #, php-format
 msgid "one comment found"
 msgid_plural "%d comments found"
@@ -5670,17 +5670,17 @@ msgstr "POZOR:"
 msgid "Password change required to connect"
 msgstr "Na pripojenie je potrebná zmena hesla"
 
-#: src/Process/Backend/User.php:419 src/Process/Backend/UserPreferences.php:789
+#: src/Process/Backend/User.php:419 src/Process/Backend/UserPreferences.php:792
 #: src/Process/Install/Install.php:500
 msgid "Last Name:"
 msgstr "Priezvisko:"
 
-#: src/Process/Backend/User.php:429 src/Process/Backend/UserPreferences.php:799
+#: src/Process/Backend/User.php:429 src/Process/Backend/UserPreferences.php:802
 #: src/Process/Install/Install.php:491
 msgid "First Name:"
 msgstr "Krstné meno:"
 
-#: src/Process/Backend/User.php:439 src/Process/Backend/UserPreferences.php:809
+#: src/Process/Backend/User.php:439 src/Process/Backend/UserPreferences.php:812
 msgid "Display name:"
 msgstr "Zobraziť meno:"
 
@@ -5688,24 +5688,24 @@ msgstr "Zobraziť meno:"
 msgid "Mandatory for password recovering procedure."
 msgstr "Povinné pre postup obnovenia hesla."
 
-#: src/Process/Backend/User.php:462 src/Process/Backend/UserPreferences.php:828
+#: src/Process/Backend/User.php:462 src/Process/Backend/UserPreferences.php:831
 msgid "Alternate emails (comma separated list):"
 msgstr "Alternatívne e-maily (zoznam oddelený čiarkami):"
 
-#: src/Process/Backend/User.php:466 src/Process/Backend/UserPreferences.php:832
+#: src/Process/Backend/User.php:466 src/Process/Backend/UserPreferences.php:835
 msgid "Invalid emails will be automatically removed from list."
 msgstr "Neplatné e-maily budú automaticky odstránené zo zoznamu."
 
-#: src/Process/Backend/User.php:484 src/Process/Backend/UserPreferences.php:850
+#: src/Process/Backend/User.php:484 src/Process/Backend/UserPreferences.php:853
 msgid "Alternate URLs (comma separated list):"
 msgstr "Alternatívne adresy URL (zoznam oddelený čiarkami):"
 
-#: src/Process/Backend/User.php:488 src/Process/Backend/UserPreferences.php:854
+#: src/Process/Backend/User.php:488 src/Process/Backend/UserPreferences.php:857
 msgid "Invalid URLs will be automatically removed from list."
 msgstr "Neplatné adresy URL budú automaticky odstránené zo zoznamu."
 
 #: src/Process/Backend/User.php:494
-#: src/Process/Backend/UserPreferences.php:1022
+#: src/Process/Backend/UserPreferences.php:1025
 msgid "Interface"
 msgstr "Rozhranie"
 
@@ -5714,22 +5714,22 @@ msgid "Timezone:"
 msgstr "Časové pásmo:"
 
 #: src/Process/Backend/User.php:510
-#: src/Process/Backend/UserPreferences.php:1155
+#: src/Process/Backend/UserPreferences.php:1158
 msgid "Edition"
 msgstr "Vydanie"
 
 #: src/Process/Backend/User.php:516
-#: src/Process/Backend/UserPreferences.php:1167
+#: src/Process/Backend/UserPreferences.php:1170
 msgid "Preferred format:"
 msgstr "Preferovaný formát:"
 
 #: src/Process/Backend/User.php:523
-#: src/Process/Backend/UserPreferences.php:1175
+#: src/Process/Backend/UserPreferences.php:1178
 msgid "Default entry status:"
 msgstr "Predvolený stav položky:"
 
 #: src/Process/Backend/User.php:528
-#: src/Process/Backend/UserPreferences.php:1181
+#: src/Process/Backend/UserPreferences.php:1184
 msgid "Entry edit field height:"
 msgstr "Výška poľa úpravy záznamu:"
 
@@ -5938,275 +5938,275 @@ msgstr "platí na %s"
 msgid "You have no registered key yet."
 msgstr "Zatiaľ nemáte zaregistrovaný žiadny kľúč."
 
-#: src/Process/Backend/UserPreferences.php:747
+#: src/Process/Backend/UserPreferences.php:750
 msgid "Linked to account:"
 msgstr "Prepojené s účtom:"
 
-#: src/Process/Backend/UserPreferences.php:774
-#: src/Process/Backend/UserPreferences.php:776
+#: src/Process/Backend/UserPreferences.php:777
+#: src/Process/Backend/UserPreferences.php:779
 msgid "My profile"
 msgstr "Môj profil"
 
-#: src/Process/Backend/UserPreferences.php:861
+#: src/Process/Backend/UserPreferences.php:864
 msgid "Language for my interface:"
 msgstr "Jazyk pre moje rozhranie:"
 
-#: src/Process/Backend/UserPreferences.php:869
+#: src/Process/Backend/UserPreferences.php:872
 msgid "My timezone:"
 msgstr "Moje časové pásmo:"
 
-#: src/Process/Backend/UserPreferences.php:878
+#: src/Process/Backend/UserPreferences.php:881
 msgid "Update my profile"
 msgstr "Aktualizovať môj profil"
 
-#: src/Process/Backend/UserPreferences.php:891
+#: src/Process/Backend/UserPreferences.php:894
 msgid "Authentication keys"
 msgstr "Autentifikačné kľúče"
 
-#: src/Process/Backend/UserPreferences.php:898
+#: src/Process/Backend/UserPreferences.php:901
 msgid "Register a new key"
 msgstr "Registrácia nového kľúča"
 
-#: src/Process/Backend/UserPreferences.php:904
+#: src/Process/Backend/UserPreferences.php:907
 msgid "Authentication applications"
 msgstr "Aplikácie overovania"
 
-#: src/Process/Backend/UserPreferences.php:971
+#: src/Process/Backend/UserPreferences.php:974
 msgid "List"
 msgstr "Zoznam"
 
-#: src/Process/Backend/UserPreferences.php:973
+#: src/Process/Backend/UserPreferences.php:976
 msgid "Order by"
 msgstr "Zoradiť podľa"
 
-#: src/Process/Backend/UserPreferences.php:975
+#: src/Process/Backend/UserPreferences.php:978
 msgid "Sort"
 msgstr "Triediť"
 
-#: src/Process/Backend/UserPreferences.php:988
+#: src/Process/Backend/UserPreferences.php:991
 #, php-format
 msgid "Preferred editor for %s:"
 msgstr "Preferovaný editor pre %s:"
 
-#: src/Process/Backend/UserPreferences.php:993
+#: src/Process/Backend/UserPreferences.php:996
 msgid "Choose an editor"
 msgstr "Vyberte editor"
 
-#: src/Process/Backend/UserPreferences.php:1014
-#: src/Process/Backend/UserPreferences.php:1020
+#: src/Process/Backend/UserPreferences.php:1017
+#: src/Process/Backend/UserPreferences.php:1023
 msgid "My options"
 msgstr "Moje možnosti"
 
-#: src/Process/Backend/UserPreferences.php:1029
+#: src/Process/Backend/UserPreferences.php:1032
 msgid "Theme:"
 msgstr "téma:"
 
-#: src/Process/Backend/UserPreferences.php:1035
+#: src/Process/Backend/UserPreferences.php:1038
 msgid "Activate enhanced uploader in media manager"
 msgstr "Aktivujte vylepšený nástroj na nahrávanie v správcovi médií"
 
-#: src/Process/Backend/UserPreferences.php:1041
+#: src/Process/Backend/UserPreferences.php:1044
 msgid "Preview the entry being edited in a blank window or tab (depending on your browser settings)."
 msgstr "Zobrazte ukážku upravovaného záznamu v prázdnom okne alebo karte (v závislosti od nastavení prehliadača)."
 
-#: src/Process/Backend/UserPreferences.php:1048
+#: src/Process/Backend/UserPreferences.php:1051
 msgid "Disable javascript powered drag and drop for ordering items"
 msgstr "Zakázať presúvanie pomocou javascriptu pri objednávaní položiek"
 
-#: src/Process/Backend/UserPreferences.php:1052
+#: src/Process/Backend/UserPreferences.php:1055
 msgid "If checked, numeric fields will allow to type the elements' ordering number."
 msgstr "Ak je začiarknuté, číselné polia umožnia zadať objednávacie číslo prvkov."
 
-#: src/Process/Backend/UserPreferences.php:1057
+#: src/Process/Backend/UserPreferences.php:1060
 msgid "Hide all secondary information and notes"
 msgstr "Skryť všetky sekundárne informácie a poznámky"
 
-#: src/Process/Backend/UserPreferences.php:1063
+#: src/Process/Backend/UserPreferences.php:1066
 msgid "Hide help button"
 msgstr "Skryť tlačidlo pomocníka"
 
-#: src/Process/Backend/UserPreferences.php:1070
+#: src/Process/Backend/UserPreferences.php:1073
 msgid "Font size:"
 msgstr "Veľkosť písma:"
 
-#: src/Process/Backend/UserPreferences.php:1076
+#: src/Process/Backend/UserPreferences.php:1079
 msgid "Use dynamic letter spacing"
 msgstr "Používanie dynamických medzier medzi písmenami"
 
-#: src/Process/Backend/UserPreferences.php:1080
+#: src/Process/Backend/UserPreferences.php:1083
 msgid "If checked, the larger the font size in interface texts, the smaller the space between characters will be, and vice versa."
 msgstr "Ak je začiarknuté, čím väčšia je veľkosť písma v textoch rozhrania, tým menšia je medzera medzi znakmi a naopak."
 
-#: src/Process/Backend/UserPreferences.php:1085
+#: src/Process/Backend/UserPreferences.php:1088
 msgid "Use operating system font"
 msgstr "Použite písmo operačného systému"
 
-#: src/Process/Backend/UserPreferences.php:1091
+#: src/Process/Backend/UserPreferences.php:1094
 msgid "Number of recent folders proposed in media manager:"
 msgstr "Počet nedávnych priečinkov navrhnutých v správcovi médií:"
 
-#: src/Process/Backend/UserPreferences.php:1095
+#: src/Process/Backend/UserPreferences.php:1098
 msgid "Set to 0 (zero) to ignore, displayed only if Javascript is enabled in your browser."
 msgstr "Nastavte na 0 (nula), aby sa ignoroval, zobrazí sa len vtedy, ak je v prehliadači povolený Javascript."
 
-#: src/Process/Backend/UserPreferences.php:1102
+#: src/Process/Backend/UserPreferences.php:1105
 msgid "Do not use standard favicon"
 msgstr "Nepoužívajte štandardnú favicon"
 
-#: src/Process/Backend/UserPreferences.php:1103
+#: src/Process/Backend/UserPreferences.php:1106
 msgid "This will be applied for all users"
 msgstr "Toto bude platiť pre všetkých používateľov"
 
-#: src/Process/Backend/UserPreferences.php:1113
+#: src/Process/Backend/UserPreferences.php:1116
 msgid "Disable Ad-blocker check"
 msgstr "Zakázať kontrolu blokovania reklám"
 
-#: src/Process/Backend/UserPreferences.php:1117
+#: src/Process/Backend/UserPreferences.php:1120
 msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
 msgstr "Niektoré blokátory reklám (Ghostery, Adblock plus, pôvod uBloc, …) môžu zasahovať do niektorých funkcií, ako je vkladanie odkazov alebo médií do záznamov pomocou CKEditor; v tomto prípade by ste ho mali zakázať pre túto inštaláciu Dotclear (iba backend). Upozorňujeme, že Dotclear nepridáva reklamy alebo sledovače do backendu."
 
-#: src/Process/Backend/UserPreferences.php:1120
+#: src/Process/Backend/UserPreferences.php:1123
 msgid "Note also that deactivating this detection of ad blockers will not deactivate the installed ad blockers. Dotclear cannot interfere with the operation of browser extensions!"
 msgstr "Upozorňujeme tiež, že deaktivácia tejto detekcie blokovačov reklám nedeaktivuje nainštalované blokátory reklám. Dotclear nemôže zasahovať do fungovania rozšírení prehliadača!"
 
-#: src/Process/Backend/UserPreferences.php:1128
+#: src/Process/Backend/UserPreferences.php:1131
 msgid "Quick menu character:"
 msgstr "Znak rýchleho menu:"
 
-#: src/Process/Backend/UserPreferences.php:1132
+#: src/Process/Backend/UserPreferences.php:1135
 msgid "Leave empty to use the default character <kbd>:</kbd>"
 msgstr "Ak chcete použiť predvolený znak <kbd>, nechajte pole prázdne:</kbd>"
 
-#: src/Process/Backend/UserPreferences.php:1137
+#: src/Process/Backend/UserPreferences.php:1140
 msgid "Keep the main menu at the top of the page as much as possible"
 msgstr "Hlavné menu nechajte čo najviac v hornej časti stránky"
 
-#: src/Process/Backend/UserPreferences.php:1141
+#: src/Process/Backend/UserPreferences.php:1144
 msgid "Optional columns displayed in lists"
 msgstr "Voliteľné stĺpce zobrazené v zoznamoch"
 
-#: src/Process/Backend/UserPreferences.php:1144
+#: src/Process/Backend/UserPreferences.php:1147
 msgid "Options for lists"
 msgstr "Možnosti pre zoznamy"
 
-#: src/Process/Backend/UserPreferences.php:1150
+#: src/Process/Backend/UserPreferences.php:1153
 msgid "Apply filters on the fly"
 msgstr "Aplikujte filtre za behu"
 
-#: src/Process/Backend/UserPreferences.php:1187
+#: src/Process/Backend/UserPreferences.php:1190
 msgid "Enable WYSIWYG mode"
 msgstr "Povoliť režim WYSIWYG"
 
-#: src/Process/Backend/UserPreferences.php:1193
+#: src/Process/Backend/UserPreferences.php:1196
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr "Zobraziť panel s nástrojmi editora v spodnej časti textovej oblasti (ak je to možné)"
 
-#: src/Process/Backend/UserPreferences.php:1199
+#: src/Process/Backend/UserPreferences.php:1202
 msgid "Use HTML editor for:"
 msgstr "Použite HTML editor na:"
 
-#: src/Process/Backend/UserPreferences.php:1203
+#: src/Process/Backend/UserPreferences.php:1206
 msgid "Other options"
 msgstr "Ďalšie možnosti"
 
-#: src/Process/Backend/UserPreferences.php:1214
+#: src/Process/Backend/UserPreferences.php:1217
 msgid "Save my options"
 msgstr "Uložiť moje možnosti"
 
-#: src/Process/Backend/UserPreferences.php:1245
+#: src/Process/Backend/UserPreferences.php:1248
 #, php-format
 msgid "position of %s"
 msgstr "pozícia %s"
 
-#: src/Process/Backend/UserPreferences.php:1268
+#: src/Process/Backend/UserPreferences.php:1271
 msgid "Save order"
 msgstr "Uložiť objednávku"
 
-#: src/Process/Backend/UserPreferences.php:1269
+#: src/Process/Backend/UserPreferences.php:1272
 msgid "Delete selected favorites"
 msgstr "Odstrániť vybraté obľúbené položky"
 
-#: src/Process/Backend/UserPreferences.php:1276
+#: src/Process/Backend/UserPreferences.php:1279
 msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
 msgstr "Ak ste superadministrátor, môžete definovať túto množinu obľúbených položiek, ktoré sa budú štandardne používať na všetkých blogoch tejto inštalácie."
 
-#: src/Process/Backend/UserPreferences.php:1279
+#: src/Process/Backend/UserPreferences.php:1282
 msgid "Define as default favorites"
 msgstr "Definovať ako predvolené obľúbené"
 
-#: src/Process/Backend/UserPreferences.php:1288
+#: src/Process/Backend/UserPreferences.php:1291
 msgid "Currently no personal favorites."
 msgstr "Momentálne žiadne osobné obľúbené."
 
-#: src/Process/Backend/UserPreferences.php:1327
+#: src/Process/Backend/UserPreferences.php:1330
 msgid "(default favorite)"
 msgstr "(predvolené obľúbené)"
 
-#: src/Process/Backend/UserPreferences.php:1342
+#: src/Process/Backend/UserPreferences.php:1345
 msgid "Add to my favorites"
 msgstr "Pridať k obľúbeným"
 
-#: src/Process/Backend/UserPreferences.php:1366
+#: src/Process/Backend/UserPreferences.php:1369
 msgid "Other available favorites"
 msgstr "Ďalšie dostupné obľúbené položky"
 
-#: src/Process/Backend/UserPreferences.php:1378
+#: src/Process/Backend/UserPreferences.php:1381
 msgid "Menu"
 msgstr "Ponuka"
 
-#: src/Process/Backend/UserPreferences.php:1384
+#: src/Process/Backend/UserPreferences.php:1387
 msgid "Display favorites at the top of the menu"
 msgstr "Zobrazte obľúbené položky v hornej časti ponuky"
 
-#: src/Process/Backend/UserPreferences.php:1388
+#: src/Process/Backend/UserPreferences.php:1391
 msgid "Dashboard icons"
 msgstr "Ikony na palubnej doske"
 
-#: src/Process/Backend/UserPreferences.php:1394
+#: src/Process/Backend/UserPreferences.php:1397
 msgid "Display dashboard icons"
 msgstr "Zobrazenie ikon na palubnej doske"
 
-#: src/Process/Backend/UserPreferences.php:1400
+#: src/Process/Backend/UserPreferences.php:1403
 msgid "Use a dense layout of dashboard icons"
 msgstr "Používanie hustého rozloženia ikon na prístrojovej doske"
 
-#: src/Process/Backend/UserPreferences.php:1404
+#: src/Process/Backend/UserPreferences.php:1407
 msgid "Dashboard modules"
 msgstr "Moduly palubnej dosky"
 
-#: src/Process/Backend/UserPreferences.php:1410
+#: src/Process/Backend/UserPreferences.php:1413
 msgid "Display documentation links"
 msgstr "Zobraziť odkazy na dokumentáciu"
 
-#: src/Process/Backend/UserPreferences.php:1416
+#: src/Process/Backend/UserPreferences.php:1419
 msgid "Display donate links"
 msgstr "Zobrazenie odkazov na darcovstvo"
 
-#: src/Process/Backend/UserPreferences.php:1422
+#: src/Process/Backend/UserPreferences.php:1425
 msgid "Display Dotclear news"
 msgstr "Zobraziť správy Dotclear"
 
-#: src/Process/Backend/UserPreferences.php:1428
+#: src/Process/Backend/UserPreferences.php:1431
 msgid "Display quick entry form"
 msgstr "Zobraziť rýchly vstupný formulár"
 
-#: src/Process/Backend/UserPreferences.php:1435
+#: src/Process/Backend/UserPreferences.php:1438
 msgid "Do not display Dotclear updates"
 msgstr "Nezobrazovať aktualizácie Dotclear"
 
-#: src/Process/Backend/UserPreferences.php:1441
+#: src/Process/Backend/UserPreferences.php:1444
 msgid "Use a dense layout of dashboard boxes"
 msgstr "Používanie hustého rozloženia polí na prístrojovej doske"
 
-#: src/Process/Backend/UserPreferences.php:1454
+#: src/Process/Backend/UserPreferences.php:1457
 msgid "Save my dashboard options"
 msgstr "Uložiť možnosti informačného panela"
 
-#: src/Process/Backend/UserPreferences.php:1467
+#: src/Process/Backend/UserPreferences.php:1470
 msgid "Dashboard items order"
 msgstr "Poradie položiek na informačnom paneli"
 
-#: src/Process/Backend/UserPreferences.php:1470
+#: src/Process/Backend/UserPreferences.php:1473
 msgid "Reset dashboard items order"
 msgstr "Obnoviť poradie položiek na informačnom paneli"
 
@@ -7230,7 +7230,7 @@ msgstr "Ak chcete aktualizovať svoju inštaláciu Dotclear, jednoducho kliknite
 msgid "This update may potentially require some precautions, you should carefully read the information post associated with this release (see above)."
 msgstr "Táto aktualizácia môže potenciálne vyžadovať určité opatrenia, mali by ste si pozorne prečítať informačný príspevok súvisiaci s týmto vydaním (pozri vyššie)."
 
-#: src/Schema/Extension/Credential.php:47 src/Schema/Extension/Log.php:44
+#: src/Schema/Extension/Credential.php:47 src/Schema/Extension/Log.php:45
 msgid "unknown"
 msgstr "neznámy"
 
