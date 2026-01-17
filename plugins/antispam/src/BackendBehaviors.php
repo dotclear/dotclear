@@ -80,15 +80,6 @@ class BackendBehaviors
         echo (new Fieldset('antispam_params'))
             ->legend((new Legend('Antispam')))
             ->items([
-                (new Para())
-                    ->items([
-                        (new Checkbox('moderate_only_spam', (bool) $settings->antispam->moderate_only_spam))
-                            ->value(1)
-                            ->label(new Label(__('Moderate only spam comments/trackbacks'), Label::IL_FT)),
-                    ]),
-                (new Note())
-                    ->class('form-note')
-                    ->text(__('If comments and/or trackbacks are moderated (see blog settings above), messages recognized  by one of the active spam filters as not being spam will be published immediately.')),
                 (new Para())->items([
                     (new Number('antispam_moderation_ttl', -1, 999, (int) $settings->antispam->antispam_moderation_ttl))
                         ->default(-1)
@@ -97,6 +88,15 @@ class BackendBehaviors
                 (new Note())
                     ->class('form-note')
                     ->text(__('Set -1 to disabled this feature ; recommended delay is 7 days.')),
+                (new Para())
+                    ->items([
+                        (new Checkbox('moderate_only_spam', (bool) $settings->antispam->moderate_only_spam))
+                            ->value(1)
+                            ->label(new Label(__('Moderate only spam comments/trackbacks'), Label::IL_FT)),
+                    ]),
+                (new Note())
+                    ->class('form-note')
+                    ->text(__('This option is only useful if comments and/or trackbacks are moderated (see blog settings above). In this case, messages recognised  by one of the active spam filters as not being spam will be published immediately, without being moderated; only those recognised as spam will be moderated.')),
                 (new Para())->items([
                     (new Link())
                         ->href(My::manageUrl())
