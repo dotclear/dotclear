@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-21 16:14+0100\n"
-"PO-Revision-Date: 2025-12-21 15:35\n"
+"POT-Creation-Date: 2026-01-17 09:40+0100\n"
+"PO-Revision-Date: 2026-01-17 08:45\n"
 "Last-Translator: \n"
 "Language-Team: Vietnamese\n"
 "Language: vi_VN\n"
@@ -696,21 +696,21 @@ msgstr "Tất cả các bình luận spam cũ hơn %s ngày sẽ bị xóa tự 
 msgid "You can modify this duration in the %s."
 msgstr "Bạn có thể điều chỉnh thời lượng này trong tệp ` %s`."
 
-#: plugins/antispam/src/BackendBehaviors.php:87
-msgid "Moderate only spam comments/trackbacks"
-msgstr "Chỉ cho phép bình luận/trackback không spam."
-
-#: plugins/antispam/src/BackendBehaviors.php:91
-msgid "If comments and/or trackbacks are moderated (see blog settings above), messages recognized  by one of the active spam filters as not being spam will be published immediately."
-msgstr "Nếu bình luận và/hoặc trackback được kiểm duyệt (xem cài đặt blog ở trên), các tin nhắn được một trong các bộ lọc spam hoạt động nhận diện là không phải spam sẽ được đăng tải ngay lập tức."
-
-#: plugins/antispam/src/BackendBehaviors.php:95
+#: plugins/antispam/src/BackendBehaviors.php:86
 msgid "Delete junk comments older than"
 msgstr "Xóa các bình luận rác cũ hơn"
 
-#: plugins/antispam/src/BackendBehaviors.php:99
+#: plugins/antispam/src/BackendBehaviors.php:90
 msgid "Set -1 to disabled this feature ; recommended delay is 7 days."
 msgstr "Đặt giá trị -1 để vô hiệu hóa tính năng này ; thời gian trì hoãn được khuyến nghị là 7 ngày."
+
+#: plugins/antispam/src/BackendBehaviors.php:95
+msgid "Moderate only spam comments/trackbacks"
+msgstr "Chỉ cho phép bình luận/trackback không spam."
+
+#: plugins/antispam/src/BackendBehaviors.php:99
+msgid "This option is only useful if comments and/or trackbacks are moderated (see blog settings above). In this case, messages recognised  by one of the active spam filters as not being spam will be published immediately, without being moderated; only those recognised as spam will be moderated."
+msgstr "Tùy chọn này chỉ hữu ích nếu bình luận và/hoặc trackback được kiểm duyệt (xem cài đặt blog ở trên). Trong trường hợp này, các tin nhắn được một trong các bộ lọc spam hoạt động nhận diện là không phải spam sẽ được đăng ngay lập tức mà không cần kiểm duyệt; chỉ những tin nhắn được nhận diện là spam mới được kiểm duyệt."
 
 #: plugins/antispam/src/BackendBehaviors.php:103
 msgid "Set spam filters."
@@ -976,7 +976,7 @@ msgstr "Không có mô tả"
 msgid "Filtered by %1$s (%2$s)"
 msgstr "Lọc theo %1$s (%2$s)"
 
-#: plugins/antispam/src/SpamFilters.php:158
+#: plugins/antispam/src/SpamFilters.php:160
 msgid "Unknown filter."
 msgstr "Bộ lọc không xác định."
 
@@ -1275,12 +1275,12 @@ msgstr "_xfn_Ngày"
 msgid "_xfn_Sweetheart"
 msgstr "_xfn_Người yêu dấu"
 
-#: plugins/blogroll/src/UtilsImport.php:38
+#: plugins/blogroll/src/UtilsImport.php:39
 msgid "You need to provide a XBEL or OPML file."
 msgstr "Bạn cần cung cấp tệp XBEL hoặc OPML."
 
-#: plugins/blogroll/src/UtilsImport.php:55
-#: plugins/blogroll/src/UtilsImport.php:99
+#: plugins/blogroll/src/UtilsImport.php:56
+#: plugins/blogroll/src/UtilsImport.php:100
 msgid "File is not in XML format."
 msgstr "Tệp không ở định dạng XML."
 
@@ -2071,12 +2071,12 @@ msgid_plural "%s tasks to execute"
 msgstr[0] "%s Các tác vụ cần thực hiện"
 
 #: plugins/maintenance/src/BackendBehaviors.php:202
-#: plugins/maintenance/src/Manage.php:306
+#: plugins/maintenance/src/Manage.php:310
 msgid "This task has never been executed."
 msgstr "Nhiệm vụ này chưa bao giờ được thực hiện."
 
 #: plugins/maintenance/src/BackendBehaviors.php:205
-#: plugins/maintenance/src/Manage.php:309
+#: plugins/maintenance/src/Manage.php:313
 #, php-format
 msgid "Last execution of this task was on %s."
 msgstr "Lần thực thi gần nhất của tác vụ này là vào ngày %s."
@@ -2139,75 +2139,75 @@ msgstr "Mỗi hai tháng"
 msgid "You have not sufficient permissions to view this page."
 msgstr "Bạn không có quyền truy cập đủ để xem trang này."
 
-#: plugins/maintenance/src/Manage.php:306
-#: plugins/maintenance/src/Manage.php:312
+#: plugins/maintenance/src/Manage.php:310
+#: plugins/maintenance/src/Manage.php:316
 msgid "You should execute it now."
 msgstr "Bạn nên thực hiện nó ngay bây giờ."
 
-#: plugins/maintenance/src/Manage.php:348
-#: plugins/maintenance/src/Manage.php:382
+#: plugins/maintenance/src/Manage.php:352
+#: plugins/maintenance/src/Manage.php:389
 msgid "Execute task"
 msgstr "Thực hiện tác vụ"
 
-#: plugins/maintenance/src/Manage.php:353
+#: plugins/maintenance/src/Manage.php:357
 msgid "This may take a very long time."
 msgstr "Điều này có thể mất rất nhiều thời gian."
 
-#: plugins/maintenance/src/Manage.php:420
-#: plugins/maintenance/src/Manage.php:422
+#: plugins/maintenance/src/Manage.php:427
+#: plugins/maintenance/src/Manage.php:429
 msgid "Alert settings"
 msgstr "Cài đặt cảnh báo"
 
-#: plugins/maintenance/src/Manage.php:428
+#: plugins/maintenance/src/Manage.php:435
 msgid "Activation"
 msgstr "Kích hoạt"
 
-#: plugins/maintenance/src/Manage.php:434
+#: plugins/maintenance/src/Manage.php:441
 msgid "Display alert messages on late tasks"
 msgstr "Hiển thị thông báo cảnh báo cho các tác vụ trễ hạn."
 
-#: plugins/maintenance/src/Manage.php:439
+#: plugins/maintenance/src/Manage.php:446
 #, php-format
 msgid "You can place list of late tasks on your %s."
 msgstr "Bạn có thể đặt danh sách các tác vụ trễ trên trang web của mình tại %s."
 
-#: plugins/maintenance/src/Manage.php:444
+#: plugins/maintenance/src/Manage.php:451
 msgid "Frequency"
 msgstr "Tần số"
 
-#: plugins/maintenance/src/Manage.php:452
+#: plugins/maintenance/src/Manage.php:459
 msgid "Use one recall time for all tasks"
 msgstr "Sử dụng một khoảng thời gian hồi phục cho tất cả các tác vụ."
 
-#: plugins/maintenance/src/Manage.php:462
+#: plugins/maintenance/src/Manage.php:469
 msgid "Recall time for all tasks:"
 msgstr "Thời gian hoàn thành cho tất cả các tác vụ:"
 
-#: plugins/maintenance/src/Manage.php:471
+#: plugins/maintenance/src/Manage.php:478
 msgid "Use one recall time per task"
 msgstr "Sử dụng một lần gọi lại cho mỗi tác vụ."
 
-#: plugins/maintenance/src/Manage.php:502
+#: plugins/maintenance/src/Manage.php:509
 msgid "Content-Security-Policy"
 msgstr "Chính sách bảo mật nội dung"
 
-#: plugins/maintenance/src/Manage.php:514
+#: plugins/maintenance/src/Manage.php:521
 msgid "Enable Content-Security-Policy system"
 msgstr "Kích hoạt hệ thống Chính sách Bảo mật Nội dung (Content-Security-Policy)"
 
-#: plugins/maintenance/src/Manage.php:520
+#: plugins/maintenance/src/Manage.php:527
 msgid "Enable Content-Security-Policy report only"
 msgstr "Bật chế độ báo cáo chính sách bảo mật nội dung (Content-Security-Policy)"
 
-#: plugins/maintenance/src/Manage.php:530
+#: plugins/maintenance/src/Manage.php:537
 msgid "Enable Content-Security-Policy system by default"
 msgstr "Kích hoạt hệ thống Chính sách Bảo mật Nội dung (Content-Security-Policy) theo mặc định."
 
-#: plugins/maintenance/src/Manage.php:536
+#: plugins/maintenance/src/Manage.php:543
 msgid "Enable Content-Security-Policy report only by default"
 msgstr "Bật chế độ chỉ báo cáo Content-Security-Policy theo mặc định."
 
-#: plugins/maintenance/src/Manage.php:542
+#: plugins/maintenance/src/Manage.php:549
 msgid "Also apply these settings to all blogs"
 msgstr "Áp dụng các cài đặt này cho tất cả các blog."
 
