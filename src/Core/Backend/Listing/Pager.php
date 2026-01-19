@@ -49,6 +49,13 @@ class Pager extends HelperPager
     protected $form_hidden = [];
 
     /**
+     * Additional URL args
+     *
+     * @var     array<string, string>    $args
+     */
+    protected $args = [];
+
+    /**
      * Gets the link.
      *
      * @param   string            $li_class           The li class
@@ -116,6 +123,11 @@ class Pager extends HelperPager
             unset($args['ok']);
         }
 
+        // Add additional args if any
+        if ($this->args !== []) {
+            $args = array_merge($args, $this->args);
+        }
+
         foreach ($args as $k => $v) {
             // Check parameter key (will prevent some forms of XSS)
             if ($k === preg_replace('`[^A-Za-z0-9_-]`', '', (string) $k)) {
@@ -132,6 +144,16 @@ class Pager extends HelperPager
     }
 
     /**
+     * Set additional URL args
+     *
+     * @param array<string, string> $args Additional args for URL
+     */
+    public function setArgs(array $args = []): void
+    {
+        $this->args = $args;
+    }
+
+    /**
      * Pager Links.
      *
      * @return  string  The pager links
@@ -144,9 +166,21 @@ class Pager extends HelperPager
             return '';
         }
 
+        // Add additional args if any
+        $url = $this->page_url;
+        if ($url && $this->args !== []) {
+            foreach ($this->args as $k => $v) {
+                if (preg_match('/[\?]/', $url)) {
+                    $url .= '&' . $k . '=' . Html::escapeHTML($v);
+                } else {
+                    $url .= '?' . $k . '=' . Html::escapeHTML($v);
+                }
+            }
+        }
+
         $htmlFirst = $this->getLink(
             'first',
-            sprintf((string) $this->page_url, 1),
+            sprintf((string) $url, 1),
             ['images/pagination/first.svg', 'images/pagination/first-dark.svg'],
             ['images/pagination/no-first.svg', 'images/pagination/no-first-dark.svg'],
             __('First page'),
@@ -154,7 +188,7 @@ class Pager extends HelperPager
         );
         $htmlPrev = $this->getLink(
             'prev',
-            sprintf((string) $this->page_url, $this->env - 1),
+            sprintf((string) $url, $this->env - 1),
             ['images/pagination/previous.svg', 'images/pagination/previous-dark.svg'],
             ['images/pagination/no-previous.svg', 'images/pagination/no-previous-dark.svg'],
             __('Previous page'),
@@ -162,7 +196,7 @@ class Pager extends HelperPager
         );
         $htmlNext = $this->getLink(
             'next',
-            sprintf((string) $this->page_url, $this->env + 1),
+            sprintf((string) $url, $this->env + 1),
             ['images/pagination/next.svg', 'images/pagination/next-dark.svg'],
             ['images/pagination/no-next.svg', 'images/pagination/no-next-dark.svg'],
             __('Next page'),
@@ -170,7 +204,7 @@ class Pager extends HelperPager
         );
         $htmlLast = $this->getLink(
             'last',
-            sprintf((string) $this->page_url, $this->nb_pages),
+            sprintf((string) $url, $this->nb_pages),
             ['images/pagination/last.svg', 'images/pagination/last-dark.svg'],
             ['images/pagination/no-last.svg', 'images/pagination/no-last-dark.svg'],
             __('Last page'),

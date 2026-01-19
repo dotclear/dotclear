@@ -14,6 +14,7 @@ namespace Dotclear\Core\Backend\Listing;
 use ArrayObject;
 use Dotclear\App;
 use Dotclear\Core\Backend\Filter\FilterMedia;
+use Dotclear\Core\Backend\MediaPage;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\MediaFile;
@@ -48,12 +49,12 @@ class ListingMedia extends Listing
     /**
      * Display a media list.
      *
-     * @param   FilterMedia     $filters        The filters
+     * @param   MediaPage       $filters        The filters
      * @param   string          $enclose_block  The enclose block
      * @param   bool            $query          The query
      * @param   string          $page_adminurl  The page adminurl
      */
-    public function display(FilterMedia $filters, string $enclose_block = '', $query = false, string $page_adminurl = 'admin.media'): void
+    public function display(MediaPage $filters, string $enclose_block = '', $query = false, string $page_adminurl = 'admin.media'): void
     {
         $nb_items   = $this->rs_count - ($filters->d ? 1 : 0);
         $nb_folders = $filters->d ? -1 : 0;
@@ -75,6 +76,11 @@ class ListingMedia extends Listing
         }
 
         $pager = new Pager($filters->page, (int) $this->rs_count, $filters->nb, 10);
+        if ($filters->currentDir()) {
+            $pager->setArgs([
+                'd' => $filters->currentDir(),
+            ]);
+        }
 
         $items = $this->rs->rows();
         foreach ($items as $item) {

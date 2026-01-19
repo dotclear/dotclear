@@ -123,6 +123,16 @@ class MediaPage extends FilterMedia
     }
 
     /**
+     * Check if page has a current dir
+     *
+     * @return ?string default dir
+     */
+    public function currentDir(): ?string
+    {
+        return $this->d;
+    }
+
+    /**
      * Check if media dir is writable
      *
      * @return boolean Is writable
