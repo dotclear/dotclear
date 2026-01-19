@@ -1,4 +1,4 @@
-/*global jQuery, dotclear */
+/*global dotclear */
 'use strict';
 
 dotclear.dbStoreUpdate = (/** @type {any} */ store, /** @type {string} */ url) => {

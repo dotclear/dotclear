@@ -1465,19 +1465,21 @@ dotclear.ready(() => {
   const headerTarget = document.querySelector('#header');
   if (headerTarget) {
     const gototopButton = document.getElementById('gototop');
-    const headerObserver = new IntersectionObserver(
-      (changes) => {
-        for (const change of changes) {
-          gototopButton.style.display = change.isIntersecting ? 'none' : 'block';
-        }
-      },
-      {
-        threshold: [1],
-        trackVisibility: true,
-        delay: 100, // Set a minimum delay between notifications
-      },
-    );
-    headerObserver.observe(headerTarget);
+    if (gototopButton) {
+      const headerObserver = new IntersectionObserver(
+        (changes) => {
+          for (const change of changes) {
+            gototopButton.style.display = change.isIntersecting ? 'none' : 'block';
+          }
+        },
+        {
+          threshold: [1],
+          trackVisibility: true,
+          delay: 100, // Set a minimum delay between notifications
+        },
+      );
+      headerObserver.observe(headerTarget);
+    }
   }
 
   document.getElementById('gototop')?.addEventListener('click', (event) => {

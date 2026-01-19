@@ -71,6 +71,8 @@ class GrowUp_2_37_lt
                 'themes/*/locales/oc',
                 'themes/*/locales/sr',
                 'themes/*/locales/te',
+                // Switch to jQuery 4.0.0
+                'inc/js/jquery/3.7.1',
             ]
         );
 
