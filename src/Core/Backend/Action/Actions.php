@@ -338,7 +338,7 @@ abstract class Actions
         $args = http_build_query($redirect_args);
         // Dirty hack to get back %[n]= instead of [n]= instead of %5B{0..9}%5D= in URLs used for named array,
         // as http_build_query urlencode() its result.
-        $args = preg_replace('/\%5B((\d)+?\%5D=)*/', '[$2]=', $args);
+        $args = preg_replace('/\%5B((\d+)?\%5D=)*/', '[$2]=', $args);
 
         return $this->uri . (str_contains((string) $this->uri, '?') ? '&' : '?') . $args . $this->redir_anchor;
     }
