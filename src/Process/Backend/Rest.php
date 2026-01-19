@@ -545,7 +545,7 @@ class Rest
      *
      * @throws     Exception
      *
-     * @return     array<string, mixed>    returned data
+     * @return     list<string>    returned data
      */
     public static function getZipMediaContent(array $get): array
     {
