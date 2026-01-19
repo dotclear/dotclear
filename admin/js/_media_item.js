@@ -39,7 +39,7 @@ dotclear.ready(() => {
           $(a).hide();
           $(div).before(`<h3>${dotclear.msg.zip_file_content}</h3>`);
 
-          for (const elt in data) {
+          for (const elt of data) {
             $(list).append(`<li>${elt}</li>`);
             if ($(div).height() > 200 && !expanded) {
               $(div).css({

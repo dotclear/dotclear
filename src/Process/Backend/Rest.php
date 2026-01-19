@@ -574,14 +574,7 @@ class Rest
             throw new Exception('Not a valid file');
         }
 
-        $content = App::media()->getZipContent($file);
-
-        $data = [];
-        foreach ($content as $k => $v) {
-            $data[$k] = $v;
-        }
-
-        return $data;
+        return array_keys(App::media()->getZipContent($file));
     }
 
     /**
