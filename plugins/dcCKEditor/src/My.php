@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -22,23 +23,11 @@ class My extends MyPlugin
 {
     protected static function checkCustomContext(int $context): ?bool
     {
-        return match ($context) {
-            // Mandatory to serve CKEditor js config stream in all authorized cases
-            self::MANAGE => App::task()->checkContext('BACKEND')
-            && App::blog()->isDefined()
-            && App::auth()->check(App::auth()->makePermissions([
-                App::auth()::PERMISSION_USAGE,
-            ]), App::blog()->id()),
+        // Check specific post config
+        if (!empty($_GET['config'])) {
+            return App::task()->checkContext('BACKEND') && App::blog()->isDefined();
+        }
 
-            // Allow access to CKEditor configuration
-            self::MENU => App::task()->checkContext('BACKEND')
-            && App::blog()->isDefined()
-            && App::auth()->check(App::auth()->makePermissions([
-                App::auth()::PERMISSION_ADMIN,
-                App::auth()::PERMISSION_CONTENT_ADMIN,
-            ]), App::blog()->id()),
-
-            default => null,
-        };
+        return null;
     }
 }
