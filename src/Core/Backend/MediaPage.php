@@ -85,14 +85,28 @@ class MediaPage extends FilterMedia
                 $this->media_has_query = App::media()->searchMedia($this->q);
             }
             if (!$this->media_has_query) {
-                $try_d = $this->d;
+                // Get last dir from user
+                $last_dir = App::auth()->prefs()->interface->media_last_dir ?? '';
+
+                // Use current dir if any else use user one
+                $try_d = $this->d ?? $last_dir;
+
                 // Reset current dir
                 $this->d = null;
+
                 // Change directory (may cause an exception if directory doesn't exist)
                 App::media()->chdir($try_d);
+
                 // Restore current dir variable
                 $this->d = $try_d;
+
+                // Get directory content
                 App::media()->getDir();
+
+                if ($try_d !== $last_dir) {
+                    // Store current dir for user
+                    App::auth()->prefs()->interface->put('media_last_dir', $try_d, 'string');
+                }
             } else {
                 $this->d = null;
                 App::media()->chdir('');
