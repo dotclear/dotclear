@@ -25,9 +25,32 @@ use Dotclear\Helper\Stack\Statuses;
  */
 class Blog extends Statuses
 {
-    public const ONLINE    = 1;
-    public const OFFLINE   = 0;
-    public const REMOVED   = -1;
+    /**
+     * Online blog
+     *
+     * @var int
+     */
+    public const ONLINE = 1;
+
+    /**
+     * Offline blog
+     *
+     * @var int
+     */
+    public const OFFLINE = 0;
+
+    /**
+     * Removed blog
+     *
+     * @var int
+     */
+    public const REMOVED = -1;
+
+    /**
+     * Undefined blog
+     *
+     * @var int
+     */
     public const UNDEFINED = -2;
 
     public function __construct()

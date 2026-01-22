@@ -20,7 +20,18 @@ use Dotclear\Helper\Stack\Statuses;
  */
 class User extends Statuses
 {
-    public const ENABLED  = 1;
+    /**
+     * Enabled user
+     *
+     * @var int
+     */
+    public const ENABLED = 1;
+
+    /**
+     * Disabled user
+     *
+     * @var int
+     */
     public const DISABLED = 0;
 
     public function __construct()

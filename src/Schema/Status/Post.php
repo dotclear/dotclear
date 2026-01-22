@@ -20,10 +20,33 @@ use Dotclear\Helper\Stack\Statuses;
  */
 class Post extends Statuses
 {
-    public const PUBLISHED   = 1;
+    /**
+     * Published post
+     *
+     * @var int
+     */
+    public const PUBLISHED = 1;
+
+    /**
+     * Unpublished post
+     *
+     * @var int
+     */
     public const UNPUBLISHED = 0;
-    public const SCHEDULED   = -1;
-    public const PENDING     = -2;
+
+    /**
+     * Scheduled post
+     *
+     * @var int
+     */
+    public const SCHEDULED = -1;
+
+    /**
+     * Pending post
+     *
+     * @var int
+     */
+    public const PENDING = -2;
 
     public function __construct()
     {

@@ -20,10 +20,33 @@ use Dotclear\Helper\Stack\Statuses;
  */
 class Comment extends Statuses
 {
-    public const PUBLISHED   = 1;
+    /**
+     * Published comment
+     *
+     * @var int
+     */
+    public const PUBLISHED = 1;
+
+    /**
+     * Unpublished comment
+     *
+     * @var int
+     */
     public const UNPUBLISHED = 0;
-    public const PENDING     = -1;
-    public const JUNK        = -2;
+
+    /**
+     * Pending comment
+     *
+     * @var int
+     */
+    public const PENDING = -1;
+
+    /**
+     * Junk comment (spam)
+     *
+     * @var int
+     */
+    public const JUNK = -2;
 
     public function __construct()
     {
