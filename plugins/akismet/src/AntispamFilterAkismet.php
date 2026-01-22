@@ -97,11 +97,12 @@ class AntispamFilterAkismet extends SpamFilter
      */
     private function akInit(): false|Akismet
     {
-        if (!My::settings()->ak_key) {
+        $ak_key = is_string($ak_key = My::settings()->ak_key ?? '') ? $ak_key : '';
+        if ($ak_key === '') {
             return false;
         }
 
-        return new Akismet(App::blog()->url(), My::settings()->ak_key);
+        return new Akismet(App::blog()->url(), $ak_key);
     }
 
     /**
@@ -130,19 +131,20 @@ class AntispamFilterAkismet extends SpamFilter
             if ($ak->verify()) {
                 $post = App::blog()->getPosts(['post_id' => $post_id]);
 
-                $c = $ak->comment_check(
-                    $post->getURL(),
-                    $type,
-                    $author,
-                    $email,
-                    $site,
-                    $content
-                );
+                if (!$post->isEmpty()) {
+                    $permalink = is_string($permalink = $post->getURL()) ? $permalink : '';
+                    if ($ak->comment_check(
+                        $permalink,
+                        $type,
+                        $author,
+                        $email,
+                        $site,
+                        $content
+                    )) {
+                        $status = 'Filtered by Akismet';
 
-                if ($c) {
-                    $status = 'Filtered by Akismet';
-
-                    return true;
+                        return true;
+                    }
                 }
             }
         } catch (Exception) {
@@ -180,7 +182,8 @@ class AntispamFilterAkismet extends SpamFilter
 
         try {
             if ($ak->verify()) {
-                $ak->{$f}($rs->getPostURL(), $type, $author, $email, $site, $content);
+                $permalink = is_string($permalink = $rs->getPostURL()) ? $permalink : '';
+                $ak->{$f}($permalink, $type, $author, $email, $site, $content);
             }
         } catch (Exception) {
             // If http or akismet is dead, we don't need to know it
@@ -194,7 +197,6 @@ class AntispamFilterAkismet extends SpamFilter
      */
     public function gui($url): string
     {
-        $ak_key      = My::settings()->ak_key;
         $ak_verified = null;
 
         if (isset($_POST['ak_key'])) {
@@ -210,9 +212,10 @@ class AntispamFilterAkismet extends SpamFilter
             }
         }
 
-        if (My::settings()->ak_key) {
+        $ak_key = is_string($ak_key = My::settings()->ak_key ?? '') ? $ak_key : '';
+        if ($ak_key !== '') {
             try {
-                $ak          = new Akismet(App::blog()->url(), My::settings()->ak_key);
+                $ak          = new Akismet(App::blog()->url(), $ak_key);
                 $ak_verified = $ak->verify();
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
