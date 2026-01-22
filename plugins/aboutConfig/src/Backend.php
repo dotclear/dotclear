@@ -33,7 +33,10 @@ class Backend
     public static function process(): bool
     {
         if (self::status()) {
-            My::addBackendMenuItem(App::backend()->menus()::MENU_SYSTEM);
+            $menu = is_string($menu = App::backend()->menus()::MENU_SYSTEM) ? $menu : '';
+            if ($menu !== '') {
+                My::addBackendMenuItem($menu);
+            }
         }
 
         return self::status();

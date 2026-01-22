@@ -67,24 +67,39 @@ class Manage
         }
 
         // Local navigation
-        if (!empty($_POST['gs_nav'])) {
-            My::redirect([], $_POST['gs_nav']);
+        $gs_nav = is_string($gs_nav = $_POST['gs_nav'] ?? '') ? $gs_nav : '';
+        if ($gs_nav !== '') {
+            My::redirect([], $gs_nav);
         }
-        if (!empty($_POST['ls_nav'])) {
-            My::redirect([], $_POST['ls_nav']);
+        $ls_nav = is_string($ls_nav = $_POST['ls_nav'] ?? '') ? $ls_nav : '';
+        if ($ls_nav !== '') {
+            My::redirect([], $ls_nav);
         }
 
         // Local settings update
         if (!empty($_POST['s']) && is_array($_POST['s'])) {
             try {
+                /**
+                 * @var string $ns
+                 */
                 foreach ($_POST['s'] as $ns => $s) {
-                    foreach ($s as $k => $v) {
-                        if ($_POST['s_type'][$ns][$k] === App::blogWorkspace()::NS_ARRAY) {
-                            $v = json_decode((string) $v, true, 512, JSON_THROW_ON_ERROR);
+                    /**
+                     * @var \Dotclear\Interface\Core\BlogWorkspaceInterface $blogws
+                     */
+                    $blogws = App::blog()->settings()->$ns;
+                    if (is_array($s)) {
+                        foreach ($s as $k => $v) {
+                            $type = '';
+                            if (is_array($_POST['s_type']) && is_array($_POST['s_type'][$ns])) {
+                                $type = $_POST['s_type'][$ns][$k] ?? '';
+                            }
+                            if ($type === App::blogWorkspace()::NS_ARRAY && is_string($v)) {
+                                $v = json_decode($v, true, 512, JSON_THROW_ON_ERROR);
+                            }
+                            $blogws->put((string) $k, $v);
                         }
-                        App::blog()->settings()->$ns->put($k, $v);
+                        App::blog()->triggerBlog();
                     }
-                    App::blog()->triggerBlog();
                 }
 
                 App::backend()->notices()->addSuccessNotice(__('Configuration successfully updated'));
@@ -98,13 +113,23 @@ class Manage
         if (!empty($_POST['gs']) && is_array($_POST['gs'])) {
             try {
                 foreach ($_POST['gs'] as $ns => $s) {
-                    foreach ($s as $k => $v) {
-                        if ($_POST['gs_type'][$ns][$k] === App::blogWorkspace()::NS_ARRAY) {
-                            $v = json_decode((string) $v, true, 512, JSON_THROW_ON_ERROR);
+                    /**
+                     * @var \Dotclear\Interface\Core\BlogWorkspaceInterface $blogws
+                     */
+                    $blogws = App::blog()->settings()->$ns;
+                    if (is_array($s)) {
+                        foreach ($s as $k => $v) {
+                            $type = '';
+                            if (is_array($_POST['gs_type']) && is_array($_POST['gs_type'][$ns])) {
+                                $type = $_POST['gs_type'][$ns][$k] ?? '';
+                            }
+                            if ($type === App::blogWorkspace()::NS_ARRAY && is_string($v)) {
+                                $v = json_decode($v, true, 512, JSON_THROW_ON_ERROR);
+                            }
+                            $blogws->put((string) $k, $v, null, null, true, true);
                         }
-                        App::blog()->settings()->$ns->put($k, $v, null, null, true, true);
+                        App::blog()->triggerBlog();
                     }
-                    App::blog()->triggerBlog();
                 }
 
                 App::backend()->notices()->addSuccessNotice(__('Configuration successfully updated'));
@@ -305,7 +330,10 @@ class Manage
     {
         $nid = [$field_name . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id];
 
-        $field = match ((string) $s['type']) {
+        $setting_type  = is_string($setting_type = $s['type'] ?? '') ? $setting_type : '';
+        $setting_label = is_string($setting_label = $s['label'] ?? '') ? $setting_label : '';
+
+        $field = match ($setting_type) {
             // Boolean
             App::blogWorkspace()::NS_BOOL => (new Select($nid))
                 ->default($s['value'] ? '1' : '0')
@@ -320,25 +348,35 @@ class Manage
                 ->size(40),
 
             // Int
-            App::blogWorkspace()::NS_INT => (new Number($nid, null, null, (int) $s['value'])),
+            App::blogWorkspace()::NS_INT => (new Number(
+                $nid,
+                null,
+                null,
+                is_numeric($s['value']) ? (int) $s['value'] : null
+            )),
 
             // Float
-            App::blogWorkspace()::NS_FLOAT => (new Decimal($nid, null, null, (float) $s['value'])),
+            App::blogWorkspace()::NS_FLOAT => (new Decimal(
+                $nid,
+                null,
+                null,
+                is_numeric($s['value']) ? (float) $s['value'] : null
+            )),
 
             // String, Text
             App::blogWorkspace()::NS_STRING => (new Input($nid))
-                ->value(Html::escapeHTML((string) $s['value']))
+                ->value(Html::escapeHTML(is_string($s['value']) || is_numeric($s['value']) ? (string) $s['value'] : ''))
                 ->size(40),
 
             // Default = String
             default => (new Input($nid))
-                ->value(Html::escapeHTML((string) $s['value']))
+                ->value(Html::escapeHTML(is_string($s['value']) || is_numeric($s['value']) ? (string) $s['value'] : ''))
                 ->size(40),
         };
 
         $type = (new Hidden(
             [$field_name . '_type' . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id . '_type'],
-            Html::escapeHTML($s['type'])
+            Html::escapeHTML($setting_type)
         ));
 
         $label = (new Label(
@@ -352,8 +390,8 @@ class Manage
             ->items([
                 (new Td())->items([$label]),
                 (new Td())->items([$field]),
-                (new Td())->text($s['type'])->items([$type]),
-                (new Td())->text(Html::escapeHTML($s['label'])),
+                (new Td())->text(Html::escapeHTML($setting_type))->items([$type]),
+                (new Td())->text(Html::escapeHTML($setting_label)),
             ]);
     }
 }
