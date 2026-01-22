@@ -660,6 +660,9 @@ class Post
         /* Post form if we can edit post
         -------------------------------------------------------- */
         if (App::backend()->can_edit_post) {
+            /**
+             * @var ArrayObject<string, array{title: string, items: array<string, string>}> $sidebar_items
+             */
             $sidebar_items = new ArrayObject([
                 'status-box' => [
                     'title' => __('Status'),
@@ -830,6 +833,9 @@ class Post
                 ],
             ]);
 
+            /**
+             * @var ArrayObject<string, string> $main_items
+             */
             $main_items = new ArrayObject(
                 [
                     'post_title' => (new Para())->items([

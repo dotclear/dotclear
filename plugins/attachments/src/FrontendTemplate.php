@@ -93,7 +93,7 @@ class FrontendTemplate
     {
         $if = [];
 
-        $operator = isset($attr['operator']) ? Tpl::getOperator($attr['operator']) : '&&';
+        $operator = isset($attr['operator']) && is_string($attr['operator']) ? Tpl::getOperator($attr['operator']) : '&&';
 
         if (isset($attr['is_image'])) {
             $sign = (bool) $attr['is_image'] ? '' : '!';

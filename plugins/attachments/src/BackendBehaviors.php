@@ -46,15 +46,16 @@ class BackendBehaviors
     /**
      * Add attachment fieldset in entry sidebar.
      *
-     * @param   ArrayObject<string, mixed>      $main       The main part of the entry form
-     * @param   ArrayObject<string, mixed>      $sidebar    The sidebar part of the entry form
-     * @param   MetaRecord                      $post       The post
+     * @param   ArrayObject<string, string>                                                 $main       The main part of the entry form
+     * @param   ArrayObject<string, array{title: string, items: array<string, string>}>     $sidebar    The sidebar part of the entry form
+     * @param   MetaRecord                                                                  $post       The post
      */
     public static function adminPostFormItems(ArrayObject $main, ArrayObject $sidebar, ?MetaRecord $post): void
     {
         if ($post instanceof MetaRecord) {
             // Entry saved at least once
-            $post_media = App::media()->getPostMedia((int) $post->post_id, null, 'attachment');
+            $post_id    = is_numeric($post->post_id) ? (int) $post->post_id : 0;
+            $post_media = App::media()->getPostMedia($post_id, null, 'attachment');
             $nb_media   = count($post_media);
 
             $rows = [];
@@ -143,12 +144,14 @@ class BackendBehaviors
     public static function adminPostAfterForm(?MetaRecord $post): void
     {
         if ($post instanceof MetaRecord) {
+            $post_id = is_numeric($post->post_id) ? (int) $post->post_id : 0;
+
             echo (new Form('attachment-remove-hide'))
                 ->action(App::backend()->url()->get('admin.post.media'))
                 ->method('post')
                 ->fields([
                     (new Div())->items([
-                        (new Hidden(['post_id'], (string) $post->post_id)),
+                        (new Hidden(['post_id'], (string) $post_id)),
                         (new Hidden(['media_id'], '')),
                         (new Hidden(['link_type'], 'attachment')),
                         (new Hidden(['remove'], '1')),
