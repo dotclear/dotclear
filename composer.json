@@ -14,7 +14,7 @@
   },
   "require-dev": {
     "phpstan/phpstan": "2.1.x-dev",
-    "vimeo/psalm": "6.x-dev",
+    "vimeo/psalm": "^7.0@dev",
     "rector/rector": "dev-main",
     "fakerphp/faker": "2.0.x-dev",
     "phpunit/phpunit": "^12",

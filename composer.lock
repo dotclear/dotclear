@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d35188e597dac848ccd5983334735313",
+    "content-hash": "e08cc728f57e16e837fc3cab5be3368e",
     "packages": [],
     "packages-dev": [
         {
@@ -5051,16 +5051,16 @@
         },
         {
             "name": "vimeo/psalm",
-            "version": "6.x-dev",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vimeo/psalm.git",
-                "reference": "1bdf644da586787b95e001e6ff3382e7fa3b77f6"
+                "reference": "6d1a2239413f68665600834202ccf6605a42a97c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vimeo/psalm/zipball/1bdf644da586787b95e001e6ff3382e7fa3b77f6",
-                "reference": "1bdf644da586787b95e001e6ff3382e7fa3b77f6",
+                "url": "https://api.github.com/repos/vimeo/psalm/zipball/6d1a2239413f68665600834202ccf6605a42a97c",
+                "reference": "6d1a2239413f68665600834202ccf6605a42a97c",
                 "shasum": ""
             },
             "require": {
@@ -5115,7 +5115,6 @@
                 "ext-curl": "In order to send data to shepherd",
                 "ext-igbinary": "^2.0.5 is required, used to serialize caching data"
             },
-            "default-branch": true,
             "bin": [
                 "psalm",
                 "psalm-language-server",
@@ -5166,7 +5165,7 @@
                 "issues": "https://github.com/vimeo/psalm/issues",
                 "source": "https://github.com/vimeo/psalm"
             },
-            "time": "2026-01-06T13:20:30+00:00"
+            "time": "2025-12-24T18:54:33+00:00"
         },
         {
             "name": "webmozart/assert",
