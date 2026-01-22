@@ -93,8 +93,10 @@ parameters:
 
   ignoreErrors:
 
-    # $this variable may not be defined (plugins/themes)
+    # $this variable may not be defined (plugins/themes) in _define.php
     - message: '#Variable \$this might not be defined#'
+      path: */*/_define.php
+    - message: '#Cannot call method registerModule\(\) on mixed#'
       path: */*/_define.php
 
     # XmlTag object and magic methods

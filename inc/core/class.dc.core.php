@@ -903,7 +903,7 @@ final class dcCore
      *
      * @param      string  $id     The user identifier
      *
-     * @return     array<string,array<string,string|array<string,bool>>>
+     * @return     array<string, array{name: mixed, url: mixed, p: array<string, bool>}>
      */
     public function getUserPermissions(string $id): array
     {

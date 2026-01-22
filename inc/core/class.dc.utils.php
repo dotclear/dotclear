@@ -178,7 +178,7 @@ class dcUtils
 
         $ret = '<script>' . "\n";
         foreach ($vars as $var => $value) {
-            $ret .= 'var ' . $var . ' = ' . (is_string($value) ? '"' . Html::escapeJS($value) . '"' : $value) . ';' . "\n";
+            $ret .= 'var ' . $var . ' = ' . json_encode($value, JSON_HEX_TAG | JSON_UNESCAPED_SLASHES) . ';' . "\n";
         }
 
         return $ret . "</script>\n";
@@ -251,9 +251,9 @@ class dcUtils
      *
      * @deprecated  since 2.28, use App:lexical()->lexicalKeySort() instead
      *
-     * @param   string[]        $arr        single array of strings
-     * @param   string          $namespace  admin/public/lang
-     * @param   string          $lang       language to be used if $ns = 'lang'
+     * @param   array<string, mixed>    $arr        single array of strings
+     * @param   string                  $namespace  admin/public/lang
+     * @param   string                  $lang       language to be used if $ns = 'lang'
      *
      * @phpstan-param-out array<string, mixed> $arr
      */
