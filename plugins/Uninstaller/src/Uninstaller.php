@@ -117,7 +117,8 @@ class Uninstaller
             if (!($module instanceof ModuleDefine)) {   // @phpstan-ignore-line conflict with PHPDoc
                 continue;
             }
-            $class = $module->get('namespace') . '\\' . self::UNINSTALL_CLASS_NAME;
+            $namespace = is_string($namespace = $module->get('namespace')) ? $namespace : '';
+            $class     = $namespace . '\\' . self::UNINSTALL_CLASS_NAME;
             if ($module->getId() !== My::id() && App::task()->isProcessClass($class)) {
                 $this->modules[$module->getId()] = $this->module = $module;
                 // check class prerequiretics
@@ -239,7 +240,8 @@ class Uninstaller
     {
         $output = '';
         if ($this->hasRender($id)) {
-            $class = $this->modules[$id]->get('namespace') . '\\' . self::UNINSTALL_CLASS_NAME;
+            $namespace = is_string($namespace = $this->modules[$id]->get('namespace')) ? $namespace : '';
+            $class     = $namespace . '\\' . self::UNINSTALL_CLASS_NAME;
 
             ob_start();
 

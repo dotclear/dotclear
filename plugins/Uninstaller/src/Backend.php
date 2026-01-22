@@ -36,17 +36,23 @@ class Backend
         }
 
         App::behavior()->addBehaviors([
-            // add "unsinstall" button to modules list
+            // add "uninstall" button to modules list
             'adminModulesListGetActionsV2' => function (ModulesList $list, ModuleDefine $define): string {
+                // Get module type
+                $type = $define->get('type');
+                if (!is_string($type) || $type === '') {
+                    return '';
+                }
+
                 // do not uninstall current theme
-                if ($define->get('type') == 'theme' && $define->getId() == App::blog()->settings()->get('system')->get('theme')) {
+                if ($type === 'theme' && $define->getId() == App::blog()->settings()->get('system')->get('theme')) {
                     return '';
                 }
 
                 return count(Uninstaller::instance()->loadModules([$define])->getUserActions($define->getId())) === 0 ? '' :
                     sprintf(
                         ' <a href="%s" class="button delete uninstall_module_button">' . __('Uninstall') . '</a>',
-                        My::manageUrl(['type' => $define->get('type'), 'id' => $define->getId()])
+                        My::manageUrl(['type' => $type, 'id' => $define->getId()])
                     );
             },
             // perform direct action on theme deletion

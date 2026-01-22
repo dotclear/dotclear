@@ -73,11 +73,15 @@ class Versions extends CleanerParent
 
         $stack = [];
         while ($rs->fetch()) {
-            $stack[] = new ValueDescriptor(
-                ns:    (string) $rs->f('module'),
-                id:    (string) $rs->f('version'),
-                count: 1
-            );
+            $module  = $rs->f('module');
+            $version = $rs->f('version');
+            if (is_string($module) && is_string($version)) {
+                $stack[] = new ValueDescriptor(
+                    ns:    $module,
+                    id:    $version,
+                    count: 1
+                );
+            }
         }
 
         return $stack;

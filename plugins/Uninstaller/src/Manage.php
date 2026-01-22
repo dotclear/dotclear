@@ -44,17 +44,25 @@ class Manage
         }
 
         // no module selected
-        if (empty($_REQUEST['id'])) {
+        $id = is_string($id = $_REQUEST['id']) ? $id : '';
+        if ($id === '') {
             self::doRedirect();
         }
 
+        $type = self::getType();
+
+        /**
+         * @var \Dotclear\Interface\Module\ModulesInterface $interface
+         */
+        $interface = App::{$type . 's'}();
+
         // load Themes if required
-        if (self::getType() === 'theme' && App::themes()->isEmpty()) {
+        if ($type === 'theme' && App::themes()->isEmpty()) {
             App::themes()->loadModules(App::blog()->themesPath());
         }
 
         // get selected module
-        $define = App::{self::getType() . 's'}()->getDefine($_REQUEST['id'], ['state' => ModuleDefine::STATE_ENABLED]);
+        $define = $interface->getDefine($id, ['state' => ModuleDefine::STATE_ENABLED]);
         if (!$define->isDefined()) {
             App::error()->add(__('Unknown module id to uninstall'));
             self::doRedirect();
@@ -78,11 +86,17 @@ class Manage
             // loop through module uninstall actions and execute them
             foreach ($actions as $cleaner => $stack) {
                 foreach ($stack as $action) {
-                    if (isset($_POST['action'][$cleaner]) && isset($_POST['action'][$cleaner][$action->id])) {
-                        if ($uninstaller->execute($cleaner, $action->id, $_POST['action'][$cleaner][$action->id])) {
-                            $done[] = $action->success;
-                        } else {
-                            App::error()->add($action->error);
+                    if (isset($_POST['action']) && is_array($_POST['action'])) {
+                        $post_action = $_POST['action'];
+                        if (isset($post_action[$cleaner]) && is_array($post_action[$cleaner])) {
+                            $setting_name = $post_action[$cleaner][$action->id] ?? '';
+                            if (is_string($setting_name) && $setting_name !== '') {
+                                if ($uninstaller->execute($cleaner, $action->id, $setting_name)) {
+                                    $done[] = $action->success;
+                                } else {
+                                    App::error()->add($action->error);
+                                }
+                            }
                         }
                     }
                 }
@@ -108,8 +122,20 @@ class Manage
             return;
         }
 
+        $id = is_string($id = $_REQUEST['id']) ? $id : '';
+        if ($id === '') {
+            return;
+        }
+
+        $type = self::getType();
+
+        /**
+         * @var \Dotclear\Interface\Module\ModulesInterface $interface
+         */
+        $interface = App::{$type . 's'}();
+
         // load module uninstaller
-        $define      = App::{self::getType() . 's'}()->getDefine($_REQUEST['id'], ['state' => ModuleDefine::STATE_ENABLED]);
+        $define      = $interface->getDefine($id, ['state' => ModuleDefine::STATE_ENABLED]);
         $uninstaller = Uninstaller::instance()->loadModules([$define]);
         $fields      = [];
 
@@ -165,12 +191,16 @@ class Manage
             __('System') => '',
             My::name()   => '',
         ]) .
-        App::backend()->notices()->getNotices() .
+        App::backend()->notices()->getNotices();
 
+        $name    = is_string($name = $define->get('name')) ? $name : '???';
+        $version = is_string($version = $define->get('version')) ? $version : '???';
+
+        echo
         (new Div())
             ->items([
-                (new Text('h3', sprintf((self::getType() === 'theme' ? __('Uninstall theme "%s"') : __('Uninstall plugin "%s"')), __($define->get('name'))))),
-                (new Note())->text(sprintf(__('The module "%1$s" version %2$s offers advanced uninstall process:'), $define->getId(), $define->get('version'))),
+                (new Text('h3', sprintf((self::getType() === 'theme' ? __('Uninstall theme "%s"') : __('Uninstall plugin "%s"')), __($name)))),
+                (new Note())->text(sprintf(__('The module "%1$s" version %2$s offers advanced uninstall process:'), $define->getId(), $version)),
                 (new Form('uninstall-form'))
                     ->method('post')
                     ->action(My::manageUrl())
