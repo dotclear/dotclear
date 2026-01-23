@@ -60,32 +60,33 @@ class Manage
         Antispam::initFilters();
 
         App::backend()->filters     = Antispam::$filters->getFilters();
-        App::backend()->page_name   = My::name();
         App::backend()->filter_gui  = false;
         App::backend()->default_tab = null;
         App::backend()->filter      = null;
 
         try {
             // Show filter configuration GUI
-            if (!empty($_GET['f'])) {
-                if (!isset(App::backend()->filters[$_GET['f']])) {
+            $filter = isset($_GET['f']) && is_string($_GET['f']) ? $_GET['f'] : '';
+            if ($filter !== '') {
+                if (!isset(App::backend()->filters[$filter])) {
                     throw new Exception(__('Filter does not exist.'));
                 }
 
-                if (!App::backend()->filters[$_GET['f']]->hasGUI()) {
+                if (!App::backend()->filters[$filter]->hasGUI()) {
                     throw new Exception(__('Filter has no user interface.'));
                 }
 
-                App::backend()->filter     = App::backend()->filters[$_GET['f']];
+                App::backend()->filter     = App::backend()->filters[$filter];
                 App::backend()->filter_gui = App::backend()->filter->gui(App::backend()->filter->guiURL() ?: '');
             }
 
             // Remove all spam
             if (!empty($_POST['delete_all'])) {
-                $ts = isset($_POST['ts']) ? (int) $_POST['ts'] : null;
-                $ts = Date::str('%Y-%m-%d %H:%M:%S', $ts, App::blog()->settings()->system->blog_timezone);
+                $ts       = isset($_POST['ts']) && is_numeric($_POST['ts']) ? (int) $_POST['ts'] : null;
+                $timezone = is_string($timezone = App::blog()->settings()->system->blog_timezone) ? $timezone : null;
+                $datetime = Date::str('%Y-%m-%d %H:%M:%S', $ts, $timezone);
 
-                Antispam::delAllSpam($ts);
+                Antispam::delAllSpam($datetime);
 
                 App::backend()->notices()->addSuccessNotice(__('Spam comments have been successfully deleted.'));
                 My::redirect();
@@ -94,7 +95,7 @@ class Manage
             // Update filters
             if (isset($_POST['filters_upd'])) {
                 /**
-                 * @var        array<string, list{bool, int, bool}>
+                 * @var        array<string, array{bool, int, bool}>
                  */
                 $filters_opt = [];
                 $i           = 0;
@@ -105,7 +106,8 @@ class Manage
                 // Enable active filters
                 if (isset($_POST['filters_active']) && is_array($_POST['filters_active'])) {
                     foreach ($_POST['filters_active'] as $filter_id) {
-                        if (array_key_exists($filter_id, $filters_opt)) {
+                        $filter_id = is_string($filter_id) ? $filter_id : '';
+                        if ($filter_id !== '' && array_key_exists($filter_id, $filters_opt)) {
                             $filters_opt[$filter_id][0] = true;
                         }
                     }
@@ -113,16 +115,26 @@ class Manage
 
                 // Order filters
                 if (!empty($_POST['f_order']) && empty($_POST['filters_order'])) {
+                    /**
+                     * @var array<array-key, mixed>
+                     */
                     $order = $_POST['f_order'];
                     asort($order);
+                    /**
+                     * @var list<string>
+                     */
                     $order = array_keys($order);
                 } elseif (!empty($_POST['filters_order'])) {
-                    $order = explode(',', trim((string) $_POST['filters_order'], ','));
+                    $filters_order = is_string($filters_order = $_POST['filters_order']) ? $filters_order : '';
+                    /**
+                     * @var non-empty-list<string>
+                     */
+                    $order = explode(',', trim($filters_order, ','));
                 }
 
                 if (isset($order)) {
                     foreach ($order as $i => $filter_id) {
-                        if (array_key_exists($filter_id, $filters_opt)) {
+                        if ($filter_id !== '' && array_key_exists($filter_id, $filters_opt)) {
                             $filters_opt[$filter_id][1] = $i;
                         }
                     }
@@ -131,7 +143,8 @@ class Manage
                 // Set auto delete flag
                 if (isset($_POST['filters_auto_del']) && is_array($_POST['filters_auto_del'])) {
                     foreach ($_POST['filters_auto_del'] as $filter_id) {
-                        if (array_key_exists($filter_id, $filters_opt)) {
+                        $filter_id = is_string($filter_id) ? $filter_id : '';
+                        if ($filter_id !== '' && array_key_exists($filter_id, $filters_opt)) {
                             $filters_opt[$filter_id][2] = true;
                         }
                     }
@@ -155,10 +168,6 @@ class Manage
             return;
         }
 
-        $title = (App::backend()->filter_gui !== false ?
-            sprintf(__('%s configuration'), App::backend()->filter->name) . ' - ' :
-            '' . App::backend()->page_name);
-
         $head = App::backend()->page()->jsPageTabs(App::backend()->default_tab);
         if (!App::auth()->prefs()->accessibility->nodragdrop) {
             $head .= App::backend()->page()->jsLoad('js/jquery/jquery-ui.custom.js') .
@@ -169,16 +178,22 @@ class Manage
             My::jsLoad('antispam') .
             My::cssLoad('style');
 
-        App::backend()->page()->openModule($title, $head);
-
         if (App::backend()->filter_gui !== false) {
             // Display filter GUI
+
+            /**
+             * @var SpamFilter
+             */
+            $filter = App::backend()->filter;
+            $title  = sprintf(__('%s configuration'), $filter->name) . ' - ' . My::name();
+            App::backend()->page()->openModule($title, $head);
+
             echo
             App::backend()->page()->breadcrumb(
                 [
-                    __('Plugins')                                                        => '',
-                    App::backend()->page_name                                            => App::backend()->getPageURL(),
-                    sprintf(__('%s filter configuration'), App::backend()->filter->name) => '',
+                    __('Plugins')                                         => '',
+                    My::name()                                            => App::backend()->getPageURL(),
+                    sprintf(__('%s filter configuration'), $filter->name) => '',
                 ]
             ) .
             App::backend()->notices()->getNotices();
@@ -190,18 +205,21 @@ class Manage
             ->render();
 
             echo
-            App::backend()->filter_gui;
+            is_string(App::backend()->filter_gui) ? App::backend()->filter_gui : '';
 
-            if (App::backend()->filter->help) {
-                App::backend()->page()->helpBlock(App::backend()->filter->help);
+            if ($filter->help) {
+                App::backend()->page()->helpBlock($filter->help);
             }
         } else {
             // Display list of filters
+
+            App::backend()->page()->openModule(My::name(), $head);
+
             echo
             App::backend()->page()->breadcrumb(
                 [
-                    __('Plugins')             => '',
-                    App::backend()->page_name => '',
+                    __('Plugins') => '',
+                    My::name()    => '',
                 ]
             ) .
             App::backend()->notices()->getNotices();
@@ -209,7 +227,7 @@ class Manage
             // Information
             $spam_count      = Antispam::countSpam();
             $published_count = Antispam::countPublishedComments();
-            $moderationTTL   = (int) My::settings()->antispam_moderation_ttl;
+            $moderationTTL   = is_numeric($moderationTTL = My::settings()->antispam_moderation_ttl) ? (int) $moderationTTL : 0;
 
             $action = [];
             if ($spam_count > 0) {
@@ -276,12 +294,17 @@ class Manage
                 App::backend()->notices()->success(__('Filters configuration has been successfully saved.'));
             }
 
-            $rows = [];
-            $i    = 1;
-            foreach (App::backend()->filters as $fid => $f) {
-                if ($f->hasGUI()) {
+            /**
+             * @var array<string, SpamFilter>
+             */
+            $filters = App::backend()->filters;
+            $rows    = [];
+            $i       = 1;
+            foreach ($filters as $fid => $f) {
+                if ($f->hasGUI() && $f->guiURL() !== false) {
+                    $gui_url  = $f->guiURL();
                     $gui_link = (new Link())
-                        ->href(Html::escapeHTML($f->guiURL()))
+                        ->href(Html::escapeHTML($gui_url))
                         ->title(__('Filter configuration'))
                         ->text(
                             (new Img('images/edit.svg'))
@@ -303,7 +326,7 @@ class Manage
                         (new Td())
                             ->class(App::auth()->prefs()->accessibility->nodragdrop ? '' : 'handle')
                             ->items([
-                                (new Number(['f_order[' . $fid . ']'], 1, count(App::backend()->filters), $i))
+                                (new Number(['f_order[' . $fid . ']'], 1, count($filters), $i))
                                     ->class('position')
                                     ->title(__('position')),
                             ]),

@@ -30,14 +30,14 @@ class SpamFilters
     /**
      * Stack of antispam filters settings.
      *
-     * @var     array<string, mixed>        $filters_opt
+     * @var     array<string, array{bool, int, bool}>        $filters_opt
      */
     private array $filters_opt = [];
 
     /**
      * Initializes the given filters.
      *
-     * @param   array<mixed>   $filters    The filters
+     * @param   array<string>   $filters    The filters
      */
     public function init(array $filters): void
     {
@@ -86,12 +86,12 @@ class SpamFilters
             }
 
             $type    = $cur->comment_trackback ? 'trackback' : 'comment';
-            $author  = $cur->comment_author;
-            $email   = $cur->comment_email;
-            $site    = $cur->comment_site;
-            $ip      = $cur->comment_ip;
-            $content = $cur->comment_content;
-            $post_id = (int) $cur->post_id;
+            $author  = is_string($author = $cur->comment_author) ? $author : null;
+            $email   = is_string($email = $cur->comment_email) ? $email : null;
+            $site    = is_string($site = $cur->comment_site) ? $site : null;
+            $ip      = is_string($ip = $cur->comment_ip) ? $ip : null;
+            $content = is_string($content = $cur->comment_content) ? $content : null;
+            $post_id = is_numeric($cur->post_id) ? (int) $cur->post_id : null;
             $status  = '';
 
             $is_spam = $f->isSpam($type, $author, $email, $site, $ip, $content, $post_id, $status);
@@ -136,11 +136,11 @@ class SpamFilters
             }
 
             $type    = $rs->comment_trackback ? 'trackback' : 'comment';
-            $author  = $rs->comment_author;
-            $email   = $rs->comment_email;
-            $site    = $rs->comment_site;
-            $ip      = $rs->comment_ip;
-            $content = $rs->comment_content;
+            $author  = is_string($author = $rs->comment_author) ? $author : null;
+            $email   = is_string($email = $rs->comment_email) ? $email : null;
+            $site    = is_string($site = $rs->comment_site) ? $site : null;
+            $ip      = is_string($ip = $rs->comment_ip) ? $ip : null;
+            $content = is_string($content = $rs->comment_content) ? $content : null;
 
             $f->trainFilter($status, $filter_name, $type, $author, $email, $site, $ip, $content, $rs);
         }
@@ -159,15 +159,16 @@ class SpamFilters
         if ($filter === null) {
             return __('Unknown filter.');
         }
-        $status = $rs->exists('comment_spam_status') ? $rs->comment_spam_status : null;
+        $status     = $rs->exists('comment_spam_status') && is_string($rs->comment_spam_status) ? $rs->comment_spam_status : '';
+        $comment_id = is_numeric($comment_id = $rs->comment_id) ? (int) $comment_id : null;
 
-        return $filter->getStatusMessage($status, (int) $rs->comment_id);
+        return $filter->getStatusMessage($status, $comment_id);
     }
 
     /**
      * Saves filter settings.
      *
-     * @param   array<string, list{bool, int, bool}>        $opts       The settings
+     * @param   array<string, array{bool, int, bool}>       $opts       The settings
      * @param   bool                                        $global     True if global settings
      */
     public function saveFilterOpts(array $opts, bool $global = false): void
@@ -183,22 +184,23 @@ class SpamFilters
      */
     private function setFilterOpts(): void
     {
+        /**
+         * @var null|array<string, array{bool, int, bool}>
+         */
         $filters = My::settings()->antispam_filters;
-        if ($filters !== null && is_array($filters)) {
+        if (is_array($filters)) {
             $this->filters_opt = $filters;
-        }
-
-        // Create default options if needed
-        if (!is_array($filters)) {
+        } else {
+            // Create default options if needed
             $this->saveFilterOpts([], true);
             $this->filters_opt = [];
         }
 
         foreach ($this->filters_opt as $k => $option) {
-            if (isset($this->filters[$k]) && is_array($option)) {
-                $this->filters[$k]->active      = $option[0] ?? false;
-                $this->filters[$k]->order       = $option[1] ?? 0;
-                $this->filters[$k]->auto_delete = $option[2] ?? false;
+            if (isset($this->filters[$k])) {
+                $this->filters[$k]->active      = $option[0];
+                $this->filters[$k]->order       = $option[1];
+                $this->filters[$k]->auto_delete = $option[2];
             }
         }
     }

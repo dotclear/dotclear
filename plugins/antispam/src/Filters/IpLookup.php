@@ -179,8 +179,8 @@ class IpLookup extends SpamFilter
      */
     private function getServers(): string
     {
-        $bls = App::blog()->settings()->antispam->antispam_dnsbls;
-        if ($bls === null) {
+        $bls = is_string($bls = App::blog()->settings()->antispam->antispam_dnsbls) ? $bls : '';
+        if ($bls === '') {
             App::blog()->settings()->antispam->put('antispam_dnsbls', $this->default_bls, 'string', 'Antispam DNSBL servers', true, false);
 
             return $this->default_bls;

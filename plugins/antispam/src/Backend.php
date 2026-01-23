@@ -65,13 +65,17 @@ class Backend
 
                 return '';
             },
-            'adminDashboardFavsIconV2' => function (string $name, ArrayObject $icon): string {
+            'adminDashboardFavsIconV2' => function (
+                string $name,
+                ArrayObject $icon
+            ): string {
                 // Check if it is comments favs
                 if ($name === 'comments') {
                     // Add information in icon legend if there is at least one spam
                     $str = Antispam::dashboardIconTitle();
                     if ($str !== '') {
-                        $icon[3] = ($icon[3] ?? '') . $str;
+                        $info    = isset($icon[3]) && is_string($icon[3]) ? $icon[3] : '';
+                        $icon[3] = $info . $str;
                     }
                 }
 

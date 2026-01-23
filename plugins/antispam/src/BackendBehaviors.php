@@ -46,7 +46,7 @@ class BackendBehaviors
      */
     public static function adminCommentsSpamForm(): string
     {
-        $ttl = (int) My::settings()->antispam_moderation_ttl;
+        $ttl = is_numeric($ttl = My::settings()->antispam_moderation_ttl) ? (int) $ttl : 0;
         if ($ttl >= 0) {
             echo (new Para())
                 ->items([
@@ -77,11 +77,13 @@ class BackendBehaviors
      */
     public static function adminBlogPreferencesForm(BlogSettingsInterface $settings): void
     {
+        $ttl = is_numeric($ttl = $settings->antispam->antispam_moderation_ttl) ? (int) $ttl : 0;
+
         echo (new Fieldset('antispam_params'))
             ->legend((new Legend('Antispam')))
             ->items([
                 (new Para())->items([
-                    (new Number('antispam_moderation_ttl', -1, 999, (int) $settings->antispam->antispam_moderation_ttl))
+                    (new Number('antispam_moderation_ttl', -1, 999, $ttl))
                         ->default(-1)
                         ->label((new Label(__('Delete junk comments older than'), Label::INSIDE_TEXT_BEFORE))->suffix(__('days'))),
                 ]),
@@ -113,7 +115,9 @@ class BackendBehaviors
      */
     public static function adminBeforeBlogSettingsUpdate(BlogSettingsInterface $settings): void
     {
+        $ttl = is_numeric($ttl = $_POST['antispam_moderation_ttl'] ?? 0) ? (int) $ttl : 0;
+
         $settings->antispam->put('moderate_only_spam', !empty($_POST['moderate_only_spam']), App::blogWorkspace()::NS_BOOL);
-        $settings->antispam->put('antispam_moderation_ttl', (int) $_POST['antispam_moderation_ttl'], App::blogWorkspace()::NS_INT);
+        $settings->antispam->put('antispam_moderation_ttl', $ttl, App::blogWorkspace()::NS_INT);
     }
 }

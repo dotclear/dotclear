@@ -116,19 +116,20 @@ class Words extends SpamFilter
         $rs = $this->getRules();
 
         while ($rs->fetch()) {
-            $word = $rs->rule_content;
+            $word = is_string($word = $rs->rule_content) ? $word : '';
+            if ($word !== '') {
+                if (str_starts_with($word, '/') && str_ends_with($word, '/')) {
+                    $reg = substr(substr($word, 1), 0, -1);
+                } else {
+                    $reg = preg_quote($word, '/');
+                    $reg = '(^|\s+|>|<)' . $reg . '(>|<|\s+|\.|$)';
+                }
 
-            if (str_starts_with($word, '/') && str_ends_with($word, '/')) {
-                $reg = substr(substr($word, 1), 0, -1);
-            } else {
-                $reg = preg_quote($word, '/');
-                $reg = '(^|\s+|>|<)' . $reg . '(>|<|\s+|\.|$)';
-            }
+                if (preg_match('/' . $reg . '/msiu', $str)) {
+                    $status = $word;
 
-            if (preg_match('/' . $reg . '/msiu', $str)) {
-                $status = $word;
-
-                return true;
+                    return true;
+                }
             }
         }
 
@@ -155,10 +156,10 @@ class Words extends SpamFilter
 
         # Adding a word
         if (!empty($_POST['swa'])) {
-            $globalsw = !empty($_POST['globalsw']) && App::auth()->isSuperAdmin();
-
             try {
-                $this->addRule($_POST['swa'], $globalsw);
+                $globalsw = !empty($_POST['globalsw']) && App::auth()->isSuperAdmin();
+                $word     = is_string($word = $_POST['swa']) ? $word : '';
+                $this->addRule($word, $globalsw);
                 App::backend()->notices()->addSuccessNotice(__('Word has been successfully added.'));
                 Http::redirect($url);
             } catch (Exception $e) {
@@ -198,15 +199,16 @@ class Words extends SpamFilter
             $rules_local  = [];
             $rules_global = [];
             while ($rs->fetch()) {
-                $pattern = $rs->rule_content;
+                $pattern = is_string($pattern = $rs->rule_content) ? $pattern : '';
 
                 $disabled_ip = false;
                 if (!$rs->blog_id) {
                     $disabled_ip = !App::auth()->isSuperAdmin();
                 }
 
-                $rule = (new Checkbox(['swd[]', 'word-' . $rs->rule_id]))
-                    ->value($rs->rule_id)
+                $rule_id = is_numeric($rule_id = $rs->rule_id) ? (int) $rule_id : 0;
+                $rule    = (new Checkbox(['swd[]', 'word-' . $rule_id]))
+                    ->value($rule_id)
                     ->label((new Label(Html::escapeHTML($pattern), Label::INSIDE_LABEL_AFTER)))
                     ->disabled($disabled_ip);
                 if ($rs->blog_id) {
@@ -359,9 +361,11 @@ class Words extends SpamFilter
         $cur->blog_id      = $general && App::auth()->isSuperAdmin() ? null : App::blog()->id();
 
         if ($rs instanceof MetaRecord && !$rs->isEmpty() && $general) {
+            $rule_id = is_numeric($rule_id = $rs->rule_id) ? $rule_id : 0;
+
             $sql = new UpdateStatement();
             $sql
-                ->where('rule_id = ' . $rs->rule_id)
+                ->where('rule_id = ' . $rule_id)
                 ->update($cur);
         } else {
             $sql = new SelectStatement();
@@ -369,7 +373,7 @@ class Words extends SpamFilter
                 ->column($sql->max('rule_id'))
                 ->from($this->table)
                 ->select();
-            $max = $run instanceof MetaRecord ? $run->f(0) : 0;
+            $max = $run instanceof MetaRecord && is_numeric($max = $run->f(0) ?? 0) ? (int) $max : 0;
 
             $cur->rule_id = $max + 1;
             $cur->insert();
@@ -379,9 +383,9 @@ class Words extends SpamFilter
     /**
      * Removes a rule.
      *
-     * @param   mixed   $ids    The rules identifiers
+     * @param   array<array-key, mixed>|string   $ids    The rules identifiers
      */
-    private function removeRule(mixed $ids): void
+    private function removeRule(array|string $ids): void
     {
         $sql = new DeleteStatement();
 
@@ -391,11 +395,17 @@ class Words extends SpamFilter
         $list = [];
 
         if (is_array($ids)) {
-            foreach ($ids as $v) {
-                $list[] = (int) $v;
+            foreach ($ids as $id) {
+                $rule_id = is_numeric($id) ? (int) $id : 0;
+                if ($rule_id > 0) {
+                    $list[] = $rule_id;
+                }
             }
         } else {
-            $list[] = (int) $ids;
+            $rule_id = is_numeric($ids) ? (int) $ids : 0;
+            if ($rule_id > 0) {
+                $list[] = $rule_id;
+            }
         }
 
         if (!App::auth()->isSuperAdmin()) {

@@ -146,9 +146,9 @@ class Ip extends SpamFilter
         # Add IP to list
         if (!empty($_POST['addip'])) {
             try {
-                $global = !empty($_POST['globalip']) && App::auth()->isSuperAdmin();
-
-                $this->addIP($ip_type, $_POST['addip'], $global);
+                $global  = !empty($_POST['globalip']) && App::auth()->isSuperAdmin();
+                $pattern = is_string($pattern = $_POST['addip']) ? $pattern : '';
+                $this->addIP($ip_type, $pattern, $global);
                 App::backend()->notices()->addSuccessNotice(__('IP address has been successfully added.'));
                 Http::redirect($url . '&ip_type=' . $ip_type);
             } catch (Exception $e) {
@@ -191,16 +191,18 @@ class Ip extends SpamFilter
             $rules_local  = [];
             $rules_global = [];
             while ($rs->fetch()) {
-                $bits    = explode(':', $rs->rule_content);
-                $pattern = $bits[0];
+                $rule_content = is_string($rule_content = $rs->rule_content) ? $rule_content : '';
+                $bits         = explode(':', $rule_content);
+                $pattern      = $bits[0];
 
                 $disabled_ip = false;
                 if (!$rs->blog_id) {
                     $disabled_ip = !App::auth()->isSuperAdmin();
                 }
 
-                $rule = (new Checkbox(['delip[]', $type . '-ip-' . $rs->rule_id]))
-                    ->value($rs->rule_id)
+                $rule_id = is_numeric($rule_id = $rs->rule_id) ? (int) $rule_id : 0;
+                $rule    = (new Checkbox(['delip[]', $type . '-ip-' . $rule_id]))
+                    ->value($rule_id)
                     ->label((new Label(Html::escapeHTML($pattern), Label::INSIDE_LABEL_AFTER)))
                     ->disabled($disabled_ip);
                 if ($rs->blog_id) {
@@ -283,39 +285,42 @@ class Ip extends SpamFilter
      * Extract IP and mask from rule pattern.
      *
      * @param   string  $pattern    The pattern
-     * @param   mixed   $ip         The IP
-     * @param   mixed   $mask       The mask
      *
      * @throws  Exception
+     *
+     * @return array{0: int, 1: int}
      */
-    private function ipmask(string $pattern, &$ip, &$mask): void
+    private function ipmask(string $pattern): array
     {
         $bits = explode('/', $pattern);
 
-        # Set IP
+        // Set IP
         $bits[0] .= str_repeat('.0', 3 - substr_count($bits[0], '.'));
 
         if (!filter_var($bits[0], FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
             throw new Exception('Invalid IPv4 address');
         }
 
-        $ip = ip2long($bits[0]);
-
-        if (!$ip || $ip === -1) {
+        $long_ip = ip2long($bits[0]);
+        if ($long_ip === false || $long_ip === -1) {
             throw new Exception('Invalid IP address');
         }
+        $ret[0] = $long_ip;
 
-        # Set mask
+        // Set mask
+        $mask = -1;
         if (!isset($bits[1])) {
             $mask = -1;
         } elseif (strpos($bits[1], '.')) {
             $mask = ip2long($bits[1]);
-            if (!$mask) {
+            if ($mask === false) {
                 $mask = -1;
             }
         } else {
             $mask = ~((1 << (32 - min((int) $bits[1], 32))) - 1);
         }
+
+        return [$long_ip, $mask];
     }
 
     /**
@@ -327,8 +332,9 @@ class Ip extends SpamFilter
      */
     public function addIP(string $type, string $pattern, bool $global): void
     {
-        $this->ipmask($pattern, $ip, $mask);
-        $pattern = long2ip($ip) . ($mask != -1 ? '/' . long2ip($mask) : '');
+        [$ip, $mask] = $this->ipmask($pattern);
+
+        $pattern = long2ip($ip) . ($mask !== -1 ? '/' . long2ip($mask) : '');
         $content = $pattern . ':' . $ip . ':' . $mask;
 
         $old = $this->getRuleCIDR($type, $global, $ip, $mask);
@@ -340,7 +346,7 @@ class Ip extends SpamFilter
                 ->column($sql->max('rule_id'))
                 ->from($this->table)
                 ->select();
-            $max = $run instanceof MetaRecord ? $run->f(0) : 0;
+            $max = $run instanceof MetaRecord && is_numeric($max = $run->f(0) ?? 0) ? (int) $max : 0;
 
             $cur->rule_id      = $max + 1;
             $cur->rule_type    = $type;
@@ -352,9 +358,11 @@ class Ip extends SpamFilter
             $cur->rule_type    = $type;
             $cur->rule_content = $content;
 
+            $rule_id = is_numeric($rule_id = $old->rule_id) ? $rule_id : 0;
+
             $sql = new UpdateStatement();
             $sql
-                ->where('rule_id = ' . $old->rule_id)
+                ->where('rule_id = ' . $rule_id)
                 ->update($cur);
         }
     }
@@ -393,10 +401,10 @@ class Ip extends SpamFilter
      *
      * @param   string  $type       The type
      * @param   bool    $global     The global
-     * @param   mixed   $ip         The IP
-     * @param   mixed   $mask       The mask
+     * @param   int     $ip         The IP
+     * @param   int     $mask       The mask
      */
-    private function getRuleCIDR(string $type, bool $global, $ip, $mask): MetaRecord
+    private function getRuleCIDR(string $type, bool $global, int $ip, int $mask): MetaRecord
     {
         $sql = new SelectStatement();
 
@@ -404,7 +412,7 @@ class Ip extends SpamFilter
             ->column('*')
             ->from($this->table)
             ->where('rule_type = ' . $sql->quote($type))
-            ->and($sql->like('rule_content', '%:' . (int) $ip . ':' . (int) $mask))
+            ->and($sql->like('rule_content', '%:' . $ip . ':' . $mask))
             ->and($global ? 'blog_id IS NULL' : 'blog_id = ' . $sql->quote(App::blog()->id()))
             ->select() ?? MetaRecord::newFromArray([]);
     }
@@ -432,7 +440,8 @@ class Ip extends SpamFilter
 
         if ($rs instanceof MetaRecord) {
             while ($rs->fetch()) {
-                [$pattern, $ip, $mask] = explode(':', $rs->rule_content);
+                $rule_content          = is_string($rule_content = $rs->rule_content) ? $rule_content : '';
+                [$pattern, $ip, $mask] = explode(':', $rule_content);
                 if ((ip2long($cip) & (int) $mask) === ((int) $ip & (int) $mask)) {
                     return $pattern;
                 }
@@ -445,9 +454,9 @@ class Ip extends SpamFilter
     /**
      * Removes a rule.
      *
-     * @param   mixed   $ids    The rules identifiers
+     * @param   array<array-key, mixed>|string   $ids    The rules identifiers
      */
-    private function removeRule(mixed $ids): void
+    private function removeRule(array|string $ids): void
     {
         $sql = new DeleteStatement();
 
@@ -457,11 +466,17 @@ class Ip extends SpamFilter
         $list = [];
 
         if (is_array($ids)) {
-            foreach ($ids as $v) {
-                $list[] = (int) $v;
+            foreach ($ids as $id) {
+                $rule_id = is_numeric($id) ? (int) $id : 0;
+                if ($rule_id > 0) {
+                    $list[] = $rule_id;
+                }
             }
         } else {
-            $list[] = (int) $ids;
+            $rule_id = is_numeric($ids) ? (int) $ids : 0;
+            if ($rule_id > 0) {
+                $list[] = $rule_id;
+            }
         }
 
         if (!App::auth()->isSuperAdmin()) {

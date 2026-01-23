@@ -120,8 +120,9 @@ class IpV6 extends SpamFilter
         }
 
         # Black list check
-        if (($s = $this->checkIP($ip, 'blackv6')) !== false) {
-            $status = (string) $s;
+        $s = $this->checkIP($ip, 'blackv6');
+        if ($s !== false) {
+            $status = $s;
 
             return true;
         }
@@ -146,9 +147,9 @@ class IpV6 extends SpamFilter
         # Add IP to list
         if (!empty($_POST['addip'])) {
             try {
-                $global = !empty($_POST['globalip']) && App::auth()->isSuperAdmin();
-
-                $this->addIP($ip_type, $_POST['addip'], $global);
+                $global  = !empty($_POST['globalip']) && App::auth()->isSuperAdmin();
+                $pattern = is_string($pattern = $_POST['addip']) ? $pattern : '';
+                $this->addIP($ip_type, $pattern, $global);
                 App::backend()->notices()->addSuccessNotice(__('IP address has been successfully added.'));
                 Http::redirect($url . '&ip_type=' . $ip_type);
             } catch (Exception $e) {
@@ -191,15 +192,17 @@ class IpV6 extends SpamFilter
             $rules_local  = [];
             $rules_global = [];
             while ($rs->fetch()) {
-                $pattern = $rs->rule_content;
+                $rule_content = is_string($rule_content = $rs->rule_content) ? $rule_content : '';
+                $pattern      = $rule_content;
 
                 $disabled_ip = false;
                 if (!$rs->blog_id) {
                     $disabled_ip = !App::auth()->isSuperAdmin();
                 }
 
-                $rule = (new Checkbox(['delip[]', $type . '-ip-' . $rs->rule_id]))
-                    ->value($rs->rule_id)
+                $rule_id = is_numeric($rule_id = $rs->rule_id) ? (int) $rule_id : 0;
+                $rule    = (new Checkbox(['delip[]', $type . '-ip-' . $rule_id]))
+                    ->value($rule_id)
                     ->label((new Label(Html::escapeHTML($pattern), Label::INSIDE_LABEL_AFTER)))
                     ->disabled($disabled_ip);
                 if ($rs->blog_id) {
@@ -298,7 +301,7 @@ class IpV6 extends SpamFilter
                 ->column($sql->max('rule_id'))
                 ->from($this->table)
                 ->select();
-            $max = $run instanceof MetaRecord ? $run->f(0) : 0;
+            $max = $run instanceof MetaRecord && is_numeric($max = $run->f(0) ?? 0) ? (int) $max : 0;
 
             $cur->rule_id      = $max + 1;
             $cur->rule_type    = $type;
@@ -310,9 +313,11 @@ class IpV6 extends SpamFilter
             $cur->rule_type    = $type;
             $cur->rule_content = $pattern;
 
+            $rule_id = is_numeric($rule_id = $old->rule_id) ? $rule_id : 0;
+
             $sql = new UpdateStatement();
             $sql
-                ->where('rule_id = ' . $old->rule_id)
+                ->where('rule_id = ' . $rule_id)
                 ->update($cur);
         }
     }
@@ -360,8 +365,8 @@ class IpV6 extends SpamFilter
     private function getRuleCIDR(string $type, bool $global, string $pattern): MetaRecord
     {
         // Search if we already have a rule for the given IP (ignoring mask in pattern if any)
-        $this->ipmask($pattern, $ip, $mask);
-        $ip = $this->long2ip_v6($ip);
+        [$ip, $mask] = $this->ipmask($pattern);
+        $ip          = $this->long2ip_v6($ip);
 
         $sql = new SelectStatement();
 
@@ -379,10 +384,8 @@ class IpV6 extends SpamFilter
      *
      * @param   string  $cip    The IP
      * @param   string  $type   The type
-     *
-     * @return  bool|string
      */
-    private function checkIP(string $cip, string $type)
+    private function checkIP(string $cip, string $type): false|string
     {
         $sql = new SelectStatement();
         $rs  = $sql
@@ -399,9 +402,9 @@ class IpV6 extends SpamFilter
 
         if ($rs instanceof MetaRecord) {
             while ($rs->fetch()) {
-                $pattern = $rs->rule_content;
-                if ($this->inrange($cip, $pattern)) {
-                    return $pattern;
+                $rule_content = is_string($rule_content = $rs->rule_content) ? $rule_content : '';
+                if ($this->inrange($cip, $rule_content)) {
+                    return $rule_content;
                 }
             }
         }
@@ -412,9 +415,9 @@ class IpV6 extends SpamFilter
     /**
      * Removes a rule.
      *
-     * @param   mixed   $ids    The rules identifiers
+     * @param   array<array-key, mixed>|string   $ids    The rules identifiers
      */
-    private function removeRule(mixed $ids): void
+    private function removeRule(array|string $ids): void
     {
         $sql = new DeleteStatement();
 
@@ -424,11 +427,17 @@ class IpV6 extends SpamFilter
         $list = [];
 
         if (is_array($ids)) {
-            foreach ($ids as $v) {
-                $list[] = (int) $v;
+            foreach ($ids as $id) {
+                $rule_id = is_numeric($id) ? (int) $id : 0;
+                if ($rule_id > 0) {
+                    $list[] = $rule_id;
+                }
             }
         } else {
-            $list[] = (int) $ids;
+            $rule_id = is_numeric($ids) ? (int) $ids : 0;
+            if ($rule_id > 0) {
+                $list[] = $rule_id;
+            }
         }
 
         if (!App::auth()->isSuperAdmin()) {
@@ -450,9 +459,9 @@ class IpV6 extends SpamFilter
     private function compact(string $pattern): string
     {
         // Compact the IP(s) in pattern
-        $this->ipmask($pattern, $ip, $mask);
-        $bits = explode('/', $pattern);
-        $ip   = $this->long2ip_v6($ip);
+        [$ip, $mask] = $this->ipmask($pattern);
+        $bits        = explode('/', $pattern);
+        $ip          = $this->long2ip_v6($ip);
 
         if (!isset($bits[1])) {
             // Only IP address
@@ -481,8 +490,8 @@ class IpV6 extends SpamFilter
      */
     private function inrange(string $ip, string $pattern): bool
     {
-        $this->ipmask($pattern, $ipmin, $mask);
-        $value = $this->ip2long_v6($ip);
+        [$ipmin, $mask] = $this->ipmask($pattern);
+        $value          = $this->ip2long_v6($ip);
 
         $ipmax = '';
         if (strpos((string) $mask, ':')) {
@@ -518,12 +527,12 @@ class IpV6 extends SpamFilter
      * Extract IP and mask from rule pattern.
      *
      * @param   string  $pattern    The pattern
-     * @param   mixed   $ip         The IP
-     * @param   mixed   $mask       The mask
      *
      * @throws  Exception
+     *
+     * @return array{0: string, 1: string}
      */
-    private function ipmask(string $pattern, &$ip, &$mask): void
+    private function ipmask(string $pattern): array
     {
         // Analyse pattern returning IP and mask if any
         // returned mask = IP address or number of addresses in range
@@ -535,23 +544,26 @@ class IpV6 extends SpamFilter
 
         $ip = $this->ip2long_v6($bits[0]);
 
-        if (!$ip || $ip == -1) {
+        if ($ip === '' || $ip === '-1') {
             throw new Exception('Invalid IP address');
         }
 
-        # Set mask
+        // Set mask
         if (!isset($bits[1])) {
             $mask = '1';
         } elseif (strpos($bits[1], ':')) {
             $mask = $this->ip2long_v6($bits[1]);
             $mask = $mask === '' ? '1' : $this->long2ip_v6($mask);
         } elseif (function_exists('gmp_init')) {
-            $mask = gmp_mul(gmp_init(1), gmp_pow(gmp_init(2), 128 - min((int) $bits[1], 128)));
+            $mask = gmp_strval(gmp_mul(gmp_init(1), gmp_pow(gmp_init(2), 128 - min((int) $bits[1], 128))));
         } elseif (function_exists('bcadd')) {
             $mask = bcmul('1', bcpow('2', (string) (128 - min((int) $bits[1], 128))));
         } else {
+            $mask = '';
             trigger_error('GMP or BCMATH extension not installed!', E_USER_WARNING);
         }
+
+        return [$ip, $mask];
     }
 
     /**

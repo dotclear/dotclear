@@ -112,7 +112,7 @@ class Antispam
 
         // the status of this comment has changed
         if ($status) {
-            $filter_name = $rs->exists('comment_spam_filter') ? $rs->comment_spam_filter : '';
+            $filter_name = $rs->exists('comment_spam_filter') && is_string($rs->comment_spam_filter) ? $rs->comment_spam_filter : '';
 
             self::initFilters();
             self::$filters->trainFilters($rs, $status, $filter_name);
@@ -127,7 +127,7 @@ class Antispam
     public static function statusMessage(MetaRecord $rs): string
     {
         if ($rs->exists('comment_status') && $rs->comment_status == App::status()->comment()::JUNK) {
-            $filter_name = $rs->exists('comment_spam_filter') ? $rs->comment_spam_filter : '';
+            $filter_name = $rs->exists('comment_spam_filter') && is_string($rs->comment_spam_filter) ? $rs->comment_spam_filter : '';
 
             self::initFilters();
 
@@ -179,7 +179,9 @@ class Antispam
      */
     public static function countSpam(): int
     {
-        return (int) App::blog()->getComments(['comment_status' => App::status()->comment()::JUNK], true)->f(0);
+        $count = App::blog()->getComments(['comment_status' => App::status()->comment()::JUNK], true)->f(0);
+
+        return is_numeric($count) ? (int) $count : 0;
     }
 
     /**
@@ -187,7 +189,9 @@ class Antispam
      */
     public static function countPublishedComments(): int
     {
-        return (int) App::blog()->getComments(['comment_status' => App::status()->comment()::PUBLISHED], true)->f(0);
+        $count = App::blog()->getComments(['comment_status' => App::status()->comment()::PUBLISHED], true)->f(0);
+
+        return is_numeric($count) ? (int) $count : 0;
     }
 
     /**
@@ -218,7 +222,9 @@ class Antispam
         $rs = $sql->select();
         if ($rs instanceof MetaRecord) {
             while ($rs->fetch()) {
-                $r[] = (int) $rs->comment_id;
+                if (is_numeric($rs->comment_id)) {
+                    $r[] = (int) $rs->comment_id;
+                }
             }
         }
 
@@ -238,8 +244,8 @@ class Antispam
      */
     public static function getUserCode(): string
     {
-        $code = pack('a32', App::auth()->userID()) .
-        hash(App::config()->cryptAlgo(), App::auth()->cryptLegacy(App::auth()->getInfo('user_pwd')));
+        $user_pwd = is_string($user_pwd = App::auth()->getInfo('user_pwd')) ? $user_pwd : '';
+        $code     = pack('a32', App::auth()->userID()) . hash(App::config()->cryptAlgo(), App::auth()->cryptLegacy($user_pwd));
 
         return bin2hex($code);
     }
@@ -248,10 +254,8 @@ class Antispam
      * Check if a user code is valid and if so return the user ID.
      *
      * @param   string  $code   The code
-     *
-     * @return  bool|string
      */
-    public static function checkUserCode(string $code)
+    public static function checkUserCode(string $code): false|string
     {
         $code = pack('H*', $code);
 
@@ -276,13 +280,14 @@ class Antispam
             return false;
         }
 
-        if (hash(App::config()->cryptAlgo(), App::auth()->cryptLegacy($rs->user_pwd)) !== $pwd) {
+        $user_pwd = is_string($user_pwd = $rs->user_pwd) ? $user_pwd : '';
+        if (hash(App::config()->cryptAlgo(), App::auth()->cryptLegacy($user_pwd)) !== $pwd) {
             return false;
         }
 
         $permissions = App::blogs()->getBlogPermissions(App::blog()->id());
 
-        if (empty($permissions[$rs->user_id])) {
+        if (!is_string($rs->user_id) || !isset($permissions[$rs->user_id])) {
             return false;
         }
 
@@ -295,18 +300,18 @@ class Antispam
     public static function purgeOldSpam(): void
     {
         $defaultDateLastPurge = time();
-        $defaultModerationTTL = '7';
+        $defaultModerationTTL = 7;  // In days
         $init                 = false;
 
         // settings
-        $dateLastPurge = My::settings()->antispam_date_last_purge;
-        if ($dateLastPurge === null) {
+        $dateLastPurge = is_numeric($dateLastPurge = My::settings()->antispam_date_last_purge) ? (int) $dateLastPurge : 0;
+        if ($dateLastPurge === 0) {
             $init = true;
             My::settings()->put('antispam_date_last_purge', $defaultDateLastPurge, 'integer', 'Antispam Date Last Purge (unix timestamp)', true, false);
             $dateLastPurge = $defaultDateLastPurge;
         }
-        $moderationTTL = My::settings()->antispam_moderation_ttl;
-        if ($moderationTTL === null) {
+        $moderationTTL = is_numeric($moderationTTL = My::settings()->antispam_moderation_ttl) ? (int) $moderationTTL : 0;
+        if ($moderationTTL === 0) {
             My::settings()->put('antispam_moderation_ttl', $defaultModerationTTL, 'integer', 'Antispam Moderation TTL (days)', true, false);
             $moderationTTL = $defaultModerationTTL;
         }
@@ -322,7 +327,7 @@ class Antispam
             if (!$init) {
                 My::settings()->put('antispam_date_last_purge', time(), null, null, true, false);
             }
-            $date = date('Y-m-d H:i:s', (int) (time() - $moderationTTL * 86400));
+            $date = date('Y-m-d H:i:s', time() - $moderationTTL * 86400);
             Antispam::delAllSpam($date);
         }
     }
