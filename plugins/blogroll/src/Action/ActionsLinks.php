@@ -28,7 +28,7 @@ class ActionsLinks extends Actions
      * Constructs a new instance.
      *
      * @param   null|string             $uri            The form uri
-     * @param   array<string, mixed>    $redir_args     The redirection $_GET arguments,
+     * @param   array<string, string>   $redir_args     The redirection $_GET arguments,
      *                                                  if any (does not contain ids by default, ids may be merged to it)
      */
     public function __construct(?string $uri, array $redir_args = [])
@@ -122,21 +122,28 @@ class ActionsLinks extends Actions
     protected function fetchEntries(ArrayObject $from): void
     {
         $params = [];
-        if (!empty($from['entries'])) {
+        if (!empty($from['entries']) && is_array($from['entries'])) {
+            /**
+             * @var array<array-key, int>
+             */
+            $ids     = [];
             $entries = $from['entries'];
-
-            foreach ($entries as $k => $v) {
-                $entries[$k] = (int) $v;
+            foreach ($entries as $v) {
+                if (is_numeric($v)) {
+                    $ids[] = (int) $v;
+                }
             }
 
-            $params['sql'] = 'AND link_id IN(' . implode(',', $entries) . ') ';
+            $params['sql'] = 'AND link_id IN(' . implode(',', $ids) . ') ';
         } else {
             $params['sql'] = 'AND 1=0 ';
         }
 
         $rs = (new Blogroll(App::blog()))->getLinks($params);
         while ($rs->fetch()) {
-            $this->entries[$rs->link_id] = $rs->link_title;
+            if (is_string($rs->link_id) || is_numeric($rs->link_id)) {
+                $this->entries[(string) $rs->link_id] = $rs->link_title;
+            }
         }
         $this->rs = $rs;
     }

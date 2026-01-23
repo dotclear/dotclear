@@ -41,21 +41,21 @@ class FrontendTemplate
         $block    = '<ul>%s</ul>';
         $item     = '<li%2$s>%1$s</li>';
 
-        if (isset($attr['category'])) {
-            $category = addslashes((string) $attr['category']);
+        if (isset($attr['category']) && is_string($attr['category'])) {
+            $category = addslashes($attr['category']);
         }
 
-        if (isset($attr['block'])) {
-            $block = addslashes((string) $attr['block']);
+        if (isset($attr['block']) && is_string($attr['block'])) {
+            $block = addslashes($attr['block']);
         }
 
-        if (isset($attr['item'])) {
-            $item = addslashes((string) $attr['item']);
+        if (isset($attr['item']) && is_string($attr['item'])) {
+            $item = addslashes($attr['item']);
         }
 
         $only_cat = 'null';
-        if (!empty($attr['only_category'])) {
-            $only_cat = "'" . addslashes((string) $attr['only_category']) . "'";
+        if (!empty($attr['only_category']) && is_string($attr['only_category'])) {
+            $only_cat = "'" . addslashes($attr['only_category']) . "'";
         }
 
         return
@@ -91,7 +91,7 @@ class FrontendTemplate
         $blogroll = new Blogroll(App::blog());
 
         try {
-            $links = $blogroll->getLinks([
+            $rs = $blogroll->getLinks([
                 'link_status' => Link::ONLINE,
             ]);
         } catch (Exception) {
@@ -100,7 +100,7 @@ class FrontendTemplate
 
         $res = '';
 
-        $hierarchy = $blogroll->getLinksHierarchy($links);
+        $hierarchy = $blogroll->getLinksHierarchy($rs);
 
         if ($category) {
             if (!isset($hierarchy[$category])) {
@@ -109,9 +109,9 @@ class FrontendTemplate
             $hierarchy = [$category => $hierarchy[$category]];
         }
 
-        foreach ($hierarchy as $k => $v) {
-            if ($k != '') {
-                $res .= sprintf($cat_title, Html::escapeHTML($k)) . "\n";
+        foreach ($hierarchy as $category => $v) {
+            if ($category !== '') {
+                $res .= sprintf($cat_title, Html::escapeHTML($category)) . "\n";
             }
 
             $res .= self::getLinksList($v, $block, $item);
@@ -123,9 +123,9 @@ class FrontendTemplate
     /**
      * Gets the links list (HTML).
      *
-     * @param   array<string, mixed>    $links  The links
-     * @param   string                  $block  The block pattern
-     * @param   string                  $item   The item pattern
+     * @param   array<array-key, array<array-key, mixed>>   $links  The links
+     * @param   string                                      $block  The block pattern
+     * @param   string                                      $item   The item pattern
      *
      * @return  string  The links list.
      */
@@ -139,8 +139,8 @@ class FrontendTemplate
         $current_size = 0;
         $self_uri     = Http::getSelfURI();
         foreach ($links as $link_id => $link) {
-            if (!preg_match('$^([a-z][a-z0-9.+-]+://)$', (string) $link['link_href'])) {
-                $url = Http::concatURL($self_uri, (string) $link['link_href']);
+            if (is_string($link['link_href']) && !preg_match('$^([a-z][a-z0-9.+-]+://)$', $link['link_href'])) {
+                $url = Http::concatURL($self_uri, $link['link_href']);
                 if (strlen($url) > $current_size && preg_match('/^' . preg_quote($url, '/') . '/', $self_uri)) {
                     $current      = $link_id;
                     $current_size = strlen($url);
@@ -149,26 +149,27 @@ class FrontendTemplate
         }
 
         foreach ($links as $link_id => $link) {
-            $title = $link['link_title'];
-            $href  = $link['link_href'];
-            $desc  = $link['link_desc'];
-            $lang  = $link['link_lang'];
-            $xfn   = $link['link_xfn'];
+            $title = is_string($title = $link['link_title']) ? $title : '';
+            $href  = is_string($href = $link['link_href']) ? $href : '';
 
-            $link = '<a href="' . Html::escapeHTML($href) . '"' .
-            (($lang) ? ' hreflang="' . Html::escapeHTML($lang) . '"' : '') .
-            (($desc) ? ' title="' . Html::escapeHTML($desc) . '"' : '') .
-            (($xfn) ? ' rel="' . Html::escapeHTML($xfn) . '"' : '') .
-            '>' .
-            Html::escapeHTML($title) .
-                '</a>';
+            if ($title !== '' && $href !== '') {
+                $desc = is_string($desc = $link['link_desc']) ? $desc : '';
+                $lang = is_string($lang = $link['link_lang']) ? $lang : '';
+                $xfn  = is_string($xfn = $link['link_xfn']) ? $xfn : '';
 
-            $current_class = $current === $link_id ? ' class="active"' : '';
+                $link = '<a href="' . Html::escapeHTML($href) . '"' .
+                    (($lang !== '') ? ' hreflang="' . Html::escapeHTML($lang) . '"' : '') .
+                    (($desc !== '') ? ' title="' . Html::escapeHTML($desc) . '"' : '') .
+                    (($xfn !== '') ? ' rel="' . Html::escapeHTML($xfn) . '"' : '') .
+                    '>' . Html::escapeHTML($title) . '</a>';
 
-            $list .= sprintf($item, $link, $current_class) . "\n";
+                $current_class = $current === $link_id ? ' class="active"' : '';
+
+                $list .= sprintf($item, $link, $current_class) . "\n";
+            }
         }
 
-        return sprintf($block, $list) . "\n";
+        return $list !== '' ? sprintf($block, $list) . "\n" : '';
     }
 
     /**
@@ -186,7 +187,8 @@ class FrontendTemplate
             return '';
         }
 
-        $links = self::getList($widget->renderSubtitle('', false), '<ul>%s</ul>', '<li%2$s>%1$s</li>', $widget->get('category'));
+        $category = is_string($category = $widget->get('category')) ? $category : null;
+        $links    = self::getList($widget->renderSubtitle('', false), '<ul>%s</ul>', '<li%2$s>%1$s</li>', $category);
 
         if ($links === '') {
             return '';

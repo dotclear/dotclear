@@ -58,36 +58,45 @@ class FrontendUrl extends Url
 
         $i = 1;
         foreach ($blogroll->getLinksHierarchy($links) as $cat_title => $links) {
-            if ($cat_title != '') {
+            if ($cat_title !== '') {
                 echo
                 '<folder>' . "\n" .
                 '<title>' . Html::escapeHTML($cat_title) . '</title>' . "\n";
             }
 
-            foreach ($links as $v) {
-                $lang = $v['link_lang'] ? ' xml:lang="' . $v['link_lang'] . '"' : '';
+            foreach ($links as $link) {
+                $title = is_string($title = $link['link_title']) ? $title : '';
+                $href  = is_string($href = $link['link_href']) ? $href : '';
 
-                echo
-                '<bookmark href="' . $v['link_href'] . '"' . $lang . '>' . "\n" .
-                '<title>' . Html::escapeHTML($v['link_title']) . '</title>' . "\n";
+                if ($title !== '' && $href !== '') {
+                    $desc = is_string($desc = $link['link_desc']) ? $desc : '';
+                    $lang = is_string($lang = $link['link_lang']) ? $lang : '';
+                    $xfn  = is_string($xfn = $link['link_xfn']) ? $xfn : '';
 
-                if ($v['link_desc']) {
+                    $lang = $lang !== '' ? ' xml:lang="' . $lang . '"' : '';
+
                     echo
-                    '<desc>' . Html::escapeHTML($v['link_desc']) . '</desc>' . "\n";
-                }
+                    '<bookmark href="' . $href . '"' . $lang . '>' . "\n" .
+                    '<title>' . Html::escapeHTML($title) . '</title>' . "\n";
 
-                if ($v['link_xfn']) {
+                    if ($desc !== '') {
+                        echo
+                        '<desc>' . Html::escapeHTML($desc) . '</desc>' . "\n";
+                    }
+
+                    if ($xfn !== '') {
+                        echo
+                        '<info>' . "\n" .
+                        '<metadata owner="http://gmpg.org/xfn/">' . $xfn . '</metadata>' . "\n" .
+                        '</info>' . "\n";
+                    }
+
                     echo
-                    '<info>' . "\n" .
-                    '<metadata owner="http://gmpg.org/xfn/">' . $v['link_xfn'] . '</metadata>' . "\n" .
-                    '</info>' . "\n";
+                    '</bookmark>' . "\n";
                 }
-
-                echo
-                '</bookmark>' . "\n";
             }
 
-            if ($cat_title != '') {
+            if ($cat_title !== '') {
                 echo
                 '</folder>' . "\n";
             }

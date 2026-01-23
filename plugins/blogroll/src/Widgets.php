@@ -14,6 +14,7 @@ use Dotclear\App;
 use Dotclear\Plugin\blogroll\Status\Link;
 use Dotclear\Plugin\widgets\WidgetsStack;
 use Dotclear\Plugin\widgets\Widgets as dcWidgets;
+use Dotclear\Plugin\widgets\WidgetsElement;
 
 /**
  * @brief   The module widgets.
@@ -61,6 +62,10 @@ class Widgets
      */
     public static function initDefaultWidgets(WidgetsStack $widgets, array $default_widgets): void
     {
-        $default_widgets[dcWidgets::WIDGETS_EXTRA]->append($widgets->get(self::WIDGET_ID));
+        $widget = $widgets->get(self::WIDGET_ID);
+
+        if ($widget instanceof WidgetsElement) {
+            $default_widgets[dcWidgets::WIDGETS_EXTRA]->append($widget);
+        }
     }
 }

@@ -10,7 +10,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\blogroll;
 
-use ArrayObject;
 use Exception;
 use Dotclear\App;
 use Dotclear\Database\Cursor;
@@ -84,16 +83,20 @@ class Blogroll
             ->where('blog_id = ' . $sql->quote($this->blog->id()))
             ->order('link_position');
 
-        if (isset($params['link_id'])) {
+        if (isset($params['link_id']) && is_numeric($params['link_id'])) {
             $sql->and('link_id = ' . (int) $params['link_id'] . ' ');
         }
 
-        if (isset($params['link_status'])) {
+        if (isset($params['link_status']) && is_numeric($params['link_status'])) {
             $sql->and('link_status = ' . (int) $params['link_status'] . ' ');
         }
 
-        if (isset($params['sql'])) {
-            $sql->sql($params['sql']);
+        if (isset($params['sql']) && (is_string($params['sql']) || is_array($params['sql']))) {
+            /**
+             * @var string|array<array-key, string> $extra
+             */
+            $extra = $params['sql'];
+            $sql->sql($extra);
         }
 
         $rs = $sql->select();
@@ -115,6 +118,11 @@ class Blogroll
      */
     public function getLangs(array $params = []): MetaRecord
     {
+        $order = 'desc';
+        if (!empty($params['order']) && is_string($params['order']) && preg_match('/^(desc|asc)$/i', $params['order'])) {
+            $order = $params['order'];
+        }
+
         // Use post_lang as an alias of link_lang to be able to use the backend App::backend()->combos()->getLangsCombo() function
         $sql = new SelectStatement();
         $sql
@@ -127,9 +135,9 @@ class Blogroll
             ->and("link_lang <> '' ")
             ->and('link_lang IS NOT NULL ')
             ->group('link_lang')
-            ->order('link_lang ' . (!empty($params['order']) && preg_match('/^(desc|asc)$/i', (string) $params['order']) ? (string) $params['order'] : 'desc'));
+            ->order('link_lang ' . $order);
 
-        if (isset($params['lang'])) {
+        if (isset($params['lang']) && is_string($params['lang'])) {
             $sql->and('link_lang = ' . $sql->quote($params['lang']));
         }
 
@@ -185,7 +193,7 @@ class Blogroll
             ->column($sql->max('link_id'))
             ->from($this->table)
             ->select();
-        $max = $run instanceof MetaRecord ? $run->f(0) : 0;
+        $max = $run instanceof MetaRecord && is_numeric($max = $run->f(0) ?? 0) ? (int) $max : 0;
 
         $cur->link_id = $max + 1;
 
@@ -279,9 +287,9 @@ class Blogroll
             ->column($sql->max('link_id'))
             ->from($this->table)
             ->select();
-        $max = $run instanceof MetaRecord ? $run->f(0) : 0;
+        $max = $run instanceof MetaRecord && is_numeric($max = $run->f(0) ?? 0) ? (int) $max : 0;
 
-        $cur->link_id = (int) $max + 1;
+        $cur->link_id = $max + 1;
 
         $cur->insert();
         $this->blog->triggerBlog();
@@ -365,15 +373,19 @@ class Blogroll
      *
      * @param   MetaRecord  $rs     The links
      *
-     * @return  array<string, mixed>   The links hierarchy.
+     * @return  array<string, array<array-key, array<array-key, mixed>>>   The links hierarchy.
      */
     public function getLinksHierarchy(MetaRecord $rs): array
     {
+        /**
+         * @var array<string, array<array-key, array<array-key, mixed>>>
+         */
         $res = [];
 
         foreach ($rs->rows() as $v) {
             if (!$v['is_cat']) {
-                $res[(string) $v['cat_title']][] = $v;
+                $cat_title         = is_string($v['cat_title']) ? $v['cat_title'] : '';
+                $res[$cat_title][] = $v;
             }
         }
 
@@ -381,27 +393,17 @@ class Blogroll
     }
 
     /**
-     * @param      int|array<int, mixed>|ArrayObject<int, mixed>  $ids    The identifiers
+     * @param      array<string>  $ids    The identifiers
      *
      * @return     array<int>
      */
-    public function cleanIds(int|array|ArrayObject $ids): array
+    public function cleanIds(array $ids): array
     {
         $clean_ids = [];
 
-        if (!is_array($ids) && !($ids instanceof ArrayObject)) {
-            $ids = [$ids];
-        }
-
         foreach ($ids as $id) {
-            if (is_array($id) || ($id instanceof ArrayObject)) {
-                $clean_ids = [...$clean_ids, ...$this->cleanIds($id)];
-            } else {
-                $id = abs((int) $id);
-
-                if (!empty($id)) {
-                    $clean_ids[] = $id;
-                }
+            if (is_numeric($id) && $id) {
+                $clean_ids[] = abs((int) $id);
             }
         }
 
@@ -409,9 +411,9 @@ class Blogroll
     }
 
     /**
-     * @param      int|array<int, mixed>|ArrayObject<int, mixed>    $ids        The identifiers
+     * @param      array<string>    $ids        The identifiers
      */
-    public function updLinksStatus(int|array|ArrayObject $ids, int $status): void
+    public function updLinksStatus(array $ids, int $status): void
     {
         if (!App::auth()->check(App::auth()->makePermissions([
             Blogroll::PERMISSION_BLOGROLL,
@@ -442,9 +444,9 @@ class Blogroll
     }
 
     /**
-     * @param      int|array<int, mixed>|ArrayObject<int, mixed>    $ids        The identifiers
+     * @param      array<string>    $ids        The identifiers
      */
-    public function delLinks(int|array|ArrayObject $ids): void
+    public function delLinks(array $ids): void
     {
         if (!App::auth()->check(App::auth()->makePermissions([
             Blogroll::PERMISSION_BLOGROLL,
