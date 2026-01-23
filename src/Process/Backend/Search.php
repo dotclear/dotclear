@@ -294,7 +294,7 @@ class Search
 
         if (self::$actions && self::$list) {
             $combo = self::$actions->getCombo();
-            if (is_array($combo)) {
+            if ($combo !== []) {
                 $block = (new Form('form-entries'))
                     ->method('post')
                     ->action(App::backend()->url()->get('admin.search'))
@@ -390,7 +390,7 @@ class Search
 
         if (self::$actions && self::$list) {
             $combo = self::$actions->getCombo();
-            if (is_array($combo)) {
+            if ($combo !== []) {
                 $block = (new Form('form-comments'))
                     ->method('post')
                     ->action(App::backend()->url()->get('admin.search'))

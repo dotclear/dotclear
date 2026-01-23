@@ -204,7 +204,7 @@ abstract class Actions
      *
      * @return  array<string, mixed>   The actions combo
      */
-    public function getCombo(): ?array
+    public function getCombo(): array
     {
         return $this->combo;
     }
