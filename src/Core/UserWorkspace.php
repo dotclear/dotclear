@@ -34,8 +34,6 @@ use Throwable;
  *      label:string,
  *      global:bool
  * }
- *
- * @psalm-no-seal-properties
  */
 class UserWorkspace implements UserWorkspaceInterface
 {

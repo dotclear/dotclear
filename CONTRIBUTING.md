@@ -128,12 +128,6 @@ And :
 bin/rector process --dry-run --memory-limit=8G
 ```
 
-And also:
-
-```sh
-bin/psalm
-```
-
 ### PHP code unit testing
 
 ```sh

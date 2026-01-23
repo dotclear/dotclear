@@ -18,8 +18,6 @@ namespace Dotclear\Interface\Core;
  * updating another blog settings.
  *
  * @since   2.28
- *
- * @psalm-no-seal-properties
  */
 interface BlogSettingsInterface
 {

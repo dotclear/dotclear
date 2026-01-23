@@ -31,8 +31,6 @@ use Dotclear\Helper\Stack\Filter;
  * @brief   Generic class for admin list filters form.
  *
  * @since   2.20
- *
- * @psalm-no-seal-properties
  */
 class Filters
 {

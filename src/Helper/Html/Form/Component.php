@@ -107,9 +107,6 @@ use Dotclear\App;
  * @property    null|Iterable<Component> $items
  * @property    ?string $format
  * @property    ?string $separator
- *
- * @psalm-no-seal-properties
- * @psalm-no-seal-methods
  */
 abstract class Component
 {

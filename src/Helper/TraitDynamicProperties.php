@@ -15,8 +15,6 @@ namespace Dotclear\Helper;
  * @brief Dotclear dynamic properties management trait.
  *
  * Dotclear trait to add dynamic properties management to a class.
- *
- * @psalm-no-seal-properties
  */
 trait TraitDynamicProperties
 {

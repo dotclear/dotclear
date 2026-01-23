@@ -25,8 +25,6 @@ use Dotclear\Database\MetaRecord;
  *      label:string,
  *      global:bool
  * }
- *
- * @psalm-no-seal-properties
  */
 interface BlogWorkspaceInterface
 {

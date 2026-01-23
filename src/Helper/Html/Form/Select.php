@@ -76,9 +76,6 @@ class Select extends Component
                         $buffer .= $value->render();
                     }
                 } elseif (is_array($value)) {
-                    /**
-                     * @psalm-suppress InvalidArgument
-                     */
                     $buffer .= (new Optgroup((string) $item))->items($value)->render($current);
                 } else {
                     $buffer .= (new Option((string) $item, (string) $value))->render($current);

@@ -10,14 +10,12 @@ declare(strict_types=1);
 
 namespace Dotclear\Database;
 
-use \Dotclear\Exception\DatabaseException;
+use Dotclear\Exception\DatabaseException;
 
 /**
  * @class Table
  *
  * Database Table structure Handler
- *
- * @psalm-no-seal-methods
  */
 class Table
 {

@@ -16,8 +16,6 @@ use Dotclear\Interface\Database\ConnectionInterface;
  * @class Structure
  *
  * Database Structure Handler
- *
- * @psalm-no-seal-properties
  */
 class Structure
 {

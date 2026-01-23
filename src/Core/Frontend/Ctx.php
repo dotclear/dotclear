@@ -22,10 +22,6 @@ use Dotclear\Interface\Core\BlogInterface;
 use Exception;
 use SimpleXMLElement;
 
-/**
- * @psalm-no-seal-properties
- * @psalm-no-seal-methods
- */
 class Ctx
 {
     /**

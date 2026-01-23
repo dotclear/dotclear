@@ -36,8 +36,6 @@ use Throwable;
  *      label:string,
  *      global:bool
  * }
- *
- * @psalm-no-seal-properties
  */
 class BlogWorkspace implements BlogWorkspaceInterface
 {

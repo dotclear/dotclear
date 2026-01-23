@@ -30,8 +30,6 @@ use Throwable;
  *
  * @since   2.28, container services have been added to constructor
  * @since   2.36, constructor arguments has been replaced by Core instance
- *
- * @psalm-no-seal-properties
  */
 class UserPreferences implements UserPreferencesInterface
 {
