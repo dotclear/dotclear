@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -30,12 +31,15 @@ class BackendBehaviors
      */
     public static function adminBlogPreferencesForm(BlogSettingsInterface $settings): void
     {
+        $enabled = is_bool($enabled = $settings->breadcrumb->breadcrumb_enabled) ? $enabled : null;
+        $alone   = is_bool($alone = $settings->breadcrumb->breadcrumb_alone) ? $alone : null;
+
         echo (new Fieldset('breadcrumb_params'))
             ->legend(new Legend(My::name()))
             ->fields([
                 (new Para())
                     ->items([
-                        (new Checkbox('breadcrumb_enabled', $settings->breadcrumb->breadcrumb_enabled))
+                        (new Checkbox('breadcrumb_enabled', $enabled))
                             ->value(1)
                             ->label((new Label(__('Enable breadcrumb for this blog'), Label::INSIDE_TEXT_AFTER))),
                     ]),
@@ -44,7 +48,7 @@ class BackendBehaviors
                     ->text(__('The {{tpl:Breadcrumb [separator=" &amp;rsaquo; "]}} tag should be present (or inserted if not) in the template.')),
                 (new Para())
                     ->items([
-                        (new Checkbox('breadcrumb_alone', $settings->breadcrumb->breadcrumb_alone))
+                        (new Checkbox('breadcrumb_alone', $alone))
                             ->value(1)
                             ->label((new Label(__('Do not encapsulate breadcrumb in a &lt;p id="breadcrumb"&gt;...&lt;/p&gt; tag.'), Label::INSIDE_TEXT_AFTER))),
                     ]),

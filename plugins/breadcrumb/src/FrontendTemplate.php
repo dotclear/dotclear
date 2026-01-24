@@ -12,6 +12,7 @@ namespace Dotclear\Plugin\breadcrumb;
 
 use ArrayObject;
 use Dotclear\App;
+use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Date;
 
 /**
@@ -31,9 +32,9 @@ class FrontendTemplate
      */
     public static function breadcrumb(ArrayObject $attr): string
     {
-        $separator = $attr['separator'] ?? '';
+        $separator = is_string($separator = $attr['separator'] ?? '') ? $separator : '';
 
-        return '<?= ' . self::class . '::displayBreadcrumb(' . "'" . addslashes((string) $separator) . "'" . ') ?>';
+        return '<?= ' . self::class . '::displayBreadcrumb(' . "'" . addslashes($separator) . "'" . ') ?>';
     }
 
     /**
@@ -86,7 +87,11 @@ class FrontendTemplate
                         $breadcrumb = '<span id="bc-home">' . __('Home') . '</span>';
                         if (App::frontend()->context()->cur_lang) {
                             $langs = App::lang()->getISOcodes();
-                            $breadcrumb .= $separator . ($langs[App::frontend()->context()->cur_lang] ?? App::frontend()->context()->cur_lang);
+                            $lang  = is_string($lang = App::frontend()->context()->cur_lang) ? $lang : '';
+                            if ($lang !== '' && isset($langs[$lang])) {
+                                $lang = $langs[$lang];
+                            }
+                            $breadcrumb .= $separator . $lang;
                         }
                     }
 
@@ -99,7 +104,11 @@ class FrontendTemplate
                         $breadcrumb .= $separator . '<a href="' . $blogUrl . App::url()->getURLFor('posts') . '">' . __('Blog') . '</a>';
                     } elseif (App::frontend()->context()->cur_lang) {
                         $langs = App::lang()->getISOcodes();
-                        $breadcrumb .= $separator . ($langs[App::frontend()->context()->cur_lang] ?? App::frontend()->context()->cur_lang);
+                        $lang  = is_string($lang = App::frontend()->context()->cur_lang) ? $lang : '';
+                        if ($lang !== '' && isset($langs[$lang])) {
+                            $lang = $langs[$lang];
+                        }
+                        $breadcrumb .= $separator . $lang;
                     }
                     $breadcrumb .= $separator . sprintf(__('page %d'), $page);
 
@@ -108,15 +117,24 @@ class FrontendTemplate
                 case 'category':
                     // Category
                     $breadcrumb = '<a id="bc-home" href="' . $blogUrl . '">' . __('Home') . '</a>';
-                    $categories = App::blog()->getCategoryParents((int) App::frontend()->context()->categories->cat_id);
-                    while ($categories->fetch()) {
-                        $breadcrumb .= $separator . '<a href="' . $blogUrl . App::url()->getURLFor('category', $categories->cat_url) . '">' . $categories->cat_title . '</a>';
-                    }
-                    if ($page === 0) {
-                        $breadcrumb .= $separator . App::frontend()->context()->categories->cat_title;
-                    } else {
-                        $breadcrumb .= $separator . '<a href="' . $blogUrl . App::url()->getURLFor('category', App::frontend()->context()->categories->cat_url) . '">' . App::frontend()->context()->categories->cat_title . '</a>';
-                        $breadcrumb .= $separator . sprintf(__('page %d'), $page);
+                    $categories = App::frontend()->context()->categories instanceof MetaRecord ? App::frontend()->context()->categories : null;
+                    if ($categories instanceof MetaRecord) {
+                        $cat_id             = is_numeric($cat_id = $categories->cat_id) ? (int) $cat_id : 0;
+                        $categories_parents = App::blog()->getCategoryParents($cat_id);
+                        while ($categories_parents->fetch()) {
+                            $cat_url   = is_string($cat_url = $categories_parents->cat_url) ? $cat_url : '';
+                            $cat_title = is_string($cat_title = $categories_parents->cat_title) ? $cat_title : '';
+                            $breadcrumb .= $separator . '<a href="' . $blogUrl . App::url()->getURLFor('category', $cat_url) . '">' . $cat_title . '</a>';
+                        }
+
+                        $cat_title = is_string($cat_title = $categories->cat_title) ? $cat_title : '';
+                        if ($page === 0) {
+                            $breadcrumb .= $separator . $cat_title;
+                        } else {
+                            $cat_url = is_string($cat_url = $categories->cat_url) ? $cat_url : '';
+                            $breadcrumb .= $separator . '<a href="' . $blogUrl . App::url()->getURLFor('category', $cat_url) . '">' . $cat_title . '</a>';
+                            $breadcrumb .= $separator . sprintf(__('page %d'), $page);
+                        }
                     }
 
                     break;
@@ -124,17 +142,26 @@ class FrontendTemplate
                 case 'post':
                     // Post
                     $breadcrumb = '<a id="bc-home" href="' . $blogUrl . '">' . __('Home') . '</a>';
-                    if (App::frontend()->context()->posts->cat_id) {
-                        // Parents cats of post's cat
-                        $categories = App::blog()->getCategoryParents((int) App::frontend()->context()->posts->cat_id);
-                        while ($categories->fetch()) {
-                            $breadcrumb .= $separator . '<a href="' . $blogUrl . App::url()->getURLFor('category', $categories->cat_url) . '">' . $categories->cat_title . '</a>';
+                    $posts      = App::frontend()->context()->posts instanceof MetaRecord ? App::frontend()->context()->posts : null;
+                    if ($posts instanceof MetaRecord) {
+                        $cat_id = is_numeric($cat_id = $posts->cat_id) ? (int) $cat_id : 0;
+                        if ($cat_id !== 0) {
+                            // Parents cats of post's cat
+                            $categories = App::blog()->getCategoryParents($cat_id);
+                            while ($categories->fetch()) {
+                                $cat_title = is_string($cat_title = $categories->cat_title) ? $cat_title : '';
+                                $cat_url   = is_string($cat_url = $categories->cat_url) ? $cat_url : '';
+                                $breadcrumb .= $separator . '<a href="' . $blogUrl . App::url()->getURLFor('category', $cat_url) . '">' . $cat_title . '</a>';
+                            }
+                            // Post's cat
+                            $categories = App::blog()->getCategory($cat_id);
+                            $cat_title  = is_string($cat_title = $categories->cat_title) ? $cat_title : '';
+                            $cat_url    = is_string($cat_url = $categories->cat_url) ? $cat_url : '';
+                            $breadcrumb .= $separator . '<a href="' . $blogUrl . App::url()->getURLFor('category', $cat_url) . '">' . $cat_title . '</a>';
                         }
-                        // Post's cat
-                        $categories = App::blog()->getCategory((int) App::frontend()->context()->posts->cat_id);
-                        $breadcrumb .= $separator . '<a href="' . $blogUrl . App::url()->getURLFor('category', $categories->cat_url) . '">' . $categories->cat_title . '</a>';
+                        $post_title = is_string($post_title = $posts->post_title) ? $post_title : '';
+                        $breadcrumb .= $separator . $post_title;
                     }
-                    $breadcrumb .= $separator . App::frontend()->context()->posts->post_title;
 
                     break;
 
@@ -142,20 +169,26 @@ class FrontendTemplate
                     // Lang
                     $breadcrumb = '<a id="bc-home" href="' . $blogUrl . '">' . __('Home') . '</a>';
                     $langs      = App::lang()->getISOcodes();
-                    $breadcrumb .= $separator . ($langs[App::frontend()->context()->cur_lang] ?? App::frontend()->context()->cur_lang);
+                    $lang       = is_string($lang = App::frontend()->context()->cur_lang) ? $lang : '';
+                    if ($lang !== '' && isset($langs[$lang])) {
+                        $lang = $langs[$lang];
+                    }
+                    $breadcrumb .= $separator . $lang;
 
                     break;
 
                 case 'archive':
                     // Archives
                     $breadcrumb = '<a id="bc-home" href="' . $blogUrl . '">' . __('Home') . '</a>';
-                    if (!App::frontend()->context()->archives) {
-                        // Global archives
-                        $breadcrumb .= $separator . __('Archives');
-                    } else {
+                    if (App::frontend()->context()->archives instanceof MetaRecord) {
                         // Month archive
                         $breadcrumb .= $separator . '<a href="' . $blogUrl . App::url()->getURLFor('archive') . '">' . __('Archives') . '</a>';
-                        $breadcrumb .= $separator . Date::dt2str('%B %Y', App::frontend()->context()->archives->dt);
+
+                        $dt = is_string($dt = App::frontend()->context()->archives->dt) ? $dt : '';
+                        $breadcrumb .= $separator . Date::dt2str('%B %Y', $dt);
+                    } else {
+                        // Global archives
+                        $breadcrumb .= $separator . __('Archives');
                     }
 
                     break;
@@ -163,7 +196,11 @@ class FrontendTemplate
                 case 'pages':
                     // Page
                     $breadcrumb = '<a id="bc-home" href="' . $blogUrl . '">' . __('Home') . '</a>';
-                    $breadcrumb .= $separator . App::frontend()->context()->posts->post_title;
+                    $posts      = App::frontend()->context()->posts instanceof MetaRecord ? App::frontend()->context()->posts : null;
+                    if ($posts instanceof MetaRecord) {
+                        $post_title = is_string($post_title = $posts->post_title) ? $post_title : '';
+                        $breadcrumb .= $separator . $post_title;
+                    }
 
                     break;
 
@@ -178,11 +215,15 @@ class FrontendTemplate
                     // Tag
                     $breadcrumb = '<a id="bc-home" href="' . $blogUrl . '">' . __('Home') . '</a>';
                     $breadcrumb .= $separator . '<a href="' . $blogUrl . App::url()->getURLFor('tags') . '">' . __('All tags') . '</a>';
-                    if ($page === 0) {
-                        $breadcrumb .= $separator . App::frontend()->context()->meta->meta_id;
-                    } else {
-                        $breadcrumb .= $separator . '<a href="' . $blogUrl . App::url()->getURLFor('tag', rawurlencode((string) App::frontend()->context()->meta->meta_id)) . '">' . App::frontend()->context()->meta->meta_id . '</a>';
-                        $breadcrumb .= $separator . sprintf(__('page %d'), $page);
+                    $meta = App::frontend()->context()->meta instanceof MetaRecord ? App::frontend()->context()->meta : null;
+                    if ($meta instanceof MetaRecord) {
+                        $meta_id = is_string($meta_id = $meta->meta_id) ? $meta_id : '';
+                        if ($page === 0) {
+                            $breadcrumb .= $separator . $meta_id;
+                        } else {
+                            $breadcrumb .= $separator . '<a href="' . $blogUrl . App::url()->getURLFor('tag', rawurlencode($meta_id)) . '">' . $meta_id . '</a>';
+                            $breadcrumb .= $separator . sprintf(__('page %d'), $page);
+                        }
                     }
 
                     break;
