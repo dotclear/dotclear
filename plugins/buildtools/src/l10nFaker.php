@@ -12,6 +12,7 @@ namespace Dotclear\Plugin\buildtools;
 
 use Dotclear\App;
 use Dotclear\Helper\Date;
+use Dotclear\Module\ModuleDefine;
 
 /**
  * @brief   The module l10n faker handler.
@@ -20,16 +21,6 @@ use Dotclear\Helper\Date;
 class l10nFaker
 {
     /**
-     * Get a fake l10n.
-     *
-     * @param   string  $str    The string
-     */
-    protected function fake_l10n(string $str): string
-    {
-        return trim($str) !== '' ? sprintf('__(\'%s\');', addslashes($str)) . "\n" : '';
-    }
-
-    /**
      * Generate files.
      *
      * - /_fake_l10n.php                        Main locales
@@ -37,7 +28,13 @@ class l10nFaker
      */
     public function generate_file(): void
     {
-        $main = $plugin = "<?php\n\n" . '// Generated on ' . Date::dt2str('%Y-%m-%d %H:%M %z', (string) time(), App::auth()->getInfo('user_tz')) . "\n";
+        $user_tz = is_string($user_tz = App::auth()->getInfo('user_tz')) ? $user_tz : null;
+        $main    = $plugin = "<?php\n\n" . '// Generated on ' . Date::dt2str('%Y-%m-%d %H:%M %z', (string) time(), $user_tz) . "\n";
+
+        /**
+         * Get a fake l10n
+         */
+        $fake_l10n = fn (string $str): string => trim($str) !== '' ? sprintf('__(\'%s\');', addslashes($str)) . "\n" : '';
 
         // Main file
 
@@ -45,7 +42,7 @@ class l10nFaker
         $main .= "\n// Media sizes\n\n";
         foreach (App::media()->getThumbSizes() as $v) {
             if (isset($v[3])) {
-                $main .= $this->fake_l10n($v[3]);
+                $main .= $fake_l10n($v[3]);
             }
         }
 
@@ -53,13 +50,13 @@ class l10nFaker
         $post_types = App::postTypes()->dump();
         $main .= "\n// Post types\n\n";
         foreach ($post_types as $v) {
-            $main .= $this->fake_l10n($v->get('label'));
+            $main .= $fake_l10n($v->get('label'));
         }
 
         // Get list of DB drivers names
         $main .= "\n// DB drivers names\n\n";
         foreach (array_keys(App::db()->combo()) as $driver_name) {
-            $main .= $this->fake_l10n($driver_name);
+            $main .= $fake_l10n($driver_name);
         }
 
         file_put_contents(implode(DIRECTORY_SEPARATOR, [App::config()->dotclearRoot(), 'inc', 'core', '_fake_l10n.php']), $main);
@@ -69,8 +66,9 @@ class l10nFaker
         // Get list of plugins names
         $plugin .= "\n// Plugin names\n\n";
         foreach (App::plugins()->getDefines() as $define) {
-            if ($define->get('distributed')) {
-                $plugin .= $this->fake_l10n($define->get('desc'));
+            if ($define instanceof ModuleDefine && $define->get('distributed')) {
+                $desc = is_string($desc = $define->get('desc')) ? $desc : '';
+                $plugin .= $fake_l10n($desc);
             }
         }
 
@@ -79,7 +77,7 @@ class l10nFaker
             $plugin .= "\n// Widget settings names\n\n";
             $widgets = \Dotclear\Plugin\widgets\Widgets::$widgets->elements();
             foreach ($widgets as $w) {
-                $plugin .= $this->fake_l10n($w->desc());
+                $plugin .= $fake_l10n($w->desc());
             }
         }
 
