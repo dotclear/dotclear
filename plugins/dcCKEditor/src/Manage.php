@@ -101,10 +101,14 @@ class Manage
                     App::backend()->editor_cke_background_textcolor_button = !empty($_POST['dcckeditor_background_textcolor_button']);
                     My::settings()->put('background_textcolor_button', App::backend()->editor_cke_background_textcolor_button, 'boolean');
 
-                    App::backend()->editor_cke_custom_color_list = str_replace(['#', ' '], '', $_POST['dcckeditor_custom_color_list']);
+                    $custom_color_list = is_string($custom_color_list = $_POST['dcckeditor_custom_color_list']) ? $custom_color_list : '';
+
+                    App::backend()->editor_cke_custom_color_list = str_replace(['#', ' '], '', $custom_color_list);
                     My::settings()->put('custom_color_list', App::backend()->editor_cke_custom_color_list, 'string');
 
-                    App::backend()->editor_cke_colors_per_row = abs((int) $_POST['dcckeditor_colors_per_row']);
+                    $colors_per_row = is_numeric($colors_per_row = $_POST['dcckeditor_colors_per_row']) ? (int) $colors_per_row : 6;
+
+                    App::backend()->editor_cke_colors_per_row = abs($colors_per_row);
                     My::settings()->put('colors_per_row', App::backend()->editor_cke_colors_per_row);
 
                     App::backend()->editor_cke_cancollapse_button = !empty($_POST['dcckeditor_cancollapse_button']);
@@ -118,8 +122,9 @@ class Manage
 
                     $allowed_tags = explode(';', App::backend()->editor_cke_format_tags);
                     if (!empty($_POST['dcckeditor_format_tags'])) {
-                        $tags     = explode(';', (string) $_POST['dcckeditor_format_tags']);
-                        $new_tags = true;
+                        $format_tags = is_string($format_tags = $_POST['dcckeditor_format_tags']) ? $format_tags : '';
+                        $tags        = explode(';', $format_tags);
+                        $new_tags    = true;
                         foreach ($tags as $tag) {
                             if (!in_array($tag, $allowed_tags)) {
                                 $new_tags = false;
@@ -174,44 +179,60 @@ class Manage
         if (App::backend()->editor_is_admin) {
             $fields = [];
 
+            $active = is_bool($active = App::backend()->editor_cke_active) && $active;
+
             // Activation
             $fields[] = (new Fieldset())
                 ->legend(new Legend(__('Plugin activation')))
                 ->fields([
                     (new Para())
                         ->items([
-                            (new Checkbox('dcckeditor_active', App::backend()->editor_cke_active))
+                            (new Checkbox('dcckeditor_active', $active))
                                 ->value(1)
                                 ->label((new Label(__('Enable CKEditor plugin'), Label::INSIDE_TEXT_AFTER))),
                         ]),
                 ]);
 
-            if (App::backend()->editor_cke_active) {
+            if ($active) {
+                $alignment      = is_bool($alignment = App::backend()->editor_cke_alignment_buttons) ? $alignment : true;
+                $list           = is_bool($list = App::backend()->editor_cke_list_buttons) ? $list : true;
+                $color          = is_bool($color = App::backend()->editor_cke_textcolor_button)                 && $color;
+                $background     = is_bool($background = App::backend()->editor_cke_background_textcolor_button) && $background;
+                $colors         = is_string($colors = App::backend()->editor_cke_custom_color_list) ? $colors : '';
+                $colors_per_row = is_numeric($colors_per_row = App::backend()->editor_cke_colors_per_row) ? (int) $colors_per_row : 6;
+                $collapse       = is_bool($collapse = App::backend()->editor_cke_cancollapse_button) && $collapse;
+                $format         = is_bool($format = App::backend()->editor_cke_format_select) ? $format : true;
+                $format_tags    = is_string($format_tags = App::backend()->editor_cke_format_tags) ? $format_tags : '';
+                $table          = is_bool($table = App::backend()->editor_cke_table_button)          && $table;
+                $clipboard      = is_bool($clipboard = App::backend()->editor_cke_clipboard_buttons) && $clipboard;
+                $action         = is_bool($action = App::backend()->editor_cke_action_buttons) ? $action : true;
+                $nospellchecker = is_bool($nospellchecker = App::backend()->editor_cke_disable_native_spellchecker) ? $nospellchecker : true;
+
                 // Settings
                 $fields[] = (new Fieldset())
                     ->legend(new Legend(__('Options')))
                     ->fields([
                         (new Para())
                             ->items([
-                                (new Checkbox('dcckeditor_alignment_buttons', App::backend()->editor_cke_alignment_buttons))
+                                (new Checkbox('dcckeditor_alignment_buttons', $alignment))
                                     ->value(1)
                                     ->label((new Label(__('Add alignment buttons'), Label::INSIDE_TEXT_AFTER))),
                             ]),
                         (new Para())
                             ->items([
-                                (new Checkbox('dcckeditor_list_buttons', App::backend()->editor_cke_list_buttons))
+                                (new Checkbox('dcckeditor_list_buttons', $list))
                                     ->value(1)
                                     ->label((new Label(__('Add lists buttons'), Label::INSIDE_TEXT_AFTER))),
                             ]),
                         (new Para())
                             ->items([
-                                (new Checkbox('dcckeditor_textcolor_button', App::backend()->editor_cke_textcolor_button))
+                                (new Checkbox('dcckeditor_textcolor_button', $color))
                                     ->value(1)
                                     ->label((new Label(__('Add text color button'), Label::INSIDE_TEXT_AFTER))),
                             ]),
                         (new Para())
                             ->items([
-                                (new Checkbox('dcckeditor_background_textcolor_button', App::backend()->editor_cke_background_textcolor_button))
+                                (new Checkbox('dcckeditor_background_textcolor_button', $background))
                                     ->value(1)
                                     ->label((new Label(__('Add background text color button'), Label::INSIDE_TEXT_AFTER))),
                             ]),
@@ -221,8 +242,7 @@ class Manage
                                 (new Para())
                                     ->class('area')
                                     ->items([
-                                        (new Textarea('dcckeditor_custom_color_list', Html::escapeHTML(App::backend()->editor_cke_custom_color_list)))
-                                            //->label(new Label(__('Custom colors list:'), Label::INSIDE_TEXT_BEFORE))
+                                        (new Textarea('dcckeditor_custom_color_list', Html::escapeHTML($colors)))
                                             ->extra('aria-labelledby="dcckeditor_custom_color_list_label"')
                                             ->cols(60)
                                             ->rows(5),
@@ -247,7 +267,7 @@ class Manage
                             ]),
                         (new Para())
                             ->items([
-                                (new Number('dcckeditor_colors_per_row', 4, 16, (int) App::backend()->editor_cke_colors_per_row))
+                                (new Number('dcckeditor_colors_per_row', 4, 16, $colors_per_row))
                                     ->default(6)
                                     ->label((new Label(__('Colors per row in palette:'), Label::INSIDE_TEXT_BEFORE))),
                             ]),
@@ -256,13 +276,13 @@ class Manage
                             ->text(__('Valid range: 4 to 16')),
                         (new Para())
                             ->items([
-                                (new Checkbox('dcckeditor_cancollapse_button', App::backend()->editor_cke_cancollapse_button))
+                                (new Checkbox('dcckeditor_cancollapse_button', $collapse))
                                     ->value(1)
                                     ->label((new Label(__('Add collapse button'), Label::INSIDE_TEXT_AFTER))),
                             ]),
                         (new Para())
                             ->items([
-                                (new Checkbox('dcckeditor_format_select', App::backend()->editor_cke_format_select))
+                                (new Checkbox('dcckeditor_format_select', $format))
                                     ->value(1)
                                     ->label((new Label(__('Add format selection'), Label::INSIDE_TEXT_AFTER))),
                             ]),
@@ -272,11 +292,10 @@ class Manage
                                 (new Para())
                                     ->items([
                                         (new Input('dcckeditor_format_tags'))
-                                            //->label((new Label(__('Custom formats'), Label::INSIDE_TEXT_BEFORE)))
                                             ->extra('aria-labelledby="dcckeditor_format_tags_label"')
                                             ->size(100)
                                             ->maxlength(255)
-                                            ->value(Html::escapeHTML(App::backend()->editor_cke_format_tags))
+                                            ->value(Html::escapeHTML($format_tags))
                                             ->placeholder('p;h1;h2;h3;h4;h5;h6;pre;address'),
                                     ]),
                                 (new Note())
@@ -285,13 +304,13 @@ class Manage
                             ]),
                         (new Para())
                             ->items([
-                                (new Checkbox('dcckeditor_table_button', App::backend()->editor_cke_table_button))
+                                (new Checkbox('dcckeditor_table_button', $table))
                                     ->value(1)
                                     ->label((new Label(__('Add table button'), Label::INSIDE_TEXT_AFTER))),
                             ]),
                         (new Para())
                             ->items([
-                                (new Checkbox('dcckeditor_clipboard_buttons', App::backend()->editor_cke_clipboard_buttons))
+                                (new Checkbox('dcckeditor_clipboard_buttons', $clipboard))
                                     ->value(1)
                                     ->label((new Label(__('Add clipboard buttons'), Label::INSIDE_TEXT_AFTER))),
                             ]),
@@ -300,13 +319,13 @@ class Manage
                             ->text(__('Copy, Paste, Paste Text, Paste from Word')),
                         (new Para())
                             ->items([
-                                (new Checkbox('dcckeditor_action_buttons', App::backend()->editor_cke_action_buttons))
+                                (new Checkbox('dcckeditor_action_buttons', $action))
                                     ->value(1)
                                     ->label((new Label(__('Add undo/redo buttons'), Label::INSIDE_TEXT_AFTER))),
                             ]),
                         (new Para())
                             ->items([
-                                (new Checkbox('dcckeditor_disable_native_spellchecker', App::backend()->editor_cke_disable_native_spellchecker))
+                                (new Checkbox('dcckeditor_disable_native_spellchecker', $nospellchecker))
                                     ->value(1)
                                     ->label((new Label(__('Disables the built-in spell checker if the browser provides one'), Label::INSIDE_TEXT_AFTER))),
                             ]),

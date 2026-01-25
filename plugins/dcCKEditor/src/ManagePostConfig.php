@@ -52,14 +52,15 @@ class ManagePostConfig
         // Init variables
         $disableNativeSpellChecker = (bool) App::backend()->editor_cke_disable_native_spellchecker ? 'true' : 'false';
 
-        $height = App::auth()->getOption('edit_size') * 14 . 'px';
+        $edit_size = is_numeric($edit_size = App::auth()->getOption('edit_size')) ? (int) $edit_size : 24;
+        $height    = $edit_size * 14 . 'px';
 
         $editor_cke_cancollapse_button = empty(App::backend()->editor_cke_cancollapse_button) ? 'false' : 'true';
 
         $colorButton_enableMore = !empty(App::backend()->editor_cke_textcolor_button) || !empty(App::backend()->editor_cke_background_textcolor_button) ? 'true' : 'false';
 
-        $colorButton_colors       = empty(App::backend()->editor_cke_custom_color_list) ? '' : App::backend()->editor_cke_custom_color_list;
-        $colorButton_colorsPerRow = App::backend()->editor_cke_colors_per_row ?: 6;
+        $colorButton_colors       = is_string($colorButton_colors = App::backend()->editor_cke_custom_color_list) ? $colorButton_colors : '';
+        $colorButton_colorsPerRow = is_numeric($colorButton_colorsPerRow = App::backend()->editor_cke_colors_per_row) ? (int) $colorButton_colorsPerRow : 6;
 
         $addExternal        = '';
         $defautExtraPlugins = 'entrylink,dclink,media,justify,colorbutton,format,img,footnotes';
@@ -75,7 +76,7 @@ class ManagePostConfig
             $extraPlugins_str = sprintf($extraPlugins_str, $extra_icons);
         }
 
-        $format_tags  = empty(App::backend()->editor_cke_format_tags) ? 'p;h1;h2;h3;h4;h5;h6;pre;address' : App::backend()->editor_cke_format_tags;
+        $format_tags  = is_string($format_tags = App::backend()->editor_cke_format_tags) ? $format_tags : 'p;h1;h2;h3;h4;h5;h6;pre;address';
         $format_specs = <<<FMTSPECS
             format_p: { element: 'p' },
             format_h1: { element: 'h1' },
