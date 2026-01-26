@@ -1102,11 +1102,9 @@ class ModulesList
                         $manage = [];
                         if (preg_match('/href="(.*?)"/', $settings['manage'], $manage)) {
                             $self = [];
-                            if (preg_match('/href="(.*?)"/', $settings['self'], $self)) {
-                                if ($manage[1] === $self[1]) {
-                                    // Manage and self are the same, no need to duplicate them, keep only self
-                                    unset($settings['manage']);
-                                }
+                            if (preg_match('/href="(.*?)"/', $settings['self'], $self) && $manage[1] === $self[1]) {
+                                // Manage and self are the same, no need to duplicate them, keep only self
+                                unset($settings['manage']);
                             }
                         }
                     }
