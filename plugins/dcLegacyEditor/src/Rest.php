@@ -29,7 +29,7 @@ class Rest
      */
     public static function convert(array $get, array $post): array
     {
-        $wiki = $post['wiki'] ?? '';
+        $wiki = is_string($wiki = $post['wiki']) ? $wiki : '';
         $ret  = false;
         $html = '';
         if ($wiki !== '') {

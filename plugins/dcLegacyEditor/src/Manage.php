@@ -77,26 +77,29 @@ class Manage
         if (App::backend()->editor_is_admin) {
             $fields = [];
 
+            $active  = is_bool($active = App::backend()->editor_std_active) ? $active : true;
+            $dynamic = is_bool($dynamic = App::backend()->editor_std_dynamic) && $dynamic;
+
             // Activation
             $fields[] = (new Fieldset())
                 ->legend(new Legend(__('Plugin activation')))
                 ->fields([
                     (new Para())
                         ->items([
-                            (new Checkbox('dclegacyeditor_active', App::backend()->editor_std_active))
+                            (new Checkbox('dclegacyeditor_active', $active))
                                 ->value(1)
                                 ->label((new Label(__('Enable standard editor plugin'), Label::INSIDE_TEXT_AFTER))),
                         ]),
                 ]);
 
             // Settings
-            if (App::backend()->editor_std_active) {
+            if ($active) {
                 $fields[] = (new Fieldset())
                     ->legend(new Legend(__('Plugin settings')))
                     ->fields([
                         (new Para())
                             ->items([
-                                (new Checkbox('dclegacyeditor_dynamic', App::backend()->editor_std_dynamic))
+                                (new Checkbox('dclegacyeditor_dynamic', $dynamic))
                                     ->value(1)
                                     ->label((new Label(__('Adjust height of input area during editing'), Label::INSIDE_TEXT_AFTER))),
                             ]),

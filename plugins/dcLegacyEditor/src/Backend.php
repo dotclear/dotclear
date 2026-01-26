@@ -37,7 +37,7 @@ class Backend
             return false;
         }
 
-        My::addBackendMenuItem(App::backend()->menus()::MENU_PLUGINS, [], '');
+        My::addBackendMenuItem(scheme: '');
 
         if (My::settings()->active) {
             if (!App::filter()->wiki() instanceof WikiToHtml) {
