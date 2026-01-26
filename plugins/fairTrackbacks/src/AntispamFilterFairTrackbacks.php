@@ -92,7 +92,7 @@ class AntispamFilterFairTrackbacks extends SpamFilter
 
             // Check incomink link page
             $post       = App::blog()->getPosts(['post_id' => $post_id]);
-            $post_url   = $post->getURL();
+            $post_url   = is_string($post_url = $post->getURL()) ? $post_url : '';
             $post_parts = $default_parse;
             if ($post_url && ($temp_parts = parse_url($post_url))) {
                 $post_parts = array_merge($default_parse, $temp_parts);
