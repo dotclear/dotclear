@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -6,6 +7,7 @@
  * @copyright   AGPL-3.0
  */
 use Dotclear\App;
+use Dotclear\Module\ModuleDefine;
 
 /**
  * @brief   The module backend behaviors aliases handler.
@@ -65,7 +67,9 @@ class dcProxyV2AdminBehaviors
     }
     public static function adminCurrentThemeDetails(mixed $id, mixed $define): mixed
     {
-        return App::behavior()->callBehavior('adminCurrentThemeDetails', dcCore::app(), $id, $define->dump());
+        $dump = $define instanceof ModuleDefine ? $define->dump() : null;
+
+        return App::behavior()->callBehavior('adminCurrentThemeDetails', dcCore::app(), $id, $dump);
     }
     public static function adminDashboardContents(mixed $__dashboard_contents): mixed
     {
@@ -101,7 +105,10 @@ class dcProxyV2AdminBehaviors
     }
     public static function adminModulesListGetActions(mixed $list, mixed $define): mixed
     {
-        return App::behavior()->callBehavior('adminModulesListGetActions', $list, $define->getId(), $define->dump());
+        $dump = $define instanceof ModuleDefine ? $define->dump() : null;
+        $id   = $define instanceof ModuleDefine ? $define->getId() : null;
+
+        return App::behavior()->callBehavior('adminModulesListGetActions', $list, $id, $dump);
     }
     public static function adminPageFooter(mixed $text): mixed
     {
@@ -232,35 +239,51 @@ class dcProxyV2AdminBehaviors
     }
     public static function pluginBeforeDelete(mixed $define): mixed
     {
-        return App::behavior()->callBehavior('pluginBeforeDelete', $define->dump());
+        $dump = $define instanceof ModuleDefine ? $define->dump() : null;
+
+        return App::behavior()->callBehavior('pluginBeforeDelete', $dump);
     }
     public static function pluginAfterDelete(mixed $define): mixed
     {
-        return App::behavior()->callBehavior('pluginAfterDelete', $define->dump());
+        $dump = $define instanceof ModuleDefine ? $define->dump() : null;
+
+        return App::behavior()->callBehavior('pluginAfterDelete', $dump);
     }
     public static function pluginBeforeAdd(mixed $define): mixed
     {
-        return App::behavior()->callBehavior('pluginBeforeAdd', $define->dump());
+        $dump = $define instanceof ModuleDefine ? $define->dump() : null;
+
+        return App::behavior()->callBehavior('pluginBeforeAdd', $dump);
     }
     public static function pluginAfterAdd(mixed $define): mixed
     {
-        return App::behavior()->callBehavior('pluginAfterAdd', $define->dump());
+        $dump = $define instanceof ModuleDefine ? $define->dump() : null;
+
+        return App::behavior()->callBehavior('pluginAfterAdd', $dump);
     }
     public static function pluginBeforeDeactivate(mixed $define): mixed
     {
-        return App::behavior()->callBehavior('pluginBeforeDeactivate', $define->dump());
+        $dump = $define instanceof ModuleDefine ? $define->dump() : null;
+
+        return App::behavior()->callBehavior('pluginBeforeDeactivate', $dump);
     }
     public static function pluginAfterDeactivate(mixed $define): mixed
     {
-        return App::behavior()->callBehavior('pluginAfterDeactivate', $define->dump());
+        $dump = $define instanceof ModuleDefine ? $define->dump() : null;
+
+        return App::behavior()->callBehavior('pluginAfterDeactivate', $dump);
     }
     public static function pluginBeforeUpdate(mixed $define): mixed
     {
-        return App::behavior()->callBehavior('pluginBeforeUpdate', $define->dump());
+        $dump = $define instanceof ModuleDefine ? $define->dump() : null;
+
+        return App::behavior()->callBehavior('pluginBeforeUpdate', $dump);
     }
     public static function pluginAfterUpdate(mixed $define): mixed
     {
-        return App::behavior()->callBehavior('pluginAfterUpdate', $define->dump());
+        $dump = $define instanceof ModuleDefine ? $define->dump() : null;
+
+        return App::behavior()->callBehavior('pluginAfterUpdate', $dump);
     }
 
     public static function restCheckStoreUpdate(mixed $store, mixed $mod, mixed $url): mixed
@@ -278,34 +301,50 @@ class dcProxyV2AdminBehaviors
     }
     public static function themeBeforeDeactivate(mixed $define): mixed
     {
-        return App::behavior()->callBehavior('themeBeforeDeactivate', $define->dump());
+        $dump = $define instanceof ModuleDefine ? $define->dump() : null;
+
+        return App::behavior()->callBehavior('themeBeforeDeactivate', $dump);
     }
     public static function themeAfterDeactivate(mixed $define): mixed
     {
-        return App::behavior()->callBehavior('themeAfterDeactivate', $define->dump());
+        $dump = $define instanceof ModuleDefine ? $define->dump() : null;
+
+        return App::behavior()->callBehavior('themeAfterDeactivate', $dump);
     }
     public static function themeBeforeDelete(mixed $define): mixed
     {
-        return App::behavior()->callBehavior('themeBeforeDelete', $define->dump());
+        $dump = $define instanceof ModuleDefine ? $define->dump() : null;
+
+        return App::behavior()->callBehavior('themeBeforeDelete', $dump);
     }
     public static function themeAfterDelete(mixed $define): mixed
     {
-        return App::behavior()->callBehavior('themeAfterDelete', $define->dump());
+        $dump = $define instanceof ModuleDefine ? $define->dump() : null;
+
+        return App::behavior()->callBehavior('themeAfterDelete', $dump);
     }
     public static function themeBeforeAdd(mixed $define): mixed
     {
-        return App::behavior()->callBehavior('themeBeforeAdd', $define->dump());
+        $dump = $define instanceof ModuleDefine ? $define->dump() : null;
+
+        return App::behavior()->callBehavior('themeBeforeAdd', $dump);
     }
     public static function themeAfterAdd(mixed $define): mixed
     {
-        return App::behavior()->callBehavior('themeAfterAdd', $define->dump());
+        $dump = $define instanceof ModuleDefine ? $define->dump() : null;
+
+        return App::behavior()->callBehavior('themeAfterAdd', $dump);
     }
     public static function themeBeforeUpdate(mixed $define): mixed
     {
-        return App::behavior()->callBehavior('themeBeforeUpdate', $define->dump());
+        $dump = $define instanceof ModuleDefine ? $define->dump() : null;
+
+        return App::behavior()->callBehavior('themeBeforeUpdate', $dump);
     }
     public static function themeAfterUpdate(mixed $define): mixed
     {
-        return App::behavior()->callBehavior('themeAfterUpdate', $define->dump());
+        $dump = $define instanceof ModuleDefine ? $define->dump() : null;
+
+        return App::behavior()->callBehavior('themeAfterUpdate', $dump);
     }
 }

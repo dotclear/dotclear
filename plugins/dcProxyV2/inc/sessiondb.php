@@ -152,9 +152,11 @@ class SessionDB
      */
     public function getCookieParameters($value = null, int $expire = 0): array
     {
+        $value = is_string($value) ? $value : '';
+
         return [
             (string) session_name(),
-            (string) $value,
+            $value,
             $expire,
             (string) $this->cookie_path,
             (string) $this->cookie_domain,
