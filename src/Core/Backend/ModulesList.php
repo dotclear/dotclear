@@ -1095,12 +1095,26 @@ class ModulesList
                 ) {
                     $lines = [];
 
-                    $settings = static::getSettingsUrls($id);
-                    if ($settings !== [] && $define->get('state') == ModuleDefine::STATE_ENABLED) {
-                        $lines[] = (new Li())
-                            ->text(implode(' - ', $settings));
+                    $settings = static::getSettingsUrls($id, keys: true);
+
+                    // Avoid duplicates URLs for settings
+                    if (isset($settings['manage']) && isset($settings['self'])) {
+                        $manage = [];
+                        if (preg_match('/href="(.*?)"/', $settings['manage'], $manage)) {
+                            $self = [];
+                            if (preg_match('/href="(.*?)"/', $settings['self'], $self)) {
+                                if ($manage[1] === $self[1]) {
+                                    // Manage and self are the same, no need to duplicate them, keep only self
+                                    unset($settings['manage']);
+                                }
+                            }
+                        }
                     }
 
+                    if ($settings !== [] && $define->get('state') == ModuleDefine::STATE_ENABLED) {
+                        $lines[] = (new Li())
+                            ->text(implode(' - ', array_values($settings)));
+                    }
                     if (!empty($define->get('repository')) && App::config()->debugMode() && App::config()->allowRepositories()) {
                         $lines[] = (new Li())
                             ->class('modules-repository')
