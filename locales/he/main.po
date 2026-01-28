@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-28 12:35+0100\n"
-"PO-Revision-Date: 2026-01-28 12:15\n"
+"POT-Creation-Date: 2026-01-28 13:22+0100\n"
+"PO-Revision-Date: 2026-01-28 12:37\n"
 "Last-Translator: \n"
 "Language-Team: Hebrew\n"
 "Language: he_IL\n"
@@ -150,7 +150,8 @@ msgstr "כותרת"
 #: src/Core/Backend/Action/ActionsBlogs.php:72
 #: src/Core/Backend/Action/ActionsBlogs.php:79
 #: src/Core/Backend/Action/ActionsBlogs.php:117
-#: src/Core/Backend/Favorites.php:493 src/Core/Backend/Menus.php:245
+#: src/Core/Backend/Favorites.php:493
+#: src/Core/Backend/Listing/ListingBlogs.php:129 src/Core/Backend/Menus.php:245
 #: src/Core/Backend/UserPref.php:75 src/Core/Backend/UserPref.php:192
 #: src/Process/Backend/Blog.php:100 src/Process/Backend/BlogDel.php:93
 #: src/Process/Backend/BlogPref.php:441
@@ -687,7 +688,7 @@ msgid "Blog appearance"
 msgstr "מראה בלוג"
 
 #: src/Core/Backend/Favorites.php:503
-#: src/Core/Backend/Listing/ListingUsers.php:118 src/Core/Backend/Menus.php:235
+#: src/Core/Backend/Listing/ListingUsers.php:116 src/Core/Backend/Menus.php:235
 #: src/Core/Backend/UserPref.php:65 src/Core/Backend/UserPref.php:168
 #: src/Process/Backend/BlogPref.php:1389 src/Process/Backend/User.php:275
 #: src/Process/Backend/Users.php:103 src/Process/Backend/Users.php:108
@@ -909,38 +910,34 @@ msgstr "URL"
 msgid "Entries (all types)"
 msgstr "רשומות (כל הסוגים)"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:130
+#: src/Core/Backend/Listing/ListingBlogs.php:126
 #, php-format
-msgid "%d blog matches the filter."
-msgid_plural "%d blogs match the filter."
-msgstr[0] "%d בלוג תואם למסנן."
-msgstr[1] "%d בלוגים תואמים למסנן."
-msgstr[2] "%d בלוגים תואמים למסנן."
-msgstr[3] "%d בלוגים תואמים למסנן."
+msgid "The blog matching the filter."
+msgid_plural "List of %s blogs matching the filter."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
-#: src/Core/Backend/Listing/ListingBlogs.php:131
-msgid "Blogs list"
-msgstr "רשימת בלוגים"
-
-#: src/Core/Backend/Listing/ListingBlogs.php:139
+#: src/Core/Backend/Listing/ListingBlogs.php:161
 #: src/Core/Backend/Listing/ListingComments.php:178
 #: src/Core/Backend/Listing/ListingPosts.php:204
-#: src/Core/Backend/Listing/ListingUsers.php:150
+#: src/Core/Backend/Listing/ListingUsers.php:148
 #: src/Process/Backend/Post.php:1413
 msgid "Legend: "
 msgstr "מקרא: "
 
-#: src/Core/Backend/Listing/ListingBlogs.php:179
+#: src/Core/Backend/Listing/ListingBlogs.php:201
 #, php-format
 msgid "Edit blog settings for %s"
 msgstr "עריכת הגדרות בלוג עבור %s"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:183
-#: src/Core/Backend/Listing/ListingBlogs.php:186
+#: src/Core/Backend/Listing/ListingBlogs.php:205
+#: src/Core/Backend/Listing/ListingBlogs.php:208
 msgid "Edit blog settings"
 msgstr "עריכת הגדרות הבלוג."
 
-#: src/Core/Backend/Listing/ListingBlogs.php:197
+#: src/Core/Backend/Listing/ListingBlogs.php:219
 #, php-format
 msgid "Switch to blog %s"
 msgstr "מעבר אל הבלוג %s"
@@ -1148,29 +1145,24 @@ msgstr "מספר ערכים"
 
 #: src/Core/Backend/Listing/ListingUsers.php:113
 #, php-format
-msgid "The user who match the filter."
-msgid_plural "List of %s users match the filter."
-msgstr[0] "המשתמש שמתאים למסנן."
-msgstr[1] "רשימה של %s משתמשים תואמים למסנן."
-msgstr[2] "רשימה של %s משתמשים תואמים למסנן."
-msgstr[3] "רשימה של %s משתמשים תואמים למסנן."
+msgid "The user matching the filter."
+msgid_plural "List of %s users matching the filter."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
-#: src/Core/Backend/Listing/ListingUsers.php:115
-#, php-format
-msgid "List of %s user(s)."
-msgstr "רשימת משתמשי %s."
-
-#: src/Core/Backend/Listing/ListingUsers.php:153
-#: src/Core/Backend/Listing/ListingUsers.php:179
+#: src/Core/Backend/Listing/ListingUsers.php:151
+#: src/Core/Backend/Listing/ListingUsers.php:177
 msgid "admin"
 msgstr "ניהול"
 
-#: src/Core/Backend/Listing/ListingUsers.php:154
-#: src/Core/Backend/Listing/ListingUsers.php:178
+#: src/Core/Backend/Listing/ListingUsers.php:152
+#: src/Core/Backend/Listing/ListingUsers.php:176
 msgid "superadmin"
 msgstr "ניהול על"
 
-#: src/Core/Backend/Listing/ListingUsers.php:162
+#: src/Core/Backend/Listing/ListingUsers.php:160
 msgid "The “No. of entries” column includes all entry types (articles, pages, …) for all blogs in the installation. The link may not be relevant in some contexts"
 msgstr "ה\"לא. העמודה של ערכים\" כוללת את כל סוגי הערכים (מאמרים, דפים,...) עבור כל הבלוגים בהתקנה. ייתכן שהקישור אינו רלוונטי בהקשרים מסוימים"
 
