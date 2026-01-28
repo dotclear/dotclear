@@ -37,14 +37,14 @@ class User extends Statuses
     public function __construct()
     {
         // Translated names (singular, plural), for xgettext -> .pot
-        __('Enabled', 'Enabled (>1)');
-        __('Disabled', 'Disabled (>1)');
+        __('Enabled (1)', 'Enabled (>1)');
+        __('Disabled (1)', 'Disabled (>1)');
 
         parent::__construct(
             column: 'user_status',
             statuses: [
-                (new Status(self::ENABLED, 'enabled', 'Enabled', 'Enabled (>1)', 'images/published.svg')),
-                (new Status(self::DISABLED, 'disabled', 'Disabled', 'Disabled (>1)', 'images/unpublished.svg')),
+                (new Status(self::ENABLED, 'enabled', 'Enabled (1)', 'Enabled (>1)', 'images/published.svg')),
+                (new Status(self::DISABLED, 'disabled', 'Disabled (1)', 'Disabled (>1)', 'images/unpublished.svg')),
             ],
             threshold: self::DISABLED,
         );
