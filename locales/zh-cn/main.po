@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-28 12:35+0100\n"
-"PO-Revision-Date: 2026-01-28 12:16\n"
+"POT-Creation-Date: 2026-01-28 13:22+0100\n"
+"PO-Revision-Date: 2026-01-28 12:37\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -150,7 +150,8 @@ msgstr "标题"
 #: src/Core/Backend/Action/ActionsBlogs.php:72
 #: src/Core/Backend/Action/ActionsBlogs.php:79
 #: src/Core/Backend/Action/ActionsBlogs.php:117
-#: src/Core/Backend/Favorites.php:493 src/Core/Backend/Menus.php:245
+#: src/Core/Backend/Favorites.php:493
+#: src/Core/Backend/Listing/ListingBlogs.php:129 src/Core/Backend/Menus.php:245
 #: src/Core/Backend/UserPref.php:75 src/Core/Backend/UserPref.php:192
 #: src/Process/Backend/Blog.php:100 src/Process/Backend/BlogDel.php:93
 #: src/Process/Backend/BlogPref.php:441
@@ -654,7 +655,7 @@ msgid "Blog appearance"
 msgstr "博客外观"
 
 #: src/Core/Backend/Favorites.php:503
-#: src/Core/Backend/Listing/ListingUsers.php:118 src/Core/Backend/Menus.php:235
+#: src/Core/Backend/Listing/ListingUsers.php:116 src/Core/Backend/Menus.php:235
 #: src/Core/Backend/UserPref.php:65 src/Core/Backend/UserPref.php:168
 #: src/Process/Backend/BlogPref.php:1389 src/Process/Backend/User.php:275
 #: src/Process/Backend/Users.php:103 src/Process/Backend/Users.php:108
@@ -876,35 +877,31 @@ msgstr "URL"
 msgid "Entries (all types)"
 msgstr "参赛作品（所有类型）"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:130
+#: src/Core/Backend/Listing/ListingBlogs.php:126
 #, php-format
-msgid "%d blog matches the filter."
-msgid_plural "%d blogs match the filter."
-msgstr[0] "%d 博客与过滤器相匹配。"
+msgid "The blog matching the filter."
+msgid_plural "List of %s blogs matching the filter."
+msgstr[0] ""
 
-#: src/Core/Backend/Listing/ListingBlogs.php:131
-msgid "Blogs list"
-msgstr "博客列表"
-
-#: src/Core/Backend/Listing/ListingBlogs.php:139
+#: src/Core/Backend/Listing/ListingBlogs.php:161
 #: src/Core/Backend/Listing/ListingComments.php:178
 #: src/Core/Backend/Listing/ListingPosts.php:204
-#: src/Core/Backend/Listing/ListingUsers.php:150
+#: src/Core/Backend/Listing/ListingUsers.php:148
 #: src/Process/Backend/Post.php:1413
 msgid "Legend: "
 msgstr "传说： "
 
-#: src/Core/Backend/Listing/ListingBlogs.php:179
+#: src/Core/Backend/Listing/ListingBlogs.php:201
 #, php-format
 msgid "Edit blog settings for %s"
 msgstr "编辑博客设置， %s"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:183
-#: src/Core/Backend/Listing/ListingBlogs.php:186
+#: src/Core/Backend/Listing/ListingBlogs.php:205
+#: src/Core/Backend/Listing/ListingBlogs.php:208
 msgid "Edit blog settings"
 msgstr "编辑博客设置"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:197
+#: src/Core/Backend/Listing/ListingBlogs.php:219
 #, php-format
 msgid "Switch to blog %s"
 msgstr "切换到博客 %s"
@@ -1103,26 +1100,21 @@ msgstr "参赛作品数量"
 
 #: src/Core/Backend/Listing/ListingUsers.php:113
 #, php-format
-msgid "The user who match the filter."
-msgid_plural "List of %s users match the filter."
-msgstr[0] "%s 用户的列表，符合过滤器。"
+msgid "The user matching the filter."
+msgid_plural "List of %s users matching the filter."
+msgstr[0] ""
 
-#: src/Core/Backend/Listing/ListingUsers.php:115
-#, php-format
-msgid "List of %s user(s)."
-msgstr "%s 用户名单。"
-
-#: src/Core/Backend/Listing/ListingUsers.php:153
-#: src/Core/Backend/Listing/ListingUsers.php:179
+#: src/Core/Backend/Listing/ListingUsers.php:151
+#: src/Core/Backend/Listing/ListingUsers.php:177
 msgid "admin"
 msgstr "管理员"
 
-#: src/Core/Backend/Listing/ListingUsers.php:154
-#: src/Core/Backend/Listing/ListingUsers.php:178
+#: src/Core/Backend/Listing/ListingUsers.php:152
+#: src/Core/Backend/Listing/ListingUsers.php:176
 msgid "superadmin"
 msgstr "超级管理员"
 
-#: src/Core/Backend/Listing/ListingUsers.php:162
+#: src/Core/Backend/Listing/ListingUsers.php:160
 msgid "The “No. of entries” column includes all entry types (articles, pages, …) for all blogs in the installation. The link may not be relevant in some contexts"
 msgstr "条目数量 \"一栏包括安装中所有博客的所有条目类型（文章、页面、 …）。链接在某些情况下可能不相关"
 
