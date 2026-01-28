@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-28 13:22+0100\n"
-"PO-Revision-Date: 2026-01-28 12:37\n"
+"PO-Revision-Date: 2026-01-28 12:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -881,7 +881,7 @@ msgstr "参赛作品（所有类型）"
 #, php-format
 msgid "The blog matching the filter."
 msgid_plural "List of %s blogs matching the filter."
-msgstr[0] ""
+msgstr[0] "符合筛选条件的 %s 博客列表。"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:161
 #: src/Core/Backend/Listing/ListingComments.php:178
@@ -1102,7 +1102,7 @@ msgstr "参赛作品数量"
 #, php-format
 msgid "The user matching the filter."
 msgid_plural "List of %s users matching the filter."
-msgstr[0] ""
+msgstr[0] "符合筛选条件的 %s 用户列表。"
 
 #: src/Core/Backend/Listing/ListingUsers.php:151
 #: src/Core/Backend/Listing/ListingUsers.php:177
