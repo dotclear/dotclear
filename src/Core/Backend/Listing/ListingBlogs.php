@@ -122,14 +122,36 @@ class ListingBlogs extends Listing
             $lines[] = $this->blogLine(isset($blogs[$this->rs->blog_id]));
         }
 
+        if ($filter) {
+            $caption = sprintf(__('The blog matching the filter.', 'List of %s blogs matching the filter.', $this->rs_count), $this->rs_count);
+        } else {
+            $stats = [
+                (new Text(null, sprintf('%s (%s)', __('Blogs'), $this->rs_count))),
+            ];
+            foreach (App::status()->blog()->dump(false) as $status) {
+                $nb = (int) App::blogs()->getBlogs(['blog_status' => $status->level()], true)->f(0);
+                if ($nb !== 0) {
+                    $stats[] = (new Set())
+                        ->separator(' ')
+                        ->items([
+                            (new Link())
+                                ->href(App::backend()->url()->get('admin.blogs', ['status' => $status->level()]))
+                                ->text(__($status->name(), $status->pluralName(), $nb)),
+                            (new Text(null, sprintf('(%d)', $nb))),
+                        ]);
+                }
+            }
+            $caption = (new Set())
+                ->separator(', ')
+                ->items($stats)
+            ->render();
+        }
+
         $buffer = (new Div())
             ->class('table-outer')
             ->items([
                 (new Table())
-                    ->caption((new Caption($filter ?
-                        sprintf(__('%d blog matches the filter.', '%d blogs match the filter.', $this->rs_count), $this->rs_count) :
-                        __('Blogs list')))
-                        ->class(array_filter([$filter ? '' : 'hidden'])))
+                    ->caption(new Caption($caption))
                     ->items($lines),
                 (new Para())
                     ->class('info')

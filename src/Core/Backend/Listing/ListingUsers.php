@@ -110,17 +110,35 @@ class ListingUsers extends Listing
         }
 
         if ($filter) {
-            $caption = (new Caption(sprintf(__('List of %s users match the filter.'), $this->rs_count)));
+            $caption = sprintf(__('The user matching the filter.', 'List of %s users matching the filter.', $this->rs_count), $this->rs_count);
         } else {
-            $caption = (new Caption(__('Users list')))
-                ->class('hidden');
+            $stats = [
+                (new Text(null, sprintf('%s (%s)', __('Users'), $this->rs_count))),
+            ];
+            foreach (App::status()->user()->dump(false) as $status) {
+                $nb = (int) App::users()->getUsers(['user_status' => $status->level()], true)->f(0);
+                if ($nb !== 0) {
+                    $stats[] = (new Set())
+                        ->separator(' ')
+                        ->items([
+                            (new Link())
+                                ->href(App::backend()->url()->get('admin.users', ['status' => $status->level()]))
+                                ->text(__($status->name(), $status->pluralName(), $nb)),
+                            (new Text(null, sprintf('(%d)', $nb))),
+                        ]);
+                }
+            }
+            $caption = (new Set())
+                ->separator(', ')
+                ->items($stats)
+            ->render();
         }
 
         $buffer = (new Div())
             ->class(['table-outer', 'clear'])
             ->items([
                 (new Table())
-                    ->caption($caption)
+                    ->caption(new Caption($caption))
                     ->items($lines),
                 (new Para())
                     ->class('info')
