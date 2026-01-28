@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-28 12:35+0100\n"
-"PO-Revision-Date: 2026-01-28 11:39\n"
+"PO-Revision-Date: 2026-01-28 12:16\n"
 "Last-Translator: \n"
 "Language-Team: Ukrainian\n"
 "Language: uk_UA\n"
@@ -1150,7 +1150,7 @@ msgstr "Кількість записів"
 #, php-format
 msgid "The user who match the filter."
 msgid_plural "List of %s users match the filter."
-msgstr[0] ""
+msgstr[0] "Користувач, який відповідає фільтру."
 msgstr[1] "Список користувачів %s відповідає фільтру."
 msgstr[2] "Список користувачів %s відповідає фільтру."
 msgstr[3] "Список користувачів %s відповідає фільтру."
@@ -1158,7 +1158,7 @@ msgstr[3] "Список користувачів %s відповідає філ�
 #: src/Core/Backend/Listing/ListingUsers.php:115
 #, php-format
 msgid "List of %s user(s)."
-msgstr ""
+msgstr "Список користувачів %s."
 
 #: src/Core/Backend/Listing/ListingUsers.php:153
 #: src/Core/Backend/Listing/ListingUsers.php:179
@@ -7319,7 +7319,7 @@ msgstr[3] "Заплановані"
 #: src/Schema/Status/User.php:40
 msgid "Enabled (1)"
 msgid_plural "Enabled (>1)"
-msgstr[0] ""
+msgstr[0] "Увімкнено"
 msgstr[1] "Увімкнено"
 msgstr[2] "Увімкнено"
 msgstr[3] "Увімкнено"
@@ -7327,7 +7327,7 @@ msgstr[3] "Увімкнено"
 #: src/Schema/Status/User.php:41
 msgid "Disabled (1)"
 msgid_plural "Disabled (>1)"
-msgstr[0] ""
+msgstr[0] "Інваліди"
 msgstr[1] "Інваліди"
 msgstr[2] "Інваліди"
 msgstr[3] "Інваліди"
