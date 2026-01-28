@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-28 12:35+0100\n"
-"PO-Revision-Date: 2026-01-28 11:38\n"
+"PO-Revision-Date: 2026-01-28 12:15\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
 "Language: es_ES\n"
@@ -1120,13 +1120,13 @@ msgstr "Nº de entradas"
 #, php-format
 msgid "The user who match the filter."
 msgid_plural "List of %s users match the filter."
-msgstr[0] ""
+msgstr[0] "El usuario que coincide con el filtro."
 msgstr[1] "Lista de usuarios de %s que coinciden con el filtro."
 
 #: src/Core/Backend/Listing/ListingUsers.php:115
 #, php-format
 msgid "List of %s user(s)."
-msgstr ""
+msgstr "Lista de %s usuario(s)."
 
 #: src/Core/Backend/Listing/ListingUsers.php:153
 #: src/Core/Backend/Listing/ListingUsers.php:179
@@ -7221,12 +7221,12 @@ msgstr[1] "Programado"
 #: src/Schema/Status/User.php:40
 msgid "Enabled (1)"
 msgid_plural "Enabled (>1)"
-msgstr[0] ""
+msgstr[0] "Activado"
 msgstr[1] "Activado"
 
 #: src/Schema/Status/User.php:41
 msgid "Disabled (1)"
 msgid_plural "Disabled (>1)"
-msgstr[0] ""
+msgstr[0] "Desactivado"
 msgstr[1] "Desactivado"
 
