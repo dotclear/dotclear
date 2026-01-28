@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-28 13:22+0100\n"
-"PO-Revision-Date: 2026-01-28 12:36\n"
+"PO-Revision-Date: 2026-01-28 12:57\n"
 "Last-Translator: \n"
 "Language-Team: Romanian\n"
 "Language: ro_RO\n"
@@ -903,9 +903,9 @@ msgstr "Intrări (toate tipurile)"
 #, php-format
 msgid "The blog matching the filter."
 msgid_plural "List of %s blogs matching the filter."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Blogul care se potrivește filtrului."
+msgstr[1] "Blogul care se potrivește filtrului."
+msgstr[2] "Lista de bloguri %s care corespund filtrului."
 
 #: src/Core/Backend/Listing/ListingBlogs.php:161
 #: src/Core/Backend/Listing/ListingComments.php:178
@@ -1132,9 +1132,9 @@ msgstr "Nr. de intrări"
 #, php-format
 msgid "The user matching the filter."
 msgid_plural "List of %s users matching the filter."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Utilizatorul care se potrivește filtrului."
+msgstr[1] "Utilizatorul care se potrivește filtrului."
+msgstr[2] "Lista de utilizatori %s care corespund filtrului."
 
 #: src/Core/Backend/Listing/ListingUsers.php:151
 #: src/Core/Backend/Listing/ListingUsers.php:177
