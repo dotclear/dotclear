@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-28 12:35+0100\n"
-"PO-Revision-Date: 2026-01-28 11:39\n"
+"PO-Revision-Date: 2026-01-28 12:16\n"
 "Last-Translator: \n"
 "Language-Team: Latvian\n"
 "Language: lv_LV\n"
@@ -1136,13 +1136,13 @@ msgstr "Ierakstu skaits"
 msgid "The user who match the filter."
 msgid_plural "List of %s users match the filter."
 msgstr[0] "%s lietotāju saraksts atbilst filtram."
-msgstr[1] ""
+msgstr[1] "Lietotājs, kas atbilst filtram."
 msgstr[2] "%s lietotāju saraksts atbilst filtram."
 
 #: src/Core/Backend/Listing/ListingUsers.php:115
 #, php-format
 msgid "List of %s user(s)."
-msgstr ""
+msgstr "%s lietotāja(-u) saraksts."
 
 #: src/Core/Backend/Listing/ListingUsers.php:153
 #: src/Core/Backend/Listing/ListingUsers.php:179
@@ -7271,13 +7271,13 @@ msgstr[2] "Plānots"
 msgid "Enabled (1)"
 msgid_plural "Enabled (>1)"
 msgstr[0] "Ieslēgts"
-msgstr[1] ""
+msgstr[1] "Ieslēgts"
 msgstr[2] "Ieslēgts"
 
 #: src/Schema/Status/User.php:41
 msgid "Disabled (1)"
 msgid_plural "Disabled (>1)"
 msgstr[0] "Invalīds"
-msgstr[1] ""
+msgstr[1] "Invalīds"
 msgstr[2] "Invalīds"
 
