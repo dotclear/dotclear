@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-28 12:35+0100\n"
-"PO-Revision-Date: 2026-01-28 11:38\n"
+"PO-Revision-Date: 2026-01-28 12:15\n"
 "Last-Translator: \n"
 "Language-Team: Danish\n"
 "Language: da_DK\n"
@@ -1120,13 +1120,13 @@ msgstr "Antal indlæg"
 #, php-format
 msgid "The user who match the filter."
 msgid_plural "List of %s users match the filter."
-msgstr[0] ""
+msgstr[0] "Den bruger, der matcher filteret."
 msgstr[1] "Liste over %s brugere matcher filteret."
 
 #: src/Core/Backend/Listing/ListingUsers.php:115
 #, php-format
 msgid "List of %s user(s)."
-msgstr ""
+msgstr "Liste over %s bruger(e)."
 
 #: src/Core/Backend/Listing/ListingUsers.php:153
 #: src/Core/Backend/Listing/ListingUsers.php:179
@@ -7221,12 +7221,12 @@ msgstr[1] "Planlagt"
 #: src/Schema/Status/User.php:40
 msgid "Enabled (1)"
 msgid_plural "Enabled (>1)"
-msgstr[0] ""
+msgstr[0] "Aktiveret"
 msgstr[1] "Aktiveret"
 
 #: src/Schema/Status/User.php:41
 msgid "Disabled (1)"
 msgid_plural "Disabled (>1)"
-msgstr[0] ""
+msgstr[0] "Deaktiveret"
 msgstr[1] "Deaktiveret"
 
