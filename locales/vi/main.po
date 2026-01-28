@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-28 12:35+0100\n"
-"PO-Revision-Date: 2026-01-28 11:39\n"
+"PO-Revision-Date: 2026-01-28 12:16\n"
 "Last-Translator: \n"
 "Language-Team: Vietnamese\n"
 "Language: vi_VN\n"
@@ -1110,7 +1110,7 @@ msgstr[0] "Danh sách người dùng của %s khớp với bộ lọc."
 #: src/Core/Backend/Listing/ListingUsers.php:115
 #, php-format
 msgid "List of %s user(s)."
-msgstr ""
+msgstr "Danh sách người dùng của %s."
 
 #: src/Core/Backend/Listing/ListingUsers.php:153
 #: src/Core/Backend/Listing/ListingUsers.php:179
@@ -7172,10 +7172,10 @@ msgstr[0] "Đã lên lịch (>1)"
 #: src/Schema/Status/User.php:40
 msgid "Enabled (1)"
 msgid_plural "Enabled (>1)"
-msgstr[0] "Đã bật (>1)"
+msgstr[0] "Đã bật"
 
 #: src/Schema/Status/User.php:41
 msgid "Disabled (1)"
 msgid_plural "Disabled (>1)"
-msgstr[0] "Người khuyết tật (>1)"
+msgstr[0] "Người khuyết tật"
 
