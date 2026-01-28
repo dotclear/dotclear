@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-28 12:36+0100\n"
-"PO-Revision-Date: 2026-01-28 11:39\n"
+"PO-Revision-Date: 2026-01-28 12:16\n"
 "Last-Translator: \n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -1677,7 +1677,7 @@ msgstr "Ausgabedatei kann nicht erstellt werden."
 
 #: plugins/importExport/src/FlatImportV2.php:99
 msgid "Unable to open the DotClear backup file."
-msgstr ""
+msgstr "Die DotClear Sicherungsdatei kann nicht geöffnet werden."
 
 #: plugins/importExport/src/FlatImportV2.php:104
 msgid "Unable to read the DotClear backup file."
