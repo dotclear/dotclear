@@ -41,7 +41,7 @@ class Store
     /**
      * User agent used to query repository.
      */
-    protected string $user_agent = 'DotClear.org RepoBrowser/0.1';
+    protected string $user_agent = 'Dotclear.org RepoBrowser/0.1';
 
     /**
      * Array of new/update modules from repository.

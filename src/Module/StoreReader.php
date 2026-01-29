@@ -57,7 +57,7 @@ class StoreReader extends HttpClient
      *
      * @var     string  $user_agent
      */
-    protected $user_agent = 'DotClear.org RepoBrowser/0.1';
+    protected $user_agent = 'Dotclear.org RepoBrowser/0.1';
 
     /**
      * HTTP Cache validators.
