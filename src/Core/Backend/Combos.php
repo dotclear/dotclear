@@ -227,7 +227,7 @@ class Combos
      *
      * @param      string  $editor_id  The editor identifier (dcLegacyEditor, dcCKEditor, ...)
      *
-     * @return     array<string, mixed>   The formaters combo.
+     * @return     array<string, array<string, string>|string>   The formaters combo.
      */
     public static function getFormatersCombo(string $editor_id = ''): array
     {

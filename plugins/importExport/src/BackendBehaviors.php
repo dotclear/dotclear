@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -21,20 +22,18 @@ class BackendBehaviors
     /**
      * Register import/export modules.
      *
-     * @param   ArrayObject<string, array<mixed>>     $modules    The modules
+     * @param   ArrayObject<string, array<array-key, class-string>>     $modules    The modules
      */
     public static function registerIeModules(ArrayObject $modules): void
     {
-        $compose = fn ($src, $add) => isset($src) ? array_merge($src, $add) : $add;
+        $modules['import'][] = ModuleImportFlat::class;
+        $modules['import'][] = ModuleImportFeed::class;
 
-        $modules['import'] = $compose($modules['import'], [ModuleImportFlat::class]);
-        $modules['import'] = $compose($modules['import'], [ModuleImportFeed::class]);
-
-        $modules['export'] = $compose($modules['export'], [ModuleExportFlat::class]);
+        $modules['export'][] = ModuleExportFlat::class;
 
         if (App::auth()->isSuperAdmin()) {
-            $modules['import'] = $compose($modules['import'], [ModuleImportDc1::class]);
-            $modules['import'] = $compose($modules['import'], [ModuleImportWp::class]);
+            $modules['import'][] = ModuleImportDc1::class;
+            $modules['import'][] = ModuleImportWp::class;
         }
     }
 }

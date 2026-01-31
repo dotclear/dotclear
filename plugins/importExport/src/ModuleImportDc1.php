@@ -13,6 +13,7 @@ namespace Dotclear\Plugin\importExport;
 use ArrayObject;
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
+use Dotclear\Database\Record;
 use Dotclear\Helper\Crypt;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
@@ -46,6 +47,7 @@ use Exception;
 class ModuleImportDc1 extends Module
 {
     protected ConnectionInterface $con;
+
     protected string $prefix;
     protected string $blog_id;
 
@@ -62,12 +64,30 @@ class ModuleImportDc1 extends Module
     protected array $has_table = [];
 
     /**
-     * @var array<string, mixed>    $vars
+     * @var array{
+     *     db_driver: string,
+     *     db_host: string,
+     *     db_name: string,
+     *     db_user: string,
+     *     db_pwd: string,
+     *     db_prefix: string,
+     *     post_limit: int,
+     *     cat_ids: array<int, int>
+     * }    $vars
      */
     protected $vars;
 
     /**
-     * @var array<string, mixed>    $base_vars
+     * @var array{
+     *     db_driver: string,
+     *     db_host: string,
+     *     db_name: string,
+     *     db_user: string,
+     *     db_pwd: string,
+     *     db_prefix: string,
+     *     post_limit: int,
+     *     cat_ids: array<int, int>
+     * }    $base_vars
      */
     protected $base_vars = [
         'db_driver'  => 'mysqli',
@@ -103,10 +123,24 @@ class ModuleImportDc1 extends Module
 
     protected function readVars(): void
     {
-        if (App::session()->get('dc1_import_vars') == '') {
+        if (is_array(App::session()->get('dc1_import_vars'))) {
+            /**
+             * @var array{
+             *     db_driver: string,
+             *     db_host: string,
+             *     db_name: string,
+             *     db_user: string,
+             *     db_pwd: string,
+             *     db_prefix: string,
+             *     post_limit: int,
+             *     cat_ids: array<int, int>
+             * }    $vars
+             */
+            $vars       = App::session()->get('dc1_import_vars');
+            $this->vars = $vars;
+        } else {
             $this->resetVars();
         }
-        $this->vars = App::session()->get('dc1_import_vars');
     }
 
     protected function writeVars(): void
@@ -136,14 +170,15 @@ class ModuleImportDc1 extends Module
     {
         switch ($do) {
             case 'step1':
-                $this->vars['db_driver']  = $_POST['db_driver'];
-                $this->vars['db_host']    = $_POST['db_host'];
-                $this->vars['db_name']    = $_POST['db_name'];
-                $this->vars['db_user']    = $_POST['db_user'];
-                $this->vars['db_pwd']     = $_POST['db_pwd'];
-                $this->vars['post_limit'] = abs((int) $_POST['post_limit']) > 0 ? $_POST['post_limit'] : 0;
-                $this->vars['db_prefix']  = $_POST['db_prefix'];
-                $db                       = $this->db();
+                $this->vars['db_driver']  = is_string($_POST['db_driver']) ? $_POST['db_driver'] : '';
+                $this->vars['db_host']    = is_string($_POST['db_host']) ? $_POST['db_host'] : '';
+                $this->vars['db_name']    = is_string($_POST['db_name']) ? $_POST['db_name'] : '';
+                $this->vars['db_user']    = is_string($_POST['db_user']) ? $_POST['db_user'] : '';
+                $this->vars['db_pwd']     = is_string($_POST['db_pwd']) ? $_POST['db_pwd'] : '';
+                $this->vars['db_prefix']  = is_string($_POST['db_prefix']) ? $_POST['db_prefix'] : '';
+                $this->vars['post_limit'] = is_numeric($_POST['post_limit']) ? (int) $_POST['post_limit'] : 0;
+
+                $db = $this->db();
                 $db->close();
                 $this->writeVars();
                 $this->step = 2;
@@ -178,7 +213,7 @@ class ModuleImportDc1 extends Module
                 break;
             case 'step5':
                 $this->step        = 5;
-                $this->post_offset = empty($_REQUEST['offset']) ? 0 : abs((int) $_REQUEST['offset']);
+                $this->post_offset = is_numeric($_REQUEST['offset']) ? (int) $_REQUEST['offset'] : 0;
                 $percent           = 0;
                 if ($this->importPosts($percent) === -1) {
                     Http::redirect($this->getURL() . '&do=ok');
@@ -397,10 +432,8 @@ class ModuleImportDc1 extends Module
      * DB init.
      *
      * @throws  Exception
-     *
-     * @return  mixed
      */
-    protected function db()
+    protected function db(): ConnectionInterface
     {
         $db = App::db()->newCon($this->vars['db_driver'], $this->vars['db_host'], $this->vars['db_name'], $this->vars['db_user'], $this->vars['db_pwd']);
 
@@ -410,7 +443,10 @@ class ModuleImportDc1 extends Module
         }
 
         while ($rs->fetch()) {
-            $this->has_table[(string) $rs->f(0)] = true;
+            $table = is_string($rs->f(0)) ? $rs->f(0) : '';
+            if ($table !== '') {
+                $this->has_table[$table] = true;
+            }
         }
 
         // Set this to read data as they were written in Dotclear 1
@@ -425,9 +461,9 @@ class ModuleImportDc1 extends Module
         $db->execute('SET CHARACTER_SET_SERVER = DEFAULT');
         $db->execute('SET CHARACTER_SET_DATABASE = DEFAULT');
 
-        $this->post_count = $db->select(
+        $this->post_count = is_numeric($post_count = $db->select(
             'SELECT COUNT(post_id) FROM ' . $this->vars['db_prefix'] . 'post '
-        )->f(0);
+        )->f(0)) ? (int) $post_count : 0;
 
         return $db;
     }
@@ -445,9 +481,10 @@ class ModuleImportDc1 extends Module
             $this->con->begin();
 
             while ($rs->fetch()) {
-                if (!App::users()->userExists($rs->user_id)) {
+                $user_id = is_string($user_id = $rs->user_id) ? $user_id : '';
+                if ($user_id !== '' && !App::users()->userExists($user_id)) {
                     $cur                   = App::auth()->openUserCursor();
-                    $cur->user_id          = $rs->user_id;
+                    $cur->user_id          = $user_id;
                     $cur->user_name        = $rs->user_nom;
                     $cur->user_firstname   = $rs->user_prenom;
                     $cur->user_displayname = $rs->user_pseudo;
@@ -457,7 +494,7 @@ class ModuleImportDc1 extends Module
                     $cur->user_tz          = App::blog()->settings()->system->blog_timezone;
                     $cur->user_post_status = $rs->user_post_pub ? App::status()->post()::PUBLISHED : App::status()->post()::PENDING;
                     $cur->user_options     = new ArrayObject([
-                        'edit_size'   => (int) $rs->user_edit_size,
+                        'edit_size'   => is_numeric($rs->user_edit_size) ? (int) $rs->user_edit_size : 0,
                         'post_format' => $rs->user_post_format,
                     ]);
 
@@ -485,7 +522,7 @@ class ModuleImportDc1 extends Module
 
                     App::users()->addUser($cur);
                     App::users()->setUserBlogPermissions(
-                        $rs->user_id,
+                        $user_id,
                         $this->blog_id,
                         $permissions
                     );
@@ -519,18 +556,26 @@ class ModuleImportDc1 extends Module
 
             $ord = 2;
             while ($rs->fetch()) {
+                $cat_title = is_string($rs->cat_libelle) ? $rs->cat_libelle : '';
+                $cat_desc  = is_string($rs->cat_desc) ? $rs->cat_desc : '';
+                $cat_url   = is_string($rs->cat_libelle_url) ? $rs->cat_libelle_url : '';
+                $cat_id    = is_numeric($rs->cat_id) ? (int) $rs->cat_id : 0;
+
                 $cur            = App::blog()->categories()->openCategoryCursor();
                 $cur->blog_id   = $this->blog_id;
-                $cur->cat_title = Txt::cleanStr(htmlspecialchars_decode((string) $rs->cat_libelle));
-                $cur->cat_desc  = Txt::cleanStr($rs->cat_desc);
-                $cur->cat_url   = Txt::cleanStr($rs->cat_libelle_url);
+                $cur->cat_title = Txt::cleanStr(htmlspecialchars_decode($cat_title));
+                $cur->cat_desc  = Txt::cleanStr($cat_desc);
+                $cur->cat_url   = Txt::cleanStr($cat_url);
                 $cur->cat_lft   = $ord++;
                 $cur->cat_rgt   = $ord++;
 
-                $cur->cat_id = (new MetaRecord($this->con->select(
+                $new_cat_id = is_numeric($new_cat_id = (new MetaRecord($this->con->select(
                     'SELECT MAX(cat_id) FROM ' . $this->prefix . App::blog()->categories()::CATEGORY_TABLE_NAME
-                )))->f(0) + 1;
-                $this->vars['cat_ids'][$rs->cat_id] = $cur->cat_id;
+                )))->f(0)) ? (int) $new_cat_id : 0;
+                $new_cat_id++;
+
+                $cur->cat_id                    = $new_cat_id;
+                $this->vars['cat_ids'][$cat_id] = $new_cat_id;
                 $cur->insert();
             }
 
@@ -559,18 +604,28 @@ class ModuleImportDc1 extends Module
             );
 
             while ($rs->fetch()) {
+                $link_href     = is_string($link_href = $rs->href) ? $link_href : '';
+                $link_title    = is_string($link_title = $rs->label) ? $link_title : '';
+                $link_desc     = is_string($link_desc = $rs->title) ? $link_desc : '';
+                $link_lang     = is_string($link_lang = $rs->lang) ? $link_lang : '';
+                $link_xfn      = is_string($link_xfn = $rs->rel) ? $link_xfn : '';
+                $link_position = is_numeric($link_position = $rs->position) ? (int) $link_position : 0;
+
                 $cur                = $this->con->openCursor($this->prefix . Blogroll::LINK_TABLE_NAME);
                 $cur->blog_id       = $this->blog_id;
-                $cur->link_href     = Txt::cleanStr($rs->href);
-                $cur->link_title    = Txt::cleanStr($rs->label);
-                $cur->link_desc     = Txt::cleanStr($rs->title);
-                $cur->link_lang     = Txt::cleanStr($rs->lang);
-                $cur->link_xfn      = Txt::cleanStr($rs->rel);
-                $cur->link_position = (int) $rs->position;
+                $cur->link_href     = Txt::cleanStr($link_href);
+                $cur->link_title    = Txt::cleanStr($link_title);
+                $cur->link_desc     = Txt::cleanStr($link_desc);
+                $cur->link_lang     = Txt::cleanStr($link_lang);
+                $cur->link_xfn      = Txt::cleanStr($link_xfn);
+                $cur->link_position = $link_position;
 
-                $cur->link_id = (new MetaRecord($this->con->select(
+                $link_id = is_numeric($link_id = (new MetaRecord($this->con->select(
                     'SELECT MAX(link_id) FROM ' . $this->prefix . Blogroll::LINK_TABLE_NAME
-                )))->f(0) + 1;
+                )))->f(0)) ? (int) $link_id : 0;
+                $link_id++;
+
+                $cur->link_id = $link_id;
                 $cur->insert();
             }
 
@@ -587,7 +642,7 @@ class ModuleImportDc1 extends Module
      *
      * @param   int     $percent    The progress (in %)
      */
-    protected function importPosts(&$percent): ?int
+    protected function importPosts(int &$percent): ?int
     {
         $db         = $this->db();
         $dc1_prefix = $this->vars['db_prefix'];
@@ -629,41 +684,62 @@ class ModuleImportDc1 extends Module
     /**
      * Entry import.
      *
-     * @param   mixed   $rs     The record
-     * @param   mixed   $db     The database
+     * @param   Record                  $rs     The record
+     * @param   ConnectionInterface     $db     The database
      */
-    protected function importPost($rs, $db): void
+    protected function importPost(Record $rs, ConnectionInterface $db): void
     {
-        $cur              = App::blog()->openPostCursor();
-        $cur->blog_id     = $this->blog_id;
-        $cur->user_id     = $rs->user_id;
-        $cur->cat_id      = (int) $this->vars['cat_ids'][$rs->cat_id];
-        $cur->post_dt     = $rs->post_dt;
-        $cur->post_creadt = $rs->post_creadt;
-        $cur->post_upddt  = $rs->post_upddt;
-        $cur->post_title  = Html::decodeEntities(Txt::cleanStr($rs->post_titre));
-
-        $cur->post_url = date('Y/m/d/', (int) strtotime((string) $cur->post_dt)) . $rs->post_id . '-' . $rs->post_titre_url;
-        $cur->post_url = substr($cur->post_url, 0, 255);
-
-        $cur->post_format        = $rs->post_content_wiki == '' ? 'xhtml' : 'wiki';
-        $cur->post_content_xhtml = Txt::cleanStr($rs->post_content);
-        $cur->post_excerpt_xhtml = Txt::cleanStr($rs->post_chapo);
-
-        if ($cur->post_format === 'wiki') {
-            $cur->post_content = Txt::cleanStr($rs->post_content_wiki);
-            $cur->post_excerpt = Txt::cleanStr($rs->post_chapo_wiki);
-        } else {
-            $cur->post_content = Txt::cleanStr($rs->post_content);
-            $cur->post_excerpt = Txt::cleanStr($rs->post_chapo);
+        $user_id = is_string($user_id = $rs->user_id) ? $user_id : '';
+        if ($user_id === '') {
+            return;
         }
 
-        $cur->post_notes        = Txt::cleanStr($rs->post_notes);
-        $cur->post_status       = (int) $rs->post_pub;
-        $cur->post_selected     = (int) $rs->post_selected;
-        $cur->post_open_comment = (int) $rs->post_open_comment;
-        $cur->post_open_tb      = (int) $rs->post_open_tb;
-        $cur->post_lang         = $rs->post_lang;
+        $cat_id             = is_numeric($cat_id = $rs->cat_id) ? (int) $cat_id : 0;
+        $post_title         = is_string($post_title = $rs->post_titre) ? $post_title : '';
+        $post_dt            = is_string($post_dt = $rs->post_dt) ? $post_dt : '';
+        $post_id            = is_numeric($post_id = $rs->post_id) ? (int) $post_id : 0;
+        $post_url           = is_string($post_url = $rs->post_titre_url) ? $post_url : '';
+        $post_content_xhtml = is_string($post_content_xhtml = $rs->post_content) ? $post_content_xhtml : '';
+        $post_excerpt_xhtml = is_string($post_excerpt_xhtml = $rs->post_chapo) ? $post_excerpt_xhtml : '';
+        $post_content_wiki  = is_string($post_content_wiki = $rs->post_content_wiki) ? $post_content_wiki : '';
+        $post_excerpt_wiki  = is_string($post_excerpt_wiki = $rs->post_chapo_wiki) ? $post_excerpt_wiki : '';
+        $post_notes         = is_string($post_notes = $rs->post_notes) ? $post_notes : '';
+        $post_status        = is_numeric($post_status = $rs->post_pub) ? (int) $post_status : App::status()->post()::UNPUBLISHED;
+        $post_selected      = is_numeric($post_selected = $rs->post_selected) ? (int) $post_selected : 0;
+        $post_open_comment  = is_numeric($post_open_comment = $rs->post_open_comment) ? (int) $post_open_comment : 0;
+        $post_open_tb       = is_numeric($post_open_tb = $rs->post_open_tb) ? (int) $post_open_tb : 0;
+        $post_lang          = is_string($post_lang = $rs->post_lang) ? $post_lang : '';
+
+        $cur              = App::blog()->openPostCursor();
+        $cur->blog_id     = $this->blog_id;
+        $cur->user_id     = $user_id;
+        $cur->cat_id      = $this->vars['cat_ids'][$cat_id];
+        $cur->post_dt     = $post_dt;
+        $cur->post_creadt = $rs->post_creadt;
+        $cur->post_upddt  = $rs->post_upddt;
+        $cur->post_title  = Html::decodeEntities(Txt::cleanStr($post_title));
+
+        $cur->post_url = date('Y/m/d/', (int) strtotime($post_dt)) . $post_id . '-' . $post_url;
+        $cur->post_url = substr($cur->post_url, 0, 255);
+
+        $cur->post_format        = $post_content_wiki === '' ? 'xhtml' : 'wiki';
+        $cur->post_content_xhtml = Txt::cleanStr($post_content_xhtml);
+        $cur->post_excerpt_xhtml = Txt::cleanStr($post_excerpt_xhtml);
+
+        if ($cur->post_format === 'wiki') {
+            $cur->post_content = Txt::cleanStr($post_content_wiki);
+            $cur->post_excerpt = Txt::cleanStr($post_excerpt_wiki);
+        } else {
+            $cur->post_content = Txt::cleanStr($post_content_xhtml);
+            $cur->post_excerpt = Txt::cleanStr($post_excerpt_xhtml);
+        }
+
+        $cur->post_notes        = Txt::cleanStr($post_notes);
+        $cur->post_status       = $post_status;
+        $cur->post_selected     = $post_selected;
+        $cur->post_open_comment = $post_open_comment;
+        $cur->post_open_tb      = $post_open_tb;
+        $cur->post_lang         = $post_lang;
 
         $cur->post_words = implode(' ', Txt::splitWords(
             $cur->post_title . ' ' .
@@ -671,63 +747,76 @@ class ModuleImportDc1 extends Module
             $cur->post_content_xhtml
         ));
 
-        $cur->post_id = (int) (new MetaRecord($this->con->select(
+        $new_post_id = is_numeric($new_post_id = (new MetaRecord($this->con->select(
             'SELECT MAX(post_id) FROM ' . $this->prefix . App::blog()::POST_TABLE_NAME
-        )))->f(0) + 1;
+        )))->f(0)) ? (int) $new_post_id : 0;
+        $new_post_id++;
+
+        $cur->post_id = $new_post_id;
 
         $cur->insert();
-        $this->importComments($rs->post_id, $cur->post_id, $db);
-        $this->importPings($rs->post_id, $cur->post_id, $db);
+        $this->importComments($post_id, $new_post_id, $db);
+        $this->importPings($post_id, $new_post_id, $db);
 
         # Load meta if we have some in DC1
         if (isset($this->has_table[$this->vars['db_prefix'] . 'post_meta'])) {
-            $this->importMeta($rs->post_id, $cur->post_id, $db);
+            $this->importMeta($post_id, $new_post_id, $db);
         }
     }
 
     /**
      * Comments import.
      *
-     * @param   string  $post_id        The post identifier
-     * @param   int     $new_post_id    The new post identifier
-     * @param   mixed   $db             The database
+     * @param   int                     $post_id        The post identifier
+     * @param   int                     $new_post_id    The new post identifier
+     * @param   ConnectionInterface     $db             The database
      */
-    protected function importComments(string $post_id, int $new_post_id, $db): void
+    protected function importComments(int $post_id, int $new_post_id, ConnectionInterface $db): void
     {
         $count_c = $count_t = 0;
 
         $rs = $db->select(
             'SELECT * FROM ' . $this->vars['db_prefix'] . 'comment ' .
-            'WHERE post_id = ' . (int) $post_id . ' '
+            'WHERE post_id = ' . $post_id . ' '
         );
 
         while ($rs->fetch()) {
+            $comment_author    = is_string($comment_author = $rs->comment_auteur) ? $comment_author : '';
+            $comment_status    = is_numeric($comment_status = $rs->comment_pub) ? (int) $comment_status : App::status()->comment()::UNPUBLISHED;
+            $comment_email     = is_string($comment_email = $rs->comment_email) ? $comment_email : '';
+            $comment_content   = is_string($comment_content = $rs->comment_content) ? $comment_content : '';
+            $comment_trackback = is_numeric($comment_trackback = $rs->comment_trackback) ? (int) $comment_trackback : 0;
+            $comment_site      = is_string($comment_site = $rs->comment_site) ? $comment_site : '';
+
             $cur                    = App::blog()->openCommentCursor();
             $cur->post_id           = $new_post_id;
-            $cur->comment_author    = Txt::cleanStr($rs->comment_auteur);
-            $cur->comment_status    = (int) $rs->comment_pub;
+            $cur->comment_author    = Txt::cleanStr($comment_author);
+            $cur->comment_status    = $comment_status;
             $cur->comment_dt        = $rs->comment_dt;
             $cur->comment_upddt     = $rs->comment_upddt;
-            $cur->comment_email     = Txt::cleanStr($rs->comment_email);
-            $cur->comment_content   = Txt::cleanStr($rs->comment_content);
+            $cur->comment_email     = Txt::cleanStr($comment_email);
+            $cur->comment_content   = Txt::cleanStr($comment_content);
             $cur->comment_ip        = $rs->comment_ip;
-            $cur->comment_trackback = (int) $rs->comment_trackback;
+            $cur->comment_trackback = $comment_trackback;
 
-            $cur->comment_site = Txt::cleanStr($rs->comment_site);
-            if ($cur->comment_site !== '' && !preg_match('!^http(s)?://.*$!', $cur->comment_site)) {
-                $cur->comment_site = substr('http://' . $cur->comment_site, 0, 255);
+            $cur->comment_site = Txt::cleanStr($comment_site);
+            if ($comment_site !== '' && !preg_match('!^http(s)?://.*$!', $comment_site)) {
+                // Use https protocol rather than http (since 2.37)
+                $cur->comment_site = substr('https://' . $comment_site, 0, 255);
             }
 
-            if ($rs->exists('spam') && $rs->spam && $rs->comment_status == App::status()->comment()::UNPUBLISHED) {
+            if ($rs->exists('spam') && $rs->spam && $comment_status === App::status()->comment()::UNPUBLISHED) {
                 $cur->comment_status = App::status()->comment()::JUNK;
             }
 
             $cur->comment_words = implode(' ', Txt::splitWords($cur->comment_content));
 
-            $cur->comment_id = (new MetaRecord($this->con->select(
+            $new_comment_id = is_numeric($new_comment_id = (new MetaRecord($this->con->select(
                 'SELECT MAX(comment_id) FROM ' . $this->prefix . App::blog()::COMMENT_TABLE_NAME
-            )))->f(0) + 1;
+            )))->f(0)) ? (int) $new_comment_id : 0;
+            $new_comment_id++;
 
+            $cur->comment_id = $new_comment_id;
             $cur->insert();
 
             if ($cur->comment_status === App::status()->comment()::PUBLISHED) {
@@ -752,21 +841,26 @@ class ModuleImportDc1 extends Module
     /**
      * Pings import.
      *
-     * @param   string  $post_id        The post identifier
-     * @param   int     $new_post_id    The new post identifier
-     * @param   mixed   $db             The database
+     * @param   int                     $post_id        The post identifier
+     * @param   int                     $new_post_id    The new post identifier
+     * @param   ConnectionInterface     $db             The database
      */
-    protected function importPings(string $post_id, int $new_post_id, $db): void
+    protected function importPings(int $post_id, int $new_post_id, ConnectionInterface $db): void
     {
         $urls = [];
 
         $rs = $db->select(
             'SELECT * FROM ' . $this->vars['db_prefix'] . 'ping ' .
-            'WHERE post_id = ' . (int) $post_id
+            'WHERE post_id = ' . $post_id
         );
 
         while ($rs->fetch()) {
-            $url = Txt::cleanStr($rs->ping_url);
+            $ping_url = is_string($ping_url = $rs->ping_url) ? $ping_url : '';
+
+            $url = Txt::cleanStr($ping_url);
+            if ($url === '') {
+                continue;
+            }
             if (isset($urls[$url])) {
                 continue;
             }
@@ -784,15 +878,15 @@ class ModuleImportDc1 extends Module
     /**
      * Meta import.
      *
-     * @param   string  $post_id        The post identifier
-     * @param   int     $new_post_id    The new post identifier
-     * @param   mixed   $db             The database
+     * @param   int                     $post_id        The post identifier
+     * @param   int                     $new_post_id    The new post identifier
+     * @param   ConnectionInterface     $db             The database
      */
-    protected function importMeta(string $post_id, int $new_post_id, $db): void
+    protected function importMeta(int $post_id, int $new_post_id, ConnectionInterface $db): void
     {
         $rs = $db->select(
             'SELECT * FROM ' . $this->vars['db_prefix'] . 'post_meta ' .
-            'WHERE post_id = ' . (int) $post_id . ' '
+            'WHERE post_id = ' . $post_id . ' '
         );
 
         if ($rs->isEmpty()) {
@@ -800,7 +894,10 @@ class ModuleImportDc1 extends Module
         }
 
         while ($rs->fetch()) {
-            App::meta()->setPostMeta($new_post_id, Txt::cleanStr($rs->meta_key), Txt::cleanStr($rs->meta_value));
+            $meta_key   = is_string($meta_key = $rs->meta_key) ? $meta_key : '';
+            $meta_value = is_string($meta_value = $rs->meta_value) ? $meta_value : '';
+
+            App::meta()->setPostMeta($new_post_id, Txt::cleanStr($meta_key), Txt::cleanStr($meta_value));
         }
     }
 }

@@ -42,6 +42,12 @@ class ModuleExportFlat extends Module
 
             try {
                 $exp = new FlatExport(App::db()->con(), $fullname, App::db()->con()->prefix());
+                if (!is_resource($exp->fp)) {
+                    throw new Exception(__('Unable to create output file.'));
+                }
+
+                $public_path = is_string($public_path = App::blog()->settings()->system->public_path) ? $public_path : '';
+
                 fwrite($exp->fp, '///DOTCLEAR|' . App::config()->dotclearVersion() . "|single\n");
 
                 $exp->export(
@@ -74,7 +80,7 @@ class ModuleExportFlat extends Module
                 $exp->export(
                     'media',
                     'SELECT * FROM ' . App::db()->con()->prefix() . App::postMedia()::MEDIA_TABLE_NAME . " WHERE media_path = '" .
-                    App::db()->con()->escapeStr(App::blog()->settings()->system->public_path) . "'"
+                    App::db()->con()->escapeStr($public_path) . "'"
                 );
                 $exp->export(
                     'post_media',
@@ -118,6 +124,11 @@ class ModuleExportFlat extends Module
 
             try {
                 $exp = new FlatExport(App::db()->con(), $fullname, App::db()->con()->prefix());
+
+                if (!is_resource($exp->fp)) {
+                    throw new Exception(__('Unable to create output file.'));
+                }
+
                 fwrite($exp->fp, '///DOTCLEAR|' . App::config()->dotclearVersion() . "|full\n");
                 $exp->exportTable('blog');
                 $exp->exportTable('category');
@@ -152,45 +163,48 @@ class ModuleExportFlat extends Module
 
         // Send file content
         if ($do === 'ok') {
-            if (App::session()->get('export_file') == '' || !file_exists(App::session()->get('export_file'))) {
+            $export_file = is_string($export_file = App::session()->get('export_file')) ? $export_file : '';
+            if ($export_file === '' || !file_exists($export_file)) {
                 throw new Exception(__('Export file not found.'));
             }
 
             ob_end_clean();
 
-            if (str_ends_with((string) App::session()->get('export_filename'), '.zip')) {
-                App::session()->set('export_filename', substr((string) App::session()->get('export_filename'), 0, -4)); //.'.txt';
+            $export_filename = is_string($export_filename = App::session()->get('export_filename')) ? $export_filename : '';
+
+            if (str_ends_with($export_filename, '.zip')) {
+                $export_filename = substr($export_filename, 0, -4);
+                App::session()->set('export_filename', $export_filename);
             }
 
             // Flat export
             if (!App::session()->get('export_filezip')) {
-                header('Content-Disposition: attachment;filename=' . App::session()->get('export_filename'));
+                header('Content-Disposition: attachment;filename=' . $export_filename);
                 header('Content-Type: text/plain; charset=UTF-8');
-                readfile(App::session()->get('export_file'));
+                readfile($export_file);
 
-                unlink(App::session()->get('export_file'));
+                unlink($export_file);
                 App::session()->unset('export_file', 'export_filename', 'export_filezip');
                 dotclear_exit();
             }
 
             // Zip export
-
-            $file_zipname = App::session()->get('export_filename') . '.zip';
+            $file_zipname = $export_filename . '.zip';
 
             try {
                 $fp  = fopen('php://output', 'wb');
                 $zip = new Zip($fp);
-                $zip->addFile(App::session()->get('export_file'), (string) App::session()->get('export_filename'));
+                $zip->addFile($export_file, $export_filename);
 
                 header('Content-Disposition: attachment;filename=' . $file_zipname);
                 header('Content-Type: application/x-zip');
 
                 $zip->write();
 
-                unlink(App::session()->get('export_file'));
+                unlink($export_file);
                 dotclear_exit();
             } catch (Exception) {
-                @unlink(App::session()->get('export_file'));
+                @unlink($export_file);
 
                 throw new Exception(__('Failed to compress export file.'));
             } finally {

@@ -12,6 +12,7 @@ namespace Dotclear\Plugin\importExport;
 
 use ArrayObject;
 use Dotclear\App;
+use Dotclear\Helper\Html\Form\Capture;
 use Dotclear\Helper\Html\Form\Dd;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Dl;
@@ -36,6 +37,9 @@ class Manage
     {
         self::status(My::checkContext(My::MANAGE));
 
+        /**
+         * @var ArrayObject<string, array<array-key, class-string>>
+         */
         $modules = new ArrayObject(['import' => [], 'export' => []]);
 
         # --BEHAVIOR-- importExportModules -- ArrayObject
@@ -69,7 +73,13 @@ class Manage
 
         if (App::backend()->type && App::backend()->module !== null && !empty($_REQUEST['do'])) {
             try {
-                App::backend()->module->process($_REQUEST['do']);
+                $do = is_string($do = $_REQUEST['do']) ? $do : '';
+
+                /**
+                 * @var Module
+                 */
+                $module = App::backend()->module;
+                $module->process($do);
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
             }
@@ -92,18 +102,23 @@ class Manage
         );
 
         if (App::backend()->type && App::backend()->module !== null) {
+            /**
+             * @var Module
+             */
+            $module = App::backend()->module;
+
             echo
             App::backend()->page()->breadcrumb(
                 [
-                    __('Plugins')                                  => '',
-                    My::name()                                     => App::backend()->getPageURL(),
-                    Html::escapeHTML(App::backend()->module->name) => '',
+                    __('Plugins')                   => '',
+                    My::name()                      => App::backend()->getPageURL(),
+                    Html::escapeHTML($module->name) => '',
                 ]
             ) .
             App::backend()->notices()->getNotices();
 
             echo (new Div('ie-gui'))->items([
-                (new Text(null, App::backend()->module->gui())),
+                (new Capture($module->gui(...))),
             ])
             ->render();
         } else {
@@ -117,7 +132,17 @@ class Manage
             App::backend()->notices()->getNotices();
 
             $list = [];
-            foreach (App::backend()->modules['import'] as $id) {
+
+            /**
+             * @var ArrayObject<string, array<array-key, class-string>>
+             */
+            $modules = App::backend()->modules;
+
+            /**
+             * @var array<array-key, class-string>
+             */
+            $modules_import = $modules['import'];
+            foreach ($modules_import as $id) {
                 if (is_subclass_of($id, Module::class)) {
                     $module = new $id();
 

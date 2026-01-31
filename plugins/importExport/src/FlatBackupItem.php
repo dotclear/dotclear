@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -21,7 +22,7 @@ class FlatBackupItem
      * Constructs a new instance.
      *
      * @param      string                   $__name   The name
-     * @param      array<string, mixed>     $__data   The data
+     * @param      array<string, string>    $__data   The data
      * @param      int                      $__line   The line
      */
     public function __construct(
@@ -41,7 +42,7 @@ class FlatBackupItem
         return $this->f($name);
     }
 
-    public function __set(string $n, mixed $v): void
+    public function __set(string $n, string $v): void
     {
         $this->__data[$n] = $v;
     }

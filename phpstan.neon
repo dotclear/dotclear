@@ -90,6 +90,7 @@ parameters:
     - Dotclear\Interface\Core\UserPreferencesInterface
     - Dotclear\Interface\Core\UserWorkspaceInterface
     - Dotclear\Module\ModuleDefine
+    - Dotclear\Plugin\importExport\FlatBackupItem
 
   ignoreErrors:
 

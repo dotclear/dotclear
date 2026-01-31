@@ -73,14 +73,18 @@ class ModuleImportFlat extends Module
 
         if ($single_upl !== null) {
             if ($single_upl) {
-                Files::uploadStatus($_FILES['up_single_file']);
+                /**
+                 * @var array{name: string, type: string, size: int, tmp_name: string, error?: int, full_path: string}  $single_file
+                 */
+                $single_file = $_FILES['up_single_file'];
+                Files::uploadStatus($single_file);
                 $file = App::config()->cacheRoot() . '/' . md5(uniqid());
-                if (!move_uploaded_file($_FILES['up_single_file']['tmp_name'], $file)) {
+                if (!move_uploaded_file($single_file['tmp_name'], $file)) {
                     throw new Exception(__('Unable to move uploaded file.'));
                 }
                 $to_unlink = true;
             } else {
-                $file = $_POST['public_single_file'];
+                $file = is_string($file = $_POST['public_single_file']) ? $file : '';
             }
 
             $unzip_file = '';
@@ -125,19 +129,24 @@ class ModuleImportFlat extends Module
         }
 
         if ($full_upl !== null && App::auth()->isSuperAdmin()) {
-            if (empty($_POST['your_pwd']) || !App::auth()->checkPassword($_POST['your_pwd'])) {
+            $pwd = is_string($pwd = $_POST['your_pwd']) ? $pwd : '';
+            if ($pwd === '' || !App::auth()->checkPassword($pwd)) {
                 throw new Exception(__('Password verification failed'));
             }
 
             if ($full_upl) {
-                Files::uploadStatus($_FILES['up_full_file']);
+                /**
+                 * @var array{name: string, type: string, size: int, tmp_name: string, error?: int, full_path: string}  $full_file
+                 */
+                $full_file = $_FILES['up_full_file'];
+                Files::uploadStatus($full_file);
                 $file = App::config()->cacheRoot() . '/' . md5(uniqid());
-                if (!move_uploaded_file($_FILES['up_full_file']['tmp_name'], $file)) {
+                if (!move_uploaded_file($full_file['tmp_name'], $file)) {
                     throw new Exception(__('Unable to move uploaded file.'));
                 }
                 $to_unlink = true;
             } else {
-                $file = $_POST['public_full_file'];
+                $file = is_string($file = $_POST['public_full_file']) ? $file : '';
             }
 
             $unzip_file = '';
@@ -383,7 +392,7 @@ class ModuleImportFlat extends Module
 
             # Check zipped file contents
             $content = $zip->unzip($zip_file);
-            if (!str_starts_with((string) $content, '///DOTCLEAR|')) {
+            if (!is_string($content) || !str_starts_with($content, '///DOTCLEAR|')) {
                 unset($content);
 
                 continue;

@@ -51,7 +51,8 @@ class ExportBlogMaintenanceTask extends MaintenanceTask
     {
         // Create zip file
         if (!empty($_POST['file_name'])) {
-            if (empty($_POST['your_pwd']) || !App::auth()->checkPassword($_POST['your_pwd'])) {
+            $pwd = is_string($pwd = $_POST['your_pwd']) ? $pwd : '';
+            if ($pwd === '' || !App::auth()->checkPassword($pwd)) {
                 $this->error = __('Password verification failed');
 
                 return false;
@@ -73,7 +74,8 @@ class ExportBlogMaintenanceTask extends MaintenanceTask
     public function step(): ?string
     {
         // Download zip file
-        if (App::session()->get('export_file') != '' && file_exists(App::session()->get('export_file'))) {
+        $file = is_string($file = App::session()->get('export_file')) ? $file : '';
+        if ($file !== '' && file_exists($file)) {
             // Log task execution here as we sent file and stop script
             $this->log();
 

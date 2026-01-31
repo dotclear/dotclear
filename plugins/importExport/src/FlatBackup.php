@@ -71,17 +71,17 @@ class FlatBackup
             return false;
         }
 
-        if (str_starts_with((string) $line, '[')) {
-            $this->line_name = substr((string) $line, 1, strpos((string) $line, ' ') - 1);
+        if (str_starts_with($line, '[')) {
+            $this->line_name = substr($line, 1, strpos($line, ' ') - 1);
 
-            $line            = substr((string) $line, strpos((string) $line, ' ') + 1, -1);
+            $line            = substr($line, strpos($line, ' ') + 1, -1);
             $this->line_cols = explode(',', $line);
 
             return $this->getLine();
         }
 
-        if (str_starts_with((string) $line, '"')) {
-            $line  = (string) preg_replace('/^"|"$/', '', (string) $line);
+        if (str_starts_with($line, '"')) {
+            $line  = (string) preg_replace('/^"|"$/', '', $line);
             $lines = preg_split('/(^"|","|(?<!\\\)\"$)/m', $line);
             if ($lines === false) {
                 return false;
@@ -92,9 +92,12 @@ class FlatBackup
                 throw new Exception(sprintf('Invalid row count at line %s', $this->line_num));
             }
 
+            /**
+             * @var array<string, string>
+             */
             $res = [];
             for ($i = 0; $i < $counter; $i++) {
-                $res[$this->line_cols[$i]] = preg_replace(array_keys($this->replacement), array_values($this->replacement), $lines[$i]);
+                $res[$this->line_cols[$i]] = is_string($sanitized_line = preg_replace(array_keys($this->replacement), array_values($this->replacement), $lines[$i])) ? $sanitized_line : '';
             }
 
             return new FlatBackupItem((string) $this->line_name, $res, (int) $this->line_num);
@@ -106,17 +109,27 @@ class FlatBackup
     /**
      * Get next line
      *
-     * @return     bool|mixed
+     * @return     false|string
      */
-    private function nextLine(): mixed
+    private function nextLine(): false|string
     {
+        if (!is_resource($this->fp)) {
+            return false;
+        }
+
         if (feof($this->fp)) {
+            // End of file reached
             return false;
         }
         $this->line_num++;
 
         $line = fgets($this->fp);
-        $line = trim((string) $line);
+        if ($line === false) {
+            // An error occured
+            return false;
+        }
+
+        $line = trim($line);
 
         return $line === '' ? $this->nextLine() : $line;
     }

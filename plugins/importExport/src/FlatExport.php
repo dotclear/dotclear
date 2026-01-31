@@ -62,7 +62,7 @@ class FlatExport
     {
         $rs = new MetaRecord($this->con->select($sql));
 
-        if (!$rs->isEmpty()) {
+        if (is_resource($this->fp) && !$rs->isEmpty()) {
             fwrite($this->fp, "\n[" . $name . ' ' . implode(',', $rs->columns()) . "]\n");
             while ($rs->fetch()) {
                 fwrite($this->fp, $this->getLine($rs));
@@ -115,8 +115,8 @@ class FlatExport
         $l    = [];
         $cols = $rs->columns();
         foreach ($cols as $i => &$c) {
-            $s     = $rs->f($c);
-            $s     = preg_replace($this->line_reg, $this->line_rep, (string) $s);
+            $s     = is_string($s = $rs->f($c)) ? $s : '';
+            $s     = preg_replace($this->line_reg, $this->line_rep, $s);
             $s     = '"' . $s . '"';
             $l[$i] = $s;
         }

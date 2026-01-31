@@ -13,6 +13,7 @@ namespace Dotclear\Plugin\importExport;
 use ArrayObject;
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
+use Dotclear\Database\Record;
 use Dotclear\Helper\Crypt;
 use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Form\Div;
@@ -44,6 +45,8 @@ use Exception;
 class ModuleImportWp extends Module
 {
     protected ConnectionInterface $con;
+    protected ConnectionInterface $wordpress_db;
+
     protected string $prefix;
     protected string $blog_id;
 
@@ -60,12 +63,46 @@ class ModuleImportWp extends Module
     protected array $has_table = [];
 
     /**
-     * @var array<string, mixed>    $vars
+     * @var array{
+     *      db_host: string,
+     *      db_name: string,
+     *      db_user: string,
+     *      db_pwd: string,
+     *      db_prefix: string,
+     *      ignore_first_cat: int,
+     *      cat_import: int,
+     *      cat_as_tags: int,
+     *      cat_tags_prefix: string,
+     *      post_limit: int,
+     *      post_formater: string,
+     *      comment_formater: string,
+     *      user_ids: array<int, string>,
+     *      cat_ids: array<int, int>,
+     *      permalink_template: string,
+     *      permalink_tags: array<array-key, string>
+     * }    @vars
      */
     protected array $vars;
 
     /**
-     * @var array<string, mixed>    $base_vars
+     * @var array{
+     *      db_host: string,
+     *      db_name: string,
+     *      db_user: string,
+     *      db_pwd: string,
+     *      db_prefix: string,
+     *      ignore_first_cat: int,
+     *      cat_import: int,
+     *      cat_as_tags: int,
+     *      cat_tags_prefix: string,
+     *      post_limit: int,
+     *      post_formater: string,
+     *      comment_formater: string,
+     *      user_ids: array<int, string>,
+     *      cat_ids: array<int, int>,
+     *      permalink_template: string,
+     *      permalink_tags: array<array-key, string>
+     * }    @base_vars
      */
     protected array $base_vars = [
         'db_host'            => '',
@@ -75,7 +112,7 @@ class ModuleImportWp extends Module
         'db_prefix'          => 'wp_',
         'ignore_first_cat'   => 1,
         'cat_import'         => 1,
-        'cat_as_tags'        => '',
+        'cat_as_tags'        => 0,
         'cat_tags_prefix'    => 'cat: ',
         'post_limit'         => 20,
         'post_formater'      => 'xhtml',
@@ -98,7 +135,7 @@ class ModuleImportWp extends Module
     ];
 
     /**
-     * @var array<string, mixed>    $formaters
+     * @var array<string, array<string, string>|string>    $formaters
      */
     protected array $formaters;
 
@@ -130,10 +167,32 @@ class ModuleImportWp extends Module
 
     protected function readVars(): void
     {
-        if (App::session()->get('wp_import_vars') == '') {
+        if (is_array(App::session()->get('wp_import_vars'))) {
+            /**
+             * @var array{
+             *      db_host: string,
+             *      db_name: string,
+             *      db_user: string,
+             *      db_pwd: string,
+             *      db_prefix: string,
+             *      ignore_first_cat: int,
+             *      cat_import: int,
+             *      cat_as_tags: int,
+             *      cat_tags_prefix: string,
+             *      post_limit: int,
+             *      post_formater: string,
+             *      comment_formater: string,
+             *      user_ids: array<int, string>,
+             *      cat_ids: array<int, int>,
+             *      permalink_template: string,
+             *      permalink_tags: array<array-key, string>
+             * }    @vars
+             */
+            $vars       = App::session()->get('wp_import_vars');
+            $this->vars = $vars;
+        } else {
             $this->resetVars();
         }
-        $this->vars = App::session()->get('wp_import_vars');
     }
 
     protected function writeVars(): void
@@ -163,19 +222,23 @@ class ModuleImportWp extends Module
     {
         switch ($do) {
             case 'step1':
-                $this->vars['db_host']          = $_POST['db_host'];
-                $this->vars['db_name']          = $_POST['db_name'];
-                $this->vars['db_user']          = $_POST['db_user'];
-                $this->vars['db_pwd']           = $_POST['db_pwd'];
-                $this->vars['db_prefix']        = $_POST['db_prefix'];
-                $this->vars['ignore_first_cat'] = isset($_POST['ignore_first_cat']);
-                $this->vars['cat_import']       = isset($_POST['cat_import']);
-                $this->vars['cat_as_tags']      = isset($_POST['cat_as_tags']);
-                $this->vars['cat_tags_prefix']  = $_POST['cat_tags_prefix'];
-                $this->vars['post_limit']       = abs((int) $_POST['post_limit']) > 0 ? (int) $_POST['post_limit'] : 0;
-                $this->vars['post_formater']    = isset($this->formaters[$_POST['post_formater']]) ? $_POST['post_formater'] : 'xhtml';
-                $this->vars['comment_formater'] = isset($this->formaters[$_POST['comment_formater']]) ? $_POST['comment_formater'] : 'xhtml';
-                $db                             = $this->db();
+                $post_formater    = is_string($post_formater = $_POST['post_formater']) ? $post_formater : '';
+                $comment_formater = is_string($comment_formater = $_POST['comment_formater']) ? $comment_formater : '';
+
+                $this->vars['db_host']          = is_string($_POST['db_host']) ? $_POST['db_host'] : '';
+                $this->vars['db_name']          = is_string($_POST['db_name']) ? $_POST['db_name'] : '';
+                $this->vars['db_user']          = is_string($_POST['db_user']) ? $_POST['db_user'] : '';
+                $this->vars['db_pwd']           = is_string($_POST['db_pwd']) ? $_POST['db_pwd'] : '';
+                $this->vars['db_prefix']        = is_string($_POST['db_prefix']) ? $_POST['db_prefix'] : '';
+                $this->vars['ignore_first_cat'] = (int) isset($_POST['ignore_first_cat']);
+                $this->vars['cat_import']       = (int) isset($_POST['cat_import']);
+                $this->vars['cat_as_tags']      = (int) isset($_POST['cat_as_tags']);
+                $this->vars['cat_tags_prefix']  = is_string($_POST['cat_tags_prefix']) ? $_POST['cat_tags_prefix'] : '';
+                $this->vars['post_limit']       = is_numeric($_POST['post_limit']) ? (int) $_POST['post_limit'] : 0;
+                $this->vars['post_formater']    = isset($this->formaters[$post_formater]) ? $post_formater : 'xhtml';
+                $this->vars['comment_formater'] = isset($this->formaters[$comment_formater]) ? $comment_formater : 'xhtml';
+
+                $db = $this->db();
                 $db->close();
                 $this->writeVars();
                 $this->step = 2;
@@ -210,7 +273,7 @@ class ModuleImportWp extends Module
                 break;
             case 'step5':
                 $this->step        = 5;
-                $this->post_offset = empty($_REQUEST['offset']) ? 0 : abs((int) $_REQUEST['offset']);
+                $this->post_offset = is_numeric($_REQUEST['offset']) ? (int) $_REQUEST['offset'] : 0;
                 $percent           = 0;
                 if ($this->importPosts($percent) === -1) {
                     Http::redirect($this->getURL() . '&do=ok');
@@ -474,11 +537,13 @@ class ModuleImportWp extends Module
      * DB init.
      *
      * @throws  Exception
-     *
-     * @return  mixed
      */
-    protected function db()
+    protected function db(): ConnectionInterface
     {
+        if (isset($this->wordpress_db)) {
+            return $this->wordpress_db;
+        }
+
         $db = App::db()->newCon('mysqli', $this->vars['db_host'], $this->vars['db_name'], $this->vars['db_user'], $this->vars['db_pwd']);
 
         $rs = $db->select("SHOW TABLES LIKE '" . $this->vars['db_prefix'] . "%'");
@@ -487,7 +552,10 @@ class ModuleImportWp extends Module
         }
 
         while ($rs->fetch()) {
-            $this->has_table[(string) $rs->f(0)] = true;
+            $table = is_string($rs->f(0)) ? $rs->f(0) : '';
+            if ($table !== '') {
+                $this->has_table[$table] = true;
+            }
         }
 
         # Set this to read data as they were written
@@ -502,10 +570,12 @@ class ModuleImportWp extends Module
         $db->execute('SET CHARACTER_SET_SERVER = DEFAULT');
         $db->execute('SET CHARACTER_SET_DATABASE = DEFAULT');
 
-        $this->post_count = (int) $db->select(
+        $this->post_count = is_numeric($post_count = $db->select(
             'SELECT COUNT(ID) FROM ' . $this->vars['db_prefix'] . 'posts ' .
             'WHERE post_type = \'post\' OR post_type = \'page\''
-        )->f(0);
+        )->f(0)) ? (int) $post_count : 0;
+
+        $this->wordpress_db = $db;
 
         return $db;
     }
@@ -519,103 +589,109 @@ class ModuleImportWp extends Module
         $wp_prefix = $this->vars['db_prefix'];
         $rs        = $db->select('SELECT * FROM ' . $wp_prefix . 'users');
 
-        if ($rs) {
-            try {
-                $this->con->begin();
+        try {
+            $this->con->begin();
 
-                while ($rs->fetch()) {
-                    $user_login                      = (string) preg_replace('/[^A-Za-z0-9@._-]/', '-', (string) $rs->user_login);
-                    $this->vars['user_ids'][$rs->ID] = $user_login;
-                    if (!App::users()->userExists($user_login)) {
-                        $cur                   = App::auth()->openUserCursor();
-                        $cur->user_id          = $user_login;
-                        $cur->user_pwd         = Crypt::createPassword();
-                        $cur->user_displayname = $rs->user_nicename;
-                        $cur->user_email       = $rs->user_email;
-                        $cur->user_url         = $rs->user_url;
-                        $cur->user_creadt      = $rs->user_registered;
-                        $cur->user_lang        = App::blog()->settings()->system->lang;
-                        $cur->user_tz          = App::blog()->settings()->system->blog_timezone;
-                        $permissions           = [];
+            while ($rs->fetch()) {
+                $user_id = is_string($user_id = $rs->user_login) ? $user_id : '';
+                $user_id = (string) preg_replace('/[^A-Za-z0-9@._-]/', '-', $user_id);
+                $wp_id   = is_numeric($rs->ID) ? (int) $rs->ID : 0;
+                if ($user_id !== '' && $wp_id !== 0 && !App::users()->userExists($user_id)) {
+                    $this->vars['user_ids'][$wp_id] = $user_id;
 
-                        $rs_meta = $db->select('SELECT * FROM ' . $wp_prefix . 'usermeta WHERE user_id = ' . $rs->ID);
-                        while ($rs_meta->fetch()) {
-                            switch ($rs_meta->meta_key) {
-                                case 'first_name':
-                                    $cur->user_firstname = Txt::cleanStr($rs_meta->meta_value);
+                    $cur                   = App::auth()->openUserCursor();
+                    $cur->user_id          = $user_id;
+                    $cur->user_pwd         = Crypt::createPassword();
+                    $cur->user_displayname = $rs->user_nicename;
+                    $cur->user_email       = $rs->user_email;
+                    $cur->user_url         = $rs->user_url;
+                    $cur->user_creadt      = $rs->user_registered;
+                    $cur->user_lang        = App::blog()->settings()->system->lang;
+                    $cur->user_tz          = App::blog()->settings()->system->blog_timezone;
 
-                                    break;
-                                case 'last_name':
-                                    $cur->user_name = Txt::cleanStr($rs_meta->meta_value);
+                    $permissions = [];
+                    $rs_meta     = $db->select('SELECT * FROM ' . $wp_prefix . 'usermeta WHERE user_id = ' . $wp_id);
+                    while ($rs_meta->fetch()) {
+                        switch ($rs_meta->meta_key) {
+                            case 'first_name':
+                                $meta_value          = is_string($meta_value = $rs_meta->meta_value) ? $meta_value : '';
+                                $cur->user_firstname = Txt::cleanStr($meta_value);
 
-                                    break;
-                                case 'description':
-                                    $cur->user_desc = Txt::cleanStr($rs_meta->meta_value);
+                                break;
+                            case 'last_name':
+                                $meta_value     = is_string($meta_value = $rs_meta->meta_value) ? $meta_value : '';
+                                $cur->user_name = Txt::cleanStr($meta_value);
 
-                                    break;
-                                case 'rich_editing':
-                                    $cur->user_options = new ArrayObject([
-                                        'enable_wysiwyg' => $rs_meta->meta_value == 'true',
-                                    ]);
+                                break;
+                            case 'description':
+                                $meta_value     = is_string($meta_value = $rs_meta->meta_value) ? $meta_value : '';
+                                $cur->user_desc = Txt::cleanStr($meta_value);
 
-                                    break;
-                                case 'wp_user_level':
-                                    switch ($rs_meta->meta_value) {
-                                        case '0': # Subscriber
-                                            $cur->user_status = App::status()->user()::DISABLED;
+                                break;
+                            case 'rich_editing':
+                                $meta_value        = is_string($meta_value = $rs_meta->meta_value) ? $meta_value : '';
+                                $cur->user_options = new ArrayObject([
+                                    'enable_wysiwyg' => $meta_value === 'true',
+                                ]);
 
-                                            break;
-                                        case '1': # Contributor
-                                            $permissions['usage']   = true;
-                                            $permissions['publish'] = true;
-                                            $permissions['delete']  = true;
+                                break;
+                            case 'wp_user_level':
+                                $meta_value = is_numeric($meta_value = $rs_meta->meta_value) ? (int) $meta_value : 0;
+                                switch ($meta_value) {
+                                    case '0': # Subscriber
+                                        $cur->user_status = App::status()->user()::DISABLED;
 
-                                            break;
-                                        case '2': # Author
-                                        case '3':
-                                        case '4':
-                                            $permissions['contentadmin'] = true;
-                                            $permissions['media']        = true;
+                                        break;
+                                    case '1': # Contributor
+                                        $permissions['usage']   = true;
+                                        $permissions['publish'] = true;
+                                        $permissions['delete']  = true;
 
-                                            break;
-                                        case '5': # Editor
-                                        case '6':
-                                        case '7':
-                                            $permissions['contentadmin'] = true;
-                                            $permissions['categories']   = true;
-                                            $permissions['media_admin']  = true;
-                                            $permissions['pages']        = true;
-                                            $permissions['blogroll']     = true;
+                                        break;
+                                    case '2': # Author
+                                    case '3':
+                                    case '4':
+                                        $permissions['contentadmin'] = true;
+                                        $permissions['media']        = true;
 
-                                            break;
-                                        case '8': # Administrator
-                                        case '9':
-                                        case '10':
-                                            $permissions['admin'] = true;
+                                        break;
+                                    case '5': # Editor
+                                    case '6':
+                                    case '7':
+                                        $permissions['contentadmin'] = true;
+                                        $permissions['categories']   = true;
+                                        $permissions['media_admin']  = true;
+                                        $permissions['pages']        = true;
+                                        $permissions['blogroll']     = true;
 
-                                            break;
-                                    }
+                                        break;
+                                    case '8': # Administrator
+                                    case '9':
+                                    case '10':
+                                        $permissions['admin'] = true;
 
-                                    break;
-                            }
+                                        break;
+                                }
+
+                                break;
                         }
-                        App::users()->addUser($cur);
-                        App::users()->setUserBlogPermissions(
-                            $cur->user_id,
-                            $this->blog_id,
-                            $permissions
-                        );
                     }
+                    App::users()->addUser($cur);
+                    App::users()->setUserBlogPermissions(
+                        $cur->user_id,
+                        $this->blog_id,
+                        $permissions
+                    );
                 }
-                $this->con->commit();
-                $db->close();
-                $this->writeVars();
-            } catch (Exception $e) {
-                $this->con->rollback();
-                $db->close();
-
-                throw $e;
             }
+            $this->con->commit();
+            $db->close();
+            $this->writeVars();
+        } catch (Exception $e) {
+            $this->con->rollback();
+            $db->close();
+
+            throw $e;
         }
     }
 
@@ -642,18 +718,26 @@ class ModuleImportWp extends Module
 
             $ord = 2;
             while ($rs->fetch()) {
+                $cat_title = is_string($cat_title = $rs->name) ? $cat_title : '';
+                $cat_desc  = is_string($cat_desc = $rs->description) ? $cat_desc : '';
+                $cat_url   = is_string($cat_url = $rs->slug) ? $cat_url : '';
+                $cat_id    = is_numeric($rs->term_id) ? (int) $rs->term_id : 0;
+
                 $cur            = App::blog()->categories()->openCategoryCursor();
                 $cur->blog_id   = $this->blog_id;
-                $cur->cat_title = Txt::cleanStr($rs->name);
-                $cur->cat_desc  = Txt::cleanStr($rs->description);
-                $cur->cat_url   = Txt::cleanStr($rs->slug);
+                $cur->cat_title = Txt::cleanStr($cat_title);
+                $cur->cat_desc  = Txt::cleanStr($cat_desc);
+                $cur->cat_url   = Txt::cleanStr($cat_url);
                 $cur->cat_lft   = $ord++;
                 $cur->cat_rgt   = $ord++;
 
-                $cur->cat_id = (new MetaRecord($this->con->select(
+                $new_cat_id = is_numeric($new_cat_id = (new MetaRecord($this->con->select(
                     'SELECT MAX(cat_id) FROM ' . $this->prefix . App::blog()->categories()::CATEGORY_TABLE_NAME
-                )))->f(0) + 1;
-                $this->vars['cat_ids'][$rs->term_id] = $cur->cat_id;
+                )))->f(0)) ? (int) $new_cat_id : 0;
+                $new_cat_id++;
+
+                $cur->cat_id                    = $new_cat_id;
+                $this->vars['cat_ids'][$cat_id] = $new_cat_id;
                 $cur->insert();
             }
 
@@ -682,16 +766,24 @@ class ModuleImportWp extends Module
             );
 
             while ($rs->fetch()) {
+                $link_href  = is_string($link_href = $rs->link_url) ? $link_href : '';
+                $link_title = is_string($link_title = $rs->link_name) ? $link_title : '';
+                $link_desc  = is_string($link_desc = $rs->link_description) ? $link_desc : '';
+                $link_xfn   = is_string($link_xfn = $rs->link_rel) ? $link_xfn : '';
+
                 $cur             = $this->con->openCursor($this->prefix . Blogroll::LINK_TABLE_NAME);
                 $cur->blog_id    = $this->blog_id;
-                $cur->link_href  = Txt::cleanStr($rs->link_url);
-                $cur->link_title = Txt::cleanStr($rs->link_name);
-                $cur->link_desc  = Txt::cleanStr($rs->link_description);
-                $cur->link_xfn   = Txt::cleanStr($rs->link_rel);
+                $cur->link_href  = Txt::cleanStr($link_href);
+                $cur->link_title = Txt::cleanStr($link_title);
+                $cur->link_desc  = Txt::cleanStr($link_desc);
+                $cur->link_xfn   = Txt::cleanStr($link_xfn);
 
-                $cur->link_id = (new MetaRecord($this->con->select(
+                $link_id = is_numeric($link_id = (new MetaRecord($this->con->select(
                     'SELECT MAX(link_id) FROM ' . $this->prefix . Blogroll::LINK_TABLE_NAME
-                )))->f(0) + 1;
+                )))->f(0)) ? (int) $link_id : 0;
+                $link_id++;
+
+                $cur->link_id = $link_id;
                 $cur->insert();
             }
 
@@ -708,7 +800,7 @@ class ModuleImportWp extends Module
      *
      * @param   int     $percent    The percent
      */
-    protected function importPosts(&$percent): ?int
+    protected function importPosts(int &$percent): ?int
     {
         $db        = $this->db();
         $wp_prefix = $this->vars['db_prefix'];
@@ -717,8 +809,9 @@ class ModuleImportWp extends Module
             'SELECT option_value FROM ' . $wp_prefix . 'options ' .
             "WHERE option_name = 'permalink_structure'"
         )->option_value;
-        if ($plink) {
-            $this->vars['permalink_template'] = substr((string) $plink, 1);
+        $plink = is_string($plink) ? $plink : '';
+        if ($plink !== '') {
+            $this->vars['permalink_template'] = substr($plink, 1);
             $this->writeVars();
         }
 
@@ -738,14 +831,12 @@ class ModuleImportWp extends Module
             }
 
             while ($rs->fetch()) {
-                $this->importPost($rs, $db);
+                $this->importPost($rs);
             }
-
-            $db->close();
         } catch (Exception $e) {
-            $db->close();
-
             throw $e;
+        } finally {
+            $db->close();
         }
 
         if ($rs->count() < $this->post_limit) {
@@ -761,25 +852,26 @@ class ModuleImportWp extends Module
     /**
      * Entry import.
      *
-     * @param   mixed   $rs     The record
-     * @param   mixed   $db     The database
+     * @param   Record                  $rs     The record
      */
-    protected function importPost($rs, $db): void
+    protected function importPost(Record $rs): void
     {
-        $post_date = @strtotime((string) $rs->post_date) ? $rs->post_date : '1970-01-01 00:00';
-        if (!isset($this->vars['user_ids'][$rs->post_author])) {
-            $user_id = App::auth()->userID();
-        } else {
-            $user_id = $this->vars['user_ids'][$rs->post_author];
-        }
+        $db        = $this->db();
+        $wp_prefix = $this->vars['db_prefix'];
+
+        $post_dt    = is_string($post_dt = $rs->post_date) ? $post_dt : '1970-01-01 00:00';
+        $wp_id      = is_numeric($rs->post_author) ? (int) $rs->post_author : 0;
+        $user_id    = $this->vars['user_ids'][$wp_id] ?? App::auth()->userID();
+        $post_title = is_string($post_title = $rs->post_titre) ? $post_title : '';
+        $object_id  = is_numeric($object_id = $rs->ID) ? (int) $rs->ID : 0;
 
         $cur              = App::blog()->openPostCursor();
         $cur->blog_id     = $this->blog_id;
         $cur->user_id     = $user_id;
-        $cur->post_dt     = $post_date;
-        $cur->post_creadt = $post_date;
+        $cur->post_dt     = $post_dt;
+        $cur->post_creadt = $post_dt;
         $cur->post_upddt  = $rs->post_modified;
-        $cur->post_title  = Txt::cleanStr($rs->post_title);
+        $cur->post_title  = Txt::cleanStr($post_title);
 
         if ($cur->post_title === '') {
             $cur->post_title = 'No title';
@@ -787,46 +879,50 @@ class ModuleImportWp extends Module
 
         if ($this->vars['cat_import'] || $this->vars['cat_as_tags']) {
             $old_cat_ids = $db->select(
-                'SELECT * FROM ' . $this->vars['db_prefix'] . 'terms AS t, ' .
-                $this->vars['db_prefix'] . 'term_taxonomy AS x, ' .
-                $this->vars['db_prefix'] . 'term_relationships AS r ' .
+                'SELECT * FROM ' . $wp_prefix . 'terms AS t, ' .
+                $wp_prefix . 'term_taxonomy AS x, ' .
+                $wp_prefix . 'term_relationships AS r ' .
                 'WHERE t.term_id = x.term_id ' .
                 ($this->vars['ignore_first_cat'] ? 'AND t.term_id <> 1 ' : '') .
                 'AND x.taxonomy = \'category\' ' .
                 'AND t.term_id = r.term_taxonomy_id ' .
-                'AND r.object_id =' . $rs->ID .
-                ' ORDER BY t.term_id ASC '
+                'AND r.object_id =' . $object_id . ' ' .
+                'ORDER BY t.term_id ASC'
             );
             if (!$old_cat_ids->isEmpty() && $this->vars['cat_import']) {
-                $cur->cat_id = $this->vars['cat_ids'][(int) $old_cat_ids->term_id];
+                $term_id     = is_numeric($term_id = $old_cat_ids->term_id) ? (int) $term_id : 0;
+                $cur->cat_id = $this->vars['cat_ids'][$term_id];
             }
         }
 
+        /**
+         * @var array<array-key, string>    $permalink_infos
+         */
         $permalink_infos = [
-            date('Y', (int) strtotime((string) $cur->post_dt)),
-            date('m', (int) strtotime((string) $cur->post_dt)),
-            date('d', (int) strtotime((string) $cur->post_dt)),
-            date('H', (int) strtotime((string) $cur->post_dt)),
-            date('i', (int) strtotime((string) $cur->post_dt)),
-            date('s', (int) strtotime((string) $cur->post_dt)),
+            date('Y', (int) strtotime($post_dt)),
+            date('m', (int) strtotime($post_dt)),
+            date('d', (int) strtotime($post_dt)),
+            date('H', (int) strtotime($post_dt)),
+            date('i', (int) strtotime($post_dt)),
+            date('s', (int) strtotime($post_dt)),
             $rs->post_name,
-            $rs->ID,
-            $cur->cat_id,
+            (string) $object_id,
+            is_numeric($cur->cat_id) ? (string) $cur->cat_id : '',
             $cur->user_id,
         ];
-        $cur->post_url = str_replace(
+
+        $post_url = str_replace(
             $this->vars['permalink_tags'],
             $permalink_infos,
-            $rs->post_type == 'post' ? (string) $this->vars['permalink_template'] : '%postname%'
+            $rs->post_type === 'post' ? $this->vars['permalink_template'] : '%postname%'
         );
-        $cur->post_url = substr($cur->post_url, 0, 255);
-
-        if ($cur->post_url === '') {
-            $cur->post_url = $rs->ID;
-        }
+        $post_url      = substr($post_url, 0, 255);
+        $cur->post_url = $post_url !== '' ? $post_url : (string) $object_id;
 
         $cur->post_format = $this->vars['post_formater'];
-        $_post_content    = explode('<!--more-->', (string) $rs->post_content, 2);
+
+        $post_content  = is_string($post_content = $rs->post_content) ? $post_content : '';
+        $_post_content = explode('<!--more-->', $post_content, 2);
         if (count($_post_content) === 1) {
             $cur->post_excerpt       = null;
             $cur->post_excerpt_xhtml = null;
@@ -857,23 +953,29 @@ class ModuleImportWp extends Module
             $cur->post_content_xhtml
         ));
 
-        $cur->post_id = (int) (new MetaRecord($this->con->select(
+        $new_post_id = is_numeric($new_post_id = (new MetaRecord($this->con->select(
             'SELECT MAX(post_id) FROM ' . $this->prefix . App::blog()::POST_TABLE_NAME
-        )))->f(0) + 1;
+        )))->f(0)) ? (int) $new_post_id : 0;
+        $new_post_id++;
+
+        $cur->post_id = $new_post_id;
 
         $cur->post_url = App::blog()->getPostURL($cur->post_url, $cur->post_dt, $cur->post_title, $cur->post_id);
 
         $cur->insert();
-        $this->importComments($rs->ID, $cur->post_id, $db);
-        $this->importPings($rs->ID, $cur->post_id, $db);
+        $this->importComments($object_id, $new_post_id);
+        $this->importPings($object_id, $new_post_id);
 
         # Create tags
-        $this->importTags($rs->ID, $cur->post_id, $db);
+        $this->importTags($object_id, $new_post_id);
 
         if (isset($old_cat_ids) && !$old_cat_ids->isEmpty() && $this->vars['cat_as_tags']) {
             $old_cat_ids->moveStart();
             while ($old_cat_ids->fetch()) {
-                App::meta()->setPostMeta($cur->post_id, 'tag', Txt::cleanStr($this->vars['cat_tags_prefix'] . $old_cat_ids->name));
+                $name = is_string($old_cat_ids->name) ? $old_cat_ids->name : '';
+                if ($name !== '') {
+                    App::meta()->setPostMeta($new_post_id, 'tag', Txt::cleanStr($this->vars['cat_tags_prefix'] . $name));
+                }
             }
         }
     }
@@ -881,44 +983,54 @@ class ModuleImportWp extends Module
     /**
      * Comments import.
      *
-     * @param   string  $post_id        The post identifier
-     * @param   int     $new_post_id    The new post identifier
-     * @param   mixed   $db             The database
+     * @param   int                     $post_id        The post identifier
+     * @param   int                     $new_post_id    The new post identifier
      */
-    protected function importComments(string $post_id, int $new_post_id, $db): void
+    protected function importComments(int $post_id, int $new_post_id): void
     {
+        $db        = $this->db();
+        $wp_prefix = $this->vars['db_prefix'];
+
         $count_c = $count_t = 0;
 
         $rs = $db->select(
-            'SELECT * FROM ' . $this->vars['db_prefix'] . 'comments ' .
-            'WHERE comment_post_ID = ' . (int) $post_id . ' '
+            'SELECT * FROM ' . $wp_prefix . 'comments ' .
+            'WHERE comment_post_ID = ' . $post_id . ' '
         );
 
         while ($rs->fetch()) {
+            $comment_author  = is_string($comment_author = $rs->comment_author) ? $comment_author : '';
+            $comment_status  = is_numeric($comment_status = $rs->comment_approved) ? (int) $comment_status : App::status()->comment()::UNPUBLISHED;
+            $comment_email   = is_string($comment_email = $rs->comment_author_email) ? $comment_email : '';
+            $comment_content = is_string($comment_content = $rs->comment_content) ? $comment_content : '';
+            $comment_site    = is_string($comment_site = $rs->comment_author_url) ? $comment_site : '';
+
             $cur                    = App::blog()->openCommentCursor();
             $cur->post_id           = $new_post_id;
-            $cur->comment_author    = Txt::cleanStr($rs->comment_author);
-            $cur->comment_status    = (int) $rs->comment_approved;
+            $cur->comment_author    = Txt::cleanStr($comment_author);
+            $cur->comment_status    = $comment_status;
             $cur->comment_dt        = $rs->comment_date;
-            $cur->comment_email     = Txt::cleanStr($rs->comment_author_email);
-            $cur->comment_content   = App::formater()->callEditorFormater('dcLegacyEditor', $this->vars['comment_formater'], Txt::cleanStr($rs->comment_content));
+            $cur->comment_email     = Txt::cleanStr($comment_email);
+            $cur->comment_content   = App::formater()->callEditorFormater('dcLegacyEditor', $this->vars['comment_formater'], Txt::cleanStr($comment_content));
             $cur->comment_ip        = $rs->comment_author_IP;
             $cur->comment_trackback = $rs->comment_type == 'trackback' ? 1 : 0;
-            $cur->comment_site      = substr(Txt::cleanStr($rs->comment_author_url), 0, 255);
+            $cur->comment_site      = substr(Txt::cleanStr($comment_site), 0, 255);
             if ($cur->comment_site === '') {
                 $cur->comment_site = null;
             }
 
-            if ($rs->comment_approved == 'spam') {
+            if ($rs->comment_approved === 'spam') {
                 $cur->comment_status = App::status()->comment()::JUNK;
             }
 
             $cur->comment_words = implode(' ', Txt::splitWords($cur->comment_content));
 
-            $cur->comment_id = (new MetaRecord($this->con->select(
+            $new_comment_id = is_numeric($new_comment_id = (new MetaRecord($this->con->select(
                 'SELECT MAX(comment_id) FROM ' . $this->prefix . App::blog()::COMMENT_TABLE_NAME
-            )))->f(0) + 1;
+            )))->f(0)) ? (int) $new_comment_id : 0;
+            $new_comment_id++;
 
+            $cur->comment_id = $new_comment_id;
             $cur->insert();
 
             if ($cur->comment_status === App::status()->comment()::PUBLISHED) {
@@ -943,20 +1055,22 @@ class ModuleImportWp extends Module
     /**
      * Pings import.
      *
-     * @param   string  $post_id        The post identifier
-     * @param   int     $new_post_id    The new post identifier
-     * @param   mixed   $db             The database
+     * @param   int                     $post_id        The post identifier
+     * @param   int                     $new_post_id    The new post identifier
      */
-    protected function importPings(string $post_id, int $new_post_id, $db): void
+    protected function importPings(int $post_id, int $new_post_id): void
     {
+        $db        = $this->db();
+        $wp_prefix = $this->vars['db_prefix'];
+
         $urls  = [];
         $pings = [];
 
         $rs = $db->select(
-            'SELECT pinged FROM ' . $this->vars['db_prefix'] . 'posts ' .
-            'WHERE ID = ' . (int) $post_id
+            'SELECT pinged FROM ' . $wp_prefix . 'posts ' .
+            'WHERE ID = ' . $post_id
         );
-        $pings = explode("\n", (string) $rs->pinged);
+        $pings = explode("\n", is_string($rs->pinged) ? $rs->pinged : '') ;
         unset($pings[0]);
 
         foreach ($pings as $ping_url) {
@@ -977,16 +1091,18 @@ class ModuleImportWp extends Module
     /**
      * Meta import.
      *
-     * @param   string  $post_id        The post identifier
-     * @param   int     $new_post_id    The new post identifier
-     * @param   mixed   $db             The database
+     * @param   int                     $post_id        The post identifier
+     * @param   int                     $new_post_id    The new post identifier
      */
-    protected function importTags(string $post_id, int $new_post_id, $db): void
+    protected function importTags(int $post_id, int $new_post_id): void
     {
+        $db        = $this->db();
+        $wp_prefix = $this->vars['db_prefix'];
+
         $rs = $db->select(
-            'SELECT * FROM ' . $this->vars['db_prefix'] . 'terms AS t, ' .
-            $this->vars['db_prefix'] . 'term_taxonomy AS x, ' .
-            $this->vars['db_prefix'] . 'term_relationships AS r ' .
+            'SELECT * FROM ' . $wp_prefix . 'terms AS t, ' .
+            $wp_prefix . 'term_taxonomy AS x, ' .
+            $wp_prefix . 'term_relationships AS r ' .
             'WHERE t.term_id = x.term_id ' .
             'AND x.taxonomy = \'post_tag\' ' .
             'AND t.term_id = r.term_taxonomy_id ' .
@@ -999,7 +1115,10 @@ class ModuleImportWp extends Module
         }
 
         while ($rs->fetch()) {
-            App::meta()->setPostMeta($new_post_id, 'tag', Txt::cleanStr($rs->name));
+            $name = is_string($rs->name) ? $rs->name : '';
+            if ($name !== '') {
+                App::meta()->setPostMeta($new_post_id, 'tag', Txt::cleanStr($name));
+            }
         }
     }
 }

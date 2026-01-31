@@ -55,10 +55,8 @@ class ModuleImportFeed extends Module
      *
      * @param   string  $host   The host
      * @param   bool    $try_a  The try a
-     *
-     * @return  false|string
      */
-    private function gethostbyname6(string $host, bool $try_a = false)
+    private function gethostbyname6(string $host, bool $try_a = false): false|string
     {
         $dns = $this->gethostbynamel6($host, $try_a);
         if (!$dns) {
@@ -77,7 +75,7 @@ class ModuleImportFeed extends Module
      * @param   string  $host   The host
      * @param   bool    $try_a  The try a
      *
-     * @return  array<mixed>|false
+     * @return  array<array-key, string>|false
      */
     private function gethostbynamel6(string $host, bool $try_a = false): false|array
     {
@@ -94,13 +92,22 @@ class ModuleImportFeed extends Module
         } elseif ($dns6 !== false) {
             $dns = $dns6;
         }
+
+        /**
+         * @var array<array-key, string>
+         */
         $ip6 = [];
+
+        /**
+         * @var array<array-key, string>
+         */
         $ip4 = [];
+
         foreach ($dns as $record) {
-            if ($record['type'] == 'A') {
+            if ($record['type'] === 'A' && is_string($record['ip'])) {
                 $ip4[] = $record['ip'];
             }
-            if ($record['type'] == 'AAAA') {
+            if ($record['type'] == 'AAAA' && is_string($record['ipv6'])) {
                 $ip6[] = $record['ipv6'];
             }
         }
@@ -134,7 +141,7 @@ class ModuleImportFeed extends Module
             return;
         }
 
-        if (empty($_POST['feed_url'])) {
+        if (empty($_POST['feed_url']) || !is_string($_POST['feed_url'])) {
             return;
         }
 
@@ -162,12 +169,16 @@ class ModuleImportFeed extends Module
             if (!filter_var($ip, $flag)) {
                 throw new Exception(__('Cannot retrieve feed URL.'));
             }
+
             // IP control (white list regexp)
-            if (App::blog()->settings()->system->import_feed_ip_regexp != '' && !preg_match(App::blog()->settings()->system->import_feed_ip_regexp, $ip)) {
+            $ip_regexp = is_string($ip_regexp = App::blog()->settings()->system->import_feed_ip_regexp) ? $ip_regexp : '';
+            if ($ip_regexp !== '' && !preg_match($ip_regexp, $ip)) {
                 throw new Exception(__('Cannot retrieve feed URL.'));
             }
+
             // Port control (white list regexp)
-            if (App::blog()->settings()->system->import_feed_port_regexp != '' && isset($bits['port']) && !preg_match(App::blog()->settings()->system->import_feed_port_regexp, (string) $bits['port'])) {
+            $port_regexp = is_string($port_regexp = App::blog()->settings()->system->import_feed_port_regexp) ? $port_regexp : '';
+            if ($port_regexp !== '' && isset($bits['port']) && !preg_match($port_regexp, (string) $bits['port'])) {
                 throw new Exception(__('Cannot retrieve feed URL.'));
             }
         }
@@ -183,13 +194,17 @@ class ModuleImportFeed extends Module
         $cur = App::blog()->openPostCursor();
         App::db()->con()->begin();
         foreach ($feed->items as $item) {
+            $content = is_string($item->content) ? $item->content : (is_string($item->description) ? $item->description : '');
+            $title   = is_string($item->title) ? $item->title : Txt::cutString(Html::clean($content), 60);
+            $ts      = is_numeric($item->TS) ? (int) $item->TS : null;
+
             $cur->clean();
             $cur->user_id      = App::auth()->userID();
-            $cur->post_content = $item->content ?: $item->description;
-            $cur->post_title   = $item->title ?: Txt::cutString(Html::clean($cur->post_content), 60);
+            $cur->post_content = $content;
+            $cur->post_title   = $title;
             $cur->post_format  = 'xhtml';
             $cur->post_status  = App::status()->post()::PENDING;
-            $cur->post_dt      = Date::strftime('%Y-%m-%d %H:%M:%S', $item->TS);
+            $cur->post_dt      = Date::strftime('%Y-%m-%d %H:%M:%S', $ts);
 
             try {
                 $post_id = App::blog()->addPost($cur);
@@ -199,7 +214,11 @@ class ModuleImportFeed extends Module
                 throw $e;
             }
 
-            foreach ($item->subject as $subject) {
+            /**
+             * @var array<array-key, string>
+             */
+            $subjects = is_array($item->subject) ? $item->subject : [];
+            foreach ($subjects as $subject) {
                 App::meta()->setPostMeta($post_id, 'tag', App::meta()::sanitizeMetaID($subject));
             }
         }
