@@ -110,14 +110,29 @@ class Combos
 
         if ($as_component) {
             // Collect years and months
+
+            /**
+             * Array of year (string) and for each year array of month (string) and timestamp (int)
+             *
+             * @var array<string, array<string, int>>
+             */
             $years = [];
             while ($dates->fetch()) {
-                $years[$dates->year()][$dates->month()] = $dates->ts();
+                $year  = is_string($year = $dates->year()) ? $year : '';
+                $month = is_string($month = $dates->month()) ? $month : '';
+                $ts    = is_numeric($ts = $dates->ts()) ? (int) $ts : 0;
+                if ($year !== '' && $month !== '') {
+                    $years[$year][$month] = $ts;
+                }
             }
             foreach ($years as $year => $months) {
                 $dt_m_combo[] = (new Optgroup((string) $year))
                     ->items([
-                        ... array_map(fn (string $month, int $ts): Option => (new Option(Date::str('%B %Y', $ts), $year . $month)), array_keys($months), array_values($months)),
+                        ... array_map(
+                            fn (string $month, int $ts): Option => (new Option(Date::str('%B %Y', $ts), $year . $month)),
+                            array_keys($months),
+                            array_values($months)
+                        ),
                     ]);
             }
 

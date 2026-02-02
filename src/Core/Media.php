@@ -636,7 +636,7 @@ class Media extends MediaManager implements MediaInterface
         };
     }
 
-    public function getDir(bool $sort_dirs = true, bool $sort_files = true, $type = null): void
+    public function getDir(bool $sort_dirs = true, bool $sort_files = true, ?string $type = null): void
     {
         if ($this->root_missing) {
             return;
