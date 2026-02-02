@@ -2,6 +2,10 @@
 .media-center {
   display: table;
   margin: 0 auto;
+  figcaption {
+    display: table-caption;
+    caption-side: bottom;
+  }
 }
 [dir='rtl'] .media-left {
   float: right;
