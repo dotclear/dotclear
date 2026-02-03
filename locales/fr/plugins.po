@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-28 12:36+0100\n"
-"PO-Revision-Date: 2026-01-28 12:16\n"
+"PO-Revision-Date: 2026-02-03 11:15\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -1549,27 +1549,27 @@ msgstr "Paragraphe"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:149
 msgid "Level 1 header"
-msgstr "Entête de niveau 1"
+msgstr "Titre de niveau 1"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:150
 msgid "Level 2 header"
-msgstr "Entête de niveau 2"
+msgstr "Titre de niveau 2"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:151
 msgid "Level 3 header"
-msgstr "Entête de niveau 3"
+msgstr "Titre de niveau 3"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:152
 msgid "Level 4 header"
-msgstr "Entête de niveau 4"
+msgstr "Titre de niveau 4"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:153
 msgid "Level 5 header"
-msgstr "Entête de niveau 5"
+msgstr "Titre de niveau 5"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:154
 msgid "Level 6 header"
-msgstr "Entête de niveau 6"
+msgstr "Titre de niveau 6"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:158
 msgid "Strong emphasis"
