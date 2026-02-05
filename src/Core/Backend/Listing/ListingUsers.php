@@ -13,6 +13,7 @@ namespace Dotclear\Core\Backend\Listing;
 
 use ArrayObject;
 use Dotclear\App;
+use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Caption;
 use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Form\Div;
@@ -27,6 +28,7 @@ use Dotclear\Helper\Html\Form\Table;
 use Dotclear\Helper\Html\Form\Td;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Th;
+use Dotclear\Helper\Html\Form\Timestamp;
 use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Stack\Status;
@@ -83,6 +85,16 @@ class ListingUsers extends Listing
                 ->scope('col')
                 ->class('nowrap')
                 ->text(__('No. of entries')),
+
+            'user_creadt' => (new Th())
+                ->scope('col')
+                ->class('nowrap')
+                ->text(__('Creation date')),
+
+            'user_upddt' => (new Th())
+                ->scope('col')
+                ->class('nowrap')
+                ->text(__('Update date')),
 
             'status' => (new Th())
                 ->scope('col')
@@ -206,6 +218,20 @@ class ListingUsers extends Listing
             'display_name' => (new Td())
                 ->class('nowrap')
                 ->text(Html::escapeHTML($this->rs->user_displayname)),
+
+            'user_creadt' => (new Td())
+                ->class(['nowrap', 'count'])
+                ->items([
+                    (new Timestamp(Date::str(__('%Y-%m-%d %H:%M'), strtotime($this->rs->user_creadt) + Date::getTimeOffset(App::auth()->getInfo('user_tz')))))
+                        ->datetime(Date::iso8601((int) strtotime($this->rs->user_creadt), App::auth()->getInfo('user_tz'))),
+                ]),
+
+            'user_upddt' => (new Td())
+                ->class(['nowrap', 'count'])
+                ->items([
+                    (new Timestamp(Date::str(__('%Y-%m-%d %H:%M'), strtotime($this->rs->user_upddt) + Date::getTimeOffset(App::auth()->getInfo('user_tz')))))
+                        ->datetime(Date::iso8601((int) strtotime($this->rs->user_upddt), App::auth()->getInfo('user_tz'))),
+                ]),
 
             'entries' => (new Td())
                 ->class(['nowrap', 'count'])

@@ -390,6 +390,8 @@ class Combos
                 __('First Name')        => 'user_firstname',
                 __('Display name')      => 'user_displayname',
                 __('Number of entries') => 'nb_post',
+                __('Creation date')     => 'user_creadt',
+                __('Update date')       => 'user_upddt',
             ];
             # --BEHAVIOR-- adminUsersSortbyCombo -- array<int,array<string,string>>
             App::behavior()->callBehavior('adminUsersSortbyCombo', [&$sortby_combo]);

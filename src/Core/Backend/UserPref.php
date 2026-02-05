@@ -69,6 +69,8 @@ class UserPref
                     'display_name' => [true, __('Display name')],
                     'entries'      => [true, __('Entries (all types)')],
                     'status'       => [true, __('Status')],
+                    'user_creadt'  => [false, __('Creation date')],
+                    'user_upddt'   => [false, __('Update date')],
                 ],
             ];
             $cols['blogs'] = [

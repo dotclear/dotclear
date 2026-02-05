@@ -4,7 +4,7 @@
 dotclear.ready(() => {
   // DOM ready and content loaded
 
-  $('#user_options_columns div').sortable({
+  $('#user_options_columns_container div').sortable({
     cursor: 'move',
     items: '> label',
   });

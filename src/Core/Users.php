@@ -75,6 +75,8 @@ class Users implements UsersInterface
                     'user_tz',
                     'user_post_status',
                     'user_options',
+                    'user_creadt',
+                    'user_upddt',
                     $sql->count('P.post_id', 'nb_post'),
                 ])
                 ->from($sql->as($this->core->db()->con()->prefix() . $this->core->auth()::USER_TABLE_NAME, 'U'));
@@ -127,11 +129,13 @@ class Users implements UsersInterface
                 'user_tz',
                 'user_post_status',
                 'user_options',
+                'user_creadt',
+                'user_upddt',
             ]);
 
             if (!empty($params['order'])) {
                 if (preg_match('`^([^. ]+) (?:asc|desc)`i', (string) $params['order'], $matches)) {
-                    if (in_array($matches[1], ['user_id', 'user_name', 'user_firstname', 'user_displayname'])) {
+                    if (in_array($matches[1], ['user_id', 'user_name', 'user_firstname', 'user_displayname', 'user_creadt', 'user_upddt'])) {
                         $table_prefix = 'U.';
                     } else {
                         $table_prefix = ''; // order = nb_post (asc|desc)

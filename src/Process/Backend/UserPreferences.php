@@ -1140,7 +1140,7 @@ class UserPreferences
                                             ->label(new Label(__('Keep the main menu at the top of the page as much as possible'), Label::IL_FT)),
                                     ]),
                             ]),
-                        (new Fieldset())
+                        (new Fieldset('user_options_columns_container'))
                             ->legend((new Legend(__('Optional columns displayed in lists'), 'user_options_columns')))
                             ->fields($columns),
                         (new Fieldset('user_options_lists_container'))
