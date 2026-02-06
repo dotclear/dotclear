@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-02-05 12:37+0100\n"
-"PO-Revision-Date: 2026-02-06 08:14\n"
+"PO-Revision-Date: 2026-02-06 08:51\n"
 "Last-Translator: \n"
 "Language-Team: Portuguese, Brazilian\n"
 "Language: pt_BR\n"
@@ -604,12 +604,12 @@ msgstr "Número de posts"
 #: src/Core/Backend/Combos.php:393 src/Core/Backend/Listing/ListingUsers.php:92
 #: src/Core/Backend/UserPref.php:72
 msgid "Creation date"
-msgstr ""
+msgstr "Data de criação"
 
 #: src/Core/Backend/Combos.php:394 src/Core/Backend/Listing/ListingUsers.php:97
 #: src/Core/Backend/UserPref.php:73
 msgid "Update date"
-msgstr ""
+msgstr "Data de atualização"
 
 #: src/Core/Backend/Favorites.php:287
 #: src/Process/Backend/UserPreferences.php:1364
