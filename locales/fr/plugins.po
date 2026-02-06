@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-28 12:36+0100\n"
-"PO-Revision-Date: 2026-02-03 11:15\n"
+"POT-Creation-Date: 2026-02-06 09:12+0100\n"
+"PO-Revision-Date: 2026-02-06 08:15\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -1132,10 +1132,10 @@ msgid "OPML or XBEL File:"
 msgstr "Fichier OPML ou XBEL :"
 
 #: plugins/blogroll/src/Manage.php:678 plugins/blogroll/src/Manage.php:747
-#: plugins/importExport/src/Manage.php:130
-#: plugins/importExport/src/ModuleImportFeed.php:238
-#: plugins/importExport/src/ModuleImportFlat.php:248
-#: plugins/importExport/src/ModuleImportFlat.php:310
+#: plugins/importExport/src/Manage.php:155
+#: plugins/importExport/src/ModuleImportFeed.php:257
+#: plugins/importExport/src/ModuleImportFlat.php:257
+#: plugins/importExport/src/ModuleImportFlat.php:319
 msgid "Import"
 msgstr "Importer"
 
@@ -1672,20 +1672,22 @@ msgid "No file to read."
 msgstr "Aucun fichier à lire."
 
 #: plugins/importExport/src/FlatExport.php:49
+#: plugins/importExport/src/ModuleExportFlat.php:46
+#: plugins/importExport/src/ModuleExportFlat.php:129
 msgid "Unable to create output file."
 msgstr "Impossible de créer le fichier d'exportation."
 
 #: plugins/importExport/src/FlatImportV2.php:99
-msgid "Unable to open the DotClear backup file."
-msgstr "Impossible d'ouvrir le fichier de sauvegarde DotClear."
+msgid "Unable to open the Dotclear backup file."
+msgstr ""
 
 #: plugins/importExport/src/FlatImportV2.php:104
-msgid "Unable to read the DotClear backup file."
-msgstr "Impossible de lire le fichier de sauvegarde DotClear."
+msgid "Unable to read the Dotclear backup file."
+msgstr ""
 
 #: plugins/importExport/src/FlatImportV2.php:108
-msgid "File is not a DotClear backup."
-msgstr "Ce fichier n'est pas un fichier de sauvegarde Dotclear."
+msgid "File is not a Dotclear backup."
+msgstr ""
 
 #: plugins/importExport/src/FlatImportV2.php:184
 msgid "File is not a single blog export."
@@ -1706,21 +1708,21 @@ msgstr "Ce fichier n'est pas un fichier de sauvegarde complet."
 msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
 msgstr "L'ID de \"%3$s\" ne correspond pas dans l'enregistrement \"%1$s\" à la ligne %2$s du fichier de sauvegarde."
 
-#: plugins/importExport/src/Manage.php:90
+#: plugins/importExport/src/Manage.php:100
 #: plugins/maintenance/src/Manage.php:200
 msgid "Please wait..."
 msgstr "Veuillez patientez…"
 
-#: plugins/importExport/src/Manage.php:136
+#: plugins/importExport/src/Manage.php:161
 msgid "Export"
 msgstr "Export"
 
-#: plugins/importExport/src/Manage.php:141
+#: plugins/importExport/src/Manage.php:166
 #, php-format
 msgid "Export functions are in the page %s."
 msgstr "Les fonctions d'export sont dans la page de %s."
 
-#: plugins/importExport/src/Manage.php:144
+#: plugins/importExport/src/Manage.php:169
 #: plugins/maintenance/src/Backend.php:27
 #: plugins/maintenance/src/BackendBehaviors.php:220
 msgid "Maintenance"
@@ -1750,142 +1752,142 @@ msgstr "Fichier d'exportation « à plat »"
 msgid "Exports a blog or a full Dotclear installation to flat file."
 msgstr "Exporte un blog ou une installation Dotclear complète vers un fichier « à plat »."
 
-#: plugins/importExport/src/ModuleExportFlat.php:156
+#: plugins/importExport/src/ModuleExportFlat.php:168
 msgid "Export file not found."
 msgstr "Le fichier d'export n'a pas été trouvé."
 
-#: plugins/importExport/src/ModuleExportFlat.php:195
+#: plugins/importExport/src/ModuleExportFlat.php:209
 msgid "Failed to compress export file."
 msgstr "Impossible de compresser le fichier d'export."
 
-#: plugins/importExport/src/ModuleImportDc1.php:86
+#: plugins/importExport/src/ModuleImportDc1.php:106
 msgid "Dotclear 1.2 import"
 msgstr "Importation depuis Dotclear 1.2"
 
-#: plugins/importExport/src/ModuleImportDc1.php:87
+#: plugins/importExport/src/ModuleImportDc1.php:107
 msgid "Import a Dotclear 1.2 installation into your current blog."
 msgstr "Importer une installation Dotclear 1.2 dans votre blog courant."
 
-#: plugins/importExport/src/ModuleImportDc1.php:218
+#: plugins/importExport/src/ModuleImportDc1.php:253
 #, php-format
 msgid "Import the content of a Dotclear 1.2's blog in the current blog: %s."
 msgstr "Importer le contenu d'un blog Dotclear 1.2 comme nouveau contenu dans le blog courant : %s."
 
-#: plugins/importExport/src/ModuleImportDc1.php:226
-#: plugins/importExport/src/ModuleImportWp.php:253
+#: plugins/importExport/src/ModuleImportDc1.php:261
+#: plugins/importExport/src/ModuleImportWp.php:316
 msgid "Please note that this process will empty your categories, blogroll, entries and comments on the current blog."
 msgstr "Notez que cela supprimera les catégories, liste de liens, entrées et commentaires actuels du blog courant."
 
-#: plugins/importExport/src/ModuleImportDc1.php:233
+#: plugins/importExport/src/ModuleImportDc1.php:268
 msgid "We first need some information about your old Dotclear 1.2 installation."
 msgstr "Nous avons besoin au préalable de quelques informations à propos de votre installation Dotclear 1.2."
 
-#: plugins/importExport/src/ModuleImportDc1.php:240
+#: plugins/importExport/src/ModuleImportDc1.php:275
 msgid "Database driver:"
 msgstr "Moteur de la base de données :"
 
-#: plugins/importExport/src/ModuleImportDc1.php:282
-#: plugins/importExport/src/ModuleImportWp.php:302
+#: plugins/importExport/src/ModuleImportDc1.php:317
+#: plugins/importExport/src/ModuleImportWp.php:365
 msgid "Entries import options"
 msgstr "Options d'importation des entrées"
 
-#: plugins/importExport/src/ModuleImportDc1.php:287
-#: plugins/importExport/src/ModuleImportWp.php:347
+#: plugins/importExport/src/ModuleImportDc1.php:322
+#: plugins/importExport/src/ModuleImportWp.php:410
 msgid "Number of entries to import at once:"
 msgstr "Nombre d'éléments à importer à chaque passe :"
 
-#: plugins/importExport/src/ModuleImportDc1.php:293
-#: plugins/importExport/src/ModuleImportWp.php:372
+#: plugins/importExport/src/ModuleImportDc1.php:328
+#: plugins/importExport/src/ModuleImportWp.php:435
 msgid "General information"
 msgstr "Informations générales"
 
-#: plugins/importExport/src/ModuleImportDc1.php:293
-#: plugins/importExport/src/ModuleImportWp.php:372
+#: plugins/importExport/src/ModuleImportDc1.php:328
+#: plugins/importExport/src/ModuleImportWp.php:435
 msgid "Import my blog now"
 msgstr "Importer mon blog maintenant"
 
-#: plugins/importExport/src/ModuleImportDc1.php:300
-#: plugins/importExport/src/ModuleImportWp.php:379
+#: plugins/importExport/src/ModuleImportDc1.php:335
+#: plugins/importExport/src/ModuleImportWp.php:442
 msgid "Importing users"
 msgstr "Importation des utilisateurs"
 
-#: plugins/importExport/src/ModuleImportDc1.php:307
-#: plugins/importExport/src/ModuleImportWp.php:386
+#: plugins/importExport/src/ModuleImportDc1.php:342
+#: plugins/importExport/src/ModuleImportWp.php:449
 msgid "Importing categories"
 msgstr "Importation des catégories"
 
-#: plugins/importExport/src/ModuleImportDc1.php:314
-#: plugins/importExport/src/ModuleImportWp.php:393
+#: plugins/importExport/src/ModuleImportDc1.php:349
+#: plugins/importExport/src/ModuleImportWp.php:456
 msgid "Importing blogroll"
 msgstr "Importation de la liste des liens"
 
-#: plugins/importExport/src/ModuleImportDc1.php:321
-#: plugins/importExport/src/ModuleImportWp.php:400
+#: plugins/importExport/src/ModuleImportDc1.php:356
+#: plugins/importExport/src/ModuleImportWp.php:463
 #, php-format
 msgid "Importing entries from %d to %d / %d"
 msgstr "Importation des éléments %d à %d / %d"
 
-#: plugins/importExport/src/ModuleImportDc1.php:336
-#: plugins/importExport/src/ModuleImportWp.php:415
+#: plugins/importExport/src/ModuleImportDc1.php:371
+#: plugins/importExport/src/ModuleImportWp.php:478
 msgid "Please read carefully"
 msgstr "Lisez soigneusement"
 
-#: plugins/importExport/src/ModuleImportDc1.php:338
-#: plugins/importExport/src/ModuleImportWp.php:418
+#: plugins/importExport/src/ModuleImportDc1.php:373
+#: plugins/importExport/src/ModuleImportWp.php:481
 msgid "Every newly imported user has received a random password and will need to ask for a new one by following the \"I forgot my password\" link on the login page (Their registered email address has to be valid.)"
 msgstr "Chaque utilisateur·rice nouvellement importé·e a reçu un mot de passe aléatoire et devra en demander un nouveau en cliquant sur le lien « J'ai oublié mon mot de passe » sur la page d'authentification (son adresse email doit être valide)."
 
-#: plugins/importExport/src/ModuleImportDc1.php:340
+#: plugins/importExport/src/ModuleImportDc1.php:375
 #, php-format
 msgid "Please note that Dotclear 2 has a new URL layout. You can avoid broken links by installing <a href=\"%s\">DC1 redirect</a> plugin and activate it in your blog configuration."
 msgstr "Notez que Dotclear a un nouveau schéma d'URL. Vous pouvez éviter les liens brisés en installant le plugin <a href=\"%s\">DC1 redirect</a> et en l'activant dans la configuration de votre blog."
 
-#: plugins/importExport/src/ModuleImportDc1.php:363
-#: plugins/importExport/src/ModuleImportWp.php:440
+#: plugins/importExport/src/ModuleImportDc1.php:398
+#: plugins/importExport/src/ModuleImportWp.php:503
 msgid "next step"
 msgstr "Étape suivante"
 
-#: plugins/importExport/src/ModuleImportDc1.php:381
-#: plugins/importExport/src/ModuleImportWp.php:458
+#: plugins/importExport/src/ModuleImportDc1.php:416
+#: plugins/importExport/src/ModuleImportWp.php:521
 msgid "Depending on the size of your blog, it could take a few minutes."
 msgstr "Cela peut prendre plusieurs minutes en fonction de la taille de votre blog."
 
-#: plugins/importExport/src/ModuleImportDc1.php:409
+#: plugins/importExport/src/ModuleImportDc1.php:442
 msgid "Dotclear tables not found"
 msgstr "Les tables Dotclear n'ont pas été trouvées"
 
-#: plugins/importExport/src/ModuleImportFeed.php:125
+#: plugins/importExport/src/ModuleImportFeed.php:132
 msgid "RSS or Atom feed import"
 msgstr "Importation d'un flux RSS ou Atom"
 
-#: plugins/importExport/src/ModuleImportFeed.php:126
+#: plugins/importExport/src/ModuleImportFeed.php:133
 msgid "Add a feed content to the blog."
 msgstr "Ajouter les contenus d'un flux au blog."
 
-#: plugins/importExport/src/ModuleImportFeed.php:148
-#: plugins/importExport/src/ModuleImportFeed.php:154
-#: plugins/importExport/src/ModuleImportFeed.php:163
-#: plugins/importExport/src/ModuleImportFeed.php:167
-#: plugins/importExport/src/ModuleImportFeed.php:171
-#: plugins/importExport/src/ModuleImportFeed.php:177
+#: plugins/importExport/src/ModuleImportFeed.php:155
+#: plugins/importExport/src/ModuleImportFeed.php:161
+#: plugins/importExport/src/ModuleImportFeed.php:170
+#: plugins/importExport/src/ModuleImportFeed.php:176
+#: plugins/importExport/src/ModuleImportFeed.php:182
+#: plugins/importExport/src/ModuleImportFeed.php:188
 msgid "Cannot retrieve feed URL."
 msgstr "Impossible de trouver l'URL du flux."
 
-#: plugins/importExport/src/ModuleImportFeed.php:180
+#: plugins/importExport/src/ModuleImportFeed.php:191
 msgid "No items in feed."
 msgstr "Aucun élément dans le flux"
 
-#: plugins/importExport/src/ModuleImportFeed.php:214
-#: plugins/importExport/src/ModuleImportFlat.php:189
+#: plugins/importExport/src/ModuleImportFeed.php:233
+#: plugins/importExport/src/ModuleImportFlat.php:198
 msgid "Content successfully imported."
 msgstr "Le contenu a été importé."
 
-#: plugins/importExport/src/ModuleImportFeed.php:223
+#: plugins/importExport/src/ModuleImportFeed.php:242
 #, php-format
 msgid "Add a feed content to the current blog: <strong>%s</strong>."
 msgstr "Ajouter les contenus d'un flux au blog courant : <strong>%s</strong>."
 
-#: plugins/importExport/src/ModuleImportFeed.php:231
+#: plugins/importExport/src/ModuleImportFeed.php:250
 #: plugins/widgets/src/Widgets.php:155
 msgid "Feed URL:"
 msgstr "URL du flux :"
@@ -1898,117 +1900,117 @@ msgstr "Importation d'un fichier « à plat »"
 msgid "Imports a blog or a full Dotclear installation from flat file."
 msgstr "Importe un blog ou une installation Dotclear complète depuis un fichier « à plat »."
 
-#: plugins/importExport/src/ModuleImportFlat.php:184
+#: plugins/importExport/src/ModuleImportFlat.php:193
 msgid "Single blog successfully imported."
 msgstr "Le blog a été importé."
 
-#: plugins/importExport/src/ModuleImportFlat.php:204
+#: plugins/importExport/src/ModuleImportFlat.php:213
 msgid "Are you sure you want to import a full backup file?"
 msgstr "Êtes-vous sûr·e de vouloir importer un fichier de sauvegarde complet ?"
 
-#: plugins/importExport/src/ModuleImportFlat.php:214
+#: plugins/importExport/src/ModuleImportFlat.php:223
 msgid "Single blog"
 msgstr "Blog simple"
 
-#: plugins/importExport/src/ModuleImportFlat.php:219
+#: plugins/importExport/src/ModuleImportFlat.php:228
 #, php-format
 msgid "This will import a single blog backup as new content in the current blog: <strong>%s</strong>."
 msgstr "Cela importera une sauvegarde d'un blog comme nouveau contenu du blog courant : <strong>%s</strong>."
 
-#: plugins/importExport/src/ModuleImportFlat.php:226
-#: plugins/importExport/src/ModuleImportFlat.php:273
+#: plugins/importExport/src/ModuleImportFlat.php:235
+#: plugins/importExport/src/ModuleImportFlat.php:282
 msgid "Upload a backup file"
 msgstr "Téléversez un fichier de sauvegarde"
 
-#: plugins/importExport/src/ModuleImportFlat.php:227
-#: plugins/importExport/src/ModuleImportFlat.php:274
+#: plugins/importExport/src/ModuleImportFlat.php:236
+#: plugins/importExport/src/ModuleImportFlat.php:283
 #, php-format
 msgid "maximum size %s"
 msgstr "taille maximum de %s"
 
-#: plugins/importExport/src/ModuleImportFlat.php:239
-#: plugins/importExport/src/ModuleImportFlat.php:286
+#: plugins/importExport/src/ModuleImportFlat.php:248
+#: plugins/importExport/src/ModuleImportFlat.php:295
 msgid "or pick up a local file in your public directory"
 msgstr "ou sélectionnez un fichier local présent dans votre répertoire de médias"
 
-#: plugins/importExport/src/ModuleImportFlat.php:261
+#: plugins/importExport/src/ModuleImportFlat.php:270
 msgid "Multiple blogs"
 msgstr "Tous les blogs"
 
-#: plugins/importExport/src/ModuleImportFlat.php:268
+#: plugins/importExport/src/ModuleImportFlat.php:277
 msgid "This will reset all the content of your database, except users."
 msgstr "Attention : Cela supprimera au préalable tout le contenu de votre base de données à l'exception des utilisateurs."
 
-#: plugins/importExport/src/ModuleImportFlat.php:399
+#: plugins/importExport/src/ModuleImportFlat.php:408
 msgid "Another file with same name exists."
 msgstr "Un autre fichier portant ce nom existe déjà."
 
-#: plugins/importExport/src/ModuleImportFlat.php:407
+#: plugins/importExport/src/ModuleImportFlat.php:416
 msgid "Failed to extract backup file."
 msgstr "Impossible d'extraire le fichier de sauvegarde."
 
-#: plugins/importExport/src/ModuleImportFlat.php:419
+#: plugins/importExport/src/ModuleImportFlat.php:428
 msgid "No backup in compressed file."
 msgstr "Aucune sauvegarde dans le fichier compressé."
 
-#: plugins/importExport/src/ModuleImportWp.php:111
+#: plugins/importExport/src/ModuleImportWp.php:148
 msgid "WordPress import"
 msgstr "Importation WordPress"
 
-#: plugins/importExport/src/ModuleImportWp.php:112
+#: plugins/importExport/src/ModuleImportWp.php:149
 msgid "Import a WordPress installation into your current blog."
 msgstr "Importe une installation WordPress dans le blog courant."
 
-#: plugins/importExport/src/ModuleImportWp.php:245
+#: plugins/importExport/src/ModuleImportWp.php:308
 #, php-format
 msgid "This will import your WordPress content as new content in the current blog: %s."
 msgstr "Cela importera le contenu WordPress comme un nouveau contenu dans le blog courant : %s."
 
-#: plugins/importExport/src/ModuleImportWp.php:260
+#: plugins/importExport/src/ModuleImportWp.php:323
 msgid "We first need some information about your old WordPress installation."
 msgstr "Nous avons besoin au préalable de quelques informations au sujet de votre ancienne installation WordPress."
 
-#: plugins/importExport/src/ModuleImportWp.php:310
+#: plugins/importExport/src/ModuleImportWp.php:373
 msgid "WordPress and Dotclear's handling of categories are quite different. You can assign several categories to a single post in WordPress. In the Dotclear world, we see it more like \"One category, several tags.\" Therefore Dotclear can only import one category per post and will chose the lowest numbered one. If you want to keep a trace of every category, you can import them as tags, with an optional prefix."
 msgstr "La gestion des catégories chez WordPress et Dotclear est tout à fait différente. Vous pouvez assigner plusieurs catégories à un seul billet dans WordPress. Dans le monde Dotclear, nous le voyons davantage comme « une catégorie, plusieurs mots-clés ». Par conséquent Dotclear peut seulement importer une catégorie par billet et il choisira celui de plus petit numéro. Si vous voulez conserver une trace de chaque catégorie, vous pouvez les importer sous forme de mots-clés, avec un préfixe optionnel."
 
-#: plugins/importExport/src/ModuleImportWp.php:312
+#: plugins/importExport/src/ModuleImportWp.php:375
 msgid "On the other hand, in WordPress, a post can not be uncategorized, and a default installation has a first category labelised <i>\"Uncategorized\"</i>. If you did not change that category, you can just ignore it while importing your blog, as Dotclear allows you to actually keep your posts uncategorized."
 msgstr "D'autre part, dans WordPress, un billet ne peut pas être sans catégorie, et une installation par défaut possède systématiquement une première catégorie nommée <i>« sans catégorie »</i>. Si vous n'avez pas changé cette catégorie, vous pouvez simplement l'ignorer lors de l'importation sur votre blog, puisque Dotclear vous permet réellement de conserver votre message sans catégorie."
 
-#: plugins/importExport/src/ModuleImportWp.php:321
+#: plugins/importExport/src/ModuleImportWp.php:384
 msgid "Ignore the first category:"
 msgstr "Ignorer la première catégorie :"
 
-#: plugins/importExport/src/ModuleImportWp.php:327
+#: plugins/importExport/src/ModuleImportWp.php:390
 msgid "Import lowest numbered category on posts:"
 msgstr "Importer la catégorie ayant le plus faible numéro dans les billets :"
 
-#: plugins/importExport/src/ModuleImportWp.php:333
+#: plugins/importExport/src/ModuleImportWp.php:396
 msgid "Import all categories as tags:"
 msgstr "Importer toutes les catégories comme des mots-clés :"
 
-#: plugins/importExport/src/ModuleImportWp.php:341
+#: plugins/importExport/src/ModuleImportWp.php:404
 msgid "Prefix such tags with:"
 msgstr "Préfixer les mots-clés avec :"
 
-#: plugins/importExport/src/ModuleImportWp.php:351
+#: plugins/importExport/src/ModuleImportWp.php:414
 msgid "Content filters"
 msgstr "Filtres de contenu"
 
-#: plugins/importExport/src/ModuleImportWp.php:353
+#: plugins/importExport/src/ModuleImportWp.php:416
 msgid "You may want to process your post and/or comment content with the following filters."
 msgstr "Vous pouvez formater le contenu de vos billets et commentaires avec les filtres suivants."
 
-#: plugins/importExport/src/ModuleImportWp.php:359
+#: plugins/importExport/src/ModuleImportWp.php:422
 msgid "Post content formatter:"
 msgstr "Formatage du contenu des billets :"
 
-#: plugins/importExport/src/ModuleImportWp.php:366
+#: plugins/importExport/src/ModuleImportWp.php:429
 msgid "Comment content formatter:"
 msgstr "Formatage du contenu des commentaires :"
 
-#: plugins/importExport/src/ModuleImportWp.php:486
+#: plugins/importExport/src/ModuleImportWp.php:551
 msgid "WordPress tables not found"
 msgstr "Les tables WordPress n'ont pu être trouvées."
 
