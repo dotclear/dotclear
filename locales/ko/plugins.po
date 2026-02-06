@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-02-06 09:12+0100\n"
-"PO-Revision-Date: 2026-02-06 08:15\n"
+"PO-Revision-Date: 2026-02-06 08:51\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -1677,15 +1677,15 @@ msgstr "출력 파일을 만들 수 없습니다."
 
 #: plugins/importExport/src/FlatImportV2.php:99
 msgid "Unable to open the Dotclear backup file."
-msgstr ""
+msgstr "도트클리어 백업 파일을 열 수 없습니다."
 
 #: plugins/importExport/src/FlatImportV2.php:104
 msgid "Unable to read the Dotclear backup file."
-msgstr ""
+msgstr "도트클리어 백업 파일을 읽을 수 없습니다."
 
 #: plugins/importExport/src/FlatImportV2.php:108
 msgid "File is not a Dotclear backup."
-msgstr ""
+msgstr "파일이 닷클리어 백업이 아닙니다."
 
 #: plugins/importExport/src/FlatImportV2.php:184
 msgid "File is not a single blog export."
