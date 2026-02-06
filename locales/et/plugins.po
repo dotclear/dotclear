@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-02-06 09:12+0100\n"
-"PO-Revision-Date: 2026-02-06 08:15\n"
+"PO-Revision-Date: 2026-02-06 08:52\n"
 "Last-Translator: \n"
 "Language-Team: Estonian\n"
 "Language: et_EE\n"
@@ -1679,15 +1679,15 @@ msgstr "Väljundfaili ei ole võimalik luua."
 
 #: plugins/importExport/src/FlatImportV2.php:99
 msgid "Unable to open the Dotclear backup file."
-msgstr ""
+msgstr "Dotcleari varukoopiafaili ei ole võimalik avada."
 
 #: plugins/importExport/src/FlatImportV2.php:104
 msgid "Unable to read the Dotclear backup file."
-msgstr ""
+msgstr "Dotcleari varukoopiafaili ei ole võimalik lugeda."
 
 #: plugins/importExport/src/FlatImportV2.php:108
 msgid "File is not a Dotclear backup."
-msgstr ""
+msgstr "Fail ei ole Dotcleari varukoopia."
 
 #: plugins/importExport/src/FlatImportV2.php:184
 msgid "File is not a single blog export."
