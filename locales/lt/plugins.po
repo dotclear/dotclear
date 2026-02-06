@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-28 12:36+0100\n"
-"PO-Revision-Date: 2026-01-28 12:17\n"
+"POT-Creation-Date: 2026-02-06 09:12+0100\n"
+"PO-Revision-Date: 2026-02-06 08:15\n"
 "Last-Translator: \n"
 "Language-Team: Lithuanian\n"
 "Language: lt_LT\n"
@@ -1136,10 +1136,10 @@ msgid "OPML or XBEL File:"
 msgstr "OPML arba XBEL failas:"
 
 #: plugins/blogroll/src/Manage.php:678 plugins/blogroll/src/Manage.php:747
-#: plugins/importExport/src/Manage.php:130
-#: plugins/importExport/src/ModuleImportFeed.php:238
-#: plugins/importExport/src/ModuleImportFlat.php:248
-#: plugins/importExport/src/ModuleImportFlat.php:310
+#: plugins/importExport/src/Manage.php:155
+#: plugins/importExport/src/ModuleImportFeed.php:257
+#: plugins/importExport/src/ModuleImportFlat.php:257
+#: plugins/importExport/src/ModuleImportFlat.php:319
 msgid "Import"
 msgstr "Importuoti"
 
@@ -1676,20 +1676,22 @@ msgid "No file to read."
 msgstr "Nėra skaitomo failo."
 
 #: plugins/importExport/src/FlatExport.php:49
+#: plugins/importExport/src/ModuleExportFlat.php:46
+#: plugins/importExport/src/ModuleExportFlat.php:129
 msgid "Unable to create output file."
 msgstr "Nepavyksta sukurti išvesties failo."
 
 #: plugins/importExport/src/FlatImportV2.php:99
-msgid "Unable to open the DotClear backup file."
-msgstr "Nepavyksta atidaryti \"DotClear\" atsarginės kopijos failo."
+msgid "Unable to open the Dotclear backup file."
+msgstr ""
 
 #: plugins/importExport/src/FlatImportV2.php:104
-msgid "Unable to read the DotClear backup file."
-msgstr "Nepavyksta perskaityti \"DotClear\" atsarginės kopijos failo."
+msgid "Unable to read the Dotclear backup file."
+msgstr ""
 
 #: plugins/importExport/src/FlatImportV2.php:108
-msgid "File is not a DotClear backup."
-msgstr "Tai nėra Dotclear atsarginės kopijos failas."
+msgid "File is not a Dotclear backup."
+msgstr ""
 
 #: plugins/importExport/src/FlatImportV2.php:184
 msgid "File is not a single blog export."
@@ -1710,21 +1712,21 @@ msgstr "Nepilnai eksportuotas failas."
 msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
 msgstr "Atsarginės kopijos failo eilutėje %2$s esančio įrašo \"%3$s\" ID nesutampa su įrašo \"%1$s\" ID."
 
-#: plugins/importExport/src/Manage.php:90
+#: plugins/importExport/src/Manage.php:100
 #: plugins/maintenance/src/Manage.php:200
 msgid "Please wait..."
 msgstr "Prašome palaukti…"
 
-#: plugins/importExport/src/Manage.php:136
+#: plugins/importExport/src/Manage.php:161
 msgid "Export"
 msgstr "Eksportavimas"
 
-#: plugins/importExport/src/Manage.php:141
+#: plugins/importExport/src/Manage.php:166
 #, php-format
 msgid "Export functions are in the page %s."
 msgstr "Eksportavimo funkcijos pateikiamos puslapyje %s."
 
-#: plugins/importExport/src/Manage.php:144
+#: plugins/importExport/src/Manage.php:169
 #: plugins/maintenance/src/Backend.php:27
 #: plugins/maintenance/src/BackendBehaviors.php:220
 msgid "Maintenance"
@@ -1754,142 +1756,142 @@ msgstr "Paprasto failo eksportavimas"
 msgid "Exports a blog or a full Dotclear installation to flat file."
 msgstr "Eksportuoja blogą arba pilną Dotclear instaliaciją į bendrą failą."
 
-#: plugins/importExport/src/ModuleExportFlat.php:156
+#: plugins/importExport/src/ModuleExportFlat.php:168
 msgid "Export file not found."
 msgstr "Eksportuojamas failas nerastas."
 
-#: plugins/importExport/src/ModuleExportFlat.php:195
+#: plugins/importExport/src/ModuleExportFlat.php:209
 msgid "Failed to compress export file."
 msgstr "Nepavyko suspausti eksporto failo."
 
-#: plugins/importExport/src/ModuleImportDc1.php:86
+#: plugins/importExport/src/ModuleImportDc1.php:106
 msgid "Dotclear 1.2 import"
 msgstr "Dotclear 1.2 importavimas"
 
-#: plugins/importExport/src/ModuleImportDc1.php:87
+#: plugins/importExport/src/ModuleImportDc1.php:107
 msgid "Import a Dotclear 1.2 installation into your current blog."
 msgstr "Importuoja Dotclear 1.2 Instaliaciją į dabartinį blogą."
 
-#: plugins/importExport/src/ModuleImportDc1.php:218
+#: plugins/importExport/src/ModuleImportDc1.php:253
 #, php-format
 msgid "Import the content of a Dotclear 1.2's blog in the current blog: %s."
 msgstr "Importuokite \"Dotclear 1.2\" tinklaraščio turinį į dabartinį tinklaraštį: %s."
 
-#: plugins/importExport/src/ModuleImportDc1.php:226
-#: plugins/importExport/src/ModuleImportWp.php:253
+#: plugins/importExport/src/ModuleImportDc1.php:261
+#: plugins/importExport/src/ModuleImportWp.php:316
 msgid "Please note that this process will empty your categories, blogroll, entries and comments on the current blog."
 msgstr "Atkreipkite dėmesį, kad šis procesas gali ištrinti jūsų kategorijas, blogroll, įrašus ir komentarus dabartiniame bloge."
 
-#: plugins/importExport/src/ModuleImportDc1.php:233
+#: plugins/importExport/src/ModuleImportDc1.php:268
 msgid "We first need some information about your old Dotclear 1.2 installation."
 msgstr "Pirmiausiai mums reikalinga informacija apie jūsų seną Dotclear 1.2 instaliaciją."
 
-#: plugins/importExport/src/ModuleImportDc1.php:240
+#: plugins/importExport/src/ModuleImportDc1.php:275
 msgid "Database driver:"
 msgstr "Duomenų bazės tvarkyklė:"
 
-#: plugins/importExport/src/ModuleImportDc1.php:282
-#: plugins/importExport/src/ModuleImportWp.php:302
+#: plugins/importExport/src/ModuleImportDc1.php:317
+#: plugins/importExport/src/ModuleImportWp.php:365
 msgid "Entries import options"
 msgstr "Įrašų importavimo pasirinkimai"
 
-#: plugins/importExport/src/ModuleImportDc1.php:287
-#: plugins/importExport/src/ModuleImportWp.php:347
+#: plugins/importExport/src/ModuleImportDc1.php:322
+#: plugins/importExport/src/ModuleImportWp.php:410
 msgid "Number of entries to import at once:"
 msgstr "Vienu kartu importuojamų įrašų skaičius:"
 
-#: plugins/importExport/src/ModuleImportDc1.php:293
-#: plugins/importExport/src/ModuleImportWp.php:372
+#: plugins/importExport/src/ModuleImportDc1.php:328
+#: plugins/importExport/src/ModuleImportWp.php:435
 msgid "General information"
 msgstr "Bendra informacija"
 
-#: plugins/importExport/src/ModuleImportDc1.php:293
-#: plugins/importExport/src/ModuleImportWp.php:372
+#: plugins/importExport/src/ModuleImportDc1.php:328
+#: plugins/importExport/src/ModuleImportWp.php:435
 msgid "Import my blog now"
 msgstr "Importuoti mano blogą"
 
-#: plugins/importExport/src/ModuleImportDc1.php:300
-#: plugins/importExport/src/ModuleImportWp.php:379
+#: plugins/importExport/src/ModuleImportDc1.php:335
+#: plugins/importExport/src/ModuleImportWp.php:442
 msgid "Importing users"
 msgstr "Importuojami dalyviai"
 
-#: plugins/importExport/src/ModuleImportDc1.php:307
-#: plugins/importExport/src/ModuleImportWp.php:386
+#: plugins/importExport/src/ModuleImportDc1.php:342
+#: plugins/importExport/src/ModuleImportWp.php:449
 msgid "Importing categories"
 msgstr "Importuojamos kategorijos"
 
-#: plugins/importExport/src/ModuleImportDc1.php:314
-#: plugins/importExport/src/ModuleImportWp.php:393
+#: plugins/importExport/src/ModuleImportDc1.php:349
+#: plugins/importExport/src/ModuleImportWp.php:456
 msgid "Importing blogroll"
 msgstr "Importuojamas Blogroll"
 
-#: plugins/importExport/src/ModuleImportDc1.php:321
-#: plugins/importExport/src/ModuleImportWp.php:400
+#: plugins/importExport/src/ModuleImportDc1.php:356
+#: plugins/importExport/src/ModuleImportWp.php:463
 #, php-format
 msgid "Importing entries from %d to %d / %d"
 msgstr "Importuojami įrašai iš %d į %d / %d"
 
-#: plugins/importExport/src/ModuleImportDc1.php:336
-#: plugins/importExport/src/ModuleImportWp.php:415
+#: plugins/importExport/src/ModuleImportDc1.php:371
+#: plugins/importExport/src/ModuleImportWp.php:478
 msgid "Please read carefully"
 msgstr "Prašome atidžiai perskaityti"
 
-#: plugins/importExport/src/ModuleImportDc1.php:338
-#: plugins/importExport/src/ModuleImportWp.php:418
+#: plugins/importExport/src/ModuleImportDc1.php:373
+#: plugins/importExport/src/ModuleImportWp.php:481
 msgid "Every newly imported user has received a random password and will need to ask for a new one by following the \"I forgot my password\" link on the login page (Their registered email address has to be valid.)"
 msgstr "Kiekvienam nauujai importuotam dalyviui suteiktas skirtingas slaptažodis, kuris gali būti pakeistas sekant \"Pamiršau slaptažodį\" instrukcijas prisijungimo puslapyje (Jų el. pašto adresai turi būti galiojantys)."
 
-#: plugins/importExport/src/ModuleImportDc1.php:340
+#: plugins/importExport/src/ModuleImportDc1.php:375
 #, php-format
 msgid "Please note that Dotclear 2 has a new URL layout. You can avoid broken links by installing <a href=\"%s\">DC1 redirect</a> plugin and activate it in your blog configuration."
 msgstr "Atkreipkite dėmesį, kad Dotclear 2 turi naują URL išdėstymą. Galite išvengti neveikiančių nuorodų instaliuodami <a href=\"%s\">DC1 redirect</a> plugin'ą ir aktyvuodami jį savo blogo nustatymuose."
 
-#: plugins/importExport/src/ModuleImportDc1.php:363
-#: plugins/importExport/src/ModuleImportWp.php:440
+#: plugins/importExport/src/ModuleImportDc1.php:398
+#: plugins/importExport/src/ModuleImportWp.php:503
 msgid "next step"
 msgstr "kitas žingsnis"
 
-#: plugins/importExport/src/ModuleImportDc1.php:381
-#: plugins/importExport/src/ModuleImportWp.php:458
+#: plugins/importExport/src/ModuleImportDc1.php:416
+#: plugins/importExport/src/ModuleImportWp.php:521
 msgid "Depending on the size of your blog, it could take a few minutes."
 msgstr "Tai gali užtrukti iki kelių minučių priklausomai nuo jūsų blogo dydžio."
 
-#: plugins/importExport/src/ModuleImportDc1.php:409
+#: plugins/importExport/src/ModuleImportDc1.php:442
 msgid "Dotclear tables not found"
 msgstr "Dotclear lentelės nerastos"
 
-#: plugins/importExport/src/ModuleImportFeed.php:125
+#: plugins/importExport/src/ModuleImportFeed.php:132
 msgid "RSS or Atom feed import"
 msgstr "RSS arba \"Atom\" kanalo importas"
 
-#: plugins/importExport/src/ModuleImportFeed.php:126
+#: plugins/importExport/src/ModuleImportFeed.php:133
 msgid "Add a feed content to the blog."
 msgstr "Į tinklaraštį įtraukite pašarų turinį."
 
-#: plugins/importExport/src/ModuleImportFeed.php:148
-#: plugins/importExport/src/ModuleImportFeed.php:154
-#: plugins/importExport/src/ModuleImportFeed.php:163
-#: plugins/importExport/src/ModuleImportFeed.php:167
-#: plugins/importExport/src/ModuleImportFeed.php:171
-#: plugins/importExport/src/ModuleImportFeed.php:177
+#: plugins/importExport/src/ModuleImportFeed.php:155
+#: plugins/importExport/src/ModuleImportFeed.php:161
+#: plugins/importExport/src/ModuleImportFeed.php:170
+#: plugins/importExport/src/ModuleImportFeed.php:176
+#: plugins/importExport/src/ModuleImportFeed.php:182
+#: plugins/importExport/src/ModuleImportFeed.php:188
 msgid "Cannot retrieve feed URL."
 msgstr "Nepavyksta gauti rss URL."
 
-#: plugins/importExport/src/ModuleImportFeed.php:180
+#: plugins/importExport/src/ModuleImportFeed.php:191
 msgid "No items in feed."
 msgstr "Nėra rss įrašų."
 
-#: plugins/importExport/src/ModuleImportFeed.php:214
-#: plugins/importExport/src/ModuleImportFlat.php:189
+#: plugins/importExport/src/ModuleImportFeed.php:233
+#: plugins/importExport/src/ModuleImportFlat.php:198
 msgid "Content successfully imported."
 msgstr "Turinys sėkmingai importuotas."
 
-#: plugins/importExport/src/ModuleImportFeed.php:223
+#: plugins/importExport/src/ModuleImportFeed.php:242
 #, php-format
 msgid "Add a feed content to the current blog: <strong>%s</strong>."
 msgstr "Pridėti kanalo turinį į dabartinį tinklaraštį: <strong>%s</strong>."
 
-#: plugins/importExport/src/ModuleImportFeed.php:231
+#: plugins/importExport/src/ModuleImportFeed.php:250
 #: plugins/widgets/src/Widgets.php:155
 msgid "Feed URL:"
 msgstr "Rss URL:"
@@ -1902,117 +1904,117 @@ msgstr "Paprastas failo importavimas"
 msgid "Imports a blog or a full Dotclear installation from flat file."
 msgstr "Importuoja blogą arba pilną Dotclear instaliaciją iš failo."
 
-#: plugins/importExport/src/ModuleImportFlat.php:184
+#: plugins/importExport/src/ModuleImportFlat.php:193
 msgid "Single blog successfully imported."
 msgstr "Vienas blogas sėkmingai importuotas."
 
-#: plugins/importExport/src/ModuleImportFlat.php:204
+#: plugins/importExport/src/ModuleImportFlat.php:213
 msgid "Are you sure you want to import a full backup file?"
 msgstr "Ar tikrai norite importuoti visą atsarginės kopijos failą?"
 
-#: plugins/importExport/src/ModuleImportFlat.php:214
+#: plugins/importExport/src/ModuleImportFlat.php:223
 msgid "Single blog"
 msgstr "Vienas dienoraštis"
 
-#: plugins/importExport/src/ModuleImportFlat.php:219
+#: plugins/importExport/src/ModuleImportFlat.php:228
 #, php-format
 msgid "This will import a single blog backup as new content in the current blog: <strong>%s</strong>."
 msgstr "Importuojama viena blogo atsarginė kopija kaip naujas turinys jūsų bloge: %s."
 
-#: plugins/importExport/src/ModuleImportFlat.php:226
-#: plugins/importExport/src/ModuleImportFlat.php:273
+#: plugins/importExport/src/ModuleImportFlat.php:235
+#: plugins/importExport/src/ModuleImportFlat.php:282
 msgid "Upload a backup file"
 msgstr "Įkelti atsarginės kopijos failą"
 
-#: plugins/importExport/src/ModuleImportFlat.php:227
-#: plugins/importExport/src/ModuleImportFlat.php:274
+#: plugins/importExport/src/ModuleImportFlat.php:236
+#: plugins/importExport/src/ModuleImportFlat.php:283
 #, php-format
 msgid "maximum size %s"
 msgstr "Didžiausias dydis %s"
 
-#: plugins/importExport/src/ModuleImportFlat.php:239
-#: plugins/importExport/src/ModuleImportFlat.php:286
+#: plugins/importExport/src/ModuleImportFlat.php:248
+#: plugins/importExport/src/ModuleImportFlat.php:295
 msgid "or pick up a local file in your public directory"
 msgstr "arba pasirinkite vietinį failą iš savo public direktorijos"
 
-#: plugins/importExport/src/ModuleImportFlat.php:261
+#: plugins/importExport/src/ModuleImportFlat.php:270
 msgid "Multiple blogs"
 msgstr "Keli tinklaraščiai"
 
-#: plugins/importExport/src/ModuleImportFlat.php:268
+#: plugins/importExport/src/ModuleImportFlat.php:277
 msgid "This will reset all the content of your database, except users."
 msgstr "Taip bus iš naujo nustatytas visas duomenų bazės turinys, išskyrus naudotojus."
 
-#: plugins/importExport/src/ModuleImportFlat.php:399
+#: plugins/importExport/src/ModuleImportFlat.php:408
 msgid "Another file with same name exists."
 msgstr "Egzistuoja kitas tokio paties pavadinimo failas."
 
-#: plugins/importExport/src/ModuleImportFlat.php:407
+#: plugins/importExport/src/ModuleImportFlat.php:416
 msgid "Failed to extract backup file."
 msgstr "Nepavyko išgauti atsarginės kopijos failo."
 
-#: plugins/importExport/src/ModuleImportFlat.php:419
+#: plugins/importExport/src/ModuleImportFlat.php:428
 msgid "No backup in compressed file."
 msgstr "Suspaustame faile nėra atsarginės kopijos."
 
-#: plugins/importExport/src/ModuleImportWp.php:111
+#: plugins/importExport/src/ModuleImportWp.php:148
 msgid "WordPress import"
 msgstr "Wordpress importavimas"
 
-#: plugins/importExport/src/ModuleImportWp.php:112
+#: plugins/importExport/src/ModuleImportWp.php:149
 msgid "Import a WordPress installation into your current blog."
 msgstr "Importuoja WordPress instaliaciją į jūsų dabartinį blogą."
 
-#: plugins/importExport/src/ModuleImportWp.php:245
+#: plugins/importExport/src/ModuleImportWp.php:308
 #, php-format
 msgid "This will import your WordPress content as new content in the current blog: %s."
 msgstr "WordPress turinys bus importuotas naujo turinio pavidalu į jūsų blogą: %s."
 
-#: plugins/importExport/src/ModuleImportWp.php:260
+#: plugins/importExport/src/ModuleImportWp.php:323
 msgid "We first need some information about your old WordPress installation."
 msgstr "Pirmiausiai mums reikalinga tam tikra informacija apie jūsų WordPress instaliaciją."
 
-#: plugins/importExport/src/ModuleImportWp.php:310
+#: plugins/importExport/src/ModuleImportWp.php:373
 msgid "WordPress and Dotclear's handling of categories are quite different. You can assign several categories to a single post in WordPress. In the Dotclear world, we see it more like \"One category, several tags.\" Therefore Dotclear can only import one category per post and will chose the lowest numbered one. If you want to keep a trace of every category, you can import them as tags, with an optional prefix."
 msgstr "WordPress ir Dotclear categorijų tvarkymas yra gana skinrtingas. WordPress jūs galite priskirti kelias kategorijas vienam įrašui. Dotclear mes į tai žiūrime labiau kaip \"Viena kategorija, kelios žymos.\". Tokiu būdu Dotclear gali importuoti tik vieną kategoriją kiekvienam įrašui ir pasirinks pirmiausiai įvardintą. Jei norite atkirai atsekti kiekvieną kategoriją, galite jas įkelti kaip žymas, naudodami pasirinktiną prefiksą."
 
-#: plugins/importExport/src/ModuleImportWp.php:312
+#: plugins/importExport/src/ModuleImportWp.php:375
 msgid "On the other hand, in WordPress, a post can not be uncategorized, and a default installation has a first category labelised <i>\"Uncategorized\"</i>. If you did not change that category, you can just ignore it while importing your blog, as Dotclear allows you to actually keep your posts uncategorized."
 msgstr "Kita vertus, \"WordPress\", įrašas negali būti nekategorizuotas, o pagal nutylėjimą įdiegta pirmoji kategorija yra <i>\"Nekategorizuoti</i>\". Jei šios kategorijos nepakeitėte, importuodami tinklaraštį galite tiesiog nekreipti į ją dėmesio, nes \"Dotclear\" iš tikrųjų leidžia išsaugoti nekategorizuotus įrašus."
 
-#: plugins/importExport/src/ModuleImportWp.php:321
+#: plugins/importExport/src/ModuleImportWp.php:384
 msgid "Ignore the first category:"
 msgstr "Ignoruoti pirmą kategoriją:"
 
-#: plugins/importExport/src/ModuleImportWp.php:327
+#: plugins/importExport/src/ModuleImportWp.php:390
 msgid "Import lowest numbered category on posts:"
 msgstr "Importuoti pirmiausiai įvardintą kategoriją įrašuose:"
 
-#: plugins/importExport/src/ModuleImportWp.php:333
+#: plugins/importExport/src/ModuleImportWp.php:396
 msgid "Import all categories as tags:"
 msgstr "Importuoti visas kategorijas kaip žymas."
 
-#: plugins/importExport/src/ModuleImportWp.php:341
+#: plugins/importExport/src/ModuleImportWp.php:404
 msgid "Prefix such tags with:"
 msgstr "Tokioms žymoms kurti prefiksus:"
 
-#: plugins/importExport/src/ModuleImportWp.php:351
+#: plugins/importExport/src/ModuleImportWp.php:414
 msgid "Content filters"
 msgstr "Turinio filtrai"
 
-#: plugins/importExport/src/ModuleImportWp.php:353
+#: plugins/importExport/src/ModuleImportWp.php:416
 msgid "You may want to process your post and/or comment content with the following filters."
 msgstr "Galite taikyti filtrus šiems savo įrašasms ir/arba komentarams."
 
-#: plugins/importExport/src/ModuleImportWp.php:359
+#: plugins/importExport/src/ModuleImportWp.php:422
 msgid "Post content formatter:"
 msgstr "Įrašų turinio formatavimas:"
 
-#: plugins/importExport/src/ModuleImportWp.php:366
+#: plugins/importExport/src/ModuleImportWp.php:429
 msgid "Comment content formatter:"
 msgstr "Komentarų turinio formatavimas:"
 
-#: plugins/importExport/src/ModuleImportWp.php:486
+#: plugins/importExport/src/ModuleImportWp.php:551
 msgid "WordPress tables not found"
 msgstr "Nerastos Wordpress lentelės"
 
