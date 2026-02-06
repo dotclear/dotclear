@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-02-06 09:12+0100\n"
-"PO-Revision-Date: 2026-02-06 08:15\n"
+"PO-Revision-Date: 2026-02-06 08:51\n"
 "Last-Translator: \n"
 "Language-Team: Danish\n"
 "Language: da_DK\n"
@@ -1679,15 +1679,15 @@ msgstr "Kan ikke oprette output- fil."
 
 #: plugins/importExport/src/FlatImportV2.php:99
 msgid "Unable to open the Dotclear backup file."
-msgstr ""
+msgstr "Det er ikke muligt at åbne Dotclear-backupfilen."
 
 #: plugins/importExport/src/FlatImportV2.php:104
 msgid "Unable to read the Dotclear backup file."
-msgstr ""
+msgstr "Kunne ikke læse Dotclear-backupfilen."
 
 #: plugins/importExport/src/FlatImportV2.php:108
 msgid "File is not a Dotclear backup."
-msgstr ""
+msgstr "Filen er ikke en Dotclear-backup."
 
 #: plugins/importExport/src/FlatImportV2.php:184
 msgid "File is not a single blog export."
