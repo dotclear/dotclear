@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-28 12:36+0100\n"
-"PO-Revision-Date: 2026-01-28 12:17\n"
+"POT-Creation-Date: 2026-02-06 09:12+0100\n"
+"PO-Revision-Date: 2026-02-06 08:51\n"
 "Last-Translator: \n"
 "Language-Team: Turkish\n"
 "Language: tr_TR\n"
@@ -1132,10 +1132,10 @@ msgid "OPML or XBEL File:"
 msgstr "OPML veya XBEL Dosyası:"
 
 #: plugins/blogroll/src/Manage.php:678 plugins/blogroll/src/Manage.php:747
-#: plugins/importExport/src/Manage.php:130
-#: plugins/importExport/src/ModuleImportFeed.php:238
-#: plugins/importExport/src/ModuleImportFlat.php:248
-#: plugins/importExport/src/ModuleImportFlat.php:310
+#: plugins/importExport/src/Manage.php:155
+#: plugins/importExport/src/ModuleImportFeed.php:257
+#: plugins/importExport/src/ModuleImportFlat.php:257
+#: plugins/importExport/src/ModuleImportFlat.php:319
 msgid "Import"
 msgstr "İthalat"
 
@@ -1672,20 +1672,22 @@ msgid "No file to read."
 msgstr "Okunacak dosya yok."
 
 #: plugins/importExport/src/FlatExport.php:49
+#: plugins/importExport/src/ModuleExportFlat.php:46
+#: plugins/importExport/src/ModuleExportFlat.php:129
 msgid "Unable to create output file."
 msgstr "Çıktı dosyası oluşturulamıyor."
 
 #: plugins/importExport/src/FlatImportV2.php:99
-msgid "Unable to open the DotClear backup file."
-msgstr "DotClear yedekleme dosyası açılamıyor."
+msgid "Unable to open the Dotclear backup file."
+msgstr "Dotclear yedek dosyası açılamıyor."
 
 #: plugins/importExport/src/FlatImportV2.php:104
-msgid "Unable to read the DotClear backup file."
-msgstr "DotClear yedek dosyası okunamıyor."
+msgid "Unable to read the Dotclear backup file."
+msgstr "Dotclear yedekleme dosyası okunamıyor."
 
 #: plugins/importExport/src/FlatImportV2.php:108
-msgid "File is not a DotClear backup."
-msgstr "Dosya bir DotClear yedeği değil."
+msgid "File is not a Dotclear backup."
+msgstr "Dosya bir Dotclear yedeği değil."
 
 #: plugins/importExport/src/FlatImportV2.php:184
 msgid "File is not a single blog export."
@@ -1706,21 +1708,21 @@ msgstr "Dosya tam bir dışa aktarım değildir."
 msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
 msgstr "\"%3$s\" kimliği, yedekleme dosyasının %2$s satırındaki \"%1$s\" kaydıyla eşleşmiyor."
 
-#: plugins/importExport/src/Manage.php:90
+#: plugins/importExport/src/Manage.php:100
 #: plugins/maintenance/src/Manage.php:200
 msgid "Please wait..."
 msgstr "Lütfen bekleyin..."
 
-#: plugins/importExport/src/Manage.php:136
+#: plugins/importExport/src/Manage.php:161
 msgid "Export"
 msgstr "İhracat"
 
-#: plugins/importExport/src/Manage.php:141
+#: plugins/importExport/src/Manage.php:166
 #, php-format
 msgid "Export functions are in the page %s."
 msgstr "Dışa aktarma işlevleri %ssayfasındadır."
 
-#: plugins/importExport/src/Manage.php:144
+#: plugins/importExport/src/Manage.php:169
 #: plugins/maintenance/src/Backend.php:27
 #: plugins/maintenance/src/BackendBehaviors.php:220
 msgid "Maintenance"
@@ -1750,142 +1752,142 @@ msgstr "Düz dosya dışa aktarımı"
 msgid "Exports a blog or a full Dotclear installation to flat file."
 msgstr "Bir blogu veya tam bir Dotclear kurulumunu düz dosyaya aktarır."
 
-#: plugins/importExport/src/ModuleExportFlat.php:156
+#: plugins/importExport/src/ModuleExportFlat.php:168
 msgid "Export file not found."
 msgstr "Dışa aktarma dosyası bulunamadı."
 
-#: plugins/importExport/src/ModuleExportFlat.php:195
+#: plugins/importExport/src/ModuleExportFlat.php:209
 msgid "Failed to compress export file."
 msgstr "Dışa aktarma dosyası sıkıştırılamadı."
 
-#: plugins/importExport/src/ModuleImportDc1.php:86
+#: plugins/importExport/src/ModuleImportDc1.php:106
 msgid "Dotclear 1.2 import"
 msgstr "Dotclear 1.2 içe aktarma"
 
-#: plugins/importExport/src/ModuleImportDc1.php:87
+#: plugins/importExport/src/ModuleImportDc1.php:107
 msgid "Import a Dotclear 1.2 installation into your current blog."
 msgstr "Dotclear 1.2 kurulumunu mevcut blogunuza aktarın."
 
-#: plugins/importExport/src/ModuleImportDc1.php:218
+#: plugins/importExport/src/ModuleImportDc1.php:253
 #, php-format
 msgid "Import the content of a Dotclear 1.2's blog in the current blog: %s."
 msgstr "Dotclear 1.2'nin blog içeriğini mevcut bloga aktarın: %s."
 
-#: plugins/importExport/src/ModuleImportDc1.php:226
-#: plugins/importExport/src/ModuleImportWp.php:253
+#: plugins/importExport/src/ModuleImportDc1.php:261
+#: plugins/importExport/src/ModuleImportWp.php:316
 msgid "Please note that this process will empty your categories, blogroll, entries and comments on the current blog."
 msgstr "Bu işlemin kategorilerinizi, blogroll'unuzu, girdilerinizi ve mevcut blogdaki yorumlarınızı boşaltacağını lütfen unutmayın."
 
-#: plugins/importExport/src/ModuleImportDc1.php:233
+#: plugins/importExport/src/ModuleImportDc1.php:268
 msgid "We first need some information about your old Dotclear 1.2 installation."
 msgstr "Öncelikle eski Dotclear 1.2 kurulumunuz hakkında bazı bilgilere ihtiyacımız var."
 
-#: plugins/importExport/src/ModuleImportDc1.php:240
+#: plugins/importExport/src/ModuleImportDc1.php:275
 msgid "Database driver:"
 msgstr "Veritabanı sürücüsü:"
 
-#: plugins/importExport/src/ModuleImportDc1.php:282
-#: plugins/importExport/src/ModuleImportWp.php:302
+#: plugins/importExport/src/ModuleImportDc1.php:317
+#: plugins/importExport/src/ModuleImportWp.php:365
 msgid "Entries import options"
 msgstr "Girişleri içe aktarma seçenekleri"
 
-#: plugins/importExport/src/ModuleImportDc1.php:287
-#: plugins/importExport/src/ModuleImportWp.php:347
+#: plugins/importExport/src/ModuleImportDc1.php:322
+#: plugins/importExport/src/ModuleImportWp.php:410
 msgid "Number of entries to import at once:"
 msgstr "Tek seferde içe aktarılacak giriş sayısı:"
 
-#: plugins/importExport/src/ModuleImportDc1.php:293
-#: plugins/importExport/src/ModuleImportWp.php:372
+#: plugins/importExport/src/ModuleImportDc1.php:328
+#: plugins/importExport/src/ModuleImportWp.php:435
 msgid "General information"
 msgstr "Genel bilgiler"
 
-#: plugins/importExport/src/ModuleImportDc1.php:293
-#: plugins/importExport/src/ModuleImportWp.php:372
+#: plugins/importExport/src/ModuleImportDc1.php:328
+#: plugins/importExport/src/ModuleImportWp.php:435
 msgid "Import my blog now"
 msgstr "Blogumu şimdi içe aktar"
 
-#: plugins/importExport/src/ModuleImportDc1.php:300
-#: plugins/importExport/src/ModuleImportWp.php:379
+#: plugins/importExport/src/ModuleImportDc1.php:335
+#: plugins/importExport/src/ModuleImportWp.php:442
 msgid "Importing users"
 msgstr "Kullanıcıları içe aktarma"
 
-#: plugins/importExport/src/ModuleImportDc1.php:307
-#: plugins/importExport/src/ModuleImportWp.php:386
+#: plugins/importExport/src/ModuleImportDc1.php:342
+#: plugins/importExport/src/ModuleImportWp.php:449
 msgid "Importing categories"
 msgstr "Kategorileri içe aktarma"
 
-#: plugins/importExport/src/ModuleImportDc1.php:314
-#: plugins/importExport/src/ModuleImportWp.php:393
+#: plugins/importExport/src/ModuleImportDc1.php:349
+#: plugins/importExport/src/ModuleImportWp.php:456
 msgid "Importing blogroll"
 msgstr "Blogroll'u içe aktarma"
 
-#: plugins/importExport/src/ModuleImportDc1.php:321
-#: plugins/importExport/src/ModuleImportWp.php:400
+#: plugins/importExport/src/ModuleImportDc1.php:356
+#: plugins/importExport/src/ModuleImportWp.php:463
 #, php-format
 msgid "Importing entries from %d to %d / %d"
 msgstr "Girişleri %d adresinden %d / %dadresine aktarma"
 
-#: plugins/importExport/src/ModuleImportDc1.php:336
-#: plugins/importExport/src/ModuleImportWp.php:415
+#: plugins/importExport/src/ModuleImportDc1.php:371
+#: plugins/importExport/src/ModuleImportWp.php:478
 msgid "Please read carefully"
 msgstr "Lütfen dikkatlice okuyunuz"
 
-#: plugins/importExport/src/ModuleImportDc1.php:338
-#: plugins/importExport/src/ModuleImportWp.php:418
+#: plugins/importExport/src/ModuleImportDc1.php:373
+#: plugins/importExport/src/ModuleImportWp.php:481
 msgid "Every newly imported user has received a random password and will need to ask for a new one by following the \"I forgot my password\" link on the login page (Their registered email address has to be valid.)"
 msgstr "Yeni içe aktarılan her kullanıcı rastgele bir şifre almıştır ve giriş sayfasındaki \"Şifremi unuttum\" bağlantısını izleyerek yeni bir şifre istemesi gerekecektir (Kayıtlı e-posta adresleri geçerli olmalıdır)."
 
-#: plugins/importExport/src/ModuleImportDc1.php:340
+#: plugins/importExport/src/ModuleImportDc1.php:375
 #, php-format
 msgid "Please note that Dotclear 2 has a new URL layout. You can avoid broken links by installing <a href=\"%s\">DC1 redirect</a> plugin and activate it in your blog configuration."
 msgstr "Dotclear 2'nin yeni bir URL düzenine sahip olduğunu lütfen unutmayın. <a href=\"%s\">DC1 redirect</a> eklentisini yükleyerek ve blog yapılandırmanızda etkinleştirerek kırık bağlantıları önleyebilirsiniz."
 
-#: plugins/importExport/src/ModuleImportDc1.php:363
-#: plugins/importExport/src/ModuleImportWp.php:440
+#: plugins/importExport/src/ModuleImportDc1.php:398
+#: plugins/importExport/src/ModuleImportWp.php:503
 msgid "next step"
 msgstr "sonraki adım"
 
-#: plugins/importExport/src/ModuleImportDc1.php:381
-#: plugins/importExport/src/ModuleImportWp.php:458
+#: plugins/importExport/src/ModuleImportDc1.php:416
+#: plugins/importExport/src/ModuleImportWp.php:521
 msgid "Depending on the size of your blog, it could take a few minutes."
 msgstr "Blogunuzun boyutuna bağlı olarak bu işlem birkaç dakika sürebilir."
 
-#: plugins/importExport/src/ModuleImportDc1.php:409
+#: plugins/importExport/src/ModuleImportDc1.php:442
 msgid "Dotclear tables not found"
 msgstr "Dotclear tabloları bulunamadı"
 
-#: plugins/importExport/src/ModuleImportFeed.php:125
+#: plugins/importExport/src/ModuleImportFeed.php:132
 msgid "RSS or Atom feed import"
 msgstr "RSS veya Atom beslemesi içe aktarma"
 
-#: plugins/importExport/src/ModuleImportFeed.php:126
+#: plugins/importExport/src/ModuleImportFeed.php:133
 msgid "Add a feed content to the blog."
 msgstr "Bloga bir besleme içeriği ekleyin."
 
-#: plugins/importExport/src/ModuleImportFeed.php:148
-#: plugins/importExport/src/ModuleImportFeed.php:154
-#: plugins/importExport/src/ModuleImportFeed.php:163
-#: plugins/importExport/src/ModuleImportFeed.php:167
-#: plugins/importExport/src/ModuleImportFeed.php:171
-#: plugins/importExport/src/ModuleImportFeed.php:177
+#: plugins/importExport/src/ModuleImportFeed.php:155
+#: plugins/importExport/src/ModuleImportFeed.php:161
+#: plugins/importExport/src/ModuleImportFeed.php:170
+#: plugins/importExport/src/ModuleImportFeed.php:176
+#: plugins/importExport/src/ModuleImportFeed.php:182
+#: plugins/importExport/src/ModuleImportFeed.php:188
 msgid "Cannot retrieve feed URL."
 msgstr "Besleme URL'si alınamıyor."
 
-#: plugins/importExport/src/ModuleImportFeed.php:180
+#: plugins/importExport/src/ModuleImportFeed.php:191
 msgid "No items in feed."
 msgstr "Beslemede öğe yok."
 
-#: plugins/importExport/src/ModuleImportFeed.php:214
-#: plugins/importExport/src/ModuleImportFlat.php:189
+#: plugins/importExport/src/ModuleImportFeed.php:233
+#: plugins/importExport/src/ModuleImportFlat.php:198
 msgid "Content successfully imported."
 msgstr "İçerik başarıyla içe aktarıldı."
 
-#: plugins/importExport/src/ModuleImportFeed.php:223
+#: plugins/importExport/src/ModuleImportFeed.php:242
 #, php-format
 msgid "Add a feed content to the current blog: <strong>%s</strong>."
 msgstr "Geçerli bloga bir besleme içeriği ekleyin: <strong>%s</strong>."
 
-#: plugins/importExport/src/ModuleImportFeed.php:231
+#: plugins/importExport/src/ModuleImportFeed.php:250
 #: plugins/widgets/src/Widgets.php:155
 msgid "Feed URL:"
 msgstr "Besleme URL'si:"
@@ -1898,117 +1900,117 @@ msgstr "Düz dosya içe aktarma"
 msgid "Imports a blog or a full Dotclear installation from flat file."
 msgstr "Bir blogu veya tam bir Dotclear kurulumunu düz dosyadan içe aktarır."
 
-#: plugins/importExport/src/ModuleImportFlat.php:184
+#: plugins/importExport/src/ModuleImportFlat.php:193
 msgid "Single blog successfully imported."
 msgstr "Tek blog başarıyla içe aktarıldı."
 
-#: plugins/importExport/src/ModuleImportFlat.php:204
+#: plugins/importExport/src/ModuleImportFlat.php:213
 msgid "Are you sure you want to import a full backup file?"
 msgstr "Tam bir yedekleme dosyasını içe aktarmak istediğinizden emin misiniz?"
 
-#: plugins/importExport/src/ModuleImportFlat.php:214
+#: plugins/importExport/src/ModuleImportFlat.php:223
 msgid "Single blog"
 msgstr "Tek blog"
 
-#: plugins/importExport/src/ModuleImportFlat.php:219
+#: plugins/importExport/src/ModuleImportFlat.php:228
 #, php-format
 msgid "This will import a single blog backup as new content in the current blog: <strong>%s</strong>."
 msgstr "Bu, tek bir blog yedeğini mevcut bloga yeni içerik olarak aktarır: <strong>%s</strong>."
 
-#: plugins/importExport/src/ModuleImportFlat.php:226
-#: plugins/importExport/src/ModuleImportFlat.php:273
+#: plugins/importExport/src/ModuleImportFlat.php:235
+#: plugins/importExport/src/ModuleImportFlat.php:282
 msgid "Upload a backup file"
 msgstr "Bir yedekleme dosyası yükleyin"
 
-#: plugins/importExport/src/ModuleImportFlat.php:227
-#: plugins/importExport/src/ModuleImportFlat.php:274
+#: plugins/importExport/src/ModuleImportFlat.php:236
+#: plugins/importExport/src/ModuleImportFlat.php:283
 #, php-format
 msgid "maximum size %s"
 msgstr "maksimum boyut %s"
 
-#: plugins/importExport/src/ModuleImportFlat.php:239
-#: plugins/importExport/src/ModuleImportFlat.php:286
+#: plugins/importExport/src/ModuleImportFlat.php:248
+#: plugins/importExport/src/ModuleImportFlat.php:295
 msgid "or pick up a local file in your public directory"
 msgstr "veya genel dizininizdeki yerel bir dosyayı alın"
 
-#: plugins/importExport/src/ModuleImportFlat.php:261
+#: plugins/importExport/src/ModuleImportFlat.php:270
 msgid "Multiple blogs"
 msgstr "Çoklu bloglar"
 
-#: plugins/importExport/src/ModuleImportFlat.php:268
+#: plugins/importExport/src/ModuleImportFlat.php:277
 msgid "This will reset all the content of your database, except users."
 msgstr "Bu, kullanıcılar hariç veritabanınızın tüm içeriğini sıfırlayacaktır."
 
-#: plugins/importExport/src/ModuleImportFlat.php:399
+#: plugins/importExport/src/ModuleImportFlat.php:408
 msgid "Another file with same name exists."
 msgstr "Aynı ada sahip başka bir dosya var."
 
-#: plugins/importExport/src/ModuleImportFlat.php:407
+#: plugins/importExport/src/ModuleImportFlat.php:416
 msgid "Failed to extract backup file."
 msgstr "Yedekleme dosyası çıkarılamadı."
 
-#: plugins/importExport/src/ModuleImportFlat.php:419
+#: plugins/importExport/src/ModuleImportFlat.php:428
 msgid "No backup in compressed file."
 msgstr "Sıkıştırılmış dosyada yedekleme yok."
 
-#: plugins/importExport/src/ModuleImportWp.php:111
+#: plugins/importExport/src/ModuleImportWp.php:148
 msgid "WordPress import"
 msgstr "WordPress içe aktarma"
 
-#: plugins/importExport/src/ModuleImportWp.php:112
+#: plugins/importExport/src/ModuleImportWp.php:149
 msgid "Import a WordPress installation into your current blog."
 msgstr "Mevcut blogunuza bir WordPress yüklemesi aktarın."
 
-#: plugins/importExport/src/ModuleImportWp.php:245
+#: plugins/importExport/src/ModuleImportWp.php:308
 #, php-format
 msgid "This will import your WordPress content as new content in the current blog: %s."
 msgstr "Bu, WordPress içeriğinizi mevcut bloga yeni içerik olarak aktaracaktır: %s."
 
-#: plugins/importExport/src/ModuleImportWp.php:260
+#: plugins/importExport/src/ModuleImportWp.php:323
 msgid "We first need some information about your old WordPress installation."
 msgstr "Öncelikle eski WordPress kurulumunuz hakkında bazı bilgilere ihtiyacımız var."
 
-#: plugins/importExport/src/ModuleImportWp.php:310
+#: plugins/importExport/src/ModuleImportWp.php:373
 msgid "WordPress and Dotclear's handling of categories are quite different. You can assign several categories to a single post in WordPress. In the Dotclear world, we see it more like \"One category, several tags.\" Therefore Dotclear can only import one category per post and will chose the lowest numbered one. If you want to keep a trace of every category, you can import them as tags, with an optional prefix."
 msgstr "WordPress ve Dotclear'ın kategori kullanımı oldukça farklıdır. WordPress'te tek bir yazıya birkaç kategori atayabilirsiniz. Dotclear dünyasında biz bunu daha çok \"Bir kategori, birkaç etiket\" olarak görüyoruz. Bu nedenle Dotclear yazı başına yalnızca bir kategoriyi içe aktarabilir ve en düşük numaralı olanı seçer. Her kategorinin bir izini tutmak istiyorsanız, bunları isteğe bağlı bir önek ile etiketler olarak içe aktarabilirsiniz."
 
-#: plugins/importExport/src/ModuleImportWp.php:312
+#: plugins/importExport/src/ModuleImportWp.php:375
 msgid "On the other hand, in WordPress, a post can not be uncategorized, and a default installation has a first category labelised <i>\"Uncategorized\"</i>. If you did not change that category, you can just ignore it while importing your blog, as Dotclear allows you to actually keep your posts uncategorized."
 msgstr "Öte yandan, WordPress'te bir yazı kategorize edilemez ve varsayılan kurulumda <i>\"Kategorize Edilmemiş\"</i> olarak etiketlenmiş bir ilk kategori vardır. Eğer bu kategoriyi değiştirmediyseniz, Dotclear yazılarınızı kategorize edilmemiş olarak tutmanıza izin verdiği için blogunuzu içe aktarırken bunu göz ardı edebilirsiniz."
 
-#: plugins/importExport/src/ModuleImportWp.php:321
+#: plugins/importExport/src/ModuleImportWp.php:384
 msgid "Ignore the first category:"
 msgstr "İlk kategoriyi dikkate almayın:"
 
-#: plugins/importExport/src/ModuleImportWp.php:327
+#: plugins/importExport/src/ModuleImportWp.php:390
 msgid "Import lowest numbered category on posts:"
 msgstr "Gönderilerdeki en düşük numaralı kategoriyi içe aktarın:"
 
-#: plugins/importExport/src/ModuleImportWp.php:333
+#: plugins/importExport/src/ModuleImportWp.php:396
 msgid "Import all categories as tags:"
 msgstr "Tüm kategorileri etiket olarak içe aktarın:"
 
-#: plugins/importExport/src/ModuleImportWp.php:341
+#: plugins/importExport/src/ModuleImportWp.php:404
 msgid "Prefix such tags with:"
 msgstr "Bu tür etiketleri şu şekilde önekleyin:"
 
-#: plugins/importExport/src/ModuleImportWp.php:351
+#: plugins/importExport/src/ModuleImportWp.php:414
 msgid "Content filters"
 msgstr "İçerik filtreleri"
 
-#: plugins/importExport/src/ModuleImportWp.php:353
+#: plugins/importExport/src/ModuleImportWp.php:416
 msgid "You may want to process your post and/or comment content with the following filters."
 msgstr "Gönderi ve/veya yorum içeriğinizi aşağıdaki filtrelerle işlemek isteyebilirsiniz."
 
-#: plugins/importExport/src/ModuleImportWp.php:359
+#: plugins/importExport/src/ModuleImportWp.php:422
 msgid "Post content formatter:"
 msgstr "Gönderi içeriği biçimlendirici:"
 
-#: plugins/importExport/src/ModuleImportWp.php:366
+#: plugins/importExport/src/ModuleImportWp.php:429
 msgid "Comment content formatter:"
 msgstr "Yorum içeriği biçimlendiricisi:"
 
-#: plugins/importExport/src/ModuleImportWp.php:486
+#: plugins/importExport/src/ModuleImportWp.php:551
 msgid "WordPress tables not found"
 msgstr "WordPress tabloları bulunamadı"
 

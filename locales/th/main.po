@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-28 13:22+0100\n"
-"PO-Revision-Date: 2026-01-28 12:58\n"
+"POT-Creation-Date: 2026-02-05 12:37+0100\n"
+"PO-Revision-Date: 2026-02-06 08:51\n"
 "Last-Translator: \n"
 "Language-Team: Thai\n"
 "Language: th_TH\n"
@@ -39,7 +39,7 @@ msgstr "สี่เหลี่ยม"
 #: src/Core/Backend/Action/ActionsPosts.php:65
 #: src/Core/Backend/Action/ActionsPosts.php:72
 #: src/Core/Backend/Favorites.php:416 src/Core/Backend/Menus.php:168
-#: src/Core/Backend/UserPref.php:41 src/Core/Backend/UserPref.php:178
+#: src/Core/Backend/UserPref.php:41 src/Core/Backend/UserPref.php:180
 #: src/Process/Backend/Post.php:579 src/Process/Backend/Post.php:597
 #: src/Process/Backend/Posts.php:91 src/Process/Backend/Posts.php:96
 msgid "Posts"
@@ -139,9 +139,9 @@ msgstr "กุญแจนั้นไม่มีอยู่ในฐานข
 
 #: src/Core/Backend/Action/Actions.php:139
 #: src/Core/Backend/Action/ActionsComments.php:158
-#: src/Core/Backend/Combos.php:297 src/Core/Backend/Listing/ListingPosts.php:78
+#: src/Core/Backend/Combos.php:312 src/Core/Backend/Listing/ListingPosts.php:78
 #: src/Core/Backend/Listing/ListingPostsMini.php:62
-#: src/Core/Backend/UserPref.php:205 src/Process/Backend/Home.php:597
+#: src/Core/Backend/UserPref.php:207 src/Process/Backend/Home.php:597
 #: src/Process/Backend/MediaItem.php:1059 src/Process/Backend/Post.php:848
 msgid "Title"
 msgstr "ชื่อเรื่อง"
@@ -152,7 +152,7 @@ msgstr "ชื่อเรื่อง"
 #: src/Core/Backend/Action/ActionsBlogs.php:117
 #: src/Core/Backend/Favorites.php:493
 #: src/Core/Backend/Listing/ListingBlogs.php:129 src/Core/Backend/Menus.php:245
-#: src/Core/Backend/UserPref.php:75 src/Core/Backend/UserPref.php:192
+#: src/Core/Backend/UserPref.php:77 src/Core/Backend/UserPref.php:194
 #: src/Process/Backend/Blog.php:100 src/Process/Backend/BlogDel.php:93
 #: src/Process/Backend/BlogPref.php:441
 msgid "Blogs"
@@ -171,9 +171,9 @@ msgstr "บล็อก การกระทำ"
 msgid "Blog id"
 msgstr "รหัสบล็อก"
 
-#: src/Core/Backend/Action/ActionsBlogs.php:158 src/Core/Backend/Combos.php:353
+#: src/Core/Backend/Action/ActionsBlogs.php:158 src/Core/Backend/Combos.php:368
 #: src/Core/Backend/Listing/ListingBlogs.php:83
-#: src/Core/Backend/UserPref.php:77 src/Process/Backend/Blog.php:144
+#: src/Core/Backend/UserPref.php:79 src/Process/Backend/Blog.php:144
 #: src/Process/Backend/BlogPref.php:534
 #: src/Process/Backend/UsersActions.php:385
 msgid "Blog name"
@@ -182,15 +182,15 @@ msgstr "ชื่อบล็อก"
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:35
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:36
 #: src/Core/Backend/Action/ActionsPostsDefault.php:47
-#: src/Core/Backend/Combos.php:300 src/Core/Backend/Combos.php:323
-#: src/Core/Backend/Combos.php:355
+#: src/Core/Backend/Combos.php:315 src/Core/Backend/Combos.php:338
+#: src/Core/Backend/Combos.php:370
 #: src/Core/Backend/Listing/ListingBlogs.php:102
 #: src/Core/Backend/Listing/ListingComments.php:131
 #: src/Core/Backend/Listing/ListingPosts.php:120
 #: src/Core/Backend/Listing/ListingPostsMini.php:74
-#: src/Core/Backend/Listing/ListingUsers.php:89
+#: src/Core/Backend/Listing/ListingUsers.php:101
 #: src/Core/Backend/UserPref.php:55 src/Core/Backend/UserPref.php:71
-#: src/Core/Backend/UserPref.php:81 src/Process/Backend/Post.php:668
+#: src/Core/Backend/UserPref.php:83 src/Process/Backend/Post.php:668
 #: src/Process/Backend/Post.php:1397 src/Process/Backend/Users.php:43
 #: src/Process/Backend/UsersActions.php:394
 msgid "Status"
@@ -249,7 +249,7 @@ msgstr[0] "%d บล็อกได้ถูกลบออกสำเร็จ
 #: src/Core/Backend/Listing/ListingPosts.php:100
 #: src/Core/Backend/Listing/ListingPosts.php:101 src/Core/Backend/Menus.php:155
 #: src/Core/Backend/UserPref.php:46 src/Core/Backend/UserPref.php:51
-#: src/Core/Backend/UserPref.php:185 src/Process/Backend/Post.php:1045
+#: src/Core/Backend/UserPref.php:187 src/Process/Backend/Post.php:1045
 #: src/Process/Backend/Post.php:1072
 msgid "Comments"
 msgstr "ความคิดเห็น"
@@ -263,7 +263,7 @@ msgid "Comments actions"
 msgstr "ความคิดเห็น การดำเนินการ"
 
 #: src/Core/Backend/Action/ActionsComments.php:156
-#: src/Core/Backend/Combos.php:299 src/Core/Backend/Combos.php:322
+#: src/Core/Backend/Combos.php:314 src/Core/Backend/Combos.php:337
 #: src/Core/Backend/Listing/ListingComments.php:123
 #: src/Core/Backend/Listing/ListingPosts.php:90
 #: src/Core/Backend/Listing/ListingPostsMini.php:70
@@ -486,111 +486,121 @@ msgstr "เปลี่ยนภาษาสำหรับการเลือ
 msgid "Entry language:"
 msgstr "ภาษาที่ใช้ในการเข้า:"
 
-#: src/Core/Backend/Combos.php:159 src/Core/Backend/Combos.php:167
+#: src/Core/Backend/Combos.php:174 src/Core/Backend/Combos.php:182
 msgid "Most used"
 msgstr "ใช้บ่อยที่สุด"
 
-#: src/Core/Backend/Combos.php:161 src/Core/Backend/Combos.php:168
-#: src/Core/Backend/Combos.php:202
+#: src/Core/Backend/Combos.php:176 src/Core/Backend/Combos.php:183
+#: src/Core/Backend/Combos.php:217
 msgid "Available"
 msgstr "มีให้บริการ"
 
-#: src/Core/Backend/Combos.php:204
+#: src/Core/Backend/Combos.php:219
 msgid "Other"
 msgstr "อื่นๆ"
 
-#: src/Core/Backend/Combos.php:283 src/Process/Backend/UserPreferences.php:199
+#: src/Core/Backend/Combos.php:298 src/Process/Backend/UserPreferences.php:199
 msgid "Descending"
 msgstr "กำลังลง"
 
-#: src/Core/Backend/Combos.php:284 src/Process/Backend/UserPreferences.php:200
+#: src/Core/Backend/Combos.php:299 src/Process/Backend/UserPreferences.php:200
 msgid "Ascending"
 msgstr "กำลังขึ้น"
 
-#: src/Core/Backend/Combos.php:296 src/Core/Backend/Combos.php:319
+#: src/Core/Backend/Combos.php:311 src/Core/Backend/Combos.php:334
 #: src/Core/Backend/Listing/ListingComments.php:127
 #: src/Core/Backend/Listing/ListingMedia.php:136
 #: src/Core/Backend/Listing/ListingPosts.php:82
 #: src/Core/Backend/Listing/ListingPostsMini.php:66
 #: src/Core/Backend/UserPref.php:43 src/Core/Backend/UserPref.php:53
-#: src/Core/Backend/UserPref.php:203 src/Process/Backend/Post.php:1390
+#: src/Core/Backend/UserPref.php:205 src/Process/Backend/Post.php:1390
 msgid "Date"
 msgstr "วันที่"
 
-#: src/Core/Backend/Combos.php:298 src/Core/Backend/Listing/ListingPosts.php:86
+#: src/Core/Backend/Combos.php:313 src/Core/Backend/Listing/ListingPosts.php:86
 #: src/Core/Backend/UserPref.php:44 src/Process/Backend/Post.php:725
 msgid "Category"
 msgstr "หมวดหมู่"
 
-#: src/Core/Backend/Combos.php:301 src/Core/Backend/Filter/FilterPosts.php:202
+#: src/Core/Backend/Combos.php:316 src/Core/Backend/Filter/FilterPosts.php:202
 #: src/Core/Backend/Listing/ListingPosts.php:209
 #: src/Core/Backend/Listing/ListingPosts.php:250
 #: src/Core/Backend/Listing/ListingPostsMini.php:136
 msgid "Selected"
 msgstr "เลือกแล้ว"
 
-#: src/Core/Backend/Combos.php:302
+#: src/Core/Backend/Combos.php:317
 msgid "Number of comments"
 msgstr "จำนวนความคิดเห็น"
 
-#: src/Core/Backend/Combos.php:303
+#: src/Core/Backend/Combos.php:318
 msgid "Number of trackbacks"
 msgstr "จำนวนการติดตามกลับ"
 
-#: src/Core/Backend/Combos.php:320
+#: src/Core/Backend/Combos.php:335
 msgid "Entry title"
 msgstr "ชื่อเรื่อง"
 
-#: src/Core/Backend/Combos.php:321
+#: src/Core/Backend/Combos.php:336
 msgid "Entry date"
 msgstr "วันที่เข้า"
 
-#: src/Core/Backend/Combos.php:324
+#: src/Core/Backend/Combos.php:339
 #: src/Core/Backend/Listing/ListingComments.php:141
 #: src/Core/Backend/UserPref.php:57
 msgid "Spam filter"
 msgstr "ตัวกรองสแปม"
 
-#: src/Core/Backend/Combos.php:335
+#: src/Core/Backend/Combos.php:350
 #: src/Core/Backend/Listing/ListingComments.php:136
 #: src/Core/Backend/UserPref.php:56
 msgid "IP"
 msgstr "ไอพี"
 
-#: src/Core/Backend/Combos.php:352 src/Core/Backend/Listing/ListingBlogs.php:98
-#: src/Core/Backend/UserPref.php:80
+#: src/Core/Backend/Combos.php:367 src/Core/Backend/Listing/ListingBlogs.php:98
+#: src/Core/Backend/UserPref.php:82
 msgid "Last update"
 msgstr "อัปเดตล่าสุด"
 
-#: src/Core/Backend/Combos.php:354 src/Process/Backend/Blog.php:124
+#: src/Core/Backend/Combos.php:369 src/Process/Backend/Blog.php:124
 #: src/Process/Backend/BlogPref.php:1031
 #: src/Process/Backend/UsersActions.php:382
 msgid "Blog ID"
 msgstr "รหัสบล็อก"
 
-#: src/Core/Backend/Combos.php:373 src/Core/Backend/Listing/ListingUsers.php:68
+#: src/Core/Backend/Combos.php:388 src/Core/Backend/Listing/ListingUsers.php:70
 #: src/Process/Install/Install.php:526
 msgid "Username"
 msgstr "ชื่อผู้ใช้"
 
-#: src/Core/Backend/Combos.php:374 src/Core/Backend/Listing/ListingUsers.php:76
+#: src/Core/Backend/Combos.php:389 src/Core/Backend/Listing/ListingUsers.php:78
 #: src/Core/Backend/UserPref.php:68
 msgid "Last Name"
 msgstr "นามสกุล"
 
-#: src/Core/Backend/Combos.php:375 src/Core/Backend/Listing/ListingUsers.php:72
+#: src/Core/Backend/Combos.php:390 src/Core/Backend/Listing/ListingUsers.php:74
 #: src/Core/Backend/UserPref.php:67
 msgid "First Name"
 msgstr "ชื่อ"
 
-#: src/Core/Backend/Combos.php:376 src/Core/Backend/Listing/ListingUsers.php:80
+#: src/Core/Backend/Combos.php:391 src/Core/Backend/Listing/ListingUsers.php:82
 #: src/Core/Backend/UserPref.php:69
 msgid "Display name"
 msgstr "ชื่อที่แสดง"
 
-#: src/Core/Backend/Combos.php:377
+#: src/Core/Backend/Combos.php:392
 msgid "Number of entries"
 msgstr "จำนวนรายการ"
+
+#: src/Core/Backend/Combos.php:393 src/Core/Backend/Listing/ListingUsers.php:92
+#: src/Core/Backend/UserPref.php:72
+msgid "Creation date"
+msgstr "วันที่สร้าง"
+
+#: src/Core/Backend/Combos.php:394 src/Core/Backend/Listing/ListingUsers.php:97
+#: src/Core/Backend/UserPref.php:73
+msgid "Update date"
+msgstr "วันที่อัปเดต"
 
 #: src/Core/Backend/Favorites.php:287
 #: src/Process/Backend/UserPreferences.php:1364
@@ -622,7 +632,7 @@ msgid_plural "%d comments"
 msgstr[0] "%d ความคิดเห็น"
 
 #: src/Core/Backend/Favorites.php:446 src/Core/Backend/Menus.php:142
-#: src/Core/Backend/UserPref.php:212 src/Process/Backend/PostsPopup.php:139
+#: src/Core/Backend/UserPref.php:214 src/Process/Backend/PostsPopup.php:139
 #: src/Process/Backend/Search.php:154 src/Process/Backend/Search.php:159
 #: src/Process/Backend/Search.php:190
 msgid "Search"
@@ -636,7 +646,7 @@ msgstr "หมวดหมู่"
 
 #: src/Core/Backend/Favorites.php:465 src/Core/Backend/MediaPage.php:387
 #: src/Core/Backend/MediaPage.php:389 src/Core/Backend/MediaPage.php:440
-#: src/Core/Backend/Menus.php:117 src/Core/Backend/UserPref.php:200
+#: src/Core/Backend/Menus.php:117 src/Core/Backend/UserPref.php:202
 #: src/Process/Backend/Media.php:702 src/Process/Backend/Media.php:830
 #: src/Process/Backend/MediaItem.php:411 src/Process/Backend/MediaItem.php:417
 msgid "Media manager"
@@ -655,8 +665,8 @@ msgid "Blog appearance"
 msgstr "การปรากฏตัวในบล็อก"
 
 #: src/Core/Backend/Favorites.php:503
-#: src/Core/Backend/Listing/ListingUsers.php:116 src/Core/Backend/Menus.php:235
-#: src/Core/Backend/UserPref.php:65 src/Core/Backend/UserPref.php:168
+#: src/Core/Backend/Listing/ListingUsers.php:128 src/Core/Backend/Menus.php:235
+#: src/Core/Backend/UserPref.php:65 src/Core/Backend/UserPref.php:170
 #: src/Process/Backend/BlogPref.php:1389 src/Process/Backend/User.php:275
 #: src/Process/Backend/Users.php:103 src/Process/Backend/Users.php:108
 #: src/Process/Backend/UsersActions.php:236
@@ -866,14 +876,14 @@ msgid "No blog matches the filter"
 msgstr "ไม่มีบล็อกที่ตรงกับตัวกรอง"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:88
-#: src/Core/Backend/ModulesList.php:1825 src/Core/Backend/UserPref.php:78
+#: src/Core/Backend/ModulesList.php:1825 src/Core/Backend/UserPref.php:80
 #: src/Process/Backend/LinkPopup.php:91
 #: src/Process/Backend/UsersActions.php:388
 msgid "URL"
 msgstr "URL"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:93
-#: src/Core/Backend/UserPref.php:70 src/Core/Backend/UserPref.php:79
+#: src/Core/Backend/UserPref.php:70 src/Core/Backend/UserPref.php:81
 msgid "Entries (all types)"
 msgstr "รายการ (ทุกประเภท)"
 
@@ -886,7 +896,7 @@ msgstr[0] "รายการบล็อกของ %s ที่ตรงก�
 #: src/Core/Backend/Listing/ListingBlogs.php:161
 #: src/Core/Backend/Listing/ListingComments.php:178
 #: src/Core/Backend/Listing/ListingPosts.php:204
-#: src/Core/Backend/Listing/ListingUsers.php:148
+#: src/Core/Backend/Listing/ListingUsers.php:160
 #: src/Process/Backend/Post.php:1413
 msgid "Legend: "
 msgstr "ตำนาน: "
@@ -982,13 +992,13 @@ msgid "Nb of items: %d"
 msgstr "จำนวนรายการ: %d"
 
 #: src/Core/Backend/Listing/ListingMedia.php:133
-#: src/Core/Backend/ModulesList.php:809 src/Core/Backend/UserPref.php:202
+#: src/Core/Backend/ModulesList.php:809 src/Core/Backend/UserPref.php:204
 #: src/Process/Backend/Category.php:255 src/Process/Upgrade/Plugins.php:488
 msgid "Name"
 msgstr "ชื่อ"
 
 #: src/Core/Backend/Listing/ListingMedia.php:139
-#: src/Core/Backend/UserPref.php:204
+#: src/Core/Backend/UserPref.php:206
 msgid "Size"
 msgstr "ขนาด"
 
@@ -1086,35 +1096,35 @@ msgstr "ปิดการติดตามกลับ"
 msgid "Entries list"
 msgstr "รายการที่ลงทะเบียน"
 
-#: src/Core/Backend/Listing/ListingUsers.php:54
+#: src/Core/Backend/Listing/ListingUsers.php:56
 msgid "No user"
 msgstr "ไม่มีผู้ใช้"
 
-#: src/Core/Backend/Listing/ListingUsers.php:54
+#: src/Core/Backend/Listing/ListingUsers.php:56
 msgid "No user matches the filter"
 msgstr "ไม่มีผู้ใช้ที่ตรงกับตัวกรอง"
 
-#: src/Core/Backend/Listing/ListingUsers.php:85
+#: src/Core/Backend/Listing/ListingUsers.php:87
 msgid "No. of entries"
 msgstr "จำนวนรายการ"
 
-#: src/Core/Backend/Listing/ListingUsers.php:113
+#: src/Core/Backend/Listing/ListingUsers.php:125
 #, php-format
 msgid "The user matching the filter."
 msgid_plural "List of %s users matching the filter."
 msgstr[0] "รายชื่อผู้ใช้ %s ที่ตรงกับตัวกรอง"
 
-#: src/Core/Backend/Listing/ListingUsers.php:151
-#: src/Core/Backend/Listing/ListingUsers.php:177
+#: src/Core/Backend/Listing/ListingUsers.php:163
+#: src/Core/Backend/Listing/ListingUsers.php:189
 msgid "admin"
 msgstr "ผู้ดูแลระบบ"
 
-#: src/Core/Backend/Listing/ListingUsers.php:152
-#: src/Core/Backend/Listing/ListingUsers.php:176
+#: src/Core/Backend/Listing/ListingUsers.php:164
+#: src/Core/Backend/Listing/ListingUsers.php:188
 msgid "superadmin"
 msgstr "ผู้ดูแลระบบระดับสูง"
 
-#: src/Core/Backend/Listing/ListingUsers.php:160
+#: src/Core/Backend/Listing/ListingUsers.php:172
 msgid "The “No. of entries” column includes all entry types (articles, pages, …) for all blogs in the installation. The link may not be relevant in some contexts"
 msgstr "คอลัมน์ \"จำนวนรายการ\" ประกอบด้วยประเภทรายการทั้งหมด (บทความ, หน้า, …) สำหรับบล็อกทั้งหมดในการติดตั้งนี้ ลิงก์อาจไม่เกี่ยวข้องในบางบริบท"
 
@@ -2113,27 +2123,27 @@ msgstr "ธีมได้รับการอัปเดตเรียบร
 msgid "The theme has been successfully installed."
 msgstr "ธีมได้ถูกติดตั้งเรียบร้อยแล้ว"
 
-#: src/Core/Backend/UserPref.php:172
+#: src/Core/Backend/UserPref.php:174
 msgid "users per page"
 msgstr "ผู้ใช้ต่อหน้า"
 
-#: src/Core/Backend/UserPref.php:182
+#: src/Core/Backend/UserPref.php:184
 msgid "posts per page"
 msgstr "โพสต์ต่อหน้า"
 
-#: src/Core/Backend/UserPref.php:189
+#: src/Core/Backend/UserPref.php:191
 msgid "comments per page"
 msgstr "ความคิดเห็นต่อหน้า"
 
-#: src/Core/Backend/UserPref.php:196
+#: src/Core/Backend/UserPref.php:198
 msgid "blogs per page"
 msgstr "บล็อกต่อหน้า"
 
-#: src/Core/Backend/UserPref.php:209
+#: src/Core/Backend/UserPref.php:211
 msgid "media per page"
 msgstr "สื่อต่อหน้า"
 
-#: src/Core/Backend/UserPref.php:216
+#: src/Core/Backend/UserPref.php:218
 msgid "results per page"
 msgstr "ผลลัพธ์ต่อหน้า"
 
@@ -2282,9 +2292,9 @@ msgstr "%s ไม่ใช่รหัสการตั้งค่าที่
 msgid "No namespace specified"
 msgstr "ไม่ระบุเนมสเปซ"
 
-#: src/Core/Blogs.php:206 src/Core/Blogs.php:253 src/Core/Users.php:161
-#: src/Core/Users.php:191 src/Core/Users.php:231 src/Core/Users.php:308
-#: src/Core/Users.php:326
+#: src/Core/Blogs.php:206 src/Core/Blogs.php:253 src/Core/Users.php:165
+#: src/Core/Users.php:195 src/Core/Users.php:235 src/Core/Users.php:312
+#: src/Core/Users.php:330
 msgid "You are not an administrator"
 msgstr "คุณไม่ใช่ผู้ดูแลระบบ"
 
@@ -2649,24 +2659,24 @@ msgstr "%s ไม่ใช่รหัสพรีฟที่ถูกต้อ
 msgid "No workspace specified"
 msgstr "ไม่พบพื้นที่ทำงานที่ระบุ"
 
-#: src/Core/Users.php:165 src/Process/Install/Install.php:175
+#: src/Core/Users.php:169 src/Process/Install/Install.php:175
 msgid "No user ID given"
 msgstr "ไม่มีรหัสผู้ใช้"
 
-#: src/Core/Users.php:169 src/Process/Install/Install.php:185
+#: src/Core/Users.php:173 src/Process/Install/Install.php:185
 msgid "No password given"
 msgstr "ไม่มีรหัสผ่าน"
 
-#: src/Core/Users.php:389 src/Process/Install/Install.php:178
+#: src/Core/Users.php:393 src/Process/Install/Install.php:178
 msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
 msgstr "รหัสผู้ใช้ต้องมีอย่างน้อย 2 ตัวอักษร โดยใช้ตัวอักษร ตัวเลข หรือสัญลักษณ์"
 
-#: src/Core/Users.php:398 src/Process/Backend/User.php:366
+#: src/Core/Users.php:402 src/Process/Backend/User.php:366
 #: src/Process/Install/Cli.php:719 src/Process/Install/Install.php:191
 msgid "Password must contain at least 6 characters."
 msgstr "รหัสผ่านต้องมีอย่างน้อย 6 ตัวอักษร"
 
-#: src/Core/Users.php:404
+#: src/Core/Users.php:408
 msgid "Invalid user language code"
 msgstr "รหัสภาษาของผู้ใช้ไม่ถูกต้อง"
 

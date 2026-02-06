@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-28 12:36+0100\n"
-"PO-Revision-Date: 2026-01-28 12:17\n"
+"POT-Creation-Date: 2026-02-06 09:12+0100\n"
+"PO-Revision-Date: 2026-02-06 08:51\n"
 "Last-Translator: \n"
 "Language-Team: Slovenian\n"
 "Language: sl_SI\n"
@@ -1136,10 +1136,10 @@ msgid "OPML or XBEL File:"
 msgstr "Datoteka OPML ali XBEL:"
 
 #: plugins/blogroll/src/Manage.php:678 plugins/blogroll/src/Manage.php:747
-#: plugins/importExport/src/Manage.php:130
-#: plugins/importExport/src/ModuleImportFeed.php:238
-#: plugins/importExport/src/ModuleImportFlat.php:248
-#: plugins/importExport/src/ModuleImportFlat.php:310
+#: plugins/importExport/src/Manage.php:155
+#: plugins/importExport/src/ModuleImportFeed.php:257
+#: plugins/importExport/src/ModuleImportFlat.php:257
+#: plugins/importExport/src/ModuleImportFlat.php:319
 msgid "Import"
 msgstr "Uvozi"
 
@@ -1676,20 +1676,22 @@ msgid "No file to read."
 msgstr "Ni datoteke za branje."
 
 #: plugins/importExport/src/FlatExport.php:49
+#: plugins/importExport/src/ModuleExportFlat.php:46
+#: plugins/importExport/src/ModuleExportFlat.php:129
 msgid "Unable to create output file."
 msgstr "Ni mogoče ustvariti izhodne datoteke."
 
 #: plugins/importExport/src/FlatImportV2.php:99
-msgid "Unable to open the DotClear backup file."
-msgstr "Ni mogoče odpreti varnostne datoteke DotClear."
+msgid "Unable to open the Dotclear backup file."
+msgstr "Ni mogoče odpreti varnostne datoteke Dotclear."
 
 #: plugins/importExport/src/FlatImportV2.php:104
-msgid "Unable to read the DotClear backup file."
-msgstr "Datoteke varnostne kopije DotClear ni mogoče prebrati."
+msgid "Unable to read the Dotclear backup file."
+msgstr "Ni mogoče prebrati varnostne datoteke Dotclear."
 
 #: plugins/importExport/src/FlatImportV2.php:108
-msgid "File is not a DotClear backup."
-msgstr "Datoteka ni varnostna kopija DotClear."
+msgid "File is not a Dotclear backup."
+msgstr "Datoteka ni varnostna kopija Dotclear."
 
 #: plugins/importExport/src/FlatImportV2.php:184
 msgid "File is not a single blog export."
@@ -1710,21 +1712,21 @@ msgstr "Datoteka ni popoln izvoz."
 msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
 msgstr "ID »%3$s« se ne ujema z zapisom »%1$s« v vrstici %2$s datoteke varnostne kopije."
 
-#: plugins/importExport/src/Manage.php:90
+#: plugins/importExport/src/Manage.php:100
 #: plugins/maintenance/src/Manage.php:200
 msgid "Please wait..."
 msgstr "Prosim počakaj..."
 
-#: plugins/importExport/src/Manage.php:136
+#: plugins/importExport/src/Manage.php:161
 msgid "Export"
 msgstr "Izvozi"
 
-#: plugins/importExport/src/Manage.php:141
+#: plugins/importExport/src/Manage.php:166
 #, php-format
 msgid "Export functions are in the page %s."
 msgstr "Izvozne funkcije so na strani %s."
 
-#: plugins/importExport/src/Manage.php:144
+#: plugins/importExport/src/Manage.php:169
 #: plugins/maintenance/src/Backend.php:27
 #: plugins/maintenance/src/BackendBehaviors.php:220
 msgid "Maintenance"
@@ -1754,142 +1756,142 @@ msgstr "Izvoz ploščate datoteke"
 msgid "Exports a blog or a full Dotclear installation to flat file."
 msgstr "Izvozi blog ali celotno namestitev Dotclear v ravno datoteko."
 
-#: plugins/importExport/src/ModuleExportFlat.php:156
+#: plugins/importExport/src/ModuleExportFlat.php:168
 msgid "Export file not found."
 msgstr "Izvozne datoteke ni bilo mogoče najti."
 
-#: plugins/importExport/src/ModuleExportFlat.php:195
+#: plugins/importExport/src/ModuleExportFlat.php:209
 msgid "Failed to compress export file."
 msgstr "Izvozne datoteke ni bilo mogoče stisniti."
 
-#: plugins/importExport/src/ModuleImportDc1.php:86
+#: plugins/importExport/src/ModuleImportDc1.php:106
 msgid "Dotclear 1.2 import"
 msgstr "Uvoz Dotclear 1.2"
 
-#: plugins/importExport/src/ModuleImportDc1.php:87
+#: plugins/importExport/src/ModuleImportDc1.php:107
 msgid "Import a Dotclear 1.2 installation into your current blog."
 msgstr "Uvozite namestitev Dotclear 1.2 v svoj trenutni spletni dnevnik."
 
-#: plugins/importExport/src/ModuleImportDc1.php:218
+#: plugins/importExport/src/ModuleImportDc1.php:253
 #, php-format
 msgid "Import the content of a Dotclear 1.2's blog in the current blog: %s."
 msgstr "Uvozite vsebino spletnega dnevnika Dotclear 1.2 v trenutni spletni dnevnik: %s."
 
-#: plugins/importExport/src/ModuleImportDc1.php:226
-#: plugins/importExport/src/ModuleImportWp.php:253
+#: plugins/importExport/src/ModuleImportDc1.php:261
+#: plugins/importExport/src/ModuleImportWp.php:316
 msgid "Please note that this process will empty your categories, blogroll, entries and comments on the current blog."
 msgstr "Upoštevajte, da bo ta postopek izpraznil vaše kategorije, spletni dnevnik, vnose in komentarje na trenutnem spletnem dnevniku."
 
-#: plugins/importExport/src/ModuleImportDc1.php:233
+#: plugins/importExport/src/ModuleImportDc1.php:268
 msgid "We first need some information about your old Dotclear 1.2 installation."
 msgstr "Najprej potrebujemo nekaj informacij o vaši stari namestitvi Dotclear 1.2."
 
-#: plugins/importExport/src/ModuleImportDc1.php:240
+#: plugins/importExport/src/ModuleImportDc1.php:275
 msgid "Database driver:"
 msgstr "Gonilnik baze podatkov:"
 
-#: plugins/importExport/src/ModuleImportDc1.php:282
-#: plugins/importExport/src/ModuleImportWp.php:302
+#: plugins/importExport/src/ModuleImportDc1.php:317
+#: plugins/importExport/src/ModuleImportWp.php:365
 msgid "Entries import options"
 msgstr "Možnosti uvoza vnosov"
 
-#: plugins/importExport/src/ModuleImportDc1.php:287
-#: plugins/importExport/src/ModuleImportWp.php:347
+#: plugins/importExport/src/ModuleImportDc1.php:322
+#: plugins/importExport/src/ModuleImportWp.php:410
 msgid "Number of entries to import at once:"
 msgstr "Število vnosov za uvoz naenkrat:"
 
-#: plugins/importExport/src/ModuleImportDc1.php:293
-#: plugins/importExport/src/ModuleImportWp.php:372
+#: plugins/importExport/src/ModuleImportDc1.php:328
+#: plugins/importExport/src/ModuleImportWp.php:435
 msgid "General information"
 msgstr "Splošne informacije"
 
-#: plugins/importExport/src/ModuleImportDc1.php:293
-#: plugins/importExport/src/ModuleImportWp.php:372
+#: plugins/importExport/src/ModuleImportDc1.php:328
+#: plugins/importExport/src/ModuleImportWp.php:435
 msgid "Import my blog now"
 msgstr "Uvozi moj blog zdaj"
 
-#: plugins/importExport/src/ModuleImportDc1.php:300
-#: plugins/importExport/src/ModuleImportWp.php:379
+#: plugins/importExport/src/ModuleImportDc1.php:335
+#: plugins/importExport/src/ModuleImportWp.php:442
 msgid "Importing users"
 msgstr "Uvažanje uporabnikov"
 
-#: plugins/importExport/src/ModuleImportDc1.php:307
-#: plugins/importExport/src/ModuleImportWp.php:386
+#: plugins/importExport/src/ModuleImportDc1.php:342
+#: plugins/importExport/src/ModuleImportWp.php:449
 msgid "Importing categories"
 msgstr "Uvažanje kategorij"
 
-#: plugins/importExport/src/ModuleImportDc1.php:314
-#: plugins/importExport/src/ModuleImportWp.php:393
+#: plugins/importExport/src/ModuleImportDc1.php:349
+#: plugins/importExport/src/ModuleImportWp.php:456
 msgid "Importing blogroll"
 msgstr "Uvažanje spletnega dnevnika"
 
-#: plugins/importExport/src/ModuleImportDc1.php:321
-#: plugins/importExport/src/ModuleImportWp.php:400
+#: plugins/importExport/src/ModuleImportDc1.php:356
+#: plugins/importExport/src/ModuleImportWp.php:463
 #, php-format
 msgid "Importing entries from %d to %d / %d"
 msgstr "Uvažanje vnosov iz %d v %d / %d"
 
-#: plugins/importExport/src/ModuleImportDc1.php:336
-#: plugins/importExport/src/ModuleImportWp.php:415
+#: plugins/importExport/src/ModuleImportDc1.php:371
+#: plugins/importExport/src/ModuleImportWp.php:478
 msgid "Please read carefully"
 msgstr "Prosimo pozorno preberite"
 
-#: plugins/importExport/src/ModuleImportDc1.php:338
-#: plugins/importExport/src/ModuleImportWp.php:418
+#: plugins/importExport/src/ModuleImportDc1.php:373
+#: plugins/importExport/src/ModuleImportWp.php:481
 msgid "Every newly imported user has received a random password and will need to ask for a new one by following the \"I forgot my password\" link on the login page (Their registered email address has to be valid.)"
 msgstr "Vsak na novo uvožen uporabnik je prejel naključno geslo in bo moral zaprositi za novo tako, da sledi povezavi »Pozabil sem svoje geslo« na strani za prijavo (Njihov registriran e-poštni naslov mora biti veljaven.)"
 
-#: plugins/importExport/src/ModuleImportDc1.php:340
+#: plugins/importExport/src/ModuleImportDc1.php:375
 #, php-format
 msgid "Please note that Dotclear 2 has a new URL layout. You can avoid broken links by installing <a href=\"%s\">DC1 redirect</a> plugin and activate it in your blog configuration."
 msgstr "Upoštevajte, da ima Dotclear 2 novo postavitev URL-jev. Nedelujočim povezavam se lahko izognete tako, da namestite vtičnik <a href=\"%s\">DC1 redirect</a> in ga aktivirate v konfiguraciji spletnega dnevnika."
 
-#: plugins/importExport/src/ModuleImportDc1.php:363
-#: plugins/importExport/src/ModuleImportWp.php:440
+#: plugins/importExport/src/ModuleImportDc1.php:398
+#: plugins/importExport/src/ModuleImportWp.php:503
 msgid "next step"
 msgstr "naslednji korak"
 
-#: plugins/importExport/src/ModuleImportDc1.php:381
-#: plugins/importExport/src/ModuleImportWp.php:458
+#: plugins/importExport/src/ModuleImportDc1.php:416
+#: plugins/importExport/src/ModuleImportWp.php:521
 msgid "Depending on the size of your blog, it could take a few minutes."
 msgstr "Odvisno od velikosti vašega spletnega dnevnika lahko traja nekaj minut."
 
-#: plugins/importExport/src/ModuleImportDc1.php:409
+#: plugins/importExport/src/ModuleImportDc1.php:442
 msgid "Dotclear tables not found"
 msgstr "Tabel Dotclear ni bilo mogoče najti"
 
-#: plugins/importExport/src/ModuleImportFeed.php:125
+#: plugins/importExport/src/ModuleImportFeed.php:132
 msgid "RSS or Atom feed import"
 msgstr "Uvoz vira RSS ali Atom"
 
-#: plugins/importExport/src/ModuleImportFeed.php:126
+#: plugins/importExport/src/ModuleImportFeed.php:133
 msgid "Add a feed content to the blog."
 msgstr "V spletni dnevnik dodajte vsebino vira."
 
-#: plugins/importExport/src/ModuleImportFeed.php:148
-#: plugins/importExport/src/ModuleImportFeed.php:154
-#: plugins/importExport/src/ModuleImportFeed.php:163
-#: plugins/importExport/src/ModuleImportFeed.php:167
-#: plugins/importExport/src/ModuleImportFeed.php:171
-#: plugins/importExport/src/ModuleImportFeed.php:177
+#: plugins/importExport/src/ModuleImportFeed.php:155
+#: plugins/importExport/src/ModuleImportFeed.php:161
+#: plugins/importExport/src/ModuleImportFeed.php:170
+#: plugins/importExport/src/ModuleImportFeed.php:176
+#: plugins/importExport/src/ModuleImportFeed.php:182
+#: plugins/importExport/src/ModuleImportFeed.php:188
 msgid "Cannot retrieve feed URL."
 msgstr "URL-ja vira ni mogoče pridobiti."
 
-#: plugins/importExport/src/ModuleImportFeed.php:180
+#: plugins/importExport/src/ModuleImportFeed.php:191
 msgid "No items in feed."
 msgstr "V viru ni elementov."
 
-#: plugins/importExport/src/ModuleImportFeed.php:214
-#: plugins/importExport/src/ModuleImportFlat.php:189
+#: plugins/importExport/src/ModuleImportFeed.php:233
+#: plugins/importExport/src/ModuleImportFlat.php:198
 msgid "Content successfully imported."
 msgstr "Vsebina uspešno uvožena."
 
-#: plugins/importExport/src/ModuleImportFeed.php:223
+#: plugins/importExport/src/ModuleImportFeed.php:242
 #, php-format
 msgid "Add a feed content to the current blog: <strong>%s</strong>."
 msgstr "Dodajte vsebino vira v trenutni spletni dnevnik: <strong>%s</strong>."
 
-#: plugins/importExport/src/ModuleImportFeed.php:231
+#: plugins/importExport/src/ModuleImportFeed.php:250
 #: plugins/widgets/src/Widgets.php:155
 msgid "Feed URL:"
 msgstr "URL vira:"
@@ -1902,117 +1904,117 @@ msgstr "Uvoz ploščate datoteke"
 msgid "Imports a blog or a full Dotclear installation from flat file."
 msgstr "Uvozi blog ali celotno namestitev Dotclear iz ploščate datoteke."
 
-#: plugins/importExport/src/ModuleImportFlat.php:184
+#: plugins/importExport/src/ModuleImportFlat.php:193
 msgid "Single blog successfully imported."
 msgstr "Posamezen spletni dnevnik je bil uspešno uvožen."
 
-#: plugins/importExport/src/ModuleImportFlat.php:204
+#: plugins/importExport/src/ModuleImportFlat.php:213
 msgid "Are you sure you want to import a full backup file?"
 msgstr "Ali ste prepričani, da želite uvoziti celotno varnostno kopijo?"
 
-#: plugins/importExport/src/ModuleImportFlat.php:214
+#: plugins/importExport/src/ModuleImportFlat.php:223
 msgid "Single blog"
 msgstr "En sam blog"
 
-#: plugins/importExport/src/ModuleImportFlat.php:219
+#: plugins/importExport/src/ModuleImportFlat.php:228
 #, php-format
 msgid "This will import a single blog backup as new content in the current blog: <strong>%s</strong>."
 msgstr "To bo uvozilo eno samo varnostno kopijo spletnega dnevnika kot novo vsebino v trenutnem spletnem dnevniku: <strong>%s</strong>."
 
-#: plugins/importExport/src/ModuleImportFlat.php:226
-#: plugins/importExport/src/ModuleImportFlat.php:273
+#: plugins/importExport/src/ModuleImportFlat.php:235
+#: plugins/importExport/src/ModuleImportFlat.php:282
 msgid "Upload a backup file"
 msgstr "Naložite varnostno kopijo datoteke"
 
-#: plugins/importExport/src/ModuleImportFlat.php:227
-#: plugins/importExport/src/ModuleImportFlat.php:274
+#: plugins/importExport/src/ModuleImportFlat.php:236
+#: plugins/importExport/src/ModuleImportFlat.php:283
 #, php-format
 msgid "maximum size %s"
 msgstr "največja velikost %s"
 
-#: plugins/importExport/src/ModuleImportFlat.php:239
-#: plugins/importExport/src/ModuleImportFlat.php:286
+#: plugins/importExport/src/ModuleImportFlat.php:248
+#: plugins/importExport/src/ModuleImportFlat.php:295
 msgid "or pick up a local file in your public directory"
 msgstr "ali izberite lokalno datoteko v svojem javnem imeniku"
 
-#: plugins/importExport/src/ModuleImportFlat.php:261
+#: plugins/importExport/src/ModuleImportFlat.php:270
 msgid "Multiple blogs"
 msgstr "Več blogov"
 
-#: plugins/importExport/src/ModuleImportFlat.php:268
+#: plugins/importExport/src/ModuleImportFlat.php:277
 msgid "This will reset all the content of your database, except users."
 msgstr "S tem boste ponastavili vso vsebino vaše zbirke podatkov, razen uporabnikov."
 
-#: plugins/importExport/src/ModuleImportFlat.php:399
+#: plugins/importExport/src/ModuleImportFlat.php:408
 msgid "Another file with same name exists."
 msgstr "Obstaja še ena datoteka z istim imenom."
 
-#: plugins/importExport/src/ModuleImportFlat.php:407
+#: plugins/importExport/src/ModuleImportFlat.php:416
 msgid "Failed to extract backup file."
 msgstr "Datoteke varnostne kopije ni bilo mogoče ekstrahirati."
 
-#: plugins/importExport/src/ModuleImportFlat.php:419
+#: plugins/importExport/src/ModuleImportFlat.php:428
 msgid "No backup in compressed file."
 msgstr "V stisnjeni datoteki ni varnostne kopije."
 
-#: plugins/importExport/src/ModuleImportWp.php:111
+#: plugins/importExport/src/ModuleImportWp.php:148
 msgid "WordPress import"
 msgstr "WordPress uvoz"
 
-#: plugins/importExport/src/ModuleImportWp.php:112
+#: plugins/importExport/src/ModuleImportWp.php:149
 msgid "Import a WordPress installation into your current blog."
 msgstr "Uvozite namestitev programa WordPress v svoj trenutni spletni dnevnik."
 
-#: plugins/importExport/src/ModuleImportWp.php:245
+#: plugins/importExport/src/ModuleImportWp.php:308
 #, php-format
 msgid "This will import your WordPress content as new content in the current blog: %s."
 msgstr "S tem boste uvozili vašo vsebino WordPress kot novo vsebino v trenutnem spletnem dnevniku: %s."
 
-#: plugins/importExport/src/ModuleImportWp.php:260
+#: plugins/importExport/src/ModuleImportWp.php:323
 msgid "We first need some information about your old WordPress installation."
 msgstr "Najprej potrebujemo nekaj informacij o vaši stari namestitvi WordPressa."
 
-#: plugins/importExport/src/ModuleImportWp.php:310
+#: plugins/importExport/src/ModuleImportWp.php:373
 msgid "WordPress and Dotclear's handling of categories are quite different. You can assign several categories to a single post in WordPress. In the Dotclear world, we see it more like \"One category, several tags.\" Therefore Dotclear can only import one category per post and will chose the lowest numbered one. If you want to keep a trace of every category, you can import them as tags, with an optional prefix."
 msgstr "WordPress in Dotclear obravnavata kategorije precej različno. Eni objavi v WordPressu lahko dodelite več kategorij. V svetu Dotclear to vidimo bolj kot \"Ena kategorija, več oznak.\" Zato lahko Dotclear uvozi samo eno kategorijo na objavo in bo izbral tisto z najnižjo številko. Če želite ohraniti sled za vsako kategorijo, jih lahko uvozite kot oznake z neobvezno predpono."
 
-#: plugins/importExport/src/ModuleImportWp.php:312
+#: plugins/importExport/src/ModuleImportWp.php:375
 msgid "On the other hand, in WordPress, a post can not be uncategorized, and a default installation has a first category labelised <i>\"Uncategorized\"</i>. If you did not change that category, you can just ignore it while importing your blog, as Dotclear allows you to actually keep your posts uncategorized."
 msgstr "Po drugi strani pa v WordPressu objave ni mogoče nekategorizirati, privzeta namestitev pa ima prvo kategorijo označeno <i>»Nekategorizirano«</i>. Če te kategorije niste spremenili, jo lahko med uvozom spletnega dnevnika preprosto prezrete, saj vam Dotclear omogoča, da vaše objave ostanejo nekategorizirane."
 
-#: plugins/importExport/src/ModuleImportWp.php:321
+#: plugins/importExport/src/ModuleImportWp.php:384
 msgid "Ignore the first category:"
 msgstr "Ignorirajte prvo kategorijo:"
 
-#: plugins/importExport/src/ModuleImportWp.php:327
+#: plugins/importExport/src/ModuleImportWp.php:390
 msgid "Import lowest numbered category on posts:"
 msgstr "Uvozi najnižjo oštevilčeno kategorijo na objave:"
 
-#: plugins/importExport/src/ModuleImportWp.php:333
+#: plugins/importExport/src/ModuleImportWp.php:396
 msgid "Import all categories as tags:"
 msgstr "Uvozi vse kategorije kot oznake:"
 
-#: plugins/importExport/src/ModuleImportWp.php:341
+#: plugins/importExport/src/ModuleImportWp.php:404
 msgid "Prefix such tags with:"
 msgstr "Takim oznakam dodajte predpono:"
 
-#: plugins/importExport/src/ModuleImportWp.php:351
+#: plugins/importExport/src/ModuleImportWp.php:414
 msgid "Content filters"
 msgstr "Vsebinski filtri"
 
-#: plugins/importExport/src/ModuleImportWp.php:353
+#: plugins/importExport/src/ModuleImportWp.php:416
 msgid "You may want to process your post and/or comment content with the following filters."
 msgstr "Morda boste želeli obdelati svojo objavo in/ali vsebino komentarja z naslednjimi filtri."
 
-#: plugins/importExport/src/ModuleImportWp.php:359
+#: plugins/importExport/src/ModuleImportWp.php:422
 msgid "Post content formatter:"
 msgstr "Oblikovalnik vsebine objave:"
 
-#: plugins/importExport/src/ModuleImportWp.php:366
+#: plugins/importExport/src/ModuleImportWp.php:429
 msgid "Comment content formatter:"
 msgstr "Oblikovalnik vsebine komentarja:"
 
-#: plugins/importExport/src/ModuleImportWp.php:486
+#: plugins/importExport/src/ModuleImportWp.php:551
 msgid "WordPress tables not found"
 msgstr "Tabel WordPress ni bilo mogoče najti"
 

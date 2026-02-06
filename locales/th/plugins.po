@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-28 12:36+0100\n"
-"PO-Revision-Date: 2026-01-28 12:17\n"
+"POT-Creation-Date: 2026-02-06 09:12+0100\n"
+"PO-Revision-Date: 2026-02-06 08:51\n"
 "Last-Translator: \n"
 "Language-Team: Thai\n"
 "Language: th_TH\n"
@@ -1130,10 +1130,10 @@ msgid "OPML or XBEL File:"
 msgstr "ไฟล์ OPML หรือ XBEL:"
 
 #: plugins/blogroll/src/Manage.php:678 plugins/blogroll/src/Manage.php:747
-#: plugins/importExport/src/Manage.php:130
-#: plugins/importExport/src/ModuleImportFeed.php:238
-#: plugins/importExport/src/ModuleImportFlat.php:248
-#: plugins/importExport/src/ModuleImportFlat.php:310
+#: plugins/importExport/src/Manage.php:155
+#: plugins/importExport/src/ModuleImportFeed.php:257
+#: plugins/importExport/src/ModuleImportFlat.php:257
+#: plugins/importExport/src/ModuleImportFlat.php:319
 msgid "Import"
 msgstr "นำเข้า"
 
@@ -1670,20 +1670,22 @@ msgid "No file to read."
 msgstr "ไม่มีไฟล์ให้อ่าน"
 
 #: plugins/importExport/src/FlatExport.php:49
+#: plugins/importExport/src/ModuleExportFlat.php:46
+#: plugins/importExport/src/ModuleExportFlat.php:129
 msgid "Unable to create output file."
 msgstr "ไม่สามารถสร้างไฟล์ผลลัพธ์ได้"
 
 #: plugins/importExport/src/FlatImportV2.php:99
-msgid "Unable to open the DotClear backup file."
-msgstr "ไม่สามารถเปิดไฟล์สำรองข้อมูล DotClear ได้"
+msgid "Unable to open the Dotclear backup file."
+msgstr "ไม่สามารถเปิดไฟล์สำรองข้อมูล Dotclear ได้"
 
 #: plugins/importExport/src/FlatImportV2.php:104
-msgid "Unable to read the DotClear backup file."
-msgstr "ไม่สามารถอ่านไฟล์สำรองข้อมูล DotClear ได้"
+msgid "Unable to read the Dotclear backup file."
+msgstr "ไม่สามารถอ่านไฟล์สำรองข้อมูล Dotclear ได้"
 
 #: plugins/importExport/src/FlatImportV2.php:108
-msgid "File is not a DotClear backup."
-msgstr "ไฟล์นี้ไม่ใช่ไฟล์สำรองข้อมูลของ DotClear"
+msgid "File is not a Dotclear backup."
+msgstr "ไฟล์นี้ไม่ใช่ไฟล์สำรองข้อมูลของ Dotclear"
 
 #: plugins/importExport/src/FlatImportV2.php:184
 msgid "File is not a single blog export."
@@ -1704,21 +1706,21 @@ msgstr "ไฟล์ไม่ใช่การส่งออกทั้งห
 msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
 msgstr "ID ของ \"%3$s\" ไม่ตรงกับในบันทึก \"%1$s\" ที่บรรทัด %2$s ของไฟล์สำรองข้อมูล"
 
-#: plugins/importExport/src/Manage.php:90
+#: plugins/importExport/src/Manage.php:100
 #: plugins/maintenance/src/Manage.php:200
 msgid "Please wait..."
 msgstr "กรุณารอ..."
 
-#: plugins/importExport/src/Manage.php:136
+#: plugins/importExport/src/Manage.php:161
 msgid "Export"
 msgstr "ส่งออก"
 
-#: plugins/importExport/src/Manage.php:141
+#: plugins/importExport/src/Manage.php:166
 #, php-format
 msgid "Export functions are in the page %s."
 msgstr "ฟังก์ชันการส่งออกอยู่ในหน้า %s."
 
-#: plugins/importExport/src/Manage.php:144
+#: plugins/importExport/src/Manage.php:169
 #: plugins/maintenance/src/Backend.php:27
 #: plugins/maintenance/src/BackendBehaviors.php:220
 msgid "Maintenance"
@@ -1748,142 +1750,142 @@ msgstr "การส่งออกไฟล์แบบแฟลต"
 msgid "Exports a blog or a full Dotclear installation to flat file."
 msgstr "ส่งออกบล็อกหรือการติดตั้ง Dotclear ทั้งหมดเป็นไฟล์แบบแบน"
 
-#: plugins/importExport/src/ModuleExportFlat.php:156
+#: plugins/importExport/src/ModuleExportFlat.php:168
 msgid "Export file not found."
 msgstr "ไม่พบไฟล์สำหรับการส่งออก"
 
-#: plugins/importExport/src/ModuleExportFlat.php:195
+#: plugins/importExport/src/ModuleExportFlat.php:209
 msgid "Failed to compress export file."
 msgstr "ไม่สามารถบีบอัดไฟล์ส่งออกได้"
 
-#: plugins/importExport/src/ModuleImportDc1.php:86
+#: plugins/importExport/src/ModuleImportDc1.php:106
 msgid "Dotclear 1.2 import"
 msgstr "การนำเข้า Dotclear 1.2"
 
-#: plugins/importExport/src/ModuleImportDc1.php:87
+#: plugins/importExport/src/ModuleImportDc1.php:107
 msgid "Import a Dotclear 1.2 installation into your current blog."
 msgstr "นำเข้าการติดตั้ง Dotclear 1.2 ไปยังบล็อกปัจจุบันของคุณ"
 
-#: plugins/importExport/src/ModuleImportDc1.php:218
+#: plugins/importExport/src/ModuleImportDc1.php:253
 #, php-format
 msgid "Import the content of a Dotclear 1.2's blog in the current blog: %s."
 msgstr "นำเข้าเนื้อหาของบล็อก Dotclear 1.2 ไปยังบล็อกปัจจุบัน: %s"
 
-#: plugins/importExport/src/ModuleImportDc1.php:226
-#: plugins/importExport/src/ModuleImportWp.php:253
+#: plugins/importExport/src/ModuleImportDc1.php:261
+#: plugins/importExport/src/ModuleImportWp.php:316
 msgid "Please note that this process will empty your categories, blogroll, entries and comments on the current blog."
 msgstr "โปรดทราบว่ากระบวนการนี้จะล้างหมวดหมู่, บล็อกโรล, รายการ และความคิดเห็นในบล็อกปัจจุบันของคุณ"
 
-#: plugins/importExport/src/ModuleImportDc1.php:233
+#: plugins/importExport/src/ModuleImportDc1.php:268
 msgid "We first need some information about your old Dotclear 1.2 installation."
 msgstr "เราต้องการข้อมูลบางอย่างเกี่ยวกับการติดตั้ง Dotclear 1.2 เก่าของคุณก่อน"
 
-#: plugins/importExport/src/ModuleImportDc1.php:240
+#: plugins/importExport/src/ModuleImportDc1.php:275
 msgid "Database driver:"
 msgstr "ไดรเวอร์ฐานข้อมูล:"
 
-#: plugins/importExport/src/ModuleImportDc1.php:282
-#: plugins/importExport/src/ModuleImportWp.php:302
+#: plugins/importExport/src/ModuleImportDc1.php:317
+#: plugins/importExport/src/ModuleImportWp.php:365
 msgid "Entries import options"
 msgstr "ตัวเลือกการนำเข้าข้อมูล"
 
-#: plugins/importExport/src/ModuleImportDc1.php:287
-#: plugins/importExport/src/ModuleImportWp.php:347
+#: plugins/importExport/src/ModuleImportDc1.php:322
+#: plugins/importExport/src/ModuleImportWp.php:410
 msgid "Number of entries to import at once:"
 msgstr "จำนวนรายการที่จะนำเข้าพร้อมกัน:"
 
-#: plugins/importExport/src/ModuleImportDc1.php:293
-#: plugins/importExport/src/ModuleImportWp.php:372
+#: plugins/importExport/src/ModuleImportDc1.php:328
+#: plugins/importExport/src/ModuleImportWp.php:435
 msgid "General information"
 msgstr "ข้อมูลทั่วไป"
 
-#: plugins/importExport/src/ModuleImportDc1.php:293
-#: plugins/importExport/src/ModuleImportWp.php:372
+#: plugins/importExport/src/ModuleImportDc1.php:328
+#: plugins/importExport/src/ModuleImportWp.php:435
 msgid "Import my blog now"
 msgstr "นำเข้าบล็อกของฉันตอนนี้"
 
-#: plugins/importExport/src/ModuleImportDc1.php:300
-#: plugins/importExport/src/ModuleImportWp.php:379
+#: plugins/importExport/src/ModuleImportDc1.php:335
+#: plugins/importExport/src/ModuleImportWp.php:442
 msgid "Importing users"
 msgstr "นำเข้าผู้ใช้"
 
-#: plugins/importExport/src/ModuleImportDc1.php:307
-#: plugins/importExport/src/ModuleImportWp.php:386
+#: plugins/importExport/src/ModuleImportDc1.php:342
+#: plugins/importExport/src/ModuleImportWp.php:449
 msgid "Importing categories"
 msgstr "นำเข้าหมวดหมู่"
 
-#: plugins/importExport/src/ModuleImportDc1.php:314
-#: plugins/importExport/src/ModuleImportWp.php:393
+#: plugins/importExport/src/ModuleImportDc1.php:349
+#: plugins/importExport/src/ModuleImportWp.php:456
 msgid "Importing blogroll"
 msgstr "นำเข้าบล็อกโรล"
 
-#: plugins/importExport/src/ModuleImportDc1.php:321
-#: plugins/importExport/src/ModuleImportWp.php:400
+#: plugins/importExport/src/ModuleImportDc1.php:356
+#: plugins/importExport/src/ModuleImportWp.php:463
 #, php-format
 msgid "Importing entries from %d to %d / %d"
 msgstr "การนำเข้าข้อมูลจาก %d ไปยัง %d / %d"
 
-#: plugins/importExport/src/ModuleImportDc1.php:336
-#: plugins/importExport/src/ModuleImportWp.php:415
+#: plugins/importExport/src/ModuleImportDc1.php:371
+#: plugins/importExport/src/ModuleImportWp.php:478
 msgid "Please read carefully"
 msgstr "กรุณาอ่านอย่างละเอียด"
 
-#: plugins/importExport/src/ModuleImportDc1.php:338
-#: plugins/importExport/src/ModuleImportWp.php:418
+#: plugins/importExport/src/ModuleImportDc1.php:373
+#: plugins/importExport/src/ModuleImportWp.php:481
 msgid "Every newly imported user has received a random password and will need to ask for a new one by following the \"I forgot my password\" link on the login page (Their registered email address has to be valid.)"
 msgstr "ผู้ใช้ที่นำเข้าใหม่ทุกคนจะได้รับรหัสผ่านแบบสุ่มและจะต้องขอรหัสผ่านใหม่โดยทำตามลิงก์ \"ลืมรหัสผ่าน\" บนหน้าเข้าสู่ระบบ (ที่อยู่อีเมลที่ลงทะเบียนต้องถูกต้อง)"
 
-#: plugins/importExport/src/ModuleImportDc1.php:340
+#: plugins/importExport/src/ModuleImportDc1.php:375
 #, php-format
 msgid "Please note that Dotclear 2 has a new URL layout. You can avoid broken links by installing <a href=\"%s\">DC1 redirect</a> plugin and activate it in your blog configuration."
 msgstr "โปรดทราบว่า Dotclear 2 มีรูปแบบ URL ใหม่ คุณสามารถหลีกเลี่ยงลิงก์ที่เสียได้โดยการติดตั้งปลั๊กอิน<a href=\"%s\">DC1 redirect</a>และเปิดใช้งานในตั้งค่าบล็อกของคุณ"
 
-#: plugins/importExport/src/ModuleImportDc1.php:363
-#: plugins/importExport/src/ModuleImportWp.php:440
+#: plugins/importExport/src/ModuleImportDc1.php:398
+#: plugins/importExport/src/ModuleImportWp.php:503
 msgid "next step"
 msgstr "ขั้นตอนต่อไป"
 
-#: plugins/importExport/src/ModuleImportDc1.php:381
-#: plugins/importExport/src/ModuleImportWp.php:458
+#: plugins/importExport/src/ModuleImportDc1.php:416
+#: plugins/importExport/src/ModuleImportWp.php:521
 msgid "Depending on the size of your blog, it could take a few minutes."
 msgstr "ขึ้นอยู่กับขนาดของบล็อกของคุณ อาจใช้เวลาไม่กี่นาที"
 
-#: plugins/importExport/src/ModuleImportDc1.php:409
+#: plugins/importExport/src/ModuleImportDc1.php:442
 msgid "Dotclear tables not found"
 msgstr "ไม่พบตาราง Dotclear"
 
-#: plugins/importExport/src/ModuleImportFeed.php:125
+#: plugins/importExport/src/ModuleImportFeed.php:132
 msgid "RSS or Atom feed import"
 msgstr "นำเข้าฟีด RSS หรือ Atom"
 
-#: plugins/importExport/src/ModuleImportFeed.php:126
+#: plugins/importExport/src/ModuleImportFeed.php:133
 msgid "Add a feed content to the blog."
 msgstr "เพิ่มเนื้อหาฟีดลงในบล็อก"
 
-#: plugins/importExport/src/ModuleImportFeed.php:148
-#: plugins/importExport/src/ModuleImportFeed.php:154
-#: plugins/importExport/src/ModuleImportFeed.php:163
-#: plugins/importExport/src/ModuleImportFeed.php:167
-#: plugins/importExport/src/ModuleImportFeed.php:171
-#: plugins/importExport/src/ModuleImportFeed.php:177
+#: plugins/importExport/src/ModuleImportFeed.php:155
+#: plugins/importExport/src/ModuleImportFeed.php:161
+#: plugins/importExport/src/ModuleImportFeed.php:170
+#: plugins/importExport/src/ModuleImportFeed.php:176
+#: plugins/importExport/src/ModuleImportFeed.php:182
+#: plugins/importExport/src/ModuleImportFeed.php:188
 msgid "Cannot retrieve feed URL."
 msgstr "ไม่สามารถดึง URL ของฟีดได้"
 
-#: plugins/importExport/src/ModuleImportFeed.php:180
+#: plugins/importExport/src/ModuleImportFeed.php:191
 msgid "No items in feed."
 msgstr "ไม่มีรายการในฟีด"
 
-#: plugins/importExport/src/ModuleImportFeed.php:214
-#: plugins/importExport/src/ModuleImportFlat.php:189
+#: plugins/importExport/src/ModuleImportFeed.php:233
+#: plugins/importExport/src/ModuleImportFlat.php:198
 msgid "Content successfully imported."
 msgstr "นำเข้าเนื้อหาสำเร็จแล้ว"
 
-#: plugins/importExport/src/ModuleImportFeed.php:223
+#: plugins/importExport/src/ModuleImportFeed.php:242
 #, php-format
 msgid "Add a feed content to the current blog: <strong>%s</strong>."
 msgstr "เพิ่มเนื้อหาฟีดไปยังบล็อกปัจจุบัน: <strong>%s</strong>."
 
-#: plugins/importExport/src/ModuleImportFeed.php:231
+#: plugins/importExport/src/ModuleImportFeed.php:250
 #: plugins/widgets/src/Widgets.php:155
 msgid "Feed URL:"
 msgstr "URL สำหรับฟีด:"
@@ -1896,117 +1898,117 @@ msgstr "การนำเข้าไฟล์แบบแฟลต"
 msgid "Imports a blog or a full Dotclear installation from flat file."
 msgstr "นำเข้าบล็อกหรือการติดตั้ง Dotclear แบบเต็มจากไฟล์แบน"
 
-#: plugins/importExport/src/ModuleImportFlat.php:184
+#: plugins/importExport/src/ModuleImportFlat.php:193
 msgid "Single blog successfully imported."
 msgstr "บล็อกเดี่ยวถูกนำเข้าสำเร็จแล้ว"
 
-#: plugins/importExport/src/ModuleImportFlat.php:204
+#: plugins/importExport/src/ModuleImportFlat.php:213
 msgid "Are you sure you want to import a full backup file?"
 msgstr "คุณแน่ใจหรือไม่ว่าต้องการนำเข้าไฟล์สำรองข้อมูลทั้งหมด?"
 
-#: plugins/importExport/src/ModuleImportFlat.php:214
+#: plugins/importExport/src/ModuleImportFlat.php:223
 msgid "Single blog"
 msgstr "บล็อกเดี่ยว"
 
-#: plugins/importExport/src/ModuleImportFlat.php:219
+#: plugins/importExport/src/ModuleImportFlat.php:228
 #, php-format
 msgid "This will import a single blog backup as new content in the current blog: <strong>%s</strong>."
 msgstr "นี่จะนำเข้าสำรองบล็อกเพียงหนึ่งรายการเป็นเนื้อหาใหม่ในบล็อกปัจจุบัน: <strong>%s</strong>."
 
-#: plugins/importExport/src/ModuleImportFlat.php:226
-#: plugins/importExport/src/ModuleImportFlat.php:273
+#: plugins/importExport/src/ModuleImportFlat.php:235
+#: plugins/importExport/src/ModuleImportFlat.php:282
 msgid "Upload a backup file"
 msgstr "อัปโหลดไฟล์สำรอง"
 
-#: plugins/importExport/src/ModuleImportFlat.php:227
-#: plugins/importExport/src/ModuleImportFlat.php:274
+#: plugins/importExport/src/ModuleImportFlat.php:236
+#: plugins/importExport/src/ModuleImportFlat.php:283
 #, php-format
 msgid "maximum size %s"
 msgstr "ขนาดสูงสุด %s"
 
-#: plugins/importExport/src/ModuleImportFlat.php:239
-#: plugins/importExport/src/ModuleImportFlat.php:286
+#: plugins/importExport/src/ModuleImportFlat.php:248
+#: plugins/importExport/src/ModuleImportFlat.php:295
 msgid "or pick up a local file in your public directory"
 msgstr "หรือเลือกไฟล์ในเครื่องจากไดเรกทอรีสาธารณะของคุณ"
 
-#: plugins/importExport/src/ModuleImportFlat.php:261
+#: plugins/importExport/src/ModuleImportFlat.php:270
 msgid "Multiple blogs"
 msgstr "บล็อกหลายรายการ"
 
-#: plugins/importExport/src/ModuleImportFlat.php:268
+#: plugins/importExport/src/ModuleImportFlat.php:277
 msgid "This will reset all the content of your database, except users."
 msgstr "นี่จะรีเซ็ตเนื้อหาทั้งหมดของฐานข้อมูลของคุณ ยกเว้นผู้ใช้"
 
-#: plugins/importExport/src/ModuleImportFlat.php:399
+#: plugins/importExport/src/ModuleImportFlat.php:408
 msgid "Another file with same name exists."
 msgstr "มีไฟล์ชื่อเดียวกันอยู่แล้ว"
 
-#: plugins/importExport/src/ModuleImportFlat.php:407
+#: plugins/importExport/src/ModuleImportFlat.php:416
 msgid "Failed to extract backup file."
 msgstr "ไม่สามารถดึงไฟล์สำรองข้อมูลได้"
 
-#: plugins/importExport/src/ModuleImportFlat.php:419
+#: plugins/importExport/src/ModuleImportFlat.php:428
 msgid "No backup in compressed file."
 msgstr "ไม่มีไฟล์สำรองในไฟล์ที่ถูกบีบอัด"
 
-#: plugins/importExport/src/ModuleImportWp.php:111
+#: plugins/importExport/src/ModuleImportWp.php:148
 msgid "WordPress import"
 msgstr "การนำเข้า WordPress"
 
-#: plugins/importExport/src/ModuleImportWp.php:112
+#: plugins/importExport/src/ModuleImportWp.php:149
 msgid "Import a WordPress installation into your current blog."
 msgstr "นำเข้าการติดตั้ง WordPress ไปยังบล็อกปัจจุบันของคุณ"
 
-#: plugins/importExport/src/ModuleImportWp.php:245
+#: plugins/importExport/src/ModuleImportWp.php:308
 #, php-format
 msgid "This will import your WordPress content as new content in the current blog: %s."
 msgstr "นี่จะนำเข้าเนื้อหา WordPress ของคุณเป็นเนื้อหาใหม่ในบล็อกปัจจุบัน: %s"
 
-#: plugins/importExport/src/ModuleImportWp.php:260
+#: plugins/importExport/src/ModuleImportWp.php:323
 msgid "We first need some information about your old WordPress installation."
 msgstr "เราต้องการข้อมูลบางอย่างเกี่ยวกับการติดตั้ง WordPress เก่าของคุณก่อน"
 
-#: plugins/importExport/src/ModuleImportWp.php:310
+#: plugins/importExport/src/ModuleImportWp.php:373
 msgid "WordPress and Dotclear's handling of categories are quite different. You can assign several categories to a single post in WordPress. In the Dotclear world, we see it more like \"One category, several tags.\" Therefore Dotclear can only import one category per post and will chose the lowest numbered one. If you want to keep a trace of every category, you can import them as tags, with an optional prefix."
 msgstr "การจัดการหมวดหมู่ของ WordPress และ Dotclear นั้นแตกต่างกันมาก คุณสามารถกำหนดหมวดหมู่หลายหมวดหมู่ให้กับโพสต์เดียวใน WordPress ได้ ในโลกของ Dotclear เราเห็นมันเหมือนกับ \"หนึ่งหมวดหมู่ หลายแท็ก\" ดังนั้น Dotclear จึงสามารถนำเข้าหมวดหมู่ได้เพียงหนึ่งหมวดหมู่ต่อโพสต์และจะเลือกหมวดหมู่ที่มีหมายเลขต่ำสุด หากคุณต้องการเก็บทุกหมวดหมู่ไว้ คุณสามารถนำเข้าพวกมันเป็นแท็กได้ โดยมีคำนำหน้าเป็นตัวเลือก"
 
-#: plugins/importExport/src/ModuleImportWp.php:312
+#: plugins/importExport/src/ModuleImportWp.php:375
 msgid "On the other hand, in WordPress, a post can not be uncategorized, and a default installation has a first category labelised <i>\"Uncategorized\"</i>. If you did not change that category, you can just ignore it while importing your blog, as Dotclear allows you to actually keep your posts uncategorized."
 msgstr "ในทางกลับกัน ใน WordPress โพสต์ไม่สามารถถูกยกเลิกการจัดหมวดหมู่ได้ และการติดตั้งเริ่มต้นจะมีหมวดหมู่แรกที่มีป้ายกำกับว่า<i>\"ยังไม่ได้จัดหมวดหมู่\"</i> หากคุณไม่ได้เปลี่ยนหมวดหมู่นั้น คุณสามารถละเว้นมันได้ในขณะนำเข้าบล็อกของคุณ เนื่องจาก Dotclear อนุญาตให้คุณเก็บโพสต์ของคุณไว้โดยไม่มีหมวดหมู่ได้จริงๆ"
 
-#: plugins/importExport/src/ModuleImportWp.php:321
+#: plugins/importExport/src/ModuleImportWp.php:384
 msgid "Ignore the first category:"
 msgstr "ให้ละเว้นหมวดหมู่แรก:"
 
-#: plugins/importExport/src/ModuleImportWp.php:327
+#: plugins/importExport/src/ModuleImportWp.php:390
 msgid "Import lowest numbered category on posts:"
 msgstr "นำเข้าหมวดหมู่ที่มีหมายเลขต่ำสุดในโพสต์:"
 
-#: plugins/importExport/src/ModuleImportWp.php:333
+#: plugins/importExport/src/ModuleImportWp.php:396
 msgid "Import all categories as tags:"
 msgstr "นำเข้าหมวดหมู่ทั้งหมดเป็นแท็ก:"
 
-#: plugins/importExport/src/ModuleImportWp.php:341
+#: plugins/importExport/src/ModuleImportWp.php:404
 msgid "Prefix such tags with:"
 msgstr "นำคำนำหน้าต่อไปนี้มาใช้กับแท็กดังกล่าว:"
 
-#: plugins/importExport/src/ModuleImportWp.php:351
+#: plugins/importExport/src/ModuleImportWp.php:414
 msgid "Content filters"
 msgstr "ตัวกรองเนื้อหา"
 
-#: plugins/importExport/src/ModuleImportWp.php:353
+#: plugins/importExport/src/ModuleImportWp.php:416
 msgid "You may want to process your post and/or comment content with the following filters."
 msgstr "คุณอาจต้องการประมวลผลโพสต์และ/หรือเนื้อหาความคิดเห็นของคุณด้วยตัวกรองต่อไปนี้"
 
-#: plugins/importExport/src/ModuleImportWp.php:359
+#: plugins/importExport/src/ModuleImportWp.php:422
 msgid "Post content formatter:"
 msgstr "ผู้จัดรูปแบบเนื้อหาโพสต์:"
 
-#: plugins/importExport/src/ModuleImportWp.php:366
+#: plugins/importExport/src/ModuleImportWp.php:429
 msgid "Comment content formatter:"
 msgstr "ผู้จัดรูปแบบเนื้อหาความคิดเห็น:"
 
-#: plugins/importExport/src/ModuleImportWp.php:486
+#: plugins/importExport/src/ModuleImportWp.php:551
 msgid "WordPress tables not found"
 msgstr "ไม่พบตารางใน WordPress"
 
