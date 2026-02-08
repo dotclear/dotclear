@@ -532,8 +532,8 @@ class ThemeEditor
         foreach (App::plugins()->getDefines(['state' => ModuleDefine::STATE_ENABLED]) as $define) {
             // Looking in Utility::TPL_ROOT and Utility::TPL_ROOT/tplset directory
             $this->tpl = [
-                ...$this->getFilesInDir($define->get('root') . '/' . Utility::TPL_ROOT . '/' . $this->tplset_name),
                 ...$this->getFilesInDir($define->get('root') . '/' . Utility::TPL_ROOT),
+                ...$this->getFilesInDir($define->get('root') . '/' . Utility::TPL_ROOT . '/' . $this->tplset_name),
                 ...$this->tpl,
             ];
         }
