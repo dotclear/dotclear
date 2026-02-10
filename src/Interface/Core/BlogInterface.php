@@ -280,6 +280,14 @@ interface BlogInterface
     public function getPF(string $pf, bool $strip_host = true): string;
 
     /**
+     * Returns public URL of specified theme file.
+     *
+     * @param   string  $vf             var file
+     * @param   bool    $strip_host     Strip host in URL
+     */
+    public function getTF(string $vf, bool $strip_host = true): string;
+
+    /**
      * Returns public URL of specified var file.
      *
      * @param   string  $vf             var file
