@@ -3,6 +3,7 @@
   --widgets-delete-border: var(--delete-color);
   --widgets-settings-border: light-dark(#ddd, #999);
   --widgets-ref-border: light-dark(#ccc, #ccc);
+  --widgets-offline-link: var(--discrete-link-color);
 }
 
 #sidebarsWidgets {
@@ -98,7 +99,7 @@
 }
 
 .offline a.aexpand {
-  color: var(--discrete-link-color);
+  color: var(--widgets-offline-link);
   font-weight: normal;
 }
 
