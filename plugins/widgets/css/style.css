@@ -1,156 +1,181 @@
-/* side bars */
+:root {
+  --widgets-border-color: light-dark(#999, #ccc);
+  --widgets-delete-border: var(--delete-color);
+  --widgets-settings-border: light-dark(#ddd, #999);
+  --widgets-ref-border: light-dark(#ccc, #ccc);
+}
+
 #sidebarsWidgets {
   float: left;
   width: 49%;
   margin: 0 0 0 1%;
   padding: 0 1%;
 }
-#dndnav,
-#dndextra,
-#dndcustom {
-  padding: 1em 0;
-  margin: 1em 0 0;
-}
-#dndnav > li,
-#dndextra > li,
-#dndcustom > li {
-  padding: 0;
-  border: 1px solid #999;
-  margin-bottom: 1em;
-  list-style: none;
-}
-#dndnav > li.empty-widgets,
-#dndextra > li.empty-widgets,
-#dndcustom > li.empty-widgets {
-  border: 0;
-}
-#dndnav > li.ui-sortable-placeholder,
-#dndextra > li.ui-sortable-placeholder,
-#dndcustom > li.ui-sortable-placeholder,
-.sortable-delete > li.ui-sortable-placeholder {
-  border: 1px dashed #999;
-  height: 2em;
-  padding: 0.3em;
-}
-.sortable-delete > li.ui-sortable-placeholder {
-  border-width: 2px;
-  border-color: red;
-}
-.sortable-delete {
-  display: none;
-}
-.sortable-delete.if-drag {
-  border: 1px dotted #999;
-  font-weight: bold;
-  list-style-type: none;
-  margin: 0 0 1em;
-  padding: 0.5em 1em;
-  display: block;
-}
-.sortable-delete > li {
-  margin-bottom: 3px;
-}
-.sortable-delete > li.sortable-delete-placeholder {
-  border: 0 none;
-  font-size: 1em;
-  font-weight: bold;
-  text-align: center;
-}
-.widget-name {
-  padding: 0.25em 0.5em;
-  margin: 0;
-  font-weight: bold;
-}
-.offline a.aexpand {
-  color: var(--discrete-link-color);
-}
-.widget-name img {
-  cursor: pointer;
-  margin-bottom: -1px;
-}
-.widget-name a.aexpand,
-.widget-name a.aexpand:link,
-.widget-name a.aexpand:visited {
-  border: 0 none;
-  text-decoration: none;
-}
-#dndnav .form-note,
-#dndextra .form-note,
-#dndcustom .form-note {
-  display: none;
-}
-.toolsWidget {
-  float: right;
-}
-.widgetSettings {
-  border-top: 1px solid #ddd;
-  padding: 8px 6px;
-}
-#sidebarsControl {
-  clear: left;
-}
 
-/* list Widgets ref */
 #listWidgets {
   float: left;
   width: 49%;
   padding: 1.5em 1% 0;
   margin: 0 1% 0 0;
 }
+
+.sortable-delete {
+  display: none;
+
+  &.if-drag {
+    border: 1px dotted var(--widgets-border-color);
+    font-weight: bold;
+    list-style-type: none;
+    margin: 0 0 1em;
+    padding: 0.5em 1em;
+    display: block;
+  }
+
+  > li {
+    margin-bottom: 3px;
+
+    &.ui-sortable-placeholder {
+      border: 1px dashed var(--widgets-delete-border);
+      height: 2em;
+      padding: 0.3em;
+    }
+
+    &.sortable-delete-placeholder {
+      border: 0 none;
+      font-size: 1em;
+      font-weight: bold;
+      text-align: center;
+    }
+  }
+}
+
+#dndnav,
+#dndextra,
+#dndcustom {
+  padding: 1em 0;
+  margin: 1em 0 0;
+
+  & > li {
+    padding: 0;
+    border: 1px solid var(--widgets-border-color);
+    margin-bottom: 1em;
+    list-style: none;
+
+    &.empty-widgets {
+      border: 0;
+    }
+
+    &.ui-sortable-placeholder {
+      border: 1px dashed var(--widgets-border-color);
+      height: 2em;
+      padding: 0.3em;
+    }
+  }
+
+  .form-note {
+    display: none;
+  }
+}
+
+.widget-name {
+  padding: 0.25em 0.5em;
+  margin: 0;
+  font-weight: bold;
+
+  img {
+    cursor: pointer;
+    margin-bottom: -1px;
+  }
+
+  a.aexpand {
+    &,
+    &:link,
+    &:visited {
+      border: 0 none;
+      text-decoration: none;
+    }
+  }
+}
+
+.offline a.aexpand {
+  color: var(--discrete-link-color);
+  font-weight: normal;
+}
+
+.widgetSettings {
+  border-top: 1px solid var(--widgets-settings-border);
+  padding: 8px 6px;
+}
+
+#sidebarsControl {
+  clear: left;
+}
+
 #widgets-ref {
   padding: 1em 0;
   margin: 1em 0 0;
-}
-#widgets-ref > li {
-  border: 1px solid #ccc;
-  margin-bottom: 0.5em;
-  min-height: 3em;
-  padding: 0 0 4px 0;
-  list-style: none;
-}
-#widgets-ref .widget-name,
-#widgets-ref .manual-move {
-  margin-bottom: 0;
-  padding: 4px 8px 0;
-}
-#widgets-ref .widget-name {
-  min-height: 3em;
-}
-#widgets-ref .widget-name .form-note {
-  display: block;
-  font-style: normal;
-  font-size: 0.9em;
-}
-#widgets-ref .widgetSettings {
-  display: none;
+
+  > li {
+    border: 1px solid var(--widgets-ref-border);
+    margin-bottom: 0.5em;
+    min-height: 3em;
+    padding: 0 0 4px 0;
+    list-style: none;
+  }
+
+  .widget-name,
+  .manual-move {
+    margin-bottom: 0;
+    padding: 4px 8px 0;
+  }
+
+  .widget-name {
+    min-height: 3em;
+
+    .form-note {
+      display: block;
+      font-style: normal;
+      font-size: 0.9em;
+    }
+  }
+
+  .widgetSettings {
+    display: none;
+  }
 }
 
 .toolsWidget {
+  float: right;
   display: flex;
   flex-direction: row;
   gap: 0.25em;
 }
+
 .upWidget,
 .downWidget,
 .removeWidget {
   width: 1.6em;
   padding: 0.25em;
 }
-body.dark-mode .upWidget:not(:disabled),
-body.dark-mode .downWidget:not(:disabled) {
-  filter: brightness(1.5);
+
+body.dark-mode {
+  .upWidget:not(:disabled),
+  .downWidget:not(:disabled) {
+    filter: brightness(1.5);
+  }
 }
 
-/* help */
 #widgets-tpl dt {
   margin: 1em 0 0 0;
   font-weight: normal;
+
   & code {
     font-size: smaller;
   }
 }
 #widgets-tpl dd {
   margin: 0.2em 0 1em 0;
+
   & code {
     font-size: smaller;
   }
