@@ -1,3 +1,56 @@
+Dotclear 2.37 - 2026-02-13
+===========================================================
+* 🐘 PHP 8.2+ is required, PHP 8.3, 8.4 and 8.5 compliance
+* Breaking change: PHP 8.1 is no longer supported
+* Breaking change: Adjust return type of isSpam method of antispam filter (filter now must return null or true or false)
+* Breaking change: type property is now mandatory in _define.php of modules (plugins, themes)
+* Breaking change: Switch from DotAddict to Dotclear for plugins/themes repositories
+* Breaking change: Use only one category (Actualités) for Dotclear news feed
+* Breaking change: Upgrade jQuery from 3.7.1 to 4.0.0 and jQuery migrate from 3.5.0 to 4.0.1
+* UX/UI: Media sub-folders are now sorted in lexical order (based on their names)
+* UX/UI: Add a user preference option to use dynamic letter spacing rather than normal
+* UX/UI: Add a visual indicator (header border color and collapser background color) when one of monitored forms is unsaved, checked every 5s
+* UX/UI: Review color input appearance
+* UX/UI: Review CSS breakpoints (now 600, 1024 and 1280px)
+* UX/UI: Sortable items: reduce sortable handler area to button only (was entire row before) and give more room for the handler
+* UX/UI: Add two user preferences to use a dense layout for favorites icons, and for dashboard modules boxes
+* UX/UI: Adjust badge horizontal position on icons with dense layout
+* UX/UI: Add an header label for Antispam filter's settings link in list
+* UX/UI: about:config and user:prefs plugins: give focus to 1st focusable element on menu selection
+* UX/UI: Switch order of two options of Antispam plugin in blog parameters page, add some explanation about the "only moderate spam" option
+* UX/UI: Cope with last opened folder in media manager
+* UX/UI: Cope with last media directory opened from user (stored in user prefs)
+* UX/UI: Use specific labels for user statuses (in order to avoid confusion with other usages of these labels)
+* UX/UI: Add some statistics on users list and blog list
+* UX/UI: Add date and modification date (and time) columns for users list
+* UX/UI: Widgets management, CSS review
+* A11y: Use aria-current rather than aria-selected for current tab
+* A11y: Enforce some contrasts in dark mode (AA minimum)
+* Core: Add an option for each category to disabled feedback (enabled by default)
+* Core: Simple Menu, a data (string) may be add to each item and it's value will be rendered as data-menuitem HTML attribute
+* Core: Add a max_level parameter (0 = all, n = number of levels) for categories retrieval in blog->getCategories() and categories->getChildren()
+* Core: Blog settings and User preferences, if unknown type, try to detect type from given value and use it if possible
+* Core: Add a dotclear helper (JS) to give focus to the 1st focusable child in an element (take care of tab order)
+* Theme: Berlin, cope with motion reduce setting (a11y)
+* Fix: Blank target of Simple Menu item was not correctly preserved when changing order of menu items
+* Fix: Checking $_POST[…] for a checkbox which may be not present is $_POST if not checked
+* Fix: Some cleanup was missing in last 2.36 update
+* Fix: Cope with GD not available for OTP QR Code in user pref
+* Fix: Media item deletion with a search filter
+* Fix: Ensure given value of Html/Form/Strong field is string
+* Fix: Antispam filters order management if drag'n'drop is disabled in user prefs
+* Fix: Menu was hidden in some cases
+* Fix: Use key attribute of keydown event rather than code in order to ignore keyboard layout (standard Editor)
+* Fix: Success message on user deactivation
+* Fix: cope with encapsulated tags (code in pre for example) for smilies replacements
+* Fix: Blogroll, use "Category status" rather than "Link status" for categories
+* Fix: Search module (plugins/themes) with 0 results
+* Fix: Cope with Codemirror editor for dirty forms monitoring
+* Fix: Return URL from secondary page of actions (entries, …), was limited to last 10 selected in 1st page
+* Fix: Usage of CKEditor and classic editor for non admin users
+* Fix: Avoid overflow of figcaption for centered figures
+* Fix: Theme editor, give priority to named template set rather than generic one when searching template files
+
 Dotclear 2.36 - 2025-11-13
 ===========================================================
 * 🐘 PHP 8.1+ is required, PHP 8.2, 8.3 and 8.4 compliance
