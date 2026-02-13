@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-02-13 17:45+0100\n"
-"PO-Revision-Date: 2026-02-13 16:47\n"
+"PO-Revision-Date: 2026-02-13 17:17\n"
 "Last-Translator: \n"
 "Language-Team: Romanian\n"
 "Language: ro_RO\n"
@@ -3006,11 +3006,11 @@ msgstr "Editare fișiere temă"
 
 #: plugins/themeEditor/src/BackendBehaviors.php:94
 msgid "Light themes"
-msgstr ""
+msgstr "Teme ușoare"
 
 #: plugins/themeEditor/src/BackendBehaviors.php:97
 msgid "Dark themes"
-msgstr ""
+msgstr "Teme întunecate"
 
 #: plugins/themeEditor/src/BackendBehaviors.php:121
 msgid "Syntax highlighting"
