@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-02-13 17:45+0100\n"
-"PO-Revision-Date: 2026-02-13 16:48\n"
+"PO-Revision-Date: 2026-02-13 17:17\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -2992,11 +2992,11 @@ msgstr "编辑主题文件"
 
 #: plugins/themeEditor/src/BackendBehaviors.php:94
 msgid "Light themes"
-msgstr ""
+msgstr "灯光主题"
 
 #: plugins/themeEditor/src/BackendBehaviors.php:97
 msgid "Dark themes"
-msgstr ""
+msgstr "黑暗主题"
 
 #: plugins/themeEditor/src/BackendBehaviors.php:121
 msgid "Syntax highlighting"
