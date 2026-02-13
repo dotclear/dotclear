@@ -45,11 +45,11 @@ tool allowing anyone to publish on the web, regardless of their technical skills
 In order to run Dotclear you need:
 
 - A web server (Apache, Nginx, lighttpd, Caddy, etc)
-- PHP 8.1 to 8.4 with the following modules:
+- PHP 8.2 to 8.5 with the following modules:
   - mbstring
   - simplexml
   - mysqli, postgresql or sqlite
-  - intl (required for PHP 8.2+)
+  - intl
 - A database server (MySQL/MariaDB or PostgreSQL) or SQLite.
 
 ## INSTALLATION
