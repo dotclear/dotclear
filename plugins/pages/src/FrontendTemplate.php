@@ -37,6 +37,10 @@ class FrontendTemplate
             return '';
         }
 
+        if (!$widget->checkNotOnArchive(App::url()->getType())) {
+            return '';
+        }
+
         $params['post_type']     = 'page';
         $params['limit']         = abs((int) $widget->get('limit'));
         $params['no_content']    = true;

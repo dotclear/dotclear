@@ -279,6 +279,10 @@ class FrontendTemplate
             return '';
         }
 
+        if (!$widget->checkNotOnArchive(App::url()->getType())) {
+            return '';
+        }
+
         $combo = ['meta_id_lower', 'count', 'latest', 'oldest'];
 
         $sort = (string) $widget->get('sortby');

@@ -56,6 +56,7 @@ class Widgets
             )
             ->setting('alltagslinktitle', __('Link to all tags:'), __('All tags'))
             ->addHomeOnly()
+            ->addNotOnArchive()
             ->addContentOnly()
             ->addClass()
             ->addOffline();

@@ -136,6 +136,7 @@ class Widgets
             ->setting('subcatscount', __('Include sub cats in count'), false, 'check')
             ->setting('with_empty', __('Include empty categories'), 0, 'check')
             ->addHomeOnly()
+            ->addNotOnArchive()
             ->addContentOnly()
             ->addClass()
             ->addOffline();
@@ -417,6 +418,10 @@ class Widgets
         }
 
         if (!$widget->checkHomeOnly(App::url()->getType())) {
+            return '';
+        }
+
+        if (!$widget->checkNotOnArchive(App::url()->getType())) {
             return '';
         }
 

@@ -53,6 +53,7 @@ class Widgets
                 ]
             )
             ->addHomeOnly()
+            ->addNotOnArchive()
             ->addContentOnly()
             ->addClass()
             ->addOffline();

@@ -581,6 +581,35 @@ class WidgetsElement
     }
 
     /**
+     * Adds a not on archive setting.
+     *
+     * @param   int     $not_on_archive   The content only flag
+     */
+    public function addNotOnArchive(int $not_on_archive = 0): self
+    {
+        return $this->setting('not_on_archive', __('Do not display on archive main page'), $not_on_archive, 'check');
+    }
+
+    /**
+     * Check if the widget should be displayed, depending on its not on archive setting.
+     *
+     * @param   string  $type           The type
+     */
+    public function checkNotOnArchive(string $type): bool
+    {
+        if ($type !== 'archive') {
+            return true;
+        }
+
+        if (!isset($this->settings['not_on_archive']) || (bool) $this->settings['not_on_archive']['value'] === false) {
+            return true;
+        }
+
+        // On archive and widget should not be displayed on it
+        return false;
+    }
+
+    /**
      * Adds a content only setting.
      *
      * @param   int     $content_only   The content only flag
