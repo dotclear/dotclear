@@ -6,6 +6,12 @@ if (typeof dotclear.post_remember_str === 'undefined' && typeof dotclear.getData
 }
 
 window.addEventListener('load', () => {
+  // Hide fake email field (useful if CSP prevent inline style)
+  const femail = document.querySelector('p input[name=f_mail]');
+  if (femail) {
+    femail.parentNode.style.display = 'none';
+  }
+
   const bloc = new DOMParser().parseFromString(
     `<p class="remember"><input type="checkbox" id="c_remember" name="c_remember"> <label for="c_remember">${dotclear.post_remember_str}</label></p>`,
     'text/html',
