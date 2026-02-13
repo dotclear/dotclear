@@ -54,8 +54,6 @@ parameters:
     - src
     - plugins
     - themes/berlin
-    - themes/blowup
-    - themes/blueSilence
     - themes/customCSS
     - themes/ductile
 

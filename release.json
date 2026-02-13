@@ -47,5 +47,5 @@
     "userPref",
     "widgets"
   ],
-  "distributed_themes": ["berlin", "blowup", "blueSilence", "customCSS", "ductile"]
+  "distributed_themes": ["berlin", "customCSS", "ductile"]
 }

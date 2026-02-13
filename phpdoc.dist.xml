@@ -18,8 +18,6 @@
         <path>src</path>
         <path>plugins</path>
         <path>themes/berlin</path>
-        <path>themes/blowup</path>
-        <path>themes/blueSilence</path>
         <path>themes/customCSS</path>
         <path>themes/ductile</path>
       </source>

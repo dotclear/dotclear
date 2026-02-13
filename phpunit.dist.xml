@@ -29,8 +29,6 @@
       <directory suffix=".php">locales</directory>
       <directory suffix=".php">plugins</directory>
       <directory suffix=".php">themes/berlin</directory>
-      <directory suffix=".php">themes/blowup</directory>
-      <directory suffix=".php">themes/blueSilence</directory>
       <directory suffix=".php">themes/customCSS</directory>
       <directory suffix=".php">themes/ductile</directory>
     </include>

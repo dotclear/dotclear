@@ -34,8 +34,6 @@ config: clean config-stamp
 	## Copy built-in themes (same list that "distributed_themes" from release.json)
 	cp -pRf \
 	./themes/berlin \
-	./themes/blowup \
-	./themes/blueSilence \
 	./themes/customCSS \
 	./themes/ductile \
 	./$(DC)/themes/
