@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-13 16:08+0100\n"
-"PO-Revision-Date: 2026-02-13 15:37\n"
+"POT-Creation-Date: 2026-02-13 17:45+0100\n"
+"PO-Revision-Date: 2026-02-13 16:47\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
 "Language: es_ES\n"
@@ -2991,17 +2991,25 @@ msgstr "Enlace a todas las etiquetas:"
 msgid "themeEditor"
 msgstr "temaEditor"
 
-#: plugins/themeEditor/src/BackendBehaviors.php:45
+#: plugins/themeEditor/src/BackendBehaviors.php:46
 #: plugins/themeEditor/src/Manage.php:194
 #: plugins/themeEditor/src/Manage.php:201
 msgid "Edit theme files"
 msgstr "Editar los archivos del tema"
 
-#: plugins/themeEditor/src/BackendBehaviors.php:105
+#: plugins/themeEditor/src/BackendBehaviors.php:94
+msgid "Light themes"
+msgstr ""
+
+#: plugins/themeEditor/src/BackendBehaviors.php:97
+msgid "Dark themes"
+msgstr ""
+
+#: plugins/themeEditor/src/BackendBehaviors.php:121
 msgid "Syntax highlighting"
 msgstr "Resaltado sintáctico"
 
-#: plugins/themeEditor/src/BackendBehaviors.php:117
+#: plugins/themeEditor/src/BackendBehaviors.php:133
 msgid "Syntax highlighting in theme editor"
 msgstr "Resaltado de sintaxis en el editor de temas"
 
