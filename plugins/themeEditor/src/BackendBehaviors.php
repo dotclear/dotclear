@@ -18,6 +18,7 @@ use Dotclear\Helper\Html\Form\Hidden;
 use Dotclear\Helper\Html\Form\Label;
 use Dotclear\Helper\Html\Form\Legend;
 use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\Optgroup;
 use Dotclear\Helper\Html\Form\Option;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Select;
@@ -75,11 +76,26 @@ class BackendBehaviors
         // Add fieldset for plugin options
         $current_theme = App::auth()->prefs()->interface->colorsyntax_theme ?? 'default';
 
-        $themes_list  = App::backend()->page()->getCodeMirrorThemes();
+        /**
+         * @var array<array-key, array<array-key, string>> $themes_list (0 = light, 1 = dark)
+         */
+        $themes_list = App::backend()->page()->getCodeMirrorThemes(true);
+
+        // Capitalize each word, replace dash by space, add a space before numbers
+        $sanitizeThemeName = fn (string $theme_id): string => (string) preg_replace('/(\d+)/', ' $1', ucwords(str_replace(['-', '.', '_'], ' ', $theme_id)));
+
+        $themes_combo_light = [... array_map(fn (string $value): Option => new Option(trim($sanitizeThemeName($value)), $value), $themes_list[0])];
+        $themes_combo_dark  = [... array_map(fn (string $value): Option => new Option(trim($sanitizeThemeName($value)), $value), $themes_list[1])];
+
         $themes_combo = [
             new Option(__('Default'), ''),
-            ... array_map(fn (string $value): Option => new Option($value, $value), $themes_list),
         ];
+        if ($themes_combo_light !== []) {
+            $themes_combo[] = (new Optgroup(__('Light themes')))->items($themes_combo_light);
+        }
+        if ($themes_combo_dark !== []) {
+            $themes_combo[] = (new Optgroup(__('Dark themes')))->items($themes_combo_dark);
+        }
 
         $sample = '
 <textarea id="codemirror" name="codemirror" readonly="true">

@@ -1604,19 +1604,56 @@ class Page
     /**
      * Gets the codemirror themes list.
      *
-     * @return     array<string>  The code mirror themes.
+     * @param      bool         $light_dark     True if returned array will separate light and dark themes
+     *
+     * @return     array<string>|array<array-key, array<array-key, string>>  The code mirror themes.
      */
-    public static function getCodeMirrorThemes(): array
+    public static function getCodeMirrorThemes(bool $light_dark = false): array
     {
-        $themes      = [];
+        $themes            = [];
+        $themes_list_dark  = [];
+        $themes_list_light = [];
+
         $themes_root = implode(DIRECTORY_SEPARATOR, [__DIR__,  '..', '..', '..', 'admin', 'js','codemirror','theme']);
         if (is_dir($themes_root) && is_readable($themes_root) && ($d = @dir($themes_root)) !== false) {
             while (($entry = $d->read()) !== false) {
                 if ($entry !== '.' && $entry !== '..' && !str_starts_with($entry, '.') && is_readable($themes_root . '/' . $entry)) {
-                    $themes[] = substr($entry, 0, -4); // remove .css extension
+                    $name = substr($entry, 0, -4); // remove .css extension
+                    if ($light_dark) {
+                        // get background color to determine if it is a dark or light theme
+                        $buffer = file_get_contents($themes_root . DIRECTORY_SEPARATOR . $entry);
+                        if ($buffer) {
+                            // Find .CodeMirror {…} declaration
+                            $css = [];
+                            if (preg_match('/(?:\s)*\.CodeMirror {((?:[^}])*)}/m', $buffer, $css)) {
+                                // Find background color in .hljs {…} declaration
+                                $css_background = [];
+                                if (preg_match('/(?:\s)*background(?:-color)*:\s#([0-9a-f]{3,6})/m', $css[1], $css_background)) {
+                                    $color = $css_background[1];
+                                    if (strlen($color) === 3) {
+                                        $color .= $color;
+                                    }
+                                    // Check if background color is dark or light
+                                    if (hexdec($color) > 0xffffff / 2) {
+                                        $themes_list_light[] = $name;
+                                    } else {
+                                        $themes_list_dark[] = $name;
+                                    }
+                                }
+                            }
+                        }
+                    } else {
+                        $themes[] = $name;
+                    }
                 }
             }
-            sort($themes);
+            if ($light_dark) {
+                sort($themes_list_light);
+                sort($themes_list_dark);
+                $themes = [$themes_list_light, $themes_list_dark];
+            } else {
+                sort($themes);
+            }
         }
 
         return $themes;
