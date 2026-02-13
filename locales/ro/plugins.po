@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-06 09:12+0100\n"
-"PO-Revision-Date: 2026-02-06 08:51\n"
+"POT-Creation-Date: 2026-02-13 16:08+0100\n"
+"PO-Revision-Date: 2026-02-13 15:37\n"
 "Last-Translator: \n"
 "Language-Team: Romanian\n"
 "Language: ro_RO\n"
@@ -1325,7 +1325,7 @@ msgstr "Nu încapsulați breadcrumb într-o etichetă &lt;p id=\"breadcrumb\"&gt
 #: plugins/breadcrumb/src/FrontendTemplate.php:245
 #: plugins/breadcrumb/src/FrontendTemplate.php:251
 #: plugins/simpleMenu/src/Manage.php:159 plugins/simpleMenu/src/Manage.php:279
-#: plugins/widgets/src/Widgets.php:295
+#: plugins/widgets/src/Widgets.php:296
 msgid "Home"
 msgstr "Acasă"
 
@@ -1339,7 +1339,7 @@ msgstr "pagina %d"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:185
 #: plugins/breadcrumb/src/FrontendTemplate.php:191
-#: plugins/simpleMenu/src/Manage.php:306 plugins/widgets/src/Widgets.php:323
+#: plugins/simpleMenu/src/Manage.php:306 plugins/widgets/src/Widgets.php:324
 msgid "Archives"
 msgstr "Arhive"
 
@@ -1890,7 +1890,7 @@ msgid "Add a feed content to the current blog: <strong>%s</strong>."
 msgstr "Adaugă conținut feed la blog-ul curent: <strong>%s</strong>."
 
 #: plugins/importExport/src/ModuleImportFeed.php:250
-#: plugins/widgets/src/Widgets.php:155
+#: plugins/widgets/src/Widgets.php:156
 msgid "Feed URL:"
 msgstr "URL flux:"
 
@@ -2657,7 +2657,7 @@ msgid "Home page"
 msgstr "Pagina principală"
 
 #: plugins/simpleMenu/src/Manage.php:280 plugins/simpleMenu/src/Manage.php:285
-#: plugins/widgets/src/Widgets.php:304 plugins/widgets/src/Widgets.php:314
+#: plugins/widgets/src/Widgets.php:305 plugins/widgets/src/Widgets.php:315
 msgid "Recent posts"
 msgstr "Postări recente"
 
@@ -3324,73 +3324,73 @@ msgstr "Include subpisici în număr"
 msgid "Include empty categories"
 msgstr "Include categorii goale"
 
-#: plugins/widgets/src/Widgets.php:144
+#: plugins/widgets/src/Widgets.php:145
 msgid "Subscribe links"
 msgstr "Aboneaza-te link-uri"
 
-#: plugins/widgets/src/Widgets.php:145
+#: plugins/widgets/src/Widgets.php:146
 msgid "Subscribe"
 msgstr "Abonează-te"
 
-#: plugins/widgets/src/Widgets.php:146
+#: plugins/widgets/src/Widgets.php:147
 msgid "Feeds type:"
 msgstr "Tip flux:"
 
-#: plugins/widgets/src/Widgets.php:153
+#: plugins/widgets/src/Widgets.php:154
 msgid "Feed reader"
 msgstr "Cititor fluxuri"
 
-#: plugins/widgets/src/Widgets.php:154
+#: plugins/widgets/src/Widgets.php:155
 msgid "Somewhere else"
 msgstr "Altul undeva"
 
-#: plugins/widgets/src/Widgets.php:156 plugins/widgets/src/Widgets.php:184
+#: plugins/widgets/src/Widgets.php:157 plugins/widgets/src/Widgets.php:185
 msgid "Entries limit:"
 msgstr "Limită intrări:"
 
-#: plugins/widgets/src/Widgets.php:163
+#: plugins/widgets/src/Widgets.php:164
 msgid "Text"
 msgstr "Text"
 
-#: plugins/widgets/src/Widgets.php:165
+#: plugins/widgets/src/Widgets.php:166
 msgid "Text:"
 msgstr "Text:"
 
-#: plugins/widgets/src/Widgets.php:172
+#: plugins/widgets/src/Widgets.php:173
 msgid "Uncategorized"
 msgstr "Neclasificat"
 
-#: plugins/widgets/src/Widgets.php:176 plugins/widgets/src/Widgets.php:178
+#: plugins/widgets/src/Widgets.php:177 plugins/widgets/src/Widgets.php:179
 msgid "Last entries"
 msgstr "Ultimele intrări"
 
-#: plugins/widgets/src/Widgets.php:181
+#: plugins/widgets/src/Widgets.php:182
 msgid "Tag:"
 msgstr "Etichetă:"
 
-#: plugins/widgets/src/Widgets.php:193
+#: plugins/widgets/src/Widgets.php:194
 msgid "Last comments"
 msgstr "Ultimele comentarii"
 
-#: plugins/widgets/src/Widgets.php:194
+#: plugins/widgets/src/Widgets.php:195
 msgid "Comments limit:"
 msgstr "Limita comentariilor:"
 
-#: plugins/widgets/src/Widgets.php:564
+#: plugins/widgets/src/Widgets.php:569
 #, php-format
 msgid "This blog's entries %s feed"
 msgstr "Intrările acestui blog %s feed"
 
-#: plugins/widgets/src/Widgets.php:565
+#: plugins/widgets/src/Widgets.php:570
 #, php-format
 msgid "This blog's comments %s feed"
 msgstr "Comentariile acestui blog %s flux"
 
-#: plugins/widgets/src/Widgets.php:578
+#: plugins/widgets/src/Widgets.php:583
 msgid "Entries feed"
 msgstr "Flux intrări"
 
-#: plugins/widgets/src/Widgets.php:588
+#: plugins/widgets/src/Widgets.php:593
 msgid "Comments feed"
 msgstr "Feed de comentarii"
 
@@ -3415,10 +3415,14 @@ msgid "Display on:"
 msgstr "Afișaj pe:"
 
 #: plugins/widgets/src/WidgetsElement.php:590
+msgid "Do not display on archive main page"
+msgstr "Nu se afișează pe pagina principală a arhivei"
+
+#: plugins/widgets/src/WidgetsElement.php:619
 msgid "Content only"
 msgstr "Doar conținut"
 
-#: plugins/widgets/src/WidgetsElement.php:600
+#: plugins/widgets/src/WidgetsElement.php:629
 msgid "CSS class:"
 msgstr "Clasa CSS:"
 
