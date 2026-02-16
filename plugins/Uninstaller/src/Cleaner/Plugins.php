@@ -51,7 +51,7 @@ class Plugins extends CleanerParent
 
     public function distributed(): array
     {
-        return explode(',', App::config()->distributedPlugins());
+        return explode(',', App::plugins()->getProtectedModules());
     }
 
     public function values(): array
