@@ -389,7 +389,8 @@ class ThemesList extends ModulesList
             }
         }
 
-        if ($define->get('distributed') && ($pos = array_search('delete', $actions, true))) {
+        $distributed = in_array($id, explode(',', App::themes()->getProtectedModules()));
+        if ($distributed && ($pos = array_search('delete', $actions, true))) {
             // Remove 'delete' action for officially distributed themes
             unset($actions[$pos]);
         }

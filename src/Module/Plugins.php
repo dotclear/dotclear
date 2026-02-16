@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -9,6 +10,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Module;
 
+use Dotclear\App;
 use Dotclear\Interface\Core\PluginsInterface;
 
 /**
@@ -72,5 +74,13 @@ class Plugins extends Modules implements PluginsInterface
         }
 
         $this->defineModule($define);
+    }
+
+    /**
+     * Get protected modules list (comma separated list), usually modules distributed with Dotclear
+     */
+    public function getProtectedModules(): string
+    {
+        return App::config()->distributedPlugins();
     }
 }

@@ -270,6 +270,11 @@ interface ModulesInterface
     public function registerModule(string $name, string $desc, string $author, string $version, $properties = []): void;
 
     /**
+     * Get protected modules list (comma separated list), usually modules distributed with Dotclear
+     */
+    public function getProtectedModules(): string;
+
+    /**
      * Reset modules list.
      */
     public function resetModulesList(): void;

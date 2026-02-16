@@ -13,6 +13,7 @@ namespace Dotclear\Module;
 use Autoloader;
 use Dotclear\App;
 use Dotclear\Helper\File\Files;
+use Dotclear\Helper\File\Path;
 use Dotclear\Interface\Core\ThemesInterface;
 use Exception;
 
@@ -85,6 +86,19 @@ class Themes extends Modules implements ThemesInterface
         }
 
         $this->defineModule($define);
+    }
+
+    /**
+     * Get protected modules list (comma separated list), usually modules distributed with Dotclear
+     */
+    public function getProtectedModules(): string
+    {
+        // Consider only those themes present in the themes folder of the current installation as protected themes
+        $current_themes_path = rtrim((string) Path::real(App::blog()->themesPath()), '/');
+
+        return $current_themes_path === Path::real(App::config()->dotclearRoot()) . '/themes' ?
+            App::config()->distributedThemes() :
+            '';
     }
 
     protected function defineModule(ModuleDefine $define): void

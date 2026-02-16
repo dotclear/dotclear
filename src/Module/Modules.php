@@ -607,17 +607,7 @@ class Modules implements ModulesInterface
             $this->define->set('priority', 1);
         }
 
-        if ($this->define->get('type') == 'theme') {
-            // Consider only those themes present in the themes folder of the current installation as distributed themes
-            $current_themes_path = rtrim((string) Path::real(App::blog()->themesPath()), '/');
-            $distributed_modules = $current_themes_path === Path::real(App::config()->dotclearRoot()) . '/themes' ?
-                App::config()->distributedThemes() :
-                '';
-        } else {
-            $distributed_modules = App::config()->distributedPlugins();
-        }
-
-        $this->define->set('distributed', in_array($this->define->getId(), explode(',', $distributed_modules)));
+        $this->define->set('distributed', in_array($this->define->getId(), explode(',', $this->getProtectedModules())));
 
         // try to extract dc_min for easy reading
         if (empty($this->define->get('dc_min')) && !empty($this->define->get('requires'))) {
@@ -678,6 +668,14 @@ class Modules implements ModulesInterface
                 $this->defines[]              = $this->define;
             }
         }
+    }
+
+    /**
+     * Get protected modules list (comma separated list), usually modules distributed with Dotclear
+     */
+    public function getProtectedModules(): string
+    {
+        return '';
     }
 
     /**
