@@ -39,6 +39,8 @@ dotclear.ready(() => {
       $('#file-chooser').empty();
       $(res).find('#file-chooser').children().appendTo('#file-chooser');
       $('input[name="delete"]').removeClass('hide');
+      // Remove cm_dirty class from textarea (not removed by Codemirror)
+      $('#file_content').removeClass('cm_dirty');
       if (typeof dotclear.confirmClosePage.getCurrentForms === 'function') {
         dotclear.confirmClosePage.forms = [];
         dotclear.confirmClosePage.getCurrentForms();
