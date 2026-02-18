@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-05 12:37+0100\n"
-"PO-Revision-Date: 2026-02-06 08:51\n"
+"POT-Creation-Date: 2026-02-18 13:22+0100\n"
+"PO-Revision-Date: 2026-02-18 12:59\n"
 "Last-Translator: \n"
 "Language-Team: Vietnamese\n"
 "Language: vi_VN\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Crowdin-File-ID: 262\n"
 
 #: inc/core/_fake_l10n.php:7 src/Process/Backend/Auth.php:446
-#: src/Process/Backend/User.php:265 src/Process/Backend/UserPreferences.php:573
+#: src/Process/Backend/User.php:265 src/Process/Backend/UserPreferences.php:575
 #: src/Process/Install/Install.php:427 src/Process/Upgrade/Auth.php:388
 msgid "medium"
 msgstr "trung bình"
@@ -206,7 +206,7 @@ msgstr "Trạng thái"
 #: src/Core/Backend/Listing/ListingMedia.php:323
 #: src/Core/Backend/ModulesList.php:1373 src/Core/Upgrade/PluginsList.php:125
 #: src/Process/Backend/Comment.php:354 src/Process/Backend/Langs.php:231
-#: src/Process/Backend/Post.php:972 src/Process/Backend/UserPreferences.php:700
+#: src/Process/Backend/Post.php:972 src/Process/Backend/UserPreferences.php:702
 #: src/Process/Backend/Users.php:44 src/Process/Upgrade/Langs.php:297
 msgid "Delete"
 msgstr "Xóa"
@@ -221,7 +221,7 @@ msgid "Selected blogs have been successfully updated."
 msgstr "Các blog đã được chọn đã được cập nhật thành công."
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:104
-#: src/Core/Backend/ModulesList.php:1713 src/Core/Backend/ThemesList.php:727
+#: src/Core/Backend/ModulesList.php:1713 src/Core/Backend/ThemesList.php:728
 #: src/Core/Upgrade/PluginsList.php:400 src/Process/Backend/BlogDel.php:69
 #: src/Process/Backend/Langs.php:114 src/Process/Backend/Langs.php:159
 #: src/Process/Backend/User.php:128 src/Process/Backend/UsersActions.php:195
@@ -499,11 +499,11 @@ msgstr "Có sẵn"
 msgid "Other"
 msgstr "Khác"
 
-#: src/Core/Backend/Combos.php:298 src/Process/Backend/UserPreferences.php:199
+#: src/Core/Backend/Combos.php:298 src/Process/Backend/UserPreferences.php:200
 msgid "Descending"
 msgstr "Hạ xuống"
 
-#: src/Core/Backend/Combos.php:299 src/Process/Backend/UserPreferences.php:200
+#: src/Core/Backend/Combos.php:299 src/Process/Backend/UserPreferences.php:201
 msgid "Ascending"
 msgstr "Tăng dần"
 
@@ -603,7 +603,7 @@ msgid "Update date"
 msgstr "Ngày cập nhật"
 
 #: src/Core/Backend/Favorites.php:287
-#: src/Process/Backend/UserPreferences.php:1364
+#: src/Process/Backend/UserPreferences.php:1372
 msgid "My favorites"
 msgstr "Những món yêu thích của tôi"
 
@@ -692,28 +692,28 @@ msgstr "Cài đặt plugin"
 msgid "Languages"
 msgstr "Ngôn ngữ"
 
-#: src/Core/Backend/Favorites.php:527 src/Core/Backend/Page.php:450
-#: src/Core/Backend/Page.php:451 src/Process/Backend/Help.php:115
+#: src/Core/Backend/Favorites.php:527 src/Core/Backend/Page.php:455
+#: src/Core/Backend/Page.php:456 src/Process/Backend/Help.php:115
 #: src/Process/Backend/Help.php:122 src/Process/Backend/Help.php:128
 msgid "Global help"
 msgstr "Hỗ trợ toàn cầu"
 
-#: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1287
+#: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1295
 #: src/Process/Backend/Auth.php:513 src/Process/Backend/BlogPref.php:1369
 #: src/Process/Backend/Comment.php:305 src/Process/Backend/Post.php:1120
-#: src/Process/Backend/User.php:450 src/Process/Backend/UserPreferences.php:822
+#: src/Process/Backend/User.php:450 src/Process/Backend/UserPreferences.php:824
 #: src/Process/Install/Install.php:508
 msgid "Email:"
 msgstr "Email:"
 
-#: src/Core/Backend/Filter/FilterComments.php:37 src/Core/Backend/Page.php:1286
+#: src/Core/Backend/Filter/FilterComments.php:37 src/Core/Backend/Page.php:1294
 #: src/Process/Backend/Comment.php:321 src/Process/Backend/Post.php:1129
 msgid "Web site:"
 msgstr "Trang web:"
 
 #: src/Core/Backend/Filter/FilterComments.php:58
 #: src/Core/Backend/Filter/FilterPosts.php:92
-#: src/Core/Backend/ModulesList.php:1045 src/Core/Backend/Page.php:1328
+#: src/Core/Backend/ModulesList.php:1045 src/Core/Backend/Page.php:1336
 #: src/Process/Backend/Comment.php:294
 msgid "Author:"
 msgstr "Tác giả:"
@@ -732,7 +732,7 @@ msgid "Trackback"
 msgstr "Thông báo liên kết ngược"
 
 #: src/Core/Backend/Filter/FilterComments.php:107
-#: src/Core/Backend/Page.php:1288 src/Process/Backend/Comment.php:269
+#: src/Core/Backend/Page.php:1296 src/Process/Backend/Comment.php:269
 msgid "IP address:"
 msgstr "Địa chỉ IP:"
 
@@ -833,7 +833,7 @@ msgid "Sort:"
 msgstr "Sắp xếp:"
 
 #: src/Core/Backend/Filter/Filters.php:388
-#: src/Process/Backend/UserPreferences.php:980
+#: src/Process/Backend/UserPreferences.php:982
 msgid "Show"
 msgstr "Hiển thị"
 
@@ -845,7 +845,7 @@ msgstr "Lưu các tùy chọn hiện tại"
 msgid "Display options"
 msgstr "Tùy chọn hiển thị"
 
-#: src/Core/Backend/Filter/Filters.php:420 src/Core/Backend/Page.php:1496
+#: src/Core/Backend/Filter/Filters.php:420 src/Core/Backend/Page.php:1504
 msgid "Show filters and display options"
 msgstr "Hiển thị bộ lọc và tùy chọn hiển thị"
 
@@ -854,7 +854,7 @@ msgid "Apply filters and display options"
 msgstr "Áp dụng bộ lọc và tùy chọn hiển thị"
 
 #: src/Core/Backend/Filter/FiltersLibrary.php:87
-#: src/Core/Backend/MediaPage.php:426 src/Core/Backend/Page.php:478
+#: src/Core/Backend/MediaPage.php:426 src/Core/Backend/Page.php:483
 msgid "Search:"
 msgstr "Tìm kiếm:"
 
@@ -1193,7 +1193,7 @@ msgstr "khác"
 msgid "Search in repository:"
 msgstr "Tìm kiếm trong kho lưu trữ:"
 
-#: src/Core/Backend/ModulesList.php:413 src/Core/Backend/Page.php:480
+#: src/Core/Backend/ModulesList.php:413 src/Core/Backend/Page.php:485
 msgid "OK"
 msgstr "Được rồi"
 
@@ -1242,7 +1242,7 @@ msgid "Current version"
 msgstr "Phiên bản hiện tại"
 
 #: src/Core/Backend/ModulesList.php:839 src/Core/Backend/ModulesList.php:1063
-#: src/Core/Backend/Page.php:1329 src/Core/Backend/ThemesList.php:230
+#: src/Core/Backend/Page.php:1337 src/Core/Backend/ThemesList.php:230
 #: src/Core/Backend/ThemesList.php:300
 msgid "Details"
 msgstr "Chi tiết"
@@ -1292,7 +1292,7 @@ msgstr "Plugin đang trong quá trình phát triển"
 msgid "Release date:"
 msgstr "Ngày phát hành:"
 
-#: src/Core/Backend/ModulesList.php:1070 src/Core/Backend/Page.php:1330
+#: src/Core/Backend/ModulesList.php:1070 src/Core/Backend/Page.php:1338
 #: src/Core/Backend/ThemesList.php:236
 msgid "Support"
 msgstr "Hỗ trợ"
@@ -1301,11 +1301,11 @@ msgstr "Hỗ trợ"
 msgid "update locked"
 msgstr "Cập nhật đã bị khóa"
 
-#: src/Core/Backend/ModulesList.php:1127 src/Core/Backend/Page.php:1332
+#: src/Core/Backend/ModulesList.php:1127 src/Core/Backend/Page.php:1340
 msgid "Section:"
 msgstr "Phần:"
 
-#: src/Core/Backend/ModulesList.php:1133 src/Core/Backend/Page.php:1333
+#: src/Core/Backend/ModulesList.php:1133 src/Core/Backend/Page.php:1341
 msgid "Tags:"
 msgstr "Thẻ:"
 
@@ -1427,7 +1427,7 @@ msgstr[0] "Các plugin đã được cập nhật thành công."
 msgid "Following plugins updates are locked: %s"
 msgstr "Các bản cập nhật plugin sau đây đã bị khóa: %s"
 
-#: src/Core/Backend/ModulesList.php:1721 src/Core/Backend/ThemesList.php:735
+#: src/Core/Backend/ModulesList.php:1721 src/Core/Backend/ThemesList.php:736
 #: src/Core/Upgrade/PluginsList.php:408 src/Process/Backend/Langs.php:165
 #: src/Process/Upgrade/Langs.php:213
 msgid "Unable to move uploaded file."
@@ -1478,7 +1478,7 @@ msgstr "Mật khẩu"
 msgid "Your password:"
 msgstr "Mật khẩu của bạn:"
 
-#: src/Core/Backend/ModulesList.php:1799 src/Core/Backend/Page.php:1452
+#: src/Core/Backend/ModulesList.php:1799 src/Core/Backend/Page.php:1460
 #: src/Process/Backend/Media.php:809
 msgid "Upload"
 msgstr "Tải lên"
@@ -1518,14 +1518,14 @@ msgstr "Cấu hình \"%s\""
 #: src/Process/Backend/Category.php:300 src/Process/Backend/Comment.php:351
 #: src/Process/Backend/Media.php:871 src/Process/Backend/MediaItem.php:1327
 #: src/Process/Backend/Post.php:962 src/Process/Backend/Search.php:193
-#: src/Process/Backend/User.php:565 src/Process/Backend/UserPreferences.php:883
-#: src/Process/Backend/UserPreferences.php:1219
-#: src/Process/Backend/UserPreferences.php:1459
+#: src/Process/Backend/User.php:565 src/Process/Backend/UserPreferences.php:885
+#: src/Process/Backend/UserPreferences.php:1227
+#: src/Process/Backend/UserPreferences.php:1467
 msgid "Back"
 msgstr "Quay lại"
 
-#: src/Core/Backend/Notices.php:86 src/Core/Backend/Page.php:1289
-#: src/Core/Backend/Page.php:1447 src/Core/Upgrade/Notices.php:48
+#: src/Core/Backend/Notices.php:86 src/Core/Backend/Page.php:1297
+#: src/Core/Backend/Page.php:1455 src/Core/Upgrade/Notices.php:48
 #: src/Process/Backend/Home.php:324
 msgid "Error:"
 msgstr "Lỗi:"
@@ -1541,7 +1541,7 @@ msgid "%H:%M:%S"
 msgstr "%H:%M:%S"
 
 #: src/Core/Backend/Notices.php:258 src/Core/Backend/Notices.php:298
-#: src/Core/Backend/Notices.php:308 src/Core/Backend/Page.php:1335
+#: src/Core/Backend/Notices.php:308 src/Core/Backend/Page.php:1343
 #: src/Process/Backend/Categories.php:378 src/Process/Backend/Post.php:1064
 #: src/Process/Backend/Post.php:1196 src/Process/Backend/PostsPopup.php:121
 msgid "Ok"
@@ -1573,8 +1573,8 @@ msgid "Go to help"
 msgstr "Đi đến phần trợ giúp"
 
 #: src/Core/Backend/Page.php:342 src/Core/Upgrade/Page.php:177
-#: src/Process/Backend/UserPreferences.php:1354
-#: src/Process/Backend/UserPreferences.php:1356
+#: src/Process/Backend/UserPreferences.php:1362
+#: src/Process/Backend/UserPreferences.php:1364
 msgid "My dashboard"
 msgstr "Bảng điều khiển của tôi"
 
@@ -1595,352 +1595,360 @@ msgstr "Ẩn menu chính"
 msgid "Show main menu"
 msgstr "Hiển thị menu chính"
 
-#: src/Core/Backend/Page.php:428
+#: src/Core/Backend/Page.php:414 src/Core/Backend/Page.php:1282
+msgid "Hide menu"
+msgstr "Ẩn menu"
+
+#: src/Core/Backend/Page.php:433
 msgid "Safe mode"
 msgstr "Chế độ an toàn"
 
-#: src/Core/Backend/Page.php:430
+#: src/Core/Backend/Page.php:435
 msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities"
 msgstr "Bạn đang ở chế độ an toàn. Tất cả các plugin đã bị vô hiệu hóa tạm thời. Hãy đăng xuất rồi đăng nhập lại bình thường để khôi phục tất cả các chức năng."
 
-#: src/Core/Backend/Page.php:498 src/Core/Upgrade/Page.php:263
+#: src/Core/Backend/Page.php:503 src/Core/Upgrade/Page.php:263
 #, php-format
 msgid "Thank you for using %s."
 msgstr "Cảm ơn quý khách đã sử dụng %s."
 
-#: src/Core/Backend/Page.php:515 src/Core/Backend/Page.php:519
-#: src/Core/Backend/Page.php:521 src/Core/Backend/Page.php:669
-#: src/Core/Backend/Page.php:671 src/Core/Upgrade/Page.php:274
+#: src/Core/Backend/Page.php:520 src/Core/Backend/Page.php:524
+#: src/Core/Backend/Page.php:526 src/Core/Backend/Page.php:674
+#: src/Core/Backend/Page.php:676 src/Core/Upgrade/Page.php:274
 #: src/Core/Upgrade/Page.php:278 src/Core/Upgrade/Page.php:280
 msgid "Page top"
 msgstr "Đầu trang"
 
-#: src/Core/Backend/Page.php:541 src/Core/Backend/Page.php:544
+#: src/Core/Backend/Page.php:546 src/Core/Backend/Page.php:549
 #: src/Core/Upgrade/Page.php:300 src/Core/Upgrade/Page.php:303
 msgid "Dotclear logo"
 msgstr "Biểu tượng Dotclear"
 
-#: src/Core/Backend/Page.php:881 src/Core/Backend/Page.php:884
+#: src/Core/Backend/Page.php:886 src/Core/Backend/Page.php:889
 #: src/Core/Upgrade/Page.php:342 src/Core/Upgrade/Page.php:345
 msgid "Go to dashboard"
 msgstr "Đi đến bảng điều khiển"
 
-#: src/Core/Backend/Page.php:1137 src/Core/Upgrade/Page.php:458
+#: src/Core/Backend/Page.php:1142 src/Core/Upgrade/Page.php:458
 msgid "Help about this page"
 msgstr "Trợ giúp về trang này"
 
-#: src/Core/Backend/Page.php:1147 src/Core/Upgrade/Page.php:467
+#: src/Core/Backend/Page.php:1152 src/Core/Upgrade/Page.php:467
 #, php-format
 msgid "See also %s"
 msgstr "Xem thêm %s"
 
-#: src/Core/Backend/Page.php:1150 src/Core/Upgrade/Page.php:470
+#: src/Core/Backend/Page.php:1155 src/Core/Upgrade/Page.php:470
 msgid "the global help"
 msgstr "Trợ giúp toàn cầu"
 
-#: src/Core/Backend/Page.php:1271
+#: src/Core/Backend/Page.php:1276
 msgid "uncover"
 msgstr "phát hiện"
 
-#: src/Core/Backend/Page.php:1275
+#: src/Core/Backend/Page.php:1280
 msgid "hide"
 msgstr "ẩn"
 
-#: src/Core/Backend/Page.php:1279
+#: src/Core/Backend/Page.php:1283
+msgid "Show menu"
+msgstr "Hiển thị menu"
+
+#: src/Core/Backend/Page.php:1287
 msgid "Need help?"
 msgstr "Cần giúp đỡ?"
 
-#: src/Core/Backend/Page.php:1280
+#: src/Core/Backend/Page.php:1288
 msgid "new window"
 msgstr "cửa sổ mới"
 
-#: src/Core/Backend/Page.php:1281
+#: src/Core/Backend/Page.php:1289
 msgid "Hide"
 msgstr "Ẩn"
 
-#: src/Core/Backend/Page.php:1282
+#: src/Core/Backend/Page.php:1290
 msgid "Select:"
 msgstr "Chọn:"
 
-#: src/Core/Backend/Page.php:1283
+#: src/Core/Backend/Page.php:1291
 msgid "No selection"
 msgstr "Không có lựa chọn"
 
-#: src/Core/Backend/Page.php:1284
+#: src/Core/Backend/Page.php:1292
 msgid "Select all"
 msgstr "Chọn tất cả"
 
-#: src/Core/Backend/Page.php:1285
+#: src/Core/Backend/Page.php:1293
 msgid "Invert selection"
 msgstr "Đảo ngược vùng chọn"
 
-#: src/Core/Backend/Page.php:1290 src/Process/Backend/Post.php:466
+#: src/Core/Backend/Page.php:1298 src/Process/Backend/Post.php:466
 #: src/Process/Backend/Post.php:609
 msgid "Entry has been successfully created."
 msgstr "Đã tạo thành công mục nhập."
 
-#: src/Core/Backend/Page.php:1291
+#: src/Core/Backend/Page.php:1299
 msgid "Edit entry"
 msgstr "Chỉnh sửa mục nhập"
 
-#: src/Core/Backend/Page.php:1292
+#: src/Core/Backend/Page.php:1300
 msgid "view entry"
 msgstr "Xem mục nhập"
 
-#: src/Core/Backend/Page.php:1293
+#: src/Core/Backend/Page.php:1301
 #, php-format
 msgid "Are you sure you want to delete selected entries (%s)?"
 msgstr "Bạn có chắc chắn muốn xóa các mục đã chọn (%s) không?"
 
-#: src/Core/Backend/Page.php:1294
+#: src/Core/Backend/Page.php:1302
 #, php-format
 msgid "Are you sure you want to delete selected medias (%d)?"
 msgstr "Bạn có chắc chắn muốn xóa các phương tiện đã chọn (%d) không?"
 
-#: src/Core/Backend/Page.php:1295
+#: src/Core/Backend/Page.php:1303
 #, php-format
 msgid "Are you sure you want to delete selected categories (%s)?"
 msgstr "Bạn có chắc chắn muốn xóa các danh mục đã chọn (%s) không?"
 
-#: src/Core/Backend/Page.php:1296
+#: src/Core/Backend/Page.php:1304
 msgid "Are you sure you want to delete this entry?"
 msgstr "Bạn có chắc chắn muốn xóa mục này không?"
 
-#: src/Core/Backend/Page.php:1297
+#: src/Core/Backend/Page.php:1305
 msgid "Click here to unlock the field"
 msgstr "Nhấp vào đây để mở khóa trường."
 
-#: src/Core/Backend/Page.php:1298
+#: src/Core/Backend/Page.php:1306
 msgid "Are you sure you want to delete all spams?"
 msgstr "Bạn có chắc chắn muốn xóa tất cả các tin nhắn rác không?"
 
-#: src/Core/Backend/Page.php:1299
+#: src/Core/Backend/Page.php:1307
 #, php-format
 msgid "Are you sure you want to delete selected comments (%s)?"
 msgstr "Bạn có chắc chắn muốn xóa các bình luận đã chọn (%s) không?"
 
-#: src/Core/Backend/Page.php:1300
+#: src/Core/Backend/Page.php:1308
 msgid "Are you sure you want to delete this comment?"
 msgstr "Bạn có chắc chắn muốn xóa bình luận này không?"
 
-#: src/Core/Backend/Page.php:1301
+#: src/Core/Backend/Page.php:1309
 msgid "Users with posts cannot be deleted."
 msgstr "Người dùng có bài đăng không thể bị xóa."
 
-#: src/Core/Backend/Page.php:1302
+#: src/Core/Backend/Page.php:1310
 #, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
 msgstr "Bạn có chắc chắn muốn xóa các người dùng đã chọn (%s) không?"
 
-#: src/Core/Backend/Page.php:1303
+#: src/Core/Backend/Page.php:1311
 #, php-format
 msgid "Are you sure you want to delete selected blogs (%s)?"
 msgstr "Bạn có chắc chắn muốn xóa các blog đã chọn (%s) không?"
 
-#: src/Core/Backend/Page.php:1304
+#: src/Core/Backend/Page.php:1312
 #, php-format
 msgid "Are you sure you want to delete category \"%s\"?"
 msgstr "Bạn có chắc chắn muốn xóa danh mục \"%s\" không?"
 
-#: src/Core/Backend/Page.php:1305
+#: src/Core/Backend/Page.php:1313
 msgid "Are you sure you want to reorder all categories?"
 msgstr "Bạn có chắc chắn muốn sắp xếp lại tất cả các danh mục không?"
 
-#: src/Core/Backend/Page.php:1306
+#: src/Core/Backend/Page.php:1314
 #, php-format
 msgid "Are you sure you want to remove media \"%s\"?"
 msgstr "Bạn có chắc chắn muốn xóa phương tiện \"%s\" không?"
 
-#: src/Core/Backend/Page.php:1307
+#: src/Core/Backend/Page.php:1315
 #, php-format
 msgid "Are you sure you want to remove directory \"%s\"?"
 msgstr "Bạn có chắc chắn muốn xóa thư mục \"%s\" không?"
 
-#: src/Core/Backend/Page.php:1308
+#: src/Core/Backend/Page.php:1316
 msgid "Are you sure you want to extract archive in current directory?"
 msgstr "Bạn có chắc chắn muốn giải nén tệp tin nén vào thư mục hiện tại không?"
 
-#: src/Core/Backend/Page.php:1309
+#: src/Core/Backend/Page.php:1317
 #, php-format
 msgid "Are you sure you want to remove attachment \"%s\"?"
 msgstr "Bạn có chắc chắn muốn xóa tệp đính kèm \"%s\" không?"
 
-#: src/Core/Backend/Page.php:1310
+#: src/Core/Backend/Page.php:1318
 #, php-format
 msgid "Are you sure you want to delete \"%s\" language?"
 msgstr "Bạn có chắc chắn muốn xóa ngôn ngữ \"%s\" không?"
 
-#: src/Core/Backend/Page.php:1311
+#: src/Core/Backend/Page.php:1319
 #, php-format
 msgid "Are you sure you want to delete \"%s\" plugin?"
 msgstr "Bạn có chắc chắn muốn xóa plugin \"%s\" không?"
 
-#: src/Core/Backend/Page.php:1312
+#: src/Core/Backend/Page.php:1320
 msgid "Are you sure you want to delete selected plugins?"
 msgstr "Bạn có chắc chắn muốn xóa các plugin đã chọn không?"
 
-#: src/Core/Backend/Page.php:1313
+#: src/Core/Backend/Page.php:1321
 msgid "Use this theme"
 msgstr "Sử dụng chủ đề này"
 
-#: src/Core/Backend/Page.php:1314
+#: src/Core/Backend/Page.php:1322
 msgid "Remove this theme"
 msgstr "Xóa chủ đề này"
 
-#: src/Core/Backend/Page.php:1315
+#: src/Core/Backend/Page.php:1323
 #, php-format
 msgid "Are you sure you want to delete \"%s\" theme?"
 msgstr "Bạn có chắc chắn muốn xóa chủ đề \"%s\" không?"
 
-#: src/Core/Backend/Page.php:1316
+#: src/Core/Backend/Page.php:1324
 msgid "Are you sure you want to delete selected themes?"
 msgstr "Bạn có chắc chắn muốn xóa các chủ đề đã chọn không?"
 
-#: src/Core/Backend/Page.php:1317
+#: src/Core/Backend/Page.php:1325
 msgid "Are you sure you want to delete this backup?"
 msgstr "Bạn có chắc chắn muốn xóa bản sao lưu này không?"
 
-#: src/Core/Backend/Page.php:1318
+#: src/Core/Backend/Page.php:1326
 msgid "Are you sure you want to revert to this backup?"
 msgstr "Bạn có chắc chắn muốn khôi phục lại bản sao lưu này không?"
 
-#: src/Core/Backend/Page.php:1319
+#: src/Core/Backend/Page.php:1327
 msgid "Zip file content"
 msgstr "Nội dung của tệp ZIP"
 
-#: src/Core/Backend/Page.php:1320
+#: src/Core/Backend/Page.php:1328
 msgid "HTML markup validator"
 msgstr "Trình kiểm tra tính hợp lệ của mã HTML"
 
-#: src/Core/Backend/Page.php:1321
+#: src/Core/Backend/Page.php:1329
 msgid "HTML content is valid."
 msgstr "Nội dung HTML hợp lệ."
 
-#: src/Core/Backend/Page.php:1322
+#: src/Core/Backend/Page.php:1330
 msgid "There are HTML markup errors."
 msgstr "Có lỗi đánh dấu HTML."
 
-#: src/Core/Backend/Page.php:1323
+#: src/Core/Backend/Page.php:1331
 msgid "Attention: an audit of a content not yet registered."
 msgstr "Lưu ý: Kiểm toán nội dung chưa được đăng ký."
 
-#: src/Core/Backend/Page.php:1324
+#: src/Core/Backend/Page.php:1332
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
 msgstr "Bạn có những thay đổi chưa được lưu. Việc chuyển đổi định dạng bài viết sẽ làm mất những thay đổi này. Bạn có muốn tiếp tục không?"
 
-#: src/Core/Backend/Page.php:1325
+#: src/Core/Backend/Page.php:1333
 msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
 msgstr "Cảnh báo: Việc thay đổi định dạng bài đăng sẽ không chuyển đổi nội dung hiện có. Bạn sẽ cần tự áp dụng định dạng mới. Tiếp tục?"
 
-#: src/Core/Backend/Page.php:1326
+#: src/Core/Backend/Page.php:1334
 msgid "Loading enhanced uploader, please wait."
 msgstr "Đang tải trình tải lên nâng cao, vui lòng chờ."
 
-#: src/Core/Backend/Page.php:1331
+#: src/Core/Backend/Page.php:1339
 msgid "Help:"
 msgstr "Trợ giúp:"
 
-#: src/Core/Backend/Page.php:1337
+#: src/Core/Backend/Page.php:1345
 msgid "Show password"
 msgstr "Hiển thị mật khẩu"
 
-#: src/Core/Backend/Page.php:1338
+#: src/Core/Backend/Page.php:1346
 msgid "Hide password"
 msgstr "Ẩn mật khẩu"
 
-#: src/Core/Backend/Page.php:1340
+#: src/Core/Backend/Page.php:1348
 msgid "Reset to now"
 msgstr "Đặt lại về thời điểm hiện tại"
 
-#: src/Core/Backend/Page.php:1341
+#: src/Core/Backend/Page.php:1349
 msgid "The publication date has changed. Reset the base name of the entry URL?"
 msgstr "Ngày phát hành đã thay đổi. Có nên đặt lại tên cơ sở của URL mục nhập không?"
 
-#: src/Core/Backend/Page.php:1342
+#: src/Core/Backend/Page.php:1350
 msgid "The publication title has changed. Reset the base name of the entry URL?"
 msgstr "Tiêu đề xuất bản đã thay đổi. Có nên đặt lại tên cơ sở của URL mục nhập không?"
 
-#: src/Core/Backend/Page.php:1344
+#: src/Core/Backend/Page.php:1352
 msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences."
 msgstr "Một trình chặn quảng cáo đã được phát hiện trên bảng điều khiển Dotclear này (Ghostery, Adblock Plus, uBlock Origin, …) và có thể gây cản trở một số tính năng. Trong trường hợp này, bạn nên tắt trình chặn quảng cáo. Lưu ý rằng tính năng phát hiện này có thể được tắt trong cài đặt của bạn."
 
-#: src/Core/Backend/Page.php:1396
+#: src/Core/Backend/Page.php:1404
 msgid "You have unsaved changes."
 msgstr "Bạn có những thay đổi chưa được lưu."
 
-#: src/Core/Backend/Page.php:1397
+#: src/Core/Backend/Page.php:1405
 msgid "your battery charge seems low (%d%) and you have unsaved changes, you should save them."
 msgstr "Pin của bạn có vẻ yếu (%d%) và bạn có những thay đổi chưa được lưu, bạn nên lưu chúng lại."
 
-#: src/Core/Backend/Page.php:1438
+#: src/Core/Backend/Page.php:1446
 msgid "Temporarily activate enhanced uploader"
 msgstr "Tạm thời kích hoạt trình tải lên nâng cao"
 
-#: src/Core/Backend/Page.php:1439
+#: src/Core/Backend/Page.php:1447
 msgid "Temporarily disable enhanced uploader"
 msgstr "Tạm thời vô hiệu hóa trình tải lên nâng cao"
 
-#: src/Core/Backend/Page.php:1443
+#: src/Core/Backend/Page.php:1451
 msgid "Limit exceeded."
 msgstr "Giới hạn đã bị vượt quá."
 
-#: src/Core/Backend/Page.php:1444
+#: src/Core/Backend/Page.php:1452
 msgid "File size exceeds allowed limit."
 msgstr "Kích thước tệp vượt quá giới hạn cho phép."
 
-#: src/Core/Backend/Page.php:1445
+#: src/Core/Backend/Page.php:1453
 msgid "Canceled."
 msgstr "Đã hủy."
 
-#: src/Core/Backend/Page.php:1446
+#: src/Core/Backend/Page.php:1454
 msgid "HTTP Error:"
 msgstr "Lỗi HTTP:"
 
-#: src/Core/Backend/Page.php:1448 src/Process/Backend/Media.php:752
+#: src/Core/Backend/Page.php:1456 src/Process/Backend/Media.php:752
 msgid "Choose file"
 msgstr "Chọn tệp"
 
-#: src/Core/Backend/Page.php:1449 src/Process/Backend/Media.php:758
+#: src/Core/Backend/Page.php:1457 src/Process/Backend/Media.php:758
 msgid "Choose files"
 msgstr "Chọn tệp"
 
-#: src/Core/Backend/Page.php:1450 src/Process/Backend/LinkPopup.php:114
+#: src/Core/Backend/Page.php:1458 src/Process/Backend/LinkPopup.php:114
 #: src/Process/Backend/Media.php:305 src/Process/Backend/MediaItem.php:516
 #: src/Process/Backend/MediaItem.php:772 src/Process/Backend/Post.php:968
 #: src/Process/Backend/PostMedia.php:115
 msgid "Cancel"
 msgstr "Hủy"
 
-#: src/Core/Backend/Page.php:1451
+#: src/Core/Backend/Page.php:1459
 msgid "Clean"
 msgstr "Sạch sẽ"
 
-#: src/Core/Backend/Page.php:1453
+#: src/Core/Backend/Page.php:1461
 msgid "Send"
 msgstr "Gửi"
 
-#: src/Core/Backend/Page.php:1454
+#: src/Core/Backend/Page.php:1462
 msgid "File successfully uploaded."
 msgstr "Tệp đã được tải lên thành công."
 
-#: src/Core/Backend/Page.php:1455
+#: src/Core/Backend/Page.php:1463
 msgid "No file in queue."
 msgstr "Không có tệp nào trong hàng đợi."
 
-#: src/Core/Backend/Page.php:1456
+#: src/Core/Backend/Page.php:1464
 msgid "1 file in queue."
 msgstr "1 tệp tin đang chờ xử lý."
 
-#: src/Core/Backend/Page.php:1457
+#: src/Core/Backend/Page.php:1465
 #, php-format
 msgid "%d files in queue."
 msgstr "%d Các tệp trong hàng đợi."
 
-#: src/Core/Backend/Page.php:1458
+#: src/Core/Backend/Page.php:1466
 msgid "Queue error:"
 msgstr "Lỗi hàng đợi:"
 
-#: src/Core/Backend/Page.php:1497
+#: src/Core/Backend/Page.php:1505
 msgid "Cancel filters and display options"
 msgstr "Hủy bỏ bộ lọc và tùy chọn hiển thị"
 
@@ -2048,78 +2056,78 @@ msgstr "Không có chủ đề nào khớp với tìm kiếm của bạn."
 msgid "Use this one"
 msgstr "Sử dụng cái này"
 
-#: src/Core/Backend/ThemesList.php:422
+#: src/Core/Backend/ThemesList.php:423
 msgid "Update selected themes"
 msgstr "Cập nhật các chủ đề đã chọn"
 
-#: src/Core/Backend/ThemesList.php:423
+#: src/Core/Backend/ThemesList.php:424
 msgid "Update all themes from this list"
 msgstr "Cập nhật tất cả các chủ đề từ danh sách này"
 
-#: src/Core/Backend/ThemesList.php:467 src/Core/Backend/ThemesList.php:511
-#: src/Core/Backend/ThemesList.php:552 src/Core/Backend/ThemesList.php:590
-#: src/Core/Backend/ThemesList.php:632 src/Core/Backend/ThemesList.php:668
-#: src/Core/Backend/ThemesList.php:718
+#: src/Core/Backend/ThemesList.php:468 src/Core/Backend/ThemesList.php:512
+#: src/Core/Backend/ThemesList.php:553 src/Core/Backend/ThemesList.php:591
+#: src/Core/Backend/ThemesList.php:633 src/Core/Backend/ThemesList.php:669
+#: src/Core/Backend/ThemesList.php:719
 msgid "No such theme."
 msgstr "Không có chủ đề nào như vậy."
 
-#: src/Core/Backend/ThemesList.php:476
+#: src/Core/Backend/ThemesList.php:477
 #, php-format
 msgid "Theme %s has been successfully selected."
 msgstr "Giao diện \" %s \" đã được chọn thành công."
 
-#: src/Core/Backend/ThemesList.php:515
+#: src/Core/Backend/ThemesList.php:516
 msgid "Theme has been successfully activated."
 msgid_plural "Themes have been successuflly activated."
 msgstr[0] "Các chủ đề đã được kích hoạt thành công."
 
-#: src/Core/Backend/ThemesList.php:556
+#: src/Core/Backend/ThemesList.php:557
 msgid "Some themes have not been deactivated."
 msgstr "Một số chủ đề chưa được vô hiệu hóa."
 
-#: src/Core/Backend/ThemesList.php:559
+#: src/Core/Backend/ThemesList.php:560
 msgid "Theme has been successfully deactivated."
 msgid_plural "Themes have been successuflly deactivated."
 msgstr[0] "Các chủ đề đã được vô hiệu hóa thành công."
 
-#: src/Core/Backend/ThemesList.php:594
+#: src/Core/Backend/ThemesList.php:595
 msgid "Theme has been successfully cloned."
 msgid_plural "Themes have been successuflly cloned."
 msgstr[0] "Các chủ đề đã được sao chép thành công."
 
-#: src/Core/Backend/ThemesList.php:628
+#: src/Core/Backend/ThemesList.php:629
 msgid "You don't have permissions to delete this theme."
 msgstr "Bạn không có quyền xóa chủ đề này."
 
-#: src/Core/Backend/ThemesList.php:636
+#: src/Core/Backend/ThemesList.php:637
 msgid "Some themes have not been delete."
 msgstr "Một số chủ đề chưa được xóa."
 
-#: src/Core/Backend/ThemesList.php:639
+#: src/Core/Backend/ThemesList.php:640
 msgid "Theme has been successfully deleted."
 msgid_plural "Themes have been successuflly deleted."
 msgstr[0] "Các chủ đề đã được xóa thành công."
 
-#: src/Core/Backend/ThemesList.php:672
+#: src/Core/Backend/ThemesList.php:673
 msgid "Theme has been successfully installed."
 msgid_plural "Themes have been successfully installed."
 msgstr[0] "Các chủ đề đã được cài đặt thành công."
 
-#: src/Core/Backend/ThemesList.php:711
+#: src/Core/Backend/ThemesList.php:712
 msgid "Theme has been successfully updated."
 msgid_plural "Themes have been successfully updated."
 msgstr[0] "Các chủ đề đã được cập nhật thành công."
 
-#: src/Core/Backend/ThemesList.php:715
+#: src/Core/Backend/ThemesList.php:716
 #, php-format
 msgid "Following themes updates are locked: %s"
 msgstr "Các chủ đề sau đây đã bị khóa: %s"
 
-#: src/Core/Backend/ThemesList.php:753
+#: src/Core/Backend/ThemesList.php:754
 msgid "The theme has been successfully updated."
 msgstr "Chủ đề đã được cập nhật thành công."
 
-#: src/Core/Backend/ThemesList.php:754
+#: src/Core/Backend/ThemesList.php:755
 msgid "The theme has been successfully installed."
 msgstr "Giao diện đã được cài đặt thành công."
 
@@ -3039,53 +3047,53 @@ msgstr "Module \"%1$s\" có loại \"%2$s\", không khớp với loại module y
 msgid "Module \"%1$s\" is installed twice in \"%2$s\" and \"%3$s\"."
 msgstr "Module \"%1$s\" được cài đặt hai lần trong \"%2$s\" và \"%3$s\"."
 
-#: src/Module/Modules.php:724
+#: src/Module/Modules.php:732
 msgid "Empty module zip file."
 msgstr "Tệp ZIP chứa mô-đun trống."
 
-#: src/Module/Modules.php:731
+#: src/Module/Modules.php:739
 msgid "The zip file does not appear to be a valid Dotclear module."
 msgstr "Tệp ZIP dường như không phải là mô-đun Dotclear hợp lệ."
 
-#: src/Module/Modules.php:766 src/Module/Modules.php:803
+#: src/Module/Modules.php:774 src/Module/Modules.php:811
 #, php-format
 msgid "Module is not installed: %s"
 msgstr "Module chưa được cài đặt: %s"
 
-#: src/Module/Modules.php:818
+#: src/Module/Modules.php:826
 #, php-format
 msgid "Unable to upgrade \"%s\". (update locked)"
 msgstr "Không thể nâng cấp \"%s\". (Cập nhật bị khóa)"
 
-#: src/Module/Modules.php:824
+#: src/Module/Modules.php:832
 msgid "An error occurred during module deletion."
 msgstr "Đã xảy ra lỗi trong quá trình xóa mô-đun."
 
-#: src/Module/Modules.php:832
+#: src/Module/Modules.php:840
 #, php-format
 msgid "Unable to upgrade \"%s\". (older or same version)"
 msgstr "Không thể nâng cấp \"%s\". (phiên bản cũ hơn hoặc cùng phiên bản)"
 
-#: src/Module/Modules.php:838
+#: src/Module/Modules.php:846
 #, php-format
 msgid "Unable to read new %s file"
 msgstr "Không thể đọc tệp mới %s"
 
-#: src/Module/Modules.php:847 src/Module/Modules.php:964
-#: src/Module/Modules.php:968
+#: src/Module/Modules.php:855 src/Module/Modules.php:972
+#: src/Module/Modules.php:976
 msgid "Cannot deactivate plugin."
 msgstr "Không thể vô hiệu hóa plugin."
 
-#: src/Module/Modules.php:940 src/Module/Modules.php:960
-#: src/Module/Modules.php:984
+#: src/Module/Modules.php:948 src/Module/Modules.php:968
+#: src/Module/Modules.php:992
 msgid "No such module."
 msgstr "Không tìm thấy mô-đun đó."
 
-#: src/Module/Modules.php:944
+#: src/Module/Modules.php:952
 msgid "Cannot remove module files"
 msgstr "Không thể xóa các tệp mô-đun."
 
-#: src/Module/Modules.php:988 src/Module/Modules.php:992
+#: src/Module/Modules.php:996 src/Module/Modules.php:1000
 msgid "Cannot activate plugin."
 msgstr "Không thể kích hoạt plugin."
 
@@ -3097,28 +3105,28 @@ msgstr "Đã xảy ra lỗi trong quá trình tải xuống tệp."
 msgid "Wrong data feed"
 msgstr "Dữ liệu đầu vào sai"
 
-#: src/Module/Themes.php:106
+#: src/Module/Themes.php:120
 msgid "Themes folder unreachable"
 msgstr "Thư mục Themes không thể truy cập được."
 
-#: src/Module/Themes.php:110
+#: src/Module/Themes.php:124
 msgid "Themes folder unreadable"
 msgstr "Thư mục Themes không thể đọc được"
 
-#: src/Module/Themes.php:118
+#: src/Module/Themes.php:132
 #, php-format
 msgid " (copy #%s)"
 msgstr " (Bản sao #%s)"
 
-#: src/Module/Themes.php:118
+#: src/Module/Themes.php:132
 msgid " (copy)"
 msgstr " (sao chép)"
 
-#: src/Module/Themes.php:156
+#: src/Module/Themes.php:170
 msgid "Unable to modify _define.php"
 msgstr "Không thể sửa đổi tệp _define.php"
 
-#: src/Module/Themes.php:189
+#: src/Module/Themes.php:203
 msgid "Destination folder already exist"
 msgstr "Thư mục đích đã tồn tại."
 
@@ -3163,7 +3171,7 @@ msgid "Your new password is in your mailbox."
 msgstr "Mật khẩu mới của bạn đã được gửi vào hộp thư của bạn."
 
 #: src/Process/Backend/Auth.php:226 src/Process/Backend/User.php:159
-#: src/Process/Backend/UserPreferences.php:275 src/Process/Install/Cli.php:727
+#: src/Process/Backend/UserPreferences.php:276 src/Process/Install/Cli.php:727
 #: src/Process/Install/Install.php:188
 msgid "Passwords don't match"
 msgstr "Mật khẩu không khớp"
@@ -3201,9 +3209,9 @@ msgstr "Tên người dùng hoặc mật khẩu không chính xác"
 #: src/Process/Backend/Auth.php:445 src/Process/Backend/Auth.php:446
 #: src/Process/Backend/Auth.php:447 src/Process/Backend/User.php:264
 #: src/Process/Backend/User.php:265 src/Process/Backend/User.php:266
-#: src/Process/Backend/UserPreferences.php:572
-#: src/Process/Backend/UserPreferences.php:573
 #: src/Process/Backend/UserPreferences.php:574
+#: src/Process/Backend/UserPreferences.php:575
+#: src/Process/Backend/UserPreferences.php:576
 #: src/Process/Install/Install.php:426 src/Process/Install/Install.php:427
 #: src/Process/Install/Install.php:428 src/Process/Upgrade/Auth.php:387
 #: src/Process/Upgrade/Auth.php:388 src/Process/Upgrade/Auth.php:389
@@ -3212,13 +3220,13 @@ msgid "Password strength: %s"
 msgstr "Độ mạnh của mật khẩu: %s"
 
 #: src/Process/Backend/Auth.php:445 src/Process/Backend/User.php:264
-#: src/Process/Backend/UserPreferences.php:572
+#: src/Process/Backend/UserPreferences.php:574
 #: src/Process/Install/Install.php:426 src/Process/Upgrade/Auth.php:387
 msgid "weak"
 msgstr "yếu"
 
 #: src/Process/Backend/Auth.php:447 src/Process/Backend/User.php:266
-#: src/Process/Backend/UserPreferences.php:574
+#: src/Process/Backend/UserPreferences.php:576
 #: src/Process/Install/Install.php:428 src/Process/Upgrade/Auth.php:389
 msgid "strong"
 msgstr "mạnh mẽ"
@@ -3245,7 +3253,7 @@ msgid "Change your password"
 msgstr "Thay đổi mật khẩu của bạn"
 
 #: src/Process/Backend/Auth.php:546 src/Process/Backend/User.php:352
-#: src/Process/Backend/UserPreferences.php:611
+#: src/Process/Backend/UserPreferences.php:613
 msgid "New password:"
 msgstr "Mật khẩu mới:"
 
@@ -3258,7 +3266,7 @@ msgstr "Xác nhận mật khẩu:"
 msgid "change"
 msgstr "thay đổi"
 
-#: src/Process/Backend/Auth.php:574 src/Process/Backend/UserPreferences.php:889
+#: src/Process/Backend/Auth.php:574 src/Process/Backend/UserPreferences.php:891
 #: src/Process/Upgrade/Auth.php:292
 msgid "Two factors authentication"
 msgstr "Xác thực hai yếu tố"
@@ -3267,7 +3275,7 @@ msgstr "Xác thực hai yếu tố"
 msgid "Enter code:"
 msgstr "Nhập mã:"
 
-#: src/Process/Backend/Auth.php:589 src/Process/Backend/UserPreferences.php:680
+#: src/Process/Backend/Auth.php:589 src/Process/Backend/UserPreferences.php:682
 #: src/Process/Upgrade/Auth.php:307
 msgid "Verify"
 msgstr "Xác minh"
@@ -3496,7 +3504,7 @@ msgid "I would like to prevent search engines and archivers from indexing or arc
 msgstr "Tôi muốn ngăn chặn các công cụ tìm kiếm và các dịch vụ lưu trữ từ việc lập chỉ mục hoặc lưu trữ nội dung blog của tôi."
 
 #: src/Process/Backend/BlogPref.php:235
-#: src/Process/Backend/UserPreferences.php:161
+#: src/Process/Backend/UserPreferences.php:162
 msgid "Default"
 msgstr "Mặc định"
 
@@ -4139,7 +4147,7 @@ msgid "total:"
 msgstr "Tổng cộng:"
 
 #: src/Process/Backend/Categories.php:363 src/Process/Backend/Category.php:278
-#: src/Process/Backend/User.php:475 src/Process/Backend/UserPreferences.php:844
+#: src/Process/Backend/User.php:475 src/Process/Backend/UserPreferences.php:846
 msgid "URL:"
 msgstr "URL:"
 
@@ -5570,17 +5578,17 @@ msgstr "Cảnh báo:"
 msgid "Password change required to connect"
 msgstr "Yêu cầu thay đổi mật khẩu để kết nối"
 
-#: src/Process/Backend/User.php:419 src/Process/Backend/UserPreferences.php:792
+#: src/Process/Backend/User.php:419 src/Process/Backend/UserPreferences.php:794
 #: src/Process/Install/Install.php:500
 msgid "Last Name:"
 msgstr "Họ:"
 
-#: src/Process/Backend/User.php:429 src/Process/Backend/UserPreferences.php:802
+#: src/Process/Backend/User.php:429 src/Process/Backend/UserPreferences.php:804
 #: src/Process/Install/Install.php:491
 msgid "First Name:"
 msgstr "Họ:"
 
-#: src/Process/Backend/User.php:439 src/Process/Backend/UserPreferences.php:812
+#: src/Process/Backend/User.php:439 src/Process/Backend/UserPreferences.php:814
 msgid "Display name:"
 msgstr "Tên hiển thị:"
 
@@ -5588,24 +5596,24 @@ msgstr "Tên hiển thị:"
 msgid "Mandatory for password recovering procedure."
 msgstr "Bắt buộc cho quy trình khôi phục mật khẩu."
 
-#: src/Process/Backend/User.php:462 src/Process/Backend/UserPreferences.php:831
+#: src/Process/Backend/User.php:462 src/Process/Backend/UserPreferences.php:833
 msgid "Alternate emails (comma separated list):"
 msgstr "Địa chỉ email thay thế (danh sách cách nhau bằng dấu phẩy):"
 
-#: src/Process/Backend/User.php:466 src/Process/Backend/UserPreferences.php:835
+#: src/Process/Backend/User.php:466 src/Process/Backend/UserPreferences.php:837
 msgid "Invalid emails will be automatically removed from list."
 msgstr "Các địa chỉ email không hợp lệ sẽ được tự động loại bỏ khỏi danh sách."
 
-#: src/Process/Backend/User.php:484 src/Process/Backend/UserPreferences.php:853
+#: src/Process/Backend/User.php:484 src/Process/Backend/UserPreferences.php:855
 msgid "Alternate URLs (comma separated list):"
 msgstr "Các URL thay thế (danh sách cách nhau bằng dấu phẩy):"
 
-#: src/Process/Backend/User.php:488 src/Process/Backend/UserPreferences.php:857
+#: src/Process/Backend/User.php:488 src/Process/Backend/UserPreferences.php:859
 msgid "Invalid URLs will be automatically removed from list."
 msgstr "Các URL không hợp lệ sẽ được tự động loại bỏ khỏi danh sách."
 
 #: src/Process/Backend/User.php:494
-#: src/Process/Backend/UserPreferences.php:1025
+#: src/Process/Backend/UserPreferences.php:1027
 msgid "Interface"
 msgstr "Giao diện"
 
@@ -5614,22 +5622,22 @@ msgid "Timezone:"
 msgstr "Múi giờ:"
 
 #: src/Process/Backend/User.php:510
-#: src/Process/Backend/UserPreferences.php:1158
+#: src/Process/Backend/UserPreferences.php:1166
 msgid "Edition"
 msgstr "Phiên bản"
 
 #: src/Process/Backend/User.php:516
-#: src/Process/Backend/UserPreferences.php:1170
+#: src/Process/Backend/UserPreferences.php:1178
 msgid "Preferred format:"
 msgstr "Định dạng ưa thích:"
 
 #: src/Process/Backend/User.php:523
-#: src/Process/Backend/UserPreferences.php:1178
+#: src/Process/Backend/UserPreferences.php:1186
 msgid "Default entry status:"
 msgstr "Trạng thái nhập cảnh mặc định:"
 
 #: src/Process/Backend/User.php:528
-#: src/Process/Backend/UserPreferences.php:1184
+#: src/Process/Backend/UserPreferences.php:1192
 msgid "Entry edit field height:"
 msgstr "Chiều cao trường nhập liệu:"
 
@@ -5679,434 +5687,438 @@ msgstr "Danh sách bài viết"
 msgid "List of comments"
 msgstr "Danh sách bình luận"
 
-#: src/Process/Backend/UserPreferences.php:152
+#: src/Process/Backend/UserPreferences.php:153
 msgid "Light"
 msgstr "Ánh sáng"
 
-#: src/Process/Backend/UserPreferences.php:153
+#: src/Process/Backend/UserPreferences.php:154
 msgid "Dark"
 msgstr "Tối"
 
-#: src/Process/Backend/UserPreferences.php:154
+#: src/Process/Backend/UserPreferences.php:155
 msgid "Automatic"
 msgstr "Tự động"
 
-#: src/Process/Backend/UserPreferences.php:159
+#: src/Process/Backend/UserPreferences.php:160
 msgid "Smallest"
 msgstr "Nhỏ nhất"
 
-#: src/Process/Backend/UserPreferences.php:160
+#: src/Process/Backend/UserPreferences.php:161
 msgid "Smaller"
 msgstr "Nhỏ hơn"
 
-#: src/Process/Backend/UserPreferences.php:162
+#: src/Process/Backend/UserPreferences.php:163
 msgid "Larger"
 msgstr "Lớn hơn"
 
-#: src/Process/Backend/UserPreferences.php:163
+#: src/Process/Backend/UserPreferences.php:164
 msgid "Largest"
 msgstr "Lớn nhất"
 
-#: src/Process/Backend/UserPreferences.php:175
+#: src/Process/Backend/UserPreferences.php:176
 msgid "Blog description (in blog parameters)"
 msgstr "Mô tả blog (trong các thông số của blog)"
 
-#: src/Process/Backend/UserPreferences.php:176
+#: src/Process/Backend/UserPreferences.php:177
 msgid "Category description"
 msgstr "Mô tả danh mục"
 
-#: src/Process/Backend/UserPreferences.php:218
+#: src/Process/Backend/UserPreferences.php:219
 msgid "Two factors authentication verification failed."
 msgstr "Xác minh xác thực hai yếu tố đã thất bại."
 
-#: src/Process/Backend/UserPreferences.php:220
+#: src/Process/Backend/UserPreferences.php:221
 msgid "Two factors authentication verification succeeded."
 msgstr "Xác minh xác thực hai yếu tố đã thành công."
 
-#: src/Process/Backend/UserPreferences.php:228
+#: src/Process/Backend/UserPreferences.php:229
 msgid "Two factors authentication secret regenerated."
 msgstr "Mật khẩu xác thực hai yếu tố đã được tạo lại."
 
-#: src/Process/Backend/UserPreferences.php:237
+#: src/Process/Backend/UserPreferences.php:238
 msgid "Passkey successfully deleted."
 msgstr "Khóa truy cập đã được xóa thành công."
 
-#: src/Process/Backend/UserPreferences.php:254
-#: src/Process/Backend/UserPreferences.php:271
+#: src/Process/Backend/UserPreferences.php:255
+#: src/Process/Backend/UserPreferences.php:272
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "Nếu bạn muốn thay đổi địa chỉ email hoặc mật khẩu, bạn phải cung cấp mật khẩu hiện tại của mình."
 
-#: src/Process/Backend/UserPreferences.php:302
+#: src/Process/Backend/UserPreferences.php:303
 msgid "Personal information has been successfully updated."
 msgstr "Thông tin cá nhân đã được cập nhật thành công."
 
-#: src/Process/Backend/UserPreferences.php:421
+#: src/Process/Backend/UserPreferences.php:423
 msgid "Personal options has been successfully updated."
 msgstr "Các tùy chọn cá nhân đã được cập nhật thành công."
 
-#: src/Process/Backend/UserPreferences.php:451
+#: src/Process/Backend/UserPreferences.php:453
 msgid "Dashboard options has been successfully updated."
 msgstr "Các tùy chọn bảng điều khiển đã được cập nhật thành công."
 
-#: src/Process/Backend/UserPreferences.php:463
-#: src/Process/Backend/UserPreferences.php:487
+#: src/Process/Backend/UserPreferences.php:465
+#: src/Process/Backend/UserPreferences.php:489
 msgid "No favorite selected"
 msgstr "Chưa chọn mục yêu thích"
 
-#: src/Process/Backend/UserPreferences.php:474
+#: src/Process/Backend/UserPreferences.php:476
 msgid "Favorites have been successfully added."
 msgstr "Các mục yêu thích đã được thêm thành công."
 
-#: src/Process/Backend/UserPreferences.php:500
+#: src/Process/Backend/UserPreferences.php:502
 msgid "Favorites have been successfully removed."
 msgstr "Các mục yêu thích đã được xóa thành công."
 
-#: src/Process/Backend/UserPreferences.php:530
+#: src/Process/Backend/UserPreferences.php:532
 msgid "Favorites have been successfully updated."
 msgstr "Danh sách yêu thích đã được cập nhật thành công."
 
-#: src/Process/Backend/UserPreferences.php:542
+#: src/Process/Backend/UserPreferences.php:544
 msgid "Default favorites have been successfully updated."
 msgstr "Các mục yêu thích mặc định đã được cập nhật thành công."
 
-#: src/Process/Backend/UserPreferences.php:556
+#: src/Process/Backend/UserPreferences.php:558
 msgid "Dashboard items order have been successfully reset."
 msgstr "Thứ tự các mục trên bảng điều khiển đã được đặt lại thành công."
 
-#: src/Process/Backend/UserPreferences.php:578
+#: src/Process/Backend/UserPreferences.php:580
 msgid "Are you sure you want to remove selected favorites?"
 msgstr "Bạn có chắc chắn muốn xóa các mục yêu thích đã chọn không?"
 
-#: src/Process/Backend/UserPreferences.php:579
+#: src/Process/Backend/UserPreferences.php:581
 msgid "Enter a name for this key:"
 msgstr "Nhập tên cho khóa này:"
 
-#: src/Process/Backend/UserPreferences.php:601
+#: src/Process/Backend/UserPreferences.php:603
 msgid "Change my password"
 msgstr "Thay đổi mật khẩu của tôi"
 
-#: src/Process/Backend/UserPreferences.php:620
+#: src/Process/Backend/UserPreferences.php:622
 msgid "Confirm new password:"
 msgstr "Xác nhận mật khẩu mới:"
 
-#: src/Process/Backend/UserPreferences.php:630
+#: src/Process/Backend/UserPreferences.php:632
 msgid "Your current password:"
 msgstr "Mật khẩu hiện tại của bạn:"
 
-#: src/Process/Backend/UserPreferences.php:634
+#: src/Process/Backend/UserPreferences.php:636
 msgid "If you have changed your email or password you must provide your current password to save these modifications."
 msgstr "Nếu bạn đã thay đổi địa chỉ email hoặc mật khẩu, bạn phải cung cấp mật khẩu hiện tại của mình để lưu các thay đổi này."
 
-#: src/Process/Backend/UserPreferences.php:643
+#: src/Process/Backend/UserPreferences.php:645
 msgid "Your account is registered to two factors authentication."
 msgstr "Tài khoản của bạn đã được đăng ký sử dụng xác thực hai yếu tố."
 
-#: src/Process/Backend/UserPreferences.php:644
+#: src/Process/Backend/UserPreferences.php:646
 msgid "Disable two factors authentication"
 msgstr "Vô hiệu hóa xác thực hai yếu tố"
 
-#: src/Process/Backend/UserPreferences.php:651
+#: src/Process/Backend/UserPreferences.php:653
 msgid "Unable to create the QR code image, please use the secret below."
 msgstr "Không thể tạo hình ảnh mã QR, vui lòng sử dụng mã bí mật bên dưới."
 
-#: src/Process/Backend/UserPreferences.php:655
+#: src/Process/Backend/UserPreferences.php:657
 msgid "Scan this QR code with your authentication application:"
 msgstr "Quét mã QR này bằng ứng dụng xác thực của bạn:"
 
-#: src/Process/Backend/UserPreferences.php:668
+#: src/Process/Backend/UserPreferences.php:670
 msgid "Or enter this secret into your authentication application:"
 msgstr "Hoặc nhập thông tin bí mật này vào ứng dụng xác thực của bạn:"
 
-#: src/Process/Backend/UserPreferences.php:669
+#: src/Process/Backend/UserPreferences.php:671
 msgid "Regenerate"
 msgstr "Tái tạo"
 
-#: src/Process/Backend/UserPreferences.php:679
+#: src/Process/Backend/UserPreferences.php:681
 msgid "Enter verification code:"
 msgstr "Nhập mã xác minh:"
 
-#: src/Process/Backend/UserPreferences.php:696
+#: src/Process/Backend/UserPreferences.php:698
 msgid "unlabeled key"
 msgstr "Khóa không có nhãn"
 
-#: src/Process/Backend/UserPreferences.php:698
+#: src/Process/Backend/UserPreferences.php:700
 #, php-format
 msgid "valid on %s"
 msgstr "Hiệu lực trên %s"
 
-#: src/Process/Backend/UserPreferences.php:707
+#: src/Process/Backend/UserPreferences.php:709
 msgid "You have no registered key yet."
 msgstr "Bạn chưa có khóa đăng ký nào."
 
-#: src/Process/Backend/UserPreferences.php:750
+#: src/Process/Backend/UserPreferences.php:752
 msgid "Linked to account:"
 msgstr "Đã liên kết với tài khoản:"
 
-#: src/Process/Backend/UserPreferences.php:777
 #: src/Process/Backend/UserPreferences.php:779
+#: src/Process/Backend/UserPreferences.php:781
 msgid "My profile"
 msgstr "Hồ sơ của tôi"
 
-#: src/Process/Backend/UserPreferences.php:864
+#: src/Process/Backend/UserPreferences.php:866
 msgid "Language for my interface:"
 msgstr "Ngôn ngữ cho giao diện của tôi:"
 
-#: src/Process/Backend/UserPreferences.php:872
+#: src/Process/Backend/UserPreferences.php:874
 msgid "My timezone:"
 msgstr "Múi giờ của tôi:"
 
-#: src/Process/Backend/UserPreferences.php:881
+#: src/Process/Backend/UserPreferences.php:883
 msgid "Update my profile"
 msgstr "Cập nhật hồ sơ của tôi"
 
-#: src/Process/Backend/UserPreferences.php:894
+#: src/Process/Backend/UserPreferences.php:896
 msgid "Authentication keys"
 msgstr "Khóa xác thực"
 
-#: src/Process/Backend/UserPreferences.php:901
+#: src/Process/Backend/UserPreferences.php:903
 msgid "Register a new key"
 msgstr "Đăng ký khóa mới"
 
-#: src/Process/Backend/UserPreferences.php:907
+#: src/Process/Backend/UserPreferences.php:909
 msgid "Authentication applications"
 msgstr "Ứng dụng xác thực"
 
-#: src/Process/Backend/UserPreferences.php:974
+#: src/Process/Backend/UserPreferences.php:976
 msgid "List"
 msgstr "Danh sách"
 
-#: src/Process/Backend/UserPreferences.php:976
+#: src/Process/Backend/UserPreferences.php:978
 msgid "Order by"
 msgstr "Sắp xếp theo"
 
-#: src/Process/Backend/UserPreferences.php:978
+#: src/Process/Backend/UserPreferences.php:980
 msgid "Sort"
 msgstr "Sắp xếp"
 
-#: src/Process/Backend/UserPreferences.php:991
+#: src/Process/Backend/UserPreferences.php:993
 #, php-format
 msgid "Preferred editor for %s:"
 msgstr "Trình soạn thảo ưa thích cho %s:"
 
-#: src/Process/Backend/UserPreferences.php:996
+#: src/Process/Backend/UserPreferences.php:998
 msgid "Choose an editor"
 msgstr "Chọn trình soạn thảo"
 
-#: src/Process/Backend/UserPreferences.php:1017
-#: src/Process/Backend/UserPreferences.php:1023
+#: src/Process/Backend/UserPreferences.php:1019
+#: src/Process/Backend/UserPreferences.php:1025
 msgid "My options"
 msgstr "Các lựa chọn của tôi"
 
-#: src/Process/Backend/UserPreferences.php:1032
+#: src/Process/Backend/UserPreferences.php:1034
 msgid "Theme:"
 msgstr "Chủ đề:"
 
-#: src/Process/Backend/UserPreferences.php:1038
+#: src/Process/Backend/UserPreferences.php:1040
 msgid "Activate enhanced uploader in media manager"
 msgstr "Kích hoạt trình tải lên nâng cao trong trình quản lý phương tiện"
 
-#: src/Process/Backend/UserPreferences.php:1044
+#: src/Process/Backend/UserPreferences.php:1046
 msgid "Preview the entry being edited in a blank window or tab (depending on your browser settings)."
 msgstr "Xem trước mục đang được chỉnh sửa trong một cửa sổ hoặc tab trống (tùy thuộc vào cài đặt trình duyệt của bạn)."
 
-#: src/Process/Backend/UserPreferences.php:1051
+#: src/Process/Backend/UserPreferences.php:1053
 msgid "Disable javascript powered drag and drop for ordering items"
 msgstr "Vô hiệu hóa tính năng kéo và thả được hỗ trợ bởi JavaScript để sắp xếp các mặt hàng."
 
-#: src/Process/Backend/UserPreferences.php:1055
+#: src/Process/Backend/UserPreferences.php:1057
 msgid "If checked, numeric fields will allow to type the elements' ordering number."
 msgstr "Nếu được chọn, các trường số sẽ cho phép nhập số thứ tự của các phần tử."
 
-#: src/Process/Backend/UserPreferences.php:1060
+#: src/Process/Backend/UserPreferences.php:1062
 msgid "Hide all secondary information and notes"
 msgstr "Ẩn tất cả thông tin phụ và ghi chú"
 
-#: src/Process/Backend/UserPreferences.php:1066
+#: src/Process/Backend/UserPreferences.php:1068
 msgid "Hide help button"
 msgstr "Ẩn nút trợ giúp"
 
-#: src/Process/Backend/UserPreferences.php:1073
+#: src/Process/Backend/UserPreferences.php:1075
 msgid "Font size:"
 msgstr "Kích thước phông chữ:"
 
-#: src/Process/Backend/UserPreferences.php:1079
+#: src/Process/Backend/UserPreferences.php:1081
 msgid "Use dynamic letter spacing"
 msgstr "Sử dụng khoảng cách chữ động"
 
-#: src/Process/Backend/UserPreferences.php:1083
+#: src/Process/Backend/UserPreferences.php:1085
 msgid "If checked, the larger the font size in interface texts, the smaller the space between characters will be, and vice versa."
 msgstr "Nếu được chọn, kích thước phông chữ trong văn bản giao diện càng lớn, khoảng cách giữa các ký tự sẽ càng nhỏ, và ngược lại."
 
-#: src/Process/Backend/UserPreferences.php:1088
+#: src/Process/Backend/UserPreferences.php:1090
 msgid "Use operating system font"
 msgstr "Sử dụng phông chữ của hệ điều hành"
 
-#: src/Process/Backend/UserPreferences.php:1094
+#: src/Process/Backend/UserPreferences.php:1096
 msgid "Number of recent folders proposed in media manager:"
 msgstr "Số lượng thư mục gần đây được đề xuất trong trình quản lý phương tiện:"
 
-#: src/Process/Backend/UserPreferences.php:1098
+#: src/Process/Backend/UserPreferences.php:1100
 msgid "Set to 0 (zero) to ignore, displayed only if Javascript is enabled in your browser."
 msgstr "Đặt thành 0 (zero) để bỏ qua, chỉ hiển thị nếu JavaScript được bật trong trình duyệt của bạn."
 
-#: src/Process/Backend/UserPreferences.php:1105
+#: src/Process/Backend/UserPreferences.php:1107
 msgid "Do not use standard favicon"
 msgstr "Không sử dụng favicon tiêu chuẩn."
 
-#: src/Process/Backend/UserPreferences.php:1106
+#: src/Process/Backend/UserPreferences.php:1108
 msgid "This will be applied for all users"
 msgstr "Điều này sẽ được áp dụng cho tất cả người dùng."
 
-#: src/Process/Backend/UserPreferences.php:1116
+#: src/Process/Backend/UserPreferences.php:1118
 msgid "Disable Ad-blocker check"
 msgstr "Tắt kiểm tra chặn quảng cáo"
 
-#: src/Process/Backend/UserPreferences.php:1120
+#: src/Process/Backend/UserPreferences.php:1122
 msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
 msgstr "Một số trình chặn quảng cáo (Ghostery, Adblock Plus, uBloc Origin, …) có thể gây xung đột với một số tính năng như chèn liên kết hoặc phương tiện trong các bài viết sử dụng CKEditor; trong trường hợp này, bạn nên tắt trình chặn quảng cáo này cho cài đặt Dotclear này (chỉ phần backend). Lưu ý rằng Dotclear không thêm quảng cáo hoặc trình theo dõi vào phần backend."
 
-#: src/Process/Backend/UserPreferences.php:1123
+#: src/Process/Backend/UserPreferences.php:1125
 msgid "Note also that deactivating this detection of ad blockers will not deactivate the installed ad blockers. Dotclear cannot interfere with the operation of browser extensions!"
 msgstr "Lưu ý rằng việc vô hiệu hóa tính năng phát hiện trình chặn quảng cáo này sẽ không vô hiệu hóa các trình chặn quảng cáo đã cài đặt. Dotclear không thể can thiệp vào hoạt động của các tiện ích mở rộng trình duyệt!"
 
-#: src/Process/Backend/UserPreferences.php:1131
+#: src/Process/Backend/UserPreferences.php:1133
 msgid "Quick menu character:"
 msgstr "Ký tự menu nhanh:"
 
-#: src/Process/Backend/UserPreferences.php:1135
+#: src/Process/Backend/UserPreferences.php:1137
 msgid "Leave empty to use the default character <kbd>:</kbd>"
 msgstr "Để trống để sử dụng ký tự mặc định <kbd>:</kbd>"
 
-#: src/Process/Backend/UserPreferences.php:1140
+#: src/Process/Backend/UserPreferences.php:1142
 msgid "Keep the main menu at the top of the page as much as possible"
 msgstr "Giữ menu chính ở đầu trang càng nhiều càng tốt."
 
-#: src/Process/Backend/UserPreferences.php:1144
+#: src/Process/Backend/UserPreferences.php:1148
+msgid "Hide the menu collapse button"
+msgstr "Ẩn nút thu gọn menu"
+
+#: src/Process/Backend/UserPreferences.php:1152
 msgid "Optional columns displayed in lists"
 msgstr "Các cột tùy chọn được hiển thị trong danh sách"
 
-#: src/Process/Backend/UserPreferences.php:1147
+#: src/Process/Backend/UserPreferences.php:1155
 msgid "Options for lists"
 msgstr "Các tùy chọn cho danh sách"
 
-#: src/Process/Backend/UserPreferences.php:1153
+#: src/Process/Backend/UserPreferences.php:1161
 msgid "Apply filters on the fly"
 msgstr "Áp dụng bộ lọc ngay lập tức"
 
-#: src/Process/Backend/UserPreferences.php:1190
+#: src/Process/Backend/UserPreferences.php:1198
 msgid "Enable WYSIWYG mode"
 msgstr "Bật chế độ WYSIWYG"
 
-#: src/Process/Backend/UserPreferences.php:1196
+#: src/Process/Backend/UserPreferences.php:1204
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr "Hiển thị thanh công cụ của biên tập viên ở phía dưới của vùng nhập văn bản (nếu có thể)"
 
-#: src/Process/Backend/UserPreferences.php:1202
+#: src/Process/Backend/UserPreferences.php:1210
 msgid "Use HTML editor for:"
 msgstr "Sử dụng trình soạn thảo HTML cho:"
 
-#: src/Process/Backend/UserPreferences.php:1206
+#: src/Process/Backend/UserPreferences.php:1214
 msgid "Other options"
 msgstr "Các tùy chọn khác"
 
-#: src/Process/Backend/UserPreferences.php:1217
+#: src/Process/Backend/UserPreferences.php:1225
 msgid "Save my options"
 msgstr "Lưu các tùy chọn của tôi"
 
-#: src/Process/Backend/UserPreferences.php:1248
+#: src/Process/Backend/UserPreferences.php:1256
 #, php-format
 msgid "position of %s"
 msgstr "Vị trí của %s"
 
-#: src/Process/Backend/UserPreferences.php:1271
+#: src/Process/Backend/UserPreferences.php:1279
 msgid "Save order"
 msgstr "Lưu đơn hàng"
 
-#: src/Process/Backend/UserPreferences.php:1272
+#: src/Process/Backend/UserPreferences.php:1280
 msgid "Delete selected favorites"
 msgstr "Xóa các mục yêu thích đã chọn"
 
-#: src/Process/Backend/UserPreferences.php:1279
+#: src/Process/Backend/UserPreferences.php:1287
 msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
 msgstr "Nếu bạn là quản trị viên cấp cao, bạn có thể định nghĩa bộ sưu tập yêu thích này để sử dụng mặc định trên tất cả các blog trong cài đặt này."
 
-#: src/Process/Backend/UserPreferences.php:1282
+#: src/Process/Backend/UserPreferences.php:1290
 msgid "Define as default favorites"
 msgstr "Đặt làm mục yêu thích mặc định"
 
-#: src/Process/Backend/UserPreferences.php:1291
+#: src/Process/Backend/UserPreferences.php:1299
 msgid "Currently no personal favorites."
 msgstr "Hiện tại không có mục yêu thích cá nhân."
 
-#: src/Process/Backend/UserPreferences.php:1330
+#: src/Process/Backend/UserPreferences.php:1338
 msgid "(default favorite)"
 msgstr "(mục yêu thích mặc định)"
 
-#: src/Process/Backend/UserPreferences.php:1345
+#: src/Process/Backend/UserPreferences.php:1353
 msgid "Add to my favorites"
 msgstr "Thêm vào danh sách yêu thích của tôi"
 
-#: src/Process/Backend/UserPreferences.php:1369
+#: src/Process/Backend/UserPreferences.php:1377
 msgid "Other available favorites"
 msgstr "Các mục yêu thích khác có sẵn"
 
-#: src/Process/Backend/UserPreferences.php:1381
+#: src/Process/Backend/UserPreferences.php:1389
 msgid "Menu"
 msgstr "Thực đơn"
 
-#: src/Process/Backend/UserPreferences.php:1387
+#: src/Process/Backend/UserPreferences.php:1395
 msgid "Display favorites at the top of the menu"
 msgstr "Hiển thị các mục yêu thích ở đầu menu"
 
-#: src/Process/Backend/UserPreferences.php:1391
+#: src/Process/Backend/UserPreferences.php:1399
 msgid "Dashboard icons"
 msgstr "Biểu tượng trên bảng điều khiển"
 
-#: src/Process/Backend/UserPreferences.php:1397
+#: src/Process/Backend/UserPreferences.php:1405
 msgid "Display dashboard icons"
 msgstr "Hiển thị biểu tượng trên bảng điều khiển"
 
-#: src/Process/Backend/UserPreferences.php:1403
+#: src/Process/Backend/UserPreferences.php:1411
 msgid "Use a dense layout of dashboard icons"
 msgstr "Sử dụng bố cục dày đặc của các biểu tượng trên bảng điều khiển"
 
-#: src/Process/Backend/UserPreferences.php:1407
+#: src/Process/Backend/UserPreferences.php:1415
 msgid "Dashboard modules"
 msgstr "Các mô-đun bảng điều khiển"
 
-#: src/Process/Backend/UserPreferences.php:1413
+#: src/Process/Backend/UserPreferences.php:1421
 msgid "Display documentation links"
 msgstr "Hiển thị các liên kết tài liệu"
 
-#: src/Process/Backend/UserPreferences.php:1419
+#: src/Process/Backend/UserPreferences.php:1427
 msgid "Display donate links"
 msgstr "Hiển thị các liên kết quyên góp"
 
-#: src/Process/Backend/UserPreferences.php:1425
+#: src/Process/Backend/UserPreferences.php:1433
 msgid "Display Dotclear news"
 msgstr "Hiển thị tin tức Dotclear"
 
-#: src/Process/Backend/UserPreferences.php:1431
+#: src/Process/Backend/UserPreferences.php:1439
 msgid "Display quick entry form"
 msgstr "Hiển thị biểu mẫu nhập liệu nhanh"
 
-#: src/Process/Backend/UserPreferences.php:1438
+#: src/Process/Backend/UserPreferences.php:1446
 msgid "Do not display Dotclear updates"
 msgstr "Không hiển thị các bản cập nhật của Dotclear"
 
-#: src/Process/Backend/UserPreferences.php:1444
+#: src/Process/Backend/UserPreferences.php:1452
 msgid "Use a dense layout of dashboard boxes"
 msgstr "Sử dụng bố cục dày đặc của các hộp bảng điều khiển"
 
-#: src/Process/Backend/UserPreferences.php:1457
+#: src/Process/Backend/UserPreferences.php:1465
 msgid "Save my dashboard options"
 msgstr "Lưu các tùy chọn bảng điều khiển của tôi"
 
-#: src/Process/Backend/UserPreferences.php:1470
+#: src/Process/Backend/UserPreferences.php:1478
 msgid "Dashboard items order"
 msgstr "Thứ tự các mục trên bảng điều khiển"
 
-#: src/Process/Backend/UserPreferences.php:1473
+#: src/Process/Backend/UserPreferences.php:1481
 msgid "Reset dashboard items order"
 msgstr "Đặt lại thứ tự các mục trên bảng điều khiển"
 
