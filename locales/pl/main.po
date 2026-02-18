@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-02-18 13:22+0100\n"
-"PO-Revision-Date: 2026-02-18 12:27\n"
+"PO-Revision-Date: 2026-02-18 12:59\n"
 "Last-Translator: \n"
 "Language-Team: Polish\n"
 "Language: pl_PL\n"
@@ -6099,7 +6099,7 @@ msgstr "Menu główne powinno znajdować się jak najczęściej w górnej częś
 
 #: src/Process/Backend/UserPreferences.php:1148
 msgid "Hide the menu collapse button"
-msgstr ""
+msgstr "Ukryj przycisk zwijania menu"
 
 #: src/Process/Backend/UserPreferences.php:1152
 msgid "Optional columns displayed in lists"
