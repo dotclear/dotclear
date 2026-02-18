@@ -321,7 +321,7 @@ class Blogs implements BlogsInterface
                     'Image small size in media manager', ],
                 ['media_img_t_size', $this->core->blogWorkspace()::NS_INT, 100,
                     'Image thumbnail size in media manager', ],
-                ['media_img_title_pattern', $this->core->blogWorkspace()::NS_STRING, 'Description ;; Date(%b %Y) ;; separator(, )',
+                ['media_img_title_pattern', $this->core->blogWorkspace()::NS_STRING, 'Description ;; separator(, )',
                     'Pattern to set image legend when you insert it in a post', ],
                 ['media_video_width', $this->core->blogWorkspace()::NS_INT, 400,
                     'Video width in media manager', ],
