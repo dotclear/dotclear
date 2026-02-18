@@ -399,6 +399,8 @@ html body.dark-mode {
   --collapser-focus: light-dark(#3a539b, #9ac123);
   --collapser-background: var(--header-border);
   --collapser-background-dirty: var(--header-border-dirty);
+  --collapser-btn-color: light-dark(#000, #000);
+  --collapser-btn-hover-color: light-dark(#fff, #000);
   --popup-title-color: light-dark(#fff, #dcdee0);
   --popup-title-background: light-dark(#3a539b, #565a60);
   --breadcrumb-background: var(--body-background);
@@ -732,7 +734,8 @@ h6 {
 html.dirty #header {
   border-bottom-color: var(--header-border-dirty);
 }
-html.dirty #collapser {
+html.dirty #collapser,
+html.dirty #collapser_btn {
   background-color: var(--collapser-background-dirty);
 }
 
@@ -833,6 +836,23 @@ h1,
   width: var(--collapser-width-focus);
 }
 
+#collapser_btn {
+  position: absolute;
+  top: 11em;
+  left: 14em;
+  writing-mode: vertical-lr;
+  color: var(--collapser-btn-color);
+  background: var(--collapser-background);
+  border: none;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  padding: 0.75em 0.25em;
+}
+#collapser_btn:is(:hover, :focus) {
+  color: var(--collapser-btn-hover-color);
+  background: var(--collapser-focus);
+}
+
 .expand-mm {
   display: none;
 }
@@ -850,7 +870,8 @@ h1,
 .hide-mm #main-menu {
   display: none;
 }
-.hide-mm #collapser {
+.hide-mm #collapser,
+.hide-mm #collapser_btn {
   left: 0;
 }
 .hide-mm .collapse-mm {
@@ -1105,7 +1126,8 @@ body.dark-mode.upgrade-mode :is(.collapse-mm, .expand-mm) {
     display: block;
     width: 100%;
   }
-  #collapser {
+  #collapser,
+  #collapser_btn {
     left: 17em;
   }
   #main {
@@ -1174,7 +1196,8 @@ body.dark-mode.upgrade-mode :is(.collapse-mm, .expand-mm) {
   .hide-mm #content {
     margin: 0;
   }
-  #collapser {
+  #collapser,
+  #collapser_btn {
     display: none;
   }
   #main #content > h2 {

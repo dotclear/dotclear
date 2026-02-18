@@ -121,6 +121,7 @@ class UserPreferences
             App::backend()->user_ui_hide_std_favicon = App::auth()->prefs()->interface->hide_std_favicon;
         }
         App::backend()->user_ui_nofavmenu          = App::auth()->prefs()->interface->nofavmenu;
+        App::backend()->user_ui_hidecollapserbtn   = App::auth()->prefs()->interface->hide_collapser_btn;
         App::backend()->user_ui_media_nb_last_dirs = App::auth()->prefs()->interface->media_nb_last_dirs;
         App::backend()->user_ui_nocheckadblocker   = App::auth()->prefs()->interface->nocheckadblocker;
         App::backend()->user_ui_quickmenuprefix    = App::auth()->prefs()->interface->quickmenuprefix;
@@ -362,6 +363,7 @@ class UserPreferences
                 App::auth()->prefs()->interface->put('nocheckadblocker', !empty($_POST['user_ui_nocheckadblocker']), 'boolean');
                 App::auth()->prefs()->interface->put('quickmenuprefix', $_POST['user_ui_quickmenuprefix'], 'string');
                 App::auth()->prefs()->interface->put('stickymenu', !empty($_POST['user_ui_stickymenu']), 'boolean');
+                App::auth()->prefs()->interface->put('hide_collapser_btn', !empty($_POST['user_ui_hidecollapserbtn']), 'boolean');
 
                 // Update user columns (lists)
                 $cu = [];
@@ -1138,6 +1140,12 @@ class UserPreferences
                                         (new Checkbox('user_ui_stickymenu', App::backend()->user_ui_stickymenu))
                                             ->value(1)
                                             ->label(new Label(__('Keep the main menu at the top of the page as much as possible'), Label::IL_FT)),
+                                    ]),
+                                (new Para())
+                                    ->items([
+                                        (new Checkbox('user_ui_hidecollapserbtn', App::backend()->user_ui_hidecollapserbtn))
+                                            ->value(1)
+                                            ->label(new Label(__('Hide the menu collapse button'), Label::IL_FT)),
                                     ]),
                             ]),
                         (new Fieldset('user_options_columns_container'))

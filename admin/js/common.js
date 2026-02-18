@@ -1440,24 +1440,45 @@ dotclear.ready(() => {
   const hideMainMenu = 'hide_main_menu';
 
   if (wrapper) {
-    // Sidebar separator
-    document.getElementById('collapser')?.addEventListener('click', (event) => {
+    const collapser = document.getElementById('collapser');
+    const collapser_btn = document.getElementById('collapser_btn');
+    const switchMenu = (event) => {
       event.preventDefault();
       if (wrapper.classList.contains('hide-mm')) {
         // Show sidebar
         wrapper.classList.remove('hide-mm');
         dotclear.dropLocalData(hideMainMenu);
+        if (collapser_btn !== undefined) {
+          collapser_btn.innerText = dotclear.fold_menu;
+        }
         return;
       }
       // Hide sidebar
       wrapper.classList.add('hide-mm');
       dotclear.storeLocalData(hideMainMenu, true);
+      if (collapser_btn !== undefined) {
+        collapser_btn.innerText = dotclear.unfold_menu;
+      }
+    };
+    // Sidebar separator
+    collapser?.addEventListener('click', (event) => {
+      switchMenu(event);
+    });
+    // Button
+    collapser_btn?.addEventListener('click', (event) => {
+      switchMenu(event);
     });
     // Cope with current stored state of collapser
     if (dotclear.readLocalData(hideMainMenu) === true) {
       wrapper.classList.add('hide-mm');
+      if (collapser_btn !== undefined) {
+        collapser_btn.innerText = dotclear.unfold_menu;
+      }
     } else {
       wrapper.classList.remove('hide-mm');
+      if (collapser_btn !== undefined) {
+        collapser_btn.innerText = dotclear.fold_menu;
+      }
     }
   }
 

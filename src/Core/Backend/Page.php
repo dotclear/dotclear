@@ -409,9 +409,14 @@ class Page
                         ->render()),
             ]);
 
+        $expander_btn = App::auth()->prefs()->interface->hide_collapser_btn ?
+            (new None()) :
+            (new Btn('collapser_btn', __('Hide menu')));
+
         echo
         '<div id="wrapper" class="clearfix">' . "\n" .
         $expander->render() .
+        $expander_btn->render() .
         '<main id="main" role="main">' . "\n" .
         '<div id="content" class="clearfix">' . "\n";
 
@@ -1273,6 +1278,9 @@ class Page
             'img_minus_src' => 'images/hide.svg',
             'img_minus_txt' => '▼',
             'img_minus_alt' => __('hide'),
+
+            'fold_menu'   => __('Hide menu'),
+            'unfold_menu' => __('Show menu'),
         ];
 
         $js_msg = [

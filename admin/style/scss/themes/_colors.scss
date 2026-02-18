@@ -103,6 +103,8 @@ html {
   --collapser-focus: light-dark(#3a539b, #9ac123);
   --collapser-background: var(--header-border);
   --collapser-background-dirty: var(--header-border-dirty);
+  --collapser-btn-color: light-dark(#000, #000);
+  --collapser-btn-hover-color: light-dark(#fff, #000);
 
   --popup-title-color: light-dark(#fff, #dcdee0);
   --popup-title-background: light-dark(#3a539b, #565a60);
