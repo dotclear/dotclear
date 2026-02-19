@@ -1448,7 +1448,7 @@ dotclear.ready(() => {
         // Show sidebar
         wrapper.classList.remove('hide-mm');
         dotclear.dropLocalData(hideMainMenu);
-        if (collapser_btn !== undefined) {
+        if (collapser_btn) {
           collapser_btn.innerText = dotclear.fold_menu;
         }
         return;
