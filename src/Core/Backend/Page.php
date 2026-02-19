@@ -413,12 +413,14 @@ class Page
             (new None()) :
             (new Btn('collapser_btn', __('Hide menu')));
 
+        $content_class_extra = App::auth()->prefs()->interface->hide_collapser_btn ? ' hide_collapser_btn' : '';
+
         echo
         '<div id="wrapper" class="clearfix">' . "\n" .
         $expander->render() .
         $expander_btn->render() .
         '<main id="main" role="main">' . "\n" .
-        '<div id="content" class="clearfix">' . "\n";
+        '<div id="content" class="clearfix' . $content_class_extra . '">' . "\n";
 
         // Display breadcrumb (if given) before any error messages
         echo $breadcrumb;
