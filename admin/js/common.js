@@ -1456,7 +1456,7 @@ dotclear.ready(() => {
       // Hide sidebar
       wrapper.classList.add('hide-mm');
       dotclear.storeLocalData(hideMainMenu, true);
-      if (collapser_btn !== undefined) {
+      if (collapser_btn) {
         collapser_btn.innerText = dotclear.unfold_menu;
       }
     };
@@ -1471,12 +1471,12 @@ dotclear.ready(() => {
     // Cope with current stored state of collapser
     if (dotclear.readLocalData(hideMainMenu) === true) {
       wrapper.classList.add('hide-mm');
-      if (collapser_btn !== undefined) {
+      if (collapser_btn) {
         collapser_btn.innerText = dotclear.unfold_menu;
       }
     } else {
       wrapper.classList.remove('hide-mm');
-      if (collapser_btn !== undefined) {
+      if (collapser_btn) {
         collapser_btn.innerText = dotclear.fold_menu;
       }
     }
