@@ -1626,6 +1626,25 @@ class Page
 
         $themes_root = implode(DIRECTORY_SEPARATOR, [__DIR__,  '..', '..', '..', 'admin', 'js','codemirror','theme']);
         if (is_dir($themes_root) && is_readable($themes_root) && ($d = @dir($themes_root)) !== false) {
+            $isBrightColor = function (
+                string $color,  // Must be in hexadecimal form (ex: #ab65c3), with or without # prefix ; may be shorten (ex: #fff)
+            ): bool {
+                $color = trim($color, '#');
+                if (strlen($color) === 3) {
+                    $color .= $color;
+                }
+
+                // Calculate the brightness of the color
+                $red   = hexdec(substr($color, 0, 2));
+                $green = hexdec(substr($color, 2, 2));
+                $blue  = hexdec(substr($color, 4, 2));
+
+                $brightness = (($red * 299) + ($green * 587) + ($blue * 114)) / 1000;
+
+                // Return true if color is light, false if dark
+                return $brightness >= 128;
+            };
+
             while (($entry = $d->read()) !== false) {
                 if ($entry !== '.' && $entry !== '..' && !str_starts_with($entry, '.') && is_readable($themes_root . '/' . $entry)) {
                     $name = substr($entry, 0, -4); // remove .css extension
@@ -1640,11 +1659,8 @@ class Page
                                 $css_background = [];
                                 if (preg_match('/(?:\s)*background(?:-color)*:\s#([0-9a-f]{3,6})/m', $css[1], $css_background)) {
                                     $color = $css_background[1];
-                                    if (strlen($color) === 3) {
-                                        $color .= $color;
-                                    }
                                     // Check if background color is dark or light
-                                    if (hexdec($color) > 0xffffff / 2) {
+                                    if ($isBrightColor($color)) {
                                         $themes_list_light[] = $name;
                                     } else {
                                         $themes_list_dark[] = $name;
