@@ -390,13 +390,15 @@ class Page
             ])
         ->render();
 
+        $content_class_extra = App::auth()->prefs()->interface->hide_collapser_btn ? ' hide_collapser_btn' : '';
+
         $expander = (new Div())
             ->class(['hidden-if-no-js', 'collapser-box'])
             ->items([
                 (new Btn())
                     ->type('button')
                     ->id('collapser')
-                    ->class('void-btn')
+                    ->class(['void-btn', $content_class_extra])
                     ->text((new Set())
                             ->items([
                                 (new Img('images/hide.svg'))
@@ -412,8 +414,6 @@ class Page
         $expander_btn = App::auth()->prefs()->interface->hide_collapser_btn ?
             (new None()) :
             (new Btn('collapser_btn', __('Hide menu')));
-
-        $content_class_extra = App::auth()->prefs()->interface->hide_collapser_btn ? ' hide_collapser_btn' : '';
 
         echo
         '<div id="wrapper" class="clearfix">' . "\n" .

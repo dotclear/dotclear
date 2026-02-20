@@ -838,6 +838,9 @@ h1,
   background: var(--collapser-focus);
   width: var(--collapser-width-focus);
 }
+#collapser:not(.hide_collapser_btn):is(:hover, :focus) {
+  width: calc(var(--collapser-width-focus) + 0.625em);
+}
 
 #collapser_btn {
   position: absolute;
