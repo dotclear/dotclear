@@ -131,9 +131,6 @@ h1,
     background: var(--collapser-focus);
     width: var(--collapser-width-focus);
   }
-  &:not(.hide_collapser_btn):is(:hover, :focus) {
-    width: calc(var(--collapser-width-focus) + 0.625em);
-  }
 }
 
 #collapser_btn {
@@ -147,11 +144,23 @@ h1,
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   padding: 0.75em 0.25em;
+  z-index: 1;
 
   &:is(:hover, :focus) {
     color: var(--collapser-btn-hover-color);
     background: var(--collapser-focus);
   }
+}
+
+/* If collapser bar is hover, display btn has hover */
+div:has(#collapser:is(:hover, :focus)) + #collapser_btn {
+  color: var(--collapser-btn-hover-color);
+  background: var(--collapser-focus);
+}
+/* If collapser btn is hover, display bar as hover */
+#wrapper:has(#collapser_btn:is(:hover, :focus)) #collapser {
+  background: var(--collapser-focus);
+  width: var(--collapser-width-focus);
 }
 
 .expand-mm {
