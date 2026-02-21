@@ -628,6 +628,27 @@ class Modules implements ModulesInterface
                     '<em>' . Html::escapeHTML($this->type) . '</em>'
                 );
 
+                // Try (silently) to deactivate this unknown module
+                try {
+                    if (!$this->define->get('root_writable')) {
+                        throw new Exception(__('Cannot deactivate plugin.'));
+                    }
+
+                    if (false === @file_put_contents($this->define->get('root') . DIRECTORY_SEPARATOR . self::MODULE_FILE_DISABLED, '')) {
+                        throw new Exception(__('Cannot deactivate plugin.'));
+                    }
+
+                    $this->errors[] = sprintf(
+                        __('Module "%1$s" has been definitively disabled'),
+                        '<strong>' . Html::escapeHTML($this->define->get('name')) . '</strong>'
+                    );
+                } catch (Exception) {
+                    $this->errors[] = sprintf(
+                        __('Module "%1$s" should be disabled or deleted manually'),
+                        '<strong>' . Html::escapeHTML($this->define->get('name')) . '</strong>'
+                    );
+                }
+
                 return;
             }
 
