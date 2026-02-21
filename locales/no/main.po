@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-02-21 12:19+0100\n"
-"PO-Revision-Date: 2026-02-21 11:24\n"
+"PO-Revision-Date: 2026-02-21 11:56\n"
 "Last-Translator: \n"
 "Language-Team: Norwegian Bokmal\n"
 "Language: nb_NO\n"
@@ -3081,12 +3081,12 @@ msgstr "Kan ikke deaktivere plugin."
 #: src/Module/Modules.php:642
 #, php-format
 msgid "Module \"%1$s\" has been definitively disabled"
-msgstr ""
+msgstr "Modulen \"%1$s\" er definitivt deaktivert"
 
 #: src/Module/Modules.php:647
 #, php-format
 msgid "Module \"%1$s\" should be disabled or deleted manually"
-msgstr ""
+msgstr "Modulen \"%1$s\" bør deaktiveres eller slettes manuelt"
 
 #: src/Module/Modules.php:672
 #, php-format
