@@ -17,6 +17,9 @@ dotclear.ready(() => {
     theme: current.theme || 'default',
   });
 
+  // Set inert attribute to Codemirror sample (avoid tab stop in it)
+  document.querySelector('#themeEditor_prefs div.CodeMirror')?.setAttribute('inert', '');
+
   document.getElementById('part-tabs-user-options')?.addEventListener('click', () => {
     editor.refresh();
   });
