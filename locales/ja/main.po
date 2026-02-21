@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-02-21 12:19+0100\n"
-"PO-Revision-Date: 2026-02-21 11:24\n"
+"PO-Revision-Date: 2026-02-21 11:56\n"
 "Last-Translator: \n"
 "Language-Team: Japanese\n"
 "Language: ja_JP\n"
@@ -3051,12 +3051,12 @@ msgstr "プラグインを無効化することができません。"
 #: src/Module/Modules.php:642
 #, php-format
 msgid "Module \"%1$s\" has been definitively disabled"
-msgstr ""
+msgstr "モジュール \"%1$s\" は明確に無効化された"
 
 #: src/Module/Modules.php:647
 #, php-format
 msgid "Module \"%1$s\" should be disabled or deleted manually"
-msgstr ""
+msgstr "モジュール \"%1$s\" は手動で無効にするか削除する必要がある"
 
 #: src/Module/Modules.php:672
 #, php-format
