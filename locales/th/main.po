@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-02-21 12:19+0100\n"
-"PO-Revision-Date: 2026-02-21 11:24\n"
+"PO-Revision-Date: 2026-02-21 11:56\n"
 "Last-Translator: \n"
 "Language-Team: Thai\n"
 "Language: th_TH\n"
@@ -3051,12 +3051,12 @@ msgstr "ไม่สามารถปิดการใช้งานปลั
 #: src/Module/Modules.php:642
 #, php-format
 msgid "Module \"%1$s\" has been definitively disabled"
-msgstr ""
+msgstr "โมดูล \"%1$s\" ได้ถูกปิดใช้งานอย่างถาวรแล้ว"
 
 #: src/Module/Modules.php:647
 #, php-format
 msgid "Module \"%1$s\" should be disabled or deleted manually"
-msgstr ""
+msgstr "โมดูล \"%1$s\" ควรถูกปิดการใช้งานหรือลบออกด้วยตนเอง"
 
 #: src/Module/Modules.php:672
 #, php-format
