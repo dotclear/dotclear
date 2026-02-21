@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-02-21 12:19+0100\n"
-"PO-Revision-Date: 2026-02-21 11:23\n"
+"PO-Revision-Date: 2026-02-21 11:55\n"
 "Last-Translator: \n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -3081,12 +3081,12 @@ msgstr "Kann Plugin nicht deaktivieren."
 #: src/Module/Modules.php:642
 #, php-format
 msgid "Module \"%1$s\" has been definitively disabled"
-msgstr ""
+msgstr "Das Modul \"%1$s\" wurde endgültig deaktiviert"
 
 #: src/Module/Modules.php:647
 #, php-format
 msgid "Module \"%1$s\" should be disabled or deleted manually"
-msgstr ""
+msgstr "Das Modul \"%1$s\" sollte deaktiviert oder manuell gelöscht werden"
 
 #: src/Module/Modules.php:672
 #, php-format
