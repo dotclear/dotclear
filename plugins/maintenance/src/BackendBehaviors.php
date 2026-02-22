@@ -165,7 +165,9 @@ class BackendBehaviors
             return;
         }
 
-        $icon['title'] .= '<br>' . sprintf(__('One task to execute', '%s tasks to execute', $count), $count);
+        if (isset($icon['title']) && is_string($icon['title'])) {
+            $icon['title'] .= '<br>' . sprintf(__('One task to execute', '%s tasks to execute', $count), $count);
+        }
         $icon['large-icon'] = My::icons('update');
     }
 
@@ -190,6 +192,9 @@ class BackendBehaviors
 
         $maintenance = new Maintenance();
 
+        $date_format = is_string($date_format = App::blog()->settings()->system->date_format) ? $date_format : '%F';
+        $time_format = is_string($time_format = App::blog()->settings()->system->time_format) ? $time_format : '%T';
+
         $lines = [];
         foreach ($maintenance->getTasks() as $t) {
             $ts = $t->expired();
@@ -203,8 +208,8 @@ class BackendBehaviors
                 :
                 sprintf(
                     __('Last execution of this task was on %s.'),
-                    Date::dt2str(App::blog()->settings()->system->date_format, (string) $ts) . ' ' .
-                    Date::dt2str(App::blog()->settings()->system->time_format, (string) $ts)
+                    Date::dt2str($date_format, (string) $ts) . ' ' .
+                    Date::dt2str($time_format, (string) $ts)
                 ))
                 ->text($t->task());
         }
