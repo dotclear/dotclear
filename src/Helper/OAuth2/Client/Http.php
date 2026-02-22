@@ -135,7 +135,7 @@ class Http
      *
      * @return  int     Lengh
      */
-    protected function parseHeaders(curlHandle $handler, string $header): int
+    protected function parseHeaders(CurlHandle $handler, string $header): int
     {
         $parts = explode(':', $header, 2);
         if (count($parts) === 2) {

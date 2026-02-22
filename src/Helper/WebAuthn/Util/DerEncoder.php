@@ -60,6 +60,8 @@ class DerEncoder implements DerEncoderInterface
     protected static function length(int $len): string
     {
         if ($len < 128) {
+            $len = max(0, min(255, $len));
+
             return chr($len);
         }
         $lenBytes = '';
@@ -68,7 +70,9 @@ class DerEncoder implements DerEncoderInterface
             $len      = intdiv($len, 256);
         }
 
-        return chr(0x80 | strlen($lenBytes)) . $lenBytes;
+        $codepoint = max(0, min(255, 0x80 | strlen($lenBytes)));
+
+        return chr($codepoint) . $lenBytes;
     }
 
     protected static function sequence(string $contents): string

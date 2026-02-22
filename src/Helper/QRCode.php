@@ -454,7 +454,7 @@ class QRCode
         return [$code, $widths, $iwidth, $iheight, $left, $top, $swidth, $sheight];
     }
 
-    protected function allocate_color(GDImage $image, string $color): int|false
+    protected function allocate_color(GdImage $image, string $color): int|false
     {
         $color = (string) preg_replace('/[^0-9A-Fa-f]/', '', $color);
         $r     = (int) hexdec(substr($color, 0, 2));

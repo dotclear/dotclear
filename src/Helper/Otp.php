@@ -717,7 +717,9 @@ abstract class Otp
             }
             $eightbits = str_split($x, 8);
             for ($z = 0; $z < count($eightbits); $z++) {
-                $binary .= (($y = chr((int) base_convert($eightbits[$z], 2, 10))) || ord($y) === 48) ? $y : '';
+                $codepoint = (int) base_convert($eightbits[$z], 2, 10);
+                $codepoint = max(0, min(255, $codepoint));
+                $binary .= (($y = chr($codepoint)) || ord($y) === 48) ? $y : '';
             }
         }
 
