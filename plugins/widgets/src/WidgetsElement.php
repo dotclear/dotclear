@@ -601,12 +601,8 @@ class WidgetsElement
             return true;
         }
 
-        if (!isset($this->settings['not_on_archive']) || (bool) $this->settings['not_on_archive']['value'] === false) {
-            return true;
-        }
-
         // On archive and widget should not be displayed on it
-        return false;
+        return !isset($this->settings['not_on_archive']) || (bool) $this->settings['not_on_archive']['value'] === false;
     }
 
     /**
