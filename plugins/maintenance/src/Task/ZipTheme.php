@@ -71,7 +71,7 @@ class ZipTheme extends MaintenanceTask
         $fp  = fopen('php://output', 'wb');
         $zip = new Zip($fp);
 
-        $zip->addExclusion('#(^|/).(.*?)_(m|s|sq|t).jpg$#');
+        $zip->addExclusion('#(^|/).(.*?)_(m|s|sq|t).(jpg|jpeg|png|webp|avif)$#');
         $zip->addDirectory($dir . '/', '', true);
 
         // Log task execution here as we sent file and stop script
