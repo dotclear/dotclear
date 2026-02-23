@@ -676,7 +676,9 @@ class WikiToHtml
 
         $this->escape_table = $this->all_tags;
 
-        array_walk($this->escape_table, function (string &$a): void {$a = '\\' . $a;});
+        array_walk($this->escape_table, function (string &$a): void {
+            $a = '\\' . $a;
+        });
     }
 
     /**
@@ -721,7 +723,9 @@ class WikiToHtml
     {
         $res = $this->all_tags;
 
-        array_walk($res, function (string &$a): void {$a = preg_quote($a, '/');});
+        array_walk($res, function (string &$a): void {
+            $a = preg_quote($a, '/');
+        });
 
         return '/(?<!\\\)(' . implode('|', $res) . ')/';
     }
@@ -1305,7 +1309,7 @@ class WikiToHtml
         // On vire les &nbsp; dans l'url
         $url = str_replace('&nbsp;', ' ', $url);
 
-        if (preg_match('/^(.+)[.](gif|jpg|jpeg|png)$/', $url) && !$no_image && $this->getOpt('active_auto_img')) {
+        if (preg_match('/^(.+)[.](gif|jpg|jpeg|png|webp|avif)$/', $url) && !$no_image && $this->getOpt('active_auto_img')) {
             // On ajoute les dimensions de l'image si locale
             // Idée de Stephanie
             $img_size = null;
