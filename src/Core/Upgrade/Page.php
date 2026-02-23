@@ -289,7 +289,7 @@ class Page extends BackendPage
 
         $figure = "\n" .
         ' ' . "\n" .
-        'ᓚᘏᗢ' . "\n";
+        '¯\_(ツ)_/¯' . "\n";
 
         $logo = (new Link())
             ->href('https://dotclear.org/')
