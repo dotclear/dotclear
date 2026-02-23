@@ -75,7 +75,8 @@ class HelpCharte
   <meta name="GOOGLEBOT" content="NOSNIPPET">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bibliothèque de styles - Dotclear - 2.7</title>
-  <link rel="icon" type="image/png" href="images/favicon96-login.png">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
 <?php
             echo
             App::backend()->page()->cssLoad('style/default.css') . // Set some JSON data

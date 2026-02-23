@@ -378,8 +378,8 @@ class Auth
         '  <meta name="GOOGLEBOT" content="NOSNIPPET">' . "\n" .
         '  <meta name="viewport" content="width=device-width, initial-scale=1.0">' . "\n" .
         '  <title>' . Html::escapeHTML(App::config()->vendorName()) . ' - ' . __('Upgrade') . '</title>' . "\n" .
-        '  <link rel="icon" type="image/png" href="images/favicon96-logout.png">' . "\n" .
-        '  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">' . "\n" .
+        '  <link rel="icon" type="image/png" href="images/favicon-logout.png">' . "\n" .
+        '  <link rel="icon" type="image/svg+xml" href="images/favicon-logout.svg" />' . "\n" .
         '  <link rel="stylesheet" href="style/default.css" type="text/css" media="screen">' .
 
         App::upgrade()->page()->jsCommon() .

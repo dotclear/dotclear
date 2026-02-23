@@ -267,8 +267,8 @@ class Page
 
         if (!App::auth()->prefs()->interface->hide_std_favicon) {
             echo
-            '<link rel="icon" type="image/png" href="images/favicon96-login.png">' . "\n" .
-            '<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">' . "\n";
+            '<link rel="icon" type="image/png" href="images/favicon.png">' . "\n" .
+            '<link rel="icon" type="image/svg+xml" href="images/favicon.svg" />' . "\n";
         }
         if (App::auth()->prefs()->interface->htmlfontsize) {
             $js['htmlFontSize'] = App::auth()->prefs()->interface->htmlfontsize;
