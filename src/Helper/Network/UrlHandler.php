@@ -20,7 +20,7 @@ class UrlHandler
     /**
      * Stack of URL types (name)
      *
-     * @var array<string, array<string, mixed> >    $types
+     * @var array<string, array{url: string, representation: string, handler: callable} >    $types
      */
     protected array $types = [];
 
@@ -147,7 +147,7 @@ class UrlHandler
     /**
      * Gets the registered URL handlers.
      *
-     * @return     array<string, array<string, mixed>>  The types.
+     * @return     array<string, array{url: string, representation: string, handler: callable} >  The types.
      */
     public function getTypes(): array
     {

@@ -97,7 +97,7 @@ interface UrlInterface
     /**
      * Gets the registered URL handlers.
      *
-     * @return     array<string, array<string, mixed>>  The types.
+     * @return     array<string, array{url: string, representation: string, handler: callable} >  The types.
      */
     public function getTypes(): array;
 
