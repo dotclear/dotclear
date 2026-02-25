@@ -111,33 +111,23 @@ class MediaPage extends FilterMedia
                 $this->d = null;
                 App::media()->chdir('');
             }
-            $this->media_writable = App::media()->writable();
-            $this->media_dir      = [
-                'dirs'  => App::media()->getDirs(),
-                'files' => App::media()->getFiles(),
-            ];
-
-            if (App::themes()->isEmpty()) {
-                # -- Loading themes, may be useful for some configurable theme --
-                App::themes()->loadModules(App::blog()->themesPath(), 'admin', App::lang()->getLang());
-            }
         } catch (Exception $e) {
             App::error()->add($e->getMessage());
 
             // Back to media root directory
             $this->d = null;
             App::media()->chdir('');
+        }
 
-            $this->media_writable = App::media()->writable();
-            $this->media_dir      = [
-                'dirs'  => App::media()->getDirs(),
-                'files' => App::media()->getFiles(),
-            ];
+        $this->media_writable = App::media()->writable();
+        $this->media_dir      = [
+            'dirs'  => App::media()->getDirs(),
+            'files' => App::media()->getFiles(),
+        ];
 
-            if (App::themes()->isEmpty()) {
-                # -- Loading themes, may be useful for some configurable theme --
-                App::themes()->loadModules(App::blog()->themesPath(), 'admin', App::lang()->getLang());
-            }
+        if (App::themes()->isEmpty()) {
+            // Load themes, may be useful for some configurable one
+            App::themes()->loadModules(App::blog()->themesPath(), 'admin', App::lang()->getLang());
         }
     }
 
