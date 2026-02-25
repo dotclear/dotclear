@@ -16,7 +16,7 @@ use Dotclear\Core\Upgrade\Upgrade;
 /**
  * @brief   Upgrade step.
  */
-class GrowUp_2_37_lt
+class GrowUp_2_38_lt
 {
     public static function init(bool $cleanup_sessions): bool
     {
