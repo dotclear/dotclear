@@ -25,7 +25,7 @@ interface BehaviorInterface
      * <var>$func</var> must be a valid and callable callback.
      *
      * @param   string      $behavior   The behavior
-     * @param   callable    $func       The function
+     * @param   callable    $func       The function (should return string)
      */
     public function addBehavior(string $behavior, $func): void;
 
