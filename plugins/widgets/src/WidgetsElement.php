@@ -451,6 +451,9 @@ class WidgetsElement
                             ->lang(App::auth()->getInfo('user_lang'))
                             ->spellcheck(true)
                             ->label(new Label($s['title'], Label::IL_TF)),
+                        (new Note())
+                            ->class('info')
+                            ->text(__('Content can be enhanced using HTML syntax.')),
                     ]);
 
                 break;
