@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-13 17:45+0100\n"
-"PO-Revision-Date: 2026-02-13 17:17\n"
+"POT-Creation-Date: 2026-03-01 08:15+0100\n"
+"PO-Revision-Date: 2026-03-01 07:25\n"
 "Last-Translator: \n"
 "Language-Team: Bulgarian\n"
 "Language: bg_BG\n"
@@ -1724,7 +1724,7 @@ msgstr "Функциите за експортиране се намират н�
 
 #: plugins/importExport/src/Manage.php:169
 #: plugins/maintenance/src/Backend.php:27
-#: plugins/maintenance/src/BackendBehaviors.php:220
+#: plugins/maintenance/src/BackendBehaviors.php:225
 msgid "Maintenance"
 msgstr "Поддръжка"
 
@@ -2073,7 +2073,7 @@ msgid_plural "%1$s <a href=\"%2$s\">maintenance tasks</a> to execute."
 msgstr[0] "Изпълнение на една <a href=\"%2$s\">задача за поддръжка</a>."
 msgstr[1] "%1$s <a href=\"%2$s\">задачи за поддръжка, които</a> трябва да се изпълнят."
 
-#: plugins/maintenance/src/BackendBehaviors.php:168
+#: plugins/maintenance/src/BackendBehaviors.php:169
 #: plugins/maintenance/src/Rest.php:83
 #, php-format
 msgid "One task to execute"
@@ -2081,33 +2081,33 @@ msgid_plural "%s tasks to execute"
 msgstr[0] "Изпълнение на една задача"
 msgstr[1] "%s задачи за изпълнение"
 
-#: plugins/maintenance/src/BackendBehaviors.php:202
+#: plugins/maintenance/src/BackendBehaviors.php:207
 #: plugins/maintenance/src/Manage.php:310
 msgid "This task has never been executed."
 msgstr "Тази задача никога не е била изпълнявана."
 
-#: plugins/maintenance/src/BackendBehaviors.php:205
+#: plugins/maintenance/src/BackendBehaviors.php:210
 #: plugins/maintenance/src/Manage.php:313
 #, php-format
 msgid "Last execution of this task was on %s."
 msgstr "Последното изпълнение на тази задача беше на %s."
 
-#: plugins/maintenance/src/BackendBehaviors.php:223
+#: plugins/maintenance/src/BackendBehaviors.php:228
 #, php-format
 msgid "There is a task to execute."
 msgid_plural "There are %s tasks to execute."
 msgstr[0] "Има задача, която трябва да се изпълни."
 msgstr[1] "Има %s задачи за изпълнение."
 
-#: plugins/maintenance/src/BackendBehaviors.php:230
+#: plugins/maintenance/src/BackendBehaviors.php:235
 msgid "Manage tasks"
 msgstr "Управление на задачи"
 
-#: plugins/maintenance/src/BackendBehaviors.php:252
+#: plugins/maintenance/src/BackendBehaviors.php:257
 msgid "Display overdue tasks counter on maintenance dashboard icon"
 msgstr "Показване на брояча на закъснелите задачи на иконата на таблото за управление на поддръжката"
 
-#: plugins/maintenance/src/BackendBehaviors.php:258
+#: plugins/maintenance/src/BackendBehaviors.php:263
 msgid "Display overdue tasks list on dashboard items"
 msgstr "Показване на списък с просрочени задачи в елементите на таблото за управление"
 
@@ -3395,35 +3395,39 @@ msgstr "Подаване на записи"
 msgid "Comments feed"
 msgstr "Коментари"
 
-#: plugins/widgets/src/WidgetsElement.php:543
+#: plugins/widgets/src/WidgetsElement.php:456
+msgid "Content can be enhanced using HTML syntax."
+msgstr "Съдържанието може да бъде подобрено с помощта на синтаксиса на HTML."
+
+#: plugins/widgets/src/WidgetsElement.php:546
 msgid "Title (optional)"
 msgstr "Заглавие (по избор)"
 
-#: plugins/widgets/src/WidgetsElement.php:554
+#: plugins/widgets/src/WidgetsElement.php:557
 msgid "All pages"
 msgstr "Всички страници"
 
-#: plugins/widgets/src/WidgetsElement.php:555
+#: plugins/widgets/src/WidgetsElement.php:558
 msgid "Home page only"
 msgstr "Само начална страница"
 
-#: plugins/widgets/src/WidgetsElement.php:556
+#: plugins/widgets/src/WidgetsElement.php:559
 msgid "Except on home page"
 msgstr "Освен на началната страница"
 
-#: plugins/widgets/src/WidgetsElement.php:564
+#: plugins/widgets/src/WidgetsElement.php:567
 msgid "Display on:"
 msgstr "Показване на дисплея:"
 
-#: plugins/widgets/src/WidgetsElement.php:590
+#: plugins/widgets/src/WidgetsElement.php:593
 msgid "Do not display on archive main page"
 msgstr "Да не се показва на главната страница на архива"
 
-#: plugins/widgets/src/WidgetsElement.php:619
+#: plugins/widgets/src/WidgetsElement.php:618
 msgid "Content only"
 msgstr "Само съдържание"
 
-#: plugins/widgets/src/WidgetsElement.php:629
+#: plugins/widgets/src/WidgetsElement.php:628
 msgid "CSS class:"
 msgstr "CSS клас:"
 

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-21 12:19+0100\n"
-"PO-Revision-Date: 2026-02-21 11:24\n"
+"POT-Creation-Date: 2026-02-28 17:06+0100\n"
+"PO-Revision-Date: 2026-03-01 07:25\n"
 "Last-Translator: \n"
 "Language-Team: Vietnamese\n"
 "Language: vi_VN\n"
@@ -644,8 +644,8 @@ msgstr "Tìm kiếm"
 msgid "Categories"
 msgstr "Các danh mục"
 
-#: src/Core/Backend/Favorites.php:465 src/Core/Backend/MediaPage.php:387
-#: src/Core/Backend/MediaPage.php:389 src/Core/Backend/MediaPage.php:440
+#: src/Core/Backend/Favorites.php:465 src/Core/Backend/MediaPage.php:392
+#: src/Core/Backend/MediaPage.php:394 src/Core/Backend/MediaPage.php:445
 #: src/Core/Backend/Menus.php:117 src/Core/Backend/UserPref.php:202
 #: src/Process/Backend/Media.php:702 src/Process/Backend/Media.php:830
 #: src/Process/Backend/MediaItem.php:411 src/Process/Backend/MediaItem.php:417
@@ -854,7 +854,7 @@ msgid "Apply filters and display options"
 msgstr "Áp dụng bộ lọc và tùy chọn hiển thị"
 
 #: src/Core/Backend/Filter/FiltersLibrary.php:87
-#: src/Core/Backend/MediaPage.php:426 src/Core/Backend/Page.php:485
+#: src/Core/Backend/MediaPage.php:431 src/Core/Backend/Page.php:485
 msgid "Search:"
 msgstr "Tìm kiếm:"
 
@@ -1160,7 +1160,7 @@ msgstr "Trang truy cập trực tiếp:"
 msgid "ok"
 msgstr "Được rồi"
 
-#: src/Core/Backend/MediaPage.php:426
+#: src/Core/Backend/MediaPage.php:431
 #, php-format
 msgid "%s file found"
 msgid_plural "%s files found"
