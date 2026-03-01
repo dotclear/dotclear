@@ -27,11 +27,9 @@ class Behavior implements BehaviorInterface
      */
     private array $stack = [];
 
-    public function addBehavior(string $behavior, $func): void
+    public function addBehavior(string $behavior, callable $func): void
     {
-        if (is_callable($func)) {   // @phpstan-ignore-line waiting to put callable type in method signature
-            $this->stack[$behavior][] = $func;
-        }
+        $this->stack[$behavior][] = $func;
     }
 
     public function addBehaviors(array $behaviors): void

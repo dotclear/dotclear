@@ -560,7 +560,7 @@ final class dcCore
      * @param      string           $behavior  The behavior
      * @param      callable         $func      The function
      */
-    public function addBehavior(string $behavior, $func): void
+    public function addBehavior(string $behavior, callable $func): void
     {
         App::behavior()->addBehavior($behavior, $func);
     }
@@ -573,7 +573,7 @@ final class dcCore
      * @param      string           $behaviour  The behaviour
      * @param      callable         $func       The function
      */
-    public function addBehaviour(string $behaviour, $func): void
+    public function addBehaviour(string $behaviour, callable $func): void
     {
         App::behavior()->addBehavior($behaviour, $func);
     }

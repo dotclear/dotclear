@@ -27,7 +27,7 @@ interface BehaviorInterface
      * @param   string      $behavior   The behavior
      * @param   callable    $func       The function (should return string)
      */
-    public function addBehavior(string $behavior, $func): void;
+    public function addBehavior(string $behavior, callable $func): void;
 
     /**
      * Adds new behaviors to behaviors stack.
