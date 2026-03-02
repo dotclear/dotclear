@@ -972,6 +972,11 @@ h1 {
 .pagination {
   display: grid;
   grid-template-columns: auto 1fr auto;
+
+  .pagination-separator-before,
+  .pagination-separator-after {
+    display: none;
+  }
 }
 
 /* ------------------------------------------------------------
