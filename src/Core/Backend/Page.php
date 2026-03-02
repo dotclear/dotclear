@@ -142,6 +142,7 @@ class Page
 
         # List of user's blogs
         if (App::auth()->getBlogCount() === 1 || App::auth()->getBlogCount() > $maxblogs) {
+            // Only one blog or too many blogs to use a select so use a link to list of blog to change
             $blogmenu = (new Para())
                 ->separator(' ')
                 ->items([
@@ -154,7 +155,7 @@ class Page
                         (new None()),
                 ]);
         } else {
-            $rs_blogs = App::blogs()->getBlogs(['order' => 'LOWER(blog_name)', 'limit' => $maxblogs]);
+            $rs_blogs = App::blogs()->getBlogs(['order' => 'blog_status DESC, LOWER(blog_name) ASC', 'limit' => $maxblogs]);
             $blogs    = [];
             while ($rs_blogs->fetch()) {
                 $blogs[Html::escapeHTML($rs_blogs->blog_name . ' - ' . $rs_blogs->blog_url)] = $rs_blogs->blog_id;
