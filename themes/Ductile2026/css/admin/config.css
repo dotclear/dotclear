@@ -1,0 +1,9 @@
+/* Try to display the logo image with a height almost equal to that displayed in the blog header */
+.header-image {
+  --logo-src-padding: 1em;
+
+  padding: var(--logo-src-padding);
+  border: 1px solid currentColor;
+  max-height: calc(6em + 2 * var(--logo-src-padding));
+  width: auto;
+}

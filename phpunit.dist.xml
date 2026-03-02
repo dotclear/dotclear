@@ -30,7 +30,7 @@
       <directory suffix=".php">plugins</directory>
       <directory suffix=".php">themes/berlin</directory>
       <directory suffix=".php">themes/customCSS</directory>
-      <directory suffix=".php">themes/ductile</directory>
+      <directory suffix=".php">themes/Ductile2026</directory>
     </include>
     <exclude>
       <file>inc/config.php</file>

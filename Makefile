@@ -35,7 +35,7 @@ config: clean config-stamp
 	cp -pRf \
 	./themes/berlin \
 	./themes/customCSS \
-	./themes/ductile \
+	./themes/ductile2026 \
 	./$(DC)/themes/
 
 	## Remove unnecessary folder from berlin themes

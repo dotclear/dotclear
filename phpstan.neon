@@ -55,7 +55,7 @@ parameters:
     - plugins
     - themes/berlin
     - themes/customCSS
-    - themes/ductile
+    - themes/Ductile2026
 
   excludePaths:
     - inc/config.php (?)

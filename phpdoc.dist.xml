@@ -19,7 +19,7 @@
         <path>plugins</path>
         <path>themes/berlin</path>
         <path>themes/customCSS</path>
-        <path>themes/ductile</path>
+        <path>themes/ductile2026</path>
       </source>
       <ignore hidden="true" symlinks="true">
         <path>inc/config.php</path>
