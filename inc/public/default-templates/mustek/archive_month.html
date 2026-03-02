@@ -24,9 +24,9 @@
 <tpl:Block name="main-content">
   <p id="navlinks">
     <tpl:ArchivePrevious><a href="{{tpl:ArchiveURL}}" class="prev">&#171; {{tpl:ArchiveDate encode_html="1"}}</a>
-      - </tpl:ArchivePrevious>
+     <span class="pagination-separator-before"> - </span></tpl:ArchivePrevious>
     <a href="{{tpl:BlogArchiveURL}}">{{tpl:lang Archives}}</a>
-    <tpl:ArchiveNext> - <a href="{{tpl:ArchiveURL}}" class="next">{{tpl:ArchiveDate encode_html="1"}} &#187;</a></tpl:ArchiveNext>
+    <tpl:ArchiveNext><span class="pagination-separator-after"> - </span><a href="{{tpl:ArchiveURL}}" class="next">{{tpl:ArchiveDate encode_html="1"}} &#187;</a></tpl:ArchiveNext>
   </p>
   <div id="content-info">
     <h2>{{tpl:ArchiveDate}}</h2>
