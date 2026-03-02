@@ -28,6 +28,7 @@ use Dotclear\Helper\Html\Form\Li;
 use Dotclear\Helper\Html\Form\Link;
 use Dotclear\Helper\Html\Form\None;
 use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Option;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Select;
 use Dotclear\Helper\Html\Form\Set;
@@ -155,10 +156,15 @@ class Page
                         (new None()),
                 ]);
         } else {
-            $rs_blogs = App::blogs()->getBlogs(['order' => 'blog_status DESC, LOWER(blog_name) ASC', 'limit' => $maxblogs]);
-            $blogs    = [];
+            $rs_blogs    = App::blogs()->getBlogs(['order' => 'blog_status DESC, LOWER(blog_name) ASC', 'limit' => $maxblogs]);
+            $blogs       = [];
+            $last_status = null;
             while ($rs_blogs->fetch()) {
-                $blogs[Html::escapeHTML($rs_blogs->blog_name . ' - ' . $rs_blogs->blog_url)] = $rs_blogs->blog_id;
+                if ($last_status !== null && $last_status !== (int) $rs_blogs->blog_status) {
+                    $blogs[] = (new Text('hr'));
+                }
+                $blogs[]     = (new Option($rs_blogs->blog_name . ' - ' . $rs_blogs->blog_url, $rs_blogs->blog_id));
+                $last_status = (int) $rs_blogs->blog_status;
             }
 
             $blogmenu = (new Para())
