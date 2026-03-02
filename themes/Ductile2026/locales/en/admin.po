@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-02 17:07+0100\n"
-"PO-Revision-Date: 2023-11-21 06:43\n"
+"PO-Revision-Date: 2026-03-02 16:40\n"
 "Last-Translator: \n"
 "Language-Team: English\n"
 "Language: en_US\n"
@@ -14,20 +14,26 @@ msgstr ""
 "X-Crowdin-Project: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "X-Crowdin-Project-ID: 2\n"
 "X-Crowdin-Language: en\n"
-"X-Crowdin-File: /master/themes/ductile/locales/_pot/admin.pot\n"
-"X-Crowdin-File-ID: 565\n"
+"X-Crowdin-File: /master/themes/Ductile2026/locales/_pot/admin.pot\n"
+"X-Crowdin-File-ID: 596\n"
 
+#: themes/Ductile2026/src/Config.php:183
 msgid "Theme configuration upgraded."
 msgstr ""
 
+#: themes/Ductile2026/src/Config.php:248
 msgid "Logo"
 msgstr ""
 
+#: themes/Ductile2026/src/Config.php:256
 msgid "Image URL:"
 msgstr ""
 
+#: themes/Ductile2026/src/Config.php:275
 msgid "Stickers"
 msgstr ""
 
+#: themes/Ductile2026/src/Config.php:289
 msgid "Image"
 msgstr ""
+
