@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-02 17:07+0100\n"
-"PO-Revision-Date: 2023-12-26 17:08\n"
+"PO-Revision-Date: 2026-03-02 16:40\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -14,182 +14,26 @@ msgstr ""
 "X-Crowdin-Project: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "X-Crowdin-Project-ID: 2\n"
 "X-Crowdin-Language: fr\n"
-"X-Crowdin-File: /master/themes/ductile/locales/_pot/admin.pot\n"
-"X-Crowdin-File-ID: 565\n"
+"X-Crowdin-File: /master/themes/Ductile2026/locales/_pot/admin.pot\n"
+"X-Crowdin-File-ID: 596\n"
 
+#: themes/Ductile2026/src/Config.php:183
 msgid "Theme configuration upgraded."
 msgstr "La configuration du thème a été mise à jour."
 
-#, fuzzy
+#: themes/Ductile2026/src/Config.php:248
 msgid "Logo"
-msgstr "URL du logo :"
+msgstr "Logo"
 
-#, fuzzy
+#: themes/Ductile2026/src/Config.php:256
 msgid "Image URL:"
-msgstr "Image"
+msgstr "URL de l'image :"
 
+#: themes/Ductile2026/src/Config.php:275
 msgid "Stickers"
 msgstr "Etiquettes"
 
+#: themes/Ductile2026/src/Config.php:289
 msgid "Image"
 msgstr "Image"
 
-#~ msgid "Full"
-#~ msgstr "Complet"
-
-#~ msgid "Home (first page)"
-#~ msgstr "Accueil (première page)"
-
-#~ msgid "Home (other pages)"
-#~ msgstr "Accueil (autres pages)"
-
-#~ msgid "Entries for a category"
-#~ msgstr "Entrées pour une catégorie"
-
-#~ msgid "Entries for a tag"
-#~ msgstr "Entrées pour un mot-clé"
-
-#~ msgid "Search result entries"
-#~ msgstr "Entrées des résultats de la recherche"
-
-#~ msgid "Month archive entries"
-#~ msgstr "Entrées des archives du mois"
-
-#~ msgid "Ductile primary"
-#~ msgstr "Ductile primaire"
-
-#~ msgid "Ductile secondary"
-#~ msgstr "Ductile secondaire"
-
-#~ msgid "Times New Roman"
-#~ msgstr "Times New Roman"
-
-#~ msgid "Georgia"
-#~ msgstr "Georgia"
-
-#~ msgid "Garamond"
-#~ msgstr "Garamond"
-
-#~ msgid "Helvetica/Arial"
-#~ msgstr "Helvetica/Arial"
-
-#~ msgid "Verdana"
-#~ msgstr "Verdana"
-
-#~ msgid "Trebuchet MS"
-#~ msgstr "Trebuchet MS"
-
-#~ msgid "Impact"
-#~ msgstr "Impact"
-
-#~ msgid "Monospace"
-#~ msgstr "Monospace"
-
-#~ msgid "none"
-#~ msgstr "aucun"
-
-#~ msgid "javascript (Adobe)"
-#~ msgstr "javascript (Adobe)"
-
-#~ msgid "stylesheet (Google)"
-#~ msgstr "feuille de style (Google)"
-
-#~ msgid "Font family"
-#~ msgstr "Famille de polices"
-
-#~ msgid "Header"
-#~ msgstr "Entête"
-
-#~ msgid "Hide blog description:"
-#~ msgstr "Masquer la description du blog :"
-
-#, php-format
-#~ msgid "To configure the top menu go to the <a href=\"%s\">Simple Menu administration page</a>."
-#~ msgstr "Pour configurer le menu principal, rendez-vous sur <a href=\"%s\">la page d'administration du menu simple</a>."
-
-#~ msgid "Stickers (footer)"
-#~ msgstr "Étiquettes (pied de page)"
-
-#~ msgid "Entries list types and limits"
-#~ msgstr "Types et limites des listes d'entrées"
-
-#~ msgid "Entries lists"
-#~ msgstr "Listes des entrées"
-
-#~ msgid "Context"
-#~ msgstr "Contexte"
-
-#~ msgid "Entries list type"
-#~ msgstr "Type de liste d'entrées"
-
-#~ msgid "Miscellaneous options"
-#~ msgstr "Options diverses"
-
-#~ msgid "Comment preview is not mandatory:"
-#~ msgstr "L'aperçu du commentaire n'est pas obligatoire :"
-
-#~ msgid "Presentation"
-#~ msgstr "Présentation"
-
-#~ msgid "General settings"
-#~ msgstr "Paramètres généraux"
-
-#~ msgid "Fonts"
-#~ msgstr "Polices de caractères"
-
-#~ msgid "Main text"
-#~ msgstr "Texte principal"
-
-#~ msgid "Main font:"
-#~ msgstr "Police principale :"
-
-#~ msgid "Set to Default to use a webfont."
-#~ msgstr "Définir sur Défaut pour utiliser une police de caractères web."
-
-#~ msgid "Webfont family:"
-#~ msgstr "Famille de police Web:"
-
-#~ msgid "Webfont URL:"
-#~ msgstr "URL de la police Web :"
-
-#~ msgid "Webfont API:"
-#~ msgstr "API Webfont :"
-
-#~ msgid "Secondary text"
-#~ msgstr "Texte secondaire"
-
-#~ msgid "Secondary font:"
-#~ msgstr "Police secondaire :"
-
-#~ msgid "Titles"
-#~ msgstr "Titres"
-
-#~ msgid "Blog title"
-#~ msgstr "Titre du blog"
-
-#~ msgid "In bold:"
-#~ msgstr "En gras :"
-
-#~ msgid "Font size (in em by default):"
-#~ msgstr "Taille de la police (en em par défaut) :"
-
-#~ msgid "Color:"
-#~ msgstr "Couleur :"
-
-#~ msgid "Post title"
-#~ msgstr "Titre de la publication"
-
-#~ msgid "Titles without link"
-#~ msgstr "Titres sans lien"
-
-#~ msgid "Inside posts links"
-#~ msgstr "Liens à l'intérieur des publications"
-
-#~ msgid "Normal and visited links color:"
-#~ msgstr "Couleur des liens normaux et visités :"
-
-#~ msgid "Active, hover and focus links color:"
-#~ msgstr "Couleur des liens actifs, survolés et focalisés :"
-
-#~ msgid "Mobile specific settings"
-#~ msgstr "Paramètres spécifiques au mobile"
