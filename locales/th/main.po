@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-28 17:06+0100\n"
-"PO-Revision-Date: 2026-03-01 07:25\n"
+"POT-Creation-Date: 2026-03-02 12:31+0100\n"
+"PO-Revision-Date: 2026-03-02 16:21\n"
 "Last-Translator: \n"
 "Language-Team: Thai\n"
 "Language: th_TH\n"
@@ -608,7 +608,7 @@ msgid "My favorites"
 msgstr "รายการโปรดของฉัน"
 
 #: src/Core/Backend/Favorites.php:399 src/Core/Backend/Menus.php:195
-#: src/Core/Backend/Page.php:375 src/Process/Backend/Media.php:796
+#: src/Core/Backend/Page.php:394 src/Process/Backend/Media.php:796
 #: src/Process/Backend/UserPreferences.php:70
 msgid "My preferences"
 msgstr "ความชอบของฉัน"
@@ -692,13 +692,13 @@ msgstr "การตั้งค่าปลั๊กอิน"
 msgid "Languages"
 msgstr "ภาษา"
 
-#: src/Core/Backend/Favorites.php:527 src/Core/Backend/Page.php:457
-#: src/Core/Backend/Page.php:458 src/Process/Backend/Help.php:115
+#: src/Core/Backend/Favorites.php:527 src/Core/Backend/Page.php:476
+#: src/Core/Backend/Page.php:477 src/Process/Backend/Help.php:115
 #: src/Process/Backend/Help.php:122 src/Process/Backend/Help.php:128
 msgid "Global help"
 msgstr "ความช่วยเหลือระดับโลก"
 
-#: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1297
+#: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1316
 #: src/Process/Backend/Auth.php:513 src/Process/Backend/BlogPref.php:1369
 #: src/Process/Backend/Comment.php:305 src/Process/Backend/Post.php:1120
 #: src/Process/Backend/User.php:450 src/Process/Backend/UserPreferences.php:824
@@ -706,14 +706,14 @@ msgstr "ความช่วยเหลือระดับโลก"
 msgid "Email:"
 msgstr "อีเมล:"
 
-#: src/Core/Backend/Filter/FilterComments.php:37 src/Core/Backend/Page.php:1296
+#: src/Core/Backend/Filter/FilterComments.php:37 src/Core/Backend/Page.php:1315
 #: src/Process/Backend/Comment.php:321 src/Process/Backend/Post.php:1129
 msgid "Web site:"
 msgstr "เว็บไซต์:"
 
 #: src/Core/Backend/Filter/FilterComments.php:58
 #: src/Core/Backend/Filter/FilterPosts.php:92
-#: src/Core/Backend/ModulesList.php:1045 src/Core/Backend/Page.php:1338
+#: src/Core/Backend/ModulesList.php:1045 src/Core/Backend/Page.php:1357
 #: src/Process/Backend/Comment.php:294
 msgid "Author:"
 msgstr "ผู้แต่ง:"
@@ -732,7 +732,7 @@ msgid "Trackback"
 msgstr "แทร็กแบ็ก"
 
 #: src/Core/Backend/Filter/FilterComments.php:107
-#: src/Core/Backend/Page.php:1298 src/Process/Backend/Comment.php:269
+#: src/Core/Backend/Page.php:1317 src/Process/Backend/Comment.php:269
 msgid "IP address:"
 msgstr "ที่อยู่ไอพี:"
 
@@ -845,7 +845,7 @@ msgstr "บันทึกตัวเลือกปัจจุบัน"
 msgid "Display options"
 msgstr "ตัวเลือกการแสดงผล"
 
-#: src/Core/Backend/Filter/Filters.php:420 src/Core/Backend/Page.php:1506
+#: src/Core/Backend/Filter/Filters.php:420 src/Core/Backend/Page.php:1525
 msgid "Show filters and display options"
 msgstr "แสดงตัวกรองและตัวเลือกการแสดงผล"
 
@@ -854,7 +854,7 @@ msgid "Apply filters and display options"
 msgstr "ใช้ตัวกรองและตัวเลือกการแสดงผล"
 
 #: src/Core/Backend/Filter/FiltersLibrary.php:87
-#: src/Core/Backend/MediaPage.php:431 src/Core/Backend/Page.php:485
+#: src/Core/Backend/MediaPage.php:431 src/Core/Backend/Page.php:504
 msgid "Search:"
 msgstr "ค้นหา:"
 
@@ -1153,7 +1153,7 @@ msgstr "หน้า %1$s / %2$s"
 msgid "Direct access page:"
 msgstr "หน้าการเข้าถึงโดยตรง:"
 
-#: src/Core/Backend/Listing/Pager.php:226 src/Core/Backend/Page.php:170
+#: src/Core/Backend/Listing/Pager.php:226 src/Core/Backend/Page.php:189
 #: src/Process/Backend/Blogs.php:148 src/Process/Backend/Comments.php:216
 #: src/Process/Backend/Posts.php:137 src/Process/Backend/Search.php:313
 #: src/Process/Backend/Search.php:409 src/Process/Backend/Users.php:160
@@ -1193,7 +1193,7 @@ msgstr "อื่น"
 msgid "Search in repository:"
 msgstr "ค้นหาในคลังข้อมูล:"
 
-#: src/Core/Backend/ModulesList.php:413 src/Core/Backend/Page.php:487
+#: src/Core/Backend/ModulesList.php:413 src/Core/Backend/Page.php:506
 msgid "OK"
 msgstr "โอเค"
 
@@ -1242,7 +1242,7 @@ msgid "Current version"
 msgstr "เวอร์ชันปัจจุบัน"
 
 #: src/Core/Backend/ModulesList.php:839 src/Core/Backend/ModulesList.php:1063
-#: src/Core/Backend/Page.php:1339 src/Core/Backend/ThemesList.php:230
+#: src/Core/Backend/Page.php:1358 src/Core/Backend/ThemesList.php:230
 #: src/Core/Backend/ThemesList.php:300
 msgid "Details"
 msgstr "รายละเอียด"
@@ -1292,7 +1292,7 @@ msgstr "ปลั๊กอินกำลังพัฒนา"
 msgid "Release date:"
 msgstr "วันวางจำหน่าย:"
 
-#: src/Core/Backend/ModulesList.php:1070 src/Core/Backend/Page.php:1340
+#: src/Core/Backend/ModulesList.php:1070 src/Core/Backend/Page.php:1359
 #: src/Core/Backend/ThemesList.php:236
 msgid "Support"
 msgstr "การสนับสนุน"
@@ -1301,11 +1301,11 @@ msgstr "การสนับสนุน"
 msgid "update locked"
 msgstr "อัปเดตแล้ว (ล็อกไว้)"
 
-#: src/Core/Backend/ModulesList.php:1127 src/Core/Backend/Page.php:1342
+#: src/Core/Backend/ModulesList.php:1127 src/Core/Backend/Page.php:1361
 msgid "Section:"
 msgstr "หมวด:"
 
-#: src/Core/Backend/ModulesList.php:1133 src/Core/Backend/Page.php:1343
+#: src/Core/Backend/ModulesList.php:1133 src/Core/Backend/Page.php:1362
 msgid "Tags:"
 msgstr "แท็ก:"
 
@@ -1478,7 +1478,7 @@ msgstr "รหัสผ่าน"
 msgid "Your password:"
 msgstr "รหัสผ่านของคุณ:"
 
-#: src/Core/Backend/ModulesList.php:1799 src/Core/Backend/Page.php:1462
+#: src/Core/Backend/ModulesList.php:1799 src/Core/Backend/Page.php:1481
 #: src/Process/Backend/Media.php:809
 msgid "Upload"
 msgstr "อัปโหลด"
@@ -1524,8 +1524,8 @@ msgstr "กำหนดค่า \"%s\""
 msgid "Back"
 msgstr "กลับ"
 
-#: src/Core/Backend/Notices.php:86 src/Core/Backend/Page.php:1299
-#: src/Core/Backend/Page.php:1457 src/Core/Upgrade/Notices.php:48
+#: src/Core/Backend/Notices.php:86 src/Core/Backend/Page.php:1318
+#: src/Core/Backend/Page.php:1476 src/Core/Upgrade/Notices.php:48
 #: src/Process/Backend/Home.php:324
 msgid "Error:"
 msgstr "ข้อผิดพลาด:"
@@ -1541,414 +1541,414 @@ msgid "%H:%M:%S"
 msgstr "%H:%M:%Sการแปล: \"การแปล\""
 
 #: src/Core/Backend/Notices.php:258 src/Core/Backend/Notices.php:298
-#: src/Core/Backend/Notices.php:308 src/Core/Backend/Page.php:1345
+#: src/Core/Backend/Notices.php:308 src/Core/Backend/Page.php:1364
 #: src/Process/Backend/Categories.php:378 src/Process/Backend/Post.php:1064
 #: src/Process/Backend/Post.php:1196 src/Process/Backend/PostsPopup.php:121
 msgid "Ok"
 msgstr "โอเค"
 
-#: src/Core/Backend/Page.php:148 src/Process/Backend/User.php:601
+#: src/Core/Backend/Page.php:151 src/Process/Backend/User.php:601
 #: src/Process/Backend/UsersActions.php:486
 msgid "Blog:"
 msgstr "บล็อก:"
 
-#: src/Core/Backend/Page.php:153
+#: src/Core/Backend/Page.php:156
 msgid "Change blog"
 msgstr "เปลี่ยนบล็อก"
 
-#: src/Core/Backend/Page.php:168
+#: src/Core/Backend/Page.php:187
 msgid "Blogs:"
 msgstr "บล็อก:"
 
-#: src/Core/Backend/Page.php:315 src/Core/Upgrade/Page.php:151
+#: src/Core/Backend/Page.php:334 src/Core/Upgrade/Page.php:151
 msgid "Go to the content"
 msgstr "ไปที่เนื้อหา"
 
-#: src/Core/Backend/Page.php:319 src/Core/Upgrade/Page.php:155
+#: src/Core/Backend/Page.php:338 src/Core/Upgrade/Page.php:155
 msgid "Go to the menu"
 msgstr "ไปที่เมนู"
 
-#: src/Core/Backend/Page.php:323 src/Core/Upgrade/Page.php:159
+#: src/Core/Backend/Page.php:342 src/Core/Upgrade/Page.php:159
 msgid "Go to help"
 msgstr "ไปที่ช่วยเหลือ"
 
-#: src/Core/Backend/Page.php:342 src/Core/Upgrade/Page.php:177
+#: src/Core/Backend/Page.php:361 src/Core/Upgrade/Page.php:177
 #: src/Process/Backend/UserPreferences.php:1362
 #: src/Process/Backend/UserPreferences.php:1364
 msgid "My dashboard"
 msgstr "แดชบอร์ดของฉัน"
 
-#: src/Core/Backend/Page.php:358 src/Core/Backend/Page.php:360
+#: src/Core/Backend/Page.php:377 src/Core/Backend/Page.php:379
 msgid "Go to site"
 msgstr "ไปที่ไซต์"
 
-#: src/Core/Backend/Page.php:383 src/Core/Upgrade/Page.php:206
+#: src/Core/Backend/Page.php:402 src/Core/Upgrade/Page.php:206
 #, php-format
 msgid "Logout %s"
 msgstr "ออกจากระบบ %s"
 
-#: src/Core/Backend/Page.php:406 src/Core/Upgrade/Page.php:227
+#: src/Core/Backend/Page.php:425 src/Core/Upgrade/Page.php:227
 msgid "Hide main menu"
 msgstr "ซ่อนเมนูหลัก"
 
-#: src/Core/Backend/Page.php:409 src/Core/Upgrade/Page.php:230
+#: src/Core/Backend/Page.php:428 src/Core/Upgrade/Page.php:230
 msgid "Show main menu"
 msgstr "แสดงเมนูหลัก"
 
-#: src/Core/Backend/Page.php:416 src/Core/Backend/Page.php:1284
+#: src/Core/Backend/Page.php:435 src/Core/Backend/Page.php:1303
 msgid "Hide menu"
 msgstr "ซ่อนเมนู"
 
-#: src/Core/Backend/Page.php:435
+#: src/Core/Backend/Page.php:454
 msgid "Safe mode"
 msgstr "โหมดปลอดภัย"
 
-#: src/Core/Backend/Page.php:437
+#: src/Core/Backend/Page.php:456
 msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities"
 msgstr "คุณอยู่ในโหมดปลอดภัย ปลั๊กอินทั้งหมดถูกปิดการใช้งานชั่วคราว โปรดออกจากระบบแล้วเข้าสู่ระบบใหม่อีกครั้งตามปกติเพื่อใช้งานฟังก์ชันทั้งหมด"
 
-#: src/Core/Backend/Page.php:505 src/Core/Upgrade/Page.php:263
+#: src/Core/Backend/Page.php:524 src/Core/Upgrade/Page.php:263
 #, php-format
 msgid "Thank you for using %s."
 msgstr "ขอบคุณที่ใช้บริการ %s"
 
-#: src/Core/Backend/Page.php:522 src/Core/Backend/Page.php:526
-#: src/Core/Backend/Page.php:528 src/Core/Backend/Page.php:676
-#: src/Core/Backend/Page.php:678 src/Core/Upgrade/Page.php:274
+#: src/Core/Backend/Page.php:541 src/Core/Backend/Page.php:545
+#: src/Core/Backend/Page.php:547 src/Core/Backend/Page.php:695
+#: src/Core/Backend/Page.php:697 src/Core/Upgrade/Page.php:274
 #: src/Core/Upgrade/Page.php:278 src/Core/Upgrade/Page.php:280
 msgid "Page top"
 msgstr "ด้านบนของหน้า"
 
-#: src/Core/Backend/Page.php:548 src/Core/Backend/Page.php:551
+#: src/Core/Backend/Page.php:567 src/Core/Backend/Page.php:570
 #: src/Core/Upgrade/Page.php:300 src/Core/Upgrade/Page.php:303
 msgid "Dotclear logo"
 msgstr "โลโก้ Dotclear"
 
-#: src/Core/Backend/Page.php:888 src/Core/Backend/Page.php:891
+#: src/Core/Backend/Page.php:907 src/Core/Backend/Page.php:910
 #: src/Core/Upgrade/Page.php:342 src/Core/Upgrade/Page.php:345
 msgid "Go to dashboard"
 msgstr "ไปที่แดชบอร์ด"
 
-#: src/Core/Backend/Page.php:1144 src/Core/Upgrade/Page.php:458
+#: src/Core/Backend/Page.php:1163 src/Core/Upgrade/Page.php:458
 msgid "Help about this page"
 msgstr "ช่วยเหลือเกี่ยวกับหน้านี้"
 
-#: src/Core/Backend/Page.php:1154 src/Core/Upgrade/Page.php:467
+#: src/Core/Backend/Page.php:1173 src/Core/Upgrade/Page.php:467
 #, php-format
 msgid "See also %s"
 msgstr "ดูเพิ่มเติมที่ %s"
 
-#: src/Core/Backend/Page.php:1157 src/Core/Upgrade/Page.php:470
+#: src/Core/Backend/Page.php:1176 src/Core/Upgrade/Page.php:470
 msgid "the global help"
 msgstr "ความช่วยเหลือระดับโลก"
 
-#: src/Core/Backend/Page.php:1278
+#: src/Core/Backend/Page.php:1297
 msgid "uncover"
 msgstr "เปิดเผย"
 
-#: src/Core/Backend/Page.php:1282
+#: src/Core/Backend/Page.php:1301
 msgid "hide"
 msgstr "ซ่อน"
 
-#: src/Core/Backend/Page.php:1285
+#: src/Core/Backend/Page.php:1304
 msgid "Show menu"
 msgstr "แสดงเมนู"
 
-#: src/Core/Backend/Page.php:1289
+#: src/Core/Backend/Page.php:1308
 msgid "Need help?"
 msgstr "ต้องการความช่วยเหลือหรือไม่?"
 
-#: src/Core/Backend/Page.php:1290
+#: src/Core/Backend/Page.php:1309
 msgid "new window"
 msgstr "หน้าต่างใหม่"
 
-#: src/Core/Backend/Page.php:1291
+#: src/Core/Backend/Page.php:1310
 msgid "Hide"
 msgstr "ซ่อน"
 
-#: src/Core/Backend/Page.php:1292
+#: src/Core/Backend/Page.php:1311
 msgid "Select:"
 msgstr "เลือก:"
 
-#: src/Core/Backend/Page.php:1293
+#: src/Core/Backend/Page.php:1312
 msgid "No selection"
 msgstr "ไม่มีการคัดเลือก"
 
-#: src/Core/Backend/Page.php:1294
+#: src/Core/Backend/Page.php:1313
 msgid "Select all"
 msgstr "เลือกทั้งหมด"
 
-#: src/Core/Backend/Page.php:1295
+#: src/Core/Backend/Page.php:1314
 msgid "Invert selection"
 msgstr "กลับการเลือก"
 
-#: src/Core/Backend/Page.php:1300 src/Process/Backend/Post.php:466
+#: src/Core/Backend/Page.php:1319 src/Process/Backend/Post.php:466
 #: src/Process/Backend/Post.php:609
 msgid "Entry has been successfully created."
 msgstr "การสร้างรายการได้สำเร็จแล้ว"
 
-#: src/Core/Backend/Page.php:1301
+#: src/Core/Backend/Page.php:1320
 msgid "Edit entry"
 msgstr "แก้ไขรายการ"
 
-#: src/Core/Backend/Page.php:1302
+#: src/Core/Backend/Page.php:1321
 msgid "view entry"
 msgstr "ดูรายการ"
 
-#: src/Core/Backend/Page.php:1303
+#: src/Core/Backend/Page.php:1322
 #, php-format
 msgid "Are you sure you want to delete selected entries (%s)?"
 msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบรายการที่เลือก (%s)?"
 
-#: src/Core/Backend/Page.php:1304
+#: src/Core/Backend/Page.php:1323
 #, php-format
 msgid "Are you sure you want to delete selected medias (%d)?"
 msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบสื่อที่เลือกไว้ (%d)?"
 
-#: src/Core/Backend/Page.php:1305
+#: src/Core/Backend/Page.php:1324
 #, php-format
 msgid "Are you sure you want to delete selected categories (%s)?"
 msgstr "คุณแน่ใจหรือไม่ว่าคุณต้องการลบหมวดหมู่ที่เลือกไว้ (%s)?"
 
-#: src/Core/Backend/Page.php:1306
+#: src/Core/Backend/Page.php:1325
 msgid "Are you sure you want to delete this entry?"
 msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบรายการนี้?"
 
-#: src/Core/Backend/Page.php:1307
+#: src/Core/Backend/Page.php:1326
 msgid "Click here to unlock the field"
 msgstr "คลิกที่นี่เพื่อปลดล็อกฟิลด์"
 
-#: src/Core/Backend/Page.php:1308
+#: src/Core/Backend/Page.php:1327
 msgid "Are you sure you want to delete all spams?"
 msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบสแปมทั้งหมด?"
 
-#: src/Core/Backend/Page.php:1309
+#: src/Core/Backend/Page.php:1328
 #, php-format
 msgid "Are you sure you want to delete selected comments (%s)?"
 msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบความคิดเห็นที่เลือกไว้ (%s)?"
 
-#: src/Core/Backend/Page.php:1310
+#: src/Core/Backend/Page.php:1329
 msgid "Are you sure you want to delete this comment?"
 msgstr "คุณแน่ใจหรือไม่ว่าคุณต้องการลบความคิดเห็นนี้?"
 
-#: src/Core/Backend/Page.php:1311
+#: src/Core/Backend/Page.php:1330
 msgid "Users with posts cannot be deleted."
 msgstr "ผู้ใช้ที่มีโพสต์ไม่สามารถลบได้"
 
-#: src/Core/Backend/Page.php:1312
+#: src/Core/Backend/Page.php:1331
 #, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
 msgstr "คุณแน่ใจหรือไม่ว่าคุณต้องการลบผู้ใช้ที่เลือกไว้ (%s)?"
 
-#: src/Core/Backend/Page.php:1313
+#: src/Core/Backend/Page.php:1332
 #, php-format
 msgid "Are you sure you want to delete selected blogs (%s)?"
 msgstr "คุณแน่ใจหรือไม่ว่าคุณต้องการลบบล็อกที่เลือกไว้ (%s)?"
 
-#: src/Core/Backend/Page.php:1314
+#: src/Core/Backend/Page.php:1333
 #, php-format
 msgid "Are you sure you want to delete category \"%s\"?"
 msgstr "คุณแน่ใจหรือไม่ว่าคุณต้องการลบหมวดหมู่ \"%s\""
 
-#: src/Core/Backend/Page.php:1315
+#: src/Core/Backend/Page.php:1334
 msgid "Are you sure you want to reorder all categories?"
 msgstr "คุณแน่ใจหรือไม่ว่าคุณต้องการสั่งซื้อหมวดหมู่ทั้งหมดใหม่?"
 
-#: src/Core/Backend/Page.php:1316
+#: src/Core/Backend/Page.php:1335
 #, php-format
 msgid "Are you sure you want to remove media \"%s\"?"
 msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบสื่อ \"%s\"?"
 
-#: src/Core/Backend/Page.php:1317
+#: src/Core/Backend/Page.php:1336
 #, php-format
 msgid "Are you sure you want to remove directory \"%s\"?"
 msgstr "คุณแน่ใจหรือไม่ว่าคุณต้องการลบไดเรกทอรี \"%s\""
 
-#: src/Core/Backend/Page.php:1318
+#: src/Core/Backend/Page.php:1337
 msgid "Are you sure you want to extract archive in current directory?"
 msgstr "คุณแน่ใจหรือไม่ว่าต้องการแยกไฟล์จากคลังในไดเรกทอรีปัจจุบัน?"
 
-#: src/Core/Backend/Page.php:1319
+#: src/Core/Backend/Page.php:1338
 #, php-format
 msgid "Are you sure you want to remove attachment \"%s\"?"
 msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบไฟล์แนบ \"%s\"?"
 
-#: src/Core/Backend/Page.php:1320
+#: src/Core/Backend/Page.php:1339
 #, php-format
 msgid "Are you sure you want to delete \"%s\" language?"
 msgstr "คุณแน่ใจหรือไม่ว่าคุณต้องการลบภาษา \"%s\""
 
-#: src/Core/Backend/Page.php:1321
+#: src/Core/Backend/Page.php:1340
 #, php-format
 msgid "Are you sure you want to delete \"%s\" plugin?"
 msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบปลั๊กอิน \"%s\""
 
-#: src/Core/Backend/Page.php:1322
+#: src/Core/Backend/Page.php:1341
 msgid "Are you sure you want to delete selected plugins?"
 msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบปลั๊กอินที่เลือกไว้?"
 
-#: src/Core/Backend/Page.php:1323
+#: src/Core/Backend/Page.php:1342
 msgid "Use this theme"
 msgstr "ใช้ธีมนี้"
 
-#: src/Core/Backend/Page.php:1324
+#: src/Core/Backend/Page.php:1343
 msgid "Remove this theme"
 msgstr "ลบธีมนี้"
 
-#: src/Core/Backend/Page.php:1325
+#: src/Core/Backend/Page.php:1344
 #, php-format
 msgid "Are you sure you want to delete \"%s\" theme?"
 msgstr "คุณแน่ใจหรือไม่ว่าคุณต้องการลบธีม \"%s\""
 
-#: src/Core/Backend/Page.php:1326
+#: src/Core/Backend/Page.php:1345
 msgid "Are you sure you want to delete selected themes?"
 msgstr "คุณแน่ใจหรือไม่ว่าคุณต้องการลบธีมที่เลือกไว้"
 
-#: src/Core/Backend/Page.php:1327
+#: src/Core/Backend/Page.php:1346
 msgid "Are you sure you want to delete this backup?"
 msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบข้อมูลสำรองนี้?"
 
-#: src/Core/Backend/Page.php:1328
+#: src/Core/Backend/Page.php:1347
 msgid "Are you sure you want to revert to this backup?"
 msgstr "คุณแน่ใจหรือไม่ว่าต้องการย้อนกลับไปยังข้อมูลสำรองนี้?"
 
-#: src/Core/Backend/Page.php:1329
+#: src/Core/Backend/Page.php:1348
 msgid "Zip file content"
 msgstr "เนื้อหาไฟล์ซิป"
 
-#: src/Core/Backend/Page.php:1330
+#: src/Core/Backend/Page.php:1349
 msgid "HTML markup validator"
 msgstr "ตัวตรวจสอบความถูกต้องของมาร์กอัป HTML"
 
-#: src/Core/Backend/Page.php:1331
+#: src/Core/Backend/Page.php:1350
 msgid "HTML content is valid."
 msgstr "เนื้อหา HTML เป็นไปตามมาตรฐาน"
 
-#: src/Core/Backend/Page.php:1332
+#: src/Core/Backend/Page.php:1351
 msgid "There are HTML markup errors."
 msgstr "มีข้อผิดพลาดในการทำเครื่องหมาย HTML"
 
-#: src/Core/Backend/Page.php:1333
+#: src/Core/Backend/Page.php:1352
 msgid "Attention: an audit of a content not yet registered."
 msgstr "แจ้งให้ทราบ: กำลังตรวจสอบเนื้อหาที่ยังไม่ได้ลงทะเบียน"
 
-#: src/Core/Backend/Page.php:1334
+#: src/Core/Backend/Page.php:1353
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
 msgstr "คุณมีการเปลี่ยนแปลงที่ยังไม่ได้บันทึก การเปลี่ยนรูปแบบโพสต์จะทำให้การเปลี่ยนแปลงเหล่านี้สูญหาย คุณต้องการดำเนินการต่อหรือไม่?"
 
-#: src/Core/Backend/Page.php:1335
+#: src/Core/Backend/Page.php:1354
 msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
 msgstr "คำเตือน: การเปลี่ยนแปลงรูปแบบโพสต์จะไม่แปลงเนื้อหาที่มีอยู่เดิม คุณจะต้องปรับใช้รูปแบบใหม่ด้วยตนเอง หากต้องการดำเนินการต่อ กรุณาคลิก"
 
-#: src/Core/Backend/Page.php:1336
+#: src/Core/Backend/Page.php:1355
 msgid "Loading enhanced uploader, please wait."
 msgstr "กำลังโหลดอัปโหลดเวอร์ชันปรับปรุง กรุณารอสักครู่"
 
-#: src/Core/Backend/Page.php:1341
+#: src/Core/Backend/Page.php:1360
 msgid "Help:"
 msgstr "ช่วยเหลือ:"
 
-#: src/Core/Backend/Page.php:1347
+#: src/Core/Backend/Page.php:1366
 msgid "Show password"
 msgstr "แสดงรหัสผ่าน"
 
-#: src/Core/Backend/Page.php:1348
+#: src/Core/Backend/Page.php:1367
 msgid "Hide password"
 msgstr "ซ่อนรหัสผ่าน"
 
-#: src/Core/Backend/Page.php:1350
+#: src/Core/Backend/Page.php:1369
 msgid "Reset to now"
 msgstr "รีเซ็ตเป็นปัจจุบัน"
 
-#: src/Core/Backend/Page.php:1351
+#: src/Core/Backend/Page.php:1370
 msgid "The publication date has changed. Reset the base name of the entry URL?"
 msgstr "วันที่เผยแพร่ได้เปลี่ยนแปลง กรุณารีเซ็ตชื่อพื้นฐานของ URL รายการหรือไม่?"
 
-#: src/Core/Backend/Page.php:1352
+#: src/Core/Backend/Page.php:1371
 msgid "The publication title has changed. Reset the base name of the entry URL?"
 msgstr "ชื่อสิ่งพิมพ์ได้เปลี่ยนไปแล้ว. ตั้งชื่อฐานของ URL ของรายการใหม่หรือไม่?"
 
-#: src/Core/Backend/Page.php:1354
+#: src/Core/Backend/Page.php:1373
 msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences."
 msgstr "ตรวจพบตัวบล็อกโฆษณาบนแดชบอร์ด Dotclear นี้ (Ghostery, Adblock plus, uBlock origin, …) ซึ่งอาจรบกวนการทำงานของบางฟีเจอร์ หากเกิดกรณีนี้ กรุณาปิดการใช้งานตัวบล็อกโฆษณาดังกล่าว โปรดทราบว่าท่านสามารถปิดการตรวจจับนี้ได้ในเมนูการตั้งค่าของท่าน"
 
-#: src/Core/Backend/Page.php:1406
+#: src/Core/Backend/Page.php:1425
 msgid "You have unsaved changes."
 msgstr "คุณมีการเปลี่ยนแปลงที่ยังไม่ได้บันทึก"
 
-#: src/Core/Backend/Page.php:1407
+#: src/Core/Backend/Page.php:1426
 msgid "your battery charge seems low (%d%) and you have unsaved changes, you should save them."
 msgstr "แบตเตอรี่ของคุณดูเหมือนจะต่ำ (%d%) และคุณมีการเปลี่ยนแปลงที่ยังไม่ได้บันทึก คุณควรบันทึกไว้"
 
-#: src/Core/Backend/Page.php:1448
+#: src/Core/Backend/Page.php:1467
 msgid "Temporarily activate enhanced uploader"
 msgstr "เปิดใช้งานอัปโหลดเวอร์ชันปรับปรุงชั่วคราว"
 
-#: src/Core/Backend/Page.php:1449
+#: src/Core/Backend/Page.php:1468
 msgid "Temporarily disable enhanced uploader"
 msgstr "ปิดใช้งานอัปโหลดเวอร์ชันปรับปรุงชั่วคราว"
 
-#: src/Core/Backend/Page.php:1453
+#: src/Core/Backend/Page.php:1472
 msgid "Limit exceeded."
 msgstr "เกินขีดจำกัด"
 
-#: src/Core/Backend/Page.php:1454
+#: src/Core/Backend/Page.php:1473
 msgid "File size exceeds allowed limit."
 msgstr "ขนาดไฟล์เกินขีดจำกัดที่กำหนด"
 
-#: src/Core/Backend/Page.php:1455
+#: src/Core/Backend/Page.php:1474
 msgid "Canceled."
 msgstr "ยกเลิก"
 
-#: src/Core/Backend/Page.php:1456
+#: src/Core/Backend/Page.php:1475
 msgid "HTTP Error:"
 msgstr "HTTP Error:"
 
-#: src/Core/Backend/Page.php:1458 src/Process/Backend/Media.php:752
+#: src/Core/Backend/Page.php:1477 src/Process/Backend/Media.php:752
 msgid "Choose file"
 msgstr "เลือกไฟล์"
 
-#: src/Core/Backend/Page.php:1459 src/Process/Backend/Media.php:758
+#: src/Core/Backend/Page.php:1478 src/Process/Backend/Media.php:758
 msgid "Choose files"
 msgstr "เลือกไฟล์"
 
-#: src/Core/Backend/Page.php:1460 src/Process/Backend/LinkPopup.php:114
+#: src/Core/Backend/Page.php:1479 src/Process/Backend/LinkPopup.php:114
 #: src/Process/Backend/Media.php:305 src/Process/Backend/MediaItem.php:516
 #: src/Process/Backend/MediaItem.php:772 src/Process/Backend/Post.php:968
 #: src/Process/Backend/PostMedia.php:115
 msgid "Cancel"
 msgstr "ยกเลิก"
 
-#: src/Core/Backend/Page.php:1461
+#: src/Core/Backend/Page.php:1480
 msgid "Clean"
 msgstr "สะอาด"
 
-#: src/Core/Backend/Page.php:1463
+#: src/Core/Backend/Page.php:1482
 msgid "Send"
 msgstr "ส่ง"
 
-#: src/Core/Backend/Page.php:1464
+#: src/Core/Backend/Page.php:1483
 msgid "File successfully uploaded."
 msgstr "ไฟล์ถูกอัปโหลดสำเร็จ"
 
-#: src/Core/Backend/Page.php:1465
+#: src/Core/Backend/Page.php:1484
 msgid "No file in queue."
 msgstr "ไม่มีไฟล์ในคิว"
 
-#: src/Core/Backend/Page.php:1466
+#: src/Core/Backend/Page.php:1485
 msgid "1 file in queue."
 msgstr "มีไฟล์ 1 ไฟล์ในคิว"
 
-#: src/Core/Backend/Page.php:1467
+#: src/Core/Backend/Page.php:1486
 #, php-format
 msgid "%d files in queue."
 msgstr "%d ไฟล์ในคิว"
 
-#: src/Core/Backend/Page.php:1468
+#: src/Core/Backend/Page.php:1487
 msgid "Queue error:"
 msgstr "คิวผิดพลาด:"
 
-#: src/Core/Backend/Page.php:1507
+#: src/Core/Backend/Page.php:1526
 msgid "Cancel filters and display options"
 msgstr "ยกเลิกตัวกรองและตัวเลือกการแสดงผล"
 
