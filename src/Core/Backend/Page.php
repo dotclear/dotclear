@@ -28,6 +28,7 @@ use Dotclear\Helper\Html\Form\Li;
 use Dotclear\Helper\Html\Form\Link;
 use Dotclear\Helper\Html\Form\None;
 use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Optgroup;
 use Dotclear\Helper\Html\Form\Option;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Select;
@@ -156,15 +157,26 @@ class Page
                         (new None()),
                 ]);
         } else {
-            $rs_blogs    = App::blogs()->getBlogs(['order' => 'blog_status DESC, LOWER(blog_name) ASC', 'limit' => $maxblogs]);
-            $blogs       = [];
-            $last_status = null;
+            $rs_blogs      = App::blogs()->getBlogs(['order' => 'blog_status DESC, LOWER(blog_name) ASC', 'limit' => $maxblogs]);
+            $blogs         = [];
+            $blogs_sublist = [];
+            $last_status   = null;
             while ($rs_blogs->fetch()) {
-                if ($last_status !== null && $last_status !== (int) $rs_blogs->blog_status) {
-                    $blogs[] = (new Text('hr'));
+                $option = (new Option($rs_blogs->blog_name . ' - ' . $rs_blogs->blog_url, $rs_blogs->blog_id));
+                if ($last_status !== (int) $rs_blogs->blog_status && $blogs_sublist !== []) {
+                    // New status: add current sub list to main one
+                    $blogs[] = (new Optgroup(App::status()->blog()->name($last_status)))
+                        ->items($blogs_sublist);
+                    // Reset sub list
+                    $blogs_sublist = [];
                 }
-                $blogs[]     = (new Option($rs_blogs->blog_name . ' - ' . $rs_blogs->blog_url, $rs_blogs->blog_id));
-                $last_status = (int) $rs_blogs->blog_status;
+                $blogs_sublist[] = $option;
+                $last_status     = (int) $rs_blogs->blog_status;
+            }
+            if ($blogs_sublist !== []) {
+                // Add last sub list to main one
+                $blogs[] = (new Optgroup(App::status()->blog()->name($last_status)))
+                    ->items($blogs_sublist);
             }
 
             $blogmenu = (new Para())
