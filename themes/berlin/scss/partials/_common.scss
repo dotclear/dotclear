@@ -124,6 +124,9 @@ img {
   max-width: 97%;
   height: auto; // Use width as main dimension
 }
+figure:has(figcaption) + figure {
+  margin-block-start: 1em;
+}
 p,
 ul,
 ol {
