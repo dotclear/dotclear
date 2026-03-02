@@ -116,6 +116,9 @@
         {{tpl:CommentContent}}
         <!-- # --BEHAVIOR-- publicCommentAfterContent -->
         {{tpl:SysBehavior behavior="publicCommentAfterContent"}}
+        <tpl:CommentIf is_ping="1">
+          <p class="comment-read-it"><a href="{{tpl:CommentAuthorURL}}" title="{{tpl:lang Continue reading}}">{{tpl:lang Continue reading}}</a></p>
+        </tpl:CommentIf>
       </dd>
       <tpl:CommentsFooter>
         </dl>
