@@ -112,7 +112,7 @@ dotclear.ready(() => {
       let player_audio = $('#public_player').val();
 
       const align = $('input[name="alignment"]:checked', insert_form).val();
-      const alignment = align !== undefined && align !== 'none' ? ` class="${media_align_grid[align]}"` : '';
+      const alignment = align !== undefined && align !== 'none' ? ` class="${alignments[align]}"` : '';
 
       const title = insert_form.elements.real_title.value;
       if (title) {
@@ -133,7 +133,7 @@ dotclear.ready(() => {
       const oplayer = $(`<div>${$('#public_player').val()}</div>`);
 
       const align = $('input[name="alignment"]:checked', insert_form).val();
-      const alignment = align !== undefined && align !== 'none' ? ` class="${media_align_grid[align]}"` : '';
+      const alignment = align !== undefined && align !== 'none' ? ` class="${alignments[align]}"` : '';
 
       const vw = $('#video_w').val();
       const vh = $('#video_h').val();
