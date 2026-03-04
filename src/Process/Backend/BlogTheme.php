@@ -97,8 +97,9 @@ class BlogTheme
                         // Active links
                         Html::escapeHTML(App::blog()->name()) => '',
                         __('Blog appearance')                 => App::backend()->themesList()->getURL('', false),
-                        // inactive link
-                        (new Span(__('Theme configuration')))->class('page-title')->render() => '',
+                        // inactive links
+                        (new Span(__('Theme configuration')))->class('page-title')->render()                            => '',
+                        Html::escapeHTML(App::themes()->getDefine(App::blog()->settings()->system->theme)->get('name')) => '',
                     ]
                 )
             );

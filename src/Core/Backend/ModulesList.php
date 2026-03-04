@@ -1985,44 +1985,35 @@ class ModulesList
     public function displayConfiguration(): ModulesList
     {
         if ($this->config_define instanceof ModuleDefine && ($this->config_class !== '' || $this->config_file !== '')) {
-            $items = [];
-
-            if (!$this->config_define->get('standalone_config')) {
-                $items = array_merge($items, [
-                    (new Text('h3', sprintf(__('Configure "%s"'), Html::escapeHTML($this->config_define->get('name'))))),
-                    (new Para())
+            $items = [
+                (new Para())
                     ->items([
                         (new Link())
                             ->class('back')
                             ->href($this->getRedir())
                             ->text(__('Back')),
                     ]),
-                ]);
-            }
-
-            $items[] = (new Text(null, $this->config_content));
+                (new Text(null, $this->config_content)),
+            ];
 
             if (!$this->config_define->get('standalone_config') && !$this->config_define->get('information_config')) {
-                // Module config is not only informative so it must be encapsulated in a form
-                $items = array_merge($items, [
-                    (new Para())
-                        ->class('clear')
-                        ->items([
-                            (new Submit(['save'], __('Save'))),
-                            (new Hidden('module', $this->config_define->getId())),
-                            (new Hidden('redir', $this->getRedir())),
-                            App::nonce()->formNonce(),
-                        ]),
-                ]);
-            }
-
-            if (!$this->config_define->get('standalone_config') && !$this->config_define->get('information_config')) {
+                // Module config is not standalone or only informative so it must be encapsulated in a form
                 echo (new Form())
                     ->method('post')
                     ->action($this->getURL('conf=1'))
                     ->enctype('multipart/form-data')
                     ->id('module_config')
-                    ->items($items)
+                    ->items([
+                        ...$items,
+                        (new Para())
+                            ->class('clear')
+                            ->items([
+                                (new Submit(['save'], __('Save'))),
+                                (new Hidden('module', $this->config_define->getId())),
+                                (new Hidden('redir', $this->getRedir())),
+                                App::nonce()->formNonce(),
+                            ]),
+                    ])
                 ->render();
             } else {
                 echo (new Set())
