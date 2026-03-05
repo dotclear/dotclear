@@ -2,28 +2,34 @@
 .media-center {
   display: table;
   margin: 0 auto;
-  figcaption {
-    display: table-caption;
-    caption-side: bottom;
-  }
 }
 [dir='rtl'] .media-left {
-  float: right;
   float: inline-start;
 }
 .media-left {
-  float: left;
   float: inline-start;
+  margin-inline-start: 0;
   margin-inline-end: 1em;
   margin-block-end: 1em;
 }
 [dir='rtl'] .media-right {
-  float: left;
   float: inline-end;
 }
 .media-right {
-  float: right;
   float: inline-end;
   margin-inline-start: 1em;
+  margin-inline-end: 0;
   margin-block-end: 1em;
+}
+figure {
+  &.media-left,
+  &.media-right,
+  &.media-center {
+    display: table;
+  }
+  figcaption {
+    display: table-caption;
+    caption-side: bottom;
+    word-break: break-word;
+  }
 }
