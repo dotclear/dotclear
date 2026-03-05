@@ -59,6 +59,12 @@ class FrontendTemplate
         // Get current page if set
         $page = App::frontend()->getPageNumber();
 
+        // Get number of pages, if possible
+        $nb_pages = ($nb_pages = App::frontend()->context()->PaginationNbPages()) !== false ? $nb_pages : 0;
+
+        // Determine if page number should be displayed in breadcrumb
+        $show_page = $page !== 0 && ($nb_pages === 0 || $nb_pages > 1);
+
         // Get blog URL
         $blogUrl = App::blog()->url();
 
@@ -81,10 +87,18 @@ class FrontendTemplate
                     if (App::blog()->settings()->system->static_home) {
                         // Static home and on (1st) blog page
                         $breadcrumb = '<a id="bc-home" href="' . $blogUrl . '">' . __('Home') . '</a>';
-                        $breadcrumb .= $separator . __('Blog');
+                        if ($show_page) {
+                            $breadcrumb .= $separator . '<a href="' . $blogUrl . App::url()->getURLFor('posts') . '">' . __('Blog') . '</a>';
+                        } else {
+                            $breadcrumb .= $separator . __('Blog');
+                        }
                     } else {
                         // Home (first page only)
-                        $breadcrumb = '<span id="bc-home">' . __('Home') . '</span>';
+                        if ($show_page) {
+                            $breadcrumb = '<a id="bc-home" href="' . $blogUrl . '">' . __('Home') . '</a>';
+                        } else {
+                            $breadcrumb = '<span id="bc-home">' . __('Home') . '</span>';
+                        }
                         if (App::frontend()->context()->cur_lang) {
                             $langs = App::lang()->getISOcodes();
                             $lang  = is_string($lang = App::frontend()->context()->cur_lang) ? $lang : '';
@@ -94,6 +108,9 @@ class FrontendTemplate
                             $breadcrumb .= $separator . $lang;
                         }
                     }
+                    if ($show_page) {
+                        $breadcrumb .= $separator . sprintf(__('page %d'), $page);
+                    }
 
                     break;
 
@@ -101,7 +118,11 @@ class FrontendTemplate
                     // Home or blog page`(page 2 to n)
                     $breadcrumb = '<a id="bc-home" href="' . $blogUrl . '">' . __('Home') . '</a>';
                     if (App::blog()->settings()->system->static_home) {
-                        $breadcrumb .= $separator . '<a href="' . $blogUrl . App::url()->getURLFor('posts') . '">' . __('Blog') . '</a>';
+                        if ($show_page) {
+                            $breadcrumb .= $separator . '<a href="' . $blogUrl . App::url()->getURLFor('posts') . '">' . __('Blog') . '</a>';
+                        } else {
+                            $breadcrumb .= $separator . __('Blog');
+                        }
                     } elseif (App::frontend()->context()->cur_lang) {
                         $langs = App::lang()->getISOcodes();
                         $lang  = is_string($lang = App::frontend()->context()->cur_lang) ? $lang : '';
@@ -110,7 +131,9 @@ class FrontendTemplate
                         }
                         $breadcrumb .= $separator . $lang;
                     }
-                    $breadcrumb .= $separator . sprintf(__('page %d'), $page);
+                    if ($show_page) {
+                        $breadcrumb .= $separator . sprintf(__('page %d'), $page);
+                    }
 
                     break;
 
@@ -128,7 +151,7 @@ class FrontendTemplate
                         }
 
                         $cat_title = is_string($cat_title = $categories->cat_title) ? $cat_title : '';
-                        if ($page === 0) {
+                        if ($page === 0 || !$show_page) {
                             $breadcrumb .= $separator . $cat_title;
                         } else {
                             $cat_url = is_string($cat_url = $categories->cat_url) ? $cat_url : '';
@@ -218,7 +241,7 @@ class FrontendTemplate
                     $meta = App::frontend()->context()->meta instanceof MetaRecord ? App::frontend()->context()->meta : null;
                     if ($meta instanceof MetaRecord) {
                         $meta_id = is_string($meta_id = $meta->meta_id) ? $meta_id : '';
-                        if ($page === 0) {
+                        if ($page === 0 || !$show_page) {
                             $breadcrumb .= $separator . $meta_id;
                         } else {
                             $breadcrumb .= $separator . '<a href="' . $blogUrl . App::url()->getURLFor('tag', rawurlencode($meta_id)) . '">' . $meta_id . '</a>';
@@ -231,7 +254,7 @@ class FrontendTemplate
                 case 'search':
                     // Search
                     $breadcrumb = '<a id="bc-home" href="' . $blogUrl . '">' . __('Home') . '</a>';
-                    if ($page === 0) {
+                    if ($page === 0 || !$show_page) {
                         $breadcrumb .= $separator . __('Search:') . ' ' . App::frontend()->search;
                     } else {
                         $breadcrumb .= $separator . '<a href="' . $blogUrl . (str_contains($blogUrl, '?') ? '' : '?') . 'q=' . rawurlencode((string) App::frontend()->search) . '">' . __('Search:') . ' ' . App::frontend()->search . '</a>';
