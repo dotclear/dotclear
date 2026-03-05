@@ -938,7 +938,7 @@ h1 {
   padding-right: 1em;
 }
 
-.feed-info {
+.content-info__feed {
   color: var(--clr-feedinfo);
 
   a {

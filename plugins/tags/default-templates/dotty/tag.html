@@ -32,13 +32,14 @@
 <tpl:Block name="main-content">
   <header id="content-info">
     <h2>{{tpl:lang Tag}} - {{tpl:TagID}}</h2>
-    <p><a type="application/atom+xml" href="{{tpl:TagFeedURL type="atom"}}"
-      title="{{tpl:lang This tag's entries Atom feed}}" class="feed">{{tpl:lang Entries feed}}</a>
+    <ul class="content-info__feed">
+      <li><a type="application/atom+xml" href="{{tpl:TagFeedURL type="atom"}}"
+       title="{{tpl:lang This tag's entries Atom feed}}" class="feed">{{tpl:lang Entries feed}}</a></li>
       <tpl:SysIf operator="or" comments_active="1" pings_active="1">
-        - <a type="application/atom+xml" href="{{tpl:TagFeedURL type="atom"}}/comments"
-        title="{{tpl:lang This tag's comments Atom feed}}" class="feed">{{tpl:lang Comments feed}}</a>
+        <li><a type="application/atom+xml" href="{{tpl:TagFeedURL type="atom"}}/comments"
+         title="{{tpl:lang This tag's comments Atom feed}}" class="feed">{{tpl:lang Comments feed}}</a></li>
       </tpl:SysIf>
-    </p>
+    </ul>
   </header>
   <div class="content-inner">
     <tpl:Entries>
