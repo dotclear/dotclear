@@ -10,19 +10,22 @@ window.CodeMirror.defineMode('dotclear', (config) => {
       open: '{{tpl:',
       close: '}}',
       mode: CodeMirror.getMode(config, 'text/html'),
-      parseDelimiters: true,
+      delimStyle: 'tpl-var',
+      innerStyle: 'tpl-inner',
     },
     {
       open: '<tpl:',
       close: '>',
       mode: CodeMirror.getMode(config, 'text/html'),
-      parseDelimiters: true,
+      delimStyle: 'tpl-block',
+      innerStyle: 'tpl-inner',
     },
     {
       open: '</tpl:',
       close: '>',
       mode: CodeMirror.getMode(config, 'text/html'),
-      parseDelimiters: true,
+      delimStyle: 'tpl-block',
+      innerStyle: 'tpl-inner',
     },
   );
 });

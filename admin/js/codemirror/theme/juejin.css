@@ -28,3 +28,13 @@
 .cm-s-juejin .cm-variable-2 {
   color: #0050a0;
 }
+
+.cm-s-juejin span {
+  &.cm-tpl-block,
+  &.cm-tpl-var {
+    color: #3a539b;
+  }
+  &.cm-tpl-inner {
+    color: #333;
+  }
+}
