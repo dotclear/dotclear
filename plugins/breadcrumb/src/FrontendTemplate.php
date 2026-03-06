@@ -53,7 +53,7 @@ class FrontendTemplate
         }
 
         if ($separator === '') {
-            $separator = ' &rsaquo; ';
+            $separator = '<span class="bc-separator"> &rsaquo; </span>';
         }
 
         // Get current page if set
