@@ -341,7 +341,7 @@ class ThemeConfig
      *
      * @return string|false         real path of folder
      */
-    public static function imagesPath(string $folder): string|bool
+    public static function imagesPath(string $folder): string|false
     {
         return Path::real(App::blog()->publicPath()) . '/' . $folder;
     }

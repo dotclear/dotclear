@@ -141,7 +141,7 @@ class Table
      *
      * @return     false|string
      */
-    public function keyExists(string $name, string $type, array $fields): bool|string
+    public function keyExists(string $name, string $type, array $fields): false|string
     {
         # Look for key with the same name
         if (isset($this->keys[$name])) {
@@ -168,7 +168,7 @@ class Table
      *
      * @return     false|string
      */
-    public function indexExists(string $name, string $type, array $fields): bool|string
+    public function indexExists(string $name, string $type, array $fields): false|string
     {
         # Look for key with the same name
         if (isset($this->indexes[$name])) {
@@ -196,7 +196,7 @@ class Table
      *
      * @return     false|string
      */
-    public function referenceExists(string $name, array $local_fields, string $foreign_table, array $foreign_fields): bool|string
+    public function referenceExists(string $name, array $local_fields, string $foreign_table, array $foreign_fields): false|string
     {
         if (isset($this->references[$name])) {
             return $name;

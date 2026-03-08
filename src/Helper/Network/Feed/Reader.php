@@ -83,7 +83,7 @@ class Reader extends HttpClient
      *
      * @return Parser|false
      */
-    public function parse(string $url): Parser|bool
+    public function parse(string $url): Parser|false
     {
         $this->validators = [];
         if ($this->cache_dir) {
@@ -111,7 +111,7 @@ class Reader extends HttpClient
      *
      * @return Parser|false
      */
-    public static function quickParse(string $url, ?string $cache_dir = null): Parser|bool
+    public static function quickParse(string $url, ?string $cache_dir = null): Parser|false
     {
         $parser = new self();
         if ($cache_dir) {
@@ -197,7 +197,7 @@ class Reader extends HttpClient
      *
      * @return Parser|false
      */
-    protected function withCache(string $url): Parser|bool
+    protected function withCache(string $url): Parser|false
     {
         $url_md5     = md5($url);
         $cached_file = sprintf(

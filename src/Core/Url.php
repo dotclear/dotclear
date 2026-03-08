@@ -141,7 +141,7 @@ class Url extends UrlHandler implements UrlInterface
      *
      * @return     false|int  The page number or false if none found.
      */
-    public static function getPageNumber(&$args): bool|int
+    public static function getPageNumber(&$args): false|int
     {
         if (preg_match('#(^|/)page/(\d+)$#', (string) $args, $m)) {
             $n = (int) $m[2];

@@ -113,7 +113,7 @@ class Update
      *
      * @return  false|string    Latest version if available
      */
-    public function check(string $version, bool $nocache = false): bool|string
+    public function check(string $version, bool $nocache = false): false|string
     {
         $this->getVersionInfo($nocache);
         $v = $this->getVersion();

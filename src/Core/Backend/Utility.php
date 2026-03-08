@@ -495,7 +495,7 @@ class Utility extends AbstractUtility
      *
      * @return     false|string
      */
-    public function searchMenuitem(string $term): bool|string
+    public function searchMenuitem(string $term): false|string
     {
         // Try to find exact term
         foreach ($this->menus() as $menu) {
