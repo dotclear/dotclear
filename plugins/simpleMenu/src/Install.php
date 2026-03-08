@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -35,8 +36,8 @@ class Install
         # Menu par défaut
         $blog_url     = Html::stripHostURL(App::blog()->url());
         $menu_default = [
-            ['label' => 'Home', 'descr' => 'Recent posts', 'url' => $blog_url, 'targetBlank' => false],
-            ['label' => 'Archives', 'descr' => '', 'url' => $blog_url . App::url()->getURLFor('archive'), 'targetBlank' => false],
+            ['label' => 'Home', 'descr' => 'Recent posts', 'url' => $blog_url, 'targetBlank' => false, 'disabled' => false],
+            ['label' => 'Archives', 'descr' => '', 'url' => $blog_url . App::url()->getURLFor('archive'), 'targetBlank' => false, 'disabled' => false],
         ];
 
         App::blog()->settings()->system->put('simpleMenu', $menu_default, 'array', 'simpleMenu default menu', false, true);
