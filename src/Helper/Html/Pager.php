@@ -133,8 +133,8 @@ class Pager
     {
         $this->env                = abs($current_page);
         $this->nb_elements        = abs($nb_elements);
-        $this->nb_per_page        = abs($nb_per_page);
-        $this->nb_pages_per_group = abs($nb_pages_per_group);
+        $this->nb_per_page        = $nb_per_page        !== 0 ? abs($nb_per_page) : 10;
+        $this->nb_pages_per_group = $nb_pages_per_group !== 0 ? abs($nb_pages_per_group) : 10;
 
         // Pages count
         $this->nb_pages = (int) ceil($this->nb_elements / $this->nb_per_page);
