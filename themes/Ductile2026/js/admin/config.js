@@ -19,7 +19,7 @@ dotclear.ready(() => {
       const theme_url = document.querySelector('input[name="theme-url"]')?.value;
       const url = `${theme_url}img/logo-ductile.svg`;
       document.querySelector('#user_image_src').setAttribute('src', url);
-      document.querySelector('#user_image').value = url;
+      document.querySelector('#user_image').value = 'img/logo-ductile.svg';
     });
   }
 
