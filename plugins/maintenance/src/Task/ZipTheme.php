@@ -72,6 +72,7 @@ class ZipTheme extends MaintenanceTask
         $zip = new Zip($fp);
 
         $zip->addExclusion('#(^|/).(.*?)_(m|s|sq|t).(jpg|jpeg|png|webp|avif)$#');
+        $zip->addExclusion('#(^|/).(git|DS_Store)$#');
         $zip->addDirectory($dir . '/', '', true);
 
         // Log task execution here as we sent file and stop script
