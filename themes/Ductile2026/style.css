@@ -1280,6 +1280,11 @@ img.smiley {
     color: var(--clr-comment-title);
   }
 }
+#pr {
+  h3 {
+    margin-top: 0;
+  }
+}
 #comments > ul {
   margin-left: 0;
   padding-left: 0;
