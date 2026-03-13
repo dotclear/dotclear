@@ -461,7 +461,7 @@ class Template
                 throw new Exception('Unable to create cache file');
             }
 
-            $fc = $this->addFileHeader() . $this->compileFile($tpl_file);
+            $fc = $this->addFileHeader() . $this->compileFile($tpl_file, !$this->use_cache);
             fwrite($fp, $fc);
             fclose($fp);
             Files::inheritChmod($dest_file);
@@ -727,16 +727,17 @@ class Template
     /**
      * Compile a template file
      *
-     * @param      string     $file   The file
+     * @param      string     $file     The file
+     * @param      bool       $force    Force compilation even if already in parent stack
      *
      * @throws     Exception
      */
-    protected function compileFile(string $file): string
+    protected function compileFile(string $file, bool $force = false): string
     {
         $tree = null;
         $err  = '';
         while (true) {
-            if ($file && !in_array($file, $this->parent_stack)) {
+            if ($file && ($force || !in_array($file, $this->parent_stack))) {
                 $tree = $this->getCompiledTree($file, $err);
 
                 if ($this->parent_file === '__parent__') {
