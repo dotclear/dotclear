@@ -468,8 +468,16 @@ class ThemesList extends ModulesList
                     throw new Exception(__('No such theme.'));
                 }
 
+                $theme = is_string($theme = App::blog()->settings()->system->get('theme')) ? $theme : '';
+
+                # --BEHAVIOR-- themeBeforeSelect -- string, string
+                App::behavior()->callBehavior('themeBeforeSelect', $define->getId(), $theme);
+
                 App::blog()->settings()->system->put('theme', $define->getId());
                 App::blog()->triggerBlog();
+
+                # --BEHAVIOR-- themeAfterSelect -- string, string
+                App::behavior()->callBehavior('themeAfterSelect', $define->getId(), $theme);
 
                 // Empty theme (and theme's parent if any) template cache
                 $this->emptyThemeTemplatesCache();
