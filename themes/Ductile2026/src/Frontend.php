@@ -100,10 +100,8 @@ class Frontend
     public static function ductileEntriesListHelper(string $default): string
     {
         $s = App::blog()->settings()->themes->get(App::blog()->settings()->system->theme . '_entries_lists');
-        if ($s !== null) {
-            if (is_array($s) && isset($s[App::url()->getType()])) {
-                return $s[App::url()->getType()];
-            }
+        if (is_array($s) && isset($s[App::url()->getType()])) {
+            return $s[App::url()->getType()];
         }
 
         return $default;
@@ -153,18 +151,14 @@ class Frontend
         if ($s === null) {
             $default = true;
         } else {
-            if (!is_array($s)) {
+            $s = array_filter($s, self::cleanStickers(...));
+            if (count($s) === 0) {
                 $default = true;
             } else {
-                $s = array_filter($s, self::cleanStickers(...));
-                if (count($s) === 0) {
-                    $default = true;
-                } else {
-                    $count = 1;
-                    foreach ($s as $sticker) {
-                        $res .= self::setSticker($count, ($count === count($s)), $sticker['label'], $sticker['url'], $img_url . $sticker['image']);
-                        $count++;
-                    }
+                $count = 1;
+                foreach ($s as $sticker) {
+                    $res .= self::setSticker($count, ($count === count($s)), $sticker['label'], $sticker['url'], $img_url . $sticker['image']);
+                    $count++;
                 }
             }
         }
