@@ -274,7 +274,7 @@ class ManageEdit
                         (new Div())->class('two-cols')->items([
                             (new Div())->class('col30')->items([
                                 (new Para())->items([
-                                    (new Label((new Span('*'))->render() . __('Title:')))
+                                    (new Label((new Span('*'))->render() . __('Title:'), Label::OUTSIDE_LABEL_BEFORE))
                                         ->class('required')
                                         ->for('link_title'),
                                     (new Input('link_title'))
@@ -288,7 +288,7 @@ class ManageEdit
                                         ->title(__('Required field')),
                                 ]),
                                 (new Para())->items([
-                                    (new Label((new Span('*'))->render() . __('URL:')))
+                                    (new Label((new Span('*'))->render() . __('URL:'), Label::OUTSIDE_LABEL_BEFORE))
                                         ->class('required')
                                         ->for('link_href'),
                                     (new Url('link_href'))
@@ -300,7 +300,7 @@ class ManageEdit
                                         ->title(__('Required field')),
                                 ]),
                                 (new Para())->items([
-                                    (new Label(__('Description:')))
+                                    (new Label(__('Description:'), Label::OUTSIDE_LABEL_BEFORE))
                                         ->for('link_desc'),
                                     (new Input('link_desc'))
                                         ->size(30)
@@ -310,7 +310,7 @@ class ManageEdit
                                         ->spellcheck(true),
                                 ]),
                                 (new Para())->items([
-                                    (new Label(__('Language:')))
+                                    (new Label(__('Language:'), Label::OUTSIDE_LABEL_BEFORE))
                                         ->for('link_lang'),
                                     (new Select('link_lang'))
                                         ->items($lang_combo)    // @phpstan-ignore-line variable type is not precise enough
