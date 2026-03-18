@@ -1,15 +1,14 @@
 /* Media alignment classes */
 .media-center {
   display: table;
-  margin: 0 auto;
+  margin-inline: auto;
 }
 [dir='rtl'] .media-left {
   float: inline-start;
 }
 .media-left {
   float: inline-start;
-  margin-inline-start: 0;
-  margin-inline-end: 1em;
+  margin-inline: 0 1em;
   margin-block-end: 1em;
 }
 [dir='rtl'] .media-right {
@@ -17,19 +16,15 @@
 }
 .media-right {
   float: inline-end;
-  margin-inline-start: 1em;
-  margin-inline-end: 0;
+  margin-inline: 1em 0;
   margin-block-end: 1em;
 }
 figure {
-  &.media-left,
-  &.media-right,
-  &.media-center {
-    display: table;
+  inline-size: fit-content;
+  img {
+    display: block;
   }
   figcaption {
-    display: table-caption;
-    caption-side: bottom;
-    word-break: break-word;
+    contain: inline-size;
   }
 }
