@@ -130,12 +130,20 @@ class BlogTheme
     public static function process(): bool
     {
         if (!empty($_GET['shot'])) {
+            $filename = '';
             // Get a theme screenshot
-            $filename = (string) Path::real(
-                empty($_GET['src']) ?
-                App::blog()->themesPath() . '/' . $_GET['shot'] . '/' . App::themes()::MODULE_FILE_SCREENSHOT :
-                App::blog()->themesPath() . '/' . $_GET['shot'] . '/' . Path::clean($_GET['src'])
-            );
+            if (!empty($_GET['src'])) {
+                $filename = (string) Path::real(App::blog()->themesPath() . '/' . $_GET['shot'] . '/' . Path::clean($_GET['src']));
+                if (!file_exists($filename)) {
+                    $filename = '';
+                }
+            }
+            if ($filename === '') {
+                $filename = (string) Path::real(App::blog()->themesPath() . '/' . $_GET['shot'] . '/' . App::themes()::MODULE_FILE_SCREENSHOT);
+                if (!file_exists($filename)) {
+                    $filename = (string) Path::real(App::blog()->themesPath() . '/' . $_GET['shot'] . '/' . App::themes()::MODULE_FILE_SCREENSHOT_ALT);
+                }
+            }
 
             if (!file_exists($filename)) {
                 $filename = __DIR__ . '/images/noscreenshot.svg';

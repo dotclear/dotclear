@@ -118,6 +118,13 @@ interface ModulesInterface
     public const MODULE_FILE_SCREENSHOT = 'screenshot.jpg';
 
     /**
+     * Name of the theme main screenshot file.
+     *
+     * @var     string   MODULE_FILE_SCREENSHOT_ALT
+     */
+    public const MODULE_FILE_SCREENSHOT_ALT = 'theme.jpg';
+
+    /**
      * The update locked file name.
      *
      * @var     string   MODULE_FILE_LOCKED
