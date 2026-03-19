@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-19 12:09+0100\n"
-"PO-Revision-Date: 2026-03-19 11:55\n"
+"POT-Creation-Date: 2026-03-19 13:54+0100\n"
+"PO-Revision-Date: 2026-03-19 12:56\n"
 "Last-Translator: \n"
 "Language-Team: Vietnamese\n"
 "Language: vi_VN\n"
@@ -1353,8 +1353,8 @@ msgid "404"
 msgstr "404"
 
 #: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:37
-msgid "Generate fake l10n (make sure to use English as language and without any non official plugins running, disabled or not)"
-msgstr "Tạo bản dịch giả (hãy đảm bảo chọn tiếng Anh làm ngôn ngữ và không có bất kỳ plugin không chính thức nào đang chạy, dù đã tắt hay chưa)"
+msgid "Generate fake l10n (make sure to use English as language interface and without using any non official plugins running, disabled or not)"
+msgstr "Tạo bản địa hóa giả (đảm bảo chọn tiếng Anh làm ngôn ngữ giao diện và không chạy bất kỳ plugin không chính thức nào, dù đã tắt hay chưa)"
 
 #: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:38
 msgid "fake l10n file generated."
