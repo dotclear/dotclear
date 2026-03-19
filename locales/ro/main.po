@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-02 12:31+0100\n"
-"PO-Revision-Date: 2026-03-02 16:20\n"
+"POT-Creation-Date: 2026-03-19 10:11+0100\n"
+"PO-Revision-Date: 2026-03-19 09:16\n"
 "Last-Translator: \n"
 "Language-Team: Romanian\n"
 "Language: ro_RO\n"
@@ -221,7 +221,7 @@ msgid "Selected blogs have been successfully updated."
 msgstr "Blogurile selectate au fost actualizate cu succes."
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:104
-#: src/Core/Backend/ModulesList.php:1713 src/Core/Backend/ThemesList.php:728
+#: src/Core/Backend/ModulesList.php:1713 src/Core/Backend/ThemesList.php:738
 #: src/Core/Upgrade/PluginsList.php:400 src/Process/Backend/BlogDel.php:69
 #: src/Process/Backend/Langs.php:114 src/Process/Backend/Langs.php:159
 #: src/Process/Backend/User.php:128 src/Process/Backend/UsersActions.php:195
@@ -682,7 +682,7 @@ msgstr "Setări blog"
 
 #: src/Core/Backend/Favorites.php:484 src/Core/Backend/Menus.php:93
 #: src/Process/Backend/BlogTheme.php:90 src/Process/Backend/BlogTheme.php:99
-#: src/Process/Backend/BlogTheme.php:177
+#: src/Process/Backend/BlogTheme.php:186
 msgid "Blog appearance"
 msgstr "Aspect blog"
 
@@ -1280,8 +1280,8 @@ msgid "Current version"
 msgstr "Versiunea curentă"
 
 #: src/Core/Backend/ModulesList.php:839 src/Core/Backend/ModulesList.php:1063
-#: src/Core/Backend/Page.php:1358 src/Core/Backend/ThemesList.php:230
-#: src/Core/Backend/ThemesList.php:300
+#: src/Core/Backend/Page.php:1358 src/Core/Backend/ThemesList.php:232
+#: src/Core/Backend/ThemesList.php:302
 msgid "Details"
 msgstr "Detalii"
 
@@ -1308,13 +1308,13 @@ msgstr "Acest modul nu poate fi dezactivat sau șters, deoarece următoarele mod
 msgid "This module cannot be enabled, because of the following reasons :"
 msgstr "Acest modul nu poate fi activat, din următoarele motive:"
 
-#: src/Core/Backend/ModulesList.php:1005 src/Core/Backend/ThemesList.php:215
+#: src/Core/Backend/ModulesList.php:1005 src/Core/Backend/ThemesList.php:217
 #: src/Process/Upgrade/Plugins.php:458
 msgid "Official repository"
 msgstr "Repo oficial"
 
 #: src/Core/Backend/ModulesList.php:1005 src/Core/Backend/ModulesList.php:1120
-#: src/Core/Backend/ThemesList.php:215 src/Process/Upgrade/Plugins.php:458
+#: src/Core/Backend/ThemesList.php:217 src/Process/Upgrade/Plugins.php:458
 msgid "Third-party repository"
 msgstr "Depozit terț"
 
@@ -1331,11 +1331,11 @@ msgid "Release date:"
 msgstr "Data lansării:"
 
 #: src/Core/Backend/ModulesList.php:1070 src/Core/Backend/Page.php:1359
-#: src/Core/Backend/ThemesList.php:236
+#: src/Core/Backend/ThemesList.php:238
 msgid "Support"
 msgstr "Suport"
 
-#: src/Core/Backend/ModulesList.php:1074 src/Core/Backend/ThemesList.php:219
+#: src/Core/Backend/ModulesList.php:1074 src/Core/Backend/ThemesList.php:221
 msgid "update locked"
 msgstr "actualizare blocată"
 
@@ -1475,7 +1475,7 @@ msgstr[2] "Plugin-urile au fost actualizate cu succes."
 msgid "Following plugins updates are locked: %s"
 msgstr "Următoarele plugin-uri sunt blocate: %s"
 
-#: src/Core/Backend/ModulesList.php:1721 src/Core/Backend/ThemesList.php:736
+#: src/Core/Backend/ModulesList.php:1721 src/Core/Backend/ThemesList.php:746
 #: src/Core/Upgrade/PluginsList.php:408 src/Process/Backend/Langs.php:165
 #: src/Process/Upgrade/Langs.php:213
 msgid "Unable to move uploaded file."
@@ -1556,12 +1556,7 @@ msgstr "Acest plugin nu are niciun fișier de configurare."
 msgid "Insufficient permissions"
 msgstr "Permisiuni insuficiente"
 
-#: src/Core/Backend/ModulesList.php:1992
-#, php-format
-msgid "Configure \"%s\""
-msgstr "Configurare \"%s\""
-
-#: src/Core/Backend/ModulesList.php:1998 src/Process/Backend/Blog.php:197
+#: src/Core/Backend/ModulesList.php:1994 src/Process/Backend/Blog.php:197
 #: src/Process/Backend/BlogDel.php:138 src/Process/Backend/BlogPref.php:1195
 #: src/Process/Backend/Category.php:300 src/Process/Backend/Comment.php:351
 #: src/Process/Backend/Media.php:871 src/Process/Backend/MediaItem.php:1327
@@ -2052,142 +2047,142 @@ msgstr "Imaginea încărcată nu este de %s pixeli lăţime."
 msgid "Score: %s"
 msgstr "Scor: %s"
 
-#: src/Core/Backend/ThemesList.php:150
+#: src/Core/Backend/ThemesList.php:152
 #, php-format
 msgid "%s screenshot."
 msgstr "Captură de ecran %s."
 
-#: src/Core/Backend/ThemesList.php:181
+#: src/Core/Backend/ThemesList.php:183
 #, php-format
 msgid "(%s template set)"
 msgstr "(%s set de șabloane)"
 
-#: src/Core/Backend/ThemesList.php:186
+#: src/Core/Backend/ThemesList.php:188
 #, php-format
 msgid "by %s"
 msgstr "de %s"
 
-#: src/Core/Backend/ThemesList.php:190
+#: src/Core/Backend/ThemesList.php:192
 #, php-format
 msgid "version %s"
 msgstr "versiunea %s"
 
-#: src/Core/Backend/ThemesList.php:194
+#: src/Core/Backend/ThemesList.php:196
 #, php-format
 msgid "released on %s"
 msgstr "lansat pe %s"
 
-#: src/Core/Backend/ThemesList.php:202
+#: src/Core/Backend/ThemesList.php:204
 #, php-format
 msgid "(current version %s)"
 msgstr "(versiunea curentă %s)"
 
-#: src/Core/Backend/ThemesList.php:207
+#: src/Core/Backend/ThemesList.php:209
 #, php-format
 msgid "(built on \"%s\")"
 msgstr "(construit pe \"%s\")"
 
-#: src/Core/Backend/ThemesList.php:210
+#: src/Core/Backend/ThemesList.php:212
 #, php-format
 msgid "(requires \"%s\")"
 msgstr "(necesită \"%s\")"
 
-#: src/Core/Backend/ThemesList.php:274
+#: src/Core/Backend/ThemesList.php:276
 msgid "Configure theme"
 msgstr "Configurați tema"
 
-#: src/Core/Backend/ThemesList.php:328
+#: src/Core/Backend/ThemesList.php:330
 msgid "No themes matched your search."
 msgstr "Nicio temă nu corespunde căutării tale."
 
-#: src/Core/Backend/ThemesList.php:378
+#: src/Core/Backend/ThemesList.php:380
 msgid "Use this one"
 msgstr "Foloseste aceasta"
 
-#: src/Core/Backend/ThemesList.php:423
+#: src/Core/Backend/ThemesList.php:425
 msgid "Update selected themes"
 msgstr "Actualizează temele selectate"
 
-#: src/Core/Backend/ThemesList.php:424
+#: src/Core/Backend/ThemesList.php:426
 msgid "Update all themes from this list"
 msgstr "Actualizează toate temele din această listă"
 
-#: src/Core/Backend/ThemesList.php:468 src/Core/Backend/ThemesList.php:512
-#: src/Core/Backend/ThemesList.php:553 src/Core/Backend/ThemesList.php:591
-#: src/Core/Backend/ThemesList.php:633 src/Core/Backend/ThemesList.php:669
-#: src/Core/Backend/ThemesList.php:719
+#: src/Core/Backend/ThemesList.php:470 src/Core/Backend/ThemesList.php:522
+#: src/Core/Backend/ThemesList.php:563 src/Core/Backend/ThemesList.php:601
+#: src/Core/Backend/ThemesList.php:643 src/Core/Backend/ThemesList.php:679
+#: src/Core/Backend/ThemesList.php:729
 msgid "No such theme."
 msgstr "Nu există astfel de teme."
 
-#: src/Core/Backend/ThemesList.php:477
+#: src/Core/Backend/ThemesList.php:487
 #, php-format
 msgid "Theme %s has been successfully selected."
 msgstr "Tema %s a fost selectata cu succes."
 
-#: src/Core/Backend/ThemesList.php:516
+#: src/Core/Backend/ThemesList.php:526
 msgid "Theme has been successfully activated."
 msgid_plural "Themes have been successuflly activated."
 msgstr[0] "Tema a fost activata cu succes."
 msgstr[1] "Temele au fost activate cu succes."
 msgstr[2] "Temele au fost activate cu succes."
 
-#: src/Core/Backend/ThemesList.php:557
+#: src/Core/Backend/ThemesList.php:567
 msgid "Some themes have not been deactivated."
 msgstr "Unele teme nu au fost dezactivate."
 
-#: src/Core/Backend/ThemesList.php:560
+#: src/Core/Backend/ThemesList.php:570
 msgid "Theme has been successfully deactivated."
 msgid_plural "Themes have been successuflly deactivated."
 msgstr[0] "Tema a fost dezactivata cu succes."
 msgstr[1] "Temele au fost dezactivate cu succes."
 msgstr[2] "Temele au fost dezactivate cu succes."
 
-#: src/Core/Backend/ThemesList.php:595
+#: src/Core/Backend/ThemesList.php:605
 msgid "Theme has been successfully cloned."
 msgid_plural "Themes have been successuflly cloned."
 msgstr[0] "Tema a fost clonata cu succes."
 msgstr[1] "Temele au fost clonate cu succes."
 msgstr[2] "Temele au fost clonate cu succes."
 
-#: src/Core/Backend/ThemesList.php:629
+#: src/Core/Backend/ThemesList.php:639
 msgid "You don't have permissions to delete this theme."
 msgstr "Nu aveţi permisiunea de a şterge această temă."
 
-#: src/Core/Backend/ThemesList.php:637
+#: src/Core/Backend/ThemesList.php:647
 msgid "Some themes have not been delete."
 msgstr "Unele teme nu au fost șterse."
 
-#: src/Core/Backend/ThemesList.php:640
+#: src/Core/Backend/ThemesList.php:650
 msgid "Theme has been successfully deleted."
 msgid_plural "Themes have been successuflly deleted."
 msgstr[0] "Tema a fost stearsa cu succes."
 msgstr[1] "Temele au fost şterse cu succes."
 msgstr[2] "Temele au fost şterse cu succes."
 
-#: src/Core/Backend/ThemesList.php:673
+#: src/Core/Backend/ThemesList.php:683
 msgid "Theme has been successfully installed."
 msgid_plural "Themes have been successfully installed."
 msgstr[0] "Tema a fost instalata cu succes."
 msgstr[1] "Temele au fost instalate cu succes."
 msgstr[2] "Temele au fost instalate cu succes."
 
-#: src/Core/Backend/ThemesList.php:712
+#: src/Core/Backend/ThemesList.php:722
 msgid "Theme has been successfully updated."
 msgid_plural "Themes have been successfully updated."
 msgstr[0] "Tema a fost actualizată cu succes."
 msgstr[1] "Temele au fost actualizate cu succes."
 msgstr[2] "Temele au fost actualizate cu succes."
 
-#: src/Core/Backend/ThemesList.php:716
+#: src/Core/Backend/ThemesList.php:726
 #, php-format
 msgid "Following themes updates are locked: %s"
 msgstr "Următoarele teme sunt blocate actualizări: %s"
 
-#: src/Core/Backend/ThemesList.php:754
+#: src/Core/Backend/ThemesList.php:764
 msgid "The theme has been successfully updated."
 msgstr "Tema a fost actualizata cu succes."
 
-#: src/Core/Backend/ThemesList.php:755
+#: src/Core/Backend/ThemesList.php:765
 msgid "The theme has been successfully installed."
 msgstr "Tema a fost instalata cu succes."
 
@@ -4030,56 +4025,56 @@ msgstr "Următoarele teme au fost dezactivate :"
 msgid "Theme configuration"
 msgstr "Configurare temă"
 
-#: src/Process/Backend/BlogTheme.php:163
+#: src/Process/Backend/BlogTheme.php:172
 msgid "Themes management"
 msgstr "Gestionare teme"
 
-#: src/Process/Backend/BlogTheme.php:203 src/Process/Backend/BlogTheme.php:205
+#: src/Process/Backend/BlogTheme.php:212 src/Process/Backend/BlogTheme.php:214
 msgid "Installed themes"
 msgstr "Teme instalate"
 
-#: src/Process/Backend/BlogTheme.php:205 src/Process/Backend/Plugins.php:184
+#: src/Process/Backend/BlogTheme.php:214 src/Process/Backend/Plugins.php:184
 #: src/Process/Upgrade/Plugins.php:192
 msgid "(in normal mode)"
 msgstr "(în mod normal)"
 
-#: src/Process/Backend/BlogTheme.php:205
+#: src/Process/Backend/BlogTheme.php:214
 msgid "Activated themes"
 msgstr "Teme activate"
 
-#: src/Process/Backend/BlogTheme.php:208
+#: src/Process/Backend/BlogTheme.php:217
 msgid "You can configure and manage installed themes from this list."
 msgstr "Puteți configura și gestiona temele instalate din această listă."
 
-#: src/Process/Backend/BlogTheme.php:229 src/Process/Backend/BlogTheme.php:231
+#: src/Process/Backend/BlogTheme.php:238 src/Process/Backend/BlogTheme.php:240
 msgid "Deactivated themes"
 msgstr "Teme dezactivate"
 
-#: src/Process/Backend/BlogTheme.php:234
+#: src/Process/Backend/BlogTheme.php:243
 msgid "Deactivated themes are installed but not usable. You can activate them from here."
 msgstr "Temele dezactivate sunt instalate, dar nu pot fi utilizate. Le puteţi activa de aici."
 
-#: src/Process/Backend/BlogTheme.php:244 src/Process/Backend/Plugins.php:237
+#: src/Process/Backend/BlogTheme.php:253 src/Process/Backend/Plugins.php:237
 msgid "Official repository could not be updated as there is no URL set in configuration."
 msgstr "Depozitul oficial nu a putut fi actualizat deoarece nu există o adresă URL setată în configurare."
 
-#: src/Process/Backend/BlogTheme.php:251
+#: src/Process/Backend/BlogTheme.php:260
 msgid "Manual checking of themes update done successfully."
 msgstr "Verificarea manuala a temelor actualizata cu succes."
 
-#: src/Process/Backend/BlogTheme.php:278
+#: src/Process/Backend/BlogTheme.php:287
 msgid "Update themes"
 msgstr "Actualizare teme"
 
-#: src/Process/Backend/BlogTheme.php:291
+#: src/Process/Backend/BlogTheme.php:300
 msgid "Force checking update of themes"
 msgstr "Forţează verificarea actualizării temelor"
 
-#: src/Process/Backend/BlogTheme.php:296
+#: src/Process/Backend/BlogTheme.php:305
 msgid "No updates available for themes."
 msgstr "Nu sunt disponibile actualizări pentru teme."
 
-#: src/Process/Backend/BlogTheme.php:302
+#: src/Process/Backend/BlogTheme.php:311
 #, php-format
 msgid "There is one theme update available:"
 msgid_plural "There are %s theme updates available:"
@@ -4087,33 +4082,33 @@ msgstr[0] "Este disponibilă o actualizare a temei:"
 msgstr[1] "Este disponibilă o actualizare a temei:"
 msgstr[2] "Există %s actualizări de teme disponibile:"
 
-#: src/Process/Backend/BlogTheme.php:312 src/Process/Backend/BlogTheme.php:348
+#: src/Process/Backend/BlogTheme.php:321 src/Process/Backend/BlogTheme.php:357
 #, php-format
 msgid "Visit %s themes repository."
 msgstr "Vizitați depozitul de teme %s."
 
-#: src/Process/Backend/BlogTheme.php:340
+#: src/Process/Backend/BlogTheme.php:349
 msgid "Add themes"
 msgstr "Adaugă teme"
 
-#: src/Process/Backend/BlogTheme.php:343
+#: src/Process/Backend/BlogTheme.php:352
 msgid "Add themes from repository"
 msgstr "Adaugă teme din repo"
 
-#: src/Process/Backend/BlogTheme.php:357 src/Process/Backend/Plugins.php:340
+#: src/Process/Backend/BlogTheme.php:366 src/Process/Backend/Plugins.php:340
 #: src/Process/Upgrade/Plugins.php:333
 msgid "Install or upgrade manually"
 msgstr "Instalează sau actualizează manual"
 
-#: src/Process/Backend/BlogTheme.php:360
+#: src/Process/Backend/BlogTheme.php:369
 msgid "Add themes from a package"
 msgstr "Adaugă teme dintr-un pachet"
 
-#: src/Process/Backend/BlogTheme.php:363
+#: src/Process/Backend/BlogTheme.php:372
 msgid "You can install themes by uploading or downloading zip files."
 msgstr "Puteți instala teme prin încărcarea sau descărcarea fișierelor zip."
 
-#: src/Process/Backend/BlogTheme.php:379
+#: src/Process/Backend/BlogTheme.php:388
 msgid "Some functions are disabled, please give write access to your themes directory to enable them."
 msgstr "Unele funcții sunt dezactivate, vă rugăm să permiteți scrierea la directorul cu teme pentru a le activa."
 
