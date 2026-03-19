@@ -34,7 +34,7 @@ class BuildtoolsMaintenanceTask extends MaintenanceTask
      */
     protected function init(): void
     {
-        $this->task        = __('Generate fake l10n (make sure to use English as language and without any non official plugins running (disabled or not)');
+        $this->task        = __('Generate fake l10n (make sure to use English as language and without any non official plugins running, disabled or not)');
         $this->success     = __('fake l10n file generated.');
         $this->error       = __('Failed to generate fake l10n file.');
         $this->description = __('Generate a php file that contents strings to translate that are not be done with core tools.');
