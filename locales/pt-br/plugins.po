@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-19 13:54+0100\n"
-"PO-Revision-Date: 2026-03-19 12:56\n"
+"PO-Revision-Date: 2026-03-19 13:33\n"
 "Last-Translator: \n"
 "Language-Team: Portuguese, Brazilian\n"
 "Language: pt_BR\n"
@@ -1356,7 +1356,7 @@ msgstr "404"
 
 #: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:37
 msgid "Generate fake l10n (make sure to use English as language interface and without using any non official plugins running, disabled or not)"
-msgstr ""
+msgstr "Gere um l10n falso (certifique-se de usar o inglês como interface de idioma e sem usar nenhum plug-in não oficial em execução, desativado ou não)"
 
 #: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:38
 msgid "fake l10n file generated."
