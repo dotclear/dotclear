@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-02 12:31+0100\n"
-"PO-Revision-Date: 2026-03-02 16:20\n"
+"POT-Creation-Date: 2026-03-19 10:11+0100\n"
+"PO-Revision-Date: 2026-03-19 09:17\n"
 "Last-Translator: \n"
 "Language-Team: Swedish\n"
 "Language: sv_SE\n"
@@ -221,7 +221,7 @@ msgid "Selected blogs have been successfully updated."
 msgstr "Valda bloggar har uppdaterats."
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:104
-#: src/Core/Backend/ModulesList.php:1713 src/Core/Backend/ThemesList.php:728
+#: src/Core/Backend/ModulesList.php:1713 src/Core/Backend/ThemesList.php:738
 #: src/Core/Upgrade/PluginsList.php:400 src/Process/Backend/BlogDel.php:69
 #: src/Process/Backend/Langs.php:114 src/Process/Backend/Langs.php:159
 #: src/Process/Backend/User.php:128 src/Process/Backend/UsersActions.php:195
@@ -671,7 +671,7 @@ msgstr "Inställningar för blogg"
 
 #: src/Core/Backend/Favorites.php:484 src/Core/Backend/Menus.php:93
 #: src/Process/Backend/BlogTheme.php:90 src/Process/Backend/BlogTheme.php:99
-#: src/Process/Backend/BlogTheme.php:177
+#: src/Process/Backend/BlogTheme.php:186
 msgid "Blog appearance"
 msgstr "Blogg utseende"
 
@@ -1261,8 +1261,8 @@ msgid "Current version"
 msgstr "Nuvarande version"
 
 #: src/Core/Backend/ModulesList.php:839 src/Core/Backend/ModulesList.php:1063
-#: src/Core/Backend/Page.php:1358 src/Core/Backend/ThemesList.php:230
-#: src/Core/Backend/ThemesList.php:300
+#: src/Core/Backend/Page.php:1358 src/Core/Backend/ThemesList.php:232
+#: src/Core/Backend/ThemesList.php:302
 msgid "Details"
 msgstr "Detaljer"
 
@@ -1289,13 +1289,13 @@ msgstr "Modulen kan inte inaktiveras eller tas bort eftersom följande moduler o
 msgid "This module cannot be enabled, because of the following reasons :"
 msgstr "Modulen kan inte aktiveras på grund av följande skäl:"
 
-#: src/Core/Backend/ModulesList.php:1005 src/Core/Backend/ThemesList.php:215
+#: src/Core/Backend/ModulesList.php:1005 src/Core/Backend/ThemesList.php:217
 #: src/Process/Upgrade/Plugins.php:458
 msgid "Official repository"
 msgstr "Officiell utvecklingskatalog"
 
 #: src/Core/Backend/ModulesList.php:1005 src/Core/Backend/ModulesList.php:1120
-#: src/Core/Backend/ThemesList.php:215 src/Process/Upgrade/Plugins.php:458
+#: src/Core/Backend/ThemesList.php:217 src/Process/Upgrade/Plugins.php:458
 msgid "Third-party repository"
 msgstr "Tredjeparts utvecklingskatalog"
 
@@ -1312,11 +1312,11 @@ msgid "Release date:"
 msgstr "Utgivningsdatum:"
 
 #: src/Core/Backend/ModulesList.php:1070 src/Core/Backend/Page.php:1359
-#: src/Core/Backend/ThemesList.php:236
+#: src/Core/Backend/ThemesList.php:238
 msgid "Support"
 msgstr "Stöd"
 
-#: src/Core/Backend/ModulesList.php:1074 src/Core/Backend/ThemesList.php:219
+#: src/Core/Backend/ModulesList.php:1074 src/Core/Backend/ThemesList.php:221
 msgid "update locked"
 msgstr "uppdatering låst"
 
@@ -1451,7 +1451,7 @@ msgstr[1] "Tillägg har uppdaterats framgångsrikt."
 msgid "Following plugins updates are locked: %s"
 msgstr "Följande tilläggsuppdateringar är låsta: %s"
 
-#: src/Core/Backend/ModulesList.php:1721 src/Core/Backend/ThemesList.php:736
+#: src/Core/Backend/ModulesList.php:1721 src/Core/Backend/ThemesList.php:746
 #: src/Core/Upgrade/PluginsList.php:408 src/Process/Backend/Langs.php:165
 #: src/Process/Upgrade/Langs.php:213
 msgid "Unable to move uploaded file."
@@ -1532,12 +1532,7 @@ msgstr "Denna plugin har ingen konfigurationsfil."
 msgid "Insufficient permissions"
 msgstr "Otillräckliga behörigheter"
 
-#: src/Core/Backend/ModulesList.php:1992
-#, php-format
-msgid "Configure \"%s\""
-msgstr "Konfigurera \"%s\""
-
-#: src/Core/Backend/ModulesList.php:1998 src/Process/Backend/Blog.php:197
+#: src/Core/Backend/ModulesList.php:1994 src/Process/Backend/Blog.php:197
 #: src/Process/Backend/BlogDel.php:138 src/Process/Backend/BlogPref.php:1195
 #: src/Process/Backend/Category.php:300 src/Process/Backend/Comment.php:351
 #: src/Process/Backend/Media.php:871 src/Process/Backend/MediaItem.php:1327
@@ -2028,136 +2023,136 @@ msgstr "Den uppladdade bilden är inte %s pixlar bred."
 msgid "Score: %s"
 msgstr "Poäng: %s"
 
-#: src/Core/Backend/ThemesList.php:150
+#: src/Core/Backend/ThemesList.php:152
 #, php-format
 msgid "%s screenshot."
 msgstr "%s skärmdump."
 
-#: src/Core/Backend/ThemesList.php:181
+#: src/Core/Backend/ThemesList.php:183
 #, php-format
 msgid "(%s template set)"
 msgstr "(%s malluppsättning)"
 
-#: src/Core/Backend/ThemesList.php:186
+#: src/Core/Backend/ThemesList.php:188
 #, php-format
 msgid "by %s"
 msgstr "av %s"
 
-#: src/Core/Backend/ThemesList.php:190
+#: src/Core/Backend/ThemesList.php:192
 #, php-format
 msgid "version %s"
 msgstr "version %s"
 
-#: src/Core/Backend/ThemesList.php:194
+#: src/Core/Backend/ThemesList.php:196
 #, php-format
 msgid "released on %s"
 msgstr "publicerad på %s"
 
-#: src/Core/Backend/ThemesList.php:202
+#: src/Core/Backend/ThemesList.php:204
 #, php-format
 msgid "(current version %s)"
 msgstr "(nuvarande version %s)"
 
-#: src/Core/Backend/ThemesList.php:207
+#: src/Core/Backend/ThemesList.php:209
 #, php-format
 msgid "(built on \"%s\")"
 msgstr "(byggd på \"%s\")"
 
-#: src/Core/Backend/ThemesList.php:210
+#: src/Core/Backend/ThemesList.php:212
 #, php-format
 msgid "(requires \"%s\")"
 msgstr "(kräver \"%s\")"
 
-#: src/Core/Backend/ThemesList.php:274
+#: src/Core/Backend/ThemesList.php:276
 msgid "Configure theme"
 msgstr "Konfigurera tema"
 
-#: src/Core/Backend/ThemesList.php:328
+#: src/Core/Backend/ThemesList.php:330
 msgid "No themes matched your search."
 msgstr "Inga teman motsvarade din sökning."
 
-#: src/Core/Backend/ThemesList.php:378
+#: src/Core/Backend/ThemesList.php:380
 msgid "Use this one"
 msgstr "Använd den här"
 
-#: src/Core/Backend/ThemesList.php:423
+#: src/Core/Backend/ThemesList.php:425
 msgid "Update selected themes"
 msgstr "Uppdatera valda teman"
 
-#: src/Core/Backend/ThemesList.php:424
+#: src/Core/Backend/ThemesList.php:426
 msgid "Update all themes from this list"
 msgstr "Uppdatera alla teman från denna lista"
 
-#: src/Core/Backend/ThemesList.php:468 src/Core/Backend/ThemesList.php:512
-#: src/Core/Backend/ThemesList.php:553 src/Core/Backend/ThemesList.php:591
-#: src/Core/Backend/ThemesList.php:633 src/Core/Backend/ThemesList.php:669
-#: src/Core/Backend/ThemesList.php:719
+#: src/Core/Backend/ThemesList.php:470 src/Core/Backend/ThemesList.php:522
+#: src/Core/Backend/ThemesList.php:563 src/Core/Backend/ThemesList.php:601
+#: src/Core/Backend/ThemesList.php:643 src/Core/Backend/ThemesList.php:679
+#: src/Core/Backend/ThemesList.php:729
 msgid "No such theme."
 msgstr "Inget sådant tema."
 
-#: src/Core/Backend/ThemesList.php:477
+#: src/Core/Backend/ThemesList.php:487
 #, php-format
 msgid "Theme %s has been successfully selected."
 msgstr "Temat %s har valts framgångsrikt."
 
-#: src/Core/Backend/ThemesList.php:516
+#: src/Core/Backend/ThemesList.php:526
 msgid "Theme has been successfully activated."
 msgid_plural "Themes have been successuflly activated."
 msgstr[0] "Temat har aktiverats."
 msgstr[1] "Teman har aktiverats framgångsrikt."
 
-#: src/Core/Backend/ThemesList.php:557
+#: src/Core/Backend/ThemesList.php:567
 msgid "Some themes have not been deactivated."
 msgstr "Vissa teman har inte inaktiverats."
 
-#: src/Core/Backend/ThemesList.php:560
+#: src/Core/Backend/ThemesList.php:570
 msgid "Theme has been successfully deactivated."
 msgid_plural "Themes have been successuflly deactivated."
 msgstr[0] "Temat har inaktiverats."
 msgstr[1] "Teman har avaktiverats framgångsrikt."
 
-#: src/Core/Backend/ThemesList.php:595
+#: src/Core/Backend/ThemesList.php:605
 msgid "Theme has been successfully cloned."
 msgid_plural "Themes have been successuflly cloned."
 msgstr[0] "Temat har klonats framgångsrikt."
 msgstr[1] "Teman har lyckats."
 
-#: src/Core/Backend/ThemesList.php:629
+#: src/Core/Backend/ThemesList.php:639
 msgid "You don't have permissions to delete this theme."
 msgstr "Du har inte behörighet att ta bort detta tema."
 
-#: src/Core/Backend/ThemesList.php:637
+#: src/Core/Backend/ThemesList.php:647
 msgid "Some themes have not been delete."
 msgstr "Vissa teman har inte tagits bort."
 
-#: src/Core/Backend/ThemesList.php:640
+#: src/Core/Backend/ThemesList.php:650
 msgid "Theme has been successfully deleted."
 msgid_plural "Themes have been successuflly deleted."
 msgstr[0] "Temat har tagits bort."
 msgstr[1] "Teman har tagits bort."
 
-#: src/Core/Backend/ThemesList.php:673
+#: src/Core/Backend/ThemesList.php:683
 msgid "Theme has been successfully installed."
 msgid_plural "Themes have been successfully installed."
 msgstr[0] "Temat har installerats."
 msgstr[1] "Teman har installerats."
 
-#: src/Core/Backend/ThemesList.php:712
+#: src/Core/Backend/ThemesList.php:722
 msgid "Theme has been successfully updated."
 msgid_plural "Themes have been successfully updated."
 msgstr[0] "Temat har uppdaterats."
 msgstr[1] "Teman har uppdaterats."
 
-#: src/Core/Backend/ThemesList.php:716
+#: src/Core/Backend/ThemesList.php:726
 #, php-format
 msgid "Following themes updates are locked: %s"
 msgstr "Följande teman uppdateringar är låsta: %s"
 
-#: src/Core/Backend/ThemesList.php:754
+#: src/Core/Backend/ThemesList.php:764
 msgid "The theme has been successfully updated."
 msgstr "Temat har uppdaterats."
 
-#: src/Core/Backend/ThemesList.php:755
+#: src/Core/Backend/ThemesList.php:765
 msgid "The theme has been successfully installed."
 msgstr "Temat har installerats."
 
@@ -4000,89 +3995,89 @@ msgstr "Följande teman har inaktiverats:"
 msgid "Theme configuration"
 msgstr "Tema konfiguration"
 
-#: src/Process/Backend/BlogTheme.php:163
+#: src/Process/Backend/BlogTheme.php:172
 msgid "Themes management"
 msgstr "Hantering av teman"
 
-#: src/Process/Backend/BlogTheme.php:203 src/Process/Backend/BlogTheme.php:205
+#: src/Process/Backend/BlogTheme.php:212 src/Process/Backend/BlogTheme.php:214
 msgid "Installed themes"
 msgstr "Installerade teman"
 
-#: src/Process/Backend/BlogTheme.php:205 src/Process/Backend/Plugins.php:184
+#: src/Process/Backend/BlogTheme.php:214 src/Process/Backend/Plugins.php:184
 #: src/Process/Upgrade/Plugins.php:192
 msgid "(in normal mode)"
 msgstr "(i normalt läge)"
 
-#: src/Process/Backend/BlogTheme.php:205
+#: src/Process/Backend/BlogTheme.php:214
 msgid "Activated themes"
 msgstr "Aktiverade teman"
 
-#: src/Process/Backend/BlogTheme.php:208
+#: src/Process/Backend/BlogTheme.php:217
 msgid "You can configure and manage installed themes from this list."
 msgstr "Du kan konfigurera och hantera installerade teman från den här listan."
 
-#: src/Process/Backend/BlogTheme.php:229 src/Process/Backend/BlogTheme.php:231
+#: src/Process/Backend/BlogTheme.php:238 src/Process/Backend/BlogTheme.php:240
 msgid "Deactivated themes"
 msgstr "Avaktiverade teman"
 
-#: src/Process/Backend/BlogTheme.php:234
+#: src/Process/Backend/BlogTheme.php:243
 msgid "Deactivated themes are installed but not usable. You can activate them from here."
 msgstr "Inaktiverade teman är installerade men inte användbara. Du kan aktivera dem härifrån."
 
-#: src/Process/Backend/BlogTheme.php:244 src/Process/Backend/Plugins.php:237
+#: src/Process/Backend/BlogTheme.php:253 src/Process/Backend/Plugins.php:237
 msgid "Official repository could not be updated as there is no URL set in configuration."
 msgstr "Det officiella arkivet kunde inte uppdateras eftersom det inte finns någon URL angiven i konfigurationen."
 
-#: src/Process/Backend/BlogTheme.php:251
+#: src/Process/Backend/BlogTheme.php:260
 msgid "Manual checking of themes update done successfully."
 msgstr "Manuell kontroll av teman uppdateringen har utförts."
 
-#: src/Process/Backend/BlogTheme.php:278
+#: src/Process/Backend/BlogTheme.php:287
 msgid "Update themes"
 msgstr "Uppdatera teman"
 
-#: src/Process/Backend/BlogTheme.php:291
+#: src/Process/Backend/BlogTheme.php:300
 msgid "Force checking update of themes"
 msgstr "Tvinga uppdatering av teman"
 
-#: src/Process/Backend/BlogTheme.php:296
+#: src/Process/Backend/BlogTheme.php:305
 msgid "No updates available for themes."
 msgstr "Inga uppdateringar tillgängliga för teman."
 
-#: src/Process/Backend/BlogTheme.php:302
+#: src/Process/Backend/BlogTheme.php:311
 #, php-format
 msgid "There is one theme update available:"
 msgid_plural "There are %s theme updates available:"
 msgstr[0] "Det finns en temauppdatering tillgänglig:"
 msgstr[1] "Det finns %s temauppdateringar tillgängliga:"
 
-#: src/Process/Backend/BlogTheme.php:312 src/Process/Backend/BlogTheme.php:348
+#: src/Process/Backend/BlogTheme.php:321 src/Process/Backend/BlogTheme.php:357
 #, php-format
 msgid "Visit %s themes repository."
 msgstr "Besök %s teman utvecklingskatalog."
 
-#: src/Process/Backend/BlogTheme.php:340
+#: src/Process/Backend/BlogTheme.php:349
 msgid "Add themes"
 msgstr "Lägg till teman"
 
-#: src/Process/Backend/BlogTheme.php:343
+#: src/Process/Backend/BlogTheme.php:352
 msgid "Add themes from repository"
 msgstr "Lägg till teman från utvecklingskatalogen"
 
-#: src/Process/Backend/BlogTheme.php:357 src/Process/Backend/Plugins.php:340
+#: src/Process/Backend/BlogTheme.php:366 src/Process/Backend/Plugins.php:340
 #: src/Process/Upgrade/Plugins.php:333
 msgid "Install or upgrade manually"
 msgstr "Installera eller uppgradera manuellt"
 
-#: src/Process/Backend/BlogTheme.php:360
+#: src/Process/Backend/BlogTheme.php:369
 msgid "Add themes from a package"
 msgstr "Lägg till teman från ett paket"
 
-#: src/Process/Backend/BlogTheme.php:363
+#: src/Process/Backend/BlogTheme.php:372
 msgid "You can install themes by uploading or downloading zip files."
 msgstr "Du kan installera teman genom att ladda upp eller ladda ner zip-filer."
 
-#: src/Process/Backend/BlogTheme.php:379
+#: src/Process/Backend/BlogTheme.php:388
 msgid "Some functions are disabled, please give write access to your themes directory to enable them."
 msgstr "Vissa funktioner är inaktiverade, vänligen ge skrivrättigheter till din temakatalog för att aktivera dem."
 
