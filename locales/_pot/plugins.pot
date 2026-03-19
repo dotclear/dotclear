@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-02 17:07+0100\n"
+"POT-Creation-Date: 2026-03-19 10:12+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1307,48 +1307,50 @@ msgstr ""
 msgid "Do not encapsulate breadcrumb in a &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; tag."
 msgstr ""
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:71
-#: plugins/breadcrumb/src/FrontendTemplate.php:76
-#: plugins/breadcrumb/src/FrontendTemplate.php:83
-#: plugins/breadcrumb/src/FrontendTemplate.php:87
-#: plugins/breadcrumb/src/FrontendTemplate.php:102
+#: plugins/breadcrumb/src/FrontendTemplate.php:77
+#: plugins/breadcrumb/src/FrontendTemplate.php:82
+#: plugins/breadcrumb/src/FrontendTemplate.php:89
+#: plugins/breadcrumb/src/FrontendTemplate.php:98
+#: plugins/breadcrumb/src/FrontendTemplate.php:100
 #: plugins/breadcrumb/src/FrontendTemplate.php:119
-#: plugins/breadcrumb/src/FrontendTemplate.php:144
-#: plugins/breadcrumb/src/FrontendTemplate.php:170
-#: plugins/breadcrumb/src/FrontendTemplate.php:182
-#: plugins/breadcrumb/src/FrontendTemplate.php:198
-#: plugins/breadcrumb/src/FrontendTemplate.php:209
-#: plugins/breadcrumb/src/FrontendTemplate.php:216
-#: plugins/breadcrumb/src/FrontendTemplate.php:233
-#: plugins/breadcrumb/src/FrontendTemplate.php:245
-#: plugins/breadcrumb/src/FrontendTemplate.php:251
-#: plugins/simpleMenu/src/Manage.php:159 plugins/simpleMenu/src/Manage.php:279
+#: plugins/breadcrumb/src/FrontendTemplate.php:142
+#: plugins/breadcrumb/src/FrontendTemplate.php:167
+#: plugins/breadcrumb/src/FrontendTemplate.php:193
+#: plugins/breadcrumb/src/FrontendTemplate.php:205
+#: plugins/breadcrumb/src/FrontendTemplate.php:221
+#: plugins/breadcrumb/src/FrontendTemplate.php:232
+#: plugins/breadcrumb/src/FrontendTemplate.php:239
+#: plugins/breadcrumb/src/FrontendTemplate.php:256
+#: plugins/breadcrumb/src/FrontendTemplate.php:268
+#: plugins/breadcrumb/src/FrontendTemplate.php:274
+#: plugins/simpleMenu/src/Manage.php:159 plugins/simpleMenu/src/Manage.php:281
 #: plugins/widgets/src/Widgets.php:296
 msgid "Home"
 msgstr ""
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:113
-#: plugins/breadcrumb/src/FrontendTemplate.php:136
-#: plugins/breadcrumb/src/FrontendTemplate.php:225
-#: plugins/breadcrumb/src/FrontendTemplate.php:238
+#: plugins/breadcrumb/src/FrontendTemplate.php:112
+#: plugins/breadcrumb/src/FrontendTemplate.php:135
+#: plugins/breadcrumb/src/FrontendTemplate.php:159
+#: plugins/breadcrumb/src/FrontendTemplate.php:248
+#: plugins/breadcrumb/src/FrontendTemplate.php:261
 #, php-format
 msgid "page %d"
 msgstr ""
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:185
-#: plugins/breadcrumb/src/FrontendTemplate.php:191
-#: plugins/simpleMenu/src/Manage.php:306 plugins/widgets/src/Widgets.php:324
+#: plugins/breadcrumb/src/FrontendTemplate.php:208
+#: plugins/breadcrumb/src/FrontendTemplate.php:214
+#: plugins/simpleMenu/src/Manage.php:308 plugins/widgets/src/Widgets.php:324
 msgid "Archives"
 msgstr ""
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:210
-#: plugins/breadcrumb/src/FrontendTemplate.php:217
-#: plugins/simpleMenu/src/Manage.php:143 plugins/simpleMenu/src/Manage.php:326
+#: plugins/breadcrumb/src/FrontendTemplate.php:233
+#: plugins/breadcrumb/src/FrontendTemplate.php:240
+#: plugins/simpleMenu/src/Manage.php:143 plugins/simpleMenu/src/Manage.php:328
 #: plugins/tags/src/Widgets.php:57
 msgid "All tags"
 msgstr ""
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:246
+#: plugins/breadcrumb/src/FrontendTemplate.php:269
 msgid "404"
 msgstr ""
 
@@ -1503,7 +1505,7 @@ msgstr ""
 
 #: plugins/dcCKEditor/src/Manage.php:340
 #: plugins/dcLegacyEditor/src/Manage.php:114
-#: plugins/simpleMenu/src/Manage.php:804
+#: plugins/simpleMenu/src/Manage.php:826
 msgid "Save configuration"
 msgstr ""
 
@@ -2609,11 +2611,11 @@ msgstr ""
 msgid "Simple menu"
 msgstr ""
 
-#: plugins/simpleMenu/src/FrontendTemplate.php:164
+#: plugins/simpleMenu/src/FrontendTemplate.php:168
 msgid "Active page"
 msgstr ""
 
-#: plugins/simpleMenu/src/FrontendTemplate.php:164
+#: plugins/simpleMenu/src/FrontendTemplate.php:168
 msgid "active page"
 msgstr ""
 
@@ -2638,172 +2640,176 @@ msgstr ""
 msgid "User defined"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:227
+#: plugins/simpleMenu/src/Manage.php:228
 msgid "Configuration successfully updated."
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:274 plugins/simpleMenu/src/Manage.php:711
-#: plugins/simpleMenu/src/Manage.php:840
+#: plugins/simpleMenu/src/Manage.php:276 plugins/simpleMenu/src/Manage.php:726
+#: plugins/simpleMenu/src/Manage.php:862
 msgid "Label"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:280
+#: plugins/simpleMenu/src/Manage.php:282
 msgid "Home page"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:280 plugins/simpleMenu/src/Manage.php:285
+#: plugins/simpleMenu/src/Manage.php:282 plugins/simpleMenu/src/Manage.php:287
 #: plugins/widgets/src/Widgets.php:305 plugins/widgets/src/Widgets.php:315
 msgid "Recent posts"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:292
+#: plugins/simpleMenu/src/Manage.php:294
 #, php-format
 msgid "Switch to %s language"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:299
+#: plugins/simpleMenu/src/Manage.php:301
 msgid "Recent Posts from this category"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:311
+#: plugins/simpleMenu/src/Manage.php:313
 #, php-format
 msgid "Posts from %s"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:331
+#: plugins/simpleMenu/src/Manage.php:333
 #, php-format
 msgid "Recent posts for %s tag"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:392
+#: plugins/simpleMenu/src/Manage.php:395
 msgid "Menu item has been successfully added."
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:397
+#: plugins/simpleMenu/src/Manage.php:400
 msgid "Label and URL of menu item are mandatory."
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:431
+#: plugins/simpleMenu/src/Manage.php:435
 msgid "Menu items have been successfully removed."
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:434
+#: plugins/simpleMenu/src/Manage.php:438
 msgid "No menu items selected."
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:446
+#: plugins/simpleMenu/src/Manage.php:450
 msgid "Label is mandatory."
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:451
+#: plugins/simpleMenu/src/Manage.php:455
 msgid "URL is mandatory."
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:509
+#: plugins/simpleMenu/src/Manage.php:524
 msgid "Menu items have been successfully updated."
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:536
+#: plugins/simpleMenu/src/Manage.php:551
 msgid "Are you sure you want to remove selected menu items?"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:545
+#: plugins/simpleMenu/src/Manage.php:560
 msgid "Step #1"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:550 plugins/simpleMenu/src/Manage.php:555
+#: plugins/simpleMenu/src/Manage.php:565 plugins/simpleMenu/src/Manage.php:570
 msgid "Step #2"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:555
+#: plugins/simpleMenu/src/Manage.php:570
 msgid "Step #3"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:564
+#: plugins/simpleMenu/src/Manage.php:579
 msgid "Add item"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:595
+#: plugins/simpleMenu/src/Manage.php:610
 msgid "Select type"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:602
+#: plugins/simpleMenu/src/Manage.php:617
 msgid "Type of item menu:"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:608 plugins/simpleMenu/src/Manage.php:675
+#: plugins/simpleMenu/src/Manage.php:623 plugins/simpleMenu/src/Manage.php:690
 msgid "Continue..."
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:631
+#: plugins/simpleMenu/src/Manage.php:646
 msgid "Select language:"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:637
+#: plugins/simpleMenu/src/Manage.php:652
 msgid "Select category:"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:643
+#: plugins/simpleMenu/src/Manage.php:658
 msgid "Select month (if necessary):"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:649
+#: plugins/simpleMenu/src/Manage.php:664
 msgid "Select page:"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:655
+#: plugins/simpleMenu/src/Manage.php:670
 msgid "Select tag (if necessary):"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:716
+#: plugins/simpleMenu/src/Manage.php:731
 msgid "Label of item menu:"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:730
+#: plugins/simpleMenu/src/Manage.php:745
 msgid "Description of item menu:"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:745
+#: plugins/simpleMenu/src/Manage.php:760
 msgid "URL of item menu:"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:755 plugins/simpleMenu/src/Manage.php:843
+#: plugins/simpleMenu/src/Manage.php:770 plugins/simpleMenu/src/Manage.php:865
 msgid "Open URL on a new tab"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:764
+#: plugins/simpleMenu/src/Manage.php:779
 msgid "Custom data of item menu:"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:772
+#: plugins/simpleMenu/src/Manage.php:786 plugins/simpleMenu/src/Manage.php:867
+msgid "Disabled"
+msgstr ""
+
+#: plugins/simpleMenu/src/Manage.php:794
 msgid "Add this item"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:798
+#: plugins/simpleMenu/src/Manage.php:820
 msgid "Enable simple menu for this blog"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:821
+#: plugins/simpleMenu/src/Manage.php:843
 msgid "Add an item"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:844
+#: plugins/simpleMenu/src/Manage.php:866
 msgid "Custom data"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:952
+#: plugins/simpleMenu/src/Manage.php:995
 msgid "Menu items list"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:979
+#: plugins/simpleMenu/src/Manage.php:1022
 msgid "Delete selected menu items"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:988
+#: plugins/simpleMenu/src/Manage.php:1031
 msgid "Update menu"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:998
+#: plugins/simpleMenu/src/Manage.php:1041
 msgid "No menu items so far."
 msgstr ""
 

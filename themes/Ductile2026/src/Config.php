@@ -32,6 +32,7 @@ use Dotclear\Helper\Html\Form\Th;
 use Dotclear\Helper\Html\Form\Thead;
 use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Process\TraitProcess;
+use Dotclear\Interface\Core\BlogWorkspaceInterface;
 use Exception;
 
 /**
@@ -72,7 +73,6 @@ class Config
                 // No setting in DB, return default
                 return $default;
             }
-            $setting = @unserialize($setting);
             if (!is_array($setting)) {
                 // Setting is not an array, return default
                 return $default;
@@ -85,7 +85,6 @@ class Config
         App::backend()->ductile_user = array_merge($ductile_base, App::backend()->ductile_user);
 
         $ductile_stickers = App::blog()->settings()->themes->get(App::blog()->settings()->system->theme . '_stickers');
-        $ductile_stickers = @unserialize((string) $ductile_stickers);
 
         // If no stickers defined, add feed Atom one
         if (!is_array($ductile_stickers)) {
@@ -131,7 +130,7 @@ class Config
                 // HTML
                 $ductile_user = App::backend()->ductile_user;
 
-                $logo_src = isset($_POST['user_image']) && is_string($logo_src = $_POST['user_image']) && $logo_src !== '' ? $logo_src : My::fileURL('img/logo-ductile.svg');
+                $logo_src = isset($_POST['user_image']) && is_string($logo_src = $_POST['user_image']) && $logo_src !== '' ? $logo_src : 'img/logo-ductile.svg';
 
                 $ductile_user['logo_src'] = $logo_src;
 
@@ -171,8 +170,8 @@ class Config
                 App::backend()->ductile_user = $ductile_user;
 
                 // Save settings
-                App::blog()->settings()->themes->put(App::blog()->settings()->system->theme . '_style', serialize(App::backend()->ductile_user));
-                App::blog()->settings()->themes->put(App::blog()->settings()->system->theme . '_stickers', serialize(App::backend()->ductile_stickers));
+                App::blog()->settings()->themes->put(App::blog()->settings()->system->theme . '_style', App::backend()->ductile_user, BlogWorkspaceInterface::NS_ARRAY);
+                App::blog()->settings()->themes->put(App::blog()->settings()->system->theme . '_stickers', App::backend()->ductile_stickers, BlogWorkspaceInterface::NS_ARRAY);
 
                 // Blog refresh
                 App::blog()->triggerBlog();
@@ -199,7 +198,16 @@ class Config
             return;
         }
 
-        $logo_src = is_string($logo_src = App::backend()->ductile_user['logo_src']) && $logo_src !== '' ? $logo_src : My::fileURL('img/logo-ductile.svg');
+        // Image URL
+        $logo_src = is_string($logo_src = App::backend()->ductile_user['logo_src']) ? $logo_src : '';
+        $scheme   = is_string($scheme = parse_url($logo_src, PHP_URL_SCHEME)) ? $scheme : '';
+        if ($scheme !== '') {
+            // Return complete URL which includes scheme
+            $img_url = $logo_src;
+        } else {
+            // Return theme resource URL
+            $img_url = My::fileURL($logo_src === '' ? 'img/logo-ductile.svg' : $logo_src);
+        }
 
         // Helpers
 
@@ -252,7 +260,7 @@ class Config
                                 (new Img('user_image_src'))
                                     ->id('user_image_src')
                                     ->class('header-image')
-                                    ->src($logo_src)
+                                    ->src($img_url)
                                     ->alt(__('Image URL:')),
                             ]),
                         (new Para())

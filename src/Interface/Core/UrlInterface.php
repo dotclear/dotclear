@@ -122,7 +122,7 @@ interface UrlInterface
      *
      * @return     false|int  The page number or false if none found.
      */
-    public static function getPageNumber(mixed &$args): bool|int;
+    public static function getPageNumber(mixed &$args): false|int;
 
     /**
      * Serve a page using a template file

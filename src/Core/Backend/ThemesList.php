@@ -136,6 +136,8 @@ class ThemesList extends ModulesList
                 // Screenshot from installed module
                 elseif (file_exists(App::blog()->themesPath() . DIRECTORY_SEPARATOR . $id . DIRECTORY_SEPARATOR . App::themes()::MODULE_FILE_SCREENSHOT)) {
                     $sshot = $this->getURL('shot=' . rawurlencode($id));
+                } elseif (file_exists(App::blog()->themesPath() . DIRECTORY_SEPARATOR . $id . DIRECTORY_SEPARATOR . App::themes()::MODULE_FILE_SCREENSHOT_ALT)) {
+                    $sshot = $this->getURL('shot=' . rawurlencode($id));
                 }
                 // Default screenshot
                 else {
@@ -468,8 +470,16 @@ class ThemesList extends ModulesList
                     throw new Exception(__('No such theme.'));
                 }
 
+                $theme = is_string($theme = App::blog()->settings()->system->get('theme')) ? $theme : '';
+
+                # --BEHAVIOR-- themeBeforeSelect -- string, string
+                App::behavior()->callBehavior('themeBeforeSelect', $define->getId(), $theme);
+
                 App::blog()->settings()->system->put('theme', $define->getId());
                 App::blog()->triggerBlog();
+
+                # --BEHAVIOR-- themeAfterSelect -- string, string
+                App::behavior()->callBehavior('themeAfterSelect', $define->getId(), $theme);
 
                 // Empty theme (and theme's parent if any) template cache
                 $this->emptyThemeTemplatesCache();

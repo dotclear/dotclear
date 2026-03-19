@@ -100,11 +100,8 @@ class Frontend
     public static function ductileEntriesListHelper(string $default): string
     {
         $s = App::blog()->settings()->themes->get(App::blog()->settings()->system->theme . '_entries_lists');
-        if ($s !== null) {
-            $s = @unserialize($s);
-            if (is_array($s) && isset($s[App::url()->getType()])) {
-                return $s[App::url()->getType()];
-            }
+        if (is_array($s) && isset($s[App::url()->getType()])) {
+            return $s[App::url()->getType()];
         }
 
         return $default;
@@ -125,27 +122,15 @@ class Frontend
     {
         $img_url = My::fileURL('img/logo-ductile.svg');
 
-        $s = App::blog()->settings()->themes->get(App::blog()->settings()->system->theme . '_style');
-        if ($s === null) {
-            // no settings yet, return default logo
-            return $img_url;
-        }
-        $s = @unserialize($s);
-        if (!is_array($s)) {
-            // settings error, return default logo
-            return $img_url;
-        }
-
-        if (isset($s['logo_src']) && $s['logo_src'] && is_string($s['logo_src'])) {
-            if (str_ends_with($img_url, $s['logo_src'])) {
-                return $img_url;
-            }
-            if ((str_starts_with($s['logo_src'], '/')) || (parse_url($s['logo_src'], PHP_URL_SCHEME) != '')) {
-                // absolute URL
-                $img_url = $s['logo_src'];
+        $style = App::blog()->settings()->themes->get(App::blog()->settings()->system->theme . '_style');
+        if (is_array($style) && isset($style['logo_src']) && $style['logo_src'] && is_string($style['logo_src'])) {
+            $scheme = is_string($scheme = parse_url($style['logo_src'], PHP_URL_SCHEME)) ? $scheme : '';
+            if ($scheme !== '') {
+                // Return complete URL which includes scheme
+                $img_url = $style['logo_src'];
             } else {
-                // relative URL (base = img folder of ductile theme)
-                $img_url = My::fileURL('img/' . $s['logo_src']);
+                // Return theme resource URL
+                $img_url = My::fileURL($style['logo_src']);
             }
         }
 
@@ -166,19 +151,14 @@ class Frontend
         if ($s === null) {
             $default = true;
         } else {
-            $s = @unserialize($s);
-            if (!is_array($s)) {
+            $s = array_filter($s, self::cleanStickers(...));
+            if (count($s) === 0) {
                 $default = true;
             } else {
-                $s = array_filter($s, self::cleanStickers(...));
-                if (count($s) === 0) {
-                    $default = true;
-                } else {
-                    $count = 1;
-                    foreach ($s as $sticker) {
-                        $res .= self::setSticker($count, ($count === count($s)), $sticker['label'], $sticker['url'], $img_url . $sticker['image']);
-                        $count++;
-                    }
+                $count = 1;
+                foreach ($s as $sticker) {
+                    $res .= self::setSticker($count, ($count === count($s)), $sticker['label'], $sticker['url'], $img_url . $sticker['image']);
+                    $count++;
                 }
             }
         }

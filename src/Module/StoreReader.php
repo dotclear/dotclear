@@ -245,7 +245,7 @@ class StoreReader extends HttpClient
      *
      * @return  false|StoreParser   StoreParser instance or false
      */
-    public static function quickParse(string $url, ?string $cache_dir = null, ?bool $force = false, bool $use_host_cache = true): bool|StoreParser
+    public static function quickParse(string $url, ?string $cache_dir = null, ?bool $force = false, bool $use_host_cache = true): false|StoreParser
     {
         $parser = new self($use_host_cache);
         if ($cache_dir) {

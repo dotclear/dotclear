@@ -262,7 +262,11 @@ class ListingBlogs extends Listing
 
         return (new Tr())
             ->id('b' . $blog_id)
-            ->class('line')
+            ->class(array_filter([
+                'line',
+                App::status()->blog()->isRestricted((int) $this->rs->blog_status) ? 'offline' : '',
+                'sts-' . App::status()->blog()->id((int) $this->rs->blog_status),
+            ]))
             ->items($cols);
     }
 }

@@ -1674,7 +1674,7 @@ class Page
                             // Find .CodeMirror {…} declaration
                             $css = [];
                             if (preg_match('/(?:\s)*\.CodeMirror {((?:[^}])*)}/m', $buffer, $css)) {
-                                // Find background color in .hljs {…} declaration
+                                // Find background color in .CodeMirror {…} declaration
                                 $css_background = [];
                                 if (preg_match('/(?:\s)*background(?:-color)*:\s#([0-9a-f]{3,6})/m', $css[1], $css_background)) {
                                     $color = $css_background[1];

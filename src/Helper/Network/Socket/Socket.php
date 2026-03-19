@@ -97,7 +97,7 @@ class Socket
      *
      * @return string|true
      */
-    public function host(?string $host = null): bool|string
+    public function host(?string $host = null): true|string
     {
         if ($host) {
             $this->_host = $host;

@@ -41,11 +41,20 @@
   margin-top: 0.5em;
 }
 textarea {
-  font: max(90%, 2ex) var(--monospace);
+  font: clamp(90%, 0.9em, 2ex) var(--monospace);
+  resize: vertical;
+  overflow: auto;
 }
 .CodeMirror {
   border: 1px solid;
   height: 30em;
+  font-size: clamp(90%, 0.9em, 2ex);
+  resize: vertical;
+  overflow: auto;
+}
+.CodeMirror-linenumber {
+  font-size: 80%;
+  line-height: 1.75;
 }
 #lock-form {
   margin-top: 2em;

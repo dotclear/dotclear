@@ -763,7 +763,7 @@ class HttpClient extends Socket
      *
      * @return string|false|array<int, string>
      */
-    public function getHeader(string $header): array|bool|string
+    public function getHeader(string $header): array|false|string
     {
         $header = strtolower($header);
 

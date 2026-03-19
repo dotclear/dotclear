@@ -126,6 +126,10 @@ class FrontendTemplate
 
             // Menu items loop
             foreach ($menu as $i => $m) {
+                if (isset($m['disabled']) && $m['disabled'] === true) {
+                    continue;
+                }
+
                 # $href = lien de l'item de menu
                 $href = $m['url'];
                 $href = Html::escapeHTML($href);

@@ -212,6 +212,7 @@ class Manage
         App::backend()->item_data         = '';
 
         $item_targetBlank = false;
+        $item_disabled    = false;
 
         // Get current menu
         $menu = App::backend()->current_menu;
@@ -238,6 +239,7 @@ class Manage
             App::backend()->item_url    = $_POST['item_url']    ?? '';
             App::backend()->item_data   = $_POST['item_data']   ?? '';
             $item_targetBlank           = isset($_POST['item_targetBlank']) && !empty($_POST['item_targetBlank']);
+            $item_disabled              = isset($_POST['item_disabled'])    && !empty($_POST['item_disabled']);
 
             # Cleanup
             App::backend()->item_data = Html::clean(App::backend()->item_data);
@@ -382,6 +384,7 @@ class Manage
                                     'url'         => App::backend()->item_url,
                                     'targetBlank' => $item_targetBlank,
                                     'data'        => Html::clean(App::backend()->item_data),
+                                    'disabled'    => $item_disabled,
                                 ];
 
                                 // Save menu in blog settings
@@ -419,6 +422,7 @@ class Manage
                                         'url'         => $v['url'],
                                         'targetBlank' => $v['targetBlank'],
                                         'data'        => $v['data'] ?? '',
+                                        'disabled'    => $v['disabled'],
                                     ];
                                 }
                             }
@@ -459,6 +463,7 @@ class Manage
                                 'url'         => $_POST['items_url'][$i],
                                 'targetBlank' => false,
                                 'data'        => Html::clean($_POST['items_data'][$i]),
+                                'disabled'    => false,
                             ];
                         }
                         // Get target blank options
@@ -468,6 +473,15 @@ class Manage
                                 $index                       = (int) $_POST['items_targetBlank'][$i];
                                 $id                          = (int) $_POST['items_id'][$index];
                                 $newmenu[$id]['targetBlank'] = true;
+                            }
+                        }
+                        // Get disabled options
+                        if (isset($_POST['items_disabled']) && is_array($_POST['items_disabled'])) {
+                            $counter = count($_POST['items_disabled']);
+                            for ($i = 0; $i < $counter; $i++) {
+                                $index                    = (int) $_POST['items_disabled'][$i];
+                                $id                       = (int) $_POST['items_id'][$index];
+                                $newmenu[$id]['disabled'] = true;
                             }
                         }
                         $menu = $newmenu;
@@ -495,6 +509,7 @@ class Manage
                                         'url'         => $menu[$k]['url']   ?? '',
                                         'targetBlank' => $menu[$k]['targetBlank'],
                                         'data'        => $menu[$k]['data'] ?? '',
+                                        'disabled'    => $menu[$k]['disabled'],
                                     ];
                                 }
                                 $menu = $newmenu;
@@ -764,6 +779,13 @@ class Manage
                                                 ->label(new Label(__('Custom data of item menu:'), Label::OL_TF)),
                                         ]),
                                     (new Para())
+                                        ->class('field')
+                                        ->items([
+                                            (new Checkbox('item_disabled'))
+                                                ->value('off')
+                                                ->label(new Label(__('Disabled'), Label::OL_FT)),
+                                        ]),
+                                    (new Para())
                                         ->class('form-buttons')
                                         ->items([
                                             ...My::hiddenFields(),
@@ -842,6 +864,7 @@ class Manage
                 (new Th())->scope('col')->text(__('URL')),
                 (new Th())->scope('col')->text(__('Open URL on a new tab')),
                 (new Th())->scope('col')->text(__('Custom data')),
+                (new Th())->scope('col')->text(__('Disabled')),
             ]);
 
             $rows  = [];
@@ -856,6 +879,14 @@ class Manage
                 } else {
                     $targetBlank    = false;
                     $targetBlankStr = '';
+                }
+                // disabled may not exists as this value has been added after this plugin creation.
+                if ((isset($m['disabled'])) && ($m['disabled'])) {
+                    $disabled    = true;
+                    $disabledStr = 'X';
+                } else {
+                    $disabled    = false;
+                    $disabledStr = '';
                 }
 
                 if (App::backend()->step === self::STEP_LIST) {
@@ -917,6 +948,12 @@ class Manage
                                     ->maxlength(255)
                                     ->value(Html::escapeHTML($m['data'] ?? '')),
                             ]),
+                        (new Td())
+                            ->class('nowrap')
+                            ->items([
+                                (new Checkbox(['items_disabled[]', 'imtd-' . $i], $disabled))
+                                    ->value($i),
+                            ]),
                     ];
                 } else {
                     $cols = [
@@ -935,12 +972,18 @@ class Manage
                         (new Td())
                             ->class('nowrap')
                             ->text(Html::escapeHTML($m['data'] ?? '')),
+                        (new Td())
+                            ->class('nowrap')
+                            ->text($disabledStr),
                     ];
                 }
 
                 $rows[] = (new Tr())
                     ->id('l_' . $i)
-                    ->class('line')
+                    ->class(array_filter([
+                        'line',
+                        $disabled ? 'offline' : '',
+                    ]))
                     ->cols($cols);
             }
 

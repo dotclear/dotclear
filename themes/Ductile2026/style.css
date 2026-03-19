@@ -938,7 +938,7 @@ h1 {
   padding-right: 1em;
 }
 
-.feed-info {
+.content-info__feed {
   color: var(--clr-feedinfo);
 
   a {
@@ -1278,6 +1278,11 @@ img.smiley {
   h3 {
     margin-top: 2em;
     color: var(--clr-comment-title);
+  }
+}
+#pr {
+  h3 {
+    margin-top: 0;
   }
 }
 #comments > ul {

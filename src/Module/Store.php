@@ -395,7 +395,7 @@ class Store
      *
      * @return  array<int, string>|false     Array of cleaned pieces of string or false if none
      */
-    private function patternize(string $str): bool|array
+    private function patternize(string $str): false|array
     {
         $arr = [];
 

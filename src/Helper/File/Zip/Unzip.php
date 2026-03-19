@@ -92,7 +92,7 @@ class Unzip
      *
      * @return     array<string, array<string, mixed>>|false   The list.
      */
-    public function getList(bool|string $stop_on_file = false, bool|string $exclude = false): array|bool
+    public function getList(bool|string $stop_on_file = false, bool|string $exclude = false): array|false
     {
         if ($this->compressed_list !== []) {
             return $this->compressed_list;
@@ -218,9 +218,9 @@ class Unzip
     /**
      * Gets the root dir.
      *
-     * @return     bool|string  The root dir (false if none)
+     * @return     false|string  The root dir (false if none)
      */
-    public function getRootDir(): string|bool
+    public function getRootDir(): string|false
     {
         if ($this->compressed_list === []) {
             $this->getList();
@@ -594,7 +594,7 @@ class Unzip
      *
      * @return     array<string, mixed>|false  The file header information.
      */
-    protected function getFileHeaderInformation(bool|int $start_offset = false): bool|array
+    protected function getFileHeaderInformation(bool|int $start_offset = false): false|array
     {
         $fp = $this->fp();
 
@@ -685,9 +685,9 @@ class Unzip
      * @param      int       $date   The date
      * @param      int       $time   The time
      *
-     * @return     bool|int  The time stamp.
+     * @return     false|int  The time stamp.
      */
-    protected function getTimeStamp(int $date, int $time): int|bool
+    protected function getTimeStamp(int $date, int $time): int|false
     {
         $BINlastmod_date = str_pad(decbin($date), 16, '0', STR_PAD_LEFT);
         $BINlastmod_time = str_pad(decbin($time), 16, '0', STR_PAD_LEFT);

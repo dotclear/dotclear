@@ -128,14 +128,22 @@
   </tpl:EntryIf>
   <tpl:EntryIf comments_active="1">
     <tpl:SysIfFormError>
-      <p class="error" id="pr">{{tpl:SysFormError}}</p>
+      <div class="comment-form-message">
+        <h3>{{tpl:lang Your comment}}</h3>
+        <p class="error" id="pr">{{tpl:SysFormError}}</p>
+      </div>
     </tpl:SysIfFormError>
     <tpl:SysIfCommentPublished>
-      <p class="message" id="pr">{{tpl:lang Your comment has been published.}}</p>
+      <div class="comment-form-message">
+        <h3>{{tpl:lang Your comment}}</h3>
+        <p class="message" id="pr">{{tpl:lang Your comment has been published.}}</p>
+      </div>
     </tpl:SysIfCommentPublished>
     <tpl:SysIfCommentPending>
-      <p class="message" id="pr">{{tpl:lang Your comment has been submitted and
-        will be reviewed for publication.}}</p>
+      <div class="comment-form-message">
+        <h3>{{tpl:lang Your comment}}</h3>
+        <p class="message" id="pr">{{tpl:lang Your comment has been submitted and will be reviewed for publication.}}</p>
+      </div>
     </tpl:SysIfCommentPending>
     <!-- # Comment form -->
     <form action="{{tpl:EntryURL}}#pr" method="post" id="comment-form" role="form">
