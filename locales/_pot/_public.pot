@@ -304,3 +304,6 @@ msgstr ""
 
 msgid "Required field"
 msgstr ""
+
+msgid "Welcome"
+msgstr ""
