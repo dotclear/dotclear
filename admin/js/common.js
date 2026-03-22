@@ -1605,4 +1605,21 @@ dotclear.ready(() => {
 
   // Close notice buttons
   dotclear.closeNoticeHelper();
+
+  // Core update indicator
+  dotclear.jsonServicesGet('checkCoreUpdate', (data) => {
+    if (data.check || true) {
+      // Add alert link in header
+      const update_link = dotclear.msg.header_update_link;
+      const update_label = dotclear.msg.header_update_label;
+      const update_header = document.querySelector('#header h1');
+      if (update_link && update_label && update_header) {
+        const button = document.createElement('a');
+        button.setAttribute('href', update_link);
+        button.textContent = update_label;
+        button.classList.add('header_update');
+        update_header.replaceWith(button);
+      }
+    }
+  });
 });

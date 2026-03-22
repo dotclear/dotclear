@@ -489,6 +489,10 @@ html body.dark-mode {
   --msg-success-background-alt: light-dark(#9bca1c, #9bca1c);
   --dc-update-color: light-dark(#000, #000);
   --dc-update-background: light-dark(#a2cbe9, #a2cbe9);
+  --dc-update-btn-color: light-dark(#000, #000);
+  --dc-update-btn-background: light-dark(#9bca1c, #9bca1c);
+  --dc-update-btn-border: light-dark(#fff, #c9cbcf);
+  --dc-update-btn-background-active: light-dark(#fff, #caced2);
   --form-control-color: light-dark(#000, #fff);
   --filter-border: light-dark(#a2cbe9, #a2cbe9);
   --filter-options-border: light-dark(#c9c9c9, #c9cbcf);
@@ -2217,6 +2221,20 @@ p.addMeta {
 
 p.updt-info img.outgoing-js {
   filter: brightness(0);
+}
+
+#header a.header_update {
+  padding: 0.25em 0.5em 0.25em 2em;
+  margin: 0 0.5em;
+  color: var(--dc-update-btn-color);
+  background: url(msg-info.svg) no-repeat 0.25em center;
+  background-size: 1.25em;
+  background-color: var(--dc-update-btn-background);
+  border-radius: 3px;
+  border: 1px solid var(--dc-update-btn-border);
+}
+#header a.header_update:hover, #header a.header_update:active, #header a.header_update:focus {
+  background-color: var(--dc-update-btn-background-active);
 }
 
 div:is(.warn, .warning, .info) {

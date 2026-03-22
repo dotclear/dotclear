@@ -41,6 +41,7 @@ use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Ul;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
+use Exception;
 
 class Page
 {
@@ -1372,6 +1373,12 @@ class Page
 
             'adblocker' => __('An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences.'),
         ];
+
+        try {
+            $js_msg['header_update_label'] = __('Dotclear update available');
+            $js_msg['header_update_link']  = App::backend()->url()->get('upgrade.home');
+        } catch (Exception) {
+        }
 
         return
         static::jsLoad('js/prepend.js') .

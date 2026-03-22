@@ -107,7 +107,7 @@ class Upgrade
         # Hide "update me" message
         if (!empty($_GET['hide_msg'])) {
             App::upgrade()->update()->setNotify(false);
-            App::upgrade()->url()->redirect('upgrade.home');
+            App::upgrade()->url()->redirect('admin.home');
         }
 
         self::$step = $_GET['step'] ?? '';

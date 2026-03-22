@@ -136,6 +136,23 @@ p.updt-info img.outgoing-js {
   filter: brightness(0);
 }
 
+#header a.header_update {
+  padding: 0.25em 0.5em 0.25em 2em;
+  margin: 0 0.5em;
+  color: var(--dc-update-btn-color);
+  background: url(msg-info.svg) no-repeat 0.25em center;
+  background-size: 1.25em;
+  background-color: var(--dc-update-btn-background);
+  border-radius: 3px;
+  border: 1px solid var(--dc-update-btn-border);
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: var(--dc-update-btn-background-active);
+  }
+}
+
 div:is(.warn, .warning, .info) {
   display: block;
   padding: 1em 1em 1em 4em;
