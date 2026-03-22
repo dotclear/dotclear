@@ -1800,8 +1800,15 @@ class Tpl extends Template
 
         if (isset($attr['type'])) {
             $type = trim((string) $attr['type']);
-            $type = $type === '' ? $type : 'post';
-            $if->append('App::frontend()->context()->posts->post_type == "' . addslashes($type) . '"');
+            if ($type === '') {
+                $type = 'post';
+            }
+            if (str_starts_with($type, '!')) {
+                $type = substr($type, 1);
+                $if->append('App::frontend()->context()->posts->post_type != "' . addslashes($type) . '"');
+            } else {
+                $if->append('App::frontend()->context()->posts->post_type == "' . addslashes($type) . '"');
+            }
         }
 
         if (isset($attr['url'])) {
