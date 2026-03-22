@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-22 10:12+0100\n"
-"PO-Revision-Date: 2026-03-22 09:25\n"
+"PO-Revision-Date: 2026-03-22 09:46\n"
 "Last-Translator: \n"
 "Language-Team: Arabic\n"
 "Language: ar_SA\n"
@@ -1989,7 +1989,7 @@ msgstr "تم اكتشاف مانع إعلانات على لوحة التحكم �
 
 #: src/Core/Backend/Page.php:1378
 msgid "Dotclear update available"
-msgstr ""
+msgstr "يتوفر تحديث Dotclear"
 
 #: src/Core/Backend/Page.php:1432
 msgid "You have unsaved changes."
