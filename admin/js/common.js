@@ -1608,7 +1608,7 @@ dotclear.ready(() => {
 
   // Core update indicator
   dotclear.jsonServicesGet('checkCoreUpdate', (data) => {
-    if (data.check || true) {
+    if (data.check) {
       // Add alert link in header
       const update_link = dotclear.msg.header_update_link;
       const update_label = dotclear.msg.header_update_label;
