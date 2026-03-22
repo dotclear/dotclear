@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-22 10:12+0100\n"
-"PO-Revision-Date: 2026-03-22 09:25\n"
+"PO-Revision-Date: 2026-03-22 09:46\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -1869,7 +1869,7 @@ msgstr "在这个Dotclear仪表板上检测到一个广告拦截器（Ghostery, 
 
 #: src/Core/Backend/Page.php:1378
 msgid "Dotclear update available"
-msgstr ""
+msgstr "提供 Dotclear 更新"
 
 #: src/Core/Backend/Page.php:1432
 msgid "You have unsaved changes."
