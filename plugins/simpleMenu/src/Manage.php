@@ -504,12 +504,12 @@ class Manage
                                 $newmenu = [];
                                 foreach ($order as $k) {
                                     $newmenu[] = [
-                                        'label'       => $menu[$k]['label'] ?? '',
-                                        'descr'       => $menu[$k]['descr'] ?? '',
-                                        'url'         => $menu[$k]['url']   ?? '',
-                                        'targetBlank' => $menu[$k]['targetBlank'],
-                                        'data'        => $menu[$k]['data'] ?? '',
-                                        'disabled'    => $menu[$k]['disabled'],
+                                        'label'       => $menu[$k]['label']       ?? '',
+                                        'descr'       => $menu[$k]['descr']       ?? '',
+                                        'url'         => $menu[$k]['url']         ?? '',
+                                        'targetBlank' => $menu[$k]['targetBlank'] ?? false,
+                                        'data'        => $menu[$k]['data']        ?? '',
+                                        'disabled'    => $menu[$k]['disabled']    ?? false,
                                     ];
                                 }
                                 $menu = $newmenu;
