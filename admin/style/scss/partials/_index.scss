@@ -57,7 +57,9 @@
       padding: 1.5em;
       background-color: var(--index-icon-background);
       border-radius: 8px;
-      border: 1px solid var(--index-icon-border);
+      border: none;
+      outline: 1px solid color(from var(--index-icon-border-alt) srgb r g b / 0.1);
+      outline-offset: -1px;
       display: inline-block;
       filter: contrast(var(--index-icon-contrast));
       width: calc(5em + 3em);
@@ -86,6 +88,12 @@
         border-bottom-style: solid;
       }
     }
+  }
+}
+@media (prefers-contrast: more) {
+  #icons a img {
+    outline: 0;
+    border: 1px solid var(--index-icon-border);
   }
 }
 

@@ -517,6 +517,7 @@ html body.dark-mode {
   --index-icon-background: light-dark(#f9f9f9, #565a60);
   --index-icon-border: light-dark(#3a539b, #ecedee);
   --index-icon-outline: light-dark(#bee74b, #3a539b);
+  --index-icon-border-alt: light-dark(#000, #fff);
   --quick-background: light-dark(#f9f9f9, #303236);
   --quick-border: light-dark(#3a539b, #dadbde);
   --quick-info-background: light-dark(#d9edf7, #d9edf7);
@@ -3206,7 +3207,9 @@ span.ibw {
   padding: 1.5em;
   background-color: var(--index-icon-background);
   border-radius: 8px;
-  border: 1px solid var(--index-icon-border);
+  border: none;
+  outline: 1px solid color(from var(--index-icon-border-alt) srgb r g b/0.1);
+  outline-offset: -1px;
   display: inline-block;
   filter: contrast(var(--index-icon-contrast));
   width: 8em;
@@ -3230,6 +3233,12 @@ span.ibw {
   border-bottom-style: solid;
 }
 
+@media (prefers-contrast: more) {
+  #icons a img {
+    outline: 0;
+    border: 1px solid var(--index-icon-border);
+  }
+}
 /* billet rapide */
 #quick {
   max-width: 72em;
