@@ -20,7 +20,7 @@ dotclear.ready(() => {
 
   // Cope with saving
   document.querySelector('#file-form input[name="write"]')?.addEventListener('click', (event) => {
-    const form = event.currentTarget.form;
+    const { form } = event.currentTarget;
 
     const content = form.querySelector('#file_content');
     const xd_check = form.querySelector('input[name="xd_check"]');
@@ -66,6 +66,10 @@ dotclear.ready(() => {
         dotclear.confirmClosePage.forms = [];
         dotclear.confirmClosePage.getCurrentForms();
       }
+
+      // Set focus back to editor
+      if (dotclear.colorsyntax) codemirror_instance.editor.focus();
+      else content.focus();
     });
 
     event.preventDefault();
