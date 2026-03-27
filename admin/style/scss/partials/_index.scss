@@ -58,7 +58,7 @@
       background-color: var(--index-icon-background);
       border-radius: 8px;
       border: none;
-      outline: 1px solid color(from var(--index-icon-border-alt) srgb r g b / 0.1);
+      outline: 1px solid color(from var(--index-icon-border) srgb r g b / 0.2);
       outline-offset: -1px;
       display: inline-block;
       filter: contrast(var(--index-icon-contrast));
