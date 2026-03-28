@@ -404,7 +404,7 @@ html body.dark-mode {
   --popup-title-color: light-dark(#fff, #dcdee0);
   --popup-title-background: light-dark(#3a539b, #565a60);
   --breadcrumb-background: var(--body-background);
-  --breadcrumb-border: light-dark(#868686, #82878f);
+  --breadcrumb-border: light-dark(#caced2, #82878f);
   --breadcrumb-current: light-dark(#d30e60, #f783b3);
   --fieldset-pretty-title-color: light-dark(#d33800, #ff6e3a);
   --fieldset-smart-title-color: light-dark(#323232, #f3f4f5);
@@ -522,11 +522,11 @@ html body.dark-mode {
     color(from var(--index-icon-border) srgb r g b / 0.1)
   );
   --quick-background: light-dark(#f9f9f9, #303236);
-  --quick-border: light-dark(#3a539b, #dadbde);
+  --quick-border: light-dark(#3a539b60, #dadbde60);
   --quick-info-background: light-dark(#d9edf7, #d9edf7);
   --quick-info-border: light-dark(#bce8f1, #bce8f1);
   --quick-info-color: light-dark(#323232, #303236);
-  --index-box-border: light-dark(#3a539b, #caced2);
+  --index-box-border: light-dark(#3a539b60, #caced260);
   --drag-n-drop-off: light-dark(#868686, #82878f);
   --drag-n-drop-on: light-dark(#137bbb, #bee74b);
   --blog-user-border: light-dark(#caced2, #caced2);
@@ -621,6 +621,13 @@ html body.dark-mode {
   --debug-border: light-dark(#ffd478, #ffd478);
 }
 
+@media (prefers-contrast: more) {
+  :root {
+    --breadcrumb-border: light-dark(#868686, #caced2);
+    --quick-border: light-dark(#3a539b, #dadbde);
+    --index-box-border: light-dark(#3a539b, #caced2);
+  }
+}
 /** --------------------------------------------------
     Common rules
 --------------------------------------------------- */
