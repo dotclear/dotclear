@@ -6,305 +6,257 @@
 
 <body>
   <div class="multi-part legible" id="first-step" title="Ensimmäiset vaiheet">
-    <h3>Liitännän löytäminen</h3>
+    <h3>Découverte de l’interface</h3>
     <div class="fieldset">
-      <h4>Ensimmäiset vaiheet</h4>
-      <p>Globaalien ohjesivujen lisäksi useilla hallintosivuilla on online-ohje. Jos javascript on käytössä
-        selaimessasi, näet online-ohjeen sivun oikeassa yläkulmassa napsauttamalla <img src="images/menu/help.svg" alt="" style="width: 14px; vertical-align: middle;"> <strong>Tarvitsetko apua?</strong> linkki. Jos Javascript on poistettu käytöstä, ohje näkyy sivun alareunassa.</p>
+      <h4>Aides contextuelles</h4>
+      <p>En plus des pages d'aide globale, plusieurs pages d'administration disposent d'une aide en ligne. Si Javascript
+        est activé dans votre navigateur, vous pouvez voir l'aide en ligne en haut à droite de la page, en cliquant sur
+        le lien <img src="images/menu/help.svg" alt="" style="width: 14px; vertical-align: middle;"> <strong>Need Help
+          ?</strong> Si Javascript est désactivé, l'aide est affichée en bas de la page.</p>
     </div>
-    <p>Jokaisella hallintasivulla on sama yläotsikko, päävalikko ja alatunniste. <em>(Tässä esitetty järjestys on se, joka näkyy tietokoneen näytöllä.) Mobiililaitteissa tai tableteissa järjestys voi vaihdella käytettävissä olevan tilan mukaan).</em></p>
-    <h4 class="pretty-title">Alkuun otsikko</h4>
-    <p>Yläotsikko koostuu kolmesta elementistä:</p>
+    <p>Sur chaque page de l’administration, vous retrouverez les mêmes volet en haut, menu principal et pied de page.
+      <em>(Les emplacements de chacun de ces éléments sont indiqués ici pour une consultation sur ordinateur&nbsp;; sur
+        un mobile ou une tablette, leur emplacement varie selon la place disponible.)</em>
+    </p>
+    <h4 class="pretty-title">Bandeau haut</h4>
+    <p>Le volet en haut de chaque page est composé de trois éléments :</p>
     <h5 class="as_h4">Logo</h5>
-    <p>Oletuksena tämä logo on Dotclear-logo ja linkit hallinnon aloitussivulle. Alustan
-      johtaja voi kuitenkin valita toisen logon ja ohjata jollekin muulle (yleensä palvelun aloitussivulle).</p>
+    <p>Par défaut, ce logo est celui de Dotclear et renvoie vers la landing page de l'administration. Cependant, un
+      gestionnaire de la plateforme peut choisir un autre logo et rediriger vers autre chose (en général, la landing
+      page du service).</p>
     <h5 class="as_h4">Blogi(t)</h5>
-    <p>Ensimmäinen logon perässä oleva elementti näyttää <em>aktiivisen</em> -blogin eli blogin, jossa toimit. Jos
-      -asennuksesi koostuu useista blogeista, nämä tiedot ovat saatavilla yhdistelmävalikossa, jonka avulla voit vaihtaa toiseen blogiin.</p>
-    <p>Blogin nimen perässä oleva linkki avaa nykyisen blogisi toiseen ikkunaan tai toiseen välilehteen.</p>
-    <h5 class="as_h4">Käyttäjä</h5>
-    <p>Linkki <em>Oma kojelauta</em> vie sinut takaisin blogin hallintasivulle.</p>
-    <p>Linkki <em>Omat asetukset</em> johtaa sivulle, jossa voit muokata henkilökohtaisia tietojasi, määrittää kojelaudan ja valita käyttöliittymän ja muokkausvaihtoehdot.</p>
-    <p>Yllättäen linkki <em>Disconnect [your login]</em> katkaisee yhteyden blogisi hallintaan (me Dotclearilla olemme ergonomian mestareita!).</p>
-    <h4 class="pretty-title">Päävalikko</h4>
-    <p>Päävalikko sijaitsee näytön vasemmalla puolella. Se voidaan taittaa kokoon napsauttamalla sen oikeaa reunaa (ja avata napsauttamalla sitä uudelleen).</p>
-    <p>Se johtaa eri hallintasivuille nykyisen blogin käyttöoikeuksiesi mukaan. Se koostuu neljästä lohkosta:</p>
+    <p>Le premier élément situé après le logo indique le blog <em>actif</em>, c'est-à-dire le blog sur lequel vous
+      agissez. Si votre installation est composée de plusieurs blogs, ces informations sont disponibles dans un menu
+      combiné, qui vous permet de passer à un autre blog.</p>
+    <p>Le lien suivant le nom du blog permet d’aller voir le blog dans une autre fenêtre ou un autre onglet.</p>
+    <h5 class="as_h4">Utilisateur</h5>
+    <p>À l’extrême droite du volet haut, le lien <em>Mon tableau de bord</em> permet de revenir à l’accueil du blog.</p>
+    <p>Le lien suivant, <em>Mes préférences</em> dirige vers la page où vous pourrez modifier vos informations
+      personnelles, configurer votre tableau de bord et choisir vos options d’interface et d’édition.</p>
+    <p>Étonnamment, le lien <em>Déconnecter [votre login]</em> permet de… se déconnecter, si si. (Chez Dotclear, on est
+      trop forts en ergo.)</p>
+    <h4 class="pretty-title">Menu principal</h4>
+    <p>Le menu principal est situé à gauche de l’écran. Il peut être rétracté en cliquant sur sa bordure droite (puis
+      déployé en cliquant sur cette même bordure).</p>
+    <p>Il conduit vers les différentes pages d’administration correspondant à vos permissions sur le blog actif. Quatre
+      blocs le composent&nbsp;</p>
     <ul>
-      <li><strong>Omat suosikit</strong> listaa sivut, jotka olet valinnut suosikeiksi <em>Omat asetukset</em>/<em>Oma kojelauta</em> -välilehdellä. Jos et ole vielä valinnut mitään suosikkia, tässä luettelossa on Dotclearin oletusasetukset tai alustan hallinnoijan määrittelemät asetukset. Jos et halua näyttää tätä lohkoa, voit poistaa vastaavan valintaruudun valinnan kojelautasi asetuksista.</li>
-      <li><strong>Blogi</strong> luettelee kaikki sivut, jotka mahdollistavat nykyisen blogin syöttämisen ja asettamisen, merkinnän muokkaamisesta, median hallinnasta, blogin ulkonäön valitsemisesta tai muista parametreista.<br>
-        <em>Jos sinulla ei ole järjestelmänvalvojan oikeuksia nykyisessä blogissa, sen alapuolella ei ole muuta lohkoa päävalikossa.</em></li>
-      <li><strong>Järjestelmäasetukset</strong> linkit sivuille, joilla voit hallita Dotclearin asennusta: blogien hallinta, käyttäjät ja käytettävissä olevat kielet, lisäosien asennus, järjestelmäasetukset. Jos sinulla on oikeudet useisiin blogeihin, mutta ei superadministraattorin oikeuksia, näet vain <em>Blogit</em> -kohdan.</li>
-      <li><strong>Liitännäiset</strong> voit määrittää asennetut liitännäiset. Jos laajennusten asetukset vaikuttavat vain yhteen blogiin kerrallaan, sen hallintasivu on saatavilla <em>Blogi</em> -lohkosta, mutta jos ne vaikuttavat koko asennukseen, ne sijaitsevat täällä ja ovat vain super-admin-käyttäjien käytettävissä.</li>
+      <li><strong>Mes Favoris</strong> liste les pages que vous avez désignées comme telles dans l’onglet <em>Mon
+          tableau de bord</em> de <em>Mes préférences</em>. Si vous n’avez encore choisi aucun favori, cette liste
+        correspond au set par défaut de Dotclear ou celui du ou de la gestionnaire de la plate-forme. Si vous ne
+        souhaitez pas afficher ce bloc, décochez la case correspondante dans vos options de tableau de bord.</li>
+      <li><strong>Blog</strong> répertorie toutes les pages qui permettent d'alimenter et de configurer le blog en
+        cours, qu'il s'agisse de modifier une entrée, de gérer les médias, de choisir l'apparence du blog ou d'autres
+        paramètres.<br><em>Si vous n'avez pas de droits d'administrateur sur le blog en cours, il n'y aura pas d'autre
+          bloc en dessous de celui-ci dans le menu principal.</em></li>
+      <li><strong>Réglages système</strong> offre l’accès aux pages permettant d’administrer l’installation Dotclear :
+        gestion des blogs, utilisateur·rice·s et langues disponibles, installation d’extensions, réglages système. Si
+        vous possédez des droits sur plusieurs blogs mais ne disposez pas du statut de super administrateur·rice, il est
+        constitué du seul item <em>Blogs</em>.</li>
+      <li><strong>Plugins</strong> permet d’effectuer les paramétrages des plugins installés. Si les réglages d’un
+        plugin n’impactent qu’un blog à la fois, sa page d’administration est disponible depuis le bloc <em>Blog</em>,
+        mais si les réglages ont des répercussions sur toutes les pages de l’installation ils figurent ici et ne sont
+        accessibles qu’aux utilisateur·rice·s disposant des droits de super admin.</li>
     </ul>
-    <h4 class="pretty-title">Alatunniste</h4>
-    <p>Dotclearin ilmainen versio tarjotaan kaikille käyttäjille, jotka löytävät alatunnisteeseen piilotetun salaisuuden.</p>
-    <h3>Apua suurille aloittelijoille</h3>
-    <p>Jos blogit eivät ole sinulle tuttuja, suosittelemme tutustumaan dokumentaatioomme (koko sisällysluettelo on saatavilla tämän sivun <strong>Documentation</strong> -välilehdellä) sekä opetusohjelmiin, kuten:
-      <ul>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/beginners">Ensimmäinen merkintäni, askel askeleelta.</a></li>
-      </ul>
-      <p><a href="https://dotclear.org/forum/">Dotclearin foorumi</a> on tervetullut paikka, jossa ei ole <em>tyhmiä</em> kysymyksiä. Älä epäröi osallistua, jos tarvitset apua ja, miksipä ei, auttaa ihmisiä vastavuoroisesti.</p>
-      <p class="info">Yritämme parhaan kykymme mukaan käyttää sanastoa, joka on helppo ymmärtää ilman erityistietoja. Jos kuitenkin päädymme käyttämään jotain teknistä termiä, löydät sen määritelmän todennäköisesti verkkodokumentaatiomme <a href="https://dotclear.org/documentation/glossary">sanastosta</a> .</p>
+    <h4 class="pretty-title">Pied de page</h4>
+    <p>Une version gratuite de Dotclear est offerte à tout utilisateur·rice découvrant le secret du pied de page.</p>
+    <h3>Aide aux grands débutants</h3>
+    <p>Si vous n'êtes pas familier avec les blogs, nous vous recommandons de consulter notre documentation (la table des
+      matières complète est disponible dans l'onglet <strong>Documentation</strong> de cette page).
+    <p>Le <a href="https://dotclear.org/forum/">forum Dotclear</a> est un lieu d'entraide où il n'y a pas <em>de
+        question stupide</em>. N'hésitez pas à y participer si vous avez besoin d'aide et, pourquoi pas, à aider les
+      autres en retour.</p>
+    <p class="info">Nous nous efforçons d’utiliser un vocabulaire compréhensible sans connaissances préalables.
+      Toutefois si nous nous sommes laissés aller à employer un terme de jargon, vous en trouverez sans doute
+      l’explication dans le <a href="https://dotclear.org/post/2025/11/08/Glossaire">glossaire</a> de notre
+      documentation en ligne.</p>
   </div>
-  <div class="multi-part" id="users-doc" title="Käyttäjän käsikirja">
-    <h3>Käyttäjän käsikirja</h3>
+  <div class="multi-part" id="users-doc" title="User Documentation">
+    <h3>User Documentation</h3>
     <div class="three-boxes">
-      <h4 class="pretty-title">Sisällön hallinta</h4>
+      <h4 class="pretty-title">Blog Feed</h4>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/usage/entries">Merkinnät</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Billets">Blogimerkinnät</a>
           <ul>
-            <li>Luominen ja muokkaaminen</li>
-            <li>Ilmoittautumisen yksityiskohdat</li>
-            <li>Maahantuloon liittyvät toimet</li>
+            <li>Creation and editing</li>
+            <li>Post information</li>
+            <li>Post actions</li>
             <li>Kommentit ja trackbackit</li>
-            <li>Kirjausten eränhallinta</li>
+            <li>Batch processing of posts</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/comments-trackbacks">Kommentit ja trackbackit</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Commentaires-et-r%C3%A9troliens">Comments and
+            trackbacks</a>
           <ul>
-            <li>Seuranta</li>
+            <li>Tracking</li>
             <li>Hallinto</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/categories">Luokat</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Cat%C3%A9gories">Luokat</a>
           <ul>
-            <li>Kategorian luominen</li>
-            <li>Kategorian muokkaaminen</li>
-            <li>Kategorian poistaminen</li>
-            <li>Kategorialuettelon lisääminen</li>
+            <li>Create a category</li>
+            <li>Edit a category</li>
+            <li>Luokan poistaminen</li>
+            <li>Sort the list of categories</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/tags">Tunnisteet (avainsanat)</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Mots-cl%C3%A9s">Keywords (Tags)</a>
           <ul>
-            <li>Tunnisteiden lisääminen</li>
-            <li>Tagien hallinta</li>
+            <li>Add keywords</li>
+            <li>Manage keywords</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/media">Media ja liitetiedostot</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Media-et-pi%C3%A8ces-jointes">Media and Attachments</a>
           <ul>
-            <li>Alihakemiston luominen</li>
-            <li>Tiedostojen lisääminen</li>
-            <li>Zip-arkiston lataaminen nykyisestä hakemistosta</li>
-            <li>Muutos tiedoston täyttötiedoissa</li>
-            <li>Tiedostojen lisääminen suoraan</li>
-            <li>Erityiset tiedostotyypit</li>
+            <li>Create a subfolder</li>
+            <li>Lisää tiedostoja</li>
+            <li>Download a zip archive of the current folder</li>
+            <li>Edit or add information to a file</li>
+            <li>Directly add files</li>
+            <li>Specific file types</li>
             <li>Liitteet:</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/widgets">Blogin valikon sisältö (widgetit)</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Liste-de-liens">List of links</a>
           <ul>
-            <li>Navigointisivupalkki, Ylimääräinen sivupalkki</li>
-            <li>Oletusvidgetit</li>
-            <li>Widgetin lisääminen/poistaminen</li>
-            <li>Widgets-vaihtoehdot</li>
-          </ul>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/blogroll">Blogroll</a>
-          <ul>
-            <li>Blogroll</li>
-            <li>Linkin lisääminen</li>
-            <li>Kategorian lisääminen</li>
+            <li>List of links</li>
+            <li>Lisää linkki</li>
+            <li>Add a link category</li>
             <li>XFN</li>
-            <li>Linkkien tuominen OPML- tai XBEL-tiedostosta</li>
+            <li>Import from an OPML or XBEL file</li>
           </ul>
         </li>
       </ul>
     </div>
     <div class="three-boxes">
-      <h4 class="pretty-title">Asetukset ja mukauttaminen</h4>
+      <h4 class="pretty-title">Settings and Customization</h4>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/usage/blog-parameters">Blogin asetukset</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Param%C3%A8tres-du-blog">Blog Settings</a>
           <ul>
-            <li>Blogin tiedot</li>
-            <li>Blogin kokoonpano</li>
-            <li>Kommentit ja trackbackit</li>
-            <li>Blogin esittely</li>
-            <li>Media ja kuvat</li>
-            <li>Hakukoneiden robottipolitiikka</li>
-            <li>Antispam</li>
+            <li>Blog Information</li>
+            <li>Blog Configuration</li>
+            <li>Comments and Trackbacks</li>
+            <li>Blog Overview</li>
+            <li>Media and Images</li>
+            <li>Indexing Settings</li>
+            <li>Spam Protection</li>
             <li>LightBox</li>
             <li>Tallenna</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/user-preferences">Käyttäjän asetukset</a>
-          <ul>
-            <li>Profiilini</li>
-            <li>Vaihtoehtoni</li>
-            <li>Kojelautani</li>
-          </ul>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/themes">Blogin ulkoasu</a>
+        <li><a href="https://dotclear.org/category/Documentation/Cr%C3%A9er-et-contribuer/Design-Th%C3%A8mes">Blog Appearance</a>
           <ul>
             <li>Valitse teema</li>
             <li>Asenna teema</li>
-            <li>Henkilökohtaistaminen teema</li>
+            <li>Customize a theme</li>
             <li>Teemaeditori</li>
           </ul>
         </li>
       </ul>
     </div>
-    <div class="three-boxes fieldset">
-      <h4 class="smart-title">Lisälukemista</h4>
+    <div class="three-boxes">
+      <h4 class="pretty-title">Further Reading</h4>
       <h5>Sanasto</h5>
       <ul>
-        <li><a href="https://dotclear.org/documentation/glossary">Kaikki nämä salaperäiset sanat, joita käytetään Internetissä ja Dotclearissa.</a></li>
+        <li><a href="https://dotclear.org/post/2025/11/08/Glossaire">All those mysterious terms used on the web and in Dotclear</a></li>
       </ul>
-      <h5>Syöttösyntaksit</h5>
+      <h4 class="pretty-title">Tutorials</h4>
       <ul>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes">Wikisyntaksi ja HTML-ekvivalentti</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes#to-go-further">Mennä pidemmälle</a></li>
-      </ul>
-      <h5>Tilaus (RSS, Atom...)</h5>
-      <ul>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds">Mikä tuo on?</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-make-it-available-on-my-blog">Miten teen sen saataville blogissani?</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-suscribe-to-a-feed">Miten tilaan syötteen?</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#to-go-further">Mennä pidemmälle</a></li>
-      </ul>
-      <h4 class="smart-title">Ohje</h4>
-      <ul>
-        <li><a href="https://dotclear.org/forum">Dotclearin foorumi</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/faq">Usein kysytyt kysymykset</a></li>
+        <li><a href="https://dotclear.org/forum">The Dotclear Forum</a></li>
+        <li><a href="https://dotclear.org/post/2025/11/08/Foire-aux-questions">Usein kysytyt kysymykset</a></li>
       </ul>
     </div>
   </div>
-  <div class="multi-part" id="admin-doc" title="Dokumentaatio ylläpitäjille">
-    <h3>Dokumentaatio ylläpitäjille</h3>
+  <div class="multi-part" id="admin-doc" title="Administrator Documentation">
+    <h3>Administrator Documentation</h3>
     <div class="three-boxes">
-      <h4 class="pretty-title">Asennus ja päivitys</h4>
+      <h4 class="pretty-title">Installation and Updates</h4>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/admin/install">Asennus</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Installation">Asennus</a>
           <ul>
             <li>Edellytykset</li>
             <li>Automaattinen asennus</li>
-            <li>Vakioasennus</li>
-            <li>Asennus ohjatun toiminnon avulla</li>
-            <li>Asennus config.php-tiedostosta</li>
-            <li>Asennusprosessin loppuun saattaminen</li>
-            <li>Seuraavat vaiheet</li>
+            <li>“Standard” installation</li>
+            <li>Installation Wizard</li>
+            <li>Manual Setup of the config.php File</li>
+            <li>End of Installation</li>
+            <li>Next Steps</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/upgrade">Päivittäminen</a>
+        <li><a href="https://dotclear.org/post/2025/12/08/Mise-%C3%A0-jour">Päivitys</a>
           <ul>
-            <li>Päivityksen valmistelu</li>
-            <li>Automaattinen päivitys</li>
-            <li>Ohjelman päivittäminen</li>
-            <li>Tietokannan päivittäminen</li>
-            <li>Liite: mercurial-kopion päivittäminen</li>
+            <li>Preparations</li>
+            <li>Automatic update</li>
+            <li>Manual program update</li>
+            <li>Database update</li>
+            <li>Appendix: Updating a copy with Mercurial</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/config">Konfiguraatiotiedosto (config.php) Parametrit</a>
+        <li><a href="https://dotclear.org/post/2025/11/25/Param%C3%A8tres-du-fichier-de-configuration">Settings for the configuration file (config.php)</a>
           <ul>
             <li>Johdanto</li>
-            <li>Parametrit</li>
-            <li>Tietojen lisääminen tiedostoon</li>
+            <li>Asetukset</li>
+            <li>Additions to the file</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/1-to-2">Päivitys Dotclear 1.2:sta Dotclear 2:een</a>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/migrate">Siirtyminen toisesta blogiohjelmistosta Dotcleariin</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/local-install">Paikallinen asennus</a>
-          <ul>
-            <li>Windows</li>
-            <li>Mac OS X</li>
-            <li>Linux</li>
-          </ul>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/install/iis">Dotclearin asentaminen IIS7:n kanssa</a></li>
       </ul>
-      <h5>Isännöinti Liite</h5>
+      <h5>Hosts Appendix</h5>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/hosting">Hosting</a>
-        </li>
+        <li><a href="https://dotclear.org/post/2025/11/08/H%C3%A9bergeurs">Hosts</a></li>
       </ul>
     </div>
     <div class="three-boxes">
       <h4 class="pretty-title">Hallinto</h4>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/admin/users">Käyttäjien hallinta</a>
+        <li><a href="https://dotclear.org/post/2025/11/25/Installation-optimis%C3%A9e">Optimized installation</a></li>
+        <li><a href="https://dotclear.org/category/Documentation/Cr%C3%A9er-et-contribuer/Design-Th%C3%A8mes">Other appearance</a>
           <ul>
-            <li>Olemassa oleva käyttäjäluettelo</li>
-            <li>Käyttäjän luominen</li>
-            <li>Käyttäjän muokkaaminen</li>
-            <li>Käyttäjän oikeudet</li>
-          </ul>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/clean-install">Puhdas asennus</a>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/multiblog">Multiblogin asennus</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/plugins">Liitännäisten hallinta</a>
-          <ul>
-            <li>Lisäosan asentaminen</li>
-            <li>Liitännäisten määrittäminen</li>
-            <li>Lisäosan poistaminen</li>
-            <li>Lisäosan päivittäminen</li>
-          </ul>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/themes">Blogin teemat</a>
-          <ul>
-            <li>Teeman valitseminen</li>
-            <li>Teeman asentaminen</li>
-            <li>Teeman mukauttaminen</li>
+            <li>Valitse teema</li>
+            <li>Asenna teema</li>
+            <li>Customize a theme</li>
             <li>Teemaeditori</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/aboutconfig">Edistynyt konfigurointi</a></li>
       </ul>
     </div>
     <div class="three-boxes">
-      <h4 class="pretty-title">Huolto</h4>
-      <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/admin/backup">Varmuuskopiointi ja palautus</a>
-          <ul>
-            <li>Tuonti/vienti</li>
-            <li>Tiedostot</li>
-            <li>Tietokanta</li>
-          </ul>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/antispam">Roskapostin kommenttisuodattimet</a>
-          <ul>
-            <li>Suodattimen järjestäminen</li>
-            <li>Suodattimen konfigurointi</li>
-          </ul>
-        </li>
-      </ul>
-      <div class="fieldset vertical-separator">
-        <h4 class="smart-title">Ohje</h4>
+      <h4 class="pretty-title">Management and Maintenance</h4>
+      <div class="">
+        <h4 class="pretty-title">Community Support</h4>
         <ul>
-          <li><a href="https://dotclear.org/forum">Dotclearin foorumi</a></li>
-          <li><a href="https://dotclear.org/documentation/2.0/faq#administration">Usein kysytyt kysymykset (ylläpitäjät)</a></li>
+          <li><a href="https://dotclear.org/forum">The Dotclear Forum</a></li>
         </ul>
       </div>
     </div>
   </div>
-  <div class="multi-part" id="guide-dev" title="Kehittäjien dokumentaatio">
-    <h3>Kehittäjän ja suunnittelijan resurssit</h3>
+  <div class="multi-part" id="guide-dev" title="Developer Documentation">
+    <h3>Documentation and resources for developers</h3>
     <div class="three-boxes first-child">
       <h4 class="pretty-title">Suunnittelu &amp; Teemat</h4>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/resources/themes">Teemat</a>
+        <li><a href="https://dotclear.org/category/Documentation/Cr%C3%A9er-et-contribuer/Design-Th%C3%A8mes">Teemat</a>
           <ul>
-            <li>Teemojen käyttöopas</li>
-            <li>Mallin tunnisteet</li>
-            <li>Liite</li>
+            <li>Theme User Guide</li>
+            <li>Template Tags</li>
+            <li>Appendices</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/resources/themes/inheritance">Teemaperintö</a>
+        <li><a href="https://dotclear.org/post/2025/12/16/L%E2%80%99h%C3%A9ritage-des-th%C3%A8mes">Theme Inheritance</a>
           <ul>
+            <li>Theme inheritance</li>
             <li>Periaate</li>
             <li>Rajoitukset</li>
-            <li>Asetukset</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/resources/themes/tags">Mallin tunnisteet</a>
+        <li><a href="https://dotclear.org/post/2025/12/17/Liste-des-balises-de-template">Mallin tunnisteet</a>
           <ul>
-            <li>Yleistä / yleishyödylliset palvelut</li>
+            <li>General / Utilities</li>
             <li>Blogi</li>
-            <li>Merkinnät</li>
-            <li>Merkintöjen sivunumerointi</li>
+            <li>Blogimerkinnät</li>
+            <li>Post Pagination</li>
             <li>Kommentit</li>
-            <li>Kommentti esikatselu</li>
-            <li>Pings</li>
+            <li>Comment Preview</li>
+            <li>Trackbacks</li>
             <li>Liitteet:</li>
             <li>Luokat</li>
             <li>Tunnisteet</li>
@@ -317,63 +269,46 @@
       </ul>
     </div>
     <div class="three-boxes first-child">
-      <h4 class="pretty-title">Koodi &amp; Liitännäiset</h4>
+      <h4 class="pretty-title">Code & Plugins</h4>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/resources/tpl">Tpl-tunnisteen luominen pluginille tai teemalle</a>
+        <li><a href="https://dotclear.org/post/2025/12/16/Cr%C3%A9ation-d%E2%80%99une-balise-de-template">Creating a tpl tag for a plugin or theme</a>
           <ul>
             <li>Johdanto</li>
             <li>Arvot</li>
-            <li>Ohjeet lohkot</li>
-            <li>Mallin välimuistin vaikutuksen esittely</li>
+            <li>Instruction blocks</li>
+            <li>Demonstration of the influence of the template cache</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/resources/plugins">Liitännäiset</a>
+        <li><a href="https://dotclear.org/category/Documentation/Cr%C3%A9er-et-contribuer/Code-Plugins">Liitännäiset</a>
           <ul>
-            <li>Lisäosan kirjoittaminen</li>
-            <li>Liite</li>
+            <li>Plugin Development</li>
+            <li>Related Documents</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/resources/plugins/help">Lisäosan kontekstuaalisen ohjeen rakentaminen</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/resources/authentication">Ulkoinen todennus</a>
-          <ul>
-            <li>Johdanto</li>
-            <li>Uusi todennusluokka</li>
-            <li>Skenaario</li>
-            <li>Hakemus</li>
-          </ul>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/resources/xml-rpc">XML/RPC-rajapinta</a></li>
-        <li><a href="https://dev.dotclear.org/code/2/">API-dokumentaatio</a></li>
+        <li><a href="https://dotclear.org/code/api/index.html">API Documentation</a></li>
       </ul>
     </div>
     <div class="three-boxes">
-      <h4 class="pretty-title">Rahoitusosuus &amp; Tuki</h4>
+      <h4 class="pretty-title">Contribute &amp; Support</h4>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/resources/contribute">Osallistu</a>
+        <li><a href="https://dotclear.org/category/Documentation/Cr%C3%A9er-et-contribuer">Osallistu</a>
           <ul>
-            <li>Muokkaa tätä dokumentaatiota</li>
-            <li>Jaa luomuksesi</li>
-            <li>Ilmoita virheistä tai ehdota uusia ominaisuuksia</li>
-            <li>Lokalisointi</li>
+            <li>Improve the documentation</li>
+            <li>Where to submit your contributions?</li>
+            <li>Report bugs or suggest improvements</li>
+            <li>Suggestions</li>
           </ul>
         </li>
-        <li><a href="https://git.dotclear.org/dev/dotclear">Dotclearin lähdekoodivarasto</a></li>
-        <li><a href="https://dotclear.org/forum">Dotclear-foorumi</a></li>
+        <li><a href="https://codeberg.org/Dotclear/dotclear">The Dotclear source code repository</a></li>
+        <li><a href="https://dotclear.org/forum">Dotclearin foorumi</a></li>
       </ul>
-      <div class="fieldset">
-        <h4 class="smart-title">Yleissopimukset</h4>
-        <ul>
-          <li><a href="https://dotclear.org/documentation/2.0/resources/coding-standards">Koodausstandardit</a></li>
-          <li><a href="index.php?process=HelpCharte">Hallinnon sivujen kaavio</a></li>
-        </ul>
-      </div>
     </div>
   </div>
-  <div class="multi-part legible" id="a11y-ergo" title="Saavutettavuus ja ergonomia">
-    <h3>Saavutettavuus ja ergonomia</h3>
-    <p>Dotclearin käyttöliittymä täyttää lähes kaikki <a href="http://www.w3.org/TR/WCAG20/">WCAG 2.0</a> -kriteerit. Pyrimme tekemään Dotclearin yhteensopivaksi <a href="http://www.w3.org/TR/ATAG20/">ATAG 2.0</a> -ohjeiden kanssa.</p>
-    <p>Saavutettavuus ja ergonomia ovat yksi tärkeimmistä huolenaiheistamme. Teemme säännöllisesti analyysejä asiantuntijoiden avulla ja tarjoamme jatkuvasti korjauksia ja parannuksia.</p>
-    <p>Voit auttaa meitä avaamalla <a href="https://git.dotclear.org/dev/dotclear/issues">liput</a> tai osallistumalla <a href="https://dotclear.org/forum/">foorumille</a>. Voit myös osallistua käyttäjätestaukseen tai liittyä tiimiimme!</p>
+  <div class="multi-part legible" id="a11y-ergo" title="Accessibility and Usability">
+    <h3>Accessibility and Usability</h3>
+    <p>The Dotclear interface meets nearly all of the <a href="http://www.w3.org/Translations/WCAG20-fr/">WCAG 2.0</a> criteria; a detailed report will soon be published on the <a href="https://fr.dotclear.org/blog/">project blog</a>. Ultimately, we would also like to fully meet the <a href="http://www.w3.org/TR/ATAG20/">ATAG 2.0</a> criteria.</p>
+    <p>Accessibility and usability are central concerns for the Dotclear team. We regularly conduct analyses with the help of experts and continuously implement fixes and improvements.</p>
+    <p>You can help us by opening tickets <a href="https://codeberg.org/Dotclear/dotclear/issues"></a> or participating in the forum <a href="https://dotclear.org/forum/"></a>. You can also participate in user testing or join our team!</p>
   </div>
 </body>
 
