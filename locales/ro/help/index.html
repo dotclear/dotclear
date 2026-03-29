@@ -6,305 +6,257 @@
 
 <body>
   <div class="multi-part legible" id="first-step" title="Primii pași">
-    <h3>Descoperirea interfeței</h3>
+    <h3>Découverte de l’interface</h3>
     <div class="fieldset">
-      <h4>Primii pași</h4>
-      <p>Pe lângă paginile globale de ajutor, mai multe pagini de administrare au un ajutor online. Dacă javascript este activat
-        pe browser, puteți vedea ajutor online în poziția din dreapta sus a paginii, făcând clic pe <img src="images/menu/help.svg" alt="" style="width: 14px; vertical-align: middle;"> <strong>Aveți nevoie de ajutor?</strong> link. Dacă Javascript este dezactivat, ajutorul este afișat în partea de jos a paginii.</p>
+      <h4>Aides contextuelles</h4>
+      <p>En plus des pages d'aide globale, plusieurs pages d'administration disposent d'une aide en ligne. Si Javascript
+        est activé dans votre navigateur, vous pouvez voir l'aide en ligne en haut à droite de la page, en cliquant sur
+        le lien <img src="images/menu/help.svg" alt="" style="width: 14px; vertical-align: middle;"> <strong>Need Help
+          ?</strong> Si Javascript est désactivé, l'aide est affichée en bas de la page.</p>
     </div>
-    <p>Fiecare pagină de administrare va afișa același titlu de sus, meniu principal și subsol de pagină. <em>(Ordinea dată aici este cea afișată pe ecranul unui computer. Pentru dispozitivele mobile sau tablete, ea poate varia în funcție de spațiul disponibil).</em></p>
-    <h4 class="pretty-title">Rubrica de sus</h4>
-    <p>Titlul de sus este compus din trei elemente:</p>
+    <p>Sur chaque page de l’administration, vous retrouverez les mêmes volet en haut, menu principal et pied de page.
+      <em>(Les emplacements de chacun de ces éléments sont indiqués ici pour une consultation sur ordinateur&nbsp;; sur
+        un mobile ou une tablette, leur emplacement varie selon la place disponible.)</em>
+    </p>
+    <h4 class="pretty-title">Bandeau haut</h4>
+    <p>Le volet en haut de chaque page est composé de trois éléments :</p>
     <h5 class="as_h4">Logo</h5>
-    <p>În mod implicit, acest logo este logo-ul Dotclear și trimite către pagina de destinație a administrației. Cu toate acestea, un manager de platformă
-      poate alege un alt logo și poate redirecționa către altceva (în general, pagina de destinație a serviciului).</p>
+    <p>Par défaut, ce logo est celui de Dotclear et renvoie vers la landing page de l'administration. Cependant, un
+      gestionnaire de la plateforme peut choisir un autre logo et rediriger vers autre chose (en général, la landing
+      page du service).</p>
     <h5 class="as_h4">Blog(uri)</h5>
-    <p>Primul element situat după logo arată blogul <em>activ</em> , adică blogul asupra căruia acționați. Dacă instalarea dvs.
-      este compusă din mai multe bloguri, aceste informații sunt disponibile într-un meniu combinat, care vă permite să comutați la alt blog.</p>
-    <p>Linkul care urmează după numele blogului deschide blogul dvs. curent într-o altă fereastră sau într-o altă filă.</p>
-    <h5 class="as_h4">Utilizator</h5>
-    <p>Linkul <em>Tabloul meu de bord</em> vă duce înapoi la pagina de destinație pentru administrarea blogului.</p>
-    <p>Linkul <em>Preferințele mele</em> vă conduce la pagina în care vă puteți modifica informațiile personale, configura tabloul de bord și vă puteți alege interfața și opțiunile de editare.</p>
-    <p>În mod surprinzător, linkul <em>Deconectați [your login]</em> vă deconectează de la administrarea blogului dumneavoastră (la Dotclear's, suntem campioni în materie de ergonomie!).</p>
-    <h4 class="pretty-title">Meniul principal</h4>
-    <p>Meniul principal este situat în partea stângă a ecranului. Acesta poate fi restrâns făcând clic pe marginea sa dreaptă (și apoi poate fi desfăcut făcând din nou clic pe el).</p>
-    <p>Aceasta duce la diferite pagini de administrare, în funcție de permisiunile pe care le aveți pe blogul curent. Este compusă din patru blocuri:</p>
+    <p>Le premier élément situé après le logo indique le blog <em>actif</em>, c'est-à-dire le blog sur lequel vous
+      agissez. Si votre installation est composée de plusieurs blogs, ces informations sont disponibles dans un menu
+      combiné, qui vous permet de passer à un autre blog.</p>
+    <p>Le lien suivant le nom du blog permet d’aller voir le blog dans une autre fenêtre ou un autre onglet.</p>
+    <h5 class="as_h4">Utilisateur</h5>
+    <p>À l’extrême droite du volet haut, le lien <em>Mon tableau de bord</em> permet de revenir à l’accueil du blog.</p>
+    <p>Le lien suivant, <em>Mes préférences</em> dirige vers la page où vous pourrez modifier vos informations
+      personnelles, configurer votre tableau de bord et choisir vos options d’interface et d’édition.</p>
+    <p>Étonnamment, le lien <em>Déconnecter [votre login]</em> permet de… se déconnecter, si si. (Chez Dotclear, on est
+      trop forts en ergo.)</p>
+    <h4 class="pretty-title">Menu principal</h4>
+    <p>Le menu principal est situé à gauche de l’écran. Il peut être rétracté en cliquant sur sa bordure droite (puis
+      déployé en cliquant sur cette même bordure).</p>
+    <p>Il conduit vers les différentes pages d’administration correspondant à vos permissions sur le blog actif. Quatre
+      blocs le composent&nbsp;</p>
     <ul>
-      <li><strong>Preferințele mele</strong> listează paginile pe care le-ați selectat ca favorite în fila <em>Preferințele mele</em>/<em>Tabloul meu de bord</em> . Dacă nu ați selectat încă niciun favorit, această listă va conține setul implicit Dotclear sau setul care a fost definit de managerul platformei. Dacă nu doriți să afișați acest bloc, puteți debifa caseta de selectare corespunzătoare din opțiunile tabloului de bord.</li>
-      <li><strong>Blog</strong> listează toate paginile care permit alimentarea și configurarea blogului curent, de la editarea unei intrări, gestionarea media, alegerea aspectului blogului sau alți parametri.<br>
-        <em>Dacă nu ai drepturi de administrator pe blogul curent, nu va exista niciun alt bloc sub acesta în meniul principal.</em></li>
-      <li><strong>Setări de sistem</strong> link-uri către paginile care vă permit să gestionați instalarea Dotclear: gestionarea blogurilor, utilizatori și limbi disponibile, instalarea plugin-urilor, setări de sistem. Dacă aveți drepturi pe mai multe bloguri, dar nu aveți drepturi de superadministrator, veți vedea doar intrarea <em>Blogs</em> .</li>
-      <li><strong>Plugins</strong> vă permite să configurați plugin-urile instalate. Dacă setările plugin-urilor au impact doar asupra unui singur blog la un moment dat, pagina de administrare a acestuia este disponibilă din blocul <em>Blog</em> , dar dacă au impact asupra întregii instalații, acestea se află aici și sunt disponibile doar pentru utilizatorii super-admin.</li>
+      <li><strong>Mes Favoris</strong> liste les pages que vous avez désignées comme telles dans l’onglet <em>Mon
+          tableau de bord</em> de <em>Mes préférences</em>. Si vous n’avez encore choisi aucun favori, cette liste
+        correspond au set par défaut de Dotclear ou celui du ou de la gestionnaire de la plate-forme. Si vous ne
+        souhaitez pas afficher ce bloc, décochez la case correspondante dans vos options de tableau de bord.</li>
+      <li><strong>Blog</strong> répertorie toutes les pages qui permettent d'alimenter et de configurer le blog en
+        cours, qu'il s'agisse de modifier une entrée, de gérer les médias, de choisir l'apparence du blog ou d'autres
+        paramètres.<br><em>Si vous n'avez pas de droits d'administrateur sur le blog en cours, il n'y aura pas d'autre
+          bloc en dessous de celui-ci dans le menu principal.</em></li>
+      <li><strong>Réglages système</strong> offre l’accès aux pages permettant d’administrer l’installation Dotclear :
+        gestion des blogs, utilisateur·rice·s et langues disponibles, installation d’extensions, réglages système. Si
+        vous possédez des droits sur plusieurs blogs mais ne disposez pas du statut de super administrateur·rice, il est
+        constitué du seul item <em>Blogs</em>.</li>
+      <li><strong>Plugins</strong> permet d’effectuer les paramétrages des plugins installés. Si les réglages d’un
+        plugin n’impactent qu’un blog à la fois, sa page d’administration est disponible depuis le bloc <em>Blog</em>,
+        mais si les réglages ont des répercussions sur toutes les pages de l’installation ils figurent ici et ne sont
+        accessibles qu’aux utilisateur·rice·s disposant des droits de super admin.</li>
     </ul>
-    <h4 class="pretty-title">Footer</h4>
-    <p>O versiune gratuită a Dotclear va fi oferită oricărui utilizator care va descoperi secretul ascuns în footer.</p>
-    <h3>Ajutor pentru marii începători</h3>
-    <p>Dacă nu sunteți familiarizat cu blogurile, vă recomandăm să consultați documentația noastră (întregul cuprins este disponibil în secțiunea <strong>Documentation</strong> din această pagină), precum și tutoriale precum:
-      <ul>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/beginners">Prima mea intrare, pas cu pas.</a></li>
-      </ul>
-      <p><a href="https://dotclear.org/forum/">Forumul Dotclear</a> este un loc primitor în care nu există <em>întrebări stupide</em>. Nu ezitați să participați dacă aveți nevoie de ajutor și, de ce nu, să ajutați oamenii în schimb.</p>
-      <p class="info">Ne străduim să folosim un vocabular ușor de înțeles fără cunoștințe specifice. Cu toate acestea, dacă ajungem să folosim un termen tehnic, probabil că veți găsi definiția acestuia în glosarul <a href="https://dotclear.org/documentation/glossary"></a> din documentația noastră online.</p>
+    <h4 class="pretty-title">Pied de page</h4>
+    <p>Une version gratuite de Dotclear est offerte à tout utilisateur·rice découvrant le secret du pied de page.</p>
+    <h3>Aide aux grands débutants</h3>
+    <p>Si vous n'êtes pas familier avec les blogs, nous vous recommandons de consulter notre documentation (la table des
+      matières complète est disponible dans l'onglet <strong>Documentation</strong> de cette page).
+    <p>Le <a href="https://dotclear.org/forum/">forum Dotclear</a> est un lieu d'entraide où il n'y a pas <em>de
+        question stupide</em>. N'hésitez pas à y participer si vous avez besoin d'aide et, pourquoi pas, à aider les
+      autres en retour.</p>
+    <p class="info">Nous nous efforçons d’utiliser un vocabulaire compréhensible sans connaissances préalables.
+      Toutefois si nous nous sommes laissés aller à employer un terme de jargon, vous en trouverez sans doute
+      l’explication dans le <a href="https://dotclear.org/post/2025/11/08/Glossaire">glossaire</a> de notre
+      documentation en ligne.</p>
   </div>
-  <div class="multi-part" id="users-doc" title="Manual de utilizare">
-    <h3>Manual de utilizare</h3>
+  <div class="multi-part" id="users-doc" title="User Documentation">
+    <h3>User Documentation</h3>
     <div class="three-boxes">
-      <h4 class="pretty-title">Gestionarea conținutului</h4>
+      <h4 class="pretty-title">Blog Feed</h4>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/usage/entries">Intrări</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Billets">Mesaje</a>
           <ul>
-            <li>Crearea și editarea</li>
-            <li>Detalii de intrare</li>
-            <li>Acțiuni legate de intrare</li>
+            <li>Creation and editing</li>
+            <li>Post information</li>
+            <li>Post actions</li>
             <li>Comentarii și trackback-uri</li>
-            <li>Gestionarea pe loturi a intrărilor</li>
+            <li>Batch processing of posts</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/comments-trackbacks">Comentarii și trackback-uri</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Commentaires-et-r%C3%A9troliens">Comments and
+            trackbacks</a>
           <ul>
-            <li>Urmărire</li>
+            <li>Tracking</li>
             <li>Management</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/categories">Categorii</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Cat%C3%A9gories">Categorii</a>
           <ul>
-            <li>Crearea unei categorii</li>
-            <li>Editarea unei categorii</li>
-            <li>Ștergerea unei categorii</li>
-            <li>Ștergerea listei de categorii</li>
+            <li>Create a category</li>
+            <li>Edit a category</li>
+            <li>Create a new category</li>
+            <li>Sort the list of categories</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/tags">Etichete (cuvinte cheie)</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Mots-cl%C3%A9s">Keywords (Tags)</a>
           <ul>
-            <li>Adăugarea de etichete</li>
-            <li>Managementul etichetelor</li>
+            <li>Add keywords</li>
+            <li>Manage keywords</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/media">Media și atașamente</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Media-et-pi%C3%A8ces-jointes">Media and Attachments</a>
           <ul>
-            <li>Crearea unui subdirectoriu</li>
-            <li>Adăugarea de fișiere</li>
-            <li>Descărcarea unei arhive zip a directorului curent</li>
-            <li>Schimbarea detaliilor de completare a dosarului</li>
-            <li>Adăugarea directă a fișierelor</li>
-            <li>Tipuri speciale de fișiere</li>
+            <li>Create a subfolder</li>
+            <li>Adaugă fișiere</li>
+            <li>Download a zip archive of the current folder</li>
+            <li>Edit or add information to a file</li>
+            <li>Directly add files</li>
+            <li>Specific file types</li>
             <li>Atașamente</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/widgets">Conținutul meniului blogului (widget-uri)</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Liste-de-liens">List of links</a>
           <ul>
-            <li>Bara laterală de navigare, Bara laterală suplimentară</li>
-            <li>Widget-uri implicite</li>
-            <li>Adăugarea/eliminarea unui widget</li>
-            <li>Opțiuni pentru widget-uri</li>
-          </ul>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/blogroll">Blogroll</a>
-          <ul>
-            <li>Blogroll</li>
-            <li>Adăugarea unui link</li>
-            <li>Adăugarea unei categorii</li>
+            <li>List of links</li>
+            <li>Adăugați un link</li>
+            <li>Add a link category</li>
             <li>XFN</li>
-            <li>Importarea legăturilor dintr-un fișier OPML sau XBEL</li>
+            <li>Import from an OPML or XBEL file</li>
           </ul>
         </li>
       </ul>
     </div>
     <div class="three-boxes">
-      <h4 class="pretty-title">Setări și personalizare</h4>
+      <h4 class="pretty-title">Settings and Customization</h4>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/usage/blog-parameters">Setări blog</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Param%C3%A8tres-du-blog">Blog Settings</a>
           <ul>
-            <li>Detalii blog</li>
-            <li>Configurația blogului</li>
-            <li>Comentarii și trackback-uri</li>
-            <li>Prezentarea blogului</li>
-            <li>Media și imagini</li>
-            <li>Politica privind roboții motoarelor de căutare</li>
-            <li>Antispam</li>
+            <li>Blog Information</li>
+            <li>Blog Configuration</li>
+            <li>Comments and Trackbacks</li>
+            <li>Blog Overview</li>
+            <li>Media and Images</li>
+            <li>Indexing Settings</li>
+            <li>Spam Protection</li>
             <li>LightBox</li>
             <li>Salvați</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/user-preferences">Preferințele utilizatorului</a>
-          <ul>
-            <li>Profilul meu</li>
-            <li>Opțiunile mele</li>
-            <li>Tabloul meu de bord</li>
-          </ul>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/themes">Apariția blogului</a>
+        <li><a href="https://dotclear.org/category/Documentation/Cr%C3%A9er-et-contribuer/Design-Th%C3%A8mes">Blog Appearance</a>
           <ul>
             <li>Alegeți o temă</li>
             <li>Instalați o temă</li>
-            <li>Personalizați o temă</li>
+            <li>Customize a theme</li>
             <li>Editor de teme</li>
           </ul>
         </li>
       </ul>
     </div>
-    <div class="three-boxes fieldset">
-      <h4 class="smart-title">Lecturi suplimentare</h4>
+    <div class="three-boxes">
+      <h4 class="pretty-title">Further Reading</h4>
       <h5>Glosar</h5>
       <ul>
-        <li><a href="https://dotclear.org/documentation/glossary">Toate aceste cuvinte misterioase folosite pe Web și în Dotclear</a></li>
+        <li><a href="https://dotclear.org/post/2025/11/08/Glossaire">All those mysterious terms used on the web and in Dotclear</a></li>
       </ul>
-      <h5>Sintaxe de intrare</h5>
+      <h4 class="pretty-title">Tutorials</h4>
       <ul>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes">Sintaxa Wiki și echivalentul HTML</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes#to-go-further">Pentru a merge mai departe</a></li>
-      </ul>
-      <h5>Abonament (RSS, Atom...)</h5>
-      <ul>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds">Ce-i asta?</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-make-it-available-on-my-blog">Cum îl fac disponibil pe blogul meu?</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-suscribe-to-a-feed">Cum mă abonez la un feed?</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#to-go-further">Pentru a merge mai departe</a></li>
-      </ul>
-      <h4 class="smart-title">Ajutor</h4>
-      <ul>
-        <li><a href="https://dotclear.org/forum">Forumul Dotclear</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/faq">Întrebări frecvente</a></li>
+        <li><a href="https://dotclear.org/forum">The Dotclear Forum</a></li>
+        <li><a href="https://dotclear.org/post/2025/11/08/Foire-aux-questions">Întrebări frecvente</a></li>
       </ul>
     </div>
   </div>
-  <div class="multi-part" id="admin-doc" title="Documentație pentru administratori">
-    <h3>Documentație pentru administratori</h3>
+  <div class="multi-part" id="admin-doc" title="Administrator Documentation">
+    <h3>Administrator Documentation</h3>
     <div class="three-boxes">
-      <h4 class="pretty-title">Instalare și actualizare</h4>
+      <h4 class="pretty-title">Installation and Updates</h4>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/admin/install">Instalare</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Installation">Instalare</a>
           <ul>
             <li>Condiții prealabile</li>
             <li>Instalare automată</li>
-            <li>Instalare standard</li>
-            <li>Instalarea cu ajutorul expertului</li>
-            <li>Instalarea din fișierul config.php</li>
-            <li>Finalizarea procesului de instalare</li>
-            <li>Etapele următoare</li>
+            <li>“Standard” installation</li>
+            <li>Installation Wizard</li>
+            <li>Manual Setup of the config.php File</li>
+            <li>End of Installation</li>
+            <li>Next Steps</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/upgrade">Actualizarea</a>
+        <li><a href="https://dotclear.org/post/2025/12/08/Mise-%C3%A0-jour">Actualizare</a>
           <ul>
-            <li>Pregătirea pentru actualizare</li>
-            <li>Actualizare automată</li>
-            <li>Actualizarea programului</li>
-            <li>Actualizarea bazei de date</li>
-            <li>Apendice: actualizarea unei copii mercurial</li>
+            <li>Preparations</li>
+            <li>Automatic update</li>
+            <li>Manual program update</li>
+            <li>Database update</li>
+            <li>Appendix: Updating a copy with Mercurial</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/config">Fișier de configurare (config.php) Parametrii</a>
+        <li><a href="https://dotclear.org/post/2025/11/25/Param%C3%A8tres-du-fichier-de-configuration">Settings for the configuration file (config.php)</a>
           <ul>
             <li>Introducere</li>
-            <li>Parametrii</li>
-            <li>Adăugarea de informații la dosar</li>
+            <li>Setări</li>
+            <li>Additions to the file</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/1-to-2">Actualizarea de la Dotclear 1.2 la Dotclear 2</a>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/migrate">Migrarea de la un alt software de blogging la Dotclear</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/local-install">Instalare locală</a>
-          <ul>
-            <li>Windows</li>
-            <li>Mac OS X</li>
-            <li>Linux</li>
-          </ul>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/install/iis">Instalarea Dotclear cu IIS7</a></li>
       </ul>
-      <h5>Anexă de găzduire</h5>
+      <h5>Hosts Appendix</h5>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/hosting">Găzduire</a>
-        </li>
+        <li><a href="https://dotclear.org/post/2025/11/08/H%C3%A9bergeurs">Hosts</a></li>
       </ul>
     </div>
     <div class="three-boxes">
       <h4 class="pretty-title">Administrație</h4>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/admin/users">Gestionarea utilizatorilor</a>
+        <li><a href="https://dotclear.org/post/2025/11/25/Installation-optimis%C3%A9e">Optimized installation</a></li>
+        <li><a href="https://dotclear.org/category/Documentation/Cr%C3%A9er-et-contribuer/Design-Th%C3%A8mes">Other appearance</a>
           <ul>
-            <li>Lista utilizatorilor existenți</li>
-            <li>Crearea unui utilizator</li>
-            <li>Modificarea unui utilizator</li>
-            <li>Permisiuni de utilizator</li>
-          </ul>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/clean-install">Instalare curată</a>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/multiblog">Instalare Multiblog</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/plugins">Gestionarea plugin-urilor</a>
-          <ul>
-            <li>Instalarea unui plugin</li>
-            <li>Configurarea plugin-urilor</li>
-            <li>Îndepărtarea unui plugin</li>
-            <li>Actualizarea unui plugin</li>
-          </ul>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/themes">Teme de blog</a>
-          <ul>
-            <li>Alegerea unei teme</li>
-            <li>Instalarea unei teme</li>
-            <li>Personalizarea unei teme</li>
+            <li>Alegeți o temă</li>
+            <li>Instalați o temă</li>
+            <li>Customize a theme</li>
             <li>Editor de teme</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/aboutconfig">Configurație avansată</a></li>
       </ul>
     </div>
     <div class="three-boxes">
-      <h4 class="pretty-title">Întreținere</h4>
-      <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/admin/backup">Backup și restaurare</a>
-          <ul>
-            <li>Import/Export</li>
-            <li>Fișiere</li>
-            <li>Baza de date</li>
-          </ul>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/antispam">Filtre pentru comentarii spam</a>
-          <ul>
-            <li>Organizarea filtrelor</li>
-            <li>Configurația filtrului</li>
-          </ul>
-        </li>
-      </ul>
-      <div class="fieldset vertical-separator">
-        <h4 class="smart-title">Ajutor</h4>
+      <h4 class="pretty-title">Management and Maintenance</h4>
+      <div class="">
+        <h4 class="pretty-title">Community Support</h4>
         <ul>
-          <li><a href="https://dotclear.org/forum">Forumul Dotclear</a></li>
-          <li><a href="https://dotclear.org/documentation/2.0/faq#administration">Întrebări frecvente (administratori)</a></li>
+          <li><a href="https://dotclear.org/forum">The Dotclear Forum</a></li>
         </ul>
       </div>
     </div>
   </div>
-  <div class="multi-part" id="guide-dev" title="Documentație pentru dezvoltatori">
-    <h3>Resurse pentru dezvoltatori și proiectanți</h3>
+  <div class="multi-part" id="guide-dev" title="Developer Documentation">
+    <h3>Documentation and resources for developers</h3>
     <div class="three-boxes first-child">
       <h4 class="pretty-title">Design &amp; Teme</h4>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/resources/themes">Teme</a>
+        <li><a href="https://dotclear.org/category/Documentation/Cr%C3%A9er-et-contribuer/Design-Th%C3%A8mes">Teme</a>
           <ul>
-            <li>Ghid de utilizare pentru teme</li>
-            <li>Etichetele șablonului</li>
-            <li>Anexa</li>
+            <li>Theme User Guide</li>
+            <li>Template Tags</li>
+            <li>Appendices</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/resources/themes/inheritance">Moștenirea temelor</a>
+        <li><a href="https://dotclear.org/post/2025/12/16/L%E2%80%99h%C3%A9ritage-des-th%C3%A8mes">Theme Inheritance</a>
           <ul>
+            <li>Theme inheritance</li>
             <li>Principiul</li>
             <li>Limitări</li>
-            <li>Setați</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/resources/themes/tags">Etichete de șablon</a>
+        <li><a href="https://dotclear.org/post/2025/12/17/Liste-des-balises-de-template">Etichete de șablon</a>
           <ul>
-            <li>Generalități / utilități</li>
+            <li>General / Utilities</li>
             <li>Blog</li>
-            <li>Intrări</li>
-            <li>Paginarea intrărilor</li>
+            <li>Mesaje</li>
+            <li>Post Pagination</li>
             <li>Comentarii</li>
-            <li>Previzualizare comentarii</li>
-            <li>Pings</li>
+            <li>Comment Preview</li>
+            <li>Trackback-uri</li>
             <li>Atașamente</li>
             <li>Categorii</li>
             <li>Etichete</li>
@@ -317,63 +269,46 @@
       </ul>
     </div>
     <div class="three-boxes first-child">
-      <h4 class="pretty-title">Cod &amp; Plugin-uri</h4>
+      <h4 class="pretty-title">Code & Plugins</h4>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/resources/tpl">Crearea unui tag tpl pentru un plugin sau o temă</a>
+        <li><a href="https://dotclear.org/post/2025/12/16/Cr%C3%A9ation-d%E2%80%99une-balise-de-template">Creating a tpl tag for a plugin or theme</a>
           <ul>
             <li>Introducere</li>
             <li>Valori</li>
-            <li>Blocuri de instrucțiuni</li>
-            <li>Demonstrație a influenței cache-ului șablon</li>
+            <li>Instruction blocks</li>
+            <li>Demonstration of the influence of the template cache</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/resources/plugins">Plugin-uri</a>
+        <li><a href="https://dotclear.org/category/Documentation/Cr%C3%A9er-et-contribuer/Code-Plugins">Plugin-uri</a>
           <ul>
-            <li>Scrierea unui plugin</li>
-            <li>Anexa</li>
+            <li>Plugin Development</li>
+            <li>Related Documents</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/resources/plugins/help">Construirea ajutorului contextual al plugin-ului</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/resources/authentication">Autentificare externă</a>
-          <ul>
-            <li>Preambul</li>
-            <li>O nouă clasă de autentificare</li>
-            <li>Scenariul</li>
-            <li>Aplicație</li>
-          </ul>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/resources/xml-rpc">Interfață XML/RPC</a></li>
-        <li><a href="https://dev.dotclear.org/code/2/">Documentația API</a></li>
+        <li><a href="https://dotclear.org/code/api/index.html">API Documentation</a></li>
       </ul>
     </div>
     <div class="three-boxes">
-      <h4 class="pretty-title">Contribuție &amp; Sprijin</h4>
+      <h4 class="pretty-title">Contribute &amp; Support</h4>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/resources/contribute">Contribuiți la</a>
+        <li><a href="https://dotclear.org/category/Documentation/Cr%C3%A9er-et-contribuer">Contribuiți la</a>
           <ul>
-            <li>Editați această documentație</li>
-            <li>Împărtășește-ți creațiile</li>
-            <li>Raportați bug-uri sau sugerați noi caracteristici</li>
-            <li>Localizare</li>
+            <li>Improve the documentation</li>
+            <li>Where to submit your contributions?</li>
+            <li>Report bugs or suggest improvements</li>
+            <li>Suggestions</li>
           </ul>
         </li>
-        <li><a href="https://git.dotclear.org/dev/dotclear">Depozitul de cod sursă Dotclear</a></li>
-        <li><a href="https://dotclear.org/forum">Forum Dotclear</a></li>
+        <li><a href="https://codeberg.org/Dotclear/dotclear">The Dotclear source code repository</a></li>
+        <li><a href="https://dotclear.org/forum">Forumul Dotclear</a></li>
       </ul>
-      <div class="fieldset">
-        <h4 class="smart-title">Convenții</h4>
-        <ul>
-          <li><a href="https://dotclear.org/documentation/2.0/resources/coding-standards">Standarde de codificare</a></li>
-          <li><a href="index.php?process=HelpCharte">Graficul paginilor administrative</a></li>
-        </ul>
-      </div>
     </div>
   </div>
-  <div class="multi-part legible" id="a11y-ergo" title="Accesibilitate și ergonomie">
-    <h3>Accesibilitate și ergonomie</h3>
-    <p>Interfața Dotclear îndeplinește aproape toate criteriile <a href="http://www.w3.org/TR/WCAG20/">WCAG 2.0</a> . Lucrăm pentru a face Dotclear compatibil cu <a href="http://www.w3.org/TR/ATAG20/">ATAG 2.0</a> orientările .</p>
-    <p>Accesibilitatea și ergonomia sunt una dintre preocupările noastre principale. Efectuăm analize regulate cu ajutorul experților și furnizăm în permanență remedieri și îmbunătățiri.</p>
-    <p>Ne puteți ajuta deschizând <a href="https://git.dotclear.org/dev/dotclear/issues">bilete</a> sau participând pe forumul <a href="https://dotclear.org/forum/"></a>. De asemenea, puteți participa la testarea utilizatorilor sau vă puteți alătura echipei noastre!</p>
+  <div class="multi-part legible" id="a11y-ergo" title="Accessibility and Usability">
+    <h3>Accessibility and Usability</h3>
+    <p>The Dotclear interface meets nearly all of the <a href="http://www.w3.org/Translations/WCAG20-fr/">WCAG 2.0</a> criteria; a detailed report will soon be published on the <a href="https://fr.dotclear.org/blog/">project blog</a>. Ultimately, we would also like to fully meet the <a href="http://www.w3.org/TR/ATAG20/">ATAG 2.0</a> criteria.</p>
+    <p>Accessibility and usability are central concerns for the Dotclear team. We regularly conduct analyses with the help of experts and continuously implement fixes and improvements.</p>
+    <p>You can help us by opening tickets <a href="https://codeberg.org/Dotclear/dotclear/issues"></a> or participating in the forum <a href="https://dotclear.org/forum/"></a>. You can also participate in user testing or join our team!</p>
   </div>
 </body>
 
