@@ -6,106 +6,93 @@
 
 <body>
   <div class="multi-part legible" id="first-step" title="De första stegen">
-    <h3>Upptäckt av gränssnitt</h3>
+    <h3>Utforska gränssnittet</h3>
     <div class="fieldset">
-      <h4>De första stegen</h4>
-      <p>Utöver de globala hjälpsidorna har flera administrationssidor en onlinehjälp. Om javascript är aktiverat
-        i din webbläsare kan du se onlinehjälp längst upp till höger på sidan genom att klicka på <img src="images/menu/help.svg" alt="" style="width: 14px; vertical-align: middle;"> <strong>Behöver du hjälp?</strong> länk. Om Javascript är inaktiverat visas hjälpen längst ner på sidan.</p>
+      <h4>Kontextuell hjälp</h4>
+      <p>Förutom de globala hjälpsidorna innehåller flera administrationssidor onlinehjälp. Om JavaScript är aktiverat i din webbläsare kan du se onlinehjälpen längst upp till höger på sidan genom att klicka på länken <img src="images/menu/help.svg" alt="" style="width: 14px; vertical-align: middle;"> <strong>Need Help?</strong> Om JavaScript är inaktiverat visas hjälpen längst ned på sidan. </p>
     </div>
-    <p>Varje administrationssida kommer att ha samma topprubrik, huvudmeny och sidfot. <em>(Den ordning som anges här är den som visas på en datorskärm. För mobila enheter eller surfplattor kan den variera beroende på tillgängligt utrymme).</em></p>
-    <h4 class="pretty-title">Topprubrik</h4>
-    <p>Den övre rubriken består av tre element:</p>
+    <p>På varje administrationssida hittar du samma toppanel, huvudmeny och sidfot. <em>(Placeringen av dessa element visas här för visning på en dator; på en mobil enhet eller surfplatta varierar deras placering beroende på tillgängligt utrymme).</em>
+    </p>
+    <h4 class="pretty-title">Toppbanner</h4>
+    <p>Avsnittet längst upp på varje sida består av tre delar:</p>
     <h5 class="as_h4">Logotyp</h5>
-    <p>Som standard är denna logotyp Dotclear-logotypen och länkar till administrationens målsida. En plattforms-
-      -ansvarig kan dock välja en annan logotyp och omdirigera till något annat (vanligtvis tjänstens målsida).</p>
+    <p>Som standard är denna logotyp Dotclears logotyp och länkar till administrationens landningssida. En plattformsadministratör kan dock välja en annan logotyp och omdirigera till en annan sida (vanligtvis tjänstens hemsida).</p>
     <h5 class="as_h4">Blogg(ar)</h5>
-    <p>Det första elementet efter logotypen visar den <em>aktiva</em> bloggen, dvs bloggen som du agerar på. Om din
-      -installation består av flera bloggar, finns denna information tillgänglig i en kombinationsmeny, som låter dig byta till en annan blogg.</p>
-    <p>Länken efter bloggnamnet öppnar din aktuella blogg i ett annat fönster eller en annan flik.</p>
+    <p>Det första elementet efter logotypen visar den <em>aktiva</em> bloggen, dvs. den blogg som du för närvarande arbetar med. Om din installation består av flera bloggar finns denna information tillgänglig i en rullgardinsmeny, som gör att du kan byta till en annan blogg.</p>
+    <p>Länken som följer efter bloggens namn gör att du kan se bloggen i ett nytt fönster eller en ny flik.</p>
     <h5 class="as_h4">Användare</h5>
-    <p>Länken <em>My dashboard</em> tar dig tillbaka till målsidan för bloggadministrationen.</p>
-    <p>Länken <em>Mina preferenser</em> leder till den sida där du kan ändra dina personliga uppgifter, konfigurera instrumentpanelen och välja gränssnitt och redigeringsalternativ.</p>
-    <p>Förvånansvärt nog kopplar länken <em>Disconnect [your login]</em> bort dig från administrationen av din blogg (hos Dotclear är vi ergonomimästare!).</p>
+    <p>Längst till höger i den övre panelen finns länken <em>My Dashboard</em> som tar dig tillbaka till bloggens startsida.</p>
+    <p>Nästa länk, <em>My Preferences</em>, tar dig till den sida där du kan redigera dina personuppgifter, konfigurera din instrumentpanel och välja gränssnitt och redigeringsalternativ.</p>
+    <p>Förvånansvärt nog kan man med länken <em>Logga ut [din inloggning]</em> logga ut på… , ja, verkligen. (På Dotclear är vi riktigt bra på ergonomi).</p>
     <h4 class="pretty-title">Huvudmeny</h4>
-    <p>Huvudmenyn finns på vänster sida av skärmen. Den kan fällas ihop genom att klicka på dess högra kant (och sedan fällas upp igen genom att klicka på den igen).</p>
-    <p>Den leder till de olika administrationssidorna, beroende på dina behörigheter på den aktuella bloggen. Den består av fyra block:</p>
+    <p>Huvudmenyn finns på vänster sida av skärmen. Den kan fällas ihop genom att klicka på dess högra kant (och expanderas genom att klicka på samma kant).</p>
+    <p>Den leder till de olika administrationssidorna som motsvarar dina behörigheter på den aktiva bloggen. Den består av fyra sektioner&nbsp;</p>
     <ul>
-      <li><strong>Mina favoriter</strong> listar de sidor som du har valt som favoriter på fliken <em>Mina preferenser</em>/<em>Min instrumentpanel</em> . Om du inte har valt någon favorit ännu kommer listan att innehålla standarduppsättningen för Dotclear, eller den uppsättning som har definierats av plattformshanteraren. Om du inte vill visa detta block kan du avmarkera den matchande kryssrutan i dina instrumentpanelsalternativ.</li>
-      <li><strong>Blogg</strong> listar alla sidor som gör det möjligt att mata och konfigurera den aktuella bloggen, från att redigera ett inlägg, hantera media, välja bloggens utseende eller andra parametrar.<br>
-        <em>Om du inte har administratörsrättigheter på den aktuella bloggen, kommer det inte att finnas något annat block under det i huvudmenyn.</em></li>
-      <li><strong>Systeminställningar</strong> länkar till de sidor där du kan hantera Dotclear-installationen: blogghantering, användare och tillgängliga språk, installation av plugins, systeminställningar. Om du har rättigheter till flera bloggar, men inga superadministratörsrättigheter, kommer du bara att se posten <em>Blogs</em> .</li>
-      <li><strong>Plugins</strong> ger dig möjlighet att konfigurera de installerade plugins. Om plugin-inställningarna endast påverkar en blogg åt gången är dess administrationssida tillgänglig från blocket <em>Blog</em> , men om de påverkar hela installationen finns de här och är endast tillgängliga för superadmin-användare.</li>
+      <li><strong>Mina favoriter</strong> listar de sidor som du har markerat som favoriter på fliken <em>My Dashboard</em> i <em>Mina inställningar</em>. Om du inte har valt några favoriter ännu, visar listan Dotclears standardinställningar eller plattformsadministratörens inställningar. Om du inte vill visa det här blocket avmarkerar du motsvarande ruta i dina alternativ för instrumentpanelen.</li>
+      <li><strong>Blog</strong> listar alla sidor där du kan uppdatera och konfigurera den aktuella bloggen, oavsett om det handlar om att redigera ett inlägg, hantera media, välja bloggens utseende eller justera andra inställningar. <br><em>Om du inte har administratörsrättigheter för den aktuella bloggen kommer det inte att finnas något annat block under detta i huvudmenyn. </em></li>
+      <li><strong>Systeminställningar</strong> ger tillgång till sidor för hantering av Dotclear-installationen: blogghantering, användare och tillgängliga språk, installation av tillägg och systeminställningar. Om du har behörighet för flera bloggar men inte har status som superadministratör består den endast av posten <em>Bloggar</em>.</li>
+      <li><strong>Plugins</strong> ger dig möjlighet att konfigurera inställningarna för installerade plugins. Om inställningarna för ett insticksprogram endast påverkar en blogg i taget finns dess administrationssida tillgänglig i avsnittet <em>Blogg</em>, men om inställningarna påverkar alla sidor i installationen visas de här och är endast tillgängliga för användare med superadministratörsrättigheter.</li>
     </ul>
     <h4 class="pretty-title">Sidfot</h4>
-    <p>En gratisversion av Dotclear kommer att erbjudas till alla användare som upptäcker den hemlighet som döljs i sidfoten.</p>
-    <h3>Hjälp för stora nybörjare</h3>
-    <p>Om du inte känner till bloggar rekommenderar vi att du tar en titt på vår dokumentation (hela innehållsförteckningen finns på fliken <strong>Dokumentation</strong> på den här sidan) och på handledningar som t.ex:
-      <ul>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/beginners">Min första post, steg för steg.</a></li>
-      </ul>
-      <p><a href="https://dotclear.org/forum/">Dotclear-forumet</a> är en välkomnande plats där det inte finns <em>några dumma frågor</em>. Tveka inte att delta om du behöver hjälp och, varför inte, för att hjälpa människor i gengäld.</p>
-      <p class="info">Vi gör vårt bästa för att använda en vokabulär som är lätt att förstå utan särskilda förkunskaper. Om vi ändå använder en teknisk term kan du förmodligen hitta dess definition i <a href="https://dotclear.org/documentation/glossary">glossary</a> i vår onlinedokumentation.</p>
+    <p>En gratis version av Dotclear är tillgänglig för alla användare som upptäcker hemligheten med sidfoten.</p>
+    <h3>Hjälp för nybörjare</h3>
+    <p>Om du inte är bekant med bloggar rekommenderar vi att du läser vår dokumentation (den fullständiga innehållsförteckningen finns under fliken <strong>Dokumentation</strong> på den här sidan).
+    <p><a href="https://dotclear.org/forum/">Dotclear-forumet</a> är en plats för ömsesidigt stöd där det inte finns några <em>dumma frågor</em>. Delta gärna om du behöver hjälp och, varför inte, hjälp andra i gengäld.</p>
+    <p class="info">Vi strävar efter att använda en vokabulär som är begriplig utan förkunskaper. Men om vi av misstag har använt en teknisk term hittar du troligen en förklaring i <a href="https://dotclear.org/post/2025/11/08/Glossaire">ordlistan</a> i vår onlinedokumentation. </p>
   </div>
-  <div class="multi-part" id="users-doc" title="Användarmanual">
-    <h3>Användarmanual</h3>
+  <div class="multi-part" id="users-doc" title="Dokumentation för användare">
+    <h3>Dokumentation för användare</h3>
     <div class="three-boxes">
-      <h4 class="pretty-title">Hantering av innehållet</h4>
+      <h4 class="pretty-title">Bloggflöde</h4>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/usage/entries">Ingångar</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Billets">Inlägg</a>
           <ul>
-            <li>Skapa och redigera</li>
-            <li>Uppgifter om posten</li>
-            <li>Åtgärder i samband med inträde</li>
+            <li>Skapande och redigering</li>
+            <li>Information om inlägg</li>
+            <li>Poståtgärder</li>
             <li>Kommentarer och trackbacks</li>
-            <li>Batchhantering av poster</li>
+            <li>Batchbehandling av tjänster</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/comments-trackbacks">Kommentarer och trackbacks</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Commentaires-et-r%C3%A9troliens">Kommentarer och
+            trackbacks</a>
           <ul>
-            <li>Uppföljning</li>
+            <li>Spårning</li>
             <li>Ledning</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/categories">Kategorier</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Cat%C3%A9gories">Kategorier</a>
           <ul>
             <li>Skapa en kategori</li>
             <li>Redigera en kategori</li>
-            <li>Radera en kategori</li>
-            <li>Sotring av kategorilistan</li>
+            <li>Create a new category</li>
+            <li>Sortera listan med kategorier</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/tags">Taggar (nyckelord)</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Mots-cl%C3%A9s">Nyckelord (Taggar)</a>
           <ul>
-            <li>Lägga till taggar</li>
-            <li>Hantering av taggar</li>
+            <li>Lägg till nyckelord</li>
+            <li>Hantera sökord</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/media">Media och bilagor</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Media-et-pi%C3%A8ces-jointes">Media och bilagor</a>
           <ul>
-            <li>Skapa en underkatalog</li>
-            <li>Lägga till filer</li>
-            <li>Ladda ner ett zip-arkiv av den aktuella katalogen</li>
-            <li>Ändring av uppgifter i fill in-fil</li>
-            <li>Lägga till filer direkt</li>
-            <li>Särskilda filtyper</li>
+            <li>Skapa en undermapp</li>
+            <li>Lägg till filer</li>
+            <li>Ladda ner ett zip-arkiv av den aktuella mappen</li>
+            <li>Redigera eller lägga till information i en fil</li>
+            <li>Lägg till filer direkt</li>
+            <li>Specifika filtyper</li>
             <li>Bilagor</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/widgets">Innehåll i bloggmenyer (widgets)</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Liste-de-liens">Lista över länkar</a>
           <ul>
-            <li>Sidofält för navigering, Extra sidofält</li>
-            <li>Standardwidgets</li>
-            <li>Lägga till/ta bort en widget</li>
-            <li>Alternativ för widgetar</li>
-          </ul>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/blogroll">Blogglista</a>
-          <ul>
-            <li>Blogglista</li>
-            <li>Lägga till en länk</li>
-            <li>Lägga till en kategori</li>
+            <li>Lista över länkar</li>
+            <li>Lägg till en länk</li>
+            <li>Lägg till en länkkategori</li>
             <li>XFN</li>
-            <li>Importera länkar från en OPML- eller XBEL-fil</li>
+            <li>Importera från en OPML- eller XBEL-fil</li>
           </ul>
         </li>
       </ul>
@@ -113,198 +100,132 @@
     <div class="three-boxes">
       <h4 class="pretty-title">Inställningar och anpassning</h4>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/usage/blog-parameters">Blogginställningar</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Param%C3%A8tres-du-blog">Blogginställningar</a>
           <ul>
-            <li>Detaljer om bloggen</li>
+            <li>Blogginformation</li>
             <li>Konfiguration av blogg</li>
-            <li>Kommentarer och trackbacks</li>
-            <li>Presentation av blogg</li>
+            <li>Kommentarer och Trackbacks</li>
+            <li>Översikt över bloggen</li>
             <li>Media och bilder</li>
-            <li>Policy för sökmotorrobotar</li>
-            <li>Antispam</li>
+            <li>Indexeringsinställningar</li>
+            <li>Skydd mot skräppost</li>
             <li>Ljuslåda</li>
             <li>Spara</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/user-preferences">Användarens preferenser</a>
-          <ul>
-            <li>Min profil</li>
-            <li>Mina alternativ</li>
-            <li>Min instrumentpanel</li>
-          </ul>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/themes">Bloggens utseende</a>
+        <li><a href="https://dotclear.org/category/Documentation/Cr%C3%A9er-et-contribuer/Design-Th%C3%A8mes">Utseende på blogg</a>
           <ul>
             <li>Välj ett tema</li>
             <li>Installera ett tema</li>
-            <li>Personifiera ett tema</li>
+            <li>Anpassa ett tema</li>
             <li>Temaredigerare</li>
           </ul>
         </li>
       </ul>
     </div>
-    <div class="three-boxes fieldset">
-      <h4 class="smart-title">Ytterligare läsning</h4>
+    <div class="three-boxes">
+      <h4 class="pretty-title">Ytterligare läsning</h4>
       <h5>Ordlista</h5>
       <ul>
-        <li><a href="https://dotclear.org/documentation/glossary">Alla dessa mystiska ord som används på webben och i Dotclear</a></li>
+        <li><a href="https://dotclear.org/post/2025/11/08/Glossaire">Alla dessa mystiska termer som används på webben och i Dotclear</a></li>
       </ul>
-      <h5>Syntax för inmatning</h5>
+      <h4 class="pretty-title">Handledning</h4>
       <ul>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes">Wiki syntax och HTML motsvarighet</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes#to-go-further">För att gå vidare</a></li>
-      </ul>
-      <h5>Prenumeration (RSS, Atom...)</h5>
-      <ul>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds">Vad är det?</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-make-it-available-on-my-blog">Hur gör jag den tillgänglig på min blogg?</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-suscribe-to-a-feed">Hur prenumererar jag på ett flöde?</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#to-go-further">För att gå vidare</a></li>
-      </ul>
-      <h4 class="smart-title">Hjälp</h4>
-      <ul>
-        <li><a href="https://dotclear.org/forum">Dotclear-forumet</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/faq">Vanliga frågor och svar</a></li>
+        <li><a href="https://dotclear.org/forum">Dotclear Forum</a></li>
+        <li><a href="https://dotclear.org/post/2025/11/08/Foire-aux-questions">Vanliga frågor och svar</a></li>
       </ul>
     </div>
   </div>
   <div class="multi-part" id="admin-doc" title="Dokumentation för administratörer">
     <h3>Dokumentation för administratörer</h3>
     <div class="three-boxes">
-      <h4 class="pretty-title">Installation och uppdatering</h4>
+      <h4 class="pretty-title">Installation och uppdateringar</h4>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/admin/install">Installation</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Installation">Installation</a>
           <ul>
             <li>Förkunskapskrav</li>
             <li>Automatisk installation</li>
-            <li>Standardinstallation</li>
-            <li>Installera med hjälp av guiden</li>
-            <li>Installera från filen config.php</li>
-            <li>Slutförande av installationsprocessen</li>
+            <li>"Standard"-installation</li>
+            <li>Installationsguide</li>
+            <li>Manuell inställning av filen config.php</li>
+            <li>Slut på installationen</li>
             <li>Nästa steg</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/upgrade">Uppdatering</a>
+        <li><a href="https://dotclear.org/post/2025/12/08/Mise-%C3%A0-jour">Uppdatera</a>
           <ul>
-            <li>Förberedelser inför uppdateringen</li>
-            <li>Automatisk uppgradering</li>
-            <li>Uppdatering av programmet</li>
-            <li>Uppdatering av databasen</li>
-            <li>Tillägg: Uppdatering av en kvicksilverkopia</li>
+            <li>Förberedelser</li>
+            <li>Automatisk uppdatering</li>
+            <li>Manuell programuppdatering</li>
+            <li>Uppdatering av databas</li>
+            <li>Bilaga: Uppdatering av en kopia med Mercurial</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/config">Konfigurationsfil (config.php) Parametrar</a>
+        <li><a href="https://dotclear.org/post/2025/11/25/Param%C3%A8tres-du-fichier-de-configuration">Inställningar för konfigurationsfilen (config.php)</a>
           <ul>
             <li>Inledning</li>
-            <li>Parametrar</li>
-            <li>Lägga till information i filen</li>
+            <li>Inställningar</li>
+            <li>Tillägg till filen</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/1-to-2">Uppgradering från Dotclear 1.2 till Dotclear 2</a>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/migrate">Migrering från ett annat bloggprogram till Dotclear</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/local-install">Lokal installation</a>
-          <ul>
-            <li>Fönster</li>
-            <li>Mac OS X</li>
-            <li>Linux</li>
-          </ul>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/install/iis">Installera Dotclear med IIS7</a></li>
       </ul>
-      <h5>Hosting Bilaga</h5>
+      <h5>Värdar Bilaga</h5>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/hosting">Värdskap</a>
-        </li>
+        <li><a href="https://dotclear.org/post/2025/11/08/H%C3%A9bergeurs">Värdar</a></li>
       </ul>
     </div>
     <div class="three-boxes">
       <h4 class="pretty-title">Administration</h4>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/admin/users">Hantera användare</a>
+        <li><a href="https://dotclear.org/post/2025/11/25/Installation-optimis%C3%A9e">Optimerad installation</a></li>
+        <li><a href="https://dotclear.org/category/Documentation/Cr%C3%A9er-et-contribuer/Design-Th%C3%A8mes">Annat utseende</a>
           <ul>
-            <li>Lista över befintliga användare</li>
-            <li>Skapa en användare</li>
-            <li>Ändra en användare</li>
-            <li>Behörigheter för användare</li>
-          </ul>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/clean-install">Ren installation</a>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/multiblog">Installation av flera bloggar</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/plugins">Hantera plugins</a>
-          <ul>
-            <li>Installera ett plugin</li>
-            <li>Konfigurera plugins</li>
-            <li>Ta bort ett plugin</li>
-            <li>Uppdatering av ett plugin</li>
-          </ul>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/themes">Teman för bloggar</a>
-          <ul>
-            <li>Att välja ett tema</li>
+            <li>Välj ett tema</li>
             <li>Installera ett tema</li>
             <li>Anpassa ett tema</li>
             <li>Temaredigerare</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/aboutconfig">Avancerad konfiguration</a></li>
       </ul>
     </div>
     <div class="three-boxes">
-      <h4 class="pretty-title">Underhåll</h4>
-      <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/admin/backup">Säkerhetskopiering och återställning</a>
-          <ul>
-            <li>Import/Export</li>
-            <li>Filer</li>
-            <li>Databas</li>
-          </ul>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/antispam">Filter för spam-kommentarer</a>
-          <ul>
-            <li>Filterorganisation</li>
-            <li>Konfiguration av filter</li>
-          </ul>
-        </li>
-      </ul>
-      <div class="fieldset vertical-separator">
-        <h4 class="smart-title">Hjälp</h4>
+      <h4 class="pretty-title">Förvaltning och underhåll</h4>
+      <div class="">
+        <h4 class="pretty-title">Gemenskapens stöd</h4>
         <ul>
-          <li><a href="https://dotclear.org/forum">Dotclear-forumet</a></li>
-          <li><a href="https://dotclear.org/documentation/2.0/faq#administration">Vanliga frågor (administratörer)</a></li>
+          <li><a href="https://dotclear.org/forum">Dotclear Forum</a></li>
         </ul>
       </div>
     </div>
   </div>
   <div class="multi-part" id="guide-dev" title="Dokumentation för utvecklare">
-    <h3>Resurser för utvecklare och designer</h3>
+    <h3>Dokumentation och resurser för utvecklare</h3>
     <div class="three-boxes first-child">
       <h4 class="pretty-title">Design &amp; Teman</h4>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/resources/themes">Teman</a>
+        <li><a href="https://dotclear.org/category/Documentation/Cr%C3%A9er-et-contribuer/Design-Th%C3%A8mes">Teman</a>
           <ul>
-            <li>Användarhandbok för teman</li>
-            <li>Mallens taggar</li>
-            <li>Tillägg</li>
+            <li>Tema Användarhandbok</li>
+            <li>Taggar för mallar</li>
+            <li>Bilagor</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/resources/themes/inheritance">Teman arv</a>
+        <li><a href="https://dotclear.org/post/2025/12/16/L%E2%80%99h%C3%A9ritage-des-th%C3%A8mes">Tema Arv</a>
           <ul>
+            <li>Tema arv</li>
             <li>Princip</li>
             <li>Begränsningar</li>
-            <li>Ställ in</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/resources/themes/tags">Etiketter för mallar</a>
+        <li><a href="https://dotclear.org/post/2025/12/17/Liste-des-balises-de-template">Etiketter för mallar</a>
           <ul>
-            <li>Allmänt / verktyg</li>
+            <li>Allmänt / Verktygsprogram</li>
             <li>Blogg</li>
-            <li>Ingångar</li>
-            <li>Inmatningar paginering</li>
+            <li>Inlägg</li>
+            <li>Paginering av inlägg</li>
             <li>Kommentarer</li>
             <li>Förhandsgranskning av kommentarer</li>
-            <li>Pings</li>
+            <li>Trackbacks</li>
             <li>Bilagor</li>
             <li>Kategorier</li>
             <li>Etiketter</li>
@@ -317,63 +238,46 @@
       </ul>
     </div>
     <div class="three-boxes first-child">
-      <h4 class="pretty-title">Kod &amp; Plugins</h4>
+      <h4 class="pretty-title">Kod och insticksprogram</h4>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/resources/tpl">Skapande av en tpl-tagg för ett plugin eller ett tema</a>
+        <li><a href="https://dotclear.org/post/2025/12/16/Cr%C3%A9ation-d%E2%80%99une-balise-de-template">Skapa en tpl-tagg för ett plugin eller tema</a>
           <ul>
             <li>Inledning</li>
             <li>Värden</li>
-            <li>Instruktioner block</li>
-            <li>Demonstration av mallens påverkan på cacheminnet</li>
+            <li>Instruktionsblock</li>
+            <li>Demonstration av påverkan av mallens cache</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/resources/plugins">Plugins</a>
+        <li><a href="https://dotclear.org/category/Documentation/Cr%C3%A9er-et-contribuer/Code-Plugins">Plugins</a>
           <ul>
-            <li>Skriva ett plugin</li>
-            <li>Tillägg</li>
+            <li>Plugin-utveckling</li>
+            <li>Relaterade dokument</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/resources/plugins/help">Skapa kontextuell hjälp för plugin</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/resources/authentication">Extern autentisering</a>
-          <ul>
-            <li>Inledning</li>
-            <li>En ny klass för autentisering</li>
-            <li>Scenario</li>
-            <li>Tillämpning</li>
-          </ul>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/resources/xml-rpc">XML/RPC-gränssnitt</a></li>
-        <li><a href="https://dev.dotclear.org/code/2/">API-dokumentation</a></li>
+        <li><a href="https://dotclear.org/code/api/index.html">API-dokumentation</a></li>
       </ul>
     </div>
     <div class="three-boxes">
-      <h4 class="pretty-title">Bidrag &amp; Stöd</h4>
+      <h4 class="pretty-title">Bidra med &amp; Support</h4>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/resources/contribute">Bidra med</a>
+        <li><a href="https://dotclear.org/category/Documentation/Cr%C3%A9er-et-contribuer">Bidra med</a>
           <ul>
-            <li>Redigera denna dokumentation</li>
-            <li>Dela med dig av dina skapelser</li>
-            <li>Rapportera buggar eller föreslå nya funktioner</li>
-            <li>Lokalisering</li>
+            <li>Förbättra dokumentationen</li>
+            <li>Var ska du skicka in dina bidrag?</li>
+            <li>Rapportera buggar eller föreslå förbättringar</li>
+            <li>Förslag</li>
           </ul>
         </li>
-        <li><a href="https://git.dotclear.org/dev/dotclear">Dotclear arkiv för källkod</a></li>
-        <li><a href="https://dotclear.org/forum">Dotclear forum</a></li>
+        <li><a href="https://codeberg.org/Dotclear/dotclear">Dotclears arkiv för källkod</a></li>
+        <li><a href="https://dotclear.org/forum">Dotclear-forumet</a></li>
       </ul>
-      <div class="fieldset">
-        <h4 class="smart-title">Konventioner</h4>
-        <ul>
-          <li><a href="https://dotclear.org/documentation/2.0/resources/coding-standards">Standarder för kodning</a></li>
-          <li><a href="index.php?process=HelpCharte">Administration sidor diagram</a></li>
-        </ul>
-      </div>
     </div>
   </div>
-  <div class="multi-part legible" id="a11y-ergo" title="Tillgänglighet och ergonomi">
-    <h3>Tillgänglighet och ergonomi</h3>
-    <p>Dotclear-gränssnittet uppfyller nästan alla <a href="http://www.w3.org/TR/WCAG20/">WCAG 2.0</a> kriterier. Vi arbetar för att göra Dotclear kompatibelt med <a href="http://www.w3.org/TR/ATAG20/">ATAG 2.0</a> riktlinjer.</p>
-    <p>Tillgänglighet och ergonomi är en av våra viktigaste frågor. Vi genomför regelbundet analyser med hjälp av experter och tillhandahåller kontinuerligt korrigeringar och förbättringar.</p>
-    <p>Du kan hjälpa oss genom att öppna <a href="https://git.dotclear.org/dev/dotclear/issues">biljetter</a> eller genom att delta i <a href="https://dotclear.org/forum/">forum</a>. Du kan också delta i användartester eller gå med i vårt team!</p>
+  <div class="multi-part legible" id="a11y-ergo" title="Tillgänglighet och användbarhet">
+    <h3>Tillgänglighet och användbarhet</h3>
+    <p>Dotclear-gränssnittet uppfyller nästan alla <a href="http://www.w3.org/Translations/WCAG20-fr/">WCAG 2.0-kriterier</a>; en detaljerad rapport kommer snart att publiceras på <a href="https://fr.dotclear.org/blog/">projektbloggen</a>. I slutändan vill vi också helt uppfylla <a href="http://www.w3.org/TR/ATAG20/">ATAG 2.0</a> -kriterierna.</p>
+    <p>Tillgänglighet och användbarhet är centrala frågor för Dotclear-teamet. Vi genomför regelbundet analyser med hjälp av experter och implementerar kontinuerligt korrigeringar och förbättringar.</p>
+    <p>Du kan hjälpa oss genom att öppna ärenden <a href="https://codeberg.org/Dotclear/dotclear/issues"></a> eller delta i forumet <a href="https://dotclear.org/forum/"></a>. Du kan också delta i användartester eller gå med i vårt team!</p>
   </div>
 </body>
 

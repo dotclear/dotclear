@@ -6,106 +6,93 @@
 
 <body>
   <div class="multi-part legible" id="first-step" title="Eerste stappen">
-    <h3>Interface zoeken</h3>
+    <h3>De interface verkennen</h3>
     <div class="fieldset">
-      <h4>Eerste stappen</h4>
-      <p>Naast de globale helppagina's beschikken verschillende beheerpagina's over een online help. Als javascript
-        in uw browser is ingeschakeld, kunt u de online hulp rechtsboven op de pagina bekijken door op <img src="images/menu/help.svg" alt="" style="width: 14px; vertical-align: middle;"> <strong>Hulp nodig?</strong> koppeling. Als Javascript is uitgeschakeld, wordt de help onderaan de pagina weergegeven.</p>
+      <h4>Contextuele hulp</h4>
+      <p>Naast de algemene hulppagina's bevatten verschillende beheerpagina's online hulp. Als JavaScript is ingeschakeld in uw browser, kunt u de online Help rechtsboven aan de pagina bekijken door te klikken op de link <img src="images/menu/help.svg" alt="" style="width: 14px; vertical-align: middle;"> <strong>Hulp nodig?</strong> Als JavaScript is uitgeschakeld, wordt de help onder aan de pagina weergegeven. </p>
     </div>
-    <p>Elke administratiepagina heeft dezelfde koptekst, hoofdmenu en voettekst. <em>(De volgorde die hier wordt gegeven, is wat wordt weergegeven op een computerscherm. Voor mobiele apparaten of tablets kan dit afwijken, afhankelijk van de beschikbare ruimte).</em></p>
-    <h4 class="pretty-title">Top rubriek</h4>
-    <p>De koptekst bovenaan bestaat uit drie elementen:</p>
+    <p>Op elke administratiepagina vind je hetzelfde bovenpaneel, hoofdmenu en voettekst. <em>(De locaties van elk van deze elementen worden hier weergegeven voor weergave op een computer; op een mobiel apparaat of tablet varieert de plaatsing afhankelijk van de beschikbare ruimte).</em>
+    </p>
+    <h4 class="pretty-title">Top vaandel</h4>
+    <p>Het gedeelte bovenaan elke pagina bestaat uit drie elementen:</p>
     <h5 class="as_h4">Logo</h5>
-    <p>Dit logo is standaard het Dotclear-logo en linkt naar de startpagina van het beheer. Een platform
-      -manager kan echter een ander logo kiezen en doorverwijzen naar iets anders (meestal de landingspagina van de service).</p>
+    <p>Standaard is dit logo het Dotclear logo en linkt naar de administratie landingspagina. Een platform beheerder kan echter een ander logo kiezen en doorverwijzen naar een andere pagina (meestal de homepage van de service).</p>
     <h5 class="as_h4">Blog(s)</h5>
-    <p>Het eerste element na het logo toont de <em>actieve</em> blog, dat wil zeggen de blog waarop u actief bent. Als uw
-      installatie uit meerdere blogs bestaat, is deze informatie beschikbaar in een combomenu, waarmee u naar een andere blog kunt overschakelen.</p>
-    <p>De link na de blognaam opent je huidige blog in een ander venster of een ander tabblad.</p>
+    <p>Het eerste element na het logo geeft het <em>actieve</em> blog aan, d.w.z. het blog waar je momenteel aan werkt. Als uw installatie uit meerdere blogs bestaat, is deze informatie beschikbaar in een vervolgkeuzemenu, waarmee u naar een ander blog kunt overschakelen.</p>
+    <p>Met de link achter de blognaam kun je de blog in een nieuw venster of tabblad bekijken.</p>
     <h5 class="as_h4">Gebruiker</h5>
-    <p>De link <em>Mijn dashboard</em> brengt je terug naar de blog administratie landingspagina.</p>
-    <p>De link <em>Mijn voorkeuren</em> leidt naar de pagina waar je je persoonlijke gegevens kunt wijzigen, het dashboard kunt instellen en je interface en bewerkingsopties kunt kiezen.</p>
-    <p>Verrassend genoeg verbreekt de link <em>Disconnect [uw login]</em> de verbinding met de administratie van uw blog (bij Dotclear zijn we ergonomische kampioenen!).</p>
+    <p>Helemaal rechts in het bovenste paneel staat de link <em>Mijn Dashboard</em> waarmee je teruggaat naar de startpagina van je blog.</p>
+    <p>De volgende link, <em>Mijn voorkeuren</em>, brengt je naar de pagina waar je je persoonlijke gegevens kunt bewerken, je dashboard kunt configureren en je interface en bewerkingsopties kunt kiezen.</p>
+    <p>Verrassend genoeg kunt u met de link <em>Uitloggen [uw login]</em>… uitloggen, ja, echt. (Bij Dotclear zijn we erg goed in ergonomie).</p>
     <h4 class="pretty-title">Hoofdmenu</h4>
-    <p>Het hoofdmenu bevindt zich aan de linkerkant van het scherm. Je kunt het samenvouwen door op de rechterrand te klikken (en weer uitvouwen door er opnieuw op te klikken).</p>
-    <p>Het leidt naar de verschillende beheerpagina's, afhankelijk van je rechten op het huidige blog. Het bestaat uit vier blokken:</p>
+    <p>Het hoofdmenu bevindt zich aan de linkerkant van het scherm. Je kunt het samenvouwen door op de rechterrand te klikken (en uitbreiden door op dezelfde rand te klikken).</p>
+    <p>Het leidt naar de verschillende beheerpagina's die overeenkomen met uw rechten op het actieve blog. Het bestaat uit vier secties&nbsp;</p>
     <ul>
-      <li><strong>Mijn favorieten</strong> toont de pagina's die u als favoriet heeft geselecteerd in de <em>Mijn voorkeuren/Mijn</em><em>Dashboard</em> tab. Als je nog geen favoriet hebt geselecteerd, bevat deze lijst de standaard Dotclear set, of de set die is gedefinieerd door de platform manager. Als u dit blok niet wilt weergeven, kunt u het bijbehorende selectievakje uitvinken in uw dashboard opties.</li>
-      <li><strong>Blog</strong> geeft een overzicht van alle pagina's die het mogelijk maken om de huidige blog te voeden en in te stellen, van het bewerken van een bericht, het beheren van media, het kiezen van de bloguiterlijk of andere parameters.<br>
-        <em>Als je geen beheerdersrechten hebt op de huidige blog, zal er geen ander blok onder dat blok in het hoofdmenu staan.</em></li>
-      <li><strong>Systeem instellingen</strong> linkt naar de pagina's die u toelaten om de Dotclear installatie te beheren: blogs beheer, gebruikers en beschikbare talen, plugins installatie, systeem instellingen. Als u rechten heeft op verschillende blogs, maar geen superbeheerder rechten, ziet u alleen de <em>Blogs</em> entry.</li>
-      <li>Met <strong>Plugins</strong> kunt u de geïnstalleerde plugins instellen. Als de instellingen van de plugins slechts invloed hebben op één blog per keer, dan is de beheerpagina beschikbaar via het <em>Blog</em> blok, maar als ze invloed hebben op de hele installatie, dan staan ze hier en zijn ze alleen beschikbaar voor super-admin gebruikers.</li>
+      <li><strong>Mijn favorieten</strong> toont de pagina's die u als favoriet hebt gemarkeerd in de tab <em>Mijn Dashboard</em> van <em>Mijn voorkeuren</em>. Als je nog geen favorieten hebt geselecteerd, toont deze lijst de standaard set van Dotclear of die van de platformbeheerder. Als je dit blok niet wilt weergeven, verwijder dan het vinkje in je dashboard opties.</li>
+      <li><strong>Blog</strong> toont alle pagina's waarmee u het huidige blog kunt bijwerken en configureren, of het nu gaat om het bewerken van een bericht, het beheren van media, het kiezen van het uiterlijk van het blog of het aanpassen van andere instellingen. <br><em>Als je geen beheerdersrechten hebt voor het huidige blog, is er geen ander blok onder dit blok in het hoofdmenu. </em></li>
+      <li><strong>Systeem Instellingen</strong> geeft toegang tot pagina's voor het beheren van de Dotclear installatie: blog beheer, gebruikers en beschikbare talen, extensie installatie, en systeem instellingen. Als u rechten heeft voor meerdere blogs, maar geen super-administrator status heeft, bestaat het alleen uit het <em>Blogs</em> item.</li>
+      <li>Met <strong>Plugins</strong> kunt u de instellingen voor geïnstalleerde plugins configureren. Als de instellingen van een plugin slechts op één blog tegelijk van invloed zijn, dan is de beheerpagina beschikbaar in de <em>Blog</em> sectie; als de instellingen echter op alle pagina's in de installatie van invloed zijn, dan verschijnen ze hier en zijn ze alleen toegankelijk voor gebruikers met superbeheerdersrechten.</li>
     </ul>
     <h4 class="pretty-title">Voettekst</h4>
-    <p>Een gratis versie van Dotclear zal worden aangeboden aan elke gebruiker die het geheim ontdekt dat verborgen zit in de footer.</p>
-    <h3>Hulp voor grote beginners</h3>
-    <p>Als je niet bekend bent met blogs, raden we je aan onze documentatie te bekijken (de hele inhoudsopgave is beschikbaar op het tabblad <strong>Documentatie</strong> van deze pagina), evenals tutorials zoals:
-      <ul>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/beginners">Mijn eerste inzending, stap voor stap.</a></li>
-      </ul>
-      <p>Het <a href="https://dotclear.org/forum/">Dotclear forum</a> is een gastvrije plek waar <em>domme vragen</em> niet bestaan. Aarzel niet om deel te nemen als je hulp nodig hebt en, waarom niet, om mensen terug te helpen.</p>
-      <p class="info">We doen ons best om een woordenschat te gebruiken die gemakkelijk te begrijpen is zonder specifieke kennis. Als we echter een technische term gebruiken, vind je de definitie ervan waarschijnlijk in de <a href="https://dotclear.org/documentation/glossary">verklarende woordenlijst</a> van onze online documentatie.</p>
+    <p>Een gratis versie van Dotclear is beschikbaar voor elke gebruiker die het geheim van de voettekst ontdekt.</p>
+    <h3>Hulp voor complete beginners</h3>
+    <p>Als je niet bekend bent met blogs, raden we je aan onze documentatie te raadplegen (de volledige inhoudsopgave is beschikbaar op het tabblad <strong>Documentatie</strong> op deze pagina).
+    <p>Het <a href="https://dotclear.org/forum/">Dotclear forum</a> is een plek voor wederzijdse ondersteuning waar er geen <em>domme vragen</em> zijn. Voel je vrij om deel te nemen als je hulp nodig hebt en, waarom niet, help anderen in ruil.</p>
+    <p class="info">We streven ernaar om woordenschat te gebruiken die begrijpelijk is zonder voorkennis. Als we echter per ongeluk een technische term hebben gebruikt, vind je waarschijnlijk een verklaring in de <a href="https://dotclear.org/post/2025/11/08/Glossaire">verklarende woordenlijst</a> van onze online documentatie. </p>
   </div>
-  <div class="multi-part" id="users-doc" title="Gebruikershandleiding">
-    <h3>Gebruikershandleiding</h3>
+  <div class="multi-part" id="users-doc" title="Gebruikersdocumentatie">
+    <h3>Gebruikersdocumentatie</h3>
     <div class="three-boxes">
-      <h4 class="pretty-title">De inhoud beheren</h4>
+      <h4 class="pretty-title">Blog feed</h4>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/usage/entries">Inzendingen</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Billets">Berichten</a>
           <ul>
             <li>Maken en bewerken</li>
-            <li>Details</li>
-            <li>Acties bij binnenkomst</li>
+            <li>Post informatie</li>
+            <li>Postacties</li>
             <li>Commentaar en trackbacks</li>
-            <li>Batchbeheer van vermeldingen</li>
+            <li>Batchverwerking van berichten</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/comments-trackbacks">Commentaar en trackbacks</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Commentaires-et-r%C3%A9troliens">Reacties en
+            trackbacks</a>
           <ul>
-            <li>Follow-up</li>
+            <li>Volgen</li>
             <li>Beheer</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/categories">Categorieën</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Cat%C3%A9gories">Categorieën</a>
           <ul>
             <li>Een categorie maken</li>
             <li>Een categorie bewerken</li>
             <li>Een categorie verwijderen</li>
-            <li>De categorielijst bewerken</li>
+            <li>De lijst met categorieën sorteren</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/tags">Tags (trefwoorden)</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Mots-cl%C3%A9s">Trefwoorden (Tags)</a>
           <ul>
-            <li>Tags toevoegen</li>
-            <li>Tag beheer</li>
+            <li>Trefwoorden toevoegen</li>
+            <li>Trefwoorden beheren</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/media">Media en bijlagen</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Media-et-pi%C3%A8ces-jointes">Media en bijlagen</a>
           <ul>
             <li>Een submap maken</li>
             <li>Bestanden toevoegen</li>
             <li>Een zip-archief downloaden van de huidige map</li>
-            <li>Bestandsgegevens wijzigen</li>
+            <li>Informatie bewerken of toevoegen aan een bestand</li>
             <li>Bestanden direct toevoegen</li>
-            <li>Speciale bestandstypen</li>
+            <li>Specifieke bestandstypen</li>
             <li>Bijlagen</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/widgets">Inhoud blogmenu (widgets)</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Liste-de-liens">Lijst met links</a>
           <ul>
-            <li>Navigatie zijbalk, Extra zijbalk</li>
-            <li>Standaard widgets</li>
-            <li>Een widget toevoegen/verwijderen</li>
-            <li>Widgets-opties</li>
-          </ul>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/blogroll">Blogroll</a>
-          <ul>
-            <li>Blogroll</li>
-            <li>Een koppeling toevoegen</li>
-            <li>Een categorie toevoegen</li>
+            <li>Lijst met links</li>
+            <li>Een link toevoegen</li>
+            <li>Een linkcategorie toevoegen</li>
             <li>XFN</li>
-            <li>Koppelingen importeren uit een OPML- of XBEL-bestand</li>
+            <li>Importeren vanuit een OPML- of XBEL-bestand</li>
           </ul>
         </li>
       </ul>
@@ -113,198 +100,132 @@
     <div class="three-boxes">
       <h4 class="pretty-title">Instellingen en aanpassingen</h4>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/usage/blog-parameters">Blog instellingen</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Param%C3%A8tres-du-blog">Blog Instellingen</a>
           <ul>
-            <li>Blog details</li>
-            <li>Blog configuratie</li>
-            <li>Commentaar en trackbacks</li>
-            <li>Blog presentatie</li>
+            <li>Blog Informatie</li>
+            <li>Blog Configuratie</li>
+            <li>Reacties en Trackbacks</li>
+            <li>Blog Overzicht</li>
             <li>Media en afbeeldingen</li>
-            <li>Robotbeleid voor zoekmachines</li>
-            <li>Antispam</li>
+            <li>Instellingen voor indexeren</li>
+            <li>Bescherming tegen spam</li>
             <li>LightBox</li>
             <li>Sla</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/user-preferences">Gebruikersvoorkeuren</a>
-          <ul>
-            <li>Mijn profiel</li>
-            <li>Mijn opties</li>
-            <li>Mijn dashboard</li>
-          </ul>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/themes">Blog verschijning</a>
+        <li><a href="https://dotclear.org/category/Documentation/Cr%C3%A9er-et-contribuer/Design-Th%C3%A8mes">Blog Verschijning</a>
           <ul>
             <li>Kies een thema</li>
             <li>Een thema installeren</li>
-            <li>Een thema personaliseren</li>
+            <li>Een thema aanpassen</li>
             <li>Thema-editor</li>
           </ul>
         </li>
       </ul>
     </div>
-    <div class="three-boxes fieldset">
-      <h4 class="smart-title">Extra lezingen</h4>
+    <div class="three-boxes">
+      <h4 class="pretty-title">Verder lezen</h4>
       <h5>Woordenlijst</h5>
       <ul>
-        <li><a href="https://dotclear.org/documentation/glossary">Al deze mysterieuze woorden op het web en in Dotclear</a></li>
+        <li><a href="https://dotclear.org/post/2025/11/08/Glossaire">Al die mysterieuze termen die op het web en in Dotclear worden gebruikt</a></li>
       </ul>
-      <h5>Invoersyntaxis</h5>
-      <ul>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes">Wiki-syntaxis en HTML-equivalent</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes#to-go-further">Om verder te gaan</a></li>
-      </ul>
-      <h5>Abonnement (RSS, Atom...)</h5>
-      <ul>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds">Wat is dat?</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-make-it-available-on-my-blog">Hoe maak ik het beschikbaar op mijn blog?</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-suscribe-to-a-feed">Hoe abonneer ik me op een feed?</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#to-go-further">Om verder te gaan</a></li>
-      </ul>
-      <h4 class="smart-title">Help</h4>
+      <h4 class="pretty-title">Lesmateriaal</h4>
       <ul>
         <li><a href="https://dotclear.org/forum">Het Dotclear forum</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/faq">Veelgestelde vragen</a></li>
+        <li><a href="https://dotclear.org/post/2025/11/08/Foire-aux-questions">Veelgestelde vragen</a></li>
       </ul>
     </div>
   </div>
   <div class="multi-part" id="admin-doc" title="Documentatie voor beheerders">
     <h3>Documentatie voor beheerders</h3>
     <div class="three-boxes">
-      <h4 class="pretty-title">Installatie en update</h4>
+      <h4 class="pretty-title">Installatie en updates</h4>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/admin/install">Installatie</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Installation">Installatie</a>
           <ul>
             <li>Vereisten</li>
             <li>Automatische installatie</li>
-            <li>Standaard installatie</li>
-            <li>Installeren met de wizard</li>
-            <li>Installeren vanuit het config.php bestand</li>
-            <li>Het installatieproces voltooien</li>
+            <li>"Standaard" installatie</li>
+            <li>Installatie Wizard</li>
+            <li>Handmatige instelling van het bestand config.php</li>
+            <li>Einde installatie</li>
             <li>Volgende stappen</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/upgrade">bijwerken</a>
+        <li><a href="https://dotclear.org/post/2025/12/08/Mise-%C3%A0-jour">Update</a>
           <ul>
-            <li>De update voorbereiden</li>
-            <li>Automatische upgrade</li>
-            <li>Het programma bijwerken</li>
-            <li>De database bijwerken</li>
-            <li>Bijlage: een mercurial kopie bijwerken</li>
+            <li>Voorbereidingen</li>
+            <li>Automatisch bijwerken</li>
+            <li>Handmatig programma bijwerken</li>
+            <li>Update database</li>
+            <li>Bijlage: Een kopie bijwerken met Mercurial</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/config">Configuratiebestand (config.php) Parameters</a>
+        <li><a href="https://dotclear.org/post/2025/11/25/Param%C3%A8tres-du-fichier-de-configuration">Instellingen voor het configuratiebestand (config.php)</a>
           <ul>
             <li>Inleiding</li>
-            <li>Parameters</li>
-            <li>Informatie toevoegen aan het bestand</li>
+            <li>Instellingen</li>
+            <li>Toevoegingen aan het bestand</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/1-to-2">Upgraden van Dotclear 1.2 naar Dotclear 2</a>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/migrate">Migreren van een andere blogging software naar Dotclear</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/local-install">Plaatselijke installatie</a>
-          <ul>
-            <li>Windows</li>
-            <li>Mac OS X</li>
-            <li>Linux</li>
-          </ul>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/install/iis">Dotclear installeren met IIS7</a></li>
       </ul>
-      <h5>Hosting bijlage</h5>
+      <h5>Bijlage Gastheren</h5>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/hosting">Hosting</a>
-        </li>
+        <li><a href="https://dotclear.org/post/2025/11/08/H%C3%A9bergeurs">Gastheren</a></li>
       </ul>
     </div>
     <div class="three-boxes">
       <h4 class="pretty-title">Administratie</h4>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/admin/users">Gebruikers beheren</a>
+        <li><a href="https://dotclear.org/post/2025/11/25/Installation-optimis%C3%A9e">Geoptimaliseerde installatie</a></li>
+        <li><a href="https://dotclear.org/category/Documentation/Cr%C3%A9er-et-contribuer/Design-Th%C3%A8mes">Ander uiterlijk</a>
           <ul>
-            <li>Bestaande gebruikerslijst</li>
-            <li>Een gebruiker aanmaken</li>
-            <li>Een gebruiker wijzigen</li>
-            <li>Gebruikersrechten</li>
-          </ul>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/clean-install">Schone installatie</a>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/multiblog">Installatie van meerdere blogs</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/plugins">Plugins beheren</a>
-          <ul>
-            <li>Een plugin installeren</li>
-            <li>Plugins configureren</li>
-            <li>Een plugin verwijderen</li>
-            <li>Een plugin bijwerken</li>
-          </ul>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/themes">Blog Thema's</a>
-          <ul>
-            <li>Een thema kiezen</li>
+            <li>Kies een thema</li>
             <li>Een thema installeren</li>
             <li>Een thema aanpassen</li>
             <li>Thema-editor</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/aboutconfig">Geavanceerde configuratie</a></li>
       </ul>
     </div>
     <div class="three-boxes">
-      <h4 class="pretty-title">Onderhoud</h4>
-      <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/admin/backup">Back-up maken en herstellen</a>
-          <ul>
-            <li>Importeren/exporteren</li>
-            <li>Bestanden</li>
-            <li>Database</li>
-          </ul>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/antispam">Spam commentaar filters</a>
-          <ul>
-            <li>Filterorganisatie</li>
-            <li>Filterconfiguratie</li>
-          </ul>
-        </li>
-      </ul>
-      <div class="fieldset vertical-separator">
-        <h4 class="smart-title">Help</h4>
+      <h4 class="pretty-title">Beheer en onderhoud</h4>
+      <div class="">
+        <h4 class="pretty-title">Steun van de Gemeenschap</h4>
         <ul>
           <li><a href="https://dotclear.org/forum">Het Dotclear forum</a></li>
-          <li><a href="https://dotclear.org/documentation/2.0/faq#administration">Veelgestelde vragen (beheerders)</a></li>
         </ul>
       </div>
     </div>
   </div>
   <div class="multi-part" id="guide-dev" title="Documentatie voor ontwikkelaars">
-    <h3>Bronnen voor ontwikkelaars en ontwerpers</h3>
+    <h3>Documentatie en hulpmiddelen voor ontwikkelaars</h3>
     <div class="three-boxes first-child">
       <h4 class="pretty-title">Ontwerp &amp; Thema's</h4>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/resources/themes">Thema's</a>
+        <li><a href="https://dotclear.org/category/Documentation/Cr%C3%A9er-et-contribuer/Design-Th%C3%A8mes">Thema's</a>
           <ul>
-            <li>Gebruikershandleiding voor thema's</li>
-            <li>De sjabloonlabels</li>
-            <li>Bijlage</li>
+            <li>Thema Gebruikershandleiding</li>
+            <li>Sjabloon tags</li>
+            <li>Bijlagen</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/resources/themes/inheritance">Thema's erfenis</a>
+        <li><a href="https://dotclear.org/post/2025/12/16/L%E2%80%99h%C3%A9ritage-des-th%C3%A8mes">Thema Erfenis</a>
           <ul>
+            <li>Thema erfenis</li>
             <li>Principe</li>
             <li>Beperkingen</li>
-            <li>Opzetten</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/resources/themes/tags">Sjabloon tags</a>
+        <li><a href="https://dotclear.org/post/2025/12/17/Liste-des-balises-de-template">Sjabloon tags</a>
           <ul>
-            <li>Algemeenheden / voorzieningen</li>
+            <li>Algemeen / Nutsbedrijven</li>
             <li>Blog</li>
-            <li>Inzendingen</li>
-            <li>Pagina-invoer</li>
+            <li>Berichten</li>
+            <li>Pagineren</li>
             <li>Reacties</li>
-            <li>Commentaar preview</li>
-            <li>Pings</li>
+            <li>Voorbeeld commentaar</li>
+            <li>Trackbacks</li>
             <li>Bijlagen</li>
             <li>Categorieën</li>
             <li>Tags</li>
@@ -317,63 +238,46 @@
       </ul>
     </div>
     <div class="three-boxes first-child">
-      <h4 class="pretty-title">Code &amp; Plugins</h4>
+      <h4 class="pretty-title">Code & Plugins</h4>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/resources/tpl">Aanmaken van een tpl-tag voor een plugin of thema</a>
+        <li><a href="https://dotclear.org/post/2025/12/16/Cr%C3%A9ation-d%E2%80%99une-balise-de-template">Een tpl-tag maken voor een plugin of thema</a>
           <ul>
             <li>Inleiding</li>
             <li>Waarden</li>
-            <li>Instructie blokken</li>
+            <li>Instructieblokken</li>
             <li>Demonstratie van de invloed van de sjablooncache</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/resources/plugins">Plugins</a>
+        <li><a href="https://dotclear.org/category/Documentation/Cr%C3%A9er-et-contribuer/Code-Plugins">Plugins</a>
           <ul>
-            <li>Een plugin schrijven</li>
-            <li>Bijlage</li>
+            <li>Plugin ontwikkeling</li>
+            <li>Gerelateerde documenten</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/resources/plugins/help">De plugin contextuele hulp bouwen</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/resources/authentication">Externe verificatie</a>
-          <ul>
-            <li>Preambule</li>
-            <li>Een nieuwe verificatieklasse</li>
-            <li>Scenario</li>
-            <li>Toepassing</li>
-          </ul>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/resources/xml-rpc">XML/RPC interface</a></li>
-        <li><a href="https://dev.dotclear.org/code/2/">API-documentatie</a></li>
+        <li><a href="https://dotclear.org/code/api/index.html">API-documentatie</a></li>
       </ul>
     </div>
     <div class="three-boxes">
-      <h4 class="pretty-title">Bijdrage &amp; Ondersteuning</h4>
+      <h4 class="pretty-title">Bijdragen &amp; Ondersteuning</h4>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/resources/contribute">Draag bij</a>
+        <li><a href="https://dotclear.org/category/Documentation/Cr%C3%A9er-et-contribuer">Draag bij</a>
           <ul>
-            <li>Deze documentatie bewerken</li>
-            <li>Deel je creaties</li>
-            <li>Bugs melden of nieuwe functies voorstellen</li>
-            <li>Lokalisatie</li>
+            <li>De documentatie verbeteren</li>
+            <li>Waar kun je je bijdragen insturen?</li>
+            <li>Bugs melden of verbeteringen voorstellen</li>
+            <li>Suggesties</li>
           </ul>
         </li>
-        <li><a href="https://git.dotclear.org/dev/dotclear">Dotclear broncode opslagplaats</a></li>
-        <li><a href="https://dotclear.org/forum">Dotclear forum</a></li>
+        <li><a href="https://codeberg.org/Dotclear/dotclear">De Dotclear broncode opslagplaats</a></li>
+        <li><a href="https://dotclear.org/forum">Het Dotclear forum</a></li>
       </ul>
-      <div class="fieldset">
-        <h4 class="smart-title">Conventies</h4>
-        <ul>
-          <li><a href="https://dotclear.org/documentation/2.0/resources/coding-standards">Coderingsstandaarden</a></li>
-          <li><a href="index.php?process=HelpCharte">Administratieve pagina's grafiek</a></li>
-        </ul>
-      </div>
     </div>
   </div>
-  <div class="multi-part legible" id="a11y-ergo" title="Toegankelijkheid en ergonomie">
-    <h3>Toegankelijkheid en ergonomie</h3>
-    <p>De Dotclear interface voldoet aan bijna alle <a href="http://www.w3.org/TR/WCAG20/">WCAG 2.0</a> criteria. We werken eraan om Dotclear compatibel te maken met de <a href="http://www.w3.org/TR/ATAG20/">ATAG 2.0</a> richtlijnen.</p>
-    <p>Toegankelijkheid en ergonomie zijn een van onze belangrijkste aandachtspunten. We voeren regelmatig analyses uit met de hulp van experts en zorgen voortdurend voor verbeteringen en verbeteringen.</p>
-    <p>Je kunt ons helpen door <a href="https://git.dotclear.org/dev/dotclear/issues">tickets</a> te openen of door deel te nemen aan het <a href="https://dotclear.org/forum/">forum</a>. Je kunt ook deelnemen aan gebruikerstests of lid worden van ons team!</p>
+  <div class="multi-part legible" id="a11y-ergo" title="Toegankelijkheid en bruikbaarheid">
+    <h3>Toegankelijkheid en bruikbaarheid</h3>
+    <p>De Dotclear interface voldoet aan bijna alle <a href="http://www.w3.org/Translations/WCAG20-fr/">WCAG 2.0</a> criteria; een gedetailleerd rapport zal binnenkort worden gepubliceerd op de <a href="https://fr.dotclear.org/blog/">project blog</a>. Uiteindelijk willen we ook volledig voldoen aan de <a href="http://www.w3.org/TR/ATAG20/">ATAG 2.0</a> criteria.</p>
+    <p>Toegankelijkheid en gebruiksvriendelijkheid staan centraal bij het Dotclear team. We voeren regelmatig analyses uit met de hulp van experts en implementeren voortdurend verbeteringen.</p>
+    <p>Je kunt ons helpen door tickets te openen <a href="https://codeberg.org/Dotclear/dotclear/issues"></a> of deel te nemen aan het forum <a href="https://dotclear.org/forum/"></a>. Je kunt ook deelnemen aan gebruikerstests of lid worden van ons team!</p>
   </div>
 </body>
 
