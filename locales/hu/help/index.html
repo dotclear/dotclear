@@ -6,305 +6,257 @@
 
 <body>
   <div class="multi-part legible" id="first-step" title="Első lépések">
-    <h3>Interfész felfedezése</h3>
+    <h3>Découverte de l’interface</h3>
     <div class="fieldset">
-      <h4>Első lépések</h4>
-      <p>A globális súgóoldalak mellett több adminisztrációs oldal is rendelkezik online súgóval. Ha a javascript be van kapcsolva
-        a böngészőjében, az oldal jobb felső sarkában az online súgót láthatja, ha a <img src="images/menu/help.svg" alt="" style="width: 14px; vertical-align: middle;"> <strong>ikonra kattint. Segítségre van szüksége?</strong> link. Ha a Javascript le van tiltva, a súgó az oldal alján jelenik meg.</p>
+      <h4>Aides contextuelles</h4>
+      <p>En plus des pages d'aide globale, plusieurs pages d'administration disposent d'une aide en ligne. Si Javascript
+        est activé dans votre navigateur, vous pouvez voir l'aide en ligne en haut à droite de la page, en cliquant sur
+        le lien <img src="images/menu/help.svg" alt="" style="width: 14px; vertical-align: middle;"> <strong>Need Help
+          ?</strong> Si Javascript est désactivé, l'aide est affichée en bas de la page.</p>
     </div>
-    <p>Minden adminisztrációs oldalon ugyanaz a felső címsor, főmenü és lábléc jelenik meg. <em>(Az itt megadott sorrend a számítógép képernyőjén megjelenő sorrend. Mobileszközökön vagy táblagépeken a rendelkezésre álló hely függvényében változhat).</em></p>
-    <h4 class="pretty-title">Top címszó</h4>
-    <p>A felső címsor három elemből áll:</p>
+    <p>Sur chaque page de l’administration, vous retrouverez les mêmes volet en haut, menu principal et pied de page.
+      <em>(Les emplacements de chacun de ces éléments sont indiqués ici pour une consultation sur ordinateur&nbsp;; sur
+        un mobile ou une tablette, leur emplacement varie selon la place disponible.)</em>
+    </p>
+    <h4 class="pretty-title">Bandeau haut</h4>
+    <p>Le volet en haut de chaque page est composé de trois éléments :</p>
     <h5 class="as_h4">Logó</h5>
-    <p>Alapértelmezés szerint ez az embléma a Dotclear logó, és az adminisztrációs céloldalra mutat hivatkozásokat. A
-      platformkezelő azonban választhat másik logót, és átirányíthat valami másra (általában a szolgáltatás céloldalára).</p>
+    <p>Par défaut, ce logo est celui de Dotclear et renvoie vers la landing page de l'administration. Cependant, un
+      gestionnaire de la plateforme peut choisir un autre logo et rediriger vers autre chose (en général, la landing
+      page du service).</p>
     <h5 class="as_h4">Blog(s)</h5>
-    <p>Az embléma utáni első elem az <em>aktív</em> blogot mutatja, vagyis azt a blogot, amelyen éppen tevékenykedsz. Ha a
-      telepítése több blogból áll, ezek az információk egy kombinált menüben érhetők el, amely lehetővé teszi, hogy másik blogra váltson.</p>
-    <p>A blog neve után található link megnyitja az aktuális blogot egy másik ablakban vagy egy másik lapon.</p>
-    <h5 class="as_h4">Felhasználó</h5>
-    <p>A <em>A műszerfalam</em> hivatkozással visszatérhet a blog adminisztrációs céloldalára.</p>
-    <p>A <em>A preferenciáim</em> link vezet arra az oldalra, ahol módosíthatja személyes adatait, beállíthatja a műszerfalat, és kiválaszthatja a felületet és a szerkesztési lehetőségeket.</p>
-    <p>Meglepő módon a <em>Disconnect [your login]</em> link megszakítja a kapcsolatot a blog adminisztrációjával (a Dotclearnél mi ergonómia bajnokok vagyunk!).</p>
-    <h4 class="pretty-title">Főmenü</h4>
-    <p>A főmenü a képernyő bal oldalán található. Összecsukható, ha a jobb szélére kattint (majd újra rákattintva kibontható).</p>
-    <p>A különböző adminisztrációs oldalakra vezet, az aktuális blog jogosultságainak megfelelően. Négy blokkból áll:</p>
+    <p>Le premier élément situé après le logo indique le blog <em>actif</em>, c'est-à-dire le blog sur lequel vous
+      agissez. Si votre installation est composée de plusieurs blogs, ces informations sont disponibles dans un menu
+      combiné, qui vous permet de passer à un autre blog.</p>
+    <p>Le lien suivant le nom du blog permet d’aller voir le blog dans une autre fenêtre ou un autre onglet.</p>
+    <h5 class="as_h4">Utilisateur</h5>
+    <p>À l’extrême droite du volet haut, le lien <em>Mon tableau de bord</em> permet de revenir à l’accueil du blog.</p>
+    <p>Le lien suivant, <em>Mes préférences</em> dirige vers la page où vous pourrez modifier vos informations
+      personnelles, configurer votre tableau de bord et choisir vos options d’interface et d’édition.</p>
+    <p>Étonnamment, le lien <em>Déconnecter [votre login]</em> permet de… se déconnecter, si si. (Chez Dotclear, on est
+      trop forts en ergo.)</p>
+    <h4 class="pretty-title">Menu principal</h4>
+    <p>Le menu principal est situé à gauche de l’écran. Il peut être rétracté en cliquant sur sa bordure droite (puis
+      déployé en cliquant sur cette même bordure).</p>
+    <p>Il conduit vers les différentes pages d’administration correspondant à vos permissions sur le blog actif. Quatre
+      blocs le composent&nbsp;</p>
     <ul>
-      <li><strong>A Kedvenceim</strong> felsorolja azokat az oldalakat, amelyeket a <em>A preferenciáim</em>/<em>Az irányítópultom</em> lapon kedvencekként jelölt ki. Ha még nem választott ki egyetlen kedvencet sem, akkor ez a lista az alapértelmezett Dotclear-készletet vagy a platformkezelő által meghatározott készletet tartalmazza. Ha nem szeretné megjeleníteni ezt a blokkot, akkor a műszerfal beállításai között törölheti a megfelelő jelölőnégyzetet.</li>
-      <li><strong>Blog A</strong> felsorolja az összes oldalt, amely lehetővé teszi az aktuális blog betáplálását és beállítását, kezdve a bejegyzés szerkesztésétől, a médiakezelésen át a blog megjelenésének kiválasztásáig vagy egyéb paraméterekig.<br>
-        <em>Ha nem rendelkezik rendszergazdai jogokkal az aktuális blogon, akkor a főmenüben nem lesz más blokk alatta.</em></li>
-      <li><strong>Rendszerbeállítások</strong> linkek a Dotclear telepítés kezelését lehetővé tevő oldalakra: blogok kezelése, felhasználók és elérhető nyelvek, bővítmények telepítése, rendszerbeállítások. Ha több bloghoz is rendelkezik jogokkal, de nincs szupergazdai joga, akkor csak a <em>Blogok</em> bejegyzést látja.</li>
-      <li><strong>Plugins</strong> lehetővé teszi a telepített pluginek beállítását. Ha a bővítménybeállítások egyszerre csak egy blogot érintenek, annak adminisztrációs oldala a <em>Blog</em> blokkból érhető el, de ha a teljes telepítést érintik, akkor itt találhatók, és csak a szuper-admin felhasználók számára elérhetőek.</li>
+      <li><strong>Mes Favoris</strong> liste les pages que vous avez désignées comme telles dans l’onglet <em>Mon
+          tableau de bord</em> de <em>Mes préférences</em>. Si vous n’avez encore choisi aucun favori, cette liste
+        correspond au set par défaut de Dotclear ou celui du ou de la gestionnaire de la plate-forme. Si vous ne
+        souhaitez pas afficher ce bloc, décochez la case correspondante dans vos options de tableau de bord.</li>
+      <li><strong>Blog</strong> répertorie toutes les pages qui permettent d'alimenter et de configurer le blog en
+        cours, qu'il s'agisse de modifier une entrée, de gérer les médias, de choisir l'apparence du blog ou d'autres
+        paramètres.<br><em>Si vous n'avez pas de droits d'administrateur sur le blog en cours, il n'y aura pas d'autre
+          bloc en dessous de celui-ci dans le menu principal.</em></li>
+      <li><strong>Réglages système</strong> offre l’accès aux pages permettant d’administrer l’installation Dotclear :
+        gestion des blogs, utilisateur·rice·s et langues disponibles, installation d’extensions, réglages système. Si
+        vous possédez des droits sur plusieurs blogs mais ne disposez pas du statut de super administrateur·rice, il est
+        constitué du seul item <em>Blogs</em>.</li>
+      <li><strong>Plugins</strong> permet d’effectuer les paramétrages des plugins installés. Si les réglages d’un
+        plugin n’impactent qu’un blog à la fois, sa page d’administration est disponible depuis le bloc <em>Blog</em>,
+        mais si les réglages ont des répercussions sur toutes les pages de l’installation ils figurent ici et ne sont
+        accessibles qu’aux utilisateur·rice·s disposant des droits de super admin.</li>
     </ul>
-    <h4 class="pretty-title">Lábléc</h4>
-    <p>A Dotclear ingyenes verzióját kínáljuk fel minden olyan felhasználónak, aki felfedezi a láblécben elrejtett titkot.</p>
-    <h3>Segítség nagy kezdőknek</h3>
-    <p>Ha nem ismeri a blogokat, javasoljuk, hogy nézze meg a dokumentációnkat (a teljes tartalomjegyzék elérhető a <strong>Dokumentáció</strong> lapon), valamint az olyan útmutatókat, mint például:
-      <ul>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/beginners">Az első bejegyzésem, lépésről lépésre.</a></li>
-      </ul>
-      <p>A <a href="https://dotclear.org/forum/">Dotclear fórum</a> egy barátságos hely, ahol nincs olyan, hogy <em>hülye kérdés</em>. Ne habozz részt venni, ha segítségre van szükséged, és miért ne segítenél cserébe másoknak.</p>
-      <p class="info">Igyekszünk olyan szókincset használni, amely speciális ismeretek nélkül is könnyen érthető. Ha azonban mégis egy szakkifejezést használunk, annak definícióját valószínűleg megtalálja a <a href="https://dotclear.org/documentation/glossary">glosszáriumban</a> az online dokumentációnkban.</p>
+    <h4 class="pretty-title">Pied de page</h4>
+    <p>Une version gratuite de Dotclear est offerte à tout utilisateur·rice découvrant le secret du pied de page.</p>
+    <h3>Aide aux grands débutants</h3>
+    <p>Si vous n'êtes pas familier avec les blogs, nous vous recommandons de consulter notre documentation (la table des
+      matières complète est disponible dans l'onglet <strong>Documentation</strong> de cette page).
+    <p>Le <a href="https://dotclear.org/forum/">forum Dotclear</a> est un lieu d'entraide où il n'y a pas <em>de
+        question stupide</em>. N'hésitez pas à y participer si vous avez besoin d'aide et, pourquoi pas, à aider les
+      autres en retour.</p>
+    <p class="info">Nous nous efforçons d’utiliser un vocabulaire compréhensible sans connaissances préalables.
+      Toutefois si nous nous sommes laissés aller à employer un terme de jargon, vous en trouverez sans doute
+      l’explication dans le <a href="https://dotclear.org/post/2025/11/08/Glossaire">glossaire</a> de notre
+      documentation en ligne.</p>
   </div>
-  <div class="multi-part" id="users-doc" title="Felhasználói kézikönyv">
-    <h3>Felhasználói kézikönyv</h3>
+  <div class="multi-part" id="users-doc" title="User Documentation">
+    <h3>User Documentation</h3>
     <div class="three-boxes">
-      <h4 class="pretty-title">A tartalom kezelése</h4>
+      <h4 class="pretty-title">Blog Feed</h4>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/usage/entries">Bejegyzések</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Billets">Hozzászólások</a>
           <ul>
-            <li>Létrehozás és szerkesztés</li>
-            <li>A bejegyzés részletei</li>
-            <li>Belépéshez kapcsolódó intézkedések</li>
+            <li>Creation and editing</li>
+            <li>Post information</li>
+            <li>Post actions</li>
             <li>Hozzászólások és trackbackek</li>
-            <li>A bejegyzések tételes kezelése</li>
+            <li>Batch processing of posts</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/comments-trackbacks">Hozzászólások és trackbackek</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Commentaires-et-r%C3%A9troliens">Comments and
+            trackbacks</a>
           <ul>
-            <li>Utókövetés</li>
+            <li>Tracking</li>
             <li>Menedzsment</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/categories">Kategóriák</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Cat%C3%A9gories">Kategóriák</a>
           <ul>
-            <li>Kategória létrehozása</li>
-            <li>Kategória szerkesztése</li>
-            <li>Kategória törlése</li>
-            <li>A kategóriák listájának összeállítása</li>
+            <li>Create a category</li>
+            <li>Edit a category</li>
+            <li>Create a new category</li>
+            <li>Sort the list of categories</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/tags">Címkék (kulcsszavak)</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Mots-cl%C3%A9s">Keywords (Tags)</a>
           <ul>
-            <li>Címkék hozzáadása</li>
-            <li>Címkekezelés</li>
+            <li>Add keywords</li>
+            <li>Manage keywords</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/media">Média és mellékletek</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Media-et-pi%C3%A8ces-jointes">Media and Attachments</a>
           <ul>
-            <li>Alkönyvtár létrehozása</li>
+            <li>Create a subfolder</li>
             <li>Fájlok hozzáadása</li>
-            <li>Az aktuális könyvtár zip-archívumának letöltése</li>
-            <li>A kitöltött fájl adatainak módosítása</li>
-            <li>Fájlok közvetlen hozzáadása</li>
-            <li>Speciális fájltípusok</li>
+            <li>Download a zip archive of the current folder</li>
+            <li>Edit or add information to a file</li>
+            <li>Directly add files</li>
+            <li>Specific file types</li>
             <li>Mellékletek</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/widgets">Blog menü tartalma (widgetek)</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Liste-de-liens">List of links</a>
           <ul>
-            <li>Navigációs oldalsáv, Extra oldalsáv</li>
-            <li>Alapértelmezett widgetek</li>
-            <li>Widget hozzáadása/eltávolítása</li>
-            <li>Widgetek beállításai</li>
-          </ul>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/blogroll">Blogroll</a>
-          <ul>
-            <li>Blogroll</li>
+            <li>List of links</li>
             <li>Link hozzáadása</li>
-            <li>Kategória hozzáadása</li>
+            <li>Add a link category</li>
             <li>XFN</li>
-            <li>Linkek importálása OPML vagy XBEL fájlból</li>
+            <li>Import from an OPML or XBEL file</li>
           </ul>
         </li>
       </ul>
     </div>
     <div class="three-boxes">
-      <h4 class="pretty-title">Beállítások és testreszabás</h4>
+      <h4 class="pretty-title">Settings and Customization</h4>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/usage/blog-parameters">Blog beállítások</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Param%C3%A8tres-du-blog">Blog Settings</a>
           <ul>
-            <li>Blog részletek</li>
-            <li>Blog konfiguráció</li>
-            <li>Hozzászólások és trackbackek</li>
-            <li>Blog bemutató</li>
-            <li>Média és képek</li>
-            <li>Keresőmotor robot politika</li>
-            <li>Antispam</li>
+            <li>Blog Information</li>
+            <li>Blog Configuration</li>
+            <li>Comments and Trackbacks</li>
+            <li>Blog Overview</li>
+            <li>Media and Images</li>
+            <li>Indexing Settings</li>
+            <li>Spam Protection</li>
             <li>LightBox</li>
             <li>Mentés</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/user-preferences">Felhasználói beállítások</a>
-          <ul>
-            <li>Profilom</li>
-            <li>A lehetőségeim</li>
-            <li>Az én műszerfalam</li>
-          </ul>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/themes">Blog megjelenés</a>
+        <li><a href="https://dotclear.org/category/Documentation/Cr%C3%A9er-et-contribuer/Design-Th%C3%A8mes">Blog Appearance</a>
           <ul>
             <li>Válasszon témát</li>
             <li>Téma telepítése</li>
-            <li>Egy téma személyre szabása</li>
+            <li>Customize a theme</li>
             <li>Téma szerkesztő</li>
           </ul>
         </li>
       </ul>
     </div>
-    <div class="three-boxes fieldset">
-      <h4 class="smart-title">További olvasmányok</h4>
+    <div class="three-boxes">
+      <h4 class="pretty-title">Further Reading</h4>
       <h5>Fogalomtár</h5>
       <ul>
-        <li><a href="https://dotclear.org/documentation/glossary">Mindezek a titokzatos szavak, amelyeket a weben és a Dotclearben használnak.</a></li>
+        <li><a href="https://dotclear.org/post/2025/11/08/Glossaire">All those mysterious terms used on the web and in Dotclear</a></li>
       </ul>
-      <h5>Bemeneti szintaxisok</h5>
+      <h4 class="pretty-title">Tutorials</h4>
       <ul>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes">Wiki szintaxis és HTML megfelelője</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes#to-go-further">Hogy tovább menjünk</a></li>
-      </ul>
-      <h5>Előfizetés (RSS, Atom...)</h5>
-      <ul>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds">Mi az?</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-make-it-available-on-my-blog">Hogyan tehetem elérhetővé a blogomon?</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-suscribe-to-a-feed">Hogyan tudok feliratkozni egy hírfolyamra?</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#to-go-further">Hogy tovább menjünk</a></li>
-      </ul>
-      <h4 class="smart-title">Segítség</h4>
-      <ul>
-        <li><a href="https://dotclear.org/forum">A Dotclear fórum</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/faq">Gyakran ismételt kérdések</a></li>
+        <li><a href="https://dotclear.org/forum">The Dotclear Forum</a></li>
+        <li><a href="https://dotclear.org/post/2025/11/08/Foire-aux-questions">Gyakran ismételt kérdések</a></li>
       </ul>
     </div>
   </div>
-  <div class="multi-part" id="admin-doc" title="Dokumentáció a rendszergazdák számára">
-    <h3>Dokumentáció a rendszergazdák számára</h3>
+  <div class="multi-part" id="admin-doc" title="Administrator Documentation">
+    <h3>Administrator Documentation</h3>
     <div class="three-boxes">
-      <h4 class="pretty-title">Telepítés és frissítés</h4>
+      <h4 class="pretty-title">Installation and Updates</h4>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/admin/install">Telepítés</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Installation">Telepítés</a>
           <ul>
             <li>Előfeltételek</li>
             <li>Automatikus telepítés</li>
-            <li>Szabványos telepítés</li>
-            <li>Telepítés a varázsló segítségével</li>
-            <li>Telepítés a config.php fájlból</li>
-            <li>A telepítési folyamat befejezése</li>
-            <li>Következő lépések</li>
+            <li>“Standard” installation</li>
+            <li>Installation Wizard</li>
+            <li>Manual Setup of the config.php File</li>
+            <li>End of Installation</li>
+            <li>Next Steps</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/upgrade">A  frissítése</a>
+        <li><a href="https://dotclear.org/post/2025/12/08/Mise-%C3%A0-jour">Frissítés</a>
           <ul>
-            <li>Felkészülés a frissítésre</li>
-            <li>Automatikus frissítés</li>
-            <li>A program frissítése</li>
-            <li>Az adatbázis frissítése</li>
-            <li>Függelék: mercurial másolat frissítése</li>
+            <li>Preparations</li>
+            <li>Automatic update</li>
+            <li>Manual program update</li>
+            <li>Database update</li>
+            <li>Appendix: Updating a copy with Mercurial</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/config">Konfigurációs fájl (config.php) Paraméterek</a>
+        <li><a href="https://dotclear.org/post/2025/11/25/Param%C3%A8tres-du-fichier-de-configuration">Settings for the configuration file (config.php)</a>
           <ul>
             <li>Bevezetés</li>
-            <li>Paraméterek</li>
-            <li>Információk hozzáadása a fájlhoz</li>
+            <li>Beállítások</li>
+            <li>Additions to the file</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/1-to-2">Frissítés a Dotclear 1.2-ről a Dotclear 2-re</a>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/migrate">Másik blogszoftverről áttérés a Dotclearre</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/local-install">Helyi telepítés</a>
-          <ul>
-            <li>Windows</li>
-            <li>Mac OS X</li>
-            <li>Linux</li>
-          </ul>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/install/iis">A Dotclear telepítése az IIS7 rendszerrel</a></li>
       </ul>
-      <h5>Hosting melléklet</h5>
+      <h5>Hosts Appendix</h5>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/hosting">Hosting</a>
-        </li>
+        <li><a href="https://dotclear.org/post/2025/11/08/H%C3%A9bergeurs">Hosts</a></li>
       </ul>
     </div>
     <div class="three-boxes">
       <h4 class="pretty-title">Adminisztráció</h4>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/admin/users">Felhasználók kezelése</a>
+        <li><a href="https://dotclear.org/post/2025/11/25/Installation-optimis%C3%A9e">Optimized installation</a></li>
+        <li><a href="https://dotclear.org/category/Documentation/Cr%C3%A9er-et-contribuer/Design-Th%C3%A8mes">Other appearance</a>
           <ul>
-            <li>Meglévő felhasználói lista</li>
-            <li>Felhasználó létrehozása</li>
-            <li>Felhasználó módosítása</li>
-            <li>Felhasználói engedélyek</li>
-          </ul>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/clean-install">Tiszta telepítés</a>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/multiblog">Multiblog telepítés</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/plugins">Pluginok kezelése</a>
-          <ul>
-            <li>A plugin telepítése</li>
-            <li>Pluginok konfigurálása</li>
-            <li>Plugin eltávolítása</li>
-            <li>A plugin frissítése</li>
-          </ul>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/themes">Blog témák</a>
-          <ul>
-            <li>Téma kiválasztása</li>
+            <li>Válasszon témát</li>
             <li>Téma telepítése</li>
-            <li>Téma testreszabása</li>
+            <li>Customize a theme</li>
             <li>Téma szerkesztő</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/aboutconfig">Speciális konfiguráció</a></li>
       </ul>
     </div>
     <div class="three-boxes">
-      <h4 class="pretty-title">Karbantartás</h4>
-      <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/admin/backup">Biztonsági mentés és visszaállítás</a>
-          <ul>
-            <li>Import/Export</li>
-            <li>Fájlok</li>
-            <li>Adatbázis</li>
-          </ul>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/antispam">Spam komment szűrők</a>
-          <ul>
-            <li>Szűrőszervezés</li>
-            <li>Szűrő konfiguráció</li>
-          </ul>
-        </li>
-      </ul>
-      <div class="fieldset vertical-separator">
-        <h4 class="smart-title">Segítség</h4>
+      <h4 class="pretty-title">Management and Maintenance</h4>
+      <div class="">
+        <h4 class="pretty-title">Community Support</h4>
         <ul>
-          <li><a href="https://dotclear.org/forum">A Dotclear fórum</a></li>
-          <li><a href="https://dotclear.org/documentation/2.0/faq#administration">Gyakran ismételt kérdések (rendszergazdák)</a></li>
+          <li><a href="https://dotclear.org/forum">The Dotclear Forum</a></li>
         </ul>
       </div>
     </div>
   </div>
-  <div class="multi-part" id="guide-dev" title="Fejlesztői dokumentáció">
-    <h3>Fejlesztői és tervezői erőforrások</h3>
+  <div class="multi-part" id="guide-dev" title="Developer Documentation">
+    <h3>Documentation and resources for developers</h3>
     <div class="three-boxes first-child">
       <h4 class="pretty-title">Tervezés &amp; Témák</h4>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/resources/themes">Témák</a>
+        <li><a href="https://dotclear.org/category/Documentation/Cr%C3%A9er-et-contribuer/Design-Th%C3%A8mes">Témák</a>
           <ul>
-            <li>Felhasználói útmutató a témákhoz</li>
-            <li>A sabloncímkék</li>
-            <li>Függelék</li>
+            <li>Theme User Guide</li>
+            <li>Template Tags</li>
+            <li>Appendices</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/resources/themes/inheritance">Témák öröklés</a>
+        <li><a href="https://dotclear.org/post/2025/12/16/L%E2%80%99h%C3%A9ritage-des-th%C3%A8mes">Theme Inheritance</a>
           <ul>
+            <li>Theme inheritance</li>
             <li>Elvileg</li>
             <li>Korlátozások</li>
-            <li>Beállítás</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/resources/themes/tags">Sablon címkék</a>
+        <li><a href="https://dotclear.org/post/2025/12/17/Liste-des-balises-de-template">Sablon címkék</a>
           <ul>
-            <li>Általánosságok / közművek</li>
+            <li>General / Utilities</li>
             <li>Blog</li>
-            <li>Bejegyzések</li>
-            <li>Bejegyzések oldalszámozása</li>
+            <li>Hozzászólások</li>
+            <li>Post Pagination</li>
             <li>Megjegyzések</li>
-            <li>Megjegyzés előnézet</li>
-            <li>Pings</li>
+            <li>Comment Preview</li>
+            <li>Trackbacks</li>
             <li>Mellékletek</li>
             <li>Kategóriák</li>
             <li>Címkék</li>
@@ -317,63 +269,46 @@
       </ul>
     </div>
     <div class="three-boxes first-child">
-      <h4 class="pretty-title">Kód &amp; Pluginok</h4>
+      <h4 class="pretty-title">Code & Plugins</h4>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/resources/tpl">Egy tpl tag létrehozása egy plugin vagy egy téma számára</a>
+        <li><a href="https://dotclear.org/post/2025/12/16/Cr%C3%A9ation-d%E2%80%99une-balise-de-template">Creating a tpl tag for a plugin or theme</a>
           <ul>
             <li>Bevezetés</li>
             <li>Értékek</li>
-            <li>Utasítások blokkok</li>
-            <li>A sablon gyorsítótár hatásának bemutatása</li>
+            <li>Instruction blocks</li>
+            <li>Demonstration of the influence of the template cache</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/resources/plugins">Plugins</a>
+        <li><a href="https://dotclear.org/category/Documentation/Cr%C3%A9er-et-contribuer/Code-Plugins">Plugins</a>
           <ul>
-            <li>Plugin írása</li>
-            <li>Függelék</li>
+            <li>Plugin Development</li>
+            <li>Related Documents</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/resources/plugins/help">A bővítmény kontextuális súgójának felépítése</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/resources/authentication">Külső hitelesítés</a>
-          <ul>
-            <li>Preambulum</li>
-            <li>Egy új hitelesítési osztály</li>
-            <li>Forgatókönyv</li>
-            <li>Alkalmazás</li>
-          </ul>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/resources/xml-rpc">XML/RPC interfész</a></li>
-        <li><a href="https://dev.dotclear.org/code/2/">API dokumentáció</a></li>
+        <li><a href="https://dotclear.org/code/api/index.html">API Documentation</a></li>
       </ul>
     </div>
     <div class="three-boxes">
-      <h4 class="pretty-title">Hozzájárulás &amp; Támogatás</h4>
+      <h4 class="pretty-title">Contribute &amp; Support</h4>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/resources/contribute">Hozzájárulás</a>
+        <li><a href="https://dotclear.org/category/Documentation/Cr%C3%A9er-et-contribuer">Hozzájárulás</a>
           <ul>
-            <li>A dokumentáció szerkesztése</li>
-            <li>Ossza meg alkotásait</li>
-            <li>Jelentsen hibákat vagy javasoljon új funkciókat</li>
-            <li>Lokalizáció</li>
+            <li>Improve the documentation</li>
+            <li>Where to submit your contributions?</li>
+            <li>Report bugs or suggest improvements</li>
+            <li>Suggestions</li>
           </ul>
         </li>
-        <li><a href="https://git.dotclear.org/dev/dotclear">Dotclear forráskód-tárház</a></li>
-        <li><a href="https://dotclear.org/forum">Dotclear fórum</a></li>
+        <li><a href="https://codeberg.org/Dotclear/dotclear">The Dotclear source code repository</a></li>
+        <li><a href="https://dotclear.org/forum">A Dotclear fórum</a></li>
       </ul>
-      <div class="fieldset">
-        <h4 class="smart-title">Egyezmények</h4>
-        <ul>
-          <li><a href="https://dotclear.org/documentation/2.0/resources/coding-standards">Kódolási szabványok</a></li>
-          <li><a href="index.php?process=HelpCharte">Adminisztrációs oldalak táblázat</a></li>
-        </ul>
-      </div>
     </div>
   </div>
-  <div class="multi-part legible" id="a11y-ergo" title="Hozzáférhetőség és ergonómia">
-    <h3>Hozzáférhetőség és ergonómia</h3>
-    <p>A Dotclear felület szinte az összes <a href="http://www.w3.org/TR/WCAG20/">WCAG 2.0</a> kritériumot teljesíti. Dolgozunk azon, hogy a Dotclear kompatibilis legyen a <a href="http://www.w3.org/TR/ATAG20/">ATAG 2.0</a> irányelvekkel.</p>
-    <p>A hozzáférhetőség és az ergonómia az egyik fő szempontunk. Rendszeresen elemzést futtatunk szakértők segítségével, és folyamatosan javításokat és fejlesztéseket biztosítunk.</p>
-    <p>Segíthetsz nekünk a <a href="https://git.dotclear.org/dev/dotclear/issues">jegyek megnyitásával</a> vagy a <a href="https://dotclear.org/forum/">fórumon</a>való részvétellel. Részt vehetsz a felhasználói tesztelésben is, vagy csatlakozhatsz a csapatunkhoz!</p>
+  <div class="multi-part legible" id="a11y-ergo" title="Accessibility and Usability">
+    <h3>Accessibility and Usability</h3>
+    <p>The Dotclear interface meets nearly all of the <a href="http://www.w3.org/Translations/WCAG20-fr/">WCAG 2.0</a> criteria; a detailed report will soon be published on the <a href="https://fr.dotclear.org/blog/">project blog</a>. Ultimately, we would also like to fully meet the <a href="http://www.w3.org/TR/ATAG20/">ATAG 2.0</a> criteria.</p>
+    <p>Accessibility and usability are central concerns for the Dotclear team. We regularly conduct analyses with the help of experts and continuously implement fixes and improvements.</p>
+    <p>You can help us by opening tickets <a href="https://codeberg.org/Dotclear/dotclear/issues"></a> or participating in the forum <a href="https://dotclear.org/forum/"></a>. You can also participate in user testing or join our team!</p>
   </div>
 </body>
 
