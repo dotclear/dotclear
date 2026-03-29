@@ -19,6 +19,7 @@
   margin-inline: 1em 0;
   margin-block-end: 1em;
 }
+/* Make figcaption not wider than img if both in figure */
 figure {
   inline-size: fit-content;
   img {
