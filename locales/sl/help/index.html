@@ -6,305 +6,257 @@
 
 <body>
   <div class="multi-part legible" id="first-step" title="Prvi koraki">
-    <h3>Odkrivanje vmesnika</h3>
+    <h3>Découverte de l’interface</h3>
     <div class="fieldset">
-      <h4>Prvi koraki</h4>
-      <p>Poleg strani za globalno pomoč ima več skrbniških strani spletno pomoč. Če je v vašem brskalniku omogočen javascript
-        , si lahko ogledate spletno pomoč v zgornjem desnem kotu strani, tako da kliknete <img src="images/menu/help.svg" alt="" style="width: 14px; vertical-align: middle;"> <strong>Potrebujete pomoč?</strong> povezava. Če je Javascript onemogočen, je pomoč prikazana na dnu strani.</p>
+      <h4>Aides contextuelles</h4>
+      <p>En plus des pages d'aide globale, plusieurs pages d'administration disposent d'une aide en ligne. Si Javascript
+        est activé dans votre navigateur, vous pouvez voir l'aide en ligne en haut à droite de la page, en cliquant sur
+        le lien <img src="images/menu/help.svg" alt="" style="width: 14px; vertical-align: middle;"> <strong>Need Help
+          ?</strong> Si Javascript est désactivé, l'aide est affichée en bas de la page.</p>
     </div>
-    <p>Vsaka skrbniška stran bo prikazala isti zgornji naslov, glavni meni in nogo. <em>(Tukaj navedeni vrstni red je prikazan na računalniškem zaslonu. Za mobilne naprave ali tablične računalnike se lahko razlikuje glede na razpoložljivi prostor.)</em></p>
-    <h4 class="pretty-title">Zgornji naslov</h4>
-    <p>Zgornji naslov je sestavljen iz treh elementov:</p>
+    <p>Sur chaque page de l’administration, vous retrouverez les mêmes volet en haut, menu principal et pied de page.
+      <em>(Les emplacements de chacun de ces éléments sont indiqués ici pour une consultation sur ordinateur&nbsp;; sur
+        un mobile ou une tablette, leur emplacement varie selon la place disponible.)</em>
+    </p>
+    <h4 class="pretty-title">Bandeau haut</h4>
+    <p>Le volet en haut de chaque page est composé de trois éléments :</p>
     <h5 class="as_h4">Logotip</h5>
-    <p>Ta logotip je privzeto logotip Dotclear in vodi do ciljne strani administracije. Vendar lahko upravitelj platforme
-      izbere drug logotip in preusmeri na nekaj drugega (na splošno ciljno stran storitve).</p>
+    <p>Par défaut, ce logo est celui de Dotclear et renvoie vers la landing page de l'administration. Cependant, un
+      gestionnaire de la plateforme peut choisir un autre logo et rediriger vers autre chose (en général, la landing
+      page du service).</p>
     <h5 class="as_h4">spletni dnevnik(i)</h5>
-    <p>Prvi element, ki se nahaja za logotipom, prikazuje <em>aktiven</em> blog, torej blog, na katerem delate. Če je vaša namestitev
-      sestavljena iz več spletnih dnevnikov, so te informacije na voljo v kombiniranem meniju, ki vam omogoča preklop na drug spletni dnevnik.</p>
-    <p>Povezava, ki sledi imenu spletnega dnevnika, odpre vaš trenutni spletni dnevnik v drugem oknu ali drugem zavihku.</p>
-    <h5 class="as_h4">Uporabnik</h5>
-    <p>Povezava <em>Moja nadzorna plošča</em> vas vrne na ciljno stran za administracijo bloga.</p>
-    <p>Povezava <em>Moje nastavitve</em> vodi do strani, kjer lahko spremenite svoje osebne podatke, nastavite nadzorno ploščo in izberete vmesnik in možnosti urejanja.</p>
-    <p>Presenetljivo vas povezava <em>Prekini [vaša prijava]</em> prekine povezavo z administracijo vašega spletnega dnevnika (pri Dotclear's smo prvaki v ergonomiji!).</p>
-    <h4 class="pretty-title">Glavni meni</h4>
-    <p>Glavni meni se nahaja na levi strani zaslona. Lahko ga strnete s klikom na njegovo desno obrobo (in nato razprete s ponovnim klikom nanj).</p>
-    <p>Vodi do različnih skrbniških strani glede na vaša dovoljenja na trenutnem blogu. Sestavljen je iz štirih blokov:</p>
+    <p>Le premier élément situé après le logo indique le blog <em>actif</em>, c'est-à-dire le blog sur lequel vous
+      agissez. Si votre installation est composée de plusieurs blogs, ces informations sont disponibles dans un menu
+      combiné, qui vous permet de passer à un autre blog.</p>
+    <p>Le lien suivant le nom du blog permet d’aller voir le blog dans une autre fenêtre ou un autre onglet.</p>
+    <h5 class="as_h4">Utilisateur</h5>
+    <p>À l’extrême droite du volet haut, le lien <em>Mon tableau de bord</em> permet de revenir à l’accueil du blog.</p>
+    <p>Le lien suivant, <em>Mes préférences</em> dirige vers la page où vous pourrez modifier vos informations
+      personnelles, configurer votre tableau de bord et choisir vos options d’interface et d’édition.</p>
+    <p>Étonnamment, le lien <em>Déconnecter [votre login]</em> permet de… se déconnecter, si si. (Chez Dotclear, on est
+      trop forts en ergo.)</p>
+    <h4 class="pretty-title">Menu principal</h4>
+    <p>Le menu principal est situé à gauche de l’écran. Il peut être rétracté en cliquant sur sa bordure droite (puis
+      déployé en cliquant sur cette même bordure).</p>
+    <p>Il conduit vers les différentes pages d’administration correspondant à vos permissions sur le blog actif. Quatre
+      blocs le composent&nbsp;</p>
     <ul>
-      <li><strong>Moje priljubljene</strong> navaja strani, ki ste jih izbrali kot priljubljene na zavihku <em>Moje nastavitve</em>/<em>Moja nadzorna plošča</em> . Če še niste izbrali nobenega priljubljenega, bo ta seznam vseboval privzeti nabor Dotclear ali nabor, ki ga je določil upravitelj platforme. Če ne želite prikazati tega bloka, lahko počistite potrditveno polje za ujemanje v možnostih nadzorne plošče.</li>
-      <li><strong>Blog</strong> navaja vse strani, ki omogočajo podajanje in nastavitev trenutnega spletnega dnevnika, od urejanja vnosa, upravljanja medijev, izbire videza spletnega dnevnika ali drugih parametrov.<br>
-        <em>Če nimate skrbniških pravic za trenutni spletni dnevnik, pod tem v glavnem meniju ne bo nobenega drugega bloka.</em></li>
-      <li><strong>Sistemske nastavitve</strong> povezave do strani, ki vam omogočajo upravljanje namestitve Dotclear: upravljanje blogov, uporabniki in razpoložljivi jeziki, namestitev vtičnikov, sistemske nastavitve. Če imate pravice za več spletnih dnevnikov, vendar nimate pravic superskrbnika, boste videli samo vnos <em>Blogi</em> .</li>
-      <li><strong>Vtičniki</strong> vam omogoča nastavitev nameščenih vtičnikov. Če nastavitve vtičnika vplivajo samo na en spletni dnevnik naenkrat, je njegova skrbniška stran na voljo v bloku <em>Blog</em> , če pa vplivajo na celotno namestitev, se nahajajo tukaj in so na voljo samo za super - skrbniški uporabniki.</li>
+      <li><strong>Mes Favoris</strong> liste les pages que vous avez désignées comme telles dans l’onglet <em>Mon
+          tableau de bord</em> de <em>Mes préférences</em>. Si vous n’avez encore choisi aucun favori, cette liste
+        correspond au set par défaut de Dotclear ou celui du ou de la gestionnaire de la plate-forme. Si vous ne
+        souhaitez pas afficher ce bloc, décochez la case correspondante dans vos options de tableau de bord.</li>
+      <li><strong>Blog</strong> répertorie toutes les pages qui permettent d'alimenter et de configurer le blog en
+        cours, qu'il s'agisse de modifier une entrée, de gérer les médias, de choisir l'apparence du blog ou d'autres
+        paramètres.<br><em>Si vous n'avez pas de droits d'administrateur sur le blog en cours, il n'y aura pas d'autre
+          bloc en dessous de celui-ci dans le menu principal.</em></li>
+      <li><strong>Réglages système</strong> offre l’accès aux pages permettant d’administrer l’installation Dotclear :
+        gestion des blogs, utilisateur·rice·s et langues disponibles, installation d’extensions, réglages système. Si
+        vous possédez des droits sur plusieurs blogs mais ne disposez pas du statut de super administrateur·rice, il est
+        constitué du seul item <em>Blogs</em>.</li>
+      <li><strong>Plugins</strong> permet d’effectuer les paramétrages des plugins installés. Si les réglages d’un
+        plugin n’impactent qu’un blog à la fois, sa page d’administration est disponible depuis le bloc <em>Blog</em>,
+        mais si les réglages ont des répercussions sur toutes les pages de l’installation ils figurent ici et ne sont
+        accessibles qu’aux utilisateur·rice·s disposant des droits de super admin.</li>
     </ul>
-    <h4 class="pretty-title">Noga</h4>
-    <p>Brezplačna različica Dotclear bo na voljo vsakemu uporabniku, ki bo odkril skrivnost, skrito v nogi.</p>
-    <h3>Pomoč odličnim začetnikom</h3>
-    <p>Če niste seznanjeni s spletnimi dnevniki, vam priporočamo, da si ogledate našo dokumentacijo (celotno kazalo je na voljo v zavihku <strong>Dokumentacija</strong> na tej strani) ter vadnice, kot je :
-      <ul>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/beginners">Moj prvi zapis, korak za korakom.</a></li>
-      </ul>
-      <p><a href="https://dotclear.org/forum/">Forum Dotclear</a> je prijazen kraj, kjer ni <em>neumnega vprašanja</em>. Ne oklevajte in sodelujte, če potrebujete pomoč in, zakaj ne, če želite pomagati ljudem v zameno.</p>
-      <p class="info">Trudimo se uporabljati besedišče, ki ga lahko razumemo brez posebnega znanja. Vendar, če bomo na koncu uporabili tehnični izraz, boste verjetno našli njegovo definicijo v <a href="https://dotclear.org/documentation/glossary">glosarju</a> naše spletne dokumentacije.</p>
+    <h4 class="pretty-title">Pied de page</h4>
+    <p>Une version gratuite de Dotclear est offerte à tout utilisateur·rice découvrant le secret du pied de page.</p>
+    <h3>Aide aux grands débutants</h3>
+    <p>Si vous n'êtes pas familier avec les blogs, nous vous recommandons de consulter notre documentation (la table des
+      matières complète est disponible dans l'onglet <strong>Documentation</strong> de cette page).
+    <p>Le <a href="https://dotclear.org/forum/">forum Dotclear</a> est un lieu d'entraide où il n'y a pas <em>de
+        question stupide</em>. N'hésitez pas à y participer si vous avez besoin d'aide et, pourquoi pas, à aider les
+      autres en retour.</p>
+    <p class="info">Nous nous efforçons d’utiliser un vocabulaire compréhensible sans connaissances préalables.
+      Toutefois si nous nous sommes laissés aller à employer un terme de jargon, vous en trouverez sans doute
+      l’explication dans le <a href="https://dotclear.org/post/2025/11/08/Glossaire">glossaire</a> de notre
+      documentation en ligne.</p>
   </div>
-  <div class="multi-part" id="users-doc" title="Navodila za uporabo">
-    <h3>Navodila za uporabo</h3>
+  <div class="multi-part" id="users-doc" title="User Documentation">
+    <h3>User Documentation</h3>
     <div class="three-boxes">
-      <h4 class="pretty-title">Upravljanje vsebine</h4>
+      <h4 class="pretty-title">Blog Feed</h4>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/usage/entries">Vnosi</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Billets">Objave</a>
           <ul>
-            <li>Ustvarjanje in urejanje</li>
-            <li>Podrobnosti o vpisu</li>
-            <li>Dejanja, povezana z vstopom</li>
+            <li>Creation and editing</li>
+            <li>Post information</li>
+            <li>Post actions</li>
             <li>Komentarji in povratne sledi</li>
-            <li>Paketno upravljanje vnosov</li>
+            <li>Batch processing of posts</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/comments-trackbacks">Komentarji in povratne sledi</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Commentaires-et-r%C3%A9troliens">Comments and
+            trackbacks</a>
           <ul>
-            <li>Nadaljevanje</li>
+            <li>Tracking</li>
             <li>Upravljanje</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/categories">kategorije</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Cat%C3%A9gories">kategorije</a>
           <ul>
-            <li>Ustvarjanje kategorije</li>
-            <li>Urejanje kategorije</li>
-            <li>Brisanje kategorije</li>
-            <li>Razvrščanje seznama kategorij</li>
+            <li>Create a category</li>
+            <li>Edit a category</li>
+            <li>Izbrišite kategorijo</li>
+            <li>Sort the list of categories</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/tags">Oznake (ključne besede)</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Mots-cl%C3%A9s">Keywords (Tags)</a>
           <ul>
-            <li>Dodajanje oznak</li>
-            <li>Upravljanje oznak</li>
+            <li>Add keywords</li>
+            <li>Manage keywords</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/media">Mediji in priloge</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Media-et-pi%C3%A8ces-jointes">Media and Attachments</a>
           <ul>
-            <li>Ustvarjanje podimenika</li>
-            <li>Dodajanje datotek</li>
-            <li>Prenos zip arhiva trenutnega imenika</li>
-            <li>Sprememba podatkov o izpolnitvi datoteke</li>
-            <li>Neposredno dodajanje datotek</li>
-            <li>Posebne vrste datotek</li>
+            <li>Create a subfolder</li>
+            <li>Dodaj datoteke</li>
+            <li>Download a zip archive of the current folder</li>
+            <li>Edit or add information to a file</li>
+            <li>Directly add files</li>
+            <li>Specific file types</li>
             <li>priloge</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/widgets">Vsebina menija bloga (pripomočki)</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Liste-de-liens">List of links</a>
           <ul>
-            <li>Navigacijska stranska vrstica, dodatna stranska vrstica</li>
-            <li>Privzeti pripomočki</li>
-            <li>Dodajanje/odstranjevanje pripomočka</li>
-            <li>Možnosti pripomočkov</li>
-          </ul>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/blogroll">Blogroll</a>
-          <ul>
-            <li>Blogroll</li>
-            <li>Dodajanje povezave</li>
-            <li>Dodajanje kategorije</li>
+            <li>List of links</li>
+            <li>Dodajte povezavo</li>
+            <li>Add a link category</li>
             <li>XFN</li>
-            <li>Uvoz povezav iz datoteke OPML ali XBEL</li>
+            <li>Import from an OPML or XBEL file</li>
           </ul>
         </li>
       </ul>
     </div>
     <div class="three-boxes">
-      <h4 class="pretty-title">Nastavitve in prilagajanje</h4>
+      <h4 class="pretty-title">Settings and Customization</h4>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/usage/blog-parameters">Nastavitve bloga</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Param%C3%A8tres-du-blog">Blog Settings</a>
           <ul>
-            <li>Podrobnosti bloga</li>
-            <li>Konfiguracija bloga</li>
-            <li>Komentarji in povratne sledi</li>
-            <li>Predstavitev bloga</li>
-            <li>Mediji in slike</li>
-            <li>Politika robotov iskalnikov</li>
-            <li>Antispam</li>
+            <li>Blog Information</li>
+            <li>Blog Configuration</li>
+            <li>Comments and Trackbacks</li>
+            <li>Blog Overview</li>
+            <li>Media and Images</li>
+            <li>Indexing Settings</li>
+            <li>Spam Protection</li>
             <li>Lahka škatla</li>
             <li>Shrani</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/user-preferences">Uporabniške nastavitve</a>
-          <ul>
-            <li>Moj profil</li>
-            <li>Moje možnosti</li>
-            <li>Moja nadzorna plošča</li>
-          </ul>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/themes">Videz bloga</a>
+        <li><a href="https://dotclear.org/category/Documentation/Cr%C3%A9er-et-contribuer/Design-Th%C3%A8mes">Blog Appearance</a>
           <ul>
             <li>Izberite temo</li>
             <li>Namestite temo</li>
-            <li>Prilagodite temo</li>
+            <li>Customize a theme</li>
             <li>Urejevalnik tem</li>
           </ul>
         </li>
       </ul>
     </div>
-    <div class="three-boxes fieldset">
-      <h4 class="smart-title">Dodatna branja</h4>
+    <div class="three-boxes">
+      <h4 class="pretty-title">Further Reading</h4>
       <h5>Glosar</h5>
       <ul>
-        <li><a href="https://dotclear.org/documentation/glossary">Vse te skrivnostne besede, ki se uporabljajo na spletu in v Dotclearju</a></li>
+        <li><a href="https://dotclear.org/post/2025/11/08/Glossaire">All those mysterious terms used on the web and in Dotclear</a></li>
       </ul>
-      <h5>Sintakse vnosa</h5>
+      <h4 class="pretty-title">Tutorials</h4>
       <ul>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes">Sintaksa Wiki in ekvivalent HTML</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes#to-go-further">Da grem dlje</a></li>
-      </ul>
-      <h5>Naročnina (RSS, Atom...)</h5>
-      <ul>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds">Kaj je to?</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-make-it-available-on-my-blog">Kako ga omogočim na voljo v svojem spletnem dnevniku?</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-suscribe-to-a-feed">Kako se naročim na vir?</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#to-go-further">Da grem dlje</a></li>
-      </ul>
-      <h4 class="smart-title">pomoč</h4>
-      <ul>
-        <li><a href="https://dotclear.org/forum">Forum Dotclear</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/faq">Pogosto zastavljena vprašanja</a></li>
+        <li><a href="https://dotclear.org/forum">The Dotclear Forum</a></li>
+        <li><a href="https://dotclear.org/post/2025/11/08/Foire-aux-questions">Pogosto zastavljena vprašanja</a></li>
       </ul>
     </div>
   </div>
-  <div class="multi-part" id="admin-doc" title="Dokumentacija za skrbnike">
-    <h3>Dokumentacija za skrbnike</h3>
+  <div class="multi-part" id="admin-doc" title="Administrator Documentation">
+    <h3>Administrator Documentation</h3>
     <div class="three-boxes">
-      <h4 class="pretty-title">Namestitev in posodobitev</h4>
+      <h4 class="pretty-title">Installation and Updates</h4>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/admin/install">Namestitev</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Installation">Namestitev</a>
           <ul>
             <li>Predpogoji</li>
             <li>Samodejna namestitev</li>
-            <li>Standardna inštalacija</li>
-            <li>Namestitev s pomočjo čarovnika</li>
-            <li>Namestitev iz datoteke config.php</li>
-            <li>Dokončanje postopka namestitve</li>
-            <li>Naslednji koraki</li>
+            <li>“Standard” installation</li>
+            <li>Installation Wizard</li>
+            <li>Manual Setup of the config.php File</li>
+            <li>End of Installation</li>
+            <li>Next Steps</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/upgrade">Posodabljanje</a>
+        <li><a href="https://dotclear.org/post/2025/12/08/Mise-%C3%A0-jour">Nadgradnja</a>
           <ul>
-            <li>Priprave na posodobitev</li>
-            <li>Samodejna nadgradnja</li>
-            <li>Posodabljanje programa</li>
-            <li>Posodabljanje baze podatkov</li>
-            <li>Dodatek: posodobitev kopije mercurial</li>
+            <li>Preparations</li>
+            <li>Automatic update</li>
+            <li>Manual program update</li>
+            <li>Database update</li>
+            <li>Appendix: Updating a copy with Mercurial</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/config">Parametri konfiguracijske datoteke (config.php).</a>
+        <li><a href="https://dotclear.org/post/2025/11/25/Param%C3%A8tres-du-fichier-de-configuration">Settings for the configuration file (config.php)</a>
           <ul>
             <li>Uvod</li>
-            <li>Parametri</li>
-            <li>Dodajanje informacij v datoteko</li>
+            <li>nastavitve</li>
+            <li>Additions to the file</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/1-to-2">Nadgradnja z Dotclear 1.2 na Dotclear 2</a>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/migrate">Selitev z druge programske opreme za bloganje na Dotclear</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/local-install">Lokalna namestitev</a>
-          <ul>
-            <li>Windows</li>
-            <li>Mac OS X</li>
-            <li>Linux</li>
-          </ul>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/install/iis">Namestitev Dotclear z IIS7</a></li>
       </ul>
-      <h5>Priloga gostovanja</h5>
+      <h5>Hosts Appendix</h5>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/hosting">Gostovanje</a>
-        </li>
+        <li><a href="https://dotclear.org/post/2025/11/08/H%C3%A9bergeurs">Hosts</a></li>
       </ul>
     </div>
     <div class="three-boxes">
       <h4 class="pretty-title">Administracija</h4>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/admin/users">Upravljanje uporabnikov</a>
+        <li><a href="https://dotclear.org/post/2025/11/25/Installation-optimis%C3%A9e">Optimized installation</a></li>
+        <li><a href="https://dotclear.org/category/Documentation/Cr%C3%A9er-et-contribuer/Design-Th%C3%A8mes">Other appearance</a>
           <ul>
-            <li>Obstoječi seznam uporabnikov</li>
-            <li>Ustvarjanje uporabnika</li>
-            <li>Spreminjanje uporabnika</li>
-            <li>Uporabniška dovoljenja</li>
-          </ul>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/clean-install">Čista namestitev</a>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/multiblog">Namestitev Multiblog</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/plugins">Upravljanje vtičnikov</a>
-          <ul>
-            <li>Namestitev vtičnika</li>
-            <li>Konfiguriranje vtičnikov</li>
-            <li>Odstranjevanje vtičnika</li>
-            <li>Posodabljanje vtičnika</li>
-          </ul>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/themes">Teme spletnega dnevnika</a>
-          <ul>
-            <li>Izbira teme</li>
-            <li>Namestitev teme</li>
-            <li>Prilagajanje teme</li>
+            <li>Izberite temo</li>
+            <li>Namestite temo</li>
+            <li>Customize a theme</li>
             <li>Urejevalnik tem</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/aboutconfig">Napredna konfiguracija</a></li>
       </ul>
     </div>
     <div class="three-boxes">
-      <h4 class="pretty-title">Vzdrževanje</h4>
-      <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/admin/backup">Varnostno kopiranje in obnovitev</a>
-          <ul>
-            <li>Uvozno-izvoznih</li>
-            <li>Datoteke</li>
-            <li>Baza podatkov</li>
-          </ul>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/antispam">Filtri neželenih komentarjev</a>
-          <ul>
-            <li>Organizacija filtrov</li>
-            <li>Konfiguracija filtra</li>
-          </ul>
-        </li>
-      </ul>
-      <div class="fieldset vertical-separator">
-        <h4 class="smart-title">pomoč</h4>
+      <h4 class="pretty-title">Management and Maintenance</h4>
+      <div class="">
+        <h4 class="pretty-title">Community Support</h4>
         <ul>
-          <li><a href="https://dotclear.org/forum">Forum Dotclear</a></li>
-          <li><a href="https://dotclear.org/documentation/2.0/faq#administration">Pogosto zastavljena vprašanja (skrbniki)</a></li>
+          <li><a href="https://dotclear.org/forum">The Dotclear Forum</a></li>
         </ul>
       </div>
     </div>
   </div>
-  <div class="multi-part" id="guide-dev" title="Dokumentacija razvijalcev">
-    <h3>Viri za razvijalce in oblikovalce</h3>
+  <div class="multi-part" id="guide-dev" title="Developer Documentation">
+    <h3>Documentation and resources for developers</h3>
     <div class="three-boxes first-child">
       <h4 class="pretty-title">Oblikujte &amp; teme</h4>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/resources/themes">Teme</a>
+        <li><a href="https://dotclear.org/category/Documentation/Cr%C3%A9er-et-contribuer/Design-Th%C3%A8mes">Teme</a>
           <ul>
-            <li>Uporabniški priročnik za teme</li>
-            <li>Oznake predloge</li>
-            <li>Dodatek</li>
+            <li>Theme User Guide</li>
+            <li>Template Tags</li>
+            <li>Appendices</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/resources/themes/inheritance">Dedovanje tem</a>
+        <li><a href="https://dotclear.org/post/2025/12/16/L%E2%80%99h%C3%A9ritage-des-th%C3%A8mes">Theme Inheritance</a>
           <ul>
+            <li>Theme inheritance</li>
             <li>Načelo</li>
             <li>Omejitve</li>
-            <li>Nastaviti</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/resources/themes/tags">Oznake predloge</a>
+        <li><a href="https://dotclear.org/post/2025/12/17/Liste-des-balises-de-template">Oznake predloge</a>
           <ul>
-            <li>Splošno / pripomočki</li>
+            <li>General / Utilities</li>
             <li>Blog</li>
-            <li>Vnosi</li>
-            <li>Paginacija vnosov</li>
+            <li>Objave</li>
+            <li>Post Pagination</li>
             <li>Komentarji</li>
-            <li>Predogled komentarja</li>
-            <li>Pingi</li>
+            <li>Comment Preview</li>
+            <li>Povratne sledi</li>
             <li>priloge</li>
             <li>kategorije</li>
             <li>Oznake</li>
@@ -317,63 +269,46 @@
       </ul>
     </div>
     <div class="three-boxes first-child">
-      <h4 class="pretty-title">Koda &amp; Vtičniki</h4>
+      <h4 class="pretty-title">Code & Plugins</h4>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/resources/tpl">Izdelava oznake tpl za vtičnik ali temo</a>
+        <li><a href="https://dotclear.org/post/2025/12/16/Cr%C3%A9ation-d%E2%80%99une-balise-de-template">Creating a tpl tag for a plugin or theme</a>
           <ul>
             <li>Uvod</li>
             <li>Vrednote</li>
-            <li>Bloki navodil</li>
-            <li>Prikaz vpliva predpomnilnika predloge</li>
+            <li>Instruction blocks</li>
+            <li>Demonstration of the influence of the template cache</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/resources/plugins">Vtičniki</a>
+        <li><a href="https://dotclear.org/category/Documentation/Cr%C3%A9er-et-contribuer/Code-Plugins">Vtičniki</a>
           <ul>
-            <li>Pisanje vtičnika</li>
-            <li>Dodatek</li>
+            <li>Plugin Development</li>
+            <li>Related Documents</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/resources/plugins/help">Gradnja kontekstualne pomoči vtičnika</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/resources/authentication">Zunanja avtentikacija</a>
-          <ul>
-            <li>Preambula</li>
-            <li>Nov razred za preverjanje pristnosti</li>
-            <li>Scenarij</li>
-            <li>Aplikacija</li>
-          </ul>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/resources/xml-rpc">Vmesnik XML/RPC</a></li>
-        <li><a href="https://dev.dotclear.org/code/2/">API dokumentacija</a></li>
+        <li><a href="https://dotclear.org/code/api/index.html">API Documentation</a></li>
       </ul>
     </div>
     <div class="three-boxes">
-      <h4 class="pretty-title">Prispevek &amp; Podpora</h4>
+      <h4 class="pretty-title">Contribute &amp; Support</h4>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/resources/contribute">Prispevajte</a>
+        <li><a href="https://dotclear.org/category/Documentation/Cr%C3%A9er-et-contribuer">Prispevajte</a>
           <ul>
-            <li>Uredite to dokumentacijo</li>
-            <li>Delite svoje stvaritve</li>
-            <li>Prijavite napake ali predlagajte nove funkcije</li>
-            <li>Lokalizacija</li>
+            <li>Improve the documentation</li>
+            <li>Where to submit your contributions?</li>
+            <li>Report bugs or suggest improvements</li>
+            <li>Suggestions</li>
           </ul>
         </li>
-        <li><a href="https://git.dotclear.org/dev/dotclear">Repozitorij izvorne kode Dotclear</a></li>
-        <li><a href="https://dotclear.org/forum">Dotclear forum</a></li>
+        <li><a href="https://codeberg.org/Dotclear/dotclear">The Dotclear source code repository</a></li>
+        <li><a href="https://dotclear.org/forum">Forum Dotclear</a></li>
       </ul>
-      <div class="fieldset">
-        <h4 class="smart-title">konvencije</h4>
-        <ul>
-          <li><a href="https://dotclear.org/documentation/2.0/resources/coding-standards">Standardi kodiranja</a></li>
-          <li><a href="index.php?process=HelpCharte">Shema administracijskih strani</a></li>
-        </ul>
-      </div>
     </div>
   </div>
-  <div class="multi-part legible" id="a11y-ergo" title="Dostopnost in ergonomija">
-    <h3>Dostopnost in ergonomija</h3>
-    <p>Vmesnik Dotclear izpolnjuje skoraj vsa merila <a href="http://www.w3.org/TR/WCAG20/">WCAG 2.0</a> . Prizadevamo si, da bi bil Dotclear združljiv s smernicami <a href="http://www.w3.org/TR/ATAG20/">ATAG 2.0</a> .</p>
-    <p>Dostopnost in ergonomija sta naši glavni skrbi. S pomočjo strokovnjakov redno izvajamo analize in nenehno zagotavljamo popravke in izboljšave.</p>
-    <p>Pomagate nam lahko tako, da odprete <a href="https://git.dotclear.org/dev/dotclear/issues">vstopnice</a> ali pa sodelujete na <a href="https://dotclear.org/forum/">forumu</a>. Sodelujete lahko tudi pri uporabniškem testiranju ali se pridružite naši ekipi!</p>
+  <div class="multi-part legible" id="a11y-ergo" title="Accessibility and Usability">
+    <h3>Accessibility and Usability</h3>
+    <p>The Dotclear interface meets nearly all of the <a href="http://www.w3.org/Translations/WCAG20-fr/">WCAG 2.0</a> criteria; a detailed report will soon be published on the <a href="https://fr.dotclear.org/blog/">project blog</a>. Ultimately, we would also like to fully meet the <a href="http://www.w3.org/TR/ATAG20/">ATAG 2.0</a> criteria.</p>
+    <p>Accessibility and usability are central concerns for the Dotclear team. We regularly conduct analyses with the help of experts and continuously implement fixes and improvements.</p>
+    <p>You can help us by opening tickets <a href="https://codeberg.org/Dotclear/dotclear/issues"></a> or participating in the forum <a href="https://dotclear.org/forum/"></a>. You can also participate in user testing or join our team!</p>
   </div>
 </body>
 
