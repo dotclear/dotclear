@@ -6,305 +6,257 @@
 
 <body>
   <div class="multi-part legible" id="first-step" title="Prvé kroky">
-    <h3>Objav rozhrania</h3>
+    <h3>Découverte de l’interface</h3>
     <div class="fieldset">
-      <h4>Prvé kroky</h4>
-      <p>Okrem globálnych stránok pomocníka má niekoľko administračných stránok online pomocníka. Ak je vo vašom prehliadači povolený javascript
-        , v pravom hornom rohu stránky môžete vidieť online pomocníka kliknutím na <img src="images/menu/help.svg" alt="" style="width: 14px; vertical-align: middle;"> <strong>Potrebujete pomoc?</strong> odkaz. Ak je Javascript zakázaný, pomocník sa zobrazí v spodnej časti stránky.</p>
+      <h4>Aides contextuelles</h4>
+      <p>En plus des pages d'aide globale, plusieurs pages d'administration disposent d'une aide en ligne. Si Javascript
+        est activé dans votre navigateur, vous pouvez voir l'aide en ligne en haut à droite de la page, en cliquant sur
+        le lien <img src="images/menu/help.svg" alt="" style="width: 14px; vertical-align: middle;"> <strong>Need Help
+          ?</strong> Si Javascript est désactivé, l'aide est affichée en bas de la page.</p>
     </div>
-    <p>Každá administračná stránka bude zobrazovať rovnaký horný nadpis, hlavné menu a pätu. <em>(Poradie uvedené tu je poradie zobrazené na obrazovke počítača. V prípade mobilných zariadení alebo tabletov sa môže líšiť v závislosti od dostupného priestoru.)</em></p>
-    <h4 class="pretty-title">Horný nadpis</h4>
-    <p>Horný nadpis sa skladá z troch prvkov:</p>
+    <p>Sur chaque page de l’administration, vous retrouverez les mêmes volet en haut, menu principal et pied de page.
+      <em>(Les emplacements de chacun de ces éléments sont indiqués ici pour une consultation sur ordinateur&nbsp;; sur
+        un mobile ou une tablette, leur emplacement varie selon la place disponible.)</em>
+    </p>
+    <h4 class="pretty-title">Bandeau haut</h4>
+    <p>Le volet en haut de chaque page est composé de trois éléments :</p>
     <h5 class="as_h4">Logo</h5>
-    <p>Štandardne je toto logo logo Dotclear a odkazy na vstupnú stránku administrácie. Správca platformy
-      si však môže vybrať iné logo a presmerovať sa na niečo iné (vo všeobecnosti na vstupnú stránku služby).</p>
+    <p>Par défaut, ce logo est celui de Dotclear et renvoie vers la landing page de l'administration. Cependant, un
+      gestionnaire de la plateforme peut choisir un autre logo et rediriger vers autre chose (en général, la landing
+      page du service).</p>
     <h5 class="as_h4">blog(y)</h5>
-    <p>Prvý prvok umiestnený za logom zobrazuje <em>aktívny</em> blog, teda blog, na ktorom pôsobíte. Ak sa vaša inštalácia
-      skladá z niekoľkých blogov, tieto informácie sú dostupné v rozbaľovacej ponuke, ktorá vám umožní prepnúť na iný blog.</p>
-    <p>Odkaz za názvom blogu otvorí váš aktuálny blog v inom okne alebo na inej karte.</p>
-    <h5 class="as_h4">Používateľ</h5>
-    <p>Odkaz <em>Môj informačný panel</em> vás dostane späť na vstupnú stránku správy blogu.</p>
-    <p>Odkaz <em>Moje preferencie</em> vedie na stránku, kde môžete upraviť svoje osobné údaje, nastaviť panel a vybrať si rozhranie a možnosti úprav.</p>
-    <p>Odkaz <em>Odpojiť [vaše prihlásenie]</em> vás prekvapivo odpojí od administrácie vášho blogu (v Dotclear's sme šampióni v ergonómii!).</p>
-    <h4 class="pretty-title">Hlavné menu</h4>
-    <p>Hlavná ponuka sa nachádza na ľavej strane obrazovky. Dá sa zbaliť kliknutím na jeho pravý okraj (a potom ho rozbaliť opätovným kliknutím naň).</p>
-    <p>Vedie na rôzne administračné stránky podľa vašich povolení na aktuálnom blogu. Skladá sa zo štyroch blokov:</p>
+    <p>Le premier élément situé après le logo indique le blog <em>actif</em>, c'est-à-dire le blog sur lequel vous
+      agissez. Si votre installation est composée de plusieurs blogs, ces informations sont disponibles dans un menu
+      combiné, qui vous permet de passer à un autre blog.</p>
+    <p>Le lien suivant le nom du blog permet d’aller voir le blog dans une autre fenêtre ou un autre onglet.</p>
+    <h5 class="as_h4">Utilisateur</h5>
+    <p>À l’extrême droite du volet haut, le lien <em>Mon tableau de bord</em> permet de revenir à l’accueil du blog.</p>
+    <p>Le lien suivant, <em>Mes préférences</em> dirige vers la page où vous pourrez modifier vos informations
+      personnelles, configurer votre tableau de bord et choisir vos options d’interface et d’édition.</p>
+    <p>Étonnamment, le lien <em>Déconnecter [votre login]</em> permet de… se déconnecter, si si. (Chez Dotclear, on est
+      trop forts en ergo.)</p>
+    <h4 class="pretty-title">Menu principal</h4>
+    <p>Le menu principal est situé à gauche de l’écran. Il peut être rétracté en cliquant sur sa bordure droite (puis
+      déployé en cliquant sur cette même bordure).</p>
+    <p>Il conduit vers les différentes pages d’administration correspondant à vos permissions sur le blog actif. Quatre
+      blocs le composent&nbsp;</p>
     <ul>
-      <li><strong>Moje obľúbené</strong> zobrazuje stránky, ktoré ste vybrali ako obľúbené na karte <em>Moje preferencie</em>/<em>Môj informačný panel</em> . Ak ste si ešte nevybrali žiadnu obľúbenú položku, tento zoznam bude obsahovať predvolenú sadu Dotclear alebo sadu, ktorá bola definovaná správcom platformy. Ak nechcete, aby sa tento blok zobrazoval, môžete zrušiť začiarknutie zodpovedajúceho políčka v možnostiach panela.</li>
-      <li><strong>Blog</strong> uvádza zoznam všetkých stránok, ktoré umožňujú kŕmiť a nastavovať aktuálny blog, od úpravy záznamu, správy médií, výberu vzhľadu blogu alebo iných parametrov.<br>
-        <em>Ak nemáte oprávnenia správcu na aktuálnom blogu, pod týmto blokom v hlavnom menu už nebude žiadny ďalší blok.</em></li>
-      <li><strong>Systémové nastavenia</strong> odkazy na stránky, ktoré vám umožňujú spravovať inštaláciu Dotclear: správa blogov, používatelia a dostupné jazyky, inštalácia doplnkov, systémové nastavenia. Ak máte práva na niekoľko blogov, ale nemáte práva supersprávcu, uvidíte iba záznam <em>Blogy</em> .</li>
-      <li><strong>Pluginy</strong> vám umožňuje nastaviť nainštalované pluginy. Ak nastavenia doplnku ovplyvňujú naraz iba jeden blog, jeho administračná stránka je dostupná z bloku <em>Blog</em> , ale ak ovplyvňujú celú inštaláciu, nachádzajú sa tu a sú dostupné len pre super -správcovskí používatelia.</li>
+      <li><strong>Mes Favoris</strong> liste les pages que vous avez désignées comme telles dans l’onglet <em>Mon
+          tableau de bord</em> de <em>Mes préférences</em>. Si vous n’avez encore choisi aucun favori, cette liste
+        correspond au set par défaut de Dotclear ou celui du ou de la gestionnaire de la plate-forme. Si vous ne
+        souhaitez pas afficher ce bloc, décochez la case correspondante dans vos options de tableau de bord.</li>
+      <li><strong>Blog</strong> répertorie toutes les pages qui permettent d'alimenter et de configurer le blog en
+        cours, qu'il s'agisse de modifier une entrée, de gérer les médias, de choisir l'apparence du blog ou d'autres
+        paramètres.<br><em>Si vous n'avez pas de droits d'administrateur sur le blog en cours, il n'y aura pas d'autre
+          bloc en dessous de celui-ci dans le menu principal.</em></li>
+      <li><strong>Réglages système</strong> offre l’accès aux pages permettant d’administrer l’installation Dotclear :
+        gestion des blogs, utilisateur·rice·s et langues disponibles, installation d’extensions, réglages système. Si
+        vous possédez des droits sur plusieurs blogs mais ne disposez pas du statut de super administrateur·rice, il est
+        constitué du seul item <em>Blogs</em>.</li>
+      <li><strong>Plugins</strong> permet d’effectuer les paramétrages des plugins installés. Si les réglages d’un
+        plugin n’impactent qu’un blog à la fois, sa page d’administration est disponible depuis le bloc <em>Blog</em>,
+        mais si les réglages ont des répercussions sur toutes les pages de l’installation ils figurent ici et ne sont
+        accessibles qu’aux utilisateur·rice·s disposant des droits de super admin.</li>
     </ul>
-    <h4 class="pretty-title">Päta</h4>
-    <p>Bezplatná verzia Dotclear bude ponúknutá každému používateľovi, ktorý objaví tajomstvo skryté v päte.</p>
-    <h3>Pomoc pre veľkých začiatočníkov</h3>
-    <p>Ak sa v blogoch nevyznáte, odporúčame vám pozrieť si našu dokumentáciu (celý obsah je dostupný v záložke <strong>Dokumentácia</strong> na tejto stránke), ako aj návody ako napr. :
-      <ul>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/beginners">Môj prvý vstup, krok za krokom.</a></li>
-      </ul>
-      <p><a href="https://dotclear.org/forum/">Fórum Dotclear</a> je príjemné miesto, kde neexistuje <em>hlúpa otázka</em>. Neváhajte sa zapojiť, ak potrebujete pomoc, a prečo nie, pomôcť ľuďom na oplátku.</p>
-      <p class="info">Snažíme sa používať slovnú zásobu, ktorá je ľahko zrozumiteľná bez špecifických znalostí. Ak však skončíme pri používaní odborného termínu, jeho definíciu pravdepodobne nájdete v <a href="https://dotclear.org/documentation/glossary">slovníku</a> našej online dokumentácie.</p>
+    <h4 class="pretty-title">Pied de page</h4>
+    <p>Une version gratuite de Dotclear est offerte à tout utilisateur·rice découvrant le secret du pied de page.</p>
+    <h3>Aide aux grands débutants</h3>
+    <p>Si vous n'êtes pas familier avec les blogs, nous vous recommandons de consulter notre documentation (la table des
+      matières complète est disponible dans l'onglet <strong>Documentation</strong> de cette page).
+    <p>Le <a href="https://dotclear.org/forum/">forum Dotclear</a> est un lieu d'entraide où il n'y a pas <em>de
+        question stupide</em>. N'hésitez pas à y participer si vous avez besoin d'aide et, pourquoi pas, à aider les
+      autres en retour.</p>
+    <p class="info">Nous nous efforçons d’utiliser un vocabulaire compréhensible sans connaissances préalables.
+      Toutefois si nous nous sommes laissés aller à employer un terme de jargon, vous en trouverez sans doute
+      l’explication dans le <a href="https://dotclear.org/post/2025/11/08/Glossaire">glossaire</a> de notre
+      documentation en ligne.</p>
   </div>
-  <div class="multi-part" id="users-doc" title="Používateľská príručka">
-    <h3>Používateľská príručka</h3>
+  <div class="multi-part" id="users-doc" title="User Documentation">
+    <h3>User Documentation</h3>
     <div class="three-boxes">
-      <h4 class="pretty-title">Správa obsahu</h4>
+      <h4 class="pretty-title">Blog Feed</h4>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/usage/entries">Príspevky</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Billets">Príspevky</a>
           <ul>
-            <li>Vytváranie a úprava</li>
-            <li>Vstupné údaje</li>
-            <li>Akcie súvisiace so vstupom</li>
+            <li>Creation and editing</li>
+            <li>Post information</li>
+            <li>Post actions</li>
             <li>Komentáre a spätné odkazy</li>
-            <li>Dávková správa záznamov</li>
+            <li>Batch processing of posts</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/comments-trackbacks">Komentáre a spätné odkazy</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Commentaires-et-r%C3%A9troliens">Comments and
+            trackbacks</a>
           <ul>
-            <li>Nasleduj</li>
+            <li>Tracking</li>
             <li>Zvládanie</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/categories">Kategórie</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Cat%C3%A9gories">Kategórie</a>
           <ul>
-            <li>Vytvorenie kategórie</li>
-            <li>Úprava kategórie</li>
-            <li>Odstránenie kategórie</li>
-            <li>Zoradenie zoznamu kategórií</li>
+            <li>Create a category</li>
+            <li>Edit a category</li>
+            <li>Odstráňte kategóriu</li>
+            <li>Sort the list of categories</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/tags">Značky (kľúčové slová)</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Mots-cl%C3%A9s">Keywords (Tags)</a>
           <ul>
-            <li>Pridávanie značiek</li>
-            <li>Správa značiek</li>
+            <li>Add keywords</li>
+            <li>Manage keywords</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/media">Médiá a prílohy</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Media-et-pi%C3%A8ces-jointes">Media and Attachments</a>
           <ul>
-            <li>Vytvorenie podadresára</li>
-            <li>Pridávanie súborov</li>
-            <li>Sťahovanie zip archívu aktuálneho adresára</li>
-            <li>Zmena podrobností vyplnenia súboru</li>
-            <li>Priame pridávanie súborov</li>
-            <li>Špeciálne typy súborov</li>
+            <li>Create a subfolder</li>
+            <li>Pridať súbory</li>
+            <li>Download a zip archive of the current folder</li>
+            <li>Edit or add information to a file</li>
+            <li>Directly add files</li>
+            <li>Specific file types</li>
             <li>Prílohy</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/widgets">Obsah ponuky blogu (widgety)</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Liste-de-liens">List of links</a>
           <ul>
-            <li>Navigačný bočný panel, Extra bočný panel</li>
-            <li>Predvolené widgety</li>
-            <li>Pridanie/odstránenie miniaplikácie</li>
-            <li>Možnosti miniaplikácií</li>
-          </ul>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/blogroll">Blogroll</a>
-          <ul>
-            <li>Blogroll</li>
-            <li>Pridanie odkazu</li>
-            <li>Pridanie kategórie</li>
+            <li>List of links</li>
+            <li>Pridajte odkaz</li>
+            <li>Add a link category</li>
             <li>XFN</li>
-            <li>Importovanie odkazov zo súboru OPML alebo XBEL</li>
+            <li>Import from an OPML or XBEL file</li>
           </ul>
         </li>
       </ul>
     </div>
     <div class="three-boxes">
-      <h4 class="pretty-title">Nastavenia a prispôsobenie</h4>
+      <h4 class="pretty-title">Settings and Customization</h4>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/usage/blog-parameters">Nastavenia blogu</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Param%C3%A8tres-du-blog">Blog Settings</a>
           <ul>
-            <li>Podrobnosti blogu</li>
-            <li>Konfigurácia blogu</li>
-            <li>Komentáre a spätné odkazy</li>
-            <li>Prezentácia na blogu</li>
-            <li>Médiá a obrázky</li>
-            <li>Pravidlá pre roboty vyhľadávačov</li>
-            <li>Antispam</li>
+            <li>Blog Information</li>
+            <li>Blog Configuration</li>
+            <li>Comments and Trackbacks</li>
+            <li>Blog Overview</li>
+            <li>Media and Images</li>
+            <li>Indexing Settings</li>
+            <li>Spam Protection</li>
             <li>Svetelný box</li>
             <li>Uložiť</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/user-preferences">Užívateľské preferencie</a>
-          <ul>
-            <li>Môj profil</li>
-            <li>Moje možnosti</li>
-            <li>Môj informačný panel</li>
-          </ul>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/themes">Vzhľad blogu</a>
+        <li><a href="https://dotclear.org/category/Documentation/Cr%C3%A9er-et-contribuer/Design-Th%C3%A8mes">Blog Appearance</a>
           <ul>
             <li>Vyberte si tému</li>
             <li>Nainštalujte tému</li>
-            <li>Prispôsobte si tému</li>
-            <li>Editor tém</li>
+            <li>Customize a theme</li>
+            <li>Editor motívov</li>
           </ul>
         </li>
       </ul>
     </div>
-    <div class="three-boxes fieldset">
-      <h4 class="smart-title">Dodatočné údaje</h4>
+    <div class="three-boxes">
+      <h4 class="pretty-title">Further Reading</h4>
       <h5>Slovník pojmov</h5>
       <ul>
-        <li><a href="https://dotclear.org/documentation/glossary">Všetky tieto záhadné slová používané na webe a v Dotclear</a></li>
+        <li><a href="https://dotclear.org/post/2025/11/08/Glossaire">All those mysterious terms used on the web and in Dotclear</a></li>
       </ul>
-      <h5>Vstupné syntaxe</h5>
+      <h4 class="pretty-title">Tutorials</h4>
       <ul>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes">Syntax Wiki a ekvivalent HTML</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes#to-go-further">Ak chcete ísť ďalej</a></li>
-      </ul>
-      <h5>Predplatné (RSS, Atom...)</h5>
-      <ul>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds">Čo je to?</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-make-it-available-on-my-blog">Ako to sprístupním na svojom blogu?</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-suscribe-to-a-feed">Ako sa prihlásim na odber informačného kanála?</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#to-go-further">Ak chcete ísť ďalej</a></li>
-      </ul>
-      <h4 class="smart-title">Pomoc</h4>
-      <ul>
-        <li><a href="https://dotclear.org/forum">Fórum Dotclear</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/faq">často kladené otázky</a></li>
+        <li><a href="https://dotclear.org/forum">The Dotclear Forum</a></li>
+        <li><a href="https://dotclear.org/post/2025/11/08/Foire-aux-questions">často kladené otázky</a></li>
       </ul>
     </div>
   </div>
-  <div class="multi-part" id="admin-doc" title="Dokumentácia pre administrátorov">
-    <h3>Dokumentácia pre správcov</h3>
+  <div class="multi-part" id="admin-doc" title="Administrator Documentation">
+    <h3>Administrator Documentation</h3>
     <div class="three-boxes">
-      <h4 class="pretty-title">Inštalácia a aktualizácia</h4>
+      <h4 class="pretty-title">Installation and Updates</h4>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/admin/install">Inštalácia</a>
+        <li><a href="https://dotclear.org/post/2025/11/08/Installation">Inštalácia</a>
           <ul>
             <li>Predpoklady</li>
             <li>Automatická inštalácia</li>
-            <li>Štandardná inštalácia</li>
-            <li>Inštalácia pomocou sprievodcu</li>
-            <li>Inštalácia zo súboru config.php</li>
-            <li>Dokončenie procesu inštalácie</li>
-            <li>Ďalšie kroky</li>
+            <li>“Standard” installation</li>
+            <li>Installation Wizard</li>
+            <li>Manual Setup of the config.php File</li>
+            <li>End of Installation</li>
+            <li>Next Steps</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/upgrade">Aktualizuje sa</a>
+        <li><a href="https://dotclear.org/post/2025/12/08/Mise-%C3%A0-jour">Aktualizovať</a>
           <ul>
-            <li>Príprava na aktualizáciu</li>
-            <li>Automatická aktualizácia</li>
-            <li>Aktualizácia programu</li>
-            <li>Aktualizácia databázy</li>
-            <li>Dodatok: aktualizácia ortuťovej kópie</li>
+            <li>Preparations</li>
+            <li>Automatic update</li>
+            <li>Manual program update</li>
+            <li>Database update</li>
+            <li>Appendix: Updating a copy with Mercurial</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/config">Parametre konfiguračného súboru (config.php).</a>
+        <li><a href="https://dotclear.org/post/2025/11/25/Param%C3%A8tres-du-fichier-de-configuration">Settings for the configuration file (config.php)</a>
           <ul>
             <li>Úvod</li>
-            <li>Parametre</li>
-            <li>Pridávanie informácií do súboru</li>
+            <li>nastavenie</li>
+            <li>Additions to the file</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/1-to-2">Inovácia z Dotclear 1.2 na Dotclear 2</a>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/migrate">Prechod z iného softvéru na blogovanie na Dotclear</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/local-install">Lokálna inštalácia</a>
-          <ul>
-            <li>Windows</li>
-            <li>Mac OS X</li>
-            <li>Linux</li>
-          </ul>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/install/iis">Inštalácia Dotclear s IIS7</a></li>
       </ul>
-      <h5>Hostingová príloha</h5>
+      <h5>Hosts Appendix</h5>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/hosting">Hosting</a>
-        </li>
+        <li><a href="https://dotclear.org/post/2025/11/08/H%C3%A9bergeurs">Hosts</a></li>
       </ul>
     </div>
     <div class="three-boxes">
       <h4 class="pretty-title">Administrácia</h4>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/admin/users">Správa používateľov</a>
+        <li><a href="https://dotclear.org/post/2025/11/25/Installation-optimis%C3%A9e">Optimized installation</a></li>
+        <li><a href="https://dotclear.org/category/Documentation/Cr%C3%A9er-et-contribuer/Design-Th%C3%A8mes">Other appearance</a>
           <ul>
-            <li>Existujúci zoznam používateľov</li>
-            <li>Vytvorenie používateľa</li>
-            <li>Úprava používateľa</li>
-            <li>Používateľské oprávnenia</li>
+            <li>Vyberte si tému</li>
+            <li>Nainštalujte tému</li>
+            <li>Customize a theme</li>
+            <li>Editor motívov</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/clean-install">Čistá inštalácia</a>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/multiblog">Inštalácia viacerých blogov</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/plugins">Správa pluginov</a>
-          <ul>
-            <li>Inštalácia doplnku</li>
-            <li>Konfigurácia doplnkov</li>
-            <li>Odstránenie doplnku</li>
-            <li>Aktualizácia doplnku</li>
-          </ul>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/themes">Témy blogu</a>
-          <ul>
-            <li>Výber témy</li>
-            <li>Inštalácia motívu</li>
-            <li>Prispôsobenie témy</li>
-            <li>Editor tém</li>
-          </ul>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/aboutconfig">Pokročilá konfigurácia</a></li>
       </ul>
     </div>
     <div class="three-boxes">
-      <h4 class="pretty-title">Údržba</h4>
-      <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/admin/backup">Zálohovanie a obnovenie</a>
-          <ul>
-            <li>Import/Export</li>
-            <li>Súbory</li>
-            <li>Databáza</li>
-          </ul>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/admin/antispam">Filtre spamových komentárov</a>
-          <ul>
-            <li>Organizácia filtra</li>
-            <li>Konfigurácia filtra</li>
-          </ul>
-        </li>
-      </ul>
-      <div class="fieldset vertical-separator">
-        <h4 class="smart-title">Pomoc</h4>
+      <h4 class="pretty-title">Management and Maintenance</h4>
+      <div class="">
+        <h4 class="pretty-title">Community Support</h4>
         <ul>
-          <li><a href="https://dotclear.org/forum">Fórum Dotclear</a></li>
-          <li><a href="https://dotclear.org/documentation/2.0/faq#administration">Často kladené otázky (správcovia)</a></li>
+          <li><a href="https://dotclear.org/forum">The Dotclear Forum</a></li>
         </ul>
       </div>
     </div>
   </div>
-  <div class="multi-part" id="guide-dev" title="Dokumentácia pre vývojárov">
-    <h3>Zdroje pre vývojárov a dizajnérov</h3>
+  <div class="multi-part" id="guide-dev" title="Developer Documentation">
+    <h3>Documentation and resources for developers</h3>
     <div class="three-boxes first-child">
       <h4 class="pretty-title">Dizajn &amp; Témy</h4>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/resources/themes">Témy</a>
+        <li><a href="https://dotclear.org/category/Documentation/Cr%C3%A9er-et-contribuer/Design-Th%C3%A8mes">Témy</a>
           <ul>
-            <li>Používateľská príručka pre témy</li>
-            <li>Značky šablóny</li>
-            <li>Dodatok</li>
+            <li>Theme User Guide</li>
+            <li>Template Tags</li>
+            <li>Appendices</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/resources/themes/inheritance">Dedičnosť tém</a>
+        <li><a href="https://dotclear.org/post/2025/12/16/L%E2%80%99h%C3%A9ritage-des-th%C3%A8mes">Theme Inheritance</a>
           <ul>
+            <li>Theme inheritance</li>
             <li>Princíp</li>
             <li>Obmedzenia</li>
-            <li>Nastaviť</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/resources/themes/tags">Štítky šablón</a>
+        <li><a href="https://dotclear.org/post/2025/12/17/Liste-des-balises-de-template">Štítky šablón</a>
           <ul>
-            <li>Všeobecné informácie / nástroje</li>
+            <li>General / Utilities</li>
             <li>Blog</li>
             <li>Príspevky</li>
-            <li>Stránkovanie záznamov</li>
+            <li>Post Pagination</li>
             <li>Komentáre</li>
-            <li>Ukážka komentára</li>
-            <li>Pingy</li>
+            <li>Comment Preview</li>
+            <li>Spätné odkazy</li>
             <li>Prílohy</li>
             <li>Kategórie</li>
             <li>Tagy</li>
@@ -317,63 +269,46 @@
       </ul>
     </div>
     <div class="three-boxes first-child">
-      <h4 class="pretty-title">Kód &amp; Pluginy</h4>
+      <h4 class="pretty-title">Code & Plugins</h4>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/resources/tpl">Vytvorenie značky tpl pre doplnok alebo tému</a>
+        <li><a href="https://dotclear.org/post/2025/12/16/Cr%C3%A9ation-d%E2%80%99une-balise-de-template">Creating a tpl tag for a plugin or theme</a>
           <ul>
             <li>Úvod</li>
             <li>hodnoty</li>
-            <li>Bloky pokynov</li>
-            <li>Ukážka vplyvu cache šablón</li>
+            <li>Instruction blocks</li>
+            <li>Demonstration of the influence of the template cache</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/resources/plugins">Pluginy</a>
+        <li><a href="https://dotclear.org/category/Documentation/Cr%C3%A9er-et-contribuer/Code-Plugins">Pluginy</a>
           <ul>
-            <li>Písanie pluginu</li>
-            <li>Dodatok</li>
+            <li>Plugin Development</li>
+            <li>Related Documents</li>
           </ul>
         </li>
-        <li><a href="https://dotclear.org/documentation/2.0/resources/plugins/help">Vytváranie kontextovej pomoci doplnku</a></li>
-        <li><a href="https://dotclear.org/documentation/2.0/resources/authentication">Externá autentifikácia</a>
-          <ul>
-            <li>Preambula</li>
-            <li>Nová trieda overovania</li>
-            <li>Scenár</li>
-            <li>Aplikácia</li>
-          </ul>
-        </li>
-        <li><a href="https://dotclear.org/documentation/2.0/resources/xml-rpc">XML/RPC rozhranie</a></li>
-        <li><a href="https://dev.dotclear.org/code/2/">API dokumentácia</a></li>
+        <li><a href="https://dotclear.org/code/api/index.html">API Documentation</a></li>
       </ul>
     </div>
     <div class="three-boxes">
-      <h4 class="pretty-title">Príspevok &amp; Podpora</h4>
+      <h4 class="pretty-title">Contribute &amp; Support</h4>
       <ul class="from-left">
-        <li><a href="https://dotclear.org/documentation/2.0/resources/contribute">Prispieť</a>
+        <li><a href="https://dotclear.org/category/Documentation/Cr%C3%A9er-et-contribuer">Prispieť</a>
           <ul>
-            <li>Upravte túto dokumentáciu</li>
-            <li>Podeľte sa o svoje výtvory</li>
-            <li>Nahláste chyby alebo navrhnite nové funkcie</li>
-            <li>Lokalizácia</li>
+            <li>Improve the documentation</li>
+            <li>Where to submit your contributions?</li>
+            <li>Report bugs or suggest improvements</li>
+            <li>Suggestions</li>
           </ul>
         </li>
-        <li><a href="https://git.dotclear.org/dev/dotclear">Úložisko zdrojového kódu Dotclear</a></li>
+        <li><a href="https://codeberg.org/Dotclear/dotclear">The Dotclear source code repository</a></li>
         <li><a href="https://dotclear.org/forum">Fórum Dotclear</a></li>
       </ul>
-      <div class="fieldset">
-        <h4 class="smart-title">dohovorov</h4>
-        <ul>
-          <li><a href="https://dotclear.org/documentation/2.0/resources/coding-standards">Štandardy kódovania</a></li>
-          <li><a href="index.php?process=HelpCharte">Tabuľka administračných stránok</a></li>
-        </ul>
-      </div>
     </div>
   </div>
-  <div class="multi-part legible" id="a11y-ergo" title="Dostupnosť a ergonómia">
-    <h3>Dostupnosť a ergonómia</h3>
-    <p>Rozhranie Dotclear spĺňa takmer všetky kritériá <a href="http://www.w3.org/TR/WCAG20/">WCAG 2.0</a> . Pracujeme na tom, aby bol Dotclear kompatibilný so smernicami <a href="http://www.w3.org/TR/ATAG20/">ATAG 2.0</a> .</p>
-    <p>Dostupnosť a ergonómia sú jedným z našich hlavných problémov. Pravidelne vykonávame analýzy s pomocou odborníkov a neustále poskytujeme opravy a vylepšenia.</p>
-    <p>Môžete nám pomôcť otvorením <a href="https://git.dotclear.org/dev/dotclear/issues">vstupeniek</a> alebo účasťou na fóre <a href="https://dotclear.org/forum/"></a>. Môžete sa tiež zúčastniť používateľského testovania alebo sa pridať k nášmu tímu!</p>
+  <div class="multi-part legible" id="a11y-ergo" title="Accessibility and Usability">
+    <h3>Accessibility and Usability</h3>
+    <p>The Dotclear interface meets nearly all of the <a href="http://www.w3.org/Translations/WCAG20-fr/">WCAG 2.0</a> criteria; a detailed report will soon be published on the <a href="https://fr.dotclear.org/blog/">project blog</a>. Ultimately, we would also like to fully meet the <a href="http://www.w3.org/TR/ATAG20/">ATAG 2.0</a> criteria.</p>
+    <p>Accessibility and usability are central concerns for the Dotclear team. We regularly conduct analyses with the help of experts and continuously implement fixes and improvements.</p>
+    <p>You can help us by opening tickets <a href="https://codeberg.org/Dotclear/dotclear/issues"></a> or participating in the forum <a href="https://dotclear.org/forum/"></a>. You can also participate in user testing or join our team!</p>
   </div>
 </body>
 
