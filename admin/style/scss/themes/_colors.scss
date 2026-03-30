@@ -1,7 +1,8 @@
 // Scheme management
 html {
   // Light variables
-  --outgoing-link-filter: 50%;
+  --outgoing-link-filter: 0%;
+  --outgoing-link-filter-header: 150%;
   --index-icon-contrast: 100%;
   --mark-attach-filter: hue-rotate(300deg) saturate(0.64);
   --mark-selected-filter: hue-rotate(300deg) saturate(0.64);
@@ -33,7 +34,8 @@ html {
     }
 
     // Dark variables
-    --outgoing-link-filter: 100%;
+    --outgoing-link-filter: 50%;
+    --outgoing-link-filter-header: 100%;
     --index-icon-contrast: 130%;
     --mark-attach-filter: hue-rotate(260deg) saturate(100) saturate(0.2) brightness(220%);
     --mark-selected-filter: hue-rotate(260deg) saturate(100) saturate(0.2) brightness(220%);

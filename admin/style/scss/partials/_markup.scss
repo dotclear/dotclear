@@ -228,6 +228,6 @@ a.outgoing img[src*='outgoing-link'],
     width: 1.5em;
     padding: 0 0 0 0.5em;
     vertical-align: top;
-    filter: contrast(100%);
+    filter: contrast(var(--outgoing-link-filter-header));
   }
 }
