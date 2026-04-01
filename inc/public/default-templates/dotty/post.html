@@ -45,7 +45,7 @@
     <nav class="navlinks topnl" role="navigation" aria-label="{{tpl:lang Entries}}">
       <tpl:EntryPrevious><a href="{{tpl:EntryURL}}" class="prev"><span aria-hidden="true">&#171; </span><span class="sr">{{tpl:lang Previous entry:}} </span>{{tpl:EntryTitle encode_html="1"
        cut_string="50"}}</a></tpl:EntryPrevious>
-      <tpl:EntryNext> <span>-</span> <a href="{{tpl:EntryURL}}" class="next"><span class="sr">{{tpl:lang Next entry:}} </span>{{tpl:EntryTitle encode_html="1" cut_string="50"}}<span aria-hidden="true"> &#187;</span></a></tpl:EntryNext>
+      <tpl:EntryNext><span class="navlinks-separator"> - </span><a href="{{tpl:EntryURL}}" class="next"><span class="sr">{{tpl:lang Next entry:}} </span>{{tpl:EntryTitle encode_html="1" cut_string="50"}}<span aria-hidden="true"> &#187;</span></a></tpl:EntryNext>
     </nav>
   </tpl:Block>
   <tpl:Block name="post-content">
@@ -55,7 +55,7 @@
     <nav class="navlinks" role="navigation" aria-label="{{tpl:lang Entries}}">
       <tpl:EntryPrevious><a href="{{tpl:EntryURL}}" class="prev"><span aria-hidden="true">&#171; </span><span class="sr">{{tpl:lang Previous entry:}} </span>{{tpl:EntryTitle encode_html="1"
        cut_string="50"}}</a></tpl:EntryPrevious>
-      <tpl:EntryNext> <span>-</span> <a href="{{tpl:EntryURL}}" class="next"><span class="sr">{{tpl:lang Next entry:}} </span>{{tpl:EntryTitle encode_html="1" cut_string="50"}}<span aria-hidden="true"> &#187;</span></a></tpl:EntryNext>
+      <tpl:EntryNext><span class="navlinks-separator"> - </span><a href="{{tpl:EntryURL}}" class="next"><span class="sr">{{tpl:lang Next entry:}} </span>{{tpl:EntryTitle encode_html="1" cut_string="50"}}<span aria-hidden="true"> &#187;</span></a></tpl:EntryNext>
     </nav>
   </tpl:Block>
   <tpl:Block name="main-content-after"></tpl:Block>
