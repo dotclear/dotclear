@@ -172,7 +172,7 @@ abstract class Actions
     {
         foreach ($actions as $group => $options) {
             if (!is_array($options)) {
-                $options = [$options => $options];
+                $options = [$group => $options];
             }
             $this->combo[$group] = array_merge($this->combo[$group] ?? [], $options);
 
