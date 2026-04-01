@@ -479,7 +479,7 @@ abstract class Component
             ($this->autofocus !== null && $this->autofocus ?
                 ' autofocus' : '') .
             ($this->class !== null ?
-                ' class="' . (is_array($this->class) ? implode(' ', $this->class) : $this->class) . '"' : '') .
+                ' class="' . (is_array($this->class) ? implode(' ', array_unique($this->class)) : $this->class) . '"' : '') .
             ($this->contenteditable !== null && $this->contenteditable ?
                 ' contenteditable' : '') .
             ($this->dir !== null ?
