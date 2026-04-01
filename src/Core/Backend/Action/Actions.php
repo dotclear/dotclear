@@ -191,7 +191,7 @@ abstract class Actions
      *
      * Useable through form::combo/formOption (see addAction() method)
      *
-     * @return  array<string, mixed>   The actions combo
+     * @return  array<string, array<string, string>>   The actions combo
      */
     public function getCombo(): array
     {

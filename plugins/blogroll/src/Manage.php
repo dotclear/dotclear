@@ -287,7 +287,7 @@ class Manage
         $blogroll = new Blogroll(App::blog());
 
         /**
-         * @var array<string, mixed>
+         * @var array<string, array<string, string>>
          */
         $combo = $links_actions_page->getCombo();
 
