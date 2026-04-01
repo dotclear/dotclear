@@ -21,7 +21,6 @@ use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Form\Hidden;
-use Dotclear\Helper\Html\Form\Option;
 use Dotclear\Helper\Html\Form\Table;
 use Dotclear\Helper\Html\Form\Td;
 use Dotclear\Helper\Html\Form\Th;
@@ -29,7 +28,6 @@ use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Exception;
-use formSelectOption;
 
 /**
  * @brief   Handler for action page on selected entries.
@@ -39,7 +37,7 @@ abstract class Actions
     /**
      * Action combo box.
      *
-     * @var     array<string, mixed>   $combo
+     * @var     array<string, array<string, string>>   $combo
      */
     protected array $combo = [];
 
@@ -163,32 +161,23 @@ abstract class Actions
     /**
      * Adds an action.
      *
-     * @param   array<string, mixed>    $actions    The actions names as if it was a standalone combo array.
-     *                                              It will be merged with other actions.
-     *                                              Can be bound to multiple values, if the same callback is to be called
-     * @param   callable                $callback   The callback for the action.
+     * @param   array<string, array<string, string>|string>    $actions     The actions names as if it was a standalone combo array.
+     *                                                                      It will be merged with other actions.
+     *                                                                      Can be bound to multiple values, if the same callback is to be called
+     * @param   callable                                       $callback    The callback for the action.
      *
      * @return  Actions     The actions page itself, enabling to chain addAction().
      */
     public function addAction(array $actions, $callback): Actions
     {
         foreach ($actions as $group => $options) {
-            // Check each case of combo definition
-            // Store form values in $values
-            if (is_array($options)) {
-                $values              = array_values($options);
-                $this->combo[$group] = array_merge($this->combo[$group] ?? [], $options);
-            } elseif (
-                $options instanceof formSelectOption || // CB: common/lib.form.php (deprecated Since 2.26)
-                $options instanceof Option
-            ) {
-                $values              = [$options->value];
-                $this->combo[$group] = $options->value;
-            } else {
-                $values              = [$options];
-                $this->combo[$group] = $options;
+            if (!is_array($options)) {
+                $options = [$options => $options];
             }
+            $this->combo[$group] = array_merge($this->combo[$group] ?? [], $options);
+
             // Associate each potential value to the callback
+            $values = array_values($options);
             foreach ($values as $value) {
                 $this->actions[$value] = $callback;
             }
