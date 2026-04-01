@@ -14,6 +14,7 @@ use ArrayObject;
 use Dotclear\App;
 use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Form\Color;
+use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Email;
 use Dotclear\Helper\Html\Form\Hidden;
 use Dotclear\Helper\Html\Form\Input;
@@ -25,6 +26,7 @@ use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Radio;
 use Dotclear\Helper\Html\Form\Select;
 use Dotclear\Helper\Html\Form\Set;
+use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Textarea;
 use Dotclear\Helper\Html\Html;
 
@@ -196,31 +198,47 @@ class WidgetsElement
      * @param   string  $class          The class
      * @param   string  $attr           The attribute
      * @param   string  $content        The content
+     * @param   string  $block          The block to use to encapsulate content (default = div)
      */
-    public function renderDiv(bool $content_only, string $class, string $attr, string $content): string
+    public function renderDiv(bool $content_only, string $class, string $attr, string $content, ?string $block = 'div'): string
     {
         if ($content_only) {
             return $content;
         }
 
-        /*
-         * widgetcontainerformat, if defined for the theme in his _define.php,
-         * is a sprintf string format in which:
-         * - %1$s is the class(es) affected to the container
-         * - %2$s is the additional attributes affected to the container
-         * - %3$s is the content of the widget
-         *
-         * Don't forget to set widgettitleformat and widgetsubtitleformat if necessary (see default rendering below)
-        */
-        $wtscheme = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'widgetcontainerformat');
-        if (empty($wtscheme)) {
-            $wtscheme = '<div class="%1$s" %2$s>%3$s</div>';
+        // Add widget class to others classes given
+        $classes = [
+            'widget',
+            ... array_filter(explode(' ', $class)),
+        ];
+
+        $theme = is_string($theme = App::blog()->settings()->system->theme) ? $theme : '';
+        if ($theme !== '') {
+            /*
+             * widgetcontainerformat, if defined for the theme in his _define.php,
+             * is a sprintf string format in which:
+             * - %1$s is the class(es) affected to the container
+             * - %2$s is the additional attributes affected to the container
+             * - %3$s is the content of the widget
+             * - %4$s is the html element to use as container
+             *
+             * Don't forget to set widgettitleformat and widgetsubtitleformat if necessary (see default rendering below)
+            */
+            $wtscheme = App::themes()->moduleInfo($theme, 'widgetcontainerformat');
+            if (empty($wtscheme)) {
+                $wtscheme = '<%4$s class="%1$s" %2$s>%3$s</%4$s>';
+
+                return sprintf($wtscheme . "\n", Html::escapeHTML(implode(' ', $classes)), $attr, $content, $block);
+            }
         }
 
-        // Keep only unique classes
-        $class = trim(implode(' ', array_unique(explode(' ', 'widget ' . $class))));
-
-        return sprintf($wtscheme . "\n", Html::escapeHTML($class), $attr, $content);
+        return (new Div(null, $block))
+            ->class($classes)
+            ->extra($attr)
+            ->items([
+                (new Text(null, $content)),
+            ])
+        ->render();
     }
 
     /**

@@ -248,7 +248,7 @@ class Widgets
             (new Form('q-form'))
                 ->method('get')
                 ->action(App::blog()->url())
-                ->role('search')
+                ->role((bool) $widget->content_only ? 'search' : '')
                 ->fields([
                     (new Para())
                         ->separator(' ')
@@ -264,7 +264,8 @@ class Widgets
                                 ->title(__('Search')),
                         ]),
                 ])
-            ->render()
+            ->render(),
+            'search'    // Use search element rather than div as container
         );
     }
 
