@@ -20,14 +20,14 @@
 <tpl:Block name="main-content">
   <tpl:Block name="main-content-before"></tpl:Block>
   <tpl:Block name="main-content-info">
-    <header id="content-info">
+    <header id="content-info" class="content-info">
       <h2>{{tpl:lang Archives}}</h2>
     </header>
   </tpl:Block>
   <tpl:Block name="main-content-inner">
     <div class="content-inner">
       <tpl:Block name="main-content-time">
-        <article id="time-criteria">
+        <article id="time-criteria" class="time-criteria">
           <!-- # entries sorted by date -->
           <div id="arch-by-year" class="arch-block arch-by-year">
             <tpl:Block name="main-content-time-title">
@@ -54,7 +54,7 @@
         </article>
       </tpl:Block>
       <tpl:Block name="main-content-other">
-        <article id="other-criteria">
+        <article id="other-criteria" class="other-criteria">
           <!-- # entries sorted by others criterias -->
           <tpl:Block name="main-content-other-cat">
             <tpl:Categories level="1">
@@ -96,7 +96,7 @@
           </tpl:Block>
         </article>
       </tpl:Block>
-      <article id="more-arch">
+      <article id="more-arch" class="more-arch">
         <!-- # others things -->
         <div id="arch-by-page" class="arch-block arch-by-page">
           <tpl:Entries type="page" no_content="1" lastn="0" selected="0">
