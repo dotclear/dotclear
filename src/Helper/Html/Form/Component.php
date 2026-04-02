@@ -345,20 +345,43 @@ abstract class Component
      * If it is an array of only one element, name = [first element]
      * Else name = [first element], id = [second element]
      *
+     * A name attribute will be set only on a specific list of HTML element (see list below).
+     * You may bypass this by using ->name($name) method.
+     *
      * @param      string|list{0: string, 1?: string}|null $identifier (string or array)
      *
      * @return static    self instance, enabling to chain calls
      */
     public function setIdentifier(string|array|null $identifier): static
     {
+        $nameable = [
+            'button',
+            'fieldset',
+            'form',
+            'iframe',
+            'input',
+            'map',
+            'meta',
+            'object',
+            'output',
+            'param',
+            'select',
+            'textarea',
+        ];
+
+        $element = mb_strtolower($this->htmlElement ?? '');
         if (is_array($identifier)) {
-            $this->name = (string) $identifier[0];
+            if (in_array($element, $nameable)) {
+                $this->name = (string) $identifier[0];
+            }
             if (isset($identifier[1])) {
                 $this->id = $identifier[1];
             }
         } elseif (!is_null($identifier)) {
-            $this->name = $identifier;
-            $this->id   = $identifier;
+            if (in_array($element, $nameable)) {
+                $this->name = $identifier;
+            }
+            $this->id = $identifier;
         }
 
         return $this;
