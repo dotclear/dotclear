@@ -40,7 +40,7 @@ xmlns="http://www.w3.org/1999/xhtml">
     </head>
     <body>
       <div id="page">
-        <header id="top" role="banner">
+        <header id="top">
           <h1><a href="{/rss/channel/link}"><xsl:value-of select="/rss/channel/title"/></a></h1>
           <p><xsl:value-of select="/rss/channel/description"/></p>
         </header>
@@ -55,10 +55,10 @@ xmlns="http://www.w3.org/1999/xhtml">
           <p><label for="feedurl">{{tpl:lang Simply copy the following URL into your aggregator:}}</label></p>
           <p><input type="text" value="" id="feedurl" /></p>
         </div>
-        <main id="items" role="main">
+        <main id="items">
           <xsl:apply-templates select="//item"/>
         </main>
-        <footer id="footer" role="contentinfo">
+        <footer id="footer">
           <p><xsl:value-of select="/rss/channel/copyright"/></p>
         </footer>
       </div>
