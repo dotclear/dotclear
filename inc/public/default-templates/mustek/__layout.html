@@ -49,19 +49,19 @@
 </tpl:Block>
 
 <tpl:Block name="html-body">
-  <div id="page">
+  <div id="page" class="page">
     <tpl:Block name="body-page">
       <tpl:Block name="page-top">
         {{tpl:include src="_top.html"}}
       </tpl:Block> <!-- page-top -->
-      <div id="wrapper">
+      <div id="wrapper" class="wrapper">
         <tpl:Block name="page-wrapper">
-          <div id="main" role="main">
+          <div id="main" class="main" role="main">
             <tpl:Block name="wrapper-main">
               <tpl:Block name="main-breadcrumb">
                 {{tpl:Breadcrumb}}
               </tpl:Block>
-              <div id="content">
+              <div id="content" class="content">
                 <tpl:Block name="main-content">
                   <tpl:Entries>
                     <div id="p{{tpl:EntryID}}" class="post {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}}" lang="{{tpl:EntryLang}}" role="article">
@@ -132,11 +132,11 @@
             </tpl:Block> <!-- wrapper-main -->
           </div> <!-- End #main -->
           <tpl:Block name="wrapper-sidebar">
-            <div id="sidebar" role="complementary">
-              <div id="blognav">
+            <div id="sidebar" class="sidebar" role="complementary">
+              <div id="blognav" class="blognav">
                 {{tpl:Widgets type="nav"}}
               </div> <!-- End #blognav -->
-              <div id="blogextra">
+              <div id="blogextra" class="blogextra">
                 {{tpl:Widgets type="extra"}}
               </div> <!-- End #blogextra -->
             </div>

@@ -28,7 +28,7 @@
   <!-- # Attachments -->
   <tpl:Attachments>
     <tpl:AttachmentsHeader>
-      <div id="attachments">
+      <div id="attachments" class="attachments">
         <h3>{{tpl:lang Attachments}}</h3>
         <ul>
     </tpl:AttachmentsHeader>
@@ -53,7 +53,7 @@
   <tpl:EntryIf show_comments="1">
     <tpl:Comments>
       <tpl:CommentsHeader>
-        <div id="comments">
+        <div id="comments" class="comments">
           <h3>{{tpl:lang Comments}}</h3>
           <dl>
       </tpl:CommentsHeader>
@@ -86,9 +86,9 @@
         will be reviewed for publication.}}</p>
     </tpl:SysIfCommentPending>
     <!-- # Comment form -->
-    <form action="{{tpl:EntryURL}}#pr" method="post" id="comment-form" role="form">
+    <form action="{{tpl:EntryURL}}#pr" method="post" id="comment-form" class="comment-form">
       <tpl:IfCommentPreview>
-        <div id="pr">
+        <div id="pr" class="pr">
           <h3>{{tpl:lang Your comment}}</h3>
           <dl>
             <dd class="comment-preview">{{tpl:CommentPreviewContent}}</dd>
@@ -126,7 +126,7 @@
   </tpl:EntryIf>
   <!-- # Trackbacks -->
   <tpl:EntryIf show_pings="1">
-    <div id="pings">
+    <div id="pings" class="pings">
       <h3>{{tpl:lang They posted on the same topic}}</h3>
       <tpl:Pings>
         <tpl:PingsHeader>
@@ -152,10 +152,10 @@
     </div>
   </tpl:EntryIf>
   <tpl:EntryIf pings_active="1">
-    <p id="ping-url">{{tpl:lang Trackback URL}}&nbsp;: {{tpl:EntryPingLink}}</p>
+    <p id="ping-url" class="ping-url">{{tpl:lang Trackback URL}}&nbsp;: {{tpl:EntryPingLink}}</p>
   </tpl:EntryIf>
   <tpl:EntryIf operator="or" comments_active="1" pings_active="1">
-    <p id="comments-feed"><a class="feed" href="{{tpl:BlogFeedURL type="atom"}}/comments/{{tpl:EntryID}}"
+    <p id="comments-feed" class="comments-feed"><a class="feed" href="{{tpl:BlogFeedURL type="atom"}}/comments/{{tpl:EntryID}}"
     title="{{tpl:lang This page's comments feed}}">{{tpl:lang This page's comments feed}}</a></p>
   </tpl:EntryIf>
 </tpl:Block>

@@ -49,19 +49,19 @@
 </tpl:Block>
 
 <tpl:Block name="html-body">
-  <div id="page">
+  <div id="page" class="page">
     <tpl:Block name="body-page">
       <tpl:Block name="page-top">
         {{tpl:include src="_top.html"}}
       </tpl:Block> <!-- # page-top -->
-      <div id="wrapper">
+      <div id="wrapper" class="wrapper">
         <tpl:Block name="page-wrapper">
-          <main id="main" role="main">
+          <main id="main" class="main">
             <tpl:Block name="wrapper-main">
               <tpl:Block name="main-breadcrumb">
                 {{tpl:Breadcrumb}}
               </tpl:Block>
-              <section id="content">
+              <section id="content" class="content">
                 <tpl:Block name="main-content">
                   <tpl:Block name="main-content-before"></tpl:Block>
                   <tpl:Entries>
