@@ -33,7 +33,7 @@
   <body class="dc-category">
 </tpl:Block>
 <tpl:Block name="main-content">
-  <div id="content-info">
+  <div id="content-info" class="content-info">
     <h2><tpl:CategoryParents><a href="{{tpl:CategoryURL}}">{{tpl:CategoryTitle encode_html="1"}}</a> &rsaquo; </tpl:CategoryParents>
     {{tpl:CategoryTitle encode_html="1"}}</h2>
     {{tpl:CategoryDescription}}
@@ -50,7 +50,7 @@
   </div>
   <tpl:CategoryFirstChildren>
     <tpl:CategoriesHeader>
-      <div id="subcategories">
+      <div id="subcategories" class="subcategories">
         <h3>{{tpl:lang Subcategories}}</h3>
         <ul>
     </tpl:CategoriesHeader>
