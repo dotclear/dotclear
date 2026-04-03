@@ -240,7 +240,7 @@ class Widgets
 
         return $widget->renderDiv(
             (bool) $widget->content_only,
-            $widget->class,
+            'search ' . $widget->class,
             'id="search"',
             ($widget->title ? $widget->renderTitle(
                 (new Label(Html::escapeHTML($widget->title), Label::OL_TF))->for('q')->render()
@@ -332,7 +332,7 @@ class Widgets
             ])
         ->render();
 
-        return $widget->renderDiv((bool) $widget->content_only, $widget->class, 'id="topnav"', $res);
+        return $widget->renderDiv((bool) $widget->content_only, 'topnav ' . $widget->class, 'id="topnav"', $res);
     }
 
     public static function buildCategoryList(MetaRecord $rs, WidgetsElement $widget): Ul
