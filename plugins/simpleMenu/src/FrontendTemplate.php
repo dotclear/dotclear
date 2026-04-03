@@ -206,7 +206,7 @@ class FrontendTemplate
             }
             // Final rendering
             if ($ret !== '') {
-                $ret = '<nav role="navigation"><ul ' . ($id !== '' ? 'id="' . $id . '"' : '') . ' class="simple-menu' . ($class !== '' ? ' ' . $class : '') . '">' . "\n" . $ret . "\n" . '</ul></nav>';
+                $ret = '<nav class="simple-menu-navigation"><ul ' . ($id !== '' ? 'id="' . $id . '"' : '') . ' class="simple-menu' . ($class !== '' ? ' ' . $class : '') . '">' . "\n" . $ret . "\n" . '</ul></nav>';
             }
         }
 
