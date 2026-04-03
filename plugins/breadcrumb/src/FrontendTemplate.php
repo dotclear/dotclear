@@ -45,7 +45,7 @@ class FrontendTemplate
     public static function displayBreadcrumb(string $separator = ''): string
     {
         $breadcrumb = '';
-        $format     = My::settings()->breadcrumb_alone ? '%s' : '<p id="breadcrumb">%s</p>';
+        $format     = My::settings()->breadcrumb_alone ? '%s' : '<p id="breadcrumb" class="breadcrumb">%s</p>';
 
         # Check if breadcrumb enabled for the current blog
         if (!My::settings()->breadcrumb_enabled) {
