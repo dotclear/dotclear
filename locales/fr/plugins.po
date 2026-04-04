@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-04 11:37+0200\n"
-"PO-Revision-Date: 2026-04-04 09:43\n"
+"PO-Revision-Date: 2026-04-04 11:46\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -1305,7 +1305,7 @@ msgstr "La balise {{tpl:Breadcrumb [separator=\" &amp;rsaquo; \"]}} doit être p
 
 #: plugins/breadcrumb/src/BackendBehaviors.php:56
 msgid "Link label to the home page:"
-msgstr ""
+msgstr "Libellé du lien vers la page d'accueil :"
 
 #: plugins/breadcrumb/src/BackendBehaviors.php:60
 #: plugins/breadcrumb/src/FrontendTemplate.php:51
@@ -1319,11 +1319,11 @@ msgstr "Accueil"
 #: plugins/breadcrumb/src/BackendBehaviors.php:60
 #, php-format
 msgid "Leave empty to use default label: %s."
-msgstr ""
+msgstr "Laisser vide pour utiliser le libellé par défaut : %s."
 
 #: plugins/breadcrumb/src/BackendBehaviors.php:65
 msgid "Do not encapsulate breadcrumb in a paragraph HTML tag."
-msgstr ""
+msgstr "Ne pas encapsuler le fil d'Ariane dans une balise HTML de paragraphe."
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:116
 #: plugins/breadcrumb/src/FrontendTemplate.php:139
