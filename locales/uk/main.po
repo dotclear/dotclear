@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-22 10:12+0100\n"
-"PO-Revision-Date: 2026-03-22 09:46\n"
+"POT-Creation-Date: 2026-04-04 09:49+0200\n"
+"PO-Revision-Date: 2026-04-04 09:42\n"
 "Last-Translator: \n"
 "Language-Team: Ukrainian\n"
 "Language: uk_UA\n"
@@ -35,7 +35,7 @@ msgstr "мініатюра"
 msgid "square"
 msgstr "площа"
 
-#: inc/core/_fake_l10n.php:14 src/Core/Backend/Action/Actions.php:140
+#: inc/core/_fake_l10n.php:14 src/Core/Backend/Action/Actions.php:138
 #: src/Core/Backend/Action/ActionsPosts.php:65
 #: src/Core/Backend/Action/ActionsPosts.php:72
 #: src/Core/Backend/Favorites.php:416 src/Core/Backend/Menus.php:168
@@ -137,7 +137,7 @@ msgstr "Такого користувача не існує в базі дани
 msgid "That key does not exist in the database."
 msgstr "Такого ключа не існує в базі даних."
 
-#: src/Core/Backend/Action/Actions.php:139
+#: src/Core/Backend/Action/Actions.php:137
 #: src/Core/Backend/Action/ActionsComments.php:158
 #: src/Core/Backend/Combos.php:312 src/Core/Backend/Listing/ListingPosts.php:78
 #: src/Core/Backend/Listing/ListingPostsMini.php:62

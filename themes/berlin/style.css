@@ -1326,6 +1326,10 @@ figure.media-right {
   color: #fff;
   padding: 0.25em 0.5em;
 }
+.ping-url,
+#ping-url {
+  overflow-wrap: break-word;
+}
 .buttons {
   text-align: right;
 }
