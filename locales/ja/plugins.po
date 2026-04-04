@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-19 13:54+0100\n"
-"PO-Revision-Date: 2026-03-19 13:32\n"
+"POT-Creation-Date: 2026-04-04 11:37+0200\n"
+"PO-Revision-Date: 2026-04-04 09:43\n"
 "Last-Translator: \n"
 "Language-Team: Japanese\n"
 "Language: ja_JP\n"
@@ -1293,62 +1293,59 @@ msgstr "すべてのカテゴリ"
 msgid "Breadcrumb"
 msgstr "パンくずリスト"
 
-#: plugins/breadcrumb/src/BackendBehaviors.php:44
+#: plugins/breadcrumb/src/BackendBehaviors.php:47
 msgid "Enable breadcrumb for this blog"
 msgstr "このブログの breadcrumbを有効にする"
 
-#: plugins/breadcrumb/src/BackendBehaviors.php:48
+#: plugins/breadcrumb/src/BackendBehaviors.php:51
 msgid "The {{tpl:Breadcrumb [separator=\" &amp;rsaquo; \"]}} tag should be present (or inserted if not) in the template."
 msgstr "{{tpl:Breadcrumb[separator=\" &amp;rsaquo; \"]}} タグが存在する必要があります (またはない場合は挿入されません) テンプレート。"
 
-#: plugins/breadcrumb/src/BackendBehaviors.php:53
-msgid "Do not encapsulate breadcrumb in a &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; tag."
-msgstr "&lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; タグにパンくずをカプセル化しないでください。"
+#: plugins/breadcrumb/src/BackendBehaviors.php:56
+msgid "Link label to the home page:"
+msgstr ""
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:77
-#: plugins/breadcrumb/src/FrontendTemplate.php:82
-#: plugins/breadcrumb/src/FrontendTemplate.php:89
-#: plugins/breadcrumb/src/FrontendTemplate.php:98
-#: plugins/breadcrumb/src/FrontendTemplate.php:100
-#: plugins/breadcrumb/src/FrontendTemplate.php:119
-#: plugins/breadcrumb/src/FrontendTemplate.php:142
-#: plugins/breadcrumb/src/FrontendTemplate.php:167
-#: plugins/breadcrumb/src/FrontendTemplate.php:193
-#: plugins/breadcrumb/src/FrontendTemplate.php:205
-#: plugins/breadcrumb/src/FrontendTemplate.php:221
-#: plugins/breadcrumb/src/FrontendTemplate.php:232
-#: plugins/breadcrumb/src/FrontendTemplate.php:239
-#: plugins/breadcrumb/src/FrontendTemplate.php:256
-#: plugins/breadcrumb/src/FrontendTemplate.php:268
-#: plugins/breadcrumb/src/FrontendTemplate.php:274
+#: plugins/breadcrumb/src/BackendBehaviors.php:60
+#: plugins/breadcrumb/src/FrontendTemplate.php:51
+#: plugins/breadcrumb/src/FrontendTemplate.php:81
+#: plugins/breadcrumb/src/FrontendTemplate.php:197
 #: plugins/simpleMenu/src/Manage.php:159 plugins/simpleMenu/src/Manage.php:281
-#: plugins/widgets/src/Widgets.php:296
+#: plugins/widgets/src/Widgets.php:297
 msgid "Home"
 msgstr "ホーム"
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:112
-#: plugins/breadcrumb/src/FrontendTemplate.php:135
-#: plugins/breadcrumb/src/FrontendTemplate.php:159
-#: plugins/breadcrumb/src/FrontendTemplate.php:248
-#: plugins/breadcrumb/src/FrontendTemplate.php:261
+#: plugins/breadcrumb/src/BackendBehaviors.php:60
+#, php-format
+msgid "Leave empty to use default label: %s."
+msgstr ""
+
+#: plugins/breadcrumb/src/BackendBehaviors.php:65
+msgid "Do not encapsulate breadcrumb in a paragraph HTML tag."
+msgstr ""
+
+#: plugins/breadcrumb/src/FrontendTemplate.php:116
+#: plugins/breadcrumb/src/FrontendTemplate.php:139
+#: plugins/breadcrumb/src/FrontendTemplate.php:163
+#: plugins/breadcrumb/src/FrontendTemplate.php:252
+#: plugins/breadcrumb/src/FrontendTemplate.php:265
 #, php-format
 msgid "page %d"
 msgstr "%d ページ"
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:208
-#: plugins/breadcrumb/src/FrontendTemplate.php:214
-#: plugins/simpleMenu/src/Manage.php:308 plugins/widgets/src/Widgets.php:324
+#: plugins/breadcrumb/src/FrontendTemplate.php:212
+#: plugins/breadcrumb/src/FrontendTemplate.php:218
+#: plugins/simpleMenu/src/Manage.php:308 plugins/widgets/src/Widgets.php:325
 msgid "Archives"
 msgstr "アーカイブ"
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:233
-#: plugins/breadcrumb/src/FrontendTemplate.php:240
+#: plugins/breadcrumb/src/FrontendTemplate.php:237
+#: plugins/breadcrumb/src/FrontendTemplate.php:244
 #: plugins/simpleMenu/src/Manage.php:143 plugins/simpleMenu/src/Manage.php:328
 #: plugins/tags/src/Widgets.php:57
 msgid "All tags"
 msgstr "すべてのタグ"
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:269
+#: plugins/breadcrumb/src/FrontendTemplate.php:273
 msgid "404"
 msgstr "404"
 
@@ -2649,7 +2646,7 @@ msgid "Home page"
 msgstr "ホームページ"
 
 #: plugins/simpleMenu/src/Manage.php:282 plugins/simpleMenu/src/Manage.php:287
-#: plugins/widgets/src/Widgets.php:305 plugins/widgets/src/Widgets.php:315
+#: plugins/widgets/src/Widgets.php:306 plugins/widgets/src/Widgets.php:316
 msgid "Recent posts"
 msgstr "最近の投稿"
 
@@ -3376,57 +3373,57 @@ msgstr "最終コメント"
 msgid "Comments limit:"
 msgstr "コメントの制限："
 
-#: plugins/widgets/src/Widgets.php:569
+#: plugins/widgets/src/Widgets.php:570
 #, php-format
 msgid "This blog's entries %s feed"
 msgstr "このブログのエントリ %s のフィード"
 
-#: plugins/widgets/src/Widgets.php:570
+#: plugins/widgets/src/Widgets.php:571
 #, php-format
 msgid "This blog's comments %s feed"
 msgstr "このブログのコメント %s のフィード"
 
-#: plugins/widgets/src/Widgets.php:583
+#: plugins/widgets/src/Widgets.php:584
 msgid "Entries feed"
 msgstr "エントリのフィード"
 
-#: plugins/widgets/src/Widgets.php:593
+#: plugins/widgets/src/Widgets.php:594
 msgid "Comments feed"
 msgstr "コメントのフィード"
 
-#: plugins/widgets/src/WidgetsElement.php:456
+#: plugins/widgets/src/WidgetsElement.php:474
 msgid "Content can be enhanced using HTML syntax."
 msgstr "コンテンツはHTML構文を使って拡張できる。"
 
-#: plugins/widgets/src/WidgetsElement.php:546
+#: plugins/widgets/src/WidgetsElement.php:564
 msgid "Title (optional)"
 msgstr "タイトル (オプション)"
 
-#: plugins/widgets/src/WidgetsElement.php:557
+#: plugins/widgets/src/WidgetsElement.php:575
 msgid "All pages"
 msgstr "すべてのページ"
 
-#: plugins/widgets/src/WidgetsElement.php:558
+#: plugins/widgets/src/WidgetsElement.php:576
 msgid "Home page only"
 msgstr "ホームページのみ"
 
-#: plugins/widgets/src/WidgetsElement.php:559
+#: plugins/widgets/src/WidgetsElement.php:577
 msgid "Except on home page"
 msgstr "ホームページ以外の場合"
 
-#: plugins/widgets/src/WidgetsElement.php:567
+#: plugins/widgets/src/WidgetsElement.php:585
 msgid "Display on:"
 msgstr "表示先："
 
-#: plugins/widgets/src/WidgetsElement.php:593
+#: plugins/widgets/src/WidgetsElement.php:611
 msgid "Do not display on archive main page"
 msgstr "アーカイブのメインページに表示しない"
 
-#: plugins/widgets/src/WidgetsElement.php:618
+#: plugins/widgets/src/WidgetsElement.php:636
 msgid "Content only"
 msgstr "コンテンツのみ"
 
-#: plugins/widgets/src/WidgetsElement.php:628
+#: plugins/widgets/src/WidgetsElement.php:646
 msgid "CSS class:"
 msgstr "CSS クラス:"
 
