@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-04 11:37+0200\n"
-"PO-Revision-Date: 2026-04-04 09:43\n"
+"PO-Revision-Date: 2026-04-04 11:46\n"
 "Last-Translator: \n"
 "Language-Team: Italian\n"
 "Language: it_IT\n"
@@ -1305,7 +1305,7 @@ msgstr "Il tag {{tpl:Breadcrumb [separator=\" &amp;rsaquo; \"]}} dovrebbe essere
 
 #: plugins/breadcrumb/src/BackendBehaviors.php:56
 msgid "Link label to the home page:"
-msgstr ""
+msgstr "Etichetta di collegamento alla pagina iniziale:"
 
 #: plugins/breadcrumb/src/BackendBehaviors.php:60
 #: plugins/breadcrumb/src/FrontendTemplate.php:51
@@ -1319,11 +1319,11 @@ msgstr "Home"
 #: plugins/breadcrumb/src/BackendBehaviors.php:60
 #, php-format
 msgid "Leave empty to use default label: %s."
-msgstr ""
+msgstr "Lasciare vuoto per utilizzare l'etichetta predefinita: %s."
 
 #: plugins/breadcrumb/src/BackendBehaviors.php:65
 msgid "Do not encapsulate breadcrumb in a paragraph HTML tag."
-msgstr ""
+msgstr "Non incapsulare le breadcrumb in un tag HTML di paragrafo."
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:116
 #: plugins/breadcrumb/src/FrontendTemplate.php:139
