@@ -297,7 +297,7 @@ class Meta implements MetaInterface
                 ])
                 ->order($params['order']);
 
-            if (isset($params['limit'])) {
+            if (isset($params['limit']) && $params['limit']) {
                 $sql->limit($params['limit']);
             }
         }
