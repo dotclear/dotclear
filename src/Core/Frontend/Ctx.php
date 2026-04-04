@@ -16,6 +16,7 @@ use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Record;
 use Dotclear\Helper\File\MediaFile;
 use Dotclear\Helper\File\Path;
+use Dotclear\Helper\Html\Form\Img;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Text;
 use Dotclear\Interface\Core\BlogInterface;
@@ -784,7 +785,10 @@ class Ctx
                     return $src;
                 }
 
-                return '<img alt="' . $alt . '" src="' . $src . '" class="' . $class . '">';
+                return (new Img($src))
+                    ->class($class)
+                    ->alt($alt)
+                ->render();
             }
         } catch (Exception) {
             // Ignore exception as it is not important not finding any image in content in a public context
