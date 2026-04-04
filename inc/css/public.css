@@ -29,3 +29,7 @@ figure {
     contain: inline-size;
   }
 }
+/* Make small SVG image visible, themes should overload this */
+img.post-icon[src$='.svg'] {
+  min-inline-size: 1em;
+}
