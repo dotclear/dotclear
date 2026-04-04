@@ -12,11 +12,13 @@ namespace Dotclear\Plugin\breadcrumb;
 
 use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Form\Fieldset;
+use Dotclear\Helper\Html\Form\Input;
 use Dotclear\Helper\Html\Form\Label;
 use Dotclear\Helper\Html\Form\Legend;
 use Dotclear\Helper\Html\Form\Note;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Interface\Core\BlogSettingsInterface;
+use Dotclear\Interface\Core\BlogWorkspaceInterface;
 
 /**
  * @brief   The module backend behaviors.
@@ -31,8 +33,9 @@ class BackendBehaviors
      */
     public static function adminBlogPreferencesForm(BlogSettingsInterface $settings): void
     {
-        $enabled = is_bool($enabled = $settings->breadcrumb->breadcrumb_enabled) ? $enabled : null;
-        $alone   = is_bool($alone = $settings->breadcrumb->breadcrumb_alone) ? $alone : null;
+        $enabled = is_bool($enabled = $settings->breadcrumb->breadcrumb_enabled) ? $enabled : false;
+        $alone   = is_bool($alone = $settings->breadcrumb->breadcrumb_alone) ? $alone : false;
+        $home    = is_string($home = $settings->breadcrumb->breadcrumb_home) ? $home : '';
 
         echo (new Fieldset('breadcrumb_params'))
             ->legend(new Legend(My::name()))
@@ -48,9 +51,18 @@ class BackendBehaviors
                     ->text(__('The {{tpl:Breadcrumb [separator=" &amp;rsaquo; "]}} tag should be present (or inserted if not) in the template.')),
                 (new Para())
                     ->items([
+                        (new Input('breadcrumb_home'))
+                            ->value($home)
+                            ->label((new Label(__('Link label to the home page:')))),
+                    ]),
+                (new Note())
+                    ->class('form-note')
+                    ->text(sprintf(__('Leave empty to use default label: %s.'), __('Home'))),
+                (new Para())
+                    ->items([
                         (new Checkbox('breadcrumb_alone', $alone))
                             ->value(1)
-                            ->label((new Label(__('Do not encapsulate breadcrumb in a &lt;p id="breadcrumb"&gt;...&lt;/p&gt; tag.'), Label::INSIDE_TEXT_AFTER))),
+                            ->label((new Label(__('Do not encapsulate breadcrumb in a paragraph HTML tag.'), Label::INSIDE_TEXT_AFTER))),
                     ]),
             ])
         ->render();
@@ -63,7 +75,10 @@ class BackendBehaviors
      */
     public static function adminBeforeBlogSettingsUpdate(BlogSettingsInterface $settings): void
     {
-        $settings->breadcrumb->put('breadcrumb_enabled', !empty($_POST['breadcrumb_enabled']), 'boolean');
-        $settings->breadcrumb->put('breadcrumb_alone', !empty($_POST['breadcrumb_alone']), 'boolean');
+        $home = isset($_POST['breadcrumb_home']) && is_string($home = $_POST['breadcrumb_home']) ? $home : '';
+
+        $settings->breadcrumb->put('breadcrumb_enabled', !empty($_POST['breadcrumb_enabled']), BlogWorkspaceInterface::NS_BOOL);
+        $settings->breadcrumb->put('breadcrumb_alone', !empty($_POST['breadcrumb_alone']), BlogWorkspaceInterface::NS_BOOL);
+        $settings->breadcrumb->put('breadcrumb_home', $home, BlogWorkspaceInterface::NS_STRING);
     }
 }

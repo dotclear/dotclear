@@ -46,6 +46,10 @@ class FrontendTemplate
     {
         $breadcrumb = '';
         $format     = My::settings()->breadcrumb_alone ? '%s' : '<p id="breadcrumb" class="breadcrumb">%s</p>';
+        $home       = is_string($home = My::settings()->breadcrumb_home) ? $home : '';
+        if ($home === '') {
+            $home = __('Home');
+        }
 
         # Check if breadcrumb enabled for the current blog
         if (!My::settings()->breadcrumb_enabled) {
@@ -63,7 +67,7 @@ class FrontendTemplate
         $nb_pages = ($nb_pages = App::frontend()->context()->PaginationNbPages()) !== false ? $nb_pages : 0;
 
         // Determine if page number should be displayed in breadcrumb
-        $show_page = $page !== 0 && ($nb_pages === 0 || $nb_pages > 1);
+        $show_page = $page > 1 && ($nb_pages === 0 || $nb_pages > 1);
 
         // Get blog URL
         $blogUrl = App::blog()->url();
@@ -79,14 +83,14 @@ class FrontendTemplate
             switch (App::url()->getType()) {
                 case 'static':
                     // Static home
-                    $breadcrumb = '<span id="bc-home">' . __('Home') . '</span>';
+                    $breadcrumb = '<span id="bc-home">' . $home . '</span>';
 
                     break;
 
                 case 'default':
                     if (App::blog()->settings()->system->static_home) {
                         // Static home and on (1st) blog page
-                        $breadcrumb = '<a id="bc-home" href="' . $blogUrl . '">' . __('Home') . '</a>';
+                        $breadcrumb = '<a id="bc-home" href="' . $blogUrl . '">' . $home . '</a>';
                         if ($show_page) {
                             $breadcrumb .= $separator . '<a href="' . $blogUrl . App::url()->getURLFor('posts') . '">' . __('Blog') . '</a>';
                         } else {
@@ -95,9 +99,9 @@ class FrontendTemplate
                     } else {
                         // Home (first page only)
                         if ($show_page) {
-                            $breadcrumb = '<a id="bc-home" href="' . $blogUrl . '">' . __('Home') . '</a>';
+                            $breadcrumb = '<a id="bc-home" href="' . $blogUrl . '">' . $home . '</a>';
                         } else {
-                            $breadcrumb = '<span id="bc-home">' . __('Home') . '</span>';
+                            $breadcrumb = '<span id="bc-home">' . $home . '</span>';
                         }
                         if (App::frontend()->context()->cur_lang) {
                             $langs = App::lang()->getISOcodes();
@@ -116,7 +120,7 @@ class FrontendTemplate
 
                 case 'default-page':
                     // Home or blog page`(page 2 to n)
-                    $breadcrumb = '<a id="bc-home" href="' . $blogUrl . '">' . __('Home') . '</a>';
+                    $breadcrumb = '<a id="bc-home" href="' . $blogUrl . '">' . $home . '</a>';
                     if (App::blog()->settings()->system->static_home) {
                         if ($show_page) {
                             $breadcrumb .= $separator . '<a href="' . $blogUrl . App::url()->getURLFor('posts') . '">' . __('Blog') . '</a>';
@@ -139,7 +143,7 @@ class FrontendTemplate
 
                 case 'category':
                     // Category
-                    $breadcrumb = '<a id="bc-home" href="' . $blogUrl . '">' . __('Home') . '</a>';
+                    $breadcrumb = '<a id="bc-home" href="' . $blogUrl . '">' . $home . '</a>';
                     $categories = App::frontend()->context()->categories instanceof MetaRecord ? App::frontend()->context()->categories : null;
                     if ($categories instanceof MetaRecord) {
                         $cat_id             = is_numeric($cat_id = $categories->cat_id) ? (int) $cat_id : 0;
@@ -164,7 +168,7 @@ class FrontendTemplate
 
                 case 'post':
                     // Post
-                    $breadcrumb = '<a id="bc-home" href="' . $blogUrl . '">' . __('Home') . '</a>';
+                    $breadcrumb = '<a id="bc-home" href="' . $blogUrl . '">' . $home . '</a>';
                     $posts      = App::frontend()->context()->posts instanceof MetaRecord ? App::frontend()->context()->posts : null;
                     if ($posts instanceof MetaRecord) {
                         $cat_id = is_numeric($cat_id = $posts->cat_id) ? (int) $cat_id : 0;
@@ -202,7 +206,7 @@ class FrontendTemplate
 
                 case 'archive':
                     // Archives
-                    $breadcrumb = '<a id="bc-home" href="' . $blogUrl . '">' . __('Home') . '</a>';
+                    $breadcrumb = '<a id="bc-home" href="' . $blogUrl . '">' . $home . '</a>';
                     if (App::frontend()->context()->archives instanceof MetaRecord) {
                         // Month archive
                         $breadcrumb .= $separator . '<a href="' . $blogUrl . App::url()->getURLFor('archive') . '">' . __('Archives') . '</a>';
@@ -218,7 +222,7 @@ class FrontendTemplate
 
                 case 'pages':
                     // Page
-                    $breadcrumb = '<a id="bc-home" href="' . $blogUrl . '">' . __('Home') . '</a>';
+                    $breadcrumb = '<a id="bc-home" href="' . $blogUrl . '">' . $home . '</a>';
                     $posts      = App::frontend()->context()->posts instanceof MetaRecord ? App::frontend()->context()->posts : null;
                     if ($posts instanceof MetaRecord) {
                         $post_title = is_string($post_title = $posts->post_title) ? $post_title : '';
@@ -229,14 +233,14 @@ class FrontendTemplate
 
                 case 'tags':
                     // All tags
-                    $breadcrumb = '<a id="bc-home" href="' . $blogUrl . '">' . __('Home') . '</a>';
+                    $breadcrumb = '<a id="bc-home" href="' . $blogUrl . '">' . $home . '</a>';
                     $breadcrumb .= $separator . __('All tags');
 
                     break;
 
                 case 'tag':
                     // Tag
-                    $breadcrumb = '<a id="bc-home" href="' . $blogUrl . '">' . __('Home') . '</a>';
+                    $breadcrumb = '<a id="bc-home" href="' . $blogUrl . '">' . $home . '</a>';
                     $breadcrumb .= $separator . '<a href="' . $blogUrl . App::url()->getURLFor('tags') . '">' . __('All tags') . '</a>';
                     $meta = App::frontend()->context()->meta instanceof MetaRecord ? App::frontend()->context()->meta : null;
                     if ($meta instanceof MetaRecord) {
@@ -253,7 +257,7 @@ class FrontendTemplate
 
                 case 'search':
                     // Search
-                    $breadcrumb = '<a id="bc-home" href="' . $blogUrl . '">' . __('Home') . '</a>';
+                    $breadcrumb = '<a id="bc-home" href="' . $blogUrl . '">' . $home . '</a>';
                     if ($page === 0 || !$show_page) {
                         $breadcrumb .= $separator . __('Search:') . ' ' . App::frontend()->search;
                     } else {
@@ -265,13 +269,13 @@ class FrontendTemplate
 
                 case '404':
                     // 404
-                    $breadcrumb = '<a id="bc-home" href="' . $blogUrl . '">' . __('Home') . '</a>';
+                    $breadcrumb = '<a id="bc-home" href="' . $blogUrl . '">' . $home . '</a>';
                     $breadcrumb .= $separator . __('404');
 
                     break;
 
                 default:
-                    $breadcrumb = '<a id="bc-home" href="' . $blogUrl . '">' . __('Home') . '</a>';
+                    $breadcrumb = '<a id="bc-home" href="' . $blogUrl . '">' . $home . '</a>';
                     # --BEHAVIOR-- publicBreadcrumb -- string, string
                     # Should specific breadcrumb if any, will be added after home page url
                     $special = App::behavior()->callBehavior('publicBreadcrumb', App::url()->getType(), $separator);
