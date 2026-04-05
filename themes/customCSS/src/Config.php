@@ -32,6 +32,9 @@ class Config
 
     public static function init(): bool
     {
+        // load locales
+        My::l10n('admin');
+
         // limit to backend permissions
         if (My::checkContext(My::CONFIG)) {
             $id = My::id();
