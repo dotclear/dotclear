@@ -20,8 +20,7 @@ $this->registerModule(
     'Dotclear Team',               // Author
     '2.0',                         // Version
     [                              // Properties
-        'type'     => 'theme',
-        'tplset'   => 'dotty',
-        'overload' => true,
+        'type'   => 'theme',
+        'tplset' => 'dotty',
     ]
 );

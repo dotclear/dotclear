@@ -11,11 +11,15 @@ namespace Dotclear\Theme\customCSS;
 
 use Dotclear\App;
 use Dotclear\Helper\File\Path;
+use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Option;
 use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Select;
 use Dotclear\Helper\Html\Form\Textarea;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Process\TraitProcess;
+use Dotclear\Interface\Core\BlogWorkspaceInterface;
 use Exception;
 
 /**
@@ -72,12 +76,18 @@ class Config
             return false;
         }
 
-        if (isset($_POST['css'])) {
-            // Save configuration
+        if (isset($_POST['css']) || isset($_POST['tplset'])) {
             try {
-                if ($fp = fopen(App::backend()->css_file, 'wb')) {
-                    fwrite($fp, (string) $_POST['css']);
-                    fclose($fp);
+                if (isset($_POST['css'])) {
+                    // Save configuration
+                    if ($fp = fopen(App::backend()->css_file, 'wb')) {
+                        fwrite($fp, (string) $_POST['css']);
+                        fclose($fp);
+                    }
+                }
+                if (isset($_POST['tplset'])) {
+                    $tplset = is_string($tplset = $_POST['tplset']) ? $tplset : '';
+                    App::blog()->settings()->themes->put(My::id() . '_tplset', $tplset, BlogWorkspaceInterface::NS_STRING);
                 }
 
                 App::backend()->notices()->addSuccessNotice(__('Style sheet upgraded.'));
@@ -101,14 +111,35 @@ class Config
 
         $css_content = is_file(App::backend()->css_file) ? file_get_contents(App::backend()->css_file) : '';
 
-        echo (new Para())
-            ->class('area')
+        /**
+         * List of template sets
+         *
+         * @todo To be updated if modified in Dotclear
+         */
+        $tplsets = ['mustek', 'dotty'];
+        $combo   = array_map(fn ($tplset): Option => new Option(ucwords($tplset), $tplset), $tplsets);
+
+        $tplset  = is_string($tplset = App::blog()->settings()->themes->get(My::id() . '_tplset')) ? $tplset : App::config()->defaultTplset();
+        $default = sprintf(__('(the default one is <strong>%s</strong>).'), ucwords(App::config()->defaultTplset()));
+
+        echo (new Div())
             ->items([
-                (new Textarea('css'))
-                    ->value(Html::escapeHTML((string) $css_content))
-                    ->rows(25)
-                    ->cols(72)
-                    ->label((new Label(__('Style sheet:'), Label::OL_TF))),
+                (new Para())
+                    ->class('area')
+                    ->items([
+                        (new Textarea('css'))
+                            ->value(Html::escapeHTML((string) $css_content))
+                            ->rows(25)
+                            ->cols(72)
+                            ->label((new Label(__('Style sheet:'), Label::OL_TF))),
+                    ]),
+                (new Para())
+                    ->items([
+                        (new Select('tplset'))
+                            ->items($combo)
+                            ->default($tplset)
+                            ->label((new Label(__('Select the template set to use with this theme:'), Label::IL_TF))->suffix($default)),
+                    ]),
             ])
         ->render();
 

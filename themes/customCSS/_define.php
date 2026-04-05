@@ -18,9 +18,8 @@ $this->registerModule(
     'Custom theme',             // Name
     'A CSS customizable theme', // Description
     'Olivier',                  // Author
-    '2.1',                      // Version
+    '2.2',                      // Version
     [
-        'type'     => 'theme',
-        'overload' => true,
+        'type' => 'theme',
     ]
 );
