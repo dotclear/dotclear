@@ -38,7 +38,7 @@
     {{tpl:CategoryTitle encode_html="1"}}</h2>
     {{tpl:CategoryDescription}}
     <tpl:CategoryIf has_entries="1">
-      <ul class="content-info__feed">
+      <ul class="content-info__feed feeds">
         <li><a type="application/atom+xml" href="{{tpl:CategoryFeedURL type="atom"}}"
          title="{{tpl:lang This category's entries Atom feed}}" class="feed">{{tpl:lang Entries feed}}</a></li>
         <tpl:SysIf operator="or" comments_active="1" pings_active="1">

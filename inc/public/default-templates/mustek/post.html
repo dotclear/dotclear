@@ -215,7 +215,7 @@
     <p id="ping-url" class="ping-url">{{tpl:lang Trackback URL}}&nbsp;: {{tpl:EntryPingLink}}</p>
   </tpl:EntryIf>
   <tpl:EntryIf operator="or" comments_active="1" pings_active="1">
-    <p id="comments-feed" class="comments-feed"><a class="feed" href="{{tpl:BlogFeedURL type="atom"}}/comments/{{tpl:EntryID}}"
+    <p id="comments-feed" class="comments-feed feeds"><a class="feed" href="{{tpl:BlogFeedURL type="atom"}}/comments/{{tpl:EntryID}}"
   title="{{tpl:lang This post's comments Atom feed}}">{{tpl:lang This post's comments feed}}</a></p>
   </tpl:EntryIf>
 </tpl:Block>
