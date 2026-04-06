@@ -36,13 +36,13 @@
           <div class="post-content">
             {{tpl:EntryFirstImage size="t" class="post-icon"}}
             <p>
-              {{tpl:EntryContent encode_html="1" remove_html="1" cut_string="300"}}
-              <tpl:EntryIfContentCut encode_html="1" remove_html="1" cut_string="300">
+              {{tpl:EntryContent strip_tags="1" cut_string="300"}}
+              <tpl:EntryIfContentCut strip_tags="1" cut_string="300">
                 <span class="ellipsis">&nbsp;[&#8230;]</span>
               </tpl:EntryIfContentCut>
             </p>
           </div>
-          <tpl:EntryIfContentCut encode_html="1" remove_html="1" cut_string="300">
+          <tpl:EntryIfContentCut strip_tags="1" cut_string="300">
             <p class="post-read-it"><a href="{{tpl:EntryURL}}"
              title="{{tpl:lang Continue reading}} {{tpl:EntryTitle encode_html="1"}}">{{tpl:lang Continue reading}}</a></p>
           </tpl:EntryIfContentCut>
