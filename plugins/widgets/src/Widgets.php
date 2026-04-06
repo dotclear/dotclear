@@ -573,6 +573,7 @@ class Widgets
         $res = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '');
 
         $res .= (new Ul())
+            ->class('feeds')
             ->items([
                 (new Li())
                     ->items([
