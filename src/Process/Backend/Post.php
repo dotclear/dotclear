@@ -512,7 +512,7 @@ class Post
             ]);
             $convert = Html::escapeHTML($_GET['convert-format']);
 
-            # --BEHAVIOR-- adminConvertBeforePostEdit -- ArrayObject
+            # --BEHAVIOR-- adminConvertBeforePostEdit -- string, ArrayObject
             $msg = App::behavior()->callBehavior('adminConvertBeforePostEdit', $convert, $params);
             if ($msg !== '') {
                 App::backend()->post_excerpt = $params['excerpt'];
