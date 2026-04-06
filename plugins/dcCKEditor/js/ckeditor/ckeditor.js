@@ -1,4 +1,4 @@
-﻿/*
+/*
 Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license/
 */
@@ -59209,7 +59209,7 @@ CKEDITOR.config.widget_keystrokeInsertLineAfter = CKEDITOR.SHIFT + 13;
                     marker_ref = n + '-' + data.occurrences[footnote_id];
                 }
                 // Replace the marker contents:
-                var marker = '<a href="#footnote' + prefix + '-' + n + '" id="footnote-marker' + prefix + '-' + marker_ref + '" rel="footnote">[' + n + ']</a>';
+                var marker = '<a href="#footnote' + prefix + '-' + n + '" id="footnote-marker' + prefix + '-' + marker_ref + '" rel="footnote" class="footnote-ref">[' + n + ']</a>';
 
                 item.setHtml(marker);
 

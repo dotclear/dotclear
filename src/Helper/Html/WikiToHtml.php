@@ -324,6 +324,7 @@ class WikiToHtml
         $this->setOpt('first_title_level', 3); # Premier niveau de titre <h..>
 
         $this->setOpt('note_prefix', 'wiki-footnote');
+        $this->setOpt('note_class', 'footnote-ref');
         $this->setOpt('note_str', '<div class="footnotes"><h4>Notes</h4>%s</div>');
         $this->setOpt('note_str_single', '<div class="footnotes"><h4>Note</h4>%s</div>');
         $this->setOpt(
@@ -1485,11 +1486,13 @@ class WikiToHtml
      */
     private function __parseNote(string $str): string
     {
-        $i                     = count($this->foot_notes) + 1;
-        $id                    = $this->getOpt('note_prefix') . '-' . $i;
+        $i     = count($this->foot_notes) + 1;
+        $id    = $this->getOpt('note_prefix') . '-' . $i;
+        $class = $this->getOpt('note_class');
+
         $this->foot_notes[$id] = $this->__inlineWalk($str);
 
-        return '<sup>\[<a href="#' . $id . '" id="rev-' . $id . '">' . $i . '</a>\]</sup>';
+        return '<sup>\[<a href="#' . $id . '" id="rev-' . $id . '" ' . ($class !== '' ? 'class="' . $class . '"' : '') . ' >' . $i . '</a>\]</sup>';
     }
 
     /**
