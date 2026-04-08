@@ -237,6 +237,10 @@ class Parser
                     if (!$item->pubdate && !empty($children->date)) {
                         $item->pubdate = (string) $children->date;
                     }
+                } elseif ($i->category) {
+                    $item->subject = [
+                        ...$this->nodes2array($i->category),
+                    ];
                 }
                 if ($children = $i->children('http://purl.org/rss/1.0/modules/content/')) {
                     $item->content = (string) $children->encoded;
