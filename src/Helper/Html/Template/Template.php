@@ -152,9 +152,6 @@ class Template
         if (!$tpl_file) {
             return '';
         }
-        if (in_array($tpl_file, $this->compile_stack)) {
-            return '';
-        }
 
         return
         '<?php try { ' .
