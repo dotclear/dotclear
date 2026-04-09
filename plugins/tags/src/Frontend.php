@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -48,6 +49,7 @@ class Frontend
             'publicPrependV2'        => FrontendBehaviors::publicPrepend(...),
             'templateBeforeBlockV2'  => FrontendBehaviors::templateBeforeBlock(...),
             'publicBeforeDocumentV2' => FrontendBehaviors::addTplPath(...),
+            'tplIfConditions'        => FrontendBehaviors::tplIfConditions(...),
 
             'initWidgets' => Widgets::initWidgets(...),
         ]);

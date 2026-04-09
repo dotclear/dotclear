@@ -82,4 +82,26 @@ class FrontendBehaviors
             App::frontend()->template()->setPath(App::frontend()->template()->getPath(), $default_template . App::config()->defaultTplset());
         }
     }
+
+    /**
+     * Extends tpl:EntryIf attributes.
+     *
+     * attributes:
+     *
+     *      has_tags  (0|1)   Entry has an one or several tags (if 1), or not (if 0)
+     *
+     * @param   string                      $tag        The current tag
+     * @param   ArrayObject<string, mixed>  $attr       The attributes
+     * @param   string                      $content    The content
+     * @param   ArrayObject<int, string>    $if         The conditions stack
+     */
+    public static function tplIfConditions(string $tag, ArrayObject $attr, string $content, ArrayObject $if): string
+    {
+        if ($tag === 'EntryIf' && isset($attr['has_tags'])) {
+            $sign = (bool) $attr['has_tags'] ? '' : '!';
+            $if->append($sign . 'App::meta()->getMetaRecordset(App::frontend()->context()->posts->post_meta,\'tag\')->count() > 0');
+        }
+
+        return '';
+    }
 }
