@@ -83,15 +83,13 @@
           <!-- # Number of comments, trackbacks and attachments -->
           <tpl:EntryIf operator="or" show_comments="1" show_pings="1" has_attachment="1">
             <p class="post-info-co">
-          </tpl:EntryIf>
-          <tpl:EntryIf show_comments="1">
-            <a href="{{tpl:EntryURL}}#comments" class="comment_count">{{tpl:EntryCommentCount}}</a>
-          </tpl:EntryIf>
-          <tpl:EntryIf show_pings="1">
-            <a href="{{tpl:EntryURL}}#pings" class="ping_count">{{tpl:EntryPingCount}}</a></tpl:EntryIf>
-          <tpl:EntryIf has_attachment="1">
-            <a href="{{tpl:EntryURL}}#attachments" class="attach_count">{{tpl:EntryAttachmentCount}}</a></tpl:EntryIf>
-          <tpl:EntryIf operator="or" show_comments="1" show_pings="1" has_attachment="1">
+            <tpl:EntryIf show_comments="1">
+              <a href="{{tpl:EntryURL}}#comments" class="comment_count">{{tpl:EntryCommentCount}}</a>
+            </tpl:EntryIf>
+            <tpl:EntryIf show_pings="1">
+              <a href="{{tpl:EntryURL}}#pings" class="ping_count">{{tpl:EntryPingCount}}</a></tpl:EntryIf>
+            <tpl:EntryIf has_attachment="1">
+              <a href="{{tpl:EntryURL}}#attachments" class="attach_count">{{tpl:EntryAttachmentCount}}</a></tpl:EntryIf>
             </p>
           </tpl:EntryIf>
         </tpl:Block>
