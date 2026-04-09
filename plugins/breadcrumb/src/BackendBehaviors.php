@@ -33,8 +33,8 @@ class BackendBehaviors
      */
     public static function adminBlogPreferencesForm(BlogSettingsInterface $settings): void
     {
-        $enabled = is_bool($enabled = $settings->breadcrumb->breadcrumb_enabled) ? $enabled : false;
-        $alone   = is_bool($alone = $settings->breadcrumb->breadcrumb_alone) ? $alone : false;
+        $enabled = is_bool($enabled = $settings->breadcrumb->breadcrumb_enabled) && $enabled;
+        $alone   = is_bool($alone = $settings->breadcrumb->breadcrumb_alone)     && $alone;
         $home    = is_string($home = $settings->breadcrumb->breadcrumb_home) ? $home : '';
 
         echo (new Fieldset('breadcrumb_params'))

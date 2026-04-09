@@ -81,12 +81,10 @@ class Config
 
         if (isset($_POST['css']) || isset($_POST['tplset'])) {
             try {
-                if (isset($_POST['css'])) {
-                    // Save configuration
-                    if ($fp = fopen(App::backend()->css_file, 'wb')) {
-                        fwrite($fp, (string) $_POST['css']);
-                        fclose($fp);
-                    }
+                // Save configuration
+                if (isset($_POST['css']) && $fp = fopen(App::backend()->css_file, 'wb')) {
+                    fwrite($fp, (string) $_POST['css']);
+                    fclose($fp);
                 }
                 if (isset($_POST['tplset'])) {
                     $tplset = is_string($tplset = $_POST['tplset']) ? $tplset : '';
@@ -120,7 +118,7 @@ class Config
          * @todo To be updated if modified in Dotclear
          */
         $tplsets = ['mustek', 'dotty'];
-        $combo   = array_map(fn ($tplset): Option => new Option(ucwords($tplset), $tplset), $tplsets);
+        $combo   = array_map(fn (string $tplset): Option => new Option(ucwords($tplset), $tplset), $tplsets);
 
         $tplset  = is_string($tplset = App::blog()->settings()->themes->get(My::id() . '_tplset')) ? $tplset : App::config()->defaultTplset();
         $default = sprintf(__('(the default one is <strong>%s</strong>).'), ucwords(App::config()->defaultTplset()));
