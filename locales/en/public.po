@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-19 10:12+0100\n"
-"PO-Revision-Date: 2026-03-19 09:19\n"
+"POT-Creation-Date: 2026-04-12 12:16+0200\n"
+"PO-Revision-Date: 2026-04-12 10:20\n"
 "Last-Translator: \n"
 "Language-Team: English\n"
 "Language: en_US\n"
@@ -17,6 +17,9 @@ msgstr ""
 "X-Crowdin-File: /master/locales/_pot/public.pot\n"
 "X-Crowdin-File-ID: 266\n"
 
+msgid "%d archives"
+msgstr ""
+
 msgid "%d attachments"
 msgstr ""
 
@@ -27,15 +30,6 @@ msgid "%d trackbacks"
 msgstr ""
 
 msgid "%s reactions"
-msgstr ""
-
-msgid "no archive"
-msgstr ""
-
-msgid "one archive"
-msgstr ""
-
-msgid "%d archives"
 msgstr ""
 
 #: __html_tpl_dummy.php:2
@@ -350,6 +344,9 @@ msgstr ""
 msgid "next entries"
 msgstr ""
 
+msgid "no archive"
+msgstr ""
+
 msgid "no attachments"
 msgstr ""
 
@@ -368,6 +365,9 @@ msgstr ""
 
 #: __html_tpl_dummy.php:35
 msgid "on"
+msgstr ""
+
+msgid "one archive"
 msgstr ""
 
 msgid "one attachment"

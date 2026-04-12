@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-04 09:49+0200\n"
-"PO-Revision-Date: 2026-04-04 09:42\n"
+"POT-Creation-Date: 2026-04-12 10:55+0200\n"
+"PO-Revision-Date: 2026-04-12 10:18\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -2905,18 +2905,18 @@ msgstr "폴더를 읽을 수 없습니다."
 msgid "Unable to write ZIP archive"
 msgstr "ZIP 아카이브를 작성할 수 없음"
 
-#: src/Helper/Html/Template/Template.php:664
-#: src/Helper/Html/Template/Template.php:714
+#: src/Helper/Html/Template/Template.php:661
+#: src/Helper/Html/Template/Template.php:711
 #, php-format
 msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
 msgstr "블록에 대한 닫는 태그를 찾을 수 없습니다 <tpl:%s>. 콘텐츠가 무시되었습니다."
 
-#: src/Helper/Html/Template/Template.php:671
+#: src/Helper/Html/Template/Template.php:668
 #, php-format
 msgid "Unexpected closing tag </tpl:%s> found."
 msgstr "예기치 않은 종료 태그 </tpl:%s> 가 발견되었습니다."
 
-#: src/Helper/Html/Template/Template.php:721
+#: src/Helper/Html/Template/Template.php:718
 msgid "WARNING: the following errors have been found while parsing template file :"
 msgstr "경고: 템플릿 파일을 구문 분석하는 동안 다음 오류가 발견되었습니다:"
 
