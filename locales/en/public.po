@@ -29,6 +29,15 @@ msgstr ""
 msgid "%s reactions"
 msgstr ""
 
+msgid "no archive"
+msgstr ""
+
+msgid "one archive"
+msgstr ""
+
+msgid "%d archives"
+msgstr ""
+
 #: __html_tpl_dummy.php:2
 msgid "Access to content"
 msgstr ""
