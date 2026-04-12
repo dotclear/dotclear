@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-19 10:12+0100\n"
-"PO-Revision-Date: 2026-03-19 09:18\n"
+"POT-Creation-Date: 2026-04-12 12:16+0200\n"
+"PO-Revision-Date: 2026-04-12 10:19\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
 "Language: es_ES\n"
@@ -16,6 +16,9 @@ msgstr ""
 "X-Crowdin-Language: es\n"
 "X-Crowdin-File: /master/locales/_pot/public.pot\n"
 "X-Crowdin-File-ID: 266\n"
+
+msgid "%d archives"
+msgstr ""
 
 msgid "%d attachments"
 msgstr "%d adjuntos"
@@ -341,6 +344,9 @@ msgstr "en"
 msgid "next entries"
 msgstr "siguientes entradas"
 
+msgid "no archive"
+msgstr ""
+
 msgid "no attachments"
 msgstr "sin adjuntos"
 
@@ -360,6 +366,9 @@ msgstr "de"
 #: __html_tpl_dummy.php:35
 msgid "on"
 msgstr "el"
+
+msgid "one archive"
+msgstr ""
 
 msgid "one attachment"
 msgstr "un adjunto"
