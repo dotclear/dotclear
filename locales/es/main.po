@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-04 09:49+0200\n"
-"PO-Revision-Date: 2026-04-04 09:42\n"
+"POT-Creation-Date: 2026-04-12 10:55+0200\n"
+"PO-Revision-Date: 2026-04-12 10:18\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
 "Language: es_ES\n"
@@ -2935,18 +2935,18 @@ msgstr "No se puede leer el directorio"
 msgid "Unable to write ZIP archive"
 msgstr "No se puede escribir el archivo ZIP"
 
-#: src/Helper/Html/Template/Template.php:664
-#: src/Helper/Html/Template/Template.php:714
+#: src/Helper/Html/Template/Template.php:661
+#: src/Helper/Html/Template/Template.php:711
 #, php-format
 msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
 msgstr "No se ha encontrado la etiqueta de cierre del bloque <tpl:%s>. Se ha ignorado el contenido."
 
-#: src/Helper/Html/Template/Template.php:671
+#: src/Helper/Html/Template/Template.php:668
 #, php-format
 msgid "Unexpected closing tag </tpl:%s> found."
 msgstr "Se ha encontrado una etiqueta de cierre inesperada </tpl:%s> ."
 
-#: src/Helper/Html/Template/Template.php:721
+#: src/Helper/Html/Template/Template.php:718
 msgid "WARNING: the following errors have been found while parsing template file :"
 msgstr "ADVERTENCIA: se han encontrado los siguientes errores al analizar el archivo de plantilla :"
 

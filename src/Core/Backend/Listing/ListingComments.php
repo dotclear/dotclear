@@ -258,7 +258,7 @@ class ListingComments extends Listing
             'status' => (new Td())
                 ->class(['nowrap', 'status'])
                 ->items([
-                    App::status()->post()->image((int) $this->rs->comment_status),
+                    App::status()->comment()->image((int) $this->rs->comment_status),
                 ]),
         ];
 
@@ -310,7 +310,7 @@ class ListingComments extends Listing
             ->class(array_filter([
                 'line',
                 App::status()->comment()->isRestricted((int) $this->rs->comment_status) ? 'offline' : '',
-                'sts-' . App::status()->post()->id((int) $this->rs->comment_status),
+                'sts-' . App::status()->comment()->id((int) $this->rs->comment_status),
             ]))
             ->items($cols);
     }

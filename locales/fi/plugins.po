@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-04 11:37+0200\n"
-"PO-Revision-Date: 2026-04-04 11:46\n"
+"POT-Creation-Date: 2026-04-12 12:16+0200\n"
+"PO-Revision-Date: 2026-04-12 10:19\n"
 "Last-Translator: \n"
 "Language-Team: Finnish\n"
 "Language: fi_FI\n"
@@ -3390,11 +3390,11 @@ msgstr "Tämän blogin merkintöjen %s-syöte"
 msgid "This blog's comments %s feed"
 msgstr "Tämän blogin kommenttien %s-syöte"
 
-#: plugins/widgets/src/Widgets.php:584
+#: plugins/widgets/src/Widgets.php:585
 msgid "Entries feed"
 msgstr "Blogimerkintöjen syöte"
 
-#: plugins/widgets/src/Widgets.php:594
+#: plugins/widgets/src/Widgets.php:595
 msgid "Comments feed"
 msgstr "Kommenttien syöte"
 

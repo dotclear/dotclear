@@ -59,6 +59,11 @@ abstract class AbstractHandler implements ConnectionInterface
     protected string $__database;
 
     /**
+     * Transaction in progress flag
+     */
+    protected bool $__transaction;
+
+    /**
      * Constructs a new instance.
      *
      * @param string    $host        Database hostname
@@ -88,6 +93,8 @@ abstract class AbstractHandler implements ConnectionInterface
         if ($prefix !== '') {
             $this->__prefix = $this->db_search_path($this->__link, $prefix);
         }
+
+        $this->__transaction = false;
     }
 
     public static function precondition(): void
@@ -194,26 +201,33 @@ abstract class AbstractHandler implements ConnectionInterface
     public function begin(): void
     {
         $this->execute('BEGIN');
+        $this->__transaction = true;
     }
 
     public function commit(): void
     {
         $this->execute('COMMIT');
+        $this->__transaction = false;
     }
 
     public function rollback(): void
     {
         $this->execute('ROLLBACK');
+        $this->__transaction = false;
     }
 
     public function writeLock(string $table): void
     {
-        $this->db_write_lock($table);
+        if (!$this->__transaction) {
+            $this->db_write_lock($table);
+        }
     }
 
     public function unlock(): void
     {
-        $this->db_unlock();
+        if (!$this->__transaction) {
+            $this->db_unlock();
+        }
     }
 
     public function vacuum(string $table): void

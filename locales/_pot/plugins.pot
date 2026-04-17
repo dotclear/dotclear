@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-04 13:45+0200\n"
+"POT-Creation-Date: 2026-04-12 12:16+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3390,11 +3390,11 @@ msgstr ""
 msgid "This blog's comments %s feed"
 msgstr ""
 
-#: plugins/widgets/src/Widgets.php:584
+#: plugins/widgets/src/Widgets.php:585
 msgid "Entries feed"
 msgstr ""
 
-#: plugins/widgets/src/Widgets.php:594
+#: plugins/widgets/src/Widgets.php:595
 msgid "Comments feed"
 msgstr ""
 

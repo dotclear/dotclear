@@ -184,11 +184,8 @@ class SpamFilters
      */
     private function setFilterOpts(): void
     {
-        /**
-         * @var null|array<string, array{bool, int, bool}>
-         */
-        $filters = My::settings()->antispam_filters;
-        if (is_array($filters)) {
+        $filters = $this->sanitizeFilterOpts(My::settings()->antispam_filters);
+        if ($filters !== []) {
             $this->filters_opt = $filters;
         } else {
             // Create default options if needed
@@ -203,5 +200,55 @@ class SpamFilters
                 $this->filters[$k]->auto_delete = $option[2];
             }
         }
+    }
+
+    /**
+     * Check antispam filters settings (to cope with old ones)
+     *
+     * @param  mixed  $filters Current saved filters options
+     *
+     * @return array<string, array{bool, int, bool}>
+     */
+    private function sanitizeFilterOpts(mixed $filters): array
+    {
+        $options = [];
+        if (is_array($filters)) {
+            $index = 0;
+            foreach ($filters as $key => $value) {
+                // Check key: should be filter name
+                if (!is_string($key)) {
+                    continue;
+                }
+
+                // Check value, should be an array
+                if (!is_array($value)) {
+                    continue;
+                }
+
+                // 1st item: active flag (boolean)
+                $active = (is_bool($value[0]) || is_numeric($value[0]) || is_null($value[0])) && (bool) $value[0];
+
+                // 2nd item (if any): order (integer)
+                $order = $index;
+                if (isset($value[1])) {
+                    $order = is_numeric($value[1]) ? (int) $value[1] : $order;
+                }
+
+                // 3rd item (if any): auto delete flag (boolean)
+                $auto_delete = false;
+                if (isset($value[2])) {
+                    $auto_delete = (is_bool($value[2]) || is_numeric($value[2])) && (bool) $value[2];
+                }
+
+                $options[$key] = [
+                    $active,
+                    $order,
+                    $auto_delete,
+                ];
+                $index++;
+            }
+        }
+
+        return $options;
     }
 }

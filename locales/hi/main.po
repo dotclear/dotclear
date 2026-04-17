@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-04 09:49+0200\n"
-"PO-Revision-Date: 2026-04-07 09:38\n"
+"POT-Creation-Date: 2026-04-12 10:55+0200\n"
+"PO-Revision-Date: 2026-04-12 10:38\n"
 "Last-Translator: \n"
 "Language-Team: Hindi\n"
 "Language: hi_IN\n"
@@ -2935,18 +2935,18 @@ msgstr "डिरेक्ट्री पढ़ नहीं सकता ह�
 msgid "Unable to write ZIP archive"
 msgstr "जिप अभिलेख लिखने में असमर्थ"
 
-#: src/Helper/Html/Template/Template.php:664
-#: src/Helper/Html/Template/Template.php:714
+#: src/Helper/Html/Template/Template.php:661
+#: src/Helper/Html/Template/Template.php:711
 #, php-format
 msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
 msgstr "ब्लॉक <tpl:%s> के लिए समापन टैग नहीं मिला। सामग्री को अनदेखा कर दिया गया है।"
 
-#: src/Helper/Html/Template/Template.php:671
+#: src/Helper/Html/Template/Template.php:668
 #, php-format
 msgid "Unexpected closing tag </tpl:%s> found."
 msgstr "अप्रत्याशित समापन टैग </tpl:%s> मिला."
 
-#: src/Helper/Html/Template/Template.php:721
+#: src/Helper/Html/Template/Template.php:718
 msgid "WARNING: the following errors have been found while parsing template file :"
 msgstr "चेतावनी: निम्नलिखित त्रुटि टेम्पलेट फ़ाइल विश्लेषण करते समय पाया गया है:"
 

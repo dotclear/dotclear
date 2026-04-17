@@ -100,6 +100,7 @@ class Widgets
             ->addTitle(__('Search'))
             ->setting('placeholder', __('Placeholder (HTML5 only, optional):'), '')
             ->addHomeOnly()
+            ->addNotOnArchive()
             ->addContentOnly()
             ->addClass()
             ->addOffline();
@@ -108,6 +109,7 @@ class Widgets
             ->create(self::WIDGET_ID_NAVIGATION, __('Navigation links'), Widgets::navigation(...), null, 'List of navigation links')
             ->addTitle()
             ->addHomeOnly()
+            ->addNotOnArchive()
             ->addContentOnly()
             ->addClass()
             ->addOffline();
@@ -117,6 +119,7 @@ class Widgets
             ->addTitle(__('Best of me'))
             ->setting('orderby', __('Sort:'), 'asc', 'combo', [__('Ascending') => 'asc', __('Descending') => 'desc'])
             ->addHomeOnly()
+            ->addNotOnArchive()
             ->addContentOnly()
             ->addClass()
             ->addOffline();
@@ -125,6 +128,7 @@ class Widgets
             ->create(self::WIDGET_ID_LANGS, __('Blog languages'), Widgets::langs(...), null, 'List of available languages')
             ->addTitle(__('Languages'))
             ->addHomeOnly()
+            ->addNotOnArchive()
             ->addContentOnly()
             ->addClass()
             ->addOffline();
@@ -146,6 +150,7 @@ class Widgets
             ->addTitle(__('Subscribe'))
             ->setting('type', __('Feeds type:'), 'atom', 'combo', ['Atom' => 'atom', 'RSS' => 'rss2'])
             ->addHomeOnly()
+            ->addNotOnArchive()
             ->addContentOnly()
             ->addClass()
             ->addOffline();
@@ -156,6 +161,7 @@ class Widgets
             ->setting('url', __('Feed URL:'), '')
             ->setting('limit', __('Entries limit:'), 10)
             ->addHomeOnly()
+            ->addNotOnArchive()
             ->addContentOnly()
             ->addClass()
             ->addOffline();
@@ -165,6 +171,7 @@ class Widgets
             ->addTitle()
             ->setting('text', __('Text:'), '', 'textarea')
             ->addHomeOnly()
+            ->addNotOnArchive()
             ->addContentOnly()
             ->addClass()
             ->addOffline();
@@ -184,6 +191,7 @@ class Widgets
         $w
             ->setting('limit', __('Entries limit:'), 10)
             ->addHomeOnly()
+            ->addNotOnArchive()
             ->addContentOnly()
             ->addClass()
             ->addOffline();
@@ -194,6 +202,7 @@ class Widgets
             ->addTitle(__('Last comments'))
             ->setting('limit', __('Comments limit:'), 10)
             ->addHomeOnly()
+            ->addNotOnArchive()
             ->addContentOnly()
             ->addClass()
             ->addOffline();
@@ -233,6 +242,10 @@ class Widgets
         }
 
         if (!$widget->checkHomeOnly(App::url()->getType())) {
+            return '';
+        }
+
+        if (!$widget->checkNotOnArchive(App::url()->getType())) {
             return '';
         }
 
@@ -281,6 +294,10 @@ class Widgets
         }
 
         if (!$widget->checkHomeOnly(App::url()->getType())) {
+            return '';
+        }
+
+        if (!$widget->checkNotOnArchive(App::url()->getType())) {
             return '';
         }
 
@@ -456,6 +473,10 @@ class Widgets
             return '';
         }
 
+        if (!$widget->checkNotOnArchive(App::url()->getType())) {
+            return '';
+        }
+
         $params = [
             'post_selected' => true,
             'no_content'    => true,
@@ -504,6 +525,10 @@ class Widgets
         }
 
         if (!$widget->checkHomeOnly(App::url()->getType())) {
+            return '';
+        }
+
+        if (!$widget->checkNotOnArchive(App::url()->getType())) {
             return '';
         }
 
@@ -558,6 +583,10 @@ class Widgets
         }
 
         if (!$widget->checkHomeOnly(App::url()->getType())) {
+            return '';
+        }
+
+        if (!$widget->checkNotOnArchive(App::url()->getType())) {
             return '';
         }
 
@@ -617,6 +646,10 @@ class Widgets
         }
 
         if (!$widget->checkHomeOnly(App::url()->getType())) {
+            return '';
+        }
+
+        if (!$widget->checkNotOnArchive(App::url()->getType())) {
             return '';
         }
 
@@ -687,6 +720,10 @@ class Widgets
             return '';
         }
 
+        if (!$widget->checkNotOnArchive(App::url()->getType())) {
+            return '';
+        }
+
         $res = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '') . $widget->get('text');
 
         return $widget->renderDiv((bool) $widget->content_only, 'text ' . $widget->class, '', $res);
@@ -705,6 +742,10 @@ class Widgets
         }
 
         if (!$widget->checkHomeOnly(App::url()->getType())) {
+            return '';
+        }
+
+        if (!$widget->checkNotOnArchive(App::url()->getType())) {
             return '';
         }
 
@@ -770,6 +811,10 @@ class Widgets
         }
 
         if (!$widget->checkHomeOnly(App::url()->getType())) {
+            return '';
+        }
+
+        if (!$widget->checkNotOnArchive(App::url()->getType())) {
             return '';
         }
 

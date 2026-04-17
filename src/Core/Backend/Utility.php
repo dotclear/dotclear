@@ -467,10 +467,10 @@ class Utility extends AbstractUtility
             App::backend()->favorites()->appendMenu(App::backend()->menus());
         }
 
-        if (empty(App::blog()->settings()->system->jquery_migrate_mute)) {
+        if (!App::blog()->settings()->system->settingExists('jquery_migrate_mute')) {
             App::blog()->settings()->system->put('jquery_migrate_mute', true, 'boolean', 'Mute warnings for jquery migrate plugin ?', false);
         }
-        if (empty(App::blog()->settings()->system->jquery_allow_old_version)) {
+        if (App::blog()->settings()->system->settingExists('jquery_allow_old_version')) {
             App::blog()->settings()->system->put('jquery_allow_old_version', false, 'boolean', 'Allow older version of jQuery', false, true);
         }
 
