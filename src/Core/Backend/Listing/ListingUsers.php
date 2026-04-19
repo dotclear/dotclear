@@ -16,6 +16,7 @@ use Dotclear\App;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Caption;
 use Dotclear\Helper\Html\Form\Checkbox;
+use Dotclear\Helper\Html\Form\Component;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Hidden;
 use Dotclear\Helper\Html\Form\Img;
@@ -102,11 +103,11 @@ class ListingUsers extends Listing
         ];
 
         /**
-         * @var ArrayObject<string, mixed>
+         * @var ArrayObject<string, Component>
          */
         $cols = new ArrayObject($cols);
 
-        # --BEHAVIOR-- adminUserListHeaderV2 -- MetaRecord, ArrayObject<string, mixed>, bool
+        # --BEHAVIOR-- adminUserListHeaderV2 -- MetaRecord, ArrayObject<string, Component>, bool
         App::behavior()->callBehavior('adminUserListHeaderV2', $this->rs, $cols, true);
 
         // Cope with optional columns
@@ -251,10 +252,10 @@ class ListingUsers extends Listing
         ];
 
         /**
-         * @var ArrayObject<string, mixed>
+         * @var ArrayObject<string, Component>
          */
         $cols = new ArrayObject($cols);
-        # --BEHAVIOR-- adminUserListValueV2 -- MetaRecord, ArrayObject<string, mixed>, bool
+        # --BEHAVIOR-- adminUserListValueV2 -- MetaRecord, ArrayObject<string, Component>, bool
         App::behavior()->callBehavior('adminUserListValueV2', $this->rs, $cols, true);
 
         // Cope with optional columns

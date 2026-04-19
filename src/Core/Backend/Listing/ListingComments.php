@@ -16,6 +16,7 @@ use Dotclear\App;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Caption;
 use Dotclear\Helper\Html\Form\Checkbox;
+use Dotclear\Helper\Html\Form\Component;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Img;
 use Dotclear\Helper\Html\Form\Link;
@@ -145,11 +146,11 @@ class ListingComments extends Listing
             ->text(__('Entry'));
 
         /**
-         * @var ArrayObject<string, mixed>
+         * @var ArrayObject<string, Component>
          */
         $cols = new ArrayObject($cols);
 
-        # --BEHAVIOR-- adminCommentListHeaderV2 -- MetaRecord, ArrayObject<string, mixed>, bool
+        # --BEHAVIOR-- adminCommentListHeaderV2 -- MetaRecord, ArrayObject<string, Component>, bool
         App::behavior()->callBehavior('adminCommentListHeaderV2', $this->rs, $cols, true);
 
         // Cope with optional columns
@@ -296,10 +297,10 @@ class ListingComments extends Listing
             ]);
 
         /**
-         * @var ArrayObject<string, mixed>
+         * @var ArrayObject<string, Component>
          */
         $cols = new ArrayObject($cols);
-        # --BEHAVIOR-- adminCommentListValueV2 -- MetaRecord, ArrayObject<string, mixed>, bool
+        # --BEHAVIOR-- adminCommentListValueV2 -- MetaRecord, ArrayObject<string, Component>, bool
         App::behavior()->callBehavior('adminCommentListValueV2', $this->rs, $cols, true);
 
         // Cope with optional columns

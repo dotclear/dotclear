@@ -15,6 +15,7 @@ use ArrayObject;
 use Dotclear\App;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Caption;
+use Dotclear\Helper\Html\Form\Component;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Link;
 use Dotclear\Helper\Html\Form\Para;
@@ -75,11 +76,11 @@ class ListingPostsMini extends Listing
         ];
 
         /**
-         * @var ArrayObject<string, mixed>
+         * @var ArrayObject<string, Component>
          */
         $cols = new ArrayObject($cols);
 
-        # --BEHAVIOR-- adminPostMiniListHeaderV2 -- MetaRecord, ArrayObject<string, mixed>, bool
+        # --BEHAVIOR-- adminPostMiniListHeaderV2 -- MetaRecord, ArrayObject<string, Component>, bool
         App::behavior()->callBehavior('adminPostMiniListHeaderV2', $this->rs, $cols, true);
 
         // Cope with optional columns
@@ -171,10 +172,10 @@ class ListingPostsMini extends Listing
         ];
 
         /**
-         * @var ArrayObject<string, mixed>
+         * @var ArrayObject<string, Component>
          */
         $cols = new ArrayObject($cols);
-        # --BEHAVIOR-- adminPostMiniListValueV2 -- MetaRecord, ArrayObject<string, mixed>, bool
+        # --BEHAVIOR-- adminPostMiniListValueV2 -- MetaRecord, ArrayObject<string, Component>, bool
         App::behavior()->callBehavior('adminPostMiniListValueV2', $this->rs, $cols, true);
 
         // Cope with optional columns

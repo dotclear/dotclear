@@ -16,6 +16,7 @@ use Dotclear\App;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Caption;
 use Dotclear\Helper\Html\Form\Checkbox;
+use Dotclear\Helper\Html\Form\Component;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Img;
 use Dotclear\Helper\Html\Form\Link;
@@ -103,11 +104,11 @@ class ListingBlogs extends Listing
         ];
 
         /**
-         * @var ArrayObject<string, mixed>
+         * @var ArrayObject<string, Component>
          */
         $cols = new ArrayObject($cols);
 
-        # --BEHAVIOR-- adminBlogListHeaderV2 -- MetaRecord, ArrayObject<string, mixed>, bool
+        # --BEHAVIOR-- adminBlogListHeaderV2 -- MetaRecord, ArrayObject<string, Component>, bool
         App::behavior()->callBehavior('adminBlogListHeaderV2', $this->rs, $cols, true);
 
         // Cope with optional columns
@@ -251,10 +252,10 @@ class ListingBlogs extends Listing
         ];
 
         /**
-         * @var ArrayObject<string, mixed>
+         * @var ArrayObject<string, Component>
          */
         $cols = new ArrayObject($cols);
-        # --BEHAVIOR-- adminBlogListValueV2 -- MetaRecord, ArrayObject<string, mixed>, bool
+        # --BEHAVIOR-- adminBlogListValueV2 -- MetaRecord, ArrayObject<string, Component>, bool
         App::behavior()->callBehavior('adminBlogListValueV2', $this->rs, $cols, true);
 
         // Cope with optional columns
