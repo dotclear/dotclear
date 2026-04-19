@@ -151,7 +151,7 @@ class Modules implements ModulesInterface
      * @param      array<int|string, mixed>     $search    The searched parameters
      * @param      bool                         $to_array  Convert result to array
      *
-     * @return     array<int|string, mixed>  The defines.
+     * @return     ($to_array is false ? ModuleDefine[] : array<string, array<string, mixed>>)
      */
     public function getDefines(array $search = [], bool $to_array = false): array
     {
