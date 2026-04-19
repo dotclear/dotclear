@@ -168,6 +168,7 @@ class Tpl extends Template
         $this->addValue('EntryExcerpt', $this->EntryExcerpt(...));
         $this->addValue('EntryFeedID', $this->EntryFeedID(...));
         $this->addValue('EntryFirstImage', $this->EntryFirstImage(...));
+        $this->addBlock('IfEntryFirstImage', $this->IfEntryFirstImage(...));
         $this->addValue('EntryID', $this->EntryID(...));
         $this->addBlock('EntryIf', $this->EntryIf(...));
         $this->addBlock('EntryIfContentCut', $this->EntryIfContentCut(...));
@@ -403,9 +404,9 @@ class Tpl extends Template
     public static function getOperator(string $op): string
     {
         return match (strtolower($op)) {
-            'or', '||' => '||',
+            'or', '||'  => '||',
             'and', '&&' => '&&',
-            default => '&&',
+            default     => '&&',
         };
     }
 
@@ -2373,6 +2374,30 @@ class Tpl extends Template
         $cat_only      = empty($attr['cat_only']) ? 'false' : 'true';
 
         return '<?= ' . Ctx::class . "::EntryFirstImageHelper('" . addslashes((string) $size) . "'," . $with_category . ",'" . addslashes((string) $class) . "'," . $no_tag . ',' . $content_only . ',' . $cat_only . ') ?>';
+    }
+
+    /**
+     * tpl:IfEntryFirstImage [attributes] : Check if an Tpl:EntruFirstImage will provide something
+     *
+     * attributes: same as tpl:EntryFirstImage (see above)
+     *
+     * @param       ArrayObject<array-key, mixed>   $attr       The attribtes
+     * @param       string                          $content    The content
+     */
+    public static function IfEntryFirstImage(ArrayObject $attr, string $content): string
+    {
+        $size          = empty($attr['size'])  || !is_string($attr['size']) ? '' : $attr['size'];
+        $class         = empty($attr['class']) || !is_string($attr['class']) ? '' : $attr['class'];
+        $with_category = empty($attr['with_category']) ? 'false' : 'true';
+        $no_tag        = empty($attr['no_tag']) ? 'false' : 'true';
+        $content_only  = empty($attr['content_only']) ? 'false' : 'true';
+        $cat_only      = empty($attr['cat_only']) ? 'false' : 'true';
+
+        return
+        '<?php if (' . Ctx::class . "::EntryFirstImageHelper('" . addslashes($size) . "'," . $with_category . ",'" . addslashes($class) . "'," .
+        $no_tag . ',' . $content_only . ',' . $cat_only . ") != '') : ?>" .
+        $content .
+        '<?php endif; ?>';
     }
 
     /**

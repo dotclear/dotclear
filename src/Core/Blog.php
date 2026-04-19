@@ -1489,12 +1489,12 @@ class Blog implements BlogInterface
         $this->firstPublicationEntries($id);
     }
 
-    public function updPostStatus($id, $status): void
+    public function updPostStatus($id, int $status): void
     {
         $this->updPostsStatus($id, $status);
     }
 
-    public function updPostsStatus($ids, $status): void
+    public function updPostsStatus($ids, int $status): void
     {
         if (!$this->core->auth()->check($this->core->auth()->makePermissions([
             $this->core->auth()::PERMISSION_PUBLISH,
@@ -1504,7 +1504,6 @@ class Blog implements BlogInterface
         }
 
         $posts_ids = $this->cleanIds($ids);
-        $status    = (int) $status;
 
         $sql = new UpdateStatement();
         $sql

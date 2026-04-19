@@ -633,7 +633,7 @@ interface BlogInterface
      * @param   int     $id         The identifier
      * @param   int     $status     The status
      */
-    public function updPostStatus($id, $status): void;
+    public function updPostStatus($id, int $status): void;
 
     /**
      * Updates posts status.
@@ -643,7 +643,7 @@ interface BlogInterface
      * @param   mixed   $ids        The identifiers
      * @param   int     $status     The status
      */
-    public function updPostsStatus($ids, $status): void;
+    public function updPostsStatus($ids, int $status): void;
 
     /**
      * Updates posts first publication flag.
