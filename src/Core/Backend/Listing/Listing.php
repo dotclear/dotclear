@@ -27,6 +27,8 @@ use Dotclear\Helper\Html\Html;
 /**
  * @brief   Generic class for admin listing form.
  *
+ * @template TUserColumn = Component
+ *
  * @since   2.20
  */
 class Listing
@@ -66,13 +68,13 @@ class Listing
      *
      * The $cols paramters should be populate with all possible columns and then unwanted columns
      * will be removed if user set so via App::backend()->userPref()->getUserColumns.
-     * Each column having a key name and having some value (mixed|Component).
+     * Each column having a key name and having some value (TUserColumn see class comment above).
      *
      * If $component is true then all column's value will be converted to Component if already not (as Text)
      *
-     * @param      string                                                               $type       The type
-     * @param      array<string, mixed|Component>|ArrayObject<string, mixed|Component>  $cols       The columns
-     * @param      bool                                                                 $component  Convert column's value to Component
+     * @param      string                                                           $type       The type
+     * @param      array<string, TUserColumn> | ArrayObject<string, TUserColumn>    $cols       The columns
+     * @param      bool                                                             $component  Convert column's value to Component
      */
     public function userColumns(string $type, array|ArrayObject $cols, bool $component = false): void
     {
