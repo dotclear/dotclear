@@ -15,6 +15,7 @@ use Dotclear\App;
 use Dotclear\Core\Backend\Listing\Listing;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Checkbox;
+use Dotclear\Helper\Html\Form\Component;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Img;
 use Dotclear\Helper\Html\Form\Link;
@@ -115,8 +116,11 @@ class BackendList extends Listing
             ]);
         }
 
+        /**
+         * @var ArrayObject<string, Component>
+         */
         $cols = new ArrayObject($cols);
-        # --BEHAVIOR-- adminPagesListHeaderV2 -- MetaRecord, ArrayObject<string, mixed>, bool
+        # --BEHAVIOR-- adminPagesListHeaderV2 -- MetaRecord, ArrayObject<string, Component>, bool
         App::behavior()->callBehavior('adminPagesListHeaderV2', $this->rs, $cols, true);
 
         // Cope with optional columns
@@ -306,8 +310,11 @@ class BackendList extends Listing
             ]);
         }
 
+        /**
+         * @var ArrayObject<string, Component>
+         */
         $cols = new ArrayObject($cols);
-        # --BEHAVIOR-- adminPagesListValueV2 -- MetaRecord, ArrayObject<string, mixed>, bool
+        # --BEHAVIOR-- adminPagesListValueV2 -- MetaRecord, ArrayObject<string, Component>, bool
         App::behavior()->callBehavior('adminPagesListValueV2', $this->rs, $cols, true);
 
         // Cope with optional columns
