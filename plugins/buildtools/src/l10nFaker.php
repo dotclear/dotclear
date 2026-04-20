@@ -12,7 +12,6 @@ namespace Dotclear\Plugin\buildtools;
 
 use Dotclear\App;
 use Dotclear\Helper\Date;
-use Dotclear\Module\ModuleDefine;
 
 /**
  * @brief   The module l10n faker handler.
@@ -66,7 +65,7 @@ class l10nFaker
         // Get list of plugins names
         $plugin .= "\n// Plugin names\n\n";
         foreach (App::plugins()->getDefines() as $define) {
-            if ($define instanceof ModuleDefine && $define->get('distributed')) {
+            if ($define->get('distributed')) {
                 $desc = is_string($desc = $define->get('desc')) ? $desc : '';
                 $plugin .= $fake_l10n($desc);
             }
