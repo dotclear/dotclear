@@ -251,11 +251,13 @@ class dcUtils
      *
      * @deprecated  since 2.28, use App:lexical()->lexicalKeySort() instead
      *
-     * @param   array<string, mixed>    $arr        single array of strings
-     * @param   string                  $namespace  admin/public/lang
-     * @param   string                  $lang       language to be used if $ns = 'lang'
+     * @template TValueLexicalKeySort
      *
-     * @phpstan-param-out array<string, mixed> $arr
+     * @param   array<string, TValueLexicalKeySort> $arr        single array of strings
+     * @param   string                              $namespace  admin/public/lang
+     * @param   string                              $lang       language to be used if $ns = 'lang'
+     *
+     * @phpstan-param-out array<string, TValueLexicalKeySort> $arr
      */
     public static function lexicalKeySort(array &$arr, string $namespace = '', string $lang = 'en_US'): bool
     {
