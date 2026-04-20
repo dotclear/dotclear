@@ -93,14 +93,86 @@ class ModuleDefine
     /**
      * Module properties.
      *
-     * @var     array<string,mixed>     $properties
+     * @var     array{
+     *               state?: int,
+     *               root?: ?string,
+     *               namespace?: ?string,
+     *               root_writable?: bool,
+     *               distributed?: bool,
+     *               name?: string,
+     *               desc?: string,
+     *               author?: string,
+     *               version?: string,
+     *               type?: string,
+     *               permissions?: ?string,
+     *               priority?: int,
+     *               standalone_config?: bool,
+     *               information_config?: bool,
+     *               requires?: array<array-key, array{0:string, 1?:string}>,
+     *               settings?: array{config?: string, blog?: string, pref?: string, self?: string, other?: string, manage?: string},
+     *               date?: string,
+     *               label?: string,
+     *               support?: string,
+     *               details?: string,
+     *               repository?: string,
+     *               parent?: ?string,
+     *               tplset?: ?string,
+     *               file?: string,
+     *               current_version?: int,
+     *               section?: string,
+     *               tags?: string,
+     *               sshot?: string,
+     *               score?: int,
+     *               dc_min?: string,
+     *               sid?: string,
+     *               sname?: string,
+     *               widgettitleformat?: string,
+     *               widgetsubtitleformat?: string,
+     *               widgetcontainerformat?: string
+     *           }   $properties
      */
     private array $properties = [];
 
     /**
      * Module default properties.
      *
-     * @var     array<string, mixed>   $default
+     * @var     array{
+     *               state: int,
+     *               root: ?string,
+     *               namespace: ?string,
+     *               root_writable: bool,
+     *               distributed: bool,
+     *               name: string,
+     *               desc: string,
+     *               author: string,
+     *               version: string,
+     *               type: string,
+     *               permissions: ?string,
+     *               priority: int,
+     *               standalone_config: bool,
+     *               information_config: bool,
+     *               requires: array<array-key, array{0:string, 1?:string}>,
+     *               settings: array{config?: string, blog?: string, pref?: string, self?: string, other?: string, manage?: string},
+     *               date: string,
+     *               label: string,
+     *               support: string,
+     *               details: string,
+     *               repository: string,
+     *               parent: ?string,
+     *               tplset: ?string,
+     *               file: string,
+     *               current_version: int,
+     *               section: string,
+     *               tags: string,
+     *               sshot: string,
+     *               score: int,
+     *               dc_min: string,
+     *               sid: string,
+     *               sname: string,
+     *               widgettitleformat: string,
+     *               widgetsubtitleformat: string,
+     *               widgetcontainerformat: string
+     *           }   $default
      */
     private array $default = [
         // set by dc
@@ -363,6 +435,7 @@ class ModuleDefine
     public function __unset(string $identifier): void
     {
         if (array_key_exists($identifier, $this->default)) {
+            // @phpstan-ignore assign.propertyType
             $this->properties[$identifier] = $this->default[$identifier];
         }
     }
