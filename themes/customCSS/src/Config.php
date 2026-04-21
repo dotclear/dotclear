@@ -82,9 +82,15 @@ class Config
         if (isset($_POST['css']) || isset($_POST['tplset'])) {
             try {
                 // Save configuration
-                if (isset($_POST['css']) && $fp = fopen(App::backend()->css_file, 'wb')) {
-                    fwrite($fp, (string) $_POST['css']);
-                    fclose($fp);
+                if (isset($_POST['css']) && is_string($_POST['css'])) {
+                    $css_file = is_string($css_file = App::backend()->css_file) ? $css_file : '';
+                    if ($css_file !== '') {
+                        $fp = fopen($css_file, 'wb');
+                        if ($fp) {
+                            fwrite($fp, $_POST['css']);
+                            fclose($fp);
+                        }
+                    }
                 }
                 if (isset($_POST['tplset'])) {
                     $tplset = is_string($tplset = $_POST['tplset']) ? $tplset : '';
@@ -110,7 +116,11 @@ class Config
             return;
         }
 
-        $css_content = is_file(App::backend()->css_file) ? file_get_contents(App::backend()->css_file) : '';
+        $css_content = '';
+        $css_file    = is_string($css_file = App::backend()->css_file) ? $css_file : '';
+        if ($css_file !== '') {
+            $css_content = is_file($css_file) ? file_get_contents($css_file) : '';
+        }
 
         /**
          * List of template sets

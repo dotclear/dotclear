@@ -42,7 +42,8 @@ class Backend
             }
 
             if (App::auth()->prefs()->interface->colorsyntax) {
-                echo App::backend()->page()->jsLoadCodeMirror(App::auth()->prefs()->interface->colorsyntax_theme);
+                $theme = is_string($theme = App::auth()->prefs()->interface->colorsyntax_theme) ? $theme : '';
+                echo App::backend()->page()->jsLoadCodeMirror($theme);
             }
 
             return '';
