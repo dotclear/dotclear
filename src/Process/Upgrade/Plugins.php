@@ -366,7 +366,7 @@ class Plugins
         $list    = [];
         // Check ALL modules
         foreach ($plugins->modules->getDefines() as $module) {
-            if (is_a($module, ModuleDefine::class) && !in_array($module->getId(), $excludes)) {
+            if (!in_array($module->getId(), $excludes)) {
                 $list[$module->getId()] = $module;
             }
         }

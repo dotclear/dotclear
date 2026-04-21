@@ -59,9 +59,13 @@ interface LexicalInterface
     /**
      * Locale specific array sorting function (sorting keys).
      *
-     * @param   array<string, mixed>    $arr        single associative array of values
-     * @param   string                  $namespace  admin/public/lang
-     * @param   string                  $lang       language to be used if $ns = 'lang'
+     * @template TValueLexicalKeySort
+     *
+     * @param   array<string, TValueLexicalKeySort>  $arr        single associative array of values
+     * @param   string                               $namespace  admin/public/lang
+     * @param   string                               $lang       language to be used if $ns = 'lang'
+     *
+     * @phpstan-param-out array<string, TValueLexicalKeySort> $arr
      */
     public function lexicalKeySort(array &$arr, string $namespace = '', string $lang = 'en_US'): bool;
 

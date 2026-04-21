@@ -202,7 +202,7 @@ interface ModulesInterface
      * @param   array<string,mixed>     $search     The search parameters
      * @param   bool                    $to_array   Return arrays of modules properties
      *
-     * @return  array<int|string, mixed>   The modules defines or properties
+     * @return  ($to_array is false ? ModuleDefine[] : array<string, array<string, mixed>>)
      */
     public function getDefines(array $search = [], bool $to_array = false): array;
 
