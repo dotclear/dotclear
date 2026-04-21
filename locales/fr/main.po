@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-12 10:55+0200\n"
-"PO-Revision-Date: 2026-04-12 10:18\n"
+"PO-Revision-Date: 2026-04-21 16:52\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -2035,7 +2035,7 @@ msgstr "Capture d'écran de %s."
 #: src/Core/Backend/ThemesList.php:183
 #, php-format
 msgid "(%s template set)"
-msgstr "(jeu de template %s)"
+msgstr "(jeu de gabarits %s)"
 
 #: src/Core/Backend/ThemesList.php:188
 #, php-format
@@ -2353,7 +2353,7 @@ msgstr "Un problème s'est produit lors de la lecture de l'URL du blog."
 
 #: src/Core/Frontend/Utility.php:157
 msgid "Can't create template files."
-msgstr "Impossible de créer des fichiers modèles."
+msgstr "Impossible de créer des fichiers gabarit."
 
 #: src/Core/Frontend/Utility.php:190
 msgid "Something went wrong while trying to read the database."
@@ -2377,7 +2377,7 @@ msgstr "Thème par défaut introuvable."
 
 #: src/Core/Frontend/Utility.php:369
 msgid "Something went wrong while loading template file for your blog."
-msgstr "Un problème s'est produit lors du chargement du fichier modèle de votre blog."
+msgstr "Un problème s'est produit lors du chargement du fichier gabarit de votre blog."
 
 #: src/Core/Install/Utils.php:36
 #, php-format
@@ -2645,7 +2645,7 @@ msgstr "Cache"
 
 #: src/Core/Upgrade/Utility.php:412 src/Process/Upgrade/Cache.php:83
 msgid "On this page, you can clear templates and repositories cache."
-msgstr "Sur cette page, vous pouvez effacer le cache des templates et des dépôts."
+msgstr "Sur cette page, vous pouvez effacer le cache des gabarits et des dépôts."
 
 #: src/Core/Upgrade/Utility.php:416
 msgid "Digests"
@@ -2948,7 +2948,7 @@ msgstr "Une balise fermante </tpl:%s> sans correspondance a été trouvée."
 
 #: src/Helper/Html/Template/Template.php:718
 msgid "WARNING: the following errors have been found while parsing template file :"
-msgstr "ATTENTION: les erreurs suivantes ont été rencontrées lors de la compilation du fichier de template :"
+msgstr "ATTENTION: les erreurs suivantes ont été rencontrées lors de la compilation du fichier de gabarit :"
 
 #: src/Helper/OAuth2/Client/Client.php:170
 msgid "Services does not work on unsecured protocol."
