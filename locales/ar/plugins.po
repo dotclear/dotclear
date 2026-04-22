@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-12 12:16+0200\n"
-"PO-Revision-Date: 2026-04-12 10:19\n"
+"POT-Creation-Date: 2026-04-22 09:48+0200\n"
+"PO-Revision-Date: 2026-04-22 07:52\n"
 "Last-Translator: \n"
 "Language-Team: Arabic\n"
 "Language: ar_SA\n"
@@ -551,7 +551,7 @@ msgstr "قائمة المواد المختارة"
 msgid "List of available languages"
 msgstr "قائمة اللغات المتاحة"
 
-#: plugins/_fake_plugin/_fake_l10n.php:35 plugins/widgets/src/Widgets.php:133
+#: plugins/_fake_plugin/_fake_l10n.php:35 plugins/widgets/src/Widgets.php:137
 msgid "List of categories"
 msgstr "قائمة الفئات"
 
@@ -1320,7 +1320,7 @@ msgstr "علامة الارتباط بالصفحة الرئيسية:"
 #: plugins/breadcrumb/src/FrontendTemplate.php:81
 #: plugins/breadcrumb/src/FrontendTemplate.php:197
 #: plugins/simpleMenu/src/Manage.php:159 plugins/simpleMenu/src/Manage.php:281
-#: plugins/widgets/src/Widgets.php:297
+#: plugins/widgets/src/Widgets.php:314
 msgid "Home"
 msgstr "المنزل"
 
@@ -1344,7 +1344,7 @@ msgstr "الصفحة %d"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:212
 #: plugins/breadcrumb/src/FrontendTemplate.php:218
-#: plugins/simpleMenu/src/Manage.php:308 plugins/widgets/src/Widgets.php:325
+#: plugins/simpleMenu/src/Manage.php:308 plugins/widgets/src/Widgets.php:342
 msgid "Archives"
 msgstr "المحفوظات"
 
@@ -1895,7 +1895,7 @@ msgid "Add a feed content to the current blog: <strong>%s</strong>."
 msgstr "إضافة محتوى تغذية إلى المدونة الحالية: <strong>%s</strong>."
 
 #: plugins/importExport/src/ModuleImportFeed.php:250
-#: plugins/widgets/src/Widgets.php:156
+#: plugins/widgets/src/Widgets.php:161
 msgid "Feed URL:"
 msgstr "رابط التغذية:"
 
@@ -2466,15 +2466,15 @@ msgstr "العودة إلى قائمة الصفحات"
 msgid "Selected pages have been successfully reordered."
 msgstr "تم إعادة ترتيب الصفحات المختارة بنجاح."
 
-#: plugins/pages/src/BackendList.php:54
+#: plugins/pages/src/BackendList.php:55
 msgid "No page"
 msgstr "لا توجد صفحة"
 
-#: plugins/pages/src/BackendList.php:169 plugins/pages/src/BackendList.php:238
+#: plugins/pages/src/BackendList.php:173 plugins/pages/src/BackendList.php:242
 msgid "Hidden"
 msgstr "Hidden"
 
-#: plugins/pages/src/BackendList.php:267
+#: plugins/pages/src/BackendList.php:271
 msgid "Select this page"
 msgstr "حدد هذه الصفحة"
 
@@ -2671,7 +2671,7 @@ msgid "Home page"
 msgstr "الصفحة الرئيسية"
 
 #: plugins/simpleMenu/src/Manage.php:282 plugins/simpleMenu/src/Manage.php:287
-#: plugins/widgets/src/Widgets.php:306 plugins/widgets/src/Widgets.php:316
+#: plugins/widgets/src/Widgets.php:323 plugins/widgets/src/Widgets.php:333
 msgid "Recent posts"
 msgstr "المشاركات الأخيرة"
 
@@ -3328,101 +3328,101 @@ msgstr "محرك البحث"
 msgid "Placeholder (HTML5 only, optional):"
 msgstr "الحامل البديل (HTML5 فقط، اختياري):"
 
-#: plugins/widgets/src/Widgets.php:108
+#: plugins/widgets/src/Widgets.php:109
 msgid "Navigation links"
 msgstr "روابط التنقل"
 
-#: plugins/widgets/src/Widgets.php:116
+#: plugins/widgets/src/Widgets.php:118
 msgid "Selected entries"
 msgstr "إدخالات مختارة"
 
-#: plugins/widgets/src/Widgets.php:117
+#: plugins/widgets/src/Widgets.php:119
 msgid "Best of me"
 msgstr "أفضل من لي"
 
-#: plugins/widgets/src/Widgets.php:125
+#: plugins/widgets/src/Widgets.php:128
 msgid "Blog languages"
 msgstr "لغات المدونة"
 
-#: plugins/widgets/src/Widgets.php:135
+#: plugins/widgets/src/Widgets.php:139
 msgid "With entries counts"
 msgstr "مع عدد المدخلات"
 
-#: plugins/widgets/src/Widgets.php:136
+#: plugins/widgets/src/Widgets.php:140
 msgid "Include sub cats in count"
 msgstr "تضمين القطط الفرعية في العد"
 
-#: plugins/widgets/src/Widgets.php:137
+#: plugins/widgets/src/Widgets.php:141
 msgid "Include empty categories"
 msgstr "تضمين الفئات الفارغة"
 
-#: plugins/widgets/src/Widgets.php:145
+#: plugins/widgets/src/Widgets.php:149
 msgid "Subscribe links"
 msgstr "روابط الاشتراك"
 
-#: plugins/widgets/src/Widgets.php:146
+#: plugins/widgets/src/Widgets.php:150
 msgid "Subscribe"
 msgstr "اشترك"
 
-#: plugins/widgets/src/Widgets.php:147
+#: plugins/widgets/src/Widgets.php:151
 msgid "Feeds type:"
 msgstr "نوع التغذية:"
 
-#: plugins/widgets/src/Widgets.php:154
+#: plugins/widgets/src/Widgets.php:159
 msgid "Feed reader"
 msgstr "قارئ التغذية"
 
-#: plugins/widgets/src/Widgets.php:155
+#: plugins/widgets/src/Widgets.php:160
 msgid "Somewhere else"
 msgstr "مكان آخر"
 
-#: plugins/widgets/src/Widgets.php:157 plugins/widgets/src/Widgets.php:185
+#: plugins/widgets/src/Widgets.php:162 plugins/widgets/src/Widgets.php:192
 msgid "Entries limit:"
 msgstr "حد الإدخالات:"
 
-#: plugins/widgets/src/Widgets.php:164
+#: plugins/widgets/src/Widgets.php:170
 msgid "Text"
 msgstr "نص"
 
-#: plugins/widgets/src/Widgets.php:166
+#: plugins/widgets/src/Widgets.php:172
 msgid "Text:"
 msgstr "النص:"
 
-#: plugins/widgets/src/Widgets.php:173
+#: plugins/widgets/src/Widgets.php:180
 msgid "Uncategorized"
 msgstr "غير مصنف"
 
-#: plugins/widgets/src/Widgets.php:177 plugins/widgets/src/Widgets.php:179
+#: plugins/widgets/src/Widgets.php:184 plugins/widgets/src/Widgets.php:186
 msgid "Last entries"
 msgstr "الإدخالات الأخيرة"
 
-#: plugins/widgets/src/Widgets.php:182
+#: plugins/widgets/src/Widgets.php:189
 msgid "Tag:"
 msgstr "علامة:"
 
-#: plugins/widgets/src/Widgets.php:194
+#: plugins/widgets/src/Widgets.php:202
 msgid "Last comments"
 msgstr "التعليقات الأخيرة"
 
-#: plugins/widgets/src/Widgets.php:195
+#: plugins/widgets/src/Widgets.php:203
 msgid "Comments limit:"
 msgstr "حد التعليقات:"
 
-#: plugins/widgets/src/Widgets.php:570
+#: plugins/widgets/src/Widgets.php:599
 #, php-format
 msgid "This blog's entries %s feed"
 msgstr "إدخالات هذه المدونة %s تغذية"
 
-#: plugins/widgets/src/Widgets.php:571
+#: plugins/widgets/src/Widgets.php:600
 #, php-format
 msgid "This blog's comments %s feed"
 msgstr "تعليقات هذه المدونة %s تغذية"
 
-#: plugins/widgets/src/Widgets.php:585
+#: plugins/widgets/src/Widgets.php:614
 msgid "Entries feed"
 msgstr "إدخال تغذية"
 
-#: plugins/widgets/src/Widgets.php:595
+#: plugins/widgets/src/Widgets.php:624
 msgid "Comments feed"
 msgstr "تغذية التعليقات"
 
