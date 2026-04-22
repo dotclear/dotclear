@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-12 10:55+0200\n"
-"PO-Revision-Date: 2026-04-12 10:18\n"
+"POT-Creation-Date: 2026-04-20 18:00+0200\n"
+"PO-Revision-Date: 2026-04-22 07:51\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -139,8 +139,8 @@ msgstr "该键在数据库中不存在。"
 
 #: src/Core/Backend/Action/Actions.php:137
 #: src/Core/Backend/Action/ActionsComments.php:158
-#: src/Core/Backend/Combos.php:312 src/Core/Backend/Listing/ListingPosts.php:78
-#: src/Core/Backend/Listing/ListingPostsMini.php:62
+#: src/Core/Backend/Combos.php:312 src/Core/Backend/Listing/ListingPosts.php:79
+#: src/Core/Backend/Listing/ListingPostsMini.php:63
 #: src/Core/Backend/UserPref.php:207 src/Process/Backend/Home.php:597
 #: src/Process/Backend/MediaItem.php:1059 src/Process/Backend/Post.php:848
 msgid "Title"
@@ -151,7 +151,7 @@ msgstr "标题"
 #: src/Core/Backend/Action/ActionsBlogs.php:79
 #: src/Core/Backend/Action/ActionsBlogs.php:117
 #: src/Core/Backend/Favorites.php:493
-#: src/Core/Backend/Listing/ListingBlogs.php:129 src/Core/Backend/Menus.php:245
+#: src/Core/Backend/Listing/ListingBlogs.php:130 src/Core/Backend/Menus.php:245
 #: src/Core/Backend/UserPref.php:77 src/Core/Backend/UserPref.php:194
 #: src/Process/Backend/Blog.php:100 src/Process/Backend/BlogDel.php:93
 #: src/Process/Backend/BlogPref.php:441
@@ -167,12 +167,12 @@ msgid "Blogs actions"
 msgstr "博客行动"
 
 #: src/Core/Backend/Action/ActionsBlogs.php:156
-#: src/Core/Backend/Listing/ListingBlogs.php:78
+#: src/Core/Backend/Listing/ListingBlogs.php:79
 msgid "Blog id"
 msgstr "博客ID"
 
 #: src/Core/Backend/Action/ActionsBlogs.php:158 src/Core/Backend/Combos.php:368
-#: src/Core/Backend/Listing/ListingBlogs.php:83
+#: src/Core/Backend/Listing/ListingBlogs.php:84
 #: src/Core/Backend/UserPref.php:79 src/Process/Backend/Blog.php:144
 #: src/Process/Backend/BlogPref.php:534
 #: src/Process/Backend/UsersActions.php:385
@@ -184,11 +184,11 @@ msgstr "博客名称"
 #: src/Core/Backend/Action/ActionsPostsDefault.php:47
 #: src/Core/Backend/Combos.php:315 src/Core/Backend/Combos.php:338
 #: src/Core/Backend/Combos.php:370
-#: src/Core/Backend/Listing/ListingBlogs.php:102
-#: src/Core/Backend/Listing/ListingComments.php:131
-#: src/Core/Backend/Listing/ListingPosts.php:120
-#: src/Core/Backend/Listing/ListingPostsMini.php:74
-#: src/Core/Backend/Listing/ListingUsers.php:101
+#: src/Core/Backend/Listing/ListingBlogs.php:103
+#: src/Core/Backend/Listing/ListingComments.php:132
+#: src/Core/Backend/Listing/ListingPosts.php:121
+#: src/Core/Backend/Listing/ListingPostsMini.php:75
+#: src/Core/Backend/Listing/ListingUsers.php:102
 #: src/Core/Backend/UserPref.php:55 src/Core/Backend/UserPref.php:71
 #: src/Core/Backend/UserPref.php:83 src/Process/Backend/Post.php:668
 #: src/Process/Backend/Post.php:1397 src/Process/Backend/Users.php:43
@@ -245,9 +245,9 @@ msgstr[0] "%d 博客已被成功删除"
 #: src/Core/Backend/Action/ActionsComments.php:79
 #: src/Core/Backend/Action/ActionsComments.php:117
 #: src/Core/Backend/Favorites.php:431
-#: src/Core/Backend/Listing/ListingPosts.php:97
-#: src/Core/Backend/Listing/ListingPosts.php:100
-#: src/Core/Backend/Listing/ListingPosts.php:101 src/Core/Backend/Menus.php:155
+#: src/Core/Backend/Listing/ListingPosts.php:98
+#: src/Core/Backend/Listing/ListingPosts.php:101
+#: src/Core/Backend/Listing/ListingPosts.php:102 src/Core/Backend/Menus.php:155
 #: src/Core/Backend/UserPref.php:46 src/Core/Backend/UserPref.php:51
 #: src/Core/Backend/UserPref.php:187 src/Process/Backend/Post.php:1045
 #: src/Process/Backend/Post.php:1072
@@ -264,9 +264,9 @@ msgstr "评论行动"
 
 #: src/Core/Backend/Action/ActionsComments.php:156
 #: src/Core/Backend/Combos.php:314 src/Core/Backend/Combos.php:337
-#: src/Core/Backend/Listing/ListingComments.php:123
-#: src/Core/Backend/Listing/ListingPosts.php:90
-#: src/Core/Backend/Listing/ListingPostsMini.php:70
+#: src/Core/Backend/Listing/ListingComments.php:124
+#: src/Core/Backend/Listing/ListingPosts.php:91
+#: src/Core/Backend/Listing/ListingPostsMini.php:71
 #: src/Core/Backend/UserPref.php:45 src/Core/Backend/UserPref.php:54
 #: src/Process/Backend/Comment.php:291 src/Process/Backend/Post.php:1107
 #: src/Process/Backend/Post.php:1388
@@ -404,7 +404,7 @@ msgstr[0] "%d 条目已被成功删除"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:311
 #: src/Core/Backend/Combos.php:42 src/Core/Backend/Filter/FilterPosts.php:122
-#: src/Core/Backend/Listing/ListingPosts.php:268
+#: src/Core/Backend/Listing/ListingPosts.php:269
 msgid "(No cat)"
 msgstr "(没有猫)"
 
@@ -508,24 +508,24 @@ msgid "Ascending"
 msgstr "升序"
 
 #: src/Core/Backend/Combos.php:311 src/Core/Backend/Combos.php:334
-#: src/Core/Backend/Listing/ListingComments.php:127
+#: src/Core/Backend/Listing/ListingComments.php:128
 #: src/Core/Backend/Listing/ListingMedia.php:136
-#: src/Core/Backend/Listing/ListingPosts.php:82
-#: src/Core/Backend/Listing/ListingPostsMini.php:66
+#: src/Core/Backend/Listing/ListingPosts.php:83
+#: src/Core/Backend/Listing/ListingPostsMini.php:67
 #: src/Core/Backend/UserPref.php:43 src/Core/Backend/UserPref.php:53
 #: src/Core/Backend/UserPref.php:205 src/Process/Backend/Post.php:1390
 msgid "Date"
 msgstr "日期"
 
-#: src/Core/Backend/Combos.php:313 src/Core/Backend/Listing/ListingPosts.php:86
+#: src/Core/Backend/Combos.php:313 src/Core/Backend/Listing/ListingPosts.php:87
 #: src/Core/Backend/UserPref.php:44 src/Process/Backend/Post.php:725
 msgid "Category"
 msgstr "分类目录"
 
 #: src/Core/Backend/Combos.php:316 src/Core/Backend/Filter/FilterPosts.php:202
-#: src/Core/Backend/Listing/ListingPosts.php:209
-#: src/Core/Backend/Listing/ListingPosts.php:250
-#: src/Core/Backend/Listing/ListingPostsMini.php:136
+#: src/Core/Backend/Listing/ListingPosts.php:210
+#: src/Core/Backend/Listing/ListingPosts.php:251
+#: src/Core/Backend/Listing/ListingPostsMini.php:137
 msgid "Selected"
 msgstr "精选的"
 
@@ -546,18 +546,18 @@ msgid "Entry date"
 msgstr "进入日期"
 
 #: src/Core/Backend/Combos.php:339
-#: src/Core/Backend/Listing/ListingComments.php:141
+#: src/Core/Backend/Listing/ListingComments.php:142
 #: src/Core/Backend/UserPref.php:57
 msgid "Spam filter"
 msgstr "垃圾邮件过滤器"
 
 #: src/Core/Backend/Combos.php:350
-#: src/Core/Backend/Listing/ListingComments.php:136
+#: src/Core/Backend/Listing/ListingComments.php:137
 #: src/Core/Backend/UserPref.php:56
 msgid "IP"
 msgstr "IP"
 
-#: src/Core/Backend/Combos.php:367 src/Core/Backend/Listing/ListingBlogs.php:98
+#: src/Core/Backend/Combos.php:367 src/Core/Backend/Listing/ListingBlogs.php:99
 #: src/Core/Backend/UserPref.php:82
 msgid "Last update"
 msgstr "最后更新"
@@ -568,22 +568,22 @@ msgstr "最后更新"
 msgid "Blog ID"
 msgstr "博客 ID"
 
-#: src/Core/Backend/Combos.php:388 src/Core/Backend/Listing/ListingUsers.php:70
+#: src/Core/Backend/Combos.php:388 src/Core/Backend/Listing/ListingUsers.php:71
 #: src/Process/Install/Install.php:526
 msgid "Username"
 msgstr "用户名"
 
-#: src/Core/Backend/Combos.php:389 src/Core/Backend/Listing/ListingUsers.php:78
+#: src/Core/Backend/Combos.php:389 src/Core/Backend/Listing/ListingUsers.php:79
 #: src/Core/Backend/UserPref.php:68
 msgid "Last Name"
 msgstr "姓"
 
-#: src/Core/Backend/Combos.php:390 src/Core/Backend/Listing/ListingUsers.php:74
+#: src/Core/Backend/Combos.php:390 src/Core/Backend/Listing/ListingUsers.php:75
 #: src/Core/Backend/UserPref.php:67
 msgid "First Name"
 msgstr "名"
 
-#: src/Core/Backend/Combos.php:391 src/Core/Backend/Listing/ListingUsers.php:82
+#: src/Core/Backend/Combos.php:391 src/Core/Backend/Listing/ListingUsers.php:83
 #: src/Core/Backend/UserPref.php:69
 msgid "Display name"
 msgstr "显示的名字"
@@ -592,12 +592,12 @@ msgstr "显示的名字"
 msgid "Number of entries"
 msgstr "文章数目"
 
-#: src/Core/Backend/Combos.php:393 src/Core/Backend/Listing/ListingUsers.php:92
+#: src/Core/Backend/Combos.php:393 src/Core/Backend/Listing/ListingUsers.php:93
 #: src/Core/Backend/UserPref.php:72
 msgid "Creation date"
 msgstr "创建日期"
 
-#: src/Core/Backend/Combos.php:394 src/Core/Backend/Listing/ListingUsers.php:97
+#: src/Core/Backend/Combos.php:394 src/Core/Backend/Listing/ListingUsers.php:98
 #: src/Core/Backend/UserPref.php:73
 msgid "Update date"
 msgstr "更新日期"
@@ -665,7 +665,7 @@ msgid "Blog appearance"
 msgstr "博客外观"
 
 #: src/Core/Backend/Favorites.php:503
-#: src/Core/Backend/Listing/ListingUsers.php:128 src/Core/Backend/Menus.php:235
+#: src/Core/Backend/Listing/ListingUsers.php:129 src/Core/Backend/Menus.php:235
 #: src/Core/Backend/UserPref.php:65 src/Core/Backend/UserPref.php:170
 #: src/Process/Backend/BlogPref.php:1389 src/Process/Backend/User.php:275
 #: src/Process/Backend/Users.php:103 src/Process/Backend/Users.php:108
@@ -858,111 +858,111 @@ msgstr "应用过滤器和显示选项"
 msgid "Search:"
 msgstr "搜索："
 
-#: src/Core/Backend/Listing/Listing.php:60
+#: src/Core/Backend/Listing/Listing.php:62
 msgid "&#171; prev."
 msgstr "&#171; 上一个。"
 
-#: src/Core/Backend/Listing/Listing.php:61
+#: src/Core/Backend/Listing/Listing.php:63
 msgid "next &#187;"
 msgstr "下一页 &#187;"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:55
+#: src/Core/Backend/Listing/ListingBlogs.php:56
 #: src/Process/Backend/UsersActions.php:322
 msgid "No blog"
 msgstr "没有博客"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:55
+#: src/Core/Backend/Listing/ListingBlogs.php:56
 msgid "No blog matches the filter"
 msgstr "没有符合过滤器的博客"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:88
+#: src/Core/Backend/Listing/ListingBlogs.php:89
 #: src/Core/Backend/ModulesList.php:1825 src/Core/Backend/UserPref.php:80
 #: src/Process/Backend/LinkPopup.php:91
 #: src/Process/Backend/UsersActions.php:388
 msgid "URL"
 msgstr "URL"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:93
+#: src/Core/Backend/Listing/ListingBlogs.php:94
 #: src/Core/Backend/UserPref.php:70 src/Core/Backend/UserPref.php:81
 msgid "Entries (all types)"
 msgstr "参赛作品（所有类型）"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:126
+#: src/Core/Backend/Listing/ListingBlogs.php:127
 #, php-format
 msgid "The blog matching the filter."
 msgid_plural "List of %s blogs matching the filter."
 msgstr[0] "符合筛选条件的 %s 博客列表。"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:161
-#: src/Core/Backend/Listing/ListingComments.php:178
-#: src/Core/Backend/Listing/ListingPosts.php:204
-#: src/Core/Backend/Listing/ListingUsers.php:160
+#: src/Core/Backend/Listing/ListingBlogs.php:162
+#: src/Core/Backend/Listing/ListingComments.php:179
+#: src/Core/Backend/Listing/ListingPosts.php:205
+#: src/Core/Backend/Listing/ListingUsers.php:161
 #: src/Process/Backend/Post.php:1413
 msgid "Legend: "
 msgstr "传说： "
 
-#: src/Core/Backend/Listing/ListingBlogs.php:201
+#: src/Core/Backend/Listing/ListingBlogs.php:202
 #, php-format
 msgid "Edit blog settings for %s"
 msgstr "编辑博客设置， %s"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:205
-#: src/Core/Backend/Listing/ListingBlogs.php:208
+#: src/Core/Backend/Listing/ListingBlogs.php:206
+#: src/Core/Backend/Listing/ListingBlogs.php:209
 msgid "Edit blog settings"
 msgstr "编辑博客设置"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:219
+#: src/Core/Backend/Listing/ListingBlogs.php:220
 #, php-format
 msgid "Switch to blog %s"
 msgstr "切换到博客 %s"
 
-#: src/Core/Backend/Listing/ListingComments.php:57
+#: src/Core/Backend/Listing/ListingComments.php:58
 #: src/Process/Backend/Comment.php:151 src/Process/Backend/Post.php:1049
 msgid "No comments"
 msgstr "没有评论"
 
-#: src/Core/Backend/Listing/ListingComments.php:57
+#: src/Core/Backend/Listing/ListingComments.php:58
 msgid "No comments or trackbacks matches the filter"
 msgstr "没有符合过滤器的评论或回帖"
 
-#: src/Core/Backend/Listing/ListingComments.php:87
+#: src/Core/Backend/Listing/ListingComments.php:88
 #, php-format
 msgid "Comment or trackback matching the filter."
 msgid_plural "List of %s comments or trackbacks matching the filter."
 msgstr[0] "%s 匹配过滤器的评论或回溯的列表。"
 
-#: src/Core/Backend/Listing/ListingComments.php:93
+#: src/Core/Backend/Listing/ListingComments.php:94
 #, php-format
 msgid "List of comments and trackbacks (%s)"
 msgstr "评论和回帖列表 (%s)"
 
-#: src/Core/Backend/Listing/ListingComments.php:119
-#: src/Core/Backend/Listing/ListingPosts.php:127
+#: src/Core/Backend/Listing/ListingComments.php:120
+#: src/Core/Backend/Listing/ListingPosts.php:128
 msgid "Type"
 msgstr "类型"
 
-#: src/Core/Backend/Listing/ListingComments.php:145
+#: src/Core/Backend/Listing/ListingComments.php:146
 #: src/Core/Backend/UserPref.php:58
 msgid "Entry"
 msgstr "入职"
 
-#: src/Core/Backend/Listing/ListingComments.php:213
+#: src/Core/Backend/Listing/ListingComments.php:214
 #, php-format
 msgid "Edit the %1$s from %2$s"
 msgstr "编辑 %1$s ，从 %2$s"
 
-#: src/Core/Backend/Listing/ListingComments.php:214
-#: src/Core/Backend/Listing/ListingComments.php:239
+#: src/Core/Backend/Listing/ListingComments.php:215
+#: src/Core/Backend/Listing/ListingComments.php:240
 msgid "comment"
 msgstr "评论"
 
-#: src/Core/Backend/Listing/ListingComments.php:214
-#: src/Core/Backend/Listing/ListingComments.php:239
+#: src/Core/Backend/Listing/ListingComments.php:215
+#: src/Core/Backend/Listing/ListingComments.php:240
 msgid "trackback"
 msgstr "回轨"
 
-#: src/Core/Backend/Listing/ListingComments.php:235
-#: src/Core/Backend/Listing/ListingComments.php:238
+#: src/Core/Backend/Listing/ListingComments.php:236
+#: src/Core/Backend/Listing/ListingComments.php:239
 #: src/Process/Backend/Post.php:1374 src/Process/Backend/Post.php:1399
 msgid "Edit"
 msgstr "编辑"
@@ -1030,101 +1030,101 @@ msgstr "私人媒体"
 msgid "open"
 msgstr "打开"
 
-#: src/Core/Backend/Listing/ListingPosts.php:58
-#: src/Core/Backend/Listing/ListingPostsMini.php:50
+#: src/Core/Backend/Listing/ListingPosts.php:59
+#: src/Core/Backend/Listing/ListingPostsMini.php:51
 msgid "No entry"
 msgstr "没有文章"
 
-#: src/Core/Backend/Listing/ListingPosts.php:58
+#: src/Core/Backend/Listing/ListingPosts.php:59
 msgid "No entry matches the filter"
 msgstr "没有符合过滤器的条目"
 
-#: src/Core/Backend/Listing/ListingPosts.php:110
-#: src/Core/Backend/Listing/ListingPosts.php:113
+#: src/Core/Backend/Listing/ListingPosts.php:111
 #: src/Core/Backend/Listing/ListingPosts.php:114
+#: src/Core/Backend/Listing/ListingPosts.php:115
 #: src/Core/Backend/UserPref.php:47 src/Process/Backend/Post.php:1177
 #: src/Process/Backend/Post.php:1225
 msgid "Trackbacks"
 msgstr "个 trackback"
 
-#: src/Core/Backend/Listing/ListingPosts.php:154
+#: src/Core/Backend/Listing/ListingPosts.php:155
 #, php-format
 msgid "List of %s entry matching the filter."
 msgid_plural "List of %s entries matching the filter."
 msgstr[0] "匹配过滤器的 %s 条目列表。"
 
-#: src/Core/Backend/Listing/ListingPosts.php:180
+#: src/Core/Backend/Listing/ListingPosts.php:181
 #, php-format
 msgid "List of entries (%s)"
 msgstr "条目列表 (%s)"
 
-#: src/Core/Backend/Listing/ListingPosts.php:208
-#: src/Core/Backend/Listing/ListingPosts.php:247
-#: src/Core/Backend/Listing/ListingPostsMini.php:133
+#: src/Core/Backend/Listing/ListingPosts.php:209
+#: src/Core/Backend/Listing/ListingPosts.php:248
+#: src/Core/Backend/Listing/ListingPostsMini.php:134
 msgid "Protected"
 msgstr "受保护的"
 
-#: src/Core/Backend/Listing/ListingPosts.php:210
+#: src/Core/Backend/Listing/ListingPosts.php:211
 msgid "Attachments"
 msgstr "附件"
 
-#: src/Core/Backend/Listing/ListingPosts.php:254
-#: src/Core/Backend/Listing/ListingPostsMini.php:140
+#: src/Core/Backend/Listing/ListingPosts.php:255
+#: src/Core/Backend/Listing/ListingPostsMini.php:141
 #, php-format
 msgid "%d attachment"
 msgstr "%d 个附件"
 
-#: src/Core/Backend/Listing/ListingPosts.php:254
-#: src/Core/Backend/Listing/ListingPostsMini.php:140
+#: src/Core/Backend/Listing/ListingPosts.php:255
+#: src/Core/Backend/Listing/ListingPostsMini.php:141
 #, php-format
 msgid "%d attachments"
 msgstr "%d 个附件"
 
-#: src/Core/Backend/Listing/ListingPosts.php:278
+#: src/Core/Backend/Listing/ListingPosts.php:279
 msgid "Select this post"
 msgstr "选择该职位"
 
-#: src/Core/Backend/Listing/ListingPosts.php:309
+#: src/Core/Backend/Listing/ListingPosts.php:310
 msgid "Comments closed"
 msgstr "已关闭评论"
 
-#: src/Core/Backend/Listing/ListingPosts.php:314
+#: src/Core/Backend/Listing/ListingPosts.php:315
 msgid "Trackbacks closed"
 msgstr "已关闭的 Trackbacks"
 
-#: src/Core/Backend/Listing/ListingPostsMini.php:99
+#: src/Core/Backend/Listing/ListingPostsMini.php:100
 msgid "Entries list"
 msgstr "参赛作品列表"
 
-#: src/Core/Backend/Listing/ListingUsers.php:56
+#: src/Core/Backend/Listing/ListingUsers.php:57
 msgid "No user"
 msgstr "没有用户"
 
-#: src/Core/Backend/Listing/ListingUsers.php:56
+#: src/Core/Backend/Listing/ListingUsers.php:57
 msgid "No user matches the filter"
 msgstr "没有符合过滤器的用户"
 
-#: src/Core/Backend/Listing/ListingUsers.php:87
+#: src/Core/Backend/Listing/ListingUsers.php:88
 msgid "No. of entries"
 msgstr "参赛作品数量"
 
-#: src/Core/Backend/Listing/ListingUsers.php:125
+#: src/Core/Backend/Listing/ListingUsers.php:126
 #, php-format
 msgid "The user matching the filter."
 msgid_plural "List of %s users matching the filter."
 msgstr[0] "符合筛选条件的 %s 用户列表。"
 
-#: src/Core/Backend/Listing/ListingUsers.php:163
-#: src/Core/Backend/Listing/ListingUsers.php:189
+#: src/Core/Backend/Listing/ListingUsers.php:164
+#: src/Core/Backend/Listing/ListingUsers.php:190
 msgid "admin"
 msgstr "管理员"
 
-#: src/Core/Backend/Listing/ListingUsers.php:164
-#: src/Core/Backend/Listing/ListingUsers.php:188
+#: src/Core/Backend/Listing/ListingUsers.php:165
+#: src/Core/Backend/Listing/ListingUsers.php:189
 msgid "superadmin"
 msgstr "超级管理员"
 
-#: src/Core/Backend/Listing/ListingUsers.php:172
+#: src/Core/Backend/Listing/ListingUsers.php:173
 msgid "The “No. of entries” column includes all entry types (articles, pages, …) for all blogs in the installation. The link may not be relevant in some contexts"
 msgstr "条目数量 \"一栏包括安装中所有博客的所有条目类型（文章、页面、 …）。链接在某些情况下可能不相关"
 
@@ -2194,7 +2194,7 @@ msgstr "您不被允许创建一篇文章"
 msgid "You are not allowed to update entries"
 msgstr "您不被允许更新文章"
 
-#: src/Core/Blog.php:1441 src/Core/Blog.php:1685
+#: src/Core/Blog.php:1441 src/Core/Blog.php:1684
 msgid "No such entry ID"
 msgstr "没有这样的文章 ID"
 
@@ -2202,72 +2202,72 @@ msgstr "没有这样的文章 ID"
 msgid "You are not allowed to edit this entry"
 msgstr "您不被允许编辑这篇文章"
 
-#: src/Core/Blog.php:1503 src/Core/Blog.php:1538 src/Core/Meta.php:139
+#: src/Core/Blog.php:1503 src/Core/Blog.php:1537 src/Core/Meta.php:139
 #: src/Core/Meta.php:156
 msgid "You are not allowed to change this entry status"
 msgstr "您不被允许更改这篇文章的状态"
 
-#: src/Core/Blog.php:1577 src/Core/Blog.php:1615
+#: src/Core/Blog.php:1576 src/Core/Blog.php:1614
 msgid "You are not allowed to change this entry category"
 msgstr "您不被允许更改这篇文章的分类目录"
 
-#: src/Core/Blog.php:1648
+#: src/Core/Blog.php:1647
 msgid "You are not allowed to change entries category"
 msgstr "你不允许更改参赛项目类别"
 
-#: src/Core/Blog.php:1679
+#: src/Core/Blog.php:1678
 msgid "You are not allowed to delete entries"
 msgstr "您不被允许删除文章"
 
-#: src/Core/Blog.php:1915
+#: src/Core/Blog.php:1914
 msgid "No entry title"
 msgstr "没有文章标题"
 
-#: src/Core/Blog.php:1919 src/Core/Blog.php:1933
+#: src/Core/Blog.php:1918 src/Core/Blog.php:1932
 msgid "No entry content"
 msgstr "没有文章内容"
 
-#: src/Core/Blog.php:1999
+#: src/Core/Blog.php:1998
 msgid "Notes"
 msgstr "笔记"
 
-#: src/Core/Blog.php:2001
+#: src/Core/Blog.php:2000
 msgid "Note"
 msgstr "注意事项"
 
-#: src/Core/Blog.php:2116
+#: src/Core/Blog.php:2115
 msgid "Empty entry URL"
 msgstr "空的文章 URL"
 
-#: src/Core/Blog.php:2427
+#: src/Core/Blog.php:2426
 msgid "You are not allowed to update comments"
 msgstr "您不被允许更新评论"
 
-#: src/Core/Blog.php:2433 src/Core/Blog.php:2439 src/Core/Blog.php:2544
+#: src/Core/Blog.php:2432 src/Core/Blog.php:2438 src/Core/Blog.php:2543
 msgid "No such comment ID"
 msgstr "没有这样的评论 ID"
 
-#: src/Core/Blog.php:2446
+#: src/Core/Blog.php:2445
 msgid "You are not allowed to update this comment"
 msgstr "您不被允许更新这个评论"
 
-#: src/Core/Blog.php:2497
+#: src/Core/Blog.php:2496
 msgid "You are not allowed to change this comment's status"
 msgstr "您不被允许更改这个评论的状态"
 
-#: src/Core/Blog.php:2538 src/Core/Blog.php:2592
+#: src/Core/Blog.php:2537 src/Core/Blog.php:2591
 msgid "You are not allowed to delete comments"
 msgstr "您不被允许删除评论"
 
-#: src/Core/Blog.php:2627
+#: src/Core/Blog.php:2626
 msgid "You must provide a comment"
 msgstr "您必须提供一个评论"
 
-#: src/Core/Blog.php:2631
+#: src/Core/Blog.php:2630
 msgid "You must provide an author name"
 msgstr "您必需提供一个作者姓名"
 
-#: src/Core/Blog.php:2635
+#: src/Core/Blog.php:2634
 msgid "Email address is not valid."
 msgstr "邮箱地址无效。"
 
