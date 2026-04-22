@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-12 10:55+0200\n"
-"PO-Revision-Date: 2026-04-12 10:18\n"
+"POT-Creation-Date: 2026-04-20 18:00+0200\n"
+"PO-Revision-Date: 2026-04-22 07:51\n"
 "Last-Translator: \n"
 "Language-Team: Ukrainian\n"
 "Language: uk_UA\n"
@@ -139,8 +139,8 @@ msgstr "Такого ключа не існує в базі даних."
 
 #: src/Core/Backend/Action/Actions.php:137
 #: src/Core/Backend/Action/ActionsComments.php:158
-#: src/Core/Backend/Combos.php:312 src/Core/Backend/Listing/ListingPosts.php:78
-#: src/Core/Backend/Listing/ListingPostsMini.php:62
+#: src/Core/Backend/Combos.php:312 src/Core/Backend/Listing/ListingPosts.php:79
+#: src/Core/Backend/Listing/ListingPostsMini.php:63
 #: src/Core/Backend/UserPref.php:207 src/Process/Backend/Home.php:597
 #: src/Process/Backend/MediaItem.php:1059 src/Process/Backend/Post.php:848
 msgid "Title"
@@ -151,7 +151,7 @@ msgstr "Назва"
 #: src/Core/Backend/Action/ActionsBlogs.php:79
 #: src/Core/Backend/Action/ActionsBlogs.php:117
 #: src/Core/Backend/Favorites.php:493
-#: src/Core/Backend/Listing/ListingBlogs.php:129 src/Core/Backend/Menus.php:245
+#: src/Core/Backend/Listing/ListingBlogs.php:130 src/Core/Backend/Menus.php:245
 #: src/Core/Backend/UserPref.php:77 src/Core/Backend/UserPref.php:194
 #: src/Process/Backend/Blog.php:100 src/Process/Backend/BlogDel.php:93
 #: src/Process/Backend/BlogPref.php:441
@@ -167,12 +167,12 @@ msgid "Blogs actions"
 msgstr "Дії в блогах"
 
 #: src/Core/Backend/Action/ActionsBlogs.php:156
-#: src/Core/Backend/Listing/ListingBlogs.php:78
+#: src/Core/Backend/Listing/ListingBlogs.php:79
 msgid "Blog id"
 msgstr "Ідентифікатор блогу"
 
 #: src/Core/Backend/Action/ActionsBlogs.php:158 src/Core/Backend/Combos.php:368
-#: src/Core/Backend/Listing/ListingBlogs.php:83
+#: src/Core/Backend/Listing/ListingBlogs.php:84
 #: src/Core/Backend/UserPref.php:79 src/Process/Backend/Blog.php:144
 #: src/Process/Backend/BlogPref.php:534
 #: src/Process/Backend/UsersActions.php:385
@@ -184,11 +184,11 @@ msgstr "Назва блогу"
 #: src/Core/Backend/Action/ActionsPostsDefault.php:47
 #: src/Core/Backend/Combos.php:315 src/Core/Backend/Combos.php:338
 #: src/Core/Backend/Combos.php:370
-#: src/Core/Backend/Listing/ListingBlogs.php:102
-#: src/Core/Backend/Listing/ListingComments.php:131
-#: src/Core/Backend/Listing/ListingPosts.php:120
-#: src/Core/Backend/Listing/ListingPostsMini.php:74
-#: src/Core/Backend/Listing/ListingUsers.php:101
+#: src/Core/Backend/Listing/ListingBlogs.php:103
+#: src/Core/Backend/Listing/ListingComments.php:132
+#: src/Core/Backend/Listing/ListingPosts.php:121
+#: src/Core/Backend/Listing/ListingPostsMini.php:75
+#: src/Core/Backend/Listing/ListingUsers.php:102
 #: src/Core/Backend/UserPref.php:55 src/Core/Backend/UserPref.php:71
 #: src/Core/Backend/UserPref.php:83 src/Process/Backend/Post.php:668
 #: src/Process/Backend/Post.php:1397 src/Process/Backend/Users.php:43
@@ -248,9 +248,9 @@ msgstr[3] "%d блогів успішно видалено"
 #: src/Core/Backend/Action/ActionsComments.php:79
 #: src/Core/Backend/Action/ActionsComments.php:117
 #: src/Core/Backend/Favorites.php:431
-#: src/Core/Backend/Listing/ListingPosts.php:97
-#: src/Core/Backend/Listing/ListingPosts.php:100
-#: src/Core/Backend/Listing/ListingPosts.php:101 src/Core/Backend/Menus.php:155
+#: src/Core/Backend/Listing/ListingPosts.php:98
+#: src/Core/Backend/Listing/ListingPosts.php:101
+#: src/Core/Backend/Listing/ListingPosts.php:102 src/Core/Backend/Menus.php:155
 #: src/Core/Backend/UserPref.php:46 src/Core/Backend/UserPref.php:51
 #: src/Core/Backend/UserPref.php:187 src/Process/Backend/Post.php:1045
 #: src/Process/Backend/Post.php:1072
@@ -267,9 +267,9 @@ msgstr "Коментує дії"
 
 #: src/Core/Backend/Action/ActionsComments.php:156
 #: src/Core/Backend/Combos.php:314 src/Core/Backend/Combos.php:337
-#: src/Core/Backend/Listing/ListingComments.php:123
-#: src/Core/Backend/Listing/ListingPosts.php:90
-#: src/Core/Backend/Listing/ListingPostsMini.php:70
+#: src/Core/Backend/Listing/ListingComments.php:124
+#: src/Core/Backend/Listing/ListingPosts.php:91
+#: src/Core/Backend/Listing/ListingPostsMini.php:71
 #: src/Core/Backend/UserPref.php:45 src/Core/Backend/UserPref.php:54
 #: src/Process/Backend/Comment.php:291 src/Process/Backend/Post.php:1107
 #: src/Process/Backend/Post.php:1388
@@ -422,7 +422,7 @@ msgstr[3] "%d записи успішно видалено"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:311
 #: src/Core/Backend/Combos.php:42 src/Core/Backend/Filter/FilterPosts.php:122
-#: src/Core/Backend/Listing/ListingPosts.php:268
+#: src/Core/Backend/Listing/ListingPosts.php:269
 msgid "(No cat)"
 msgstr "(Без кота)"
 
@@ -535,24 +535,24 @@ msgid "Ascending"
 msgstr "Висхідний"
 
 #: src/Core/Backend/Combos.php:311 src/Core/Backend/Combos.php:334
-#: src/Core/Backend/Listing/ListingComments.php:127
+#: src/Core/Backend/Listing/ListingComments.php:128
 #: src/Core/Backend/Listing/ListingMedia.php:136
-#: src/Core/Backend/Listing/ListingPosts.php:82
-#: src/Core/Backend/Listing/ListingPostsMini.php:66
+#: src/Core/Backend/Listing/ListingPosts.php:83
+#: src/Core/Backend/Listing/ListingPostsMini.php:67
 #: src/Core/Backend/UserPref.php:43 src/Core/Backend/UserPref.php:53
 #: src/Core/Backend/UserPref.php:205 src/Process/Backend/Post.php:1390
 msgid "Date"
 msgstr "Дата"
 
-#: src/Core/Backend/Combos.php:313 src/Core/Backend/Listing/ListingPosts.php:86
+#: src/Core/Backend/Combos.php:313 src/Core/Backend/Listing/ListingPosts.php:87
 #: src/Core/Backend/UserPref.php:44 src/Process/Backend/Post.php:725
 msgid "Category"
 msgstr "Категорія"
 
 #: src/Core/Backend/Combos.php:316 src/Core/Backend/Filter/FilterPosts.php:202
-#: src/Core/Backend/Listing/ListingPosts.php:209
-#: src/Core/Backend/Listing/ListingPosts.php:250
-#: src/Core/Backend/Listing/ListingPostsMini.php:136
+#: src/Core/Backend/Listing/ListingPosts.php:210
+#: src/Core/Backend/Listing/ListingPosts.php:251
+#: src/Core/Backend/Listing/ListingPostsMini.php:137
 msgid "Selected"
 msgstr "Вибране"
 
@@ -573,18 +573,18 @@ msgid "Entry date"
 msgstr "Дата вступу"
 
 #: src/Core/Backend/Combos.php:339
-#: src/Core/Backend/Listing/ListingComments.php:141
+#: src/Core/Backend/Listing/ListingComments.php:142
 #: src/Core/Backend/UserPref.php:57
 msgid "Spam filter"
 msgstr "Фільтр спаму"
 
 #: src/Core/Backend/Combos.php:350
-#: src/Core/Backend/Listing/ListingComments.php:136
+#: src/Core/Backend/Listing/ListingComments.php:137
 #: src/Core/Backend/UserPref.php:56
 msgid "IP"
 msgstr "IP"
 
-#: src/Core/Backend/Combos.php:367 src/Core/Backend/Listing/ListingBlogs.php:98
+#: src/Core/Backend/Combos.php:367 src/Core/Backend/Listing/ListingBlogs.php:99
 #: src/Core/Backend/UserPref.php:82
 msgid "Last update"
 msgstr "Останнє оновлення"
@@ -595,22 +595,22 @@ msgstr "Останнє оновлення"
 msgid "Blog ID"
 msgstr "Ідентифікатор блогу"
 
-#: src/Core/Backend/Combos.php:388 src/Core/Backend/Listing/ListingUsers.php:70
+#: src/Core/Backend/Combos.php:388 src/Core/Backend/Listing/ListingUsers.php:71
 #: src/Process/Install/Install.php:526
 msgid "Username"
 msgstr "Ім'я користувача"
 
-#: src/Core/Backend/Combos.php:389 src/Core/Backend/Listing/ListingUsers.php:78
+#: src/Core/Backend/Combos.php:389 src/Core/Backend/Listing/ListingUsers.php:79
 #: src/Core/Backend/UserPref.php:68
 msgid "Last Name"
 msgstr "Прізвище"
 
-#: src/Core/Backend/Combos.php:390 src/Core/Backend/Listing/ListingUsers.php:74
+#: src/Core/Backend/Combos.php:390 src/Core/Backend/Listing/ListingUsers.php:75
 #: src/Core/Backend/UserPref.php:67
 msgid "First Name"
 msgstr "Ім'я та прізвище"
 
-#: src/Core/Backend/Combos.php:391 src/Core/Backend/Listing/ListingUsers.php:82
+#: src/Core/Backend/Combos.php:391 src/Core/Backend/Listing/ListingUsers.php:83
 #: src/Core/Backend/UserPref.php:69
 msgid "Display name"
 msgstr "Відображати ім'я"
@@ -619,12 +619,12 @@ msgstr "Відображати ім'я"
 msgid "Number of entries"
 msgstr "Кількість конкурсних робіт"
 
-#: src/Core/Backend/Combos.php:393 src/Core/Backend/Listing/ListingUsers.php:92
+#: src/Core/Backend/Combos.php:393 src/Core/Backend/Listing/ListingUsers.php:93
 #: src/Core/Backend/UserPref.php:72
 msgid "Creation date"
 msgstr "Дата створення"
 
-#: src/Core/Backend/Combos.php:394 src/Core/Backend/Listing/ListingUsers.php:97
+#: src/Core/Backend/Combos.php:394 src/Core/Backend/Listing/ListingUsers.php:98
 #: src/Core/Backend/UserPref.php:73
 msgid "Update date"
 msgstr "Дата оновлення"
@@ -698,7 +698,7 @@ msgid "Blog appearance"
 msgstr "Зовнішній вигляд блогу"
 
 #: src/Core/Backend/Favorites.php:503
-#: src/Core/Backend/Listing/ListingUsers.php:128 src/Core/Backend/Menus.php:235
+#: src/Core/Backend/Listing/ListingUsers.php:129 src/Core/Backend/Menus.php:235
 #: src/Core/Backend/UserPref.php:65 src/Core/Backend/UserPref.php:170
 #: src/Process/Backend/BlogPref.php:1389 src/Process/Backend/User.php:275
 #: src/Process/Backend/Users.php:103 src/Process/Backend/Users.php:108
@@ -891,36 +891,36 @@ msgstr "Застосувати фільтри та параметри відоб
 msgid "Search:"
 msgstr "Шукай:"
 
-#: src/Core/Backend/Listing/Listing.php:60
+#: src/Core/Backend/Listing/Listing.php:62
 msgid "&#171; prev."
 msgstr "&#171; Превелебний."
 
-#: src/Core/Backend/Listing/Listing.php:61
+#: src/Core/Backend/Listing/Listing.php:63
 msgid "next &#187;"
 msgstr "наступний &#187;"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:55
+#: src/Core/Backend/Listing/ListingBlogs.php:56
 #: src/Process/Backend/UsersActions.php:322
 msgid "No blog"
 msgstr "Немає блогу"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:55
+#: src/Core/Backend/Listing/ListingBlogs.php:56
 msgid "No blog matches the filter"
 msgstr "Жоден блог не відповідає фільтру"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:88
+#: src/Core/Backend/Listing/ListingBlogs.php:89
 #: src/Core/Backend/ModulesList.php:1825 src/Core/Backend/UserPref.php:80
 #: src/Process/Backend/LinkPopup.php:91
 #: src/Process/Backend/UsersActions.php:388
 msgid "URL"
 msgstr "URL"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:93
+#: src/Core/Backend/Listing/ListingBlogs.php:94
 #: src/Core/Backend/UserPref.php:70 src/Core/Backend/UserPref.php:81
 msgid "Entries (all types)"
 msgstr "Конкурсні роботи (всі типи)"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:126
+#: src/Core/Backend/Listing/ListingBlogs.php:127
 #, php-format
 msgid "The blog matching the filter."
 msgid_plural "List of %s blogs matching the filter."
@@ -929,39 +929,39 @@ msgstr[1] "Список блогів %s, що відповідають філь�
 msgstr[2] "Список блогів %s, що відповідають фільтру."
 msgstr[3] "Список блогів %s, що відповідають фільтру."
 
-#: src/Core/Backend/Listing/ListingBlogs.php:161
-#: src/Core/Backend/Listing/ListingComments.php:178
-#: src/Core/Backend/Listing/ListingPosts.php:204
-#: src/Core/Backend/Listing/ListingUsers.php:160
+#: src/Core/Backend/Listing/ListingBlogs.php:162
+#: src/Core/Backend/Listing/ListingComments.php:179
+#: src/Core/Backend/Listing/ListingPosts.php:205
+#: src/Core/Backend/Listing/ListingUsers.php:161
 #: src/Process/Backend/Post.php:1413
 msgid "Legend: "
 msgstr "Легенда: "
 
-#: src/Core/Backend/Listing/ListingBlogs.php:201
+#: src/Core/Backend/Listing/ListingBlogs.php:202
 #, php-format
 msgid "Edit blog settings for %s"
 msgstr "Відредагуйте налаштування блогу для %s"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:205
-#: src/Core/Backend/Listing/ListingBlogs.php:208
+#: src/Core/Backend/Listing/ListingBlogs.php:206
+#: src/Core/Backend/Listing/ListingBlogs.php:209
 msgid "Edit blog settings"
 msgstr "Редагування налаштувань блогу"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:219
+#: src/Core/Backend/Listing/ListingBlogs.php:220
 #, php-format
 msgid "Switch to blog %s"
 msgstr "Перейдіть на блог %s"
 
-#: src/Core/Backend/Listing/ListingComments.php:57
+#: src/Core/Backend/Listing/ListingComments.php:58
 #: src/Process/Backend/Comment.php:151 src/Process/Backend/Post.php:1049
 msgid "No comments"
 msgstr "Без коментарів"
 
-#: src/Core/Backend/Listing/ListingComments.php:57
+#: src/Core/Backend/Listing/ListingComments.php:58
 msgid "No comments or trackbacks matches the filter"
 msgstr "Немає коментарів або трекбеків, що відповідають фільтру"
 
-#: src/Core/Backend/Listing/ListingComments.php:87
+#: src/Core/Backend/Listing/ListingComments.php:88
 #, php-format
 msgid "Comment or trackback matching the filter."
 msgid_plural "List of %s comments or trackbacks matching the filter."
@@ -970,38 +970,38 @@ msgstr[1] "Список коментарів або трекбеків %s , як
 msgstr[2] "Список коментарів або трекбеків %s , які відповідають фільтру."
 msgstr[3] "Список коментарів або трекбеків %s , які відповідають фільтру."
 
-#: src/Core/Backend/Listing/ListingComments.php:93
+#: src/Core/Backend/Listing/ListingComments.php:94
 #, php-format
 msgid "List of comments and trackbacks (%s)"
 msgstr "Список коментарів та трекбеків (%s)"
 
-#: src/Core/Backend/Listing/ListingComments.php:119
-#: src/Core/Backend/Listing/ListingPosts.php:127
+#: src/Core/Backend/Listing/ListingComments.php:120
+#: src/Core/Backend/Listing/ListingPosts.php:128
 msgid "Type"
 msgstr "Тип"
 
-#: src/Core/Backend/Listing/ListingComments.php:145
+#: src/Core/Backend/Listing/ListingComments.php:146
 #: src/Core/Backend/UserPref.php:58
 msgid "Entry"
 msgstr "Вступ"
 
-#: src/Core/Backend/Listing/ListingComments.php:213
+#: src/Core/Backend/Listing/ListingComments.php:214
 #, php-format
 msgid "Edit the %1$s from %2$s"
 msgstr "Відредагуйте %1$s з %2$s"
 
-#: src/Core/Backend/Listing/ListingComments.php:214
-#: src/Core/Backend/Listing/ListingComments.php:239
+#: src/Core/Backend/Listing/ListingComments.php:215
+#: src/Core/Backend/Listing/ListingComments.php:240
 msgid "comment"
 msgstr "коментар"
 
-#: src/Core/Backend/Listing/ListingComments.php:214
-#: src/Core/Backend/Listing/ListingComments.php:239
+#: src/Core/Backend/Listing/ListingComments.php:215
+#: src/Core/Backend/Listing/ListingComments.php:240
 msgid "trackback"
 msgstr "зворотній зв'язок"
 
-#: src/Core/Backend/Listing/ListingComments.php:235
-#: src/Core/Backend/Listing/ListingComments.php:238
+#: src/Core/Backend/Listing/ListingComments.php:236
+#: src/Core/Backend/Listing/ListingComments.php:239
 #: src/Process/Backend/Post.php:1374 src/Process/Backend/Post.php:1399
 msgid "Edit"
 msgstr "Редагувати"
@@ -1072,24 +1072,24 @@ msgstr "приватні ЗМІ"
 msgid "open"
 msgstr "відкрито"
 
-#: src/Core/Backend/Listing/ListingPosts.php:58
-#: src/Core/Backend/Listing/ListingPostsMini.php:50
+#: src/Core/Backend/Listing/ListingPosts.php:59
+#: src/Core/Backend/Listing/ListingPostsMini.php:51
 msgid "No entry"
 msgstr "Вхід заборонено"
 
-#: src/Core/Backend/Listing/ListingPosts.php:58
+#: src/Core/Backend/Listing/ListingPosts.php:59
 msgid "No entry matches the filter"
 msgstr "Жоден запис не відповідає фільтру"
 
-#: src/Core/Backend/Listing/ListingPosts.php:110
-#: src/Core/Backend/Listing/ListingPosts.php:113
+#: src/Core/Backend/Listing/ListingPosts.php:111
 #: src/Core/Backend/Listing/ListingPosts.php:114
+#: src/Core/Backend/Listing/ListingPosts.php:115
 #: src/Core/Backend/UserPref.php:47 src/Process/Backend/Post.php:1177
 #: src/Process/Backend/Post.php:1225
 msgid "Trackbacks"
 msgstr "Зворотний зв'язок"
 
-#: src/Core/Backend/Listing/ListingPosts.php:154
+#: src/Core/Backend/Listing/ListingPosts.php:155
 #, php-format
 msgid "List of %s entry matching the filter."
 msgid_plural "List of %s entries matching the filter."
@@ -1098,62 +1098,62 @@ msgstr[1] "Список записів %s, що відповідають філ�
 msgstr[2] "Список записів %s, що відповідають фільтру."
 msgstr[3] "Список записів %s, що відповідають фільтру."
 
-#: src/Core/Backend/Listing/ListingPosts.php:180
+#: src/Core/Backend/Listing/ListingPosts.php:181
 #, php-format
 msgid "List of entries (%s)"
 msgstr "Список робіт (%s)"
 
-#: src/Core/Backend/Listing/ListingPosts.php:208
-#: src/Core/Backend/Listing/ListingPosts.php:247
-#: src/Core/Backend/Listing/ListingPostsMini.php:133
+#: src/Core/Backend/Listing/ListingPosts.php:209
+#: src/Core/Backend/Listing/ListingPosts.php:248
+#: src/Core/Backend/Listing/ListingPostsMini.php:134
 msgid "Protected"
 msgstr "Захищено"
 
-#: src/Core/Backend/Listing/ListingPosts.php:210
+#: src/Core/Backend/Listing/ListingPosts.php:211
 msgid "Attachments"
 msgstr "Вкладення"
 
-#: src/Core/Backend/Listing/ListingPosts.php:254
-#: src/Core/Backend/Listing/ListingPostsMini.php:140
+#: src/Core/Backend/Listing/ListingPosts.php:255
+#: src/Core/Backend/Listing/ListingPostsMini.php:141
 #, php-format
 msgid "%d attachment"
 msgstr "%d прикріплення"
 
-#: src/Core/Backend/Listing/ListingPosts.php:254
-#: src/Core/Backend/Listing/ListingPostsMini.php:140
+#: src/Core/Backend/Listing/ListingPosts.php:255
+#: src/Core/Backend/Listing/ListingPostsMini.php:141
 #, php-format
 msgid "%d attachments"
 msgstr "%d вкладення"
 
-#: src/Core/Backend/Listing/ListingPosts.php:278
+#: src/Core/Backend/Listing/ListingPosts.php:279
 msgid "Select this post"
 msgstr "Виберіть цю публікацію"
 
-#: src/Core/Backend/Listing/ListingPosts.php:309
+#: src/Core/Backend/Listing/ListingPosts.php:310
 msgid "Comments closed"
 msgstr "Коментарі закриті"
 
-#: src/Core/Backend/Listing/ListingPosts.php:314
+#: src/Core/Backend/Listing/ListingPosts.php:315
 msgid "Trackbacks closed"
 msgstr "Відстеження закрито"
 
-#: src/Core/Backend/Listing/ListingPostsMini.php:99
+#: src/Core/Backend/Listing/ListingPostsMini.php:100
 msgid "Entries list"
 msgstr "Список заявок на участь"
 
-#: src/Core/Backend/Listing/ListingUsers.php:56
+#: src/Core/Backend/Listing/ListingUsers.php:57
 msgid "No user"
 msgstr "Немає користувача"
 
-#: src/Core/Backend/Listing/ListingUsers.php:56
+#: src/Core/Backend/Listing/ListingUsers.php:57
 msgid "No user matches the filter"
 msgstr "Жоден користувач не відповідає фільтру"
 
-#: src/Core/Backend/Listing/ListingUsers.php:87
+#: src/Core/Backend/Listing/ListingUsers.php:88
 msgid "No. of entries"
 msgstr "Кількість записів"
 
-#: src/Core/Backend/Listing/ListingUsers.php:125
+#: src/Core/Backend/Listing/ListingUsers.php:126
 #, php-format
 msgid "The user matching the filter."
 msgid_plural "List of %s users matching the filter."
@@ -1162,17 +1162,17 @@ msgstr[1] "Список користувачів %s, які відповідаю
 msgstr[2] "Список користувачів %s, які відповідають фільтру."
 msgstr[3] "Список користувачів %s, які відповідають фільтру."
 
-#: src/Core/Backend/Listing/ListingUsers.php:163
-#: src/Core/Backend/Listing/ListingUsers.php:189
+#: src/Core/Backend/Listing/ListingUsers.php:164
+#: src/Core/Backend/Listing/ListingUsers.php:190
 msgid "admin"
 msgstr "адміністратор"
 
-#: src/Core/Backend/Listing/ListingUsers.php:164
-#: src/Core/Backend/Listing/ListingUsers.php:188
+#: src/Core/Backend/Listing/ListingUsers.php:165
+#: src/Core/Backend/Listing/ListingUsers.php:189
 msgid "superadmin"
 msgstr "superadmin"
 
-#: src/Core/Backend/Listing/ListingUsers.php:172
+#: src/Core/Backend/Listing/ListingUsers.php:173
 msgid "The “No. of entries” column includes all entry types (articles, pages, …) for all blogs in the installation. The link may not be relevant in some contexts"
 msgstr "У колонці \"Кількість записів\" вказані всі типи записів (статті, сторінки, …) для всіх блогів в інсталяції. Посилання може бути не релевантним у деяких контекстах"
 
@@ -2284,7 +2284,7 @@ msgstr "Ви не маєте права створювати записи"
 msgid "You are not allowed to update entries"
 msgstr "Ви не маєте права оновлювати записи"
 
-#: src/Core/Blog.php:1441 src/Core/Blog.php:1685
+#: src/Core/Blog.php:1441 src/Core/Blog.php:1684
 msgid "No such entry ID"
 msgstr "Немає такого ідентифікатора запису"
 
@@ -2292,72 +2292,72 @@ msgstr "Немає такого ідентифікатора запису"
 msgid "You are not allowed to edit this entry"
 msgstr "Ви не маєте права редагувати цей запис"
 
-#: src/Core/Blog.php:1503 src/Core/Blog.php:1538 src/Core/Meta.php:139
+#: src/Core/Blog.php:1503 src/Core/Blog.php:1537 src/Core/Meta.php:139
 #: src/Core/Meta.php:156
 msgid "You are not allowed to change this entry status"
 msgstr "Ви не маєте права змінювати цей статус запису"
 
-#: src/Core/Blog.php:1577 src/Core/Blog.php:1615
+#: src/Core/Blog.php:1576 src/Core/Blog.php:1614
 msgid "You are not allowed to change this entry category"
 msgstr "Ви не маєте права змінювати цю категорію заявок"
 
-#: src/Core/Blog.php:1648
+#: src/Core/Blog.php:1647
 msgid "You are not allowed to change entries category"
 msgstr "Ви не маєте права змінювати категорію заявки"
 
-#: src/Core/Blog.php:1679
+#: src/Core/Blog.php:1678
 msgid "You are not allowed to delete entries"
 msgstr "Ви не маєте права видаляти записи"
 
-#: src/Core/Blog.php:1915
+#: src/Core/Blog.php:1914
 msgid "No entry title"
 msgstr "Немає назви запису"
 
-#: src/Core/Blog.php:1919 src/Core/Blog.php:1933
+#: src/Core/Blog.php:1918 src/Core/Blog.php:1932
 msgid "No entry content"
 msgstr "Немає вмісту для входу"
 
-#: src/Core/Blog.php:1999
+#: src/Core/Blog.php:1998
 msgid "Notes"
 msgstr "Примітки"
 
-#: src/Core/Blog.php:2001
+#: src/Core/Blog.php:2000
 msgid "Note"
 msgstr "Примітка"
 
-#: src/Core/Blog.php:2116
+#: src/Core/Blog.php:2115
 msgid "Empty entry URL"
 msgstr "Порожня URL-адреса запису"
 
-#: src/Core/Blog.php:2427
+#: src/Core/Blog.php:2426
 msgid "You are not allowed to update comments"
 msgstr "Ви не маєте права оновлювати коментарі"
 
-#: src/Core/Blog.php:2433 src/Core/Blog.php:2439 src/Core/Blog.php:2544
+#: src/Core/Blog.php:2432 src/Core/Blog.php:2438 src/Core/Blog.php:2543
 msgid "No such comment ID"
 msgstr "Немає такого ідентифікатора коментаря"
 
-#: src/Core/Blog.php:2446
+#: src/Core/Blog.php:2445
 msgid "You are not allowed to update this comment"
 msgstr "Ви не маєте права оновлювати цей коментар"
 
-#: src/Core/Blog.php:2497
+#: src/Core/Blog.php:2496
 msgid "You are not allowed to change this comment's status"
 msgstr "Ви не маєте права змінювати статус цього коментаря"
 
-#: src/Core/Blog.php:2538 src/Core/Blog.php:2592
+#: src/Core/Blog.php:2537 src/Core/Blog.php:2591
 msgid "You are not allowed to delete comments"
 msgstr "Ви не маєте права видаляти коментарі"
 
-#: src/Core/Blog.php:2627
+#: src/Core/Blog.php:2626
 msgid "You must provide a comment"
 msgstr "Ви повинні надати коментар"
 
-#: src/Core/Blog.php:2631
+#: src/Core/Blog.php:2630
 msgid "You must provide an author name"
 msgstr "Ви повинні вказати ім'я автора"
 
-#: src/Core/Blog.php:2635
+#: src/Core/Blog.php:2634
 msgid "Email address is not valid."
 msgstr "Адреса електронної пошти не є дійсною."
 

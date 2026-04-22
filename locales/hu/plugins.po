@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-12 12:16+0200\n"
-"PO-Revision-Date: 2026-04-12 10:19\n"
+"POT-Creation-Date: 2026-04-22 09:48+0200\n"
+"PO-Revision-Date: 2026-04-22 07:52\n"
 "Last-Translator: \n"
 "Language-Team: Hungarian\n"
 "Language: hu_HU\n"
@@ -551,7 +551,7 @@ msgstr "A kiválasztott bejegyzések listája"
 msgid "List of available languages"
 msgstr "Az elérhető nyelvek listája"
 
-#: plugins/_fake_plugin/_fake_l10n.php:35 plugins/widgets/src/Widgets.php:133
+#: plugins/_fake_plugin/_fake_l10n.php:35 plugins/widgets/src/Widgets.php:137
 msgid "List of categories"
 msgstr "Kategóriák listája"
 
@@ -1312,7 +1312,7 @@ msgstr "Linkcímke a kezdőlapra:"
 #: plugins/breadcrumb/src/FrontendTemplate.php:81
 #: plugins/breadcrumb/src/FrontendTemplate.php:197
 #: plugins/simpleMenu/src/Manage.php:159 plugins/simpleMenu/src/Manage.php:281
-#: plugins/widgets/src/Widgets.php:297
+#: plugins/widgets/src/Widgets.php:314
 msgid "Home"
 msgstr "Otthon"
 
@@ -1336,7 +1336,7 @@ msgstr "%doldal"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:212
 #: plugins/breadcrumb/src/FrontendTemplate.php:218
-#: plugins/simpleMenu/src/Manage.php:308 plugins/widgets/src/Widgets.php:325
+#: plugins/simpleMenu/src/Manage.php:308 plugins/widgets/src/Widgets.php:342
 msgid "Archives"
 msgstr "Archívum"
 
@@ -1887,7 +1887,7 @@ msgid "Add a feed content to the current blog: <strong>%s</strong>."
 msgstr "Adjon hozzá egy takarmánytartalmat az aktuális bloghoz: <strong>%s</strong>."
 
 #: plugins/importExport/src/ModuleImportFeed.php:250
-#: plugins/widgets/src/Widgets.php:156
+#: plugins/widgets/src/Widgets.php:161
 msgid "Feed URL:"
 msgstr "Feed URL-je:"
 
@@ -2446,15 +2446,15 @@ msgstr "Vissza az oldalak listájához"
 msgid "Selected pages have been successfully reordered."
 msgstr "A kiválasztott oldalakat sikeresen átrendeztük."
 
-#: plugins/pages/src/BackendList.php:54
+#: plugins/pages/src/BackendList.php:55
 msgid "No page"
 msgstr "Nincs oldal"
 
-#: plugins/pages/src/BackendList.php:169 plugins/pages/src/BackendList.php:238
+#: plugins/pages/src/BackendList.php:173 plugins/pages/src/BackendList.php:242
 msgid "Hidden"
 msgstr "Rejtett"
 
-#: plugins/pages/src/BackendList.php:267
+#: plugins/pages/src/BackendList.php:271
 msgid "Select this page"
 msgstr "Válassza ki ezt az oldalt"
 
@@ -2651,7 +2651,7 @@ msgid "Home page"
 msgstr "Kezdőlap"
 
 #: plugins/simpleMenu/src/Manage.php:282 plugins/simpleMenu/src/Manage.php:287
-#: plugins/widgets/src/Widgets.php:306 plugins/widgets/src/Widgets.php:316
+#: plugins/widgets/src/Widgets.php:323 plugins/widgets/src/Widgets.php:333
 msgid "Recent posts"
 msgstr "Legutóbbi bejegyzések"
 
@@ -3300,101 +3300,101 @@ msgstr "Keresőmotor"
 msgid "Placeholder (HTML5 only, optional):"
 msgstr "Helytartó (csak HTML5, opcionális):"
 
-#: plugins/widgets/src/Widgets.php:108
+#: plugins/widgets/src/Widgets.php:109
 msgid "Navigation links"
 msgstr "Navigációs hivatkozások"
 
-#: plugins/widgets/src/Widgets.php:116
+#: plugins/widgets/src/Widgets.php:118
 msgid "Selected entries"
 msgstr "Kiválasztott bejegyzések"
 
-#: plugins/widgets/src/Widgets.php:117
+#: plugins/widgets/src/Widgets.php:119
 msgid "Best of me"
 msgstr "Legjobb tőlem"
 
-#: plugins/widgets/src/Widgets.php:125
+#: plugins/widgets/src/Widgets.php:128
 msgid "Blog languages"
 msgstr "Blognyelvek"
 
-#: plugins/widgets/src/Widgets.php:135
+#: plugins/widgets/src/Widgets.php:139
 msgid "With entries counts"
 msgstr "bejegyzésszámlálóval"
 
-#: plugins/widgets/src/Widgets.php:136
+#: plugins/widgets/src/Widgets.php:140
 msgid "Include sub cats in count"
 msgstr "Beleértve a macskákat is a számolásba"
 
-#: plugins/widgets/src/Widgets.php:137
+#: plugins/widgets/src/Widgets.php:141
 msgid "Include empty categories"
 msgstr "Üres kategóriák felvétele"
 
-#: plugins/widgets/src/Widgets.php:145
+#: plugins/widgets/src/Widgets.php:149
 msgid "Subscribe links"
 msgstr "Feliratkozó hivatkozások"
 
-#: plugins/widgets/src/Widgets.php:146
+#: plugins/widgets/src/Widgets.php:150
 msgid "Subscribe"
 msgstr "Feliratkozás"
 
-#: plugins/widgets/src/Widgets.php:147
+#: plugins/widgets/src/Widgets.php:151
 msgid "Feeds type:"
 msgstr "Feed típusa:"
 
-#: plugins/widgets/src/Widgets.php:154
+#: plugins/widgets/src/Widgets.php:159
 msgid "Feed reader"
 msgstr "Feed olvasó"
 
-#: plugins/widgets/src/Widgets.php:155
+#: plugins/widgets/src/Widgets.php:160
 msgid "Somewhere else"
 msgstr "Valahol máshol"
 
-#: plugins/widgets/src/Widgets.php:157 plugins/widgets/src/Widgets.php:185
+#: plugins/widgets/src/Widgets.php:162 plugins/widgets/src/Widgets.php:192
 msgid "Entries limit:"
 msgstr "Bejegyzések száma:"
 
-#: plugins/widgets/src/Widgets.php:164
+#: plugins/widgets/src/Widgets.php:170
 msgid "Text"
 msgstr "Szöveg"
 
-#: plugins/widgets/src/Widgets.php:166
+#: plugins/widgets/src/Widgets.php:172
 msgid "Text:"
 msgstr "Szöveg:"
 
-#: plugins/widgets/src/Widgets.php:173
+#: plugins/widgets/src/Widgets.php:180
 msgid "Uncategorized"
 msgstr "Kategorizálatlan"
 
-#: plugins/widgets/src/Widgets.php:177 plugins/widgets/src/Widgets.php:179
+#: plugins/widgets/src/Widgets.php:184 plugins/widgets/src/Widgets.php:186
 msgid "Last entries"
 msgstr "Legutolsó bejegyzések"
 
-#: plugins/widgets/src/Widgets.php:182
+#: plugins/widgets/src/Widgets.php:189
 msgid "Tag:"
 msgstr "Címke:"
 
-#: plugins/widgets/src/Widgets.php:194
+#: plugins/widgets/src/Widgets.php:202
 msgid "Last comments"
 msgstr "Utolsó hozzászólások"
 
-#: plugins/widgets/src/Widgets.php:195
+#: plugins/widgets/src/Widgets.php:203
 msgid "Comments limit:"
 msgstr "Hozzászólások száma:"
 
-#: plugins/widgets/src/Widgets.php:570
+#: plugins/widgets/src/Widgets.php:599
 #, php-format
 msgid "This blog's entries %s feed"
 msgstr "A blog bejegyzéseinek %s feedje"
 
-#: plugins/widgets/src/Widgets.php:571
+#: plugins/widgets/src/Widgets.php:600
 #, php-format
 msgid "This blog's comments %s feed"
 msgstr "A blog hozzászólásainak %s feedje"
 
-#: plugins/widgets/src/Widgets.php:585
+#: plugins/widgets/src/Widgets.php:614
 msgid "Entries feed"
 msgstr "Bejegyzések feedje"
 
-#: plugins/widgets/src/Widgets.php:595
+#: plugins/widgets/src/Widgets.php:624
 msgid "Comments feed"
 msgstr "Hozzászólások feedje"
 

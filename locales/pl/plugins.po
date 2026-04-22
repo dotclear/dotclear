@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-12 12:16+0200\n"
-"PO-Revision-Date: 2026-04-12 10:19\n"
+"POT-Creation-Date: 2026-04-22 09:48+0200\n"
+"PO-Revision-Date: 2026-04-22 07:52\n"
 "Last-Translator: \n"
 "Language-Team: Polish\n"
 "Language: pl_PL\n"
@@ -551,7 +551,7 @@ msgstr "Lista wybranych wpisów"
 msgid "List of available languages"
 msgstr "Lista dostępnych języków"
 
-#: plugins/_fake_plugin/_fake_l10n.php:35 plugins/widgets/src/Widgets.php:133
+#: plugins/_fake_plugin/_fake_l10n.php:35 plugins/widgets/src/Widgets.php:137
 msgid "List of categories"
 msgstr "Lista kategorii"
 
@@ -1316,7 +1316,7 @@ msgstr "Etykieta łącza do strony głównej:"
 #: plugins/breadcrumb/src/FrontendTemplate.php:81
 #: plugins/breadcrumb/src/FrontendTemplate.php:197
 #: plugins/simpleMenu/src/Manage.php:159 plugins/simpleMenu/src/Manage.php:281
-#: plugins/widgets/src/Widgets.php:297
+#: plugins/widgets/src/Widgets.php:314
 msgid "Home"
 msgstr "Strona główna"
 
@@ -1340,7 +1340,7 @@ msgstr "strona %d"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:212
 #: plugins/breadcrumb/src/FrontendTemplate.php:218
-#: plugins/simpleMenu/src/Manage.php:308 plugins/widgets/src/Widgets.php:325
+#: plugins/simpleMenu/src/Manage.php:308 plugins/widgets/src/Widgets.php:342
 msgid "Archives"
 msgstr "Archiwum"
 
@@ -1891,7 +1891,7 @@ msgid "Add a feed content to the current blog: <strong>%s</strong>."
 msgstr "Dodaj zawartość kanału do bieżącego bloga: <strong>%s</strong>."
 
 #: plugins/importExport/src/ModuleImportFeed.php:250
-#: plugins/widgets/src/Widgets.php:156
+#: plugins/widgets/src/Widgets.php:161
 msgid "Feed URL:"
 msgstr "Adres URL kanału:"
 
@@ -2456,15 +2456,15 @@ msgstr "Powrót do listy stron"
 msgid "Selected pages have been successfully reordered."
 msgstr "Kolejność wybranych stron została pomyślnie zmieniona."
 
-#: plugins/pages/src/BackendList.php:54
+#: plugins/pages/src/BackendList.php:55
 msgid "No page"
 msgstr "Brak stron"
 
-#: plugins/pages/src/BackendList.php:169 plugins/pages/src/BackendList.php:238
+#: plugins/pages/src/BackendList.php:173 plugins/pages/src/BackendList.php:242
 msgid "Hidden"
 msgstr "Hidden"
 
-#: plugins/pages/src/BackendList.php:267
+#: plugins/pages/src/BackendList.php:271
 msgid "Select this page"
 msgstr "Wybierz tę stronę"
 
@@ -2661,7 +2661,7 @@ msgid "Home page"
 msgstr "Strona główna"
 
 #: plugins/simpleMenu/src/Manage.php:282 plugins/simpleMenu/src/Manage.php:287
-#: plugins/widgets/src/Widgets.php:306 plugins/widgets/src/Widgets.php:316
+#: plugins/widgets/src/Widgets.php:323 plugins/widgets/src/Widgets.php:333
 msgid "Recent posts"
 msgstr "Ostatnie posty"
 
@@ -3314,101 +3314,101 @@ msgstr "Wyszukiwarka"
 msgid "Placeholder (HTML5 only, optional):"
 msgstr "Miejsce (tylko HTML5, nieobowiązkowe):"
 
-#: plugins/widgets/src/Widgets.php:108
+#: plugins/widgets/src/Widgets.php:109
 msgid "Navigation links"
 msgstr "Nawigacja"
 
-#: plugins/widgets/src/Widgets.php:116
+#: plugins/widgets/src/Widgets.php:118
 msgid "Selected entries"
 msgstr "Wybrane wpisy"
 
-#: plugins/widgets/src/Widgets.php:117
+#: plugins/widgets/src/Widgets.php:119
 msgid "Best of me"
 msgstr "Najlepsze wpisy"
 
-#: plugins/widgets/src/Widgets.php:125
+#: plugins/widgets/src/Widgets.php:128
 msgid "Blog languages"
 msgstr "Języki bloga"
 
-#: plugins/widgets/src/Widgets.php:135
+#: plugins/widgets/src/Widgets.php:139
 msgid "With entries counts"
 msgstr "Z liczbą wpisów"
 
-#: plugins/widgets/src/Widgets.php:136
+#: plugins/widgets/src/Widgets.php:140
 msgid "Include sub cats in count"
 msgstr "Uwzględnij pod-koty w liczbie"
 
-#: plugins/widgets/src/Widgets.php:137
+#: plugins/widgets/src/Widgets.php:141
 msgid "Include empty categories"
 msgstr "Dołącz puste kategorie"
 
-#: plugins/widgets/src/Widgets.php:145
+#: plugins/widgets/src/Widgets.php:149
 msgid "Subscribe links"
 msgstr "Odnośniki subskrybcji"
 
-#: plugins/widgets/src/Widgets.php:146
+#: plugins/widgets/src/Widgets.php:150
 msgid "Subscribe"
 msgstr "Subskrybuj"
 
-#: plugins/widgets/src/Widgets.php:147
+#: plugins/widgets/src/Widgets.php:151
 msgid "Feeds type:"
 msgstr "Rodzaje kanałów:"
 
-#: plugins/widgets/src/Widgets.php:154
+#: plugins/widgets/src/Widgets.php:159
 msgid "Feed reader"
 msgstr "Czytnik kanałów"
 
-#: plugins/widgets/src/Widgets.php:155
+#: plugins/widgets/src/Widgets.php:160
 msgid "Somewhere else"
 msgstr "Gdzieś indziej"
 
-#: plugins/widgets/src/Widgets.php:157 plugins/widgets/src/Widgets.php:185
+#: plugins/widgets/src/Widgets.php:162 plugins/widgets/src/Widgets.php:192
 msgid "Entries limit:"
 msgstr "Limit wpisów:"
 
-#: plugins/widgets/src/Widgets.php:164
+#: plugins/widgets/src/Widgets.php:170
 msgid "Text"
 msgstr "Tekst"
 
-#: plugins/widgets/src/Widgets.php:166
+#: plugins/widgets/src/Widgets.php:172
 msgid "Text:"
 msgstr "Tekst:"
 
-#: plugins/widgets/src/Widgets.php:173
+#: plugins/widgets/src/Widgets.php:180
 msgid "Uncategorized"
 msgstr "Bez kategorii"
 
-#: plugins/widgets/src/Widgets.php:177 plugins/widgets/src/Widgets.php:179
+#: plugins/widgets/src/Widgets.php:184 plugins/widgets/src/Widgets.php:186
 msgid "Last entries"
 msgstr "Ostatnie wpisy"
 
-#: plugins/widgets/src/Widgets.php:182
+#: plugins/widgets/src/Widgets.php:189
 msgid "Tag:"
 msgstr "Tag:"
 
-#: plugins/widgets/src/Widgets.php:194
+#: plugins/widgets/src/Widgets.php:202
 msgid "Last comments"
 msgstr "Ostatnie komentarze"
 
-#: plugins/widgets/src/Widgets.php:195
+#: plugins/widgets/src/Widgets.php:203
 msgid "Comments limit:"
 msgstr "Limit komentarzy:"
 
-#: plugins/widgets/src/Widgets.php:570
+#: plugins/widgets/src/Widgets.php:599
 #, php-format
 msgid "This blog's entries %s feed"
 msgstr "Kanał %s dla wpisów z tego bloga"
 
-#: plugins/widgets/src/Widgets.php:571
+#: plugins/widgets/src/Widgets.php:600
 #, php-format
 msgid "This blog's comments %s feed"
 msgstr "Kanał %s dla komentarzy z tego bloga"
 
-#: plugins/widgets/src/Widgets.php:585
+#: plugins/widgets/src/Widgets.php:614
 msgid "Entries feed"
 msgstr "Kanał wpisów"
 
-#: plugins/widgets/src/Widgets.php:595
+#: plugins/widgets/src/Widgets.php:624
 msgid "Comments feed"
 msgstr "Kanał komentarzy"
 

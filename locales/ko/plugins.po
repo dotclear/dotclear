@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-12 12:16+0200\n"
-"PO-Revision-Date: 2026-04-12 10:19\n"
+"POT-Creation-Date: 2026-04-22 09:48+0200\n"
+"PO-Revision-Date: 2026-04-22 07:52\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -551,7 +551,7 @@ msgstr "선택한 항목 목록"
 msgid "List of available languages"
 msgstr "사용 가능한 언어 목록"
 
-#: plugins/_fake_plugin/_fake_l10n.php:35 plugins/widgets/src/Widgets.php:133
+#: plugins/_fake_plugin/_fake_l10n.php:35 plugins/widgets/src/Widgets.php:137
 msgid "List of categories"
 msgstr "카테고리 목록"
 
@@ -1310,7 +1310,7 @@ msgstr "홈 페이지에 링크 레이블을 연결합니다:"
 #: plugins/breadcrumb/src/FrontendTemplate.php:81
 #: plugins/breadcrumb/src/FrontendTemplate.php:197
 #: plugins/simpleMenu/src/Manage.php:159 plugins/simpleMenu/src/Manage.php:281
-#: plugins/widgets/src/Widgets.php:297
+#: plugins/widgets/src/Widgets.php:314
 msgid "Home"
 msgstr "시작화면"
 
@@ -1334,7 +1334,7 @@ msgstr "페이지 %d"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:212
 #: plugins/breadcrumb/src/FrontendTemplate.php:218
-#: plugins/simpleMenu/src/Manage.php:308 plugins/widgets/src/Widgets.php:325
+#: plugins/simpleMenu/src/Manage.php:308 plugins/widgets/src/Widgets.php:342
 msgid "Archives"
 msgstr "글모둠"
 
@@ -1885,7 +1885,7 @@ msgid "Add a feed content to the current blog: <strong>%s</strong>."
 msgstr "현재 블로그에 피드 콘텐츠를 추가합니다: <strong>%s</strong>."
 
 #: plugins/importExport/src/ModuleImportFeed.php:250
-#: plugins/widgets/src/Widgets.php:156
+#: plugins/widgets/src/Widgets.php:161
 msgid "Feed URL:"
 msgstr "타래소식 주소 :"
 
@@ -2441,15 +2441,15 @@ msgstr "페이지 목록으로 돌아가기"
 msgid "Selected pages have been successfully reordered."
 msgstr "선택한 페이지가 성공적으로 재정렬되었습니다."
 
-#: plugins/pages/src/BackendList.php:54
+#: plugins/pages/src/BackendList.php:55
 msgid "No page"
 msgstr "페이지 없음"
 
-#: plugins/pages/src/BackendList.php:169 plugins/pages/src/BackendList.php:238
+#: plugins/pages/src/BackendList.php:173 plugins/pages/src/BackendList.php:242
 msgid "Hidden"
 msgstr "숨겨진"
 
-#: plugins/pages/src/BackendList.php:267
+#: plugins/pages/src/BackendList.php:271
 msgid "Select this page"
 msgstr "이 페이지 선택"
 
@@ -2646,7 +2646,7 @@ msgid "Home page"
 msgstr "홈 페이지"
 
 #: plugins/simpleMenu/src/Manage.php:282 plugins/simpleMenu/src/Manage.php:287
-#: plugins/widgets/src/Widgets.php:306 plugins/widgets/src/Widgets.php:316
+#: plugins/widgets/src/Widgets.php:323 plugins/widgets/src/Widgets.php:333
 msgid "Recent posts"
 msgstr "최근 게시물"
 
@@ -3293,101 +3293,101 @@ msgstr "찾기 엔진"
 msgid "Placeholder (HTML5 only, optional):"
 msgstr "플레이스홀더(HTML5 전용, 선택 사항):"
 
-#: plugins/widgets/src/Widgets.php:108
+#: plugins/widgets/src/Widgets.php:109
 msgid "Navigation links"
 msgstr "시작화면/글모둠 링크"
 
-#: plugins/widgets/src/Widgets.php:116
+#: plugins/widgets/src/Widgets.php:118
 msgid "Selected entries"
 msgstr "선별 글꼭지 목록"
 
-#: plugins/widgets/src/Widgets.php:117
+#: plugins/widgets/src/Widgets.php:119
 msgid "Best of me"
 msgstr "꼭 보세요"
 
-#: plugins/widgets/src/Widgets.php:125
+#: plugins/widgets/src/Widgets.php:128
 msgid "Blog languages"
 msgstr "언어설정"
 
-#: plugins/widgets/src/Widgets.php:135
+#: plugins/widgets/src/Widgets.php:139
 msgid "With entries counts"
 msgstr "글꼭지 수 표시"
 
-#: plugins/widgets/src/Widgets.php:136
+#: plugins/widgets/src/Widgets.php:140
 msgid "Include sub cats in count"
 msgstr "개수에 하위 고양이 포함"
 
-#: plugins/widgets/src/Widgets.php:137
+#: plugins/widgets/src/Widgets.php:141
 msgid "Include empty categories"
 msgstr "빈 카테고리 포함"
 
-#: plugins/widgets/src/Widgets.php:145
+#: plugins/widgets/src/Widgets.php:149
 msgid "Subscribe links"
 msgstr "구독용 링크"
 
-#: plugins/widgets/src/Widgets.php:146
+#: plugins/widgets/src/Widgets.php:150
 msgid "Subscribe"
 msgstr "구독"
 
-#: plugins/widgets/src/Widgets.php:147
+#: plugins/widgets/src/Widgets.php:151
 msgid "Feeds type:"
 msgstr "타래소식 종류 :"
 
-#: plugins/widgets/src/Widgets.php:154
+#: plugins/widgets/src/Widgets.php:159
 msgid "Feed reader"
 msgstr "타래소식 구독기 (RSS 리더)"
 
-#: plugins/widgets/src/Widgets.php:155
+#: plugins/widgets/src/Widgets.php:160
 msgid "Somewhere else"
 msgstr "다른 곳으로"
 
-#: plugins/widgets/src/Widgets.php:157 plugins/widgets/src/Widgets.php:185
+#: plugins/widgets/src/Widgets.php:162 plugins/widgets/src/Widgets.php:192
 msgid "Entries limit:"
 msgstr "최대 글꼭지 수 :"
 
-#: plugins/widgets/src/Widgets.php:164
+#: plugins/widgets/src/Widgets.php:170
 msgid "Text"
 msgstr "알림말"
 
-#: plugins/widgets/src/Widgets.php:166
+#: plugins/widgets/src/Widgets.php:172
 msgid "Text:"
 msgstr "알림말 :"
 
-#: plugins/widgets/src/Widgets.php:173
+#: plugins/widgets/src/Widgets.php:180
 msgid "Uncategorized"
 msgstr "분류 미정"
 
-#: plugins/widgets/src/Widgets.php:177 plugins/widgets/src/Widgets.php:179
+#: plugins/widgets/src/Widgets.php:184 plugins/widgets/src/Widgets.php:186
 msgid "Last entries"
 msgstr "최근 글꼭지"
 
-#: plugins/widgets/src/Widgets.php:182
+#: plugins/widgets/src/Widgets.php:189
 msgid "Tag:"
 msgstr "분류딱지 :"
 
-#: plugins/widgets/src/Widgets.php:194
+#: plugins/widgets/src/Widgets.php:202
 msgid "Last comments"
 msgstr "최근 댓글들"
 
-#: plugins/widgets/src/Widgets.php:195
+#: plugins/widgets/src/Widgets.php:203
 msgid "Comments limit:"
 msgstr "최대 댓글 수 :"
 
-#: plugins/widgets/src/Widgets.php:570
+#: plugins/widgets/src/Widgets.php:599
 #, php-format
 msgid "This blog's entries %s feed"
 msgstr "이 블로그의 %s 글꼭지 타래소식"
 
-#: plugins/widgets/src/Widgets.php:571
+#: plugins/widgets/src/Widgets.php:600
 #, php-format
 msgid "This blog's comments %s feed"
 msgstr "이 블로그의 %s 댓글 타래소식"
 
-#: plugins/widgets/src/Widgets.php:585
+#: plugins/widgets/src/Widgets.php:614
 msgid "Entries feed"
 msgstr "글꼭지 타래소식"
 
-#: plugins/widgets/src/Widgets.php:595
+#: plugins/widgets/src/Widgets.php:624
 msgid "Comments feed"
 msgstr "댓글 타래소식"
 
