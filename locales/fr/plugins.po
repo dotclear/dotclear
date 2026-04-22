@@ -1301,7 +1301,7 @@ msgstr "Activer l'affichage du fil d'Ariane pour ce blog"
 
 #: plugins/breadcrumb/src/BackendBehaviors.php:51
 msgid "The {{tpl:Breadcrumb [separator=\" &amp;rsaquo; \"]}} tag should be present (or inserted if not) in the template."
-msgstr "La balise {{tpl:Breadcrumb [separator=\" &amp;rsaquo; \"]}} doit être présente (ou insérée dans le cas contraire) dans le ou les fichiers template du thème."
+msgstr "La balise {{tpl:Breadcrumb [separator=\" &amp;rsaquo; \"]}} doit être présente (ou insérée dans le cas contraire) dans le ou les fichiers gabarit du thème."
 
 #: plugins/breadcrumb/src/BackendBehaviors.php:56
 msgid "Link label to the home page:"
@@ -2240,7 +2240,7 @@ msgstr "Supprime le rapport de violation des Content-Security-Policy."
 
 #: plugins/maintenance/src/Task/Cache.php:40
 msgid "Failed to empty templates cache directory."
-msgstr "Impossible de vider le répertoire de cache des « templates »."
+msgstr "Impossible de vider le répertoire de cache des « gabarits »."
 
 #: plugins/maintenance/src/Task/Cache.php:42
 #, php-format
@@ -3092,7 +3092,7 @@ msgstr "Ce fichier n'est pas surchargeable. Veuillez vérifier les permissions d
 
 #: plugins/themeEditor/src/Manage.php:284
 msgid "Templates files"
-msgstr "Fichiers du thème"
+msgstr "Fichiers gabarit"
 
 #: plugins/themeEditor/src/Manage.php:289
 msgid "CSS files"
@@ -3129,7 +3129,7 @@ msgstr "Du thème parent :"
 
 #: plugins/themeEditor/src/ThemeEditor.php:248
 msgid "From template set:"
-msgstr "Du jeu de template :"
+msgstr "Du jeu de gabarits :"
 
 #: plugins/themeEditor/src/ThemeEditor.php:276
 #: plugins/themeEditor/src/ThemeEditor.php:312

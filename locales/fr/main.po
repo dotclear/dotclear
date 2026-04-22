@@ -6954,7 +6954,7 @@ msgstr "Supprimer tous les fichiers sauf le dernier"
 
 #: src/Process/Upgrade/Cache.php:44
 msgid "Templates cache directory emptied."
-msgstr "Le répertoire de cache des « templates » a été vidé."
+msgstr "Le répertoire de cache des « gabarits » a été vidé."
 
 #: src/Process/Upgrade/Cache.php:49
 msgid "Repositories cache directory emptied."
@@ -6974,7 +6974,7 @@ msgstr "Dossiers de cache"
 
 #: src/Process/Upgrade/Cache.php:93
 msgid "Empty templates cache directory"
-msgstr "Vider le répertoire de cache des « templates »"
+msgstr "Vider le répertoire de cache des « gabarits »"
 
 #: src/Process/Upgrade/Cache.php:95
 msgid "Empty repositories cache directory"
