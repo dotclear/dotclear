@@ -30,9 +30,11 @@ class Frontend
         if (self::status()) {
             App::behavior()->addBehavior('publicHeadContent', function (): void {
                 if (App::blog()->settings()->system->theme === My::id()) {
+                    $p_url = is_string($p_url = App::blog()->settings()->system->public_url) ? $p_url : '';
+
                     echo
                     '<link rel="stylesheet" type="text/css" href="' .
-                    App::blog()->settings()->system->public_url . DIRECTORY_SEPARATOR . My::id() . '.css' .
+                    $p_url . DIRECTORY_SEPARATOR . My::id() . '.css' .
                     '" media="screen">' . "\n";
                 }
             });
