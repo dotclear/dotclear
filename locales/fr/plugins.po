@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-12 12:16+0200\n"
-"PO-Revision-Date: 2026-04-21 16:53\n"
+"POT-Creation-Date: 2026-04-22 09:48+0200\n"
+"PO-Revision-Date: 2026-04-22 07:52\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -551,7 +551,7 @@ msgstr "Liste des entrées sélectionnées"
 msgid "List of available languages"
 msgstr "Liste des langues disponibles"
 
-#: plugins/_fake_plugin/_fake_l10n.php:35 plugins/widgets/src/Widgets.php:133
+#: plugins/_fake_plugin/_fake_l10n.php:35 plugins/widgets/src/Widgets.php:137
 msgid "List of categories"
 msgstr "Liste des catégories"
 
@@ -1301,7 +1301,7 @@ msgstr "Activer l'affichage du fil d'Ariane pour ce blog"
 
 #: plugins/breadcrumb/src/BackendBehaviors.php:51
 msgid "The {{tpl:Breadcrumb [separator=\" &amp;rsaquo; \"]}} tag should be present (or inserted if not) in the template."
-msgstr "La balise {{tpl:Breadcrumb [separator=\" &amp;rsaquo; \"]}} doit être présente (ou insérée dans le cas contraire) dans le ou les fichiers gabarit du thème."
+msgstr "La balise {{tpl:Breadcrumb [separator=\" &amp;rsaquo; \"]}} doit être présente (ou insérée dans le cas contraire) dans le ou les fichiers template du thème."
 
 #: plugins/breadcrumb/src/BackendBehaviors.php:56
 msgid "Link label to the home page:"
@@ -1312,7 +1312,7 @@ msgstr "Libellé du lien vers la page d'accueil :"
 #: plugins/breadcrumb/src/FrontendTemplate.php:81
 #: plugins/breadcrumb/src/FrontendTemplate.php:197
 #: plugins/simpleMenu/src/Manage.php:159 plugins/simpleMenu/src/Manage.php:281
-#: plugins/widgets/src/Widgets.php:297
+#: plugins/widgets/src/Widgets.php:314
 msgid "Home"
 msgstr "Accueil"
 
@@ -1336,7 +1336,7 @@ msgstr "page %d"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:212
 #: plugins/breadcrumb/src/FrontendTemplate.php:218
-#: plugins/simpleMenu/src/Manage.php:308 plugins/widgets/src/Widgets.php:325
+#: plugins/simpleMenu/src/Manage.php:308 plugins/widgets/src/Widgets.php:342
 msgid "Archives"
 msgstr "Archives"
 
@@ -1887,7 +1887,7 @@ msgid "Add a feed content to the current blog: <strong>%s</strong>."
 msgstr "Ajouter les contenus d'un flux au blog courant : <strong>%s</strong>."
 
 #: plugins/importExport/src/ModuleImportFeed.php:250
-#: plugins/widgets/src/Widgets.php:156
+#: plugins/widgets/src/Widgets.php:161
 msgid "Feed URL:"
 msgstr "URL du flux :"
 
@@ -2240,7 +2240,7 @@ msgstr "Supprime le rapport de violation des Content-Security-Policy."
 
 #: plugins/maintenance/src/Task/Cache.php:40
 msgid "Failed to empty templates cache directory."
-msgstr "Impossible de vider le répertoire de cache des « gabarits »."
+msgstr "Impossible de vider le répertoire de cache des « templates »."
 
 #: plugins/maintenance/src/Task/Cache.php:42
 #, php-format
@@ -2446,15 +2446,15 @@ msgstr "Retour à la liste des pages"
 msgid "Selected pages have been successfully reordered."
 msgstr "Les pages sélectionnées ont été réordonnées."
 
-#: plugins/pages/src/BackendList.php:54
+#: plugins/pages/src/BackendList.php:55
 msgid "No page"
 msgstr "Aucune page"
 
-#: plugins/pages/src/BackendList.php:169 plugins/pages/src/BackendList.php:238
+#: plugins/pages/src/BackendList.php:173 plugins/pages/src/BackendList.php:242
 msgid "Hidden"
 msgstr "Masqué"
 
-#: plugins/pages/src/BackendList.php:267
+#: plugins/pages/src/BackendList.php:271
 msgid "Select this page"
 msgstr "Sélectionner cette page"
 
@@ -2651,7 +2651,7 @@ msgid "Home page"
 msgstr "Page d'accueil"
 
 #: plugins/simpleMenu/src/Manage.php:282 plugins/simpleMenu/src/Manage.php:287
-#: plugins/widgets/src/Widgets.php:306 plugins/widgets/src/Widgets.php:316
+#: plugins/widgets/src/Widgets.php:323 plugins/widgets/src/Widgets.php:333
 msgid "Recent posts"
 msgstr "Billets récents"
 
@@ -3092,7 +3092,7 @@ msgstr "Ce fichier n'est pas surchargeable. Veuillez vérifier les permissions d
 
 #: plugins/themeEditor/src/Manage.php:284
 msgid "Templates files"
-msgstr "Fichiers gabarit"
+msgstr "Fichiers du thème"
 
 #: plugins/themeEditor/src/Manage.php:289
 msgid "CSS files"
@@ -3129,7 +3129,7 @@ msgstr "Du thème parent :"
 
 #: plugins/themeEditor/src/ThemeEditor.php:248
 msgid "From template set:"
-msgstr "Du jeu de gabarits :"
+msgstr "Du jeu de template :"
 
 #: plugins/themeEditor/src/ThemeEditor.php:276
 #: plugins/themeEditor/src/ThemeEditor.php:312
@@ -3300,101 +3300,101 @@ msgstr "Moteur de recherche"
 msgid "Placeholder (HTML5 only, optional):"
 msgstr "Texte indicatif (HTML5 seulement, optionnel) :"
 
-#: plugins/widgets/src/Widgets.php:108
+#: plugins/widgets/src/Widgets.php:109
 msgid "Navigation links"
 msgstr "Liens de navigation"
 
-#: plugins/widgets/src/Widgets.php:116
+#: plugins/widgets/src/Widgets.php:118
 msgid "Selected entries"
 msgstr "Entrées sélectionnées"
 
-#: plugins/widgets/src/Widgets.php:117
+#: plugins/widgets/src/Widgets.php:119
 msgid "Best of me"
 msgstr "À retenir"
 
-#: plugins/widgets/src/Widgets.php:125
+#: plugins/widgets/src/Widgets.php:128
 msgid "Blog languages"
 msgstr "Langues du blog"
 
-#: plugins/widgets/src/Widgets.php:135
+#: plugins/widgets/src/Widgets.php:139
 msgid "With entries counts"
 msgstr "Avec le nombre d'entrées"
 
-#: plugins/widgets/src/Widgets.php:136
+#: plugins/widgets/src/Widgets.php:140
 msgid "Include sub cats in count"
 msgstr "Inclure les sous-catégories dans les compteurs"
 
-#: plugins/widgets/src/Widgets.php:137
+#: plugins/widgets/src/Widgets.php:141
 msgid "Include empty categories"
 msgstr "Inclure les catégories vides"
 
-#: plugins/widgets/src/Widgets.php:145
+#: plugins/widgets/src/Widgets.php:149
 msgid "Subscribe links"
 msgstr "Liens de souscription"
 
-#: plugins/widgets/src/Widgets.php:146
+#: plugins/widgets/src/Widgets.php:150
 msgid "Subscribe"
 msgstr "S'abonner"
 
-#: plugins/widgets/src/Widgets.php:147
+#: plugins/widgets/src/Widgets.php:151
 msgid "Feeds type:"
 msgstr "Type de flux :"
 
-#: plugins/widgets/src/Widgets.php:154
+#: plugins/widgets/src/Widgets.php:159
 msgid "Feed reader"
 msgstr "Lecteur de flux"
 
-#: plugins/widgets/src/Widgets.php:155
+#: plugins/widgets/src/Widgets.php:160
 msgid "Somewhere else"
 msgstr "Autre part"
 
-#: plugins/widgets/src/Widgets.php:157 plugins/widgets/src/Widgets.php:185
+#: plugins/widgets/src/Widgets.php:162 plugins/widgets/src/Widgets.php:192
 msgid "Entries limit:"
 msgstr "Limite du nombre d'entrées :"
 
-#: plugins/widgets/src/Widgets.php:164
+#: plugins/widgets/src/Widgets.php:170
 msgid "Text"
 msgstr "Texte"
 
-#: plugins/widgets/src/Widgets.php:166
+#: plugins/widgets/src/Widgets.php:172
 msgid "Text:"
 msgstr "Texte :"
 
-#: plugins/widgets/src/Widgets.php:173
+#: plugins/widgets/src/Widgets.php:180
 msgid "Uncategorized"
 msgstr "Sans catégorie"
 
-#: plugins/widgets/src/Widgets.php:177 plugins/widgets/src/Widgets.php:179
+#: plugins/widgets/src/Widgets.php:184 plugins/widgets/src/Widgets.php:186
 msgid "Last entries"
 msgstr "Dernières entrées"
 
-#: plugins/widgets/src/Widgets.php:182
+#: plugins/widgets/src/Widgets.php:189
 msgid "Tag:"
 msgstr "Mot-clé :"
 
-#: plugins/widgets/src/Widgets.php:194
+#: plugins/widgets/src/Widgets.php:202
 msgid "Last comments"
 msgstr "Derniers commentaires"
 
-#: plugins/widgets/src/Widgets.php:195
+#: plugins/widgets/src/Widgets.php:203
 msgid "Comments limit:"
 msgstr "Limite du nombre de commentaires :"
 
-#: plugins/widgets/src/Widgets.php:570
+#: plugins/widgets/src/Widgets.php:599
 #, php-format
 msgid "This blog's entries %s feed"
 msgstr "Flux %s des entrées de ce blog"
 
-#: plugins/widgets/src/Widgets.php:571
+#: plugins/widgets/src/Widgets.php:600
 #, php-format
 msgid "This blog's comments %s feed"
 msgstr "Flux %s des commentaires de ce blog"
 
-#: plugins/widgets/src/Widgets.php:585
+#: plugins/widgets/src/Widgets.php:614
 msgid "Entries feed"
 msgstr "Fil des entrées"
 
-#: plugins/widgets/src/Widgets.php:595
+#: plugins/widgets/src/Widgets.php:624
 msgid "Comments feed"
 msgstr "Fil des commentaires"
 
