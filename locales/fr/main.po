@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-20 18:00+0200\n"
-"PO-Revision-Date: 2026-04-22 07:51\n"
+"PO-Revision-Date: 2026-04-22 08:33\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -2948,7 +2948,7 @@ msgstr "Une balise fermante </tpl:%s> sans correspondance a été trouvée."
 
 #: src/Helper/Html/Template/Template.php:718
 msgid "WARNING: the following errors have been found while parsing template file :"
-msgstr "ATTENTION: les erreurs suivantes ont été rencontrées lors de la compilation du fichier de gabarit :"
+msgstr "ATTENTION: les erreurs suivantes ont été rencontrées lors de la compilation du fichier gabarit :"
 
 #: src/Helper/OAuth2/Client/Client.php:170
 msgid "Services does not work on unsecured protocol."
@@ -6954,7 +6954,7 @@ msgstr "Supprimer tous les fichiers sauf le dernier"
 
 #: src/Process/Upgrade/Cache.php:44
 msgid "Templates cache directory emptied."
-msgstr "Le répertoire de cache des « templates » a été vidé."
+msgstr "Le répertoire de cache des gabarits a été vidé."
 
 #: src/Process/Upgrade/Cache.php:49
 msgid "Repositories cache directory emptied."
@@ -6974,7 +6974,7 @@ msgstr "Dossiers de cache"
 
 #: src/Process/Upgrade/Cache.php:93
 msgid "Empty templates cache directory"
-msgstr "Vider le répertoire de cache des « templates »"
+msgstr "Vider le répertoire de cache des gabarits"
 
 #: src/Process/Upgrade/Cache.php:95
 msgid "Empty repositories cache directory"
