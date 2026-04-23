@@ -365,8 +365,17 @@ class Url extends UrlHandler implements UrlInterface
         App::url()->setType('static');
 
         if (empty($_GET['q'])) {
-            self::serveDocument('static.html');
-            App::blog()->publishScheduledEntries();
+            // Page number may have been set by self::lang() which ends with a call to self::home(null)
+            $page_number = $args ? self::getPageNumber($args) : App::frontend()->getPageNumber();
+
+            if ($args && !$page_number) {
+                // Then specified URL went unrecognized by all URL handlers and
+                // defaults to the home page, but is not a page number.
+                self::p404();
+            } else {
+                self::serveDocument('static.html');
+                App::blog()->publishScheduledEntries();
+            }
         } else {
             if ($args && $page_number = self::getPageNumber($args)) {
                 App::frontend()->setPageNumber($page_number);
