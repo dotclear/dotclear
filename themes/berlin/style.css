@@ -520,12 +520,14 @@ body {
     max-width: 90em;
   }
   .header {
-    max-width: 66.6666667%;
     padding-bottom: 0;
   }
   .banner,
   #footer p {
     margin-left: 1em;
+  }
+  #wrapper {
+    display: flex;
   }
   #main {
     flex: 1;
