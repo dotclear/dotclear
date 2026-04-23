@@ -83,7 +83,7 @@ class Settings
 
         // -- Display modules lists --
         $plugins = App::plugins()->getDefines(['state' => ModuleDefine::STATE_ENABLED]);
-        uasort($plugins, static fn ($a, $b): int => strtolower((string) $a->getId()) <=> strtolower((string) $b->getId()));
+        uasort($plugins, static fn ($a, $b): int => strtolower($a->getId()) <=> strtolower($b->getId()));
 
         $makeLink = function (string $type, string $url): Link {
             $title = match ($type) {
