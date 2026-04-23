@@ -126,14 +126,18 @@ class BlogPref
         $time_formats = App::backend()->blog_settings?->system->time_formats;
 
         $stack = ['' => ''];
-        foreach ($date_formats as $format) {
-            $stack[Date::str($format, App::backend()->now)] = $format;
+        if (is_array($date_formats)) {
+            foreach ($date_formats as $format) {
+                $stack[Date::str($format, App::backend()->now)] = $format;
+            }
         }
         App::backend()->date_formats_combo = $stack;
 
         $stack = ['' => ''];
-        foreach ($time_formats as $format) {
-            $stack[Date::str($format, App::backend()->now)] = $format;
+        if (is_array($time_formats)) {
+            foreach ($time_formats as $format) {
+                $stack[Date::str($format, App::backend()->now)] = $format;
+            }
         }
         App::backend()->time_formats_combo = $stack;
 
