@@ -275,16 +275,16 @@ class Files
      */
     public static function deltree(string $directory): bool
     {
+        if (!is_dir($directory)) {
+            return false;
+        }
+
         try {
-            $directory_scan = new RecursiveDirectoryIterator($directory);
-            $files          = new RecursiveIteratorIterator($directory_scan, RecursiveIteratorIterator::CHILD_FIRST);
+            $files = new RecursiveIteratorIterator(
+                new RecursiveDirectoryIterator($directory, RecursiveDirectoryIterator::SKIP_DOTS),
+                RecursiveIteratorIterator::CHILD_FIRST
+            );
             foreach ($files as $file) {
-                if ($file->getFilename() === '.') {
-                    continue;
-                }
-                if ($file->getFilename() === '..') {
-                    continue;
-                }
                 if ($file->isDir()) {
                     if (!rmdir($file->getRealPath())) {
                         return false;
