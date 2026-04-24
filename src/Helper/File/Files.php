@@ -13,6 +13,8 @@ namespace Dotclear\Helper\File;
 use DirectoryIterator;
 use Dotclear\Helper\Text;
 use Exception;
+use RecursiveDirectoryIterator;
+use RecursiveIteratorIterator;
 
 /**
  * @class Files
@@ -269,22 +271,25 @@ class Files
      *
      * Remove recursively a directory.
      *
-     * @param string    $directory        Directory patch
+     * @param string    $directory        Directory full path
      */
     public static function deltree(string $directory): bool
     {
         try {
-            $dirfiles = new DirectoryIterator($directory);
-            foreach ($dirfiles as $file) {
-                if ($file->isDot()) {
+            $directory_scan = new RecursiveDirectoryIterator($directory);
+            $files          = new RecursiveIteratorIterator($directory_scan, RecursiveIteratorIterator::CHILD_FIRST);
+            foreach ($files as $file) {
+                if ($file->getFilename() === '.' || $file->getFilename() === '..') {
                     continue;
                 }
                 if ($file->isDir()) {
-                    if (!static::deltree($file->getPathname())) {
+                    if (!rmdir($file->getRealPath())) {
                         return false;
                     }
-                } elseif (!unlink($file->getPathname())) {
-                    return false;
+                } else {
+                    if (!unlink($file->getRealPath())) {
+                        return false;
+                    }
                 }
             }
 
