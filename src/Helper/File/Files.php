@@ -279,17 +279,18 @@ class Files
             $directory_scan = new RecursiveDirectoryIterator($directory);
             $files          = new RecursiveIteratorIterator($directory_scan, RecursiveIteratorIterator::CHILD_FIRST);
             foreach ($files as $file) {
-                if ($file->getFilename() === '.' || $file->getFilename() === '..') {
+                if ($file->getFilename() === '.') {
+                    continue;
+                }
+                if ($file->getFilename() === '..') {
                     continue;
                 }
                 if ($file->isDir()) {
                     if (!rmdir($file->getRealPath())) {
                         return false;
                     }
-                } else {
-                    if (!unlink($file->getRealPath())) {
-                        return false;
-                    }
+                } elseif (!unlink($file->getRealPath())) {
+                    return false;
                 }
             }
 
