@@ -49,6 +49,7 @@ class Tpl extends Template
         // Loops test tags
         $this->addBlock('LoopPosition', $this->LoopPosition(...));
         $this->addValue('LoopIndex', $this->LoopIndex(...));
+        $this->addValue('LoopCount', $this->LoopCount(...));
 
         // Archives
         $this->addBlock('Archives', $this->Archives(...));
@@ -581,7 +582,7 @@ class Tpl extends Template
     }
 
     /**
-     * tpl:LoopPosition [attributes] : Display current loop index (tpl value)
+     * tpl:LoopIndex [attributes] : Display current loop index (tpl value)
      *
      * attributes:
      *
@@ -592,6 +593,20 @@ class Tpl extends Template
     public function LoopIndex(ArrayObject $attr): string
     {
         return '<?= ' . sprintf($this->getFilters($attr), '(!App::frontend()->context()->cur_loop ? 0 : App::frontend()->context()->cur_loop->index() + 1)') . ' ?>';
+    }
+
+    /**
+     * tpl:LoopCount [attributes] : Display current loop count (tpl value)
+     *
+     * attributes:
+     *
+     *      - any filters     See self::getFilters()
+     *
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
+     */
+    public function LoopCount(ArrayObject $attr): string
+    {
+        return '<?= ' . sprintf($this->getFilters($attr), '(!App::frontend()->context()->cur_loop ? 0 : App::frontend()->context()->cur_loop->count())') . ' ?>';
     }
 
     // Archives
