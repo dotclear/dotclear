@@ -1,35 +1,37 @@
-/* Media alignment classes */
-.media-center {
-  display: table;
-  margin-inline: auto;
-}
-[dir='rtl'] .media-left {
-  float: inline-start;
-}
-.media-left {
-  float: inline-start;
-  margin-inline: 0 1em;
-  margin-block-end: 1em;
-}
-[dir='rtl'] .media-right {
-  float: inline-end;
-}
-.media-right {
-  float: inline-end;
-  margin-inline: 1em 0;
-  margin-block-end: 1em;
-}
-/* Make figcaption not wider than img if both in figure */
-figure {
-  inline-size: fit-content;
-  img {
-    display: block;
+@layer dotclear {
+  /* Media alignment classes */
+  .media-center {
+    display: table;
+    margin-inline: auto;
   }
-  figcaption {
-    contain: inline-size;
+  [dir='rtl'] .media-left {
+    float: inline-start;
   }
-}
-/* Make small SVG image visible, themes should overload this */
-img.post-icon[src$='.svg'] {
-  min-inline-size: 1em;
+  .media-left {
+    float: inline-start;
+    margin-inline: 0 1em;
+    margin-block-end: 1em;
+  }
+  [dir='rtl'] .media-right {
+    float: inline-end;
+  }
+  .media-right {
+    float: inline-end;
+    margin-inline: 1em 0;
+    margin-block-end: 1em;
+  }
+  /* Make figcaption not wider than img if both in figure */
+  figure {
+    inline-size: fit-content;
+    img {
+      display: block;
+    }
+    figcaption {
+      contain: inline-size;
+    }
+  }
+  /* Make small SVG image visible, themes should overload this */
+  img.post-icon[src$='.svg'] {
+    min-inline-size: 1em;
+  }
 }
