@@ -224,7 +224,7 @@ class Socket
             $handle = @fsockopen($this->_transport . $this->_host, $this->_port, $errno, $errstr, (float) $this->_timeout);
         }
         if (!$handle) {
-            throw new Exception('Socket error: ' . $errstr . ' (' . $errno . ')' . $this->_transport . $this->_host);
+            throw new Exception('Socket error: ' . $errstr . ' (' . $errno . ') ' . $this->_transport . $this->_host);
         }
         $this->_handle = $handle;
 
