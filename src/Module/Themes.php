@@ -284,7 +284,7 @@ class Themes extends Modules implements ThemesInterface
                 App::lang()->set(sprintf($template, $root, 'en', $file));
             }
             // Load also custom locales if any
-            $root = App::config()->varRoot() . DIRECTORY_SEPARATOR . 'themes' . DIRECTORY_SEPARATOR . $id . DIRECTORY_SEPARATOR . App::blog()->settings()->system->theme;
+            $root = App::config()->varRoot() . DIRECTORY_SEPARATOR . 'themes' . DIRECTORY_SEPARATOR . App::blog()->id() . DIRECTORY_SEPARATOR . $id;
             if (App::lang()->set(sprintf($template, $root, $lang, $file)) === false && $lang !== 'en') {
                 App::lang()->set(sprintf($template, $root, 'en', $file));
             }
