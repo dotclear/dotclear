@@ -307,12 +307,12 @@ class Antispam
         $dateLastPurge = is_numeric($dateLastPurge = My::settings()->antispam_date_last_purge) ? (int) $dateLastPurge : 0;
         if ($dateLastPurge === 0) {
             $init = true;
-            My::settings()->put('antispam_date_last_purge', $defaultDateLastPurge, 'integer', 'Antispam Date Last Purge (unix timestamp)', true, false);
+            My::settings()->put('antispam_date_last_purge', $defaultDateLastPurge, App::blogWorkspace()::NS_INT, 'Antispam Date Last Purge (unix timestamp)', true, false);
             $dateLastPurge = $defaultDateLastPurge;
         }
         $moderationTTL = is_numeric($moderationTTL = My::settings()->antispam_moderation_ttl) ? (int) $moderationTTL : 0;
         if ($moderationTTL === 0) {
-            My::settings()->put('antispam_moderation_ttl', $defaultModerationTTL, 'integer', 'Antispam Moderation TTL (days)', true, false);
+            My::settings()->put('antispam_moderation_ttl', $defaultModerationTTL, App::blogWorkspace()::NS_INT, 'Antispam Moderation TTL (days)', true, false);
             $moderationTTL = $defaultModerationTTL;
         }
 

@@ -176,7 +176,7 @@ class SpamFilters
         if ($global) {
             My::settings()->drop('antispam_filters');
         }
-        My::settings()->put('antispam_filters', $opts, 'array', 'Antispam Filters', true, $global);
+        My::settings()->put('antispam_filters', $opts, App::blogWorkspace()::NS_ARRAY, 'Antispam Filters', true, $global);
     }
 
     /**

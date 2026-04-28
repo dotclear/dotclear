@@ -277,8 +277,8 @@ class BackendBehaviors
             return;
         }
 
-        My::prefs()->put('dashboard_icon', !empty($_POST['maintenance_dashboard_icon']), 'boolean');
-        My::prefs()->put('dashboard_item', !empty($_POST['maintenance_dashboard_item']), 'boolean');
+        My::prefs()->put('dashboard_icon', !empty($_POST['maintenance_dashboard_icon']), App::userWorkspace()::WS_BOOL);
+        My::prefs()->put('dashboard_item', !empty($_POST['maintenance_dashboard_item']), App::userWorkspace()::WS_BOOL);
     }
 
     /**

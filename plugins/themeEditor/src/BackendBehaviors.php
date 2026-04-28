@@ -58,7 +58,7 @@ class BackendBehaviors
     {
         // Get and store user's prefs for plugin options
         try {
-            App::auth()->prefs()->interface->put('colorsyntax', !empty($_POST['colorsyntax']), 'boolean');
+            App::auth()->prefs()->interface->put('colorsyntax', !empty($_POST['colorsyntax']), App::userWorkspace()::WS_BOOL);
             App::auth()->prefs()->interface->put(
                 'colorsyntax_theme',
                 (empty($_POST['colorsyntax_theme']) ? '' : $_POST['colorsyntax_theme'])

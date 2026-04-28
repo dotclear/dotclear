@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -39,7 +40,7 @@ class Install
             App::blog()->settings()->renWorkspace('dclegacyeditor', My::id());
         }
 
-        My::settings()->put('active', true, 'boolean', 'dcLegacyEditor plugin activated ?', false, true);
+        My::settings()->put('active', true, App::blogWorkspace()::NS_BOOL, 'dcLegacyEditor plugin activated ?', false, true);
 
         return true;
     }

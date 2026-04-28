@@ -267,12 +267,12 @@ class Install
                     );
                 }
                 $blog_settings->system->put('date_format', $formatDate);
-                $blog_settings->system->put('date_formats', $date_formats, 'array', 'Date formats examples', true, true);
-                $blog_settings->system->put('time_formats', $time_formats, 'array', 'Time formats examples', true, true);
+                $blog_settings->system->put('date_formats', $date_formats, App::blogWorkspace()::NS_ARRAY, 'Date formats examples', true, true);
+                $blog_settings->system->put('time_formats', $time_formats, App::blogWorkspace()::NS_ARRAY, 'Time formats examples', true, true);
 
                 # Add repository URL for themes and plugins
-                $blog_settings->system->put('store_plugin_url', App::config()->release('store_plugin_url'), 'string', 'Plugins XML feed location', true, true);
-                $blog_settings->system->put('store_theme_url', App::config()->release('store_theme_url'), 'string', 'Themes XML feed location', true, true);
+                $blog_settings->system->put('store_plugin_url', App::config()->release('store_plugin_url'), App::blogWorkspace()::NS_STRING, 'Plugins XML feed location', true, true);
+                $blog_settings->system->put('store_theme_url', App::config()->release('store_theme_url'), App::blogWorkspace()::NS_STRING, 'Themes XML feed location', true, true);
 
                 # CSP directive (admin part)
 
@@ -282,12 +282,12 @@ class Install
                 $csp_prefix = str_contains(App::db()->con()->driver(), 'sqlite') ? 'localhost ' : ''; // Hack for SQlite syntax
                 $csp_suffix = str_contains(App::db()->con()->driver(), 'sqlite') ? ' 127.0.0.1' : ''; // Hack for SQlite syntax
 
-                $blog_settings->system->put('csp_admin_on', true, 'boolean', 'Send CSP header (admin)', true, true);
-                $blog_settings->system->put('csp_admin_report_only', false, 'boolean', 'CSP Report only violations (admin)', true, true);
+                $blog_settings->system->put('csp_admin_on', true, App::blogWorkspace()::NS_BOOL, 'Send CSP header (admin)', true, true);
+                $blog_settings->system->put('csp_admin_report_only', false, App::blogWorkspace()::NS_BOOL, 'CSP Report only violations (admin)', true, true);
                 $blog_settings->system->put(
                     'csp_admin_default',
                     $csp_prefix . "'self'" . $csp_suffix,
-                    'string',
+                    App::blogWorkspace()::NS_STRING,
                     'CSP default-src directive',
                     true,
                     true
@@ -295,7 +295,7 @@ class Install
                 $blog_settings->system->put(
                     'csp_admin_script',
                     $csp_prefix . "'self' 'unsafe-eval'" . $csp_suffix,
-                    'string',
+                    App::blogWorkspace()::NS_STRING,
                     'CSP script-src directive',
                     true,
                     true
@@ -303,7 +303,7 @@ class Install
                 $blog_settings->system->put(
                     'csp_admin_style',
                     $csp_prefix . "'self' 'unsafe-inline'" . $csp_suffix,
-                    'string',
+                    App::blogWorkspace()::NS_STRING,
                     'CSP style-src directive',
                     true,
                     true
@@ -311,7 +311,7 @@ class Install
                 $blog_settings->system->put(
                     'csp_admin_img',
                     $csp_prefix . "'self' data: https://dotclear.org blob:",
-                    'string',
+                    App::blogWorkspace()::NS_STRING,
                     'CSP img-src directive',
                     true,
                     true
@@ -356,17 +356,17 @@ class Install
                 self::$plugins_install = App::plugins()->installModules();
 
                 # Add dashboard module options
-                App::auth()->prefs()->dashboard->put('doclinks', true, 'boolean', '', false, true);
-                App::auth()->prefs()->dashboard->put('donate', true, 'boolean', '', false, true);
-                App::auth()->prefs()->dashboard->put('dcnews', true, 'boolean', '', false, true);
-                App::auth()->prefs()->dashboard->put('quickentry', true, 'boolean', '', false, true);
-                App::auth()->prefs()->dashboard->put('nodcupdate', false, 'boolean', '', false, true);
+                App::auth()->prefs()->dashboard->put('doclinks', true, App::userWorkspace()::WS_BOOL, '', false, true);
+                App::auth()->prefs()->dashboard->put('donate', true, App::userWorkspace()::WS_BOOL, '', false, true);
+                App::auth()->prefs()->dashboard->put('dcnews', true, App::userWorkspace()::WS_BOOL, '', false, true);
+                App::auth()->prefs()->dashboard->put('quickentry', true, App::userWorkspace()::WS_BOOL, '', false, true);
+                App::auth()->prefs()->dashboard->put('nodcupdate', false, App::userWorkspace()::WS_BOOL, '', false, true);
 
                 # Add accessibility options
-                App::auth()->prefs()->accessibility->put('nodragdrop', false, 'boolean', '', false, true);
+                App::auth()->prefs()->accessibility->put('nodragdrop', false, App::userWorkspace()::WS_BOOL, '', false, true);
 
                 # Add user interface options
-                App::auth()->prefs()->interface->put('enhanceduploader', true, 'boolean', '', false, true);
+                App::auth()->prefs()->interface->put('enhanceduploader', true, App::userWorkspace()::WS_BOOL, '', false, true);
 
                 # Add default favorites
                 $init_favs = ['posts', 'new_post', 'newpage', 'comments', 'categories', 'media', 'blog_theme', 'widgets', 'simpleMenu', 'prefs', 'help'];

@@ -107,7 +107,7 @@ class Manage
                 My::settings()->put(
                     'plugin_message',
                     !empty($_POST['settings_plugin_message']),
-                    'boolean',
+                    App::blogWorkspace()::NS_BOOL,
                     'Display alert message of late tasks on plugin page',
                     true,
                     true
@@ -126,7 +126,7 @@ class Manage
                     My::settings()->put(
                         'ts_' . $t->id(),
                         abs((int) $ts),
-                        'integer',
+                        App::blogWorkspace()::NS_INT,
                         sprintf('Recall time for task %s', $t->id()),
                         true,
                         $t->blog()

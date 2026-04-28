@@ -48,10 +48,10 @@ class Manage
         if (!empty($_POST['saveconfig'])) {
             try {
                 App::backend()->editor_std_active = !empty($_POST['dclegacyeditor_active']);
-                My::settings()->put('active', App::backend()->editor_std_active, 'boolean');
+                My::settings()->put('active', App::backend()->editor_std_active, App::blogWorkspace()::NS_BOOL);
 
                 App::backend()->editor_std_dynamic = !empty($_POST['dclegacyeditor_dynamic']);
-                My::settings()->put('dynamic', App::backend()->editor_std_dynamic, 'boolean');
+                My::settings()->put('dynamic', App::backend()->editor_std_dynamic, App::blogWorkspace()::NS_BOOL);
 
                 App::backend()->notices()->addSuccessNotice(__('The configuration has been updated.'));
                 My::redirect();

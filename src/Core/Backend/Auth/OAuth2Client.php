@@ -77,7 +77,7 @@ class OAuth2Client extends Client
 
     public function setDisabledProviders(array $providers): void
     {
-        App::blog()->settings()->get(self::CONTAINER_ID)->put('disabled_providers', json_encode(array_values($providers)), 'string');
+        App::blog()->settings()->get(self::CONTAINER_ID)->put('disabled_providers', json_encode(array_values($providers)), App::blogWorkspace()::NS_STRING);
     }
 
     public function getProviderLogo(Provider $provider): string

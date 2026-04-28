@@ -36,7 +36,6 @@ use Dotclear\Helper\Html\Form\Textarea;
 use Dotclear\Helper\Html\Form\Ul;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Process\TraitProcess;
-use Dotclear\Interface\Core\UserWorkspaceInterface;
 use Exception;
 
 /**
@@ -88,24 +87,24 @@ class Home
 
         // Check dashboard module global prefs
         if (!App::auth()->prefs()->dashboard->prefExists('doclinks', true)) {
-            App::auth()->prefs()->dashboard->put('doclinks', true, 'boolean', '', false, true);
+            App::auth()->prefs()->dashboard->put('doclinks', true, App::userWorkspace()::WS_BOOL, '', false, true);
         }
         if (!App::auth()->prefs()->dashboard->prefExists('donate', true)) {
-            App::auth()->prefs()->dashboard->put('donate', true, 'boolean', '', false, true);
+            App::auth()->prefs()->dashboard->put('donate', true, App::userWorkspace()::WS_BOOL, '', false, true);
         }
         if (!App::auth()->prefs()->dashboard->prefExists('dcnews', true)) {
-            App::auth()->prefs()->dashboard->put('dcnews', true, 'boolean', '', false, true);
+            App::auth()->prefs()->dashboard->put('dcnews', true, App::userWorkspace()::WS_BOOL, '', false, true);
         }
         if (!App::auth()->prefs()->dashboard->prefExists('quickentry', true)) {
-            App::auth()->prefs()->dashboard->put('quickentry', false, 'boolean', '', false, true);
+            App::auth()->prefs()->dashboard->put('quickentry', false, App::userWorkspace()::WS_BOOL, '', false, true);
         }
         if (!App::auth()->prefs()->dashboard->prefExists('nodcupdate', true)) {
-            App::auth()->prefs()->dashboard->put('nodcupdate', false, 'boolean', '', false, true);
+            App::auth()->prefs()->dashboard->put('nodcupdate', false, App::userWorkspace()::WS_BOOL, '', false, true);
         }
 
         // Handle folded/unfolded sections in admin from user preferences
         if (!App::auth()->prefs()->toggles->prefExists('unfolded_sections')) {
-            App::auth()->prefs()->toggles->put('unfolded_sections', '', 'string', 'Folded sections in admin', false, true);
+            App::auth()->prefs()->toggles->put('unfolded_sections', '', App::userWorkspace()::WS_STRING, 'Folded sections in admin', false, true);
         }
 
         return self::status(true);
@@ -131,7 +130,7 @@ class Home
         if (!empty($_POST['donation-save'])) {
             // Save last donation date
             try {
-                App::auth()->prefs()->dashboard->put('donation_date', $_POST['donation-date'], UserWorkspaceInterface::WS_STRING, 'last donation date');
+                App::auth()->prefs()->dashboard->put('donation_date', $_POST['donation-date'], App::userWorkspace()::WS_STRING, 'last donation date');
 
                 App::backend()->notices()->addSuccessNotice(__('Your last donation date has been saved.'));
                 App::backend()->url()->redirect('admin.home');

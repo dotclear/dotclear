@@ -85,26 +85,26 @@ class Manage
         if (!empty($_POST['saveconfig'])) {
             try {
                 App::backend()->editor_cke_active = !empty($_POST['dcckeditor_active']);
-                My::settings()->put('active', App::backend()->editor_cke_active, 'boolean');
+                My::settings()->put('active', App::backend()->editor_cke_active, App::blogWorkspace()::NS_BOOL);
 
                 // change other settings only if they were in HTML page
                 if (App::backend()->editor_cke_was_actived) {
                     App::backend()->editor_cke_alignement_buttons = !empty($_POST['dcckeditor_alignment_buttons']);
-                    My::settings()->put('alignment_buttons', App::backend()->editor_cke_alignement_buttons, 'boolean');
+                    My::settings()->put('alignment_buttons', App::backend()->editor_cke_alignement_buttons, App::blogWorkspace()::NS_BOOL);
 
                     App::backend()->editor_cke_list_buttons = !empty($_POST['dcckeditor_list_buttons']);
-                    My::settings()->put('list_buttons', App::backend()->editor_cke_list_buttons, 'boolean');
+                    My::settings()->put('list_buttons', App::backend()->editor_cke_list_buttons, App::blogWorkspace()::NS_BOOL);
 
                     App::backend()->editor_cke_textcolor_button = !empty($_POST['dcckeditor_textcolor_button']);
-                    My::settings()->put('textcolor_button', App::backend()->editor_cke_textcolor_button, 'boolean');
+                    My::settings()->put('textcolor_button', App::backend()->editor_cke_textcolor_button, App::blogWorkspace()::NS_BOOL);
 
                     App::backend()->editor_cke_background_textcolor_button = !empty($_POST['dcckeditor_background_textcolor_button']);
-                    My::settings()->put('background_textcolor_button', App::backend()->editor_cke_background_textcolor_button, 'boolean');
+                    My::settings()->put('background_textcolor_button', App::backend()->editor_cke_background_textcolor_button, App::blogWorkspace()::NS_BOOL);
 
                     $custom_color_list = is_string($custom_color_list = $_POST['dcckeditor_custom_color_list']) ? $custom_color_list : '';
 
                     App::backend()->editor_cke_custom_color_list = str_replace(['#', ' '], '', $custom_color_list);
-                    My::settings()->put('custom_color_list', App::backend()->editor_cke_custom_color_list, 'string');
+                    My::settings()->put('custom_color_list', App::backend()->editor_cke_custom_color_list, App::blogWorkspace()::NS_STRING);
 
                     $colors_per_row = is_numeric($colors_per_row = $_POST['dcckeditor_colors_per_row']) ? (int) $colors_per_row : 6;
 
@@ -112,10 +112,10 @@ class Manage
                     My::settings()->put('colors_per_row', App::backend()->editor_cke_colors_per_row);
 
                     App::backend()->editor_cke_cancollapse_button = !empty($_POST['dcckeditor_cancollapse_button']);
-                    My::settings()->put('cancollapse_button', App::backend()->editor_cke_cancollapse_button, 'boolean');
+                    My::settings()->put('cancollapse_button', App::backend()->editor_cke_cancollapse_button, App::blogWorkspace()::NS_BOOL);
 
                     App::backend()->editor_cke_format_select = !empty($_POST['dcckeditor_format_select']);
-                    My::settings()->put('format_select', App::backend()->editor_cke_format_select, 'boolean');
+                    My::settings()->put('format_select', App::backend()->editor_cke_format_select, App::blogWorkspace()::NS_BOOL);
 
                     // default tags : p;h1;h2;h3;h4;h5;h6;pre;address
                     App::backend()->editor_cke_format_tags = 'p;h1;h2;h3;h4;h5;h6;pre;address';
@@ -136,19 +136,19 @@ class Manage
                             App::backend()->editor_cke_format_tags = $_POST['dcckeditor_format_tags'];
                         }
                     }
-                    My::settings()->put('format_tags', App::backend()->editor_cke_format_tags, 'string');
+                    My::settings()->put('format_tags', App::backend()->editor_cke_format_tags, App::blogWorkspace()::NS_STRING);
 
                     App::backend()->editor_cke_table_button = !empty($_POST['dcckeditor_table_button']);
-                    My::settings()->put('table_button', App::backend()->editor_cke_table_button, 'boolean');
+                    My::settings()->put('table_button', App::backend()->editor_cke_table_button, App::blogWorkspace()::NS_BOOL);
 
                     App::backend()->editor_cke_clipboard_buttons = !empty($_POST['dcckeditor_clipboard_buttons']);
-                    My::settings()->put('clipboard_buttons', App::backend()->editor_cke_clipboard_buttons, 'boolean');
+                    My::settings()->put('clipboard_buttons', App::backend()->editor_cke_clipboard_buttons, App::blogWorkspace()::NS_BOOL);
 
                     App::backend()->editor_cke_action_buttons = !empty($_POST['dcckeditor_action_buttons']);
-                    My::settings()->put('action_buttons', App::backend()->editor_cke_action_buttons, 'boolean');
+                    My::settings()->put('action_buttons', App::backend()->editor_cke_action_buttons, App::blogWorkspace()::NS_BOOL);
 
                     App::backend()->editor_cke_disable_native_spellchecker = !empty($_POST['dcckeditor_disable_native_spellchecker']);
-                    My::settings()->put('disable_native_spellchecker', App::backend()->editor_cke_disable_native_spellchecker, 'boolean');
+                    My::settings()->put('disable_native_spellchecker', App::backend()->editor_cke_disable_native_spellchecker, App::blogWorkspace()::NS_BOOL);
                 }
 
                 App::backend()->notices()->addSuccessNotice(__('The configuration has been updated.'));

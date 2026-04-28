@@ -105,7 +105,7 @@ class MediaPage extends FilterMedia
 
                 if ($try_d !== $last_dir) {
                     // Store current dir for user
-                    App::auth()->prefs()->interface->put('media_last_dir', $try_d, 'string');
+                    App::auth()->prefs()->interface->put('media_last_dir', $try_d, App::userWorkspace()::WS_STRING);
                 }
             } else {
                 $this->d = null;
@@ -319,7 +319,7 @@ class MediaPage extends FilterMedia
 
         if ($done) {
             $this->media_last = $last_dirs;
-            App::auth()->prefs()->interface->put('media_last_dirs', $last_dirs, 'array');
+            App::auth()->prefs()->interface->put('media_last_dirs', $last_dirs, App::userWorkspace()::WS_ARRAY);
         }
 
         return $done;
@@ -374,7 +374,7 @@ class MediaPage extends FilterMedia
 
         if ($done) {
             $this->media_fav = $fav_dirs;
-            App::auth()->prefs()->interface->put('media_fav_dirs', $fav_dirs, 'array');
+            App::auth()->prefs()->interface->put('media_fav_dirs', $fav_dirs, App::userWorkspace()::WS_ARRAY);
         }
 
         return $done;

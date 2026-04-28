@@ -32,7 +32,6 @@ use Dotclear\Helper\Html\Form\Th;
 use Dotclear\Helper\Html\Form\Thead;
 use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Process\TraitProcess;
-use Dotclear\Interface\Core\BlogWorkspaceInterface;
 use Exception;
 
 /**
@@ -170,8 +169,8 @@ class Config
                 App::backend()->ductile_user = $ductile_user;
 
                 // Save settings
-                App::blog()->settings()->themes->put(App::blog()->settings()->system->theme . '_style', App::backend()->ductile_user, BlogWorkspaceInterface::NS_ARRAY);
-                App::blog()->settings()->themes->put(App::blog()->settings()->system->theme . '_stickers', App::backend()->ductile_stickers, BlogWorkspaceInterface::NS_ARRAY);
+                App::blog()->settings()->themes->put(App::blog()->settings()->system->theme . '_style', App::backend()->ductile_user, App::blogWorkspace()::NS_ARRAY);
+                App::blog()->settings()->themes->put(App::blog()->settings()->system->theme . '_stickers', App::backend()->ductile_stickers, App::blogWorkspace()::NS_ARRAY);
 
                 // Blog refresh
                 App::blog()->triggerBlog();

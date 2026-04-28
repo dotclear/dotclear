@@ -41,7 +41,7 @@ class Install
             $counter = App::blog()->getPosts($params, true);
 
             if ($counter->f(0) == 0 && My::settings()->firstpage == null) {
-                My::settings()->put('firstpage', true, 'boolean');
+                My::settings()->put('firstpage', true, App::blogWorkspace()::NS_BOOL);
 
                 $cur                     = App::blog()->openPostCursor();
                 $cur->user_id            = App::auth()->userID();

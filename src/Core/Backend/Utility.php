@@ -468,10 +468,10 @@ class Utility extends AbstractUtility
         }
 
         if (!App::blog()->settings()->system->settingExists('jquery_migrate_mute')) {
-            App::blog()->settings()->system->put('jquery_migrate_mute', true, 'boolean', 'Mute warnings for jquery migrate plugin ?', false);
+            App::blog()->settings()->system->put('jquery_migrate_mute', true, App::blogWorkspace()::NS_BOOL, 'Mute warnings for jquery migrate plugin ?', false);
         }
         if (App::blog()->settings()->system->settingExists('jquery_allow_old_version')) {
-            App::blog()->settings()->system->put('jquery_allow_old_version', false, 'boolean', 'Allow older version of jQuery', false, true);
+            App::blog()->settings()->system->put('jquery_allow_old_version', false, App::blogWorkspace()::NS_BOOL, 'Allow older version of jQuery', false, true);
         }
 
         // Load themes

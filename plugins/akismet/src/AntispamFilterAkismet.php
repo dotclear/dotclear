@@ -203,7 +203,7 @@ class AntispamFilterAkismet extends SpamFilter
             try {
                 $ak_key = $_POST['ak_key'];
 
-                My::settings()->put('ak_key', $ak_key, 'string');
+                My::settings()->put('ak_key', $ak_key, App::blogWorkspace()::NS_STRING);
 
                 App::backend()->notices()->addSuccessNotice(__('Filter configuration have been successfully saved.'));
                 Http::redirect($url);

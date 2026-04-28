@@ -936,7 +936,7 @@ class Rest
             }
         }
 
-        App::auth()->prefs()->interface->put('sorts', $su, 'array');
+        App::auth()->prefs()->interface->put('sorts', $su, App::userWorkspace()::WS_ARRAY);
 
         return [
             'msg' => __('List options saved'),

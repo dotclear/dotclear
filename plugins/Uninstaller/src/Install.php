@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -36,7 +37,7 @@ class Install
             My::settings()->put(
                 'no_direct_uninstall',
                 false,
-                'boolean',
+                App::blogWorkspace()::NS_BOOL,
                 'Disabled uninstall actions on module deletion',
                 false,
                 true

@@ -133,7 +133,7 @@ class FilterMedia extends Filters
 
         if ($get) {
             // Store current dir in user pref
-            App::auth()->prefs()->interface->put('media_manager_dir', $get, 'string');
+            App::auth()->prefs()->interface->put('media_manager_dir', $get, App::userWorkspace()::WS_STRING);
         }
 
         return new Filter('d', $get);
@@ -148,7 +148,7 @@ class FilterMedia extends Filters
 
         if ($get) {
             // Store current view in user pref
-            App::auth()->prefs()->interface->put('media_file_mode', $get, 'string');
+            App::auth()->prefs()->interface->put('media_file_mode', $get, App::userWorkspace()::WS_STRING);
         } else {
             $get = self::MODE_GRID;
         }

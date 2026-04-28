@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -9,6 +10,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\pings;
 
+use Dotclear\App;
 use Dotclear\Helper\Process\TraitProcess;
 
 /**
@@ -39,9 +41,9 @@ class Install
             return false;
         }
 
-        My::settings()->put('pings_active', 1, 'boolean', 'Activate pings plugin', false, true);
-        My::settings()->put('pings_auto', 0, 'boolean', 'Auto pings on 1st publication', false, true);
-        My::settings()->put('pings_uris', self::$default_pings_uris, 'array', 'Pings services URIs', false, true);
+        My::settings()->put('pings_active', 1, App::blogWorkspace()::NS_BOOL, 'Activate pings plugin', false, true);
+        My::settings()->put('pings_auto', 0, App::blogWorkspace()::NS_BOOL, 'Auto pings on 1st publication', false, true);
+        My::settings()->put('pings_uris', self::$default_pings_uris, App::blogWorkspace()::NS_ARRAY, 'Pings services URIs', false, true);
 
         return true;
     }

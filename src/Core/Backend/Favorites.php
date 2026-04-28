@@ -203,7 +203,7 @@ class Favorites
                 }
             }
         }
-        $this->workspace->put('favorites', $this->global_favorites_ids, 'array', 'User favorites', true, true);
+        $this->workspace->put('favorites', $this->global_favorites_ids, App::userWorkspace()::WS_ARRAY, 'User favorites', true, true);
         $this->workspace->put('favorites', $this->local_favorites_ids);
         $this->user_favorites = $this->getFavorites($this->local_favorites_ids);
     }
@@ -263,7 +263,7 @@ class Favorites
      */
     public function setFavoriteIDs(array $ids, bool $global = false): void
     {
-        $this->workspace->put('favorites', $ids, 'array', null, true, $global);
+        $this->workspace->put('favorites', $ids, App::userWorkspace()::WS_ARRAY, null, true, $global);
     }
 
     /**

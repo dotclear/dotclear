@@ -193,8 +193,8 @@ class User
                     }
 
                     $user_prefs = App::userPreferences()->createFromUser($new_id, 'profile');
-                    $user_prefs->profile->put('mails', $mails, 'string');
-                    $user_prefs->profile->put('urls', $urls, 'string');
+                    $user_prefs->profile->put('mails', $mails, App::userWorkspace()::WS_STRING);
+                    $user_prefs->profile->put('urls', $urls, App::userWorkspace()::WS_STRING);
 
                     # --BEHAVIOR-- adminAfterUserUpdate -- Cursor, string
                     App::behavior()->callBehavior('adminAfterUserUpdate', $cur, $new_id);
@@ -227,8 +227,8 @@ class User
                         $urls = implode(',', array_filter(filter_var_array(array_map(trim(...), explode(',', (string) $_POST['user_profile_urls'])), FILTER_VALIDATE_URL)));
                     }
                     $user_prefs = App::userPreferences()->createFromUser($new_id, 'profile');
-                    $user_prefs->profile->put('mails', $mails, 'string');
-                    $user_prefs->profile->put('urls', $urls, 'string');
+                    $user_prefs->profile->put('mails', $mails, App::userWorkspace()::WS_STRING);
+                    $user_prefs->profile->put('urls', $urls, App::userWorkspace()::WS_STRING);
 
                     # --BEHAVIOR-- adminAfterUserCreate -- Cursor, string
                     App::behavior()->callBehavior('adminAfterUserCreate', $cur, $new_id);

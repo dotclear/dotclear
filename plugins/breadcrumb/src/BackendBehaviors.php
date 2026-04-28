@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\breadcrumb;
 
+use Dotclear\App;
 use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Form\Fieldset;
 use Dotclear\Helper\Html\Form\Input;
@@ -18,7 +19,6 @@ use Dotclear\Helper\Html\Form\Legend;
 use Dotclear\Helper\Html\Form\Note;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Interface\Core\BlogSettingsInterface;
-use Dotclear\Interface\Core\BlogWorkspaceInterface;
 
 /**
  * @brief   The module backend behaviors.
@@ -77,8 +77,8 @@ class BackendBehaviors
     {
         $home = isset($_POST['breadcrumb_home']) && is_string($home = $_POST['breadcrumb_home']) ? $home : '';
 
-        $settings->breadcrumb->put('breadcrumb_enabled', !empty($_POST['breadcrumb_enabled']), BlogWorkspaceInterface::NS_BOOL);
-        $settings->breadcrumb->put('breadcrumb_alone', !empty($_POST['breadcrumb_alone']), BlogWorkspaceInterface::NS_BOOL);
-        $settings->breadcrumb->put('breadcrumb_home', $home, BlogWorkspaceInterface::NS_STRING);
+        $settings->breadcrumb->put('breadcrumb_enabled', !empty($_POST['breadcrumb_enabled']), App::blogWorkspace()::NS_BOOL);
+        $settings->breadcrumb->put('breadcrumb_alone', !empty($_POST['breadcrumb_alone']), App::blogWorkspace()::NS_BOOL);
+        $settings->breadcrumb->put('breadcrumb_home', $home, App::blogWorkspace()::NS_STRING);
     }
 }

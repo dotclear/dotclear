@@ -19,7 +19,6 @@ use Dotclear\Helper\Html\Form\Select;
 use Dotclear\Helper\Html\Form\Textarea;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Process\TraitProcess;
-use Dotclear\Interface\Core\BlogWorkspaceInterface;
 use Exception;
 
 /**
@@ -94,7 +93,7 @@ class Config
                 }
                 if (isset($_POST['tplset'])) {
                     $tplset = is_string($tplset = $_POST['tplset']) ? $tplset : '';
-                    App::blog()->settings()->themes->put(My::id() . '_tplset', $tplset, BlogWorkspaceInterface::NS_STRING);
+                    App::blog()->settings()->themes->put(My::id() . '_tplset', $tplset, App::blogWorkspace()::NS_STRING);
                 }
 
                 App::backend()->notices()->addSuccessNotice(__('Style sheet upgraded.'));

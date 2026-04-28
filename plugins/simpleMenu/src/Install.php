@@ -40,8 +40,8 @@ class Install
             ['label' => 'Archives', 'descr' => '', 'url' => $blog_url . App::url()->getURLFor('archive'), 'targetBlank' => false, 'disabled' => false],
         ];
 
-        App::blog()->settings()->system->put('simpleMenu', $menu_default, 'array', 'simpleMenu default menu', false, true);
-        App::blog()->settings()->system->put('simpleMenu_active', true, 'boolean', 'Active', false, true);
+        App::blog()->settings()->system->put('simpleMenu', $menu_default, App::blogWorkspace()::NS_ARRAY, 'simpleMenu default menu', false, true);
+        App::blog()->settings()->system->put('simpleMenu_active', true, App::blogWorkspace()::NS_BOOL, 'Active', false, true);
 
         return true;
     }

@@ -221,7 +221,7 @@ class Manage
         if (!empty($_POST['saveconfig'])) {
             try {
                 App::backend()->menu_active = !empty($_POST['active']);
-                App::blog()->settings()->system->put('simpleMenu_active', App::backend()->menu_active, 'boolean');
+                App::blog()->settings()->system->put('simpleMenu_active', App::backend()->menu_active, App::blogWorkspace()::NS_BOOL);
                 App::blog()->triggerBlog();
 
                 // All done successfully, return to menu items list

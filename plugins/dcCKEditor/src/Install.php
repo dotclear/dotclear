@@ -41,18 +41,18 @@ class Install
         }
 
         $s = My::settings();
-        $s->put('active', true, 'boolean', 'CKEditor plugin activated?', false, true);
-        $s->put('alignment_buttons', true, 'boolean', 'Add alignment buttons?', false, true);
-        $s->put('list_buttons', true, 'boolean', 'Add list buttons?', false, true);
-        $s->put('textcolor_button', false, 'boolean', 'Add text color button?', false, true);
-        $s->put('background_textcolor_button', false, 'boolean', 'Add background text color button?', false, true);
-        $s->put('cancollapse_button', false, 'boolean', 'Add collapse button?', false, true);
-        $s->put('format_select', true, 'boolean', 'Add format selection?', false, true);
-        $s->put('format_tags', 'p;h1;h2;h3;h4;h5;h6;pre;address', 'string', 'Custom formats', false, true);
-        $s->put('table_button', false, 'boolean', 'Add table button?', false, true);
-        $s->put('clipboard_buttons', false, 'boolean', 'Add clipboard buttons?', false, true);
-        $s->put('action_buttons', true, 'boolean', 'Add undo/redo buttons?', false, true);
-        $s->put('disable_native_spellchecker', true, 'boolean', 'Disables the built-in spell checker if the browser provides one?', false, true);
+        $s->put('active', true, App::blogWorkspace()::NS_BOOL, 'CKEditor plugin activated?', false, true);
+        $s->put('alignment_buttons', true, App::blogWorkspace()::NS_BOOL, 'Add alignment buttons?', false, true);
+        $s->put('list_buttons', true, App::blogWorkspace()::NS_BOOL, 'Add list buttons?', false, true);
+        $s->put('textcolor_button', false, App::blogWorkspace()::NS_BOOL, 'Add text color button?', false, true);
+        $s->put('background_textcolor_button', false, App::blogWorkspace()::NS_BOOL, 'Add background text color button?', false, true);
+        $s->put('cancollapse_button', false, App::blogWorkspace()::NS_BOOL, 'Add collapse button?', false, true);
+        $s->put('format_select', true, App::blogWorkspace()::NS_BOOL, 'Add format selection?', false, true);
+        $s->put('format_tags', 'p;h1;h2;h3;h4;h5;h6;pre;address', App::blogWorkspace()::NS_STRING, 'Custom formats', false, true);
+        $s->put('table_button', false, App::blogWorkspace()::NS_BOOL, 'Add table button?', false, true);
+        $s->put('clipboard_buttons', false, App::blogWorkspace()::NS_BOOL, 'Add clipboard buttons?', false, true);
+        $s->put('action_buttons', true, App::blogWorkspace()::NS_BOOL, 'Add undo/redo buttons?', false, true);
+        $s->put('disable_native_spellchecker', true, App::blogWorkspace()::NS_BOOL, 'Disables the built-in spell checker if the browser provides one?', false, true);
 
         return true;
     }
