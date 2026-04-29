@@ -521,6 +521,38 @@ class MetaRecord implements Iterator, Countable
         return new self(StaticRecord::newFromArray($data));
     }
 
+    /**
+     * Get value (from the 1st row if any) from a SQL select using a count(), max(), … at 1st column
+     *
+     * May be useful where `$recordset->f(0)` was used, then replace `...->f(0)` by `...->cardinal()`
+     *
+     * @param  bool  $cast  Set to true to get integer value only
+     *
+     * @return ($cast is true ? int : ?int)
+     */
+    public function cardinal(bool $cast = true): ?int
+    {
+        if ($this->count() > 0 && $this->exists(0)) {
+            // At least one row with one column
+            $index = $this->hasDynamic() && is_int($index = $this->dynamic->index()) ? $index : 0;
+            if ($index > 0) {
+                // Back to first row
+                $this->dynamic->moveStart();
+            }
+
+            $cardinal = is_numeric($counter = $this->field(0)) ? (int) $counter : ($cast ? 0 : null);
+
+            if ($index > 0) {
+                // Back to previous position
+                $this->dynamic->index($index);
+            }
+
+            return $cardinal;
+        }
+
+        return $cast ? 0 : null;
+    }
+
     // Methods valid on StaticRecord instance only
     // -------------------------------------------
 

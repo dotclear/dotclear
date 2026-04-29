@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Dotclear\Tests\Database;
 
 use Exception;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
@@ -17,6 +18,7 @@ class MetaRecordExtend
     }
 }
 
+#[AllowMockObjectsWithoutExpectations]
 class MetaRecordTest extends TestCase
 {
     private function getConnection(string $driver, string $driver_folder, string $syntax): MockObject
@@ -1009,6 +1011,156 @@ class MetaRecordTest extends TestCase
         $this->expectExceptionMessage('Call to undefined method unknown()');
 
         $record->unknown();
+    }
+
+    #[DataProvider('dataProviderTest')]
+    public function testCardinal(string $driver, string $driver_folder, string $syntax): void
+    {
+        // Sample data
+        $rows = [
+            [
+                'count' => 42,
+            ],
+        ];
+
+        // Mock db_result_seek and db_fetch_assoc
+        $valid   = true;
+        $pointer = 0;
+
+        $info = [
+            'con'  => null,
+            'cols' => 1,
+            'rows' => 1,
+            'info' => [
+                'name' => [
+                    'count',
+                ],
+                'type' => [
+                    'int',
+                ],
+            ],
+        ];
+
+        $record = $this->createRecord($driver, $driver_folder, $syntax, $rows, $info, $valid, $pointer);
+
+        // Rows/GetData
+        $this->assertEquals(
+            1,
+            $record->count()
+        );
+        $this->assertSame(
+            42,
+            $record->cardinal()
+        );
+    }
+
+    #[DataProvider('dataProviderTest')]
+    public function testCardinalEmpty(string $driver, string $driver_folder, string $syntax): void
+    {
+        // Sample data
+        $rows = [
+            [
+            ],
+        ];
+
+        // Mock db_result_seek and db_fetch_assoc
+        $valid   = true;
+        $pointer = 0;
+
+        $info = [
+            'con'  => null,
+            'cols' => 0,
+            'rows' => 0,
+            'info' => [
+                'name' => [
+                    'count',
+                ],
+                'type' => [
+                    'int',
+                ],
+            ],
+        ];
+
+        $record = $this->createRecord($driver, $driver_folder, $syntax, $rows, $info, $valid, $pointer);
+
+        // Rows/GetData
+        $this->assertEquals(
+            0,
+            $record->count()
+        );
+        $this->assertSame(
+            0,
+            $record->cardinal()
+        );
+        $this->assertSame(
+            null,
+            $record->cardinal(false)
+        );
+    }
+
+    #[DataProvider('dataProviderTest')]
+    public function testCardinalMany(string $driver, string $driver_folder, string $syntax): void
+    {
+        // Sample data
+        $rows = [
+            [
+                'count' => 42,
+                'void'  => '',
+            ],
+            [
+                'count' => 17,
+                'void'  => '',
+            ],
+        ];
+
+        // Mock db_result_seek and db_fetch_assoc
+        $valid   = true;
+        $pointer = 0;
+
+        $info = [
+            'con'  => null,
+            'cols' => 2,
+            'rows' => 2,
+            'info' => [
+                'name' => [
+                    'count',
+                    'void',
+                ],
+                'type' => [
+                    'int',
+                    'string',
+                ],
+            ],
+        ];
+
+        $record = $this->createRecord($driver, $driver_folder, $syntax, $rows, $info, $valid, $pointer);
+
+        // Rows/GetData
+        $this->assertEquals(
+            2,
+            $record->count()
+        );
+        $this->assertEquals(
+            42,
+            $record->cardinal()
+        );
+
+        $record->fetch();
+        $record->fetch();   // Go to 2nd record
+
+        $this->assertEquals(
+            1,
+            $record->index()
+        );
+        $this->assertEquals(
+            42,
+            $record->cardinal()
+        );
+        // Ensure index position has not change
+        $this->assertEquals(
+            1,
+            $record->index()
+        );
     }
 
     /**
