@@ -66,7 +66,7 @@ class ManagePosts
         try {
             App::backend()->posts     = App::meta()->getPostsByMeta($params);
             $counter                  = App::meta()->getPostsByMeta($params, true);
-            App::backend()->post_list = App::backend()->listing()->posts(App::backend()->posts, $counter->f(0));
+            App::backend()->post_list = App::backend()->listing()->posts(App::backend()->posts, $counter->cardinal());
         } catch (Exception $e) {
             App::error()->add($e->getMessage());
         }

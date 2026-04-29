@@ -476,10 +476,7 @@ class Post
         }
 
         if (($run = $sql->select()) instanceof MetaRecord) {
-            $value = $run->f(0);
-            if (is_string($value) || is_numeric($value)) {
-                $res = (int) $value;
-            }
+            $res = $run->cardinal();
         }
 
         $rs->_nb_media[$rs->index()] = $res;

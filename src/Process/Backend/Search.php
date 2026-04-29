@@ -41,7 +41,7 @@ class Search
     /**
      * Number of items found
      */
-    protected static ?int $count = null;
+    protected static int $count = 0;
 
     /**
      * List of related entries
@@ -265,7 +265,7 @@ class Search
         ];
 
         try {
-            self::$count     = (int) App::blog()->getPosts($params, true)->f(0);
+            self::$count     = App::blog()->getPosts($params, true)->cardinal();
             self::$list      = App::backend()->listing()->posts(App::blog()->getPosts($params), self::$count);
             self::$actions   = App::backend()->action()->posts(App::backend()->url()->get('admin.search'), $args);
             self::$performed = self::$actions->process();
@@ -283,7 +283,7 @@ class Search
      */
     public static function displayPosts(array $args): string
     {
-        if ($args['qtype'] != 'p' || self::$count === null) {
+        if ($args['qtype'] != 'p' || self::$count === 0) {
             return '';
         }
 
@@ -353,7 +353,7 @@ class Search
         ];
 
         try {
-            self::$count     = (int) App::blog()->getComments($params, true)->f(0);
+            self::$count     = App::blog()->getComments($params, true)->cardinal();
             self::$list      = App::backend()->listing()->comments(App::blog()->getComments($params), self::$count);
             self::$actions   = App::backend()->action()->comments(App::backend()->url()->get('admin.search'), $args);
             self::$performed = self::$actions->process();
@@ -371,7 +371,7 @@ class Search
      */
     public static function displayComments(array $args): string
     {
-        if ($args['qtype'] != 'c' || self::$count === null) {
+        if ($args['qtype'] != 'c' || self::$count === 0) {
             return '';
         }
 

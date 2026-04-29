@@ -193,7 +193,7 @@ class Blogroll
             ->column($sql->max('link_id'))
             ->from($this->table)
             ->select();
-        $max = $run instanceof MetaRecord && is_numeric($max = $run->f(0) ?? 0) ? (int) $max : 0;
+        $max = $run instanceof MetaRecord ? $run->cardinal() : 0;
 
         $cur->link_id = $max + 1;
 
@@ -287,7 +287,7 @@ class Blogroll
             ->column($sql->max('link_id'))
             ->from($this->table)
             ->select();
-        $max = $run instanceof MetaRecord && is_numeric($max = $run->f(0) ?? 0) ? (int) $max : 0;
+        $max = $run instanceof MetaRecord ? $run->cardinal() : 0;
 
         $cur->link_id = $max + 1;
 

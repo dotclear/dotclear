@@ -99,11 +99,11 @@ class Tables extends CleanerParent
             }
 
             $sql   = new SelectStatement();
-            $count = $sql->from($tables[$k])->fields([$sql->count('*')])->select()?->f(0);
+            $count = $sql->from($tables[$k])->fields([$sql->count('*')])->select()?->cardinal();
 
             $stack[] = new ValueDescriptor(
                 ns:    (string) $v,
-                count: is_numeric($count) ? (int) $count : 0
+                count: (int) $count
             );
         }
 

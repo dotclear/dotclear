@@ -90,7 +90,7 @@ class PostsPopup
         try {
             $posts     = App::blog()->getPosts(App::backend()->params);
             $counter   = App::blog()->getPosts(App::backend()->params, true);
-            $post_list = App::backend()->listing()->postsMini($posts, $counter->f(0));
+            $post_list = App::backend()->listing()->postsMini($posts, $counter->cardinal());
         } catch (Exception $e) {
             App::error()->add($e->getMessage());
         }

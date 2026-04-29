@@ -2868,7 +2868,7 @@ class Tpl extends Template
             return $params . $content;
         }
 
-        return $params . '<?php if (App::frontend()->context()->pagination->f(0) > App::frontend()->context()->posts->count()) : ?>' . $content . '<?php endif; ?>';
+        return $params . '<?php if (App::frontend()->context()->pagination->cardinal() > App::frontend()->context()->posts->count()) : ?>' . $content . '<?php endif; ?>';
     }
 
     /**

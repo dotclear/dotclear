@@ -284,7 +284,7 @@ class Blogs implements BlogsInterface
             $sql->and('post_type = ' . $sql->quote($type));
         }
 
-        return (int) $sql->select()?->f(0);
+        return (int) $sql->select()?->cardinal();
     }
 
     public function blogDefaults(?array $defaults = null): void

@@ -208,7 +208,7 @@ class User
                 } else {
                     // Add user
 
-                    if (App::users()->getUsers(['user_id' => $cur->user_id], true)->f(0) > 0) {
+                    if (App::users()->getUsers(['user_id' => $cur->user_id], true)->cardinal() > 0) {
                         throw new Exception(sprintf(__('User "%s" already exists.'), Html::escapeHTML($cur->user_id)));
                     }
 

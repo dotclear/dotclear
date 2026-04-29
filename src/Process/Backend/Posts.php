@@ -77,7 +77,7 @@ class Posts
             $posts   = App::blog()->getPosts($params);
             $counter = App::blog()->getPosts($params, true);
 
-            App::backend()->post_list = App::backend()->listing()->posts($posts, $counter->f(0));
+            App::backend()->post_list = App::backend()->listing()->posts($posts, $counter->cardinal());
         } catch (Exception $e) {
             App::error()->add($e->getMessage());
         }

@@ -110,7 +110,7 @@ class Notices
                     'sql' => "AND notice_type != '" . self::NOTICE_STATIC . "'",
                 ];
             }
-            if (App::notice()->getNotices($params, true)->f(0)) {
+            if (App::notice()->getNotices($params, true)->cardinal() > 0) {
                 $lines = App::notice()->getNotices($params);
 
                 while ($lines->fetch()) {

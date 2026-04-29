@@ -54,6 +54,8 @@ class Utility extends AbstractUtility
      * Searched count
      *
      * @var string      $search_count
+     *
+     * @todo switch to int type (and review references)
      */
     public $search_count;
 

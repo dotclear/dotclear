@@ -299,9 +299,9 @@ class Media extends MediaManager implements MediaInterface
     {
         return match (strtolower($type)) {
             'alpha', 'png' => sprintf($this->thumbnail_pattern, '%s', $this->thumbnail_prefix, '%s', '%s', 'png'),
-            'webp'  => sprintf($this->thumbnail_pattern, '%s', $this->thumbnail_prefix, '%s', '%s', 'webp'),
-            'avif'  => sprintf($this->thumbnail_pattern, '%s', $this->thumbnail_prefix, '%s', '%s', 'avif'),
-            default => sprintf($this->thumbnail_pattern, '%s', $this->thumbnail_prefix, '%s', '%s', 'jpg'),
+            'webp'         => sprintf($this->thumbnail_pattern, '%s', $this->thumbnail_prefix, '%s', '%s', 'webp'),
+            'avif'         => sprintf($this->thumbnail_pattern, '%s', $this->thumbnail_prefix, '%s', '%s', 'avif'),
+            default        => sprintf($this->thumbnail_pattern, '%s', $this->thumbnail_prefix, '%s', '%s', 'jpg'),
         };
     }
 
@@ -314,7 +314,7 @@ class Media extends MediaManager implements MediaInterface
     {
         return match (strtolower($type)) {
             'alpha', 'png', 'webp', 'avif' => true,
-            default => false,
+            default                        => false,
         };
     }
 
@@ -1249,7 +1249,7 @@ class Media extends MediaManager implements MediaInterface
                     ->column($sql->max('media_id'));
 
                 $rsId     = $sql->select();
-                $media_id = $rsId instanceof MetaRecord ? (int) $rsId->f(0) + 1 : 1;
+                $media_id = $rsId instanceof MetaRecord ? $rsId->cardinal() + 1 : 1;
 
                 $cur->media_id     = $media_id;
                 $cur->user_id      = $this->core->auth()->userID();

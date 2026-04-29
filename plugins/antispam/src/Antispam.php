@@ -179,9 +179,7 @@ class Antispam
      */
     public static function countSpam(): int
     {
-        $count = App::blog()->getComments(['comment_status' => App::status()->comment()::JUNK], true)->f(0);
-
-        return is_numeric($count) ? (int) $count : 0;
+        return App::blog()->getComments(['comment_status' => App::status()->comment()::JUNK], true)->cardinal();
     }
 
     /**
@@ -189,9 +187,7 @@ class Antispam
      */
     public static function countPublishedComments(): int
     {
-        $count = App::blog()->getComments(['comment_status' => App::status()->comment()::PUBLISHED], true)->f(0);
-
-        return is_numeric($count) ? (int) $count : 0;
+        return App::blog()->getComments(['comment_status' => App::status()->comment()::PUBLISHED], true)->cardinal();
     }
 
     /**

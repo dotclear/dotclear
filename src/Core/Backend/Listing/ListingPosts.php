@@ -160,7 +160,7 @@ class ListingPosts extends Listing
                 (new Text(null, sprintf('%s (%s)', __(App::postTypes()->get($types[0])->get('label')), $this->rs_count))),
             ];
             foreach (App::status()->post()->dump(false) as $status) {
-                $nb = (int) App::blog()->getPosts(['post_status' => $status->level()], true)->f(0);
+                $nb = App::blog()->getPosts(['post_status' => $status->level()], true)->cardinal();
                 if ($nb !== 0) {
                     $stats[] = (new Set())
                         ->separator(' ')

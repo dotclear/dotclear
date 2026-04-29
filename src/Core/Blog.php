@@ -1385,7 +1385,7 @@ class Blog implements BlogInterface
                 ->from($this->prefix . self::POST_TABLE_NAME);
             $rs = $sql->select();
 
-            $cur->post_id     = $rs instanceof MetaRecord ? (int) $rs->f(0) + 1 : 1;
+            $cur->post_id     = $rs instanceof MetaRecord ? $rs->cardinal() + 1 : 1;
             $cur->blog_id     = $this->id;
             $cur->post_creadt = date('Y-m-d H:i:s');
             $cur->post_upddt  = date('Y-m-d H:i:s');
@@ -2371,7 +2371,7 @@ class Blog implements BlogInterface
 
             $rs = $sql->select();
 
-            $cur->comment_id    = $rs instanceof MetaRecord ? (int) $rs->f(0) + 1 : 1;
+            $cur->comment_id    = $rs instanceof MetaRecord ? $rs->cardinal() + 1 : 1;
             $cur->comment_upddt = date('Y-m-d H:i:s');
 
             $offset          = Date::getTimeOffset($this->settings()->system->blog_timezone);

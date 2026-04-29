@@ -98,7 +98,7 @@ class Backend
                          */
                         $params              = new ArrayObject();
                         $params['post_type'] = 'page';
-                        $page_count          = App::blog()->getPosts($params, true)->f(0);
+                        $page_count          = App::blog()->getPosts($params, true)->cardinal();
                         if ($page_count > 0) {
                             $str_pages     = ($page_count > 1) ? __('%d pages') : __('%d page');
                             $icon['title'] = sprintf($str_pages, $page_count);

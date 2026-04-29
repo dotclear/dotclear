@@ -129,7 +129,7 @@ class ListingUsers extends Listing
                 (new Text(null, sprintf('%s (%s)', __('Users'), $this->rs_count))),
             ];
             foreach (App::status()->user()->dump(false) as $status) {
-                $nb = (int) App::users()->getUsers(['user_status' => $status->level()], true)->f(0);
+                $nb = App::users()->getUsers(['user_status' => $status->level()], true)->cardinal();
                 if ($nb !== 0) {
                     $stats[] = (new Set())
                         ->separator(' ')

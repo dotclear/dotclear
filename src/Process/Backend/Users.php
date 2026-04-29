@@ -89,7 +89,7 @@ class Users
                 $rsStatic = $rsStatic->toStatic();
                 $rsStatic->lexicalSort(App::backend()->filter()->users()->sortby, App::backend()->filter()->users()->order);
             }
-            App::backend()->user_list = App::backend()->listing()->users($rsStatic, $counter->f(0));
+            App::backend()->user_list = App::backend()->listing()->users($rsStatic, $counter->cardinal());
         } catch (Exception $e) {
             App::error()->add($e->getMessage());
         }

@@ -301,7 +301,7 @@ class IpV6 extends SpamFilter
                 ->column($sql->max('rule_id'))
                 ->from($this->table)
                 ->select();
-            $max = $run instanceof MetaRecord && is_numeric($max = $run->f(0) ?? 0) ? (int) $max : 0;
+            $max = $run instanceof MetaRecord ? $run->cardinal() : 0;
 
             $cur->rule_id      = $max + 1;
             $cur->rule_type    = $type;

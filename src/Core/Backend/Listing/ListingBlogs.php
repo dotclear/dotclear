@@ -130,7 +130,7 @@ class ListingBlogs extends Listing
                 (new Text(null, sprintf('%s (%s)', __('Blogs'), $this->rs_count))),
             ];
             foreach (App::status()->blog()->dump(false) as $status) {
-                $nb = (int) App::blogs()->getBlogs(['blog_status' => $status->level()], true)->f(0);
+                $nb = App::blogs()->getBlogs(['blog_status' => $status->level()], true)->cardinal();
                 if ($nb !== 0) {
                     $stats[] = (new Set())
                         ->separator(' ')

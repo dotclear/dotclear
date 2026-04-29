@@ -94,7 +94,7 @@ class ListingComments extends Listing
                 (new Text(null, sprintf(__('List of comments and trackbacks (%s)'), $this->rs_count))),
             ];
             foreach (App::status()->comment()->dump(false) as $status) {
-                $nb = (int) App::blog()->getComments(['comment_status' => $status->level()], true)->f(0);
+                $nb = App::blog()->getComments(['comment_status' => $status->level()], true)->cardinal();
                 if ($nb !== 0) {
                     $stats[] = (new Set())
                         ->separator(' ')

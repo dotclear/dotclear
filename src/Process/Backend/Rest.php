@@ -91,10 +91,10 @@ class Rest
      */
     public static function getPostsCount(): array
     {
-        $count = App::blog()->getPosts([], true)->f(0);
+        $count = App::blog()->getPosts([], true)->cardinal();
 
         return [
-            'ret' => sprintf(__('%d post', '%d posts', (int) $count), $count),
+            'ret' => sprintf(__('%d post', '%d posts', $count), $count),
         ];
     }
 
@@ -105,10 +105,10 @@ class Rest
      */
     public static function getCommentsCount(): array
     {
-        $count = App::blog()->getComments([], true)->f(0);
+        $count = App::blog()->getComments([], true)->cardinal();
 
         return [
-            'ret' => sprintf(__('%d comment', '%d comments', (int) $count), $count),
+            'ret' => sprintf(__('%d comment', '%d comments', $count), $count),
         ];
     }
 

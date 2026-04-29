@@ -75,7 +75,7 @@ class Manage
             $pages   = App::blog()->getPosts($params);
             $counter = App::blog()->getPosts($params, true);
 
-            App::backend()->post_list = new BackendList($pages, $counter->f(0));
+            App::backend()->post_list = new BackendList($pages, $counter->cardinal());
         } catch (Exception $e) {
             App::error()->add($e->getMessage());
         }

@@ -74,7 +74,11 @@ class Notice implements NoticeInterface
 
         if (isset($params['notice_id']) && $params['notice_id'] !== '') {
             if (is_array($params['notice_id'])) {
-                array_walk($params['notice_id'], function (&$v): void { if ($v !== null) {$v = (int) $v;}});
+                array_walk($params['notice_id'], function (&$v): void {
+                    if ($v !== null) {
+                        $v = (int) $v;
+                    }
+                });
             } else {
                 $params['notice_id'] = [(int) $params['notice_id']];
             }
@@ -120,7 +124,7 @@ class Notice implements NoticeInterface
                 ->from($this->table);
 
             if (($rs = $sql->select()) instanceof MetaRecord) {
-                $cur->notice_id = (int) $rs->f(0) + 1;
+                $cur->notice_id = $rs->cardinal() + 1;
                 $cur->ses_id    = (string) session_id();
 
                 $this->fillNoticeCursor($cur);

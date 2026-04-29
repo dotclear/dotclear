@@ -101,8 +101,7 @@ class Deprecated implements DeprecatedInterface
         self::$purged = true;
 
         // count deprecated logs
-        $count = self::get(null, true)->f(0);
-        $count = is_numeric($count) ? (int) $count : 0;
+        $count = self::get(null, true)->cardinal();
 
         // check logs limit and delete them if it's required
         if ($count > self::DEPRECATED_PURGE_LIMIT) {

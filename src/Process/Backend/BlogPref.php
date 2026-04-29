@@ -1289,7 +1289,7 @@ class BlogPref
                                 'user_id'   => $k,
                             ];
                             $pubs[] = (new Li())
-                                ->text(sprintf(__('%1$s: %2$s'), __($pt->get('label')), App::blog()->getPosts($prefs, true)->f(0)));
+                                ->text(sprintf(__('%1$s: %2$s'), __($pt->get('label')), App::blog()->getPosts($prefs, true)->cardinal()));
                         }
 
                         // User permissions

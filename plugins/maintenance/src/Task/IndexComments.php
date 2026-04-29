@@ -101,7 +101,7 @@ class IndexComments extends MaintenanceTask
                 ->column($sql->count('comment_id'))
                 ->from(App::db()->con()->prefix() . App::blog()::COMMENT_TABLE_NAME)
                 ->select();
-            $this->count = $run instanceof MetaRecord ? (int) $run->f(0) : 0;
+            $this->count = $run instanceof MetaRecord ? $run->cardinal() : 0;
 
             if ($this->count === 0) {
                 // No comments to index

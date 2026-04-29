@@ -422,7 +422,7 @@ class Favorites
                     App::auth()::PERMISSION_CONTENT_ADMIN,
                 ]),
                 'dashboard_cb' => function (ArrayObject $icon): void {
-                    $post_count    = (int) App::blog()->getPosts([], true)->f(0);
+                    $post_count    = App::blog()->getPosts([], true)->cardinal();
                     $str_entries   = __('%d post', '%d posts', $post_count);
                     $icon['title'] = sprintf($str_entries, $post_count);
                 },
@@ -437,7 +437,7 @@ class Favorites
                     App::auth()::PERMISSION_CONTENT_ADMIN,
                 ]),
                 'dashboard_cb' => function (ArrayObject $icon): void {
-                    $comment_count = (int) App::blog()->getComments([], true)->f(0);
+                    $comment_count = App::blog()->getComments([], true)->cardinal();
                     $str_comments  = __('%d comment', '%d comments', $comment_count);
                     $icon['title'] = sprintf($str_comments, $comment_count);
                 },

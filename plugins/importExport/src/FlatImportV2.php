@@ -200,33 +200,27 @@ class FlatImportV2 extends FlatBackup
 
         $rs = new MetaRecord($this->con->select('SELECT MAX(cat_id) FROM ' . $this->prefix . App::blog()->categories()::CATEGORY_TABLE_NAME));
 
-        $cat_id                = is_numeric($cat_id = $rs->f(0)) ? (int) $cat_id : 0;
-        $this->stack['cat_id'] = $cat_id + 1;
+        $this->stack['cat_id'] = $rs->cardinal() + 1;
 
         $rs = new MetaRecord($this->con->select('SELECT MAX(link_id) FROM ' . $this->prefix . Blogroll::LINK_TABLE_NAME));
 
-        $link_id                = is_numeric($link_id = $rs->f(0)) ? (int) $link_id : 0;
-        $this->stack['link_id'] = $link_id + 1;
+        $this->stack['link_id'] = $rs->cardinal() + 1;
 
         $rs = new MetaRecord($this->con->select('SELECT MAX(post_id) FROM ' . $this->prefix . App::blog()::POST_TABLE_NAME));
 
-        $post_id                = is_numeric($post_id = $rs->f(0)) ? (int) $post_id : 0;
-        $this->stack['post_id'] = $post_id + 1;
+        $this->stack['post_id'] = $rs->cardinal() + 1;
 
         $rs = new MetaRecord($this->con->select('SELECT MAX(media_id) FROM ' . $this->prefix . App::postMedia()::MEDIA_TABLE_NAME));
 
-        $media_id                = is_numeric($media_id = $rs->f(0)) ? (int) $media_id : 0;
-        $this->stack['media_id'] = $media_id + 1;
+        $this->stack['media_id'] = $rs->cardinal() + 1;
 
         $rs = new MetaRecord($this->con->select('SELECT MAX(comment_id) FROM ' . $this->prefix . App::blog()::COMMENT_TABLE_NAME));
 
-        $comment_id                = is_numeric($comment_id = $rs->f(0)) ? (int) $comment_id : 0;
-        $this->stack['comment_id'] = $comment_id + 1;
+        $this->stack['comment_id'] = $rs->cardinal() + 1;
 
         $rs = new MetaRecord($this->con->select('SELECT MAX(log_id) FROM ' . $this->prefix . App::log()::LOG_TABLE_NAME));
 
-        $log_id                = is_numeric($log_id = $rs->f(0)) ? (int) $log_id : 0;
-        $this->stack['log_id'] = $log_id + 1;
+        $this->stack['log_id'] = $rs->cardinal() + 1;
 
         $rs = new MetaRecord($this->con->select(
             'SELECT MAX(cat_rgt) AS cat_rgt FROM ' . $this->prefix . App::blog()->categories()::CATEGORY_TABLE_NAME . ' ' .

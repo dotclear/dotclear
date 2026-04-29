@@ -104,7 +104,7 @@ class Comments
             $comments = App::blog()->getComments($params);
             $counter  = App::blog()->getComments($params, true);
 
-            App::backend()->comment_list = App::backend()->listing()->comments($comments, $counter->f(0));
+            App::backend()->comment_list = App::backend()->listing()->comments($comments, $counter->cardinal());
         } catch (Exception $e) {
             App::error()->add($e->getMessage());
         }
@@ -144,10 +144,10 @@ class Comments
                 App::session()->unset('comments_del_spam');
             }
 
-            $spam_count = App::blog()->getComments(['comment_status' => App::status()->comment()::JUNK], true)->f(0);
+            $spam_count = App::blog()->getComments(['comment_status' => App::status()->comment()::JUNK], true)->cardinal();
             if ($spam_count > 0) {
                 if (!App::backend()->filter()->comments()->show() || (App::backend()->filter()->comments()->status != -2)) {
-                    if ($spam_count == 1) {
+                    if ($spam_count === 1) {
                         $count = (new Para())
                             ->class('form-buttons')
                             ->items([
@@ -156,7 +156,7 @@ class Comments
                                     ->href(App::backend()->url()->get('admin.comments', ['status' => -2]))
                                     ->text(__('Show it.')),
                             ]);
-                    } elseif ($spam_count > 1) {
+                    } else {
                         $count = (new Para())
                             ->class('form-buttons')
                             ->items([
@@ -165,8 +165,6 @@ class Comments
                                     ->href(App::backend()->url()->get('admin.comments', ['status' => -2]))
                                     ->text(__('Show them.')),
                             ]);
-                    } else {
-                        $count = (new None());
                     }
                 } else {
                     $count = (new None());

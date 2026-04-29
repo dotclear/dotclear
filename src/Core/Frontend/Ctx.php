@@ -413,11 +413,11 @@ class Ctx
      */
     public static function PaginationNbPages(): false|int
     {
-        if (App::frontend()->context()->pagination === null) {
+        if (!App::frontend()->context()->pagination instanceof MetaRecord) {
             return false;
         }
 
-        $nb_posts = App::frontend()->context()->pagination->f(0);
+        $nb_posts = App::frontend()->context()->pagination->cardinal();
         if ((App::url()->getType() === 'default') || (App::url()->getType() === 'default-page')) {
             // Home page (not static)
             return (int) ceil(($nb_posts - App::frontend()->context()->nb_entry_first_page) / App::frontend()->context()->nb_entry_per_page + 1);
