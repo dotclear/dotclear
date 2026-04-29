@@ -70,20 +70,20 @@ update_po()
 {
   po_file=$1
   pot_file=$2
-  po_dir=`dirname $1`
+  po_dir=$(dirname "$1")
   po_tmp=$po_dir/tmp.po~
 
-  if [ ! -d $po_dir ]; then
-    mkdir $po_dir
+  if [ ! -d "$po_dir" ]; then
+    mkdir "$po_dir"
   fi
 
-  if [ ! -f $po_file ]; then
-    cp $pot_file $po_file
-    perl -pi -e "s|; charset=CHARSET|; charset=UTF-8|sgi;" $po_file $po_file
+  if [ ! -f "$po_file" ]; then
+    cp "$pot_file" "$po_file"
+    perl -pi -e "s|; charset=CHARSET|; charset=UTF-8|sgi;" "$po_file" "$po_file"
   fi
 
-  $MSGMERGE --no-location --no-wrap --quiet -o $po_tmp $po_file $pot_file
-  mv $po_tmp $po_file
+  $MSGMERGE --no-location --no-wrap --quiet -o "$po_tmp" "$po_file" "$pot_file"
+  mv "$po_tmp" "$po_file"
 }
 
 if [ -z "$PO_MODULE" ]; then
@@ -103,8 +103,8 @@ if [ -z "$PO_MODULE" ]; then
   # - plugins.pot
   echo "Building plugins PO template..."
   for p in $PLUGINS; do
-    if [ -d plugins/$p ]; then
-      find ./plugins/$p -name '*.php' -print
+    if [ -d plugins/"$p" ]; then
+      find ./plugins/"$p" -name '*.php' -print
     fi
   done | \
     extract_strings \
@@ -149,27 +149,27 @@ if [ -z "$PO_MODULE" ]; then
   fi
 
   # Init locale if not present
-  if [ ! -d locales/$PO_LANG ]; then
-    mkdir -p locales/$PO_LANG/help
+  if [ ! -d locales/"$PO_LANG" ]; then
+    mkdir -p locales/"$PO_LANG"/help
 
     # Base help files
     for i in locales/en/help/*.html; do
-      cp $i locales/$PO_LANG/help/core_`basename $i`
+      cp "$i" locales/"$PO_LANG"/help/core_"$(basename "$i")"
     done
     for i in $PLUGINS; do
-      if [ -f plugins/$i/help.html ]; then
-        cp plugins/$i/help.html locales/$PO_LANG/help/$i.html
+      if [ -f plugins/"$i"/help.html ]; then
+        cp plugins/"$i"/help.html locales/"$PO_LANG"/help/"$i".html
       fi
     done
   fi
 
   # update main.po
   echo "Updating <$PO_LANG> po files..."
-  update_po ./locales/$PO_LANG/main.po ./locales/_pot/main.pot
-  update_po ./locales/$PO_LANG/plugins.po ./locales/_pot/plugins.pot
-  update_po ./locales/$PO_LANG/public.po ./locales/_pot/public.pot
-  update_po ./locales/$PO_LANG/date.po ./locales/_pot/date.pot
-  update_po ./locales/$PO_LANG/exception.po ./locales/_pot/exception.pot
+  update_po ./locales/"$PO_LANG"/main.po ./locales/_pot/main.pot
+  update_po ./locales/"$PO_LANG"/plugins.po ./locales/_pot/plugins.pot
+  update_po ./locales/"$PO_LANG"/public.po ./locales/_pot/public.pot
+  update_po ./locales/"$PO_LANG"/date.po ./locales/_pot/date.pot
+  update_po ./locales/"$PO_LANG"/exception.po ./locales/_pot/exception.pot
   echo "- done"
 
 else
@@ -177,7 +177,7 @@ else
   # Plugin (3rd party only) or Theme (standard or 3rd party) language update
   #
 
-  if [ ! -d $PO_MODULE ]; then
+  if [ ! -d "$PO_MODULE" ]; then
     echo "Module $PO_MODULE does not exist"
     exit 1
   fi
@@ -187,62 +187,62 @@ else
   # Building po template file
   #
   echo "Building PO template..."
-  if [ ! -d $PO_MODULE/locales/_pot ]; then
-    mkdir -p $PO_MODULE/locales/_pot
+  if [ ! -d "$PO_MODULE"/locales/_pot ]; then
+    mkdir -p "$PO_MODULE"/locales/_pot
   fi
 
   # src/Config.php goes to admin.pot, should be loaded explicitely in src/Config.php:
   # My::l10n('admin');
 
-  if [ -f $PO_MODULE/_config.php ]; then
+  if [ -f "$PO_MODULE"/_config.php ]; then
     echo "- Building admin PO template..."
-    find $PO_MODULE -name '_config.php' -print | \
+    find "$PO_MODULE" -name '_config.php' -print | \
       extract_strings \
-      --package-name="Dotclear 2 `basename $PO_MODULE` module" \
-      -o $PO_MODULE/locales/_pot/admin.pot \
+      --package-name="Dotclear 2 $(basename "$PO_MODULE") module" \
+      -o "$PO_MODULE"/locales/_pot/admin.pot \
       -x locales/_pot/date.pot -x locales/_pot/main.pot -x locales/_pot/public.pot -x locales/_pot/plugins.pot
   else
-    touch $PO_MODULE/locales/_pot/admin.pot
+    touch "$PO_MODULE"/locales/_pot/admin.pot
   fi
 
-  if [ -f $PO_MODULE/src/Config.php ]; then
+  if [ -f "$PO_MODULE"/src/Config.php ]; then
     echo "- Building admin PO template..."
-    find $PO_MODULE/src -name 'Config.php' -print | \
+    find "$PO_MODULE"/src -name 'Config.php' -print | \
       extract_strings \
-      --package-name="Dotclear 2 `basename $PO_MODULE` module" \
-      -o $PO_MODULE/locales/_pot/admin.pot \
+      --package-name="Dotclear 2 $(basename "$PO_MODULE") module" \
+      -o "$PO_MODULE"/locales/_pot/admin.pot \
       -x locales/_pot/date.pot -x locales/_pot/main.pot -x locales/_pot/public.pot -x locales/_pot/plugins.pot
   else
-    touch $PO_MODULE/locales/_pot/admin.pot
+    touch "$PO_MODULE"/locales/_pot/admin.pot
   fi
 
   # All other files including templates
 
   echo "- Building main PO template..."
-  echo '<?php' > $PO_MODULE/__html_tpl_dummy.php
-  find $PO_MODULE -name '*.html' -exec grep -o '{{tpl:lang [^}]*}}' {} \; | sed 's/{{tpl:lang \(.*\)}}$/__\("\1")/' | sort -u \
-    >> $PO_MODULE/__html_tpl_dummy.php
-  sed -i.bak 's/\$/\\\$/g' $PO_MODULE/__html_tpl_dummy.php
-  rm -- $PO_MODULE/__html_tpl_dummy.php.bak
+  echo '<?php' > "$PO_MODULE"/__html_tpl_dummy.php
+  find "$PO_MODULE" -name '*.html' -exec grep -o '{{tpl:lang [^}]*}}' {} \; | sed 's/{{tpl:lang \(.*\)}}$/__\("\1")/' | sort -u \
+    >> "$PO_MODULE"/__html_tpl_dummy.php
+  sed -i.bak 's/\$/\\\$/g' "$PO_MODULE"/__html_tpl_dummy.php
+  rm -- "$PO_MODULE"/__html_tpl_dummy.php.bak
 
-  find $PO_MODULE -name '*.php' -not -regex '.*/_config.php' -not -regex '.*/Config.php' -print | \
+  find "$PO_MODULE" -name '*.php' -not -regex '.*/_config.php' -not -regex '.*/Config.php' -print | \
     extract_strings \
-    --package-name="Dotclear 2 `basename $PO_MODULE` module" \
-    -o $PO_MODULE/locales/_pot/main.pot \
-    -x $PO_MODULE/locales/_pot/admin.pot \
+    --package-name="Dotclear 2 $(basename "$PO_MODULE") module" \
+    -o "$PO_MODULE"/locales/_pot/main.pot \
+    -x "$PO_MODULE"/locales/_pot/admin.pot \
     -x locales/_pot/date.pot \
     -x locales/_pot/exception.pot \
     -x locales/_pot/public.pot \
     -x locales/_pot/plugins.pot
 
-  rm -f $PO_MODULE/__html_tpl_dummy.php
-  if [ ! -s $PO_MODULE/locales/_pot/admin.pot ]; then
+  rm -f "$PO_MODULE"/__html_tpl_dummy.php
+  if [ ! -s "$PO_MODULE"/locales/_pot/admin.pot ]; then
     # Remove admin.pot if is empty
-    rm -f $PO_MODULE/locales/_pot/admin.pot
+    rm -f "$PO_MODULE"/locales/_pot/admin.pot
   fi
-  if [ ! -s $PO_MODULE/locales/_pot/main.pot ]; then
+  if [ ! -s "$PO_MODULE"/locales/_pot/main.pot ]; then
     # Remove main.pot if is empty
-    rm -f $PO_MODULE/locales/_pot/main.pot
+    rm -f "$PO_MODULE"/locales/_pot/main.pot
   fi
 
   echo "- PO template built"
@@ -251,15 +251,15 @@ else
   # Update locale/<lang>
   #
   echo "Update PO file..."
-  if [ ! -d $PO_MODULE/locales/$PO_LANG ]; then
-    mkdir -p $PO_MODULE/locales/$PO_LANG
+  if [ ! -d "$PO_MODULE"/locales/"$PO_LANG" ]; then
+    mkdir -p "$PO_MODULE"/locales/"$PO_LANG"
   fi
-  if [ -s $PO_MODULE/locales/_pot/main.pot ]; then
+  if [ -s "$PO_MODULE"/locales/_pot/main.pot ]; then
     echo "- Updating module <$PO_MODULE> main <$PO_LANG> po file... "
-    update_po $PO_MODULE/locales/$PO_LANG/main.po $PO_MODULE/locales/_pot/main.pot
+    update_po "$PO_MODULE"/locales/"$PO_LANG"/main.po "$PO_MODULE"/locales/_pot/main.pot
   fi
-  if [ -s $PO_MODULE/locales/_pot/admin.pot ]; then
+  if [ -s "$PO_MODULE"/locales/_pot/admin.pot ]; then
     echo "- Updating module <$PO_MODULE> admin <$PO_LANG> po file... "
-    update_po $PO_MODULE/locales/$PO_LANG/admin.po $PO_MODULE/locales/_pot/admin.pot
+    update_po "$PO_MODULE"/locales/"$PO_LANG"/admin.po "$PO_MODULE"/locales/_pot/admin.pot
   fi
 fi
