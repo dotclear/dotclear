@@ -100,7 +100,8 @@ class DerEncoder implements DerEncoderInterface
         $len = strlen($bytes);
 
         // Remove leading zero bytes
-        for ($i = 0; $i < ($len - 1); $i++) {
+        $i = 0;
+        for (; $i < ($len - 1); $i++) {
             if (ord($bytes[$i]) !== 0) {
                 break;
             }

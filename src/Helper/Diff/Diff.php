@@ -54,7 +54,8 @@ class Diff
         $end_reached = false;
 
         # Find LCS length
-        for ($D = 0; $D < $cx + $cy + 1 && !$end_reached; $D++) {
+        $D = 0;
+        for (; $D < $cx + $cy + 1 && !$end_reached; $D++) {
             for ($k = -$D; $k <= $D; $k += 2) {
                 $x = ($k === -$D || $k !== $D && $V[$k - 1] < $V[$k + 1])
                 ? $V[$k + 1] : $V[$k - 1] + 1;
@@ -144,7 +145,8 @@ class Diff
             # New chunk
             if ($x - $pos_x > 2 * $ctx || $pos_x == 0 && $x > $ctx) {
                 # Footer for current chunk
-                for ($i = 0; $buffer && $i < $ctx; $i++) {
+                $i = 0;
+                for (; $buffer && $i < $ctx; $i++) {
                     $buffer .= sprintf(self::US_CTX, $src[(int) ($pos_x + $i)]);
                 }
 
@@ -196,7 +198,8 @@ class Diff
         # Remaining chunk
         if ($buffer !== '') {
             # Footer
-            for ($i = 0; $i < $ctx; $i++) {
+            $i = 0;
+            for (; $i < $ctx; $i++) {
                 if (!isset($src[(int) ($pos_x + $i)])) {
                     break;
                 }

@@ -542,6 +542,7 @@ class QRCode
             $max_chars <<= 1;
         }
         $data = substr($data, 0, $max_chars);
+        $code = [];
         /* Convert from character level to bit level. */
         switch ($mode) {
             case 0:

@@ -14,26 +14,33 @@ parameters:
   level: 8
   tmpDir: /tmp/dotclear/core/phpstan
 
-# Go over level 9 (uncomment one/many of next lines to activate them):
+# Go over max level (uncomment one/many of next lines to activate them):
   checkBenevolentUnionTypes: true
   checkDynamicProperties: true
-  checkExplicitMixedMissingReturn: true
+  checkExplicitMixedMissingReturn : true
   checkFunctionNameCase: true
 #  checkImplicitMixed: true
-  checkInternalClassCaseSensitivity: true
+  checkInternalClassCaseSensitivity : true
 #  checkMissingOverrideMethodAttribute: true
+#  checkMissingOverridePropertyAttribute : true
+#  checkStrictPrintfPlaceholderTypes : true
+#  checkTooWideParameterOutInProtectedAndPublicMethods : true
+#  checkTooWideThrowTypesInProtectedAndPublicMethods : true
+  checkTooWideReturnTypesInProtectedAndPublicMethods : true
 #  checkUninitializedProperties: true
-  checkTooWideReturnTypesInProtectedAndPublicMethods: true
   polluteScopeWithAlwaysIterableForeach: false
   polluteScopeWithBlock: false
-#  polluteScopeWithLoopInitialAssignments: false
+  polluteScopeWithLoopInitialAssignments: false
+#  rememberPossiblyImpureFunctionValues : true
   reportAlwaysTrueInLastCondition: true
   reportAnyTypeWideningInVarTag: true
-#  reportMaybesInMethodSignatures: true
+#  reportMaybesInMethodSignatures : true
   reportMaybesInPropertyPhpDocTypes: true
+#  reportNonIntStringArrayKey : true
 #  reportPossiblyNonexistentConstantArrayOffset: true
 #  reportPossiblyNonexistentGeneralArrayOffset: true
   reportStaticMethodSignatures: true
+#  reportUnsafeArrayStringKeyCasting : detect  # later: prevent
   reportWrongPhpDocTypeInVarTag: true
 
   editorUrl: 'file://%%file%%'
