@@ -128,7 +128,7 @@ class Handler extends AbstractPdoHandler
         foreach ($args as $v) {
             if (is_string($v)) {
                 $res[] = sprintf($fmt, $v);
-            } elseif (is_array($v)) {
+            } else {
                 $res = array_map(fn (string $i): string => sprintf($fmt, $i), $v);
             }
         }

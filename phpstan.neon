@@ -27,7 +27,7 @@ parameters:
   polluteScopeWithAlwaysIterableForeach: false
   polluteScopeWithBlock: false
 #  polluteScopeWithLoopInitialAssignments: false
-#  reportAlwaysTrueInLastCondition: true
+  reportAlwaysTrueInLastCondition: true
   reportAnyTypeWideningInVarTag: true
 #  reportMaybesInMethodSignatures: true
   reportMaybesInPropertyPhpDocTypes: true
