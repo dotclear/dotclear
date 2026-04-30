@@ -248,6 +248,8 @@ class L10n implements L10nInterface
 
         $strings  = self::getPoFile($po_file);
         $fcontent = "<?php\n" .
+            'declare(strict_types=1);' . "\n" .
+            "\n" .
             $license_block . "\n" .
             "#\n" .
             "# DOT NOT MODIFY THIS FILE !\n" .

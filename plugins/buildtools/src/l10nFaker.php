@@ -28,7 +28,7 @@ class l10nFaker
     public function generate_file(): void
     {
         $user_tz = is_string($user_tz = App::auth()->getInfo('user_tz')) ? $user_tz : null;
-        $main    = $plugin = "<?php\n\n" . '// Generated on ' . Date::dt2str('%Y-%m-%d %H:%M %z', (string) time(), $user_tz) . "\n";
+        $main    = $plugin = "<?php\ndeclare(strict_types=1);\n\n" . '// Generated on ' . Date::dt2str('%Y-%m-%d %H:%M %z', (string) time(), $user_tz) . "\n";
 
         /**
          * Get a fake l10n
