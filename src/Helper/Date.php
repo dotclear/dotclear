@@ -140,7 +140,7 @@ class Date
             '%A' => $intl_formatter,
             '%d' => 'd',
             '%e' => fn ($timestamp): string => sprintf('% 2u', $timestamp->format('j')),
-            '%j' => fn ($timestamp): string => sprintf('%03d', $timestamp->format('z') + 1), // Day number in year, 001 to 366
+            '%j' => fn ($timestamp): string => sprintf('%03d', (int) $timestamp->format('z') + 1), // Day number in year, 001 to 366
             '%u' => 'N',
             '%w' => 'w',
 
@@ -149,14 +149,14 @@ class Date
                 // Number of weeks between date and first Sunday of year
                 $day = new DateTime(sprintf('%d-01 Sunday', $timestamp->format('Y')));
 
-                return sprintf('%02u', 1 + ($timestamp->format('z') - $day->format('z')) / 7);
+                return sprintf('%02u', (int) (1 + ($timestamp->format('z') - $day->format('z')) / 7));
             },
             '%V' => 'W',
             '%W' => function ($timestamp): string {
                 // Number of weeks between date and first Monday of year
                 $day = new DateTime(sprintf('%d-01 Monday', $timestamp->format('Y')));
 
-                return sprintf('%02u', 1 + ($timestamp->format('z') - $day->format('z')) / 7);
+                return sprintf('%02u', (int) (1 + ($timestamp->format('z') - $day->format('z')) / 7));
             },
 
             // Month
@@ -221,7 +221,7 @@ class Date
                 '_' => (string) preg_replace('/\G0(?=.)/', ' ', $result),
                 // remove leading zeros but keep last char if also zero
                 '#', '-' => (string) preg_replace('/^0+(?=.)/', '', $result),
-                default => $result,
+                default  => $result,
             };
         };
 
@@ -342,7 +342,7 @@ class Date
     public static function iso8601(int $timestamp, string $timezone = 'UTC'): string
     {
         $offset         = self::getTimeOffset($timezone, $timestamp);
-        $printed_offset = sprintf('%02u:%02u', abs($offset) / 3600, (abs($offset) % 3600) / 60);
+        $printed_offset = sprintf('%02u:%02u', (int) (abs($offset) / 3600), (int) ((abs($offset) % 3600) / 60));
 
         return date('Y-m-d\\TH:i:s', $timestamp) . ($offset < 0 ? '-' : '+') . $printed_offset;
     }
@@ -359,7 +359,7 @@ class Date
     {
         # Get offset
         $offset         = self::getTimeOffset($timezone, $timestamp);
-        $printed_offset = sprintf('%02u%02u', abs($offset) / 3600, (abs($offset) % 3600) / 60);
+        $printed_offset = sprintf('%02u%02u', (int) (abs($offset) / 3600), (int) ((abs($offset) % 3600) / 60));
 
         // Avoid deprecated notice until PHP 9 should be supported or a correct strftime() replacement
         return (string) @strftime('%a, %d %b %Y %H:%M:%S ' . ($offset < 0 ? '-' : '+') . $printed_offset, $timestamp);

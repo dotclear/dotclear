@@ -72,7 +72,9 @@ class AndroidKey extends FormatBase implements FormatAndroidKeyInterface
         $publicKey = openssl_pkey_get_public($this->getCertificatePem());
 
         if ($publicKey === false) {
-            throw new AttestationException(sprintf('invalid public key: %s', openssl_error_string()));
+            $error = is_string($error = openssl_error_string()) ? $error : '<unknown error>';
+
+            throw new AttestationException(sprintf('invalid public key: %s', $error));
         }
 
         // Verify that sig is a valid signature over the concatenation of authenticatorData and clientDataHash
@@ -95,7 +97,9 @@ class AndroidKey extends FormatBase implements FormatAndroidKeyInterface
 
         $v = openssl_x509_checkpurpose($this->getCertificatePem(), -1, $rootCas);
         if ($v === -1) {
-            throw new AttestationException(sprintf('error on validating root certificate: %s', \openssl_error_string()));
+            $error = is_string($error = openssl_error_string()) ? $error : '<unknown error>';
+
+            throw new AttestationException(sprintf('error on validating root certificate: %s', $error));
         }
 
         return (bool) $v;

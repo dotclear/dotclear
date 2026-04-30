@@ -72,7 +72,9 @@ class Apple extends FormatBase implements FormatAppleInterface
 
         $v = openssl_x509_checkpurpose($this->getCertificatePem(), -1, $rootCas);
         if ($v === -1) {
-            throw new AttestationException(sprintf('error on validating root certificate: %s', openssl_error_string()));
+            $error = is_string($error = openssl_error_string()) ? $error : '<unknown error>';
+
+            throw new AttestationException(sprintf('error on validating root certificate: %s', $error));
         }
 
         return (bool) $v;
@@ -86,7 +88,9 @@ class Apple extends FormatBase implements FormatAppleInterface
         $publicKey = openssl_pkey_get_public($this->getCertificatePem());
 
         if ($publicKey === false) {
-            throw new AttestationException(sprintf('invalid public key: %s', openssl_error_string()));
+            $error = is_string($error = openssl_error_string()) ? $error : '<unknown error>';
+
+            throw new AttestationException(sprintf('invalid public key: %s', $error));
         }
 
         // Concatenate authenticatorData and clientDataHash to form nonceToHash.
@@ -98,7 +102,9 @@ class Apple extends FormatBase implements FormatAppleInterface
 
         $credCert = openssl_x509_read($this->getCertificatePem());
         if ($credCert === false) {
-            throw new AttestationException(sprintf('invalid x5c certificate: %s', openssl_error_string()));
+            $error = is_string($error = openssl_error_string()) ? $error : '<unknown error>';
+
+            throw new AttestationException(sprintf('invalid x5c certificate: %s', $error));
         }
 
         $pubKey  = openssl_pkey_get_public($credCert);

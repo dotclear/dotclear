@@ -23,7 +23,7 @@ parameters:
   checkInternalClassCaseSensitivity : true
 #  checkMissingOverrideMethodAttribute: true
 #  checkMissingOverridePropertyAttribute : true
-#  checkStrictPrintfPlaceholderTypes : true
+  checkStrictPrintfPlaceholderTypes : true
 #  checkTooWideParameterOutInProtectedAndPublicMethods : true
 #  checkTooWideThrowTypesInProtectedAndPublicMethods : true
   checkTooWideReturnTypesInProtectedAndPublicMethods : true

@@ -141,7 +141,9 @@ class AndroidSafetyNet extends FormatBase implements FormatAndroidSafetyNetInter
 
         $v = openssl_x509_checkpurpose($this->getCertificatePem(), -1, $rootCas);
         if ($v === -1) {
-            throw new AttestationException(sprintf('error on validating root certificate: %s', openssl_error_string()));
+            $error = is_string($error = openssl_error_string()) ? $error : '<unknown error>';
+
+            throw new AttestationException(sprintf('error on validating root certificate: %s', $error));
         }
 
         return (bool) $v;

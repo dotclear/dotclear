@@ -419,8 +419,8 @@ class Zip
         }
 
         $year  = sprintf('%07b', $year);
-        $month = sprintf('%04b', date('n', $ts));
-        $day   = sprintf('%05b', date('j', $ts));
+        $month = sprintf('%04b', (int) date('n', $ts));
+        $day   = sprintf('%05b', (int) date('j', $ts));
 
         return bindec($year . $month . $day);
     }
@@ -434,9 +434,9 @@ class Zip
     {
         $s = (float) date('s', $ts) / 2.0;
 
-        $hour   = sprintf('%05b', date('G', $ts));
-        $minute = sprintf('%06b', date('i', $ts));
-        $second = sprintf('%05b', ceil($s));
+        $hour   = sprintf('%05b', (int) date('G', $ts));
+        $minute = sprintf('%06b', (int) date('i', $ts));
+        $second = sprintf('%05b', (int) ceil($s));
 
         return bindec($hour . $minute . $second);
     }
