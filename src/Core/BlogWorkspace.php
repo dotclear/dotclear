@@ -263,13 +263,20 @@ class BlogWorkspace implements BlogWorkspaceInterface
 
         if ($type !== self::NS_ARRAY) {
             settype($value, $type);
+            $stored_value = match (gettype($value)) {
+                'boolean' => (string) (int) $value,     // Convert bool to int (1 or 0)
+                'integer' => (string) $value,
+                'double'  => (string) $value,
+                default   => is_string($value) ? $value : '',
+            };
         } else {
-            $value = json_encode($value, JSON_THROW_ON_ERROR);
+            $value        = json_encode($value, JSON_THROW_ON_ERROR);
+            $stored_value = $value;
         }
 
         $cur = $this->core->db()->con()->openCursor($this->table);
 
-        $cur->setting_value = ($type === self::NS_BOOL) ? (string) (int) $value : (string) $value;
+        $cur->setting_value = $stored_value;
         $cur->setting_type  = $type;
         $cur->setting_label = $label;
 

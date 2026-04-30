@@ -306,7 +306,7 @@ class Uninstaller
             error: sprintf($this->cleaners->get($cleaner)->actions[$action]->error, $ns),
             ns: $ns,
             select: $this->cleaners->get($cleaner)->actions[$action]->select,
-            default: is_null($default) ? $this->cleaners->get($cleaner)->actions[$action]->default : $default
+            default: $default ?? $this->cleaners->get($cleaner)->actions[$action]->default
         );
     }
 }

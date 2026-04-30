@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * @file
  * @brief       The plugin dcProxyV1 classes constants

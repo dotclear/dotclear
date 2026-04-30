@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * @package Dotclear
  *
@@ -48,7 +50,7 @@ class SessionDB
         private readonly bool $cookie_secure = false,
         ?string $ttl = null
     ) {
-        $this->cookie_path = is_null($cookie_path) ? '/' : $cookie_path;
+        $this->cookie_path = $cookie_path ?? '/';
         if (!is_null($ttl)) {
             $this->ttl = $ttl;
         }

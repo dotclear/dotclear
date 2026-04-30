@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 /**
  * @file
  * @brief       The plugin dcProxyV2 plugin blogroll aliases
@@ -9,7 +12,6 @@
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
-
 /**
  * @deprecated  since 2.25
  */

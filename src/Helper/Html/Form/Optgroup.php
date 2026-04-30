@@ -60,10 +60,10 @@ class Optgroup extends Component
                         $buffer .= $value->render();
                     }
                 } elseif (is_array($value)) {
-                    $default_value = is_null($default) ? (isset($this->default) ? (string) $this->default : null) : $default;
+                    $default_value = $default ?? (isset($this->default) ? (string) $this->default : null);
                     $buffer .= (new Optgroup((string) $item))->items($value)->render($default_value);
                 } else {
-                    $default_value = is_null($default) ? (isset($this->default) ? (string) $this->default : null) : $default;
+                    $default_value = $default ?? (isset($this->default) ? (string) $this->default : null);
                     $buffer .= (new Option((string) $item, (string) $value))->render($default_value);
                 }
             }

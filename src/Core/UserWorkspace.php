@@ -266,13 +266,20 @@ class UserWorkspace implements UserWorkspaceInterface
 
         if ($type !== self::WS_ARRAY) {
             settype($value, $type);
+            $stored_value = match (gettype($value)) {
+                'boolean' => (string) (int) $value,     // Convert bool to int (1 or 0)
+                'integer' => (string) $value,
+                'double'  => (string) $value,
+                default   => is_string($value) ? $value : '',
+            };
         } else {
-            $value = json_encode($value);
+            $value        = json_encode($value, JSON_THROW_ON_ERROR);
+            $stored_value = $value;
         }
 
         $cur = $this->core->db()->con()->openCursor($this->table);
 
-        $cur->pref_value = ($type === self::WS_BOOL) ? (string) (int) $value : (string) $value;
+        $cur->pref_value = $stored_value;
         $cur->pref_type  = $type;
         $cur->pref_label = $label;
 

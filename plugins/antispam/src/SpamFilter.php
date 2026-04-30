@@ -190,7 +190,7 @@ class SpamFilter
             return false;
         }
 
-        return is_null($this->gui_url) ? false : $this->gui_url;
+        return $this->gui_url ?? false;
     }
 
     /**

@@ -89,7 +89,7 @@ class InsertStatement extends SqlStatement
             $this->lines = [];
         }
         $rows        = [];
-        $formatValue = fn ($v) => is_string($v) ? $this->quote($v) : (is_null($v) ? 'NULL' : $v);
+        $formatValue = fn ($v) => is_string($v) ? $this->quote($v) : ($v ?? 'NULL');
         foreach ($c as $line) {
             if (is_array($line)) {
                 $values = array_map($formatValue, $line);

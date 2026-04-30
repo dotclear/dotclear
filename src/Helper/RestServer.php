@@ -106,8 +106,8 @@ class RestServer implements RestInterface
             $format = self::DEFAULT_RESPONSE;
         }
 
-        $get  = $_GET ?: [];
-        $post = $_POST ?: [];
+        $get  = $_GET;
+        $post = $_POST;
 
         if ($format === self::XML_RESPONSE) {
             if (!isset($_REQUEST['f']) || !$_REQUEST['f']) {

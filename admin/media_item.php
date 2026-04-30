@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 /**
  * @deprecated 	since 2.27, use name "admin.media.item" on App::backend()->url() methods instead
  *

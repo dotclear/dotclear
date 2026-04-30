@@ -230,7 +230,7 @@ class Reader extends HttpClient
         }
 
         if (!$this->getFeed($url)) {
-            if ($may_use_cached && @file_exists($cached_file)) {
+            if ($may_use_cached) {
                 // connection failed - fetched from cache
                 return new Parser((string) file_get_contents($cached_file));
             }
