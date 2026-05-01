@@ -218,8 +218,12 @@ class Socket
                     'verify_peer_name' => false,
                 ],
             ]);
-            $url    = $this->_transport . $this->_host . ':' . $this->_port;
-            $handle = @stream_socket_client($url, $errno, $errstr, (float) $this->_timeout, STREAM_CLIENT_CONNECT, $context);
+            if (is_resource($context)) {
+                $url    = $this->_transport . $this->_host . ':' . $this->_port;
+                $handle = @stream_socket_client($url, $errno, $errstr, (float) $this->_timeout, STREAM_CLIENT_CONNECT, $context);
+            } else {
+                throw new Exception('Socket error: unable to create a stream context' . $this->_transport . $this->_host);
+            }
         } else {
             $handle = @fsockopen($this->_transport . $this->_host, $this->_port, $errno, $errstr, (float) $this->_timeout);
         }
