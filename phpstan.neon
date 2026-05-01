@@ -36,7 +36,7 @@ parameters:
   reportAnyTypeWideningInVarTag: true
 #  reportMaybesInMethodSignatures : true
   reportMaybesInPropertyPhpDocTypes: true
-#  reportNonIntStringArrayKey : true
+  reportNonIntStringArrayKey : true
 #  reportPossiblyNonexistentConstantArrayOffset: true
 #  reportPossiblyNonexistentGeneralArrayOffset: true
   reportStaticMethodSignatures: true

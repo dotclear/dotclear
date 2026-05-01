@@ -113,7 +113,7 @@ class Pager extends HelperPager
             $args = [];
         }
         # Removing session information
-        if (session_id() && isset($args[session_name()])) {
+        if (session_id() && session_name() !== false && isset($args[session_name()])) {
             unset($args[session_name()]);
         }
         if (isset($args[$this->var_page])) {

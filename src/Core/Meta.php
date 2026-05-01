@@ -434,7 +434,10 @@ class Meta implements MetaInterface
             while ($rs->fetch()) {
                 if (in_array($rs->post_id, $to_update)) {
                     $to_remove[] = $rs->post_id;
-                    unset($to_update[array_search($rs->post_id, $to_update)]);
+                    $index       = array_search($rs->post_id, $to_update);
+                    if ($index !== false) {
+                        unset($to_update[$index]);
+                    }
                 }
             }
         }
