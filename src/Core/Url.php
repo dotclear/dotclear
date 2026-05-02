@@ -459,6 +459,10 @@ class Url extends UrlHandler implements UrlInterface
             // No category was specified.
             self::p404();
         } else {
+            if ($page_number) {
+                App::frontend()->setPageNumber($page_number);
+            }
+
             /**
              * @var ArrayObject<string, mixed>
              */
@@ -477,9 +481,6 @@ class Url extends UrlHandler implements UrlInterface
                 // The specified category does no exist.
                 self::p404();
             } else {
-                if ($page_number) {
-                    App::frontend()->setPageNumber($page_number);
-                }
                 self::serveDocument('category.html');
             }
         }
