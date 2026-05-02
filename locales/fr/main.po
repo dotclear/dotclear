@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-20 18:00+0200\n"
-"PO-Revision-Date: 2026-04-22 08:33\n"
+"PO-Revision-Date: 2026-05-02 10:06\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -1287,7 +1287,7 @@ msgstr "Ce module ne peut être désactivé ou supprimé car les modules suivant
 
 #: src/Core/Backend/ModulesList.php:985
 msgid "This module cannot be enabled, because of the following reasons :"
-msgstr "Ce module ne peut activé pour les raisons suivantes :"
+msgstr "Ce module ne peut pas être activé pour les raisons suivantes :"
 
 #: src/Core/Backend/ModulesList.php:1005 src/Core/Backend/ThemesList.php:217
 #: src/Process/Upgrade/Plugins.php:458
