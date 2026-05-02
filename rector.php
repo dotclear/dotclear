@@ -16,6 +16,7 @@
 declare(strict_types=1);
 
 use Rector\Caching\ValueObject\Storage\FileCacheStorage;
+use Rector\CodingStyle\Rector\String_\SimplifyQuoteEscapeRector;
 use Rector\Config\RectorConfig;
 use Rector\Renaming\Rector\MethodCall\RenameMethodRector;
 use Rector\Set\ValueObject\LevelSetList;
@@ -70,5 +71,6 @@ return RectorConfig::configure()
             */
             __DIR__ . '/src/Schema/Database/PdoSqlite/Handler.php',
         ],
+        SimplifyQuoteEscapeRector::class,
     ])
 ;
