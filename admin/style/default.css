@@ -563,6 +563,8 @@ html body.dark-mode {
   --upload-error-color: light-dark(#ae323b, #ae323b);
   --modules-background: light-dark(#f3f3f3, #303236);
   --modules-border: light-dark(#a2cbe9, #a2cbe9);
+  --modules-implies: light-dark(#2373a8, #76c2f1);
+  --modules-requires: light-dark(#ae323b, #f783b3);
   --entry-sb-title-border: light-dark(#676e78, #fff);
   --entry-sb-background: light-dark(#fff, #494c52);
   --entry-sb-focus-background: light-dark(#ededed, #565a60);
@@ -4157,6 +4159,13 @@ div.template-upload {
 }
 body.dark-mode .modules a.module-config {
   background-image: url(settings-dark.svg);
+}
+
+.module-desc details:has(.module-implies) summary::marker {
+  color: var(--modules-implies);
+}
+.module-desc details:has(.module-requires) summary::marker {
+  color: var(--modules-requires);
 }
 
 #m_search {

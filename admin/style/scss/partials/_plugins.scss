@@ -67,6 +67,19 @@
   }
 }
 
+.module-desc {
+  details:has(.module-implies) {
+    summary::marker {
+      color: var(--modules-implies);
+    }
+  }
+  details:has(.module-requires) {
+    summary::marker {
+      color: var(--modules-requires);
+    }
+  }
+}
+
 #m_search {
   color: var(--search-color);
   background: url(search.svg) no-repeat 0 center;

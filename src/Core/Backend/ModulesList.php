@@ -968,6 +968,7 @@ class ModulesList
                 $infos = [];
                 if (!empty($define->getUsing()) && $define->get('state') == ModuleDefine::STATE_ENABLED) {
                     $infos[] = (new Para())
+                        ->class('module-implies')
                         ->items([
                             (new Span(sprintf(
                                 __('This module cannot be disabled nor deleted, since the following modules are also enabled : %s'),
@@ -981,8 +982,9 @@ class ModulesList
                         $reasons[] = (new Li())->text($reason);
                     }
                     $infos[] = (new Para())
+                        ->class(['module-requires', 'info'])
                         ->items([
-                            (new Span(__('This module cannot be enabled, because of the following reasons :')))->class('info'),
+                            (new Span(__('This module cannot be enabled, because of the following reasons :'))),
                             (new Ul())->items($reasons),
                         ]);
                 }
