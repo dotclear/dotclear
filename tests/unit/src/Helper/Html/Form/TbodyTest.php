@@ -73,7 +73,7 @@ class TbodyTest extends TestCase
             '/<tbody.*?>(?:.*?\n*)?<\/tbody>/',
             $rendered
         );
-        $this->assertStringContainsString(
+        $this->assertStringNotContainsString(
             'name="myid"',
             $rendered
         );

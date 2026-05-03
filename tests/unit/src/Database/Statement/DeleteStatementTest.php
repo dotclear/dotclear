@@ -5,10 +5,12 @@ declare(strict_types=1);
 namespace Dotclear\Tests\Database\Statement;
 
 use Exception;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
+#[AllowMockObjectsWithoutExpectations]
 class DeleteStatementTest extends TestCase
 {
     private function getConnection(string $driver, string $driver_folder, string $syntax): MockObject

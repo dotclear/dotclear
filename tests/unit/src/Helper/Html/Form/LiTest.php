@@ -40,7 +40,7 @@ class LiTest extends TestCase
             '/<li.*?>(?:.*?\n*)?<\/li>/',
             $rendered
         );
-        $this->assertStringContainsString(
+        $this->assertStringNotContainsString(
             'name="myid"',
             $rendered
         );

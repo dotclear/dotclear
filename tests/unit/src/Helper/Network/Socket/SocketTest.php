@@ -11,17 +11,17 @@ class SocketTest extends TestCase
 {
     public function test(): void
     {
-        $socket = new \Dotclear\Helper\Network\Socket\Socket('example.org', 443);
+        $socket = new \Dotclear\Helper\Network\Socket\Socket('dotclear.org', 443);
 
         $this->assertEquals(
-            'example.org',
+            'dotclear.org',
             $socket->host()
         );
         $this->assertTrue(
-            $socket->host('example.com')
+            $socket->host('dotclear.org')
         );
         $this->assertEquals(
-            'example.com',
+            'dotclear.org',
             $socket->host()
         );
         $this->assertEquals(
@@ -78,73 +78,65 @@ class SocketTest extends TestCase
 
         // Next test with content
 
-        $socket = new \Dotclear\Helper\Network\Socket\Socket('example.org', 80);
+        $socket = new \Dotclear\Helper\Network\Socket\Socket('dotclear.org', 80);
 
-        try {
-            $socket->open();
+        $socket->open();
 
-            $this->assertTrue(
-                $socket->isOpen()
-            );
+        $this->assertTrue(
+            $socket->isOpen()
+        );
 
-            $data = [
-                'GET / HTTP/1.0',
-            ];
-            $expected = [
-                'HTTP/1.0 400 Bad Request' . "\r\n",
-                'Server: AkamaiGHost' . "\r\n",
-                'Mime-Version: 1.0' . "\r\n",
-                'Content-Type: text/html' . "\r\n",
-                'Conten',
-                'Expire',
-                'Date: ',
-                'Connection: close' . "\r\n",
-                "\r\n",
-                '<HTML><HEAD>' . "\n",
-                '<TITLE>Invalid URL</TITLE>' . "\n",
-                '</HEAD><BODY>' . "\n",
-                '<H1>Invalid URL</H1>' . "\n",
-                '*',
-                '*',
-                '*',
-                '</BODY></HTML>' . "\n",
-            ];
-            $line = 0;
-            // @phpstan-ignore foreach.nonIterable
-            foreach ($socket->write($data) as $value) {
-                if ($line < count($expected)) {
-                    //$this->dump($value);
-                    if ($expected[$line] === '*') {
-                        continue;
-                    }
-                    $this->assertEquals(
-                        $expected[$line],
-                        mb_substr((string) $value, 0, mb_strlen($expected[$line]))
-                    );
+        $data = [
+            'GET / HTTP/1.0',
+        ];
+        $expected = [
+            'HTTP/1.1 200 OK' . "\r\n",
+            'Server: nginx' . "\r\n",
+            'Date: ',
+            'Content-Type: text/html' . "\r\n",
+            'Content-Length: ',
+            'Last-Modified: ',
+            'Connection: close' . "\r\n",
+            'ET',
+            'Ac',
+            "\r\n",
+            '<!DOCTYPE htm',
+            '<html>' . "\n",
+            '<head>' . "\n",
+            '<title>Welcome to nginx!</title>' . "\n",
+            '<style>' . "\n",
+            '*',
+        ];
+        $line = 0;
+        // @phpstan-ignore foreach.nonIterable
+        foreach ($socket->write($data) as $value) {
+            if ($line < count($expected)) {
+                //$this->dump($value);
+                if ($expected[$line] === '*') {
+                    continue;
                 }
-                $line++;
-            }
-
-            // @phpstan-ignore variable.undefined
-            if (gettype($value) === 'boolean') {
-                // @phpstan-ignore method.impossibleType
-                $this->assertFalse(
-                    $value
-                );
-            } else {
-                $this->assertStringStartsWith(
-                    '</BODY></HTML>',
-                    $value
+                $this->assertEquals(
+                    $expected[$line],
+                    mb_substr((string) $value, 0, mb_strlen($expected[$line]))
                 );
             }
+            $line++;
+        }
 
-            $socket->close();
-        } catch (Exception $e) {
-            $this->assertEquals(
-                'Socket error: Operation timed out (60)example.org',
-                $e->getMessage()
+        // @phpstan-ignore variable.undefined
+        if (gettype($value) === 'boolean') {
+            // @phpstan-ignore method.impossibleType
+            $this->assertFalse(
+                $value
+            );
+        } else {
+            $this->assertStringStartsWith(
+                '</html>',
+                $value
             );
         }
+
+        $socket->close();
 
         $this->assertFalse(
             $socket->isOpen()

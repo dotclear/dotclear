@@ -95,7 +95,7 @@ class ParaTest extends TestCase
             '/<p.*?>(?:.*?\n*)?<\/p>/',
             $rendered
         );
-        $this->assertStringContainsString(
+        $this->assertStringNotContainsString(
             'name="myid"',
             $rendered
         );

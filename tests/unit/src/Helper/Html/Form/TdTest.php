@@ -40,7 +40,7 @@ class TdTest extends TestCase
             '/<td.*?>(?:.*?\n*)?<\/td>/',
             $rendered
         );
-        $this->assertStringContainsString(
+        $this->assertStringNotContainsString(
             'name="myid"',
             $rendered
         );

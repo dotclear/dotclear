@@ -59,7 +59,7 @@ class CaptionTest extends TestCase
             '/<caption.*?>(?:.*?\n*)?<\/caption>/',
             $rendered
         );
-        $this->assertStringContainsString(
+        $this->assertStringNotContainsString(
             'name="myid"',
             $rendered
         );

@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Tests\Helper\Html\Form;
 
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\TestCase;
 
+#[AllowMockObjectsWithoutExpectations]
 class InputTest extends TestCase
 {
     public function test(): void

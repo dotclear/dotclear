@@ -40,7 +40,7 @@ class ThTest extends TestCase
             '/<th.*?>(?:.*?\n*)?<\/th>/',
             $rendered
         );
-        $this->assertStringContainsString(
+        $this->assertStringNotContainsString(
             'name="myid"',
             $rendered
         );

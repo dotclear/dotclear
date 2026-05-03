@@ -23,7 +23,7 @@ class DivTest extends TestCase
             '/<div.*?>\n<\/div>/',
             $rendered
         );
-        $this->assertStringContainsString(
+        $this->assertStringNotContainsString(
             'name="my"',
             $rendered
         );
@@ -43,7 +43,7 @@ class DivTest extends TestCase
             '/<div.*?>\n<\/div>/',
             $rendered
         );
-        $this->assertStringContainsString(
+        $this->assertStringNotContainsString(
             'name="my"',
             $rendered
         );
@@ -62,7 +62,7 @@ class DivTest extends TestCase
             '/<div.*?>\n<\/div>/',
             $rendered
         );
-        $this->assertStringContainsString(
+        $this->assertStringNotContainsString(
             'name="my"',
             $rendered
         );
@@ -81,7 +81,7 @@ class DivTest extends TestCase
             '/<slot.*?>\n<\/slot>/',
             $rendered
         );
-        $this->assertStringContainsString(
+        $this->assertStringNotContainsString(
             'name="my"',
             $rendered
         );
@@ -114,7 +114,7 @@ class DivTest extends TestCase
         $rendered = $component->render();
 
         $this->assertStringContainsString(
-            '</p>' . "\n" . ' <p name="secondpara" id="secondpara">',
+            '</p>' . "\n" . ' <p id="secondpara">',
             $rendered
         );
     }
@@ -132,7 +132,7 @@ class DivTest extends TestCase
         $rendered = $component->render();
 
         $this->assertStringContainsString(
-            '</p>' . "\n" . '</div><div><p name="secondpara" id="secondpara">',
+            '</p>' . "\n" . '</div><div><p id="secondpara">',
             $rendered
         );
     }
@@ -270,7 +270,7 @@ class DivTest extends TestCase
             '/<div.*?>\n<\/div>/',
             $rendered
         );
-        $this->assertStringContainsString(
+        $this->assertStringNotContainsString(
             'name="my"',
             $rendered
         );
@@ -289,7 +289,7 @@ class DivTest extends TestCase
             '/<div.*?>\n<\/div>/',
             $rendered
         );
-        $this->assertStringContainsString(
+        $this->assertStringNotContainsString(
             'name="myname"',
             $rendered
         );
@@ -309,7 +309,7 @@ class DivTest extends TestCase
             '/<div.*?>\n<\/div>/',
             $rendered
         );
-        $this->assertStringContainsString(
+        $this->assertStringNotContainsString(
             'name="42"',
             $rendered
         );
@@ -329,7 +329,7 @@ class DivTest extends TestCase
             '/<div.*?>\n<\/div>/',
             $rendered
         );
-        $this->assertStringContainsString(
+        $this->assertStringNotContainsString(
             'name="myname"',
             $rendered
         );
@@ -349,7 +349,7 @@ class DivTest extends TestCase
             '/<div.*?>\n<\/div>/',
             $rendered
         );
-        $this->assertStringContainsString(
+        $this->assertStringNotContainsString(
             'name="42"',
             $rendered
         );
@@ -368,7 +368,7 @@ class DivTest extends TestCase
             '/<div.*?>\n<\/div>/',
             $rendered
         );
-        $this->assertStringContainsString(
+        $this->assertStringNotContainsString(
             'name="myname[]"',
             $rendered
         );
@@ -389,14 +389,6 @@ class DivTest extends TestCase
             $rendered
         );
         $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
             'type="magic"',
             $rendered
         );
@@ -413,14 +405,6 @@ class DivTest extends TestCase
             $rendered
         );
         $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
             'value="magic"',
             $rendered
         );
@@ -434,14 +418,6 @@ class DivTest extends TestCase
 
         $this->assertMatchesRegularExpression(
             '/<div.*?>\n<\/div>/',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
             $rendered
         );
         $this->assertStringContainsString(
@@ -462,14 +438,6 @@ class DivTest extends TestCase
             $rendered
         );
         $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
             'value=""',
             $rendered
         );
@@ -486,14 +454,6 @@ class DivTest extends TestCase
             $rendered
         );
         $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
             'value=""',
             $rendered
         );
@@ -507,14 +467,6 @@ class DivTest extends TestCase
 
         $this->assertMatchesRegularExpression(
             '/<div.*?>\n<\/div>/',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
             $rendered
         );
         $this->assertStringContainsString(
@@ -535,14 +487,6 @@ class DivTest extends TestCase
             $rendered
         );
         $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
             'value=""',
             $rendered
         );
@@ -557,14 +501,6 @@ class DivTest extends TestCase
 
         $this->assertMatchesRegularExpression(
             '/<div.*?>\n<\/div>/',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
             $rendered
         );
         $this->assertStringContainsString(
@@ -584,14 +520,6 @@ class DivTest extends TestCase
             $rendered
         );
         $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
             'value="magic"',
             $rendered
         );
@@ -605,14 +533,6 @@ class DivTest extends TestCase
 
         $this->assertMatchesRegularExpression(
             '/<div.*?>\n<\/div>/',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
             $rendered
         );
         $this->assertStringContainsString(
@@ -636,14 +556,6 @@ class DivTest extends TestCase
             '/<div.*?>\n<\/div>/',
             $rendered
         );
-        $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
-            $rendered
-        );
         $this->assertStringNotContainsString(
             'checked',
             $rendered
@@ -658,14 +570,6 @@ class DivTest extends TestCase
 
         $this->assertMatchesRegularExpression(
             '/<div.*?>\n<\/div>/',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
             $rendered
         );
         $this->assertStringContainsString(
@@ -685,14 +589,6 @@ class DivTest extends TestCase
             $rendered
         );
         $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
             'accesskey="s"',
             $rendered
         );
@@ -706,14 +602,6 @@ class DivTest extends TestCase
 
         $this->assertMatchesRegularExpression(
             '/<div.*?>\n<\/div>/',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
             $rendered
         );
         $this->assertStringContainsString(
@@ -733,14 +621,6 @@ class DivTest extends TestCase
             $rendered
         );
         $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
             'autocomplete="off"',
             $rendered
         );
@@ -754,14 +634,6 @@ class DivTest extends TestCase
 
         $this->assertMatchesRegularExpression(
             '/<div.*?>\n<\/div>/',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
             $rendered
         );
         $this->assertStringContainsString(
@@ -781,14 +653,6 @@ class DivTest extends TestCase
             $rendered
         );
         $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
             'autofocus',
             $rendered
         );
@@ -802,14 +666,6 @@ class DivTest extends TestCase
 
         $this->assertMatchesRegularExpression(
             '/<div.*?>\n<\/div>/',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
             $rendered
         );
         $this->assertStringNotContainsString(
@@ -829,14 +685,6 @@ class DivTest extends TestCase
             $rendered
         );
         $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
             'class="myclass"',
             $rendered
         );
@@ -853,14 +701,6 @@ class DivTest extends TestCase
             $rendered
         );
         $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
             'class="myfirstclass mysecondclass"',
             $rendered
         );
@@ -874,14 +714,6 @@ class DivTest extends TestCase
 
         $this->assertMatchesRegularExpression(
             '/<div.*?>\n<\/div>/',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
             $rendered
         );
         $this->assertStringNotContainsString(
@@ -901,14 +733,6 @@ class DivTest extends TestCase
             $rendered
         );
         $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
             'contenteditable',
             $rendered
         );
@@ -922,14 +746,6 @@ class DivTest extends TestCase
 
         $this->assertMatchesRegularExpression(
             '/<div.*?>\n<\/div>/',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
             $rendered
         );
         $this->assertStringNotContainsString(
@@ -949,14 +765,6 @@ class DivTest extends TestCase
             $rendered
         );
         $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
             'dir="ltr"',
             $rendered
         );
@@ -973,14 +781,6 @@ class DivTest extends TestCase
             $rendered
         );
         $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
             'disabled',
             $rendered
         );
@@ -994,14 +794,6 @@ class DivTest extends TestCase
 
         $this->assertMatchesRegularExpression(
             '/<div.*?>\n<\/div>/',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
             $rendered
         );
         $this->assertStringNotContainsString(
@@ -1021,14 +813,6 @@ class DivTest extends TestCase
             $rendered
         );
         $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
             'form="myform"',
             $rendered
         );
@@ -1045,14 +829,6 @@ class DivTest extends TestCase
             $rendered
         );
         $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
             'inert',
             $rendered
         );
@@ -1066,14 +842,6 @@ class DivTest extends TestCase
 
         $this->assertMatchesRegularExpression(
             '/<div.*?>\n<\/div>/',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
             $rendered
         );
         $this->assertStringNotContainsString(
@@ -1093,14 +861,6 @@ class DivTest extends TestCase
             $rendered
         );
         $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
             'inputmode="numeric"',
             $rendered
         );
@@ -1114,14 +874,6 @@ class DivTest extends TestCase
 
         $this->assertMatchesRegularExpression(
             '/<div.*?>\n<\/div>/',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
             $rendered
         );
         $this->assertStringContainsString(
@@ -1141,14 +893,6 @@ class DivTest extends TestCase
             $rendered
         );
         $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
             'list="mylist"',
             $rendered
         );
@@ -1162,14 +906,6 @@ class DivTest extends TestCase
 
         $this->assertMatchesRegularExpression(
             '/<div.*?>\n<\/div>/',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
             $rendered
         );
         $this->assertStringContainsString(
@@ -1189,14 +925,6 @@ class DivTest extends TestCase
             $rendered
         );
         $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
             'max="0"',
             $rendered
         );
@@ -1210,14 +938,6 @@ class DivTest extends TestCase
 
         $this->assertMatchesRegularExpression(
             '/<div.*?>\n<\/div>/',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
             $rendered
         );
         $this->assertStringNotContainsString(
@@ -1237,14 +957,6 @@ class DivTest extends TestCase
             $rendered
         );
         $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
             'max="13"',
             $rendered
         );
@@ -1258,14 +970,6 @@ class DivTest extends TestCase
 
         $this->assertMatchesRegularExpression(
             '/<div.*?>\n<\/div>/',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
             $rendered
         );
         $this->assertStringContainsString(
@@ -1285,14 +989,6 @@ class DivTest extends TestCase
             $rendered
         );
         $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
             'maxlength="13"',
             $rendered
         );
@@ -1306,14 +1002,6 @@ class DivTest extends TestCase
 
         $this->assertMatchesRegularExpression(
             '/<div.*?>\n<\/div>/',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
             $rendered
         );
         $this->assertStringContainsString(
@@ -1331,14 +1019,6 @@ class DivTest extends TestCase
 
         $this->assertMatchesRegularExpression(
             '/<div.*?>\n<\/div>/',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
             $rendered
         );
         $this->assertStringNotContainsString(
@@ -1359,14 +1039,6 @@ class DivTest extends TestCase
             $rendered
         );
         $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
             'maxlength="13"',
             $rendered
         );
@@ -1380,14 +1052,6 @@ class DivTest extends TestCase
 
         $this->assertMatchesRegularExpression(
             '/<div.*?>\n<\/div>/',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
             $rendered
         );
         $this->assertStringContainsString(
@@ -1407,14 +1071,6 @@ class DivTest extends TestCase
             $rendered
         );
         $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
             'min="0"',
             $rendered
         );
@@ -1428,14 +1084,6 @@ class DivTest extends TestCase
 
         $this->assertMatchesRegularExpression(
             '/<div.*?>\n<\/div>/',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
             $rendered
         );
         $this->assertStringNotContainsString(
@@ -1455,14 +1103,6 @@ class DivTest extends TestCase
             $rendered
         );
         $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
             'min="13"',
             $rendered
         );
@@ -1476,14 +1116,6 @@ class DivTest extends TestCase
 
         $this->assertMatchesRegularExpression(
             '/<div.*?>\n<\/div>/',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
             $rendered
         );
         $this->assertStringContainsString(
@@ -1503,14 +1135,6 @@ class DivTest extends TestCase
             $rendered
         );
         $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
             'pattern="HH:MM"',
             $rendered
         );
@@ -1524,14 +1148,6 @@ class DivTest extends TestCase
 
         $this->assertMatchesRegularExpression(
             '/<div.*?>\n<\/div>/',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
             $rendered
         );
         $this->assertStringContainsString(
@@ -1551,14 +1167,6 @@ class DivTest extends TestCase
             $rendered
         );
         $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
             'popover',
             $rendered
         );
@@ -1572,14 +1180,6 @@ class DivTest extends TestCase
 
         $this->assertMatchesRegularExpression(
             '/<div.*?>\n<\/div>/',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
             $rendered
         );
         $this->assertStringNotContainsString(
@@ -1599,14 +1199,6 @@ class DivTest extends TestCase
             $rendered
         );
         $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
             'readonly',
             $rendered
         );
@@ -1620,14 +1212,6 @@ class DivTest extends TestCase
 
         $this->assertMatchesRegularExpression(
             '/<div.*?>\n<\/div>/',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
             $rendered
         );
         $this->assertStringNotContainsString(
@@ -1647,14 +1231,6 @@ class DivTest extends TestCase
             $rendered
         );
         $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
             'required',
             $rendered
         );
@@ -1668,14 +1244,6 @@ class DivTest extends TestCase
 
         $this->assertMatchesRegularExpression(
             '/<div.*?>\n<\/div>/',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
             $rendered
         );
         $this->assertStringNotContainsString(
@@ -1695,14 +1263,6 @@ class DivTest extends TestCase
             $rendered
         );
         $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
             'role="banner"',
             $rendered
         );
@@ -1716,14 +1276,6 @@ class DivTest extends TestCase
 
         $this->assertMatchesRegularExpression(
             '/<div.*?>\n<\/div>/',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
             $rendered
         );
         $this->assertStringNotContainsString(
@@ -1743,14 +1295,6 @@ class DivTest extends TestCase
             $rendered
         );
         $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
             'size="13"',
             $rendered
         );
@@ -1764,14 +1308,6 @@ class DivTest extends TestCase
 
         $this->assertMatchesRegularExpression(
             '/<div.*?>\n<\/div>/',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
             $rendered
         );
         $this->assertStringContainsString(
@@ -1789,14 +1325,6 @@ class DivTest extends TestCase
 
         $this->assertMatchesRegularExpression(
             '/<div.*?>\n<\/div>/',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
             $rendered
         );
         $this->assertStringNotContainsString(
@@ -1817,14 +1345,6 @@ class DivTest extends TestCase
             $rendered
         );
         $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
             'size="13"',
             $rendered
         );
@@ -1838,14 +1358,6 @@ class DivTest extends TestCase
 
         $this->assertMatchesRegularExpression(
             '/<div.*?>\n<\/div>/',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
             $rendered
         );
         $this->assertStringContainsString(
@@ -1865,14 +1377,6 @@ class DivTest extends TestCase
             $rendered
         );
         $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
             'spellcheck="false"',
             $rendered
         );
@@ -1886,14 +1390,6 @@ class DivTest extends TestCase
 
         $this->assertMatchesRegularExpression(
             '/<div.*?>\n<\/div>/',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
             $rendered
         );
         $this->assertStringContainsString(
@@ -1913,14 +1409,6 @@ class DivTest extends TestCase
             $rendered
         );
         $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
             'tabindex="0"',
             $rendered
         );
@@ -1935,14 +1423,6 @@ class DivTest extends TestCase
 
         $this->assertMatchesRegularExpression(
             '/<div.*?>\n<\/div>/',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
             $rendered
         );
         $this->assertStringNotContainsString(
@@ -1963,14 +1443,6 @@ class DivTest extends TestCase
             $rendered
         );
         $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
             'tabindex="13"',
             $rendered
         );
@@ -1987,14 +1459,6 @@ class DivTest extends TestCase
             $rendered
         );
         $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
             'tabindex="-13"',
             $rendered
         );
@@ -2008,14 +1472,6 @@ class DivTest extends TestCase
 
         $this->assertMatchesRegularExpression(
             '/<div.*?>\n<\/div>/',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
             $rendered
         );
         $this->assertStringContainsString(
@@ -2039,14 +1495,6 @@ class DivTest extends TestCase
 
         $this->assertMatchesRegularExpression(
             '/<div.*?>\n<\/div>/',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
             $rendered
         );
         $this->assertStringContainsString(
@@ -2082,14 +1530,6 @@ class DivTest extends TestCase
             $rendered
         );
         $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
             'extra="1"',
             $rendered
         );
@@ -2106,14 +1546,6 @@ class DivTest extends TestCase
 
         $this->assertMatchesRegularExpression(
             '/<div.*?>\n<\/div>/',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
             $rendered
         );
         $this->assertStringContainsString(
@@ -2135,14 +1567,6 @@ class DivTest extends TestCase
 
         $this->assertMatchesRegularExpression(
             '/<div.*?>\n<\/div>/',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'name="my"',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'id="my"',
             $rendered
         );
         $this->assertStringNotContainsString(

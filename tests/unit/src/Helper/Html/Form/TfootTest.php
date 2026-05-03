@@ -73,7 +73,7 @@ class TFootTest extends TestCase
             '/<tfoot.*?>(?:.*?\n*)?<\/tfoot>/',
             $rendered
         );
-        $this->assertStringContainsString(
+        $this->assertStringNotContainsString(
             'name="myid"',
             $rendered
         );

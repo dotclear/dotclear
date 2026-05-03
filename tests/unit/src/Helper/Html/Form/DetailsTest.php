@@ -17,7 +17,7 @@ class DetailsTest extends TestCase
             '/<details.*?>(?:.*?\n*)?<\/details>/',
             $rendered
         );
-        $this->assertStringContainsString(
+        $this->assertStringNotContainsString(
             'name="my"',
             $rendered
         );
@@ -40,7 +40,7 @@ class DetailsTest extends TestCase
             '/<div.*?>(?:.*?\n*)?<\/div>/',
             $rendered
         );
-        $this->assertStringContainsString(
+        $this->assertStringNotContainsString(
             'name="my"',
             $rendered
         );

@@ -43,8 +43,12 @@ class TemplateTest extends TestCase
         $dir      = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), 'tpl']);
         $cachedir = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), 'cbtpl']);
 
-        @mkdir($dir);
-        @mkdir($cachedir);
+        if (!is_dir($dir)) {
+            @mkdir($dir);
+        }
+        if (!is_dir($cachedir)) {
+            @mkdir($cachedir);
+        }
 
         $basetpl = '';
         foreach ($t['templates'] as $name => $content) {
@@ -88,6 +92,13 @@ class TemplateTest extends TestCase
             unlink($dir . '/' . $name);
         }
         unset($GLOBALS['tpl']);
+
+        if (is_dir($dir)) {
+            \Dotclear\Helper\File\Files::deltree($dir);
+        }
+        if (is_dir($cachedir)) {
+            \Dotclear\Helper\File\Files::deltree($cachedir);
+        }
     }
 
     /**
@@ -150,8 +161,12 @@ class TemplateTest extends TestCase
         $dir      = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), 'tplpath']);
         $cachedir = implode(DIRECTORY_SEPARATOR, [sys_get_temp_dir(), 'cbtplpath']);
 
-        @mkdir($dir);
-        @mkdir($cachedir);
+        if (!is_dir($dir)) {
+            @mkdir($dir);
+        }
+        if (!is_dir($cachedir)) {
+            @mkdir($cachedir);
+        }
 
         $GLOBALS['tpl']            = new \Dotclear\Helper\Html\Template\Template($cachedir, '$tpl');
         $GLOBALS['tpl']->use_cache = false;
@@ -162,6 +177,13 @@ class TemplateTest extends TestCase
             $dir,
             $path[0]
         );
+
+        if (is_dir($dir)) {
+            \Dotclear\Helper\File\Files::deltree($dir);
+        }
+        if (is_dir($cachedir)) {
+            \Dotclear\Helper\File\Files::deltree($cachedir);
+        }
     }
 }
 

@@ -152,7 +152,6 @@ class HttpTest extends TestCase
         $_SERVER['REQUEST_URI'] = '/test.html';
 
         $prepareRedirect = new \ReflectionMethod(\Dotclear\Helper\Network\Http::class, 'prepareRedirect');
-        $prepareRedirect->setAccessible(true);
 
         $this->assertEquals(
             'http://www.dotclear.org/auth.html',

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Tests\Helper\File;
 
+use PHPUnit\Framework\Attributes\IgnoreDeprecations;
 use PHPUnit\Framework\Attributes\RunInSeparateProcess;
 use PHPUnit\Framework\TestCase;
 
@@ -354,6 +355,7 @@ class FileTest extends TestCase
         ;
     }
 
+    #[IgnoreDeprecations]
     public function testUserDefinedProperties(): void
     {
         $file = new \Dotclear\Helper\File\File($this->root . DIRECTORY_SEPARATOR . 'valid.md', $this->root);

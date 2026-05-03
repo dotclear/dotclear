@@ -29,7 +29,7 @@ class TextTest extends TestCase
             '/<span.*?>(?:.*?\n*)?<\/span>/',
             $rendered
         );
-        $this->assertStringContainsString(
+        $this->assertStringNotContainsString(
             'name="myid"',
             $rendered
         );

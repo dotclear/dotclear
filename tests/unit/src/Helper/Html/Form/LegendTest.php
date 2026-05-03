@@ -59,7 +59,7 @@ class LegendTest extends TestCase
             '/<legend.*?>(?:.*?\n*)?<\/legend>/',
             $rendered
         );
-        $this->assertStringContainsString(
+        $this->assertStringNotContainsString(
             'name="myid"',
             $rendered
         );

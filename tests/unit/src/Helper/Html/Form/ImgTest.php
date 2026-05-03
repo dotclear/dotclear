@@ -17,7 +17,7 @@ class ImgTest extends TestCase
             '/<img .*?>/',
             $rendered
         );
-        $this->assertStringContainsString(
+        $this->assertStringNotContainsString(
             'name="my"',
             $rendered
         );

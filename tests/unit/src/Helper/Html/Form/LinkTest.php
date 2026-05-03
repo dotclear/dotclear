@@ -112,7 +112,7 @@ class LinkTest extends TestCase
             '/<a.*?>(?:.*?\n*)?<\/a>/',
             $rendered
         );
-        $this->assertStringContainsString(
+        $this->assertStringNotContainsString(
             'name="myid"',
             $rendered
         );

@@ -419,7 +419,6 @@ class L10nTest extends TestCase
     public function testGetLanguagesDefinitions(): void
     {
         $getLangDefs = new \ReflectionMethod('\Dotclear\Helper\L10n', 'getLanguagesDefinitions');
-        $getLangDefs->setAccessible(true);
 
         $this->assertNotEmpty(
             $getLangDefs->invokeArgs(null, [0])

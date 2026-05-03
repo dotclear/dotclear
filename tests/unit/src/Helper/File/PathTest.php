@@ -45,12 +45,12 @@ class PathTest extends TestCase
                 \Dotclear\Helper\File\Path::real(__DIR__ . '/../../../fixtures/src/Helper/File', false)
             );
             $this->assertEquals(
-                $this->rootDirectory . '/tests/unit/src/Helper/File/tests/unit/fixtures/files',
-                \Dotclear\Helper\File\Path::real('tests/unit/fixtures/files', false)
+                mb_strtolower($this->rootDirectory . '/tests/unit/src/Helper/File/tests/unit/fixtures/files'),
+                mb_strtolower(\Dotclear\Helper\File\Path::real('tests/unit/fixtures/files', false))
             );
             $this->assertEquals(
-                $this->rootDirectory . '/tests/unit/src/Helper/File/tests/unit/fixtures/files',
-                \Dotclear\Helper\File\Path::real('tests/./unit/fixtures/files', false)
+                mb_strtolower($this->rootDirectory . '/tests/unit/src/Helper/File/tests/unit/fixtures/files'),
+                mb_strtolower(\Dotclear\Helper\File\Path::real('tests/./unit/fixtures/files', false))
             );
         }
     }

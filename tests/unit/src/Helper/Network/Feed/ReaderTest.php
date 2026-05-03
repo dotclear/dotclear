@@ -30,18 +30,18 @@ class ReaderTest extends TestCase
         $reader = new \Dotclear\Helper\Network\Feed\Reader();
 
         try {
-            $parser = $reader->parse('https://dotclear.org/blog/feed/atom');
+            $parser = $reader->parse('https://dotclear.org/feed/atom');
             if ($parser) {
                 $this->assertEquals(
-                    'Dotclear News',
+                    'Dotclear',
                     $parser->title
                 );
                 $this->assertEquals(
-                    'https://dotclear.org/blog/',
+                    'https://dotclear.org/',
                     $parser->link
                 );
             } else {
-                fwrite(STDOUT, 'Error on parsing https://dotclear.org/blog/feed/atom' . "\n");
+                fwrite(STDOUT, 'Error on parsing https://dotclear.org/feed/atom' . "\n");
             }
 
             // Again to use cache
@@ -49,48 +49,48 @@ class ReaderTest extends TestCase
             $reader->setCacheTTL('-2 hours');
             $reader->setCacheTTL('4 hours');
 
-            $parser = $reader->parse('https://dotclear.org/blog/feed/atom');
+            $parser = $reader->parse('https://dotclear.org/feed/atom');
             if ($parser) {
                 $this->assertEquals(
-                    'Dotclear News',
+                    'Dotclear',
                     $parser->title
                 );
                 $this->assertEquals(
-                    'https://dotclear.org/blog/',
+                    'https://dotclear.org/',
                     $parser->link
                 );
             } else {
-                fwrite(STDOUT, 'Error on parsing https://dotclear.org/blog/feed/atom (with cache)' . "\n");
+                fwrite(STDOUT, 'Error on parsing https://dotclear.org/feed/atom (with cache)' . "\n");
             }
 
             // 2nd time (from cache)
-            $parser = $reader->parse('https://dotclear.org/blog/feed/atom');
+            $parser = $reader->parse('https://dotclear.org/feed/atom');
             if ($parser) {
                 $this->assertEquals(
-                    'Dotclear News',
+                    'Dotclear',
                     $parser->title
                 );
                 $this->assertEquals(
-                    'https://dotclear.org/blog/',
+                    'https://dotclear.org/',
                     $parser->link
                 );
             } else {
-                fwrite(STDOUT, 'Error on parsing https://dotclear.org/blog/feed/atom (from cache)' . "\n");
+                fwrite(STDOUT, 'Error on parsing https://dotclear.org/feed/atom (from cache)' . "\n");
             }
 
             // Quick parse
-            $parser = \Dotclear\Helper\Network\Feed\Reader::quickParse('https://dotclear.org/blog/feed/atom', $this->cacheDirectory);
+            $parser = \Dotclear\Helper\Network\Feed\Reader::quickParse('https://dotclear.org/feed/atom', $this->cacheDirectory);
             if ($parser) {
                 $this->assertEquals(
-                    'Dotclear News',
+                    'Dotclear',
                     $parser->title
                 );
                 $this->assertEquals(
-                    'https://dotclear.org/blog/',
+                    'https://dotclear.org/',
                     $parser->link
                 );
             } else {
-                fwrite(STDOUT, 'Error on parsing https://dotclear.org/blog/feed/atom (quick parse)' . "\n");
+                fwrite(STDOUT, 'Error on parsing https://dotclear.org/feed/atom (quick parse)' . "\n");
             }
         } catch (Exception) {
             $this->expectNotToPerformAssertions();
@@ -100,7 +100,7 @@ class ReaderTest extends TestCase
     public function testBadURL(): void
     {
         try {
-            $parser = \Dotclear\Helper\Network\Feed\Reader::quickParse('https://dotclear.org/blog/feed/atome');
+            $parser = \Dotclear\Helper\Network\Feed\Reader::quickParse('https://dotclear.org/feed/atome');
 
             $this->assertFalse(
                 $parser

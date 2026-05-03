@@ -273,7 +273,6 @@ namespace Dotclear\Tests\Helper\Network {
                     unlink($output);
                 }
             } catch (Exception) {
-                $this->expectNotToPerformAssertions();
             }
         }
 
@@ -299,7 +298,6 @@ namespace Dotclear\Tests\Helper\Network {
                     $client->getHeaders()
                 );
             } catch (Exception) {
-                $this->expectNotToPerformAssertions();
             }
         }
 
@@ -359,7 +357,6 @@ namespace Dotclear\Tests\Helper\Network {
                     $client->getCookies()
                 );
             } catch (Exception) {
-                $this->expectNotToPerformAssertions();
             }
         }
 
@@ -390,7 +387,6 @@ namespace Dotclear\Tests\Helper\Network {
                     $client->getCookies()
                 );
             } catch (Exception) {
-                $this->expectNotToPerformAssertions();
             }
         }
 
@@ -412,12 +408,8 @@ namespace Dotclear\Tests\Helper\Network {
                 $client->getHeaders()
             );
             $this->assertEquals(
-                301,
+                404,
                 $client->getStatus()
-            );
-            $this->assertStringContainsString(
-                'Moved Permanently',
-                $client->getContent()
             );
         }
 

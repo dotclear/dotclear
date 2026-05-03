@@ -73,7 +73,7 @@ class TrTest extends TestCase
             '/<tr.*?>(?:.*?\n*)?<\/tr>/',
             $rendered
         );
-        $this->assertStringContainsString(
+        $this->assertStringNotContainsString(
             'name="myid"',
             $rendered
         );

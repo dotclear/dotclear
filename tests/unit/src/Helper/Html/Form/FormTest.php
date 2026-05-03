@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Tests\Helper\Html\Form;
 
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\TestCase;
 
+#[AllowMockObjectsWithoutExpectations]
 class FormTest extends TestCase
 {
     public function test(): void
@@ -36,7 +38,7 @@ class FormTest extends TestCase
             '/<div.*?>(?:.*?\n*)?<\/div>/',
             $rendered
         );
-        $this->assertStringContainsString(
+        $this->assertStringNotContainsString(
             'name="my"',
             $rendered
         );

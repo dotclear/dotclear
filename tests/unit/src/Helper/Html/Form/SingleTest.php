@@ -40,7 +40,7 @@ class SingleTest extends TestCase
             '/<hr.*?>/',
             $rendered
         );
-        $this->assertStringContainsString(
+        $this->assertStringNotContainsString(
             'name="myid"',
             $rendered
         );

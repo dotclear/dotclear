@@ -474,11 +474,11 @@ class WikiToHtmlTest extends TestCase
 
             ['@@%s@@', '<p><code>%s</code></p>', 1],
 
-            ['%s$$%s$$', '<p>%s<sup>[<a href="#wiki-footnote-1" id="rev-wiki-footnote-1">1</a>]</sup></p>' .
+            ['%s$$%s$$', '<p>%s<sup>[<a href="#wiki-footnote-1" id="rev-wiki-footnote-1" class="footnote-ref" >1</a>]</sup></p>' .
                 '<div class="footnotes"><h4>Note</h4><p>[<a href="#rev-wiki-footnote-1" id="wiki-footnote-1">1</a>] ' .
                 '%s</p></div>', 2, ],
-            ['%1$s$$%2$s$$ - %3$s$$%4$s$$', '<p>%1$s<sup>[<a href="#wiki-footnote-1" id="rev-wiki-footnote-1">1</a>]</sup>' .
-                ' - %3$s<sup>[<a href="#wiki-footnote-2" id="rev-wiki-footnote-2">2</a>]</sup></p>' .
+            ['%1$s$$%2$s$$ - %3$s$$%4$s$$', '<p>%1$s<sup>[<a href="#wiki-footnote-1" id="rev-wiki-footnote-1" class="footnote-ref" >1</a>]</sup>' .
+                ' - %3$s<sup>[<a href="#wiki-footnote-2" id="rev-wiki-footnote-2" class="footnote-ref" >2</a>]</sup></p>' .
                 '<div class="footnotes"><h4>Notes</h4><p>[<a href="#rev-wiki-footnote-1" id="wiki-footnote-1">1</a>] ' .
                 '%2$s</p><p>[<a href="#rev-wiki-footnote-2" id="wiki-footnote-2">2</a>] ' .
                 '%4$s</p></div>', 4, ],

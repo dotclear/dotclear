@@ -136,7 +136,7 @@ class Template
     /**
      * Node value "include" callback
      *
-     * Syntax: {tpl:include src="filename"}
+     * Syntax: {{tpl:include src="filename"}}
      *
      * @param      array<string, mixed>|ArrayObject<string, mixed>  $attr   The attribute
      */

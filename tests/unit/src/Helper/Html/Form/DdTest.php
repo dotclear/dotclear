@@ -40,7 +40,7 @@ class DdTest extends TestCase
             '/<dd.*?>(?:.*?\n*)?<\/dd>/',
             $rendered
         );
-        $this->assertStringContainsString(
+        $this->assertStringNotContainsString(
             'name="myid"',
             $rendered
         );

@@ -73,7 +73,7 @@ class TheadTest extends TestCase
             '/<thead.*?>(?:.*?\n*)?<\/thead>/',
             $rendered
         );
-        $this->assertStringContainsString(
+        $this->assertStringNotContainsString(
             'name="myid"',
             $rendered
         );

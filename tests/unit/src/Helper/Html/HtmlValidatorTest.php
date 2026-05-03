@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace Dotclear\Tests\Helper\Html;
 
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\TestCase;
 
+#[AllowMockObjectsWithoutExpectations]
 class HtmlValidatorTest extends TestCase
 {
     public function testNetworkError(): void

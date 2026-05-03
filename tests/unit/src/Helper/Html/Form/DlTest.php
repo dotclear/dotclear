@@ -28,7 +28,7 @@ class DlTest extends TestCase
             '/<dl.*?>(?:.*?\n*)?<\/dl>/',
             $rendered
         );
-        $this->assertStringContainsString(
+        $this->assertStringNotContainsString(
             'name="myid"',
             $rendered
         );

@@ -59,7 +59,7 @@ class SummaryTest extends TestCase
             '/<summary.*?>(?:.*?\n*)?<\/summary>/',
             $rendered
         );
-        $this->assertStringContainsString(
+        $this->assertStringNotContainsString(
             'name="myid"',
             $rendered
         );

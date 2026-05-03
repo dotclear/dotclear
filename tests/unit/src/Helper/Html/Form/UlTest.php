@@ -28,7 +28,7 @@ class UlTest extends TestCase
             '/<ul.*?>(?:.*?\n*)?<\/ul>/',
             $rendered
         );
-        $this->assertStringContainsString(
+        $this->assertStringNotContainsString(
             'name="myid"',
             $rendered
         );

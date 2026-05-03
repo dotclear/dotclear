@@ -28,7 +28,7 @@ class OlTest extends TestCase
             '/<ol.*?>(?:.*?\n*)?<\/ol>/',
             $rendered
         );
-        $this->assertStringContainsString(
+        $this->assertStringNotContainsString(
             'name="myid"',
             $rendered
         );

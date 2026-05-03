@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Dotclear\Tests\Database;
 
 use Exception;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
@@ -17,6 +18,7 @@ class RecordExtend
     }
 }
 
+#[AllowMockObjectsWithoutExpectations]
 class RecordTest extends TestCase
 {
     private function getConnection(string $driver, string $driver_folder, string $syntax): MockObject

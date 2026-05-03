@@ -36,7 +36,7 @@ class FieldsetTest extends TestCase
             '/<div.*?>(?:.*?\n*)?<\/div>/',
             $rendered
         );
-        $this->assertStringContainsString(
+        $this->assertStringNotContainsString(
             'name="my"',
             $rendered
         );

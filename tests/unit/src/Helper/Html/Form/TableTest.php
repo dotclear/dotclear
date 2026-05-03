@@ -17,7 +17,7 @@ class TableTest extends TestCase
             '/<table.*?>(?:.*?\n*)?<\/table>/',
             $rendered
         );
-        $this->assertStringContainsString(
+        $this->assertStringNotContainsString(
             'name="my"',
             $rendered
         );
@@ -36,7 +36,7 @@ class TableTest extends TestCase
             '/<div.*?>(?:.*?\n*)?<\/div>/',
             $rendered
         );
-        $this->assertStringContainsString(
+        $this->assertStringNotContainsString(
             'name="my"',
             $rendered
         );
