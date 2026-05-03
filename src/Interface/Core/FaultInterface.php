@@ -52,4 +52,9 @@ interface FaultInterface
      * @return  bool    True if it is set from this call
      */
     public function setExceptionHandler(): bool;
+
+    /**
+     * Unset Dotclear Exception handler (useful for unit testing)
+     */
+    public function unsetExceptionHandler(): void;
 }

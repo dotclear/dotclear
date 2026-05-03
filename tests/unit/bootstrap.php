@@ -23,8 +23,15 @@ $__autoload = [
     'form'             => implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'src', 'Helper', 'Html', 'Form', 'Legacy.php']),
     'formSelectOption' => implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'src', 'Helper', 'Html', 'Form', 'Legacy.php']),
 ];
-spl_autoload_register(function ($name) use ($__autoload) {if (isset($__autoload[$name])) { require_once $__autoload[$name]; }});
+spl_autoload_register(function ($name) use ($__autoload) {
+    if (isset($__autoload[$name])) {
+        require_once $__autoload[$name];
+    }
+});
 
 // Instanciate Core
 $root = implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..']);
 new Core($root);
+
+// Unset App exception handler (let PHPUnit cope with that)
+Core::fault()->unsetExceptionHandler();

@@ -50,6 +50,7 @@ class Fault implements FaultInterface
         register_shutdown_function(function (): void {
             if (self::$watchdog) {
                 restore_exception_handler();
+                self::$watchdog = false;
             }
         });
     }
@@ -58,6 +59,7 @@ class Fault implements FaultInterface
     {
         if (self::$watchdog) {
             restore_exception_handler();
+            self::$watchdog = false;
         }
     }
 
@@ -97,6 +99,15 @@ class Fault implements FaultInterface
         }
 
         return self::$watchdog = true;
+    }
+
+    public function unsetExceptionHandler(): void
+    {
+        if (self::$watchdog) {
+            restore_exception_handler();
+
+            self::$watchdog = false;
+        }
     }
 
     /**
