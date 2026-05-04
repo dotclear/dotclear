@@ -13,10 +13,13 @@ declare(strict_types=1);
 
 namespace Dotclear\Theme\Ductile2026;
 
-use ArrayObject;
 use Dotclear\App;
+use Dotclear\Helper\Html\Form\Img;
+use Dotclear\Helper\Html\Form\Li;
+use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\Span;
+use Dotclear\Helper\Html\Form\Ul;
 use Dotclear\Helper\Process\TraitProcess;
-use Dotclear\Helper\File\Files;
 
 /**
  * @brief   The module frontend process.
@@ -50,61 +53,9 @@ class Frontend
         ]);
 
         # Templates
-        App::frontend()->template()->addValue('ductileEntriesList', self::ductileEntriesList(...));
         App::frontend()->template()->addValue('ductileLogoSrc', self::ductileLogoSrc(...));
 
         return true;
-    }
-
-    /**
-     * Tpl:ductileEntriesList template element
-     *
-     * @param      ArrayObject<string, string>  $attr   The attribute
-     *
-     * @return     string       rendered element
-     */
-    public static function ductileEntriesList(ArrayObject $attr): string
-    {
-        $tpl_path   = My::path() . '/tpl/';
-        $list_types = ['title', 'short', 'full'];
-
-        // Get all _entry-*.html in tpl folder of theme
-        $list_types_templates = Files::scandir($tpl_path);
-        foreach ($list_types_templates as $v) {
-            if (preg_match('/^_entry\-(.*)\.html$/', $v, $m) && !in_array($m[1], $list_types)) {
-                // template not already in full list
-                $list_types[] = $m[1];
-            }
-        }
-
-        $default = isset($attr['default']) ? trim($attr['default']) : 'short';
-        $ret     = '<?php ' . "\n" .
-        'switch (' . self::class . '::ductileEntriesListHelper(\'' . $default . '\')) {' . "\n";
-
-        foreach ($list_types as $v) {
-            $ret .= '   case \'' . $v . '\':' . "\n" .
-            '?>' . "\n" .
-            App::frontend()->template()->includeFile(['src' => '_entry-' . $v . '.html']) . "\n" .
-                '<?php ' . "\n" .
-                '       break;' . "\n";
-        }
-
-        return $ret . '}' . "\n" . '?>';
-    }
-
-    /**
-     * Helper for Tpl:ductileEntriesList
-     *
-     * @param      string  $default  The default
-     */
-    public static function ductileEntriesListHelper(string $default): string
-    {
-        $s = App::blog()->settings()->themes->get(App::blog()->settings()->system->theme . '_entries_lists');
-        if (is_array($s) && isset($s[App::url()->getType()])) {
-            return $s[App::url()->getType()];
-        }
-
-        return $default;
     }
 
     /**
@@ -122,15 +73,18 @@ class Frontend
     {
         $img_url = My::fileURL('img/logo-ductile.svg');
 
-        $style = App::blog()->settings()->themes->get(App::blog()->settings()->system->theme . '_style');
-        if (is_array($style) && isset($style['logo_src']) && $style['logo_src'] && is_string($style['logo_src'])) {
-            $scheme = is_string($scheme = parse_url($style['logo_src'], PHP_URL_SCHEME)) ? $scheme : '';
-            if ($scheme !== '') {
-                // Return complete URL which includes scheme
-                $img_url = $style['logo_src'];
-            } else {
-                // Return theme resource URL
-                $img_url = My::fileURL($style['logo_src']);
+        $theme = is_string($theme = App::blog()->settings()->system->theme) ? $theme : '';
+        if ($theme !== '') {
+            $style = App::blog()->settings()->themes->get($theme . '_style');
+            if (is_array($style) && isset($style['logo_src']) && $style['logo_src'] && is_string($style['logo_src'])) {
+                $scheme = is_string($scheme = parse_url($style['logo_src'], PHP_URL_SCHEME)) ? $scheme : '';
+                if ($scheme !== '') {
+                    // Return complete URL which includes scheme
+                    $img_url = $style['logo_src'];
+                } else {
+                    // Return theme resource URL
+                    $img_url = My::fileURL($style['logo_src']);
+                }
             }
         }
 
@@ -142,35 +96,46 @@ class Frontend
      */
     public static function publicInsideFooter(): void
     {
-        $res     = '';
-        $default = false;
+        $items   = [];
         $img_url = My::fileURL('img/');
 
-        $s = App::blog()->settings()->themes->get(App::blog()->settings()->system->theme . '_stickers');
-
-        if ($s === null) {
-            $default = true;
-        } else {
-            $s = array_filter($s, self::cleanStickers(...));
-            if (count($s) === 0) {
-                $default = true;
-            } else {
-                $count = 1;
-                foreach ($s as $sticker) {
-                    $res .= self::setSticker($count, ($count === count($s)), $sticker['label'], $sticker['url'], $img_url . $sticker['image']);
-                    $count++;
+        $theme = is_string($theme = App::blog()->settings()->system->theme) ? $theme : '';
+        if ($theme !== '') {
+            /**
+             * @var array<array{label: string, url: string, image: string}>
+             */
+            $stickers = is_array($stickers = App::blog()->settings()->themes->get($theme . '_stickers')) ? $stickers : [];
+            if ($stickers !== []) {
+                $stickers = array_filter($stickers, self::cleanStickers(...));
+                if ($stickers !== []) {
+                    $count = 1;
+                    foreach ($stickers as $sticker) {
+                        $items[] = self::setSticker(
+                            $count,
+                            ($count === count($stickers)),
+                            $sticker['label'],
+                            $sticker['url'],
+                            $img_url . $sticker['image']
+                        );
+                        $count++;
+                    }
                 }
             }
-        }
 
-        if ($default || $res === '') {
-            $res = self::setSticker(1, true, __('Subscribe'), App::blog()->url() .
-                App::url()->getURLFor('feed', 'atom'), $img_url . 'sticker-feed.svg');
-        }
+            if ($items === []) {
+                $items[] = self::setSticker(
+                    1,
+                    true,
+                    __('Subscribe'),
+                    App::blog()->url() . App::url()->getURLFor('feed', 'atom'),
+                    $img_url . 'sticker-feed.svg'
+                );
+            }
 
-        if ($res !== '') {
-            $res = '<ul id="stickers">' . "\n" . $res . '</ul>' . "\n";
-            echo $res;
+            echo (new Ul())
+                ->id('stickers')
+                ->items($items)
+            ->render();
         }
     }
 
@@ -181,7 +146,9 @@ class Frontend
      */
     protected static function cleanStickers(array $s): bool
     {
-        return isset($s['label']) && isset($s['url']) && isset($s['image']) && $s['label'] != null && $s['url'] != null && $s['image'] != null;
+        $check = fn (string $key): bool => isset($s[$key]) && is_string($s[$key]);
+
+        return $check('label') && $check('url') && $check('image');
     }
 
     /**
@@ -189,20 +156,26 @@ class Frontend
      *
      * @param      int          $position  The position
      * @param      bool         $last      The last
-     * @param      null|string  $label     The label
-     * @param      null|string  $url       The url
-     * @param      null|string  $image     The image
+     * @param      string       $label     The label
+     * @param      string       $url       The url
+     * @param      string       $image     The image
      *
-     * @return     string       rendered sticker
+     * @return     Li       sticker
      */
-    protected static function setSticker(int $position, bool $last, ?string $label = '', ?string $url = '', ?string $image = ''): string
+    protected static function setSticker(int $position, bool $last, ?string $label = '', string $url = '', string $image = ''): Li
     {
-        return '<li id="sticker' . $position . '"' . ($last ? ' class="last"' : '') . '>' . "\n" .
-            '<a href="' . $url . '">' . "\n" .
-            '<img alt="" src="' . $image . '">' . "\n" .
-            '<span>' . $label . '</span>' . "\n" .
-            '</a>' . "\n" .
-            '</li>' . "\n";
+        return (new Li())
+            ->id('sticker' . $position)
+            ->class($last ? 'last' : '')
+            ->items([
+                (new Link())
+                    ->href($url)
+                    ->items([
+                        (new Img($image))
+                            ->alt(''),
+                        (new Span($label)),
+                    ]),
+            ]);
     }
 
     /**

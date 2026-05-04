@@ -62,12 +62,14 @@ class Config
             'logo_src' => null,
         ];
 
+        $theme = is_string($theme = App::blog()->settings()->system->theme) ? $theme : '';
+
         /**
          * @return array<array-key, mixed>
          */
-        $getSetting = function (string $name, array $default): array {
+        $getSetting = function (string $name, array $default) use ($theme): array {
             // Get current setting
-            $setting = App::blog()->settings()->themes->get(App::blog()->settings()->system->theme . '_' . $name);
+            $setting = App::blog()->settings()->themes->get($theme . '_' . $name);
             if (is_null($setting)) {
                 // No setting in DB, return default
                 return $default;
@@ -83,15 +85,20 @@ class Config
         App::backend()->ductile_user = $getSetting('style', []);
         App::backend()->ductile_user = array_merge($ductile_base, App::backend()->ductile_user);
 
-        $ductile_stickers = App::blog()->settings()->themes->get(App::blog()->settings()->system->theme . '_stickers');
+        /**
+         * @var array<array{label: string, url: string, image: string}>
+         */
+        $ductile_stickers = is_array($ductile_stickers = App::blog()->settings()->themes->get($theme . '_stickers')) ? $ductile_stickers : [];
 
         // If no stickers defined, add feed Atom one
-        if (!is_array($ductile_stickers)) {
-            $ductile_stickers = [[
-                'label' => __('Subscribe'),
-                'url'   => App::blog()->url() . App::url()->getURLFor('feed', 'atom'),
-                'image' => 'sticker-feed.svg',
-            ]];
+        if ($ductile_stickers === []) {
+            $ductile_stickers = [
+                [
+                    'label' => __('Subscribe'),
+                    'url'   => App::blog()->url() . App::url()->getURLFor('feed', 'atom'),
+                    'image' => 'sticker-feed.svg',
+                ],
+            ];
         }
 
         $ductile_stickers_full = [];
@@ -107,7 +114,8 @@ class Config
                 $ductile_stickers[] = [
                     'label' => null,
                     'url'   => null,
-                    'image' => $v, ];
+                    'image' => $v,
+                ];
             }
         }
         App::backend()->ductile_stickers = $ductile_stickers;
@@ -125,8 +133,17 @@ class Config
         }
 
         if ($_POST !== []) {
+            // Post data helpers
+            $_StrIdx = fn (string $name, int $index, string $default = ''): string => isset($_POST[$name]) && is_array($_POST[$name]) && isset($_POST[$name][$index]) && is_string($val = $_POST[$name][$index]) ? $val : $default;
+
             try {
                 // HTML
+
+                $theme = is_string($theme = App::blog()->settings()->system->theme) ? $theme : '';
+
+                /**
+                 * @var array{logo_src: ?string} $ductile_user
+                 */
                 $ductile_user = App::backend()->ductile_user;
 
                 $logo_src = isset($_POST['user_image']) && is_string($logo_src = $_POST['user_image']) && $logo_src !== '' ? $logo_src : 'img/logo-ductile.svg';
@@ -139,16 +156,19 @@ class Config
                  * @var array<array{label: string, url: string, image: string}>
                  */
                 $ductile_stickers = [];
-                for ($i = 0; $i < (is_countable($_POST['sticker_image']) ? count($_POST['sticker_image']) : 0); $i++) {
-                    $ductile_stickers[] = [
-                        'label' => $_POST['sticker_label'][$i],
-                        'url'   => $_POST['sticker_url'][$i],
-                        'image' => $_POST['sticker_image'][$i],
-                    ];
+                if (isset($_POST['sticker_image']) && is_array($_POST['sticker_image'])) {
+                    $count = count($_POST['sticker_image']);
+                    for ($i = 0; $i < $count; $i++) {
+                        $ductile_stickers[] = [
+                            'label' => $_StrIdx('sticker_label', $i),
+                            'url'   => $_StrIdx('sticker_url', $i),
+                            'image' => $_StrIdx('sticker_image', $i),
+                        ];
+                    }
                 }
 
                 $order = [];
-                if (!empty($_POST['order'])) {
+                if (!empty($_POST['order']) && is_array($_POST['order'])) {
                     $order = $_POST['order'];
                     asort($order);
                     $order = array_keys($order);
@@ -169,8 +189,8 @@ class Config
                 App::backend()->ductile_user = $ductile_user;
 
                 // Save settings
-                App::blog()->settings()->themes->put(App::blog()->settings()->system->theme . '_style', App::backend()->ductile_user, App::blogWorkspace()::NS_ARRAY);
-                App::blog()->settings()->themes->put(App::blog()->settings()->system->theme . '_stickers', App::backend()->ductile_stickers, App::blogWorkspace()::NS_ARRAY);
+                App::blog()->settings()->themes->put($theme . '_style', App::backend()->ductile_user, App::blogWorkspace()::NS_ARRAY);
+                App::blog()->settings()->themes->put($theme . '_stickers', App::backend()->ductile_stickers, App::blogWorkspace()::NS_ARRAY);
 
                 // Blog refresh
                 App::blog()->triggerBlog();
@@ -197,8 +217,13 @@ class Config
             return;
         }
 
+        /**
+         * @var null|array{logo_src: ?string} $ductile_user
+         */
+        $ductile_user = App::backend()->ductile_user;
+
         // Image URL
-        $logo_src = is_string($logo_src = App::backend()->ductile_user['logo_src']) ? $logo_src : '';
+        $logo_src = is_array($ductile_user) && is_string($logo_src = $ductile_user['logo_src']) ? $logo_src : '';
         $scheme   = is_string($scheme = parse_url($logo_src, PHP_URL_SCHEME)) ? $scheme : '';
         if ($scheme !== '') {
             // Return complete URL which includes scheme
@@ -208,11 +233,16 @@ class Config
             $img_url = My::fileURL($logo_src === '' ? 'img/logo-ductile.svg' : $logo_src);
         }
 
+        /**
+         * @var array<array{label: string, url: string, image: string}>
+         */
+        $ductile_stickers = is_array($ductile_stickers = App::backend()->ductile_stickers) ? $ductile_stickers : [];
+
         // Helpers
 
-        $stickers = function () {
+        $stickers = function () use ($ductile_stickers) {
             $count = 0;
-            foreach (App::backend()->ductile_stickers as $i => $v) {
+            foreach ($ductile_stickers as $i => $v) {
                 $count++;
                 yield (new Tr())
                     ->id('l_' . $i)
@@ -220,7 +250,7 @@ class Config
                         (new Td())
                             ->class([App::auth()->prefs()->accessibility->nodragdrop ? '' : 'handle', 'minimal'])
                             ->items([
-                                (new Number(['order[' . $i . ']'], 0, count(App::backend()->ductile_stickers), $count))
+                                (new Number(['order[' . $i . ']'], 0, count($ductile_stickers), $count))
                                     ->class('position'),
                                 (new Hidden(['dynorder[]', 'dynorder-' . $i], (string) $i)),
                             ]),
