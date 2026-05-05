@@ -23,7 +23,7 @@ abstract class Provider extends BaseProvider
 {
     protected function getCodeVerifier(): string
     {
-        return (string) App::session()->get('code_verifier');
+        return is_string($code = App::session()->get('code_verifier')) ? $code : '';
     }
 
     protected function setCodeVerifier(?string $code): void

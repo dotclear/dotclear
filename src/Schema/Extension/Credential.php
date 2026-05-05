@@ -36,11 +36,16 @@ class Credential
      */
     public static function getUserCN(MetaRecord $rs): string
     {
+        $user_id          = is_string($user_id = $rs->user_id) ? $user_id : '';
+        $user_name        = is_string($user_name = $rs->user_name) ? $user_name : null;
+        $user_firstname   = is_string($user_firstname = $rs->user_firstname) ? $user_firstname : null;
+        $user_displayname = is_string($user_displayname = $rs->user_displayname) ? $user_displayname : null;
+
         $user = App::users()->getUserCN(
-            $rs->user_id,
-            $rs->user_name,
-            $rs->user_firstname,
-            $rs->user_displayname
+            $user_id,
+            $user_name,
+            $user_firstname,
+            $user_displayname
         );
 
         if ($user === 'unknown') {
@@ -72,6 +77,8 @@ class Credential
      */
     public static function getAllData(MetaRecord $rs): array
     {
-        return App::credential()->decryptData((string) $rs->credential_data);
+        $credential_data = is_string($credential_data = $rs->credential_data) ? $credential_data : '';
+
+        return App::credential()->decryptData($credential_data);
     }
 }

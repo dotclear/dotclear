@@ -47,13 +47,16 @@ class User
      *
      * @param      MetaRecord   $rs       Invisible parameter
      *
-     * @return     array<string, mixed>
+     * @return     array<array-key, mixed>
      */
     public static function options(MetaRecord $rs): array
     {
-        $options = @unserialize((string) $rs->user_options);
-        if (is_array($options)) {
-            return $options;
+        $user_options = is_string($user_options = $rs->user_options) ? $user_options : '';
+        if ($user_options !== '') {
+            $options = @unserialize($user_options);
+            if (is_array($options)) {
+                return $options;
+            }
         }
 
         return [];
@@ -70,9 +73,12 @@ class User
             return AuthInterface::PERMISSION_SUPERADMIN;
         }
 
-        $permissions = App::users()->getUserPermissions($rs->user_id);
-        if (isset($permissions[App::blog()->id()]['p'][AuthInterface::PERMISSION_ADMIN])) {
-            return AuthInterface::PERMISSION_ADMIN;
+        $user_id = is_string($user_id = $rs->user_id) ? $user_id : '';
+        if ($user_id !== '') {
+            $permissions = App::users()->getUserPermissions($user_id);
+            if (isset($permissions[App::blog()->id()]['p'][AuthInterface::PERMISSION_ADMIN])) {
+                return AuthInterface::PERMISSION_ADMIN;
+            }
         }
 
         return '';

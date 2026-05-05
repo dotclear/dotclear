@@ -15,6 +15,7 @@ use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Helper\Date;
+use Dotclear\Helper\Html\Form\Link;
 use Dotclear\Helper\Html\Html;
 
 /**
@@ -50,9 +51,14 @@ class Post
         }
 
         # Ckeck if user is usage and owner of the entry
+        $user_id = is_string($user_id = $rs->user_id) ? $user_id : '';
+        if ($user_id === '') {
+            return false;
+        }
+
         return App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_USAGE,
-        ]), App::blog()->id()) && $rs->user_id == App::auth()->userID();
+        ]), App::blog()->id()) && $user_id === App::auth()->userID();
     }
 
     /**
@@ -76,10 +82,15 @@ class Post
             return false;
         }
 
+        $user_id = is_string($user_id = $rs->user_id) ? $user_id : '';
+        if ($user_id === '') {
+            return false;
+        }
+
         # Check if user has delete rights and is owner of the entry
         return App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_DELETE,
-        ]), App::blog()->id()) && $rs->user_id == App::auth()->userID();
+        ]), App::blog()->id()) && $user_id === App::auth()->userID();
     }
 
     /**
@@ -93,9 +104,13 @@ class Post
             return true;
         }
 
-        $cdate = date('Ymd', (int) strtotime((string) $rs->post_dt));
+        $post_dt = is_string($post_dt = $rs->post_dt) ? $post_dt : 'now';
+        $cdate   = date('Ymd', (int) strtotime($post_dt));
+
         $rs->movePrev();
-        $ndate = date('Ymd', (int) strtotime((string) $rs->post_dt));
+
+        $post_dt = is_string($post_dt = $rs->post_dt) ? $post_dt : 'now';
+        $ndate   = date('Ymd', (int) strtotime($post_dt));
         $rs->moveNext();
 
         return $ndate !== $cdate;
@@ -112,9 +127,14 @@ class Post
             return true;
         }
 
-        $cdate = date('Ymd', (int) strtotime((string) $rs->post_dt));
+        $post_dt = is_string($post_dt = $rs->post_dt) ? $post_dt : 'now';
+        $cdate   = date('Ymd', (int) strtotime($post_dt));
+
         $rs->moveNext();
-        $ndate = date('Ymd', (int) strtotime((string) $rs->post_dt));
+
+        $post_dt = is_string($post_dt = $rs->post_dt) ? $post_dt : 'now';
+        $ndate   = date('Ymd', (int) strtotime($post_dt));
+
         $rs->movePrev();
 
         return $ndate !== $cdate;
@@ -133,14 +153,17 @@ class Post
         }
 
         // Check if feedback is open/close for the category
-        if ($rs->cat_id) {
+        $cat_id = is_numeric($cat_id = $rs->cat_id) ? (int) $cat_id : 0;
+        if ($cat_id !== 0) {
             $cats_no_feedback = app::blog()->settings()->system->cats_no_feedback;
-            if ($cats_no_feedback && is_array($cats_no_feedback) && in_array((int) $rs->cat_id, $cats_no_feedback, true)) {
+            if ($cats_no_feedback && is_array($cats_no_feedback) && in_array($cat_id, $cats_no_feedback, true)) {
                 return false;
             }
         }
 
-        return $rs->post_open_comment && (App::blog()->settings()->system->comments_ttl == 0 || time() - (App::blog()->settings()->system->comments_ttl * 86400) < $rs->getTS());
+        $comments_ttl = is_numeric($comments_ttl = App::blog()->settings()->system->comments_ttl) ? (int) $comments_ttl : 0;
+
+        return $rs->post_open_comment && ($comments_ttl === 0 || time() - ($comments_ttl * 86400) < $rs->getTS());
     }
 
     /**
@@ -156,14 +179,17 @@ class Post
         }
 
         // Check if feedback is open/close for the category
-        if ($rs->cat_id) {
+        $cat_id = is_numeric($cat_id = $rs->cat_id) ? (int) $cat_id : 0;
+        if ($cat_id !== 0) {
             $cats_no_feedback = app::blog()->settings()->system->cats_no_feedback;
-            if ($cats_no_feedback && is_array($cats_no_feedback) && in_array((int) $rs->cat_id, $cats_no_feedback, true)) {
+            if ($cats_no_feedback && is_array($cats_no_feedback) && in_array($cat_id, $cats_no_feedback, true)) {
                 return false;
             }
         }
 
-        return $rs->post_open_tb && (App::blog()->settings()->system->trackbacks_ttl == 0 || time() - (App::blog()->settings()->system->trackbacks_ttl * 86400) < $rs->getTS());
+        $trackbacks_ttl = is_numeric($trackbacks_ttl = App::blog()->settings()->system->trackbacks_ttl) ? (int) $trackbacks_ttl : 0;
+
+        return $rs->post_open_tb && ($trackbacks_ttl === 0 || time() - ($trackbacks_ttl * 86400) < $rs->getTS());
     }
 
     /**
@@ -193,8 +219,12 @@ class Post
      */
     public static function isRepublished(MetaRecord $rs): bool
     {
-        // Take care of post_dt does not store seconds
-        return ($rs->getTS('upddt') + Date::getTimeOffset($rs->post_tz, $rs->getTS('upddt'))) > ($rs->getTS() + 60);
+        // Take care of post_dt which does not store seconds
+        $post_dt    = is_numeric($post_dt = $rs->getTS()) ? (int) $post_dt : 0;
+        $post_upddt = is_numeric($post_upddt = $rs->getTS('upddt')) ? (int) $post_upddt : 0;
+        $post_tz    = is_string($post_tz = $rs->post_tz) ? $post_tz : 'UTC';
+
+        return ($post_upddt + Date::getTimeOffset($post_tz, $post_upddt)) > ($post_dt + 60);
     }
 
     /**
@@ -204,8 +234,11 @@ class Post
      */
     public static function getURL(MetaRecord $rs): string
     {
-        return App::blog()->url() . App::postTypes()->get((string) $rs->post_type)->publicUrl(
-            Html::sanitizeURL($rs->post_url)
+        $post_type = is_string($post_type = $rs->post_type) ? $post_type : '';
+        $post_url  = is_string($post_url = $rs->post_url) ? $post_url : '';
+
+        return App::blog()->url() . App::postTypes()->get($post_type)->publicUrl(
+            Html::sanitizeURL($post_url)
         );
     }
 
@@ -216,7 +249,9 @@ class Post
      */
     public static function getCategoryURL(MetaRecord $rs): string
     {
-        return App::blog()->url() . App::url()->getURLFor('category', Html::sanitizeURL($rs->cat_url));
+        $cat_url = is_string($cat_url = $rs->cat_url) ? $cat_url : '';
+
+        return App::blog()->url() . App::url()->getURLFor('category', Html::sanitizeURL($cat_url));
     }
 
     /**
@@ -226,7 +261,9 @@ class Post
      */
     public static function isExtended(MetaRecord $rs): bool
     {
-        return (string) $rs->post_excerpt_xhtml !== '';
+        $post_excerpt_xhtml = is_string($post_excerpt_xhtml = $rs->post_excerpt_xhtml) ? $post_excerpt_xhtml : '';
+
+        return $post_excerpt_xhtml !== '';
     }
 
     /**
@@ -238,14 +275,20 @@ class Post
     public static function getTS(MetaRecord $rs, string $type = ''): int
     {
         if ($type === 'upddt') {
-            return (int) strtotime((string) $rs->post_upddt);
+            $post_upddt = is_string($post_upddt = $rs->post_upddt) ? $post_upddt : '';
+
+            return (int) strtotime($post_upddt);
         }
 
         if ($type === 'creadt') {
-            return (int) strtotime((string) $rs->post_creadt);
+            $post_creadt = is_string($post_creadt = $rs->post_creadt) ? $post_creadt : '';
+
+            return (int) strtotime($post_creadt);
         }
 
-        return (int) strtotime($rs->post_dt);
+        $post_dt = is_string($post_dt = $rs->post_dt) ? $post_dt : '';
+
+        return (int) strtotime($post_dt);
     }
 
     /**
@@ -256,11 +299,14 @@ class Post
      */
     public static function getISO8601Date(MetaRecord $rs, string $type = ''): string
     {
+        $post_tz = is_string($post_tz = $rs->post_tz) ? $post_tz : 'UTC';
+        $post_ts = is_numeric($post_ts = $rs->getTS($type)) ? (int) $post_ts : 0;
+
         if ($type === 'upddt' || $type === 'creadt') {
-            return Date::iso8601((int) $rs->getTS($type) + Date::getTimeOffset($rs->post_tz), $rs->post_tz);
+            return Date::iso8601($post_ts + Date::getTimeOffset($post_tz), $post_tz);
         }
 
-        return Date::iso8601($rs->getTS(), $rs->post_tz);
+        return Date::iso8601($post_ts, $post_tz);
     }
 
     /**
@@ -271,36 +317,47 @@ class Post
      */
     public static function getRFC822Date(MetaRecord $rs, string $type = ''): string
     {
+        $post_tz = is_string($post_tz = $rs->post_tz) ? $post_tz : 'UTC';
+        $post_ts = is_numeric($post_ts = $rs->getTS($type)) ? (int) $post_ts : 0;
+
         if ($type === 'upddt' || $type === 'creadt') {
-            return Date::rfc822((int) $rs->getTS($type) + Date::getTimeOffset($rs->post_tz), $rs->post_tz);
+            return Date::rfc822($post_ts + Date::getTimeOffset($post_tz), $post_tz);
         }
 
-        return Date::rfc822($rs->getTS($type), $rs->post_tz);
+        return Date::rfc822($post_ts, $post_tz);
     }
 
     /**
      * Returns post date with <var>$format</var> as formatting pattern. If format
      * is empty, uses <var>date_format</var> blog setting.
      *
-     * @param      MetaRecord  $rs     Invisible parameter
-     * @param      string    $format  The date format pattern
-     * @param      string    $type    The type, (dt|upddt|creadt) defaults to post_dt
+     * @param      MetaRecord   $rs         Invisible parameter
+     * @param      string       $format     The date format pattern
+     * @param      string       $type       The type, (dt|upddt|creadt) defaults to post_dt
      */
     public static function getDate(MetaRecord $rs, ?string $format, string $type = ''): string
     {
-        if (!$format) {
-            $format = App::blog()->settings()->system->date_format;
+        if (is_null($format) || $format === '') {
+            $format = is_string($format = App::blog()->settings()->system->date_format) ? $format : '';
         }
 
+        $post_tz = is_string($post_tz = $rs->post_tz) ? $post_tz : 'UTC';
+
         if ($type === 'upddt') {
-            return Date::dt2str($format, (string) $rs->post_upddt, (string) $rs->post_tz);
+            $post_upddt = is_string($post_upddt = $rs->post_upddt) ? $post_upddt : '';
+
+            return Date::dt2str($format, $post_upddt, $post_tz);
         }
 
         if ($type === 'creadt') {
-            return Date::dt2str($format, (string) $rs->post_creadt, (string) $rs->post_tz);
+            $post_creadt = is_string($post_creadt = $rs->post_creadt) ? $post_creadt : '';
+
+            return Date::dt2str($format, $post_creadt, $post_tz);
         }
 
-        return Date::dt2str($format, (string) $rs->post_dt);
+        $post_dt = is_string($post_dt = $rs->post_dt) ? $post_dt : '';
+
+        return Date::dt2str($format, $post_dt);
     }
 
     /**
@@ -313,19 +370,27 @@ class Post
      */
     public static function getTime(MetaRecord $rs, ?string $format, string $type = ''): string
     {
-        if (!$format) {
-            $format = App::blog()->settings()->system->time_format;
+        if (is_null($format) || $format === '') {
+            $format = is_string($format = App::blog()->settings()->system->time_format) ? $format : '';
         }
 
+        $post_tz = is_string($post_tz = $rs->post_tz) ? $post_tz : 'UTC';
+
         if ($type === 'upddt') {
-            return Date::dt2str($format, (string) $rs->post_upddt, (string) $rs->post_tz);
+            $post_upddt = is_string($post_upddt = $rs->post_upddt) ? $post_upddt : '';
+
+            return Date::dt2str($format, $post_upddt, $post_tz);
         }
 
         if ($type === 'creadt') {
-            return Date::dt2str($format, (string) $rs->post_creadt, (string) $rs->post_tz);
+            $post_creadt = is_string($post_creadt = $rs->post_creadt) ? $post_creadt : '';
+
+            return Date::dt2str($format, $post_creadt, $post_tz);
         }
 
-        return Date::dt2str($format, (string) $rs->post_dt);
+        $post_dt = is_string($post_dt = $rs->post_dt) ? $post_dt : '';
+
+        return Date::dt2str($format, $post_dt);
     }
 
     /**
@@ -336,11 +401,16 @@ class Post
      */
     public static function getAuthorCN(MetaRecord $rs): string
     {
+        $user_id          = is_string($user_id = $rs->user_id) ? $user_id : '';
+        $user_name        = is_string($user_name = $rs->user_name) ? $user_name : null;
+        $user_firstname   = is_string($user_firstname = $rs->user_firstname) ? $user_firstname : null;
+        $user_displayname = is_string($user_displayname = $rs->user_displayname) ? $user_displayname : null;
+
         return App::users()->getUserCN(
-            $rs->user_id,
-            $rs->user_name,
-            $rs->user_firstname,
-            $rs->user_displayname
+            $user_id,
+            $user_name,
+            $user_firstname,
+            $user_displayname
         );
     }
 
@@ -351,13 +421,17 @@ class Post
      */
     public static function getAuthorLink(MetaRecord $rs): string
     {
-        $res = '%1$s';
-        $url = $rs->user_url;
-        if ($url) {
-            $res = '<a href="%2$s">%1$s</a>';
+        $url    = is_string($url = $rs->user_url) ? $url : '';
+        $author = is_string($author = $rs->getAuthorCN()) ? $author : '';
+
+        if ($url !== '' && $author !== '') {
+            return (new Link())
+                ->href($url)
+                ->text($author)
+            ->render();
         }
 
-        return sprintf($res, Html::escapeHTML($rs->getAuthorCN()), Html::escapeHTML($url));
+        return $author;
     }
 
     /**
@@ -369,11 +443,9 @@ class Post
      */
     public static function getAuthorEmail(MetaRecord $rs, bool $encoded = true): string
     {
-        if ($encoded) {
-            return strtr((string) $rs->user_email, ['@' => '%40', '.' => '%2e']);
-        }
+        $email = is_string($email = $rs->user_email) ? $email : '';
 
-        return (string) $rs->user_email;
+        return $encoded ? strtr($email, ['@' => '%40', '.' => '%2e']) : $email;
     }
 
     /**
@@ -383,7 +455,9 @@ class Post
      */
     public static function getFeedID(MetaRecord $rs): string
     {
-        return 'urn:md5:' . md5(App::blog()->uid() . $rs->post_id);
+        $post_id = is_numeric($post_id = $rs->post_id) ? (int) $post_id : 0;
+
+        return 'urn:md5:' . md5(App::blog()->uid() . $post_id);
     }
 
     /**
@@ -394,6 +468,10 @@ class Post
      */
     public static function getTrackbackData(MetaRecord $rs, string $format = 'html'): string
     {
+        $post_title          = is_string($post_title = $rs->post_title) ? $post_title : '';
+        $post_url            = is_string($post_url = $rs->getURL()) ? $post_url : '';
+        $post_trackback_link = is_string($post_trackback_link = $rs->getTrackbackLink()) ? $post_trackback_link : '';
+
         return
         ($format === 'xml' ? "<![CDATA[>\n" : '') .
         "<!--\n" .
@@ -401,13 +479,13 @@ class Post
         '  xmlns:dc="http://purl.org/dc/elements/1.1/"' . "\n" .
         '  xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">' . "\n" .
         "<rdf:Description\n" .
-        '  rdf:about="' . $rs->getURL() . '"' . "\n" .
-        '  dc:identifier="' . $rs->getURL() . '"' . "\n" .
-        '  dc:title="' . htmlspecialchars((string) $rs->post_title, ENT_COMPAT, 'UTF-8') . '"' . "\n" .
-        '  trackback:ping="' . $rs->getTrackbackLink() . '" />' . "\n" .
-            "</rdf:RDF>\n" .
-            ($format === 'xml' ? '<!]]><!--' : '') .
-            "-->\n";
+        '  rdf:about="' . $post_url . '"' . "\n" .
+        '  dc:identifier="' . $post_url . '"' . "\n" .
+        '  dc:title="' . htmlspecialchars($post_title, ENT_COMPAT, 'UTF-8') . '"' . "\n" .
+        '  trackback:ping="' . $post_trackback_link . '" />' . "\n" .
+        "</rdf:RDF>\n" .
+        ($format === 'xml' ? '<!]]><!--' : '') .
+        "-->\n";
     }
 
     /**
@@ -417,7 +495,9 @@ class Post
      */
     public static function getTrackbackLink(MetaRecord $rs): string
     {
-        return App::blog()->url() . App::url()->getURLFor('trackback', (string) $rs->post_id);
+        $post_id = is_numeric($post_id = $rs->post_id) ? (int) $post_id : 0;
+
+        return App::blog()->url() . App::url()->getURLFor('trackback', (string) $post_id);
     }
 
     /**
@@ -429,11 +509,14 @@ class Post
      */
     public static function getContent(MetaRecord $rs, $absolute_urls = false): string
     {
+        $post_content_xhtml = is_string($post_content_xhtml = $rs->post_content_xhtml) ? $post_content_xhtml : '';
+        $post_url           = is_string($post_url = $rs->getURL()) ? $post_url : '';
+
         if ($absolute_urls) {
-            return Html::absoluteURLs((string) $rs->post_content_xhtml, $rs->getURL());
+            return Html::absoluteURLs($post_content_xhtml, $post_url);
         }
 
-        return (string) $rs->post_content_xhtml;
+        return $post_content_xhtml;
     }
 
     /**
@@ -445,41 +528,50 @@ class Post
      */
     public static function getExcerpt(MetaRecord $rs, $absolute_urls = false): string
     {
+        $post_excerpt_xhtml = is_string($post_excerpt_xhtml = $rs->post_excerpt_xhtml) ? $post_excerpt_xhtml : '';
+        $post_url           = is_string($post_url = $rs->getURL()) ? $post_url : '';
+
         if ($absolute_urls) {
-            return Html::absoluteURLs((string) $rs->post_excerpt_xhtml, $rs->getURL());
+            return Html::absoluteURLs($post_excerpt_xhtml, $post_url);
         }
 
-        return (string) $rs->post_excerpt_xhtml;
+        return $post_excerpt_xhtml;
     }
 
     /**
      * Returns post media count using a subquery.
      *
-     * @param      MetaRecord  $rs     Invisible parameter
-     * @param      string    $link_type  The link type
+     * @param      MetaRecord   $rs         Invisible parameter
+     * @param      string       $link_type  The link type
      */
     public static function countMedia(MetaRecord $rs, ?string $link_type = null): int
     {
-        if (isset($rs->_nb_media[$rs->index()])) {
-            return (int) $rs->_nb_media[$rs->index()];
+        $index = is_numeric($index = $rs->index()) ? (int) $index : 0;
+
+        if (is_array($rs->_nb_media) && isset($rs->_nb_media[$index])) {
+            return is_numeric($rs->_nb_media[$index]) ? (int) $rs->_nb_media[$index] : 0;
         }
+
+        $post_id = is_numeric($post_id = $rs->post_id) ? (int) $post_id : 0;
 
         $res = 0;
         $sql = new SelectStatement();
         $sql
             ->column($sql->count('media_id'))
             ->from(App::db()->con()->prefix() . App::postMedia()::POST_MEDIA_TABLE_NAME)
-            ->where('post_id = ' . $rs->post_id);
+            ->where('post_id = ' . $post_id);
 
         if ($link_type) {
             $sql->and('link_type = ' . $sql->quote($link_type));
         }
 
         if (($run = $sql->select()) instanceof MetaRecord) {
-            $res = $run->cardinal();
+            $res = (int) $run->cardinal();
         }
 
-        $rs->_nb_media[$rs->index()] = $res;
+        if (is_array($rs->_nb_media)) {
+            $rs->_nb_media[$index] = $res;
+        }
 
         return $res;
     }
@@ -492,6 +584,8 @@ class Post
      */
     public static function underCat(MetaRecord $rs, string $cat_url): bool
     {
-        return App::blog()->IsInCatSubtree((string) $rs->cat_url, $cat_url);
+        $rs_cat_url = is_string($rs_cat_url = $rs->cat_url) ? $rs_cat_url : '';
+
+        return App::blog()->IsInCatSubtree($rs_cat_url, $cat_url);
     }
 }

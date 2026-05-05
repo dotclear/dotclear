@@ -14,6 +14,9 @@ namespace Dotclear\Schema\Extension;
 use Dotclear\App;
 use Dotclear\Core\Frontend\Ctx;
 use Dotclear\Database\MetaRecord;
+use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Interface\Core\BlogInterface;
 
@@ -45,9 +48,21 @@ class PostPublic extends Post
             $content = Ctx::remove_html($content);
             $content = Ctx::cut_string($content, 350);
 
-            return '<p>' . $content . '... ' .
-            '<a href="' . $rs->getURL() . '"><em>' . __('Read') . '</em> ' .
-            Html::escapeHTML($rs->post_title) . '</a></p>';
+            $post_title = is_string($post_title = $rs->post_title) ? $post_title : '';
+            $post_url   = is_string($post_url = $rs->getURL()) ? $post_url : '';
+
+            return (new Para())
+                ->items([
+                    (new Text(null, $content . '... ')),
+                    (new Link())
+                        ->href($post_url)
+                        ->separator(' ')
+                        ->items([
+                            (new Text('em', __('Read'))),
+                            (new Text(null, Html::escapeHTML($post_title))),
+                        ]),
+                ])
+            ->render();
         }
 
         if (App::blog()->settings()->system->use_smilies) {
