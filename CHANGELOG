@@ -1,3 +1,104 @@
+Dotclear 2.38 - 2026-05-13
+===========================================================
+* 🐘 PHP 8.2+ is required, PHP 8.3, 8.4 and 8.5 compliance
+* Breaking change: Dotty archive template will now display all blognav widgets rather than only search
+* Breaking change: Method addBehavior() $func argument must be callable type
+* Breaking change: Breaking change: Backend actions addAction method no longer accept Option nor formSelectOption as item
+* Breaking change: name attribute cannot be used on every html element (JS/CSS may be need some review in 3rd party modules)
+* Breaking change: App::blog()->updPostStatus() and App::blog()->updPostsStatus() requires integer status as 2nd argument
+* Theme: Remove blowup and blueSilence themes from distribution (still downloadable from Dotclear server)
+* Theme: Remove ductile from distribution (still downloadable from Dotclear server) and add Ductile2026
+* Theme: Berlin stylesheet has been reviewed
+* Core: Add an option for pages, categories and tags widget to prevent display on archive main page
+* Core: Consider only those themes present in the themes folder of the current installation as distributed themes
+* Core: Switch from jQuery to Vanilla JS (almost) for theme editor
+* Core: Add webp and avif format to auto image mechanism in dotclear wiki
+* Core: Review admin favicons (login/logout), rename PNG, add SVG and remove ICO oldies
+* Core: Add Continue reading link after trackback content in template set (dotty/mustek)
+* Core: Encapsulate pagination separators with span (classes .pagination-separator-before and .pagination-separator-after), (dotty, mustek)
+* Core: Add a class="poweredby" to p in footer (mustek, dotty, Ductile2026)
+* Core: Use list rather than p for list of feeds (category, tag) - (mustek, dotty, Ductile2026)
+* Core: Review default CSS rulesets for media alignments (public.css)
+* Core: Add a span class bc-separator around default breadcrumb separator
+* Core: Simple menu, add a disabled option for simple menu items
+* Core: Add title before comment form message, some themes may need to be adapted
+* Core: Add 2 behaviors when a theme is selected, themeBeforeSelect and themeAfterSelect
+* Core: Main help index reviewed
+* Core: Set " - " in a span class="navlinks-separator" for posts navigation (dotty/post.html)
+* Core: Dotty/Mustek reviewed (classes and roles)
+* Core: Add "search" class to search widget and "topnav" class to navigation widget
+* Core: Add "breadcrumb" class to breadcrumb container
+* Core: Add "simple-menu-navigation" class to simple menu container (nav)
+* Core: Breadcrumb, do not show 1st page (for all contexts), add an option to modify Home link label (in blog parameters)
+* Core: Make small SVG image visible in public.css, themes should overload this
+* Core: Add a setting for customCSS to select the template set to use with (mustek/dotty)
+* Core: Use strip_tags rather than remove_html for cutting start of content as strip_tags preserve texts from tags (as for links)
+* Core: Add a class="footnote-ref" to footnote link (a inside sup)
+* Core: Add feeds class on feed list containers (widget, template, …)
+* Core: Add an additional tpl:EntryIf attribute to check if there is one or more tags associated with the entry, Tags plugin
+* Core: Add a private method to sanitize antispam filters settings, Antispam plugin
+* Core: Add user_style.css, user_print.css and links in user_head.html in berlin and Ductile2026
+* Core: Add not on main archive page for some more widgets (search, navigation links, best of, languages, subscribe, …)
+* Core: Add tpl:IfEntryFirstImage template block (check if a tpl:EntryFirstImage will provide something)
+* Core: Rewrite Files::deltree() method using RecursiveDirectoryIterator() rather than DirectoryIterator()
+* Core: Add a tpl:LoopCount template value
+* Core: Put standard CSS (public, print and smilies) rulesets inside a @layer dotclear
+* Core: Add a cardinal() method to MetaRecord, get (int) value (from the 1st row) from a SQL select using a count(), max(), … at 1st column
+* Core: Add a Fault::unsetExceptionHandler() to be used with PHPUnit tests (see bootstrap)
+* UX/UI: Codemirror theme selector, separate light and dark themes
+* UX/UI: Cope with perceptual brightness of background color to split dark and light Codemirror themes
+* UX/UI: Add a supplemental button to hide/show menu (this button may be hidden via user prefs)
+* UX/UI: Add a note about textarea settings in widgets as their content can be enhanced wit HTML syntax
+* UX/UI: Blog selector in header: sort by blog status (descending: online, offline, removed, …) and then by blog name
+* UX/UI: Theme editor using Codemirror: template blocks/vars are now displayed with their own colors (attributes remains uncolored)
+* UX/UI: Review theme editor code font size (slightly smaller)
+* UX/UI: Add vertical resize capabilities to textarea/Codemirror in theme editor, and smaller font for line numbers (Codemirror only)
+* UX/UI: Add offline and sts-<status> classes to each blog line (list of blogs)
+* UX/UI: Add offline and sts-<status> classes to each user line (list of users)
+* UX/UI: Allow using theme.jpg if no screenshot.jpg exists to display theme's screenshots
+* UX/UI: Replace H1 Dotclear logo (in all non-popup pages) by an update link if Dotclear update is available
+* UX/UI: Use softer border for dashboard icons (only if more contrast is not set)
+* UX/UI: Review borders: breadcrumb, boxes and quick entry on dashboard (only if more contrast is not set)
+* UX/UI: Review icons' background color (dark mode, only if more contrast is not set)
+* UX/UI: Remove borders of badges (only if more contrast is not set)
+* UX/UI: Adjust contrast of outgoing link icon
+* UX/UI: Visually center user preferences icon
+* UX/UI: Add some colors to plugins description summary markers
+* L10n: Template becomes gabarit in French
+* Fix: Ensure fake email field is hidden on comment form (useful if CSP prevents inline styles)
+* Fix: Do not allow deletion of distributed themes (in original DC themes folder) on update tab
+* Fix: Use protected module list rather than distributed one in Cleaner plugins/themes
+* Fix: Theme editor: Remove cm_dirty class from textarea (not removed by Codemirror during Ajax saving)
+* Fix: Do not use date (usually date of media upload) in media legend, only description
+* Fix: Set inert attribute to Codemirror sample (avoid tab stop in it)
+* Fix: Unknown modules (plugins) are now disabled if possible
+* Fix: Use default date/time format if none defined (maintenance plugin)
+* Fix: Exclude all possible thumbnails rather than only jpg when zipping theme
+* Fix: Back to media root directory if the chosen directory (fav/direct) does not exist
+* Fix: Berlin theme, no need to load berlin.js in footer, load it in head
+* Fix: Berlin theme, add an upper margin before a figure following another figure which have a figcaption
+* Fix: Harmonize breadcrumb of theme customization page and add a return button in all cases (standalone config, doc only, …)
+* Fix: Audio/video media insertion when position (left, right, center) is chosen
+* Fix: Show page number in breadcrumb only if relevant
+* Fix: Exclude .git/.DS_Store from theme archive (maintenance plugin)
+* Fix: Remove outnumbered </tpl:Block> for <tpl:Block name="main-content-inner"> in dotty category.html template
+* Fix: Template engine, fix compilation of files if use_cache is false
+* Fix: tpl:EntryIf using type and anything different than 'post', also add a ! prefix to test on everything but given type.
+* Fix: Give back focus to editor textarea after saving in Theme Editor
+* Fix: Form Component generic class attribute, use only unique values is class list
+* Fix: Use search element (without using role="search" on form) if container is used in widget element
+* Fix: Berlin theme, Cut long trackback URL in order to avoid overflow
+* Fix: Category feed URL should be available even if no posts in it
+* Fix: Fixes the reading of item categories from basic RSS feed
+* Fix: Template engine: don't cope with compile stack on including file, includes them whatever they have been yet compiled or not
+* Fix: Do not lock/unlock tables if a transaction is in progress
+* Fix: Comments listing used wrong status methods to get status icon and status class
+* Fix: Cope with unknown URL with static home page
+* Fix: Loading of custom locales of theme
+* Fix: Check stream context before using it
+* 🐛 → Various bugs, a11y concerns and typos fixed
+* 🌼 → Some locales and cosmetic adjustments
+
 Dotclear 2.37 - 2026-02-13
 ===========================================================
 * 🐘 PHP 8.2+ is required, PHP 8.3, 8.4 and 8.5 compliance
