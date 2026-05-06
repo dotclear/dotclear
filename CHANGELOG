@@ -3,7 +3,7 @@ Dotclear 2.38 - 2026-05-13
 * 🐘 PHP 8.2+ is required, PHP 8.3, 8.4 and 8.5 compliance
 * Breaking change: Dotty archive template will now display all blognav widgets rather than only search
 * Breaking change: Method addBehavior() $func argument must be callable type
-* Breaking change: Breaking change: Backend actions addAction method no longer accept Option nor formSelectOption as item
+* Breaking change: Backend actions addAction method no longer accept Option nor formSelectOption as item
 * Breaking change: name attribute cannot be used on every html element (JS/CSS may be need some review in 3rd party modules)
 * Breaking change: App::blog()->updPostStatus() and App::blog()->updPostsStatus() requires integer status as 2nd argument
 * Theme: Remove blowup and blueSilence themes from distribution (still downloadable from Dotclear server)
